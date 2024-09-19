@@ -1747,22 +1747,22 @@ retrieve_caching.exit.thread:                     ; preds = %10, %48, %16, %retr
   %.1797 = phi ptr [ %59, %57 ], [ null, %54 ]
   %61 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0792) #2
   %or.cond.i = icmp ugt i8 %61, 1
-  br i1 %or.cond.i, label %62, label %validate_boolean.argprom.exit
+  br i1 %or.cond.i, label %62, label %validate_boolean.exit
 
 62:                                               ; preds = %60
   %63 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.1797, ptr noundef nonnull @ei_openwire_encoding_not_supported) #2
-  br label %validate_boolean.argprom.exit
+  br label %validate_boolean.exit
 
-validate_boolean.argprom.exit:                    ; preds = %60, %62
+validate_boolean.exit:                            ; preds = %60, %62
   br i1 %.not839, label %64, label %67
 
-64:                                               ; preds = %validate_boolean.argprom.exit
+64:                                               ; preds = %validate_boolean.exit
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %.0792, i32 noundef 1, i32 noundef 0) #2
   %reass.sub = sub i32 %.0792, %3
   %66 = add i32 %reass.sub, 1
   br label %591
 
-67:                                               ; preds = %validate_boolean.argprom.exit
+67:                                               ; preds = %validate_boolean.exit
   %68 = add i32 %.0792, 1
   br label %69
 
@@ -1844,22 +1844,22 @@ validate_boolean.argprom.exit:                    ; preds = %60, %62
   %.2798 = phi ptr [ %106, %104 ], [ %.0796, %100 ]
   %108 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #2
   %or.cond.i831 = icmp ugt i8 %108, 1
-  br i1 %or.cond.i831, label %109, label %validate_boolean.argprom.exit832
+  br i1 %or.cond.i831, label %109, label %validate_boolean.exit832
 
 109:                                              ; preds = %107
   %110 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.2798, ptr noundef nonnull @ei_openwire_encoding_not_supported) #2
-  br label %validate_boolean.argprom.exit832
+  br label %validate_boolean.exit832
 
-validate_boolean.argprom.exit832:                 ; preds = %107, %109
+validate_boolean.exit832:                         ; preds = %107, %109
   br i1 %102, label %111, label %114
 
-111:                                              ; preds = %validate_boolean.argprom.exit832
+111:                                              ; preds = %validate_boolean.exit832
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #2
   %reass.sub854 = sub i32 %.2, %3
   %113 = add i32 %reass.sub854, 1
   br label %591
 
-114:                                              ; preds = %validate_boolean.argprom.exit832
+114:                                              ; preds = %validate_boolean.exit832
   %115 = add i32 %.2, 1
   br label %116
 
@@ -1935,13 +1935,13 @@ validate_boolean.argprom.exit832:                 ; preds = %107, %109
   %155 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %154, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef 0) #2
   %156 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3) #2
   %or.cond.i833 = icmp ugt i8 %156, 1
-  br i1 %or.cond.i833, label %157, label %validate_boolean.argprom.exit834
+  br i1 %or.cond.i833, label %157, label %validate_boolean.exit834
 
 157:                                              ; preds = %150
   %158 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %155, ptr noundef nonnull @ei_openwire_encoding_not_supported) #2
-  br label %validate_boolean.argprom.exit834
+  br label %validate_boolean.exit834
 
-validate_boolean.argprom.exit834:                 ; preds = %150, %157
+validate_boolean.exit834:                         ; preds = %150, %157
   %159 = add i32 %.3, 1
   br label %589
 
@@ -2604,8 +2604,8 @@ validate_boolean.argprom.exit834:                 ; preds = %150, %157
   tail call void @proto_item_set_len(ptr noundef %293, i32 noundef %588) #2
   br label %589
 
-589:                                              ; preds = %116, %120, %140, %163, %183, %213, %210, %.loopexit, %248, %.critedge, %285, %229, %232, %193, %173, %validate_boolean.argprom.exit834, %130
-  %.4 = phi i32 [ %126, %120 ], [ %136, %130 ], [ %146, %140 ], [ %159, %validate_boolean.argprom.exit834 ], [ %169, %163 ], [ %179, %173 ], [ %189, %183 ], [ %199, %193 ], [ %219, %213 ], [ %211, %210 ], [ %238, %232 ], [ %230, %229 ], [ %284, %.loopexit ], [ %249, %248 ], [ %.7, %.critedge ], [ %.3, %285 ], [ %.3, %116 ]
+589:                                              ; preds = %116, %120, %140, %163, %183, %213, %210, %.loopexit, %248, %.critedge, %285, %229, %232, %193, %173, %validate_boolean.exit834, %130
+  %.4 = phi i32 [ %126, %120 ], [ %136, %130 ], [ %146, %140 ], [ %159, %validate_boolean.exit834 ], [ %169, %163 ], [ %179, %173 ], [ %189, %183 ], [ %199, %193 ], [ %219, %213 ], [ %211, %210 ], [ %238, %232 ], [ %230, %229 ], [ %284, %.loopexit ], [ %249, %248 ], [ %.7, %.critedge ], [ %.3, %285 ], [ %.3, %116 ]
   %590 = sub i32 %.4, %3
   br label %591
 

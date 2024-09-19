@@ -427,7 +427,7 @@ define internal fastcc void @addGraphObjs(ptr nocapture noundef nonnull %0, ptr 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @stderr, align 8
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.6, i64 noundef 16) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %32
@@ -450,7 +450,7 @@ gv_alloc.exit.i:                                  ; preds = %32
 44:                                               ; preds = %gv_alloc.exit.i
   %45 = load ptr, ptr @stderr, align 8
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.6, i64 noundef 64) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %gv_alloc.exit.i
@@ -570,7 +570,7 @@ define internal fastcc void @objlist_append(ptr nocapture noundef nonnull %0, pt
   %23 = load ptr, ptr @stderr, align 8
   %24 = tail call ptr @strerror(i32 noundef %.0.i.ph) #14
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.4, ptr noundef %24) #16
-  tail call fastcc void @graphviz_exit.argelim() #17
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 26:                                               ; preds = %16, %._crit_edge.i
@@ -593,7 +593,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #19
   unreachable
 }

@@ -3503,7 +3503,7 @@ define dso_local noundef ptr @_ZN4llvm20PredicateInfoBuilder16materializeStackER
   %107 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %107, %108
-  br i1 %109, label %_ZN12_GLOBAL__N_119getBranchTerminatorEPKN4llvm13PredicateBaseE.argprom.exit, label %110
+  br i1 %109, label %_ZN12_GLOBAL__N_119getBranchTerminatorEPKN4llvm13PredicateBaseE.exit, label %110
 
 110:                                              ; preds = %105
   %111 = getelementptr inbounds i8, ptr %108, i64 -24
@@ -3512,9 +3512,9 @@ define dso_local noundef ptr @_ZN4llvm20PredicateInfoBuilder16materializeStackER
   %114 = add nsw i32 %113, -30
   %115 = icmp ult i32 %114, 11
   %spec.select.i.i.i = select i1 %115, ptr %111, ptr null
-  br label %_ZN12_GLOBAL__N_119getBranchTerminatorEPKN4llvm13PredicateBaseE.argprom.exit
+  br label %_ZN12_GLOBAL__N_119getBranchTerminatorEPKN4llvm13PredicateBaseE.exit
 
-_ZN12_GLOBAL__N_119getBranchTerminatorEPKN4llvm13PredicateBaseE.argprom.exit: ; preds = %105, %110
+_ZN12_GLOBAL__N_119getBranchTerminatorEPKN4llvm13PredicateBaseE.exit: ; preds = %105, %110
   %.0.i.i.i = phi ptr [ null, %105 ], [ %spec.select.i.i.i, %110 ]
   %116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i) #19
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %59, i64 noundef 2) #19
@@ -3550,14 +3550,14 @@ _ZN12_GLOBAL__N_119getBranchTerminatorEPKN4llvm13PredicateBaseE.argprom.exit: ; 
   %.not33 = icmp eq i32 %120, %131
   br i1 %.not33, label %135, label %132
 
-132:                                              ; preds = %_ZN12_GLOBAL__N_119getBranchTerminatorEPKN4llvm13PredicateBaseE.argprom.exit
+132:                                              ; preds = %_ZN12_GLOBAL__N_119getBranchTerminatorEPKN4llvm13PredicateBaseE.exit
   %133 = load ptr, ptr %0, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 48
   store ptr %127, ptr %9, align 8
   call void @_ZN4llvm8SmallSetINS_11AssertingVHINS_8FunctionEEELj20ESt4lessIS3_EE6insertERKS3_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.204") align 8 %8, ptr noundef nonnull align 8 dereferenceable(224) %134, ptr noundef nonnull align 8 dereferenceable(8) %9)
   br label %135
 
-135:                                              ; preds = %132, %_ZN12_GLOBAL__N_119getBranchTerminatorEPKN4llvm13PredicateBaseE.argprom.exit
+135:                                              ; preds = %132, %_ZN12_GLOBAL__N_119getBranchTerminatorEPKN4llvm13PredicateBaseE.exit
   %.not.i = icmp eq ptr %127, null
   br i1 %.not.i, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %136
 

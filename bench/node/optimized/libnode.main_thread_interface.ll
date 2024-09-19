@@ -2597,20 +2597,20 @@ delete.notnull.i.i:                               ; preds = %_ZNSt10unique_ptrIN
   %session_.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %session_.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i, label %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i, label %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i: ; preds = %delete.notnull.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
-  br label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i
+  br label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i
 
-_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i, %delete.notnull.i.i
+_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i, %delete.notnull.i.i
   call void @_ZdlPv(ptr noundef nonnull %4) #22
   br label %_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i
+_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i
   ret void
 }
 
@@ -2640,20 +2640,20 @@ delete.notnull.i.i:                               ; preds = %entry
   %session_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %session_.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i, label %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i, label %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i: ; preds = %delete.notnull.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #20
-  br label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i
+  br label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i
 
-_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i, %delete.notnull.i.i
+_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i, %delete.notnull.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14default_deleteIS3_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i
+_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14default_deleteIS3_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i
   store ptr null, ptr %object_, align 8
   ret void
 }
@@ -2671,20 +2671,20 @@ delete.notnull.i.i.i:                             ; preds = %entry
   %session_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %session_.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i.i, label %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i.i, label %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i.i: ; preds = %delete.notnull.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #20
-  br label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i.i
+  br label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i.i
 
-_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i.i, %delete.notnull.i.i.i
+_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i.i, %delete.notnull.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %_ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEED2Ev.exit
 
-_ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.argprom.exit.i.i
+_ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEEclEPS3_.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
@@ -3345,7 +3345,7 @@ _ZN4node9inspector16MainThreadHandle4PostESt10unique_ptrINS0_7RequestESt14defaul
   store ptr null, ptr %agg.tmp.i.i, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  br label %_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEE4CallIZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EEvT_.argprom.exit
+  br label %_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEE4CallIZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EEvT_.exit
 
 _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i: ; preds = %entry
   call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i) #20
@@ -3354,21 +3354,21 @@ _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i: ; preds = %en
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %call2.i) #20
-  br label %_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEE4CallIZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EEvT_.argprom.exit
+  br label %_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEE4CallIZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EEvT_.exit
 
-_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEE4CallIZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EEvT_.argprom.exit: ; preds = %_ZN4node9inspector16MainThreadHandle4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EE.exit.thread.i, %_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i
+_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEE4CallIZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EEvT_.exit: ; preds = %_ZN4node9inspector16MainThreadHandle4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EE.exit.thread.i, %_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i
   %7 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i, label %_ZZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEENUlPNS0_24InspectorSessionDelegateEE_D2Ev.exit, label %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i.i: ; preds = %_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEE4CallIZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EEvT_.argprom.exit
+_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i.i: ; preds = %_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEE4CallIZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EEvT_.exit
   %vtable.i.i.i2 = load ptr, ptr %7, align 8
   %vfn.i.i.i3 = getelementptr inbounds i8, ptr %vtable.i.i.i2, i64 8
   %8 = load ptr, ptr %vfn.i.i.i3, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #20
   br label %_ZZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEENUlPNS0_24InspectorSessionDelegateEE_D2Ev.exit
 
-_ZZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEENUlPNS0_24InspectorSessionDelegateEE_D2Ev.exit: ; preds = %_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEE4CallIZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EEvT_.argprom.exit, %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i.i
+_ZZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEENUlPNS0_24InspectorSessionDelegateEE_D2Ev.exit: ; preds = %_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEE4CallIZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EEvT_.exit, %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i.i
   ret void
 }
 
@@ -3731,7 +3731,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %callback_.val, null
-  br i1 %cmp.not.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %callback_.val, i64 12
@@ -3752,30 +3752,30 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i ], [ %3, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit"
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %callback_.val, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %callback_.val) #20
-  br label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit"
 
-"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i.i.i
+"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit"
   %vtable.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit
 
-_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
+_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
   store ptr null, ptr %next_.i, align 8
   ret void
 }
@@ -3786,7 +3786,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %callback_.val.i, null
-  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit.i", label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit.i", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %callback_.val.i, i64 12
@@ -3807,30 +3807,30 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i.i ], [ %3, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit.i"
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit.i"
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %callback_.val.i, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %callback_.val.i) #20
-  br label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit.i"
+  br label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit.i"
 
-"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit.i": ; preds = %if.then.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %entry
+"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit.i": ; preds = %if.then.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0ED2Ev.exit", label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit.i"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit.i"
   %vtable.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   br label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0ED2Ev.exit"
 
-"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0ED2Ev.exit": ; preds = %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.argprom.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
+"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0ED2Ev.exit": ; preds = %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0D2Ev.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
@@ -3842,7 +3842,7 @@ entry:
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !58
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %land.lhs.true.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.exit", label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -3852,7 +3852,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %entry
 do.body.i.i.i.i.i.i:                              ; preds = %do.cond.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i
   %__count.0.i.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i.i ]
   %cmp.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i, 0
-  br i1 %cmp.not.not.not.i.not.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %do.cond.i.i.i.i.i.i
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.exit", label %do.cond.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i:                              ; preds = %do.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i, 1
@@ -3907,7 +3907,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.argprom.exit"
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.exit"
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -3932,16 +3932,16 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %14, %if.then.i.i.i.i.i.i.i.i ], [ %15, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.exit"
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i2.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
-  br label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.argprom.exit"
+  br label %"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.exit"
 
-"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.argprom.exit": ; preds = %do.body.i.i.i.i.i.i, %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEENK3$_0clEPNS_11EnvironmentE.exit": ; preds = %do.body.i.i.i.i.i.i, %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -4737,10 +4737,10 @@ attributes #23 = { nounwind allocsize(1) }
 !18 = distinct !{!18, !"_ZNSt23enable_shared_from_thisIN4node9inspector19MainThreadInterfaceEE16shared_from_thisEv"}
 !19 = distinct !{!19, !6}
 !20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector19MainThreadInterface4PostESt10unique_ptrINS6_7RequestESt14default_deleteIS9_EEE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!22 = distinct !{!22, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector19MainThreadInterface4PostESt10unique_ptrINS6_7RequestESt14default_deleteIS9_EEE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!23 = distinct !{!23, !24, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0EES7_INS3_8CallbackES9_ISD_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!24 = distinct !{!24, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0EES7_INS3_8CallbackES9_ISD_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!21 = distinct !{!21, !22, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector19MainThreadInterface4PostESt10unique_ptrINS6_7RequestESt14default_deleteIS9_EEE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!22 = distinct !{!22, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector19MainThreadInterface4PostESt10unique_ptrINS6_7RequestESt14default_deleteIS9_EEE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!23 = distinct !{!23, !24, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0EES7_INS3_8CallbackES9_ISD_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!24 = distinct !{!24, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0EES7_INS3_8CallbackES9_ISD_EEOT_NS_13CallbackFlags5FlagsE"}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
@@ -4750,8 +4750,8 @@ attributes #23 = { nounwind allocsize(1) }
 !31 = distinct !{!31, !32, !"_ZNSt23enable_shared_from_thisIN4node9inspector16MainThreadHandleEE16shared_from_thisEv: %agg.result"}
 !32 = distinct !{!32, !"_ZNSt23enable_shared_from_thisIN4node9inspector16MainThreadHandleEE16shared_from_thisEv"}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN4node9inspector12_GLOBAL__N_116NewCreateRequestISt5_BindIFPFSt10unique_ptrINS1_22MainThreadSessionStateESt14default_deleteIS5_EEPNS0_19MainThreadInterfaceEbESt12_PlaceholderILi1EEbEEEES4_INS0_7RequestES6_ISH_EEiT_.argprom: %agg.result"}
-!35 = distinct !{!35, !"_ZN4node9inspector12_GLOBAL__N_116NewCreateRequestISt5_BindIFPFSt10unique_ptrINS1_22MainThreadSessionStateESt14default_deleteIS5_EEPNS0_19MainThreadInterfaceEbESt12_PlaceholderILi1EEbEEEES4_INS0_7RequestES6_ISH_EEiT_.argprom"}
+!34 = distinct !{!34, !35, !"_ZN4node9inspector12_GLOBAL__N_116NewCreateRequestISt5_BindIFPFSt10unique_ptrINS1_22MainThreadSessionStateESt14default_deleteIS5_EEPNS0_19MainThreadInterfaceEbESt12_PlaceholderILi1EEbEEEES4_INS0_7RequestES6_ISH_EEiT_: %agg.result"}
+!35 = distinct !{!35, !"_ZN4node9inspector12_GLOBAL__N_116NewCreateRequestISt5_BindIFPFSt10unique_ptrINS1_22MainThreadSessionStateESt14default_deleteIS5_EEPNS0_19MainThreadInterfaceEbESt12_PlaceholderILi1EEbEEEES4_INS0_7RequestES6_ISH_EEiT_"}
 !36 = !{!37}
 !37 = distinct !{!37, !38, !"_ZN4node9inspector12_GLOBAL__N_115WrapInDeletableINS0_24InspectorSessionDelegateEEESt10unique_ptrINS0_9DeletableESt14default_deleteIS5_EES4_IT_S6_IS9_EE: %agg.result"}
 !38 = distinct !{!38, !"_ZN4node9inspector12_GLOBAL__N_115WrapInDeletableINS0_24InspectorSessionDelegateEEESt10unique_ptrINS0_9DeletableESt14default_deleteIS5_EES4_IT_S6_IS9_EE"}
@@ -4759,21 +4759,21 @@ attributes #23 = { nounwind allocsize(1) }
 !40 = distinct !{!40, !41, !"_ZNSt23enable_shared_from_thisIN4node9inspector16MainThreadHandleEE16shared_from_thisEv: %agg.result"}
 !41 = distinct !{!41, !"_ZNSt23enable_shared_from_thisIN4node9inspector16MainThreadHandleEE16shared_from_thisEv"}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEJRPNS1_19MainThreadInterfaceERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!44 = distinct !{!44, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEJRPNS1_19MainThreadInterfaceERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!43 = distinct !{!43, !44, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEJRPNS1_19MainThreadInterfaceERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!44 = distinct !{!44, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEJRPNS1_19MainThreadInterfaceERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_113DeleteRequestEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!47 = distinct !{!47, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_113DeleteRequestEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!46 = distinct !{!46, !47, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_113DeleteRequestEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!47 = distinct !{!47, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_113DeleteRequestEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZSt4bindIRFvPN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEMS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS7_EEERSA_EJRKSt12_PlaceholderILi1EERSC_SA_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESM_JDpT0_EE4typeEOSM_DpOSN_.argprom: %agg.result"}
-!50 = distinct !{!50, !"_ZSt4bindIRFvPN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEMS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS7_EEERSA_EJRKSt12_PlaceholderILi1EERSC_SA_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESM_JDpT0_EE4typeEOSM_DpOSN_.argprom"}
+!49 = distinct !{!49, !50, !"_ZSt4bindIRFvPN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEMS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS7_EEERSA_EJRKSt12_PlaceholderILi1EERSC_SA_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESM_JDpT0_EE4typeEOSM_DpOSN_: %agg.result"}
+!50 = distinct !{!50, !"_ZSt4bindIRFvPN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEMS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS7_EEERSA_EJRKSt12_PlaceholderILi1EERSC_SA_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESM_JDpT0_EE4typeEOSM_DpOSN_"}
 !51 = !{!52}
 !52 = distinct !{!52, !53, !"_ZN4node9inspector12_GLOBAL__N_115WrapInDeletableINS1_22MainThreadSessionStateEEESt10unique_ptrINS0_9DeletableESt14default_deleteIS5_EES4_IT_S6_IS9_EE: %agg.result"}
 !53 = distinct !{!53, !"_ZN4node9inspector12_GLOBAL__N_115WrapInDeletableINS1_22MainThreadSessionStateEEESt10unique_ptrINS0_9DeletableESt14default_deleteIS5_EES4_IT_S6_IS9_EE"}
 !54 = !{}
 !55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_113DeleteRequestEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!57 = distinct !{!57, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_113DeleteRequestEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!56 = distinct !{!56, !57, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_113DeleteRequestEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!57 = distinct !{!57, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_113DeleteRequestEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !58 = !{!59}
 !59 = distinct !{!59, !60, !"_ZNKSt8weak_ptrIN4node9inspector19MainThreadInterfaceEE4lockEv: %agg.result"}
 !60 = distinct !{!60, !"_ZNKSt8weak_ptrIN4node9inspector19MainThreadInterfaceEE4lockEv"}

@@ -2162,12 +2162,12 @@ entry:
   %0 = load ptr, ptr %algctx, align 8
   %cmp = icmp eq ptr %0, null
   %conv = zext i1 %cmp to i32
-  %call = tail call fastcc i32 @evp_pkey_ctx_set_md.argprom(ptr noundef %ctx, ptr noundef %md, i32 noundef %conv, i32 noundef 496, i32 noundef 1)
+  %call = tail call fastcc i32 @evp_pkey_ctx_set_md(ptr noundef %ctx, ptr noundef %md, i32 noundef %conv, i32 noundef 496, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_pkey_ctx_set_md.argprom(ptr noundef %ctx, ptr noundef %md, i32 noundef range(i32 0, 2) %fallback, i32 noundef range(i32 496, 2049) %op, i32 noundef range(i32 1, 4100) %ctrl) unnamed_addr #0 {
+define internal fastcc i32 @evp_pkey_ctx_set_md(ptr noundef %ctx, ptr noundef %md, i32 noundef range(i32 0, 2) %fallback, i32 noundef range(i32 496, 2049) %op, i32 noundef range(i32 1, 4100) %ctrl) unnamed_addr #0 {
 entry:
   %md_params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -2245,7 +2245,7 @@ entry:
   %0 = load ptr, ptr %algctx, align 8
   %cmp = icmp eq ptr %0, null
   %conv = zext i1 %cmp to i32
-  %call = tail call fastcc i32 @evp_pkey_ctx_set_md.argprom(ptr noundef %ctx, ptr noundef %md, i32 noundef %conv, i32 noundef 2048, i32 noundef 4096)
+  %call = tail call fastcc i32 @evp_pkey_ctx_set_md(ptr noundef %ctx, ptr noundef %md, i32 noundef %conv, i32 noundef 2048, i32 noundef 4096)
   ret i32 %call
 }
 
@@ -2353,7 +2353,7 @@ entry:
   %0 = load ptr, ptr %algctx, align 8
   %cmp = icmp eq ptr %0, null
   %conv = zext i1 %cmp to i32
-  %call = tail call fastcc i32 @evp_pkey_ctx_set_md.argprom(ptr noundef %ctx, ptr noundef %md, i32 noundef %conv, i32 noundef 2048, i32 noundef 4099)
+  %call = tail call fastcc i32 @evp_pkey_ctx_set_md(ptr noundef %ctx, ptr noundef %md, i32 noundef %conv, i32 noundef 2048, i32 noundef 4099)
   ret i32 %call
 }
 
@@ -2478,12 +2478,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_CTX_set_scrypt_N(ptr noundef %ctx, i64 noundef %n) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @evp_pkey_ctx_set_uint64.argelim(ptr noundef %ctx, ptr noundef nonnull @.str.9, i32 noundef 4106, i64 noundef %n)
+  %call = tail call fastcc i32 @evp_pkey_ctx_set_uint64(ptr noundef %ctx, ptr noundef nonnull @.str.9, i32 noundef 4106, i64 noundef %n)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_pkey_ctx_set_uint64.argelim(ptr noundef %ctx, ptr noundef %param, i32 noundef range(i32 4106, 4110) %ctrl, i64 noundef %val) unnamed_addr #0 {
+define internal fastcc i32 @evp_pkey_ctx_set_uint64(ptr noundef %ctx, ptr noundef %param, i32 noundef range(i32 4106, 4110) %ctrl, i64 noundef %val) unnamed_addr #0 {
 entry:
   %value.addr.i = alloca i64, align 8
   %val.addr = alloca i64, align 8
@@ -2535,21 +2535,21 @@ return:                                           ; preds = %if.end5, %if.then4,
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_CTX_set_scrypt_r(ptr noundef %ctx, i64 noundef %r) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @evp_pkey_ctx_set_uint64.argelim(ptr noundef %ctx, ptr noundef nonnull @.str.10, i32 noundef 4107, i64 noundef %r)
+  %call = tail call fastcc i32 @evp_pkey_ctx_set_uint64(ptr noundef %ctx, ptr noundef nonnull @.str.10, i32 noundef 4107, i64 noundef %r)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_CTX_set_scrypt_p(ptr noundef %ctx, i64 noundef %p) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @evp_pkey_ctx_set_uint64.argelim(ptr noundef %ctx, ptr noundef nonnull @.str.11, i32 noundef 4108, i64 noundef %p)
+  %call = tail call fastcc i32 @evp_pkey_ctx_set_uint64(ptr noundef %ctx, ptr noundef nonnull @.str.11, i32 noundef 4108, i64 noundef %p)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_CTX_set_scrypt_maxmem_bytes(ptr noundef %ctx, i64 noundef %maxmem_bytes) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @evp_pkey_ctx_set_uint64.argelim(ptr noundef %ctx, ptr noundef nonnull @.str.12, i32 noundef 4109, i64 noundef %maxmem_bytes)
+  %call = tail call fastcc i32 @evp_pkey_ctx_set_uint64(ptr noundef %ctx, ptr noundef nonnull @.str.12, i32 noundef 4109, i64 noundef %maxmem_bytes)
   ret i32 %call
 }
 

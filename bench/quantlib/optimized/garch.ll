@@ -1188,7 +1188,7 @@ cond.true.i152:                                   ; preds = %if.then152
 cond.end.i:                                       ; preds = %cond.true.i152, %if.then152
   %cond.i153 = phi double [ %add.i, %cond.true.i152 ], [ 1.000000e-08, %if.then152 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %constraints.i) #27
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd.argelim(ptr noundef nonnull align 8 dereferenceable(16) %constraints.i, double noundef %cond.i153)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %constraints.i, double noundef %cond.i153)
           to label %.noexc162 unwind label %lpad153
 
 .noexc162:                                        ; preds = %cond.end.i
@@ -1413,7 +1413,7 @@ invoke.cont143.i:                                 ; preds = %for.cond.cleanup.i
   %arrayidx.i109.i = getelementptr inbounds nuw i8, ptr %call.i102.i, i64 8
   store double %98, ptr %arrayidx.i109.i, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %c.i) #27
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_116FitAcfConstraintC2Edd.argelim(ptr noundef nonnull align 8 dereferenceable(16) %c.i, double noundef %cond.i153)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_116FitAcfConstraintC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %c.i, double noundef %cond.i153)
           to label %invoke.cont147.i unwind label %lpad146.i
 
 invoke.cont147.i:                                 ; preds = %invoke.cont143.i
@@ -2006,7 +2006,7 @@ cond.true.i191:                                   ; preds = %if.then169
 cond.end.i195:                                    ; preds = %cond.true.i191, %if.then169
   %cond.i196 = phi double [ %add.i194, %cond.true.i191 ], [ 1.000000e-08, %if.then169 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %constraints.i182) #27
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd.argelim(ptr noundef nonnull align 8 dereferenceable(16) %constraints.i182, double noundef %cond.i196)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %constraints.i182, double noundef %cond.i196)
           to label %for.body.i199 unwind label %lpad170
 
 for.cond.cleanup.i201:                            ; preds = %for.inc.i200
@@ -2208,7 +2208,7 @@ invoke.cont54.i:                                  ; preds = %for.cond.cleanup.i2
   %arrayidx.i86.i = getelementptr inbounds nuw i8, ptr %call.i84.i, i64 8
   store double %.sroa.speculated.i205, ptr %arrayidx.i86.i, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %c.i183) #27
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_116FitAcfConstraintC2Edd.argelim(ptr noundef nonnull align 8 dereferenceable(16) %c.i183, double noundef %cond.i196)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_116FitAcfConstraintC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %c.i183, double noundef %cond.i196)
           to label %invoke.cont58.i unwind label %lpad57.i
 
 invoke.cont58.i:                                  ; preds = %invoke.cont54.i
@@ -2768,7 +2768,7 @@ if.end181:                                        ; preds = %invoke.cont179, %in
   %fCost2.0 = phi double [ 0x7FEFFFFFFFFFFFFF, %invoke.cont166 ], [ %div15.i347, %invoke.cont179 ]
   %gammaLower.1 = phi double [ %gammaLower.0, %invoke.cont166 ], [ %cond.i196, %invoke.cont179 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %constraints) #27
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd.argelim(ptr noundef nonnull align 8 dereferenceable(16) %constraints, double noundef %gammaLower.1)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %constraints, double noundef %gammaLower.1)
           to label %invoke.cont183 unwind label %lpad182
 
 invoke.cont183:                                   ; preds = %if.end181
@@ -3976,7 +3976,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd.argelim(ptr noundef nonnull align 8 dereferenceable(16) %this, double noundef %gammaLower) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %this, double noundef %gammaLower) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.15", align 8
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -4363,7 +4363,7 @@ define void @_ZN8QuantLib7Garch1112calibrate_r2ERKSt6vectorIdSaIdEERNS_18Optimiz
 entry:
   %constraints = alloca %"class.QuantLib::(anonymous namespace)::Garch11Constraint", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %constraints) #27
-  call fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd.argelim(ptr noundef nonnull align 8 dereferenceable(16) %constraints, double noundef 0.000000e+00)
+  call fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %constraints, double noundef 0.000000e+00)
   invoke void @_ZN8QuantLib7Garch1112calibrate_r2ERKSt6vectorIdSaIdEERNS_18OptimizationMethodERNS_10ConstraintERKNS_11EndCriteriaERKNS_5ArrayERdSG_SG_(ptr dead_on_unwind writable sret(%"class.boost::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %r2, ptr noundef nonnull align 8 dereferenceable(8) %method, ptr noundef nonnull align 8 dereferenceable(16) %constraints, ptr noundef nonnull align 8 dereferenceable(40) %endCriteria, ptr noundef nonnull align 8 dereferenceable(16) %initGuess, ptr noundef nonnull align 8 dereferenceable(8) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %beta, ptr noundef nonnull align 8 dereferenceable(8) %omega)
           to label %invoke.cont unwind label %lpad
 
@@ -4481,7 +4481,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 invoke.cont14:                                    ; preds = %for.body.i, %invoke.cont
   %4 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i.i4, %for.body.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %constraints.i) #27, !noalias !97
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd.argelim(ptr noundef nonnull align 8 dereferenceable(16) %constraints.i, double noundef 0.000000e+00)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %constraints.i, double noundef 0.000000e+00)
           to label %.noexc8 unwind label %lpad13
 
 .noexc8:                                          ; preds = %invoke.cont14
@@ -5446,7 +5446,7 @@ declare double @log(double noundef) local_unnamed_addr #3
 declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_116FitAcfConstraintC2Edd.argelim(ptr noundef nonnull align 8 dereferenceable(16) %this, double noundef %gammaLower) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_116FitAcfConstraintC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %this, double noundef %gammaLower) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.15", align 8
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28

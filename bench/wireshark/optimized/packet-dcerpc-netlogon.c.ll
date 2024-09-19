@@ -1680,7 +1680,7 @@ define internal i32 @netlogon_dissect_VALIDATION_SAM_INFO(ptr noundef %0, i32 no
 
 netlogon_dissect_USER_FLAGS.exit.thread:          ; preds = %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %netlogon_dissect_USER_SESSION_KEY.argprom.exit
+  br label %netlogon_dissect_USER_SESSION_KEY.exit
 
 netlogon_dissect_USER_FLAGS.exit:                 ; preds = %6
   %47 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef null, ptr noundef nonnull %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %8) #9
@@ -1693,15 +1693,15 @@ netlogon_dissect_USER_FLAGS.exit:                 ; preds = %6
   %.val.pr = load i32, ptr %45, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %.not.i192 = icmp eq i32 %.val.pr, 0
-  br i1 %.not.i192, label %54, label %netlogon_dissect_USER_SESSION_KEY.argprom.exit
+  br i1 %.not.i192, label %54, label %netlogon_dissect_USER_SESSION_KEY.exit
 
 54:                                               ; preds = %netlogon_dissect_USER_FLAGS.exit
   %55 = load i32, ptr @hf_netlogon_user_session_key, align 4
   %56 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %55, ptr noundef %0, i32 noundef %47, i32 noundef 16, i32 noundef 0) #9
   %57 = add i32 %47, 16
-  br label %netlogon_dissect_USER_SESSION_KEY.argprom.exit
+  br label %netlogon_dissect_USER_SESSION_KEY.exit
 
-netlogon_dissect_USER_SESSION_KEY.argprom.exit:   ; preds = %netlogon_dissect_USER_FLAGS.exit.thread, %netlogon_dissect_USER_FLAGS.exit, %54
+netlogon_dissect_USER_SESSION_KEY.exit:           ; preds = %netlogon_dissect_USER_FLAGS.exit.thread, %netlogon_dissect_USER_FLAGS.exit, %54
   %.0.i193 = phi i32 [ %57, %54 ], [ %47, %netlogon_dissect_USER_FLAGS.exit ], [ %44, %netlogon_dissect_USER_FLAGS.exit.thread ]
   %58 = load i32, ptr @hf_netlogon_logon_srv, align 4
   %59 = call i32 @dissect_ndr_counted_string(ptr noundef %0, i32 noundef %.0.i193, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 noundef 0) #9
@@ -1717,7 +1717,7 @@ netlogon_dissect_USER_SESSION_KEY.argprom.exit:   ; preds = %netlogon_dissect_US
   %.not.i194 = icmp eq i32 %67, 0
   br i1 %.not.i194, label %68, label %netlogon_dissect_USER_ACCOUNT_CONTROL.exit
 
-68:                                               ; preds = %netlogon_dissect_USER_SESSION_KEY.argprom.exit
+68:                                               ; preds = %netlogon_dissect_USER_SESSION_KEY.exit
   %69 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %66, ptr noundef %2, ptr noundef null, ptr noundef nonnull %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %7) #9
   %70 = add i32 %69, -4
   %71 = load i32, ptr @hf_netlogon_user_account_control, align 4
@@ -1727,8 +1727,8 @@ netlogon_dissect_USER_SESSION_KEY.argprom.exit:   ; preds = %netlogon_dissect_US
   %75 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %3, ptr noundef %0, i32 noundef %70, i32 noundef %71, i32 noundef %72, ptr noundef nonnull @netlogon_dissect_USER_ACCOUNT_CONTROL.uac, i64 noundef %74, i32 noundef 1) #9
   br label %netlogon_dissect_USER_ACCOUNT_CONTROL.exit
 
-netlogon_dissect_USER_ACCOUNT_CONTROL.exit:       ; preds = %netlogon_dissect_USER_SESSION_KEY.argprom.exit, %68
-  %.0.i195 = phi i32 [ %69, %68 ], [ %66, %netlogon_dissect_USER_SESSION_KEY.argprom.exit ]
+netlogon_dissect_USER_ACCOUNT_CONTROL.exit:       ; preds = %netlogon_dissect_USER_SESSION_KEY.exit, %68
+  %.0.i195 = phi i32 [ %69, %68 ], [ %66, %netlogon_dissect_USER_SESSION_KEY.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %76 = load i32, ptr @hf_netlogon_dummy4_long, align 4
   %77 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i195, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, ptr noundef null) #9
@@ -1820,14 +1820,14 @@ define hidden i32 @netlogon_dissect_PAC_DEVICE_INFO(ptr noundef %0, i32 noundef 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store ptr null, ptr %7, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %netlogon_dissect_DOMAINS_GROUP_MEMBERSHIPS.argprom.exit, label %22
+  br i1 %.not.i, label %netlogon_dissect_DOMAINS_GROUP_MEMBERSHIPS.exit, label %22
 
 22:                                               ; preds = %6
   %23 = load i32, ptr @ett_domains_group_memberships, align 4
   %24 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %20, i32 noundef 0, i32 noundef %23, ptr noundef nonnull %7, ptr noundef nonnull @.str.5) #9
-  br label %netlogon_dissect_DOMAINS_GROUP_MEMBERSHIPS.argprom.exit
+  br label %netlogon_dissect_DOMAINS_GROUP_MEMBERSHIPS.exit
 
-netlogon_dissect_DOMAINS_GROUP_MEMBERSHIPS.argprom.exit: ; preds = %6, %22
+netlogon_dissect_DOMAINS_GROUP_MEMBERSHIPS.exit:  ; preds = %6, %22
   %.0.i = phi ptr [ %24, %22 ], [ null, %6 ]
   %25 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %8) #9
   %26 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DOMAIN_GROUP_MEMBERSHIP_ARRAY, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef -1) #9
@@ -2199,13 +2199,13 @@ define internal i32 @netlogon_dissect_netrserverreqchallenge_rqst(ptr noundef %0
 27:                                               ; preds = %25, %23
   %28 = phi i64 [ %24, %23 ], [ %26, %25 ]
   %.not14.i = icmp eq ptr %3, null
-  br i1 %.not14.i, label %dissect_dcerpc_8bytes.argprom.exit, label %29
+  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit, label %29
 
 29:                                               ; preds = %27
   %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %21, ptr noundef %0, i32 noundef %13, i32 noundef 8, i32 noundef 0) #9
-  br label %dissect_dcerpc_8bytes.argprom.exit
+  br label %dissect_dcerpc_8bytes.exit
 
-dissect_dcerpc_8bytes.argprom.exit:               ; preds = %29, %27
+dissect_dcerpc_8bytes.exit:                       ; preds = %29, %27
   store i64 %28, ptr %15, align 8
   %31 = getelementptr inbounds i8, ptr %2, i64 20
   %32 = load i32, ptr %31, align 4
@@ -2247,7 +2247,7 @@ dissect_dcerpc_8bytes.argprom.exit:               ; preds = %29, %27
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %54, label %.preheader
 
-54:                                               ; preds = %dissect_dcerpc_8bytes.argprom.exit
+54:                                               ; preds = %dissect_dcerpc_8bytes.exit
   %55 = call ptr @wmem_file_scope() #9
   %56 = call noalias ptr @wmem_memdup(ptr noundef %55, ptr noundef nonnull %7, i64 noundef 48) #9
   %57 = call ptr @wmem_file_scope() #9
@@ -2297,8 +2297,8 @@ copy_address_wmem.exit48:                         ; preds = %copy_address_wmem.e
   %81 = call ptr @wmem_map_insert(ptr noundef %80, ptr noundef nonnull %56, ptr noundef nonnull %15) #9
   br label %95
 
-.preheader:                                       ; preds = %dissect_dcerpc_8bytes.argprom.exit, %86
-  %.0 = phi ptr [ %83, %86 ], [ %53, %dissect_dcerpc_8bytes.argprom.exit ]
+.preheader:                                       ; preds = %dissect_dcerpc_8bytes.exit, %86
+  %.0 = phi ptr [ %83, %86 ], [ %53, %dissect_dcerpc_8bytes.exit ]
   %82 = getelementptr inbounds i8, ptr %.0, i64 392
   %83 = load ptr, ptr %82, align 8
   %.not46 = icmp eq ptr %83, null
@@ -2381,20 +2381,20 @@ define internal i32 @netlogon_dissect_netrserverreqchallenge_reply(ptr noundef %
 32:                                               ; preds = %30, %28
   %33 = phi i64 [ %29, %28 ], [ %31, %30 ]
   %.not14.i = icmp eq ptr %3, null
-  br i1 %.not14.i, label %dissect_dcerpc_8bytes.argprom.exit, label %34
+  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit, label %34
 
 34:                                               ; preds = %32
   %35 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %26, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 0) #9
-  br label %dissect_dcerpc_8bytes.argprom.exit
+  br label %dissect_dcerpc_8bytes.exit
 
-dissect_dcerpc_8bytes.argprom.exit:               ; preds = %32, %34
+dissect_dcerpc_8bytes.exit:                       ; preds = %32, %34
   %36 = add i32 %1, 8
   %37 = load i32, ptr @hf_netlogon_rc, align 4
   %38 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %36, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %37, ptr noundef null) #9
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %dissect_dcerpc_8bytes.argprom.exit
+.preheader:                                       ; preds = %dissect_dcerpc_8bytes.exit
   %39 = getelementptr inbounds i8, ptr %2, i64 20
   br label %40
 
@@ -2421,7 +2421,7 @@ dissect_dcerpc_8bytes.argprom.exit:               ; preds = %32, %34
   store i64 %33, ptr %49, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %46, %.critedge, %dissect_dcerpc_8bytes.argprom.exit
+.loopexit:                                        ; preds = %46, %.critedge, %dissect_dcerpc_8bytes.exit
   ret i32 %38
 }
 
@@ -3023,13 +3023,13 @@ define internal noundef i32 @netlogon_dissect_netrserverauthenticate3_rqst(ptr n
 
 73:                                               ; preds = %71, %69
   %.not14.i = icmp eq ptr %3, null
-  br i1 %.not14.i, label %dissect_dcerpc_8bytes.argprom.exit, label %74
+  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit, label %74
 
 74:                                               ; preds = %73
   %75 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 8, i32 noundef 0) #9
-  br label %dissect_dcerpc_8bytes.argprom.exit
+  br label %dissect_dcerpc_8bytes.exit
 
-dissect_dcerpc_8bytes.argprom.exit:               ; preds = %73, %74
+dissect_dcerpc_8bytes.exit:                       ; preds = %73, %74
   %76 = add i32 %66, 8
   %77 = getelementptr inbounds i8, ptr %4, i64 28
   %78 = load i32, ptr %77, align 4
@@ -3765,7 +3765,7 @@ define internal i32 @netlogon_dissect_INTERACTIVE_INFO(ptr noundef %0, i32 nound
 netlogon_dissect_LM_OWF_PASSWORD.exit.thread:     ; preds = %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  br label %netlogon_dissect_NT_OWF_PASSWORD.argprom.exit
+  br label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
 12:                                               ; preds = %6
   %.not13.i = icmp eq ptr %3, null
@@ -3786,7 +3786,7 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %12, %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not.i18 = icmp eq i32 %.val.pr, 0
-  br i1 %.not.i18, label %19, label %netlogon_dissect_NT_OWF_PASSWORD.argprom.exit
+  br i1 %.not.i18, label %19, label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
 19:                                               ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit
   br i1 %.not13.i, label %23, label %20
@@ -3801,9 +3801,9 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %12, %13
   %24 = load i32, ptr @hf_netlogon_nt_owf_password, align 4
   %25 = call ptr @proto_tree_add_item(ptr noundef %.0.i21, i32 noundef %24, ptr noundef %0, i32 noundef %18, i32 noundef 16, i32 noundef 0) #9
   %26 = add i32 %9, 32
-  br label %netlogon_dissect_NT_OWF_PASSWORD.argprom.exit
+  br label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
-netlogon_dissect_NT_OWF_PASSWORD.argprom.exit:    ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, %netlogon_dissect_LM_OWF_PASSWORD.exit, %23
+netlogon_dissect_NT_OWF_PASSWORD.exit:            ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, %netlogon_dissect_LM_OWF_PASSWORD.exit, %23
   %.011.i19 = phi i32 [ %26, %23 ], [ %18, %netlogon_dissect_LM_OWF_PASSWORD.exit ], [ %9, %netlogon_dissect_LM_OWF_PASSWORD.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret i32 %.011.i19
@@ -3861,7 +3861,7 @@ define internal i32 @netlogon_dissect_NETWORK_INFO(ptr noundef %0, i32 noundef %
   %33 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %33, align 4
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %34, label %netlogon_dissect_CHALLENGE.argprom.exit
+  br i1 %.not.i, label %34, label %netlogon_dissect_CHALLENGE.exit
 
 34:                                               ; preds = %30
   %35 = load i32, ptr @hf_netlogon_challenge, align 4
@@ -3871,9 +3871,9 @@ define internal i32 @netlogon_dissect_NETWORK_INFO(ptr noundef %0, i32 noundef %
   %39 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %38, i32 noundef %32, i64 noundef 8) #9
   %40 = getelementptr inbounds i8, ptr %.066, i64 200
   %41 = getelementptr inbounds i8, ptr %.066, i64 232
-  br label %netlogon_dissect_CHALLENGE.argprom.exit
+  br label %netlogon_dissect_CHALLENGE.exit
 
-netlogon_dissect_CHALLENGE.argprom.exit:          ; preds = %30, %34
+netlogon_dissect_CHALLENGE.exit:                  ; preds = %30, %34
   %.0.i69 = phi i32 [ %37, %34 ], [ %32, %30 ]
   %.065 = phi ptr [ %40, %34 ], [ null, %30 ]
   %.0 = phi ptr [ %41, %34 ], [ null, %30 ]
@@ -3899,7 +3899,7 @@ define internal i32 @netlogon_dissect_SERVICE_INFO(ptr noundef %0, i32 noundef %
 netlogon_dissect_LM_OWF_PASSWORD.exit.thread:     ; preds = %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  br label %netlogon_dissect_NT_OWF_PASSWORD.argprom.exit
+  br label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
 12:                                               ; preds = %6
   %.not13.i = icmp eq ptr %3, null
@@ -3920,7 +3920,7 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %12, %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not.i18 = icmp eq i32 %.val.pr, 0
-  br i1 %.not.i18, label %19, label %netlogon_dissect_NT_OWF_PASSWORD.argprom.exit
+  br i1 %.not.i18, label %19, label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
 19:                                               ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit
   br i1 %.not13.i, label %23, label %20
@@ -3935,9 +3935,9 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %12, %13
   %24 = load i32, ptr @hf_netlogon_nt_owf_password, align 4
   %25 = call ptr @proto_tree_add_item(ptr noundef %.0.i21, i32 noundef %24, ptr noundef %0, i32 noundef %18, i32 noundef 16, i32 noundef 0) #9
   %26 = add i32 %9, 32
-  br label %netlogon_dissect_NT_OWF_PASSWORD.argprom.exit
+  br label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
-netlogon_dissect_NT_OWF_PASSWORD.argprom.exit:    ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, %netlogon_dissect_LM_OWF_PASSWORD.exit, %23
+netlogon_dissect_NT_OWF_PASSWORD.exit:            ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, %netlogon_dissect_LM_OWF_PASSWORD.exit, %23
   %.011.i19 = phi i32 [ %26, %23 ], [ %18, %netlogon_dissect_LM_OWF_PASSWORD.exit ], [ %9, %netlogon_dissect_LM_OWF_PASSWORD.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret i32 %.011.i19
@@ -4183,7 +4183,7 @@ define internal fastcc i32 @dissect_ndr_lm_nt_hash_helper(ptr noundef %0, i32 no
   %18 = add i32 %17, 4
   %.027.i = select i1 %or.cond.i, i32 %1, i32 %18
   %.not29.i = icmp eq i32 %15, 0
-  br i1 %.not29.i, label %19, label %dissect_ndr_lm_nt_hash_cb.argprom.exit
+  br i1 %.not29.i, label %19, label %dissect_ndr_lm_nt_hash_cb.exit
 
 19:                                               ; preds = %8
   %20 = load i32, ptr @hf_nt_cs_len, align 4
@@ -4191,9 +4191,9 @@ define internal fastcc i32 @dissect_ndr_lm_nt_hash_helper(ptr noundef %0, i32 no
   %22 = load i32, ptr @hf_nt_cs_size, align 4
   %23 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %13, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %10) #9
   %24 = call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %13, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_ndr_byte_array, i32 noundef 2, ptr noundef nonnull @.str.1013, i32 noundef %6, ptr noundef nonnull @dissect_ndr_lm_nt_byte_array, ptr noundef %7) #9
-  br label %dissect_ndr_lm_nt_hash_cb.argprom.exit
+  br label %dissect_ndr_lm_nt_hash_cb.exit
 
-dissect_ndr_lm_nt_hash_cb.argprom.exit:           ; preds = %8, %19
+dissect_ndr_lm_nt_hash_cb.exit:                   ; preds = %8, %19
   %.0.i = phi i32 [ %24, %19 ], [ %.027.i, %8 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
@@ -4494,18 +4494,18 @@ define internal fastcc i32 @netlogon_dissect_netrserverauthenticate023_reply(ptr
 28:                                               ; preds = %26, %24
   %29 = phi i64 [ %25, %24 ], [ %27, %26 ]
   %.not14.i = icmp eq ptr %3, null
-  br i1 %.not14.i, label %dissect_dcerpc_8bytes.argprom.exit, label %30
+  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit, label %30
 
 30:                                               ; preds = %28
   %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %22, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 0) #9
-  br label %dissect_dcerpc_8bytes.argprom.exit
+  br label %dissect_dcerpc_8bytes.exit
 
-dissect_dcerpc_8bytes.argprom.exit:               ; preds = %28, %30
+dissect_dcerpc_8bytes.exit:                       ; preds = %28, %30
   %32 = add i32 %1, 8
   %33 = icmp ugt i32 %6, 1
   br i1 %33, label %34, label %41
 
-34:                                               ; preds = %dissect_dcerpc_8bytes.argprom.exit
+34:                                               ; preds = %dissect_dcerpc_8bytes.exit
   %35 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %32) #9
   %36 = load i32, ptr @hf_netlogon_neg_flags, align 4
   %37 = load i32, ptr @ett_authenticate_flags, align 4
@@ -4514,9 +4514,9 @@ dissect_dcerpc_8bytes.argprom.exit:               ; preds = %28, %30
   %40 = add i32 %1, 12
   br label %41
 
-41:                                               ; preds = %34, %dissect_dcerpc_8bytes.argprom.exit
-  %.097 = phi i32 [ %40, %34 ], [ %32, %dissect_dcerpc_8bytes.argprom.exit ]
-  %.096 = phi i32 [ %35, %34 ], [ 0, %dissect_dcerpc_8bytes.argprom.exit ]
+41:                                               ; preds = %34, %dissect_dcerpc_8bytes.exit
+  %.097 = phi i32 [ %40, %34 ], [ %32, %dissect_dcerpc_8bytes.exit ]
+  %.096 = phi i32 [ %35, %34 ], [ 0, %dissect_dcerpc_8bytes.exit ]
   %42 = getelementptr inbounds i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not = icmp ne i32 %43, 0
@@ -5385,7 +5385,7 @@ define internal i32 @netlogon_dissect_DELTA_USER(ptr noundef %0, i32 noundef %1,
 netlogon_dissect_LM_OWF_PASSWORD.exit.thread:     ; preds = %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  br label %netlogon_dissect_NT_OWF_PASSWORD.argprom.exit
+  br label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
 43:                                               ; preds = %6
   %.not13.i = icmp eq ptr %3, null
@@ -5406,7 +5406,7 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %43, %44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not.i222 = icmp eq i32 %.val.pr, 0
-  br i1 %.not.i222, label %50, label %netlogon_dissect_NT_OWF_PASSWORD.argprom.exit
+  br i1 %.not.i222, label %50, label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
 50:                                               ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit
   br i1 %.not13.i, label %54, label %51
@@ -5421,9 +5421,9 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %43, %44
   %55 = load i32, ptr @hf_netlogon_nt_owf_password, align 4
   %56 = call ptr @proto_tree_add_item(ptr noundef %.0.i225, i32 noundef %55, ptr noundef %0, i32 noundef %49, i32 noundef 16, i32 noundef 0) #9
   %57 = add i32 %40, 32
-  br label %netlogon_dissect_NT_OWF_PASSWORD.argprom.exit
+  br label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
-netlogon_dissect_NT_OWF_PASSWORD.argprom.exit:    ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, %netlogon_dissect_LM_OWF_PASSWORD.exit, %54
+netlogon_dissect_NT_OWF_PASSWORD.exit:            ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, %netlogon_dissect_LM_OWF_PASSWORD.exit, %54
   %.011.i223 = phi i32 [ %57, %54 ], [ %49, %netlogon_dissect_LM_OWF_PASSWORD.exit ], [ %40, %netlogon_dissect_LM_OWF_PASSWORD.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %58 = load i32, ptr @hf_netlogon_nt_pwd_present, align 4
@@ -7184,13 +7184,13 @@ define internal noundef i32 @dissect_response_secchan_verf(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @dissect_request_data(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #0 {
-  %7 = tail call fastcc ptr @dissect_packet_data.argprom.argelim(ptr noundef %1, ptr noundef %4, i8 noundef zeroext 0)
+  %7 = tail call fastcc ptr @dissect_packet_data(ptr noundef %1, ptr noundef %4, i8 noundef zeroext 0)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @dissect_response_data(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #0 {
-  %7 = tail call fastcc ptr @dissect_packet_data.argprom.argelim(ptr noundef %1, ptr noundef %4, i8 noundef zeroext 1)
+  %7 = tail call fastcc ptr @dissect_packet_data(ptr noundef %1, ptr noundef %4, i8 noundef zeroext 1)
   ret ptr %7
 }
 
@@ -7292,13 +7292,13 @@ define internal fastcc noundef i32 @dissect_secchan_verf(ptr noundef %0, i32 nou
 61:                                               ; preds = %59, %57
   %62 = phi i64 [ %58, %57 ], [ %60, %59 ]
   %.not14.i = icmp eq ptr %45, null
-  br i1 %.not14.i, label %dissect_dcerpc_8bytes.argprom.exit, label %63
+  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit, label %63
 
 63:                                               ; preds = %61
   %64 = call ptr @proto_tree_add_item(ptr noundef nonnull %45, i32 noundef %55, ptr noundef %0, i32 noundef %54, i32 noundef 8, i32 noundef 0) #9
-  br label %dissect_dcerpc_8bytes.argprom.exit
+  br label %dissect_dcerpc_8bytes.exit
 
-dissect_dcerpc_8bytes.argprom.exit:               ; preds = %61, %63
+dissect_dcerpc_8bytes.exit:                       ; preds = %61, %63
   %65 = add i32 %1, 16
   %66 = load i32, ptr @hf_netlogon_secchan_verf_digest, align 4
   %.val74 = load i8, ptr %4, align 1
@@ -7306,29 +7306,29 @@ dissect_dcerpc_8bytes.argprom.exit:               ; preds = %61, %63
   %.not.i77 = icmp eq i8 %67, 0
   br i1 %.not.i77, label %70, label %68
 
-68:                                               ; preds = %dissect_dcerpc_8bytes.argprom.exit
+68:                                               ; preds = %dissect_dcerpc_8bytes.exit
   %69 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %65) #9
   br label %72
 
-70:                                               ; preds = %dissect_dcerpc_8bytes.argprom.exit
+70:                                               ; preds = %dissect_dcerpc_8bytes.exit
   %71 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %65) #9
   br label %72
 
 72:                                               ; preds = %70, %68
   %73 = phi i64 [ %69, %68 ], [ %71, %70 ]
-  br i1 %.not14.i, label %dissect_dcerpc_8bytes.argprom.exit79, label %74
+  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit79, label %74
 
 74:                                               ; preds = %72
   %75 = call ptr @proto_tree_add_item(ptr noundef nonnull %45, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef 8, i32 noundef 0) #9
-  br label %dissect_dcerpc_8bytes.argprom.exit79
+  br label %dissect_dcerpc_8bytes.exit79
 
-dissect_dcerpc_8bytes.argprom.exit79:             ; preds = %72, %74
+dissect_dcerpc_8bytes.exit79:                     ; preds = %72, %74
   %76 = add i32 %1, 24
   %77 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %76, i32 noundef 8) #9
   %.not = icmp eq i32 %77, 0
   br i1 %.not, label %90, label %78
 
-78:                                               ; preds = %dissect_dcerpc_8bytes.argprom.exit79
+78:                                               ; preds = %dissect_dcerpc_8bytes.exit79
   %79 = load i32, ptr @hf_netlogon_secchan_verf_nonce, align 4
   %.val = load i8, ptr %4, align 1
   %80 = and i8 %.val, 16
@@ -7345,23 +7345,23 @@ dissect_dcerpc_8bytes.argprom.exit79:             ; preds = %72, %74
 
 85:                                               ; preds = %83, %81
   %86 = phi i64 [ %82, %81 ], [ %84, %83 ]
-  br i1 %.not14.i, label %dissect_dcerpc_8bytes.argprom.exit82, label %87
+  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit82, label %87
 
 87:                                               ; preds = %85
   %88 = call ptr @proto_tree_add_item(ptr noundef nonnull %45, i32 noundef %79, ptr noundef %0, i32 noundef %76, i32 noundef 8, i32 noundef 0) #9
-  br label %dissect_dcerpc_8bytes.argprom.exit82
+  br label %dissect_dcerpc_8bytes.exit82
 
-dissect_dcerpc_8bytes.argprom.exit82:             ; preds = %85, %87
+dissect_dcerpc_8bytes.exit82:                     ; preds = %85, %87
   %89 = add i32 %1, 32
   br label %90
 
-90:                                               ; preds = %dissect_dcerpc_8bytes.argprom.exit79, %dissect_dcerpc_8bytes.argprom.exit82, %36
-  %.088 = phi i64 [ undef, %36 ], [ %62, %dissect_dcerpc_8bytes.argprom.exit79 ], [ %62, %dissect_dcerpc_8bytes.argprom.exit82 ]
-  %.087 = phi i64 [ 0, %36 ], [ %73, %dissect_dcerpc_8bytes.argprom.exit79 ], [ %73, %dissect_dcerpc_8bytes.argprom.exit82 ]
-  %.0 = phi i64 [ 0, %36 ], [ 0, %dissect_dcerpc_8bytes.argprom.exit79 ], [ %86, %dissect_dcerpc_8bytes.argprom.exit82 ]
-  %.065 = phi i32 [ %1, %36 ], [ %76, %dissect_dcerpc_8bytes.argprom.exit79 ], [ %89, %dissect_dcerpc_8bytes.argprom.exit82 ]
-  %.062 = phi ptr [ null, %36 ], [ %45, %dissect_dcerpc_8bytes.argprom.exit79 ], [ %45, %dissect_dcerpc_8bytes.argprom.exit82 ]
-  %.not71 = phi i1 [ true, %36 ], [ false, %dissect_dcerpc_8bytes.argprom.exit79 ], [ false, %dissect_dcerpc_8bytes.argprom.exit82 ]
+90:                                               ; preds = %dissect_dcerpc_8bytes.exit79, %dissect_dcerpc_8bytes.exit82, %36
+  %.088 = phi i64 [ undef, %36 ], [ %62, %dissect_dcerpc_8bytes.exit79 ], [ %62, %dissect_dcerpc_8bytes.exit82 ]
+  %.087 = phi i64 [ 0, %36 ], [ %73, %dissect_dcerpc_8bytes.exit79 ], [ %73, %dissect_dcerpc_8bytes.exit82 ]
+  %.0 = phi i64 [ 0, %36 ], [ 0, %dissect_dcerpc_8bytes.exit79 ], [ %86, %dissect_dcerpc_8bytes.exit82 ]
+  %.065 = phi i32 [ %1, %36 ], [ %76, %dissect_dcerpc_8bytes.exit79 ], [ %89, %dissect_dcerpc_8bytes.exit82 ]
+  %.062 = phi ptr [ null, %36 ], [ %45, %dissect_dcerpc_8bytes.exit79 ], [ %45, %dissect_dcerpc_8bytes.exit82 ]
+  %.not71 = phi i1 [ true, %36 ], [ false, %dissect_dcerpc_8bytes.exit79 ], [ false, %dissect_dcerpc_8bytes.exit82 ]
   %.not68 = icmp eq ptr %35, null
   br i1 %.not68, label %181, label %.preheader
 
@@ -7605,7 +7605,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_packet_data.argprom.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
+define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [4 x i8], align 4
   %6 = alloca i64, align 8

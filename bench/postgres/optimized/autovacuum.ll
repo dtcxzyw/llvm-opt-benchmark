@@ -176,7 +176,7 @@ define dso_local noundef i32 @StartAutoVacLauncher() local_unnamed_addr #0 {
 6:                                                ; preds = %0
   tail call void @InitPostmasterChild() #18
   tail call void @ClosePostmasterPorts(i1 noundef zeroext false) #18
-  tail call fastcc void @AutoVacLauncherMain.argprom.argelim() #19
+  tail call fastcc void @AutoVacLauncherMain() #19
   unreachable
 
 7:                                                ; preds = %0, %4, %2
@@ -200,7 +200,7 @@ declare void @InitPostmasterChild() local_unnamed_addr #1
 declare void @ClosePostmasterPorts(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @AutoVacLauncherMain.argprom.argelim() unnamed_addr #3 {
+define internal fastcc void @AutoVacLauncherMain() unnamed_addr #3 {
   %1 = alloca i64, align 8
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
@@ -855,7 +855,7 @@ define dso_local noundef i32 @StartAutoVacWorker() local_unnamed_addr #0 {
 6:                                                ; preds = %0
   tail call void @InitPostmasterChild() #18
   tail call void @ClosePostmasterPorts(i1 noundef zeroext false) #18
-  tail call fastcc void @AutoVacWorkerMain.argprom.argelim() #19
+  tail call fastcc void @AutoVacWorkerMain() #19
   unreachable
 
 7:                                                ; preds = %0, %4, %2
@@ -864,7 +864,7 @@ define dso_local noundef i32 @StartAutoVacWorker() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @AutoVacWorkerMain.argprom.argelim() unnamed_addr #3 {
+define internal fastcc void @AutoVacWorkerMain() unnamed_addr #3 {
   %1 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %2 = alloca [64 x i8], align 16
   store i1 true, ptr @am_autovacuum_worker, align 1

@@ -329,7 +329,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10Ei
 144:                                              ; preds = %.split5.us.i
   %145 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr noundef nonnull align 4 dereferenceable(516) %8, ptr noundef nonnull align 4 dereferenceable(516) %8, ptr noundef nonnull align 4 dereferenceable(516) %9)
   %146 = icmp slt i32 %145, 0
-  br i1 %146, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.argprom.exit, label %147
+  br i1 %146, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit, label %147
 
 147:                                              ; preds = %144
   %.not41.i = icmp eq i32 %145, 0
@@ -341,10 +341,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10Ei
   %153 = and i8 %152, 1
   %154 = icmp eq i8 %153, 0
   %or.cond.i = select i1 %.not41.i, i1 %154, i1 false
-  br i1 %or.cond.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.argprom.exit, label %.sink.split.i
+  br i1 %or.cond.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit, label %.sink.split.i
 
 155:                                              ; preds = %.split5.us.i
-  br i1 %.us-phi.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.argprom.exit, label %156
+  br i1 %.us-phi.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit, label %156
 
 156:                                              ; preds = %155
   %157 = load i32, ptr %5, align 4
@@ -359,7 +359,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10Ei
   %.sink34.i = phi ptr [ %160, %156 ], [ %151, %147 ]
   %162 = add i8 %.sink35.i, 1
   store i8 %162, ptr %.sink34.i, align 1
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit
 
 163:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit
   %164 = load i32, ptr %6, align 4
@@ -371,7 +371,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10Ei
   %168 = sub nsw i32 0, %2
   store i32 %168, ptr %6, align 4
   store i32 0, ptr %5, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit
 
 169:                                              ; preds = %163
   %170 = icmp eq i32 %2, %165
@@ -389,38 +389,38 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10Ei
   %175 = load i32, ptr %6, align 4
   %176 = add nsw i32 %175, 1
   store i32 %176, ptr %6, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit
 
 177:                                              ; preds = %171
   store i32 0, ptr %5, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit
 
 178:                                              ; preds = %169
   %179 = add nsw i32 %164, %2
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_.argelim(i32 noundef %179, ptr noundef nonnull %6, ptr noundef %8, ptr noundef %9, ptr %3, ptr noundef %5)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.argprom.exit
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %179, ptr noundef nonnull %6, ptr noundef %8, ptr noundef %9, ptr %3, ptr noundef %5)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit
 
 180:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_.argelim(i32 noundef %2, ptr noundef nonnull %6, ptr noundef %8, ptr noundef %9, ptr %3, ptr noundef %5)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.argprom.exit
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %2, ptr noundef nonnull %6, ptr noundef %8, ptr noundef %9, ptr %3, ptr noundef %5)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit
 
 181:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit
   call void @abort() #4
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.argprom.exit: ; preds = %178, %177, %174, %167, %.sink.split.i, %155, %147, %144, %180
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit: ; preds = %178, %177, %174, %167, %.sink.split.i, %155, %147, %144, %180
   %182 = load i32, ptr %5, align 4
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds i8, ptr %3, i64 %183
   store i8 0, ptr %184, align 1
   br label %185
 
-185:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.argprom.exit, %60
+185:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit, %60
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_.argelim(i32 noundef %0, ptr nocapture noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %0, ptr nocapture noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = add i32 %0, -1
   %8 = icmp sgt i32 %0, 1
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge37.critedge

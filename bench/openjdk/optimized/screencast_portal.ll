@@ -637,7 +637,7 @@ define hidden range(i32 0, 2) i32 @portalScreenCastCreateSession() local_unnamed
 errHandle.exit:                                   ; preds = %.lr.ph, %.preheader, %95, %91
   %.val = load i32, ptr %2, align 8
   %.not.i5 = icmp eq i32 %.val, 0
-  br i1 %.not.i5, label %unregisterScreenCastCallback.argprom.exit, label %111
+  br i1 %.not.i5, label %unregisterScreenCastCallback.exit, label %111
 
 111:                                              ; preds = %errHandle.exit
   %112 = load ptr, ptr @gtk, align 8
@@ -646,20 +646,20 @@ errHandle.exit:                                   ; preds = %.lr.ph, %.preheader
   %115 = load ptr, ptr @portal, align 8
   %116 = load ptr, ptr %115, align 8
   call void %114(ptr noundef %116, i32 noundef %.val) #9
-  br label %unregisterScreenCastCallback.argprom.exit
+  br label %unregisterScreenCastCallback.exit
 
-unregisterScreenCastCallback.argprom.exit:        ; preds = %errHandle.exit, %111
+unregisterScreenCastCallback.exit:                ; preds = %errHandle.exit, %111
   %.not4 = icmp eq ptr %88, null
   br i1 %.not4, label %121, label %117
 
-117:                                              ; preds = %unregisterScreenCastCallback.argprom.exit
+117:                                              ; preds = %unregisterScreenCastCallback.exit
   %118 = load ptr, ptr @gtk, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 616
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull %88) #9
   br label %121
 
-121:                                              ; preds = %117, %unregisterScreenCastCallback.argprom.exit
+121:                                              ; preds = %117, %unregisterScreenCastCallback.exit
   call void @free(ptr noundef %52) #9
   call void @free(ptr noundef %36) #9
   call void @free(ptr noundef %19) #9
@@ -869,7 +869,7 @@ validateToken.exit.thread:                        ; preds = %76, %1, %validateTo
 errHandle.exit:                                   ; preds = %.lr.ph, %.preheader, %102, %98
   %.val = load i32, ptr %3, align 8
   %.not.i9 = icmp eq i32 %.val, 0
-  br i1 %.not.i9, label %unregisterScreenCastCallback.argprom.exit, label %118
+  br i1 %.not.i9, label %unregisterScreenCastCallback.exit, label %118
 
 118:                                              ; preds = %errHandle.exit
   %119 = load ptr, ptr @gtk, align 8
@@ -878,20 +878,20 @@ errHandle.exit:                                   ; preds = %.lr.ph, %.preheader
   %122 = load ptr, ptr @portal, align 8
   %123 = load ptr, ptr %122, align 8
   call void %121(ptr noundef %123, i32 noundef %.val) #9
-  br label %unregisterScreenCastCallback.argprom.exit
+  br label %unregisterScreenCastCallback.exit
 
-unregisterScreenCastCallback.argprom.exit:        ; preds = %errHandle.exit, %118
+unregisterScreenCastCallback.exit:                ; preds = %errHandle.exit, %118
   %.not7 = icmp eq ptr %94, null
   br i1 %.not7, label %128, label %124
 
-124:                                              ; preds = %unregisterScreenCastCallback.argprom.exit
+124:                                              ; preds = %unregisterScreenCastCallback.exit
   %125 = load ptr, ptr @gtk, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 616
   %127 = load ptr, ptr %126, align 8
   call void %127(ptr noundef nonnull %94) #9
   br label %128
 
-128:                                              ; preds = %124, %unregisterScreenCastCallback.argprom.exit
+128:                                              ; preds = %124, %unregisterScreenCastCallback.exit
   call void @free(ptr noundef %33) #9
   call void @free(ptr noundef %16) #9
   %129 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1063,7 +1063,7 @@ define hidden i32 @portalScreenCastStart(ptr noundef %0) local_unnamed_addr #0 {
 errHandle.exit:                                   ; preds = %.lr.ph, %.preheader, %75, %71
   %.val = load i32, ptr %4, align 8
   %.not.i6 = icmp eq i32 %.val, 0
-  br i1 %.not.i6, label %unregisterScreenCastCallback.argprom.exit, label %91
+  br i1 %.not.i6, label %unregisterScreenCastCallback.exit, label %91
 
 91:                                               ; preds = %errHandle.exit
   %92 = load ptr, ptr @gtk, align 8
@@ -1072,20 +1072,20 @@ errHandle.exit:                                   ; preds = %.lr.ph, %.preheader
   %95 = load ptr, ptr @portal, align 8
   %96 = load ptr, ptr %95, align 8
   call void %94(ptr noundef %96, i32 noundef %.val) #9
-  br label %unregisterScreenCastCallback.argprom.exit
+  br label %unregisterScreenCastCallback.exit
 
-unregisterScreenCastCallback.argprom.exit:        ; preds = %errHandle.exit, %91
+unregisterScreenCastCallback.exit:                ; preds = %errHandle.exit, %91
   %.not5 = icmp eq ptr %67, null
   br i1 %.not5, label %101, label %97
 
-97:                                               ; preds = %unregisterScreenCastCallback.argprom.exit
+97:                                               ; preds = %unregisterScreenCastCallback.exit
   %98 = load ptr, ptr @gtk, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 616
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull %67) #9
   br label %101
 
-101:                                              ; preds = %97, %unregisterScreenCastCallback.argprom.exit
+101:                                              ; preds = %97, %unregisterScreenCastCallback.exit
   call void @free(ptr noundef %36) #9
   call void @free(ptr noundef %19) #9
   %102 = getelementptr inbounds i8, ptr %3, i64 8

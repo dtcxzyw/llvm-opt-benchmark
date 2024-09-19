@@ -4180,13 +4180,13 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   %51 = ptrtoint ptr %50 to i64
   %52 = and i64 %51, 7
   %.not.i.i.i.i = icmp eq i64 %52, 0
-  br i1 %.not.i.i.i.i, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__21SdfPathExpressionEvalIRKNS_16HdSceneIndexPrimEE12_PatternImpl5MatchIZNKS_31HdCollectionExpressionEvaluator5MatchERKNS_7SdfPathEE3$_0EENS_26SdfPredicateFunctionResultESA_RKT_ENKUliSA_E_clEiSA_.argprom.argprom.exit", label %53
+  br i1 %.not.i.i.i.i, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__21SdfPathExpressionEvalIRKNS_16HdSceneIndexPrimEE12_PatternImpl5MatchIZNKS_31HdCollectionExpressionEvaluator5MatchERKNS_7SdfPathEE3$_0EENS_26SdfPredicateFunctionResultESA_RKT_ENKUliSA_E_clEiSA_.exit", label %53
 
 53:                                               ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i.i
   %54 = and i64 %51, -8
   %55 = inttoptr i64 %54 to ptr
   %56 = atomicrmw sub ptr %55, i32 2 release, align 4
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__21SdfPathExpressionEvalIRKNS_16HdSceneIndexPrimEE12_PatternImpl5MatchIZNKS_31HdCollectionExpressionEvaluator5MatchERKNS_7SdfPathEE3$_0EENS_26SdfPredicateFunctionResultESA_RKT_ENKUliSA_E_clEiSA_.argprom.argprom.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__21SdfPathExpressionEvalIRKNS_16HdSceneIndexPrimEE12_PatternImpl5MatchIZNKS_31HdCollectionExpressionEvaluator5MatchERKNS_7SdfPathEE3$_0EENS_26SdfPredicateFunctionResultESA_RKT_ENKUliSA_E_clEiSA_.exit"
 
 57:                                               ; preds = %3
   %58 = landingpad { ptr, i32 }
@@ -4194,7 +4194,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
   resume { ptr, i32 } %58
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__21SdfPathExpressionEvalIRKNS_16HdSceneIndexPrimEE12_PatternImpl5MatchIZNKS_31HdCollectionExpressionEvaluator5MatchERKNS_7SdfPathEE3$_0EENS_26SdfPredicateFunctionResultESA_RKT_ENKUliSA_E_clEiSA_.argprom.argprom.exit": ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i.i, %53
+"_ZZNK32pxrInternal_v0_24__pxrReserved__21SdfPathExpressionEvalIRKNS_16HdSceneIndexPrimEE12_PatternImpl5MatchIZNKS_31HdCollectionExpressionEvaluator5MatchERKNS_7SdfPathEE3$_0EENS_26SdfPredicateFunctionResultESA_RKT_ENKUliSA_E_clEiSA_.exit": ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i.i, %53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret i64 %12
 }
@@ -4540,7 +4540,7 @@ attributes #20 = { builtin allocsize(0) }
 !74 = !{!70, !73}
 !75 = distinct !{!75, !5}
 !76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZZNK32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluator5MatchERKNS_7SdfPathEENK3$_0clES3_.argprom: argument 0"}
-!78 = distinct !{!78, !"_ZZNK32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluator5MatchERKNS_7SdfPathEENK3$_0clES3_.argprom"}
+!77 = distinct !{!77, !78, !"_ZZNK32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluator5MatchERKNS_7SdfPathEENK3$_0clES3_: argument 0"}
+!78 = distinct !{!78, !"_ZZNK32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluator5MatchERKNS_7SdfPathEENK3$_0clES3_"}
 !79 = distinct !{!79, !5}
 !80 = distinct !{!80, !5}

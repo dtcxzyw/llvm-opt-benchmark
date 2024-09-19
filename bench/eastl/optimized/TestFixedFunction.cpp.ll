@@ -686,7 +686,7 @@ entry:
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_Z40TestFixedFunctionPointerToMemberFunctionv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i:
+_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i:
   %nErrorCount = alloca i32, align 4
   %ff = alloca %"class.eastl::fixed_function.25", align 8
   %ff2 = alloca %"class.eastl::fixed_function.25", align 8
@@ -705,14 +705,14 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFv
   %call = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 224, ptr noundef nonnull @.str.8)
           to label %invoke.cont1 unwind label %lpad
 
-invoke.cont1:                                     ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i
+invoke.cont1:                                     ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i
   %this.val.i.i.i = load ptr, ptr %mMgrFuncPtr.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %this.val.i.i.i, null
-  br i1 %cmp.i.not.i.i.i, label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i97, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i97, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont1
   %call2.i.i.i = invoke noundef ptr %this.val.i.i.i(ptr noundef nonnull %ff, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i97 unwind label %terminate.lpad.i.i.i
+          to label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i97 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -721,7 +721,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %1) #13
   unreachable
 
-_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i97: ; preds = %invoke.cont1, %if.then.i.i.i
+_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i97: ; preds = %invoke.cont1, %if.then.i.i.i
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK11TestVoidRet4IncXEv to i64), ptr %ff2, align 8
   %call.repack3.i.i.i.i3 = getelementptr inbounds i8, ptr %ff2, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i3, align 8
@@ -732,14 +732,14 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFv
   %call9 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 229, ptr noundef nonnull @.str.9)
           to label %invoke.cont8 unwind label %lpad4
 
-invoke.cont8:                                     ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i97
+invoke.cont8:                                     ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i97
   %this.val.i.i.i8 = load ptr, ptr %mMgrFuncPtr.i.i5, align 8
   %cmp.i.not.i.i.i9 = icmp eq ptr %this.val.i.i.i8, null
-  br i1 %cmp.i.not.i.i.i9, label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit.i, label %if.then.i.i.i10
+  br i1 %cmp.i.not.i.i.i9, label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %invoke.cont8
   %call2.i.i.i11 = invoke noundef ptr %this.val.i.i.i8(ptr noundef nonnull %ff2, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit.i unwind label %terminate.lpad.i.i.i12
+          to label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i unwind label %terminate.lpad.i.i.i12
 
 terminate.lpad.i.i.i12:                           ; preds = %if.then.i.i.i10
   %2 = landingpad { ptr, i32 }
@@ -748,7 +748,7 @@ terminate.lpad.i.i.i12:                           ; preds = %if.then.i.i.i10
   call void @__clang_call_terminate(ptr %3) #13
   unreachable
 
-_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit.i: ; preds = %invoke.cont8, %if.then.i.i.i10
+_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont8, %if.then.i.i.i10
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN11TestVoidRet4IncXEv to i64), ptr %ff10, align 8
   %call.repack3.i.i.i.i14 = getelementptr inbounds i8, ptr %ff10, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i14, align 8
@@ -759,14 +759,14 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvv
   %call17 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 234, ptr noundef nonnull @.str.10)
           to label %invoke.cont16 unwind label %lpad12
 
-invoke.cont16:                                    ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit.i
+invoke.cont16:                                    ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i
   %this.val.i.i.i18 = load ptr, ptr %mMgrFuncPtr.i.i16, align 8
   %cmp.i.not.i.i.i19 = icmp eq ptr %this.val.i.i.i18, null
-  br i1 %cmp.i.not.i.i.i19, label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i, label %if.then.i.i.i20
+  br i1 %cmp.i.not.i.i.i19, label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i, label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %invoke.cont16
   %call2.i.i.i21 = invoke noundef ptr %this.val.i.i.i18(ptr noundef nonnull %ff10, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i unwind label %terminate.lpad.i.i.i22
+          to label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i unwind label %terminate.lpad.i.i.i22
 
 terminate.lpad.i.i.i22:                           ; preds = %if.then.i.i.i20
   %4 = landingpad { ptr, i32 }
@@ -775,7 +775,7 @@ terminate.lpad.i.i.i22:                           ; preds = %if.then.i.i.i20
   call void @__clang_call_terminate(ptr %5) #13
   unreachable
 
-_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i: ; preds = %invoke.cont16, %if.then.i.i.i20
+_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont16, %if.then.i.i.i20
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv to i64), ptr %ff18, align 8
   %call.repack3.i.i.i.i23 = getelementptr inbounds i8, ptr %ff18, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i23, align 8
@@ -786,18 +786,18 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFiv
   %call25 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 240, ptr noundef nonnull @.str.11)
           to label %invoke.cont24 unwind label %lpad20
 
-invoke.cont24:                                    ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i
+invoke.cont24:                                    ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i
   %call29 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 241, ptr noundef nonnull @.str.12)
           to label %invoke.cont28 unwind label %lpad20
 
 invoke.cont28:                                    ; preds = %invoke.cont24
   %this.val.i.i.i28 = load ptr, ptr %mMgrFuncPtr.i.i25, align 8
   %cmp.i.not.i.i.i29 = icmp eq ptr %this.val.i.i.i28, null
-  br i1 %cmp.i.not.i.i.i29, label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i125, label %if.then.i.i.i30
+  br i1 %cmp.i.not.i.i.i29, label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i125, label %if.then.i.i.i30
 
 if.then.i.i.i30:                                  ; preds = %invoke.cont28
   %call2.i.i.i31 = invoke noundef ptr %this.val.i.i.i28(ptr noundef nonnull %ff18, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i125 unwind label %terminate.lpad.i.i.i32
+          to label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i125 unwind label %terminate.lpad.i.i.i32
 
 terminate.lpad.i.i.i32:                           ; preds = %if.then.i.i.i30
   %6 = landingpad { ptr, i32 }
@@ -806,7 +806,7 @@ terminate.lpad.i.i.i32:                           ; preds = %if.then.i.i.i30
   call void @__clang_call_terminate(ptr %7) #13
   unreachable
 
-_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i125: ; preds = %invoke.cont28, %if.then.i.i.i30
+_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i125: ; preds = %invoke.cont28, %if.then.i.i.i30
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv to i64), ptr %ff30, align 8
   %call.repack3.i.i.i.i33 = getelementptr inbounds i8, ptr %ff30, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i33, align 8
@@ -817,18 +817,18 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFiv
   %call38 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 246, ptr noundef nonnull @.str.11)
           to label %invoke.cont37 unwind label %lpad33
 
-invoke.cont37:                                    ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i125
+invoke.cont37:                                    ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i125
   %call42 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 247, ptr noundef nonnull @.str.13)
           to label %invoke.cont41 unwind label %lpad33
 
 invoke.cont41:                                    ; preds = %invoke.cont37
   %this.val.i.i.i39 = load ptr, ptr %mMgrFuncPtr.i.i35, align 8
   %cmp.i.not.i.i.i40 = icmp eq ptr %this.val.i.i.i39, null
-  br i1 %cmp.i.not.i.i.i40, label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.argprom.exit.i, label %if.then.i.i.i41
+  br i1 %cmp.i.not.i.i.i40, label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit.i, label %if.then.i.i.i41
 
 if.then.i.i.i41:                                  ; preds = %invoke.cont41
   %call2.i.i.i42 = invoke noundef ptr %this.val.i.i.i39(ptr noundef nonnull %ff30, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.argprom.exit.i unwind label %terminate.lpad.i.i.i43
+          to label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit.i unwind label %terminate.lpad.i.i.i43
 
 terminate.lpad.i.i.i43:                           ; preds = %if.then.i.i.i41
   %8 = landingpad { ptr, i32 }
@@ -837,7 +837,7 @@ terminate.lpad.i.i.i43:                           ; preds = %if.then.i.i.i41
   call void @__clang_call_terminate(ptr %9) #13
   unreachable
 
-_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.argprom.exit.i: ; preds = %invoke.cont41, %if.then.i.i.i41
+_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont41, %if.then.i.i.i41
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN10TestIntRet4IncXEv to i64), ptr %ff43, align 8
   %call.repack3.i.i.i.i45 = getelementptr inbounds i8, ptr %ff43, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i45, align 8
@@ -848,7 +848,7 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivE
   %call51 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @.str.14)
           to label %invoke.cont50 unwind label %lpad46
 
-invoke.cont50:                                    ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.argprom.exit.i
+invoke.cont50:                                    ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit.i
   %call55 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 253, ptr noundef nonnull @.str.15)
           to label %invoke.cont54 unwind label %lpad46
 
@@ -872,7 +872,7 @@ _ZN5eastl14fixed_functionILi16EFiRZ40TestFixedFunctionPointerToMemberFunctionvE1
   %12 = load i32, ptr %nErrorCount, align 4
   ret i32 %12
 
-lpad:                                             ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i
+lpad:                                             ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i
   %13 = landingpad { ptr, i32 }
           cleanup
   %this.val.i.i.i55 = load ptr, ptr %mMgrFuncPtr.i.i, align 8
@@ -890,7 +890,7 @@ terminate.lpad.i.i.i59:                           ; preds = %if.then.i.i.i57
   call void @__clang_call_terminate(ptr %15) #13
   unreachable
 
-lpad4:                                            ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i97
+lpad4:                                            ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i97
   %16 = landingpad { ptr, i32 }
           cleanup
   %this.val.i.i.i61 = load ptr, ptr %mMgrFuncPtr.i.i5, align 8
@@ -908,7 +908,7 @@ terminate.lpad.i.i.i65:                           ; preds = %if.then.i.i.i63
   call void @__clang_call_terminate(ptr %18) #13
   unreachable
 
-lpad12:                                           ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit.i
+lpad12:                                           ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i
   %19 = landingpad { ptr, i32 }
           cleanup
   %this.val.i.i.i67 = load ptr, ptr %mMgrFuncPtr.i.i16, align 8
@@ -926,7 +926,7 @@ terminate.lpad.i.i.i71:                           ; preds = %if.then.i.i.i69
   call void @__clang_call_terminate(ptr %21) #13
   unreachable
 
-lpad20:                                           ; preds = %invoke.cont24, %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i
+lpad20:                                           ; preds = %invoke.cont24, %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i
   %22 = landingpad { ptr, i32 }
           cleanup
   %this.val.i.i.i73 = load ptr, ptr %mMgrFuncPtr.i.i25, align 8
@@ -944,7 +944,7 @@ terminate.lpad.i.i.i77:                           ; preds = %if.then.i.i.i75
   call void @__clang_call_terminate(ptr %24) #13
   unreachable
 
-lpad33:                                           ; preds = %invoke.cont37, %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit.i125
+lpad33:                                           ; preds = %invoke.cont37, %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i125
   %25 = landingpad { ptr, i32 }
           cleanup
   %this.val.i.i.i79 = load ptr, ptr %mMgrFuncPtr.i.i35, align 8
@@ -962,7 +962,7 @@ terminate.lpad.i.i.i83:                           ; preds = %if.then.i.i.i81
   call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
-lpad46:                                           ; preds = %invoke.cont50, %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.argprom.exit.i
+lpad46:                                           ; preds = %invoke.cont50, %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit.i
   %28 = landingpad { ptr, i32 }
           cleanup
   %this.val.i.i.i85 = load ptr, ptr %mMgrFuncPtr.i.i47, align 8
@@ -4079,13 +4079,13 @@ memptr.virtual.i.i:                               ; preds = %entry
   %3 = getelementptr i8, ptr %vtable.i.i, i64 %call.val
   %4 = getelementptr i8, ptr %3, i64 -1
   %memptr.virtualfn.i.i = load ptr, ptr %4, align 8, !nosanitize !11
-  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit
 
 memptr.nonvirtual.i.i:                            ; preds = %entry
   %memptr.nonvirtualfn.i.i = inttoptr i64 %call.val to ptr
-  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit
 
-_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.argprom.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
+_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
   %5 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
   tail call void %5(ptr noundef nonnull align 4 dereferenceable(4) %1)
   ret void
@@ -4137,13 +4137,13 @@ memptr.virtual.i.i:                               ; preds = %entry
   %3 = getelementptr i8, ptr %vtable.i.i, i64 %call.val
   %4 = getelementptr i8, ptr %3, i64 -1
   %memptr.virtualfn.i.i = load ptr, ptr %4, align 8, !nosanitize !11
-  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit
 
 memptr.nonvirtual.i.i:                            ; preds = %entry
   %memptr.nonvirtualfn.i.i = inttoptr i64 %call.val to ptr
-  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit
 
-_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.argprom.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
+_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
   %5 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
   tail call void %5(ptr noundef nonnull align 4 dereferenceable(4) %1)
   ret void
@@ -4195,13 +4195,13 @@ memptr.virtual.i.i:                               ; preds = %entry
   %3 = getelementptr i8, ptr %vtable.i.i, i64 %call.val
   %4 = getelementptr i8, ptr %3, i64 -1
   %memptr.virtualfn.i.i = load ptr, ptr %4, align 8, !nosanitize !11
-  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit
 
 memptr.nonvirtual.i.i:                            ; preds = %entry
   %memptr.nonvirtualfn.i.i = inttoptr i64 %call.val to ptr
-  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit
 
-_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.argprom.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
+_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
   %5 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
   %call2.i.i = tail call noundef i32 %5(ptr noundef nonnull align 4 dereferenceable(4) %1)
   ret i32 %call2.i.i
@@ -4253,13 +4253,13 @@ memptr.virtual.i.i:                               ; preds = %entry
   %3 = getelementptr i8, ptr %vtable.i.i, i64 %call.val
   %4 = getelementptr i8, ptr %3, i64 -1
   %memptr.virtualfn.i.i = load ptr, ptr %4, align 8, !nosanitize !11
-  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit
 
 memptr.nonvirtual.i.i:                            ; preds = %entry
   %memptr.nonvirtualfn.i.i = inttoptr i64 %call.val to ptr
-  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.argprom.exit
+  br label %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit
 
-_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.argprom.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
+_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit: ; preds = %memptr.virtual.i.i, %memptr.nonvirtual.i.i
   %5 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
   %call2.i.i = tail call noundef i32 %5(ptr noundef nonnull align 4 dereferenceable(4) %1)
   ret i32 %call2.i.i

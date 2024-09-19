@@ -41,12 +41,12 @@ define range(i32 0, 3) i32 @curl_global_init(i64 noundef %flags) local_unnamed_a
 entry:
   %0 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not2.i = icmp eq i32 %0, 0
-  br i1 %tobool.not2.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not2.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 for.cond.loopexit.i:                              ; preds = %while.body.i, %while.cond.preheader.i
   %1 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry, %for.cond.loopexit.i
   %2 = load atomic i32, ptr @s_lock monotonic, align 4
@@ -59,14 +59,14 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %tobool2.not.i = icmp eq i32 %3, 0
   br i1 %tobool2.not.i, label %for.cond.loopexit.i, label %while.body.i, !llvm.loop !4
 
-curl_simple_lock_lock.argprom.exit:               ; preds = %for.cond.loopexit.i, %entry
+curl_simple_lock_lock.exit:                       ; preds = %for.cond.loopexit.i, %entry
   %4 = load i32, ptr @initialized, align 4
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr @initialized, align 4
   %tobool.not.i1 = icmp eq i32 %4, 0
   br i1 %tobool.not.i1, label %if.end.i, label %global_init.exit
 
-if.end.i:                                         ; preds = %curl_simple_lock_lock.argprom.exit
+if.end.i:                                         ; preds = %curl_simple_lock_lock.exit
   store ptr @malloc, ptr @Curl_cmalloc, align 8
   store ptr @free, ptr @Curl_cfree, align 8
   store ptr @realloc, ptr @Curl_crealloc, align 8
@@ -92,8 +92,8 @@ fail.i:                                           ; preds = %if.end12.i, %if.end
   store i32 %dec.i, ptr @initialized, align 4
   br label %global_init.exit
 
-global_init.exit:                                 ; preds = %curl_simple_lock_lock.argprom.exit, %if.end12.i, %fail.i
-  %retval.0.i = phi i32 [ 2, %fail.i ], [ 0, %curl_simple_lock_lock.argprom.exit ], [ 0, %if.end12.i ]
+global_init.exit:                                 ; preds = %curl_simple_lock_lock.exit, %if.end12.i, %fail.i
+  %retval.0.i = phi i32 [ 2, %fail.i ], [ 0, %curl_simple_lock_lock.exit ], [ 0, %if.end12.i ]
   store atomic i32 0, ptr @s_lock release, align 4
   ret i32 %retval.0.i
 }
@@ -115,12 +115,12 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not2.i = icmp eq i32 %0, 0
-  br i1 %tobool.not2.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not2.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 for.cond.loopexit.i:                              ; preds = %while.body.i, %while.cond.preheader.i
   %1 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.end, %for.cond.loopexit.i
   %2 = load atomic i32, ptr @s_lock monotonic, align 4
@@ -133,16 +133,16 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %tobool2.not.i = icmp eq i32 %3, 0
   br i1 %tobool2.not.i, label %for.cond.loopexit.i, label %while.body.i, !llvm.loop !4
 
-curl_simple_lock_lock.argprom.exit:               ; preds = %for.cond.loopexit.i, %if.end
+curl_simple_lock_lock.exit:                       ; preds = %for.cond.loopexit.i, %if.end
   %4 = load i32, ptr @initialized, align 4
   %tobool8.not = icmp eq i32 %4, 0
   br i1 %tobool8.not, label %if.end.i, label %if.then9
 
-if.then9:                                         ; preds = %curl_simple_lock_lock.argprom.exit
+if.then9:                                         ; preds = %curl_simple_lock_lock.exit
   %inc = add i32 %4, 1
   br label %return.sink.split.sink.split
 
-if.end.i:                                         ; preds = %curl_simple_lock_lock.argprom.exit
+if.end.i:                                         ; preds = %curl_simple_lock_lock.exit
   store ptr %m, ptr @Curl_cmalloc, align 8
   store ptr %f, ptr @Curl_cfree, align 8
   store ptr %s, ptr @Curl_cstrdup, align 8
@@ -189,12 +189,12 @@ define void @curl_global_cleanup() local_unnamed_addr #5 {
 entry:
   %0 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not2.i = icmp eq i32 %0, 0
-  br i1 %tobool.not2.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not2.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 for.cond.loopexit.i:                              ; preds = %while.body.i, %while.cond.preheader.i
   %1 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry, %for.cond.loopexit.i
   %2 = load atomic i32, ptr @s_lock monotonic, align 4
@@ -207,12 +207,12 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %tobool2.not.i = icmp eq i32 %3, 0
   br i1 %tobool2.not.i, label %for.cond.loopexit.i, label %while.body.i, !llvm.loop !4
 
-curl_simple_lock_lock.argprom.exit:               ; preds = %for.cond.loopexit.i, %entry
+curl_simple_lock_lock.exit:                       ; preds = %for.cond.loopexit.i, %entry
   %4 = load i32, ptr @initialized, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %curl_simple_lock_lock.argprom.exit
+if.end:                                           ; preds = %curl_simple_lock_lock.exit
   %dec = add i32 %4, -1
   store i32 %dec, ptr @initialized, align 4
   %tobool1.not = icmp eq i32 %dec, 0
@@ -223,7 +223,7 @@ if.end3:                                          ; preds = %if.end
   tail call void @Curl_resolver_global_cleanup() #8
   br label %return
 
-return:                                           ; preds = %if.end, %curl_simple_lock_lock.argprom.exit, %if.end3
+return:                                           ; preds = %if.end, %curl_simple_lock_lock.exit, %if.end3
   store atomic i32 0, ptr @s_lock release, align 4
   ret void
 }
@@ -237,12 +237,12 @@ define i32 @curl_global_trace(ptr noundef %config) local_unnamed_addr #5 {
 entry:
   %0 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not2.i = icmp eq i32 %0, 0
-  br i1 %tobool.not2.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not2.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 for.cond.loopexit.i:                              ; preds = %while.body.i, %while.cond.preheader.i
   %1 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry, %for.cond.loopexit.i
   %2 = load atomic i32, ptr @s_lock monotonic, align 4
@@ -255,7 +255,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %tobool2.not.i = icmp eq i32 %3, 0
   br i1 %tobool2.not.i, label %for.cond.loopexit.i, label %while.body.i, !llvm.loop !4
 
-curl_simple_lock_lock.argprom.exit:               ; preds = %for.cond.loopexit.i, %entry
+curl_simple_lock_lock.exit:                       ; preds = %for.cond.loopexit.i, %entry
   %call = tail call i32 @Curl_trc_opt(ptr noundef %config) #8
   store atomic i32 0, ptr @s_lock release, align 4
   ret i32 %call
@@ -268,12 +268,12 @@ define i32 @curl_global_sslset(i32 noundef %id, ptr noundef %name, ptr noundef %
 entry:
   %0 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not2.i = icmp eq i32 %0, 0
-  br i1 %tobool.not2.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not2.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 for.cond.loopexit.i:                              ; preds = %while.body.i, %while.cond.preheader.i
   %1 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry, %for.cond.loopexit.i
   %2 = load atomic i32, ptr @s_lock monotonic, align 4
@@ -286,7 +286,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %tobool2.not.i = icmp eq i32 %3, 0
   br i1 %tobool2.not.i, label %for.cond.loopexit.i, label %while.body.i, !llvm.loop !4
 
-curl_simple_lock_lock.argprom.exit:               ; preds = %for.cond.loopexit.i, %entry
+curl_simple_lock_lock.exit:                       ; preds = %for.cond.loopexit.i, %entry
   %call = tail call i32 @Curl_init_sslset_nolock(i32 noundef %id, ptr noundef %name, ptr noundef %avail) #8
   store atomic i32 0, ptr @s_lock release, align 4
   ret i32 %call
@@ -300,12 +300,12 @@ entry:
   %data = alloca ptr, align 8
   %0 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not2.i = icmp eq i32 %0, 0
-  br i1 %tobool.not2.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not2.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 for.cond.loopexit.i:                              ; preds = %while.body.i, %while.cond.preheader.i
   %1 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %curl_simple_lock_lock.argprom.exit, label %while.cond.preheader.i
+  br i1 %tobool.not.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry, %for.cond.loopexit.i
   %2 = load atomic i32, ptr @s_lock monotonic, align 4
@@ -318,12 +318,12 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %tobool2.not.i = icmp eq i32 %3, 0
   br i1 %tobool2.not.i, label %for.cond.loopexit.i, label %while.body.i, !llvm.loop !4
 
-curl_simple_lock_lock.argprom.exit:               ; preds = %for.cond.loopexit.i, %entry
+curl_simple_lock_lock.exit:                       ; preds = %for.cond.loopexit.i, %entry
   %4 = load i32, ptr @initialized, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.end.i, label %if.end3
 
-if.end.i:                                         ; preds = %curl_simple_lock_lock.argprom.exit
+if.end.i:                                         ; preds = %curl_simple_lock_lock.exit
   store i32 1, ptr @initialized, align 4
   store ptr @malloc, ptr @Curl_cmalloc, align 8
   store ptr @free, ptr @Curl_cfree, align 8
@@ -351,7 +351,7 @@ do.end:                                           ; preds = %if.end12.i, %if.end
   store atomic i32 0, ptr @s_lock release, align 4
   br label %return
 
-if.end3:                                          ; preds = %if.end12.i, %curl_simple_lock_lock.argprom.exit
+if.end3:                                          ; preds = %if.end12.i, %curl_simple_lock_lock.exit
   store atomic i32 0, ptr @s_lock release, align 4
   %call4 = call i32 @Curl_open(ptr noundef nonnull %data) #8
   %tobool5.not = icmp eq i32 %call4, 0

@@ -2446,13 +2446,13 @@ if.end:                                           ; preds = %entry
 cleanup:                                          ; preds = %entry, %if.end
   %config.val = load ptr, ptr %config, align 8
   %tobool.not.i.i = icmp eq ptr %config.val, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_SMPConfiguration.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_SMPConfiguration.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   call void @qapi_free_SMPConfiguration(ptr noundef nonnull %config.val) #16
-  br label %glib_autoptr_cleanup_SMPConfiguration.argprom.exit
+  br label %glib_autoptr_cleanup_SMPConfiguration.exit
 
-glib_autoptr_cleanup_SMPConfiguration.argprom.exit: ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_SMPConfiguration.exit:       ; preds = %cleanup, %if.then.i.i
   ret void
 }
 

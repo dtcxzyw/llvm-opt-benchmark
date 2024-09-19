@@ -173,7 +173,7 @@ _ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit.thread: ; pred
   br i1 %.not.i, label %.lr.ph.i.i.i.i5.preheader, label %66
 
 66:                                               ; preds = %64
-  invoke fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEENK3$_0clEv.argprom"()
+  invoke fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEENK3$_0clEv"()
           to label %67 unwind label %79
 
 67:                                               ; preds = %66
@@ -343,7 +343,7 @@ _ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit:        ; preds = %_ZSt7advanceIPKtlEv
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEENK3$_0clEv.argprom"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEENK3$_0clEv"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i8 0, i64 24, i1 false)
   %0 = tail call noalias noundef nonnull dereferenceable(89184) ptr @_Znwm(i64 noundef 89184) #13

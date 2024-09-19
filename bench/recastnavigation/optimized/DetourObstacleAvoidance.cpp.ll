@@ -995,7 +995,7 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   %52 = getelementptr inbounds i8, ptr %3, i64 8
   br label %60
 
-.preheader.loopexit:                              ; preds = %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.argprom.exit.thread
+.preheader.loopexit:                              ; preds = %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %.preheader
 
@@ -1016,10 +1016,10 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   %59 = load float, ptr %17, align 4
   br label %139
 
-60:                                               ; preds = %.lr.ph, %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.argprom.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.argprom.exit.thread ]
-  %.064117 = phi float [ %44, %.lr.ph ], [ %.1, %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.argprom.exit.thread ]
-  %.065116 = phi float [ 0.000000e+00, %.lr.ph ], [ %97, %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.argprom.exit.thread ]
+60:                                               ; preds = %.lr.ph, %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread ]
+  %.064117 = phi float [ %44, %.lr.ph ], [ %.1, %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread ]
+  %.065116 = phi float [ 0.000000e+00, %.lr.ph ], [ %97, %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread ]
   %61 = load ptr, ptr %51, align 8
   %62 = getelementptr inbounds %struct.dtObstacleCircle, ptr %61, i64 %indvars.iv
   %63 = load float, ptr %1, align 4
@@ -1061,7 +1061,7 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   %98 = fmul float %76, %76
   %99 = tail call noundef float @llvm.fmuladd.f32(float %73, float %73, float %98)
   %100 = fcmp olt float %99, 0x3F1A36E2E0000000
-  br i1 %100, label %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.argprom.exit.thread, label %101
+  br i1 %100, label %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread, label %101
 
 101:                                              ; preds = %60
   %102 = getelementptr inbounds i8, ptr %62, i64 36
@@ -1084,7 +1084,7 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   %119 = fmul float %99, %118
   %120 = tail call float @llvm.fmuladd.f32(float %117, float %117, float %119)
   %121 = fcmp olt float %120, 0.000000e+00
-  br i1 %121, label %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.argprom.exit.thread, label %122
+  br i1 %121, label %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread, label %122
 
 122:                                              ; preds = %101
   %123 = fdiv float 1.000000e+00, %99
@@ -1101,13 +1101,13 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   %132 = fcmp oge float %.094, 0.000000e+00
   %133 = fcmp olt float %.094, %.064117
   %or.cond77 = select i1 %132, i1 %133, i1 false
-  br i1 %or.cond77, label %134, label %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.argprom.exit.thread
+  br i1 %or.cond77, label %134, label %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread
 
 134:                                              ; preds = %122
   %135 = fcmp olt float %.094, %45
-  br i1 %135, label %.loopexit, label %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.argprom.exit.thread
+  br i1 %135, label %.loopexit, label %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread
 
-_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.argprom.exit.thread: ; preds = %101, %60, %122, %134
+_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread: ; preds = %101, %60, %122, %134
   %.1 = phi float [ %.094, %134 ], [ %.064117, %122 ], [ %.064117, %60 ], [ %.064117, %101 ]
   %136 = load i32, ptr %48, align 8
   %137 = sext i32 %136 to i64

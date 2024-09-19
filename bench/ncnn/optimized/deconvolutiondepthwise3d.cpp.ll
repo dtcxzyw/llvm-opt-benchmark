@@ -943,7 +943,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn24DeconvolutionDepthWise3
   %or.cond112 = select i1 %or.cond109, i1 %96, i1 false
   br i1 %or.cond112, label %.invoke, label %116
 
-97:                                               ; preds = %.invoke, %.noexc616.i, %.noexc.i, %_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiiS2_RKNS_6OptionE.argprom.exit, %129
+97:                                               ; preds = %.invoke, %.noexc616.i, %.noexc.i, %_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiiS2_RKNS_6OptionE.exit, %129
   %98 = landingpad { ptr, i32 }
           cleanup
   %99 = load ptr, ptr %59, align 8
@@ -1791,20 +1791,20 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_
 
 .loopexit.i:                                      ; preds = %._crit_edge107.us.i, %._crit_edge154.i, %.preheader35.lr.ph.i, %354, %.preheader32.i
   %.not.i.i.i.i = icmp eq ptr %.sroa.0.0.i, null
-  br i1 %.not.i.i.i.i, label %_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiiS2_RKNS_6OptionE.argprom.exit, label %510
+  br i1 %.not.i.i.i.i, label %_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiiS2_RKNS_6OptionE.exit, label %510
 
 510:                                              ; preds = %.loopexit.i
   %511 = ptrtoint ptr %.sroa.6.0.i to i64
   %512 = ptrtoint ptr %.sroa.0.0.i to i64
   %513 = sub i64 %511, %512
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.i, i64 noundef %513) #17
-  br label %_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiiS2_RKNS_6OptionE.argprom.exit
+  br label %_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiiS2_RKNS_6OptionE.exit
 
-_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiiS2_RKNS_6OptionE.argprom.exit: ; preds = %510, %.loopexit.i
+_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiiS2_RKNS_6OptionE.exit: ; preds = %510, %.loopexit.i
   invoke void @_ZNK4ncnn24DeconvolutionDepthWise3D11cut_paddingERKNS_3MatERS1_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %514 unwind label %97
 
-514:                                              ; preds = %_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiiS2_RKNS_6OptionE.argprom.exit
+514:                                              ; preds = %_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_iiiiiiiiiiiS2_RKNS_6OptionE.exit
   %515 = load ptr, ptr %2, align 8
   %516 = icmp eq ptr %515, null
   br i1 %516, label %.critedge, label %517

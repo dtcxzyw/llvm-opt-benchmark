@@ -834,7 +834,7 @@ _ZN6Assimp3FBX12_GLOBAL__N_18ReadWordEPKcRS3_S3_.exit199: ; preds = %cond.false3
 cond.end35:                                       ; preds = %_ZN6Assimp3FBX12_GLOBAL__N_18ReadWordEPKcRS3_S3_.exit199, %_ZN6Assimp3FBX12_GLOBAL__N_114ReadDoubleWordEPKcRS3_S3_.exit183
   %cond28395 = phi i64 [ %dword.0.copyload.i142, %_ZN6Assimp3FBX12_GLOBAL__N_114ReadDoubleWordEPKcRS3_S3_.exit183 ], [ %conv26, %_ZN6Assimp3FBX12_GLOBAL__N_18ReadWordEPKcRS3_S3_.exit199 ]
   %cond36 = phi i64 [ %dword.0.copyload.i174, %_ZN6Assimp3FBX12_GLOBAL__N_114ReadDoubleWordEPKcRS3_S3_.exit183 ], [ %conv34, %_ZN6Assimp3FBX12_GLOBAL__N_18ReadWordEPKcRS3_S3_.exit199 ]
-  call fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_110ReadStringERPKcS4_S3_S4_S3_bb.retelim(ptr noundef nonnull align 8 dereferenceable(8) %sbeg, ptr noundef nonnull align 8 dereferenceable(8) %send, ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(8) %cursor, ptr noundef %end, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_110ReadStringERPKcS4_S3_S4_S3_bb(ptr noundef nonnull align 8 dereferenceable(8) %sbeg, ptr noundef nonnull align 8 dereferenceable(8) %send, ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(8) %cursor, ptr noundef %end, i1 noundef zeroext false, i1 noundef zeroext false)
   %call39 = tail call noundef ptr @_ZN6Assimp14StackAllocator8AllocateEm(ptr noundef nonnull align 8 dereferenceable(40) %token_allocator, i64 noundef 40)
   %27 = load ptr, ptr %sbeg, align 8
   %28 = load ptr, ptr %send, align 8
@@ -1286,7 +1286,7 @@ if.end49.i:                                       ; preds = %sw.epilog.i, %_ZN6A
   br label %sw.epilog67.i
 
 sw.bb52.i:                                        ; preds = %if.end.i
-  call fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_110ReadStringERPKcS4_S3_S4_S3_bb.retelim(ptr noundef nonnull align 8 dereferenceable(8) %sb.i, ptr noundef nonnull align 8 dereferenceable(8) %se.i, ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(8) %cursor, ptr noundef %add.ptr, i1 noundef zeroext true, i1 noundef zeroext true)
+  call fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_110ReadStringERPKcS4_S3_S4_S3_bb(ptr noundef nonnull align 8 dereferenceable(8) %sb.i, ptr noundef nonnull align 8 dereferenceable(8) %se.i, ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(8) %cursor, ptr noundef %add.ptr, i1 noundef zeroext true, i1 noundef zeroext true)
   %.pre.i = load ptr, ptr %cursor, align 8
   br label %sw.epilog67.i
 
@@ -2156,7 +2156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_110ReadStringERPKcS4_S3_S4_S3_bb.retelim(ptr nocapture noundef nonnull align 8 dereferenceable(8) %sbegin_out, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %send_out, ptr noundef %input, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cursor, ptr noundef %end, i1 noundef zeroext %long_length, i1 noundef zeroext %allow_null) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_110ReadStringERPKcS4_S3_S4_S3_bb(ptr nocapture noundef nonnull align 8 dereferenceable(8) %sbegin_out, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %send_out, ptr noundef %input, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cursor, ptr noundef %end, i1 noundef zeroext %long_length, i1 noundef zeroext %allow_null) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i30 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i31 = alloca %"class.std::allocator", align 1

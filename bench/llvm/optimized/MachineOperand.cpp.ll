@@ -342,9 +342,9 @@ define dso_local void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not12.i.i = icmp eq ptr %15, null
-  br i1 %.not12.i.i, label %18, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit
+  br i1 %.not12.i.i, label %18, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit: ; preds = %13
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit: ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %17, ptr noundef nonnull %0) #21
@@ -356,7 +356,7 @@ _ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit: ; preds = %13
   store i32 %1, ptr %3, align 4
   br label %19
 
-19:                                               ; preds = %2, %18, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit
+19:                                               ; preds = %2, %18, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit
   ret void
 }
 
@@ -409,9 +409,9 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit: ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not12.i.i.i = icmp eq ptr %26, null
-  br i1 %.not12.i.i.i, label %29, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i.i, label %29, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %24
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i: ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %28, ptr noundef nonnull %0) #21
@@ -423,7 +423,7 @@ _ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %24
   store i32 %1, ptr %14, align 4
   br label %_ZN4llvm14MachineOperand6setRegENS_8RegisterE.exit
 
-_ZN4llvm14MachineOperand6setRegENS_8RegisterE.exit: ; preds = %13, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i, %29
+_ZN4llvm14MachineOperand6setRegENS_8RegisterE.exit: ; preds = %13, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i, %29
   %.not8 = icmp eq i32 %.0, 0
   br i1 %.not8, label %36, label %30
 
@@ -492,9 +492,9 @@ define dso_local void @_ZN4llvm14MachineOperand12substPhysRegENS_10MCRegisterERK
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not12.i.i.i = icmp eq ptr %28, null
-  br i1 %.not12.i.i.i, label %31, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i.i, label %31, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %26
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i: ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %30, ptr noundef nonnull %0) #21
@@ -506,7 +506,7 @@ _ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %26
   store i32 %.sroa.04.0, ptr %17, align 4
   br label %_ZN4llvm14MachineOperand6setRegENS_8RegisterE.exit
 
-_ZN4llvm14MachineOperand6setRegENS_8RegisterE.exit: ; preds = %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i, %31
+_ZN4llvm14MachineOperand6setRegENS_8RegisterE.exit: ; preds = %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i, %31
   ret void
 }
 
@@ -534,9 +534,9 @@ define dso_local void @_ZN4llvm14MachineOperand8setIsDefEb(ptr noundef nonnull a
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not12.i.i = icmp eq ptr %14, null
-  br i1 %.not12.i.i, label %21, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit
+  br i1 %.not12.i.i, label %21, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit: ; preds = %12
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit: ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %16, ptr noundef nonnull %0) #21
@@ -555,7 +555,7 @@ _ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit: ; preds = %12
   store i32 %24, ptr %0, align 8
   br label %25
 
-25:                                               ; preds = %2, %21, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit
+25:                                               ; preds = %2, %21, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit
   ret void
 }
 
@@ -615,33 +615,33 @@ define dso_local void @_ZN4llvm14MachineOperand17removeRegFromUsesEv(ptr noundef
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %or.cond = select i1 %4, i1 %7, i1 false
-  br i1 %or.cond, label %8, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.thread
+  br i1 %or.cond, label %8, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.thread
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.thread, label %10
+  br i1 %.not.i.i, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.thread, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not11.i.i = icmp eq ptr %12, null
-  br i1 %.not11.i.i, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.thread, label %13
+  br i1 %.not11.i.i, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.thread, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not12.i.i = icmp eq ptr %15, null
-  br i1 %.not12.i.i, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.thread, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit
+  br i1 %.not12.i.i, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.thread, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit: ; preds = %13
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit: ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %17, ptr noundef nonnull %0) #21
-  br label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.thread
+  br label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.thread
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.thread: ; preds = %13, %10, %8, %1, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.thread: ; preds = %13, %10, %8, %1, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit
   ret void
 }
 
@@ -672,17 +672,17 @@ define dso_local void @_ZN4llvm14MachineOperand17ChangeToImmediateElj(ptr nounde
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not12.i.i.i = icmp eq ptr %17, null
-  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %15
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i: ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %19, ptr noundef nonnull %0) #21
   %.pre = load i32, ptr %0, align 8
   br label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit
 
-_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %3, %10, %12, %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
-  %20 = phi i32 [ %4, %3 ], [ %4, %10 ], [ %4, %12 ], [ %4, %15 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i ]
+_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %3, %10, %12, %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
+  %20 = phi i32 [ %4, %3 ], [ %4, %10 ], [ %4, %12 ], [ %4, %15 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i ]
   store i64 %1, ptr %7, align 8
   %21 = shl i32 %2, 8
   %22 = and i32 %21, 1048320
@@ -720,17 +720,17 @@ define dso_local void @_ZN4llvm14MachineOperand19ChangeToFPImmediateEPKNS_10Cons
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not12.i.i.i = icmp eq ptr %17, null
-  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %15
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i: ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %19, ptr noundef nonnull %0) #21
   %.pre = load i32, ptr %0, align 8
   br label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit
 
-_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %3, %10, %12, %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
-  %20 = phi i32 [ %4, %3 ], [ %4, %10 ], [ %4, %12 ], [ %4, %15 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i ]
+_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %3, %10, %12, %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
+  %20 = phi i32 [ %4, %3 ], [ %4, %10 ], [ %4, %12 ], [ %4, %15 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i ]
   store ptr %1, ptr %7, align 8
   %21 = shl i32 %2, 8
   %22 = and i32 %21, 1048320
@@ -768,17 +768,17 @@ define dso_local void @_ZN4llvm14MachineOperand10ChangeToESEPKcj(ptr noundef non
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not12.i.i.i = icmp eq ptr %17, null
-  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %15
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i: ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %19, ptr noundef nonnull %0) #21
   %.pre = load i32, ptr %0, align 8
   br label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit
 
-_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %3, %10, %12, %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
-  %20 = phi i32 [ %4, %3 ], [ %4, %10 ], [ %4, %12 ], [ %4, %15 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i ]
+_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %3, %10, %12, %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
+  %20 = phi i32 [ %4, %3 ], [ %4, %10 ], [ %4, %12 ], [ %4, %15 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i ]
   store ptr %1, ptr %7, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %21, align 4
@@ -820,17 +820,17 @@ define dso_local void @_ZN4llvm14MachineOperand10ChangeToGAEPKNS_11GlobalValueEl
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not12.i.i.i = icmp eq ptr %18, null
-  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %16
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i: ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %20, ptr noundef nonnull %0) #21
   %.pre = load i32, ptr %0, align 8
   br label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit
 
-_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %4, %11, %13, %16, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
-  %21 = phi i32 [ %5, %4 ], [ %5, %11 ], [ %5, %13 ], [ %5, %16 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i ]
+_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %4, %11, %13, %16, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
+  %21 = phi i32 [ %5, %4 ], [ %5, %11 ], [ %5, %13 ], [ %5, %16 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i ]
   store ptr %1, ptr %8, align 8
   %22 = trunc i64 %2 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -875,17 +875,17 @@ define dso_local void @_ZN4llvm14MachineOperand10ChangeToBAEPKNS_12BlockAddressE
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not12.i.i.i = icmp eq ptr %18, null
-  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %16
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i: ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %20, ptr noundef nonnull %0) #21
   %.pre = load i32, ptr %0, align 8
   br label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit
 
-_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %4, %11, %13, %16, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
-  %21 = phi i32 [ %5, %4 ], [ %5, %11 ], [ %5, %13 ], [ %5, %16 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i ]
+_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %4, %11, %13, %16, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
+  %21 = phi i32 [ %5, %4 ], [ %5, %11 ], [ %5, %13 ], [ %5, %16 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i ]
   store ptr %1, ptr %8, align 8
   %22 = trunc i64 %2 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -930,17 +930,17 @@ define dso_local void @_ZN4llvm14MachineOperand16ChangeToMCSymbolEPNS_8MCSymbolE
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not12.i.i.i = icmp eq ptr %17, null
-  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %15
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i: ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %19, ptr noundef nonnull %0) #21
   %.pre = load i32, ptr %0, align 8
   br label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit
 
-_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %3, %10, %12, %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
-  %20 = phi i32 [ %4, %3 ], [ %4, %10 ], [ %4, %12 ], [ %4, %15 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i ]
+_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %3, %10, %12, %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
+  %20 = phi i32 [ %4, %3 ], [ %4, %10 ], [ %4, %12 ], [ %4, %15 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i ]
   store ptr %1, ptr %7, align 8
   %21 = shl i32 %2, 8
   %22 = and i32 %21, 1048320
@@ -978,17 +978,17 @@ define dso_local void @_ZN4llvm14MachineOperand18ChangeToFrameIndexEij(ptr nound
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not12.i.i.i = icmp eq ptr %17, null
-  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %15
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i: ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %19, ptr noundef nonnull %0) #21
   %.pre = load i32, ptr %0, align 8
   br label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit
 
-_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %3, %10, %12, %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
-  %20 = phi i32 [ %4, %3 ], [ %4, %10 ], [ %4, %12 ], [ %4, %15 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i ]
+_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %3, %10, %12, %15, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
+  %20 = phi i32 [ %4, %3 ], [ %4, %10 ], [ %4, %12 ], [ %4, %15 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i ]
   store i32 %1, ptr %7, align 8
   %21 = shl i32 %2, 8
   %22 = and i32 %21, 1048320
@@ -1026,17 +1026,17 @@ define dso_local void @_ZN4llvm14MachineOperand19ChangeToTargetIndexEjlj(ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not12.i.i.i = icmp eq ptr %18, null
-  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %16
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i: ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %20, ptr noundef nonnull %0) #21
   %.pre = load i32, ptr %0, align 8
   br label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit
 
-_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %4, %11, %13, %16, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
-  %21 = phi i32 [ %5, %4 ], [ %5, %11 ], [ %5, %13 ], [ %5, %16 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i ]
+_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %4, %11, %13, %16, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
+  %21 = phi i32 [ %5, %4 ], [ %5, %11 ], [ %5, %13 ], [ %5, %16 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i ]
   store i32 %1, ptr %8, align 8
   %22 = trunc i64 %2 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1081,17 +1081,17 @@ define dso_local void @_ZN4llvm14MachineOperand19ChangeToDbgInstrRefEjjj(ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not12.i.i.i = icmp eq ptr %18, null
-  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i.i, label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit, label %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i: ; preds = %16
+_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i: ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZN4llvm19MachineRegisterInfo27removeRegOperandFromUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(512) %20, ptr noundef nonnull %0) #21
   %.pre = load i32, ptr %0, align 8
   br label %_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit
 
-_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %4, %11, %13, %16, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i
-  %21 = phi i32 [ %5, %4 ], [ %5, %11 ], [ %5, %13 ], [ %5, %16 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.argprom.exit.i ]
+_ZN4llvm14MachineOperand17removeRegFromUsesEv.exit: ; preds = %4, %11, %13, %16, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i
+  %21 = phi i32 [ %5, %4 ], [ %5, %11 ], [ %5, %13 ], [ %5, %16 ], [ %.pre, %_ZL16getMFIfAvailableRN4llvm14MachineOperandE.exit.i ]
   store i32 %1, ptr %8, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %2, ptr %22, align 4
@@ -1450,9 +1450,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14MachineOperand13isIdenticalToERK
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 32
   %177 = load ptr, ptr %176, align 8
   %.not12.i = icmp eq ptr %177, null
-  br i1 %.not12.i, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
+  br i1 %.not12.i, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %175
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit: ; preds = %175
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 8
   %180 = load ptr, ptr %179, align 8
@@ -1465,7 +1465,7 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %175
   %.not.i.i.i.i = icmp ult i32 %186, 32
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit, label %187
 
-187:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
+187:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
   %188 = lshr i32 %186, 3
   %189 = and i32 %188, 536870908
   %.idx = zext nneg i32 %189 to i64
@@ -1554,8 +1554,8 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %175
 237:                                              ; preds = %18
   unreachable
 
-_ZSt5equalIPKjS1_EbT_S2_T0_.exit:                 ; preds = %25, %175, %172, %170, %236, %235, %232, %187, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit, %196, %202, %164, %140, %146, %115, %122, %91, %97, %61, %67, %19, %2, %7, %226, %220, %214, %208, %190, %85, %55, %49, %43, %37, %31
-  %.0 = phi i1 [ %231, %226 ], [ %225, %220 ], [ %219, %214 ], [ %213, %208 ], [ %195, %190 ], [ %90, %85 ], [ %60, %55 ], [ %54, %49 ], [ %48, %43 ], [ %42, %37 ], [ %36, %31 ], [ false, %7 ], [ false, %2 ], [ false, %19 ], [ false, %61 ], [ %84, %67 ], [ false, %91 ], [ %114, %97 ], [ false, %115 ], [ %139, %122 ], [ false, %140 ], [ %163, %146 ], [ true, %164 ], [ false, %196 ], [ %207, %202 ], [ %.not7.i.i.i.i, %187 ], [ true, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit ], [ false, %232 ], [ %.not7.i.i.i.i.i.i, %236 ], [ true, %235 ], [ false, %170 ], [ false, %172 ], [ false, %175 ], [ %spec.select, %25 ]
+_ZSt5equalIPKjS1_EbT_S2_T0_.exit:                 ; preds = %25, %175, %172, %170, %236, %235, %232, %187, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit, %196, %202, %164, %140, %146, %115, %122, %91, %97, %61, %67, %19, %2, %7, %226, %220, %214, %208, %190, %85, %55, %49, %43, %37, %31
+  %.0 = phi i1 [ %231, %226 ], [ %225, %220 ], [ %219, %214 ], [ %213, %208 ], [ %195, %190 ], [ %90, %85 ], [ %60, %55 ], [ %54, %49 ], [ %48, %43 ], [ %42, %37 ], [ %36, %31 ], [ false, %7 ], [ false, %2 ], [ false, %19 ], [ false, %61 ], [ %84, %67 ], [ false, %91 ], [ %114, %97 ], [ false, %115 ], [ %139, %122 ], [ false, %140 ], [ %163, %146 ], [ true, %164 ], [ false, %196 ], [ %207, %202 ], [ %.not7.i.i.i.i, %187 ], [ true, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit ], [ false, %232 ], [ %.not7.i.i.i.i.i.i, %236 ], [ true, %235 ], [ false, %170 ], [ false, %172 ], [ false, %175 ], [ %spec.select, %25 ]
   ret i1 %.0
 }
 
@@ -2002,9 +2002,9 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %180, %196
   %265 = getelementptr inbounds nuw i8, ptr %263, i64 32
   %266 = load ptr, ptr %265, align 8
   %.not12.i = icmp eq ptr %266, null
-  br i1 %.not12.i, label %306, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
+  br i1 %.not12.i, label %306, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %264
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit: ; preds = %264
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %268 = load ptr, ptr %267, align 8
   %269 = load ptr, ptr %268, align 8
@@ -2019,7 +2019,7 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %264
   %.not.i.i.i = icmp ult i32 %275, 32
   br i1 %.not.i.i.i, label %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
+_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
   %.idx = shl nuw nsw i64 %277, 3
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %279 = load ptr, ptr %278, align 8
@@ -2043,9 +2043,9 @@ _ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
   %287 = ptrtoint ptr %284 to i64
   br label %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit
 
-_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
-  %.sroa.0160.0 = phi ptr [ null, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit ], [ %280, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit ]
-  %.08.lcssa.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit ], [ %287, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit ]
+_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
+  %.sroa.0160.0 = phi ptr [ null, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit ], [ %280, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit ]
+  %.08.lcssa.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit ], [ %287, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit ]
   %288 = load i32, ptr %0, align 8
   %289 = trunc i32 %288 to i8
   %290 = and i32 %288, 255
@@ -2305,21 +2305,21 @@ define dso_local noundef ptr @_ZNK4llvm14MachineOperand18getTargetIndexNameEv(pt
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.argprom.exit, label %3
+  br i1 %.not.i, label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not11.i = icmp eq ptr %5, null
-  br i1 %.not11.i, label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.argprom.exit, label %6
+  br i1 %.not11.i, label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.exit, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not12.i = icmp eq ptr %8, null
-  br i1 %.not12.i, label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.argprom.exit, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
+  br i1 %.not12.i, label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.exit, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %6
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit: ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr i8, ptr %8, i64 16
@@ -2340,7 +2340,7 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %6
   %24 = icmp sgt i64 %23, 0
   br i1 %24, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
   %25 = and i64 %.idx3.i.i, -64
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %20, i64 %25
   br label %26
@@ -2350,25 +2350,25 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %6
   %.02950.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i ], [ %38, %37 ]
   %.029.val.i.i.i.i.i = load i32, ptr %.02950.i.i.i.i.i, align 8
   %27 = icmp eq i32 %.029.val.i.i.i.i.i, %10
-  br i1 %27, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i", label %28
+  br i1 %27, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 16
   %.val31.i.i.i.i.i = load i32, ptr %29, align 8
   %30 = icmp eq i32 %.val31.i.i.i.i.i, %10
-  br i1 %30, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit", label %31
+  br i1 %30, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit", label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 32
   %.val33.i.i.i.i.i = load i32, ptr %32, align 8
   %33 = icmp eq i32 %.val33.i.i.i.i.i, %10
-  br i1 %33, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit20", label %34
+  br i1 %33, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit20", label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 48
   %.val35.i.i.i.i.i = load i32, ptr %35, align 8
   %36 = icmp eq i32 %.val35.i.i.i.i.i, %10
-  br i1 %36, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit22", label %37
+  br i1 %36, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit22", label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 64
@@ -2380,9 +2380,9 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %6
   %41 = and i64 %21, 3
   br label %._crit_edge.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
-  %.pre-phi60.i.i.i.i.i = phi i64 [ %41, %._crit_edge.loopexit.i.i.i.i.i ], [ %21, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit ]
-  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %20, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit ]
+._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
+  %.pre-phi60.i.i.i.i.i = phi i64 [ %41, %._crit_edge.loopexit.i.i.i.i.i ], [ %21, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit ]
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %20, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit ]
   switch i64 %.pre-phi60.i.i.i.i.i, label %50 [
     i64 3, label %42
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
@@ -2392,7 +2392,7 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %6
 42:                                               ; preds = %._crit_edge.i.i.i.i.i
   %.029.val37.i.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i.i, align 8
   %43 = icmp eq i32 %.029.val37.i.i.i.i.i, %10
-  br i1 %43, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i", label %44
+  br i1 %43, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i", label %44
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 16
@@ -2402,7 +2402,7 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %6
   %.1.i.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 8
   %46 = icmp eq i32 %.1.val.i.i.i.i.i, %10
-  br i1 %46, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i", label %47
+  br i1 %46, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i", label %47
 
 47:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
   %48 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 16
@@ -2412,36 +2412,36 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %6
   %.2.i.i.i.i.i = phi ptr [ %48, %47 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 8
   %49 = icmp eq i32 %.2.val.i.i.i.i.i, %10
-  br i1 %49, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i", label %50
+  br i1 %49, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i", label %50
 
 50:                                               ; preds = %._crit_edge._crit_edge57.i.i.i.i.i, %._crit_edge.i.i.i.i.i
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit": ; preds = %28
+"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit": ; preds = %28
   %51 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit20": ; preds = %31
+"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit20": ; preds = %31
   %52 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit22": ; preds = %34
+"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit22": ; preds = %34
   %53 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i": ; preds = %26, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit20", %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit22", %50, %._crit_edge._crit_edge57.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %42
-  %.028.i.i.i.i.i = phi ptr [ %22, %50 ], [ %.029.lcssa.i.i.i.i.i, %42 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %51, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit" ], [ %52, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit20" ], [ %53, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit22" ], [ %.02950.i.i.i.i.i, %26 ]
+"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i": ; preds = %26, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit20", %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit22", %50, %._crit_edge._crit_edge57.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %42
+  %.028.i.i.i.i.i = phi ptr [ %22, %50 ], [ %.029.lcssa.i.i.i.i.i, %42 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %51, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %52, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit20" ], [ %53, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit22" ], [ %.02950.i.i.i.i.i, %26 ]
   %54 = getelementptr inbounds %"struct.std::pair.363", ptr %20, i64 %21
   %.not.i4 = icmp eq ptr %.028.i.i.i.i.i, %54
-  br i1 %.not.i4, label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.argprom.exit, label %55
+  br i1 %.not.i4, label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.exit, label %55
 
-55:                                               ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i"
+55:                                               ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i"
   %56 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i, i64 8
   %57 = load ptr, ptr %56, align 8
-  br label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.argprom.exit
+  br label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.exit
 
-_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.argprom.exit: ; preds = %6, %3, %1, %55, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i"
-  %58 = phi ptr [ %57, %55 ], [ null, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i" ], [ null, %1 ], [ null, %3 ], [ null, %6 ]
+_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.exit: ; preds = %6, %3, %1, %55, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i"
+  %58 = phi ptr [ %57, %55 ], [ null, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i" ], [ null, %1 ], [ null, %3 ], [ null, %6 ]
   ret ptr %58
 }
 
@@ -2589,9 +2589,9 @@ define dso_local void @_ZN4llvm14MachineOperand16printTargetFlagsERNS_11raw_ostr
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not12.i = icmp eq ptr %14, null
-  br i1 %.not12.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit53, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
+  br i1 %.not12.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit53, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %12
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit: ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
@@ -2621,11 +2621,11 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %12
   %38 = icmp ult i64 %37, 13
   br i1 %38, label %39, label %41
 
-39:                                               ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
+39:                                               ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
   %40 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.3, i64 noundef 13) #21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-41:                                               ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
+41:                                               ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %34, ptr noundef nonnull align 1 dereferenceable(13) @.str.3, i64 13, i1 false)
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 13
@@ -3187,9 +3187,9 @@ define dso_local void @_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamEPKNS_18
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not12.i.i.i = icmp eq ptr %12, null
-  br i1 %.not12.i.i.i, label %_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamENS_3LLTEPKNS_18TargetRegisterInfoEPKNS_19TargetIntrinsicInfoE.exit, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i.i
+  br i1 %.not12.i.i.i, label %_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamENS_3LLTEPKNS_18TargetRegisterInfoEPKNS_19TargetIntrinsicInfoE.exit, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.i.i
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i.i: ; preds = %10
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.i.i: ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
@@ -3204,9 +3204,9 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i.i: ; preds = %10
   %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(1232) %20) #21
   br label %_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamENS_3LLTEPKNS_18TargetRegisterInfoEPKNS_19TargetIntrinsicInfoE.exit
 
-_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamENS_3LLTEPKNS_18TargetRegisterInfoEPKNS_19TargetIntrinsicInfoE.exit: ; preds = %4, %7, %10, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i.i
-  %.04.i = phi ptr [ %3, %4 ], [ %3, %7 ], [ %3, %10 ], [ %24, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i.i ]
-  %.0.i = phi ptr [ %2, %4 ], [ %2, %7 ], [ %2, %10 ], [ %18, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i.i ]
+_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamENS_3LLTEPKNS_18TargetRegisterInfoEPKNS_19TargetIntrinsicInfoE.exit: ; preds = %4, %7, %10, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.i.i
+  %.04.i = phi ptr [ %3, %4 ], [ %3, %7 ], [ %3, %10 ], [ %24, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.i.i ]
+  %.0.i = phi ptr [ %2, %4 ], [ %2, %7 ], [ %2, %10 ], [ %18, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.i.i ]
   call void @_ZN4llvm17ModuleSlotTrackerC1EPKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef null, i1 noundef zeroext true) #21
   call void @_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerENS_3LLTESt8optionalIjEbbbjPKNS_18TargetRegisterInfoEPKNS_19TargetIntrinsicInfoE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(112) %5, i64 0, i64 0, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 0, ptr noundef %.0.i, ptr noundef %.04.i)
   call void @_ZN4llvm17ModuleSlotTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #21
@@ -3220,21 +3220,21 @@ define dso_local void @_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamENS_3LLT
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZL18tryToGetTargetInfoRKN4llvm14MachineOperandERPKNS_18TargetRegisterInfoERPKNS_19TargetIntrinsicInfoE.argprom.exit, label %8
+  br i1 %.not.i.i, label %_ZL18tryToGetTargetInfoRKN4llvm14MachineOperandERPKNS_18TargetRegisterInfoERPKNS_19TargetIntrinsicInfoE.exit, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not11.i.i = icmp eq ptr %10, null
-  br i1 %.not11.i.i, label %_ZL18tryToGetTargetInfoRKN4llvm14MachineOperandERPKNS_18TargetRegisterInfoERPKNS_19TargetIntrinsicInfoE.argprom.exit, label %11
+  br i1 %.not11.i.i, label %_ZL18tryToGetTargetInfoRKN4llvm14MachineOperandERPKNS_18TargetRegisterInfoERPKNS_19TargetIntrinsicInfoE.exit, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not12.i.i = icmp eq ptr %13, null
-  br i1 %.not12.i.i, label %_ZL18tryToGetTargetInfoRKN4llvm14MachineOperandERPKNS_18TargetRegisterInfoERPKNS_19TargetIntrinsicInfoE.argprom.exit, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i
+  br i1 %.not12.i.i, label %_ZL18tryToGetTargetInfoRKN4llvm14MachineOperandERPKNS_18TargetRegisterInfoERPKNS_19TargetIntrinsicInfoE.exit, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.i
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i: ; preds = %11
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.i: ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
@@ -3247,11 +3247,11 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i: ; preds = %11
   %23 = getelementptr inbounds i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(1232) %21) #21
-  br label %_ZL18tryToGetTargetInfoRKN4llvm14MachineOperandERPKNS_18TargetRegisterInfoERPKNS_19TargetIntrinsicInfoE.argprom.exit
+  br label %_ZL18tryToGetTargetInfoRKN4llvm14MachineOperandERPKNS_18TargetRegisterInfoERPKNS_19TargetIntrinsicInfoE.exit
 
-_ZL18tryToGetTargetInfoRKN4llvm14MachineOperandERPKNS_18TargetRegisterInfoERPKNS_19TargetIntrinsicInfoE.argprom.exit: ; preds = %5, %8, %11, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i
-  %.04 = phi ptr [ %4, %5 ], [ %4, %8 ], [ %4, %11 ], [ %25, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i ]
-  %.0 = phi ptr [ %3, %5 ], [ %3, %8 ], [ %3, %11 ], [ %19, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.i ]
+_ZL18tryToGetTargetInfoRKN4llvm14MachineOperandERPKNS_18TargetRegisterInfoERPKNS_19TargetIntrinsicInfoE.exit: ; preds = %5, %8, %11, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.i
+  %.04 = phi ptr [ %4, %5 ], [ %4, %8 ], [ %4, %11 ], [ %25, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.i ]
+  %.0 = phi ptr [ %3, %5 ], [ %3, %8 ], [ %3, %11 ], [ %19, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.i ]
   call void @_ZN4llvm17ModuleSlotTrackerC1EPKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef null, i1 noundef zeroext true) #21
   call void @_ZNK4llvm14MachineOperand5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerENS_3LLTESt8optionalIjEbbbjPKNS_18TargetRegisterInfoEPKNS_19TargetIntrinsicInfoE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(112) %6, i64 %2, i64 0, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 0, ptr noundef %.0, ptr noundef %.04)
   call void @_ZN4llvm17ModuleSlotTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #21
@@ -3530,44 +3530,44 @@ _ZNK4llvm14MachineOperand11isRenamableEv.exit.thread: ; preds = %140, %149, %_ZN
 
 .critedge:                                        ; preds = %137, %149, %_ZN4llvm11raw_ostreamlsEPKc.exit225, %_ZNK4llvm14MachineOperand11isRenamableEv.exit.thread, %_ZNK4llvm14MachineOperand11isRenamableEv.exit
   %153 = icmp slt i32 %27, 0
-  br i1 %153, label %154, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.thread
+  br i1 %153, label %154, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread
 
 154:                                              ; preds = %.critedge
   %155 = getelementptr inbounds i8, ptr %0, i64 8
   %.val209 = load ptr, ptr %155, align 8
   %.not.i226 = icmp eq ptr %.val209, null
-  br i1 %.not.i226, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.thread, label %156
+  br i1 %.not.i226, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread, label %156
 
 156:                                              ; preds = %154
   %157 = getelementptr inbounds nuw i8, ptr %.val209, i64 24
   %158 = load ptr, ptr %157, align 8
   %.not11.i = icmp eq ptr %158, null
-  br i1 %.not11.i, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.thread, label %159
+  br i1 %.not11.i, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread, label %159
 
 159:                                              ; preds = %156
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 32
   %161 = load ptr, ptr %160, align 8
   %.not12.i = icmp eq ptr %161, null
-  br i1 %.not12.i, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.thread, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit
+  br i1 %.not12.i, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit: ; preds = %159
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit: ; preds = %159
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 32
   %163 = load ptr, ptr %162, align 8
-  br label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.thread
+  br label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.thread: ; preds = %159, %156, %154, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit, %.critedge
-  %.0 = phi ptr [ %163, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit ], [ null, %.critedge ], [ null, %154 ], [ null, %156 ], [ null, %159 ]
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread: ; preds = %159, %156, %154, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit, %.critedge
+  %.0 = phi ptr [ %163, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit ], [ null, %.critedge ], [ null, %154 ], [ null, %156 ], [ null, %159 ]
   call void @_ZN4llvm8printRegENS_8RegisterEPKNS_18TargetRegisterInfoEjPKNS_19MachineRegisterInfoE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Printable") align 8 %16, i32 %27, ptr noundef %9, i32 noundef 0, ptr noundef %.0) #21
   %164 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %165 = load ptr, ptr %164, align 8
   %.not.i.i.i = icmp eq ptr %165, null
   br i1 %.not.i.i.i, label %166, label %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit
 
-166:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.thread
+166:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread
   call void @_ZSt25__throw_bad_function_callv() #25
   unreachable
 
-_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit: ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit.thread
+_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit: ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread
   %167 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %168 = load ptr, ptr %167, align 8
   call void %168(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(48) %1) #21
@@ -3644,20 +3644,20 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %181, %183
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 32
   %204 = load ptr, ptr %203, align 8
   %.not12.i233 = icmp eq ptr %204, null
-  br i1 %.not12.i233, label %_ZN4llvm9PrintableD2Ev.exit242, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit235
+  br i1 %.not12.i233, label %_ZN4llvm9PrintableD2Ev.exit242, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit235
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit235: ; preds = %202
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit235: ; preds = %202
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 32
   %206 = load ptr, ptr %205, align 8
   %.not204 = xor i1 %5, true
   %brmerge = or i1 %6, %.not204
   br i1 %brmerge, label %209, label %207
 
-207:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit235
+207:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit235
   %208 = call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %206, i32 %27)
   br i1 %208, label %209, label %_ZN4llvm9PrintableD2Ev.exit242
 
-209:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit235, %207
+209:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit235, %207
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4032,21 +4032,21 @@ _ZN4llvm11raw_ostreamlsEPKc.exit270:              ; preds = %399, %401
   %404 = getelementptr inbounds i8, ptr %0, i64 8
   %.val205 = load ptr, ptr %404, align 8
   %.not.i271 = icmp eq ptr %.val205, null
-  br i1 %.not.i271, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275.thread, label %405
+  br i1 %.not.i271, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275.thread, label %405
 
 405:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit270
   %406 = getelementptr inbounds nuw i8, ptr %.val205, i64 24
   %407 = load ptr, ptr %406, align 8
   %.not11.i272 = icmp eq ptr %407, null
-  br i1 %.not11.i272, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275.thread, label %408
+  br i1 %.not11.i272, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275.thread, label %408
 
 408:                                              ; preds = %405
   %409 = getelementptr inbounds nuw i8, ptr %407, i64 32
   %410 = load ptr, ptr %409, align 8
   %.not12.i273 = icmp eq ptr %410, null
-  br i1 %.not12.i273, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275.thread, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275
+  br i1 %.not12.i273, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275.thread, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275: ; preds = %408
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275: ; preds = %408
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %412 = load i32, ptr %411, align 8
   %413 = getelementptr i8, ptr %410, i64 16
@@ -4067,7 +4067,7 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275: ; preds = %408
   %426 = icmp sgt i64 %425, 0
   br i1 %426, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275
   %427 = and i64 %.idx3.i.i, -64
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %422, i64 %427
   br label %428
@@ -4077,25 +4077,25 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275: ; preds = %408
   %.02950.i.i.i.i.i = phi ptr [ %422, %.lr.ph.i.i.i.i.i ], [ %440, %439 ]
   %.029.val.i.i.i.i.i = load i32, ptr %.02950.i.i.i.i.i, align 8
   %429 = icmp eq i32 %.029.val.i.i.i.i.i, %412
-  br i1 %429, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i", label %430
+  br i1 %429, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i", label %430
 
 430:                                              ; preds = %428
   %431 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 16
   %.val31.i.i.i.i.i = load i32, ptr %431, align 8
   %432 = icmp eq i32 %.val31.i.i.i.i.i, %412
-  br i1 %432, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit", label %433
+  br i1 %432, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit", label %433
 
 433:                                              ; preds = %430
   %434 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 32
   %.val33.i.i.i.i.i = load i32, ptr %434, align 8
   %435 = icmp eq i32 %.val33.i.i.i.i.i, %412
-  br i1 %435, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit503", label %436
+  br i1 %435, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit503", label %436
 
 436:                                              ; preds = %433
   %437 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 48
   %.val35.i.i.i.i.i = load i32, ptr %437, align 8
   %438 = icmp eq i32 %.val35.i.i.i.i.i, %412
-  br i1 %438, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit505", label %439
+  br i1 %438, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit505", label %439
 
 439:                                              ; preds = %436
   %440 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 64
@@ -4107,9 +4107,9 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275: ; preds = %408
   %443 = and i64 %423, 3
   br label %._crit_edge.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275
-  %.pre-phi60.i.i.i.i.i = phi i64 [ %443, %._crit_edge.loopexit.i.i.i.i.i ], [ %423, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275 ]
-  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %422, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275 ]
+._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275
+  %.pre-phi60.i.i.i.i.i = phi i64 [ %443, %._crit_edge.loopexit.i.i.i.i.i ], [ %423, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275 ]
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %422, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275 ]
   switch i64 %.pre-phi60.i.i.i.i.i, label %452 [
     i64 3, label %444
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
@@ -4119,7 +4119,7 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275: ; preds = %408
 444:                                              ; preds = %._crit_edge.i.i.i.i.i
   %.029.val37.i.i.i.i.i = load i32, ptr %.029.lcssa.i.i.i.i.i, align 8
   %445 = icmp eq i32 %.029.val37.i.i.i.i.i, %412
-  br i1 %445, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i", label %446
+  br i1 %445, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i", label %446
 
 446:                                              ; preds = %444
   %447 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 16
@@ -4129,7 +4129,7 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275: ; preds = %408
   %.1.i.i.i.i.i = phi ptr [ %447, %446 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 8
   %448 = icmp eq i32 %.1.val.i.i.i.i.i, %412
-  br i1 %448, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i", label %449
+  br i1 %448, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i", label %449
 
 449:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i
   %450 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 16
@@ -4139,42 +4139,42 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275: ; preds = %408
   %.2.i.i.i.i.i = phi ptr [ %450, %449 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 8
   %451 = icmp eq i32 %.2.val.i.i.i.i.i, %412
-  br i1 %451, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i", label %452
+  br i1 %451, label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i", label %452
 
 452:                                              ; preds = %._crit_edge._crit_edge57.i.i.i.i.i, %._crit_edge.i.i.i.i.i
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit": ; preds = %430
+"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit": ; preds = %430
   %453 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit503": ; preds = %433
+"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit503": ; preds = %433
   %454 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit505": ; preds = %436
+"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit505": ; preds = %436
   %455 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i": ; preds = %428, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit503", %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit505", %452, %._crit_edge._crit_edge57.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %444
-  %.028.i.i.i.i.i = phi ptr [ %424, %452 ], [ %.029.lcssa.i.i.i.i.i, %444 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %453, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit" ], [ %454, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit503" ], [ %455, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i.loopexit.split.loop.exit505" ], [ %.02950.i.i.i.i.i, %428 ]
+"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i": ; preds = %428, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit503", %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit505", %452, %._crit_edge._crit_edge57.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %444
+  %.028.i.i.i.i.i = phi ptr [ %424, %452 ], [ %.029.lcssa.i.i.i.i.i, %444 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %453, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %454, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit503" ], [ %455, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit505" ], [ %.02950.i.i.i.i.i, %428 ]
   %456 = getelementptr inbounds %"struct.std::pair.363", ptr %422, i64 %423
   %.not.i276 = icmp eq ptr %.028.i.i.i.i.i, %456
-  br i1 %.not.i276, label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.argprom.exit, label %457
+  br i1 %.not.i276, label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.exit, label %457
 
-457:                                              ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i"
+457:                                              ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i"
   %458 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i, i64 8
   %459 = load ptr, ptr %458, align 8
-  br label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.argprom.exit
+  br label %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.exit
 
-_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.argprom.exit: ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i", %457
-  %.0.i277 = phi ptr [ %459, %457 ], [ null, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.argprom.exit.i" ]
+_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.exit: ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i", %457
+  %.0.i277 = phi ptr [ %459, %457 ], [ null, %"_ZN4llvm7find_ifIRNS_8ArrayRefISt4pairIiPKcEEEZL18getTargetIndexNameRKNS_15MachineFunctionEiE3$_0EEDaOT_T0_.exit.i" ]
   %.not196 = icmp eq ptr %.0.i277, null
   %spec.select = select i1 %.not196, ptr @.str.30, ptr %.0.i277
-  br label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275.thread
+  br label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275.thread
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275.thread: ; preds = %408, %405, %_ZN4llvm11raw_ostreamlsEPKc.exit270, %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.argprom.exit
-  %.0163 = phi ptr [ %spec.select, %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.argprom.exit ], [ @.str.30, %_ZN4llvm11raw_ostreamlsEPKc.exit270 ], [ @.str.30, %405 ], [ @.str.30, %408 ]
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275.thread: ; preds = %408, %405, %_ZN4llvm11raw_ostreamlsEPKc.exit270, %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.exit
+  %.0163 = phi ptr [ %spec.select, %_ZL18getTargetIndexNameRKN4llvm15MachineFunctionEi.exit ], [ @.str.30, %_ZN4llvm11raw_ostreamlsEPKc.exit270 ], [ @.str.30, %405 ], [ @.str.30, %408 ]
   %460 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0163) #21
   %461 = load ptr, ptr %391, align 8
   %462 = load ptr, ptr %393, align 8
@@ -4184,13 +4184,13 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275.thread: ; preds =
   %466 = icmp ugt i64 %460, %465
   br i1 %466, label %467, label %469
 
-467:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275.thread
+467:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275.thread
   %468 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.0163, i64 noundef %460) #21
   %.phi.trans.insert495 = getelementptr inbounds nuw i8, ptr %468, i64 32
   %.pre496 = load ptr, ptr %.phi.trans.insert495, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit280
 
-469:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit275.thread
+469:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit275.thread
   %.not.i2.i278 = icmp eq i64 %460, 0
   br i1 %.not.i2.i278, label %_ZN4llvm11raw_ostreamlsEPKc.exit280, label %470
 
@@ -5149,9 +5149,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit360:              ; preds = %936, %938
   %959 = getelementptr inbounds nuw i8, ptr %957, i64 32
   %960 = load ptr, ptr %959, align 8
   %.not12.i366 = icmp eq ptr %960, null
-  br i1 %.not12.i366, label %1578, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+  br i1 %.not12.i366, label %1578, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
 
-_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368: ; preds = %958
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368: ; preds = %958
   %961 = getelementptr inbounds nuw i8, ptr %960, i64 360
   %962 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %963 = load i32, ptr %962, align 8
@@ -5188,7 +5188,7 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368: ; preds = %958
     i8 15, label %1541
   ]
 
-976:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+976:                                              ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %977 = icmp ult i64 %975, 11
   br i1 %977, label %978, label %980
 
@@ -5255,7 +5255,7 @@ _ZN4llvm14MachineOperand11printSymbolERNS_11raw_ostreamERNS_8MCSymbolE.exit.i: ;
   tail call fastcc void @_ZL16printCFIRegisterjRN4llvm11raw_ostreamEPKNS_18TargetRegisterInfoE(i32 noundef %.0.i.i371, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %9)
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1006:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1006:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1007 = icmp ult i64 %975, 15
   br i1 %1007, label %1008, label %1010
 
@@ -5316,7 +5316,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i172.i:          ; preds = %1023, %1021
   store ptr %1035, ptr %1028, align 8
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1036:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1036:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1037 = icmp ult i64 %975, 14
   br i1 %1037, label %1038, label %1040
 
@@ -5377,7 +5377,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i178.i:          ; preds = %1053, %1051
   store ptr %1065, ptr %1058, align 8
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1066:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1066:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1067 = icmp ult i64 %975, 7
   br i1 %1067, label %1068, label %1070
 
@@ -5468,7 +5468,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit191.i:            ; preds = %1104, %1102
   %1107 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i190.i, i64 noundef %.0.i193.i) #21
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1108:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1108:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1109 = icmp ult i64 %975, 17
   br i1 %1109, label %1110, label %1112
 
@@ -5535,7 +5535,7 @@ _ZN4llvm14MachineOperand11printSymbolERNS_11raw_ostreamERNS_8MCSymbolE.exit199.i
   tail call fastcc void @_ZL16printCFIRegisterjRN4llvm11raw_ostreamEPKNS_18TargetRegisterInfoE(i32 noundef %.0.i201.i, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %9)
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1138:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1138:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1139 = icmp ult i64 %975, 15
   br i1 %1139, label %1140, label %1142
 
@@ -5602,7 +5602,7 @@ _ZN4llvm14MachineOperand11printSymbolERNS_11raw_ostreamERNS_8MCSymbolE.exit207.i
   %1168 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %.0.i209.i) #21
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1169:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1169:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1170 = icmp ult i64 %975, 8
   br i1 %1170, label %1171, label %1173
 
@@ -5693,7 +5693,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit220.i:            ; preds = %1207, %1205
   %1210 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i219.i, i64 noundef %.0.i222.i) #21
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1211:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1211:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1212 = icmp ult i64 %975, 20
   br i1 %1212, label %1213, label %1215
 
@@ -5809,7 +5809,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit238.i:            ; preds = %1261, %1259
   %1267 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i237.i, i64 noundef %1266) #21
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1268:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1268:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1269 = icmp ult i64 %975, 11
   br i1 %1269, label %1270, label %1272
 
@@ -5900,7 +5900,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit249.i:            ; preds = %1306, %1304
   %1309 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i248.i, i64 noundef %.0.i251.i) #21
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1310:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1310:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1311 = icmp ult i64 %975, 18
   br i1 %1311, label %1312, label %1314
 
@@ -5967,7 +5967,7 @@ _ZN4llvm14MachineOperand11printSymbolERNS_11raw_ostreamERNS_8MCSymbolE.exit257.i
   %1340 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %.0.i259.i) #21
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1341:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1341:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1342 = icmp ult i64 %975, 8
   br i1 %1342, label %1343, label %1345
 
@@ -6034,7 +6034,7 @@ _ZN4llvm14MachineOperand11printSymbolERNS_11raw_ostreamERNS_8MCSymbolE.exit265.i
   tail call fastcc void @_ZL16printCFIRegisterjRN4llvm11raw_ostreamEPKNS_18TargetRegisterInfoE(i32 noundef %.0.i267.i, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %9)
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1371:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1371:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1372 = icmp ult i64 %975, 7
   br i1 %1372, label %1373, label %1375
 
@@ -6167,7 +6167,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit280.i:            ; preds = %1428, %1426
   %1437 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %13) #21
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1438:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1438:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1439 = icmp ult i64 %975, 10
   br i1 %1439, label %1440, label %1442
 
@@ -6234,7 +6234,7 @@ _ZN4llvm14MachineOperand11printSymbolERNS_11raw_ostreamERNS_8MCSymbolE.exit288.i
   tail call fastcc void @_ZL16printCFIRegisterjRN4llvm11raw_ostreamEPKNS_18TargetRegisterInfoE(i32 noundef %.0.i290.i, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %9)
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1468:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1468:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1469 = icmp ult i64 %975, 9
   br i1 %1469, label %1470, label %1472
 
@@ -6324,7 +6324,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit301.i:            ; preds = %1506, %1504
   tail call fastcc void @_ZL16printCFIRegisterjRN4llvm11raw_ostreamEPKNS_18TargetRegisterInfoE(i32 noundef %1510, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %9)
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1511:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1511:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1512 = icmp ult i64 %975, 12
   br i1 %1512, label %1513, label %1515
 
@@ -6385,7 +6385,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i305.i:          ; preds = %1528, %1526
   store ptr %1540, ptr %1533, align 8
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1541:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1541:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1542 = icmp ult i64 %975, 21
   br i1 %1542, label %1543, label %1545
 
@@ -6446,7 +6446,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i311.i:          ; preds = %1558, %1556
   store ptr %1570, ptr %1563, align 8
   br label %_ZL8printCFIRN4llvm11raw_ostreamERKNS_16MCCFIInstructionEPKNS_18TargetRegisterInfoE.exit
 
-1571:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.argprom.exit368
+1571:                                             ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit368
   %1572 = icmp ult i64 %975, 30
   br i1 %1572, label %1573, label %1575
 

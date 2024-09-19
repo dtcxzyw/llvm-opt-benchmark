@@ -849,15 +849,15 @@ define i32 @Cbs2_ManPropagate(ptr nocapture noundef %0, i32 noundef %1) local_un
   %.pre82 = and i32 %.pre, 536870911
   %.pre84 = sub nsw i32 %42, %.pre82
   %.pre86 = sext i32 %.pre84 to i64
-  br i1 %narrow.i.not.i, label %Cbs2_VarIsJust.argprom.exit.thread, label %51
+  br i1 %narrow.i.not.i, label %Cbs2_VarIsJust.exit.thread, label %51
 
 51:                                               ; preds = %.lr.ph103
   %52 = getelementptr inbounds i8, ptr %.val43.i.pre, i64 %.pre86
   %53 = load i8, ptr %52, align 1
   %54 = icmp sgt i8 %53, 1
-  br i1 %54, label %Cbs2_VarIsJust.argprom.exit, label %Cbs2_VarIsJust.argprom.exit.thread
+  br i1 %54, label %Cbs2_VarIsJust.exit, label %Cbs2_VarIsJust.exit.thread
 
-Cbs2_VarIsJust.argprom.exit:                      ; preds = %51
+Cbs2_VarIsJust.exit:                              ; preds = %51
   %55 = lshr i64 %.val47, 32
   %56 = trunc nuw i64 %55 to i32
   %57 = and i32 %56, 536870911
@@ -866,16 +866,16 @@ Cbs2_VarIsJust.argprom.exit:                      ; preds = %51
   %60 = getelementptr inbounds i8, ptr %.val43.i.pre, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = icmp slt i8 %61, 2
-  br i1 %62, label %Cbs2_VarIsJust.argprom.exit.thread, label %63
+  br i1 %62, label %Cbs2_VarIsJust.exit.thread, label %63
 
-63:                                               ; preds = %Cbs2_VarIsJust.argprom.exit
+63:                                               ; preds = %Cbs2_VarIsJust.exit
   %64 = add nsw i32 %.03766102, 1
   %65 = sext i32 %.03766102 to i64
   %66 = getelementptr inbounds i32, ptr %43, i64 %65
   store i32 %42, ptr %66, align 4
   br label %Cbs2_ManPropagateTwo.exit.thread
 
-Cbs2_VarIsJust.argprom.exit.thread:               ; preds = %.lr.ph103, %51, %Cbs2_VarIsJust.argprom.exit
+Cbs2_VarIsJust.exit.thread:                       ; preds = %.lr.ph103, %51, %Cbs2_VarIsJust.exit
   %67 = getelementptr inbounds i8, ptr %.val43.i.pre, i64 %.pre86
   %68 = load i8, ptr %67, align 1
   %69 = sext i8 %68 to i32
@@ -902,7 +902,7 @@ Cbs2_VarIsJust.argprom.exit.thread:               ; preds = %.lr.ph103, %51, %Cb
   %or.cond.i = select i1 %87, i1 true, i1 %88
   br i1 %or.cond.i, label %Cbs2_ManPropagateTwo.exit.thread, label %89
 
-89:                                               ; preds = %Cbs2_VarIsJust.argprom.exit.thread
+89:                                               ; preds = %Cbs2_VarIsJust.exit.thread
   %90 = icmp eq i32 %72, 1
   %91 = icmp eq i32 %84, 1
   %or.cond3.i = select i1 %90, i1 %91, i1 false
@@ -1083,8 +1083,8 @@ Cbs2_ManPropagateTwo.exit:                        ; preds = %89
   %.not45 = icmp eq i32 %192, 0
   br i1 %.not45, label %Cbs2_ManPropagateTwo.exit.thread, label %.loopexit
 
-Cbs2_ManPropagateTwo.exit.thread:                 ; preds = %138, %Cbs2_ManAssign.exit61.i, %Cbs2_VarIsJust.argprom.exit.thread, %63, %Cbs2_ManPropagateTwo.exit
-  %.138 = phi i32 [ %64, %63 ], [ %.03766102, %Cbs2_ManPropagateTwo.exit ], [ %.03766102, %Cbs2_VarIsJust.argprom.exit.thread ], [ %.03766102, %Cbs2_ManAssign.exit61.i ], [ %.03766102, %138 ]
+Cbs2_ManPropagateTwo.exit.thread:                 ; preds = %138, %Cbs2_ManAssign.exit61.i, %Cbs2_VarIsJust.exit.thread, %63, %Cbs2_ManPropagateTwo.exit
+  %.138 = phi i32 [ %64, %63 ], [ %.03766102, %Cbs2_ManPropagateTwo.exit ], [ %.03766102, %Cbs2_VarIsJust.exit.thread ], [ %.03766102, %Cbs2_ManAssign.exit61.i ], [ %.03766102, %138 ]
   %indvars.iv.next80 = add nsw i64 %indvars.iv79101, 1
   %193 = load i32, ptr %7, align 4
   %194 = sext i32 %193 to i64
@@ -1966,9 +1966,9 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %sext = sext i32 %14 to i64
   br label %23
 
-23:                                               ; preds = %.lr.ph, %Cbs2_VarIsJust.argprom.exit.thread
-  %24 = phi i32 [ %16, %.lr.ph ], [ %66, %Cbs2_VarIsJust.argprom.exit.thread ]
-  %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %Cbs2_VarIsJust.argprom.exit.thread ]
+23:                                               ; preds = %.lr.ph, %Cbs2_VarIsJust.exit.thread
+  %24 = phi i32 [ %16, %.lr.ph ], [ %66, %Cbs2_VarIsJust.exit.thread ]
+  %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %Cbs2_VarIsJust.exit.thread ]
   %25 = load ptr, ptr %18, align 8
   %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
@@ -1989,7 +1989,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %35 = and i64 %.val46, 536870911
   %36 = icmp eq i64 %35, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %36
-  br i1 %narrow.i.not.i, label %Cbs2_VarIsJust.argprom.exit.thread, label %37
+  br i1 %narrow.i.not.i, label %Cbs2_VarIsJust.exit.thread, label %37
 
 37:                                               ; preds = %29
   %38 = trunc i64 %.val46 to i32
@@ -2000,9 +2000,9 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %42 = getelementptr inbounds i8, ptr %.val10.i, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = icmp sgt i8 %43, 1
-  br i1 %44, label %Cbs2_VarIsJust.argprom.exit, label %Cbs2_VarIsJust.argprom.exit.thread
+  br i1 %44, label %Cbs2_VarIsJust.exit, label %Cbs2_VarIsJust.exit.thread
 
-Cbs2_VarIsJust.argprom.exit:                      ; preds = %37
+Cbs2_VarIsJust.exit:                              ; preds = %37
   %45 = lshr i64 %.val46, 32
   %46 = trunc nuw i64 %45 to i32
   %47 = and i32 %46, 536870911
@@ -2011,9 +2011,9 @@ Cbs2_VarIsJust.argprom.exit:                      ; preds = %37
   %50 = getelementptr inbounds i8, ptr %.val10.i, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = icmp slt i8 %51, 2
-  br i1 %52, label %Cbs2_VarIsJust.argprom.exit.thread, label %53
+  br i1 %52, label %Cbs2_VarIsJust.exit.thread, label %53
 
-53:                                               ; preds = %Cbs2_VarIsJust.argprom.exit
+53:                                               ; preds = %Cbs2_VarIsJust.exit
   %54 = load i32, ptr %21, align 8
   %55 = icmp eq i32 %24, %54
   br i1 %55, label %56, label %Cbs2_QuePush.exit
@@ -2037,16 +2037,16 @@ Cbs2_QuePush.exit:                                ; preds = %53, %56
   %65 = getelementptr inbounds i32, ptr %62, i64 %64
   store i32 %27, ptr %65, align 4
   %.pre = load i32, ptr %13, align 4
-  br label %Cbs2_VarIsJust.argprom.exit.thread
+  br label %Cbs2_VarIsJust.exit.thread
 
-Cbs2_VarIsJust.argprom.exit.thread:               ; preds = %29, %37, %Cbs2_QuePush.exit, %Cbs2_VarIsJust.argprom.exit
-  %66 = phi i32 [ %24, %29 ], [ %24, %37 ], [ %.pre, %Cbs2_QuePush.exit ], [ %24, %Cbs2_VarIsJust.argprom.exit ]
+Cbs2_VarIsJust.exit.thread:                       ; preds = %29, %37, %Cbs2_QuePush.exit, %Cbs2_VarIsJust.exit
+  %66 = phi i32 [ %24, %29 ], [ %24, %37 ], [ %.pre, %Cbs2_QuePush.exit ], [ %24, %Cbs2_VarIsJust.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
   br i1 %68, label %23, label %.critedge, !llvm.loop !13
 
-.critedge:                                        ; preds = %23, %Cbs2_VarIsJust.argprom.exit.thread, %Abc_Clock.exit
+.critedge:                                        ; preds = %23, %Cbs2_VarIsJust.exit.thread, %Abc_Clock.exit
   %69 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 72
@@ -2063,9 +2063,9 @@ Cbs2_VarIsJust.argprom.exit.thread:               ; preds = %29, %37, %Cbs2_QueP
   %77 = sext i32 %1 to i64
   br label %78
 
-78:                                               ; preds = %.lr.ph69, %Cbs2_VarIsJust.argprom.exit52.thread
-  %79 = phi i32 [ %72, %.lr.ph69 ], [ %128, %Cbs2_VarIsJust.argprom.exit52.thread ]
-  %indvars.iv73 = phi i64 [ %77, %.lr.ph69 ], [ %indvars.iv.next74, %Cbs2_VarIsJust.argprom.exit52.thread ]
+78:                                               ; preds = %.lr.ph69, %Cbs2_VarIsJust.exit52.thread
+  %79 = phi i32 [ %72, %.lr.ph69 ], [ %128, %Cbs2_VarIsJust.exit52.thread ]
+  %indvars.iv73 = phi i64 [ %77, %.lr.ph69 ], [ %indvars.iv.next74, %Cbs2_VarIsJust.exit52.thread ]
   %80 = load ptr, ptr %70, align 8
   %81 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv73
   %82 = load i32, ptr %81, align 4
@@ -2085,7 +2085,7 @@ Cbs2_VarIsJust.argprom.exit.thread:               ; preds = %29, %37, %Cbs2_QueP
   %90 = and i64 %.val45, 536870911
   %91 = icmp eq i64 %90, 536870911
   %narrow.i.not.i50 = or i1 %.not.i.i49, %91
-  br i1 %narrow.i.not.i50, label %Cbs2_VarIsJust.argprom.exit52.thread, label %92
+  br i1 %narrow.i.not.i50, label %Cbs2_VarIsJust.exit52.thread, label %92
 
 92:                                               ; preds = %83
   %93 = trunc i64 %.val45 to i32
@@ -2096,9 +2096,9 @@ Cbs2_VarIsJust.argprom.exit.thread:               ; preds = %29, %37, %Cbs2_QueP
   %97 = getelementptr inbounds i8, ptr %.val10.i51, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = icmp sgt i8 %98, 1
-  br i1 %99, label %Cbs2_VarIsJust.argprom.exit52, label %Cbs2_VarIsJust.argprom.exit52.thread
+  br i1 %99, label %Cbs2_VarIsJust.exit52, label %Cbs2_VarIsJust.exit52.thread
 
-Cbs2_VarIsJust.argprom.exit52:                    ; preds = %92
+Cbs2_VarIsJust.exit52:                            ; preds = %92
   %100 = lshr i64 %.val45, 32
   %101 = trunc nuw i64 %100 to i32
   %102 = and i32 %101, 536870911
@@ -2107,9 +2107,9 @@ Cbs2_VarIsJust.argprom.exit52:                    ; preds = %92
   %105 = getelementptr inbounds i8, ptr %.val10.i51, i64 %104
   %106 = load i8, ptr %105, align 1
   %107 = icmp slt i8 %106, 2
-  br i1 %107, label %Cbs2_VarIsJust.argprom.exit52.thread, label %108
+  br i1 %107, label %Cbs2_VarIsJust.exit52.thread, label %108
 
-108:                                              ; preds = %Cbs2_VarIsJust.argprom.exit52
+108:                                              ; preds = %Cbs2_VarIsJust.exit52
   %109 = load i32, ptr %13, align 4
   %110 = load i32, ptr %76, align 8
   %111 = icmp eq i32 %109, %110
@@ -2152,17 +2152,17 @@ Cbs2_QuePush.exit59:                              ; preds = %._crit_edge.i53, %1
   %127 = getelementptr inbounds i32, ptr %124, i64 %126
   store i32 %84, ptr %127, align 4
   %.pre76 = load i32, ptr %71, align 4
-  br label %Cbs2_VarIsJust.argprom.exit52.thread
+  br label %Cbs2_VarIsJust.exit52.thread
 
-Cbs2_VarIsJust.argprom.exit52.thread:             ; preds = %83, %92, %Cbs2_VarIsJust.argprom.exit52, %Cbs2_QuePush.exit59
-  %128 = phi i32 [ %79, %83 ], [ %79, %92 ], [ %79, %Cbs2_VarIsJust.argprom.exit52 ], [ %.pre76, %Cbs2_QuePush.exit59 ]
+Cbs2_VarIsJust.exit52.thread:                     ; preds = %83, %92, %Cbs2_VarIsJust.exit52, %Cbs2_QuePush.exit59
+  %128 = phi i32 [ %79, %83 ], [ %79, %92 ], [ %79, %Cbs2_VarIsJust.exit52 ], [ %.pre76, %Cbs2_QuePush.exit59 ]
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvars.iv.next74, %129
   br i1 %130, label %78, label %.critedge2, !llvm.loop !14
 
-.critedge2:                                       ; preds = %78, %Cbs2_VarIsJust.argprom.exit52.thread, %.critedge
-  %.lcssa = phi i32 [ %72, %.critedge ], [ %128, %Cbs2_VarIsJust.argprom.exit52.thread ], [ %79, %78 ]
+.critedge2:                                       ; preds = %78, %Cbs2_VarIsJust.exit52.thread, %.critedge
+  %.lcssa = phi i32 [ %72, %.critedge ], [ %128, %Cbs2_VarIsJust.exit52.thread ], [ %79, %78 ]
   store i32 %.lcssa, ptr %69, align 8
   store i32 %14, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -2510,7 +2510,7 @@ Cbs2_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %1
   br i1 %.not61, label %152, label %156
 
 152:                                              ; preds = %146
-  %153 = tail call fastcc i32 @Cbs2_ManResolve.argelim(ptr noundef nonnull %0, i32 noundef %136, i32 noundef %145)
+  %153 = tail call fastcc i32 @Cbs2_ManResolve(ptr noundef nonnull %0, i32 noundef %136, i32 noundef %145)
   %154 = load i32, ptr %19, align 8
   %155 = add nsw i32 %154, 1
   store i32 %155, ptr %19, align 8
@@ -2643,7 +2643,7 @@ define internal fastcc void @Cbs2_ManCancelUntil(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs2_ManResolve.argelim(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
+define internal fastcc i32 @Cbs2_ManResolve(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = getelementptr inbounds i8, ptr %0, i64 108
   %6 = load i32, ptr %5, align 4
@@ -3174,7 +3174,7 @@ Cbs2_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %1
   br i1 %.not66, label %135, label %139
 
 135:                                              ; preds = %129
-  %136 = tail call fastcc i32 @Cbs2_ManResolve.argelim(ptr noundef nonnull %0, i32 noundef %119, i32 noundef %128)
+  %136 = tail call fastcc i32 @Cbs2_ManResolve(ptr noundef nonnull %0, i32 noundef %119, i32 noundef %128)
   %137 = load i32, ptr %25, align 8
   %138 = add nsw i32 %137, 1
   store i32 %138, ptr %25, align 8

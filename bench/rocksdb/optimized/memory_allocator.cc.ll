@@ -783,7 +783,7 @@ entry:
 
 invoke.cont.i:                                    ; preds = %entry
   %tobool.not.i = icmp eq i32 %call1.i2.i, 0
-  br i1 %tobool.not.i, label %"_ZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %if.then.i
+  br i1 %tobool.not.i, label %"_ZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %call1.i2.i) #25
@@ -803,7 +803,7 @@ lpad.i:                                           ; preds = %if.then.i, %entry
   store ptr null, ptr %1, align 8
   br label %common.resume
 
-"_ZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %invoke.cont.i
+"_ZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %invoke.cont.i
   store ptr null, ptr %0, align 8
   store ptr null, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__callable.i)
@@ -825,7 +825,7 @@ lpad.i:                                           ; preds = %if.then.i, %entry
   %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb13ConfigOptionsC2ERKS0_.exit, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %"_ZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit"
+if.then.i.i.i.i:                                  ; preds = %"_ZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit"
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
@@ -841,7 +841,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZN7rocksdb13ConfigOptionsC2ERKS0_.exit
 
-_ZN7rocksdb13ConfigOptionsC2ERKS0_.exit:          ; preds = %"_ZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
+_ZN7rocksdb13ConfigOptionsC2ERKS0_.exit:          ; preds = %"_ZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %invoke_prepare_options = getelementptr inbounds i8, ptr %copy, i64 3
   store i8 1, ptr %invoke_prepare_options, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -3315,7 +3315,7 @@ _ZNSt8functionIFPN7rocksdb15MemoryAllocatorERKNSt7__cxx1112basic_stringIcSt11cha
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33.i.i.i.i.i.i) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35.i.i.i.i.i.i) #22
   %call46.i4.i.i.i.i.i = invoke noundef i64 @_ZNK7rocksdb13ObjectLibrary15GetFactoryCountEPm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %num_types.i.i.i.i.i.i)
-          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSL_ENKUlvE_clEv.argprom.exit" unwind label %lpad4.i.i.i.i.i
+          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSL_ENKUlvE_clEv.exit" unwind label %lpad4.i.i.i.i.i
 
 lpad.i3.i.i.i.i.i:                                ; preds = %call.i.noexc.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i
   %20 = landingpad { ptr, i32 }
@@ -3451,7 +3451,7 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad4.body.i.i.i.i.
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i.i.i.i) #22
   resume { ptr, i32 } %.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSL_ENKUlvE_clEv.argprom.exit": ; preds = %_ZNSt8functionIFPN7rocksdb15MemoryAllocatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EED2Ev.exit63.i.i.i.i.i.i
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb15MemoryAllocator16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSL_ENKUlvE_clEv.exit": ; preds = %_ZNSt8functionIFPN7rocksdb15MemoryAllocatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EED2Ev.exit63.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i.i.i)
@@ -4314,7 +4314,7 @@ entry:
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %_ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %_ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i: ; preds = %entry
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -4322,9 +4322,9 @@ _ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i: ; pre
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
-"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %entry, %_ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %entry, %_ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i
   %2 = phi ptr [ %call.i.i.i, %entry ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i ]
   ret ptr %2
 }
@@ -4570,7 +4570,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev.exit.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %13 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i7.i.i.i = icmp eq ptr %13, null
-  br i1 %cmp.not.i.i.i7.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %if.then.i.i.i8.i.i.i
+  br i1 %cmp.not.i.i.i7.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %if.then.i.i.i8.i.i.i
 
 if.then.i.i.i8.i.i.i:                             ; preds = %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev.exit.i.i.i
   %_M_use_count.i.i.i.i9.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
@@ -4606,7 +4606,7 @@ if.else.i.i.i.i.i32.i.i.i:                        ; preds = %if.end.i.i.i.i11.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i15.i.i.i: ; preds = %if.else.i.i.i.i.i32.i.i.i, %if.then.i.i.i.i.i13.i.i.i
   %retval.i.0.i.i.i.i16.i.i.i = phi i32 [ %15, %if.then.i.i.i.i.i13.i.i.i ], [ %18, %if.else.i.i.i.i.i32.i.i.i ]
   %cmp6.i.i.i.i17.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i16.i.i.i, 1
-  br i1 %cmp6.i.i.i.i17.i.i.i, label %if.then7.i.i.i.i18.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
+  br i1 %cmp6.i.i.i.i17.i.i.i, label %if.then7.i.i.i.i18.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 if.then7.i.i.i.i18.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i15.i.i.i
   %vtable.i.i.i.i.i.i19.i.i.i = load ptr, ptr %13, align 8
@@ -4631,14 +4631,14 @@ if.else.i.i.i.i.i.i.i31.i.i.i:                    ; preds = %if.then7.i.i.i.i18.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i25.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i31.i.i.i, %if.then.i.i.i.i.i.i.i23.i.i.i
   %retval.i.0.i.i.i.i.i.i26.i.i.i = phi i32 [ %21, %if.then.i.i.i.i.i.i.i23.i.i.i ], [ %22, %if.else.i.i.i.i.i.i.i31.i.i.i ]
   %cmp.i.i.i.i.i.i27.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i26.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i27.i.i.i, label %if.end8.sink.split.i.i.i.i28.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i27.i.i.i, label %if.end8.sink.split.i.i.i.i28.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 if.end8.sink.split.i.i.i.i28.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i25.i.i.i, %if.then.i.i.i.i33.i.i.i
   %vtable2.i.i.i.i.i.i29.i.i.i = load ptr, ptr %13, align 8
   %vfn3.i.i.i.i.i.i30.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i29.i.i.i, i64 24
   %23 = load ptr, ptr %vfn3.i.i.i.i.i.i30.i.i.i, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #22
-  br label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %24 = landingpad { ptr, i32 }
@@ -4657,7 +4657,7 @@ cleanup.action.i.i.i:                             ; preds = %lpad4.i.i.i, %lpad.
   call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i15.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i25.i.i.i, %if.end8.sink.split.i.i.i.i28.i.i.i
+"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i15.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i25.i.i.i, %if.end8.sink.split.i.i.i.i28.i.i.i
   %26 = load ptr, ptr %__args1.val, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i)
@@ -4925,7 +4925,7 @@ entry:
   %__args3.val = load ptr, ptr %__args3, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %options.i.i.i)
   %call.i.i.i = tail call noundef zeroext i1 @_ZN7rocksdb23JemallocNodumpAllocator11IsSupportedEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %__args3.val)
-  br i1 %call.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
+  br i1 %call.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %options.i.i.i, align 8
@@ -4943,14 +4943,14 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call2.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %_ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %_ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
-  br label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %2 = landingpad { ptr, i32 }
@@ -4958,7 +4958,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %call2.i.i.i) #24
   resume { ptr, i32 } %2
 
-"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %entry, %invoke.cont.i.i.i, %_ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPN7rocksdb15MemoryAllocatorERZNS0_12_GLOBAL__N_125RegisterBuiltinAllocatorsERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %entry, %invoke.cont.i.i.i, %_ZNKSt14default_deleteIN7rocksdb15MemoryAllocatorEEclEPS1_.exit.i.i.i.i.i
   %3 = load ptr, ptr %__args1.val, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %options.i.i.i)
   ret ptr %3

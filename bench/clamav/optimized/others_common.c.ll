@@ -1805,9 +1805,9 @@ cli_rndnum.exit:                                  ; preds = %22, %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @name_salt, ptr noundef nonnull align 16 dereferenceable(16) %2, i64 16, i1 false)
   %41 = call noalias dereferenceable_or_null(33) ptr @calloc(i64 noundef 33, i64 noundef 1) #26
   %.not.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i, label %cli_md5buff.argprom.exit.thread, label %cli_max_calloc.exit.i
+  br i1 %.not.i.i, label %cli_md5buff.exit.thread, label %cli_max_calloc.exit.i
 
-cli_md5buff.argprom.exit.thread:                  ; preds = %39
+cli_md5buff.exit.thread:                          ; preds = %39
   call void @perror(ptr noundef nonnull @.str.8) #25
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.9, i64 noundef 33)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -1826,28 +1826,28 @@ cli_max_calloc.exit.i:                            ; preds = %39, %cli_max_calloc
   %47 = getelementptr inbounds i8, ptr %.0113.i, i64 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %cli_md5buff.argprom.exit, label %cli_max_calloc.exit.i
+  br i1 %exitcond.not.i, label %cli_md5buff.exit, label %cli_max_calloc.exit.i
 
-cli_md5buff.argprom.exit:                         ; preds = %cli_max_calloc.exit.i
+cli_md5buff.exit:                                 ; preds = %cli_max_calloc.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @cli_gentemp_mutex) #22
   %49 = load ptr, ptr %4, align 8
   %.not38 = icmp eq ptr %49, null
   br i1 %.not38, label %54, label %52
 
-50:                                               ; preds = %cli_md5buff.argprom.exit.thread
+50:                                               ; preds = %cli_md5buff.exit.thread
   call void @free(ptr noundef nonnull %.0274350) #22
   br label %51
 
-51:                                               ; preds = %50, %cli_md5buff.argprom.exit.thread
+51:                                               ; preds = %50, %cli_md5buff.exit.thread
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35)
   br label %59
 
-52:                                               ; preds = %cli_md5buff.argprom.exit
+52:                                               ; preds = %cli_md5buff.exit
   %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %16, i64 noundef %.053, ptr noundef nonnull @.str.36, ptr noundef nonnull %49, i32 noundef 10, ptr noundef nonnull %41) #22
   br label %56
 
-54:                                               ; preds = %cli_md5buff.argprom.exit
+54:                                               ; preds = %cli_md5buff.exit
   %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %16, i64 noundef %.053, ptr noundef nonnull @.str.37, ptr noundef nonnull %41) #22
   br label %56
 

@@ -291,41 +291,41 @@ define hidden ptr @xmlreader_read_property(ptr noundef %0, ptr noundef %1, i32 n
   store ptr %31, ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 262, ptr %37, align 8
-  br label %xmlreader_property_reader.argprom.exit.thread
+  br label %xmlreader_property_reader.exit.thread
 
 38:                                               ; preds = %26
   %39 = load ptr, ptr @zend_empty_string, align 8
   store ptr %39, ptr %4, align 8
   %40 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 6, ptr %40, align 8
-  br label %xmlreader_property_reader.argprom.exit.thread
+  br label %xmlreader_property_reader.exit.thread
 
 41:                                               ; preds = %23
   %.not90.i = icmp eq i32 %.082.i, 0
   %42 = select i1 %.not90.i, i32 2, i32 3
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %42, ptr %43, align 8
-  br label %xmlreader_property_reader.argprom.exit.thread
+  br label %xmlreader_property_reader.exit.thread
 
 44:                                               ; preds = %23
   %45 = sext i32 %.082.i to i64
   store i64 %45, ptr %4, align 8
   %46 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 4, ptr %46, align 8
-  br label %xmlreader_property_reader.argprom.exit.thread
+  br label %xmlreader_property_reader.exit.thread
 
 47:                                               ; preds = %23
   unreachable
 
 48:                                               ; preds = %20
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.60) #11
-  br label %xmlreader_property_reader.argprom.exit.thread
+  br label %xmlreader_property_reader.exit.thread
 
 49:                                               ; preds = %5, %9
   %50 = tail call ptr @zend_std_read_property(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #11
-  br label %xmlreader_property_reader.argprom.exit.thread
+  br label %xmlreader_property_reader.exit.thread
 
-xmlreader_property_reader.argprom.exit.thread:    ; preds = %41, %44, %38, %27, %48, %49
+xmlreader_property_reader.exit.thread:            ; preds = %41, %44, %38, %27, %48, %49
   %.020 = phi ptr [ %50, %49 ], [ @executor_globals, %48 ], [ %4, %27 ], [ %4, %38 ], [ %4, %44 ], [ %4, %41 ]
   ret ptr %.020
 }
@@ -2085,7 +2085,7 @@ register_class_XMLReader.exit:                    ; preds = %720, %732, %739, %7
   %764 = load i32, ptr %763, align 4
   %765 = and i32 %764, 64
   %.not19.i = icmp eq i32 %765, 0
-  br i1 %.not19.i, label %766, label %xmlreader_register_prop_handler.argprom.exit
+  br i1 %.not19.i, label %766, label %xmlreader_register_prop_handler.exit
 
 766:                                              ; preds = %762
   %767 = load i32, ptr %756, align 4
@@ -2094,13 +2094,13 @@ register_class_XMLReader.exit:                    ; preds = %720, %732, %739, %7
   %769 = add i32 %767, -1
   store i32 %769, ptr %756, align 4
   %770 = icmp eq i32 %769, 0
-  br i1 %770, label %771, label %xmlreader_register_prop_handler.argprom.exit
+  br i1 %770, label %771, label %xmlreader_register_prop_handler.exit
 
 771:                                              ; preds = %766
   call void @free(ptr noundef nonnull %756) #11
-  br label %xmlreader_register_prop_handler.argprom.exit
+  br label %xmlreader_register_prop_handler.exit
 
-xmlreader_register_prop_handler.argprom.exit:     ; preds = %762, %766, %771
+xmlreader_register_prop_handler.exit:             ; preds = %762, %766, %771
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   %772 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2112,18 +2112,18 @@ xmlreader_register_prop_handler.argprom.exit:     ; preds = %762, %766, %771
   %.not.i18 = icmp eq ptr %775, null
   br i1 %.not.i18, label %779, label %776
 
-776:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit
+776:                                              ; preds = %xmlreader_register_prop_handler.exit
   %777 = load ptr, ptr %775, align 8
   %778 = icmp ne ptr %777, null
   call void @llvm.assume(i1 %778)
   br label %779
 
-779:                                              ; preds = %776, %xmlreader_register_prop_handler.argprom.exit
+779:                                              ; preds = %776, %xmlreader_register_prop_handler.exit
   %780 = getelementptr inbounds i8, ptr %773, i64 4
   %781 = load i32, ptr %780, align 4
   %782 = and i32 %781, 64
   %.not19.i19 = icmp eq i32 %782, 0
-  br i1 %.not19.i19, label %783, label %xmlreader_register_prop_handler.argprom.exit20
+  br i1 %.not19.i19, label %783, label %xmlreader_register_prop_handler.exit20
 
 783:                                              ; preds = %779
   %784 = load i32, ptr %773, align 4
@@ -2132,13 +2132,13 @@ xmlreader_register_prop_handler.argprom.exit:     ; preds = %762, %766, %771
   %786 = add i32 %784, -1
   store i32 %786, ptr %773, align 4
   %787 = icmp eq i32 %786, 0
-  br i1 %787, label %788, label %xmlreader_register_prop_handler.argprom.exit20
+  br i1 %787, label %788, label %xmlreader_register_prop_handler.exit20
 
 788:                                              ; preds = %783
   call void @free(ptr noundef nonnull %773) #11
-  br label %xmlreader_register_prop_handler.argprom.exit20
+  br label %xmlreader_register_prop_handler.exit20
 
-xmlreader_register_prop_handler.argprom.exit20:   ; preds = %779, %783, %788
+xmlreader_register_prop_handler.exit20:           ; preds = %779, %783, %788
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   %789 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2150,18 +2150,18 @@ xmlreader_register_prop_handler.argprom.exit20:   ; preds = %779, %783, %788
   %.not.i21 = icmp eq ptr %792, null
   br i1 %.not.i21, label %796, label %793
 
-793:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit20
+793:                                              ; preds = %xmlreader_register_prop_handler.exit20
   %794 = load ptr, ptr %792, align 8
   %795 = icmp ne ptr %794, null
   call void @llvm.assume(i1 %795)
   br label %796
 
-796:                                              ; preds = %793, %xmlreader_register_prop_handler.argprom.exit20
+796:                                              ; preds = %793, %xmlreader_register_prop_handler.exit20
   %797 = getelementptr inbounds i8, ptr %790, i64 4
   %798 = load i32, ptr %797, align 4
   %799 = and i32 %798, 64
   %.not19.i22 = icmp eq i32 %799, 0
-  br i1 %.not19.i22, label %800, label %xmlreader_register_prop_handler.argprom.exit23
+  br i1 %.not19.i22, label %800, label %xmlreader_register_prop_handler.exit23
 
 800:                                              ; preds = %796
   %801 = load i32, ptr %790, align 4
@@ -2170,13 +2170,13 @@ xmlreader_register_prop_handler.argprom.exit20:   ; preds = %779, %783, %788
   %803 = add i32 %801, -1
   store i32 %803, ptr %790, align 4
   %804 = icmp eq i32 %803, 0
-  br i1 %804, label %805, label %xmlreader_register_prop_handler.argprom.exit23
+  br i1 %804, label %805, label %xmlreader_register_prop_handler.exit23
 
 805:                                              ; preds = %800
   call void @free(ptr noundef nonnull %790) #11
-  br label %xmlreader_register_prop_handler.argprom.exit23
+  br label %xmlreader_register_prop_handler.exit23
 
-xmlreader_register_prop_handler.argprom.exit23:   ; preds = %796, %800, %805
+xmlreader_register_prop_handler.exit23:           ; preds = %796, %800, %805
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %806 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2188,18 +2188,18 @@ xmlreader_register_prop_handler.argprom.exit23:   ; preds = %796, %800, %805
   %.not.i24 = icmp eq ptr %809, null
   br i1 %.not.i24, label %813, label %810
 
-810:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit23
+810:                                              ; preds = %xmlreader_register_prop_handler.exit23
   %811 = load ptr, ptr %809, align 8
   %812 = icmp ne ptr %811, null
   call void @llvm.assume(i1 %812)
   br label %813
 
-813:                                              ; preds = %810, %xmlreader_register_prop_handler.argprom.exit23
+813:                                              ; preds = %810, %xmlreader_register_prop_handler.exit23
   %814 = getelementptr inbounds i8, ptr %807, i64 4
   %815 = load i32, ptr %814, align 4
   %816 = and i32 %815, 64
   %.not19.i25 = icmp eq i32 %816, 0
-  br i1 %.not19.i25, label %817, label %xmlreader_register_prop_handler.argprom.exit26
+  br i1 %.not19.i25, label %817, label %xmlreader_register_prop_handler.exit26
 
 817:                                              ; preds = %813
   %818 = load i32, ptr %807, align 4
@@ -2208,13 +2208,13 @@ xmlreader_register_prop_handler.argprom.exit23:   ; preds = %796, %800, %805
   %820 = add i32 %818, -1
   store i32 %820, ptr %807, align 4
   %821 = icmp eq i32 %820, 0
-  br i1 %821, label %822, label %xmlreader_register_prop_handler.argprom.exit26
+  br i1 %821, label %822, label %xmlreader_register_prop_handler.exit26
 
 822:                                              ; preds = %817
   call void @free(ptr noundef nonnull %807) #11
-  br label %xmlreader_register_prop_handler.argprom.exit26
+  br label %xmlreader_register_prop_handler.exit26
 
-xmlreader_register_prop_handler.argprom.exit26:   ; preds = %813, %817, %822
+xmlreader_register_prop_handler.exit26:           ; preds = %813, %817, %822
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   %823 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2226,18 +2226,18 @@ xmlreader_register_prop_handler.argprom.exit26:   ; preds = %813, %817, %822
   %.not.i27 = icmp eq ptr %826, null
   br i1 %.not.i27, label %830, label %827
 
-827:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit26
+827:                                              ; preds = %xmlreader_register_prop_handler.exit26
   %828 = load ptr, ptr %826, align 8
   %829 = icmp ne ptr %828, null
   call void @llvm.assume(i1 %829)
   br label %830
 
-830:                                              ; preds = %827, %xmlreader_register_prop_handler.argprom.exit26
+830:                                              ; preds = %827, %xmlreader_register_prop_handler.exit26
   %831 = getelementptr inbounds i8, ptr %824, i64 4
   %832 = load i32, ptr %831, align 4
   %833 = and i32 %832, 64
   %.not19.i28 = icmp eq i32 %833, 0
-  br i1 %.not19.i28, label %834, label %xmlreader_register_prop_handler.argprom.exit29
+  br i1 %.not19.i28, label %834, label %xmlreader_register_prop_handler.exit29
 
 834:                                              ; preds = %830
   %835 = load i32, ptr %824, align 4
@@ -2246,13 +2246,13 @@ xmlreader_register_prop_handler.argprom.exit26:   ; preds = %813, %817, %822
   %837 = add i32 %835, -1
   store i32 %837, ptr %824, align 4
   %838 = icmp eq i32 %837, 0
-  br i1 %838, label %839, label %xmlreader_register_prop_handler.argprom.exit29
+  br i1 %838, label %839, label %xmlreader_register_prop_handler.exit29
 
 839:                                              ; preds = %834
   call void @free(ptr noundef nonnull %824) #11
-  br label %xmlreader_register_prop_handler.argprom.exit29
+  br label %xmlreader_register_prop_handler.exit29
 
-xmlreader_register_prop_handler.argprom.exit29:   ; preds = %830, %834, %839
+xmlreader_register_prop_handler.exit29:           ; preds = %830, %834, %839
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   %840 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2264,18 +2264,18 @@ xmlreader_register_prop_handler.argprom.exit29:   ; preds = %830, %834, %839
   %.not.i30 = icmp eq ptr %843, null
   br i1 %.not.i30, label %847, label %844
 
-844:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit29
+844:                                              ; preds = %xmlreader_register_prop_handler.exit29
   %845 = load ptr, ptr %843, align 8
   %846 = icmp ne ptr %845, null
   call void @llvm.assume(i1 %846)
   br label %847
 
-847:                                              ; preds = %844, %xmlreader_register_prop_handler.argprom.exit29
+847:                                              ; preds = %844, %xmlreader_register_prop_handler.exit29
   %848 = getelementptr inbounds i8, ptr %841, i64 4
   %849 = load i32, ptr %848, align 4
   %850 = and i32 %849, 64
   %.not19.i31 = icmp eq i32 %850, 0
-  br i1 %.not19.i31, label %851, label %xmlreader_register_prop_handler.argprom.exit32
+  br i1 %.not19.i31, label %851, label %xmlreader_register_prop_handler.exit32
 
 851:                                              ; preds = %847
   %852 = load i32, ptr %841, align 4
@@ -2284,13 +2284,13 @@ xmlreader_register_prop_handler.argprom.exit29:   ; preds = %830, %834, %839
   %854 = add i32 %852, -1
   store i32 %854, ptr %841, align 4
   %855 = icmp eq i32 %854, 0
-  br i1 %855, label %856, label %xmlreader_register_prop_handler.argprom.exit32
+  br i1 %855, label %856, label %xmlreader_register_prop_handler.exit32
 
 856:                                              ; preds = %851
   call void @free(ptr noundef nonnull %841) #11
-  br label %xmlreader_register_prop_handler.argprom.exit32
+  br label %xmlreader_register_prop_handler.exit32
 
-xmlreader_register_prop_handler.argprom.exit32:   ; preds = %847, %851, %856
+xmlreader_register_prop_handler.exit32:           ; preds = %847, %851, %856
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %857 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2302,18 +2302,18 @@ xmlreader_register_prop_handler.argprom.exit32:   ; preds = %847, %851, %856
   %.not.i33 = icmp eq ptr %860, null
   br i1 %.not.i33, label %864, label %861
 
-861:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit32
+861:                                              ; preds = %xmlreader_register_prop_handler.exit32
   %862 = load ptr, ptr %860, align 8
   %863 = icmp ne ptr %862, null
   call void @llvm.assume(i1 %863)
   br label %864
 
-864:                                              ; preds = %861, %xmlreader_register_prop_handler.argprom.exit32
+864:                                              ; preds = %861, %xmlreader_register_prop_handler.exit32
   %865 = getelementptr inbounds i8, ptr %858, i64 4
   %866 = load i32, ptr %865, align 4
   %867 = and i32 %866, 64
   %.not19.i34 = icmp eq i32 %867, 0
-  br i1 %.not19.i34, label %868, label %xmlreader_register_prop_handler.argprom.exit35
+  br i1 %.not19.i34, label %868, label %xmlreader_register_prop_handler.exit35
 
 868:                                              ; preds = %864
   %869 = load i32, ptr %858, align 4
@@ -2322,13 +2322,13 @@ xmlreader_register_prop_handler.argprom.exit32:   ; preds = %847, %851, %856
   %871 = add i32 %869, -1
   store i32 %871, ptr %858, align 4
   %872 = icmp eq i32 %871, 0
-  br i1 %872, label %873, label %xmlreader_register_prop_handler.argprom.exit35
+  br i1 %872, label %873, label %xmlreader_register_prop_handler.exit35
 
 873:                                              ; preds = %868
   call void @free(ptr noundef nonnull %858) #11
-  br label %xmlreader_register_prop_handler.argprom.exit35
+  br label %xmlreader_register_prop_handler.exit35
 
-xmlreader_register_prop_handler.argprom.exit35:   ; preds = %864, %868, %873
+xmlreader_register_prop_handler.exit35:           ; preds = %864, %868, %873
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %874 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2340,18 +2340,18 @@ xmlreader_register_prop_handler.argprom.exit35:   ; preds = %864, %868, %873
   %.not.i36 = icmp eq ptr %877, null
   br i1 %.not.i36, label %881, label %878
 
-878:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit35
+878:                                              ; preds = %xmlreader_register_prop_handler.exit35
   %879 = load ptr, ptr %877, align 8
   %880 = icmp ne ptr %879, null
   call void @llvm.assume(i1 %880)
   br label %881
 
-881:                                              ; preds = %878, %xmlreader_register_prop_handler.argprom.exit35
+881:                                              ; preds = %878, %xmlreader_register_prop_handler.exit35
   %882 = getelementptr inbounds i8, ptr %875, i64 4
   %883 = load i32, ptr %882, align 4
   %884 = and i32 %883, 64
   %.not19.i37 = icmp eq i32 %884, 0
-  br i1 %.not19.i37, label %885, label %xmlreader_register_prop_handler.argprom.exit38
+  br i1 %.not19.i37, label %885, label %xmlreader_register_prop_handler.exit38
 
 885:                                              ; preds = %881
   %886 = load i32, ptr %875, align 4
@@ -2360,13 +2360,13 @@ xmlreader_register_prop_handler.argprom.exit35:   ; preds = %864, %868, %873
   %888 = add i32 %886, -1
   store i32 %888, ptr %875, align 4
   %889 = icmp eq i32 %888, 0
-  br i1 %889, label %890, label %xmlreader_register_prop_handler.argprom.exit38
+  br i1 %889, label %890, label %xmlreader_register_prop_handler.exit38
 
 890:                                              ; preds = %885
   call void @free(ptr noundef nonnull %875) #11
-  br label %xmlreader_register_prop_handler.argprom.exit38
+  br label %xmlreader_register_prop_handler.exit38
 
-xmlreader_register_prop_handler.argprom.exit38:   ; preds = %881, %885, %890
+xmlreader_register_prop_handler.exit38:           ; preds = %881, %885, %890
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %891 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2378,18 +2378,18 @@ xmlreader_register_prop_handler.argprom.exit38:   ; preds = %881, %885, %890
   %.not.i39 = icmp eq ptr %894, null
   br i1 %.not.i39, label %898, label %895
 
-895:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit38
+895:                                              ; preds = %xmlreader_register_prop_handler.exit38
   %896 = load ptr, ptr %894, align 8
   %897 = icmp ne ptr %896, null
   call void @llvm.assume(i1 %897)
   br label %898
 
-898:                                              ; preds = %895, %xmlreader_register_prop_handler.argprom.exit38
+898:                                              ; preds = %895, %xmlreader_register_prop_handler.exit38
   %899 = getelementptr inbounds i8, ptr %892, i64 4
   %900 = load i32, ptr %899, align 4
   %901 = and i32 %900, 64
   %.not19.i40 = icmp eq i32 %901, 0
-  br i1 %.not19.i40, label %902, label %xmlreader_register_prop_handler.argprom.exit41
+  br i1 %.not19.i40, label %902, label %xmlreader_register_prop_handler.exit41
 
 902:                                              ; preds = %898
   %903 = load i32, ptr %892, align 4
@@ -2398,13 +2398,13 @@ xmlreader_register_prop_handler.argprom.exit38:   ; preds = %881, %885, %890
   %905 = add i32 %903, -1
   store i32 %905, ptr %892, align 4
   %906 = icmp eq i32 %905, 0
-  br i1 %906, label %907, label %xmlreader_register_prop_handler.argprom.exit41
+  br i1 %906, label %907, label %xmlreader_register_prop_handler.exit41
 
 907:                                              ; preds = %902
   call void @free(ptr noundef nonnull %892) #11
-  br label %xmlreader_register_prop_handler.argprom.exit41
+  br label %xmlreader_register_prop_handler.exit41
 
-xmlreader_register_prop_handler.argprom.exit41:   ; preds = %898, %902, %907
+xmlreader_register_prop_handler.exit41:           ; preds = %898, %902, %907
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %908 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2416,18 +2416,18 @@ xmlreader_register_prop_handler.argprom.exit41:   ; preds = %898, %902, %907
   %.not.i42 = icmp eq ptr %911, null
   br i1 %.not.i42, label %915, label %912
 
-912:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit41
+912:                                              ; preds = %xmlreader_register_prop_handler.exit41
   %913 = load ptr, ptr %911, align 8
   %914 = icmp ne ptr %913, null
   call void @llvm.assume(i1 %914)
   br label %915
 
-915:                                              ; preds = %912, %xmlreader_register_prop_handler.argprom.exit41
+915:                                              ; preds = %912, %xmlreader_register_prop_handler.exit41
   %916 = getelementptr inbounds i8, ptr %909, i64 4
   %917 = load i32, ptr %916, align 4
   %918 = and i32 %917, 64
   %.not19.i43 = icmp eq i32 %918, 0
-  br i1 %.not19.i43, label %919, label %xmlreader_register_prop_handler.argprom.exit44
+  br i1 %.not19.i43, label %919, label %xmlreader_register_prop_handler.exit44
 
 919:                                              ; preds = %915
   %920 = load i32, ptr %909, align 4
@@ -2436,13 +2436,13 @@ xmlreader_register_prop_handler.argprom.exit41:   ; preds = %898, %902, %907
   %922 = add i32 %920, -1
   store i32 %922, ptr %909, align 4
   %923 = icmp eq i32 %922, 0
-  br i1 %923, label %924, label %xmlreader_register_prop_handler.argprom.exit44
+  br i1 %923, label %924, label %xmlreader_register_prop_handler.exit44
 
 924:                                              ; preds = %919
   call void @free(ptr noundef nonnull %909) #11
-  br label %xmlreader_register_prop_handler.argprom.exit44
+  br label %xmlreader_register_prop_handler.exit44
 
-xmlreader_register_prop_handler.argprom.exit44:   ; preds = %915, %919, %924
+xmlreader_register_prop_handler.exit44:           ; preds = %915, %919, %924
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %925 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2454,18 +2454,18 @@ xmlreader_register_prop_handler.argprom.exit44:   ; preds = %915, %919, %924
   %.not.i45 = icmp eq ptr %928, null
   br i1 %.not.i45, label %932, label %929
 
-929:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit44
+929:                                              ; preds = %xmlreader_register_prop_handler.exit44
   %930 = load ptr, ptr %928, align 8
   %931 = icmp ne ptr %930, null
   call void @llvm.assume(i1 %931)
   br label %932
 
-932:                                              ; preds = %929, %xmlreader_register_prop_handler.argprom.exit44
+932:                                              ; preds = %929, %xmlreader_register_prop_handler.exit44
   %933 = getelementptr inbounds i8, ptr %926, i64 4
   %934 = load i32, ptr %933, align 4
   %935 = and i32 %934, 64
   %.not19.i46 = icmp eq i32 %935, 0
-  br i1 %.not19.i46, label %936, label %xmlreader_register_prop_handler.argprom.exit47
+  br i1 %.not19.i46, label %936, label %xmlreader_register_prop_handler.exit47
 
 936:                                              ; preds = %932
   %937 = load i32, ptr %926, align 4
@@ -2474,13 +2474,13 @@ xmlreader_register_prop_handler.argprom.exit44:   ; preds = %915, %919, %924
   %939 = add i32 %937, -1
   store i32 %939, ptr %926, align 4
   %940 = icmp eq i32 %939, 0
-  br i1 %940, label %941, label %xmlreader_register_prop_handler.argprom.exit47
+  br i1 %940, label %941, label %xmlreader_register_prop_handler.exit47
 
 941:                                              ; preds = %936
   call void @free(ptr noundef nonnull %926) #11
-  br label %xmlreader_register_prop_handler.argprom.exit47
+  br label %xmlreader_register_prop_handler.exit47
 
-xmlreader_register_prop_handler.argprom.exit47:   ; preds = %932, %936, %941
+xmlreader_register_prop_handler.exit47:           ; preds = %932, %936, %941
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %942 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2492,18 +2492,18 @@ xmlreader_register_prop_handler.argprom.exit47:   ; preds = %932, %936, %941
   %.not.i48 = icmp eq ptr %945, null
   br i1 %.not.i48, label %949, label %946
 
-946:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit47
+946:                                              ; preds = %xmlreader_register_prop_handler.exit47
   %947 = load ptr, ptr %945, align 8
   %948 = icmp ne ptr %947, null
   call void @llvm.assume(i1 %948)
   br label %949
 
-949:                                              ; preds = %946, %xmlreader_register_prop_handler.argprom.exit47
+949:                                              ; preds = %946, %xmlreader_register_prop_handler.exit47
   %950 = getelementptr inbounds i8, ptr %943, i64 4
   %951 = load i32, ptr %950, align 4
   %952 = and i32 %951, 64
   %.not19.i49 = icmp eq i32 %952, 0
-  br i1 %.not19.i49, label %953, label %xmlreader_register_prop_handler.argprom.exit50
+  br i1 %.not19.i49, label %953, label %xmlreader_register_prop_handler.exit50
 
 953:                                              ; preds = %949
   %954 = load i32, ptr %943, align 4
@@ -2512,13 +2512,13 @@ xmlreader_register_prop_handler.argprom.exit47:   ; preds = %932, %936, %941
   %956 = add i32 %954, -1
   store i32 %956, ptr %943, align 4
   %957 = icmp eq i32 %956, 0
-  br i1 %957, label %958, label %xmlreader_register_prop_handler.argprom.exit50
+  br i1 %957, label %958, label %xmlreader_register_prop_handler.exit50
 
 958:                                              ; preds = %953
   call void @free(ptr noundef nonnull %943) #11
-  br label %xmlreader_register_prop_handler.argprom.exit50
+  br label %xmlreader_register_prop_handler.exit50
 
-xmlreader_register_prop_handler.argprom.exit50:   ; preds = %949, %953, %958
+xmlreader_register_prop_handler.exit50:           ; preds = %949, %953, %958
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %959 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2530,18 +2530,18 @@ xmlreader_register_prop_handler.argprom.exit50:   ; preds = %949, %953, %958
   %.not.i51 = icmp eq ptr %962, null
   br i1 %.not.i51, label %966, label %963
 
-963:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit50
+963:                                              ; preds = %xmlreader_register_prop_handler.exit50
   %964 = load ptr, ptr %962, align 8
   %965 = icmp ne ptr %964, null
   call void @llvm.assume(i1 %965)
   br label %966
 
-966:                                              ; preds = %963, %xmlreader_register_prop_handler.argprom.exit50
+966:                                              ; preds = %963, %xmlreader_register_prop_handler.exit50
   %967 = getelementptr inbounds i8, ptr %960, i64 4
   %968 = load i32, ptr %967, align 4
   %969 = and i32 %968, 64
   %.not19.i52 = icmp eq i32 %969, 0
-  br i1 %.not19.i52, label %970, label %xmlreader_register_prop_handler.argprom.exit53
+  br i1 %.not19.i52, label %970, label %xmlreader_register_prop_handler.exit53
 
 970:                                              ; preds = %966
   %971 = load i32, ptr %960, align 4
@@ -2550,13 +2550,13 @@ xmlreader_register_prop_handler.argprom.exit50:   ; preds = %949, %953, %958
   %973 = add i32 %971, -1
   store i32 %973, ptr %960, align 4
   %974 = icmp eq i32 %973, 0
-  br i1 %974, label %975, label %xmlreader_register_prop_handler.argprom.exit53
+  br i1 %974, label %975, label %xmlreader_register_prop_handler.exit53
 
 975:                                              ; preds = %970
   call void @free(ptr noundef nonnull %960) #11
-  br label %xmlreader_register_prop_handler.argprom.exit53
+  br label %xmlreader_register_prop_handler.exit53
 
-xmlreader_register_prop_handler.argprom.exit53:   ; preds = %966, %970, %975
+xmlreader_register_prop_handler.exit53:           ; preds = %966, %970, %975
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %976 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2568,18 +2568,18 @@ xmlreader_register_prop_handler.argprom.exit53:   ; preds = %966, %970, %975
   %.not.i54 = icmp eq ptr %979, null
   br i1 %.not.i54, label %983, label %980
 
-980:                                              ; preds = %xmlreader_register_prop_handler.argprom.exit53
+980:                                              ; preds = %xmlreader_register_prop_handler.exit53
   %981 = load ptr, ptr %979, align 8
   %982 = icmp ne ptr %981, null
   call void @llvm.assume(i1 %982)
   br label %983
 
-983:                                              ; preds = %980, %xmlreader_register_prop_handler.argprom.exit53
+983:                                              ; preds = %980, %xmlreader_register_prop_handler.exit53
   %984 = getelementptr inbounds i8, ptr %977, i64 4
   %985 = load i32, ptr %984, align 4
   %986 = and i32 %985, 64
   %.not19.i55 = icmp eq i32 %986, 0
-  br i1 %.not19.i55, label %987, label %xmlreader_register_prop_handler.argprom.exit56
+  br i1 %.not19.i55, label %987, label %xmlreader_register_prop_handler.exit56
 
 987:                                              ; preds = %983
   %988 = load i32, ptr %977, align 4
@@ -2588,13 +2588,13 @@ xmlreader_register_prop_handler.argprom.exit53:   ; preds = %966, %970, %975
   %990 = add i32 %988, -1
   store i32 %990, ptr %977, align 4
   %991 = icmp eq i32 %990, 0
-  br i1 %991, label %992, label %xmlreader_register_prop_handler.argprom.exit56
+  br i1 %991, label %992, label %xmlreader_register_prop_handler.exit56
 
 992:                                              ; preds = %987
   call void @free(ptr noundef nonnull %977) #11
-  br label %xmlreader_register_prop_handler.argprom.exit56
+  br label %xmlreader_register_prop_handler.exit56
 
-xmlreader_register_prop_handler.argprom.exit56:   ; preds = %983, %987, %992
+xmlreader_register_prop_handler.exit56:           ; preds = %983, %987, %992
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i32 0
 }
@@ -4179,7 +4179,7 @@ define internal fastcc void @php_xmlreader_set_relaxng_schema(ptr nocapture noun
 29:                                               ; preds = %28
   %30 = call ptr @_xmlreader_get_valid_file_path(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 poison)
   %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %_xmlreader_get_relaxNG.argprom.exit.thread, label %31
+  br i1 %.not.i, label %_xmlreader_get_relaxNG.exit.thread, label %31
 
 31:                                               ; preds = %29
   %32 = call ptr @xmlRelaxNGNewParserCtxt(ptr noundef nonnull %30) #11
@@ -4193,13 +4193,13 @@ define internal fastcc void @php_xmlreader_set_relaxng_schema(ptr nocapture noun
 36:                                               ; preds = %33, %31
   %.023.i = phi ptr [ %35, %33 ], [ %32, %31 ]
   %37 = icmp eq ptr %.023.i, null
-  br i1 %37, label %_xmlreader_get_relaxNG.argprom.exit.thread, label %_xmlreader_get_relaxNG.argprom.exit
+  br i1 %37, label %_xmlreader_get_relaxNG.exit.thread, label %_xmlreader_get_relaxNG.exit
 
-_xmlreader_get_relaxNG.argprom.exit.thread:       ; preds = %29, %36
+_xmlreader_get_relaxNG.exit.thread:               ; preds = %29, %36
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %4)
   br label %.thread
 
-_xmlreader_get_relaxNG.argprom.exit:              ; preds = %36
+_xmlreader_get_relaxNG.exit:                      ; preds = %36
   %38 = call ptr @__xmlLoadExtDtdDefaultValue() #11
   %39 = load i32, ptr %38, align 4
   %40 = call ptr @__xmlLoadExtDtdDefaultValue() #11
@@ -4226,7 +4226,7 @@ _xmlreader_get_relaxNG.argprom.exit:              ; preds = %36
   %.not22 = icmp eq ptr %48, null
   br i1 %.not22, label %.thread, label %55
 
-55:                                               ; preds = %_xmlreader_get_relaxNG.argprom.exit
+55:                                               ; preds = %_xmlreader_get_relaxNG.exit
   %56 = load ptr, ptr %25, align 8
   %57 = call i32 @xmlTextReaderRelaxNGSetSchema(ptr noundef %56, ptr noundef nonnull %48) #11
   br label %60
@@ -4257,7 +4257,7 @@ _xmlreader_get_relaxNG.argprom.exit:              ; preds = %36
   store i32 3, ptr %67, align 8
   br label %72
 
-.thread:                                          ; preds = %_xmlreader_get_relaxNG.argprom.exit.thread, %_xmlreader_get_relaxNG.argprom.exit, %60
+.thread:                                          ; preds = %_xmlreader_get_relaxNG.exit.thread, %_xmlreader_get_relaxNG.exit, %60
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.19) #11
   %68 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %68, align 8

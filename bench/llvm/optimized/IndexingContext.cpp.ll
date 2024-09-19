@@ -385,7 +385,7 @@ _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %64
   %.sroa.09.0.copyload = load ptr, ptr %6, align 8
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.210.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8
-  %76 = call fastcc noundef zeroext i1 @_ZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEE.argelim(i1 noundef zeroext %3, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload)
+  %76 = call fastcc noundef zeroext i1 @_ZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEE(i1 noundef zeroext %3, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload)
   br i1 %76, label %77, label %_ZL22shouldSkipNamelessDeclPKN5clang9NamedDeclE.exit.thread
 
 77:                                               ; preds = %73, %75, %70
@@ -938,7 +938,7 @@ switch.edge:                                      ; preds = %2, %2, %2, %2, %2, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEE.argelim(i1 noundef zeroext %0, ptr readonly %1, i64 %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEE(i1 noundef zeroext %0, ptr readonly %1, i64 %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca %class.anon.609, align 8
   br i1 %0, label %6, label %.loopexit
@@ -1047,7 +1047,7 @@ define internal fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5
 32:                                               ; preds = %31, %31, %31, %31, %31, %31
   %33 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %33, align 8
-  %34 = tail call fastcc noundef ptr @_ZL41getDeclContextForTemplateInstationPatternPKN5clang4DeclE.argprom(i64 %.val)
+  %34 = tail call fastcc noundef ptr @_ZL41getDeclContextForTemplateInstationPatternPKN5clang4DeclE(i64 %.val)
   %.not52 = icmp eq ptr %34, null
   br i1 %.not52, label %_ZNK5clang12DeclListNode8iteratordeEv.exit74, label %35
 
@@ -1888,33 +1888,33 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbN5clang5index10Sym
     i32 32768, label %3
     i32 65536, label %3
     i32 262144, label %3
-    i32 1, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 2, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 4, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 8, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 16, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 32, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 64, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 128, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 256, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 512, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 8192, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 16384, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 131072, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 524288, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
-    i32 1048576, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
+    i32 1, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 2, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 4, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 8, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 16, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 32, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 64, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 128, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 256, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 512, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 8192, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 16384, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 131072, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 524288, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
+    i32 1048576, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
   ]
 
 3:                                                ; preds = %2, %2, %2, %2, %2, %2
   %4 = inttoptr i64 %0 to ptr
   %.val = load ptr, ptr %4, align 8
   store i8 1, ptr %.val, align 1
-  br label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit"
+  br label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
 
 5:                                                ; preds = %2
   unreachable
 
-"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.argprom.exit": ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %3
+"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit": ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %3
   %.0.i = phi i1 [ false, %3 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
   ret i1 %.0.i
 }
@@ -1928,7 +1928,7 @@ declare noundef ptr @_ZNK5clang12FunctionDecl31getTemplateInstantiationPatternEb
 declare noundef ptr @_ZNK5clang7VarDecl31getTemplateInstantiationPatternEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL41getDeclContextForTemplateInstationPatternPKN5clang4DeclE.argprom(i64 %.16.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL41getDeclContextForTemplateInstationPatternPKN5clang4DeclE(i64 %.16.val) unnamed_addr #0 {
   %1 = and i64 %.16.val, 4
   %2 = icmp eq i64 %1, 0
   %3 = and i64 %.16.val, -8

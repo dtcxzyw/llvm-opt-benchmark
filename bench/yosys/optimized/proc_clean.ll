@@ -2893,9 +2893,9 @@ _ZNSt6vectorIPN5Yosys5RTLIL8SyncRuleESaIS3_EE5eraseEN9__gnu_cxx17__normal_iterat
   %.not.i.i.i.i49 = icmp ugt i64 %304, %298
   br i1 %.not.i.i.i.i49, label %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i, label %.invoke
 
-.invoke:                                          ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i, %294
-  %305 = phi i64 [ %298, %294 ], [ %309, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i ], [ %340, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit ]
-  %306 = phi i64 [ %304, %294 ], [ %304, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i ], [ %346, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit ]
+.invoke:                                          ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i, %294
+  %305 = phi i64 [ %298, %294 ], [ %309, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i ], [ %340, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit ]
+  %306 = phi i64 [ %304, %294 ], [ %304, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i ], [ %346, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.20, i64 noundef %305, i64 noundef %306) #19
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2950,9 +2950,9 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit36.i:       ; preds = %_ZNK5Yosys5RTLIL8Id
 
 335:                                              ; preds = %334
   %336 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %65)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit: ; preds = %335
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %335
   %337 = load ptr, ptr %81, align 8
   %338 = getelementptr inbounds i8, ptr %337, i64 60
   %339 = load i32, ptr %338, align 4
@@ -2966,7 +2966,7 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit: ; preds = %335
   %.not.i.i.i55 = icmp ugt i64 %346, %340
   br i1 %.not.i.i.i55, label %347, label %.invoke
 
-347:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit
+347:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit
   %348 = getelementptr inbounds ptr, ptr %342, i64 %340
   %349 = load ptr, ptr %348, align 8
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.13, ptr noundef %336, ptr noundef %349)

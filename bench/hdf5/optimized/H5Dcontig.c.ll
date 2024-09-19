@@ -547,7 +547,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_io_init(ptr nocapture noundef 
   %.val95 = load ptr, ptr %141, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %.not.i = icmp eq ptr %.val95, @H5D__contig_readvv
-  br i1 %.not.i, label %142, label %H5D__contig_may_use_select_io.argprom.exit.thread.sink.split
+  br i1 %.not.i, label %142, label %H5D__contig_may_use_select_io.exit.thread.sink.split
 
 142:                                              ; preds = %138
   switch i32 %140, label %154 [
@@ -561,7 +561,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_io_init(ptr nocapture noundef 
   %146 = getelementptr inbounds i8, ptr %145, i64 3312
   %147 = load i8, ptr %146, align 8
   %148 = trunc i8 %147 to i1
-  br i1 %148, label %H5D__contig_may_use_select_io.argprom.exit.thread.sink.split, label %154
+  br i1 %148, label %H5D__contig_may_use_select_io.exit.thread.sink.split, label %154
 
 149:                                              ; preds = %142
   %150 = getelementptr inbounds i8, ptr %.val, i64 48
@@ -569,7 +569,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_io_init(ptr nocapture noundef 
   %152 = getelementptr inbounds i8, ptr %151, i64 3280
   %153 = load ptr, ptr %152, align 8
   %.not14.i = icmp eq ptr %153, null
-  br i1 %.not14.i, label %154, label %H5D__contig_may_use_select_io.argprom.exit.thread.sink.split
+  br i1 %.not14.i, label %154, label %H5D__contig_may_use_select_io.exit.thread.sink.split
 
 154:                                              ; preds = %149, %143, %142
   %155 = load ptr, ptr %0, align 8
@@ -580,18 +580,18 @@ define internal range(i32 -1, 1) i32 @H5D__contig_io_init(ptr nocapture noundef 
 158:                                              ; preds = %154
   %159 = load i8, ptr %3, align 1
   %160 = trunc i8 %159 to i1
-  br i1 %160, label %H5D__contig_may_use_select_io.argprom.exit.thread.sink.split, label %H5D__contig_may_use_select_io.argprom.exit.thread
+  br i1 %160, label %H5D__contig_may_use_select_io.exit.thread.sink.split, label %H5D__contig_may_use_select_io.exit.thread
 
-H5D__contig_may_use_select_io.argprom.exit.thread.sink.split: ; preds = %158, %143, %149, %138
+H5D__contig_may_use_select_io.exit.thread.sink.split: ; preds = %158, %143, %149, %138
   %.sink108 = phi i32 [ 2, %138 ], [ 4, %149 ], [ 4, %143 ], [ 16, %158 ]
   store i32 1, ptr %136, align 8
   %161 = getelementptr inbounds i8, ptr %0, i64 236
   %162 = load i32, ptr %161, align 4
   %163 = or i32 %162, %.sink108
   store i32 %163, ptr %161, align 4
-  br label %H5D__contig_may_use_select_io.argprom.exit.thread
+  br label %H5D__contig_may_use_select_io.exit.thread
 
-H5D__contig_may_use_select_io.argprom.exit.thread: ; preds = %H5D__contig_may_use_select_io.argprom.exit.thread.sink.split, %158
+H5D__contig_may_use_select_io.exit.thread:        ; preds = %H5D__contig_may_use_select_io.exit.thread.sink.split, %158
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %H5D__contig_io_term.exit.thread
 
@@ -629,9 +629,9 @@ H5D__contig_may_use_select_io.argprom.exit.thread: ; preds = %H5D__contig_may_us
   %183 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5D__contig_io_init, i32 noundef 724, i64 noundef %181, i64 noundef %182, ptr noundef nonnull @.str.44) #8
   br label %H5D__contig_io_term.exit.thread
 
-H5D__contig_io_term.exit.thread:                  ; preds = %171, %176, %135, %H5D__contig_may_use_select_io.argprom.exit.thread, %177
-  %.0100 = phi i32 [ %.0.ph, %177 ], [ %33, %135 ], [ %33, %H5D__contig_may_use_select_io.argprom.exit.thread ], [ %.0.ph, %176 ], [ %.0.ph, %171 ]
-  %.1 = phi i32 [ -1, %177 ], [ 0, %135 ], [ 0, %H5D__contig_may_use_select_io.argprom.exit.thread ], [ -1, %176 ], [ -1, %171 ]
+H5D__contig_io_term.exit.thread:                  ; preds = %171, %176, %135, %H5D__contig_may_use_select_io.exit.thread, %177
+  %.0100 = phi i32 [ %.0.ph, %177 ], [ %33, %135 ], [ %33, %H5D__contig_may_use_select_io.exit.thread ], [ %.0.ph, %176 ], [ %.0.ph, %171 ]
+  %.1 = phi i32 [ -1, %177 ], [ 0, %135 ], [ 0, %H5D__contig_may_use_select_io.exit.thread ], [ -1, %176 ], [ -1, %171 ]
   %.not94 = icmp eq i32 %.0100, 0
   br i1 %.not94, label %192, label %184
 

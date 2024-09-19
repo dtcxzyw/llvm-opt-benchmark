@@ -364,7 +364,7 @@ do.cond.i32.i:                                    ; preds = %do.body.i28.i
   br i1 %cmp.i35.i, label %do.body.i28.i, label %if.then42.i, !llvm.loop !7
 
 lor.lhs.false39.i:                                ; preds = %do.body.i28.i
-  %call40.i = call fastcc i32 @strtol_i.argelim(ptr noundef nonnull %scevgep.i, ptr noundef %spec.select.i)
+  %call40.i = call fastcc i32 @strtol_i(ptr noundef nonnull %scevgep.i, ptr noundef %spec.select.i)
   %tobool41.not.i = icmp eq i32 %call40.i, 0
   br i1 %tobool41.not.i, label %if.end50.i, label %if.then42.i
 
@@ -598,7 +598,7 @@ declare i32 @packet_flush_gently(i32 noundef) local_unnamed_addr #3
 declare ptr @packet_read_line(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @strtol_i.argelim(ptr noundef %s, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef %s, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #5 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #14

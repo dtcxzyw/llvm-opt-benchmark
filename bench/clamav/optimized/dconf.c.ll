@@ -737,7 +737,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef
   br i1 %.not19, label %18, label %26
 
 18:                                               ; preds = %15
-  %19 = call fastcc i32 @chkflevel.argelim(ptr noundef %5)
+  %19 = call fastcc i32 @chkflevel(ptr noundef %5)
   %.not20 = icmp eq i32 %19, 0
   br i1 %.not20, label %26, label %20
 
@@ -758,7 +758,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef
   br i1 %.not22, label %27, label %36
 
 27:                                               ; preds = %26
-  %28 = call fastcc i32 @chkflevel.argelim(ptr noundef %5)
+  %28 = call fastcc i32 @chkflevel(ptr noundef %5)
   %.not23 = icmp eq i32 %28, 0
   br i1 %.not23, label %36, label %29
 
@@ -780,7 +780,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef
   br i1 %.not25, label %37, label %46
 
 37:                                               ; preds = %36
-  %38 = call fastcc i32 @chkflevel.argelim(ptr noundef %5)
+  %38 = call fastcc i32 @chkflevel(ptr noundef %5)
   %.not26 = icmp eq i32 %38, 0
   br i1 %.not26, label %46, label %39
 
@@ -802,7 +802,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef
   br i1 %.not29, label %47, label %56
 
 47:                                               ; preds = %46
-  %48 = call fastcc i32 @chkflevel.argelim(ptr noundef %5)
+  %48 = call fastcc i32 @chkflevel(ptr noundef %5)
   %.not30 = icmp eq i32 %48, 0
   br i1 %.not30, label %56, label %49
 
@@ -824,7 +824,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef
   br i1 %.not32, label %57, label %66
 
 57:                                               ; preds = %56
-  %58 = call fastcc i32 @chkflevel.argelim(ptr noundef %5)
+  %58 = call fastcc i32 @chkflevel(ptr noundef %5)
   %.not33 = icmp eq i32 %58, 0
   br i1 %.not33, label %66, label %59
 
@@ -846,7 +846,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef
   br i1 %.not35, label %67, label %76
 
 67:                                               ; preds = %66
-  %68 = call fastcc i32 @chkflevel.argelim(ptr noundef %5)
+  %68 = call fastcc i32 @chkflevel(ptr noundef %5)
   %.not36 = icmp eq i32 %68, 0
   br i1 %.not36, label %76, label %69
 
@@ -868,7 +868,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef
   br i1 %.not38, label %77, label %86
 
 77:                                               ; preds = %76
-  %78 = call fastcc i32 @chkflevel.argelim(ptr noundef %5)
+  %78 = call fastcc i32 @chkflevel(ptr noundef %5)
   %.not39 = icmp eq i32 %78, 0
   br i1 %.not39, label %86, label %79
 
@@ -890,7 +890,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef
   br i1 %.not41, label %87, label %96
 
 87:                                               ; preds = %86
-  %88 = call fastcc i32 @chkflevel.argelim(ptr noundef %5)
+  %88 = call fastcc i32 @chkflevel(ptr noundef %5)
   %.not42 = icmp eq i32 %88, 0
   br i1 %.not42, label %96, label %89
 
@@ -912,7 +912,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef
   br i1 %.not44, label %97, label %106
 
 97:                                               ; preds = %96
-  %98 = call fastcc i32 @chkflevel.argelim(ptr noundef %5)
+  %98 = call fastcc i32 @chkflevel(ptr noundef %5)
   %.not45 = icmp eq i32 %98, 0
   br i1 %.not45, label %106, label %99
 
@@ -934,7 +934,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef
   br i1 %.not47, label %107, label %116
 
 107:                                              ; preds = %106
-  %108 = call fastcc i32 @chkflevel.argelim(ptr noundef %5)
+  %108 = call fastcc i32 @chkflevel(ptr noundef %5)
   %.not48 = icmp eq i32 %108, 0
   br i1 %.not48, label %116, label %109
 
@@ -956,7 +956,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef
   br i1 %.not50, label %117, label %126
 
 117:                                              ; preds = %116
-  %118 = call fastcc i32 @chkflevel.argelim(ptr noundef %5)
+  %118 = call fastcc i32 @chkflevel(ptr noundef %5)
   %.not51 = icmp eq i32 %118, 0
   br i1 %.not51, label %126, label %119
 
@@ -991,7 +991,7 @@ declare ptr @cli_dbgets(ptr noundef, i32 noundef, ptr noundef, ptr noundef) loca
 declare i32 @cli_chomp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @chkflevel.argelim(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @chkflevel(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call ptr @cli_strtok(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str.130) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %28, label %3

@@ -1491,17 +1491,17 @@ land.lhs.true.i:                                  ; preds = %if.end
   %obj.val.i = load i32, ptr %call1, align 8
   %1 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %1, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #15
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 3
   br i1 %cmp.i, label %if.end4, label %out
 
-if.end4:                                          ; preds = %qobject_type.argprom.exit.i
+if.end4:                                          ; preds = %qobject_type.exit.i
   %current.i = getelementptr inbounds i8, ptr %ctxt, i64 8
   %2 = load ptr, ptr %current.i, align 8
   tail call void @g_free(ptr noundef %2) #14
@@ -1565,7 +1565,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i26
   tail call void @qobject_destroy(ptr noundef nonnull %call1) #14
   br label %return
 
-out:                                              ; preds = %qobject_type.argprom.exit.i
+out:                                              ; preds = %qobject_type.exit.i
   tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.7)
   br label %lor.lhs.false.i30
 

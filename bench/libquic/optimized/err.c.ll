@@ -674,7 +674,7 @@ if.end14.i:                                       ; preds = %if.end7.i
   %cmp.i.i = icmp ugt i32 %packed_error, 1073741823
   %cmp1.i.i = icmp ugt i32 %and1, 2047
   %or.cond.i.i = or i1 %cmp.i.i, %cmp1.i.i
-  br i1 %or.cond.i.i, label %err_string_lookup.argprom.exit.i, label %if.end.i.i
+  br i1 %or.cond.i.i, label %err_string_lookup.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end14.i
   %shl.i.i = shl nuw i32 %.pre, 26
@@ -683,24 +683,24 @@ if.end.i.i:                                       ; preds = %if.end14.i
   store i32 %or.i.i, ptr %search_key.i.i, align 4
   %call.i.i = call ptr @bsearch(ptr noundef nonnull %search_key.i.i, ptr noundef nonnull @kOpenSSLReasonValues, i64 noundef %2, i64 noundef 4, ptr noundef nonnull @err_string_cmp) #19
   %cmp3.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp3.i.i, label %err_string_lookup.argprom.exit.i, label %if.end5.i.i
+  br i1 %cmp3.i.i, label %err_string_lookup.exit.i, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %3 = load i32, ptr %call.i.i, align 4
   %and.i.i = and i32 %3, 32767
   %idxprom.i.i = zext nneg i32 %and.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr @kOpenSSLReasonStringData, i64 %idxprom.i.i
-  br label %err_string_lookup.argprom.exit.i
+  br label %err_string_lookup.exit.i
 
-err_string_lookup.argprom.exit.i:                 ; preds = %if.end5.i.i, %if.end.i.i, %if.end14.i
+err_string_lookup.exit.i:                         ; preds = %if.end5.i.i, %if.end.i.i, %if.end14.i
   %retval.0.i.i = phi ptr [ %arrayidx.i.i, %if.end5.i.i ], [ null, %if.end14.i ], [ null, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %search_key.i.i)
   br label %ERR_reason_error_string.exit
 
-ERR_reason_error_string.exit:                     ; preds = %if.then.i, %if.then3.i, %if.then6.i, %if.then9.i, %sw.bb10.i, %sw.bb11.i, %sw.bb12.i, %sw.bb13.i, %sw.default.i, %err_string_lookup.argprom.exit.i
-  %retval.0.i37 = phi ptr [ %0, %if.then3.i ], [ %retval.0.i38, %if.then6.i ], [ %retval.0.i38, %sw.default.i ], [ %retval.0.i38, %sw.bb13.i ], [ %retval.0.i38, %sw.bb12.i ], [ %retval.0.i38, %sw.bb11.i ], [ %retval.0.i38, %sw.bb10.i ], [ %retval.0.i38, %err_string_lookup.argprom.exit.i ], [ %0, %if.then.i ], [ %retval.0.i38, %if.then9.i ]
-  %shr.i21.pre-phi35 = phi i32 [ 2, %if.then3.i ], [ %.pre, %if.then6.i ], [ %.pre, %sw.default.i ], [ %.pre, %sw.bb13.i ], [ %.pre, %sw.bb12.i ], [ %.pre, %sw.bb11.i ], [ %.pre, %sw.bb10.i ], [ %.pre, %err_string_lookup.argprom.exit.i ], [ 2, %if.then.i ], [ %.pre, %if.then9.i ]
-  %retval.0.i23 = phi ptr [ %call.i, %if.then3.i ], [ %1, %if.then6.i ], [ null, %sw.default.i ], [ @.str.8, %sw.bb13.i ], [ @.str.7, %sw.bb12.i ], [ @.str.6, %sw.bb11.i ], [ @.str.5, %sw.bb10.i ], [ %retval.0.i.i, %err_string_lookup.argprom.exit.i ], [ null, %if.then.i ], [ @.str.4, %if.then9.i ]
+ERR_reason_error_string.exit:                     ; preds = %if.then.i, %if.then3.i, %if.then6.i, %if.then9.i, %sw.bb10.i, %sw.bb11.i, %sw.bb12.i, %sw.bb13.i, %sw.default.i, %err_string_lookup.exit.i
+  %retval.0.i37 = phi ptr [ %0, %if.then3.i ], [ %retval.0.i38, %if.then6.i ], [ %retval.0.i38, %sw.default.i ], [ %retval.0.i38, %sw.bb13.i ], [ %retval.0.i38, %sw.bb12.i ], [ %retval.0.i38, %sw.bb11.i ], [ %retval.0.i38, %sw.bb10.i ], [ %retval.0.i38, %err_string_lookup.exit.i ], [ %0, %if.then.i ], [ %retval.0.i38, %if.then9.i ]
+  %shr.i21.pre-phi35 = phi i32 [ 2, %if.then3.i ], [ %.pre, %if.then6.i ], [ %.pre, %sw.default.i ], [ %.pre, %sw.bb13.i ], [ %.pre, %sw.bb12.i ], [ %.pre, %sw.bb11.i ], [ %.pre, %sw.bb10.i ], [ %.pre, %err_string_lookup.exit.i ], [ 2, %if.then.i ], [ %.pre, %if.then9.i ]
+  %retval.0.i23 = phi ptr [ %call.i, %if.then3.i ], [ %1, %if.then6.i ], [ null, %sw.default.i ], [ @.str.8, %sw.bb13.i ], [ @.str.7, %sw.bb12.i ], [ @.str.6, %sw.bb11.i ], [ @.str.5, %sw.bb10.i ], [ %retval.0.i.i, %err_string_lookup.exit.i ], [ null, %if.then.i ], [ @.str.4, %if.then9.i ]
   %cmp3 = icmp eq ptr %retval.0.i37, null
   br i1 %cmp3, label %if.then4, label %if.end7
 
@@ -818,7 +818,7 @@ if.end14:                                         ; preds = %if.end7
   %cmp.i = icmp ugt i32 %packed_error, 1073741823
   %cmp1.i = icmp ugt i32 %and1, 2047
   %or.cond.i = or i1 %cmp.i, %cmp1.i
-  br i1 %or.cond.i, label %err_string_lookup.argprom.exit, label %if.end.i
+  br i1 %or.cond.i, label %err_string_lookup.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end14
   %shl.i = shl nuw i32 %shr, 26
@@ -827,16 +827,16 @@ if.end.i:                                         ; preds = %if.end14
   store i32 %or.i, ptr %search_key.i, align 4
   %call.i = call ptr @bsearch(ptr noundef nonnull %search_key.i, ptr noundef nonnull @kOpenSSLReasonValues, i64 noundef %2, i64 noundef 4, ptr noundef nonnull @err_string_cmp) #19
   %cmp3.i = icmp eq ptr %call.i, null
-  br i1 %cmp3.i, label %err_string_lookup.argprom.exit, label %if.end5.i
+  br i1 %cmp3.i, label %err_string_lookup.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %3 = load i32, ptr %call.i, align 4
   %and.i = and i32 %3, 32767
   %idxprom.i = zext nneg i32 %and.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr @kOpenSSLReasonStringData, i64 %idxprom.i
-  br label %err_string_lookup.argprom.exit
+  br label %err_string_lookup.exit
 
-err_string_lookup.argprom.exit:                   ; preds = %if.end14, %if.end.i, %if.end5.i
+err_string_lookup.exit:                           ; preds = %if.end14, %if.end.i, %if.end5.i
   %retval.0.i = phi ptr [ %arrayidx.i, %if.end5.i ], [ null, %if.end14 ], [ null, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %search_key.i)
   br label %return
@@ -847,8 +847,8 @@ switch.lookup:                                    ; preds = %if.then9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
-return:                                           ; preds = %if.then9, %switch.lookup, %if.then, %err_string_lookup.argprom.exit, %if.then6, %if.then3
-  %retval.0 = phi ptr [ %call, %if.then3 ], [ %0, %if.then6 ], [ %retval.0.i, %err_string_lookup.argprom.exit ], [ null, %if.then ], [ %switch.load, %switch.lookup ], [ null, %if.then9 ]
+return:                                           ; preds = %if.then9, %switch.lookup, %if.then, %err_string_lookup.exit, %if.then6, %if.then3
+  %retval.0 = phi ptr [ %call, %if.then3 ], [ %0, %if.then6 ], [ %retval.0.i, %err_string_lookup.exit ], [ null, %if.then ], [ %switch.load, %switch.lookup ], [ null, %if.then9 ]
   ret ptr %retval.0
 }
 

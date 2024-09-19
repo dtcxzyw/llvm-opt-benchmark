@@ -430,43 +430,43 @@ sub_1.i:                                          ; preds = %proto_item_set_hidd
   ]
 
 86:                                               ; preds = %82
-  tail call fastcc void @dissect_client_transport_info.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef %85)
+  tail call fastcc void @dissect_client_transport_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef %85)
   br label %105
 
 87:                                               ; preds = %82
-  tail call fastcc void @dissect_client_player_info.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef %85)
+  tail call fastcc void @dissect_client_player_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef %85)
   br label %105
 
 88:                                               ; preds = %82
-  tail call fastcc void @dissect_start_sending_from_info.argelim(ptr noundef %0, ptr noundef %39)
+  tail call fastcc void @dissect_start_sending_from_info(ptr noundef %0, ptr noundef %39)
   br label %105
 
 89:                                               ; preds = %82
-  tail call fastcc void @dissect_cancel_info.argelim(ptr noundef %0, ptr noundef %39)
+  tail call fastcc void @dissect_cancel_info(ptr noundef %0, ptr noundef %39)
   br label %105
 
 90:                                               ; preds = %82
-  tail call fastcc void @dissect_timing_test_request.argelim(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_timing_test_request(ptr noundef %0, ptr noundef %2)
   br label %105
 
 91:                                               ; preds = %82
-  tail call fastcc void @dissect_request_server_file.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %85)
+  tail call fastcc void @dissect_request_server_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %85)
   br label %105
 
 92:                                               ; preds = %82
-  tail call fastcc void @dissect_network_timer_test_response.argelim(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_network_timer_test_response(ptr noundef %0, ptr noundef %2)
   br label %105
 
 93:                                               ; preds = %82
-  tail call fastcc void @dissect_media_stream_mbr_selector.argelim(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_media_stream_mbr_selector(ptr noundef %0, ptr noundef %2)
   br label %105
 
 94:                                               ; preds = %82
-  tail call fastcc void @dissect_header_request.argelim(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_header_request(ptr noundef %0, ptr noundef %2)
   br label %105
 
 95:                                               ; preds = %82
-  tail call fastcc void @dissect_stop_button_pressed.argelim(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_stop_button_pressed(ptr noundef %0, ptr noundef %2)
   br label %105
 
 96:                                               ; preds = %62
@@ -481,25 +481,25 @@ sub_1.i:                                          ; preds = %proto_item_set_hidd
   ]
 
 98:                                               ; preds = %96
-  tail call fastcc void @dissect_server_info.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39)
+  tail call fastcc void @dissect_server_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39)
   br label %105
 
 99:                                               ; preds = %96
-  tail call fastcc void @dissect_timing_test_response.argelim(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_timing_test_response(ptr noundef %0, ptr noundef %2)
   br label %105
 
 100:                                              ; preds = %96
-  tail call fastcc void @dissect_media_details.argelim(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_media_details(ptr noundef %0, ptr noundef %2)
   br label %105
 
 101:                                              ; preds = %96
-  tail call fastcc void @dissect_header_response.argelim(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_header_response(ptr noundef %0, ptr noundef %2)
   br label %105
 
 102:                                              ; preds = %96
   %103 = shl i32 %72, 3
   %104 = add i32 %103, -8
-  tail call fastcc void @dissect_transport_info_response.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %104)
+  tail call fastcc void @dissect_transport_info_response(ptr noundef %0, ptr noundef %2, i32 noundef %104)
   br label %105
 
 105:                                              ; preds = %102, %101, %100, %99, %98, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %82
@@ -701,7 +701,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_client_transport_info.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_client_transport_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._address, align 8
   %6 = alloca [4 x i32], align 16
   %7 = alloca [4 x i8], align 4
@@ -801,7 +801,7 @@ msmms_data_add_address.exit:                      ; preds = %.thread, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_client_player_info.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_client_player_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_msmms_command_prefix1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
@@ -822,7 +822,7 @@ define internal fastcc void @dissect_client_player_info.argelim(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_start_sending_from_info.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_start_sending_from_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
@@ -831,7 +831,7 @@ define internal fastcc void @dissect_start_sending_from_info.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cancel_info.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_cancel_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
@@ -840,7 +840,7 @@ define internal fastcc void @dissect_cancel_info.argelim(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_timing_test_request.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_timing_test_request(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
@@ -849,7 +849,7 @@ define internal fastcc void @dissect_timing_test_request.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_request_server_file.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_request_server_file(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
@@ -870,7 +870,7 @@ define internal fastcc void @dissect_request_server_file.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_network_timer_test_response.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_network_timer_test_response(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
@@ -879,7 +879,7 @@ define internal fastcc void @dissect_network_timer_test_response.argelim(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_media_stream_mbr_selector.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_media_stream_mbr_selector(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_stream_structure_count, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_stream_selection_flags, align 4
@@ -892,7 +892,7 @@ define internal fastcc void @dissect_media_stream_mbr_selector.argelim(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_header_request.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_header_request(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
@@ -903,7 +903,7 @@ define internal fastcc void @dissect_header_request.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_stop_button_pressed.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_stop_button_pressed(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
@@ -912,7 +912,7 @@ define internal fastcc void @dissect_stop_button_pressed.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_server_info.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_server_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_msmms_command_prefix1_error, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
@@ -990,7 +990,7 @@ define internal fastcc void @dissect_server_info.argelim(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_timing_test_response.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_timing_test_response(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_error, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
@@ -1003,7 +1003,7 @@ define internal fastcc void @dissect_timing_test_response.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_media_details.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_media_details(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_error, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
@@ -1022,7 +1022,7 @@ define internal fastcc void @dissect_media_details.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_header_response.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_header_response(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_error, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
@@ -1031,7 +1031,7 @@ define internal fastcc void @dissect_header_response.argelim(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_transport_info_response.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_transport_info_response(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_msmms_command_prefix2, align 4

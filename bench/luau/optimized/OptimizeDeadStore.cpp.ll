@@ -168,8 +168,8 @@ _ZN4Luau7CodeGen20RemoveDeadStoreStateC2ERNS0_10IrFunctionE.exit.i: ; preds = %5
   %.not40.i.i = icmp ugt i32 %67, %69
   br i1 %.not40.i.i, label %_ZN4Luau7CodeGenL21markDeadStoresInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_20RemoveDeadStoreStateE.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %58, %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
-  %.041.i.i = phi i32 [ %458, %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i ], [ %67, %58 ]
+.lr.ph.i.i:                                       ; preds = %58, %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
+  %.041.i.i = phi i32 [ %458, %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i ], [ %67, %58 ]
   %70 = zext i32 %.041.i.i to i64
   %71 = load ptr, ptr %19, align 8
   %72 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %71, i64 %70
@@ -197,9 +197,9 @@ _ZN4Luau7CodeGen20RemoveDeadStoreStateC2ERNS0_10IrFunctionE.exit.i: ; preds = %5
     i8 87, label %439
     i8 88, label %440
     i8 89, label %.invoke
-    i8 43, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+    i8 43, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
     i8 100, label %441
-    i8 66, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+    i8 66, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
     i8 42, label %442
     i8 71, label %442
     i8 72, label %442
@@ -225,7 +225,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreStateC2ERNS0_10IrFunctionE.exit.i: ; preds = %5
   %76 = load i32, ptr %75, align 4
   %77 = and i32 %76, 15
   %78 = icmp eq i32 %77, 6
-  br i1 %78, label %79, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %78, label %79, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 79:                                               ; preds = %74
   %80 = lshr i32 %76, 4
@@ -249,7 +249,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit30.i.i:          ; preds = %79
   %88 = shl nuw i64 1, %87
   %89 = and i64 %86, %88
   %.not35.i.i = icmp eq i64 %89, 0
-  br i1 %.not35.i.i, label %90, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %.not35.i.i, label %90, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 90:                                               ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit30.i.i
   %91 = getelementptr inbounds [256 x %"struct.Luau::CodeGen::StoreRegInfo"], ptr %15, i64 0, i64 %81
@@ -347,7 +347,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
   %126 = getelementptr inbounds i8, ptr %91, i64 12
   %127 = zext i1 %125 to i8
   store i8 %127, ptr %126, align 4
-  br label %_ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.exit.i.i
 
 128:                                              ; preds = %99, %90
   %129 = getelementptr inbounds i8, ptr %91, i64 8
@@ -412,9 +412,9 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %146 = zext i1 %144 to i8
   store i8 %146, ptr %145, align 4
   %147 = getelementptr inbounds i8, ptr %91, i64 13
-  br label %_ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.exit.i.i
 
-_ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.argprom.exit.i.i: ; preds = %.noexc25, %.noexc22
+_ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.exit.i.i: ; preds = %.noexc25, %.noexc22
   %.sink.i.i.i = phi ptr [ %147, %.noexc25 ], [ %102, %.noexc22 ]
   %.sink8.i.i.i = phi i8 [ %146, %.noexc25 ], [ %127, %.noexc22 ]
   store i8 %97, ptr %.sink.i.i.i, align 1
@@ -424,7 +424,7 @@ _ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9
   store i8 %150, ptr %17, align 4
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %3)
-  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 151:                                              ; preds = %131, %128
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %2)
@@ -448,14 +448,14 @@ _ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9
   %161 = and i8 %160, 1
   %162 = or i8 %161, %158
   store i8 %162, ptr %17, align 4
-  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 163:                                              ; preds = %.lr.ph.i.i
   %164 = getelementptr inbounds i8, ptr %72, i64 4
   %165 = load i32, ptr %164, align 4
   %166 = and i32 %165, 15
   %167 = icmp eq i32 %166, 6
-  br i1 %167, label %168, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %167, label %168, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 168:                                              ; preds = %163
   %169 = lshr i32 %165, 4
@@ -469,14 +469,14 @@ _ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9
   store i32 -1, ptr %174, align 8
   %175 = getelementptr inbounds i8, ptr %172, i64 12
   store i8 0, ptr %175, align 4
-  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 176:                                              ; preds = %.lr.ph.i.i
   %177 = getelementptr inbounds i8, ptr %72, i64 4
   %178 = load i32, ptr %177, align 4
   %179 = and i32 %178, 15
   %180 = icmp eq i32 %179, 6
-  br i1 %180, label %181, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %180, label %181, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 181:                                              ; preds = %176
   %182 = lshr i32 %178, 4
@@ -492,13 +492,13 @@ _ZNKSt6bitsetILm256EE4testEm.exit22.i.i:          ; preds = %181
   %189 = shl nuw i64 1, %188
   %190 = and i64 %187, %189
   %.not34.i.i = icmp eq i64 %190, 0
-  br i1 %.not34.i.i, label %191, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %.not34.i.i, label %191, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 191:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit22.i.i
   %192 = getelementptr inbounds [256 x %"struct.Luau::CodeGen::StoreRegInfo"], ptr %15, i64 0, i64 %183
   %193 = getelementptr inbounds i8, ptr %72, i64 8
   %.sroa.061.0.copyload.i.i.i = load i32, ptr %193, align 4
-  %194 = invoke fastcc noundef zeroext i1 @_ZN4Luau7CodeGenL28tryReplaceValueWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(4109) %4, ptr noundef nonnull align 8 dereferenceable(616) %5, ptr noundef nonnull align 4 dereferenceable(32) %.030.i, i32 noundef %.041.i.i, i32 %178, i32 %.sroa.061.0.copyload.i.i.i, ptr noundef nonnull align 4 dereferenceable(14) %192)
+  %194 = invoke fastcc noundef zeroext i1 @_ZN4Luau7CodeGenL28tryReplaceValueWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE(ptr noundef nonnull align 8 dereferenceable(4109) %4, ptr noundef nonnull align 8 dereferenceable(616) %5, ptr noundef nonnull align 4 dereferenceable(32) %.030.i, i32 noundef %.041.i.i, i32 %178, i32 %.sroa.061.0.copyload.i.i.i, ptr noundef nonnull align 4 dereferenceable(14) %192)
           to label %.noexc28 unwind label %.loopexit
 
 .noexc28:                                         ; preds = %191
@@ -508,7 +508,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit22.i.i:          ; preds = %181
   %196 = getelementptr inbounds i8, ptr %192, i64 12
   store i8 1, ptr %196, align 4
   store i8 1, ptr %17, align 4
-  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 197:                                              ; preds = %.noexc28
   %198 = getelementptr inbounds i8, ptr %192, i64 13
@@ -537,14 +537,14 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
   %210 = getelementptr inbounds i8, ptr %192, i64 12
   store i8 1, ptr %210, align 4
   store i8 1, ptr %17, align 4
-  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 211:                                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i
   %212 = getelementptr inbounds i8, ptr %72, i64 4
   %213 = load i32, ptr %212, align 4
   %214 = and i32 %213, 15
   %215 = icmp eq i32 %214, 6
-  br i1 %215, label %216, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %215, label %216, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 216:                                              ; preds = %211
   %217 = lshr i32 %213, 4
@@ -560,17 +560,17 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i.i:          ; preds = %216
   %224 = shl nuw i64 1, %223
   %225 = and i64 %222, %224
   %.not3.i.i.i = icmp eq i64 %225, 0
-  br i1 %.not3.i.i.i, label %226, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %.not3.i.i.i, label %226, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 226:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i.i.i
   %227 = getelementptr inbounds [256 x %"struct.Luau::CodeGen::StoreRegInfo"], ptr %15, i64 0, i64 %218
   %228 = getelementptr inbounds i8, ptr %72, i64 8
   %.sroa.051.0.copyload.i.i.i = load i32, ptr %228, align 4
-  %229 = invoke fastcc noundef zeroext i1 @_ZN4Luau7CodeGenL28tryReplaceValueWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(4109) %4, ptr noundef nonnull align 8 dereferenceable(616) %5, ptr noundef nonnull align 4 dereferenceable(32) %.030.i, i32 noundef %.041.i.i, i32 %213, i32 %.sroa.051.0.copyload.i.i.i, ptr noundef nonnull align 4 dereferenceable(14) %227)
+  %229 = invoke fastcc noundef zeroext i1 @_ZN4Luau7CodeGenL28tryReplaceValueWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE(ptr noundef nonnull align 8 dereferenceable(4109) %4, ptr noundef nonnull align 8 dereferenceable(616) %5, ptr noundef nonnull align 4 dereferenceable(32) %.030.i, i32 noundef %.041.i.i, i32 %213, i32 %.sroa.051.0.copyload.i.i.i, ptr noundef nonnull align 4 dereferenceable(14) %227)
           to label %.noexc31 unwind label %.loopexit
 
 .noexc31:                                         ; preds = %226
-  br i1 %229, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i, label %230
+  br i1 %229, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i, label %230
 
 230:                                              ; preds = %.noexc31
   %231 = getelementptr inbounds i8, ptr %227, i64 13
@@ -598,14 +598,14 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
   store i32 %.041.i.i, ptr %242, align 4
   %243 = getelementptr inbounds i8, ptr %227, i64 12
   store i8 0, ptr %243, align 4
-  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 244:                                              ; preds = %.lr.ph.i.i
   %245 = getelementptr inbounds i8, ptr %72, i64 4
   %246 = load i32, ptr %245, align 4
   %247 = and i32 %246, 15
   %248 = icmp eq i32 %247, 6
-  br i1 %248, label %249, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %248, label %249, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 249:                                              ; preds = %244
   %250 = lshr i32 %246, 4
@@ -619,14 +619,14 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
   store i32 -1, ptr %255, align 8
   %256 = getelementptr inbounds i8, ptr %253, i64 12
   store i8 0, ptr %256, align 4
-  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 257:                                              ; preds = %.lr.ph.i.i
   %258 = getelementptr inbounds i8, ptr %72, i64 4
   %259 = load i32, ptr %258, align 4
   %260 = and i32 %259, 15
   %261 = icmp eq i32 %260, 6
-  br i1 %261, label %262, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %261, label %262, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 262:                                              ; preds = %257
   %263 = lshr i32 %259, 4
@@ -642,7 +642,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit21.i.i:          ; preds = %262
   %270 = shl nuw i64 1, %269
   %271 = and i64 %268, %270
   %.not33.i.i = icmp eq i64 %271, 0
-  br i1 %.not33.i.i, label %272, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %.not33.i.i, label %272, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 272:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit21.i.i
   %273 = getelementptr inbounds [256 x %"struct.Luau::CodeGen::StoreRegInfo"], ptr %15, i64 0, i64 %264
@@ -775,14 +775,14 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %337 = or i8 %336, %335
   %338 = and i8 %337, 1
   store i8 %338, ptr %17, align 4
-  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 339:                                              ; preds = %.lr.ph.i.i
   %340 = getelementptr inbounds i8, ptr %72, i64 4
   %341 = load i32, ptr %340, align 4
   %342 = and i32 %341, 15
   %343 = icmp eq i32 %342, 6
-  br i1 %343, label %344, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %343, label %344, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 344:                                              ; preds = %339
   %345 = lshr i32 %341, 4
@@ -798,7 +798,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i:            ; preds = %344
   %352 = shl nuw i64 1, %351
   %353 = and i64 %350, %352
   %.not32.i.i = icmp eq i64 %353, 0
-  br i1 %.not32.i.i, label %354, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %.not32.i.i, label %354, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 354:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i.i
   %355 = getelementptr inbounds [256 x %"struct.Luau::CodeGen::StoreRegInfo"], ptr %15, i64 0, i64 %346
@@ -903,7 +903,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %.masked.i.i.i = and i8 %403, 1
   %404 = or i8 %.masked.i.i.i, %397
   store i8 %404, ptr %17, align 4
-  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 405:                                              ; preds = %.lr.ph.i.i
   %406 = getelementptr inbounds i8, ptr %72, i64 12
@@ -922,19 +922,19 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %413 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %412, i64 %411
   %.not1.i.i.i = icmp eq ptr %412, null
   %.not.i.i.i16 = select i1 %409, i1 true, i1 %.not1.i.i.i
-  br i1 %.not.i.i.i16, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i, label %414
+  br i1 %.not.i.i.i16, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i, label %414
 
 414:                                              ; preds = %.noexc43
   %415 = load i8, ptr %413, align 4
   %416 = icmp eq i8 %415, 1
-  br i1 %416, label %417, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %416, label %417, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 417:                                              ; preds = %414
   %418 = getelementptr inbounds i8, ptr %413, i64 4
   %419 = load i32, ptr %418, align 4
   %420 = and i32 %419, 15
   %421 = icmp eq i32 %420, 6
-  br i1 %421, label %422, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br i1 %421, label %422, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 422:                                              ; preds = %417
   %423 = lshr i32 %419, 4
@@ -948,7 +948,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %430 = load i8, ptr %429, align 8
   %431 = getelementptr inbounds [256 x %"struct.Luau::CodeGen::StoreRegInfo"], ptr %15, i64 0, i64 %424, i32 4
   store i8 %430, ptr %431, align 1
-  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i
+  br label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 432:                                              ; preds = %.lr.ph.i.i
   br label %.invoke
@@ -958,7 +958,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %433 = getelementptr inbounds i8, ptr %72, i64 %.sink103
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %433, align 4
   invoke void @_ZN4Luau7CodeGen20RemoveDeadStoreState12checkLiveInsENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(4109) %4, i32 %.sroa.0.0.copyload.i.i.i)
-          to label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i unwind label %.loopexit
+          to label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i unwind label %.loopexit
 
 434:                                              ; preds = %.lr.ph.i.i
   br label %.invoke
@@ -987,7 +987,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
 
 .noexc57:                                         ; preds = %441
   invoke void @_ZN4Luau7CodeGen20RemoveDeadStoreState13checkLiveOutsERKNS0_7IrBlockE(ptr noundef nonnull align 8 dereferenceable(4109) %4, ptr noundef nonnull align 4 dereferenceable(32) %.030.i)
-          to label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i unwind label %.loopexit
+          to label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i unwind label %.loopexit
 
 442:                                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %443 = load i8, ptr %17, align 4
@@ -1031,16 +1031,16 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState12flushGcoRegsEv.exit.i.i.i: ; preds = %45
 
 .invoke101:                                       ; preds = %.lr.ph.i.i, %442, %_ZN4Luau7CodeGen20RemoveDeadStoreState12flushGcoRegsEv.exit.i.i.i
   invoke fastcc void @_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_20RemoveDeadStoreStateEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(4109) %4, ptr noundef nonnull align 8 dereferenceable(616) %5, ptr noundef nonnull align 4 dereferenceable(43) %72)
-          to label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i unwind label %.loopexit
+          to label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i unwind label %.loopexit
 
-_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i: ; preds = %.invoke101, %.invoke, %.noexc57, %422, %417, %414, %.noexc43, %.noexc42, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i, %339, %334, %_ZNKSt6bitsetILm256EE4testEm.exit21.i.i, %257, %249, %244, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit211.i.i.i, %.noexc31, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i.i, %211, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit.i.i.i, %195, %_ZNKSt6bitsetILm256EE4testEm.exit22.i.i, %176, %168, %163, %.noexc26, %_ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.argprom.exit.i.i, %_ZNKSt6bitsetILm256EE4testEm.exit30.i.i, %74, %.lr.ph.i.i, %.lr.ph.i.i
+_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i: ; preds = %.invoke101, %.invoke, %.noexc57, %422, %417, %414, %.noexc43, %.noexc42, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i, %339, %334, %_ZNKSt6bitsetILm256EE4testEm.exit21.i.i, %257, %249, %244, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit211.i.i.i, %.noexc31, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i.i, %211, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit.i.i.i, %195, %_ZNKSt6bitsetILm256EE4testEm.exit22.i.i, %176, %168, %163, %.noexc26, %_ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.exit.i.i, %_ZNKSt6bitsetILm256EE4testEm.exit30.i.i, %74, %.lr.ph.i.i, %.lr.ph.i.i
   %458 = add i32 %.041.i.i, 1
   %459 = load i32, ptr %68, align 4
   %.not.i25.i = icmp ugt i32 %458, %459
   br i1 %.not.i25.i, label %_ZN4Luau7CodeGenL21markDeadStoresInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_20RemoveDeadStoreStateE.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
-_ZN4Luau7CodeGenL21markDeadStoresInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_20RemoveDeadStoreStateE.exit.i: ; preds = %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i, %58
-  %460 = phi i32 [ %69, %58 ], [ %459, %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.argprom.exit.i.i ]
+_ZN4Luau7CodeGenL21markDeadStoresInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_20RemoveDeadStoreStateE.exit.i: ; preds = %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i, %58
+  %460 = phi i32 [ %69, %58 ], [ %459, %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i ]
   %461 = zext i32 %460 to i64
   %462 = load ptr, ptr %19, align 8
   %463 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %462, i64 %461
@@ -1101,7 +1101,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef zeroext i1 @_ZN4Luau7CodeGen5isGCOEh(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4Luau7CodeGenL28tryReplaceValueWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4109) %0, ptr noundef nonnull align 8 dereferenceable(616) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, i32 %4, i32 %5, ptr nocapture noundef nonnull align 4 dereferenceable(14) %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN4Luau7CodeGenL28tryReplaceValueWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4109) %0, ptr noundef nonnull align 8 dereferenceable(616) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, i32 %4, i32 %5, ptr nocapture noundef nonnull align 4 dereferenceable(14) %6) unnamed_addr #0 {
   %8 = alloca %"struct.Luau::CodeGen::IrInst", align 8
   %9 = alloca %"struct.Luau::CodeGen::IrInst", align 8
   %10 = load i32, ptr %6, align 4

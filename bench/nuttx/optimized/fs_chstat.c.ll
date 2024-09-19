@@ -12,12 +12,12 @@ define range(i32 -1, 1) i32 @chmod(ptr noundef %0, i32 noundef %1) local_unnamed
   %3 = alloca %struct.stat, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
-  %5 = call fastcc i32 @chstat.argelim(ptr noundef %0, ptr noundef %3, i32 noundef 1)
+  %5 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %3, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @chstat.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 1, 25) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 1, 25) %2) unnamed_addr #0 {
   %4 = alloca %struct.inode_search_s, align 8
   %5 = and i32 %2, 1
   %.not = icmp eq i32 %5, 0
@@ -188,7 +188,7 @@ define range(i32 -1, 1) i32 @lchmod(ptr noundef %0, i32 noundef %1) local_unname
   %3 = alloca %struct.stat, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
-  %5 = call fastcc i32 @chstat.argelim(ptr noundef %0, ptr noundef %3, i32 noundef 1)
+  %5 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %3, i32 noundef 1)
   ret i32 %5
 }
 
@@ -199,7 +199,7 @@ define range(i32 -1, 1) i32 @chown(ptr noundef %0, i32 noundef %1, i32 noundef %
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 %2, ptr %6, align 4
-  %7 = call fastcc i32 @chstat.argelim(ptr noundef %0, ptr noundef %4, i32 noundef 6)
+  %7 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %4, i32 noundef 6)
   ret i32 %7
 }
 
@@ -210,7 +210,7 @@ define range(i32 -1, 1) i32 @lchown(ptr noundef %0, i32 noundef %1, i32 noundef 
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 %2, ptr %6, align 4
-  %7 = call fastcc i32 @chstat.argelim(ptr noundef %0, ptr noundef %4, i32 noundef 6)
+  %7 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %4, i32 noundef 6)
   ret i32 %7
 }
 
@@ -236,7 +236,7 @@ define range(i32 -1, 1) i32 @utimens(ptr noundef %0, ptr noundef readonly %1) lo
   br label %11
 
 11:                                               ; preds = %8, %4
-  %12 = call fastcc i32 @chstat.argelim(ptr noundef %0, ptr noundef %3, i32 noundef 24)
+  %12 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %3, i32 noundef 24)
   ret i32 %12
 }
 
@@ -265,7 +265,7 @@ define range(i32 -1, 1) i32 @lutimens(ptr noundef %0, ptr noundef readonly %1) l
   br label %11
 
 11:                                               ; preds = %8, %4
-  %12 = call fastcc i32 @chstat.argelim(ptr noundef %0, ptr noundef %3, i32 noundef 24)
+  %12 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %3, i32 noundef 24)
   ret i32 %12
 }
 

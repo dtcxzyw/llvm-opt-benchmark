@@ -7636,20 +7636,20 @@ define internal void @"_ZNSt17_Function_handlerIFvmESt5_BindIFZN6htif_t3runEvE3$
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %12, ptr %5, align 8
-  br label %"_ZSt10__invoke_rIvRSt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEJmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRSt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEJmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 13:                                               ; preds = %2
   call void @_ZNSt5dequeImSaImEE16_M_push_back_auxIJRKmEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %.val2, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %"_ZSt10__invoke_rIvRSt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEJmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRSt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEJmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
-"_ZSt10__invoke_rIvRSt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEJmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %10, %13
+"_ZSt10__invoke_rIvRSt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEJmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %10, %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvmESt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -7658,30 +7658,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvmESt5_BindIFZN6h
 
 4:                                                ; preds = %3
   store ptr @"_ZTISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEE", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val6, i64 16, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #34
-  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerISt5_BindIFZN6htif_t3runEvE3$_0PSt5queueImSt5dequeImSaImEEESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

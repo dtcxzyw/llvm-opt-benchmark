@@ -1126,7 +1126,7 @@ switch.hole_check:                                ; preds = %183
 
 switch.lookup:                                    ; preds = %switch.hole_check, %188
   %191 = phi i32 [ %190, %188 ], [ 0, %switch.hole_check ]
-  %192 = tail call fastcc i32 @sccp_called_calling_looks_valid.argelim(ptr noundef %186, i8 noundef zeroext %2, i32 noundef %191)
+  %192 = tail call fastcc i32 @sccp_called_calling_looks_valid(ptr noundef %186, i8 noundef zeroext %2, i32 noundef %191)
   %.not352 = icmp eq i32 %192, 0
   br i1 %.not352, label %223, label %193
 
@@ -1156,7 +1156,7 @@ switch.hole_check416:                             ; preds = %196
 
 switch.lookup417:                                 ; preds = %switch.hole_check416, %201
   %204 = phi i32 [ %203, %201 ], [ 0, %switch.hole_check416 ]
-  %205 = tail call fastcc i32 @sccp_called_calling_looks_valid.argelim(ptr noundef %199, i8 noundef zeroext %2, i32 noundef %204)
+  %205 = tail call fastcc i32 @sccp_called_calling_looks_valid(ptr noundef %199, i8 noundef zeroext %2, i32 noundef %204)
   %.not354 = icmp eq i32 %205, 0
   br i1 %.not354, label %223, label %.thread392
 
@@ -1224,7 +1224,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sccp_called_calling_looks_valid.argelim(ptr noundef %0, i8 noundef zeroext %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sccp_called_calling_looks_valid(ptr noundef %0, i8 noundef zeroext %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp eq i8 %1, 2
@@ -2822,7 +2822,7 @@ dissect_sccp_parameter.exit715.i:                 ; preds = %307, %301
   br label %dissect_sccp_parameter.exit719.i
 
 dissect_sccp_parameter.exit719.i:                 ; preds = %334, %324
-  call fastcc void @dissect_xudt_common.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, ptr noundef %2, i32 noundef 3, ptr noundef %7, ptr noundef %5, ptr noundef %6)
+  call fastcc void @dissect_xudt_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, ptr noundef %2, i32 noundef 3, ptr noundef %7, ptr noundef %5, ptr noundef %6)
   br label %dissect_sccp_parameter.exit712.i
 
 340:                                              ; preds = %62
@@ -2869,7 +2869,7 @@ dissect_sccp_parameter.exit721.i:                 ; preds = %357, %340
   br label %dissect_sccp_parameter.exit723.i
 
 dissect_sccp_parameter.exit723.i:                 ; preds = %361, %dissect_sccp_parameter.exit721.i
-  call fastcc void @dissect_xudt_common.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, ptr noundef %2, i32 noundef 3, ptr noundef %7, ptr noundef %5, ptr noundef %6)
+  call fastcc void @dissect_xudt_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, ptr noundef %2, i32 noundef 3, ptr noundef %7, ptr noundef %5, ptr noundef %6)
   %367 = load i8, ptr %341, align 4
   %368 = and i8 %367, -2
   %369 = or disjoint i8 %368, %343
@@ -4336,7 +4336,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_xudt_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 131072) %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
+define internal fastcc void @dissect_xudt_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 131072) %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   %9 = tail call i32 @tvb_offset_from_real_beginning(ptr noundef %0) #9
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #9
   %11 = load i32, ptr @hf_sccp_variable_pointer1, align 4

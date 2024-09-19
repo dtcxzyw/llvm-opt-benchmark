@@ -534,7 +534,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
 
 254:                                              ; preds = %253
   %255 = load i8, ptr %151, align 1, !tbaa !30
-  %256 = invoke fastcc noundef i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi.argprom(ptr nonnull %149, i64 %.val62, i64 noundef %150, i32 noundef 0) #19
+  %256 = invoke fastcc noundef i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi(ptr nonnull %149, i64 %.val62, i64 noundef %150, i32 noundef 0) #19
           to label %257 unwind label %144
 
 257:                                              ; preds = %254
@@ -852,7 +852,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   %390 = sext i32 %389 to i64
   %.val63 = load ptr, ptr %26, align 8
   %.val64 = load i64, ptr %114, align 8, !tbaa !10
-  %391 = invoke fastcc noundef i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi.argprom(ptr %.val63, i64 %.val64, i64 noundef %390, i32 noundef 3) #19
+  %391 = invoke fastcc noundef i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi(ptr %.val63, i64 %.val64, i64 noundef %390, i32 noundef 3) #19
           to label %392 unwind label %402
 
 392:                                              ; preds = %388
@@ -1140,7 +1140,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
 531:                                              ; preds = %526
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #20
   %.val69 = load ptr, ptr %15, align 8
-  invoke fastcc void @_ZN5ZXing10DataMatrix14EdifactEncoderL17EncodeToCodewordsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr %.val69, i64 %529) #19
+  invoke fastcc void @_ZN5ZXing10DataMatrix14EdifactEncoderL17EncodeToCodewordsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr %.val69, i64 %529) #19
           to label %532 unwind label %543
 
 532:                                              ; preds = %531
@@ -1194,7 +1194,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   %554 = sext i32 %553 to i64
   %.val65 = load ptr, ptr %26, align 8
   %.val66 = load i64, ptr %114, align 8, !tbaa !10
-  %555 = invoke fastcc noundef i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi.argprom(ptr %.val65, i64 %.val66, i64 noundef %554, i32 noundef 4) #19
+  %555 = invoke fastcc noundef i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi(ptr %.val65, i64 %.val66, i64 noundef %554, i32 noundef 4) #19
           to label %556 unwind label %561
 
 556:                                              ; preds = %552
@@ -1348,7 +1348,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   %629 = add nsw i32 %628, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #20
   %.val71 = load ptr, ptr %15, align 8
-  invoke fastcc void @_ZN5ZXing10DataMatrix14EdifactEncoderL17EncodeToCodewordsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val71, i64 %.val72) #19
+  invoke fastcc void @_ZN5ZXing10DataMatrix14EdifactEncoderL17EncodeToCodewordsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val71, i64 %.val72) #19
           to label %630 unwind label %662
 
 630:                                              ; preds = %627
@@ -1577,7 +1577,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   %742 = sext i32 %741 to i64
   %.val67 = load ptr, ptr %26, align 8
   %.val68 = load i64, ptr %114, align 8, !tbaa !10
-  %743 = invoke fastcc noundef i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi.argprom(ptr %.val67, i64 %.val68, i64 noundef %742, i32 noundef 5) #19
+  %743 = invoke fastcc noundef i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi(ptr %.val67, i64 %.val68, i64 noundef %742, i32 noundef 5) #19
           to label %744 unwind label %753
 
 744:                                              ; preds = %739
@@ -2502,7 +2502,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gn
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc noundef range(i32 0, 6) i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi.argprom(ptr nocapture readonly %.0.val, i64 %.8.val, i64 noundef range(i64 -2147483648, 2147483648) %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 6) i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi(ptr nocapture readonly %.0.val, i64 %.8.val, i64 noundef range(i64 -2147483648, 2147483648) %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::array", align 4
   %4 = alloca %"struct.std::array.9", align 4
   %5 = alloca %"struct.std::array.9", align 4
@@ -3275,7 +3275,7 @@ define internal fastcc void @_ZN5ZXing10DataMatrix10C40EncoderL9EncodeC40ERNS0_1
 174:                                              ; preds = %170
   %175 = sext i32 %59 to i64
   %.val = load ptr, ptr %0, align 8
-  %176 = invoke fastcc noundef i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi.argprom(ptr %.val, i64 %60, i64 noundef %175, i32 noundef %2) #19
+  %176 = invoke fastcc noundef i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi(ptr %.val, i64 %60, i64 noundef %175, i32 noundef %2) #19
           to label %177 unwind label %185
 
 177:                                              ; preds = %174
@@ -3987,7 +3987,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc void @_ZN5ZXing10DataMatrix14EdifactEncoderL17EncodeToCodewordsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing10DataMatrix14EdifactEncoderL17EncodeToCodewordsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1

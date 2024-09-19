@@ -83,9 +83,9 @@ define internal void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$s
   %4 = and i64 %2, 3
   %5 = icmp eq i64 %4, 0
   %or.cond = and i1 %3, %5
-  br i1 %or.cond, label %6, label %"_ZN4core3ptr81drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$17h0015372c10dce0c6E.argprom.exit"
+  br i1 %or.cond, label %6, label %"_ZN4core3ptr81drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$17h0015372c10dce0c6E.exit"
 
-"_ZN4core3ptr81drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$17h0015372c10dce0c6E.argprom.exit": ; preds = %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h8551a25c61eb0954E.exit.i.i", %6, %1
+"_ZN4core3ptr81drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$17h0015372c10dce0c6E.exit": ; preds = %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h8551a25c61eb0954E.exit.i.i", %6, %1
   ret void
 
 6:                                                ; preds = %1
@@ -93,7 +93,7 @@ define internal void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$s
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = atomicrmw sub ptr %8, i64 1 seq_cst, align 8, !noalias !12
   %10 = icmp eq i64 %9, 1
-  br i1 %10, label %11, label %"_ZN4core3ptr81drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$17h0015372c10dce0c6E.argprom.exit"
+  br i1 %10, label %11, label %"_ZN4core3ptr81drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$17h0015372c10dce0c6E.exit"
 
 11:                                               ; preds = %6
   %12 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 16) acquire, align 8, !noalias !15
@@ -110,7 +110,7 @@ define internal void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$s
 
 "_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h8551a25c61eb0954E.exit.i.i": ; preds = %13, %11
   tail call void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull %7), !noalias !15
-  br label %"_ZN4core3ptr81drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$17h0015372c10dce0c6E.argprom.exit"
+  br label %"_ZN4core3ptr81drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$17h0015372c10dce0c6E.exit"
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -528,7 +528,7 @@ attributes #12 = { noreturn }
 !28 = !{!29}
 !29 = distinct !{!29, !27, !"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.llvm.9547364939642047668: argument 1"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
-!32 = distinct !{!32, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
+!31 = distinct !{!31, !32, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
+!32 = distinct !{!32, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
 !33 = !{!34}
-!34 = distinct !{!34, !32, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
+!34 = distinct !{!34, !32, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}

@@ -237,14 +237,14 @@ if.end14:                                         ; preds = %if.end.i, %if.else,
   %11 = getelementptr i8, ptr %9, i64 8
   %.val87 = load ptr, ptr %11, align 8
   %cmp.i.not.i = icmp eq ptr %.val87, %10
-  br i1 %cmp.i.not.i, label %PyObject_TypeCheck.argprom.exit, label %lor.rhs.i
+  br i1 %cmp.i.not.i, label %PyObject_TypeCheck.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.end14
   %call2.i = call i32 @PyType_IsSubtype(ptr noundef %.val87, ptr noundef %10) #5
   %tobool3.i = icmp ne i32 %call2.i, 0
-  br label %PyObject_TypeCheck.argprom.exit
+  br label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end14, %lor.rhs.i
+PyObject_TypeCheck.exit:                          ; preds = %if.end14, %lor.rhs.i
   %lor.ext.i = phi i1 [ true, %if.end14 ], [ %tobool3.i, %lor.rhs.i ]
   %12 = load ptr, ptr %delimiter, align 8
   %cmp17 = icmp eq ptr %12, null
@@ -272,11 +272,11 @@ PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end14, %lor.rhs.
   %or.cond7 = select i1 %or.cond6, i1 %cmp31, i1 false
   br i1 %or.cond7, label %if.then32, label %if.end34
 
-if.then32:                                        ; preds = %PyObject_TypeCheck.argprom.exit
+if.then32:                                        ; preds = %PyObject_TypeCheck.exit
   %20 = load ptr, ptr %dialect, align 8
   br label %return
 
-if.end34:                                         ; preds = %PyObject_TypeCheck.argprom.exit, %if.end3
+if.end34:                                         ; preds = %PyObject_TypeCheck.exit, %if.end3
   %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %21 = load ptr, ptr %tp_alloc, align 8
   %call35 = call ptr %21(ptr noundef %type, i64 noundef 0) #5
@@ -697,7 +697,7 @@ if.end127:                                        ; preds = %if.end.i151, %if.en
 
 if.end132:                                        ; preds = %if.end127
   %76 = load ptr, ptr %lineterminator, align 8
-  %call134 = call fastcc i32 @_set_str.argprom(ptr noundef %lineterminator42, ptr noundef %76)
+  %call134 = call fastcc i32 @_set_str(ptr noundef %lineterminator42, ptr noundef %76)
   %tobool135.not = icmp eq i32 %call134, 0
   br i1 %tobool135.not, label %if.end137, label %if.then189
 
@@ -711,7 +711,7 @@ if.end137:                                        ; preds = %if.end132
 if.end142:                                        ; preds = %if.end137
   %quoting143 = getelementptr inbounds i8, ptr %call35, i64 20
   %78 = load ptr, ptr %quoting, align 8
-  %call144 = call fastcc i32 @_set_int.argprom.argelim(ptr noundef %quoting143, ptr noundef %78)
+  %call144 = call fastcc i32 @_set_int(ptr noundef %quoting143, ptr noundef %78)
   %tobool145.not = icmp eq i32 %call144, 0
   br i1 %tobool145.not, label %if.end147, label %if.then189
 
@@ -1360,7 +1360,7 @@ return:                                           ; preds = %if.then, %PyUnicode
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_set_str.argprom(ptr nocapture noundef nonnull %target, ptr noundef %src) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_set_str(ptr nocapture noundef nonnull %target, ptr noundef %src) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %src, null
   br i1 %cmp, label %if.then, label %if.else
@@ -1430,7 +1430,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_set_int.argprom.argelim(ptr nocapture noundef nonnull writeonly %target, ptr noundef %src) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_set_int(ptr nocapture noundef nonnull writeonly %target, ptr noundef %src) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %src, null
   br i1 %cmp, label %if.end9, label %if.else
@@ -3937,20 +3937,20 @@ if.end15:                                         ; preds = %if.end9
 
 if.then.i:                                        ; preds = %if.end15
   %call.i30 = call ptr @PyObject_VectorcallDict(ptr noundef %call.val, ptr noundef nonnull %dialect_inst.addr.i, i64 noundef 1, ptr noundef %keyword_args) #5
-  br label %_call_dialect.argprom.exit
+  br label %_call_dialect.exit
 
 if.else.i:                                        ; preds = %if.end15
   %call1.i = call ptr @PyObject_VectorcallDict(ptr noundef %call.val, ptr noundef null, i64 noundef 0, ptr noundef %keyword_args) #5
-  br label %_call_dialect.argprom.exit
+  br label %_call_dialect.exit
 
-_call_dialect.argprom.exit:                       ; preds = %if.then.i, %if.else.i
+_call_dialect.exit:                               ; preds = %if.then.i, %if.else.i
   %retval.0.i31 = phi ptr [ %call.i30, %if.then.i ], [ %call1.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dialect_inst.addr.i)
   store ptr %retval.0.i31, ptr %dialect2, align 8
   %cmp19 = icmp eq ptr %retval.0.i31, null
   br i1 %cmp19, label %if.then20, label %if.end21
 
-if.then20:                                        ; preds = %_call_dialect.argprom.exit
+if.then20:                                        ; preds = %_call_dialect.exit
   %10 = load i64, ptr %call1, align 8
   %11 = and i64 %10, 2147483648
   %cmp.i61.not = icmp eq i64 %11, 0
@@ -3966,7 +3966,7 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call1) #5
   br label %return
 
-if.end21:                                         ; preds = %_call_dialect.argprom.exit
+if.end21:                                         ; preds = %_call_dialect.exit
   call void @PyObject_GC_Track(ptr noundef nonnull %call1) #5
   br label %return
 
@@ -4089,20 +4089,20 @@ if.end19:                                         ; preds = %lor.lhs.false
 
 if.then.i:                                        ; preds = %if.end19
   %call.i30 = call ptr @PyObject_VectorcallDict(ptr noundef %call.val, ptr noundef nonnull %dialect_inst.addr.i, i64 noundef 1, ptr noundef %keyword_args) #5
-  br label %_call_dialect.argprom.exit
+  br label %_call_dialect.exit
 
 if.else.i:                                        ; preds = %if.end19
   %call1.i = call ptr @PyObject_VectorcallDict(ptr noundef %call.val, ptr noundef null, i64 noundef 0, ptr noundef %keyword_args) #5
-  br label %_call_dialect.argprom.exit
+  br label %_call_dialect.exit
 
-_call_dialect.argprom.exit:                       ; preds = %if.then.i, %if.else.i
+_call_dialect.exit:                               ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi ptr [ %call.i30, %if.then.i ], [ %call1.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dialect_inst.addr.i)
   store ptr %retval.0.i, ptr %dialect2, align 8
   %cmp23 = icmp eq ptr %retval.0.i, null
   br i1 %cmp23, label %if.then24, label %if.end25
 
-if.then24:                                        ; preds = %_call_dialect.argprom.exit
+if.then24:                                        ; preds = %_call_dialect.exit
   %15 = load i64, ptr %call1, align 8
   %16 = and i64 %15, 2147483648
   %cmp.i65.not = icmp eq i64 %16, 0
@@ -4118,7 +4118,7 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call1) #5
   br label %return
 
-if.end25:                                         ; preds = %_call_dialect.argprom.exit
+if.end25:                                         ; preds = %_call_dialect.exit
   call void @PyObject_GC_Track(ptr noundef nonnull %call1) #5
   br label %return
 
@@ -4165,19 +4165,19 @@ if.end6:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end6
   %call.i9 = call ptr @PyObject_VectorcallDict(ptr noundef %call.val, ptr noundef nonnull %dialect_inst.addr.i, i64 noundef 1, ptr noundef %kwargs) #5
-  br label %_call_dialect.argprom.exit
+  br label %_call_dialect.exit
 
 if.else.i:                                        ; preds = %if.end6
   %call1.i = call ptr @PyObject_VectorcallDict(ptr noundef %call.val, ptr noundef null, i64 noundef 0, ptr noundef %kwargs) #5
-  br label %_call_dialect.argprom.exit
+  br label %_call_dialect.exit
 
-_call_dialect.argprom.exit:                       ; preds = %if.then.i, %if.else.i
+_call_dialect.exit:                               ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi ptr [ %call.i9, %if.then.i ], [ %call1.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dialect_inst.addr.i)
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end9
 
-if.end9:                                          ; preds = %_call_dialect.argprom.exit
+if.end9:                                          ; preds = %_call_dialect.exit
   %dialects = getelementptr inbounds i8, ptr %call.i, i64 8
   %7 = load ptr, ptr %dialects, align 8
   %8 = load ptr, ptr %name_obj, align 8
@@ -4214,8 +4214,8 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i) #5
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.then1.i, %if.end13, %if.end.i17, %if.then1.i20, %if.then12, %_call_dialect.argprom.exit, %entry, %if.then5
-  %retval.0 = phi ptr [ null, %if.then5 ], [ null, %entry ], [ null, %_call_dialect.argprom.exit ], [ null, %if.then12 ], [ null, %if.then1.i20 ], [ null, %if.end.i17 ], [ @_Py_NoneStruct, %if.end13 ], [ @_Py_NoneStruct, %if.then1.i ], [ @_Py_NoneStruct, %if.end.i ]
+return:                                           ; preds = %if.end.i, %if.then1.i, %if.end13, %if.end.i17, %if.then1.i20, %if.then12, %_call_dialect.exit, %entry, %if.then5
+  %retval.0 = phi ptr [ null, %if.then5 ], [ null, %entry ], [ null, %_call_dialect.exit ], [ null, %if.then12 ], [ null, %if.then1.i20 ], [ null, %if.end.i17 ], [ @_Py_NoneStruct, %if.end13 ], [ @_Py_NoneStruct, %if.then1.i ], [ @_Py_NoneStruct, %if.end.i ]
   ret ptr %retval.0
 }
 

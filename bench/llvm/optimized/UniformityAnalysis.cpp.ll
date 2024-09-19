@@ -5573,11 +5573,11 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5beginEv.exit: ; preds = %.lr.ph.i
   %54 = call noundef ptr @_ZNK4llvm16GenericCycleInfoINS_17GenericSSAContextINS_8FunctionEEEE8getCycleEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(80) %53, ptr noundef %52) #18
   %55 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %54, null
-  br i1 %.not.i, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit.thread, label %56
+  br i1 %.not.i, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit.thread, label %56
 
 56:                                               ; preds = %51
   %57 = call noundef zeroext i1 @_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(164) %54, ptr noundef %5)
-  br i1 %57, label %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.argprom.exit.i, label %.preheader.i.i.preheader
+  br i1 %57, label %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.exit.i, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %56
   %.0.i.i136 = load ptr, ptr %54, align 8
@@ -5750,15 +5750,15 @@ _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10
   %130 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %129) #18
   %131 = icmp eq i64 %130, 1
   %..013.i.i = select i1 %131, ptr null, ptr %.013.i.i.lcssa
-  br label %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.argprom.exit.i
+  br label %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.exit.i
 
-_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.argprom.exit.i: ; preds = %.critedge.i.i, %56
+_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.exit.i: ; preds = %.critedge.i.i, %56
   %.012.i.i = phi ptr [ null, %56 ], [ %..013.i.i, %.critedge.i.i ]
   %132 = call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %55, ptr noundef %5, ptr noundef %52) #18
-  br i1 %132, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit, label %.preheader1.i.i
+  br i1 %132, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit, label %.preheader1.i.i
 
-.preheader1.i.i:                                  ; preds = %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.argprom.exit.i, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread
-  %.0244.i.i = phi ptr [ %204, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread ], [ %54, %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.argprom.exit.i ]
+.preheader1.i.i:                                  ; preds = %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.exit.i, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread
+  %.0244.i.i = phi ptr [ %204, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread ], [ %54, %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.exit.i ]
   %133 = getelementptr inbounds nuw i8, ptr %.0244.i.i, i64 64
   %134 = load i32, ptr %133, align 8
   %135 = icmp eq i32 %134, 0
@@ -5914,41 +5914,41 @@ _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10
 _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %182, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0_.exit.i, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit
   %204 = load ptr, ptr %.0244.i.i, align 8
   %.not.i16.i = icmp eq ptr %204, null
-  br i1 %.not.i16.i, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit, label %.preheader1.i.i, !llvm.loop !82
+  br i1 %.not.i16.i, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit, label %.preheader1.i.i, !llvm.loop !82
 
 .critedge.i17.i:                                  ; preds = %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0_.exit.i, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit
   %205 = getelementptr inbounds nuw i8, ptr %.0244.i.i, i64 8
   %206 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %205) #18
   %207 = icmp eq i64 %206, 1
-  br i1 %207, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit, label %208
+  br i1 %207, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit, label %208
 
 208:                                              ; preds = %.critedge.i17.i
   %209 = load ptr, ptr %205, align 8
   %210 = load ptr, ptr %209, align 8
   %211 = call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %55, ptr noundef %210, ptr noundef %52) #18
-  br i1 %211, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit, label %.preheader.i18.i
+  br i1 %211, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit, label %.preheader.i18.i
 
 .preheader.i18.i:                                 ; preds = %208, %212
   %.1.i.i = phi ptr [ %.0.i19.i, %212 ], [ %.0244.i.i, %208 ]
   %.0.i19.i = load ptr, ptr %.1.i.i, align 8
   %.not25.i.i = icmp eq ptr %.0.i19.i, null
-  br i1 %.not25.i.i, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit, label %212
+  br i1 %.not25.i.i, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit, label %212
 
 212:                                              ; preds = %.preheader.i18.i
   %213 = getelementptr inbounds nuw i8, ptr %.0.i19.i, i64 8
   %214 = load ptr, ptr %213, align 8
   %215 = load ptr, ptr %214, align 8
   %216 = call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %55, ptr noundef %215, ptr noundef %52) #18
-  br i1 %216, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit, label %.preheader.i18.i, !llvm.loop !83
+  br i1 %216, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit, label %.preheader.i18.i, !llvm.loop !83
 
-_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit: ; preds = %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread, %.preheader.i18.i, %212, %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.argprom.exit.i, %.critedge.i17.i, %208
-  %.023.i.i = phi ptr [ null, %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.argprom.exit.i ], [ null, %.critedge.i17.i ], [ null, %208 ], [ %.1.i.i, %212 ], [ %.1.i.i, %.preheader.i18.i ], [ null, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread ]
+_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit: ; preds = %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread, %.preheader.i18.i, %212, %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.exit.i, %.critedge.i17.i, %208
+  %.023.i.i = phi ptr [ null, %_ZN4llvmL14getExtDivCycleINS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_10BasicBlockEEEPKT_S9_PKT0_SC_.exit.i ], [ null, %.critedge.i17.i ], [ null, %208 ], [ %.1.i.i, %212 ], [ %.1.i.i, %.preheader.i18.i ], [ null, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread ]
   %.not15.i = icmp eq ptr %.023.i.i, null
   %..i = select i1 %.not15.i, ptr %.012.i.i, ptr %.023.i.i
   %.not39 = icmp eq ptr %..i, null
-  br i1 %.not39, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit.thread, label %217
+  br i1 %.not39, label %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit.thread, label %217
 
-217:                                              ; preds = %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit
+217:                                              ; preds = %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit
   %218 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   %219 = add i64 %218, 1
   %220 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
@@ -5970,15 +5970,15 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_12GenericCycleINS_17GenericSSAContextINS_
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %227) #18
   br label %_ZN4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE20taintAndPushPhiNodesERKNS_10BasicBlockE.exit
 
-_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit.thread: ; preds = %51, %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit
+_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit.thread: ; preds = %51, %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit
   %228 = call { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80) %52) #18
   %229 = extractvalue { ptr, ptr } %228, 0
   %230 = extractvalue { ptr, ptr } %228, 1
   %.not11.i = icmp eq ptr %229, %230
   br i1 %.not11.i, label %_ZN4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE20taintAndPushPhiNodesERKNS_10BasicBlockE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit.thread, %233
-  %.sroa.07.012.i = phi ptr [ %spec.select.i.i.i1.i.i, %233 ], [ %229, %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit.thread ]
+.lr.ph.i:                                         ; preds = %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit.thread, %233
+  %.sroa.07.012.i = phi ptr [ %spec.select.i.i.i1.i.i, %233 ], [ %229, %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit.thread ]
   %231 = call noundef zeroext i1 @_ZN4llvm17GenericSSAContextINS_8FunctionEE25isConstantOrUndefValuePhiERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.07.012.i) #18
   br i1 %231, label %233, label %232
 
@@ -5998,7 +5998,7 @@ _ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_
   %.not.i41 = icmp eq ptr %spec.select.i.i.i1.i.i, %230
   br i1 %.not.i41, label %_ZN4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE20taintAndPushPhiNodesERKNS_10BasicBlockE.exit, label %.lr.ph.i
 
-_ZN4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE20taintAndPushPhiNodesERKNS_10BasicBlockE.exit: ; preds = %233, %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.argprom.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEELb1EE9push_backES7_.exit
+_ZN4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_8FunctionEEEE20taintAndPushPhiNodesERKNS_10BasicBlockE.exit: ; preds = %233, %_ZN4llvmL26getOutermostDivergentCycleIKNS_17GenericSSAContextINS_8FunctionEEENS_12GenericCycleIS3_EENS_10BasicBlockENS_17DominatorTreeBaseIS7_Lb0EEEEEPKT0_SC_PKT1_SF_RKT2_RT_.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEELb1EE9push_backES7_.exit
   %241 = getelementptr inbounds i8, ptr %.sroa.0107.0151, i64 8
   %.not3.i3.i = icmp eq ptr %241, %42
   br i1 %.not3.i3.i, label %_ZN4llvm19SmallPtrSetIteratorIPKNS_10BasicBlockEEppEv.exit, label %.lr.ph.i4.i

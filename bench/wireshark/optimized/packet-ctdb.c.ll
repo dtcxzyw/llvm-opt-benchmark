@@ -609,13 +609,13 @@ dissect_ctdb_req_call.exit:                       ; preds = %127, %134
 
 140:                                              ; preds = %135
   %141 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 36) #4
-  br label %dissect_ctdb_reply_call.argprom.exit
+  br label %dissect_ctdb_reply_call.exit
 
 142:                                              ; preds = %135
   %143 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 36) #4
-  br label %dissect_ctdb_reply_call.argprom.exit
+  br label %dissect_ctdb_reply_call.exit
 
-dissect_ctdb_reply_call.argprom.exit:             ; preds = %140, %142
+dissect_ctdb_reply_call.exit:                     ; preds = %140, %142
   %.0.i = phi i32 [ %141, %140 ], [ %143, %142 ]
   %144 = load i32, ptr @hf_ctdb_data, align 4
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %.0121, i32 noundef %144, ptr noundef %0, i32 noundef 40, i32 noundef %.0.i, i32 noundef %.0) #4
@@ -1084,8 +1084,8 @@ dissect_ctdb_reply_control.exit:                  ; preds = %283, %find_control_
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %363
 
-363:                                              ; preds = %72, %dissect_ctdb_req_call.exit, %dissect_ctdb_reply_call.argprom.exit, %dissect_ctdb_reply_dmaster.exit, %dissect_ctdb_req_dmaster.exit, %dissect_ctdb_req_control.exit, %dissect_ctdb_reply_control.exit, %27, %4
-  %.0122 = phi i32 [ 0, %4 ], [ 0, %27 ], [ 1, %dissect_ctdb_reply_control.exit ], [ 1, %dissect_ctdb_req_control.exit ], [ 1, %dissect_ctdb_req_dmaster.exit ], [ 1, %dissect_ctdb_reply_dmaster.exit ], [ 1, %dissect_ctdb_reply_call.argprom.exit ], [ 1, %dissect_ctdb_req_call.exit ], [ 1, %72 ]
+363:                                              ; preds = %72, %dissect_ctdb_req_call.exit, %dissect_ctdb_reply_call.exit, %dissect_ctdb_reply_dmaster.exit, %dissect_ctdb_req_dmaster.exit, %dissect_ctdb_req_control.exit, %dissect_ctdb_reply_control.exit, %27, %4
+  %.0122 = phi i32 [ 0, %4 ], [ 0, %27 ], [ 1, %dissect_ctdb_reply_control.exit ], [ 1, %dissect_ctdb_req_control.exit ], [ 1, %dissect_ctdb_req_dmaster.exit ], [ 1, %dissect_ctdb_reply_dmaster.exit ], [ 1, %dissect_ctdb_reply_call.exit ], [ 1, %dissect_ctdb_req_call.exit ], [ 1, %72 ]
   ret i32 %.0122
 }
 

@@ -418,7 +418,7 @@ define range(i32 -1, 2) i32 @ompi_coll_libnbc_hb_tree_insert(ptr nocapture nound
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %61
-  tail call fastcc void @rot_left.retelim(ptr noundef nonnull %0, ptr noundef nonnull %54)
+  tail call fastcc void @rot_left(ptr noundef nonnull %0, ptr noundef nonnull %54)
   %.pre100 = load ptr, ptr %53, align 8
   br label %66
 
@@ -484,7 +484,7 @@ rot_right.exit:                                   ; preds = %72, %76
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %91
-  tail call fastcc void @rot_right.retelim(ptr noundef nonnull %0, ptr noundef nonnull %93)
+  tail call fastcc void @rot_right(ptr noundef nonnull %0, ptr noundef nonnull %93)
   %.pre = load ptr, ptr %92, align 8
   br label %98
 
@@ -672,7 +672,7 @@ define range(i32 -1, 2) i32 @ompi_coll_libnbc_hb_tree_probe(ptr nocapture nounde
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %49
-  tail call fastcc void @rot_left.retelim(ptr noundef nonnull %0, ptr noundef nonnull %42)
+  tail call fastcc void @rot_left(ptr noundef nonnull %0, ptr noundef nonnull %42)
   %.pre87 = load ptr, ptr %41, align 8
   br label %54
 
@@ -738,7 +738,7 @@ rot_right.exit:                                   ; preds = %60, %64
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %79
-  tail call fastcc void @rot_right.retelim(ptr noundef nonnull %0, ptr noundef nonnull %81)
+  tail call fastcc void @rot_right(ptr noundef nonnull %0, ptr noundef nonnull %81)
   %.pre = load ptr, ptr %80, align 8
   br label %86
 
@@ -1518,7 +1518,7 @@ define i32 @ompi_coll_libnbc_hb_tree_count(ptr nocapture noundef readonly %0) #2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @rot_left.retelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @rot_left(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -1571,7 +1571,7 @@ define internal fastcc void @rot_left.retelim(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @rot_right.retelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @rot_right(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32

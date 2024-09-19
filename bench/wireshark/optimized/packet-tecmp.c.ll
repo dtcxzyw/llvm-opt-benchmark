@@ -1279,7 +1279,7 @@ define internal i32 @dissect_tecmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %84, ptr noundef nonnull @.str.550) #4
   %85 = load i32, ptr @ett_tecmp_payload, align 4
   %86 = call ptr @proto_item_add_subtree(ptr noundef %84, i32 noundef %85) #4
-  call fastcc void @dissect_tecmp_entry_header.retelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %86, i32 noundef 12, i32 noundef 0, i16 noundef zeroext %79, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %86, i32 noundef 12, i32 noundef 0, i16 noundef zeroext %79, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
   %87 = load ptr, ptr %47, align 8
   call void @col_set_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.551) #4
   %88 = load i32, ptr @hf_tecmp_payload_ctrl_msg_device_id, align 4
@@ -1399,7 +1399,7 @@ dissect_tecmp_control_msg.exit:                   ; preds = %74, %78, %._crit_ed
   %149 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %146, ptr noundef %0, i32 noundef 12, i32 noundef %148, i32 noundef 0) #4
   %150 = load i32, ptr @ett_tecmp_payload, align 4
   %151 = call ptr @proto_item_add_subtree(ptr noundef %149, i32 noundef %150) #4
-  call fastcc void @dissect_tecmp_entry_header.retelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %151, i32 noundef 12, i32 noundef %73, i16 noundef zeroext %144, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %28)
+  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %151, i32 noundef 12, i32 noundef %73, i16 noundef zeroext %144, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %28)
   %152 = load i32, ptr @hf_tecmp_payload_status_vendor_id, align 4
   %153 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %151, i32 noundef %152, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %25) #4
   %154 = load i32, ptr @hf_tecmp_payload_status_dev_version, align 4
@@ -1448,7 +1448,7 @@ dissect_tecmp_control_msg.exit:                   ; preds = %74, %78, %._crit_ed
   %180 = load i32, ptr @ett_tecmp_status_dev_vendor_data, align 4
   %181 = call ptr @proto_item_add_subtree(ptr noundef %175, i32 noundef %180) #4
   %cond.i.i = icmp eq i32 %178, 12
-  br i1 %cond.i.i, label %182, label %dissect_tecmp_status_device_vendor_data.argprom.exit.i
+  br i1 %cond.i.i, label %182, label %dissect_tecmp_status_device_vendor_data.exit.i
 
 182:                                              ; preds = %172
   %183 = load i32, ptr @hf_tecmp_payload_status_dev_vendor_technica_res, align 4
@@ -1540,12 +1540,12 @@ proto_item_set_generated.exit.i.i:                ; preds = %233, %230, %222, %1
 249:                                              ; preds = %proto_item_set_generated.exit.i.i
   %250 = load i32, ptr @hf_tecmp_payload_status_dev_vendor_technica_temperature, align 4
   %251 = call ptr @proto_tree_add_item(ptr noundef %181, i32 noundef %250, ptr noundef %173, i32 noundef 22, i32 noundef 1, i32 noundef 0) #4
-  br label %dissect_tecmp_status_device_vendor_data.argprom.exit.i
+  br label %dissect_tecmp_status_device_vendor_data.exit.i
 
 252:                                              ; preds = %proto_item_set_generated.exit.i.i
   %253 = call i32 @tvb_captured_length_remaining(ptr noundef %173, i32 noundef 22) #4
   %254 = icmp sgt i32 %253, 1
-  br i1 %254, label %255, label %dissect_tecmp_status_device_vendor_data.argprom.exit.i
+  br i1 %254, label %255, label %dissect_tecmp_status_device_vendor_data.exit.i
 
 255:                                              ; preds = %252
   %256 = call signext i8 @tvb_get_gint8(ptr noundef %173, i32 noundef 22) #4
@@ -1574,18 +1574,18 @@ proto_item_set_generated.exit.i.i:                ; preds = %233, %230, %222, %1
 
 269:                                              ; preds = %265
   %270 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %181, i32 noundef %268, ptr noundef %173, i32 noundef 23, i32 noundef 1, i32 noundef -128, ptr noundef nonnull @.str.578, ptr noundef nonnull @.str.582) #4
-  br label %dissect_tecmp_status_device_vendor_data.argprom.exit.i
+  br label %dissect_tecmp_status_device_vendor_data.exit.i
 
 271:                                              ; preds = %265
   %272 = call ptr @proto_tree_add_item(ptr noundef %181, i32 noundef %268, ptr noundef %173, i32 noundef 23, i32 noundef 1, i32 noundef 0) #4
   %273 = icmp eq i8 %266, 127
-  br i1 %273, label %274, label %dissect_tecmp_status_device_vendor_data.argprom.exit.i
+  br i1 %273, label %274, label %dissect_tecmp_status_device_vendor_data.exit.i
 
 274:                                              ; preds = %271
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %272, ptr noundef nonnull @.str.583, ptr noundef nonnull @.str.584) #4
-  br label %dissect_tecmp_status_device_vendor_data.argprom.exit.i
+  br label %dissect_tecmp_status_device_vendor_data.exit.i
 
-dissect_tecmp_status_device_vendor_data.argprom.exit.i: ; preds = %274, %271, %269, %252, %249, %172
+dissect_tecmp_status_device_vendor_data.exit.i:   ; preds = %274, %271, %269, %252, %249, %172
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   %275 = add nuw nsw i32 %171, 40
@@ -1681,14 +1681,14 @@ ht_interface_config_to_string.exit.thread.i:      ; preds = %ht_interface_config
   %326 = load i32, ptr @ett_tecmp_status_bus_vendor_data, align 4
   %327 = call ptr @proto_item_add_subtree(ptr noundef %319, i32 noundef %326) #4
   %cond.i143.i = icmp eq i32 %324, 12
-  br i1 %cond.i143.i, label %328, label %dissect_tecmp_status_bus_vendor_data.argprom.exit.i
+  br i1 %cond.i143.i, label %328, label %dissect_tecmp_status_bus_vendor_data.exit.i
 
 328:                                              ; preds = %316
   %329 = call i32 @tvb_captured_length_remaining(ptr noundef %317, i32 noundef 0) #4
   %330 = icmp eq i8 %322, 14
   %331 = icmp ult i8 %320, 5
   %or.cond.i.i = and i1 %331, %330
-  br i1 %or.cond.i.i, label %dissect_tecmp_status_bus_vendor_data.argprom.exit.i, label %332
+  br i1 %or.cond.i.i, label %dissect_tecmp_status_bus_vendor_data.exit.i, label %332
 
 332:                                              ; preds = %328
   %333 = icmp eq i8 %320, 5
@@ -1721,48 +1721,48 @@ ht_interface_config_to_string.exit.thread.i:      ; preds = %ht_interface_config
   %356 = call ptr @proto_tree_add_item(ptr noundef %327, i32 noundef %355, ptr noundef %317, i32 noundef 16, i32 noundef 2, i32 noundef 0) #4
   %357 = load i32, ptr @hf_tecmp_payload_status_bus_vendor_technica_plca_symbols_empty_cycle_cnt, align 4
   %358 = call ptr @proto_tree_add_item(ptr noundef %327, i32 noundef %357, ptr noundef %317, i32 noundef 18, i32 noundef 2, i32 noundef 0) #4
-  br label %dissect_tecmp_status_bus_vendor_data.argprom.exit.i
+  br label %dissect_tecmp_status_bus_vendor_data.exit.i
 
 359:                                              ; preds = %332
   %360 = icmp sgt i32 %329, 0
-  br i1 %360, label %361, label %dissect_tecmp_status_bus_vendor_data.argprom.exit.i
+  br i1 %360, label %361, label %dissect_tecmp_status_bus_vendor_data.exit.i
 
 361:                                              ; preds = %359
   %362 = load i32, ptr @hf_tecmp_payload_status_bus_vendor_technica_link_status, align 4
   %363 = call ptr @proto_tree_add_item(ptr noundef %327, i32 noundef %362, ptr noundef %317, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
   %.not.i.i = icmp eq i32 %329, 1
-  br i1 %.not.i.i, label %dissect_tecmp_status_bus_vendor_data.argprom.exit.i, label %364
+  br i1 %.not.i.i, label %dissect_tecmp_status_bus_vendor_data.exit.i, label %364
 
 364:                                              ; preds = %361
   %365 = load i32, ptr @hf_tecmp_payload_status_bus_vendor_technica_link_quality, align 4
   %366 = call ptr @proto_tree_add_item(ptr noundef %327, i32 noundef %365, ptr noundef %317, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
   %367 = icmp ugt i32 %329, 3
-  br i1 %367, label %368, label %dissect_tecmp_status_bus_vendor_data.argprom.exit.i
+  br i1 %367, label %368, label %dissect_tecmp_status_bus_vendor_data.exit.i
 
 368:                                              ; preds = %364
   %369 = load i32, ptr @hf_tecmp_payload_status_bus_vendor_technica_linkup_time, align 4
   %370 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %327, i32 noundef %369, ptr noundef %317, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %22) #4
   %371 = load i32, ptr %22, align 4
-  switch i32 %371, label %dissect_tecmp_status_bus_vendor_data.argprom.exit.i [
+  switch i32 %371, label %dissect_tecmp_status_bus_vendor_data.exit.i [
     i32 0, label %372
     i32 65535, label %373
   ]
 
 372:                                              ; preds = %368
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %370, ptr noundef nonnull @.str.583, ptr noundef nonnull @.str.585) #4
-  br label %dissect_tecmp_status_bus_vendor_data.argprom.exit.i
+  br label %dissect_tecmp_status_bus_vendor_data.exit.i
 
 373:                                              ; preds = %368
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %370, ptr noundef nonnull @.str.583, ptr noundef nonnull @.str.586) #4
-  br label %dissect_tecmp_status_bus_vendor_data.argprom.exit.i
+  br label %dissect_tecmp_status_bus_vendor_data.exit.i
 
-dissect_tecmp_status_bus_vendor_data.argprom.exit.i: ; preds = %373, %372, %368, %364, %361, %359, %335, %328, %316
+dissect_tecmp_status_bus_vendor_data.exit.i:      ; preds = %373, %372, %368, %364, %361, %359, %335, %328, %316
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   %374 = add i32 %315, %284
   br label %375
 
-375:                                              ; preds = %dissect_tecmp_status_bus_vendor_data.argprom.exit.i, %308
-  %.1.i81 = phi i32 [ %374, %dissect_tecmp_status_bus_vendor_data.argprom.exit.i ], [ %315, %308 ]
+375:                                              ; preds = %dissect_tecmp_status_bus_vendor_data.exit.i, %308
+  %.1.i81 = phi i32 [ %374, %dissect_tecmp_status_bus_vendor_data.exit.i ], [ %315, %308 ]
   %376 = add i32 %.0130151.i, 1
   %377 = sub i16 %.0132149.i, %286
   %378 = zext i16 %377 to i32
@@ -1790,7 +1790,7 @@ dissect_tecmp_status_bus_vendor_data.argprom.exit.i: ; preds = %373, %372, %368,
   %389 = load i32, ptr @ett_tecmp_status_bus_vendor_data, align 4
   %390 = call ptr @proto_item_add_subtree(ptr noundef %385, i32 noundef %389) #4
   %cond.i144.i = icmp eq i32 %387, 12
-  br i1 %cond.i144.i, label %391, label %dissect_tecmp_status_config_vendor_data.argprom.exit.i
+  br i1 %cond.i144.i, label %391, label %dissect_tecmp_status_config_vendor_data.exit.i
 
 391:                                              ; preds = %382
   %392 = load i32, ptr @hf_tecmp_payload_status_cfg_vendor_technica_version, align 4
@@ -1820,9 +1820,9 @@ dissect_tecmp_status_bus_vendor_data.argprom.exit.i: ; preds = %373, %372, %368,
 .sink.split.i.i:                                  ; preds = %409, %391
   %.sink.i.i = phi i32 [ %410, %409 ], [ %407, %391 ]
   %411 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %408, ptr noundef %383, i32 noundef 14, i32 noundef %.sink.i.i, i32 noundef 0) #4
-  br label %dissect_tecmp_status_config_vendor_data.argprom.exit.i
+  br label %dissect_tecmp_status_config_vendor_data.exit.i
 
-dissect_tecmp_status_config_vendor_data.argprom.exit.i: ; preds = %.sink.split.i.i, %382
+dissect_tecmp_status_config_vendor_data.exit.i:   ; preds = %.sink.split.i.i, %382
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   %412 = add nuw nsw i32 %381, 40
   br label %dissect_tecmp_status_device.exit
@@ -1836,8 +1836,8 @@ dissect_tecmp_status_config_vendor_data.argprom.exit.i: ; preds = %.sink.split.i
   %416 = add i32 %415, 12
   br label %dissect_tecmp_status_device.exit
 
-dissect_tecmp_status_device.exit:                 ; preds = %375, %169, %dissect_tecmp_status_device_vendor_data.argprom.exit.i, %276, %379, %dissect_tecmp_status_config_vendor_data.argprom.exit.i, %413, %414
-  %.0.i = phi i32 [ %416, %414 ], [ 40, %413 ], [ %412, %dissect_tecmp_status_config_vendor_data.argprom.exit.i ], [ 40, %379 ], [ %275, %dissect_tecmp_status_device_vendor_data.argprom.exit.i ], [ 40, %169 ], [ 40, %276 ], [ %.1.i81, %375 ]
+dissect_tecmp_status_device.exit:                 ; preds = %375, %169, %dissect_tecmp_status_device_vendor_data.exit.i, %276, %379, %dissect_tecmp_status_config_vendor_data.exit.i, %413, %414
+  %.0.i = phi i32 [ %416, %414 ], [ 40, %413 ], [ %412, %dissect_tecmp_status_config_vendor_data.exit.i ], [ 40, %379 ], [ %275, %dissect_tecmp_status_device_vendor_data.exit.i ], [ 40, %169 ], [ 40, %276 ], [ %.1.i81, %375 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
@@ -1926,7 +1926,7 @@ dissect_tecmp_status_device.exit:                 ; preds = %375, %169, %dissect
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %467, ptr noundef nonnull @.str.530, ptr noundef %468) #4
   %469 = load i32, ptr @ett_tecmp_payload, align 4
   %470 = call ptr @proto_item_add_subtree(ptr noundef %467, i32 noundef %469) #4
-  call fastcc void @dissect_tecmp_entry_header.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %470, i32 noundef %.0280342.i, i32 noundef %73, i16 noundef zeroext %419, i32 noundef %.0279343.i, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef %1, ptr noundef %470, i32 noundef %.0280342.i, i32 noundef %73, i16 noundef zeroext %419, i32 noundef %.0279343.i, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %15)
   %471 = add i32 %.0280342.i, 16
   %.not287.i = icmp eq i16 %463, 0
   br i1 %.not287.i, label %867, label %472
@@ -2722,7 +2722,7 @@ dissect_tecmp_log_or_replay_stream.exit:          ; preds = %453, %867, %417
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %880, ptr noundef nonnull @.str.589) #4
   %881 = load i32, ptr @ett_tecmp_payload, align 4
   %882 = call ptr @proto_item_add_subtree(ptr noundef %880, i32 noundef %881) #4
-  call fastcc void @dissect_tecmp_entry_header.retelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %882, i32 noundef 12, i32 noundef 11, i16 noundef zeroext %875, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %882, i32 noundef 12, i32 noundef 11, i16 noundef zeroext %875, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
   %883 = load ptr, ptr %47, align 8
   call void @col_set_str(ptr noundef %883, i32 noundef 25, ptr noundef nonnull @.str.590) #4
   %884 = load i32, ptr @hf_tecmp_payload_counter_event_device_id, align 4
@@ -2763,7 +2763,7 @@ dissect_tecmp_counter_event.exit:                 ; preds = %870, %874
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %905, ptr noundef nonnull @.str.591) #4
   %906 = load i32, ptr @ett_tecmp_payload, align 4
   %907 = call ptr @proto_item_add_subtree(ptr noundef %905, i32 noundef %906) #4
-  call fastcc void @dissect_tecmp_entry_header.retelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %907, i32 noundef 12, i32 noundef 12, i16 noundef zeroext %900, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %907, i32 noundef 12, i32 noundef 12, i16 noundef zeroext %900, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
   %908 = load ptr, ptr %47, align 8
   call void @col_set_str(ptr noundef %908, i32 noundef 25, ptr noundef nonnull @.str.592) #4
   %909 = load i32, ptr @hf_tecmp_payload_timesync_event_device_id, align 4
@@ -3175,7 +3175,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tecmp_entry_header.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4, i16 noundef zeroext %5, i32 noundef range(i32 0, 2) %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4, i16 noundef zeroext %5, i32 noundef range(i32 0, 2) %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) unnamed_addr #0 {
   %11 = alloca %struct.nstime_t, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4

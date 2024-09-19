@@ -2039,20 +2039,20 @@ _ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLo
   %119 = icmp eq i64 %118, 0
   %120 = and i64 %.val290, -8
   %121 = inttoptr i64 %120 to ptr
-  br i1 %119, label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argprom.exit, label %122
+  br i1 %119, label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit, label %122
 
 122:                                              ; preds = %116
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 40
   %124 = load ptr, ptr %123, align 8
-  br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argprom.exit
+  br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argprom.exit: ; preds = %116, %122
+_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit: ; preds = %116, %122
   %125 = phi ptr [ %124, %122 ], [ %121, %116 ]
   %126 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %125) #29
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 127:                                              ; preds = %tailrecurse
-  %128 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang17MSPropertyRefExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr noundef %.tr)
+  %128 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang17MSPropertyRefExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef %.tr)
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 129:                                              ; preds = %tailrecurse
@@ -2066,7 +2066,7 @@ _ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14Sour
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 133:                                              ; preds = %tailrecurse
-  %134 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang12InitListExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr noundef %.tr)
+  %134 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang12InitListExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef %.tr)
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 135:                                              ; preds = %tailrecurse
@@ -2141,7 +2141,7 @@ _ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14Sour
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 167:                                              ; preds = %tailrecurse
-  %168 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18DesignatedInitExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr noundef %.tr)
+  %168 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18DesignatedInitExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef %.tr)
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 169:                                              ; preds = %tailrecurse
@@ -2283,11 +2283,11 @@ _ZN12_GLOBAL__N_114getExprLocImplIN5clang11DeclRefExprEEENS1_14SourceLocationEPK
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 225:                                              ; preds = %tailrecurse
-  %226 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang8CallExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr noundef %.tr)
+  %226 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang8CallExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef %.tr)
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 227:                                              ; preds = %tailrecurse
-  %228 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18UserDefinedLiteralEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr noundef %.tr)
+  %228 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18UserDefinedLiteralEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef %.tr)
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 229:                                              ; preds = %tailrecurse
@@ -2312,7 +2312,7 @@ _ZN12_GLOBAL__N_114getExprLocImplIN5clang11DeclRefExprEEENS1_14SourceLocationEPK
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 241:                                              ; preds = %tailrecurse
-  %242 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18CUDAKernelCallExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr noundef %.tr)
+  %242 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18CUDAKernelCallExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef %.tr)
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 243:                                              ; preds = %tailrecurse
@@ -2385,7 +2385,7 @@ _ZN12_GLOBAL__N_114getExprLocImplIN5clang11DeclRefExprEEENS1_14SourceLocationEPK
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 273:                                              ; preds = %tailrecurse
-  %274 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang11CXXFoldExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr noundef %.tr)
+  %274 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang11CXXFoldExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef %.tr)
   br label %_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit
 
 275:                                              ; preds = %tailrecurse
@@ -2502,13 +2502,13 @@ _ZN12_GLOBAL__N_114getExprLocImplIN5clang11DeclRefExprEEENS1_14SourceLocationEPK
 324:                                              ; preds = %tailrecurse
   unreachable
 
-_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit:   ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %314, %312, %198, %194, %191, %92, %90, %82, %78, %61, %321, %318, %316, %305, %303, %301, %299, %297, %295, %292, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %260, %258, %256, %253, %251, %249, %247, %245, %243, %241, %239, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %204, %202, %200, %188, %186, %184, %182, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang11DeclRefExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit, %172, %169, %167, %164, %162, %160, %157, %155, %153, %150, %147, %145, %143, %141, %138, %135, %133, %131, %129, %127, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argprom.exit, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %84, %72, %70, %68, %65, %63, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit, %49, %46, %43, %41, %39, %37, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5
-  %.sroa.0253.0 = phi i32 [ %306, %305 ], [ %.val343, %303 ], [ %.val342, %301 ], [ %.val341, %299 ], [ %.val340, %297 ], [ %.val339, %295 ], [ %.val338.val, %292 ], [ %291, %289 ], [ %.val336, %287 ], [ %286, %285 ], [ %284, %283 ], [ %.val335, %281 ], [ %.val334, %279 ], [ %.val333, %277 ], [ %276, %275 ], [ %274, %273 ], [ %.val332, %271 ], [ %.val331, %269 ], [ %.val330, %267 ], [ %.val329, %265 ], [ %.val328, %263 ], [ %262, %260 ], [ %259, %258 ], [ %257, %256 ], [ %255, %253 ], [ %.val325, %251 ], [ %.val324, %249 ], [ %.val323, %247 ], [ %246, %245 ], [ %.val322, %243 ], [ %242, %241 ], [ %240, %239 ], [ %.sroa.0.0.i.i359, %229 ], [ %228, %227 ], [ %226, %225 ], [ %.val321, %223 ], [ %.val320, %221 ], [ %220, %219 ], [ %.val319, %217 ], [ %.val318, %215 ], [ %.val317, %213 ], [ %.val316, %211 ], [ %.val315, %209 ], [ %.val314, %207 ], [ %206, %204 ], [ %.val312, %202 ], [ %.val311, %200 ], [ %.val310.val, %188 ], [ %.val309, %186 ], [ %.val308, %184 ], [ %.val307, %182 ], [ %.sroa.0.0.i.i356, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang11DeclRefExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit ], [ %.val306, %172 ], [ %.sroa.0.0.extract.trunc.i.i.i352, %169 ], [ %168, %167 ], [ %166, %164 ], [ %.val304, %162 ], [ %.val303, %160 ], [ %159, %157 ], [ %.val301, %155 ], [ %.val300, %153 ], [ %152, %150 ], [ %149, %147 ], [ %.val297, %145 ], [ %.val296, %143 ], [ %.val295, %141 ], [ %140, %138 ], [ %137, %135 ], [ %134, %133 ], [ %.val292, %131 ], [ %.val291, %129 ], [ %128, %127 ], [ %126, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argprom.exit ], [ %.val289, %114 ], [ %.val288, %112 ], [ %.val287, %110 ], [ %.val286, %108 ], [ %.val285, %106 ], [ %.val284, %104 ], [ %.val283, %102 ], [ %.val282, %100 ], [ %.val281, %98 ], [ %.val280, %96 ], [ %.val279, %84 ], [ %.val278, %72 ], [ %.val277, %70 ], [ %.val276, %68 ], [ %67, %65 ], [ %.val274, %63 ], [ %.sroa.0.0.i.i, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit ], [ %.val273, %49 ], [ %48, %46 ], [ %45, %43 ], [ %.val270, %41 ], [ %.val269, %39 ], [ %.val268, %37 ], [ %.val267, %33 ], [ %.val266, %31 ], [ %.val265, %29 ], [ %.val264, %27 ], [ %.val263, %25 ], [ %.val262, %23 ], [ %.val261, %21 ], [ %.val260, %19 ], [ %.val259, %17 ], [ %.val258, %15 ], [ %.val257, %13 ], [ %.val256, %11 ], [ %.val255, %9 ], [ %.val254, %7 ], [ %.val, %5 ], [ %.val345, %316 ], [ %320, %318 ], [ %323, %321 ], [ %.sroa.0.0.copyload.i.i361, %61 ], [ %81, %78 ], [ %.sroa.0.0.copyload.i.i.i348, %82 ], [ %.sroa.0.0.copyload.i.i, %90 ], [ %95, %92 ], [ %199, %198 ], [ 0, %191 ], [ %196, %194 ], [ %313, %312 ], [ %.sroa.0.0.copyload.i.i.i.i360, %314 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
+_ZNK5clang15OpaqueValueExpr10getExprLocEv.exit:   ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %314, %312, %198, %194, %191, %92, %90, %82, %78, %61, %321, %318, %316, %305, %303, %301, %299, %297, %295, %292, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %260, %258, %256, %253, %251, %249, %247, %245, %243, %241, %239, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %204, %202, %200, %188, %186, %184, %182, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang11DeclRefExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit, %172, %169, %167, %164, %162, %160, %157, %155, %153, %150, %147, %145, %143, %141, %138, %135, %133, %131, %129, %127, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %84, %72, %70, %68, %65, %63, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit, %49, %46, %43, %41, %39, %37, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5
+  %.sroa.0253.0 = phi i32 [ %306, %305 ], [ %.val343, %303 ], [ %.val342, %301 ], [ %.val341, %299 ], [ %.val340, %297 ], [ %.val339, %295 ], [ %.val338.val, %292 ], [ %291, %289 ], [ %.val336, %287 ], [ %286, %285 ], [ %284, %283 ], [ %.val335, %281 ], [ %.val334, %279 ], [ %.val333, %277 ], [ %276, %275 ], [ %274, %273 ], [ %.val332, %271 ], [ %.val331, %269 ], [ %.val330, %267 ], [ %.val329, %265 ], [ %.val328, %263 ], [ %262, %260 ], [ %259, %258 ], [ %257, %256 ], [ %255, %253 ], [ %.val325, %251 ], [ %.val324, %249 ], [ %.val323, %247 ], [ %246, %245 ], [ %.val322, %243 ], [ %242, %241 ], [ %240, %239 ], [ %.sroa.0.0.i.i359, %229 ], [ %228, %227 ], [ %226, %225 ], [ %.val321, %223 ], [ %.val320, %221 ], [ %220, %219 ], [ %.val319, %217 ], [ %.val318, %215 ], [ %.val317, %213 ], [ %.val316, %211 ], [ %.val315, %209 ], [ %.val314, %207 ], [ %206, %204 ], [ %.val312, %202 ], [ %.val311, %200 ], [ %.val310.val, %188 ], [ %.val309, %186 ], [ %.val308, %184 ], [ %.val307, %182 ], [ %.sroa.0.0.i.i356, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang11DeclRefExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit ], [ %.val306, %172 ], [ %.sroa.0.0.extract.trunc.i.i.i352, %169 ], [ %168, %167 ], [ %166, %164 ], [ %.val304, %162 ], [ %.val303, %160 ], [ %159, %157 ], [ %.val301, %155 ], [ %.val300, %153 ], [ %152, %150 ], [ %149, %147 ], [ %.val297, %145 ], [ %.val296, %143 ], [ %.val295, %141 ], [ %140, %138 ], [ %137, %135 ], [ %134, %133 ], [ %.val292, %131 ], [ %.val291, %129 ], [ %128, %127 ], [ %126, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit ], [ %.val289, %114 ], [ %.val288, %112 ], [ %.val287, %110 ], [ %.val286, %108 ], [ %.val285, %106 ], [ %.val284, %104 ], [ %.val283, %102 ], [ %.val282, %100 ], [ %.val281, %98 ], [ %.val280, %96 ], [ %.val279, %84 ], [ %.val278, %72 ], [ %.val277, %70 ], [ %.val276, %68 ], [ %67, %65 ], [ %.val274, %63 ], [ %.sroa.0.0.i.i, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit ], [ %.val273, %49 ], [ %48, %46 ], [ %45, %43 ], [ %.val270, %41 ], [ %.val269, %39 ], [ %.val268, %37 ], [ %.val267, %33 ], [ %.val266, %31 ], [ %.val265, %29 ], [ %.val264, %27 ], [ %.val263, %25 ], [ %.val262, %23 ], [ %.val261, %21 ], [ %.val260, %19 ], [ %.val259, %17 ], [ %.val258, %15 ], [ %.val257, %13 ], [ %.val256, %11 ], [ %.val255, %9 ], [ %.val254, %7 ], [ %.val, %5 ], [ %.val345, %316 ], [ %320, %318 ], [ %323, %321 ], [ %.sroa.0.0.copyload.i.i361, %61 ], [ %81, %78 ], [ %.sroa.0.0.copyload.i.i.i348, %82 ], [ %.sroa.0.0.copyload.i.i, %90 ], [ %95, %92 ], [ %199, %198 ], [ 0, %191 ], [ %196, %194 ], [ %313, %312 ], [ %.sroa.0.0.copyload.i.i.i.i360, %314 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
   ret i32 %.sroa.0253.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang17MSPropertyRefExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr noundef nonnull %0) unnamed_addr #5 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang17MSPropertyRefExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef nonnull %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -2608,7 +2608,7 @@ _ZNK5clang17MSPropertyRefExpr11getBeginLocEv.exit: ; preds = %_ZNK5clang17MSProp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang12InitListExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang12InitListExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.0.copyload.i.i.i.i.i15.i = load i64, ptr %2, align 8
   %3 = and i64 %.0.copyload.i.i.i.i.i15.i, 4
@@ -2666,7 +2666,7 @@ _ZNK5clang12InitListExpr11getBeginLocEv.exit:     ; preds = %18, %tailrecurse._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18DesignatedInitExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18DesignatedInitExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -2731,7 +2731,7 @@ _ZNK5clang18DesignatedInitExpr11getBeginLocEv.exit: ; preds = %14, %11, %.loopex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang8CallExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang8CallExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
   %2 = load i8, ptr %0, align 8
   %.not.i = icmp eq i8 %2, 91
   br i1 %.not.i, label %3, label %5
@@ -2777,7 +2777,7 @@ _ZNK5clang8CallExpr11getBeginLocEv.exit:          ; preds = %3, %5, %13, %16, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18UserDefinedLiteralEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr noundef nonnull %0) unnamed_addr #1 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18UserDefinedLiteralEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = tail call noundef i32 @_ZNK5clang18UserDefinedLiteral22getLiteralOperatorKindEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %6
@@ -2858,7 +2858,7 @@ _ZNK5clang8CallExpr11getBeginLocEv.exit:          ; preds = %25, %18, %15, %12, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18CUDAKernelCallExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18CUDAKernelCallExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
   %2 = load i8, ptr %0, align 8
   %.not.i = icmp eq i8 %2, 91
   br i1 %.not.i, label %3, label %5
@@ -2916,7 +2916,7 @@ define linkonce_odr hidden i32 @_ZNK5clang26CXXRewrittenBinaryOperator10getExprL
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang11CXXFoldExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang11CXXFoldExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -17880,8 +17880,8 @@ _ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ES4_EEES2_S2_DpOT_.exit: ; preds = %_
 define dso_local noundef ptr @_ZN5clang4Expr20IgnoreParenNoopCastsERKNS_10ASTContextE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) local_unnamed_addr #5 align 2 {
   br label %3
 
-3:                                                ; preds = %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.argprom.exit.i", %2
-  %.071.i = phi ptr [ %0, %2 ], [ %.0.i.i.i.i, %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.argprom.exit.i" ]
+3:                                                ; preds = %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i", %2
+  %.071.i = phi ptr [ %0, %2 ], [ %.0.i.i.i.i, %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i" ]
   %4 = load i8, ptr %.071.i, align 8
   switch i8 %4, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i [
     i8 21, label %5
@@ -17900,7 +17900,7 @@ define dso_local noundef ptr @_ZN5clang4Expr20IgnoreParenNoopCastsERKNS_10ASTCon
   %9 = load i32, ptr %.071.i, align 8
   %10 = and i32 %9, 8126464
   %11 = icmp eq i32 %10, 3145728
-  br i1 %11, label %12, label %"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ERZNS1_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES2_S2_DpOT_.argprom.exit"
+  br i1 %11, label %12, label %"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ERZNS1_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES2_S2_DpOT_.exit"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.071.i, i64 16
@@ -17950,7 +17950,7 @@ define dso_local noundef ptr @_ZN5clang4Expr20IgnoreParenNoopCastsERKNS_10ASTCon
   %45 = load i32, ptr %.071.i, align 8
   %46 = and i32 %45, 12582912
   %or.cond.not.i.i.i = icmp eq i32 %46, 12582912
-  br i1 %or.cond.not.i.i.i, label %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, label %"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ERZNS1_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES2_S2_DpOT_.argprom.exit"
+  br i1 %or.cond.not.i.i.i, label %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, label %"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ERZNS1_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES2_S2_DpOT_.exit"
 
 _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %44
   %47 = getelementptr inbounds i8, ptr %.071.i, i64 16
@@ -18051,24 +18051,24 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang22Ign
   %105 = phi i1 [ false, %90 ], [ false, %79 ], [ %103, %92 ]
   %brmerge.i.i.i.i = or i1 %70, %105
   %spec.select.i.i = select i1 %brmerge.i.i.i.i, ptr %53, ptr %.0.i.i.i
-  br label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.argprom.exit.i"
+  br label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i"
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.thread.i.i: ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
   %.not.i.i.i.i = icmp eq i8 %49, 9
-  br i1 %.not.i.i.i.i, label %106, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.argprom.exit.i"
+  br i1 %.not.i.i.i.i, label %106, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i"
 
 106:                                              ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.thread.i.i
   %107 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %108 = load ptr, ptr %107, align 8
-  br label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.argprom.exit.i"
+  br label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i"
 
-"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.argprom.exit.i": ; preds = %106, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.thread.i.i, %104
+"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i": ; preds = %106, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.thread.i.i, %104
   %.0.i.i.i.i = phi ptr [ %108, %106 ], [ %.0.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.thread.i.i ], [ %spec.select.i.i, %104 ]
   %.not.i = icmp eq ptr %.0.i.i.i.i, %.071.i
-  br i1 %.not.i, label %"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ERZNS1_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES2_S2_DpOT_.argprom.exit", label %3, !llvm.loop !169
+  br i1 %.not.i, label %"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ERZNS1_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES2_S2_DpOT_.exit", label %3, !llvm.loop !169
 
-"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ERZNS1_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES2_S2_DpOT_.argprom.exit": ; preds = %8, %44, %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.argprom.exit.i"
-  %.0.i.i.i4.i = phi ptr [ %.0.i.i.i.i, %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.argprom.exit.i" ], [ %.071.i, %8 ], [ %.071.i, %44 ]
+"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ERZNS1_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES2_S2_DpOT_.exit": ; preds = %8, %44, %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i"
+  %.0.i.i.i4.i = phi ptr [ %.0.i.i.i.i, %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJRZNS2_20IgnoreParenNoopCastsERKNS_10ASTContextEE3$_0EEES3_S3_OT_DpOT0_.exit.i" ], [ %.071.i, %8 ], [ %.071.i, %44 ]
   ret ptr %.0.i.i.i4.i
 }
 
@@ -18076,8 +18076,8 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.thread.i.i: ; preds = %_ZN5cla
 define dso_local noundef ptr @_ZN5clang4Expr27IgnoreUnlessSpelledInSourceEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   br label %2
 
-2:                                                ; preds = %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.argprom.exit.i", %1
-  %.0101.i = phi ptr [ %0, %1 ], [ %.0.i.i.i.i.i.i.i, %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.argprom.exit.i" ]
+2:                                                ; preds = %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i", %1
+  %.0101.i = phi ptr [ %0, %1 ], [ %.0.i.i.i.i.i.i.i, %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i" ]
   %3 = load i8, ptr %.0101.i, align 8
   switch i8 %3, label %_ZN5clang24IgnoreImplicitSingleStepEPNS_4ExprE.exit.i.i [
     i8 79, label %_ZN5clang29IgnoreImplicitCastsSingleStepEPNS_4ExprE.exit.i.i.i
@@ -18184,7 +18184,7 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %23, %_
   %30 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %29) #29
   %31 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.0.i.i.i.i.i) #29
   %32 = icmp eq i64 %30, %31
-  br i1 %32, label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.argprom.exit.i.i.i.i.i", label %.critedge2.i.i.i.i.i.i
+  br i1 %32, label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i", label %.critedge2.i.i.i.i.i.i
 
 33:                                               ; preds = %_ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i
   %34 = add i8 %26, -115
@@ -18221,24 +18221,24 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %23, %_
   %48 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %47) #29
   %49 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.0.i.i.i.i.i) #29
   %50 = icmp eq i64 %48, %49
-  br i1 %50, label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.argprom.exit.i.i.i.i.i", label %51
+  br i1 %50, label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i", label %51
 
 51:                                               ; preds = %.critedge.i.i.i.i.i.i
   %52 = load i32, ptr %.0.i.i.i.i.i, align 8
   %53 = and i32 %52, 262144
   %.not9.i.i.i.i.i.i = icmp eq i32 %53, 0
-  br i1 %.not9.i.i.i.i.i.i, label %.critedge2.i.i.i.i.i.i, label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not9.i.i.i.i.i.i, label %.critedge2.i.i.i.i.i.i, label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i"
 
 .critedge2.i.i.i.i.i.i:                           ; preds = %51, %38, %35, %33, %27
-  br label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.argprom.exit.i.i.i.i.i"
+  br label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i"
 
-"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.argprom.exit.i.i.i.i.i": ; preds = %.critedge2.i.i.i.i.i.i, %51, %.critedge.i.i.i.i.i.i, %27
+"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i": ; preds = %.critedge2.i.i.i.i.i.i, %51, %.critedge.i.i.i.i.i.i, %27
   %.0.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %.critedge2.i.i.i.i.i.i ], [ %29, %27 ], [ %47, %.critedge.i.i.i.i.i.i ], [ %47, %51 ]
   %54 = load i8, ptr %.0.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i8 %54, 92
   br i1 %.not.i.i.i.i.i.i.i, label %55, label %71
 
-55:                                               ; preds = %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.argprom.exit.i.i.i.i.i"
+55:                                               ; preds = %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i"
   %56 = tail call noundef ptr @_ZNK5clang17CXXMemberCallExpr25getImplicitObjectArgumentEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i.i.i.i) #28
   %57 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %56) #29
   %.sroa.09.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %57 to i32
@@ -18249,14 +18249,14 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %23, %_
   %59 = icmp eq i32 %.sroa.09.0.extract.trunc.i.i.i.i.i.i.i, %.sroa.07.0.extract.trunc.i.i.i.i.i.i.i
   %60 = icmp eq i64 %.sroa.210.0.extract.shift.i.i.i.i.i.i.i, %.sroa.28.0.extract.shift.i.i.i.i.i.i.i
   %61 = and i1 %59, %60
-  br i1 %61, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.argprom.exit.i", label %62
+  br i1 %61, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i", label %62
 
 62:                                               ; preds = %55
   %63 = load i8, ptr %56, align 8
   %.not13.i.i.i.i.i.i.i = icmp eq i8 %63, 21
   %64 = icmp eq i64 %57, %58
   %or.cond.i.i.i.i.i.i = and i1 %64, %.not13.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.argprom.exit.i", label %65
+  br i1 %or.cond.i.i.i.i.i.i, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i", label %65
 
 65:                                               ; preds = %62
   %66 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %56) #29
@@ -18266,17 +18266,17 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %23, %_
   %68 = icmp eq i32 %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i, %.sroa.07.0.extract.trunc.i.i.i.i.i.i.i
   %69 = icmp eq i64 %.sroa.22.0.extract.shift.i.i.i.i.i.i.i, %.sroa.28.0.extract.shift.i.i.i.i.i.i.i
   %70 = and i1 %68, %69
-  br i1 %70, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.argprom.exit.i", label %71
+  br i1 %70, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i", label %71
 
-71:                                               ; preds = %65, %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.argprom.exit.i.i.i.i.i"
-  br label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.argprom.exit.i"
+71:                                               ; preds = %65, %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i"
+  br label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i"
 
-"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.argprom.exit.i": ; preds = %71, %65, %62, %55
+"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i": ; preds = %71, %65, %62, %55
   %.0.i.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %71 ], [ %56, %55 ], [ %66, %65 ], [ %56, %62 ]
   %.not.i = icmp eq ptr %.0.i.i.i.i.i.i.i, %.0101.i
-  br i1 %.not.i, label %"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ES4_S4_RZNS1_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS1_27IgnoreUnlessSpelledInSourceEvE3$_1EEES2_S2_DpOT_.argprom.exit", label %2, !llvm.loop !170
+  br i1 %.not.i, label %"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ES4_S4_RZNS1_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS1_27IgnoreUnlessSpelledInSourceEvE3$_1EEES2_S2_DpOT_.exit", label %2, !llvm.loop !170
 
-"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ES4_S4_RZNS1_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS1_27IgnoreUnlessSpelledInSourceEvE3$_1EEES2_S2_DpOT_.argprom.exit": ; preds = %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.argprom.exit.i"
+"_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_ES4_S4_RZNS1_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS1_27IgnoreUnlessSpelledInSourceEvE3$_1EEES2_S2_DpOT_.exit": ; preds = %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i"
   ret ptr %.0.i.i.i.i.i.i.i
 }
 
@@ -26898,7 +26898,7 @@ _ZN4llvm5APIntD2Ev.exit120:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %312 = phi i8 [ %.pre187, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread ], [ %224, %277 ]
   %.1158 = phi ptr [ %354, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread ], [ %.0.i3.i.i86, %277 ]
   %.1 = phi ptr [ %357, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread ], [ %.0.i3.i.i99, %277 ]
-  switch i8 %312, label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exitthread-pre-split" [
+  switch i8 %312, label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exitthread-pre-split" [
     i8 46, label %313
     i8 98, label %358
     i8 71, label %.sink.split.i
@@ -26987,32 +26987,32 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %_ZNK5clang7VarD
 358:                                              ; preds = %.preheader
   %359 = load i8, ptr %.1, align 8
   %360 = icmp eq i8 %359, 98
-  br i1 %360, label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit, label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit"
+  br i1 %360, label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit, label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit"
 
 .sink.split.i:                                    ; preds = %313, %.preheader
   %.sink4.i = phi i64 [ 16, %.preheader ], [ 24, %313 ]
   %361 = getelementptr inbounds nuw i8, ptr %.1158, i64 %.sink4.i
   %362 = load ptr, ptr %361, align 8
-  br label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exitthread-pre-split"
+  br label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exitthread-pre-split"
 
-"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exitthread-pre-split": ; preds = %.preheader, %.sink.split.i
+"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exitthread-pre-split": ; preds = %.preheader, %.sink.split.i
   %.0.i127.ph = phi ptr [ %362, %.sink.split.i ], [ null, %.preheader ]
   %.pr = load i8, ptr %.1, align 8
-  br label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit"
+  br label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit"
 
-"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit": ; preds = %358, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exitthread-pre-split"
-  %363 = phi i8 [ %.pr, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exitthread-pre-split" ], [ %359, %358 ]
-  %.0.i127 = phi ptr [ %.0.i127.ph, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exitthread-pre-split" ], [ null, %358 ]
+"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit": ; preds = %358, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exitthread-pre-split"
+  %363 = phi i8 [ %.pr, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exitthread-pre-split" ], [ %359, %358 ]
+  %.0.i127 = phi ptr [ %.0.i127.ph, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exitthread-pre-split" ], [ null, %358 ]
   switch i8 %363, label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit [
-    i8 71, label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit131"
+    i8 71, label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit131"
     i8 46, label %364
   ]
 
-364:                                              ; preds = %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit"
-  br label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit131"
+364:                                              ; preds = %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit"
+  br label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit131"
 
-"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit131": ; preds = %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit", %364
-  %.sink4.i129 = phi i64 [ 24, %364 ], [ 16, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit" ]
+"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit131": ; preds = %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit", %364
+  %.sink4.i129 = phi i64 [ 24, %364 ], [ 16, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit" ]
   %365 = getelementptr inbounds nuw i8, ptr %.1, i64 %.sink4.i129
   %366 = load ptr, ptr %365, align 8
   %367 = icmp ne ptr %.0.i127, null
@@ -27020,7 +27020,7 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %_ZNK5clang7VarD
   %or.cond.i132 = and i1 %367, %368
   br i1 %or.cond.i132, label %369, label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit
 
-369:                                              ; preds = %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit131"
+369:                                              ; preds = %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit131"
   %370 = icmp eq ptr %.0.i127, %366
   br i1 %370, label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit, label %371
 
@@ -27036,8 +27036,8 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %_ZNK5clang7VarD
   %380 = icmp eq ptr %375, %379
   br label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit
 
-_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit: ; preds = %121, %.preheader168, %316, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit123, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit", %371, %369, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit131", %267, %265, %258, %237, %235, %228, %358, %309, %_ZN4llvm5APIntD2Ev.exit120, %280, %250, %254, %101, %106, %111, %99, %_ZNK5clang4Expr12IgnoreParensEv.exit81, %311, %100
-  %.0 = phi i1 [ true, %311 ], [ true, %100 ], [ false, %_ZNK5clang4Expr12IgnoreParensEv.exit81 ], [ false, %99 ], [ false, %106 ], [ false, %101 ], [ %116, %111 ], [ false, %254 ], [ false, %250 ], [ false, %280 ], [ false, %_ZN4llvm5APIntD2Ev.exit120 ], [ false, %309 ], [ true, %358 ], [ %246, %237 ], [ false, %228 ], [ true, %235 ], [ %276, %267 ], [ false, %258 ], [ true, %265 ], [ %380, %371 ], [ false, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit131" ], [ true, %369 ], [ false, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.argprom.exit" ], [ false, %316 ], [ true, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit ], [ false, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit123 ], [ false, %.preheader168 ], [ false, %121 ]
+_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit: ; preds = %121, %.preheader168, %316, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit123, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit", %371, %369, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit131", %267, %265, %258, %237, %235, %228, %358, %309, %_ZN4llvm5APIntD2Ev.exit120, %280, %250, %254, %101, %106, %111, %99, %_ZNK5clang4Expr12IgnoreParensEv.exit81, %311, %100
+  %.0 = phi i1 [ true, %311 ], [ true, %100 ], [ false, %_ZNK5clang4Expr12IgnoreParensEv.exit81 ], [ false, %99 ], [ false, %106 ], [ false, %101 ], [ %116, %111 ], [ false, %254 ], [ false, %250 ], [ false, %280 ], [ false, %_ZN4llvm5APIntD2Ev.exit120 ], [ false, %309 ], [ true, %358 ], [ %246, %237 ], [ false, %228 ], [ true, %235 ], [ %276, %267 ], [ false, %258 ], [ true, %265 ], [ %380, %371 ], [ false, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit131" ], [ true, %369 ], [ false, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit" ], [ false, %316 ], [ true, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit ], [ false, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit123 ], [ false, %.preheader168 ], [ false, %121 ]
   ret i1 %.0
 }
 
@@ -32312,14 +32312,14 @@ define internal range(i64 0, 8589934592) i64 @"_ZZN5clang24SYCLUniqueStableNameE
   %7 = icmp ult i32 %6, -3
   %.not1.i = icmp eq ptr %1, null
   %.not.i = or i1 %.not1.i, %7
-  br i1 %.not.i, label %"_ZZN5clang24SYCLUniqueStableNameExpr11ComputeNameB5cxx11ERNS_10ASTContextENS_8QualTypeEENK3$_0clES2_PKNS_9NamedDeclE.argprom.exit", label %8
+  br i1 %.not.i, label %"_ZZN5clang24SYCLUniqueStableNameExpr11ComputeNameB5cxx11ERNS_10ASTContextENS_8QualTypeEENK3$_0clES2_PKNS_9NamedDeclE.exit", label %8
 
 8:                                                ; preds = %2
   %9 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl29getDeviceLambdaManglingNumberEv(ptr noundef nonnull align 8 dereferenceable(144) %1) #28
   %10 = zext i32 %9 to i64
-  br label %"_ZZN5clang24SYCLUniqueStableNameExpr11ComputeNameB5cxx11ERNS_10ASTContextENS_8QualTypeEENK3$_0clES2_PKNS_9NamedDeclE.argprom.exit"
+  br label %"_ZZN5clang24SYCLUniqueStableNameExpr11ComputeNameB5cxx11ERNS_10ASTContextENS_8QualTypeEENK3$_0clES2_PKNS_9NamedDeclE.exit"
 
-"_ZZN5clang24SYCLUniqueStableNameExpr11ComputeNameB5cxx11ERNS_10ASTContextENS_8QualTypeEENK3$_0clES2_PKNS_9NamedDeclE.argprom.exit": ; preds = %2, %8
+"_ZZN5clang24SYCLUniqueStableNameExpr11ComputeNameB5cxx11ERNS_10ASTContextENS_8QualTypeEENK3$_0clES2_PKNS_9NamedDeclE.exit": ; preds = %2, %8
   %.sroa.0.0.i = phi i64 [ %10, %8 ], [ 0, %2 ]
   %.sroa.2.0.i = phi i64 [ 4294967296, %8 ], [ 0, %2 ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.i, %.sroa.0.0.i
@@ -34592,23 +34592,23 @@ attributes #33 = { nounwind willreturn memory(none) }
 !108 = distinct !{!108, !5}
 !109 = distinct !{!109, !5}
 !110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom: argument 0"}
-!112 = distinct !{!112, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom"}
+!111 = distinct !{!111, !112, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE: argument 0"}
+!112 = distinct !{!112, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE"}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom: argument 0"}
-!115 = distinct !{!115, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom"}
+!114 = distinct !{!114, !115, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE: argument 0"}
+!115 = distinct !{!115, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE"}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom: argument 0"}
-!118 = distinct !{!118, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom"}
+!117 = distinct !{!117, !118, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE: argument 0"}
+!118 = distinct !{!118, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE"}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom: argument 0"}
-!121 = distinct !{!121, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom"}
+!120 = distinct !{!120, !121, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE: argument 0"}
+!121 = distinct !{!121, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE"}
 !122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom: argument 0"}
-!124 = distinct !{!124, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom"}
+!123 = distinct !{!123, !124, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE: argument 0"}
+!124 = distinct !{!124, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE"}
 !125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom: argument 0"}
-!127 = distinct !{!127, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE.argprom"}
+!126 = distinct !{!126, !127, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE: argument 0"}
+!127 = distinct !{!127, !"_ZZNK5clang13SourceLocExpr17EvaluateInContextERKNS_10ASTContextEPKNS_4ExprEENK3$_0clEN4llvm9StringRefE"}
 !128 = !{!129}
 !129 = distinct !{!129, !130, !"_ZNK4llvm6APSInt10extOrTruncEj: argument 0"}
 !130 = distinct !{!130, !"_ZNK4llvm6APSInt10extOrTruncEj"}

@@ -38,8 +38,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.fold_movcond = private unnamed_addr constant [13 x i8] c"fold_movcond\00", align 1
 @__func__.fold_multiply2 = private unnamed_addr constant [15 x i8] c"fold_multiply2\00", align 1
 @__func__.fold_sub_to_neg = private unnamed_addr constant [16 x i8] c"fold_sub_to_neg\00", align 1
-@switch.table.tcg_opt_gen_mov.retelim = private unnamed_addr constant [6 x i32] [i32 5, i32 63, i32 5, i32 149, i32 149, i32 149], align 4
-@switch.table.do_constant_folding_cond2.argprom = private unnamed_addr constant [12 x i32] [i32 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1, i32 0, i32 1, i32 0], align 4
+@switch.table.tcg_opt_gen_mov = private unnamed_addr constant [6 x i32] [i32 5, i32 63, i32 5, i32 149, i32 149, i32 149], align 4
+@switch.table.do_constant_folding_cond2 = private unnamed_addr constant [12 x i32] [i32 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1, i32 0, i32 1, i32 0], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_optimize(ptr noundef %s) local_unnamed_addr #0 {
@@ -103,7 +103,7 @@ if.then:                                          ; preds = %land.rhs
   %add.i = add nuw nsw i32 %bf.clear.i, %bf.lshr.i
   call fastcc void @init_arguments(ptr noundef %ctx, ptr noundef %op.01736, i32 noundef %add.i)
   %cmp1.not.i.i = icmp eq i32 %bf.clear.i, 0
-  br i1 %cmp1.not.i.i, label %copy_propagate.argprom.exit.i, label %for.body.lr.ph.i.i
+  br i1 %cmp1.not.i.i, label %copy_propagate.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then
   %args.i.i = getelementptr inbounds i8, ptr %op.01736, i64 32
@@ -162,9 +162,9 @@ find_better_copy.exit.i.i:                        ; preds = %find_better_copy.ex
 for.inc.i.i:                                      ; preds = %find_better_copy.exit.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %7
-  br i1 %cmp.i.i, label %for.body.i.i, label %copy_propagate.argprom.exit.i, !llvm.loop !8
+  br i1 %cmp.i.i, label %for.body.i.i, label %copy_propagate.exit.i, !llvm.loop !8
 
-copy_propagate.argprom.exit.i:                    ; preds = %for.inc.i.i, %if.then
+copy_propagate.exit.i:                            ; preds = %for.inc.i.i, %if.then
   %args.i.i.i = getelementptr inbounds i8, ptr %op.01736, i64 32
   %bf.load.i.i.i = load i32, ptr %op.01736, align 8
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i.i, 24
@@ -184,7 +184,7 @@ copy_propagate.argprom.exit.i:                    ; preds = %for.inc.i.i, %if.th
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end8.i
 
-if.then.i:                                        ; preds = %copy_propagate.argprom.exit.i
+if.then.i:                                        ; preds = %copy_propagate.exit.i
   %nb_globals3.i = getelementptr inbounds i8, ptr %5, i64 44
   %20 = load i32, ptr %nb_globals3.i, align 4
   %cmp27.i = icmp sgt i32 %20, 0
@@ -337,7 +337,7 @@ for.inc.i:                                        ; preds = %if.end34.sink.split
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %if.end8.i, label %for.body.i, !llvm.loop !11
 
-if.end8.i:                                        ; preds = %for.inc.i, %if.then.i, %copy_propagate.argprom.exit.i
+if.end8.i:                                        ; preds = %for.inc.i, %if.then.i, %copy_propagate.exit.i
   %and9.i = and i32 %19, 4
   %tobool10.not.i = icmp eq i32 %and9.i, 0
   br i1 %tobool10.not.i, label %if.then11.i, label %if.end12.i
@@ -569,7 +569,7 @@ if.end:                                           ; preds = %land.rhs
   call fastcc void @init_arguments(ptr noundef %ctx, ptr noundef %op.01736, i32 noundef %add)
   %70 = load i8, ptr %nb_iargs, align 1
   %cmp1.not.i = icmp eq i8 %70, 0
-  br i1 %cmp1.not.i, label %copy_propagate.argprom.exit, label %for.body.lr.ph.i67
+  br i1 %cmp1.not.i, label %copy_propagate.exit, label %for.body.lr.ph.i67
 
 for.body.lr.ph.i67:                               ; preds = %if.end
   %conv14 = zext i8 %70 to i64
@@ -630,9 +630,9 @@ find_better_copy.exit.i:                          ; preds = %find_better_copy.ex
 for.inc.i78:                                      ; preds = %find_better_copy.exit.i, %for.body.i69
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i70, 1
   %cmp.i = icmp ult i64 %indvars.iv.next.i79, %add.i68
-  br i1 %cmp.i, label %for.body.i69, label %copy_propagate.argprom.exit, !llvm.loop !8
+  br i1 %cmp.i, label %for.body.i69, label %copy_propagate.exit, !llvm.loop !8
 
-copy_propagate.argprom.exit:                      ; preds = %for.inc.i78, %if.end
+copy_propagate.exit:                              ; preds = %for.inc.i78, %if.end
   %flags = getelementptr inbounds i8, ptr %arrayidx9, i64 12
   %81 = load i8, ptr %flags, align 4
   %conv15 = zext i8 %81 to i32
@@ -640,14 +640,14 @@ copy_propagate.argprom.exit:                      ; preds = %for.inc.i78, %if.en
   %tobool16.not = icmp eq i32 %and, 0
   br i1 %tobool16.not, label %if.else, label %if.then17
 
-if.then17:                                        ; preds = %copy_propagate.argprom.exit
+if.then17:                                        ; preds = %copy_propagate.exit
   %bf.load18 = load i32, ptr %op.01736, align 8
   %bf.lshr = lshr i32 %bf.load18, 16
   %bf.clear19 = and i32 %bf.lshr, 255
   %add20 = add nuw nsw i32 %bf.clear19, 3
   br label %if.end30
 
-if.else:                                          ; preds = %copy_propagate.argprom.exit
+if.else:                                          ; preds = %copy_propagate.exit
   %and23 = lshr i32 %conv15, 4
   %and23.lobit = and i32 %and23, 1
   br label %if.end30
@@ -871,7 +871,7 @@ fold_const2_commutative.exit.i:                   ; preds = %land.lhs.true.i.i.i
   %call11.i.i.i = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i.i85, i32 noundef %95, i64 noundef %93, i64 noundef %94)
   %96 = load i64, ptr %args.i.i80, align 8
   %call.i.i.i.i86 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i.i)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %96, i64 noundef %call.i.i.i.i86)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %96, i64 noundef %call.i.i.i.i86)
   br label %for.inc173
 
 lor.lhs.false.i:                                  ; preds = %swap_commutative.exit.i.i, %land.lhs.true.i.i.i
@@ -886,7 +886,7 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i
 
 if.then.i.i83:                                    ; preds = %land.lhs.true.i.i
   %98 = load i64, ptr %args.i.i80, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %98, i64 noundef %91)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %98, i64 noundef %91)
   br label %for.inc173
 
 sw.bb32:                                          ; preds = %if.end30
@@ -913,16 +913,16 @@ lor.lhs.false.i.i.i94:                            ; preds = %sw.bb32
   %cmp4.i.i.i96 = icmp eq i8 %103, %106
   %cmp6.i.i.i97 = icmp eq i64 %107, %100
   %or.cond.i.i.i98 = and i1 %cmp4.i.i.i96, %cmp6.i.i.i97
-  br i1 %or.cond.i.i.i98, label %if.then.i.i.i108, label %fold_commutative.argprom.exit.i
+  br i1 %or.cond.i.i.i98, label %if.then.i.i.i108, label %fold_commutative.exit.i
 
 if.then.i.i.i108:                                 ; preds = %lor.lhs.false.i.i.i94, %sw.bb32
   store i64 %100, ptr %arrayidx2.i.i87, align 8
   store i64 %99, ptr %arrayidx4.i.i88, align 8
   %call.val.i.i.pre.i = load ptr, ptr %102, align 8
   %call.val.val.i.i.pre.i = load i8, ptr %call.val.i.i.pre.i, align 8
-  br label %fold_commutative.argprom.exit.i
+  br label %fold_commutative.exit.i
 
-fold_commutative.argprom.exit.i:                  ; preds = %if.then.i.i.i108, %lor.lhs.false.i.i.i94
+fold_commutative.exit.i:                          ; preds = %if.then.i.i.i108, %lor.lhs.false.i.i.i94
   %108 = phi i64 [ %99, %lor.lhs.false.i.i.i94 ], [ %100, %if.then.i.i.i108 ]
   %call.val.val.i.i.i99 = phi i8 [ %call.val.val.i10.i.i.i92, %lor.lhs.false.i.i.i94 ], [ %call.val.val.i.i.pre.i, %if.then.i.i.i108 ]
   %call.val.i.i.i100 = phi ptr [ %call.val.i9.i.i.i91, %lor.lhs.false.i.i.i94 ], [ %call.val.i.i.pre.i, %if.then.i.i.i108 ]
@@ -930,7 +930,7 @@ fold_commutative.argprom.exit.i:                  ; preds = %if.then.i.i.i108, %
   %tobool.i.i.i.i101 = trunc i8 %call.val.val.i.i.i99 to i1
   br i1 %tobool.i.i.i.i101, label %land.lhs.true.i.i103, label %if.then171
 
-land.lhs.true.i.i103:                             ; preds = %fold_commutative.argprom.exit.i
+land.lhs.true.i.i103:                             ; preds = %fold_commutative.exit.i
   %val.i.i104 = getelementptr inbounds i8, ptr %call.val.i.i.i100, i64 40
   %109 = load i64, ptr %val.i.i104, align 8
   %cmp.i.i105 = icmp eq i64 %109, 0
@@ -938,7 +938,7 @@ land.lhs.true.i.i103:                             ; preds = %fold_commutative.ar
 
 if.then.i.i106:                                   ; preds = %land.lhs.true.i.i103
   %110 = load i64, ptr %args.i3.i, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %110, i64 noundef %108)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %110, i64 noundef %108)
   br label %for.inc173
 
 sw.bb35:                                          ; preds = %if.end30, %if.end30
@@ -1066,7 +1066,7 @@ fold_const2_commutative.exit.i145:                ; preds = %land.lhs.true.i.i.i
   %call11.i.i.i151 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i.i149, i32 noundef %142, i64 noundef %140, i64 noundef %141)
   %143 = load i64, ptr %args.i.i114, align 8
   %call.i.i.i.i152 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i.i151)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %143, i64 noundef %call.i.i.i.i152)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %143, i64 noundef %call.i.i.i.i152)
   br label %for.inc173
 
 lor.lhs.false.i129:                               ; preds = %swap_commutative.exit.i.i126, %land.lhs.true.i.i.i141
@@ -1084,12 +1084,12 @@ land.lhs.true.i.i137:                             ; preds = %lor.lhs.false.i129
 fold_xi_to_i.exit.i:                              ; preds = %land.lhs.true.i.i137
   %145 = load i64, ptr %args.i.i114, align 8
   %call.i.i.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %145, i64 noundef %call.i.i.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %145, i64 noundef %call.i.i.i)
   br label %for.inc173
 
 fold_xi_to_x.exit.i:                              ; preds = %land.lhs.true.i.i137
   %146 = load i64, ptr %args.i.i114, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %146, i64 noundef %138)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %146, i64 noundef %138)
   br label %for.inc173
 
 lor.lhs.false4.i:                                 ; preds = %land.lhs.true.i.i137, %lor.lhs.false.i129
@@ -1124,7 +1124,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 fold_xx_to_x.exit.i:                              ; preds = %for.body.i.i.i.i, %lor.lhs.false4.i
   %151 = load i64, ptr %args.i.i114, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %151, i64 noundef %138)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %151, i64 noundef %138)
   br label %for.inc173
 
 if.end.i:                                         ; preds = %for.inc.i.i.i.i, %lor.lhs.false.i.i.i.i, %if.end.i.i.i.i134
@@ -1191,7 +1191,7 @@ if.end.i.i:                                       ; preds = %if.then.i43.i, %if.
 if.then11.i.i:                                    ; preds = %if.end.i.i
   %167 = load i64, ptr %args.i.i114, align 8
   %call.i.i41.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %167, i64 noundef %call.i.i41.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %167, i64 noundef %call.i.i41.i)
   br label %for.inc173
 
 if.end12.i.i:                                     ; preds = %if.end.i.i
@@ -1201,7 +1201,7 @@ if.end12.i.i:                                     ; preds = %if.end.i.i
 if.then15.i.i:                                    ; preds = %if.end12.i.i
   %168 = load i64, ptr %args.i.i114, align 8
   %169 = load i64, ptr %arrayidx2.i.i115, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %168, i64 noundef %169)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %168, i64 noundef %169)
   br label %for.inc173
 
 sw.bb41:                                          ; preds = %if.end30, %if.end30, %if.end30
@@ -1235,7 +1235,7 @@ fold_const2.exit.i:                               ; preds = %land.lhs.true.i.i20
   %call11.i.i = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i, i32 noundef %.sink, i64 noundef %176, i64 noundef %177)
   %178 = load i64, ptr %args.i.i157, align 8
   %call.i.i.i214 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %178, i64 noundef %call.i.i.i214)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %178, i64 noundef %call.i.i.i214)
   br label %for.inc173
 
 lor.lhs.false.i163:                               ; preds = %land.lhs.true.i.i208, %sw.bb41
@@ -1272,7 +1272,7 @@ for.inc.i.i.i.i174:                               ; preds = %for.body.i.i.i.i171
 fold_xx_to_i.exit.i:                              ; preds = %for.body.i.i.i.i171, %lor.lhs.false.i163
   %182 = load i64, ptr %args.i.i157, align 8
   %call.i.i24.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %182, i64 noundef %call.i.i24.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %182, i64 noundef %call.i.i24.i)
   br label %for.inc173
 
 lor.lhs.false2.i:                                 ; preds = %for.inc.i.i.i.i174, %lor.lhs.false.i.i.i.i168, %if.end.i.i.i.i165
@@ -1288,7 +1288,7 @@ land.lhs.true.i32.i:                              ; preds = %lor.lhs.false2.i
 
 fold_xi_to_x.exit.i206:                           ; preds = %land.lhs.true.i32.i
   %184 = load i64, ptr %args.i.i157, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %184, i64 noundef %170)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %184, i64 noundef %170)
   br label %for.inc173
 
 lor.lhs.false4.i179:                              ; preds = %land.lhs.true.i32.i, %lor.lhs.false2.i
@@ -1379,7 +1379,7 @@ if.end.i.i187:                                    ; preds = %if.then.i54.i, %if.
 if.then11.i.i196:                                 ; preds = %if.end.i.i187
   %198 = load i64, ptr %args.i.i157, align 8
   %call.i.i52.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %198, i64 noundef %call.i.i52.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %198, i64 noundef %call.i.i52.i)
   br label %for.inc173
 
 if.end12.i.i191:                                  ; preds = %if.end.i.i187
@@ -1389,7 +1389,7 @@ if.end12.i.i191:                                  ; preds = %if.end.i.i187
 if.then15.i.i194:                                 ; preds = %if.end12.i.i191
   %199 = load i64, ptr %args.i.i157, align 8
   %200 = load i64, ptr %arrayidx.i.i158, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %199, i64 noundef %200)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %199, i64 noundef %200)
   br label %for.inc173
 
 sw.bb44:                                          ; preds = %if.end30, %if.end30
@@ -1517,7 +1517,7 @@ if.end.i243:                                      ; preds = %if.then.i254, %sw.b
   %args.val42.i = phi i64 [ %229, %if.then.i254 ], [ %221, %sw.bb47 ]
   %args.val.i = phi i64 [ %225, %if.then.i254 ], [ %217, %sw.bb47 ]
   %cond.0.i244 = phi i32 [ %cond.i.i258, %if.then.i254 ], [ %conv.i237, %sw.bb47 ]
-  %call15.i = call fastcc i32 @do_constant_folding_cond2.argprom(i64 %args.val.i, i64 %args.val42.i, i64 %arrayidx6.val.i, i64 %arrayidx6.val43.i, i32 noundef %cond.0.i244)
+  %call15.i = call fastcc i32 @do_constant_folding_cond2(i64 %args.val.i, i64 %args.val42.i, i64 %arrayidx6.val.i, i64 %arrayidx6.val43.i, i32 noundef %cond.0.i244)
   %cmp.i245 = icmp sgt i32 %call15.i, -1
   br i1 %cmp.i245, label %do_brcond_const.i, label %if.end18.i
 
@@ -1652,7 +1652,7 @@ if.then.i292:                                     ; preds = %sw.bb50
   %call6.i = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i296, i32 noundef %.sink, i64 noundef %252, i64 noundef %253)
   %254 = load i64, ptr %args.i293, align 8
   %call.i.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call6.i)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %254, i64 noundef %call.i.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %254, i64 noundef %call.i.i)
   br label %for.inc173
 
 if.end.i263:                                      ; preds = %sw.bb50
@@ -1746,7 +1746,7 @@ if.then11.i.i280:                                 ; preds = %if.end.i.i271
   %args.i.i281 = getelementptr inbounds i8, ptr %op.01736, i64 32
   %261 = load i64, ptr %args.i.i281, align 8
   %call.i.i.i282 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %261, i64 noundef %call.i.i.i282)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %261, i64 noundef %call.i.i.i282)
   br label %for.inc173
 
 sw.bb53:                                          ; preds = %if.end30, %if.end30, %if.end30, %if.end30
@@ -1772,14 +1772,14 @@ if.then4.i:                                       ; preds = %if.then.i315
   %call5.i = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i318, i32 noundef %.sink, i64 noundef %265, i64 noundef 0)
   %266 = load i64, ptr %args.i298, align 8
   %call.i.i320 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call5.i)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %266, i64 noundef %call.i.i320)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %266, i64 noundef %call.i.i320)
   br label %for.inc173
 
 if.end.i322:                                      ; preds = %if.then.i315
   %267 = load i64, ptr %args.i298, align 8
   %arrayidx12.i = getelementptr i8, ptr %op.01736, i64 48
   %268 = load i64, ptr %arrayidx12.i, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %267, i64 noundef %268)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %267, i64 noundef %268)
   br label %for.inc173
 
 if.end14.i:                                       ; preds = %sw.bb53
@@ -1835,7 +1835,7 @@ fold_const1.exit.thread.i:                        ; preds = %sw.bb56
   %call4.i.i341 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i339, i32 noundef %.sink, i64 noundef %277, i64 noundef 0)
   %278 = load i64, ptr %args.i.i336, align 8
   %call.i.i.i342 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call4.i.i341)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %278, i64 noundef %call.i.i.i342)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %278, i64 noundef %call.i.i.i342)
   br label %for.inc173
 
 if.end.i327:                                      ; preds = %sw.bb56
@@ -1919,7 +1919,7 @@ deposit64.exit.i:                                 ; preds = %if.then.i364
   %or.i.i374 = or i64 %and.i.i373, %and8.i.i
   %290 = load i64, ptr %args.i344, align 8
   %call.i.i375 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %or.i.i374)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %290, i64 noundef %call.i.i375)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %290, i64 noundef %call.i.i375)
   br label %for.inc173
 
 if.end.i349:                                      ; preds = %land.lhs.true.i362, %sw.bb59
@@ -2101,7 +2101,7 @@ fold_const2.exit.i391:                            ; preds = %land.lhs.true.i.i38
   %call11.i.i397 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i395, i32 noundef %.sink, i64 noundef %319, i64 noundef %320)
   %321 = load i64, ptr %args.i.i377, align 8
   %call.i.i.i398 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i397)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %321, i64 noundef %call.i.i.i398)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %321, i64 noundef %call.i.i.i398)
   br label %for.inc173
 
 lor.lhs.false.i385:                               ; preds = %sw.bb62
@@ -2115,7 +2115,7 @@ land.lhs.true.i9.i:                               ; preds = %lor.lhs.false.i385
 
 if.then.i11.i:                                    ; preds = %land.lhs.true.i9.i
   %323 = load i64, ptr %args.i.i377, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %323, i64 noundef %313)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %323, i64 noundef %313)
   br label %for.inc173
 
 sw.bb65:                                          ; preds = %if.end30
@@ -2137,7 +2137,7 @@ cond.false38.i:                                   ; preds = %sw.bb65
   %call41.i = call i64 @dup_const(i32 noundef %bf.lshr.i408, i64 noundef %327) #8
   %328 = load i64, ptr %args.i400, align 8
   %call.i.i409 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call41.i)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %328, i64 noundef %call.i.i409)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %328, i64 noundef %call.i.i409)
   br label %for.inc173
 
 sw.bb68:                                          ; preds = %if.end30
@@ -2171,7 +2171,7 @@ if.then.i433:                                     ; preds = %land.lhs.true.i432
   %or.i.i438 = or disjoint i64 %shl77.i.i437, %and.i.i436
   %337 = load i64, ptr %args.i414, align 8
   %call.i.i439 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %or.i.i438)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %337, i64 noundef %call.i.i439)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %337, i64 noundef %call.i.i439)
   br label %for.inc173
 
 if.end.i420:                                      ; preds = %land.lhs.true.i432, %sw.bb68
@@ -2271,7 +2271,7 @@ fold_const2_commutative.exit.i479:                ; preds = %land.lhs.true.i.i.i
   %call11.i.i.i485 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i.i483, i32 noundef %355, i64 noundef %353, i64 noundef %354)
   %356 = load i64, ptr %args.i.i441, align 8
   %call.i.i.i.i486 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i.i485)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %356, i64 noundef %call.i.i.i.i486)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %356, i64 noundef %call.i.i.i.i486)
   br label %for.inc173
 
 lor.lhs.false.i457:                               ; preds = %swap_commutative.exit.i.i453, %land.lhs.true.i.i.i475
@@ -2288,7 +2288,7 @@ land.lhs.true.i.i467:                             ; preds = %lor.lhs.false.i457
 
 fold_xi_to_x.exit.i473:                           ; preds = %land.lhs.true.i.i467
   %358 = load i64, ptr %args.i.i441, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %358, i64 noundef %351)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %358, i64 noundef %351)
   br label %for.inc173
 
 fold_xi_to_not.exit.i:                            ; preds = %land.lhs.true.i.i467
@@ -2358,7 +2358,7 @@ extract64.exit.i:                                 ; preds = %if.then.i529
   %and.i.i540 = and i64 %shr.i.i537, %shr6.i.i
   %370 = load i64, ptr %args.i535, align 8
   %call.i.i541 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %and.i.i540)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %370, i64 noundef %call.i.i541)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %370, i64 noundef %call.i.i541)
   br label %for.inc173
 
 if.end.i498:                                      ; preds = %sw.bb74
@@ -2425,7 +2425,7 @@ if.then11.i.i517:                                 ; preds = %if.end.i.i507
   %args.i.i518 = getelementptr inbounds i8, ptr %op.01736, i64 32
   %374 = load i64, ptr %args.i.i518, align 8
   %call.i.i.i519 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %374, i64 noundef %call.i.i.i519)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %374, i64 noundef %call.i.i.i519)
   br label %for.inc173
 
 if.end12.i.i511:                                  ; preds = %if.end.i.i507
@@ -2436,7 +2436,7 @@ if.then15.i.i514:                                 ; preds = %if.end12.i.i511
   %args16.i.i515 = getelementptr inbounds i8, ptr %op.01736, i64 32
   %375 = load i64, ptr %args16.i.i515, align 8
   %376 = load i64, ptr %arrayidx5.i494, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %375, i64 noundef %376)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %375, i64 noundef %376)
   br label %for.inc173
 
 sw.bb77:                                          ; preds = %if.end30, %if.end30
@@ -2497,7 +2497,7 @@ if.end.i562:                                      ; preds = %if.else.i, %if.then
   %386 = load i64, ptr %args.i544, align 8
   %or.i563 = or i64 %v2.0.i, %v1.0.i
   %call.i.i564 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %or.i563)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %386, i64 noundef %call.i.i564)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %386, i64 noundef %call.i.i564)
   br label %for.inc173
 
 sw.bb80:                                          ; preds = %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30
@@ -2519,7 +2519,7 @@ fold_const1.exit.thread.i606:                     ; preds = %sw.bb80
   %call4.i.i612 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i610, i32 noundef %.sink, i64 noundef %390, i64 noundef 0)
   %391 = load i64, ptr %args.i.i607, align 8
   %call.i.i.i613 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call4.i.i612)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %391, i64 noundef %call.i.i.i613)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %391, i64 noundef %call.i.i.i613)
   br label %for.inc173
 
 if.end.i572:                                      ; preds = %sw.bb80
@@ -2596,7 +2596,7 @@ if.then11.i.i598:                                 ; preds = %if.end.i.i588
   %args.i21.i = getelementptr inbounds i8, ptr %op.01736, i64 32
   %395 = load i64, ptr %args.i21.i, align 8
   %call.i.i22.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %395, i64 noundef %call.i.i22.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %395, i64 noundef %call.i.i22.i)
   br label %for.inc173
 
 if.end12.i.i592:                                  ; preds = %if.end.i.i588
@@ -2607,7 +2607,7 @@ if.then15.i.i595:                                 ; preds = %if.end12.i.i592
   %args16.i.i596 = getelementptr inbounds i8, ptr %op.01736, i64 32
   %396 = load i64, ptr %args16.i.i596, align 8
   %397 = load i64, ptr %arrayidx.i.i568, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %396, i64 noundef %397)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %396, i64 noundef %397)
   br label %for.inc173
 
 sw.bb83:                                          ; preds = %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30
@@ -2629,7 +2629,7 @@ fold_const1.exit.thread.i659:                     ; preds = %sw.bb83
   %call4.i.i665 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i663, i32 noundef %.sink, i64 noundef %401, i64 noundef 0)
   %402 = load i64, ptr %args.i.i660, align 8
   %call.i.i.i666 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call4.i.i665)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %402, i64 noundef %call.i.i.i666)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %402, i64 noundef %call.i.i.i666)
   br label %for.inc173
 
 if.end.i619:                                      ; preds = %sw.bb83
@@ -2714,7 +2714,7 @@ if.then11.i.i647:                                 ; preds = %if.end.i.i637
   %args.i15.i = getelementptr inbounds i8, ptr %op.01736, i64 32
   %406 = load i64, ptr %args.i15.i, align 8
   %call.i.i16.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %406, i64 noundef %call.i.i16.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %406, i64 noundef %call.i.i16.i)
   br label %for.inc173
 
 if.end12.i.i641:                                  ; preds = %if.end.i.i637
@@ -2725,15 +2725,15 @@ if.then15.i.i644:                                 ; preds = %if.end12.i.i641
   %args16.i.i645 = getelementptr inbounds i8, ptr %op.01736, i64 32
   %407 = load i64, ptr %args16.i.i645, align 8
   %408 = load i64, ptr %arrayidx.i.i615, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %407, i64 noundef %408)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %407, i64 noundef %408)
   br label %for.inc173
 
 sw.bb86:                                          ; preds = %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30
   %op.0.val = load i32, ptr %op.01736, align 8
   %trunc.i668 = trunc i32 %op.0.val to i8
   switch i8 %trunc.i668, label %do.body.i675 [
-    i8 10, label %fold_tcg_ld.argprom.exit
-    i8 68, label %fold_tcg_ld.argprom.exit
+    i8 10, label %fold_tcg_ld.exit
+    i8 68, label %fold_tcg_ld.exit
     i8 9, label %sw.bb1.i673
     i8 67, label %sw.bb1.i673
     i8 12, label %sw.bb3.i
@@ -2746,27 +2746,27 @@ sw.bb86:                                          ; preds = %if.end30, %if.end30
 
 sw.bb1.i673:                                      ; preds = %sw.bb86, %sw.bb86
   store i64 255, ptr %z_mask, align 8
-  br label %fold_tcg_ld.argprom.exit
+  br label %fold_tcg_ld.exit
 
 sw.bb3.i:                                         ; preds = %sw.bb86, %sw.bb86
-  br label %fold_tcg_ld.argprom.exit
+  br label %fold_tcg_ld.exit
 
 sw.bb5.i:                                         ; preds = %sw.bb86, %sw.bb86
   store i64 65535, ptr %z_mask, align 8
-  br label %fold_tcg_ld.argprom.exit
+  br label %fold_tcg_ld.exit
 
 sw.bb8.i672:                                      ; preds = %sw.bb86
-  br label %fold_tcg_ld.argprom.exit
+  br label %fold_tcg_ld.exit
 
 sw.bb10.i:                                        ; preds = %sw.bb86
   store i64 4294967295, ptr %z_mask, align 8
-  br label %fold_tcg_ld.argprom.exit
+  br label %fold_tcg_ld.exit
 
 do.body.i675:                                     ; preds = %sw.bb86
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2232, ptr noundef nonnull @__func__.fold_tcg_ld, ptr noundef null) #9
   unreachable
 
-fold_tcg_ld.argprom.exit:                         ; preds = %sw.bb86, %sw.bb86, %sw.bb1.i673, %sw.bb3.i, %sw.bb5.i, %sw.bb8.i672, %sw.bb10.i
+fold_tcg_ld.exit:                                 ; preds = %sw.bb86, %sw.bb86, %sw.bb1.i673, %sw.bb3.i, %sw.bb5.i, %sw.bb8.i672, %sw.bb10.i
   %.sink.i671 = phi i64 [ -8589934592, %sw.bb10.i ], [ -4294967296, %sw.bb8.i672 ], [ -131072, %sw.bb5.i ], [ -65536, %sw.bb3.i ], [ -512, %sw.bb1.i673 ], [ -256, %sw.bb86 ], [ -256, %sw.bb86 ]
   store i64 %.sink.i671, ptr %s_mask, align 8
   br label %if.then171
@@ -2866,11 +2866,11 @@ land.lhs.true.i711:                               ; preds = %find_mem_copy_for.e
 
 if.then9.i:                                       ; preds = %land.lhs.true.i711
   %426 = ptrtoint ptr %retval.0.i24.i to i64
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %415, i64 noundef %426)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %415, i64 noundef %426)
   br label %for.inc173
 
 sw.bb92:                                          ; preds = %if.end30, %if.end30, %if.end30, %if.end30, %if.end30
-  call fastcc void @fold_tcg_st.retelim(ptr noundef %ctx, ptr noundef %op.01736)
+  call fastcc void @fold_tcg_st(ptr noundef %ctx, ptr noundef %op.01736)
   br label %if.then171
 
 sw.bb95:                                          ; preds = %if.end30, %if.end30, %if.end30
@@ -2885,7 +2885,7 @@ sw.bb95:                                          ; preds = %if.end30, %if.end30
   br i1 %cmp.not.i716, label %if.end.i719, label %if.then.i717
 
 if.then.i717:                                     ; preds = %sw.bb95
-  call fastcc void @fold_tcg_st.retelim(ptr noundef %ctx, ptr noundef %op.01736)
+  call fastcc void @fold_tcg_st(ptr noundef %ctx, ptr noundef %op.01736)
   br label %if.then171
 
 if.end.i719:                                      ; preds = %sw.bb95
@@ -3069,7 +3069,7 @@ sw.bb101:                                         ; preds = %if.end30, %if.end30
   %455 = load i64, ptr %args.i781, align 8
   %arrayidx2.i782 = getelementptr i8, ptr %op.01736, i64 40
   %456 = load i64, ptr %arrayidx2.i782, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %455, i64 noundef %456)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %455, i64 noundef %456)
   br label %for.inc173
 
 sw.bb104:                                         ; preds = %if.end30, %if.end30
@@ -3160,7 +3160,7 @@ if.then29.i:                                      ; preds = %if.end22.i
   %idxprom.i = zext nneg i32 %sub.i821 to i64
   %arrayidx33.i822 = getelementptr [0 x i64], ptr %args.i783, i64 0, i64 %idxprom.i
   %479 = load i64, ptr %arrayidx33.i822, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %478, i64 noundef %479)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %478, i64 noundef %479)
   br label %for.inc173
 
 if.end35.i:                                       ; preds = %if.end22.i
@@ -3326,7 +3326,7 @@ fold_const2.exit.i845:                            ; preds = %land.lhs.true.i.i84
   %call11.i.i851 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i849, i32 noundef %.sink, i64 noundef %511, i64 noundef %512)
   %513 = load i64, ptr %args.i.i830, align 8
   %call.i.i.i852 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i851)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %513, i64 noundef %call.i.i.i852)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %513, i64 noundef %call.i.i.i852)
   br label %for.inc173
 
 lor.lhs.false.i838:                               ; preds = %sw.bb107
@@ -3343,12 +3343,12 @@ land.lhs.true.i11.i:                              ; preds = %lor.lhs.false.i838
 fold_xi_to_i.exit.i842:                           ; preds = %land.lhs.true.i11.i
   %515 = load i64, ptr %args.i.i830, align 8
   %call.i.i14.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %515, i64 noundef %call.i.i14.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %515, i64 noundef %call.i.i14.i)
   br label %for.inc173
 
 if.then.i25.i:                                    ; preds = %land.lhs.true.i11.i
   %516 = load i64, ptr %args.i.i830, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %516, i64 noundef %505)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %516, i64 noundef %505)
   br label %for.inc173
 
 sw.bb110:                                         ; preds = %if.end30, %if.end30, %if.end30, %if.end30
@@ -3423,7 +3423,7 @@ return.sink.split.i:                              ; preds = %land.lhs.true.i.i87
   %.sink5.i = phi i64 [ %call11.i.i.i890, %fold_const2_commutative.exit.i884 ], [ 0, %land.lhs.true.i.i875 ]
   %531 = load i64, ptr %args.i.i854, align 8
   %call.i.i.i878 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %.sink5.i)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %531, i64 noundef %call.i.i.i878)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %531, i64 noundef %call.i.i.i878)
   br label %for.inc173
 
 sw.bb113:                                         ; preds = %if.end30, %if.end30, %if.end30, %if.end30
@@ -3538,9 +3538,9 @@ sw.epilog.i916:                                   ; preds = %sw.bb35.i, %sw.bb34
   %547 = load ptr, ptr %ctx, align 8
   %call40.i = call ptr @tcg_op_insert_before(ptr noundef %547, ptr noundef nonnull %op.01736, i32 noundef 0, i32 noundef 2) #8
   %call.i.i917 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %l.0.i)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %532, i64 noundef %call.i.i917)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %532, i64 noundef %call.i.i917)
   %call.i35.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %h.0.i)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef %call40.i, i64 noundef %546, i64 noundef %call.i35.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef %call40.i, i64 noundef %546, i64 noundef %call.i35.i)
   br label %for.inc173
 
 sw.bb116:                                         ; preds = %if.end30, %if.end30, %if.end30
@@ -3602,7 +3602,7 @@ fold_const2_commutative.exit.i968:                ; preds = %land.lhs.true.i.i.i
   %call11.i.i.i974 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i.i972, i32 noundef %561, i64 noundef %559, i64 noundef %560)
   %562 = load i64, ptr %args.i.i930, align 8
   %call.i.i.i.i975 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i.i974)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %562, i64 noundef %call.i.i.i.i975)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %562, i64 noundef %call.i.i.i.i975)
   br label %for.inc173
 
 lor.lhs.false.i946:                               ; preds = %swap_commutative.exit.i.i942, %land.lhs.true.i.i.i964
@@ -3660,7 +3660,7 @@ fold_const1.exit.thread.i988:                     ; preds = %sw.bb119
   %call4.i.i994 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i992, i32 noundef %.sink, i64 noundef %572, i64 noundef 0)
   %573 = load i64, ptr %args.i.i989, align 8
   %call.i.i.i995 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call4.i.i994)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %573, i64 noundef %call.i.i.i995)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %573, i64 noundef %call.i.i.i995)
   br label %for.inc173
 
 if.end.i984:                                      ; preds = %sw.bb119
@@ -3732,7 +3732,7 @@ fold_const2_commutative.exit.i1040:               ; preds = %land.lhs.true.i.i.i
   %call11.i.i.i1046 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i.i1044, i32 noundef %588, i64 noundef %586, i64 noundef %587)
   %589 = load i64, ptr %args.i.i997, align 8
   %call.i.i.i.i1047 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i.i1046)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %589, i64 noundef %call.i.i.i.i1047)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %589, i64 noundef %call.i.i.i.i1047)
   br label %for.inc173
 
 lor.lhs.false.i1013:                              ; preds = %swap_commutative.exit.i.i1009, %land.lhs.true.i.i.i1036
@@ -3790,7 +3790,7 @@ fold_const1.exit.thread.i1058:                    ; preds = %sw.bb125
   %call4.i.i1064 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i1062, i32 noundef %.sink, i64 noundef %599, i64 noundef 0)
   %600 = load i64, ptr %args.i.i1059, align 8
   %call.i.i.i1065 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call4.i.i1064)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %600, i64 noundef %call.i.i.i1065)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %600, i64 noundef %call.i.i.i1065)
   br label %for.inc173
 
 if.end.i1056:                                     ; preds = %sw.bb125
@@ -3859,7 +3859,7 @@ fold_const2_commutative.exit.i1140:               ; preds = %land.lhs.true.i.i.i
   %call11.i.i.i1146 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i.i1144, i32 noundef %615, i64 noundef %613, i64 noundef %614)
   %616 = load i64, ptr %args.i.i1067, align 8
   %call.i.i.i.i1147 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i.i1146)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %616, i64 noundef %call.i.i.i.i1147)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %616, i64 noundef %call.i.i.i.i1147)
   br label %for.inc173
 
 lor.lhs.false.i1083:                              ; preds = %swap_commutative.exit.i.i1079, %land.lhs.true.i.i.i1136
@@ -3874,7 +3874,7 @@ land.lhs.true.i.i1131:                            ; preds = %lor.lhs.false.i1083
 
 fold_xi_to_x.exit.i1134:                          ; preds = %land.lhs.true.i.i1131
   %618 = load i64, ptr %args.i.i1067, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %618, i64 noundef %611)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %618, i64 noundef %611)
   br label %for.inc173
 
 lor.lhs.false2.i1087:                             ; preds = %land.lhs.true.i.i1131, %lor.lhs.false.i1083
@@ -3909,7 +3909,7 @@ for.inc.i.i.i.i1098:                              ; preds = %for.body.i.i.i.i109
 
 fold_xx_to_x.exit.i1129:                          ; preds = %for.body.i.i.i.i1095, %lor.lhs.false2.i1087
   %623 = load i64, ptr %args.i.i1067, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %623, i64 noundef %611)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %623, i64 noundef %611)
   br label %for.inc173
 
 if.end.i1103:                                     ; preds = %for.inc.i.i.i.i1098, %lor.lhs.false.i.i.i.i1092, %if.end.i.i.i.i1089
@@ -3957,7 +3957,7 @@ if.end.i.i1111:                                   ; preds = %if.then.i24.i1123, 
 if.then11.i.i1120:                                ; preds = %if.end.i.i1111
   %636 = load i64, ptr %args.i.i1067, align 8
   %call.i.i.i1121 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %636, i64 noundef %call.i.i.i1121)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %636, i64 noundef %call.i.i.i1121)
   br label %for.inc173
 
 if.end12.i.i1115:                                 ; preds = %if.end.i.i1111
@@ -3967,7 +3967,7 @@ if.end12.i.i1115:                                 ; preds = %if.end.i.i1111
 if.then15.i.i1118:                                ; preds = %if.end12.i.i1115
   %637 = load i64, ptr %args.i.i1067, align 8
   %638 = load i64, ptr %arrayidx2.i.i1068, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %637, i64 noundef %638)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %637, i64 noundef %638)
   br label %for.inc173
 
 sw.bb131:                                         ; preds = %if.end30, %if.end30, %if.end30
@@ -4001,7 +4001,7 @@ fold_const2.exit.i1198:                           ; preds = %land.lhs.true.i.i11
   %call11.i.i1204 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i1202, i32 noundef %.sink, i64 noundef %645, i64 noundef %646)
   %647 = load i64, ptr %args.i.i1152, align 8
   %call.i.i.i1205 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i1204)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %647, i64 noundef %call.i.i.i1205)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %647, i64 noundef %call.i.i.i1205)
   br label %for.inc173
 
 lor.lhs.false.i1158:                              ; preds = %land.lhs.true.i.i1194, %sw.bb131
@@ -4038,7 +4038,7 @@ for.inc.i.i.i.i1170:                              ; preds = %for.body.i.i.i.i116
 fold_xx_to_i.exit.i1191:                          ; preds = %for.body.i.i.i.i1167, %lor.lhs.false.i1158
   %651 = load i64, ptr %args.i.i1152, align 8
   %call.i.i14.i1192 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef -1)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %651, i64 noundef %call.i.i14.i1192)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %651, i64 noundef %call.i.i14.i1192)
   br label %for.inc173
 
 lor.lhs.false2.i1175:                             ; preds = %for.inc.i.i.i.i1170, %lor.lhs.false.i.i.i.i1164, %if.end.i.i.i.i1160
@@ -4054,7 +4054,7 @@ land.lhs.true.i22.i1186:                          ; preds = %lor.lhs.false2.i117
 
 fold_xi_to_x.exit.i1189:                          ; preds = %land.lhs.true.i22.i1186
   %653 = load i64, ptr %args.i.i1152, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %653, i64 noundef %639)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %653, i64 noundef %639)
   br label %for.inc173
 
 lor.lhs.false4.i1176:                             ; preds = %land.lhs.true.i22.i1186, %lor.lhs.false2.i1175
@@ -4205,7 +4205,7 @@ return.sink.split.i1251:                          ; preds = %for.body.i.i.i.i124
   %.sink11.i = phi i64 [ %call11.i.i1262, %fold_const2.exit.i1256 ], [ 0, %lor.lhs.false.i1234 ], [ 0, %for.body.i.i.i.i1242 ]
   %674 = load i64, ptr %args.i.i1228, align 8
   %call.i.i7.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %.sink11.i)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %674, i64 noundef %call.i.i7.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %674, i64 noundef %call.i.i7.i)
   br label %for.inc173
 
 sw.bb143:                                         ; preds = %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30
@@ -4239,7 +4239,7 @@ fold_const2.exit.i1311:                           ; preds = %land.lhs.true.i.i13
   %call11.i.i1316 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i1314, i32 noundef %.sink, i64 noundef %681, i64 noundef %682)
   %683 = load i64, ptr %args.i.i1263, align 8
   %call.i.i.i1317 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i1316)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %683, i64 noundef %call.i.i.i1317)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %683, i64 noundef %call.i.i.i1317)
   br label %for.inc173
 
 land.lhs.true.i33.i:                              ; preds = %land.lhs.true.i.i1304
@@ -4249,7 +4249,7 @@ land.lhs.true.i33.i:                              ; preds = %land.lhs.true.i.i13
 fold_ix_to_i.exit.i:                              ; preds = %land.lhs.true.i33.i
   %684 = load i64, ptr %args.i.i1263, align 8
   %call.i.i36.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %684, i64 noundef %call.i.i36.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %684, i64 noundef %call.i.i36.i)
   br label %for.inc173
 
 lor.lhs.false2.i1268:                             ; preds = %sw.bb143, %land.lhs.true.i33.i
@@ -4264,7 +4264,7 @@ land.lhs.true.i44.i:                              ; preds = %lor.lhs.false2.i126
 
 fold_xi_to_x.exit.i1302:                          ; preds = %land.lhs.true.i44.i
   %686 = load i64, ptr %args.i.i1263, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %686, i64 noundef %675)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %686, i64 noundef %675)
   br label %for.inc173
 
 if.then13.i:                                      ; preds = %land.lhs.true.i44.i
@@ -4316,7 +4316,7 @@ if.end.i.i1288:                                   ; preds = %if.then.i57.i, %if.
 if.then11.i.i1296:                                ; preds = %if.end.i.i1288
   %694 = load i64, ptr %args.i.i1263, align 8
   %call.i.i55.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %694, i64 noundef %call.i.i55.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %694, i64 noundef %call.i.i55.i)
   br label %for.inc173
 
 if.end12.i.i1292:                                 ; preds = %if.end.i.i1288
@@ -4326,7 +4326,7 @@ if.end12.i.i1292:                                 ; preds = %if.end.i.i1288
 if.then15.i.i1294:                                ; preds = %if.end12.i.i1292
   %695 = load i64, ptr %args.i.i1263, align 8
   %696 = load i64, ptr %arrayidx.i.i1264, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %695, i64 noundef %696)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %695, i64 noundef %696)
   br label %for.inc173
 
 if.end28.i:                                       ; preds = %lor.lhs.false2.i1268
@@ -4413,7 +4413,7 @@ if.then17.i1341:                                  ; preds = %if.end.i1333
   %712 = load i64, ptr %args.i1319, align 8
   %conv20.i1342 = zext nneg i32 %call15.i1336 to i64
   %call.i.i1343 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %conv20.i1342)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %712, i64 noundef %call.i.i1343)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %712, i64 noundef %call.i.i1343)
   br label %for.inc173
 
 if.end22.i1338:                                   ; preds = %if.end.i1333
@@ -4476,7 +4476,7 @@ if.then17.i1372:                                  ; preds = %if.end.i1365
   %sub.i1373 = sub nsw i32 0, %call15.i1368
   %conv20.i1374 = sext i32 %sub.i1373 to i64
   %call.i.i1375 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %conv20.i1374)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %726, i64 noundef %call.i.i1375)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %726, i64 noundef %call.i.i1375)
   br label %for.inc173
 
 if.end22.i1370:                                   ; preds = %if.end.i1365
@@ -4540,7 +4540,7 @@ if.end.i1401:                                     ; preds = %if.then.i1426, %sw.
   %arrayidx2.val38.i = phi i64 [ %740, %if.then.i1426 ], [ %732, %sw.bb152 ]
   %arrayidx2.val.i = phi i64 [ %736, %if.then.i1426 ], [ %728, %sw.bb152 ]
   %cond.0.i1402 = phi i32 [ %cond.i.i1430, %if.then.i1426 ], [ %conv.i1385, %sw.bb152 ]
-  %call13.i1403 = call fastcc i32 @do_constant_folding_cond2.argprom(i64 %arrayidx2.val.i, i64 %arrayidx2.val38.i, i64 %arrayidx4.val.i, i64 %arrayidx4.val39.i, i32 noundef %cond.0.i1402)
+  %call13.i1403 = call fastcc i32 @do_constant_folding_cond2(i64 %arrayidx2.val.i, i64 %arrayidx2.val38.i, i64 %arrayidx4.val.i, i64 %arrayidx4.val39.i, i32 noundef %cond.0.i1402)
   %cmp.i1404 = icmp sgt i32 %call13.i1403, -1
   br i1 %cmp.i1404, label %do_setcond_const.i, label %if.end16.i
 
@@ -4641,7 +4641,7 @@ do_setcond_const.i:                               ; preds = %sw.epilog.i1418, %s
   %759 = load i64, ptr %args.i1383, align 8
   %conv83.i = sext i32 %i.0.i1415 to i64
   %call.i.i1416 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %conv83.i)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %759, i64 noundef %call.i.i1416)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %759, i64 noundef %call.i.i1416)
   br label %for.inc173
 
 sw.bb155:                                         ; preds = %if.end30, %if.end30
@@ -4685,7 +4685,7 @@ sextract64.exit.i:                                ; preds = %if.then.i1479
   %shr.i.i1485 = ashr i64 %shl.i.i1484, %sh_prom7.i.i
   %766 = load i64, ptr %args.i1481, align 8
   %call.i.i1486 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %shr.i.i1485)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %766, i64 noundef %call.i.i1486)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %766, i64 noundef %call.i.i1486)
   br label %for.inc173
 
 if.end.i1444:                                     ; preds = %sw.bb155
@@ -4751,7 +4751,7 @@ if.then11.i.i1466:                                ; preds = %if.end.i.i1456
   %args.i.i1467 = getelementptr inbounds i8, ptr %op.01736, i64 32
   %774 = load i64, ptr %args.i.i1467, align 8
   %call.i.i.i1468 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %774, i64 noundef %call.i.i.i1468)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %774, i64 noundef %call.i.i.i1468)
   br label %for.inc173
 
 if.end12.i.i1460:                                 ; preds = %if.end.i.i1456
@@ -4762,7 +4762,7 @@ if.then15.i.i1463:                                ; preds = %if.end12.i.i1460
   %args16.i.i1464 = getelementptr inbounds i8, ptr %op.01736, i64 32
   %775 = load i64, ptr %args16.i.i1464, align 8
   %776 = load i64, ptr %arrayidx5.i1436, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %775, i64 noundef %776)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %775, i64 noundef %776)
   br label %for.inc173
 
 sw.bb158:                                         ; preds = %if.end30, %if.end30
@@ -4796,7 +4796,7 @@ fold_const2.exit.i1513:                           ; preds = %land.lhs.true.i.i15
   %call11.i.i1519 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i1517, i32 noundef %.sink, i64 noundef %783, i64 noundef %784)
   %785 = load i64, ptr %args.i.i1489, align 8
   %call.i.i.i1520 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i1519)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %785, i64 noundef %call.i.i.i1520)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %785, i64 noundef %call.i.i.i1520)
   br label %for.inc173
 
 lor.lhs.false.i1494:                              ; preds = %land.lhs.true.i.i1508, %sw.bb158
@@ -4895,7 +4895,7 @@ fold_const2_commutative.exit.i1605:               ; preds = %land.lhs.true.i.i.i
   %call11.i.i.i1611 = call fastcc i64 @do_constant_folding(i32 noundef %bf.clear.i.i.i1609, i32 noundef %804, i64 noundef %802, i64 noundef %803)
   %805 = load i64, ptr %args.i.i1523, align 8
   %call.i.i.i.i1612 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call11.i.i.i1611)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %805, i64 noundef %call.i.i.i.i1612)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %805, i64 noundef %call.i.i.i.i1612)
   br label %for.inc173
 
 lor.lhs.false.i1538:                              ; preds = %land.lhs.true.i.i.i1601, %swap_commutative.exit.i.i1535
@@ -4933,7 +4933,7 @@ for.inc.i.i.i.i1551:                              ; preds = %for.body.i.i.i.i154
 fold_xx_to_i.exit.i1598:                          ; preds = %for.body.i.i.i.i1548, %lor.lhs.false.i1538
   %810 = load i64, ptr %args.i.i1523, align 8
   %call.i.i.i1599 = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %810, i64 noundef %call.i.i.i1599)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %810, i64 noundef %call.i.i.i1599)
   br label %for.inc173
 
 lor.lhs.false2.i1556:                             ; preds = %for.inc.i.i.i.i1551, %lor.lhs.false.i.i.i.i1545, %if.end.i.i.i.i1540
@@ -4951,7 +4951,7 @@ land.lhs.true.i.i1587:                            ; preds = %lor.lhs.false2.i155
 
 fold_xi_to_x.exit.i1596:                          ; preds = %land.lhs.true.i.i1587
   %812 = load i64, ptr %args.i.i1523, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %812, i64 noundef %800)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %812, i64 noundef %800)
   br label %for.inc173
 
 fold_xi_to_not.exit.i1591:                        ; preds = %land.lhs.true.i.i1587
@@ -5016,7 +5016,7 @@ if.end.i.i1572:                                   ; preds = %if.then.i37.i, %if.
 if.then11.i.i1581:                                ; preds = %if.end.i.i1572
   %825 = load i64, ptr %args.i.i1523, align 8
   %call.i.i35.i = call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %825, i64 noundef %call.i.i35.i)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %825, i64 noundef %call.i.i35.i)
   br label %for.inc173
 
 if.end12.i.i1576:                                 ; preds = %if.end.i.i1572
@@ -5026,7 +5026,7 @@ if.end12.i.i1576:                                 ; preds = %if.end.i.i1572
 if.then15.i.i1579:                                ; preds = %if.end12.i.i1576
   %826 = load i64, ptr %args.i.i1523, align 8
   %827 = load i64, ptr %arrayidx2.i.i1524, align 8
-  call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %826, i64 noundef %827)
+  call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op.01736, i64 noundef %826, i64 noundef %827)
   br label %for.inc173
 
 sw.epilog:                                        ; preds = %for.inc.i.i683, %if.end.i678, %find_mem_copy_for.exit.i, %land.lhs.true.i711
@@ -5041,7 +5041,7 @@ sw.epilog:                                        ; preds = %for.inc.i.i683, %if
   call fastcc void @record_mem_copy(ptr noundef %ctx, i32 noundef %.sink, ptr noundef %416, i64 noundef %414, i64 noundef %sub.i689)
   br label %for.inc173
 
-if.then171:                                       ; preds = %for.inc.i.i.i.i1245, %for.inc.i.i.i, %land.lhs.true.i.i843, %land.lhs.true.i.i389, %land.lhs.true.i11.i, %if.end12.i.i1576, %if.end.i1496, %if.then3.i, %if.end12.i.i1460, %sw.epilog79.i, %if.end22.i1370, %if.end22.i1338, %if.end12.i.i1292, %sw.bb.i1276, %if.then34.i, %sw.bb32.i, %if.end28.i, %if.end.i.i.i.i1236, %lor.lhs.false.i.i.i.i1239, %if.end.i1177, %if.end12.i.i1115, %if.end.i1017, %if.end.i950, %swap_commutative.exit.i906, %land.lhs.true.i911, %lor.lhs.false.i870, %land.lhs.true.i.i875, %lor.lhs.false.i838, %if.then118.i, %if.else112.i, %if.then104.i, %if.then88.i, %if.then79.i, %land.lhs.true.i809, %if.end35.i, %remove_mem_copy_in.exit.i, %if.then.i717, %sw.bb89, %if.end12.i.i641, %if.end12.i.i592, %sw.bb77, %land.lhs.true.i550, %if.end12.i.i511, %if.end.i461, %if.end.i.i.i422, %lor.lhs.false.i.i.i423, %if.then20.i429, %sw.bb65, %lor.lhs.false.i385, %land.lhs.true.i9.i, %deposit64.exit90.i, %deposit64.exit69.i, %if.then36.i, %sw.epilog.i329, %sw.epilog.i303, %if.end.i.i271, %do_brcond_high.i, %if.end88.i, %land.lhs.true33.i, %land.lhs.true28.i, %land.lhs.true.i, %sw.bb.i, %sw.bb58.i, %sw.epilog.i, %if.end18.i, %if.then20.i, %if.end17.i230, %if.end12.i.i191, %if.end12.i.i, %fold_commutative.argprom.exit.i, %land.lhs.true.i.i103, %lor.lhs.false.i, %land.lhs.true.i.i, %fold_add2.exit, %sw.bb161, %sw.bb164, %if.end30, %sw.bb137, %fold_qemu_ld.exit, %sw.bb92, %fold_tcg_ld.argprom.exit
+if.then171:                                       ; preds = %for.inc.i.i.i.i1245, %for.inc.i.i.i, %land.lhs.true.i.i843, %land.lhs.true.i.i389, %land.lhs.true.i11.i, %if.end12.i.i1576, %if.end.i1496, %if.then3.i, %if.end12.i.i1460, %sw.epilog79.i, %if.end22.i1370, %if.end22.i1338, %if.end12.i.i1292, %sw.bb.i1276, %if.then34.i, %sw.bb32.i, %if.end28.i, %if.end.i.i.i.i1236, %lor.lhs.false.i.i.i.i1239, %if.end.i1177, %if.end12.i.i1115, %if.end.i1017, %if.end.i950, %swap_commutative.exit.i906, %land.lhs.true.i911, %lor.lhs.false.i870, %land.lhs.true.i.i875, %lor.lhs.false.i838, %if.then118.i, %if.else112.i, %if.then104.i, %if.then88.i, %if.then79.i, %land.lhs.true.i809, %if.end35.i, %remove_mem_copy_in.exit.i, %if.then.i717, %sw.bb89, %if.end12.i.i641, %if.end12.i.i592, %sw.bb77, %land.lhs.true.i550, %if.end12.i.i511, %if.end.i461, %if.end.i.i.i422, %lor.lhs.false.i.i.i423, %if.then20.i429, %sw.bb65, %lor.lhs.false.i385, %land.lhs.true.i9.i, %deposit64.exit90.i, %deposit64.exit69.i, %if.then36.i, %sw.epilog.i329, %sw.epilog.i303, %if.end.i.i271, %do_brcond_high.i, %if.end88.i, %land.lhs.true33.i, %land.lhs.true28.i, %land.lhs.true.i, %sw.bb.i, %sw.bb58.i, %sw.epilog.i, %if.end18.i, %if.then20.i, %if.end17.i230, %if.end12.i.i191, %if.end12.i.i, %fold_commutative.exit.i, %land.lhs.true.i.i103, %lor.lhs.false.i, %land.lhs.true.i.i, %fold_add2.exit, %sw.bb161, %sw.bb164, %if.end30, %sw.bb137, %fold_qemu_ld.exit, %sw.bb92, %fold_tcg_ld.exit
   call fastcc void @finish_folding(ptr noundef %ctx, ptr noundef %op.01736)
   br label %for.inc173
 
@@ -5173,7 +5173,7 @@ for.end:                                          ; preds = %init_ts_info.exit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @fold_tcg_st.retelim(ptr noundef nonnull %ctx, ptr nocapture noundef nonnull readonly %op) unnamed_addr #0 {
+define internal fastcc void @fold_tcg_st(ptr noundef nonnull %ctx, ptr nocapture noundef nonnull readonly %op) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %op, i64 48
   %0 = load i64, ptr %arrayidx, align 8
@@ -5419,7 +5419,7 @@ fold_xx_to_i.exit:                                ; preds = %for.body.i.i.i, %en
   %args.i = getelementptr inbounds i8, ptr %op, i64 32
   %8 = load i64, ptr %args.i, align 8
   %call.i.i = tail call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef 0)
-  tail call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op, i64 noundef %8, i64 noundef %call.i.i)
+  tail call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op, i64 noundef %8, i64 noundef %call.i.i)
   br label %return
 
 lor.lhs.false:                                    ; preds = %for.inc.i.i.i, %if.end.i.i.i, %lor.lhs.false.i.i.i
@@ -5437,7 +5437,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false
 
 fold_xi_to_x.exit:                                ; preds = %land.lhs.true.i
   %11 = load i64, ptr %args.i5, align 8
-  tail call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op, i64 noundef %11, i64 noundef %0)
+  tail call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op, i64 noundef %11, i64 noundef %0)
   br label %return
 
 lor.lhs.false2:                                   ; preds = %land.lhs.true.i, %lor.lhs.false
@@ -5488,7 +5488,7 @@ fold_const1.exit.thread.i.i:                      ; preds = %if.then6.i
   %call4.i.i.i = tail call fastcc i64 @do_constant_folding(i32 noundef %neg_op.0.ph.i, i32 noundef %15, i64 noundef %14, i64 noundef 0)
   %16 = load i64, ptr %args.i5, align 8
   %call.i.i.i.i = tail call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call4.i.i.i)
-  tail call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op, i64 noundef %16, i64 noundef %call.i.i.i.i)
+  tail call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op, i64 noundef %16, i64 noundef %call.i.i.i.i)
   br label %return
 
 if.end.i.i:                                       ; preds = %if.then6.i
@@ -6227,7 +6227,7 @@ declare i32 @llvm.ctpop.i32(i32) #3
 declare i64 @llvm.ctpop.i64(i64) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_opt_gen_mov.retelim(ptr noundef nonnull %ctx, ptr noundef %op, i64 noundef %dst, i64 noundef %src) unnamed_addr #0 {
+define internal fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %ctx, ptr noundef %op, i64 noundef %dst, i64 noundef %src) unnamed_addr #0 {
 entry:
   %0 = inttoptr i64 %dst to ptr
   %1 = inttoptr i64 %src to ptr
@@ -6290,7 +6290,7 @@ switch.hole_check:                                ; preds = %if.end
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.tcg_opt_gen_mov.retelim, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.tcg_opt_gen_mov, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %bf.load = load i32, ptr %op, align 8
   %bf.clear = and i32 %bf.load, -256
@@ -6613,9 +6613,9 @@ if.end60:                                         ; preds = %if.then45, %if.else
   %25 = load ptr, ptr %ctx, align 8
   %call65 = tail call ptr @tcg_op_insert_before(ptr noundef %25, ptr noundef nonnull %op, i32 noundef 0, i32 noundef 2) #8
   %call.i = tail call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %al.0)
-  tail call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op, i64 noundef %23, i64 noundef %call.i)
+  tail call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op, i64 noundef %23, i64 noundef %call.i)
   %call.i84 = tail call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %ah.0)
-  tail call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef %call65, i64 noundef %24, i64 noundef %call.i84)
+  tail call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef %call65, i64 noundef %24, i64 noundef %call.i84)
   br label %return
 
 if.end68:                                         ; preds = %land.end12
@@ -6709,7 +6709,7 @@ fold_const1.exit.thread.i:                        ; preds = %if.then
   %call4.i.i = tail call fastcc i64 @do_constant_folding(i32 noundef %not_op.07, i32 noundef %8, i64 noundef %7, i64 noundef 0)
   %9 = load i64, ptr %args, align 8
   %call.i.i.i = tail call fastcc i64 @arg_new_constant(ptr noundef %ctx, i64 noundef %call4.i.i)
-  tail call fastcc void @tcg_opt_gen_mov.retelim(ptr noundef %ctx, ptr noundef nonnull %op, i64 noundef %9, i64 noundef %call.i.i.i)
+  tail call fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef nonnull %op, i64 noundef %9, i64 noundef %call.i.i.i)
   br label %return
 
 if.end.i:                                         ; preds = %if.then
@@ -6947,7 +6947,7 @@ switch.hole_check:                                ; preds = %if.then12
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table.do_constant_folding_cond2.argprom, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table.do_constant_folding_cond2, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -6957,7 +6957,7 @@ return:                                           ; preds = %switch.lookup, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 2) i32 @do_constant_folding_cond2.argprom(i64 %p1.0.val, i64 %p1.8.val, i64 %p2.0.val, i64 %p2.8.val, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @do_constant_folding_cond2(i64 %p1.0.val, i64 %p1.8.val, i64 %p2.0.val, i64 %p2.8.val, i32 noundef %c) unnamed_addr #0 {
 entry:
   %0 = inttoptr i64 %p2.0.val to ptr
   %1 = getelementptr i8, ptr %0, i64 48
@@ -7164,7 +7164,7 @@ switch.hole_check:                                ; preds = %if.then29
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table.do_constant_folding_cond2.argprom, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table.do_constant_folding_cond2, i64 0, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 

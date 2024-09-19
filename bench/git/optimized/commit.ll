@@ -509,11 +509,11 @@ if.end17.sink.split.i:                            ; preds = %if.else8.i, %if.els
 handle_untracked_files_arg.exit:                  ; preds = %if.end, %if.end17.sink.split.i
   %17 = load ptr, ptr @ignored_arg, align 8
   %tobool.not.i8 = icmp eq ptr %17, null
-  br i1 %tobool.not.i8, label %handle_untracked_files_arg.exit.handle_ignored_arg.argprom.exit_crit_edge, label %if.else.i
+  br i1 %tobool.not.i8, label %handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge, label %if.else.i
 
-handle_untracked_files_arg.exit.handle_ignored_arg.argprom.exit_crit_edge: ; preds = %handle_untracked_files_arg.exit
+handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge: ; preds = %handle_untracked_files_arg.exit
   %.pre = load i32, ptr getelementptr inbounds (i8, ptr @cmd_status.s, i64 92), align 4
-  br label %handle_ignored_arg.argprom.exit
+  br label %handle_ignored_arg.exit
 
 if.else.i:                                        ; preds = %handle_untracked_files_arg.exit
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(12) @.str.24) #18
@@ -551,22 +551,22 @@ if.else13.i14:                                    ; preds = %if.else8.i11
 if.end17.sink.split.i16:                          ; preds = %if.else8.i11, %if.else3.tail.i, %if.else.i
   %.sink.i17 = phi i32 [ 1, %if.else.i ], [ 0, %if.else3.tail.i ], [ 2, %if.else8.i11 ]
   store i32 %.sink.i17, ptr getelementptr inbounds (i8, ptr @cmd_status.s, i64 92), align 4
-  br label %handle_ignored_arg.argprom.exit
+  br label %handle_ignored_arg.exit
 
-handle_ignored_arg.argprom.exit:                  ; preds = %handle_untracked_files_arg.exit.handle_ignored_arg.argprom.exit_crit_edge, %if.end17.sink.split.i16
-  %25 = phi i32 [ %.pre, %handle_untracked_files_arg.exit.handle_ignored_arg.argprom.exit_crit_edge ], [ %.sink.i17, %if.end17.sink.split.i16 ]
+handle_ignored_arg.exit:                          ; preds = %handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge, %if.end17.sink.split.i16
+  %25 = phi i32 [ %.pre, %handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge ], [ %.sink.i17, %if.end17.sink.split.i16 ]
   %cmp3 = icmp eq i32 %25, 2
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @cmd_status.s, i64 96), align 8
   %cmp5 = icmp eq i32 %26, 0
   %or.cond = select i1 %cmp3, i1 %cmp5, i1 false
   br i1 %or.cond, label %if.then6, label %if.end8
 
-if.then6:                                         ; preds = %handle_ignored_arg.argprom.exit
+if.then6:                                         ; preds = %handle_ignored_arg.exit
   %call7 = tail call fastcc ptr @_(ptr noundef nonnull @.str.37)
   tail call void (ptr, ...) @die(ptr noundef %call7) #17
   unreachable
 
-if.end8:                                          ; preds = %handle_ignored_arg.argprom.exit
+if.end8:                                          ; preds = %handle_ignored_arg.exit
   tail call void @parse_pathspec(ptr noundef nonnull getelementptr inbounds (i8, ptr @cmd_status.s, i64 32), i32 noundef 0, i32 noundef 2, ptr noundef %prefix, ptr noundef %argv) #16
   %27 = load i32, ptr @status_format, align 4
   %28 = add i32 %27, -5
@@ -1866,24 +1866,24 @@ if.then167.i:                                     ; preds = %handle_untracked_fi
 if.end170.i:                                      ; preds = %handle_untracked_files_arg.exit.i
   %81 = load i32, ptr @status_format, align 4
   %cmp171.not.i = icmp eq i32 %81, 0
-  br i1 %cmp171.not.i, label %parse_and_validate_options.argprom.exit, label %if.then173.i
+  br i1 %cmp171.not.i, label %parse_and_validate_options.exit, label %if.then173.i
 
 if.then173.i:                                     ; preds = %if.end170.i
   store i32 1, ptr @dry_run, align 4
-  br label %parse_and_validate_options.argprom.exit
+  br label %parse_and_validate_options.exit
 
-parse_and_validate_options.argprom.exit:          ; preds = %if.end170.i, %if.then173.i
+parse_and_validate_options.exit:                  ; preds = %if.end170.i, %if.then173.i
   %82 = load i32, ptr @verbose, align 4
   %cmp12 = icmp eq i32 %82, -1
   br i1 %cmp12, label %if.then13, label %if.end15
 
-if.then13:                                        ; preds = %parse_and_validate_options.argprom.exit
+if.then13:                                        ; preds = %parse_and_validate_options.exit
   %83 = load i32, ptr @config_commit_verbose, align 4
   %cond = call i32 @llvm.smax.i32(i32 %83, i32 0)
   store i32 %cond, ptr @verbose, align 4
   br label %if.end15
 
-if.end15:                                         ; preds = %if.then13, %parse_and_validate_options.argprom.exit
+if.end15:                                         ; preds = %if.then13, %parse_and_validate_options.exit
   %84 = load i32, ptr @dry_run, align 4
   %tobool16.not = icmp eq i32 %84, 0
   br i1 %tobool16.not, label %if.end19, label %if.then17
@@ -1926,16 +1926,16 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %tobool9.not.i.i = icmp ne i32 %call.i.i41, 0
   %cond.i.i = zext i1 %tobool9.not.i.i to i32
   store i32 %cond.i.i, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 8), align 8
-  br i1 %tobool9.not.i.i, label %run_status.argprom.exit.i, label %if.then12.i.i
+  br i1 %tobool9.not.i.i, label %run_status.exit.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end4.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1016), ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i.i, i64 32, i1 false)
   %algo.i.i.i = getelementptr inbounds i8, ptr %oid.i.i, i64 32
   %91 = load i32, ptr %algo.i.i.i, align 4
   store i32 %91, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1048), align 8
-  br label %run_status.argprom.exit.i
+  br label %run_status.exit.i
 
-run_status.argprom.exit.i:                        ; preds = %if.then12.i.i, %if.end4.i.i
+run_status.exit.i:                                ; preds = %if.then12.i.i, %if.end4.i.i
   %92 = load i32, ptr @status_format, align 4
   store i32 %92, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 828), align 4
   %93 = load ptr, ptr @ignore_submodule_arg, align 8
@@ -1946,21 +1946,21 @@ run_status.argprom.exit.i:                        ; preds = %if.then12.i.i, %if.
   %94 = load i32, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1052), align 4
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i.i)
   %95 = load i32, ptr @commit_style, align 4
-  switch i32 %95, label %dry_run_commit.argprom.exit [
+  switch i32 %95, label %dry_run_commit.exit [
     i32 3, label %sw.bb2.i.i
     i32 2, label %sw.epilog.sink.split.i.i
   ]
 
-sw.bb2.i.i:                                       ; preds = %run_status.argprom.exit.i
+sw.bb2.i.i:                                       ; preds = %run_status.exit.i
   call void @delete_tempfile(ptr noundef nonnull @index_lock) #16
   br label %sw.epilog.sink.split.i.i
 
-sw.epilog.sink.split.i.i:                         ; preds = %sw.bb2.i.i, %run_status.argprom.exit.i
-  %false_lock.sink.i.i = phi ptr [ @false_lock, %sw.bb2.i.i ], [ @index_lock, %run_status.argprom.exit.i ]
+sw.epilog.sink.split.i.i:                         ; preds = %sw.bb2.i.i, %run_status.exit.i
+  %false_lock.sink.i.i = phi ptr [ @false_lock, %sw.bb2.i.i ], [ @index_lock, %run_status.exit.i ]
   call void @delete_tempfile(ptr noundef nonnull %false_lock.sink.i.i) #16
-  br label %dry_run_commit.argprom.exit
+  br label %dry_run_commit.exit
 
-dry_run_commit.argprom.exit:                      ; preds = %run_status.argprom.exit.i, %sw.epilog.sink.split.i.i
+dry_run_commit.exit:                              ; preds = %run_status.exit.i, %sw.epilog.sink.split.i.i
   %tobool.not.i42 = icmp eq i32 %94, 0
   %cond.i = zext i1 %tobool.not.i42 to i32
   br label %return
@@ -3029,16 +3029,16 @@ if.end4.i.i73:                                    ; preds = %if.then3.i.i72, %if
   %tobool9.not.i.i74 = icmp ne i32 %call.i162.i, 0
   %cond.i.i75 = zext i1 %tobool9.not.i.i74 to i32
   store i32 %cond.i.i75, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 8), align 8
-  br i1 %tobool9.not.i.i74, label %run_status.argprom.exit.i77, label %if.then12.i163.i
+  br i1 %tobool9.not.i.i74, label %run_status.exit.i77, label %if.then12.i163.i
 
 if.then12.i163.i:                                 ; preds = %if.end4.i.i73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1016), ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i.i43, i64 32, i1 false)
   %algo.i.i.i76 = getelementptr inbounds i8, ptr %oid.i.i43, i64 32
   %239 = load i32, ptr %algo.i.i.i76, align 4
   store i32 %239, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1048), align 8
-  br label %run_status.argprom.exit.i77
+  br label %run_status.exit.i77
 
-run_status.argprom.exit.i77:                      ; preds = %if.then12.i163.i, %if.end4.i.i73
+run_status.exit.i77:                              ; preds = %if.then12.i163.i, %if.end4.i.i73
   %240 = load i32, ptr @status_format, align 4
   store i32 %240, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 828), align 4
   %241 = load ptr, ptr @ignore_submodule_arg, align 8
@@ -3132,8 +3132,8 @@ if.end330.i:                                      ; preds = %if.then329.i, %land
   %call331.i = call i32 @index_differs_from(ptr noundef %253, ptr noundef nonnull %spec.select72.i, ptr noundef nonnull %flags.i, i32 noundef 1) #16
   br label %if.end333.i
 
-if.end333.i:                                      ; preds = %if.end330.i, %for.end.i, %run_status.argprom.exit.i77
-  %committable.0.i = phi i32 [ %242, %run_status.argprom.exit.i77 ], [ %conv323.i, %for.end.i ], [ %call331.i, %if.end330.i ]
+if.end333.i:                                      ; preds = %if.end330.i, %for.end.i, %run_status.exit.i77
+  %committable.0.i = phi i32 [ %242, %run_status.exit.i77 ], [ %conv323.i, %for.end.i ], [ %call331.i, %if.end330.i ]
   call void @strbuf_release(ptr noundef nonnull %committer_ident.i) #16
   %254 = load ptr, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1072), align 8
   %call335.i = call i32 @fclose(ptr noundef %254)
@@ -3183,15 +3183,15 @@ land.lhs.true356.i:                               ; preds = %land.lhs.true354.i
   %260 = getelementptr i8, ptr %current_head.0, i64 48
   %current_head.val.i = load ptr, ptr %260, align 8
   %tobool.not.i165.i = icmp eq ptr %current_head.val.i, null
-  br i1 %tobool.not.i165.i, label %if.then359.i, label %is_a_merge.argprom.exit.i
+  br i1 %tobool.not.i165.i, label %if.then359.i, label %is_a_merge.exit.i
 
-is_a_merge.argprom.exit.i:                        ; preds = %land.lhs.true356.i
+is_a_merge.exit.i:                                ; preds = %land.lhs.true356.i
   %next.i.i = getelementptr inbounds i8, ptr %current_head.val.i, i64 8
   %261 = load ptr, ptr %next.i.i, align 8
   %tobool2.i.not.i = icmp eq ptr %261, null
   br i1 %tobool2.i.not.i, label %if.then359.i, label %if.end395.i
 
-if.then359.i:                                     ; preds = %is_a_merge.argprom.exit.i, %land.lhs.true356.i, %land.lhs.true354.i
+if.then359.i:                                     ; preds = %is_a_merge.exit.i, %land.lhs.true356.i, %land.lhs.true354.i
   %call360.i = call i32 @advice_enabled(i32 noundef 31) #16
   store i32 %call360.i, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 808), align 8
   store i32 %183, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 80), align 8
@@ -3231,16 +3231,16 @@ if.end4.i172.i:                                   ; preds = %if.then3.i171.i, %i
   %tobool9.not.i174.i = icmp ne i32 %call.i173.i, 0
   %cond.i175.i = zext i1 %tobool9.not.i174.i to i32
   store i32 %cond.i175.i, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 8), align 8
-  br i1 %tobool9.not.i174.i, label %run_status.argprom.exit180.i, label %if.then12.i176.i
+  br i1 %tobool9.not.i174.i, label %run_status.exit180.i, label %if.then12.i176.i
 
 if.then12.i176.i:                                 ; preds = %if.end4.i172.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1016), ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i166.i, i64 32, i1 false)
   %algo.i.i177.i = getelementptr inbounds i8, ptr %oid.i166.i, i64 32
   %268 = load i32, ptr %algo.i.i177.i, align 4
   store i32 %268, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1048), align 8
-  br label %run_status.argprom.exit180.i
+  br label %run_status.exit180.i
 
-run_status.argprom.exit180.i:                     ; preds = %if.then12.i176.i, %if.end4.i172.i
+run_status.exit180.i:                             ; preds = %if.then12.i176.i, %if.end4.i172.i
   %269 = load i32, ptr @status_format, align 4
   store i32 %269, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 828), align 4
   %270 = load ptr, ptr @ignore_submodule_arg, align 8
@@ -3253,7 +3253,7 @@ run_status.argprom.exit180.i:                     ; preds = %if.then12.i176.i, %
   %tobool364.not.i = icmp eq i32 %271, 0
   br i1 %tobool364.not.i, label %if.else368.i, label %if.then365.i
 
-if.then365.i:                                     ; preds = %run_status.argprom.exit180.i
+if.then365.i:                                     ; preds = %run_status.exit180.i
   %272 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i182.i = icmp eq i32 %272, 0
   br i1 %tobool1.not.i182.i, label %_.exit186.i, label %if.end3.i183.i
@@ -3268,7 +3268,7 @@ _.exit186.i:                                      ; preds = %if.end3.i183.i, %if
   %call367.i = call i32 @fputs(ptr noundef %retval.0.i185.i, ptr noundef %273) #19
   br label %if.then23
 
-if.else368.i:                                     ; preds = %run_status.argprom.exit180.i
+if.else368.i:                                     ; preds = %run_status.exit180.i
   %274 = load i32, ptr @whence, align 4
   %.off.i = add i32 %274, -2
   %switch.i = icmp ult i32 %.off.i, 3
@@ -3334,7 +3334,7 @@ _.exit211.i:                                      ; preds = %if.end3.i208.i, %if
   %call390.i = call i32 @fputs(ptr noundef %retval.0.i210.i, ptr noundef %281) #19
   br label %if.then23
 
-if.end395.i:                                      ; preds = %is_a_merge.argprom.exit.i, %if.end347.i
+if.end395.i:                                      ; preds = %is_a_merge.exit.i, %if.end347.i
   %282 = load i32, ptr @no_verify, align 4
   %tobool396.i = icmp eq i32 %282, 0
   %283 = load i32, ptr %invoked_hook.i, align 4
@@ -3818,8 +3818,8 @@ cleanup:                                          ; preds = %sw.epilog.sink.spli
   call void @strbuf_release(ptr noundef nonnull %sb) #16
   br label %return
 
-return:                                           ; preds = %cleanup, %dry_run_commit.argprom.exit
-  %retval.0 = phi i32 [ %cond.i, %dry_run_commit.argprom.exit ], [ %ret.0, %cleanup ]
+return:                                           ; preds = %cleanup, %dry_run_commit.exit
+  %retval.0 = phi i32 [ %cond.i, %dry_run_commit.exit ], [ %ret.0, %cleanup ]
   ret i32 %retval.0
 }
 

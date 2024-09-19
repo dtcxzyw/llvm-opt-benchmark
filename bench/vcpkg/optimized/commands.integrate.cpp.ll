@@ -1358,7 +1358,7 @@ define internal void @"_ZN5vcpkg3$_08__invokeEv"(ptr dead_on_unwind noalias writ
   %51 = getelementptr inbounds i8, ptr %11, i64 8
   %52 = load i64, ptr %51, align 8, !noalias !14
   %53 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr %50, i64 %52)
-          to label %"_ZNK5vcpkg3$_0clEv.argprom.exit" unwind label %70, !noalias !14
+          to label %"_ZNK5vcpkg3$_0clEv.exit" unwind label %70, !noalias !14
 
 54:                                               ; preds = %48, %43, %38, %33, %28, %27, %22, %21, %16, %1
   %55 = landingpad { ptr, i32 }
@@ -1418,7 +1418,7 @@ define internal void @"_ZN5vcpkg3$_08__invokeEv"(ptr dead_on_unwind noalias writ
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18, !noalias !14
   resume { ptr, i32 } %.pn.i
 
-"_ZNK5vcpkg3$_0clEv.argprom.exit":                ; preds = %49
+"_ZNK5vcpkg3$_0clEv.exit":                        ; preds = %49
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %53) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
@@ -6666,8 +6666,8 @@ attributes #23 = { builtin allocsize(0) }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNK5vcpkg3$_0clEv.argprom: argument 0"}
-!16 = distinct !{!16, !"_ZNK5vcpkg3$_0clEv.argprom"}
+!15 = distinct !{!15, !16, !"_ZNK5vcpkg3$_0clEv: argument 0"}
+!16 = distinct !{!16, !"_ZNK5vcpkg3$_0clEv"}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN5vcpkg3msg6formatIJNS0_6path_tEEJNS_10StringViewEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE: argument 0"}
 !19 = distinct !{!19, !"_ZN5vcpkg3msg6formatIJNS0_6path_tEEJNS_10StringViewEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE"}

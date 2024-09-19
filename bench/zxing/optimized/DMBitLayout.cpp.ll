@@ -83,8 +83,8 @@ define void @_ZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEii(pt
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !4
   br label %38
 
-38:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i.i", %37
-  %.010.i.i = phi i64 [ 0, %37 ], [ %60, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i.i" ]
+38:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i.i", %37
+  %.010.i.i = phi i64 [ 0, %37 ], [ %60, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i.i" ]
   %39 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER1", i64 0, i64 %.010.i.i
   %40 = load i32, ptr %39, align 4, !noalias !7
   %41 = icmp slt i32 %40, 0
@@ -113,16 +113,16 @@ define void @_ZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEii(pt
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %58, %53
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i.i", label %.invoke.i
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i.i", label %.invoke.i
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i.i": ; preds = %38
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i.i": ; preds = %38
   %59 = getelementptr inbounds i8, ptr %55, i64 %53
   store i8 -1, ptr %59, align 1, !noalias !10
   %60 = add nuw nsw i64 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %60, 8
   br i1 %exitcond.not.i.i, label %61, label %38, !llvm.loop !11
 
-61:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i.i"
+61:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %10, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !4
   br label %62
@@ -187,8 +187,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i.i:             ; preds = %66
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !4
   br label %90
 
-90:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i64.i", %89
-  %.010.i56.i = phi i64 [ 0, %89 ], [ %112, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i64.i" ]
+90:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i64.i", %89
+  %.010.i56.i = phi i64 [ 0, %89 ], [ %112, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i64.i" ]
   %91 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER2", i64 0, i64 %.010.i56.i
   %92 = load i32, ptr %91, align 4, !noalias !13
   %93 = icmp slt i32 %92, 0
@@ -217,16 +217,16 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i.i:             ; preds = %66
   %109 = ptrtoint ptr %107 to i64
   %110 = sub i64 %108, %109
   %.not.i.i.i.i.i.i.i63.i = icmp ugt i64 %110, %105
-  br i1 %.not.i.i.i.i.i.i.i63.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i64.i", label %.invoke.i
+  br i1 %.not.i.i.i.i.i.i.i63.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i64.i", label %.invoke.i
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i64.i": ; preds = %90
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i64.i": ; preds = %90
   %111 = getelementptr inbounds i8, ptr %107, i64 %105
   store i8 -1, ptr %111, align 1, !noalias !16
   %112 = add nuw nsw i64 %.010.i56.i, 1
   %exitcond.not.i65.i = icmp eq i64 %112, 8
   br i1 %exitcond.not.i65.i, label %113, label %90, !llvm.loop !11
 
-113:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i64.i"
+113:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i64.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !4
   br label %114
@@ -279,8 +279,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i73.i:           ; preds = %118
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !4
   br label %138
 
-138:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i86.i", %137
-  %.010.i78.i = phi i64 [ 0, %137 ], [ %160, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i86.i" ]
+138:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i86.i", %137
+  %.010.i78.i = phi i64 [ 0, %137 ], [ %160, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i86.i" ]
   %139 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER3", i64 0, i64 %.010.i78.i
   %140 = load i32, ptr %139, align 4, !noalias !17
   %141 = icmp slt i32 %140, 0
@@ -309,16 +309,16 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i73.i:           ; preds = %118
   %157 = ptrtoint ptr %155 to i64
   %158 = sub i64 %156, %157
   %.not.i.i.i.i.i.i.i85.i = icmp ugt i64 %158, %153
-  br i1 %.not.i.i.i.i.i.i.i85.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i86.i", label %.invoke.i
+  br i1 %.not.i.i.i.i.i.i.i85.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i86.i", label %.invoke.i
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i86.i": ; preds = %138
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i86.i": ; preds = %138
   %159 = getelementptr inbounds i8, ptr %155, i64 %153
   store i8 -1, ptr %159, align 1, !noalias !20
   %160 = add nuw nsw i64 %.010.i78.i, 1
   %exitcond.not.i87.i = icmp eq i64 %160, 8
   br i1 %exitcond.not.i87.i, label %161, label %138, !llvm.loop !11
 
-161:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i86.i"
+161:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i86.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %13, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !4
   br label %162
@@ -367,8 +367,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i95.i:           ; preds = %166
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !4
   br label %184
 
-184:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i108.i", %183
-  %.010.i100.i = phi i64 [ 0, %183 ], [ %206, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i108.i" ]
+184:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i108.i", %183
+  %.010.i100.i = phi i64 [ 0, %183 ], [ %206, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i108.i" ]
   %185 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER4", i64 0, i64 %.010.i100.i
   %186 = load i32, ptr %185, align 4, !noalias !21
   %187 = icmp slt i32 %186, 0
@@ -397,16 +397,16 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i95.i:           ; preds = %166
   %203 = ptrtoint ptr %201 to i64
   %204 = sub i64 %202, %203
   %.not.i.i.i.i.i.i.i107.i = icmp ugt i64 %204, %199
-  br i1 %.not.i.i.i.i.i.i.i107.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i108.i", label %.invoke.i
+  br i1 %.not.i.i.i.i.i.i.i107.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i108.i", label %.invoke.i
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i108.i": ; preds = %184
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i108.i": ; preds = %184
   %205 = getelementptr inbounds i8, ptr %201, i64 %199
   store i8 -1, ptr %205, align 1, !noalias !24
   %206 = add nuw nsw i64 %.010.i100.i, 1
   %exitcond.not.i109.i = icmp eq i64 %206, 8
   br i1 %exitcond.not.i109.i, label %207, label %184, !llvm.loop !11
 
-207:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i108.i"
+207:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i108.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !4
   br label %208
@@ -490,8 +490,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i117.i:          ; preds = %212
   %reass.sub.reass.i.reass.reass.i = add i32 %reass.sub, 4
   br label %245
 
-245:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i132.i", %244
-  %.028.i.i = phi i64 [ 0, %244 ], [ %268, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i132.i" ]
+245:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i132.i", %244
+  %.028.i.i = phi i64 [ 0, %244 ], [ %268, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i132.i" ]
   %246 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i.i
   %247 = load i32, ptr %246, align 4, !noalias !25
   %248 = add nsw i32 %247, %.1.i
@@ -529,16 +529,16 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i117.i:          ; preds = %212
   %265 = ptrtoint ptr %263 to i64
   %266 = sub i64 %264, %265
   %.not.i.i.i.i.i.i.i131.i = icmp ugt i64 %266, %261
-  br i1 %.not.i.i.i.i.i.i.i131.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i132.i", label %.invoke.i
+  br i1 %.not.i.i.i.i.i.i.i131.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i132.i", label %.invoke.i
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i132.i": ; preds = %245
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i132.i": ; preds = %245
   %267 = getelementptr inbounds i8, ptr %263, i64 %261
   store i8 -1, ptr %267, align 1, !noalias !28
   %268 = add nuw nsw i64 %.028.i.i, 1
   %exitcond.not.i133.i = icmp eq i64 %268, 8
   br i1 %exitcond.not.i133.i, label %269, label %245, !llvm.loop !29
 
-269:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i132.i"
+269:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i132.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !4
   br label %270
@@ -632,8 +632,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i140.i:          ; preds = %274
   %reass.sub.reass.i166.reass.reass.i = add i32 %reass.sub116, 4
   br label %317
 
-317:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i163.i", %316
-  %.028.i149.i = phi i64 [ 0, %316 ], [ %340, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i163.i" ]
+317:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i163.i", %316
+  %.028.i149.i = phi i64 [ 0, %316 ], [ %340, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i163.i" ]
   %318 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i149.i
   %319 = load i32, ptr %318, align 4, !noalias !31
   %320 = add nsw i32 %319, %.2.i
@@ -671,16 +671,16 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i140.i:          ; preds = %274
   %337 = ptrtoint ptr %335 to i64
   %338 = sub i64 %336, %337
   %.not.i.i.i.i.i.i.i162.i = icmp ugt i64 %338, %333
-  br i1 %.not.i.i.i.i.i.i.i162.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i163.i", label %.invoke.i
+  br i1 %.not.i.i.i.i.i.i.i162.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i163.i", label %.invoke.i
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i163.i": ; preds = %317
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i163.i": ; preds = %317
   %339 = getelementptr inbounds i8, ptr %335, i64 %333
   store i8 -1, ptr %339, align 1, !noalias !34
   %340 = add nuw nsw i64 %.028.i149.i, 1
   %exitcond.not.i164.i = icmp eq i64 %340, 8
   br i1 %exitcond.not.i164.i, label %341, label %317, !llvm.loop !29
 
-341:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.argprom.exit.i163.i"
+341:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i163.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %16, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !4
   br label %342
@@ -1220,8 +1220,8 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %.noexc7, %_ZNSt6vec
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !42
   br label %125
 
-125:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i.i", %124
-  %.010.i.i = phi i64 [ 0, %124 ], [ %147, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i.i" ]
+125:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i.i", %124
+  %.010.i.i = phi i64 [ 0, %124 ], [ %147, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i.i" ]
   %126 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER1", i64 0, i64 %.010.i.i
   %127 = load i32, ptr %126, align 4, !noalias !45
   %128 = icmp slt i32 %127, 0
@@ -1250,16 +1250,16 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %.noexc7, %_ZNSt6vec
   %144 = ptrtoint ptr %142 to i64
   %145 = sub i64 %143, %144
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %145, %140
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i.i", label %.invoke.i8
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i.i", label %.invoke.i8
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i.i": ; preds = %125
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i.i": ; preds = %125
   %146 = getelementptr inbounds i8, ptr %142, i64 %140
   store i8 -1, ptr %146, align 1, !noalias !48
   %147 = add nuw nsw i64 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %147, 8
   br i1 %exitcond.not.i.i, label %148, label %125, !llvm.loop !49
 
-148:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i.i"
+148:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %10, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !42
   store i8 0, ptr %.sroa.021.0, align 1
@@ -1319,8 +1319,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i.i:             ; preds = %149
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !42
   br label %177
 
-177:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i64.i", %176
-  %.010.i56.i = phi i64 [ 0, %176 ], [ %199, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i64.i" ]
+177:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i64.i", %176
+  %.010.i56.i = phi i64 [ 0, %176 ], [ %199, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i64.i" ]
   %178 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER2", i64 0, i64 %.010.i56.i
   %179 = load i32, ptr %178, align 4, !noalias !50
   %180 = icmp slt i32 %179, 0
@@ -1349,16 +1349,16 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i.i:             ; preds = %149
   %196 = ptrtoint ptr %194 to i64
   %197 = sub i64 %195, %196
   %.not.i.i.i.i.i.i.i63.i = icmp ugt i64 %197, %192
-  br i1 %.not.i.i.i.i.i.i.i63.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i64.i", label %.invoke.i8
+  br i1 %.not.i.i.i.i.i.i.i63.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i64.i", label %.invoke.i8
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i64.i": ; preds = %177
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i64.i": ; preds = %177
   %198 = getelementptr inbounds i8, ptr %194, i64 %192
   store i8 -1, ptr %198, align 1, !noalias !53
   %199 = add nuw nsw i64 %.010.i56.i, 1
   %exitcond.not.i65.i = icmp eq i64 %199, 8
   br i1 %exitcond.not.i65.i, label %200, label %177, !llvm.loop !49
 
-200:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i64.i"
+200:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i64.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !42
   store i8 0, ptr %.sroa.021.0, align 1
@@ -1406,8 +1406,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i71.i:           ; preds = %201
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !42
   br label %225
 
-225:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i84.i", %224
-  %.010.i76.i = phi i64 [ 0, %224 ], [ %247, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i84.i" ]
+225:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i84.i", %224
+  %.010.i76.i = phi i64 [ 0, %224 ], [ %247, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i84.i" ]
   %226 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER3", i64 0, i64 %.010.i76.i
   %227 = load i32, ptr %226, align 4, !noalias !54
   %228 = icmp slt i32 %227, 0
@@ -1436,16 +1436,16 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i71.i:           ; preds = %201
   %244 = ptrtoint ptr %242 to i64
   %245 = sub i64 %243, %244
   %.not.i.i.i.i.i.i.i83.i = icmp ugt i64 %245, %240
-  br i1 %.not.i.i.i.i.i.i.i83.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i84.i", label %.invoke.i8
+  br i1 %.not.i.i.i.i.i.i.i83.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i84.i", label %.invoke.i8
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i84.i": ; preds = %225
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i84.i": ; preds = %225
   %246 = getelementptr inbounds i8, ptr %242, i64 %240
   store i8 -1, ptr %246, align 1, !noalias !57
   %247 = add nuw nsw i64 %.010.i76.i, 1
   %exitcond.not.i85.i = icmp eq i64 %247, 8
   br i1 %exitcond.not.i85.i, label %248, label %225, !llvm.loop !49
 
-248:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i84.i"
+248:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i84.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !42
   store i8 0, ptr %.sroa.021.0, align 1
@@ -1489,8 +1489,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i91.i:           ; preds = %249
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !42
   br label %271
 
-271:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i104.i", %270
-  %.010.i96.i = phi i64 [ 0, %270 ], [ %293, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i104.i" ]
+271:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i104.i", %270
+  %.010.i96.i = phi i64 [ 0, %270 ], [ %293, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i104.i" ]
   %272 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER4", i64 0, i64 %.010.i96.i
   %273 = load i32, ptr %272, align 4, !noalias !58
   %274 = icmp slt i32 %273, 0
@@ -1519,16 +1519,16 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i91.i:           ; preds = %249
   %290 = ptrtoint ptr %288 to i64
   %291 = sub i64 %289, %290
   %.not.i.i.i.i.i.i.i103.i = icmp ugt i64 %291, %286
-  br i1 %.not.i.i.i.i.i.i.i103.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i104.i", label %.invoke.i8
+  br i1 %.not.i.i.i.i.i.i.i103.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i104.i", label %.invoke.i8
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i104.i": ; preds = %271
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i104.i": ; preds = %271
   %292 = getelementptr inbounds i8, ptr %288, i64 %286
   store i8 -1, ptr %292, align 1, !noalias !61
   %293 = add nuw nsw i64 %.010.i96.i, 1
   %exitcond.not.i105.i = icmp eq i64 %293, 8
   br i1 %exitcond.not.i105.i, label %294, label %271, !llvm.loop !49
 
-294:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i104.i"
+294:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i104.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %13, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !42
   store i8 0, ptr %.sroa.021.0, align 1
@@ -1607,8 +1607,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i111.i:          ; preds = %295
   %reass.sub.reass.i.reass.reass.i = add i32 %reass.sub, 4
   br label %332
 
-332:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i126.i", %331
-  %.028.i.i = phi i64 [ 0, %331 ], [ %355, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i126.i" ]
+332:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i126.i", %331
+  %.028.i.i = phi i64 [ 0, %331 ], [ %355, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i126.i" ]
   %333 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i.i
   %334 = load i32, ptr %333, align 4, !noalias !62
   %335 = add nsw i32 %334, %.1.i
@@ -1646,16 +1646,16 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i111.i:          ; preds = %295
   %352 = ptrtoint ptr %350 to i64
   %353 = sub i64 %351, %352
   %.not.i.i.i.i.i.i.i125.i = icmp ugt i64 %353, %348
-  br i1 %.not.i.i.i.i.i.i.i125.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i126.i", label %.invoke.i8
+  br i1 %.not.i.i.i.i.i.i.i125.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i126.i", label %.invoke.i8
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i126.i": ; preds = %332
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i126.i": ; preds = %332
   %354 = getelementptr inbounds i8, ptr %350, i64 %348
   store i8 -1, ptr %354, align 1, !noalias !65
   %355 = add nuw nsw i64 %.028.i.i, 1
   %exitcond.not.i127.i = icmp eq i64 %355, 8
   br i1 %exitcond.not.i127.i, label %356, label %332, !llvm.loop !66
 
-356:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i126.i"
+356:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i126.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !42
   store i8 0, ptr %.sroa.021.2, align 1
@@ -1744,8 +1744,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i132.i:          ; preds = %357
   %reass.sub.reass.i158.reass.reass.i = add i32 %reass.sub137, 4
   br label %404
 
-404:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i155.i", %403
-  %.028.i141.i = phi i64 [ 0, %403 ], [ %427, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i155.i" ]
+404:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i155.i", %403
+  %.028.i141.i = phi i64 [ 0, %403 ], [ %427, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i155.i" ]
   %405 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i141.i
   %406 = load i32, ptr %405, align 4, !noalias !68
   %407 = add nsw i32 %406, %.2.i
@@ -1783,16 +1783,16 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i132.i:          ; preds = %357
   %424 = ptrtoint ptr %422 to i64
   %425 = sub i64 %423, %424
   %.not.i.i.i.i.i.i.i154.i = icmp ugt i64 %425, %420
-  br i1 %.not.i.i.i.i.i.i.i154.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i155.i", label %.invoke.i8
+  br i1 %.not.i.i.i.i.i.i.i154.i, label %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i155.i", label %.invoke.i8
 
-"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i155.i": ; preds = %404
+"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i155.i": ; preds = %404
   %426 = getelementptr inbounds i8, ptr %422, i64 %420
   store i8 -1, ptr %426, align 1, !noalias !71
   %427 = add nuw nsw i64 %.028.i141.i, 1
   %exitcond.not.i156.i = icmp eq i64 %427, 8
   br i1 %exitcond.not.i156.i, label %428, label %404, !llvm.loop !66
 
-428:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.argprom.exit.i155.i"
+428:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i155.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !42
   store i8 0, ptr %.sroa.021.4, align 1

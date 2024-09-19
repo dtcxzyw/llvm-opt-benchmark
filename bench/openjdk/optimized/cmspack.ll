@@ -44,7 +44,7 @@ define hidden void @_cmsAllocFormattersPluginChunk(ptr nocapture noundef %0, ptr
   %9 = load ptr, ptr %6, align 8
   %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 16) #9
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %DupFormatterFactoryList.argprom.exit, label %12
+  br i1 %11, label %DupFormatterFactoryList.exit, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %10, i64 8
@@ -73,9 +73,9 @@ define hidden void @_cmsAllocFormattersPluginChunk(ptr nocapture noundef %0, ptr
   %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #9
   %22 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %21, ptr %22, align 8
-  br label %DupFormatterFactoryList.argprom.exit
+  br label %DupFormatterFactoryList.exit
 
-DupFormatterFactoryList.argprom.exit:             ; preds = %7, %._crit_edge.i
+DupFormatterFactoryList.exit:                     ; preds = %7, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %28
 
@@ -87,7 +87,7 @@ DupFormatterFactoryList.argprom.exit:             ; preds = %7, %._crit_edge.i
   store ptr %26, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %23, %DupFormatterFactoryList.argprom.exit
+28:                                               ; preds = %23, %DupFormatterFactoryList.exit
   ret void
 }
 

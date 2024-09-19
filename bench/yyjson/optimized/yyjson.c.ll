@@ -5383,7 +5383,7 @@ if.else178:                                       ; preds = %do.body169
 while.body.i1331.preheader:                       ; preds = %yyjson_is_str.exit930
   %16 = getelementptr i8, ptr %key.i.01251, i64 24
   %retval.i1275.0.val1019 = load ptr, ptr %16, align 8
-  %call193 = call fastcc i32 @patch_op_get.argprom(i64 %14, ptr %retval.i1275.0.val1019)
+  %call193 = call fastcc i32 @patch_op_get(i64 %14, ptr %retval.i1275.0.val1019)
   br label %while.body.i1331
 
 while.body.i1331:                                 ; preds = %while.body.i1331.preheader, %if.end.i1333
@@ -6094,7 +6094,7 @@ return:                                           ; preds = %sw.epilog848, %cond
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 7) i32 @patch_op_get.argprom(i64 %op.0.val, ptr nocapture readonly %op.8.val) unnamed_addr #14 {
+define internal fastcc range(i32 0, 7) i32 @patch_op_get(i64 %op.0.val, ptr nocapture readonly %op.8.val) unnamed_addr #14 {
 entry:
   %shr.i = lshr i64 %op.0.val, 8
   switch i64 %shr.i, label %return [
@@ -6374,7 +6374,7 @@ if.else170:                                       ; preds = %do.body161
 while.body.i1318.preheader:                       ; preds = %yyjson_mut_is_str.exit1266
   %17 = getelementptr i8, ptr %13, i64 8
   %retval.i1267.0.val1016 = load ptr, ptr %17, align 8
-  %call185 = call fastcc i32 @patch_op_get.argprom(i64 %15, ptr %retval.i1267.0.val1016)
+  %call185 = call fastcc i32 @patch_op_get(i64 %15, ptr %retval.i1267.0.val1016)
   br label %while.body.i1318
 
 while.body.i1318:                                 ; preds = %while.body.i1318.preheader, %if.end.i1320

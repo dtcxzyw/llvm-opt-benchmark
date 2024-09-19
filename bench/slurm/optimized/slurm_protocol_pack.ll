@@ -326,7 +326,7 @@ define void @pack_header(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %75 = getelementptr inbounds i8, ptr %0, i64 208
   %76 = load ptr, ptr %75, align 8
   %77 = load i16, ptr %0, align 8
-  tail call fastcc void @_pack_ret_list.argelim(ptr noundef %76, ptr noundef %1, i16 noundef zeroext %77)
+  tail call fastcc void @_pack_ret_list(ptr noundef %76, ptr noundef %1, i16 noundef zeroext %77)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %71, %44
@@ -348,7 +348,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_ret_list.argelim(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_pack_ret_list(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #8
   %5 = getelementptr inbounds i8, ptr %4, i64 206
@@ -1815,19 +1815,19 @@ define range(i32 -1, 23) i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) 
 19:                                               ; preds = %12
   %20 = getelementptr i8, ptr %0, i64 192
   %.val342 = load ptr, ptr %20, align 8
-  tail call fastcc void @_pack_node_info_request_msg.argprom(ptr %.val342, ptr noundef %1)
+  tail call fastcc void @_pack_node_info_request_msg(ptr %.val342, ptr noundef %1)
   br label %355
 
 21:                                               ; preds = %12
   %22 = getelementptr i8, ptr %0, i64 192
   %.val343 = load ptr, ptr %22, align 8
-  tail call fastcc void @_pack_node_info_single_msg.argprom(ptr %.val343, ptr noundef %1)
+  tail call fastcc void @_pack_node_info_single_msg(ptr %.val343, ptr noundef %1)
   br label %355
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds i8, ptr %0, i64 192
   %25 = load ptr, ptr %24, align 8
-  tail call fastcc void @_pack_part_info_request_msg.argelim(ptr noundef %25, ptr noundef %1)
+  tail call fastcc void @_pack_part_info_request_msg(ptr noundef %25, ptr noundef %1)
   br label %355
 
 26:                                               ; preds = %12
@@ -1855,7 +1855,7 @@ define range(i32 -1, 23) i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) 
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %37, i64 8
   %.val346 = load ptr, ptr %38, align 8
-  tail call fastcc void @_pack_job_script_msg.argprom.argelim(ptr %.val346, ptr noundef %1)
+  tail call fastcc void @_pack_job_script_msg(ptr %.val346, ptr noundef %1)
   br label %355
 
 39:                                               ; preds = %12
@@ -1990,7 +1990,7 @@ define range(i32 -1, 23) i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) 
 101:                                              ; preds = %12, %12
   %102 = getelementptr i8, ptr %0, i64 192
   %.val348 = load ptr, ptr %102, align 8
-  tail call fastcc void @_pack_update_partition_msg.argprom(ptr %.val348, i16 %4, ptr noundef %1)
+  tail call fastcc void @_pack_update_partition_msg(ptr %.val348, i16 %4, ptr noundef %1)
   br label %355
 
 103:                                              ; preds = %12
@@ -2020,7 +2020,7 @@ define range(i32 -1, 23) i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) 
 115:                                              ; preds = %12
   %116 = getelementptr inbounds i8, ptr %0, i64 192
   %117 = load ptr, ptr %116, align 8
-  tail call fastcc void @_pack_reattach_tasks_response_msg.argelim(ptr noundef %117, ptr noundef %1)
+  tail call fastcc void @_pack_reattach_tasks_response_msg(ptr noundef %117, ptr noundef %1)
   br label %355
 
 118:                                              ; preds = %12
@@ -2050,7 +2050,7 @@ define range(i32 -1, 23) i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) 
 130:                                              ; preds = %12
   %131 = getelementptr i8, ptr %0, i64 192
   %.val350 = load ptr, ptr %131, align 8
-  tail call fastcc void @_pack_container_id_request_msg.argprom(ptr %.val350, i16 %4, ptr noundef %1)
+  tail call fastcc void @_pack_container_id_request_msg(ptr %.val350, i16 %4, ptr noundef %1)
   br label %355
 
 _pack_container_id_response_msg.exit:             ; preds = %12
@@ -2069,13 +2069,13 @@ _pack_container_id_response_msg.exit:             ; preds = %12
 139:                                              ; preds = %12
   %140 = getelementptr i8, ptr %0, i64 192
   %.val352 = load ptr, ptr %140, align 8
-  tail call fastcc void @_pack_job_state_request_msg.argprom(ptr %.val352, i16 %4, ptr noundef %1)
+  tail call fastcc void @_pack_job_state_request_msg(ptr %.val352, i16 %4, ptr noundef %1)
   br label %355
 
 141:                                              ; preds = %12
   %142 = getelementptr i8, ptr %0, i64 192
   %.val354 = load ptr, ptr %142, align 8
-  tail call fastcc void @_pack_job_state_response_msg.argprom(ptr %.val354, i16 %4, ptr noundef %1)
+  tail call fastcc void @_pack_job_state_response_msg(ptr %.val354, i16 %4, ptr noundef %1)
   br label %355
 
 143:                                              ; preds = %12, %12, %12
@@ -2087,7 +2087,7 @@ _pack_container_id_response_msg.exit:             ; preds = %12
 146:                                              ; preds = %12
   %147 = getelementptr inbounds i8, ptr %0, i64 192
   %148 = load ptr, ptr %147, align 8
-  tail call fastcc void @_pack_complete_job_allocation_msg.argelim(ptr noundef %148, ptr noundef %1)
+  tail call fastcc void @_pack_complete_job_allocation_msg(ptr noundef %148, ptr noundef %1)
   br label %355
 
 149:                                              ; preds = %12
@@ -2129,7 +2129,7 @@ _pack_container_id_response_msg.exit:             ; preds = %12
 167:                                              ; preds = %12
   %168 = getelementptr inbounds i8, ptr %0, i64 192
   %169 = load ptr, ptr %168, align 8
-  tail call fastcc void @_pack_job_step_pids.argelim(ptr noundef %169, ptr noundef %1)
+  tail call fastcc void @_pack_job_step_pids(ptr noundef %169, ptr noundef %1)
   br label %355
 
 170:                                              ; preds = %12, %12, %12, %12
@@ -2199,7 +2199,7 @@ _pack_container_id_response_msg.exit:             ; preds = %12
 199:                                              ; preds = %12
   %200 = getelementptr inbounds i8, ptr %0, i64 192
   %201 = load ptr, ptr %200, align 8
-  tail call fastcc void @_pack_job_id_response_msg.argelim(ptr noundef %201, ptr noundef %1)
+  tail call fastcc void @_pack_job_id_response_msg(ptr noundef %201, ptr noundef %1)
   br label %355
 
 _pack_config_request_msg.exit:                    ; preds = %12
@@ -2218,7 +2218,7 @@ _pack_config_request_msg.exit:                    ; preds = %12
 208:                                              ; preds = %12
   %209 = getelementptr i8, ptr %0, i64 192
   %.val358 = load ptr, ptr %209, align 8
-  tail call fastcc void @_pack_srun_node_fail_msg.argprom(ptr %.val358, i16 %4, ptr noundef %1)
+  tail call fastcc void @_pack_srun_node_fail_msg(ptr %.val358, i16 %4, ptr noundef %1)
   br label %355
 
 210:                                              ; preds = %12
@@ -2236,7 +2236,7 @@ _pack_config_request_msg.exit:                    ; preds = %12
 216:                                              ; preds = %12
   %217 = getelementptr inbounds i8, ptr %0, i64 192
   %218 = load ptr, ptr %217, align 8
-  tail call fastcc void @_pack_srun_user_msg.argelim(ptr noundef %218, ptr noundef %1)
+  tail call fastcc void @_pack_srun_user_msg(ptr noundef %218, ptr noundef %1)
   br label %355
 
 219:                                              ; preds = %12
@@ -2278,7 +2278,7 @@ _pack_config_request_msg.exit:                    ; preds = %12
 237:                                              ; preds = %12, %12, %12
   %238 = getelementptr inbounds i8, ptr %0, i64 192
   %239 = load ptr, ptr %238, align 8
-  tail call fastcc void @_pack_job_ready_msg.argelim(ptr noundef %239, ptr noundef %1)
+  tail call fastcc void @_pack_job_ready_msg(ptr noundef %239, ptr noundef %1)
   br label %355
 
 240:                                              ; preds = %12
@@ -2290,7 +2290,7 @@ _pack_config_request_msg.exit:                    ; preds = %12
 243:                                              ; preds = %12
   %244 = getelementptr inbounds i8, ptr %0, i64 192
   %245 = load ptr, ptr %244, align 8
-  tail call fastcc void @_pack_job_user_msg.argelim(ptr noundef %245, ptr noundef %1)
+  tail call fastcc void @_pack_job_user_msg(ptr noundef %245, ptr noundef %1)
   br label %355
 
 246:                                              ; preds = %12
@@ -2322,7 +2322,7 @@ _pack_config_request_msg.exit:                    ; preds = %12
 257:                                              ; preds = %12
   %258 = getelementptr inbounds i8, ptr %0, i64 192
   %259 = load ptr, ptr %258, align 8
-  tail call fastcc void @_pack_kvs_get.argelim(ptr noundef %259, ptr noundef %1)
+  tail call fastcc void @_pack_kvs_get(ptr noundef %259, ptr noundef %1)
   br label %355
 
 260:                                              ; preds = %12, %12, %12, %12, %12
@@ -2359,7 +2359,7 @@ _pack_config_request_msg.exit:                    ; preds = %12
 275:                                              ; preds = %12, %12, %12
   %276 = getelementptr inbounds i8, ptr %0, i64 192
   %277 = load ptr, ptr %276, align 8
-  tail call fastcc void @_pack_suspend_exc_update_msg.argelim(ptr noundef %277, ptr noundef %1)
+  tail call fastcc void @_pack_suspend_exc_update_msg(ptr noundef %277, ptr noundef %1)
   br label %355
 
 278:                                              ; preds = %12
@@ -2401,7 +2401,7 @@ _pack_stats_request_msg.exit:                     ; preds = %12
 294:                                              ; preds = %12
   %295 = getelementptr inbounds i8, ptr %0, i64 192
   %296 = load ptr, ptr %295, align 8
-  tail call fastcc void @_pack_forward_data_msg.argelim(ptr noundef %296, ptr noundef %1)
+  tail call fastcc void @_pack_forward_data_msg(ptr noundef %296, ptr noundef %1)
   br label %355
 
 297:                                              ; preds = %12
@@ -2413,7 +2413,7 @@ _pack_stats_request_msg.exit:                     ; preds = %12
 300:                                              ; preds = %12
   %301 = getelementptr inbounds i8, ptr %0, i64 192
   %302 = load ptr, ptr %301, align 8
-  tail call fastcc void @_pack_license_info_request_msg.argelim(ptr noundef %302, ptr noundef %1)
+  tail call fastcc void @_pack_license_info_request_msg(ptr noundef %302, ptr noundef %1)
   br label %355
 
 303:                                              ; preds = %12
@@ -2425,7 +2425,7 @@ _pack_stats_request_msg.exit:                     ; preds = %12
 306:                                              ; preds = %12
   %307 = getelementptr inbounds i8, ptr %0, i64 192
   %308 = load ptr, ptr %307, align 8
-  tail call fastcc void @_pack_assoc_mgr_info_request_msg.argelim(ptr noundef %308, ptr noundef %1)
+  tail call fastcc void @_pack_assoc_mgr_info_request_msg(ptr noundef %308, ptr noundef %1)
   br label %355
 
 309:                                              ; preds = %12
@@ -2468,7 +2468,7 @@ _pack_set_fs_dampening_factor_msg.exit:           ; preds = %12
   %325 = getelementptr inbounds i8, ptr %0, i64 192
   %326 = load ptr, ptr %325, align 8
   %.val364 = load ptr, ptr %326, align 8
-  tail call fastcc void @_pack_bb_status_resp_msg.argprom.argelim(ptr %.val364, ptr noundef %1)
+  tail call fastcc void @_pack_bb_status_resp_msg(ptr %.val364, ptr noundef %1)
   br label %355
 
 _pack_crontab_request_msg.exit:                   ; preds = %12
@@ -2481,7 +2481,7 @@ _pack_crontab_request_msg.exit:                   ; preds = %12
 330:                                              ; preds = %12
   %331 = getelementptr i8, ptr %0, i64 192
   %.val365 = load ptr, ptr %331, align 8
-  tail call fastcc void @_pack_crontab_response_msg.argprom(ptr %.val365, i16 %4, ptr noundef %1)
+  tail call fastcc void @_pack_crontab_response_msg(ptr %.val365, i16 %4, ptr noundef %1)
   br label %355
 
 332:                                              ; preds = %12
@@ -2491,7 +2491,7 @@ _pack_crontab_request_msg.exit:                   ; preds = %12
 333:                                              ; preds = %12
   %334 = getelementptr i8, ptr %0, i64 192
   %.val367 = load ptr, ptr %334, align 8
-  tail call fastcc void @_pack_crontab_update_response_msg.argprom(ptr %.val367, i16 %4, ptr noundef %1)
+  tail call fastcc void @_pack_crontab_update_response_msg(ptr %.val367, i16 %4, ptr noundef %1)
   br label %355
 
 335:                                              ; preds = %12
@@ -2520,13 +2520,13 @@ _pack_container_delete_msg.exit:                  ; preds = %12
 344:                                              ; preds = %12
   %345 = getelementptr i8, ptr %0, i64 192
   %.val369 = load ptr, ptr %345, align 8
-  tail call fastcc void @_pack_container_exec_msg.argprom(ptr %.val369, i16 %4, ptr noundef %1)
+  tail call fastcc void @_pack_container_exec_msg(ptr %.val369, i16 %4, ptr noundef %1)
   br label %355
 
 346:                                              ; preds = %12
   %347 = getelementptr i8, ptr %0, i64 192
   %.val371 = load ptr, ptr %347, align 8
-  tail call fastcc void @_pack_node_alias_addrs.argprom(ptr %.val371, i16 %4, ptr noundef %1)
+  tail call fastcc void @_pack_node_alias_addrs(ptr %.val371, i16 %4, ptr noundef %1)
   br label %355
 
 348:                                              ; preds = %12
@@ -2552,7 +2552,7 @@ _pack_container_delete_msg.exit:                  ; preds = %12
 declare ptr @rpc_num2string(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_node_info_request_msg.argprom(ptr nocapture readonly %.192.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_node_info_request_msg(ptr nocapture readonly %.192.val, ptr noundef %0) unnamed_addr #0 {
   %2 = load i64, ptr %.192.val, align 8
   tail call void @pack_time(i64 noundef %2, ptr noundef %0) #8
   %3 = getelementptr inbounds i8, ptr %.192.val, i64 8
@@ -2562,7 +2562,7 @@ define internal fastcc void @_pack_node_info_request_msg.argprom(ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_node_info_single_msg.argprom(ptr nocapture readonly %.192.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_node_info_single_msg(ptr nocapture readonly %.192.val, ptr noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr %.192.val, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -2583,7 +2583,7 @@ define internal fastcc void @_pack_node_info_single_msg.argprom(ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_part_info_request_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_part_info_request_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   tail call void @pack_time(i64 noundef %3, ptr noundef %1) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6511,7 +6511,7 @@ slurm_pack_list.exit2244:                         ; preds = %1392, %1393, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_job_script_msg.argprom.argelim(ptr %.8.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_job_script_msg(ptr %.8.val, ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %6, label %2
 
@@ -9726,7 +9726,7 @@ define internal fastcc void @_pack_update_node_msg(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_update_partition_msg.argprom(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_update_partition_msg(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
   %2 = icmp ugt i16 %.206.val, 9983
   br i1 %2, label %3, label %121
 
@@ -10478,7 +10478,7 @@ pack_step_id.exit:                                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_reattach_tasks_response_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_reattach_tasks_response_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -11742,7 +11742,7 @@ pack_step_id.exit:                                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_container_id_request_msg.argprom(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_container_id_request_msg(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
   %2 = icmp ugt i16 %.206.val, 9983
   br i1 %2, label %3, label %14
 
@@ -11824,7 +11824,7 @@ define internal fastcc void @_pack_job_info_request_msg(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_job_state_request_msg.argprom(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_job_state_request_msg(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
   %2 = icmp ugt i16 %.206.val, 9983
   br i1 %2, label %3, label %.loopexit
 
@@ -11856,7 +11856,7 @@ define internal fastcc void @_pack_job_state_request_msg.argprom(ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_job_state_response_msg.argprom(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_job_state_response_msg(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = icmp ugt i16 %.206.val, 9983
   br i1 %3, label %4, label %.loopexit
@@ -11988,7 +11988,7 @@ pack_step_id.exit:                                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_complete_job_allocation_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_complete_job_allocation_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   tail call void @pack32(i32 noundef %3, ptr noundef %1) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -12168,7 +12168,7 @@ define void @pack_step_id(ptr nocapture noundef readonly %0, ptr noundef %1, i16
 declare void @pack_slurm_step_layout(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_job_step_pids.argelim(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_job_step_pids(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -14074,7 +14074,7 @@ pack_step_id.exit386:                             ; preds = %182
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_job_id_response_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_job_id_response_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   tail call void @pack32(i32 noundef %3, ptr noundef %1) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -14084,7 +14084,7 @@ define internal fastcc void @_pack_job_id_response_msg.argelim(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_srun_node_fail_msg.argprom(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_srun_node_fail_msg(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
   %2 = icmp ugt i16 %.206.val, 9983
   br i1 %2, label %pack_step_id.exit, label %15
 
@@ -14175,7 +14175,7 @@ pack_step_id.exit:                                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_srun_user_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_srun_user_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   tail call void @pack32(i32 noundef %3, ptr noundef %1) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14371,7 +14371,7 @@ define internal fastcc void @_pack_token_response_msg(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_job_ready_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_job_ready_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   tail call void @pack32(i32 noundef %3, ptr noundef %1) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -14412,7 +14412,7 @@ define internal fastcc void @_pack_job_requeue_msg(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_job_user_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_job_user_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   tail call void @pack32(i32 noundef %3, ptr noundef %1) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -15117,7 +15117,7 @@ _pack_kvs_rec.exit.us:                            ; preds = %57, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_kvs_get.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_kvs_get(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   tail call void @pack32(i32 noundef %3, ptr noundef %1) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -15381,7 +15381,7 @@ define internal fastcc void @_pack_set_debug_flags_msg(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_suspend_exc_update_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_suspend_exc_update_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -15566,7 +15566,7 @@ define internal fastcc void @_pack_job_sbcast_cred_msg(ptr nocapture noundef rea
 declare void @slurmdb_pack_federation_rec(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_forward_data_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_forward_data_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -15608,7 +15608,7 @@ define internal fastcc void @_pack_ping_slurmd_resp(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_license_info_request_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_license_info_request_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   tail call void @pack_time(i64 noundef %3, ptr noundef %1) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15690,7 +15690,7 @@ define internal fastcc void @_pack_job_array_resp_msg(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_assoc_mgr_info_request_msg.argelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_pack_assoc_mgr_info_request_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %4
@@ -15935,7 +15935,7 @@ define internal fastcc void @_pack_control_status_msg(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_bb_status_resp_msg.argprom.argelim(ptr %.0.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_bb_status_resp_msg(ptr %.0.val, ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %6, label %2
 
@@ -15952,7 +15952,7 @@ define internal fastcc void @_pack_bb_status_resp_msg.argprom.argelim(ptr %.0.va
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_crontab_response_msg.argprom(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_crontab_response_msg(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
   %2 = icmp ugt i16 %.206.val, 9983
   br i1 %2, label %3, label %17
 
@@ -16030,7 +16030,7 @@ define internal fastcc void @_pack_crontab_update_request_msg(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_crontab_update_response_msg.argprom(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_crontab_update_response_msg(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
   %2 = icmp ugt i16 %.206.val, 9983
   br i1 %2, label %3, label %30
 
@@ -16190,7 +16190,7 @@ pack_step_id.exit:                                ; preds = %12, %6, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_container_exec_msg.argprom(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_container_exec_msg(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
   %2 = icmp ugt i16 %.206.val, 9983
   br i1 %2, label %3, label %17
 
@@ -16229,7 +16229,7 @@ define internal fastcc void @_pack_container_exec_msg.argprom(ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_node_alias_addrs.argprom(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_pack_node_alias_addrs(ptr nocapture readonly %.192.val, i16 %.206.val, ptr noundef %0) unnamed_addr #0 {
   %2 = icmp ugt i16 %.206.val, 10239
   br i1 %2, label %3, label %slurm_pack_node_alias_addrs.exit
 
@@ -16524,15 +16524,15 @@ define i32 @unpack_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %282
 
 20:                                               ; preds = %13
-  %21 = tail call fastcc i32 @_unpack_part_info_request_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %21 = tail call fastcc i32 @_unpack_part_info_request_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 22:                                               ; preds = %13
-  %23 = tail call fastcc i32 @_unpack_resv_info_request_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %23 = tail call fastcc i32 @_unpack_resv_info_request_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 24:                                               ; preds = %13
-  %25 = tail call fastcc i32 @_unpack_last_update_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %25 = tail call fastcc i32 @_unpack_last_update_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 26:                                               ; preds = %13
@@ -16552,7 +16552,7 @@ define i32 @unpack_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %282
 
 34:                                               ; preds = %13
-  %35 = tail call fastcc i32 @_unpack_job_script_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %35 = tail call fastcc i32 @_unpack_job_script_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 36:                                               ; preds = %13
@@ -16630,7 +16630,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 71:                                               ; preds = %13
-  %72 = tail call fastcc i32 @_unpack_shutdown_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %72 = tail call fastcc i32 @_unpack_shutdown_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 73:                                               ; preds = %13
@@ -16686,7 +16686,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 99:                                               ; preds = %13
-  %100 = tail call fastcc i32 @_unpack_reattach_tasks_response_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %100 = tail call fastcc i32 @_unpack_reattach_tasks_response_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 101:                                              ; preds = %13, %13
@@ -16714,7 +16714,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 113:                                              ; preds = %13
-  %114 = tail call fastcc i32 @_unpack_complete_job_allocation_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %114 = tail call fastcc i32 @_unpack_complete_job_allocation_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 115:                                              ; preds = %13
@@ -16742,7 +16742,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 127:                                              ; preds = %13
-  %128 = tail call fastcc i32 @_unpack_job_step_pids.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %128 = tail call fastcc i32 @_unpack_job_step_pids(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 129:                                              ; preds = %13, %13, %13, %13
@@ -16770,7 +16770,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 141:                                              ; preds = %13, %13, %13, %13, %13, %13, %13
-  %142 = tail call fastcc i32 @_unpack_return_code_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %142 = tail call fastcc i32 @_unpack_return_code_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 143:                                              ; preds = %13
@@ -16791,15 +16791,15 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 151:                                              ; preds = %13
-  %152 = tail call fastcc i32 @_unpack_job_id_request_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %152 = tail call fastcc i32 @_unpack_job_id_request_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 153:                                              ; preds = %13
-  %154 = tail call fastcc i32 @_unpack_job_id_response_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %154 = tail call fastcc i32 @_unpack_job_id_response_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 155:                                              ; preds = %13
-  tail call fastcc void @_unpack_config_request_msg.argelim(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
+  tail call fastcc void @_unpack_config_request_msg(ptr noundef nonnull %3, ptr noundef %1, i16 noundef zeroext %5)
   br label %.thread
 
 156:                                              ; preds = %13, %13, %13
@@ -16823,7 +16823,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 166:                                              ; preds = %13
-  %167 = tail call fastcc i32 @_unpack_srun_user_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %167 = tail call fastcc i32 @_unpack_srun_user_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 168:                                              ; preds = %13, %13
@@ -16847,7 +16847,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 178:                                              ; preds = %13, %13, %13
-  %179 = tail call fastcc i32 @_unpack_job_ready_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %179 = tail call fastcc i32 @_unpack_job_ready_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 180:                                              ; preds = %13
@@ -16855,7 +16855,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 182:                                              ; preds = %13
-  %183 = tail call fastcc i32 @_unpack_job_user_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %183 = tail call fastcc i32 @_unpack_job_user_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 184:                                              ; preds = %13
@@ -16883,7 +16883,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 196:                                              ; preds = %13
-  %197 = tail call fastcc i32 @_unpack_kvs_get.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %197 = tail call fastcc i32 @_unpack_kvs_get(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 198:                                              ; preds = %13, %13, %13, %13, %13
@@ -16903,11 +16903,11 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 206:                                              ; preds = %13, %13
-  %207 = tail call fastcc i32 @_unpack_set_debug_level_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %207 = tail call fastcc i32 @_unpack_set_debug_level_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 208:                                              ; preds = %13, %13, %13
-  %209 = tail call fastcc i32 @_unpack_suspend_exc_update_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %209 = tail call fastcc i32 @_unpack_suspend_exc_update_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 210:                                              ; preds = %13
@@ -16927,7 +16927,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 218:                                              ; preds = %13
-  %219 = tail call fastcc i32 @_unpack_front_end_info_request_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %219 = tail call fastcc i32 @_unpack_front_end_info_request_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 220:                                              ; preds = %13
@@ -16943,7 +16943,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 226:                                              ; preds = %13
-  %227 = tail call fastcc i32 @_unpack_forward_data_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %227 = tail call fastcc i32 @_unpack_forward_data_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 228:                                              ; preds = %13
@@ -16955,7 +16955,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 232:                                              ; preds = %13
-  %233 = tail call fastcc i32 @_unpack_license_info_request_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %233 = tail call fastcc i32 @_unpack_license_info_request_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 234:                                              ; preds = %13
@@ -16963,7 +16963,7 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 236:                                              ; preds = %13
-  %237 = tail call fastcc i32 @_unpack_assoc_mgr_info_request_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %237 = tail call fastcc i32 @_unpack_assoc_mgr_info_request_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 238:                                              ; preds = %13
@@ -16991,11 +16991,11 @@ _unpack_step_alloc_info_msg.exit:                 ; preds = %13
   br label %282
 
 250:                                              ; preds = %13
-  %251 = tail call fastcc i32 @_unpack_bb_status_req_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %251 = tail call fastcc i32 @_unpack_bb_status_req_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 252:                                              ; preds = %13
-  %253 = tail call fastcc i32 @_unpack_bb_status_resp_msg.argelim(ptr noundef nonnull %3, ptr noundef %1)
+  %253 = tail call fastcc i32 @_unpack_bb_status_resp_msg(ptr noundef nonnull %3, ptr noundef %1)
   br label %282
 
 254:                                              ; preds = %13
@@ -17124,7 +17124,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_single_msg(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_part_info_request_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_part_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7514, ptr noundef nonnull @__func__._unpack_part_info_request_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack_time(ptr noundef %3, ptr noundef %1) #8
@@ -17148,7 +17148,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_part_info_request_msg.argel
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_resv_info_request_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_resv_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7540, ptr noundef nonnull @__func__._unpack_resv_info_request_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack_time(ptr noundef %3, ptr noundef %1) #8
@@ -17166,7 +17166,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_resv_info_request_msg.argel
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_last_update_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_last_update_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 5553, ptr noundef nonnull @__func__._unpack_last_update_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack_time(ptr noundef %3, ptr noundef %1) #8
@@ -20246,7 +20246,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_msg(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_job_script_msg.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_script_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1) #8
   %.not = icmp eq i32 %4, 0
@@ -24311,7 +24311,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reboot_msg(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_shutdown_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_shutdown_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6506, ptr noundef nonnull @__func__._unpack_shutdown_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack16(ptr noundef %3, ptr noundef %1) #8
@@ -27830,7 +27830,7 @@ unpack_step_id_members.exit:                      ; preds = %.lr.ph, %.lr.ph69, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_response_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -28376,7 +28376,7 @@ unpack_step_id_members.exit:                      ; preds = %14, %11, %8, %25, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_complete_job_allocation_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_complete_job_allocation_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6620, ptr noundef nonnull @__func__._unpack_complete_job_allocation_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -28644,7 +28644,7 @@ unpack_step_id_members.exit.thread:               ; preds = %11, %unpack_step_id
 declare i32 @unpack_slurm_step_layout(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_pids.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_pids(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6894, ptr noundef nonnull @__func__._unpack_job_step_pids) #8
   store ptr %4, ptr %0, align 8
@@ -30688,7 +30688,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_prolog_launch_msg(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_return_code_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_return_code_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 5580, ptr noundef nonnull @__func__._unpack_return_code_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -31446,7 +31446,7 @@ unpack_step_id_members.exit:                      ; preds = %181, %178, %175, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_job_id_request_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_id_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7932, ptr noundef nonnull @__func__._unpack_job_id_request_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -31464,7 +31464,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_id_request_msg.argelim(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_job_id_response_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_id_response_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7963, ptr noundef nonnull @__func__._unpack_job_id_response_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -31488,7 +31488,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_id_response_msg.argelim
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_unpack_config_request_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_unpack_config_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7990, ptr noundef nonnull @__func__._unpack_config_request_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
@@ -31675,7 +31675,7 @@ unpack_step_id_members.exit:                      ; preds = %11, %8, %6, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_srun_user_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_srun_user_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8348, ptr noundef nonnull @__func__._unpack_srun_user_msg) #8
   store ptr %4, ptr %0, align 8
@@ -31877,7 +31877,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_token_response_msg(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_job_ready_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_ready_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8220, ptr noundef nonnull @__func__._unpack_job_ready_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -31939,7 +31939,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_requeue_msg(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_job_user_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_user_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8281, ptr noundef nonnull @__func__._unpack_job_user_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -33756,7 +33756,7 @@ _unpack_kvs_rec.exit.thread:                      ; preds = %62, %57, %54, %51, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_get.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_get(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8912, ptr noundef nonnull @__func__._unpack_kvs_get) #8
   store ptr %4, ptr %0, align 8
@@ -34094,7 +34094,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_set_debug_flags_msg(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_set_debug_level_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_set_debug_level_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9134, ptr noundef nonnull @__func__._unpack_set_debug_level_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack32(ptr noundef %3, ptr noundef %1) #8
@@ -34112,7 +34112,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_set_debug_level_msg.argelim
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_suspend_exc_update_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_suspend_exc_update_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9160, ptr noundef nonnull @__func__._unpack_suspend_exc_update_msg) #8
   store ptr %4, ptr %0, align 8
@@ -34336,7 +34336,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_sbcast_cred_msg(ptr noc
 declare i32 @slurmdb_unpack_federation_rec(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_front_end_info_request_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_front_end_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7423, ptr noundef nonnull @__func__._unpack_front_end_info_request_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack_time(ptr noundef %3, ptr noundef %1) #8
@@ -35245,7 +35245,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_stats_response_msg(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_forward_data_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_forward_data_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8550, ptr noundef nonnull @__func__._unpack_forward_data_msg) #8
@@ -35456,7 +35456,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_request_msg.argelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_request_msg(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9581, ptr noundef nonnull @__func__._unpack_license_info_request_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = tail call i32 @unpack_time(ptr noundef %3, ptr noundef %1) #8
@@ -35602,7 +35602,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_assoc_mgr_info_request_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_assoc_mgr_info_request_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -35973,7 +35973,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_control_status_msg(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_bb_status_req_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_bb_status_req_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9942, ptr noundef nonnull @__func__._unpack_bb_status_req_msg) #8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -35992,7 +35992,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_bb_status_req_msg.argelim(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_bb_status_resp_msg.argelim(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_bb_status_resp_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9966, ptr noundef nonnull @__func__._unpack_bb_status_resp_msg) #8
   store ptr %4, ptr %0, align 8

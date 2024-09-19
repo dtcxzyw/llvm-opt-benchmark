@@ -1814,7 +1814,7 @@ define void @_ZN5Nbnxm4Grid8fillCellEPNS_11GridSetDataEP16nbnxn_atomdata_tiiN3gm
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   store i32 0, ptr %33, align 4
   %34 = icmp slt i32 %3, %4
-  br i1 %34, label %.preheader7.lr.ph.i, label %_ZN5NbnxmL20sort_cluster_on_flagEiiiN3gmx8ArrayRefIKlEENS1_IiEEPi.argprom.exit
+  br i1 %34, label %.preheader7.lr.ph.i, label %_ZN5NbnxmL20sort_cluster_on_flagEiiiN3gmx8ArrayRefIKlEENS1_IiEEPi.exit
 
 .preheader7.lr.ph.i:                              ; preds = %18
   %35 = sext i32 %3 to i64
@@ -1941,14 +1941,14 @@ define void @_ZN5Nbnxm4Grid8fillCellEPNS_11GridSetDataEP16nbnxn_atomdata_tiiN3gm
   %80 = phi i32 [ %79, %76 ], [ %75, %74 ], [ %73, %.loopexit.i ], [ %38, %.preheader7.i ]
   %81 = add nuw nsw i32 %.05321.i, 1
   %82 = icmp sgt i32 %4, %indvars.i
-  br i1 %82, label %.preheader7.i, label %_ZN5NbnxmL20sort_cluster_on_flagEiiiN3gmx8ArrayRefIKlEENS1_IiEEPi.argprom.exit, !llvm.loop !27
+  br i1 %82, label %.preheader7.i, label %_ZN5NbnxmL20sort_cluster_on_flagEiiiN3gmx8ArrayRefIKlEENS1_IiEEPi.exit, !llvm.loop !27
 
-_ZN5NbnxmL20sort_cluster_on_flagEiiiN3gmx8ArrayRefIKlEENS1_IiEEPi.argprom.exit: ; preds = %.thread.i, %18
+_ZN5NbnxmL20sort_cluster_on_flagEiiiN3gmx8ArrayRefIKlEENS1_IiEEPi.exit: ; preds = %.thread.i, %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %83
 
-83:                                               ; preds = %_ZN5NbnxmL20sort_cluster_on_flagEiiiN3gmx8ArrayRefIKlEENS1_IiEEPi.argprom.exit, %8
+83:                                               ; preds = %_ZN5NbnxmL20sort_cluster_on_flagEiiiN3gmx8ArrayRefIKlEENS1_IiEEPi.exit, %8
   %84 = getelementptr inbounds i8, ptr %0, i64 312
   %85 = load ptr, ptr %84, align 8
   %86 = load i8, ptr %85, align 1
@@ -2749,7 +2749,7 @@ define void @_ZN5Nbnxm4Grid22sortColumnsCpuGeometryEPNS_11GridSetDataEiN3gmx8Arr
   %64 = load float, ptr %31, align 4
   %65 = fdiv float 1.000000e+00, %64
   %66 = mul nsw i32 %55, %19
-  tail call fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE.argprom.argelim(i32 noundef 2, i1 noundef zeroext false, ptr noundef %62, i32 noundef %49, i64 %28, float noundef %63, float noundef %65, i32 noundef %66, i64 %33)
+  tail call fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE(i32 noundef 2, i1 noundef zeroext false, ptr noundef %62, i32 noundef %49, i64 %28, float noundef %63, float noundef %65, i32 noundef %66, i64 %33)
   %67 = icmp sgt i32 %55, 0
   br i1 %67, label %.lr.ph.preheader, label %.preheader
 
@@ -2822,7 +2822,7 @@ define void @_ZN5Nbnxm4Grid22sortColumnsCpuGeometryEPNS_11GridSetDataEiN3gmx8Arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE.argprom.argelim(i32 noundef range(i32 0, 3) %0, i1 noundef zeroext %1, ptr nocapture noundef %2, i32 noundef %3, i64 %.0.val, float noundef %4, float noundef %5, i32 noundef %6, i64 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE(i32 noundef range(i32 0, 3) %0, i1 noundef zeroext %1, ptr nocapture noundef %2, i32 noundef %3, i64 %.0.val, float noundef %4, float noundef %5, i32 noundef %6, i64 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -3361,7 +3361,7 @@ define void @_ZN5Nbnxm4Grid22sortColumnsGpuGeometryEPNS_11GridSetDataEiN3gmx8Arr
   %79 = load float, ptr %40, align 4
   %80 = fdiv float 1.000000e+00, %79
   %81 = mul nsw i32 %71, %22
-  tail call fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE.argprom.argelim(i32 noundef 2, i1 noundef zeroext false, ptr noundef %77, i32 noundef %65, i64 %37, float noundef %78, float noundef %80, i32 noundef %81, i64 %42)
+  tail call fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE(i32 noundef 2, i1 noundef zeroext false, ptr noundef %77, i32 noundef %65, i64 %37, float noundef %78, float noundef %80, i32 noundef %81, i64 %42)
   %82 = icmp sgt i32 %71, 0
   br i1 %82, label %.lr.ph, label %.preheader
 
@@ -3450,7 +3450,7 @@ define void @_ZN5Nbnxm4Grid22sortColumnsGpuGeometryEPNS_11GridSetDataEiN3gmx8Arr
   %138 = load float, ptr %47, align 4
   %139 = tail call float @llvm.fmuladd.f32(float %87, float %138, float %137)
   %140 = load float, ptr %49, align 4
-  tail call fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE.argprom.argelim(i32 noundef 1, i1 noundef zeroext %135, ptr noundef %136, i32 noundef %.sroa.speculated118, i64 %37, float noundef %139, float noundef %140, i32 noundef %26, i64 %42)
+  tail call fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE(i32 noundef 1, i1 noundef zeroext %135, ptr noundef %136, i32 noundef %.sroa.speculated118, i64 %37, float noundef %139, float noundef %140, i32 noundef %26, i64 %42)
   br label %.critedge
 
 .critedge:                                        ; preds = %134, %.critedge
@@ -3467,7 +3467,7 @@ define void @_ZN5Nbnxm4Grid22sortColumnsGpuGeometryEPNS_11GridSetDataEiN3gmx8Arr
   %149 = load float, ptr %46, align 8
   %150 = tail call float @llvm.fmuladd.f32(float %88, float %149, float %148)
   %151 = load float, ptr %48, align 8
-  tail call fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE.argprom.argelim(i32 noundef 0, i1 noundef zeroext %141, ptr noundef %147, i32 noundef %.sroa.speculated102, i64 %37, float noundef %150, float noundef %151, i32 noundef %25, i64 %42)
+  tail call fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE(i32 noundef 0, i1 noundef zeroext %141, ptr noundef %147, i32 noundef %.sroa.speculated102, i64 %37, float noundef %150, float noundef %151, i32 noundef %25, i64 %42)
   %152 = sub i32 %.neg, %145
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %152, i32 %24)
   %153 = add nsw i32 %.sroa.speculated, %145

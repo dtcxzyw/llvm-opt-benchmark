@@ -3965,7 +3965,7 @@ appendContextKeyword.exit63:                      ; preds = %732, %729, %697, %6
   %776 = load ptr, ptr %775, align 8
   %777 = getelementptr i8, ptr %0, i64 47
   %.val224 = load i8, ptr %777, align 1
-  call fastcc void @get_update_query_targetlist_def.argprom(i8 %.val224, ptr noundef %776, ptr noundef %9, ptr noundef %760)
+  call fastcc void @get_update_query_targetlist_def(i8 %.val224, ptr noundef %776, ptr noundef %9, ptr noundef %760)
   call fastcc void @get_from_clause(ptr noundef nonnull %0, ptr noundef nonnull @.str.215, ptr noundef %9)
   %778 = getelementptr inbounds i8, ptr %0, i64 80
   %779 = load ptr, ptr %778, align 8
@@ -4561,7 +4561,7 @@ appendContextKeyword.exit145:                     ; preds = %1027, %1030
   %1050 = load ptr, ptr %1049, align 8
   %1051 = getelementptr i8, ptr %0, i64 47
   %.val223 = load i8, ptr %1051, align 1
-  call fastcc void @get_update_query_targetlist_def.argprom(i8 %.val223, ptr noundef %1050, ptr noundef %9, ptr noundef %892)
+  call fastcc void @get_update_query_targetlist_def(i8 %.val223, ptr noundef %1050, ptr noundef %9, ptr noundef %892)
   %1052 = getelementptr inbounds i8, ptr %986, i64 40
   %1053 = load ptr, ptr %1052, align 8
   %.not135.i = icmp eq ptr %1053, null
@@ -5471,7 +5471,7 @@ get_rule_list_toplevel.exit:                      ; preds = %get_rule_expr_tople
   %1503 = getelementptr inbounds i8, ptr %1307, i64 24
   %1504 = load ptr, ptr %1503, align 8
   %.val222 = load i8, ptr %1302, align 1
-  call fastcc void @get_update_query_targetlist_def.argprom(i8 %.val222, ptr noundef %1504, ptr noundef %9, ptr noundef %1245)
+  call fastcc void @get_update_query_targetlist_def(i8 %.val222, ptr noundef %1504, ptr noundef %9, ptr noundef %1245)
   br label %1507
 
 1505:                                             ; preds = %appendContextKeyword.exit181
@@ -9743,12 +9743,12 @@ define internal fastcc void @set_deparse_plan(ptr nocapture noundef %0, ptr noun
     i32 331, label %25
     i32 335, label %27
     i32 337, label %36
-    i32 317, label %find_recursive_union.argprom.exit
+    i32 317, label %find_recursive_union.exit
   ]
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %1, i64 112
-  br label %find_recursive_union.argprom.exit.sink.split
+  br label %find_recursive_union.exit.sink.split
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9760,7 +9760,7 @@ define internal fastcc void @set_deparse_plan(ptr nocapture noundef %0, ptr noun
   %.val56 = load ptr, ptr %33, align 8
   %34 = sext i32 %32 to i64
   %35 = getelementptr %union.ListCell, ptr %.val56, i64 %34
-  br label %find_recursive_union.argprom.exit.sink.split
+  br label %find_recursive_union.exit.sink.split
 
 36:                                               ; preds = %21
   %37 = getelementptr i8, ptr %0, i64 72
@@ -9794,7 +9794,7 @@ define internal fastcc void @set_deparse_plan(ptr nocapture noundef %0, ptr noun
   %51 = load i32, ptr %50, align 8
   %52 = load i32, ptr %40, align 8
   %53 = icmp eq i32 %51, %52
-  br i1 %53, label %find_recursive_union.argprom.exit, label %54
+  br i1 %53, label %find_recursive_union.exit, label %54
 
 54:                                               ; preds = %49, %44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9812,22 +9812,22 @@ define internal fastcc void @set_deparse_plan(ptr nocapture noundef %0, ptr noun
 
 59:                                               ; preds = %21
   %60 = getelementptr inbounds i8, ptr %1, i64 72
-  br label %find_recursive_union.argprom.exit.sink.split
+  br label %find_recursive_union.exit.sink.split
 
-find_recursive_union.argprom.exit.sink.split:     ; preds = %25, %59, %27
+find_recursive_union.exit.sink.split:             ; preds = %25, %59, %27
   %.sink67 = phi ptr [ %35, %27 ], [ %60, %59 ], [ %26, %25 ]
   %61 = load ptr, ptr %.sink67, align 8
-  br label %find_recursive_union.argprom.exit
+  br label %find_recursive_union.exit
 
-find_recursive_union.argprom.exit:                ; preds = %49, %find_recursive_union.argprom.exit.sink.split, %21
-  %.sink = phi ptr [ %1, %21 ], [ %61, %find_recursive_union.argprom.exit.sink.split ], [ %46, %49 ]
+find_recursive_union.exit:                        ; preds = %49, %find_recursive_union.exit.sink.split, %21
+  %.sink = phi ptr [ %1, %21 ], [ %61, %find_recursive_union.exit.sink.split ], [ %46, %49 ]
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %.sink, ptr %62, align 8
   %63 = load i32, ptr %1, align 4
   %64 = icmp eq i32 %63, 317
   br i1 %64, label %65, label %71
 
-65:                                               ; preds = %find_recursive_union.argprom.exit
+65:                                               ; preds = %find_recursive_union.exit
   %66 = getelementptr inbounds i8, ptr %1, i64 104
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, 5
@@ -9837,7 +9837,7 @@ find_recursive_union.argprom.exit:                ; preds = %49, %find_recursive
   %70 = getelementptr inbounds i8, ptr %1, i64 232
   br label %.sink.split
 
-71:                                               ; preds = %find_recursive_union.argprom.exit
+71:                                               ; preds = %find_recursive_union.exit
   %.not54 = icmp eq ptr %.sink, null
   br i1 %.not54, label %75, label %72
 
@@ -10175,7 +10175,7 @@ define internal fastcc void @get_const_expr(ptr nocapture noundef readonly %0, p
 10:                                               ; preds = %3
   tail call void @appendStringInfoString(ptr noundef %6, ptr noundef nonnull @.str.96) #11
   %11 = icmp sgt i32 %2, -1
-  br i1 %11, label %12, label %get_const_collation.argprom.exit
+  br i1 %11, label %12, label %get_const_collation.exit
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 4
@@ -10188,19 +10188,19 @@ define internal fastcc void @get_const_expr(ptr nocapture noundef readonly %0, p
   %18 = getelementptr inbounds i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %get_const_collation.argprom.exit, label %20
+  br i1 %.not.i, label %get_const_collation.exit, label %20
 
 20:                                               ; preds = %12
   %21 = load i32, ptr %13, align 4
   %22 = tail call i32 @get_typcollation(i32 noundef %21) #11
   %23 = load i32, ptr %18, align 4
   %.not6.i = icmp eq i32 %23, %22
-  br i1 %.not6.i, label %get_const_collation.argprom.exit, label %24
+  br i1 %.not6.i, label %get_const_collation.exit, label %24
 
 24:                                               ; preds = %20
   %25 = tail call ptr @generate_collation_name(i32 noundef %23)
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %.val, ptr noundef nonnull @.str.88, ptr noundef %25) #11
-  br label %get_const_collation.argprom.exit
+  br label %get_const_collation.exit
 
 26:                                               ; preds = %3
   %27 = getelementptr inbounds i8, ptr %0, i64 4
@@ -10309,7 +10309,7 @@ simple_quote_literal.exit:                        ; preds = %57
   %.0 = phi i1 [ false, %simple_quote_literal.exit ], [ false, %55 ], [ false, %.tail.thread ], [ false, %49 ], [ true, %50 ], [ false, %36 ], [ true, %37 ]
   call void @pfree(ptr noundef %32) #11
   %66 = icmp slt i32 %2, 0
-  br i1 %66, label %get_const_collation.argprom.exit, label %67
+  br i1 %66, label %get_const_collation.exit, label %67
 
 67:                                               ; preds = %65
   %68 = load i32, ptr %27, align 4
@@ -10348,21 +10348,21 @@ simple_quote_literal.exit:                        ; preds = %57
   %81 = getelementptr inbounds i8, ptr %0, i64 12
   %82 = load i32, ptr %81, align 4
   %.not.i45 = icmp eq i32 %82, 0
-  br i1 %.not.i45, label %get_const_collation.argprom.exit, label %83
+  br i1 %.not.i45, label %get_const_collation.exit, label %83
 
 83:                                               ; preds = %80
   %84 = load i32, ptr %27, align 4
   %85 = call i32 @get_typcollation(i32 noundef %84) #11
   %86 = load i32, ptr %81, align 4
   %.not6.i46 = icmp eq i32 %86, %85
-  br i1 %.not6.i46, label %get_const_collation.argprom.exit, label %87
+  br i1 %.not6.i46, label %get_const_collation.exit, label %87
 
 87:                                               ; preds = %83
   %88 = call ptr @generate_collation_name(i32 noundef %86)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %.val44, ptr noundef nonnull @.str.88, ptr noundef %88) #11
-  br label %get_const_collation.argprom.exit
+  br label %get_const_collation.exit
 
-get_const_collation.argprom.exit:                 ; preds = %87, %83, %80, %24, %20, %12, %65, %10
+get_const_collation.exit:                         ; preds = %87, %83, %80, %24, %20, %12, %65, %10
   ret void
 }
 
@@ -13532,7 +13532,7 @@ switch.lookup1448:                                ; preds = %637
   br label %common.ret1740
 
 742:                                              ; preds = %8
-  tail call fastcc void @get_json_constructor.argelim(ptr noundef %.tr917, ptr noundef nonnull %1)
+  tail call fastcc void @get_json_constructor(ptr noundef %.tr917, ptr noundef nonnull %1)
   br label %common.ret1740
 
 743:                                              ; preds = %8
@@ -17545,7 +17545,7 @@ define internal fastcc void @get_json_format(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_json_constructor.argelim(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @get_json_constructor(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -21547,7 +21547,7 @@ list_length.exit:                                 ; preds = %30
 67:                                               ; preds = %63, %59
   %68 = getelementptr inbounds i8, ptr %55, i64 8
   %69 = load ptr, ptr %68, align 8
-  tail call fastcc void @get_rule_expr_funccall.argelim(ptr noundef %69, ptr noundef %2)
+  tail call fastcc void @get_rule_expr_funccall(ptr noundef %69, ptr noundef %2)
   br label %117
 
 70:                                               ; preds = %list_length.exit
@@ -21638,7 +21638,7 @@ list_length.exit:                                 ; preds = %30
 107:                                              ; preds = %106, %.lr.ph268
   %108 = getelementptr inbounds i8, ptr %104, i64 8
   %109 = load ptr, ptr %108, align 8
-  tail call fastcc void @get_rule_expr_funccall.argelim(ptr noundef %109, ptr noundef %2)
+  tail call fastcc void @get_rule_expr_funccall(ptr noundef %109, ptr noundef %2)
   %110 = getelementptr inbounds i8, ptr %104, i64 24
   %111 = load ptr, ptr %110, align 8
   %.not200 = icmp eq ptr %111, null
@@ -21647,7 +21647,7 @@ list_length.exit:                                 ; preds = %30
 112:                                              ; preds = %107
   tail call void @appendStringInfoString(ptr noundef %5, ptr noundef nonnull @.str.412) #11
   %.val212 = load ptr, ptr %2, align 8
-  tail call fastcc void @get_from_clause_coldeflist.argprom(ptr noundef nonnull %104, ptr noundef null, ptr %.val212)
+  tail call fastcc void @get_from_clause_coldeflist(ptr noundef nonnull %104, ptr noundef null, ptr %.val212)
   br label %113
 
 113:                                              ; preds = %112, %107
@@ -21718,21 +21718,21 @@ list_length.exit:                                 ; preds = %30
 
 140:                                              ; preds = %137
   %.val213 = load ptr, ptr %2, align 8
-  tail call fastcc void @get_from_clause_coldeflist.argprom(ptr noundef nonnull %.1, ptr noundef %25, ptr %.val213)
-  br label %get_column_alias_list.argprom.exit
+  tail call fastcc void @get_from_clause_coldeflist(ptr noundef nonnull %.1, ptr noundef %25, ptr %.val213)
+  br label %get_column_alias_list.exit
 
 141:                                              ; preds = %.thread235, %137, %136
   %.val215 = load ptr, ptr %2, align 8
   %142 = getelementptr inbounds i8, ptr %25, i64 40
   %143 = load i8, ptr %142, align 8
   %144 = trunc i8 %143 to i1
-  br i1 %144, label %.preheader.i, label %get_column_alias_list.argprom.exit
+  br i1 %144, label %.preheader.i, label %get_column_alias_list.exit
 
 .preheader.i:                                     ; preds = %141
   %145 = getelementptr inbounds i8, ptr %25, i64 16
   %146 = load i32, ptr %145, align 8
   %147 = icmp sgt i32 %146, 0
-  br i1 %147, label %.lr.ph.i, label %get_column_alias_list.argprom.exit
+  br i1 %147, label %.lr.ph.i, label %get_column_alias_list.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %148 = getelementptr inbounds i8, ptr %25, i64 24
@@ -21767,22 +21767,22 @@ list_length.exit:                                 ; preds = %30
 
 ._crit_edge.i:                                    ; preds = %156
   %161 = trunc nuw i8 %.1.i to i1
-  br i1 %161, label %get_column_alias_list.argprom.exit, label %162
+  br i1 %161, label %get_column_alias_list.exit, label %162
 
 162:                                              ; preds = %._crit_edge.i
   tail call void @appendStringInfoChar(ptr noundef %.val215, i8 noundef signext 41) #11
-  br label %get_column_alias_list.argprom.exit
+  br label %get_column_alias_list.exit
 
-get_column_alias_list.argprom.exit:               ; preds = %162, %._crit_edge.i, %.preheader.i, %141, %140
+get_column_alias_list.exit:                       ; preds = %162, %._crit_edge.i, %.preheader.i, %141, %140
   %163 = load i32, ptr %31, align 4
   %164 = icmp eq i32 %163, 0
-  br i1 %164, label %165, label %get_column_alias_list.argprom.exit225
+  br i1 %164, label %165, label %get_column_alias_list.exit225
 
-165:                                              ; preds = %get_column_alias_list.argprom.exit
+165:                                              ; preds = %get_column_alias_list.exit
   %166 = getelementptr inbounds i8, ptr %20, i64 24
   %167 = load ptr, ptr %166, align 8
   %.not205 = icmp eq ptr %167, null
-  br i1 %.not205, label %get_column_alias_list.argprom.exit225, label %168
+  br i1 %.not205, label %get_column_alias_list.exit225, label %168
 
 168:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -21841,7 +21841,7 @@ get_column_alias_list.argprom.exit:               ; preds = %162, %._crit_edge.i
 
 get_tablesample_def.exit:                         ; preds = %._crit_edge273, %190
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %get_column_alias_list.argprom.exit225
+  br label %get_column_alias_list.exit225
 
 192:                                              ; preds = %3
   %193 = getelementptr inbounds i8, ptr %9, i64 16
@@ -22047,14 +22047,14 @@ get_tablesample_def.exit:                         ; preds = %._crit_edge273, %19
   %284 = getelementptr inbounds i8, ptr %0, i64 56
   %285 = load ptr, ptr %284, align 8
   %.not192 = icmp eq ptr %285, null
-  br i1 %.not192, label %get_column_alias_list.argprom.exit225, label %286
+  br i1 %.not192, label %get_column_alias_list.exit225, label %286
 
 286:                                              ; preds = %280, %283
   tail call void @appendStringInfoChar(ptr noundef %5, i8 noundef signext 41) #11
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %287 = icmp eq ptr %.pre, null
-  br i1 %287, label %get_column_alias_list.argprom.exit225, label %288
+  br i1 %287, label %get_column_alias_list.exit225, label %288
 
 288:                                              ; preds = %286
   %289 = load i32, ptr %195, align 8
@@ -22076,13 +22076,13 @@ get_tablesample_def.exit:                         ; preds = %._crit_edge273, %19
   %298 = getelementptr inbounds i8, ptr %201, i64 40
   %299 = load i8, ptr %298, align 8
   %300 = trunc i8 %299 to i1
-  br i1 %300, label %.preheader.i218, label %get_column_alias_list.argprom.exit225
+  br i1 %300, label %.preheader.i218, label %get_column_alias_list.exit225
 
 .preheader.i218:                                  ; preds = %288
   %301 = getelementptr inbounds i8, ptr %201, i64 16
   %302 = load i32, ptr %301, align 8
   %303 = icmp sgt i32 %302, 0
-  br i1 %303, label %.lr.ph.i219, label %get_column_alias_list.argprom.exit225
+  br i1 %303, label %.lr.ph.i219, label %get_column_alias_list.exit225
 
 .lr.ph.i219:                                      ; preds = %.preheader.i218
   %304 = getelementptr inbounds i8, ptr %201, i64 24
@@ -22117,11 +22117,11 @@ get_tablesample_def.exit:                         ; preds = %._crit_edge273, %19
 
 ._crit_edge.i224:                                 ; preds = %312
   %317 = trunc nuw i8 %.1.i222 to i1
-  br i1 %317, label %get_column_alias_list.argprom.exit225, label %318
+  br i1 %317, label %get_column_alias_list.exit225, label %318
 
 318:                                              ; preds = %._crit_edge.i224
   tail call void @appendStringInfoChar(ptr noundef %.val216, i8 noundef signext 41) #11
-  br label %get_column_alias_list.argprom.exit225
+  br label %get_column_alias_list.exit225
 
 319:                                              ; preds = %3
   %320 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -22131,12 +22131,12 @@ get_tablesample_def.exit:                         ; preds = %._crit_edge273, %19
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 11592, ptr noundef nonnull @__func__.get_from_clause_item) #11
   unreachable
 
-get_column_alias_list.argprom.exit225:            ; preds = %283, %318, %._crit_edge.i224, %.preheader.i218, %288, %286, %get_column_alias_list.argprom.exit, %165, %get_tablesample_def.exit
+get_column_alias_list.exit225:                    ; preds = %283, %318, %._crit_edge.i224, %.preheader.i218, %288, %286, %get_column_alias_list.exit, %165, %get_tablesample_def.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_rule_expr_funccall.argelim(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @get_rule_expr_funccall(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %looks_like_function.exit.thread, label %4
 
@@ -22180,7 +22180,7 @@ looks_like_function.exit.thread:                  ; preds = %looks_like_function
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_from_clause_coldeflist.argprom(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr %.0.val) unnamed_addr #0 {
+define internal fastcc void @get_from_clause_coldeflist(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr %.0.val) unnamed_addr #0 {
   tail call void @appendStringInfoChar(ptr noundef %.0.val, i8 noundef signext 40) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -22413,7 +22413,7 @@ get_relation_name.exit:                           ; preds = %29
 declare i32 @get_typcollation(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_update_query_targetlist_def.argprom(i8 %.47.val, ptr noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @get_update_query_targetlist_def(i8 %.47.val, ptr noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = trunc i8 %.47.val to i1
   %6 = getelementptr inbounds i8, ptr %0, i64 4

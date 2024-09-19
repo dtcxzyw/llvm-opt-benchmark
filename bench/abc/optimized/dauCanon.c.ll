@@ -8318,7 +8318,7 @@ Abc_TtCopy.exit.i89.us.i:                         ; preds = %Abc_TtCopy.exit.i89
 
 254:                                              ; preds = %Abc_TtCopy.exit.i89.us.i
   %255 = load ptr, ptr %0, align 8
-  br i1 %238, label %.lr.ph.preheader.i.i.us.i, label %Abc_TtEqual.argprom.exit.i90.us.i
+  br i1 %238, label %.lr.ph.preheader.i.i.us.i, label %Abc_TtEqual.exit.i90.us.i
 
 .lr.ph.preheader.i.i.us.i:                        ; preds = %254
   %wide.trip.count.i.i.us.i = zext nneg i32 %236 to i64
@@ -8331,18 +8331,18 @@ Abc_TtCopy.exit.i89.us.i:                         ; preds = %Abc_TtCopy.exit.i89
   %258 = getelementptr inbounds i64, ptr @pSymCopy, i64 %indvars.iv.i.i105.us.i
   %259 = load i64, ptr %258, align 8
   %.not.i.i106.us.i = icmp eq i64 %257, %259
-  br i1 %.not.i.i106.us.i, label %260, label %Abc_TtEqual.argprom.exit.i90.us.i
+  br i1 %.not.i.i106.us.i, label %260, label %Abc_TtEqual.exit.i90.us.i
 
 260:                                              ; preds = %.lr.ph.i.i104.us.i
   %indvars.iv.next.i.i107.us.i = add nuw nsw i64 %indvars.iv.i.i105.us.i, 1
   %exitcond.not.i.i108.us.i = icmp eq i64 %indvars.iv.next.i.i107.us.i, %wide.trip.count.i.i.us.i
-  br i1 %exitcond.not.i.i108.us.i, label %Abc_TtEqual.argprom.exit.i90.us.i, label %.lr.ph.i.i104.us.i, !llvm.loop !98
+  br i1 %exitcond.not.i.i108.us.i, label %Abc_TtEqual.exit.i90.us.i, label %.lr.ph.i.i104.us.i, !llvm.loop !98
 
-Abc_TtEqual.argprom.exit.i90.us.i:                ; preds = %260, %.lr.ph.i.i104.us.i, %254
+Abc_TtEqual.exit.i90.us.i:                        ; preds = %260, %.lr.ph.i.i104.us.i, %254
   %.07.i.i91.us.i = phi i32 [ 2, %254 ], [ 0, %.lr.ph.i.i104.us.i ], [ 2, %260 ]
   br i1 %.not.i.i, label %Abc_TtIsSymmetricHigh.exit.us.i, label %.preheader.i.us.i
 
-.preheader.i.us.i:                                ; preds = %Abc_TtEqual.argprom.exit.i90.us.i
+.preheader.i.us.i:                                ; preds = %Abc_TtEqual.exit.i90.us.i
   %261 = icmp eq i32 %236, 1
   %262 = sext i32 %236 to i64
   %263 = getelementptr inbounds i64, ptr @pSymCopy, i64 %262
@@ -8564,7 +8564,7 @@ Abc_TtFlip.exit66.i.us.i:                         ; preds = %._crit_edge.us.i60.
   br i1 %368, label %.backedge.i.us.i, label %369
 
 369:                                              ; preds = %Abc_TtFlip.exit66.i.us.i
-  br i1 %238, label %.lr.ph.preheader.i68.i.us.i, label %Abc_TtEqual.argprom.exit75.i.us.i
+  br i1 %238, label %.lr.ph.preheader.i68.i.us.i, label %Abc_TtEqual.exit75.i.us.i
 
 .lr.ph.preheader.i68.i.us.i:                      ; preds = %Abc_TtFlip.exit66.thread.i.us.i, %369
   %370 = load ptr, ptr %0, align 8
@@ -8577,14 +8577,14 @@ Abc_TtFlip.exit66.i.us.i:                         ; preds = %._crit_edge.us.i60.
   %373 = getelementptr inbounds i64, ptr @pSymCopy, i64 %indvars.iv.i71.i.us.i
   %374 = load i64, ptr %373, align 8
   %.not.i72.i.us.i = icmp eq i64 %372, %374
-  br i1 %.not.i72.i.us.i, label %375, label %Abc_TtEqual.argprom.exit75.i.us.i
+  br i1 %.not.i72.i.us.i, label %375, label %Abc_TtEqual.exit75.i.us.i
 
 375:                                              ; preds = %.lr.ph.i70.i.us.i
   %indvars.iv.next.i73.i.us.i = add nuw nsw i64 %indvars.iv.i71.i.us.i, 1
   %exitcond.not.i74.i.us.i = icmp eq i64 %indvars.iv.next.i73.i.us.i, %wide.trip.count59.i.i.us.i
-  br i1 %exitcond.not.i74.i.us.i, label %Abc_TtEqual.argprom.exit75.i.us.i, label %.lr.ph.i70.i.us.i, !llvm.loop !98
+  br i1 %exitcond.not.i74.i.us.i, label %Abc_TtEqual.exit75.i.us.i, label %.lr.ph.i70.i.us.i, !llvm.loop !98
 
-Abc_TtEqual.argprom.exit75.i.us.i:                ; preds = %375, %.lr.ph.i70.i.us.i, %369
+Abc_TtEqual.exit75.i.us.i:                        ; preds = %375, %.lr.ph.i70.i.us.i, %369
   %.07.i67.i.us.i = phi i32 [ 1, %369 ], [ 0, %.lr.ph.i70.i.us.i ], [ 1, %375 ]
   %376 = or disjoint i32 %.07.i67.i.us.i, %.07.i.i91.us.i
   br label %Abc_TtIsSymmetricHigh.exit.us.i
@@ -8604,9 +8604,9 @@ Abc_TtEqual.argprom.exit75.i.us.i:                ; preds = %375, %.lr.ph.i70.i.
   %382 = shl nuw i32 1, %381
   %383 = select i1 %380, i32 1, i32 %382
   %384 = icmp sgt i32 %383, 0
-  br i1 %384, label %.lr.ph18.preheader.i.i.us.i, label %Abc_TtEqual.argprom.exit.thread.i.us.i
+  br i1 %384, label %.lr.ph18.preheader.i.i.us.i, label %Abc_TtEqual.exit.thread.i.us.i
 
-Abc_TtEqual.argprom.exit.thread.i.us.i:           ; preds = %377
+Abc_TtEqual.exit.thread.i.us.i:                   ; preds = %377
   tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull @pSymCopy, i32 noundef %379, i32 noundef %117, i32 noundef %223)
   br label %Abc_TtIsSymmetricHigh.exit.us.i
 
@@ -8635,18 +8635,18 @@ Abc_TtCopy.exit.i.us.i:                           ; preds = %.lr.ph18.i.i.us.i
   %390 = getelementptr inbounds i64, ptr @pSymCopy, i64 %indvars.iv.i.i.us.i
   %391 = load i64, ptr %390, align 8
   %.not.i.i.us.i = icmp eq i64 %389, %391
-  br i1 %.not.i.i.us.i, label %392, label %Abc_TtEqual.argprom.exit.i.us.i
+  br i1 %.not.i.i.us.i, label %392, label %Abc_TtEqual.exit.i.us.i
 
 392:                                              ; preds = %.lr.ph.i.i.us.i
   %indvars.iv.next.i.i.us.i = add nuw nsw i64 %indvars.iv.i.i.us.i, 1
   %exitcond.not.i.i.us.i = icmp eq i64 %indvars.iv.next.i.i.us.i, %wide.trip.count24.i.i.us.i
-  br i1 %exitcond.not.i.i.us.i, label %Abc_TtEqual.argprom.exit.i.us.i, label %.lr.ph.i.i.us.i, !llvm.loop !98
+  br i1 %exitcond.not.i.i.us.i, label %Abc_TtEqual.exit.i.us.i, label %.lr.ph.i.i.us.i, !llvm.loop !98
 
-Abc_TtEqual.argprom.exit.i.us.i:                  ; preds = %392, %.lr.ph.i.i.us.i
+Abc_TtEqual.exit.i.us.i:                          ; preds = %392, %.lr.ph.i.i.us.i
   %.07.i.i.us.i = phi i32 [ 2, %392 ], [ 0, %.lr.ph.i.i.us.i ]
   br i1 %.not.i.i, label %Abc_TtIsSymmetricHigh.exit.us.i, label %393
 
-393:                                              ; preds = %Abc_TtEqual.argprom.exit.i.us.i
+393:                                              ; preds = %Abc_TtEqual.exit.i.us.i
   %394 = icmp eq i32 %383, 1
   br i1 %394, label %Abc_TtFlip.exit39.thread.i.us.i, label %395
 
@@ -8795,20 +8795,20 @@ Abc_TtFlip.exit39.thread.i.us.i:                  ; preds = %393
   %462 = getelementptr inbounds i64, ptr @pSymCopy, i64 %indvars.iv.i44.i.us.i
   %463 = load i64, ptr %462, align 8
   %.not.i45.i.us.i = icmp eq i64 %461, %463
-  br i1 %.not.i45.i.us.i, label %464, label %Abc_TtEqual.argprom.exit48.i.us.loopexit.i
+  br i1 %.not.i45.i.us.i, label %464, label %Abc_TtEqual.exit48.i.us.loopexit.i
 
 464:                                              ; preds = %.lr.ph.i43.i.us.i
   %indvars.iv.next.i46.i.us.i = add nuw nsw i64 %indvars.iv.i44.i.us.i, 1
   %exitcond.not.i47.i.us.i = icmp eq i64 %indvars.iv.next.i46.i.us.i, %wide.trip.count24.i.i.us.i
-  br i1 %exitcond.not.i47.i.us.i, label %Abc_TtEqual.argprom.exit48.i.us.loopexit.i, label %.lr.ph.i43.i.us.i, !llvm.loop !98
+  br i1 %exitcond.not.i47.i.us.i, label %Abc_TtEqual.exit48.i.us.loopexit.i, label %.lr.ph.i43.i.us.i, !llvm.loop !98
 
-Abc_TtEqual.argprom.exit48.i.us.loopexit.i:       ; preds = %464, %.lr.ph.i43.i.us.i
+Abc_TtEqual.exit48.i.us.loopexit.i:               ; preds = %464, %.lr.ph.i43.i.us.i
   %.07.i40.i.us.ph.i = phi i32 [ 0, %.lr.ph.i43.i.us.i ], [ 1, %464 ]
   %465 = or disjoint i32 %.07.i40.i.us.ph.i, %.07.i.i.us.i
   br label %Abc_TtIsSymmetricHigh.exit.us.i
 
-Abc_TtIsSymmetricHigh.exit.us.i:                  ; preds = %Abc_TtEqual.argprom.exit48.i.us.loopexit.i, %Abc_TtEqual.argprom.exit.i.us.i, %Abc_TtEqual.argprom.exit.thread.i.us.i, %Abc_TtEqual.argprom.exit75.i.us.i, %Abc_TtEqual.argprom.exit.i90.us.i, %225, %220
-  %.sink.i = phi i32 [ %376, %Abc_TtEqual.argprom.exit75.i.us.i ], [ %.07.i.i91.us.i, %Abc_TtEqual.argprom.exit.i90.us.i ], [ %.07.i.i.us.i, %Abc_TtEqual.argprom.exit.i.us.i ], [ %465, %Abc_TtEqual.argprom.exit48.i.us.loopexit.i ], [ %spec.select.i, %Abc_TtEqual.argprom.exit.thread.i.us.i ], [ 0, %225 ], [ 0, %220 ]
+Abc_TtIsSymmetricHigh.exit.us.i:                  ; preds = %Abc_TtEqual.exit48.i.us.loopexit.i, %Abc_TtEqual.exit.i.us.i, %Abc_TtEqual.exit.thread.i.us.i, %Abc_TtEqual.exit75.i.us.i, %Abc_TtEqual.exit.i90.us.i, %225, %220
+  %.sink.i = phi i32 [ %376, %Abc_TtEqual.exit75.i.us.i ], [ %.07.i.i91.us.i, %Abc_TtEqual.exit.i90.us.i ], [ %.07.i.i.us.i, %Abc_TtEqual.exit.i.us.i ], [ %465, %Abc_TtEqual.exit48.i.us.loopexit.i ], [ %spec.select.i, %Abc_TtEqual.exit.thread.i.us.i ], [ 0, %225 ], [ 0, %220 ]
   %466 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %indvars.iv149.i
   store i32 %.sink.i, ptr %466, align 4
   %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1

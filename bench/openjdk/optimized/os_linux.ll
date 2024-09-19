@@ -9701,7 +9701,7 @@ define hidden noundef i64 @_ZN2os23current_thread_cpu_timeEv() local_unnamed_add
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %.val, i64 192
   %.val.val = load i32, ptr %15, align 8
-  %16 = tail call fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb.argprom.argprom(i32 %.val.val, i1 noundef zeroext true)
+  %16 = tail call fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb(i32 %.val.val, i1 noundef zeroext true)
   br label %17
 
 17:                                               ; preds = %11, %4
@@ -9710,7 +9710,7 @@ define hidden noundef i64 @_ZN2os23current_thread_cpu_timeEv() local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb.argprom.argprom(i32 %.792.val.192.val, i1 noundef zeroext %0) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb(i32 %.792.val.192.val, i1 noundef zeroext %0) unnamed_addr #0 {
   %2 = alloca [2048 x i8], align 16
   %3 = alloca [64 x i8], align 16
   %4 = alloca i64, align 8
@@ -9778,12 +9778,12 @@ define hidden noundef i64 @_ZN2os15thread_cpu_timeEP6Thread(ptr nocapture nounde
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %9 = load ptr, ptr @_ZN2os5Linux22_pthread_getcpuclockidE, align 8
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit, label %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i
+  br i1 %.not.i.i, label %_ZL13fast_cpu_timeP6Thread.exit, label %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i
 
 _ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i:   ; preds = %7
   %10 = call noundef i32 %9(i64 noundef %.val2.val, ptr noundef nonnull %3) #26
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit
+  br i1 %11, label %12, label %_ZL13fast_cpu_timeP6Thread.exit
 
 12:                                               ; preds = %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i
   %13 = load i32, ptr %3, align 4
@@ -9795,9 +9795,9 @@ _ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i:   ; preds = %7
   %18 = load i64, ptr %17, align 8
   %19 = add nsw i64 %16, %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit
+  br label %_ZL13fast_cpu_timeP6Thread.exit
 
-_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit:  ; preds = %7, %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i, %12
+_ZL13fast_cpu_timeP6Thread.exit:                  ; preds = %7, %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i, %12
   %.0.i = phi i64 [ %19, %12 ], [ -1, %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i ], [ -1, %7 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %23
@@ -9805,11 +9805,11 @@ _ZL13fast_cpu_timeP6Thread.argprom.argprom.exit:  ; preds = %7, %_ZN2os5Linux21p
 20:                                               ; preds = %1
   %21 = getelementptr i8, ptr %.val2, i64 192
   %.val.val = load i32, ptr %21, align 8
-  %22 = tail call fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb.argprom.argprom(i32 %.val.val, i1 noundef zeroext true)
+  %22 = tail call fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb(i32 %.val.val, i1 noundef zeroext true)
   br label %23
 
-23:                                               ; preds = %20, %_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit
-  %.0 = phi i64 [ %.0.i, %_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit ], [ %22, %20 ]
+23:                                               ; preds = %20, %_ZL13fast_cpu_timeP6Thread.exit
+  %.0 = phi i64 [ %.0.i, %_ZL13fast_cpu_timeP6Thread.exit ], [ %22, %20 ]
   ret i64 %.0
 }
 
@@ -9841,7 +9841,7 @@ define hidden noundef i64 @_ZN2os23current_thread_cpu_timeEb(i1 noundef zeroext 
   %.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %.val, i64 192
   %.val.val = load i32, ptr %17, align 8
-  %18 = tail call fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb.argprom.argprom(i32 %.val.val, i1 noundef zeroext %0)
+  %18 = tail call fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb(i32 %.val.val, i1 noundef zeroext %0)
   br label %19
 
 19:                                               ; preds = %13, %6
@@ -9868,12 +9868,12 @@ define hidden noundef i64 @_ZN2os15thread_cpu_timeEP6Threadb(ptr nocapture nound
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %11 = load ptr, ptr @_ZN2os5Linux22_pthread_getcpuclockidE, align 8
   %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit, label %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i
+  br i1 %.not.i.i, label %_ZL13fast_cpu_timeP6Thread.exit, label %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i
 
 _ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i:   ; preds = %8
   %12 = call noundef i32 %11(i64 noundef %.val4.val, ptr noundef nonnull %4) #26
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit
+  br i1 %13, label %14, label %_ZL13fast_cpu_timeP6Thread.exit
 
 14:                                               ; preds = %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i
   %15 = load i32, ptr %4, align 4
@@ -9885,9 +9885,9 @@ _ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i:   ; preds = %8
   %20 = load i64, ptr %19, align 8
   %21 = add nsw i64 %18, %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit
+  br label %_ZL13fast_cpu_timeP6Thread.exit
 
-_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit:  ; preds = %8, %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i, %14
+_ZL13fast_cpu_timeP6Thread.exit:                  ; preds = %8, %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i, %14
   %.0.i = phi i64 [ %21, %14 ], [ -1, %_ZN2os5Linux21pthread_getcpuclockidEmPi.exit.i ], [ -1, %8 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %26
@@ -9897,11 +9897,11 @@ _ZL13fast_cpu_timeP6Thread.argprom.argprom.exit:  ; preds = %8, %_ZN2os5Linux21p
   %.val = load ptr, ptr %23, align 8
   %24 = getelementptr i8, ptr %.val, i64 192
   %.val.val = load i32, ptr %24, align 8
-  %25 = tail call fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb.argprom.argprom(i32 %.val.val, i1 noundef zeroext %1)
+  %25 = tail call fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb(i32 %.val.val, i1 noundef zeroext %1)
   br label %26
 
-26:                                               ; preds = %22, %_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit
-  %.0 = phi i64 [ %.0.i, %_ZL13fast_cpu_timeP6Thread.argprom.argprom.exit ], [ %25, %22 ]
+26:                                               ; preds = %22, %_ZL13fast_cpu_timeP6Thread.exit
+  %.0 = phi i64 [ %.0.i, %_ZL13fast_cpu_timeP6Thread.exit ], [ %25, %22 ]
   ret i64 %.0
 }
 

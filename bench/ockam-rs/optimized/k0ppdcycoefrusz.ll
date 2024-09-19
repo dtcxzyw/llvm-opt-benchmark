@@ -2449,7 +2449,7 @@ _ZN3der6reader6Reader6decode17hd51f47996d597c4eE.exit.i: ; preds = %46
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !820
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false), !noalias !815
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !820
-  br label %_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.argprom.exit
+  br label %_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.exit
 
 63:                                               ; preds = %56
   store i32 %.sroa.533.i.sroa.0.0, ptr %0, align 8, !alias.scope !820
@@ -2479,9 +2479,9 @@ _ZN3der6reader6Reader6decode17hd51f47996d597c4eE.exit.i: ; preds = %46
   store i64 %.sroa.535.i.sroa.14.0, ptr %.sroa.051.sroa.5.0..sroa_idx, align 8, !alias.scope !820
   %.sroa.553.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.553.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.553, i64 7, i1 false), !alias.scope !820
-  br label %_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.argprom.exit
+  br label %_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.exit
 
-_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.argprom.exit: ; preds = %59, %63
+_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.exit: ; preds = %59, %63
   %.sink = phi i8 [ %.sroa.535.i.sroa.16.0, %63 ], [ 24, %59 ]
   %64 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %.sink, ptr %64, align 8
@@ -2530,7 +2530,7 @@ _ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.argprom.exit: ; preds = %59, %6
   store i8 24, ptr %66, align 8
   br label %67
 
-67:                                               ; preds = %54, %65, %_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.argprom.exit
+67:                                               ; preds = %54, %65, %_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   ret void
 }
@@ -5347,10 +5347,10 @@ attributes #21 = { noinline noreturn nounwind }
 !780 = !{!778, !779}
 !781 = !{!775, !772}
 !782 = !{!783}
-!783 = distinct !{!783, !784, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h834e35ab540f4e74E.argprom: argument 0"}
-!784 = distinct !{!784, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h834e35ab540f4e74E.argprom"}
+!783 = distinct !{!783, !784, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h834e35ab540f4e74E: argument 0"}
+!784 = distinct !{!784, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h834e35ab540f4e74E"}
 !785 = !{!786}
-!786 = distinct !{!786, !784, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h834e35ab540f4e74E.argprom: argument 1"}
+!786 = distinct !{!786, !784, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h834e35ab540f4e74E: argument 1"}
 !787 = !{!783, !778, !775, !779, !772}
 !788 = !{!783, !786}
 !789 = !{!775, !779, !772}
@@ -5365,10 +5365,10 @@ attributes #21 = { noinline noreturn nounwind }
 !798 = !{!797, !779}
 !799 = !{!794, !772}
 !800 = !{!801}
-!801 = distinct !{!801, !802, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbd06db1a170f7916E.argprom: argument 0"}
-!802 = distinct !{!802, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbd06db1a170f7916E.argprom"}
+!801 = distinct !{!801, !802, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbd06db1a170f7916E: argument 0"}
+!802 = distinct !{!802, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbd06db1a170f7916E"}
 !803 = !{!804}
-!804 = distinct !{!804, !802, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbd06db1a170f7916E.argprom: argument 1"}
+!804 = distinct !{!804, !802, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbd06db1a170f7916E: argument 1"}
 !805 = !{!801, !797, !794, !779, !772}
 !806 = !{!801, !804}
 !807 = !{!794, !779, !772}
@@ -5377,10 +5377,10 @@ attributes #21 = { noinline noreturn nounwind }
 !810 = !{!804, !794, !779, !772}
 !811 = !{!779, !772}
 !812 = !{!813}
-!813 = distinct !{!813, !814, !"_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.argprom: argument 0"}
-!814 = distinct !{!814, !"_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.argprom"}
+!813 = distinct !{!813, !814, !"_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE: argument 0"}
+!814 = distinct !{!814, !"_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE"}
 !815 = !{!816}
-!816 = distinct !{!816, !814, !"_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.argprom: argument 1"}
+!816 = distinct !{!816, !814, !"_ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE: argument 1"}
 !817 = !{!818, !813, !816}
 !818 = distinct !{!818, !819, !"_ZN3der6reader6Reader13remaining_len17hffc5c0c18db3b7edE.llvm.11161914831801431366: argument 0"}
 !819 = distinct !{!819, !"_ZN3der6reader6Reader13remaining_len17hffc5c0c18db3b7edE.llvm.11161914831801431366"}

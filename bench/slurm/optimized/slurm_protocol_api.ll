@@ -4417,7 +4417,7 @@ define noundef i32 @slurm_send_recv_controller_msg(ptr noundef %0, ptr noundef %
   %26 = getelementptr inbounds i8, ptr %22, i64 1242
   %27 = load i16, ptr %26, align 2
   tail call void @slurm_conf_unlock() #21
-  %28 = tail call fastcc i32 @_open_controller.argprom(ptr noundef nonnull @slurm_send_recv_controller_msg.index, ptr noundef %.0)
+  %28 = tail call fastcc i32 @_open_controller(ptr noundef nonnull @slurm_send_recv_controller_msg.index, ptr noundef %.0)
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %.critedge, label %.lr.ph
 
@@ -4569,7 +4569,7 @@ _send_and_recv_msg.exit.us84:                     ; preds = %59, %slurm_send_rec
 89:                                               ; preds = %87, %82
   %90 = load ptr, ptr %15, align 8
   tail call void @slurm_free_return_code_msg(ptr noundef %90) #21
-  %91 = tail call fastcc i32 @_open_controller.argprom(ptr noundef nonnull @slurm_send_recv_controller_msg.index, ptr noundef null)
+  %91 = tail call fastcc i32 @_open_controller(ptr noundef nonnull @slurm_send_recv_controller_msg.index, ptr noundef null)
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %.critedge, label %.lr.ph.split.split.us
 
@@ -4699,7 +4699,7 @@ _remap_slurmctld_errno.exit:                      ; preds = %127, %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller.argprom(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
@@ -4996,7 +4996,7 @@ _send_and_recv_msg.exit:                          ; preds = %27, %slurm_send_rec
 define range(i32 -1, 1) i32 @slurm_send_only_controller_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
-  %4 = call fastcc i32 @_open_controller.argprom(ptr noundef nonnull %3, ptr noundef %1)
+  %4 = call fastcc i32 @_open_controller(ptr noundef nonnull %3, ptr noundef %1)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %.thread, label %6
 

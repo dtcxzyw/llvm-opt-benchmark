@@ -5642,7 +5642,7 @@ if.else.i.i217:                                   ; preds = %invoke.cont298
   %sub.ptr.rhs.cast.i.i.i.i.i219 = ptrtoint ptr %this.val.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i220 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i218, %sub.ptr.rhs.cast.i.i.i.i.i219
   %cmp.i.i.i.i221 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i220, 9223372036854775776
-  br i1 %cmp.i.i.i.i221, label %if.then.i.i.i.i238, label %_ZNKSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  br i1 %cmp.i.i.i.i221, label %if.then.i.i.i.i238, label %_ZNKSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i238:                               ; preds = %if.else.i.i217
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.62) #31
@@ -5651,7 +5651,7 @@ if.then.i.i.i.i238:                               ; preds = %if.else.i.i217
 .noexc239:                                        ; preds = %if.then.i.i.i.i238
   unreachable
 
-_ZNKSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %if.else.i.i217
+_ZNKSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i217
   %sub.ptr.div.i.i.i.i.i222 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i220, 5
   %cmp.i.i.i.i.i223 = icmp eq ptr %113, %this.val.i.i.i
   %.sroa.speculated.i.i.i.i224 = select i1 %cmp.i.i.i.i.i223, i64 1, i64 %sub.ptr.div.i.i.i.i.i222
@@ -5660,15 +5660,15 @@ _ZNKSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiP
   %116 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i225, i64 288230376151711743)
   %cond.i.i.i.i227 = select i1 %cmp7.i.i.i.i226, i64 288230376151711743, i64 %116
   %cmp.not.i.i.i.i228 = icmp eq i64 %cond.i.i.i.i227, 0
-  br i1 %cmp.not.i.i.i.i228, label %_ZNSt12_Vector_baseIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_M_allocateEm.argprom.exit.i.i.i, label %cond.true.i.i.i.i229
+  br i1 %cmp.not.i.i.i.i228, label %_ZNSt12_Vector_baseIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i229
 
-cond.true.i.i.i.i229:                             ; preds = %_ZNKSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+cond.true.i.i.i.i229:                             ; preds = %_ZNKSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
   %mul.i.i.i.i.i.i230 = shl nuw nsw i64 %cond.i.i.i.i227, 5
   %call5.i.i.i.i.i.i241 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i230) #29
-          to label %_ZNSt12_Vector_baseIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_M_allocateEm.argprom.exit.i.i.i unwind label %lpad289.loopexit
+          to label %_ZNSt12_Vector_baseIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_M_allocateEm.exit.i.i.i unwind label %lpad289.loopexit
 
-_ZNSt12_Vector_baseIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_M_allocateEm.argprom.exit.i.i.i: ; preds = %cond.true.i.i.i.i229, %_ZNKSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
-  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %call5.i.i.i.i.i.i241, %cond.true.i.i.i.i229 ]
+_ZNSt12_Vector_baseIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i229, %_ZNKSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i241, %cond.true.i.i.i.i229 ]
   %add.ptr.i.i.i231 = getelementptr inbounds %struct.Offset, ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i222
   store i32 %112, ptr %add.ptr.i.i.i231, align 8
   %ref.tmp300.sroa.3655.0.add.ptr.i.i.i231.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i231, i64 8
@@ -5678,23 +5678,23 @@ _ZNSt12_Vector_baseIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMeth
   %ref.tmp300.sroa.5.0.add.ptr.i.i.i231.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i231, i64 24
   store i64 %call302, ptr %ref.tmp300.sroa.5.0.add.ptr.i.i.i231.sroa_idx, align 8
   %cmp.i.i.i.i.i.i232 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i220, 0
-  br i1 %cmp.i.i.i.i.i.i232, label %if.then.i.i.i.i.i.i237, label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.argprom.exit19.i.i.i
+  br i1 %cmp.i.i.i.i.i.i232, label %if.then.i.i.i.i.i.i237, label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i
 
-if.then.i.i.i.i.i.i237:                           ; preds = %_ZNSt12_Vector_baseIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_M_allocateEm.argprom.exit.i.i.i
+if.then.i.i.i.i.i.i237:                           ; preds = %_ZNSt12_Vector_baseIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_M_allocateEm.exit.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i.i, ptr align 8 %this.val.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i220, i1 false)
-  br label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.argprom.exit19.i.i.i
+  br label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i
 
-_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.argprom.exit19.i.i.i: ; preds = %if.then.i.i.i.i.i.i237, %_ZNSt12_Vector_baseIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_M_allocateEm.argprom.exit.i.i.i
+_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i: ; preds = %if.then.i.i.i.i.i.i237, %_ZNSt12_Vector_baseIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i233 = getelementptr inbounds i8, ptr %cond.i12.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i220
   %incdec.ptr.i.i.i234 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i233, i64 32
   %tobool.not.i.i.i.i235 = icmp eq ptr %this.val.i.i.i, null
   br i1 %tobool.not.i.i.i.i235, label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
-if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.argprom.exit19.i.i.i
+if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val.i.i.i) #28
   br label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.argprom.exit19.i.i.i
+_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i
   store ptr %cond.i12.i.i.i, ptr %offsets, align 8
   store ptr %incdec.ptr.i.i.i234, ptr %_M_finish.i.i212, align 8
   %add.ptr19.i.i.i236 = getelementptr inbounds %struct.Offset, ptr %cond.i12.i.i.i, i64 %cond.i.i.i.i227
@@ -5768,7 +5768,7 @@ lpad289.loopexit:                                 ; preds = %cond.true.i.i.i.i22
           cleanup
   br label %ehcleanup435
 
-lpad289.loopexit.split-lp:                        ; preds = %if.then.i.i.i.i238, %if.then3.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetEE8allocateERS9_m.argprom.exit.i.i.i.i
+lpad289.loopexit.split-lp:                        ; preds = %if.then.i.i.i.i238, %if.then3.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetEE8allocateERS9_m.exit.i.i.i.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup435
@@ -5980,7 +5980,7 @@ invoke.cont314.thread:                            ; preds = %invoke.cont313
 
 cond.true.i.i.i.i260:                             ; preds = %invoke.cont313
   %cmp.i.i.i.i.i.i261 = icmp ugt i64 %sub.ptr.sub.i.i257, 9223372036854775776
-  br i1 %cmp.i.i.i.i.i.i261, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetEE8allocateERS9_m.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i261, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetEE8allocateERS9_m.exit.i.i.i.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i260
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #31
@@ -5989,11 +5989,11 @@ if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i26
 .noexc265:                                        ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetEE8allocateERS9_m.argprom.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i260
+_ZNSt16allocator_traitsISaIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetEE8allocateERS9_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i260
   %call5.i.i.i.i1.i9.i266 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i257) #29
           to label %if.then.i.i.i269 unwind label %lpad289.loopexit.split-lp
 
-if.then.i.i.i269:                                 ; preds = %_ZNSt16allocator_traitsISaIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetEE8allocateERS9_m.argprom.exit.i.i.i.i
+if.then.i.i.i269:                                 ; preds = %_ZNSt16allocator_traitsISaIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetEE8allocateERS9_m.exit.i.i.i.i
   store ptr %call5.i.i.i.i1.i9.i266, ptr %offsets_by_number, align 8
   %_M_finish.i.i.i263 = getelementptr inbounds i8, ptr %offsets_by_number, i64 8
   store ptr %call5.i.i.i.i1.i9.i266, ptr %_M_finish.i.i.i263, align 8
@@ -6603,28 +6603,28 @@ arraydestroy.done406:                             ; preds = %arraydestroy.body40
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp348) #27
   %offsets_by_number.val68 = load ptr, ptr %offsets_by_number, align 8
   %tobool.not.i.i.i495 = icmp eq ptr %offsets_by_number.val68, null
-  br i1 %tobool.not.i.i.i495, label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.argprom.argprom.exit, label %if.then.i.i.i496
+  br i1 %tobool.not.i.i.i495, label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.exit, label %if.then.i.i.i496
 
 if.then.i.i.i496:                                 ; preds = %arraydestroy.done406
   call void @_ZdlPv(ptr noundef nonnull %offsets_by_number.val68) #28
-  br label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.exit
 
-_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.argprom.argprom.exit: ; preds = %arraydestroy.done406, %if.then.i.i.i496
+_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.exit: ; preds = %arraydestroy.done406, %if.then.i.i.i496
   %offsets.val70 = load ptr, ptr %offsets, align 8
   %tobool.not.i.i.i498 = icmp eq ptr %offsets.val70, null
-  br i1 %tobool.not.i.i.i498, label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.argprom.argprom.exit500, label %if.then.i.i.i499
+  br i1 %tobool.not.i.i.i498, label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.exit500, label %if.then.i.i.i499
 
-if.then.i.i.i499:                                 ; preds = %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.argprom.argprom.exit
+if.then.i.i.i499:                                 ; preds = %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %offsets.val70) #28
-  br label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.argprom.argprom.exit500
+  br label %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.exit500
 
-_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.argprom.argprom.exit500: ; preds = %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.argprom.argprom.exit, %if.then.i.i.i499
+_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.exit500: ; preds = %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.exit, %if.then.i.i.i499
   %capacity_.i.i.i.i.i501 = getelementptr inbounds i8, ptr %number_to_canonical_name, i64 16
   %165 = load i64, ptr %capacity_.i.i.i.i.i501, align 8
   %tobool.not.i.i.i502 = icmp eq i64 %165, 0
   br i1 %tobool.not.i.i.i502, label %_ZN4absl12lts_2023080213flat_hash_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEED2Ev.exit, label %if.end.i.i.i503
 
-if.end.i.i.i503:                                  ; preds = %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.argprom.argprom.exit500
+if.end.i.i.i503:                                  ; preds = %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.exit500
   %166 = load ptr, ptr %number_to_canonical_name, align 8
   %167 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i505
@@ -6652,7 +6652,7 @@ invoke.cont13.i.i.i512:                           ; preds = %for.inc.i.i.i.i509
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i513) #28
   br label %_ZN4absl12lts_2023080213flat_hash_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEED2Ev.exit
 
-_ZN4absl12lts_2023080213flat_hash_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEED2Ev.exit: ; preds = %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.argprom.argprom.exit500, %invoke.cont13.i.i.i512
+_ZN4absl12lts_2023080213flat_hash_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEED2Ev.exit: ; preds = %_ZNSt6vectorIZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS1_2io7PrinterEE6OffsetSaIS8_EED2Ev.exit500, %invoke.cont13.i.i.i512
   %170 = load i64, ptr %size_.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i516 = icmp eq i64 %170, 0
   br i1 %cmp.i.i.i.i.i.i.i516, label %_ZN4absl12lts_202308029btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS7_ESaISt4pairIKS7_iEEED2Ev.exit, label %if.then.i.i.i.i.i.i517
@@ -16359,14 +16359,14 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp615.sroa.0.i.i.i)
   %cmp9.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp9.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_RT0_.argprom.exit.i.i", label %while.body.i.i.i, !llvm.loop !300
+  br i1 %cmp9.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_RT0_.exit.i.i", label %while.body.i.i.i, !llvm.loop !300
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_RT0_.argprom.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_T0_SL_T1_T2_.exit.i.i.i"
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_T0_SL_T1_T2_.exit.i.i.i"
   %cmp3.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.fr.i21.lcssa, 32
   br i1 %cmp3.i.i, label %while.body.i.i, label %while.end
 
-while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.argprom.exit.i18.i"
-  %__last.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i2.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.argprom.exit.i18.i" ], [ %storemerge19.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_RT0_.argprom.exit.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.exit.i18.i"
+  %__last.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i2.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.exit.i18.i" ], [ %storemerge19.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_RT0_.exit.i.i" ]
   %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.04.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp63.sroa.0.i.i1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp63.sroa.0.i.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i2.i, i64 16, i1 false)
@@ -16423,7 +16423,7 @@ if.then20.i.i.i35.i:                              ; preds = %land.lhs.true.i.i.i
 if.end33.i.i.i15.i:                               ; preds = %if.then20.i.i.i35.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i12.i
   %__holeIndex.addr.1.i.i.i16.i = phi i64 [ %sub24.i.i.i36.i, %if.then20.i.i.i35.i ], [ %__holeIndex.addr.0.lcssa.i.i.i13.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i13.i, %while.end.i.i.i12.i ]
   %cmp3.i.i.i.i17.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i16.i, 0
-  br i1 %cmp3.i.i.i.i17.i, label %land.rhs.i.i.i.i23.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.argprom.exit.i18.i"
+  br i1 %cmp3.i.i.i.i17.i, label %land.rhs.i.i.i.i23.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.exit.i18.i"
 
 land.rhs.i.i.i.i23.i:                             ; preds = %if.end33.i.i.i15.i, %while.body.i.i.i.i30.i
   %__holeIndex.addr.04.i.i.i.i24.i = phi i64 [ %__parent.05.i.i12.i.i26.i, %while.body.i.i.i.i30.i ], [ %__holeIndex.addr.1.i.i.i16.i, %if.end33.i.i.i15.i ]
@@ -16433,15 +16433,15 @@ land.rhs.i.i.i.i23.i:                             ; preds = %if.end33.i.i.i15.i,
   %9 = getelementptr i8, ptr %add.ptr.i.i.i.i.i27.i, i64 16
   %call.val.i.i.i.i.i28.i = load i64, ptr %9, align 8
   %cmp.i.i.i.i.i.i29.i = icmp ult i64 %call.val.i.i.i.i.i28.i, %__value.sroa.2.0.copyload.i.i3.i
-  br i1 %cmp.i.i.i.i.i.i29.i, label %while.body.i.i.i.i30.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.argprom.exit.i18.i"
+  br i1 %cmp.i.i.i.i.i.i29.i, label %while.body.i.i.i.i30.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.exit.i18.i"
 
 while.body.i.i.i.i30.i:                           ; preds = %land.rhs.i.i.i.i23.i
   %add.ptr.i11.i.i.i.i31.i = getelementptr inbounds %struct.Offset, ptr %__first.coerce, i64 %__holeIndex.addr.04.i.i.i.i24.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i11.i.i.i.i31.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i27.i, i64 32, i1 false)
   %cmp.i.i.not.i.i32.i = icmp ult i64 %__parent.05.in.i.i.i.i25.i, 2
-  br i1 %cmp.i.i.not.i.i32.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.argprom.exit.i18.i", label %land.rhs.i.i.i.i23.i, !llvm.loop !299
+  br i1 %cmp.i.i.not.i.i32.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.exit.i18.i", label %land.rhs.i.i.i.i23.i, !llvm.loop !299
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.argprom.exit.i18.i": ; preds = %while.body.i.i.i.i30.i, %land.rhs.i.i.i.i23.i, %if.end33.i.i.i15.i
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.exit.i18.i": ; preds = %while.body.i.i.i.i30.i, %land.rhs.i.i.i.i23.i, %if.end33.i.i.i15.i
   %__holeIndex.addr.0.lcssa.i.i.i.i19.i = phi i64 [ %__holeIndex.addr.1.i.i.i16.i, %if.end33.i.i.i15.i ], [ %__holeIndex.addr.04.i.i.i.i24.i, %land.rhs.i.i.i.i23.i ], [ 0, %while.body.i.i.i.i30.i ]
   %add.ptr.i12.i.i.i.i20.i = getelementptr inbounds %struct.Offset, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i19.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i12.i.i.i.i20.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp63.sroa.0.i.i1.i, i64 16, i1 false)
@@ -16579,7 +16579,7 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !297
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEET_SK_SK_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.argprom.exit.i18.i", %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_RT0_.argprom.exit.i.i"
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEET_SK_SK_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_SK_RT0_.exit.i18.i", %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_1EEEvT_SK_RT0_.exit.i.i"
   ret void
 }
 
@@ -16694,14 +16694,14 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %agg.tmp615.sroa.4.i.i.i)
   %cmp9.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp9.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_RT0_.argprom.exit.i.i", label %while.body.i.i.i, !llvm.loop !308
+  br i1 %cmp9.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_RT0_.exit.i.i", label %while.body.i.i.i, !llvm.loop !308
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_RT0_.argprom.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_T0_SL_T1_T2_.exit.i.i.i"
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_T0_SL_T1_T2_.exit.i.i.i"
   %cmp3.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.fr.i21.lcssa, 32
   br i1 %cmp3.i.i, label %while.body.i.i, label %while.end
 
-while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.argprom.exit.i17.i"
-  %__last.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i2.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.argprom.exit.i17.i" ], [ %storemerge19.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_RT0_.argprom.exit.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.exit.i17.i"
+  %__last.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i2.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.exit.i17.i" ], [ %storemerge19.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_RT0_.exit.i.i" ]
   %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.04.i.i, i64 -32
   %__value.sroa.0.0.copyload.i.i3.i = load i32, ptr %incdec.ptr.i.i2.i, align 8
   %__value.sroa.2.0.__result.sroa.0.0.__result.val2.sroa_idx.i.i4.i = getelementptr inbounds i8, ptr %__last.sroa.0.04.i.i, i64 -28
@@ -16756,7 +16756,7 @@ if.then20.i.i.i33.i:                              ; preds = %land.lhs.true.i.i.i
 if.end33.i.i.i14.i:                               ; preds = %if.then20.i.i.i33.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i11.i
   %__holeIndex.addr.1.i.i.i15.i = phi i64 [ %sub24.i.i.i34.i, %if.then20.i.i.i33.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %while.end.i.i.i11.i ]
   %cmp3.i.i.i.i16.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i15.i, 0
-  br i1 %cmp3.i.i.i.i16.i, label %land.rhs.i.i.i.i21.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.argprom.exit.i17.i"
+  br i1 %cmp3.i.i.i.i16.i, label %land.rhs.i.i.i.i21.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.exit.i17.i"
 
 land.rhs.i.i.i.i21.i:                             ; preds = %if.end33.i.i.i14.i, %while.body.i.i.i.i28.i
   %__holeIndex.addr.04.i.i.i.i22.i = phi i64 [ %__parent.05.i.i12.i.i24.i, %while.body.i.i.i.i28.i ], [ %__holeIndex.addr.1.i.i.i15.i, %if.end33.i.i.i14.i ]
@@ -16765,15 +16765,15 @@ land.rhs.i.i.i.i21.i:                             ; preds = %if.end33.i.i.i14.i,
   %add.ptr.i.i.i.i.i25.i = getelementptr inbounds %struct.Offset, ptr %__first.coerce.fr, i64 %__parent.05.i.i12.i.i24.i
   %call.val.i.i.i.i.i26.i = load i32, ptr %add.ptr.i.i.i.i.i25.i, align 8
   %cmp.i.i.i.i.i.i27.i = icmp slt i32 %call.val.i.i.i.i.i26.i, %__value.sroa.0.0.copyload.i.i3.i
-  br i1 %cmp.i.i.i.i.i.i27.i, label %while.body.i.i.i.i28.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.argprom.exit.i17.i"
+  br i1 %cmp.i.i.i.i.i.i27.i, label %while.body.i.i.i.i28.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.exit.i17.i"
 
 while.body.i.i.i.i28.i:                           ; preds = %land.rhs.i.i.i.i21.i
   %add.ptr.i11.i.i.i.i29.i = getelementptr inbounds %struct.Offset, ptr %__first.coerce.fr, i64 %__holeIndex.addr.04.i.i.i.i22.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i11.i.i.i.i29.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i25.i, i64 32, i1 false)
   %cmp.i.i.not.i.i30.i = icmp ult i64 %__parent.05.in.i.i.i.i23.i, 2
-  br i1 %cmp.i.i.not.i.i30.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.argprom.exit.i17.i", label %land.rhs.i.i.i.i21.i, !llvm.loop !307
+  br i1 %cmp.i.i.not.i.i30.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.exit.i17.i", label %land.rhs.i.i.i.i21.i, !llvm.loop !307
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.argprom.exit.i17.i": ; preds = %while.body.i.i.i.i28.i, %land.rhs.i.i.i.i21.i, %if.end33.i.i.i14.i
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.exit.i17.i": ; preds = %while.body.i.i.i.i28.i, %land.rhs.i.i.i.i21.i, %if.end33.i.i.i14.i
   %__holeIndex.addr.0.lcssa.i.i.i.i18.i = phi i64 [ %__holeIndex.addr.1.i.i.i15.i, %if.end33.i.i.i14.i ], [ %__holeIndex.addr.04.i.i.i.i22.i, %land.rhs.i.i.i.i21.i ], [ 0, %while.body.i.i.i.i28.i ]
   %add.ptr.i12.i.i.i.i19.i = getelementptr inbounds %struct.Offset, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i18.i
   store i32 %__value.sroa.0.0.copyload.i.i3.i, ptr %add.ptr.i12.i.i.i.i19.i, align 8
@@ -16904,7 +16904,7 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !305
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEET_SK_SK_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.argprom.exit.i17.i", %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_RT0_.argprom.exit.i.i"
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEET_SK_SK_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_SK_RT0_.exit.i17.i", %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_RT0_.exit.i.i"
   ret void
 }
 
@@ -18741,20 +18741,20 @@ if.end.i.i.i:                                     ; preds = %entry
   %2 = getelementptr i8, ptr %this.val.i.i.i, i64 216
   %this.val.val.i.i.i = load i8, ptr %2, align 8
   %tobool.i.i.i.i = trunc i8 %this.val.val.i.i.i to i1
-  br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS0_2io7PrinterEENK3$_8clEv.argprom.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS0_2io7PrinterEENK3$_8clEv.exit.i.i.i"
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %3 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %this.val1.i.i.i = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %this.val1.i.i.i, align 8
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %4, ptr null, i64 0, i64 77, ptr nonnull @.str.95)
-  br label %"_ZZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS0_2io7PrinterEENK3$_8clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS0_2io7PrinterEENK3$_8clEv.exit.i.i.i"
 
-"_ZZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS0_2io7PrinterEENK3$_8clEv.argprom.argprom.exit.i.i.i": ; preds = %if.then.i.i.i.i, %if.end.i.i.i
+"_ZZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS0_2io7PrinterEENK3$_8clEv.exit.i.i.i": ; preds = %if.then.i.i.i.i, %if.end.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS1_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS3_E3$_8vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS1_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS3_E3$_8vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.exit": ; preds = %entry, %"_ZZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS0_2io7PrinterEENK3$_8clEv.argprom.argprom.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS1_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS3_E3$_8vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.exit": ; preds = %entry, %"_ZZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS0_2io7PrinterEENK3$_8clEv.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -18894,15 +18894,15 @@ attributes #32 = { cold }
 !13 = distinct !{!13, !14, !"_ZNO6google8protobuf2io7Printer3Sub11AnnotatedAsENS2_16AnnotationRecordE: %agg.result"}
 !14 = distinct !{!14, !"_ZNO6google8protobuf2io7Printer3Sub11AnnotatedAsENS2_16AnnotationRecordE"}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!17 = distinct !{!17, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!16 = distinct !{!16, !17, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!17 = distinct !{!17, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !18 = distinct !{!18, !5}
 !19 = !{!20}
 !20 = distinct !{!20, !21, !"_ZNO6google8protobuf2io7Printer3Sub11AnnotatedAsENS2_16AnnotationRecordE: %agg.result"}
 !21 = distinct !{!21, !"_ZNO6google8protobuf2io7Printer3Sub11AnnotatedAsENS2_16AnnotationRecordE"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!24 = distinct !{!24, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!23 = distinct !{!23, !24, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!24 = distinct !{!24, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZNO6google8protobuf2io7Printer3Sub11AnnotatedAsENS2_16AnnotationRecordE: %agg.result"}
 !27 = distinct !{!27, !"_ZNO6google8protobuf2io7Printer3Sub11AnnotatedAsENS2_16AnnotationRecordE"}
@@ -18933,8 +18933,8 @@ attributes #32 = { cold }
 !52 = distinct !{!52, !"_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE7emplaceIJRKSF_IS7_SB_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESF_INSJ_8iteratorEbEDpOSP_"}
 !53 = distinct !{!53, !5}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!56 = distinct !{!56, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!55 = distinct !{!55, !56, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!56 = distinct !{!56, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNS0_8compiler3cpp13EnumGenerator18GenerateDefinitionEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !57 = !{!58}
 !58 = distinct !{!58, !59, !"_ZNO6google8protobuf2io7Printer3Sub11AnnotatedAsENS2_16AnnotationRecordE: %agg.result"}
 !59 = distinct !{!59, !"_ZNO6google8protobuf2io7Printer3Sub11AnnotatedAsENS2_16AnnotationRecordE"}
@@ -18955,8 +18955,8 @@ attributes #32 = { cold }
 !74 = distinct !{!74, !5}
 !75 = distinct !{!75, !5}
 !76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!78 = distinct !{!78, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!77 = distinct !{!77, !78, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!78 = distinct !{!78, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !79 = !{!80}
 !80 = distinct !{!80, !81, !"_ZN4absl12lts_2023080218container_internal12CommonAccess9ConstructINS1_11node_handleINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISB_ESaISt4pairIKSB_iEELi256ELb0EEESI_SH_vEEJSH_RSF_iEEET_DpOT0_: %agg.result"}
 !81 = distinct !{!81, !"_ZN4absl12lts_2023080218container_internal12CommonAccess9ConstructINS1_11node_handleINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISB_ESaISt4pairIKSB_iEELi256ELb0EEESI_SH_vEEJSH_RSF_iEEET_DpOT0_"}
@@ -18982,21 +18982,21 @@ attributes #32 = { cold }
 !101 = distinct !{!101, !5}
 !102 = distinct !{!102, !5}
 !103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!105 = distinct !{!105, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!104 = distinct !{!104, !105, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!105 = distinct !{!105, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!108 = distinct !{!108, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!107 = distinct !{!107, !108, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!108 = distinct !{!108, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!111 = distinct !{!111, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!110 = distinct !{!110, !111, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!111 = distinct !{!111, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_6vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !112 = distinct !{!112, !5}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!115 = distinct !{!115, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!114 = distinct !{!114, !115, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!115 = distinct !{!115, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_7vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_8vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!118 = distinct !{!118, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_8vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!117 = distinct !{!117, !118, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_8vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!118 = distinct !{!118, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp13EnumGenerator15GenerateMethodsEiPS2_E3$_8vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !119 = !{}
 !120 = distinct !{!120, !5}
 !121 = distinct !{!121, !5}

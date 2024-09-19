@@ -2073,7 +2073,7 @@ _function_closure_string.exit:                    ; preds = %._crit_edge.i, %362
   %.06780.i = phi ptr [ %390, %.lr.ph.i603 ], [ %431, %424 ]
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.128, ptr noundef nonnull %388) #13
   %416 = icmp ult i32 %.06681.i, %392
-  call fastcc void @_parameter_string.argprom(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %.06780.i, i32 noundef %.06681.i, i1 noundef zeroext %416)
+  call fastcc void @_parameter_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %.06780.i, i32 noundef %.06681.i, i1 noundef zeroext %416)
   %417 = load ptr, ptr %0, align 8
   %.not78.i = icmp eq ptr %417, null
   br i1 %.not78.i, label %423, label %418
@@ -3454,7 +3454,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getAttributes(ptr nocapture n
   %35 = phi ptr [ %33, %31 ], [ null, %26 ]
   %36 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %36, align 4
-  tail call fastcc void @reflect_attributes.argprom(i32 %.val, ptr noundef %1, ptr noundef %28, i32 noundef 0, ptr noundef %20, i32 noundef %.0, ptr noundef %35)
+  tail call fastcc void @reflect_attributes(i32 %.val, ptr noundef %1, ptr noundef %28, i32 noundef 0, ptr noundef %20, i32 noundef %.0, ptr noundef %35)
   br label %37
 
 37:                                               ; preds = %10, %34, %15
@@ -3462,7 +3462,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getAttributes(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reflect_attributes.argprom(i32 %.44.val, ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 1, 33) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @reflect_attributes(i32 %.44.val, ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 1, 33) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
@@ -6614,7 +6614,7 @@ define hidden void @zim_ReflectionParameter___toString(ptr nocapture noundef rea
   %30 = getelementptr inbounds i8, ptr %12, i64 4
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
-  call fastcc void @_parameter_string.argprom(ptr noundef %3, ptr noundef %26, ptr noundef %28, i32 noundef %29, i1 noundef zeroext %32)
+  call fastcc void @_parameter_string(ptr noundef %3, ptr noundef %26, ptr noundef %28, i32 noundef %29, i1 noundef zeroext %32)
   %33 = load ptr, ptr %3, align 8
   %.not118 = icmp eq ptr %33, null
   br i1 %.not118, label %82, label %34
@@ -6724,7 +6724,7 @@ define hidden void @zim_ReflectionParameter___toString(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_parameter_string.argprom(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_parameter_string(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.142, i32 noundef %3) #13
   %.str.144..str.143 = select i1 %4, ptr @.str.144, ptr @.str.143
   tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull %.str.144..str.143) #13
@@ -6932,13 +6932,13 @@ has_internal_arg_info.exit.thread:                ; preds = %96, %has_internal_a
 106:                                              ; preds = %has_internal_arg_info.exit.thread, %102
   %107 = phi ptr [ %103, %102 ], [ %105, %has_internal_arg_info.exit.thread ]
   tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.146, ptr noundef %107) #13
-  br i1 %4, label %get_default_from_recv.argprom.exit.thread, label %108
+  br i1 %4, label %get_default_from_recv.exit.thread, label %108
 
 108:                                              ; preds = %106
   %109 = load i32, ptr %6, align 8
   %110 = and i32 %109, 134217728
   %.not295 = icmp eq i32 %110, 0
-  br i1 %.not295, label %111, label %get_default_from_recv.argprom.exit.thread
+  br i1 %.not295, label %111, label %get_default_from_recv.exit.thread
 
 111:                                              ; preds = %108
   %112 = load i8, ptr %1, align 8
@@ -7027,7 +7027,7 @@ has_internal_arg_info.exit310:                    ; preds = %123
   %153 = load ptr, ptr %0, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 16
   store i64 %.1256, ptr %154, align 8
-  br label %get_default_from_recv.argprom.exit.thread
+  br label %get_default_from_recv.exit.thread
 
 has_internal_arg_info.exit310.thread:             ; preds = %123, %135, %has_internal_arg_info.exit310
   %155 = load ptr, ptr %0, align 8
@@ -7061,7 +7061,7 @@ has_internal_arg_info.exit310.thread:             ; preds = %123, %135, %has_int
   %168 = load ptr, ptr %0, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 16
   store i64 %.1258, ptr %169, align 8
-  br label %get_default_from_recv.argprom.exit.thread
+  br label %get_default_from_recv.exit.thread
 
 170:                                              ; preds = %111
   %171 = getelementptr i8, ptr %1, i64 84
@@ -7089,17 +7089,17 @@ has_internal_arg_info.exit310.thread:             ; preds = %123, %135, %has_int
   %181 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %182 = load i32, ptr %181, align 8
   %183 = icmp eq i32 %182, %175
-  br i1 %183, label %get_recv_op.argprom.exit.i, label %184
+  br i1 %183, label %get_recv_op.exit.i, label %184
 
 184:                                              ; preds = %180, %176
   %185 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   br label %176
 
-get_recv_op.argprom.exit.i:                       ; preds = %180
+get_recv_op.exit.i:                               ; preds = %180
   %.not7.i = icmp eq i8 %179, 64
-  br i1 %.not7.i, label %186, label %get_default_from_recv.argprom.exit.thread
+  br i1 %.not7.i, label %186, label %get_default_from_recv.exit.thread
 
-186:                                              ; preds = %get_recv_op.argprom.exit.i
+186:                                              ; preds = %get_recv_op.exit.i
   %187 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
   %188 = load i32, ptr %187, align 4
   %189 = sext i32 %188 to i64
@@ -7135,15 +7135,15 @@ get_recv_op.argprom.exit.i:                       ; preds = %180
   %204 = load ptr, ptr %0, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 16
   store i64 %.1260, ptr %205, align 8
-  tail call fastcc void @format_default_value.retelim(ptr noundef %0, ptr noundef nonnull %190)
-  br label %get_default_from_recv.argprom.exit.thread
+  tail call fastcc void @format_default_value(ptr noundef %0, ptr noundef nonnull %190)
+  br label %get_default_from_recv.exit.thread
 
-get_default_from_recv.argprom.exit.thread:        ; preds = %get_recv_op.argprom.exit.i, %199, %163, %148, %108, %106
+get_default_from_recv.exit.thread:                ; preds = %get_recv_op.exit.i, %199, %163, %148, %108, %106
   %206 = load ptr, ptr %0, align 8
   %.not306 = icmp eq ptr %206, null
   br i1 %.not306, label %213, label %207
 
-207:                                              ; preds = %get_default_from_recv.argprom.exit.thread
+207:                                              ; preds = %get_default_from_recv.exit.thread
   %208 = getelementptr inbounds i8, ptr %206, i64 16
   %209 = load i64, ptr %208, align 8
   %210 = add i64 %209, 2
@@ -7152,8 +7152,8 @@ get_default_from_recv.argprom.exit.thread:        ; preds = %get_recv_op.argprom
   %.not307 = icmp ult i64 %210, %212
   br i1 %.not307, label %214, label %213
 
-213:                                              ; preds = %get_default_from_recv.argprom.exit.thread, %207
-  %.0261 = phi i64 [ 2, %get_default_from_recv.argprom.exit.thread ], [ %210, %207 ]
+213:                                              ; preds = %get_default_from_recv.exit.thread, %207
+  %.0261 = phi i64 [ 2, %get_default_from_recv.exit.thread ], [ %210, %207 ]
   tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0261) #13
   %.pre22 = load ptr, ptr %0, align 8
   %.phi.trans.insert23 = getelementptr inbounds i8, ptr %.pre22, i64 16
@@ -7957,7 +7957,7 @@ define internal fastcc void @reflection_type_factory(ptr %0, i32 %1, ptr noundef
   %11 = and i32 %1, 29622271
   %12 = icmp ne i32 %11, 2
   %spec.select = select i1 %.not16.i, ptr @reflection_union_type_ptr, ptr @reflection_intersection_type_ptr
-  br label %get_type_kind.argprom.exit.thread27
+  br label %get_type_kind.exit.thread27
 
 13:                                               ; preds = %4
   %14 = and i32 %1, 25165824
@@ -7967,44 +7967,44 @@ define internal fastcc void @reflection_type_factory(ptr %0, i32 %1, ptr noundef
 15:                                               ; preds = %13
   %16 = and i32 %1, 2097152
   %.not14.i = icmp eq i32 %16, 0
-  br i1 %.not14.i, label %17, label %get_type_kind.argprom.exit.thread
+  br i1 %.not14.i, label %17, label %get_type_kind.exit.thread
 
 17:                                               ; preds = %15
   %.not15.i.not = icmp eq i32 %6, 0
   %18 = icmp eq i32 %5, 1022
   %19 = and i32 %1, 25427967
   %20 = icmp ne i32 %19, 2
-  br i1 %.not15.i.not, label %30, label %get_type_kind.argprom.exit.thread27
+  br i1 %.not15.i.not, label %30, label %get_type_kind.exit.thread27
 
 21:                                               ; preds = %13
   %22 = icmp eq i32 %6, 12
   %23 = icmp eq i32 %5, 1022
   %or.cond.i = or i1 %22, %23
-  br i1 %or.cond.i, label %get_type_kind.argprom.exit.thread, label %get_type_kind.argprom.exit
+  br i1 %or.cond.i, label %get_type_kind.exit.thread, label %get_type_kind.exit
 
-get_type_kind.argprom.exit.thread:                ; preds = %15, %21
+get_type_kind.exit.thread:                        ; preds = %15, %21
   %24 = icmp eq i32 %5, 1022
   %25 = and i32 %1, 25427967
   %26 = icmp ne i32 %25, 2
   br label %30
 
-get_type_kind.argprom.exit:                       ; preds = %21
+get_type_kind.exit:                               ; preds = %21
   %27 = tail call range(i32 0, 18) i32 @llvm.ctpop.i32(i32 %6)
   %.not13.i = icmp ugt i32 %27, 1
   %28 = and i32 %1, 262143
   %29 = icmp ne i32 %28, 2
-  br i1 %.not13.i, label %get_type_kind.argprom.exit.thread27, label %30
+  br i1 %.not13.i, label %get_type_kind.exit.thread27, label %30
 
-30:                                               ; preds = %17, %get_type_kind.argprom.exit, %get_type_kind.argprom.exit.thread
-  %31 = phi i1 [ %26, %get_type_kind.argprom.exit.thread ], [ %29, %get_type_kind.argprom.exit ], [ %20, %17 ]
-  %32 = phi i1 [ %24, %get_type_kind.argprom.exit.thread ], [ false, %get_type_kind.argprom.exit ], [ %18, %17 ]
-  br label %get_type_kind.argprom.exit.thread27
+30:                                               ; preds = %17, %get_type_kind.exit, %get_type_kind.exit.thread
+  %31 = phi i1 [ %26, %get_type_kind.exit.thread ], [ %29, %get_type_kind.exit ], [ %20, %17 ]
+  %32 = phi i1 [ %24, %get_type_kind.exit.thread ], [ false, %get_type_kind.exit ], [ %18, %17 ]
+  br label %get_type_kind.exit.thread27
 
-get_type_kind.argprom.exit.thread27:              ; preds = %8, %get_type_kind.argprom.exit, %17, %30
-  %reflection_named_type_ptr.sink = phi ptr [ @reflection_named_type_ptr, %30 ], [ @reflection_union_type_ptr, %17 ], [ @reflection_union_type_ptr, %get_type_kind.argprom.exit ], [ %spec.select, %8 ]
-  %33 = phi i1 [ %31, %30 ], [ %20, %17 ], [ %29, %get_type_kind.argprom.exit ], [ %12, %8 ]
-  %34 = phi i1 [ %32, %30 ], [ %18, %17 ], [ false, %get_type_kind.argprom.exit ], [ %10, %8 ]
-  %35 = phi i1 [ true, %30 ], [ false, %17 ], [ false, %get_type_kind.argprom.exit ], [ false, %8 ]
+get_type_kind.exit.thread27:                      ; preds = %8, %get_type_kind.exit, %17, %30
+  %reflection_named_type_ptr.sink = phi ptr [ @reflection_named_type_ptr, %30 ], [ @reflection_union_type_ptr, %17 ], [ @reflection_union_type_ptr, %get_type_kind.exit ], [ %spec.select, %8 ]
+  %33 = phi i1 [ %31, %30 ], [ %20, %17 ], [ %29, %get_type_kind.exit ], [ %12, %8 ]
+  %34 = phi i1 [ %32, %30 ], [ %18, %17 ], [ false, %get_type_kind.exit ], [ %10, %8 ]
+  %35 = phi i1 [ true, %30 ], [ false, %17 ], [ false, %get_type_kind.exit ], [ false, %8 ]
   %36 = load ptr, ptr %reflection_named_type_ptr.sink, align 8
   %37 = tail call i32 @object_init_ex(ptr noundef %2, ptr noundef %36) #13
   %38 = load ptr, ptr %2, align 8
@@ -8027,7 +8027,7 @@ get_type_kind.argprom.exit.thread27:              ; preds = %8, %get_type_kind.a
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %52, label %45
 
-45:                                               ; preds = %get_type_kind.argprom.exit.thread27
+45:                                               ; preds = %get_type_kind.exit.thread27
   %46 = getelementptr inbounds i8, ptr %0, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 64
@@ -8040,7 +8040,7 @@ get_type_kind.argprom.exit.thread27:              ; preds = %8, %get_type_kind.a
   store i32 %51, ptr %0, align 4
   br label %52
 
-52:                                               ; preds = %45, %49, %get_type_kind.argprom.exit.thread27
+52:                                               ; preds = %45, %49, %get_type_kind.exit.thread27
   ret void
 }
 
@@ -8392,7 +8392,7 @@ define hidden void @zim_ReflectionParameter_getAttributes(ptr nocapture noundef 
   %33 = phi ptr [ %31, %29 ], [ null, %18 ]
   %34 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %34, align 4
-  tail call fastcc void @reflect_attributes.argprom(i32 %.val, ptr noundef %1, ptr noundef %22, i32 noundef %26, ptr noundef %24, i32 noundef 32, ptr noundef %33)
+  tail call fastcc void @reflect_attributes(i32 %.val, ptr noundef %1, ptr noundef %22, i32 noundef %26, ptr noundef %24, i32 noundef 32, ptr noundef %33)
   br label %35
 
 35:                                               ; preds = %10, %32, %15
@@ -8603,20 +8603,20 @@ define hidden void @zim_ReflectionParameter_isDefaultValueAvailable(ptr nocaptur
   %53 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, %47
-  br i1 %55, label %get_recv_op.argprom.exit.i, label %56
+  br i1 %55, label %get_recv_op.exit.i, label %56
 
 56:                                               ; preds = %52, %48
   %57 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   br label %48
 
-get_recv_op.argprom.exit.i:                       ; preds = %52
+get_recv_op.exit.i:                               ; preds = %52
   %.not7.i = icmp eq i8 %51, 64
   %.0.i = select i1 %.not7.i, i32 3, i32 2
   %58 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %.0.i, ptr %58, align 8
   br label %59
 
-59:                                               ; preds = %15, %get_recv_op.argprom.exit.i, %38, %20, %5
+59:                                               ; preds = %15, %get_recv_op.exit.i, %38, %20, %5
   ret void
 }
 
@@ -8702,17 +8702,17 @@ define hidden void @zim_ReflectionParameter_getDefaultValue(ptr nocapture nounde
   %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, %38
-  br i1 %46, label %get_recv_op.argprom.exit.i.i, label %47
+  br i1 %46, label %get_recv_op.exit.i.i, label %47
 
 47:                                               ; preds = %43, %39
   %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
   br label %39
 
-get_recv_op.argprom.exit.i.i:                     ; preds = %43
+get_recv_op.exit.i.i:                             ; preds = %43
   %.not7.i.not.i = icmp eq i8 %42, 64
   br i1 %.not7.i.not.i, label %49, label %get_parameter_default.exit.thread
 
-49:                                               ; preds = %get_recv_op.argprom.exit.i.i
+49:                                               ; preds = %get_recv_op.exit.i.i
   %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
@@ -8740,7 +8740,7 @@ get_parameter_default.exit:                       ; preds = %28
   %65 = icmp eq i32 %64, -1
   br i1 %65, label %get_parameter_default.exit.thread, label %get_parameter_default.exit.thread14
 
-get_parameter_default.exit.thread:                ; preds = %get_recv_op.argprom.exit.i.i, %28, %get_parameter_default.exit
+get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.i, %28, %get_parameter_default.exit
   %66 = load ptr, ptr @reflection_exception_ptr, align 8
   %67 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %66, i64 noundef 0, ptr noundef nonnull @.str.30) #13
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -8850,17 +8850,17 @@ define hidden void @zim_ReflectionParameter_isDefaultValueConstant(ptr nocapture
   %45 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, %39
-  br i1 %47, label %get_recv_op.argprom.exit.i.i, label %48
+  br i1 %47, label %get_recv_op.exit.i.i, label %48
 
 48:                                               ; preds = %44, %40
   %49 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
   br label %40
 
-get_recv_op.argprom.exit.i.i:                     ; preds = %44
+get_recv_op.exit.i.i:                             ; preds = %44
   %.not7.i.not.i = icmp eq i8 %43, 64
   br i1 %.not7.i.not.i, label %50, label %get_parameter_default.exit.thread
 
-50:                                               ; preds = %get_recv_op.argprom.exit.i.i
+50:                                               ; preds = %get_recv_op.exit.i.i
   %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
@@ -8894,7 +8894,7 @@ get_parameter_default.exit.get_parameter_default.exit.thread25_crit_edge: ; pred
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %get_parameter_default.exit.thread25
 
-get_parameter_default.exit.thread:                ; preds = %get_recv_op.argprom.exit.i.i, %29, %get_parameter_default.exit
+get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.i, %29, %get_parameter_default.exit
   %68 = load ptr, ptr @reflection_exception_ptr, align 8
   %69 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %68, i64 noundef 0, ptr noundef nonnull @.str.30) #13
   %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -9032,17 +9032,17 @@ define hidden void @zim_ReflectionParameter_getDefaultValueConstantName(ptr noca
   %45 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, %39
-  br i1 %47, label %get_recv_op.argprom.exit.i.i, label %48
+  br i1 %47, label %get_recv_op.exit.i.i, label %48
 
 48:                                               ; preds = %44, %40
   %49 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
   br label %40
 
-get_recv_op.argprom.exit.i.i:                     ; preds = %44
+get_recv_op.exit.i.i:                             ; preds = %44
   %.not7.i.not.i = icmp eq i8 %43, 64
   br i1 %.not7.i.not.i, label %50, label %get_parameter_default.exit.thread
 
-50:                                               ; preds = %get_recv_op.argprom.exit.i.i
+50:                                               ; preds = %get_recv_op.exit.i.i
   %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
@@ -9076,7 +9076,7 @@ get_parameter_default.exit.get_parameter_default.exit.thread123_crit_edge: ; pre
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %get_parameter_default.exit.thread123
 
-get_parameter_default.exit.thread:                ; preds = %get_recv_op.argprom.exit.i.i, %29, %get_parameter_default.exit
+get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.i, %29, %get_parameter_default.exit
   %68 = load ptr, ptr @reflection_exception_ptr, align 8
   %69 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %68, i64 noundef 0, ptr noundef nonnull @.str.30) #13
   %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -14235,7 +14235,7 @@ define hidden void @zim_ReflectionClassConstant_getAttributes(ptr nocapture noun
   %29 = phi ptr [ %27, %25 ], [ null, %18 ]
   %30 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %30, align 4
-  tail call fastcc void @reflect_attributes.argprom(i32 %.val, ptr noundef %1, ptr noundef %20, i32 noundef 0, ptr noundef nonnull %22, i32 noundef 16, ptr noundef %29)
+  tail call fastcc void @reflect_attributes(i32 %.val, ptr noundef %1, ptr noundef %20, i32 noundef 0, ptr noundef nonnull %22, i32 noundef 16, ptr noundef %29)
   br label %31
 
 31:                                               ; preds = %10, %28, %15
@@ -14286,12 +14286,12 @@ define hidden void @zim_ReflectionClassConstant_isEnumCase(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_ReflectionClass___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @reflection_class_object_ctor.argprom(ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reflection_class_object_ctor.argprom(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq i32 %1, 0
@@ -17042,7 +17042,7 @@ define hidden void @zim_ReflectionClass_getAttributes(ptr nocapture noundef read
   %27 = phi ptr [ %25, %23 ], [ null, %18 ]
   %28 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %28, align 4
-  tail call fastcc void @reflect_attributes.argprom(i32 %.val, ptr noundef %1, ptr noundef %20, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1, ptr noundef %27)
+  tail call fastcc void @reflect_attributes(i32 %.val, ptr noundef %1, ptr noundef %20, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1, ptr noundef %27)
   br label %29
 
 29:                                               ; preds = %10, %26, %15
@@ -22277,7 +22277,7 @@ define hidden void @zim_ReflectionClass_getShortName(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_ReflectionObject___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @reflection_class_object_ctor.argprom(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 noundef 1)
   ret void
 }
 
@@ -23090,7 +23090,7 @@ property_get_default.exit:                        ; preds = %164, %172, %174
   %198 = load ptr, ptr %0, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 16
   store i64 %.1260, ptr %199, align 8
-  call fastcc void @format_default_value.retelim(ptr noundef %0, ptr noundef nonnull %.011.i)
+  call fastcc void @format_default_value(ptr noundef %0, ptr noundef nonnull %.011.i)
   br label %200
 
 200:                                              ; preds = %193, %property_get_default.exit, %12
@@ -24529,7 +24529,7 @@ define hidden void @zim_ReflectionProperty_getAttributes(ptr nocapture noundef r
   %34 = phi ptr [ %32, %30 ], [ null, %23 ]
   %35 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %35, align 4
-  tail call fastcc void @reflect_attributes.argprom(i32 %.val, ptr noundef %1, ptr noundef %25, i32 noundef 0, ptr noundef nonnull %27, i32 noundef 8, ptr noundef %34)
+  tail call fastcc void @reflect_attributes(i32 %.val, ptr noundef %1, ptr noundef %25, i32 noundef 0, ptr noundef nonnull %27, i32 noundef 8, ptr noundef %34)
   br label %36
 
 36:                                               ; preds = %10, %33, %21, %15
@@ -25427,12 +25427,12 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   %184 = getelementptr inbounds i8, ptr %3, i64 8
   br label %185
 
-185:                                              ; preds = %_extension_ini_string.argprom.exit.i, %.lr.ph13.i
-  %.047311.i = phi ptr [ %176, %.lr.ph13.i ], [ %264, %_extension_ini_string.argprom.exit.i ]
+185:                                              ; preds = %_extension_ini_string.exit.i, %.lr.ph13.i
+  %.047311.i = phi ptr [ %176, %.lr.ph13.i ], [ %264, %_extension_ini_string.exit.i ]
   %186 = getelementptr inbounds i8, ptr %.047311.i, i64 8
   %187 = load i8, ptr %186, align 8
   %188 = icmp eq i8 %187, 0
-  br i1 %188, label %_extension_ini_string.argprom.exit.i, label %189
+  br i1 %188, label %_extension_ini_string.exit.i, label %189
 
 189:                                              ; preds = %185
   %190 = load ptr, ptr %.047311.i, align 8
@@ -25440,7 +25440,7 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   %192 = getelementptr inbounds i8, ptr %190, i64 64
   %193 = load i32, ptr %192, align 8
   %194 = icmp eq i32 %191, %193
-  br i1 %194, label %195, label %_extension_ini_string.argprom.exit.i
+  br i1 %194, label %195, label %_extension_ini_string.exit.i
 
 195:                                              ; preds = %189
   %196 = load ptr, ptr %190, align 8
@@ -25604,14 +25604,14 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 
 263:                                              ; preds = %259, %247
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %3, ptr noundef nonnull @.str.211, ptr noundef nonnull @.str.10) #13
-  br label %_extension_ini_string.argprom.exit.i
+  br label %_extension_ini_string.exit.i
 
-_extension_ini_string.argprom.exit.i:             ; preds = %263, %189, %185
+_extension_ini_string.exit.i:                     ; preds = %263, %189, %185
   %264 = getelementptr inbounds i8, ptr %.047311.i, i64 32
   %.not522.i = icmp eq ptr %264, %180
   br i1 %.not522.i, label %._crit_edge14.i, label %185
 
-._crit_edge14.i:                                  ; preds = %_extension_ini_string.argprom.exit.i
+._crit_edge14.i:                                  ; preds = %_extension_ini_string.exit.i
   %.pre59.i = load ptr, ptr %3, align 8
   %.not523.i = icmp eq ptr %.pre59.i, null
   br i1 %.not523.i, label %.critedge.thread.i, label %265
@@ -25750,27 +25750,27 @@ _extension_ini_string.argprom.exit.i:             ; preds = %263, %189, %185
 
 329:                                              ; preds = %322
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.212, ptr noundef nonnull @.str.10, ptr noundef %326, ptr noundef nonnull %325) #13
-  br label %_const_string.argprom.exit.i
+  br label %_const_string.exit.i
 
 330:                                              ; preds = %322
   %331 = load ptr, ptr %316, align 8
   %332 = getelementptr inbounds i8, ptr %331, i64 24
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.10, ptr noundef %326, ptr noundef nonnull %325, ptr noundef nonnull %332) #13
-  br label %_const_string.argprom.exit.i
+  br label %_const_string.exit.i
 
 333:                                              ; preds = %322
   %334 = call ptr @zval_get_string_func(ptr noundef nonnull %316) #13
   %335 = getelementptr inbounds i8, ptr %334, i64 24
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.10, ptr noundef %326, ptr noundef nonnull %325, ptr noundef nonnull %335) #13
   %.not.i566.i = icmp eq ptr %334, null
-  br i1 %.not.i566.i, label %_const_string.argprom.exit.i, label %336
+  br i1 %.not.i566.i, label %_const_string.exit.i, label %336
 
 336:                                              ; preds = %333
   %337 = getelementptr inbounds i8, ptr %334, i64 4
   %338 = load i32, ptr %337, align 4
   %339 = and i32 %338, 64
   %.not38.i.i = icmp eq i32 %339, 0
-  br i1 %.not38.i.i, label %340, label %_const_string.argprom.exit.i
+  br i1 %.not38.i.i, label %340, label %_const_string.exit.i
 
 340:                                              ; preds = %336
   %341 = load i32, ptr %334, align 4
@@ -25779,18 +25779,18 @@ _extension_ini_string.argprom.exit.i:             ; preds = %263, %189, %185
   %343 = add i32 %341, -1
   store i32 %343, ptr %334, align 4
   %344 = icmp eq i32 %343, 0
-  br i1 %344, label %345, label %_const_string.argprom.exit.i
+  br i1 %344, label %345, label %_const_string.exit.i
 
 345:                                              ; preds = %340
   call void @_efree(ptr noundef nonnull %334) #13
-  br label %_const_string.argprom.exit.i
+  br label %_const_string.exit.i
 
-_const_string.argprom.exit.i:                     ; preds = %345, %340, %336, %333, %330, %329
+_const_string.exit.i:                             ; preds = %345, %340, %336, %333, %330, %329
   %346 = add nsw i32 %.047416.i, 1
   br label %347
 
-347:                                              ; preds = %_const_string.argprom.exit.i, %315, %.lr.ph18.i
-  %.1475.i = phi i32 [ %.047416.i, %.lr.ph18.i ], [ %346, %_const_string.argprom.exit.i ], [ %.047416.i, %315 ]
+347:                                              ; preds = %_const_string.exit.i, %315, %.lr.ph18.i
+  %.1475.i = phi i32 [ %.047416.i, %.lr.ph18.i ], [ %346, %_const_string.exit.i ], [ %.047416.i, %315 ]
   %348 = getelementptr inbounds i8, ptr %.047217.i, i64 32
   %.not532.i = icmp eq ptr %348, %308
   br i1 %.not532.i, label %._crit_edge19.i, label %.lr.ph18.i
@@ -26118,7 +26118,7 @@ _extension_class_string.exit.i:                   ; preds = %454, %450, %442, %4
   %495 = load i32, ptr %494, align 4
   %496 = and i32 %495, 64
   %.not552.i = icmp eq i32 %496, 0
-  br i1 %.not552.i, label %497, label %_extension_string.argprom.exit
+  br i1 %.not552.i, label %497, label %_extension_string.exit
 
 497:                                              ; preds = %492
   %498 = load i32, ptr %412, align 4
@@ -26127,13 +26127,13 @@ _extension_class_string.exit.i:                   ; preds = %454, %450, %442, %4
   %500 = add i32 %498, -1
   store i32 %500, ptr %412, align 4
   %501 = icmp eq i32 %500, 0
-  br i1 %501, label %502, label %_extension_string.argprom.exit
+  br i1 %501, label %502, label %_extension_string.exit
 
 502:                                              ; preds = %497
   call void @_efree(ptr noundef nonnull %412) #13
-  br label %_extension_string.argprom.exit
+  br label %_extension_string.exit
 
-_extension_string.argprom.exit:                   ; preds = %492, %497, %502
+_extension_string.exit:                           ; preds = %492, %497, %502
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.10) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -26142,7 +26142,7 @@ _extension_string.argprom.exit:                   ; preds = %492, %497, %502
   %.not115 = icmp eq ptr %503, null
   br i1 %.not115, label %552, label %504
 
-504:                                              ; preds = %_extension_string.argprom.exit
+504:                                              ; preds = %_extension_string.exit
   %505 = getelementptr inbounds i8, ptr %503, i64 24
   %506 = getelementptr inbounds i8, ptr %503, i64 16
   %507 = load i64, ptr %506, align 8
@@ -26226,7 +26226,7 @@ _extension_string.argprom.exit:                   ; preds = %492, %497, %502
   store ptr null, ptr %6, align 8
   br label %554
 
-552:                                              ; preds = %_extension_string.argprom.exit
+552:                                              ; preds = %_extension_string.exit
   %553 = load ptr, ptr @zend_empty_string, align 8
   br label %554
 
@@ -28216,32 +28216,32 @@ define hidden void @zim_ReflectionReference_fromArrayElement(ptr noundef %0, ptr
   %35 = getelementptr inbounds i8, ptr %.0111, i64 8
   %36 = load i8, ptr %35, align 8
   %.not129 = icmp eq i8 %36, 10
-  br i1 %.not129, label %37, label %is_ignorable_reference.argprom.exit.thread
+  br i1 %.not129, label %37, label %is_ignorable_reference.exit.thread
 
 37:                                               ; preds = %34
   %.0111.val = load ptr, ptr %.0111, align 8
   %38 = load i32, ptr %.0111.val, align 4
   %.not.i = icmp eq i32 %38, 1
-  br i1 %.not.i, label %39, label %is_ignorable_reference.argprom.exit.thread175
+  br i1 %.not.i, label %39, label %is_ignorable_reference.exit.thread175
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds i8, ptr %.0111.val, i64 16
   %41 = load i8, ptr %40, align 8
   %.not8.i = icmp eq i8 %41, 7
-  br i1 %.not8.i, label %is_ignorable_reference.argprom.exit, label %is_ignorable_reference.argprom.exit.thread
+  br i1 %.not8.i, label %is_ignorable_reference.exit, label %is_ignorable_reference.exit.thread
 
-is_ignorable_reference.argprom.exit:              ; preds = %39
+is_ignorable_reference.exit:                      ; preds = %39
   %42 = getelementptr inbounds i8, ptr %.0111.val, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not178 = icmp eq ptr %43, %13
-  br i1 %.not178, label %is_ignorable_reference.argprom.exit.thread175, label %is_ignorable_reference.argprom.exit.thread
+  br i1 %.not178, label %is_ignorable_reference.exit.thread175, label %is_ignorable_reference.exit.thread
 
-is_ignorable_reference.argprom.exit.thread:       ; preds = %39, %is_ignorable_reference.argprom.exit, %34
+is_ignorable_reference.exit.thread:               ; preds = %39, %is_ignorable_reference.exit, %34
   %44 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %44, align 8
   br label %58
 
-is_ignorable_reference.argprom.exit.thread175:    ; preds = %37, %is_ignorable_reference.argprom.exit
+is_ignorable_reference.exit.thread175:            ; preds = %37, %is_ignorable_reference.exit
   %45 = load ptr, ptr @reflection_reference_ptr, align 8
   %46 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %45) #13
   %47 = load ptr, ptr %1, align 8
@@ -28255,18 +28255,18 @@ is_ignorable_reference.argprom.exit.thread175:    ; preds = %37, %is_ignorable_r
   %.not130 = icmp eq i32 %52, 0
   br i1 %.not130, label %56, label %53
 
-53:                                               ; preds = %is_ignorable_reference.argprom.exit.thread175
+53:                                               ; preds = %is_ignorable_reference.exit.thread175
   %54 = load i32, ptr %49, align 4
   %55 = add i32 %54, 1
   store i32 %55, ptr %49, align 4
   br label %56
 
-56:                                               ; preds = %is_ignorable_reference.argprom.exit.thread175, %53
+56:                                               ; preds = %is_ignorable_reference.exit.thread175, %53
   %57 = getelementptr inbounds i8, ptr %47, i64 -8
   store i32 0, ptr %57, align 8
   br label %58
 
-58:                                               ; preds = %56, %is_ignorable_reference.argprom.exit.thread, %29, %.thread152
+58:                                               ; preds = %56, %is_ignorable_reference.exit.thread, %29, %.thread152
   ret void
 }
 
@@ -28589,7 +28589,7 @@ define hidden void @zim_ReflectionAttribute___toString(ptr nocapture noundef rea
   %113 = phi ptr [ %.pre458, %105 ], [ %80, %.lr.ph ]
   %114 = getelementptr inbounds i8, ptr %113, i64 32
   %115 = getelementptr inbounds [1 x %struct.zend_attribute_arg], ptr %114, i64 0, i64 %indvars.iv, i32 1
-  call fastcc void @format_default_value.retelim(ptr noundef %3, ptr noundef nonnull %115)
+  call fastcc void @format_default_value(ptr noundef %3, ptr noundef nonnull %115)
   %116 = load ptr, ptr %3, align 8
   %.not439 = icmp eq ptr %116, null
   br i1 %.not439, label %122, label %117
@@ -28793,7 +28793,7 @@ define hidden void @zim_ReflectionAttribute___toString(ptr nocapture noundef rea
 declare void @smart_str_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @format_default_value.retelim(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @format_default_value(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
@@ -28993,7 +28993,7 @@ define internal fastcc void @format_default_value.retelim(ptr noundef nonnull %0
   br label %100
 
 100:                                              ; preds = %93, %84
-  call fastcc void @format_default_value.retelim(ptr noundef %0, ptr noundef nonnull %.0388502.us)
+  call fastcc void @format_default_value(ptr noundef %0, ptr noundef nonnull %.0388502.us)
   br label %101
 
 101:                                              ; preds = %100, %.lr.ph504.split.us
@@ -29247,7 +29247,7 @@ define internal fastcc void @format_default_value.retelim(ptr noundef nonnull %0
   %214 = load ptr, ptr %0, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 16
   store i64 %.1418, ptr %215, align 8
-  call fastcc void @format_default_value.retelim(ptr noundef %0, ptr noundef %.0388502)
+  call fastcc void @format_default_value(ptr noundef %0, ptr noundef %.0388502)
   br label %216
 
 216:                                              ; preds = %115, %209
@@ -30311,7 +30311,7 @@ define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr noca
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_ReflectionEnum___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @reflection_class_object_ctor.argprom(ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 noundef 0)
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %23
@@ -30599,21 +30599,21 @@ define hidden void @zim_ReflectionEnum_getCase(ptr nocapture noundef readonly %0
   %114 = load i32, ptr %113, align 4
   %115 = and i32 %114, 64
   %.not32.i = icmp eq i32 %115, 0
-  br i1 %.not32.i, label %116, label %reflection_enum_case_factory.argprom.exit
+  br i1 %.not32.i, label %116, label %reflection_enum_case_factory.exit
 
 116:                                              ; preds = %101
   %117 = load i32, ptr %112, align 4
   %118 = add i32 %117, 1
   store i32 %118, ptr %112, align 4
-  br label %reflection_enum_case_factory.argprom.exit
+  br label %reflection_enum_case_factory.exit
 
-reflection_enum_case_factory.argprom.exit:        ; preds = %101, %116
+reflection_enum_case_factory.exit:                ; preds = %101, %116
   %.sink1.i = phi i32 [ 262, %116 ], [ 6, %101 ]
   %119 = getelementptr inbounds i8, ptr %103, i64 64
   store i32 %.sink1.i, ptr %119, align 8
   br label %120
 
-120:                                              ; preds = %19, %reflection_enum_case_factory.argprom.exit, %64, %49, %24, %8
+120:                                              ; preds = %19, %reflection_enum_case_factory.exit, %64, %49, %24, %8
   ret void
 }
 
@@ -30787,15 +30787,15 @@ define hidden void @zim_ReflectionEnum_getCases(ptr nocapture noundef readonly %
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, 64
   %.not32.i = icmp eq i32 %102, 0
-  br i1 %.not32.i, label %103, label %reflection_enum_case_factory.argprom.exit
+  br i1 %.not32.i, label %103, label %reflection_enum_case_factory.exit
 
 103:                                              ; preds = %88
   %104 = load i32, ptr %99, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %99, align 4
-  br label %reflection_enum_case_factory.argprom.exit
+  br label %reflection_enum_case_factory.exit
 
-reflection_enum_case_factory.argprom.exit:        ; preds = %88, %103
+reflection_enum_case_factory.exit:                ; preds = %88, %103
   %.sink1.i = phi i32 [ 262, %103 ], [ 6, %88 ]
   %106 = getelementptr inbounds i8, ptr %89, i64 64
   store i32 %.sink1.i, ptr %106, align 8
@@ -30803,7 +30803,7 @@ reflection_enum_case_factory.argprom.exit:        ; preds = %88, %103
   %108 = call ptr @zend_hash_next_index_insert_new(ptr noundef %107, ptr noundef nonnull %3) #13
   br label %109
 
-109:                                              ; preds = %56, %reflection_enum_case_factory.argprom.exit, %52
+109:                                              ; preds = %56, %reflection_enum_case_factory.exit, %52
   %110 = getelementptr inbounds i8, ptr %.03550, i64 32
   %.not46 = icmp eq ptr %110, %47
   br i1 %.not46, label %.loopexit, label %52

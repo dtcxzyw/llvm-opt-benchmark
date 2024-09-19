@@ -1940,21 +1940,21 @@ if.end:                                           ; preds = %entry
   store i8 0, ptr %defer_kvm_irq_routing, align 8
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @vfio_route_change, i64 8), align 8
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %kvm_irqchip_commit_route_changes.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %kvm_irqchip_commit_route_changes.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %2 = load ptr, ptr @vfio_route_change, align 8
   tail call void @kvm_irqchip_commit_routes(ptr noundef %2) #23
   store i32 0, ptr getelementptr inbounds (i8, ptr @vfio_route_change, i64 8), align 8
-  br label %kvm_irqchip_commit_route_changes.argprom.exit
+  br label %kvm_irqchip_commit_route_changes.exit
 
-kvm_irqchip_commit_route_changes.argprom.exit:    ; preds = %if.end, %if.then.i
+kvm_irqchip_commit_route_changes.exit:            ; preds = %if.end, %if.then.i
   %nr_vectors = getelementptr inbounds i8, ptr %vdev, i64 2880
   %3 = load i32, ptr %nr_vectors, align 16
   %cmp7 = icmp sgt i32 %3, 0
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
 
-for.body.lr.ph:                                   ; preds = %kvm_irqchip_commit_route_changes.argprom.exit
+for.body.lr.ph:                                   ; preds = %kvm_irqchip_commit_route_changes.exit
   %msi_vectors = getelementptr inbounds i8, ptr %vdev, i64 2864
   br label %for.body
 
@@ -1998,7 +1998,7 @@ vfio_connect_kvm_msi_virq.exit:                   ; preds = %for.body, %if.end2.
   %cmp = icmp slt i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
-for.end:                                          ; preds = %vfio_connect_kvm_msi_virq.exit, %kvm_irqchip_commit_route_changes.argprom.exit
+for.end:                                          ; preds = %vfio_connect_kvm_msi_virq.exit, %kvm_irqchip_commit_route_changes.exit
   ret void
 }
 
@@ -2630,31 +2630,31 @@ if.else21.i:                                      ; preds = %if.then18.i
   %no_kvm_msix.i51.i = getelementptr inbounds i8, ptr %call.i.i, i64 3549
   %16 = load i8, ptr %no_kvm_msix.i51.i, align 1
   %tobool1.i52.i = trunc i8 %16 to i1
-  br i1 %tobool1.i52.i, label %kvm_irqchip_commit_route_changes.argprom.exitthread-pre-split.i, label %vfio_add_kvm_msi_virq.exit56.i
+  br i1 %tobool1.i52.i, label %kvm_irqchip_commit_route_changes.exitthread-pre-split.i, label %vfio_add_kvm_msi_virq.exit56.i
 
 vfio_add_kvm_msi_virq.exit56.i:                   ; preds = %if.else21.i
   %call.i54.i = tail call i32 @kvm_irqchip_add_msi_route(ptr noundef nonnull @vfio_route_change, i32 noundef %nr, ptr noundef nonnull %call.i.i) #23
   store i32 %call.i54.i, ptr %virq10.i, align 8
   %.pr.i = load i32, ptr getelementptr inbounds (i8, ptr @vfio_route_change, i64 8), align 8
   %tobool.not.i.i = icmp eq i32 %.pr.i, 0
-  br i1 %tobool.not.i.i, label %kvm_irqchip_commit_route_changes.argprom.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %kvm_irqchip_commit_route_changes.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %vfio_add_kvm_msi_virq.exit56.i
   %17 = load ptr, ptr @vfio_route_change, align 8
   tail call void @kvm_irqchip_commit_routes(ptr noundef %17) #23
   store i32 0, ptr getelementptr inbounds (i8, ptr @vfio_route_change, i64 8), align 8
-  br label %kvm_irqchip_commit_route_changes.argprom.exitthread-pre-split.i
+  br label %kvm_irqchip_commit_route_changes.exitthread-pre-split.i
 
-kvm_irqchip_commit_route_changes.argprom.exitthread-pre-split.i: ; preds = %if.then.i.i, %if.else21.i
+kvm_irqchip_commit_route_changes.exitthread-pre-split.i: ; preds = %if.then.i.i, %if.else21.i
   %.pr2.i = load i32, ptr %virq10.i, align 8
-  br label %kvm_irqchip_commit_route_changes.argprom.exit.i
+  br label %kvm_irqchip_commit_route_changes.exit.i
 
-kvm_irqchip_commit_route_changes.argprom.exit.i:  ; preds = %kvm_irqchip_commit_route_changes.argprom.exitthread-pre-split.i, %vfio_add_kvm_msi_virq.exit56.i
-  %18 = phi i32 [ %.pr2.i, %kvm_irqchip_commit_route_changes.argprom.exitthread-pre-split.i ], [ %call.i54.i, %vfio_add_kvm_msi_virq.exit56.i ]
+kvm_irqchip_commit_route_changes.exit.i:          ; preds = %kvm_irqchip_commit_route_changes.exitthread-pre-split.i, %vfio_add_kvm_msi_virq.exit56.i
+  %18 = phi i32 [ %.pr2.i, %kvm_irqchip_commit_route_changes.exitthread-pre-split.i ], [ %call.i54.i, %vfio_add_kvm_msi_virq.exit56.i ]
   %cmp.i.i = icmp slt i32 %18, 0
   br i1 %cmp.i.i, label %if.end25.i, label %if.end.i59.i
 
-if.end.i59.i:                                     ; preds = %kvm_irqchip_commit_route_changes.argprom.exit.i
+if.end.i59.i:                                     ; preds = %kvm_irqchip_commit_route_changes.exit.i
   %kvm_interrupt.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %call.i60.i = tail call i32 @event_notifier_init(ptr noundef nonnull %kvm_interrupt.i.i, i32 noundef 0) #23
   %tobool.not.i61.i = icmp eq i32 %call.i60.i, 0
@@ -2678,7 +2678,7 @@ fail_notifier.i.i:                                ; preds = %fail_kvm.i.i, %if.e
   store i32 -1, ptr %virq10.i, align 8
   br label %if.end25.i
 
-if.end25.i:                                       ; preds = %fail_notifier.i.i, %if.end2.i.i, %kvm_irqchip_commit_route_changes.argprom.exit.i, %if.end.i.i, %if.then20.i, %if.else.i
+if.end25.i:                                       ; preds = %fail_notifier.i.i, %if.end2.i.i, %kvm_irqchip_commit_route_changes.exit.i, %if.end.i.i, %if.then20.i, %if.else.i
   br i1 %cmp.i, label %if.then27.i, label %if.end30.i
 
 if.then27.i:                                      ; preds = %if.end25.i
@@ -2783,7 +2783,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 find_first_bit.exit.i:                            ; preds = %if.then.i63.i, %if.end59.i
   %retval.0.i.i = phi i64 [ %cond.i.i, %if.then.i63.i ], [ 0, %if.end59.i ]
   %cmp68.i = icmp eq i64 %retval.0.i.i, %conv64.i
-  br i1 %cmp68.i, label %if.then70.i, label %vfio_msix_vector_do_use.argprom.exit
+  br i1 %cmp68.i, label %if.then70.i, label %vfio_msix_vector_do_use.exit
 
 if.then70.i:                                      ; preds = %for.inc.i.i, %find_first_bit.exit.i
   %msix_pba_mmio.i = getelementptr inbounds i8, ptr %call.i.i, i64 1872
@@ -2823,9 +2823,9 @@ if.else.i.i74.i:                                  ; preds = %if.then.i.i72.i
 
 trace_vfio_msix_pba_disable.exit.i:               ; preds = %if.else.i.i74.i, %if.then8.i.i75.i, %land.lhs.true5.i.i69.i, %if.then70.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i65.i)
-  br label %vfio_msix_vector_do_use.argprom.exit
+  br label %vfio_msix_vector_do_use.exit
 
-vfio_msix_vector_do_use.argprom.exit:             ; preds = %find_first_bit.exit.i, %trace_vfio_msix_pba_disable.exit.i
+vfio_msix_vector_do_use.exit:                     ; preds = %find_first_bit.exit.i, %trace_vfio_msix_pba_disable.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
   ret i32 0
 }
@@ -3961,7 +3961,7 @@ if.end240:                                        ; preds = %if.then234, %if.end
   br i1 %tobool243.not, label %if.end252, label %if.then244
 
 if.then244:                                       ; preds = %if.end240
-  %call245 = call fastcc ptr @timer_new_ms.argprom.argelim(ptr noundef nonnull %call.i)
+  %call245 = call fastcc ptr @timer_new_ms(ptr noundef nonnull %call.i)
   %mmap_timer = getelementptr inbounds i8, ptr %call.i, i64 2800
   store ptr %call245, ptr %mmap_timer, align 8
   call void @pci_device_set_intx_routing_notifier(ptr noundef nonnull %call.i, ptr noundef nonnull @vfio_intx_routing_notifier) #23
@@ -6225,7 +6225,7 @@ declare i32 @vfio_get_dev_region_info(ptr noundef, i32 noundef, i32 noundef, ptr
 declare i32 @vfio_pci_igd_opregion_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @timer_new_ms.argprom.argelim(ptr noundef %opaque) unnamed_addr #0 {
+define internal fastcc noundef ptr @timer_new_ms(ptr noundef %opaque) unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #25
   tail call void @timer_init_full(ptr noundef %call.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @vfio_intx_mmap_enable, ptr noundef %opaque) #23
@@ -7177,7 +7177,7 @@ entry:
   %invariant.gep.i = getelementptr i8, ptr %0, i64 1
   %tmp.01.i = load i8, ptr %arrayidx.i, align 1
   %tobool.not2.i = icmp eq i8 %tmp.01.i, 0
-  br i1 %tobool.not2.i, label %vfio_std_cap_max_size.argprom.exit, label %for.body.i
+  br i1 %tobool.not2.i, label %vfio_std_cap_max_size.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %tmp.04.i = phi i8 [ %tmp.0.i, %for.body.i ], [ %tmp.01.i, %entry ]
@@ -7194,20 +7194,20 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %5 = trunc i16 %next.1.i to i8
-  br label %vfio_std_cap_max_size.argprom.exit
+  br label %vfio_std_cap_max_size.exit
 
-vfio_std_cap_max_size.argprom.exit:               ; preds = %entry, %for.end.loopexit.i
+vfio_std_cap_max_size.exit:                       ; preds = %entry, %for.end.loopexit.i
   %next.0.lcssa.i = phi i8 [ 0, %entry ], [ %5, %for.end.loopexit.i ]
   %sub.i = sub i8 %next.0.lcssa.i, %pos
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %vfio_std_cap_max_size.argprom.exit
+if.then:                                          ; preds = %vfio_std_cap_max_size.exit
   %call5 = tail call fastcc i32 @vfio_add_std_cap(ptr noundef %vdev, i8 noundef zeroext %2, ptr noundef %errp)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end19, label %return
 
-if.else:                                          ; preds = %vfio_std_cap_max_size.argprom.exit
+if.else:                                          ; preds = %vfio_std_cap_max_size.exit
   store i8 0, ptr %arrayidx.i, align 1
   %emulated_config_bits = getelementptr inbounds i8, ptr %vdev, i64 2816
   %6 = load ptr, ptr %emulated_config_bits, align 16
@@ -7228,7 +7228,7 @@ if.end19:                                         ; preds = %if.else, %if.then
   %invariant.gep.i62 = getelementptr i8, ptr %vdev.val60, i64 1
   %tmp.01.i63 = load i8, ptr %arrayidx.i61, align 1
   %tobool.not2.i64 = icmp eq i8 %tmp.01.i63, 0
-  br i1 %tobool.not2.i64, label %vfio_std_cap_max_size.argprom.exit77, label %for.body.i65
+  br i1 %tobool.not2.i64, label %vfio_std_cap_max_size.exit77, label %for.body.i65
 
 for.body.i65:                                     ; preds = %if.end19, %for.body.i65
   %tmp.04.i66 = phi i8 [ %tmp.0.i72, %for.body.i65 ], [ %tmp.01.i63, %if.end19 ]
@@ -7245,9 +7245,9 @@ for.body.i65:                                     ; preds = %if.end19, %for.body
 
 for.end.loopexit.i74:                             ; preds = %for.body.i65
   %12 = trunc i16 %next.1.i70 to i8
-  br label %vfio_std_cap_max_size.argprom.exit77
+  br label %vfio_std_cap_max_size.exit77
 
-vfio_std_cap_max_size.argprom.exit77:             ; preds = %if.end19, %for.end.loopexit.i74
+vfio_std_cap_max_size.exit77:                     ; preds = %if.end19, %for.end.loopexit.i74
   %next.0.lcssa.i75 = phi i8 [ 0, %if.end19 ], [ %12, %for.end.loopexit.i74 ]
   %sub.i76 = sub i8 %next.0.lcssa.i75, %pos
   %13 = tail call i8 @llvm.umin.i8(i8 %sub.i, i8 %sub.i76)
@@ -7265,7 +7265,7 @@ vfio_std_cap_max_size.argprom.exit77:             ; preds = %if.end19, %for.end.
     i8 19, label %sw.bb39
   ]
 
-sw.bb:                                            ; preds = %vfio_std_cap_max_size.argprom.exit77
+sw.bb:                                            ; preds = %vfio_std_cap_max_size.exit77
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ctrl.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
@@ -7361,7 +7361,7 @@ vfio_msi_setup.exit:                              ; preds = %if.then.i, %if.then
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
   br label %sw.epilog
 
-sw.bb31:                                          ; preds = %vfio_std_cap_max_size.argprom.exit77
+sw.bb31:                                          ; preds = %vfio_std_cap_max_size.exit77
   %28 = load ptr, ptr %config, align 8
   %add.ptr.i = getelementptr i8, ptr %28, i64 %idxprom
   %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 4
@@ -7736,7 +7736,7 @@ if.end81.i:                                       ; preds = %if.end74.i
   store i8 %conv82.i, ptr %exp.i, align 8
   br label %return
 
-sw.bb34:                                          ; preds = %vfio_std_cap_max_size.argprom.exit77
+sw.bb34:                                          ; preds = %vfio_std_cap_max_size.exit77
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i109)
   store ptr null, ptr %err.i109, align 8
   %msix.i = getelementptr inbounds i8, ptr %vdev, i64 2872
@@ -7801,7 +7801,7 @@ vfio_msix_setup.exit:                             ; preds = %if.then21.i, %if.en
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i109)
   br label %sw.epilog
 
-sw.bb37:                                          ; preds = %vfio_std_cap_max_size.argprom.exit77
+sw.bb37:                                          ; preds = %vfio_std_cap_max_size.exit77
   %96 = load ptr, ptr %config, align 8
   %add.ptr.i120 = getelementptr i8, ptr %96, i64 %idxprom
   %add.ptr1.i121 = getelementptr i8, ptr %add.ptr.i120, i64 4
@@ -7857,7 +7857,7 @@ vfio_check_pm_reset.exit:                         ; preds = %sw.bb37, %trace_vfi
   %call38 = tail call i32 @pci_add_capability(ptr noundef nonnull %vdev, i8 noundef zeroext 1, i8 noundef zeroext %pos, i8 noundef zeroext %13, ptr noundef %errp) #23
   br label %sw.epilog
 
-sw.bb39:                                          ; preds = %vfio_std_cap_max_size.argprom.exit77
+sw.bb39:                                          ; preds = %vfio_std_cap_max_size.exit77
   %105 = load ptr, ptr %config, align 8
   %add.ptr.i143 = getelementptr i8, ptr %105, i64 %idxprom
   %add.ptr1.i144 = getelementptr i8, ptr %add.ptr.i143, i64 3
@@ -7911,7 +7911,7 @@ vfio_check_af_flr.exit:                           ; preds = %sw.bb39, %trace_vfi
   %call40 = tail call i32 @pci_add_capability(ptr noundef nonnull %vdev, i8 noundef zeroext 19, i8 noundef zeroext %pos, i8 noundef zeroext %13, ptr noundef %errp) #23
   br label %sw.epilog
 
-sw.default:                                       ; preds = %vfio_std_cap_max_size.argprom.exit77
+sw.default:                                       ; preds = %vfio_std_cap_max_size.exit77
   %call41 = tail call i32 @pci_add_capability(ptr noundef nonnull %vdev, i8 noundef zeroext %1, i8 noundef zeroext %pos, i8 noundef zeroext %13, ptr noundef %errp) #23
   br label %sw.epilog
 

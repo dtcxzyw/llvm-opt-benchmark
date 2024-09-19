@@ -1043,10 +1043,10 @@ define hidden { i64, double } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$a
   %11 = lshr exact i64 %10, 3
   br label %12
 
-12:                                               ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit", %7
-  %.sroa.07.0 = phi i64 [ %2, %7 ], [ %23, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit" ]
-  %.sroa.6.0 = phi double [ %3, %7 ], [ %24, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit" ]
-  %.sroa.010.0 = phi i64 [ 0, %7 ], [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit" ]
+12:                                               ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit", %7
+  %.sroa.07.0 = phi i64 [ %2, %7 ], [ %23, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
+  %.sroa.6.0 = phi double [ %3, %7 ], [ %24, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
+  %.sroa.010.0 = phi i64 [ 0, %7 ], [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
   %13 = getelementptr inbounds i64, ptr %0, i64 %.sroa.010.0
   %.val = load i64, ptr %13, align 8, !noundef !4
   %14 = icmp ugt i64 %.val, 170
@@ -1057,15 +1057,15 @@ define hidden { i64, double } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$a
   %16 = uitofp i64 %.val to double
   %17 = fadd double %16, 1.000000e+00
   %18 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %17), !noalias !300
-  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit"
+  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit"
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.val
   %21 = load double, ptr %20, align 8, !alias.scope !304, !noalias !307, !noundef !4
   %22 = tail call noundef double @llvm.log.f64(double %21)
-  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit"
+  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit"
 
-"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit": ; preds = %15, %19
+"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit": ; preds = %15, %19
   %.sroa.02.0.i.i.i = phi double [ %18, %15 ], [ %22, %19 ]
   %23 = add i64 %.val, %.sroa.07.0
   %24 = fsub double %.sroa.6.0, %.sroa.02.0.i.i.i
@@ -1073,9 +1073,9 @@ define hidden { i64, double } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$a
   %26 = icmp eq i64 %25, %11
   br i1 %26, label %.loopexit, label %12
 
-.loopexit:                                        ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit", %4
-  %.sroa.3.0 = phi double [ %3, %4 ], [ %24, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit" ]
-  %.sroa.04.0 = phi i64 [ %2, %4 ], [ %23, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit" ]
+.loopexit:                                        ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit", %4
+  %.sroa.3.0 = phi double [ %3, %4 ], [ %24, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
+  %.sroa.04.0 = phi i64 [ %2, %4 ], [ %23, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit" ]
   %27 = insertvalue { i64, double } poison, i64 %.sroa.04.0, 0
   %28 = insertvalue { i64, double } %27, double %.sroa.3.0, 1
   ret { i64, double } %28
@@ -2368,10 +2368,10 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds 
   %14 = icmp eq i64 %2, 0
   br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit.i", label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i.i"
-  %.sroa.07.0.i.i = phi i64 [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ]
-  %.sroa.6.0.i.i = phi double [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i.i" ], [ %.sroa.02.0.i.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ]
-  %.sroa.010.0.i.i = phi i64 [ %27, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ]
+.preheader.i:                                     ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i"
+  %.sroa.07.0.i.i = phi i64 [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ]
+  %.sroa.6.0.i.i = phi double [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ], [ %.sroa.02.0.i.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ]
+  %.sroa.010.0.i.i = phi i64 [ %27, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ]
   %15 = getelementptr inbounds i64, ptr %1, i64 %.sroa.010.0.i.i
   %.val.i.i = load i64, ptr %15, align 8, !alias.scope !544, !noalias !559, !noundef !4
   %16 = icmp ugt i64 %.val.i.i, 170
@@ -2382,15 +2382,15 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds 
   %18 = uitofp i64 %.val.i.i to double
   %19 = fadd double %18, 1.000000e+00
   %20 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %19), !noalias !563
-  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i.i"
+  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i"
 
 21:                                               ; preds = %.preheader.i
   %22 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.val.i.i
   %23 = load double, ptr %22, align 8, !alias.scope !567, !noalias !570, !noundef !4
   %24 = tail call noundef double @llvm.log.f64(double %23)
-  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i.i"
+  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i"
 
-"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i.i": ; preds = %21, %17
+"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i": ; preds = %21, %17
   %.sroa.02.0.i.i.i.i.i = phi double [ %20, %17 ], [ %24, %21 ]
   %25 = add i64 %.val.i.i, %.sroa.07.0.i.i
   %26 = fsub double %.sroa.6.0.i.i, %.sroa.02.0.i.i.i.i.i
@@ -2398,9 +2398,9 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds 
   %28 = icmp eq i64 %27, %2
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit.i", label %.preheader.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit.i": ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i.i", %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
-  %.sroa.3.0.i.i = phi double [ %.sroa.02.0.i.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ], [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i.i" ]
-  %.sroa.04.0.i.i = phi i64 [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ], [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i.i" ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit.i": ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i", %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
+  %.sroa.3.0.i.i = phi double [ %.sroa.02.0.i.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ], [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ]
+  %.sroa.04.0.i.i = phi i64 [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i ], [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i" ]
   %.not.i = icmp eq i64 %.sroa.04.0.i.i, %0
   br i1 %.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.9554138872291501309.exit", label %29
 
@@ -2448,10 +2448,10 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
   %14 = icmp eq i64 %3, 0
   br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit", label %.preheader
 
-.preheader:                                       ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i"
-  %.sroa.07.0.i = phi i64 [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ]
-  %.sroa.6.0.i = phi double [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i" ], [ %.sroa.02.0.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ]
-  %.sroa.010.0.i = phi i64 [ %27, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ]
+.preheader:                                       ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i"
+  %.sroa.07.0.i = phi i64 [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ]
+  %.sroa.6.0.i = phi double [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ], [ %.sroa.02.0.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ]
+  %.sroa.010.0.i = phi i64 [ %27, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ], [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ]
   %15 = getelementptr inbounds i64, ptr %2, i64 %.sroa.010.0.i
   %.val.i = load i64, ptr %15, align 8, !noundef !4
   %16 = icmp ugt i64 %.val.i, 170
@@ -2462,15 +2462,15 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
   %18 = uitofp i64 %.val.i to double
   %19 = fadd double %18, 1.000000e+00
   %20 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %19), !noalias !591
-  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i"
+  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i"
 
 21:                                               ; preds = %.preheader
   %22 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.val.i
   %23 = load double, ptr %22, align 8, !alias.scope !595, !noalias !598, !noundef !4
   %24 = tail call noundef double @llvm.log.f64(double %23)
-  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i"
+  br label %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i"
 
-"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i": ; preds = %21, %17
+"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i": ; preds = %21, %17
   %.sroa.02.0.i.i.i.i = phi double [ %20, %17 ], [ %24, %21 ]
   %25 = add i64 %.val.i, %.sroa.07.0.i
   %26 = fsub double %.sroa.6.0.i, %.sroa.02.0.i.i.i.i
@@ -2478,9 +2478,9 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
   %28 = icmp eq i64 %27, %3
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit", label %.preheader
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit": ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i", %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
-  %.sroa.3.0.i = phi double [ %.sroa.02.0.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ], [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i" ]
-  %.sroa.04.0.i = phi i64 [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ], [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.argprom.exit.i" ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit": ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i", %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
+  %.sroa.3.0.i = phi double [ %.sroa.02.0.i.i, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ], [ %26, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ]
+  %.sroa.04.0.i = phi i64 [ 0, %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit ], [ %25, %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i" ]
   %.not = icmp eq i64 %.sroa.04.0.i, %1
   br i1 %.not, label %29, label %34
 
@@ -2895,8 +2895,8 @@ attributes #29 = { noreturn }
 !30 = distinct !{!30, !31, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f9265dd63d91f8dE.llvm.9554138872291501309: argument 0"}
 !31 = distinct !{!31, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f9265dd63d91f8dE.llvm.9554138872291501309"}
 !32 = !{!33, !30}
-!33 = distinct !{!33, !34, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd3b7e3a02574b5e4E.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd3b7e3a02574b5e4E.argprom"}
+!33 = distinct !{!33, !34, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd3b7e3a02574b5e4E: argument 0"}
+!34 = distinct !{!34, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd3b7e3a02574b5e4E"}
 !35 = !{!36, !38, !33, !30}
 !36 = distinct !{!36, !37, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h20ae5a6e8c23ffdfE: argument 0"}
 !37 = distinct !{!37, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h20ae5a6e8c23ffdfE"}
@@ -2906,8 +2906,8 @@ attributes #29 = { noreturn }
 !41 = distinct !{!41, !42, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2ebbfa56e4f1051eE.llvm.9554138872291501309: argument 0"}
 !42 = distinct !{!42, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2ebbfa56e4f1051eE.llvm.9554138872291501309"}
 !43 = !{!44, !41}
-!44 = distinct !{!44, !45, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7cd854d9b703caf1E.argprom: argument 0"}
-!45 = distinct !{!45, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7cd854d9b703caf1E.argprom"}
+!44 = distinct !{!44, !45, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7cd854d9b703caf1E: argument 0"}
+!45 = distinct !{!45, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7cd854d9b703caf1E"}
 !46 = !{!47, !49, !44, !41}
 !47 = distinct !{!47, !48, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h1d97d0bd63e6c038E: argument 0"}
 !48 = distinct !{!48, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h1d97d0bd63e6c038E"}
@@ -2917,8 +2917,8 @@ attributes #29 = { noreturn }
 !52 = distinct !{!52, !53, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7ee980a9eb3c2b88E.llvm.9554138872291501309: argument 0"}
 !53 = distinct !{!53, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7ee980a9eb3c2b88E.llvm.9554138872291501309"}
 !54 = !{!55, !52}
-!55 = distinct !{!55, !56, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd197282388784be4E.argprom: argument 0"}
-!56 = distinct !{!56, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd197282388784be4E.argprom"}
+!55 = distinct !{!55, !56, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd197282388784be4E: argument 0"}
+!56 = distinct !{!56, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd197282388784be4E"}
 !57 = !{!58, !60, !55, !52}
 !58 = distinct !{!58, !59, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h770a2e978b92ecf1E: argument 0"}
 !59 = distinct !{!59, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h770a2e978b92ecf1E"}
@@ -2940,8 +2940,8 @@ attributes #29 = { noreturn }
 !75 = distinct !{!75, !"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h94bd5655241ed5e4E"}
 !76 = distinct !{!76, !77, !"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by7advance17h292f595c98148741E: argument 0"}
 !77 = distinct !{!77, !"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by7advance17h292f595c98148741E"}
-!78 = distinct !{!78, !79, !"_ZN4core3ops8function5FnMut8call_mut17hf38b4353d3221ff8E.argprom: argument 0"}
-!79 = distinct !{!79, !"_ZN4core3ops8function5FnMut8call_mut17hf38b4353d3221ff8E.argprom"}
+!78 = distinct !{!78, !79, !"_ZN4core3ops8function5FnMut8call_mut17hf38b4353d3221ff8E: argument 0"}
+!79 = distinct !{!79, !"_ZN4core3ops8function5FnMut8call_mut17hf38b4353d3221ff8E"}
 !80 = !{!81}
 !81 = distinct !{!81, !82, !"_ZN105_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..statistics..traits..Max$LT$f64$GT$$GT$3max28_$u7b$$u7b$closure$u7d$$u7d$17hc6ffc6a888c41b6dE.llvm.9554138872291501309: argument 0"}
 !82 = distinct !{!82, !"_ZN105_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..statistics..traits..Max$LT$f64$GT$$GT$3max28_$u7b$$u7b$closure$u7d$$u7d$17hc6ffc6a888c41b6dE.llvm.9554138872291501309"}
@@ -3050,8 +3050,8 @@ attributes #29 = { noreturn }
 !185 = distinct !{!185, !"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h94bd5655241ed5e4E"}
 !186 = distinct !{!186, !187, !"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by7advance17h292f595c98148741E: argument 0"}
 !187 = distinct !{!187, !"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by7advance17h292f595c98148741E"}
-!188 = distinct !{!188, !189, !"_ZN4core3ops8function5FnMut8call_mut17hf38b4353d3221ff8E.argprom: argument 0"}
-!189 = distinct !{!189, !"_ZN4core3ops8function5FnMut8call_mut17hf38b4353d3221ff8E.argprom"}
+!188 = distinct !{!188, !189, !"_ZN4core3ops8function5FnMut8call_mut17hf38b4353d3221ff8E: argument 0"}
+!189 = distinct !{!189, !"_ZN4core3ops8function5FnMut8call_mut17hf38b4353d3221ff8E"}
 !190 = !{!191}
 !191 = distinct !{!191, !192, !"_ZN6statrs8generate10log_spaced28_$u7b$$u7b$closure$u7d$$u7d$17h1d757cd8268a53c8E.llvm.9554138872291501309: argument 0"}
 !192 = distinct !{!192, !"_ZN6statrs8generate10log_spaced28_$u7b$$u7b$closure$u7d$$u7d$17h1d757cd8268a53c8E.llvm.9554138872291501309"}
@@ -3110,8 +3110,8 @@ attributes #29 = { noreturn }
 !245 = !{!246}
 !246 = distinct !{!246, !244, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h3660adb498a929b7E.llvm.9554138872291501309: argument 0"}
 !247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7cd854d9b703caf1E.argprom: argument 0"}
-!249 = distinct !{!249, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7cd854d9b703caf1E.argprom"}
+!248 = distinct !{!248, !249, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7cd854d9b703caf1E: argument 0"}
+!249 = distinct !{!249, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7cd854d9b703caf1E"}
 !250 = !{!251, !253, !248}
 !251 = distinct !{!251, !252, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h1d97d0bd63e6c038E: argument 0"}
 !252 = distinct !{!252, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h1d97d0bd63e6c038E"}
@@ -3135,8 +3135,8 @@ attributes #29 = { noreturn }
 !270 = distinct !{!270, !271, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hc4c3cdf923e95459E.llvm.9554138872291501309: argument 0"}
 !271 = distinct !{!271, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hc4c3cdf923e95459E.llvm.9554138872291501309"}
 !272 = !{!273}
-!273 = distinct !{!273, !274, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd3b7e3a02574b5e4E.argprom: argument 0"}
-!274 = distinct !{!274, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd3b7e3a02574b5e4E.argprom"}
+!273 = distinct !{!273, !274, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd3b7e3a02574b5e4E: argument 0"}
+!274 = distinct !{!274, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd3b7e3a02574b5e4E"}
 !275 = !{!276, !278, !273}
 !276 = distinct !{!276, !277, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h20ae5a6e8c23ffdfE: argument 0"}
 !277 = distinct !{!277, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h20ae5a6e8c23ffdfE"}
@@ -3171,8 +3171,8 @@ attributes #29 = { noreturn }
 !306 = distinct !{!306, !"_ZN6statrs8function9factorial12ln_factorial28_$u7b$$u7b$closure$u7d$$u7d$17h43572787ba93b5efE.llvm.9554138872291501309"}
 !307 = !{!303}
 !308 = !{!309}
-!309 = distinct !{!309, !310, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd197282388784be4E.argprom: argument 0"}
-!310 = distinct !{!310, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd197282388784be4E.argprom"}
+!309 = distinct !{!309, !310, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd197282388784be4E: argument 0"}
+!310 = distinct !{!310, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd197282388784be4E"}
 !311 = !{!312, !314, !309}
 !312 = distinct !{!312, !313, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h770a2e978b92ecf1E: argument 0"}
 !313 = distinct !{!313, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h770a2e978b92ecf1E"}

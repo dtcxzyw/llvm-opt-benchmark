@@ -294,14 +294,14 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   %130 = load i32, ptr %115, align 4
   %131 = sext i32 %130 to i64
   %132 = icmp slt i64 %indvars.iv91.i, %131
-  br i1 %132, label %Extra_ProgressBarUpdate.argprom.exit.i, label %133
+  br i1 %132, label %Extra_ProgressBarUpdate.exit.i, label %133
 
 133:                                              ; preds = %129, %128
   %134 = trunc nuw nsw i64 %indvars.iv91.i to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %115, i32 noundef %134, ptr noundef null) #6
-  br label %Extra_ProgressBarUpdate.argprom.exit.i
+  br label %Extra_ProgressBarUpdate.exit.i
 
-Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %133, %129
+Extra_ProgressBarUpdate.exit.i:                   ; preds = %133, %129
   %135 = getelementptr i8, ptr %123, i64 28
   %.val33.i.i = load i32, ptr %135, align 4
   switch i32 %.val33.i.i, label %174 [
@@ -309,7 +309,7 @@ Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %133, %129
     i32 1, label %146
   ]
 
-136:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+136:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
   %.val25.i.i = load ptr, ptr %123, align 8
   %137 = getelementptr i8, ptr %123, i64 48
   %.val26.i.i = load ptr, ptr %137, align 8
@@ -326,7 +326,7 @@ Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %133, %129
   %145 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 7, i64 1, ptr nonnull %27)
   br label %Io_WriteBenchOneNode.exit.i
 
-146:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+146:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
   %147 = tail call i32 @Abc_NodeIsBuf(ptr noundef nonnull %123) #6
   %.not.i65.i = icmp eq i32 %147, 0
   %.val21.i.i = load ptr, ptr %123, align 8
@@ -376,7 +376,7 @@ Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %133, %129
   %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.12, ptr noundef %172) #6
   br label %Io_WriteBenchOneNode.exit.i
 
-174:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+174:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
   %.val.i.i = load ptr, ptr %123, align 8
   %175 = getelementptr i8, ptr %123, i64 48
   %.val20.i.i = load ptr, ptr %175, align 8
@@ -729,14 +729,14 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   %134 = load i32, ptr %119, align 4
   %135 = sext i32 %134 to i64
   %136 = icmp slt i64 %indvars.iv94.i, %135
-  br i1 %136, label %Extra_ProgressBarUpdate.argprom.exit.i, label %137
+  br i1 %136, label %Extra_ProgressBarUpdate.exit.i, label %137
 
 137:                                              ; preds = %133, %132
   %138 = trunc nuw nsw i64 %indvars.iv94.i to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %119, i32 noundef %138, ptr noundef null) #6
-  br label %Extra_ProgressBarUpdate.argprom.exit.i
+  br label %Extra_ProgressBarUpdate.exit.i
 
-Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %137, %133
+Extra_ProgressBarUpdate.exit.i:                   ; preds = %137, %133
   %139 = getelementptr i8, ptr %127, i64 28
   %.val52.i.i = load i32, ptr %139, align 4
   %140 = load ptr, ptr %127, align 8
@@ -754,12 +754,12 @@ Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %137, %133
   %.not.i67.i = icmp eq i64 %151, 0
   br i1 %.not.i67.i, label %.Extra_TruthNot.exit_crit_edge.i.i, label %152
 
-.Extra_TruthNot.exit_crit_edge.i.i:               ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+.Extra_TruthNot.exit_crit_edge.i.i:               ; preds = %Extra_ProgressBarUpdate.exit.i
   %.pre.i.i = add nsw i32 %.val52.i.i, -5
   %.pre70.i.i = shl nuw i32 1, %.pre.i.i
   br label %Extra_TruthNot.exit.i.i
 
-152:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+152:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
   %153 = icmp slt i32 %.val52.i.i, 6
   %154 = add nsw i32 %.val52.i.i, -5
   %155 = shl nuw i32 1, %154

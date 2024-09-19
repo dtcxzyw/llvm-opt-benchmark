@@ -19792,7 +19792,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiI
   %4 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L7_tokensE seq_cst, align 8
   %5 = inttoptr i64 %4 to ptr
   %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %6, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
+  br i1 %.not.i.i, label %6, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
 
 6:                                                ; preds = %2
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
@@ -19902,7 +19902,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL_
   %49 = ptrtoint ptr %7 to i64
   %50 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__L7_tokensE, i64 0, i64 %49 seq_cst seq_cst, align 8
   %51 = extractvalue { i64, i1 } %50, 1
-  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit, label %52
+  br i1 %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit, label %52
 
 52:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i.i
   %53 = load ptr, ptr %8, align 8
@@ -19964,16 +19964,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_tokens_PrivateStaticTokenT
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 32) #24
   %77 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L7_tokensE seq_cst, align 8
   %78 = inttoptr i64 %77 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit: ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeD2Ev.exit.i.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit: ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeD2Ev.exit.i.i.i
   %79 = phi ptr [ %5, %2 ], [ %78, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeD2Ev.exit.i.i.i ], [ %7, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeEE3NewEv.exit.i.i.i ]
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath11AppendChildERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %3, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %79)
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath11AppendChildERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %80)
           to label %81 unwind label %100
 
-81:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
+81:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
   %82 = load i32, ptr %3, align 4
   %.not.i.i2 = icmp eq i32 %82, 0
   br i1 %.not.i.i2, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, label %83
@@ -20007,7 +20007,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %81, %83, %96
   ret void
 
-100:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
+100:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
   %101 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %3) #22
@@ -94537,16 +94537,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10shared_ptrIN3
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS_7SdfPathEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 3, label %33
     i32 2, label %7
   ]
@@ -94594,12 +94594,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_47UsdImaging_NiInstanceAggreg
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %30, align 4
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 33:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %34 = icmp eq ptr %.val7.i, null
-  br i1 %34, label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %35
+  br i1 %34, label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %35
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 16
@@ -94654,9 +94654,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 "_ZZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS_7SdfPathEEN3$_0D2Ev.exit.i.i": ; preds = %60, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS_7SdfPathEEN3$_0D2Ev.exit.i.i", %33, %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS_7SdfPathEEN3$_0D2Ev.exit.i.i", %33, %"_ZNSt14_Function_base13_Base_managerIZN32pxrInternal_v0_24__pxrReserved__47UsdImaging_NiInstanceAggregationSceneIndex_Impl17_InstanceObserver25_GetDataSourceForInstanceERKNS1_7SdfPathEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 

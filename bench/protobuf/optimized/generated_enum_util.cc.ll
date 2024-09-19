@@ -115,24 +115,24 @@ entry:
   %add.ptr = getelementptr inbounds i32, ptr %sorted_indices, i64 %size
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %sorted_indices to i64
   %cmp4.i.i = icmp sgt i64 %size, 0
-  br i1 %cmp4.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.argprom.exit"
+  br i1 %cmp4.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit"
 
-while.body.i.i:                                   ; preds = %entry, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.argprom.exit.i.i"
-  %__first.addr.06.i.i = phi ptr [ %__first.addr.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.argprom.exit.i.i" ], [ %sorted_indices, %entry ]
-  %__len.05.i.i = phi i64 [ %__len.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.argprom.exit.i.i" ], [ %size, %entry ]
+while.body.i.i:                                   ; preds = %entry, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i"
+  %__first.addr.06.i.i = phi ptr [ %__first.addr.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ], [ %sorted_indices, %entry ]
+  %__len.05.i.i = phi i64 [ %__len.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ], [ %size, %entry ]
   %shr.i.i = lshr i64 %__len.05.i.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.06.i.i, i64 %shr.i.i
   %.val.i.i = load i32, ptr %add.ptr.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %.val.i.i, -1
-  br i1 %cmp.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.argprom.exit.i.i", label %if.else.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i", label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.body.i.i
   %idxprom.i.i.i.i.i = sext i32 %.val.i.i to i64
   %value.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %enums, i64 %idxprom.i.i.i.i.i, i32 1
   %0 = load i32, ptr %value.i.i.i.i.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.argprom.exit.i.i": ; preds = %while.body.i.i, %if.else.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i": ; preds = %while.body.i.i, %if.else.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi i32 [ %0, %if.else.i.i.i.i.i ], [ %value, %while.body.i.i ]
   %cmp.i.i9.i.i = icmp slt i32 %retval.0.i.i.i.i.i, %value
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 4
@@ -141,14 +141,14 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i
   %__len.1.i.i = select i1 %cmp.i.i9.i.i, i64 %sub2.i.i, i64 %shr.i.i
   %__first.addr.1.i.i = select i1 %cmp.i.i9.i.i, ptr %incdec.ptr.i.i, ptr %__first.addr.06.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
-  br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.argprom.exit", !llvm.loop !6
+  br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit", !llvm.loop !6
 
-"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.argprom.exit.i.i", %entry
-  %__first.addr.0.lcssa.i.i = phi ptr [ %sorted_indices, %entry ], [ %__first.addr.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.argprom.exit.i.i" ]
+"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i", %entry
+  %__first.addr.0.lcssa.i.i = phi ptr [ %sorted_indices, %entry ], [ %__first.addr.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ]
   %cmp.not = icmp eq ptr %__first.addr.0.lcssa.i.i, %add.ptr
   br i1 %cmp.not, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.argprom.exit"
+land.lhs.true:                                    ; preds = %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit"
   %2 = load i32, ptr %__first.addr.0.lcssa.i.i, align 4
   %idxprom = sext i32 %2 to i64
   %value2 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %enums, i64 %idxprom, i32 1
@@ -163,8 +163,8 @@ if.then:                                          ; preds = %land.lhs.true
   %conv = trunc i64 %sub.ptr.div to i32
   br label %return
 
-return:                                           ; preds = %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.argprom.exit", %land.lhs.true, %if.then
-  %retval.0 = phi i32 [ %conv, %if.then ], [ -1, %land.lhs.true ], [ -1, %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.argprom.exit" ]
+return:                                           ; preds = %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit", %land.lhs.true, %if.then
+  %retval.0 = phi i32 [ %conv, %if.then ], [ -1, %land.lhs.true ], [ -1, %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit" ]
   ret i32 %retval.0
 }
 

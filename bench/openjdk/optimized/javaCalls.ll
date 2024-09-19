@@ -1267,12 +1267,12 @@ _ZNK6Method15is_empty_methodEv.exit:              ; preds = %16
   %.052 = phi ptr [ %40, %37 ], [ %31, %34 ], [ %31, %28 ]
   %.val = load i8, ptr %0, align 8
   switch i8 %.val, label %45 [
-    i8 4, label %_ZL17runtime_type_fromP9JavaValue.argprom.exit
-    i8 5, label %_ZL17runtime_type_fromP9JavaValue.argprom.exit
-    i8 9, label %_ZL17runtime_type_fromP9JavaValue.argprom.exit
-    i8 10, label %_ZL17runtime_type_fromP9JavaValue.argprom.exit
-    i8 8, label %_ZL17runtime_type_fromP9JavaValue.argprom.exit
-    i8 14, label %_ZL17runtime_type_fromP9JavaValue.argprom.exit
+    i8 4, label %_ZL17runtime_type_fromP9JavaValue.exit
+    i8 5, label %_ZL17runtime_type_fromP9JavaValue.exit
+    i8 9, label %_ZL17runtime_type_fromP9JavaValue.exit
+    i8 10, label %_ZL17runtime_type_fromP9JavaValue.exit
+    i8 8, label %_ZL17runtime_type_fromP9JavaValue.exit
+    i8 14, label %_ZL17runtime_type_fromP9JavaValue.exit
     i8 11, label %_Z17is_reference_type9BasicTypeb.exit
     i8 6, label %42
     i8 7, label %43
@@ -1287,7 +1287,7 @@ _ZNK6Method15is_empty_methodEv.exit:              ; preds = %16
   br label %_Z17is_reference_type9BasicTypeb.exit
 
 44:                                               ; preds = %41, %41
-  br label %_ZL17runtime_type_fromP9JavaValue.argprom.exit
+  br label %_ZL17runtime_type_fromP9JavaValue.exit
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr @g_assert_poison, align 8
@@ -1295,15 +1295,15 @@ _ZNK6Method15is_empty_methodEv.exit:              ; preds = %16
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 167) #10
   unreachable
 
-_ZL17runtime_type_fromP9JavaValue.argprom.exit:   ; preds = %41, %41, %41, %41, %41, %41, %44
+_ZL17runtime_type_fromP9JavaValue.exit:           ; preds = %41, %41, %41, %41, %41, %41, %44
   %.0.i = phi i32 [ 12, %44 ], [ 10, %41 ], [ 10, %41 ], [ 10, %41 ], [ 10, %41 ], [ 10, %41 ], [ 10, %41 ]
   %47 = and i8 %.val, -2
   %or.cond.i = icmp eq i8 %47, 12
   br label %_Z17is_reference_type9BasicTypeb.exit
 
-_Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZL17runtime_type_fromP9JavaValue.argprom.exit, %41, %43, %42
-  %.0.i68 = phi i32 [ 6, %42 ], [ 7, %43 ], [ 11, %41 ], [ %.0.i, %_ZL17runtime_type_fromP9JavaValue.argprom.exit ]
-  %48 = phi i1 [ false, %42 ], [ false, %43 ], [ false, %41 ], [ %or.cond.i, %_ZL17runtime_type_fromP9JavaValue.argprom.exit ]
+_Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZL17runtime_type_fromP9JavaValue.exit, %41, %43, %42
+  %.0.i68 = phi i32 [ 6, %42 ], [ 7, %43 ], [ 11, %41 ], [ %.0.i, %_ZL17runtime_type_fromP9JavaValue.exit ]
+  %48 = phi i1 [ false, %42 ], [ false, %43 ], [ false, %41 ], [ %or.cond.i, %_ZL17runtime_type_fromP9JavaValue.exit ]
   %49 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %50, align 8

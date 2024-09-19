@@ -317,7 +317,7 @@ common.resume:                                    ; preds = %35, %53
 53:                                               ; preds = %.lr.ph
   %54 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr43drop_in_place$LT$smallvec..SetLenOnDrop$GT$17h72e5a6000333e454E.argprom"(ptr nonnull %.sink2.i, i64 %.sroa.7.022) #24
+  call fastcc void @"_ZN4core3ptr43drop_in_place$LT$smallvec..SetLenOnDrop$GT$17h72e5a6000333e454E"(ptr nonnull %.sink2.i, i64 %.sroa.7.022) #24
   br label %common.resume
 
 55:                                               ; preds = %.lr.ph
@@ -1149,7 +1149,7 @@ define internal fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$smallvec..SetLenOnDrop$GT$17h72e5a6000333e454E.argprom"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #3 {
+define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$smallvec..SetLenOnDrop$GT$17h72e5a6000333e454E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #3 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -2232,39 +2232,39 @@ attributes #27 = { nounwind }
 !111 = !{!109, !112}
 !112 = distinct !{!112, !110, !"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered17h700f8b970b67cae4E: argument 1"}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN4core4iter6traits8iterator8Iterator8find_map17hd3bcaea6e9919076E.argprom: argument 0"}
-!115 = distinct !{!115, !"_ZN4core4iter6traits8iterator8Iterator8find_map17hd3bcaea6e9919076E.argprom"}
+!114 = distinct !{!114, !115, !"_ZN4core4iter6traits8iterator8Iterator8find_map17hd3bcaea6e9919076E: argument 0"}
+!115 = distinct !{!115, !"_ZN4core4iter6traits8iterator8Iterator8find_map17hd3bcaea6e9919076E"}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h10cc88d99b640b56E.argprom: argument 1"}
-!118 = distinct !{!118, !"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h10cc88d99b640b56E.argprom"}
+!117 = distinct !{!117, !118, !"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h10cc88d99b640b56E: argument 1"}
+!118 = distinct !{!118, !"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h10cc88d99b640b56E"}
 !119 = !{i8 0, i8 2}
 !120 = !{!121, !117}
-!121 = distinct !{!121, !122, !"_ZN18tracing_subscriber8registry5stack9SpanStack4iter28_$u7b$$u7b$closure$u7d$$u7d$17h5a65837a96d05c28E.argprom: argument 0"}
-!122 = distinct !{!122, !"_ZN18tracing_subscriber8registry5stack9SpanStack4iter28_$u7b$$u7b$closure$u7d$$u7d$17h5a65837a96d05c28E.argprom"}
+!121 = distinct !{!121, !122, !"_ZN18tracing_subscriber8registry5stack9SpanStack4iter28_$u7b$$u7b$closure$u7d$$u7d$17h5a65837a96d05c28E: argument 0"}
+!122 = distinct !{!122, !"_ZN18tracing_subscriber8registry5stack9SpanStack4iter28_$u7b$$u7b$closure$u7d$$u7d$17h5a65837a96d05c28E"}
 !123 = !{!124, !125, !127, !128, !130, !131, !133, !134, !135, !114, !136, !109, !112}
-!124 = distinct !{!124, !118, !"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h10cc88d99b640b56E.argprom: argument 0"}
-!125 = distinct !{!125, !126, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hb40a24ddcaffd6a9E.argprom: argument 0"}
-!126 = distinct !{!126, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hb40a24ddcaffd6a9E.argprom"}
-!127 = distinct !{!127, !126, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hb40a24ddcaffd6a9E.argprom: argument 1"}
-!128 = distinct !{!128, !129, !"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hcaf60955ea67b038E.argprom: argument 0"}
-!129 = distinct !{!129, !"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hcaf60955ea67b038E.argprom"}
-!130 = distinct !{!130, !129, !"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hcaf60955ea67b038E.argprom: argument 1"}
+!124 = distinct !{!124, !118, !"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h10cc88d99b640b56E: argument 0"}
+!125 = distinct !{!125, !126, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hb40a24ddcaffd6a9E: argument 0"}
+!126 = distinct !{!126, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hb40a24ddcaffd6a9E"}
+!127 = distinct !{!127, !126, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hb40a24ddcaffd6a9E: argument 1"}
+!128 = distinct !{!128, !129, !"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hcaf60955ea67b038E: argument 0"}
+!129 = distinct !{!129, !"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hcaf60955ea67b038E"}
+!130 = distinct !{!130, !129, !"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hcaf60955ea67b038E: argument 1"}
 !131 = distinct !{!131, !132, !"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2280d3c12f61919cE: argument 0"}
 !132 = distinct !{!132, !"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2280d3c12f61919cE"}
 !133 = distinct !{!133, !132, !"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2280d3c12f61919cE: argument 1"}
 !134 = distinct !{!134, !132, !"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2280d3c12f61919cE: argument 2"}
 !135 = distinct !{!135, !132, !"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2280d3c12f61919cE: argument 3"}
-!136 = distinct !{!136, !115, !"_ZN4core4iter6traits8iterator8Iterator8find_map17hd3bcaea6e9919076E.argprom: argument 1"}
+!136 = distinct !{!136, !115, !"_ZN4core4iter6traits8iterator8Iterator8find_map17hd3bcaea6e9919076E: argument 1"}
 !137 = !{!138, !140, !141, !143, !144, !146, !124, !117, !125, !127, !128, !130, !131, !133, !134, !135, !114, !136, !109, !112}
 !138 = distinct !{!138, !139, !"_ZN18tracing_subscriber8registry10LookupSpan4span17hd433b411c3a8378bE: argument 0"}
 !139 = distinct !{!139, !"_ZN18tracing_subscriber8registry10LookupSpan4span17hd433b411c3a8378bE"}
 !140 = distinct !{!140, !139, !"_ZN18tracing_subscriber8registry10LookupSpan4span17hd433b411c3a8378bE: argument 1"}
-!141 = distinct !{!141, !142, !"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered28_$u7b$$u7b$closure$u7d$$u7d$17he72f6527008fc9d5E.argprom: argument 0"}
-!142 = distinct !{!142, !"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered28_$u7b$$u7b$closure$u7d$$u7d$17he72f6527008fc9d5E.argprom"}
-!143 = distinct !{!143, !142, !"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered28_$u7b$$u7b$closure$u7d$$u7d$17he72f6527008fc9d5E.argprom: argument 1"}
-!144 = distinct !{!144, !145, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h0ab5c288ceeabc26E.argprom: argument 0"}
-!145 = distinct !{!145, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h0ab5c288ceeabc26E.argprom"}
-!146 = distinct !{!146, !145, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h0ab5c288ceeabc26E.argprom: argument 1"}
+!141 = distinct !{!141, !142, !"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered28_$u7b$$u7b$closure$u7d$$u7d$17he72f6527008fc9d5E: argument 0"}
+!142 = distinct !{!142, !"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered28_$u7b$$u7b$closure$u7d$$u7d$17he72f6527008fc9d5E"}
+!143 = distinct !{!143, !142, !"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered28_$u7b$$u7b$closure$u7d$$u7d$17he72f6527008fc9d5E: argument 1"}
+!144 = distinct !{!144, !145, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h0ab5c288ceeabc26E: argument 0"}
+!145 = distinct !{!145, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h0ab5c288ceeabc26E"}
+!146 = distinct !{!146, !145, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h0ab5c288ceeabc26E: argument 1"}
 !147 = !{!138, !141, !144, !124, !125, !127, !128, !130, !131, !133, !134, !135, !114, !136, !109, !112}
 !148 = !{!149, !151, !153, !141, !144, !124, !125, !127, !128, !130, !131, !133, !134, !135, !114, !136, !109, !112}
 !149 = distinct !{!149, !150, !"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14is_enabled_for17h05f2077fcbe1ae4aE.llvm.368415048798493651: argument 0"}
@@ -2424,7 +2424,7 @@ attributes #27 = { nounwind }
 !303 = !{!304}
 !304 = distinct !{!304, !302, !"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h28f4d85d54595873E.llvm.368415048798493651: argument 0"}
 !305 = !{!306}
-!306 = distinct !{!306, !307, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5cb138b8f37d5956E.argprom: argument 0"}
-!307 = distinct !{!307, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5cb138b8f37d5956E.argprom"}
+!306 = distinct !{!306, !307, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5cb138b8f37d5956E: argument 0"}
+!307 = distinct !{!307, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5cb138b8f37d5956E"}
 !308 = !{i32 0, i32 -1}
 !309 = !{i64 1}

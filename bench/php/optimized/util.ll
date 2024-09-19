@@ -3033,7 +3033,7 @@ phar_get_entrypufp.exit:                          ; preds = %95, %98
 
 110:                                              ; preds = %105
   %111 = getelementptr inbounds i8, ptr %.val, i64 264
-  br label %phar_set_entrypufp.argprom.exit
+  br label %phar_set_entrypufp.exit
 
 112:                                              ; preds = %105
   %113 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 112), align 8
@@ -3041,9 +3041,9 @@ phar_get_entrypufp.exit:                          ; preds = %95, %98
   %115 = load i32, ptr %114, align 8
   %116 = zext i32 %115 to i64
   %117 = getelementptr inbounds %struct._phar_entry_fp, ptr %113, i64 %116, i32 1
-  br label %phar_set_entrypufp.argprom.exit
+  br label %phar_set_entrypufp.exit
 
-phar_set_entrypufp.argprom.exit:                  ; preds = %110, %112
+phar_set_entrypufp.exit:                          ; preds = %110, %112
   %.sink.i = phi ptr [ %117, %112 ], [ %111, %110 ]
   store ptr %106, ptr %.sink.i, align 8
   %118 = load i16, ptr %15, align 2
@@ -3051,12 +3051,12 @@ phar_set_entrypufp.argprom.exit:                  ; preds = %110, %112
   %.not.i113 = icmp eq i16 %119, 0
   br i1 %.not.i113, label %120, label %123
 
-120:                                              ; preds = %phar_set_entrypufp.argprom.exit
+120:                                              ; preds = %phar_set_entrypufp.exit
   %121 = load ptr, ptr %14, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 264
   br label %phar_get_entrypufp.exit116
 
-123:                                              ; preds = %phar_set_entrypufp.argprom.exit
+123:                                              ; preds = %phar_set_entrypufp.exit
   %124 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 112), align 8
   %125 = load ptr, ptr %14, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 320

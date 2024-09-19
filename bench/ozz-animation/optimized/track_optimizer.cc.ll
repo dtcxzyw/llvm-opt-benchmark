@@ -209,7 +209,7 @@ _ZN3ozz9animation7offline13RawFloatTrackD2Ev.exit.i: ; preds = %31, %_ZNSt7__cxx
 
 50:                                               ; preds = %39
   %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.argprom.exit.i
+  br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.exit.i
 
 52:                                               ; preds = %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
@@ -755,7 +755,7 @@ _ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.
 _ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i: ; preds = %_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i, %287
   %305 = load ptr, ptr %4, align 8
   %.not.i.i.i89.i.i = icmp eq ptr %305, null
-  br i1 %.not.i.i.i89.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.argprom.exit.i, label %306
+  br i1 %.not.i.i.i89.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.exit.i, label %306
 
 306:                                              ; preds = %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i
   %307 = load ptr, ptr %79, align 8
@@ -803,7 +803,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_
   %326 = getelementptr inbounds i8, ptr %325, i64 24
   %327 = load ptr, ptr %326, align 8
   invoke void %327(ptr noundef nonnull align 8 dereferenceable(8) %323, ptr noundef %322)
-          to label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.argprom.exit.i unwind label %328
+          to label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.exit.i unwind label %328
 
 328:                                              ; preds = %324, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_S7_.exit.i.i.i.i.i
   %329 = landingpad { ptr, i32 }
@@ -812,7 +812,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_
   call void @__clang_call_terminate(ptr %330) #16
   unreachable
 
-_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.argprom.exit.i: ; preds = %324, %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i, %50
+_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.exit.i: ; preds = %324, %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i, %50
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -821,8 +821,8 @@ _ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdA
   %331 = call noundef zeroext i1 @_ZNK3ozz9animation7offline8internal8RawTrackIfE8ValidateEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_13RawFloatTrackEEEbfRKT_PS5_.exit
 
-_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_13RawFloatTrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline13RawFloatTrackD2Ev.exit.i, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.argprom.exit.i
-  %.0.i = phi i1 [ %331, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.argprom.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline13RawFloatTrackD2Ev.exit.i ]
+_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_13RawFloatTrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline13RawFloatTrackD2Ev.exit.i, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.exit.i
+  %.0.i = phi i1 [ %331, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline13RawFloatTrackD2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   ret i1 %.0.i
 }
@@ -922,7 +922,7 @@ _ZN3ozz9animation7offline14RawFloat2TrackD2Ev.exit.i: ; preds = %31, %_ZNSt7__cx
 
 49:                                               ; preds = %39
   %50 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i
+  br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
 
 51:                                               ; preds = %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
@@ -1485,7 +1485,7 @@ _ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.
 _ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i: ; preds = %_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i, %302
   %320 = load ptr, ptr %4, align 8
   %.not.i.i.i90.i.i = icmp eq ptr %320, null
-  br i1 %.not.i.i.i90.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i, label %321
+  br i1 %.not.i.i.i90.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i, label %321
 
 321:                                              ; preds = %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i
   %322 = load ptr, ptr %78, align 8
@@ -1533,7 +1533,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_
   %341 = getelementptr inbounds i8, ptr %340, i64 24
   %342 = load ptr, ptr %341, align 8
   invoke void %342(ptr noundef nonnull align 8 dereferenceable(8) %338, ptr noundef %337)
-          to label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i unwind label %343
+          to label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i unwind label %343
 
 343:                                              ; preds = %339, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_S7_.exit.i.i.i.i.i
   %344 = landingpad { ptr, i32 }
@@ -1542,7 +1542,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_
   call void @__clang_call_terminate(ptr %345) #16
   unreachable
 
-_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i: ; preds = %339, %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i, %49
+_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i: ; preds = %339, %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i, %49
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -1551,8 +1551,8 @@ _ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Flo
   %346 = call noundef zeroext i1 @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math6Float2EE8ValidateEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat2TrackEEEbfRKT_PS5_.exit
 
-_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat2TrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline14RawFloat2TrackD2Ev.exit.i, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i
-  %.0.i = phi i1 [ %346, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline14RawFloat2TrackD2Ev.exit.i ]
+_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat2TrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline14RawFloat2TrackD2Ev.exit.i, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
+  %.0.i = phi i1 [ %346, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline14RawFloat2TrackD2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   ret i1 %.0.i
 }
@@ -1653,7 +1653,7 @@ _ZN3ozz9animation7offline14RawFloat3TrackD2Ev.exit.i: ; preds = %31, %_ZNSt7__cx
 
 50:                                               ; preds = %39
   %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i
+  br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
 
 52:                                               ; preds = %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
@@ -2233,7 +2233,7 @@ _ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.
 _ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i: ; preds = %_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i, %326
   %344 = load ptr, ptr %4, align 8
   %.not.i.i.i82.i.i = icmp eq ptr %344, null
-  br i1 %.not.i.i.i82.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i, label %345
+  br i1 %.not.i.i.i82.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i, label %345
 
 345:                                              ; preds = %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i
   %346 = load ptr, ptr %79, align 8
@@ -2281,7 +2281,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_
   %365 = getelementptr inbounds i8, ptr %364, i64 24
   %366 = load ptr, ptr %365, align 8
   invoke void %366(ptr noundef nonnull align 8 dereferenceable(8) %362, ptr noundef %361)
-          to label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i unwind label %367
+          to label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i unwind label %367
 
 367:                                              ; preds = %363, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_S7_.exit.i.i.i.i.i
   %368 = landingpad { ptr, i32 }
@@ -2290,7 +2290,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_
   call void @__clang_call_terminate(ptr %369) #16
   unreachable
 
-_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i: ; preds = %363, %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i, %50
+_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i: ; preds = %363, %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i, %50
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -2299,8 +2299,8 @@ _ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Flo
   %370 = call noundef zeroext i1 @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math6Float3EE8ValidateEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat3TrackEEEbfRKT_PS5_.exit
 
-_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat3TrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline14RawFloat3TrackD2Ev.exit.i, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i
-  %.0.i = phi i1 [ %370, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline14RawFloat3TrackD2Ev.exit.i ]
+_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat3TrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline14RawFloat3TrackD2Ev.exit.i, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
+  %.0.i = phi i1 [ %370, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline14RawFloat3TrackD2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   ret i1 %.0.i
 }
@@ -2401,7 +2401,7 @@ _ZN3ozz9animation7offline14RawFloat4TrackD2Ev.exit.i: ; preds = %31, %_ZNSt7__cx
 
 50:                                               ; preds = %39
   %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i
+  br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
 
 52:                                               ; preds = %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
@@ -2997,7 +2997,7 @@ _ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.
 _ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i: ; preds = %_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i, %342
   %360 = load ptr, ptr %4, align 8
   %.not.i.i.i82.i.i = icmp eq ptr %360, null
-  br i1 %.not.i.i.i82.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i, label %361
+  br i1 %.not.i.i.i82.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i, label %361
 
 361:                                              ; preds = %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i
   %362 = load ptr, ptr %79, align 8
@@ -3045,7 +3045,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_
   %381 = getelementptr inbounds i8, ptr %380, i64 24
   %382 = load ptr, ptr %381, align 8
   invoke void %382(ptr noundef nonnull align 8 dereferenceable(8) %378, ptr noundef %377)
-          to label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i unwind label %383
+          to label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i unwind label %383
 
 383:                                              ; preds = %379, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_S7_.exit.i.i.i.i.i
   %384 = landingpad { ptr, i32 }
@@ -3054,7 +3054,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_
   call void @__clang_call_terminate(ptr %385) #16
   unreachable
 
-_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i: ; preds = %379, %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i, %50
+_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i: ; preds = %379, %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i, %50
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -3063,8 +3063,8 @@ _ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Flo
   %386 = call noundef zeroext i1 @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math6Float4EE8ValidateEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat4TrackEEEbfRKT_PS5_.exit
 
-_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat4TrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline14RawFloat4TrackD2Ev.exit.i, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i
-  %.0.i = phi i1 [ %386, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline14RawFloat4TrackD2Ev.exit.i ]
+_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat4TrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline14RawFloat4TrackD2Ev.exit.i, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
+  %.0.i = phi i1 [ %386, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline14RawFloat4TrackD2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   ret i1 %.0.i
 }
@@ -3168,7 +3168,7 @@ _ZN3ozz9animation7offline18RawQuaternionTrackD2Ev.exit.i: ; preds = %34, %_ZNSt7
 
 53:                                               ; preds = %42
   %54 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i
+  br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
 
 55:                                               ; preds = %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
@@ -3772,7 +3772,7 @@ _ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.
 _ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i: ; preds = %_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i, %354
   %372 = load ptr, ptr %4, align 8
   %.not.i.i.i81.i.i = icmp eq ptr %372, null
-  br i1 %.not.i.i.i81.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i, label %373
+  br i1 %.not.i.i.i81.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i, label %373
 
 373:                                              ; preds = %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i
   %374 = load ptr, ptr %82, align 8
@@ -3820,7 +3820,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_
   %393 = getelementptr inbounds i8, ptr %392, i64 24
   %394 = load ptr, ptr %393, align 8
   invoke void %394(ptr noundef nonnull align 8 dereferenceable(8) %390, ptr noundef %389)
-          to label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i unwind label %395
+          to label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i unwind label %395
 
 395:                                              ; preds = %391, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_S7_.exit.i.i.i.i.i
   %396 = landingpad { ptr, i32 }
@@ -3829,7 +3829,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_
   call void @__clang_call_terminate(ptr %397) #16
   unreachable
 
-_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i: ; preds = %391, %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i, %53
+_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i: ; preds = %391, %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i, %53
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -3838,8 +3838,8 @@ _ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10Qu
   %398 = call noundef zeroext i1 @_ZNK3ozz9animation7offline8internal8RawTrackINS_4math10QuaternionEE8ValidateEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_18RawQuaternionTrackEEEbfRKT_PS5_.exit
 
-_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_18RawQuaternionTrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline18RawQuaternionTrackD2Ev.exit.i, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i
-  %.0.i = phi i1 [ %398, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.argprom.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline18RawQuaternionTrackD2Ev.exit.i ]
+_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_18RawQuaternionTrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline18RawQuaternionTrackD2Ev.exit.i, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i
+  %.0.i = phi i1 [ %398, %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline18RawQuaternionTrackD2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   ret i1 %.0.i
 }
@@ -6343,8 +6343,8 @@ attributes #17 = { noreturn }
 !21 = distinct !{!21, !22, !"_ZNSt5dequeISt4pairImmEN3ozz12StdAllocatorIS1_EEE3endEv: argument 0"}
 !22 = distinct !{!22, !"_ZNSt5dequeISt4pairImmEN3ozz12StdAllocatorIS1_EEE3endEv"}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math6Float3EEEE4LerpERKS7_SA_SA_.argprom: argument 0"}
-!25 = distinct !{!25, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math6Float3EEEE4LerpERKS7_SA_SA_.argprom"}
+!24 = distinct !{!24, !25, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math6Float3EEEE4LerpERKS7_SA_SA_: argument 0"}
+!25 = distinct !{!25, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math6Float3EEEE4LerpERKS7_SA_SA_"}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
@@ -6352,8 +6352,8 @@ attributes #17 = { noreturn }
 !30 = distinct !{!30, !31, !"_ZNSt5dequeISt4pairImmEN3ozz12StdAllocatorIS1_EEE3endEv: argument 0"}
 !31 = distinct !{!31, !"_ZNSt5dequeISt4pairImmEN3ozz12StdAllocatorIS1_EEE3endEv"}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math6Float4EEEE4LerpERKS7_SA_SA_.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math6Float4EEEE4LerpERKS7_SA_SA_.argprom"}
+!33 = distinct !{!33, !34, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math6Float4EEEE4LerpERKS7_SA_SA_: argument 0"}
+!34 = distinct !{!34, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math6Float4EEEE4LerpERKS7_SA_SA_"}
 !35 = distinct !{!35, !6}
 !36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
@@ -6361,8 +6361,8 @@ attributes #17 = { noreturn }
 !39 = distinct !{!39, !40, !"_ZNSt5dequeISt4pairImmEN3ozz12StdAllocatorIS1_EEE3endEv: argument 0"}
 !40 = distinct !{!40, !"_ZNSt5dequeISt4pairImmEN3ozz12StdAllocatorIS1_EEE3endEv"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math10QuaternionEEEE4LerpERKS7_SA_SA_.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math10QuaternionEEEE4LerpERKS7_SA_SA_.argprom"}
+!42 = distinct !{!42, !43, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math10QuaternionEEEE4LerpERKS7_SA_SA_: argument 0"}
+!43 = distinct !{!43, !"_ZNK3ozz9animation7offline12_GLOBAL__N_17AdapterINS1_16RawTrackKeyframeINS_4math10QuaternionEEEE4LerpERKS7_SA_SA_"}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
 !46 = distinct !{!46, !6}

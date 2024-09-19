@@ -436,7 +436,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   %159 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr %140, ptr %159, align 8
   %160 = load ptr, ptr %88, align 8
-  %161 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr nonnull %137, ptr nonnull %140, ptr noundef nonnull align 8 dereferenceable(60) %160)
+  %161 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr nonnull %137, ptr nonnull %140, ptr noundef nonnull align 8 dereferenceable(60) %160)
           to label %162 unwind label %196
 
 162:                                              ; preds = %158
@@ -907,7 +907,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   %312 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %310, ptr %312, align 8
   %313 = load ptr, ptr %75, align 8
-  %314 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr nonnull %309, ptr nonnull %310, ptr noundef nonnull align 8 dereferenceable(60) %313)
+  %314 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr nonnull %309, ptr nonnull %310, ptr noundef nonnull align 8 dereferenceable(60) %313)
           to label %.lr.ph.i.i.i.i.i14.preheader unwind label %349
 
 .lr.ph.i.i.i.i.i14.preheader:                     ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i13
@@ -1303,7 +1303,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   %434 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %432, ptr %434, align 8
   %435 = load ptr, ptr %64, align 8
-  %436 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr nonnull %431, ptr nonnull %432, ptr noundef nonnull align 8 dereferenceable(60) %435)
+  %436 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr nonnull %431, ptr nonnull %432, ptr noundef nonnull align 8 dereferenceable(60) %435)
           to label %.lr.ph.i.i.i.i.i38.preheader unwind label %468
 
 .lr.ph.i.i.i.i.i38.preheader:                     ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i37
@@ -1686,7 +1686,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   %549 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %547, ptr %549, align 8
   %550 = load ptr, ptr %51, align 8
-  %551 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr nonnull %546, ptr nonnull %547, ptr noundef nonnull align 8 dereferenceable(60) %550)
+  %551 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr nonnull %546, ptr nonnull %547, ptr noundef nonnull align 8 dereferenceable(60) %550)
           to label %.lr.ph.i.i.i.i.i69.preheader unwind label %587
 
 .lr.ph.i.i.i.i.i69.preheader:                     ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i68
@@ -2200,7 +2200,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   %700 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %681, ptr %700, align 8
   %701 = load ptr, ptr %37, align 8
-  %702 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr nonnull %678, ptr nonnull %681, ptr noundef nonnull align 8 dereferenceable(60) %701)
+  %702 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr nonnull %678, ptr nonnull %681, ptr noundef nonnull align 8 dereferenceable(60) %701)
           to label %703 unwind label %733
 
 703:                                              ; preds = %699
@@ -2717,7 +2717,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   %851 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %832, ptr %851, align 8
   %852 = load ptr, ptr %22, align 8
-  %853 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr nonnull %829, ptr nonnull %832, ptr noundef nonnull align 8 dereferenceable(60) %852)
+  %853 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr nonnull %829, ptr nonnull %832, ptr noundef nonnull align 8 dereferenceable(60) %852)
           to label %854 unwind label %888
 
 854:                                              ; preds = %850
@@ -3038,7 +3038,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_122StepHumanBotWithInputsERNS_8HumanBotERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN4absl7debian211string_viewC2EPKc.exit:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -451,7 +451,7 @@ define hidden void @proto_register_xml() local_unnamed_addr #3 {
   store ptr %23, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 32), align 8
   store ptr %23, ptr getelementptr inbounds (i8, ptr @unknown_ns, i64 32), align 8
   %24 = load ptr, ptr @xmpli_names, align 8
-  tail call void (ptr, ptr, ...) @xml_new_namespace.retelim(ptr noundef %24, ptr nonnull poison, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef null)
+  tail call void (ptr, ptr, ...) @xml_new_namespace(ptr noundef %24, ptr nonnull poison, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef null)
   %25 = tail call ptr @get_persconffile_path(ptr noundef nonnull @.str.65, i1 noundef zeroext false) #10
   %26 = tail call i32 @test_for_directory(ptr noundef %25) #10
   %.not.i = icmp eq i32 %26, 21
@@ -1528,7 +1528,7 @@ declare i32 @g_str_hash(ptr noundef) #4
 declare i32 @g_str_equal(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @xml_new_namespace.retelim(ptr noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #3 {
+define internal void @xml_new_namespace(ptr noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @wmem_epan_scope() #10
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 56) #10

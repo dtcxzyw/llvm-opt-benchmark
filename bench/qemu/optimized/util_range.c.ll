@@ -27,17 +27,17 @@ entry:
   %add.i.i = add i64 %a.val8, 1
   %cmp3.i.i = icmp eq i64 %a.val, %add.i.i
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp3.i.i
-  br i1 %or.cond.i.i, label %range_is_empty.argprom.exit, label %if.else.i.i
+  br i1 %or.cond.i.i, label %range_is_empty.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit:                      ; preds = %entry
+range_is_empty.exit:                              ; preds = %entry
   %cmp.i = icmp ugt i64 %a.val, %a.val8
   br i1 %cmp.i, label %if.else, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %range_is_empty.argprom.exit
+land.lhs.true:                                    ; preds = %range_is_empty.exit
   %b.val = load i64, ptr %b, align 8
   %1 = getelementptr i8, ptr %b, i64 8
   %b.val9 = load i64, ptr %1, align 8
@@ -45,21 +45,21 @@ land.lhs.true:                                    ; preds = %range_is_empty.argp
   %add.i.i11 = add i64 %b.val9, 1
   %cmp3.i.i12 = icmp eq i64 %b.val, %add.i.i11
   %or.cond.i.i13 = or i1 %cmp.not.i.i10, %cmp3.i.i12
-  br i1 %or.cond.i.i13, label %range_is_empty.argprom.exit16, label %if.else.i.i14
+  br i1 %or.cond.i.i13, label %range_is_empty.exit16, label %if.else.i.i14
 
 if.else.i.i14:                                    ; preds = %land.lhs.true
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit16:                    ; preds = %land.lhs.true
+range_is_empty.exit16:                            ; preds = %land.lhs.true
   %cmp.i15 = icmp ugt i64 %b.val, %b.val9
   br i1 %cmp.i15, label %if.else, label %if.end
 
-if.else:                                          ; preds = %range_is_empty.argprom.exit16, %range_is_empty.argprom.exit
+if.else:                                          ; preds = %range_is_empty.exit16, %range_is_empty.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 25, ptr noundef nonnull @__PRETTY_FUNCTION__.range_compare) #6
   unreachable
 
-if.end:                                           ; preds = %range_is_empty.argprom.exit16
+if.end:                                           ; preds = %range_is_empty.exit16
   %tobool.not = icmp ne i64 %b.val, 0
   %sub = add i64 %b.val, -1
   %cmp = icmp ugt i64 %sub, %a.val8
@@ -92,21 +92,21 @@ entry:
   %add.i.i = add i64 %data.val23, 1
   %cmp3.i.i = icmp eq i64 %data.val, %add.i.i
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp3.i.i
-  br i1 %or.cond.i.i, label %range_is_empty.argprom.exit, label %if.else.i.i
+  br i1 %or.cond.i.i, label %range_is_empty.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit:                      ; preds = %entry
+range_is_empty.exit:                              ; preds = %entry
   %cmp.i = icmp ugt i64 %data.val, %data.val23
   br i1 %cmp.i, label %if.else, label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %range_is_empty.argprom.exit
+for.cond.preheader:                               ; preds = %range_is_empty.exit
   %tobool.not26 = icmp eq ptr %list, null
   br i1 %tobool.not26, label %if.then7, label %land.rhs
 
-if.else:                                          ; preds = %range_is_empty.argprom.exit
+if.else:                                          ; preds = %range_is_empty.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__PRETTY_FUNCTION__.range_list_insert) #6
   unreachable
 
@@ -187,17 +187,17 @@ entry:
   %add.i.i = add i64 %extend_by.val16, 1
   %cmp3.i.i = icmp eq i64 %extend_by.val, %add.i.i
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp3.i.i
-  br i1 %or.cond.i.i, label %range_is_empty.argprom.exit, label %if.else.i.i
+  br i1 %or.cond.i.i, label %range_is_empty.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit:                      ; preds = %entry
+range_is_empty.exit:                              ; preds = %entry
   %cmp.i = icmp ugt i64 %extend_by.val, %extend_by.val16
   br i1 %cmp.i, label %return, label %if.end
 
-if.end:                                           ; preds = %range_is_empty.argprom.exit
+if.end:                                           ; preds = %range_is_empty.exit
   %range.val14 = load i64, ptr %range, align 8
   %1 = getelementptr i8, ptr %range, i64 8
   %range.val15 = load i64, ptr %1, align 8
@@ -205,21 +205,21 @@ if.end:                                           ; preds = %range_is_empty.argp
   %add.i.i18 = add i64 %range.val15, 1
   %cmp3.i.i19 = icmp eq i64 %range.val14, %add.i.i18
   %or.cond.i.i20 = or i1 %cmp.not.i.i17, %cmp3.i.i19
-  br i1 %or.cond.i.i20, label %range_is_empty.argprom.exit23, label %if.else.i.i21
+  br i1 %or.cond.i.i20, label %range_is_empty.exit23, label %if.else.i.i21
 
 if.else.i.i21:                                    ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit23:                    ; preds = %if.end
+range_is_empty.exit23:                            ; preds = %if.end
   %cmp.i22 = icmp ugt i64 %range.val14, %range.val15
   br i1 %cmp.i22, label %if.then2, label %if.end3
 
-if.then2:                                         ; preds = %range_is_empty.argprom.exit23
+if.then2:                                         ; preds = %range_is_empty.exit23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range, ptr noundef nonnull align 8 dereferenceable(16) %extend_by, i64 16, i1 false)
   br label %return
 
-if.end3:                                          ; preds = %range_is_empty.argprom.exit23
+if.end3:                                          ; preds = %range_is_empty.exit23
   %cmp = icmp ugt i64 %range.val14, %extend_by.val
   br i1 %cmp, label %if.then5, label %if.end8
 
@@ -251,7 +251,7 @@ if.else.i:                                        ; preds = %if.end14
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-return:                                           ; preds = %if.end14, %range_is_empty.argprom.exit, %if.then2
+return:                                           ; preds = %if.end14, %range_is_empty.exit, %if.then2
   ret void
 }
 
@@ -276,25 +276,25 @@ land.rhs:                                         ; preds = %entry, %for.inc
   %add.i.i.i = add i64 %.val35, 1
   %cmp3.i.i.i = icmp eq i64 %.val, %add.i.i.i
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp3.i.i.i
-  br i1 %or.cond.i.i.i, label %range_is_empty.argprom.exit.i, label %if.else.i.i.i
+  br i1 %or.cond.i.i.i, label %range_is_empty.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %land.rhs
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit.i:                    ; preds = %land.rhs
+range_is_empty.exit.i:                            ; preds = %land.rhs
   %cmp.i.i = icmp ugt i64 %.val, %.val35
-  br i1 %cmp.i.i, label %if.else.i, label %range_upb.argprom.exit
+  br i1 %cmp.i.i, label %if.else.i, label %range_upb.exit
 
-if.else.i:                                        ; preds = %range_is_empty.argprom.exit.i
+if.else.i:                                        ; preds = %range_is_empty.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 108, ptr noundef nonnull @__PRETTY_FUNCTION__.range_upb) #6
   unreachable
 
-range_upb.argprom.exit:                           ; preds = %range_is_empty.argprom.exit.i
+range_upb.exit:                                   ; preds = %range_is_empty.exit.i
   %cmp = icmp ult i64 %.val35, %low
-  br i1 %cmp, label %for.inc, label %range_lob.argprom.exit
+  br i1 %cmp, label %for.inc, label %range_lob.exit
 
-for.inc:                                          ; preds = %range_upb.argprom.exit
+for.inc:                                          ; preds = %range_upb.exit
   %next = getelementptr inbounds i8, ptr %l.0172, i64 8
   %3 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %3, null
@@ -309,29 +309,29 @@ if.then:                                          ; preds = %for.inc, %entry
   %add.i.i.i.i = add i64 %high, 1
   %cmp3.i.i.i.i = icmp eq i64 %low, %add.i.i.i.i
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %range_is_empty.argprom.exit.i.i, label %if.else.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %range_is_empty.exit.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit.i.i:                  ; preds = %if.then
+range_is_empty.exit.i.i:                          ; preds = %if.then
   %cmp.i.i.i = icmp ugt i64 %low, %high
   br i1 %cmp.i.i.i, label %if.else.i.i, label %append_new_range.exit
 
-if.else.i.i:                                      ; preds = %range_is_empty.argprom.exit.i.i
+if.else.i.i:                                      ; preds = %range_is_empty.exit.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.range_set_bounds) #6
   unreachable
 
-append_new_range.exit:                            ; preds = %range_is_empty.argprom.exit.i.i
+append_new_range.exit:                            ; preds = %range_is_empty.exit.i.i
   %call1.i = tail call ptr @g_list_append(ptr noundef %0, ptr noundef nonnull %call.i) #7
   br label %exit
 
-range_lob.argprom.exit:                           ; preds = %range_upb.argprom.exit
+range_lob.exit:                                   ; preds = %range_upb.exit
   %cmp5 = icmp ugt i64 %.val, %low
-  br i1 %cmp5, label %range_lob.argprom.exit66, label %if.end10
+  br i1 %cmp5, label %range_lob.exit66, label %if.end10
 
-range_lob.argprom.exit66:                         ; preds = %range_lob.argprom.exit
+range_lob.exit66:                                 ; preds = %range_lob.exit
   %sub = add i64 %.val, -1
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %high)
   %call.i67 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
@@ -342,26 +342,26 @@ range_lob.argprom.exit66:                         ; preds = %range_lob.argprom.e
   %add.i.i.i.i70 = add nuw i64 %cond, 1
   %cmp3.i.i.i.i71 = icmp eq i64 %low, %add.i.i.i.i70
   %or.cond.i.i.i.i72 = or i1 %cmp.not.i.i.i.i69, %cmp3.i.i.i.i71
-  br i1 %or.cond.i.i.i.i72, label %range_is_empty.argprom.exit.i.i74, label %if.else.i.i.i.i73
+  br i1 %or.cond.i.i.i.i72, label %range_is_empty.exit.i.i74, label %if.else.i.i.i.i73
 
-if.else.i.i.i.i73:                                ; preds = %range_lob.argprom.exit66
+if.else.i.i.i.i73:                                ; preds = %range_lob.exit66
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit.i.i74:                ; preds = %range_lob.argprom.exit66
+range_is_empty.exit.i.i74:                        ; preds = %range_lob.exit66
   %cmp.i.i.i75 = icmp ugt i64 %low, %cond
   br i1 %cmp.i.i.i75, label %if.else.i.i77, label %append_new_range.exit78
 
-if.else.i.i77:                                    ; preds = %range_is_empty.argprom.exit.i.i74
+if.else.i.i77:                                    ; preds = %range_is_empty.exit.i.i74
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.range_set_bounds) #6
   unreachable
 
-append_new_range.exit78:                          ; preds = %range_is_empty.argprom.exit.i.i74
+append_new_range.exit78:                          ; preds = %range_is_empty.exit.i.i74
   %call1.i76 = tail call ptr @g_list_append(ptr noundef %0, ptr noundef nonnull %call.i67) #7
   br label %if.end10
 
-if.end10:                                         ; preds = %append_new_range.exit78, %range_lob.argprom.exit
-  %out.1 = phi ptr [ %call1.i76, %append_new_range.exit78 ], [ %0, %range_lob.argprom.exit ]
+if.end10:                                         ; preds = %append_new_range.exit78, %range_lob.exit
+  %out.1 = phi ptr [ %call1.i76, %append_new_range.exit78 ], [ %0, %range_lob.exit ]
   %next12173 = getelementptr inbounds i8, ptr %l.0172, i64 8
   %4 = load ptr, ptr %next12173, align 8
   %tobool13.not174 = icmp eq ptr %4, null
@@ -381,25 +381,25 @@ for.body14:                                       ; preds = %if.end10, %for.inc3
   %add.i.i.i80 = add i64 %.val47, 1
   %cmp3.i.i.i81 = icmp eq i64 %.val46, %add.i.i.i80
   %or.cond.i.i.i82 = or i1 %cmp.not.i.i.i79, %cmp3.i.i.i81
-  br i1 %or.cond.i.i.i82, label %range_is_empty.argprom.exit.i84, label %if.else.i.i.i83
+  br i1 %or.cond.i.i.i82, label %range_is_empty.exit.i84, label %if.else.i.i.i83
 
 if.else.i.i.i83:                                  ; preds = %for.body14
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit.i84:                  ; preds = %for.body14
+range_is_empty.exit.i84:                          ; preds = %for.body14
   %cmp.i.i85 = icmp ugt i64 %.val46, %.val47
-  br i1 %cmp.i.i85, label %if.else.i86, label %range_lob.argprom.exit87
+  br i1 %cmp.i.i85, label %if.else.i86, label %range_lob.exit87
 
-if.else.i86:                                      ; preds = %range_is_empty.argprom.exit.i84
+if.else.i86:                                      ; preds = %range_is_empty.exit.i84
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #6
   unreachable
 
-range_lob.argprom.exit87:                         ; preds = %range_is_empty.argprom.exit.i84
+range_lob.exit87:                                 ; preds = %range_is_empty.exit.i84
   %cmp19.not = icmp ult i64 %.val46, %high
   br i1 %cmp19.not, label %if.end21, label %exit
 
-if.end21:                                         ; preds = %range_lob.argprom.exit87
+if.end21:                                         ; preds = %range_lob.exit87
   %call22 = tail call i32 @range_compare(ptr noundef nonnull %6, ptr noundef %7)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %for.inc36, label %if.then24
@@ -411,21 +411,21 @@ if.then24:                                        ; preds = %if.end21
   %add.i.i.i89 = add i64 %.val37, 1
   %cmp3.i.i.i90 = icmp eq i64 %.val36, %add.i.i.i89
   %or.cond.i.i.i91 = or i1 %cmp.not.i.i.i88, %cmp3.i.i.i90
-  br i1 %or.cond.i.i.i91, label %range_is_empty.argprom.exit.i93, label %if.else.i.i.i92
+  br i1 %or.cond.i.i.i91, label %range_is_empty.exit.i93, label %if.else.i.i.i92
 
 if.else.i.i.i92:                                  ; preds = %if.then24
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit.i93:                  ; preds = %if.then24
+range_is_empty.exit.i93:                          ; preds = %if.then24
   %cmp.i.i94 = icmp ugt i64 %.val36, %.val37
-  br i1 %cmp.i.i94, label %if.else.i95, label %range_upb.argprom.exit96
+  br i1 %cmp.i.i94, label %if.else.i95, label %range_upb.exit96
 
-if.else.i95:                                      ; preds = %range_is_empty.argprom.exit.i93
+if.else.i95:                                      ; preds = %range_is_empty.exit.i93
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 108, ptr noundef nonnull @__PRETTY_FUNCTION__.range_upb) #6
   unreachable
 
-range_upb.argprom.exit96:                         ; preds = %range_is_empty.argprom.exit.i93
+range_upb.exit96:                                 ; preds = %range_is_empty.exit.i93
   %.val48 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %7, i64 8
   %.val49 = load i64, ptr %9, align 8
@@ -433,21 +433,21 @@ range_upb.argprom.exit96:                         ; preds = %range_is_empty.argp
   %add.i.i.i98 = add i64 %.val49, 1
   %cmp3.i.i.i99 = icmp eq i64 %.val48, %add.i.i.i98
   %or.cond.i.i.i100 = or i1 %cmp.not.i.i.i97, %cmp3.i.i.i99
-  br i1 %or.cond.i.i.i100, label %range_is_empty.argprom.exit.i102, label %if.else.i.i.i101
+  br i1 %or.cond.i.i.i100, label %range_is_empty.exit.i102, label %if.else.i.i.i101
 
-if.else.i.i.i101:                                 ; preds = %range_upb.argprom.exit96
+if.else.i.i.i101:                                 ; preds = %range_upb.exit96
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit.i102:                 ; preds = %range_upb.argprom.exit96
+range_is_empty.exit.i102:                         ; preds = %range_upb.exit96
   %cmp.i.i103 = icmp ugt i64 %.val48, %.val49
-  br i1 %cmp.i.i103, label %if.else.i104, label %range_lob.argprom.exit105
+  br i1 %cmp.i.i103, label %if.else.i104, label %range_lob.exit105
 
-if.else.i104:                                     ; preds = %range_is_empty.argprom.exit.i102
+if.else.i104:                                     ; preds = %range_is_empty.exit.i102
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #6
   unreachable
 
-range_lob.argprom.exit105:                        ; preds = %range_is_empty.argprom.exit.i102
+range_lob.exit105:                                ; preds = %range_is_empty.exit.i102
   %sub27 = add i64 %.val48, -1
   %cond33 = tail call i64 @llvm.umin.i64(i64 %sub27, i64 %high)
   %call.i106 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
@@ -457,21 +457,21 @@ range_lob.argprom.exit105:                        ; preds = %range_is_empty.argp
   %cmp.not.i.i.i.i108 = icmp ule i64 %add.i.i.i89, %cond33
   %cmp3.i.i.i.i110 = icmp eq i64 %.val37, %cond33
   %or.cond.i.i.i.i111 = or i1 %cmp.not.i.i.i.i108, %cmp3.i.i.i.i110
-  br i1 %or.cond.i.i.i.i111, label %range_is_empty.argprom.exit.i.i113, label %if.else.i.i.i.i112
+  br i1 %or.cond.i.i.i.i111, label %range_is_empty.exit.i.i113, label %if.else.i.i.i.i112
 
-if.else.i.i.i.i112:                               ; preds = %range_lob.argprom.exit105
+if.else.i.i.i.i112:                               ; preds = %range_lob.exit105
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit.i.i113:               ; preds = %range_lob.argprom.exit105
+range_is_empty.exit.i.i113:                       ; preds = %range_lob.exit105
   %cmp.i.i.i114 = icmp ugt i64 %add.i.i.i89, %cond33
   br i1 %cmp.i.i.i114, label %if.else.i.i116, label %append_new_range.exit117
 
-if.else.i.i116:                                   ; preds = %range_is_empty.argprom.exit.i.i113
+if.else.i.i116:                                   ; preds = %range_is_empty.exit.i.i113
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.range_set_bounds) #6
   unreachable
 
-append_new_range.exit117:                         ; preds = %range_is_empty.argprom.exit.i.i113
+append_new_range.exit117:                         ; preds = %range_is_empty.exit.i.i113
   %call1.i115 = tail call ptr @g_list_append(ptr noundef %out.2175, ptr noundef nonnull %call.i106) #7
   br label %for.inc36
 
@@ -494,25 +494,25 @@ for.end38:                                        ; preds = %for.inc36, %if.end1
   %add.i.i.i119 = add i64 %.val39, 1
   %cmp3.i.i.i120 = icmp eq i64 %.val38, %add.i.i.i119
   %or.cond.i.i.i121 = or i1 %cmp.not.i.i.i118, %cmp3.i.i.i120
-  br i1 %or.cond.i.i.i121, label %range_is_empty.argprom.exit.i123, label %if.else.i.i.i122
+  br i1 %or.cond.i.i.i121, label %range_is_empty.exit.i123, label %if.else.i.i.i122
 
 if.else.i.i.i122:                                 ; preds = %for.end38
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-range_is_empty.argprom.exit.i123:                 ; preds = %for.end38
+range_is_empty.exit.i123:                         ; preds = %for.end38
   %cmp.i.i124 = icmp ugt i64 %.val38, %.val39
-  br i1 %cmp.i.i124, label %if.else.i125, label %range_upb.argprom.exit126
+  br i1 %cmp.i.i124, label %if.else.i125, label %range_upb.exit126
 
-if.else.i125:                                     ; preds = %range_is_empty.argprom.exit.i123
+if.else.i125:                                     ; preds = %range_is_empty.exit.i123
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 108, ptr noundef nonnull @__PRETTY_FUNCTION__.range_upb) #6
   unreachable
 
-range_upb.argprom.exit126:                        ; preds = %range_is_empty.argprom.exit.i123
+range_upb.exit126:                                ; preds = %range_is_empty.exit.i123
   %cmp41 = icmp ult i64 %.val39, %high
-  br i1 %cmp41, label %range_upb.argprom.exit135, label %exit
+  br i1 %cmp41, label %range_upb.exit135, label %exit
 
-range_upb.argprom.exit135:                        ; preds = %range_upb.argprom.exit126
+range_upb.exit135:                                ; preds = %range_upb.exit126
   %call.i136 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
   store i64 %add.i.i.i119, ptr %call.i136, align 8
   %upb2.i.i137 = getelementptr inbounds i8, ptr %call.i136, i64 8
@@ -520,16 +520,16 @@ range_upb.argprom.exit135:                        ; preds = %range_upb.argprom.e
   %cmp.not.i.i.i.i138.not = icmp ugt i64 %add.i.i.i119, %high
   br i1 %cmp.not.i.i.i.i138.not, label %if.else.i.i.i.i142, label %append_new_range.exit147
 
-if.else.i.i.i.i142:                               ; preds = %range_upb.argprom.exit135
+if.else.i.i.i.i142:                               ; preds = %range_upb.exit135
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #6
   unreachable
 
-append_new_range.exit147:                         ; preds = %range_upb.argprom.exit135
+append_new_range.exit147:                         ; preds = %range_upb.exit135
   %call1.i145 = tail call ptr @g_list_append(ptr noundef %out.2.lcssa, ptr noundef nonnull %call.i136) #7
   br label %exit
 
-exit:                                             ; preds = %range_lob.argprom.exit87, %range_upb.argprom.exit126, %append_new_range.exit147, %append_new_range.exit
-  %out.0 = phi ptr [ %call1.i145, %append_new_range.exit147 ], [ %out.2.lcssa, %range_upb.argprom.exit126 ], [ %call1.i, %append_new_range.exit ], [ %out.2175, %range_lob.argprom.exit87 ]
+exit:                                             ; preds = %range_lob.exit87, %range_upb.exit126, %append_new_range.exit147, %append_new_range.exit
+  %out.0 = phi ptr [ %call1.i145, %append_new_range.exit147 ], [ %out.2.lcssa, %range_upb.exit126 ], [ %call1.i, %append_new_range.exit ], [ %out.2175, %range_lob.exit87 ]
   store ptr %out.0, ptr %rev, align 8
   ret void
 }

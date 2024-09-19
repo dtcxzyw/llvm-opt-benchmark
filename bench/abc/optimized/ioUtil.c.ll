@@ -2025,20 +2025,20 @@ define noalias noundef ptr @Io_FileReadCnf(ptr noundef %0, i32 noundef %1) local
 19:                                               ; preds = %16
   %20 = load ptr, ptr inttoptr (i64 8 to ptr), align 8
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %Vec_PtrFree.argprom.exit, label %21
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %21
 
 21:                                               ; preds = %19
   call void @free(ptr noundef nonnull %20) #14
   store ptr null, ptr inttoptr (i64 8 to ptr), align 8
-  br label %Vec_PtrFree.argprom.exit
+  br label %Vec_PtrFree.exit
 
-Vec_PtrFree.argprom.exit:                         ; preds = %19, %21
+Vec_PtrFree.exit:                                 ; preds = %19, %21
   %22 = load i32, ptr %4, align 8
   %23 = icmp sgt i32 %22, 0
   %.pre = load ptr, ptr %7, align 8
   br i1 %23, label %.lr.ph.i.i.preheader, label %._crit_edge.i.i
 
-.lr.ph.i.i.preheader:                             ; preds = %Vec_PtrFree.argprom.exit
+.lr.ph.i.i.preheader:                             ; preds = %Vec_PtrFree.exit
   %24 = zext nneg i32 %22 to i64
   br label %.lr.ph.i.i
 
@@ -2059,7 +2059,7 @@ Vec_PtrFree.argprom.exit:                         ; preds = %19, %21
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %24
   br i1 %exitcond.not, label %._crit_edge.i.i.thread, label %.lr.ph.i.i, !llvm.loop !17
 
-._crit_edge.i.i:                                  ; preds = %Vec_PtrFree.argprom.exit
+._crit_edge.i.i:                                  ; preds = %Vec_PtrFree.exit
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %Vec_WecFree.exit, label %._crit_edge.i.i.thread
 

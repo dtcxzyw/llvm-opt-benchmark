@@ -1582,16 +1582,16 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %7
   %118 = getelementptr inbounds i8, ptr %113, i64 %117
   br label %119
 
-119:                                              ; preds = %_ZL13isFlowCorrectRKN2cv6Point_IfEE.argprom.exit.thread.us.i, %.preheader.us.i
-  %indvars.iv.i42 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i43, %_ZL13isFlowCorrectRKN2cv6Point_IfEE.argprom.exit.thread.us.i ]
-  %.15.us.i = phi i64 [ %.0219.us.i, %.preheader.us.i ], [ %.2.us.i, %_ZL13isFlowCorrectRKN2cv6Point_IfEE.argprom.exit.thread.us.i ]
-  %.1234.us.i = phi double [ %.0228.us.i, %.preheader.us.i ], [ %.224.us.i, %_ZL13isFlowCorrectRKN2cv6Point_IfEE.argprom.exit.thread.us.i ]
+119:                                              ; preds = %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i, %.preheader.us.i
+  %indvars.iv.i42 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i43, %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i ]
+  %.15.us.i = phi i64 [ %.0219.us.i, %.preheader.us.i ], [ %.2.us.i, %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i ]
+  %.1234.us.i = phi double [ %.0228.us.i, %.preheader.us.i ], [ %.224.us.i, %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i ]
   %120 = getelementptr inbounds %"class.cv::Point_.18", ptr %118, i64 %indvars.iv.i42
   %.val26.us.i = load float, ptr %120, align 4
   %121 = getelementptr i8, ptr %120, i64 4
   %.val27.us.i = load float, ptr %121, align 4
   %122 = fcmp ord float %.val26.us.i, 0.000000e+00
-  br i1 %122, label %123, label %_ZL13isFlowCorrectRKN2cv6Point_IfEE.argprom.exit.thread.us.i
+  br i1 %122, label %123, label %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i
 
 123:                                              ; preds = %119
   %124 = fcmp ord float %.val27.us.i, 0.000000e+00
@@ -1601,7 +1601,7 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %7
   %127 = call float @llvm.fabs.f32(float %.val27.us.i)
   %128 = fcmp olt float %127, 1.000000e+09
   %or.cond.us.i = and i1 %or.cond.i.us.i, %128
-  br i1 %or.cond.us.i, label %129, label %_ZL13isFlowCorrectRKN2cv6Point_IfEE.argprom.exit.thread.us.i
+  br i1 %or.cond.us.i, label %129, label %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i
 
 129:                                              ; preds = %123
   %130 = load i64, ptr %.val38, align 8
@@ -1612,7 +1612,7 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %7
   %134 = getelementptr i8, ptr %133, i64 4
   %.val29.us.i = load float, ptr %134, align 4
   %135 = fcmp ord float %.val28.us.i, 0.000000e+00
-  br i1 %135, label %136, label %_ZL13isFlowCorrectRKN2cv6Point_IfEE.argprom.exit.thread.us.i
+  br i1 %135, label %136, label %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i
 
 136:                                              ; preds = %129
   %137 = fcmp ord float %.val29.us.i, 0.000000e+00
@@ -1622,7 +1622,7 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %7
   %140 = call float @llvm.fabs.f32(float %.val29.us.i)
   %141 = fcmp olt float %140, 1.000000e+09
   %or.cond3.us.i = and i1 %or.cond.i34.us.i, %141
-  br i1 %or.cond3.us.i, label %142, label %_ZL13isFlowCorrectRKN2cv6Point_IfEE.argprom.exit.thread.us.i
+  br i1 %or.cond3.us.i, label %142, label %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i
 
 142:                                              ; preds = %136
   %143 = fsub float %.val26.us.i, %.val28.us.i
@@ -1633,16 +1633,16 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %7
   %147 = fpext float %sqrt.i.us.i to double
   %148 = fadd double %.1234.us.i, %147
   %149 = add i64 %.15.us.i, 1
-  br label %_ZL13isFlowCorrectRKN2cv6Point_IfEE.argprom.exit.thread.us.i
+  br label %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i
 
-_ZL13isFlowCorrectRKN2cv6Point_IfEE.argprom.exit.thread.us.i: ; preds = %142, %136, %129, %123, %119
+_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i: ; preds = %142, %136, %129, %123, %119
   %.224.us.i = phi double [ %148, %142 ], [ %.1234.us.i, %123 ], [ %.1234.us.i, %119 ], [ %.1234.us.i, %136 ], [ %.1234.us.i, %129 ]
   %.2.us.i = phi i64 [ %149, %142 ], [ %.15.us.i, %123 ], [ %.15.us.i, %119 ], [ %.15.us.i, %136 ], [ %.15.us.i, %129 ]
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i
   br i1 %exitcond.not.i44, label %._crit_edge.us.i, label %119, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %_ZL13isFlowCorrectRKN2cv6Point_IfEE.argprom.exit.thread.us.i
+._crit_edge.us.i:                                 ; preds = %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
   br i1 %exitcond21.not.i, label %._crit_edge11.loopexit.i, label %.preheader.us.i, !llvm.loop !30
@@ -2632,8 +2632,8 @@ attributes #21 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN2cvL7makePtrINS_7optflow8PCAPriorEJPKcEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!7 = distinct !{!7, !"_ZN2cvL7makePtrINS_7optflow8PCAPriorEJPKcEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!6 = distinct !{!6, !7, !"_ZN2cvL7makePtrINS_7optflow8PCAPriorEJPKcEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!7 = distinct !{!7, !"_ZN2cvL7makePtrINS_7optflow8PCAPriorEJPKcEEENS_3PtrIT_EEDpRKT0_"}
 !8 = !{!9, !6}
 !9 = distinct !{!9, !10, !"_ZSt11make_sharedIN2cv7optflow8PCAPriorEJRKPKcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
 !10 = distinct !{!10, !"_ZSt11make_sharedIN2cv7optflow8PCAPriorEJRKPKcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}

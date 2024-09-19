@@ -1739,7 +1739,7 @@ Gia_AigerReadUnsigned.exit185:                    ; preds = %343, %._crit_edge.l
   %364 = and i32 %359, 1
   %365 = xor i32 %363, %364
   %366 = xor i32 %365, 1
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %61, i32 noundef %366)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %61, i32 noundef %366)
   %367 = add nuw nsw i32 %.4293, 1
   %exitcond338.not = icmp eq i32 %367, %341
   br i1 %exitcond338.not, label %._crit_edge295, label %343, !llvm.loop !22
@@ -1886,7 +1886,7 @@ Vec_IntPush.exit237:                              ; preds = %.Vec_IntGrow.exit10
   %428 = load i32, ptr %427, align 4
   %429 = and i32 %424, 1
   %430 = xor i32 %428, %429
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %61, i32 noundef %430)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %61, i32 noundef %430)
   %431 = add nuw nsw i32 %.5298, 1
   %exitcond339.not = icmp eq i32 %431, %35
   br i1 %exitcond339.not, label %._crit_edge300, label %.lr.ph299, !llvm.loop !23
@@ -2029,7 +2029,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648

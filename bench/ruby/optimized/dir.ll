@@ -2282,13 +2282,13 @@ thread-pre-split:                                 ; preds = %41
   %59 = icmp ne i64 %58, 0
   %60 = icmp eq i64 %18, 0
   %61 = or i1 %60, %59
-  br i1 %61, label %rb_obj_write.argprom.exit, label %62
+  br i1 %61, label %rb_obj_write.exit, label %62
 
 62:                                               ; preds = %57
   call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %18) #22
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %57, %62
+rb_obj_write.exit:                                ; preds = %57, %62
   ret i64 %1
 }
 
@@ -3240,7 +3240,7 @@ do_opendir.exit:                                  ; preds = %opendir_at.exit.i
 
 223:                                              ; preds = %do_opendir.exit
   store ptr %.0.i23.i, ptr %21, align 8
-  br label %glob_opendir.argprom.exit
+  br label %glob_opendir.exit
 
 224:                                              ; preds = %do_opendir.exit
   %225 = getelementptr inbounds i8, ptr %21, i64 16
@@ -3382,7 +3382,7 @@ glob_realloc_n.exit48.i:                          ; preds = %256
   %272 = phi ptr [ %.pre12.i, %._crit_edge._crit_edge.i ], [ %260, %270 ]
   %273 = load i64, ptr %21, align 8
   call void @qsort_r(ptr noundef %272, i64 noundef %273, i64 noundef 8, ptr noundef nonnull @glob_sort_cmp, ptr noundef null) #22
-  br label %glob_opendir.argprom.exit
+  br label %glob_opendir.exit
 
 dirent_copy.exit.thread.i:                        ; preds = %glob_realloc_n.exit.i, %.lr.ph.i369
   %274 = load ptr, ptr %225, align 8
@@ -3442,7 +3442,7 @@ glob_dir_finish.exit57.i:                         ; preds = %._crit_edge.i56.i, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %glob_dir_finish.exit
 
-glob_opendir.argprom.exit:                        ; preds = %271, %223
+glob_opendir.exit:                                ; preds = %271, %223
   %293 = and i32 %8, 128
   %294 = or i32 %8, 128
   %295 = getelementptr inbounds i8, ptr %21, i64 8
@@ -3474,16 +3474,16 @@ glob_opendir.argprom.exit:                        ; preds = %271, %223
   %315 = ptrtoint ptr %22 to i64
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %glob_opendir.argprom.exit
+.backedge:                                        ; preds = %.backedge.backedge, %glob_opendir.exit
   br i1 %.not.i367, label %323, label %316
 
 316:                                              ; preds = %.backedge
   %317 = load ptr, ptr %21, align 8
   %318 = call ptr @readdir(ptr noundef %317) #22
   %.not.i.i374 = icmp eq ptr %318, null
-  br i1 %.not.i.i374, label %glob_getent.argprom.exit.thread.thread460, label %glob_getent.argprom.exit.thread451
+  br i1 %.not.i.i374, label %glob_getent.exit.thread.thread460, label %glob_getent.exit.thread451
 
-glob_getent.argprom.exit.thread451:               ; preds = %316
+glob_getent.exit.thread451:                       ; preds = %316
   %319 = getelementptr inbounds i8, ptr %318, i64 19
   %320 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %319) #23
   store i64 %320, ptr %295, align 8
@@ -3497,24 +3497,24 @@ glob_getent.argprom.exit.thread451:               ; preds = %316
   %324 = load i64, ptr %295, align 8
   %325 = load i64, ptr %21, align 8
   %326 = icmp ult i64 %324, %325
-  br i1 %326, label %glob_getent.argprom.exit, label %.thread455
+  br i1 %326, label %glob_getent.exit, label %.thread455
 
-glob_getent.argprom.exit:                         ; preds = %323
+glob_getent.exit:                                 ; preds = %323
   %327 = load ptr, ptr %296, align 8
   %328 = add nuw i64 %324, 1
   store i64 %328, ptr %295, align 8
   %329 = getelementptr ptr, ptr %327, i64 %324
   %330 = load ptr, ptr %329, align 8
   %.not333 = icmp eq ptr %330, null
-  br i1 %.not333, label %.thread455, label %glob_getent.argprom.exit._crit_edge
+  br i1 %.not333, label %.thread455, label %glob_getent.exit._crit_edge
 
-glob_getent.argprom.exit._crit_edge:              ; preds = %glob_getent.argprom.exit
+glob_getent.exit._crit_edge:                      ; preds = %glob_getent.exit
   %.pre535 = load i64, ptr %330, align 8
   br label %331
 
-331:                                              ; preds = %glob_getent.argprom.exit._crit_edge, %glob_getent.argprom.exit.thread451
-  %332 = phi i64 [ %320, %glob_getent.argprom.exit.thread451 ], [ %.pre535, %glob_getent.argprom.exit._crit_edge ]
-  %.0.i375454 = phi ptr [ %295, %glob_getent.argprom.exit.thread451 ], [ %330, %glob_getent.argprom.exit._crit_edge ]
+331:                                              ; preds = %glob_getent.exit._crit_edge, %glob_getent.exit.thread451
+  %332 = phi i64 [ %320, %glob_getent.exit.thread451 ], [ %.pre535, %glob_getent.exit._crit_edge ]
+  %.0.i375454 = phi ptr [ %295, %glob_getent.exit.thread451 ], [ %330, %glob_getent.exit._crit_edge ]
   %333 = getelementptr inbounds i8, ptr %.0.i375454, i64 8
   %334 = load ptr, ptr %333, align 8
   %335 = load i8, ptr %334, align 1
@@ -3559,7 +3559,7 @@ rb_mul_size_overflow.exit.i.i.i382:               ; preds = %345
 glob_alloc_n.exit.i377:                           ; preds = %345
   %348 = call noalias noundef ptr @malloc(i64 noundef %346) #25
   %.not20.i378 = icmp eq ptr %348, null
-  br i1 %.not20.i378, label %glob_getent.argprom.exit.thread, label %349
+  br i1 %.not20.i378, label %glob_getent.exit.thread, label %349
 
 349:                                              ; preds = %glob_alloc_n.exit.i377
   br i1 %.not.i.i379, label %ruby_nonempty_memcpy.exit.i380, label %350
@@ -3743,7 +3743,7 @@ glob_alloc_n.exit:                                ; preds = %do_lstat.exit391.th
 
 414:                                              ; preds = %glob_alloc_n.exit
   call void @free(ptr noundef nonnull %348) #22
-  br label %glob_getent.argprom.exit.thread
+  br label %glob_getent.exit.thread
 
 .lr.ph519.split:                                  ; preds = %.lr.ph519, %434
   %.1272518 = phi ptr [ %435, %434 ], [ %6, %.lr.ph519 ]
@@ -3810,20 +3810,20 @@ glob_alloc_n.exit:                                ; preds = %do_lstat.exit391.th
   call void @free(ptr noundef %348) #22
   call void @free(ptr noundef %386) #22
   %.not338 = icmp eq i32 %442, 0
-  br i1 %.not338, label %.backedge.backedge, label %glob_getent.argprom.exit.thread
+  br i1 %.not338, label %.backedge.backedge, label %glob_getent.exit.thread
 
-glob_getent.argprom.exit.thread:                  ; preds = %glob_alloc_n.exit.i377, %._crit_edge520, %414
+glob_getent.exit.thread:                          ; preds = %glob_alloc_n.exit.i377, %._crit_edge520, %414
   %.4427 = phi i32 [ -1, %414 ], [ -1, %glob_alloc_n.exit.i377 ], [ %442, %._crit_edge520 ]
-  br i1 %.not.i367, label %.thread455, label %glob_getent.argprom.exit.thread.thread460
+  br i1 %.not.i367, label %.thread455, label %glob_getent.exit.thread.thread460
 
-glob_getent.argprom.exit.thread.thread460:        ; preds = %316, %glob_getent.argprom.exit.thread
-  %.4427462 = phi i32 [ %.4427, %glob_getent.argprom.exit.thread ], [ 0, %316 ]
+glob_getent.exit.thread.thread460:                ; preds = %316, %glob_getent.exit.thread
+  %.4427462 = phi i32 [ %.4427, %glob_getent.exit.thread ], [ 0, %316 ]
   %443 = load ptr, ptr %21, align 8
   %444 = call i32 @closedir(ptr noundef %443)
   br label %glob_dir_finish.exit
 
-.thread455:                                       ; preds = %323, %glob_getent.argprom.exit, %glob_getent.argprom.exit.thread
-  %.4427458 = phi i32 [ %.4427, %glob_getent.argprom.exit.thread ], [ 0, %glob_getent.argprom.exit ], [ 0, %323 ]
+.thread455:                                       ; preds = %323, %glob_getent.exit, %glob_getent.exit.thread
+  %.4427458 = phi i32 [ %.4427, %glob_getent.exit.thread ], [ 0, %glob_getent.exit ], [ 0, %323 ]
   %445 = load ptr, ptr %296, align 8
   %.not12.i = icmp eq ptr %445, null
   br i1 %.not12.i, label %glob_dir_finish.exit, label %446
@@ -4119,8 +4119,8 @@ ruby_nonempty_memcpy.exit.i411:                   ; preds = %528, %527
   call void @free(ptr noundef %459) #22
   br label %glob_dir_finish.exit
 
-glob_dir_finish.exit:                             ; preds = %.thread, %glob_alloc_n.exit.i355, %141, %140, %137, %137, %do_stat.exit, %56, %.loopexit, %453, %glob_getent.argprom.exit.thread.thread460, %.thread455, %._crit_edge.i395, %285, %287, %288, %217, %216, %214, %210, %210, %glob_alloc_n.exit397, %191, %187, %160, %join_path_from_pattern.exit, %85
-  %.0267 = phi i32 [ %95, %85 ], [ -1, %join_path_from_pattern.exit ], [ %164, %160 ], [ %190, %187 ], [ 0, %191 ], [ -1, %glob_alloc_n.exit397 ], [ 0, %210 ], [ 0, %210 ], [ %215, %214 ], [ 0, %217 ], [ 0, %216 ], [ 0, %287 ], [ 0, %288 ], [ %286, %285 ], [ 0, %453 ], [ %.7, %.loopexit ], [ %.4427462, %glob_getent.argprom.exit.thread.thread460 ], [ %.4427458, %.thread455 ], [ %.4427458, %._crit_edge.i395 ], [ -1, %56 ], [ 0, %do_stat.exit ], [ 0, %137 ], [ 0, %137 ], [ 0, %140 ], [ 0, %141 ], [ -1, %glob_alloc_n.exit.i355 ], [ -1, %.thread ]
+glob_dir_finish.exit:                             ; preds = %.thread, %glob_alloc_n.exit.i355, %141, %140, %137, %137, %do_stat.exit, %56, %.loopexit, %453, %glob_getent.exit.thread.thread460, %.thread455, %._crit_edge.i395, %285, %287, %288, %217, %216, %214, %210, %210, %glob_alloc_n.exit397, %191, %187, %160, %join_path_from_pattern.exit, %85
+  %.0267 = phi i32 [ %95, %85 ], [ -1, %join_path_from_pattern.exit ], [ %164, %160 ], [ %190, %187 ], [ 0, %191 ], [ -1, %glob_alloc_n.exit397 ], [ 0, %210 ], [ 0, %210 ], [ %215, %214 ], [ 0, %217 ], [ 0, %216 ], [ 0, %287 ], [ 0, %288 ], [ %286, %285 ], [ 0, %453 ], [ %.7, %.loopexit ], [ %.4427462, %glob_getent.exit.thread.thread460 ], [ %.4427458, %.thread455 ], [ %.4427458, %._crit_edge.i395 ], [ -1, %56 ], [ 0, %do_stat.exit ], [ 0, %137 ], [ 0, %137 ], [ 0, %140 ], [ 0, %141 ], [ -1, %glob_alloc_n.exit.i355 ], [ -1, %.thread ]
   ret i32 %.0267
 }
 

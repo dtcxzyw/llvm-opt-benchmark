@@ -2465,7 +2465,7 @@ define internal i32 @dissect_ppp_raw_hdlc(ptr noundef %0, ptr noundef %1, ptr no
   %11 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 0, i32 noundef -1, i8 noundef zeroext 126) #6
   switch i32 %11, label %38 [
     i32 -1, label %12
-    i32 0, label %remove_escape_chars.argprom.exit129.thread
+    i32 0, label %remove_escape_chars.exit129.thread
   ]
 
 12:                                               ; preds = %4
@@ -2479,7 +2479,7 @@ define internal i32 @dissect_ppp_raw_hdlc(ptr noundef %0, ptr noundef %1, ptr no
   %18 = sext i32 %16 to i64
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %.val, i64 noundef %18) #6
   %20 = icmp sgt i32 %16, 0
-  br i1 %20, label %.lr.ph.i, label %remove_escape_chars.argprom.exit.thread
+  br i1 %20, label %.lr.ph.i, label %remove_escape_chars.exit.thread
 
 .lr.ph.i:                                         ; preds = %12, %29
   %.0283.i = phi i32 [ %33, %29 ], [ 0, %12 ]
@@ -2516,12 +2516,12 @@ define internal i32 @dissect_ppp_raw_hdlc(ptr noundef %0, ptr noundef %1, ptr no
 ._crit_edge.i:                                    ; preds = %29, %23
   %.029.lcssa.i = phi i32 [ %34, %29 ], [ %.0292.i, %23 ]
   %36 = icmp eq i32 %.029.lcssa.i, 0
-  br i1 %36, label %remove_escape_chars.argprom.exit.thread, label %remove_escape_chars.argprom.exit
+  br i1 %36, label %remove_escape_chars.exit.thread, label %remove_escape_chars.exit
 
-remove_escape_chars.argprom.exit:                 ; preds = %._crit_edge.i
+remove_escape_chars.exit:                         ; preds = %._crit_edge.i
   %37 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %19, i32 noundef %.029.lcssa.i, i32 noundef %.029.lcssa.i) #6
   %.not114 = icmp eq ptr %37, null
-  br i1 %.not114, label %remove_escape_chars.argprom.exit.thread, label %remove_escape_chars.argprom.exit.thread.sink.split
+  br i1 %.not114, label %remove_escape_chars.exit.thread, label %remove_escape_chars.exit.thread.sink.split
 
 38:                                               ; preds = %4
   %39 = load ptr, ptr %5, align 8
@@ -2534,7 +2534,7 @@ remove_escape_chars.argprom.exit:                 ; preds = %._crit_edge.i
   %44 = sext i32 %42 to i64
   %45 = tail call noalias ptr @wmem_alloc(ptr noundef %.val115, i64 noundef %44) #6
   %46 = icmp sgt i32 %42, 0
-  br i1 %46, label %.lr.ph.i119, label %remove_escape_chars.argprom.exit129.thread
+  br i1 %46, label %.lr.ph.i119, label %remove_escape_chars.exit129.thread
 
 .lr.ph.i119:                                      ; preds = %38, %55
   %.0283.i120 = phi i32 [ %59, %55 ], [ 0, %38 ]
@@ -2571,19 +2571,19 @@ remove_escape_chars.argprom.exit:                 ; preds = %._crit_edge.i
 ._crit_edge.i126:                                 ; preds = %55, %49
   %.029.lcssa.i127 = phi i32 [ %60, %55 ], [ %.0292.i121, %49 ]
   %62 = icmp eq i32 %.029.lcssa.i127, 0
-  br i1 %62, label %remove_escape_chars.argprom.exit129.thread, label %remove_escape_chars.argprom.exit129
+  br i1 %62, label %remove_escape_chars.exit129.thread, label %remove_escape_chars.exit129
 
-remove_escape_chars.argprom.exit129:              ; preds = %._crit_edge.i126
+remove_escape_chars.exit129:                      ; preds = %._crit_edge.i126
   %63 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %45, i32 noundef %.029.lcssa.i127, i32 noundef %.029.lcssa.i127) #6
   %.not109 = icmp eq ptr %63, null
-  br i1 %.not109, label %remove_escape_chars.argprom.exit129.thread, label %64
+  br i1 %.not109, label %remove_escape_chars.exit129.thread, label %64
 
-64:                                               ; preds = %remove_escape_chars.argprom.exit129
+64:                                               ; preds = %remove_escape_chars.exit129
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %63, ptr noundef nonnull @.str.9) #6
   %65 = tail call i32 @call_data_dissector(ptr noundef nonnull %63, ptr noundef %1, ptr noundef %2) #6
-  br label %remove_escape_chars.argprom.exit129.thread
+  br label %remove_escape_chars.exit129.thread
 
-remove_escape_chars.argprom.exit129.thread:       ; preds = %38, %._crit_edge.i126, %4, %remove_escape_chars.argprom.exit129, %64
+remove_escape_chars.exit129.thread:               ; preds = %38, %._crit_edge.i126, %4, %remove_escape_chars.exit129, %64
   %66 = getelementptr inbounds i8, ptr %1, i64 304
   %67 = load i32, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %1, i64 312
@@ -2592,15 +2592,15 @@ remove_escape_chars.argprom.exit129.thread:       ; preds = %38, %._crit_edge.i1
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %11) #6
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph, label %remove_escape_chars.argprom.exit.thread
+  br i1 %73, label %.lr.ph, label %remove_escape_chars.exit.thread
 
-.lr.ph:                                           ; preds = %remove_escape_chars.argprom.exit129.thread
+.lr.ph:                                           ; preds = %remove_escape_chars.exit129.thread
   %74 = getelementptr i8, ptr %1, i64 408
   br label %75
 
-75:                                               ; preds = %.lr.ph, %remove_escape_chars.argprom.exit153.thread
-  %.099165 = phi i32 [ %11, %.lr.ph ], [ %.0100, %remove_escape_chars.argprom.exit153.thread ]
-  %.0101164 = phi i32 [ 1, %.lr.ph ], [ %.1, %remove_escape_chars.argprom.exit153.thread ]
+75:                                               ; preds = %.lr.ph, %remove_escape_chars.exit153.thread
+  %.099165 = phi i32 [ %11, %.lr.ph ], [ %.0100, %remove_escape_chars.exit153.thread ]
+  %.0101164 = phi i32 [ 1, %.lr.ph ], [ %.1, %remove_escape_chars.exit153.thread ]
   %76 = add i32 %.099165, 1
   %77 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %76, i32 noundef -1, i8 noundef zeroext 126) #6
   %78 = icmp eq i32 %77, -1
@@ -2623,7 +2623,7 @@ remove_escape_chars.argprom.exit129.thread:       ; preds = %38, %._crit_edge.i1
   %86 = sext i32 %85 to i64
   %87 = tail call noalias ptr @wmem_alloc(ptr noundef %.val116, i64 noundef %86) #6
   %88 = icmp sgt i32 %85, 0
-  br i1 %88, label %.lr.ph.i131, label %remove_escape_chars.argprom.exit.thread
+  br i1 %88, label %.lr.ph.i131, label %remove_escape_chars.exit.thread
 
 .lr.ph.i131:                                      ; preds = %82, %97
   %.0283.i132 = phi i32 [ %101, %97 ], [ 0, %82 ]
@@ -2660,12 +2660,12 @@ remove_escape_chars.argprom.exit129.thread:       ; preds = %38, %._crit_edge.i1
 ._crit_edge.i138:                                 ; preds = %97, %91
   %.029.lcssa.i139 = phi i32 [ %102, %97 ], [ %.0292.i133, %91 ]
   %104 = icmp eq i32 %.029.lcssa.i139, 0
-  br i1 %104, label %remove_escape_chars.argprom.exit.thread, label %remove_escape_chars.argprom.exit141
+  br i1 %104, label %remove_escape_chars.exit.thread, label %remove_escape_chars.exit141
 
-remove_escape_chars.argprom.exit141:              ; preds = %._crit_edge.i138
+remove_escape_chars.exit141:                      ; preds = %._crit_edge.i138
   %105 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %87, i32 noundef %.029.lcssa.i139, i32 noundef %.029.lcssa.i139) #6
   %.not113 = icmp eq ptr %105, null
-  br i1 %.not113, label %remove_escape_chars.argprom.exit.thread, label %remove_escape_chars.argprom.exit.thread.sink.split
+  br i1 %.not113, label %remove_escape_chars.exit.thread, label %remove_escape_chars.exit.thread.sink.split
 
 106:                                              ; preds = %75
   %107 = sub i32 %77, %76
@@ -2686,14 +2686,14 @@ remove_escape_chars.argprom.exit141:              ; preds = %._crit_edge.i138
   %115 = load i32, ptr @hf_ppp_hdlc_data, align 4
   %116 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %115, ptr noundef %0, i32 noundef %.099165, i32 noundef %114, i32 noundef 0) #6
   %117 = icmp sgt i32 %114, 1
-  br i1 %117, label %118, label %remove_escape_chars.argprom.exit153.thread
+  br i1 %117, label %118, label %remove_escape_chars.exit153.thread
 
 118:                                              ; preds = %113
   %.val117 = load ptr, ptr %74, align 8
   %119 = sext i32 %107 to i64
   %120 = tail call noalias ptr @wmem_alloc(ptr noundef %.val117, i64 noundef %119) #6
   %121 = icmp sgt i32 %107, 0
-  br i1 %121, label %.lr.ph.i143, label %remove_escape_chars.argprom.exit153.thread
+  br i1 %121, label %.lr.ph.i143, label %remove_escape_chars.exit153.thread
 
 .lr.ph.i143:                                      ; preds = %118, %130
   %.0283.i144 = phi i32 [ %134, %130 ], [ 0, %118 ]
@@ -2730,34 +2730,34 @@ remove_escape_chars.argprom.exit141:              ; preds = %._crit_edge.i138
 ._crit_edge.i150:                                 ; preds = %130, %124
   %.029.lcssa.i151 = phi i32 [ %135, %130 ], [ %.0292.i145, %124 ]
   %137 = icmp eq i32 %.029.lcssa.i151, 0
-  br i1 %137, label %remove_escape_chars.argprom.exit153.thread, label %remove_escape_chars.argprom.exit153
+  br i1 %137, label %remove_escape_chars.exit153.thread, label %remove_escape_chars.exit153
 
-remove_escape_chars.argprom.exit153:              ; preds = %._crit_edge.i150
+remove_escape_chars.exit153:                      ; preds = %._crit_edge.i150
   %138 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %120, i32 noundef %.029.lcssa.i151, i32 noundef %.029.lcssa.i151) #6
   %.not111 = icmp eq ptr %138, null
-  br i1 %.not111, label %remove_escape_chars.argprom.exit153.thread, label %139
+  br i1 %.not111, label %remove_escape_chars.exit153.thread, label %139
 
-139:                                              ; preds = %remove_escape_chars.argprom.exit153
+139:                                              ; preds = %remove_escape_chars.exit153
   store i32 %67, ptr %66, align 8
   store ptr %69, ptr %68, align 8
   store ptr %71, ptr %70, align 8
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %138, ptr noundef nonnull @.str.987) #6
   tail call fastcc void @dissect_ppp_hdlc_common(ptr noundef nonnull %138, ptr noundef %1, ptr noundef %2)
-  br label %remove_escape_chars.argprom.exit153.thread
+  br label %remove_escape_chars.exit153.thread
 
-remove_escape_chars.argprom.exit153.thread:       ; preds = %118, %._crit_edge.i150, %remove_escape_chars.argprom.exit153, %139, %113
-  %.1 = phi i32 [ 0, %139 ], [ %.0101164, %remove_escape_chars.argprom.exit153 ], [ %.0101164, %113 ], [ %.0101164, %._crit_edge.i150 ], [ %.0101164, %118 ]
+remove_escape_chars.exit153.thread:               ; preds = %118, %._crit_edge.i150, %remove_escape_chars.exit153, %139, %113
+  %.1 = phi i32 [ 0, %139 ], [ %.0101164, %remove_escape_chars.exit153 ], [ %.0101164, %113 ], [ %.0101164, %._crit_edge.i150 ], [ %.0101164, %118 ]
   %140 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0100) #6
   %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %75, label %remove_escape_chars.argprom.exit.thread, !llvm.loop !6
+  br i1 %141, label %75, label %remove_escape_chars.exit.thread, !llvm.loop !6
 
-remove_escape_chars.argprom.exit.thread.sink.split: ; preds = %remove_escape_chars.argprom.exit141, %remove_escape_chars.argprom.exit
-  %.sink172 = phi ptr [ %37, %remove_escape_chars.argprom.exit ], [ %105, %remove_escape_chars.argprom.exit141 ]
+remove_escape_chars.exit.thread.sink.split:       ; preds = %remove_escape_chars.exit141, %remove_escape_chars.exit
+  %.sink172 = phi ptr [ %37, %remove_escape_chars.exit ], [ %105, %remove_escape_chars.exit141 ]
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %.sink172, ptr noundef nonnull @.str.9) #6
   %142 = tail call i32 @call_data_dissector(ptr noundef nonnull %.sink172, ptr noundef %1, ptr noundef %2) #6
-  br label %remove_escape_chars.argprom.exit.thread
+  br label %remove_escape_chars.exit.thread
 
-remove_escape_chars.argprom.exit.thread:          ; preds = %remove_escape_chars.argprom.exit153.thread, %remove_escape_chars.argprom.exit.thread.sink.split, %remove_escape_chars.argprom.exit129.thread, %remove_escape_chars.argprom.exit141, %._crit_edge.i138, %82, %remove_escape_chars.argprom.exit, %._crit_edge.i, %12
+remove_escape_chars.exit.thread:                  ; preds = %remove_escape_chars.exit153.thread, %remove_escape_chars.exit.thread.sink.split, %remove_escape_chars.exit129.thread, %remove_escape_chars.exit141, %._crit_edge.i138, %82, %remove_escape_chars.exit, %._crit_edge.i, %12
   %143 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %143
 }
@@ -6033,7 +6033,7 @@ define internal i32 @dissect_ccp_oui_opt(ptr noundef %0, ptr noundef %1, ptr nou
 define internal i32 @dissect_ccp_predict1_opt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = load i32, ptr @proto_ccp_option_predict1, align 4
   %6 = load i32, ptr @ett_ccp_predict1_opt, align 4
-  %7 = tail call fastcc i32 @dissect_ccp_other_opt.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
+  %7 = tail call fastcc i32 @dissect_ccp_other_opt(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
   ret i32 %7
 }
 
@@ -6041,7 +6041,7 @@ define internal i32 @dissect_ccp_predict1_opt(ptr noundef %0, ptr nocapture read
 define internal i32 @dissect_ccp_predict2_opt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = load i32, ptr @proto_ccp_option_predict2, align 4
   %6 = load i32, ptr @ett_ccp_predict2_opt, align 4
-  %7 = tail call fastcc i32 @dissect_ccp_other_opt.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
+  %7 = tail call fastcc i32 @dissect_ccp_other_opt(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
   ret i32 %7
 }
 
@@ -6049,7 +6049,7 @@ define internal i32 @dissect_ccp_predict2_opt(ptr noundef %0, ptr nocapture read
 define internal i32 @dissect_ccp_puddle_opt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = load i32, ptr @proto_ccp_option_puddle, align 4
   %6 = load i32, ptr @ett_ccp_puddle_opt, align 4
-  %7 = tail call fastcc i32 @dissect_ccp_other_opt.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
+  %7 = tail call fastcc i32 @dissect_ccp_other_opt(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
   ret i32 %7
 }
 
@@ -6057,7 +6057,7 @@ define internal i32 @dissect_ccp_puddle_opt(ptr noundef %0, ptr nocapture readno
 define internal i32 @dissect_ccp_hpppc_opt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = load i32, ptr @proto_ccp_option_hpppc, align 4
   %6 = load i32, ptr @ett_ccp_hpppc_opt, align 4
-  %7 = tail call fastcc i32 @dissect_ccp_other_opt.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
+  %7 = tail call fastcc i32 @dissect_ccp_other_opt(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
   ret i32 %7
 }
 
@@ -6152,7 +6152,7 @@ define internal i32 @dissect_ccp_gfza_opt(ptr noundef %0, ptr noundef %1, ptr no
 define internal i32 @dissect_ccp_v42bis_opt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = load i32, ptr @proto_ccp_option_v42bis, align 4
   %6 = load i32, ptr @ett_ccp_v42bis_opt, align 4
-  %7 = tail call fastcc i32 @dissect_ccp_other_opt.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
+  %7 = tail call fastcc i32 @dissect_ccp_other_opt(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6)
   ret i32 %7
 }
 
@@ -6429,7 +6429,7 @@ define internal i32 @dissect_cbcp_callback_user_opt(ptr noundef %0, ptr noundef 
   %25 = load i32, ptr @hf_cbcp_opt_length, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
   %27 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %28 = tail call fastcc i32 @dissect_cbcp_callback_opt_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %27)
+  %28 = tail call fastcc i32 @dissect_cbcp_callback_opt_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %27)
   br label %29
 
 29:                                               ; preds = %15, %8
@@ -6467,7 +6467,7 @@ ppp_option_len_check.exit:                        ; preds = %4
   %24 = load i32, ptr @hf_cbcp_opt_length, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
   %26 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %27 = tail call fastcc i32 @dissect_cbcp_callback_opt_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26)
+  %27 = tail call fastcc i32 @dissect_cbcp_callback_opt_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26)
   br label %28
 
 28:                                               ; preds = %ppp_option_len_check.exit, %7
@@ -6504,7 +6504,7 @@ define internal i32 @dissect_cbcp_callback_list_opt(ptr noundef %0, ptr noundef 
   %25 = load i32, ptr @hf_cbcp_opt_length, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
   %27 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %28 = tail call fastcc i32 @dissect_cbcp_callback_opt_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %27)
+  %28 = tail call fastcc i32 @dissect_cbcp_callback_opt_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %27)
   br label %29
 
 29:                                               ; preds = %15, %8
@@ -8724,7 +8724,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ccp_var_opt(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ccp_other_opt.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_ccp_other_opt(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef 0) #6
   %7 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %3) #6
@@ -8783,7 +8783,7 @@ ppp_option_len_check.exit:                        ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_cbcp_callback_opt_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_cbcp_callback_opt_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_cbcp_callback_delay, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #6
   %7 = add i32 %3, -3

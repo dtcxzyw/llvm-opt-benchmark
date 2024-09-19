@@ -229,7 +229,7 @@ define internal noundef i32 @dissect_dvb_ait(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph:                                           ; preds = %13, %37
   %.0111 = phi i32 [ %38, %37 ], [ %35, %13 ]
-  %41 = tail call fastcc i32 @dissect_dvb_ait_descriptor.argprom(ptr noundef %0, i32 noundef %.0111, ptr noundef %.0107)
+  %41 = tail call fastcc i32 @dissect_dvb_ait_descriptor(ptr noundef %0, i32 noundef %.0111, ptr noundef %.0107)
   %42 = icmp slt i32 %41, 1
   br i1 %42, label %._crit_edge, label %37
 
@@ -277,7 +277,7 @@ define internal noundef i32 @dissect_dvb_ait(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph116:                                        ; preds = %.lr.ph123, %69
   %.2114 = phi i32 [ %70, %69 ], [ %67, %.lr.ph123 ]
-  %73 = call fastcc i32 @dissect_dvb_ait_descriptor.argprom(ptr noundef %0, i32 noundef %.2114, ptr noundef %54)
+  %73 = call fastcc i32 @dissect_dvb_ait_descriptor(ptr noundef %0, i32 noundef %.2114, ptr noundef %54)
   %74 = icmp slt i32 %73, 1
   br i1 %74, label %._crit_edge117, label %69
 
@@ -320,7 +320,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dvb_ait_descriptor.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_dvb_ait_descriptor(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #3
   %5 = add i32 %1, 1
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #3
@@ -390,7 +390,7 @@ define internal fastcc i32 @dissect_dvb_ait_descriptor.argprom(ptr noundef %0, i
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 1, i32 noundef 0) #3
   %52 = sub i32 %.0.lcssa.i, %1
   %53 = icmp ult i32 %52, %10
-  br i1 %53, label %.lr.ph4.i.preheader, label %dissect_dvb_ait_app_desc_body.argprom.exit
+  br i1 %53, label %.lr.ph4.i.preheader, label %dissect_dvb_ait_app_desc_body.exit
 
 .lr.ph4.i.preheader:                              ; preds = %._crit_edge.i
   %54 = add i32 %.0.lcssa.i, 2
@@ -403,17 +403,17 @@ define internal fastcc i32 @dissect_dvb_ait_descriptor.argprom(ptr noundef %0, i
   %57 = add i32 %.12.i, 1
   %58 = sub i32 %57, %18
   %59 = icmp ult i32 %58, %10
-  br i1 %59, label %.lr.ph4.i, label %dissect_dvb_ait_app_desc_body.argprom.exit, !llvm.loop !9
+  br i1 %59, label %.lr.ph4.i, label %dissect_dvb_ait_app_desc_body.exit, !llvm.loop !9
 
-dissect_dvb_ait_app_desc_body.argprom.exit:       ; preds = %.lr.ph4.i, %._crit_edge.i
+dissect_dvb_ait_app_desc_body.exit:               ; preds = %.lr.ph4.i, %._crit_edge.i
   %.lcssa.i = phi i32 [ %52, %._crit_edge.i ], [ %10, %.lr.ph4.i ]
   %60 = tail call i32 @llvm.smax.i32(i32 %.lcssa.i, i32 0)
   %spec.select = add i32 %60, %18
-  br label %dissect_dvb_ait_app_name_desc_body.argprom.exit.thread
+  br label %dissect_dvb_ait_app_name_desc_body.exit.thread
 
 61:                                               ; preds = %9
   %.not.i67 = icmp eq i8 %6, 0
-  br i1 %.not.i67, label %dissect_dvb_ait_app_name_desc_body.argprom.exit.thread, label %.lr.ph.i68
+  br i1 %.not.i67, label %dissect_dvb_ait_app_name_desc_body.exit.thread, label %.lr.ph.i68
 
 .lr.ph.i68:                                       ; preds = %61, %.lr.ph.i68
   %.01.i69 = phi i32 [ %70, %.lr.ph.i68 ], [ %18, %61 ]
@@ -429,12 +429,12 @@ dissect_dvb_ait_app_desc_body.argprom.exit:       ; preds = %.lr.ph4.i, %._crit_
   %70 = add i32 %69, %68
   %71 = sub i32 %70, %18
   %72 = icmp ult i32 %71, %10
-  br i1 %72, label %.lr.ph.i68, label %dissect_dvb_ait_app_name_desc_body.argprom.exit, !llvm.loop !10
+  br i1 %72, label %.lr.ph.i68, label %dissect_dvb_ait_app_name_desc_body.exit, !llvm.loop !10
 
-dissect_dvb_ait_app_name_desc_body.argprom.exit:  ; preds = %.lr.ph.i68
+dissect_dvb_ait_app_name_desc_body.exit:          ; preds = %.lr.ph.i68
   %73 = icmp sgt i32 %71, 0
   %spec.select3 = select i1 %73, i32 %70, i32 %18
-  br label %dissect_dvb_ait_app_name_desc_body.argprom.exit.thread
+  br label %dissect_dvb_ait_app_name_desc_body.exit.thread
 
 74:                                               ; preds = %9
   %75 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %18) #3
@@ -445,7 +445,7 @@ dissect_dvb_ait_app_name_desc_body.argprom.exit:  ; preds = %.lr.ph.i68
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %79, ptr noundef %0, i32 noundef %78, i32 noundef 1, i32 noundef 0) #3
   %81 = add i32 %1, 5
   %82 = icmp ugt i8 %6, 3
-  br i1 %82, label %83, label %dissect_dvb_ait_trpt_proto_desc_body.argprom.exit
+  br i1 %82, label %83, label %dissect_dvb_ait_trpt_proto_desc_body.exit
 
 83:                                               ; preds = %74
   switch i16 %75, label %121 [
@@ -478,7 +478,7 @@ dissect_dvb_ait_app_name_desc_body.argprom.exit:  ; preds = %.lr.ph.i68
   %100 = load i32, ptr @hf_dvb_ait_descr_trpt_sel_comp, align 4
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %100, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef 0) #3
   %102 = add i32 %.1.i, 1
-  br label %dissect_dvb_ait_trpt_proto_desc_body.argprom.exit
+  br label %dissect_dvb_ait_trpt_proto_desc_body.exit
 
 103:                                              ; preds = %83
   %104 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %81) #3
@@ -492,7 +492,7 @@ dissect_dvb_ait_app_name_desc_body.argprom.exit:  ; preds = %.lr.ph.i68
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %111, ptr noundef %0, i32 noundef %109, i32 noundef 1, i32 noundef 0) #3
   %113 = add i32 %109, 1
   %.not3.i = icmp eq i8 %110, 0
-  br i1 %.not3.i, label %dissect_dvb_ait_trpt_proto_desc_body.argprom.exit, label %.lr.ph.i72
+  br i1 %.not3.i, label %dissect_dvb_ait_trpt_proto_desc_body.exit, label %.lr.ph.i72
 
 .lr.ph.i72:                                       ; preds = %103, %.lr.ph.i72
   %.02.i = phi i8 [ %120, %.lr.ph.i72 ], [ 0, %103 ]
@@ -505,36 +505,36 @@ dissect_dvb_ait_app_name_desc_body.argprom.exit:  ; preds = %.lr.ph.i68
   %119 = add i32 %118, %117
   %120 = add nuw i8 %.02.i, 1
   %exitcond.not.i = icmp eq i8 %120, %110
-  br i1 %exitcond.not.i, label %dissect_dvb_ait_trpt_proto_desc_body.argprom.exit, label %.lr.ph.i72, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_dvb_ait_trpt_proto_desc_body.exit, label %.lr.ph.i72, !llvm.loop !11
 
 121:                                              ; preds = %83
   %122 = load i32, ptr @hf_dvb_ait_descr_trpt_sel_bytes, align 4
   %123 = add i32 %18, %10
   %124 = add nsw i32 %10, -3
   %125 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %122, ptr noundef %0, i32 noundef %81, i32 noundef %124, i32 noundef 0) #3
-  br label %dissect_dvb_ait_trpt_proto_desc_body.argprom.exit
+  br label %dissect_dvb_ait_trpt_proto_desc_body.exit
 
-dissect_dvb_ait_trpt_proto_desc_body.argprom.exit: ; preds = %.lr.ph.i72, %74, %99, %103, %121
+dissect_dvb_ait_trpt_proto_desc_body.exit:        ; preds = %.lr.ph.i72, %74, %99, %103, %121
   %.071.i = phi i32 [ %102, %99 ], [ %123, %121 ], [ %81, %74 ], [ %113, %103 ], [ %119, %.lr.ph.i72 ]
   %126 = sub i32 %.071.i, %18
   %127 = icmp sgt i32 %126, 0
   %spec.select66 = select i1 %127, i32 %.071.i, i32 %18
-  br label %dissect_dvb_ait_app_name_desc_body.argprom.exit.thread
+  br label %dissect_dvb_ait_app_name_desc_body.exit.thread
 
 128:                                              ; preds = %9
   %129 = load i32, ptr @hf_dvb_ait_descr_sal_init_path, align 4
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %129, ptr noundef %0, i32 noundef %18, i32 noundef %10, i32 noundef 0) #3
   %131 = add i32 %18, %10
-  br label %dissect_dvb_ait_app_name_desc_body.argprom.exit.thread
+  br label %dissect_dvb_ait_app_name_desc_body.exit.thread
 
 132:                                              ; preds = %9
   %133 = load i32, ptr @hf_dvb_ait_descr_data, align 4
   %134 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %133, ptr noundef %0, i32 noundef %18, i32 noundef %10, i32 noundef 0) #3
   %135 = add i32 %18, %10
-  br label %dissect_dvb_ait_app_name_desc_body.argprom.exit.thread
+  br label %dissect_dvb_ait_app_name_desc_body.exit.thread
 
-dissect_dvb_ait_app_name_desc_body.argprom.exit.thread: ; preds = %dissect_dvb_ait_app_name_desc_body.argprom.exit, %61, %dissect_dvb_ait_trpt_proto_desc_body.argprom.exit, %dissect_dvb_ait_app_desc_body.argprom.exit, %132, %128
-  %.0 = phi i32 [ %135, %132 ], [ %131, %128 ], [ %spec.select, %dissect_dvb_ait_app_desc_body.argprom.exit ], [ %spec.select66, %dissect_dvb_ait_trpt_proto_desc_body.argprom.exit ], [ %18, %61 ], [ %spec.select3, %dissect_dvb_ait_app_name_desc_body.argprom.exit ]
+dissect_dvb_ait_app_name_desc_body.exit.thread:   ; preds = %dissect_dvb_ait_app_name_desc_body.exit, %61, %dissect_dvb_ait_trpt_proto_desc_body.exit, %dissect_dvb_ait_app_desc_body.exit, %132, %128
+  %.0 = phi i32 [ %135, %132 ], [ %131, %128 ], [ %spec.select, %dissect_dvb_ait_app_desc_body.exit ], [ %spec.select66, %dissect_dvb_ait_trpt_proto_desc_body.exit ], [ %18, %61 ], [ %spec.select3, %dissect_dvb_ait_app_name_desc_body.exit ]
   %136 = sub i32 %.0, %1
   br label %139
 
@@ -542,8 +542,8 @@ dissect_dvb_ait_app_name_desc_body.argprom.exit.thread: ; preds = %dissect_dvb_a
   %138 = tail call i32 @proto_mpeg_descriptor_dissect(ptr noundef %0, i32 noundef %1, ptr noundef %2) #3
   br label %139
 
-139:                                              ; preds = %137, %dissect_dvb_ait_app_name_desc_body.argprom.exit.thread
-  %.061 = phi i32 [ %136, %dissect_dvb_ait_app_name_desc_body.argprom.exit.thread ], [ %138, %137 ]
+139:                                              ; preds = %137, %dissect_dvb_ait_app_name_desc_body.exit.thread
+  %.061 = phi i32 [ %136, %dissect_dvb_ait_app_name_desc_body.exit.thread ], [ %138, %137 ]
   ret i32 %.061
 }
 

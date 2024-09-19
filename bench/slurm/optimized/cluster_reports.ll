@@ -128,7 +128,7 @@ define dso_local noundef i32 @cluster_account_by_user(i32 noundef %0, ptr nocapt
   call void @slurmdb_init_cluster_cond(ptr noundef nonnull %9, i1 noundef zeroext false) #10
   %18 = getelementptr inbounds i8, ptr %15, i64 102
   store i16 1, ptr %18, align 2
-  call fastcc void @_set_assoc_cond.retelim(ptr noundef %10, i32 noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %16)
+  call fastcc void @_set_assoc_cond(ptr noundef %10, i32 noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %16)
   %19 = call i32 @list_count(ptr noundef %16) #10
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.sink.split, label %22
@@ -141,7 +141,7 @@ define dso_local noundef i32 @cluster_account_by_user(i32 noundef %0, ptr nocapt
   br label %22
 
 22:                                               ; preds = %.sink.split, %2
-  call fastcc void @_setup_print_fields_list.retelim(ptr noundef %16)
+  call fastcc void @_setup_print_fields_list(ptr noundef %16)
   %.not48 = icmp eq ptr %16, null
   br i1 %.not48, label %24, label %23
 
@@ -603,7 +603,7 @@ declare void @destroy_print_field(ptr noundef) #1
 declare void @slurmdb_init_cluster_cond(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_assoc_cond.retelim(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_set_assoc_cond(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @all_clusters_flag, align 4
@@ -881,7 +881,7 @@ declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_addto_char_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_setup_print_fields_list.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_setup_print_fields_list(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %.not = icmp eq ptr %0, null
@@ -1437,7 +1437,7 @@ define dso_local noundef i32 @cluster_user_by_account(i32 noundef %0, ptr nocapt
   %16 = tail call ptr @list_create(ptr noundef nonnull @destroy_print_field) #10
   store ptr %16, ptr @print_fields_list, align 8
   call void @slurmdb_init_cluster_cond(ptr noundef nonnull %8, i1 noundef zeroext false) #10
-  call fastcc void @_set_assoc_cond.retelim(ptr noundef %9, i32 noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef %15)
+  call fastcc void @_set_assoc_cond(ptr noundef %9, i32 noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef %15)
   %17 = call i32 @list_count(ptr noundef %15) #10
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %.sink.split, label %20
@@ -1450,7 +1450,7 @@ define dso_local noundef i32 @cluster_user_by_account(i32 noundef %0, ptr nocapt
   br label %20
 
 20:                                               ; preds = %.sink.split, %2
-  call fastcc void @_setup_print_fields_list.retelim(ptr noundef %15)
+  call fastcc void @_setup_print_fields_list(ptr noundef %15)
   %.not38 = icmp eq ptr %15, null
   br i1 %.not38, label %22, label %21
 
@@ -1860,7 +1860,7 @@ define dso_local noundef i32 @cluster_user_by_wckey(i32 noundef %0, ptr nocaptur
   %16 = tail call ptr @list_create(ptr noundef nonnull @destroy_print_field) #10
   store ptr %16, ptr @print_fields_list, align 8
   call void @slurmdb_init_cluster_cond(ptr noundef nonnull %8, i1 noundef zeroext false) #10
-  call fastcc void @_set_wckey_cond.retelim(ptr noundef %9, i32 noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef %15)
+  call fastcc void @_set_wckey_cond(ptr noundef %9, i32 noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef %15)
   %17 = call i32 @list_count(ptr noundef %15) #10
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %.sink.split, label %20
@@ -1873,7 +1873,7 @@ define dso_local noundef i32 @cluster_user_by_wckey(i32 noundef %0, ptr nocaptur
   br label %20
 
 20:                                               ; preds = %.sink.split, %2
-  call fastcc void @_setup_print_fields_list.retelim(ptr noundef %15)
+  call fastcc void @_setup_print_fields_list(ptr noundef %15)
   %.not38 = icmp eq ptr %15, null
   br i1 %.not38, label %22, label %21
 
@@ -2263,7 +2263,7 @@ _cluster_user_by_wckey_tres_report.exit:          ; preds = %176, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_wckey_cond.retelim(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_set_wckey_cond(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @all_clusters_flag, align 4
@@ -2754,9 +2754,9 @@ _set_cluster_cond.exit.i:                         ; preds = %94, %91, %._crit_ed
   %105 = load ptr, ptr @db_conn, align 8
   %106 = call ptr @slurmdb_clusters_get(ptr noundef %105, ptr noundef %15) #10
   %.not.i = icmp eq ptr %106, null
-  br i1 %.not.i, label %_get_cluster_list.argprom.exit.thread, label %109
+  br i1 %.not.i, label %_get_cluster_list.exit.thread, label %109
 
-_get_cluster_list.argprom.exit.thread:            ; preds = %_set_cluster_cond.exit.i
+_get_cluster_list.exit.thread:                    ; preds = %_set_cluster_cond.exit.i
   store i32 1, ptr @exit_code, align 4
   %107 = load ptr, ptr @stderr, align 8
   %108 = call i64 @fwrite(ptr nonnull @.str.76, i64 29, i64 1, ptr %107) #13
@@ -2840,7 +2840,7 @@ _merge_cluster_recs.exit.i:                       ; preds = %._crit_edge.i28.i, 
   %.0.i = phi i64 [ %135, %_merge_cluster_recs.exit.i ], [ 1, %109 ]
   %137 = load i32, ptr @print_fields_have_header, align 4
   %.not23.i = icmp eq i32 %137, 0
-  br i1 %.not23.i, label %_get_cluster_list.argprom.exit, label %138
+  br i1 %.not23.i, label %_get_cluster_list.exit, label %138
 
 138:                                              ; preds = %136
   %139 = load i64, ptr %98, align 8
@@ -2869,9 +2869,9 @@ _merge_cluster_recs.exit.i:                       ; preds = %._crit_edge.i28.i, 
 
 151:                                              ; preds = %147, %144
   %puts24.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
-  br label %_get_cluster_list.argprom.exit
+  br label %_get_cluster_list.exit
 
-_get_cluster_list.argprom.exit:                   ; preds = %136, %151
+_get_cluster_list.exit:                           ; preds = %136, %151
   %152 = load i64, ptr %100, align 8
   %153 = load i64, ptr %98, align 8
   %154 = sub nsw i64 %152, %153
@@ -2885,15 +2885,15 @@ _get_cluster_list.argprom.exit:                   ; preds = %136, %151
   %.not121 = icmp eq i32 %156, 0
   br i1 %.not121, label %.sink.split, label %159
 
-.sink.split:                                      ; preds = %_get_cluster_list.argprom.exit
+.sink.split:                                      ; preds = %_get_cluster_list.exit
   %157 = load ptr, ptr @tres_str, align 8
   %.not122 = icmp eq ptr %157, null
   %.str.15..str.14 = select i1 %.not122, ptr @.str.15, ptr @.str.14
   %158 = call i32 @slurm_addto_char_list(ptr noundef %13, ptr noundef nonnull %.str.15..str.14) #10
   br label %159
 
-159:                                              ; preds = %.sink.split, %_get_cluster_list.argprom.exit
-  call fastcc void @_setup_print_fields_list.retelim(ptr noundef %13)
+159:                                              ; preds = %.sink.split, %_get_cluster_list.exit
+  call fastcc void @_setup_print_fields_list(ptr noundef %13)
   %.not123 = icmp eq ptr %13, null
   br i1 %.not123, label %161, label %160
 
@@ -3416,7 +3416,7 @@ _cluster_util_tres_report.exit:                   ; preds = %263, %266, %._crit_
   call void @list_destroy(ptr noundef nonnull %106) #10
   br label %.critedge
 
-.critedge:                                        ; preds = %_get_cluster_list.argprom.exit.thread, %._crit_edge219
+.critedge:                                        ; preds = %_get_cluster_list.exit.thread, %._crit_edge219
   %389 = load ptr, ptr @print_fields_list, align 8
   %.not127 = icmp eq ptr %389, null
   br i1 %.not127, label %391, label %390
@@ -3456,7 +3456,7 @@ define dso_local noundef i32 @cluster_wckey_by_user(i32 noundef %0, ptr nocaptur
   %15 = tail call ptr @list_create(ptr noundef nonnull @destroy_print_field) #10
   store ptr %15, ptr @print_fields_list, align 8
   call void @slurmdb_init_cluster_cond(ptr noundef nonnull %7, i1 noundef zeroext false) #10
-  call fastcc void @_set_wckey_cond.retelim(ptr noundef %8, i32 noundef %0, ptr noundef %1, ptr noundef %13, ptr noundef %14)
+  call fastcc void @_set_wckey_cond(ptr noundef %8, i32 noundef %0, ptr noundef %1, ptr noundef %13, ptr noundef %14)
   %16 = call i32 @list_count(ptr noundef %14) #10
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.sink.split, label %19
@@ -3469,7 +3469,7 @@ define dso_local noundef i32 @cluster_wckey_by_user(i32 noundef %0, ptr nocaptur
   br label %19
 
 19:                                               ; preds = %.sink.split, %2
-  call fastcc void @_setup_print_fields_list.retelim(ptr noundef %14)
+  call fastcc void @_setup_print_fields_list(ptr noundef %14)
   %.not43 = icmp eq ptr %14, null
   br i1 %.not43, label %21, label %20
 

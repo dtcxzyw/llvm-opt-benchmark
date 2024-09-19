@@ -394,7 +394,7 @@ fileset_is_file_in_set.exit:                      ; preds = %35, %38, %43
   %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %54) #10
   %56 = icmp eq i32 %55, 0
   %57 = zext i1 %56 to i32
-  call fastcc void @fileset_add_file.retelim(ptr noundef %53, ptr noundef nonnull %31, i32 noundef %57)
+  call fastcc void @fileset_add_file(ptr noundef %53, ptr noundef nonnull %31, i32 noundef %57)
   br label %58
 
 58:                                               ; preds = %fileset_is_file_in_set.exit.thread, %52, %fileset_is_file_in_set.exit
@@ -408,7 +408,7 @@ fileset_is_file_in_set.exit:                      ; preds = %35, %38, %43
 
 60:                                               ; preds = %g_string_append_c_inline.exit
   %61 = tail call ptr @get_basename(ptr noundef %0) #9
-  tail call fastcc void @fileset_add_file.retelim(ptr noundef %27, ptr noundef %61, i32 noundef 1)
+  tail call fastcc void @fileset_add_file(ptr noundef %27, ptr noundef %61, i32 noundef 1)
   br label %62
 
 62:                                               ; preds = %28, %._crit_edge, %60
@@ -447,7 +447,7 @@ declare ptr @g_dir_read_name(ptr noundef) local_unnamed_addr #1
 declare ptr @get_basename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fileset_add_file.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @fileset_add_file(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %0, ptr noundef %1) #9
   %6 = tail call i32 (ptr, i32, ...) @open(ptr noundef %5, i32 noundef 0, i32 noundef 0) #9

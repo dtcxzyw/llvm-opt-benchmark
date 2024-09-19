@@ -99,7 +99,7 @@ define void @prte_iof_base_output(ptr noundef %0, i16 noundef zeroext %1, ptr no
 
 9:                                                ; preds = %8, %3
   %.not22.i = icmp eq ptr %5, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %10
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %10
 
 10:                                               ; preds = %9
   %11 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %5, ptr noundef null) #12
@@ -114,7 +114,7 @@ define void @prte_iof_base_output(ptr noundef %0, i16 noundef zeroext %1, ptr no
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof_deliver_t_class, i64 40), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i.i = icmp eq ptr %17, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %18 = phi ptr [ %20, %.lr.ph.i.i ], [ %17, %10 ]
@@ -123,9 +123,9 @@ define void @prte_iof_base_output(ptr noundef %0, i16 noundef zeroext %1, ptr no
   %19 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %9, %10
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %9, %10
   %21 = getelementptr inbounds i8, ptr %5, i64 120
   tail call void @PMIx_Xfer_procid(ptr noundef nonnull %21, ptr noundef %0) #12
   %22 = getelementptr inbounds i8, ptr %5, i64 384
@@ -139,12 +139,12 @@ pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %9, %10
     i32 -2, label %28
   ]
 
-26:                                               ; preds = %pmix_obj_new_tma.argprom.exit
+26:                                               ; preds = %pmix_obj_new_tma.exit
   %27 = tail call ptr @PMIx_Error_string(i32 noundef %25) #12
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %27, ptr noundef nonnull @.str.4, i32 noundef 130) #12
   br label %28
 
-28:                                               ; preds = %pmix_obj_new_tma.argprom.exit, %26
+28:                                               ; preds = %pmix_obj_new_tma.exit, %26
   %29 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #12
   %30 = icmp eq i32 %29, 35
   br i1 %30, label %31, label %33
@@ -198,7 +198,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %39
   tail call void @free(ptr noundef nonnull %5) #12
   br label %53
 
-53:                                               ; preds = %50, %52, %pmix_obj_new_tma.argprom.exit, %33
+53:                                               ; preds = %50, %52, %pmix_obj_new_tma.exit, %33
   ret void
 }
 
@@ -513,7 +513,7 @@ define internal void @prte_iof_base_sink_construct(ptr noundef %0) #0 {
 
 8:                                                ; preds = %7, %1
   %.not22.i = icmp eq ptr %4, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %9
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %9
 
 9:                                                ; preds = %8
   %10 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %4, ptr noundef null) #12
@@ -528,7 +528,7 @@ define internal void @prte_iof_base_sink_construct(ptr noundef %0) #0 {
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof_write_event_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %17 = phi ptr [ %19, %.lr.ph.i.i ], [ %16, %9 ]
@@ -537,9 +537,9 @@ define internal void @prte_iof_base_sink_construct(ptr noundef %0) #0 {
   %18 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %8, %9
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
   %20 = getelementptr inbounds i8, ptr %0, i64 672
   store ptr %4, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 680

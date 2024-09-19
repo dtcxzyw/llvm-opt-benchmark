@@ -2234,7 +2234,7 @@ os_target_signed_c_char_type.exit.thread:         ; preds = %482, %482, %482, %4
   %487 = and i16 %486, -3
   %488 = or disjoint i16 %487, %485
   store i16 %488, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
-  switch i32 %480, label %target_setup_x86_abi.argprom.exit [
+  switch i32 %480, label %target_setup_x86_abi.exit [
     i32 5, label %489
     i32 8, label %489
     i32 9, label %489
@@ -2313,11 +2313,11 @@ os_is_apple.exit:                                 ; preds = %490, %490, %490, %4
   %498 = or disjoint i8 %497, %494
   store i8 %498, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   store i32 4, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
-  br label %target_setup_x86_abi.argprom.exit
+  br label %target_setup_x86_abi.exit
 
 499:                                              ; preds = %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread
   store i32 5, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
-  br label %target_setup_x86_abi.argprom.exit
+  br label %target_setup_x86_abi.exit
 
 500:                                              ; preds = %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread
   store i32 6, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
@@ -2429,7 +2429,7 @@ os_is_apple.exit:                                 ; preds = %490, %490, %490, %4
 target_setup_arm_abi.exit:                        ; preds = %501, %508, %530, %533, %540
   %.sink11.i = phi i8 [ %542, %540 ], [ %535, %533 ], [ %532, %530 ], [ %510, %508 ], [ %504, %501 ]
   store i8 %.sink11.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
-  br label %target_setup_x86_abi.argprom.exit
+  br label %target_setup_x86_abi.exit
 
 546:                                              ; preds = %os_target_signed_c_char_type.exit.thread
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__.target_setup, ptr noundef nonnull @.str.18, i32 noundef 1883) #16
@@ -2464,7 +2464,7 @@ target_setup_arm_abi.exit:                        ; preds = %501, %508, %530, %5
   %561 = or disjoint i8 %560, %556
   %562 = or disjoint i8 %561, %558
   store i8 %562, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
-  br label %target_setup_x86_abi.argprom.exit
+  br label %target_setup_x86_abi.exit
 
 563:                                              ; preds = %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread
   %564 = call fastcc i32 @arch_pointer_bit_width(i32 noundef %479, i32 noundef %480)
@@ -2488,7 +2488,7 @@ switch.lookup302:                                 ; preds = %563
 572:                                              ; preds = %563, %switch.lookup302
   store i32 9, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
   %.pre268 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
-  br label %target_setup_x86_abi.argprom.exit
+  br label %target_setup_x86_abi.exit
 
 573:                                              ; preds = %os_target_signed_c_char_type.exit.thread
   %574 = getelementptr i8, ptr %0, i64 328
@@ -2530,7 +2530,7 @@ switch.lookup302:                                 ; preds = %563
   %590 = shl i16 %.val, 10
   %591 = ashr i16 %590, 13
   %.not5.i = icmp eq i16 %591, -1
-  br i1 %.not5.i, label %target_setup_x86_abi.argprom.exit, label %592
+  br i1 %.not5.i, label %target_setup_x86_abi.exit, label %592
 
 592:                                              ; preds = %588
   %593 = icmp eq i16 %591, 1
@@ -2538,7 +2538,7 @@ switch.lookup302:                                 ; preds = %563
   %595 = and i8 %589, -2
   %596 = or disjoint i8 %595, %594
   store i8 %596, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
-  br label %target_setup_x86_abi.argprom.exit
+  br label %target_setup_x86_abi.exit
 
 597:                                              ; preds = %os_target_signed_c_char_type.exit.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -2929,17 +2929,17 @@ target_setup_x64_abi.exit:                        ; preds = %721, %.sink.split.i
 
 727:                                              ; preds = %target_setup_x64_abi.exit
   store i32 2, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
-  br label %target_setup_x86_abi.argprom.exit
+  br label %target_setup_x86_abi.exit
 
 728:                                              ; preds = %target_setup_x64_abi.exit
   store i32 1, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
-  br label %target_setup_x86_abi.argprom.exit
+  br label %target_setup_x86_abi.exit
 
 729:                                              ; preds = %os_target_signed_c_char_type.exit.thread
   store i32 0, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
-  br label %target_setup_x86_abi.argprom.exit
+  br label %target_setup_x86_abi.exit
 
-target_setup_x86_abi.argprom.exit:                ; preds = %592, %588, %729, %728, %727, %572, %553, %target_setup_arm_abi.exit, %499, %os_is_apple.exit, %os_target_signed_c_char_type.exit.thread
+target_setup_x86_abi.exit:                        ; preds = %592, %588, %729, %728, %727, %572, %553, %target_setup_arm_abi.exit, %499, %os_is_apple.exit, %os_target_signed_c_char_type.exit.thread
   %730 = phi i32 [ %479, %592 ], [ %479, %588 ], [ %479, %729 ], [ %713, %728 ], [ 15, %727 ], [ %.pre268, %572 ], [ %479, %553 ], [ %479, %target_setup_arm_abi.exit ], [ %479, %499 ], [ %479, %os_is_apple.exit ], [ %479, %os_target_signed_c_char_type.exit.thread ]
   %731 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %732 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 44), align 4
@@ -2947,26 +2947,26 @@ target_setup_x86_abi.argprom.exit:                ; preds = %592, %588, %729, %7
   %734 = lshr i8 %733, 1
   %735 = and i8 %734, 7
   switch i32 %731, label %os_is_apple.exit.i113 [
-    i32 3, label %os_arch_max_alignment_of_vector.argprom.exit
+    i32 3, label %os_arch_max_alignment_of_vector.exit
     i32 1, label %736
     i32 2, label %736
     i32 31, label %740
   ]
 
-736:                                              ; preds = %target_setup_x86_abi.argprom.exit, %target_setup_x86_abi.argprom.exit
+736:                                              ; preds = %target_setup_x86_abi.exit, %target_setup_x86_abi.exit
   %737 = icmp eq i32 %732, 12
-  br i1 %737, label %os_arch_max_alignment_of_vector.argprom.exit, label %738
+  br i1 %737, label %os_arch_max_alignment_of_vector.exit, label %738
 
 738:                                              ; preds = %736
   %switch.selectcmp.case1.i = icmp eq i8 %735, 0
   %switch.selectcmp.case2.i = icmp eq i8 %735, 3
   %switch.selectcmp.i = or i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
   %739 = select i1 %switch.selectcmp.i, i32 8, i32 0
-  br label %os_arch_max_alignment_of_vector.argprom.exit
+  br label %os_arch_max_alignment_of_vector.exit
 
-740:                                              ; preds = %target_setup_x86_abi.argprom.exit
+740:                                              ; preds = %target_setup_x86_abi.exit
   switch i32 %730, label %os_is_apple.exit.i113 [
-    i32 15, label %os_arch_max_alignment_of_vector.argprom.exit
+    i32 15, label %os_arch_max_alignment_of_vector.exit
     i32 28, label %741
     i32 27, label %741
     i32 11, label %741
@@ -2977,19 +2977,19 @@ target_setup_x86_abi.argprom.exit:                ; preds = %592, %588, %729, %7
   %.sink.i.i110 = load i64, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %742 = and i64 %.sink.i.i110, 131072
   %.0.i.not.i = icmp eq i64 %742, 0
-  br i1 %.0.i.not.i, label %743, label %os_arch_max_alignment_of_vector.argprom.exit
+  br i1 %.0.i.not.i, label %743, label %os_arch_max_alignment_of_vector.exit
 
 743:                                              ; preds = %741
   %744 = and i64 %.sink.i.i110, 128
   %.0.i9.not.i = icmp eq i64 %744, 0
   %..i112 = select i1 %.0.i9.not.i, i32 16, i32 32
-  br label %os_arch_max_alignment_of_vector.argprom.exit
+  br label %os_arch_max_alignment_of_vector.exit
 
-os_is_apple.exit.i113:                            ; preds = %740, %target_setup_x86_abi.argprom.exit
-  br label %os_arch_max_alignment_of_vector.argprom.exit
+os_is_apple.exit.i113:                            ; preds = %740, %target_setup_x86_abi.exit
+  br label %os_arch_max_alignment_of_vector.exit
 
-os_arch_max_alignment_of_vector.argprom.exit:     ; preds = %target_setup_x86_abi.argprom.exit, %736, %738, %740, %741, %743, %os_is_apple.exit.i113
-  %.0.i111 = phi i32 [ 0, %os_is_apple.exit.i113 ], [ 16, %target_setup_x86_abi.argprom.exit ], [ 0, %736 ], [ %739, %738 ], [ 1024, %740 ], [ 64, %741 ], [ %..i112, %743 ]
+os_arch_max_alignment_of_vector.exit:             ; preds = %target_setup_x86_abi.exit, %736, %738, %740, %741, %743, %os_is_apple.exit.i113
+  %.0.i111 = phi i32 [ 0, %os_is_apple.exit.i113 ], [ 16, %target_setup_x86_abi.exit ], [ 0, %736 ], [ %739, %738 ], [ 1024, %740 ], [ 64, %741 ], [ %..i112, %743 ]
   store i32 %.0.i111, ptr getelementptr inbounds (i8, ptr @platform_target, i64 292), align 4
   %cond.i114 = icmp eq i32 %731, 31
   %745 = icmp eq i32 %730, 15
@@ -3000,7 +3000,7 @@ os_arch_max_alignment_of_vector.argprom.exit:     ; preds = %target_setup_x86_ab
   %.not250 = icmp eq i32 %746, 0
   br i1 %.not250, label %753, label %747
 
-747:                                              ; preds = %os_arch_max_alignment_of_vector.argprom.exit
+747:                                              ; preds = %os_arch_max_alignment_of_vector.exit
   switch i32 %730, label %752 [
     i32 21, label %748
     i32 16, label %748
@@ -3060,7 +3060,7 @@ arch_os_reloc_default.exit.thread239:             ; preds = %747
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_reloc_default, ptr noundef nonnull @.str.18, i32 noundef 1621) #16
   unreachable
 
-753:                                              ; preds = %os_arch_max_alignment_of_vector.argprom.exit
+753:                                              ; preds = %os_arch_max_alignment_of_vector.exit
   switch i32 %730, label %758 [
     i32 0, label %arch_os_reloc_default.exit
     i32 1, label %arch_os_reloc_default.exit

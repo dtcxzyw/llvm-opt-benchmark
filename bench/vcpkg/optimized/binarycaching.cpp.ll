@@ -3392,7 +3392,7 @@ _ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit: ; pre
 290:                                              ; preds = %._crit_edge
   %291 = getelementptr inbounds i8, ptr %0, i64 16
   %.not7.i = icmp eq ptr %.sroa.9135.1, %.sroa.0129.5
-  br i1 %.not7.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom.exit", label %_ZNSt12_Vector_baseIN5vcpkg17CacheAvailabilityESaIS1_EE11_M_allocateEm.exit.i.i
+  br i1 %.not7.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit", label %_ZNSt12_Vector_baseIN5vcpkg17CacheAvailabilityESaIS1_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIN5vcpkg17CacheAvailabilityESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %290
   %292 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %287) #29
@@ -3416,8 +3416,8 @@ _ZNSt12_Vector_baseIN5vcpkg17CacheAvailabilityESaIS1_EE11_M_allocateEm.exit.i.i:
   %300 = load i8, ptr %299, align 8, !noalias !28
   switch i8 %300, label %306 [
     i8 1, label %301
-    i8 0, label %"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.argprom.exit.i"
-    i8 2, label %"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.argprom.exit.i"
+    i8 0, label %"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.exit.i"
+    i8 2, label %"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.exit.i"
   ]
 
 301:                                              ; preds = %295
@@ -3425,7 +3425,7 @@ _ZNSt12_Vector_baseIN5vcpkg17CacheAvailabilityESaIS1_EE11_M_allocateEm.exit.i.i:
   %303 = load ptr, ptr %302, align 8, !noalias !28
   %304 = icmp eq ptr %303, null
   %305 = select i1 %304, i8 1, i8 2
-  br label %"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.argprom.exit.i"
+  br label %"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.exit.i"
 
 306:                                              ; preds = %295
   store ptr %297, ptr %291, align 8, !alias.scope !28
@@ -3447,17 +3447,17 @@ _ZNSt12_Vector_baseIN5vcpkg17CacheAvailabilityESaIS1_EE11_M_allocateEm.exit.i.i:
   call void @__clang_call_terminate(ptr %311) #28
   unreachable
 
-"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.argprom.exit.i": ; preds = %301, %295, %295
+"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.exit.i": ; preds = %301, %295, %295
   %.0.i.i.i = phi i8 [ %305, %301 ], [ 1, %295 ], [ 1, %295 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !28
   %.not.i.i66 = icmp eq ptr %298, %297
   br i1 %.not.i.i66, label %313, label %312
 
-312:                                              ; preds = %"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.argprom.exit.i"
+312:                                              ; preds = %"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.exit.i"
   store i8 %.0.i.i.i, ptr %298, align 1, !noalias !28
   br label %_ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i
 
-313:                                              ; preds = %"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.argprom.exit.i"
+313:                                              ; preds = %"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.exit.i"
   %314 = ptrtoint ptr %297 to i64
   %315 = ptrtoint ptr %296 to i64
   %316 = sub i64 %314, %315
@@ -3517,7 +3517,7 @@ _ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.
   %333 = getelementptr inbounds i8, ptr %.pn300, i64 1
   %334 = getelementptr inbounds i8, ptr %.sroa.02.06.i, i64 8
   %.not.i67 = icmp eq ptr %334, %.sroa.9135.1
-  br i1 %.not.i67, label %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom.exit.loopexit", label %295
+  br i1 %.not.i67, label %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit.loopexit", label %295
 
 .loopexit.i71:                                    ; preds = %323
   %lpad.loopexit.i72 = landingpad { ptr, i32 }
@@ -3543,21 +3543,21 @@ _ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.
   tail call void @_ZdlPv(ptr noundef nonnull %337) #26, !noalias !28
   br label %.body
 
-"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom.exit.loopexit": ; preds = %_ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i
+"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit.loopexit": ; preds = %_ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i
   store ptr %332, ptr %291, align 8, !alias.scope !28
   store ptr %333, ptr %293, align 8, !alias.scope !28
   store ptr %331, ptr %0, align 8, !alias.scope !28
-  br label %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom.exit"
+  br label %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit"
 
-"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom.exit.loopexit", %290
+"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit.loopexit", %290
   %.not.i.i.i77 = icmp eq ptr %.sroa.099.0.lcssa, null
   br i1 %.not.i.i.i77, label %_ZNSt6vectorImSaImEED2Ev.exit78, label %339
 
-339:                                              ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom.exit"
+339:                                              ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit"
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.099.0.lcssa) #26
   br label %_ZNSt6vectorImSaImEED2Ev.exit78
 
-_ZNSt6vectorImSaImEED2Ev.exit78:                  ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom.exit", %339
+_ZNSt6vectorImSaImEED2Ev.exit78:                  ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit", %339
   %.not.i.i.i79 = icmp eq ptr %.sroa.0105.0.lcssa, null
   br i1 %.not.i.i.i79, label %_ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EED2Ev.exit80, label %340
 
@@ -4392,7 +4392,7 @@ define internal fastcc void @_ZN5vcpkgL21make_binary_providersERKNS_17VcpkgCmdAr
   br i1 %.not.i, label %_ZN12_GLOBAL__N_118default_cache_pathEv.exit, label %60
 
 60:                                               ; preds = %58
-  invoke fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv()
           to label %61 unwind label %63
 
 61:                                               ; preds = %60
@@ -4940,7 +4940,7 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   %.sroa.gep864.sroa.gep = getelementptr inbounds i8, ptr %16, i64 216
   %257 = load ptr, ptr %.sroa.gep864.sroa.gep, align 8
   %258 = icmp eq ptr %256, %257
-  br i1 %258, label %_ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit, label %259
+  br i1 %258, label %_ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit, label %259
 
 259:                                              ; preds = %255, %251
   %260 = load ptr, ptr @_ZN5vcpkg8out_sinkE, align 8
@@ -4959,14 +4959,14 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   %266 = getelementptr inbounds i8, ptr %265, i64 16
   %267 = load ptr, ptr %266, align 8, !noalias !58
   %268 = invoke noundef nonnull align 8 dereferenceable(32) ptr %267(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr nonnull @.str.81, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %260)
-          to label %.noexc.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, !noalias !58
+          to label %.noexc.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !58
 
 .noexc.i.i.i.i:                                   ; preds = %.noexc194
   %269 = getelementptr inbounds i8, ptr %261, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %269, ptr noundef nonnull align 8 dereferenceable(32) %268)
-          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, !noalias !58
+          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !58
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i: ; preds = %.noexc.i.i.i.i, %.noexc194
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i: ; preds = %.noexc.i.i.i.i, %.noexc194
   %270 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %261) #26, !noalias !58
@@ -4977,7 +4977,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorag
           cleanup
   br label %.body195
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit: ; preds = %.noexc.i.i.i.i, %255
+_ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit: ; preds = %.noexc.i.i.i.i, %255
   %.sroa.4764.0 = phi ptr [ null, %255 ], [ %261, %.noexc.i.i.i.i ]
   %.sroa.0763.0 = phi ptr [ null, %255 ], [ %264, %.noexc.i.i.i.i ]
   %.sroa.gep858 = getelementptr inbounds i8, ptr %16, i64 232
@@ -4987,7 +4987,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit: ; preds = 
   %275 = icmp eq ptr %273, %274
   br i1 %275, label %276, label %280
 
-276:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit
+276:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit
   %.sroa.gep856 = getelementptr inbounds i8, ptr %16, i64 256
   %277 = load ptr, ptr %.sroa.gep856, align 8
   %.sroa.gep856.sroa.gep = getelementptr inbounds i8, ptr %16, i64 264
@@ -4995,7 +4995,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit: ; preds = 
   %279 = icmp eq ptr %277, %278
   br i1 %279, label %296, label %280
 
-280:                                              ; preds = %276, %_ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit
+280:                                              ; preds = %276, %_ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit
   %281 = load ptr, ptr @_ZN5vcpkg8out_sinkE, align 8
   %.sroa.gep854 = getelementptr inbounds i8, ptr %16, i64 280
   %.val166 = load i8, ptr %.sroa.gep854, align 8
@@ -5014,20 +5014,20 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit: ; preds = 
   %287 = getelementptr inbounds i8, ptr %286, i64 16
   %288 = load ptr, ptr %287, align 8, !noalias !61
   %289 = invoke noundef nonnull align 8 dereferenceable(32) ptr %288(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr nonnull @.str.65, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %281)
-          to label %.noexc.i.i.i.i199 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit15.i.i.i.i, !noalias !61
+          to label %.noexc.i.i.i.i199 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i, !noalias !61
 
 .noexc.i.i.i.i199:                                ; preds = %.noexc200
   %290 = getelementptr inbounds i8, ptr %282, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %290, ptr noundef nonnull align 8 dereferenceable(32) %289)
-          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit15.i.i.i.i, !noalias !61
+          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i, !noalias !61
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit15.i.i.i.i: ; preds = %.noexc.i.i.i.i199, %.noexc200
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i: ; preds = %.noexc.i.i.i.i199, %.noexc200
   %291 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %282) #26, !noalias !61
   br label %.body201
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit: ; preds = %.noexc.i.i.i.i199
+_ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit: ; preds = %.noexc.i.i.i.i199
   %292 = and i8 %.val166, 1
   %293 = getelementptr inbounds i8, ptr %282, i64 56
   store i8 %292, ptr %293, align 8, !noalias !61
@@ -5038,9 +5038,9 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit: ; preds = 
           cleanup
   br label %.body201
 
-296:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit, %276
-  %.sroa.4760.0 = phi ptr [ null, %276 ], [ %282, %_ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit ]
-  %.sroa.0759.0 = phi ptr [ null, %276 ], [ %285, %_ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit ]
+296:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit, %276
+  %.sroa.4760.0 = phi ptr [ null, %276 ], [ %282, %_ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit ]
+  %.sroa.0759.0 = phi ptr [ null, %276 ], [ %285, %_ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit ]
   %.sroa.gep848 = getelementptr inbounds i8, ptr %16, i64 288
   %297 = load ptr, ptr %.sroa.gep848, align 8
   %.sroa.gep848.sroa.gep852 = getelementptr inbounds i8, ptr %16, i64 296
@@ -5054,7 +5054,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit: ; preds = 
   %.sroa.gep846.sroa.gep = getelementptr inbounds i8, ptr %16, i64 320
   %302 = load ptr, ptr %.sroa.gep846.sroa.gep, align 8
   %303 = icmp eq ptr %301, %302
-  br i1 %303, label %_ZNSt10shared_ptrIN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit, label %304
+  br i1 %303, label %_ZNSt10shared_ptrIN12_GLOBAL__N_114CosStorageToolEED2Ev.exit, label %304
 
 304:                                              ; preds = %300, %296
   %305 = load ptr, ptr @_ZN5vcpkg8out_sinkE, align 8
@@ -5073,14 +5073,14 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit: ; preds = 
   %311 = getelementptr inbounds i8, ptr %310, i64 16
   %312 = load ptr, ptr %311, align 8, !noalias !64
   %313 = invoke noundef nonnull align 8 dereferenceable(32) ptr %312(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr nonnull @.str.110, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %305)
-          to label %.noexc.i.i.i.i215 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, !noalias !64
+          to label %.noexc.i.i.i.i215 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !64
 
 .noexc.i.i.i.i215:                                ; preds = %.noexc216
   %314 = getelementptr inbounds i8, ptr %306, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %314, ptr noundef nonnull align 8 dereferenceable(32) %313)
-          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, !noalias !64
+          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_114CosStorageToolEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !64
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i: ; preds = %.noexc.i.i.i.i215, %.noexc216
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i: ; preds = %.noexc.i.i.i.i215, %.noexc216
   %315 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %306) #26, !noalias !64
@@ -5092,7 +5092,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorag
           cleanup
   br label %.body217
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit: ; preds = %.noexc.i.i.i.i215, %300
+_ZNSt10shared_ptrIN12_GLOBAL__N_114CosStorageToolEED2Ev.exit: ; preds = %.noexc.i.i.i.i215, %300
   %.sroa.0755.0 = phi ptr [ null, %300 ], [ %309, %.noexc.i.i.i.i215 ]
   %.sroa.4756.0 = phi ptr [ null, %300 ], [ %306, %.noexc.i.i.i.i215 ]
   %.sroa.gep844 = getelementptr inbounds i8, ptr %16, i64 337
@@ -5100,13 +5100,13 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit: ; preds = 
   %319 = trunc i8 %318 to i1
   br i1 %319, label %323, label %320
 
-320:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit
+320:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_114CosStorageToolEED2Ev.exit
   %.sroa.gep842 = getelementptr inbounds i8, ptr %16, i64 336
   %321 = load i8, ptr %.sroa.gep842, align 8
   %322 = trunc i8 %321 to i1
   br i1 %322, label %323, label %342
 
-323:                                              ; preds = %320, %_ZNSt10shared_ptrIN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit
+323:                                              ; preds = %320, %_ZNSt10shared_ptrIN12_GLOBAL__N_114CosStorageToolEED2Ev.exit
   %324 = getelementptr inbounds i8, ptr %1, i64 720
   %325 = load i8, ptr %324, align 8
   %326 = trunc i8 %325 to i1
@@ -5413,7 +5413,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123FilesReadBinaryProviderESt14default_deleteIS1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %423, i8 0, i64 24, i1 false), !noalias !82
   %431 = getelementptr inbounds i8, ptr %418, i64 112
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %431, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.gep)
-          to label %_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit unwind label %432, !noalias !82
+          to label %_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %432, !noalias !82
 
 432:                                              ; preds = %.noexc.i
   %433 = landingpad { ptr, i32 }
@@ -5432,13 +5432,13 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123FilesReadBinaryProviderESt14default_deleteIS1
   call void @_ZdlPv(ptr noundef nonnull %418) #26, !noalias !82
   br label %.body247
 
-_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit: ; preds = %.noexc.i
+_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.noexc.i
   %436 = load ptr, ptr %415, align 8
   %437 = load ptr, ptr %416, align 8
   %.not.i.i249 = icmp eq ptr %436, %437
   br i1 %.not.i.i249, label %442, label %438
 
-438:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+438:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %439 = ptrtoint ptr %418 to i64
   store i64 %439, ptr %436, align 8
   %440 = load ptr, ptr %415, align 8
@@ -5446,7 +5446,7 @@ _ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS
   store ptr %441, ptr %415, align 8
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_121HttpGetBinaryProviderESt14default_deleteIS1_EED2Ev.exit
 
-442:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+442:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %443 = load ptr, ptr %13, align 8
   %444 = ptrtoint ptr %436 to i64
   %445 = ptrtoint ptr %443 to i64
@@ -5589,7 +5589,7 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14GcsStorageTool
   store ptr %.sroa.0763.0, ptr %488, align 8, !noalias !90
   %489 = getelementptr inbounds i8, ptr %477, i64 96
   store ptr %.sroa.4764.0, ptr %489, align 8, !noalias !90
-  br i1 %.not.i.i.i.i262, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit, label %490
+  br i1 %.not.i.i.i.i262, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %490
 
 490:                                              ; preds = %.noexc.i264
   %491 = load i8, ptr @__libc_single_threaded, align 1, !noalias !90
@@ -5638,7 +5638,7 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14GcsStorageTool
 511:                                              ; preds = %509, %507
   %.0.i.i.i.i.i266 = phi i32 [ %500, %507 ], [ %510, %509 ]
   %512 = icmp eq i32 %.0.i.i.i.i.i266, 1
-  br i1 %512, label %513, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br i1 %512, label %513, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 513:                                              ; preds = %511
   %514 = load ptr, ptr %.sroa.4764.0, align 8, !noalias !90
@@ -5662,29 +5662,29 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14GcsStorageTool
 523:                                              ; preds = %521, %518
   %.0.i.i.i.i.i.i.i268 = phi i32 [ %519, %518 ], [ %522, %521 ]
   %524 = icmp eq i32 %.0.i.i.i.i.i.i.i268, 1
-  br i1 %524, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i269, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br i1 %524, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i269, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i269: ; preds = %523, %501
   %525 = load ptr, ptr %.sroa.4764.0, align 8, !noalias !90
   %526 = getelementptr inbounds i8, ptr %525, i64 24
   %527 = load ptr, ptr %526, align 8, !noalias !90
   call void %527(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4764.0) #25, !noalias !90
-  br label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 528:                                              ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14GcsStorageToolEvEERKS_IT_E.exit.i
   %529 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom(ptr %.sroa.4764.0) #25, !noalias !90
+  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev(ptr %.sroa.4764.0) #25, !noalias !90
   call void @_ZdlPv(ptr noundef nonnull %477) #26, !noalias !90
   br label %.body247
 
-_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i269, %523, %511, %.noexc.i264
+_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i269, %523, %511, %.noexc.i264
   %530 = load ptr, ptr %474, align 8
   %531 = load ptr, ptr %475, align 8
   %.not.i.i273 = icmp eq ptr %530, %531
   br i1 %.not.i.i273, label %536, label %532
 
-532:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+532:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %533 = ptrtoint ptr %477 to i64
   store i64 %533, ptr %530, align 8
   %534 = load ptr, ptr %474, align 8
@@ -5692,7 +5692,7 @@ _ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS
   store ptr %535, ptr %474, align 8
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_121ObjectStorageProviderESt14default_deleteIS1_EED2Ev.exit
 
-536:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+536:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %537 = load ptr, ptr %13, align 8
   %538 = ptrtoint ptr %530 to i64
   %539 = ptrtoint ptr %537 to i64
@@ -5835,7 +5835,7 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14AwsStorageTool
   store ptr %.sroa.0759.0, ptr %582, align 8, !noalias !98
   %583 = getelementptr inbounds i8, ptr %571, i64 96
   store ptr %.sroa.4760.0, ptr %583, align 8, !noalias !98
-  br i1 %.not.i.i.i.i286, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit, label %584
+  br i1 %.not.i.i.i.i286, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %584
 
 584:                                              ; preds = %.noexc.i288
   %585 = load i8, ptr @__libc_single_threaded, align 1, !noalias !98
@@ -5884,7 +5884,7 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14AwsStorageTool
 605:                                              ; preds = %603, %601
   %.0.i.i.i.i.i291 = phi i32 [ %594, %601 ], [ %604, %603 ]
   %606 = icmp eq i32 %.0.i.i.i.i.i291, 1
-  br i1 %606, label %607, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br i1 %606, label %607, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 607:                                              ; preds = %605
   %608 = load ptr, ptr %.sroa.4760.0, align 8, !noalias !98
@@ -5908,29 +5908,29 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14AwsStorageTool
 617:                                              ; preds = %615, %612
   %.0.i.i.i.i.i.i.i293 = phi i32 [ %613, %612 ], [ %616, %615 ]
   %618 = icmp eq i32 %.0.i.i.i.i.i.i.i293, 1
-  br i1 %618, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i294, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br i1 %618, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i294, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i294: ; preds = %617, %595
   %619 = load ptr, ptr %.sroa.4760.0, align 8, !noalias !98
   %620 = getelementptr inbounds i8, ptr %619, i64 24
   %621 = load ptr, ptr %620, align 8, !noalias !98
   call void %621(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4760.0) #25, !noalias !98
-  br label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 622:                                              ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14AwsStorageToolEvEERKS_IT_E.exit.i
   %623 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom(ptr %.sroa.4760.0) #25, !noalias !98
+  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev(ptr %.sroa.4760.0) #25, !noalias !98
   call void @_ZdlPv(ptr noundef nonnull %571) #26, !noalias !98
   br label %.body247
 
-_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i294, %617, %605, %.noexc.i288
+_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i294, %617, %605, %.noexc.i288
   %624 = load ptr, ptr %568, align 8
   %625 = load ptr, ptr %569, align 8
   %.not.i.i299 = icmp eq ptr %624, %625
   br i1 %.not.i.i299, label %630, label %626
 
-626:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+626:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %627 = ptrtoint ptr %571 to i64
   store i64 %627, ptr %624, align 8
   %628 = load ptr, ptr %568, align 8
@@ -5938,7 +5938,7 @@ _ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS
   store ptr %629, ptr %568, align 8
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_121ObjectStorageProviderESt14default_deleteIS1_EED2Ev.exit307
 
-630:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+630:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %631 = load ptr, ptr %13, align 8
   %632 = ptrtoint ptr %624 to i64
   %633 = ptrtoint ptr %631 to i64
@@ -6081,7 +6081,7 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14CosStorageTool
   store ptr %.sroa.0755.0, ptr %676, align 8, !noalias !106
   %677 = getelementptr inbounds i8, ptr %665, i64 96
   store ptr %.sroa.4756.0, ptr %677, align 8, !noalias !106
-  br i1 %.not.i.i.i.i314, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit, label %678
+  br i1 %.not.i.i.i.i314, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %678
 
 678:                                              ; preds = %.noexc.i316
   %679 = load i8, ptr @__libc_single_threaded, align 1, !noalias !106
@@ -6130,7 +6130,7 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14CosStorageTool
 699:                                              ; preds = %697, %695
   %.0.i.i.i.i.i319 = phi i32 [ %688, %695 ], [ %698, %697 ]
   %700 = icmp eq i32 %.0.i.i.i.i.i319, 1
-  br i1 %700, label %701, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br i1 %700, label %701, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 701:                                              ; preds = %699
   %702 = load ptr, ptr %.sroa.4756.0, align 8, !noalias !106
@@ -6154,29 +6154,29 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14CosStorageTool
 711:                                              ; preds = %709, %706
   %.0.i.i.i.i.i.i.i321 = phi i32 [ %707, %706 ], [ %710, %709 ]
   %712 = icmp eq i32 %.0.i.i.i.i.i.i.i321, 1
-  br i1 %712, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i322, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br i1 %712, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i322, label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i322: ; preds = %711, %689
   %713 = load ptr, ptr %.sroa.4756.0, align 8, !noalias !106
   %714 = getelementptr inbounds i8, ptr %713, i64 24
   %715 = load ptr, ptr %714, align 8, !noalias !106
   call void %715(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4756.0) #25, !noalias !106
-  br label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br label %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 716:                                              ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14CosStorageToolEvEERKS_IT_E.exit.i
   %717 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom(ptr %.sroa.4756.0) #25, !noalias !106
+  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev(ptr %.sroa.4756.0) #25, !noalias !106
   call void @_ZdlPv(ptr noundef nonnull %665) #26, !noalias !106
   br label %.body247
 
-_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i322, %711, %699, %.noexc.i316
+_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i322, %711, %699, %.noexc.i316
   %718 = load ptr, ptr %662, align 8
   %719 = load ptr, ptr %663, align 8
   %.not.i.i327 = icmp eq ptr %718, %719
   br i1 %.not.i.i327, label %724, label %720
 
-720:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+720:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %721 = ptrtoint ptr %665 to i64
   store i64 %721, ptr %718, align 8
   %722 = load ptr, ptr %662, align 8
@@ -6184,7 +6184,7 @@ _ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS
   store ptr %723, ptr %662, align 8
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_121ObjectStorageProviderESt14default_deleteIS1_EED2Ev.exit335
 
-724:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+724:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %725 = load ptr, ptr %13, align 8
   %726 = ptrtoint ptr %718 to i64
   %727 = ptrtoint ptr %725 to i64
@@ -6320,7 +6320,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121ObjectStorageProviderESt14default_deleteIS1_E
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i.i: ; preds = %.noexc.i.i
   %772 = getelementptr inbounds i8, ptr %765, i64 88
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %772, ptr noundef nonnull @.str.118, ptr noundef nonnull align 8 dereferenceable(32) %764)
-          to label %_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit unwind label %775, !noalias !114
+          to label %_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %775, !noalias !114
 
 773:                                              ; preds = %.noexc.i344
   %774 = landingpad { ptr, i32 }
@@ -6348,7 +6348,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZdlPv(ptr noundef nonnull %765) #26, !noalias !114
   br label %.body247
 
-_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i.i
+_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i.i
   store ptr %765, ptr %26, align 8
   %779 = getelementptr inbounds i8, ptr %13, i64 8
   %780 = load ptr, ptr %779, align 8
@@ -6357,7 +6357,7 @@ _ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10
   %.not.i.i348 = icmp eq ptr %780, %782
   br i1 %.not.i.i348, label %786, label %_ZNSt6vectorISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit350.thread
 
-_ZNSt6vectorISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit350.thread: ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+_ZNSt6vectorISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit350.thread: ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %783 = ptrtoint ptr %765 to i64
   store i64 %783, ptr %780, align 8
   %784 = load ptr, ptr %779, align 8
@@ -6365,7 +6365,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_E
   store ptr %785, ptr %779, align 8
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_117GHABinaryProviderESt14default_deleteIS1_EED2Ev.exit
 
-786:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+786:                                              ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   invoke void @_ZNSt6vectorISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr %780, ptr noundef nonnull align 8 dereferenceable(8) %26)
           to label %_ZNSt6vectorISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit350 unwind label %790
 
@@ -7608,7 +7608,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123NugetBinaryPushProviderESt14default_deleteIS1
 
 1229:                                             ; preds = %1042, %1228
   %.not.i.i.i518 = icmp eq ptr %.sroa.4756.0, null
-  br i1 %.not.i.i.i518, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit, label %1230
+  br i1 %.not.i.i.i518, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit, label %1230
 
 1230:                                             ; preds = %1229
   %1231 = getelementptr inbounds i8, ptr %.sroa.4756.0, i64 8
@@ -7644,7 +7644,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123NugetBinaryPushProviderESt14default_deleteIS1
 1246:                                             ; preds = %1244, %1242
   %.0.i.i.i.i520 = phi i32 [ %1234, %1242 ], [ %1245, %1244 ]
   %1247 = icmp eq i32 %.0.i.i.i.i520, 1
-  br i1 %1247, label %1248, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit
+  br i1 %1247, label %1248, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit
 
 1248:                                             ; preds = %1246
   %1249 = load ptr, ptr %.sroa.4756.0, align 8
@@ -7669,20 +7669,20 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123NugetBinaryPushProviderESt14default_deleteIS1
 1259:                                             ; preds = %1257, %1254
   %.0.i.i.i.i.i.i522 = phi i32 [ %1255, %1254 ], [ %1258, %1257 ]
   %1260 = icmp eq i32 %.0.i.i.i.i.i.i522, 1
-  br i1 %1260, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i523, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit
+  br i1 %1260, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i523, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i523: ; preds = %1259, %1235
   %1261 = load ptr, ptr %.sroa.4756.0, align 8
   %1262 = getelementptr inbounds i8, ptr %1261, i64 24
   %1263 = load ptr, ptr %1262, align 8
   call void %1263(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4756.0) #25
-  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit
 
-_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit: ; preds = %1229, %1246, %1259, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i523
+_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit: ; preds = %1229, %1246, %1259, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i523
   %.not.i.i.i524 = icmp eq ptr %.sroa.4760.0, null
-  br i1 %.not.i.i.i524, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit, label %1264
+  br i1 %.not.i.i.i524, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit, label %1264
 
-1264:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit
+1264:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit
   %1265 = getelementptr inbounds i8, ptr %.sroa.4760.0, i64 8
   %1266 = load atomic i64, ptr %1265 acquire, align 8
   %1267 = icmp eq i64 %1266, 4294967297
@@ -7716,7 +7716,7 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit: ; preds =
 1280:                                             ; preds = %1278, %1276
   %.0.i.i.i.i526 = phi i32 [ %1268, %1276 ], [ %1279, %1278 ]
   %1281 = icmp eq i32 %.0.i.i.i.i526, 1
-  br i1 %1281, label %1282, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit
+  br i1 %1281, label %1282, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit
 
 1282:                                             ; preds = %1280
   %1283 = load ptr, ptr %.sroa.4760.0, align 8
@@ -7741,20 +7741,20 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit: ; preds =
 1293:                                             ; preds = %1291, %1288
   %.0.i.i.i.i.i.i528 = phi i32 [ %1289, %1288 ], [ %1292, %1291 ]
   %1294 = icmp eq i32 %.0.i.i.i.i.i.i528, 1
-  br i1 %1294, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i529, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit
+  br i1 %1294, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i529, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i529: ; preds = %1293, %1269
   %1295 = load ptr, ptr %.sroa.4760.0, align 8
   %1296 = getelementptr inbounds i8, ptr %1295, i64 24
   %1297 = load ptr, ptr %1296, align 8
   call void %1297(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4760.0) #25
-  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit
 
-_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit: ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit, %1280, %1293, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i529
+_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit, %1280, %1293, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i529
   %.not.i.i.i530 = icmp eq ptr %.sroa.4764.0, null
-  br i1 %.not.i.i.i530, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit, label %1298
+  br i1 %.not.i.i.i530, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit, label %1298
 
-1298:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit
+1298:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit
   %1299 = getelementptr inbounds i8, ptr %.sroa.4764.0, i64 8
   %1300 = load atomic i64, ptr %1299 acquire, align 8
   %1301 = icmp eq i64 %1300, 4294967297
@@ -7788,7 +7788,7 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit: ; preds =
 1314:                                             ; preds = %1312, %1310
   %.0.i.i.i.i532 = phi i32 [ %1302, %1310 ], [ %1313, %1312 ]
   %1315 = icmp eq i32 %.0.i.i.i.i532, 1
-  br i1 %1315, label %1316, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit
+  br i1 %1315, label %1316, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit
 
 1316:                                             ; preds = %1314
   %1317 = load ptr, ptr %.sroa.4764.0, align 8
@@ -7813,45 +7813,45 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit: ; preds =
 1327:                                             ; preds = %1325, %1322
   %.0.i.i.i.i.i.i534 = phi i32 [ %1323, %1322 ], [ %1326, %1325 ]
   %1328 = icmp eq i32 %.0.i.i.i.i.i.i534, 1
-  br i1 %1328, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i535, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit
+  br i1 %1328, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i535, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i535: ; preds = %1327, %1303
   %1329 = load ptr, ptr %.sroa.4764.0, align 8
   %1330 = getelementptr inbounds i8, ptr %1329, i64 24
   %1331 = load ptr, ptr %1330, align 8
   call void %1331(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4764.0) #25
-  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit
 
-_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit: ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit, %1314, %1327, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i535
+_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit, %1314, %1327, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i535
   call void @_ZN5vcpkg17MetricsSubmissionD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %21) #25
   %1332 = load i8, ptr %92, align 8
   %1333 = trunc i8 %1332 to i1
   br i1 %1333, label %1334, label %1335
 
-1334:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit
+1334:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   br label %_ZN5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEED2Ev.exit536
 
-1335:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit
+1335:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit
   call void @_ZN5vcpkg23BinaryConfigParserStateD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %16) #25
   br label %_ZN5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEED2Ev.exit536
 
-.body217:                                         ; preds = %802, %.body247, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, %.body.i373, %316, %1079, %.body.i442, %338, %.body471, %.body469, %_ZNSt10unique_ptrIN12_GLOBAL__N_121GHABinaryPushProviderESt14default_deleteIS1_EED2Ev.exit463, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit441, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit423, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit405, %_ZNSt10unique_ptrIN12_GLOBAL__N_121HTTPPutBinaryProviderESt14default_deleteIS1_EED2Ev.exit389, %_ZNSt10unique_ptrIN12_GLOBAL__N_124FilesWriteBinaryProviderESt14default_deleteIS1_EED2Ev.exit372
-  %.sroa.4756.2 = phi ptr [ %.sroa.4756.0, %.body471 ], [ %.sroa.4756.0, %.body469 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_121GHABinaryPushProviderESt14default_deleteIS1_EED2Ev.exit463 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit441 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit423 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit405 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_121HTTPPutBinaryProviderESt14default_deleteIS1_EED2Ev.exit389 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_124FilesWriteBinaryProviderESt14default_deleteIS1_EED2Ev.exit372 ], [ null, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i ], [ %.sroa.4756.0, %338 ], [ %.sroa.4756.0, %.body.i373 ], [ %.sroa.4756.0, %.body.i442 ], [ %.sroa.4756.0, %1079 ], [ %.sroa.4756.1, %316 ], [ %.sroa.4756.0, %.body247 ], [ %.sroa.4756.0, %802 ]
-  %.pn155.pn = phi { ptr, i32 } [ %.pn152.pn, %.body471 ], [ %eh.lpad-body470, %.body469 ], [ %1025, %_ZNSt10unique_ptrIN12_GLOBAL__N_121GHABinaryPushProviderESt14default_deleteIS1_EED2Ev.exit463 ], [ %982, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit441 ], [ %941, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit423 ], [ %900, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit405 ], [ %859, %_ZNSt10unique_ptrIN12_GLOBAL__N_121HTTPPutBinaryProviderESt14default_deleteIS1_EED2Ev.exit389 ], [ %828, %_ZNSt10unique_ptrIN12_GLOBAL__N_124FilesWriteBinaryProviderESt14default_deleteIS1_EED2Ev.exit372 ], [ %315, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i ], [ %339, %338 ], [ %845, %.body.i373 ], [ %eh.lpad-body.i443, %.body.i442 ], [ %.pn.i464, %1079 ], [ %317, %316 ], [ %.pn155, %.body247 ], [ %.pn155, %802 ]
-  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom(ptr %.sroa.4756.2) #25
+.body217:                                         ; preds = %802, %.body247, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, %.body.i373, %316, %1079, %.body.i442, %338, %.body471, %.body469, %_ZNSt10unique_ptrIN12_GLOBAL__N_121GHABinaryPushProviderESt14default_deleteIS1_EED2Ev.exit463, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit441, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit423, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit405, %_ZNSt10unique_ptrIN12_GLOBAL__N_121HTTPPutBinaryProviderESt14default_deleteIS1_EED2Ev.exit389, %_ZNSt10unique_ptrIN12_GLOBAL__N_124FilesWriteBinaryProviderESt14default_deleteIS1_EED2Ev.exit372
+  %.sroa.4756.2 = phi ptr [ %.sroa.4756.0, %.body471 ], [ %.sroa.4756.0, %.body469 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_121GHABinaryPushProviderESt14default_deleteIS1_EED2Ev.exit463 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit441 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit423 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit405 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_121HTTPPutBinaryProviderESt14default_deleteIS1_EED2Ev.exit389 ], [ %.sroa.4756.0, %_ZNSt10unique_ptrIN12_GLOBAL__N_124FilesWriteBinaryProviderESt14default_deleteIS1_EED2Ev.exit372 ], [ null, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i ], [ %.sroa.4756.0, %338 ], [ %.sroa.4756.0, %.body.i373 ], [ %.sroa.4756.0, %.body.i442 ], [ %.sroa.4756.0, %1079 ], [ %.sroa.4756.1, %316 ], [ %.sroa.4756.0, %.body247 ], [ %.sroa.4756.0, %802 ]
+  %.pn155.pn = phi { ptr, i32 } [ %.pn152.pn, %.body471 ], [ %eh.lpad-body470, %.body469 ], [ %1025, %_ZNSt10unique_ptrIN12_GLOBAL__N_121GHABinaryPushProviderESt14default_deleteIS1_EED2Ev.exit463 ], [ %982, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit441 ], [ %941, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit423 ], [ %900, %_ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteIS1_EED2Ev.exit405 ], [ %859, %_ZNSt10unique_ptrIN12_GLOBAL__N_121HTTPPutBinaryProviderESt14default_deleteIS1_EED2Ev.exit389 ], [ %828, %_ZNSt10unique_ptrIN12_GLOBAL__N_124FilesWriteBinaryProviderESt14default_deleteIS1_EED2Ev.exit372 ], [ %315, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i ], [ %339, %338 ], [ %845, %.body.i373 ], [ %eh.lpad-body.i443, %.body.i442 ], [ %.pn.i464, %1079 ], [ %317, %316 ], [ %.pn155, %.body247 ], [ %.pn155, %802 ]
+  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev(ptr %.sroa.4756.2) #25
   br label %.body201
 
-.body201:                                         ; preds = %294, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit15.i.i.i.i, %.body217
-  %.sroa.4760.1 = phi ptr [ %.sroa.4760.0, %.body217 ], [ null, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit15.i.i.i.i ], [ null, %294 ]
-  %.pn155.pn.pn = phi { ptr, i32 } [ %.pn155.pn, %.body217 ], [ %291, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit15.i.i.i.i ], [ %295, %294 ]
-  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom(ptr %.sroa.4760.1) #25
+.body201:                                         ; preds = %294, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i, %.body217
+  %.sroa.4760.1 = phi ptr [ %.sroa.4760.0, %.body217 ], [ null, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i ], [ null, %294 ]
+  %.pn155.pn.pn = phi { ptr, i32 } [ %.pn155.pn, %.body217 ], [ %291, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i ], [ %295, %294 ]
+  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev(ptr %.sroa.4760.1) #25
   br label %.body195
 
-.body195:                                         ; preds = %271, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, %.body201
-  %.sroa.4764.1 = phi ptr [ %.sroa.4764.0, %.body201 ], [ null, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i ], [ null, %271 ]
-  %.pn155.pn.pn.pn = phi { ptr, i32 } [ %.pn155.pn.pn, %.body201 ], [ %270, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i ], [ %272, %271 ]
-  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom(ptr %.sroa.4764.1) #25
+.body195:                                         ; preds = %271, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, %.body201
+  %.sroa.4764.1 = phi ptr [ %.sroa.4764.0, %.body201 ], [ null, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i ], [ null, %271 ]
+  %.pn155.pn.pn.pn = phi { ptr, i32 } [ %.pn155.pn.pn, %.body201 ], [ %270, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i ], [ %272, %271 ]
+  call fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev(ptr %.sroa.4764.1) #25
   br label %.body192
 
 .body192:                                         ; preds = %.loopexit949, %.loopexit.split-lp950, %180, %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit15.sink.split.i, %.body195
@@ -7903,7 +7903,7 @@ _ZN5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEED2Ev.exit
 
 .critedge165:                                     ; preds = %340, %_ZN5vcpkg9ExpectedTINS_7ZipToolENS_15LocalizedStringEED2Ev.exit
   %.not.i.i.i537 = icmp eq ptr %.sroa.4756.0, null
-  br i1 %.not.i.i.i537, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit543, label %1358
+  br i1 %.not.i.i.i537, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit543, label %1358
 
 1358:                                             ; preds = %.critedge165
   %1359 = getelementptr inbounds i8, ptr %.sroa.4756.0, i64 8
@@ -7939,7 +7939,7 @@ _ZN5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEED2Ev.exit
 1374:                                             ; preds = %1372, %1370
   %.0.i.i.i.i539 = phi i32 [ %1362, %1370 ], [ %1373, %1372 ]
   %1375 = icmp eq i32 %.0.i.i.i.i539, 1
-  br i1 %1375, label %1376, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit543
+  br i1 %1375, label %1376, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit543
 
 1376:                                             ; preds = %1374
   %1377 = load ptr, ptr %.sroa.4756.0, align 8
@@ -7964,20 +7964,20 @@ _ZN5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEED2Ev.exit
 1387:                                             ; preds = %1385, %1382
   %.0.i.i.i.i.i.i541 = phi i32 [ %1383, %1382 ], [ %1386, %1385 ]
   %1388 = icmp eq i32 %.0.i.i.i.i.i.i541, 1
-  br i1 %1388, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i542, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit543
+  br i1 %1388, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i542, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit543
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i542: ; preds = %1387, %1363
   %1389 = load ptr, ptr %.sroa.4756.0, align 8
   %1390 = getelementptr inbounds i8, ptr %1389, i64 24
   %1391 = load ptr, ptr %1390, align 8
   call void %1391(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4756.0) #25
-  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit543
+  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit543
 
-_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit543: ; preds = %.critedge165, %1374, %1387, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i542
+_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit543: ; preds = %.critedge165, %1374, %1387, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i542
   %.not.i.i.i544 = icmp eq ptr %.sroa.4760.0, null
-  br i1 %.not.i.i.i544, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit550, label %1392
+  br i1 %.not.i.i.i544, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit550, label %1392
 
-1392:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit543
+1392:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit543
   %1393 = getelementptr inbounds i8, ptr %.sroa.4760.0, i64 8
   %1394 = load atomic i64, ptr %1393 acquire, align 8
   %1395 = icmp eq i64 %1394, 4294967297
@@ -8011,7 +8011,7 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit543: ; pred
 1408:                                             ; preds = %1406, %1404
   %.0.i.i.i.i546 = phi i32 [ %1396, %1404 ], [ %1407, %1406 ]
   %1409 = icmp eq i32 %.0.i.i.i.i546, 1
-  br i1 %1409, label %1410, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit550
+  br i1 %1409, label %1410, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit550
 
 1410:                                             ; preds = %1408
   %1411 = load ptr, ptr %.sroa.4760.0, align 8
@@ -8036,20 +8036,20 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit543: ; pred
 1421:                                             ; preds = %1419, %1416
   %.0.i.i.i.i.i.i548 = phi i32 [ %1417, %1416 ], [ %1420, %1419 ]
   %1422 = icmp eq i32 %.0.i.i.i.i.i.i548, 1
-  br i1 %1422, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i549, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit550
+  br i1 %1422, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i549, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit550
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i549: ; preds = %1421, %1397
   %1423 = load ptr, ptr %.sroa.4760.0, align 8
   %1424 = getelementptr inbounds i8, ptr %1423, i64 24
   %1425 = load ptr, ptr %1424, align 8
   call void %1425(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4760.0) #25
-  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit550
+  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit550
 
-_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit550: ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom.exit543, %1408, %1421, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i549
+_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit550: ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.exit543, %1408, %1421, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i549
   %.not.i.i.i551 = icmp eq ptr %.sroa.4764.0, null
-  br i1 %.not.i.i.i551, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit557, label %1426
+  br i1 %.not.i.i.i551, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit557, label %1426
 
-1426:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit550
+1426:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit550
   %1427 = getelementptr inbounds i8, ptr %.sroa.4764.0, i64 8
   %1428 = load atomic i64, ptr %1427 acquire, align 8
   %1429 = icmp eq i64 %1428, 4294967297
@@ -8083,7 +8083,7 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit550: ; pred
 1442:                                             ; preds = %1440, %1438
   %.0.i.i.i.i553 = phi i32 [ %1430, %1438 ], [ %1441, %1440 ]
   %1443 = icmp eq i32 %.0.i.i.i.i553, 1
-  br i1 %1443, label %1444, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit557
+  br i1 %1443, label %1444, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit557
 
 1444:                                             ; preds = %1442
   %1445 = load ptr, ptr %.sroa.4764.0, align 8
@@ -8108,26 +8108,26 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit550: ; pred
 1455:                                             ; preds = %1453, %1450
   %.0.i.i.i.i.i.i555 = phi i32 [ %1451, %1450 ], [ %1454, %1453 ]
   %1456 = icmp eq i32 %.0.i.i.i.i.i.i555, 1
-  br i1 %1456, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i556, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit557
+  br i1 %1456, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i556, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit557
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i556: ; preds = %1455, %1431
   %1457 = load ptr, ptr %.sroa.4764.0, align 8
   %1458 = getelementptr inbounds i8, ptr %1457, i64 24
   %1459 = load ptr, ptr %1458, align 8
   call void %1459(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4764.0) #25
-  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit557
+  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit557
 
-_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit557: ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom.exit550, %1442, %1455, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i556
+_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit557: ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit550, %1442, %1455, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i556
   call void @_ZN5vcpkg17MetricsSubmissionD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %21) #25
   %1460 = load i8, ptr %92, align 8
   %1461 = trunc i8 %1460 to i1
   br i1 %1461, label %1462, label %1463
 
-1462:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit557
+1462:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit557
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   br label %_ZN5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEED2Ev.exit
 
-1463:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom.exit557
+1463:                                             ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit557
   call void @_ZN5vcpkg23BinaryConfigParserStateD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %16) #25
   br label %_ZN5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEED2Ev.exit
 
@@ -8842,13 +8842,13 @@ _ZNKR5vcpkg8OptionalIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13va
 .preheader.i.i42:                                 ; preds = %_ZNKR5vcpkg8OptionalIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13value_or_exitERKNS_8LineInfoE.exit, %85
   %.sroa.06.0.i.i = phi ptr [ %79, %85 ], [ %.val, %_ZNKR5vcpkg8OptionalIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13value_or_exitERKNS_8LineInfoE.exit ]
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull @.str.214, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.0.i.i)
-          to label %"_ZZN5vcpkg15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.i.i" unwind label %81
+          to label %"_ZZN5vcpkg15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i" unwind label %81
 
-"_ZZN5vcpkg15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.i.i": ; preds = %.preheader.i.i42
+"_ZZN5vcpkg15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i": ; preds = %.preheader.i.i42
   invoke void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i43 unwind label %83
 
-_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i43: ; preds = %"_ZZN5vcpkg15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.i.i"
+_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i43: ; preds = %"_ZZN5vcpkg15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
   %79 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 32
   %80 = icmp eq ptr %79, %.val41
@@ -8859,7 +8859,7 @@ _ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
           cleanup
   br label %87
 
-83:                                               ; preds = %"_ZZN5vcpkg15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.i.i"
+83:                                               ; preds = %"_ZZN5vcpkg15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i"
   %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
@@ -13766,7 +13766,7 @@ _ZNSt3setIN5vcpkg13StringLiteralESt4lessIS1_ESaIS1_EE6insertEOS1_.exit279.i: ; p
   br i1 %.not.i97, label %.noexc24, label %532
 
 532:                                              ; preds = %530
-  invoke fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv()
           to label %533 unwind label %535
 
 533:                                              ; preds = %532
@@ -14931,7 +14931,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6assign
   %977 = load ptr, ptr %127, align 8
   %978 = getelementptr inbounds i8, ptr %977, i64 136
   %979 = getelementptr inbounds i8, ptr %977, i64 160
-  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg11UrlTemplateEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm.argelim(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %978, ptr noundef nonnull align 8 dereferenceable(24) %979, ptr noundef nonnull align 8 dereferenceable(56) %114, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129)
+  invoke fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg11UrlTemplateEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %978, ptr noundef nonnull align 8 dereferenceable(24) %979, ptr noundef nonnull align 8 dereferenceable(56) %114, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0124.0129)
           to label %980 unwind label %962
 
 980:                                              ; preds = %976
@@ -15288,7 +15288,7 @@ _ZNKR5vcpkg8OptionalINS_7AbiInfoEE13value_or_exitERKNS_8LineInfoE.exit: ; preds 
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_113make_nugetrefERKN5vcpkg11PackageSpecERKNS0_7VersionENS0_10StringViewES7_.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr %16, i64 %18, ptr %2, i64 %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_113make_nugetrefERKN5vcpkg11PackageSpecERKNS0_7VersionENS0_10StringViewES7_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr %16, i64 %18, ptr %2, i64 %3)
           to label %19 unwind label %20
 
 19:                                               ; preds = %_ZNKR5vcpkg8OptionalINS_7AbiInfoEE13value_or_exitERKNS_8LineInfoE.exit
@@ -15609,7 +15609,7 @@ define dso_local void @_ZN5vcpkg32format_help_topic_binary_cachingEv(ptr dead_on
   br i1 %.not.i, label %_ZN12_GLOBAL__N_118default_cache_pathEv.exit, label %35
 
 35:                                               ; preds = %33
-  invoke fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv()
           to label %36 unwind label %38
 
 36:                                               ; preds = %35
@@ -16169,7 +16169,7 @@ define dso_local void @_ZN5vcpkg30generate_nuget_packages_configB5cxx11ERKNS_10A
 declare noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer16emit_declarationEv(ptr noundef nonnull align 8 dereferenceable(37)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113make_nugetrefERKN5vcpkg11PackageSpecERKNS0_7VersionENS0_10StringViewES7_.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113make_nugetrefERKN5vcpkg11PackageSpecERKNS0_7VersionENS0_10StringViewES7_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16567,9 +16567,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_123NugetBaseBinaryProviderD2Ev(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114CosStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114CosStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -16605,7 +16605,7 @@ define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolE
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114CosStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114CosStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -16630,23 +16630,23 @@ define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114CosStorageToolE
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114CosStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114CosStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #25
-  br label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114CosStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114CosStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIKN12_GLOBAL__N_114CosStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIKN12_GLOBAL__N_114CosStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114AwsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114AwsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -16682,7 +16682,7 @@ define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolE
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114AwsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114AwsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -16707,23 +16707,23 @@ define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114AwsStorageToolE
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114AwsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114AwsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #25
-  br label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114AwsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114AwsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIKN12_GLOBAL__N_114AwsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIKN12_GLOBAL__N_114AwsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114GcsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114GcsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -16759,7 +16759,7 @@ define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolE
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114GcsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114GcsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -16784,16 +16784,16 @@ define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_114GcsStorageToolE
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114GcsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114GcsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #25
-  br label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114GcsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_114GcsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIKN12_GLOBAL__N_114GcsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIKN12_GLOBAL__N_114GcsStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
@@ -17482,7 +17482,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorage
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -20966,7 +20966,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorage
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -21390,7 +21390,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorage
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -21879,7 +21879,7 @@ define internal void @_ZNK12_GLOBAL__N_121ZipReadBinaryProvider5fetchEN5vcpkg4Sp
   %18 = getelementptr inbounds i8, ptr %10, i64 8
   store i8 0, ptr %18, align 8
   %19 = icmp ugt i64 %2, 192153584101141162
-  br i1 %19, label %20, label %_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EE17_S_check_init_lenEmRKS5_.argprom.exit.i
+  br i1 %19, label %20, label %_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
 
 20:                                               ; preds = %5
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.115) #27
@@ -21888,16 +21888,16 @@ define internal void @_ZNK12_GLOBAL__N_121ZipReadBinaryProvider5fetchEN5vcpkg4Sp
 .noexc:                                           ; preds = %20
   unreachable
 
-_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EE17_S_check_init_lenEmRKS5_.argprom.exit.i: ; preds = %5
+_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i: ; preds = %5
   %.not.i.i.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.argprom.exit.thread.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.exit.thread.i, label %.lr.ph.i.i.i.i.i.i
 
-_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.argprom.exit.thread.i: ; preds = %_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EE17_S_check_init_lenEmRKS5_.argprom.exit.i
+_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.exit.thread.i: ; preds = %_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %21 = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   br label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEED2Ev.exit
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EE17_S_check_init_lenEmRKS5_.argprom.exit.i
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %22 = mul nuw nsw i64 %2, 48
   %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #29
           to label %.lr.ph.i.i.i.i.i.split.us.i unwind label %.body
@@ -21922,10 +21922,10 @@ _ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpO
   %.not.i.i.i.i.i.us.i = icmp eq i64 %28, 0
   br i1 %.not.i.i.i.i.i.us.i, label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEED2Ev.exit, label %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i, !llvm.loop !502
 
-_ZN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEED2Ev.exit: ; preds = %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i, %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.argprom.exit.thread.i
-  %.val = phi ptr [ null, %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.argprom.exit.thread.i ], [ %23, %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i ]
-  %30 = phi ptr [ %21, %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.argprom.exit.thread.i ], [ %24, %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i ]
-  %.val21 = phi ptr [ null, %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.argprom.exit.thread.i ], [ %29, %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i ]
+_ZN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEED2Ev.exit: ; preds = %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i, %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.exit.thread.i
+  %.val = phi ptr [ null, %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.exit.thread.i ], [ %23, %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i ]
+  %30 = phi ptr [ %21, %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.exit.thread.i ], [ %24, %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i ]
+  %.val21 = phi ptr [ null, %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2EmRKS5_.exit.thread.i ], [ %29, %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i ]
   store ptr %.val21, ptr %30, align 8
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 40
@@ -22331,7 +22331,7 @@ _ZNSt6vectorIN5vcpkg7CommandESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN5vc
   %178 = load ptr, ptr %9, align 8
   %179 = load ptr, ptr %31, align 8
   %.not4.i.i.i.i49 = icmp eq ptr %178, %179
-  br i1 %.not4.i.i.i.i49, label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i50
+  br i1 %.not4.i.i.i.i49, label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i50
 
 .lr.ph.i.i.i.i50:                                 ; preds = %_ZNSt6vectorIN5vcpkg7CommandESaIS1_EED2Ev.exit, %_ZSt8_DestroyIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i51 = phi ptr [ %184, %_ZSt8_DestroyIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEEvPT_.exit.i.i.i.i ], [ %178, %_ZNSt6vectorIN5vcpkg7CommandESaIS1_EED2Ev.exit ]
@@ -22347,22 +22347,22 @@ _ZNSt6vectorIN5vcpkg7CommandESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN5vc
 _ZSt8_DestroyIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEEvPT_.exit.i.i.i.i: ; preds = %182, %.lr.ph.i.i.i.i50
   %184 = getelementptr inbounds i8, ptr %.05.i.i.i.i51, i64 48
   %.not.i.i.i.i52 = icmp eq ptr %184, %179
-  br i1 %.not.i.i.i.i52, label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exitthread-pre-split.i, label %.lr.ph.i.i.i.i50, !llvm.loop !507
+  br i1 %.not.i.i.i.i52, label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i50, !llvm.loop !507
 
-_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEEvPT_.exit.i.i.i.i
+_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEEvPT_.exit.i.i.i.i
   %.val.pr.i = load ptr, ptr %9, align 8
-  br label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exit.i
+  br label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exitthread-pre-split.i, %_ZNSt6vectorIN5vcpkg7CommandESaIS1_EED2Ev.exit
-  %.val.i53 = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exitthread-pre-split.i ], [ %178, %_ZNSt6vectorIN5vcpkg7CommandESaIS1_EED2Ev.exit ]
+_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorIN5vcpkg7CommandESaIS1_EED2Ev.exit
+  %.val.i53 = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i ], [ %178, %_ZNSt6vectorIN5vcpkg7CommandESaIS1_EED2Ev.exit ]
   %.not.i.i.i54 = icmp eq ptr %.val.i53, null
   br i1 %.not.i.i.i54, label %_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev.exit, label %185
 
-185:                                              ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exit.i
+185:                                              ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exit.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i53) #26
   br label %_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exit.i, %185
+_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exit.i, %185
   ret void
 
 186:                                              ; preds = %.loopexit, %.loopexit.split-lp, %105
@@ -22852,7 +22852,7 @@ define internal fastcc void @_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipR
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
-  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exit, label %.lr.ph.i.i.i
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %9, %_ZSt8_DestroyIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEEvPT_.exit.i.i.i ], [ %2, %1 ]
@@ -22868,22 +22868,22 @@ define internal fastcc void @_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipR
 _ZSt8_DestroyIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEEvPT_.exit.i.i.i: ; preds = %7, %.lr.ph.i.i.i
   %9 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 48
   %.not.i.i.i = icmp eq ptr %9, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !507
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !507
 
-_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEEvPT_.exit.i.i.i
+_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEEvPT_.exit.i.i.i
   %.val.pr = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exit
+  br label %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exit
 
-_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exitthread-pre-split, %1
-  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exitthread-pre-split ], [ %2, %1 ]
+_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
+  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev.argprom.exit, label %10
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev.exit, label %10
 
-10:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exit
+10:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #26
-  br label %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev.argprom.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.argprom.exit, %10
+_ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEES4_EvT_S6_RSaIT0_E.exit, %10
   ret void
 }
 
@@ -24050,9 +24050,9 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -24088,7 +24088,7 @@ define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageT
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -24113,16 +24113,16 @@ define internal fastcc void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageT
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #25
-  br label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
@@ -24132,7 +24132,7 @@ define internal void @_ZN12_GLOBAL__N_121ObjectStorageProviderD2Ev(ptr noundef n
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit, label %3
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -24168,7 +24168,7 @@ define internal void @_ZN12_GLOBAL__N_121ObjectStorageProviderD2Ev(ptr noundef n
 19:                                               ; preds = %17, %15
   %.0.i.i.i.i = phi i32 [ %7, %15 ], [ %18, %17 ]
   %20 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %20, label %21, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit
+  br i1 %20, label %21, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %.val, align 8
@@ -24193,16 +24193,16 @@ define internal void @_ZN12_GLOBAL__N_121ObjectStorageProviderD2Ev(ptr noundef n
 32:                                               ; preds = %30, %27
   %.0.i.i.i.i.i.i = phi i32 [ %28, %27 ], [ %31, %30 ]
   %33 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %33, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit
+  br i1 %33, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %32, %8
   %34 = load ptr, ptr %.val, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %.val) #25
-  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit
 
-_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit: ; preds = %1, %19, %32, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit: ; preds = %1, %19, %32, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %37 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #25
   %38 = getelementptr inbounds i8, ptr %0, i64 24
@@ -26193,7 +26193,7 @@ define internal void @_ZN12_GLOBAL__N_125ObjectStoragePushProviderD2Ev(ptr nocap
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit, label %3
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -26229,7 +26229,7 @@ define internal void @_ZN12_GLOBAL__N_125ObjectStoragePushProviderD2Ev(ptr nocap
 19:                                               ; preds = %17, %15
   %.0.i.i.i.i = phi i32 [ %7, %15 ], [ %18, %17 ]
   %20 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %20, label %21, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit
+  br i1 %20, label %21, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %.val, align 8
@@ -26254,16 +26254,16 @@ define internal void @_ZN12_GLOBAL__N_125ObjectStoragePushProviderD2Ev(ptr nocap
 32:                                               ; preds = %30, %27
   %.0.i.i.i.i.i.i = phi i32 [ %28, %27 ], [ %31, %30 ]
   %33 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %33, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit
+  br i1 %33, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %32, %8
   %34 = load ptr, ptr %.val, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %.val) #25
-  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit
 
-_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit: ; preds = %1, %19, %32, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit: ; preds = %1, %19, %32, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 16
@@ -26271,8 +26271,8 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit: ; pre
   %.not4.i.i.i.i = icmp eq ptr %38, %40
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %38, %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %38, %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #25
   %41 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i1 = icmp eq ptr %41, %40
@@ -26282,8 +26282,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %.pr.i = load ptr, ptr %37, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit
-  %42 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %38, %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.argprom.exit ]
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit
+  %42 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %38, %_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit ]
   %.not.i.i.i2 = icmp eq ptr %42, null
   br i1 %.not.i.i.i2, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %43
 
@@ -28014,7 +28014,7 @@ _ZNK12_GLOBAL__N_19NuGetTool11install_cmdEN5vcpkg10StringViewERKNS1_4PathERKNS_1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !604
   %136 = getelementptr inbounds i8, ptr %0, i64 80
   %.val.i38 = load i8, ptr %136, align 8, !noalias !604
-  invoke fastcc void @_ZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkE.argprom(ptr dead_on_unwind noalias writable align 8 %17, i8 %.val.i38, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %96)
+  invoke fastcc void @_ZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkE(ptr dead_on_unwind noalias writable align 8 %17, i8 %.val.i38, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %96)
           to label %139 unwind label %137
 
 137:                                              ; preds = %_ZNK12_GLOBAL__N_19NuGetTool11install_cmdEN5vcpkg10StringViewERKNS1_4PathERKNS_11NuGetSourceE.exit.i
@@ -28507,7 +28507,7 @@ _ZNSt12_Vector_baseIN5vcpkg14NugetReferenceESaIS1_EE13_M_deallocateEPS1_m.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 %.64.val, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 %.64.val, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::LocalizedString", align 8
   %5 = alloca %"class.fmt::v10::format_arg_store.469", align 16
   %6 = alloca %"struct.vcpkg::msg::TagArg.570", align 8
@@ -28553,7 +28553,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandline
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %26, align 8, !alias.scope !638
-  br label %_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit.i
+  br label %_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i
 
 27:                                               ; preds = %23
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr @_ZN5vcpkg52msgNugetOutputNotCapturedBecauseInteractiveSpecifiedE, align 8, !noalias !638
@@ -28575,13 +28575,13 @@ _ZN5vcpkg3msg12format_errorIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpN
   %30 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %30, align 8, !alias.scope !638
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
-  br label %_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit.i
+  br label %_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i
 
-_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit.i: ; preds = %_ZN5vcpkg3msg12format_errorIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE.exit.i.i.i.i.i, %25
+_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i: ; preds = %_ZN5vcpkg3msg12format_errorIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE.exit.i.i.i.i.i, %25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !637
   br label %_ZNO5vcpkg9ExpectedTIiNS_15LocalizedStringEE4thenIZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS_7CommandERNS_11MessageSinkEEUliE_JEEENSt13invoke_resultIT_JiDpT0_EE4typeESD_DpOSE_.exit
 
-_ZNO5vcpkg9ExpectedTIiNS_15LocalizedStringEE4thenIZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS_7CommandERNS_11MessageSinkEEUliE_JEEENSt13invoke_resultIT_JiDpT0_EE4typeESD_DpOSE_.exit: ; preds = %_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit.i, %.noexc
+_ZNO5vcpkg9ExpectedTIiNS_15LocalizedStringEE4thenIZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS_7CommandERNS_11MessageSinkEEUliE_JEEENSt13invoke_resultIT_JiDpT0_EE4typeESD_DpOSE_.exit: ; preds = %_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i, %.noexc
   %31 = load i8, ptr %18, align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit.sink.split, label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit
@@ -28775,7 +28775,7 @@ _ZN5vcpkg11MessageSink7printlnIJNS_3msg8vendor_tEEJNS_10StringViewEEEEvNS_5Color
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %94, align 8, !alias.scope !682
-  br label %_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom.exit.i.i.i.i.i.i
+  br label %_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i
 
 95:                                               ; preds = %90
   %96 = getelementptr inbounds i8, ptr %10, i64 8
@@ -28784,13 +28784,13 @@ _ZN5vcpkg11MessageSink7printlnIJNS_3msg8vendor_tEEJNS_10StringViewEEEEvNS_5Color
   %97 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %97, align 8, !alias.scope !682
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-  br label %_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom.exit.i.i.i.i.i.i
+  br label %_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i
 
-_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom.exit.i.i.i.i.i.i: ; preds = %95, %93
+_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i: ; preds = %95, %93
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !681
   br label %_ZNO5vcpkg9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEE4thenIZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS_7CommandERNS_11MessageSinkEENKUlOS1_E_clESC_EUlSC_E_JEEENSt13invoke_resultIT_JS1_DpT0_EE4typeESG_DpOSH_.exit.i.i.i.i.i
 
-_ZNO5vcpkg9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEE4thenIZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS_7CommandERNS_11MessageSinkEENKUlOS1_E_clESC_EUlSC_E_JEEENSt13invoke_resultIT_JS1_DpT0_EE4typeESG_DpOSH_.exit.i.i.i.i.i: ; preds = %_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom.exit.i.i.i.i.i.i, %.noexc.i.i.i.i.i
+_ZNO5vcpkg9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEE4thenIZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS_7CommandERNS_11MessageSinkEENKUlOS1_E_clESC_EUlSC_E_JEEENSt13invoke_resultIT_JS1_DpT0_EE4typeESG_DpOSH_.exit.i.i.i.i.i: ; preds = %_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i, %.noexc.i.i.i.i.i
   %98 = load i8, ptr %85, align 8, !noalias !655
   %99 = trunc i8 %98 to i1
   %.sink.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %99, i64 0, i64 8
@@ -29332,7 +29332,7 @@ _ZNK12_GLOBAL__N_19NuGetTool8pack_cmdERKN5vcpkg4PathES4_.exit.i: ; preds = %_ZNO
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !701
   %110 = getelementptr inbounds i8, ptr %0, i64 80
   %.val.i = load i8, ptr %110, align 8, !noalias !701
-  invoke fastcc void @_ZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkE.argprom(ptr dead_on_unwind noalias writable align 8 %24, i8 %.val.i, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkE(ptr dead_on_unwind noalias writable align 8 %24, i8 %.val.i, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %113 unwind label %111
 
 111:                                              ; preds = %_ZNK12_GLOBAL__N_19NuGetTool8pack_cmdERKN5vcpkg4PathES4_.exit.i
@@ -29430,7 +29430,7 @@ _ZN5vcpkg11MessageSink7printlnIJNS_3msg8vendor_tEEJNS_10StringViewEEEEvNS_5Color
   %149 = load ptr, ptr %6, align 8, !noalias !716
   %150 = getelementptr inbounds i8, ptr %6, i64 8
   %151 = load i64, ptr %150, align 8, !noalias !716
-  invoke fastcc void @_ZN12_GLOBAL__N_113make_nugetrefERKN5vcpkg11PackageSpecERKNS0_7VersionENS0_10StringViewES7_.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(36) %148, ptr %149, i64 %151, ptr %145, i64 %147)
+  invoke fastcc void @_ZN12_GLOBAL__N_113make_nugetrefERKN5vcpkg11PackageSpecERKNS0_7VersionENS0_10StringViewES7_(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(36) %148, ptr %149, i64 %151, ptr %145, i64 %147)
           to label %152 unwind label %141
 
 152:                                              ; preds = %143
@@ -29862,7 +29862,7 @@ _ZNK12_GLOBAL__N_19NuGetTool8push_cmdERKN5vcpkg4PathERKNS_11NuGetSourceE.exit: ;
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %28 = getelementptr inbounds i8, ptr %1, i64 64
   %.val = load i8, ptr %28, align 8
-  invoke fastcc void @_ZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkE.argprom(ptr dead_on_unwind noalias writable align 8 %0, i8 %.val, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkE(ptr dead_on_unwind noalias writable align 8 %0, i8 %.val, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %29 unwind label %30
 
 29:                                               ; preds = %_ZNK12_GLOBAL__N_19NuGetTool8push_cmdERKN5vcpkg4PathERKNS_11NuGetSourceE.exit
@@ -31495,7 +31495,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg11UrlTemplateEEE9constructIS1_JRKS1_EEEvRS2_PT
 declare noundef zeroext i1 @_ZNK5vcpkg15LocalizedString5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg11UrlTemplateEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm.argelim(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg11UrlTemplateEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LocalizedString", align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -32252,7 +32252,7 @@ _ZNSt12_Vector_baseIN5vcpkg11UrlTemplateESaIS1_EE13_M_deallocateEPS1_m.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv.argprom() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.fmt::v10::format_arg_store.469", align 16
   %2 = alloca %"struct.vcpkg::msg::TagArg.159", align 8
   %3 = alloca %"struct.vcpkg::LocalizedString", align 8
@@ -32388,7 +32388,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv.argpro
 
 57:                                               ; preds = %56, %55, %37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
-  br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.argprom.exit"
+  br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.exit"
 
 58:                                               ; preds = %0
   %59 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN5vcpkg24get_platform_cache_vcpkgEv() #25
@@ -32403,7 +32403,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv.argpro
 
 .noexc:                                           ; preds = %63
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_118default_cache_pathEvE9cachepath, i64 32), align 8
-  br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.argprom.exit"
+  br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.exit"
 
 64:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -32429,7 +32429,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv.argpro
 .noexc4.i.i.i.i:                                  ; preds = %.noexc3.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN12_GLOBAL__N_118default_cache_pathEvE9cachepath, ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_118default_cache_pathEvE9cachepath, i64 32), align 8
-  br label %"_ZSt6invokeIRZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JRKN5vcpkg4PathEEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.argprom.exit.i"
+  br label %"_ZSt6invokeIRZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JRKN5vcpkg4PathEEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.exit.i"
 
 68:                                               ; preds = %.noexc.i.i.i.i
   %.sroa.01.0.copyload.i.i.i.i.i = load i64, ptr @_ZN5vcpkg54msgDefaultBinaryCachePlatformCacheRequiresAbsolutePathE, align 8
@@ -32463,7 +32463,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv.argpro
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN12_GLOBAL__N_118default_cache_pathEvE9cachepath, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_118default_cache_pathEvE9cachepath, i64 32), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
-  br label %"_ZSt6invokeIRZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JRKN5vcpkg4PathEEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.argprom.exit.i"
+  br label %"_ZSt6invokeIRZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JRKN5vcpkg4PathEEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.exit.i"
 
 78:                                               ; preds = %68, %.noexc3.i.i.i.i, %66, %.noexc13
   %79 = landingpad { ptr, i32 }
@@ -32471,22 +32471,22 @@ define internal fastcc void @_ZN12_GLOBAL__N_123default_cache_path_implEv.argpro
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   br label %.body
 
-"_ZSt6invokeIRZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JRKN5vcpkg4PathEEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.argprom.exit.i": ; preds = %.noexc5.i.i.i.i, %.noexc4.i.i.i.i
+"_ZSt6invokeIRZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JRKN5vcpkg4PathEEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.exit.i": ; preds = %.noexc5.i.i.i.i, %.noexc4.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.argprom.exit"
+  br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.exit"
 
-"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.argprom.exit": ; preds = %"_ZSt6invokeIRZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JRKN5vcpkg4PathEEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.argprom.exit.i", %.noexc, %57
+"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.exit": ; preds = %"_ZSt6invokeIRZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JRKN5vcpkg4PathEEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.exit.i", %.noexc, %57
   %80 = load i8, ptr %9, align 8
   %81 = trunc i8 %80 to i1
   br i1 %81, label %82, label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-82:                                               ; preds = %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.argprom.exit"
+82:                                               ; preds = %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.exit"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #25
   br label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.argprom.exit", %82
+_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE4thenIZN12_GLOBAL__N_123default_cache_path_implEvE3$_0JEEENSt13invoke_resultIT_JRKS1_DpT0_EE4typeES8_DpOSB_.exit", %82
   ret void
 
 .body:                                            ; preds = %38, %78, %40
@@ -32923,7 +32923,7 @@ define internal void @"_ZN5vcpkg7details20api_stable_format_cbIZNKS_11UrlTemplat
   store i64 %3, ptr %7, align 8
   %8 = call noundef ptr @_ZSt9__find_ifIPKN5vcpkg13StringLiteralEN9__gnu_cxx5__ops16_Iter_equals_valIKNS0_10StringViewEEEET_SA_SA_T0_St26random_access_iterator_tag(ptr noundef nonnull @"_ZZZNK5vcpkg11UrlTemplate5validEvENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewEE10valid_keys", ptr noundef nonnull getelementptr inbounds (i8, ptr @"_ZZZNK5vcpkg11UrlTemplate5validEvENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewEE10valid_keys", i64 64), ptr nonnull %5)
   %.not.i = icmp eq ptr %8, getelementptr inbounds (i8, ptr @"_ZZZNK5vcpkg11UrlTemplate5validEvENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewEE10valid_keys", i64 64)
-  br i1 %.not.i, label %9, label %"_ZZNK5vcpkg11UrlTemplate5validEvENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE.argprom.exit"
+  br i1 %.not.i, label %9, label %"_ZZNK5vcpkg11UrlTemplate5validEvENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE.exit"
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8
@@ -32948,7 +32948,7 @@ define internal void @"_ZN5vcpkg7details20api_stable_format_cbIZNKS_11UrlTemplat
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i: ; preds = %18, %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
-  br label %"_ZZNK5vcpkg11UrlTemplate5validEvENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE.argprom.exit"
+  br label %"_ZZNK5vcpkg11UrlTemplate5validEvENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE.exit"
 
 19:                                               ; preds = %18
   %20 = landingpad { ptr, i32 }
@@ -32956,7 +32956,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   resume { ptr, i32 } %20
 
-"_ZZNK5vcpkg11UrlTemplate5validEvENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE.argprom.exit": ; preds = %4, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i
+"_ZZNK5vcpkg11UrlTemplate5validEvENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE.exit": ; preds = %4, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
@@ -34454,8 +34454,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !26 = distinct !{!26, !9}
 !27 = distinct !{!27, !9}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom: argument 0"}
-!30 = distinct !{!30, !"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.argprom"}
+!29 = distinct !{!29, !30, !"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_: argument 0"}
+!30 = distinct !{!30, !"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_"}
 !31 = !{!32}
 !32 = distinct !{!32, !33, !"_ZNO5vcpkg9ExpectedTINS_15BinaryProvidersENS_15LocalizedStringEE4thenIZNS_11BinaryCache4makeERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERNS_11MessageSinkEE3$_0JEEENSt13invoke_resultIT_JS1_DpT0_EE4typeESG_DpOSH_: argument 0"}
 !33 = distinct !{!33, !"_ZNO5vcpkg9ExpectedTINS_15BinaryProvidersENS_15LocalizedStringEE4thenIZNS_11BinaryCache4makeERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERNS_11MessageSinkEE3$_0JEEENSt13invoke_resultIT_JS1_DpT0_EE4typeESG_DpOSH_"}
@@ -34487,8 +34487,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !59 = distinct !{!59, !60, !"_ZSt11make_sharedIN12_GLOBAL__N_114GcsStorageToolEJRKN5vcpkg9ToolCacheERNS2_11MessageSinkEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
 !60 = distinct !{!60, !"_ZSt11make_sharedIN12_GLOBAL__N_114GcsStorageToolEJRKN5vcpkg9ToolCacheERNS2_11MessageSinkEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZSt11make_sharedIN12_GLOBAL__N_114AwsStorageToolEJRKN5vcpkg9ToolCacheERNS2_11MessageSinkERbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!63 = distinct !{!63, !"_ZSt11make_sharedIN12_GLOBAL__N_114AwsStorageToolEJRKN5vcpkg9ToolCacheERNS2_11MessageSinkERbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
+!62 = distinct !{!62, !63, !"_ZSt11make_sharedIN12_GLOBAL__N_114AwsStorageToolEJRKN5vcpkg9ToolCacheERNS2_11MessageSinkERbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!63 = distinct !{!63, !"_ZSt11make_sharedIN12_GLOBAL__N_114AwsStorageToolEJRKN5vcpkg9ToolCacheERNS2_11MessageSinkERbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
 !64 = !{!65}
 !65 = distinct !{!65, !66, !"_ZSt11make_sharedIN12_GLOBAL__N_114CosStorageToolEJRKN5vcpkg9ToolCacheERNS2_11MessageSinkEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
 !66 = distinct !{!66, !"_ZSt11make_sharedIN12_GLOBAL__N_114CosStorageToolEJRKN5vcpkg9ToolCacheERNS2_11MessageSinkEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
@@ -34499,8 +34499,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !71 = distinct !{!71, !72, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJNS0_6detail9named_argIcN5vcpkg10StringViewEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSE_: argument 0"}
 !72 = distinct !{!72, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJNS0_6detail9named_argIcN5vcpkg10StringViewEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSE_"}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZSt11make_uniqueIN12_GLOBAL__N_123FilesReadBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemENS2_4PathEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!75 = distinct !{!75, !"_ZSt11make_uniqueIN12_GLOBAL__N_123FilesReadBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemENS2_4PathEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!74 = distinct !{!74, !75, !"_ZSt11make_uniqueIN12_GLOBAL__N_123FilesReadBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemENS2_4PathEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!75 = distinct !{!75, !"_ZSt11make_uniqueIN12_GLOBAL__N_123FilesReadBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemENS2_4PathEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !76 = !{!77}
 !77 = distinct !{!77, !78, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !78 = distinct !{!78, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
@@ -34508,40 +34508,40 @@ attributes #31 = { nounwind willreturn memory(none) }
 !80 = distinct !{!80, !78, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !81 = distinct !{!81, !9}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!84 = distinct !{!84, !"_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!83 = distinct !{!83, !84, !"_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!84 = distinct !{!84, !"_ZSt11make_uniqueIN12_GLOBAL__N_121HttpGetBinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENS2_11UrlTemplateERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !85 = !{!86}
 !86 = distinct !{!86, !87, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !87 = distinct !{!87, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
 !88 = !{!89}
 !89 = distinct !{!89, !87, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!92 = distinct !{!92, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!91 = distinct !{!91, !92, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!92 = distinct !{!92, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !93 = !{!94}
 !94 = distinct !{!94, !95, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !95 = distinct !{!95, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
 !96 = !{!97}
 !97 = distinct !{!97, !95, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!100 = distinct !{!100, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!99 = distinct !{!99, !100, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!100 = distinct !{!100, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !101 = !{!102}
 !102 = distinct !{!102, !103, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !103 = distinct !{!103, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
 !104 = !{!105}
 !105 = distinct !{!105, !103, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!108 = distinct !{!108, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!107 = distinct !{!107, !108, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!108 = distinct !{!108, !"_ZSt11make_uniqueIN12_GLOBAL__N_121ObjectStorageProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !109 = !{!110}
 !110 = distinct !{!110, !111, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !111 = distinct !{!111, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
 !112 = !{!113}
 !113 = distinct !{!113, !111, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg19IReadBinaryProviderESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!116 = distinct !{!116, !"_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!115 = distinct !{!115, !116, !"_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!116 = distinct !{!116, !"_ZSt11make_uniqueIN12_GLOBAL__N_117GHABinaryProviderEJRKN5vcpkg7ZipToolERKNS2_10FilesystemERKNS2_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !117 = !{!118}
 !118 = distinct !{!118, !119, !"_ZSt11make_uniqueIN12_GLOBAL__N_124FilesWriteBinaryProviderEJRKN5vcpkg10FilesystemESt6vectorINS2_4PathESaIS7_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !119 = distinct !{!119, !"_ZSt11make_uniqueIN12_GLOBAL__N_124FilesWriteBinaryProviderEJRKN5vcpkg10FilesystemESt6vectorINS2_4PathESaIS7_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -34549,14 +34549,14 @@ attributes #31 = { nounwind willreturn memory(none) }
 !121 = distinct !{!121, !122, !"_ZSt11make_uniqueIN12_GLOBAL__N_121HTTPPutBinaryProviderEJRKN5vcpkg10FilesystemESt6vectorINS2_11UrlTemplateESaIS7_EERS6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !122 = distinct !{!122, !"_ZSt11make_uniqueIN12_GLOBAL__N_121HTTPPutBinaryProviderEJRKN5vcpkg10FilesystemESt6vectorINS2_11UrlTemplateESaIS7_EERS6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!125 = distinct !{!125, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!124 = distinct !{!124, !125, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!125 = distinct !{!125, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14GcsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!128 = distinct !{!128, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!127 = distinct !{!127, !128, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!128 = distinct !{!128, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14AwsStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !129 = !{!130}
-!130 = distinct !{!130, !131, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!131 = distinct !{!131, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!130 = distinct !{!130, !131, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!131 = distinct !{!131, !"_ZSt11make_uniqueIN12_GLOBAL__N_125ObjectStoragePushProviderEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERSt10shared_ptrIKNS0_14CosStorageToolEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !132 = !{!133}
 !133 = distinct !{!133, !134, !"_ZSt11make_uniqueIN12_GLOBAL__N_121GHABinaryPushProviderEJRKN5vcpkg10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !134 = distinct !{!134, !"_ZSt11make_uniqueIN12_GLOBAL__N_121GHABinaryPushProviderEJRKN5vcpkg10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -34585,8 +34585,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !157 = distinct !{!157, !158, !"_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_NS_13StringLiteralERKT_: argument 0"}
 !158 = distinct !{!158, !"_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEES8_NS_13StringLiteralERKT_"}
 !159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZN5vcpkg7Strings4joinINS_18InternalFeatureSetEZNS_15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_.argprom: argument 0"}
-!161 = distinct !{!161, !"_ZN5vcpkg7Strings4joinINS_18InternalFeatureSetEZNS_15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_.argprom"}
+!160 = distinct !{!160, !161, !"_ZN5vcpkg7Strings4joinINS_18InternalFeatureSetEZNS_15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_: argument 0"}
+!161 = distinct !{!161, !"_ZN5vcpkg7Strings4joinINS_18InternalFeatureSetEZNS_15generate_nuspecB5cxx11ERKNS_4PathERKNS_17InstallPlanActionENS_10StringViewERKNS_13NuGetRepoInfoEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_"}
 !162 = distinct !{!162, !9}
 !163 = !{!164}
 !164 = distinct !{!164, !165, !"_ZN5vcpkg3msg6formatIJNS0_7count_tENS0_9elapsed_tEEJmNS_11ElapsedTimeEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE: argument 0"}
@@ -35023,8 +35023,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !595 = distinct !{!595, !596, !"_ZN5vcpkg4Util4fmapIRNS_4SpanIKPKNS_17InstallPlanActionEEEZNK12_GLOBAL__N_123NugetReadBinaryProvider5fetchES7_NS2_INS_13RestoreResultEEEEUlS5_E_EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISL_EEOSI_OSG_: argument 0"}
 !596 = distinct !{!596, !"_ZN5vcpkg4Util4fmapIRNS_4SpanIKPKNS_17InstallPlanActionEEEZNK12_GLOBAL__N_123NugetReadBinaryProvider5fetchES7_NS2_INS_13RestoreResultEEEEUlS5_E_EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISL_EEOSI_OSG_"}
 !597 = !{!598}
-!598 = distinct !{!598, !599, !"_ZZNK12_GLOBAL__N_123NugetReadBinaryProvider5fetchEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_13RestoreResultEEEENKUlS5_E_clES5_.argprom: argument 0"}
-!599 = distinct !{!599, !"_ZZNK12_GLOBAL__N_123NugetReadBinaryProvider5fetchEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_13RestoreResultEEEENKUlS5_E_clES5_.argprom"}
+!598 = distinct !{!598, !599, !"_ZZNK12_GLOBAL__N_123NugetReadBinaryProvider5fetchEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_13RestoreResultEEEENKUlS5_E_clES5_: argument 0"}
+!599 = distinct !{!599, !"_ZZNK12_GLOBAL__N_123NugetReadBinaryProvider5fetchEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_13RestoreResultEEEENKUlS5_E_clES5_"}
 !600 = !{!598, !595}
 !601 = !{!602}
 !602 = distinct !{!602, !603, !"_ZN12_GLOBAL__N_123NugetReadBinaryProvider24generate_packages_configB5cxx11EN5vcpkg4SpanIKNS1_14NugetReferenceEEE: argument 0"}
@@ -35051,17 +35051,17 @@ attributes #31 = { nounwind willreturn memory(none) }
 !623 = distinct !{!623, !624, !"_ZNO5vcpkg9ExpectedTIiNS_15LocalizedStringEE4thenIZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS_7CommandERNS_11MessageSinkEEUliE_JEEENSt13invoke_resultIT_JiDpT0_EE4typeESD_DpOSE_: argument 0"}
 !624 = distinct !{!624, !"_ZNO5vcpkg9ExpectedTIiNS_15LocalizedStringEE4thenIZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS_7CommandERNS_11MessageSinkEEUliE_JEEENSt13invoke_resultIT_JiDpT0_EE4typeESD_DpOSE_"}
 !625 = !{!626}
-!626 = distinct !{!626, !627, !"_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom: argument 0"}
-!627 = distinct !{!627, !"_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom"}
+!626 = distinct !{!626, !627, !"_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_: argument 0"}
+!627 = distinct !{!627, !"_ZSt6invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_"}
 !628 = !{!629}
-!629 = distinct !{!629, !630, !"_ZSt8__invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt15__invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom: argument 0"}
-!630 = distinct !{!630, !"_ZSt8__invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt15__invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom"}
+!629 = distinct !{!629, !630, !"_ZSt8__invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt15__invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_: argument 0"}
+!630 = distinct !{!630, !"_ZSt8__invokeIRZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEEUliE_JiEENSt15__invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_"}
 !631 = !{!632}
-!632 = distinct !{!632, !633, !"_ZSt13__invoke_implIN5vcpkg9ExpectedTINS0_4UnitENS0_15LocalizedStringEEERZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS0_7CommandERNS0_11MessageSinkEEUliE_JiEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!633 = distinct !{!633, !"_ZSt13__invoke_implIN5vcpkg9ExpectedTINS0_4UnitENS0_15LocalizedStringEEERZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS0_7CommandERNS0_11MessageSinkEEUliE_JiEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!632 = distinct !{!632, !633, !"_ZSt13__invoke_implIN5vcpkg9ExpectedTINS0_4UnitENS0_15LocalizedStringEEERZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS0_7CommandERNS0_11MessageSinkEEUliE_JiEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!633 = distinct !{!633, !"_ZSt13__invoke_implIN5vcpkg9ExpectedTINS0_4UnitENS0_15LocalizedStringEEERZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS0_7CommandERNS0_11MessageSinkEEUliE_JiEET_St14__invoke_otherOT0_DpOT1_"}
 !634 = !{!635}
-!635 = distinct !{!635, !636, !"_ZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkEENKUliE_clEi.argprom: argument 0"}
-!636 = distinct !{!636, !"_ZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkEENKUliE_clEi.argprom"}
+!635 = distinct !{!635, !636, !"_ZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkEENKUliE_clEi: argument 0"}
+!636 = distinct !{!636, !"_ZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkEENKUliE_clEi"}
 !637 = !{!632, !629, !626, !623}
 !638 = !{!635, !632, !629, !626, !623}
 !639 = !{!640}
@@ -35095,17 +35095,17 @@ attributes #31 = { nounwind willreturn memory(none) }
 !667 = distinct !{!667, !"_ZNO5vcpkg9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEE4thenIZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS_7CommandERNS_11MessageSinkEENKUlOS1_E_clESC_EUlSC_E_JEEENSt13invoke_resultIT_JS1_DpT0_EE4typeESG_DpOSH_"}
 !668 = !{!666, !652, !649, !646, !643, !640}
 !669 = !{!670}
-!670 = distinct !{!670, !671, !"_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom: argument 0"}
-!671 = distinct !{!671, !"_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom"}
+!670 = distinct !{!670, !671, !"_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_: argument 0"}
+!671 = distinct !{!671, !"_ZSt6invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_"}
 !672 = !{!673}
-!673 = distinct !{!673, !674, !"_ZSt8__invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom: argument 0"}
-!674 = distinct !{!674, !"_ZSt8__invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.argprom"}
+!673 = distinct !{!673, !674, !"_ZSt8__invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_: argument 0"}
+!674 = distinct !{!674, !"_ZSt8__invokeIRZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS2_11MessageSinkEENKUlONS2_17ExitCodeAndOutputEE_clES9_EUlS9_E_JS8_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_"}
 !675 = !{!676}
-!676 = distinct !{!676, !677, !"_ZSt13__invoke_implIN5vcpkg9ExpectedTINS0_4UnitENS0_15LocalizedStringEEERZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS0_7CommandERNS0_11MessageSinkEENKUlONS0_17ExitCodeAndOutputEE_clESD_EUlSD_E_JSC_EET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!677 = distinct !{!677, !"_ZSt13__invoke_implIN5vcpkg9ExpectedTINS0_4UnitENS0_15LocalizedStringEEERZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS0_7CommandERNS0_11MessageSinkEENKUlONS0_17ExitCodeAndOutputEE_clESD_EUlSD_E_JSC_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!676 = distinct !{!676, !677, !"_ZSt13__invoke_implIN5vcpkg9ExpectedTINS0_4UnitENS0_15LocalizedStringEEERZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS0_7CommandERNS0_11MessageSinkEENKUlONS0_17ExitCodeAndOutputEE_clESD_EUlSD_E_JSC_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!677 = distinct !{!677, !"_ZSt13__invoke_implIN5vcpkg9ExpectedTINS0_4UnitENS0_15LocalizedStringEEERZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKNS0_7CommandERNS0_11MessageSinkEENKUlONS0_17ExitCodeAndOutputEE_clESD_EUlSD_E_JSC_EET_St14__invoke_otherOT0_DpOT1_"}
 !678 = !{!679}
-!679 = distinct !{!679, !680, !"_ZZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkEENKUlONS1_17ExitCodeAndOutputEE_clES8_ENKUlS8_E_clES8_.argprom: argument 0"}
-!680 = distinct !{!680, !"_ZZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkEENKUlONS1_17ExitCodeAndOutputEE_clES8_ENKUlS8_E_clES8_.argprom"}
+!679 = distinct !{!679, !680, !"_ZZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkEENKUlONS1_17ExitCodeAndOutputEE_clES8_ENKUlS8_E_clES8_: argument 0"}
+!680 = distinct !{!680, !"_ZZZNK12_GLOBAL__N_19NuGetTool21run_nuget_commandlineERKN5vcpkg7CommandERNS1_11MessageSinkEENKUlONS1_17ExitCodeAndOutputEE_clES8_ENKUlS8_E_clES8_"}
 !681 = !{!676, !673, !670, !666, !652, !649, !646, !643, !640}
 !682 = !{!679, !676, !673, !670, !666, !652, !649, !646, !643, !640}
 !683 = !{!684}

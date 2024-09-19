@@ -1018,7 +1018,7 @@ define internal range(i32 -30, 1) i32 @_archive_read_close(ptr noundef %0) #0 {
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %10, i64 408
-  tail call fastcc void @close_and_restore_time.retelim(i32 noundef %14, ptr noundef nonnull %10, ptr noundef nonnull %17)
+  tail call fastcc void @close_and_restore_time(i32 noundef %14, ptr noundef nonnull %10, ptr noundef nonnull %17)
   store i32 -1, ptr %13, align 8
   br label %18
 
@@ -1276,7 +1276,7 @@ define internal i32 @_archive_read_next_header2(ptr noundef %0, ptr noundef %1) 
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %13, i64 408
-  tail call fastcc void @close_and_restore_time.retelim(i32 noundef %15, ptr noundef nonnull %13, ptr noundef nonnull %18)
+  tail call fastcc void @close_and_restore_time(i32 noundef %15, ptr noundef nonnull %13, ptr noundef nonnull %18)
   store i32 -1, ptr %14, align 8
   br label %19
 
@@ -1890,14 +1890,14 @@ tree_next.exit.i:                                 ; preds = %203, %73, %.loopexi
 
 341:                                              ; preds = %336, %.loopexit.i
   %342 = load i8, ptr %42, align 1
-  switch i8 %342, label %.tree_target_is_same_as_parent.argprom.exit_crit_edge.i [
+  switch i8 %342, label %.tree_target_is_same_as_parent.exit_crit_edge.i [
     i8 72, label %343
     i8 76, label %344
   ]
 
-.tree_target_is_same_as_parent.argprom.exit_crit_edge.i: ; preds = %341
+.tree_target_is_same_as_parent.exit_crit_edge.i:  ; preds = %341
   %.pre.i = load i32, ptr %29, align 8
-  br label %tree_target_is_same_as_parent.argprom.exit.i
+  br label %tree_target_is_same_as_parent.exit.i
 
 343:                                              ; preds = %341
   store i8 80, ptr %42, align 1
@@ -1961,7 +1961,7 @@ tree_current_is_dir.exit.i:                       ; preds = %359, %353, %350, %3
   %368 = call i32 @fstatat(i32 noundef %367, ptr noundef %.val.i209.i, ptr noundef nonnull %44, i32 noundef 0) #17
   %.not7.i210.i = icmp eq i32 %368, 0
   %.pre293.i = load i32, ptr %29, align 8
-  br i1 %.not7.i210.i, label %369, label %tree_target_is_same_as_parent.argprom.exit.i
+  br i1 %.not7.i210.i, label %369, label %tree_target_is_same_as_parent.exit.i
 
 369:                                              ; preds = %366
   %370 = or i32 %.pre293.i, 16
@@ -1974,7 +1974,7 @@ tree_current_is_dir.exit.i:                       ; preds = %359, %353, %350, %3
   %.0.in1.i.i = getelementptr inbounds i8, ptr %.val195.i, i64 16
   %.02.i.i = load ptr, ptr %.0.in1.i.i, align 8
   %.not3.i.i = icmp eq ptr %.02.i.i, null
-  br i1 %.not3.i.i, label %tree_target_is_same_as_parent.argprom.exit.thread.i, label %.lr.ph.i211.i
+  br i1 %.not3.i.i, label %tree_target_is_same_as_parent.exit.thread.i, label %.lr.ph.i211.i
 
 .lr.ph.i211.i:                                    ; preds = %371
   %373 = load i64, ptr %44, align 8
@@ -1992,27 +1992,27 @@ tree_current_is_dir.exit.i:                       ; preds = %359, %353, %350, %3
   %380 = load i64, ptr %379, align 8
   %381 = load i64, ptr %48, align 8
   %382 = icmp eq i64 %380, %381
-  br i1 %382, label %tree_target_is_same_as_parent.argprom.exit.i, label %383
+  br i1 %382, label %tree_target_is_same_as_parent.exit.i, label %383
 
 383:                                              ; preds = %378, %374
   %.0.in.i.i = getelementptr inbounds i8, ptr %.04.i.i, i64 16
   %.0.i212.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i213.i = icmp eq ptr %.0.i212.i, null
-  br i1 %.not.i213.i, label %tree_target_is_same_as_parent.argprom.exit.thread.i, label %374, !llvm.loop !12
+  br i1 %.not.i213.i, label %tree_target_is_same_as_parent.exit.thread.i, label %374, !llvm.loop !12
 
-tree_target_is_same_as_parent.argprom.exit.i:     ; preds = %378, %366, %.tree_target_is_same_as_parent.argprom.exit_crit_edge.i
-  %384 = phi i32 [ %.pre.i, %.tree_target_is_same_as_parent.argprom.exit_crit_edge.i ], [ %.pre293.i, %366 ], [ %372, %378 ]
+tree_target_is_same_as_parent.exit.i:             ; preds = %378, %366, %.tree_target_is_same_as_parent.exit_crit_edge.i
+  %384 = phi i32 [ %.pre.i, %.tree_target_is_same_as_parent.exit_crit_edge.i ], [ %.pre293.i, %366 ], [ %372, %378 ]
   %385 = and i32 %384, 16
   %.not.i214.i = icmp eq i32 %385, 0
   br i1 %.not.i214.i, label %390, label %386
 
-386:                                              ; preds = %tree_target_is_same_as_parent.argprom.exit.i
+386:                                              ; preds = %tree_target_is_same_as_parent.exit.i
   %387 = load i32, ptr %45, align 8
   %388 = and i32 %387, 61440
   %389 = icmp eq i32 %388, 16384
   br i1 %389, label %390, label %tree_current_is_physical_dir.exit.i
 
-390:                                              ; preds = %386, %tree_target_is_same_as_parent.argprom.exit.i
+390:                                              ; preds = %386, %tree_target_is_same_as_parent.exit.i
   %391 = and i32 %384, 32
   %.not.i9.i.i = icmp eq i32 %391, 0
   br i1 %.not.i9.i.i, label %392, label %398
@@ -2041,9 +2041,9 @@ tree_current_is_physical_dir.exit.i:              ; preds = %398, %392, %386
   %.0.i215.i = phi i32 [ %402, %398 ], [ 0, %386 ], [ 0, %392 ]
   store i8 80, ptr %46, align 8
   store i8 0, ptr %47, align 1
-  br label %tree_target_is_same_as_parent.argprom.exit.thread.i
+  br label %tree_target_is_same_as_parent.exit.thread.i
 
-tree_target_is_same_as_parent.argprom.exit.thread.i: ; preds = %383, %tree_current_is_physical_dir.exit.i, %371
+tree_target_is_same_as_parent.exit.thread.i:      ; preds = %383, %tree_current_is_physical_dir.exit.i, %371
   %.0144.i = phi ptr [ %37, %tree_current_is_physical_dir.exit.i ], [ %44, %371 ], [ %44, %383 ]
   %.0137.i = phi i32 [ %.0.i215.i, %tree_current_is_physical_dir.exit.i ], [ %.0.i206.i, %371 ], [ %.0.i206.i, %383 ]
   %403 = load i64, ptr %.0144.i, align 8
@@ -2053,12 +2053,12 @@ tree_target_is_same_as_parent.argprom.exit.thread.i: ; preds = %383, %tree_curre
   %.not.i216.i = icmp eq ptr %406, null
   br i1 %.not.i216.i, label %410, label %407
 
-407:                                              ; preds = %tree_target_is_same_as_parent.argprom.exit.thread.i
+407:                                              ; preds = %tree_target_is_same_as_parent.exit.thread.i
   %408 = load i64, ptr %406, align 8
   %409 = icmp eq i64 %408, %403
   br i1 %409, label %update_current_filesystem.exit.thread.i, label %410
 
-410:                                              ; preds = %407, %tree_target_is_same_as_parent.argprom.exit.thread.i
+410:                                              ; preds = %407, %tree_target_is_same_as_parent.exit.thread.i
   %411 = getelementptr inbounds i8, ptr %404, i64 512
   %412 = load i32, ptr %411, align 8
   %413 = icmp sgt i32 %412, 0
@@ -2227,7 +2227,7 @@ tree_current_is_symblic_link_target.exit.i.i.i:   ; preds = %473
   br i1 %489, label %490, label %492
 
 490:                                              ; preds = %486
-  %491 = call fastcc i32 @get_xfer_size.argprom(ptr noundef nonnull %445, i32 noundef %484)
+  %491 = call fastcc i32 @get_xfer_size(ptr noundef nonnull %445, i32 noundef %484)
   br label %492
 
 492:                                              ; preds = %490, %486
@@ -2247,7 +2247,7 @@ tree_current_is_symblic_link_target.exit.thread.i.i.i: ; preds = %462, %tree_cur
 
 501:                                              ; preds = %tree_current_is_symblic_link_target.exit.thread.i.i.i
   %502 = load i32, ptr %495, align 8
-  %503 = call fastcc i32 @get_xfer_size.argprom(ptr noundef nonnull %445, i32 noundef %502)
+  %503 = call fastcc i32 @get_xfer_size(ptr noundef nonnull %445, i32 noundef %502)
   br label %504
 
 504:                                              ; preds = %501, %492
@@ -2838,7 +2838,7 @@ define internal range(i32 -30, 2) i32 @_archive_read_data_block(ptr noundef %0, 
   %41 = getelementptr i8, ptr %6, i64 48
   %.val110 = load ptr, ptr %41, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %40, ptr noundef nonnull @.str.35, ptr noundef %.val110) #17
-  tail call fastcc void @tree_enter_initial_dir.retelim(ptr noundef nonnull %6)
+  tail call fastcc void @tree_enter_initial_dir(ptr noundef nonnull %6)
   br label %163
 
 42:                                               ; preds = %.thread111, %37
@@ -3028,7 +3028,7 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %60, %85, %tree_ente
 145:                                              ; preds = %138
   %146 = load i32, ptr %17, align 8
   %147 = getelementptr inbounds i8, ptr %6, i64 408
-  tail call fastcc void @close_and_restore_time.retelim(i32 noundef %146, ptr noundef nonnull %6, ptr noundef nonnull %147)
+  tail call fastcc void @close_and_restore_time(i32 noundef %146, ptr noundef nonnull %6, ptr noundef nonnull %147)
   store i32 -1, ptr %17, align 8
   store i32 1, ptr %10, align 4
   br label %148
@@ -3072,7 +3072,7 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %60, %85, %tree_ente
 
 169:                                              ; preds = %163
   %170 = getelementptr inbounds i8, ptr %6, i64 408
-  tail call fastcc void @close_and_restore_time.retelim(i32 noundef %167, ptr noundef nonnull %6, ptr noundef nonnull %170)
+  tail call fastcc void @close_and_restore_time(i32 noundef %167, ptr noundef nonnull %6, ptr noundef nonnull %170)
   store i32 -1, ptr %166, align 8
   br label %171
 
@@ -3082,7 +3082,7 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %60, %85, %tree_ente
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @close_and_restore_time.retelim(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @close_and_restore_time(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [2 x %struct.timespec], align 16
   %5 = alloca [2 x %struct.timeval], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 32
@@ -3184,7 +3184,7 @@ declare i32 @__archive_clean(ptr noundef) local_unnamed_addr #1
 declare ptr @archive_entry_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tree_enter_initial_dir.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @tree_enter_initial_dir(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 256
@@ -3521,7 +3521,7 @@ define internal fastcc range(i32 -2, 1) i32 @tree_ascend(ptr nocapture noundef %
   %22 = and i32 %21, -65
   store i32 %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %2, i64 88
-  tail call fastcc void @close_and_restore_time.retelim(i32 noundef %4, ptr noundef nonnull %0, ptr noundef nonnull %23)
+  tail call fastcc void @close_and_restore_time(i32 noundef %4, ptr noundef nonnull %0, ptr noundef nonnull %23)
   %24 = load i32, ptr %5, align 8
   %25 = and i32 %24, 2
   %.not19 = icmp eq i32 %25, 0
@@ -3581,7 +3581,7 @@ declare noundef i32 @fstatvfs(i32 noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @fstatfs(i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @get_xfer_size.argprom(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @get_xfer_size(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 488
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 48

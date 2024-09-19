@@ -1386,11 +1386,11 @@ lor.lhs.false4:                                   ; preds = %_ZL20TestBadPSSPara
 invoke.cont.i.i59:                                ; preds = %lor.lhs.false4
   store ptr %call3.i.i55, ptr %pkey.i53, align 8, !alias.scope !37
   %cmp.not.i.i.i60 = icmp eq ptr %call1.i.i54, null
-  br i1 %cmp.not.i.i.i60, label %_ZL17PrivateKeyFromPEMPKc.argprom.exit.i, label %if.then.i.i.i61
+  br i1 %cmp.not.i.i.i60, label %_ZL17PrivateKeyFromPEMPKc.exit.i, label %if.then.i.i.i61
 
 if.then.i.i.i61:                                  ; preds = %invoke.cont.i.i59
   invoke void @BIO_vfree(ptr noundef nonnull %call1.i.i54)
-          to label %_ZL17PrivateKeyFromPEMPKc.argprom.exit.i unwind label %terminate.lpad.i.i.i62, !noalias !37
+          to label %_ZL17PrivateKeyFromPEMPKc.exit.i unwind label %terminate.lpad.i.i.i62, !noalias !37
 
 terminate.lpad.i.i.i62:                           ; preds = %if.then.i.i.i61
   %117 = landingpad { ptr, i32 }
@@ -1405,18 +1405,18 @@ lpad.i.i56:                                       ; preds = %lor.lhs.false4
   call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bio.i.i52) #12, !noalias !37
   br label %common.resume
 
-_ZL17PrivateKeyFromPEMPKc.argprom.exit.i:         ; preds = %if.then.i.i.i61, %invoke.cont.i.i59
+_ZL17PrivateKeyFromPEMPKc.exit.i:                 ; preds = %if.then.i.i.i61, %invoke.cont.i.i59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i.i52)
   %cmp.i.not.i63 = icmp eq ptr %call3.i.i55, null
   br i1 %cmp.i.not.i63, label %_ZL11TestSignCtxv.exit.thread, label %if.end.i64
 
-_ZL11TestSignCtxv.exit.thread:                    ; preds = %_ZL17PrivateKeyFromPEMPKc.argprom.exit.i
+_ZL11TestSignCtxv.exit.thread:                    ; preds = %_ZL17PrivateKeyFromPEMPKc.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i53)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %md_ctx.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey_ctx.i)
   br label %return
 
-if.end.i64:                                       ; preds = %_ZL17PrivateKeyFromPEMPKc.argprom.exit.i
+if.end.i64:                                       ; preds = %_ZL17PrivateKeyFromPEMPKc.exit.i
   invoke void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i)
           to label %invoke.cont.i68 unwind label %lpad.i65
 
@@ -2128,8 +2128,8 @@ attributes #15 = { builtin nounwind }
 !35 = distinct !{!35, !36, !"_ZL11CertFromPEMPKc: %agg.result"}
 !36 = distinct !{!36, !"_ZL11CertFromPEMPKc"}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZL17PrivateKeyFromPEMPKc.argprom: %agg.result"}
-!39 = distinct !{!39, !"_ZL17PrivateKeyFromPEMPKc.argprom"}
+!38 = distinct !{!38, !39, !"_ZL17PrivateKeyFromPEMPKc: %agg.result"}
+!39 = distinct !{!39, !"_ZL17PrivateKeyFromPEMPKc"}
 !40 = !{!41}
 !41 = distinct !{!41, !42, !"_ZL11CertFromPEMPKc: %agg.result"}
 !42 = distinct !{!42, !"_ZL11CertFromPEMPKc"}

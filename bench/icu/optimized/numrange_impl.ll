@@ -896,14 +896,14 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i.i22.i: ; preds = %if.else9.i.i.i
   %25 = load i32, ptr %fLength.i.i.i.i26.i, align 4
   %cond.i.i.i.i27.i = select i1 %cmp.i.i.i.i.i24.i, i32 %25, i32 %shr.i.i.i.i.i25.i
   %cmp.i.i.i.i28.i = icmp eq i32 %cond.i.i.i.i27.i, 0
-  br i1 %cmp.i.i.i.i28.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.argprom.exit.i.i
+  br i1 %cmp.i.i.i.i28.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.exit.i.i
 
-_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.argprom.exit.i.i: ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i.i22.i
+_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.exit.i.i: ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i.i22.i
   %26 = load i16, ptr %retval.0.i.i.i.i23.i, align 2
   %.not.i.i = icmp eq i16 %26, 0
   br i1 %.not.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_119NumberRangeDataSink14fillInDefaultsER10UErrorCode.exit.i
 
-if.then.i.i:                                      ; preds = %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.argprom.exit.i.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i.i22.i
+if.then.i.i:                                      ; preds = %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.exit.i.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i.i22.i
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp2.i.i, ptr noundef nonnull @.str.4)
           to label %.noexc.i unwind label %lpad8.i
 
@@ -942,7 +942,7 @@ ehcleanup.i.i:                                    ; preds = %lpad3.i.i, %lpad.i.
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp2.i.i) #14
   br label %lpad8.body.i
 
-_ZN12_GLOBAL__N_119NumberRangeDataSink14fillInDefaultsER10UErrorCode.exit.i: ; preds = %invoke.cont4.i.i, %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.argprom.exit.i.i
+_ZN12_GLOBAL__N_119NumberRangeDataSink14fillInDefaultsER10UErrorCode.exit.i: ; preds = %invoke.cont4.i.i, %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp2.i.i)
   br label %cleanup.i
@@ -2729,14 +2729,14 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i:  ; preds = %if.else9.i.i.i, %if
   %8 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %8, i32 %shr.i.i.i.i
   %cmp.i.i.i = icmp eq i32 %cond.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.end8, label %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.argprom.exit
+  br i1 %cmp.i.i.i, label %if.end8, label %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.exit
 
-_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.argprom.exit: ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i
+_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.exit: ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i
   %9 = load i16, ptr %retval.0.i.i.i, align 2
   %.not = icmp eq i16 %9, 0
   br i1 %.not, label %if.end8, label %for.inc
 
-if.end8:                                          ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i, %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.argprom.exit
+if.end8:                                          ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i, %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i32 0, ptr %len.i, align 4, !noalias !7
@@ -2797,7 +2797,7 @@ ehcleanup:                                        ; preds = %lpad.i8, %lpad10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp9) #14
   br label %common.resume
 
-for.inc:                                          ; preds = %for.body, %invoke.cont11, %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.argprom.exit
+for.inc:                                          ; preds = %for.body, %invoke.cont11, %_ZN12_GLOBAL__N_119NumberRangeDataSink12hasRangeDataEv.exit
   %inc = add nuw nsw i32 %i.013, 1
   %call2 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %miscTable, i32 noundef %inc, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool3.not = icmp eq i8 %call2, 0

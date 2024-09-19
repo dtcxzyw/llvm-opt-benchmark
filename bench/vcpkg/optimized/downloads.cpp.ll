@@ -643,7 +643,7 @@ declare noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(p
 define dso_local void @_ZN5vcpkg27verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %4, i64 %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.vcpkg::ExpectedT.2", align 8
   %8 = alloca %"struct.vcpkg::LineInfo", align 8
-  call fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_.argprom(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %4, i64 %5)
+  call fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %4, i64 %5)
   store i32 357, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str.1, ptr %9, align 8
@@ -672,7 +672,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
   %7 = alloca %"struct.vcpkg::msg::TagArg.34", align 8
   %8 = alloca %"struct.vcpkg::msg::TagArg.69", align 8
@@ -856,7 +856,7 @@ define dso_local void @_ZN5vcpkg9url_headsENS_4SpanIKNSt7__cxx1112basic_stringIc
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %.0
-  invoke fastcc void @_ZN5vcpkgL15url_heads_innerENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_PSt6vectorIiSaIiEES8_.argprom(ptr %11, i64 100, ptr %3, i64 %4, ptr noundef nonnull %0, ptr %.sroa.018.0.copyload, i64 %.sroa.219.0.copyload)
+  invoke fastcc void @_ZN5vcpkgL15url_heads_innerENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_PSt6vectorIiSaIiEES8_(ptr %11, i64 100, ptr %3, i64 %4, ptr noundef nonnull %0, ptr %.sroa.018.0.copyload, i64 %.sroa.219.0.copyload)
           to label %8 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %10
@@ -890,7 +890,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %12, %14
   %.idx28 = shl nsw i64 %.0, 5
   %17 = getelementptr inbounds i8, ptr %1, i64 %.idx28
   %18 = sub nsw i64 %2, %.0
-  invoke fastcc void @_ZN5vcpkgL15url_heads_innerENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_PSt6vectorIiSaIiEES8_.argprom(ptr %17, i64 %18, ptr %3, i64 %4, ptr noundef nonnull %0, ptr %.sroa.018.0.copyload, i64 %.sroa.219.0.copyload)
+  invoke fastcc void @_ZN5vcpkgL15url_heads_innerENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_PSt6vectorIiSaIiEES8_(ptr %17, i64 %18, ptr %3, i64 %4, ptr noundef nonnull %0, ptr %.sroa.018.0.copyload, i64 %.sroa.219.0.copyload)
           to label %19 unwind label %.loopexit.split-lp
 
 19:                                               ; preds = %16, %15
@@ -913,7 +913,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL15url_heads_innerENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_PSt6vectorIiSaIiEES8_.argprom(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL15url_heads_innerENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_PSt6vectorIiSaIiEES8_(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::msg::TagArg.71", align 8
   %7 = alloca %"struct.vcpkg::msg::TagArg.83", align 8
   %8 = alloca %"struct.vcpkg::StringView", align 8
@@ -1316,7 +1316,7 @@ define dso_local void @_ZN5vcpkg14download_filesERKNS_10FilesystemENS_4SpanIKSt4
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %.0
-  invoke fastcc void @_ZN5vcpkgL20download_files_innerERKNS_10FilesystemENS_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4PathEEEENS3_IKSA_EEPSt6vectorIiSaIiEE.argprom(ptr %14, i64 50, ptr %4, i64 %5, ptr noundef nonnull %0)
+  invoke fastcc void @_ZN5vcpkgL20download_files_innerERKNS_10FilesystemENS_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4PathEEEENS3_IKSA_EEPSt6vectorIiSaIiEE(ptr %14, i64 50, ptr %4, i64 %5, ptr noundef nonnull %0)
           to label %11 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %13
@@ -1350,7 +1350,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %16
   %.idx27 = shl nsw i64 %.0, 6
   %19 = getelementptr inbounds i8, ptr %2, i64 %.idx27
   %20 = sub nsw i64 %3, %.0
-  invoke fastcc void @_ZN5vcpkgL20download_files_innerERKNS_10FilesystemENS_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4PathEEEENS3_IKSA_EEPSt6vectorIiSaIiEE.argprom(ptr %19, i64 %20, ptr %4, i64 %5, ptr noundef nonnull %0)
+  invoke fastcc void @_ZN5vcpkgL20download_files_innerERKNS_10FilesystemENS_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4PathEEEENS3_IKSA_EEPSt6vectorIiSaIiEE(ptr %19, i64 %20, ptr %4, i64 %5, ptr noundef nonnull %0)
           to label %21 unwind label %.loopexit.split-lp
 
 21:                                               ; preds = %18, %17
@@ -1394,7 +1394,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL20download_files_innerERKNS_10FilesystemENS_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4PathEEEENS3_IKSA_EEPSt6vectorIiSaIiEE.argprom(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL20download_files_innerERKNS_10FilesystemENS_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4PathEEEENS3_IKSA_EEPSt6vectorIiSaIiEE(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %"struct.vcpkg::StringView", align 8
   %8 = alloca [4 x i32], align 4
@@ -3667,7 +3667,7 @@ _ZN5vcpkg8OptionalINS_11EnvironmentEED2Ev.exit:   ; preds = %_ZN5vcpkg8OptionalI
   %.val = load ptr, ptr %42, align 8
   %192 = getelementptr inbounds i8, ptr %42, i64 8
   %.val110 = load i64, ptr %192, align 8
-  invoke fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_.argprom(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nonnull @.str.32, i64 15, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr %.val, i64 %.val110)
+  invoke fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nonnull @.str.32, i64 15, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr %.val, i64 %.val110)
           to label %193 unwind label %212
 
 193:                                              ; preds = %191
@@ -4447,7 +4447,7 @@ _ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE9push_backEOS1_.exit: ; preds = %1
   %.val.i = load ptr, ptr %10, align 8, !noalias !78
   %160 = getelementptr inbounds i8, ptr %10, i64 8
   %.val7.i = load i64, ptr %160, align 8, !noalias !78
-  invoke fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_.argprom(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %153, i64 %155, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %.val.i, i64 %.val7.i)
+  invoke fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %153, i64 %155, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %.val.i, i64 %.val7.i)
           to label %164 unwind label %148
 
 161:                                              ; preds = %152
@@ -5088,9 +5088,9 @@ define dso_local void @_ZN5vcpkg28try_parse_curl_progress_dataENS_10StringViewE(
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %26
-  call fastcc void @_ZN5vcpkgL19skip_curl_time_implERPKcS1_.retelim(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
-  call fastcc void @_ZN5vcpkgL19skip_curl_time_implERPKcS1_.retelim(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
-  call fastcc void @_ZN5vcpkgL19skip_curl_time_implERPKcS1_.retelim(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
+  call fastcc void @_ZN5vcpkgL19skip_curl_time_implERPKcS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
+  call fastcc void @_ZN5vcpkgL19skip_curl_time_implERPKcS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
+  call fastcc void @_ZN5vcpkgL19skip_curl_time_implERPKcS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   %30 = getelementptr inbounds i8, ptr %4, i64 64
   %31 = call fastcc noundef zeroext i1 @_ZN5vcpkgL20parse_curl_max5_implERyRPKcS2_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   br i1 %31, label %32, label %34
@@ -5666,7 +5666,7 @@ _ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit:          ; preds = %.lr.ph.i.i.i20, %.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5vcpkgL19skip_curl_time_implERPKcS1_.retelim(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #8 {
+define internal fastcc void @_ZN5vcpkgL19skip_curl_time_implERPKcS1_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %3 to i64
@@ -9282,7 +9282,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %.sroa.01.0.copyload.i.i.i = load ptr, ptr %3, align 8
   %.sroa.22.0.copyload.i.i.i = load i64, ptr %6, align 8
   %17 = call noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr %.sroa.01.0.copyload.i.i.i, i64 %.sroa.22.0.copyload.i.i.i, ptr nonnull @.str.57, i64 36)
-  br i1 %17, label %18, label %"_ZSt10__invoke_rIvRZN5vcpkgL15url_heads_innerENS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PSt6vectorIiSaIiEES9_E3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br i1 %17, label %18, label %"_ZSt10__invoke_rIvRZN5vcpkgL15url_heads_innerENS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PSt6vectorIiSaIiEES9_E3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
 18:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i.i.i
   %19 = load ptr, ptr %0, align 8
@@ -9302,7 +9302,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %29 = load ptr, ptr %24, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   store ptr %30, ptr %24, align 8
-  br label %"_ZSt10__invoke_rIvRZN5vcpkgL15url_heads_innerENS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PSt6vectorIiSaIiEES9_E3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN5vcpkgL15url_heads_innerENS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PSt6vectorIiSaIiEES9_E3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
 31:                                               ; preds = %18
   %32 = load ptr, ptr %19, align 8
@@ -9357,7 +9357,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   store ptr %51, ptr %24, align 8
   %53 = getelementptr inbounds i32, ptr %46, i64 %42
   store ptr %53, ptr %26, align 8
-  br label %"_ZSt10__invoke_rIvRZN5vcpkgL15url_heads_innerENS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PSt6vectorIiSaIiEES9_E3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN5vcpkgL15url_heads_innerENS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PSt6vectorIiSaIiEES9_E3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
 54:                                               ; preds = %16
   %55 = landingpad { ptr, i32 }
@@ -9365,7 +9365,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   resume { ptr, i32 } %55
 
-"_ZSt10__invoke_rIvRZN5vcpkgL15url_heads_innerENS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PSt6vectorIiSaIiEES9_E3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i.i.i, %28, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN5vcpkgL15url_heads_innerENS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PSt6vectorIiSaIiEES9_E3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i.i.i, %28, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
@@ -9514,7 +9514,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L20d
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %.val2 = load i64, ptr %3, align 8
   %4 = tail call noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr %.val, i64 %.val2, ptr nonnull @.str.63, i64 36)
-  br i1 %4, label %5, label %"_ZSt10__invoke_rIvRZN5vcpkgL20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS4_IKSB_EEPSt6vectorIiSaIiEEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit"
+  br i1 %4, label %5, label %"_ZSt10__invoke_rIvRZN5vcpkgL20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS4_IKSB_EEPSt6vectorIiSaIiEEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit"
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
@@ -9533,7 +9533,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L20d
   %15 = load ptr, ptr %10, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 4
   store ptr %16, ptr %10, align 8
-  br label %"_ZSt10__invoke_rIvRZN5vcpkgL20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS4_IKSB_EEPSt6vectorIiSaIiEEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN5vcpkgL20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS4_IKSB_EEPSt6vectorIiSaIiEEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit"
 
 17:                                               ; preds = %5
   %18 = load ptr, ptr %6, align 8
@@ -9588,9 +9588,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   store ptr %37, ptr %10, align 8
   %39 = getelementptr inbounds i32, ptr %32, i64 %28
   store ptr %39, ptr %12, align 8
-  br label %"_ZSt10__invoke_rIvRZN5vcpkgL20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS4_IKSB_EEPSt6vectorIiSaIiEEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN5vcpkgL20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS4_IKSB_EEPSt6vectorIiSaIiEEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit"
 
-"_ZSt10__invoke_rIvRZN5vcpkgL20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS4_IKSB_EEPSt6vectorIiSaIiEEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit": ; preds = %2, %14, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN5vcpkgL20download_files_innerERKNS0_10FilesystemENS0_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathEEEENS4_IKSB_EEPSt6vectorIiSaIiEEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit": ; preds = %2, %14, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i.i
   ret void
 }
 
@@ -9916,7 +9916,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L17t
 
 19:                                               ; preds = %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
-  br label %"_ZSt10__invoke_rIvRZN5vcpkgL17try_download_fileERKNS0_10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4SpanISA_EERKNS0_4PathERKNS0_8OptionalIS9_EERKSt6vectorIS9_SaIS9_EERSL_INS0_15LocalizedStringESaISQ_EERNS0_11MessageSinkEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES10_E4typeEOS11_DpOS12_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN5vcpkgL17try_download_fileERKNS0_10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4SpanISA_EERKNS0_4PathERKNS0_8OptionalIS9_EERKSt6vectorIS9_SaIS9_EERSL_INS0_15LocalizedStringESaISQ_EERNS0_11MessageSinkEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES10_E4typeEOS11_DpOS12_.exit"
 
 20:                                               ; preds = %10
   %21 = landingpad { ptr, i32 }
@@ -9930,9 +9930,9 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L17t
   %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef %.val, i64 noundef %.val2)
   %26 = load ptr, ptr %23, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 noundef signext 10)
-  br label %"_ZSt10__invoke_rIvRZN5vcpkgL17try_download_fileERKNS0_10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4SpanISA_EERKNS0_4PathERKNS0_8OptionalIS9_EERKSt6vectorIS9_SaIS9_EERSL_INS0_15LocalizedStringESaISQ_EERNS0_11MessageSinkEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES10_E4typeEOS11_DpOS12_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN5vcpkgL17try_download_fileERKNS0_10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4SpanISA_EERKNS0_4PathERKNS0_8OptionalIS9_EERKSt6vectorIS9_SaIS9_EERSL_INS0_15LocalizedStringESaISQ_EERNS0_11MessageSinkEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES10_E4typeEOS11_DpOS12_.exit"
 
-"_ZSt10__invoke_rIvRZN5vcpkgL17try_download_fileERKNS0_10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4SpanISA_EERKNS0_4PathERKNS0_8OptionalIS9_EERKSt6vectorIS9_SaIS9_EERSL_INS0_15LocalizedStringESaISQ_EERNS0_11MessageSinkEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES10_E4typeEOS11_DpOS12_.argprom.exit": ; preds = %19, %22
+"_ZSt10__invoke_rIvRZN5vcpkgL17try_download_fileERKNS0_10FilesystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4SpanISA_EERKNS0_4PathERKNS0_8OptionalIS9_EERKSt6vectorIS9_SaIS9_EERSL_INS0_15LocalizedStringESaISQ_EERNS0_11MessageSinkEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES10_E4typeEOS11_DpOS12_.exit": ; preds = %19, %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -10159,13 +10159,13 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_20se
   %10 = trunc i64 %9 to i32
   %11 = load ptr, ptr %0, align 8
   store i32 %10, ptr %11, align 4
-  br label %"_ZSt10__invoke_rIvRZN5vcpkg20send_snapshot_to_apiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS0_4Json6ObjectEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN5vcpkg20send_snapshot_to_apiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS0_4Json6ObjectEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
 12:                                               ; preds = %2
   call void @_ZN5vcpkg5Debug7printlnIJNS_10StringViewEEEEvDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br label %"_ZSt10__invoke_rIvRZN5vcpkg20send_snapshot_to_apiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS0_4Json6ObjectEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN5vcpkg20send_snapshot_to_apiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS0_4Json6ObjectEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
-"_ZSt10__invoke_rIvRZN5vcpkg20send_snapshot_to_apiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS0_4Json6ObjectEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %7, %12
+"_ZSt10__invoke_rIvRZN5vcpkg20send_snapshot_to_apiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS0_4Json6ObjectEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %7, %12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 }
@@ -10258,7 +10258,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_8put
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %.val2 = load i64, ptr %3, align 8
   %4 = tail call noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr %.val, i64 %.val2, ptr nonnull @.str.17, i64 36)
-  br i1 %4, label %5, label %"_ZSt10__invoke_rIvRZN5vcpkg8put_fileERKNS0_18ReadOnlyFilesystemENS0_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_4SpanIKSB_EERKNS0_4PathES4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.argprom.exit"
+  br i1 %4, label %5, label %"_ZSt10__invoke_rIvRZN5vcpkg8put_fileERKNS0_18ReadOnlyFilesystemENS0_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_4SpanIKSB_EERKNS0_4PathES4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.exit"
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %.val, i64 36
@@ -10266,9 +10266,9 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_8put
   %8 = trunc i64 %7 to i32
   %9 = load ptr, ptr %0, align 8
   store i32 %8, ptr %9, align 4
-  br label %"_ZSt10__invoke_rIvRZN5vcpkg8put_fileERKNS0_18ReadOnlyFilesystemENS0_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_4SpanIKSB_EERKNS0_4PathES4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN5vcpkg8put_fileERKNS0_18ReadOnlyFilesystemENS0_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_4SpanIKSB_EERKNS0_4PathES4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.exit"
 
-"_ZSt10__invoke_rIvRZN5vcpkg8put_fileERKNS0_18ReadOnlyFilesystemENS0_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_4SpanIKSB_EERKNS0_4PathES4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.argprom.exit": ; preds = %2, %5
+"_ZSt10__invoke_rIvRZN5vcpkg8put_fileERKNS0_18ReadOnlyFilesystemENS0_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_4SpanIKSB_EERKNS0_4PathES4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.exit": ; preds = %2, %5
   ret void
 }
 

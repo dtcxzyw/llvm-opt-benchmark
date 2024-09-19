@@ -714,19 +714,19 @@ add_alert_to_session_tree.exit.i:                 ; preds = %204, %200, %196
 
 get_reassembled_in_frame.exit.thread.i:           ; preds = %add_alert_to_session_tree.exit.i, %.preheader478.i, %182, %180, %get_reassembled_in_frame.exit.i, %get_reassembled_in_frame.exit.thread434.i, %161, %155, %150
   %.not315.i = icmp eq ptr %153, null
-  br i1 %.not315.i, label %get_content_start_match.argprom.exit.i, label %211
+  br i1 %.not315.i, label %get_content_start_match.exit.i, label %211
 
 211:                                              ; preds = %get_reassembled_in_frame.exit.thread.i
   %212 = getelementptr i8, ptr %153, i64 48
   %.val.i = load ptr, ptr %212, align 8
   %213 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val.i, ptr noundef nonnull dereferenceable(5) @.str.144) #13
   %.not.i.i.i = icmp eq i32 %213, 0
-  br i1 %.not19.i.i.i, label %get_content_start_match.argprom.exit.i, label %214
+  br i1 %.not19.i.i.i, label %get_content_start_match.exit.i, label %214
 
 214:                                              ; preds = %211
   %215 = call ptr @proto_all_finfos(ptr noundef nonnull %2) #12
   %.not20.i.i.i = icmp eq ptr %215, null
-  br i1 %.not20.i.i.i, label %get_content_start_match.argprom.exit.i, label %.preheader.i.i.i
+  br i1 %.not20.i.i.i, label %get_content_start_match.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %214
   %216 = getelementptr inbounds i8, ptr %215, i64 8
@@ -769,9 +769,9 @@ get_reassembled_in_frame.exit.thread.i:           ; preds = %add_alert_to_sessio
 .loopexit.i.i.i:                                  ; preds = %219, %231, %228, %.preheader.i.i.i
   %.1.i.i.i = phi i32 [ %234, %231 ], [ %230, %228 ], [ 0, %.preheader.i.i.i ], [ 0, %219 ]
   %235 = call ptr @g_ptr_array_free(ptr noundef nonnull %215, i32 noundef 1) #12
-  br label %get_content_start_match.argprom.exit.i
+  br label %get_content_start_match.exit.i
 
-get_content_start_match.argprom.exit.i:           ; preds = %.loopexit.i.i.i, %214, %211, %get_reassembled_in_frame.exit.thread.i
+get_content_start_match.exit.i:                   ; preds = %.loopexit.i.i.i, %214, %211, %get_reassembled_in_frame.exit.thread.i
   %.0290.i = phi i32 [ 0, %get_reassembled_in_frame.exit.thread.i ], [ %.1.i.i.i, %.loopexit.i.i.i ], [ 0, %214 ], [ 0, %211 ]
   %236 = load i32, ptr @proto_snort, align 4
   %237 = call i32 @tvb_captured_length(ptr noundef %0) #12
@@ -795,7 +795,7 @@ get_content_start_match.argprom.exit.i:           ; preds = %.loopexit.i.i.i, %2
   %.not318.i = icmp eq i32 %252, 0
   br i1 %.not318.i, label %282, label %253
 
-253:                                              ; preds = %get_content_start_match.argprom.exit.i
+253:                                              ; preds = %get_content_start_match.exit.i
   %254 = getelementptr inbounds i8, ptr %151, i64 60
   %255 = load i32, ptr %254, align 4
   %.not319.i = icmp eq i32 %255, 0
@@ -852,8 +852,8 @@ proto_item_set_generated.exit347.i:               ; preds = %277, %274, %271
   %spec.select.i = select i1 %.not320.i, ptr %0, ptr %281
   br label %282
 
-282:                                              ; preds = %proto_item_set_generated.exit347.i, %253, %get_content_start_match.argprom.exit.i
-  %.0.i45 = phi ptr [ %0, %253 ], [ %0, %get_content_start_match.argprom.exit.i ], [ %spec.select.i, %proto_item_set_generated.exit347.i ]
+282:                                              ; preds = %proto_item_set_generated.exit347.i, %253, %get_content_start_match.exit.i
+  %.0.i45 = phi ptr [ %0, %253 ], [ %0, %get_content_start_match.exit.i ], [ %spec.select.i, %proto_item_set_generated.exit347.i ]
   %283 = load i32, ptr @snort_show_alert_expert_info, align 4
   %.not321.i = icmp eq i32 %283, 0
   br i1 %.not321.i, label %288, label %284
@@ -1337,9 +1337,9 @@ switch.lookup:                                    ; preds = %491
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %523 = call i32 @content_convert_pcre_for_regex(ptr noundef nonnull %519) #12
   %.not.i.i392.i = icmp eq i32 %523, 0
-  br i1 %.not.i.i392.i, label %get_content_match.argprom.exit.thread449.i, label %524
+  br i1 %.not.i.i392.i, label %get_content_match.exit.thread449.i, label %524
 
-get_content_match.argprom.exit.thread449.i:       ; preds = %522
+get_content_match.exit.thread449.i:               ; preds = %522
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -1380,7 +1380,7 @@ get_content_match.argprom.exit.thread449.i:       ; preds = %522
   %547 = load ptr, ptr %5, align 8
   %548 = call i32 @g_match_info_matches(ptr noundef %547) #12
   %.not34.i.i.i = icmp eq i32 %548, 0
-  br i1 %.not34.i.i.i, label %get_content_match.argprom.exit.i, label %549
+  br i1 %.not34.i.i.i, label %get_content_match.exit.i, label %549
 
 549:                                              ; preds = %524
   %550 = load ptr, ptr %5, align 8
@@ -1389,7 +1389,7 @@ get_content_match.argprom.exit.thread449.i:       ; preds = %522
   %553 = add i32 %552, %515
   %554 = load i32, ptr %7, align 4
   %555 = sub i32 %554, %552
-  br label %get_content_match.argprom.exit.i
+  br label %get_content_match.exit.i
 
 556:                                              ; preds = %517
   %557 = call i32 @tvb_captured_length(ptr noundef %.0.i45) #12
@@ -1415,7 +1415,7 @@ get_content_match.argprom.exit.thread449.i:       ; preds = %522
 
 568:                                              ; preds = %563
   %.not21.i.i.i.i = icmp eq i32 %567, 0
-  br i1 %.not21.i.i.i.i, label %get_content_match.argprom.exit.thread442.i, label %.lr.ph.i.i.i.i
+  br i1 %.not21.i.i.i.i, label %get_content_match.exit.thread442.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %568
   %wide.trip.count.i.i.i.i = zext i32 %567 to i64
@@ -1447,20 +1447,20 @@ get_content_match.argprom.exit.thread449.i:       ; preds = %522
 582:                                              ; preds = %581, %578
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %get_content_match.argprom.exit.thread442.i, label %569, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i.i, label %get_content_match.exit.thread442.i, label %569, !llvm.loop !11
 
 583:                                              ; preds = %563
   %584 = zext i32 %567 to i64
   %bcmp.i.i.i.i = call i32 @bcmp(ptr readonly %564, ptr readonly %566, i64 %584)
   %.not31.i18.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not31.i18.i.i, label %get_content_match.argprom.exit.thread442.i, label %content_compare_case_insensitive.exit.thread.i.i.i
+  br i1 %.not31.i18.i.i, label %get_content_match.exit.thread442.i, label %content_compare_case_insensitive.exit.thread.i.i.i
 
 content_compare_case_insensitive.exit.thread.i.i.i: ; preds = %581, %578, %583
   %585 = add i32 %.02540.i.i.i, 1
   %.not.i16.i.i = icmp ugt i32 %585, %559
   br i1 %.not.i16.i.i, label %.thread471.i, label %563, !llvm.loop !12
 
-get_content_match.argprom.exit.i:                 ; preds = %549, %524
+get_content_match.exit.i:                         ; preds = %549, %524
   %.1429.i = phi i32 [ 0, %524 ], [ %553, %549 ]
   %.1425.i = phi i32 [ 0, %524 ], [ %555, %549 ]
   %586 = load ptr, ptr %5, align 8
@@ -1470,30 +1470,30 @@ get_content_match.argprom.exit.i:                 ; preds = %549, %524
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br i1 %.not34.i.i.i, label %.thread471.i, label %get_content_match.argprom.exit.thread442.i
+  br i1 %.not34.i.i.i, label %.thread471.i, label %get_content_match.exit.thread442.i
 
-.thread471.i:                                     ; preds = %content_compare_case_insensitive.exit.thread.i.i.i, %get_content_match.argprom.exit.i, %556, %get_content_match.argprom.exit.thread449.i, %514, %switch.lookup
-  %.3293459467.ph.i = phi i32 [ %.1291491.i, %switch.lookup ], [ %.4294.i, %get_content_match.argprom.exit.i ], [ %.4294.i, %get_content_match.argprom.exit.thread449.i ], [ %.4294.i, %514 ], [ %.4294.i, %556 ], [ %.4294.i, %content_compare_case_insensitive.exit.thread.i.i.i ]
+.thread471.i:                                     ; preds = %content_compare_case_insensitive.exit.thread.i.i.i, %get_content_match.exit.i, %556, %get_content_match.exit.thread449.i, %514, %switch.lookup
+  %.3293459467.ph.i = phi i32 [ %.1291491.i, %switch.lookup ], [ %.4294.i, %get_content_match.exit.i ], [ %.4294.i, %get_content_match.exit.thread449.i ], [ %.4294.i, %514 ], [ %.4294.i, %556 ], [ %.4294.i, %content_compare_case_insensitive.exit.thread.i.i.i ]
   %587 = getelementptr inbounds i8, ptr %492, i64 8
   %588 = load ptr, ptr %587, align 8
   %589 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %251, i32 noundef %.0283.i, ptr noundef %.0.i45, i32 noundef 0, i32 noundef 0, ptr noundef %588, ptr noundef nonnull %switch.load109, ptr noundef %588) #12
   br label %594
 
-get_content_match.argprom.exit.thread442.i:       ; preds = %583, %568, %582, %get_content_match.argprom.exit.i
-  %.3427448.i = phi i32 [ %.1425.i, %get_content_match.argprom.exit.i ], [ %567, %582 ], [ %567, %583 ], [ 0, %568 ]
-  %.3431447.i = phi i32 [ %.1429.i, %get_content_match.argprom.exit.i ], [ %.02540.i.i.i, %582 ], [ %.02540.i.i.i, %568 ], [ %.02540.i.i.i, %583 ]
+get_content_match.exit.thread442.i:               ; preds = %583, %568, %582, %get_content_match.exit.i
+  %.3427448.i = phi i32 [ %.1425.i, %get_content_match.exit.i ], [ %567, %582 ], [ %567, %583 ], [ 0, %568 ]
+  %.3431447.i = phi i32 [ %.1429.i, %get_content_match.exit.i ], [ %.02540.i.i.i, %582 ], [ %.02540.i.i.i, %568 ], [ %.02540.i.i.i, %583 ]
   %590 = add i32 %.3431447.i, %.3427448.i
   %591 = getelementptr inbounds i8, ptr %492, i64 8
   %592 = load ptr, ptr %591, align 8
   %593 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %251, i32 noundef %.0283.i, ptr noundef %.0.i45, i32 noundef %.3431447.i, i32 noundef %.3427448.i, ptr noundef %592, ptr noundef nonnull %switch.load109, ptr noundef %592) #12
   br label %594
 
-594:                                              ; preds = %get_content_match.argprom.exit.thread442.i, %.thread471.i
-  %595 = phi ptr [ %593, %get_content_match.argprom.exit.thread442.i ], [ %589, %.thread471.i ]
-  %596 = phi ptr [ %591, %get_content_match.argprom.exit.thread442.i ], [ %587, %.thread471.i ]
-  %597 = phi i1 [ true, %get_content_match.argprom.exit.thread442.i ], [ false, %.thread471.i ]
-  %.2460465474.i = phi i32 [ %590, %get_content_match.argprom.exit.thread442.i ], [ %.0285493.i, %.thread471.i ]
-  %598 = phi i32 [ %590, %get_content_match.argprom.exit.thread442.i ], [ %.3293459467.ph.i, %.thread471.i ]
+594:                                              ; preds = %get_content_match.exit.thread442.i, %.thread471.i
+  %595 = phi ptr [ %593, %get_content_match.exit.thread442.i ], [ %589, %.thread471.i ]
+  %596 = phi ptr [ %591, %get_content_match.exit.thread442.i ], [ %587, %.thread471.i ]
+  %597 = phi i1 [ true, %get_content_match.exit.thread442.i ], [ false, %.thread471.i ]
+  %.2460465474.i = phi i32 [ %590, %get_content_match.exit.thread442.i ], [ %.0285493.i, %.thread471.i ]
+  %598 = phi i32 [ %590, %get_content_match.exit.thread442.i ], [ %.3293459467.ph.i, %.thread471.i ]
   %599 = getelementptr inbounds i8, ptr %492, i64 48
   %600 = load i32, ptr %599, align 8
   %.not330.i = icmp eq i32 %600, 0

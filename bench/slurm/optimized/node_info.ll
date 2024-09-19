@@ -1222,13 +1222,13 @@ define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture nound
   br label %130
 
 130:                                              ; preds = %129, %._crit_edge22.i
-  br i1 %.063.lcssa.i, label %131, label %_load_fed_nodes.argprom.exit
+  br i1 %.063.lcssa.i, label %131, label %_load_fed_nodes.exit
 
 131:                                              ; preds = %130
   call void @slurm_seterrno(i32 noundef -1) #14
-  br label %_load_fed_nodes.argprom.exit
+  br label %_load_fed_nodes.exit
 
-_load_fed_nodes.argprom.exit:                     ; preds = %130, %131
+_load_fed_nodes.exit:                             ; preds = %130, %131
   %.059.i = phi i32 [ -1, %131 ], [ 0, %130 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -1241,8 +1241,8 @@ _load_fed_nodes.argprom.exit:                     ; preds = %130, %131
   %134 = call fastcc i32 @_load_cluster_nodes(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %133, i16 noundef zeroext %.018)
   br label %135
 
-135:                                              ; preds = %132, %_load_fed_nodes.argprom.exit
-  %.0 = phi i32 [ %.059.i, %_load_fed_nodes.argprom.exit ], [ %134, %132 ]
+135:                                              ; preds = %132, %_load_fed_nodes.exit
+  %.0 = phi i32 [ %.059.i, %_load_fed_nodes.exit ], [ %134, %132 ]
   %136 = load ptr, ptr %10, align 8
   %.not24 = icmp eq ptr %136, null
   br i1 %.not24, label %138, label %137

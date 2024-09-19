@@ -504,7 +504,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN5arrow9StopTokenD2Ev.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv.argprom()
+  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -549,7 +549,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv.argprom()
+  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -700,7 +700,7 @@ init.check.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5arrow9StopTokenD2Ev.exit, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv.argprom()
+  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -834,7 +834,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN5arrow2io8internal15GetIOThreadPoolEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv.argprom()
+  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -870,7 +870,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN5arrow2io8internal15GetIOThreadPoolEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv.argprom()
+  invoke fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -1153,22 +1153,22 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %invoke.cont13.i.i
   store ptr null, ptr %ref.tmp4.i.i, align 8, !noalias !29
   %28 = load ptr, ptr %ref.tmp10.i.i, align 8, !noalias !20
   %cmp.not.i.i15.i.i = icmp eq ptr %28, null
-  br i1 %cmp.not.i.i15.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i
+  br i1 %cmp.not.i.i15.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
   %vtable.i.i.i16.i.i = load ptr, ptr %28, align 8, !noalias !14
   %vfn.i.i.i17.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i16.i.i, i64 8
   %29 = load ptr, ptr %vfn.i.i.i17.i.i, align 8, !noalias !14
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %28) #30, !noalias !14
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i": ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i": ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i
   store ptr null, ptr %ref.tmp10.i.i, align 8, !noalias !20
   %30 = load ptr, ptr %_M_refcount.i.i.i10.i.i, align 8, !noalias !20
   %cmp.not.i.i.i.i21.i.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i.i21.i.i, label %_ZN5arrow9StopTokenD2Ev.exit.i.i, label %if.then.i.i.i.i22.i.i
 
-if.then.i.i.i.i22.i.i:                            ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i"
+if.then.i.i.i.i22.i.i:                            ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i"
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8, !noalias !14
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %31, 4294967297
@@ -1236,29 +1236,29 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #30, !noalias !14
   br label %_ZN5arrow9StopTokenD2Ev.exit.i.i
 
-_ZN5arrow9StopTokenD2Ev.exit.i.i:                 ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i"
+_ZN5arrow9StopTokenD2Ev.exit.i.i:                 ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i31.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i"
   %41 = load ptr, ptr %agg.tmp5.i.i, align 8, !noalias !20
   %cmp.not.i.i38.i.i = icmp eq ptr %41, null
-  br i1 %cmp.not.i.i38.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit.i.i", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i
+  br i1 %cmp.not.i.i38.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit.i.i", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i: ; preds = %_ZN5arrow9StopTokenD2Ev.exit.i.i
   %vtable.i.i.i39.i.i = load ptr, ptr %41, align 8, !noalias !14
   %vfn.i.i.i40.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i39.i.i, i64 8
   %42 = load ptr, ptr %vfn.i.i.i40.i.i, align 8, !noalias !14
   call void %42(ptr noundef nonnull align 8 dereferenceable(8) %41) #30, !noalias !14
-  br label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit.i.i"
+  br label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit.i.i"
 
-"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit.i.i": ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i, %_ZN5arrow9StopTokenD2Ev.exit.i.i
+"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit.i.i": ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i, %_ZN5arrow9StopTokenD2Ev.exit.i.i
   store ptr null, ptr %agg.tmp5.i.i, align 8, !noalias !20
   %43 = load ptr, ptr %__s.i.i, align 8, !noalias !20
   %cmp.i.i.i = icmp eq ptr %43, null
-  br i1 %cmp.i.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit208.thread.i.i", label %if.then.i.i
+  br i1 %cmp.i.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit208.thread.i.i", label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit.i.i"
+if.then.i.i:                                      ; preds = %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit.i.i"
   call void @_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__s.i.i) #30
   %44 = load ptr, ptr %__s.i.i, align 8, !noalias !20
   %cmp.not.i53.i.i = icmp eq ptr %44, null
-  br i1 %cmp.not.i53.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit208.i.i", label %delete.notnull.i.i54.i.i
+  br i1 %cmp.not.i53.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit208.i.i", label %delete.notnull.i.i54.i.i
 
 delete.notnull.i.i54.i.i:                         ; preds = %if.then.i.i
   %_M_refcount.i.i.i.i.i55.i.i = getelementptr inbounds i8, ptr %44, i64 48
@@ -1339,7 +1339,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i67.i.i:     ; preds = %if.end8.sink.split.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i68.i.i) #30
   call void @_ZdlPv(ptr noundef nonnull %44) #33
   store ptr null, ptr %__s.i.i, align 8, !noalias !20
-  br label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit208.i.i"
+  br label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit208.i.i"
 
 lpad14.i.i:                                       ; preds = %invoke.cont13.i.i
   %56 = landingpad { ptr, i32 }
@@ -1357,12 +1357,12 @@ _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.
 
 ehcleanup.thread.i.i:                             ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i90.i.i, %lpad14.i.i
   store ptr null, ptr %ref.tmp10.i.i, align 8, !noalias !20
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit107.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit107.i.i"
 
 ehcleanup.i.i:                                    ; preds = %invoke.cont8.i.i
   %59 = landingpad { ptr, i32 }
           cleanup
-  br i1 %cmp.not.i.i.i.i.i5.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit107.i.i", label %if.then.i.i.i.i.i95.i.i
+  br i1 %cmp.not.i.i.i.i.i5.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit107.i.i", label %if.then.i.i.i.i.i95.i.i
 
 if.then.i.i.i.i.i95.i.i:                          ; preds = %ehcleanup.i.i
   %_M_weak_count.i.i.i.i.i.i96.i.i = getelementptr inbounds i8, ptr %22, i64 12
@@ -1383,37 +1383,37 @@ if.else.i.i.i.i.i.i.i106.i.i:                     ; preds = %if.then.i.i.i.i.i95
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100.i.i: ; preds = %if.else.i.i.i.i.i.i.i106.i.i, %if.then.i.i.i.i.i.i.i98.i.i
   %retval.i.0.i.i.i.i.i.i101.i.i = phi i32 [ %61, %if.then.i.i.i.i.i.i.i98.i.i ], [ %62, %if.else.i.i.i.i.i.i.i106.i.i ]
   %cmp.i.i.i.i.i.i102.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i101.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i102.i.i, label %if.then.i.i.i.i.i.i103.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit107.i.i"
+  br i1 %cmp.i.i.i.i.i.i102.i.i, label %if.then.i.i.i.i.i.i103.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit107.i.i"
 
 if.then.i.i.i.i.i.i103.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100.i.i
   %vtable.i.i.i.i.i.i104.i.i = load ptr, ptr %22, align 8, !noalias !14
   %vfn.i.i.i.i.i.i105.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i104.i.i, i64 24
   %63 = load ptr, ptr %vfn.i.i.i.i.i.i105.i.i, align 8, !noalias !14
   call void %63(ptr noundef nonnull align 8 dereferenceable(16) %22) #30, !noalias !14
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit107.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit107.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit107.i.i": ; preds = %if.then.i.i.i.i.i.i103.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100.i.i, %ehcleanup.i.i, %ehcleanup.thread.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit107.i.i": ; preds = %if.then.i.i.i.i.i.i103.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100.i.i, %ehcleanup.i.i, %ehcleanup.thread.i.i
   %.pn243.i.i = phi { ptr, i32 } [ %56, %ehcleanup.thread.i.i ], [ %59, %ehcleanup.i.i ], [ %59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100.i.i ], [ %59, %if.then.i.i.i.i.i.i103.i.i ]
   call void @_ZN5arrow9StopTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i.i) #30, !noalias !14
   %64 = load ptr, ptr %agg.tmp5.i.i, align 8, !noalias !20
   %cmp.not.i.i108.i.i = icmp eq ptr %64, null
   br i1 %cmp.not.i.i108.i.i, label %ehcleanup18.thread.i.i, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i109.i.i
 
-_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i109.i.i: ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit107.i.i"
+_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i109.i.i: ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit107.i.i"
   %vtable.i.i.i110.i.i = load ptr, ptr %64, align 8, !noalias !14
   %vfn.i.i.i111.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i110.i.i, i64 8
   %65 = load ptr, ptr %vfn.i.i.i111.i.i, align 8, !noalias !14
   call void %65(ptr noundef nonnull align 8 dereferenceable(8) %64) #30, !noalias !14
   br label %ehcleanup18.thread.i.i
 
-ehcleanup18.thread.i.i:                           ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i109.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit107.i.i"
+ehcleanup18.thread.i.i:                           ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i109.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit107.i.i"
   store ptr null, ptr %agg.tmp5.i.i, align 8, !noalias !20
   br label %common.resume.i.i
 
 ehcleanup18.i.i:                                  ; preds = %_ZN5arrow10WeakFutureINS_8internal5EmptyEEC2ERKNS_6FutureIS2_EE.exit.i.i
   %66 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom"(ptr %6) #30, !noalias !14
+  call fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev"(ptr %6) #30, !noalias !14
   br i1 %cmp.not.i.i.i.i.i5.i, label %common.resume.i.i, label %if.then.i.i.i.i.i114.i.i
 
 if.then.i.i.i.i.i114.i.i:                         ; preds = %ehcleanup18.i.i
@@ -1444,7 +1444,7 @@ if.then.i.i.i.i.i.i122.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   call void %70(ptr noundef nonnull align 8 dereferenceable(16) %22) #30, !noalias !14
   br label %common.resume.i.i
 
-"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit208.thread.i.i": ; preds = %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit.i.i"
+"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit208.thread.i.i": ; preds = %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit.i.i"
   store ptr null, ptr %agg.tmp, align 8, !alias.scope !20
   %storage_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %71 = load ptr, ptr %future.i.i, align 8, !noalias !20
@@ -1454,12 +1454,12 @@ if.then.i.i.i.i.i.i122.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   store ptr %72, ptr %_M_refcount.i.i.i.i.i.i163.i.i, align 8, !alias.scope !20
   br label %invoke.cont.i1
 
-"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit208.i.i": ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i67.i.i, %if.then.i.i
+"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit208.i.i": ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i67.i.i, %if.then.i.i
   %.pr.i.i = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !20
   %cmp.not.i.i.i.i210.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %cmp.not.i.i.i.i210.i.i, label %invoke.cont.i1, label %if.then.i.i.i.i211.i.i
 
-if.then.i.i.i.i211.i.i:                           ; preds = %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit208.i.i"
+if.then.i.i.i.i211.i.i:                           ; preds = %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit208.i.i"
   %_M_use_count.i.i.i.i.i212.i.i = getelementptr inbounds i8, ptr %.pr.i.i, i64 8
   %73 = load atomic i64, ptr %_M_use_count.i.i.i.i.i212.i.i acquire, align 8
   %cmp.i.i.i.i.i213.i.i = icmp eq i64 %73, 4294967297
@@ -1527,7 +1527,7 @@ if.end8.sink.split.i.i.i.i.i231.i.i:              ; preds = %_ZN9__gnu_cxx27__ex
   call void %82(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i) #30
   br label %invoke.cont.i1
 
-invoke.cont.i1:                                   ; preds = %if.end8.sink.split.i.i.i.i.i231.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i228.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i218.i.i, %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit208.i.i", %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit208.thread.i.i"
+invoke.cont.i1:                                   ; preds = %if.end8.sink.split.i.i.i.i.i231.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i228.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i218.i.i, %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit208.i.i", %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit208.thread.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i), !noalias !8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %future.i.i), !noalias !8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__s.i.i), !noalias !8
@@ -2897,9 +2897,9 @@ _ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i: 
   store ptr null, ptr %ref.tmp.i.i.i, align 8, !noalias !63
   br label %common.resume.i.i
 
-common.resume.i.i:                                ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i", %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i, %lpad.i.i.i
-  %ref.tmp3.sroa.3.1 = phi ptr [ null, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i" ], [ %28, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i ], [ %28, %lpad.i.i.i ]
-  %common.resume.op.i.i = phi { ptr, i32 } [ %.pn.pn208.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i" ], [ %43, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i ], [ %42, %lpad.i.i.i ]
+common.resume.i.i:                                ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i", %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i, %lpad.i.i.i
+  %ref.tmp3.sroa.3.1 = phi ptr [ null, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i" ], [ %28, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i ], [ %28, %lpad.i.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %.pn.pn208.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i" ], [ %43, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i ], [ %42, %lpad.i.i.i ]
   call void @_ZN5arrow6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %future.i.i) #30, !noalias !55
   call void @_ZN5arrow9StopTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i) #30
   br label %ehcleanup
@@ -3037,22 +3037,22 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %invoke.cont13.i.i
   store ptr null, ptr %ref.tmp4.i.i, align 8, !noalias !71
   %67 = load ptr, ptr %ref.tmp10.i.i, align 8, !noalias !61
   %cmp.not.i.i18.i.i = icmp eq ptr %67, null
-  br i1 %cmp.not.i.i18.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i
+  br i1 %cmp.not.i.i18.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
   %vtable.i.i.i19.i.i = load ptr, ptr %67, align 8, !noalias !55
   %vfn.i.i.i20.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i19.i.i, i64 8
   %68 = load ptr, ptr %vfn.i.i.i20.i.i, align 8, !noalias !55
   call void %68(ptr noundef nonnull align 8 dereferenceable(8) %67) #30, !noalias !55
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i": ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i": ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i
   store ptr null, ptr %ref.tmp10.i.i, align 8, !noalias !61
   %69 = load ptr, ptr %_M_refcount.i.i.i13.i.i, align 8, !noalias !61
   %cmp.not.i.i.i.i24.i.i = icmp eq ptr %69, null
   br i1 %cmp.not.i.i.i.i24.i.i, label %_ZN5arrow9StopTokenD2Ev.exit.i.i, label %if.then.i.i.i.i25.i.i
 
-if.then.i.i.i.i25.i.i:                            ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i"
+if.then.i.i.i.i25.i.i:                            ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i"
   %_M_use_count.i.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %69, i64 8
   %70 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i7.i acquire, align 8, !noalias !55
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %70, 4294967297
@@ -3120,7 +3120,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   call void %79(ptr noundef nonnull align 8 dereferenceable(16) %69) #30, !noalias !55
   br label %_ZN5arrow9StopTokenD2Ev.exit.i.i
 
-_ZN5arrow9StopTokenD2Ev.exit.i.i:                 ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i34.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i"
+_ZN5arrow9StopTokenD2Ev.exit.i.i:                 ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i34.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i"
   %80 = load ptr, ptr %agg.tmp5.i.i, align 8, !noalias !61
   %cmp.not.i.i41.i.i = icmp eq ptr %80, null
   br i1 %cmp.not.i.i41.i.i, label %_ZN5arrow8internal6FnOnceIFvvEED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i
@@ -3143,7 +3143,7 @@ if.then.i.i:                                      ; preds = %_ZN5arrow8internal6
   call void @_ZN5arrow6ResultINS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__s.i.i) #30
   %83 = load ptr, ptr %__s.i.i, align 8, !noalias !61
   %cmp.not.i44.i.i = icmp eq ptr %83, null
-  br i1 %cmp.not.i44.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.i.i", label %delete.notnull.i.i45.i.i
+  br i1 %cmp.not.i44.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i", label %delete.notnull.i.i45.i.i
 
 delete.notnull.i.i45.i.i:                         ; preds = %if.then.i.i
   %_M_refcount.i.i.i.i.i46.i.i = getelementptr inbounds i8, ptr %83, i64 48
@@ -3223,7 +3223,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i58.i.i:     ; preds = %if.end8.sink.split.
   %msg.i.i.i59.i.i = getelementptr inbounds i8, ptr %83, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i59.i.i) #30
   call void @_ZdlPv(ptr noundef nonnull %83) #33
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.sink.split.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.sink.split.i.i"
 
 lpad14.i.i:                                       ; preds = %invoke.cont13.i.i
   %95 = landingpad { ptr, i32 }
@@ -3241,13 +3241,13 @@ _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.
 
 ehcleanup.thread.i.i:                             ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i81.i.i, %lpad14.i.i
   store ptr null, ptr %ref.tmp10.i.i, align 8, !noalias !61
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i"
 
 ehcleanup.i.i:                                    ; preds = %invoke.cont8.i.i
   %98 = landingpad { ptr, i32 }
           cleanup
   %cmp.not.i.i.i.i.i85.i.i = icmp eq ptr %55, null
-  br i1 %cmp.not.i.i.i.i.i85.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i", label %if.then.i.i.i.i.i86.i.i
+  br i1 %cmp.not.i.i.i.i.i85.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i", label %if.then.i.i.i.i.i86.i.i
 
 if.then.i.i.i.i.i86.i.i:                          ; preds = %ehcleanup.i.i
   %_M_weak_count.i.i.i.i.i.i87.i.i = getelementptr inbounds i8, ptr %55, i64 12
@@ -3268,40 +3268,40 @@ if.else.i.i.i.i.i.i.i97.i.i:                      ; preds = %if.then.i.i.i.i.i86
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i91.i.i: ; preds = %if.else.i.i.i.i.i.i.i97.i.i, %if.then.i.i.i.i.i.i.i89.i.i
   %retval.i.0.i.i.i.i.i.i92.i.i = phi i32 [ %100, %if.then.i.i.i.i.i.i.i89.i.i ], [ %101, %if.else.i.i.i.i.i.i.i97.i.i ]
   %cmp.i.i.i.i.i.i93.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i92.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i93.i.i, label %if.then.i.i.i.i.i.i94.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i"
+  br i1 %cmp.i.i.i.i.i.i93.i.i, label %if.then.i.i.i.i.i.i94.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i"
 
 if.then.i.i.i.i.i.i94.i.i:                        ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i91.i.i
   %vtable.i.i.i.i.i.i95.i.i = load ptr, ptr %55, align 8, !noalias !55
   %vfn.i.i.i.i.i.i96.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i95.i.i, i64 24
   %102 = load ptr, ptr %vfn.i.i.i.i.i.i96.i.i, align 8, !noalias !55
   call void %102(ptr noundef nonnull align 8 dereferenceable(16) %55) #30, !noalias !55
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i": ; preds = %if.then.i.i.i.i.i.i94.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i91.i.i, %ehcleanup.i.i, %ehcleanup.thread.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i": ; preds = %if.then.i.i.i.i.i.i94.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i91.i.i, %ehcleanup.i.i, %ehcleanup.thread.i.i
   %.pn204.i.i = phi { ptr, i32 } [ %95, %ehcleanup.thread.i.i ], [ %98, %ehcleanup.i.i ], [ %98, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i91.i.i ], [ %98, %if.then.i.i.i.i.i.i94.i.i ]
   call void @_ZN5arrow9StopTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i.i) #30, !noalias !55
   %103 = load ptr, ptr %agg.tmp5.i.i, align 8, !noalias !61
   %cmp.not.i.i99.i.i = icmp eq ptr %103, null
   br i1 %cmp.not.i.i99.i.i, label %ehcleanup18.thread.i.i, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i100.i.i
 
-_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i100.i.i: ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i"
+_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i100.i.i: ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i"
   %vtable.i.i.i101.i.i = load ptr, ptr %103, align 8, !noalias !55
   %vfn.i.i.i102.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i101.i.i, i64 8
   %104 = load ptr, ptr %vfn.i.i.i102.i.i, align 8, !noalias !55
   call void %104(ptr noundef nonnull align 8 dereferenceable(8) %103) #30, !noalias !55
   br label %ehcleanup18.thread.i.i
 
-ehcleanup18.thread.i.i:                           ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i100.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i"
+ehcleanup18.thread.i.i:                           ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i100.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i"
   store ptr null, ptr %agg.tmp5.i.i, align 8, !noalias !61
   call fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrIKNS0_16KeyValueMetadataEEEEZNS0_2io11InputStream17ReadMetadataAsyncERKNS9_9IOContextEE3$_0EED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp6.i.i) #30, !noalias !55
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i"
 
 ehcleanup18.i.i:                                  ; preds = %_ZN5arrow10WeakFutureISt10shared_ptrIKNS_16KeyValueMetadataEEEC2ERKNS_6FutureIS4_EE.exit.i.i
   %105 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrIKNS0_16KeyValueMetadataEEEEZNS0_2io11InputStream17ReadMetadataAsyncERKNS9_9IOContextEE3$_0EED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp6.i.i) #30, !noalias !55
   %cmp.not.i.i.i.i.i104.i.i = icmp eq ptr %55, null
-  br i1 %cmp.not.i.i.i.i.i104.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i", label %if.then.i.i.i.i.i105.i.i
+  br i1 %cmp.not.i.i.i.i.i104.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i", label %if.then.i.i.i.i.i105.i.i
 
 if.then.i.i.i.i.i105.i.i:                         ; preds = %ehcleanup18.i.i
   %_M_weak_count.i.i.i.i.i.i106.i.i = getelementptr inbounds i8, ptr %55, i64 12
@@ -3322,16 +3322,16 @@ if.else.i.i.i.i.i.i.i116.i.i:                     ; preds = %if.then.i.i.i.i.i10
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110.i.i: ; preds = %if.else.i.i.i.i.i.i.i116.i.i, %if.then.i.i.i.i.i.i.i108.i.i
   %retval.i.0.i.i.i.i.i.i111.i.i = phi i32 [ %107, %if.then.i.i.i.i.i.i.i108.i.i ], [ %108, %if.else.i.i.i.i.i.i.i116.i.i ]
   %cmp.i.i.i.i.i.i112.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i111.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i112.i.i, label %if.then.i.i.i.i.i.i113.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i"
+  br i1 %cmp.i.i.i.i.i.i112.i.i, label %if.then.i.i.i.i.i.i113.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i"
 
 if.then.i.i.i.i.i.i113.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110.i.i
   %vtable.i.i.i.i.i.i114.i.i = load ptr, ptr %55, align 8, !noalias !55
   %vfn.i.i.i.i.i.i115.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i114.i.i, i64 24
   %109 = load ptr, ptr %vfn.i.i.i.i.i.i115.i.i, align 8, !noalias !55
   call void %109(ptr noundef nonnull align 8 dereferenceable(16) %55) #30, !noalias !55
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i": ; preds = %if.then.i.i.i.i.i.i113.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110.i.i, %ehcleanup18.i.i, %ehcleanup18.thread.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i": ; preds = %if.then.i.i.i.i.i.i113.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110.i.i, %ehcleanup18.i.i, %ehcleanup18.thread.i.i
   %.pn.pn208.i.i = phi { ptr, i32 } [ %.pn204.i.i, %ehcleanup18.thread.i.i ], [ %105, %ehcleanup18.i.i ], [ %105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110.i.i ], [ %105, %if.then.i.i.i.i.i.i113.i.i ]
   call fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrIKNS0_16KeyValueMetadataEEEEZNS0_2io11InputStream17ReadMetadataAsyncERKNS9_9IOContextEE3$_0EED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %task.i.i) #30, !noalias !55
   br label %common.resume.i.i
@@ -3345,20 +3345,20 @@ _ZN5arrow6StatusD2Ev.exit153.i.i:                 ; preds = %_ZN5arrow8internal6
   %111 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !61
   store ptr null, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !61
   store ptr %111, ptr %_M_refcount.i.i.i.i.i.i154.i.i, align 8, !alias.scope !61
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.sink.split.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.sink.split.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.sink.split.i.i": ; preds = %_ZN5arrow6StatusD2Ev.exit153.i.i, %_ZN5arrow6Status11DeleteStateEv.exit.i58.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.sink.split.i.i": ; preds = %_ZN5arrow6StatusD2Ev.exit153.i.i, %_ZN5arrow6Status11DeleteStateEv.exit.i58.i.i
   %future.sink.i.i = phi ptr [ %future.i.i, %_ZN5arrow6StatusD2Ev.exit153.i.i ], [ %__s.i.i, %_ZN5arrow6Status11DeleteStateEv.exit.i58.i.i ]
   store ptr null, ptr %future.sink.i.i, align 8, !noalias !61
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.i.i": ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.sink.split.i.i", %if.then.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i": ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.sink.split.i.i", %if.then.i.i
   call fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrIKNS0_16KeyValueMetadataEEEEZNS0_2io11InputStream17ReadMetadataAsyncERKNS9_9IOContextEE3$_0EED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %task.i.i) #30
   %112 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !61
   %cmp.not.i.i.i.i170.i.i = icmp eq ptr %112, null
   br i1 %cmp.not.i.i.i.i170.i.i, label %invoke.cont.i, label %if.then.i.i.i.i171.i.i
 
-if.then.i.i.i.i171.i.i:                           ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.i.i"
+if.then.i.i.i.i171.i.i:                           ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i"
   %_M_use_count.i.i.i.i.i172.i.i = getelementptr inbounds i8, ptr %112, i64 8
   %113 = load atomic i64, ptr %_M_use_count.i.i.i.i.i172.i.i acquire, align 8
   %cmp.i.i.i.i.i173.i.i = icmp eq i64 %113, 4294967297
@@ -3426,7 +3426,7 @@ if.end8.sink.split.i.i.i.i.i191.i.i:              ; preds = %_ZN9__gnu_cxx27__ex
   call void %122(ptr noundef nonnull align 8 dereferenceable(16) %112) #30
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.end8.sink.split.i.i.i.i.i191.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i188.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i178.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.i.i"
+invoke.cont.i:                                    ; preds = %if.end8.sink.split.i.i.i.i.i191.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i188.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i178.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i"
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp1.sroa.4.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %future.i.i), !noalias !48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %task.i.i), !noalias !48
@@ -3526,7 +3526,7 @@ if.then.i37:                                      ; preds = %invoke.cont
 
 invoke.cont.i38:                                  ; preds = %if.then.i37
   call void @_ZN5arrow6ResultISt10shared_ptrIKNS_16KeyValueMetadataEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i) #30
-  br label %"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.exit"
 
 lpad.i:                                           ; preds = %if.then.i37
   %135 = landingpad { ptr, i32 }
@@ -3546,16 +3546,16 @@ if.end.i39:                                       ; preds = %invoke.cont
   store ptr null, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !78
   store ptr %137, ptr %_M_refcount.i.i.i.i.i40, align 8, !alias.scope !78
   store ptr null, ptr %storage_.i.i, align 8, !noalias !78
-  br label %"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.exit"
 
-"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.argprom.exit": ; preds = %invoke.cont.i38, %if.end.i39
+"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.exit": ; preds = %invoke.cont.i38, %if.end.i39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i)
   call void @_ZN5arrow6ResultINS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #30
   %138 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i62 = icmp eq ptr %138, null
   br i1 %cmp.not.i.i.i.i.i62, label %_ZN5arrow2io9IOContextD2Ev.exit, label %if.then.i.i.i.i.i63
 
-if.then.i.i.i.i.i63:                              ; preds = %"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.argprom.exit"
+if.then.i.i.i.i.i63:                              ; preds = %"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.exit"
   %_M_use_count.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %138, i64 8
   %139 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i64 acquire, align 8
   %cmp.i.i.i.i.i.i65 = icmp eq i64 %139, 4294967297
@@ -3623,7 +3623,7 @@ if.end8.sink.split.i.i.i.i.i.i83:                 ; preds = %_ZN9__gnu_cxx27__ex
   call void %148(ptr noundef nonnull align 8 dereferenceable(16) %138) #30
   br label %_ZN5arrow2io9IOContextD2Ev.exit
 
-_ZN5arrow2io9IOContextD2Ev.exit:                  ; preds = %"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.argprom.exit", %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i80, %if.end8.sink.split.i.i.i.i.i.i83
+_ZN5arrow2io9IOContextD2Ev.exit:                  ; preds = %"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.exit", %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i80, %if.end8.sink.split.i.i.i.i.i.i83
   %149 = load ptr, ptr %_M_refcount3.i.i, align 8
   %cmp.not.i.i.i93 = icmp eq ptr %149, null
   br i1 %cmp.not.i.i.i93, label %_ZNSt10shared_ptrIN5arrow2io11InputStreamEED2Ev.exit, label %if.then.i.i.i94
@@ -3702,7 +3702,7 @@ _ZNSt10shared_ptrIN5arrow2io11InputStreamEED2Ev.exit: ; preds = %_ZN5arrow2io9IO
 ehcleanup:                                        ; preds = %common.resume.i.i, %lpad.i
   %ref.tmp3.sroa.3.0 = phi ptr [ null, %lpad.i ], [ %ref.tmp3.sroa.3.1, %common.resume.i.i ]
   %.pn = phi { ptr, i32 } [ %135, %lpad.i ], [ %common.resume.op.i.i, %common.resume.i.i ]
-  call fastcc void @"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.argprom"(ptr %ref.tmp3.sroa.3.0) #30
+  call fastcc void @"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev"(ptr %ref.tmp3.sroa.3.0) #30
   call void @_ZN5arrow2io9IOContextD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2) #30
   call void @_ZNSt10shared_ptrIN5arrow2io11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %self) #30
   resume { ptr, i32 } %.pn
@@ -3881,7 +3881,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev.argprom"(ptr %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEEN3$_0D2Ev"(ptr %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.8.val, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow2io11InputStreamEED2Ev.exit, label %if.then.i.i.i
@@ -4192,9 +4192,9 @@ _ZNSt10shared_ptrIN5arrow2io11InputStreamEEC2ERKS3_.exit: ; preds = %while.end8,
   %20 = phi ptr [ %14, %while.end8 ], [ %14, %if.then.i.i.i.i.i ], [ %.pre, %if.else.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, i8 0, i64 16, i1 false)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
-          to label %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom.exit unwind label %lpad11
+          to label %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.exit unwind label %lpad11
 
-_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow2io11InputStreamEEC2ERKS3_.exit
+_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.exit: ; preds = %_ZNSt10shared_ptrIN5arrow2io11InputStreamEEC2ERKS3_.exit
   store ptr %20, ptr %call.i2, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i2, i64 8
   store ptr %19, ptr %_M_refcount.i.i.i.i, align 8
@@ -4215,11 +4215,11 @@ _ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom.exit: ; preds =
 lpad11:                                           ; preds = %_ZNSt10shared_ptrIN5arrow2io11InputStreamEEC2ERKS3_.exit
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom(ptr %19) #30
+  tail call fastcc void @_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev(ptr %19) #30
   call void @_ZNSt10shared_ptrIN5arrow2io11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10) #30
   resume { ptr, i32 } %23
 
-return:                                           ; preds = %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom.exit, %_ZN5arrow6Status11DeleteStateEv.exit.i, %if.then
+return:                                           ; preds = %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.exit, %_ZN5arrow6Status11DeleteStateEv.exit.i, %if.then
   ret void
 }
 
@@ -4360,7 +4360,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom(ptr %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev(ptr %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.8.val, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow2io11InputStreamEED2Ev.exit, label %if.then.i.i.i
@@ -5427,9 +5427,9 @@ _ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i: 
   store ptr null, ptr %ref.tmp.i.i.i, align 8, !noalias !115
   br label %common.resume.i.i
 
-common.resume.i.i:                                ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i", %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i, %lpad.i.i.i
-  %ref.tmp3.sroa.3.1 = phi ptr [ null, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i" ], [ %28, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i ], [ %28, %lpad.i.i.i ]
-  %common.resume.op.i.i = phi { ptr, i32 } [ %.pn.pn208.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i" ], [ %43, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i ], [ %42, %lpad.i.i.i ]
+common.resume.i.i:                                ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i", %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i, %lpad.i.i.i
+  %ref.tmp3.sroa.3.1 = phi ptr [ null, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i" ], [ %28, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i ], [ %28, %lpad.i.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %.pn.pn208.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i" ], [ %43, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i ], [ %42, %lpad.i.i.i ]
   call void @_ZN5arrow6FutureISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %future.i.i) #30, !noalias !107
   call void @_ZN5arrow9StopTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i) #30
   br label %ehcleanup
@@ -5578,22 +5578,22 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %invoke.cont13.i.i
   store ptr null, ptr %ref.tmp4.i.i, align 8, !noalias !123
   %71 = load ptr, ptr %ref.tmp10.i.i, align 8, !noalias !113
   %cmp.not.i.i18.i.i = icmp eq ptr %71, null
-  br i1 %cmp.not.i.i18.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i
+  br i1 %cmp.not.i.i18.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
   %vtable.i.i.i19.i.i = load ptr, ptr %71, align 8, !noalias !107
   %vfn.i.i.i20.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i19.i.i, i64 8
   %72 = load ptr, ptr %vfn.i.i.i20.i.i, align 8, !noalias !107
   call void %72(ptr noundef nonnull align 8 dereferenceable(8) %71) #30, !noalias !107
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i": ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i": ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i
   store ptr null, ptr %ref.tmp10.i.i, align 8, !noalias !113
   %73 = load ptr, ptr %_M_refcount.i.i.i13.i.i, align 8, !noalias !113
   %cmp.not.i.i.i.i24.i.i = icmp eq ptr %73, null
   br i1 %cmp.not.i.i.i.i24.i.i, label %_ZN5arrow9StopTokenD2Ev.exit.i.i, label %if.then.i.i.i.i25.i.i
 
-if.then.i.i.i.i25.i.i:                            ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i"
+if.then.i.i.i.i25.i.i:                            ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i"
   %_M_use_count.i.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %73, i64 8
   %74 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i7.i acquire, align 8, !noalias !107
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %74, 4294967297
@@ -5661,7 +5661,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   call void %83(ptr noundef nonnull align 8 dereferenceable(16) %73) #30, !noalias !107
   br label %_ZN5arrow9StopTokenD2Ev.exit.i.i
 
-_ZN5arrow9StopTokenD2Ev.exit.i.i:                 ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i34.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i"
+_ZN5arrow9StopTokenD2Ev.exit.i.i:                 ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i34.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i"
   %84 = load ptr, ptr %agg.tmp5.i.i, align 8, !noalias !113
   %cmp.not.i.i41.i.i = icmp eq ptr %84, null
   br i1 %cmp.not.i.i41.i.i, label %_ZN5arrow8internal6FnOnceIFvvEED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i
@@ -5684,7 +5684,7 @@ if.then.i.i:                                      ; preds = %_ZN5arrow8internal6
   call void @_ZN5arrow6ResultINS_6FutureISt10shared_ptrINS_6BufferEEEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__s.i.i) #30
   %87 = load ptr, ptr %__s.i.i, align 8, !noalias !113
   %cmp.not.i44.i.i = icmp eq ptr %87, null
-  br i1 %cmp.not.i44.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.i.i", label %delete.notnull.i.i45.i.i
+  br i1 %cmp.not.i44.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i", label %delete.notnull.i.i45.i.i
 
 delete.notnull.i.i45.i.i:                         ; preds = %if.then.i.i
   %_M_refcount.i.i.i.i.i46.i.i = getelementptr inbounds i8, ptr %87, i64 48
@@ -5764,7 +5764,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i58.i.i:     ; preds = %if.end8.sink.split.
   %msg.i.i.i59.i.i = getelementptr inbounds i8, ptr %87, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i59.i.i) #30
   call void @_ZdlPv(ptr noundef nonnull %87) #33
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.sink.split.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.sink.split.i.i"
 
 lpad14.i.i:                                       ; preds = %invoke.cont13.i.i
   %99 = landingpad { ptr, i32 }
@@ -5782,13 +5782,13 @@ _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.
 
 ehcleanup.thread.i.i:                             ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i81.i.i, %lpad14.i.i
   store ptr null, ptr %ref.tmp10.i.i, align 8, !noalias !113
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i"
 
 ehcleanup.i.i:                                    ; preds = %invoke.cont8.i.i
   %102 = landingpad { ptr, i32 }
           cleanup
   %cmp.not.i.i.i.i.i85.i.i = icmp eq ptr %56, null
-  br i1 %cmp.not.i.i.i.i.i85.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i", label %if.then.i.i.i.i.i86.i.i
+  br i1 %cmp.not.i.i.i.i.i85.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i", label %if.then.i.i.i.i.i86.i.i
 
 if.then.i.i.i.i.i86.i.i:                          ; preds = %ehcleanup.i.i
   %_M_weak_count.i.i.i.i.i.i87.i.i = getelementptr inbounds i8, ptr %56, i64 12
@@ -5809,40 +5809,40 @@ if.else.i.i.i.i.i.i.i97.i.i:                      ; preds = %if.then.i.i.i.i.i86
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i91.i.i: ; preds = %if.else.i.i.i.i.i.i.i97.i.i, %if.then.i.i.i.i.i.i.i89.i.i
   %retval.i.0.i.i.i.i.i.i92.i.i = phi i32 [ %104, %if.then.i.i.i.i.i.i.i89.i.i ], [ %105, %if.else.i.i.i.i.i.i.i97.i.i ]
   %cmp.i.i.i.i.i.i93.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i92.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i93.i.i, label %if.then.i.i.i.i.i.i94.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i"
+  br i1 %cmp.i.i.i.i.i.i93.i.i, label %if.then.i.i.i.i.i.i94.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i"
 
 if.then.i.i.i.i.i.i94.i.i:                        ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i91.i.i
   %vtable.i.i.i.i.i.i95.i.i = load ptr, ptr %56, align 8, !noalias !107
   %vfn.i.i.i.i.i.i96.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i95.i.i, i64 24
   %106 = load ptr, ptr %vfn.i.i.i.i.i.i96.i.i, align 8, !noalias !107
   call void %106(ptr noundef nonnull align 8 dereferenceable(16) %56) #30, !noalias !107
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i": ; preds = %if.then.i.i.i.i.i.i94.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i91.i.i, %ehcleanup.i.i, %ehcleanup.thread.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i": ; preds = %if.then.i.i.i.i.i.i94.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i91.i.i, %ehcleanup.i.i, %ehcleanup.thread.i.i
   %.pn204.i.i = phi { ptr, i32 } [ %99, %ehcleanup.thread.i.i ], [ %102, %ehcleanup.i.i ], [ %102, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i91.i.i ], [ %102, %if.then.i.i.i.i.i.i94.i.i ]
   call void @_ZN5arrow9StopTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i.i) #30, !noalias !107
   %107 = load ptr, ptr %agg.tmp5.i.i, align 8, !noalias !113
   %cmp.not.i.i99.i.i = icmp eq ptr %107, null
   br i1 %cmp.not.i.i99.i.i, label %ehcleanup18.thread.i.i, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i100.i.i
 
-_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i100.i.i: ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i"
+_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i100.i.i: ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i"
   %vtable.i.i.i101.i.i = load ptr, ptr %107, align 8, !noalias !107
   %vfn.i.i.i102.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i101.i.i, i64 8
   %108 = load ptr, ptr %vfn.i.i.i102.i.i, align 8, !noalias !107
   call void %108(ptr noundef nonnull align 8 dereferenceable(8) %107) #30, !noalias !107
   br label %ehcleanup18.thread.i.i
 
-ehcleanup18.thread.i.i:                           ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i100.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit98.i.i"
+ehcleanup18.thread.i.i:                           ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i100.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit98.i.i"
   store ptr null, ptr %agg.tmp5.i.i, align 8, !noalias !113
   call fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrINS0_6BufferEEEEZNS0_2io16RandomAccessFile9ReadAsyncERKNS8_9IOContextEllE3$_0EED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp6.i.i) #30, !noalias !107
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i"
 
 ehcleanup18.i.i:                                  ; preds = %_ZN5arrow10WeakFutureISt10shared_ptrINS_6BufferEEEC2ERKNS_6FutureIS3_EE.exit.i.i
   %109 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrINS0_6BufferEEEEZNS0_2io16RandomAccessFile9ReadAsyncERKNS8_9IOContextEllE3$_0EED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp6.i.i) #30, !noalias !107
   %cmp.not.i.i.i.i.i104.i.i = icmp eq ptr %56, null
-  br i1 %cmp.not.i.i.i.i.i104.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i", label %if.then.i.i.i.i.i105.i.i
+  br i1 %cmp.not.i.i.i.i.i104.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i", label %if.then.i.i.i.i.i105.i.i
 
 if.then.i.i.i.i.i105.i.i:                         ; preds = %ehcleanup18.i.i
   %_M_weak_count.i.i.i.i.i.i106.i.i = getelementptr inbounds i8, ptr %56, i64 12
@@ -5863,16 +5863,16 @@ if.else.i.i.i.i.i.i.i116.i.i:                     ; preds = %if.then.i.i.i.i.i10
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110.i.i: ; preds = %if.else.i.i.i.i.i.i.i116.i.i, %if.then.i.i.i.i.i.i.i108.i.i
   %retval.i.0.i.i.i.i.i.i111.i.i = phi i32 [ %111, %if.then.i.i.i.i.i.i.i108.i.i ], [ %112, %if.else.i.i.i.i.i.i.i116.i.i ]
   %cmp.i.i.i.i.i.i112.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i111.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i112.i.i, label %if.then.i.i.i.i.i.i113.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i"
+  br i1 %cmp.i.i.i.i.i.i112.i.i, label %if.then.i.i.i.i.i.i113.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i"
 
 if.then.i.i.i.i.i.i113.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110.i.i
   %vtable.i.i.i.i.i.i114.i.i = load ptr, ptr %56, align 8, !noalias !107
   %vfn.i.i.i.i.i.i115.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i114.i.i, i64 24
   %113 = load ptr, ptr %vfn.i.i.i.i.i.i115.i.i, align 8, !noalias !107
   call void %113(ptr noundef nonnull align 8 dereferenceable(16) %56) #30, !noalias !107
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit117.i.i": ; preds = %if.then.i.i.i.i.i.i113.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110.i.i, %ehcleanup18.i.i, %ehcleanup18.thread.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit117.i.i": ; preds = %if.then.i.i.i.i.i.i113.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110.i.i, %ehcleanup18.i.i, %ehcleanup18.thread.i.i
   %.pn.pn208.i.i = phi { ptr, i32 } [ %.pn204.i.i, %ehcleanup18.thread.i.i ], [ %109, %ehcleanup18.i.i ], [ %109, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110.i.i ], [ %109, %if.then.i.i.i.i.i.i113.i.i ]
   call fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrINS0_6BufferEEEEZNS0_2io16RandomAccessFile9ReadAsyncERKNS8_9IOContextEllE3$_0EED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) %task.i.i) #30, !noalias !107
   br label %common.resume.i.i
@@ -5886,20 +5886,20 @@ _ZN5arrow6StatusD2Ev.exit153.i.i:                 ; preds = %_ZN5arrow8internal6
   %115 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !113
   store ptr null, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !113
   store ptr %115, ptr %_M_refcount.i.i.i.i.i.i154.i.i, align 8, !alias.scope !113
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.sink.split.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.sink.split.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.sink.split.i.i": ; preds = %_ZN5arrow6StatusD2Ev.exit153.i.i, %_ZN5arrow6Status11DeleteStateEv.exit.i58.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.sink.split.i.i": ; preds = %_ZN5arrow6StatusD2Ev.exit153.i.i, %_ZN5arrow6Status11DeleteStateEv.exit.i58.i.i
   %future.sink.i.i = phi ptr [ %future.i.i, %_ZN5arrow6StatusD2Ev.exit153.i.i ], [ %__s.i.i, %_ZN5arrow6Status11DeleteStateEv.exit.i58.i.i ]
   store ptr null, ptr %future.sink.i.i, align 8, !noalias !113
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.i.i": ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.sink.split.i.i", %if.then.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i": ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.sink.split.i.i", %if.then.i.i
   call fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureISt10shared_ptrINS0_6BufferEEEEZNS0_2io16RandomAccessFile9ReadAsyncERKNS8_9IOContextEllE3$_0EED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) %task.i.i) #30
   %116 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !113
   %cmp.not.i.i.i.i170.i.i = icmp eq ptr %116, null
   br i1 %cmp.not.i.i.i.i170.i.i, label %invoke.cont.i, label %if.then.i.i.i.i171.i.i
 
-if.then.i.i.i.i171.i.i:                           ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.i.i"
+if.then.i.i.i.i171.i.i:                           ; preds = %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i"
   %_M_use_count.i.i.i.i.i172.i.i = getelementptr inbounds i8, ptr %116, i64 8
   %117 = load atomic i64, ptr %_M_use_count.i.i.i.i.i172.i.i acquire, align 8
   %cmp.i.i.i.i.i173.i.i = icmp eq i64 %117, 4294967297
@@ -5967,7 +5967,7 @@ if.end8.sink.split.i.i.i.i.i191.i.i:              ; preds = %_ZN9__gnu_cxx27__ex
   call void %126(ptr noundef nonnull align 8 dereferenceable(16) %116) #30
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.end8.sink.split.i.i.i.i.i191.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i188.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i178.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit168.i.i"
+invoke.cont.i:                                    ; preds = %if.end8.sink.split.i.i.i.i.i191.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i188.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i178.i.i, %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit168.i.i"
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp1.sroa.4.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %future.i.i), !noalias !100
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %task.i.i), !noalias !100
@@ -6067,7 +6067,7 @@ if.then.i37:                                      ; preds = %invoke.cont
 
 invoke.cont.i38:                                  ; preds = %if.then.i37
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i) #30
-  br label %"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.exit"
 
 lpad.i:                                           ; preds = %if.then.i37
   %139 = landingpad { ptr, i32 }
@@ -6087,16 +6087,16 @@ if.end.i39:                                       ; preds = %invoke.cont
   store ptr null, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !130
   store ptr %141, ptr %_M_refcount.i.i.i.i.i40, align 8, !alias.scope !130
   store ptr null, ptr %storage_.i.i, align 8, !noalias !130
-  br label %"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.exit"
 
-"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.argprom.exit": ; preds = %invoke.cont.i38, %if.end.i39
+"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.exit": ; preds = %invoke.cont.i38, %if.end.i39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i)
   call void @_ZN5arrow6ResultINS_6FutureISt10shared_ptrINS_6BufferEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #30
   %142 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i62 = icmp eq ptr %142, null
   br i1 %cmp.not.i.i.i.i.i62, label %_ZN5arrow2io9IOContextD2Ev.exit, label %if.then.i.i.i.i.i63
 
-if.then.i.i.i.i.i63:                              ; preds = %"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.argprom.exit"
+if.then.i.i.i.i.i63:                              ; preds = %"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.exit"
   %_M_use_count.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %142, i64 8
   %143 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i64 acquire, align 8
   %cmp.i.i.i.i.i.i65 = icmp eq i64 %143, 4294967297
@@ -6164,7 +6164,7 @@ if.end8.sink.split.i.i.i.i.i.i83:                 ; preds = %_ZN9__gnu_cxx27__ex
   call void %152(ptr noundef nonnull align 8 dereferenceable(16) %142) #30
   br label %_ZN5arrow2io9IOContextD2Ev.exit
 
-_ZN5arrow2io9IOContextD2Ev.exit:                  ; preds = %"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.argprom.exit", %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i80, %if.end8.sink.split.i.i.i.i.i.i83
+_ZN5arrow2io9IOContextD2Ev.exit:                  ; preds = %"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.exit", %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i80, %if.end8.sink.split.i.i.i.i.i.i83
   %153 = load ptr, ptr %_M_refcount3.i.i, align 8
   %cmp.not.i.i.i93 = icmp eq ptr %153, null
   br i1 %cmp.not.i.i.i93, label %_ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEED2Ev.exit, label %if.then.i.i.i94
@@ -6243,7 +6243,7 @@ _ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEED2Ev.exit: ; preds = %_ZN5arrow2
 ehcleanup:                                        ; preds = %common.resume.i.i, %lpad.i
   %ref.tmp3.sroa.3.0 = phi ptr [ null, %lpad.i ], [ %ref.tmp3.sroa.3.1, %common.resume.i.i ]
   %.pn = phi { ptr, i32 } [ %139, %lpad.i ], [ %common.resume.op.i.i, %common.resume.i.i ]
-  call fastcc void @"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.argprom"(ptr %ref.tmp3.sroa.3.0) #30
+  call fastcc void @"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev"(ptr %ref.tmp3.sroa.3.0) #30
   call void @_ZN5arrow2io9IOContextD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp2) #30
   call void @_ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %self) #30
   resume { ptr, i32 } %.pn
@@ -6422,7 +6422,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev.argprom"(ptr %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEllEN3$_0D2Ev"(ptr %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.8.val, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEED2Ev.exit, label %if.then.i.i.i
@@ -7957,7 +7957,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv.argprom() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_116MakeIOThreadPoolEv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__endptr.i.i = alloca ptr, align 8
   %maybe_env_var = alloca %"class.arrow::Result.100", align 8
@@ -9690,14 +9690,14 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vect
   store i64 %__value.sroa.2.0.copyload.i.i.i, ptr %__value.sroa.3.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i, align 8
   %cmp9.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp9.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_RT0_.argprom.exit.i.i, label %while.body.i.i.i, !llvm.loop !202
+  br i1 %cmp9.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_RT0_.exit.i.i, label %while.body.i.i.i, !llvm.loop !202
 
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_RT0_.argprom.exit.i.i: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_T0_SK_T1_T2_.exit.i.i.i
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_RT0_.exit.i.i: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_T0_SK_T1_T2_.exit.i.i.i
   %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i.i.fr.i.i21.lcssa, 16
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
-while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_RT0_.argprom.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.argprom.exit.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.argprom.exit.i.i ], [ %storemerge19.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_RT0_.argprom.exit.i.i ]
+while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.exit.i.i
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.exit.i.i ], [ %storemerge19.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_RT0_.exit.i.i ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -16
   %__value.sroa.0.0.copyload.i.i2.i = load i64, ptr %incdec.ptr.i.i1.i, align 8
   %__value.sroa.2.0.call.sroa_idx.i.i3.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
@@ -9751,7 +9751,7 @@ if.then20.i.i.i30.i:                              ; preds = %land.lhs.true.i.i.i
 if.end33.i.i.i14.i:                               ; preds = %if.then20.i.i.i30.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i11.i
   %__holeIndex.addr.1.i.i.i15.i = phi i64 [ %sub24.i.i.i31.i, %if.then20.i.i.i30.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %while.end.i.i.i11.i ]
   %cmp6.i.i.i.i16.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i15.i, 0
-  br i1 %cmp6.i.i.i.i16.i, label %land.rhs.i.i.i.i20.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.argprom.exit.i.i
+  br i1 %cmp6.i.i.i.i16.i, label %land.rhs.i.i.i.i20.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.exit.i.i
 
 land.rhs.i.i.i.i20.i:                             ; preds = %if.end33.i.i.i14.i, %while.body.i.i.i.i26.i
   %__holeIndex.addr.07.i.i.i.i21.i = phi i64 [ %__parent.08.i.i34.i.i.i, %while.body.i.i.i.i26.i ], [ %__holeIndex.addr.1.i.i.i15.i, %if.end33.i.i.i14.i ]
@@ -9760,15 +9760,15 @@ land.rhs.i.i.i.i20.i:                             ; preds = %if.end33.i.i.i14.i,
   %add.ptr.i.i.i.i.i23.i = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %__first.coerce.fr, i64 %__parent.08.i.i34.i.i.i
   %call.val.i.i.i.i.i24.i = load i64, ptr %add.ptr.i.i.i.i.i23.i, align 8
   %cmp.i.i.i.i.i.i25.i = icmp slt i64 %call.val.i.i.i.i.i24.i, %__value.sroa.0.0.copyload.i.i2.i
-  br i1 %cmp.i.i.i.i.i.i25.i, label %while.body.i.i.i.i26.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.argprom.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i25.i, label %while.body.i.i.i.i26.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.exit.i.i
 
 while.body.i.i.i.i26.i:                           ; preds = %land.rhs.i.i.i.i20.i
   %add.ptr.i8.i.i.i.i27.i = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %__first.coerce.fr, i64 %__holeIndex.addr.07.i.i.i.i21.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i8.i.i.i.i27.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i23.i, i64 16, i1 false)
   %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.08.in.i.i.i.i22.i, 2
-  br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.argprom.exit.i.i, label %land.rhs.i.i.i.i20.i, !llvm.loop !201
+  br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.exit.i.i, label %land.rhs.i.i.i.i20.i, !llvm.loop !201
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.argprom.exit.i.i: ; preds = %while.body.i.i.i.i26.i, %land.rhs.i.i.i.i20.i, %if.end33.i.i.i14.i
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i26.i, %land.rhs.i.i.i.i20.i, %if.end33.i.i.i14.i
   %__holeIndex.addr.0.lcssa.i.i.i.i17.i = phi i64 [ %__holeIndex.addr.1.i.i.i15.i, %if.end33.i.i.i14.i ], [ %__holeIndex.addr.07.i.i.i.i21.i, %land.rhs.i.i.i.i20.i ], [ 0, %while.body.i.i.i.i26.i ]
   %add.ptr.i9.i.i.i.i18.i = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i17.i
   store i64 %__value.sroa.0.0.copyload.i.i2.i, ptr %add.ptr.i9.i.i.i.i18.i, align 8
@@ -9898,7 +9898,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9Rea
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !199
 
-while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEET_SJ_SJ_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.argprom.exit.i.i, %entry, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_RT0_.argprom.exit.i.i
+while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEET_SJ_SJ_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.exit.i.i, %entry, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_RT0_.exit.i.i
   ret void
 }
 
@@ -9912,10 +9912,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom"(ptr %this.24.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev"(ptr %this.24.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %this.24.val, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %"_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit", label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %"_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit", label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.24.val, i64 8
@@ -9951,7 +9951,7 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %"_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit"
+  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %"_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit"
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.24.val, align 8
@@ -9976,16 +9976,16 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %"_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %"_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit"
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.24.val, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.24.val) #30
-  br label %"_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit"
+  br label %"_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit"
 
-"_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
+"_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
   ret void
 }
 
@@ -10552,7 +10552,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %fn_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %fn_.val, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit", label %if.then.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit", label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %entry
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fn_.val, i64 8
@@ -10588,7 +10588,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %5, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit"
+  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit"
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %fn_.val, align 8
@@ -10613,16 +10613,16 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit"
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %fn_.val, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %fn_.val) #30
-  br label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit"
+  br label %"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit"
 
-"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.argprom.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i
+"_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EED2Ev.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i
   ret void
 }
 
@@ -11676,7 +11676,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %fn_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %fn_.val, null
-  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fn_.val, i64 12
@@ -11697,16 +11697,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i.i ], [ %3, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit"
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %fn_.val, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %fn_.val) #30
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   ret void
 }
 
@@ -13709,7 +13709,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %fn_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %fn_.val, null
-  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fn_.val, i64 12
@@ -13730,16 +13730,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i.i ], [ %3, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit"
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %fn_.val, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %fn_.val) #30
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNS3_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   ret void
 }
 
@@ -14544,7 +14544,7 @@ delete.notnull:                                   ; preds = %entry
   %0 = getelementptr i8, ptr %ptr, i64 8
   %ptr.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ptr.val, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.val, i64 8
@@ -14580,7 +14580,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i ], [ %5, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %ptr.val, align 8
@@ -14605,20 +14605,20 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %ptr.val, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %ptr.val) #30
-  br label %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom.exit
+  br label %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.exit
 
-_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom.exit: ; preds = %delete.notnull, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.exit: ; preds = %delete.notnull, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %ptr) #33
   br label %delete.end
 
-delete.end:                                       ; preds = %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.argprom.exit, %entry
+delete.end:                                       ; preds = %_ZN5arrow2io12_GLOBAL__N_124InputStreamBlockIteratorD2Ev.exit, %entry
   ret void
 }
 
@@ -15470,7 +15470,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %fn_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %fn_.val, null
-  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fn_.val, i64 12
@@ -15491,16 +15491,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i.i ], [ %3, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit"
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %fn_.val, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %fn_.val) #30
-  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit"
 
-"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZZN5arrow8internal8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNS3_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   ret void
 }
 
@@ -17982,8 +17982,8 @@ attributes #35 = { nounwind willreturn memory(none) }
 !21 = !{!18, !15, !9}
 !22 = !{!18, !15}
 !23 = !{!24, !15}
-!24 = distinct !{!24, !25, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_.argprom: %agg.result"}
-!25 = distinct !{!25, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_.argprom"}
+!24 = distinct !{!24, !25, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_: %agg.result"}
+!25 = distinct !{!25, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEEZNS0_2io13FileInterface10CloseAsyncEvE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_"}
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !28 = distinct !{!28, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -18023,8 +18023,8 @@ attributes #35 = { nounwind willreturn memory(none) }
 !62 = !{!59, !56}
 !63 = !{!59, !56, !49}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureISt10shared_ptrIKNS0_16KeyValueMetadataEEEEZNS0_2io11InputStream17ReadMetadataAsyncERKNSA_9IOContextEE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESH_JDpT0_EE4typeEOSH_DpOSI_.argprom: %agg.result"}
-!66 = distinct !{!66, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureISt10shared_ptrIKNS0_16KeyValueMetadataEEEEZNS0_2io11InputStream17ReadMetadataAsyncERKNSA_9IOContextEE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESH_JDpT0_EE4typeEOSH_DpOSI_.argprom"}
+!65 = distinct !{!65, !66, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureISt10shared_ptrIKNS0_16KeyValueMetadataEEEEZNS0_2io11InputStream17ReadMetadataAsyncERKNSA_9IOContextEE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESH_JDpT0_EE4typeEOSH_DpOSI_: %agg.result"}
+!66 = distinct !{!66, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureISt10shared_ptrIKNS0_16KeyValueMetadataEEEEZNS0_2io11InputStream17ReadMetadataAsyncERKNSA_9IOContextEE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESH_JDpT0_EE4typeEOSH_DpOSI_"}
 !67 = !{!65, !56}
 !68 = !{!69}
 !69 = distinct !{!69, !70, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
@@ -18075,8 +18075,8 @@ attributes #35 = { nounwind willreturn memory(none) }
 !114 = !{!111, !108}
 !115 = !{!111, !108, !101}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureISt10shared_ptrINS0_6BufferEEEEZNS0_2io16RandomAccessFile9ReadAsyncERKNS9_9IOContextEllE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESG_JDpT0_EE4typeEOSG_DpOSH_.argprom: %agg.result"}
-!118 = distinct !{!118, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureISt10shared_ptrINS0_6BufferEEEEZNS0_2io16RandomAccessFile9ReadAsyncERKNS9_9IOContextEllE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESG_JDpT0_EE4typeEOSG_DpOSH_.argprom"}
+!117 = distinct !{!117, !118, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureISt10shared_ptrINS0_6BufferEEEEZNS0_2io16RandomAccessFile9ReadAsyncERKNS9_9IOContextEllE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESG_JDpT0_EE4typeEOSG_DpOSH_: %agg.result"}
+!118 = distinct !{!118, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureISt10shared_ptrINS0_6BufferEEEEZNS0_2io16RandomAccessFile9ReadAsyncERKNS9_9IOContextEllE3$_0EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESG_JDpT0_EE4typeEOSG_DpOSH_"}
 !119 = !{!117, !108}
 !120 = !{!121}
 !121 = distinct !{!121, !122, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
@@ -18169,8 +18169,8 @@ attributes #35 = { nounwind willreturn memory(none) }
 !208 = distinct !{!208, !209, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
 !209 = distinct !{!209, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !210 = !{!211}
-!211 = distinct !{!211, !212, !"_ZZN5arrow2io13FileInterface10CloseAsyncEvENK3$_0clEv.argprom: %agg.result"}
-!212 = distinct !{!212, !"_ZZN5arrow2io13FileInterface10CloseAsyncEvENK3$_0clEv.argprom"}
+!211 = distinct !{!211, !212, !"_ZZN5arrow2io13FileInterface10CloseAsyncEvENK3$_0clEv: %agg.result"}
+!212 = distinct !{!212, !"_ZZN5arrow2io13FileInterface10CloseAsyncEvENK3$_0clEv"}
 !213 = !{!214}
 !214 = distinct !{!214, !215, !"_ZN5arrow8internal5Empty8ToResultENS_6StatusE: %agg.result"}
 !215 = distinct !{!215, !"_ZN5arrow8internal5Empty8ToResultENS_6StatusE"}
@@ -18193,8 +18193,8 @@ attributes #35 = { nounwind willreturn memory(none) }
 !232 = distinct !{!232, !233, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
 !233 = distinct !{!233, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEENK3$_0clEv.argprom: %agg.result"}
-!236 = distinct !{!236, !"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEENK3$_0clEv.argprom"}
+!235 = distinct !{!235, !236, !"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEENK3$_0clEv: %agg.result"}
+!236 = distinct !{!236, !"_ZZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextEENK3$_0clEv"}
 !237 = !{!238}
 !238 = distinct !{!238, !239, !"_ZN5arrow6ResultISt10shared_ptrIKNS_16KeyValueMetadataEEE15MoveValueUnsafeEv: %agg.result"}
 !239 = distinct !{!239, !"_ZN5arrow6ResultISt10shared_ptrIKNS_16KeyValueMetadataEEE15MoveValueUnsafeEv"}

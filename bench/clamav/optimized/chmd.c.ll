@@ -694,7 +694,7 @@ define internal i32 @chmd_fast_find(ptr noundef %0, ptr noundef %1, ptr noundef 
   %33 = phi ptr [ %25, %.lr.ph ], [ %54, %read_encint.exit ]
   %.val = load i32, ptr %26, align 4
   %.val87 = load i32, ptr %27, align 8
-  %34 = call fastcc i32 @search_chunk.argprom(i32 %.val, i32 %.val87, ptr noundef %33, ptr noundef %2, ptr noundef %6, ptr noundef %7)
+  %34 = call fastcc i32 @search_chunk(i32 %.val, i32 %.val87, ptr noundef %33, ptr noundef %2, ptr noundef %6, ptr noundef %7)
   %35 = icmp slt i32 %34, 1
   br i1 %35, label %.loopexit, label %36
 
@@ -768,7 +768,7 @@ read_encint.exit:                                 ; preds = %42, %46
 68:                                               ; preds = %63
   %.val88 = load i32, ptr %59, align 4
   %.val89 = load i32, ptr %60, align 8
-  %69 = call fastcc i32 @search_chunk.argprom(i32 %.val88, i32 %.val89, ptr noundef %64, ptr noundef %2, ptr noundef %6, ptr noundef %7)
+  %69 = call fastcc i32 @search_chunk(i32 %.val88, i32 %.val89, ptr noundef %64, ptr noundef %2, ptr noundef %6, ptr noundef %7)
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %.loopexit125, label %71
 
@@ -1891,7 +1891,7 @@ define internal fastcc ptr @read_chunk(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 2) i32 @search_chunk.argprom(i32 %.132.val, i32 %.136.val, ptr noundef nonnull %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.136.val, ptr noundef nonnull %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #4 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 3

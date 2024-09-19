@@ -3894,7 +3894,7 @@ setTempDir.exit:                                  ; preds = %18
 
 .thread.i:                                        ; preds = %48
   %53 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.489) #25
-  br label %scanfile.argprom.exit
+  br label %scanfile.exit
 
 54:                                               ; preds = %.thread, %48
   %.031 = phi ptr [ %46, %.thread ], [ %51, %48 ]
@@ -3936,13 +3936,13 @@ setTempDir.exit:                                  ; preds = %18
 73:                                               ; preds = %71, %69, %64
   %.pr.i = load ptr, ptr %3, align 8
   %.not24.i = icmp eq ptr %.pr.i, null
-  br i1 %.not24.i, label %scanfile.argprom.exit, label %74
+  br i1 %.not24.i, label %scanfile.exit, label %74
 
 74:                                               ; preds = %73
   call void @free(ptr noundef nonnull %.pr.i) #25
-  br label %scanfile.argprom.exit
+  br label %scanfile.exit
 
-scanfile.argprom.exit:                            ; preds = %.thread.i, %73, %74
+scanfile.exit:                                    ; preds = %.thread.i, %73, %74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -3954,13 +3954,13 @@ scanfile.argprom.exit:                            ; preds = %.thread.i, %73, %74
   %.not.i27 = icmp eq i32 %79, 0
   br i1 %.not.i27, label %80, label %removeTempDir.exit
 
-80:                                               ; preds = %scanfile.argprom.exit
+80:                                               ; preds = %scanfile.exit
   %81 = call i32 @cli_rmdirs(ptr noundef %76) #25
   br label %removeTempDir.exit
 
-removeTempDir.exit:                               ; preds = %15, %80, %scanfile.argprom.exit, %setTempDir.exit, %24, %13, %8
-  %.019 = phi i32 [ 2, %8 ], [ 2, %24 ], [ 2, %13 ], [ 2, %setTempDir.exit ], [ 0, %scanfile.argprom.exit ], [ 0, %80 ], [ 2, %15 ]
-  %.018 = phi ptr [ null, %8 ], [ %12, %24 ], [ null, %13 ], [ %12, %setTempDir.exit ], [ %12, %scanfile.argprom.exit ], [ %12, %80 ], [ %12, %15 ]
+removeTempDir.exit:                               ; preds = %15, %80, %scanfile.exit, %setTempDir.exit, %24, %13, %8
+  %.019 = phi i32 [ 2, %8 ], [ 2, %24 ], [ 2, %13 ], [ 2, %setTempDir.exit ], [ 0, %scanfile.exit ], [ 0, %80 ], [ 2, %15 ]
+  %.018 = phi ptr [ null, %8 ], [ %12, %24 ], [ null, %13 ], [ %12, %setTempDir.exit ], [ %12, %scanfile.exit ], [ %12, %80 ], [ %12, %15 ]
   %82 = call i32 @cl_engine_free(ptr noundef %.018) #25
   ret i32 %.019
 }
@@ -4077,7 +4077,7 @@ removeTempDir.exit:                               ; preds = %38, %45
   br label %73
 
 56:                                               ; preds = %49
-  %57 = call fastcc ptr @getdbname.argelim(ptr noundef %54, ptr noundef %4)
+  %57 = call fastcc ptr @getdbname(ptr noundef %54, ptr noundef %4)
   %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.222, ptr noundef nonnull %4, i32 noundef %16) #25
   %59 = call fastcc i32 @diffdirs(ptr noundef %32, ptr noundef %48, ptr noundef %2)
   call void @removeTempDir(ptr noundef nonnull %0, ptr noundef nonnull %32)
@@ -4750,7 +4750,7 @@ declare ptr @cli_utf16toascii(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @getdbname.argelim(ptr noundef %0, ptr noundef nonnull returned %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @getdbname(ptr noundef %0, ptr noundef nonnull returned %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @cli_strbcasestr(ptr noundef %0, ptr noundef nonnull @.str.175) #25
@@ -6472,13 +6472,13 @@ define internal fastcc range(i32 -1, 1) i32 @decodesig(ptr noundef nonnull %0, i
 73:                                               ; preds = %72
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.352) #25
   %74 = load ptr, ptr %51, align 16
-  call fastcc void @decodesigmod.argelim(ptr noundef %74)
+  call fastcc void @decodesigmod(ptr noundef %74)
   br label %78
 
 75:                                               ; preds = %72
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.352) #25
   %76 = load ptr, ptr %50, align 8
-  call fastcc void @decodesigmod.argelim(ptr noundef %76)
+  call fastcc void @decodesigmod(ptr noundef %76)
   br label %78
 
 77:                                               ; preds = %72
@@ -6493,7 +6493,7 @@ define internal fastcc range(i32 -1, 1) i32 @decodesig(ptr noundef nonnull %0, i
 
 82:                                               ; preds = %78
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.354) #25
-  call fastcc void @decodehex.argelim(ptr noundef %81)
+  call fastcc void @decodehex(ptr noundef %81)
   br label %84
 
 83:                                               ; preds = %78
@@ -6916,7 +6916,7 @@ decodecdb.exit:                                   ; preds = %120, %124, %149, %1
   ]
 
 252:                                              ; preds = %251, %251, %251
-  call fastcc void @decodeftm.argelim(ptr noundef %4, i32 noundef %89)
+  call fastcc void @decodeftm(ptr noundef %4, i32 noundef %89)
   br label %.loopexit
 
 253:                                              ; preds = %251, %244, %242
@@ -6988,7 +6988,7 @@ switch.lookup:                                    ; preds = %271
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.375) #25
   %281 = getelementptr inbounds i8, ptr %4, i64 24
   %282 = load ptr, ptr %281, align 8
-  call fastcc void @decodehex.argelim(ptr noundef %282)
+  call fastcc void @decodehex(ptr noundef %282)
   br label %.loopexit
 
 sub_0:                                            ; preds = %switch.lookup
@@ -7025,7 +7025,7 @@ sub_1:                                            ; preds = %sub_0
 
 296:                                              ; preds = %293
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.375) #25
-  tail call fastcc void @decodehex.argelim(ptr noundef nonnull %294)
+  tail call fastcc void @decodehex(ptr noundef nonnull %294)
   br label %.loopexit
 
 297:                                              ; preds = %293
@@ -7046,7 +7046,7 @@ declare i64 @cli_ldbtokenize(ptr noundef, i8 noundef signext, i64 noundef, ptr n
 declare i32 @cli_ac_chklsig(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decodesigmod.argelim(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @decodesigmod(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %char0 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %char0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -7087,7 +7087,7 @@ define internal fastcc void @decodesigmod.argelim(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decodehex.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %4 = trunc i64 %3 to i32
@@ -7804,7 +7804,7 @@ declare i64 @cli_strtokenize(ptr noundef, i8 noundef signext, i64 noundef, ptr n
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decodeftm.argelim(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 6, 9) %1) unnamed_addr #0 {
+define internal fastcc void @decodeftm(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 6, 9) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.471, ptr noundef %4) #25
@@ -7818,7 +7818,7 @@ define internal fastcc void @decodeftm.argelim(ptr nocapture noundef nonnull rea
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.474, ptr noundef %9) #25
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.475) #25
   %10 = load ptr, ptr %8, align 8
-  tail call fastcc void @decodehex.argelim(ptr noundef %10)
+  tail call fastcc void @decodehex(ptr noundef %10)
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.476, ptr noundef %12) #25

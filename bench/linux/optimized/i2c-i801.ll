@@ -396,14 +396,14 @@ define internal i32 @i801_probe(ptr noundef %0, ptr nocapture noundef readonly %
   %102 = getelementptr i8, ptr %.val.val, i64 -16
   %103 = icmp ne ptr %102, null
   %104 = and i1 %101, %103
-  br i1 %104, label %105, label %i801_acpi_remove.argprom.argprom.exit
+  br i1 %104, label %105, label %i801_acpi_remove.exit
 
 105:                                              ; preds = %96
   %106 = getelementptr i8, ptr %.val.val, i64 -8
   %107 = load ptr, ptr %106, align 8
-  br label %i801_acpi_remove.argprom.argprom.exit
+  br label %i801_acpi_remove.exit
 
-i801_acpi_remove.argprom.argprom.exit:            ; preds = %96, %105
+i801_acpi_remove.exit:                            ; preds = %96, %105
   %108 = phi ptr [ %107, %105 ], [ null, %96 ]
   %109 = tail call i32 @acpi_remove_address_space_handler(ptr noundef %108, i8 noundef zeroext 1, ptr noundef nonnull @i801_acpi_io_handler) #15
   br label %296
@@ -727,13 +727,13 @@ i801_add_tco.exit:                                ; preds = %214, %219, %277, %2
   %.val6 = load ptr, ptr %35, align 8
   %291 = getelementptr i8, ptr %.val6, i64 816
   %.val6.val = load ptr, ptr %291, align 8
-  call fastcc void @i801_acpi_remove.argprom.argprom(ptr %.val6.val)
+  call fastcc void @i801_acpi_remove(ptr %.val6.val)
   call fastcc void @i801_restore_regs(ptr noundef nonnull %10)
   br label %296
 
 292:                                              ; preds = %i801_add_tco.exit
   %.val7 = load ptr, ptr %13, align 8
-  call fastcc void @i801_enable_host_notify.argprom(ptr %.val7)
+  call fastcc void @i801_enable_host_notify(ptr %.val7)
   call fastcc void @i801_probe_optional_slaves(ptr noundef nonnull %10)
   %293 = getelementptr inbounds i8, ptr %0, i64 304
   store ptr %10, ptr %293, align 8
@@ -745,8 +745,8 @@ i801_add_tco.exit:                                ; preds = %214, %219, %277, %2
   call void @pm_runtime_allow(ptr noundef %9) #15
   br label %296
 
-296:                                              ; preds = %292, %288, %i801_acpi_remove.argprom.argprom.exit, %88, %72, %66, %2
-  %297 = phi i32 [ %64, %66 ], [ %94, %i801_acpi_remove.argprom.argprom.exit ], [ %286, %288 ], [ 0, %292 ], [ -19, %72 ], [ -12, %2 ], [ -19, %88 ]
+296:                                              ; preds = %292, %288, %i801_acpi_remove.exit, %88, %72, %66, %2
+  %297 = phi i32 [ %64, %66 ], [ %94, %i801_acpi_remove.exit ], [ %286, %288 ], [ 0, %292 ], [ -19, %72 ], [ -12, %2 ], [ -19, %88 ]
   ret i32 %297
 }
 
@@ -886,7 +886,7 @@ declare dso_local void @pcim_pin_device(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @pcim_iomap_regions(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @i801_acpi_remove.argprom.argprom(ptr %.1040.val.816.val) unnamed_addr #3 align 16 {
+define internal fastcc void @i801_acpi_remove(ptr %.1040.val.816.val) unnamed_addr #3 align 16 {
   %1 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %.1040.val.816.val) #15
   %2 = getelementptr i8, ptr %.1040.val.816.val, i64 -16
   %3 = icmp ne ptr %2, null
@@ -1167,7 +1167,7 @@ define internal fastcc void @i801_restore_regs(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @i801_enable_host_notify.argprom(ptr nocapture readonly %.232.val) unnamed_addr #3 align 16 {
+define internal fastcc void @i801_enable_host_notify(ptr nocapture readonly %.232.val) unnamed_addr #3 align 16 {
   %1 = getelementptr inbounds i8, ptr %.232.val, i64 1048
   %2 = load i32, ptr %1, align 8
   %3 = and i32 %2, 32

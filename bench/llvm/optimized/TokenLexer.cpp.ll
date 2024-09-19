@@ -2602,7 +2602,7 @@ define dso_local void @_ZN5clang10TokenLexer26updateLocForMacroArgTokensENS_14So
   %44 = sub nsw i32 %.029.val.i.i.i.i.i.i, %.sroa.0.3.i
   %45 = icmp ugt i32 %44, 50
   %or.cond.i = select i1 %43, i1 true, i1 %45
-  br i1 %or.cond.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i", label %46
+  br i1 %or.cond.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i", label %46
 
 46:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %47 = getelementptr inbounds i8, ptr %.02967.i.i.i.i.i.i, i64 24
@@ -2611,7 +2611,7 @@ define dso_local void @_ZN5clang10TokenLexer26updateLocForMacroArgTokensENS_14So
   %49 = sub nsw i32 %.val31.i.i.i.i.i.i, %.029.val.i.i.i.i.i.i
   %50 = icmp ugt i32 %49, 50
   %or.cond90.i = select i1 %48, i1 true, i1 %50
-  br i1 %or.cond90.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit63", label %51
+  br i1 %or.cond90.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit63", label %51
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds i8, ptr %.02967.i.i.i.i.i.i, i64 48
@@ -2620,7 +2620,7 @@ define dso_local void @_ZN5clang10TokenLexer26updateLocForMacroArgTokensENS_14So
   %54 = sub nsw i32 %.val33.i.i.i.i.i.i, %.val31.i.i.i.i.i.i
   %55 = icmp ugt i32 %54, 50
   %or.cond92.i = select i1 %53, i1 true, i1 %55
-  br i1 %or.cond92.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit61", label %56
+  br i1 %or.cond92.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit61", label %56
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds i8, ptr %.02967.i.i.i.i.i.i, i64 72
@@ -2629,7 +2629,7 @@ define dso_local void @_ZN5clang10TokenLexer26updateLocForMacroArgTokensENS_14So
   %59 = sub nsw i32 %.val35.i.i.i.i.i.i, %.val33.i.i.i.i.i.i
   %60 = icmp ugt i32 %59, 50
   %or.cond94.i = select i1 %58, i1 true, i1 %60
-  br i1 %or.cond94.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit", label %61
+  br i1 %or.cond94.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit", label %61
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds i8, ptr %.02967.i.i.i.i.i.i, i64 96
@@ -2659,7 +2659,7 @@ define dso_local void @_ZN5clang10TokenLexer26updateLocForMacroArgTokensENS_14So
   %68 = sub nsw i32 %.029.val37.i.i.i.i.i.i, %.sroa.0.0.i
   %69 = icmp ugt i32 %68, 50
   %or.cond96.i = select i1 %67, i1 true, i1 %69
-  br i1 %or.cond96.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i", label %70
+  br i1 %or.cond96.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i", label %70
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 24
@@ -2673,7 +2673,7 @@ define dso_local void @_ZN5clang10TokenLexer26updateLocForMacroArgTokensENS_14So
   %74 = sub nsw i32 %.1.val.i.i.i.i.i.i, %.sroa.0.2.i
   %75 = icmp ugt i32 %74, 50
   %or.cond98.i = select i1 %73, i1 true, i1 %75
-  br i1 %or.cond98.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i", label %76
+  br i1 %or.cond98.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i", label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 24
@@ -2687,10 +2687,10 @@ define dso_local void @_ZN5clang10TokenLexer26updateLocForMacroArgTokensENS_14So
   %80 = sub nsw i32 %.2.val.i.i.i.i.i.i, %.sroa.0.1.i
   %81 = icmp ugt i32 %80, 50
   %or.cond100.i = select i1 %79, i1 true, i1 %81
-  br i1 %or.cond100.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i", label %82
+  br i1 %or.cond100.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i", label %82
 
 82:                                               ; preds = %78, %._crit_edge.i.i.i.i.i.i
-  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i"
+  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i"
 
 83:                                               ; preds = %35
   %84 = and i32 %30, 2147483647
@@ -2795,7 +2795,7 @@ _ZNK5clang13SourceManager14getComposedLocENS_6FileIDEj.exit.i: ; preds = %112, %
   %121 = sub i32 %.029.val.i.i.i.i.i42.i, %.sroa.0.7.i
   %122 = icmp ugt i32 %121, 50
   %or.cond103.i = or i1 %or.cond101.i, %122
-  br i1 %or.cond103.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i", label %123
+  br i1 %or.cond103.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i", label %123
 
 123:                                              ; preds = %.lr.ph.i.i.i.i.i41.i
   %124 = getelementptr inbounds i8, ptr %.02983.i.i.i.i.i.i, i64 24
@@ -2806,7 +2806,7 @@ _ZNK5clang13SourceManager14getComposedLocENS_6FileIDEj.exit.i: ; preds = %112, %
   %125 = sub i32 %.val.i.i.i.i.i.i, %.029.val.i.i.i.i.i42.i
   %126 = icmp ugt i32 %125, 50
   %or.cond106.i = or i1 %or.cond104.i, %126
-  br i1 %or.cond106.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit55", label %127
+  br i1 %or.cond106.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit55", label %127
 
 127:                                              ; preds = %123
   %128 = getelementptr inbounds i8, ptr %.02983.i.i.i.i.i.i, i64 48
@@ -2817,7 +2817,7 @@ _ZNK5clang13SourceManager14getComposedLocENS_6FileIDEj.exit.i: ; preds = %112, %
   %129 = sub i32 %.val30.i.i.i.i.i.i, %.val.i.i.i.i.i.i
   %130 = icmp ugt i32 %129, 50
   %or.cond109.i = or i1 %or.cond107.i, %130
-  br i1 %or.cond109.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit53", label %131
+  br i1 %or.cond109.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit53", label %131
 
 131:                                              ; preds = %127
   %132 = getelementptr inbounds i8, ptr %.02983.i.i.i.i.i.i, i64 72
@@ -2828,7 +2828,7 @@ _ZNK5clang13SourceManager14getComposedLocENS_6FileIDEj.exit.i: ; preds = %112, %
   %133 = sub i32 %.val31.i.i.i.i.i43.i, %.val30.i.i.i.i.i.i
   %134 = icmp ugt i32 %133, 50
   %or.cond112.i = or i1 %or.cond110.i, %134
-  br i1 %or.cond112.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit", label %135
+  br i1 %or.cond112.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit", label %135
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds i8, ptr %.02983.i.i.i.i.i.i, i64 96
@@ -2860,7 +2860,7 @@ _ZNK5clang13SourceManager14getComposedLocENS_6FileIDEj.exit.i: ; preds = %112, %
   %141 = sub i32 %.029.val32.i.i.i.i.i.i, %.sroa.0.4.i
   %142 = icmp ugt i32 %141, 50
   %or.cond115.i = or i1 %or.cond113.i, %142
-  br i1 %or.cond115.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i", label %143
+  br i1 %or.cond115.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i", label %143
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i33.i, i64 24
@@ -2876,7 +2876,7 @@ _ZNK5clang13SourceManager14getComposedLocENS_6FileIDEj.exit.i: ; preds = %112, %
   %145 = sub i32 %.1.val.i.i.i.i.i40.i, %.sroa.0.6.i
   %146 = icmp ugt i32 %145, 50
   %or.cond118.i = or i1 %or.cond116.i, %146
-  br i1 %or.cond118.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i", label %147
+  br i1 %or.cond118.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i", label %147
 
 147:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i
   %148 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i39.i, i64 24
@@ -2892,37 +2892,37 @@ _ZNK5clang13SourceManager14getComposedLocENS_6FileIDEj.exit.i: ; preds = %112, %
   %149 = sub i32 %.2.val.i.i.i.i.i35.i, %.sroa.0.5.i
   %150 = icmp ugt i32 %149, 50
   %or.cond121.i = or i1 %or.cond119.i, %150
-  br i1 %or.cond121.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i", label %151
+  br i1 %or.cond121.i, label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i", label %151
 
 151:                                              ; preds = %._crit_edge._crit_edge95.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i32.i
-  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i"
+  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i"
 
-"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit": ; preds = %56
+"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit": ; preds = %56
   %152 = getelementptr inbounds i8, ptr %.02967.i.i.i.i.i.i, i64 72
-  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i"
+  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i"
 
-"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit61": ; preds = %51
+"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit61": ; preds = %51
   %153 = getelementptr inbounds i8, ptr %.02967.i.i.i.i.i.i, i64 48
-  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i"
+  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i"
 
-"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit63": ; preds = %46
+"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit63": ; preds = %46
   %154 = getelementptr inbounds i8, ptr %.02967.i.i.i.i.i.i, i64 24
-  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i"
+  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i"
 
-"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit": ; preds = %131
+"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit": ; preds = %131
   %155 = getelementptr inbounds i8, ptr %.02983.i.i.i.i.i.i, i64 72
-  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i"
+  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i"
 
-"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit53": ; preds = %127
+"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit53": ; preds = %127
   %156 = getelementptr inbounds i8, ptr %.02983.i.i.i.i.i.i, i64 48
-  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i"
+  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i"
 
-"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit55": ; preds = %123
+"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit55": ; preds = %123
   %157 = getelementptr inbounds i8, ptr %.02983.i.i.i.i.i.i, i64 24
-  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i"
+  br label %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i"
 
-"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i.i41.i, %.lr.ph.i.i.i.i.i.i, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit", %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit53", %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit55", %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit", %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit61", %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit63", %151, %._crit_edge._crit_edge95.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %140, %82, %78, %72, %66
-  %.pn.in.i = phi ptr [ %39, %82 ], [ %.029.lcssa.i.i.i.i.i.i, %66 ], [ %.1.i.i.i.i.i.i, %72 ], [ %.2.i.i.i.i.i.i, %78 ], [ %117, %151 ], [ %.029.lcssa.i.i.i.i.i33.i, %140 ], [ %.1.i.i.i.i.i39.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i34.i, %._crit_edge._crit_edge95.i.i.i.i.i.i ], [ %152, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit" ], [ %153, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit61" ], [ %154, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit.split.loop.exit63" ], [ %155, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit" ], [ %156, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit53" ], [ %157, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i.loopexit50.split.loop.exit55" ], [ %.02967.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.02983.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i41.i ]
+"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i": ; preds = %.lr.ph.i.i.i.i.i41.i, %.lr.ph.i.i.i.i.i.i, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit", %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit53", %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit55", %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit", %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit61", %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit63", %151, %._crit_edge._crit_edge95.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %140, %82, %78, %72, %66
+  %.pn.in.i = phi ptr [ %39, %82 ], [ %.029.lcssa.i.i.i.i.i.i, %66 ], [ %.1.i.i.i.i.i.i, %72 ], [ %.2.i.i.i.i.i.i, %78 ], [ %117, %151 ], [ %.029.lcssa.i.i.i.i.i33.i, %140 ], [ %.1.i.i.i.i.i39.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i34.i, %._crit_edge._crit_edge95.i.i.i.i.i.i ], [ %152, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit" ], [ %153, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit61" ], [ %154, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit.split.loop.exit63" ], [ %155, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit" ], [ %156, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit53" ], [ %157, %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i.loopexit50.split.loop.exit55" ], [ %.02967.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.02983.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i41.i ]
   %.pn.i = ptrtoint ptr %.pn.in.i to i64
   %.sroa.8.0.in.i = sub i64 %.pn.i, %27
   %158 = getelementptr i8, ptr %.037, i64 %.sroa.8.0.in.i
@@ -2932,7 +2932,7 @@ _ZNK5clang13SourceManager14getComposedLocENS_6FileIDEj.exit.i: ; preds = %112, %
   %162 = call noundef zeroext i1 @_ZN5clang3tok12isAnnotationENS0_9TokenKindE(i16 noundef zeroext %161) #15
   br i1 %162, label %163, label %168
 
-163:                                              ; preds = %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i"
+163:                                              ; preds = %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i"
   %164 = getelementptr i8, ptr %158, i64 -20
   %165 = load i32, ptr %164, align 4
   %.not.i.i.i = icmp eq i32 %165, 0
@@ -2940,7 +2940,7 @@ _ZNK5clang13SourceManager14getComposedLocENS_6FileIDEj.exit.i: ; preds = %112, %
   %167 = select i1 %.not.i.i.i, i32 %166, i32 %165
   br label %_ZNK5clang5Token9getEndLocEv.exit.i
 
-168:                                              ; preds = %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.argprom.exit.i"
+168:                                              ; preds = %"_ZNK4llvm15MutableArrayRefIN5clang5TokenEE10take_whileIZL31updateConsecutiveMacroArgTokensRNS1_13SourceManagerENS1_14SourceLocationERPS2_S8_E3$_0EES3_T_.exit.i"
   %169 = load i32, ptr %159, align 8
   %170 = getelementptr i8, ptr %158, i64 -20
   %171 = load i32, ptr %170, align 4
@@ -3061,7 +3061,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10TokenLexer3LexERNS_5TokenE(ptr n
   %51 = load ptr, ptr %0, align 8
   %.not42 = icmp eq ptr %51, null
   %or.cond = select i1 %50, i1 true, i1 %.not42
-  br i1 %or.cond, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.argprom.exit.thread, label %52
+  br i1 %or.cond, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.exit.thread, label %52
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr %35, align 8
@@ -3079,7 +3079,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10TokenLexer3LexERNS_5TokenE(ptr n
   %63 = load i64, ptr %62, align 8
   %64 = and i64 %63, 32
   %.not43 = icmp eq i64 %64, 0
-  br i1 %.not43, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.argprom.exit.thread, label %65
+  br i1 %.not43, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.exit.thread, label %65
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3087,7 +3087,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10TokenLexer3LexERNS_5TokenE(ptr n
   %67 = getelementptr i8, ptr %55, i64 18
   %.val52 = load i16, ptr %67, align 2
   %68 = icmp eq i16 %.val50, 5
-  br i1 %68, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.argprom.exit.thread
+  br i1 %68, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.exit.thread
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %65
   %69 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3097,7 +3097,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %65
   %72 = load i64, ptr %71, align 8
   %73 = and i64 %72, 4294967295
   %74 = icmp eq i64 %73, 1
-  br i1 %74, label %_ZNK5clang14IdentifierInfo5isStrILm2EEEbRAT__Kc.exit.i, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.argprom.exit.thread
+  br i1 %74, label %_ZNK5clang14IdentifierInfo5isStrILm2EEEbRAT__Kc.exit.i, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.exit.thread
 
 _ZNK5clang14IdentifierInfo5isStrILm2EEEbRAT__Kc.exit.i: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
   %75 = getelementptr inbounds i8, ptr %71, i64 16
@@ -3109,21 +3109,21 @@ _ZNK5clang14IdentifierInfo5isStrILm2EEEbRAT__Kc.exit.i: ; preds = %_ZNK5clang5To
   %77 = and i16 %.val52, 256
   %78 = icmp ne i16 %77, 0
   %or.cond64 = select i1 %or.cond.i, i1 %78, i1 false
-  br i1 %or.cond64, label %79, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.argprom.exit.thread
+  br i1 %or.cond64, label %79, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.exit.thread
 
 79:                                               ; preds = %_ZNK5clang14IdentifierInfo5isStrILm2EEEbRAT__Kc.exit.i, %52
   %80 = zext i32 %49 to i64
   %81 = tail call noundef zeroext i1 @_ZN5clang10TokenLexer11pasteTokensERNS_5TokenEN4llvm8ArrayRefIS1_EERj(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr nonnull %53, i64 %80, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br i1 %81, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.argprom.exit.thread
+  br i1 %81, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, label %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.exit.thread
 
-_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.argprom.exit.thread: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %65, %_ZNK5clang14IdentifierInfo5isStrILm2EEEbRAT__Kc.exit.i, %79, %59, %47
+_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.exit.thread: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %65, %_ZNK5clang14IdentifierInfo5isStrILm2EEEbRAT__Kc.exit.i, %79, %59, %47
   %.040.not = phi i1 [ true, %47 ], [ true, %59 ], [ false, %79 ], [ true, %_ZNK5clang14IdentifierInfo5isStrILm2EEEbRAT__Kc.exit.i ], [ true, %65 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %83 = load i32, ptr %82, align 8
   %.not65 = icmp eq i32 %83, 0
   br i1 %.not65, label %116, label %84
 
-84:                                               ; preds = %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.argprom.exit.thread
+84:                                               ; preds = %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.exit.thread
   %85 = load i32, ptr %1, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %87 = load i32, ptr %86, align 4
@@ -3173,7 +3173,7 @@ _ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.argprom.exit.thread: ; pred
   store i32 %storemerge, ptr %1, align 8
   br label %116
 
-116:                                              ; preds = %115, %84, %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.argprom.exit.thread
+116:                                              ; preds = %115, %84, %_ZL28isWideStringLiteralFromMacroRKN5clang5TokenES2_.exit.thread
   %117 = load i8, ptr %40, align 8
   br i1 %34, label %118, label %126
 

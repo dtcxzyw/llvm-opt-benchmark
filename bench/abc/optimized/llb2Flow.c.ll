@@ -1360,9 +1360,9 @@ define i32 @Llb_ManCutLiNum(ptr nocapture noundef readonly %0, ptr nocapture nou
   %.val30.us.sink = load ptr, ptr %6, align 8
   br label %.lr.ph.split.us.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %Aig_ManObj.argprom.exit.us
-  %.238.us = phi i32 [ %29, %Aig_ManObj.argprom.exit.us ], [ %.02144, %.lr.ph.split.us ]
-  %.02337.us = phi i32 [ %30, %Aig_ManObj.argprom.exit.us ], [ 0, %.lr.ph.split.us ]
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %Aig_ManObj.exit.us
+  %.238.us = phi i32 [ %29, %Aig_ManObj.exit.us ], [ %.02144, %.lr.ph.split.us ]
+  %.02337.us = phi i32 [ %30, %Aig_ManObj.exit.us ], [ 0, %.lr.ph.split.us ]
   %.not25.us = icmp eq i32 %.02337.us, 0
   br i1 %.not25.us, label %24, label %18
 
@@ -1372,14 +1372,14 @@ define i32 @Llb_ManCutLiNum(ptr nocapture noundef readonly %0, ptr nocapture nou
   %21 = and i32 %.238.us, 1
   %22 = add nuw nsw i32 %21, 3
   %23 = add i32 %22, %20
-  br label %Aig_ManObj.argprom.exit.us
+  br label %Aig_ManObj.exit.us
 
 24:                                               ; preds = %.lr.ph.split.us.split
   %25 = load i32, ptr %16, align 4
   %26 = mul nsw i32 %25, 5
-  br label %Aig_ManObj.argprom.exit.us
+  br label %Aig_ManObj.exit.us
 
-Aig_ManObj.argprom.exit.us:                       ; preds = %24, %18
+Aig_ManObj.exit.us:                               ; preds = %24, %18
   %.sink60 = phi i32 [ %26, %24 ], [ %23, %18 ]
   %27 = sext i32 %.sink60 to i64
   %28 = getelementptr inbounds i32, ptr %.val30.us.sink, i64 %27
@@ -1407,14 +1407,14 @@ Aig_ManObj.argprom.exit.us:                       ; preds = %24, %18
   %36 = and i32 %.238, 1
   %37 = add nuw nsw i32 %36, 3
   %38 = add i32 %37, %35
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
 39:                                               ; preds = %32
   %40 = load i32, ptr %16, align 4
   %41 = mul nsw i32 %40, 5
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %39, %33
+Aig_ManObj.exit:                                  ; preds = %39, %33
   %.sink61 = phi i32 [ %41, %39 ], [ %38, %33 ]
   %42 = sext i32 %.sink61 to i64
   %43 = getelementptr inbounds i32, ptr %.val30.sink, i64 %42
@@ -1429,7 +1429,7 @@ Aig_ManObj.argprom.exit:                          ; preds = %39, %33
   %.not.i32 = icmp eq i64 %50, 3
   br i1 %.not.i32, label %Saig_ObjIsLi.exit, label %Saig_ObjIsLi.exit.thread
 
-Saig_ObjIsLi.exit:                                ; preds = %Aig_ManObj.argprom.exit
+Saig_ObjIsLi.exit:                                ; preds = %Aig_ManObj.exit
   %.val.i33 = load i32, ptr %48, align 8
   %.val3.i = load i32, ptr %8, align 8
   %.not35 = icmp slt i32 %.val.i33, %.val3.i
@@ -1439,14 +1439,14 @@ Saig_ObjIsLi.exit:                                ; preds = %Aig_ManObj.argprom.
   %51 = add nsw i32 %.045, 1
   br label %.critedge2
 
-Saig_ObjIsLi.exit.thread:                         ; preds = %Aig_ManObj.argprom.exit, %Saig_ObjIsLi.exit
+Saig_ObjIsLi.exit.thread:                         ; preds = %Aig_ManObj.exit, %Saig_ObjIsLi.exit
   %52 = add nuw nsw i32 %.02337, 1
   %exitcond.not = icmp eq i32 %52, %umax
   br i1 %exitcond.not, label %.critedge2, label %32, !llvm.loop !24
 
-.critedge2:                                       ; preds = %Saig_ObjIsLi.exit.thread, %Aig_ManObj.argprom.exit.us, %.preheader, %.split, %9
-  %.122 = phi i32 [ %.02144, %9 ], [ %44, %.split ], [ %.02144, %.preheader ], [ %29, %Aig_ManObj.argprom.exit.us ], [ %44, %Saig_ObjIsLi.exit.thread ]
-  %.1 = phi i32 [ %.045, %9 ], [ %51, %.split ], [ %.045, %.preheader ], [ %.045, %Aig_ManObj.argprom.exit.us ], [ %.045, %Saig_ObjIsLi.exit.thread ]
+.critedge2:                                       ; preds = %Saig_ObjIsLi.exit.thread, %Aig_ManObj.exit.us, %.preheader, %.split, %9
+  %.122 = phi i32 [ %.02144, %9 ], [ %44, %.split ], [ %.02144, %.preheader ], [ %29, %Aig_ManObj.exit.us ], [ %44, %Saig_ObjIsLi.exit.thread ]
+  %.1 = phi i32 [ %.045, %9 ], [ %51, %.split ], [ %.045, %.preheader ], [ %.045, %Aig_ManObj.exit.us ], [ %.045, %Saig_ObjIsLi.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond56.not, label %.critedge, label %9, !llvm.loop !25
@@ -2283,7 +2283,7 @@ define range(i32 0, 2) i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef 
   %.val15.sink.i = load ptr, ptr %39, align 8
   br label %45
 
-43:                                               ; preds = %Aig_ManObj.argprom.exit.i
+43:                                               ; preds = %Aig_ManObj.exit.i
   %44 = add nuw nsw i32 %.01318.i, 1
   %exitcond.not.i = icmp eq i32 %44, %38
   br i1 %exitcond.not.i, label %Llb_ObjGetFanoutPath.exit.thread, label %45, !llvm.loop !32
@@ -2300,14 +2300,14 @@ define range(i32 0, 2) i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef 
   %49 = and i32 %.019.i, 1
   %50 = add nuw nsw i32 %49, 3
   %51 = add i32 %50, %48
-  br label %Aig_ManObj.argprom.exit.i
+  br label %Aig_ManObj.exit.i
 
 52:                                               ; preds = %45
   %53 = load i32, ptr %40, align 4
   %54 = mul nsw i32 %53, 5
-  br label %Aig_ManObj.argprom.exit.i
+  br label %Aig_ManObj.exit.i
 
-Aig_ManObj.argprom.exit.i:                        ; preds = %52, %46
+Aig_ManObj.exit.i:                                ; preds = %52, %46
   %.sink22.i = phi i32 [ %54, %52 ], [ %51, %46 ]
   %55 = sext i32 %.sink22.i to i64
   %56 = getelementptr inbounds i32, ptr %.val15.sink.i, i64 %55
@@ -2321,7 +2321,7 @@ Aig_ManObj.argprom.exit.i:                        ; preds = %52, %46
   %63 = icmp eq ptr %.val17.i, %1
   br i1 %63, label %Llb_ObjGetFanoutPath.exit, label %43
 
-Llb_ObjGetFanoutPath.exit:                        ; preds = %Aig_ManObj.argprom.exit.i
+Llb_ObjGetFanoutPath.exit:                        ; preds = %Aig_ManObj.exit.i
   %64 = getelementptr i8, ptr %61, i64 40
   %65 = getelementptr i8, ptr %61, i64 8
   %.val42 = load ptr, ptr %65, align 8
@@ -3744,9 +3744,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %53 = getelementptr i8, ptr %0, i64 32
   br label %54
 
-54:                                               ; preds = %.lr.ph, %Aig_ManObj.argprom.exit
-  %.032 = phi i32 [ -1, %.lr.ph ], [ %67, %Aig_ManObj.argprom.exit ]
-  %.02031 = phi i32 [ 0, %.lr.ph ], [ %75, %Aig_ManObj.argprom.exit ]
+54:                                               ; preds = %.lr.ph, %Aig_ManObj.exit
+  %.032 = phi i32 [ -1, %.lr.ph ], [ %67, %Aig_ManObj.exit ]
+  %.02031 = phi i32 [ 0, %.lr.ph ], [ %75, %Aig_ManObj.exit ]
   %.not23 = icmp eq i32 %.02031, 0
   br i1 %.not23, label %61, label %55
 
@@ -3771,7 +3771,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %67 = load i32, ptr %66, align 4
   %.val26 = load ptr, ptr %53, align 8
   %.not.i27 = icmp eq ptr %.val26, null
-  br i1 %.not.i27, label %Aig_ManObj.argprom.exit, label %68
+  br i1 %.not.i27, label %Aig_ManObj.exit, label %68
 
 68:                                               ; preds = %64
   %69 = ashr i32 %67, 1
@@ -3780,9 +3780,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %71 = sext i32 %69 to i64
   %72 = getelementptr inbounds ptr, ptr %.val.i28, i64 %71
   %73 = load ptr, ptr %72, align 8
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %64, %68
+Aig_ManObj.exit:                                  ; preds = %64, %68
   %74 = phi ptr [ %73, %68 ], [ null, %64 ]
   tail call void @Llb_ManFlowCollectAndMarkCone_rec(ptr noundef nonnull %0, ptr noundef %74, ptr noundef %2)
   %75 = add nuw nsw i32 %.02031, 1
@@ -3792,7 +3792,7 @@ Aig_ManObj.argprom.exit:                          ; preds = %64, %68
   %79 = icmp ult i32 %75, %78
   br i1 %79, label %54, label %.critedge, !llvm.loop !47
 
-.critedge:                                        ; preds = %Aig_ManObj.argprom.exit, %48, %Saig_ObjIsLi.exit.thread, %Saig_ObjIsLi.exit
+.critedge:                                        ; preds = %Aig_ManObj.exit, %48, %Saig_ObjIsLi.exit.thread, %Saig_ObjIsLi.exit
   ret void
 }
 

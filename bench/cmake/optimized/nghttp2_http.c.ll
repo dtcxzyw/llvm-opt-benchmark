@@ -978,12 +978,12 @@ define dso_local range(i32 -1, 1) i32 @nghttp2_http_on_request_headers(ptr nocap
 7:                                                ; preds = %2
   %8 = and i32 %4, 11
   %or.cond20.not = icmp eq i32 %8, 1
-  br i1 %or.cond20.not, label %9, label %check_path.argprom.exit.thread
+  br i1 %or.cond20.not, label %9, label %check_path.exit.thread
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 -1, ptr %10, align 8
-  br label %check_path.argprom.exit.thread26
+  br label %check_path.exit.thread26
 
 11:                                               ; preds = %2
   %12 = and i32 %4, 14
@@ -991,14 +991,14 @@ define dso_local range(i32 -1, 1) i32 @nghttp2_http_on_request_headers(ptr nocap
   %13 = and i32 %4, 17
   %14 = icmp eq i32 %13, 0
   %or.cond22 = or i1 %.not16, %14
-  br i1 %or.cond22, label %check_path.argprom.exit.thread, label %15
+  br i1 %or.cond22, label %check_path.exit.thread, label %15
 
 15:                                               ; preds = %11
   %.not17 = icmp eq i32 %5, 0
   %16 = and i32 %4, 129
   %or.cond24.not = icmp eq i32 %16, 129
   %or.cond = or i1 %.not17, %or.cond24.not
-  br i1 %or.cond, label %17, label %check_path.argprom.exit.thread
+  br i1 %or.cond, label %17, label %check_path.exit.thread
 
 17:                                               ; preds = %15
   %18 = and i32 %4, 10240
@@ -1006,23 +1006,23 @@ define dso_local range(i32 -1, 1) i32 @nghttp2_http_on_request_headers(ptr nocap
   %19 = and i32 %4, 4608
   %or.cond28.not = icmp eq i32 %19, 4608
   %or.cond29 = or i1 %or.cond.i, %or.cond28.not
-  br i1 %or.cond29, label %check_path.argprom.exit.thread26, label %check_path.argprom.exit.thread
+  br i1 %or.cond29, label %check_path.exit.thread26, label %check_path.exit.thread
 
-check_path.argprom.exit.thread26:                 ; preds = %17, %9
+check_path.exit.thread26:                         ; preds = %17, %9
   %20 = getelementptr inbounds i8, ptr %1, i64 12
   %21 = load i8, ptr %20, align 4
   %22 = icmp eq i8 %21, 5
-  br i1 %22, label %23, label %check_path.argprom.exit.thread
+  br i1 %22, label %23, label %check_path.exit.thread
 
-23:                                               ; preds = %check_path.argprom.exit.thread26
+23:                                               ; preds = %check_path.exit.thread26
   %24 = and i32 %4, 1920
   store i32 %24, ptr %3, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 -1, ptr %25, align 8
-  br label %check_path.argprom.exit.thread
+  br label %check_path.exit.thread
 
-check_path.argprom.exit.thread:                   ; preds = %17, %15, %check_path.argprom.exit.thread26, %23, %11, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %11 ], [ 0, %23 ], [ 0, %check_path.argprom.exit.thread26 ], [ -1, %15 ], [ -1, %17 ]
+check_path.exit.thread:                           ; preds = %17, %15, %check_path.exit.thread26, %23, %11, %7
+  %.0 = phi i32 [ -1, %7 ], [ -1, %11 ], [ 0, %23 ], [ 0, %check_path.exit.thread26 ], [ -1, %15 ], [ -1, %17 ]
   ret i32 %.0
 }
 

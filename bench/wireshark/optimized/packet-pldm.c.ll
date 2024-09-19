@@ -701,7 +701,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %66 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %42, i32 noundef %65, ptr noundef %53, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %24) #5
   %67 = load i32, ptr %24, align 4
   %.not163.i = icmp eq i32 %67, 0
-  br i1 %.not163.i, label %68, label %dissect_base.argprom.exit
+  br i1 %.not163.i, label %68, label %dissect_base.exit
 
 68:                                               ; preds = %64, %61
   %.0154.i = phi i8 [ 1, %61 ], [ 2, %64 ]
@@ -715,22 +715,22 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   ]
 
 70:                                               ; preds = %68
-  br i1 %.not.i, label %dissect_base.argprom.exit, label %71
+  br i1 %.not.i, label %dissect_base.exit, label %71
 
 71:                                               ; preds = %70
   %72 = load i32, ptr @hf_pldm_base_TID, align 4
   %73 = zext nneg i8 %.0154.i to i32
   %74 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %72, ptr noundef %53, i32 noundef %73, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_base.argprom.exit
+  br label %dissect_base.exit
 
 75:                                               ; preds = %68
-  br i1 %.not.i, label %76, label %dissect_base.argprom.exit
+  br i1 %.not.i, label %76, label %dissect_base.exit
 
 76:                                               ; preds = %75
   %77 = load i32, ptr @hf_pldm_base_TID, align 4
   %78 = zext nneg i8 %.0154.i to i32
   %79 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %77, ptr noundef %53, i32 noundef %78, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_base.argprom.exit
+  br label %dissect_base.exit
 
 80:                                               ; preds = %68
   %81 = zext nneg i8 %.0154.i to i32
@@ -747,7 +747,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %90 = load i32, ptr @hf_pldm_base_PLDMtype, align 4
   %91 = zext nneg i8 %84 to i32
   %92 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %90, ptr noundef %53, i32 noundef %91, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_base.argprom.exit
+  br label %dissect_base.exit
 
 93:                                               ; preds = %80
   %94 = load i32, ptr @hf_pldm_base_nextDataTransferHandle, align 4
@@ -755,13 +755,13 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %96 = load i32, ptr @hf_pldm_base_transferFlag, align 4
   %97 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %96, ptr noundef %53, i32 noundef %83, i32 noundef 1, i32 noundef -2147483648) #5
   %98 = zext nneg i8 %84 to i32
-  call fastcc void @ver2str.retelim(ptr noundef %53, i32 noundef %98)
+  call fastcc void @ver2str(ptr noundef %53, i32 noundef %98)
   %99 = load i32, ptr @hf_pldm_base_typeVersion, align 4
   %100 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %42, i32 noundef %99, ptr noundef %53, i32 noundef %98, i32 noundef 4, ptr noundef nonnull @ver2str.buffer, ptr noundef nonnull @.str.412, ptr noundef nonnull @ver2str.buffer) #5
-  br label %dissect_base.argprom.exit
+  br label %dissect_base.exit
 
 101:                                              ; preds = %68
-  br i1 %.not.i, label %.preheader.preheader.i, label %dissect_base.argprom.exit
+  br i1 %.not.i, label %.preheader.preheader.i, label %dissect_base.exit
 
 .preheader.preheader.i:                           ; preds = %101
   %102 = zext nneg i8 %.0154.i to i32
@@ -799,7 +799,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %117 = add nuw nsw i32 %.015618.i, 1
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond29.not.i = icmp eq i32 %117, 8
-  br i1 %exitcond29.not.i, label %dissect_base.argprom.exit, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond29.not.i, label %dissect_base.exit, label %.preheader.i, !llvm.loop !6
 
 118:                                              ; preds = %68
   br i1 %.not.i, label %142, label %119
@@ -819,7 +819,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
 126:                                              ; preds = %119
   %127 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %127, i32 noundef 25, ptr noundef nonnull @.str.413) #5
-  br label %dissect_base.argprom.exit
+  br label %dissect_base.exit
 
 128:                                              ; preds = %119
   %129 = call noalias ptr @wmem_map_new(ptr noundef null, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #5
@@ -835,10 +835,10 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %137 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %136, ptr noundef %53, i32 noundef %120, i32 noundef 1, i32 noundef -2147483648) #5
   %138 = add nuw nsw i8 %.0154.i, 1
   %139 = zext nneg i8 %138 to i32
-  call fastcc void @ver2str.retelim(ptr noundef %53, i32 noundef %139)
+  call fastcc void @ver2str(ptr noundef %53, i32 noundef %139)
   %140 = load i32, ptr @hf_pldm_base_typeVersion, align 4
   %141 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %42, i32 noundef %140, ptr noundef %53, i32 noundef %139, i32 noundef 4, ptr noundef nonnull @ver2str.buffer, ptr noundef nonnull @.str.412, ptr noundef nonnull @ver2str.buffer) #5
-  br label %dissect_base.argprom.exit
+  br label %dissect_base.exit
 
 142:                                              ; preds = %118
   %143 = load ptr, ptr @pldmTypeMap, align 8
@@ -878,7 +878,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %160 = shl nuw nsw i32 %.016114.i, 1
   %161 = and i32 %160, 510
   %exitcond26.not.i = icmp eq i32 %159, 8
-  br i1 %exitcond26.not.i, label %dissect_base.argprom.exit, label %153, !llvm.loop !7
+  br i1 %exitcond26.not.i, label %dissect_base.exit, label %153, !llvm.loop !7
 
 162:                                              ; preds = %142
   %163 = zext nneg i8 %.0154.i to i32
@@ -928,7 +928,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %190 = add nuw nsw i32 %.015712.i, 1
   %191 = shl i64 %spec.select.i, 1
   %exitcond25.not.i = icmp eq i32 %190, 88
-  br i1 %exitcond25.not.i, label %dissect_base.argprom.exit, label %174, !llvm.loop !8
+  br i1 %exitcond25.not.i, label %dissect_base.exit, label %174, !llvm.loop !8
 
 192:                                              ; preds = %142
   %193 = zext nneg i8 %.0154.i to i32
@@ -961,7 +961,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %208 = shl nuw nsw i32 %.01539.i, 1
   %209 = and i32 %208, 131070
   %exitcond24.not.i = icmp eq i32 %207, 16
-  br i1 %exitcond24.not.i, label %dissect_base.argprom.exit, label %196, !llvm.loop !9
+  br i1 %exitcond24.not.i, label %dissect_base.exit, label %196, !llvm.loop !9
 
 210:                                              ; preds = %142
   %211 = zext nneg i8 %.0154.i to i32
@@ -992,19 +992,19 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %224 = add nuw nsw i32 %.07.i, 1
   %225 = shl i64 %.01506.i, 1
   %exitcond.not.i = icmp eq i32 %224, 64
-  br i1 %exitcond.not.i, label %dissect_base.argprom.exit, label %213, !llvm.loop !10
+  br i1 %exitcond.not.i, label %dissect_base.exit, label %213, !llvm.loop !10
 
 226:                                              ; preds = %142
   %227 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %227, i32 noundef 25, ptr noundef nonnull @.str.414) #5
-  br label %dissect_base.argprom.exit
+  br label %dissect_base.exit
 
 228:                                              ; preds = %68
   %229 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull @.str.415) #5
-  br label %dissect_base.argprom.exit
+  br label %dissect_base.exit
 
-dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %158, %116, %64, %70, %71, %75, %76, %85, %93, %101, %126, %128, %226, %228
+dissect_base.exit:                                ; preds = %223, %206, %189, %158, %116, %64, %70, %71, %75, %76, %85, %93, %101, %126, %128, %226, %228
   %230 = call i32 @tvb_captured_length(ptr noundef %53) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
@@ -1039,7 +1039,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %236 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %42, i32 noundef %235, ptr noundef %53, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #5
   %237 = load i32, ptr %7, align 4
   %.not401.i = icmp eq i32 %237, 0
-  br i1 %.not401.i, label %238, label %dissect_platform.argprom.exit
+  br i1 %.not401.i, label %238, label %dissect_platform.exit
 
 238:                                              ; preds = %234, %231
   %.0395.i = phi i8 [ 1, %231 ], [ 2, %234 ]
@@ -1056,7 +1056,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   ]
 
 240:                                              ; preds = %238
-  br i1 %.not.i49, label %dissect_platform.argprom.exit, label %241
+  br i1 %.not.i49, label %dissect_platform.exit, label %241
 
 241:                                              ; preds = %240
   %242 = load i32, ptr @hf_event_message_global, align 4
@@ -1084,14 +1084,14 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %259 = load i32, ptr %9, align 4
   %260 = icmp eq i32 %259, 3
   %or.cond3.i = select i1 %258, i1 %260, i1 false
-  br i1 %or.cond3.i, label %261, label %dissect_platform.argprom.exit
+  br i1 %or.cond3.i, label %261, label %dissect_platform.exit
 
 261:                                              ; preds = %257
   %narrow.i = add nuw nsw i8 %.0395.i, 3
   %262 = load i32, ptr @hf_heartbeat_timer, align 4
   %263 = zext nneg i8 %narrow.i to i32
   %264 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %262, ptr noundef %53, i32 noundef %263, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 265:                                              ; preds = %238
   %266 = zext nneg i8 %.0395.i to i32
@@ -1140,7 +1140,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %295 = load i32, ptr @hf_sensor_prev_op_state, align 4
   %296 = zext nneg i8 %294 to i32
   %297 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %295, ptr noundef %53, i32 noundef %296, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 298:                                              ; preds = %280
   %299 = load i32, ptr @hf_sensor_offset, align 4
@@ -1154,7 +1154,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %307 = load i32, ptr @hf_event_prev_state, align 4
   %308 = zext nneg i8 %306 to i32
   %309 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %307, ptr noundef %53, i32 noundef %308, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 310:                                              ; preds = %280
   %311 = load i32, ptr @hf_event_state, align 4
@@ -1183,47 +1183,47 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %325 = load i32, ptr @hf_sensor_value_u8, align 4
   %326 = zext nneg i8 %322 to i32
   %327 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %325, ptr noundef %53, i32 noundef %326, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 328:                                              ; preds = %310
   %329 = load i32, ptr @hf_sensor_value_s8, align 4
   %330 = zext nneg i8 %322 to i32
   %331 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %329, ptr noundef %53, i32 noundef %330, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 332:                                              ; preds = %310
   %333 = load i32, ptr @hf_sensor_value_u16, align 4
   %334 = zext nneg i8 %322 to i32
   %335 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %333, ptr noundef %53, i32 noundef %334, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 336:                                              ; preds = %310
   %337 = load i32, ptr @hf_sensor_value_s16, align 4
   %338 = zext nneg i8 %322 to i32
   %339 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %337, ptr noundef %53, i32 noundef %338, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 340:                                              ; preds = %310
   %341 = load i32, ptr @hf_sensor_value_u32, align 4
   %342 = zext nneg i8 %322 to i32
   %343 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %341, ptr noundef %53, i32 noundef %342, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 344:                                              ; preds = %310
   %345 = load i32, ptr @hf_sensor_value_s32, align 4
   %346 = zext nneg i8 %322 to i32
   %347 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %345, ptr noundef %53, i32 noundef %346, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 348:                                              ; preds = %310
   %349 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %349, i32 noundef 25, ptr noundef nonnull @.str.421) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 350:                                              ; preds = %280
   %351 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %351, i32 noundef 25, ptr noundef nonnull @.str.422) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 352:                                              ; preds = %267
   %353 = load i32, ptr @hf_pdr_data_format, align 4
@@ -1235,7 +1235,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %359 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %42, i32 noundef %357, ptr noundef %53, i32 noundef %358, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %14) #5
   %360 = load i32, ptr %14, align 4
   %.not406.i = icmp eq i32 %360, 0
-  br i1 %.not406.i, label %dissect_platform.argprom.exit, label %.lr.ph19.preheader.i
+  br i1 %.not406.i, label %dissect_platform.exit, label %.lr.ph19.preheader.i
 
 .lr.ph19.preheader.i:                             ; preds = %352
   %361 = add nuw nsw i8 %.0395.i, 5
@@ -1289,7 +1289,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %382 = add nuw i32 %.039816.i, 1
   %383 = load i32, ptr %14, align 4
   %384 = icmp ult i32 %382, %383
-  br i1 %384, label %.lr.ph19.i, label %dissect_platform.argprom.exit, !llvm.loop !12
+  br i1 %384, label %.lr.ph19.i, label %dissect_platform.exit, !llvm.loop !12
 
 385:                                              ; preds = %267
   %386 = load i32, ptr @hf_heartbeat_format_ver, align 4
@@ -1299,17 +1299,17 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %390 = load i32, ptr @hf_heartbeat_sequence_num, align 4
   %391 = zext nneg i8 %389 to i32
   %392 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %390, ptr noundef %53, i32 noundef %391, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 393:                                              ; preds = %267
   %394 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %394, i32 noundef 25, ptr noundef nonnull @.str.423) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 395:                                              ; preds = %265
   %396 = load i32, ptr @hf_result_status, align 4
   %397 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %396, ptr noundef %53, i32 noundef %266, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 398:                                              ; preds = %238
   %399 = zext nneg i8 %.0395.i to i32
@@ -1360,14 +1360,14 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %424 = load i32, ptr @hf_pldm_sensor_reserved, align 4
   %425 = zext nneg i8 %423 to i32
   %426 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %424, ptr noundef %53, i32 noundef %425, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 427:                                              ; preds = %398
   %428 = load i32, ptr @hf_sensor_composite_count, align 4
   %429 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %42, i32 noundef %428, ptr noundef %53, i32 noundef %399, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %16) #5
   %430 = load i32, ptr %16, align 4
   %.not21.i = icmp eq i32 %430, 0
-  br i1 %.not21.i, label %dissect_platform.argprom.exit, label %.lr.ph12.i
+  br i1 %.not21.i, label %dissect_platform.exit, label %.lr.ph12.i
 
 .lr.ph12.i:                                       ; preds = %427, %.lr.ph12.i
   %.039111.i = phi i32 [ %447, %.lr.ph12.i ], [ 0, %427 ]
@@ -1391,7 +1391,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %447 = add nuw i32 %.039111.i, 1
   %448 = load i32, ptr %16, align 4
   %449 = icmp ult i32 %447, %448
-  br i1 %449, label %.lr.ph12.i, label %dissect_platform.argprom.exit, !llvm.loop !14
+  br i1 %449, label %.lr.ph12.i, label %dissect_platform.exit, !llvm.loop !14
 
 450:                                              ; preds = %238
   %451 = zext nneg i8 %.0395.i to i32
@@ -1404,7 +1404,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %456 = load i32, ptr @hf_event_rearm, align 4
   %457 = zext nneg i8 %455 to i32
   %458 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %456, ptr noundef %53, i32 noundef %457, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 459:                                              ; preds = %450
   %460 = load i32, ptr @hf_sensor_data_size, align 4
@@ -1444,45 +1444,45 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %485 = load i32, ptr @hf_sensor_value_u8, align 4
   %486 = zext nneg i8 %482 to i32
   %487 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %485, ptr noundef %53, i32 noundef %486, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 488:                                              ; preds = %459
   %489 = load i32, ptr @hf_sensor_value_s8, align 4
   %490 = zext nneg i8 %482 to i32
   %491 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %489, ptr noundef %53, i32 noundef %490, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 492:                                              ; preds = %459
   %493 = load i32, ptr @hf_sensor_value_u16, align 4
   %494 = zext nneg i8 %482 to i32
   %495 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %493, ptr noundef %53, i32 noundef %494, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 496:                                              ; preds = %459
   %497 = load i32, ptr @hf_sensor_value_s16, align 4
   %498 = zext nneg i8 %482 to i32
   %499 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %497, ptr noundef %53, i32 noundef %498, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 500:                                              ; preds = %459
   %501 = load i32, ptr @hf_sensor_value_u32, align 4
   %502 = zext nneg i8 %482 to i32
   %503 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %501, ptr noundef %53, i32 noundef %502, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 504:                                              ; preds = %459
   %505 = load i32, ptr @hf_sensor_value_s32, align 4
   %506 = zext nneg i8 %482 to i32
   %507 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %505, ptr noundef %53, i32 noundef %506, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 508:                                              ; preds = %459
   %509 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %509, i32 noundef 25, ptr noundef nonnull @.str.421) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 510:                                              ; preds = %238
-  br i1 %.not.i49, label %dissect_platform.argprom.exit, label %511
+  br i1 %.not.i49, label %dissect_platform.exit, label %511
 
 511:                                              ; preds = %510
   %512 = load i32, ptr @hf_effecter_id, align 4
@@ -1507,42 +1507,42 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %522 = load i32, ptr @hf_effecter_value_u8, align 4
   %523 = zext nneg i8 %519 to i32
   %524 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %522, ptr noundef %53, i32 noundef %523, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 525:                                              ; preds = %511
   %526 = load i32, ptr @hf_effecter_value_s8, align 4
   %527 = zext nneg i8 %519 to i32
   %528 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %526, ptr noundef %53, i32 noundef %527, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 529:                                              ; preds = %511
   %530 = load i32, ptr @hf_effecter_value_u16, align 4
   %531 = zext nneg i8 %519 to i32
   %532 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %530, ptr noundef %53, i32 noundef %531, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 533:                                              ; preds = %511
   %534 = load i32, ptr @hf_effecter_value_s16, align 4
   %535 = zext nneg i8 %519 to i32
   %536 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %534, ptr noundef %53, i32 noundef %535, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 537:                                              ; preds = %511
   %538 = load i32, ptr @hf_effecter_value_u32, align 4
   %539 = zext nneg i8 %519 to i32
   %540 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %538, ptr noundef %53, i32 noundef %539, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 541:                                              ; preds = %511
   %542 = load i32, ptr @hf_effecter_value_s32, align 4
   %543 = zext nneg i8 %519 to i32
   %544 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %542, ptr noundef %53, i32 noundef %543, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 545:                                              ; preds = %511
   %546 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %546, i32 noundef 25, ptr noundef nonnull @.str.421) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 547:                                              ; preds = %238
   %548 = zext nneg i8 %.0395.i to i32
@@ -1551,7 +1551,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
 549:                                              ; preds = %547
   %550 = load i32, ptr @hf_effecter_id, align 4
   %551 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %550, ptr noundef %53, i32 noundef %548, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 552:                                              ; preds = %547
   %553 = load i32, ptr @hf_effecter_datasize, align 4
@@ -1579,7 +1579,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %566 = load i32, ptr @hf_effecter_value_pres_u8, align 4
   %567 = zext nneg i8 %565 to i32
   %568 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %566, ptr noundef %53, i32 noundef %567, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 569:                                              ; preds = %552
   %570 = load i32, ptr @hf_effecter_value_pnd_s8, align 4
@@ -1589,7 +1589,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %574 = load i32, ptr @hf_effecter_value_pres_s8, align 4
   %575 = zext nneg i8 %573 to i32
   %576 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %574, ptr noundef %53, i32 noundef %575, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 577:                                              ; preds = %552
   %578 = load i32, ptr @hf_effecter_value_pnd_u16, align 4
@@ -1599,7 +1599,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %582 = load i32, ptr @hf_effecter_value_pres_u16, align 4
   %583 = zext nneg i8 %581 to i32
   %584 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %582, ptr noundef %53, i32 noundef %583, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 585:                                              ; preds = %552
   %586 = load i32, ptr @hf_effecter_value_pnd_s16, align 4
@@ -1609,7 +1609,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %590 = load i32, ptr @hf_effecter_value_pres_s16, align 4
   %591 = zext nneg i8 %589 to i32
   %592 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %590, ptr noundef %53, i32 noundef %591, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 593:                                              ; preds = %552
   %594 = load i32, ptr @hf_effecter_value_pnd_u32, align 4
@@ -1619,7 +1619,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %598 = load i32, ptr @hf_effecter_value_pres_u32, align 4
   %599 = zext nneg i8 %597 to i32
   %600 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %598, ptr noundef %53, i32 noundef %599, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 601:                                              ; preds = %552
   %602 = load i32, ptr @hf_effecter_value_pnd_s32, align 4
@@ -1629,15 +1629,15 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %606 = load i32, ptr @hf_effecter_value_pres_s32, align 4
   %607 = zext nneg i8 %605 to i32
   %608 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %606, ptr noundef %53, i32 noundef %607, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 609:                                              ; preds = %552
   %610 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %610, i32 noundef 25, ptr noundef nonnull @.str.421) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 611:                                              ; preds = %238
-  br i1 %.not.i49, label %dissect_platform.argprom.exit, label %612
+  br i1 %.not.i49, label %dissect_platform.exit, label %612
 
 612:                                              ; preds = %611
   %613 = load i32, ptr @hf_effecter_id, align 4
@@ -1649,7 +1649,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %619 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %42, i32 noundef %617, ptr noundef %53, i32 noundef %618, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %20) #5
   %620 = load i32, ptr %20, align 4
   %.not20.i = icmp eq i32 %620, 0
-  br i1 %.not20.i, label %dissect_platform.argprom.exit, label %.lr.ph.i
+  br i1 %.not20.i, label %dissect_platform.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %612, %.lr.ph.i
   %.03906.i = phi i32 [ %629, %.lr.ph.i ], [ 0, %612 ]
@@ -1665,7 +1665,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %629 = add nuw i32 %.03906.i, 1
   %630 = load i32, ptr %20, align 4
   %631 = icmp ult i32 %629, %630
-  br i1 %631, label %.lr.ph.i, label %dissect_platform.argprom.exit, !llvm.loop !15
+  br i1 %631, label %.lr.ph.i, label %dissect_platform.exit, !llvm.loop !15
 
 632:                                              ; preds = %238
   %633 = zext nneg i8 %.0395.i to i32
@@ -1690,7 +1690,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %650 = load i32, ptr @hf_pdr_record_change_num, align 4
   %651 = zext nneg i8 %640 to i32
   %652 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %650, ptr noundef %53, i32 noundef %651, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 653:                                              ; preds = %632
   %654 = load i32, ptr @hf_pdr_next_record_handle, align 4
@@ -1715,7 +1715,7 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
 667:                                              ; preds = %665
   %668 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %668, i32 noundef 25, ptr noundef nonnull @.str.424) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 .preheader.i50:                                   ; preds = %665, %.preheader.i50
   %.64.i = phi i8 [ %672, %.preheader.i50 ], [ %640, %665 ]
@@ -1733,20 +1733,20 @@ dissect_base.argprom.exit:                        ; preds = %223, %206, %189, %1
   %.5.i51 = phi i8 [ %640, %653 ], [ %672, %.preheader.i50 ]
   %675 = load i32, ptr %21, align 4
   %676 = icmp eq i32 %675, 4
-  br i1 %676, label %677, label %dissect_platform.argprom.exit
+  br i1 %676, label %677, label %dissect_platform.exit
 
 677:                                              ; preds = %.loopexit3.i
   %678 = load i32, ptr @hf_transfer_crc, align 4
   %679 = zext i8 %.5.i51 to i32
   %680 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %678, ptr noundef %53, i32 noundef %679, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
 681:                                              ; preds = %238
   %682 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %682, i32 noundef 25, ptr noundef nonnull @.str.425, i32 noundef %239) #5
-  br label %dissect_platform.argprom.exit
+  br label %dissect_platform.exit
 
-dissect_platform.argprom.exit:                    ; preds = %.lr.ph.i, %.lr.ph12.i, %._crit_edge.i, %234, %240, %257, %261, %290, %298, %324, %328, %332, %336, %340, %344, %348, %350, %352, %385, %393, %395, %422, %427, %452, %484, %488, %492, %496, %500, %504, %508, %510, %521, %525, %529, %533, %537, %541, %545, %549, %561, %569, %577, %585, %593, %601, %609, %611, %612, %641, %667, %.loopexit3.i, %677, %681
+dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12.i, %._crit_edge.i, %234, %240, %257, %261, %290, %298, %324, %328, %332, %336, %340, %344, %348, %350, %352, %385, %393, %395, %422, %427, %452, %484, %488, %492, %496, %500, %504, %508, %510, %521, %525, %529, %533, %537, %541, %545, %549, %561, %569, %577, %585, %593, %601, %609, %611, %612, %641, %667, %.loopexit3.i, %677, %681
   %683 = call i32 @tvb_captured_length(ptr noundef %53) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -1782,13 +1782,13 @@ dissect_platform.argprom.exit:                    ; preds = %.lr.ph.i, %.lr.ph12
 .thread.i:                                        ; preds = %687
   %689 = load i32, ptr @hf_fru_completion_code, align 4
   %690 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %689, ptr noundef %53, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_FRU.argprom.exit
+  br label %dissect_FRU.exit
 
 691:                                              ; preds = %687
   %692 = load i32, ptr @hf_pldm_completion_code, align 4
   %693 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %692, ptr noundef %53, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
   %.not144.i = icmp eq i8 %688, 0
-  br i1 %.not144.i, label %694, label %dissect_FRU.argprom.exit
+  br i1 %.not144.i, label %694, label %dissect_FRU.exit
 
 694:                                              ; preds = %691, %684
   %.0141.i = phi i32 [ 1, %684 ], [ 2, %691 ]
@@ -1801,7 +1801,7 @@ dissect_platform.argprom.exit:                    ; preds = %.lr.ph.i, %.lr.ph12
   ]
 
 696:                                              ; preds = %694
-  br i1 %.not.i54, label %697, label %dissect_FRU.argprom.exit
+  br i1 %.not.i54, label %697, label %dissect_FRU.exit
 
 697:                                              ; preds = %696
   %698 = load i32, ptr @hf_fru_major_ver, align 4
@@ -1824,7 +1824,7 @@ dissect_platform.argprom.exit:                    ; preds = %.lr.ph.i, %.lr.ph12
   %715 = add nuw nsw i32 %.0141.i, 14
   %716 = load i32, ptr @hf_fru_table_crc, align 4
   %717 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %716, ptr noundef %53, i32 noundef %715, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_FRU.argprom.exit
+  br label %dissect_FRU.exit
 
 718:                                              ; preds = %694
   %719 = or disjoint i32 %.0141.i, 4
@@ -1835,7 +1835,7 @@ dissect_platform.argprom.exit:                    ; preds = %.lr.ph.i, %.lr.ph12
   %722 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %721, ptr noundef %53, i32 noundef %.0141.i, i32 noundef 4, i32 noundef -2147483648) #5
   %723 = load i32, ptr @hf_fru_transfer_op_flag, align 4
   %724 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %723, ptr noundef %53, i32 noundef %719, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_FRU.argprom.exit
+  br label %dissect_FRU.exit
 
 725:                                              ; preds = %718
   %726 = load i32, ptr @hf_fru_next_data_handle, align 4
@@ -1848,12 +1848,12 @@ dissect_platform.argprom.exit:                    ; preds = %.lr.ph.i, %.lr.ph12
   %733 = call i32 @tvb_captured_length(ptr noundef %53) #5
   %734 = zext i16 %732 to i32
   %.not147.i = icmp eq i32 %733, %734
-  br i1 %.not147.i, label %dissect_FRU.argprom.exit, label %735
+  br i1 %.not147.i, label %dissect_FRU.exit, label %735
 
 735:                                              ; preds = %725
   %736 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %736, i32 noundef 25, ptr noundef nonnull @.str.426) #5
-  br label %dissect_FRU.argprom.exit
+  br label %dissect_FRU.exit
 
 737:                                              ; preds = %694
   br i1 %.not.i54, label %758, label %738
@@ -1870,7 +1870,7 @@ dissect_platform.argprom.exit:                    ; preds = %.lr.ph.i, %.lr.ph12
   %747 = call i32 @tvb_captured_length(ptr noundef %53) #5
   %748 = zext i16 %746 to i32
   %.not146.i = icmp eq i32 %747, %748
-  br i1 %.not146.i, label %dissect_FRU.argprom.exit, label %749
+  br i1 %.not146.i, label %dissect_FRU.exit, label %749
 
 749:                                              ; preds = %738
   %750 = call i32 @tvb_captured_length(ptr noundef %53) #5
@@ -1882,12 +1882,12 @@ dissect_platform.argprom.exit:                    ; preds = %.lr.ph.i, %.lr.ph12
   %755 = load i32, ptr @hf_fru_record_crc, align 4
   %756 = zext i16 %754 to i32
   %757 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %755, ptr noundef %53, i32 noundef %756, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_FRU.argprom.exit
+  br label %dissect_FRU.exit
 
 758:                                              ; preds = %737
   %759 = load i32, ptr @hf_fru_next_data_handle, align 4
   %760 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %759, ptr noundef %53, i32 noundef %.0141.i, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_FRU.argprom.exit
+  br label %dissect_FRU.exit
 
 761:                                              ; preds = %694
   %762 = or disjoint i32 %.0141.i, 4
@@ -1910,7 +1910,7 @@ dissect_platform.argprom.exit:                    ; preds = %.lr.ph.i, %.lr.ph12
   %777 = add nuw nsw i32 %.0141.i, 10
   %778 = load i32, ptr @hf_fru_transfer_op_flag, align 4
   %779 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %778, ptr noundef %53, i32 noundef %777, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %dissect_FRU.argprom.exit
+  br label %dissect_FRU.exit
 
 780:                                              ; preds = %761
   %781 = load i32, ptr @hf_fru_next_data_handle, align 4
@@ -1923,7 +1923,7 @@ dissect_platform.argprom.exit:                    ; preds = %.lr.ph.i, %.lr.ph12
   %788 = call i32 @tvb_captured_length(ptr noundef %53) #5
   %789 = zext i16 %787 to i32
   %.not145.i = icmp eq i32 %788, %789
-  br i1 %.not145.i, label %dissect_FRU.argprom.exit, label %790
+  br i1 %.not145.i, label %dissect_FRU.exit, label %790
 
 790:                                              ; preds = %780
   %791 = call i32 @tvb_captured_length(ptr noundef %53) #5
@@ -1935,19 +1935,19 @@ dissect_platform.argprom.exit:                    ; preds = %.lr.ph.i, %.lr.ph12
   %796 = load i32, ptr @hf_fru_record_crc, align 4
   %797 = zext i16 %795 to i32
   %798 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %796, ptr noundef %53, i32 noundef %797, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %dissect_FRU.argprom.exit
+  br label %dissect_FRU.exit
 
 799:                                              ; preds = %694
   %800 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %800, i32 noundef 25, ptr noundef nonnull @.str.427) #5
-  br label %dissect_FRU.argprom.exit
+  br label %dissect_FRU.exit
 
-dissect_FRU.argprom.exit:                         ; preds = %.thread.i, %691, %696, %697, %720, %725, %735, %738, %749, %758, %763, %780, %790, %799
+dissect_FRU.exit:                                 ; preds = %.thread.i, %691, %696, %697, %720, %725, %735, %738, %749, %758, %763, %780, %790, %799
   %801 = call i32 @tvb_captured_length(ptr noundef %53) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %802
 
-802:                                              ; preds = %38, %dissect_FRU.argprom.exit, %dissect_platform.argprom.exit, %dissect_base.argprom.exit, %59, %37
+802:                                              ; preds = %38, %dissect_FRU.exit, %dissect_platform.exit, %dissect_base.exit, %59, %37
   %803 = call i32 @tvb_captured_length(ptr noundef %0) #5
   br label %804
 
@@ -1990,7 +1990,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ver2str.retelim(ptr noundef %0, i32 noundef range(i32 2, 8) %1) unnamed_addr #0 {
+define internal fastcc void @ver2str(ptr noundef %0, i32 noundef range(i32 2, 8) %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %4 = add nuw nsw i32 %1, 1
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #5

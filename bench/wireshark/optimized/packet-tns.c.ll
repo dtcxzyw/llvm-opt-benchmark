@@ -959,15 +959,15 @@ dissect_tns_connect.exit:                         ; preds = %107, %112, %116, %t
   %155 = call ptr @proto_tree_add_bitmask(ptr noundef %134, ptr noundef %0, i32 noundef 23, i32 noundef %153, i32 noundef %154, ptr noundef nonnull @tns_connect_flags, i32 noundef 0) #6
   %156 = load i32, ptr %16, align 4
   %.not.i101 = icmp eq i32 %156, 0
-  br i1 %.not.i101, label %dissect_tns_accept.argprom.exit, label %157
+  br i1 %.not.i101, label %dissect_tns_accept.exit, label %157
 
 157:                                              ; preds = %132
   %158 = load i32, ptr @hf_tns_accept_data, align 4
   %159 = load i32, ptr %15, align 4
   %160 = call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %158, ptr noundef %0, i32 noundef %159, i32 noundef -1, i32 noundef 0) #6
-  br label %dissect_tns_accept.argprom.exit
+  br label %dissect_tns_accept.exit
 
-dissect_tns_accept.argprom.exit:                  ; preds = %132, %157
+dissect_tns_accept.exit:                          ; preds = %132, %157
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   br label %496
@@ -1573,7 +1573,7 @@ dissect_tns_data_descriptor.exit:                 ; preds = %._crit_edge.i107, %
   %495 = call i32 @call_data_dissector(ptr noundef %494, ptr noundef nonnull %1, ptr noundef %32) #6
   br label %496
 
-496:                                              ; preds = %493, %dissect_tns_data_descriptor.exit, %dissect_tns_data.exit, %206, %197, %188, %179, %172, %161, %dissect_tns_accept.argprom.exit, %dissect_tns_connect.exit
+496:                                              ; preds = %493, %dissect_tns_data_descriptor.exit, %dissect_tns_data.exit, %206, %197, %188, %179, %172, %161, %dissect_tns_accept.exit, %dissect_tns_connect.exit
   %497 = call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %497
 }

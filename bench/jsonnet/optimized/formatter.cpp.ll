@@ -3157,7 +3157,7 @@ common.ret701:                                    ; preds = %436, %189, %229, %3
 476:                                              ; preds = %474
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   %477 = load i32, ptr %.0235, align 4
-  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.retelim(i32 noundef zeroext %477, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef zeroext %477, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %478 unwind label %490
 
 478:                                              ; preds = %476
@@ -3226,7 +3226,7 @@ common.ret701:                                    ; preds = %436, %189, %229, %3
 510:                                              ; preds = %505
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #25
   %511 = load i32, ptr %.0236, align 4
-  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.retelim(i32 noundef zeroext %511, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef zeroext %511, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %512 unwind label %516
 
 512:                                              ; preds = %510
@@ -3275,7 +3275,7 @@ common.ret701:                                    ; preds = %436, %189, %229, %3
 533:                                              ; preds = %528
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   %534 = load i32, ptr %.0237, align 4
-  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.retelim(i32 noundef zeroext %534, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef zeroext %534, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %535 unwind label %539
 
 535:                                              ; preds = %533
@@ -6426,15 +6426,15 @@ define internal fastcc void @_ZN7jsonnet8internalL18ensureCleanNewlineERSt6vecto
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.val5 = load ptr, ptr %4, align 8
   %5 = icmp eq ptr %.val, %.val5
-  br i1 %5, label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+  br i1 %5, label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
 
-_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit: ; preds = %1
+_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit: ; preds = %1
   %6 = getelementptr inbounds i8, ptr %.val5, i64 -40
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 1
-  br i1 %.not, label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
+  br i1 %.not, label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
-_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread: ; preds = %1, %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread: ; preds = %1, %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i32 0, ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 4
@@ -6445,7 +6445,7 @@ _ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementE
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE.exit unwind label %24
 
-_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE.exit: ; preds = %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
+_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE.exit: ; preds = %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
   invoke fastcc void @_ZN7jsonnet8internalL16fodder_push_backERSt6vectorINS0_13FodderElementESaIS2_EERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %11 unwind label %26
 
@@ -6503,7 +6503,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   call void @_ZdlPv(ptr noundef nonnull %22) #26
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
-24:                                               ; preds = %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
+24:                                               ; preds = %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
   %25 = landingpad { ptr, i32 }
           cleanup
   br label %28
@@ -6519,7 +6519,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #25
   resume { ptr, i32 } %.pn
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %23, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %23, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
   ret void
 }
 
@@ -7795,13 +7795,13 @@ define internal fastcc void @_ZN7jsonnet8internalL16fodder_push_backERSt6vectorI
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %.val22 = load ptr, ptr %7, align 8
   %8 = icmp eq ptr %.val, %.val22
-  br i1 %8, label %.thread, label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+  br i1 %8, label %.thread, label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
 
 .thread:                                          ; preds = %2
   %9 = load i32, ptr %1, align 8
-  br label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit25
+  br label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit25
 
-_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit: ; preds = %2
+_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit: ; preds = %2
   %10 = getelementptr inbounds i8, ptr %.val22, i64 -40
   %11 = load i32, ptr %10, align 8
   %12 = icmp ne i32 %11, 1
@@ -7810,7 +7810,7 @@ _ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementE
   %or.cond = select i1 %12, i1 %14, i1 false
   br i1 %or.cond, label %15, label %44
 
-15:                                               ; preds = %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+15:                                               ; preds = %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = getelementptr inbounds i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
@@ -7860,18 +7860,18 @@ _ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementE
   store i32 %43, ptr %41, align 4
   br label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERKjS8_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEERS2_DpOT_.exit
 
-44:                                               ; preds = %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+44:                                               ; preds = %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
   %45 = icmp eq i32 %11, 1
-  br label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit25
+  br label %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit25
 
-_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit25: ; preds = %.thread, %44
+_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit25: ; preds = %.thread, %44
   %46 = phi i32 [ %13, %44 ], [ %9, %.thread ]
   %.not19 = phi i1 [ %45, %44 ], [ true, %.thread ]
   %47 = icmp eq i32 %46, 2
   %or.cond21 = select i1 %.not19, i1 %47, i1 false
   br i1 %or.cond21, label %48, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
-48:                                               ; preds = %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit25
+48:                                               ; preds = %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit25
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
   %49 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7935,7 +7935,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #25
   resume { ptr, i32 } %67
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %65, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit25
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %65, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE.exit25
   %68 = load ptr, ptr %7, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 16
   %70 = load ptr, ptr %69, align 8
@@ -15570,10 +15570,10 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines19shoul
   %.not = icmp eq ptr %3, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
-  %.0621 = phi i1 [ false, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ], [ true, %2 ]
-  %.sroa.011.020 = phi ptr [ %51, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ], [ %3, %2 ]
-  br i1 %.0621, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, label %6
+.lr.ph:                                           ; preds = %2, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
+  %.0621 = phi i1 [ false, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ], [ true, %2 ]
+  %.sroa.011.020 = phi ptr [ %51, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ], [ %3, %2 ]
+  br i1 %.0621, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, label %6
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds i8, ptr %.sroa.011.020, i64 24
@@ -15642,7 +15642,7 @@ _ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit: ; pr
   %29 = getelementptr i8, ptr %.0.i, i64 8
   %.val7 = load ptr, ptr %29, align 8
   %.not5.i = icmp eq ptr %.val, %.val7
-  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %.07.i = phi i32 [ %48, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i ], [ 0, %_ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit ]
@@ -15683,19 +15683,19 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %3
   %48 = add nsw i32 %.0.i.i, %.07.i
   %49 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 40
   %.not.i8 = icmp eq ptr %49, %.val7
-  br i1 %.not.i8, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i8, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, label %.lr.ph.i
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %50 = icmp sgt i32 %48, 0
-  br i1 %50, label %._crit_edge, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
+  br i1 %50, label %._crit_edge, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread: ; preds = %_ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, %.lr.ph
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread: ; preds = %_ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, %.lr.ph
   %51 = getelementptr inbounds i8, ptr %.sroa.011.020, i64 88
   %.not23 = icmp eq ptr %51, %5
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, %2
-  %.lcssa17 = phi i1 [ false, %2 ], [ false, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit ]
+._crit_edge:                                      ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, %2
+  %.lcssa17 = phi i1 [ false, %2 ], [ false, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit ]
   ret i1 %.lcssa17
 }
 
@@ -15793,7 +15793,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines22shoul
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %4, %6
-  br i1 %7, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18, label %8
+  br i1 %7, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %4, i64 24
@@ -15835,7 +15835,7 @@ _ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit: ; pr
   %21 = getelementptr inbounds i8, ptr %2, i64 8
   %.val6 = load ptr, ptr %21, align 8
   %.not5.i = icmp eq ptr %.val, %.val6
-  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %.07.i = phi i32 [ %40, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i ], [ 0, %_ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit ]
@@ -15876,22 +15876,22 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %2
   %40 = add nsw i32 %.0.i.i, %.07.i
   %41 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 40
   %.not.i9 = icmp eq ptr %41, %.val6
-  br i1 %.not.i9, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i9, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, label %.lr.ph.i
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %42 = icmp sgt i32 %40, 0
-  br i1 %42, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
+  br i1 %42, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread: ; preds = %_ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread: ; preds = %_ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
   %.val7 = load ptr, ptr %.0.i, align 8
   %43 = getelementptr i8, ptr %.0.i, i64 8
   %.val8 = load ptr, ptr %43, align 8
   %.not5.i10 = icmp eq ptr %.val7, %.val8
-  br i1 %.not5.i10, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18, label %.lr.ph.i11
+  br i1 %.not5.i10, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18, label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14
-  %.07.i12 = phi i32 [ %62, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14 ], [ 0, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ]
-  %.sroa.01.06.i13 = phi ptr [ %63, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14 ], [ %.val7, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ]
+.lr.ph.i11:                                       ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14
+  %.07.i12 = phi i32 [ %62, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14 ], [ 0, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ]
+  %.sroa.01.06.i13 = phi ptr [ %63, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14 ], [ %.val7, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ]
   %44 = load i32, ptr %.sroa.01.06.i13, align 8
   switch i32 %44, label %59 [
     i32 1, label %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14
@@ -15928,14 +15928,14 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14: ; preds = 
   %62 = add nsw i32 %.0.i.i15, %.07.i12
   %63 = getelementptr inbounds i8, ptr %.sroa.01.06.i13, i64 40
   %.not.i16 = icmp eq ptr %63, %.val8
-  br i1 %.not.i16, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18.loopexit, label %.lr.ph.i11
+  br i1 %.not.i16, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18.loopexit, label %.lr.ph.i11
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14
   %64 = icmp sgt i32 %62, 0
-  br label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18
+  br label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18.loopexit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit ], [ false, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ], [ %64, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18.loopexit ]
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18.loopexit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, %3
+  %.0 = phi i1 [ false, %3 ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit ], [ false, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ], [ %64, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18.loopexit ]
   ret i1 %.0
 }
 
@@ -16007,8 +16007,8 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines12shoul
   %.not26 = icmp eq ptr %4, %6
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
-  %.sroa.019.027 = phi ptr [ %43, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ], [ %4, %2 ]
+.lr.ph:                                           ; preds = %2, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
+  %.sroa.019.027 = phi ptr [ %43, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.019.027, align 8
   %8 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef readonly %7)
   %.not7.i.i = icmp eq ptr %8, null
@@ -16054,7 +16054,7 @@ _ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit: ; preds = %16, %_ZN7jsonnet8
   %21 = getelementptr i8, ptr %.06.lcssa.i.i, i64 88
   %.val8 = load ptr, ptr %21, align 8
   %.not5.i = icmp eq ptr %.val7, %.val8
-  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %.07.i = phi i32 [ %40, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i ], [ 0, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit ]
@@ -16095,18 +16095,18 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %2
   %40 = add nsw i32 %.0.i.i, %.07.i
   %41 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 40
   %.not.i = icmp eq ptr %41, %.val8
-  br i1 %.not.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, label %.lr.ph.i
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %42 = icmp sgt i32 %40, 0
-  br i1 %42, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
+  br i1 %42, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread: ; preds = %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread: ; preds = %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
   %43 = getelementptr inbounds i8, ptr %.sroa.019.027, i64 32
   %.not = icmp eq ptr %43, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, %2
+._crit_edge:                                      ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, %2
   %44 = getelementptr inbounds i8, ptr %1, i64 160
   %.val = load ptr, ptr %44, align 8
   %45 = getelementptr i8, ptr %1, i64 168
@@ -16153,14 +16153,14 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i13: ; preds = 
   %64 = add nsw i32 %.0.i.i14, %.07.i11
   %65 = getelementptr inbounds i8, ptr %.sroa.01.06.i12, i64 40
   %.not.i15 = icmp eq ptr %65, %.val6
-  br i1 %.not.i15, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit17.loopexit, label %.lr.ph.i10
+  br i1 %.not.i15, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit17.loopexit, label %.lr.ph.i10
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit17.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i13
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit17.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i13
   %66 = icmp sgt i32 %64, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, %._crit_edge, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit17.loopexit
-  %.0 = phi i1 [ false, %._crit_edge ], [ %66, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit17.loopexit ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit ]
+.loopexit:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, %._crit_edge, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit17.loopexit
+  %.0 = phi i1 [ false, %._crit_edge ], [ %66, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit17.loopexit ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit ]
   ret i1 %.0
 }
 
@@ -16295,7 +16295,7 @@ _ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit: ; preds = %.lr.ph.i.i, %2
   %8 = getelementptr i8, ptr %.06.lcssa.i.i, i64 88
   %.val11 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %.val10, %.val11
-  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %.07.i = phi i32 [ %27, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i ], [ 0, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit ]
@@ -16336,13 +16336,13 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %1
   %27 = add nsw i32 %.0.i.i, %.07.i
   %28 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 40
   %.not.i = icmp eq ptr %28, %.val11
-  br i1 %.not.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, label %.lr.ph.i
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %29 = icmp sgt i32 %27, 0
-  br i1 %29, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
+  br i1 %29, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread: ; preds = %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread: ; preds = %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
   %30 = getelementptr inbounds i8, ptr %1, i64 168
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 176
@@ -16350,14 +16350,14 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ar
   %.not37 = icmp eq ptr %31, %33
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit20.thread
-  %.sroa.030.038 = phi ptr [ %57, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit20.thread ], [ %31, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ]
+.lr.ph:                                           ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit20.thread
+  %.sroa.030.038 = phi ptr [ %57, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit20.thread ], [ %31, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ]
   %34 = getelementptr inbounds i8, ptr %.sroa.030.038, i64 8
   %.val8 = load ptr, ptr %34, align 8
   %35 = getelementptr i8, ptr %.sroa.030.038, i64 16
   %.val9 = load ptr, ptr %35, align 8
   %.not5.i12 = icmp eq ptr %.val8, %.val9
-  br i1 %.not5.i12, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit20.thread, label %.lr.ph.i13
+  br i1 %.not5.i12, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit20.thread, label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %.lr.ph, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i16
   %.07.i14 = phi i32 [ %54, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i16 ], [ 0, %.lr.ph ]
@@ -16398,18 +16398,18 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i16: ; preds = 
   %54 = add nsw i32 %.0.i.i17, %.07.i14
   %55 = getelementptr inbounds i8, ptr %.sroa.01.06.i15, i64 40
   %.not.i18 = icmp eq ptr %55, %.val9
-  br i1 %.not.i18, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit20, label %.lr.ph.i13
+  br i1 %.not.i18, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit20, label %.lr.ph.i13
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit20: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i16
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit20: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i16
   %56 = icmp sgt i32 %54, 0
-  br i1 %56, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit20.thread
+  br i1 %56, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit20.thread
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit20.thread: ; preds = %.lr.ph, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit20
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit20.thread: ; preds = %.lr.ph, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit20
   %57 = getelementptr inbounds i8, ptr %.sroa.030.038, i64 96
   %.not = icmp eq ptr %57, %33
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit20.thread, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
+._crit_edge:                                      ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit20.thread, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
   %58 = getelementptr inbounds i8, ptr %1, i64 192
   %.val = load ptr, ptr %58, align 8
   %59 = getelementptr i8, ptr %1, i64 200
@@ -16456,14 +16456,14 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i25: ; preds = 
   %78 = add nsw i32 %.0.i.i26, %.07.i23
   %79 = getelementptr inbounds i8, ptr %.sroa.01.06.i24, i64 40
   %.not.i27 = icmp eq ptr %79, %.val7
-  br i1 %.not.i27, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit29.loopexit, label %.lr.ph.i22
+  br i1 %.not.i27, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit29.loopexit, label %.lr.ph.i22
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit29.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i25
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit29.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i25
   %80 = icmp sgt i32 %78, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit20, %._crit_edge, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit29.loopexit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
-  %.0 = phi i1 [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit ], [ false, %._crit_edge ], [ %80, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit29.loopexit ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit20 ]
+.loopexit:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit20, %._crit_edge, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit29.loopexit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
+  %.0 = phi i1 [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit ], [ false, %._crit_edge ], [ %80, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit29.loopexit ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit20 ]
   ret i1 %.0
 }
 
@@ -16476,13 +16476,13 @@ define linkonce_odr void @_ZN7jsonnet8internal11FixNewlines20simpleExpandingVisi
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %_ZN7jsonnet8internal11FixNewlines6expandEPNS0_5LocalE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread.i
-  %.sroa.06.012.i = phi ptr [ %29, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread.i ], [ %4, %2 ]
+.lr.ph.i:                                         ; preds = %2, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread.i
+  %.sroa.06.012.i = phi ptr [ %29, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread.i ], [ %4, %2 ]
   %.val.i = load ptr, ptr %.sroa.06.012.i, align 8
   %7 = getelementptr i8, ptr %.sroa.06.012.i, i64 8
   %.val5.i = load ptr, ptr %7, align 8
   %.not5.i.i = icmp eq ptr %.val.i, %.val5.i
-  br i1 %.not5.i.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread.i, label %.lr.ph.i.i
+  br i1 %.not5.i.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i.i
   %.07.i.i = phi i32 [ %26, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i.i ], [ 0, %.lr.ph.i ]
@@ -16523,20 +16523,20 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i.i: ; preds = 
   %26 = add nsw i32 %.0.i.i.i, %.07.i.i
   %27 = getelementptr inbounds i8, ptr %.sroa.01.06.i.i, i64 40
   %.not.i.i = icmp eq ptr %27, %.val5.i
-  br i1 %.not.i.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.i, label %.lr.ph.i.i
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.i: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i.i
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.i: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i.i
   %28 = icmp sgt i32 %26, 0
-  br i1 %28, label %.lr.ph.i4, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread.i
+  br i1 %28, label %.lr.ph.i4, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread.i
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread.i: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.i, %.lr.ph.i
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread.i: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.i, %.lr.ph.i
   %29 = getelementptr inbounds i8, ptr %.sroa.06.012.i, i64 176
   %.not14.i = icmp eq ptr %29, %6
   br i1 %.not14.i, label %_ZN7jsonnet8internal11FixNewlines6expandEPNS0_5LocalE.exit, label %.lr.ph.i
 
-.lr.ph.i4:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.i, %31
-  %.09.i = phi i1 [ false, %31 ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.i ]
-  %.sroa.04.08.i = phi ptr [ %32, %31 ], [ %4, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.i ]
+.lr.ph.i4:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.i, %31
+  %.09.i = phi i1 [ false, %31 ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.i ]
+  %.sroa.04.08.i = phi ptr [ %32, %31 ], [ %4, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.i ]
   br i1 %.09.i, label %31, label %30
 
 30:                                               ; preds = %.lr.ph.i4
@@ -16548,7 +16548,7 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ar
   %.not.i5 = icmp eq ptr %32, %6
   br i1 %.not.i5, label %_ZN7jsonnet8internal11FixNewlines6expandEPNS0_5LocalE.exit, label %.lr.ph.i4
 
-_ZN7jsonnet8internal11FixNewlines6expandEPNS0_5LocalE.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread.i, %31, %2
+_ZN7jsonnet8internal11FixNewlines6expandEPNS0_5LocalE.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread.i, %31, %2
   tail call void @_ZN7jsonnet8internal12CompilerPass5visitEPNS0_5LocalE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
   ret void
 }
@@ -16562,8 +16562,8 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines12shoul
   %.not24 = icmp eq ptr %4, %6
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
-  %.sroa.019.025 = phi ptr [ %35, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ], [ %4, %2 ]
+.lr.ph:                                           ; preds = %2, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
+  %.sroa.019.025 = phi ptr [ %35, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ], [ %4, %2 ]
   %7 = load i32, ptr %.sroa.019.025, align 8
   %8 = icmp eq i32 %7, 3
   %9 = getelementptr inbounds i8, ptr %.sroa.019.025, i64 112
@@ -16575,7 +16575,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines12shoul
   %13 = getelementptr i8, ptr %.0.i, i64 8
   %.val9 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %.val8, %.val9
-  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %.07.i = phi i32 [ %32, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i ], [ 0, %.lr.ph ]
@@ -16616,18 +16616,18 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %1
   %32 = add nsw i32 %.0.i.i, %.07.i
   %33 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 40
   %.not.i = icmp eq ptr %33, %.val9
-  br i1 %.not.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, label %.lr.ph.i
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %34 = icmp sgt i32 %32, 0
-  br i1 %34, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
+  br i1 %34, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread: ; preds = %.lr.ph, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread: ; preds = %.lr.ph, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
   %35 = getelementptr inbounds i8, ptr %.sroa.019.025, i64 288
   %.not = icmp eq ptr %35, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, %2
+._crit_edge:                                      ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, %2
   %36 = getelementptr inbounds i8, ptr %1, i64 160
   %.val = load ptr, ptr %36, align 8
   %37 = getelementptr i8, ptr %1, i64 168
@@ -16674,14 +16674,14 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14: ; preds = 
   %56 = add nsw i32 %.0.i.i15, %.07.i12
   %57 = getelementptr inbounds i8, ptr %.sroa.01.06.i13, i64 40
   %.not.i16 = icmp eq ptr %57, %.val7
-  br i1 %.not.i16, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18.loopexit, label %.lr.ph.i11
+  br i1 %.not.i16, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18.loopexit, label %.lr.ph.i11
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14
   %58 = icmp sgt i32 %56, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, %._crit_edge, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18.loopexit
-  %.0 = phi i1 [ false, %._crit_edge ], [ %58, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit18.loopexit ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit ]
+.loopexit:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, %._crit_edge, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18.loopexit
+  %.0 = phi i1 [ false, %._crit_edge ], [ %58, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit18.loopexit ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit ]
   ret i1 %.0
 }
 
@@ -16694,8 +16694,8 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines12shoul
   %.not47 = icmp eq ptr %4, %6
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
-  %.sroa.038.048 = phi ptr [ %35, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ], [ %4, %2 ]
+.lr.ph:                                           ; preds = %2, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
+  %.sroa.038.048 = phi ptr [ %35, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ], [ %4, %2 ]
   %7 = load i32, ptr %.sroa.038.048, align 8
   %8 = icmp eq i32 %7, 3
   %9 = getelementptr inbounds i8, ptr %.sroa.038.048, i64 112
@@ -16707,7 +16707,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines12shoul
   %13 = getelementptr i8, ptr %.0.i, i64 8
   %.val15 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %.val14, %.val15
-  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %.07.i = phi i32 [ %32, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i ], [ 0, %.lr.ph ]
@@ -16748,18 +16748,18 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %1
   %32 = add nsw i32 %.0.i.i, %.07.i
   %33 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 40
   %.not.i = icmp eq ptr %33, %.val15
-  br i1 %.not.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, label %.lr.ph.i
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %34 = icmp sgt i32 %32, 0
-  br i1 %34, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
+  br i1 %34, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread: ; preds = %.lr.ph, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread: ; preds = %.lr.ph, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
   %35 = getelementptr inbounds i8, ptr %.sroa.038.048, i64 288
   %.not = icmp eq ptr %35, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, %2
+._crit_edge:                                      ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, %2
   %36 = getelementptr inbounds i8, ptr %1, i64 160
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %1, i64 168
@@ -16767,14 +16767,14 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ar
   %.not4349 = icmp eq ptr %37, %39
   br i1 %.not4349, label %._crit_edge53, label %.lr.ph52
 
-.lr.ph52:                                         ; preds = %._crit_edge, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit24.thread
-  %.sroa.034.050 = phi ptr [ %63, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit24.thread ], [ %37, %._crit_edge ]
+.lr.ph52:                                         ; preds = %._crit_edge, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit24.thread
+  %.sroa.034.050 = phi ptr [ %63, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit24.thread ], [ %37, %._crit_edge ]
   %40 = getelementptr inbounds i8, ptr %.sroa.034.050, i64 8
   %.val12 = load ptr, ptr %40, align 8
   %41 = getelementptr i8, ptr %.sroa.034.050, i64 16
   %.val13 = load ptr, ptr %41, align 8
   %.not5.i16 = icmp eq ptr %.val12, %.val13
-  br i1 %.not5.i16, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit24.thread, label %.lr.ph.i17
+  br i1 %.not5.i16, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit24.thread, label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph52, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i20
   %.07.i18 = phi i32 [ %60, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i20 ], [ 0, %.lr.ph52 ]
@@ -16815,18 +16815,18 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i20: ; preds = 
   %60 = add nsw i32 %.0.i.i21, %.07.i18
   %61 = getelementptr inbounds i8, ptr %.sroa.01.06.i19, i64 40
   %.not.i22 = icmp eq ptr %61, %.val13
-  br i1 %.not.i22, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit24, label %.lr.ph.i17
+  br i1 %.not.i22, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit24, label %.lr.ph.i17
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit24: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i20
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit24: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i20
   %62 = icmp sgt i32 %60, 0
-  br i1 %62, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit24.thread
+  br i1 %62, label %.loopexit, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit24.thread
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit24.thread: ; preds = %.lr.ph52, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit24
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit24.thread: ; preds = %.lr.ph52, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit24
   %63 = getelementptr inbounds i8, ptr %.sroa.034.050, i64 96
   %.not43 = icmp eq ptr %63, %39
   br i1 %.not43, label %._crit_edge53, label %.lr.ph52
 
-._crit_edge53:                                    ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit24.thread, %._crit_edge
+._crit_edge53:                                    ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit24.thread, %._crit_edge
   %64 = getelementptr inbounds i8, ptr %1, i64 184
   %.val = load ptr, ptr %64, align 8
   %65 = getelementptr i8, ptr %1, i64 192
@@ -16873,14 +16873,14 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i29: ; preds = 
   %84 = add nsw i32 %.0.i.i30, %.07.i27
   %85 = getelementptr inbounds i8, ptr %.sroa.01.06.i28, i64 40
   %.not.i31 = icmp eq ptr %85, %.val11
-  br i1 %.not.i31, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit33.loopexit, label %.lr.ph.i26
+  br i1 %.not.i31, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit33.loopexit, label %.lr.ph.i26
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit33.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i29
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit33.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i29
   %86 = icmp sgt i32 %84, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit24, %._crit_edge53, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit33.loopexit
-  %.0 = phi i1 [ false, %._crit_edge53 ], [ %86, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit33.loopexit ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit24 ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit ]
+.loopexit:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit24, %._crit_edge53, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit33.loopexit
+  %.0 = phi i1 [ false, %._crit_edge53 ], [ %86, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit33.loopexit ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit24 ], [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit ]
   ret i1 %.0
 }
 
@@ -16905,7 +16905,7 @@ _ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit: ; preds = %.lr.ph.i.i, %2
   %8 = getelementptr i8, ptr %.06.lcssa.i.i, i64 88
   %.val4 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %.val3, %.val4
-  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %.07.i = phi i32 [ %27, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i ], [ 0, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit ]
@@ -16946,23 +16946,23 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %1
   %27 = add nsw i32 %.0.i.i, %.07.i
   %28 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 40
   %.not.i = icmp eq ptr %28, %.val4
-  br i1 %.not.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit, label %.lr.ph.i
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i
   %29 = icmp sgt i32 %27, 0
-  br i1 %29, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit13, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread
+  br i1 %29, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit13, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread: ; preds = %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread: ; preds = %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
   %30 = getelementptr inbounds i8, ptr %1, i64 136
   %.val = load ptr, ptr %30, align 8
   %31 = getelementptr i8, ptr %1, i64 144
   %.val2 = load ptr, ptr %31, align 8
   %.not5.i5 = icmp eq ptr %.val, %.val2
-  br i1 %.not5.i5, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit13, label %.lr.ph.i6
+  br i1 %.not5.i5, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit13, label %.lr.ph.i6
 
-.lr.ph.i6:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i9
-  %.07.i7 = phi i32 [ %50, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i9 ], [ 0, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ]
-  %.sroa.01.06.i8 = phi ptr [ %51, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i9 ], [ %.val, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ]
+.lr.ph.i6:                                        ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i9
+  %.07.i7 = phi i32 [ %50, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i9 ], [ 0, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ]
+  %.sroa.01.06.i8 = phi ptr [ %51, %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i9 ], [ %.val, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ]
   %32 = load i32, ptr %.sroa.01.06.i8, align 8
   switch i32 %32, label %47 [
     i32 1, label %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i9
@@ -16999,14 +16999,14 @@ _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i9: ; preds = %
   %50 = add nsw i32 %.0.i.i10, %.07.i7
   %51 = getelementptr inbounds i8, ptr %.sroa.01.06.i8, i64 40
   %.not.i11 = icmp eq ptr %51, %.val2
-  br i1 %.not.i11, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit13.loopexit, label %.lr.ph.i6
+  br i1 %.not.i11, label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit13.loopexit, label %.lr.ph.i6
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit13.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i9
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit13.loopexit: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i9
   %52 = icmp sgt i32 %50, 0
-  br label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit13
+  br label %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit13
 
-_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit13: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit13.loopexit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit
-  %53 = phi i1 [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit ], [ false, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit.thread ], [ %52, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.argprom.exit13.loopexit ]
+_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit13: ; preds = %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit13.loopexit, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit
+  %53 = phi i1 [ true, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit ], [ false, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit.thread ], [ %52, %_ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.exit13.loopexit ]
   ret i1 %53
 }
 
@@ -18725,7 +18725,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal16PrettyFieldNames12
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %.noexc.i
   %.sroa.01.05.i.i = phi ptr [ %20, %.noexc.i ], [ %.val.i, %._crit_edge ]
   %19 = load i32, ptr %.sroa.01.05.i.i, align 4
-  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.retelim(i32 noundef zeroext %19, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef zeroext %19, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %21
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i
@@ -18934,18 +18934,18 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112b
   %.val3 = load i64, ptr %3, align 8
   %4 = getelementptr inbounds i32, ptr %.val, i64 %.val3
   %.not4.i = icmp eq i64 %.val3, 0
-  br i1 %.not4.i, label %_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEERNS2_IcS3_IcESaIcEEE.argprom.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEERNS2_IcS3_IcESaIcEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.noexc
   %.sroa.01.05.i = phi ptr [ %6, %.noexc ], [ %.val, %2 ]
   %5 = load i32, ptr %.sroa.01.05.i, align 4
-  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.retelim(i32 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %.lr.ph.i
   %6 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 4
   %.not.i = icmp eq ptr %6, %4
-  br i1 %.not.i, label %_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEERNS2_IcS3_IcESaIcEEE.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEERNS2_IcS3_IcESaIcEEE.exit, label %.lr.ph.i
 
 7:                                                ; preds = %.lr.ph.i
   %8 = landingpad { ptr, i32 }
@@ -18953,12 +18953,12 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112b
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   resume { ptr, i32 } %8
 
-_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEERNS2_IcS3_IcESaIcEEE.argprom.exit: ; preds = %.noexc, %2
+_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEERNS2_IcS3_IcESaIcEEE.exit: ; preds = %.noexc, %2
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.retelim(i32 noundef zeroext %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 {
+define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef zeroext %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 {
   %3 = icmp ugt i32 %0, 1114111
   %spec.store.select = select i1 %3, i32 65533, i32 %0
   %4 = shl nuw nsw i32 %spec.store.select, 6
@@ -23948,15 +23948,15 @@ _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementE
   %41 = phi ptr [ %20, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit ], [ %20, %._crit_edge.loopexit.i ], [ %10, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.thread ]
   %.0.lcssa.i = phi i1 [ %2, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit ], [ %40, %._crit_edge.loopexit.i ], [ %2, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.thread ]
   %42 = select i1 %3, i1 %.0.lcssa.i, i1 false
-  br i1 %42, label %43, label %_ZN7jsonnet8internalL12fodder_countERjRKSt6vectorINS0_13FodderElementESaIS3_EEbb.argprom.exit
+  br i1 %42, label %43, label %_ZN7jsonnet8internalL12fodder_countERjRKSt6vectorINS0_13FodderElementESaIS3_EEbb.exit
 
 43:                                               ; preds = %._crit_edge.i
   %44 = load i32, ptr %41, align 4
   %45 = add i32 %44, 1
   store i32 %45, ptr %41, align 4
-  br label %_ZN7jsonnet8internalL12fodder_countERjRKSt6vectorINS0_13FodderElementESaIS3_EEbb.argprom.exit
+  br label %_ZN7jsonnet8internalL12fodder_countERjRKSt6vectorINS0_13FodderElementESaIS3_EEbb.exit
 
-_ZN7jsonnet8internalL12fodder_countERjRKSt6vectorINS0_13FodderElementESaIS3_EEbb.argprom.exit: ; preds = %._crit_edge.i, %43
+_ZN7jsonnet8internalL12fodder_countERjRKSt6vectorINS0_13FodderElementESaIS3_EEbb.exit: ; preds = %._crit_edge.i, %43
   ret void
 }
 
@@ -26896,7 +26896,7 @@ define internal fastcc void @_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10Id
 .lr.ph.i.i:                                       ; preds = %2, %.noexc.i
   %.sroa.01.05.i.i = phi ptr [ %6, %.noexc.i ], [ %.val.i, %2 ]
   %5 = load i32, ptr %.sroa.01.05.i.i, align 4
-  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.retelim(i32 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc.i unwind label %7
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i

@@ -4987,13 +4987,13 @@ if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i
   %3 = tail call double @llvm.fabs.f64(double %sub.i.i.i.i.i)
   %cmp1.i.i.i.i.i = fcmp oeq double %2, 0.000000e+00
   %or.cond.i.i.i.i.i = or i1 %cmp2.i.i.i.i.i, %cmp1.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit.i.i
+  br i1 %or.cond.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %cmp5.i.i.i.i.i = fcmp olt double %3, %mul4.i.i.i.i.i
   br i1 %cmp5.i.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit.i.i: ; preds = %if.end.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit.i.i: ; preds = %if.end.i.i.i.i.i
   %4 = tail call double @llvm.fabs.f64(double %2)
   %mul7.i.i.i.i.i = fmul double %mul.i.i.i.i.i, %4
   %cmp8.i.i.i.i.i = fcmp ole double %3, %mul7.i.i.i.i.i
@@ -5001,7 +5001,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS
   %5 = or i1 %cmp8.i.i.i.i.i, %cmp10.i.i.i.i.i
   br i1 %5, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit.i.i, %if.then3.i.i.i.i.i
+if.end.i.i:                                       ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit.i.i, %if.then3.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0201.i.i, i64 8
   %6 = load double, ptr %incdec.ptr.i.i.i, align 8, !tbaa !98
   %cmp.i.i.i22.i.i = fcmp oeq double %6, %__pred.coerce0
@@ -5012,13 +5012,13 @@ if.end.i.i.i23.i.i:                               ; preds = %if.end.i.i
   %7 = tail call double @llvm.fabs.f64(double %sub.i.i.i24.i.i)
   %cmp1.i.i.i27.i.i = fcmp oeq double %6, 0.000000e+00
   %or.cond.i.i.i29.i.i = or i1 %cmp2.i.i.i.i.i, %cmp1.i.i.i27.i.i
-  br i1 %or.cond.i.i.i29.i.i, label %if.then3.i.i.i36.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit39.i.i
+  br i1 %or.cond.i.i.i29.i.i, label %if.then3.i.i.i36.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit39.i.i
 
 if.then3.i.i.i36.i.i:                             ; preds = %if.end.i.i.i23.i.i
   %cmp5.i.i.i38.i.i = fcmp olt double %7, %mul4.i.i.i.i.i
   br i1 %cmp5.i.i.i38.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit51, label %if.end9.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit39.i.i: ; preds = %if.end.i.i.i23.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit39.i.i: ; preds = %if.end.i.i.i23.i.i
   %8 = tail call double @llvm.fabs.f64(double %6)
   %mul7.i.i.i31.i.i = fmul double %mul.i.i.i.i.i, %8
   %cmp8.i.i.i32.i.i = fcmp ole double %7, %mul7.i.i.i31.i.i
@@ -5026,7 +5026,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS
   %9 = or i1 %cmp8.i.i.i32.i.i, %cmp10.i.i.i34.i.i
   br i1 %9, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit, label %if.end9.i.i
 
-if.end9.i.i:                                      ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit39.i.i, %if.then3.i.i.i36.i.i
+if.end9.i.i:                                      ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit39.i.i, %if.then3.i.i.i36.i.i
   %incdec.ptr.i40.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0201.i.i, i64 16
   %10 = load double, ptr %incdec.ptr.i40.i.i, align 8, !tbaa !98
   %cmp.i.i.i41.i.i = fcmp oeq double %10, %__pred.coerce0
@@ -5037,13 +5037,13 @@ if.end.i.i.i42.i.i:                               ; preds = %if.end9.i.i
   %11 = tail call double @llvm.fabs.f64(double %sub.i.i.i43.i.i)
   %cmp1.i.i.i46.i.i = fcmp oeq double %10, 0.000000e+00
   %or.cond.i.i.i48.i.i = or i1 %cmp2.i.i.i.i.i, %cmp1.i.i.i46.i.i
-  br i1 %or.cond.i.i.i48.i.i, label %if.then3.i.i.i55.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit58.i.i
+  br i1 %or.cond.i.i.i48.i.i, label %if.then3.i.i.i55.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit58.i.i
 
 if.then3.i.i.i55.i.i:                             ; preds = %if.end.i.i.i42.i.i
   %cmp5.i.i.i57.i.i = fcmp olt double %11, %mul4.i.i.i.i.i
   br i1 %cmp5.i.i.i57.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit53, label %if.end15.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit58.i.i: ; preds = %if.end.i.i.i42.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit58.i.i: ; preds = %if.end.i.i.i42.i.i
   %12 = tail call double @llvm.fabs.f64(double %10)
   %mul7.i.i.i50.i.i = fmul double %mul.i.i.i.i.i, %12
   %cmp8.i.i.i51.i.i = fcmp ole double %11, %mul7.i.i.i50.i.i
@@ -5051,7 +5051,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS
   %13 = or i1 %cmp8.i.i.i51.i.i, %cmp10.i.i.i53.i.i
   br i1 %13, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit47, label %if.end15.i.i
 
-if.end15.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit58.i.i, %if.then3.i.i.i55.i.i
+if.end15.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit58.i.i, %if.then3.i.i.i55.i.i
   %incdec.ptr.i59.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0201.i.i, i64 24
   %14 = load double, ptr %incdec.ptr.i59.i.i, align 8, !tbaa !98
   %cmp.i.i.i60.i.i = fcmp oeq double %14, %__pred.coerce0
@@ -5062,13 +5062,13 @@ if.end.i.i.i61.i.i:                               ; preds = %if.end15.i.i
   %15 = tail call double @llvm.fabs.f64(double %sub.i.i.i62.i.i)
   %cmp1.i.i.i65.i.i = fcmp oeq double %14, 0.000000e+00
   %or.cond.i.i.i67.i.i = or i1 %cmp2.i.i.i.i.i, %cmp1.i.i.i65.i.i
-  br i1 %or.cond.i.i.i67.i.i, label %if.then3.i.i.i74.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit77.i.i
+  br i1 %or.cond.i.i.i67.i.i, label %if.then3.i.i.i74.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit77.i.i
 
 if.then3.i.i.i74.i.i:                             ; preds = %if.end.i.i.i61.i.i
   %cmp5.i.i.i76.i.i = fcmp olt double %15, %mul4.i.i.i.i.i
   br i1 %cmp5.i.i.i76.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit55, label %if.end21.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit77.i.i: ; preds = %if.end.i.i.i61.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit77.i.i: ; preds = %if.end.i.i.i61.i.i
   %16 = tail call double @llvm.fabs.f64(double %14)
   %mul7.i.i.i69.i.i = fmul double %mul.i.i.i.i.i, %16
   %cmp8.i.i.i70.i.i = fcmp ole double %15, %mul7.i.i.i69.i.i
@@ -5076,7 +5076,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS
   %17 = or i1 %cmp8.i.i.i70.i.i, %cmp10.i.i.i72.i.i
   br i1 %17, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit49, label %if.end21.i.i
 
-if.end21.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit77.i.i, %if.then3.i.i.i74.i.i
+if.end21.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit77.i.i, %if.then3.i.i.i74.i.i
   %incdec.ptr.i78.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0201.i.i, i64 32
   %dec.i.i = add nsw i64 %__trip_count.0202.i.i, -1
   %cmp.i.i = icmp sgt i64 %__trip_count.0202.i.i, 1
@@ -5110,14 +5110,14 @@ if.end.i.i.i84.i.i:                               ; preds = %sw.bb.i.i
   %cmp1.i.i.i88.i.i = fcmp oeq double %18, 0.000000e+00
   %cmp2.i.i.i89.i.i = fcmp oeq double %__pred.coerce0, 0.000000e+00
   %or.cond.i.i.i90.i.i = or i1 %cmp2.i.i.i89.i.i, %cmp1.i.i.i88.i.i
-  br i1 %or.cond.i.i.i90.i.i, label %if.then3.i.i.i97.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit100.i.i
+  br i1 %or.cond.i.i.i90.i.i, label %if.then3.i.i.i97.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit100.i.i
 
 if.then3.i.i.i97.i.i:                             ; preds = %if.end.i.i.i84.i.i
   %mul4.i.i.i98.i.i = fmul double %mul.i.i.i87.i.i, %mul.i.i.i87.i.i
   %cmp5.i.i.i99.i.i = fcmp olt double %19, %mul4.i.i.i98.i.i
   br i1 %cmp5.i.i.i99.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end28.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit100.i.i: ; preds = %if.end.i.i.i84.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit100.i.i: ; preds = %if.end.i.i.i84.i.i
   %20 = tail call double @llvm.fabs.f64(double %18)
   %mul7.i.i.i92.i.i = fmul double %mul.i.i.i87.i.i, %20
   %cmp8.i.i.i93.i.i = fcmp ole double %19, %mul7.i.i.i92.i.i
@@ -5127,7 +5127,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS
   %22 = or i1 %cmp8.i.i.i93.i.i, %cmp10.i.i.i95.i.i
   br i1 %22, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end28.i.i
 
-if.end28.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit100.i.i, %if.then3.i.i.i97.i.i
+if.end28.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit100.i.i, %if.then3.i.i.i97.i.i
   %incdec.ptr.i101.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 8
   br label %sw.bb30.i.i
 
@@ -5145,14 +5145,14 @@ if.end.i.i.i103.i.i:                              ; preds = %sw.bb30.i.i
   %cmp1.i.i.i107.i.i = fcmp oeq double %23, 0.000000e+00
   %cmp2.i.i.i108.i.i = fcmp oeq double %__pred.coerce0, 0.000000e+00
   %or.cond.i.i.i109.i.i = or i1 %cmp2.i.i.i108.i.i, %cmp1.i.i.i107.i.i
-  br i1 %or.cond.i.i.i109.i.i, label %if.then3.i.i.i116.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit119.i.i
+  br i1 %or.cond.i.i.i109.i.i, label %if.then3.i.i.i116.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit119.i.i
 
 if.then3.i.i.i116.i.i:                            ; preds = %if.end.i.i.i103.i.i
   %mul4.i.i.i117.i.i = fmul double %mul.i.i.i106.i.i, %mul.i.i.i106.i.i
   %cmp5.i.i.i118.i.i = fcmp olt double %24, %mul4.i.i.i117.i.i
   br i1 %cmp5.i.i.i118.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end35.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit119.i.i: ; preds = %if.end.i.i.i103.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit119.i.i: ; preds = %if.end.i.i.i103.i.i
   %25 = tail call double @llvm.fabs.f64(double %23)
   %mul7.i.i.i111.i.i = fmul double %mul.i.i.i106.i.i, %25
   %cmp8.i.i.i112.i.i = fcmp ole double %24, %mul7.i.i.i111.i.i
@@ -5162,7 +5162,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS
   %27 = or i1 %cmp8.i.i.i112.i.i, %cmp10.i.i.i114.i.i
   br i1 %27, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end35.i.i
 
-if.end35.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit119.i.i, %if.then3.i.i.i116.i.i
+if.end35.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit119.i.i, %if.then3.i.i.i116.i.i
   %incdec.ptr.i120.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 8
   br label %sw.bb37.i.i
 
@@ -5180,14 +5180,14 @@ if.end.i.i.i122.i.i:                              ; preds = %sw.bb37.i.i
   %cmp1.i.i.i126.i.i = fcmp oeq double %28, 0.000000e+00
   %cmp2.i.i.i127.i.i = fcmp oeq double %__pred.coerce0, 0.000000e+00
   %or.cond.i.i.i128.i.i = or i1 %cmp2.i.i.i127.i.i, %cmp1.i.i.i126.i.i
-  br i1 %or.cond.i.i.i128.i.i, label %if.then3.i.i.i135.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit138.i.i
+  br i1 %or.cond.i.i.i128.i.i, label %if.then3.i.i.i135.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit138.i.i
 
 if.then3.i.i.i135.i.i:                            ; preds = %if.end.i.i.i122.i.i
   %mul4.i.i.i136.i.i = fmul double %mul.i.i.i125.i.i, %mul.i.i.i125.i.i
   %cmp5.i.i.i137.i.i = fcmp olt double %29, %mul4.i.i.i136.i.i
   br i1 %cmp5.i.i.i137.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end42.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit138.i.i: ; preds = %if.end.i.i.i122.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit138.i.i: ; preds = %if.end.i.i.i122.i.i
   %30 = tail call double @llvm.fabs.f64(double %28)
   %mul7.i.i.i130.i.i = fmul double %mul.i.i.i125.i.i, %30
   %cmp8.i.i.i131.i.i = fcmp ole double %29, %mul7.i.i.i130.i.i
@@ -5197,18 +5197,18 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS
   %32 = or i1 %cmp8.i.i.i131.i.i, %cmp10.i.i.i133.i.i
   br i1 %32, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end42.i.i
 
-if.end42.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit138.i.i, %if.then3.i.i.i135.i.i
+if.end42.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit138.i.i, %if.then3.i.i.i135.i.i
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit39.i.i
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit39.i.i
   %incdec.ptr.i.i.i.le81 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0201.i.i, i64 8
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit47: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit58.i.i
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit47: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit58.i.i
   %incdec.ptr.i40.i.i.le76 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0201.i.i, i64 16
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit49: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit77.i.i
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit49: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit77.i.i
   %incdec.ptr.i59.i.i.le71 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0201.i.i, i64 24
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit
 
@@ -5236,8 +5236,8 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_
   %incdec.ptr.i59.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0201.i.i, i64 24
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit: ; preds = %for.body.i.i, %if.then3.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit47, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit49, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit51, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit53, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit55, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit57, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit59, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit61, %for.end.i.i, %sw.bb.i.i, %if.then3.i.i.i97.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit100.i.i, %sw.bb30.i.i, %if.then3.i.i.i116.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit119.i.i, %sw.bb37.i.i, %if.then3.i.i.i135.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit138.i.i, %if.end42.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit100.i.i ], [ %__first.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit119.i.i ], [ %__first.sroa.0.2.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit138.i.i ], [ %__last.coerce, %if.end42.i.i ], [ %__last.coerce, %for.end.i.i ], [ %__first.sroa.0.0.lcssa.i.i, %if.then3.i.i.i97.i.i ], [ %__first.sroa.0.1.i.i, %if.then3.i.i.i116.i.i ], [ %__first.sroa.0.2.i.i, %if.then3.i.i.i135.i.i ], [ %__first.sroa.0.0.lcssa.i.i, %sw.bb.i.i ], [ %__first.sroa.0.1.i.i, %sw.bb30.i.i ], [ %__first.sroa.0.2.i.i, %sw.bb37.i.i ], [ %incdec.ptr.i.i.i.le81, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i40.i.i.le76, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit47 ], [ %incdec.ptr.i59.i.i.le71, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit49 ], [ %incdec.ptr.i.i.i.le79, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit51 ], [ %incdec.ptr.i40.i.i.le74, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit53 ], [ %incdec.ptr.i59.i.i.le69, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit55 ], [ %incdec.ptr.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit57 ], [ %incdec.ptr.i40.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit59 ], [ %incdec.ptr.i59.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit61 ], [ %__first.sroa.0.0201.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.argprom.exit.i.i ], [ %__first.sroa.0.0201.i.i, %if.then3.i.i.i.i.i ], [ %__first.sroa.0.0201.i.i, %for.body.i.i ]
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit: ; preds = %for.body.i.i, %if.then3.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit47, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit49, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit51, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit53, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit55, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit57, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit59, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit61, %for.end.i.i, %sw.bb.i.i, %if.then3.i.i.i97.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit100.i.i, %sw.bb30.i.i, %if.then3.i.i.i116.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit119.i.i, %sw.bb37.i.i, %if.then3.i.i.i135.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit138.i.i, %if.end42.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit100.i.i ], [ %__first.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit119.i.i ], [ %__first.sroa.0.2.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit138.i.i ], [ %__last.coerce, %if.end42.i.i ], [ %__last.coerce, %for.end.i.i ], [ %__first.sroa.0.0.lcssa.i.i, %if.then3.i.i.i97.i.i ], [ %__first.sroa.0.1.i.i, %if.then3.i.i.i116.i.i ], [ %__first.sroa.0.2.i.i, %if.then3.i.i.i135.i.i ], [ %__first.sroa.0.0.lcssa.i.i, %sw.bb.i.i ], [ %__first.sroa.0.1.i.i, %sw.bb30.i.i ], [ %__first.sroa.0.2.i.i, %sw.bb37.i.i ], [ %incdec.ptr.i.i.i.le81, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i40.i.i.le76, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit47 ], [ %incdec.ptr.i59.i.i.le71, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit49 ], [ %incdec.ptr.i.i.i.le79, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit51 ], [ %incdec.ptr.i40.i.i.le74, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit53 ], [ %incdec.ptr.i59.i.i.le69, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit55 ], [ %incdec.ptr.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit57 ], [ %incdec.ptr.i40.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit59 ], [ %incdec.ptr.i59.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit.loopexit.split.loop.exit61 ], [ %__first.sroa.0.0201.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit.i.i ], [ %__first.sroa.0.0201.i.i, %if.then3.i.i.i.i.i ], [ %__first.sroa.0.0201.i.i, %for.body.i.i ]
   ret ptr %retval.sroa.0.0.in.sroa.speculated.i.i
 }
 

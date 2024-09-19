@@ -467,7 +467,7 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   %or.cond15.not44 = and i1 %19, %or.cond13.not46
   %.not = icmp eq i32 %5, 8
   %or.cond = and i1 %.not, %or.cond15.not44
-  br i1 %or.cond, label %20, label %DoEstimateRisk.argprom.exit
+  br i1 %or.cond, label %20, label %DoEstimateRisk.exit
 
 20:                                               ; preds = %10
   %21 = icmp slt i32 %6, 5
@@ -477,7 +477,7 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
 
 23:                                               ; preds = %20
   store float 0.000000e+00, ptr %9, align 4
-  br label %DoEstimateRisk.argprom.exit
+  br label %DoEstimateRisk.exit
 
 24:                                               ; preds = %20
   %25 = load i32, ptr @kSharpYuvPrecomputedRiskYuvSampling, align 4
@@ -494,7 +494,7 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
 33:                                               ; preds = %24
   tail call void @WebPFree(ptr noundef %29) #6
   tail call void @WebPFree(ptr noundef %30) #6
-  br label %DoEstimateRisk.argprom.exit
+  br label %DoEstimateRisk.exit
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr %8, align 8
@@ -758,9 +758,9 @@ SharpYuvRowToYuvSharpnessIndex.exit.i:            ; preds = %SharpYuvRowToYuvSha
   tail call void @WebPFree(ptr noundef nonnull %.0846.i) #6
   %234 = fptrunc double %233 to float
   store float %234, ptr %9, align 4
-  br label %DoEstimateRisk.argprom.exit
+  br label %DoEstimateRisk.exit
 
-DoEstimateRisk.argprom.exit:                      ; preds = %222, %33, %10, %23
+DoEstimateRisk.exit:                              ; preds = %222, %33, %10, %23
   %.0 = phi i32 [ 1, %23 ], [ 0, %10 ], [ 0, %33 ], [ 1, %222 ]
   ret i32 %.0
 }

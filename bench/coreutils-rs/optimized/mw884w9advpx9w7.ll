@@ -518,7 +518,7 @@ define hidden void @"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTak
   %15 = icmp ult i64 %.011.i, %6
   tail call void @llvm.assume(i1 %15)
   %16 = icmp eq i64 %.011.i, 0
-  br i1 %16, label %22, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.argprom.exit"
+  br i1 %16, label %22, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.exit"
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -542,8 +542,8 @@ define hidden void @"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTak
   store i64 %6, ptr %.sroa.611.0..sroa_idx, align 8
   br label %21
 
-21:                                               ; preds = %17, %19, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.argprom.exit", %22
-  %.sink = phi i64 [ 1, %17 ], [ 0, %19 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.argprom.exit" ], [ 1, %22 ]
+21:                                               ; preds = %17, %19, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.exit", %22
+  %.sink = phi i64 [ 1, %17 ], [ 0, %19 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.exit" ], [ 1, %22 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -558,7 +558,7 @@ define hidden void @"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTak
   store i8 %2, ptr %.sroa.43.sroa.5.0..sroa.43.0..sroa_idx.sroa_idx, align 8
   br label %21
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.argprom.exit": ; preds = %14
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.exit": ; preds = %14
   %24 = getelementptr inbounds i8, ptr %4, i64 %.011.i
   %25 = sub nuw i64 %6, %.011.i
   %26 = getelementptr inbounds i8, ptr %0, i64 8

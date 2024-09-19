@@ -3940,13 +3940,13 @@ if.end:                                           ; preds = %blockalloc_to_exten
 if.then7:                                         ; preds = %if.end
   %sub = sub i32 0, %ret.0
   %call8 = call i32 @nbd_co_send_chunk_error(ptr noundef %client, ptr noundef %request, i32 noundef %sub, ptr noundef nonnull @.str.94, ptr noundef %errp)
-  br label %glib_autoptr_cleanup_NBDExtentArray.argprom.exit
+  br label %glib_autoptr_cleanup_NBDExtentArray.exit
 
 if.end9:                                          ; preds = %if.end
   %call11 = call i32 @nbd_co_send_extents(ptr noundef %client, ptr noundef %request, ptr noundef nonnull %call.i, i1 noundef zeroext %last, i32 noundef %context_id, ptr noundef %errp)
-  br label %glib_autoptr_cleanup_NBDExtentArray.argprom.exit
+  br label %glib_autoptr_cleanup_NBDExtentArray.exit
 
-glib_autoptr_cleanup_NBDExtentArray.argprom.exit: ; preds = %if.end9, %if.then7
+glib_autoptr_cleanup_NBDExtentArray.exit:         ; preds = %if.end9, %if.then7
   %retval.0 = phi i32 [ %call8, %if.then7 ], [ %call11, %if.end9 ]
   %6 = load ptr, ptr %call.i, align 8
   call void @g_free(ptr noundef %6) #20
@@ -3996,13 +3996,13 @@ for.body.i:                                       ; preds = %nbd_extent_array_ne
   %sub.i = sub i64 %1, %start.012.i
   %call1.i = call fastcc i32 @nbd_extent_array_add(ptr noundef nonnull %call.i, i64 noundef %sub.i, i32 noundef 0)
   %cmp.i3 = icmp slt i32 %call1.i, 0
-  br i1 %cmp.i3, label %glib_autoptr_cleanup_NBDExtentArray.argprom.exit, label %lor.lhs.false.i
+  br i1 %cmp.i3, label %glib_autoptr_cleanup_NBDExtentArray.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %2 = load i64, ptr %dirty_count.i, align 8
   %call2.i4 = call fastcc i32 @nbd_extent_array_add(ptr noundef nonnull %call.i, i64 noundef %2, i32 noundef 1)
   %cmp3.i5 = icmp slt i32 %call2.i4, 0
-  br i1 %cmp3.i5, label %glib_autoptr_cleanup_NBDExtentArray.argprom.exit, label %for.inc.i
+  br i1 %cmp3.i5, label %glib_autoptr_cleanup_NBDExtentArray.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %lor.lhs.false.i
   %3 = load i64, ptr %dirty_start.i, align 8
@@ -4015,9 +4015,9 @@ if.then6.i:                                       ; preds = %for.inc.i, %nbd_ext
   %start.0.lcssa.i = phi i64 [ %offset, %nbd_extent_array_new.exit ], [ %add4.i, %for.inc.i ]
   %sub7.i = sub i64 %add.i, %start.0.lcssa.i
   %call8.i = call fastcc i32 @nbd_extent_array_add(ptr noundef nonnull %call.i, i64 noundef %sub7.i, i32 noundef 0)
-  br label %glib_autoptr_cleanup_NBDExtentArray.argprom.exit
+  br label %glib_autoptr_cleanup_NBDExtentArray.exit
 
-glib_autoptr_cleanup_NBDExtentArray.argprom.exit: ; preds = %for.body.i, %lor.lhs.false.i, %if.then6.i
+glib_autoptr_cleanup_NBDExtentArray.exit:         ; preds = %for.body.i, %lor.lhs.false.i, %if.then6.i
   call void @bdrv_dirty_bitmap_unlock(ptr noundef %bitmap) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dirty_start.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dirty_count.i)
@@ -5222,9 +5222,9 @@ while.body:                                       ; preds = %while.body.preheade
   store ptr %errp, ptr %errp1.i.i83, align 8
   %call.i.i88 = call i32 @qio_channel_read_all(ptr noundef %12, ptr noundef nonnull %magic, i64 noundef 8, ptr noundef %spec.select.i.i87) #20
   %cmp3.i.i89 = icmp slt i32 %call.i.i88, 0
-  br i1 %cmp3.i.i89, label %nbd_read64.argprom.exit.thread, label %if.end17
+  br i1 %cmp3.i.i89, label %nbd_read64.exit.thread, label %if.end17
 
-nbd_read64.argprom.exit.thread:                   ; preds = %while.body
+nbd_read64.exit.thread:                           ; preds = %while.body
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select.i.i87, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.117) #20
   %_auto_errp_prop.val.i2.i = load ptr, ptr %_auto_errp_prop.i.i82, align 8
   %_auto_errp_prop.val7.i3.i = load ptr, ptr %errp1.i.i83, align 8
@@ -5616,8 +5616,8 @@ if.else.i165:                                     ; preds = %if.else69
   call void @__assert_fail(ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.1, i32 noundef 448, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_negotiate_handle_list) #19
   unreachable
 
-for.body.i:                                       ; preds = %for.cond.preheader.i, %nbd_negotiate_send_rep_list.argprom.exit.i
-  %exp.015.i = phi ptr [ %exp.0.i, %nbd_negotiate_send_rep_list.argprom.exit.i ], [ %exp.013.i, %for.cond.preheader.i ]
+for.body.i:                                       ; preds = %for.cond.preheader.i, %nbd_negotiate_send_rep_list.exit.i
+  %exp.015.i = phi ptr [ %exp.0.i, %nbd_negotiate_send_rep_list.exit.i ], [ %exp.013.i, %for.cond.preheader.i ]
   %69 = getelementptr i8, ptr %exp.015.i, i64 56
   %exp.0.val.i = load ptr, ptr %69, align 8
   %70 = getelementptr i8, ptr %exp.015.i, i64 64
@@ -5700,14 +5700,14 @@ if.end30.i.i:                                     ; preds = %if.end23.i.i
 if.end35.i.i:                                     ; preds = %if.end30.i.i
   %call.i32.i.i = call i32 @qio_channel_write_all(ptr noundef %71, ptr noundef nonnull %cond11.i.i, i64 noundef %call13.i.i, ptr noundef nonnull %spec.select.i.i170) #20
   %cmp.i33.i.i = icmp slt i32 %call.i32.i.i, 0
-  br i1 %cmp.i33.i.i, label %cleanup.sink.split.i.i, label %nbd_negotiate_send_rep_list.argprom.exit.i
+  br i1 %cmp.i33.i.i, label %cleanup.sink.split.i.i, label %nbd_negotiate_send_rep_list.exit.i
 
 cleanup.sink.split.i.i:                           ; preds = %if.end35.i.i, %if.end30.i.i, %if.end23.i.i
   %.str.155.sink.i.i = phi ptr [ @.str.153, %if.end23.i.i ], [ @.str.154, %if.end30.i.i ], [ @.str.155, %if.end35.i.i ]
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select.i.i170, ptr noundef nonnull %.str.155.sink.i.i) #20
   br label %if.end146.thread
 
-nbd_negotiate_send_rep_list.argprom.exit.i:       ; preds = %if.end35.i.i
+nbd_negotiate_send_rep_list.exit.i:               ; preds = %if.end35.i.i
   %_auto_errp_prop.val.i.i173 = load ptr, ptr %_auto_errp_prop.i.i162, align 8
   %_auto_errp_prop.val28.i.i = load ptr, ptr %errp1.i.i166, align 8
   call void @error_propagate(ptr noundef %_auto_errp_prop.val28.i.i, ptr noundef %_auto_errp_prop.val.i.i173) #20
@@ -5718,7 +5718,7 @@ nbd_negotiate_send_rep_list.argprom.exit.i:       ; preds = %if.end35.i.i
   %tobool.not.i174 = icmp eq ptr %exp.0.i, null
   br i1 %tobool.not.i174, label %for.end.i, label %for.body.i, !llvm.loop !27
 
-for.end.i:                                        ; preds = %nbd_negotiate_send_rep_list.argprom.exit.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %nbd_negotiate_send_rep_list.exit.i, %for.cond.preheader.i
   %call.i7.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   br label %if.end146
 
@@ -6635,13 +6635,13 @@ if.then.i2.i.i.i:                                 ; preds = %trace_nbd_negotiate
   %206 = load i16, ptr @_TRACE_NBD_NEGOTIATE_META_QUERY_PARSE_DSTATE, align 2
   %tobool4.i.i.i.i.i.i = icmp ne i16 %206, 0
   %or.cond.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i, i1 %tobool4.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i.i.i, label %land.lhs.true5.i.i.i.i.i.i, label %nbd_meta_empty_or_pattern.argprom.exit.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i, label %land.lhs.true5.i.i.i.i.i.i, label %nbd_meta_empty_or_pattern.exit.i.i.i
 
 land.lhs.true5.i.i.i.i.i.i:                       ; preds = %if.then.i2.i.i.i
   %207 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i.i.i.i = and i32 %207, 32768
   %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i.i.i.i, label %nbd_meta_empty_or_pattern.argprom.exit.i.i.i, label %if.then.i.i.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i.i.i, label %nbd_meta_empty_or_pattern.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true5.i.i.i.i.i.i
   %208 = load i8, ptr @message_with_timestamp, align 1
@@ -6654,11 +6654,11 @@ if.then8.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
   %209 = load i64, ptr %_now.i.i.i.i.i.i, align 8
   %210 = load i64, ptr %tv_usec.i.i.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.196, i32 noundef %call10.i.i.i.i.i.i, i64 noundef %209, i64 noundef %210, ptr noundef nonnull @.str.198) #20
-  br label %nbd_meta_empty_or_pattern.argprom.exit.i.i.i
+  br label %nbd_meta_empty_or_pattern.exit.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.198) #20
-  br label %nbd_meta_empty_or_pattern.argprom.exit.i.i.i
+  br label %nbd_meta_empty_or_pattern.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %trace_nbd_negotiate_meta_query_parse.exit.i.i.i
   %call.i1.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.195) #21
@@ -6672,13 +6672,13 @@ if.then2.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %212 = load i16, ptr @_TRACE_NBD_NEGOTIATE_META_QUERY_PARSE_DSTATE, align 2
   %tobool4.i.i5.i.i.i.i = icmp ne i16 %212, 0
   %or.cond.i.i6.i.i.i.i = select i1 %tobool.i.i4.i.i.i.i, i1 %tobool4.i.i5.i.i.i.i, i1 false
-  br i1 %or.cond.i.i6.i.i.i.i, label %land.lhs.true5.i.i7.i.i.i.i, label %nbd_meta_empty_or_pattern.argprom.exit.thread.i.i.i
+  br i1 %or.cond.i.i6.i.i.i.i, label %land.lhs.true5.i.i7.i.i.i.i, label %nbd_meta_empty_or_pattern.exit.thread.i.i.i
 
 land.lhs.true5.i.i7.i.i.i.i:                      ; preds = %if.then2.i.i.i.i
   %213 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i8.i.i.i.i = and i32 %213, 32768
   %cmp.i.not.i.i9.i.i.i.i = icmp eq i32 %and.i.i.i8.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i9.i.i.i.i, label %nbd_meta_empty_or_pattern.argprom.exit.thread.i.i.i, label %if.then.i.i10.i.i.i.i
+  br i1 %cmp.i.not.i.i9.i.i.i.i, label %nbd_meta_empty_or_pattern.exit.thread.i.i.i, label %if.then.i.i10.i.i.i.i
 
 if.then.i.i10.i.i.i.i:                            ; preds = %land.lhs.true5.i.i7.i.i.i.i
   %214 = load i8, ptr @message_with_timestamp, align 1
@@ -6691,13 +6691,13 @@ if.then8.i.i13.i.i.i.i:                           ; preds = %if.then.i.i10.i.i.i
   %215 = load i64, ptr %_now.i.i3.i.i.i.i, align 8
   %216 = load i64, ptr %tv_usec.i.i16.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.196, i32 noundef %call10.i.i15.i.i.i.i, i64 noundef %215, i64 noundef %216, ptr noundef nonnull @.str.195) #20
-  br label %nbd_meta_empty_or_pattern.argprom.exit.thread.i.i.i
+  br label %nbd_meta_empty_or_pattern.exit.thread.i.i.i
 
 if.else.i.i12.i.i.i.i:                            ; preds = %if.then.i.i10.i.i.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.195) #20
-  br label %nbd_meta_empty_or_pattern.argprom.exit.thread.i.i.i
+  br label %nbd_meta_empty_or_pattern.exit.thread.i.i.i
 
-nbd_meta_empty_or_pattern.argprom.exit.thread.i.i.i: ; preds = %if.else.i.i12.i.i.i.i, %if.then8.i.i13.i.i.i.i, %land.lhs.true5.i.i7.i.i.i.i, %if.then2.i.i.i.i
+nbd_meta_empty_or_pattern.exit.thread.i.i.i:      ; preds = %if.else.i.i12.i.i.i.i, %if.then8.i.i13.i.i.i.i, %land.lhs.true5.i.i7.i.i.i.i, %if.then2.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i3.i.i.i.i)
   br label %if.then2.i.i.i
 
@@ -6708,13 +6708,13 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %218 = load i16, ptr @_TRACE_NBD_NEGOTIATE_META_QUERY_SKIP_DSTATE, align 2
   %tobool4.i.i20.i.i.i.i = icmp ne i16 %218, 0
   %or.cond.i.i21.i.i.i.i = select i1 %tobool.i.i19.i.i.i.i, i1 %tobool4.i.i20.i.i.i.i, i1 false
-  br i1 %or.cond.i.i21.i.i.i.i, label %land.lhs.true5.i.i22.i.i.i.i, label %nbd_meta_empty_or_pattern.argprom.exit.thread8.i.i.i
+  br i1 %or.cond.i.i21.i.i.i.i, label %land.lhs.true5.i.i22.i.i.i.i, label %nbd_meta_empty_or_pattern.exit.thread8.i.i.i
 
 land.lhs.true5.i.i22.i.i.i.i:                     ; preds = %if.end3.i.i.i.i
   %219 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i23.i.i.i.i = and i32 %219, 32768
   %cmp.i.not.i.i24.i.i.i.i = icmp eq i32 %and.i.i.i23.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i24.i.i.i.i, label %nbd_meta_empty_or_pattern.argprom.exit.thread8.i.i.i, label %if.then.i.i25.i.i.i.i
+  br i1 %cmp.i.not.i.i24.i.i.i.i, label %nbd_meta_empty_or_pattern.exit.thread8.i.i.i, label %if.then.i.i25.i.i.i.i
 
 if.then.i.i25.i.i.i.i:                            ; preds = %land.lhs.true5.i.i22.i.i.i.i
   %220 = load i8, ptr @message_with_timestamp, align 1
@@ -6727,23 +6727,23 @@ if.then8.i.i28.i.i.i.i:                           ; preds = %if.then.i.i25.i.i.i
   %221 = load i64, ptr %_now.i.i18.i.i.i.i, align 8
   %222 = load i64, ptr %tv_usec.i.i31.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.192, i32 noundef %call10.i.i30.i.i.i.i, i64 noundef %221, i64 noundef %222, ptr noundef nonnull @.str.199) #20
-  br label %nbd_meta_empty_or_pattern.argprom.exit.thread8.i.i.i
+  br label %nbd_meta_empty_or_pattern.exit.thread8.i.i.i
 
 if.else.i.i27.i.i.i.i:                            ; preds = %if.then.i.i25.i.i.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.199) #20
-  br label %nbd_meta_empty_or_pattern.argprom.exit.thread8.i.i.i
+  br label %nbd_meta_empty_or_pattern.exit.thread8.i.i.i
 
-nbd_meta_empty_or_pattern.argprom.exit.thread8.i.i.i: ; preds = %if.else.i.i27.i.i.i.i, %if.then8.i.i28.i.i.i.i, %land.lhs.true5.i.i22.i.i.i.i, %if.end3.i.i.i.i
+nbd_meta_empty_or_pattern.exit.thread8.i.i.i:     ; preds = %if.else.i.i27.i.i.i.i, %if.then8.i.i28.i.i.i.i, %land.lhs.true5.i.i22.i.i.i.i, %if.end3.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i18.i.i.i.i)
   br label %nbd_negotiate_meta_query.exit.thread.i
 
-nbd_meta_empty_or_pattern.argprom.exit.i.i.i:     ; preds = %if.else.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i.i, %if.then.i2.i.i.i
+nbd_meta_empty_or_pattern.exit.i.i.i:             ; preds = %if.else.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i.i, %if.then.i2.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i.i.i)
   %223 = load i32, ptr %opt, align 8
   %cmp.i3.i.i.i = icmp eq i32 %223, 9
   br i1 %cmp.i3.i.i.i, label %if.then2.i.i.i, label %nbd_negotiate_meta_query.exit.thread.i
 
-if.then2.i.i.i:                                   ; preds = %nbd_meta_empty_or_pattern.argprom.exit.i.i.i, %nbd_meta_empty_or_pattern.argprom.exit.thread.i.i.i
+if.then2.i.i.i:                                   ; preds = %nbd_meta_empty_or_pattern.exit.i.i.i, %nbd_meta_empty_or_pattern.exit.thread.i.i.i
   store i8 1, ptr %meta.0.sroa.sel110.i, align 8
   br label %nbd_negotiate_meta_query.exit.thread.i
 
@@ -7165,8 +7165,8 @@ trace_nbd_negotiate_meta_query_skip.exit73.i.i:   ; preds = %if.else.i.i68.i.i, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i59.i.i)
   br label %nbd_negotiate_meta_query.exit.thread.i
 
-nbd_negotiate_meta_query.exit.thread.i:           ; preds = %trace_nbd_negotiate_meta_query_skip.exit73.i.i, %trace_nbd_negotiate_meta_query_skip.exit127.i.i.i, %trace_nbd_negotiate_meta_query_skip.exit.i.i.i, %trace_nbd_negotiate_meta_query_parse.exit98.i.i.i, %trace_nbd_negotiate_meta_query_parse.exit83.i.i.i, %trace_nbd_negotiate_meta_query_parse.exit47.i.i.i, %trace_nbd_negotiate_meta_query_parse.exit32.i.i.i, %if.then2.i.i.i, %nbd_meta_empty_or_pattern.argprom.exit.i.i.i, %nbd_meta_empty_or_pattern.argprom.exit.thread8.i.i.i, %if.end.i14.i.i
-  %query.0.i.ph.i = phi ptr [ %call7.i.i, %trace_nbd_negotiate_meta_query_skip.exit.i.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_parse.exit98.i.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_skip.exit127.i.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_parse.exit83.i.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_parse.exit47.i.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_parse.exit32.i.i.i ], [ %call7.i.i, %if.then2.i.i.i ], [ %call7.i.i, %nbd_meta_empty_or_pattern.argprom.exit.i.i.i ], [ %call7.i.i, %nbd_meta_empty_or_pattern.argprom.exit.thread8.i.i.i ], [ null, %if.end.i14.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_skip.exit73.i.i ]
+nbd_negotiate_meta_query.exit.thread.i:           ; preds = %trace_nbd_negotiate_meta_query_skip.exit73.i.i, %trace_nbd_negotiate_meta_query_skip.exit127.i.i.i, %trace_nbd_negotiate_meta_query_skip.exit.i.i.i, %trace_nbd_negotiate_meta_query_parse.exit98.i.i.i, %trace_nbd_negotiate_meta_query_parse.exit83.i.i.i, %trace_nbd_negotiate_meta_query_parse.exit47.i.i.i, %trace_nbd_negotiate_meta_query_parse.exit32.i.i.i, %if.then2.i.i.i, %nbd_meta_empty_or_pattern.exit.i.i.i, %nbd_meta_empty_or_pattern.exit.thread8.i.i.i, %if.end.i14.i.i
+  %query.0.i.ph.i = phi ptr [ %call7.i.i, %trace_nbd_negotiate_meta_query_skip.exit.i.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_parse.exit98.i.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_skip.exit127.i.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_parse.exit83.i.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_parse.exit47.i.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_parse.exit32.i.i.i ], [ %call7.i.i, %if.then2.i.i.i ], [ %call7.i.i, %nbd_meta_empty_or_pattern.exit.i.i.i ], [ %call7.i.i, %nbd_meta_empty_or_pattern.exit.thread8.i.i.i ], [ null, %if.end.i14.i.i ], [ %call7.i.i, %trace_nbd_negotiate_meta_query_skip.exit73.i.i ]
   call void @g_free(ptr noundef %query.0.i.ph.i) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i228)
   br label %for.inc.i
@@ -7350,8 +7350,8 @@ if.end146:                                        ; preds = %nbd_negotiate_handl
   %cmp147 = icmp slt i32 %ret.0, 0
   br i1 %cmp147, label %return, label %while.body
 
-return:                                           ; preds = %if.end146, %sw.default, %nbd_negotiate_handle_starttls.exit, %if.end146.thread, %nbd_negotiate_handle_starttls.exit.thread, %nbd_read32.exit140.thread, %nbd_read32.exit123.thread, %nbd_read64.argprom.exit.thread, %nbd_read32.exit.thread, %if.then80, %sw.default143, %sw.bb140, %sw.bb74, %sw.bb72, %sw.bb56, %if.then47, %if.then44, %if.then36, %if.then19, %if.then11
-  %retval.0 = phi i32 [ -22, %if.then11 ], [ -22, %if.then19 ], [ -22, %if.then36 ], [ -22, %sw.bb56 ], [ %call48, %if.then47 ], [ -22, %if.then44 ], [ %call76, %sw.bb74 ], [ 1, %sw.bb72 ], [ %call142, %sw.bb140 ], [ -22, %sw.default143 ], [ 0, %if.then80 ], [ -5, %nbd_read32.exit.thread ], [ -22, %nbd_read64.argprom.exit.thread ], [ -22, %nbd_read32.exit123.thread ], [ -22, %nbd_read32.exit140.thread ], [ -5, %nbd_negotiate_handle_starttls.exit.thread ], [ -22, %if.end146.thread ], [ %ret.0, %if.end146 ], [ 1, %sw.default ], [ -5, %nbd_negotiate_handle_starttls.exit ]
+return:                                           ; preds = %if.end146, %sw.default, %nbd_negotiate_handle_starttls.exit, %if.end146.thread, %nbd_negotiate_handle_starttls.exit.thread, %nbd_read32.exit140.thread, %nbd_read32.exit123.thread, %nbd_read64.exit.thread, %nbd_read32.exit.thread, %if.then80, %sw.default143, %sw.bb140, %sw.bb74, %sw.bb72, %sw.bb56, %if.then47, %if.then44, %if.then36, %if.then19, %if.then11
+  %retval.0 = phi i32 [ -22, %if.then11 ], [ -22, %if.then19 ], [ -22, %if.then36 ], [ -22, %sw.bb56 ], [ %call48, %if.then47 ], [ -22, %if.then44 ], [ %call76, %sw.bb74 ], [ 1, %sw.bb72 ], [ %call142, %sw.bb140 ], [ -22, %sw.default143 ], [ 0, %if.then80 ], [ -5, %nbd_read32.exit.thread ], [ -22, %nbd_read64.exit.thread ], [ -22, %nbd_read32.exit123.thread ], [ -22, %nbd_read32.exit140.thread ], [ -5, %nbd_negotiate_handle_starttls.exit.thread ], [ -22, %if.end146.thread ], [ %ret.0, %if.end146 ], [ 1, %sw.default ], [ -5, %nbd_negotiate_handle_starttls.exit ]
   ret i32 %retval.0
 }
 

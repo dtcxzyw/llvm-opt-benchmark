@@ -3181,11 +3181,11 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %invoke.cont.loopexi
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %248, %m_initial_buffer.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %248, null
   %or.cond.i.i.i.i.i.i.i.i.i.i = or i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_110smt_solver21collect_body_fds_procclEP10quantifier.argprom.exit.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_110smt_solver21collect_body_fds_procclEP10quantifier.exit.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i.i.i
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %248)
-          to label %_ZN12_GLOBAL__N_110smt_solver21collect_body_fds_procclEP10quantifier.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
+          to label %_ZN12_GLOBAL__N_110smt_solver21collect_body_fds_procclEP10quantifier.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i
   %249 = landingpad { ptr, i32 }
@@ -3200,7 +3200,7 @@ lpad.i.i.i.i.i:                                   ; preds = %while.end68.i.i.i.i
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %visited.i.i.i.i.i) #21
   br label %lpad.body.i.i.i.i
 
-_ZN12_GLOBAL__N_110smt_solver21collect_body_fds_procclEP10quantifier.argprom.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i
+_ZN12_GLOBAL__N_110smt_solver21collect_body_fds_procclEP10quantifier.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %p.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %visited.i.i.i.i.i)
   %.pr.pre.i.i.i.i = load i32, ptr %m_pos.i.i.i.i.i.i, align 8
@@ -3214,8 +3214,8 @@ invoke.cont72.i.i.i.i:                            ; preds = %sw.default71.i.i.i.
   call void @exit(i32 noundef 114) #25
   unreachable
 
-sw.epilog73.i.i.i.i:                              ; preds = %_ZN12_GLOBAL__N_110smt_solver21collect_body_fds_procclEP10quantifier.argprom.exit.i.i.i.i, %while.end.i.i.i.i, %sw.bb.i.i.i.i
-  %.pr.i.i.i.i = phi i32 [ %.pr.pre.i.i.i.i, %_ZN12_GLOBAL__N_110smt_solver21collect_body_fds_procclEP10quantifier.argprom.exit.i.i.i.i ], [ %dec.i133.pre-phi.i.i.i.i, %while.end.i.i.i.i ], [ %sub.i.i.i.i.i, %sw.bb.i.i.i.i ]
+sw.epilog73.i.i.i.i:                              ; preds = %_ZN12_GLOBAL__N_110smt_solver21collect_body_fds_procclEP10quantifier.exit.i.i.i.i, %while.end.i.i.i.i, %sw.bb.i.i.i.i
+  %.pr.i.i.i.i = phi i32 [ %.pr.pre.i.i.i.i, %_ZN12_GLOBAL__N_110smt_solver21collect_body_fds_procclEP10quantifier.exit.i.i.i.i ], [ %dec.i133.pre-phi.i.i.i.i, %while.end.i.i.i.i ], [ %sub.i.i.i.i.i, %sw.bb.i.i.i.i ]
   %cmp.i.i.i.i.i176 = icmp eq i32 %.pr.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i176, label %while.end74.i.i.i.i, label %start.preheader.i.i.i.i, !llvm.loop !22
 

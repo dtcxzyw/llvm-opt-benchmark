@@ -298,7 +298,7 @@ lpad:                                             ; preds = %if.end, %invoke.con
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %invoke.cont7
-  invoke fastcc void @_ZL9parse_optRSi10opt_format.retelim(ptr noundef nonnull align 8 dereferenceable(16) %in, i32 noundef %f)
+  invoke fastcc void @_ZL9parse_optRSi10opt_format(ptr noundef nonnull align 8 dereferenceable(16) %in, i32 noundef %f)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.end
@@ -306,7 +306,7 @@ invoke.cont18:                                    ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %entry
-  tail call fastcc void @_ZL9parse_optRSi10opt_format.retelim(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin, i32 noundef %f)
+  tail call fastcc void @_ZL9parse_optRSi10opt_format(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin, i32 noundef %f)
   br label %return
 
 return:                                           ; preds = %if.else, %invoke.cont18
@@ -377,7 +377,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9parse_optRSi10opt_format.retelim(ptr noundef nonnull align 8 dereferenceable(16) %in, i32 noundef %f) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9parse_optRSi10opt_format(ptr noundef nonnull align 8 dereferenceable(16) %in, i32 noundef %f) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %lo.i = alloca %class.obj_ref.91, align 8
   %hi.i = alloca %class.obj_ref.91, align 8
@@ -1063,7 +1063,7 @@ invoke.cont95:                                    ; preds = %try.cont
 if.then.i86:                                      ; preds = %invoke.cont95
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mdl.i.i)
   %tobool.not.i.i87 = icmp eq ptr %.pre113, null
-  br i1 %tobool.not.i.i87, label %_ZL13display_modelRSo.argprom.exit.i, label %if.end.i.i
+  br i1 %tobool.not.i.i87, label %_ZL13display_modelRSo.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i86
   store ptr null, ptr %mdl.i.i, align 8
@@ -1076,7 +1076,7 @@ if.end.i.i:                                       ; preds = %if.then.i86
 .noexc.i.i:                                       ; preds = %if.end.i.i
   %84 = load ptr, ptr %mdl.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %84, null
-  br i1 %cmp.i.not.i.i.i, label %_ZL13display_modelRSo.argprom.exit.i, label %land.lhs.true.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %_ZL13display_modelRSo.exit.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %.noexc.i.i
   %m_mc0.i.i.i.i = getelementptr inbounds i8, ptr %.pre113, i64 56
@@ -1094,7 +1094,7 @@ if.then.i.i.i89:                                  ; preds = %land.lhs.true.i.i.i
 invoke.cont.i.i:                                  ; preds = %if.then.i.i.i89
   %.pr.pre.i.i = load ptr, ptr %mdl.i.i, align 8
   %87 = icmp eq ptr %.pr.pre.i.i, null
-  br i1 %87, label %_ZL13display_modelRSo.argprom.exit.i, label %if.then1.i.i
+  br i1 %87, label %_ZL13display_modelRSo.exit.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %invoke.cont.i.i, %land.lhs.true.i.i.i
   %88 = load ptr, ptr @_ZL5g_opt, align 8
@@ -1118,7 +1118,7 @@ lpad.i.i88:                                       ; preds = %invoke.cont2.i.i, %
 if.end6.i.i:                                      ; preds = %invoke.cont2.i.i
   %.pr2.i.i = load ptr, ptr %mdl.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %.pr2.i.i, null
-  br i1 %tobool.not.i.i.i.i, label %_ZL13display_modelRSo.argprom.exit.i, label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZL13display_modelRSo.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end6.i.i
   %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr2.i.i, i64 16
@@ -1126,14 +1126,14 @@ if.then.i.i.i.i:                                  ; preds = %if.end6.i.i
   %dec.i.i.i.i.i = add i32 %92, -1
   store i32 %dec.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i90, label %_ZL13display_modelRSo.argprom.exit.i
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i90, label %_ZL13display_modelRSo.exit.i
 
 if.then.i.i.i.i.i90:                              ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %.pr2.i.i, align 8
   %93 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
   call void %93(ptr noundef nonnull align 8 dereferenceable(96) %.pr2.i.i) #19
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pr2.i.i)
-          to label %_ZL13display_modelRSo.argprom.exit.i unwind label %terminate.lpad.i.i.i
+          to label %_ZL13display_modelRSo.exit.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i90
   %94 = landingpad { ptr, i32 }
@@ -1142,13 +1142,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i90
   call void @__clang_call_terminate(ptr %95) #18
   unreachable
 
-_ZL13display_modelRSo.argprom.exit.i:             ; preds = %if.then.i.i.i.i.i90, %if.then.i.i.i.i, %if.end6.i.i, %invoke.cont.i.i, %.noexc.i.i, %if.then.i86
+_ZL13display_modelRSo.exit.i:                     ; preds = %if.then.i.i.i.i.i90, %if.then.i.i.i.i, %if.end6.i.i, %invoke.cont.i.i, %.noexc.i.i, %if.then.i86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mdl.i.i)
   %.pre112 = load ptr, ptr @_ZL5g_opt, align 8
   br label %invoke.cont96
 
-invoke.cont96:                                    ; preds = %_ZL13display_modelRSo.argprom.exit.i, %invoke.cont95
-  %96 = phi ptr [ %.pre112, %_ZL13display_modelRSo.argprom.exit.i ], [ %.pre113, %invoke.cont95 ]
+invoke.cont96:                                    ; preds = %_ZL13display_modelRSo.exit.i, %invoke.cont95
+  %96 = phi ptr [ %.pre112, %_ZL13display_modelRSo.exit.i ], [ %.pre113, %invoke.cont95 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lo.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hi.i)
   %tobool.not.i92 = icmp eq ptr %96, null

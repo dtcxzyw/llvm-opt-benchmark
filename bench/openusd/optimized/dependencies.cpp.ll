@@ -2391,10 +2391,10 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_34PcpDynami
 .critedge:                                        ; preds = %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_34PcpDynamicFileFormatDependencyDataENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit, %261
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %268 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__34PcpDynamicFileFormatDependencyData21GetRelevantFieldNamesEv(ptr noundef nonnull align 8 dereferenceable(8) %259)
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_1clERSt13unordered_mapINS_7TfTokenEiNS8_11HashFunctorESt8equal_toIS8_ESaISt4pairIKS8_iEEERKSt3setIS8_NS_28TfTokenFastArbitraryLessThanESaIS8_EE.argprom"(ptr noundef nonnull align 8 dereferenceable(56) %267, ptr noundef nonnull align 8 dereferenceable(48) %268)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_1clERSt13unordered_mapINS_7TfTokenEiNS8_11HashFunctorESt8equal_toIS8_ESaISt4pairIKS8_iEEERKSt3setIS8_NS_28TfTokenFastArbitraryLessThanESaIS8_EE"(ptr noundef nonnull align 8 dereferenceable(56) %267, ptr noundef nonnull align 8 dereferenceable(48) %268)
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %270 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__34PcpDynamicFileFormatDependencyData25GetRelevantAttributeNamesEv(ptr noundef nonnull align 8 dereferenceable(8) %259)
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_1clERSt13unordered_mapINS_7TfTokenEiNS8_11HashFunctorESt8equal_toIS8_ESaISt4pairIKS8_iEEERKSt3setIS8_NS_28TfTokenFastArbitraryLessThanESaIS8_EE.argprom"(ptr noundef nonnull align 8 dereferenceable(56) %269, ptr noundef nonnull align 8 dereferenceable(48) %270)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_1clERSt13unordered_mapINS_7TfTokenEiNS8_11HashFunctorESt8equal_toIS8_ESaISt4pairIKS8_iEEERKSt3setIS8_NS_28TfTokenFastArbitraryLessThanESaIS8_EE"(ptr noundef nonnull align 8 dereferenceable(56) %269, ptr noundef nonnull align 8 dereferenceable(48) %270)
   br label %271
 
 271:                                              ; preds = %.critedge, %261
@@ -3360,7 +3360,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_1clERSt13unordered_mapINS_7TfTokenEiNS8_11HashFunctorESt8equal_toIS8_ESaISt4pairIKS8_iEEERKSt3setIS8_NS_28TfTokenFastArbitraryLessThanESaIS8_EE.argprom"(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_1clERSt13unordered_mapINS_7TfTokenEiNS8_11HashFunctorESt8equal_toIS8_ESaISt4pairIKS8_iEEERKSt3setIS8_NS_28TfTokenFastArbitraryLessThanESaIS8_EE"(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -11096,13 +11096,13 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constr
   %29 = load ptr, ptr %9, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %30, ptr %9, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies3AddERKNS_12PcpPrimIndexEOSt6vectorINS_19PcpCulledDependencyESaIS5_EEONS_34PcpDynamicFileFormatDependencyDataEONS_36PcpExpressionVariablesDependencyDataEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISP_ESt8equal_toISP_ESaISP_EE.argprom.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies3AddERKNS_12PcpPrimIndexEOSt6vectorINS_19PcpCulledDependencyESaIS5_EEONS_34PcpDynamicFileFormatDependencyDataEONS_36PcpExpressionVariablesDependencyDataEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISP_ESt8equal_toISP_ESaISP_EE.exit"
 
 31:                                               ; preds = %3
   tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %10, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies3AddERKNS_12PcpPrimIndexEOSt6vectorINS_19PcpCulledDependencyESaIS5_EEONS_34PcpDynamicFileFormatDependencyDataEONS_36PcpExpressionVariablesDependencyDataEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISP_ESt8equal_toISP_ESaISP_EE.argprom.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies3AddERKNS_12PcpPrimIndexEOSt6vectorINS_19PcpCulledDependencyESaIS5_EEONS_34PcpDynamicFileFormatDependencyDataEONS_36PcpExpressionVariablesDependencyDataEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISP_ESt8equal_toISP_ESaISP_EE.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies3AddERKNS_12PcpPrimIndexEOSt6vectorINS_19PcpCulledDependencyESaIS5_EEONS_34PcpDynamicFileFormatDependencyDataEONS_36PcpExpressionVariablesDependencyDataEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISP_ESt8equal_toISP_ESaISP_EE.argprom.exit": ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i, %31
+"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies3AddERKNS_12PcpPrimIndexEOSt6vectorINS_19PcpCulledDependencyESaIS5_EEONS_34PcpDynamicFileFormatDependencyDataEONS_36PcpExpressionVariablesDependencyDataEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISP_ESt8equal_toISP_ESaISP_EE.exit": ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i, %31
   ret void
 }
 
@@ -12005,7 +12005,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %12, align 8
   %13 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull @.str.32, ptr noundef null)
-  br i1 %13, label %.critedge.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISI_ESt8equal_toISI_ESaISI_EE.argprom.exit"
+  br i1 %13, label %.critedge.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISI_ESt8equal_toISI_ESaISI_EE.exit"
 
 .critedge.i:                                      ; preds = %8, %3
   %14 = getelementptr inbounds i8, ptr %7, i64 24
@@ -12028,7 +12028,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
   %31 = load ptr, ptr %14, align 8
   %32 = load ptr, ptr %16, align 8
   %33 = icmp eq ptr %31, %32
-  br i1 %33, label %34, label %"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISI_ESt8equal_toISI_ESaISI_EE.argprom.exit"
+  br i1 %33, label %34, label %"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISI_ESt8equal_toISI_ESaISI_EE.exit"
 
 34:                                               ; preds = %.critedge.i
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 352
@@ -12110,9 +12110,9 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_13PcpLaye
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, -1
   store i64 %71, ptr %69, align 8
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISI_ESt8equal_toISI_ESaISI_EE.argprom.exit"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISI_ESt8equal_toISI_ESaISI_EE.exit"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISI_ESt8equal_toISI_ESaISI_EE.argprom.exit": ; preds = %8, %.critedge.i, %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_13PcpLayerStackEEESt6vectorINS0_7SdfPathESaIS5_EENS0_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_S7_EEE5eraseENSt8__detail14_Node_iteratorISD_Lb0ELb1EEE.exit.i
+"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies6RemoveERKNS_12PcpPrimIndexEPNS_11PcpLifeboatEENK3$_2clERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISI_ESt8equal_toISI_ESaISI_EE.exit": ; preds = %8, %.critedge.i, %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_13PcpLayerStackEEESt6vectorINS0_7SdfPathESaIS5_EENS0_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_S7_EEE5eraseENSt8__detail14_Node_iteratorISD_Lb0ELb1EEE.exit.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   ret void
 }

@@ -270,7 +270,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h42c0638c95275ff7E.argprom"(ptr %.0.val) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h42c0638c95275ff7E"(ptr %.0.val) unnamed_addr #0 {
   %1 = alloca { i8, [15 x i8] }, align 8
   %2 = icmp eq ptr %.0.val, null
   br i1 %2, label %3, label %4
@@ -1029,7 +1029,7 @@ define noundef ptr @_ZN9uu_csplit11SplitWriter17delete_all_splits17h0ede0576c99c
 .body:                                            ; preds = %22, %14, %37
   %.2 = phi ptr [ %21, %37 ], [ %.023, %14 ], [ %.023, %22 ]
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %15, %14 ], [ %23, %22 ]
-  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h42c0638c95275ff7E.argprom"(ptr %.2) #11
+  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h42c0638c95275ff7E"(ptr %.2) #11
           to label %42 unwind label %40
 
 14:                                               ; preds = %26, %24, %16

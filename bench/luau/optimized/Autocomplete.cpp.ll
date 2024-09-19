@@ -4815,7 +4815,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEaSERKS2_.exit:    ; preds = %._crit_edge550, %_Z
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i296, %906, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i281, %834, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i, %742, %953, %956, %949, %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread469", %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread462", %803, %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread", %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread455", %638, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, %621, %579
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i296, %906, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i281, %834, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i, %742, %953, %956, %949, %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread469", %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread462", %803, %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread", %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread455", %638, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, %621, %579
   %lpad.loopexit.split-lp501 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -5032,7 +5032,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %626
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit256: ; preds = %645, %652, %655
   %.sroa.044.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE.retelim(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %13, ptr noundef %.0127, ptr noundef nonnull %.0132, i64 %.sroa.044.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %13, ptr noundef %.0127, ptr noundef nonnull %.0132, i64 %.sroa.044.0.copyload)
           to label %657 unwind label %693
 
 657:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit256
@@ -5163,13 +5163,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %717 = getelementptr inbounds i8, ptr %1, i64 392
   %718 = load i64, ptr %717, align 8
   %719 = icmp eq i64 %718, 0
-  br i1 %719, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread", label %720
+  br i1 %719, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread", label %720
 
 720:                                              ; preds = %715
   %721 = getelementptr inbounds i8, ptr %1, i64 400
   %722 = load ptr, ptr %721, align 8
   %723 = icmp eq ptr %547, %722
-  br i1 %723, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread", label %724
+  br i1 %723, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread", label %724
 
 724:                                              ; preds = %720
   %725 = getelementptr inbounds i8, ptr %1, i64 384
@@ -5193,13 +5193,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 737:                                              ; preds = %733
   %738 = icmp eq ptr %735, %722
-  br i1 %738, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread", label %739
+  br i1 %738, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread", label %739
 
 739:                                              ; preds = %737
   %740 = add i64 %.01519.i.i.i, 1
   %741 = add i64 %740, %.01620.i.i.i
   %.not.i.i.i265 = icmp ugt i64 %740, %727
-  br i1 %.not.i.i.i265, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread", label %733, !llvm.loop !22
+  br i1 %.not.i.i.i265, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread", label %733, !llvm.loop !22
 
 742:                                              ; preds = %733
   %743 = getelementptr inbounds i8, ptr %734, i64 8
@@ -5209,13 +5209,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .noexc266:                                        ; preds = %742
   %.not.i.i15.i = icmp eq ptr %745, null
-  br i1 %.not.i.i15.i, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread", label %746
+  br i1 %.not.i.i15.i, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread", label %746
 
 746:                                              ; preds = %.noexc266
   %747 = load i32, ptr %745, align 8
   %748 = getelementptr inbounds i8, ptr %745, i64 8
-  switch i32 %747, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread" [
-    i32 8, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread455"
+  switch i32 %747, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread" [
+    i32 8, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread455"
     i32 13, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i
   ]
 
@@ -5229,16 +5229,16 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %746
   %752 = trunc i8 %751 to i1
   %.not156 = icmp ne ptr %750, null
   %or.cond.not = select i1 %752, i1 %.not156, i1 false
-  br i1 %or.cond.not, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread455", label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread"
+  br i1 %or.cond.not, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread455", label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread"
 
-"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread455": ; preds = %.noexc267, %746
+"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread455": ; preds = %.noexc267, %746
   %.0.i458 = phi ptr [ %748, %746 ], [ %750, %.noexc267 ]
   %753 = getelementptr inbounds i8, ptr %.0.i458, i64 216
   %754 = load ptr, ptr %753, align 8
   %755 = invoke fastcc { ptr, i8 } @_ZN4LuauL20tryGetTypePackTypeAtEPKNS_11TypePackVarEm(ptr noundef %754, i64 noundef %.0133556)
           to label %756 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-756:                                              ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread455"
+756:                                              ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread455"
   %757 = extractvalue { ptr, i8 } %755, 0
   %758 = extractvalue { ptr, i8 } %755, 1
   %759 = trunc i8 %758 to i1
@@ -5271,7 +5271,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %746
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit270: ; preds = %760, %767, %770
   %.sroa.022.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE.retelim(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %14, ptr noundef %.0127, ptr noundef %757, i64 %.sroa.022.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %14, ptr noundef %.0127, ptr noundef %757, i64 %.sroa.022.0.copyload)
           to label %.loopexit491.sink.split unwind label %772
 
 772:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit270
@@ -5280,12 +5280,12 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit270: ; preds = %760, %767, %770
   call void @_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #24
   br label %.loopexit.split-lp
 
-"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread": ; preds = %739, %737, %746, %.noexc266, %720, %715, %.noexc267
+"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread": ; preds = %739, %737, %746, %.noexc266, %720, %715, %.noexc267
   %.sroa.021.0.copyload = load i64, ptr %5, align 8
   %774 = invoke { ptr, i8 } @_ZN4Luau21getLocalTypeInScopeAtERKNS_6ModuleENS_8PositionEPNS_8AstLocalE(ptr noundef nonnull align 8 dereferenceable(952) %1, i64 %.sroa.021.0.copyload, ptr noundef %708)
           to label %775 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-775:                                              ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit.thread"
+775:                                              ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit.thread"
   %776 = extractvalue { ptr, i8 } %774, 0
   %777 = extractvalue { ptr, i8 } %774, 1
   %778 = trunc i8 %777 to i1
@@ -5318,7 +5318,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit270: ; preds = %760, %767, %770
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit273: ; preds = %779, %786, %789
   %.sroa.020.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE.retelim(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %15, ptr noundef %.0127, ptr noundef %776, i64 %.sroa.020.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %15, ptr noundef %.0127, ptr noundef %776, i64 %.sroa.020.0.copyload)
           to label %.loopexit491.sink.split unwind label %791
 
 791:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit273
@@ -5342,14 +5342,14 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit273: ; preds = %779, %786, %789
   %797 = getelementptr inbounds i8, ptr %547, i64 160
   %798 = load ptr, ptr %797, align 8
   %.not157 = icmp eq ptr %798, null
-  br i1 %.not157, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread", label %799
+  br i1 %.not157, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread", label %799
 
 799:                                              ; preds = %.loopexit491
   %800 = getelementptr inbounds i8, ptr %798, i64 8
   %801 = load i32, ptr %800, align 8
   %802 = load i32, ptr @_ZN4Luau7AstRttiINS_19AstTypePackVariadicEE5valueE, align 4
   %.not483 = icmp eq i32 %801, %802
-  br i1 %.not483, label %803, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread"
+  br i1 %.not483, label %803, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread"
 
 803:                                              ; preds = %799
   %804 = getelementptr inbounds i8, ptr %798, i64 12
@@ -5357,20 +5357,20 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit273: ; preds = %779, %786, %789
           to label %806 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 806:                                              ; preds = %803
-  br i1 %805, label %807, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread"
+  br i1 %805, label %807, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread"
 
 807:                                              ; preds = %806
   %808 = getelementptr inbounds i8, ptr %1, i64 376
   %809 = getelementptr inbounds i8, ptr %1, i64 392
   %810 = load i64, ptr %809, align 8
   %811 = icmp eq i64 %810, 0
-  br i1 %811, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread", label %812
+  br i1 %811, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread", label %812
 
 812:                                              ; preds = %807
   %813 = getelementptr inbounds i8, ptr %1, i64 400
   %814 = load ptr, ptr %813, align 8
   %815 = icmp eq ptr %547, %814
-  br i1 %815, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread", label %816
+  br i1 %815, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread", label %816
 
 816:                                              ; preds = %812
   %817 = getelementptr inbounds i8, ptr %1, i64 384
@@ -5394,13 +5394,13 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit273: ; preds = %779, %786, %789
 
 829:                                              ; preds = %825
   %830 = icmp eq ptr %827, %814
-  br i1 %830, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread", label %831
+  br i1 %830, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread", label %831
 
 831:                                              ; preds = %829
   %832 = add i64 %.01519.i.i.i276, 1
   %833 = add i64 %832, %.01620.i.i.i277
   %.not.i.i.i278 = icmp ugt i64 %832, %819
-  br i1 %.not.i.i.i278, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread", label %825, !llvm.loop !22
+  br i1 %.not.i.i.i278, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread", label %825, !llvm.loop !22
 
 834:                                              ; preds = %825
   %835 = getelementptr inbounds i8, ptr %826, i64 8
@@ -5410,13 +5410,13 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit273: ; preds = %779, %786, %789
 
 .noexc284:                                        ; preds = %834
   %.not.i.i15.i280 = icmp eq ptr %837, null
-  br i1 %.not.i.i15.i280, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread", label %838
+  br i1 %.not.i.i15.i280, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread", label %838
 
 838:                                              ; preds = %.noexc284
   %839 = load i32, ptr %837, align 8
   %840 = getelementptr inbounds i8, ptr %837, i64 8
-  switch i32 %839, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread" [
-    i32 8, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread462"
+  switch i32 %839, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread" [
+    i32 8, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread462"
     i32 13, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i281
   ]
 
@@ -5430,20 +5430,20 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i281: ; preds = %838
   %844 = trunc i8 %843 to i1
   %.not159 = icmp ne ptr %842, null
   %or.cond475.not = select i1 %844, i1 %.not159, i1 false
-  br i1 %or.cond475.not, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread462", label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread"
+  br i1 %or.cond475.not, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread462", label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread"
 
-"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread462": ; preds = %.noexc285, %838
+"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread462": ; preds = %.noexc285, %838
   %.0.i279465 = phi ptr [ %840, %838 ], [ %842, %.noexc285 ]
   %845 = getelementptr inbounds i8, ptr %.0.i279465, i64 216
   %846 = load ptr, ptr %845, align 8
   %847 = invoke fastcc { ptr, i8 } @_ZN4LuauL20tryGetTypePackTypeAtEPKNS_11TypePackVarEm(ptr noundef %846, i64 noundef 4294967295)
           to label %848 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-848:                                              ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread462"
+848:                                              ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread462"
   %849 = extractvalue { ptr, i8 } %847, 0
   %850 = extractvalue { ptr, i8 } %847, 1
   %851 = trunc i8 %850 to i1
-  br i1 %851, label %852, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread"
+  br i1 %851, label %852, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread"
 
 852:                                              ; preds = %848
   %853 = load ptr, ptr %6, align 8
@@ -5472,12 +5472,12 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i281: ; preds = %838
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit289: ; preds = %852, %859, %862
   %.sroa.013.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE.retelim(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %16, ptr noundef %.0127, ptr noundef %849, i64 %.sroa.013.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %16, ptr noundef %.0127, ptr noundef %849, i64 %.sroa.013.0.copyload)
           to label %864 unwind label %865
 
 864:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit289
   call void @_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #24
-  br label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread"
+  br label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread"
 
 865:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit289
   %866 = landingpad { ptr, i32 }
@@ -5485,18 +5485,18 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit289: ; preds = %852, %859, %862
   call void @_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #24
   br label %.loopexit.split-lp
 
-"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread": ; preds = %831, %829, %838, %.noexc284, %812, %807, %.noexc285, %799, %864, %848, %806, %.loopexit491
+"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread": ; preds = %831, %829, %838, %.noexc284, %812, %807, %.noexc285, %799, %864, %848, %806, %.loopexit491
   %867 = getelementptr inbounds i8, ptr %547, i64 104
   %868 = getelementptr inbounds i8, ptr %547, i64 128
   %869 = load i8, ptr %868, align 8
   %870 = trunc i8 %869 to i1
   br i1 %870, label %.preheader, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit263
 
-.preheader:                                       ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread"
+.preheader:                                       ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread"
   %871 = getelementptr inbounds i8, ptr %547, i64 112
   %872 = load i64, ptr %871, align 8
   %.not565 = icmp eq i64 %872, 0
-  br i1 %.not565, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread", label %.lr.ph559
+  br i1 %.not565, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread", label %.lr.ph559
 
 .lr.ph559:                                        ; preds = %.preheader, %939
   %.0130558 = phi i64 [ %940, %939 ], [ 0, %.preheader ]
@@ -5515,13 +5515,13 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit289: ; preds = %852, %859, %862
   %881 = getelementptr inbounds i8, ptr %1, i64 392
   %882 = load i64, ptr %881, align 8
   %883 = icmp eq i64 %882, 0
-  br i1 %883, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread", label %884
+  br i1 %883, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread", label %884
 
 884:                                              ; preds = %879
   %885 = getelementptr inbounds i8, ptr %1, i64 400
   %886 = load ptr, ptr %885, align 8
   %887 = icmp eq ptr %547, %886
-  br i1 %887, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread", label %888
+  br i1 %887, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread", label %888
 
 888:                                              ; preds = %884
   %889 = getelementptr inbounds i8, ptr %1, i64 384
@@ -5545,13 +5545,13 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit289: ; preds = %852, %859, %862
 
 901:                                              ; preds = %897
   %902 = icmp eq ptr %899, %886
-  br i1 %902, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread", label %903
+  br i1 %902, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread", label %903
 
 903:                                              ; preds = %901
   %904 = add i64 %.01519.i.i.i291, 1
   %905 = add i64 %904, %.01620.i.i.i292
   %.not.i.i.i293 = icmp ugt i64 %904, %891
-  br i1 %.not.i.i.i293, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread", label %897, !llvm.loop !22
+  br i1 %.not.i.i.i293, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread", label %897, !llvm.loop !22
 
 906:                                              ; preds = %897
   %907 = getelementptr inbounds i8, ptr %898, i64 8
@@ -5561,13 +5561,13 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit289: ; preds = %852, %859, %862
 
 .noexc299:                                        ; preds = %906
   %.not.i.i15.i295 = icmp eq ptr %909, null
-  br i1 %.not.i.i15.i295, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread", label %910
+  br i1 %.not.i.i15.i295, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread", label %910
 
 910:                                              ; preds = %.noexc299
   %911 = load i32, ptr %909, align 8
   %912 = getelementptr inbounds i8, ptr %909, i64 8
-  switch i32 %911, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread" [
-    i32 8, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread469"
+  switch i32 %911, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread" [
+    i32 8, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread469"
     i32 13, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i296
   ]
 
@@ -5581,20 +5581,20 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i296: ; preds = %910
   %916 = trunc i8 %915 to i1
   %.not160 = icmp ne ptr %914, null
   %or.cond477.not = select i1 %916, i1 %.not160, i1 false
-  br i1 %or.cond477.not, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread469", label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread"
+  br i1 %or.cond477.not, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread469", label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread"
 
-"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread469": ; preds = %.noexc300, %910
+"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread469": ; preds = %.noexc300, %910
   %.0.i294472 = phi ptr [ %912, %910 ], [ %914, %.noexc300 ]
   %917 = getelementptr inbounds i8, ptr %.0.i294472, i64 224
   %918 = load ptr, ptr %917, align 8
   %919 = invoke fastcc { ptr, i8 } @_ZN4LuauL20tryGetTypePackTypeAtEPKNS_11TypePackVarEm(ptr noundef %918, i64 noundef %.0130558)
           to label %920 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-920:                                              ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread469"
+920:                                              ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread469"
   %921 = extractvalue { ptr, i8 } %919, 0
   %922 = extractvalue { ptr, i8 } %919, 1
   %923 = trunc i8 %922 to i1
-  br i1 %923, label %924, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread"
+  br i1 %923, label %924, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread"
 
 924:                                              ; preds = %920
   %925 = load ptr, ptr %6, align 8
@@ -5623,12 +5623,12 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i296: ; preds = %910
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit304: ; preds = %924, %931, %934
   %.sroa.06.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE.retelim(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %17, ptr noundef %.0127, ptr noundef %921, i64 %.sroa.06.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %17, ptr noundef %.0127, ptr noundef %921, i64 %.sroa.06.0.copyload)
           to label %936 unwind label %937
 
 936:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit304
   call void @_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #24
-  br label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread"
+  br label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread"
 
 937:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit304
   %938 = landingpad { ptr, i32 }
@@ -5640,15 +5640,15 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit304: ; preds = %924, %931, %934
   %940 = add nuw i64 %.0130558, 1
   %941 = load i64, ptr %871, align 8
   %942 = icmp ult i64 %940, %941
-  br i1 %942, label %.lr.ph559, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread", !llvm.loop !25
+  br i1 %942, label %.lr.ph559, label %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread", !llvm.loop !25
 
-"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread": ; preds = %939, %903, %901, %.preheader, %910, %.noexc299, %884, %879, %.noexc300, %936, %920
+"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread": ; preds = %939, %903, %901, %.preheader, %910, %.noexc299, %884, %879, %.noexc300, %936, %920
   %943 = getelementptr inbounds i8, ptr %547, i64 120
   %944 = load ptr, ptr %943, align 8
   %.not161 = icmp eq ptr %944, null
   br i1 %.not161, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit263, label %945
 
-945:                                              ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread"
+945:                                              ; preds = %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread"
   %946 = getelementptr inbounds i8, ptr %944, i64 8
   %947 = load i32, ptr %946, align 8
   %948 = load i32, ptr @_ZN4Luau7AstRttiINS_19AstTypePackVariadicEE5valueE, align 4
@@ -5664,7 +5664,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit304: ; preds = %924, %931, %934
   br i1 %951, label %953, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit263
 
 953:                                              ; preds = %952
-  %954 = invoke fastcc noundef ptr @"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom"(ptr noundef nonnull align 8 dereferenceable(952) %1, ptr noundef %547)
+  %954 = invoke fastcc noundef ptr @"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE"(ptr noundef nonnull align 8 dereferenceable(952) %1, ptr noundef %547)
           to label %955 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 955:                                              ; preds = %953
@@ -5710,7 +5710,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit304: ; preds = %924, %931, %934
 
 _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit308: ; preds = %964, %971, %974
   %.sroa.0.0.copyload = load i64, ptr %5, align 8
-  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE.retelim(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %18, ptr noundef %.0127, ptr noundef %961, i64 %.sroa.0.0.copyload)
+  invoke fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %18, ptr noundef %.0127, ptr noundef %961, i64 %.sroa.0.0.copyload)
           to label %976 unwind label %977
 
 976:                                              ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit308
@@ -5723,7 +5723,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit308: ; preds = %964, %971, %974
   call void @_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #24
   br label %.loopexit.split-lp
 
-_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit263:     ; preds = %537, %695, %618, %616, %.preheader495, %625, %626, %597, %592, %641, %633, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i262, %688, %675, %657, %644, %637, %587, %566, %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit301.thread", %952, %960, %976, %955, %945, %699, %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom.exit286.thread", %546
+_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit263:     ; preds = %537, %695, %618, %616, %.preheader495, %625, %626, %597, %592, %641, %633, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i262, %688, %675, %657, %644, %637, %587, %566, %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit301.thread", %952, %960, %976, %955, %945, %699, %"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.exit286.thread", %546
   %979 = load ptr, ptr %27, align 8
   %.not.i.i.i309 = icmp eq ptr %979, null
   br i1 %.not.i.i.i309, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit315, label %980
@@ -5987,7 +5987,7 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE.retelim(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2, ptr noundef %3, i64 %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEESt10shared_ptrINS_5ScopeEEPNS_7AstTypeEPKNS_4TypeENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2, ptr noundef %3, i64 %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::optional.265", align 8
   %7 = alloca %"class.std::shared_ptr.119", align 8
   %8 = alloca %"struct.Luau::AutocompleteEntry", align 8
@@ -6294,7 +6294,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit22:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %0, ptr noundef nonnull %1) unnamed_addr #5 align 2 {
+define internal fastcc noundef ptr @"_ZZN4Luau21autocompleteTypeNamesB5cxx11ERKNS_6ModuleENS_8PositionERKSt6vectorIPNS_7AstNodeESaIS6_EEENK3$_0clES2_PNS_7AstExprE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %0, ptr noundef nonnull %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 376
   %4 = getelementptr inbounds i8, ptr %0, i64 392
   %5 = load i64, ptr %4, align 8
@@ -6469,7 +6469,7 @@ define dso_local void @_ZN4Luau12autocompleteERNS_8FrontendERKNSt7__cxx1112basic
   unreachable
 
 _ZNSt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEES7_S0_IPKNS8_9ClassTypeEES0_IS7_EEEC2ERKSQ_.exit: ; preds = %41, %27
-  invoke fastcc void @_ZN4LuauL12autocompleteERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaEPNS_5ScopeENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.sroa.03.0.copyload, ptr noundef %7, i64 %3, ptr noundef %8)
+  invoke fastcc void @_ZN4LuauL12autocompleteERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaEPNS_5ScopeENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.sroa.03.0.copyload, ptr noundef %7, i64 %3, ptr noundef %8)
           to label %53 unwind label %60
 
 53:                                               ; preds = %_ZNSt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEES7_S0_IPKNS8_9ClassTypeEES0_IS7_EEEC2ERKSQ_.exit
@@ -6601,7 +6601,7 @@ declare noundef ptr @_ZN4Luau8Frontend15getSourceModuleERKNSt7__cxx1112basic_str
 declare void @_ZNK4Luau22FrontendModuleResolver9getModuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.487") align 8, ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL12autocompleteERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaEPNS_5ScopeENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %3, ptr noundef nonnull %4, i64 %5, ptr noundef nonnull %6) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL12autocompleteERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaEPNS_5ScopeENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %3, ptr noundef nonnull %4, i64 %5, ptr noundef nonnull %6) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.Luau::Position", align 8
   %9 = alloca %"class.std::vector.114", align 8
   %10 = alloca %"class.Luau::AstExprConstantNil", align 8
@@ -7693,7 +7693,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit572: ; preds = %549, %551
 570:                                              ; preds = %499
   %571 = load ptr, ptr %2, align 8
   %.sroa.0180.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE.argprom(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(952) %571, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0180.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(952) %571, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0180.0.copyload)
           to label %572 unwind label %165
 
 572:                                              ; preds = %570
@@ -8171,7 +8171,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17Autocomp
 759:                                              ; preds = %706
   %760 = load ptr, ptr %2, align 8
   %.sroa.0150.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE.argprom(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(952) %760, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0150.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(952) %760, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0150.0.copyload)
           to label %761 unwind label %165
 
 761:                                              ; preds = %759
@@ -8307,7 +8307,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit601: ; preds = %762, %764
 823:                                              ; preds = %822
   %824 = load ptr, ptr %2, align 8
   %.sroa.0139.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE.argprom(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(952) %824, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0139.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(952) %824, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0139.0.copyload)
           to label %825 unwind label %165
 
 825:                                              ; preds = %823
@@ -8970,7 +8970,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit630: ; preds = %1059, %1061
 .invoke:                                          ; preds = %1089, %937, %811, %816, %664, %505, %511, %518, %481
   %1096 = load ptr, ptr %2, align 8
   %.sroa.0198.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1096, ptr %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0198.0.copyload)
+  invoke fastcc void @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1096, ptr %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0198.0.copyload)
           to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit unwind label %165
 
 1097:                                             ; preds = %1089, %1085
@@ -8984,7 +8984,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit630: ; preds = %1059, %1061
 1100:                                             ; preds = %1099
   %1101 = load ptr, ptr %2, align 8
   %.sroa.0108.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE.argprom(ptr dead_on_unwind noalias writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(952) %1101, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0108.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(952) %1101, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0108.0.copyload)
           to label %1102 unwind label %165
 
 1102:                                             ; preds = %1100
@@ -9214,7 +9214,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau1
 1202:                                             ; preds = %._crit_edge
   %1203 = load ptr, ptr %2, align 8
   %.sroa.069.0.copyload = load i64, ptr %8, align 8
-  %1204 = invoke fastcc noundef i32 @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(952) %1203, ptr %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.069.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %89)
+  %1204 = invoke fastcc noundef i32 @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %1203, ptr %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.069.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %89)
           to label %1205 unwind label %1161
 
 1205:                                             ; preds = %1202, %._crit_edge
@@ -9392,7 +9392,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau1
 .loopexit101:                                     ; preds = %1274, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit642.thread, %1231
   %1276 = load ptr, ptr %2, align 8
   %.sroa.045.0.copyload = load i64, ptr %8, align 8
-  %1277 = invoke fastcc noundef i32 @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(952) %1276, ptr %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.045.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %95)
+  %1277 = invoke fastcc noundef i32 @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %1276, ptr %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.045.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %95)
           to label %1278 unwind label %1249
 
 1278:                                             ; preds = %.loopexit101
@@ -9453,7 +9453,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit647: ; preds = %1280, %1282
 1302:                                             ; preds = %1297
   %1303 = load ptr, ptr %2, align 8
   %.sroa.044.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE.argprom(ptr dead_on_unwind noalias writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(952) %1303, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.044.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(952) %1303, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.044.0.copyload)
           to label %1304 unwind label %165
 
 1304:                                             ; preds = %1302
@@ -9491,7 +9491,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit649: ; preds = %1305, %1307
           to label %1315 unwind label %165
 
 1315:                                             ; preds = %.loopexit102
-  invoke fastcc void @_ZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE.argprom(ptr dead_on_unwind noalias writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.043.0.copyload, ptr noundef %105)
+  invoke fastcc void @_ZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.043.0.copyload, ptr noundef %105)
           to label %1316 unwind label %1337
 
 1316:                                             ; preds = %1315
@@ -9842,14 +9842,14 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit666: ; preds = %1445, %1447
 1476:                                             ; preds = %1475
   %1477 = load ptr, ptr %2, align 8
   %.sroa.023.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1477, ptr %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.023.0.copyload)
+  invoke fastcc void @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1477, ptr %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.023.0.copyload)
           to label %1478 unwind label %165
 
 1478:                                             ; preds = %1476
   %.sroa.022.0.copyload = load i64, ptr %8, align 8
   %.val = load ptr, ptr %9, align 8
   %.val505 = load ptr, ptr %129, align 8
-  invoke fastcc void @_ZN4LuauL23makeAnonymousAutofilledERKSt10shared_ptrINS_6ModuleEENS_8PositionEPKNS_7AstNodeERKSt6vectorIPS6_SaISA_EE.argprom(ptr dead_on_unwind noalias writable align 8 %115, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.sroa.022.0.copyload, ptr noundef nonnull %.0, ptr %.val, ptr %.val505)
+  invoke fastcc void @_ZN4LuauL23makeAnonymousAutofilledERKSt10shared_ptrINS_6ModuleEENS_8PositionEPKNS_7AstNodeERKSt6vectorIPS6_SaISA_EE(ptr dead_on_unwind noalias writable align 8 %115, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.sroa.022.0.copyload, ptr noundef nonnull %.0, ptr %.val, ptr %.val505)
           to label %1479 unwind label %1487
 
 1479:                                             ; preds = %1478
@@ -9918,7 +9918,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau1
 1502:                                             ; preds = %1501
   %1503 = load ptr, ptr %2, align 8
   %.sroa.0.0.copyload = load i64, ptr %8, align 8
-  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE.argprom(ptr dead_on_unwind noalias writable align 8 %118, ptr noundef nonnull align 8 dereferenceable(952) %1503, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0.0.copyload)
+  invoke fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %118, ptr noundef nonnull align 8 dereferenceable(952) %1503, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.0.0.copyload)
           to label %1504 unwind label %165
 
 1504:                                             ; preds = %1502
@@ -11610,7 +11610,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %76
   %.val.i = load ptr, ptr %72, align 8
   %79 = getelementptr inbounds i8, ptr %72, i64 8
   %.val13.i = load ptr, ptr %79, align 8, !noalias !33
-  %80 = call fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE.argprom(ptr noundef %78, ptr %.val.i, ptr %.val13.i)
+  %80 = call fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef %78, ptr %.val.i, ptr %.val13.i)
   br label %_ZN4LuauL22getParenRecommendationEPKNS_4TypeERKSt6vectorIPNS_7AstNodeESaIS5_EENS_15TypeCorrectKindE.exit
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %76
@@ -11641,7 +11641,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i: ; preds = %86
   %89 = getelementptr inbounds i8, ptr %85, i64 8
   %.val.i.i = load ptr, ptr %72, align 8
   %.val8.i.i = load ptr, ptr %83, align 8, !noalias !36
-  %90 = call fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE.argprom(ptr noundef %89, ptr %.val.i.i, ptr %.val8.i.i)
+  %90 = call fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef %89, ptr %.val.i.i, ptr %.val8.i.i)
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %.0812.i.i, i32 %90)
   %91 = getelementptr inbounds i8, ptr %.sroa.02.011.i.i, i64 8
   %.not.i.i19 = icmp eq ptr %91, %.val15.i
@@ -12503,14 +12503,14 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %52
   %56 = call { ptr, i8 } @_ZN4Luau5firstEPKNS_11TypePackVarEb(ptr noundef %.val, i1 noundef zeroext true)
   %57 = extractvalue { ptr, i8 } %56, 1
   %58 = trunc i8 %57 to i1
-  br i1 %58, label %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.argprom.exit", label %.threadthread-pre-split
+  br i1 %58, label %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.exit", label %.threadthread-pre-split
 
-"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.argprom.exit": ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit
+"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.exit": ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit
   %59 = extractvalue { ptr, i8 } %56, 0
   %60 = call fastcc noundef zeroext i1 @_ZN4LuauL14checkTypeMatchEPKNS_4TypeES2_NS_7NotNullINS_5ScopeEEEPNS_9TypeArenaENS3_INS_12BuiltinTypesEEE(ptr noundef %59, ptr noundef %51, ptr %9, ptr noundef %1, ptr %2)
   br i1 %60, label %.loopexit, label %.threadthread-pre-split
 
-.threadthread-pre-split:                          ; preds = %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.argprom.exit", %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit
+.threadthread-pre-split:                          ; preds = %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.exit", %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit
   %.pr = load i32, ptr %8, align 8
   br label %.thread
 
@@ -12544,14 +12544,14 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit30: ; preds = %68
   %72 = call { ptr, i8 } @_ZN4Luau5firstEPKNS_11TypePackVarEb(ptr noundef %.val27, i1 noundef zeroext true)
   %73 = extractvalue { ptr, i8 } %72, 1
   %74 = trunc i8 %73 to i1
-  br i1 %74, label %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.argprom.exit34", label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit30.thread
+  br i1 %74, label %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.exit34", label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit30.thread
 
-"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.argprom.exit34": ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit30
+"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.exit34": ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit30
   %75 = extractvalue { ptr, i8 } %72, 0
   %76 = call fastcc noundef zeroext i1 @_ZN4LuauL14checkTypeMatchEPKNS_4TypeES2_NS_7NotNullINS_5ScopeEEEPNS_9TypeArenaENS3_INS_12BuiltinTypesEEE(ptr noundef %75, ptr noundef %51, ptr %9, ptr noundef %1, ptr %2)
   br i1 %76, label %.loopexit, label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit30.thread
 
-_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit30.thread: ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit30, %.lr.ph, %68, %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.argprom.exit34"
+_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit30.thread: ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit30, %.lr.ph, %68, %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.exit34"
   %77 = getelementptr inbounds i8, ptr %.sroa.035.054, i64 8
   %.not = icmp eq ptr %77, %66
   br i1 %.not, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread, label %.lr.ph
@@ -12561,8 +12561,8 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %_ZN
   %79 = zext i1 %78 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.argprom.exit34", %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.argprom.exit", %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread
-  %.0 = phi i32 [ %79, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ 0, %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit ], [ 2, %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.argprom.exit" ], [ 2, %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.argprom.exit34" ]
+.loopexit:                                        ; preds = %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.exit34", %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.exit", %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread
+  %.0 = phi i32 [ %79, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ 0, %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit ], [ 2, %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.exit" ], [ 2, %"_ZZN4LuauL20checkTypeCorrectKindERKNS_6ModuleEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_7AstNodeENS_8PositionEPKNS_4TypeEENK3$_0clEPKNS_12FunctionTypeE.exit34" ]
   ret i32 %.0
 }
 
@@ -15177,7 +15177,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_St10shared_ptrINS0_14NormalizedTypeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE.argprom(ptr nocapture noundef nonnull readonly %0, ptr readnone %.0.val, ptr readonly %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr nocapture noundef nonnull readonly %0, ptr readnone %.0.val, ptr readonly %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::pair.569", align 8
   %3 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprLocalEE5valueE, align 4
   %4 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4
@@ -15188,7 +15188,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZN4LuauL29getParenRecommend
 .critedge2.i:                                     ; preds = %7, %1
   %.sroa.05.0.i = phi ptr [ %.8.val, %1 ], [ %8, %7 ]
   %.not16.i = icmp eq ptr %.sroa.05.0.i, %.0.val
-  br i1 %.not16.i, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread, label %7
+  br i1 %.not16.i, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread, label %7
 
 7:                                                ; preds = %.critedge2.i
   %8 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 -8
@@ -15209,16 +15209,16 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZN4LuauL29getParenRecommend
   %17 = load i32, ptr @_ZN4Luau7AstRttiINS_11AstExprCallEE5valueE, align 4
   %.not2 = icmp eq i32 %11, %17
   %or.cond = select i1 %16, i1 %.not2, i1 false
-  br i1 %or.cond, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread
+  br i1 %or.cond, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread
 
-_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit: ; preds = %.critedge.i
+_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit: ; preds = %.critedge.i
   %18 = getelementptr inbounds i8, ptr %9, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %.sroa.05.0.i, align 8
   %21 = icmp eq ptr %19, %20
-  br i1 %21, label %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit17, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread
+  br i1 %21, label %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit17, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread
 
-_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread: ; preds = %.critedge2.i, %.critedge.i, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit
+_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread: ; preds = %.critedge2.i, %.critedge.i, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit
   %22 = getelementptr inbounds i8, ptr %.8.val, i64 -8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
@@ -15228,14 +15228,14 @@ _ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.threa
   %.not = or i1 %.not3, %26
   br i1 %.not, label %31, label %27
 
-27:                                               ; preds = %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread
+27:                                               ; preds = %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread
   %28 = getelementptr inbounds i8, ptr %23, i64 72
   %29 = load i8, ptr %28, align 8
   %30 = icmp ne i8 %29, 58
   br label %31
 
-31:                                               ; preds = %27, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread
-  %.not14 = phi i1 [ true, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread ], [ %30, %27 ]
+31:                                               ; preds = %27, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread
+  %.not14 = phi i1 [ true, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread ], [ %30, %27 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 216
   %33 = load ptr, ptr %32, align 8
   call void @_ZN4Luau7flattenEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.569") align 8 %2, ptr noundef %33)
@@ -15308,8 +15308,8 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
   call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef %69) #23
   br label %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit17
 
-_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit17: ; preds = %64, %62, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit
-  %.0 = phi i32 [ 0, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit ], [ %.1, %62 ], [ %.1, %64 ]
+_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit17: ; preds = %64, %62, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit
+  %.0 = phi i32 [ 0, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit ], [ %.1, %62 ], [ %.1, %64 ]
   ret i32 %.0
 }
 
@@ -17626,11 +17626,11 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit:    ; preds = %4, %13, %16
 19:                                               ; preds = %.noexc
   %20 = load i32, ptr %18, align 8
   switch i32 %20, label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread.i [
-    i32 12, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.argprom.exit
-    i32 1, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.argprom.exit
-    i32 3, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.argprom.exit
-    i32 2, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.argprom.exit
-    i32 10, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.argprom.exit
+    i32 12, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.exit
+    i32 1, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.exit
+    i32 3, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.exit
+    i32 2, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.exit
+    i32 10, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.exit
     i32 9, label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i
   ]
 
@@ -17638,24 +17638,24 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %19
   %21 = getelementptr inbounds i8, ptr %18, i64 136
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.argprom.exit, label %24
+  br i1 %23, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.exit, label %24
 
 24:                                               ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i
   %25 = getelementptr inbounds i8, ptr %18, i64 176
   %26 = load i8, ptr %25, align 8
   %27 = trunc i8 %26 to i1
-  br i1 %27, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.argprom.exit, label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread.i
+  br i1 %27, label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.exit, label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread.i
 
 _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread.i: ; preds = %24, %19, %.noexc
-  br label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.argprom.exit
+  br label %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.exit
 
-_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.argprom.exit: ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread.i, %24, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i, %19, %19, %19, %19, %19
+_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.exit: ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread.i, %24, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i, %19, %19, %19, %19, %19
   %.0.i = phi i1 [ true, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread.i ], [ true, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i ], [ false, %24 ], [ false, %19 ], [ false, %19 ], [ false, %19 ], [ false, %19 ], [ false, %19 ]
   %28 = load ptr, ptr %7, align 8
   %.not.i.i.i6 = icmp eq ptr %28, null
   br i1 %.not.i.i.i6, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit, label %29
 
-29:                                               ; preds = %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.argprom.exit
+29:                                               ; preds = %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.exit
   %30 = getelementptr inbounds i8, ptr %28, i64 8
   %31 = load atomic i64, ptr %30 acquire, align 8
   %32 = icmp eq i64 %31, 4294967297
@@ -17723,7 +17723,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   tail call void %62(ptr noundef nonnull align 8 dereferenceable(16) %28) #24
   br label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit
 
-_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit:        ; preds = %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.argprom.exit, %45, %58, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit:        ; preds = %_ZN4LuauL22canSuggestInferredTypeESt10shared_ptrINS_5ScopeEEPKNS_4TypeE.exit, %45, %58, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   br i1 %.0.i, label %67, label %63
 
 63:                                               ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit
@@ -17740,7 +17740,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit:        ; preds = %_ZN4LuauL22canSugge
 67:                                               ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit
   %.val = load ptr, ptr %1, align 8
   %.val4 = load ptr, ptr %8, align 8
-  tail call fastcc void @_ZN4LuauL19tryToStringDetailedIPKNS_4TypeEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val, ptr %.val4, ptr noundef %2, i1 noundef zeroext %3)
+  tail call fastcc void @_ZN4LuauL19tryToStringDetailedIPKNS_4TypeEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val, ptr %.val4, ptr noundef %2, i1 noundef zeroext %3)
   br label %68
 
 68:                                               ; preds = %67, %63
@@ -17937,7 +17937,7 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL19tryToStringDetailedIPKNS_4TypeEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL19tryToStringDetailedIPKNS_4TypeEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringOptions", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = zext i1 %2 to i8
@@ -19025,7 +19025,7 @@ _ZN4Luau17AutocompleteEntryC2EOS0_.exit:          ; preds = %_ZNSt8optionalINSt7
 declare noundef zeroext i1 @_ZNK4Luau8PositiongeERKS0_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1, ptr %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1, ptr %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__detail::_AllocNode.897", align 8
   %8 = alloca %"class.std::unordered_map", align 8
   %9 = alloca %"class.std::unordered_map", align 8
@@ -19039,7 +19039,7 @@ define internal fastcc void @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModu
   store float 1.000000e+00, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = invoke fastcc noundef i32 @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(952) %1, ptr %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(56) %8)
+  %15 = invoke fastcc noundef i32 @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %1, ptr %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(56) %8)
           to label %16 unwind label %74
 
 16:                                               ; preds = %6
@@ -19399,7 +19399,7 @@ _ZN4Luau17AutocompleteEntryC2EOS0_.exit:          ; preds = %_ZNSt8optionalINSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12SourceModuleERKNS_6ModuleERKSt6vectorIPNS_7AstNodeESaIS8_EENS_8PositionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.569", align 8
   %6 = alloca %struct._Guard, align 8
   %7 = alloca %struct._Guard, align 8
@@ -19575,7 +19575,7 @@ define internal fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12Sour
   %97 = load i32, ptr %96, align 8
   %98 = load i32, ptr @_ZN4Luau7AstRttiINS_15AstExprFunctionEE5valueE, align 4
   %99 = icmp eq i32 %97, %98
-  br i1 %99, label %_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.argprom.argprom.exit, label %100
+  br i1 %99, label %_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.exit, label %100
 
 100:                                              ; preds = %94
   %101 = load ptr, ptr %.val116.val, align 8
@@ -19586,7 +19586,7 @@ define internal fastcc void @_ZN4LuauL21autocompleteStatementB5cxx11ERKNS_12Sour
 
 .noexc121:                                        ; preds = %100
   %.not.i120 = icmp eq ptr %104, null
-  br i1 %.not.i120, label %_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.argprom.argprom.exit, label %105
+  br i1 %.not.i120, label %_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.exit, label %105
 
 105:                                              ; preds = %.noexc121
   store i32 2, ptr %11, align 8
@@ -19947,12 +19947,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i53.i: ; preds = %217, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i51.i
   %223 = load i8, ptr %193, align 8
   %224 = trunc i8 %223 to i1
-  br i1 %224, label %225, label %_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.argprom.argprom.exit
+  br i1 %224, label %225, label %_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.exit
 
 225:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i53.i
   store i8 0, ptr %193, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %192) #24
-  br label %_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.argprom.argprom.exit
+  br label %_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.exit
 
 226:                                              ; preds = %.noexc.i, %105
   %227 = landingpad { ptr, i32 }
@@ -19995,7 +19995,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @_ZN4Luau17AutocompleteEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(177) %.sink.i) #24
   br label %.body
 
-_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.argprom.argprom.exit: ; preds = %94, %.noexc121, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i53.i, %225
+_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.exit: ; preds = %94, %.noexc121, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i53.i, %225
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
@@ -20295,7 +20295,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %349
   %351 = getelementptr inbounds i8, ptr %348, i64 8
   %.val.i = load ptr, ptr %2, align 8
   %.val13.i = load ptr, ptr %43, align 8, !noalias !82
-  %352 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE.argprom(ptr noundef %351, ptr %.val.i, ptr %.val13.i)
+  %352 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef %351, ptr %.val.i, ptr %.val13.i)
           to label %_ZN4LuauL22getParenRecommendationEPKNS_4TypeERKSt6vectorIPNS_7AstNodeESaIS5_EENS_15TypeCorrectKindE.exit unwind label %.loopexit.split-lp
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %349
@@ -20331,7 +20331,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i: ; preds = %356
 .critedge2.i.i:                                   ; preds = %363, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i
   %.sroa.05.0.i.i = phi ptr [ %.val8.i.i, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i ], [ %364, %363 ]
   %.not16.i.i = icmp eq ptr %.sroa.05.0.i.i, %.val.i.i
-  br i1 %.not16.i.i, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread.i, label %363
+  br i1 %.not16.i.i, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread.i, label %363
 
 363:                                              ; preds = %.critedge2.i.i
   %364 = getelementptr inbounds i8, ptr %.sroa.05.0.i.i, i64 -8
@@ -20352,16 +20352,16 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i: ; preds = %356
   %373 = load i32, ptr @_ZN4Luau7AstRttiINS_11AstExprCallEE5valueE, align 4
   %.not2.i = icmp eq i32 %367, %373
   %or.cond.i313 = select i1 %372, i1 %.not2.i, i1 false
-  br i1 %or.cond.i313, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.i, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread.i
+  br i1 %or.cond.i313, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.i, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread.i
 
-_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.i: ; preds = %.critedge.i.i
+_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.i: ; preds = %.critedge.i.i
   %374 = getelementptr inbounds i8, ptr %365, i64 32
   %375 = load ptr, ptr %374, align 8
   %376 = load ptr, ptr %.sroa.05.0.i.i, align 8
   %377 = icmp eq ptr %375, %376
-  br i1 %377, label %.noexc133, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread.i
+  br i1 %377, label %.noexc133, label %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread.i
 
-_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread.i: ; preds = %.critedge2.i.i, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.i, %.critedge.i.i
+_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread.i: ; preds = %.critedge2.i.i, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.i, %.critedge.i.i
   %378 = getelementptr inbounds i8, ptr %.val8.i.i, i64 -8
   %379 = load ptr, ptr %378, align 8
   %380 = getelementptr inbounds i8, ptr %379, i64 8
@@ -20371,14 +20371,14 @@ _ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.threa
   %.not.i314 = or i1 %.not3.i, %382
   br i1 %.not.i314, label %387, label %383
 
-383:                                              ; preds = %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread.i
+383:                                              ; preds = %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread.i
   %384 = getelementptr inbounds i8, ptr %379, i64 72
   %385 = load i8, ptr %384, align 8
   %386 = icmp ne i8 %385, 58
   br label %387
 
-387:                                              ; preds = %383, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread.i
-  %.not14.i = phi i1 [ true, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.thread.i ], [ %386, %383 ]
+387:                                              ; preds = %383, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread.i
+  %.not14.i = phi i1 [ true, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread.i ], [ %386, %383 ]
   %388 = getelementptr inbounds i8, ptr %355, i64 224
   %389 = load ptr, ptr %388, align 8
   invoke void @_ZN4Luau7flattenEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.569") align 8 %5, ptr noundef %389)
@@ -20446,8 +20446,8 @@ _ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.threa
   call void @_ZdlPvm(ptr noundef nonnull %415, i64 noundef %420) #23
   br label %.noexc133
 
-.noexc133:                                        ; preds = %416, %414, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.i
-  %.0.i315 = phi i32 [ 0, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.argprom.exit.i ], [ %.1.i, %414 ], [ %.1.i, %416 ]
+.noexc133:                                        ; preds = %416, %414, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.i
+  %.0.i315 = phi i32 [ 0, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.i ], [ %.1.i, %414 ], [ %.1.i, %416 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %.0812.i.i, i32 %.0.i315)
   %421 = getelementptr inbounds i8, ptr %.sroa.02.011.i.i, i64 8
@@ -22102,7 +22102,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @_ZN4Luau17AutocompleteEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(177) %37) #24
   br label %.body
 
-_ZN4Luau17AutocompleteEntryD2Ev.exit294:          ; preds = %1054, %1057, %1064, %1030, %1019, %1053, %1043, %1032, %1023, %1105, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i293, %_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.argprom.argprom.exit, %_ZN4Luau11extractStatINS_13AstStatRepeatEEEPT_RKSt6vectorIPNS_7AstNodeESaIS6_EE.exit
+_ZN4Luau17AutocompleteEntryD2Ev.exit294:          ; preds = %1054, %1057, %1064, %1030, %1019, %1053, %1043, %1032, %1023, %1105, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i293, %_ZN4LuauL20autocompleteKeywordsERKNS_12SourceModuleERKSt6vectorIPNS_7AstNodeESaIS5_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_SI_EEE.exit, %_ZN4Luau11extractStatINS_13AstStatRepeatEEEPT_RKSt6vectorIPNS_7AstNodeESaIS6_EE.exit
   %1108 = getelementptr inbounds i8, ptr %22, i64 8
   %1109 = load ptr, ptr %1108, align 8
   %.not.i.i.i295 = icmp eq ptr %1109, null
@@ -23385,7 +23385,7 @@ _ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit: ; preds = %_
   %51 = getelementptr inbounds i8, ptr %7, i64 176
   store i8 0, ptr %51, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %48, i8 0, i64 28, i1 false)
-  invoke fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_.argprom"(ptr dead_on_unwind noalias writable align 8 %8, i8 %13, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  invoke fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_"(ptr dead_on_unwind noalias writable align 8 %8, i8 %13, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %52 unwind label %72
 
 52:                                               ; preds = %_ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit
@@ -23620,7 +23620,7 @@ _ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit49: ; preds = 
   store i8 0, ptr %93, align 8
   store i8 0, ptr %94, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %91, i8 0, i64 28, i1 false)
-  invoke fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_.argprom"(ptr dead_on_unwind noalias writable align 8 %12, i8 %13, ptr noundef nonnull align 8 dereferenceable(32) %150)
+  invoke fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_"(ptr dead_on_unwind noalias writable align 8 %12, i8 %13, ptr noundef nonnull align 8 dereferenceable(32) %150)
           to label %151 unwind label %169
 
 151:                                              ; preds = %_ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit49
@@ -23773,7 +23773,7 @@ _ZN4Luau17AutocompleteEntryD2Ev.exit:             ; preds = %33, %_ZN4Luau6get_i
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 6) i32 @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 6) i32 @_ZN4LuauL22autocompleteExpressionERKNS_12SourceModuleERKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEEPNS_9TypeArenaERKSt6vectorIPNS_7AstNodeESaISD_EENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_SQ_EEE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.Luau::Position", align 8
   %8 = alloca %"struct.Luau::Location", align 4
   %9 = alloca %"struct.Luau::AutocompleteEntry", align 8
@@ -23897,7 +23897,7 @@ define internal fastcc noundef range(i32 0, 6) i32 @_ZN4LuauL22autocompleteExpre
 90:                                               ; preds = %87
   %91 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprIfElseEE5valueE, align 4
   %92 = icmp eq i32 %45, %91
-  br i1 %92, label %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.argprom.exit, label %93
+  br i1 %92, label %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.exit, label %93
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %89, i64 8
@@ -24012,12 +24012,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i: ; preds = %131, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
   %137 = load i8, ptr %113, align 8
   %138 = trunc i8 %137 to i1
-  br i1 %138, label %139, label %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.argprom.exit
+  br i1 %138, label %139, label %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.exit
 
 139:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i
   store i8 0, ptr %113, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #24
-  br label %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.argprom.exit
+  br label %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.exit
 
 140:                                              ; preds = %.noexc.i, %105
   %141 = landingpad { ptr, i32 }
@@ -24112,7 +24112,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #24
   call void @_ZN4Luau17AutocompleteEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(177) %15) #24
-  br label %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.argprom.exit
+  br label %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.exit
 
 180:                                              ; preds = %153
   %181 = landingpad { ptr, i32 }
@@ -24148,7 +24148,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   call void @_ZN4Luau17AutocompleteEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(177) %.sink.i) #24
   br label %common.resume
 
-_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.argprom.exit: ; preds = %90, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i, %139, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEixEOS5_.exit36.i
+_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.exit: ; preds = %90, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i, %139, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEixEOS5_.exit36.i
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
@@ -24209,8 +24209,8 @@ _ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERK
   %.not2042 = icmp eq ptr %.sroa.04.041, null
   br i1 %.not2042, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %211, %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.argprom.exit
-  %.sroa.04.043 = phi ptr [ %.sroa.04.0, %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.argprom.exit ], [ %.sroa.04.041, %211 ]
+.lr.ph:                                           ; preds = %211, %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.exit
+  %.sroa.04.043 = phi ptr [ %.sroa.04.0, %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.exit ], [ %.sroa.04.041, %211 ]
   %214 = getelementptr inbounds i8, ptr %.sroa.04.043, i64 8
   %215 = getelementptr inbounds i8, ptr %.sroa.04.043, i64 24
   %.sroa.017.0.copyload = load i64, ptr %18, align 8
@@ -24247,12 +24247,12 @@ _ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERK
 .noexc110:                                        ; preds = %222
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %223, label %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.argprom.exit, label %225
+  br i1 %223, label %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.exit, label %225
 
 224:                                              ; preds = %216
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %218, label %225, label %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.argprom.exit
+  br i1 %218, label %225, label %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.exit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i132, %381, %385, %389
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -24311,7 +24311,7 @@ _ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERK
   %.01411.i = phi ptr [ %240, %239 ], [ %235, %233 ]
   %241 = load ptr, ptr %.01411.i, align 8
   %242 = icmp eq ptr %.val106, %241
-  br i1 %242, label %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.argprom.exit, label %239
+  br i1 %242, label %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.exit, label %239
 
 .loopexit.i:                                      ; preds = %239, %233, %227
   %.not6.i = icmp eq ptr %228, %.val104
@@ -24388,7 +24388,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %262
   %264 = getelementptr inbounds i8, ptr %261, i64 8
   %.val.i = load ptr, ptr %3, align 8
   %.val13.i = load ptr, ptr %40, align 8, !noalias !91
-  %265 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE.argprom(ptr noundef %264, ptr %.val.i, ptr %.val13.i)
+  %265 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef %264, ptr %.val.i, ptr %.val13.i)
           to label %_ZN4LuauL22getParenRecommendationEPKNS_4TypeERKSt6vectorIPNS_7AstNodeESaIS5_EENS_15TypeCorrectKindE.exit unwind label %.loopexit.split-lp22
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %262
@@ -24415,7 +24415,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i: ; preds = %269
   %272 = getelementptr inbounds i8, ptr %268, i64 8
   %.val.i.i = load ptr, ptr %3, align 8
   %.val8.i.i = load ptr, ptr %40, align 8, !noalias !94
-  %273 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE.argprom(ptr noundef %272, ptr %.val.i.i, ptr %.val8.i.i)
+  %273 = invoke fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef %272, ptr %.val.i.i, ptr %.val8.i.i)
           to label %.noexc120 unwind label %.loopexit21
 
 .noexc120:                                        ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i
@@ -24518,9 +24518,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 _ZN4Luau17AutocompleteEntryD2Ev.exit:             ; preds = %291, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, %245
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #24
-  br label %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.argprom.exit
+  br label %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.exit
 
-_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.argprom.exit: ; preds = %.lr.ph.i, %.noexc110, %224, %_ZN4Luau17AutocompleteEntryD2Ev.exit
+_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.exit: ; preds = %.lr.ph.i, %.noexc110, %224, %_ZN4Luau17AutocompleteEntryD2Ev.exit
   %.sroa.04.0 = load ptr, ptr %.sroa.04.043, align 8
   %.not20 = icmp eq ptr %.sroa.04.0, null
   br i1 %.not20, label %._crit_edge.loopexit, label %.lr.ph
@@ -24530,7 +24530,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #24
   br label %.loopexit.split-lp
 
-._crit_edge.loopexit:                             ; preds = %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.argprom.exit
+._crit_edge.loopexit:                             ; preds = %_ZN4LuauL14isBeingDefinedERKSt6vectorIPNS_7AstNodeESaIS2_EERKNS_6SymbolE.exit
   %.pre = load ptr, ptr %19, align 8
   br label %._crit_edge
 
@@ -24720,14 +24720,14 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i130: ; preds = %368
 
 .noexc135:                                        ; preds = %.lr.ph.i.i.i.i.i132
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %379, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit.i.i.i.i.i": ; preds = %.noexc135
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit.i.i.i.i.i": ; preds = %.noexc135
   %380 = load i32, ptr %379, align 8
   %.not47.i.i.i.i.i = icmp eq i32 %380, 8
   br i1 %.not47.i.i.i.i.i, label %381, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i"
 
-381:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit.i.i.i.i.i"
+381:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit.i.i.i.i.i"
   %382 = getelementptr inbounds i8, ptr %.sroa.036.072.i.i.i.i.i, i64 8
   %.val.i16.i.i.i.i.i = load ptr, ptr %382, align 8
   %383 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.val.i16.i.i.i.i.i)
@@ -24735,14 +24735,14 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i130: ; preds = %368
 
 .noexc136:                                        ; preds = %381
   %.not.i.i.i.i17.i.i.i.i.i = icmp eq ptr %383, null
-  br i1 %.not.i.i.i.i17.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit84", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit18.i.i.i.i.i"
+  br i1 %.not.i.i.i.i17.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit84", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit18.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit18.i.i.i.i.i": ; preds = %.noexc136
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit18.i.i.i.i.i": ; preds = %.noexc136
   %384 = load i32, ptr %383, align 8
   %.not48.i.i.i.i.i = icmp eq i32 %384, 8
   br i1 %.not48.i.i.i.i.i, label %385, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit"
 
-385:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit18.i.i.i.i.i"
+385:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit18.i.i.i.i.i"
   %386 = getelementptr inbounds i8, ptr %.sroa.036.072.i.i.i.i.i, i64 16
   %.val.i19.i.i.i.i.i = load ptr, ptr %386, align 8
   %387 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.val.i19.i.i.i.i.i)
@@ -24750,14 +24750,14 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i130: ; preds = %368
 
 .noexc137:                                        ; preds = %385
   %.not.i.i.i.i20.i.i.i.i.i = icmp eq ptr %387, null
-  br i1 %.not.i.i.i.i20.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit86", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit21.i.i.i.i.i"
+  br i1 %.not.i.i.i.i20.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit86", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit21.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit21.i.i.i.i.i": ; preds = %.noexc137
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit21.i.i.i.i.i": ; preds = %.noexc137
   %388 = load i32, ptr %387, align 8
   %.not49.i.i.i.i.i = icmp eq i32 %388, 8
   br i1 %.not49.i.i.i.i.i, label %389, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit80"
 
-389:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit21.i.i.i.i.i"
+389:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit21.i.i.i.i.i"
   %390 = getelementptr inbounds i8, ptr %.sroa.036.072.i.i.i.i.i, i64 24
   %.val.i22.i.i.i.i.i = load ptr, ptr %390, align 8
   %391 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.val.i22.i.i.i.i.i)
@@ -24765,14 +24765,14 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i130: ; preds = %368
 
 .noexc138:                                        ; preds = %389
   %.not.i.i.i.i23.i.i.i.i.i = icmp eq ptr %391, null
-  br i1 %.not.i.i.i.i23.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit88", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit24.i.i.i.i.i"
+  br i1 %.not.i.i.i.i23.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit88", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit24.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit24.i.i.i.i.i": ; preds = %.noexc138
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit24.i.i.i.i.i": ; preds = %.noexc138
   %392 = load i32, ptr %391, align 8
   %.not50.i.i.i.i.i = icmp eq i32 %392, 8
   br i1 %.not50.i.i.i.i.i, label %393, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit82"
 
-393:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit24.i.i.i.i.i"
+393:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit24.i.i.i.i.i"
   %394 = getelementptr inbounds i8, ptr %.sroa.036.072.i.i.i.i.i, i64 32
   %395 = add nsw i64 %.073.i.i.i.i.i, -1
   %396 = icmp sgt i64 %.073.i.i.i.i.i, 1
@@ -24800,14 +24800,14 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i130: ; preds = %368
 
 .noexc139:                                        ; preds = %398
   %.not.i.i.i.i26.i.i.i.i.i = icmp eq ptr %399, null
-  br i1 %.not.i.i.i.i26.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit27.i.i.i.i.i"
+  br i1 %.not.i.i.i.i26.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit27.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit27.i.i.i.i.i": ; preds = %.noexc139
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit27.i.i.i.i.i": ; preds = %.noexc139
   %400 = load i32, ptr %399, align 8
   %.not.i.i.i.i.i131 = icmp eq i32 %400, 8
   br i1 %.not.i.i.i.i.i131, label %401, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i"
 
-401:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit27.i.i.i.i.i"
+401:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit27.i.i.i.i.i"
   %402 = getelementptr inbounds i8, ptr %.sroa.036.0.lcssa.i.i.i.i.i, i64 8
   br label %403
 
@@ -24819,14 +24819,14 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i130: ; preds = %368
 
 .noexc140:                                        ; preds = %403
   %.not.i.i.i.i29.i.i.i.i.i = icmp eq ptr %404, null
-  br i1 %.not.i.i.i.i29.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit30.i.i.i.i.i"
+  br i1 %.not.i.i.i.i29.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit30.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit30.i.i.i.i.i": ; preds = %.noexc140
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit30.i.i.i.i.i": ; preds = %.noexc140
   %405 = load i32, ptr %404, align 8
   %.not45.i.i.i.i.i = icmp eq i32 %405, 8
   br i1 %.not45.i.i.i.i.i, label %406, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i"
 
-406:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit30.i.i.i.i.i"
+406:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit30.i.i.i.i.i"
   %407 = getelementptr inbounds i8, ptr %.sroa.036.1.i.i.i.i.i, i64 8
   br label %408
 
@@ -24838,23 +24838,23 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i130: ; preds = %368
 
 .noexc141:                                        ; preds = %408
   %.not.i.i.i.i32.i.i.i.i.i = icmp eq ptr %409, null
-  br i1 %.not.i.i.i.i32.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit33.i.i.i.i.i"
+  br i1 %.not.i.i.i.i32.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit33.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit33.i.i.i.i.i": ; preds = %.noexc141
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit33.i.i.i.i.i": ; preds = %.noexc141
   %410 = load i32, ptr %409, align 8
   %.not46.i.i.i.i.i = icmp eq i32 %410, 8
   %spec.select.i.i.i.i.i = select i1 %.not46.i.i.i.i.i, ptr %373, ptr %.sroa.036.2.i.i.i.i.i
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit18.i.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit18.i.i.i.i.i"
   %411 = getelementptr inbounds i8, ptr %.sroa.036.072.i.i.i.i.i, i64 8
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit80": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit21.i.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit80": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit21.i.i.i.i.i"
   %412 = getelementptr inbounds i8, ptr %.sroa.036.072.i.i.i.i.i, i64 16
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit82": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit24.i.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit82": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit24.i.i.i.i.i"
   %413 = getelementptr inbounds i8, ptr %.sroa.036.072.i.i.i.i.i, i64 24
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i"
 
@@ -24870,8 +24870,8 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i130: ; preds = %368
   %416 = getelementptr inbounds i8, ptr %.sroa.036.072.i.i.i.i.i, i64 24
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit.i.i.i.i.i", %.noexc135, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit80", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit82", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit84", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit86", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit88", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit33.i.i.i.i.i", %.noexc141, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit30.i.i.i.i.i", %.noexc140, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit27.i.i.i.i.i", %.noexc139, %._crit_edge.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit27.i.i.i.i.i" ], [ %.sroa.036.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit30.i.i.i.i.i" ], [ %373, %._crit_edge.i.i.i.i.i ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %.noexc139 ], [ %.sroa.036.1.i.i.i.i.i, %.noexc140 ], [ %.sroa.036.2.i.i.i.i.i, %.noexc141 ], [ %spec.select.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit33.i.i.i.i.i" ], [ %411, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit" ], [ %412, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit80" ], [ %413, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit82" ], [ %414, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit84" ], [ %415, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit86" ], [ %416, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit88" ], [ %.sroa.036.072.i.i.i.i.i, %.noexc135 ], [ %.sroa.036.072.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.argprom.exit.i.i.i.i.i" ]
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit.i.i.i.i.i", %.noexc135, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit80", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit82", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit84", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit86", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit88", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit33.i.i.i.i.i", %.noexc141, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit30.i.i.i.i.i", %.noexc140, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit27.i.i.i.i.i", %.noexc139, %._crit_edge.i.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit27.i.i.i.i.i" ], [ %.sroa.036.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit30.i.i.i.i.i" ], [ %373, %._crit_edge.i.i.i.i.i ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %.noexc139 ], [ %.sroa.036.1.i.i.i.i.i, %.noexc140 ], [ %.sroa.036.2.i.i.i.i.i, %.noexc141 ], [ %spec.select.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit33.i.i.i.i.i" ], [ %411, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit" ], [ %412, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit80" ], [ %413, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit82" ], [ %414, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit84" ], [ %415, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit86" ], [ %416, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_L20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EbT_SJ_T0_.exit.i.loopexit.split.loop.exit88" ], [ %.sroa.036.072.i.i.i.i.i, %.noexc135 ], [ %.sroa.036.072.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4LuauL20functionIsExpectedAtERKNS2_6ModuleEPNS2_7AstNodeENS2_8PositionEE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISF_SaISF_EEEEEEbT_.exit.i.i.i.i.i" ]
   %417 = icmp eq ptr %373, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br label %422
 
@@ -25703,8 +25703,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #24
   br label %common.resume
 
-_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit:        ; preds = %76, %74, %57, %48, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i254, %697, %684, %665, %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.argprom.exit, %79, %188
-  %.0 = phi i32 [ 5, %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.argprom.exit ], [ 0, %188 ], [ 1, %79 ], [ 1, %665 ], [ 1, %684 ], [ 1, %697 ], [ 1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i254 ], [ 1, %48 ], [ 1, %57 ], [ 1, %74 ], [ 1, %76 ]
+_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit:        ; preds = %76, %74, %57, %48, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i254, %697, %684, %665, %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.exit, %79, %188
+  %.0 = phi i32 [ 5, %_ZN4LuauL28autocompleteIfElseExpressionEPKNS_7AstNodeERKSt6vectorIPS0_SaIS4_EERKNS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEE.exit ], [ 0, %188 ], [ 1, %79 ], [ 1, %665 ], [ 1, %684 ], [ 1, %697 ], [ 1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i254 ], [ 1, %48 ], [ 1, %57 ], [ 1, %74 ], [ 1, %76 ]
   ret i32 %.0
 }
 
@@ -25735,7 +25735,7 @@ define linkonce_odr dso_local void @_ZNSt13unordered_mapINSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 %3, ptr noundef nonnull %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 %3, ptr noundef nonnull %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.0", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26048,7 +26048,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %152
   %.val = load ptr, ptr %154, align 8
   %155 = getelementptr i8, ptr %150, i64 192
   %.val38 = load ptr, ptr %155, align 8
-  invoke fastcc void @"_ZZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEEENK3$_0clB5cxx11EPKNS_12FunctionTypeE.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr %.val, ptr %.val38)
+  invoke fastcc void @"_ZZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEEENK3$_0clB5cxx11EPKNS_12FunctionTypeE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr %.val, ptr %.val38)
           to label %.critedge unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit47
@@ -26101,7 +26101,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit47: ; preds = %168
   %.val39 = load ptr, ptr %171, align 8
   %172 = getelementptr i8, ptr %167, i64 192
   %.val40 = load ptr, ptr %172, align 8
-  invoke fastcc void @"_ZZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEEENK3$_0clB5cxx11EPKNS_12FunctionTypeE.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr %.val39, ptr %.val40)
+  invoke fastcc void @"_ZZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEEENK3$_0clB5cxx11EPKNS_12FunctionTypeE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr %.val39, ptr %.val40)
           to label %173 unwind label %.loopexit
 
 173:                                              ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit47
@@ -26228,7 +26228,7 @@ _ZNSt14_Optional_baseISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL23makeAnonymousAutofilledERKSt10shared_ptrINS_6ModuleEENS_8PositionEPKNS_7AstNodeERKSt6vectorIPS6_SaISA_EE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 %2, ptr noundef %3, ptr %.0.val, ptr %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL23makeAnonymousAutofilledERKSt10shared_ptrINS_6ModuleEENS_8PositionEPKNS_7AstNodeERKSt6vectorIPS6_SaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 %2, ptr noundef %3, ptr %.0.val, ptr %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Luau::Position", align 8
   %6 = alloca %"struct.std::pair.569", align 8
   %7 = alloca %"class.std::shared_ptr.119", align 8
@@ -27996,7 +27996,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare noundef zeroext i1 @_ZNK4Luau8PositioneqERKS0_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4LuauL27autocompleteStringSingletonEPKNS_4TypeEbPNS_7AstNodeENS_8PositionERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SD_EEEENK3$_0clB5cxx11ERSJ_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = trunc i8 %.0.val to i1
@@ -28370,7 +28370,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEEENK3$_0clB5cxx11EPKNS_12FunctionTypeE.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr %.176.val, ptr readnone %.184.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4LuauL24autocompleteStringParamsERKNS_12SourceModuleERKSt10shared_ptrINS_6ModuleEERKSt6vectorIPNS_7AstNodeESaISA_EENS_8PositionESt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17AutocompleteEntryESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_SP_EEEESO_SH_IPKNS_9ClassTypeEESH_ISO_EEEENK3$_0clB5cxx11EPKNS_12FunctionTypeE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr %.176.val, ptr readnone %.184.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::optional.249", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::optional.265", align 8
@@ -29220,7 +29220,7 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit: ; preds = %17
   %.val = load ptr, ptr %1, align 8
   %180 = getelementptr inbounds i8, ptr %1, i64 8
   %.val60 = load ptr, ptr %180, align 8
-  invoke fastcc void @_ZN4LuauL19tryToStringDetailedIPKNS_4TypeEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b.argprom(ptr dead_on_unwind noalias writable align 8 %16, ptr %.val, ptr %.val60, ptr noundef %179, i1 noundef zeroext true)
+  invoke fastcc void @_ZN4LuauL19tryToStringDetailedIPKNS_4TypeEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b(ptr dead_on_unwind noalias writable align 8 %16, ptr %.val, ptr %.val60, ptr noundef %179, i1 noundef zeroext true)
           to label %181 unwind label %190
 
 181:                                              ; preds = %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit
@@ -31496,8 +31496,8 @@ attributes #29 = { allocsize(0) }
 !114 = distinct !{!114, !"_ZNKSt8functionIFSt8optionalISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEEES7_S0_IPKNS8_9ClassTypeEES0_IS7_EEEclES7_SN_SO_"}
 !115 = distinct !{!115, !6}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN4LuauL19tryToStringDetailedIPKNS_11TypePackVarEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b.argprom: argument 0"}
-!118 = distinct !{!118, !"_ZN4LuauL19tryToStringDetailedIPKNS_11TypePackVarEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b.argprom"}
+!117 = distinct !{!117, !118, !"_ZN4LuauL19tryToStringDetailedIPKNS_11TypePackVarEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b: argument 0"}
+!118 = distinct !{!118, !"_ZN4LuauL19tryToStringDetailedIPKNS_11TypePackVarEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKSt10shared_ptrINS_5ScopeEET_b"}
 !119 = distinct !{!119, !6}
 !120 = distinct !{!120, !6}
 !121 = distinct !{!121, !6}

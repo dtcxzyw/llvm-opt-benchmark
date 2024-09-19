@@ -1580,14 +1580,14 @@ If_CutTruthWR.exit.i.i:                           ; preds = %694, %688
   br i1 %.not.i7.i.i, label %.preheader.i.i.i, label %.preheader14.i.i.i
 
 .preheader14.i.i.i:                               ; preds = %If_CutTruthWR.exit.i.i
-  br i1 %715, label %.lr.ph.preheader.i.i.i, label %If_CutTruth.argprom.exit
+  br i1 %715, label %.lr.ph.preheader.i.i.i, label %If_CutTruth.exit
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader14.i.i.i
   %wide.trip.count.i.i.i = zext nneg i32 %713 to i64
   br label %.lr.ph.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %If_CutTruthWR.exit.i.i
-  br i1 %715, label %.lr.ph18.preheader.i.i.i, label %If_CutTruth.argprom.exit
+  br i1 %715, label %.lr.ph18.preheader.i.i.i, label %If_CutTruth.exit
 
 .lr.ph18.preheader.i.i.i:                         ; preds = %.preheader.i.i.i
   %wide.trip.count24.i.i.i = zext nneg i32 %713 to i64
@@ -1602,7 +1602,7 @@ If_CutTruthWR.exit.i.i:                           ; preds = %694, %688
   store i64 %718, ptr %719, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %If_CutTruth.argprom.exit, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %If_CutTruth.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 .lr.ph18.i.i.i:                                   ; preds = %.lr.ph18.i.i.i, %.lr.ph18.preheader.i.i.i
   %indvars.iv21.i.i.i = phi i64 [ 0, %.lr.ph18.preheader.i.i.i ], [ %indvars.iv.next22.i.i.i, %.lr.ph18.i.i.i ]
@@ -1612,9 +1612,9 @@ If_CutTruthWR.exit.i.i:                           ; preds = %694, %688
   store i64 %721, ptr %722, align 8
   %indvars.iv.next22.i.i.i = add nuw nsw i64 %indvars.iv21.i.i.i, 1
   %exitcond25.not.i.i.i = icmp eq i64 %indvars.iv.next22.i.i.i, %wide.trip.count24.i.i.i
-  br i1 %exitcond25.not.i.i.i, label %If_CutTruth.argprom.exit, label %.lr.ph18.i.i.i, !llvm.loop !12
+  br i1 %exitcond25.not.i.i.i, label %If_CutTruth.exit, label %.lr.ph18.i.i.i, !llvm.loop !12
 
-If_CutTruth.argprom.exit:                         ; preds = %.lr.ph.i.i.i, %.lr.ph18.i.i.i, %.preheader14.i.i.i, %.preheader.i.i.i
+If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.ph18.i.i.i, %.preheader14.i.i.i, %.preheader.i.i.i
   %723 = load ptr, ptr %255, align 8
   %724 = load i64, ptr %417, align 4
   %725 = trunc i64 %724 to i32
@@ -1628,8 +1628,8 @@ If_CutTruth.argprom.exit:                         ; preds = %.lr.ph.i.i.i, %.lr.
   %732 = select i1 %.not609, i64 16384, i64 0
   br label %733
 
-733:                                              ; preds = %If_CutTruthW.exit, %If_CutTruth.argprom.exit, %627
-  %.sink992 = phi i64 [ %687, %If_CutTruthW.exit ], [ %732, %If_CutTruth.argprom.exit ], [ %643, %627 ]
+733:                                              ; preds = %If_CutTruthW.exit, %If_CutTruth.exit, %627
+  %.sink992 = phi i64 [ %687, %If_CutTruthW.exit ], [ %732, %If_CutTruth.exit ], [ %643, %627 ]
   %.sink = load i64, ptr %417, align 4
   %734 = and i64 %.sink, -16385
   %735 = or disjoint i64 %734, %.sink992
@@ -1713,14 +1713,14 @@ If_CutTruthWR.exit.i.i675:                        ; preds = %770, %767
   br i1 %.not.i7.i.i676, label %.preheader.i.i.i684, label %.preheader14.i.i.i677
 
 .preheader14.i.i.i677:                            ; preds = %If_CutTruthWR.exit.i.i675
-  br i1 %790, label %.lr.ph.preheader.i.i.i678, label %If_CutTruth.argprom.exit691
+  br i1 %790, label %.lr.ph.preheader.i.i.i678, label %If_CutTruth.exit691
 
 .lr.ph.preheader.i.i.i678:                        ; preds = %.preheader14.i.i.i677
   %wide.trip.count.i.i.i679 = zext nneg i32 %788 to i64
   br label %.lr.ph.i.i.i680
 
 .preheader.i.i.i684:                              ; preds = %If_CutTruthWR.exit.i.i675
-  br i1 %790, label %.lr.ph18.preheader.i.i.i685, label %If_CutTruth.argprom.exit691
+  br i1 %790, label %.lr.ph18.preheader.i.i.i685, label %If_CutTruth.exit691
 
 .lr.ph18.preheader.i.i.i685:                      ; preds = %.preheader.i.i.i684
   %wide.trip.count24.i.i.i686 = zext nneg i32 %788 to i64
@@ -1735,7 +1735,7 @@ If_CutTruthWR.exit.i.i675:                        ; preds = %770, %767
   store i64 %793, ptr %794, align 8
   %indvars.iv.next.i.i.i682 = add nuw nsw i64 %indvars.iv.i.i.i681, 1
   %exitcond.not.i.i.i683 = icmp eq i64 %indvars.iv.next.i.i.i682, %wide.trip.count.i.i.i679
-  br i1 %exitcond.not.i.i.i683, label %If_CutTruth.argprom.exit691, label %.lr.ph.i.i.i680, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i683, label %If_CutTruth.exit691, label %.lr.ph.i.i.i680, !llvm.loop !11
 
 .lr.ph18.i.i.i687:                                ; preds = %.lr.ph18.i.i.i687, %.lr.ph18.preheader.i.i.i685
   %indvars.iv21.i.i.i688 = phi i64 [ 0, %.lr.ph18.preheader.i.i.i685 ], [ %indvars.iv.next22.i.i.i689, %.lr.ph18.i.i.i687 ]
@@ -1745,9 +1745,9 @@ If_CutTruthWR.exit.i.i675:                        ; preds = %770, %767
   store i64 %796, ptr %797, align 8
   %indvars.iv.next22.i.i.i689 = add nuw nsw i64 %indvars.iv21.i.i.i688, 1
   %exitcond25.not.i.i.i690 = icmp eq i64 %indvars.iv.next22.i.i.i689, %wide.trip.count24.i.i.i686
-  br i1 %exitcond25.not.i.i.i690, label %If_CutTruth.argprom.exit691, label %.lr.ph18.i.i.i687, !llvm.loop !12
+  br i1 %exitcond25.not.i.i.i690, label %If_CutTruth.exit691, label %.lr.ph18.i.i.i687, !llvm.loop !12
 
-If_CutTruth.argprom.exit691:                      ; preds = %.lr.ph.i.i.i680, %.lr.ph18.i.i.i687, %.preheader14.i.i.i677, %.preheader.i.i.i684
+If_CutTruth.exit691:                              ; preds = %.lr.ph.i.i.i680, %.lr.ph18.i.i.i687, %.preheader14.i.i.i677, %.preheader.i.i.i684
   %798 = load ptr, ptr %255, align 8
   %799 = load i32, ptr %798, align 4
   %800 = zext i32 %799 to i64
@@ -1760,7 +1760,7 @@ If_CutTruth.argprom.exit691:                      ; preds = %.lr.ph.i.i.i680, %.
   %.not618 = icmp eq i32 %805, 0
   br i1 %.not618, label %1627, label %806
 
-806:                                              ; preds = %If_CutTruth.argprom.exit691
+806:                                              ; preds = %If_CutTruth.exit691
   %807 = load i32, ptr %264, align 4
   %808 = add nsw i32 %807, 1
   store i32 %808, ptr %264, align 4
@@ -1813,14 +1813,14 @@ If_CutTruthWR.exit.i.i693:                        ; preds = %818, %815
   br i1 %.not.i7.i.i694, label %.preheader.i.i.i702, label %.preheader14.i.i.i695
 
 .preheader14.i.i.i695:                            ; preds = %If_CutTruthWR.exit.i.i693
-  br i1 %838, label %.lr.ph.preheader.i.i.i696, label %If_CutTruth.argprom.exit709
+  br i1 %838, label %.lr.ph.preheader.i.i.i696, label %If_CutTruth.exit709
 
 .lr.ph.preheader.i.i.i696:                        ; preds = %.preheader14.i.i.i695
   %wide.trip.count.i.i.i697 = zext nneg i32 %836 to i64
   br label %.lr.ph.i.i.i698
 
 .preheader.i.i.i702:                              ; preds = %If_CutTruthWR.exit.i.i693
-  br i1 %838, label %.lr.ph18.preheader.i.i.i703, label %If_CutTruth.argprom.exit709
+  br i1 %838, label %.lr.ph18.preheader.i.i.i703, label %If_CutTruth.exit709
 
 .lr.ph18.preheader.i.i.i703:                      ; preds = %.preheader.i.i.i702
   %wide.trip.count24.i.i.i704 = zext nneg i32 %836 to i64
@@ -1835,7 +1835,7 @@ If_CutTruthWR.exit.i.i693:                        ; preds = %818, %815
   store i64 %841, ptr %842, align 8
   %indvars.iv.next.i.i.i700 = add nuw nsw i64 %indvars.iv.i.i.i699, 1
   %exitcond.not.i.i.i701 = icmp eq i64 %indvars.iv.next.i.i.i700, %wide.trip.count.i.i.i697
-  br i1 %exitcond.not.i.i.i701, label %If_CutTruth.argprom.exit709, label %.lr.ph.i.i.i698, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i701, label %If_CutTruth.exit709, label %.lr.ph.i.i.i698, !llvm.loop !11
 
 .lr.ph18.i.i.i705:                                ; preds = %.lr.ph18.i.i.i705, %.lr.ph18.preheader.i.i.i703
   %indvars.iv21.i.i.i706 = phi i64 [ 0, %.lr.ph18.preheader.i.i.i703 ], [ %indvars.iv.next22.i.i.i707, %.lr.ph18.i.i.i705 ]
@@ -1845,9 +1845,9 @@ If_CutTruthWR.exit.i.i693:                        ; preds = %818, %815
   store i64 %844, ptr %845, align 8
   %indvars.iv.next22.i.i.i707 = add nuw nsw i64 %indvars.iv21.i.i.i706, 1
   %exitcond25.not.i.i.i708 = icmp eq i64 %indvars.iv.next22.i.i.i707, %wide.trip.count24.i.i.i704
-  br i1 %exitcond25.not.i.i.i708, label %If_CutTruth.argprom.exit709, label %.lr.ph18.i.i.i705, !llvm.loop !12
+  br i1 %exitcond25.not.i.i.i708, label %If_CutTruth.exit709, label %.lr.ph18.i.i.i705, !llvm.loop !12
 
-If_CutTruth.argprom.exit709:                      ; preds = %.lr.ph.i.i.i698, %.lr.ph18.i.i.i705, %.preheader14.i.i.i695, %.preheader.i.i.i702
+If_CutTruth.exit709:                              ; preds = %.lr.ph.i.i.i698, %.lr.ph18.i.i.i705, %.preheader14.i.i.i695, %.preheader.i.i.i702
   %846 = load ptr, ptr %255, align 8
   %847 = load i32, ptr %846, align 4
   %848 = zext i32 %847 to i64
@@ -1860,12 +1860,12 @@ If_CutTruth.argprom.exit709:                      ; preds = %.lr.ph.i.i.i698, %.
   %.not616 = icmp eq i32 %853, 0
   br i1 %.not616, label %854, label %856
 
-854:                                              ; preds = %If_CutTruth.argprom.exit709
+854:                                              ; preds = %If_CutTruth.exit709
   %855 = call i32 @If_CluCheckDecOut(i64 noundef %850, i32 noundef 5) #21
   %.not617 = icmp eq i32 %855, 0
   br i1 %.not617, label %Abc_Tt4Check.exit.thread, label %856
 
-856:                                              ; preds = %854, %If_CutTruth.argprom.exit709
+856:                                              ; preds = %854, %If_CutTruth.exit709
   %857 = load i32, ptr %264, align 4
   %858 = add nsw i32 %857, 1
   store i32 %858, ptr %264, align 4
@@ -1972,14 +1972,14 @@ If_CutTruthWR.exit.i.i712:                        ; preds = %910, %907
   br i1 %.not.i7.i.i713, label %.preheader.i.i.i721, label %.preheader14.i.i.i714
 
 .preheader14.i.i.i714:                            ; preds = %If_CutTruthWR.exit.i.i712
-  br i1 %930, label %.lr.ph.preheader.i.i.i715, label %If_CutTruth.argprom.exit728
+  br i1 %930, label %.lr.ph.preheader.i.i.i715, label %If_CutTruth.exit728
 
 .lr.ph.preheader.i.i.i715:                        ; preds = %.preheader14.i.i.i714
   %wide.trip.count.i.i.i716 = zext nneg i32 %928 to i64
   br label %.lr.ph.i.i.i717
 
 .preheader.i.i.i721:                              ; preds = %If_CutTruthWR.exit.i.i712
-  br i1 %930, label %.lr.ph18.preheader.i.i.i722, label %If_CutTruth.argprom.exit728
+  br i1 %930, label %.lr.ph18.preheader.i.i.i722, label %If_CutTruth.exit728
 
 .lr.ph18.preheader.i.i.i722:                      ; preds = %.preheader.i.i.i721
   %wide.trip.count24.i.i.i723 = zext nneg i32 %928 to i64
@@ -1994,7 +1994,7 @@ If_CutTruthWR.exit.i.i712:                        ; preds = %910, %907
   store i64 %933, ptr %934, align 8
   %indvars.iv.next.i.i.i719 = add nuw nsw i64 %indvars.iv.i.i.i718, 1
   %exitcond.not.i.i.i720 = icmp eq i64 %indvars.iv.next.i.i.i719, %wide.trip.count.i.i.i716
-  br i1 %exitcond.not.i.i.i720, label %If_CutTruth.argprom.exit728, label %.lr.ph.i.i.i717, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i720, label %If_CutTruth.exit728, label %.lr.ph.i.i.i717, !llvm.loop !11
 
 .lr.ph18.i.i.i724:                                ; preds = %.lr.ph18.i.i.i724, %.lr.ph18.preheader.i.i.i722
   %indvars.iv21.i.i.i725 = phi i64 [ 0, %.lr.ph18.preheader.i.i.i722 ], [ %indvars.iv.next22.i.i.i726, %.lr.ph18.i.i.i724 ]
@@ -2004,9 +2004,9 @@ If_CutTruthWR.exit.i.i712:                        ; preds = %910, %907
   store i64 %936, ptr %937, align 8
   %indvars.iv.next22.i.i.i726 = add nuw nsw i64 %indvars.iv21.i.i.i725, 1
   %exitcond25.not.i.i.i727 = icmp eq i64 %indvars.iv.next22.i.i.i726, %wide.trip.count24.i.i.i723
-  br i1 %exitcond25.not.i.i.i727, label %If_CutTruth.argprom.exit728, label %.lr.ph18.i.i.i724, !llvm.loop !12
+  br i1 %exitcond25.not.i.i.i727, label %If_CutTruth.exit728, label %.lr.ph18.i.i.i724, !llvm.loop !12
 
-If_CutTruth.argprom.exit728:                      ; preds = %.lr.ph.i.i.i717, %.lr.ph18.i.i.i724, %.preheader14.i.i.i714, %.preheader.i.i.i721
+If_CutTruth.exit728:                              ; preds = %.lr.ph.i.i.i717, %.lr.ph18.i.i.i724, %.preheader14.i.i.i714, %.preheader.i.i.i721
   %938 = load ptr, ptr %255, align 8
   %939 = load i32, ptr %938, align 4
   %940 = and i32 %939, 65535
@@ -2017,7 +2017,7 @@ If_CutTruth.argprom.exit728:                      ; preds = %.lr.ph.i.i.i717, %.
     i16 27030, label %Abc_Tt4Check.exit.thread
   ]
 
-942:                                              ; preds = %If_CutTruth.argprom.exit728
+942:                                              ; preds = %If_CutTruth.exit728
   %943 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %940)
   %944 = icmp ult i32 %943, 2
   br i1 %944, label %Abc_Tt4Check.exit.thread, label %945
@@ -2963,7 +2963,7 @@ Abc_TtCheckCondDep.exit:                          ; preds = %1390, %If_CutTruthW
   store i32 %1437, ptr %1435, align 4
   br label %Abc_Tt4Check.exit.thread
 
-Abc_Tt4Check.exit.thread:                         ; preds = %1132, %968, %965, %945, %942, %If_CutTruth.argprom.exit728, %If_CutTruth.argprom.exit728, %809, %812, %856, %854, %806, %Abc_Tt4Check.exit, %905, %1401, %1128, %862, %._crit_edge923
+Abc_Tt4Check.exit.thread:                         ; preds = %1132, %968, %965, %945, %942, %If_CutTruth.exit728, %If_CutTruth.exit728, %809, %812, %856, %854, %806, %Abc_Tt4Check.exit, %905, %1401, %1128, %862, %._crit_edge923
   %1438 = load ptr, ptr %13, align 8
   %1439 = getelementptr inbounds i8, ptr %1438, i64 304
   %1440 = load ptr, ptr %1439, align 8
@@ -3331,7 +3331,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1537, %If_CutTruthW
   call void @If_CutSort(ptr noundef nonnull %0, ptr noundef %94, ptr noundef nonnull %302) #21
   br label %1627
 
-1627:                                             ; preds = %1589, %1585, %1449, %If_CutTruth.argprom.exit691, %475, %468, %395, %381, %370, %363, %361, %297, %1626
+1627:                                             ; preds = %1589, %1585, %1449, %If_CutTruth.exit691, %475, %468, %395, %381, %370, %363, %361, %297, %1626
   %indvars.iv.next912 = add nuw nsw i64 %indvars.iv911, 1
   %1628 = load ptr, ptr %243, align 8
   %1629 = getelementptr inbounds i8, ptr %1628, i64 72

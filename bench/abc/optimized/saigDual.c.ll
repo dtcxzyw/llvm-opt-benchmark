@@ -200,7 +200,7 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrStart.exit, 
   %.val.i = load ptr, ptr %118, align 8
   %.not.i.i183 = icmp eq ptr %.val.i, null
   %.pre304 = ptrtoint ptr %.val.i to i64
-  br i1 %.not.i.i183, label %Aig_ObjFaninId0.argprom.exit38.i, label %119
+  br i1 %.not.i.i183, label %Aig_ObjFaninId0.exit38.i, label %119
 
 119:                                              ; preds = %117
   %120 = and i64 %.pre304, -2
@@ -212,9 +212,9 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrStart.exit, 
   %126 = getelementptr inbounds ptr, ptr %.val156, i64 %125
   %127 = or disjoint i32 %124, 1
   %128 = sext i32 %127 to i64
-  br label %Aig_ObjFaninId0.argprom.exit38.i
+  br label %Aig_ObjFaninId0.exit38.i
 
-Aig_ObjFaninId0.argprom.exit38.i:                 ; preds = %117, %119
+Aig_ObjFaninId0.exit38.i:                         ; preds = %117, %119
   %.in46.i = phi ptr [ %126, %119 ], [ %51, %117 ]
   %129 = phi i64 [ %128, %119 ], [ -1, %117 ]
   %130 = getelementptr inbounds ptr, ptr %.val156, i64 %129
@@ -224,20 +224,20 @@ Aig_ObjFaninId0.argprom.exit38.i:                 ; preds = %117, %119
   %.not.i184 = icmp eq i64 %.047.i, 0
   br i1 %.not.i184, label %Saig_ObjDualFanin.exit, label %131
 
-131:                                              ; preds = %Aig_ObjFaninId0.argprom.exit38.i
+131:                                              ; preds = %Aig_ObjFaninId0.exit38.i
   %132 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.026.i, ptr noundef %.027.i) #8
   %133 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.027.i, ptr noundef %132) #8
   %134 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.026.i, ptr noundef %132) #8
   br label %Saig_ObjDualFanin.exit
 
-Saig_ObjDualFanin.exit:                           ; preds = %Aig_ObjFaninId0.argprom.exit38.i, %131
-  %.1263 = phi ptr [ %133, %131 ], [ %.026.i, %Aig_ObjFaninId0.argprom.exit38.i ]
-  %storemerge.i = phi ptr [ %134, %131 ], [ %.027.i, %Aig_ObjFaninId0.argprom.exit38.i ]
+Saig_ObjDualFanin.exit:                           ; preds = %Aig_ObjFaninId0.exit38.i, %131
+  %.1263 = phi ptr [ %133, %131 ], [ %.026.i, %Aig_ObjFaninId0.exit38.i ]
+  %storemerge.i = phi ptr [ %134, %131 ], [ %.027.i, %Aig_ObjFaninId0.exit38.i ]
   %135 = getelementptr i8, ptr %110, i64 16
   %.val34.i = load ptr, ptr %135, align 8
   %.not.i39.i = icmp eq ptr %.val34.i, null
   %.pre305 = ptrtoint ptr %.val34.i to i64
-  br i1 %.not.i39.i, label %Aig_ObjFaninId1.argprom.exit41.i, label %136
+  br i1 %.not.i39.i, label %Aig_ObjFaninId1.exit41.i, label %136
 
 136:                                              ; preds = %Saig_ObjDualFanin.exit
   %137 = and i64 %.pre305, -2
@@ -249,9 +249,9 @@ Saig_ObjDualFanin.exit:                           ; preds = %Aig_ObjFaninId0.arg
   %143 = getelementptr inbounds ptr, ptr %.val156, i64 %142
   %144 = or disjoint i32 %141, 1
   %145 = sext i32 %144 to i64
-  br label %Aig_ObjFaninId1.argprom.exit41.i
+  br label %Aig_ObjFaninId1.exit41.i
 
-Aig_ObjFaninId1.argprom.exit41.i:                 ; preds = %Saig_ObjDualFanin.exit, %136
+Aig_ObjFaninId1.exit41.i:                         ; preds = %Saig_ObjDualFanin.exit, %136
   %.in.i = phi ptr [ %143, %136 ], [ %51, %Saig_ObjDualFanin.exit ]
   %146 = phi i64 [ %145, %136 ], [ -1, %Saig_ObjDualFanin.exit ]
   %147 = getelementptr inbounds ptr, ptr %.val156, i64 %146
@@ -261,15 +261,15 @@ Aig_ObjFaninId1.argprom.exit41.i:                 ; preds = %Saig_ObjDualFanin.e
   %.not.i189 = icmp eq i64 %.047.i188, 0
   br i1 %.not.i189, label %Saig_ObjDualFanin.exit191, label %148
 
-148:                                              ; preds = %Aig_ObjFaninId1.argprom.exit41.i
+148:                                              ; preds = %Aig_ObjFaninId1.exit41.i
   %149 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.026.i186, ptr noundef %.027.i187) #8
   %150 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.027.i187, ptr noundef %149) #8
   %151 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.026.i186, ptr noundef %149) #8
   br label %Saig_ObjDualFanin.exit191
 
-Saig_ObjDualFanin.exit191:                        ; preds = %Aig_ObjFaninId1.argprom.exit41.i, %148
-  %.0267 = phi ptr [ %150, %148 ], [ %.026.i186, %Aig_ObjFaninId1.argprom.exit41.i ]
-  %storemerge.i190 = phi ptr [ %151, %148 ], [ %.027.i187, %Aig_ObjFaninId1.argprom.exit41.i ]
+Saig_ObjDualFanin.exit191:                        ; preds = %Aig_ObjFaninId1.exit41.i, %148
+  %.0267 = phi ptr [ %150, %148 ], [ %.026.i186, %Aig_ObjFaninId1.exit41.i ]
+  %storemerge.i190 = phi ptr [ %151, %148 ], [ %.027.i187, %Aig_ObjFaninId1.exit41.i ]
   %152 = getelementptr i8, ptr %110, i64 36
   %.val174 = load i32, ptr %152, align 4
   %153 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.1263, ptr noundef %.0267) #8
@@ -343,9 +343,9 @@ Saig_ObjDualFanin.exit191:                        ; preds = %Aig_ObjFaninId1.arg
   %183 = getelementptr i8, ptr %182, i64 8
   %.val.i192 = load ptr, ptr %183, align 8
   %.not.i.i193 = icmp eq ptr %.val.i192, null
-  br i1 %.not.i.i193, label %Aig_ObjFaninId0.argprom.exit38.i195.thread, label %Aig_ObjFaninId0.argprom.exit38.i195
+  br i1 %.not.i.i193, label %Aig_ObjFaninId0.exit38.i195.thread, label %Aig_ObjFaninId0.exit38.i195
 
-Aig_ObjFaninId0.argprom.exit38.i195.thread:       ; preds = %176
+Aig_ObjFaninId0.exit38.i195.thread:               ; preds = %176
   %.val2942.i205 = load ptr, ptr %21, align 8
   %184 = getelementptr inbounds i8, ptr %.val2942.i205, i64 -16
   %185 = getelementptr inbounds i8, ptr %.val2942.i205, i64 -8
@@ -353,7 +353,7 @@ Aig_ObjFaninId0.argprom.exit38.i195.thread:       ; preds = %176
   %.027.i200310 = load ptr, ptr %185, align 8
   br label %Saig_ObjDualFanin.exit206
 
-Aig_ObjFaninId0.argprom.exit38.i195:              ; preds = %176
+Aig_ObjFaninId0.exit38.i195:                      ; preds = %176
   %186 = ptrtoint ptr %.val.i192 to i64
   %187 = and i64 %186, -2
   %188 = inttoptr i64 %187 to ptr
@@ -372,15 +372,15 @@ Aig_ObjFaninId0.argprom.exit38.i195:              ; preds = %176
   %.027.i200 = load ptr, ptr %198, align 8
   br i1 %197, label %Saig_ObjDualFanin.exit206, label %199
 
-199:                                              ; preds = %Aig_ObjFaninId0.argprom.exit38.i195
+199:                                              ; preds = %Aig_ObjFaninId0.exit38.i195
   %200 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.026.i199, ptr noundef %.027.i200) #8
   %201 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.027.i200, ptr noundef %200) #8
   %202 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.026.i199, ptr noundef %200) #8
   br label %Saig_ObjDualFanin.exit206
 
-Saig_ObjDualFanin.exit206:                        ; preds = %Aig_ObjFaninId0.argprom.exit38.i195.thread, %Aig_ObjFaninId0.argprom.exit38.i195, %199
-  %.2264 = phi ptr [ %201, %199 ], [ %.026.i199, %Aig_ObjFaninId0.argprom.exit38.i195 ], [ %.026.i199309, %Aig_ObjFaninId0.argprom.exit38.i195.thread ]
-  %storemerge.i203 = phi ptr [ %202, %199 ], [ %.027.i200, %Aig_ObjFaninId0.argprom.exit38.i195 ], [ %.027.i200310, %Aig_ObjFaninId0.argprom.exit38.i195.thread ]
+Saig_ObjDualFanin.exit206:                        ; preds = %Aig_ObjFaninId0.exit38.i195.thread, %Aig_ObjFaninId0.exit38.i195, %199
+  %.2264 = phi ptr [ %201, %199 ], [ %.026.i199, %Aig_ObjFaninId0.exit38.i195 ], [ %.026.i199309, %Aig_ObjFaninId0.exit38.i195.thread ]
+  %storemerge.i203 = phi ptr [ %202, %199 ], [ %.027.i200, %Aig_ObjFaninId0.exit38.i195 ], [ %.027.i200310, %Aig_ObjFaninId0.exit38.i195.thread ]
   br i1 %.not143, label %208, label %203
 
 203:                                              ; preds = %Saig_ObjDualFanin.exit206
@@ -426,9 +426,9 @@ Saig_ObjDualFanin.exit206:                        ; preds = %Aig_ObjFaninId0.arg
   %228 = getelementptr i8, ptr %227, i64 8
   %.val.i207 = load ptr, ptr %228, align 8
   %.not.i.i208 = icmp eq ptr %.val.i207, null
-  br i1 %.not.i.i208, label %Aig_ObjFaninId0.argprom.exit38.i210.thread, label %Aig_ObjFaninId0.argprom.exit38.i210
+  br i1 %.not.i.i208, label %Aig_ObjFaninId0.exit38.i210.thread, label %Aig_ObjFaninId0.exit38.i210
 
-Aig_ObjFaninId0.argprom.exit38.i210.thread:       ; preds = %223
+Aig_ObjFaninId0.exit38.i210.thread:               ; preds = %223
   %.val2942.i220 = load ptr, ptr %21, align 8
   %229 = getelementptr inbounds i8, ptr %.val2942.i220, i64 -16
   %230 = getelementptr inbounds i8, ptr %.val2942.i220, i64 -8
@@ -436,7 +436,7 @@ Aig_ObjFaninId0.argprom.exit38.i210.thread:       ; preds = %223
   %.027.i215315 = load ptr, ptr %230, align 8
   br label %Saig_ObjDualFanin.exit221
 
-Aig_ObjFaninId0.argprom.exit38.i210:              ; preds = %223
+Aig_ObjFaninId0.exit38.i210:                      ; preds = %223
   %231 = ptrtoint ptr %.val.i207 to i64
   %232 = and i64 %231, -2
   %233 = inttoptr i64 %232 to ptr
@@ -455,15 +455,15 @@ Aig_ObjFaninId0.argprom.exit38.i210:              ; preds = %223
   %.027.i215 = load ptr, ptr %243, align 8
   br i1 %242, label %Saig_ObjDualFanin.exit221, label %244
 
-244:                                              ; preds = %Aig_ObjFaninId0.argprom.exit38.i210
+244:                                              ; preds = %Aig_ObjFaninId0.exit38.i210
   %245 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.026.i214, ptr noundef %.027.i215) #8
   %246 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.027.i215, ptr noundef %245) #8
   %247 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.026.i214, ptr noundef %245) #8
   br label %Saig_ObjDualFanin.exit221
 
-Saig_ObjDualFanin.exit221:                        ; preds = %Aig_ObjFaninId0.argprom.exit38.i210.thread, %Aig_ObjFaninId0.argprom.exit38.i210, %244
-  %.3265 = phi ptr [ %246, %244 ], [ %.026.i214, %Aig_ObjFaninId0.argprom.exit38.i210 ], [ %.026.i214314, %Aig_ObjFaninId0.argprom.exit38.i210.thread ]
-  %storemerge.i218 = phi ptr [ %247, %244 ], [ %.027.i215, %Aig_ObjFaninId0.argprom.exit38.i210 ], [ %.027.i215315, %Aig_ObjFaninId0.argprom.exit38.i210.thread ]
+Saig_ObjDualFanin.exit221:                        ; preds = %Aig_ObjFaninId0.exit38.i210.thread, %Aig_ObjFaninId0.exit38.i210, %244
+  %.3265 = phi ptr [ %246, %244 ], [ %.026.i214, %Aig_ObjFaninId0.exit38.i210 ], [ %.026.i214314, %Aig_ObjFaninId0.exit38.i210.thread ]
+  %storemerge.i218 = phi ptr [ %247, %244 ], [ %.027.i215, %Aig_ObjFaninId0.exit38.i210 ], [ %.027.i215315, %Aig_ObjFaninId0.exit38.i210.thread ]
   br i1 %.not138, label %253, label %248
 
 248:                                              ; preds = %Saig_ObjDualFanin.exit221
@@ -534,9 +534,9 @@ Saig_ObjDualFanin.exit221:                        ; preds = %Aig_ObjFaninId0.arg
   %287 = getelementptr i8, ptr %286, i64 8
   %.val.i222 = load ptr, ptr %287, align 8
   %.not.i.i223 = icmp eq ptr %.val.i222, null
-  br i1 %.not.i.i223, label %Aig_ObjFaninId0.argprom.exit38.i225.thread, label %Aig_ObjFaninId0.argprom.exit38.i225
+  br i1 %.not.i.i223, label %Aig_ObjFaninId0.exit38.i225.thread, label %Aig_ObjFaninId0.exit38.i225
 
-Aig_ObjFaninId0.argprom.exit38.i225.thread:       ; preds = %279
+Aig_ObjFaninId0.exit38.i225.thread:               ; preds = %279
   %.val2942.i235 = load ptr, ptr %21, align 8
   %288 = getelementptr inbounds i8, ptr %.val2942.i235, i64 -16
   %289 = getelementptr inbounds i8, ptr %.val2942.i235, i64 -8
@@ -544,7 +544,7 @@ Aig_ObjFaninId0.argprom.exit38.i225.thread:       ; preds = %279
   %.027.i230320 = load ptr, ptr %289, align 8
   br label %Saig_ObjDualFanin.exit236
 
-Aig_ObjFaninId0.argprom.exit38.i225:              ; preds = %279
+Aig_ObjFaninId0.exit38.i225:                      ; preds = %279
   %290 = ptrtoint ptr %.val.i222 to i64
   %291 = and i64 %290, -2
   %292 = inttoptr i64 %291 to ptr
@@ -563,15 +563,15 @@ Aig_ObjFaninId0.argprom.exit38.i225:              ; preds = %279
   %.027.i230 = load ptr, ptr %302, align 8
   br i1 %301, label %Saig_ObjDualFanin.exit236, label %303
 
-303:                                              ; preds = %Aig_ObjFaninId0.argprom.exit38.i225
+303:                                              ; preds = %Aig_ObjFaninId0.exit38.i225
   %304 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.026.i229, ptr noundef %.027.i230) #8
   %305 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.027.i230, ptr noundef %304) #8
   %306 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.026.i229, ptr noundef %304) #8
   br label %Saig_ObjDualFanin.exit236
 
-Saig_ObjDualFanin.exit236:                        ; preds = %Aig_ObjFaninId0.argprom.exit38.i225.thread, %Aig_ObjFaninId0.argprom.exit38.i225, %303
-  %.4266 = phi ptr [ %305, %303 ], [ %.026.i229, %Aig_ObjFaninId0.argprom.exit38.i225 ], [ %.026.i229319, %Aig_ObjFaninId0.argprom.exit38.i225.thread ]
-  %storemerge.i233 = phi ptr [ %306, %303 ], [ %.027.i230, %Aig_ObjFaninId0.argprom.exit38.i225 ], [ %.027.i230320, %Aig_ObjFaninId0.argprom.exit38.i225.thread ]
+Saig_ObjDualFanin.exit236:                        ; preds = %Aig_ObjFaninId0.exit38.i225.thread, %Aig_ObjFaninId0.exit38.i225, %303
+  %.4266 = phi ptr [ %305, %303 ], [ %.026.i229, %Aig_ObjFaninId0.exit38.i225 ], [ %.026.i229319, %Aig_ObjFaninId0.exit38.i225.thread ]
+  %storemerge.i233 = phi ptr [ %306, %303 ], [ %.027.i230, %Aig_ObjFaninId0.exit38.i225 ], [ %.027.i230320, %Aig_ObjFaninId0.exit38.i225.thread ]
   br i1 %.not140, label %313, label %307
 
 307:                                              ; preds = %Saig_ObjDualFanin.exit236

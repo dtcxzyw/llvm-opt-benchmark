@@ -5774,21 +5774,21 @@ if.end179:                                        ; preds = %do.body15.preheader
   %message_.i353 = getelementptr inbounds i8, ptr %gtest_ar160, i64 8
   %89 = load ptr, ptr %message_.i353, align 8
   %cmp.not.i.i354 = icmp eq ptr %89, null
-  br i1 %cmp.not.i.i354, label %_ZN4absl15random_internal15FastUniformBitsItEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEtRT_.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i355
+  br i1 %cmp.not.i.i354, label %_ZN4absl15random_internal15FastUniformBitsItEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEtRT_.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i355
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i355: ; preds = %if.end179
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %89) #18
   call void @_ZdlPv(ptr noundef nonnull %89) #19
-  br label %_ZN4absl15random_internal15FastUniformBitsItEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEtRT_.argprom.exit
+  br label %_ZN4absl15random_internal15FastUniformBitsItEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEtRT_.exit
 
-_ZN4absl15random_internal15FastUniformBitsItEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEtRT_.argprom.exit: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i355, %if.end179
+_ZN4absl15random_internal15FastUniformBitsItEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEtRT_.exit: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i355, %if.end179
   store ptr null, ptr %message_.i353, align 8
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar181)
   %90 = load i8, ptr %gtest_ar181, align 8
   %tobool.i369 = trunc i8 %90 to i1
   br i1 %tobool.i369, label %if.end200, label %if.else187
 
-if.else187:                                       ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEtRT_.argprom.exit
+if.else187:                                       ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEtRT_.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp188)
           to label %invoke.cont190 unwind label %lpad189
 
@@ -5861,7 +5861,7 @@ _ZN7testing7MessageD2Ev.exit385:                  ; preds = %ehcleanup199, %_ZNK
   store ptr null, ptr %ref.tmp188, align 8
   br label %eh.resume
 
-if.end200:                                        ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEtRT_.argprom.exit, %_ZN7testing7MessageD2Ev.exit380
+if.end200:                                        ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEtRT_.exit, %_ZN7testing7MessageD2Ev.exit380
   %message_.i386 = getelementptr inbounds i8, ptr %gtest_ar181, i64 8
   %99 = load ptr, ptr %message_.i386, align 8
   %cmp.not.i.i387 = icmp eq ptr %99, null
@@ -6411,21 +6411,21 @@ if.end326:                                        ; preds = %_ZN7testing8interna
   %message_.i590 = getelementptr inbounds i8, ptr %gtest_ar307, i64 8
   %159 = load ptr, ptr %message_.i590, align 8
   %cmp.not.i.i591 = icmp eq ptr %159, null
-  br i1 %cmp.not.i.i591, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEjRT_.argprom.exit.thread, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i592
+  br i1 %cmp.not.i.i591, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEjRT_.exit.thread, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i592
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i592: ; preds = %if.end326
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %159) #18
   call void @_ZdlPv(ptr noundef nonnull %159) #19
-  br label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEjRT_.argprom.exit.thread
+  br label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEjRT_.exit.thread
 
-_ZN4absl15random_internal15FastUniformBitsIjEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEjRT_.argprom.exit.thread: ; preds = %if.end326, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i592
+_ZN4absl15random_internal15FastUniformBitsIjEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEjRT_.exit.thread: ; preds = %if.end326, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i592
   store ptr null, ptr %message_.i590, align 8
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar328)
   %160 = load i8, ptr %gtest_ar328, align 8
   %tobool.i611 = trunc i8 %160 to i1
   br i1 %tobool.i611, label %if.end347, label %if.else334
 
-if.else334:                                       ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEjRT_.argprom.exit.thread
+if.else334:                                       ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEjRT_.exit.thread
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp335)
           to label %invoke.cont337 unwind label %lpad336
 
@@ -6498,7 +6498,7 @@ _ZN7testing7MessageD2Ev.exit627:                  ; preds = %ehcleanup346, %_ZNK
   store ptr null, ptr %ref.tmp335, align 8
   br label %eh.resume
 
-if.end347:                                        ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEjRT_.argprom.exit.thread, %_ZN7testing7MessageD2Ev.exit622
+if.end347:                                        ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEjRT_.exit.thread, %_ZN7testing7MessageD2Ev.exit622
   %message_.i628 = getelementptr inbounds i8, ptr %gtest_ar328, i64 8
   %169 = load ptr, ptr %message_.i628, align 8
   %cmp.not.i.i629 = icmp eq ptr %169, null
@@ -7750,9 +7750,9 @@ _ZN7testing15AssertionResultD2Ev.exit175:         ; preds = %if.end71, %_ZNKSt14
   %45 = load i8, ptr %urng4, align 8
   %.fr.i.i = freeze i8 %45
   %tobool.i.i.i = trunc i8 %.fr.i.i to i1
-  br i1 %tobool.i.i.i, label %for.body.i.preheader.i, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.argprom.exit.thread
+  br i1 %tobool.i.i.i, label %for.body.i.preheader.i, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.exit.thread
 
-_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.argprom.exit.thread: ; preds = %_ZN7testing15AssertionResultD2Ev.exit175
+_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.exit.thread: ; preds = %_ZN7testing15AssertionResultD2Ev.exit175
   %.us-phi.i.i947 = add i64 %44, 16
   store i64 %.us-phi.i.i947, ptr %calls.i86, align 8
   store i64 1229782938247303441, ptr %ref.tmp75, align 8
@@ -7776,20 +7776,20 @@ for.body.i.i178:                                  ; preds = %for.body.i.i178, %f
   %add.i.i184 = or disjoint i64 %spec.select.i.i, %shl.i.i182
   %inc.i.i185 = add nuw nsw i64 %n.02.i.i179, 1
   %exitcond5.not.i.i = icmp eq i64 %inc.i.i185, 16
-  br i1 %exitcond5.not.i.i, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.argprom.exit, label %for.body.i.i178, !llvm.loop !49
+  br i1 %exitcond5.not.i.i, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.exit, label %for.body.i.i178, !llvm.loop !49
 
-_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.argprom.exit: ; preds = %for.body.i.i178
+_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.exit: ; preds = %for.body.i.i178
   %.us-phi.i.i = add i64 %44, 16
   store i64 %.us-phi.i.i, ptr %calls.i86, align 8
   store i64 %add.i.i184, ptr %ref.tmp75, align 8
   %cmp.i.i186 = icmp eq i64 %add.i.i184, 1229782938247303441
   br i1 %cmp.i.i186, label %if.then.i.i188, label %if.end.i.i187
 
-if.then.i.i188:                                   ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.argprom.exit.thread, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.argprom.exit
+if.then.i.i188:                                   ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.exit.thread, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar73)
   br label %_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
 
-if.end.i.i187:                                    ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.argprom.exit
+if.end.i.i187:                                    ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh1ELh16ELh2EEEEEmRT_.exit
   call void @_ZN7testing8internal18CmpHelperEQFailureIlmEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar73, ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.162, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp75)
   br label %_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
 
@@ -7993,9 +7993,9 @@ _ZN7testing15AssertionResultD2Ev.exit235:         ; preds = %if.end112, %_ZNKSt1
   %71 = load i8, ptr %urng22, align 8
   %.fr.i.i237 = freeze i8 %71
   %tobool.i.i.i238 = trunc i8 %.fr.i.i237 to i1
-  br i1 %tobool.i.i.i238, label %for.body.i.preheader.i241, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.argprom.exit.thread
+  br i1 %tobool.i.i.i238, label %for.body.i.preheader.i241, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.exit.thread
 
-_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.argprom.exit.thread: ; preds = %_ZN7testing15AssertionResultD2Ev.exit235
+_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.exit.thread: ; preds = %_ZN7testing15AssertionResultD2Ev.exit235
   %.us-phi.i.i240950 = add i64 %70, 3
   store i64 %.us-phi.i.i240950, ptr %calls.i87, align 8
   store i64 72633755448119328, ptr %ref.tmp116, align 8
@@ -8019,20 +8019,20 @@ for.body.i.i244:                                  ; preds = %for.body.i.i244, %f
   %add.i.i251 = or disjoint i64 %spec.select.i.i250, %shl.i.i248
   %inc.i.i252 = add nuw nsw i64 %n.02.i.i245, 1
   %exitcond5.not.i.i253 = icmp eq i64 %inc.i.i252, 3
-  br i1 %exitcond5.not.i.i253, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.argprom.exit, label %for.body.i.i244, !llvm.loop !55
+  br i1 %exitcond5.not.i.i253, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.exit, label %for.body.i.i244, !llvm.loop !55
 
-_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.argprom.exit: ; preds = %for.body.i.i244
+_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.exit: ; preds = %for.body.i.i244
   %.us-phi.i.i240 = add i64 %70, 3
   store i64 %.us-phi.i.i240, ptr %calls.i87, align 8
   store i64 %add.i.i251, ptr %ref.tmp116, align 8
   %cmp.i.i254 = icmp eq i64 %add.i.i251, 72633755448119328
   br i1 %cmp.i.i254, label %if.then.i.i256, label %if.end.i.i255
 
-if.then.i.i256:                                   ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.argprom.exit.thread, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.argprom.exit
+if.then.i.i256:                                   ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.exit.thread, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar114)
   br label %_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit257
 
-if.end.i.i255:                                    ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.argprom.exit
+if.end.i.i255:                                    ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIjLj0ELj4194303ELj3149856EEEEEmRT_.exit
   call void @_ZN7testing8internal18CmpHelperEQFailureIlmEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar114, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp116)
   br label %_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit257
 
@@ -9338,14 +9338,14 @@ if.end358:                                        ; preds = %_ZN7testing8interna
   %message_.i598 = getelementptr inbounds i8, ptr %gtest_ar340, i64 8
   %218 = load ptr, ptr %message_.i598, align 8
   %cmp.not.i.i599 = icmp eq ptr %218, null
-  br i1 %cmp.not.i.i599, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEmRT_.argprom.exit.thread, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i600
+  br i1 %cmp.not.i.i599, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEmRT_.exit.thread, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i600
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i600: ; preds = %if.end358
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %218) #18
   call void @_ZdlPv(ptr noundef nonnull %218) #19
-  br label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEmRT_.argprom.exit.thread
+  br label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEmRT_.exit.thread
 
-_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEmRT_.argprom.exit.thread: ; preds = %if.end358, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i600
+_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEmRT_.exit.thread: ; preds = %if.end358, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i600
   store ptr null, ptr %message_.i598, align 8
   store i8 0, ptr %urng1_5, align 8
   %calls.i602 = getelementptr inbounds i8, ptr %urng1_5, i64 8
@@ -9355,7 +9355,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0
   %tobool.i614 = trunc i8 %219 to i1
   br i1 %tobool.i614, label %if.end379, label %if.else366
 
-if.else366:                                       ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEmRT_.argprom.exit.thread
+if.else366:                                       ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEmRT_.exit.thread
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp367)
           to label %invoke.cont369 unwind label %lpad368
 
@@ -9428,7 +9428,7 @@ _ZN7testing7MessageD2Ev.exit630:                  ; preds = %ehcleanup378, %_ZNK
   store ptr null, ptr %ref.tmp367, align 8
   br label %eh.resume
 
-if.end379:                                        ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEmRT_.argprom.exit.thread, %_ZN7testing7MessageD2Ev.exit625
+if.end379:                                        ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_12_GLOBAL__N_18FakeUrbgIhLh0ELh2ELh0EEEEEmRT_.exit.thread, %_ZN7testing7MessageD2Ev.exit625
   %message_.i631 = getelementptr inbounds i8, ptr %gtest_ar360, i64 8
   %228 = load ptr, ptr %message_.i631, align 8
   %cmp.not.i.i632 = icmp eq ptr %228, null

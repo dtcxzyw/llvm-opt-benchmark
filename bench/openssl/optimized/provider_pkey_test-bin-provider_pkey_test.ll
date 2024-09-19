@@ -115,14 +115,14 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %2 = load ptr, ptr @libctx, align 8
-  %call7 = tail call fastcc i32 @fetch_sig.argprom(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef %call)
+  %call7 = tail call fastcc i32 @fetch_sig(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef %call)
   %call8 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 67, ptr noundef nonnull @.str.10, i32 noundef %call7) #2
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end6
   %3 = load ptr, ptr @libctx, align 8
-  %call10 = tail call fastcc i32 @fetch_sig.argprom(ptr noundef %3, ptr noundef nonnull @.str.14, ptr noundef %call)
+  %call10 = tail call fastcc i32 @fetch_sig(ptr noundef %3, ptr noundef nonnull @.str.14, ptr noundef %call)
   %call13 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 68, ptr noundef nonnull @.str.13, i32 noundef %call10) #2
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %end, label %if.end16
@@ -709,7 +709,7 @@ declare ptr @OSSL_PROVIDER_load(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fetch_sig.argprom(ptr noundef %ctx, ptr noundef %propq, ptr noundef %expected_prov) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fetch_sig(ptr noundef %ctx, ptr noundef %propq, ptr noundef %expected_prov) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_SIGNATURE_fetch(ptr noundef %ctx, ptr noundef nonnull @.str.11, ptr noundef %propq) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 32, ptr noundef nonnull @.str.26, ptr noundef %call) #2

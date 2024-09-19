@@ -739,7 +739,7 @@ sdf_outline_decompose.exit:                       ; preds = %29
   br i1 %.not67, label %46, label %44
 
 44:                                               ; preds = %39
-  %45 = call fastcc i32 @sdf_generate_with_overlaps.argelim(i64 %.sroa.04.0.insert.insert, ptr noundef nonnull %35, i32 noundef %42, ptr noundef %43)
+  %45 = call fastcc i32 @sdf_generate_with_overlaps(i64 %.sroa.04.0.insert.insert, ptr noundef nonnull %35, i32 noundef %42, ptr noundef %43)
   %.not69 = icmp eq i32 %45, 0
   br i1 %.not69, label %48, label %sdf_outline_decompose.exit.thread
 
@@ -2147,7 +2147,7 @@ declare hidden i32 @FT_SqrtFixed(i32 noundef) local_unnamed_addr #3
 declare i32 @FT_Outline_Get_Orientation(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sdf_generate_with_overlaps.argelim(i64 range(i64 0, 281474976710656) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #2 {
+define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 281474976710656) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.SDF_Shape_, align 8
   %.fr202 = freeze i64 %0

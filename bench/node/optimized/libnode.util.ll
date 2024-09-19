@@ -977,7 +977,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = trunc i64 %0 to i32
-  br label %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_0ED2Ev.argprom.exit"
+  br label %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_0ED2Ev.exit"
 
 if.end:                                           ; preds = %entry
   call void @uv_fs_req_cleanup(ptr noundef nonnull %req) #19
@@ -1026,20 +1026,20 @@ if.then.i:                                        ; preds = %if.end15, %if.then1
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %close_req.i.i)
   %call.i.i9 = call i32 @uv_fs_close(ptr noundef null, ptr noundef nonnull %close_req.i.i, i32 noundef %call, ptr noundef null) #19
   %cmp.not.i.i = icmp eq i32 %call.i.i9, 0
-  br i1 %cmp.not.i.i, label %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_1ED2Ev.argprom.exit", label %do.body4.i.i
+  br i1 %cmp.not.i.i, label %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_1ED2Ev.exit", label %do.body4.i.i
 
 do.body4.i.i:                                     ; preds = %if.then.i
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZN4node12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcENK3$_1clEvE4args") #19
   call void @abort() #20
   unreachable
 
-"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_1ED2Ev.argprom.exit": ; preds = %if.then.i
+"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_1ED2Ev.exit": ; preds = %if.then.i
   call void @uv_fs_req_cleanup(ptr noundef nonnull %close_req.i.i) #19
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %close_req.i.i)
-  br label %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_0ED2Ev.argprom.exit"
+  br label %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_0ED2Ev.exit"
 
-"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_0ED2Ev.argprom.exit": ; preds = %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_1ED2Ev.argprom.exit", %if.then
-  %retval.0 = phi i32 [ %conv, %if.then ], [ %retval.1, %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_1ED2Ev.argprom.exit" ]
+"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_0ED2Ev.exit": ; preds = %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_1ED2Ev.exit", %if.then
+  %retval.0 = phi i32 [ %conv, %if.then ], [ %retval.1, %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_1ED2Ev.exit" ]
   call void @uv_fs_req_cleanup(ptr noundef nonnull %req) #19
   ret i32 %retval.0
 }

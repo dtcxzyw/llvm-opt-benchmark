@@ -3932,7 +3932,7 @@ define internal fastcc i32 @sg_common_write(ptr noundef nonnull %0, ptr noundef 
   %.val = load ptr, ptr %50, align 8
   %126 = getelementptr i8, ptr %.val, i64 64
   %.val.val = load i32, ptr %126, align 8
-  %127 = tail call fastcc i32 @sg_build_indirect.argprom.argprom(ptr noundef %49, i32 %.val.val, i32 noundef %17)
+  %127 = tail call fastcc i32 @sg_build_indirect(ptr noundef %49, i32 %.val.val, i32 noundef %17)
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %130, label %129
 
@@ -4483,7 +4483,7 @@ define internal fastcc void @sg_link_reserve(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @sg_build_indirect.argprom.argprom(ptr nocapture noundef %0, i32 %.16.val.64.val, i32 noundef range(i32 1, 0) %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @sg_build_indirect(ptr nocapture noundef %0, i32 %.16.val.64.val, i32 noundef range(i32 1, 0) %1) unnamed_addr #2 align 16 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %.thread, label %4
 
@@ -4910,7 +4910,7 @@ define internal fastcc void @sg_build_reserve(ptr nocapture noundef nonnull %0, 
   %.val = load ptr, ptr %8, align 8
   %12 = getelementptr i8, ptr %.val, i64 64
   %.val.val = load i32, ptr %12, align 8
-  %13 = tail call fastcc i32 @sg_build_indirect.argprom.argprom(ptr noundef %3, i32 %.val.val, i32 noundef %11)
+  %13 = tail call fastcc i32 @sg_build_indirect(ptr noundef %3, i32 %.val.val, i32 noundef %11)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %42, label %15
 
@@ -5498,7 +5498,7 @@ define internal fastcc noundef ptr @sg_add_sfp(ptr noundef %0) unnamed_addr #2 a
   %.val.i = load ptr, ptr %18, align 8
   %52 = getelementptr i8, ptr %.val.i, i64 64
   %.val.val.i = load i32, ptr %52, align 8
-  %53 = tail call fastcc i32 @sg_build_indirect.argprom.argprom(ptr noundef %44, i32 %.val.val.i, i32 noundef %51)
+  %53 = tail call fastcc i32 @sg_build_indirect(ptr noundef %44, i32 %.val.val.i, i32 noundef %51)
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %sg_build_reserve.exit, label %55
 

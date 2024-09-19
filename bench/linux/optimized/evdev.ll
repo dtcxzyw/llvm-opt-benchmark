@@ -1916,7 +1916,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handl
 430:                                              ; preds = %417
   %431 = getelementptr i8, ptr %36, i64 320
   %.val = load ptr, ptr %431, align 8
-  %432 = tail call fastcc i32 @evdev_handle_mt_request.argprom(ptr %.val, i32 noundef %419, ptr noundef %2)
+  %432 = tail call fastcc i32 @evdev_handle_mt_request(ptr %.val, i32 noundef %419, ptr noundef %2)
   %433 = sext i32 %432 to i64
   br label %.thread23
 
@@ -2110,7 +2110,7 @@ declare void @llvm.write_register.i64(metadata, i64) #10
 declare dso_local i32 @input_ff_erase(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @evdev_handle_mt_request.argprom(ptr readonly %.320.val, i32 noundef range(i32 0, 16384) %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @evdev_handle_mt_request(ptr readonly %.320.val, i32 noundef range(i32 0, 16384) %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = tail call i64 @llvm.read_register.i64(metadata !0)
   %4 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %3) #14, !srcloc !40
   %5 = extractvalue { ptr, i32, i64 } %4, 0

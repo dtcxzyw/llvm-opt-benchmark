@@ -426,14 +426,14 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h5fa4c1543ef89d24E"(ptr
   %8 = add nuw nsw i64 %1, 16
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %.val, inttoptr (i64 16 to ptr)
-  br i1 %.not, label %9, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit"
+  br i1 %.not, label %9, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit"
 
 9:                                                ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3dfbc7572ac67342E.exit"
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %11 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %8, i64 noundef 8) #24
   br label %20
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3dfbc7572ac67342E.exit"
+"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3dfbc7572ac67342E.exit"
   %12 = getelementptr i8, ptr %.val, i64 -8
   %.val.i.i = load i64, ptr %12, align 8, !noundef !4
   %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.val.i.i, i64 16)
@@ -442,11 +442,11 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h5fa4c1543ef89d24E"(ptr
   %or.cond.i.not.i35 = or i1 %15, %14
   br i1 %or.cond.i.not.i35, label %16, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3dfbc7572ac67342E.exit38"
 
-16:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit"
+16:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #23
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3dfbc7572ac67342E.exit38": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit"
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3dfbc7572ac67342E.exit38": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit"
   %17 = getelementptr inbounds i8, ptr %.val, i64 -16
   %18 = extractvalue { i64, i1 } %13, 0
   %19 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %17, i64 noundef %18, i64 noundef 8, i64 noundef %8) #24
@@ -476,14 +476,14 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h49b2bc288d04b2b2E"(
   %4 = alloca { ptr, i64, {} }, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.not.i = icmp eq ptr %.val, inttoptr (i64 16 to ptr)
-  br i1 %.not.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit", label %5
+  br i1 %.not.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit", label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %.val, i64 -8
   %.val.i.i = load i64, ptr %6, align 8, !noundef !4
-  br label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit"
+  br label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit"
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit": ; preds = %2, %5
+"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit": ; preds = %2, %5
   %.0.i.i = phi i64 [ %.val.i.i, %5 ], [ 0, %2 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !4
@@ -491,20 +491,20 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h49b2bc288d04b2b2E"(
   %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %14
 
-11:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit"
+11:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit"
   %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 %1)
   %13 = extractvalue { i64, i1 } %12, 1
   br i1 %13, label %18, label %19
 
-14:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit", %19
-  %.015 = phi i64 [ %.0.sroa.speculated.i21, %19 ], [ %.0.i.i, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit" ]
-  br i1 %.not.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.argprom.exit.thread", label %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.argprom.exit"
+14:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit", %19
+  %.015 = phi i64 [ %.0.sroa.speculated.i21, %19 ], [ %.0.i.i, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit" ]
+  br i1 %.not.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.exit.thread", label %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.exit"
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.argprom.exit": ; preds = %14
+"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.exit": ; preds = %14
   %15 = getelementptr inbounds i8, ptr %.val, i64 -16
   %16 = load atomic i64, ptr %15 acquire, align 8
   %17 = icmp eq i64 %16, 1
-  br i1 %17, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.argprom.exit.thread", label %22
+  br i1 %17, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.exit.thread", label %22
 
 18:                                               ; preds = %11
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #23
@@ -517,7 +517,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h49b2bc288d04b2b2E"(
   %.0.sroa.speculated.i21 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 8)
   br label %14
 
-22:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.argprom.exit"
+22:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr inttoptr (i64 16 to ptr), ptr %3, align 8
@@ -580,21 +580,21 @@ common.resume:                                    ; preds = %49, %54, %25
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %.val.i = load ptr, ptr %4, align 8, !alias.scope !78, !nonnull !4, !noundef !4
   %.not.i.i = icmp eq ptr %.val.i, inttoptr (i64 16 to ptr)
-  br i1 %.not.i.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit.i", label %39
+  br i1 %.not.i.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit.i", label %39
 
 39:                                               ; preds = %.lr.ph
   %40 = getelementptr i8, ptr %.val.i, i64 -8
   %.val.i.i.i = load i64, ptr %40, align 8, !noalias !78, !noundef !4
-  br label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit.i"
+  br label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit.i"
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit.i": ; preds = %39, %.lr.ph
+"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit.i": ; preds = %39, %.lr.ph
   %.0.i.i.i = phi i64 [ %.val.i.i.i, %39 ], [ 0, %.lr.ph ]
   %41 = icmp eq i64 %36, %.0.i.i.i
   %42 = zext i1 %41 to i64
   invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h49b2bc288d04b2b2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %42)
           to label %.noexc26 unwind label %.loopexit
 
-.noexc26:                                         ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit.i"
+.noexc26:                                         ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit.i"
   %43 = load ptr, ptr %4, align 8, !alias.scope !78, !nonnull !4, !noundef !4
   %44 = load i64, ptr %31, align 8, !alias.scope !78, !noundef !4
   %45 = getelementptr inbounds i8, ptr %43, i64 %44
@@ -605,7 +605,7 @@ common.resume:                                    ; preds = %49, %54, %25
   %.not = icmp eq ptr %37, %34
   br i1 %.not, label %"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17hc0a9771a1ce3660dE.exit", label %.lr.ph
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.argprom.exit.thread": ; preds = %14, %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.argprom.exit"
+"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.exit.thread": ; preds = %14, %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.exit"
   %48 = icmp ugt i64 %.015, %.0.i.i
   br i1 %48, label %57, label %53
 
@@ -628,10 +628,10 @@ common.resume:                                    ; preds = %49, %54, %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %53
 
-53:                                               ; preds = %57, %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.argprom.exit.thread", %"_ZN4core3ptr48drop_in_place$LT$ecow..vec..EcoVec$LT$u8$GT$$GT$17h9bfe7c514b521e4dE.exit"
+53:                                               ; preds = %57, %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.exit.thread", %"_ZN4core3ptr48drop_in_place$LT$ecow..vec..EcoVec$LT$u8$GT$$GT$17h9bfe7c514b521e4dE.exit"
   ret void
 
-.loopexit:                                        ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit.i"
+.loopexit:                                        ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit.i"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %54
@@ -652,7 +652,7 @@ common.resume:                                    ; preds = %49, %54, %25
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #22
   unreachable
 
-57:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.argprom.exit.thread"
+57:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17hcece672ea29ad70eE.exit.thread"
   tail call void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h5fa4c1543ef89d24E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.015)
   br label %53
 }

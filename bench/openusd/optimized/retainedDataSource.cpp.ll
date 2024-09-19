@@ -10710,7 +10710,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourc
 
 12:                                               ; preds = %10
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_EmptyContainerDataSourceE, i64 16), ptr %11, align 8
-  invoke fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_.argprom(ptr noundef %11)
+  invoke fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_(ptr noundef %11)
           to label %13 unwind label %27
 
 13:                                               ; preds = %12
@@ -10927,7 +10927,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
   %104 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i64 %.017.lcssa.i.i, ptr %104, align 8, !noalias !5
   %105 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm1EEEED2Ev.argprom.exit unwind label %106, !noalias !5
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm1EEEED2Ev.exit unwind label %106, !noalias !5
 
 106:                                              ; preds = %103
   %107 = landingpad { ptr, i32 }
@@ -10957,7 +10957,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
 118:                                              ; preds = %106
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm1EEEED2Ev.argprom.exit: ; preds = %103
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm1EEEED2Ev.exit: ; preds = %103
   %119 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i32 1, ptr %119, align 8, !noalias !5
   %120 = getelementptr inbounds nuw i8, ptr %105, i64 12
@@ -11160,7 +11160,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %204 = getelementptr inbounds nuw i8, ptr %123, i64 56
   store i64 %.1.i.i, ptr %204, align 8, !noalias !8
   %205 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm2EEEED2Ev.argprom.exit unwind label %206, !noalias !8
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm2EEEED2Ev.exit unwind label %206, !noalias !8
 
 206:                                              ; preds = %.loopexit.i
   %207 = landingpad { ptr, i32 }
@@ -11190,7 +11190,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 218:                                              ; preds = %206
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm2EEEED2Ev.argprom.exit: ; preds = %.loopexit.i
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm2EEEED2Ev.exit: ; preds = %.loopexit.i
   %219 = getelementptr inbounds nuw i8, ptr %205, i64 8
   store i32 1, ptr %219, align 8, !noalias !8
   %220 = getelementptr inbounds nuw i8, ptr %205, i64 12
@@ -11393,7 +11393,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %304 = getelementptr inbounds nuw i8, ptr %223, i64 80
   store i64 %.1.i.i135, ptr %304, align 8, !noalias !13
   %305 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm3EEEED2Ev.argprom.exit unwind label %306, !noalias !13
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm3EEEED2Ev.exit unwind label %306, !noalias !13
 
 306:                                              ; preds = %.loopexit.i137
   %307 = landingpad { ptr, i32 }
@@ -11423,7 +11423,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 318:                                              ; preds = %306
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm3EEEED2Ev.argprom.exit: ; preds = %.loopexit.i137
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm3EEEED2Ev.exit: ; preds = %.loopexit.i137
   %319 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store i32 1, ptr %319, align 8, !noalias !13
   %320 = getelementptr inbounds nuw i8, ptr %305, i64 12
@@ -11626,7 +11626,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %404 = getelementptr inbounds nuw i8, ptr %323, i64 104
   store i64 %.1.i.i188, ptr %404, align 8, !noalias !17
   %405 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm4EEEED2Ev.argprom.exit unwind label %406, !noalias !17
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm4EEEED2Ev.exit unwind label %406, !noalias !17
 
 406:                                              ; preds = %.loopexit.i190
   %407 = landingpad { ptr, i32 }
@@ -11656,7 +11656,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 418:                                              ; preds = %406
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm4EEEED2Ev.argprom.exit: ; preds = %.loopexit.i190
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm4EEEED2Ev.exit: ; preds = %.loopexit.i190
   %419 = getelementptr inbounds nuw i8, ptr %405, i64 8
   store i32 1, ptr %419, align 8, !noalias !17
   %420 = getelementptr inbounds nuw i8, ptr %405, i64 12
@@ -11859,7 +11859,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %504 = getelementptr inbounds nuw i8, ptr %423, i64 128
   store i64 %.1.i.i241, ptr %504, align 8, !noalias !21
   %505 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm5EEEED2Ev.argprom.exit unwind label %506, !noalias !21
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm5EEEED2Ev.exit unwind label %506, !noalias !21
 
 506:                                              ; preds = %.loopexit.i243
   %507 = landingpad { ptr, i32 }
@@ -11889,7 +11889,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 518:                                              ; preds = %506
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm5EEEED2Ev.argprom.exit: ; preds = %.loopexit.i243
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm5EEEED2Ev.exit: ; preds = %.loopexit.i243
   %519 = getelementptr inbounds nuw i8, ptr %505, i64 8
   store i32 1, ptr %519, align 8, !noalias !21
   %520 = getelementptr inbounds nuw i8, ptr %505, i64 12
@@ -12092,7 +12092,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %604 = getelementptr inbounds nuw i8, ptr %523, i64 152
   store i64 %.1.i.i294, ptr %604, align 8, !noalias !25
   %605 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm6EEEED2Ev.argprom.exit unwind label %606, !noalias !25
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm6EEEED2Ev.exit unwind label %606, !noalias !25
 
 606:                                              ; preds = %.loopexit.i296
   %607 = landingpad { ptr, i32 }
@@ -12122,7 +12122,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 618:                                              ; preds = %606
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm6EEEED2Ev.argprom.exit: ; preds = %.loopexit.i296
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm6EEEED2Ev.exit: ; preds = %.loopexit.i296
   %619 = getelementptr inbounds nuw i8, ptr %605, i64 8
   store i32 1, ptr %619, align 8, !noalias !25
   %620 = getelementptr inbounds nuw i8, ptr %605, i64 12
@@ -12325,7 +12325,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %704 = getelementptr inbounds nuw i8, ptr %623, i64 176
   store i64 %.1.i.i347, ptr %704, align 8, !noalias !29
   %705 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm7EEEED2Ev.argprom.exit unwind label %706, !noalias !29
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm7EEEED2Ev.exit unwind label %706, !noalias !29
 
 706:                                              ; preds = %.loopexit.i349
   %707 = landingpad { ptr, i32 }
@@ -12355,7 +12355,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 718:                                              ; preds = %706
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm7EEEED2Ev.argprom.exit: ; preds = %.loopexit.i349
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm7EEEED2Ev.exit: ; preds = %.loopexit.i349
   %719 = getelementptr inbounds nuw i8, ptr %705, i64 8
   store i32 1, ptr %719, align 8, !noalias !29
   %720 = getelementptr inbounds nuw i8, ptr %705, i64 12
@@ -12558,7 +12558,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %804 = getelementptr inbounds nuw i8, ptr %723, i64 200
   store i64 %.1.i.i400, ptr %804, align 8, !noalias !33
   %805 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm8EEEED2Ev.argprom.exit unwind label %806, !noalias !33
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm8EEEED2Ev.exit unwind label %806, !noalias !33
 
 806:                                              ; preds = %.loopexit.i402
   %807 = landingpad { ptr, i32 }
@@ -12588,7 +12588,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 818:                                              ; preds = %806
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm8EEEED2Ev.argprom.exit: ; preds = %.loopexit.i402
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm8EEEED2Ev.exit: ; preds = %.loopexit.i402
   %819 = getelementptr inbounds nuw i8, ptr %805, i64 8
   store i32 1, ptr %819, align 8, !noalias !33
   %820 = getelementptr inbounds nuw i8, ptr %805, i64 12
@@ -12791,7 +12791,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %904 = getelementptr inbounds nuw i8, ptr %823, i64 224
   store i64 %.1.i.i453, ptr %904, align 8, !noalias !37
   %905 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm9EEEED2Ev.argprom.exit unwind label %906, !noalias !37
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm9EEEED2Ev.exit unwind label %906, !noalias !37
 
 906:                                              ; preds = %.loopexit.i455
   %907 = landingpad { ptr, i32 }
@@ -12821,7 +12821,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 918:                                              ; preds = %906
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm9EEEED2Ev.argprom.exit: ; preds = %.loopexit.i455
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm9EEEED2Ev.exit: ; preds = %.loopexit.i455
   %919 = getelementptr inbounds nuw i8, ptr %905, i64 8
   store i32 1, ptr %919, align 8, !noalias !37
   %920 = getelementptr inbounds nuw i8, ptr %905, i64 12
@@ -13024,7 +13024,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %1004 = getelementptr inbounds nuw i8, ptr %923, i64 248
   store i64 %.1.i.i506, ptr %1004, align 8, !noalias !41
   %1005 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm10EEEED2Ev.argprom.exit unwind label %1006, !noalias !41
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm10EEEED2Ev.exit unwind label %1006, !noalias !41
 
 1006:                                             ; preds = %.loopexit.i508
   %1007 = landingpad { ptr, i32 }
@@ -13054,7 +13054,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 1018:                                             ; preds = %1006
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm10EEEED2Ev.argprom.exit: ; preds = %.loopexit.i508
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm10EEEED2Ev.exit: ; preds = %.loopexit.i508
   %1019 = getelementptr inbounds nuw i8, ptr %1005, i64 8
   store i32 1, ptr %1019, align 8, !noalias !41
   %1020 = getelementptr inbounds nuw i8, ptr %1005, i64 12
@@ -13257,7 +13257,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %1104 = getelementptr inbounds nuw i8, ptr %1023, i64 272
   store i64 %.1.i.i559, ptr %1104, align 8, !noalias !45
   %1105 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm11EEEED2Ev.argprom.exit unwind label %1106, !noalias !45
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm11EEEED2Ev.exit unwind label %1106, !noalias !45
 
 1106:                                             ; preds = %.loopexit.i561
   %1107 = landingpad { ptr, i32 }
@@ -13287,7 +13287,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 1118:                                             ; preds = %1106
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm11EEEED2Ev.argprom.exit: ; preds = %.loopexit.i561
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm11EEEED2Ev.exit: ; preds = %.loopexit.i561
   %1119 = getelementptr inbounds nuw i8, ptr %1105, i64 8
   store i32 1, ptr %1119, align 8, !noalias !45
   %1120 = getelementptr inbounds nuw i8, ptr %1105, i64 12
@@ -13490,7 +13490,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %1204 = getelementptr inbounds nuw i8, ptr %1123, i64 296
   store i64 %.1.i.i612, ptr %1204, align 8, !noalias !49
   %1205 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm12EEEED2Ev.argprom.exit unwind label %1206, !noalias !49
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm12EEEED2Ev.exit unwind label %1206, !noalias !49
 
 1206:                                             ; preds = %.loopexit.i614
   %1207 = landingpad { ptr, i32 }
@@ -13520,7 +13520,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 1218:                                             ; preds = %1206
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm12EEEED2Ev.argprom.exit: ; preds = %.loopexit.i614
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm12EEEED2Ev.exit: ; preds = %.loopexit.i614
   %1219 = getelementptr inbounds nuw i8, ptr %1205, i64 8
   store i32 1, ptr %1219, align 8, !noalias !49
   %1220 = getelementptr inbounds nuw i8, ptr %1205, i64 12
@@ -13723,7 +13723,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %1304 = getelementptr inbounds nuw i8, ptr %1223, i64 320
   store i64 %.1.i.i665, ptr %1304, align 8, !noalias !53
   %1305 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm13EEEED2Ev.argprom.exit unwind label %1306, !noalias !53
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm13EEEED2Ev.exit unwind label %1306, !noalias !53
 
 1306:                                             ; preds = %.loopexit.i667
   %1307 = landingpad { ptr, i32 }
@@ -13753,7 +13753,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 1318:                                             ; preds = %1306
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm13EEEED2Ev.argprom.exit: ; preds = %.loopexit.i667
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm13EEEED2Ev.exit: ; preds = %.loopexit.i667
   %1319 = getelementptr inbounds nuw i8, ptr %1305, i64 8
   store i32 1, ptr %1319, align 8, !noalias !53
   %1320 = getelementptr inbounds nuw i8, ptr %1305, i64 12
@@ -13956,7 +13956,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %1404 = getelementptr inbounds nuw i8, ptr %1323, i64 344
   store i64 %.1.i.i718, ptr %1404, align 8, !noalias !57
   %1405 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm14EEEED2Ev.argprom.exit unwind label %1406, !noalias !57
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm14EEEED2Ev.exit unwind label %1406, !noalias !57
 
 1406:                                             ; preds = %.loopexit.i720
   %1407 = landingpad { ptr, i32 }
@@ -13986,7 +13986,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 1418:                                             ; preds = %1406
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm14EEEED2Ev.argprom.exit: ; preds = %.loopexit.i720
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm14EEEED2Ev.exit: ; preds = %.loopexit.i720
   %1419 = getelementptr inbounds nuw i8, ptr %1405, i64 8
   store i32 1, ptr %1419, align 8, !noalias !57
   %1420 = getelementptr inbounds nuw i8, ptr %1405, i64 12
@@ -14189,7 +14189,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %1504 = getelementptr inbounds nuw i8, ptr %1423, i64 368
   store i64 %.1.i.i771, ptr %1504, align 8, !noalias !61
   %1505 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm15EEEED2Ev.argprom.exit unwind label %1506, !noalias !61
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm15EEEED2Ev.exit unwind label %1506, !noalias !61
 
 1506:                                             ; preds = %.loopexit.i773
   %1507 = landingpad { ptr, i32 }
@@ -14219,7 +14219,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 1518:                                             ; preds = %1506
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm15EEEED2Ev.argprom.exit: ; preds = %.loopexit.i773
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm15EEEED2Ev.exit: ; preds = %.loopexit.i773
   %1519 = getelementptr inbounds nuw i8, ptr %1505, i64 8
   store i32 1, ptr %1519, align 8, !noalias !61
   %1520 = getelementptr inbounds nuw i8, ptr %1505, i64 12
@@ -14422,7 +14422,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
   %1604 = getelementptr inbounds nuw i8, ptr %1523, i64 392
   store i64 %.1.i.i824, ptr %1604, align 8, !noalias !65
   %1605 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm16EEEED2Ev.argprom.exit unwind label %1606, !noalias !65
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm16EEEED2Ev.exit unwind label %1606, !noalias !65
 
 1606:                                             ; preds = %.loopexit.i826
   %1607 = landingpad { ptr, i32 }
@@ -14452,7 +14452,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 1618:                                             ; preds = %1606
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm16EEEED2Ev.argprom.exit: ; preds = %.loopexit.i826
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm16EEEED2Ev.exit: ; preds = %.loopexit.i826
   %1619 = getelementptr inbounds nuw i8, ptr %1605, i64 8
   store i32 1, ptr %1619, align 8, !noalias !65
   %1620 = getelementptr inbounds nuw i8, ptr %1605, i64 12
@@ -14641,7 +14641,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EEC2EmPKNS_7TfTokenEPKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.i: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEaSERKS2_.exit.i.i865
   %1689 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EEEED2Ev.argprom.exit unwind label %1690, !noalias !69
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EEEED2Ev.exit unwind label %1690, !noalias !69
 
 1690:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EEC2EmPKNS_7TfTokenEPKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.i
   %1691 = landingpad { ptr, i32 }
@@ -14671,7 +14671,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerD
 1702:                                             ; preds = %1690
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EEEED2Ev.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EEC2EmPKNS_7TfTokenEPKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.i
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EEEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EEC2EmPKNS_7TfTokenEPKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.i
   %1703 = getelementptr inbounds nuw i8, ptr %1689, i64 8
   store i32 1, ptr %1703, align 8, !noalias !69
   %1704 = getelementptr inbounds nuw i8, ptr %1689, i64 12
@@ -14684,7 +14684,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRe
   store ptr %1689, ptr %1706, align 8
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEEC2ERKS2_.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEEC2ERKS2_.exit: ; preds = %25, %22, %15, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm16EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm15EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm14EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm13EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm12EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm11EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm10EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm9EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm8EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm7EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm6EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm5EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm4EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm3EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm2EEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm1EEEED2Ev.argprom.exit
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEEC2ERKS2_.exit: ; preds = %25, %22, %15, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm16EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm15EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm14EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm13EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm12EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm11EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm10EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm9EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm8EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm7EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm6EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm5EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm4EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm3EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm2EEEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm1EEEED2Ev.exit
   ret void
 }
 
@@ -14697,11 +14697,11 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_.argprom(ptr noundef nonnull %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_(ptr noundef nonnull %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %0, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSource3NewEmPKNS_7TfTokenEPKSt10shared_ptrINS_16HdDataSourceBaseEEE14emptyContainer, align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSource3NewEmPKNS_7TfTokenEPKSt10shared_ptrINS_16HdDataSourceBaseEEE14emptyContainer, i64 8), align 8
   %2 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_.argprom.exit unwind label %3
+          to label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_.exit unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
@@ -14734,7 +14734,7 @@ define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved
 16:                                               ; preds = %3
   unreachable
 
-_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_.argprom.exit: ; preds = %1
+_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLOBAL__N_127Hd_EmptyContainerDataSourceEvEEPT_.exit: ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -80995,72 +80995,72 @@ attributes #33 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm1EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!7 = distinct !{!7, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm1EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!6 = distinct !{!6, !7, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm1EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!7 = distinct !{!7, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm1EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm2EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!10 = distinct !{!10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm2EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!9 = distinct !{!9, !10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm2EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!10 = distinct !{!10, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm2EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm3EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!15 = distinct !{!15, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm3EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!14 = distinct !{!14, !15, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm3EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!15 = distinct !{!15, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm3EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !16 = distinct !{!16, !12}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm4EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm4EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!18 = distinct !{!18, !19, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm4EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!19 = distinct !{!19, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm4EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !20 = distinct !{!20, !12}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm5EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!23 = distinct !{!23, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm5EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!22 = distinct !{!22, !23, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm5EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!23 = distinct !{!23, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm5EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !24 = distinct !{!24, !12}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm6EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!27 = distinct !{!27, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm6EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!26 = distinct !{!26, !27, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm6EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!27 = distinct !{!27, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm6EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !28 = distinct !{!28, !12}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm7EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!31 = distinct !{!31, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm7EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!30 = distinct !{!30, !31, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm7EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!31 = distinct !{!31, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm7EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !32 = distinct !{!32, !12}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm8EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!35 = distinct !{!35, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm8EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!34 = distinct !{!34, !35, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm8EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!35 = distinct !{!35, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm8EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !36 = distinct !{!36, !12}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm9EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!39 = distinct !{!39, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm9EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!38 = distinct !{!38, !39, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm9EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!39 = distinct !{!39, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm9EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !40 = distinct !{!40, !12}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm10EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm10EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!42 = distinct !{!42, !43, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm10EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!43 = distinct !{!43, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm10EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !44 = distinct !{!44, !12}
 !45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm11EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!47 = distinct !{!47, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm11EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!46 = distinct !{!46, !47, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm11EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!47 = distinct !{!47, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm11EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !48 = distinct !{!48, !12}
 !49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm12EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!51 = distinct !{!51, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm12EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!50 = distinct !{!50, !51, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm12EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!51 = distinct !{!51, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm12EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !52 = distinct !{!52, !12}
 !53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm13EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!55 = distinct !{!55, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm13EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!54 = distinct !{!54, !55, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm13EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!55 = distinct !{!55, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm13EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !56 = distinct !{!56, !12}
 !57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm14EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!59 = distinct !{!59, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm14EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!58 = distinct !{!58, !59, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm14EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!59 = distinct !{!59, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm14EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !60 = distinct !{!60, !12}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm15EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!63 = distinct !{!63, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm15EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!62 = distinct !{!62, !63, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm15EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!63 = distinct !{!63, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm15EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !64 = distinct !{!64, !12}
 !65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm16EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!67 = distinct !{!67, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm16EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!66 = distinct !{!66, !67, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm16EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!67 = distinct !{!67, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm16EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !68 = distinct !{!68, !12}
 !69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom: argument 0"}
-!71 = distinct !{!71, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_.argprom"}
+!70 = distinct !{!70, !71, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_: argument 0"}
+!71 = distinct !{!71, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_MappedRetainedContainerDataSourceILm32EE3NewIJRmRPKNS_7TfTokenERPKSt10shared_ptrINS_16HdDataSourceBaseEEEEES9_IS2_EDpOT_"}
 !72 = distinct !{!72, !12}
 !73 = distinct !{!73, !12}
 !74 = distinct !{!74, !12}
@@ -81092,8 +81092,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !100 = distinct !{!100, !"_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E"}
 !101 = !{!99, !96}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN32pxrInternal_v0_24__pxrReserved__L15_MakeStaticCopyERKSt10shared_ptrINS_19HdSampledDataSourceEE.argprom: argument 0"}
-!104 = distinct !{!104, !"_ZN32pxrInternal_v0_24__pxrReserved__L15_MakeStaticCopyERKSt10shared_ptrINS_19HdSampledDataSourceEE.argprom"}
+!103 = distinct !{!103, !104, !"_ZN32pxrInternal_v0_24__pxrReserved__L15_MakeStaticCopyERKSt10shared_ptrINS_19HdSampledDataSourceEE: argument 0"}
+!104 = distinct !{!104, !"_ZN32pxrInternal_v0_24__pxrReserved__L15_MakeStaticCopyERKSt10shared_ptrINS_19HdSampledDataSourceEE"}
 !105 = !{!106}
 !106 = distinct !{!106, !107, !"_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo19GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE: argument 0"}
 !107 = distinct !{!107, !"_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo19GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE"}

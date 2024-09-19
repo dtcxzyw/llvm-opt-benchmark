@@ -533,7 +533,7 @@ define float @If_ManMarkMapping_rec(ptr nocapture noundef %0, ptr nocapture noun
   %27 = getelementptr inbounds i8, ptr %26, i64 44
   %28 = load i32, ptr %27, align 4
   %29 = sitofp i32 %28 to float
-  br label %If_CutLutArea.argprom.exit
+  br label %If_CutLutArea.exit
 
 30:                                               ; preds = %15
   %31 = and i64 %.val35, 8192
@@ -544,7 +544,7 @@ define float @If_ManMarkMapping_rec(ptr nocapture noundef %0, ptr nocapture noun
   %33 = trunc i64 %.val35 to i32
   %34 = and i32 %33, 4095
   %35 = uitofp nneg i32 %34 to float
-  br label %If_CutLutArea.argprom.exit
+  br label %If_CutLutArea.exit
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds i8, ptr %0, i64 8
@@ -552,7 +552,7 @@ define float @If_ManMarkMapping_rec(ptr nocapture noundef %0, ptr nocapture noun
   %39 = getelementptr inbounds i8, ptr %38, i64 280
   %40 = load ptr, ptr %39, align 8
   %.not8.i = icmp eq ptr %40, null
-  br i1 %.not8.i, label %If_CutLutArea.argprom.exit, label %41
+  br i1 %.not8.i, label %If_CutLutArea.exit, label %41
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds i8, ptr %40, i64 16
@@ -560,16 +560,16 @@ define float @If_ManMarkMapping_rec(ptr nocapture noundef %0, ptr nocapture noun
   %44 = and i64 %43, 255
   %45 = getelementptr inbounds [33 x float], ptr %42, i64 0, i64 %44
   %46 = load float, ptr %45, align 4
-  br label %If_CutLutArea.argprom.exit
+  br label %If_CutLutArea.exit
 
-If_CutLutArea.argprom.exit:                       ; preds = %24, %32, %36, %41
+If_CutLutArea.exit:                               ; preds = %24, %32, %36, %41
   %47 = phi float [ %29, %24 ], [ %35, %32 ], [ %46, %41 ], [ 1.000000e+00, %36 ]
   %48 = getelementptr inbounds i8, ptr %1, i64 116
   %49 = and i64 %.val35, 4278190080
   %.not44 = icmp eq i64 %49, 0
   br i1 %.not44, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %If_CutLutArea.argprom.exit
+.lr.ph:                                           ; preds = %If_CutLutArea.exit
   %50 = getelementptr i8, ptr %0, i64 40
   %.not33 = icmp eq ptr %.fr, null
   %51 = getelementptr inbounds i8, ptr %0, i64 108
@@ -634,8 +634,8 @@ If_CutLutArea.argprom.exit:                       ; preds = %24, %32, %36, %41
   %86 = icmp ult i64 %indvars.iv.next, %85
   br i1 %86, label %.lr.ph.split, label %.critedge, !llvm.loop !16
 
-.critedge:                                        ; preds = %73, %.lr.ph.split, %58, %.lr.ph.split.us, %If_CutLutArea.argprom.exit, %13, %9
-  %.025 = phi float [ 0.000000e+00, %9 ], [ 0.000000e+00, %13 ], [ %47, %If_CutLutArea.argprom.exit ], [ %62, %58 ], [ %.02439.us, %.lr.ph.split.us ], [ %82, %73 ], [ %.02439, %.lr.ph.split ]
+.critedge:                                        ; preds = %73, %.lr.ph.split, %58, %.lr.ph.split.us, %If_CutLutArea.exit, %13, %9
+  %.025 = phi float [ 0.000000e+00, %9 ], [ 0.000000e+00, %13 ], [ %47, %If_CutLutArea.exit ], [ %62, %58 ], [ %.02439.us, %.lr.ph.split.us ], [ %82, %73 ], [ %.02439, %.lr.ph.split ]
   ret float %.025
 }
 

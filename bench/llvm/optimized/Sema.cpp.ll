@@ -3710,7 +3710,7 @@ _ZN5clang4Sema18addImplicitTypedefEN4llvm9StringRefENS_8QualTypeE.exit462: ; pre
   br i1 %336, label %337, label %338
 
 337:                                              ; preds = %_ZN5clang4Sema18addImplicitTypedefEN4llvm9StringRefENS_8QualTypeE.exit462
-  tail call fastcc void @"_ZZN5clang4Sema10InitializeEvENK3$_0clEv.argprom"(ptr nonnull %0)
+  tail call fastcc void @"_ZZN5clang4Sema10InitializeEvENK3$_0clEv"(ptr nonnull %0)
   br label %338
 
 338:                                              ; preds = %337, %_ZN5clang4Sema18addImplicitTypedefEN4llvm9StringRefENS_8QualTypeE.exit462
@@ -3819,7 +3819,7 @@ _ZN5clang4Sema18addImplicitTypedefEN4llvm9StringRefENS_8QualTypeE.exit470: ; pre
   br i1 %404, label %405, label %thread-pre-split
 
 405:                                              ; preds = %_ZN5clang4Sema18addImplicitTypedefEN4llvm9StringRefENS_8QualTypeE.exit470
-  call fastcc void @"_ZZN5clang4Sema10InitializeEvENK3$_0clEv.argprom"(ptr nonnull %0)
+  call fastcc void @"_ZZN5clang4Sema10InitializeEvENK3$_0clEv"(ptr nonnull %0)
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %358, %405, %_ZN5clang4Sema18addImplicitTypedefEN4llvm9StringRefENS_8QualTypeE.exit470
@@ -11490,7 +11490,7 @@ declare noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr n
 declare i64 @_ZNK5clang10ASTContext13getAtomicTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096), i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang4Sema10InitializeEvENK3$_0clEv.argprom"(ptr %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang4Sema10InitializeEvENK3$_0clEv"(ptr %.0.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 256
   %2 = load ptr, ptr %1, align 8
   %3 = tail call i64 @_ZNK5clang10ASTContext11getSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23096) %2) #23
@@ -19277,7 +19277,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %596 = call { ptr, i64 } @_ZN5clang10ASTContext21getModuleInitializersEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(23096) %.val.val, ptr noundef nonnull %590) #23
   %597 = extractvalue { ptr, i64 } %596, 1
   %598 = icmp eq i64 %597, 0
-  br i1 %598, label %599, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit.thread"
+  br i1 %598, label %599, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit.thread"
 
 599:                                              ; preds = %594
   %600 = getelementptr inbounds nuw i8, ptr %590, i64 1648
@@ -19300,7 +19300,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 1520
   %610 = load i16, ptr %609, align 8
   %611 = icmp slt i16 %610, 0
-  br i1 %611, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit.thread", label %604
+  br i1 %611, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit.thread", label %604
 
 ._crit_edge.i:                                    ; preds = %604, %599
   %612 = getelementptr inbounds nuw i8, ptr %590, i64 1560
@@ -19308,12 +19308,12 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %614 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %612) #23
   %615 = getelementptr inbounds ptr, ptr %613, i64 %614
   %.not216.i = icmp eq i64 %614, 0
-  br i1 %.not216.i, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit", label %.lr.ph9.i
+  br i1 %.not216.i, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit", label %.lr.ph9.i
 
 616:                                              ; preds = %.lr.ph9.i
   %617 = getelementptr inbounds i8, ptr %.0207.i, i64 8
   %.not21.i = icmp eq ptr %617, %615
-  br i1 %.not21.i, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit", label %.lr.ph9.i
+  br i1 %.not21.i, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit", label %.lr.ph9.i
 
 .lr.ph9.i:                                        ; preds = %._crit_edge.i, %616
   %.0207.i = phi ptr [ %617, %616 ], [ %613, %._crit_edge.i ]
@@ -19321,9 +19321,9 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 1520
   %620 = load i16, ptr %619, align 8
   %621 = icmp slt i16 %620, 0
-  br i1 %621, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit.thread", label %616
+  br i1 %621, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit.thread", label %616
 
-"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit": ; preds = %616, %._crit_edge.i
+"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit": ; preds = %616, %._crit_edge.i
   %622 = getelementptr inbounds nuw i8, ptr %590, i64 256
   %623 = load ptr, ptr %622, align 8
   %624 = getelementptr inbounds nuw i8, ptr %590, i64 264
@@ -19335,15 +19335,15 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %630 = icmp sgt i64 %629, 0
   br i1 %630, label %.lr.ph.i.i.i.i.i.i232, label %._crit_edge.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i232:                            ; preds = %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit54.i.i.i.i.i.i"
-  %.0158.i.i.i.i.i.i = phi i64 [ %743, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit54.i.i.i.i.i.i" ], [ %629, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit" ]
-  %.sroa.091.0157.i.i.i.i.i.i = phi ptr [ %742, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit54.i.i.i.i.i.i" ], [ %623, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit" ]
+.lr.ph.i.i.i.i.i.i232:                            ; preds = %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit54.i.i.i.i.i.i"
+  %.0158.i.i.i.i.i.i = phi i64 [ %743, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit54.i.i.i.i.i.i" ], [ %629, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit" ]
+  %.sroa.091.0157.i.i.i.i.i.i = phi ptr [ %742, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit54.i.i.i.i.i.i" ], [ %623, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit" ]
   %.val.val.val.i.i.i.i.i.i = load ptr, ptr %595, align 8
   %631 = load ptr, ptr %.sroa.091.0157.i.i.i.i.i.i, align 8
   %632 = call { ptr, i64 } @_ZN5clang10ASTContext21getModuleInitializersEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(23096) %.val.val.val.i.i.i.i.i.i, ptr noundef %631) #23
   %633 = extractvalue { ptr, i64 } %632, 1
   %634 = icmp eq i64 %633, 0
-  br i1 %634, label %635, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br i1 %634, label %635, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
 635:                                              ; preds = %.lr.ph.i.i.i.i.i.i232
   %636 = getelementptr inbounds nuw i8, ptr %631, i64 1648
@@ -19366,7 +19366,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 1520
   %646 = load i16, ptr %645, align 8
   %647 = icmp slt i16 %646, 0
-  br i1 %647, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit", label %640
+  br i1 %647, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %640
 
 ._crit_edge.i.i.i.i.i.i.i.i.i:                    ; preds = %640, %635
   %648 = getelementptr inbounds nuw i8, ptr %631, i64 1560
@@ -19374,12 +19374,12 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %650 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %648) #23
   %651 = getelementptr inbounds ptr, ptr %649, i64 %650
   %.not216.i.i.i.i.i.i.i.i.i = icmp eq i64 %650, 0
-  br i1 %.not216.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit.i.i.i.i.i.i", label %.lr.ph9.i.i.i.i.i.i.i.i.i
+  br i1 %.not216.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i", label %.lr.ph9.i.i.i.i.i.i.i.i.i
 
 652:                                              ; preds = %.lr.ph9.i.i.i.i.i.i.i.i.i
   %653 = getelementptr inbounds i8, ptr %.0207.i.i.i.i.i.i.i.i.i, i64 8
   %.not21.i.i.i.i.i.i.i.i.i = icmp eq ptr %653, %651
-  br i1 %.not21.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit.i.i.i.i.i.i", label %.lr.ph9.i.i.i.i.i.i.i.i.i
+  br i1 %.not21.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i", label %.lr.ph9.i.i.i.i.i.i.i.i.i
 
 .lr.ph9.i.i.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i, %652
   %.0207.i.i.i.i.i.i.i.i.i = phi ptr [ %653, %652 ], [ %649, %._crit_edge.i.i.i.i.i.i.i.i.i ]
@@ -19387,18 +19387,18 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 1520
   %656 = load i16, ptr %655, align 8
   %657 = icmp slt i16 %656, 0
-  br i1 %657, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit", label %652
+  br i1 %657, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %652
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit.i.i.i.i.i.i": ; preds = %652, %._crit_edge.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i": ; preds = %652, %._crit_edge.i.i.i.i.i.i.i.i.i
   %658 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 8
   %.val16.val.val.i.i.i.i.i.i = load ptr, ptr %595, align 8
   %659 = load ptr, ptr %658, align 8
   %660 = call { ptr, i64 } @_ZN5clang10ASTContext21getModuleInitializersEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(23096) %.val16.val.val.i.i.i.i.i.i, ptr noundef %659) #23
   %661 = extractvalue { ptr, i64 } %660, 1
   %662 = icmp eq i64 %661, 0
-  br i1 %662, label %663, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit"
+  br i1 %662, label %663, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit"
 
-663:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit.i.i.i.i.i.i"
+663:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i"
   %664 = getelementptr inbounds nuw i8, ptr %659, i64 1648
   %665 = load ptr, ptr %664, align 8
   %666 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %664) #23
@@ -19419,7 +19419,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %673 = getelementptr inbounds nuw i8, ptr %672, i64 1520
   %674 = load i16, ptr %673, align 8
   %675 = icmp slt i16 %674, 0
-  br i1 %675, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit584", label %668
+  br i1 %675, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit584", label %668
 
 ._crit_edge.i.i.i27.i.i.i.i.i.i:                  ; preds = %668, %663
   %676 = getelementptr inbounds nuw i8, ptr %659, i64 1560
@@ -19427,12 +19427,12 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %678 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %676) #23
   %679 = getelementptr inbounds ptr, ptr %677, i64 %678
   %.not216.i.i.i28.i.i.i.i.i.i = icmp eq i64 %678, 0
-  br i1 %.not216.i.i.i28.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit32.i.i.i.i.i.i", label %.lr.ph9.i.i.i29.i.i.i.i.i.i
+  br i1 %.not216.i.i.i28.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit32.i.i.i.i.i.i", label %.lr.ph9.i.i.i29.i.i.i.i.i.i
 
 680:                                              ; preds = %.lr.ph9.i.i.i29.i.i.i.i.i.i
   %681 = getelementptr inbounds i8, ptr %.0207.i.i.i30.i.i.i.i.i.i, i64 8
   %.not21.i.i.i31.i.i.i.i.i.i = icmp eq ptr %681, %679
-  br i1 %.not21.i.i.i31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit32.i.i.i.i.i.i", label %.lr.ph9.i.i.i29.i.i.i.i.i.i
+  br i1 %.not21.i.i.i31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit32.i.i.i.i.i.i", label %.lr.ph9.i.i.i29.i.i.i.i.i.i
 
 .lr.ph9.i.i.i29.i.i.i.i.i.i:                      ; preds = %._crit_edge.i.i.i27.i.i.i.i.i.i, %680
   %.0207.i.i.i30.i.i.i.i.i.i = phi ptr [ %681, %680 ], [ %677, %._crit_edge.i.i.i27.i.i.i.i.i.i ]
@@ -19440,18 +19440,18 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %683 = getelementptr inbounds nuw i8, ptr %682, i64 1520
   %684 = load i16, ptr %683, align 8
   %685 = icmp slt i16 %684, 0
-  br i1 %685, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit583", label %680
+  br i1 %685, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit583", label %680
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit32.i.i.i.i.i.i": ; preds = %680, %._crit_edge.i.i.i27.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit32.i.i.i.i.i.i": ; preds = %680, %._crit_edge.i.i.i27.i.i.i.i.i.i
   %686 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 16
   %.val17.val.val.i.i.i.i.i.i = load ptr, ptr %595, align 8
   %687 = load ptr, ptr %686, align 8
   %688 = call { ptr, i64 } @_ZN5clang10ASTContext21getModuleInitializersEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(23096) %.val17.val.val.i.i.i.i.i.i, ptr noundef %687) #23
   %689 = extractvalue { ptr, i64 } %688, 1
   %690 = icmp eq i64 %689, 0
-  br i1 %690, label %691, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit635"
+  br i1 %690, label %691, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit635"
 
-691:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit32.i.i.i.i.i.i"
+691:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit32.i.i.i.i.i.i"
   %692 = getelementptr inbounds nuw i8, ptr %687, i64 1648
   %693 = load ptr, ptr %692, align 8
   %694 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %692) #23
@@ -19472,7 +19472,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %701 = getelementptr inbounds nuw i8, ptr %700, i64 1520
   %702 = load i16, ptr %701, align 8
   %703 = icmp slt i16 %702, 0
-  br i1 %703, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit582", label %696
+  br i1 %703, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit582", label %696
 
 ._crit_edge.i.i.i38.i.i.i.i.i.i:                  ; preds = %696, %691
   %704 = getelementptr inbounds nuw i8, ptr %687, i64 1560
@@ -19480,12 +19480,12 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %706 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %704) #23
   %707 = getelementptr inbounds ptr, ptr %705, i64 %706
   %.not216.i.i.i39.i.i.i.i.i.i = icmp eq i64 %706, 0
-  br i1 %.not216.i.i.i39.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit43.i.i.i.i.i.i", label %.lr.ph9.i.i.i40.i.i.i.i.i.i
+  br i1 %.not216.i.i.i39.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit43.i.i.i.i.i.i", label %.lr.ph9.i.i.i40.i.i.i.i.i.i
 
 708:                                              ; preds = %.lr.ph9.i.i.i40.i.i.i.i.i.i
   %709 = getelementptr inbounds i8, ptr %.0207.i.i.i41.i.i.i.i.i.i, i64 8
   %.not21.i.i.i42.i.i.i.i.i.i = icmp eq ptr %709, %707
-  br i1 %.not21.i.i.i42.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit43.i.i.i.i.i.i", label %.lr.ph9.i.i.i40.i.i.i.i.i.i
+  br i1 %.not21.i.i.i42.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit43.i.i.i.i.i.i", label %.lr.ph9.i.i.i40.i.i.i.i.i.i
 
 .lr.ph9.i.i.i40.i.i.i.i.i.i:                      ; preds = %._crit_edge.i.i.i38.i.i.i.i.i.i, %708
   %.0207.i.i.i41.i.i.i.i.i.i = phi ptr [ %709, %708 ], [ %705, %._crit_edge.i.i.i38.i.i.i.i.i.i ]
@@ -19493,18 +19493,18 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 1520
   %712 = load i16, ptr %711, align 8
   %713 = icmp slt i16 %712, 0
-  br i1 %713, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit581", label %708
+  br i1 %713, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit581", label %708
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit43.i.i.i.i.i.i": ; preds = %708, %._crit_edge.i.i.i38.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit43.i.i.i.i.i.i": ; preds = %708, %._crit_edge.i.i.i38.i.i.i.i.i.i
   %714 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 24
   %.val18.val.val.i.i.i.i.i.i = load ptr, ptr %595, align 8
   %715 = load ptr, ptr %714, align 8
   %716 = call { ptr, i64 } @_ZN5clang10ASTContext21getModuleInitializersEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(23096) %.val18.val.val.i.i.i.i.i.i, ptr noundef %715) #23
   %717 = extractvalue { ptr, i64 } %716, 1
   %718 = icmp eq i64 %717, 0
-  br i1 %718, label %719, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit637"
+  br i1 %718, label %719, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit637"
 
-719:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit43.i.i.i.i.i.i"
+719:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit43.i.i.i.i.i.i"
   %720 = getelementptr inbounds nuw i8, ptr %715, i64 1648
   %721 = load ptr, ptr %720, align 8
   %722 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %720) #23
@@ -19525,7 +19525,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 1520
   %730 = load i16, ptr %729, align 8
   %731 = icmp slt i16 %730, 0
-  br i1 %731, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit580", label %724
+  br i1 %731, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit580", label %724
 
 ._crit_edge.i.i.i49.i.i.i.i.i.i:                  ; preds = %724, %719
   %732 = getelementptr inbounds nuw i8, ptr %715, i64 1560
@@ -19533,12 +19533,12 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %734 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %732) #23
   %735 = getelementptr inbounds ptr, ptr %733, i64 %734
   %.not216.i.i.i50.i.i.i.i.i.i = icmp eq i64 %734, 0
-  br i1 %.not216.i.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit54.i.i.i.i.i.i", label %.lr.ph9.i.i.i51.i.i.i.i.i.i
+  br i1 %.not216.i.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit54.i.i.i.i.i.i", label %.lr.ph9.i.i.i51.i.i.i.i.i.i
 
 736:                                              ; preds = %.lr.ph9.i.i.i51.i.i.i.i.i.i
   %737 = getelementptr inbounds i8, ptr %.0207.i.i.i52.i.i.i.i.i.i, i64 8
   %.not21.i.i.i53.i.i.i.i.i.i = icmp eq ptr %737, %735
-  br i1 %.not21.i.i.i53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit54.i.i.i.i.i.i", label %.lr.ph9.i.i.i51.i.i.i.i.i.i
+  br i1 %.not21.i.i.i53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit54.i.i.i.i.i.i", label %.lr.ph9.i.i.i51.i.i.i.i.i.i
 
 .lr.ph9.i.i.i51.i.i.i.i.i.i:                      ; preds = %._crit_edge.i.i.i49.i.i.i.i.i.i, %736
   %.0207.i.i.i52.i.i.i.i.i.i = phi ptr [ %737, %736 ], [ %733, %._crit_edge.i.i.i49.i.i.i.i.i.i ]
@@ -19546,24 +19546,24 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 1520
   %740 = load i16, ptr %739, align 8
   %741 = icmp slt i16 %740, 0
-  br i1 %741, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit579", label %736
+  br i1 %741, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit579", label %736
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit54.i.i.i.i.i.i": ; preds = %736, %._crit_edge.i.i.i49.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit54.i.i.i.i.i.i": ; preds = %736, %._crit_edge.i.i.i49.i.i.i.i.i.i
   %742 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 32
   %743 = add nsw i64 %.0158.i.i.i.i.i.i, -1
   %744 = icmp sgt i64 %.0158.i.i.i.i.i.i, 1
   br i1 %744, label %.lr.ph.i.i.i.i.i.i232, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !189
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit54.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit54.i.i.i.i.i.i"
   %.pre.i.i.i.i.i.i = ptrtoint ptr %742 to i64
   %.pre179.i.i.i.i.i.i = sub i64 %626, %.pre.i.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit"
-  %.pre-phi180.i.i.i.i.i.i = phi i64 [ %.pre179.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %628, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit" ]
-  %.sroa.091.0.lcssa.i.i.i.i.i.i = phi ptr [ %742, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %623, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit" ]
+._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit"
+  %.pre-phi180.i.i.i.i.i.i = phi i64 [ %.pre179.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %628, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit" ]
+  %.sroa.091.0.lcssa.i.i.i.i.i.i = phi ptr [ %742, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %623, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit" ]
   %745 = ashr exact i64 %.pre-phi180.i.i.i.i.i.i, 3
-  switch i64 %745, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit" [
+  switch i64 %745, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit" [
     i64 3, label %746
     i64 2, label %775
     i64 1, label %804
@@ -19575,7 +19575,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %748 = call { ptr, i64 } @_ZN5clang10ASTContext21getModuleInitializersEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(23096) %.val19.val.val.i.i.i.i.i.i, ptr noundef %747) #23
   %749 = extractvalue { ptr, i64 } %748, 1
   %750 = icmp eq i64 %749, 0
-  br i1 %750, label %751, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br i1 %750, label %751, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
 751:                                              ; preds = %746
   %752 = getelementptr inbounds nuw i8, ptr %747, i64 1648
@@ -19598,7 +19598,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %761 = getelementptr inbounds nuw i8, ptr %760, i64 1520
   %762 = load i16, ptr %761, align 8
   %763 = icmp slt i16 %762, 0
-  br i1 %763, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit", label %756
+  br i1 %763, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %756
 
 ._crit_edge.i.i.i60.i.i.i.i.i.i:                  ; preds = %756, %751
   %764 = getelementptr inbounds nuw i8, ptr %747, i64 1560
@@ -19606,12 +19606,12 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %766 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %764) #23
   %767 = getelementptr inbounds ptr, ptr %765, i64 %766
   %.not216.i.i.i61.i.i.i.i.i.i = icmp eq i64 %766, 0
-  br i1 %.not216.i.i.i61.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit65.i.i.i.i.i.i", label %.lr.ph9.i.i.i62.i.i.i.i.i.i
+  br i1 %.not216.i.i.i61.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit65.i.i.i.i.i.i", label %.lr.ph9.i.i.i62.i.i.i.i.i.i
 
 768:                                              ; preds = %.lr.ph9.i.i.i62.i.i.i.i.i.i
   %769 = getelementptr inbounds i8, ptr %.0207.i.i.i63.i.i.i.i.i.i, i64 8
   %.not21.i.i.i64.i.i.i.i.i.i = icmp eq ptr %769, %767
-  br i1 %.not21.i.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit65.i.i.i.i.i.i", label %.lr.ph9.i.i.i62.i.i.i.i.i.i
+  br i1 %.not21.i.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit65.i.i.i.i.i.i", label %.lr.ph9.i.i.i62.i.i.i.i.i.i
 
 .lr.ph9.i.i.i62.i.i.i.i.i.i:                      ; preds = %._crit_edge.i.i.i60.i.i.i.i.i.i, %768
   %.0207.i.i.i63.i.i.i.i.i.i = phi ptr [ %769, %768 ], [ %765, %._crit_edge.i.i.i60.i.i.i.i.i.i ]
@@ -19619,20 +19619,20 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %771 = getelementptr inbounds nuw i8, ptr %770, i64 1520
   %772 = load i16, ptr %771, align 8
   %773 = icmp slt i16 %772, 0
-  br i1 %773, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit", label %768
+  br i1 %773, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %768
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit65.i.i.i.i.i.i": ; preds = %768, %._crit_edge.i.i.i60.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit65.i.i.i.i.i.i": ; preds = %768, %._crit_edge.i.i.i60.i.i.i.i.i.i
   %774 = getelementptr inbounds i8, ptr %.sroa.091.0.lcssa.i.i.i.i.i.i, i64 8
   br label %775
 
-775:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit65.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.091.1.i.i.i.i.i.i = phi ptr [ %.sroa.091.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %774, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit65.i.i.i.i.i.i" ]
+775:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit65.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.sroa.091.1.i.i.i.i.i.i = phi ptr [ %.sroa.091.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %774, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit65.i.i.i.i.i.i" ]
   %.val20.val.val.i.i.i.i.i.i = load ptr, ptr %595, align 8
   %776 = load ptr, ptr %.sroa.091.1.i.i.i.i.i.i, align 8
   %777 = call { ptr, i64 } @_ZN5clang10ASTContext21getModuleInitializersEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(23096) %.val20.val.val.i.i.i.i.i.i, ptr noundef %776) #23
   %778 = extractvalue { ptr, i64 } %777, 1
   %779 = icmp eq i64 %778, 0
-  br i1 %779, label %780, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br i1 %779, label %780, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
 780:                                              ; preds = %775
   %781 = getelementptr inbounds nuw i8, ptr %776, i64 1648
@@ -19655,7 +19655,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 1520
   %791 = load i16, ptr %790, align 8
   %792 = icmp slt i16 %791, 0
-  br i1 %792, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit", label %785
+  br i1 %792, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %785
 
 ._crit_edge.i.i.i71.i.i.i.i.i.i:                  ; preds = %785, %780
   %793 = getelementptr inbounds nuw i8, ptr %776, i64 1560
@@ -19663,12 +19663,12 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %795 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %793) #23
   %796 = getelementptr inbounds ptr, ptr %794, i64 %795
   %.not216.i.i.i72.i.i.i.i.i.i = icmp eq i64 %795, 0
-  br i1 %.not216.i.i.i72.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit76.i.i.i.i.i.i", label %.lr.ph9.i.i.i73.i.i.i.i.i.i
+  br i1 %.not216.i.i.i72.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit76.i.i.i.i.i.i", label %.lr.ph9.i.i.i73.i.i.i.i.i.i
 
 797:                                              ; preds = %.lr.ph9.i.i.i73.i.i.i.i.i.i
   %798 = getelementptr inbounds i8, ptr %.0207.i.i.i74.i.i.i.i.i.i, i64 8
   %.not21.i.i.i75.i.i.i.i.i.i = icmp eq ptr %798, %796
-  br i1 %.not21.i.i.i75.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit76.i.i.i.i.i.i", label %.lr.ph9.i.i.i73.i.i.i.i.i.i
+  br i1 %.not21.i.i.i75.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit76.i.i.i.i.i.i", label %.lr.ph9.i.i.i73.i.i.i.i.i.i
 
 .lr.ph9.i.i.i73.i.i.i.i.i.i:                      ; preds = %._crit_edge.i.i.i71.i.i.i.i.i.i, %797
   %.0207.i.i.i74.i.i.i.i.i.i = phi ptr [ %798, %797 ], [ %794, %._crit_edge.i.i.i71.i.i.i.i.i.i ]
@@ -19676,20 +19676,20 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %800 = getelementptr inbounds nuw i8, ptr %799, i64 1520
   %801 = load i16, ptr %800, align 8
   %802 = icmp slt i16 %801, 0
-  br i1 %802, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit", label %797
+  br i1 %802, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %797
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit76.i.i.i.i.i.i": ; preds = %797, %._crit_edge.i.i.i71.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit76.i.i.i.i.i.i": ; preds = %797, %._crit_edge.i.i.i71.i.i.i.i.i.i
   %803 = getelementptr inbounds i8, ptr %.sroa.091.1.i.i.i.i.i.i, i64 8
   br label %804
 
-804:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit76.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.091.2.i.i.i.i.i.i = phi ptr [ %.sroa.091.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %803, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit76.i.i.i.i.i.i" ]
+804:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit76.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.sroa.091.2.i.i.i.i.i.i = phi ptr [ %.sroa.091.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %803, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit76.i.i.i.i.i.i" ]
   %.val21.val.val.i.i.i.i.i.i = load ptr, ptr %595, align 8
   %805 = load ptr, ptr %.sroa.091.2.i.i.i.i.i.i, align 8
   %806 = call { ptr, i64 } @_ZN5clang10ASTContext21getModuleInitializersEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(23096) %.val21.val.val.i.i.i.i.i.i, ptr noundef %805) #23
   %807 = extractvalue { ptr, i64 } %806, 1
   %808 = icmp eq i64 %807, 0
-  br i1 %808, label %809, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br i1 %808, label %809, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
 809:                                              ; preds = %804
   %810 = getelementptr inbounds nuw i8, ptr %805, i64 1648
@@ -19712,7 +19712,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %819 = getelementptr inbounds nuw i8, ptr %818, i64 1520
   %820 = load i16, ptr %819, align 8
   %821 = icmp slt i16 %820, 0
-  br i1 %821, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit", label %814
+  br i1 %821, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %814
 
 ._crit_edge.i.i.i82.i.i.i.i.i.i:                  ; preds = %814, %809
   %822 = getelementptr inbounds nuw i8, ptr %805, i64 1560
@@ -19720,12 +19720,12 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %824 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %822) #23
   %825 = getelementptr inbounds ptr, ptr %823, i64 %824
   %.not216.i.i.i83.i.i.i.i.i.i = icmp eq i64 %824, 0
-  br i1 %.not216.i.i.i83.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit", label %.lr.ph9.i.i.i84.i.i.i.i.i.i
+  br i1 %.not216.i.i.i83.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %.lr.ph9.i.i.i84.i.i.i.i.i.i
 
 826:                                              ; preds = %.lr.ph9.i.i.i84.i.i.i.i.i.i
   %827 = getelementptr inbounds i8, ptr %.0207.i.i.i85.i.i.i.i.i.i, i64 8
   %.not21.i.i.i86.i.i.i.i.i.i = icmp eq ptr %827, %825
-  br i1 %.not21.i.i.i86.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit", label %.lr.ph9.i.i.i84.i.i.i.i.i.i
+  br i1 %.not21.i.i.i86.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %.lr.ph9.i.i.i84.i.i.i.i.i.i
 
 .lr.ph9.i.i.i84.i.i.i.i.i.i:                      ; preds = %._crit_edge.i.i.i82.i.i.i.i.i.i, %826
   %.0207.i.i.i85.i.i.i.i.i.i = phi ptr [ %827, %826 ], [ %823, %._crit_edge.i.i.i82.i.i.i.i.i.i ]
@@ -19733,52 +19733,52 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   %829 = getelementptr inbounds nuw i8, ptr %828, i64 1520
   %830 = load i16, ptr %829, align 8
   %831 = icmp slt i16 %830, 0
-  br i1 %831, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit", label %826
+  br i1 %831, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %826
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit579": ; preds = %.lr.ph9.i.i.i51.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit579": ; preds = %.lr.ph9.i.i.i51.i.i.i.i.i.i
   %832 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit580": ; preds = %.lr.ph.i.i.i46.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit580": ; preds = %.lr.ph.i.i.i46.i.i.i.i.i.i
   %833 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit581": ; preds = %.lr.ph9.i.i.i40.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit581": ; preds = %.lr.ph9.i.i.i40.i.i.i.i.i.i
   %834 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit582": ; preds = %.lr.ph.i.i.i35.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit582": ; preds = %.lr.ph.i.i.i35.i.i.i.i.i.i
   %835 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit583": ; preds = %.lr.ph9.i.i.i29.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit583": ; preds = %.lr.ph9.i.i.i29.i.i.i.i.i.i
   %836 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit584": ; preds = %.lr.ph.i.i.i24.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit584": ; preds = %.lr.ph.i.i.i24.i.i.i.i.i.i
   %837 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i"
   %838 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit635": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit32.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit635": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit32.i.i.i.i.i.i"
   %839 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit637": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.argprom.argprom.exit43.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit637": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit43.i.i.i.i.i.i"
   %840 = getelementptr inbounds i8, ptr %.sroa.091.0157.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i232, %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph9.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i57.i.i.i.i.i.i, %.lr.ph9.i.i.i62.i.i.i.i.i.i, %.lr.ph.i.i.i68.i.i.i.i.i.i, %.lr.ph9.i.i.i73.i.i.i.i.i.i, %.lr.ph.i.i.i79.i.i.i.i.i.i, %826, %.lr.ph9.i.i.i84.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit635", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit637", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit584", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit583", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit582", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit581", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit580", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit579", %._crit_edge.i.i.i.i.i.i, %746, %775, %804, %._crit_edge.i.i.i82.i.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %625, %._crit_edge.i.i.i.i.i.i ], [ %625, %._crit_edge.i.i.i82.i.i.i.i.i.i ], [ %.sroa.091.0.lcssa.i.i.i.i.i.i, %746 ], [ %.sroa.091.1.i.i.i.i.i.i, %775 ], [ %.sroa.091.2.i.i.i.i.i.i, %804 ], [ %832, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit579" ], [ %833, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit580" ], [ %834, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit581" ], [ %835, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit582" ], [ %836, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit583" ], [ %837, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit584" ], [ %838, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit" ], [ %839, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit635" ], [ %840, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit.loopexit587.split.loop.exit637" ], [ %.sroa.091.2.i.i.i.i.i.i, %.lr.ph9.i.i.i84.i.i.i.i.i.i ], [ %625, %826 ], [ %.sroa.091.2.i.i.i.i.i.i, %.lr.ph.i.i.i79.i.i.i.i.i.i ], [ %.sroa.091.1.i.i.i.i.i.i, %.lr.ph9.i.i.i73.i.i.i.i.i.i ], [ %.sroa.091.1.i.i.i.i.i.i, %.lr.ph.i.i.i68.i.i.i.i.i.i ], [ %.sroa.091.0.lcssa.i.i.i.i.i.i, %.lr.ph9.i.i.i62.i.i.i.i.i.i ], [ %.sroa.091.0.lcssa.i.i.i.i.i.i, %.lr.ph.i.i.i57.i.i.i.i.i.i ], [ %.sroa.091.0157.i.i.i.i.i.i, %.lr.ph9.i.i.i.i.i.i.i.i.i ], [ %.sroa.091.0157.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.sroa.091.0157.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i232 ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i232, %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph9.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i57.i.i.i.i.i.i, %.lr.ph9.i.i.i62.i.i.i.i.i.i, %.lr.ph.i.i.i68.i.i.i.i.i.i, %.lr.ph9.i.i.i73.i.i.i.i.i.i, %.lr.ph.i.i.i79.i.i.i.i.i.i, %826, %.lr.ph9.i.i.i84.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit635", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit637", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit584", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit583", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit582", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit581", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit580", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit579", %._crit_edge.i.i.i.i.i.i, %746, %775, %804, %._crit_edge.i.i.i82.i.i.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %625, %._crit_edge.i.i.i.i.i.i ], [ %625, %._crit_edge.i.i.i82.i.i.i.i.i.i ], [ %.sroa.091.0.lcssa.i.i.i.i.i.i, %746 ], [ %.sroa.091.1.i.i.i.i.i.i, %775 ], [ %.sroa.091.2.i.i.i.i.i.i, %804 ], [ %832, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit579" ], [ %833, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit580" ], [ %834, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit581" ], [ %835, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit582" ], [ %836, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit583" ], [ %837, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit584" ], [ %838, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit" ], [ %839, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit635" ], [ %840, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit587.split.loop.exit637" ], [ %.sroa.091.2.i.i.i.i.i.i, %.lr.ph9.i.i.i84.i.i.i.i.i.i ], [ %625, %826 ], [ %.sroa.091.2.i.i.i.i.i.i, %.lr.ph.i.i.i79.i.i.i.i.i.i ], [ %.sroa.091.1.i.i.i.i.i.i, %.lr.ph9.i.i.i73.i.i.i.i.i.i ], [ %.sroa.091.1.i.i.i.i.i.i, %.lr.ph.i.i.i68.i.i.i.i.i.i ], [ %.sroa.091.0.lcssa.i.i.i.i.i.i, %.lr.ph9.i.i.i62.i.i.i.i.i.i ], [ %.sroa.091.0.lcssa.i.i.i.i.i.i, %.lr.ph.i.i.i57.i.i.i.i.i.i ], [ %.sroa.091.0157.i.i.i.i.i.i, %.lr.ph9.i.i.i.i.i.i.i.i.i ], [ %.sroa.091.0157.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.sroa.091.0157.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i232 ]
   %.not380 = icmp eq ptr %625, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   %841 = select i1 %.not380, i16 0, i16 -32768
-  br label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit.thread"
+  br label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit.thread"
 
-"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit.thread": ; preds = %.lr.ph.i228, %.lr.ph9.i, %594, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit"
-  %842 = phi i16 [ %841, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.argprom.exit" ], [ -32768, %594 ], [ -32768, %.lr.ph9.i ], [ -32768, %.lr.ph.i228 ]
+"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit.thread": ; preds = %.lr.ph.i228, %.lr.ph9.i, %594, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
+  %842 = phi i16 [ %841, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit" ], [ -32768, %594 ], [ -32768, %.lr.ph9.i ], [ -32768, %.lr.ph.i228 ]
   %843 = getelementptr inbounds nuw i8, ptr %590, i64 1520
   %844 = load i16, ptr %843, align 8
   %845 = and i16 %844, 32767
@@ -19786,7 +19786,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %584
   store i16 %846, ptr %843, align 8
   br label %_ZNK5clang4Sema16getCurrentModuleEv.exit.thread
 
-_ZNK5clang4Sema16getCurrentModuleEv.exit.thread:  ; preds = %591, %584, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.argprom.argprom.exit.thread", %_ZNK5clang4Sema16getCurrentModuleEv.exit
+_ZNK5clang4Sema16getCurrentModuleEv.exit.thread:  ; preds = %591, %584, %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit.thread", %_ZNK5clang4Sema16getCurrentModuleEv.exit
   %847 = load i32, ptr %56, align 8
   %848 = icmp eq i32 %847, 2
   br i1 %848, label %849, label %903
@@ -28343,9 +28343,9 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema24isDeclaratorFunctionLikeERN
   %48 = icmp sgt i64 %47, 0
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %41, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i"
-  %.083.i.i.i.i.i = phi i64 [ %93, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i" ], [ %47, %41 ]
-  %.sroa.072.082.i.i.i.i.i = phi ptr [ %92, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i" ], [ %43, %41 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %41, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i"
+  %.083.i.i.i.i.i = phi i64 [ %93, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i" ], [ %47, %41 ]
+  %.sroa.072.082.i.i.i.i.i = phi ptr [ %92, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i" ], [ %43, %41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.072.082.i.i.i.i.i, i64 8) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.072.082.i.i.i.i.i, align 8
   %49 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
@@ -28377,17 +28377,17 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema24isDeclaratorFunctionLikeERN
 _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i: ; preds = %57, %56
   %.pre-phi.i.i.i.i.i.i.i = phi i32 [ %53, %56 ], [ %.pre4.i.i.i.i.i.i.i, %57 ]
   switch i32 %.pre-phi.i.i.i.i.i.i.i, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit" [
-    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i"
-    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i"
-    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i"
-    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i"
-    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i"
-    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i"
-    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i"
-    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i"
+    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i"
+    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i"
+    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i"
+    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i"
+    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i"
+    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i"
+    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i"
+    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i"
   ]
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i
   %59 = getelementptr inbounds i8, ptr %.sroa.072.082.i.i.i.i.i, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 8) ]
   %.0.copyload.i.i.i.i.i.i.i16.i.i.i.i.i = load i64, ptr %59, align 8
@@ -28402,7 +28402,7 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i: ; preds = %57, %56
   %.not.i.i18.i.i.i.i.i = or i1 %.not3.i.i17.i.i.i.i.i, %66
   br i1 %.not.i.i18.i.i.i.i.i, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit", label %67
 
-67:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i"
+67:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i"
   switch i32 %64, label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i [
     i32 50, label %68
     i32 51, label %68
@@ -28420,17 +28420,17 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i: ; preds = %57, %56
 _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i: ; preds = %68, %67
   %.pre-phi.i.i23.i.i.i.i.i = phi i32 [ %64, %67 ], [ %.pre4.i.i21.i.i.i.i.i, %68 ]
   switch i32 %.pre-phi.i.i23.i.i.i.i.i, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit" [
-    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i"
-    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i"
-    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i"
-    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i"
-    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i"
-    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i"
-    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i"
-    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i"
+    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i"
+    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i"
+    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i"
+    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i"
+    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i"
+    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i"
+    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i"
+    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i"
   ]
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i
   %70 = getelementptr inbounds i8, ptr %.sroa.072.082.i.i.i.i.i, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 8) ]
   %.0.copyload.i.i.i.i.i.i.i25.i.i.i.i.i = load i64, ptr %70, align 8
@@ -28445,7 +28445,7 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i: ; preds = %68, %6
   %.not.i.i27.i.i.i.i.i = or i1 %.not3.i.i26.i.i.i.i.i, %77
   br i1 %.not.i.i27.i.i.i.i.i, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit", label %78
 
-78:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i"
+78:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i"
   switch i32 %75, label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i [
     i32 50, label %79
     i32 51, label %79
@@ -28463,17 +28463,17 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i: ; preds = %68, %6
 _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i: ; preds = %79, %78
   %.pre-phi.i.i32.i.i.i.i.i = phi i32 [ %75, %78 ], [ %.pre4.i.i30.i.i.i.i.i, %79 ]
   switch i32 %.pre-phi.i.i32.i.i.i.i.i, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit" [
-    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i"
-    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i"
-    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i"
-    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i"
-    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i"
-    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i"
-    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i"
-    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i"
+    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i"
+    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i"
+    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i"
+    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i"
+    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i"
+    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i"
+    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i"
+    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i"
   ]
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i
   %81 = getelementptr inbounds i8, ptr %.sroa.072.082.i.i.i.i.i, i64 24
   call void @llvm.assume(i1 true) [ "align"(ptr %81, i64 8) ]
   %.0.copyload.i.i.i.i.i.i.i34.i.i.i.i.i = load i64, ptr %81, align 8
@@ -28488,7 +28488,7 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i: ; preds = %79, %7
   %.not.i.i36.i.i.i.i.i = or i1 %.not3.i.i35.i.i.i.i.i, %88
   br i1 %.not.i.i36.i.i.i.i.i, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit", label %89
 
-89:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i"
+89:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i"
   switch i32 %86, label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i [
     i32 50, label %90
     i32 51, label %90
@@ -28506,23 +28506,23 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i: ; preds = %79, %7
 _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i: ; preds = %90, %89
   %.pre-phi.i.i41.i.i.i.i.i = phi i32 [ %86, %89 ], [ %.pre4.i.i39.i.i.i.i.i, %90 ]
   switch i32 %.pre-phi.i.i41.i.i.i.i.i, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit" [
-    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i"
-    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i"
-    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i"
-    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i"
-    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i"
-    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i"
-    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i"
-    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i"
+    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i"
+    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i"
+    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i"
+    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i"
+    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i"
+    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i"
+    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i"
+    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i"
   ]
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i
   %92 = getelementptr inbounds i8, ptr %.sroa.072.082.i.i.i.i.i, i64 32
   %93 = add nsw i64 %.083.i.i.i.i.i, -1
   %94 = icmp sgt i64 %.083.i.i.i.i.i, 1
   br i1 %94, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !280
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit42.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit42.i.i.i.i.i"
   %.pre.i.i.i.i.i = ptrtoint ptr %92 to i64
   %.pre84.i.i.i.i.i = sub i64 %46, %.pre.i.i.i.i.i
   %95 = ashr exact i64 %.pre84.i.i.i.i.i, 3
@@ -28569,22 +28569,22 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i: ; preds = %90, %8
 _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i: ; preds = %105, %104
   %.pre-phi.i.i50.i.i.i.i.i = phi i32 [ %101, %104 ], [ %.pre4.i.i48.i.i.i.i.i, %105 ]
   switch i32 %.pre-phi.i.i50.i.i.i.i.i, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit" [
-    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit51.i.i.i.i.i"
-    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit51.i.i.i.i.i"
-    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit51.i.i.i.i.i"
-    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit51.i.i.i.i.i"
-    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit51.i.i.i.i.i"
-    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit51.i.i.i.i.i"
-    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit51.i.i.i.i.i"
-    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit51.i.i.i.i.i"
+    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit51.i.i.i.i.i"
+    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit51.i.i.i.i.i"
+    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit51.i.i.i.i.i"
+    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit51.i.i.i.i.i"
+    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit51.i.i.i.i.i"
+    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit51.i.i.i.i.i"
+    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit51.i.i.i.i.i"
+    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit51.i.i.i.i.i"
   ]
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit51.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit51.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i
   %107 = getelementptr inbounds i8, ptr %.sroa.072.0.lcssa.i.i.i.i.i, i64 8
   br label %108
 
-108:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit51.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.072.1.i.i.i.i.i = phi ptr [ %.sroa.072.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %107, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit51.i.i.i.i.i" ]
+108:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit51.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.sroa.072.1.i.i.i.i.i = phi ptr [ %.sroa.072.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %107, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit51.i.i.i.i.i" ]
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.072.1.i.i.i.i.i, i64 8) ]
   %.0.copyload.i.i.i.i.i.i.i52.i.i.i.i.i = load i64, ptr %.sroa.072.1.i.i.i.i.i, align 8
   %109 = and i64 %.0.copyload.i.i.i.i.i.i.i52.i.i.i.i.i, -8
@@ -28616,22 +28616,22 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i: ; preds = %105, %
 _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i: ; preds = %117, %116
   %.pre-phi.i.i59.i.i.i.i.i = phi i32 [ %113, %116 ], [ %.pre4.i.i57.i.i.i.i.i, %117 ]
   switch i32 %.pre-phi.i.i59.i.i.i.i.i, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit" [
-    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit60.i.i.i.i.i"
-    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit60.i.i.i.i.i"
-    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit60.i.i.i.i.i"
-    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit60.i.i.i.i.i"
-    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit60.i.i.i.i.i"
-    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit60.i.i.i.i.i"
-    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit60.i.i.i.i.i"
-    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit60.i.i.i.i.i"
+    i32 68, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit60.i.i.i.i.i"
+    i32 36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit60.i.i.i.i.i"
+    i32 35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit60.i.i.i.i.i"
+    i32 34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit60.i.i.i.i.i"
+    i32 33, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit60.i.i.i.i.i"
+    i32 32, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit60.i.i.i.i.i"
+    i32 31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit60.i.i.i.i.i"
+    i32 77, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit60.i.i.i.i.i"
   ]
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit60.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit60.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i
   %119 = getelementptr inbounds i8, ptr %.sroa.072.1.i.i.i.i.i, i64 8
   br label %120
 
-120:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit60.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.072.2.i.i.i.i.i = phi ptr [ %.sroa.072.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %119, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit60.i.i.i.i.i" ]
+120:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit60.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.sroa.072.2.i.i.i.i.i = phi ptr [ %.sroa.072.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %119, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit60.i.i.i.i.i" ]
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.072.2.i.i.i.i.i, i64 8) ]
   %.0.copyload.i.i.i.i.i.i.i61.i.i.i.i.i = load i64, ptr %.sroa.072.2.i.i.i.i.i, align 8
   %121 = and i64 %.0.copyload.i.i.i.i.i.i.i61.i.i.i.i.i, -8
@@ -28643,7 +28643,7 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i: ; preds = %117, %
   %127 = icmp ult i32 %126, -63
   %.not3.i.i62.i.i.i.i.i = icmp eq i64 %121, 0
   %.not.i.i63.i.i.i.i.i = or i1 %.not3.i.i62.i.i.i.i.i, %127
-  br i1 %.not.i.i63.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit69.thread.i.i.i.i.i", label %128
+  br i1 %.not.i.i63.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit69.thread.i.i.i.i.i", label %128
 
 128:                                              ; preds = %120
   switch i32 %125, label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i [
@@ -28662,7 +28662,7 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i: ; preds = %117, %
 
 _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i: ; preds = %129, %128
   %.pre-phi.i.i68.i.i.i.i.i = phi i32 [ %125, %128 ], [ %.pre4.i.i66.i.i.i.i.i, %129 ]
-  switch i32 %.pre-phi.i.i68.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit69.thread.i.i.i.i.i" [
+  switch i32 %.pre-phi.i.i68.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit69.thread.i.i.i.i.i" [
     i32 68, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit"
     i32 36, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit"
     i32 35, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit"
@@ -28673,11 +28673,11 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i: ; preds = %129, %
     i32 77, label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit"
   ]
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit69.thread.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %120
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit69.thread.i.i.i.i.i": ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %120
   br label %"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i", %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i", %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i", %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %._crit_edge.i.i.i.i.i, %96, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %108, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit69.thread.i.i.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %45, %._crit_edge.i.i.i.i.i ], [ %.sroa.072.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit69.thread.i.i.i.i.i" ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %.sroa.072.0.lcssa.i.i.i.i.i, %96 ], [ %.sroa.072.0.lcssa.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i ], [ %.sroa.072.1.i.i.i.i.i, %108 ], [ %.sroa.072.1.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i ], [ %.sroa.072.082.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.072.082.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i ], [ %59, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit.i.i.i.i.i" ], [ %59, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i ], [ %70, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit24.i.i.i.i.i" ], [ %70, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i ], [ %81, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.argprom.exit33.i.i.i.i.i" ], [ %81, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i ]
+"_ZN4llvm6all_ofIRN5clang12LookupResultEZNS1_4Sema24isDeclaratorFunctionLikeERNS1_10DeclaratorEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i", %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i", %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i", %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i, %._crit_edge.i.i.i.i.i, %96, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i, %108, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit69.thread.i.i.i.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %45, %._crit_edge.i.i.i.i.i ], [ %.sroa.072.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit69.thread.i.i.i.i.i" ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %45, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i67.i.i.i.i.i ], [ %.sroa.072.0.lcssa.i.i.i.i.i, %96 ], [ %.sroa.072.0.lcssa.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i49.i.i.i.i.i ], [ %.sroa.072.1.i.i.i.i.i, %108 ], [ %.sroa.072.1.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i58.i.i.i.i.i ], [ %.sroa.072.082.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.072.082.i.i.i.i.i, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i.i.i.i.i.i ], [ %59, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit.i.i.i.i.i" ], [ %59, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i22.i.i.i.i.i ], [ %70, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit24.i.i.i.i.i" ], [ %70, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i31.i.i.i.i.i ], [ %81, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang4Sema24isDeclaratorFunctionLikeERNS2_10DeclaratorEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_.exit33.i.i.i.i.i" ], [ %81, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit.i.i40.i.i.i.i.i ]
   %131 = icmp eq ptr %45, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br label %132
 
@@ -39569,16 +39569,16 @@ define internal void @"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang4Sema27
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 200
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %"_ZZN5clang4Sema27runWithSufficientStackSpaceENS_14SourceLocationEN4llvm12function_refIFvvEEEENK3$_0clEv.argprom.argprom.exit", label %8
+  br i1 %7, label %"_ZZN5clang4Sema27runWithSufficientStackSpaceENS_14SourceLocationEN4llvm12function_refIFvvEEEENK3$_0clEv.exit", label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %.val, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 %.val1.val, i32 noundef 160, i1 noundef zeroext false) #23
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #23
   store i8 1, ptr %5, align 8
-  br label %"_ZZN5clang4Sema27runWithSufficientStackSpaceENS_14SourceLocationEN4llvm12function_refIFvvEEEENK3$_0clEv.argprom.argprom.exit"
+  br label %"_ZZN5clang4Sema27runWithSufficientStackSpaceENS_14SourceLocationEN4llvm12function_refIFvvEEEENK3$_0clEv.exit"
 
-"_ZZN5clang4Sema27runWithSufficientStackSpaceENS_14SourceLocationEN4llvm12function_refIFvvEEEENK3$_0clEv.argprom.argprom.exit": ; preds = %1, %8
+"_ZZN5clang4Sema27runWithSufficientStackSpaceENS_14SourceLocationEN4llvm12function_refIFvvEEEENK3$_0clEv.exit": ; preds = %1, %8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2)
   ret void
 }

@@ -197,8 +197,8 @@ define noundef zeroext i1 @"_ZN82_$LT$diesel_migrations..errors..MigrationError$
   %14 = icmp eq i64 %13, 1
   br i1 %14, label %16, label %15
 
-15:                                               ; preds = %2, %12, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.argprom.exit", %9
-  %.0.shrunk = phi i1 [ %.0.i.i, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.argprom.exit" ], [ %11, %9 ], [ false, %12 ], [ false, %2 ]
+15:                                               ; preds = %2, %12, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit", %9
+  %.0.shrunk = phi i1 [ %.0.i.i, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit" ], [ %11, %9 ], [ false, %12 ], [ false, %2 ]
   ret i1 %.0.shrunk
 
 16:                                               ; preds = %12
@@ -326,7 +326,7 @@ _ZN4core4iter6traits8iterator8Iterator5eq_by17h4a15be8a4f56830dE.exit.i.i: ; pre
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !43
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !43
   %67 = icmp eq i8 %.0.i.i.i.i, 0
-  br label %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.argprom.exit"
+  br label %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit"
 
 68:                                               ; preds = %27
   %69 = getelementptr inbounds i8, ptr %7, i64 16
@@ -343,9 +343,9 @@ _ZN4core4iter6traits8iterator8Iterator5eq_by17h4a15be8a4f56830dE.exit.i.i: ; pre
   %75 = load ptr, ptr %6, align 8, !alias.scope !27, !noalias !24, !nonnull !5, !align !35, !noundef !5
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %74, ptr nonnull readonly %75, i64 %23), !alias.scope !66, !noalias !48
   %76 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %76, label %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.argprom.exit", label %39
+  br i1 %76, label %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit", label %39
 
-"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.argprom.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator5eq_by17h4a15be8a4f56830dE.exit.i.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha0f5f60dcba6196eE.exit.i.i"
+"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator5eq_by17h4a15be8a4f56830dE.exit.i.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha0f5f60dcba6196eE.exit.i.i"
   %.0.i.i = phi i1 [ %67, %_ZN4core4iter6traits8iterator8Iterator5eq_by17h4a15be8a4f56830dE.exit.i.i ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha0f5f60dcba6196eE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.5.i8.i.i)
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.5.i.i.i)

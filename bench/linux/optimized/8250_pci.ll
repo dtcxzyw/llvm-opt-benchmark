@@ -3252,7 +3252,7 @@ declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noun
 declare dso_local void @__release_region(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @moan_device.argprom(ptr noundef %0) unnamed_addr #9 align 16 {
+define internal fastcc void @moan_device(ptr noundef %0) unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   %4 = load i16, ptr %3, align 4
@@ -3758,7 +3758,7 @@ define internal i32 @pciserial_init_one(ptr noundef %0, ptr nocapture noundef re
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %103
-  tail call fastcc void @moan_device.argprom(ptr noundef %0)
+  tail call fastcc void @moan_device(ptr noundef %0)
   br label %110
 
 110:                                              ; preds = %109, %103, %97, %91, %85, %79, %76, %73

@@ -50,7 +50,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  tail call fastcc void @_ZN12_GLOBAL__N_125createPredefinedStringSetEv.argprom()
+  tail call fastcc void @_ZN12_GLOBAL__N_125createPredefinedStringSetEv()
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEED2Ev, ptr nonnull @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, ptr nonnull @__dso_handle) #10
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined) #10
   br label %init.end
@@ -85,7 +85,7 @@ return:                                           ; preds = %init.end, %if.end
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125createPredefinedStringSetEv.argprom() unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125createPredefinedStringSetEv() unnamed_addr #0 {
 entry:
   %ConstFoundBucket.i.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.llvh::StringRef", align 8

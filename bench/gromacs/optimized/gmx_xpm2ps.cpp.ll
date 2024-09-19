@@ -1049,7 +1049,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt6vectorI8t_mat
   %308 = load ptr, ptr %30, align 8
   %309 = load ptr, ptr %203, align 8
   %.not5.i = icmp eq ptr %308, %309
-  br i1 %.not5.i, label %_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.argprom.exit, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %307
   %310 = load float, ptr @_ZZ10gmx_xpm2psiPPcE4grad, align 4
@@ -1060,14 +1060,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt6vectorI8t_mat
   %315 = fsub float 1.000000e+00, %314
   br label %316
 
-316:                                              ; preds = %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit.i, %.lr.ph.i
-  %.sroa.01.06.i = phi ptr [ %308, %.lr.ph.i ], [ %344, %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit.i ]
+316:                                              ; preds = %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit.i, %.lr.ph.i
+  %.sroa.01.06.i = phi ptr [ %308, %.lr.ph.i ], [ %344, %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit.i ]
   %317 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 264
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 272
   %320 = load ptr, ptr %319, align 8
   %.not3.i.i = icmp eq ptr %318, %320
-  br i1 %.not3.i.i, label %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not3.i.i, label %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %316
   %321 = ptrtoint ptr %320 to i64
@@ -1101,29 +1101,29 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt6vectorI8t_mat
   %342 = add nuw nsw i32 %.05.i.i, 1
   %343 = getelementptr inbounds i8, ptr %.sroa.0.04.i.i, i64 64
   %.not.i.i = icmp eq ptr %343, %320
-  br i1 %.not.i.i, label %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit.i, label %330
+  br i1 %.not.i.i, label %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit.i, label %330
 
-_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit.i: ; preds = %330, %316
+_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit.i: ; preds = %330, %316
   %344 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 288
   %.not.i = icmp eq ptr %344, %309
-  br i1 %.not.i, label %_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.argprom.exit, label %316
+  br i1 %.not.i, label %_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.exit, label %316
 
-_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.argprom.exit: ; preds = %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit.i, %307
+_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.exit: ; preds = %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit.i, %307
   %345 = load ptr, ptr %31, align 8
   %346 = getelementptr inbounds i8, ptr %31, i64 8
   %347 = load ptr, ptr %346, align 8
   %348 = icmp eq ptr %345, %347
   br i1 %348, label %354, label %349
 
-349:                                              ; preds = %_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.argprom.exit
+349:                                              ; preds = %_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.exit
   %350 = ptrtoint ptr %347 to i64
   %351 = ptrtoint ptr %345 to i64
   %352 = sub i64 %350, %351
   %353 = getelementptr inbounds i8, ptr %345, i64 %352
-  call fastcc void @_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.argprom(ptr %345, ptr %353)
+  call fastcc void @_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE(ptr %345, ptr %353)
   br label %354
 
-354:                                              ; preds = %349, %_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.argprom.exit, %.loopexit180
+354:                                              ; preds = %349, %_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.exit, %.loopexit180
   %.not66 = icmp eq i32 %155, 1
   br i1 %.not66, label %372, label %355
 
@@ -3359,7 +3359,7 @@ _ZNSt6vectorI8t_matrixSaIS0_EE15_M_erase_at_endEPS0_.exit: ; preds = %_ZSt8_Dest
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.argprom(ptr readonly %0, ptr readnone %1) unnamed_addr #7 {
+define internal fastcc void @_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE(ptr readonly %0, ptr readnone %1) unnamed_addr #7 {
   %.not5 = icmp eq ptr %0, %1
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -3372,14 +3372,14 @@ define internal fastcc void @_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.argpr
   %8 = fsub float 1.000000e+00, %7
   br label %9
 
-9:                                                ; preds = %.lr.ph, %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit
-  %.sroa.01.06 = phi ptr [ %0, %.lr.ph ], [ %37, %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit ]
+9:                                                ; preds = %.lr.ph, %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit
+  %.sroa.01.06 = phi ptr [ %0, %.lr.ph ], [ %37, %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit ]
   %10 = getelementptr inbounds i8, ptr %.sroa.01.06, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %.sroa.01.06, i64 272
   %13 = load ptr, ptr %12, align 8
   %.not3.i = icmp eq ptr %11, %13
-  br i1 %.not3.i, label %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit, label %.lr.ph.i
+  br i1 %.not3.i, label %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9
   %14 = ptrtoint ptr %13 to i64
@@ -3413,14 +3413,14 @@ define internal fastcc void @_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.argpr
   %35 = add nuw nsw i32 %.05.i, 1
   %36 = getelementptr inbounds i8, ptr %.sroa.0.04.i, i64 64
   %.not.i = icmp eq ptr %36, %13
-  br i1 %.not.i, label %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit, label %23
+  br i1 %.not.i, label %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit, label %23
 
-_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit: ; preds = %23, %9
+_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit: ; preds = %23, %9
   %37 = getelementptr inbounds i8, ptr %.sroa.01.06, i64 288
   %.not = icmp eq ptr %37, %1
   br i1 %.not, label %._crit_edge, label %9
 
-._crit_edge:                                      ; preds = %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.argprom.exit, %2
+._crit_edge:                                      ; preds = %_ZL12gradient_mapPKfN3gmx8ArrayRefI9t_mappingEE.exit, %2
   ret void
 }
 
@@ -6823,7 +6823,7 @@ _ZL14draw_zerolinesP8t_psdatafffN3gmx8ArrayRefI8t_matrixEEP7t_psrec.exit: ; pred
   %1206 = phi ptr [ %.sroa.0346.0430435, %.thread431 ], [ %.sroa.0364.0, %.noexc335 ]
   %1207 = phi ptr [ %1199, %.thread431 ], [ %1244, %.noexc335 ]
   %1208 = phi i32 [ %17, %.thread431 ], [ 0, %.noexc335 ]
-  invoke fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi.argelim(ptr noundef %45, float noundef %1202, float noundef %1203, ptr noundef nonnull align 8 dereferenceable(32) %1204, float noundef %1205, ptr noundef %120, ptr %1206, ptr %1207, i32 noundef %1208)
+  invoke fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi(ptr noundef %45, float noundef %1202, float noundef %1203, ptr noundef nonnull align 8 dereferenceable(32) %1204, float noundef %1205, ptr noundef %120, ptr %1206, ptr %1207, i32 noundef %1208)
           to label %_ZL12leg_discreteP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEE.exit unwind label %.loopexit.split-lp
 
 1209:                                             ; preds = %1194
@@ -6855,7 +6855,7 @@ _ZL14draw_zerolinesP8t_psdatafffN3gmx8ArrayRefI8t_matrixEEP7t_psrec.exit: ; pred
   %1235 = fptrunc double %1234 to float
   %1236 = fmul float %1212, 5.000000e-01
   %1237 = fsub float %1226, %1236
-  invoke fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi.argelim(ptr noundef %45, float noundef %1235, float noundef %1237, ptr noundef nonnull align 8 dereferenceable(32) %431, float noundef %1212, ptr noundef %120, ptr %.sroa.0370.0.lcssa, ptr %1216, i32 noundef 0)
+  invoke fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi(ptr noundef %45, float noundef %1235, float noundef %1237, ptr noundef nonnull align 8 dereferenceable(32) %431, float noundef %1212, ptr noundef %120, ptr %.sroa.0370.0.lcssa, ptr %1216, i32 noundef 0)
           to label %.noexc335 unwind label %.loopexit.split-lp
 
 .noexc335:                                        ; preds = %1209
@@ -7196,7 +7196,7 @@ declare void @_Z11ps_rgb_nboxP8t_psdataP5t_rgbf(ptr noundef, ptr noundef, float 
 declare void @_Z10ps_moverelP8t_psdataff(ptr noundef, float noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi.argelim(ptr noundef nonnull %0, float noundef %1, float noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, float noundef %4, ptr noundef nonnull %5, ptr %6, ptr %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi(ptr noundef nonnull %0, float noundef %1, float noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, float noundef %4, ptr noundef nonnull %5, ptr %6, ptr %7, i32 noundef %8) unnamed_addr #0 {
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11

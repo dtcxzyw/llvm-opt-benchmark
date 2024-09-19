@@ -447,7 +447,7 @@ define dso_local void @inet_put_port(ptr nocapture noundef %0) #0 align 16 {
 
 24:                                               ; preds = %1
   %25 = getelementptr inbounds i8, ptr %0, i64 72
-  %26 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %13, ptr noundef %25, i32 noundef %11)
+  %26 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %13, ptr noundef %25, i32 noundef %11)
   br label %53
 
 27:                                               ; preds = %1
@@ -611,7 +611,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__inet_inherit_port(ptr nocaptur
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds i8, ptr %1, i64 72
-  %26 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %13, ptr noundef %25, i32 noundef %11)
+  %26 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %13, ptr noundef %25, i32 noundef %11)
   br label %53
 
 27:                                               ; preds = %2
@@ -2170,7 +2170,7 @@ define dso_local i32 @__inet_hash(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %45 = zext i16 %44 to i32
   %46 = getelementptr i8, ptr %37, i64 336
   %.val = load i32, ptr %46, align 16
-  %47 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val, ptr noundef %42, i32 noundef %45)
+  %47 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val, ptr noundef %42, i32 noundef %45)
   br label %79
 
 48:                                               ; preds = %36
@@ -2450,7 +2450,7 @@ define dso_local void @inet_unhash(ptr noundef %0) #0 align 16 {
   %21 = zext i16 %20 to i32
   %22 = getelementptr i8, ptr %3, i64 336
   %.val = load i32, ptr %22, align 16
-  %23 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val, ptr noundef %18, i32 noundef %21)
+  %23 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val, ptr noundef %18, i32 noundef %21)
   br label %55
 
 24:                                               ; preds = %13
@@ -2677,7 +2677,7 @@ define dso_local ptr @inet_bhash2_addr_any_hashbucket(ptr nocapture noundef read
   br i1 %10, label %12, label %14
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val, ptr noundef nonnull @in6addr_any, i32 noundef %2)
+  %13 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val, ptr noundef nonnull @in6addr_any, i32 noundef %2)
   br label %37
 
 14:                                               ; preds = %3
@@ -2719,7 +2719,7 @@ define dso_local ptr @inet_bhash2_addr_any_hashbucket(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.336.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #7 align 16 {
+define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #7 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -2985,7 +2985,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__inet_bhash2_update_saddr
 
 86:                                               ; preds = %70
   %87 = getelementptr inbounds i8, ptr %0, i64 72
-  %88 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %75, ptr noundef %87, i32 noundef %73)
+  %88 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %75, ptr noundef %87, i32 noundef %73)
   br label %115
 
 89:                                               ; preds = %70
@@ -3148,7 +3148,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__inet_bhash2_update_saddr
 184:                                              ; preds = %182
   %185 = getelementptr inbounds i8, ptr %0, i64 72
   %.val = load i32, ptr %74, align 16
-  %186 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val, ptr noundef %185, i32 noundef %73)
+  %186 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val, ptr noundef %185, i32 noundef %73)
   br label %212
 
 .thread:                                          ; preds = %..thread_crit_edge, %153
@@ -3636,7 +3636,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
 154:                                              ; preds = %.loopexit31
   %155 = getelementptr inbounds i8, ptr %1, i64 72
   %.val = load i32, ptr %47, align 16
-  %156 = call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val, ptr noundef %155, i32 noundef %.pre)
+  %156 = call fastcc i32 @ipv6_portaddr_hash(i32 %.val, ptr noundef %155, i32 noundef %.pre)
   br label %184
 
 157:                                              ; preds = %.loopexit31

@@ -76,7 +76,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @"_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEv.argprom"()
+  invoke fastcc void @"_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEv"()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -132,51 +132,51 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt10lock_guardIS
   %9 = getelementptr i8, ptr %__first.sroa.0.096.i.i.i.i.i.i, i64 8
   %call.val.i.i.i.i.i.i.i = load ptr, ptr %9, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %call.val.i.i.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i.i.i.i.i, i64 8
   %10 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i monotonic, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i, label %if.end.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i.i.i
+if.end.i.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i.i
   %12 = getelementptr i8, ptr %__first.sroa.0.096.i.i.i.i.i.i, i64 24
   %call.val.i9.i.i.i.i.i.i = load ptr, ptr %12, align 8
   %cmp.not.i.i.i.i10.i.i.i.i.i.i = icmp eq ptr %call.val.i9.i.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i10.i.i.i.i.i.i, label %return.loopexit.split.loop.exit80.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit14.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i10.i.i.i.i.i.i, label %return.loopexit.split.loop.exit80.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit14.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit14.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit14.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i
   %_M_use_count.i.i.i.i.i12.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i9.i.i.i.i.i.i, i64 8
   %13 = load atomic i32, ptr %_M_use_count.i.i.i.i.i12.i.i.i.i.i.i monotonic, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %return.loopexit.split.loop.exit72.i.i.i.i.i.i, label %if.end10.i.i.i.i.i.i
 
-if.end10.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit14.i.i.i.i.i.i
+if.end10.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit14.i.i.i.i.i.i
   %15 = getelementptr i8, ptr %__first.sroa.0.096.i.i.i.i.i.i, i64 40
   %call.val.i16.i.i.i.i.i.i = load ptr, ptr %15, align 8
   %cmp.not.i.i.i.i17.i.i.i.i.i.i = icmp eq ptr %call.val.i16.i.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i17.i.i.i.i.i.i, label %return.loopexit.split.loop.exit82.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i17.i.i.i.i.i.i, label %return.loopexit.split.loop.exit82.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i: ; preds = %if.end10.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i.i: ; preds = %if.end10.i.i.i.i.i.i
   %_M_use_count.i.i.i.i.i19.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i16.i.i.i.i.i.i, i64 8
   %16 = load atomic i32, ptr %_M_use_count.i.i.i.i.i19.i.i.i.i.i.i monotonic, align 8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %return.loopexit.split.loop.exit74.i.i.i.i.i.i, label %if.end16.i.i.i.i.i.i
 
-if.end16.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i
+if.end16.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i.i
   %18 = getelementptr i8, ptr %__first.sroa.0.096.i.i.i.i.i.i, i64 56
   %call.val.i23.i.i.i.i.i.i = load ptr, ptr %18, align 8
   %cmp.not.i.i.i.i24.i.i.i.i.i.i = icmp eq ptr %call.val.i23.i.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i24.i.i.i.i.i.i, label %return.loopexit.split.loop.exit84.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit28.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i24.i.i.i.i.i.i, label %return.loopexit.split.loop.exit84.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit28.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit28.i.i.i.i.i.i: ; preds = %if.end16.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit28.i.i.i.i.i.i: ; preds = %if.end16.i.i.i.i.i.i
   %_M_use_count.i.i.i.i.i26.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i23.i.i.i.i.i.i, i64 8
   %19 = load atomic i32, ptr %_M_use_count.i.i.i.i.i26.i.i.i.i.i.i monotonic, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %return.loopexit.split.loop.exit76.i.i.i.i.i.i, label %if.end22.i.i.i.i.i.i
 
-if.end22.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit28.i.i.i.i.i.i
+if.end22.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit28.i.i.i.i.i.i
   %incdec.ptr.i29.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.096.i.i.i.i.i.i, i64 64
   %dec.i.i.i.i.i.i = add nsw i64 %__trip_count.097.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__trip_count.097.i.i.i.i.i.i, 1
@@ -201,15 +201,15 @@ sw.bb.i.i.i.i.i.i:                                ; preds = %for.end.i.i.i.i.i.i
   %21 = getelementptr i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i, i64 8
   %call.val.i34.i.i.i.i.i.i = load ptr, ptr %21, align 8
   %cmp.not.i.i.i.i35.i.i.i.i.i.i = icmp eq ptr %call.val.i34.i.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i35.i.i.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit39.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i35.i.i.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit39.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit39.i.i.i.i.i.i: ; preds = %sw.bb.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit39.i.i.i.i.i.i: ; preds = %sw.bb.i.i.i.i.i.i
   %_M_use_count.i.i.i.i.i37.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i34.i.i.i.i.i.i, i64 8
   %22 = load atomic i32, ptr %_M_use_count.i.i.i.i.i37.i.i.i.i.i.i monotonic, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i, label %if.end29.i.i.i.i.i.i
 
-if.end29.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit39.i.i.i.i.i.i
+if.end29.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit39.i.i.i.i.i.i
   %incdec.ptr.i40.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i, i64 16
   br label %sw.bb31.i.i.i.i.i.i
 
@@ -218,15 +218,15 @@ sw.bb31.i.i.i.i.i.i:                              ; preds = %if.end29.i.i.i.i.i.
   %24 = getelementptr i8, ptr %__first.sroa.0.1.i.i.i.i.i.i, i64 8
   %call.val.i41.i.i.i.i.i.i = load ptr, ptr %24, align 8
   %cmp.not.i.i.i.i42.i.i.i.i.i.i = icmp eq ptr %call.val.i41.i.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i42.i.i.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit46.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i42.i.i.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit46.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit46.i.i.i.i.i.i: ; preds = %sw.bb31.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit46.i.i.i.i.i.i: ; preds = %sw.bb31.i.i.i.i.i.i
   %_M_use_count.i.i.i.i.i44.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i41.i.i.i.i.i.i, i64 8
   %25 = load atomic i32, ptr %_M_use_count.i.i.i.i.i44.i.i.i.i.i.i monotonic, align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i, label %if.end36.i.i.i.i.i.i
 
-if.end36.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit46.i.i.i.i.i.i
+if.end36.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit46.i.i.i.i.i.i
   %incdec.ptr.i47.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i, i64 16
   br label %sw.bb38.i.i.i.i.i.i
 
@@ -235,24 +235,24 @@ sw.bb38.i.i.i.i.i.i:                              ; preds = %if.end36.i.i.i.i.i.
   %27 = getelementptr i8, ptr %__first.sroa.0.2.i.i.i.i.i.i, i64 8
   %call.val.i48.i.i.i.i.i.i = load ptr, ptr %27, align 8
   %cmp.not.i.i.i.i49.i.i.i.i.i.i = icmp eq ptr %call.val.i48.i.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i49.i.i.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit53.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i49.i.i.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit53.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit53.i.i.i.i.i.i: ; preds = %sw.bb38.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit53.i.i.i.i.i.i: ; preds = %sw.bb38.i.i.i.i.i.i
   %_M_use_count.i.i.i.i.i51.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i48.i.i.i.i.i.i, i64 8
   %28 = load atomic i32, ptr %_M_use_count.i.i.i.i.i51.i.i.i.i.i.i monotonic, align 8
   %29 = icmp eq i32 %28, 0
   %spec.select.i.i.i.i.i.i = select i1 %29, ptr %__first.sroa.0.2.i.i.i.i.i.i, ptr %8
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i
 
-return.loopexit.split.loop.exit72.i.i.i.i.i.i:    ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit14.i.i.i.i.i.i
+return.loopexit.split.loop.exit72.i.i.i.i.i.i:    ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit14.i.i.i.i.i.i
   %incdec.ptr.i.le93.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.096.i.i.i.i.i.i, i64 16
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i
 
-return.loopexit.split.loop.exit74.i.i.i.i.i.i:    ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i
+return.loopexit.split.loop.exit74.i.i.i.i.i.i:    ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i.i
   %incdec.ptr.i15.le90.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.096.i.i.i.i.i.i, i64 32
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i
 
-return.loopexit.split.loop.exit76.i.i.i.i.i.i:    ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit28.i.i.i.i.i.i
+return.loopexit.split.loop.exit76.i.i.i.i.i.i:    ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit28.i.i.i.i.i.i
   %incdec.ptr.i22.le87.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.096.i.i.i.i.i.i, i64 48
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i
 
@@ -268,8 +268,8 @@ return.loopexit.split.loop.exit84.i.i.i.i.i.i:    ; preds = %if.end16.i.i.i.i.i.
   %incdec.ptr.i22.le.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.096.i.i.i.i.i.i, i64 48
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i.i.i, %for.body.i.i.i.i.i.i, %return.loopexit.split.loop.exit84.i.i.i.i.i.i, %return.loopexit.split.loop.exit82.i.i.i.i.i.i, %return.loopexit.split.loop.exit80.i.i.i.i.i.i, %return.loopexit.split.loop.exit76.i.i.i.i.i.i, %return.loopexit.split.loop.exit74.i.i.i.i.i.i, %return.loopexit.split.loop.exit72.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit53.i.i.i.i.i.i, %sw.bb38.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit46.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit39.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit39.i.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit46.i.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i ], [ %__first.sroa.0.2.i.i.i.i.i.i, %sw.bb38.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit53.i.i.i.i.i.i ], [ %incdec.ptr.i.le93.i.i.i.i.i.i, %return.loopexit.split.loop.exit72.i.i.i.i.i.i ], [ %incdec.ptr.i15.le90.i.i.i.i.i.i, %return.loopexit.split.loop.exit74.i.i.i.i.i.i ], [ %incdec.ptr.i22.le87.i.i.i.i.i.i, %return.loopexit.split.loop.exit76.i.i.i.i.i.i ], [ %incdec.ptr.i.le.i.i.i.i.i.i, %return.loopexit.split.loop.exit80.i.i.i.i.i.i ], [ %incdec.ptr.i15.le.i.i.i.i.i.i, %return.loopexit.split.loop.exit82.i.i.i.i.i.i ], [ %incdec.ptr.i22.le.i.i.i.i.i.i, %return.loopexit.split.loop.exit84.i.i.i.i.i.i ], [ %__first.sroa.0.096.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__first.sroa.0.096.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i.i.i ]
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_EEET_SK_SK_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i.i, %for.body.i.i.i.i.i.i, %return.loopexit.split.loop.exit84.i.i.i.i.i.i, %return.loopexit.split.loop.exit82.i.i.i.i.i.i, %return.loopexit.split.loop.exit80.i.i.i.i.i.i, %return.loopexit.split.loop.exit76.i.i.i.i.i.i, %return.loopexit.split.loop.exit74.i.i.i.i.i.i, %return.loopexit.split.loop.exit72.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit53.i.i.i.i.i.i, %sw.bb38.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit46.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit39.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit39.i.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit46.i.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i ], [ %__first.sroa.0.2.i.i.i.i.i.i, %sw.bb38.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit53.i.i.i.i.i.i ], [ %incdec.ptr.i.le93.i.i.i.i.i.i, %return.loopexit.split.loop.exit72.i.i.i.i.i.i ], [ %incdec.ptr.i15.le90.i.i.i.i.i.i, %return.loopexit.split.loop.exit74.i.i.i.i.i.i ], [ %incdec.ptr.i22.le87.i.i.i.i.i.i, %return.loopexit.split.loop.exit76.i.i.i.i.i.i ], [ %incdec.ptr.i.le.i.i.i.i.i.i, %return.loopexit.split.loop.exit80.i.i.i.i.i.i ], [ %incdec.ptr.i15.le.i.i.i.i.i.i, %return.loopexit.split.loop.exit82.i.i.i.i.i.i ], [ %incdec.ptr.i22.le.i.i.i.i.i.i, %return.loopexit.split.loop.exit84.i.i.i.i.i.i ], [ %__first.sroa.0.096.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__first.sroa.0.096.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i, %8
   %__first.sroa.0.024.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i, i64 16
   %cmp.i1.not25.i.i.i.i = icmp eq ptr %__first.sroa.0.024.i.i.i.i, %8
@@ -283,15 +283,15 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt9__find_ifIN9__
   %30 = getelementptr i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.pn26.i.i.i.i, i64 24
   %call.val.i.i.i.i.i = load ptr, ptr %30, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %call.val.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i: ; preds = %for.body.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i: ; preds = %for.body.i.i.i.i
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i.i.i, i64 8
   %31 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i monotonic, align 8
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %for.inc.i.i.i.i, label %if.then13.i.i.i.i
 
-if.then13.i.i.i.i:                                ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i
+if.then13.i.i.i.i:                                ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i
   %33 = load ptr, ptr %__first.sroa.0.028.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.028.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %33, ptr %retval.sroa.0.127.i.i.i.i, align 8
@@ -333,8 +333,8 @@ _ZNSt8weak_ptrIN5arrow8internal13AtForkHandlerEEaSEOS3_.exit.i.i.i.i: ; preds = 
   %incdec.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.127.i.i.i.i, i64 16
   br label %for.inc.i.i.i.i
 
-for.inc.i.i.i.i:                                  ; preds = %_ZNSt8weak_ptrIN5arrow8internal13AtForkHandlerEEaSEOS3_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i, %for.body.i.i.i.i
-  %retval.sroa.0.2.i.i.i.i = phi ptr [ %retval.sroa.0.127.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i ], [ %incdec.ptr.i3.i.i.i.i, %_ZNSt8weak_ptrIN5arrow8internal13AtForkHandlerEEaSEOS3_.exit.i.i.i.i ], [ %retval.sroa.0.127.i.i.i.i, %for.body.i.i.i.i ]
+for.inc.i.i.i.i:                                  ; preds = %_ZNSt8weak_ptrIN5arrow8internal13AtForkHandlerEEaSEOS3_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i, %for.body.i.i.i.i
+  %retval.sroa.0.2.i.i.i.i = phi ptr [ %retval.sroa.0.127.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKSt8weak_ptrINS3_13AtForkHandlerEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i ], [ %incdec.ptr.i3.i.i.i.i, %_ZNSt8weak_ptrIN5arrow8internal13AtForkHandlerEEaSEOS3_.exit.i.i.i.i ], [ %retval.sroa.0.127.i.i.i.i, %for.body.i.i.i.i ]
   %__first.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.028.i.i.i.i, i64 16
   %cmp.i1.not.i.i.i.i = icmp eq ptr %__first.sroa.0.0.i.i.i.i, %8
   br i1 %cmp.i1.not.i.i.i.i, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN5arrow8internal13AtForkHandlerEESt6vectorIS6_SaIS6_EEEEZNS4_12_GLOBAL__N_111AtForkState24MaintainHandlersUnlockedEvEUlRKS6_E_ET_SH_SH_T0_.exit.loopexit.i.i, label %for.body.i.i.i.i, !llvm.loop !7
@@ -462,7 +462,7 @@ declare i32 @__gxx_personality_v0(...)
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEv.argprom"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEv"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.arrow::Status", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #17
@@ -567,17 +567,17 @@ invoke.contthread-pre-split.i.i.i:                ; preds = %_ZSt8_DestroyISt8we
 invoke.cont.i.i.i:                                ; preds = %invoke.contthread-pre-split.i.i.i, %delete.notnull.i
   %8 = phi ptr [ %.pr.i.i.i, %invoke.contthread-pre-split.i.i.i ], [ %1, %delete.notnull.i ]
   %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN5arrow8internal12_GLOBAL__N_111AtForkStateEEclEPS3_.argprom.exit, label %if.then.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN5arrow8internal12_GLOBAL__N_111AtForkStateEEclEPS3_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #18
-  br label %_ZNKSt14default_deleteIN5arrow8internal12_GLOBAL__N_111AtForkStateEEclEPS3_.argprom.exit
+  br label %_ZNKSt14default_deleteIN5arrow8internal12_GLOBAL__N_111AtForkStateEEclEPS3_.exit
 
-_ZNKSt14default_deleteIN5arrow8internal12_GLOBAL__N_111AtForkStateEEclEPS3_.argprom.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i
+_ZNKSt14default_deleteIN5arrow8internal12_GLOBAL__N_111AtForkStateEEclEPS3_.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN5arrow8internal12_GLOBAL__N_111AtForkStateEEclEPS3_.argprom.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN5arrow8internal12_GLOBAL__N_111AtForkStateEEclEPS3_.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -724,7 +724,7 @@ init.check.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @"_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEv.argprom"()
+  invoke fastcc void @"_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEv"()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -841,7 +841,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %this.val17.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775776
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #16
@@ -850,7 +850,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
 .noexc.i.i:                                       ; preds = %if.then.i.i.i.i.i
   unreachable
 
-_ZNKSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i: ; preds = %if.else.i.i.i
+_ZNKSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 5
   %cmp.i.i.i.i.i.i = icmp eq ptr %14, %this.val17.i.i.i.i
   %.sroa.speculated.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i.i
@@ -864,7 +864,7 @@ _ZNKSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_
   %call5.i.i.i.i.i11.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #17
           to label %call5.i.i.i.i.i.noexc.i.i unwind label %lpad.loopexit.i.i
 
-call5.i.i.i.i.i.noexc.i.i:                        ; preds = %_ZNKSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i
+call5.i.i.i.i.i.noexc.i.i:                        ; preds = %_ZNKSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i11.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %handler.i.i, i8 0, i64 16, i1 false)
   store ptr %13, ptr %add.ptr.i.i.i.i, align 8
@@ -872,11 +872,11 @@ call5.i.i.i.i.i.noexc.i.i:                        ; preds = %_ZNKSt6vectorIN5arr
   store ptr %.pr.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8
   %token.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %token.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  br i1 %cmp.i.i.i.i.i.i, label %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit.i, label %for.body.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %call5.i.i.i.i.i.noexc.i.i, %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i
-  %__cur.05.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i ], [ %call5.i.i.i.i.i11.i.i, %call5.i.i.i.i.i.noexc.i.i ]
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i4.i, %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i ], [ %this.val17.i.i.i.i, %call5.i.i.i.i.i.noexc.i.i ]
+for.body.i.i.i.i:                                 ; preds = %call5.i.i.i.i.i.noexc.i.i, %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i.i
+  %__cur.05.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %call5.i.i.i.i.i11.i.i, %call5.i.i.i.i.i.noexc.i.i ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i4.i, %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %this.val17.i.i.i.i, %call5.i.i.i.i.i.noexc.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %18 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8, !alias.scope !16, !noalias !13
@@ -894,9 +894,9 @@ for.body.i.i.i.i:                                 ; preds = %call5.i.i.i.i.i.noe
   store ptr null, ptr %_M_storage.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !16
   %20 = load ptr, ptr %token3.i.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !13
   %cmp.i.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %20, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.argprom.exit.thread.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i2.i
+  br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.thread.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i2.i
 
-_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.argprom.exit.thread.i.i.i.i.i: ; preds = %for.body.i.i.i.i
+_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.thread.i.i.i.i.i: ; preds = %for.body.i.i.i.i
   store ptr null, ptr %token.i.i.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__arg.i.i.i.i.i.i.i.i.i), !noalias !18
   br label %_ZNSt3anyD2Ev.exit.i.i.i.i.i.i.i.i
@@ -904,7 +904,7 @@ _ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningH
 if.else.i.i.i.i.i.i.i.i2.i:                       ; preds = %for.body.i.i.i.i
   store ptr %token.i.i.i.i.i.i.i.i, ptr %__arg.i.i.i.i.i.i.i.i.i, align 8, !noalias !18
   invoke void %20(i32 noundef 4, ptr noundef nonnull %token3.i.i.i.i.i.i.i.i, ptr noundef nonnull %__arg.i.i.i.i.i.i.i.i.i)
-          to label %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.argprom.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
+          to label %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.else.i.i.i.i.i.i.i.i2.i
   %21 = landingpad { ptr, i32 }
@@ -913,13 +913,13 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.else.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %22) #19
   unreachable
 
-_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.argprom.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i2.i
+_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i2.i
   %.pr.i.i.i.i3.i = load ptr, ptr %token3.i.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__arg.i.i.i.i.i.i.i.i.i), !noalias !18
   %cmp.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i3.i, null
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt3anyD2Ev.exit.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.argprom.exit.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i.i.i.i
   invoke void %.pr.i.i.i.i3.i(i32 noundef 3, ptr noundef nonnull %token3.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %invoke.cont.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i
 
@@ -934,10 +934,10 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %24) #19
   unreachable
 
-_ZNSt3anyD2Ev.exit.i.i.i.i.i.i.i.i:               ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.argprom.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.argprom.exit.thread.i.i.i.i.i
+_ZNSt3anyD2Ev.exit.i.i.i.i.i.i.i.i:               ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.thread.i.i.i.i.i
   %25 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !13
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt3anyD2Ev.exit.i.i.i.i.i.i.i.i
   %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
@@ -973,7 +973,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %27, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %30, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %25, align 8
@@ -998,39 +998,39 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %33, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %34, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %25, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #15
-  br label %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i
+  br label %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i.i
 
-_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt3anyD2Ev.exit.i.i.i.i.i.i.i.i
+_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt3anyD2Ev.exit.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i4.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i4.i, %14
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit.i, label %for.body.i.i.i.i, !llvm.loop !19
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %for.body.i.i.i.i, !llvm.loop !19
 
-_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit.i: ; preds = %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i, %call5.i.i.i.i.i.noexc.i.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i.i11.i.i, %call5.i.i.i.i.i.noexc.i.i ], [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i ]
+_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i: ; preds = %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i.i, %call5.i.i.i.i.i.noexc.i.i
+  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i.i11.i.i, %call5.i.i.i.i.i.noexc.i.i ], [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
   %tobool.not.i.i.i10.i.i = icmp eq ptr %this.val17.i.i.i.i, null
   br i1 %tobool.not.i.i.i10.i.i, label %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE17_M_realloc_insertIJSt10shared_ptrINS1_13AtForkHandlerEEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i, label %if.then.i20.i.i.i.i
 
-if.then.i20.i.i.i.i:                              ; preds = %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit.i
+if.then.i20.i.i.i.i:                              ; preds = %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
   call void @_ZdlPv(ptr noundef nonnull %this.val17.i.i.i.i) #18
   br label %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE17_M_realloc_insertIJSt10shared_ptrINS1_13AtForkHandlerEEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i
 
-_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE17_M_realloc_insertIJSt10shared_ptrINS1_13AtForkHandlerEEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %if.then.i20.i.i.i.i, %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit.i
+_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE17_M_realloc_insertIJSt10shared_ptrINS1_13AtForkHandlerEEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %if.then.i20.i.i.i.i, %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
   store ptr %call5.i.i.i.i.i11.i.i, ptr %handlers_while_forking_11.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i8.i.i, align 8
   %add.ptr26.i.i.i.i = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::AtForkState::RunningHandler", ptr %call5.i.i.i.i.i11.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr26.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %_ZNSt10shared_ptrIN5arrow8internal13AtForkHandlerEED2Ev.exit.i.i
 
-lpad.loopexit.i.i:                                ; preds = %_ZNKSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i
+lpad.loopexit.i.i:                                ; preds = %_ZNKSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %lpad.loopexit37.i.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i1.i
@@ -1131,7 +1131,7 @@ for.end.i.i:                                      ; preds = %_ZNSt10shared_ptrIN
   %46 = getelementptr inbounds i8, ptr %4, i64 72
   %handlers_while_forking_15.val.i.i = load ptr, ptr %46, align 8
   %cmp.i18.not41.i.i = icmp eq ptr %handlers_while_forking_15.val5.i.i, %handlers_while_forking_15.val.i.i
-  br i1 %cmp.i18.not41.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE_clEv.argprom.exit", label %for.body24.i.i
+  br i1 %cmp.i18.not41.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE_clEv.exit", label %for.body24.i.i
 
 for.body24.i.i:                                   ; preds = %for.end.i.i, %for.inc36.i.i
   %__begin316.sroa.0.042.i.i = phi ptr [ %incdec.ptr.i29.i.i, %for.inc36.i.i ], [ %handlers_while_forking_15.val5.i.i, %for.end.i.i ]
@@ -1242,9 +1242,9 @@ terminate.lpad.i.i27.i.i:                         ; preds = %if.then.i.i26.i.i
 for.inc36.i.i:                                    ; preds = %invoke.cont.i.i28.i.i, %_ZNSt3anyaSEOS_.exit.i.i, %_ZNSt3anyaSEOS_.exit.thread.i.i, %for.body24.i.i
   %incdec.ptr.i29.i.i = getelementptr inbounds i8, ptr %__begin316.sroa.0.042.i.i, i64 32
   %cmp.i18.not.i.i = icmp eq ptr %incdec.ptr.i29.i.i, %handlers_while_forking_15.val.i.i
-  br i1 %cmp.i18.not.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE_clEv.argprom.exit", label %for.body24.i.i
+  br i1 %cmp.i18.not.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE_clEv.exit", label %for.body24.i.i
 
-"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE_clEv.argprom.exit": ; preds = %for.inc36.i.i, %for.end.i.i
+"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE_clEv.exit": ; preds = %for.inc36.i.i, %for.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %handler.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   ret void
@@ -1387,7 +1387,7 @@ init.check.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @"_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEv.argprom"()
+  invoke fastcc void @"_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEv"()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -1423,7 +1423,7 @@ _ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i: ; preds = %invoke.con
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %handlers_while_forking_.i.i, i8 0, i64 24, i1 false)
   tail call fastcc void @_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %handlers_while_forking_.i.i) #15
   %cmp.i.i.i.not11.i.i = icmp eq ptr %6, %5
-  br i1 %cmp.i.i.i.not11.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE0_clEv.argprom.exit", label %for.body.lr.ph.i.i
+  br i1 %cmp.i.i.i.not11.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE0_clEv.exit", label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
@@ -1521,9 +1521,9 @@ lpad11.i.i:                                       ; preds = %lpad11.loopexit.spl
 
 for.inc.i.i:                                      ; preds = %invoke.cont.i.i.i.i, %invoke.cont12.i.i, %for.body.i.i
   %cmp.i.i.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
-  br i1 %cmp.i.i.i.not.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE0_clEv.argprom.exit", label %for.body.i.i, !llvm.loop !23
+  br i1 %cmp.i.i.i.not.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE0_clEv.exit", label %for.body.i.i, !llvm.loop !23
 
-"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE0_clEv.argprom.exit": ; preds = %for.inc.i.i, %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i
+"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE0_clEv.exit": ; preds = %for.inc.i.i, %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i
   %call1.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #15
   call fastcc void @_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handlers.i.i) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handlers.i.i)
@@ -1766,13 +1766,13 @@ invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN5arr
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #18
-  br label %_ZNSt12_Vector_baseIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 
@@ -1795,7 +1795,7 @@ init.check.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @"_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEv.argprom"()
+  invoke fastcc void @"_ZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEv"()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -1832,7 +1832,7 @@ _ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i: ; preds = %invoke.con
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %handlers_while_forking_.i.i, i8 0, i64 24, i1 false)
   tail call fastcc void @_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %handlers_while_forking_.i.i) #15
   %cmp.i.i.i.not11.i.i = icmp eq ptr %6, %5
-  br i1 %cmp.i.i.i.not11.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE1_clEv.argprom.exit", label %for.body.lr.ph.i.i
+  br i1 %cmp.i.i.i.not11.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE1_clEv.exit", label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
@@ -1930,9 +1930,9 @@ lpad10.i.i:                                       ; preds = %lpad10.loopexit.spl
 
 for.inc.i.i:                                      ; preds = %invoke.cont.i.i.i.i, %invoke.cont11.i.i, %for.body.i.i
   %cmp.i.i.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
-  br i1 %cmp.i.i.i.not.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE1_clEv.argprom.exit", label %for.body.i.i, !llvm.loop !25
+  br i1 %cmp.i.i.i.not.i.i, label %"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE1_clEv.exit", label %for.body.i.i, !llvm.loop !25
 
-"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE1_clEv.argprom.exit": ; preds = %for.inc.i.i, %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i
+"_ZZZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEvENK3$_0clEvENKUlvE1_clEv.exit": ; preds = %for.inc.i.i, %_ZN5arrow8internal12_GLOBAL__N_114GetAtForkStateEv.exit.i
   call fastcc void @_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handlers.i.i) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handlers.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
@@ -2551,10 +2551,10 @@ attributes #19 = { noreturn nounwind }
 !11 = distinct !{!11, !"_ZNKSt8weak_ptrIN5arrow8internal13AtForkHandlerEE4lockEv"}
 !12 = distinct !{!12, !6}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom: %__dest"}
-!15 = distinct !{!15, !"_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom"}
+!14 = distinct !{!14, !15, !"_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
+!15 = distinct !{!15, !"_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_"}
 !16 = !{!17}
-!17 = distinct !{!17, !15, !"_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_.argprom: %__orig"}
+!17 = distinct !{!17, !15, !"_ZSt19__relocate_object_aIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
 !18 = !{!14, !17}
 !19 = distinct !{!19, !6}
 !20 = !{!21}

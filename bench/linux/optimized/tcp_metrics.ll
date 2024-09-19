@@ -2474,7 +2474,7 @@ select.unfold:                                    ; preds = %73, %53
   %135 = getelementptr inbounds i8, ptr %11, i64 8
   %136 = load i64, ptr %135, align 8
   %137 = sub i64 %134, %136
-  %138 = call fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i64 noundef %137)
+  %138 = call fastcc i32 @nla_put_msecs(ptr noundef %0, i64 noundef %137)
   %139 = icmp slt i32 %138, 0
   br i1 %139, label %150, label %140
 
@@ -2514,7 +2514,7 @@ declare dso_local ptr @__alloc_skb(i32 noundef, i32 noundef, i32 noundef, i32 no
 declare dso_local ptr @genlmsg_put(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i64 noundef %1) unnamed_addr #9 align 16 {
+define internal fastcc i32 @nla_put_msecs(ptr noundef %0, i64 noundef %1) unnamed_addr #9 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   %4 = tail call i32 @jiffies_to_msecs(i64 noundef %1) #11

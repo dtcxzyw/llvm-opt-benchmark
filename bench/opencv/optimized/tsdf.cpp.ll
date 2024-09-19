@@ -5340,8 +5340,8 @@ define internal void @"_ZZN2cv3Mat12forEach_implINS_3VecIhLi2EEEZNS_5kinfu13TSDF
   %22 = icmp sgt i32 %13, 0
   br i1 %22, label %.lr.ph.split.us, label %.loopexit
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %"_ZZN2cv3Mat12forEach_implINS_3VecIhLi2EEEZNS_5kinfu13TSDFVolumeCPU5resetEvE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.argprom.exit.loopexit.us"
-  %.03380.us = phi i32 [ %44, %"_ZZN2cv3Mat12forEach_implINS_3VecIhLi2EEEZNS_5kinfu13TSDFVolumeCPU5resetEvE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.argprom.exit.loopexit.us" ], [ %16, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %"_ZZN2cv3Mat12forEach_implINS_3VecIhLi2EEEZNS_5kinfu13TSDFVolumeCPU5resetEvE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us"
+  %.03380.us = phi i32 [ %44, %"_ZZN2cv3Mat12forEach_implINS_3VecIhLi2EEEZNS_5kinfu13TSDFVolumeCPU5resetEvE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us" ], [ %16, %.lr.ph ]
   %.val.us = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %.03380.us, ptr %3, align 4
@@ -5388,9 +5388,9 @@ _ZN2cv3Mat2atINS_3VecIhLi2EEEEERT_PKi.exit.i.us:  ; preds = %30, %.lr.ph.split.u
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %20, align 4
   %43 = icmp ult ptr %39, %38
-  br i1 %43, label %.lr.ph.i.us, label %"_ZZN2cv3Mat12forEach_implINS_3VecIhLi2EEEZNS_5kinfu13TSDFVolumeCPU5resetEvE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.argprom.exit.loopexit.us", !llvm.loop !194
+  br i1 %43, label %.lr.ph.i.us, label %"_ZZN2cv3Mat12forEach_implINS_3VecIhLi2EEEZNS_5kinfu13TSDFVolumeCPU5resetEvE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us", !llvm.loop !194
 
-"_ZZN2cv3Mat12forEach_implINS_3VecIhLi2EEEZNS_5kinfu13TSDFVolumeCPU5resetEvE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.argprom.exit.loopexit.us": ; preds = %.lr.ph.i.us
+"_ZZN2cv3Mat12forEach_implINS_3VecIhLi2EEEZNS_5kinfu13TSDFVolumeCPU5resetEvE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us": ; preds = %.lr.ph.i.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %44 = add nsw i32 %.03380.us, 1
   %45 = load i32, ptr %17, align 4
@@ -5517,7 +5517,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit46:                  ; preds = %.loopexit58.us, %47
   tail call void @_ZdlPv(ptr noundef nonnull %50) #27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZZN2cv3Mat12forEach_implINS_3VecIhLi2EEEZNS_5kinfu13TSDFVolumeCPU5resetEvE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.argprom.exit.loopexit.us", %.lr.ph, %15, %_ZNSt6vectorIiSaIiEED2Ev.exit46
+.loopexit:                                        ; preds = %"_ZZN2cv3Mat12forEach_implINS_3VecIhLi2EEEZNS_5kinfu13TSDFVolumeCPU5resetEvE3$_0EEvRKT0_ENK21PixelOperationWrapper8rowCall2Eii.exit.loopexit.us", %.lr.ph, %15, %_ZNSt6vectorIiSaIiEED2Ev.exit46
   ret void
 }
 
@@ -6611,16 +6611,16 @@ attributes #28 = { builtin allocsize(0) }
 !78 = !{!79, !81}
 !79 = distinct !{!79, !80, !"_ZSt11make_sharedIN2cv5kinfu13TSDFVolumeCPUEJRKfRKNS0_4MatxIfLi4ELi4EEES4_S4_RKiRKNS0_7Point3_IiEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_: argument 0"}
 !80 = distinct !{!80, !"_ZSt11make_sharedIN2cv5kinfu13TSDFVolumeCPUEJRKfRKNS0_4MatxIfLi4ELi4EEES4_S4_RKiRKNS0_7Point3_IiEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_"}
-!81 = distinct !{!81, !82, !"_ZN2cvL7makePtrINS_5kinfu13TSDFVolumeCPUEJfNS_4MatxIfLi4ELi4EEEffiNS_7Point3_IiEEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!82 = distinct !{!82, !"_ZN2cvL7makePtrINS_5kinfu13TSDFVolumeCPUEJfNS_4MatxIfLi4ELi4EEEffiNS_7Point3_IiEEEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!81 = distinct !{!81, !82, !"_ZN2cvL7makePtrINS_5kinfu13TSDFVolumeCPUEJfNS_4MatxIfLi4ELi4EEEffiNS_7Point3_IiEEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!82 = distinct !{!82, !"_ZN2cvL7makePtrINS_5kinfu13TSDFVolumeCPUEJfNS_4MatxIfLi4ELi4EEEffiNS_7Point3_IiEEEEENS_3PtrIT_EEDpRKT0_"}
 !83 = !{!84}
 !84 = distinct !{!84, !85, !"_ZNK2cv7Point3_IiEcvNS_3VecIiLi3EEEEv: argument 0"}
 !85 = distinct !{!85, !"_ZNK2cv7Point3_IiEcvNS_3VecIiLi3EEEEv"}
 !86 = !{!87, !89}
 !87 = distinct !{!87, !88, !"_ZSt11make_sharedIN2cv5kinfu13TSDFVolumeCPUEJRKfRKNS0_4MatxIfLi4ELi4EEES4_S4_RKiRKNS0_3VecIiLi3EEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_: argument 0"}
 !88 = distinct !{!88, !"_ZSt11make_sharedIN2cv5kinfu13TSDFVolumeCPUEJRKfRKNS0_4MatxIfLi4ELi4EEES4_S4_RKiRKNS0_3VecIiLi3EEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_"}
-!89 = distinct !{!89, !90, !"_ZN2cvL7makePtrINS_5kinfu13TSDFVolumeCPUEJfNS_4MatxIfLi4ELi4EEEffiNS_3VecIiLi3EEEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!90 = distinct !{!90, !"_ZN2cvL7makePtrINS_5kinfu13TSDFVolumeCPUEJfNS_4MatxIfLi4ELi4EEEffiNS_3VecIiLi3EEEEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!89 = distinct !{!89, !90, !"_ZN2cvL7makePtrINS_5kinfu13TSDFVolumeCPUEJfNS_4MatxIfLi4ELi4EEEffiNS_3VecIiLi3EEEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!90 = distinct !{!90, !"_ZN2cvL7makePtrINS_5kinfu13TSDFVolumeCPUEJfNS_4MatxIfLi4ELi4EEEffiNS_3VecIiLi3EEEEEENS_3PtrIT_EEDpRKT0_"}
 !91 = !{!92}
 !92 = distinct !{!92, !93, !"_ZNK2cv7Affine3IfE11translationEv: argument 0"}
 !93 = distinct !{!93, !"_ZNK2cv7Affine3IfE11translationEv"}

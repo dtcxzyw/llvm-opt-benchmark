@@ -666,7 +666,7 @@ define hidden void @php_filter_encoded(ptr noundef %0, i64 noundef %1, ptr nocap
   %21 = getelementptr i8, ptr %18, i64 %20
   %.ptr4.i = getelementptr i8, ptr %21, i64 24
   %22 = icmp sgt i64 %20, 0
-  br i1 %22, label %.lr.ph.preheader.i, label %php_filter_encode_url.argprom.exit
+  br i1 %22, label %.lr.ph.preheader.i, label %php_filter_encode_url.exit
 
 .lr.ph.preheader.i:                               ; preds = %10
   %.ptr.i = getelementptr inbounds i8, ptr %18, i64 24
@@ -704,9 +704,9 @@ define hidden void @php_filter_encoded(ptr noundef %0, i64 noundef %1, ptr nocap
   store i8 %.sink, ptr %.03.i, align 1
   %40 = getelementptr inbounds i8, ptr %.1502.i, i64 1
   %41 = icmp ult ptr %40, %.ptr4.i
-  br i1 %41, label %.lr.ph.i, label %php_filter_encode_url.argprom.exit
+  br i1 %41, label %.lr.ph.i, label %php_filter_encode_url.exit
 
-php_filter_encode_url.argprom.exit:               ; preds = %39, %10
+php_filter_encode_url.exit:                       ; preds = %39, %10
   %.0.lcssa.i = phi ptr [ %17, %10 ], [ %.1.i, %39 ]
   %42 = getelementptr inbounds i8, ptr %14, i64 16
   store i8 0, ptr %.0.lcssa.i, align 1

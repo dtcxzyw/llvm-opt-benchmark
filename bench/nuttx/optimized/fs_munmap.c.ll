@@ -5,12 +5,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @file_munmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call fastcc i32 @file_munmap_.argelim(ptr noundef %0, i64 noundef %1)
+  %3 = tail call fastcc i32 @file_munmap_(ptr noundef %0, i64 noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @file_munmap_.argelim(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @file_munmap_(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @nxsched_self() #2
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 16
@@ -63,7 +63,7 @@ define internal fastcc i32 @file_munmap_.argelim(ptr noundef %0, i64 noundef %1)
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @munmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call fastcc i32 @file_munmap_.argelim(ptr noundef %0, i64 noundef %1)
+  %3 = tail call fastcc i32 @file_munmap_(ptr noundef %0, i64 noundef %1)
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %8
 

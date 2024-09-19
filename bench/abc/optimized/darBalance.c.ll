@@ -350,7 +350,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %17, %5
 .Vec_PtrGrow.exit11_crit_edge.i.i:                ; preds = %.loopexit
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  br label %Vec_VecPush.argprom.exit
+  br label %Vec_VecPush.exit
 
 33:                                               ; preds = %.loopexit
   %34 = icmp slt i32 %30, 16
@@ -374,7 +374,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %40, %38
   %42 = phi ptr [ %39, %38 ], [ %41, %40 ]
   store ptr %42, ptr %36, align 8
   store i32 16, ptr %28, align 8
-  br label %Vec_VecPush.argprom.exit
+  br label %Vec_VecPush.exit
 
 43:                                               ; preds = %33
   %44 = shl nuw nsw i32 %30, 1
@@ -397,9 +397,9 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %40, %38
   %54 = phi ptr [ %50, %49 ], [ %52, %51 ]
   store ptr %54, ptr %45, align 8
   store i32 %44, ptr %28, align 8
-  br label %Vec_VecPush.argprom.exit
+  br label %Vec_VecPush.exit
 
-Vec_VecPush.argprom.exit:                         ; preds = %.Vec_PtrGrow.exit11_crit_edge.i.i, %Vec_PtrGrow.exit.i.i, %53
+Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i.i, %Vec_PtrGrow.exit.i.i, %53
   %55 = phi ptr [ %.pre.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i ], [ %54, %53 ], [ %42, %Vec_PtrGrow.exit.i.i ]
   %56 = load i32, ptr %29, align 4
   %57 = add nsw i32 %56, 1
@@ -409,8 +409,8 @@ Vec_VecPush.argprom.exit:                         ; preds = %.Vec_PtrGrow.exit11
   store ptr null, ptr %59, align 8
   br label %60
 
-60:                                               ; preds = %._crit_edge, %Vec_VecPush.argprom.exit
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %26, %Vec_VecPush.argprom.exit ]
+60:                                               ; preds = %._crit_edge, %Vec_VecPush.exit
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %26, %Vec_VecPush.exit ]
   %61 = getelementptr i8, ptr %1, i64 8
   %.val13 = load ptr, ptr %61, align 8
   %62 = getelementptr inbounds ptr, ptr %.val13, i64 %.pre-phi

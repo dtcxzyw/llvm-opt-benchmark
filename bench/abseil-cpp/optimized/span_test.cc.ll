@@ -1514,7 +1514,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef range(i32 552, 633) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 552, 633) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -1556,7 +1556,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef range(i32 552, 633) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 552, 633) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -2175,19 +2175,19 @@ cleanup.i:                                        ; preds = %_ZN7testing15Assert
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl4SpanIiEEEE, i64 16), ptr %matcher.i, align 8, !noalias !69
   %50 = load ptr, ptr %vtable_.i.i.i.i.i.i.i.i, align 8, !noalias !69
   %cmp.not.i.i.i.i.i = icmp eq ptr %50, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.argprom.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIiEEE8IsSharedEv.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIiEEE8IsSharedEv.exit.i.i.i.i
 
 _ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIiEEE8IsSharedEv.exit.i.i.i.i: ; preds = %cleanup.i
   %shared_destroy.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 24
   %51 = load ptr, ptr %shared_destroy.i.i.i.i.i, align 8
   %cmp3.i.not.i.i.i.i = icmp eq ptr %51, null
-  br i1 %cmp3.i.not.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.argprom.exit, label %land.lhs.true.i.i.i.i
+  br i1 %cmp3.i.not.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIiEEE8IsSharedEv.exit.i.i.i.i
   %52 = load ptr, ptr %buffer_.i.i.i.i.i.i.i.i, align 8, !noalias !69
   %53 = atomicrmw sub ptr %52, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %53, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.argprom.exit
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
   %54 = load ptr, ptr %vtable_.i.i.i.i.i.i.i.i, align 8, !noalias !69
@@ -2195,7 +2195,7 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %55 = load ptr, ptr %shared_destroy.i.i.i.i, align 8
   %56 = load ptr, ptr %buffer_.i.i.i.i.i.i.i.i, align 8, !noalias !69
   invoke void %55(ptr noundef %56)
-          to label %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.argprom.exit unwind label %terminate.lpad.i.i.i
+          to label %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %57 = landingpad { ptr, i32 }
@@ -2209,7 +2209,7 @@ ehcleanup42.i:                                    ; preds = %ehcleanup41.i, %lpa
   call void @_ZN7testing7MatcherIRKN4absl4SpanIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matcher.i) #24
   br label %common.resume
 
-_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.argprom.exit: ; preds = %cleanup.i, %_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIiEEE8IsSharedEv.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i.i
+_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.exit: ; preds = %cleanup.i, %_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIiEEE8IsSharedEv.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %matcher.i)
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i)
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %listener.i)
@@ -2225,7 +2225,7 @@ lpad:                                             ; preds = %if.else
           cleanup
   br label %ehcleanup11
 
-if.else:                                          ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.argprom.exit
+if.else:                                          ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
           to label %invoke.cont3 unwind label %lpad
 
@@ -2293,7 +2293,7 @@ _ZN7testing7MessageD2Ev.exit9:                    ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp2, align 8
   br label %ehcleanup11
 
-if.end:                                           ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.argprom.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %68 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i10 = icmp eq ptr %68, null
@@ -3025,7 +3025,7 @@ entry:
 define internal void @_ZNK12_GLOBAL__N_114DataIsMatcherPIDnE10gmock_ImplIRKN4absl4SpanIiEEE10DescribeToEPSo(ptr nocapture nonnull readnone align 8 %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK12_GLOBAL__N_114DataIsMatcherPIDnE10gmock_ImplIRKN4absl4SpanIiEEE17FormatDescriptionB5cxx11Eb.argprom(ptr noalias align 8 %ref.tmp, i1 noundef zeroext false)
+  call fastcc void @_ZNK12_GLOBAL__N_114DataIsMatcherPIDnE10gmock_ImplIRKN4absl4SpanIiEEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -3044,7 +3044,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK12_GLOBAL__N_114DataIsMatcherPIDnE10gmock_ImplIRKN4absl4SpanIiEEE18DescribeNegationToEPSo(ptr nocapture nonnull readnone align 8 %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK12_GLOBAL__N_114DataIsMatcherPIDnE10gmock_ImplIRKN4absl4SpanIiEEE17FormatDescriptionB5cxx11Eb.argprom(ptr noalias align 8 %ref.tmp, i1 noundef zeroext true)
+  call fastcc void @_ZNK12_GLOBAL__N_114DataIsMatcherPIDnE10gmock_ImplIRKN4absl4SpanIiEEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -3068,7 +3068,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_114DataIsMatcherPIDnE10gmock_ImplIRKN4absl4SpanIiEEE17FormatDescriptionB5cxx11Eb.argprom(ptr noalias nonnull align 8 %agg.result, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK12_GLOBAL__N_114DataIsMatcherPIDnE10gmock_ImplIRKN4absl4SpanIiEEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %agg.result, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10502,14 +10502,14 @@ if.end:                                           ; preds = %entry, %_ZN7testing
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %9 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i13 = icmp eq ptr %9, null
-  br i1 %cmp.not.i.i13, label %_ZN12_GLOBAL__N_129ContainerWithShallowConstDataD2Ev.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
+  br i1 %cmp.not.i.i13, label %_ZN12_GLOBAL__N_129ContainerWithShallowConstDataD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
   call void @_ZdlPv(ptr noundef nonnull %9) #25
-  br label %_ZN12_GLOBAL__N_129ContainerWithShallowConstDataD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_129ContainerWithShallowConstDataD2Ev.exit
 
-_ZN12_GLOBAL__N_129ContainerWithShallowConstDataD2Ev.argprom.exit: ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
+_ZN12_GLOBAL__N_129ContainerWithShallowConstDataD2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   ret void
 
 ehcleanup15:                                      ; preds = %_ZN7testing7MessageD2Ev.exit12, %lpad6
@@ -15807,12 +15807,12 @@ define internal void @_ZN12_GLOBAL__N_143ConstIntSpan_InitializerListConversion_
 entry:
   %ref.tmp4 = alloca [1 x i32], align 4
   %ref.tmp19 = alloca [3 x i32], align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119TestInitializerListEN4absl4SpanIKiEERKSt6vectorIiSaIiEE.argprom(ptr null, i64 0, ptr null, ptr null)
+  tail call fastcc void @_ZN12_GLOBAL__N_119TestInitializerListEN4absl4SpanIKiEERKSt6vectorIiSaIiEE(ptr null, i64 0, ptr null, ptr null)
   store i32 1, ptr %ref.tmp4, align 4
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #26
   store i32 1, ptr %call5.i.i.i.i2.i, align 4
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 4
-  invoke fastcc void @_ZN12_GLOBAL__N_119TestInitializerListEN4absl4SpanIKiEERKSt6vectorIiSaIiEE.argprom(ptr nonnull %ref.tmp4, i64 1, ptr nonnull %call5.i.i.i.i2.i, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_119TestInitializerListEN4absl4SpanIKiEERKSt6vectorIiSaIiEE(ptr nonnull %ref.tmp4, i64 1, ptr nonnull %call5.i.i.i.i2.i, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i)
           to label %_ZNSt6vectorIiSaIiEED2Ev.exit20 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit44
 
 _ZNSt6vectorIiSaIiEED2Ev.exit20:                  ; preds = %entry
@@ -15829,7 +15829,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit20:                  ; preds = %entry
   %ref.tmp27.sroa.3.0.call5.i.i.i.i2.i22.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i22, i64 8
   store i32 3, ptr %ref.tmp27.sroa.3.0.call5.i.i.i.i2.i22.sroa_idx, align 4
   %add.ptr.i.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i22, i64 12
-  invoke fastcc void @_ZN12_GLOBAL__N_119TestInitializerListEN4absl4SpanIKiEERKSt6vectorIiSaIiEE.argprom(ptr nonnull %ref.tmp19, i64 3, ptr nonnull %call5.i.i.i.i2.i22, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i29)
+  invoke fastcc void @_ZN12_GLOBAL__N_119TestInitializerListEN4absl4SpanIKiEERKSt6vectorIiSaIiEE(ptr nonnull %ref.tmp19, i64 3, ptr nonnull %call5.i.i.i.i2.i22, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i29)
           to label %if.end unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit48
 
 _ZNSt6vectorIiSaIiEED2Ev.exit44:                  ; preds = %entry
@@ -15854,7 +15854,7 @@ eh.resume:                                        ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119TestInitializerListEN4absl4SpanIKiEERKSt6vectorIiSaIiEE.argprom(ptr nocapture readonly %s.coerce0, i64 %s.coerce1, ptr %v.0.val, ptr %v.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119TestInitializerListEN4absl4SpanIKiEERKSt6vectorIiSaIiEE(ptr nocapture readonly %s.coerce0, i64 %s.coerce1, ptr %v.0.val, ptr %v.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp10 = alloca %"class.testing::Message", align 8
@@ -49654,11 +49654,11 @@ invoke.cont.i658:                                 ; preds = %.noexc.i656
 invoke.cont3.i662:                                ; preds = %invoke.cont.i658
   %line.i.i663 = getelementptr inbounds i8, ptr %agg.tmp.i648, i64 32
   store i32 552, ptr %line.i.i663, align 8
-  %call7.i664 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 552)
+  %call7.i664 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 552)
           to label %invoke.cont6.i666 unwind label %lpad4.i665
 
 invoke.cont6.i666:                                ; preds = %invoke.cont3.i662
-  %call9.i667 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 552)
+  %call9.i667 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 552)
           to label %invoke.cont8.i668 unwind label %lpad4.i665
 
 invoke.cont8.i668:                                ; preds = %invoke.cont6.i666
@@ -49727,11 +49727,11 @@ invoke.cont.i682:                                 ; preds = %.noexc.i680
 invoke.cont3.i686:                                ; preds = %invoke.cont.i682
   %line.i.i687 = getelementptr inbounds i8, ptr %agg.tmp.i672, i64 32
   store i32 578, ptr %line.i.i687, align 8
-  %call7.i688 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 578)
+  %call7.i688 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 578)
           to label %invoke.cont6.i690 unwind label %lpad4.i689
 
 invoke.cont6.i690:                                ; preds = %invoke.cont3.i686
-  %call9.i691 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 578)
+  %call9.i691 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 578)
           to label %invoke.cont8.i692 unwind label %lpad4.i689
 
 invoke.cont8.i692:                                ; preds = %invoke.cont6.i690
@@ -49800,11 +49800,11 @@ invoke.cont.i706:                                 ; preds = %.noexc.i704
 invoke.cont3.i710:                                ; preds = %invoke.cont.i706
   %line.i.i711 = getelementptr inbounds i8, ptr %agg.tmp.i696, i64 32
   store i32 596, ptr %line.i.i711, align 8
-  %call7.i712 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 596)
+  %call7.i712 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 596)
           to label %invoke.cont6.i714 unwind label %lpad4.i713
 
 invoke.cont6.i714:                                ; preds = %invoke.cont3.i710
-  %call9.i715 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 596)
+  %call9.i715 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 596)
           to label %invoke.cont8.i716 unwind label %lpad4.i713
 
 invoke.cont8.i716:                                ; preds = %invoke.cont6.i714
@@ -49873,11 +49873,11 @@ invoke.cont.i730:                                 ; preds = %.noexc.i728
 invoke.cont3.i734:                                ; preds = %invoke.cont.i730
   %line.i.i735 = getelementptr inbounds i8, ptr %agg.tmp.i720, i64 32
   store i32 614, ptr %line.i.i735, align 8
-  %call7.i736 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 614)
+  %call7.i736 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 614)
           to label %invoke.cont6.i738 unwind label %lpad4.i737
 
 invoke.cont6.i738:                                ; preds = %invoke.cont3.i734
-  %call9.i739 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 614)
+  %call9.i739 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 614)
           to label %invoke.cont8.i740 unwind label %lpad4.i737
 
 invoke.cont8.i740:                                ; preds = %invoke.cont6.i738
@@ -49946,11 +49946,11 @@ invoke.cont.i754:                                 ; preds = %.noexc.i752
 invoke.cont3.i758:                                ; preds = %invoke.cont.i754
   %line.i.i759 = getelementptr inbounds i8, ptr %agg.tmp.i744, i64 32
   store i32 621, ptr %line.i.i759, align 8
-  %call7.i760 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 621)
+  %call7.i760 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 621)
           to label %invoke.cont6.i762 unwind label %lpad4.i761
 
 invoke.cont6.i762:                                ; preds = %invoke.cont3.i758
-  %call9.i763 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 621)
+  %call9.i763 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 621)
           to label %invoke.cont8.i764 unwind label %lpad4.i761
 
 invoke.cont8.i764:                                ; preds = %invoke.cont6.i762
@@ -50019,11 +50019,11 @@ invoke.cont.i778:                                 ; preds = %.noexc.i776
 invoke.cont3.i782:                                ; preds = %invoke.cont.i778
   %line.i.i783 = getelementptr inbounds i8, ptr %agg.tmp.i768, i64 32
   store i32 632, ptr %line.i.i783, align 8
-  %call7.i784 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 632)
+  %call7.i784 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 632)
           to label %invoke.cont6.i786 unwind label %lpad4.i785
 
 invoke.cont6.i786:                                ; preds = %invoke.cont3.i782
-  %call9.i787 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 632)
+  %call9.i787 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_126IntSpanOrderComparisonTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 632)
           to label %invoke.cont8.i788 unwind label %lpad4.i785
 
 invoke.cont8.i788:                                ; preds = %invoke.cont6.i786
@@ -50683,27 +50683,27 @@ attributes #28 = { noreturn }
 !18 = distinct !{!18, !19, !"_ZNK7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv: %agg.result"}
 !19 = distinct !{!19, !"_ZNK7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv"}
 !20 = !{!15, !12, !9, !6, !21}
-!21 = distinct !{!21, !22, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.argprom: %agg.result"}
-!22 = distinct !{!22, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_.argprom"}
+!21 = distinct !{!21, !22, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_: %agg.result"}
+!22 = distinct !{!22, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIDnEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIiEEEENS_15AssertionResultEPKcRKT_"}
 !23 = !{!18, !15, !12, !9, !6, !21}
 !24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!26 = distinct !{!26, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEEENS_7MatcherIT_EERKT0_.argprom"}
+!25 = distinct !{!25, !26, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!26 = distinct !{!26, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEEENS_7MatcherIT_EERKT0_"}
 !27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!29 = distinct !{!29, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEEENS_7MatcherIT_EERKT0_.argprom"}
+!28 = distinct !{!28, !29, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!29 = distinct !{!29, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEEENS_7MatcherIT_EERKT0_"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEE4CastERKS9_.argprom: %agg.result"}
-!32 = distinct !{!32, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEE4CastERKS9_.argprom"}
+!31 = distinct !{!31, !32, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEE4CastERKS9_: %agg.result"}
+!32 = distinct !{!32, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEE4CastERKS9_"}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEE8CastImplILb0EEENS_7MatcherIS6_EERKS9_St17integral_constantIbLb1EESG_IbXT_EE.argprom: %agg.result"}
-!35 = distinct !{!35, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEE8CastImplILb0EEENS_7MatcherIS6_EERKS9_St17integral_constantIbLb1EESG_IbXT_EE.argprom"}
+!34 = distinct !{!34, !35, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEE8CastImplILb0EEENS_7MatcherIS6_EERKS9_St17integral_constantIbLb1EESG_IbXT_EE: %agg.result"}
+!35 = distinct !{!35, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIDnEEE8CastImplILb0EEENS_7MatcherIS6_EERKS9_St17integral_constantIbLb1EESG_IbXT_EE"}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIDnEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv.argprom: %agg.result"}
-!38 = distinct !{!38, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIDnEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv.argprom"}
+!37 = distinct !{!37, !38, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIDnEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv: %agg.result"}
+!38 = distinct !{!38, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIDnEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv"}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIDnEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!41 = distinct !{!41, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIDnEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!40 = distinct !{!40, !41, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIDnEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!41 = distinct !{!41, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIDnEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !42 = !{!40, !37, !34, !31, !28, !25, !18, !15, !12, !9, !6, !21}
 !43 = !{!40, !37, !34, !31, !28, !25}
 !44 = !{!45}
@@ -50768,23 +50768,23 @@ attributes #28 = { noreturn }
 !103 = !{!98, !95, !92, !89}
 !104 = !{!101, !98, !95, !92, !89}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!107 = distinct !{!107, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!106 = distinct !{!106, !107, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!107 = distinct !{!107, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_"}
 !108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!110 = distinct !{!110, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!109 = distinct !{!109, !110, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!110 = distinct !{!110, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_"}
 !111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE4CastERKSA_.argprom: %agg.result"}
-!113 = distinct !{!113, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE4CastERKSA_.argprom"}
+!112 = distinct !{!112, !113, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE4CastERKSA_: %agg.result"}
+!113 = distinct !{!113, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE4CastERKSA_"}
 !114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS6_EERKSA_St17integral_constantIbLb1EESH_IbXT_EE.argprom: %agg.result"}
-!116 = distinct !{!116, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS6_EERKSA_St17integral_constantIbLb1EESH_IbXT_EE.argprom"}
+!115 = distinct !{!115, !116, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS6_EERKSA_St17integral_constantIbLb1EESH_IbXT_EE: %agg.result"}
+!116 = distinct !{!116, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS6_EERKSA_St17integral_constantIbLb1EESH_IbXT_EE"}
 !117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv.argprom: %agg.result"}
-!119 = distinct !{!119, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv.argprom"}
+!118 = distinct !{!118, !119, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv: %agg.result"}
+!119 = distinct !{!119, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv"}
 !120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!122 = distinct !{!122, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!121 = distinct !{!121, !122, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!122 = distinct !{!122, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !123 = !{!121, !118, !115, !112, !109, !106, !101, !98, !95, !92, !89}
 !124 = !{!121, !118, !115, !112, !109, !106}
 !125 = !{!126}
@@ -50835,23 +50835,23 @@ attributes #28 = { noreturn }
 !170 = !{!165, !162, !159, !156}
 !171 = !{!168, !165, !162, !159, !156}
 !172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!174 = distinct !{!174, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!173 = distinct !{!173, !174, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!174 = distinct !{!174, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEEENS_7MatcherIT_EERKT0_"}
 !175 = !{!176}
-!176 = distinct !{!176, !177, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!177 = distinct !{!177, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!176 = distinct !{!176, !177, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!177 = distinct !{!177, !"_ZN7testing11MatcherCastIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEEENS_7MatcherIT_EERKT0_"}
 !178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEE4CastERKSB_.argprom: %agg.result"}
-!180 = distinct !{!180, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEE4CastERKSB_.argprom"}
+!179 = distinct !{!179, !180, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEE4CastERKSB_: %agg.result"}
+!180 = distinct !{!180, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEE4CastERKSB_"}
 !181 = !{!182}
-!182 = distinct !{!182, !183, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEE8CastImplILb0EEENS_7MatcherIS6_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom: %agg.result"}
-!183 = distinct !{!183, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEE8CastImplILb0EEENS_7MatcherIS6_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom"}
+!182 = distinct !{!182, !183, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEE8CastImplILb0EEENS_7MatcherIS6_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE: %agg.result"}
+!183 = distinct !{!183, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIiEEN12_GLOBAL__N_114DataIsMatcherPIPKiEEE8CastImplILb0EEENS_7MatcherIS6_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE"}
 !184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv.argprom: %agg.result"}
-!186 = distinct !{!186, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv.argprom"}
+!185 = distinct !{!185, !186, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv: %agg.result"}
+!186 = distinct !{!186, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIiEEEEv"}
 !187 = !{!188}
-!188 = distinct !{!188, !189, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!189 = distinct !{!189, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!188 = distinct !{!188, !189, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!189 = distinct !{!189, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEE5ApplyIRKN4absl4SpanIiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !190 = !{!188, !185, !182, !179, !176, !173, !168, !165, !162, !159, !156}
 !191 = !{!188, !185, !182, !179, !176, !173}
 !192 = !{!193}
@@ -50896,23 +50896,23 @@ attributes #28 = { noreturn }
 !231 = !{!226, !223, !220, !217}
 !232 = !{!229, !226, !223, !220, !217}
 !233 = !{!234}
-!234 = distinct !{!234, !235, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!235 = distinct !{!235, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_.argprom"}
+!234 = distinct !{!234, !235, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!235 = distinct !{!235, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_"}
 !236 = !{!237}
-!237 = distinct !{!237, !238, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!238 = distinct !{!238, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_.argprom"}
+!237 = distinct !{!237, !238, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!238 = distinct !{!238, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_"}
 !239 = !{!240}
-!240 = distinct !{!240, !241, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE4CastERKSB_.argprom: %agg.result"}
-!241 = distinct !{!241, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE4CastERKSB_.argprom"}
+!240 = distinct !{!240, !241, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE4CastERKSB_: %agg.result"}
+!241 = distinct !{!241, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE4CastERKSB_"}
 !242 = !{!243}
-!243 = distinct !{!243, !244, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom: %agg.result"}
-!244 = distinct !{!244, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom"}
+!243 = distinct !{!243, !244, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE: %agg.result"}
+!244 = distinct !{!244, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE"}
 !245 = !{!246}
-!246 = distinct !{!246, !247, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIS4_EEEEv.argprom: %agg.result"}
-!247 = distinct !{!247, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIS4_EEEEv.argprom"}
+!246 = distinct !{!246, !247, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIS4_EEEEv: %agg.result"}
+!247 = distinct !{!247, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIS4_EEEEv"}
 !248 = !{!249}
-!249 = distinct !{!249, !250, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEE5ApplyIRKN4absl4SpanIS4_EEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!250 = distinct !{!250, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEE5ApplyIRKN4absl4SpanIS4_EEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!249 = distinct !{!249, !250, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEE5ApplyIRKN4absl4SpanIS4_EEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!250 = distinct !{!250, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKiEEE5ApplyIRKN4absl4SpanIS4_EEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !251 = !{!249, !246, !243, !240, !237, !234, !229, !226, !223, !220, !217}
 !252 = !{!249, !246, !243, !240, !237, !234}
 !253 = !{!254}
@@ -50957,23 +50957,23 @@ attributes #28 = { noreturn }
 !292 = !{!287, !284, !281, !278}
 !293 = !{!290, !287, !284, !281, !278}
 !294 = !{!295}
-!295 = distinct !{!295, !296, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!296 = distinct !{!296, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!295 = distinct !{!295, !296, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!296 = distinct !{!296, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_"}
 !297 = !{!298}
-!298 = distinct !{!298, !299, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!299 = distinct !{!299, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!298 = distinct !{!298, !299, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!299 = distinct !{!299, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEEENS_7MatcherIT_EERKT0_"}
 !300 = !{!301}
-!301 = distinct !{!301, !302, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE4CastERKSB_.argprom: %agg.result"}
-!302 = distinct !{!302, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE4CastERKSB_.argprom"}
+!301 = distinct !{!301, !302, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE4CastERKSB_: %agg.result"}
+!302 = distinct !{!302, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE4CastERKSB_"}
 !303 = !{!304}
-!304 = distinct !{!304, !305, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom: %agg.result"}
-!305 = distinct !{!305, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom"}
+!304 = distinct !{!304, !305, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE: %agg.result"}
+!305 = distinct !{!305, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKiEEN12_GLOBAL__N_114DataIsMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE"}
 !306 = !{!307}
-!307 = distinct !{!307, !308, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIKiEEEEv.argprom: %agg.result"}
-!308 = distinct !{!308, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIKiEEEEv.argprom"}
+!307 = distinct !{!307, !308, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIKiEEEEv: %agg.result"}
+!308 = distinct !{!308, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIKiEEEEv"}
 !309 = !{!310}
-!310 = distinct !{!310, !311, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEE5ApplyIRKN4absl4SpanIKiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!311 = distinct !{!311, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEE5ApplyIRKN4absl4SpanIKiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!310 = distinct !{!310, !311, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEE5ApplyIRKN4absl4SpanIKiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!311 = distinct !{!311, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPiEEE5ApplyIRKN4absl4SpanIKiEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !312 = !{!310, !307, !304, !301, !298, !295, !290, !287, !284, !281, !278}
 !313 = !{!310, !307, !304, !301, !298, !295}
 !314 = !{!315}
@@ -51064,27 +51064,27 @@ attributes #28 = { noreturn }
 !399 = distinct !{!399, !400, !"_ZNK7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIPKcEENS0_13SizeIsMatcherImEEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIS5_EEEEv: %agg.result"}
 !400 = distinct !{!400, !"_ZNK7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIPKcEENS0_13SizeIsMatcherImEEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIS5_EEEEv"}
 !401 = !{!396, !393, !390, !387, !402}
-!402 = distinct !{!402, !403, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIPKcEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIS6_EEEENS_15AssertionResultES7_RKT_.argprom: %agg.result"}
-!403 = distinct !{!403, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIPKcEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIS6_EEEENS_15AssertionResultES7_RKT_.argprom"}
+!402 = distinct !{!402, !403, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIPKcEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIS6_EEEENS_15AssertionResultES7_RKT_: %agg.result"}
+!403 = distinct !{!403, !"_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJN12_GLOBAL__N_114DataIsMatcherPIPKcEENS0_13SizeIsMatcherImEEEEEEclIN4absl4SpanIS6_EEEENS_15AssertionResultES7_RKT_"}
 !404 = !{!399, !396, !393, !390, !387, !402}
 !405 = !{!406}
-!406 = distinct !{!406, !407, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!407 = distinct !{!407, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_.argprom"}
+!406 = distinct !{!406, !407, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!407 = distinct !{!407, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_"}
 !408 = !{!409}
-!409 = distinct !{!409, !410, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!410 = distinct !{!410, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_.argprom"}
+!409 = distinct !{!409, !410, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!410 = distinct !{!410, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS3_EEEENS_7MatcherIT_EERKT0_"}
 !411 = !{!412}
-!412 = distinct !{!412, !413, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE4CastERKSB_.argprom: %agg.result"}
-!413 = distinct !{!413, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE4CastERKSB_.argprom"}
+!412 = distinct !{!412, !413, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE4CastERKSB_: %agg.result"}
+!413 = distinct !{!413, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE4CastERKSB_"}
 !414 = !{!415}
-!415 = distinct !{!415, !416, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom: %agg.result"}
-!416 = distinct !{!416, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom"}
+!415 = distinct !{!415, !416, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE: %agg.result"}
+!416 = distinct !{!416, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPS4_EEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE"}
 !417 = !{!418}
-!418 = distinct !{!418, !419, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIS4_EEEEv.argprom: %agg.result"}
-!419 = distinct !{!419, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIS4_EEEEv.argprom"}
+!418 = distinct !{!418, !419, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIS4_EEEEv: %agg.result"}
+!419 = distinct !{!419, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIS4_EEEEv"}
 !420 = !{!421}
-!421 = distinct !{!421, !422, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEE5ApplyIRKN4absl4SpanIS4_EEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!422 = distinct !{!422, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEE5ApplyIRKN4absl4SpanIS4_EEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!421 = distinct !{!421, !422, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEE5ApplyIRKN4absl4SpanIS4_EEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!422 = distinct !{!422, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEE5ApplyIRKN4absl4SpanIS4_EEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !423 = !{!421, !418, !415, !412, !409, !406, !399, !396, !393, !390, !387, !402}
 !424 = !{!421, !418, !415, !412, !409, !406}
 !425 = !{!426}
@@ -51131,23 +51131,23 @@ attributes #28 = { noreturn }
 !466 = !{!461, !458, !455, !452}
 !467 = !{!464, !461, !458, !455, !452}
 !468 = !{!469}
-!469 = distinct !{!469, !470, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!470 = distinct !{!470, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEEENS_7MatcherIT_EERKT0_.argprom"}
+!469 = distinct !{!469, !470, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!470 = distinct !{!470, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEEENS_7MatcherIT_EERKT0_"}
 !471 = !{!472}
-!472 = distinct !{!472, !473, !"_ZN7testing11MatcherCastIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!473 = distinct !{!473, !"_ZN7testing11MatcherCastIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEEENS_7MatcherIT_EERKT0_.argprom"}
+!472 = distinct !{!472, !473, !"_ZN7testing11MatcherCastIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!473 = distinct !{!473, !"_ZN7testing11MatcherCastIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEEENS_7MatcherIT_EERKT0_"}
 !474 = !{!475}
-!475 = distinct !{!475, !476, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEE4CastERKSB_.argprom: %agg.result"}
-!476 = distinct !{!476, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEE4CastERKSB_.argprom"}
+!475 = distinct !{!475, !476, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEE4CastERKSB_: %agg.result"}
+!476 = distinct !{!476, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEE4CastERKSB_"}
 !477 = !{!478}
-!478 = distinct !{!478, !479, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEE8CastImplILb0EEENS_7MatcherIS6_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom: %agg.result"}
-!479 = distinct !{!479, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEE8CastImplILb0EEENS_7MatcherIS6_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom"}
+!478 = distinct !{!478, !479, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEE8CastImplILb0EEENS_7MatcherIS6_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE: %agg.result"}
+!479 = distinct !{!479, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIcEEN12_GLOBAL__N_114DataIsMatcherPIPKcEEE8CastImplILb0EEENS_7MatcherIS6_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE"}
 !480 = !{!481}
-!481 = distinct !{!481, !482, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIcEEEEv.argprom: %agg.result"}
-!482 = distinct !{!482, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIcEEEEv.argprom"}
+!481 = distinct !{!481, !482, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIcEEEEv: %agg.result"}
+!482 = distinct !{!482, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIcEEEEv"}
 !483 = !{!484}
-!484 = distinct !{!484, !485, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEE5ApplyIRKN4absl4SpanIcEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!485 = distinct !{!485, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEE5ApplyIRKN4absl4SpanIcEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!484 = distinct !{!484, !485, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEE5ApplyIRKN4absl4SpanIcEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!485 = distinct !{!485, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPKcEEE5ApplyIRKN4absl4SpanIcEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !486 = !{!484, !481, !478, !475, !472, !469, !464, !461, !458, !455, !452}
 !487 = !{!484, !481, !478, !475, !472, !469}
 !488 = !{!489}
@@ -51297,23 +51297,23 @@ attributes #28 = { noreturn }
 !632 = !{!627, !624, !621, !618}
 !633 = !{!630, !627, !624, !621, !618}
 !634 = !{!635}
-!635 = distinct !{!635, !636, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!636 = distinct !{!636, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEEENS_7MatcherIT_EERKT0_.argprom"}
+!635 = distinct !{!635, !636, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!636 = distinct !{!636, !"_ZN7testing15SafeMatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEEENS_7MatcherIT_EERKT0_"}
 !637 = !{!638}
-!638 = distinct !{!638, !639, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!639 = distinct !{!639, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEEENS_7MatcherIT_EERKT0_.argprom"}
+!638 = distinct !{!638, !639, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!639 = distinct !{!639, !"_ZN7testing11MatcherCastIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEEENS_7MatcherIT_EERKT0_"}
 !640 = !{!641}
-!641 = distinct !{!641, !642, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEE4CastERKSB_.argprom: %agg.result"}
-!642 = distinct !{!642, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEE4CastERKSB_.argprom"}
+!641 = distinct !{!641, !642, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEE4CastERKSB_: %agg.result"}
+!642 = distinct !{!642, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEE4CastERKSB_"}
 !643 = !{!644}
-!644 = distinct !{!644, !645, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom: %agg.result"}
-!645 = distinct !{!645, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE.argprom"}
+!644 = distinct !{!644, !645, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE: %agg.result"}
+!645 = distinct !{!645, !"_ZN7testing8internal15MatcherCastImplIRKN4absl4SpanIKcEEN12_GLOBAL__N_114DataIsMatcherPIPcEEE8CastImplILb0EEENS_7MatcherIS7_EERKSB_St17integral_constantIbLb1EESI_IbXT_EE"}
 !646 = !{!647}
-!647 = distinct !{!647, !648, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIKcEEEEv.argprom: %agg.result"}
-!648 = distinct !{!648, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIKcEEEEv.argprom"}
+!647 = distinct !{!647, !648, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIKcEEEEv: %agg.result"}
+!648 = distinct !{!648, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPcEEEcvNS_7MatcherIT_EEIRKN4absl4SpanIKcEEEEv"}
 !649 = !{!650}
-!650 = distinct !{!650, !651, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPcEEE5ApplyIRKN4absl4SpanIKcEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!651 = distinct !{!651, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPcEEE5ApplyIRKN4absl4SpanIKcEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!650 = distinct !{!650, !651, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPcEEE5ApplyIRKN4absl4SpanIKcEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!651 = distinct !{!651, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114DataIsMatcherPIPcEEE5ApplyIRKN4absl4SpanIKcEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !652 = !{!650, !647, !644, !641, !638, !635, !630, !627, !624, !621, !618}
 !653 = !{!650, !647, !644, !641, !638, !635}
 !654 = !{!655}

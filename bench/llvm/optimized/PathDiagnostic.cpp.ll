@@ -4113,7 +4113,7 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   %.val.val = load ptr, ptr %.val, align 8
   %111 = getelementptr i8, ptr %.val, i64 8
   %.val.val50 = load ptr, ptr %111, align 8
-  tail call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr %.val.val50, i32 %.val46, ptr noundef %108, ptr noundef nonnull align 8 dereferenceable(696) %2)
+  tail call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr %.val.val50, i32 %.val46, ptr noundef %108, ptr noundef nonnull align 8 dereferenceable(696) %2)
   br label %197
 
 112:                                              ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
@@ -4127,7 +4127,7 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   %.val47.val = load ptr, ptr %.val47, align 8
   %117 = getelementptr i8, ptr %.val47, i64 8
   %.val47.val49 = load ptr, ptr %117, align 8
-  tail call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val47.val, ptr %.val47.val49, i32 %.val48, ptr noundef %114, ptr noundef nonnull align 8 dereferenceable(696) %2)
+  tail call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val47.val, ptr %.val47.val49, i32 %.val48, ptr noundef %114, ptr noundef nonnull align 8 dereferenceable(696) %2)
   br label %197
 
 118:                                              ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
@@ -4318,7 +4318,7 @@ _ZN5clang4ento22PathDiagnosticLocationC2EPKNS_4StmtERKNS_13SourceManagerEN4llvm1
 declare i32 @_ZNK5clang18CXXCtorInitializer17getSourceLocationEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.56.val.0.val, ptr %.56.val.8.val, i32 %.68.val, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(696) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.56.val.0.val, ptr %.56.val.8.val, i32 %.68.val, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(696) %2) unnamed_addr #0 {
   %4 = zext i32 %.68.val to i64
   %5 = ptrtoint ptr %.56.val.8.val to i64
   %6 = ptrtoint ptr %.56.val.0.val to i64
@@ -4923,7 +4923,7 @@ define dso_local void @_ZN5clang4ento23PathDiagnosticCallPiece9constructERKNS_11
   %.val.val = load ptr, ptr %.val, align 8
   %15 = getelementptr i8, ptr %.val, i64 8
   %.val.val6 = load ptr, ptr %15, align 8
-  call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val.val, ptr %.val.val6, i32 %.val5, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(696) %2)
+  call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val.val, ptr %.val.val6, i32 %.val5, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(696) %2)
   %16 = call noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #25
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr null, ptr %17, align 8
@@ -5247,7 +5247,7 @@ define dso_local void @_ZN5clang4ento23PathDiagnosticCallPiece9setCalleeERKNS_9C
   %.val.val = load ptr, ptr %.val, align 8
   %30 = getelementptr i8, ptr %.val, i64 8
   %.val.val11 = load ptr, ptr %30, align 8
-  call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val.val, ptr %.val.val11, i32 %.val10, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(696) %2)
+  call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val.val, ptr %.val.val11, i32 %.val10, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(696) %2)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %31, ptr noundef nonnull align 8 dereferenceable(60) %5, i64 60, i1 false)
   %32 = load ptr, ptr %13, align 8
@@ -7968,7 +7968,7 @@ define internal noundef range(i32 -1, 2) i32 @"_ZZN5clang4ento22PathDiagnosticCo
 
 7:                                                ; preds = %2
   %8 = tail call fastcc noundef zeroext i1 @_ZL24compareCrossTUSourceLocsN5clang13FullSourceLocES0_(i32 %.sroa.1218.0.copyload.i.i, ptr %.sroa.2220.0.copyload.i.i, i32 %.sroa.1210.0.copyload.i.i, ptr %.sroa.2212.0.copyload.i.i)
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 9:                                                ; preds = %2
   %.sroa.1201.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.val, i64 416
@@ -7986,7 +7986,7 @@ define internal noundef range(i32 -1, 2) i32 @"_ZZN5clang4ento22PathDiagnosticCo
 
 12:                                               ; preds = %9
   %13 = tail call fastcc noundef zeroext i1 @_ZL24compareCrossTUSourceLocsN5clang13FullSourceLocES0_(i32 %.sroa.1201.0.copyload.i.i, ptr %.sroa.2203.0.copyload.i.i, i32 %.sroa.1.0.copyload.i.i, ptr %.sroa.2195.0.copyload.i.i)
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -8023,11 +8023,11 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvmneENS
 
 29:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
   %.inv.i.i.i.i = icmp slt i32 %28, 0
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i
   %30 = icmp ult i64 %24, %26
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread223.i.i:  ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i.i, %21
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 144
@@ -8064,11 +8064,11 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i113.i.i: ; preds = %_ZN4llvmne
 
 45:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i113.i.i
   %.inv.i.i115.i.i = icmp slt i32 %44, 0
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i117.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i113.i.i, %_ZN4llvmneENS_9StringRefES0_.exit107.thread.i.i
   %46 = icmp ult i64 %40, %42
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZN4llvmneENS_9StringRefES0_.exit107.thread226.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit107.i.i, %37
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 80
@@ -8105,11 +8105,11 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i132.i.i: ; preds = %_ZN4llvmne
 
 61:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i132.i.i
   %.inv.i.i134.i.i = icmp slt i32 %60, 0
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i136.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i132.i.i, %_ZN4llvmneENS_9StringRefES0_.exit126.thread.i.i
   %62 = icmp ult i64 %56, %58
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZN4llvmneENS_9StringRefES0_.exit126.thread229.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit126.i.i, %53
   %63 = getelementptr inbounds nuw i8, ptr %.val, i64 112
@@ -8152,24 +8152,24 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i147.i.i: ; preds = %_ZN4llvmne
 
 83:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i147.i.i
   %.inv.i.i149.i.i = icmp slt i32 %82, 0
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i151.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i147.i.i, %_ZN4llvmneENS_9StringRefES0_.exit145.thread.i.i
   %84 = icmp ult i64 %76, %78
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZN4llvmneENS_9StringRefES0_.exit145.thread232.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit145.i.i, %73
   %85 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %.val2, i64 40
   %88 = load ptr, ptr %87, align 8
-  %89 = call fastcc i16 @"_ZZL7compareRKN5clang4ento14PathDiagnosticES3_ENK3$_0clEPKNS_4DeclES7_.argprom"(ptr nonnull %3, ptr noundef %86, ptr noundef %88)
+  %89 = call fastcc i16 @"_ZZL7compareRKN5clang4ento14PathDiagnosticES3_ENK3$_0clEPKNS_4DeclES7_"(ptr nonnull %3, ptr noundef %86, ptr noundef %88)
   %.not239.i.i = icmp ult i16 %89, 256
   br i1 %.not239.i.i, label %92, label %90
 
 90:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit145.thread232.i.i
   %91 = trunc i16 %89 to i1
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 92:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit145.thread232.i.i
   %.not240.i.i = icmp eq i32 %.sroa.1201.0.copyload.i.i, 0
@@ -8180,13 +8180,13 @@ _ZN4llvmneENS_9StringRefES0_.exit145.thread232.i.i: ; preds = %_ZN4llvmneENS_9St
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %.val2, i64 448
   %97 = load ptr, ptr %96, align 8
-  %98 = call fastcc i16 @"_ZZL7compareRKN5clang4ento14PathDiagnosticES3_ENK3$_0clEPKNS_4DeclES7_.argprom"(ptr nonnull %3, ptr noundef %95, ptr noundef %97)
+  %98 = call fastcc i16 @"_ZZL7compareRKN5clang4ento14PathDiagnosticES3_ENK3$_0clEPKNS_4DeclES7_"(ptr nonnull %3, ptr noundef %95, ptr noundef %97)
   %.not241.i.i = icmp ult i16 %98, 256
   br i1 %.not241.i.i, label %101, label %99
 
 99:                                               ; preds = %93
   %100 = trunc i16 %98 to i1
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 101:                                              ; preds = %93, %92
   %102 = getelementptr inbounds nuw i8, ptr %.val, i64 192
@@ -8258,7 +8258,7 @@ _ZN4llvmneENS_9StringRefES0_.exit145.thread232.i.i: ; preds = %_ZN4llvmneENS_9St
 
 160:                                              ; preds = %101
   %161 = icmp slt i64 %142, %159
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit157.i.i
   %.sroa.16.0252.i.i = phi ptr [ %.sroa.16.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit157.i.i ], [ %107, %.preheader.i.i ]
@@ -8287,7 +8287,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i: ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i, %.lr.ph.i.i
   %170 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0178.0250.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0162.0247.i.i) #22
   %171 = icmp slt i32 %170, 0
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread234.i.i: ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i, %165
   %172 = getelementptr inbounds i8, ptr %.sroa.0178.0250.i.i, i64 32
@@ -8328,9 +8328,9 @@ _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_
   %187 = load ptr, ptr %186, align 8
   %188 = tail call fastcc i16 @_ZL11comparePathRKN5clang4ento10PathPiecesES3_(ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef nonnull align 8 dereferenceable(24) %187)
   %189 = trunc i16 %188 to i1
-  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit"
+  br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
-"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.argprom.exit": ; preds = %7, %12, %29, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i, %45, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i117.i.i, %61, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i136.i.i, %83, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i151.i.i, %90, %99, %160, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i, %._crit_edge.i.i
+"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit": ; preds = %7, %12, %29, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i, %45, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i117.i.i, %61, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i136.i.i, %83, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i151.i.i, %90, %99, %160, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i, %._crit_edge.i.i
   %.0.i.i = phi i1 [ %8, %7 ], [ %13, %12 ], [ %91, %90 ], [ %100, %99 ], [ %161, %160 ], [ %171, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i ], [ %189, %._crit_edge.i.i ], [ %.inv.i.i.i.i, %29 ], [ %30, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i ], [ %.inv.i.i115.i.i, %45 ], [ %46, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i117.i.i ], [ %.inv.i.i134.i.i, %61 ], [ %62, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i136.i.i ], [ %.inv.i.i149.i.i, %83 ], [ %84, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i151.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %..i = select i1 %.0.i.i, i32 -1, i32 1
@@ -8546,7 +8546,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5clang4ento14PathDiagnostic19getSho
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i16 0, 512) i16 @"_ZZL7compareRKN5clang4ento14PathDiagnosticES3_ENK3$_0clEPKNS_4DeclES7_.argprom"(ptr nocapture readonly %.0.val, ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc range(i16 0, 512) i16 @"_ZZL7compareRKN5clang4ento14PathDiagnosticES3_ENK3$_0clEPKNS_4DeclES7_"(ptr nocapture readonly %.0.val, ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %14, label %4
 
@@ -8814,7 +8814,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread106:      ; preds = %60, %_ZN4llvmneENS_
 
 110:                                              ; preds = %105
   %111 = call noundef zeroext i1 @_ZNK5clang13FullSourceLoc29isBeforeInTranslationUnitThanENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 %.sroa.114.0.copyload.i) #22
-  br label %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.argprom.exit
+  br label %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit
 
 112:                                              ; preds = %105
   %.sroa.18.0..sroa_idx.i = getelementptr inbounds i8, ptr %.val.i, i64 96
@@ -8830,13 +8830,13 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread106:      ; preds = %60, %_ZN4llvmneENS_
   %113 = icmp ne i32 %.sroa.18.0.copyload.i, %.sroa.1.0.copyload.i
   %114 = icmp ne ptr %.sroa.210.0.copyload.i, %.sroa.23.0.copyload.i
   %.not3.i23.i = select i1 %113, i1 true, i1 %114
-  br i1 %.not3.i23.i, label %115, label %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.argprom.exit
+  br i1 %.not3.i23.i, label %115, label %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit
 
 115:                                              ; preds = %112
   %116 = call noundef zeroext i1 @_ZNK5clang13FullSourceLoc29isBeforeInTranslationUnitThanENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 %.sroa.1.0.copyload.i) #22
-  br label %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.argprom.exit
+  br label %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit
 
-_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.argprom.exit: ; preds = %110, %112, %115
+_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit: ; preds = %110, %112, %115
   %.sroa.026.0.shrunk.i = phi i1 [ %111, %110 ], [ %116, %115 ], [ false, %112 ]
   %.sroa.327.0.i = phi i16 [ 256, %110 ], [ 256, %115 ], [ 0, %112 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -8943,9 +8943,9 @@ _ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread: ; preds = 
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %.loopexit
 
-_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit: ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.argprom.exit, %117, %_ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit
-  %.sroa.082.1 = phi i8 [ %.sroa.082.0.extract.trunc, %_ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit ], [ %.sroa.082.0.extract.trunc83, %117 ], [ %.sroa.082.0.extract.trunc84, %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.argprom.exit ], [ %.sroa.082.0, %._crit_edge ], [ %.sroa.082.0, %._crit_edge ], [ %.sroa.082.0, %._crit_edge ]
-  %.sroa.12.0 = phi i16 [ %.sroa.7.0, %_ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit ], [ %120, %117 ], [ %.sroa.327.0.i, %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.argprom.exit ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ]
+_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit: ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit, %117, %_ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit
+  %.sroa.082.1 = phi i8 [ %.sroa.082.0.extract.trunc, %_ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit ], [ %.sroa.082.0.extract.trunc83, %117 ], [ %.sroa.082.0.extract.trunc84, %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit ], [ %.sroa.082.0, %._crit_edge ], [ %.sroa.082.0, %._crit_edge ], [ %.sroa.082.0, %._crit_edge ]
+  %.sroa.12.0 = phi i16 [ %.sroa.7.0, %_ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit ], [ %120, %117 ], [ %.sroa.327.0.i, %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)

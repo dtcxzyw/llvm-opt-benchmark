@@ -757,7 +757,7 @@ define ptr @Csw_ObjTwoVarCut(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %7 = getelementptr i8, ptr %5, i64 32
   %.val = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %Aig_ManObj.argprom.exit42, label %8
+  br i1 %.not.i, label %Aig_ManObj.exit42, label %8
 
 8:                                                ; preds = %2
   %9 = load i32, ptr %6, align 8
@@ -771,9 +771,9 @@ define ptr @Csw_ObjTwoVarCut(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %.val.i, i64 %16
   %18 = load ptr, ptr %17, align 8
-  br label %Aig_ManObj.argprom.exit42
+  br label %Aig_ManObj.exit42
 
-Aig_ManObj.argprom.exit42:                        ; preds = %2, %8
+Aig_ManObj.exit42:                                ; preds = %2, %8
   %19 = phi ptr [ %13, %8 ], [ null, %2 ]
   %20 = phi ptr [ %18, %8 ], [ null, %2 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 22
@@ -786,7 +786,7 @@ Aig_ManObj.argprom.exit42:                        ; preds = %2, %8
   %27 = icmp ult i32 %switch.tableidx, 8
   br i1 %27, label %switch.hole_check, label %29
 
-switch.hole_check:                                ; preds = %Aig_ManObj.argprom.exit42
+switch.hole_check:                                ; preds = %Aig_ManObj.exit42
   %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -47, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
@@ -798,9 +798,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
-29:                                               ; preds = %switch.lookup, %switch.hole_check, %Aig_ManObj.argprom.exit42
-  %.036 = phi i32 [ %26, %Aig_ManObj.argprom.exit42 ], [ %26, %switch.hole_check ], [ %switch.load, %switch.lookup ]
-  %.0 = phi i64 [ 0, %Aig_ManObj.argprom.exit42 ], [ 0, %switch.hole_check ], [ 1, %switch.lookup ]
+29:                                               ; preds = %switch.lookup, %switch.hole_check, %Aig_ManObj.exit42
+  %.036 = phi i32 [ %26, %Aig_ManObj.exit42 ], [ %26, %switch.hole_check ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i64 [ 0, %Aig_ManObj.exit42 ], [ 0, %switch.hole_check ], [ 1, %switch.lookup ]
   switch i32 %.036, label %.thread49 [
     i32 1, label %.thread
     i32 2, label %37
@@ -1157,7 +1157,7 @@ Csw_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %58
   %138 = getelementptr inbounds i8, ptr %.0153.i, i64 23
   %139 = load i8, ptr %138, align 1
   %140 = icmp eq i8 %139, 0
-  br i1 %140, label %Csw_CutFindFree.argprom.exit, label %141
+  br i1 %140, label %Csw_CutFindFree.exit, label %141
 
 141:                                              ; preds = %.lr.ph.i123
   %142 = icmp eq ptr %.0144.i, null
@@ -1187,16 +1187,16 @@ Csw_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %58
 ._crit_edge.i124:                                 ; preds = %150
   %156 = getelementptr inbounds i8, ptr %.1.i, i64 23
   store i8 0, ptr %156, align 1
-  br label %Csw_CutFindFree.argprom.exit
+  br label %Csw_CutFindFree.exit
 
-Csw_CutFindFree.argprom.exit:                     ; preds = %.lr.ph.i123, %._crit_edge.i124
+Csw_CutFindFree.exit:                             ; preds = %.lr.ph.i123, %._crit_edge.i124
   %.016.i = phi ptr [ %.1.i, %._crit_edge.i124 ], [ %.0153.i, %.lr.ph.i123 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %157 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #8
   %158 = icmp slt i32 %157, 0
   br i1 %158, label %Abc_Clock.exit, label %159
 
-159:                                              ; preds = %Csw_CutFindFree.argprom.exit
+159:                                              ; preds = %Csw_CutFindFree.exit
   %160 = load i64, ptr %9, align 8
   %.neg157 = mul i64 %160, -1000000
   %161 = load i64, ptr %84, align 8
@@ -1204,8 +1204,8 @@ Csw_CutFindFree.argprom.exit:                     ; preds = %.lr.ph.i123, %._cri
   %.neg158 = add i64 %.neg156, %.neg157
   br label %Abc_Clock.exit
 
-Abc_Clock.exit:                                   ; preds = %Csw_CutFindFree.argprom.exit, %159
-  %.0.i.neg = phi i64 [ %.neg158, %159 ], [ 1, %Csw_CutFindFree.argprom.exit ]
+Abc_Clock.exit:                                   ; preds = %Csw_CutFindFree.exit, %159
+  %.0.i.neg = phi i64 [ %.neg158, %159 ], [ 1, %Csw_CutFindFree.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %162 = load i8, ptr %94, align 1
   %163 = load i8, ptr %104, align 1
@@ -1438,7 +1438,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %264, %267
   %270 = getelementptr i8, ptr %269, i64 32
   %.val114 = load ptr, ptr %270, align 8
   %.not.i135 = icmp eq ptr %.val114, null
-  br i1 %.not.i135, label %Aig_ManObj.argprom.exit, label %271
+  br i1 %.not.i135, label %Aig_ManObj.exit, label %271
 
 271:                                              ; preds = %Kit_WordFindFirstBit.exit
   %272 = getelementptr inbounds i8, ptr %.016.i, i64 24
@@ -1451,9 +1451,9 @@ Kit_WordFindFirstBit.exit:                        ; preds = %264, %267
   %278 = getelementptr inbounds ptr, ptr %.val.i136, i64 %277
   %279 = load ptr, ptr %278, align 8
   %280 = ptrtoint ptr %279 to i64
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %Kit_WordFindFirstBit.exit, %271
+Aig_ManObj.exit:                                  ; preds = %Kit_WordFindFirstBit.exit, %271
   %281 = phi i64 [ %280, %271 ], [ 0, %Kit_WordFindFirstBit.exit ]
   %282 = load i32, ptr %229, align 4
   %283 = and i32 %282, 1
@@ -1555,9 +1555,9 @@ Abc_Clock.exit140:                                ; preds = %306, %310
   %330 = getelementptr i8, ptr %.val.i142, i64 8
   %.val.i.i = load ptr, ptr %330, align 8
   %wide.trip.count.i = zext nneg i32 %326 to i64
-  br label %Aig_ManObj.argprom.exit.i
+  br label %Aig_ManObj.exit.i
 
-Aig_ManObj.argprom.exit.i:                        ; preds = %336, %.lr.ph.split.i
+Aig_ManObj.exit.i:                                ; preds = %336, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i, %336 ]
   %.016.i143 = phi i32 [ 0, %.lr.ph.split.i ], [ %341, %336 ]
   %331 = getelementptr inbounds [0 x i32], ptr %324, i64 0, i64 %indvars.iv.i
@@ -1568,7 +1568,7 @@ Aig_ManObj.argprom.exit.i:                        ; preds = %336, %.lr.ph.split.
   %.not.i144 = icmp eq ptr %335, null
   br i1 %.not.i144, label %.critedge.loopexit.i, label %336
 
-336:                                              ; preds = %Aig_ManObj.argprom.exit.i
+336:                                              ; preds = %Aig_ManObj.exit.i
   %.val12.i = load ptr, ptr %91, align 8
   %337 = getelementptr i8, ptr %335, i64 36
   %.val13.i = load i32, ptr %337, align 4
@@ -1578,10 +1578,10 @@ Aig_ManObj.argprom.exit.i:                        ; preds = %336, %.lr.ph.split.
   %341 = add nsw i32 %340, %.016.i143
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i145 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i145, label %.critedge.loopexit.i, label %Aig_ManObj.argprom.exit.i, !llvm.loop !22
+  br i1 %exitcond.not.i145, label %.critedge.loopexit.i, label %Aig_ManObj.exit.i, !llvm.loop !22
 
-.critedge.loopexit.i:                             ; preds = %336, %Aig_ManObj.argprom.exit.i
-  %.0.lcssa.ph.i = phi i32 [ %.016.i143, %Aig_ManObj.argprom.exit.i ], [ %341, %336 ]
+.critedge.loopexit.i:                             ; preds = %336, %Aig_ManObj.exit.i
+  %.0.lcssa.ph.i = phi i32 [ %.016.i143, %Aig_ManObj.exit.i ], [ %341, %336 ]
   %342 = mul nsw i32 %.0.lcssa.ph.i, 100
   br label %Csw_CutFindCost.exit
 
@@ -1695,8 +1695,8 @@ Abc_Clock.exit149:                                ; preds = %._crit_edge187, %38
   store i64 %398, ptr %396, align 8
   br label %399
 
-399:                                              ; preds = %22, %3, %Abc_Clock.exit149, %319, %292, %Aig_ManObj.argprom.exit, %245
-  %.0 = phi ptr [ %257, %245 ], [ %286, %Aig_ManObj.argprom.exit ], [ %291, %292 ], [ %307, %319 ], [ %1, %Abc_Clock.exit149 ], [ %1, %3 ], [ %1, %22 ]
+399:                                              ; preds = %22, %3, %Abc_Clock.exit149, %319, %292, %Aig_ManObj.exit, %245
+  %.0 = phi ptr [ %257, %245 ], [ %286, %Aig_ManObj.exit ], [ %291, %292 ], [ %307, %319 ], [ %1, %Abc_Clock.exit149 ], [ %1, %3 ], [ %1, %22 ]
   ret ptr %.0
 }
 

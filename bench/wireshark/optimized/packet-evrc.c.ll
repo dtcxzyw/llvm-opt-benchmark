@@ -231,7 +231,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_evrc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_evrc_aux.argprom(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 0)
+  tail call fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 0)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %6
 }
@@ -240,7 +240,7 @@ define internal i32 @dissect_evrc(ptr noundef %0, ptr nocapture noundef readonly
 define internal i32 @dissect_evrcb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_evrc_aux.argprom(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 1)
+  tail call fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 1)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %6
 }
@@ -249,7 +249,7 @@ define internal i32 @dissect_evrcb(ptr noundef %0, ptr nocapture noundef readonl
 define internal i32 @dissect_evrcwb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_evrc_aux.argprom(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 2)
+  tail call fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 2)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %6
 }
@@ -258,7 +258,7 @@ define internal i32 @dissect_evrcwb(ptr noundef %0, ptr nocapture noundef readon
 define internal i32 @dissect_evrcnw(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_evrc_aux.argprom(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 3)
+  tail call fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 3)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %6
 }
@@ -267,7 +267,7 @@ define internal i32 @dissect_evrcnw(ptr noundef %0, ptr nocapture noundef readon
 define internal i32 @dissect_evrcnw2k(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_evrc_aux.argprom(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 4)
+  tail call fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 4)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %6
 }
@@ -276,7 +276,7 @@ define internal i32 @dissect_evrcnw2k(ptr noundef %0, ptr nocapture noundef read
 define internal i32 @dissect_evrc_legacy(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_evrc_aux.argprom(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 5)
+  tail call fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.val, ptr noundef %2, i32 noundef 5)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %6
 }
@@ -346,7 +346,7 @@ declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) local
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_evrc_aux.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, i32 noundef range(i32 0, 6) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr noundef %1, i32 noundef range(i32 0, 6) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [32 x i8], align 16
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 34, ptr noundef nonnull @.str.43) #3

@@ -2190,7 +2190,7 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   call fastcc void @uhci_activate_qh(ptr noundef %10, ptr noundef nonnull %98)
   %652 = getelementptr i8, ptr %17, i64 48
   %.val = load i8, ptr %652, align 8
-  call fastcc void @uhci_urbp_wants_fsbr.argprom(ptr noundef %10, i8 %.val)
+  call fastcc void @uhci_urbp_wants_fsbr(ptr noundef %10, i8 %.val)
   br label %.thread49
 
 .thread45:                                        ; preds = %286, %328, %.loopexit57, %289, %.thread43, %521, %479, %382, %388, %335, %329, %266, %254, %247, %97
@@ -4935,7 +4935,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @uhci_urbp_wants_fsbr.argprom(ptr noundef %0, i8 %.48.val) unnamed_addr #2 align 16 {
+define internal fastcc void @uhci_urbp_wants_fsbr(ptr noundef %0, i8 %.48.val) unnamed_addr #2 align 16 {
   %2 = and i8 %.48.val, 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %29, label %4

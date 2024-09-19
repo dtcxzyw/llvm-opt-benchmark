@@ -15683,7 +15683,7 @@ if.end542:                                        ; preds = %do.end535, %if.then
   %offset481.0 = phi i64 [ %mul, %do.end535 ], [ %offset481.0.copyload, %if.then480 ]
   %grad544 = getelementptr inbounds i8, ptr %tensor, i64 152
   %136 = load ptr, ptr %grad544, align 8
-  %call545 = tail call fastcc ptr @ggml_acc_or_set.argprom(ptr noundef %ctx, ptr noundef nonnull %120, ptr noundef %136, i64 noundef %nb1484.0, i64 noundef %nb2486.0, i64 noundef %nb3489.0, i64 noundef %offset481.0, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
+  %call545 = tail call fastcc ptr @ggml_acc_or_set(ptr noundef %ctx, ptr noundef nonnull %120, ptr noundef %136, i64 noundef %nb1484.0, i64 noundef %nb2486.0, i64 noundef %nb3489.0, i64 noundef %offset481.0, i64 %zero_table.coerce0, ptr %zero_table.coerce1)
   store ptr %call545, ptr %grad478, align 8
   br label %for.body.preheader
 
@@ -28890,13 +28890,13 @@ if.end:                                           ; preds = %entry
   %call4 = call i64 @fwrite(ptr noundef %2, i64 noundef 1, i64 noundef %3, ptr noundef nonnull %call)
   %buf.val = load ptr, ptr %buf, align 8
   %tobool.not.i = icmp eq ptr %buf.val, null
-  br i1 %tobool.not.i, label %gguf_buf_free.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %gguf_buf_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   call void @free(ptr noundef nonnull %buf.val) #45
-  br label %gguf_buf_free.argprom.exit
+  br label %gguf_buf_free.exit
 
-gguf_buf_free.argprom.exit:                       ; preds = %if.end, %if.then.i
+gguf_buf_free.exit:                               ; preds = %if.end, %if.then.i
   %call5 = call i32 @fclose(ptr noundef nonnull %call)
   ret void
 }
@@ -30551,13 +30551,13 @@ entry:
   %1 = load i64, ptr %offset.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data, ptr align 1 %0, i64 %1, i1 false)
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %gguf_buf_free.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %gguf_buf_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   call void @free(ptr noundef nonnull %0) #45
-  br label %gguf_buf_free.argprom.exit
+  br label %gguf_buf_free.exit
 
-gguf_buf_free.argprom.exit:                       ; preds = %entry, %if.then.i
+gguf_buf_free.exit:                               ; preds = %entry, %if.then.i
   ret void
 }
 
@@ -31250,7 +31250,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_acc_or_set.argprom(ptr nocapture noundef %ctx, ptr noundef %a, ptr noundef %b, i64 noundef %nb1, i64 noundef %nb2, i64 noundef %nb3, i64 noundef %offset, i64 %zero_table.0.val, ptr nocapture readonly %zero_table.8.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @ggml_acc_or_set(ptr nocapture noundef %ctx, ptr noundef %a, ptr noundef %b, i64 noundef %nb1, i64 noundef %nb2, i64 noundef %nb3, i64 noundef %offset, i64 %zero_table.0.val, ptr nocapture readonly %zero_table.8.val) unnamed_addr #0 {
 entry:
   %ne0.addr.i.i = alloca i64, align 8
   %0 = ptrtoint ptr %a to i64
@@ -31703,7 +31703,7 @@ sw.bb192:                                         ; preds = %if.end3
   %src193 = getelementptr inbounds i8, ptr %tensor, i64 160
   %68 = load ptr, ptr %src193, align 8
   %params.val = load i32, ptr %params, align 8
-  tail call fastcc void @ggml_compute_forward_pool_2d.argprom(i32 %params.val, ptr noundef %68, ptr noundef nonnull %tensor)
+  tail call fastcc void @ggml_compute_forward_pool_2d(i32 %params.val, ptr noundef %68, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb195:                                         ; preds = %if.end3
@@ -36822,8 +36822,8 @@ entry:
 sw.bb:                                            ; preds = %entry
   %params.val = load i32, ptr %params, align 8
   switch i32 %params.val, label %if.end.i [
-    i32 0, label %ggml_compute_forward_sub_f32.argprom.exit
-    i32 2, label %ggml_compute_forward_sub_f32.argprom.exit
+    i32 0, label %ggml_compute_forward_sub_f32.exit
+    i32 2, label %ggml_compute_forward_sub_f32.exit
   ]
 
 if.end.i:                                         ; preds = %sw.bb
@@ -36897,7 +36897,7 @@ do.end64.i:                                       ; preds = %do.body57.i
   br i1 %cmp65.i, label %for.cond.preheader.i, label %for.cond117.preheader.i
 
 for.cond117.preheader.i:                          ; preds = %do.end64.i
-  br i1 %cmp687.i, label %for.body120.lr.ph.i, label %ggml_compute_forward_sub_f32.argprom.exit
+  br i1 %cmp687.i, label %for.body120.lr.ph.i, label %ggml_compute_forward_sub_f32.exit
 
 for.body120.lr.ph.i:                              ; preds = %for.cond117.preheader.i
   %mul123.i = mul i64 %13, %12
@@ -36905,7 +36905,7 @@ for.body120.lr.ph.i:                              ; preds = %for.cond117.prehead
   %data154.i = getelementptr inbounds i8, ptr %src0, i64 280
   %cmp1662.i = icmp sgt i64 %11, 0
   %data169.i = getelementptr inbounds i8, ptr %src1, i64 280
-  br i1 %cmp1662.i, label %for.body120.us.preheader.i, label %ggml_compute_forward_sub_f32.argprom.exit
+  br i1 %cmp1662.i, label %for.body120.us.preheader.i, label %ggml_compute_forward_sub_f32.exit
 
 for.body120.us.preheader.i:                       ; preds = %for.body120.lr.ph.i
   %wide.trip.count.i = and i64 %mul5.i.i, 2147483647
@@ -36965,10 +36965,10 @@ for.body168.us.i:                                 ; preds = %for.body168.us.i, %
 for.cond164.for.inc189_crit_edge.us.i:            ; preds = %for.body168.us.i
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, %wide.trip.count.i
-  br i1 %exitcond16.not.i, label %ggml_compute_forward_sub_f32.argprom.exit, label %for.body120.us.i, !llvm.loop !383
+  br i1 %exitcond16.not.i, label %ggml_compute_forward_sub_f32.exit, label %for.body120.us.i, !llvm.loop !383
 
 for.cond.preheader.i:                             ; preds = %do.end64.i
-  br i1 %cmp687.i, label %for.body.lr.ph.i, label %ggml_compute_forward_sub_f32.argprom.exit
+  br i1 %cmp687.i, label %for.body.lr.ph.i, label %ggml_compute_forward_sub_f32.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %mul.i = mul i64 %13, %12
@@ -36978,7 +36978,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   %data106.i = getelementptr inbounds i8, ptr %src1, i64 280
   %cmp5.i.i = icmp sgt i32 %conv87.i, 0
   %wide.trip.count.i.i = and i64 %11, 2147483647
-  br i1 %cmp5.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_sub_f32.argprom.exit
+  br i1 %cmp5.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_sub_f32.exit
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
   %wide.trip.count20.i = and i64 %mul5.i.i, 2147483647
@@ -37037,9 +37037,9 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i, %f
 ggml_vec_sub_f32.exit.loopexit.us.i:              ; preds = %for.body.i.us.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
-  br i1 %exitcond21.not.i, label %ggml_compute_forward_sub_f32.argprom.exit, label %for.body.us.i, !llvm.loop !384
+  br i1 %exitcond21.not.i, label %ggml_compute_forward_sub_f32.exit, label %for.body.us.i, !llvm.loop !384
 
-ggml_compute_forward_sub_f32.argprom.exit:        ; preds = %for.cond164.for.inc189_crit_edge.us.i, %ggml_vec_sub_f32.exit.loopexit.us.i, %sw.bb, %sw.bb, %for.cond117.preheader.i, %for.body120.lr.ph.i, %for.cond.preheader.i, %for.body.lr.ph.i
+ggml_compute_forward_sub_f32.exit:                ; preds = %for.cond164.for.inc189_crit_edge.us.i, %ggml_vec_sub_f32.exit.loopexit.us.i, %sw.bb, %sw.bb, %for.cond117.preheader.i, %for.body120.lr.ph.i, %for.cond.preheader.i, %for.body.lr.ph.i
   ret void
 
 do.body:                                          ; preds = %entry
@@ -37682,8 +37682,8 @@ entry:
 sw.bb:                                            ; preds = %entry
   %params.val = load i32, ptr %params, align 8
   switch i32 %params.val, label %if.end.i [
-    i32 0, label %ggml_compute_forward_sqr_f32.argprom.exit
-    i32 2, label %ggml_compute_forward_sqr_f32.argprom.exit
+    i32 0, label %ggml_compute_forward_sqr_f32.exit
+    i32 2, label %ggml_compute_forward_sqr_f32.exit
   ]
 
 if.end.i:                                         ; preds = %sw.bb
@@ -37697,7 +37697,7 @@ if.end.i:                                         ; preds = %sw.bb
   %mul5.i.i = mul nsw i64 %mul.i.i, %3
   %conv.i = trunc i64 %mul5.i.i to i32
   %cmp41.i = icmp sgt i32 %conv.i, 0
-  br i1 %cmp41.i, label %for.body.lr.ph.i, label %ggml_compute_forward_sqr_f32.argprom.exit
+  br i1 %cmp41.i, label %for.body.lr.ph.i, label %ggml_compute_forward_sqr_f32.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %ne.i = getelementptr inbounds i8, ptr %src0, i64 16
@@ -37709,7 +37709,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %arrayidx11.i = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp6.i.i = icmp sgt i32 %conv3.i, 0
   %wide.trip.count.i.i = and i64 %4, 2147483647
-  br i1 %cmp6.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_sqr_f32.argprom.exit
+  br i1 %cmp6.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_sqr_f32.exit
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
   %wide.trip.count.i = and i64 %mul5.i.i, 2147483647
@@ -37741,9 +37741,9 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i, %f
 ggml_vec_sqr_f32.exit.loopexit.us.i:              ; preds = %for.body.i.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ggml_compute_forward_sqr_f32.argprom.exit, label %for.body.us.i, !llvm.loop !396
+  br i1 %exitcond.not.i, label %ggml_compute_forward_sqr_f32.exit, label %for.body.us.i, !llvm.loop !396
 
-ggml_compute_forward_sqr_f32.argprom.exit:        ; preds = %ggml_vec_sqr_f32.exit.loopexit.us.i, %sw.bb, %sw.bb, %if.end.i, %for.body.lr.ph.i
+ggml_compute_forward_sqr_f32.exit:                ; preds = %ggml_vec_sqr_f32.exit.loopexit.us.i, %sw.bb, %sw.bb, %if.end.i, %for.body.lr.ph.i
   ret void
 
 do.body:                                          ; preds = %entry
@@ -37766,8 +37766,8 @@ entry:
 sw.bb:                                            ; preds = %entry
   %params.val = load i32, ptr %params, align 8
   switch i32 %params.val, label %if.end.i [
-    i32 0, label %ggml_compute_forward_sqrt_f32.argprom.exit
-    i32 2, label %ggml_compute_forward_sqrt_f32.argprom.exit
+    i32 0, label %ggml_compute_forward_sqrt_f32.exit
+    i32 2, label %ggml_compute_forward_sqrt_f32.exit
   ]
 
 if.end.i:                                         ; preds = %sw.bb
@@ -37781,7 +37781,7 @@ if.end.i:                                         ; preds = %sw.bb
   %mul5.i.i = mul nsw i64 %mul.i.i, %3
   %conv.i = trunc i64 %mul5.i.i to i32
   %cmp41.i = icmp sgt i32 %conv.i, 0
-  br i1 %cmp41.i, label %for.body.lr.ph.i, label %ggml_compute_forward_sqrt_f32.argprom.exit
+  br i1 %cmp41.i, label %for.body.lr.ph.i, label %ggml_compute_forward_sqrt_f32.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %ne.i = getelementptr inbounds i8, ptr %src0, i64 16
@@ -37793,7 +37793,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %arrayidx11.i = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp4.i.i = icmp sgt i32 %conv3.i, 0
   %wide.trip.count.i.i = and i64 %4, 2147483647
-  br i1 %cmp4.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_sqrt_f32.argprom.exit
+  br i1 %cmp4.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_sqrt_f32.exit
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
   %wide.trip.count.i = and i64 %mul5.i.i, 2147483647
@@ -37825,9 +37825,9 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i, %f
 ggml_vec_sqrt_f32.exit.loopexit.us.i:             ; preds = %for.body.i.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ggml_compute_forward_sqrt_f32.argprom.exit, label %for.body.us.i, !llvm.loop !398
+  br i1 %exitcond.not.i, label %ggml_compute_forward_sqrt_f32.exit, label %for.body.us.i, !llvm.loop !398
 
-ggml_compute_forward_sqrt_f32.argprom.exit:       ; preds = %ggml_vec_sqrt_f32.exit.loopexit.us.i, %sw.bb, %sw.bb, %if.end.i, %for.body.lr.ph.i
+ggml_compute_forward_sqrt_f32.exit:               ; preds = %ggml_vec_sqrt_f32.exit.loopexit.us.i, %sw.bb, %sw.bb, %if.end.i, %for.body.lr.ph.i
   ret void
 
 do.body:                                          ; preds = %entry
@@ -38487,8 +38487,8 @@ entry:
 sw.bb:                                            ; preds = %entry
   %params.val = load i32, ptr %params, align 8
   switch i32 %params.val, label %if.end.i [
-    i32 0, label %ggml_compute_forward_mean_f32.argprom.exit
-    i32 2, label %ggml_compute_forward_mean_f32.argprom.exit
+    i32 0, label %ggml_compute_forward_mean_f32.exit
+    i32 2, label %ggml_compute_forward_mean_f32.exit
   ]
 
 if.end.i:                                         ; preds = %sw.bb
@@ -38511,7 +38511,7 @@ if.end.i:                                         ; preds = %sw.bb
   %arrayidx32.i = getelementptr inbounds i8, ptr %dst, i64 72
   %9 = load i64, ptr %arrayidx32.i, align 8
   %cmp3319.i = icmp sgt i64 %3, 0
-  br i1 %cmp3319.i, label %for.cond34.preheader.lr.ph.i, label %ggml_compute_forward_mean_f32.argprom.exit
+  br i1 %cmp3319.i, label %for.cond34.preheader.lr.ph.i, label %ggml_compute_forward_mean_f32.exit
 
 for.cond34.preheader.lr.ph.i:                     ; preds = %if.end.i
   %ne.i = getelementptr inbounds i8, ptr %src0, i64 16
@@ -38523,7 +38523,7 @@ for.cond34.preheader.lr.ph.i:                     ; preds = %if.end.i
   %conv51.i = sitofp i64 %10 to float
   %cmp381.i = icmp sgt i64 %1, 0
   %or.cond.i = select i1 %cmp353.i, i1 %cmp381.i, i1 false
-  br i1 %or.cond.i, label %for.cond34.preheader.lr.ph.split.us.split.us.i, label %ggml_compute_forward_mean_f32.argprom.exit
+  br i1 %or.cond.i, label %for.cond34.preheader.lr.ph.split.us.split.us.i, label %ggml_compute_forward_mean_f32.exit
 
 for.cond34.preheader.lr.ph.split.us.split.us.i:   ; preds = %for.cond34.preheader.lr.ph.i
   %conv.i = trunc i64 %10 to i32
@@ -38589,7 +38589,7 @@ for.cond37.for.inc59_crit_edge.split.us.us.us.us.us.us.i: ; preds = %for.end.loo
 for.cond34.for.inc62_crit_edge.split.us.split.us.us.us.us.i: ; preds = %for.cond37.for.inc59_crit_edge.split.us.us.us.us.us.us.i
   %inc63.us.us.us.i = add nuw nsw i64 %i03.020.us.us.us.i, 1
   %exitcond41.not.i = icmp eq i64 %inc63.us.us.us.i, %3
-  br i1 %exitcond41.not.i, label %ggml_compute_forward_mean_f32.argprom.exit, label %for.cond34.preheader.us.us.us.i, !llvm.loop !415
+  br i1 %exitcond41.not.i, label %ggml_compute_forward_mean_f32.exit, label %for.cond34.preheader.us.us.us.i, !llvm.loop !415
 
 for.cond34.preheader.us.us.i:                     ; preds = %for.cond34.preheader.lr.ph.split.us.split.us.i, %for.cond34.for.inc62_crit_edge.split.us.split.us32.us.i
   %i03.020.us.us.i = phi i64 [ %inc63.us.us.i, %for.cond34.for.inc62_crit_edge.split.us.split.us32.us.i ], [ 0, %for.cond34.preheader.lr.ph.split.us.split.us.i ]
@@ -38628,9 +38628,9 @@ for.cond37.for.inc59_crit_edge.split.us17.us.us.i: ; preds = %for.body39.us5.us.
 for.cond34.for.inc62_crit_edge.split.us.split.us32.us.i: ; preds = %for.cond37.for.inc59_crit_edge.split.us17.us.us.i
   %inc63.us.us.i = add nuw nsw i64 %i03.020.us.us.i, 1
   %exitcond38.not.i = icmp eq i64 %inc63.us.us.i, %3
-  br i1 %exitcond38.not.i, label %ggml_compute_forward_mean_f32.argprom.exit, label %for.cond34.preheader.us.us.i, !llvm.loop !415
+  br i1 %exitcond38.not.i, label %ggml_compute_forward_mean_f32.exit, label %for.cond34.preheader.us.us.i, !llvm.loop !415
 
-ggml_compute_forward_mean_f32.argprom.exit:       ; preds = %for.cond34.for.inc62_crit_edge.split.us.split.us32.us.i, %for.cond34.for.inc62_crit_edge.split.us.split.us.us.us.us.i, %sw.bb, %sw.bb, %if.end.i, %for.cond34.preheader.lr.ph.i
+ggml_compute_forward_mean_f32.exit:               ; preds = %for.cond34.for.inc62_crit_edge.split.us.split.us32.us.i, %for.cond34.for.inc62_crit_edge.split.us.split.us.us.us.us.i, %sw.bb, %sw.bb, %if.end.i, %for.cond34.preheader.lr.ph.i
   ret void
 
 do.body:                                          ; preds = %entry
@@ -38653,8 +38653,8 @@ entry:
 sw.bb:                                            ; preds = %entry
   %params.val = load i32, ptr %params, align 8
   switch i32 %params.val, label %if.end.i [
-    i32 0, label %ggml_compute_forward_argmax_f32.argprom.exit
-    i32 2, label %ggml_compute_forward_argmax_f32.argprom.exit
+    i32 0, label %ggml_compute_forward_argmax_f32.exit
+    i32 2, label %ggml_compute_forward_argmax_f32.exit
   ]
 
 if.end.i:                                         ; preds = %sw.bb
@@ -38665,7 +38665,7 @@ if.end.i:                                         ; preds = %sw.bb
   %nb6.i = getelementptr inbounds i8, ptr %dst, i64 48
   %3 = load i64, ptr %nb6.i, align 8
   %cmp81.i = icmp sgt i64 %1, 0
-  br i1 %cmp81.i, label %for.body.lr.ph.i, label %ggml_compute_forward_argmax_f32.argprom.exit
+  br i1 %cmp81.i, label %for.body.lr.ph.i, label %ggml_compute_forward_argmax_f32.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %ne.i = getelementptr inbounds i8, ptr %src0, i64 16
@@ -38706,7 +38706,7 @@ ggml_vec_argmax_f32.exit.loopexit.us.i:           ; preds = %for.body.i.us.i
   store i32 %idx.1.i.us.i, ptr %add.ptr11.us.i, align 4
   %inc.us.i = add nuw nsw i64 %i1.02.us.i, 1
   %exitcond4.not.i = icmp eq i64 %inc.us.i, %1
-  br i1 %exitcond4.not.i, label %ggml_compute_forward_argmax_f32.argprom.exit, label %for.body.us.i, !llvm.loop !417
+  br i1 %exitcond4.not.i, label %ggml_compute_forward_argmax_f32.exit, label %for.body.us.i, !llvm.loop !417
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
   %i1.02.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
@@ -38716,9 +38716,9 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   store i32 0, ptr %add.ptr11.i, align 4
   %inc.i = add nuw nsw i64 %i1.02.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %1
-  br i1 %exitcond.not.i, label %ggml_compute_forward_argmax_f32.argprom.exit, label %for.body.i, !llvm.loop !417
+  br i1 %exitcond.not.i, label %ggml_compute_forward_argmax_f32.exit, label %for.body.i, !llvm.loop !417
 
-ggml_compute_forward_argmax_f32.argprom.exit:     ; preds = %for.body.i, %ggml_vec_argmax_f32.exit.loopexit.us.i, %sw.bb, %sw.bb, %if.end.i
+ggml_compute_forward_argmax_f32.exit:             ; preds = %for.body.i, %ggml_vec_argmax_f32.exit.loopexit.us.i, %sw.bb, %sw.bb, %if.end.i
   ret void
 
 do.body:                                          ; preds = %entry
@@ -49655,8 +49655,8 @@ if.then7:                                         ; preds = %do.body5
 do.end11:                                         ; preds = %do.body5
   %params.val = load i32, ptr %params, align 8
   switch i32 %params.val, label %if.end.i [
-    i32 0, label %ggml_compute_forward_pool_1d_sk_p0.argprom.exit
-    i32 2, label %ggml_compute_forward_pool_1d_sk_p0.argprom.exit
+    i32 0, label %ggml_compute_forward_pool_1d_sk_p0.exit
+    i32 2, label %ggml_compute_forward_pool_1d_sk_p0.exit
   ]
 
 if.end.i:                                         ; preds = %do.end11
@@ -49723,14 +49723,14 @@ ggml_nbytes.exit.i:                               ; preds = %for.body17.i.i, %fo
   %ne.i = getelementptr inbounds i8, ptr %dst, i64 16
   %20 = load i64, ptr %ne.i, align 8
   %cmp457.i = icmp sgt i64 %nbytes.1.i.i, 0
-  br i1 %cmp457.i, label %for.cond.preheader.lr.ph.i, label %ggml_compute_forward_pool_1d_sk_p0.argprom.exit
+  br i1 %cmp457.i, label %for.cond.preheader.lr.ph.i, label %ggml_compute_forward_pool_1d_sk_p0.exit
 
 for.cond.preheader.lr.ph.i:                       ; preds = %ggml_nbytes.exit.i
   %cmp516.i = icmp sgt i64 %20, 0
   %cmp132.i = icmp sgt i32 %1, 0
   %conv.i = sitofp i32 %1 to float
   %arrayidx47.i = getelementptr inbounds i8, ptr %src0, i64 56
-  br i1 %cmp516.i, label %for.cond.preheader.lr.ph.split.us.i, label %ggml_compute_forward_pool_1d_sk_p0.argprom.exit
+  br i1 %cmp516.i, label %for.cond.preheader.lr.ph.split.us.i, label %ggml_compute_forward_pool_1d_sk_p0.exit
 
 for.cond.preheader.lr.ph.split.us.i:              ; preds = %for.cond.preheader.lr.ph.i
   %cond150.i = icmp eq i32 %0, 2
@@ -49740,7 +49740,7 @@ for.cond.preheader.lr.ph.split.us.split.i:        ; preds = %for.cond.preheader.
   br i1 %cmp132.i, label %for.cond.preheader.us.us.i.preheader, label %for.cond.preheader.lr.ph.split.us.split.split.i
 
 for.cond.preheader.us.us.i.preheader:             ; preds = %for.cond.preheader.lr.ph.split.us.split.i
-  switch i32 %0, label %ggml_compute_forward_pool_1d_sk_p0.argprom.exit [
+  switch i32 %0, label %ggml_compute_forward_pool_1d_sk_p0.exit [
     i32 1, label %for.cond.preheader.us.us.i.us
     i32 0, label %for.cond.preheader.us.us.i.us21
   ]
@@ -49783,7 +49783,7 @@ for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.us: ; preds = %for.cond1
   %add.ptr48.us.us.i.us = getelementptr inbounds i8, ptr %cdata.063.us.us.i.us, i64 %24
   %add.ptr49.us.us.i.us = getelementptr inbounds float, ptr %drow.058.us.us.i.us, i64 %20
   %cmp4.us.us.i.us = icmp ult ptr %add.ptr48.us.us.i.us, %add.ptr.i
-  br i1 %cmp4.us.us.i.us, label %for.cond.preheader.us.us.i.us, label %ggml_compute_forward_pool_1d_sk_p0.argprom.exit, !llvm.loop !624
+  br i1 %cmp4.us.us.i.us, label %for.cond.preheader.us.us.i.us, label %ggml_compute_forward_pool_1d_sk_p0.exit, !llvm.loop !624
 
 for.cond.preheader.us.us.i.us21:                  ; preds = %for.cond.preheader.us.us.i.preheader, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us
   %cdata.063.us.us.i.us22 = phi ptr [ %add.ptr48.us.us.i.us25, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us ], [ %8, %for.cond.preheader.us.us.i.preheader ]
@@ -49828,10 +49828,10 @@ for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us: ; preds = %for.cond1
   %add.ptr48.us.us.i.us25 = getelementptr inbounds i8, ptr %cdata.063.us.us.i.us22, i64 %30
   %add.ptr49.us.us.i.us26 = getelementptr inbounds float, ptr %drow.058.us.us.i.us23, i64 %20
   %cmp4.us.us.i.us27 = icmp ult ptr %add.ptr48.us.us.i.us25, %add.ptr.i
-  br i1 %cmp4.us.us.i.us27, label %for.cond.preheader.us.us.i.us21, label %ggml_compute_forward_pool_1d_sk_p0.argprom.exit, !llvm.loop !624
+  br i1 %cmp4.us.us.i.us27, label %for.cond.preheader.us.us.i.us21, label %ggml_compute_forward_pool_1d_sk_p0.exit, !llvm.loop !624
 
 for.cond.preheader.lr.ph.split.us.split.split.i:  ; preds = %for.cond.preheader.lr.ph.split.us.split.i
-  switch i32 %0, label %ggml_compute_forward_pool_1d_sk_p0.argprom.exit [
+  switch i32 %0, label %ggml_compute_forward_pool_1d_sk_p0.exit [
     i32 1, label %for.cond.preheader.us.us76.us.preheader.i
     i32 0, label %for.cond.preheader.us.us89.i
   ]
@@ -49858,7 +49858,7 @@ for.cond.for.end46_crit_edge.split.split.us.us.us.split.us.us.i: ; preds = %for.
   %add.ptr48.us.us79.us.i = getelementptr inbounds i8, ptr %cdata.063.us.us77.us.i, i64 %31
   %add.ptr49.us.us80.us.i = getelementptr inbounds float, ptr %drow.058.us.us78.us.i, i64 %20
   %cmp4.us.us81.us.i = icmp ult ptr %add.ptr48.us.us79.us.i, %add.ptr.i
-  br i1 %cmp4.us.us81.us.i, label %for.cond.preheader.us.us76.us.i, label %ggml_compute_forward_pool_1d_sk_p0.argprom.exit, !llvm.loop !624
+  br i1 %cmp4.us.us81.us.i, label %for.cond.preheader.us.us76.us.i, label %ggml_compute_forward_pool_1d_sk_p0.exit, !llvm.loop !624
 
 for.cond.preheader.us.us89.i:                     ; preds = %for.cond.preheader.lr.ph.split.us.split.split.i, %for.cond.for.end46_crit_edge.split.split.split.split.us.us.us.i
   %cdata.063.us.us90.i = phi ptr [ %add.ptr48.us.us93.i, %for.cond.for.end46_crit_edge.split.split.split.split.us.us.us.i ], [ %8, %for.cond.preheader.lr.ph.split.us.split.split.i ]
@@ -49878,7 +49878,7 @@ for.cond.for.end46_crit_edge.split.split.split.split.us.us.us.i: ; preds = %for.
   %add.ptr48.us.us93.i = getelementptr inbounds i8, ptr %cdata.063.us.us90.i, i64 %32
   %add.ptr49.us.us94.i = getelementptr inbounds float, ptr %drow.058.us.us91.i, i64 %20
   %cmp4.us.us95.i = icmp ult ptr %add.ptr48.us.us93.i, %add.ptr.i
-  br i1 %cmp4.us.us95.i, label %for.cond.preheader.us.us89.i, label %ggml_compute_forward_pool_1d_sk_p0.argprom.exit, !llvm.loop !624
+  br i1 %cmp4.us.us95.i, label %for.cond.preheader.us.us89.i, label %ggml_compute_forward_pool_1d_sk_p0.exit, !llvm.loop !624
 
 do.body.i:                                        ; preds = %for.cond.preheader.lr.ph.split.us.i
   %33 = load ptr, ptr @stdout, align 8
@@ -49889,12 +49889,12 @@ do.body.i:                                        ; preds = %for.cond.preheader.
   tail call void @abort() #47
   unreachable
 
-ggml_compute_forward_pool_1d_sk_p0.argprom.exit:  ; preds = %for.cond.for.end46_crit_edge.split.split.split.split.us.us.us.i, %for.cond.for.end46_crit_edge.split.split.us.us.us.split.us.us.i, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.us, %for.cond.preheader.us.us.i.preheader, %for.cond.preheader.lr.ph.split.us.split.split.i, %do.end11, %do.end11, %ggml_nbytes.exit.i, %for.cond.preheader.lr.ph.i
+ggml_compute_forward_pool_1d_sk_p0.exit:          ; preds = %for.cond.for.end46_crit_edge.split.split.split.split.us.us.us.i, %for.cond.for.end46_crit_edge.split.split.us.us.us.split.us.us.i, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.us, %for.cond.preheader.us.us.i.preheader, %for.cond.preheader.lr.ph.split.us.split.split.i, %do.end11, %do.end11, %ggml_nbytes.exit.i, %for.cond.preheader.lr.ph.i
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_pool_2d.argprom(i32 %params.0.val, ptr nocapture noundef readonly %src, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc void @ggml_compute_forward_pool_2d(i32 %params.0.val, ptr nocapture noundef readonly %src, ptr nocapture noundef readonly %dst) unnamed_addr #0 {
 entry:
   switch i32 %params.0.val, label %if.end [
     i32 0, label %while.end
@@ -50931,8 +50931,8 @@ entry:
 sw.bb:                                            ; preds = %entry
   %params.val = load i32, ptr %params, align 8
   switch i32 %params.val, label %if.end.i [
-    i32 0, label %ggml_compute_forward_leaky_relu_f32.argprom.exit
-    i32 2, label %ggml_compute_forward_leaky_relu_f32.argprom.exit
+    i32 0, label %ggml_compute_forward_leaky_relu_f32.exit
+    i32 2, label %ggml_compute_forward_leaky_relu_f32.exit
   ]
 
 if.end.i:                                         ; preds = %sw.bb
@@ -50948,7 +50948,7 @@ if.end.i:                                         ; preds = %sw.bb
   %op_params.i = getelementptr inbounds i8, ptr %dst, i64 84
   %negative_slope.0.copyload.i = load float, ptr %op_params.i, align 4
   %cmp41.i = icmp sgt i32 %conv.i, 0
-  br i1 %cmp41.i, label %for.body.lr.ph.i, label %ggml_compute_forward_leaky_relu_f32.argprom.exit
+  br i1 %cmp41.i, label %for.body.lr.ph.i, label %ggml_compute_forward_leaky_relu_f32.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %ne.i = getelementptr inbounds i8, ptr %src0, i64 16
@@ -50960,7 +50960,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %arrayidx11.i = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp11.i.i = icmp sgt i32 %conv3.i, 0
   %wide.trip.count.i.i = and i64 %4, 2147483647
-  br i1 %cmp11.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_leaky_relu_f32.argprom.exit
+  br i1 %cmp11.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_leaky_relu_f32.exit
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
   %wide.trip.count.i = and i64 %mul5.i.i, 2147483647
@@ -50996,9 +50996,9 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i, %f
 ggml_vec_leaky_relu_f32.exit.loopexit.us.i:       ; preds = %for.body.i.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ggml_compute_forward_leaky_relu_f32.argprom.exit, label %for.body.us.i, !llvm.loop !643
+  br i1 %exitcond.not.i, label %ggml_compute_forward_leaky_relu_f32.exit, label %for.body.us.i, !llvm.loop !643
 
-ggml_compute_forward_leaky_relu_f32.argprom.exit: ; preds = %ggml_vec_leaky_relu_f32.exit.loopexit.us.i, %sw.bb, %sw.bb, %if.end.i, %for.body.lr.ph.i
+ggml_compute_forward_leaky_relu_f32.exit:         ; preds = %ggml_vec_leaky_relu_f32.exit.loopexit.us.i, %sw.bb, %sw.bb, %if.end.i, %for.body.lr.ph.i
   ret void
 
 do.body:                                          ; preds = %entry
@@ -54798,8 +54798,8 @@ entry:
 sw.bb:                                            ; preds = %entry
   %params.val = load i32, ptr %params, align 8
   switch i32 %params.val, label %if.end.i [
-    i32 0, label %ggml_compute_forward_win_part_f32.argprom.exit
-    i32 2, label %ggml_compute_forward_win_part_f32.argprom.exit
+    i32 0, label %ggml_compute_forward_win_part_f32.exit
+    i32 2, label %ggml_compute_forward_win_part_f32.exit
   ]
 
 if.end.i:                                         ; preds = %sw.bb
@@ -54822,7 +54822,7 @@ if.end.i:                                         ; preds = %sw.bb
   %arrayidx24.i = getelementptr inbounds i8, ptr %dst, i64 92
   %9 = load i32, ptr %arrayidx24.i, align 4
   %cmp2549.i = icmp sgt i32 %8, 0
-  br i1 %cmp2549.i, label %for.cond26.preheader.lr.ph.i, label %ggml_compute_forward_win_part_f32.argprom.exit
+  br i1 %cmp2549.i, label %for.cond26.preheader.lr.ph.i, label %ggml_compute_forward_win_part_f32.exit
 
 for.cond26.preheader.lr.ph.i:                     ; preds = %if.end.i
   %cmp2735.i = icmp slt i32 %7, 1
@@ -54834,7 +54834,7 @@ for.cond26.preheader.lr.ph.i:                     ; preds = %if.end.i
   %or.cond.not94.i = select i1 %cmp2735.i, i1 true, i1 %cmp3012.i
   %brmerge.i = select i1 %or.cond.not94.i, i1 true, i1 %cmp343.i
   %brmerge93.i = select i1 %brmerge.i, i1 true, i1 %cmp381.i
-  br i1 %brmerge93.i, label %ggml_compute_forward_win_part_f32.argprom.exit, label %for.cond26.preheader.us.us.us.us.preheader.i
+  br i1 %brmerge93.i, label %ggml_compute_forward_win_part_f32.exit, label %for.cond26.preheader.us.us.us.us.preheader.i
 
 for.cond26.preheader.us.us.us.us.preheader.i:     ; preds = %for.cond26.preheader.lr.ph.i
   %10 = sext i32 %9 to i64
@@ -54939,9 +54939,9 @@ for.cond29.for.inc85_crit_edge.split.us.split.us.us.us.us.us.us.us.us.i: ; preds
 for.cond26.for.inc88_crit_edge.split.us.split.us.split.us.us.us.us.us.i: ; preds = %for.cond29.for.inc85_crit_edge.split.us.split.us.us.us.us.us.us.us.us.i
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %exitcond90.not.i = icmp eq i64 %indvars.iv.next85.i, %wide.trip.count89.i
-  br i1 %exitcond90.not.i, label %ggml_compute_forward_win_part_f32.argprom.exit, label %for.cond26.preheader.us.us.us.us.i, !llvm.loop !815
+  br i1 %exitcond90.not.i, label %ggml_compute_forward_win_part_f32.exit, label %for.cond26.preheader.us.us.us.us.i, !llvm.loop !815
 
-ggml_compute_forward_win_part_f32.argprom.exit:   ; preds = %for.cond26.for.inc88_crit_edge.split.us.split.us.split.us.us.us.us.us.i, %sw.bb, %sw.bb, %if.end.i, %for.cond26.preheader.lr.ph.i
+ggml_compute_forward_win_part_f32.exit:           ; preds = %for.cond26.for.inc88_crit_edge.split.us.split.us.split.us.us.us.us.us.i, %sw.bb, %sw.bb, %if.end.i, %for.cond26.preheader.lr.ph.i
   ret void
 
 do.body:                                          ; preds = %entry
@@ -54964,8 +54964,8 @@ entry:
 sw.bb:                                            ; preds = %entry
   %params.val = load i32, ptr %params, align 8
   switch i32 %params.val, label %if.end.i [
-    i32 0, label %ggml_compute_forward_win_unpart_f32.argprom.exit
-    i32 2, label %ggml_compute_forward_win_unpart_f32.argprom.exit
+    i32 0, label %ggml_compute_forward_win_unpart_f32.exit
+    i32 2, label %ggml_compute_forward_win_unpart_f32.exit
   ]
 
 if.end.i:                                         ; preds = %sw.bb
@@ -54990,7 +54990,7 @@ if.end.i:                                         ; preds = %sw.bb
   %add.i = add nsw i64 %rem21.i, %5
   %div.i = sdiv i64 %add.i, %conv.i
   %cmp265.i = icmp sgt i64 %6, 0
-  br i1 %cmp265.i, label %for.cond28.preheader.lr.ph.i, label %ggml_compute_forward_win_unpart_f32.argprom.exit
+  br i1 %cmp265.i, label %for.cond28.preheader.lr.ph.i, label %ggml_compute_forward_win_unpart_f32.exit
 
 for.cond28.preheader.lr.ph.i:                     ; preds = %if.end.i
   %cmp293.i = icmp sgt i64 %5, 0
@@ -54998,7 +54998,7 @@ for.cond28.preheader.lr.ph.i:                     ; preds = %if.end.i
   %data63.i = getelementptr inbounds i8, ptr %dst, i64 280
   %cmp331.i = icmp sgt i64 %4, 0
   %or.cond.i = select i1 %cmp293.i, i1 %cmp331.i, i1 false
-  br i1 %or.cond.i, label %for.cond28.preheader.us.us.i, label %ggml_compute_forward_win_unpart_f32.argprom.exit
+  br i1 %or.cond.i, label %for.cond28.preheader.us.us.i, label %ggml_compute_forward_win_unpart_f32.exit
 
 for.cond28.preheader.us.us.i:                     ; preds = %for.cond28.preheader.lr.ph.i, %for.cond28.for.inc68_crit_edge.split.us.us.us.i
   %i2.06.us.us.i = phi i64 [ %inc69.us.us.i, %for.cond28.for.inc68_crit_edge.split.us.us.us.i ], [ 0, %for.cond28.preheader.lr.ph.i ]
@@ -55046,9 +55046,9 @@ for.cond32.for.inc65_crit_edge.us.us.us.i:        ; preds = %for.body35.us.us.us
 for.cond28.for.inc68_crit_edge.split.us.us.us.i:  ; preds = %for.cond32.for.inc65_crit_edge.us.us.us.i
   %inc69.us.us.i = add nuw nsw i64 %i2.06.us.us.i, 1
   %exitcond17.not.i = icmp eq i64 %inc69.us.us.i, %6
-  br i1 %exitcond17.not.i, label %ggml_compute_forward_win_unpart_f32.argprom.exit, label %for.cond28.preheader.us.us.i, !llvm.loop !818
+  br i1 %exitcond17.not.i, label %ggml_compute_forward_win_unpart_f32.exit, label %for.cond28.preheader.us.us.i, !llvm.loop !818
 
-ggml_compute_forward_win_unpart_f32.argprom.exit: ; preds = %for.cond28.for.inc68_crit_edge.split.us.us.us.i, %sw.bb, %sw.bb, %if.end.i, %for.cond28.preheader.lr.ph.i
+ggml_compute_forward_win_unpart_f32.exit:         ; preds = %for.cond28.for.inc68_crit_edge.split.us.us.us.i, %sw.bb, %sw.bb, %if.end.i, %for.cond28.preheader.lr.ph.i
   ret void
 
 do.body:                                          ; preds = %entry
@@ -56247,8 +56247,8 @@ entry:
 sw.bb:                                            ; preds = %entry
   %params.val = load i32, ptr %params, align 8
   switch i32 %params.val, label %if.end.i [
-    i32 0, label %ggml_compute_forward_get_rel_pos_f16.argprom.exit
-    i32 2, label %ggml_compute_forward_get_rel_pos_f16.argprom.exit
+    i32 0, label %ggml_compute_forward_get_rel_pos_f16.exit
+    i32 2, label %ggml_compute_forward_get_rel_pos_f16.exit
   ]
 
 if.end.i:                                         ; preds = %sw.bb
@@ -56269,7 +56269,7 @@ if.end.i:                                         ; preds = %sw.bb
   %or.cond.i = select i1 %cmp345.i, i1 %cmp363.i, i1 false
   %cmp401.i = icmp sgt i64 %2, 0
   %or.cond18.i = select i1 %or.cond.i, i1 %cmp401.i, i1 false
-  br i1 %or.cond18.i, label %for.cond35.preheader.us.us.i, label %ggml_compute_forward_get_rel_pos_f16.argprom.exit
+  br i1 %or.cond18.i, label %for.cond35.preheader.us.us.i, label %ggml_compute_forward_get_rel_pos_f16.exit
 
 for.cond35.preheader.us.us.i:                     ; preds = %if.end.i, %for.cond35.for.inc53_crit_edge.split.us.us.us.i
   %i2.06.us.us.i = phi i64 [ %inc54.us.us.i, %for.cond35.for.inc53_crit_edge.split.us.us.us.i ], [ 0, %if.end.i ]
@@ -56306,9 +56306,9 @@ for.cond39.for.inc50_crit_edge.us.us.us.i:        ; preds = %for.body41.us.us.us
 for.cond35.for.inc53_crit_edge.split.us.us.us.i:  ; preds = %for.cond39.for.inc50_crit_edge.us.us.us.i
   %inc54.us.us.i = add nuw nsw i64 %i2.06.us.us.i, 1
   %exitcond17.not.i = icmp eq i64 %inc54.us.us.i, %4
-  br i1 %exitcond17.not.i, label %ggml_compute_forward_get_rel_pos_f16.argprom.exit, label %for.cond35.preheader.us.us.i, !llvm.loop !840
+  br i1 %exitcond17.not.i, label %ggml_compute_forward_get_rel_pos_f16.exit, label %for.cond35.preheader.us.us.i, !llvm.loop !840
 
-ggml_compute_forward_get_rel_pos_f16.argprom.exit: ; preds = %for.cond35.for.inc53_crit_edge.split.us.us.us.i, %sw.bb, %sw.bb, %if.end.i
+ggml_compute_forward_get_rel_pos_f16.exit:        ; preds = %for.cond35.for.inc53_crit_edge.split.us.us.us.i, %sw.bb, %sw.bb, %if.end.i
   ret void
 
 do.body:                                          ; preds = %entry
@@ -56637,8 +56637,8 @@ entry:
 sw.bb:                                            ; preds = %entry
   %params.val = load i32, ptr %params, align 8
   switch i32 %params.val, label %if.end.i [
-    i32 0, label %ggml_compute_forward_map_binary_f32.argprom.exit
-    i32 2, label %ggml_compute_forward_map_binary_f32.argprom.exit
+    i32 0, label %ggml_compute_forward_map_binary_f32.exit
+    i32 2, label %ggml_compute_forward_map_binary_f32.exit
   ]
 
 if.end.i:                                         ; preds = %sw.bb
@@ -56655,7 +56655,7 @@ if.end.i:                                         ; preds = %sw.bb
   %4 = load i64, ptr %ne.i, align 8
   %conv3.i = trunc i64 %4 to i32
   %cmp41.i = icmp sgt i32 %conv.i, 0
-  br i1 %cmp41.i, label %for.body.lr.ph.i, label %ggml_compute_forward_map_binary_f32.argprom.exit
+  br i1 %cmp41.i, label %for.body.lr.ph.i, label %ggml_compute_forward_map_binary_f32.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %data.i = getelementptr inbounds i8, ptr %dst, i64 280
@@ -56684,9 +56684,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void %fun(i32 noundef %conv3.i, ptr noundef %add.ptr.i, ptr noundef %add.ptr13.i, ptr noundef %add.ptr19.i) #45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ggml_compute_forward_map_binary_f32.argprom.exit, label %for.body.i, !llvm.loop !847
+  br i1 %exitcond.not.i, label %ggml_compute_forward_map_binary_f32.exit, label %for.body.i, !llvm.loop !847
 
-ggml_compute_forward_map_binary_f32.argprom.exit: ; preds = %for.body.i, %sw.bb, %sw.bb, %if.end.i
+ggml_compute_forward_map_binary_f32.exit:         ; preds = %for.body.i, %sw.bb, %sw.bb, %if.end.i
   ret void
 
 do.body:                                          ; preds = %entry

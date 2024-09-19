@@ -2792,7 +2792,7 @@ _ZN3fmt2v810vformat_toISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500
   %179 = load i32, ptr %178, align 4
   %180 = getelementptr inbounds i8, ptr %1, i64 140
   %181 = load i32, ptr %180, align 4
-  %182 = invoke fastcc ptr @"_ZZNK3fmt2v89formatterIN8WasmEdge7ErrInfo12InfoMismatchEcvE6formatERKS4_RNS0_20basic_format_contextINS0_8appenderEcEEENK3$_0clISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEEDaT_bjj.argprom"(ptr %174, i1 noundef zeroext %177, i32 noundef %179, i32 noundef %181)
+  %182 = invoke fastcc ptr @"_ZZNK3fmt2v89formatterIN8WasmEdge7ErrInfo12InfoMismatchEcvE6formatERKS4_RNS0_20basic_format_contextINS0_8appenderEcEEENK3$_0clISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEEDaT_bjj"(ptr %174, i1 noundef zeroext %177, i32 noundef %179, i32 noundef %181)
           to label %183 unwind label %284
 
 183:                                              ; preds = %173
@@ -2827,7 +2827,7 @@ _ZN3fmt2v810vformat_toISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500
   %199 = load i32, ptr %198, align 8
   %200 = getelementptr inbounds i8, ptr %1, i64 144
   %201 = load i32, ptr %200, align 8
-  %202 = invoke fastcc ptr @"_ZZNK3fmt2v89formatterIN8WasmEdge7ErrInfo12InfoMismatchEcvE6formatERKS4_RNS0_20basic_format_contextINS0_8appenderEcEEENK3$_0clISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEEDaT_bjj.argprom"(ptr %194, i1 noundef zeroext %197, i32 noundef %199, i32 noundef %201)
+  %202 = invoke fastcc ptr @"_ZZNK3fmt2v89formatterIN8WasmEdge7ErrInfo12InfoMismatchEcvE6formatERKS4_RNS0_20basic_format_contextINS0_8appenderEcEEENK3$_0clISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEEDaT_bjj"(ptr %194, i1 noundef zeroext %197, i32 noundef %199, i32 noundef %201)
           to label %203 unwind label %284
 
 203:                                              ; preds = %193
@@ -2874,7 +2874,7 @@ _ZN3fmt2v810vformat_toISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500
   %221 = load i32, ptr %220, align 4
   %222 = getelementptr inbounds i8, ptr %1, i64 140
   %223 = load i32, ptr %222, align 4
-  %224 = invoke fastcc ptr @"_ZZNK3fmt2v89formatterIN8WasmEdge7ErrInfo12InfoMismatchEcvE6formatERKS4_RNS0_20basic_format_contextINS0_8appenderEcEEENK3$_0clISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEEDaT_bjj.argprom"(ptr %216, i1 noundef zeroext %219, i32 noundef %221, i32 noundef %223)
+  %224 = invoke fastcc ptr @"_ZZNK3fmt2v89formatterIN8WasmEdge7ErrInfo12InfoMismatchEcvE6formatERKS4_RNS0_20basic_format_contextINS0_8appenderEcEEENK3$_0clISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEEDaT_bjj"(ptr %216, i1 noundef zeroext %219, i32 noundef %221, i32 noundef %223)
           to label %225 unwind label %284
 
 225:                                              ; preds = %215
@@ -2902,7 +2902,7 @@ _ZN3fmt2v810vformat_toISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500
   %237 = load i32, ptr %236, align 8
   %238 = getelementptr inbounds i8, ptr %1, i64 144
   %239 = load i32, ptr %238, align 8
-  %240 = invoke fastcc ptr @"_ZZNK3fmt2v89formatterIN8WasmEdge7ErrInfo12InfoMismatchEcvE6formatERKS4_RNS0_20basic_format_contextINS0_8appenderEcEEENK3$_0clISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEEDaT_bjj.argprom"(ptr %232, i1 noundef zeroext %235, i32 noundef %237, i32 noundef %239)
+  %240 = invoke fastcc ptr @"_ZZNK3fmt2v89formatterIN8WasmEdge7ErrInfo12InfoMismatchEcvE6formatERKS4_RNS0_20basic_format_contextINS0_8appenderEcEEENK3$_0clISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEEDaT_bjj"(ptr %232, i1 noundef zeroext %235, i32 noundef %237, i32 noundef %239)
           to label %241 unwind label %284
 
 241:                                              ; preds = %231
@@ -3027,7 +3027,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %280, %282
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @"_ZZNK3fmt2v89formatterIN8WasmEdge7ErrInfo12InfoMismatchEcvE6formatERKS4_RNS0_20basic_format_contextINS0_8appenderEcEEENK3$_0clISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEEDaT_bjj.argprom"(ptr %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 {
+define internal fastcc ptr @"_ZZNK3fmt2v89formatterIN8WasmEdge7ErrInfo12InfoMismatchEcvE6formatERKS4_RNS0_20basic_format_contextINS0_8appenderEcEEENK3$_0clISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEEDaT_bjj"(ptr %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 {
   %5 = alloca %"class.fmt::v8::detail::iterator_buffer", align 8
   %6 = alloca %"class.fmt::v8::detail::iterator_buffer", align 8
   %7 = alloca %"class.fmt::v8::detail::iterator_buffer", align 8

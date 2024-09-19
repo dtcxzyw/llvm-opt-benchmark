@@ -1243,7 +1243,7 @@ acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260
   store i64 0, ptr %2, align 8, !annotation !10
   %322 = getelementptr inbounds i8, ptr %318, i64 264
   %323 = load ptr, ptr %322, align 8
-  call fastcc void @acpi_video_device_lcd_get_level_current.argelim(ptr noundef %323, ptr noundef nonnull %2)
+  call fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef %323, ptr noundef nonnull %2)
   %324 = getelementptr inbounds i8, ptr %323, i64 144
   %325 = load ptr, ptr %324, align 8
   %326 = getelementptr inbounds i8, ptr %325, i64 4
@@ -2839,7 +2839,7 @@ define internal void @acpi_video_switch_brightness(ptr nocapture noundef %0) #0 
   br i1 %12, label %acpi_video_device_lcd_set_level.exit, label %13
 
 13:                                               ; preds = %9
-  call fastcc void @acpi_video_device_lcd_get_level_current.argelim(ptr noundef %3, ptr noundef nonnull %2)
+  call fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef %3, ptr noundef nonnull %2)
   %14 = load i64, ptr %2, align 8
   %15 = trunc i64 %14 to i32
   %16 = load ptr, ptr %10, align 8
@@ -3021,7 +3021,7 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 declare dso_local void @delayed_work_timer_fn(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_video_device_lcd_get_level_current.argelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_video_device_lcd_get_level_current(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 9
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 24
@@ -3420,7 +3420,7 @@ define internal i32 @acpi_video_get_brightness(ptr nocapture noundef readonly %0
   store i64 0, ptr %2, align 8, !annotation !10
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
-  call fastcc void @acpi_video_device_lcd_get_level_current.argelim(ptr noundef %4, ptr noundef nonnull %2)
+  call fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef %4, ptr noundef nonnull %2)
   %5 = getelementptr inbounds i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 4
@@ -3574,7 +3574,7 @@ define internal noundef range(i32 -22, 1) i32 @video_get_cur_state(ptr nocapture
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store i64 0, ptr %3, align 8, !annotation !10
-  call fastcc void @acpi_video_device_lcd_get_level_current.argelim(ptr noundef %5, ptr noundef nonnull %3)
+  call fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef %5, ptr noundef nonnull %3)
   %6 = getelementptr inbounds i8, ptr %5, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 4

@@ -527,7 +527,7 @@ define internal fastcc void @RunWorker(ptr noundef %0, ptr nocapture noundef %1)
   %15 = tail call i64 @read(i32 noundef %7, ptr noundef %14, i64 noundef 1) #18
   %16 = trunc i64 %15 to i32
   %17 = icmp slt i32 %16, 1
-  br i1 %17, label %getMessageFromLeader.argprom.exit.thread.i, label %.lr.ph.i.i.preheader.lr.ph.i
+  br i1 %17, label %getMessageFromLeader.exit.thread.i, label %.lr.ph.i.i.preheader.lr.ph.i
 
 .lr.ph.i.i.preheader.lr.ph.i:                     ; preds = %2
   %18 = getelementptr inbounds i8, ptr %10, i64 376
@@ -543,7 +543,7 @@ define internal fastcc void @RunWorker(ptr noundef %0, ptr nocapture noundef %1)
   %.01720.i.i.i = phi ptr [ %14, %.lr.ph.i.i.preheader.lr.ph.i ], [ %.01720.i.i.i.be, %.lr.ph.i.i.i.backedge ]
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %getMessageFromLeader.argprom.exit.i, label %25
+  br i1 %24, label %getMessageFromLeader.exit.i, label %25
 
 25:                                               ; preds = %.lr.ph.i.i.i
   %26 = add i32 %.01621.i.i.i, 1
@@ -564,25 +564,25 @@ define internal fastcc void @RunWorker(ptr noundef %0, ptr nocapture noundef %1)
   %35 = call i64 @read(i32 noundef %7, ptr noundef %34, i64 noundef 1) #18
   %36 = trunc i64 %35 to i32
   %37 = icmp slt i32 %36, 1
-  br i1 %37, label %getMessageFromLeader.argprom.exit.thread.i, label %.lr.ph.i.i.i.backedge
+  br i1 %37, label %getMessageFromLeader.exit.thread.i, label %.lr.ph.i.i.i.backedge
 
-.lr.ph.i.i.i.backedge:                            ; preds = %32, %sendMessageToLeader.argprom.exit.i
-  %.be = phi ptr [ %34, %32 ], [ %88, %sendMessageToLeader.argprom.exit.i ]
-  %.01522.i.i.i.be = phi i32 [ %.1.i.i.i, %32 ], [ 64, %sendMessageToLeader.argprom.exit.i ]
-  %.01621.i.i.i.be = phi i32 [ %26, %32 ], [ 0, %sendMessageToLeader.argprom.exit.i ]
-  %.01720.i.i.i.be = phi ptr [ %.118.i.i.i, %32 ], [ %88, %sendMessageToLeader.argprom.exit.i ]
+.lr.ph.i.i.i.backedge:                            ; preds = %32, %sendMessageToLeader.exit.i
+  %.be = phi ptr [ %34, %32 ], [ %88, %sendMessageToLeader.exit.i ]
+  %.01522.i.i.i.be = phi i32 [ %.1.i.i.i, %32 ], [ 64, %sendMessageToLeader.exit.i ]
+  %.01621.i.i.i.be = phi i32 [ %26, %32 ], [ 0, %sendMessageToLeader.exit.i ]
+  %.01720.i.i.i.be = phi ptr [ %.118.i.i.i, %32 ], [ %88, %sendMessageToLeader.exit.i ]
   br label %.lr.ph.i.i.i
 
-getMessageFromLeader.argprom.exit.thread.i:       ; preds = %sendMessageToLeader.argprom.exit.i, %32, %2
-  %.017.lcssa.i.i.i = phi ptr [ %14, %2 ], [ %88, %sendMessageToLeader.argprom.exit.i ], [ %.118.i.i.i, %32 ]
+getMessageFromLeader.exit.thread.i:               ; preds = %sendMessageToLeader.exit.i, %32, %2
+  %.017.lcssa.i.i.i = phi ptr [ %14, %2 ], [ %88, %sendMessageToLeader.exit.i ], [ %.118.i.i.i, %32 ]
   call void @pg_free(ptr noundef %.017.lcssa.i.i.i) #18
   br label %WaitForCommands.exit
 
-getMessageFromLeader.argprom.exit.i:              ; preds = %.lr.ph.i.i.i
+getMessageFromLeader.exit.i:                      ; preds = %.lr.ph.i.i.i
   %.not.i = icmp eq ptr %.01720.i.i.i, null
   br i1 %.not.i, label %WaitForCommands.exit, label %38
 
-38:                                               ; preds = %getMessageFromLeader.argprom.exit.i
+38:                                               ; preds = %getMessageFromLeader.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %39 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01720.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.4, i64 noundef 5) #20
@@ -661,13 +661,13 @@ lockTableForWorker.exit.i:                        ; preds = %66, %45
   %77 = getelementptr i8, ptr %76, i64 24
   %.val13.i = load i32, ptr %77, align 8
   %78 = icmp eq i32 %.1.i, 12
-  br i1 %78, label %79, label %buildWorkerResponse.argprom.exit.i
+  br i1 %78, label %79, label %buildWorkerResponse.exit.i
 
 79:                                               ; preds = %75
   %80 = load i32, ptr %21, align 4
-  br label %buildWorkerResponse.argprom.exit.i
+  br label %buildWorkerResponse.exit.i
 
-buildWorkerResponse.argprom.exit.i:               ; preds = %79, %75
+buildWorkerResponse.exit.i:                       ; preds = %79, %75
   %81 = phi i32 [ %80, %79 ], [ 0, %75 ]
   %82 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 256, ptr noundef nonnull @.str.12, i32 noundef %.val13.i, i32 noundef %.1.i, i32 noundef %81) #18
   %83 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #20
@@ -676,22 +676,22 @@ buildWorkerResponse.argprom.exit.i:               ; preds = %79, %75
   %85 = ashr exact i64 %sext.i.i, 32
   %86 = call i64 @write(i32 noundef %9, ptr noundef nonnull readonly %5, i64 noundef %85) #18
   %.not.i15.i = icmp eq i64 %86, %85
-  br i1 %.not.i15.i, label %sendMessageToLeader.argprom.exit.i, label %87
+  br i1 %.not.i15.i, label %sendMessageToLeader.exit.i, label %87
 
-87:                                               ; preds = %buildWorkerResponse.argprom.exit.i
+87:                                               ; preds = %buildWorkerResponse.exit.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13) #18
   call void @exit_nicely(i32 noundef 1) #19
   unreachable
 
-sendMessageToLeader.argprom.exit.i:               ; preds = %buildWorkerResponse.argprom.exit.i
+sendMessageToLeader.exit.i:                       ; preds = %buildWorkerResponse.exit.i
   call void @free(ptr noundef nonnull %.01720.i.i.i) #18
   %88 = call ptr @pg_malloc(i64 noundef 64) #18
   %89 = call i64 @read(i32 noundef %7, ptr noundef %88, i64 noundef 1) #18
   %90 = trunc i64 %89 to i32
   %91 = icmp slt i32 %90, 1
-  br i1 %91, label %getMessageFromLeader.argprom.exit.thread.i, label %.lr.ph.i.i.i.backedge
+  br i1 %91, label %getMessageFromLeader.exit.thread.i, label %.lr.ph.i.i.i.backedge
 
-WaitForCommands.exit:                             ; preds = %getMessageFromLeader.argprom.exit.i, %getMessageFromLeader.argprom.exit.thread.i
+WaitForCommands.exit:                             ; preds = %getMessageFromLeader.exit.i, %getMessageFromLeader.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   store ptr null, ptr %11, align 8
   call void @DisconnectDatabase(ptr noundef %10) #18
@@ -864,7 +864,7 @@ GetIdleWorker.exit.thread:                        ; preds = %17, %9
   br label %9, !llvm.loop !16
 
 GetIdleWorker.exit:                               ; preds = %13
-  switch i32 %3, label %buildWorkerCommand.argprom.exit [
+  switch i32 %3, label %buildWorkerCommand.exit [
     i32 0, label %.sink.split.i
     i32 1, label %18
   ]
@@ -878,9 +878,9 @@ GetIdleWorker.exit:                               ; preds = %13
   %20 = load i32, ptr %19, align 8
   %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 256, ptr noundef nonnull %.str.15.sink.i, i32 noundef %20) #18
   %.val.pre = load ptr, ptr %8, align 8
-  br label %buildWorkerCommand.argprom.exit
+  br label %buildWorkerCommand.exit
 
-buildWorkerCommand.argprom.exit:                  ; preds = %GetIdleWorker.exit, %.sink.split.i
+buildWorkerCommand.exit:                          ; preds = %GetIdleWorker.exit, %.sink.split.i
   %.val = phi ptr [ %12, %GetIdleWorker.exit ], [ %.val.pre, %.sink.split.i ]
   %22 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #20
   %sext = shl i64 %indvars.iv.i, 32
@@ -892,14 +892,14 @@ buildWorkerCommand.argprom.exit:                  ; preds = %GetIdleWorker.exit,
   %27 = ashr exact i64 %sext.i, 32
   %28 = call i64 @write(i32 noundef %25, ptr noundef nonnull readonly %7, i64 noundef %27) #18
   %.not.i = icmp eq i64 %28, %27
-  br i1 %.not.i, label %sendMessageToWorker.argprom.exit, label %29
+  br i1 %.not.i, label %sendMessageToWorker.exit, label %29
 
-29:                                               ; preds = %buildWorkerCommand.argprom.exit
+29:                                               ; preds = %buildWorkerCommand.exit
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13) #18
   call void @exit_nicely(i32 noundef 1) #19
   unreachable
 
-sendMessageToWorker.argprom.exit:                 ; preds = %buildWorkerCommand.argprom.exit
+sendMessageToWorker.exit:                         ; preds = %buildWorkerCommand.exit
   %30 = load ptr, ptr %8, align 8
   %31 = getelementptr %struct.ParallelSlot, ptr %30, i64 %23
   store i32 2, ptr %31, align 8

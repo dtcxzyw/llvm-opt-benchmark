@@ -2570,7 +2570,7 @@ if.end:                                           ; preds = %lor.lhs.false8, %lo
   %set.val8 = load i64, ptr %1, align 8
   %2 = load i64, ptr %pos, align 8
   %cmp.not4.i = icmp sgt i64 %2, %set.val8
-  br i1 %cmp.not4.i, label %set_next.argprom.exit.thread, label %land.rhs.preheader.i
+  br i1 %cmp.not4.i, label %set_next.exit.thread, label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %if.end
   %3 = getelementptr i8, ptr %set, i64 40
@@ -2578,7 +2578,7 @@ land.rhs.preheader.i:                             ; preds = %if.end
   %arrayidx.i = getelementptr %struct.setentry, ptr %set.val9, i64 %2
   br label %land.rhs.i
 
-set_next.argprom.exit.thread:                     ; preds = %while.body.i, %if.end
+set_next.exit.thread:                             ; preds = %while.body.i, %if.end
   %i.0.lcssa.i = phi i64 [ %2, %if.end ], [ %inc.i, %while.body.i ]
   %add1.i = add i64 %i.0.lcssa.i, 1
   store i64 %add1.i, ptr %pos, align 8
@@ -2597,7 +2597,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr i8, ptr %entry1.06.i, i64 16
   %cmp.not.i = icmp sgt i64 %inc.i, %set.val8
-  br i1 %cmp.not.i, label %set_next.argprom.exit.thread, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %set_next.exit.thread, label %land.rhs.i, !llvm.loop !8
 
 if.end14:                                         ; preds = %land.rhs.i
   store i64 %inc.i, ptr %pos, align 8
@@ -2608,8 +2608,8 @@ if.end14:                                         ; preds = %land.rhs.i
   store i64 %6, ptr %hash, align 8
   br label %return
 
-return:                                           ; preds = %set_next.argprom.exit.thread, %if.end14, %if.then
-  %retval.0 = phi i32 [ 1, %if.end14 ], [ -1, %if.then ], [ 0, %set_next.argprom.exit.thread ]
+return:                                           ; preds = %set_next.exit.thread, %if.end14, %if.then
+  %retval.0 = phi i32 [ 1, %if.end14 ], [ -1, %if.then ], [ 0, %set_next.exit.thread ]
   ret i32 %retval.0
 }
 

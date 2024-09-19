@@ -25192,18 +25192,18 @@ listOfScreen.exit.i:                              ; preds = %listOfDepth.exit.i.
   %314 = phi i32 [ %.promoted19.i, %listOfPixmapFormat.exit.i ], [ %313, %309 ], [ %.lcssa514.lcssa20.i, %listOfDepth.exit.i.i ]
   %315 = call i32 @tvb_reported_length_remaining(ptr noundef %.0..0..0..0.147, i32 noundef %314) #10
   %316 = icmp sgt i32 %315, 0
-  br i1 %316, label %317, label %dissect_x11_initial_reply.argprom.exit
+  br i1 %316, label %317, label %dissect_x11_initial_reply.exit
 
 317:                                              ; preds = %listOfScreen.exit.i
   %318 = load i32, ptr @hf_x11_undecoded, align 4
   %319 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %318, ptr noundef %.0..0..0..0.147, i32 noundef %314, i32 noundef %315, i32 noundef 0) #10
-  br label %dissect_x11_initial_reply.argprom.exit
+  br label %dissect_x11_initial_reply.exit
 
-dissect_x11_initial_reply.argprom.exit:           ; preds = %listOfScreen.exit.i, %317
+dissect_x11_initial_reply.exit:                   ; preds = %listOfScreen.exit.i, %317
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %320
 
-320:                                              ; preds = %dissect_x11_initial_reply.argprom.exit, %113, %110
+320:                                              ; preds = %dissect_x11_initial_reply.exit, %113, %110
   %.0..0..0..0.84 = load volatile i32, ptr %13, align 4
   %321 = icmp eq i32 %.0..0..0..0.84, 0
   br i1 %321, label %322, label %345
@@ -27804,7 +27804,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %794 = load i32, ptr @hf_x11_keycodes, align 4
   %795 = getelementptr inbounds i8, ptr %4, i64 12400
   %796 = load i32, ptr %779, align 8
-  call fastcc void @listOfKeycode.argelim(ptr noundef %0, ptr noundef %7, ptr noundef %11, i32 noundef %794, ptr noundef nonnull %795, i32 noundef %796)
+  call fastcc void @listOfKeycode(ptr noundef %0, ptr noundef %7, ptr noundef %11, i32 noundef %794, ptr noundef nonnull %795, i32 noundef %796)
   br label %820
 
 797:                                              ; preds = %136
@@ -29079,7 +29079,7 @@ define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfKeycode.argelim(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @listOfKeycode(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load i32, ptr %1, align 4
   %8 = shl i32 %5, 3
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef 0) #10
@@ -33704,7 +33704,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1623 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1624 = load i32, ptr @hf_x11_keycodes, align 4
   %1625 = getelementptr inbounds i8, ptr %4, i64 12400
-  call fastcc void @listOfKeycode.argelim(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1624, ptr noundef nonnull %1625, i32 noundef %1622)
+  call fastcc void @listOfKeycode(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1624, ptr noundef nonnull %1625, i32 noundef %1622)
   br label %1635
 
 1626:                                             ; preds = %97
@@ -35937,7 +35937,7 @@ requestLength.exit:                               ; preds = %5, %16
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dbe_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %dbeSwapBuffers.argprom.exit [
+  switch i8 %trunc, label %dbeSwapBuffers.exit [
     i8 0, label %25
     i8 1, label %37
     i8 2, label %53
@@ -35960,7 +35960,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %34, ptr %2, align 4
   %35 = load i32, ptr @hf_x11_unused, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 2, i32 noundef 0) #10
-  br label %dbeSwapBuffers.argprom.exit.sink.split
+  br label %dbeSwapBuffers.exit.sink.split
 
 37:                                               ; preds = %requestLength.exit
   %38 = load i32, ptr @hf_x11_dbe_AllocateBackBuffer_window, align 4
@@ -35981,13 +35981,13 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %50, ptr %2, align 4
   %51 = load i32, ptr @hf_x11_unused, align 4
   %52 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 3, i32 noundef 0) #10
-  br label %dbeSwapBuffers.argprom.exit.sink.split
+  br label %dbeSwapBuffers.exit.sink.split
 
 53:                                               ; preds = %requestLength.exit
   %54 = load i32, ptr @hf_x11_dbe_DeallocateBackBuffer_buffer, align 4
   %55 = load i32, ptr %2, align 4
   %56 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef %4) #10
-  br label %dbeSwapBuffers.argprom.exit.sink.split
+  br label %dbeSwapBuffers.exit.sink.split
 
 57:                                               ; preds = %requestLength.exit
   %58 = load i32, ptr %2, align 4
@@ -35999,7 +35999,7 @@ requestLength.exit:                               ; preds = %5, %16
   %64 = add i32 %63, 4
   store i32 %64, ptr %2, align 4
   %65 = icmp sgt i32 %59, 0
-  br i1 %65, label %.lr.ph.i.i, label %dbeSwapBuffers.argprom.exit
+  br i1 %65, label %.lr.ph.i.i, label %dbeSwapBuffers.exit
 
 .lr.ph.i.i:                                       ; preds = %57, %.lr.ph.i.i
   %66 = phi i32 [ %82, %.lr.ph.i.i ], [ %64, %57 ]
@@ -36024,7 +36024,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %82, ptr %2, align 4
   %83 = add nuw nsw i32 %.019.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %83, %59
-  br i1 %exitcond.not.i.i, label %dbeSwapBuffers.argprom.exit, label %.lr.ph.i.i, !llvm.loop !53
+  br i1 %exitcond.not.i.i, label %dbeSwapBuffers.exit, label %.lr.ph.i.i, !llvm.loop !53
 
 84:                                               ; preds = %requestLength.exit
   %85 = load i32, ptr %2, align 4
@@ -36042,7 +36042,7 @@ requestLength.exit:                               ; preds = %5, %16
   %96 = load i32, ptr @ett_x11_list_of_card32, align 4
   %97 = call ptr @proto_item_add_subtree(ptr noundef %95, i32 noundef %96) #10
   %.not13.i.i = icmp eq i32 %86, 0
-  br i1 %.not13.i.i, label %dbeSwapBuffers.argprom.exit, label %.lr.ph.preheader.i.i
+  br i1 %.not13.i.i, label %dbeSwapBuffers.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %84
   %.pre.i.i = load i32, ptr %2, align 4
@@ -36057,22 +36057,22 @@ requestLength.exit:                               ; preds = %5, %16
   %102 = add i32 %101, 4
   store i32 %102, ptr %2, align 4
   %.not.i.i = icmp eq i32 %99, 0
-  br i1 %.not.i.i, label %dbeSwapBuffers.argprom.exit, label %.lr.ph.i.i58, !llvm.loop !41
+  br i1 %.not.i.i, label %dbeSwapBuffers.exit, label %.lr.ph.i.i58, !llvm.loop !41
 
 103:                                              ; preds = %requestLength.exit
   %104 = load i32, ptr @hf_x11_dbe_GetBackBufferAttributes_buffer, align 4
   %105 = load i32, ptr %2, align 4
   %106 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %104, ptr noundef %0, i32 noundef %105, i32 noundef 4, i32 noundef %4) #10
-  br label %dbeSwapBuffers.argprom.exit.sink.split
+  br label %dbeSwapBuffers.exit.sink.split
 
-dbeSwapBuffers.argprom.exit.sink.split:           ; preds = %25, %37, %53, %103
+dbeSwapBuffers.exit.sink.split:                   ; preds = %25, %37, %53, %103
   %.sink63 = phi i32 [ 4, %103 ], [ 4, %53 ], [ 3, %37 ], [ 2, %25 ]
   %107 = load i32, ptr %2, align 4
   %108 = add i32 %107, %.sink63
   store i32 %108, ptr %2, align 4
-  br label %dbeSwapBuffers.argprom.exit
+  br label %dbeSwapBuffers.exit
 
-dbeSwapBuffers.argprom.exit:                      ; preds = %.lr.ph.i.i58, %.lr.ph.i.i, %dbeSwapBuffers.argprom.exit.sink.split, %84, %57, %requestLength.exit
+dbeSwapBuffers.exit:                              ; preds = %.lr.ph.i.i58, %.lr.ph.i.i, %dbeSwapBuffers.exit.sink.split, %84, %57, %requestLength.exit
   ret void
 }
 
@@ -36565,7 +36565,7 @@ requestLength.exit:                               ; preds = %5, %16
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dri2_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %dri2GetBuffers.argprom.exit [
+  switch i8 %trunc, label %dri2GetBuffers.exit [
     i8 0, label %27
     i8 1, label %37
     i8 2, label %45
@@ -36594,7 +36594,7 @@ requestLength.exit:                               ; preds = %5, %16
   %35 = load i32, ptr %2, align 4
   %36 = add i32 %35, 4
   store i32 %36, ptr %2, align 4
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
 37:                                               ; preds = %requestLength.exit
   %38 = load i32, ptr @hf_x11_dri2_Connect_window, align 4
@@ -36605,7 +36605,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %42, ptr %2, align 4
   %43 = load i32, ptr @hf_x11_dri2_Connect_driver_type, align 4
   %44 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %43, i32 noundef %4)
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
 45:                                               ; preds = %requestLength.exit
   %46 = load i32, ptr @hf_x11_dri2_Authenticate_window, align 4
@@ -36619,7 +36619,7 @@ requestLength.exit:                               ; preds = %5, %16
   %53 = load i32, ptr %2, align 4
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
 55:                                               ; preds = %requestLength.exit
   %56 = load i32, ptr @hf_x11_dri2_CreateDrawable_drawable, align 4
@@ -36628,7 +36628,7 @@ requestLength.exit:                               ; preds = %5, %16
   %59 = load i32, ptr %2, align 4
   %60 = add i32 %59, 4
   store i32 %60, ptr %2, align 4
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
 61:                                               ; preds = %requestLength.exit
   %62 = load i32, ptr @hf_x11_dri2_DestroyDrawable_drawable, align 4
@@ -36637,7 +36637,7 @@ requestLength.exit:                               ; preds = %5, %16
   %65 = load i32, ptr %2, align 4
   %66 = add i32 %65, 4
   store i32 %66, ptr %2, align 4
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
 67:                                               ; preds = %requestLength.exit
   %68 = load i32, ptr @hf_x11_dri2_GetBuffers_drawable, align 4
@@ -36659,7 +36659,7 @@ requestLength.exit:                               ; preds = %5, %16
   %82 = call ptr @proto_item_add_subtree(ptr noundef %80, i32 noundef %81) #10
   %.off.i = add i32 %23, -9
   %.not13.i.i = icmp ult i32 %.off.i, 7
-  br i1 %.not13.i.i, label %dri2GetBuffers.argprom.exit, label %.lr.ph.preheader.i.i
+  br i1 %.not13.i.i, label %dri2GetBuffers.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %67
   %83 = ashr exact i32 %79, 2
@@ -36675,7 +36675,7 @@ requestLength.exit:                               ; preds = %5, %16
   %88 = add i32 %87, 4
   store i32 %88, ptr %2, align 4
   %.not.i.i = icmp eq i32 %85, 0
-  br i1 %.not.i.i, label %dri2GetBuffers.argprom.exit, label %.lr.ph.i.i, !llvm.loop !41
+  br i1 %.not.i.i, label %dri2GetBuffers.exit, label %.lr.ph.i.i, !llvm.loop !41
 
 89:                                               ; preds = %requestLength.exit
   %90 = load i32, ptr @hf_x11_dri2_CopyRegion_drawable, align 4
@@ -36699,7 +36699,7 @@ requestLength.exit:                               ; preds = %5, %16
   %105 = load i32, ptr %2, align 4
   %106 = add i32 %105, 4
   store i32 %106, ptr %2, align 4
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
 107:                                              ; preds = %requestLength.exit
   %108 = load i32, ptr @hf_x11_dri2_GetBuffersWithFormat_drawable, align 4
@@ -36716,7 +36716,7 @@ requestLength.exit:                               ; preds = %5, %16
   %117 = add i32 %23, -12
   %118 = sdiv i32 %117, 8
   %119 = icmp sgt i32 %117, 7
-  br i1 %119, label %.lr.ph.i.i94, label %dri2GetBuffers.argprom.exit
+  br i1 %119, label %.lr.ph.i.i94, label %dri2GetBuffers.exit
 
 .lr.ph.i.i94:                                     ; preds = %107, %.lr.ph.i.i94
   %120 = phi i32 [ %131, %.lr.ph.i.i94 ], [ %116, %107 ]
@@ -36735,7 +36735,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %131, ptr %2, align 4
   %132 = add nuw nsw i32 %.015.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %132, %118
-  br i1 %exitcond.not.i.i, label %dri2GetBuffers.argprom.exit, label %.lr.ph.i.i94, !llvm.loop !56
+  br i1 %exitcond.not.i.i, label %dri2GetBuffers.exit, label %.lr.ph.i.i94, !llvm.loop !56
 
 133:                                              ; preds = %requestLength.exit
   %134 = load i32, ptr @hf_x11_dri2_SwapBuffers_drawable, align 4
@@ -36774,7 +36774,7 @@ requestLength.exit:                               ; preds = %5, %16
   %161 = load i32, ptr %2, align 4
   %162 = add i32 %161, 4
   store i32 %162, ptr %2, align 4
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
 163:                                              ; preds = %requestLength.exit
   %164 = load i32, ptr @hf_x11_dri2_GetMSC_drawable, align 4
@@ -36783,7 +36783,7 @@ requestLength.exit:                               ; preds = %5, %16
   %167 = load i32, ptr %2, align 4
   %168 = add i32 %167, 4
   store i32 %168, ptr %2, align 4
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
 169:                                              ; preds = %requestLength.exit
   %170 = load i32, ptr @hf_x11_dri2_WaitMSC_drawable, align 4
@@ -36822,7 +36822,7 @@ requestLength.exit:                               ; preds = %5, %16
   %197 = load i32, ptr %2, align 4
   %198 = add i32 %197, 4
   store i32 %198, ptr %2, align 4
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
 199:                                              ; preds = %requestLength.exit
   %200 = load i32, ptr @hf_x11_dri2_WaitSBC_drawable, align 4
@@ -36841,7 +36841,7 @@ requestLength.exit:                               ; preds = %5, %16
   %211 = load i32, ptr %2, align 4
   %212 = add i32 %211, 4
   store i32 %212, ptr %2, align 4
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
 213:                                              ; preds = %requestLength.exit
   %214 = load i32, ptr @hf_x11_dri2_SwapInterval_drawable, align 4
@@ -36855,7 +36855,7 @@ requestLength.exit:                               ; preds = %5, %16
   %221 = load i32, ptr %2, align 4
   %222 = add i32 %221, 4
   store i32 %222, ptr %2, align 4
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
 223:                                              ; preds = %requestLength.exit
   %224 = load i32, ptr @hf_x11_dri2_GetParam_drawable, align 4
@@ -36869,9 +36869,9 @@ requestLength.exit:                               ; preds = %5, %16
   %231 = load i32, ptr %2, align 4
   %232 = add i32 %231, 4
   store i32 %232, ptr %2, align 4
-  br label %dri2GetBuffers.argprom.exit
+  br label %dri2GetBuffers.exit
 
-dri2GetBuffers.argprom.exit:                      ; preds = %.lr.ph.i.i94, %.lr.ph.i.i, %107, %67, %223, %213, %199, %169, %163, %133, %89, %61, %55, %45, %37, %27, %requestLength.exit
+dri2GetBuffers.exit:                              ; preds = %.lr.ph.i.i94, %.lr.ph.i.i, %107, %67, %223, %213, %199, %169, %163, %133, %89, %61, %55, %45, %37, %27, %requestLength.exit
   ret void
 }
 
@@ -38387,11 +38387,11 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 28:                                               ; preds = %requestLength.exit
-  call fastcc void @glxRenderLarge.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxRenderLarge(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 29:                                               ; preds = %requestLength.exit
-  call fastcc void @glxCreateContext.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxCreateContext(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 30:                                               ; preds = %requestLength.exit
@@ -38404,7 +38404,7 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 36:                                               ; preds = %requestLength.exit
-  call fastcc void @glxMakeCurrent.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxMakeCurrent(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 37:                                               ; preds = %requestLength.exit
@@ -38417,7 +38417,7 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 43:                                               ; preds = %requestLength.exit
-  call fastcc void @glxQueryVersion.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxQueryVersion(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 44:                                               ; preds = %requestLength.exit
@@ -38439,19 +38439,19 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 56:                                               ; preds = %requestLength.exit
-  call fastcc void @glxCopyContext.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxCopyContext(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 57:                                               ; preds = %requestLength.exit
-  call fastcc void @glxSwapBuffers.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxSwapBuffers(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 58:                                               ; preds = %requestLength.exit
-  call fastcc void @glxUseXFont.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxUseXFont(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 59:                                               ; preds = %requestLength.exit
-  call fastcc void @glxCreateGLXPixmap.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxCreateGLXPixmap(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 60:                                               ; preds = %requestLength.exit
@@ -38473,11 +38473,11 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 72:                                               ; preds = %requestLength.exit
-  call fastcc void @glxVendorPrivate.argprom(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %23)
+  call fastcc void @glxVendorPrivate(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %23)
   br label %213
 
 73:                                               ; preds = %requestLength.exit
-  call fastcc void @glxVendorPrivateWithReply.argprom(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %23)
+  call fastcc void @glxVendorPrivateWithReply(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %23)
   br label %213
 
 74:                                               ; preds = %requestLength.exit
@@ -38490,11 +38490,11 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 80:                                               ; preds = %requestLength.exit
-  call fastcc void @glxQueryServerString.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxQueryServerString(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 81:                                               ; preds = %requestLength.exit
-  call fastcc void @glxClientInfo.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxClientInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 82:                                               ; preds = %requestLength.exit
@@ -38507,7 +38507,7 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 88:                                               ; preds = %requestLength.exit
-  call fastcc void @glxCreatePixmap.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxCreatePixmap(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 89:                                               ; preds = %requestLength.exit
@@ -38520,7 +38520,7 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 95:                                               ; preds = %requestLength.exit
-  call fastcc void @glxCreateNewContext.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxCreateNewContext(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 96:                                               ; preds = %requestLength.exit
@@ -38533,11 +38533,11 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 102:                                              ; preds = %requestLength.exit
-  call fastcc void @glxMakeContextCurrent.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxMakeContextCurrent(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 103:                                              ; preds = %requestLength.exit
-  call fastcc void @glxCreatePbuffer.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxCreatePbuffer(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 104:                                              ; preds = %requestLength.exit
@@ -38559,11 +38559,11 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 116:                                              ; preds = %requestLength.exit
-  call fastcc void @glxChangeDrawableAttributes.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxChangeDrawableAttributes(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 117:                                              ; preds = %requestLength.exit
-  call fastcc void @glxCreateWindow.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxCreateWindow(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 118:                                              ; preds = %requestLength.exit
@@ -38576,19 +38576,19 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 124:                                              ; preds = %requestLength.exit
-  call fastcc void @glxSetClientInfoARB.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxSetClientInfoARB(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 125:                                              ; preds = %requestLength.exit
-  call fastcc void @glxCreateContextAttribsARB.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxCreateContextAttribsARB(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 126:                                              ; preds = %requestLength.exit
-  call fastcc void @glxSetClientInfo2ARB.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxSetClientInfo2ARB(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 127:                                              ; preds = %requestLength.exit
-  call fastcc void @glxNewList.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxNewList(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 128:                                              ; preds = %requestLength.exit
@@ -38601,23 +38601,23 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 134:                                              ; preds = %requestLength.exit
-  call fastcc void @glxDeleteLists.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxDeleteLists(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 135:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGenLists.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGenLists(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 136:                                              ; preds = %requestLength.exit
-  call fastcc void @glxFeedbackBuffer.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxFeedbackBuffer(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 137:                                              ; preds = %requestLength.exit
-  call fastcc void @glxSelectBuffer.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxSelectBuffer(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 138:                                              ; preds = %requestLength.exit
-  call fastcc void @glxRenderMode.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxRenderMode(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 139:                                              ; preds = %requestLength.exit
@@ -38630,27 +38630,27 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 145:                                              ; preds = %requestLength.exit
-  call fastcc void @glxPixelStoref.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxPixelStoref(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 146:                                              ; preds = %requestLength.exit
-  call fastcc void @glxPixelStorei.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxPixelStorei(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 147:                                              ; preds = %requestLength.exit
-  call fastcc void @glxReadPixels.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxReadPixels(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 148:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetBooleanv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetBooleanv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 149:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetClipPlane.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetClipPlane(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 150:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetDoublev.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetDoublev(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 151:                                              ; preds = %requestLength.exit
@@ -38663,107 +38663,107 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 157:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetFloatv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetFloatv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 158:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetIntegerv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetIntegerv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 159:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetLightfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetLightfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 160:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetLightiv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetLightiv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 161:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetMapdv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetMapdv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 162:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetMapfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetMapfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 163:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetMapiv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetMapiv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 164:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetMaterialfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetMaterialfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 165:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetMaterialiv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetMaterialiv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 166:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetPixelMapfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetPixelMapfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 167:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetPixelMapuiv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetPixelMapuiv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 168:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetPixelMapusv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetPixelMapusv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 169:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetPolygonStipple.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetPolygonStipple(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 170:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetString.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetString(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 171:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetTexEnvfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetTexEnvfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 172:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetTexEnviv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetTexEnviv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 173:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetTexGendv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetTexGendv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 174:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetTexGenfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetTexGenfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 175:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetTexGeniv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetTexGeniv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 176:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetTexImage.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetTexImage(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 177:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetTexParameterfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetTexParameterfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 178:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetTexParameteriv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetTexParameteriv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 179:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetTexLevelParameterfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetTexLevelParameterfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 180:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetTexLevelParameteriv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetTexLevelParameteriv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 181:                                              ; preds = %requestLength.exit
-  call fastcc void @glxIsEnabled.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxIsEnabled(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 182:                                              ; preds = %requestLength.exit
-  call fastcc void @glxIsList.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxIsList(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 183:                                              ; preds = %requestLength.exit
@@ -38776,99 +38776,99 @@ requestLength.exit:                               ; preds = %5, %16
   br label %213
 
 189:                                              ; preds = %requestLength.exit
-  call fastcc void @glxAreTexturesResident.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxAreTexturesResident(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 190:                                              ; preds = %requestLength.exit
-  call fastcc void @glxDeleteTextures.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxDeleteTextures(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 191:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGenTextures.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGenTextures(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 192:                                              ; preds = %requestLength.exit
-  call fastcc void @glxIsTexture.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxIsTexture(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 193:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetColorTable.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetColorTable(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 194:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetColorTableParameterfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetColorTableParameterfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 195:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetColorTableParameteriv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetColorTableParameteriv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 196:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetConvolutionFilter.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetConvolutionFilter(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 197:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetConvolutionParameterfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetConvolutionParameterfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 198:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetConvolutionParameteriv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetConvolutionParameteriv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 199:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetSeparableFilter.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetSeparableFilter(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 200:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetHistogram.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetHistogram(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 201:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetHistogramParameterfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetHistogramParameterfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 202:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetHistogramParameteriv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetHistogramParameteriv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 203:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetMinmax.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetMinmax(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 204:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetMinmaxParameterfv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetMinmaxParameterfv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 205:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetMinmaxParameteriv.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetMinmaxParameteriv(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 206:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetCompressedTexImageARB.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetCompressedTexImageARB(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 207:                                              ; preds = %requestLength.exit
-  call fastcc void @glxDeleteQueriesARB.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxDeleteQueriesARB(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 208:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGenQueriesARB.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGenQueriesARB(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 209:                                              ; preds = %requestLength.exit
-  call fastcc void @glxIsQueryARB.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxIsQueryARB(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 210:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetQueryivARB.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetQueryivARB(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 211:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetQueryObjectivARB.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetQueryObjectivARB(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 212:                                              ; preds = %requestLength.exit
-  call fastcc void @glxGetQueryObjectuivARB.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @glxGetQueryObjectuivARB(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %213
 
 213:                                              ; preds = %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %151, %150, %149, %148, %147, %146, %145, %139, %138, %137, %136, %135, %134, %128, %127, %126, %125, %124, %118, %117, %116, %110, %104, %103, %102, %96, %95, %89, %88, %82, %81, %80, %74, %73, %72, %66, %60, %59, %58, %57, %56, %50, %44, %43, %37, %36, %30, %29, %28, %27, %requestLength.exit
@@ -38889,7 +38889,7 @@ define internal fastcc void @glxRender(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxRenderLarge.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxRenderLarge(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_RenderLarge_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -38923,7 +38923,7 @@ define internal fastcc void @glxRenderLarge.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreateContext.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreateContext(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreateContext_context, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -38959,7 +38959,7 @@ define internal fastcc void @glxCreateContext.argprom.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxMakeCurrent.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxMakeCurrent(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_MakeCurrent_drawable, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -38980,7 +38980,7 @@ define internal fastcc void @glxMakeCurrent.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxQueryVersion.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxQueryVersion(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_QueryVersion_major_version, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -38996,7 +38996,7 @@ define internal fastcc void @glxQueryVersion.argprom.argelim(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCopyContext.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCopyContext(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CopyContext_src, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39022,7 +39022,7 @@ define internal fastcc void @glxCopyContext.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxSwapBuffers.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxSwapBuffers(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_SwapBuffers_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39038,7 +39038,7 @@ define internal fastcc void @glxSwapBuffers.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxUseXFont.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxUseXFont(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_UseXFont_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39069,7 +39069,7 @@ define internal fastcc void @glxUseXFont.argprom.argelim(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreateGLXPixmap.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreateGLXPixmap(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreateGLXPixmap_screen, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39095,7 +39095,7 @@ define internal fastcc void @glxCreateGLXPixmap.argprom.argelim(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxVendorPrivate.argprom(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @glxVendorPrivate(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr @hf_x11_glx_VendorPrivate_vendor_code, align 4
   %7 = load i32, ptr %1, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef %3) #10
@@ -39118,7 +39118,7 @@ define internal fastcc void @glxVendorPrivate.argprom(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxVendorPrivateWithReply.argprom(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @glxVendorPrivateWithReply(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr @hf_x11_glx_VendorPrivateWithReply_vendor_code, align 4
   %7 = load i32, ptr %1, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef %3) #10
@@ -39141,7 +39141,7 @@ define internal fastcc void @glxVendorPrivateWithReply.argprom(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxQueryServerString.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxQueryServerString(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_QueryServerString_screen, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39157,7 +39157,7 @@ define internal fastcc void @glxQueryServerString.argprom.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxClientInfo.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxClientInfo(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_ClientInfo_major_version, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39186,7 +39186,7 @@ define internal fastcc void @glxClientInfo.argprom.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreatePixmap.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreatePixmap(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreatePixmap_screen, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39245,7 +39245,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreateNewContext.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreateNewContext(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreateNewContext_context, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39286,7 +39286,7 @@ define internal fastcc void @glxCreateNewContext.argprom.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxMakeContextCurrent.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxMakeContextCurrent(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_MakeContextCurrent_old_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39312,7 +39312,7 @@ define internal fastcc void @glxMakeContextCurrent.argprom.argelim(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreatePbuffer.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreatePbuffer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreatePbuffer_screen, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39366,7 +39366,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxChangeDrawableAttributes.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxChangeDrawableAttributes(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_ChangeDrawableAttributes_drawable, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39410,7 +39410,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreateWindow.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreateWindow(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreateWindow_screen, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39469,7 +39469,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxSetClientInfoARB.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxSetClientInfoARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_SetClientInfoARB_major_version, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39559,7 +39559,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreateContextAttribsARB.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreateContextAttribsARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreateContextAttribsARB_context, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39628,7 +39628,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxSetClientInfo2ARB.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxSetClientInfo2ARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_SetClientInfo2ARB_major_version, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39721,7 +39721,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxNewList.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxNewList(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_NewList_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39742,7 +39742,7 @@ define internal fastcc void @glxNewList.argprom.argelim(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxDeleteLists.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxDeleteLists(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_DeleteLists_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39763,7 +39763,7 @@ define internal fastcc void @glxDeleteLists.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGenLists.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGenLists(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GenLists_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39779,7 +39779,7 @@ define internal fastcc void @glxGenLists.argprom.argelim(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxFeedbackBuffer.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxFeedbackBuffer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_FeedbackBuffer_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39800,7 +39800,7 @@ define internal fastcc void @glxFeedbackBuffer.argprom.argelim(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxSelectBuffer.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxSelectBuffer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_SelectBuffer_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39816,7 +39816,7 @@ define internal fastcc void @glxSelectBuffer.argprom.argelim(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxRenderMode.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxRenderMode(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_RenderMode_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39832,7 +39832,7 @@ define internal fastcc void @glxRenderMode.argprom.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxPixelStoref.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxPixelStoref(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_PixelStoref_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39853,7 +39853,7 @@ define internal fastcc void @glxPixelStoref.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxPixelStorei.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxPixelStorei(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_PixelStorei_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39874,7 +39874,7 @@ define internal fastcc void @glxPixelStorei.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxReadPixels.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxReadPixels(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_ReadPixels_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39925,7 +39925,7 @@ define internal fastcc void @glxReadPixels.argprom.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetBooleanv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetBooleanv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetBooleanv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39941,7 +39941,7 @@ define internal fastcc void @glxGetBooleanv.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetClipPlane.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetClipPlane(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetClipPlane_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39957,7 +39957,7 @@ define internal fastcc void @glxGetClipPlane.argprom.argelim(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetDoublev.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetDoublev(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetDoublev_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39973,7 +39973,7 @@ define internal fastcc void @glxGetDoublev.argprom.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetFloatv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetFloatv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetFloatv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39989,7 +39989,7 @@ define internal fastcc void @glxGetFloatv.argprom.argelim(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetIntegerv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetIntegerv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetIntegerv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40005,7 +40005,7 @@ define internal fastcc void @glxGetIntegerv.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetLightfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetLightfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetLightfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40026,7 +40026,7 @@ define internal fastcc void @glxGetLightfv.argprom.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetLightiv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetLightiv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetLightiv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40047,7 +40047,7 @@ define internal fastcc void @glxGetLightiv.argprom.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMapdv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMapdv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMapdv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40068,7 +40068,7 @@ define internal fastcc void @glxGetMapdv.argprom.argelim(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMapfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMapfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMapfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40089,7 +40089,7 @@ define internal fastcc void @glxGetMapfv.argprom.argelim(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMapiv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMapiv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMapiv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40110,7 +40110,7 @@ define internal fastcc void @glxGetMapiv.argprom.argelim(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMaterialfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMaterialfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMaterialfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40131,7 +40131,7 @@ define internal fastcc void @glxGetMaterialfv.argprom.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMaterialiv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMaterialiv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMaterialiv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40152,7 +40152,7 @@ define internal fastcc void @glxGetMaterialiv.argprom.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetPixelMapfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetPixelMapfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetPixelMapfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40168,7 +40168,7 @@ define internal fastcc void @glxGetPixelMapfv.argprom.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetPixelMapuiv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetPixelMapuiv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetPixelMapuiv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40184,7 +40184,7 @@ define internal fastcc void @glxGetPixelMapuiv.argprom.argelim(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetPixelMapusv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetPixelMapusv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetPixelMapusv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40200,7 +40200,7 @@ define internal fastcc void @glxGetPixelMapusv.argprom.argelim(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetPolygonStipple.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetPolygonStipple(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetPolygonStipple_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40216,7 +40216,7 @@ define internal fastcc void @glxGetPolygonStipple.argprom.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetString.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetString(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetString_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40232,7 +40232,7 @@ define internal fastcc void @glxGetString.argprom.argelim(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexEnvfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexEnvfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexEnvfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40253,7 +40253,7 @@ define internal fastcc void @glxGetTexEnvfv.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexEnviv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexEnviv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexEnviv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40274,7 +40274,7 @@ define internal fastcc void @glxGetTexEnviv.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexGendv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexGendv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexGendv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40295,7 +40295,7 @@ define internal fastcc void @glxGetTexGendv.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexGenfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexGenfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexGenfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40316,7 +40316,7 @@ define internal fastcc void @glxGetTexGenfv.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexGeniv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexGeniv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexGeniv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40337,7 +40337,7 @@ define internal fastcc void @glxGetTexGeniv.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexImage.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexImage(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexImage_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40373,7 +40373,7 @@ define internal fastcc void @glxGetTexImage.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexParameterfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40394,7 +40394,7 @@ define internal fastcc void @glxGetTexParameterfv.argprom.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexParameteriv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40415,7 +40415,7 @@ define internal fastcc void @glxGetTexParameteriv.argprom.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexLevelParameterfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexLevelParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexLevelParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40441,7 +40441,7 @@ define internal fastcc void @glxGetTexLevelParameterfv.argprom.argelim(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexLevelParameteriv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexLevelParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexLevelParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40467,7 +40467,7 @@ define internal fastcc void @glxGetTexLevelParameteriv.argprom.argelim(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxIsEnabled.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxIsEnabled(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_IsEnabled_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40483,7 +40483,7 @@ define internal fastcc void @glxIsEnabled.argprom.argelim(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxIsList.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxIsList(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_IsList_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40499,7 +40499,7 @@ define internal fastcc void @glxIsList.argprom.argelim(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxAreTexturesResident.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxAreTexturesResident(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_AreTexturesResident_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40542,7 +40542,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxDeleteTextures.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxDeleteTextures(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_DeleteTextures_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40585,7 +40585,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGenTextures.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGenTextures(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GenTextures_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40601,7 +40601,7 @@ define internal fastcc void @glxGenTextures.argprom.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxIsTexture.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxIsTexture(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_IsTexture_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40617,7 +40617,7 @@ define internal fastcc void @glxIsTexture.argprom.argelim(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetColorTable.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetColorTable(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetColorTable_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40648,7 +40648,7 @@ define internal fastcc void @glxGetColorTable.argprom.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetColorTableParameterfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetColorTableParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetColorTableParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40669,7 +40669,7 @@ define internal fastcc void @glxGetColorTableParameterfv.argprom.argelim(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetColorTableParameteriv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetColorTableParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetColorTableParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40690,7 +40690,7 @@ define internal fastcc void @glxGetColorTableParameteriv.argprom.argelim(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetConvolutionFilter.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetConvolutionFilter(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetConvolutionFilter_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40721,7 +40721,7 @@ define internal fastcc void @glxGetConvolutionFilter.argprom.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetConvolutionParameterfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetConvolutionParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetConvolutionParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40742,7 +40742,7 @@ define internal fastcc void @glxGetConvolutionParameterfv.argprom.argelim(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetConvolutionParameteriv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetConvolutionParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetConvolutionParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40763,7 +40763,7 @@ define internal fastcc void @glxGetConvolutionParameteriv.argprom.argelim(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetSeparableFilter.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetSeparableFilter(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetSeparableFilter_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40794,7 +40794,7 @@ define internal fastcc void @glxGetSeparableFilter.argprom.argelim(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetHistogram.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetHistogram(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetHistogram_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40830,7 +40830,7 @@ define internal fastcc void @glxGetHistogram.argprom.argelim(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetHistogramParameterfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetHistogramParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetHistogramParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40851,7 +40851,7 @@ define internal fastcc void @glxGetHistogramParameterfv.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetHistogramParameteriv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetHistogramParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetHistogramParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40872,7 +40872,7 @@ define internal fastcc void @glxGetHistogramParameteriv.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMinmax.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMinmax(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMinmax_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40908,7 +40908,7 @@ define internal fastcc void @glxGetMinmax.argprom.argelim(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMinmaxParameterfv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMinmaxParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMinmaxParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40929,7 +40929,7 @@ define internal fastcc void @glxGetMinmaxParameterfv.argprom.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMinmaxParameteriv.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMinmaxParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMinmaxParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40950,7 +40950,7 @@ define internal fastcc void @glxGetMinmaxParameteriv.argprom.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetCompressedTexImageARB.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetCompressedTexImageARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetCompressedTexImageARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40971,7 +40971,7 @@ define internal fastcc void @glxGetCompressedTexImageARB.argprom.argelim(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxDeleteQueriesARB.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxDeleteQueriesARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_DeleteQueriesARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -41014,7 +41014,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGenQueriesARB.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGenQueriesARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GenQueriesARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -41030,7 +41030,7 @@ define internal fastcc void @glxGenQueriesARB.argprom.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxIsQueryARB.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxIsQueryARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_IsQueryARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -41046,7 +41046,7 @@ define internal fastcc void @glxIsQueryARB.argprom.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetQueryivARB.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetQueryivARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetQueryivARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -41067,7 +41067,7 @@ define internal fastcc void @glxGetQueryivARB.argprom.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetQueryObjectivARB.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetQueryObjectivARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetQueryObjectivARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -41088,7 +41088,7 @@ define internal fastcc void @glxGetQueryObjectivARB.argprom.argelim(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetQueryObjectuivARB.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetQueryObjectuivARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetQueryObjectuivARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -54942,7 +54942,7 @@ requestLength.exit:                               ; preds = %5, %16
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @randr_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %randrConfigureOutputProperty.argprom.exit [
+  switch i8 %trunc, label %randrConfigureOutputProperty.exit [
     i8 0, label %27
     i8 2, label %37
     i8 4, label %68
@@ -55002,7 +55002,7 @@ requestLength.exit:                               ; preds = %5, %16
   %35 = load i32, ptr %2, align 4
   %36 = add i32 %35, 4
   store i32 %36, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 37:                                               ; preds = %requestLength.exit
   %38 = load i32, ptr @hf_x11_randr_SetScreenConfig_window, align 4
@@ -55042,7 +55042,7 @@ requestLength.exit:                               ; preds = %5, %16
   %66 = load i32, ptr %2, align 4
   %67 = add i32 %66, 2
   store i32 %67, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 68:                                               ; preds = %requestLength.exit
   %69 = load i32, ptr @hf_x11_randr_SelectInput_window, align 4
@@ -55062,7 +55062,7 @@ requestLength.exit:                               ; preds = %5, %16
   %81 = load i32, ptr %2, align 4
   %82 = add i32 %81, 2
   store i32 %82, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 83:                                               ; preds = %requestLength.exit
   %84 = load i32, ptr @hf_x11_randr_GetScreenInfo_window, align 4
@@ -55071,7 +55071,7 @@ requestLength.exit:                               ; preds = %5, %16
   %87 = load i32, ptr %2, align 4
   %88 = add i32 %87, 4
   store i32 %88, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 89:                                               ; preds = %requestLength.exit
   %90 = load i32, ptr @hf_x11_randr_GetScreenSizeRange_window, align 4
@@ -55080,7 +55080,7 @@ requestLength.exit:                               ; preds = %5, %16
   %93 = load i32, ptr %2, align 4
   %94 = add i32 %93, 4
   store i32 %94, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 95:                                               ; preds = %requestLength.exit
   %96 = load i32, ptr @hf_x11_randr_SetScreenSize_window, align 4
@@ -55109,7 +55109,7 @@ requestLength.exit:                               ; preds = %5, %16
   %115 = load i32, ptr %2, align 4
   %116 = add i32 %115, 4
   store i32 %116, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 117:                                              ; preds = %requestLength.exit
   %118 = load i32, ptr @hf_x11_randr_GetScreenResources_window, align 4
@@ -55118,7 +55118,7 @@ requestLength.exit:                               ; preds = %5, %16
   %121 = load i32, ptr %2, align 4
   %122 = add i32 %121, 4
   store i32 %122, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 123:                                              ; preds = %requestLength.exit
   %124 = load i32, ptr @hf_x11_randr_GetOutputInfo_output, align 4
@@ -55132,7 +55132,7 @@ requestLength.exit:                               ; preds = %5, %16
   %131 = load i32, ptr %2, align 4
   %132 = add i32 %131, 4
   store i32 %132, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 133:                                              ; preds = %requestLength.exit
   %134 = load i32, ptr @hf_x11_randr_ListOutputProperties_output, align 4
@@ -55141,7 +55141,7 @@ requestLength.exit:                               ; preds = %5, %16
   %137 = load i32, ptr %2, align 4
   %138 = add i32 %137, 4
   store i32 %138, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 139:                                              ; preds = %requestLength.exit
   %140 = load i32, ptr @hf_x11_randr_QueryOutputProperty_output, align 4
@@ -55155,7 +55155,7 @@ requestLength.exit:                               ; preds = %5, %16
   %147 = load i32, ptr %2, align 4
   %148 = add i32 %147, 4
   store i32 %148, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 149:                                              ; preds = %requestLength.exit
   %150 = load i32, ptr @hf_x11_randr_ConfigureOutputProperty_output, align 4
@@ -55192,7 +55192,7 @@ requestLength.exit:                               ; preds = %5, %16
   %176 = call ptr @proto_item_add_subtree(ptr noundef %174, i32 noundef %175) #10
   %.off.i = add i32 %23, -13
   %.not13.i.i = icmp ult i32 %.off.i, 7
-  br i1 %.not13.i.i, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.preheader.i.i
+  br i1 %.not13.i.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %149
   %177 = ashr exact i32 %173, 2
@@ -55208,7 +55208,7 @@ requestLength.exit:                               ; preds = %5, %16
   %182 = add i32 %181, 4
   store i32 %182, ptr %2, align 4
   %.not.i.i = icmp eq i32 %179, 0
-  br i1 %.not.i.i, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.i.i, !llvm.loop !60
+  br i1 %.not.i.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i, !llvm.loop !60
 
 183:                                              ; preds = %requestLength.exit
   %184 = load i32, ptr @hf_x11_randr_ChangeOutputProperty_output, align 4
@@ -55258,7 +55258,7 @@ requestLength.exit:                               ; preds = %5, %16
   %221 = load i32, ptr %2, align 4
   %222 = add i32 %221, %spec.store.select.i.i
   store i32 %222, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 223:                                              ; preds = %requestLength.exit
   %224 = load i32, ptr @hf_x11_randr_DeleteOutputProperty_output, align 4
@@ -55272,7 +55272,7 @@ requestLength.exit:                               ; preds = %5, %16
   %231 = load i32, ptr %2, align 4
   %232 = add i32 %231, 4
   store i32 %232, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 233:                                              ; preds = %requestLength.exit
   %234 = load i32, ptr @hf_x11_randr_GetOutputProperty_output, align 4
@@ -55314,7 +55314,7 @@ requestLength.exit:                               ; preds = %5, %16
   %264 = load i32, ptr %2, align 4
   %265 = add i32 %264, 2
   store i32 %265, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 266:                                              ; preds = %requestLength.exit
   %267 = load i32, ptr @hf_x11_randr_CreateMode_window, align 4
@@ -55332,7 +55332,7 @@ requestLength.exit:                               ; preds = %5, %16
   %276 = load i32, ptr %2, align 4
   %277 = add i32 %276, %spec.store.select.i.i280
   store i32 %277, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 278:                                              ; preds = %requestLength.exit
   %279 = load i32, ptr @hf_x11_randr_DestroyMode_mode, align 4
@@ -55341,7 +55341,7 @@ requestLength.exit:                               ; preds = %5, %16
   %282 = load i32, ptr %2, align 4
   %283 = add i32 %282, 4
   store i32 %283, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 284:                                              ; preds = %requestLength.exit
   %285 = load i32, ptr @hf_x11_randr_AddOutputMode_output, align 4
@@ -55355,7 +55355,7 @@ requestLength.exit:                               ; preds = %5, %16
   %292 = load i32, ptr %2, align 4
   %293 = add i32 %292, 4
   store i32 %293, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 294:                                              ; preds = %requestLength.exit
   %295 = load i32, ptr @hf_x11_randr_DeleteOutputMode_output, align 4
@@ -55369,7 +55369,7 @@ requestLength.exit:                               ; preds = %5, %16
   %302 = load i32, ptr %2, align 4
   %303 = add i32 %302, 4
   store i32 %303, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 304:                                              ; preds = %requestLength.exit
   %305 = load i32, ptr @hf_x11_randr_GetCrtcInfo_crtc, align 4
@@ -55383,7 +55383,7 @@ requestLength.exit:                               ; preds = %5, %16
   %312 = load i32, ptr %2, align 4
   %313 = add i32 %312, 4
   store i32 %313, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 314:                                              ; preds = %requestLength.exit
   %315 = load i32, ptr @hf_x11_randr_SetCrtcConfig_crtc, align 4
@@ -55436,7 +55436,7 @@ requestLength.exit:                               ; preds = %5, %16
   %354 = call ptr @proto_item_add_subtree(ptr noundef %352, i32 noundef %353) #10
   %.off.i281 = add i32 %23, -25
   %.not13.i.i282 = icmp ult i32 %.off.i281, 7
-  br i1 %.not13.i.i282, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.preheader.i.i283
+  br i1 %.not13.i.i282, label %randrConfigureOutputProperty.exit, label %.lr.ph.preheader.i.i283
 
 .lr.ph.preheader.i.i283:                          ; preds = %314
   %355 = ashr exact i32 %351, 2
@@ -55452,7 +55452,7 @@ requestLength.exit:                               ; preds = %5, %16
   %360 = add i32 %359, 4
   store i32 %360, ptr %2, align 4
   %.not.i.i287 = icmp eq i32 %357, 0
-  br i1 %.not.i.i287, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.i.i285, !llvm.loop !41
+  br i1 %.not.i.i287, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i285, !llvm.loop !41
 
 361:                                              ; preds = %requestLength.exit
   %362 = load i32, ptr @hf_x11_randr_GetCrtcGammaSize_crtc, align 4
@@ -55461,7 +55461,7 @@ requestLength.exit:                               ; preds = %5, %16
   %365 = load i32, ptr %2, align 4
   %366 = add i32 %365, 4
   store i32 %366, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 367:                                              ; preds = %requestLength.exit
   %368 = load i32, ptr @hf_x11_randr_GetCrtcGamma_crtc, align 4
@@ -55470,7 +55470,7 @@ requestLength.exit:                               ; preds = %5, %16
   %371 = load i32, ptr %2, align 4
   %372 = add i32 %371, 4
   store i32 %372, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 373:                                              ; preds = %requestLength.exit
   %374 = load i32, ptr @hf_x11_randr_SetCrtcGamma_crtc, align 4
@@ -55541,7 +55541,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %415 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %413, ptr noundef %0, i32 noundef %412, i32 noundef %392, i32 noundef %4) #10
   %416 = load i32, ptr @ett_x11_list_of_card32, align 4
   %417 = call ptr @proto_item_add_subtree(ptr noundef %415, i32 noundef %416) #10
-  br i1 %.not13.i.i288, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.preheader.i45.i
+  br i1 %.not13.i.i288, label %randrConfigureOutputProperty.exit, label %.lr.ph.preheader.i45.i
 
 .lr.ph.preheader.i45.i:                           ; preds = %listOfCard16.exit43.i
   %.pre.i46.i = load i32, ptr %2, align 4
@@ -55556,7 +55556,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %422 = add i32 %421, 2
   store i32 %422, ptr %2, align 4
   %.not.i49.i = icmp eq i32 %419, 0
-  br i1 %.not.i49.i, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.i47.i, !llvm.loop !40
+  br i1 %.not.i49.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i47.i, !llvm.loop !40
 
 423:                                              ; preds = %requestLength.exit
   %424 = load i32, ptr @hf_x11_randr_GetScreenResourcesCurrent_window, align 4
@@ -55565,7 +55565,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %427 = load i32, ptr %2, align 4
   %428 = add i32 %427, 4
   store i32 %428, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 429:                                              ; preds = %requestLength.exit
   %430 = load i32, ptr @hf_x11_randr_SetCrtcTransform_crtc, align 4
@@ -55574,7 +55574,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %433 = load i32, ptr %2, align 4
   %434 = add i32 %433, 4
   store i32 %434, ptr %2, align 4
-  call fastcc void @struct_render_TRANSFORM.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @struct_render_TRANSFORM(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %435 = load i32, ptr %2, align 4
   %436 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %435, i32 noundef %4) #10
   %437 = zext i16 %436 to i32
@@ -55621,7 +55621,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %468 = load i32, ptr @ett_x11_list_of_card32, align 4
   %469 = call ptr @proto_item_add_subtree(ptr noundef %467, i32 noundef %468) #10
   %.not13.i.i293 = icmp ult i32 %465, 4
-  br i1 %.not13.i.i293, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.preheader.i.i294
+  br i1 %.not13.i.i293, label %randrConfigureOutputProperty.exit, label %.lr.ph.preheader.i.i294
 
 .lr.ph.preheader.i.i294:                          ; preds = %460
   %470 = ashr i32 %465, 2
@@ -55637,7 +55637,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %475 = add i32 %474, 4
   store i32 %475, ptr %2, align 4
   %.not.i.i298 = icmp eq i32 %472, 0
-  br i1 %.not.i.i298, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.i.i296, !llvm.loop !60
+  br i1 %.not.i.i298, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i296, !llvm.loop !60
 
 476:                                              ; preds = %requestLength.exit
   %477 = load i32, ptr @hf_x11_randr_GetCrtcTransform_crtc, align 4
@@ -55646,7 +55646,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %480 = load i32, ptr %2, align 4
   %481 = add i32 %480, 4
   store i32 %481, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 482:                                              ; preds = %requestLength.exit
   %483 = load i32, ptr @hf_x11_randr_GetPanning_crtc, align 4
@@ -55655,7 +55655,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %486 = load i32, ptr %2, align 4
   %487 = add i32 %486, 4
   store i32 %487, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 488:                                              ; preds = %requestLength.exit
   %489 = load i32, ptr @hf_x11_randr_SetPanning_crtc, align 4
@@ -55729,7 +55729,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %544 = load i32, ptr %2, align 4
   %545 = add i32 %544, 2
   store i32 %545, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 546:                                              ; preds = %requestLength.exit
   %547 = load i32, ptr @hf_x11_randr_SetOutputPrimary_window, align 4
@@ -55743,7 +55743,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %554 = load i32, ptr %2, align 4
   %555 = add i32 %554, 4
   store i32 %555, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 556:                                              ; preds = %requestLength.exit
   %557 = load i32, ptr @hf_x11_randr_GetOutputPrimary_window, align 4
@@ -55752,7 +55752,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %560 = load i32, ptr %2, align 4
   %561 = add i32 %560, 4
   store i32 %561, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 562:                                              ; preds = %requestLength.exit
   %563 = load i32, ptr @hf_x11_randr_GetProviders_window, align 4
@@ -55761,7 +55761,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %566 = load i32, ptr %2, align 4
   %567 = add i32 %566, 4
   store i32 %567, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 568:                                              ; preds = %requestLength.exit
   %569 = load i32, ptr @hf_x11_randr_GetProviderInfo_provider, align 4
@@ -55775,7 +55775,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %576 = load i32, ptr %2, align 4
   %577 = add i32 %576, 4
   store i32 %577, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 578:                                              ; preds = %requestLength.exit
   %579 = load i32, ptr @hf_x11_randr_SetProviderOffloadSink_provider, align 4
@@ -55794,7 +55794,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %590 = load i32, ptr %2, align 4
   %591 = add i32 %590, 4
   store i32 %591, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 592:                                              ; preds = %requestLength.exit
   %593 = load i32, ptr @hf_x11_randr_SetProviderOutputSource_provider, align 4
@@ -55813,7 +55813,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %604 = load i32, ptr %2, align 4
   %605 = add i32 %604, 4
   store i32 %605, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 606:                                              ; preds = %requestLength.exit
   %607 = load i32, ptr @hf_x11_randr_ListProviderProperties_provider, align 4
@@ -55822,7 +55822,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %610 = load i32, ptr %2, align 4
   %611 = add i32 %610, 4
   store i32 %611, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 612:                                              ; preds = %requestLength.exit
   %613 = load i32, ptr @hf_x11_randr_QueryProviderProperty_provider, align 4
@@ -55836,7 +55836,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %620 = load i32, ptr %2, align 4
   %621 = add i32 %620, 4
   store i32 %621, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 622:                                              ; preds = %requestLength.exit
   %623 = load i32, ptr @hf_x11_randr_ConfigureProviderProperty_provider, align 4
@@ -55873,7 +55873,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %649 = call ptr @proto_item_add_subtree(ptr noundef %647, i32 noundef %648) #10
   %.off.i299 = add i32 %23, -13
   %.not13.i.i300 = icmp ult i32 %.off.i299, 7
-  br i1 %.not13.i.i300, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.preheader.i.i301
+  br i1 %.not13.i.i300, label %randrConfigureOutputProperty.exit, label %.lr.ph.preheader.i.i301
 
 .lr.ph.preheader.i.i301:                          ; preds = %622
   %650 = ashr exact i32 %646, 2
@@ -55889,7 +55889,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %655 = add i32 %654, 4
   store i32 %655, ptr %2, align 4
   %.not.i.i305 = icmp eq i32 %652, 0
-  br i1 %.not.i.i305, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.i.i303, !llvm.loop !60
+  br i1 %.not.i.i305, label %randrConfigureOutputProperty.exit, label %.lr.ph.i.i303, !llvm.loop !60
 
 656:                                              ; preds = %requestLength.exit
   %657 = load i32, ptr @hf_x11_randr_ChangeProviderProperty_provider, align 4
@@ -55941,7 +55941,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %695 = load i32, ptr %2, align 4
   %696 = add i32 %695, %spec.store.select.i.i306
   store i32 %696, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 697:                                              ; preds = %requestLength.exit
   %698 = load i32, ptr @hf_x11_randr_DeleteProviderProperty_provider, align 4
@@ -55955,7 +55955,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %705 = load i32, ptr %2, align 4
   %706 = add i32 %705, 4
   store i32 %706, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 707:                                              ; preds = %requestLength.exit
   %708 = load i32, ptr @hf_x11_randr_GetProviderProperty_provider, align 4
@@ -55999,7 +55999,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %739 = load i32, ptr %2, align 4
   %740 = add i32 %739, 2
   store i32 %740, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 741:                                              ; preds = %requestLength.exit
   %742 = load i32, ptr @hf_x11_randr_GetMonitors_window, align 4
@@ -56013,7 +56013,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %749 = load i32, ptr %2, align 4
   %750 = add i32 %749, 1
   store i32 %750, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 751:                                              ; preds = %requestLength.exit
   %752 = load i32, ptr @hf_x11_randr_SetMonitor_window, align 4
@@ -56023,7 +56023,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %756 = add i32 %755, 4
   store i32 %756, ptr %2, align 4
   call fastcc void @struct_randr_MonitorInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 1)
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 757:                                              ; preds = %requestLength.exit
   %758 = load i32, ptr @hf_x11_randr_DeleteMonitor_window, align 4
@@ -56037,7 +56037,7 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %765 = load i32, ptr %2, align 4
   %766 = add i32 %765, 4
   store i32 %766, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
 767:                                              ; preds = %requestLength.exit
   %768 = load i32, ptr @hf_x11_randr_CreateLease_window, align 4
@@ -56097,7 +56097,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i309, %767
   %807 = load i32, ptr @ett_x11_list_of_card32, align 4
   %808 = call ptr @proto_item_add_subtree(ptr noundef %806, i32 noundef %807) #10
   %.not13.i39.i = icmp eq i16 %784, 0
-  br i1 %.not13.i39.i, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.preheader.i40.i
+  br i1 %.not13.i39.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.preheader.i40.i
 
 .lr.ph.preheader.i40.i:                           ; preds = %listOfCard32.exit.i
   %.pre.i41.i = load i32, ptr %2, align 4
@@ -56112,7 +56112,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i309, %767
   %813 = add i32 %812, 4
   store i32 %813, ptr %2, align 4
   %.not.i44.i = icmp eq i32 %810, 0
-  br i1 %.not.i44.i, label %randrConfigureOutputProperty.argprom.exit, label %.lr.ph.i42.i, !llvm.loop !41
+  br i1 %.not.i44.i, label %randrConfigureOutputProperty.exit, label %.lr.ph.i42.i, !llvm.loop !41
 
 814:                                              ; preds = %requestLength.exit
   %815 = load i32, ptr @hf_x11_randr_FreeLease_lid, align 4
@@ -56126,9 +56126,9 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i309, %767
   %822 = load i32, ptr %2, align 4
   %823 = add i32 %822, 1
   store i32 %823, ptr %2, align 4
-  br label %randrConfigureOutputProperty.argprom.exit
+  br label %randrConfigureOutputProperty.exit
 
-randrConfigureOutputProperty.argprom.exit:        ; preds = %.lr.ph.i42.i, %.lr.ph.i.i303, %.lr.ph.i.i296, %.lr.ph.i47.i, %.lr.ph.i.i285, %.lr.ph.i.i, %listOfCard32.exit.i, %622, %460, %listOfCard16.exit43.i, %314, %149, %814, %757, %751, %741, %707, %697, %656, %612, %606, %592, %578, %568, %562, %556, %546, %488, %482, %476, %423, %367, %361, %304, %294, %284, %278, %266, %233, %223, %183, %139, %133, %123, %117, %95, %89, %83, %68, %37, %27, %requestLength.exit
+randrConfigureOutputProperty.exit:                ; preds = %.lr.ph.i42.i, %.lr.ph.i.i303, %.lr.ph.i.i296, %.lr.ph.i47.i, %.lr.ph.i.i285, %.lr.ph.i.i, %listOfCard32.exit.i, %622, %460, %listOfCard16.exit43.i, %314, %149, %814, %757, %751, %741, %707, %697, %656, %612, %606, %592, %578, %568, %562, %556, %546, %488, %482, %476, %423, %367, %361, %304, %294, %284, %278, %266, %233, %223, %183, %139, %133, %123, %117, %95, %89, %83, %68, %37, %27, %requestLength.exit
   ret void
 }
 
@@ -56224,7 +56224,7 @@ define internal fastcc void @struct_randr_ModeInfo(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_render_TRANSFORM.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_render_TRANSFORM(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_render_TRANSFORM, align 4
   %5 = load i32, ptr %1, align 4
@@ -57963,7 +57963,7 @@ define internal void @randrGetCrtcTransform_Reply(ptr noundef %0, ptr nocapture 
   %24 = load i32, ptr %2, align 4
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
-  tail call fastcc void @struct_render_TRANSFORM.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_render_TRANSFORM(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %26 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_has_transforms, align 4
   %27 = load i32, ptr %2, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef %4) #10
@@ -57975,7 +57975,7 @@ define internal void @randrGetCrtcTransform_Reply(ptr noundef %0, ptr nocapture 
   %33 = load i32, ptr %2, align 4
   %34 = add i32 %33, 3
   store i32 %34, ptr %2, align 4
-  tail call fastcc void @struct_render_TRANSFORM.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_render_TRANSFORM(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %35 = load i32, ptr @hf_x11_unused, align 4
   %36 = load i32, ptr %2, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %35, ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef 0) #10
@@ -58836,7 +58836,7 @@ requestLength.exit:                               ; preds = %5, %16
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @record_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %recordUnregisterClients.argprom.exit [
+  switch i8 %trunc, label %recordUnregisterClients.exit [
     i8 0, label %25
     i8 1, label %35
     i8 2, label %72
@@ -58859,7 +58859,7 @@ requestLength.exit:                               ; preds = %5, %16
   %33 = load i32, ptr %2, align 4
   %34 = add i32 %33, 2
   store i32 %34, ptr %2, align 4
-  br label %recordUnregisterClients.argprom.exit
+  br label %recordUnregisterClients.exit
 
 35:                                               ; preds = %requestLength.exit
   %36 = load i32, ptr @hf_x11_record_CreateContext_context, align 4
@@ -58899,7 +58899,7 @@ requestLength.exit:                               ; preds = %5, %16
   %65 = load i32, ptr @ett_x11_list_of_card32, align 4
   %66 = call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65) #10
   %.not13.i.i = icmp eq i32 %49, 0
-  br i1 %.not13.i.i, label %recordCreateContext.argprom.exit, label %.lr.ph.preheader.i.i
+  br i1 %.not13.i.i, label %recordCreateContext.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %35
   %.pre.i.i = load i32, ptr %2, align 4
@@ -58914,11 +58914,11 @@ requestLength.exit:                               ; preds = %5, %16
   %71 = add i32 %70, 4
   store i32 %71, ptr %2, align 4
   %.not.i.i = icmp eq i32 %68, 0
-  br i1 %.not.i.i, label %recordCreateContext.argprom.exit, label %.lr.ph.i.i, !llvm.loop !41
+  br i1 %.not.i.i, label %recordCreateContext.exit, label %.lr.ph.i.i, !llvm.loop !41
 
-recordCreateContext.argprom.exit:                 ; preds = %.lr.ph.i.i, %35
+recordCreateContext.exit:                         ; preds = %.lr.ph.i.i, %35
   call fastcc void @struct_record_Range(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %55)
-  br label %recordUnregisterClients.argprom.exit
+  br label %recordUnregisterClients.exit
 
 72:                                               ; preds = %requestLength.exit
   %73 = load i32, ptr @hf_x11_record_RegisterClients_context, align 4
@@ -58958,7 +58958,7 @@ recordCreateContext.argprom.exit:                 ; preds = %.lr.ph.i.i, %35
   %102 = load i32, ptr @ett_x11_list_of_card32, align 4
   %103 = call ptr @proto_item_add_subtree(ptr noundef %101, i32 noundef %102) #10
   %.not13.i.i58 = icmp eq i32 %86, 0
-  br i1 %.not13.i.i58, label %recordRegisterClients.argprom.exit, label %.lr.ph.preheader.i.i59
+  br i1 %.not13.i.i58, label %recordRegisterClients.exit, label %.lr.ph.preheader.i.i59
 
 .lr.ph.preheader.i.i59:                           ; preds = %72
   %.pre.i.i60 = load i32, ptr %2, align 4
@@ -58973,11 +58973,11 @@ recordCreateContext.argprom.exit:                 ; preds = %.lr.ph.i.i, %35
   %108 = add i32 %107, 4
   store i32 %108, ptr %2, align 4
   %.not.i.i63 = icmp eq i32 %105, 0
-  br i1 %.not.i.i63, label %recordRegisterClients.argprom.exit, label %.lr.ph.i.i61, !llvm.loop !41
+  br i1 %.not.i.i63, label %recordRegisterClients.exit, label %.lr.ph.i.i61, !llvm.loop !41
 
-recordRegisterClients.argprom.exit:               ; preds = %.lr.ph.i.i61, %72
+recordRegisterClients.exit:                       ; preds = %.lr.ph.i.i61, %72
   call fastcc void @struct_record_Range(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %92)
-  br label %recordUnregisterClients.argprom.exit
+  br label %recordUnregisterClients.exit
 
 109:                                              ; preds = %requestLength.exit
   %110 = load i32, ptr @hf_x11_record_UnregisterClients_context, align 4
@@ -59000,7 +59000,7 @@ recordRegisterClients.argprom.exit:               ; preds = %.lr.ph.i.i61, %72
   %125 = load i32, ptr @ett_x11_list_of_card32, align 4
   %126 = call ptr @proto_item_add_subtree(ptr noundef %124, i32 noundef %125) #10
   %.not13.i.i64 = icmp eq i32 %115, 0
-  br i1 %.not13.i.i64, label %recordUnregisterClients.argprom.exit, label %.lr.ph.preheader.i.i65
+  br i1 %.not13.i.i64, label %recordUnregisterClients.exit, label %.lr.ph.preheader.i.i65
 
 .lr.ph.preheader.i.i65:                           ; preds = %109
   %.pre.i.i66 = load i32, ptr %2, align 4
@@ -59015,7 +59015,7 @@ recordRegisterClients.argprom.exit:               ; preds = %.lr.ph.i.i61, %72
   %131 = add i32 %130, 4
   store i32 %131, ptr %2, align 4
   %.not.i.i69 = icmp eq i32 %128, 0
-  br i1 %.not.i.i69, label %recordUnregisterClients.argprom.exit, label %.lr.ph.i.i67, !llvm.loop !41
+  br i1 %.not.i.i69, label %recordUnregisterClients.exit, label %.lr.ph.i.i67, !llvm.loop !41
 
 132:                                              ; preds = %requestLength.exit
   %133 = load i32, ptr @hf_x11_record_GetContext_context, align 4
@@ -59024,7 +59024,7 @@ recordRegisterClients.argprom.exit:               ; preds = %.lr.ph.i.i61, %72
   %136 = load i32, ptr %2, align 4
   %137 = add i32 %136, 4
   store i32 %137, ptr %2, align 4
-  br label %recordUnregisterClients.argprom.exit
+  br label %recordUnregisterClients.exit
 
 138:                                              ; preds = %requestLength.exit
   %139 = load i32, ptr @hf_x11_record_EnableContext_context, align 4
@@ -59033,7 +59033,7 @@ recordRegisterClients.argprom.exit:               ; preds = %.lr.ph.i.i61, %72
   %142 = load i32, ptr %2, align 4
   %143 = add i32 %142, 4
   store i32 %143, ptr %2, align 4
-  br label %recordUnregisterClients.argprom.exit
+  br label %recordUnregisterClients.exit
 
 144:                                              ; preds = %requestLength.exit
   %145 = load i32, ptr @hf_x11_record_DisableContext_context, align 4
@@ -59042,7 +59042,7 @@ recordRegisterClients.argprom.exit:               ; preds = %.lr.ph.i.i61, %72
   %148 = load i32, ptr %2, align 4
   %149 = add i32 %148, 4
   store i32 %149, ptr %2, align 4
-  br label %recordUnregisterClients.argprom.exit
+  br label %recordUnregisterClients.exit
 
 150:                                              ; preds = %requestLength.exit
   %151 = load i32, ptr @hf_x11_record_FreeContext_context, align 4
@@ -59051,9 +59051,9 @@ recordRegisterClients.argprom.exit:               ; preds = %.lr.ph.i.i61, %72
   %154 = load i32, ptr %2, align 4
   %155 = add i32 %154, 4
   store i32 %155, ptr %2, align 4
-  br label %recordUnregisterClients.argprom.exit
+  br label %recordUnregisterClients.exit
 
-recordUnregisterClients.argprom.exit:             ; preds = %.lr.ph.i.i67, %109, %150, %144, %138, %132, %recordRegisterClients.argprom.exit, %recordCreateContext.argprom.exit, %25, %requestLength.exit
+recordUnregisterClients.exit:                     ; preds = %.lr.ph.i.i67, %109, %150, %144, %138, %132, %recordRegisterClients.exit, %recordCreateContext.exit, %25, %requestLength.exit
   ret void
 }
 
@@ -59104,8 +59104,8 @@ define internal fastcc void @struct_record_Range(ptr noundef %0, ptr nocapture n
   %37 = load i32, ptr %1, align 4
   %38 = add i32 %37, 1
   store i32 %38, ptr %1, align 4
-  tail call fastcc void @struct_record_ExtRange.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %3)
-  tail call fastcc void @struct_record_ExtRange.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %3)
+  tail call fastcc void @struct_record_ExtRange(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %3)
+  tail call fastcc void @struct_record_ExtRange(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %3)
   %39 = load i32, ptr @hf_x11_struct_record_Range8, align 4
   %40 = load i32, ptr %1, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef 2, i32 noundef 0) #10
@@ -59171,7 +59171,7 @@ define internal fastcc void @struct_record_Range(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_record_ExtRange.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_record_ExtRange(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_record_ExtRange, align 4
   %5 = load i32, ptr %1, align 4
@@ -59444,7 +59444,7 @@ requestLength.exit:                               ; preds = %5, %16
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @render_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %renderCreatePicture.argprom.exit [
+  switch i8 %trunc, label %renderCreatePicture.exit [
     i8 0, label %27
     i8 36, label %1016
     i8 2, label %37
@@ -59489,7 +59489,7 @@ requestLength.exit:                               ; preds = %5, %16
   %35 = load i32, ptr %2, align 4
   %36 = add i32 %35, 4
   store i32 %36, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 37:                                               ; preds = %requestLength.exit
   %38 = load i32, ptr @hf_x11_render_QueryPictIndexValues_format, align 4
@@ -59498,7 +59498,7 @@ requestLength.exit:                               ; preds = %5, %16
   %41 = load i32, ptr %2, align 4
   %42 = add i32 %41, 4
   store i32 %42, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 43:                                               ; preds = %requestLength.exit
   %44 = load i32, ptr @hf_x11_render_CreatePicture_pid, align 4
@@ -59679,7 +59679,7 @@ requestLength.exit:                               ; preds = %5, %16
 147:                                              ; preds = %141, %139
   %148 = and i32 %57, 4096
   %.not107.i = icmp eq i32 %148, 0
-  br i1 %.not107.i, label %renderCreatePicture.argprom.exit, label %149
+  br i1 %.not107.i, label %renderCreatePicture.exit, label %149
 
 149:                                              ; preds = %147
   %150 = load i32, ptr @hf_x11_render_CreatePicture_ComponentAlpha_componentalpha, align 4
@@ -59688,7 +59688,7 @@ requestLength.exit:                               ; preds = %5, %16
   %153 = load i32, ptr %2, align 4
   %154 = add i32 %153, 4
   store i32 %154, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 155:                                              ; preds = %requestLength.exit
   %156 = load i32, ptr @hf_x11_render_ChangePicture_picture, align 4
@@ -59859,7 +59859,7 @@ requestLength.exit:                               ; preds = %5, %16
 251:                                              ; preds = %245, %243
   %252 = and i32 %161, 4096
   %.not97.i198 = icmp eq i32 %252, 0
-  br i1 %.not97.i198, label %renderCreatePicture.argprom.exit, label %253
+  br i1 %.not97.i198, label %renderCreatePicture.exit, label %253
 
 253:                                              ; preds = %251
   %254 = load i32, ptr @hf_x11_render_ChangePicture_ComponentAlpha_componentalpha, align 4
@@ -59868,7 +59868,7 @@ requestLength.exit:                               ; preds = %5, %16
   %257 = load i32, ptr %2, align 4
   %258 = add i32 %257, 4
   store i32 %258, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 259:                                              ; preds = %requestLength.exit
   %260 = load i32, ptr @hf_x11_render_SetPictureClipRectangles_picture, align 4
@@ -59890,7 +59890,7 @@ requestLength.exit:                               ; preds = %5, %16
   %273 = add i32 %23, -12
   %274 = sdiv i32 %273, 8
   call fastcc void @struct_xproto_RECTANGLE(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %274)
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 275:                                              ; preds = %requestLength.exit
   %276 = load i32, ptr @hf_x11_render_FreePicture_picture, align 4
@@ -59899,7 +59899,7 @@ requestLength.exit:                               ; preds = %5, %16
   %279 = load i32, ptr %2, align 4
   %280 = add i32 %279, 4
   store i32 %280, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 281:                                              ; preds = %requestLength.exit
   %282 = load i32, ptr @hf_x11_render_Composite_op, align 4
@@ -59963,7 +59963,7 @@ requestLength.exit:                               ; preds = %5, %16
   %330 = load i32, ptr %2, align 4
   %331 = add i32 %330, 2
   store i32 %331, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 332:                                              ; preds = %requestLength.exit
   %333 = load i32, ptr @hf_x11_render_Trapezoids_op, align 4
@@ -60002,7 +60002,7 @@ requestLength.exit:                               ; preds = %5, %16
   %360 = add i32 %23, -24
   %361 = sdiv i32 %360, 40
   %362 = icmp sgt i32 %360, 39
-  br i1 %362, label %.lr.ph.i.i, label %renderCreatePicture.argprom.exit
+  br i1 %362, label %.lr.ph.i.i, label %renderCreatePicture.exit
 
 .lr.ph.i.i:                                       ; preds = %332, %.lr.ph.i.i
   %.024.i.i = phi i32 [ %377, %.lr.ph.i.i ], [ 0, %332 ]
@@ -60022,11 +60022,11 @@ requestLength.exit:                               ; preds = %5, %16
   %375 = load i32, ptr %2, align 4
   %376 = add i32 %375, 4
   store i32 %376, ptr %2, align 4
-  call fastcc void @struct_render_LINEFIX.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %367, i32 noundef %4)
-  call fastcc void @struct_render_LINEFIX.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %367, i32 noundef %4)
+  call fastcc void @struct_render_LINEFIX(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %367, i32 noundef %4)
+  call fastcc void @struct_render_LINEFIX(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %367, i32 noundef %4)
   %377 = add nuw nsw i32 %.024.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %377, %361
-  br i1 %exitcond.not.i.i, label %renderCreatePicture.argprom.exit, label %.lr.ph.i.i, !llvm.loop !72
+  br i1 %exitcond.not.i.i, label %renderCreatePicture.exit, label %.lr.ph.i.i, !llvm.loop !72
 
 378:                                              ; preds = %requestLength.exit
   %379 = load i32, ptr @hf_x11_render_Triangles_op, align 4
@@ -60065,7 +60065,7 @@ requestLength.exit:                               ; preds = %5, %16
   %406 = add i32 %23, -24
   %407 = sdiv i32 %406, 24
   %408 = icmp sgt i32 %406, 23
-  br i1 %408, label %.lr.ph.i.i199, label %renderCreatePicture.argprom.exit
+  br i1 %408, label %.lr.ph.i.i199, label %renderCreatePicture.exit
 
 .lr.ph.i.i199:                                    ; preds = %378, %.lr.ph.i.i199
   %409 = phi i32 [ %452, %.lr.ph.i.i199 ], [ %405, %378 ]
@@ -60122,7 +60122,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %452, ptr %2, align 4
   %453 = add nuw nsw i32 %.029.i.i, 1
   %exitcond.not.i.i200 = icmp eq i32 %453, %407
-  br i1 %exitcond.not.i.i200, label %renderCreatePicture.argprom.exit, label %.lr.ph.i.i199, !llvm.loop !73
+  br i1 %exitcond.not.i.i200, label %renderCreatePicture.exit, label %.lr.ph.i.i199, !llvm.loop !73
 
 454:                                              ; preds = %requestLength.exit
   %455 = load i32, ptr @hf_x11_render_TriStrip_op, align 4
@@ -60161,7 +60161,7 @@ requestLength.exit:                               ; preds = %5, %16
   %482 = add i32 %23, -24
   %483 = sdiv i32 %482, 8
   call fastcc void @struct_render_POINTFIX(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %483)
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 484:                                              ; preds = %requestLength.exit
   %485 = load i32, ptr @hf_x11_render_TriFan_op, align 4
@@ -60200,7 +60200,7 @@ requestLength.exit:                               ; preds = %5, %16
   %512 = add i32 %23, -24
   %513 = sdiv i32 %512, 8
   call fastcc void @struct_render_POINTFIX(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %513)
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 514:                                              ; preds = %requestLength.exit
   %515 = load i32, ptr @hf_x11_render_CreateGlyphSet_gsid, align 4
@@ -60214,7 +60214,7 @@ requestLength.exit:                               ; preds = %5, %16
   %522 = load i32, ptr %2, align 4
   %523 = add i32 %522, 4
   store i32 %523, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 524:                                              ; preds = %requestLength.exit
   %525 = load i32, ptr @hf_x11_render_ReferenceGlyphSet_gsid, align 4
@@ -60228,7 +60228,7 @@ requestLength.exit:                               ; preds = %5, %16
   %532 = load i32, ptr %2, align 4
   %533 = add i32 %532, 4
   store i32 %533, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 534:                                              ; preds = %requestLength.exit
   %535 = load i32, ptr @hf_x11_render_FreeGlyphSet_glyphset, align 4
@@ -60237,7 +60237,7 @@ requestLength.exit:                               ; preds = %5, %16
   %538 = load i32, ptr %2, align 4
   %539 = add i32 %538, 4
   store i32 %539, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 540:                                              ; preds = %requestLength.exit
   %541 = load i32, ptr @hf_x11_render_AddGlyphs_glyphset, align 4
@@ -60261,7 +60261,7 @@ requestLength.exit:                               ; preds = %5, %16
   %557 = call ptr @proto_item_add_subtree(ptr noundef %555, i32 noundef %556) #10
   %.not13.i.i = icmp eq i32 %546, 0
   %.pre.i201 = load i32, ptr %2, align 4
-  br i1 %.not13.i.i, label %renderAddGlyphs.argprom.exit, label %.lr.ph.i.i202
+  br i1 %.not13.i.i, label %renderAddGlyphs.exit, label %.lr.ph.i.i202
 
 .lr.ph.i.i202:                                    ; preds = %540, %.lr.ph.i.i202
   %558 = phi i32 [ %562, %.lr.ph.i.i202 ], [ %.pre.i201, %540 ]
@@ -60276,7 +60276,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i202
   %563 = icmp sgt i32 %546, 0
-  br i1 %563, label %.lr.ph.i33.i, label %renderAddGlyphs.argprom.exit
+  br i1 %563, label %.lr.ph.i33.i, label %renderAddGlyphs.exit
 
 .lr.ph.i33.i:                                     ; preds = %listOfCard32.exit.i, %.lr.ph.i33.i
   %564 = phi i32 [ %593, %.lr.ph.i33.i ], [ %562, %listOfCard32.exit.i ]
@@ -60318,9 +60318,9 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i202
   store i32 %593, ptr %2, align 4
   %594 = add nuw nsw i32 %.036.i.i, 1
   %exitcond.not.i.i203 = icmp eq i32 %594, %546
-  br i1 %exitcond.not.i.i203, label %renderAddGlyphs.argprom.exit, label %.lr.ph.i33.i, !llvm.loop !74
+  br i1 %exitcond.not.i.i203, label %renderAddGlyphs.exit, label %.lr.ph.i33.i, !llvm.loop !74
 
-renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540, %listOfCard32.exit.i
+renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540, %listOfCard32.exit.i
   %595 = phi i32 [ %.pre.i201, %540 ], [ %562, %listOfCard32.exit.i ], [ %593, %.lr.ph.i33.i ]
   %.neg.i = mul i32 %546, -12
   %596 = load i32, ptr @hf_x11_render_AddGlyphs_data, align 4
@@ -60332,7 +60332,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %601 = load i32, ptr %2, align 4
   %602 = add i32 %601, %spec.store.select.i.i
   store i32 %602, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 603:                                              ; preds = %requestLength.exit
   %604 = load i32, ptr @hf_x11_render_FreeGlyphs_glyphset, align 4
@@ -60349,7 +60349,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %614 = call ptr @proto_item_add_subtree(ptr noundef %612, i32 noundef %613) #10
   %.off.i = add i32 %23, -5
   %.not13.i.i204 = icmp ult i32 %.off.i, 7
-  br i1 %.not13.i.i204, label %renderCreatePicture.argprom.exit, label %.lr.ph.preheader.i.i
+  br i1 %.not13.i.i204, label %renderCreatePicture.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %603
   %615 = ashr exact i32 %611, 2
@@ -60365,7 +60365,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %620 = add i32 %619, 4
   store i32 %620, ptr %2, align 4
   %.not.i.i207 = icmp eq i32 %617, 0
-  br i1 %.not.i.i207, label %renderCreatePicture.argprom.exit, label %.lr.ph.i.i205, !llvm.loop !41
+  br i1 %.not.i.i207, label %renderCreatePicture.exit, label %.lr.ph.i.i205, !llvm.loop !41
 
 621:                                              ; preds = %requestLength.exit
   %622 = load i32, ptr @hf_x11_render_CompositeGlyphs8_op, align 4
@@ -60413,7 +60413,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %656 = load i32, ptr %2, align 4
   %657 = add i32 %656, %spec.store.select.i.i209
   store i32 %657, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 658:                                              ; preds = %requestLength.exit
   %659 = load i32, ptr @hf_x11_render_CompositeGlyphs16_op, align 4
@@ -60461,7 +60461,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %693 = load i32, ptr %2, align 4
   %694 = add i32 %693, %spec.store.select.i.i210
   store i32 %694, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 695:                                              ; preds = %requestLength.exit
   %696 = load i32, ptr @hf_x11_render_CompositeGlyphs32_op, align 4
@@ -60509,7 +60509,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %730 = load i32, ptr %2, align 4
   %731 = add i32 %730, %spec.store.select.i.i211
   store i32 %731, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 732:                                              ; preds = %requestLength.exit
   %733 = load i32, ptr @hf_x11_render_FillRectangles_op, align 4
@@ -60529,7 +60529,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %744 = add i32 %23, -20
   %745 = sdiv i32 %744, 8
   call fastcc void @struct_xproto_RECTANGLE(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %745)
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 746:                                              ; preds = %requestLength.exit
   %747 = load i32, ptr @hf_x11_render_CreateCursor_cid, align 4
@@ -60553,7 +60553,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %762 = load i32, ptr %2, align 4
   %763 = add i32 %762, 2
   store i32 %763, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 764:                                              ; preds = %requestLength.exit
   %765 = load i32, ptr @hf_x11_render_SetPictureTransform_picture, align 4
@@ -60562,8 +60562,8 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %768 = load i32, ptr %2, align 4
   %769 = add i32 %768, 4
   store i32 %769, ptr %2, align 4
-  call fastcc void @struct_render_TRANSFORM.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  br label %renderCreatePicture.argprom.exit
+  call fastcc void @struct_render_TRANSFORM(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  br label %renderCreatePicture.exit
 
 770:                                              ; preds = %requestLength.exit
   %771 = load i32, ptr @hf_x11_render_QueryFilters_drawable, align 4
@@ -60572,7 +60572,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %774 = load i32, ptr %2, align 4
   %775 = add i32 %774, 4
   store i32 %775, ptr %2, align 4
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 776:                                              ; preds = %requestLength.exit
   %777 = load i32, ptr @hf_x11_render_SetPictureFilter_picture, align 4
@@ -60626,7 +60626,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %814 = load i32, ptr @ett_x11_list_of_card32, align 4
   %815 = call ptr @proto_item_add_subtree(ptr noundef %813, i32 noundef %814) #10
   %.not13.i.i213 = icmp ult i32 %811, 4
-  br i1 %.not13.i.i213, label %renderCreatePicture.argprom.exit, label %.lr.ph.preheader.i.i214
+  br i1 %.not13.i.i213, label %renderCreatePicture.exit, label %.lr.ph.preheader.i.i214
 
 .lr.ph.preheader.i.i214:                          ; preds = %806
   %816 = ashr i32 %811, 2
@@ -60642,7 +60642,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %821 = add i32 %820, 4
   store i32 %821, ptr %2, align 4
   %.not.i.i218 = icmp eq i32 %818, 0
-  br i1 %.not.i.i218, label %renderCreatePicture.argprom.exit, label %.lr.ph.i.i216, !llvm.loop !60
+  br i1 %.not.i.i218, label %renderCreatePicture.exit, label %.lr.ph.i.i216, !llvm.loop !60
 
 822:                                              ; preds = %requestLength.exit
   %823 = load i32, ptr @hf_x11_render_CreateAnimCursor_cid, align 4
@@ -60654,7 +60654,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %828 = add i32 %23, -8
   %829 = sdiv i32 %828, 8
   %830 = icmp sgt i32 %828, 7
-  br i1 %830, label %.lr.ph.i.i219, label %renderCreatePicture.argprom.exit
+  br i1 %830, label %.lr.ph.i.i219, label %renderCreatePicture.exit
 
 .lr.ph.i.i219:                                    ; preds = %822, %.lr.ph.i.i219
   %831 = phi i32 [ %844, %.lr.ph.i.i219 ], [ %827, %822 ]
@@ -60676,7 +60676,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   store i32 %844, ptr %2, align 4
   %845 = add nuw nsw i32 %.016.i.i, 1
   %exitcond.not.i.i220 = icmp eq i32 %845, %829
-  br i1 %exitcond.not.i.i220, label %renderCreatePicture.argprom.exit, label %.lr.ph.i.i219, !llvm.loop !75
+  br i1 %exitcond.not.i.i220, label %renderCreatePicture.exit, label %.lr.ph.i.i219, !llvm.loop !75
 
 846:                                              ; preds = %requestLength.exit
   %847 = load i32, ptr @hf_x11_render_AddTraps_picture, align 4
@@ -60698,7 +60698,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %860 = add i32 %23, -12
   %861 = sdiv i32 %860, 24
   %862 = icmp sgt i32 %860, 23
-  br i1 %862, label %.lr.ph.i.i221, label %renderCreatePicture.argprom.exit
+  br i1 %862, label %.lr.ph.i.i221, label %renderCreatePicture.exit
 
 .lr.ph.i.i221:                                    ; preds = %846, %.lr.ph.i.i221
   %863 = phi i32 [ %902, %.lr.ph.i.i221 ], [ %859, %846 ]
@@ -60750,7 +60750,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   store i32 %902, ptr %2, align 4
   %903 = add nuw nsw i32 %.014.i.i222, 1
   %exitcond.not.i.i223 = icmp eq i32 %903, %861
-  br i1 %exitcond.not.i.i223, label %renderCreatePicture.argprom.exit, label %.lr.ph.i.i221, !llvm.loop !76
+  br i1 %exitcond.not.i.i223, label %renderCreatePicture.exit, label %.lr.ph.i.i221, !llvm.loop !76
 
 904:                                              ; preds = %requestLength.exit
   %905 = load i32, ptr @hf_x11_render_CreateSolidFill_picture, align 4
@@ -60760,7 +60760,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %909 = add i32 %908, 4
   store i32 %909, ptr %2, align 4
   call fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 1)
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 910:                                              ; preds = %requestLength.exit
   %911 = load i32, ptr @hf_x11_render_CreateLinearGradient_picture, align 4
@@ -60813,7 +60813,7 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %952 = load i32, ptr @ett_x11_list_of_card32, align 4
   %953 = call ptr @proto_item_add_subtree(ptr noundef %951, i32 noundef %952) #10
   %.not13.i.i225 = icmp eq i32 %942, 0
-  br i1 %.not13.i.i225, label %renderCreateLinearGradient.argprom.exit, label %.lr.ph.preheader.i.i226
+  br i1 %.not13.i.i225, label %renderCreateLinearGradient.exit, label %.lr.ph.preheader.i.i226
 
 .lr.ph.preheader.i.i226:                          ; preds = %910
   %.pre.i39.i = load i32, ptr %2, align 4
@@ -60828,11 +60828,11 @@ renderAddGlyphs.argprom.exit:                     ; preds = %.lr.ph.i33.i, %540,
   %958 = add i32 %957, 4
   store i32 %958, ptr %2, align 4
   %.not.i.i228 = icmp eq i32 %955, 0
-  br i1 %.not.i.i228, label %renderCreateLinearGradient.argprom.exit, label %.lr.ph.i40.i, !llvm.loop !60
+  br i1 %.not.i.i228, label %renderCreateLinearGradient.exit, label %.lr.ph.i40.i, !llvm.loop !60
 
-renderCreateLinearGradient.argprom.exit:          ; preds = %.lr.ph.i40.i, %910
+renderCreateLinearGradient.exit:                  ; preds = %.lr.ph.i40.i, %910
   call fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %942)
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 959:                                              ; preds = %requestLength.exit
   %960 = load i32, ptr @hf_x11_render_CreateRadialGradient_picture, align 4
@@ -60895,7 +60895,7 @@ renderCreateLinearGradient.argprom.exit:          ; preds = %.lr.ph.i40.i, %910
   %1009 = load i32, ptr @ett_x11_list_of_card32, align 4
   %1010 = call ptr @proto_item_add_subtree(ptr noundef %1008, i32 noundef %1009) #10
   %.not13.i.i230 = icmp eq i32 %999, 0
-  br i1 %.not13.i.i230, label %renderCreateRadialGradient.argprom.exit, label %.lr.ph.preheader.i.i231
+  br i1 %.not13.i.i230, label %renderCreateRadialGradient.exit, label %.lr.ph.preheader.i.i231
 
 .lr.ph.preheader.i.i231:                          ; preds = %959
   %.pre.i49.i = load i32, ptr %2, align 4
@@ -60910,11 +60910,11 @@ renderCreateLinearGradient.argprom.exit:          ; preds = %.lr.ph.i40.i, %910
   %1015 = add i32 %1014, 4
   store i32 %1015, ptr %2, align 4
   %.not.i.i233 = icmp eq i32 %1012, 0
-  br i1 %.not.i.i233, label %renderCreateRadialGradient.argprom.exit, label %.lr.ph.i50.i, !llvm.loop !60
+  br i1 %.not.i.i233, label %renderCreateRadialGradient.exit, label %.lr.ph.i50.i, !llvm.loop !60
 
-renderCreateRadialGradient.argprom.exit:          ; preds = %.lr.ph.i50.i, %959
+renderCreateRadialGradient.exit:                  ; preds = %.lr.ph.i50.i, %959
   call fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %999)
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
 1016:                                             ; preds = %requestLength.exit
   %1017 = load i32, ptr @hf_x11_render_CreateConicalGradient_picture, align 4
@@ -60957,7 +60957,7 @@ renderCreateRadialGradient.argprom.exit:          ; preds = %.lr.ph.i50.i, %959
   %1049 = load i32, ptr @ett_x11_list_of_card32, align 4
   %1050 = call ptr @proto_item_add_subtree(ptr noundef %1048, i32 noundef %1049) #10
   %.not13.i.i235 = icmp eq i32 %1039, 0
-  br i1 %.not13.i.i235, label %renderCreateConicalGradient.argprom.exit, label %.lr.ph.preheader.i.i236
+  br i1 %.not13.i.i235, label %renderCreateConicalGradient.exit, label %.lr.ph.preheader.i.i236
 
 .lr.ph.preheader.i.i236:                          ; preds = %1016
   %.pre.i35.i = load i32, ptr %2, align 4
@@ -60972,18 +60972,18 @@ renderCreateRadialGradient.argprom.exit:          ; preds = %.lr.ph.i50.i, %959
   %1055 = add i32 %1054, 4
   store i32 %1055, ptr %2, align 4
   %.not.i.i238 = icmp eq i32 %1052, 0
-  br i1 %.not.i.i238, label %renderCreateConicalGradient.argprom.exit, label %.lr.ph.i36.i, !llvm.loop !60
+  br i1 %.not.i.i238, label %renderCreateConicalGradient.exit, label %.lr.ph.i36.i, !llvm.loop !60
 
-renderCreateConicalGradient.argprom.exit:         ; preds = %.lr.ph.i36.i, %1016
+renderCreateConicalGradient.exit:                 ; preds = %.lr.ph.i36.i, %1016
   call fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %1039)
-  br label %renderCreatePicture.argprom.exit
+  br label %renderCreatePicture.exit
 
-renderCreatePicture.argprom.exit:                 ; preds = %.lr.ph.i.i221, %.lr.ph.i.i219, %.lr.ph.i.i216, %.lr.ph.i.i205, %.lr.ph.i.i199, %.lr.ph.i.i, %846, %822, %806, %603, %378, %332, %253, %251, %149, %147, %renderCreateConicalGradient.argprom.exit, %renderCreateRadialGradient.argprom.exit, %renderCreateLinearGradient.argprom.exit, %904, %770, %764, %746, %732, %695, %658, %621, %renderAddGlyphs.argprom.exit, %534, %524, %514, %484, %454, %281, %275, %259, %37, %27, %requestLength.exit
+renderCreatePicture.exit:                         ; preds = %.lr.ph.i.i221, %.lr.ph.i.i219, %.lr.ph.i.i216, %.lr.ph.i.i205, %.lr.ph.i.i199, %.lr.ph.i.i, %846, %822, %806, %603, %378, %332, %253, %251, %149, %147, %renderCreateConicalGradient.exit, %renderCreateRadialGradient.exit, %renderCreateLinearGradient.exit, %904, %770, %764, %746, %732, %695, %658, %621, %renderAddGlyphs.exit, %534, %524, %514, %484, %454, %281, %275, %259, %37, %27, %requestLength.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_render_LINEFIX.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_render_LINEFIX(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_render_LINEFIX, align 4
   %5 = load i32, ptr %1, align 4
@@ -61680,7 +61680,7 @@ requestLength.exit:                               ; preds = %5, %16
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @res_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %resQueryResourceBytes.argprom.exit [
+  switch i8 %trunc, label %resQueryResourceBytes.exit [
     i8 0, label %25
     i8 5, label %55
     i8 2, label %35
@@ -61700,7 +61700,7 @@ requestLength.exit:                               ; preds = %5, %16
   %33 = load i32, ptr %2, align 4
   %34 = add i32 %33, 1
   store i32 %34, ptr %2, align 4
-  br label %resQueryResourceBytes.argprom.exit
+  br label %resQueryResourceBytes.exit
 
 35:                                               ; preds = %requestLength.exit
   %36 = load i32, ptr @hf_x11_res_QueryClientResources_xid, align 4
@@ -61709,7 +61709,7 @@ requestLength.exit:                               ; preds = %5, %16
   %39 = load i32, ptr %2, align 4
   %40 = add i32 %39, 4
   store i32 %40, ptr %2, align 4
-  br label %resQueryResourceBytes.argprom.exit
+  br label %resQueryResourceBytes.exit
 
 41:                                               ; preds = %requestLength.exit
   %42 = load i32, ptr @hf_x11_res_QueryClientPixmapBytes_xid, align 4
@@ -61718,7 +61718,7 @@ requestLength.exit:                               ; preds = %5, %16
   %45 = load i32, ptr %2, align 4
   %46 = add i32 %45, 4
   store i32 %46, ptr %2, align 4
-  br label %resQueryResourceBytes.argprom.exit
+  br label %resQueryResourceBytes.exit
 
 47:                                               ; preds = %requestLength.exit
   %48 = load i32, ptr %2, align 4
@@ -61730,7 +61730,7 @@ requestLength.exit:                               ; preds = %5, %16
   %54 = add i32 %53, 4
   store i32 %54, ptr %2, align 4
   call fastcc void @struct_res_ClientIdSpec(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %49)
-  br label %resQueryResourceBytes.argprom.exit
+  br label %resQueryResourceBytes.exit
 
 55:                                               ; preds = %requestLength.exit
   %56 = load i32, ptr @hf_x11_res_QueryResourceBytes_client, align 4
@@ -61747,7 +61747,7 @@ requestLength.exit:                               ; preds = %5, %16
   %66 = add i32 %65, 4
   store i32 %66, ptr %2, align 4
   %67 = icmp sgt i32 %61, 0
-  br i1 %67, label %.lr.ph.i.i, label %resQueryResourceBytes.argprom.exit
+  br i1 %67, label %.lr.ph.i.i, label %resQueryResourceBytes.exit
 
 .lr.ph.i.i:                                       ; preds = %55, %.lr.ph.i.i
   %68 = phi i32 [ %81, %.lr.ph.i.i ], [ %66, %55 ]
@@ -61769,9 +61769,9 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %81, ptr %2, align 4
   %82 = add nuw nsw i32 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %82, %61
-  br i1 %exitcond.not.i.i, label %resQueryResourceBytes.argprom.exit, label %.lr.ph.i.i, !llvm.loop !86
+  br i1 %exitcond.not.i.i, label %resQueryResourceBytes.exit, label %.lr.ph.i.i, !llvm.loop !86
 
-resQueryResourceBytes.argprom.exit:               ; preds = %.lr.ph.i.i, %55, %47, %41, %35, %25, %requestLength.exit
+resQueryResourceBytes.exit:                       ; preds = %.lr.ph.i.i, %55, %47, %41, %35, %25, %requestLength.exit
   ret void
 }
 
@@ -62278,7 +62278,7 @@ requestLength.exit:                               ; preds = %5, %16
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @screensaver_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %screensaverSetAttributes.argprom.exit [
+  switch i8 %trunc, label %screensaverSetAttributes.exit [
     i8 0, label %25
     i8 1, label %39
     i8 2, label %45
@@ -62304,7 +62304,7 @@ requestLength.exit:                               ; preds = %5, %16
   %37 = load i32, ptr %2, align 4
   %38 = add i32 %37, 2
   store i32 %38, ptr %2, align 4
-  br label %screensaverSetAttributes.argprom.exit
+  br label %screensaverSetAttributes.exit
 
 39:                                               ; preds = %requestLength.exit
   %40 = load i32, ptr @hf_x11_screensaver_QueryInfo_drawable, align 4
@@ -62313,7 +62313,7 @@ requestLength.exit:                               ; preds = %5, %16
   %43 = load i32, ptr %2, align 4
   %44 = add i32 %43, 4
   store i32 %44, ptr %2, align 4
-  br label %screensaverSetAttributes.argprom.exit
+  br label %screensaverSetAttributes.exit
 
 45:                                               ; preds = %requestLength.exit
   %46 = load i32, ptr @hf_x11_screensaver_SelectInput_drawable, align 4
@@ -62328,7 +62328,7 @@ requestLength.exit:                               ; preds = %5, %16
   %54 = load i32, ptr %2, align 4
   %55 = add i32 %54, 4
   store i32 %55, ptr %2, align 4
-  br label %screensaverSetAttributes.argprom.exit
+  br label %screensaverSetAttributes.exit
 
 56:                                               ; preds = %requestLength.exit
   %57 = load i32, ptr @hf_x11_screensaver_SetAttributes_drawable, align 4
@@ -62559,12 +62559,12 @@ requestLength.exit:                               ; preds = %5, %16
 195:                                              ; preds = %192, %190
   %196 = and i32 %93, 16384
   %.not147.i = icmp eq i32 %196, 0
-  br i1 %.not147.i, label %screensaverSetAttributes.argprom.exit, label %197
+  br i1 %.not147.i, label %screensaverSetAttributes.exit, label %197
 
 197:                                              ; preds = %195
   %198 = load i32, ptr @hf_x11_screensaver_SetAttributes_Cursor_cursor, align 4
   %199 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %198, i32 noundef %4)
-  br label %screensaverSetAttributes.argprom.exit
+  br label %screensaverSetAttributes.exit
 
 200:                                              ; preds = %requestLength.exit
   %201 = load i32, ptr @hf_x11_screensaver_UnsetAttributes_drawable, align 4
@@ -62573,7 +62573,7 @@ requestLength.exit:                               ; preds = %5, %16
   %204 = load i32, ptr %2, align 4
   %205 = add i32 %204, 4
   store i32 %205, ptr %2, align 4
-  br label %screensaverSetAttributes.argprom.exit
+  br label %screensaverSetAttributes.exit
 
 206:                                              ; preds = %requestLength.exit
   %207 = load i32, ptr @hf_x11_screensaver_Suspend_suspend, align 4
@@ -62582,9 +62582,9 @@ requestLength.exit:                               ; preds = %5, %16
   %210 = load i32, ptr %2, align 4
   %211 = add i32 %210, 4
   store i32 %211, ptr %2, align 4
-  br label %screensaverSetAttributes.argprom.exit
+  br label %screensaverSetAttributes.exit
 
-screensaverSetAttributes.argprom.exit:            ; preds = %197, %195, %206, %200, %45, %39, %25, %requestLength.exit
+screensaverSetAttributes.exit:                    ; preds = %197, %195, %206, %200, %45, %39, %25, %requestLength.exit
   ret void
 }
 
@@ -63568,7 +63568,7 @@ requestLength.exit:                               ; preds = %5, %16
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @sync_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %syncAwait.argprom.exit [
+  switch i8 %trunc, label %syncAwait.exit [
     i8 0, label %27
     i8 19, label %304
     i8 2, label %35
@@ -63599,7 +63599,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %32, ptr %2, align 4
   %33 = load i32, ptr @hf_x11_sync_Initialize_desired_minor_version, align 4
   %34 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %33, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 35:                                               ; preds = %requestLength.exit
   %36 = load i32, ptr @hf_x11_sync_CreateCounter_id, align 4
@@ -63620,7 +63620,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %49, ptr %2, align 4
   %50 = load i32, ptr @hf_x11_struct_sync_INT64_lo, align 4
   %51 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 52:                                               ; preds = %requestLength.exit
   %53 = load i32, ptr @hf_x11_sync_SetCounter_counter, align 4
@@ -63641,7 +63641,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %66, ptr %2, align 4
   %67 = load i32, ptr @hf_x11_struct_sync_INT64_lo, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 69:                                               ; preds = %requestLength.exit
   %70 = load i32, ptr @hf_x11_sync_ChangeCounter_counter, align 4
@@ -63662,25 +63662,25 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %83, ptr %2, align 4
   %84 = load i32, ptr @hf_x11_struct_sync_INT64_lo, align 4
   %85 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %84, ptr noundef %0, i32 noundef %83, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 86:                                               ; preds = %requestLength.exit
   %87 = load i32, ptr @hf_x11_sync_QueryCounter_counter, align 4
   %88 = load i32, ptr %2, align 4
   %89 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %87, ptr noundef %0, i32 noundef %88, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 90:                                               ; preds = %requestLength.exit
   %91 = load i32, ptr @hf_x11_sync_DestroyCounter_counter, align 4
   %92 = load i32, ptr %2, align 4
   %93 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %91, ptr noundef %0, i32 noundef %92, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 94:                                               ; preds = %requestLength.exit
   %95 = add i32 %23, -4
   %96 = sdiv i32 %95, 28
   %97 = icmp sgt i32 %95, 27
-  br i1 %97, label %.lr.ph.preheader.i.i, label %syncAwait.argprom.exit
+  br i1 %97, label %.lr.ph.preheader.i.i, label %syncAwait.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %94
   %.pre.i.i = load i32, ptr %2, align 4
@@ -63693,7 +63693,7 @@ requestLength.exit:                               ; preds = %5, %16
   %100 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %99, ptr noundef %0, i32 noundef %98, i32 noundef 28, i32 noundef 0) #10
   %101 = load i32, ptr @ett_x11_rectangle, align 4
   %102 = call ptr @proto_item_add_subtree(ptr noundef %100, i32 noundef %101) #10
-  call fastcc void @struct_sync_TRIGGER.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %102, i32 noundef %4)
+  call fastcc void @struct_sync_TRIGGER(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %102, i32 noundef %4)
   %103 = load i32, ptr @hf_x11_struct_sync_INT64, align 4
   %104 = load i32, ptr %2, align 4
   %105 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef %104, i32 noundef 8, i32 noundef 0) #10
@@ -63712,7 +63712,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %116, ptr %2, align 4
   %117 = add nuw nsw i32 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %117, %96
-  br i1 %exitcond.not.i.i, label %syncAwait.argprom.exit, label %.lr.ph.i.i, !llvm.loop !93
+  br i1 %exitcond.not.i.i, label %syncAwait.exit, label %.lr.ph.i.i, !llvm.loop !93
 
 118:                                              ; preds = %requestLength.exit
   %119 = load i32, ptr @hf_x11_sync_CreateAlarm_id, align 4
@@ -63812,13 +63812,13 @@ requestLength.exit:                               ; preds = %5, %16
 181:                                              ; preds = %166, %164
   %182 = and i32 %124, 32
   %.not48.i = icmp eq i32 %182, 0
-  br i1 %.not48.i, label %syncAwait.argprom.exit, label %183
+  br i1 %.not48.i, label %syncAwait.exit, label %183
 
 183:                                              ; preds = %181
   %184 = load i32, ptr @hf_x11_sync_CreateAlarm_Events_events, align 4
   %185 = load i32, ptr %2, align 4
   %186 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %184, ptr noundef %0, i32 noundef %185, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 187:                                              ; preds = %requestLength.exit
   %188 = load i32, ptr @hf_x11_sync_ChangeAlarm_id, align 4
@@ -63918,25 +63918,25 @@ requestLength.exit:                               ; preds = %5, %16
 250:                                              ; preds = %235, %233
   %251 = and i32 %193, 32
   %.not48.i135 = icmp eq i32 %251, 0
-  br i1 %.not48.i135, label %syncAwait.argprom.exit, label %252
+  br i1 %.not48.i135, label %syncAwait.exit, label %252
 
 252:                                              ; preds = %250
   %253 = load i32, ptr @hf_x11_sync_ChangeAlarm_Events_events, align 4
   %254 = load i32, ptr %2, align 4
   %255 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %253, ptr noundef %0, i32 noundef %254, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 256:                                              ; preds = %requestLength.exit
   %257 = load i32, ptr @hf_x11_sync_QueryAlarm_alarm, align 4
   %258 = load i32, ptr %2, align 4
   %259 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %257, ptr noundef %0, i32 noundef %258, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 260:                                              ; preds = %requestLength.exit
   %261 = load i32, ptr @hf_x11_sync_DestroyAlarm_alarm, align 4
   %262 = load i32, ptr %2, align 4
   %263 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %261, ptr noundef %0, i32 noundef %262, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 264:                                              ; preds = %requestLength.exit
   %265 = load i32, ptr @hf_x11_sync_SetPriority_id, align 4
@@ -63947,13 +63947,13 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %269, ptr %2, align 4
   %270 = load i32, ptr @hf_x11_sync_SetPriority_priority, align 4
   %271 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %270, ptr noundef %0, i32 noundef %269, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 272:                                              ; preds = %requestLength.exit
   %273 = load i32, ptr @hf_x11_sync_GetPriority_id, align 4
   %274 = load i32, ptr %2, align 4
   %275 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %273, ptr noundef %0, i32 noundef %274, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 276:                                              ; preds = %requestLength.exit
   %277 = load i32, ptr @hf_x11_sync_CreateFence_drawable, align 4
@@ -63969,31 +63969,31 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %285, ptr %2, align 4
   %286 = load i32, ptr @hf_x11_sync_CreateFence_initially_triggered, align 4
   %287 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %286, ptr noundef %0, i32 noundef %285, i32 noundef 1, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 288:                                              ; preds = %requestLength.exit
   %289 = load i32, ptr @hf_x11_sync_TriggerFence_fence, align 4
   %290 = load i32, ptr %2, align 4
   %291 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %289, ptr noundef %0, i32 noundef %290, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 292:                                              ; preds = %requestLength.exit
   %293 = load i32, ptr @hf_x11_sync_ResetFence_fence, align 4
   %294 = load i32, ptr %2, align 4
   %295 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %293, ptr noundef %0, i32 noundef %294, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 296:                                              ; preds = %requestLength.exit
   %297 = load i32, ptr @hf_x11_sync_DestroyFence_fence, align 4
   %298 = load i32, ptr %2, align 4
   %299 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %297, ptr noundef %0, i32 noundef %298, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 300:                                              ; preds = %requestLength.exit
   %301 = load i32, ptr @hf_x11_sync_QueryFence_fence, align 4
   %302 = load i32, ptr %2, align 4
   %303 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %301, ptr noundef %0, i32 noundef %302, i32 noundef 4, i32 noundef %4) #10
-  br label %syncAwait.argprom.exit.sink.split
+  br label %syncAwait.exit.sink.split
 
 304:                                              ; preds = %requestLength.exit
   %305 = load i32, ptr @hf_x11_sync_AwaitFence_fence_list, align 4
@@ -64005,7 +64005,7 @@ requestLength.exit:                               ; preds = %5, %16
   %311 = call ptr @proto_item_add_subtree(ptr noundef %309, i32 noundef %310) #10
   %.off.i = add i32 %23, -1
   %.not13.i.i = icmp ult i32 %.off.i, 7
-  br i1 %.not13.i.i, label %syncAwait.argprom.exit, label %.lr.ph.preheader.i.i136
+  br i1 %.not13.i.i, label %syncAwait.exit, label %.lr.ph.preheader.i.i136
 
 .lr.ph.preheader.i.i136:                          ; preds = %304
   %312 = ashr exact i32 %307, 2
@@ -64021,21 +64021,21 @@ requestLength.exit:                               ; preds = %5, %16
   %317 = add i32 %316, 4
   store i32 %317, ptr %2, align 4
   %.not.i.i = icmp eq i32 %314, 0
-  br i1 %.not.i.i, label %syncAwait.argprom.exit, label %.lr.ph.i.i138, !llvm.loop !41
+  br i1 %.not.i.i, label %syncAwait.exit, label %.lr.ph.i.i138, !llvm.loop !41
 
-syncAwait.argprom.exit.sink.split:                ; preds = %27, %35, %52, %69, %86, %90, %256, %260, %264, %272, %276, %288, %292, %296, %300, %183, %252
+syncAwait.exit.sink.split:                        ; preds = %27, %35, %52, %69, %86, %90, %256, %260, %264, %272, %276, %288, %292, %296, %300, %183, %252
   %.sink144 = phi i32 [ 4, %252 ], [ 4, %183 ], [ 4, %300 ], [ 4, %296 ], [ 4, %292 ], [ 4, %288 ], [ 1, %276 ], [ 4, %272 ], [ 4, %264 ], [ 4, %260 ], [ 4, %256 ], [ 4, %90 ], [ 4, %86 ], [ 4, %69 ], [ 4, %52 ], [ 4, %35 ], [ 1, %27 ]
   %318 = load i32, ptr %2, align 4
   %319 = add i32 %318, %.sink144
   store i32 %319, ptr %2, align 4
-  br label %syncAwait.argprom.exit
+  br label %syncAwait.exit
 
-syncAwait.argprom.exit:                           ; preds = %.lr.ph.i.i, %.lr.ph.i.i138, %syncAwait.argprom.exit.sink.split, %304, %250, %181, %94, %requestLength.exit
+syncAwait.exit:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i138, %syncAwait.exit.sink.split, %304, %250, %181, %94, %requestLength.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_sync_TRIGGER.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_sync_TRIGGER(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_sync_TRIGGER, align 4
   %5 = load i32, ptr %1, align 4
@@ -64361,7 +64361,7 @@ define internal void @syncQueryAlarm_Reply(ptr noundef %0, ptr nocapture noundef
   %24 = load i32, ptr %2, align 4
   %25 = add i32 %24, 4
   store i32 %25, ptr %2, align 4
-  tail call fastcc void @struct_sync_TRIGGER.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_sync_TRIGGER(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %26 = load i32, ptr @hf_x11_struct_sync_INT64, align 4
   %27 = load i32, ptr %2, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef 8, i32 noundef 0) #10
@@ -65665,7 +65665,7 @@ requestLength.exit:                               ; preds = %5, %16
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xf86vidmode_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %xf86vidmodeSetGammaRamp.argprom.exit [
+  switch i8 %trunc, label %xf86vidmodeSetGammaRamp.exit [
     i8 20, label %585
     i8 1, label %25
     i8 2, label %33
@@ -65697,7 +65697,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %30, ptr %2, align 4
   %31 = load i32, ptr @hf_x11_unused, align 4
   %32 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 2, i32 noundef 0) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 33:                                               ; preds = %requestLength.exit
   %34 = load i32, ptr @hf_x11_xf86vidmode_ModModeLine_screen, align 4
@@ -65777,7 +65777,7 @@ requestLength.exit:                               ; preds = %5, %16
   %94 = load i32, ptr @hf_x11_xf86vidmode_ModModeLine_private, align 4
   %spec.store.select.i.i = call i32 @llvm.smax.i32(i32 %88, i32 1)
   %95 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef %spec.store.select.i.i, i32 noundef %4) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 96:                                               ; preds = %requestLength.exit
   %97 = load i32, ptr @hf_x11_xf86vidmode_SwitchMode_screen, align 4
@@ -65788,7 +65788,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %101, ptr %2, align 4
   %102 = load i32, ptr @hf_x11_xf86vidmode_SwitchMode_zoom, align 4
   %103 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %102, ptr noundef %0, i32 noundef %101, i32 noundef 2, i32 noundef %4) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 104:                                              ; preds = %requestLength.exit
   %105 = load i32, ptr @hf_x11_xf86vidmode_GetMonitor_screen, align 4
@@ -65799,7 +65799,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %109, ptr %2, align 4
   %110 = load i32, ptr @hf_x11_unused, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %110, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 112:                                              ; preds = %requestLength.exit
   %113 = load i32, ptr @hf_x11_xf86vidmode_LockModeSwitch_screen, align 4
@@ -65810,7 +65810,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %117, ptr %2, align 4
   %118 = load i32, ptr @hf_x11_xf86vidmode_LockModeSwitch_lock, align 4
   %119 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %118, ptr noundef %0, i32 noundef %117, i32 noundef 2, i32 noundef %4) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 120:                                              ; preds = %requestLength.exit
   %121 = load i32, ptr @hf_x11_xf86vidmode_GetAllModeLines_screen, align 4
@@ -65821,7 +65821,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %125, ptr %2, align 4
   %126 = load i32, ptr @hf_x11_unused, align 4
   %127 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 2, i32 noundef 0) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 128:                                              ; preds = %requestLength.exit
   %129 = load i32, ptr @hf_x11_xf86vidmode_AddModeLine_screen, align 4
@@ -65972,7 +65972,7 @@ requestLength.exit:                               ; preds = %5, %16
   %246 = load i32, ptr @hf_x11_xf86vidmode_AddModeLine_private, align 4
   %spec.store.select.i.i136 = call i32 @llvm.smax.i32(i32 %187, i32 1)
   %247 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %246, ptr noundef %0, i32 noundef %245, i32 noundef %spec.store.select.i.i136, i32 noundef %4) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 248:                                              ; preds = %requestLength.exit
   %249 = load i32, ptr @hf_x11_xf86vidmode_DeleteModeLine_screen, align 4
@@ -66057,7 +66057,7 @@ requestLength.exit:                               ; preds = %5, %16
   %313 = load i32, ptr @hf_x11_xf86vidmode_DeleteModeLine_private, align 4
   %spec.store.select.i.i137 = call i32 @llvm.smax.i32(i32 %307, i32 1)
   %314 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %313, ptr noundef %0, i32 noundef %312, i32 noundef %spec.store.select.i.i137, i32 noundef %4) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 315:                                              ; preds = %requestLength.exit
   %316 = load i32, ptr @hf_x11_xf86vidmode_ValidateModeLine_screen, align 4
@@ -66142,7 +66142,7 @@ requestLength.exit:                               ; preds = %5, %16
   %380 = load i32, ptr @hf_x11_xf86vidmode_ValidateModeLine_private, align 4
   %spec.store.select.i.i138 = call i32 @llvm.smax.i32(i32 %374, i32 1)
   %381 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %380, ptr noundef %0, i32 noundef %379, i32 noundef %spec.store.select.i.i138, i32 noundef %4) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 382:                                              ; preds = %requestLength.exit
   %383 = load i32, ptr @hf_x11_xf86vidmode_SwitchToMode_screen, align 4
@@ -66227,7 +66227,7 @@ requestLength.exit:                               ; preds = %5, %16
   %447 = load i32, ptr @hf_x11_xf86vidmode_SwitchToMode_private, align 4
   %spec.store.select.i.i139 = call i32 @llvm.smax.i32(i32 %441, i32 1)
   %448 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %447, ptr noundef %0, i32 noundef %446, i32 noundef %spec.store.select.i.i139, i32 noundef %4) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 449:                                              ; preds = %requestLength.exit
   %450 = load i32, ptr @hf_x11_xf86vidmode_GetViewPort_screen, align 4
@@ -66238,7 +66238,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %454, ptr %2, align 4
   %455 = load i32, ptr @hf_x11_unused, align 4
   %456 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %455, ptr noundef %0, i32 noundef %454, i32 noundef 2, i32 noundef 0) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 457:                                              ; preds = %requestLength.exit
   %458 = load i32, ptr @hf_x11_xf86vidmode_SetViewPort_screen, align 4
@@ -66259,7 +66259,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %470, ptr %2, align 4
   %471 = load i32, ptr @hf_x11_xf86vidmode_SetViewPort_y, align 4
   %472 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %471, ptr noundef %0, i32 noundef %470, i32 noundef 4, i32 noundef %4) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 473:                                              ; preds = %requestLength.exit
   %474 = load i32, ptr @hf_x11_xf86vidmode_GetDotClocks_screen, align 4
@@ -66270,7 +66270,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %478, ptr %2, align 4
   %479 = load i32, ptr @hf_x11_unused, align 4
   %480 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %479, ptr noundef %0, i32 noundef %478, i32 noundef 2, i32 noundef 0) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 481:                                              ; preds = %requestLength.exit
   %482 = load i32, ptr @hf_x11_xf86vidmode_SetClientVersion_major, align 4
@@ -66281,7 +66281,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %486, ptr %2, align 4
   %487 = load i32, ptr @hf_x11_xf86vidmode_SetClientVersion_minor, align 4
   %488 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %487, ptr noundef %0, i32 noundef %486, i32 noundef 2, i32 noundef %4) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 489:                                              ; preds = %requestLength.exit
   %490 = load i32, ptr @hf_x11_xf86vidmode_SetGamma_screen, align 4
@@ -66312,7 +66312,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %510, ptr %2, align 4
   %511 = load i32, ptr @hf_x11_unused, align 4
   %512 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %511, ptr noundef %0, i32 noundef %510, i32 noundef 12, i32 noundef 0) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 513:                                              ; preds = %requestLength.exit
   %514 = load i32, ptr @hf_x11_xf86vidmode_GetGamma_screen, align 4
@@ -66323,7 +66323,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %518, ptr %2, align 4
   %519 = load i32, ptr @hf_x11_unused, align 4
   %520 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %519, ptr noundef %0, i32 noundef %518, i32 noundef 26, i32 noundef 0) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 521:                                              ; preds = %requestLength.exit
   %522 = load i32, ptr @hf_x11_xf86vidmode_GetGammaRamp_screen, align 4
@@ -66334,7 +66334,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %526, ptr %2, align 4
   %527 = load i32, ptr @hf_x11_xf86vidmode_GetGammaRamp_size, align 4
   %528 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %527, ptr noundef %0, i32 noundef %526, i32 noundef 2, i32 noundef %4) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 529:                                              ; preds = %requestLength.exit
   %530 = load i32, ptr @hf_x11_xf86vidmode_SetGammaRamp_screen, align 4
@@ -66402,7 +66402,7 @@ listOfCard16.exit39.i:                            ; preds = %.lr.ph.i36.i, %list
   %569 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %567, ptr noundef %0, i32 noundef %566, i32 noundef %546, i32 noundef %4) #10
   %570 = load i32, ptr @ett_x11_list_of_card32, align 4
   %571 = call ptr @proto_item_add_subtree(ptr noundef %569, i32 noundef %570) #10
-  br i1 %.not13.i.i, label %xf86vidmodeSetGammaRamp.argprom.exit, label %.lr.ph.preheader.i41.i
+  br i1 %.not13.i.i, label %xf86vidmodeSetGammaRamp.exit, label %.lr.ph.preheader.i41.i
 
 .lr.ph.preheader.i41.i:                           ; preds = %listOfCard16.exit39.i
   %.pre.i42.i = load i32, ptr %2, align 4
@@ -66417,7 +66417,7 @@ listOfCard16.exit39.i:                            ; preds = %.lr.ph.i36.i, %list
   %576 = add i32 %575, 2
   store i32 %576, ptr %2, align 4
   %.not.i45.i = icmp eq i32 %573, 0
-  br i1 %.not.i45.i, label %xf86vidmodeSetGammaRamp.argprom.exit, label %.lr.ph.i43.i, !llvm.loop !40
+  br i1 %.not.i45.i, label %xf86vidmodeSetGammaRamp.exit, label %.lr.ph.i43.i, !llvm.loop !40
 
 577:                                              ; preds = %requestLength.exit
   %578 = load i32, ptr @hf_x11_xf86vidmode_GetGammaRampSize_screen, align 4
@@ -66428,7 +66428,7 @@ listOfCard16.exit39.i:                            ; preds = %.lr.ph.i36.i, %list
   store i32 %582, ptr %2, align 4
   %583 = load i32, ptr @hf_x11_unused, align 4
   %584 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %583, ptr noundef %0, i32 noundef %582, i32 noundef 2, i32 noundef 0) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
 585:                                              ; preds = %requestLength.exit
   %586 = load i32, ptr @hf_x11_xf86vidmode_GetPermissions_screen, align 4
@@ -66439,16 +66439,16 @@ listOfCard16.exit39.i:                            ; preds = %.lr.ph.i36.i, %list
   store i32 %590, ptr %2, align 4
   %591 = load i32, ptr @hf_x11_unused, align 4
   %592 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %591, ptr noundef %0, i32 noundef %590, i32 noundef 2, i32 noundef 0) #10
-  br label %xf86vidmodeSetGammaRamp.argprom.exit.sink.split
+  br label %xf86vidmodeSetGammaRamp.exit.sink.split
 
-xf86vidmodeSetGammaRamp.argprom.exit.sink.split:  ; preds = %25, %33, %96, %104, %112, %120, %128, %248, %315, %382, %449, %457, %473, %481, %489, %513, %521, %577, %585
+xf86vidmodeSetGammaRamp.exit.sink.split:          ; preds = %25, %33, %96, %104, %112, %120, %128, %248, %315, %382, %449, %457, %473, %481, %489, %513, %521, %577, %585
   %.sink145 = phi i32 [ 2, %585 ], [ 2, %577 ], [ 2, %521 ], [ 26, %513 ], [ 12, %489 ], [ 2, %481 ], [ 2, %473 ], [ 4, %457 ], [ 2, %449 ], [ %spec.store.select.i.i139, %382 ], [ %spec.store.select.i.i138, %315 ], [ %spec.store.select.i.i137, %248 ], [ %spec.store.select.i.i136, %128 ], [ 2, %120 ], [ 2, %112 ], [ 2, %104 ], [ 2, %96 ], [ %spec.store.select.i.i, %33 ], [ 2, %25 ]
   %593 = load i32, ptr %2, align 4
   %594 = add i32 %593, %.sink145
   store i32 %594, ptr %2, align 4
-  br label %xf86vidmodeSetGammaRamp.argprom.exit
+  br label %xf86vidmodeSetGammaRamp.exit
 
-xf86vidmodeSetGammaRamp.argprom.exit:             ; preds = %.lr.ph.i43.i, %xf86vidmodeSetGammaRamp.argprom.exit.sink.split, %listOfCard16.exit39.i, %requestLength.exit
+xf86vidmodeSetGammaRamp.exit:                     ; preds = %.lr.ph.i43.i, %xf86vidmodeSetGammaRamp.exit.sink.split, %listOfCard16.exit39.i, %requestLength.exit
   ret void
 }
 
@@ -67300,7 +67300,7 @@ requestLength.exit:                               ; preds = %5, %16
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xfixes_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %xfixesCreatePointerBarrier.argprom.exit [
+  switch i8 %trunc, label %xfixesCreatePointerBarrier.exit [
     i8 0, label %27
     i8 1, label %37
     i8 2, label %53
@@ -67347,7 +67347,7 @@ requestLength.exit:                               ; preds = %5, %16
   %35 = load i32, ptr %2, align 4
   %36 = add i32 %35, 4
   store i32 %36, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 37:                                               ; preds = %requestLength.exit
   %38 = load i32, ptr @hf_x11_xfixes_ChangeSaveSet_mode, align 4
@@ -67367,7 +67367,7 @@ requestLength.exit:                               ; preds = %5, %16
   %51 = load i32, ptr %2, align 4
   %52 = add i32 %51, 4
   store i32 %52, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 53:                                               ; preds = %requestLength.exit
   %54 = load i32, ptr @hf_x11_xfixes_SelectSelectionInput_window, align 4
@@ -67387,7 +67387,7 @@ requestLength.exit:                               ; preds = %5, %16
   %66 = load i32, ptr %2, align 4
   %67 = add i32 %66, 4
   store i32 %67, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 68:                                               ; preds = %requestLength.exit
   %69 = load i32, ptr @hf_x11_xfixes_SelectCursorInput_window, align 4
@@ -67402,7 +67402,7 @@ requestLength.exit:                               ; preds = %5, %16
   %77 = load i32, ptr %2, align 4
   %78 = add i32 %77, 4
   store i32 %78, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 79:                                               ; preds = %requestLength.exit
   %80 = load i32, ptr @hf_x11_xfixes_CreateRegion_region, align 4
@@ -67414,7 +67414,7 @@ requestLength.exit:                               ; preds = %5, %16
   %85 = add i32 %23, -8
   %86 = sdiv i32 %85, 8
   call fastcc void @struct_xproto_RECTANGLE(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %86)
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 87:                                               ; preds = %requestLength.exit
   %88 = load i32, ptr @hf_x11_xfixes_CreateRegionFromBitmap_region, align 4
@@ -67428,7 +67428,7 @@ requestLength.exit:                               ; preds = %5, %16
   %95 = load i32, ptr %2, align 4
   %96 = add i32 %95, 4
   store i32 %96, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 97:                                               ; preds = %requestLength.exit
   %98 = load i32, ptr @hf_x11_xfixes_CreateRegionFromWindow_region, align 4
@@ -67450,7 +67450,7 @@ requestLength.exit:                               ; preds = %5, %16
   %112 = load i32, ptr %2, align 4
   %113 = add i32 %112, 3
   store i32 %113, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 114:                                              ; preds = %requestLength.exit
   %115 = load i32, ptr @hf_x11_xfixes_CreateRegionFromGC_region, align 4
@@ -67464,7 +67464,7 @@ requestLength.exit:                               ; preds = %5, %16
   %122 = load i32, ptr %2, align 4
   %123 = add i32 %122, 4
   store i32 %123, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 124:                                              ; preds = %requestLength.exit
   %125 = load i32, ptr @hf_x11_xfixes_CreateRegionFromPicture_region, align 4
@@ -67478,7 +67478,7 @@ requestLength.exit:                               ; preds = %5, %16
   %132 = load i32, ptr %2, align 4
   %133 = add i32 %132, 4
   store i32 %133, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 134:                                              ; preds = %requestLength.exit
   %135 = load i32, ptr @hf_x11_xfixes_DestroyRegion_region, align 4
@@ -67487,7 +67487,7 @@ requestLength.exit:                               ; preds = %5, %16
   %138 = load i32, ptr %2, align 4
   %139 = add i32 %138, 4
   store i32 %139, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 140:                                              ; preds = %requestLength.exit
   %141 = load i32, ptr @hf_x11_xfixes_SetRegion_region, align 4
@@ -67499,7 +67499,7 @@ requestLength.exit:                               ; preds = %5, %16
   %146 = add i32 %23, -8
   %147 = sdiv i32 %146, 8
   call fastcc void @struct_xproto_RECTANGLE(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %147)
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 148:                                              ; preds = %requestLength.exit
   %149 = load i32, ptr @hf_x11_xfixes_CopyRegion_source, align 4
@@ -67513,7 +67513,7 @@ requestLength.exit:                               ; preds = %5, %16
   %156 = load i32, ptr %2, align 4
   %157 = add i32 %156, 4
   store i32 %157, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 158:                                              ; preds = %requestLength.exit
   %159 = load i32, ptr @hf_x11_xfixes_UnionRegion_source1, align 4
@@ -67532,7 +67532,7 @@ requestLength.exit:                               ; preds = %5, %16
   %170 = load i32, ptr %2, align 4
   %171 = add i32 %170, 4
   store i32 %171, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 172:                                              ; preds = %requestLength.exit
   %173 = load i32, ptr @hf_x11_xfixes_IntersectRegion_source1, align 4
@@ -67551,7 +67551,7 @@ requestLength.exit:                               ; preds = %5, %16
   %184 = load i32, ptr %2, align 4
   %185 = add i32 %184, 4
   store i32 %185, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 186:                                              ; preds = %requestLength.exit
   %187 = load i32, ptr @hf_x11_xfixes_SubtractRegion_source1, align 4
@@ -67570,7 +67570,7 @@ requestLength.exit:                               ; preds = %5, %16
   %198 = load i32, ptr %2, align 4
   %199 = add i32 %198, 4
   store i32 %199, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 200:                                              ; preds = %requestLength.exit
   %201 = load i32, ptr @hf_x11_xfixes_InvertRegion_source, align 4
@@ -67586,7 +67586,7 @@ requestLength.exit:                               ; preds = %5, %16
   %209 = load i32, ptr %2, align 4
   %210 = add i32 %209, 4
   store i32 %210, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 211:                                              ; preds = %requestLength.exit
   %212 = load i32, ptr @hf_x11_xfixes_TranslateRegion_region, align 4
@@ -67605,7 +67605,7 @@ requestLength.exit:                               ; preds = %5, %16
   %223 = load i32, ptr %2, align 4
   %224 = add i32 %223, 2
   store i32 %224, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 225:                                              ; preds = %requestLength.exit
   %226 = load i32, ptr @hf_x11_xfixes_RegionExtents_source, align 4
@@ -67619,7 +67619,7 @@ requestLength.exit:                               ; preds = %5, %16
   %233 = load i32, ptr %2, align 4
   %234 = add i32 %233, 4
   store i32 %234, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 235:                                              ; preds = %requestLength.exit
   %236 = load i32, ptr @hf_x11_xfixes_FetchRegion_region, align 4
@@ -67628,7 +67628,7 @@ requestLength.exit:                               ; preds = %5, %16
   %239 = load i32, ptr %2, align 4
   %240 = add i32 %239, 4
   store i32 %240, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 241:                                              ; preds = %requestLength.exit
   %242 = load i32, ptr @hf_x11_xfixes_SetGCClipRegion_gc, align 4
@@ -67650,7 +67650,7 @@ requestLength.exit:                               ; preds = %5, %16
   %256 = load i32, ptr %2, align 4
   %257 = add i32 %256, 2
   store i32 %257, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 258:                                              ; preds = %requestLength.exit
   %259 = load i32, ptr @hf_x11_xfixes_SetWindowShapeRegion_dest, align 4
@@ -67679,7 +67679,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %278, ptr %2, align 4
   %279 = load i32, ptr @hf_x11_xfixes_SetWindowShapeRegion_region, align 4
   %280 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %279, i32 noundef %4)
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 281:                                              ; preds = %requestLength.exit
   %282 = load i32, ptr @hf_x11_xfixes_SetPictureClipRegion_picture, align 4
@@ -67701,7 +67701,7 @@ requestLength.exit:                               ; preds = %5, %16
   %296 = load i32, ptr %2, align 4
   %297 = add i32 %296, 2
   store i32 %297, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 298:                                              ; preds = %requestLength.exit
   %299 = load i32, ptr @hf_x11_xfixes_SetCursorName_cursor, align 4
@@ -67729,7 +67729,7 @@ requestLength.exit:                               ; preds = %5, %16
   %318 = load i32, ptr %2, align 4
   %319 = add i32 %318, %316
   store i32 %319, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 320:                                              ; preds = %requestLength.exit
   %321 = load i32, ptr @hf_x11_xfixes_GetCursorName_cursor, align 4
@@ -67738,7 +67738,7 @@ requestLength.exit:                               ; preds = %5, %16
   %324 = load i32, ptr %2, align 4
   %325 = add i32 %324, 4
   store i32 %325, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 326:                                              ; preds = %requestLength.exit
   %327 = load i32, ptr @hf_x11_xfixes_ChangeCursor_source, align 4
@@ -67752,7 +67752,7 @@ requestLength.exit:                               ; preds = %5, %16
   %334 = load i32, ptr %2, align 4
   %335 = add i32 %334, 4
   store i32 %335, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 336:                                              ; preds = %requestLength.exit
   %337 = load i32, ptr @hf_x11_xfixes_ChangeCursorByName_src, align 4
@@ -67780,7 +67780,7 @@ requestLength.exit:                               ; preds = %5, %16
   %356 = load i32, ptr %2, align 4
   %357 = add i32 %356, %354
   store i32 %357, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 358:                                              ; preds = %requestLength.exit
   %359 = load i32, ptr @hf_x11_xfixes_ExpandRegion_source, align 4
@@ -67814,7 +67814,7 @@ requestLength.exit:                               ; preds = %5, %16
   %382 = load i32, ptr %2, align 4
   %383 = add i32 %382, 2
   store i32 %383, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 384:                                              ; preds = %requestLength.exit
   %385 = load i32, ptr @hf_x11_xfixes_HideCursor_window, align 4
@@ -67823,7 +67823,7 @@ requestLength.exit:                               ; preds = %5, %16
   %388 = load i32, ptr %2, align 4
   %389 = add i32 %388, 4
   store i32 %389, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 390:                                              ; preds = %requestLength.exit
   %391 = load i32, ptr @hf_x11_xfixes_ShowCursor_window, align 4
@@ -67832,7 +67832,7 @@ requestLength.exit:                               ; preds = %5, %16
   %394 = load i32, ptr %2, align 4
   %395 = add i32 %394, 4
   store i32 %395, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 396:                                              ; preds = %requestLength.exit
   %397 = load i32, ptr @hf_x11_xfixes_CreatePointerBarrier_barrier, align 4
@@ -67892,7 +67892,7 @@ requestLength.exit:                               ; preds = %5, %16
   %442 = load i32, ptr @ett_x11_list_of_card32, align 4
   %443 = call ptr @proto_item_add_subtree(ptr noundef %441, i32 noundef %442) #10
   %.not13.i.i = icmp eq i16 %431, 0
-  br i1 %.not13.i.i, label %xfixesCreatePointerBarrier.argprom.exit, label %.lr.ph.preheader.i.i
+  br i1 %.not13.i.i, label %xfixesCreatePointerBarrier.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %396
   %.pre.i.i = load i32, ptr %2, align 4
@@ -67907,7 +67907,7 @@ requestLength.exit:                               ; preds = %5, %16
   %448 = add i32 %447, 2
   store i32 %448, ptr %2, align 4
   %.not.i.i = icmp eq i32 %445, 0
-  br i1 %.not.i.i, label %xfixesCreatePointerBarrier.argprom.exit, label %.lr.ph.i.i, !llvm.loop !40
+  br i1 %.not.i.i, label %xfixesCreatePointerBarrier.exit, label %.lr.ph.i.i, !llvm.loop !40
 
 449:                                              ; preds = %requestLength.exit
   %450 = load i32, ptr @hf_x11_xfixes_DeletePointerBarrier_barrier, align 4
@@ -67916,7 +67916,7 @@ requestLength.exit:                               ; preds = %5, %16
   %453 = load i32, ptr %2, align 4
   %454 = add i32 %453, 4
   store i32 %454, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
 455:                                              ; preds = %requestLength.exit
   %456 = load i32, ptr %2, align 4
@@ -67926,9 +67926,9 @@ requestLength.exit:                               ; preds = %5, %16
   %460 = load i32, ptr %2, align 4
   %461 = add i32 %460, 4
   store i32 %461, ptr %2, align 4
-  br label %xfixesCreatePointerBarrier.argprom.exit
+  br label %xfixesCreatePointerBarrier.exit
 
-xfixesCreatePointerBarrier.argprom.exit:          ; preds = %.lr.ph.i.i, %396, %455, %449, %390, %384, %358, %336, %326, %320, %298, %281, %258, %241, %235, %225, %211, %200, %186, %172, %158, %148, %140, %134, %124, %114, %97, %87, %79, %68, %53, %37, %27, %requestLength.exit
+xfixesCreatePointerBarrier.exit:                  ; preds = %.lr.ph.i.i, %396, %455, %449, %390, %384, %358, %336, %326, %320, %298, %281, %258, %241, %235, %225, %211, %200, %186, %172, %158, %148, %140, %134, %124, %114, %97, %87, %79, %68, %53, %37, %27, %requestLength.exit
   ret void
 }
 
@@ -68806,23 +68806,23 @@ requestLength.exit:                               ; preds = %5, %16
   ]
 
 25:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGetExtensionVersion.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGetExtensionVersion(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 26:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputOpenDevice.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputOpenDevice(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 27:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputCloseDevice.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputCloseDevice(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 28:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputSetDeviceMode.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputSetDeviceMode(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 29:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputSelectExtensionEvent.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputSelectExtensionEvent(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 30:                                               ; preds = %requestLength.exit
@@ -68835,7 +68835,7 @@ requestLength.exit:                               ; preds = %5, %16
   br label %105
 
 36:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputChangeDeviceDontPropagateList.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputChangeDeviceDontPropagateList(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 37:                                               ; preds = %requestLength.exit
@@ -68848,143 +68848,143 @@ requestLength.exit:                               ; preds = %5, %16
   br label %105
 
 43:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGetDeviceMotionEvents.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGetDeviceMotionEvents(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 44:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputChangeKeyboardDevice.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputChangeKeyboardDevice(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 45:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputChangePointerDevice.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputChangePointerDevice(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 46:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGrabDevice.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGrabDevice(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 47:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputUngrabDevice.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputUngrabDevice(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 48:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGrabDeviceKey.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGrabDeviceKey(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 49:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputUngrabDeviceKey.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputUngrabDeviceKey(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 50:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGrabDeviceButton.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGrabDeviceButton(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 51:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputUngrabDeviceButton.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputUngrabDeviceButton(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 52:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputAllowDeviceEvents.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputAllowDeviceEvents(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 53:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGetDeviceFocus.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGetDeviceFocus(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 54:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputSetDeviceFocus.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputSetDeviceFocus(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 55:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGetFeedbackControl.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGetFeedbackControl(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 56:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputChangeFeedbackControl.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputChangeFeedbackControl(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 57:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGetDeviceKeyMapping.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGetDeviceKeyMapping(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 58:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputChangeDeviceKeyMapping.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputChangeDeviceKeyMapping(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 59:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGetDeviceModifierMapping.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGetDeviceModifierMapping(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 60:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputSetDeviceModifierMapping.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputSetDeviceModifierMapping(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 61:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGetDeviceButtonMapping.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGetDeviceButtonMapping(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 62:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputSetDeviceButtonMapping.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputSetDeviceButtonMapping(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 63:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputQueryDeviceState.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputQueryDeviceState(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 64:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputSendExtensionEvent.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputSendExtensionEvent(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 65:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputDeviceBell.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputDeviceBell(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 66:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputSetDeviceValuators.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputSetDeviceValuators(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 67:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGetDeviceControl.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGetDeviceControl(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 68:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputChangeDeviceControl.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputChangeDeviceControl(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 69:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputListDeviceProperties.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputListDeviceProperties(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 70:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputChangeDeviceProperty.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputChangeDeviceProperty(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 71:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputDeleteDeviceProperty.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputDeleteDeviceProperty(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 72:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputGetDeviceProperty.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputGetDeviceProperty(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 73:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIQueryPointer.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIQueryPointer(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 74:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIWarpPointer.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIWarpPointer(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 75:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIChangeCursor.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIChangeCursor(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 76:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIChangeHierarchy.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIChangeHierarchy(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 77:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXISetClientPointer.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXISetClientPointer(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 78:                                               ; preds = %requestLength.exit
@@ -68997,59 +68997,59 @@ requestLength.exit:                               ; preds = %5, %16
   br label %105
 
 84:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXISelectEvents.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXISelectEvents(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 85:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIQueryVersion.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIQueryVersion(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 86:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIQueryDevice.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIQueryDevice(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 87:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXISetFocus.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXISetFocus(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 88:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIGetFocus.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIGetFocus(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 89:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIGrabDevice.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIGrabDevice(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 90:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIUngrabDevice.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIUngrabDevice(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 91:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIAllowEvents.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIAllowEvents(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 92:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIPassiveGrabDevice.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIPassiveGrabDevice(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 93:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIPassiveUngrabDevice.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIPassiveUngrabDevice(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 94:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIListProperties.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIListProperties(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 95:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIChangeProperty.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIChangeProperty(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 96:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIDeleteProperty.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIDeleteProperty(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 97:                                               ; preds = %requestLength.exit
-  call fastcc void @xinputXIGetProperty.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIGetProperty(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 98:                                               ; preds = %requestLength.exit
@@ -69062,7 +69062,7 @@ requestLength.exit:                               ; preds = %5, %16
   br label %105
 
 104:                                              ; preds = %requestLength.exit
-  call fastcc void @xinputXIBarrierReleasePointer.argprom.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  call fastcc void @xinputXIBarrierReleasePointer(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   br label %105
 
 105:                                              ; preds = %104, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %37, %36, %30, %29, %28, %27, %26, %25, %requestLength.exit
@@ -69070,7 +69070,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetExtensionVersion.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetExtensionVersion(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %5, i32 noundef %3) #10
   %7 = load i32, ptr @hf_x11_xinput_GetExtensionVersion_name_len, align 4
@@ -69095,7 +69095,7 @@ define internal fastcc void @xinputGetExtensionVersion.argprom.argelim(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputOpenDevice.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputOpenDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_OpenDevice_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69111,7 +69111,7 @@ define internal fastcc void @xinputOpenDevice.argprom.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputCloseDevice.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputCloseDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_CloseDevice_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69127,7 +69127,7 @@ define internal fastcc void @xinputCloseDevice.argprom.argelim(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSetDeviceMode.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSetDeviceMode(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SetDeviceMode_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69146,7 +69146,7 @@ define internal fastcc void @xinputSetDeviceMode.argprom.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSelectExtensionEvent.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSelectExtensionEvent(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SelectExtensionEvent_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69195,7 +69195,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeDeviceDontPropagateList.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeDeviceDontPropagateList(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeDeviceDontPropagateList_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69247,7 +69247,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceMotionEvents.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceMotionEvents(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceMotionEvents_start, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69271,7 +69271,7 @@ define internal fastcc void @xinputGetDeviceMotionEvents.argprom.argelim(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeKeyboardDevice.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeKeyboardDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeKeyboardDevice_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69287,7 +69287,7 @@ define internal fastcc void @xinputChangeKeyboardDevice.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangePointerDevice.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangePointerDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangePointerDevice_x_axis, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69313,7 +69313,7 @@ define internal fastcc void @xinputChangePointerDevice.argprom.argelim(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGrabDevice.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GrabDevice_grab_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69380,7 +69380,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputUngrabDevice.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputUngrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_UngrabDevice_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_UngrabDevice_device_id, align 4
@@ -69398,7 +69398,7 @@ define internal fastcc void @xinputUngrabDevice.argprom.argelim(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGrabDeviceKey.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGrabDeviceKey(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GrabDeviceKey_grab_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69473,7 +69473,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputUngrabDeviceKey.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputUngrabDeviceKey(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_UngrabDeviceKey_grabWindow, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69500,7 +69500,7 @@ define internal fastcc void @xinputUngrabDeviceKey.argprom.argelim(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGrabDeviceButton.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGrabDeviceButton(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GrabDeviceButton_grab_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69575,7 +69575,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputUngrabDeviceButton.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputUngrabDeviceButton(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_UngrabDeviceButton_grab_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69607,7 +69607,7 @@ define internal fastcc void @xinputUngrabDeviceButton.argprom.argelim(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputAllowDeviceEvents.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputAllowDeviceEvents(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_AllowDeviceEvents_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_AllowDeviceEvents_mode, align 4
@@ -69627,7 +69627,7 @@ define internal fastcc void @xinputAllowDeviceEvents.argprom.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceFocus.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceFocus(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceFocus_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69643,7 +69643,7 @@ define internal fastcc void @xinputGetDeviceFocus.argprom.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSetDeviceFocus.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSetDeviceFocus(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SetDeviceFocus_focus, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_SetDeviceFocus_time, align 4
@@ -69665,7 +69665,7 @@ define internal fastcc void @xinputSetDeviceFocus.argprom.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetFeedbackControl.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetFeedbackControl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetFeedbackControl_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69681,7 +69681,7 @@ define internal fastcc void @xinputGetFeedbackControl.argprom.argelim(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeFeedbackControl.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeFeedbackControl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr @hf_x11_xinput_ChangeFeedbackControl_mask, align 4
   %7 = load i32, ptr @ett_x11_rectangle, align 4
@@ -69876,7 +69876,7 @@ struct_xinput_FeedbackCtl.exit:                   ; preds = %.lr.ph.i.i, %4, %84
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceKeyMapping.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceKeyMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceKeyMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69902,7 +69902,7 @@ define internal fastcc void @xinputGetDeviceKeyMapping.argprom.argelim(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeDeviceKeyMapping.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeDeviceKeyMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeDeviceKeyMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69960,7 +69960,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceModifierMapping.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceModifierMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceModifierMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69976,7 +69976,7 @@ define internal fastcc void @xinputGetDeviceModifierMapping.argprom.argelim(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSetDeviceModifierMapping.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSetDeviceModifierMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SetDeviceModifierMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70007,7 +70007,7 @@ define internal fastcc void @xinputSetDeviceModifierMapping.argprom.argelim(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceButtonMapping.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceButtonMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceButtonMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70023,7 +70023,7 @@ define internal fastcc void @xinputGetDeviceButtonMapping.argprom.argelim(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSetDeviceButtonMapping.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSetDeviceButtonMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SetDeviceButtonMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70053,7 +70053,7 @@ define internal fastcc void @xinputSetDeviceButtonMapping.argprom.argelim(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputQueryDeviceState.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputQueryDeviceState(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_QueryDeviceState_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70069,7 +70069,7 @@ define internal fastcc void @xinputQueryDeviceState.argprom.argelim(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSendExtensionEvent.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSendExtensionEvent(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SendExtensionEvent_destination, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70135,7 +70135,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputDeviceBell.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputDeviceBell(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_DeviceBell_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70161,7 +70161,7 @@ define internal fastcc void @xinputDeviceBell.argprom.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSetDeviceValuators.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSetDeviceValuators(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SetDeviceValuators_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70215,7 +70215,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceControl.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceControl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceControl_control_id, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_GetDeviceControl_device_id, align 4
@@ -70233,7 +70233,7 @@ define internal fastcc void @xinputGetDeviceControl.argprom.argelim(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeDeviceControl.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeDeviceControl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeDeviceControl_control_id, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_ChangeDeviceControl_device_id, align 4
@@ -70413,7 +70413,7 @@ struct_xinput_DeviceCtl.exit:                     ; preds = %.lr.ph.i.i, %4, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputListDeviceProperties.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputListDeviceProperties(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ListDeviceProperties_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70429,7 +70429,7 @@ define internal fastcc void @xinputListDeviceProperties.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeDeviceProperty.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeDeviceProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_property, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70567,7 +70567,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i81, %70, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputDeleteDeviceProperty.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputDeleteDeviceProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_DeleteDeviceProperty_property, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70588,7 +70588,7 @@ define internal fastcc void @xinputDeleteDeviceProperty.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceProperty.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_property, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70629,7 +70629,7 @@ define internal fastcc void @xinputGetDeviceProperty.argprom.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIQueryPointer.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIQueryPointer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIQueryPointer_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70648,7 +70648,7 @@ define internal fastcc void @xinputXIQueryPointer.argprom.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIWarpPointer.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIWarpPointer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIWarpPointer_src_win, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70702,7 +70702,7 @@ define internal fastcc void @xinputXIWarpPointer.argprom.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIChangeCursor.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIChangeCursor(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIChangeCursor_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70726,7 +70726,7 @@ define internal fastcc void @xinputXIChangeCursor.argprom.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIChangeHierarchy.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIChangeHierarchy(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #10
   %7 = zext i8 %6 to i32
@@ -70852,7 +70852,7 @@ struct_xinput_HierarchyChange.exit:               ; preds = %85, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXISetClientPointer.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXISetClientPointer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XISetClientPointer_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70871,7 +70871,7 @@ define internal fastcc void @xinputXISetClientPointer.argprom.argelim(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXISelectEvents.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXISelectEvents(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XISelectEvents_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70896,7 +70896,7 @@ define internal fastcc void @xinputXISelectEvents.argprom.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIQueryVersion.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIQueryVersion(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIQueryVersion_major_version, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef %3) #10
@@ -70912,7 +70912,7 @@ define internal fastcc void @xinputXIQueryVersion.argprom.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIQueryDevice.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIQueryDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIQueryDevice_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
@@ -70925,7 +70925,7 @@ define internal fastcc void @xinputXIQueryDevice.argprom.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXISetFocus.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXISetFocus(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XISetFocus_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70946,7 +70946,7 @@ define internal fastcc void @xinputXISetFocus.argprom.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIGetFocus.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIGetFocus(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIGetFocus_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
@@ -70959,7 +70959,7 @@ define internal fastcc void @xinputXIGetFocus.argprom.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIGrabDevice.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIGrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIGrabDevice_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -71025,7 +71025,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIUngrabDevice.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIUngrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIUngrabDevice_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIUngrabDevice_deviceid, align 4
@@ -71040,7 +71040,7 @@ define internal fastcc void @xinputXIUngrabDevice.argprom.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIAllowEvents.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIAllowEvents(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIAllowEvents_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIAllowEvents_deviceid, align 4
@@ -71067,7 +71067,7 @@ define internal fastcc void @xinputXIAllowEvents.argprom.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIPassiveGrabDevice.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIPassiveGrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIPassiveGrabDevice_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIPassiveGrabDevice_grab_window, align 4
@@ -71171,7 +71171,7 @@ listOfCard32.exit78:                              ; preds = %.lr.ph.i75, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIPassiveUngrabDevice.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIPassiveUngrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIPassiveUngrabDevice_grab_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -71231,7 +71231,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIListProperties.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIListProperties(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIListProperties_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
@@ -71244,7 +71244,7 @@ define internal fastcc void @xinputXIListProperties.argprom.argelim(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIChangeProperty.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIChangeProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIChangeProperty_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIChangeProperty_mode, align 4
@@ -71373,7 +71373,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i76, %63, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIDeleteProperty.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIDeleteProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIDeleteProperty_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
@@ -71391,7 +71391,7 @@ define internal fastcc void @xinputXIDeleteProperty.argprom.argelim(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIGetProperty.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIGetProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIGetProperty_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIGetProperty_delete, align 4
@@ -71429,7 +71429,7 @@ define internal fastcc void @xinputXIGetProperty.argprom.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIBarrierReleasePointer.argprom.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIBarrierReleasePointer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5, i32 noundef %3) #10
   %7 = load i32, ptr @hf_x11_xinput_XIBarrierReleasePointer_num_barriers, align 4
@@ -71994,8 +71994,8 @@ define internal void @xinputKeyPress(ptr noundef %0, i32 %1, ptr nocapture nound
   %70 = load i32, ptr %2, align 4
   %71 = add i32 %70, 4
   store i32 %71, ptr %2, align 4
-  tail call fastcc void @struct_xinput_ModifierInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  tail call fastcc void @struct_xinput_GroupInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %72 = load i32, ptr @hf_x11_xinput_KeyPress_button_mask, align 4
   %73 = load i32, ptr @hf_x11_xinput_KeyPress_button_mask_item, align 4
   %74 = load i32, ptr %2, align 4
@@ -72148,8 +72148,8 @@ define internal void @xinputButtonPress(ptr noundef %0, i32 %1, ptr nocapture no
   %70 = load i32, ptr %2, align 4
   %71 = add i32 %70, 4
   store i32 %71, ptr %2, align 4
-  tail call fastcc void @struct_xinput_ModifierInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  tail call fastcc void @struct_xinput_GroupInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %72 = load i32, ptr @hf_x11_xinput_ButtonPress_button_mask, align 4
   %73 = load i32, ptr @hf_x11_xinput_ButtonPress_button_mask_item, align 4
   %74 = load i32, ptr %2, align 4
@@ -72291,8 +72291,8 @@ define internal void @xinputEnter(ptr noundef %0, i32 %1, ptr nocapture noundef 
   %61 = load i32, ptr %2, align 4
   %62 = add i32 %61, 2
   store i32 %62, ptr %2, align 4
-  tail call fastcc void @struct_xinput_ModifierInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  tail call fastcc void @struct_xinput_GroupInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %63 = load i32, ptr @hf_x11_xinput_Enter_buttons, align 4
   %64 = load i32, ptr @hf_x11_xinput_Enter_buttons_item, align 4
   %65 = load i32, ptr %2, align 4
@@ -72678,8 +72678,8 @@ define internal void @xinputTouchBegin(ptr noundef %0, i32 %1, ptr nocapture nou
   %70 = load i32, ptr %2, align 4
   %71 = add i32 %70, 4
   store i32 %71, ptr %2, align 4
-  tail call fastcc void @struct_xinput_ModifierInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  tail call fastcc void @struct_xinput_GroupInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %72 = load i32, ptr @hf_x11_xinput_TouchBegin_button_mask, align 4
   %73 = load i32, ptr @hf_x11_xinput_TouchBegin_button_mask_item, align 4
   %74 = load i32, ptr %2, align 4
@@ -73072,8 +73072,8 @@ define internal void @xinputGesturePinchBegin(ptr noundef %0, i32 %1, ptr nocapt
   %75 = load i32, ptr %2, align 4
   %76 = add i32 %75, 2
   store i32 %76, ptr %2, align 4
-  tail call fastcc void @struct_xinput_ModifierInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  tail call fastcc void @struct_xinput_GroupInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %77 = load i32, ptr %2, align 4
   %78 = load i32, ptr @hf_x11_xinput_GesturePinchBegin_flags, align 4
   %79 = load i32, ptr @ett_x11_rectangle, align 4
@@ -73162,8 +73162,8 @@ define internal void @xinputGestureSwipeBegin(ptr noundef %0, i32 %1, ptr nocapt
   %67 = load i32, ptr %2, align 4
   %68 = add i32 %67, 2
   store i32 %68, ptr %2, align 4
-  tail call fastcc void @struct_xinput_ModifierInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  tail call fastcc void @struct_xinput_GroupInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %69 = load i32, ptr %2, align 4
   %70 = load i32, ptr @hf_x11_xinput_GestureSwipeBegin_flags, align 4
   %71 = load i32, ptr @ett_x11_rectangle, align 4
@@ -73471,7 +73471,7 @@ define internal fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xinput_ModifierInfo.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo, align 4
   %5 = load i32, ptr %1, align 4
@@ -73503,7 +73503,7 @@ define internal fastcc void @struct_xinput_ModifierInfo.argelim(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xinput_GroupInfo.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_xinput_GroupInfo, align 4
   %5 = load i32, ptr %1, align 4
@@ -75457,8 +75457,8 @@ define internal void @xinputXIQueryPointer_Reply(ptr noundef %0, ptr nocapture n
   %63 = load i32, ptr %2, align 4
   %64 = add i32 %63, 2
   store i32 %64, ptr %2, align 4
-  tail call fastcc void @struct_xinput_ModifierInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  tail call fastcc void @struct_xinput_GroupInfo.argelim(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %65 = load i32, ptr @hf_x11_xinput_XIQueryPointer_reply_buttons, align 4
   %66 = load i32, ptr @hf_x11_xinput_XIQueryPointer_reply_buttons_item, align 4
   %67 = load i32, ptr %2, align 4
@@ -76144,7 +76144,7 @@ requestLength.exit:                               ; preds = %5, %16
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xkb_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
   %trunc = trunc nuw i32 %8 to i8
-  switch i8 %trunc, label %xkbSelectEvents.argprom.exit [
+  switch i8 %trunc, label %xkbSelectEvents.exit [
     i8 0, label %25
     i8 1, label %35
     i8 3, label %219
@@ -76183,7 +76183,7 @@ requestLength.exit:                               ; preds = %5, %16
   %33 = load i32, ptr %2, align 4
   %34 = add i32 %33, 2
   store i32 %34, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 35:                                               ; preds = %requestLength.exit
   %36 = load i32, ptr @hf_x11_xkb_SelectEvents_deviceSpec, align 4
@@ -76437,7 +76437,7 @@ requestLength.exit:                               ; preds = %5, %16
   %206 = phi i32 [ %204, %194 ], [ %192, %191 ]
   %207 = and i32 %74, 2048
   %.not191.i = icmp eq i32 %207, 0
-  br i1 %.not191.i, label %xkbSelectEvents.argprom.exit, label %208
+  br i1 %.not191.i, label %xkbSelectEvents.exit, label %208
 
 208:                                              ; preds = %205
   %209 = load i32, ptr @hf_x11_xkb_SelectEvents_ExtensionDeviceNotify_affectExtDev, align 4
@@ -76452,7 +76452,7 @@ requestLength.exit:                               ; preds = %5, %16
   %217 = load i32, ptr %2, align 4
   %218 = add i32 %217, 2
   store i32 %218, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 219:                                              ; preds = %requestLength.exit
   %220 = load i32, ptr @hf_x11_xkb_Bell_deviceSpec, align 4
@@ -76516,7 +76516,7 @@ requestLength.exit:                               ; preds = %5, %16
   %267 = load i32, ptr %2, align 4
   %268 = add i32 %267, 4
   store i32 %268, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 269:                                              ; preds = %requestLength.exit
   %270 = load i32, ptr @hf_x11_xkb_GetState_deviceSpec, align 4
@@ -76530,7 +76530,7 @@ requestLength.exit:                               ; preds = %5, %16
   %277 = load i32, ptr %2, align 4
   %278 = add i32 %277, 2
   store i32 %278, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 279:                                              ; preds = %requestLength.exit
   %280 = load i32, ptr @hf_x11_xkb_LatchLockState_deviceSpec, align 4
@@ -76585,7 +76585,7 @@ requestLength.exit:                               ; preds = %5, %16
   %321 = load i32, ptr %2, align 4
   %322 = add i32 %321, 2
   store i32 %322, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 323:                                              ; preds = %requestLength.exit
   %324 = load i32, ptr @hf_x11_xkb_GetControls_deviceSpec, align 4
@@ -76599,7 +76599,7 @@ requestLength.exit:                               ; preds = %5, %16
   %331 = load i32, ptr %2, align 4
   %332 = add i32 %331, 2
   store i32 %332, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 333:                                              ; preds = %requestLength.exit
   %334 = load i32, ptr @hf_x11_xkb_SetControls_deviceSpec, align 4
@@ -76774,7 +76774,7 @@ requestLength.exit:                               ; preds = %5, %16
   %473 = load i32, ptr %2, align 4
   %474 = add i32 %473, 32
   store i32 %474, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 475:                                              ; preds = %requestLength.exit
   %476 = load i32, ptr @hf_x11_xkb_GetMap_deviceSpec, align 4
@@ -76876,7 +76876,7 @@ requestLength.exit:                               ; preds = %5, %16
   %554 = load i32, ptr %2, align 4
   %555 = add i32 %554, 2
   store i32 %555, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 556:                                              ; preds = %requestLength.exit
   %557 = load i32, ptr @hf_x11_xkb_SetMap_deviceSpec, align 4
@@ -77221,11 +77221,11 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
 799:                                              ; preds = %798, %796
   %800 = and i32 %563, 128
   %.not249.i = icmp eq i32 %800, 0
-  br i1 %.not249.i, label %xkbSelectEvents.argprom.exit, label %801
+  br i1 %.not249.i, label %xkbSelectEvents.exit, label %801
 
 801:                                              ; preds = %799
   call fastcc void @struct_xkb_KeyVModMap(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %680)
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 802:                                              ; preds = %requestLength.exit
   %803 = load i32, ptr @hf_x11_xkb_GetCompatMap_deviceSpec, align 4
@@ -77255,7 +77255,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %823 = load i32, ptr %2, align 4
   %824 = add i32 %823, 2
   store i32 %824, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 825:                                              ; preds = %requestLength.exit
   %826 = load i32, ptr @hf_x11_xkb_SetCompatMap_deviceSpec, align 4
@@ -77309,7 +77309,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %865 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %843)
   %866 = zext nneg i8 %865 to i32
   call fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %866)
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 867:                                              ; preds = %requestLength.exit
   %868 = load i32, ptr @hf_x11_xkb_GetIndicatorState_deviceSpec, align 4
@@ -77323,7 +77323,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %875 = load i32, ptr %2, align 4
   %876 = add i32 %875, 2
   store i32 %876, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 877:                                              ; preds = %requestLength.exit
   %878 = load i32, ptr @hf_x11_xkb_GetIndicatorMap_deviceSpec, align 4
@@ -77342,7 +77342,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %889 = load i32, ptr %2, align 4
   %890 = add i32 %889, 4
   store i32 %890, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 891:                                              ; preds = %requestLength.exit
   %892 = load i32, ptr @hf_x11_xkb_SetIndicatorMap_deviceSpec, align 4
@@ -77367,7 +77367,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %908 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %907)
   %909 = trunc nuw nsw i64 %908 to i32
   call fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %909)
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 910:                                              ; preds = %requestLength.exit
   %911 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_deviceSpec, align 4
@@ -77391,7 +77391,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %927 = load i32, ptr %2, align 4
   %928 = add i32 %927, 4
   store i32 %928, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 929:                                              ; preds = %requestLength.exit
   %930 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_deviceSpec, align 4
@@ -77482,7 +77482,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %1001 = load i32, ptr %2, align 4
   %1002 = add i32 %1001, 4
   store i32 %1002, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 1003:                                             ; preds = %requestLength.exit
   %1004 = load i32, ptr @hf_x11_xkb_GetNames_deviceSpec, align 4
@@ -77502,7 +77502,7 @@ struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %
   %1016 = load i32, ptr %2, align 4
   %1017 = add i32 %1016, 4
   store i32 %1017, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 1018:                                             ; preds = %requestLength.exit
   %1019 = load i32, ptr @hf_x11_xkb_SetNames_deviceSpec, align 4
@@ -77933,7 +77933,7 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %lis
 1261:                                             ; preds = %1260, %struct_xkb_KeyName.exit.i
   %1262 = and i32 %1031, 8192
   %.not231.i = icmp eq i32 %1262, 0
-  br i1 %.not231.i, label %xkbSelectEvents.argprom.exit, label %1263
+  br i1 %.not231.i, label %xkbSelectEvents.exit, label %1263
 
 1263:                                             ; preds = %1261
   %1264 = load i32, ptr @hf_x11_xkb_SetNames_RGNames_radioGroupNames, align 4
@@ -77944,7 +77944,7 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %lis
   %1269 = load i32, ptr @ett_x11_list_of_card32, align 4
   %1270 = call ptr @proto_item_add_subtree(ptr noundef %1268, i32 noundef %1269) #10
   %.not13.i264.i = icmp eq i8 %1070, 0
-  br i1 %.not13.i264.i, label %xkbSelectEvents.argprom.exit, label %.lr.ph.preheader.i265.i
+  br i1 %.not13.i264.i, label %xkbSelectEvents.exit, label %.lr.ph.preheader.i265.i
 
 .lr.ph.preheader.i265.i:                          ; preds = %1263
   %.pre.i266.i = load i32, ptr %2, align 4
@@ -77959,7 +77959,7 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %lis
   %1275 = add i32 %1274, 4
   store i32 %1275, ptr %2, align 4
   %.not.i269.i = icmp eq i32 %1272, 0
-  br i1 %.not.i269.i, label %xkbSelectEvents.argprom.exit, label %.lr.ph.i267.i, !llvm.loop !41
+  br i1 %.not.i269.i, label %xkbSelectEvents.exit, label %.lr.ph.i267.i, !llvm.loop !41
 
 1276:                                             ; preds = %requestLength.exit
   %1277 = load i32, ptr @hf_x11_xkb_PerClientFlags_deviceSpec, align 4
@@ -78003,7 +78003,7 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %lis
   %1309 = load i32, ptr %2, align 4
   %1310 = add i32 %1309, 4
   store i32 %1310, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 1311:                                             ; preds = %requestLength.exit
   %1312 = load i32, ptr @hf_x11_xkb_ListComponents_deviceSpec, align 4
@@ -78017,7 +78017,7 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %lis
   %1319 = load i32, ptr %2, align 4
   %1320 = add i32 %1319, 2
   store i32 %1320, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 1321:                                             ; preds = %requestLength.exit
   %1322 = load i32, ptr @hf_x11_xkb_GetKbdByName_deviceSpec, align 4
@@ -78048,7 +78048,7 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %lis
   %1343 = load i32, ptr %2, align 4
   %1344 = add i32 %1343, 1
   store i32 %1344, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 1345:                                             ; preds = %requestLength.exit
   %1346 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_deviceSpec, align 4
@@ -78087,7 +78087,7 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %lis
   %1373 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %1372, i32 noundef %4)
   %1374 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_ledID, align 4
   %1375 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %1374, i32 noundef %4)
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 1376:                                             ; preds = %requestLength.exit
   %1377 = load i32, ptr @hf_x11_xkb_SetDeviceInfo_deviceSpec, align 4
@@ -78125,7 +78125,7 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %lis
   store i32 %1404, ptr %2, align 4
   call fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %1387)
   call fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %1399)
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
 1405:                                             ; preds = %requestLength.exit
   %1406 = load i32, ptr %2, align 4
@@ -78168,9 +78168,9 @@ struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %lis
   %1437 = load i32, ptr %2, align 4
   %1438 = add i32 %1437, %1435
   store i32 %1438, ptr %2, align 4
-  br label %xkbSelectEvents.argprom.exit
+  br label %xkbSelectEvents.exit
 
-xkbSelectEvents.argprom.exit:                     ; preds = %.lr.ph.i267.i, %1263, %1261, %801, %799, %208, %205, %1405, %1376, %1345, %1321, %1311, %1276, %1003, %929, %910, %891, %877, %867, %825, %802, %475, %333, %323, %279, %269, %219, %25, %requestLength.exit
+xkbSelectEvents.exit:                             ; preds = %.lr.ph.i267.i, %1263, %1261, %801, %799, %208, %205, %1405, %1376, %1345, %1321, %1311, %1276, %1003, %929, %910, %891, %877, %867, %825, %802, %475, %333, %323, %279, %269, %219, %25, %requestLength.exit
   ret void
 }
 
@@ -78272,17 +78272,17 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %18 = load i32, ptr %1, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %17, ptr noundef %0, i32 noundef %18, i32 noundef 7, i32 noundef 0) #10
   store i32 %.0142143, ptr %1, align 4
-  tail call fastcc void @struct_xkb_SASetMods.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
+  tail call fastcc void @struct_xkb_SASetMods(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
   store i32 %.0142143, ptr %1, align 4
-  tail call fastcc void @struct_xkb_SASetMods.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
+  tail call fastcc void @struct_xkb_SASetMods(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
   store i32 %.0142143, ptr %1, align 4
-  tail call fastcc void @struct_xkb_SASetMods.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
+  tail call fastcc void @struct_xkb_SASetMods(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
   store i32 %.0142143, ptr %1, align 4
-  tail call fastcc void @struct_xkb_SASetGroup.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
+  tail call fastcc void @struct_xkb_SASetGroup(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
   store i32 %.0142143, ptr %1, align 4
-  tail call fastcc void @struct_xkb_SASetGroup.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
+  tail call fastcc void @struct_xkb_SASetGroup(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
   store i32 %.0142143, ptr %1, align 4
-  tail call fastcc void @struct_xkb_SASetGroup.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
+  tail call fastcc void @struct_xkb_SASetGroup(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
   store i32 %.0142143, ptr %1, align 4
   %20 = load i32, ptr @hf_x11_struct_xkb_SAMovePtr, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %20, ptr noundef %0, i32 noundef %.0142143, i32 noundef 8, i32 noundef 0) #10
@@ -78473,9 +78473,9 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
   %178 = load i32, ptr @hf_x11_unused, align 4
   %179 = tail call ptr @proto_tree_add_item(ptr noundef %166, i32 noundef %178, ptr noundef %0, i32 noundef %177, i32 noundef 5, i32 noundef 0) #10
   store i32 %.0142143, ptr %1, align 4
-  tail call fastcc void @struct_xkb_SASetControls.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
+  tail call fastcc void @struct_xkb_SASetControls(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
   store i32 %.0142143, ptr %1, align 4
-  tail call fastcc void @struct_xkb_SASetControls.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
+  tail call fastcc void @struct_xkb_SASetControls(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %3)
   store i32 %.0142143, ptr %1, align 4
   %180 = load i32, ptr @hf_x11_struct_xkb_SAActionMessage, align 4
   %181 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %180, ptr noundef %0, i32 noundef %.0142143, i32 noundef 8, i32 noundef 0) #10
@@ -78979,7 +78979,7 @@ define internal fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_SASetMods.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_SASetMods(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_xkb_SASetMods, align 4
   %5 = load i32, ptr %1, align 4
@@ -79028,7 +79028,7 @@ define internal fastcc void @struct_xkb_SASetMods.argelim(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_SASetGroup.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_SASetGroup(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_xkb_SASetGroup, align 4
   %5 = load i32, ptr %1, align 4
@@ -79058,7 +79058,7 @@ define internal fastcc void @struct_xkb_SASetGroup.argelim(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_SASetControls.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_SASetControls(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_xkb_SASetControls, align 4
   %5 = load i32, ptr %1, align 4
@@ -83379,7 +83379,7 @@ requestLength.exit:                               ; preds = %5, %16
   store i32 %43, ptr %2, align 4
   %44 = srem i32 %43, 4
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %xprintPrintGetPrinterList.argprom.exit, label %45
+  br i1 %.not.i, label %xprintPrintGetPrinterList.exit, label %45
 
 45:                                               ; preds = %26
   %46 = load i32, ptr @hf_x11_unused, align 4
@@ -83390,9 +83390,9 @@ requestLength.exit:                               ; preds = %5, %16
   %reass.sub.i = add i32 %49, 4
   %51 = sub i32 %reass.sub.i, %50
   store i32 %51, ptr %2, align 4
-  br label %xprintPrintGetPrinterList.argprom.exit
+  br label %xprintPrintGetPrinterList.exit
 
-xprintPrintGetPrinterList.argprom.exit:           ; preds = %26, %45
+xprintPrintGetPrinterList.exit:                   ; preds = %26, %45
   %52 = phi i32 [ %51, %45 ], [ %43, %26 ]
   %53 = load i32, ptr @hf_x11_xprint_PrintGetPrinterList_locale, align 4
   %spec.store.select.i37.i = call i32 @llvm.smax.i32(i32 %34, i32 1)
@@ -83428,7 +83428,7 @@ xprintPrintGetPrinterList.argprom.exit:           ; preds = %26, %45
   store i32 %76, ptr %2, align 4
   %77 = srem i32 %76, 4
   %.not.i161 = icmp eq i32 %77, 0
-  br i1 %.not.i161, label %xprintCreateContext.argprom.exit, label %78
+  br i1 %.not.i161, label %xprintCreateContext.exit, label %78
 
 78:                                               ; preds = %55
   %79 = load i32, ptr @hf_x11_unused, align 4
@@ -83439,9 +83439,9 @@ xprintPrintGetPrinterList.argprom.exit:           ; preds = %26, %45
   %reass.sub.i162 = add i32 %82, 4
   %84 = sub i32 %reass.sub.i162, %83
   store i32 %84, ptr %2, align 4
-  br label %xprintCreateContext.argprom.exit
+  br label %xprintCreateContext.exit
 
-xprintCreateContext.argprom.exit:                 ; preds = %55, %78
+xprintCreateContext.exit:                         ; preds = %55, %78
   %85 = phi i32 [ %84, %78 ], [ %76, %55 ]
   %86 = load i32, ptr @hf_x11_xprint_CreateContext_locale, align 4
   %spec.store.select.i42.i = call i32 @llvm.smax.i32(i32 %67, i32 1)
@@ -83544,7 +83544,7 @@ xprintCreateContext.argprom.exit:                 ; preds = %55, %78
   store i32 %155, ptr %2, align 4
   %156 = srem i32 %155, 4
   %.not66.i = icmp eq i32 %156, 0
-  br i1 %.not66.i, label %xprintPrintPutDocumentData.argprom.exit, label %157
+  br i1 %.not66.i, label %xprintPrintPutDocumentData.exit, label %157
 
 157:                                              ; preds = %148
   %158 = load i32, ptr @hf_x11_unused, align 4
@@ -83555,9 +83555,9 @@ xprintCreateContext.argprom.exit:                 ; preds = %55, %78
   %reass.sub67.i = add i32 %161, 4
   %163 = sub i32 %reass.sub67.i, %162
   store i32 %163, ptr %2, align 4
-  br label %xprintPrintPutDocumentData.argprom.exit
+  br label %xprintPrintPutDocumentData.exit
 
-xprintPrintPutDocumentData.argprom.exit:          ; preds = %148, %157
+xprintPrintPutDocumentData.exit:                  ; preds = %148, %157
   %164 = phi i32 [ %163, %157 ], [ %155, %148 ]
   %165 = load i32, ptr @hf_x11_xprint_PrintPutDocumentData_options, align 4
   %166 = call i16 @llvm.umax.i16(i16 %130, i16 1)
@@ -83712,8 +83712,8 @@ xprintPrintPutDocumentData.argprom.exit:          ; preds = %148, %157
   %276 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %274, ptr noundef %0, i32 noundef %275, i32 noundef 4, i32 noundef %4) #10
   br label %.sink.split
 
-.sink.split:                                      ; preds = %xprintPrintGetPrinterList.argprom.exit, %xprintCreateContext.argprom.exit, %88, %92, %96, %100, %104, %108, %xprintPrintPutDocumentData.argprom.exit, %169, %177, %181, %189, %197, %201, %213, %239, %261, %265, %273
-  %.sink172 = phi i32 [ 4, %273 ], [ 2, %265 ], [ 4, %261 ], [ %spec.store.select.i.i167, %239 ], [ %spec.store.select.i.i166, %213 ], [ 3, %201 ], [ 4, %197 ], [ 4, %189 ], [ 3, %181 ], [ 4, %177 ], [ 4, %169 ], [ %167, %xprintPrintPutDocumentData.argprom.exit ], [ 1, %108 ], [ 1, %104 ], [ 1, %100 ], [ 1, %96 ], [ 4, %92 ], [ 4, %88 ], [ %spec.store.select.i42.i, %xprintCreateContext.argprom.exit ], [ %spec.store.select.i37.i, %xprintPrintGetPrinterList.argprom.exit ]
+.sink.split:                                      ; preds = %xprintPrintGetPrinterList.exit, %xprintCreateContext.exit, %88, %92, %96, %100, %104, %108, %xprintPrintPutDocumentData.exit, %169, %177, %181, %189, %197, %201, %213, %239, %261, %265, %273
+  %.sink172 = phi i32 [ 4, %273 ], [ 2, %265 ], [ 4, %261 ], [ %spec.store.select.i.i167, %239 ], [ %spec.store.select.i.i166, %213 ], [ 3, %201 ], [ 4, %197 ], [ 4, %189 ], [ 3, %181 ], [ 4, %177 ], [ 4, %169 ], [ %167, %xprintPrintPutDocumentData.exit ], [ 1, %108 ], [ 1, %104 ], [ 1, %100 ], [ 1, %96 ], [ 4, %92 ], [ 4, %88 ], [ %spec.store.select.i42.i, %xprintCreateContext.exit ], [ %spec.store.select.i37.i, %xprintPrintGetPrinterList.exit ]
   %277 = load i32, ptr %2, align 4
   %278 = add i32 %277, %.sink172
   store i32 %278, ptr %2, align 4

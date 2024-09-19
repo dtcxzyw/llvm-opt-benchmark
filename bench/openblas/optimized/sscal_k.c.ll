@@ -87,15 +87,15 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   %59 = getelementptr inbounds i8, ptr %46, i64 %.idx2.i
   %60 = add nuw nsw i64 %47, 4
   %61 = icmp ult i64 %60, %42
-  br i1 %61, label %45, label %sscal_kernel_inc_8.argprom.exit, !llvm.loop !11
+  br i1 %61, label %45, label %sscal_kernel_inc_8.exit, !llvm.loop !11
 
-sscal_kernel_inc_8.argprom.exit:                  ; preds = %45
+sscal_kernel_inc_8.exit:                          ; preds = %45
   %62 = mul nsw i64 %5, %42
   br label %63
 
-63:                                               ; preds = %sscal_kernel_inc_8.argprom.exit, %41
-  %64 = phi i64 [ %42, %sscal_kernel_inc_8.argprom.exit ], [ 0, %41 ]
-  %65 = phi i64 [ %62, %sscal_kernel_inc_8.argprom.exit ], [ 0, %41 ]
+63:                                               ; preds = %sscal_kernel_inc_8.exit, %41
+  %64 = phi i64 [ %42, %sscal_kernel_inc_8.exit ], [ 0, %41 ]
+  %65 = phi i64 [ %62, %sscal_kernel_inc_8.exit ], [ 0, %41 ]
   %66 = icmp slt i64 %64, %0
   br i1 %66, label %.preheader16, label %.loopexit
 

@@ -1159,16 +1159,16 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$
   %6 = icmp ult i32 %5, 12
   %narrow = select i1 %6, i32 %5, i32 8
   switch i32 %narrow, label %7 [
-    i32 0, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
-    i32 1, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
-    i32 2, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
-    i32 3, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
-    i32 4, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
-    i32 5, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
+    i32 0, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
+    i32 1, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
+    i32 2, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
+    i32 3, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
+    i32 4, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
+    i32 5, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
     i32 6, label %23
-    i32 7, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
-    i32 8, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
-    i32 9, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
+    i32 7, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
+    i32 8, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
+    i32 9, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
     i32 10, label %33
   ]
 
@@ -1186,7 +1186,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$
           cleanup
   %13 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %13)
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h715839b007269a69E.argprom"(ptr nonnull %.val, ptr nonnull %.val1) #20
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h715839b007269a69E"(ptr nonnull %.val, ptr nonnull %.val1) #20
   resume { ptr, i32 } %12
 
 14:                                               ; preds = %7
@@ -1199,13 +1199,13 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$
   %20 = icmp ult i64 %19, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %17, 0
-  br i1 %21, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit", label %22
+  br i1 %21, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit", label %22
 
 22:                                               ; preds = %14
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %17, i64 noundef %19) #23
-  br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
+  br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
 
-"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit": ; preds = %22, %14, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit3", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit", %1, %1, %1, %1, %1, %1, %1, %1, %1
+"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit": ; preds = %22, %14, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit3", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit", %1, %1, %1, %1, %1, %1, %1, %1, %1
   ret void
 
 23:                                               ; preds = %1
@@ -1230,7 +1230,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit": ; preds = %23, %27, %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !162
-  br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
+  br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
 
 33:                                               ; preds = %1
   %34 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1254,7 +1254,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit3": ; preds = %33, %37, %41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !171
-  br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.argprom.exit"
+  br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E.exit"
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -1268,7 +1268,7 @@ define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom"(ptr readonly %.0.val, ptr %.8.val) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E"(ptr readonly %.0.val, ptr %.8.val) unnamed_addr #2 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 24
@@ -1558,7 +1558,7 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h715839b007269a69E.argprom"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h715839b007269a69E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #5 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null
@@ -2343,7 +2343,7 @@ common.ret:                                       ; preds = %1861, %214, %179
   store i64 1, ptr %.sroa.9475.0..sroa_idx, align 8
   %.sroa.10476.0..sroa_idx = getelementptr inbounds i8, ptr %164, i64 16
   store ptr %317, ptr %.sroa.10476.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9ba091c21988a5a2E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %164)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9ba091c21988a5a2E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %164)
           to label %336 unwind label %334
 
 334:                                              ; preds = %328
@@ -2632,7 +2632,7 @@ common.ret:                                       ; preds = %1861, %214, %179
   store i64 1, ptr %.sroa.9432.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %174, i64 16
   store ptr %411, ptr %.sroa.10.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3a66fd0d8588df5eE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %174)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3a66fd0d8588df5eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %174)
           to label %429 unwind label %427
 
 427:                                              ; preds = %422
@@ -3405,18 +3405,18 @@ common.ret:                                       ; preds = %1861, %214, %179
   %.not27.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.us22.i.i.i.i.i, 0
   br i1 %.not27.i.i.i.i.i, label %.thread.i, label %.critedge.backedge.us.i.i.i.i.i
 
-"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.argprom.exit.us.i.i.i.i.i": ; preds = %.critedge.backedge.us.i.i.i.i.i
+"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.exit.us.i.i.i.i.i": ; preds = %.critedge.backedge.us.i.i.i.i.i
   %706 = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 1
   %bcmp.i.i.i.us.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %706, ptr noundef nonnull readonly dereferenceable(1) %585, i64 %587), !alias.scope !549, !noalias !553
   %.not29.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.us.i.i.i.i.i, 0
   br i1 %.not29.i.i.i.i.i, label %.thread.i, label %.critedge.backedge.us.i.i.i.i.i
 
-.critedge.backedge.us.i.i.i.i.i:                  ; preds = %.lr.ph.split.us.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.argprom.exit.us.i.i.i.i.i"
-  %.pn.i.i.i.i = phi ptr [ %706, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.argprom.exit.us.i.i.i.i.i" ], [ %.val415.i, %.lr.ph.split.us.i.i.i.i.i ]
-  %.in.i.i.i.i = phi i64 [ %707, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.argprom.exit.us.i.i.i.i.i" ], [ %.val416.i, %.lr.ph.split.us.i.i.i.i.i ]
+.critedge.backedge.us.i.i.i.i.i:                  ; preds = %.lr.ph.split.us.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.exit.us.i.i.i.i.i"
+  %.pn.i.i.i.i = phi ptr [ %706, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.exit.us.i.i.i.i.i" ], [ %.val415.i, %.lr.ph.split.us.i.i.i.i.i ]
+  %.in.i.i.i.i = phi i64 [ %707, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.exit.us.i.i.i.i.i" ], [ %.val416.i, %.lr.ph.split.us.i.i.i.i.i ]
   %707 = add i64 %.in.i.i.i.i, -1
   %.not28.i.i.i.i.i = icmp ugt i64 %587, %707
-  br i1 %.not28.i.i.i.i.i, label %.thread914.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.argprom.exit.us.i.i.i.i.i"
+  br i1 %.not28.i.i.i.i.i, label %.thread914.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.exit.us.i.i.i.i.i"
 
 _ZN4core3str7pattern13simd_contains17h12d10d0ea3d3f11eE.exit.i.i.i: ; preds = %618, %597
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %34), !noalias !557
@@ -3835,7 +3835,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @__rust_dealloc(ptr noundef nonnull %909, i64 noundef %906, i64 noundef %903) #23, !noalias !427
   br label %922
 
-.thread.i:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.argprom.exit.us.i.i.i.i.i", %.lr.ph.i.i.i.i, %900, %.lr.ph.split.us.i.i.i.i.i, %582
+.thread.i:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hb866b7a39af0a25eE.exit.us.i.i.i.i.i", %.lr.ph.i.i.i.i, %900, %.lr.ph.split.us.i.i.i.i.i, %582
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %56), !noalias !373
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.12840.i)
   %910 = getelementptr inbounds i8, ptr %0, i64 184
@@ -4408,14 +4408,14 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 .noexc468.i:                                      ; preds = %1102
   %1112 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !702
   %1113 = icmp eq i8 %1112, 0
-  br i1 %1113, label %1114, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.argprom.exit.i"
+  br i1 %1113, label %1114, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.exit.i"
 
 1114:                                             ; preds = %.noexc468.i
   %1115 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !702
   %1116 = icmp ult i64 %1115, 6
   call void @llvm.assume(i1 %1116)
   %1117 = icmp ult i64 %1115, 4
-  br i1 %1117, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.argprom.exit.i", label %.critedge9.i.i
+  br i1 %1117, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.exit.i", label %.critedge9.i.i
 
 .critedge9.i.i:                                   ; preds = %1114
   %1118 = load ptr, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1568eeb7747902c0E", align 8, !noalias !702, !nonnull !5, !align !13, !noundef !5
@@ -4459,7 +4459,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 
 1132:                                             ; preds = %.noexc472.i, %.noexc471.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !702
-  br label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.argprom.exit.i"
+  br label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.exit.i"
 
 1133:                                             ; preds = %1131, %.noexc470.i, %.noexc469.i, %.critedge9.i.i, %1102
   %1134 = landingpad { ptr, i32 }
@@ -4470,7 +4470,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %112), !noalias !373
   br label %1634
 
-"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.argprom.exit.i": ; preds = %1132, %1114, %.noexc468.i
+"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.exit.i": ; preds = %1132, %1114, %.noexc468.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %115), !noalias !373
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110), !noalias !373
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %111), !noalias !373
@@ -4479,7 +4479,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %114), !noalias !373
   br label %1135
 
-1135:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.argprom.exit.i", %1056, %1029, %.thread925.i
+1135:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.exit.i", %1056, %1029, %.thread925.i
   store ptr inttoptr (i64 1 to ptr), ptr %101, align 8, !alias.scope !705, !noalias !373
   %.sroa.4.0..sroa_idx.i456.i = getelementptr inbounds i8, ptr %101, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i456.i, i8 0, i64 16, i1 false), !alias.scope !705, !noalias !373
@@ -5006,7 +5006,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %64), !noalias !373
   br label %1283
 
-1322:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.argprom.exit.i", %1295, %1268, %.thread943.i
+1322:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.exit.i", %1295, %1268, %.thread943.i
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$btleplug..bluez..peripheral..Peripheral$GT$$GT$17h6bf156b6fb12089bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1245)
           to label %1371 unwind label %1369, !noalias !427
 
@@ -5080,14 +5080,14 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 .noexc526.i:                                      ; preds = %1336
   %1343 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !795
   %1344 = icmp eq i8 %1343, 0
-  br i1 %1344, label %1345, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.argprom.exit.i"
+  br i1 %1344, label %1345, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.exit.i"
 
 1345:                                             ; preds = %.noexc526.i
   %1346 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !795
   %1347 = icmp ult i64 %1346, 6
   call void @llvm.assume(i1 %1347)
   %1348 = icmp ult i64 %1346, 2
-  br i1 %1348, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.argprom.exit.i", label %.critedge9.i525.i
+  br i1 %1348, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.exit.i", label %.critedge9.i525.i
 
 .critedge9.i525.i:                                ; preds = %1345
   %1349 = load ptr, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h1056556e7ac3499cE", align 8, !noalias !795, !nonnull !5, !align !13, !noundef !5
@@ -5131,7 +5131,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 
 1363:                                             ; preds = %.noexc530.i, %.noexc529.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !795
-  br label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.argprom.exit.i"
+  br label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.exit.i"
 
 1364:                                             ; preds = %1362, %.noexc528.i, %.noexc527.i, %.critedge9.i525.i, %1336
   %1365 = landingpad { ptr, i32 }
@@ -5141,7 +5141,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %68), !noalias !373
   br label %1373
 
-"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.argprom.exit.i": ; preds = %1363, %1345, %.noexc526.i
+"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.exit.i": ; preds = %1363, %1345, %.noexc526.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71), !noalias !373
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67), !noalias !373
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %68), !noalias !373
@@ -5385,7 +5385,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76), !noalias !373
   br label %1412
 
-1451:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.argprom.exit.i", %1424, %1397, %.thread959.i
+1451:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.exit.i", %1424, %1397, %.thread959.i
   invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %84)
           to label %1499 unwind label %1497, !noalias !427
 
@@ -5464,14 +5464,14 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 .noexc561.i:                                      ; preds = %1466
   %1473 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !843
   %1474 = icmp eq i8 %1473, 0
-  br i1 %1474, label %1475, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.argprom.exit.i"
+  br i1 %1474, label %1475, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.exit.i"
 
 1475:                                             ; preds = %.noexc561.i
   %1476 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !843
   %1477 = icmp ult i64 %1476, 6
   call void @llvm.assume(i1 %1477)
   %1478 = icmp ult i64 %1476, 2
-  br i1 %1478, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.argprom.exit.i", label %.critedge9.i560.i
+  br i1 %1478, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.exit.i", label %.critedge9.i560.i
 
 .critedge9.i560.i:                                ; preds = %1475
   %1479 = load ptr, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h60c9bc1bf9772af3E", align 8, !noalias !843, !nonnull !5, !align !13, !noundef !5
@@ -5515,7 +5515,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 
 1493:                                             ; preds = %.noexc565.i, %.noexc564.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !843
-  br label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.argprom.exit.i"
+  br label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.exit.i"
 
 1494:                                             ; preds = %1492, %.noexc563.i, %.noexc562.i, %.critedge9.i560.i, %1466
   %1495 = landingpad { ptr, i32 }
@@ -5525,7 +5525,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %80), !noalias !373
   br label %1503
 
-"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.argprom.exit.i": ; preds = %1493, %1475, %.noexc561.i
+"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.exit.i": ; preds = %1493, %1475, %.noexc561.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83), !noalias !373
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79), !noalias !373
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %80), !noalias !373
@@ -5794,7 +5794,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %91), !noalias !373
   br label %1545
 
-1584:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.argprom.exit.i", %1557, %1530, %.thread975.i
+1584:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.exit.i", %1557, %1530, %.thread975.i
   invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %99)
           to label %1632 unwind label %1630, !noalias !427
 
@@ -5873,14 +5873,14 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 .noexc596.i:                                      ; preds = %1599
   %1606 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !891
   %1607 = icmp eq i8 %1606, 0
-  br i1 %1607, label %1608, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.argprom.exit.i"
+  br i1 %1607, label %1608, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.exit.i"
 
 1608:                                             ; preds = %.noexc596.i
   %1609 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !891
   %1610 = icmp ult i64 %1609, 6
   call void @llvm.assume(i1 %1610)
   %1611 = icmp ult i64 %1609, 2
-  br i1 %1611, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.argprom.exit.i", label %.critedge9.i595.i
+  br i1 %1611, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.exit.i", label %.critedge9.i595.i
 
 .critedge9.i595.i:                                ; preds = %1608
   %1612 = load ptr, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2e913990213401d6E", align 8, !noalias !891, !nonnull !5, !align !13, !noundef !5
@@ -5924,7 +5924,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 
 1626:                                             ; preds = %.noexc600.i, %.noexc599.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !891
-  br label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.argprom.exit.i"
+  br label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.exit.i"
 
 1627:                                             ; preds = %1625, %.noexc598.i, %.noexc597.i, %.critedge9.i595.i, %1599
   %1628 = landingpad { ptr, i32 }
@@ -5934,7 +5934,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %95), !noalias !373
   br label %1633
 
-"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.argprom.exit.i": ; preds = %1626, %1608, %.noexc596.i
+"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.exit.i": ; preds = %1626, %1608, %.noexc596.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %98), !noalias !373
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %94), !noalias !373
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %95), !noalias !373
@@ -6389,7 +6389,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46), !noalias !373
   br label %1741
 
-1782:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.argprom.exit", %1753, %1726, %.thread998.i
+1782:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.exit", %1753, %1726, %.thread998.i
   %1783 = getelementptr inbounds i8, ptr %0, i64 352
   store i8 0, ptr %1783, align 8, !noalias !373
   %1784 = getelementptr inbounds i8, ptr %0, i64 184
@@ -6483,14 +6483,14 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 .noexc414:                                        ; preds = %1801
   %1810 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !961
   %1811 = icmp eq i8 %1810, 0
-  br i1 %1811, label %1812, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.argprom.exit"
+  br i1 %1811, label %1812, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.exit"
 
 1812:                                             ; preds = %.noexc414
   %1813 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !961
   %1814 = icmp ult i64 %1813, 6
   call void @llvm.assume(i1 %1814), !noalias !427
   %1815 = icmp ult i64 %1813, 4
-  br i1 %1815, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.argprom.exit", label %.critedge9.i413
+  br i1 %1815, label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.exit", label %.critedge9.i413
 
 .critedge9.i413:                                  ; preds = %1812
   %1816 = load ptr, ptr @"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8a2664062357b791E", align 8, !noalias !961, !nonnull !5, !align !13, !noundef !5
@@ -6534,7 +6534,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 
 1830:                                             ; preds = %.noexc418, %.noexc417
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !961
-  br label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.argprom.exit"
+  br label %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.exit"
 
 1831:                                             ; preds = %1829, %.noexc416, %.noexc415, %.critedge9.i413, %1801
   %1832 = landingpad { ptr, i32 }
@@ -6545,7 +6545,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %51), !noalias !373
   br label %1843
 
-"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.argprom.exit": ; preds = %1830, %1812, %.noexc414
+"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.exit": ; preds = %1830, %1812, %.noexc414
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54), !noalias !373
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49), !noalias !373
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50), !noalias !373
@@ -6998,7 +6998,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %142)
   br label %1943
 
-1981:                                             ; preds = %1955, %1928, %.thread636, %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.argprom.exit"
+1981:                                             ; preds = %1955, %1928, %.thread636, %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !1024)
   call void @llvm.experimental.noalias.scope.decl(metadata !1027)
   %1982 = load ptr, ptr %150, align 8, !alias.scope !1030, !noundef !5
@@ -7091,14 +7091,14 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 .noexc373:                                        ; preds = %2001
   %2007 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !1048
   %2008 = icmp eq i8 %2007, 0
-  br i1 %2008, label %2009, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.argprom.exit"
+  br i1 %2008, label %2009, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.exit"
 
 2009:                                             ; preds = %.noexc373
   %2010 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1048
   %2011 = icmp ult i64 %2010, 6
   call void @llvm.assume(i1 %2011)
   %2012 = icmp ult i64 %2010, 2
-  br i1 %2012, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.argprom.exit", label %.critedge9.i
+  br i1 %2012, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %2009
   %2013 = load ptr, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h35e7e0ca71914af3E", align 8, !noalias !1048, !nonnull !5, !align !13, !noundef !5
@@ -7142,7 +7142,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 
 2027:                                             ; preds = %.noexc377, %.noexc376
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1048
-  br label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.argprom.exit"
+  br label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.exit"
 
 2028:                                             ; preds = %2026, %.noexc375, %.noexc374, %.critedge9.i, %2001
   %2029 = landingpad { ptr, i32 }
@@ -7152,7 +7152,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %146)
   br label %2148
 
-"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.argprom.exit": ; preds = %2027, %2009, %.noexc373
+"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.exit": ; preds = %2027, %2009, %.noexc373
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %149)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %145)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %146)
@@ -7469,7 +7469,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   store i64 1, ptr %.sroa.9563.0..sroa_idx, align 8
   %.sroa.10564.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 16
   store ptr %2113, ptr %.sroa.10564.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d7a8ae3f2df8721E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %137)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d7a8ae3f2df8721E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %137)
           to label %2132 unwind label %2130
 
 2130:                                             ; preds = %2124
@@ -8637,7 +8637,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.91060.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %161, i64 16
   store ptr %409, ptr %.sroa.10.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc7cd61093cc4b6eE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %161)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc7cd61093cc4b6eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %161)
           to label %428 unwind label %426
 
 426:                                              ; preds = %420
@@ -8938,7 +8938,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.91158.0..sroa_idx, align 8
   %.sroa.101159.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 16
   store ptr %513, ptr %.sroa.101159.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h01f6ccd8aff15b5bE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %122)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h01f6ccd8aff15b5bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %122)
           to label %531 unwind label %529
 
 529:                                              ; preds = %524
@@ -9381,7 +9381,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.101091.0..sroa_idx, align 8
   %.sroa.111092.0..sroa_idx = getelementptr inbounds i8, ptr %146, i64 16
   store ptr %654, ptr %.sroa.111092.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb06832521eb5a72eE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %146)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb06832521eb5a72eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %146)
           to label %676 unwind label %674
 
 674:                                              ; preds = %668
@@ -9698,7 +9698,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.91123.0..sroa_idx, align 8
   %.sroa.101124.0..sroa_idx = getelementptr inbounds i8, ptr %132, i64 16
   store ptr %759, ptr %.sroa.101124.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5f0f5cbf4d1f39e7E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %132)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5f0f5cbf4d1f39e7E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %132)
           to label %777 unwind label %775
 
 775:                                              ; preds = %770
@@ -10136,7 +10136,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.101213.0..sroa_idx, align 8
   %.sroa.111214.0..sroa_idx = getelementptr inbounds i8, ptr %111, i64 16
   store ptr %895, ptr %.sroa.111214.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he784bc2a81f13b27E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %111)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he784bc2a81f13b27E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %111)
           to label %917 unwind label %915
 
 915:                                              ; preds = %906
@@ -10586,7 +10586,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.91260.0..sroa_idx, align 8
   %.sroa.101261.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 16
   store ptr %1039, ptr %.sroa.101261.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21153a3cf5ec4458E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %98)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21153a3cf5ec4458E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %98)
           to label %1059 unwind label %1057
 
 1057:                                             ; preds = %1050
@@ -11056,7 +11056,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.91373.0..sroa_idx, align 8
   %.sroa.101374.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 16
   store ptr %1201, ptr %.sroa.101374.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h531282a2733c7ad1E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %55)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h531282a2733c7ad1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %55)
           to label %1219 unwind label %1217
 
 1217:                                             ; preds = %1212
@@ -11286,7 +11286,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74)
   br label %1256
 
-1287:                                             ; preds = %1268, %1243, %.thread1549, %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.argprom.exit"
+1287:                                             ; preds = %1268, %1243, %.thread1549, %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !1689
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %1090, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22), !noalias !1689
@@ -11351,14 +11351,14 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
 .noexc926:                                        ; preds = %1301
   %1302 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !1710
   %1303 = icmp eq i8 %1302, 0
-  br i1 %1303, label %1304, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.argprom.exit"
+  br i1 %1303, label %1304, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.exit"
 
 1304:                                             ; preds = %.noexc926
   %1305 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1710
   %1306 = icmp ult i64 %1305, 6
   call void @llvm.assume(i1 %1306)
   %1307 = icmp ult i64 %1305, 5
-  br i1 %1307, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.argprom.exit", label %.critedge9.i
+  br i1 %1307, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %1304
   %1308 = load ptr, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h51ce5e2243d0238bE", align 8, !noalias !1710, !nonnull !5, !align !13, !noundef !5
@@ -11400,7 +11400,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
 
 1320:                                             ; preds = %.noexc930, %.noexc929
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !1710
-  br label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.argprom.exit"
+  br label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.exit"
 
 1321:                                             ; preds = %1319, %.noexc928, %.noexc927, %.critedge9.i, %1301
   %1322 = landingpad { ptr, i32 }
@@ -11410,7 +11410,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %78)
   br label %1469
 
-"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.argprom.exit": ; preds = %1320, %1304, %.noexc926
+"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.exit": ; preds = %1320, %1304, %.noexc926
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %81)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %78)
@@ -11734,14 +11734,14 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
 .noexc967:                                        ; preds = %1411
   %1412 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !1782
   %1413 = icmp eq i8 %1412, 0
-  br i1 %1413, label %1414, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.argprom.exit"
+  br i1 %1413, label %1414, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.exit"
 
 1414:                                             ; preds = %.noexc967
   %1415 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !1782
   %1416 = icmp ult i64 %1415, 6
   call void @llvm.assume(i1 %1416)
   %1417 = icmp ult i64 %1415, 5
-  br i1 %1417, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.argprom.exit", label %.critedge9.i966
+  br i1 %1417, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.exit", label %.critedge9.i966
 
 .critedge9.i966:                                  ; preds = %1414
   %1418 = load ptr, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h8c23154174cb71cfE", align 8, !noalias !1782, !nonnull !5, !align !13, !noundef !5
@@ -11783,7 +11783,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
 
 1430:                                             ; preds = %.noexc971, %.noexc970
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !1782
-  br label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.argprom.exit"
+  br label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.exit"
 
 1431:                                             ; preds = %1429, %.noexc969, %.noexc968, %.critedge9.i966, %1411
   %1432 = landingpad { ptr, i32 }
@@ -11793,7 +11793,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %64)
   br label %1466
 
-"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.argprom.exit": ; preds = %1430, %1414, %.noexc967
+"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.exit": ; preds = %1430, %1414, %.noexc967
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %64)
@@ -11801,7 +11801,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66)
   br label %1433
 
-1433:                                             ; preds = %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.argprom.exit", %.thread1574, %1354, %1379
+1433:                                             ; preds = %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.exit", %.thread1574, %1354, %1379
   %.val642 = load i128, ptr %68, align 16
   switch i128 %.val642, label %.thread1591 [
     i128 -124064925944094957694667357615511582440, label %1434
@@ -12370,7 +12370,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3a66fd0d8588df5eE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3a66fd0d8588df5eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12424,7 +12424,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9ba091c21988a5a2E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9ba091c21988a5a2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12478,7 +12478,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d7a8ae3f2df8721E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d7a8ae3f2df8721E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12532,7 +12532,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc7cd61093cc4b6eE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc7cd61093cc4b6eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12586,7 +12586,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb06832521eb5a72eE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb06832521eb5a72eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12640,7 +12640,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5f0f5cbf4d1f39e7E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5f0f5cbf4d1f39e7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12694,7 +12694,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h01f6ccd8aff15b5bE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h01f6ccd8aff15b5bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12748,7 +12748,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he784bc2a81f13b27E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he784bc2a81f13b27E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12802,7 +12802,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21153a3cf5ec4458E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21153a3cf5ec4458E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12856,7 +12856,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h531282a2733c7ad1E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h531282a2733c7ad1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12989,10 +12989,10 @@ common.ret:                                       ; preds = %66, %38
   store i8 %storemerge, ptr %36, align 2
   ret void
 
-38:                                               ; preds = %385, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit267", %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit"
-  %.sroa.0338.0 = phi i64 [ 5, %385 ], [ 0, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit267" ], [ %.sroa.0338.1371, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit" ]
-  %.sroa.6340.0 = phi ptr [ %384, %385 ], [ undef, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit267" ], [ %.sroa.6340.1372, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit" ]
-  %.sroa.10343.0 = phi i64 [ undef, %385 ], [ undef, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit267" ], [ %.sroa.10343.1373, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit" ]
+38:                                               ; preds = %385, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit267", %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit"
+  %.sroa.0338.0 = phi i64 [ 5, %385 ], [ 0, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit267" ], [ %.sroa.0338.1371, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit" ]
+  %.sroa.6340.0 = phi ptr [ %384, %385 ], [ undef, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit267" ], [ %.sroa.6340.1372, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit" ]
+  %.sroa.10343.0 = phi i64 [ undef, %385 ], [ undef, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit267" ], [ %.sroa.10343.1373, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit" ]
   store i64 %.sroa.0338.0, ptr %0, align 8
   %.sroa.6340.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.6340.0, ptr %.sroa.6340.0..sroa_idx, align 8
@@ -13098,7 +13098,7 @@ default.unreachable11.i:                          ; preds = %50
   %72 = getelementptr inbounds i8, ptr %69, i64 200
   %73 = load ptr, ptr %72, align 8, !alias.scope !1890, !noundef !5
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %"_ZN4core6option15Option$LT$T$GT$6unwrap17hdbddeda8703c6710E.argprom.exit"
+  br i1 %74, label %75, label %"_ZN4core6option15Option$LT$T$GT$6unwrap17hdbddeda8703c6710E.exit"
 
 75:                                               ; preds = %71
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.3ac3ff9bc64ad616c126ae9ed74a4992.46, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3ac3ff9bc64ad616c126ae9ed74a4992.172) #21
@@ -13112,7 +13112,7 @@ default.unreachable11.i:                          ; preds = %50
           cleanup
   br label %.body203
 
-"_ZN4core6option15Option$LT$T$GT$6unwrap17hdbddeda8703c6710E.argprom.exit": ; preds = %71
+"_ZN4core6option15Option$LT$T$GT$6unwrap17hdbddeda8703c6710E.exit": ; preds = %71
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
   %78 = invoke { ptr, ptr } @_ZN12futures_task10noop_waker14noop_raw_waker17h578c99b1892aad6dE()
           to label %82 unwind label %80
@@ -13122,12 +13122,12 @@ default.unreachable11.i:                          ; preds = %50
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
   br label %.body203
 
-80:                                               ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$btleplug..api..ValueNotification$GT$$GT$$GT$17had8e897cdf159ee3E.exit", %363, %"_ZN4core6option15Option$LT$T$GT$6unwrap17hdbddeda8703c6710E.argprom.exit"
+80:                                               ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$btleplug..api..ValueNotification$GT$$GT$$GT$17had8e897cdf159ee3E.exit", %363, %"_ZN4core6option15Option$LT$T$GT$6unwrap17hdbddeda8703c6710E.exit"
   %81 = landingpad { ptr, i32 }
           cleanup
   br label %79
 
-82:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6unwrap17hdbddeda8703c6710E.argprom.exit"
+82:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6unwrap17hdbddeda8703c6710E.exit"
   %83 = extractvalue { ptr, ptr } %78, 0
   %84 = icmp ne ptr %83, null
   tail call void @llvm.assume(i1 %84)
@@ -13498,7 +13498,7 @@ _ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.e
   store i64 1, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 16
   store ptr %219, ptr %.sroa.10.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50532c05951f4da3E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %31)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50532c05951f4da3E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %31)
           to label %238 unwind label %236
 
 236:                                              ; preds = %230
@@ -13872,7 +13872,7 @@ _ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.e
   store i64 1, ptr %.sroa.9307.0..sroa_idx, align 8
   %.sroa.10308.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %343, ptr %.sroa.10308.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h304a690f2a956d79E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %18)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h304a690f2a956d79E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %18)
           to label %362 unwind label %360
 
 360:                                              ; preds = %354
@@ -13903,7 +13903,7 @@ _ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.e
   %364 = getelementptr inbounds i8, ptr %.val200, i64 24
   %365 = load ptr, ptr %364, align 8, !nonnull !5, !noundef !5
   invoke void %365(ptr noundef %.val201)
-          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit" unwind label %80
+          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit" unwind label %80
 
 366:                                              ; preds = %315, %288, %.thread378, %362
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !2011
@@ -13941,7 +13941,7 @@ _ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.e
           cleanup
   br label %375
 
-"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit": ; preds = %363
+"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit": ; preds = %363
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
   br label %38
 
@@ -13962,7 +13962,7 @@ _ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
   %.val196 = load ptr, ptr %35, align 8, !nonnull !5, !align !13, !noundef !5
   %.val197 = load ptr, ptr %.fca.1.gep, align 8, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom"(ptr nonnull %.val196, ptr %.val197) #20
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E"(ptr nonnull %.val196, ptr %.val197) #20
           to label %79 unwind label %269
 
 "_ZN4core3ptr111drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$btleplug..api..ValueNotification$GT$$GT$$GT$17had8e897cdf159ee3E.exit": ; preds = %94, %_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.exit
@@ -13973,9 +13973,9 @@ _ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.e
   %381 = getelementptr inbounds i8, ptr %.val198, i64 24
   %382 = load ptr, ptr %381, align 8, !nonnull !5, !noundef !5
   invoke void %382(ptr noundef %.val199)
-          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit267" unwind label %80
+          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit267" unwind label %80
 
-"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.argprom.exit267": ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$btleplug..api..ValueNotification$GT$$GT$$GT$17had8e897cdf159ee3E.exit"
+"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h9ab135ce3a4bfd54E.exit267": ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$btleplug..api..ValueNotification$GT$$GT$$GT$17had8e897cdf159ee3E.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
   br label %38
 
@@ -14415,14 +14415,14 @@ common.ret:                                       ; preds = %420, %69
 .noexc276:                                        ; preds = %157
   %165 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !2077
   %166 = icmp eq i8 %165, 0
-  br i1 %166, label %167, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.argprom.exit"
+  br i1 %166, label %167, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.exit"
 
 167:                                              ; preds = %.noexc276
   %168 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !2077
   %169 = icmp ult i64 %168, 6
   call void @llvm.assume(i1 %169)
   %170 = icmp ult i64 %168, 5
-  br i1 %170, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.argprom.exit", label %.critedge9.i
+  br i1 %170, label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %167
   %171 = load ptr, ptr @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17he57d36046ee5a2bdE", align 8, !noalias !2077, !nonnull !5, !align !13, !noundef !5
@@ -14466,7 +14466,7 @@ common.ret:                                       ; preds = %420, %69
 
 185:                                              ; preds = %.noexc280, %.noexc279
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2077
-  br label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.argprom.exit"
+  br label %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.exit"
 
 186:                                              ; preds = %184, %.noexc278, %.noexc277, %.critedge9.i, %157
   %187 = landingpad { ptr, i32 }
@@ -14477,7 +14477,7 @@ common.ret:                                       ; preds = %420, %69
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %63)
   br label %398
 
-"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.argprom.exit": ; preds = %185, %167, %.noexc276
+"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.exit": ; preds = %185, %167, %.noexc276
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62)
@@ -14486,7 +14486,7 @@ common.ret:                                       ; preds = %420, %69
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65)
   br label %188
 
-188:                                              ; preds = %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.argprom.exit", %.thread605, %89, %116
+188:                                              ; preds = %"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.exit", %.thread605, %89, %116
   %189 = getelementptr inbounds i8, ptr %72, i64 152
   %.val257 = load ptr, ptr %189, align 8, !noundef !5
   %.not.i = icmp eq ptr %.val257, null
@@ -14777,7 +14777,7 @@ common.ret:                                       ; preds = %420, %69
   store i64 1, ptr %.sroa.9488.0..sroa_idx, align 8
   %.sroa.10489.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %277, ptr %.sroa.10489.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb0684cfb50205a2dE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %42)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb0684cfb50205a2dE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %42)
           to label %295 unwind label %293
 
 293:                                              ; preds = %288
@@ -15066,7 +15066,7 @@ common.ret:                                       ; preds = %420, %69
   store i64 1, ptr %.sroa.9440.0..sroa_idx, align 8
   %.sroa.10441.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 16
   store ptr %373, ptr %.sroa.10441.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5c6c26accef6f2baE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %52)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5c6c26accef6f2baE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %52)
           to label %391 unwind label %389
 
 389:                                              ; preds = %384
@@ -15452,7 +15452,7 @@ common.ret:                                       ; preds = %420, %69
   store i64 1, ptr %.sroa.9572.0..sroa_idx, align 8
   %.sroa.10573.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %497, ptr %.sroa.10573.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3b44a01237ab5719E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %18)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3b44a01237ab5719E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %18)
           to label %517 unwind label %515
 
 515:                                              ; preds = %508
@@ -15751,7 +15751,7 @@ common.ret:                                       ; preds = %420, %69
   store i64 1, ptr %.sroa.9537.0..sroa_idx, align 8
   %.sroa.10538.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 16
   store ptr %593, ptr %.sroa.10538.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1cf094bbf057870E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %30)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1cf094bbf057870E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %30)
           to label %612 unwind label %610
 
 610:                                              ; preds = %604
@@ -15798,7 +15798,7 @@ common.ret:                                       ; preds = %420, %69
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50532c05951f4da3E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50532c05951f4da3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -15852,7 +15852,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h304a690f2a956d79E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h304a690f2a956d79E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -15906,7 +15906,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5c6c26accef6f2baE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5c6c26accef6f2baE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -15960,7 +15960,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb0684cfb50205a2dE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb0684cfb50205a2dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -16014,7 +16014,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1cf094bbf057870E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1cf094bbf057870E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -16068,7 +16068,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3b44a01237ab5719E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3b44a01237ab5719E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -16790,11 +16790,11 @@ attributes #23 = { nounwind }
 !263 = !{!264}
 !264 = distinct !{!264, !262, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !265 = !{!266, !268}
-!266 = distinct !{!266, !267, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!267 = distinct !{!267, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!268 = distinct !{!268, !267, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!266 = distinct !{!266, !267, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!267 = distinct !{!267, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!268 = distinct !{!268, !267, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !269 = !{!270}
-!270 = distinct !{!270, !267, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!270 = distinct !{!270, !267, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !271 = !{!272}
 !272 = distinct !{!272, !273, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !273 = distinct !{!273, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -16828,11 +16828,11 @@ attributes #23 = { nounwind }
 !301 = !{!302}
 !302 = distinct !{!302, !300, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !303 = !{!304, !306}
-!304 = distinct !{!304, !305, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!305 = distinct !{!305, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!306 = distinct !{!306, !305, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!304 = distinct !{!304, !305, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!305 = distinct !{!305, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!306 = distinct !{!306, !305, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !307 = !{!308}
-!308 = distinct !{!308, !305, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!308 = distinct !{!308, !305, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !309 = !{!310}
 !310 = distinct !{!310, !311, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !311 = distinct !{!311, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -16851,11 +16851,11 @@ attributes #23 = { nounwind }
 !324 = !{!325}
 !325 = distinct !{!325, !323, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !326 = !{!327, !329}
-!327 = distinct !{!327, !328, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!328 = distinct !{!328, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!329 = distinct !{!329, !328, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!327 = distinct !{!327, !328, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!328 = distinct !{!328, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!329 = distinct !{!329, !328, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !330 = !{!331}
-!331 = distinct !{!331, !328, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!331 = distinct !{!331, !328, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !332 = !{!333}
 !333 = distinct !{!333, !334, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !334 = distinct !{!334, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -16873,11 +16873,11 @@ attributes #23 = { nounwind }
 !346 = !{!347}
 !347 = distinct !{!347, !345, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !348 = !{!349, !351}
-!349 = distinct !{!349, !350, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!350 = distinct !{!350, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!351 = distinct !{!351, !350, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!349 = distinct !{!349, !350, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!350 = distinct !{!350, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!351 = distinct !{!351, !350, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !352 = !{!353}
-!353 = distinct !{!353, !350, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!353 = distinct !{!353, !350, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !354 = !{!355}
 !355 = distinct !{!355, !356, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !356 = distinct !{!356, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -17055,8 +17055,8 @@ attributes #23 = { nounwind }
 !528 = !{!526, !511, !503, !374}
 !529 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !530 = !{!531, !533, !535, !537, !526, !511, !503, !374}
-!531 = distinct !{!531, !532, !"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hae08443e4c9f34d1E.argprom: argument 0"}
-!532 = distinct !{!532, !"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hae08443e4c9f34d1E.argprom"}
+!531 = distinct !{!531, !532, !"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hae08443e4c9f34d1E: argument 0"}
+!532 = distinct !{!532, !"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hae08443e4c9f34d1E"}
 !533 = distinct !{!533, !534, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h91cdb1f396c1058dE: argument 0"}
 !534 = distinct !{!534, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h91cdb1f396c1058dE"}
 !535 = distinct !{!535, !536, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h84e122e58b610aa5E: argument 0"}
@@ -17192,11 +17192,11 @@ attributes #23 = { nounwind }
 !665 = !{!666, !374}
 !666 = distinct !{!666, !664, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !667 = !{!668, !670}
-!668 = distinct !{!668, !669, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!669 = distinct !{!669, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!670 = distinct !{!670, !669, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!668 = distinct !{!668, !669, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!669 = distinct !{!669, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!670 = distinct !{!670, !669, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !671 = !{!672, !374, !376}
-!672 = distinct !{!672, !669, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!672 = distinct !{!672, !669, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !673 = !{!674}
 !674 = distinct !{!674, !675, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !675 = distinct !{!675, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17215,11 +17215,11 @@ attributes #23 = { nounwind }
 !688 = !{!689, !374}
 !689 = distinct !{!689, !687, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !690 = !{!691, !693}
-!691 = distinct !{!691, !692, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!692 = distinct !{!692, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!693 = distinct !{!693, !692, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!691 = distinct !{!691, !692, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!692 = distinct !{!692, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!693 = distinct !{!693, !692, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !694 = !{!695, !374, !376}
-!695 = distinct !{!695, !692, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!695 = distinct !{!695, !692, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !696 = !{!697}
 !697 = distinct !{!697, !698, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !698 = distinct !{!698, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17227,8 +17227,8 @@ attributes #23 = { nounwind }
 !700 = distinct !{!700, !698, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !701 = distinct !{!701, !698, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !702 = !{!703, !374, !376}
-!703 = distinct !{!703, !704, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.argprom: argument 0"}
-!704 = distinct !{!704, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE.argprom"}
+!703 = distinct !{!703, !704, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE: argument 0"}
+!704 = distinct !{!704, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h77343b505c412b8dE"}
 !705 = !{!706}
 !706 = distinct !{!706, !707, !"_ZN68_$LT$btleplug..api..ScanFilter$u20$as$u20$core..default..Default$GT$7default17h597f5649944b1e8cE: argument 0"}
 !707 = distinct !{!707, !"_ZN68_$LT$btleplug..api..ScanFilter$u20$as$u20$core..default..Default$GT$7default17h597f5649944b1e8cE"}
@@ -17285,11 +17285,11 @@ attributes #23 = { nounwind }
 !758 = !{!759, !374}
 !759 = distinct !{!759, !757, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !760 = !{!761, !763}
-!761 = distinct !{!761, !762, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!762 = distinct !{!762, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!763 = distinct !{!763, !762, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!761 = distinct !{!761, !762, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!762 = distinct !{!762, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!763 = distinct !{!763, !762, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !764 = !{!765, !374, !376}
-!765 = distinct !{!765, !762, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!765 = distinct !{!765, !762, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !766 = !{!767}
 !767 = distinct !{!767, !768, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !768 = distinct !{!768, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17308,11 +17308,11 @@ attributes #23 = { nounwind }
 !781 = !{!782, !374}
 !782 = distinct !{!782, !780, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !783 = !{!784, !786}
-!784 = distinct !{!784, !785, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!785 = distinct !{!785, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!786 = distinct !{!786, !785, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!784 = distinct !{!784, !785, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!785 = distinct !{!785, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!786 = distinct !{!786, !785, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !787 = !{!788, !374, !376}
-!788 = distinct !{!788, !785, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!788 = distinct !{!788, !785, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !789 = !{!790}
 !790 = distinct !{!790, !791, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !791 = distinct !{!791, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17320,8 +17320,8 @@ attributes #23 = { nounwind }
 !793 = distinct !{!793, !791, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !794 = distinct !{!794, !791, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !795 = !{!796, !374, !376}
-!796 = distinct !{!796, !797, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.argprom: argument 0"}
-!797 = distinct !{!797, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E.argprom"}
+!796 = distinct !{!796, !797, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E: argument 0"}
+!797 = distinct !{!797, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he85b826188fe4f95E"}
 !798 = !{!799}
 !799 = distinct !{!799, !800, !"_ZN3log15MetadataBuilder5build17h40a9d1fe87f21039E: argument 0"}
 !800 = distinct !{!800, !"_ZN3log15MetadataBuilder5build17h40a9d1fe87f21039E"}
@@ -17333,11 +17333,11 @@ attributes #23 = { nounwind }
 !806 = !{!807, !374}
 !807 = distinct !{!807, !805, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !808 = !{!809, !811}
-!809 = distinct !{!809, !810, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!810 = distinct !{!810, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!811 = distinct !{!811, !810, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!809 = distinct !{!809, !810, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!810 = distinct !{!810, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!811 = distinct !{!811, !810, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !812 = !{!813, !374, !376}
-!813 = distinct !{!813, !810, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!813 = distinct !{!813, !810, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !814 = !{!815}
 !815 = distinct !{!815, !816, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !816 = distinct !{!816, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17356,11 +17356,11 @@ attributes #23 = { nounwind }
 !829 = !{!830, !374}
 !830 = distinct !{!830, !828, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !831 = !{!832, !834}
-!832 = distinct !{!832, !833, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!833 = distinct !{!833, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!834 = distinct !{!834, !833, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!832 = distinct !{!832, !833, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!833 = distinct !{!833, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!834 = distinct !{!834, !833, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !835 = !{!836, !374, !376}
-!836 = distinct !{!836, !833, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!836 = distinct !{!836, !833, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !837 = !{!838}
 !838 = distinct !{!838, !839, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !839 = distinct !{!839, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17368,8 +17368,8 @@ attributes #23 = { nounwind }
 !841 = distinct !{!841, !839, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !842 = distinct !{!842, !839, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !843 = !{!844, !374, !376}
-!844 = distinct !{!844, !845, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.argprom: argument 0"}
-!845 = distinct !{!845, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.argprom"}
+!844 = distinct !{!844, !845, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E: argument 0"}
+!845 = distinct !{!845, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E"}
 !846 = !{!847}
 !847 = distinct !{!847, !848, !"_ZN3log15MetadataBuilder5build17h40a9d1fe87f21039E: argument 0"}
 !848 = distinct !{!848, !"_ZN3log15MetadataBuilder5build17h40a9d1fe87f21039E"}
@@ -17381,11 +17381,11 @@ attributes #23 = { nounwind }
 !854 = !{!855, !374}
 !855 = distinct !{!855, !853, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !856 = !{!857, !859}
-!857 = distinct !{!857, !858, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!858 = distinct !{!858, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!859 = distinct !{!859, !858, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!857 = distinct !{!857, !858, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!858 = distinct !{!858, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!859 = distinct !{!859, !858, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !860 = !{!861, !374, !376}
-!861 = distinct !{!861, !858, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!861 = distinct !{!861, !858, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !862 = !{!863}
 !863 = distinct !{!863, !864, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !864 = distinct !{!864, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17404,11 +17404,11 @@ attributes #23 = { nounwind }
 !877 = !{!878, !374}
 !878 = distinct !{!878, !876, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !879 = !{!880, !882}
-!880 = distinct !{!880, !881, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!881 = distinct !{!881, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!882 = distinct !{!882, !881, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!880 = distinct !{!880, !881, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!881 = distinct !{!881, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!882 = distinct !{!882, !881, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !883 = !{!884, !374, !376}
-!884 = distinct !{!884, !881, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!884 = distinct !{!884, !881, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !885 = !{!886}
 !886 = distinct !{!886, !887, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !887 = distinct !{!887, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17416,8 +17416,8 @@ attributes #23 = { nounwind }
 !889 = distinct !{!889, !887, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !890 = distinct !{!890, !887, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !891 = !{!892, !374, !376}
-!892 = distinct !{!892, !893, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.argprom: argument 0"}
-!893 = distinct !{!893, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.argprom"}
+!892 = distinct !{!892, !893, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE: argument 0"}
+!893 = distinct !{!893, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE"}
 !894 = !{!420}
 !895 = !{!423, !420, !424}
 !896 = !{!897}
@@ -17451,11 +17451,11 @@ attributes #23 = { nounwind }
 !924 = !{!925, !374}
 !925 = distinct !{!925, !923, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !926 = !{!927, !929}
-!927 = distinct !{!927, !928, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!928 = distinct !{!928, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!929 = distinct !{!929, !928, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!927 = distinct !{!927, !928, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!928 = distinct !{!928, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!929 = distinct !{!929, !928, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !930 = !{!931, !374, !376}
-!931 = distinct !{!931, !928, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!931 = distinct !{!931, !928, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !932 = !{!933}
 !933 = distinct !{!933, !934, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !934 = distinct !{!934, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17474,11 +17474,11 @@ attributes #23 = { nounwind }
 !947 = !{!948, !374}
 !948 = distinct !{!948, !946, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !949 = !{!950, !952}
-!950 = distinct !{!950, !951, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!951 = distinct !{!951, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!952 = distinct !{!952, !951, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!950 = distinct !{!950, !951, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!951 = distinct !{!951, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!952 = distinct !{!952, !951, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !953 = !{!954, !374, !376}
-!954 = distinct !{!954, !951, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!954 = distinct !{!954, !951, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !955 = !{!956}
 !956 = distinct !{!956, !957, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !957 = distinct !{!957, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17486,8 +17486,8 @@ attributes #23 = { nounwind }
 !959 = distinct !{!959, !957, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !960 = distinct !{!960, !957, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !961 = !{!962, !374}
-!962 = distinct !{!962, !963, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.argprom: argument 0"}
-!963 = distinct !{!963, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E.argprom"}
+!962 = distinct !{!962, !963, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E: argument 0"}
+!963 = distinct !{!963, !"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca29f976a1692149E"}
 !964 = !{!965, !967, !969, !971, !374, !376}
 !965 = distinct !{!965, !966, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb1483e9c36bc35f5E.llvm.14780125840797112574: argument 0"}
 !966 = distinct !{!966, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb1483e9c36bc35f5E.llvm.14780125840797112574"}
@@ -17531,11 +17531,11 @@ attributes #23 = { nounwind }
 !1004 = !{!1005}
 !1005 = distinct !{!1005, !1003, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1006 = !{!1007, !1009}
-!1007 = distinct !{!1007, !1008, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1008 = distinct !{!1008, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1009 = distinct !{!1009, !1008, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1007 = distinct !{!1007, !1008, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1008 = distinct !{!1008, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1009 = distinct !{!1009, !1008, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1010 = !{!1011}
-!1011 = distinct !{!1011, !1008, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1011 = distinct !{!1011, !1008, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1012 = !{!1013}
 !1013 = distinct !{!1013, !1014, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1014 = distinct !{!1014, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17561,11 +17561,11 @@ attributes #23 = { nounwind }
 !1034 = !{!1035}
 !1035 = distinct !{!1035, !1033, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1036 = !{!1037, !1039}
-!1037 = distinct !{!1037, !1038, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1038 = distinct !{!1038, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1039 = distinct !{!1039, !1038, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1037 = distinct !{!1037, !1038, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1038 = distinct !{!1038, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1039 = distinct !{!1039, !1038, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1040 = !{!1041}
-!1041 = distinct !{!1041, !1038, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1041 = distinct !{!1041, !1038, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1042 = !{!1043}
 !1043 = distinct !{!1043, !1044, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1044 = distinct !{!1044, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17573,8 +17573,8 @@ attributes #23 = { nounwind }
 !1046 = distinct !{!1046, !1044, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !1047 = distinct !{!1047, !1044, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !1048 = !{!1049}
-!1049 = distinct !{!1049, !1050, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.argprom: argument 0"}
-!1050 = distinct !{!1050, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E.argprom"}
+!1049 = distinct !{!1049, !1050, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E: argument 0"}
+!1050 = distinct !{!1050, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd28df90aba791980E"}
 !1051 = !{!1052, !1028, !1025}
 !1052 = distinct !{!1052, !1053, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4492413adbd77757E.llvm.14780125840797112574: argument 0"}
 !1053 = distinct !{!1053, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4492413adbd77757E.llvm.14780125840797112574"}
@@ -17589,11 +17589,11 @@ attributes #23 = { nounwind }
 !1062 = !{!1063}
 !1063 = distinct !{!1063, !1061, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1064 = !{!1065, !1067}
-!1065 = distinct !{!1065, !1066, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1066 = distinct !{!1066, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1067 = distinct !{!1067, !1066, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1065 = distinct !{!1065, !1066, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1066 = distinct !{!1066, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1067 = distinct !{!1067, !1066, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1068 = !{!1069}
-!1069 = distinct !{!1069, !1066, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1069 = distinct !{!1069, !1066, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1070 = !{!1071}
 !1071 = distinct !{!1071, !1072, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1072 = distinct !{!1072, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17612,11 +17612,11 @@ attributes #23 = { nounwind }
 !1085 = !{!1086}
 !1086 = distinct !{!1086, !1084, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1087 = !{!1088, !1090}
-!1088 = distinct !{!1088, !1089, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1089 = distinct !{!1089, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1090 = distinct !{!1090, !1089, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1088 = distinct !{!1088, !1089, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1089 = distinct !{!1089, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1090 = distinct !{!1090, !1089, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1091 = !{!1092}
-!1092 = distinct !{!1092, !1089, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1092 = distinct !{!1092, !1089, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1093 = !{!1094}
 !1094 = distinct !{!1094, !1095, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1095 = distinct !{!1095, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17799,11 +17799,11 @@ attributes #23 = { nounwind }
 !1272 = !{!1273}
 !1273 = distinct !{!1273, !1271, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1274 = !{!1275, !1277}
-!1275 = distinct !{!1275, !1276, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1276 = distinct !{!1276, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1277 = distinct !{!1277, !1276, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1275 = distinct !{!1275, !1276, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1276 = distinct !{!1276, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1277 = distinct !{!1277, !1276, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1278 = !{!1279}
-!1279 = distinct !{!1279, !1276, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1279 = distinct !{!1279, !1276, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1280 = !{!1281}
 !1281 = distinct !{!1281, !1282, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1282 = distinct !{!1282, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17822,11 +17822,11 @@ attributes #23 = { nounwind }
 !1295 = !{!1296}
 !1296 = distinct !{!1296, !1294, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1297 = !{!1298, !1300}
-!1298 = distinct !{!1298, !1299, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1299 = distinct !{!1299, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1300 = distinct !{!1300, !1299, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1298 = distinct !{!1298, !1299, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1299 = distinct !{!1299, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1300 = distinct !{!1300, !1299, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1301 = !{!1302}
-!1302 = distinct !{!1302, !1299, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1302 = distinct !{!1302, !1299, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1303 = !{!1304}
 !1304 = distinct !{!1304, !1305, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1305 = distinct !{!1305, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17844,11 +17844,11 @@ attributes #23 = { nounwind }
 !1317 = !{!1318}
 !1318 = distinct !{!1318, !1316, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1319 = !{!1320, !1322}
-!1320 = distinct !{!1320, !1321, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1321 = distinct !{!1321, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1322 = distinct !{!1322, !1321, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1320 = distinct !{!1320, !1321, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1321 = distinct !{!1321, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1322 = distinct !{!1322, !1321, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1323 = !{!1324}
-!1324 = distinct !{!1324, !1321, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1324 = distinct !{!1324, !1321, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1325 = !{!1326}
 !1326 = distinct !{!1326, !1327, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !1327 = distinct !{!1327, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -17866,11 +17866,11 @@ attributes #23 = { nounwind }
 !1339 = !{!1340}
 !1340 = distinct !{!1340, !1338, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1341 = !{!1342, !1344}
-!1342 = distinct !{!1342, !1343, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1343 = distinct !{!1343, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1344 = distinct !{!1344, !1343, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1342 = distinct !{!1342, !1343, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1343 = distinct !{!1343, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1344 = distinct !{!1344, !1343, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1345 = !{!1346}
-!1346 = distinct !{!1346, !1343, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1346 = distinct !{!1346, !1343, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1347 = !{!1348}
 !1348 = distinct !{!1348, !1349, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !1349 = distinct !{!1349, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -17897,11 +17897,11 @@ attributes #23 = { nounwind }
 !1370 = !{!1371}
 !1371 = distinct !{!1371, !1369, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1372 = !{!1373, !1375}
-!1373 = distinct !{!1373, !1374, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1374 = distinct !{!1374, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1375 = distinct !{!1375, !1374, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1373 = distinct !{!1373, !1374, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1374 = distinct !{!1374, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1375 = distinct !{!1375, !1374, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1376 = !{!1377}
-!1377 = distinct !{!1377, !1374, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1377 = distinct !{!1377, !1374, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1378 = !{!1379}
 !1379 = distinct !{!1379, !1380, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1380 = distinct !{!1380, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17920,11 +17920,11 @@ attributes #23 = { nounwind }
 !1393 = !{!1394}
 !1394 = distinct !{!1394, !1392, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1395 = !{!1396, !1398}
-!1396 = distinct !{!1396, !1397, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1397 = distinct !{!1397, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1398 = distinct !{!1398, !1397, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1396 = distinct !{!1396, !1397, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1397 = distinct !{!1397, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1398 = distinct !{!1398, !1397, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1399 = !{!1400}
-!1400 = distinct !{!1400, !1397, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1400 = distinct !{!1400, !1397, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1401 = !{!1402}
 !1402 = distinct !{!1402, !1403, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1403 = distinct !{!1403, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -17942,11 +17942,11 @@ attributes #23 = { nounwind }
 !1415 = !{!1416}
 !1416 = distinct !{!1416, !1414, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1417 = !{!1418, !1420}
-!1418 = distinct !{!1418, !1419, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1419 = distinct !{!1419, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1420 = distinct !{!1420, !1419, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1418 = distinct !{!1418, !1419, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1419 = distinct !{!1419, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1420 = distinct !{!1420, !1419, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1421 = !{!1422}
-!1422 = distinct !{!1422, !1419, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1422 = distinct !{!1422, !1419, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1423 = !{!1424}
 !1424 = distinct !{!1424, !1425, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !1425 = distinct !{!1425, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -17964,11 +17964,11 @@ attributes #23 = { nounwind }
 !1437 = !{!1438}
 !1438 = distinct !{!1438, !1436, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1439 = !{!1440, !1442}
-!1440 = distinct !{!1440, !1441, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1441 = distinct !{!1441, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1442 = distinct !{!1442, !1441, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1440 = distinct !{!1440, !1441, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1441 = distinct !{!1441, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1442 = distinct !{!1442, !1441, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1443 = !{!1444}
-!1444 = distinct !{!1444, !1441, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1444 = distinct !{!1444, !1441, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1445 = !{!1446}
 !1446 = distinct !{!1446, !1447, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !1447 = distinct !{!1447, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -18005,11 +18005,11 @@ attributes #23 = { nounwind }
 !1478 = !{!1479}
 !1479 = distinct !{!1479, !1477, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1480 = !{!1481, !1483}
-!1481 = distinct !{!1481, !1482, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1482 = distinct !{!1482, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1483 = distinct !{!1483, !1482, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1481 = distinct !{!1481, !1482, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1482 = distinct !{!1482, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1483 = distinct !{!1483, !1482, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1484 = !{!1485}
-!1485 = distinct !{!1485, !1482, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1485 = distinct !{!1485, !1482, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1486 = !{!1487}
 !1487 = distinct !{!1487, !1488, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1488 = distinct !{!1488, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18028,11 +18028,11 @@ attributes #23 = { nounwind }
 !1501 = !{!1502}
 !1502 = distinct !{!1502, !1500, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1503 = !{!1504, !1506}
-!1504 = distinct !{!1504, !1505, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1505 = distinct !{!1505, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1506 = distinct !{!1506, !1505, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1504 = distinct !{!1504, !1505, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1505 = distinct !{!1505, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1506 = distinct !{!1506, !1505, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1507 = !{!1508}
-!1508 = distinct !{!1508, !1505, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1508 = distinct !{!1508, !1505, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1509 = !{!1510}
 !1510 = distinct !{!1510, !1511, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1511 = distinct !{!1511, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18079,11 +18079,11 @@ attributes #23 = { nounwind }
 !1552 = !{!1553}
 !1553 = distinct !{!1553, !1551, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1554 = !{!1555, !1557}
-!1555 = distinct !{!1555, !1556, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1556 = distinct !{!1556, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1557 = distinct !{!1557, !1556, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1555 = distinct !{!1555, !1556, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1556 = distinct !{!1556, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1557 = distinct !{!1557, !1556, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1558 = !{!1559}
-!1559 = distinct !{!1559, !1556, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1559 = distinct !{!1559, !1556, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1560 = !{!1561}
 !1561 = distinct !{!1561, !1562, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1562 = distinct !{!1562, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18102,11 +18102,11 @@ attributes #23 = { nounwind }
 !1575 = !{!1576}
 !1576 = distinct !{!1576, !1574, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1577 = !{!1578, !1580}
-!1578 = distinct !{!1578, !1579, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1579 = distinct !{!1579, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1580 = distinct !{!1580, !1579, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1578 = distinct !{!1578, !1579, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1579 = distinct !{!1579, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1580 = distinct !{!1580, !1579, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1581 = !{!1582}
-!1582 = distinct !{!1582, !1579, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1582 = distinct !{!1582, !1579, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1583 = !{!1584}
 !1584 = distinct !{!1584, !1585, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1585 = distinct !{!1585, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18150,11 +18150,11 @@ attributes #23 = { nounwind }
 !1623 = !{!1624}
 !1624 = distinct !{!1624, !1622, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1625 = !{!1626, !1628}
-!1626 = distinct !{!1626, !1627, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1627 = distinct !{!1627, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1628 = distinct !{!1628, !1627, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1626 = distinct !{!1626, !1627, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1627 = distinct !{!1627, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1628 = distinct !{!1628, !1627, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1629 = !{!1630}
-!1630 = distinct !{!1630, !1627, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1630 = distinct !{!1630, !1627, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1631 = !{!1632}
 !1632 = distinct !{!1632, !1633, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !1633 = distinct !{!1633, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -18172,11 +18172,11 @@ attributes #23 = { nounwind }
 !1645 = !{!1646}
 !1646 = distinct !{!1646, !1644, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1647 = !{!1648, !1650}
-!1648 = distinct !{!1648, !1649, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1649 = distinct !{!1649, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1650 = distinct !{!1650, !1649, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1648 = distinct !{!1648, !1649, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1649 = distinct !{!1649, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1650 = distinct !{!1650, !1649, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1651 = !{!1652}
-!1652 = distinct !{!1652, !1649, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1652 = distinct !{!1652, !1649, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1653 = !{!1654}
 !1654 = distinct !{!1654, !1655, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !1655 = distinct !{!1655, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -18196,11 +18196,11 @@ attributes #23 = { nounwind }
 !1669 = !{!1670}
 !1670 = distinct !{!1670, !1668, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1671 = !{!1672, !1674}
-!1672 = distinct !{!1672, !1673, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1673 = distinct !{!1673, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1674 = distinct !{!1674, !1673, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1672 = distinct !{!1672, !1673, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1673 = distinct !{!1673, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1674 = distinct !{!1674, !1673, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1675 = !{!1676}
-!1676 = distinct !{!1676, !1673, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1676 = distinct !{!1676, !1673, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1677 = !{!1678}
 !1678 = distinct !{!1678, !1679, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1679 = distinct !{!1679, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18223,11 +18223,11 @@ attributes #23 = { nounwind }
 !1696 = !{!1697}
 !1697 = distinct !{!1697, !1695, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1698 = !{!1699, !1701}
-!1699 = distinct !{!1699, !1700, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1700 = distinct !{!1700, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1701 = distinct !{!1701, !1700, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1699 = distinct !{!1699, !1700, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1700 = distinct !{!1700, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1701 = distinct !{!1701, !1700, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1702 = !{!1703}
-!1703 = distinct !{!1703, !1700, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1703 = distinct !{!1703, !1700, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1704 = !{!1705}
 !1705 = distinct !{!1705, !1706, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1706 = distinct !{!1706, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18235,8 +18235,8 @@ attributes #23 = { nounwind }
 !1708 = distinct !{!1708, !1706, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !1709 = distinct !{!1709, !1706, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !1710 = !{!1711}
-!1711 = distinct !{!1711, !1712, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.argprom: argument 0"}
-!1712 = distinct !{!1712, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E.argprom"}
+!1711 = distinct !{!1711, !1712, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E: argument 0"}
+!1712 = distinct !{!1712, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3ebb664ff8e8f9f3E"}
 !1713 = !{!1714, !1716, !1718}
 !1714 = distinct !{!1714, !1715, !"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h9201c578f09b125bE: argument 1:pre.rot"}
 !1715 = distinct !{!1715, !"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h9201c578f09b125bE"}
@@ -18272,11 +18272,11 @@ attributes #23 = { nounwind }
 !1745 = !{!1746}
 !1746 = distinct !{!1746, !1744, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1747 = !{!1748, !1750}
-!1748 = distinct !{!1748, !1749, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1749 = distinct !{!1749, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1750 = distinct !{!1750, !1749, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1748 = distinct !{!1748, !1749, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1749 = distinct !{!1749, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1750 = distinct !{!1750, !1749, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1751 = !{!1752}
-!1752 = distinct !{!1752, !1749, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1752 = distinct !{!1752, !1749, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1753 = !{!1754}
 !1754 = distinct !{!1754, !1755, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1755 = distinct !{!1755, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18295,11 +18295,11 @@ attributes #23 = { nounwind }
 !1768 = !{!1769}
 !1769 = distinct !{!1769, !1767, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1770 = !{!1771, !1773}
-!1771 = distinct !{!1771, !1772, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1772 = distinct !{!1772, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1773 = distinct !{!1773, !1772, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1771 = distinct !{!1771, !1772, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1772 = distinct !{!1772, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1773 = distinct !{!1773, !1772, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1774 = !{!1775}
-!1775 = distinct !{!1775, !1772, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1775 = distinct !{!1775, !1772, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1776 = !{!1777}
 !1777 = distinct !{!1777, !1778, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1778 = distinct !{!1778, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18307,8 +18307,8 @@ attributes #23 = { nounwind }
 !1780 = distinct !{!1780, !1778, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !1781 = distinct !{!1781, !1778, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !1782 = !{!1783}
-!1783 = distinct !{!1783, !1784, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.argprom: argument 0"}
-!1784 = distinct !{!1784, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE.argprom"}
+!1783 = distinct !{!1783, !1784, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE: argument 0"}
+!1784 = distinct !{!1784, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfa447fa081ebbcfdE"}
 !1785 = !{!1786}
 !1786 = distinct !{!1786, !1787, !"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$btleplug..api..Characteristic$GT$$GT$17hbc8e77e0edc27a3aE: argument 0"}
 !1787 = distinct !{!1787, !"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$btleplug..api..Characteristic$GT$$GT$17hbc8e77e0edc27a3aE"}
@@ -18443,11 +18443,11 @@ attributes #23 = { nounwind }
 !1916 = !{!1917}
 !1917 = distinct !{!1917, !1915, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1918 = !{!1919, !1921}
-!1919 = distinct !{!1919, !1920, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1920 = distinct !{!1920, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1921 = distinct !{!1921, !1920, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1919 = distinct !{!1919, !1920, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1920 = distinct !{!1920, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1921 = distinct !{!1921, !1920, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1922 = !{!1923}
-!1923 = distinct !{!1923, !1920, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1923 = distinct !{!1923, !1920, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1924 = !{!1925}
 !1925 = distinct !{!1925, !1926, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1926 = distinct !{!1926, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18466,11 +18466,11 @@ attributes #23 = { nounwind }
 !1939 = !{!1940}
 !1940 = distinct !{!1940, !1938, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1941 = !{!1942, !1944}
-!1942 = distinct !{!1942, !1943, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1943 = distinct !{!1943, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1944 = distinct !{!1944, !1943, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1942 = distinct !{!1942, !1943, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1943 = distinct !{!1943, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1944 = distinct !{!1944, !1943, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1945 = !{!1946}
-!1946 = distinct !{!1946, !1943, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1946 = distinct !{!1946, !1943, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1947 = !{!1948}
 !1948 = distinct !{!1948, !1949, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1949 = distinct !{!1949, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18501,11 +18501,11 @@ attributes #23 = { nounwind }
 !1974 = !{!1975}
 !1975 = distinct !{!1975, !1973, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1976 = !{!1977, !1979}
-!1977 = distinct !{!1977, !1978, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!1978 = distinct !{!1978, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!1979 = distinct !{!1979, !1978, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!1977 = distinct !{!1977, !1978, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!1978 = distinct !{!1978, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!1979 = distinct !{!1979, !1978, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !1980 = !{!1981}
-!1981 = distinct !{!1981, !1978, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!1981 = distinct !{!1981, !1978, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !1982 = !{!1983}
 !1983 = distinct !{!1983, !1984, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !1984 = distinct !{!1984, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18524,11 +18524,11 @@ attributes #23 = { nounwind }
 !1997 = !{!1998}
 !1998 = distinct !{!1998, !1996, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !1999 = !{!2000, !2002}
-!2000 = distinct !{!2000, !2001, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!2001 = distinct !{!2001, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!2002 = distinct !{!2002, !2001, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!2000 = distinct !{!2000, !2001, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!2001 = distinct !{!2001, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!2002 = distinct !{!2002, !2001, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !2003 = !{!2004}
-!2004 = distinct !{!2004, !2001, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!2004 = distinct !{!2004, !2001, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !2005 = !{!2006}
 !2006 = distinct !{!2006, !2007, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !2007 = distinct !{!2007, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18543,8 +18543,8 @@ attributes #23 = { nounwind }
 !2016 = distinct !{!2016, !2017, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h5abf59da47a8293aE: argument 0"}
 !2017 = distinct !{!2017, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h5abf59da47a8293aE"}
 !2018 = !{!2019}
-!2019 = distinct !{!2019, !2020, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h1b242447bd9575b8E.argprom: argument 0"}
-!2020 = distinct !{!2020, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h1b242447bd9575b8E.argprom"}
+!2019 = distinct !{!2019, !2020, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h1b242447bd9575b8E: argument 0"}
+!2020 = distinct !{!2020, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h1b242447bd9575b8E"}
 !2021 = !{!2022}
 !2022 = distinct !{!2022, !2023, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h01c2c2417207637aE: argument 0"}
 !2023 = distinct !{!2023, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h01c2c2417207637aE"}
@@ -18567,11 +18567,11 @@ attributes #23 = { nounwind }
 !2040 = !{!2041}
 !2041 = distinct !{!2041, !2039, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !2042 = !{!2043, !2045}
-!2043 = distinct !{!2043, !2044, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!2044 = distinct !{!2044, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!2045 = distinct !{!2045, !2044, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!2043 = distinct !{!2043, !2044, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!2044 = distinct !{!2044, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!2045 = distinct !{!2045, !2044, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !2046 = !{!2047}
-!2047 = distinct !{!2047, !2044, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!2047 = distinct !{!2047, !2044, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !2048 = !{!2049}
 !2049 = distinct !{!2049, !2050, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !2050 = distinct !{!2050, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18590,11 +18590,11 @@ attributes #23 = { nounwind }
 !2063 = !{!2064}
 !2064 = distinct !{!2064, !2062, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !2065 = !{!2066, !2068}
-!2066 = distinct !{!2066, !2067, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!2067 = distinct !{!2067, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!2068 = distinct !{!2068, !2067, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!2066 = distinct !{!2066, !2067, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!2067 = distinct !{!2067, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!2068 = distinct !{!2068, !2067, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !2069 = !{!2070}
-!2070 = distinct !{!2070, !2067, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!2070 = distinct !{!2070, !2067, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !2071 = !{!2072}
 !2072 = distinct !{!2072, !2073, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !2073 = distinct !{!2073, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18602,8 +18602,8 @@ attributes #23 = { nounwind }
 !2075 = distinct !{!2075, !2073, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !2076 = distinct !{!2076, !2073, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !2077 = !{!2078}
-!2078 = distinct !{!2078, !2079, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.argprom: argument 0"}
-!2079 = distinct !{!2079, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E.argprom"}
+!2078 = distinct !{!2078, !2079, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E: argument 0"}
+!2079 = distinct !{!2079, !"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3eaff803e848943E"}
 !2080 = !{!2081}
 !2081 = distinct !{!2081, !2082, !"_ZN3log15MetadataBuilder5build17h40a9d1fe87f21039E: argument 0"}
 !2082 = distinct !{!2082, !"_ZN3log15MetadataBuilder5build17h40a9d1fe87f21039E"}
@@ -18615,11 +18615,11 @@ attributes #23 = { nounwind }
 !2088 = !{!2089}
 !2089 = distinct !{!2089, !2087, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !2090 = !{!2091, !2093}
-!2091 = distinct !{!2091, !2092, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!2092 = distinct !{!2092, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!2093 = distinct !{!2093, !2092, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!2091 = distinct !{!2091, !2092, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!2092 = distinct !{!2092, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!2093 = distinct !{!2093, !2092, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !2094 = !{!2095}
-!2095 = distinct !{!2095, !2092, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!2095 = distinct !{!2095, !2092, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !2096 = !{!2097}
 !2097 = distinct !{!2097, !2098, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !2098 = distinct !{!2098, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -18637,11 +18637,11 @@ attributes #23 = { nounwind }
 !2110 = !{!2111}
 !2111 = distinct !{!2111, !2109, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !2112 = !{!2113, !2115}
-!2113 = distinct !{!2113, !2114, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!2114 = distinct !{!2114, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!2115 = distinct !{!2115, !2114, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!2113 = distinct !{!2113, !2114, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!2114 = distinct !{!2114, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!2115 = distinct !{!2115, !2114, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !2116 = !{!2117}
-!2117 = distinct !{!2117, !2114, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!2117 = distinct !{!2117, !2114, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !2118 = !{!2119}
 !2119 = distinct !{!2119, !2120, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !2120 = distinct !{!2120, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -18661,11 +18661,11 @@ attributes #23 = { nounwind }
 !2134 = !{!2135}
 !2135 = distinct !{!2135, !2133, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !2136 = !{!2137, !2139}
-!2137 = distinct !{!2137, !2138, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!2138 = distinct !{!2138, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!2139 = distinct !{!2139, !2138, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!2137 = distinct !{!2137, !2138, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!2138 = distinct !{!2138, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!2139 = distinct !{!2139, !2138, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !2140 = !{!2141}
-!2141 = distinct !{!2141, !2138, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!2141 = distinct !{!2141, !2138, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !2142 = !{!2143}
 !2143 = distinct !{!2143, !2144, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !2144 = distinct !{!2144, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -18683,11 +18683,11 @@ attributes #23 = { nounwind }
 !2156 = !{!2157}
 !2157 = distinct !{!2157, !2155, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !2158 = !{!2159, !2161}
-!2159 = distinct !{!2159, !2160, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!2160 = distinct !{!2160, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!2161 = distinct !{!2161, !2160, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!2159 = distinct !{!2159, !2160, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!2160 = distinct !{!2160, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!2161 = distinct !{!2161, !2160, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !2162 = !{!2163}
-!2163 = distinct !{!2163, !2160, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!2163 = distinct !{!2163, !2160, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !2164 = !{!2165}
 !2165 = distinct !{!2165, !2166, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E: argument 0"}
 !2166 = distinct !{!2166, !"_ZN4core3fmt9Arguments9new_const17hb710c841e12a58d2E"}
@@ -18716,11 +18716,11 @@ attributes #23 = { nounwind }
 !2189 = !{!2190}
 !2190 = distinct !{!2190, !2188, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !2191 = !{!2192, !2194}
-!2192 = distinct !{!2192, !2193, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!2193 = distinct !{!2193, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!2194 = distinct !{!2194, !2193, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!2192 = distinct !{!2192, !2193, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!2193 = distinct !{!2193, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!2194 = distinct !{!2194, !2193, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !2195 = !{!2196}
-!2196 = distinct !{!2196, !2193, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!2196 = distinct !{!2196, !2193, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !2197 = !{!2198}
 !2198 = distinct !{!2198, !2199, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !2199 = distinct !{!2199, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18739,11 +18739,11 @@ attributes #23 = { nounwind }
 !2212 = !{!2213}
 !2213 = distinct !{!2213, !2211, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !2214 = !{!2215, !2217}
-!2215 = distinct !{!2215, !2216, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!2216 = distinct !{!2216, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!2217 = distinct !{!2217, !2216, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!2215 = distinct !{!2215, !2216, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!2216 = distinct !{!2216, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!2217 = distinct !{!2217, !2216, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !2218 = !{!2219}
-!2219 = distinct !{!2219, !2216, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!2219 = distinct !{!2219, !2216, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !2220 = !{!2221}
 !2221 = distinct !{!2221, !2222, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !2222 = distinct !{!2222, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18761,11 +18761,11 @@ attributes #23 = { nounwind }
 !2234 = !{!2235}
 !2235 = distinct !{!2235, !2233, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !2236 = !{!2237, !2239}
-!2237 = distinct !{!2237, !2238, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!2238 = distinct !{!2238, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!2239 = distinct !{!2239, !2238, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!2237 = distinct !{!2237, !2238, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!2238 = distinct !{!2238, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!2239 = distinct !{!2239, !2238, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !2240 = !{!2241}
-!2241 = distinct !{!2241, !2238, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!2241 = distinct !{!2241, !2238, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !2242 = !{!2243}
 !2243 = distinct !{!2243, !2244, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !2244 = distinct !{!2244, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
@@ -18784,11 +18784,11 @@ attributes #23 = { nounwind }
 !2257 = !{!2258}
 !2258 = distinct !{!2258, !2256, !"_ZN12tracing_core5field8FieldSet4iter17hd61a8b74712afacdE: argument 0"}
 !2259 = !{!2260, !2262}
-!2260 = distinct !{!2260, !2261, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 0"}
-!2261 = distinct !{!2261, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom"}
-!2262 = distinct !{!2262, !2261, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 1"}
+!2260 = distinct !{!2260, !2261, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 0"}
+!2261 = distinct !{!2261, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E"}
+!2262 = distinct !{!2262, !2261, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 1"}
 !2263 = !{!2264}
-!2264 = distinct !{!2264, !2261, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E.argprom: argument 2"}
+!2264 = distinct !{!2264, !2261, !"_ZN4core6option15Option$LT$T$GT$6expect17h0e5d2695a9d9c4b4E: argument 2"}
 !2265 = !{!2266}
 !2266 = distinct !{!2266, !2267, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !2267 = distinct !{!2267, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}

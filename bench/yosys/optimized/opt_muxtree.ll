@@ -558,7 +558,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit5.i:                 ; preds = %64, %_ZNSt6vectorIb
   %72 = load ptr, ptr %27, align 8
   %73 = load ptr, ptr %28, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %72, %73
-  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit5.i, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %86, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i.i ], [ %72, %_ZNSt6vectorIbSaIbEED2Ev.exit5.i ]
@@ -604,22 +604,22 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.
 _ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i.i: ; preds = %85, %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i.i.i.i.i.i
   %86 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 120
   %.not.i.i.i.i6.i = icmp eq ptr %86, %73
-  br i1 %.not.i.i.i.i6.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i6.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i.i
   %.val.pr.i.i = load ptr, ptr %27, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i, %_ZNSt6vectorIbSaIbEED2Ev.exit5.i
-  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i ], [ %72, %_ZNSt6vectorIbSaIbEED2Ev.exit5.i ]
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorIbSaIbEED2Ev.exit5.i
+  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i ], [ %72, %_ZNSt6vectorIbSaIbEED2Ev.exit5.i ]
   %.not.i.i.i7.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i7.i, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EED2Ev.exit.i, label %87
 
-87:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i
+87:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i) #20
   br label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EED2Ev.exit.i
 
-_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EED2Ev.exit.i: ; preds = %87, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i
+_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EED2Ev.exit.i: ; preds = %87, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i
   %88 = load ptr, ptr %30, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EED2Ev.exit.i.i.i, label %89
@@ -6610,7 +6610,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit454:                 ; preds = %._crit_edge3493, %2
   br i1 %.not.i455, label %2550, label %2547
 
 2547:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit454
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom(ptr noundef %2545, ptr noundef nonnull readonly align 8 dereferenceable(32) %44)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %2545, ptr noundef nonnull readonly align 8 dereferenceable(32) %44)
           to label %.noexc460 unwind label %.loopexit2826
 
 .noexc460:                                        ; preds = %2547
@@ -6625,7 +6625,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit454:                 ; preds = %._crit_edge3493, %2
   %2552 = ptrtoint ptr %.val.i.i to i64
   %2553 = sub i64 %2551, %2552
   %2554 = icmp eq i64 %2553, 9223372036854775776
-  br i1 %2554, label %2555, label %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %2554, label %2555, label %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 2555:                                             ; preds = %2550
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #21
@@ -6634,7 +6634,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit454:                 ; preds = %._crit_edge3493, %2
 .noexc461:                                        ; preds = %2555
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %2550
+_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %2550
   %2556 = ashr exact i64 %2553, 5
   %2557 = icmp eq ptr %2545, %.val.i.i
   %.sroa.speculated.i.i.i = select i1 %2557, i64 1, i64 %2556
@@ -6643,21 +6643,21 @@ _ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_len
   %2560 = call i64 @llvm.umin.i64(i64 %2558, i64 288230376151711743)
   %2561 = select i1 %2559, i64 288230376151711743, i64 %2560
   %.not.i.i.i456 = icmp eq i64 %2561, 0
-  br i1 %.not.i.i.i456, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i.i, label %2562
+  br i1 %.not.i.i.i456, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.exit.i.i, label %2562
 
-2562:                                             ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+2562:                                             ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %2563 = shl nuw nsw i64 %2561, 5
   %2564 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %2563) #22
-          to label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i.i unwind label %.loopexit2826
+          to label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.exit.i.i unwind label %.loopexit2826
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %2562, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
-  %2565 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i ], [ %2564, %2562 ]
+_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %2562, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %2565 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %2564, %2562 ]
   %2566 = getelementptr inbounds %"struct.(anonymous namespace)::OptMuxtreeWorker::muxinfo_t", ptr %2565, i64 %2556
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom(ptr noundef %2566, ptr noundef nonnull readonly align 8 dereferenceable(32) %44)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %2566, ptr noundef nonnull readonly align 8 dereferenceable(32) %44)
           to label %2567 unwind label %2582
 
-2567:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i.i
-  br i1 %2557, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit36.i.i, label %.lr.ph.i.i.i.i.i.i457
+2567:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.exit.i.i
+  br i1 %2557, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i, label %.lr.ph.i.i.i.i.i.i457
 
 .lr.ph.i.i.i.i.i.i457:                            ; preds = %2567, %.lr.ph.i.i.i.i.i.i457
   %.03.i.i.i.i.i.i = phi ptr [ %2579, %.lr.ph.i.i.i.i.i.i457 ], [ %2565, %2567 ]
@@ -6682,19 +6682,19 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_all
   %2578 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 32
   %2579 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i458 = icmp eq ptr %2578, %2545
-  br i1 %.not.i.i.i.i.i.i458, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit36.i.i, label %.lr.ph.i.i.i.i.i.i457, !llvm.loop !104
+  br i1 %.not.i.i.i.i.i.i458, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i, label %.lr.ph.i.i.i.i.i.i457, !llvm.loop !104
 
-_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit36.i.i: ; preds = %.lr.ph.i.i.i.i.i.i457, %2567
+_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i: ; preds = %.lr.ph.i.i.i.i.i.i457, %2567
   %.0.lcssa.i.i.i.i.i.i459 = phi ptr [ %2565, %2567 ], [ %2579, %.lr.ph.i.i.i.i.i.i457 ]
   %2580 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i459, i64 32
   %.not.i37.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i37.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %2581
 
-2581:                                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit36.i.i
+2581:                                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i) #20
   br label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-2582:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i.i
+2582:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.exit.i.i
   %2583 = landingpad { ptr, i32 }
           catch ptr null
   %2584 = extractvalue { ptr, i32 } %2583, 0
@@ -6703,10 +6703,10 @@ _ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEP
   br i1 %.not.i.i, label %.thread.i.i, label %2588
 
 .thread.i.i:                                      ; preds = %2582
-  call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_.argprom(ptr noundef %2566) #19
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit39.i.i
+  call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_(ptr noundef %2566) #19
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit39.i.i
 
-2586:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit39.i.i
+2586:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit39.i.i
   %2587 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -6714,9 +6714,9 @@ _ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEP
 
 2588:                                             ; preds = %2582
   call void @_ZdlPv(ptr noundef nonnull %2565) #20
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit39.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit39.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit39.i.i: ; preds = %2588, %.thread.i.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit39.i.i: ; preds = %2588, %.thread.i.i
   invoke void @__cxa_rethrow() #21
           to label %2592 unwind label %2586
 
@@ -6727,10 +6727,10 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE13_M_dea
   call void @__clang_call_terminate(ptr %2591) #23
   unreachable
 
-2592:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit39.i.i
+2592:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit39.i.i
   unreachable
 
-_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %2581, %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit36.i.i
+_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %2581, %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i
   store ptr %2565, ptr %95, align 8
   store ptr %2580, ptr %180, align 8
   %2593 = getelementptr inbounds %"struct.(anonymous namespace)::OptMuxtreeWorker::muxinfo_t", ptr %2565, i64 %2561
@@ -6794,7 +6794,7 @@ _ZN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tD2Ev.exit472: ; preds = %_ZNSt6ve
   %2608 = load ptr, ptr %143, align 8
   %2609 = load ptr, ptr %214, align 8
   %.not4.i.i.i.i.i473 = icmp eq ptr %2608, %2609
-  br i1 %.not4.i.i.i.i.i473, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i474
+  br i1 %.not4.i.i.i.i.i473, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i474
 
 .lr.ph.i.i.i.i.i474:                              ; preds = %_ZN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tD2Ev.exit472, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i475 = phi ptr [ %2622, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i ], [ %2608, %_ZN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tD2Ev.exit472 ]
@@ -6840,17 +6840,17 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.
 _ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i: ; preds = %2621, %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i.i.i.i.i.i
   %2622 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i475, i64 128
   %.not.i.i.i.i.i476 = icmp eq ptr %2622, %2609
-  br i1 %.not.i.i.i.i.i476, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i474, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i476, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i474, !llvm.loop !105
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i, %_ZN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tD2Ev.exit472
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i, %_ZN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tD2Ev.exit472
   %.not.i.i.i.i478 = icmp eq ptr %2608, null
   br i1 %.not.i.i.i.i478, label %_ZN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tD2Ev.exit, label %2623
 
-2623:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i
+2623:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %2608) #20
   br label %_ZN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tD2Ev.exit
 
-_ZN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tD2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i, %2623
+_ZN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tD2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i, %2623
   %2624 = load ptr, ptr %215, align 8
   %.not.i.i.i.i479 = icmp eq ptr %2624, null
   br i1 %.not.i.i.i.i479, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i480, label %2625
@@ -7036,7 +7036,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit366:              ; preds = %1478, %_ZSt8_Destro
   %2664 = load ptr, ptr %143, align 8
   %2665 = load ptr, ptr %214, align 8
   %.not4.i.i.i.i.i531 = icmp eq ptr %2664, %2665
-  br i1 %.not4.i.i.i.i.i531, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i545, label %.lr.ph.i.i.i.i.i532
+  br i1 %.not4.i.i.i.i.i531, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i545, label %.lr.ph.i.i.i.i.i532
 
 .lr.ph.i.i.i.i.i532:                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit366, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i541
   %.05.i.i.i.i.i533 = phi ptr [ %2678, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i541 ], [ %2664, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit366 ]
@@ -7082,17 +7082,17 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.
 _ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i541: ; preds = %2677, %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i.i.i.i.i.i539
   %2678 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i533, i64 128
   %.not.i.i.i.i.i542 = icmp eq ptr %2678, %2665
-  br i1 %.not.i.i.i.i.i542, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i545, label %.lr.ph.i.i.i.i.i532, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i542, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i545, label %.lr.ph.i.i.i.i.i532, !llvm.loop !105
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i545: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i541, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit366
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i545: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i541, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit366
   %.not.i.i.i.i547 = icmp eq ptr %2664, null
   br i1 %.not.i.i.i.i547, label %_ZN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tD2Ev.exit548, label %2679
 
-2679:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i545
+2679:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i545
   call void @_ZdlPv(ptr noundef nonnull %2664) #20
   br label %_ZN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tD2Ev.exit548
 
-_ZN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tD2Ev.exit548: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i545, %2679
+_ZN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tD2Ev.exit548: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i545, %2679
   %2680 = load ptr, ptr %215, align 8
   %.not.i.i.i.i549 = icmp eq ptr %2680, null
   br i1 %.not.i.i.i.i549, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i550, label %2681
@@ -12249,7 +12249,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit1009:                ; preds = %_ZNSt6vectorIbSaIbE
   %4838 = getelementptr inbounds i8, ptr %0, i64 168
   %4839 = load ptr, ptr %4838, align 8
   %.not4.i.i.i.i = icmp eq ptr %4837, %4839
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit1009, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %4852, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i ], [ %4837, %_ZNSt6vectorIbSaIbEED2Ev.exit1009 ]
@@ -12295,22 +12295,22 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.
 _ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i: ; preds = %4851, %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i.i.i.i.i
   %4852 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 120
   %.not.i.i.i.i1011 = icmp eq ptr %4852, %4839
-  br i1 %.not.i.i.i.i1011, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i1011, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i
   %.val.pr.i = load ptr, ptr %94, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i, %_ZNSt6vectorIbSaIbEED2Ev.exit1009
-  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i ], [ %4837, %_ZNSt6vectorIbSaIbEED2Ev.exit1009 ]
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorIbSaIbEED2Ev.exit1009
+  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %4837, %_ZNSt6vectorIbSaIbEED2Ev.exit1009 ]
   %.not.i.i.i1012 = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i1012, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EED2Ev.exit, label %4853
 
-4853:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i
+4853:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i) #20
   br label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i, %4853
+_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i, %4853
   %4854 = getelementptr inbounds i8, ptr %0, i64 128
   %4855 = load ptr, ptr %4854, align 8
   %.not.i.i.i.i.i1013 = icmp eq ptr %4855, null
@@ -12733,7 +12733,7 @@ _ZN5Yosys7hashlib5idictINS_5RTLIL6SigBitELi0ENS0_8hash_opsIS3_EEE6expectERKS3_i.
   %64 = ptrtoint ptr %.val.i.i to i64
   %65 = sub i64 %63, %64
   %66 = icmp eq i64 %65, 9223372036854775800
-  br i1 %66, label %67, label %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %66, label %67, label %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 67:                                               ; preds = %62
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #21
@@ -12742,7 +12742,7 @@ _ZN5Yosys7hashlib5idictINS_5RTLIL6SigBitELi0ENS0_8hash_opsIS3_EEE6expectERKS3_i.
 .noexc20:                                         ; preds = %67
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %62
+_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %62
   %68 = sdiv exact i64 %65, 120
   %69 = icmp eq ptr %57, %.val.i.i
   %.sroa.speculated.i.i.i = select i1 %69, i64 1, i64 %68
@@ -12751,29 +12751,29 @@ _ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_len
   %72 = call i64 @llvm.umin.i64(i64 %70, i64 76861433640456465)
   %73 = select i1 %71, i64 76861433640456465, i64 %72
   %.not.i.i.i = icmp eq i64 %73, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i.i, label %74
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.exit.i.i, label %74
 
-74:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+74:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %75 = mul nuw nsw i64 %73, 120
   %76 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #22
-          to label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i.i unwind label %.loopexit49
+          to label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.exit.i.i unwind label %.loopexit49
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %74, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
-  %77 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i ], [ %76, %74 ]
+_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %74, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %77 = phi ptr [ null, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %76, %74 ]
   %78 = getelementptr inbounds %"struct.(anonymous namespace)::OptMuxtreeWorker::bitinfo_t", ptr %77, i64 %68
   invoke fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(120) %78, ptr noundef nonnull align 8 dereferenceable(120) %5)
-          to label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i.i unwind label %.body.i.i
+          to label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i unwind label %.body.i.i
 
-_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i.i
-  br i1 %69, label %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.argprom.exit42.i.thread.i, label %.lr.ph.i.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.exit.i.i
+  br i1 %69, label %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit42.i.thread.i, label %.lr.ph.i.i.i.i.i.i.i
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.argprom.exit42.i.thread.i: ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i.i
+_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit42.i.thread.i: ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
   %79 = getelementptr inbounds i8, ptr %77, i64 120
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
-  %.016.i.i.i.i.i.i.i = phi ptr [ %81, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %77, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i.i ]
-  %.01215.i.i.i.i.i.i.i = phi ptr [ %80, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %.val.i.i, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
+  %.016.i.i.i.i.i.i.i = phi ptr [ %81, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %77, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i ]
+  %.01215.i.i.i.i.i.i.i = phi ptr [ %80, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %.val.i.i, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i ]
   invoke fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(120) %.016.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %.01215.i.i.i.i.i.i.i)
           to label %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i unwind label %82
 
@@ -12852,22 +12852,22 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.
 _ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i.i: ; preds = %103, %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i.i.i.i.i.i
   %104 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i = icmp eq ptr %104, %57
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.loopexit.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEvPT_.exit.i.i.i.i.i
   %105 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i.i.i, i64 240
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.loopexit.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.argprom.exit42.i.thread.i
-  %106 = phi ptr [ %79, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.argprom.exit42.i.thread.i ], [ %105, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.loopexit.i ]
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit42.i.thread.i
+  %106 = phi ptr [ %79, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit42.i.thread.i ], [ %105, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i ]
   %.not.i43.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i43.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %107
 
-107:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i
+107:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i) #20
   br label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-.body.i.i:                                        ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i.i
+.body.i.i:                                        ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE11_M_allocateEm.exit.i.i
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
@@ -12876,10 +12876,10 @@ _ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.ar
   br i1 %.not.i.i, label %.thread7.i, label %.thread.i
 
 .thread7.i:                                       ; preds = %.body.i.i
-  call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE7destroyIS2_EEvRS3_PT_.argprom(ptr noundef %78) #19
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i.i
+  call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE7destroyIS2_EEvRS3_PT_(ptr noundef %78) #19
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i.i
 
-111:                                              ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i.i
+111:                                              ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i.i
   %112 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -12888,15 +12888,15 @@ _ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.ar
 113:                                              ; preds = %86
   %114 = extractvalue { ptr, i32 } %87, 0
   %115 = call ptr @__cxa_begin_catch(ptr %114) #19
-  call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE7destroyIS2_EEvRS3_PT_.argprom(ptr noundef nonnull %78) #19
+  call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull %78) #19
   %.not.i44.i.i = icmp eq ptr %77, null
-  br i1 %.not.i44.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i.i, label %.thread.i
+  br i1 %.not.i44.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i.i, label %.thread.i
 
 .thread.i:                                        ; preds = %.body.i.i, %113
   call void @_ZdlPv(ptr noundef nonnull %77) #20
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i.i: ; preds = %.thread.i, %113, %.thread7.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i.i: ; preds = %.thread.i, %113, %.thread7.i
   invoke void @__cxa_rethrow() #21
           to label %119 unwind label %111
 
@@ -12907,10 +12907,10 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_dea
   call void @__clang_call_terminate(ptr %118) #23
   unreachable
 
-119:                                              ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i.i
+119:                                              ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i.i
   unreachable
 
-_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %107, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i
+_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %107, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i
   store ptr %77, ptr %16, align 8
   store ptr %106, ptr %17, align 8
   %120 = getelementptr inbounds %"struct.(anonymous namespace)::OptMuxtreeWorker::bitinfo_t", ptr %77, i64 %73
@@ -13180,13 +13180,13 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10por
   %12 = ptrtoint ptr %.val.i to i64
   %13 = sub i64 %11, %12
   %14 = icmp eq i64 %13, 9223372036854775680
-  br i1 %14, label %15, label %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i
+  br i1 %14, label %15, label %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 15:                                               ; preds = %10
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #21
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i: ; preds = %10
+_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %10
   %16 = ashr exact i64 %13, 7
   %17 = icmp eq ptr %4, %.val.i
   %.sroa.speculated.i.i = select i1 %17, i64 1, i64 %16
@@ -13195,29 +13195,29 @@ _ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE12_M_check_l
   %20 = tail call i64 @llvm.umin.i64(i64 %18, i64 72057594037927935)
   %21 = select i1 %19, i64 72057594037927935, i64 %20
   %.not.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i, label %22
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE11_M_allocateEm.exit.i, label %22
 
-22:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i
+22:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i
   %23 = shl nuw nsw i64 %21, 7
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #22
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE11_M_allocateEm.exit.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i: ; preds = %22, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i
-  %25 = phi ptr [ %24, %22 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i ]
+_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE11_M_allocateEm.exit.i: ; preds = %22, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %25 = phi ptr [ %24, %22 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   %26 = getelementptr inbounds %"struct.(anonymous namespace)::OptMuxtreeWorker::portinfo_t", ptr %25, i64 %16
   invoke fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(123) %26, ptr noundef nonnull align 8 dereferenceable(123) %1)
-          to label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i unwind label %.body.i
+          to label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i unwind label %.body.i
 
-_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i
-  br i1 %17, label %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.argprom.exit42.i.thread, label %.lr.ph.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE11_M_allocateEm.exit.i
+  br i1 %17, label %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit42.i.thread, label %.lr.ph.i.i.i.i.i.i
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.argprom.exit42.i.thread: ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i
+_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit42.i.thread: ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i
   %27 = getelementptr inbounds i8, ptr %25, i64 128
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %.016.i.i.i.i.i.i = phi ptr [ %29, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %25, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i ]
-  %.01215.i.i.i.i.i.i = phi ptr [ %28, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %.val.i, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom.exit.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i
+  %.016.i.i.i.i.i.i = phi ptr [ %29, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %25, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i ]
+  %.01215.i.i.i.i.i.i = phi ptr [ %28, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %.val.i, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i ]
   invoke fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(123) %.016.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(123) %.01215.i.i.i.i.i.i)
           to label %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i unwind label %30
 
@@ -13296,22 +13296,22 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.
 _ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i: ; preds = %51, %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i.i.i.i.i
   %52 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 128
   %.not.i.i.i.i = icmp eq ptr %52, %4
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !105
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.loopexit: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i
   %53 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i.i, i64 256
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.argprom.exit42.i.thread
-  %54 = phi ptr [ %27, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.argprom.exit42.i.thread ], [ %53, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.loopexit ]
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit42.i.thread
+  %54 = phi ptr [ %27, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit42.i.thread ], [ %53, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit ]
   %.not.i43.i = icmp eq ptr %.val.i, null
   br i1 %.not.i43.i, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %55
 
-55:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i
+55:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i) #20
   br label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
 
-.body.i:                                          ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE11_M_allocateEm.argprom.exit.i
+.body.i:                                          ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE11_M_allocateEm.exit.i
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
@@ -13320,14 +13320,14 @@ _ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.
   br i1 %.not.i, label %.thread7, label %.thread
 
 .thread7:                                         ; preds = %.body.i
-  tail call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE7destroyIS2_EEvRS3_PT_.argprom(ptr noundef %26) #19
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i
+  tail call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE7destroyIS2_EEvRS3_PT_(ptr noundef %26) #19
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i
 
 .thread:                                          ; preds = %.body.i
-  tail call fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom(ptr noundef nonnull %25, ptr noundef nonnull %25)
+  tail call fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %25, ptr noundef nonnull %25)
   br label %64
 
-59:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i
+59:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i
   %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -13336,15 +13336,15 @@ _ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.
 61:                                               ; preds = %34
   %62 = extractvalue { ptr, i32 } %35, 0
   %63 = tail call ptr @__cxa_begin_catch(ptr %62) #19
-  tail call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE7destroyIS2_EEvRS3_PT_.argprom(ptr noundef nonnull %26) #19
+  tail call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull %26) #19
   %.not.i44.i = icmp eq ptr %25, null
-  br i1 %.not.i44.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i, label %64
+  br i1 %.not.i44.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i, label %64
 
 64:                                               ; preds = %.thread, %61
   tail call void @_ZdlPv(ptr noundef nonnull %25) #20
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i: ; preds = %.thread7, %64, %61
+_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i: ; preds = %.thread7, %64, %61
   invoke void @__cxa_rethrow() #21
           to label %69 unwind label %59
 
@@ -13358,10 +13358,10 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_d
   tail call void @__clang_call_terminate(ptr %68) #23
   unreachable
 
-69:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.argprom.exit45.i
+69:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE13_M_deallocateEPS2_m.exit45.i
   unreachable
 
-_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i, %55
+_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i, %55
   store ptr %25, ptr %0, align 8
   store ptr %54, ptr %3, align 8
   %70 = getelementptr inbounds %"struct.(anonymous namespace)::OptMuxtreeWorker::portinfo_t", ptr %25, i64 %21
@@ -14164,7 +14164,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxi
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
-  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit, label %.lr.ph.i.i.i
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %23, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEvPT_.exit.i.i.i ], [ %2, %1 ]
@@ -14173,7 +14173,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxi
   %7 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, %8
-  br i1 %.not4.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi ptr [ %21, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i.i.i.i.i ], [ %6, %.lr.ph.i.i.i ]
@@ -14219,40 +14219,40 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.
 _ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %20, %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i.i.i.i.i.i.i.i.i.i
   %21 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 128
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %21, %8
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !105
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i.i.i.i.i
   %.val.pr.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i, %.lr.ph.i.i.i
-  %.val.i.i.i.i.i.i = phi ptr [ %.val.pr.i.i.i.i.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i.i.i.i.i ], [ %6, %.lr.ph.i.i.i ]
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i, %.lr.ph.i.i.i
+  %.val.i.i.i.i.i.i = phi ptr [ %.val.pr.i.i.i.i.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i ], [ %6, %.lr.ph.i.i.i ]
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEvPT_.exit.i.i.i, label %22
 
-22:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i
+22:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i.i.i.i) #20
   br label %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEvPT_.exit.i.i.i: ; preds = %22, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i.i.i.i
+_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEvPT_.exit.i.i.i: ; preds = %22, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
   %23 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %23, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !151
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !151
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEvPT_.exit.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEvPT_.exit.i.i.i
   %.val.pr = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.exit
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split, %1
-  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split ], [ %2, %1 ]
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split, %1
+  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EED2Ev.argprom.exit, label %24
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EED2Ev.exit, label %24
 
-24:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit
+24:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #20
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EED2Ev.argprom.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit, %24
+_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_EvT_S4_RSaIT0_E.exit, %24
   ret void
 }
 
@@ -18365,7 +18365,7 @@ _ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE7do_hashERKi.exit: ; preds = %.lr.ph,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE7destroyIS2_EEvRS3_PT_.argprom(ptr nocapture noundef readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEEE7destroyIS2_EEvRS3_PT_(ptr nocapture noundef readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
@@ -18399,13 +18399,13 @@ _ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEED2Ev.exit.i.i: ; preds = %7, %_ZNSt6ve
 _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i: ; preds = %11, %_ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEED2Ev.exit.i.i
   %12 = load ptr, ptr %8, align 8
   %.not.i.i.i1.i3.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i1.i3.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEE7destroyIS2_EEvPT_.argprom.exit, label %13
+  br i1 %.not.i.i.i1.i3.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEE7destroyIS2_EEvPT_.exit, label %13
 
 13:                                               ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %12) #20
-  br label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEE7destroyIS2_EEvPT_.argprom.exit
+  br label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEE7destroyIS2_EEvPT_.exit
 
-_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEE7destroyIS2_EEvPT_.argprom.exit: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i, %13
+_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tEE7destroyIS2_EEvPT_.exit: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i, %13
   ret void
 }
 
@@ -18788,7 +18788,7 @@ _ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEEC2ERKS4_.exit10: ; preds = %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE7destroyIS2_EEvRS3_PT_.argprom(ptr nocapture noundef readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE7destroyIS2_EEvRS3_PT_(ptr nocapture noundef readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
@@ -18822,18 +18822,18 @@ _ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEED2Ev.exit.i.i: ; preds = %7, %_ZNSt6ve
 _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i: ; preds = %11, %_ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEED2Ev.exit.i.i
   %12 = load ptr, ptr %8, align 8
   %.not.i.i.i1.i3.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i1.i3.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEE7destroyIS2_EEvPT_.argprom.exit, label %13
+  br i1 %.not.i.i.i1.i3.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEE7destroyIS2_EEvPT_.exit, label %13
 
 13:                                               ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %12) #20
-  br label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEE7destroyIS2_EEvPT_.argprom.exit
+  br label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEE7destroyIS2_EEvPT_.exit
 
-_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEE7destroyIS2_EEvPT_.argprom.exit: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i, %13
+_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEE7destroyIS2_EEvPT_.exit: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i, %13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i.i = icmp eq ptr %0, %1
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvT_S4_.exit, label %.lr.ph.i.i
 
@@ -18943,7 +18943,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.argprom(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -18961,18 +18961,18 @@ define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxt
 
 11:                                               ; preds = %2
   %12 = icmp ugt i64 %10, 72057594037927935
-  br i1 %12, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE8allocateERS3_m.argprom.exit.i.i.i.i.i.i
+  br i1 %12, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE8allocateERS3_m.exit.i.i.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %11
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #21
   unreachable
 
-_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE8allocateERS3_m.argprom.exit.i.i.i.i.i.i: ; preds = %11
+_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE8allocateERS3_m.exit.i.i.i.i.i.i: ; preds = %11
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #22
   br label %14
 
-14:                                               ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE8allocateERS3_m.argprom.exit.i.i.i.i.i.i, %2
-  %15 = phi ptr [ null, %2 ], [ %13, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE8allocateERS3_m.argprom.exit.i.i.i.i.i.i ]
+14:                                               ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE8allocateERS3_m.exit.i.i.i.i.i.i, %2
+  %15 = phi ptr [ null, %2 ], [ %13, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE8allocateERS3_m.exit.i.i.i.i.i.i ]
   store ptr %15, ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8
@@ -18982,7 +18982,7 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEE8allo
   %.val10.i.i.i = load ptr, ptr %5, align 8
   %.val11.i.i.i = load ptr, ptr %6, align 8
   %.not12.i.i.i.i.i.i.i = icmp eq ptr %.val10.i.i.i, %.val11.i.i.i
-  br i1 %.not12.i.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE9constructIS2_JRKS2_EEEvPT_DpOT0_.argprom.exit, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %.not12.i.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE9constructIS2_JRKS2_EEEvPT_DpOT0_.exit, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %14, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
   %.014.i.i.i.i.i.i.i = phi ptr [ %20, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %15, %14 ]
@@ -18994,7 +18994,7 @@ _ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0
   %19 = getelementptr inbounds i8, ptr %.sroa.010.013.i.i.i.i.i.i.i, i64 128
   %20 = getelementptr inbounds i8, ptr %.014.i.i.i.i.i.i.i, i64 128
   %.not.i.i.i.i.i.i.i = icmp eq ptr %19, %.val11.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE9constructIS2_JRKS2_EEEvPT_DpOT0_.argprom.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !191
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE9constructIS2_JRKS2_EEEvPT_DpOT0_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !191
 
 21:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %22 = landingpad { ptr, i32 }
@@ -19024,29 +19024,29 @@ _ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0
 .body.i.i.i:                                      ; preds = %25
   %.val12.i.i.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val12.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EED2Ev.argprom.exit.i.i.i, label %31
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EED2Ev.exit.i.i.i, label %31
 
 31:                                               ; preds = %.body.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val12.i.i.i) #20
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EED2Ev.argprom.exit.i.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EED2Ev.exit.i.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EED2Ev.argprom.exit.i.i.i: ; preds = %31, %.body.i.i.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tESaIS2_EED2Ev.exit.i.i.i: ; preds = %31, %.body.i.i.i
   resume { ptr, i32 } %26
 
-_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE9constructIS2_JRKS2_EEEvPT_DpOT0_.argprom.exit: ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i, %14
+_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE9constructIS2_JRKS2_EEEvPT_DpOT0_.exit: ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i, %14
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %15, %14 ], [ %20, %_ZSt10_ConstructIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %16, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_.argprom(ptr nocapture noundef readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_(ptr nocapture noundef readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %3, %5
-  br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %1, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %18, %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i.i ], [ %3, %1 ]
@@ -19092,22 +19092,22 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.
 _ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i.i: ; preds = %17, %_ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EED2Ev.exit.i2.i.i.i.i.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 128
   %.not.i.i.i.i.i.i = icmp eq ptr %18, %5
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !105
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tEEvPT_.exit.i.i.i.i.i.i
   %.val.pr.i.i.i = load ptr, ptr %2, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i.i, %1
-  %.val.i.i.i = phi ptr [ %.val.pr.i.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exitthread-pre-split.i.i.i ], [ %3, %1 ]
+_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i, %1
+  %.val.i.i.i = phi ptr [ %.val.pr.i.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %3, %1 ]
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE7destroyIS2_EEvPT_.argprom.exit, label %19
+  br i1 %.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE7destroyIS2_EEvPT_.exit, label %19
 
-19:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i
+19:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i) #20
-  br label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE7destroyIS2_EEvPT_.argprom.exit
+  br label %_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE7destroyIS2_EEvPT_.exit
 
-_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE7destroyIS2_EEvPT_.argprom.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.argprom.exit.i.i.i, %19
+_ZNSt15__new_allocatorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEE7destroyIS2_EEvPT_.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tES2_EvT_S4_RSaIT0_E.exit.i.i.i, %19
   ret void
 }
 
@@ -20832,7 +20832,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i: ; preds = %161, %157
           cleanup
   br label %324
 
-.loopexit.split-lp:                               ; preds = %.invoke, %273, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit, %281, %283, %285, %286, %275
+.loopexit.split-lp:                               ; preds = %.invoke, %273, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit, %281, %283, %285, %286, %275
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %324
@@ -21048,14 +21048,14 @@ _ZNK5Yosys7hashlib5idictIiLi0ENS0_8hash_opsIiEEE5countERKi.exit.thread141: ; pre
   %276 = load ptr, ptr %2, align 8
   %277 = getelementptr inbounds i8, ptr %276, i64 72
   %278 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %277)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit unwind label %.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit: ; preds = %275
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit: ; preds = %275
   %279 = load ptr, ptr %2, align 8
   %280 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %279, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %281 unwind label %.loopexit.split-lp
 
-281:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit
+281:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit
   %282 = invoke noundef ptr @_ZN5Yosys10log_signalERKNS_5RTLIL7SigSpecEb(ptr noundef nonnull align 8 dereferenceable(64) %280, i1 noundef zeroext true)
           to label %283 unwind label %.loopexit.split-lp
 
@@ -24128,12 +24128,12 @@ attributes #23 = { noreturn nounwind }
 !11 = distinct !{!11, !12, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !12 = distinct !{!12, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE_clEv.argprom: argument 0"}
-!15 = distinct !{!15, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE_clEv.argprom"}
+!14 = distinct !{!14, !15, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE_clEv: argument 0"}
+!15 = distinct !{!15, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE_clEv"}
 !16 = !{!"branch_weights", i32 1, i32 1048575}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE0_clEv.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE0_clEv.argprom"}
+!18 = distinct !{!18, !19, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE0_clEv: argument 0"}
+!19 = distinct !{!19, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE0_clEv"}
 !20 = !{!21}
 !21 = distinct !{!21, !22, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !22 = distinct !{!22, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
@@ -24214,10 +24214,10 @@ attributes #23 = { noreturn nounwind }
 !97 = !{!98}
 !98 = distinct !{!98, !96, !"_ZSt19__relocate_object_aIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
 !99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_SaIS2_EEvPT_PT0_RT1_.argprom: argument 0"}
-!101 = distinct !{!101, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_SaIS2_EEvPT_PT0_RT1_.argprom"}
+!100 = distinct !{!100, !101, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!101 = distinct !{!101, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_SaIS2_EEvPT_PT0_RT1_"}
 !102 = !{!103}
-!103 = distinct !{!103, !101, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_SaIS2_EEvPT_PT0_RT1_.argprom: argument 1"}
+!103 = distinct !{!103, !101, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
 !104 = distinct !{!104, !7}
 !105 = distinct !{!105, !7}
 !106 = !{!107}
@@ -24257,8 +24257,8 @@ attributes #23 = { noreturn nounwind }
 !140 = distinct !{!140, !7}
 !141 = distinct !{!141, !7}
 !142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE1_clEv.argprom: argument 0"}
-!144 = distinct !{!144, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE1_clEv.argprom"}
+!143 = distinct !{!143, !144, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE1_clEv: argument 0"}
+!144 = distinct !{!144, !"_ZZN12_GLOBAL__N_116OptMuxtreeWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEENKUlvE1_clEv"}
 !145 = distinct !{!145, !7}
 !146 = distinct !{!146, !7}
 !147 = distinct !{!147, !7}

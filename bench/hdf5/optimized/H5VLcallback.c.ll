@@ -1431,7 +1431,7 @@ define range(i32 -1, 1) i32 @H5VLfree_wrap_ctx(ptr noundef %0, i64 noundef %1) l
 define ptr @H5VL_attr_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %11 = icmp sgt i32 %10, -1
-  br i1 %11, label %12, label %H5VL__attr_create.argprom.exit
+  br i1 %11, label %12, label %H5VL__attr_create.exit
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1466,7 +1466,7 @@ define ptr @H5VL_attr_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_create, i32 noundef 1020, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.25) #6
   br label %37
 
-H5VL__attr_create.argprom.exit:                   ; preds = %9
+H5VL__attr_create.exit:                           ; preds = %9
   %34 = load i64, ptr @H5E_VOL_g, align 8
   %35 = load i64, ptr @H5E_CANTSET_g, align 8
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_create, i32 noundef 1014, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.24) #6
@@ -1484,8 +1484,8 @@ H5VL__attr_create.argprom.exit:                   ; preds = %9
   %43 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_create, i32 noundef 1025, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.26) #6
   br label %44
 
-44:                                               ; preds = %H5VL__attr_create.argprom.exit, %40, %37
-  %.1 = phi ptr [ null, %40 ], [ %.0.ph, %37 ], [ null, %H5VL__attr_create.argprom.exit ]
+44:                                               ; preds = %H5VL__attr_create.exit, %40, %37
+  %.1 = phi ptr [ null, %40 ], [ %.0.ph, %37 ], [ null, %H5VL__attr_create.exit ]
   ret ptr %.1
 }
 
@@ -1530,7 +1530,7 @@ define ptr @H5VLattr_create(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
 30:                                               ; preds = %23
   %31 = tail call ptr %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) #6
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %H5VL__attr_create.argprom.exit
+  br i1 %32, label %33, label %H5VL__attr_create.exit
 
 33:                                               ; preds = %30
   %34 = load i64, ptr @H5E_VOL_g, align 8
@@ -1546,9 +1546,9 @@ define ptr @H5VLattr_create(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
 
 41:                                               ; preds = %12, %19, %37
   %42 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__attr_create.argprom.exit
+  br label %H5VL__attr_create.exit
 
-H5VL__attr_create.argprom.exit:                   ; preds = %30, %41
+H5VL__attr_create.exit:                           ; preds = %30, %41
   %.01625 = phi ptr [ null, %41 ], [ %31, %30 ]
   ret ptr %.01625
 }
@@ -1557,7 +1557,7 @@ H5VL__attr_create.argprom.exit:                   ; preds = %30, %41
 define ptr @H5VL_attr_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %9, label %H5VL__attr_open.argprom.exit
+  br i1 %8, label %9, label %H5VL__attr_open.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1592,7 +1592,7 @@ define ptr @H5VL_attr_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 n
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_open, i32 noundef 1122, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.28) #6
   br label %34
 
-H5VL__attr_open.argprom.exit:                     ; preds = %6
+H5VL__attr_open.exit:                             ; preds = %6
   %31 = load i64, ptr @H5E_VOL_g, align 8
   %32 = load i64, ptr @H5E_CANTSET_g, align 8
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_open, i32 noundef 1116, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.24) #6
@@ -1610,8 +1610,8 @@ H5VL__attr_open.argprom.exit:                     ; preds = %6
   %40 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_open, i32 noundef 1127, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.26) #6
   br label %41
 
-41:                                               ; preds = %H5VL__attr_open.argprom.exit, %37, %34
-  %.1 = phi ptr [ null, %37 ], [ %.0.ph, %34 ], [ null, %H5VL__attr_open.argprom.exit ]
+41:                                               ; preds = %H5VL__attr_open.exit, %37, %34
+  %.1 = phi ptr [ null, %37 ], [ %.0.ph, %34 ], [ null, %H5VL__attr_open.exit ]
   ret ptr %.1
 }
 
@@ -1652,7 +1652,7 @@ define ptr @H5VLattr_open(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr no
 27:                                               ; preds = %20
   %28 = tail call ptr %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #6
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %H5VL__attr_open.argprom.exit
+  br i1 %29, label %30, label %H5VL__attr_open.exit
 
 30:                                               ; preds = %27
   %31 = load i64, ptr @H5E_VOL_g, align 8
@@ -1668,9 +1668,9 @@ define ptr @H5VLattr_open(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr no
 
 38:                                               ; preds = %9, %16, %34
   %39 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__attr_open.argprom.exit
+  br label %H5VL__attr_open.exit
 
-H5VL__attr_open.argprom.exit:                     ; preds = %27, %38
+H5VL__attr_open.exit:                             ; preds = %27, %38
   %.01322 = phi ptr [ null, %38 ], [ %28, %27 ]
   ret ptr %.01322
 }
@@ -1679,7 +1679,7 @@ H5VL__attr_open.argprom.exit:                     ; preds = %27, %38
 define range(i32 -1, 1) i32 @H5VL_attr_read(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %H5VL__attr_read.argprom.exit
+  br i1 %7, label %8, label %H5VL__attr_read.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1714,7 +1714,7 @@ define range(i32 -1, 1) i32 @H5VL_attr_read(ptr noundef %0, i64 noundef %1, ptr 
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_read, i32 noundef 1219, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.30) #6
   br label %33
 
-H5VL__attr_read.argprom.exit:                     ; preds = %5
+H5VL__attr_read.exit:                             ; preds = %5
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTSET_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_read, i32 noundef 1214, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.24) #6
@@ -1732,8 +1732,8 @@ H5VL__attr_read.argprom.exit:                     ; preds = %5
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_read, i32 noundef 1224, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.26) #6
   br label %40
 
-40:                                               ; preds = %H5VL__attr_read.argprom.exit, %36, %33
-  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__attr_read.argprom.exit ]
+40:                                               ; preds = %H5VL__attr_read.exit, %36, %33
+  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__attr_read.exit ]
   ret i32 %.1
 }
 
@@ -1774,7 +1774,7 @@ define range(i32 -1, 1) i32 @H5VLattr_read(ptr noundef %0, i64 noundef %1, i64 n
 26:                                               ; preds = %19
   %27 = tail call i32 %.val(ptr noundef nonnull %0, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %H5VL__attr_read.argprom.exit
+  br i1 %28, label %29, label %H5VL__attr_read.exit
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5E_VOL_g, align 8
@@ -1790,9 +1790,9 @@ define range(i32 -1, 1) i32 @H5VLattr_read(ptr noundef %0, i64 noundef %1, i64 n
 
 37:                                               ; preds = %8, %15, %33
   %38 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__attr_read.argprom.exit
+  br label %H5VL__attr_read.exit
 
-H5VL__attr_read.argprom.exit:                     ; preds = %26, %37
+H5VL__attr_read.exit:                             ; preds = %26, %37
   %.01220 = phi i32 [ -1, %37 ], [ 0, %26 ]
   ret i32 %.01220
 }
@@ -1801,7 +1801,7 @@ H5VL__attr_read.argprom.exit:                     ; preds = %26, %37
 define range(i32 -1, 1) i32 @H5VL_attr_write(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %H5VL__attr_write.argprom.exit
+  br i1 %7, label %8, label %H5VL__attr_write.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1836,7 +1836,7 @@ define range(i32 -1, 1) i32 @H5VL_attr_write(ptr noundef %0, i64 noundef %1, ptr
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_write, i32 noundef 1316, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.32) #6
   br label %33
 
-H5VL__attr_write.argprom.exit:                    ; preds = %5
+H5VL__attr_write.exit:                            ; preds = %5
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTSET_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_write, i32 noundef 1311, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.24) #6
@@ -1854,8 +1854,8 @@ H5VL__attr_write.argprom.exit:                    ; preds = %5
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_write, i32 noundef 1321, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.26) #6
   br label %40
 
-40:                                               ; preds = %H5VL__attr_write.argprom.exit, %36, %33
-  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__attr_write.argprom.exit ]
+40:                                               ; preds = %H5VL__attr_write.exit, %36, %33
+  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__attr_write.exit ]
   ret i32 %.1
 }
 
@@ -1896,7 +1896,7 @@ define range(i32 -1, 1) i32 @H5VLattr_write(ptr noundef %0, i64 noundef %1, i64 
 26:                                               ; preds = %19
   %27 = tail call i32 %.val(ptr noundef nonnull %0, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %H5VL__attr_write.argprom.exit
+  br i1 %28, label %29, label %H5VL__attr_write.exit
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5E_VOL_g, align 8
@@ -1912,9 +1912,9 @@ define range(i32 -1, 1) i32 @H5VLattr_write(ptr noundef %0, i64 noundef %1, i64 
 
 37:                                               ; preds = %8, %15, %33
   %38 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__attr_write.argprom.exit
+  br label %H5VL__attr_write.exit
 
-H5VL__attr_write.argprom.exit:                    ; preds = %26, %37
+H5VL__attr_write.exit:                            ; preds = %26, %37
   %.01220 = phi i32 [ -1, %37 ], [ 0, %26 ]
   ret i32 %.01220
 }
@@ -1923,7 +1923,7 @@ H5VL__attr_write.argprom.exit:                    ; preds = %26, %37
 define range(i32 -1, 1) i32 @H5VL_attr_get(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %H5VL__attr_get.argprom.exit
+  br i1 %6, label %7, label %H5VL__attr_get.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1958,7 +1958,7 @@ define range(i32 -1, 1) i32 @H5VL_attr_get(ptr noundef %0, ptr noundef %1, i64 n
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_get, i32 noundef 1413, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.34) #6
   br label %32
 
-H5VL__attr_get.argprom.exit:                      ; preds = %4
+H5VL__attr_get.exit:                              ; preds = %4
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_get, i32 noundef 1408, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
@@ -1976,8 +1976,8 @@ H5VL__attr_get.argprom.exit:                      ; preds = %4
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_get, i32 noundef 1418, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.26) #6
   br label %39
 
-39:                                               ; preds = %H5VL__attr_get.argprom.exit, %35, %32
-  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__attr_get.argprom.exit ]
+39:                                               ; preds = %H5VL__attr_get.exit, %35, %32
+  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__attr_get.exit ]
   ret i32 %.1
 }
 
@@ -2028,7 +2028,7 @@ define range(i32 -1, 1) i32 @H5VLattr_get(ptr noundef %0, i64 noundef %1, ptr no
 31:                                               ; preds = %24
   %32 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %3, ptr noundef %4) #6
   %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %H5VL__attr_get.argprom.exit
+  br i1 %33, label %34, label %H5VL__attr_get.exit
 
 34:                                               ; preds = %31
   %35 = load i64, ptr @H5E_VOL_g, align 8
@@ -2044,9 +2044,9 @@ define range(i32 -1, 1) i32 @H5VLattr_get(ptr noundef %0, i64 noundef %1, ptr no
 
 42:                                               ; preds = %7, %14, %20, %38
   %43 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__attr_get.argprom.exit
+  br label %H5VL__attr_get.exit
 
-H5VL__attr_get.argprom.exit:                      ; preds = %31, %42
+H5VL__attr_get.exit:                              ; preds = %31, %42
   %.01322 = phi i32 [ -1, %42 ], [ 0, %31 ]
   ret i32 %.01322
 }
@@ -2055,7 +2055,7 @@ H5VL__attr_get.argprom.exit:                      ; preds = %31, %42
 define i32 @H5VL_attr_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %H5VL__attr_specific.argprom.exit
+  br i1 %7, label %8, label %H5VL__attr_specific.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2091,7 +2091,7 @@ define i32 @H5VL_attr_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_specific, i32 noundef 1516, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.37) #6
   br label %33
 
-H5VL__attr_specific.argprom.exit:                 ; preds = %5
+H5VL__attr_specific.exit:                         ; preds = %5
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTSET_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_specific, i32 noundef 1509, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.24) #6
@@ -2109,8 +2109,8 @@ H5VL__attr_specific.argprom.exit:                 ; preds = %5
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_specific, i32 noundef 1521, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.26) #6
   br label %40
 
-40:                                               ; preds = %H5VL__attr_specific.argprom.exit, %36, %33
-  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__attr_specific.argprom.exit ]
+40:                                               ; preds = %H5VL__attr_specific.exit, %36, %33
+  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__attr_specific.exit ]
   ret i32 %.1
 }
 
@@ -2151,7 +2151,7 @@ define i32 @H5VLattr_specific(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
 26:                                               ; preds = %19
   %27 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %H5VL__attr_specific.argprom.exit
+  br i1 %28, label %29, label %H5VL__attr_specific.exit
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5E_VOL_g, align 8
@@ -2164,13 +2164,13 @@ define i32 @H5VLattr_specific(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   %34 = load i64, ptr @H5E_VOL_g, align 8
   %35 = load i64, ptr @H5E_CANTOPERATE_g, align 8
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLattr_specific, i32 noundef 1554, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.37) #6
-  br label %H5VL__attr_specific.argprom.exit
+  br label %H5VL__attr_specific.exit
 
 37:                                               ; preds = %8, %15
   %38 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__attr_specific.argprom.exit
+  br label %H5VL__attr_specific.exit
 
-H5VL__attr_specific.argprom.exit:                 ; preds = %33, %26, %37
+H5VL__attr_specific.exit:                         ; preds = %33, %26, %37
   %.01121 = phi i32 [ -1, %37 ], [ %.0.i.ph, %33 ], [ %27, %26 ]
   ret i32 %.01121
 }
@@ -2491,7 +2491,7 @@ define range(i32 -1, 1) i32 @H5VL_attr_close(ptr nocapture noundef readonly %0, 
   %14 = load ptr, ptr %0, align 8
   %15 = tail call i32 %.val(ptr noundef %14, i64 noundef %1, ptr noundef %2) #6
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %H5VL__attr_close.argprom.exit
+  br i1 %16, label %17, label %H5VL__attr_close.exit
 
 17:                                               ; preds = %13
   %18 = load i64, ptr @H5E_VOL_g, align 8
@@ -2503,9 +2503,9 @@ define range(i32 -1, 1) i32 @H5VL_attr_close(ptr nocapture noundef readonly %0, 
   %22 = load i64, ptr @H5E_VOL_g, align 8
   %23 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_attr_close, i32 noundef 1753, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.48) #6
-  br label %H5VL__attr_close.argprom.exit
+  br label %H5VL__attr_close.exit
 
-H5VL__attr_close.argprom.exit:                    ; preds = %13, %21
+H5VL__attr_close.exit:                            ; preds = %13, %21
   %.0 = phi i32 [ -1, %21 ], [ 0, %13 ]
   ret i32 %.0
 }
@@ -2547,7 +2547,7 @@ define range(i32 -1, 1) i32 @H5VLattr_close(ptr noundef %0, i64 noundef %1, i64 
 24:                                               ; preds = %17
   %25 = tail call i32 %.val(ptr noundef nonnull %0, i64 noundef %2, ptr noundef %3) #6
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %H5VL__attr_close.argprom.exit
+  br i1 %26, label %27, label %H5VL__attr_close.exit
 
 27:                                               ; preds = %24
   %28 = load i64, ptr @H5E_VOL_g, align 8
@@ -2563,9 +2563,9 @@ define range(i32 -1, 1) i32 @H5VLattr_close(ptr noundef %0, i64 noundef %1, i64 
 
 35:                                               ; preds = %6, %13, %31
   %36 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__attr_close.argprom.exit
+  br label %H5VL__attr_close.exit
 
-H5VL__attr_close.argprom.exit:                    ; preds = %24, %35
+H5VL__attr_close.exit:                            ; preds = %24, %35
   %.01018 = phi i32 [ -1, %35 ], [ 0, %24 ]
   ret i32 %.01018
 }
@@ -2574,7 +2574,7 @@ H5VL__attr_close.argprom.exit:                    ; preds = %24, %35
 define ptr @H5VL_dataset_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %13, label %H5VL__dataset_create.argprom.exit
+  br i1 %12, label %13, label %H5VL__dataset_create.exit
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2609,7 +2609,7 @@ define ptr @H5VL_dataset_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_create, i32 noundef 1852, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.50) #6
   br label %38
 
-H5VL__dataset_create.argprom.exit:                ; preds = %10
+H5VL__dataset_create.exit:                        ; preds = %10
   %35 = load i64, ptr @H5E_VOL_g, align 8
   %36 = load i64, ptr @H5E_CANTSET_g, align 8
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_create, i32 noundef 1845, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.24) #6
@@ -2627,8 +2627,8 @@ H5VL__dataset_create.argprom.exit:                ; preds = %10
   %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_create, i32 noundef 1857, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.26) #6
   br label %45
 
-45:                                               ; preds = %H5VL__dataset_create.argprom.exit, %41, %38
-  %.1 = phi ptr [ null, %41 ], [ %.0.ph, %38 ], [ null, %H5VL__dataset_create.argprom.exit ]
+45:                                               ; preds = %H5VL__dataset_create.exit, %41, %38
+  %.1 = phi ptr [ null, %41 ], [ %.0.ph, %38 ], [ null, %H5VL__dataset_create.exit ]
   ret ptr %.1
 }
 
@@ -2669,7 +2669,7 @@ define ptr @H5VLdataset_create(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
 31:                                               ; preds = %24
   %32 = tail call ptr %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef %10) #6
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %H5VL__dataset_create.argprom.exit
+  br i1 %33, label %34, label %H5VL__dataset_create.exit
 
 34:                                               ; preds = %31
   %35 = load i64, ptr @H5E_VOL_g, align 8
@@ -2685,9 +2685,9 @@ define ptr @H5VLdataset_create(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
 
 42:                                               ; preds = %13, %20, %38
   %43 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__dataset_create.argprom.exit
+  br label %H5VL__dataset_create.exit
 
-H5VL__dataset_create.argprom.exit:                ; preds = %31, %42
+H5VL__dataset_create.exit:                        ; preds = %31, %42
   %.01726 = phi ptr [ null, %42 ], [ %32, %31 ]
   ret ptr %.01726
 }
@@ -2696,7 +2696,7 @@ H5VL__dataset_create.argprom.exit:                ; preds = %31, %42
 define ptr @H5VL_dataset_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %9, label %H5VL__dataset_open.argprom.exit
+  br i1 %8, label %9, label %H5VL__dataset_open.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2731,7 +2731,7 @@ define ptr @H5VL_dataset_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_open, i32 noundef 1954, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.52) #6
   br label %34
 
-H5VL__dataset_open.argprom.exit:                  ; preds = %6
+H5VL__dataset_open.exit:                          ; preds = %6
   %31 = load i64, ptr @H5E_VOL_g, align 8
   %32 = load i64, ptr @H5E_CANTSET_g, align 8
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_open, i32 noundef 1948, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.24) #6
@@ -2749,8 +2749,8 @@ H5VL__dataset_open.argprom.exit:                  ; preds = %6
   %40 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_open, i32 noundef 1959, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.26) #6
   br label %41
 
-41:                                               ; preds = %H5VL__dataset_open.argprom.exit, %37, %34
-  %.1 = phi ptr [ null, %37 ], [ %.0.ph, %34 ], [ null, %H5VL__dataset_open.argprom.exit ]
+41:                                               ; preds = %H5VL__dataset_open.exit, %37, %34
+  %.1 = phi ptr [ null, %37 ], [ %.0.ph, %34 ], [ null, %H5VL__dataset_open.exit ]
   ret ptr %.1
 }
 
@@ -2791,7 +2791,7 @@ define ptr @H5VLdataset_open(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr
 27:                                               ; preds = %20
   %28 = tail call ptr %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #6
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %H5VL__dataset_open.argprom.exit
+  br i1 %29, label %30, label %H5VL__dataset_open.exit
 
 30:                                               ; preds = %27
   %31 = load i64, ptr @H5E_VOL_g, align 8
@@ -2807,9 +2807,9 @@ define ptr @H5VLdataset_open(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr
 
 38:                                               ; preds = %9, %16, %34
   %39 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__dataset_open.argprom.exit
+  br label %H5VL__dataset_open.exit
 
-H5VL__dataset_open.argprom.exit:                  ; preds = %27, %38
+H5VL__dataset_open.exit:                          ; preds = %27, %38
   %.01322 = phi ptr [ null, %38 ], [ %28, %27 ]
   ret ptr %.01322
 }
@@ -2825,7 +2825,7 @@ define range(i32 -1, 1) i32 @H5VL_dataset_read_direct(i64 noundef %0, ptr nounde
   store i64 1, ptr %13, align 8
   %14 = call i32 @H5VL_set_vol_wrapper(ptr noundef nonnull %10) #6
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %16, label %H5VL__dataset_read.argprom.exit
+  br i1 %15, label %16, label %H5VL__dataset_read.exit
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %2, align 8
@@ -2857,7 +2857,7 @@ define range(i32 -1, 1) i32 @H5VL_dataset_read_direct(i64 noundef %0, ptr nounde
   %34 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_read_direct, i32 noundef 2065, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.54) #6
   br label %38
 
-H5VL__dataset_read.argprom.exit:                  ; preds = %9
+H5VL__dataset_read.exit:                          ; preds = %9
   %35 = load i64, ptr @H5E_VOL_g, align 8
   %36 = load i64, ptr @H5E_CANTSET_g, align 8
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_read_direct, i32 noundef 2059, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.24) #6
@@ -2875,8 +2875,8 @@ H5VL__dataset_read.argprom.exit:                  ; preds = %9
   %44 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_read_direct, i32 noundef 2070, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.26) #6
   br label %45
 
-45:                                               ; preds = %H5VL__dataset_read.argprom.exit, %41, %38
-  %.1 = phi i32 [ -1, %41 ], [ %.0.ph, %38 ], [ -1, %H5VL__dataset_read.argprom.exit ]
+45:                                               ; preds = %H5VL__dataset_read.exit, %41, %38
+  %.1 = phi i32 [ -1, %41 ], [ %.0.ph, %38 ], [ -1, %H5VL__dataset_read.exit ]
   ret i32 %.1
 }
 
@@ -2902,17 +2902,17 @@ define range(i32 -1, 1) i32 @H5VL_dataset_read(i64 noundef %0, ptr nocapture nou
   %19 = shl i64 %0, 3
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #7
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %H5VL__dataset_read.argprom.exit.thread40, label %.thread57
+  br i1 %21, label %H5VL__dataset_read.exit.thread40, label %.thread57
 
 .thread57:                                        ; preds = %18
   %.pre60 = load ptr, ptr %1, align 8
   br label %.lr.ph
 
-H5VL__dataset_read.argprom.exit.thread40:         ; preds = %18
+H5VL__dataset_read.exit.thread40:                 ; preds = %18
   %22 = load i64, ptr @H5E_VOL_g, align 8
   %23 = load i64, ptr @H5E_CANTALLOC_g, align 8
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_read, i32 noundef 2108, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.55) #6
-  br label %H5VL__dataset_read.argprom.exit
+  br label %H5VL__dataset_read.exit
 
 25:                                               ; preds = %16
   %.not54 = icmp eq i64 %0, 0
@@ -2959,7 +2959,7 @@ H5VL__dataset_read.argprom.exit.thread40:         ; preds = %18
   %44 = load i64, ptr @H5E_ARGS_g, align 8
   %45 = load i64, ptr @H5E_BADTYPE_g, align 8
   %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_read, i32 noundef 2119, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.56) #6
-  br label %H5VL__dataset_read.argprom.exit
+  br label %H5VL__dataset_read.exit
 
 ._crit_edge:                                      ; preds = %27, %.._crit_edge_crit_edge
   %.13262 = phi ptr [ %9, %.._crit_edge_crit_edge ], [ %.13261, %27 ]
@@ -2978,7 +2978,7 @@ H5VL__dataset_read.argprom.exit.thread40:         ; preds = %18
 54:                                               ; preds = %._crit_edge
   %55 = call i32 %.val(i64 noundef %0, ptr noundef nonnull %.13262, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #6
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %57, label %H5VL__dataset_read.argprom.exit
+  br i1 %56, label %57, label %H5VL__dataset_read.exit
 
 57:                                               ; preds = %54
   %58 = load i64, ptr @H5E_VOL_g, align 8
@@ -2990,23 +2990,23 @@ H5VL__dataset_read.argprom.exit.thread40:         ; preds = %18
   %62 = load i64, ptr @H5E_VOL_g, align 8
   %63 = load i64, ptr @H5E_READERROR_g, align 8
   %64 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_read, i32 noundef 2125, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.54) #6
-  br label %H5VL__dataset_read.argprom.exit
+  br label %H5VL__dataset_read.exit
 
-H5VL__dataset_read.argprom.exit:                  ; preds = %43, %61, %54, %H5VL__dataset_read.argprom.exit.thread40
-  %.045 = phi i32 [ -1, %H5VL__dataset_read.argprom.exit.thread40 ], [ -1, %43 ], [ -1, %61 ], [ 0, %54 ]
-  %.03144 = phi ptr [ null, %H5VL__dataset_read.argprom.exit.thread40 ], [ %.13261, %43 ], [ %.13262, %61 ], [ %.13262, %54 ]
+H5VL__dataset_read.exit:                          ; preds = %43, %61, %54, %H5VL__dataset_read.exit.thread40
+  %.045 = phi i32 [ -1, %H5VL__dataset_read.exit.thread40 ], [ -1, %43 ], [ -1, %61 ], [ 0, %54 ]
+  %.03144 = phi ptr [ null, %H5VL__dataset_read.exit.thread40 ], [ %.13261, %43 ], [ %.13262, %61 ], [ %.13262, %54 ]
   %65 = call i32 @H5VL_reset_vol_wrapper() #6
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %67, label %71
 
-67:                                               ; preds = %H5VL__dataset_read.argprom.exit
+67:                                               ; preds = %H5VL__dataset_read.exit
   %68 = load i64, ptr @H5E_VOL_g, align 8
   %69 = load i64, ptr @H5E_CANTRESET_g, align 8
   %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_read, i32 noundef 2130, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.26) #6
   br label %71
 
-71:                                               ; preds = %67, %H5VL__dataset_read.argprom.exit
-  %.1 = phi i32 [ -1, %67 ], [ %.045, %H5VL__dataset_read.argprom.exit ]
+71:                                               ; preds = %67, %H5VL__dataset_read.exit
+  %.1 = phi i32 [ -1, %67 ], [ %.045, %H5VL__dataset_read.exit ]
   %.not38 = icmp eq ptr %.03144, %9
   br i1 %.not38, label %73, label %72
 
@@ -3121,7 +3121,7 @@ define range(i32 -1, 1) i32 @H5VLdataset_read(i64 noundef %0, ptr noundef %1, i6
 62:                                               ; preds = %55
   %63 = tail call i32 %.val(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %6, ptr noundef nonnull %7, ptr noundef %8) #6
   %64 = icmp slt i32 %63, 0
-  br i1 %64, label %65, label %H5VL__dataset_read.argprom.exit
+  br i1 %64, label %65, label %H5VL__dataset_read.exit
 
 65:                                               ; preds = %62
   %66 = load i64, ptr @H5E_VOL_g, align 8
@@ -3137,9 +3137,9 @@ define range(i32 -1, 1) i32 @H5VLdataset_read(i64 noundef %0, ptr noundef %1, i6
 
 73:                                               ; preds = %12, %21, %26, %32, %38, %44, %51, %69
   %74 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__dataset_read.argprom.exit
+  br label %H5VL__dataset_read.exit
 
-H5VL__dataset_read.argprom.exit:                  ; preds = %62, %73
+H5VL__dataset_read.exit:                          ; preds = %62, %73
   %.02943 = phi i32 [ -1, %73 ], [ 0, %62 ]
   ret i32 %.02943
 }
@@ -3155,7 +3155,7 @@ define range(i32 -1, 1) i32 @H5VL_dataset_write_direct(i64 noundef %0, ptr nound
   store i64 1, ptr %13, align 8
   %14 = call i32 @H5VL_set_vol_wrapper(ptr noundef nonnull %10) #6
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %16, label %H5VL__dataset_write.argprom.exit
+  br i1 %15, label %16, label %H5VL__dataset_write.exit
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %2, align 8
@@ -3187,7 +3187,7 @@ define range(i32 -1, 1) i32 @H5VL_dataset_write_direct(i64 noundef %0, ptr nound
   %34 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_write_direct, i32 noundef 2253, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.63) #6
   br label %38
 
-H5VL__dataset_write.argprom.exit:                 ; preds = %9
+H5VL__dataset_write.exit:                         ; preds = %9
   %35 = load i64, ptr @H5E_VOL_g, align 8
   %36 = load i64, ptr @H5E_CANTSET_g, align 8
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_write_direct, i32 noundef 2247, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.24) #6
@@ -3205,8 +3205,8 @@ H5VL__dataset_write.argprom.exit:                 ; preds = %9
   %44 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_write_direct, i32 noundef 2258, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.26) #6
   br label %45
 
-45:                                               ; preds = %H5VL__dataset_write.argprom.exit, %41, %38
-  %.1 = phi i32 [ -1, %41 ], [ %.0.ph, %38 ], [ -1, %H5VL__dataset_write.argprom.exit ]
+45:                                               ; preds = %H5VL__dataset_write.exit, %41, %38
+  %.1 = phi i32 [ -1, %41 ], [ %.0.ph, %38 ], [ -1, %H5VL__dataset_write.exit ]
   ret i32 %.1
 }
 
@@ -3232,17 +3232,17 @@ define range(i32 -1, 1) i32 @H5VL_dataset_write(i64 noundef %0, ptr nocapture no
   %19 = shl i64 %0, 3
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #7
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %H5VL__dataset_write.argprom.exit.thread40, label %.thread57
+  br i1 %21, label %H5VL__dataset_write.exit.thread40, label %.thread57
 
 .thread57:                                        ; preds = %18
   %.pre60 = load ptr, ptr %1, align 8
   br label %.lr.ph
 
-H5VL__dataset_write.argprom.exit.thread40:        ; preds = %18
+H5VL__dataset_write.exit.thread40:                ; preds = %18
   %22 = load i64, ptr @H5E_VOL_g, align 8
   %23 = load i64, ptr @H5E_CANTALLOC_g, align 8
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_write, i32 noundef 2296, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.55) #6
-  br label %H5VL__dataset_write.argprom.exit
+  br label %H5VL__dataset_write.exit
 
 25:                                               ; preds = %16
   %.not54 = icmp eq i64 %0, 0
@@ -3289,7 +3289,7 @@ H5VL__dataset_write.argprom.exit.thread40:        ; preds = %18
   %44 = load i64, ptr @H5E_ARGS_g, align 8
   %45 = load i64, ptr @H5E_BADTYPE_g, align 8
   %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_write, i32 noundef 2307, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.56) #6
-  br label %H5VL__dataset_write.argprom.exit
+  br label %H5VL__dataset_write.exit
 
 ._crit_edge:                                      ; preds = %27, %.._crit_edge_crit_edge
   %.13262 = phi ptr [ %9, %.._crit_edge_crit_edge ], [ %.13261, %27 ]
@@ -3308,7 +3308,7 @@ H5VL__dataset_write.argprom.exit.thread40:        ; preds = %18
 54:                                               ; preds = %._crit_edge
   %55 = call i32 %.val(i64 noundef %0, ptr noundef nonnull %.13262, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #6
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %57, label %H5VL__dataset_write.argprom.exit
+  br i1 %56, label %57, label %H5VL__dataset_write.exit
 
 57:                                               ; preds = %54
   %58 = load i64, ptr @H5E_VOL_g, align 8
@@ -3320,23 +3320,23 @@ H5VL__dataset_write.argprom.exit.thread40:        ; preds = %18
   %62 = load i64, ptr @H5E_VOL_g, align 8
   %63 = load i64, ptr @H5E_WRITEERROR_g, align 8
   %64 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_write, i32 noundef 2313, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.63) #6
-  br label %H5VL__dataset_write.argprom.exit
+  br label %H5VL__dataset_write.exit
 
-H5VL__dataset_write.argprom.exit:                 ; preds = %43, %61, %54, %H5VL__dataset_write.argprom.exit.thread40
-  %.045 = phi i32 [ -1, %H5VL__dataset_write.argprom.exit.thread40 ], [ -1, %43 ], [ -1, %61 ], [ 0, %54 ]
-  %.03144 = phi ptr [ null, %H5VL__dataset_write.argprom.exit.thread40 ], [ %.13261, %43 ], [ %.13262, %61 ], [ %.13262, %54 ]
+H5VL__dataset_write.exit:                         ; preds = %43, %61, %54, %H5VL__dataset_write.exit.thread40
+  %.045 = phi i32 [ -1, %H5VL__dataset_write.exit.thread40 ], [ -1, %43 ], [ -1, %61 ], [ 0, %54 ]
+  %.03144 = phi ptr [ null, %H5VL__dataset_write.exit.thread40 ], [ %.13261, %43 ], [ %.13262, %61 ], [ %.13262, %54 ]
   %65 = call i32 @H5VL_reset_vol_wrapper() #6
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %67, label %71
 
-67:                                               ; preds = %H5VL__dataset_write.argprom.exit
+67:                                               ; preds = %H5VL__dataset_write.exit
   %68 = load i64, ptr @H5E_VOL_g, align 8
   %69 = load i64, ptr @H5E_CANTRESET_g, align 8
   %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_write, i32 noundef 2318, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.26) #6
   br label %71
 
-71:                                               ; preds = %67, %H5VL__dataset_write.argprom.exit
-  %.1 = phi i32 [ -1, %67 ], [ %.045, %H5VL__dataset_write.argprom.exit ]
+71:                                               ; preds = %67, %H5VL__dataset_write.exit
+  %.1 = phi i32 [ -1, %67 ], [ %.045, %H5VL__dataset_write.exit ]
   %.not38 = icmp eq ptr %.03144, %9
   br i1 %.not38, label %73, label %72
 
@@ -3448,7 +3448,7 @@ define range(i32 -1, 1) i32 @H5VLdataset_write(i64 noundef %0, ptr noundef %1, i
 62:                                               ; preds = %55
   %63 = tail call i32 %.val(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %6, ptr noundef nonnull %7, ptr noundef %8) #6
   %64 = icmp slt i32 %63, 0
-  br i1 %64, label %65, label %H5VL__dataset_write.argprom.exit
+  br i1 %64, label %65, label %H5VL__dataset_write.exit
 
 65:                                               ; preds = %62
   %66 = load i64, ptr @H5E_VOL_g, align 8
@@ -3464,9 +3464,9 @@ define range(i32 -1, 1) i32 @H5VLdataset_write(i64 noundef %0, ptr noundef %1, i
 
 73:                                               ; preds = %12, %21, %26, %32, %38, %44, %51, %69
   %74 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__dataset_write.argprom.exit
+  br label %H5VL__dataset_write.exit
 
-H5VL__dataset_write.argprom.exit:                 ; preds = %62, %73
+H5VL__dataset_write.exit:                         ; preds = %62, %73
   %.02943 = phi i32 [ -1, %73 ], [ 0, %62 ]
   ret i32 %.02943
 }
@@ -3475,7 +3475,7 @@ H5VL__dataset_write.argprom.exit:                 ; preds = %62, %73
 define range(i32 -1, 1) i32 @H5VL_dataset_get(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %H5VL__dataset_get.argprom.exit
+  br i1 %6, label %7, label %H5VL__dataset_get.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3510,7 +3510,7 @@ define range(i32 -1, 1) i32 @H5VL_dataset_get(ptr noundef %0, ptr noundef %1, i6
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_get, i32 noundef 2427, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.65) #6
   br label %32
 
-H5VL__dataset_get.argprom.exit:                   ; preds = %4
+H5VL__dataset_get.exit:                           ; preds = %4
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_get, i32 noundef 2422, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
@@ -3528,8 +3528,8 @@ H5VL__dataset_get.argprom.exit:                   ; preds = %4
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_get, i32 noundef 2432, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.26) #6
   br label %39
 
-39:                                               ; preds = %H5VL__dataset_get.argprom.exit, %35, %32
-  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__dataset_get.argprom.exit ]
+39:                                               ; preds = %H5VL__dataset_get.exit, %35, %32
+  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__dataset_get.exit ]
   ret i32 %.1
 }
 
@@ -3570,7 +3570,7 @@ define range(i32 -1, 1) i32 @H5VLdataset_get(ptr noundef %0, i64 noundef %1, ptr
 25:                                               ; preds = %18
   %26 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #6
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %H5VL__dataset_get.argprom.exit
+  br i1 %27, label %28, label %H5VL__dataset_get.exit
 
 28:                                               ; preds = %25
   %29 = load i64, ptr @H5E_VOL_g, align 8
@@ -3586,9 +3586,9 @@ define range(i32 -1, 1) i32 @H5VLdataset_get(ptr noundef %0, i64 noundef %1, ptr
 
 36:                                               ; preds = %7, %14, %32
   %37 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__dataset_get.argprom.exit
+  br label %H5VL__dataset_get.exit
 
-H5VL__dataset_get.argprom.exit:                   ; preds = %25, %36
+H5VL__dataset_get.exit:                           ; preds = %25, %36
   %.01119 = phi i32 [ -1, %36 ], [ 0, %25 ]
   ret i32 %.01119
 }
@@ -3597,7 +3597,7 @@ H5VL__dataset_get.argprom.exit:                   ; preds = %25, %36
 define range(i32 -1, 1) i32 @H5VL_dataset_specific(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %H5VL__dataset_specific.argprom.exit
+  br i1 %6, label %7, label %H5VL__dataset_specific.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3632,7 +3632,7 @@ define range(i32 -1, 1) i32 @H5VL_dataset_specific(ptr noundef %0, ptr noundef %
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_specific, i32 noundef 2526, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.67) #6
   br label %32
 
-H5VL__dataset_specific.argprom.exit:              ; preds = %4
+H5VL__dataset_specific.exit:                      ; preds = %4
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_specific, i32 noundef 2521, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
@@ -3650,8 +3650,8 @@ H5VL__dataset_specific.argprom.exit:              ; preds = %4
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_specific, i32 noundef 2531, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.26) #6
   br label %39
 
-39:                                               ; preds = %H5VL__dataset_specific.argprom.exit, %35, %32
-  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__dataset_specific.argprom.exit ]
+39:                                               ; preds = %H5VL__dataset_specific.exit, %35, %32
+  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__dataset_specific.exit ]
   ret i32 %.1
 }
 
@@ -3692,7 +3692,7 @@ define range(i32 -1, 1) i32 @H5VLdataset_specific(ptr noundef %0, i64 noundef %1
 25:                                               ; preds = %18
   %26 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #6
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %H5VL__dataset_specific.argprom.exit
+  br i1 %27, label %28, label %H5VL__dataset_specific.exit
 
 28:                                               ; preds = %25
   %29 = load i64, ptr @H5E_VOL_g, align 8
@@ -3708,9 +3708,9 @@ define range(i32 -1, 1) i32 @H5VLdataset_specific(ptr noundef %0, i64 noundef %1
 
 36:                                               ; preds = %7, %14, %32
   %37 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__dataset_specific.argprom.exit
+  br label %H5VL__dataset_specific.exit
 
-H5VL__dataset_specific.argprom.exit:              ; preds = %25, %36
+H5VL__dataset_specific.exit:                      ; preds = %25, %36
   %.01119 = phi i32 [ -1, %36 ], [ 0, %25 ]
   ret i32 %.01119
 }
@@ -3955,7 +3955,7 @@ define range(i32 -1, 1) i32 @H5VLdataset_optional_op(ptr noundef %0, ptr noundef
 define range(i32 -1, 1) i32 @H5VL_dataset_close(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %H5VL__dataset_close.argprom.exit
+  br i1 %5, label %6, label %H5VL__dataset_close.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3990,7 +3990,7 @@ define range(i32 -1, 1) i32 @H5VL_dataset_close(ptr noundef %0, i64 noundef %1, 
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_close, i32 noundef 2773, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.70) #6
   br label %31
 
-H5VL__dataset_close.argprom.exit:                 ; preds = %3
+H5VL__dataset_close.exit:                         ; preds = %3
   %28 = load i64, ptr @H5E_VOL_g, align 8
   %29 = load i64, ptr @H5E_CANTSET_g, align 8
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_close, i32 noundef 2768, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.24) #6
@@ -4008,8 +4008,8 @@ H5VL__dataset_close.argprom.exit:                 ; preds = %3
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_dataset_close, i32 noundef 2778, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.26) #6
   br label %38
 
-38:                                               ; preds = %H5VL__dataset_close.argprom.exit, %34, %31
-  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__dataset_close.argprom.exit ]
+38:                                               ; preds = %H5VL__dataset_close.exit, %34, %31
+  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__dataset_close.exit ]
   ret i32 %.1
 }
 
@@ -4050,7 +4050,7 @@ define range(i32 -1, 1) i32 @H5VLdataset_close(ptr noundef %0, i64 noundef %1, i
 24:                                               ; preds = %17
   %25 = tail call i32 %.val(ptr noundef nonnull %0, i64 noundef %2, ptr noundef %3) #6
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %H5VL__dataset_close.argprom.exit
+  br i1 %26, label %27, label %H5VL__dataset_close.exit
 
 27:                                               ; preds = %24
   %28 = load i64, ptr @H5E_VOL_g, align 8
@@ -4066,9 +4066,9 @@ define range(i32 -1, 1) i32 @H5VLdataset_close(ptr noundef %0, i64 noundef %1, i
 
 35:                                               ; preds = %6, %13, %31
   %36 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__dataset_close.argprom.exit
+  br label %H5VL__dataset_close.exit
 
-H5VL__dataset_close.argprom.exit:                 ; preds = %24, %35
+H5VL__dataset_close.exit:                         ; preds = %24, %35
   %.01018 = phi i32 [ -1, %35 ], [ 0, %24 ]
   ret i32 %.01018
 }
@@ -4077,7 +4077,7 @@ H5VL__dataset_close.argprom.exit:                 ; preds = %24, %35
 define ptr @H5VL_datatype_commit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %11 = icmp sgt i32 %10, -1
-  br i1 %11, label %12, label %H5VL__datatype_commit.argprom.exit
+  br i1 %11, label %12, label %H5VL__datatype_commit.exit
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4112,7 +4112,7 @@ define ptr @H5VL_datatype_commit(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_commit, i32 noundef 2874, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.72) #6
   br label %37
 
-H5VL__datatype_commit.argprom.exit:               ; preds = %9
+H5VL__datatype_commit.exit:                       ; preds = %9
   %34 = load i64, ptr @H5E_VOL_g, align 8
   %35 = load i64, ptr @H5E_CANTSET_g, align 8
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_commit, i32 noundef 2868, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.24) #6
@@ -4130,8 +4130,8 @@ H5VL__datatype_commit.argprom.exit:               ; preds = %9
   %43 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_commit, i32 noundef 2879, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.26) #6
   br label %44
 
-44:                                               ; preds = %H5VL__datatype_commit.argprom.exit, %40, %37
-  %.1 = phi ptr [ null, %40 ], [ %.0.ph, %37 ], [ null, %H5VL__datatype_commit.argprom.exit ]
+44:                                               ; preds = %H5VL__datatype_commit.exit, %40, %37
+  %.1 = phi ptr [ null, %40 ], [ %.0.ph, %37 ], [ null, %H5VL__datatype_commit.exit ]
   ret ptr %.1
 }
 
@@ -4172,7 +4172,7 @@ define ptr @H5VLdatatype_commit(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 30:                                               ; preds = %23
   %31 = tail call ptr %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) #6
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %H5VL__datatype_commit.argprom.exit
+  br i1 %32, label %33, label %H5VL__datatype_commit.exit
 
 33:                                               ; preds = %30
   %34 = load i64, ptr @H5E_VOL_g, align 8
@@ -4188,9 +4188,9 @@ define ptr @H5VLdatatype_commit(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 
 41:                                               ; preds = %12, %19, %37
   %42 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__datatype_commit.argprom.exit
+  br label %H5VL__datatype_commit.exit
 
-H5VL__datatype_commit.argprom.exit:               ; preds = %30, %41
+H5VL__datatype_commit.exit:                       ; preds = %30, %41
   %.01625 = phi ptr [ null, %41 ], [ %31, %30 ]
   ret ptr %.01625
 }
@@ -4199,7 +4199,7 @@ H5VL__datatype_commit.argprom.exit:               ; preds = %30, %41
 define ptr @H5VL_datatype_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %9, label %H5VL__datatype_open.argprom.exit
+  br i1 %8, label %9, label %H5VL__datatype_open.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4234,7 +4234,7 @@ define ptr @H5VL_datatype_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_open, i32 noundef 2976, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.74) #6
   br label %34
 
-H5VL__datatype_open.argprom.exit:                 ; preds = %6
+H5VL__datatype_open.exit:                         ; preds = %6
   %31 = load i64, ptr @H5E_VOL_g, align 8
   %32 = load i64, ptr @H5E_CANTSET_g, align 8
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_open, i32 noundef 2970, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.24) #6
@@ -4252,8 +4252,8 @@ H5VL__datatype_open.argprom.exit:                 ; preds = %6
   %40 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_open, i32 noundef 2981, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.26) #6
   br label %41
 
-41:                                               ; preds = %H5VL__datatype_open.argprom.exit, %37, %34
-  %.1 = phi ptr [ null, %37 ], [ %.0.ph, %34 ], [ null, %H5VL__datatype_open.argprom.exit ]
+41:                                               ; preds = %H5VL__datatype_open.exit, %37, %34
+  %.1 = phi ptr [ null, %37 ], [ %.0.ph, %34 ], [ null, %H5VL__datatype_open.exit ]
   ret ptr %.1
 }
 
@@ -4294,7 +4294,7 @@ define ptr @H5VLdatatype_open(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
 27:                                               ; preds = %20
   %28 = tail call ptr %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #6
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %H5VL__datatype_open.argprom.exit
+  br i1 %29, label %30, label %H5VL__datatype_open.exit
 
 30:                                               ; preds = %27
   %31 = load i64, ptr @H5E_VOL_g, align 8
@@ -4310,9 +4310,9 @@ define ptr @H5VLdatatype_open(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
 
 38:                                               ; preds = %9, %16, %34
   %39 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__datatype_open.argprom.exit
+  br label %H5VL__datatype_open.exit
 
-H5VL__datatype_open.argprom.exit:                 ; preds = %27, %38
+H5VL__datatype_open.exit:                         ; preds = %27, %38
   %.01322 = phi ptr [ null, %38 ], [ %28, %27 ]
   ret ptr %.01322
 }
@@ -4321,7 +4321,7 @@ H5VL__datatype_open.argprom.exit:                 ; preds = %27, %38
 define range(i32 -1, 1) i32 @H5VL_datatype_get(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %H5VL__datatype_get.argprom.exit
+  br i1 %6, label %7, label %H5VL__datatype_get.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4356,7 +4356,7 @@ define range(i32 -1, 1) i32 @H5VL_datatype_get(ptr noundef %0, ptr noundef %1, i
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_get, i32 noundef 3074, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.76) #6
   br label %32
 
-H5VL__datatype_get.argprom.exit:                  ; preds = %4
+H5VL__datatype_get.exit:                          ; preds = %4
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_get, i32 noundef 3069, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
@@ -4374,8 +4374,8 @@ H5VL__datatype_get.argprom.exit:                  ; preds = %4
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_get, i32 noundef 3079, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.26) #6
   br label %39
 
-39:                                               ; preds = %H5VL__datatype_get.argprom.exit, %35, %32
-  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__datatype_get.argprom.exit ]
+39:                                               ; preds = %H5VL__datatype_get.exit, %35, %32
+  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__datatype_get.exit ]
   ret i32 %.1
 }
 
@@ -4416,7 +4416,7 @@ define range(i32 -1, 1) i32 @H5VLdatatype_get(ptr noundef %0, i64 noundef %1, pt
 25:                                               ; preds = %18
   %26 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #6
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %H5VL__datatype_get.argprom.exit
+  br i1 %27, label %28, label %H5VL__datatype_get.exit
 
 28:                                               ; preds = %25
   %29 = load i64, ptr @H5E_VOL_g, align 8
@@ -4432,9 +4432,9 @@ define range(i32 -1, 1) i32 @H5VLdatatype_get(ptr noundef %0, i64 noundef %1, pt
 
 36:                                               ; preds = %7, %14, %32
   %37 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__datatype_get.argprom.exit
+  br label %H5VL__datatype_get.exit
 
-H5VL__datatype_get.argprom.exit:                  ; preds = %25, %36
+H5VL__datatype_get.exit:                          ; preds = %25, %36
   %.01119 = phi i32 [ -1, %36 ], [ 0, %25 ]
   ret i32 %.01119
 }
@@ -4443,7 +4443,7 @@ H5VL__datatype_get.argprom.exit:                  ; preds = %25, %36
 define range(i32 -1, 1) i32 @H5VL_datatype_specific(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %H5VL__datatype_specific.argprom.exit
+  br i1 %6, label %7, label %H5VL__datatype_specific.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4478,7 +4478,7 @@ define range(i32 -1, 1) i32 @H5VL_datatype_specific(ptr noundef %0, ptr noundef 
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_specific, i32 noundef 3173, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.78) #6
   br label %32
 
-H5VL__datatype_specific.argprom.exit:             ; preds = %4
+H5VL__datatype_specific.exit:                     ; preds = %4
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_specific, i32 noundef 3168, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
@@ -4496,8 +4496,8 @@ H5VL__datatype_specific.argprom.exit:             ; preds = %4
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_specific, i32 noundef 3178, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.26) #6
   br label %39
 
-39:                                               ; preds = %H5VL__datatype_specific.argprom.exit, %35, %32
-  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__datatype_specific.argprom.exit ]
+39:                                               ; preds = %H5VL__datatype_specific.exit, %35, %32
+  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__datatype_specific.exit ]
   ret i32 %.1
 }
 
@@ -4538,7 +4538,7 @@ define range(i32 -1, 1) i32 @H5VLdatatype_specific(ptr noundef %0, i64 noundef %
 25:                                               ; preds = %18
   %26 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #6
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %H5VL__datatype_specific.argprom.exit
+  br i1 %27, label %28, label %H5VL__datatype_specific.exit
 
 28:                                               ; preds = %25
   %29 = load i64, ptr @H5E_VOL_g, align 8
@@ -4554,9 +4554,9 @@ define range(i32 -1, 1) i32 @H5VLdatatype_specific(ptr noundef %0, i64 noundef %
 
 36:                                               ; preds = %7, %14, %32
   %37 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__datatype_specific.argprom.exit
+  br label %H5VL__datatype_specific.exit
 
-H5VL__datatype_specific.argprom.exit:             ; preds = %25, %36
+H5VL__datatype_specific.exit:                     ; preds = %25, %36
   %.01119 = phi i32 [ -1, %36 ], [ 0, %25 ]
   ret i32 %.01119
 }
@@ -4565,7 +4565,7 @@ H5VL__datatype_specific.argprom.exit:             ; preds = %25, %36
 define range(i32 -1, 1) i32 @H5VL_datatype_optional(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %H5VL__datatype_optional.argprom.exit
+  br i1 %6, label %7, label %H5VL__datatype_optional.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4600,7 +4600,7 @@ define range(i32 -1, 1) i32 @H5VL_datatype_optional(ptr noundef %0, ptr noundef 
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_optional, i32 noundef 3271, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.79) #6
   br label %32
 
-H5VL__datatype_optional.argprom.exit:             ; preds = %4
+H5VL__datatype_optional.exit:                     ; preds = %4
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_optional, i32 noundef 3266, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
@@ -4618,8 +4618,8 @@ H5VL__datatype_optional.argprom.exit:             ; preds = %4
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_optional, i32 noundef 3276, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.26) #6
   br label %39
 
-39:                                               ; preds = %H5VL__datatype_optional.argprom.exit, %35, %32
-  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__datatype_optional.argprom.exit ]
+39:                                               ; preds = %H5VL__datatype_optional.exit, %35, %32
+  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__datatype_optional.exit ]
   ret i32 %.1
 }
 
@@ -4631,13 +4631,13 @@ define range(i32 -1, 1) i32 @H5VL_datatype_optional_op(ptr noundef %0, ptr nound
 .cont:                                            ; preds = %5
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %.cont15, label %H5VL__datatype_optional.argprom.exit
+  br i1 %7, label %.cont15, label %H5VL__datatype_optional.exit
 
 .cont.thread:                                     ; preds = %5
   store ptr %0, ptr %4, align 8
   %8 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %9 = icmp sgt i32 %8, -1
-  br i1 %9, label %.else16, label %H5VL__datatype_optional.argprom.exit
+  br i1 %9, label %.else16, label %H5VL__datatype_optional.exit
 
 .else16:                                          ; preds = %.cont.thread
   %.else.val = load ptr, ptr %4, align 8
@@ -4677,7 +4677,7 @@ define range(i32 -1, 1) i32 @H5VL_datatype_optional_op(ptr noundef %0, ptr nound
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_optional_op, i32 noundef 3315, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.79) #6
   br label %35
 
-H5VL__datatype_optional.argprom.exit:             ; preds = %.cont, %.cont.thread
+H5VL__datatype_optional.exit:                     ; preds = %.cont, %.cont.thread
   %32 = load i64, ptr @H5E_VOL_g, align 8
   %33 = load i64, ptr @H5E_CANTSET_g, align 8
   %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_optional_op, i32 noundef 3310, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.24) #6
@@ -4695,8 +4695,8 @@ H5VL__datatype_optional.argprom.exit:             ; preds = %.cont, %.cont.threa
   %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_optional_op, i32 noundef 3320, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.26) #6
   br label %42
 
-42:                                               ; preds = %H5VL__datatype_optional.argprom.exit, %38, %35
-  %.1 = phi i32 [ -1, %38 ], [ %.0.ph, %35 ], [ -1, %H5VL__datatype_optional.argprom.exit ]
+42:                                               ; preds = %H5VL__datatype_optional.exit, %38, %35
+  %.1 = phi i32 [ -1, %38 ], [ %.0.ph, %35 ], [ -1, %H5VL__datatype_optional.exit ]
   ret i32 %.1
 }
 
@@ -4737,7 +4737,7 @@ define range(i32 -1, 1) i32 @H5VLdatatype_optional(ptr noundef %0, i64 noundef %
 25:                                               ; preds = %18
   %26 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #6
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %H5VL__datatype_optional.argprom.exit
+  br i1 %27, label %28, label %H5VL__datatype_optional.exit
 
 28:                                               ; preds = %25
   %29 = load i64, ptr @H5E_VOL_g, align 8
@@ -4753,9 +4753,9 @@ define range(i32 -1, 1) i32 @H5VLdatatype_optional(ptr noundef %0, i64 noundef %
 
 36:                                               ; preds = %7, %14, %32
   %37 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__datatype_optional.argprom.exit
+  br label %H5VL__datatype_optional.exit
 
-H5VL__datatype_optional.argprom.exit:             ; preds = %25, %36
+H5VL__datatype_optional.exit:                     ; preds = %25, %36
   %.01119 = phi i32 [ -1, %36 ], [ 0, %25 ]
   ret i32 %.01119
 }
@@ -4862,7 +4862,7 @@ declare i32 @H5T_invoke_vol_optional(ptr noundef, ptr noundef, i64 noundef, ptr 
 define range(i32 -1, 1) i32 @H5VL_datatype_close(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %H5VL__datatype_close.argprom.exit
+  br i1 %5, label %6, label %H5VL__datatype_close.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4897,7 +4897,7 @@ define range(i32 -1, 1) i32 @H5VL_datatype_close(ptr noundef %0, i64 noundef %1,
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_close, i32 noundef 3458, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.83) #6
   br label %31
 
-H5VL__datatype_close.argprom.exit:                ; preds = %3
+H5VL__datatype_close.exit:                        ; preds = %3
   %28 = load i64, ptr @H5E_VOL_g, align 8
   %29 = load i64, ptr @H5E_CANTSET_g, align 8
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_close, i32 noundef 3453, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.24) #6
@@ -4915,8 +4915,8 @@ H5VL__datatype_close.argprom.exit:                ; preds = %3
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_close, i32 noundef 3463, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.26) #6
   br label %38
 
-38:                                               ; preds = %H5VL__datatype_close.argprom.exit, %34, %31
-  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__datatype_close.argprom.exit ]
+38:                                               ; preds = %H5VL__datatype_close.exit, %34, %31
+  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__datatype_close.exit ]
   ret i32 %.1
 }
 
@@ -4957,7 +4957,7 @@ define range(i32 -1, 1) i32 @H5VLdatatype_close(ptr noundef %0, i64 noundef %1, 
 24:                                               ; preds = %17
   %25 = tail call i32 %.val(ptr noundef nonnull %0, i64 noundef %2, ptr noundef %3) #6
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %H5VL__datatype_close.argprom.exit
+  br i1 %26, label %27, label %H5VL__datatype_close.exit
 
 27:                                               ; preds = %24
   %28 = load i64, ptr @H5E_VOL_g, align 8
@@ -4973,9 +4973,9 @@ define range(i32 -1, 1) i32 @H5VLdatatype_close(ptr noundef %0, i64 noundef %1, 
 
 35:                                               ; preds = %6, %13, %31
   %36 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__datatype_close.argprom.exit
+  br label %H5VL__datatype_close.exit
 
-H5VL__datatype_close.argprom.exit:                ; preds = %24, %35
+H5VL__datatype_close.exit:                        ; preds = %24, %35
   %.01018 = phi i32 [ -1, %35 ], [ 0, %24 ]
   ret i32 %.01018
 }
@@ -4991,7 +4991,7 @@ define ptr @H5VL_file_create(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %12 = load i64, ptr @H5E_ARGS_g, align 8
   %13 = load i64, ptr @H5E_BADTYPE_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_create, i32 noundef 3557, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.1) #6
-  br label %H5VL__file_create.argprom.exit
+  br label %H5VL__file_create.exit
 
 15:                                               ; preds = %7
   %16 = getelementptr i8, ptr %9, i64 312
@@ -5008,7 +5008,7 @@ define ptr @H5VL_file_create(ptr nocapture noundef readonly %0, ptr noundef %1, 
 22:                                               ; preds = %15
   %23 = tail call ptr %.val(ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #6
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %H5VL__file_create.argprom.exit
+  br i1 %24, label %25, label %H5VL__file_create.exit
 
 25:                                               ; preds = %22
   %26 = load i64, ptr @H5E_VOL_g, align 8
@@ -5020,9 +5020,9 @@ define ptr @H5VL_file_create(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTCREATE_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_create, i32 noundef 3561, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.85) #6
-  br label %H5VL__file_create.argprom.exit
+  br label %H5VL__file_create.exit
 
-H5VL__file_create.argprom.exit:                   ; preds = %22, %29, %11
+H5VL__file_create.exit:                           ; preds = %22, %29, %11
   %.0 = phi ptr [ null, %11 ], [ null, %29 ], [ %23, %22 ]
   ret ptr %.0
 }
@@ -5078,7 +5078,7 @@ define ptr @H5VLfile_create(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
 36:                                               ; preds = %29
   %37 = call ptr %.val(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #6
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %H5VL__file_create.argprom.exit
+  br i1 %38, label %39, label %H5VL__file_create.exit
 
 39:                                               ; preds = %36
   %40 = load i64, ptr @H5E_VOL_g, align 8
@@ -5094,9 +5094,9 @@ define ptr @H5VLfile_create(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
 
 47:                                               ; preds = %10, %17, %25, %43
   %48 = call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__file_create.argprom.exit
+  br label %H5VL__file_create.exit
 
-H5VL__file_create.argprom.exit:                   ; preds = %36, %47
+H5VL__file_create.exit:                           ; preds = %36, %47
   %.01423 = phi ptr [ null, %47 ], [ %37, %36 ]
   ret ptr %.01423
 }
@@ -5118,7 +5118,7 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
   %13 = load i64, ptr @H5E_ARGS_g, align 8
   %14 = load i64, ptr @H5E_BADTYPE_g, align 8
   %15 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_open, i32 noundef 3775, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.1) #6
-  br label %H5VL__file_open.argprom.exit
+  br label %H5VL__file_open.exit
 
 16:                                               ; preds = %6
   %17 = getelementptr i8, ptr %10, i64 320
@@ -5135,7 +5135,7 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
 23:                                               ; preds = %16
   %24 = tail call ptr %.val(ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #6
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %H5VL__file_open.argprom.exit
+  br i1 %25, label %26, label %H5VL__file_open.exit
 
 26:                                               ; preds = %23
   %27 = load i64, ptr @H5E_VOL_g, align 8
@@ -5167,7 +5167,7 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
   %41 = load i64, ptr @H5E_VOL_g, align 8
   %42 = load i64, ptr @H5E_BADITER_g, align 8
   %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_open, i32 noundef 3801, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.90) #6
-  br label %H5VL__file_open.argprom.exit
+  br label %H5VL__file_open.exit
 
 44:                                               ; preds = %34
   %.not = icmp eq i32 %38, 0
@@ -5191,7 +5191,7 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
   %55 = load i64, ptr %37, align 8
   %56 = call ptr %.val28(ptr noundef %1, i32 noundef %2, i64 noundef %55, i64 noundef %4, ptr noundef %5) #6
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %H5VL__file_open.argprom.exit
+  br i1 %57, label %58, label %H5VL__file_open.exit
 
 58:                                               ; preds = %54
   %59 = load i64, ptr @H5E_VOL_g, align 8
@@ -5206,21 +5206,21 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_open, i32 noundef 3815, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.91, ptr noundef %1, ptr noundef %67) #6
-  br label %H5VL__file_open.argprom.exit
+  br label %H5VL__file_open.exit
 
 69:                                               ; preds = %44
   %70 = load i64, ptr @H5E_VOL_g, align 8
   %71 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8
   %72 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_open, i32 noundef 3818, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.92) #6
-  br label %H5VL__file_open.argprom.exit
+  br label %H5VL__file_open.exit
 
 73:                                               ; preds = %30
   %74 = load i64, ptr @H5E_VOL_g, align 8
   %75 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8
   %76 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_open, i32 noundef 3821, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.92) #6
-  br label %H5VL__file_open.argprom.exit
+  br label %H5VL__file_open.exit
 
-H5VL__file_open.argprom.exit:                     ; preds = %54, %23, %73, %69, %62, %40, %12
+H5VL__file_open.exit:                             ; preds = %54, %23, %73, %69, %62, %40, %12
   %.0 = phi ptr [ null, %12 ], [ null, %40 ], [ null, %62 ], [ null, %69 ], [ null, %73 ], [ %24, %23 ], [ %56, %54 ]
   ret ptr %.0
 }
@@ -5474,7 +5474,7 @@ define ptr @H5VLfile_open(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 no
 35:                                               ; preds = %28
   %36 = call ptr %.val(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #6
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %H5VL__file_open.argprom.exit
+  br i1 %37, label %38, label %H5VL__file_open.exit
 
 38:                                               ; preds = %35
   %39 = load i64, ptr @H5E_VOL_g, align 8
@@ -5490,9 +5490,9 @@ define ptr @H5VLfile_open(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 no
 
 46:                                               ; preds = %9, %16, %24, %42
   %47 = call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__file_open.argprom.exit
+  br label %H5VL__file_open.exit
 
-H5VL__file_open.argprom.exit:                     ; preds = %35, %46
+H5VL__file_open.exit:                             ; preds = %35, %46
   %.01322 = phi ptr [ null, %46 ], [ %36, %35 ]
   ret ptr %.01322
 }
@@ -5501,7 +5501,7 @@ H5VL__file_open.argprom.exit:                     ; preds = %35, %46
 define range(i32 -1, 1) i32 @H5VL_file_get(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %H5VL__file_get.argprom.exit
+  br i1 %6, label %7, label %H5VL__file_get.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5536,7 +5536,7 @@ define range(i32 -1, 1) i32 @H5VL_file_get(ptr noundef %0, ptr noundef %1, i64 n
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_get, i32 noundef 3920, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.94) #6
   br label %32
 
-H5VL__file_get.argprom.exit:                      ; preds = %4
+H5VL__file_get.exit:                              ; preds = %4
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_get, i32 noundef 3915, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
@@ -5554,8 +5554,8 @@ H5VL__file_get.argprom.exit:                      ; preds = %4
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_get, i32 noundef 3925, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.26) #6
   br label %39
 
-39:                                               ; preds = %H5VL__file_get.argprom.exit, %35, %32
-  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__file_get.argprom.exit ]
+39:                                               ; preds = %H5VL__file_get.exit, %35, %32
+  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__file_get.exit ]
   ret i32 %.1
 }
 
@@ -5596,7 +5596,7 @@ define range(i32 -1, 1) i32 @H5VLfile_get(ptr noundef %0, i64 noundef %1, ptr no
 25:                                               ; preds = %18
   %26 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #6
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %H5VL__file_get.argprom.exit
+  br i1 %27, label %28, label %H5VL__file_get.exit
 
 28:                                               ; preds = %25
   %29 = load i64, ptr @H5E_VOL_g, align 8
@@ -5612,9 +5612,9 @@ define range(i32 -1, 1) i32 @H5VLfile_get(ptr noundef %0, i64 noundef %1, ptr no
 
 36:                                               ; preds = %7, %14, %32
   %37 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__file_get.argprom.exit
+  br label %H5VL__file_get.exit
 
-H5VL__file_get.argprom.exit:                      ; preds = %25, %36
+H5VL__file_get.exit:                              ; preds = %25, %36
   %.01119 = phi i32 [ -1, %36 ], [ 0, %25 ]
   ret i32 %.01119
 }
@@ -5638,7 +5638,7 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
   %12 = load i64, ptr @H5E_VOL_g, align 8
   %13 = load i64, ptr @H5E_BADTYPE_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_specific, i32 noundef 4028, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.86) #6
-  br label %H5VL__file_specific.argprom.exit.thread39
+  br label %H5VL__file_specific.exit.thread39
 
 15:                                               ; preds = %8
   %16 = call i32 @H5P_peek(ptr noundef nonnull %9, ptr noundef nonnull @.str.87, ptr noundef nonnull %5) #6
@@ -5649,7 +5649,7 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
   %19 = load i64, ptr @H5E_VOL_g, align 8
   %20 = load i64, ptr @H5E_CANTGET_g, align 8
   %21 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_specific, i32 noundef 4030, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.88) #6
-  br label %H5VL__file_specific.argprom.exit.thread39
+  br label %H5VL__file_specific.exit.thread39
 
 22:                                               ; preds = %15
   %23 = load i64, ptr %5, align 8
@@ -5661,7 +5661,7 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
   %27 = load i64, ptr @H5E_VOL_g, align 8
   %28 = load i64, ptr @H5E_BADTYPE_g, align 8
   %29 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_specific, i32 noundef 4034, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.1) #6
-  br label %H5VL__file_specific.argprom.exit.thread39
+  br label %H5VL__file_specific.exit.thread39
 
 30:                                               ; preds = %4
   %31 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
@@ -5672,7 +5672,7 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
   %34 = load i64, ptr @H5E_VOL_g, align 8
   %35 = load i64, ptr @H5E_CANTSET_g, align 8
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_specific, i32 noundef 4042, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.24) #6
-  br label %H5VL__file_specific.argprom.exit.thread39
+  br label %H5VL__file_specific.exit.thread39
 
 .thread:                                          ; preds = %30
   %37 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5706,7 +5706,7 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
 51:                                               ; preds = %43
   %52 = call i32 %.022.val(ptr noundef %44, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3) #6
   %53 = icmp slt i32 %52, 0
-  br i1 %53, label %54, label %H5VL__file_specific.argprom.exit
+  br i1 %53, label %54, label %H5VL__file_specific.exit
 
 54:                                               ; preds = %51
   %55 = load i64, ptr @H5E_VOL_g, align 8
@@ -5718,25 +5718,25 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
   %59 = load i64, ptr @H5E_VOL_g, align 8
   %60 = load i64, ptr @H5E_CANTOPERATE_g, align 8
   %61 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_specific, i32 noundef 4051, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.96) #6
-  br label %H5VL__file_specific.argprom.exit
+  br label %H5VL__file_specific.exit
 
-H5VL__file_specific.argprom.exit:                 ; preds = %51, %58
+H5VL__file_specific.exit:                         ; preds = %51, %58
   %.023 = phi i32 [ -1, %58 ], [ 0, %51 ]
-  br i1 %switch.not, label %H5VL__file_specific.argprom.exit.thread39, label %62
+  br i1 %switch.not, label %H5VL__file_specific.exit.thread39, label %62
 
-62:                                               ; preds = %H5VL__file_specific.argprom.exit
+62:                                               ; preds = %H5VL__file_specific.exit
   %63 = call i32 @H5VL_reset_vol_wrapper() #6
   %64 = icmp slt i32 %63, 0
-  br i1 %64, label %65, label %H5VL__file_specific.argprom.exit.thread39
+  br i1 %64, label %65, label %H5VL__file_specific.exit.thread39
 
 65:                                               ; preds = %62
   %66 = load i64, ptr @H5E_VOL_g, align 8
   %67 = load i64, ptr @H5E_CANTRESET_g, align 8
   %68 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_specific, i32 noundef 4056, i64 noundef %66, i64 noundef %67, ptr noundef nonnull @.str.26) #6
-  br label %H5VL__file_specific.argprom.exit.thread39
+  br label %H5VL__file_specific.exit.thread39
 
-H5VL__file_specific.argprom.exit.thread39:        ; preds = %33, %26, %18, %11, %65, %62, %H5VL__file_specific.argprom.exit
-  %.1 = phi i32 [ -1, %65 ], [ %.023, %62 ], [ %.023, %H5VL__file_specific.argprom.exit ], [ -1, %11 ], [ -1, %18 ], [ -1, %26 ], [ -1, %33 ]
+H5VL__file_specific.exit.thread39:                ; preds = %33, %26, %18, %11, %65, %62, %H5VL__file_specific.exit
+  %.1 = phi i32 [ -1, %65 ], [ %.023, %62 ], [ %.023, %H5VL__file_specific.exit ], [ -1, %11 ], [ -1, %18 ], [ -1, %26 ], [ -1, %33 ]
   ret i32 %.1
 }
 
@@ -5767,7 +5767,7 @@ define range(i32 -1, 1) i32 @H5VLfile_specific(ptr noundef %0, i64 noundef %1, p
 19:                                               ; preds = %12
   %20 = tail call i32 %.val(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #6
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %22, label %H5VL__file_specific.argprom.exit
+  br i1 %21, label %22, label %H5VL__file_specific.exit
 
 22:                                               ; preds = %19
   %23 = load i64, ptr @H5E_VOL_g, align 8
@@ -5783,9 +5783,9 @@ define range(i32 -1, 1) i32 @H5VLfile_specific(ptr noundef %0, i64 noundef %1, p
 
 30:                                               ; preds = %8, %26
   %31 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__file_specific.argprom.exit
+  br label %H5VL__file_specific.exit
 
-H5VL__file_specific.argprom.exit:                 ; preds = %19, %30
+H5VL__file_specific.exit:                         ; preds = %19, %30
   %.0916 = phi i32 [ -1, %30 ], [ 0, %19 ]
   ret i32 %.0916
 }
@@ -6030,7 +6030,7 @@ define range(i32 -1, 1) i32 @H5VLfile_optional_op(ptr noundef %0, ptr noundef %1
 define range(i32 -1, 1) i32 @H5VL_file_close(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %H5VL__file_close.argprom.exit
+  br i1 %5, label %6, label %H5VL__file_close.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6065,7 +6065,7 @@ define range(i32 -1, 1) i32 @H5VL_file_close(ptr noundef %0, i64 noundef %1, ptr
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_close, i32 noundef 4291, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.101) #6
   br label %31
 
-H5VL__file_close.argprom.exit:                    ; preds = %3
+H5VL__file_close.exit:                            ; preds = %3
   %28 = load i64, ptr @H5E_VOL_g, align 8
   %29 = load i64, ptr @H5E_CANTSET_g, align 8
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_close, i32 noundef 4286, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.24) #6
@@ -6083,8 +6083,8 @@ H5VL__file_close.argprom.exit:                    ; preds = %3
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_close, i32 noundef 4296, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.26) #6
   br label %38
 
-38:                                               ; preds = %H5VL__file_close.argprom.exit, %34, %31
-  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__file_close.argprom.exit ]
+38:                                               ; preds = %H5VL__file_close.exit, %34, %31
+  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__file_close.exit ]
   ret i32 %.1
 }
 
@@ -6125,7 +6125,7 @@ define range(i32 -1, 1) i32 @H5VLfile_close(ptr noundef %0, i64 noundef %1, i64 
 24:                                               ; preds = %17
   %25 = tail call i32 %.val(ptr noundef nonnull %0, i64 noundef %2, ptr noundef %3) #6
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %H5VL__file_close.argprom.exit
+  br i1 %26, label %27, label %H5VL__file_close.exit
 
 27:                                               ; preds = %24
   %28 = load i64, ptr @H5E_VOL_g, align 8
@@ -6141,9 +6141,9 @@ define range(i32 -1, 1) i32 @H5VLfile_close(ptr noundef %0, i64 noundef %1, i64 
 
 35:                                               ; preds = %6, %13, %31
   %36 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__file_close.argprom.exit
+  br label %H5VL__file_close.exit
 
-H5VL__file_close.argprom.exit:                    ; preds = %24, %35
+H5VL__file_close.exit:                            ; preds = %24, %35
   %.01018 = phi i32 [ -1, %35 ], [ 0, %24 ]
   ret i32 %.01018
 }
@@ -6152,7 +6152,7 @@ H5VL__file_close.argprom.exit:                    ; preds = %24, %35
 define ptr @H5VL_group_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %10 = icmp sgt i32 %9, -1
-  br i1 %10, label %11, label %H5VL__group_create.argprom.exit
+  br i1 %10, label %11, label %H5VL__group_create.exit
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6187,7 +6187,7 @@ define ptr @H5VL_group_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_create, i32 noundef 4391, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.103) #6
   br label %36
 
-H5VL__group_create.argprom.exit:                  ; preds = %8
+H5VL__group_create.exit:                          ; preds = %8
   %33 = load i64, ptr @H5E_VOL_g, align 8
   %34 = load i64, ptr @H5E_CANTSET_g, align 8
   %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_create, i32 noundef 4385, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.24) #6
@@ -6205,8 +6205,8 @@ H5VL__group_create.argprom.exit:                  ; preds = %8
   %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_create, i32 noundef 4396, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.26) #6
   br label %43
 
-43:                                               ; preds = %H5VL__group_create.argprom.exit, %39, %36
-  %.1 = phi ptr [ null, %39 ], [ %.0.ph, %36 ], [ null, %H5VL__group_create.argprom.exit ]
+43:                                               ; preds = %H5VL__group_create.exit, %39, %36
+  %.1 = phi ptr [ null, %39 ], [ %.0.ph, %36 ], [ null, %H5VL__group_create.exit ]
   ret ptr %.1
 }
 
@@ -6247,7 +6247,7 @@ define ptr @H5VLgroup_create(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr
 29:                                               ; preds = %22
   %30 = tail call ptr %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #6
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %H5VL__group_create.argprom.exit
+  br i1 %31, label %32, label %H5VL__group_create.exit
 
 32:                                               ; preds = %29
   %33 = load i64, ptr @H5E_VOL_g, align 8
@@ -6263,9 +6263,9 @@ define ptr @H5VLgroup_create(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr
 
 40:                                               ; preds = %11, %18, %36
   %41 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__group_create.argprom.exit
+  br label %H5VL__group_create.exit
 
-H5VL__group_create.argprom.exit:                  ; preds = %29, %40
+H5VL__group_create.exit:                          ; preds = %29, %40
   %.01524 = phi ptr [ null, %40 ], [ %30, %29 ]
   ret ptr %.01524
 }
@@ -6274,7 +6274,7 @@ H5VL__group_create.argprom.exit:                  ; preds = %29, %40
 define ptr @H5VL_group_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %9, label %H5VL__group_open.argprom.exit
+  br i1 %8, label %9, label %H5VL__group_open.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6309,7 +6309,7 @@ define ptr @H5VL_group_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_open, i32 noundef 4492, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.105) #6
   br label %34
 
-H5VL__group_open.argprom.exit:                    ; preds = %6
+H5VL__group_open.exit:                            ; preds = %6
   %31 = load i64, ptr @H5E_VOL_g, align 8
   %32 = load i64, ptr @H5E_CANTSET_g, align 8
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_open, i32 noundef 4486, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.24) #6
@@ -6327,8 +6327,8 @@ H5VL__group_open.argprom.exit:                    ; preds = %6
   %40 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_open, i32 noundef 4497, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.26) #6
   br label %41
 
-41:                                               ; preds = %H5VL__group_open.argprom.exit, %37, %34
-  %.1 = phi ptr [ null, %37 ], [ %.0.ph, %34 ], [ null, %H5VL__group_open.argprom.exit ]
+41:                                               ; preds = %H5VL__group_open.exit, %37, %34
+  %.1 = phi ptr [ null, %37 ], [ %.0.ph, %34 ], [ null, %H5VL__group_open.exit ]
   ret ptr %.1
 }
 
@@ -6369,7 +6369,7 @@ define ptr @H5VLgroup_open(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 27:                                               ; preds = %20
   %28 = tail call ptr %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #6
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %H5VL__group_open.argprom.exit
+  br i1 %29, label %30, label %H5VL__group_open.exit
 
 30:                                               ; preds = %27
   %31 = load i64, ptr @H5E_VOL_g, align 8
@@ -6385,9 +6385,9 @@ define ptr @H5VLgroup_open(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 
 38:                                               ; preds = %9, %16, %34
   %39 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__group_open.argprom.exit
+  br label %H5VL__group_open.exit
 
-H5VL__group_open.argprom.exit:                    ; preds = %27, %38
+H5VL__group_open.exit:                            ; preds = %27, %38
   %.01322 = phi ptr [ null, %38 ], [ %28, %27 ]
   ret ptr %.01322
 }
@@ -6396,7 +6396,7 @@ H5VL__group_open.argprom.exit:                    ; preds = %27, %38
 define range(i32 -1, 1) i32 @H5VL_group_get(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %H5VL__group_get.argprom.exit
+  br i1 %6, label %7, label %H5VL__group_get.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6431,7 +6431,7 @@ define range(i32 -1, 1) i32 @H5VL_group_get(ptr noundef %0, ptr noundef %1, i64 
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_get, i32 noundef 4589, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.107) #6
   br label %32
 
-H5VL__group_get.argprom.exit:                     ; preds = %4
+H5VL__group_get.exit:                             ; preds = %4
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_get, i32 noundef 4584, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
@@ -6449,8 +6449,8 @@ H5VL__group_get.argprom.exit:                     ; preds = %4
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_get, i32 noundef 4594, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.26) #6
   br label %39
 
-39:                                               ; preds = %H5VL__group_get.argprom.exit, %35, %32
-  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__group_get.argprom.exit ]
+39:                                               ; preds = %H5VL__group_get.exit, %35, %32
+  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__group_get.exit ]
   ret i32 %.1
 }
 
@@ -6491,7 +6491,7 @@ define range(i32 -1, 1) i32 @H5VLgroup_get(ptr noundef %0, i64 noundef %1, ptr n
 25:                                               ; preds = %18
   %26 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #6
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %H5VL__group_get.argprom.exit
+  br i1 %27, label %28, label %H5VL__group_get.exit
 
 28:                                               ; preds = %25
   %29 = load i64, ptr @H5E_VOL_g, align 8
@@ -6507,9 +6507,9 @@ define range(i32 -1, 1) i32 @H5VLgroup_get(ptr noundef %0, i64 noundef %1, ptr n
 
 36:                                               ; preds = %7, %14, %32
   %37 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__group_get.argprom.exit
+  br label %H5VL__group_get.exit
 
-H5VL__group_get.argprom.exit:                     ; preds = %25, %36
+H5VL__group_get.exit:                             ; preds = %25, %36
   %.01119 = phi i32 [ -1, %36 ], [ 0, %25 ]
   ret i32 %.01119
 }
@@ -6518,7 +6518,7 @@ H5VL__group_get.argprom.exit:                     ; preds = %25, %36
 define range(i32 -1, 1) i32 @H5VL_group_specific(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %H5VL__group_specific.argprom.exit
+  br i1 %6, label %7, label %H5VL__group_specific.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6553,7 +6553,7 @@ define range(i32 -1, 1) i32 @H5VL_group_specific(ptr noundef %0, ptr noundef %1,
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_specific, i32 noundef 4686, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.109) #6
   br label %32
 
-H5VL__group_specific.argprom.exit:                ; preds = %4
+H5VL__group_specific.exit:                        ; preds = %4
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_specific, i32 noundef 4681, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
@@ -6571,8 +6571,8 @@ H5VL__group_specific.argprom.exit:                ; preds = %4
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_specific, i32 noundef 4691, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.26) #6
   br label %39
 
-39:                                               ; preds = %H5VL__group_specific.argprom.exit, %35, %32
-  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__group_specific.argprom.exit ]
+39:                                               ; preds = %H5VL__group_specific.exit, %35, %32
+  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__group_specific.exit ]
   ret i32 %.1
 }
 
@@ -6613,7 +6613,7 @@ define range(i32 -1, 1) i32 @H5VLgroup_specific(ptr noundef %0, i64 noundef %1, 
 25:                                               ; preds = %18
   %26 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #6
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %H5VL__group_specific.argprom.exit
+  br i1 %27, label %28, label %H5VL__group_specific.exit
 
 28:                                               ; preds = %25
   %29 = load i64, ptr @H5E_VOL_g, align 8
@@ -6629,9 +6629,9 @@ define range(i32 -1, 1) i32 @H5VLgroup_specific(ptr noundef %0, i64 noundef %1, 
 
 36:                                               ; preds = %7, %14, %32
   %37 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__group_specific.argprom.exit
+  br label %H5VL__group_specific.exit
 
-H5VL__group_specific.argprom.exit:                ; preds = %25, %36
+H5VL__group_specific.exit:                        ; preds = %25, %36
   %.01119 = phi i32 [ -1, %36 ], [ 0, %25 ]
   ret i32 %.01119
 }
@@ -6878,7 +6878,7 @@ define range(i32 -1, -2147483648) i32 @H5VLgroup_optional_op(ptr noundef %0, ptr
 define range(i32 -1, 1) i32 @H5VL_group_close(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %H5VL__group_close.argprom.exit
+  br i1 %5, label %6, label %H5VL__group_close.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6913,7 +6913,7 @@ define range(i32 -1, 1) i32 @H5VL_group_close(ptr noundef %0, i64 noundef %1, pt
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_close, i32 noundef 4930, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.112) #6
   br label %31
 
-H5VL__group_close.argprom.exit:                   ; preds = %3
+H5VL__group_close.exit:                           ; preds = %3
   %28 = load i64, ptr @H5E_VOL_g, align 8
   %29 = load i64, ptr @H5E_CANTSET_g, align 8
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_close, i32 noundef 4925, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.24) #6
@@ -6931,8 +6931,8 @@ H5VL__group_close.argprom.exit:                   ; preds = %3
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_group_close, i32 noundef 4935, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.26) #6
   br label %38
 
-38:                                               ; preds = %H5VL__group_close.argprom.exit, %34, %31
-  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__group_close.argprom.exit ]
+38:                                               ; preds = %H5VL__group_close.exit, %34, %31
+  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__group_close.exit ]
   ret i32 %.1
 }
 
@@ -6973,7 +6973,7 @@ define range(i32 -1, 1) i32 @H5VLgroup_close(ptr noundef %0, i64 noundef %1, i64
 24:                                               ; preds = %17
   %25 = tail call i32 %.val(ptr noundef nonnull %0, i64 noundef %2, ptr noundef %3) #6
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %H5VL__group_close.argprom.exit
+  br i1 %26, label %27, label %H5VL__group_close.exit
 
 27:                                               ; preds = %24
   %28 = load i64, ptr @H5E_VOL_g, align 8
@@ -6989,9 +6989,9 @@ define range(i32 -1, 1) i32 @H5VLgroup_close(ptr noundef %0, i64 noundef %1, i64
 
 35:                                               ; preds = %6, %13, %31
   %36 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__group_close.argprom.exit
+  br label %H5VL__group_close.exit
 
-H5VL__group_close.argprom.exit:                   ; preds = %24, %35
+H5VL__group_close.exit:                           ; preds = %24, %35
   %.01018 = phi i32 [ -1, %35 ], [ 0, %24 ]
   ret i32 %.01018
 }
@@ -7020,7 +7020,7 @@ define range(i32 -1, 1) i32 @H5VL_link_create(ptr noundef %0, ptr nocapture noun
   store ptr %17, ptr %18, align 8
   %19 = call i32 @H5VL_set_vol_wrapper(ptr noundef nonnull %8) #6
   %20 = icmp sgt i32 %19, -1
-  br i1 %20, label %21, label %H5VL__link_create.argprom.exit
+  br i1 %20, label %21, label %H5VL__link_create.exit
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %16, align 8
@@ -7054,7 +7054,7 @@ define range(i32 -1, 1) i32 @H5VL_link_create(ptr noundef %0, ptr nocapture noun
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_create, i32 noundef 5041, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.114) #6
   br label %45
 
-H5VL__link_create.argprom.exit:                   ; preds = %15
+H5VL__link_create.exit:                           ; preds = %15
   %42 = load i64, ptr @H5E_VOL_g, align 8
   %43 = load i64, ptr @H5E_CANTSET_g, align 8
   %44 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_create, i32 noundef 5035, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.24) #6
@@ -7072,8 +7072,8 @@ H5VL__link_create.argprom.exit:                   ; preds = %15
   %51 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_create, i32 noundef 5046, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.26) #6
   br label %52
 
-52:                                               ; preds = %H5VL__link_create.argprom.exit, %48, %45
-  %.1 = phi i32 [ -1, %48 ], [ %.0.ph, %45 ], [ -1, %H5VL__link_create.argprom.exit ]
+52:                                               ; preds = %H5VL__link_create.exit, %48, %45
+  %.1 = phi i32 [ -1, %48 ], [ %.0.ph, %45 ], [ -1, %H5VL__link_create.exit ]
   ret i32 %.1
 }
 
@@ -7104,7 +7104,7 @@ define range(i32 -1, 1) i32 @H5VLlink_create(ptr noundef %0, ptr noundef %1, ptr
 22:                                               ; preds = %15
   %23 = tail call i32 %.val(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) #6
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %H5VL__link_create.argprom.exit
+  br i1 %24, label %25, label %H5VL__link_create.exit
 
 25:                                               ; preds = %22
   %26 = load i64, ptr @H5E_VOL_g, align 8
@@ -7120,9 +7120,9 @@ define range(i32 -1, 1) i32 @H5VLlink_create(ptr noundef %0, ptr noundef %1, ptr
 
 33:                                               ; preds = %11, %29
   %34 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__link_create.argprom.exit
+  br label %H5VL__link_create.exit
 
-H5VL__link_create.argprom.exit:                   ; preds = %22, %33
+H5VL__link_create.exit:                           ; preds = %22, %33
   %.01219 = phi i32 [ -1, %33 ], [ 0, %22 ]
   ret i32 %.01219
 }
@@ -7134,7 +7134,7 @@ define range(i32 -1, 1) i32 @H5VL_link_copy(ptr noundef %0, ptr noundef %1, ptr 
   %10 = select i1 %.not, ptr %2, ptr %0
   %11 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %10) #6
   %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %13, label %H5VL__link_copy.argprom.exit
+  br i1 %12, label %13, label %H5VL__link_copy.exit
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %0, align 8
@@ -7178,7 +7178,7 @@ define range(i32 -1, 1) i32 @H5VL_link_copy(ptr noundef %0, ptr noundef %1, ptr 
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_copy, i32 noundef 5145, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.116) #6
   br label %42
 
-H5VL__link_copy.argprom.exit:                     ; preds = %8
+H5VL__link_copy.exit:                             ; preds = %8
   %39 = load i64, ptr @H5E_VOL_g, align 8
   %40 = load i64, ptr @H5E_CANTSET_g, align 8
   %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_copy, i32 noundef 5139, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.24) #6
@@ -7196,8 +7196,8 @@ H5VL__link_copy.argprom.exit:                     ; preds = %8
   %48 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_copy, i32 noundef 5150, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.26) #6
   br label %49
 
-49:                                               ; preds = %H5VL__link_copy.argprom.exit, %45, %42
-  %.1 = phi i32 [ -1, %45 ], [ %.0.ph, %42 ], [ -1, %H5VL__link_copy.argprom.exit ]
+49:                                               ; preds = %H5VL__link_copy.exit, %45, %42
+  %.1 = phi i32 [ -1, %45 ], [ %.0.ph, %42 ], [ -1, %H5VL__link_copy.exit ]
   ret i32 %.1
 }
 
@@ -7228,7 +7228,7 @@ define range(i32 -1, 1) i32 @H5VLlink_copy(ptr noundef %0, ptr noundef %1, ptr n
 23:                                               ; preds = %16
   %24 = tail call i32 %.val(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #6
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %H5VL__link_copy.argprom.exit
+  br i1 %25, label %26, label %H5VL__link_copy.exit
 
 26:                                               ; preds = %23
   %27 = load i64, ptr @H5E_VOL_g, align 8
@@ -7244,9 +7244,9 @@ define range(i32 -1, 1) i32 @H5VLlink_copy(ptr noundef %0, ptr noundef %1, ptr n
 
 34:                                               ; preds = %12, %30
   %35 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__link_copy.argprom.exit
+  br label %H5VL__link_copy.exit
 
-H5VL__link_copy.argprom.exit:                     ; preds = %23, %34
+H5VL__link_copy.exit:                             ; preds = %23, %34
   %.01320 = phi i32 [ -1, %34 ], [ 0, %23 ]
   ret i32 %.01320
 }
@@ -7258,7 +7258,7 @@ define range(i32 -1, 1) i32 @H5VL_link_move(ptr noundef %0, ptr noundef %1, ptr 
   %10 = select i1 %.not, ptr %2, ptr %0
   %11 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %10) #6
   %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %13, label %H5VL__link_move.argprom.exit
+  br i1 %12, label %13, label %H5VL__link_move.exit
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %0, align 8
@@ -7302,7 +7302,7 @@ define range(i32 -1, 1) i32 @H5VL_link_move(ptr noundef %0, ptr noundef %1, ptr 
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_move, i32 noundef 5250, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.118) #6
   br label %42
 
-H5VL__link_move.argprom.exit:                     ; preds = %8
+H5VL__link_move.exit:                             ; preds = %8
   %39 = load i64, ptr @H5E_VOL_g, align 8
   %40 = load i64, ptr @H5E_CANTSET_g, align 8
   %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_move, i32 noundef 5244, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.24) #6
@@ -7320,8 +7320,8 @@ H5VL__link_move.argprom.exit:                     ; preds = %8
   %48 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_move, i32 noundef 5255, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.26) #6
   br label %49
 
-49:                                               ; preds = %H5VL__link_move.argprom.exit, %45, %42
-  %.1 = phi i32 [ -1, %45 ], [ %.0.ph, %42 ], [ -1, %H5VL__link_move.argprom.exit ]
+49:                                               ; preds = %H5VL__link_move.exit, %45, %42
+  %.1 = phi i32 [ -1, %45 ], [ %.0.ph, %42 ], [ -1, %H5VL__link_move.exit ]
   ret i32 %.1
 }
 
@@ -7352,7 +7352,7 @@ define range(i32 -1, 1) i32 @H5VLlink_move(ptr noundef %0, ptr noundef %1, ptr n
 23:                                               ; preds = %16
   %24 = tail call i32 %.val(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #6
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %H5VL__link_move.argprom.exit
+  br i1 %25, label %26, label %H5VL__link_move.exit
 
 26:                                               ; preds = %23
   %27 = load i64, ptr @H5E_VOL_g, align 8
@@ -7368,9 +7368,9 @@ define range(i32 -1, 1) i32 @H5VLlink_move(ptr noundef %0, ptr noundef %1, ptr n
 
 34:                                               ; preds = %12, %30
   %35 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__link_move.argprom.exit
+  br label %H5VL__link_move.exit
 
-H5VL__link_move.argprom.exit:                     ; preds = %23, %34
+H5VL__link_move.exit:                             ; preds = %23, %34
   %.01320 = phi i32 [ -1, %34 ], [ 0, %23 ]
   ret i32 %.01320
 }
@@ -7379,7 +7379,7 @@ H5VL__link_move.argprom.exit:                     ; preds = %23, %34
 define range(i32 -1, 1) i32 @H5VL_link_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %H5VL__link_get.argprom.exit
+  br i1 %7, label %8, label %H5VL__link_get.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7414,7 +7414,7 @@ define range(i32 -1, 1) i32 @H5VL_link_get(ptr noundef %0, ptr noundef %1, ptr n
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_get, i32 noundef 5350, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.120) #6
   br label %33
 
-H5VL__link_get.argprom.exit:                      ; preds = %5
+H5VL__link_get.exit:                              ; preds = %5
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTSET_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_get, i32 noundef 5345, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.24) #6
@@ -7432,8 +7432,8 @@ H5VL__link_get.argprom.exit:                      ; preds = %5
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_get, i32 noundef 5355, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.26) #6
   br label %40
 
-40:                                               ; preds = %H5VL__link_get.argprom.exit, %36, %33
-  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__link_get.argprom.exit ]
+40:                                               ; preds = %H5VL__link_get.exit, %36, %33
+  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__link_get.exit ]
   ret i32 %.1
 }
 
@@ -7474,7 +7474,7 @@ define range(i32 -1, 1) i32 @H5VLlink_get(ptr noundef %0, ptr noundef %1, i64 no
 26:                                               ; preds = %19
   %27 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %H5VL__link_get.argprom.exit
+  br i1 %28, label %29, label %H5VL__link_get.exit
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5E_VOL_g, align 8
@@ -7490,9 +7490,9 @@ define range(i32 -1, 1) i32 @H5VLlink_get(ptr noundef %0, ptr noundef %1, i64 no
 
 37:                                               ; preds = %8, %15, %33
   %38 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__link_get.argprom.exit
+  br label %H5VL__link_get.exit
 
-H5VL__link_get.argprom.exit:                      ; preds = %26, %37
+H5VL__link_get.exit:                              ; preds = %26, %37
   %.01220 = phi i32 [ -1, %37 ], [ 0, %26 ]
   ret i32 %.01220
 }
@@ -7501,7 +7501,7 @@ H5VL__link_get.argprom.exit:                      ; preds = %26, %37
 define i32 @H5VL_link_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %H5VL__link_specific.argprom.exit
+  br i1 %7, label %8, label %H5VL__link_specific.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7537,7 +7537,7 @@ define i32 @H5VL_link_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_specific, i32 noundef 5452, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.122) #6
   br label %33
 
-H5VL__link_specific.argprom.exit:                 ; preds = %5
+H5VL__link_specific.exit:                         ; preds = %5
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTSET_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_specific, i32 noundef 5445, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.24) #6
@@ -7555,8 +7555,8 @@ H5VL__link_specific.argprom.exit:                 ; preds = %5
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_specific, i32 noundef 5457, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.26) #6
   br label %40
 
-40:                                               ; preds = %H5VL__link_specific.argprom.exit, %36, %33
-  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__link_specific.argprom.exit ]
+40:                                               ; preds = %H5VL__link_specific.exit, %36, %33
+  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__link_specific.exit ]
   ret i32 %.1
 }
 
@@ -7597,7 +7597,7 @@ define i32 @H5VLlink_specific(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
 26:                                               ; preds = %19
   %27 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %H5VL__link_specific.argprom.exit
+  br i1 %28, label %29, label %H5VL__link_specific.exit
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5E_VOL_g, align 8
@@ -7610,13 +7610,13 @@ define i32 @H5VLlink_specific(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   %34 = load i64, ptr @H5E_VOL_g, align 8
   %35 = load i64, ptr @H5E_CANTOPERATE_g, align 8
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLlink_specific, i32 noundef 5490, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.122) #6
-  br label %H5VL__link_specific.argprom.exit
+  br label %H5VL__link_specific.exit
 
 37:                                               ; preds = %8, %15
   %38 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__link_specific.argprom.exit
+  br label %H5VL__link_specific.exit
 
-H5VL__link_specific.argprom.exit:                 ; preds = %33, %26, %37
+H5VL__link_specific.exit:                         ; preds = %33, %26, %37
   %.01121 = phi i32 [ -1, %37 ], [ %.0.i.ph, %33 ], [ %27, %26 ]
   ret i32 %.01121
 }
@@ -7625,7 +7625,7 @@ H5VL__link_specific.argprom.exit:                 ; preds = %33, %26, %37
 define range(i32 -1, 1) i32 @H5VL_link_optional(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %H5VL__link_optional.argprom.exit
+  br i1 %7, label %8, label %H5VL__link_optional.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7660,7 +7660,7 @@ define range(i32 -1, 1) i32 @H5VL_link_optional(ptr noundef %0, ptr noundef %1, 
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_optional, i32 noundef 5552, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.123) #6
   br label %33
 
-H5VL__link_optional.argprom.exit:                 ; preds = %5
+H5VL__link_optional.exit:                         ; preds = %5
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTSET_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_optional, i32 noundef 5547, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.24) #6
@@ -7678,8 +7678,8 @@ H5VL__link_optional.argprom.exit:                 ; preds = %5
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_link_optional, i32 noundef 5557, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.26) #6
   br label %40
 
-40:                                               ; preds = %H5VL__link_optional.argprom.exit, %36, %33
-  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__link_optional.argprom.exit ]
+40:                                               ; preds = %H5VL__link_optional.exit, %36, %33
+  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__link_optional.exit ]
   ret i32 %.1
 }
 
@@ -7720,7 +7720,7 @@ define range(i32 -1, 1) i32 @H5VLlink_optional(ptr noundef %0, ptr noundef %1, i
 26:                                               ; preds = %19
   %27 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %H5VL__link_optional.argprom.exit
+  br i1 %28, label %29, label %H5VL__link_optional.exit
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5E_VOL_g, align 8
@@ -7736,9 +7736,9 @@ define range(i32 -1, 1) i32 @H5VLlink_optional(ptr noundef %0, ptr noundef %1, i
 
 37:                                               ; preds = %8, %15, %33
   %38 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__link_optional.argprom.exit
+  br label %H5VL__link_optional.exit
 
-H5VL__link_optional.argprom.exit:                 ; preds = %26, %37
+H5VL__link_optional.exit:                         ; preds = %26, %37
   %.01220 = phi i32 [ -1, %37 ], [ 0, %26 ]
   ret i32 %.01220
 }
@@ -7825,7 +7825,7 @@ define range(i32 -1, 1) i32 @H5VLlink_optional_op(ptr noundef %0, ptr noundef %1
   %60 = load ptr, ptr %49, align 8
   %61 = call i32 %.val(ptr noundef %60, ptr noundef nonnull %11, ptr noundef %6, i64 noundef %7, ptr noundef %spec.select) #6
   %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %H5VL__link_optional.argprom.exit
+  br i1 %62, label %63, label %H5VL__link_optional.exit
 
 63:                                               ; preds = %59
   %64 = load i64, ptr @H5E_VOL_g, align 8
@@ -7839,12 +7839,12 @@ define range(i32 -1, 1) i32 @H5VLlink_optional_op(ptr noundef %0, ptr noundef %1
   %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLlink_optional_op, i32 noundef 5637, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.123) #6
   br label %82
 
-H5VL__link_optional.argprom.exit:                 ; preds = %59
+H5VL__link_optional.exit:                         ; preds = %59
   %71 = load ptr, ptr %12, align 8
   %.not33 = icmp eq ptr %71, null
   br i1 %.not33, label %82, label %72
 
-72:                                               ; preds = %H5VL__link_optional.argprom.exit
+72:                                               ; preds = %H5VL__link_optional.exit
   %73 = load ptr, ptr %10, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
@@ -7858,9 +7858,9 @@ H5VL__link_optional.argprom.exit:                 ; preds = %59
   %81 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLlink_optional_op, i32 noundef 5644, i64 noundef %79, i64 noundef %80, ptr noundef nonnull @.str.47) #6
   br label %82
 
-82:                                               ; preds = %67, %78, %72, %H5VL__link_optional.argprom.exit
-  %.028.ph = phi i32 [ 0, %H5VL__link_optional.argprom.exit ], [ 0, %72 ], [ -1, %78 ], [ -1, %67 ]
-  %.0.ph = phi i1 [ false, %H5VL__link_optional.argprom.exit ], [ false, %72 ], [ true, %78 ], [ true, %67 ]
+82:                                               ; preds = %67, %78, %72, %H5VL__link_optional.exit
+  %.028.ph = phi i32 [ 0, %H5VL__link_optional.exit ], [ 0, %72 ], [ -1, %78 ], [ -1, %67 ]
+  %.0.ph = phi i1 [ false, %H5VL__link_optional.exit ], [ false, %72 ], [ true, %78 ], [ true, %67 ]
   %83 = call i32 @H5VL_reset_vol_wrapper() #6
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %90
@@ -7895,7 +7895,7 @@ declare i32 @H5VL_setup_name_args(i64 noundef, ptr noundef, i1 noundef zeroext, 
 define ptr @H5VL_object_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %H5VL__object_open.argprom.exit
+  br i1 %7, label %8, label %H5VL__object_open.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7930,7 +7930,7 @@ define ptr @H5VL_object_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_open, i32 noundef 5711, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.129) #6
   br label %33
 
-H5VL__object_open.argprom.exit:                   ; preds = %5
+H5VL__object_open.exit:                           ; preds = %5
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTSET_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_open, i32 noundef 5705, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.24) #6
@@ -7948,8 +7948,8 @@ H5VL__object_open.argprom.exit:                   ; preds = %5
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_open, i32 noundef 5716, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.26) #6
   br label %40
 
-40:                                               ; preds = %H5VL__object_open.argprom.exit, %36, %33
-  %.1 = phi ptr [ null, %36 ], [ %.0.ph, %33 ], [ null, %H5VL__object_open.argprom.exit ]
+40:                                               ; preds = %H5VL__object_open.exit, %36, %33
+  %.1 = phi ptr [ null, %36 ], [ %.0.ph, %33 ], [ null, %H5VL__object_open.exit ]
   ret ptr %.1
 }
 
@@ -7990,7 +7990,7 @@ define ptr @H5VLobject_open(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
 26:                                               ; preds = %19
   %27 = tail call ptr %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %H5VL__object_open.argprom.exit
+  br i1 %28, label %29, label %H5VL__object_open.exit
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5E_VOL_g, align 8
@@ -8006,9 +8006,9 @@ define ptr @H5VLobject_open(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
 
 37:                                               ; preds = %8, %15, %33
   %38 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__object_open.argprom.exit
+  br label %H5VL__object_open.exit
 
-H5VL__object_open.argprom.exit:                   ; preds = %26, %37
+H5VL__object_open.exit:                           ; preds = %26, %37
   %.01221 = phi ptr [ null, %37 ], [ %27, %26 ]
   ret ptr %.01221
 }
@@ -8032,7 +8032,7 @@ define range(i32 -1, 1) i32 @H5VL_object_copy(ptr noundef %0, ptr noundef %1, pt
   %22 = load i64, ptr @H5E_ARGS_g, align 8
   %23 = load i64, ptr @H5E_BADTYPE_g, align 8
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_copy, i32 noundef 5809, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.131) #6
-  br label %H5VL__object_copy.argprom.exit
+  br label %H5VL__object_copy.exit
 
 25:                                               ; preds = %10
   %26 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef nonnull %0) #6
@@ -8043,7 +8043,7 @@ define range(i32 -1, 1) i32 @H5VL_object_copy(ptr noundef %0, ptr noundef %1, pt
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_copy, i32 noundef 5813, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
-  br label %H5VL__object_copy.argprom.exit
+  br label %H5VL__object_copy.exit
 
 32:                                               ; preds = %25
   %33 = load ptr, ptr %11, align 8
@@ -8082,15 +8082,15 @@ define range(i32 -1, 1) i32 @H5VL_object_copy(ptr noundef %0, ptr noundef %1, pt
   %.0.ph = phi i32 [ 0, %41 ], [ -1, %50 ]
   %55 = tail call i32 @H5VL_reset_vol_wrapper() #6
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %57, label %H5VL__object_copy.argprom.exit
+  br i1 %56, label %57, label %H5VL__object_copy.exit
 
 57:                                               ; preds = %54
   %58 = load i64, ptr @H5E_VOL_g, align 8
   %59 = load i64, ptr @H5E_CANTRESET_g, align 8
   %60 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_copy, i32 noundef 5824, i64 noundef %58, i64 noundef %59, ptr noundef nonnull @.str.26) #6
-  br label %H5VL__object_copy.argprom.exit
+  br label %H5VL__object_copy.exit
 
-H5VL__object_copy.argprom.exit:                   ; preds = %21, %28, %57, %54
+H5VL__object_copy.exit:                           ; preds = %21, %28, %57, %54
   %.1 = phi i32 [ -1, %57 ], [ %.0.ph, %54 ], [ -1, %21 ], [ -1, %28 ]
   ret i32 %.1
 }
@@ -8134,7 +8134,7 @@ define range(i32 -1, 1) i32 @H5VLobject_copy(ptr noundef %0, ptr noundef %1, ptr
 32:                                               ; preds = %25
   %33 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, i64 noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef %10) #6
   %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %H5VL__object_copy.argprom.exit
+  br i1 %34, label %35, label %H5VL__object_copy.exit
 
 35:                                               ; preds = %32
   %36 = load i64, ptr @H5E_VOL_g, align 8
@@ -8150,9 +8150,9 @@ define range(i32 -1, 1) i32 @H5VLobject_copy(ptr noundef %0, ptr noundef %1, ptr
 
 43:                                               ; preds = %14, %21, %39
   %44 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__object_copy.argprom.exit
+  br label %H5VL__object_copy.exit
 
-H5VL__object_copy.argprom.exit:                   ; preds = %32, %43
+H5VL__object_copy.exit:                           ; preds = %32, %43
   %.01928 = phi i32 [ -1, %43 ], [ 0, %32 ]
   ret i32 %.01928
 }
@@ -8161,7 +8161,7 @@ H5VL__object_copy.argprom.exit:                   ; preds = %32, %43
 define range(i32 -1, 1) i32 @H5VL_object_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %H5VL__object_get.argprom.exit
+  br i1 %7, label %8, label %H5VL__object_get.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8196,7 +8196,7 @@ define range(i32 -1, 1) i32 @H5VL_object_get(ptr noundef %0, ptr noundef %1, ptr
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_get, i32 noundef 5920, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.133) #6
   br label %33
 
-H5VL__object_get.argprom.exit:                    ; preds = %5
+H5VL__object_get.exit:                            ; preds = %5
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTSET_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_get, i32 noundef 5915, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.24) #6
@@ -8214,8 +8214,8 @@ H5VL__object_get.argprom.exit:                    ; preds = %5
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_get, i32 noundef 5925, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.26) #6
   br label %40
 
-40:                                               ; preds = %H5VL__object_get.argprom.exit, %36, %33
-  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__object_get.argprom.exit ]
+40:                                               ; preds = %H5VL__object_get.exit, %36, %33
+  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__object_get.exit ]
   ret i32 %.1
 }
 
@@ -8256,7 +8256,7 @@ define range(i32 -1, 1) i32 @H5VLobject_get(ptr noundef %0, ptr noundef %1, i64 
 26:                                               ; preds = %19
   %27 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %H5VL__object_get.argprom.exit
+  br i1 %28, label %29, label %H5VL__object_get.exit
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5E_VOL_g, align 8
@@ -8272,9 +8272,9 @@ define range(i32 -1, 1) i32 @H5VLobject_get(ptr noundef %0, ptr noundef %1, i64 
 
 37:                                               ; preds = %8, %15, %33
   %38 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__object_get.argprom.exit
+  br label %H5VL__object_get.exit
 
-H5VL__object_get.argprom.exit:                    ; preds = %26, %37
+H5VL__object_get.exit:                            ; preds = %26, %37
   %.01220 = phi i32 [ -1, %37 ], [ 0, %26 ]
   ret i32 %.01220
 }
@@ -8283,7 +8283,7 @@ H5VL__object_get.argprom.exit:                    ; preds = %26, %37
 define i32 @H5VL_object_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %H5VL__object_specific.argprom.exit
+  br i1 %7, label %8, label %H5VL__object_specific.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8319,7 +8319,7 @@ define i32 @H5VL_object_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_specific, i32 noundef 6022, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.135) #6
   br label %33
 
-H5VL__object_specific.argprom.exit:               ; preds = %5
+H5VL__object_specific.exit:                       ; preds = %5
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTSET_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_specific, i32 noundef 6015, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.24) #6
@@ -8337,8 +8337,8 @@ H5VL__object_specific.argprom.exit:               ; preds = %5
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_specific, i32 noundef 6027, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.26) #6
   br label %40
 
-40:                                               ; preds = %H5VL__object_specific.argprom.exit, %36, %33
-  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__object_specific.argprom.exit ]
+40:                                               ; preds = %H5VL__object_specific.exit, %36, %33
+  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__object_specific.exit ]
   ret i32 %.1
 }
 
@@ -8390,7 +8390,7 @@ define i32 @H5VLobject_specific(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 define range(i32 -1, 1) i32 @H5VL_object_optional(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %H5VL__object_optional.argprom.exit
+  br i1 %7, label %8, label %H5VL__object_optional.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8425,7 +8425,7 @@ define range(i32 -1, 1) i32 @H5VL_object_optional(ptr noundef %0, ptr noundef %1
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_optional, i32 noundef 6122, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.137) #6
   br label %33
 
-H5VL__object_optional.argprom.exit:               ; preds = %5
+H5VL__object_optional.exit:                       ; preds = %5
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTSET_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_optional, i32 noundef 6117, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.24) #6
@@ -8443,8 +8443,8 @@ H5VL__object_optional.argprom.exit:               ; preds = %5
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_object_optional, i32 noundef 6127, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.26) #6
   br label %40
 
-40:                                               ; preds = %H5VL__object_optional.argprom.exit, %36, %33
-  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__object_optional.argprom.exit ]
+40:                                               ; preds = %H5VL__object_optional.exit, %36, %33
+  %.1 = phi i32 [ -1, %36 ], [ %.0.ph, %33 ], [ -1, %H5VL__object_optional.exit ]
   ret i32 %.1
 }
 
@@ -8485,7 +8485,7 @@ define range(i32 -1, 1) i32 @H5VLobject_optional(ptr noundef %0, ptr noundef %1,
 26:                                               ; preds = %19
   %27 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %H5VL__object_optional.argprom.exit
+  br i1 %28, label %29, label %H5VL__object_optional.exit
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5E_VOL_g, align 8
@@ -8501,9 +8501,9 @@ define range(i32 -1, 1) i32 @H5VLobject_optional(ptr noundef %0, ptr noundef %1,
 
 37:                                               ; preds = %8, %15, %33
   %38 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__object_optional.argprom.exit
+  br label %H5VL__object_optional.exit
 
-H5VL__object_optional.argprom.exit:               ; preds = %26, %37
+H5VL__object_optional.exit:                       ; preds = %26, %37
   %.01220 = phi i32 [ -1, %37 ], [ 0, %26 ]
   ret i32 %.01220
 }
@@ -8590,7 +8590,7 @@ define range(i32 -1, 1) i32 @H5VLobject_optional_op(ptr noundef %0, ptr noundef 
   %60 = load ptr, ptr %49, align 8
   %61 = call i32 %.val(ptr noundef %60, ptr noundef nonnull %11, ptr noundef %6, i64 noundef %7, ptr noundef %spec.select) #6
   %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %H5VL__object_optional.argprom.exit
+  br i1 %62, label %63, label %H5VL__object_optional.exit
 
 63:                                               ; preds = %59
   %64 = load i64, ptr @H5E_VOL_g, align 8
@@ -8604,12 +8604,12 @@ define range(i32 -1, 1) i32 @H5VLobject_optional_op(ptr noundef %0, ptr noundef 
   %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLobject_optional_op, i32 noundef 6208, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.137) #6
   br label %82
 
-H5VL__object_optional.argprom.exit:               ; preds = %59
+H5VL__object_optional.exit:                       ; preds = %59
   %71 = load ptr, ptr %12, align 8
   %.not33 = icmp eq ptr %71, null
   br i1 %.not33, label %82, label %72
 
-72:                                               ; preds = %H5VL__object_optional.argprom.exit
+72:                                               ; preds = %H5VL__object_optional.exit
   %73 = load ptr, ptr %10, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
@@ -8623,9 +8623,9 @@ H5VL__object_optional.argprom.exit:               ; preds = %59
   %81 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLobject_optional_op, i32 noundef 6215, i64 noundef %79, i64 noundef %80, ptr noundef nonnull @.str.47) #6
   br label %82
 
-82:                                               ; preds = %67, %78, %72, %H5VL__object_optional.argprom.exit
-  %.028.ph = phi i32 [ 0, %H5VL__object_optional.argprom.exit ], [ 0, %72 ], [ -1, %78 ], [ -1, %67 ]
-  %.0.ph = phi i1 [ false, %H5VL__object_optional.argprom.exit ], [ false, %72 ], [ true, %78 ], [ true, %67 ]
+82:                                               ; preds = %67, %78, %72, %H5VL__object_optional.exit
+  %.028.ph = phi i32 [ 0, %H5VL__object_optional.exit ], [ 0, %72 ], [ -1, %78 ], [ -1, %67 ]
+  %.0.ph = phi i1 [ false, %H5VL__object_optional.exit ], [ false, %72 ], [ true, %78 ], [ true, %67 ]
   %83 = call i32 @H5VL_reset_vol_wrapper() #6
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %90
@@ -8658,7 +8658,7 @@ H5VL__object_optional.argprom.exit:               ; preds = %59
 define range(i32 -1, 1) i32 @H5VL_introspect_get_conn_cls(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %H5VL__introspect_get_conn_cls.argprom.exit
+  br i1 %5, label %6, label %H5VL__introspect_get_conn_cls.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8693,7 +8693,7 @@ define range(i32 -1, 1) i32 @H5VL_introspect_get_conn_cls(ptr noundef %0, i32 no
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_introspect_get_conn_cls, i32 noundef 6289, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.138) #6
   br label %31
 
-H5VL__introspect_get_conn_cls.argprom.exit:       ; preds = %3
+H5VL__introspect_get_conn_cls.exit:               ; preds = %3
   %28 = load i64, ptr @H5E_VOL_g, align 8
   %29 = load i64, ptr @H5E_CANTSET_g, align 8
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_introspect_get_conn_cls, i32 noundef 6284, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.24) #6
@@ -8711,8 +8711,8 @@ H5VL__introspect_get_conn_cls.argprom.exit:       ; preds = %3
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_introspect_get_conn_cls, i32 noundef 6294, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.26) #6
   br label %38
 
-38:                                               ; preds = %H5VL__introspect_get_conn_cls.argprom.exit, %34, %31
-  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__introspect_get_conn_cls.argprom.exit ]
+38:                                               ; preds = %H5VL__introspect_get_conn_cls.exit, %34, %31
+  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__introspect_get_conn_cls.exit ]
   ret i32 %.1
 }
 
@@ -8763,7 +8763,7 @@ define range(i32 -1, 1) i32 @H5VLintrospect_get_conn_cls(ptr noundef %0, i64 nou
 30:                                               ; preds = %23
   %31 = tail call i32 %.val(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %3) #6
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %33, label %H5VL__introspect_get_conn_cls.argprom.exit
+  br i1 %32, label %33, label %H5VL__introspect_get_conn_cls.exit
 
 33:                                               ; preds = %30
   %34 = load i64, ptr @H5E_VOL_g, align 8
@@ -8779,9 +8779,9 @@ define range(i32 -1, 1) i32 @H5VLintrospect_get_conn_cls(ptr noundef %0, i64 nou
 
 41:                                               ; preds = %6, %12, %19, %37
   %42 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__introspect_get_conn_cls.argprom.exit
+  br label %H5VL__introspect_get_conn_cls.exit
 
-H5VL__introspect_get_conn_cls.argprom.exit:       ; preds = %30, %41
+H5VL__introspect_get_conn_cls.exit:               ; preds = %30, %41
   %.01221 = phi i32 [ -1, %41 ], [ 0, %30 ]
   ret i32 %.01221
 }
@@ -8879,7 +8879,7 @@ H5VL_introspect_get_cap_flags.exit:               ; preds = %24, %35
 define range(i32 -1, 1) i32 @H5VL_introspect_opt_query(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %H5VL__introspect_opt_query.argprom.exit
+  br i1 %6, label %7, label %H5VL__introspect_opt_query.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8914,7 +8914,7 @@ define range(i32 -1, 1) i32 @H5VL_introspect_opt_query(ptr noundef %0, i32 nound
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_introspect_opt_query, i32 noundef 6463, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.144) #6
   br label %32
 
-H5VL__introspect_opt_query.argprom.exit:          ; preds = %4
+H5VL__introspect_opt_query.exit:                  ; preds = %4
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_introspect_opt_query, i32 noundef 6458, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
@@ -8932,8 +8932,8 @@ H5VL__introspect_opt_query.argprom.exit:          ; preds = %4
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_introspect_opt_query, i32 noundef 6468, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.26) #6
   br label %39
 
-39:                                               ; preds = %H5VL__introspect_opt_query.argprom.exit, %35, %32
-  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__introspect_opt_query.argprom.exit ]
+39:                                               ; preds = %H5VL__introspect_opt_query.exit, %35, %32
+  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__introspect_opt_query.exit ]
   ret i32 %.1
 }
 
@@ -8964,7 +8964,7 @@ define range(i32 -1, 1) i32 @H5VLintrospect_opt_query(ptr noundef %0, i64 nounde
 19:                                               ; preds = %12
   %20 = tail call i32 %.val(ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef %4) #6
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %22, label %H5VL__introspect_opt_query.argprom.exit
+  br i1 %21, label %22, label %H5VL__introspect_opt_query.exit
 
 22:                                               ; preds = %19
   %23 = load i64, ptr @H5E_VOL_g, align 8
@@ -8980,9 +8980,9 @@ define range(i32 -1, 1) i32 @H5VLintrospect_opt_query(ptr noundef %0, i64 nounde
 
 30:                                               ; preds = %8, %26
   %31 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__introspect_opt_query.argprom.exit
+  br label %H5VL__introspect_opt_query.exit
 
-H5VL__introspect_opt_query.argprom.exit:          ; preds = %19, %30
+H5VL__introspect_opt_query.exit:                  ; preds = %19, %30
   %.0916 = phi i32 [ -1, %30 ], [ 0, %19 ]
   ret i32 %.0916
 }
@@ -8991,7 +8991,7 @@ H5VL__introspect_opt_query.argprom.exit:          ; preds = %19, %30
 define range(i32 -1, 1) i32 @H5VL_request_wait(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %H5VL__request_wait.argprom.exit
+  br i1 %5, label %6, label %H5VL__request_wait.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9026,7 +9026,7 @@ define range(i32 -1, 1) i32 @H5VL_request_wait(ptr noundef %0, i64 noundef %1, p
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_wait, i32 noundef 6567, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.145) #6
   br label %31
 
-H5VL__request_wait.argprom.exit:                  ; preds = %3
+H5VL__request_wait.exit:                          ; preds = %3
   %28 = load i64, ptr @H5E_VOL_g, align 8
   %29 = load i64, ptr @H5E_CANTSET_g, align 8
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_wait, i32 noundef 6562, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.24) #6
@@ -9044,8 +9044,8 @@ H5VL__request_wait.argprom.exit:                  ; preds = %3
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_wait, i32 noundef 6572, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.26) #6
   br label %38
 
-38:                                               ; preds = %H5VL__request_wait.argprom.exit, %34, %31
-  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__request_wait.argprom.exit ]
+38:                                               ; preds = %H5VL__request_wait.exit, %34, %31
+  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__request_wait.exit ]
   ret i32 %.1
 }
 
@@ -9076,7 +9076,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_wait(ptr noundef %0, i64 noundef %1, i6
 18:                                               ; preds = %11
   %19 = tail call i32 %.val(ptr noundef %0, i64 noundef %2, ptr noundef %3) #6
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %H5VL__request_wait.argprom.exit
+  br i1 %20, label %21, label %H5VL__request_wait.exit
 
 21:                                               ; preds = %18
   %22 = load i64, ptr @H5E_VOL_g, align 8
@@ -9092,9 +9092,9 @@ define range(i32 -1, 1) i32 @H5VLrequest_wait(ptr noundef %0, i64 noundef %1, i6
 
 29:                                               ; preds = %7, %25
   %30 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__request_wait.argprom.exit
+  br label %H5VL__request_wait.exit
 
-H5VL__request_wait.argprom.exit:                  ; preds = %18, %29
+H5VL__request_wait.exit:                          ; preds = %18, %29
   %.0815 = phi i32 [ -1, %29 ], [ 0, %18 ]
   ret i32 %.0815
 }
@@ -9103,7 +9103,7 @@ H5VL__request_wait.argprom.exit:                  ; preds = %18, %29
 define range(i32 -1, 1) i32 @H5VL_request_notify(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %H5VL__request_notify.argprom.exit
+  br i1 %5, label %6, label %H5VL__request_notify.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9138,7 +9138,7 @@ define range(i32 -1, 1) i32 @H5VL_request_notify(ptr noundef %0, ptr noundef %1,
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_notify, i32 noundef 6670, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.147) #6
   br label %31
 
-H5VL__request_notify.argprom.exit:                ; preds = %3
+H5VL__request_notify.exit:                        ; preds = %3
   %28 = load i64, ptr @H5E_VOL_g, align 8
   %29 = load i64, ptr @H5E_CANTSET_g, align 8
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_notify, i32 noundef 6665, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.24) #6
@@ -9156,8 +9156,8 @@ H5VL__request_notify.argprom.exit:                ; preds = %3
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_notify, i32 noundef 6675, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.26) #6
   br label %38
 
-38:                                               ; preds = %H5VL__request_notify.argprom.exit, %34, %31
-  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__request_notify.argprom.exit ]
+38:                                               ; preds = %H5VL__request_notify.exit, %34, %31
+  %.1 = phi i32 [ -1, %34 ], [ %.0.ph, %31 ], [ -1, %H5VL__request_notify.exit ]
   ret i32 %.1
 }
 
@@ -9188,7 +9188,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_notify(ptr noundef %0, i64 noundef %1, 
 18:                                               ; preds = %11
   %19 = tail call i32 %.val(ptr noundef %0, ptr noundef %2, ptr noundef %3) #6
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %H5VL__request_notify.argprom.exit
+  br i1 %20, label %21, label %H5VL__request_notify.exit
 
 21:                                               ; preds = %18
   %22 = load i64, ptr @H5E_VOL_g, align 8
@@ -9204,9 +9204,9 @@ define range(i32 -1, 1) i32 @H5VLrequest_notify(ptr noundef %0, i64 noundef %1, 
 
 29:                                               ; preds = %7, %25
   %30 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__request_notify.argprom.exit
+  br label %H5VL__request_notify.exit
 
-H5VL__request_notify.argprom.exit:                ; preds = %18, %29
+H5VL__request_notify.exit:                        ; preds = %18, %29
   %.0815 = phi i32 [ -1, %29 ], [ 0, %18 ]
   ret i32 %.0815
 }
@@ -9215,7 +9215,7 @@ H5VL__request_notify.argprom.exit:                ; preds = %18, %29
 define range(i32 -1, 1) i32 @H5VL_request_cancel(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %4 = icmp sgt i32 %3, -1
-  br i1 %4, label %5, label %H5VL__request_cancel.argprom.exit
+  br i1 %4, label %5, label %H5VL__request_cancel.exit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9250,7 +9250,7 @@ define range(i32 -1, 1) i32 @H5VL_request_cancel(ptr noundef %0, ptr noundef %1)
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_cancel, i32 noundef 6772, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.149) #6
   br label %30
 
-H5VL__request_cancel.argprom.exit:                ; preds = %2
+H5VL__request_cancel.exit:                        ; preds = %2
   %27 = load i64, ptr @H5E_VOL_g, align 8
   %28 = load i64, ptr @H5E_CANTSET_g, align 8
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_cancel, i32 noundef 6767, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.24) #6
@@ -9268,8 +9268,8 @@ H5VL__request_cancel.argprom.exit:                ; preds = %2
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_cancel, i32 noundef 6777, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.26) #6
   br label %37
 
-37:                                               ; preds = %H5VL__request_cancel.argprom.exit, %33, %30
-  %.1 = phi i32 [ -1, %33 ], [ %.0.ph, %30 ], [ -1, %H5VL__request_cancel.argprom.exit ]
+37:                                               ; preds = %H5VL__request_cancel.exit, %33, %30
+  %.1 = phi i32 [ -1, %33 ], [ %.0.ph, %30 ], [ -1, %H5VL__request_cancel.exit ]
   ret i32 %.1
 }
 
@@ -9300,7 +9300,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_cancel(ptr noundef %0, i64 noundef %1, 
 17:                                               ; preds = %10
   %18 = tail call i32 %.val(ptr noundef %0, ptr noundef %2) #6
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %H5VL__request_cancel.argprom.exit
+  br i1 %19, label %20, label %H5VL__request_cancel.exit
 
 20:                                               ; preds = %17
   %21 = load i64, ptr @H5E_VOL_g, align 8
@@ -9316,9 +9316,9 @@ define range(i32 -1, 1) i32 @H5VLrequest_cancel(ptr noundef %0, i64 noundef %1, 
 
 28:                                               ; preds = %6, %24
   %29 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__request_cancel.argprom.exit
+  br label %H5VL__request_cancel.exit
 
-H5VL__request_cancel.argprom.exit:                ; preds = %17, %28
+H5VL__request_cancel.exit:                        ; preds = %17, %28
   %.0714 = phi i32 [ -1, %28 ], [ 0, %17 ]
   ret i32 %.0714
 }
@@ -9327,7 +9327,7 @@ H5VL__request_cancel.argprom.exit:                ; preds = %17, %28
 define range(i32 -1, 1) i32 @H5VL_request_specific(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %4 = icmp sgt i32 %3, -1
-  br i1 %4, label %5, label %H5VL__request_specific.argprom.exit
+  br i1 %4, label %5, label %H5VL__request_specific.exit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9362,7 +9362,7 @@ define range(i32 -1, 1) i32 @H5VL_request_specific(ptr noundef %0, ptr noundef %
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_specific, i32 noundef 6875, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.151) #6
   br label %30
 
-H5VL__request_specific.argprom.exit:              ; preds = %2
+H5VL__request_specific.exit:                      ; preds = %2
   %27 = load i64, ptr @H5E_VOL_g, align 8
   %28 = load i64, ptr @H5E_CANTSET_g, align 8
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_specific, i32 noundef 6869, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.24) #6
@@ -9380,8 +9380,8 @@ H5VL__request_specific.argprom.exit:              ; preds = %2
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_specific, i32 noundef 6880, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.26) #6
   br label %37
 
-37:                                               ; preds = %H5VL__request_specific.argprom.exit, %33, %30
-  %.1 = phi i32 [ -1, %33 ], [ %.0.ph, %30 ], [ -1, %H5VL__request_specific.argprom.exit ]
+37:                                               ; preds = %H5VL__request_specific.exit, %33, %30
+  %.1 = phi i32 [ -1, %33 ], [ %.0.ph, %30 ], [ -1, %H5VL__request_specific.exit ]
   ret i32 %.1
 }
 
@@ -9412,7 +9412,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_specific(ptr noundef %0, i64 noundef %1
 17:                                               ; preds = %10
   %18 = tail call i32 %.val(ptr noundef %0, ptr noundef %2) #6
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %H5VL__request_specific.argprom.exit
+  br i1 %19, label %20, label %H5VL__request_specific.exit
 
 20:                                               ; preds = %17
   %21 = load i64, ptr @H5E_VOL_g, align 8
@@ -9428,9 +9428,9 @@ define range(i32 -1, 1) i32 @H5VLrequest_specific(ptr noundef %0, i64 noundef %1
 
 28:                                               ; preds = %6, %24
   %29 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__request_specific.argprom.exit
+  br label %H5VL__request_specific.exit
 
-H5VL__request_specific.argprom.exit:              ; preds = %17, %28
+H5VL__request_specific.exit:                      ; preds = %17, %28
   %.0714 = phi i32 [ -1, %28 ], [ 0, %17 ]
   ret i32 %.0714
 }
@@ -9439,7 +9439,7 @@ H5VL__request_specific.argprom.exit:              ; preds = %17, %28
 define range(i32 -1, 1) i32 @H5VL_request_optional(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %4 = icmp sgt i32 %3, -1
-  br i1 %4, label %5, label %H5VL__request_optional.argprom.exit
+  br i1 %4, label %5, label %H5VL__request_optional.exit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9474,7 +9474,7 @@ define range(i32 -1, 1) i32 @H5VL_request_optional(ptr noundef %0, ptr noundef %
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_optional, i32 noundef 6979, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.152) #6
   br label %30
 
-H5VL__request_optional.argprom.exit:              ; preds = %2
+H5VL__request_optional.exit:                      ; preds = %2
   %27 = load i64, ptr @H5E_VOL_g, align 8
   %28 = load i64, ptr @H5E_CANTSET_g, align 8
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_optional, i32 noundef 6973, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.24) #6
@@ -9492,8 +9492,8 @@ H5VL__request_optional.argprom.exit:              ; preds = %2
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_optional, i32 noundef 6984, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.26) #6
   br label %37
 
-37:                                               ; preds = %H5VL__request_optional.argprom.exit, %33, %30
-  %.1 = phi i32 [ -1, %33 ], [ %.0.ph, %30 ], [ -1, %H5VL__request_optional.argprom.exit ]
+37:                                               ; preds = %H5VL__request_optional.exit, %33, %30
+  %.1 = phi i32 [ -1, %33 ], [ %.0.ph, %30 ], [ -1, %H5VL__request_optional.exit ]
   ret i32 %.1
 }
 
@@ -9524,7 +9524,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_optional(ptr noundef %0, i64 noundef %1
 17:                                               ; preds = %10
   %18 = tail call i32 %.val(ptr noundef %0, ptr noundef %2) #6
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %H5VL__request_optional.argprom.exit
+  br i1 %19, label %20, label %H5VL__request_optional.exit
 
 20:                                               ; preds = %17
   %21 = load i64, ptr @H5E_VOL_g, align 8
@@ -9540,9 +9540,9 @@ define range(i32 -1, 1) i32 @H5VLrequest_optional(ptr noundef %0, i64 noundef %1
 
 28:                                               ; preds = %6, %24
   %29 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__request_optional.argprom.exit
+  br label %H5VL__request_optional.exit
 
-H5VL__request_optional.argprom.exit:              ; preds = %17, %28
+H5VL__request_optional.exit:                      ; preds = %17, %28
   %.0714 = phi i32 [ -1, %28 ], [ 0, %17 ]
   ret i32 %.0714
 }
@@ -9565,7 +9565,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_optional_op(ptr noundef %0, i64 noundef
   %13 = load i64, ptr @H5E_FUNC_g, align 8
   %14 = load i64, ptr @H5E_CANTINIT_g, align 8
   %15 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLrequest_optional_op, i32 noundef 7036, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.9) #6
-  br label %H5VL__request_optional.argprom.exit.thread30
+  br label %H5VL__request_optional.exit.thread30
 
 16:                                               ; preds = %9, %3
   %17 = tail call i32 @H5CX_push() #6
@@ -9576,7 +9576,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_optional_op(ptr noundef %0, i64 noundef
   %20 = load i64, ptr @H5E_FUNC_g, align 8
   %21 = load i64, ptr @H5E_CANTSET_g, align 8
   %22 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLrequest_optional_op, i32 noundef 7036, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.10) #6
-  br label %H5VL__request_optional.argprom.exit.thread30
+  br label %H5VL__request_optional.exit.thread30
 
 23:                                               ; preds = %16
   %24 = tail call i32 @H5E_clear_stack() #6
@@ -9587,7 +9587,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_optional_op(ptr noundef %0, i64 noundef
   %27 = load i64, ptr @H5E_ARGS_g, align 8
   %28 = load i64, ptr @H5E_BADVALUE_g, align 8
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLrequest_optional_op, i32 noundef 7040, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.153) #6
-  br label %H5VL__request_optional.argprom.exit.thread36
+  br label %H5VL__request_optional.exit.thread36
 
 30:                                               ; preds = %23
   %31 = icmp eq ptr %2, null
@@ -9597,7 +9597,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_optional_op(ptr noundef %0, i64 noundef
   %33 = load i64, ptr @H5E_ARGS_g, align 8
   %34 = load i64, ptr @H5E_BADVALUE_g, align 8
   %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLrequest_optional_op, i32 noundef 7042, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.154) #6
-  br label %H5VL__request_optional.argprom.exit.thread36
+  br label %H5VL__request_optional.exit.thread36
 
 36:                                               ; preds = %30
   %37 = tail call ptr @H5I_object_verify(i64 noundef %1, i32 noundef 9) #6
@@ -9608,7 +9608,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_optional_op(ptr noundef %0, i64 noundef
   %40 = load i64, ptr @H5E_ARGS_g, align 8
   %41 = load i64, ptr @H5E_BADTYPE_g, align 8
   %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLrequest_optional_op, i32 noundef 7046, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.1) #6
-  br label %H5VL__request_optional.argprom.exit.thread36
+  br label %H5VL__request_optional.exit.thread36
 
 43:                                               ; preds = %36
   %44 = getelementptr i8, ptr %37, i64 552
@@ -9625,7 +9625,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_optional_op(ptr noundef %0, i64 noundef
 50:                                               ; preds = %43
   %51 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
   %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %H5VL__request_optional.argprom.exit
+  br i1 %52, label %53, label %H5VL__request_optional.exit
 
 53:                                               ; preds = %50
   %54 = load i64, ptr @H5E_VOL_g, align 8
@@ -9637,22 +9637,22 @@ define range(i32 -1, 1) i32 @H5VLrequest_optional_op(ptr noundef %0, i64 noundef
   %58 = load i64, ptr @H5E_VOL_g, align 8
   %59 = load i64, ptr @H5E_CANTOPERATE_g, align 8
   %60 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLrequest_optional_op, i32 noundef 7050, i64 noundef %58, i64 noundef %59, ptr noundef nonnull @.str.155) #6
-  br label %H5VL__request_optional.argprom.exit.thread36
+  br label %H5VL__request_optional.exit.thread36
 
-H5VL__request_optional.argprom.exit.thread36:     ; preds = %57, %39, %32, %26
+H5VL__request_optional.exit.thread36:             ; preds = %57, %39, %32, %26
   %61 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #6
-  br label %H5VL__request_optional.argprom.exit.thread30
+  br label %H5VL__request_optional.exit.thread30
 
-H5VL__request_optional.argprom.exit:              ; preds = %50
+H5VL__request_optional.exit:                      ; preds = %50
   %62 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #6
   br label %64
 
-H5VL__request_optional.argprom.exit.thread30:     ; preds = %19, %12, %H5VL__request_optional.argprom.exit.thread36
+H5VL__request_optional.exit.thread30:             ; preds = %19, %12, %H5VL__request_optional.exit.thread36
   %63 = tail call i32 @H5E_dump_api_stack() #6
   br label %64
 
-64:                                               ; preds = %H5VL__request_optional.argprom.exit, %H5VL__request_optional.argprom.exit.thread30
-  %.0152533 = phi i32 [ -1, %H5VL__request_optional.argprom.exit.thread30 ], [ 0, %H5VL__request_optional.argprom.exit ]
+64:                                               ; preds = %H5VL__request_optional.exit, %H5VL__request_optional.exit.thread30
+  %.0152533 = phi i32 [ -1, %H5VL__request_optional.exit.thread30 ], [ 0, %H5VL__request_optional.exit ]
   ret i32 %.0152533
 }
 
@@ -9660,7 +9660,7 @@ H5VL__request_optional.argprom.exit.thread30:     ; preds = %19, %12, %H5VL__req
 define range(i32 -1, 1) i32 @H5VL_request_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %3 = icmp sgt i32 %2, -1
-  br i1 %3, label %4, label %H5VL__request_free.argprom.exit
+  br i1 %3, label %4, label %H5VL__request_free.exit
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9695,7 +9695,7 @@ define range(i32 -1, 1) i32 @H5VL_request_free(ptr noundef %0) local_unnamed_add
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_free, i32 noundef 7117, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.156) #6
   br label %29
 
-H5VL__request_free.argprom.exit:                  ; preds = %1
+H5VL__request_free.exit:                          ; preds = %1
   %26 = load i64, ptr @H5E_VOL_g, align 8
   %27 = load i64, ptr @H5E_CANTSET_g, align 8
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_free, i32 noundef 7112, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.24) #6
@@ -9713,8 +9713,8 @@ H5VL__request_free.argprom.exit:                  ; preds = %1
   %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_request_free, i32 noundef 7122, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.26) #6
   br label %36
 
-36:                                               ; preds = %H5VL__request_free.argprom.exit, %32, %29
-  %.1 = phi i32 [ -1, %32 ], [ %.0.ph, %29 ], [ -1, %H5VL__request_free.argprom.exit ]
+36:                                               ; preds = %H5VL__request_free.exit, %32, %29
+  %.1 = phi i32 [ -1, %32 ], [ %.0.ph, %29 ], [ -1, %H5VL__request_free.exit ]
   ret i32 %.1
 }
 
@@ -9745,7 +9745,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_free(ptr noundef %0, i64 noundef %1) lo
 16:                                               ; preds = %9
   %17 = tail call i32 %.val(ptr noundef %0) #6
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %H5VL__request_free.argprom.exit
+  br i1 %18, label %19, label %H5VL__request_free.exit
 
 19:                                               ; preds = %16
   %20 = load i64, ptr @H5E_VOL_g, align 8
@@ -9761,9 +9761,9 @@ define range(i32 -1, 1) i32 @H5VLrequest_free(ptr noundef %0, i64 noundef %1) lo
 
 27:                                               ; preds = %5, %23
   %28 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__request_free.argprom.exit
+  br label %H5VL__request_free.exit
 
-H5VL__request_free.argprom.exit:                  ; preds = %16, %27
+H5VL__request_free.exit:                          ; preds = %16, %27
   %.0613 = phi i32 [ -1, %27 ], [ 0, %16 ]
   ret i32 %.0613
 }
@@ -9788,7 +9788,7 @@ define range(i32 -1, 1) i32 @H5VL_blob_put(ptr nocapture noundef readonly %0, pt
   %16 = load ptr, ptr %0, align 8
   %17 = tail call i32 %.val(ptr noundef %16, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #6
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %H5VL__blob_put.argprom.exit
+  br i1 %18, label %19, label %H5VL__blob_put.exit
 
 19:                                               ; preds = %15
   %20 = load i64, ptr @H5E_VOL_g, align 8
@@ -9800,9 +9800,9 @@ define range(i32 -1, 1) i32 @H5VL_blob_put(ptr nocapture noundef readonly %0, pt
   %24 = load i64, ptr @H5E_VOL_g, align 8
   %25 = load i64, ptr @H5E_CANTSET_g, align 8
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_blob_put, i32 noundef 7214, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.158) #6
-  br label %H5VL__blob_put.argprom.exit
+  br label %H5VL__blob_put.exit
 
-H5VL__blob_put.argprom.exit:                      ; preds = %15, %23
+H5VL__blob_put.exit:                              ; preds = %15, %23
   %.0 = phi i32 [ -1, %23 ], [ 0, %15 ]
   ret i32 %.0
 }
@@ -9844,7 +9844,7 @@ define range(i32 -1, 1) i32 @H5VLblob_put(ptr noundef %0, i64 noundef %1, ptr no
 26:                                               ; preds = %19
   %27 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) #6
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %H5VL__blob_put.argprom.exit
+  br i1 %28, label %29, label %H5VL__blob_put.exit
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5E_VOL_g, align 8
@@ -9860,9 +9860,9 @@ define range(i32 -1, 1) i32 @H5VLblob_put(ptr noundef %0, i64 noundef %1, ptr no
 
 37:                                               ; preds = %8, %15, %33
   %38 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__blob_put.argprom.exit
+  br label %H5VL__blob_put.exit
 
-H5VL__blob_put.argprom.exit:                      ; preds = %26, %37
+H5VL__blob_put.exit:                              ; preds = %26, %37
   %.01220 = phi i32 [ -1, %37 ], [ 0, %26 ]
   ret i32 %.01220
 }
@@ -9887,7 +9887,7 @@ define range(i32 -1, 1) i32 @H5VL_blob_get(ptr nocapture noundef readonly %0, pt
   %16 = load ptr, ptr %0, align 8
   %17 = tail call i32 %.val(ptr noundef %16, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #6
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %H5VL__blob_get.argprom.exit
+  br i1 %18, label %19, label %H5VL__blob_get.exit
 
 19:                                               ; preds = %15
   %20 = load i64, ptr @H5E_VOL_g, align 8
@@ -9899,9 +9899,9 @@ define range(i32 -1, 1) i32 @H5VL_blob_get(ptr nocapture noundef readonly %0, pt
   %24 = load i64, ptr @H5E_VOL_g, align 8
   %25 = load i64, ptr @H5E_CANTGET_g, align 8
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_blob_get, i32 noundef 7308, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.159) #6
-  br label %H5VL__blob_get.argprom.exit
+  br label %H5VL__blob_get.exit
 
-H5VL__blob_get.argprom.exit:                      ; preds = %15, %23
+H5VL__blob_get.exit:                              ; preds = %15, %23
   %.0 = phi i32 [ -1, %23 ], [ 0, %15 ]
   ret i32 %.0
 }
@@ -9943,7 +9943,7 @@ define range(i32 -1, 1) i32 @H5VLblob_get(ptr noundef %0, i64 noundef %1, ptr no
 26:                                               ; preds = %19
   %27 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %H5VL__blob_get.argprom.exit
+  br i1 %28, label %29, label %H5VL__blob_get.exit
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5E_VOL_g, align 8
@@ -9959,9 +9959,9 @@ define range(i32 -1, 1) i32 @H5VLblob_get(ptr noundef %0, i64 noundef %1, ptr no
 
 37:                                               ; preds = %8, %15, %33
   %38 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__blob_get.argprom.exit
+  br label %H5VL__blob_get.exit
 
-H5VL__blob_get.argprom.exit:                      ; preds = %26, %37
+H5VL__blob_get.exit:                              ; preds = %26, %37
   %.01220 = phi i32 [ -1, %37 ], [ 0, %26 ]
   ret i32 %.01220
 }
@@ -9986,7 +9986,7 @@ define range(i32 -1, 1) i32 @H5VL_blob_specific(ptr nocapture noundef readonly %
   %14 = load ptr, ptr %0, align 8
   %15 = tail call i32 %.val(ptr noundef %14, ptr noundef %1, ptr noundef %2) #6
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %H5VL__blob_specific.argprom.exit
+  br i1 %16, label %17, label %H5VL__blob_specific.exit
 
 17:                                               ; preds = %13
   %18 = load i64, ptr @H5E_VOL_g, align 8
@@ -9998,9 +9998,9 @@ define range(i32 -1, 1) i32 @H5VL_blob_specific(ptr nocapture noundef readonly %
   %22 = load i64, ptr @H5E_VOL_g, align 8
   %23 = load i64, ptr @H5E_CANTOPERATE_g, align 8
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_blob_specific, i32 noundef 7401, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.160) #6
-  br label %H5VL__blob_specific.argprom.exit
+  br label %H5VL__blob_specific.exit
 
-H5VL__blob_specific.argprom.exit:                 ; preds = %13, %21
+H5VL__blob_specific.exit:                         ; preds = %13, %21
   %.0 = phi i32 [ -1, %21 ], [ 0, %13 ]
   ret i32 %.0
 }
@@ -10042,7 +10042,7 @@ define range(i32 -1, 1) i32 @H5VLblob_specific(ptr noundef %0, i64 noundef %1, p
 24:                                               ; preds = %17
   %25 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3) #6
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %H5VL__blob_specific.argprom.exit
+  br i1 %26, label %27, label %H5VL__blob_specific.exit
 
 27:                                               ; preds = %24
   %28 = load i64, ptr @H5E_VOL_g, align 8
@@ -10058,9 +10058,9 @@ define range(i32 -1, 1) i32 @H5VLblob_specific(ptr noundef %0, i64 noundef %1, p
 
 35:                                               ; preds = %6, %13, %31
   %36 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__blob_specific.argprom.exit
+  br label %H5VL__blob_specific.exit
 
-H5VL__blob_specific.argprom.exit:                 ; preds = %24, %35
+H5VL__blob_specific.exit:                         ; preds = %24, %35
   %.01018 = phi i32 [ -1, %35 ], [ 0, %24 ]
   ret i32 %.01018
 }
@@ -10085,7 +10085,7 @@ define range(i32 -1, 1) i32 @H5VL_blob_optional(ptr nocapture noundef readonly %
   %14 = load ptr, ptr %0, align 8
   %15 = tail call i32 %.val(ptr noundef %14, ptr noundef %1, ptr noundef %2) #6
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %H5VL__blob_optional.argprom.exit
+  br i1 %16, label %17, label %H5VL__blob_optional.exit
 
 17:                                               ; preds = %13
   %18 = load i64, ptr @H5E_VOL_g, align 8
@@ -10097,9 +10097,9 @@ define range(i32 -1, 1) i32 @H5VL_blob_optional(ptr nocapture noundef readonly %
   %22 = load i64, ptr @H5E_VOL_g, align 8
   %23 = load i64, ptr @H5E_CANTOPERATE_g, align 8
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_blob_optional, i32 noundef 7494, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.162) #6
-  br label %H5VL__blob_optional.argprom.exit
+  br label %H5VL__blob_optional.exit
 
-H5VL__blob_optional.argprom.exit:                 ; preds = %13, %21
+H5VL__blob_optional.exit:                         ; preds = %13, %21
   %.0 = phi i32 [ -1, %21 ], [ 0, %13 ]
   ret i32 %.0
 }
@@ -10141,7 +10141,7 @@ define range(i32 -1, 1) i32 @H5VLblob_optional(ptr noundef %0, i64 noundef %1, p
 24:                                               ; preds = %17
   %25 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3) #6
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %H5VL__blob_optional.argprom.exit
+  br i1 %26, label %27, label %H5VL__blob_optional.exit
 
 27:                                               ; preds = %24
   %28 = load i64, ptr @H5E_VOL_g, align 8
@@ -10157,9 +10157,9 @@ define range(i32 -1, 1) i32 @H5VLblob_optional(ptr noundef %0, i64 noundef %1, p
 
 35:                                               ; preds = %6, %13, %31
   %36 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__blob_optional.argprom.exit
+  br label %H5VL__blob_optional.exit
 
-H5VL__blob_optional.argprom.exit:                 ; preds = %24, %35
+H5VL__blob_optional.exit:                         ; preds = %24, %35
   %.01018 = phi i32 [ -1, %35 ], [ 0, %24 ]
   ret i32 %.01018
 }
@@ -10335,11 +10335,11 @@ define range(i32 -1, 1) i32 @H5VL_token_to_str(ptr nocapture noundef readonly %0
   %10 = load ptr, ptr %0, align 8
   %11 = tail call i32 %.val(ptr noundef %10, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %14, label %H5VL__token_to_str.argprom.exit.thread
+  br i1 %12, label %14, label %H5VL__token_to_str.exit.thread
 
 13:                                               ; preds = %4
   store ptr null, ptr %3, align 8
-  br label %H5VL__token_to_str.argprom.exit.thread
+  br label %H5VL__token_to_str.exit.thread
 
 14:                                               ; preds = %9
   %15 = load i64, ptr @H5E_VOL_g, align 8
@@ -10348,9 +10348,9 @@ define range(i32 -1, 1) i32 @H5VL_token_to_str(ptr nocapture noundef readonly %0
   %18 = load i64, ptr @H5E_VOL_g, align 8
   %19 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_token_to_str, i32 noundef 7717, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.167) #6
-  br label %H5VL__token_to_str.argprom.exit.thread
+  br label %H5VL__token_to_str.exit.thread
 
-H5VL__token_to_str.argprom.exit.thread:           ; preds = %13, %9, %14
+H5VL__token_to_str.exit.thread:                   ; preds = %13, %9, %14
   %.0 = phi i32 [ -1, %14 ], [ 0, %9 ], [ 0, %13 ]
   ret i32 %.0
 }
@@ -10444,11 +10444,11 @@ define range(i32 -1, 1) i32 @H5VL_token_from_str(ptr nocapture noundef readonly 
   %10 = load ptr, ptr %0, align 8
   %11 = tail call i32 %.val(ptr noundef %10, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %14, label %H5VL__token_from_str.argprom.exit.thread
+  br i1 %12, label %14, label %H5VL__token_from_str.exit.thread
 
 13:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false)
-  br label %H5VL__token_from_str.argprom.exit.thread
+  br label %H5VL__token_from_str.exit.thread
 
 14:                                               ; preds = %9
   %15 = load i64, ptr @H5E_VOL_g, align 8
@@ -10457,9 +10457,9 @@ define range(i32 -1, 1) i32 @H5VL_token_from_str(ptr nocapture noundef readonly 
   %18 = load i64, ptr @H5E_VOL_g, align 8
   %19 = load i64, ptr @H5E_CANTUNSERIALIZE_g, align 8
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_token_from_str, i32 noundef 7823, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.171) #6
-  br label %H5VL__token_from_str.argprom.exit.thread
+  br label %H5VL__token_from_str.exit.thread
 
-H5VL__token_from_str.argprom.exit.thread:         ; preds = %13, %9, %14
+H5VL__token_from_str.exit.thread:                 ; preds = %13, %9, %14
   %.0 = phi i32 [ -1, %14 ], [ 0, %9 ], [ 0, %13 ]
   ret i32 %.0
 }
@@ -10543,7 +10543,7 @@ define range(i32 -1, 1) i32 @H5VLtoken_from_str(ptr noundef %0, i32 noundef %1, 
 define i32 @H5VL_optional(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %H5VL__optional.argprom.exit
+  br i1 %6, label %7, label %H5VL__optional.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10579,7 +10579,7 @@ define i32 @H5VL_optional(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_optional, i32 noundef 7920, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.173) #6
   br label %32
 
-H5VL__optional.argprom.exit:                      ; preds = %4
+H5VL__optional.exit:                              ; preds = %4
   %29 = load i64, ptr @H5E_VOL_g, align 8
   %30 = load i64, ptr @H5E_CANTSET_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_optional, i32 noundef 7915, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24) #6
@@ -10597,8 +10597,8 @@ H5VL__optional.argprom.exit:                      ; preds = %4
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_optional, i32 noundef 7925, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.26) #6
   br label %39
 
-39:                                               ; preds = %H5VL__optional.argprom.exit, %35, %32
-  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__optional.argprom.exit ]
+39:                                               ; preds = %H5VL__optional.exit, %35, %32
+  %.1 = phi i32 [ -1, %35 ], [ %.0.ph, %32 ], [ -1, %H5VL__optional.exit ]
   ret i32 %.1
 }
 
@@ -10639,7 +10639,7 @@ define i32 @H5VLoptional(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nou
 25:                                               ; preds = %18
   %26 = tail call i32 %.val(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef %4) #6
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %H5VL__optional.argprom.exit
+  br i1 %27, label %28, label %H5VL__optional.exit
 
 28:                                               ; preds = %25
   %29 = load i64, ptr @H5E_VOL_g, align 8
@@ -10652,13 +10652,13 @@ define i32 @H5VLoptional(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nou
   %33 = load i64, ptr @H5E_VOL_g, align 8
   %34 = load i64, ptr @H5E_CANTOPERATE_g, align 8
   %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLoptional, i32 noundef 7956, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.173) #6
-  br label %H5VL__optional.argprom.exit
+  br label %H5VL__optional.exit
 
 36:                                               ; preds = %7, %14
   %37 = tail call i32 @H5E_dump_api_stack() #6
-  br label %H5VL__optional.argprom.exit
+  br label %H5VL__optional.exit
 
-H5VL__optional.argprom.exit:                      ; preds = %32, %25, %36
+H5VL__optional.exit:                              ; preds = %32, %25, %36
   %.01020 = phi i32 [ -1, %36 ], [ %.0.i.ph, %32 ], [ %26, %25 ]
   ret i32 %.01020
 }

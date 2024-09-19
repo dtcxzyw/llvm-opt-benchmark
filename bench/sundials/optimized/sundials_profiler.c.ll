@@ -273,14 +273,14 @@ define noundef i32 @SUNProfiler_Free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef nonnull %33) #19
   %.pre8.i = load ptr, ptr %5, align 8
   %.not30.i = icmp eq ptr %.pre8.i, null
-  br i1 %.not30.i, label %SUNHashMap_Destroy.argprom.exit, label %.thread12.i
+  br i1 %.not30.i, label %SUNHashMap_Destroy.exit, label %.thread12.i
 
 .thread12.i:                                      ; preds = %34, %._crit_edge.i
   %35 = phi ptr [ %.pre8.i, %34 ], [ %.lcssa.i, %._crit_edge.i ]
   tail call void @free(ptr noundef nonnull %35) #19
-  br label %SUNHashMap_Destroy.argprom.exit
+  br label %SUNHashMap_Destroy.exit
 
-SUNHashMap_Destroy.argprom.exit:                  ; preds = %34, %.thread12.i
+SUNHashMap_Destroy.exit:                          ; preds = %34, %.thread12.i
   store ptr null, ptr %5, align 8
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 24
@@ -288,7 +288,7 @@ SUNHashMap_Destroy.argprom.exit:                  ; preds = %34, %.thread12.i
   %.not.i10 = icmp eq ptr %38, null
   br i1 %.not.i10, label %sunTimerStructFree.exit, label %39
 
-39:                                               ; preds = %SUNHashMap_Destroy.argprom.exit
+39:                                               ; preds = %SUNHashMap_Destroy.exit
   %40 = load ptr, ptr %38, align 8
   %.not9.i = icmp eq ptr %40, null
   br i1 %.not9.i, label %42, label %41
@@ -312,8 +312,8 @@ SUNHashMap_Destroy.argprom.exit:                  ; preds = %34, %.thread12.i
   %.pre = load ptr, ptr %0, align 8
   br label %sunTimerStructFree.exit
 
-sunTimerStructFree.exit:                          ; preds = %SUNHashMap_Destroy.argprom.exit, %46
-  %47 = phi ptr [ %36, %SUNHashMap_Destroy.argprom.exit ], [ %.pre, %46 ]
+sunTimerStructFree.exit:                          ; preds = %SUNHashMap_Destroy.exit, %46
+  %47 = phi ptr [ %36, %SUNHashMap_Destroy.exit ], [ %.pre, %46 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void @free(ptr noundef %49) #19
@@ -1054,15 +1054,15 @@ SUNProfiler_GetTimerResolution.exit:              ; preds = %51, %.preheader.i
   %80 = load double, ptr %79, align 8
   %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val37, ptr noundef nonnull dereferenceable(20) @.str.1) #20
   %.not.i42 = icmp eq i32 %81, 0
-  br i1 %.not.i42, label %sunPrintTimers.argprom.exit, label %82
+  br i1 %.not.i42, label %sunPrintTimers.exit, label %82
 
 82:                                               ; preds = %75
   %83 = load double, ptr %45, align 8
   %84 = fdiv double %78, %83
   %85 = fmul double %84, 1.000000e+02
-  br label %sunPrintTimers.argprom.exit
+  br label %sunPrintTimers.exit
 
-sunPrintTimers.argprom.exit:                      ; preds = %75, %82
+sunPrintTimers.exit:                              ; preds = %75, %82
   %86 = phi double [ %85, %82 ], [ 1.000000e+02, %75 ]
   %87 = getelementptr inbounds i8, ptr %.val38, i64 40
   %88 = load i64, ptr %87, align 8
@@ -1071,8 +1071,8 @@ sunPrintTimers.argprom.exit:                      ; preds = %75, %82
   %.pre68 = load i32, ptr %.pre67, align 8
   br label %90
 
-90:                                               ; preds = %.lr.ph, %sunPrintTimers.argprom.exit
-  %91 = phi i32 [ %72, %.lr.ph ], [ %.pre68, %sunPrintTimers.argprom.exit ]
+90:                                               ; preds = %.lr.ph, %sunPrintTimers.exit
+  %91 = phi i32 [ %72, %.lr.ph ], [ %.pre68, %sunPrintTimers.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next, %92

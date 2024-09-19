@@ -2948,20 +2948,20 @@ _ZN4llvm11SmallPtrSetIPKNS_4UserELj8EED2Ev.exit.i: ; preds = %72, %.critedge.i
   %73 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #11
   %74 = load ptr, ptr %4, align 8
   %75 = icmp eq ptr %74, %28
-  br i1 %75, label %_ZL22isPointerUseReplacableRKN4llvm3UseE.argprom.exit, label %76
+  br i1 %75, label %_ZL22isPointerUseReplacableRKN4llvm3UseE.exit, label %76
 
 76:                                               ; preds = %_ZN4llvm11SmallPtrSetIPKNS_4UserELj8EED2Ev.exit.i
   call void @free(ptr noundef %74) #11
-  br label %_ZL22isPointerUseReplacableRKN4llvm3UseE.argprom.exit
+  br label %_ZL22isPointerUseReplacableRKN4llvm3UseE.exit
 
-_ZL22isPointerUseReplacableRKN4llvm3UseE.argprom.exit: ; preds = %_ZN4llvm11SmallPtrSetIPKNS_4UserELj8EED2Ev.exit.i, %76
+_ZL22isPointerUseReplacableRKN4llvm3UseE.exit:    ; preds = %_ZN4llvm11SmallPtrSetIPKNS_4UserELj8EED2Ev.exit.i, %76
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
   br label %_ZL26isPointerAlwaysReplaceablePKN4llvm5ValueES2_RKNS_10DataLayoutE.exit.thread
 
-_ZL26isPointerAlwaysReplaceablePKN4llvm5ValueES2_RKNS_10DataLayoutE.exit.thread: ; preds = %19, %13, %_ZL26isPointerAlwaysReplaceablePKN4llvm5ValueES2_RKNS_10DataLayoutE.exit, %3, %_ZL22isPointerUseReplacableRKN4llvm3UseE.argprom.exit
-  %.0 = phi i1 [ %.lcssa.i, %_ZL22isPointerUseReplacableRKN4llvm3UseE.argprom.exit ], [ true, %3 ], [ true, %_ZL26isPointerAlwaysReplaceablePKN4llvm5ValueES2_RKNS_10DataLayoutE.exit ], [ true, %13 ], [ true, %19 ]
+_ZL26isPointerAlwaysReplaceablePKN4llvm5ValueES2_RKNS_10DataLayoutE.exit.thread: ; preds = %19, %13, %_ZL26isPointerAlwaysReplaceablePKN4llvm5ValueES2_RKNS_10DataLayoutE.exit, %3, %_ZL22isPointerUseReplacableRKN4llvm3UseE.exit
+  %.0 = phi i1 [ %.lcssa.i, %_ZL22isPointerUseReplacableRKN4llvm3UseE.exit ], [ true, %3 ], [ true, %_ZL26isPointerAlwaysReplaceablePKN4llvm5ValueES2_RKNS_10DataLayoutE.exit ], [ true, %13 ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -3287,7 +3287,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbNS_17RetainedKnowl
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 @_ZN4llvm23isValidAssumeForContextEPKNS_11InstructionES2_PKNS_13DominatorTreeEb(ptr noundef %2, ptr noundef %8, ptr noundef %11, i1 noundef zeroext false) #11
-  br i1 %12, label %13, label %"_ZZL34isDereferenceableAndAlignedPointerPKN4llvm5ValueENS_5AlignERKNS_5APIntERKNS_10DataLayoutEPKNS_11InstructionEPNS_15AssumptionCacheEPKNS_13DominatorTreeEPKNS_17TargetLibraryInfoERNS_15SmallPtrSetImplIS2_EEjENK3$_0clIPKNS_8CallBase12BundleOpInfoEEEDaNS_17RetainedKnowledgeEPSA_T_.argprom.exit"
+  br i1 %12, label %13, label %"_ZZL34isDereferenceableAndAlignedPointerPKN4llvm5ValueENS_5AlignERKNS_5APIntERKNS_10DataLayoutEPKNS_11InstructionEPNS_15AssumptionCacheEPKNS_13DominatorTreeEPKNS_17TargetLibraryInfoERNS_15SmallPtrSetImplIS2_EEjENK3$_0clIPKNS_8CallBase12BundleOpInfoEEEDaNS_17RetainedKnowledgeEPSA_T_.exit"
 
 13:                                               ; preds = %4
   %14 = load i32, ptr %5, align 8
@@ -3349,12 +3349,12 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbNS_17RetainedKnowl
   %.0.in.i.i = select i1 %43, ptr %40, ptr %44
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %.not3.i = icmp ult i64 %38, %.0.i.i
-  br i1 %.not3.i, label %45, label %"_ZZL34isDereferenceableAndAlignedPointerPKN4llvm5ValueENS_5AlignERKNS_5APIntERKNS_10DataLayoutEPKNS_11InstructionEPNS_15AssumptionCacheEPKNS_13DominatorTreeEPKNS_17TargetLibraryInfoERNS_15SmallPtrSetImplIS2_EEjENK3$_0clIPKNS_8CallBase12BundleOpInfoEEEDaNS_17RetainedKnowledgeEPSA_T_.argprom.exit"
+  br i1 %.not3.i, label %45, label %"_ZZL34isDereferenceableAndAlignedPointerPKN4llvm5ValueENS_5AlignERKNS_5APIntERKNS_10DataLayoutEPKNS_11InstructionEPNS_15AssumptionCacheEPKNS_13DominatorTreeEPKNS_17TargetLibraryInfoERNS_15SmallPtrSetImplIS2_EEjENK3$_0clIPKNS_8CallBase12BundleOpInfoEEEDaNS_17RetainedKnowledgeEPSA_T_.exit"
 
 45:                                               ; preds = %36, %29, %25, %21
-  br label %"_ZZL34isDereferenceableAndAlignedPointerPKN4llvm5ValueENS_5AlignERKNS_5APIntERKNS_10DataLayoutEPKNS_11InstructionEPNS_15AssumptionCacheEPKNS_13DominatorTreeEPKNS_17TargetLibraryInfoERNS_15SmallPtrSetImplIS2_EEjENK3$_0clIPKNS_8CallBase12BundleOpInfoEEEDaNS_17RetainedKnowledgeEPSA_T_.argprom.exit"
+  br label %"_ZZL34isDereferenceableAndAlignedPointerPKN4llvm5ValueENS_5AlignERKNS_5APIntERKNS_10DataLayoutEPKNS_11InstructionEPNS_15AssumptionCacheEPKNS_13DominatorTreeEPKNS_17TargetLibraryInfoERNS_15SmallPtrSetImplIS2_EEjENK3$_0clIPKNS_8CallBase12BundleOpInfoEEEDaNS_17RetainedKnowledgeEPSA_T_.exit"
 
-"_ZZL34isDereferenceableAndAlignedPointerPKN4llvm5ValueENS_5AlignERKNS_5APIntERKNS_10DataLayoutEPKNS_11InstructionEPNS_15AssumptionCacheEPKNS_13DominatorTreeEPKNS_17TargetLibraryInfoERNS_15SmallPtrSetImplIS2_EEjENK3$_0clIPKNS_8CallBase12BundleOpInfoEEEDaNS_17RetainedKnowledgeEPSA_T_.argprom.exit": ; preds = %4, %36, %45
+"_ZZL34isDereferenceableAndAlignedPointerPKN4llvm5ValueENS_5AlignERKNS_5APIntERKNS_10DataLayoutEPKNS_11InstructionEPNS_15AssumptionCacheEPKNS_13DominatorTreeEPKNS_17TargetLibraryInfoERNS_15SmallPtrSetImplIS2_EEjENK3$_0clIPKNS_8CallBase12BundleOpInfoEEEDaNS_17RetainedKnowledgeEPSA_T_.exit": ; preds = %4, %36, %45
   %.0.i = phi i1 [ false, %45 ], [ false, %4 ], [ true, %36 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret i1 %.0.i

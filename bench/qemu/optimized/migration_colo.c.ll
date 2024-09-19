@@ -848,7 +848,7 @@ if.end26.i.i:                                     ; preds = %if.then25.i.i, %if.
   %call28.i.i = call i32 @qemu_fflush(ptr noundef %call13.i) #6
   %30 = load ptr, ptr %to_dst_file.i, align 8
   %31 = load i64, ptr %usage.i.i, align 8
-  call fastcc void @colo_send_message_value.argelim(ptr noundef %30, i64 noundef %31, ptr noundef %local_err.i23.i)
+  call fastcc void @colo_send_message_value(ptr noundef %30, i64 noundef %31, ptr noundef %local_err.i23.i)
   %32 = load ptr, ptr %local_err.i23.i, align 8
   %tobool31.not.i.i = icmp eq ptr %32, null
   br i1 %tobool31.not.i.i, label %if.end33.i.i, label %if.then55.i.i
@@ -1823,7 +1823,7 @@ declare void @qemu_savevm_live_state(ptr noundef) local_unnamed_addr #1
 declare i32 @qemu_fflush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @colo_send_message_value.argelim(ptr noundef %f, i64 noundef %value, ptr noundef nonnull %errp) unnamed_addr #0 {
+define internal fastcc void @colo_send_message_value(ptr noundef %f, i64 noundef %value, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8

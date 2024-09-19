@@ -692,7 +692,7 @@ pmix_pointer_array_get_item.exit150:              ; preds = %101
   br label %197
 
 pmix_pointer_array_get_item.exit150.thread:       ; preds = %101, %pmix_pointer_array_get_item.exit150
-  %130 = call fastcc ptr @pmix_obj_new_tma.argprom(ptr noundef nonnull @prte_node_t_class)
+  %130 = call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @prte_node_t_class)
   %131 = load ptr, ptr %103, align 8
   %132 = call noalias ptr @strdup(ptr noundef %131) #11
   %133 = getelementptr inbounds i8, ptr %130, i64 152
@@ -744,7 +744,7 @@ pmix_pointer_array_get_item.exit153:              ; preds = %152
   br i1 %160, label %pmix_pointer_array_get_item.exit153.thread, label %176
 
 pmix_pointer_array_get_item.exit153.thread:       ; preds = %149, %152, %pmix_pointer_array_get_item.exit153
-  %161 = call fastcc ptr @pmix_obj_new_tma.argprom(ptr noundef nonnull @prte_proc_t_class)
+  %161 = call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @prte_proc_t_class)
   %162 = getelementptr inbounds i8, ptr %161, i64 144
   %163 = load ptr, ptr %3, align 8
   %164 = getelementptr inbounds i32, ptr %163, i64 %indvars.iv
@@ -866,7 +866,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pmix_obj_new_tma.argprom(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @pmix_obj_new_tma(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #12

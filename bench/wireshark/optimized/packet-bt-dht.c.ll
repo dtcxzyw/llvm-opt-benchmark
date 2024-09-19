@@ -173,7 +173,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_bt_dht(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @test_bt_dht.argprom.argelim(ptr noundef %0)
+  %5 = tail call fastcc i32 @test_bt_dht(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
@@ -204,7 +204,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_bt_dht_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @test_bt_dht.argprom.argelim(ptr noundef %0)
+  %5 = tail call fastcc i32 @test_bt_dht(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %dissect_bt_dht.exit, label %6
 
@@ -214,7 +214,7 @@ define internal range(i32 0, 2) i32 @dissect_bt_dht_heur(ptr noundef %0, ptr nou
   %9 = load i32, ptr %8, align 4
   %10 = load ptr, ptr @bt_dht_handle, align 8
   tail call void @conversation_set_dissector_from_frame_number(ptr noundef nonnull %7, i32 noundef %9, ptr noundef %10) #5
-  %11 = tail call fastcc i32 @test_bt_dht.argprom.argelim(ptr noundef %0)
+  %11 = tail call fastcc i32 @test_bt_dht(ptr noundef %0)
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %dissect_bt_dht.exit, label %12
 
@@ -235,7 +235,7 @@ dissect_bt_dht.exit:                              ; preds = %12, %6, %4
 declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_bt_dht.argprom.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_bt_dht(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #5
   %3 = icmp slt i32 %2, 5
   br i1 %3, label %16, label %4
@@ -382,12 +382,12 @@ sub_0:                                            ; preds = %47
   %61 = add i32 %40, 1
   %62 = call fastcc i32 @dissect_bencoded_int(ptr noundef %0, ptr noundef readonly %1, ptr noundef %60, i32 noundef %61, ptr noundef %6, ptr noundef nonnull @.str.70)
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %dissect_bt_dht_error.argprom.exit, label %64
+  br i1 %63, label %dissect_bt_dht_error.exit, label %64
 
 64:                                               ; preds = %56
   %65 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef %60, i32 noundef %62, ptr noundef %7, i32 noundef 0, ptr noundef nonnull @.str.71)
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %dissect_bt_dht_error.argprom.exit, label %67
+  br i1 %66, label %dissect_bt_dht_error.exit, label %67
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %6, align 8
@@ -399,9 +399,9 @@ sub_0:                                            ; preds = %47
   %72 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %71, ptr noundef nonnull @.str.74, ptr noundef %68, ptr noundef %69) #5
   store ptr %72, ptr %10, align 8
   %73 = add i32 %65, 1
-  br label %dissect_bt_dht_error.argprom.exit
+  br label %dissect_bt_dht_error.exit
 
-dissect_bt_dht_error.argprom.exit:                ; preds = %56, %64, %67
+dissect_bt_dht_error.exit:                        ; preds = %56, %64, %67
   %.0.i46 = phi i32 [ %73, %67 ], [ 0, %56 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -458,7 +458,7 @@ dissect_bt_dht_error.argprom.exit:                ; preds = %56, %64, %67
 
 .loopexit.i:                                      ; preds = %.critedge26.i.i, %.lr.ph.i43, %.lr.ph.i.i
   %95 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %78, ptr noundef nonnull @ei_invalid_len) #5
-  br label %dissect_bt_dht_values.argprom.exit
+  br label %dissect_bt_dht_values.exit
 
 96:                                               ; preds = %.critedge26.i.i
   %97 = add i32 %.020.lcssa.i.i, 1
@@ -542,9 +542,9 @@ dissect_bt_dht_error.argprom.exit:                ; preds = %56, %64, %67
   %144 = load ptr, ptr %30, align 8
   %145 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %144, ptr noundef nonnull @.str.81, i32 noundef %.0.lcssa.i) #5
   store ptr %145, ptr %10, align 8
-  br label %dissect_bt_dht_values.argprom.exit
+  br label %dissect_bt_dht_values.exit
 
-dissect_bt_dht_values.argprom.exit:               ; preds = %.loopexit.i, %142
+dissect_bt_dht_values.exit:                       ; preds = %.loopexit.i, %142
   %.051.i = phi i32 [ 0, %.loopexit.i ], [ %.120.i, %142 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %218
@@ -565,7 +565,7 @@ dissect_bt_dht_values.argprom.exit:               ; preds = %.loopexit.i, %142
   br i1 %153, label %154, label %156
 
 154:                                              ; preds = %150
-  %155 = call fastcc i32 @dissect_bt_dht_nodes.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef %10, i32 noundef 0)
+  %155 = call fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef %10, i32 noundef 0)
   br label %218
 
 156:                                              ; preds = %150
@@ -574,7 +574,7 @@ dissect_bt_dht_values.argprom.exit:               ; preds = %.loopexit.i, %142
   br i1 %158, label %159, label %sub_079
 
 159:                                              ; preds = %156
-  %160 = call fastcc i32 @dissect_bt_dht_nodes.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef %10, i32 noundef 1)
+  %160 = call fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef %10, i32 noundef 1)
   br label %218
 
 sub_079:                                          ; preds = %156
@@ -702,8 +702,8 @@ sub_088:                                          ; preds = %203
   %217 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef %10, i32 noundef %216, ptr noundef nonnull @.str.50)
   br label %218
 
-218:                                              ; preds = %215, %194, %184, %159, %154, %148, %146, %dissect_bt_dht_values.argprom.exit, %dissect_bt_dht_error.argprom.exit, %49
-  %.067 = phi i32 [ %155, %154 ], [ %160, %159 ], [ %193, %184 ], [ %195, %194 ], [ %217, %215 ], [ %149, %148 ], [ %.0.i46, %dissect_bt_dht_error.argprom.exit ], [ %.051.i, %dissect_bt_dht_values.argprom.exit ], [ %147, %146 ], [ %50, %49 ]
+218:                                              ; preds = %215, %194, %184, %159, %154, %148, %146, %dissect_bt_dht_values.exit, %dissect_bt_dht_error.exit, %49
+  %.067 = phi i32 [ %155, %154 ], [ %160, %159 ], [ %193, %184 ], [ %195, %194 ], [ %217, %215 ], [ %149, %148 ], [ %.0.i46, %dissect_bt_dht_error.exit ], [ %.051.i, %dissect_bt_dht_values.exit ], [ %147, %146 ], [ %50, %49 ]
   %219 = icmp eq i32 %.067, 0
   br i1 %219, label %220, label %222
 
@@ -1086,7 +1086,7 @@ define internal fastcc noundef i32 @dissect_bencoded_int(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bt_dht_nodes.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #5
   %9 = icmp eq i32 %8, 0

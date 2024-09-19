@@ -15883,7 +15883,7 @@ e1000_tx_map.exit:                                ; preds = %.loopexit19.i, %.th
   %753 = load volatile i32, ptr %744, align 64
   %754 = sub i32 %752, %753
   %755 = icmp sgt i32 %754, -1
-  br i1 %755, label %netdev_sent_queue.argprom.exit, label %756, !prof !9
+  br i1 %755, label %netdev_sent_queue.exit, label %756, !prof !9
 
 756:                                              ; preds = %747
   %757 = getelementptr inbounds i8, ptr %.val, i64 144
@@ -15893,13 +15893,13 @@ e1000_tx_map.exit:                                ; preds = %.loopexit19.i, %.th
   %759 = load volatile i32, ptr %744, align 64
   %760 = sub i32 %758, %759
   %761 = icmp sgt i32 %760, -1
-  br i1 %761, label %762, label %netdev_sent_queue.argprom.exit, !prof !10
+  br i1 %761, label %762, label %netdev_sent_queue.exit, !prof !10
 
 762:                                              ; preds = %756
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %757, i32 -3, ptr elementtype(i8) %757) #22, !srcloc !20
-  br label %netdev_sent_queue.argprom.exit
+  br label %netdev_sent_queue.exit
 
-netdev_sent_queue.argprom.exit:                   ; preds = %747, %756, %762
+netdev_sent_queue.exit:                           ; preds = %747, %756, %762
   %763 = load ptr, ptr %5, align 8
   %764 = and i32 %731, 4
   %765 = icmp eq i32 %764, 0
@@ -15925,12 +15925,12 @@ netdev_sent_queue.argprom.exit:                   ; preds = %747, %756, %762
   %785 = icmp eq i32 %784, 0
   br i1 %785, label %788, label %786, !prof !9
 
-786:                                              ; preds = %netdev_sent_queue.argprom.exit
+786:                                              ; preds = %netdev_sent_queue.exit
   %787 = and i32 %783, 1678770176
   br label %788
 
-788:                                              ; preds = %786, %netdev_sent_queue.argprom.exit
-  %789 = phi i32 [ %787, %786 ], [ %783, %netdev_sent_queue.argprom.exit ]
+788:                                              ; preds = %786, %netdev_sent_queue.exit
+  %789 = phi i32 [ %787, %786 ], [ %783, %netdev_sent_queue.exit ]
   %790 = and i32 %731, 32
   %791 = icmp eq i32 %790, 0
   br i1 %791, label %795, label %792, !prof !9

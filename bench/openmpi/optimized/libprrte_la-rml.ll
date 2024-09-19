@@ -821,7 +821,7 @@ define internal void @prq_cons(ptr nocapture noundef writeonly %0) #0 {
 
 8:                                                ; preds = %7, %1
   %.not22.i = icmp eq ptr %4, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %9
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %9
 
 9:                                                ; preds = %8
   %10 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %4, ptr noundef null) #10
@@ -836,7 +836,7 @@ define internal void @prq_cons(ptr nocapture noundef writeonly %0) #0 {
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_posted_recv_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %17 = phi ptr [ %19, %.lr.ph.i.i ], [ %16, %9 ]
@@ -845,9 +845,9 @@ define internal void @prq_cons(ptr nocapture noundef writeonly %0) #0 {
   %18 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !9
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %8, %9
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
   %20 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr %4, ptr %20, align 8
   ret void

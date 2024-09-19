@@ -202,7 +202,7 @@ test_njack.exit:                                  ; preds = %4
   br i1 %.not.i.not, label %8, label %test_njack.exit.thread
 
 8:                                                ; preds = %test_njack.exit
-  %9 = tail call fastcc i32 @dissect_njack.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %9 = tail call fastcc i32 @dissect_njack(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %test_njack.exit.thread
 
 test_njack.exit.thread:                           ; preds = %4, %test_njack.exit, %8
@@ -237,7 +237,7 @@ test_njack.exit:                                  ; preds = %4
   br i1 %.not.i.not, label %8, label %test_njack.exit.thread
 
 8:                                                ; preds = %test_njack.exit
-  %9 = tail call fastcc i32 @dissect_njack.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %9 = tail call fastcc i32 @dissect_njack(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %test_njack.exit.thread
 
 test_njack.exit.thread:                           ; preds = %4, %test_njack.exit, %8
@@ -248,7 +248,7 @@ test_njack.exit.thread:                           ; preds = %4, %test_njack.exit
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_njack.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_njack(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8

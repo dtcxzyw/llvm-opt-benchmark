@@ -517,8 +517,8 @@ entry:
   %m_bool_search.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.cond
 
-for.cond:                                         ; preds = %"_ZZN5arith3sls11check_ineqsEvENK3$_0clEj.argprom.exit", %entry
-  %indvars.iv = phi i64 [ %indvars.iv.next, %"_ZZN5arith3sls11check_ineqsEvENK3$_0clEj.argprom.exit" ], [ 0, %entry ]
+for.cond:                                         ; preds = %"_ZZN5arith3sls11check_ineqsEvENK3$_0clEj.exit", %entry
+  %indvars.iv = phi i64 [ %indvars.iv.next, %"_ZZN5arith3sls11check_ineqsEvENK3$_0clEj.exit" ], [ 0, %entry ]
   %0 = load ptr, ptr %s, align 8
   %m_var2enode.i = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %m_var2enode.i, align 8
@@ -541,7 +541,7 @@ for.body:                                         ; preds = %_ZNK3euf13th_euf_so
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %"_ZZN5arith3sls11check_ineqsEvENK3$_0clEj.argprom.exit", label %if.end.i
+  br i1 %tobool.not.i, label %"_ZZN5arith3sls11check_ineqsEvENK3$_0clEj.exit", label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
   %6 = load ptr, ptr %m_bool_search.i.i, align 8
@@ -670,14 +670,14 @@ if.end15.i:                                       ; preds = %if.then8.i, %_ZNK5a
   %call3.i22.i = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(920) %20, i32 noundef %shl.i.i)
   %cmp.i23.i = xor i1 %call3.i22.i, %lnot.i12.i
   %22 = xor i1 %cmp.i, %cmp.i23.i
-  br i1 %22, label %if.then23.i, label %"_ZZN5arith3sls11check_ineqsEvENK3$_0clEj.argprom.exit"
+  br i1 %22, label %if.then23.i, label %"_ZZN5arith3sls11check_ineqsEvENK3$_0clEj.exit"
 
 if.then23.i:                                      ; preds = %if.end15.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.9, i32 noundef 629, ptr noundef nonnull @.str.43)
   tail call void @exit(i32 noundef 114) #21
   unreachable
 
-"_ZZN5arith3sls11check_ineqsEvENK3$_0clEj.argprom.exit": ; preds = %for.body, %if.end15.i
+"_ZZN5arith3sls11check_ineqsEvENK3$_0clEj.exit":  ; preds = %for.body, %if.end15.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !8
 
@@ -1353,8 +1353,8 @@ for.cond147.preheader:                            ; preds = %if.end142
   %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %bound.i, i64 24
   br label %for.cond147
 
-for.cond147:                                      ; preds = %for.cond147.preheader, %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit"
-  %indvars.iv272 = phi i64 [ 0, %for.cond147.preheader ], [ %indvars.iv.next273, %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit" ]
+for.cond147:                                      ; preds = %for.cond147.preheader, %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit"
+  %indvars.iv272 = phi i64 [ 0, %for.cond147.preheader ], [ %indvars.iv.next273, %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit" ]
   %103 = load ptr, ptr %s89, align 8
   %m_solver.i177 = getelementptr inbounds i8, ptr %103, i64 24
   %104 = load ptr, ptr %m_solver.i177, align 8
@@ -1380,20 +1380,20 @@ for.body152:                                      ; preds = %_ZNK3sat6solver8num
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp59.i)
   %108 = load ptr, ptr %m_bool_vars.i, align 8
   %cmp.i.i.i182 = icmp eq ptr %108, null
-  br i1 %cmp.i.i.i182, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit", label %_ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i.i
+  br i1 %cmp.i.i.i182, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit", label %_ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i.i: ; preds = %for.body152
   %arrayidx.i.i.i183 = getelementptr inbounds i8, ptr %108, i64 -4
   %109 = load i32, ptr %arrayidx.i.i.i183, align 4
   %110 = zext i32 %109 to i64
   %cmp2.i.i = icmp ult i64 %indvars.iv272, %110
-  br i1 %cmp2.i.i, label %_ZNK17scoped_ptr_vectorIN5arith3sls4ineqEE3getEjPS2_.exit.i, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit"
+  br i1 %cmp2.i.i, label %_ZNK17scoped_ptr_vectorIN5arith3sls4ineqEE3getEjPS2_.exit.i, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit"
 
 _ZNK17scoped_ptr_vectorIN5arith3sls4ineqEE3getEjPS2_.exit.i: ; preds = %_ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %108, i64 %indvars.iv272
   %111 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i = icmp eq ptr %111, null
-  br i1 %tobool.not.i, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit", label %if.end.i
+  br i1 %tobool.not.i, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit", label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK17scoped_ptr_vectorIN5arith3sls4ineqEE3getEjPS2_.exit.i
   %m_bool_var2bound.i = getelementptr inbounds i8, ptr %103, i64 400
@@ -1412,7 +1412,7 @@ if.end.i:                                         ; preds = %_ZNK17scoped_ptr_ve
 
 for.cond18.preheader.i.i.i.i:                     ; preds = %for.inc.i.i.i.i, %if.end.i
   %cmp19.not31.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp19.not31.i.i.i.i, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit", label %for.body20.i.i.i.i
+  br i1 %cmp19.not31.i.i.i.i, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit", label %for.body20.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end.i, %for.inc.i.i.i.i
   %curr.030.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i186, %for.inc.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i ]
@@ -1420,7 +1420,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end.i, %for.inc.
   %115 = load i32, ptr %m_state.i.i.i.i.i184, align 4
   switch i32 %115, label %for.inc.i.i.i.i [
     i32 2, label %if.then.i.i.i.i185
-    i32 0, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit"
+    i32 0, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit"
   ]
 
 if.then.i.i.i.i185:                               ; preds = %for.body.i.i.i.i
@@ -1447,7 +1447,7 @@ for.body20.i.i.i.i:                               ; preds = %for.cond18.preheade
   %120 = load i32, ptr %m_state.i21.i.i.i.i, align 4
   switch i32 %120, label %for.inc36.i.i.i.i [
     i32 2, label %if.then22.i.i.i.i
-    i32 0, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit"
+    i32 0, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit"
   ]
 
 if.then22.i.i.i.i:                                ; preds = %for.body20.i.i.i.i
@@ -1466,14 +1466,14 @@ land.lhs.true25.i.i.i.i:                          ; preds = %if.then22.i.i.i.i
 for.inc36.i.i.i.i:                                ; preds = %land.lhs.true25.i.i.i.i, %if.then22.i.i.i.i, %for.body20.i.i.i.i
   %incdec.ptr37.i.i.i.i = getelementptr inbounds i8, ptr %curr.132.i.i.i.i, i64 24
   %cmp19.not.i.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp19.not.i.i.i.i, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit", label %for.body20.i.i.i.i, !llvm.loop !12
+  br i1 %cmp19.not.i.i.i.i, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit", label %for.body20.i.i.i.i, !llvm.loop !12
 
 _ZNK9table2mapI17default_map_entryIjPN6lp_api5boundIN3sat7literalEEEE6u_hash4u_eqE4findERKjRS6_.exit.i: ; preds = %land.lhs.true.i.i.i.i, %land.lhs.true25.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %curr.132.i.i.i.i, %land.lhs.true25.i.i.i.i ], [ %curr.030.i.i.i.i, %land.lhs.true.i.i.i.i ]
   %m_value.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   %125 = load ptr, ptr %m_value.i.i, align 8
   %tobool3.not.i = icmp eq ptr %125, null
-  br i1 %tobool3.not.i, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit", label %if.end5.i
+  br i1 %tobool3.not.i, label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit", label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZNK9table2mapI17default_map_entryIjPN6lp_api5boundIN3sat7literalEEEE6u_hash4u_eqE4findERKjRS6_.exit.i
   %m_value.i23.i = getelementptr inbounds i8, ptr %125, i64 24
@@ -1552,7 +1552,7 @@ if.then17.i:                                      ; preds = %invoke.cont13.i
 
 .noexc.i.i195:                                    ; preds = %if.then17.i
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i188)
-          to label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit" unwind label %terminate.lpad.i.i194
+          to label %"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit" unwind label %terminate.lpad.i.i194
 
 terminate.lpad.i.i194:                            ; preds = %.noexc.i.i195, %if.then17.i
   %137 = landingpad { ptr, i32 }
@@ -1871,7 +1871,7 @@ invoke.cont164.i:                                 ; preds = %invoke.cont162.i
   call void @exit(i32 noundef 114) #21
   unreachable
 
-"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.argprom.exit": ; preds = %for.body.i.i.i.i, %for.body20.i.i.i.i, %for.inc36.i.i.i.i, %for.body152, %_ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i.i, %_ZNK17scoped_ptr_vectorIN5arith3sls4ineqEE3getEjPS2_.exit.i, %for.cond18.preheader.i.i.i.i, %_ZNK9table2mapI17default_map_entryIjPN6lp_api5boundIN3sat7literalEEEE6u_hash4u_eqE4findERKjRS6_.exit.i, %.noexc.i.i195
+"_ZZN5arith3sls17store_best_valuesEvENK3$_0clEj.exit": ; preds = %for.body.i.i.i.i, %for.body20.i.i.i.i, %for.inc36.i.i.i.i, %for.body152, %_ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i.i, %_ZNK17scoped_ptr_vectorIN5arith3sls4ineqEE3getEjPS2_.exit.i, %for.cond18.preheader.i.i.i.i, %_ZNK9table2mapI17default_map_entryIjPN6lp_api5boundIN3sat7literalEEEE6u_hash4u_eqE4findERKjRS6_.exit.i, %.noexc.i.i195
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %bound.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59.i)

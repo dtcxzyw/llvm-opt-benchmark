@@ -432,10 +432,10 @@ if.end16:                                         ; preds = %lor.lhs.false10
   %call17 = call i32 @setsockopt(i32 noundef %call, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %val, i32 noundef 4) #20
   call fastcc void @initialize_nghttp2_session(ptr noundef nonnull %ptr)
   %ptr.val = load ptr, ptr %ptr, align 8
-  call fastcc void @send_client_connection_header.argprom(ptr %ptr.val)
+  call fastcc void @send_client_connection_header(ptr %ptr.val)
   call fastcc void @submit_request(ptr noundef nonnull %ptr)
   %ptr.val11 = load ptr, ptr %ptr, align 8
-  %call18 = call fastcc i32 @session_send.argprom(ptr %ptr.val11)
+  %call18 = call fastcc i32 @session_send(ptr %ptr.val11)
   %cmp19.not = icmp eq i32 %call18, 0
   br i1 %cmp19.not, label %return, label %if.then21
 
@@ -534,7 +534,7 @@ if.end10:                                         ; preds = %if.then7, %if.end
 declare i32 @evbuffer_drain(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @session_send.argprom(ptr %session_data.0.val) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @session_send(ptr %session_data.0.val) unnamed_addr #0 {
 entry:
   %call = tail call i32 @nghttp2_session_send(ptr noundef %session_data.0.val) #20
   %cmp.not = icmp eq i32 %call, 0
@@ -600,7 +600,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @send_client_connection_header.argprom(ptr %session_data.0.val) unnamed_addr #0 {
+define internal fastcc void @send_client_connection_header(ptr %session_data.0.val) unnamed_addr #0 {
 entry:
   %iv = alloca [1 x %struct.nghttp2_settings_entry], align 8
   store i64 429496729603, ptr %iv, align 8

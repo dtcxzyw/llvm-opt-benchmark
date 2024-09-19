@@ -8210,13 +8210,13 @@ land.rhs:                                         ; preds = %lor.lhs.false48.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %params.i4, i8 0, i64 80, i1 false)
   %call.i6 = call ptr @EVP_CIPHER_CTX_new() #8
   %cmp.i7 = icmp eq ptr %call.i6, null
-  br i1 %cmp.i7, label %aes_gcm_decrypt.argprom.exit, label %if.end.i8
+  br i1 %cmp.i7, label %aes_gcm_decrypt.exit, label %if.end.i8
 
 if.end.i8:                                        ; preds = %land.rhs
   %2 = load ptr, ptr @testctx, align 8
   %call1.i9 = call ptr @EVP_CIPHER_fetch(ptr noundef %2, ptr noundef nonnull @.str.650, ptr noundef nonnull @.str.284) #8
   %cmp2.i = icmp eq ptr %call1.i9, null
-  br i1 %cmp2.i, label %aes_gcm_decrypt.argprom.exit, label %if.end4.i
+  br i1 %cmp2.i, label %aes_gcm_decrypt.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i8
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i5, ptr noundef nonnull @.str.648, ptr noundef nonnull %gcm_ivlen.addr.i1) #8
@@ -8226,7 +8226,7 @@ if.end4.i:                                        ; preds = %if.end.i8
   %conv.i11 = zext i1 %cmp6.i to i32
   %call7.i = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 5260, ptr noundef nonnull @.str.741, i32 noundef %conv.i11) #8
   %tobool.not.i12 = icmp eq i32 %call7.i, 0
-  br i1 %tobool.not.i12, label %aes_gcm_decrypt.argprom.exit, label %lor.lhs.false16.i
+  br i1 %tobool.not.i12, label %aes_gcm_decrypt.exit, label %lor.lhs.false16.i
 
 lor.lhs.false16.i:                                ; preds = %if.end4.i
   %call19.i = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %call.i6, ptr noundef nonnull %outbuf.i3, ptr noundef nonnull %outlen.i2, ptr noundef nonnull @test_aes_gcm_ivlen_change_cve_2023_5363.gcm_ct, i32 noundef 16) #8
@@ -8234,14 +8234,14 @@ lor.lhs.false16.i:                                ; preds = %if.end4.i
   %conv21.i = zext i1 %cmp20.i to i32
   %call22.i = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 5265, ptr noundef nonnull @.str.743, i32 noundef %conv21.i) #8
   %tobool23.not.i = icmp eq i32 %call22.i, 0
-  br i1 %tobool23.not.i, label %aes_gcm_decrypt.argprom.exit, label %lor.lhs.false24.i
+  br i1 %tobool23.not.i, label %aes_gcm_decrypt.exit, label %lor.lhs.false24.i
 
 lor.lhs.false24.i:                                ; preds = %lor.lhs.false16.i
   %3 = load i32, ptr %outlen.i2, align 4
   %conv26.i = sext i32 %3 to i64
   %call27.i13 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 5266, ptr noundef nonnull @.str.583, ptr noundef nonnull @.str.744, ptr noundef nonnull %outbuf.i3, i64 noundef %conv26.i, ptr noundef nonnull @test_aes_gcm_ivlen_change_cve_2023_5363.gcm_pt, i64 noundef 16) #8
   %tobool28.not.i = icmp eq i32 %call27.i13, 0
-  br i1 %tobool28.not.i, label %aes_gcm_decrypt.argprom.exit, label %if.end30.i
+  br i1 %tobool28.not.i, label %aes_gcm_decrypt.exit, label %if.end30.i
 
 if.end30.i:                                       ; preds = %lor.lhs.false24.i
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp32.i, ptr noundef nonnull @.str.588, ptr noundef nonnull @test_aes_gcm_ivlen_change_cve_2023_5363.gcm_tag, i64 noundef 16) #8
@@ -8251,7 +8251,7 @@ if.end30.i:                                       ; preds = %lor.lhs.false24.i
   %conv36.i = zext i1 %cmp35.i to i32
   %call37.i = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 5272, ptr noundef nonnull @.str.649, i32 noundef %conv36.i) #8
   %tobool38.not.i = icmp eq i32 %call37.i, 0
-  br i1 %tobool38.not.i, label %aes_gcm_decrypt.argprom.exit, label %lor.lhs.false39.i
+  br i1 %tobool38.not.i, label %aes_gcm_decrypt.exit, label %lor.lhs.false39.i
 
 lor.lhs.false39.i:                                ; preds = %if.end30.i
   %call41.i14 = call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %call.i6, ptr noundef nonnull %outbuf.i3, ptr noundef nonnull %outlen.i2) #8
@@ -8260,9 +8260,9 @@ lor.lhs.false39.i:                                ; preds = %if.end30.i
   %call44.i = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 5273, ptr noundef nonnull @.str.745, i32 noundef %conv43.i) #8
   %tobool45.not.i = icmp ne i32 %call44.i, 0
   %spec.select.i15 = zext i1 %tobool45.not.i to i32
-  br label %aes_gcm_decrypt.argprom.exit
+  br label %aes_gcm_decrypt.exit
 
-aes_gcm_decrypt.argprom.exit:                     ; preds = %land.rhs, %if.end.i8, %if.end4.i, %lor.lhs.false16.i, %lor.lhs.false24.i, %if.end30.i, %lor.lhs.false39.i
+aes_gcm_decrypt.exit:                             ; preds = %land.rhs, %if.end.i8, %if.end4.i, %lor.lhs.false16.i, %lor.lhs.false24.i, %if.end30.i, %lor.lhs.false39.i
   %ret.0.i16 = phi i32 [ 0, %land.rhs ], [ 0, %if.end.i8 ], [ 0, %if.end30.i ], [ 0, %lor.lhs.false24.i ], [ 0, %lor.lhs.false16.i ], [ 0, %if.end4.i ], [ %spec.select.i15, %lor.lhs.false39.i ]
   %cipher.0.i17 = phi ptr [ null, %land.rhs ], [ null, %if.end.i8 ], [ %call1.i9, %if.end30.i ], [ %call1.i9, %lor.lhs.false24.i ], [ %call1.i9, %lor.lhs.false16.i ], [ %call1.i9, %if.end4.i ], [ %call1.i9, %lor.lhs.false39.i ]
   call void @EVP_CIPHER_free(ptr noundef %cipher.0.i17) #8
@@ -8289,8 +8289,8 @@ land.end.critedge:                                ; preds = %entry, %lor.lhs.fal
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp35.i)
   br label %land.end
 
-land.end:                                         ; preds = %land.end.critedge, %aes_gcm_decrypt.argprom.exit, %lor.lhs.false48.i
-  %land.ext = phi i32 [ 0, %lor.lhs.false48.i ], [ %ret.0.i16, %aes_gcm_decrypt.argprom.exit ], [ 0, %land.end.critedge ]
+land.end:                                         ; preds = %land.end.critedge, %aes_gcm_decrypt.exit, %lor.lhs.false48.i
+  %land.ext = phi i32 [ 0, %lor.lhs.false48.i ], [ %ret.0.i16, %aes_gcm_decrypt.exit ], [ 0, %land.end.critedge ]
   ret i32 %land.ext
 }
 
@@ -8388,13 +8388,13 @@ land.rhs:                                         ; preds = %if.end24.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %params.i4, i8 0, i64 80, i1 false)
   %call.i6 = call ptr @EVP_CIPHER_CTX_new() #8
   %cmp.i7 = icmp eq ptr %call.i6, null
-  br i1 %cmp.i7, label %rc4_decrypt.argprom.exit, label %if.end.i8
+  br i1 %cmp.i7, label %rc4_decrypt.exit, label %if.end.i8
 
 if.end.i8:                                        ; preds = %land.rhs
   %3 = load ptr, ptr @testctx, align 8
   %call1.i9 = call ptr @EVP_CIPHER_fetch(ptr noundef %3, ptr noundef nonnull @.str.659, ptr noundef nonnull @.str.284) #8
   %cmp2.i = icmp eq ptr %call1.i9, null
-  br i1 %cmp2.i, label %rc4_decrypt.argprom.exit, label %if.end4.i
+  br i1 %cmp2.i, label %rc4_decrypt.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i8
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i5, ptr noundef nonnull @.str.655, ptr noundef nonnull %rc4_key_s.addr.i1) #8
@@ -8404,7 +8404,7 @@ if.end4.i:                                        ; preds = %if.end.i8
   %conv.i11 = zext i1 %cmp6.i to i32
   %call7.i = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 5386, ptr noundef nonnull @.str.750, i32 noundef %conv.i11) #8
   %tobool.not.i12 = icmp eq i32 %call7.i, 0
-  br i1 %tobool.not.i12, label %rc4_decrypt.argprom.exit, label %lor.lhs.false.i13
+  br i1 %tobool.not.i12, label %rc4_decrypt.exit, label %lor.lhs.false.i13
 
 lor.lhs.false.i13:                                ; preds = %if.end4.i
   %call10.i = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %call.i6, ptr noundef nonnull %outbuf.i3, ptr noundef nonnull %outlen.i2, ptr noundef nonnull @test_aes_rc4_keylen_change_cve_2023_5363.rc4_ct, i32 noundef 16) #8
@@ -8412,7 +8412,7 @@ lor.lhs.false.i13:                                ; preds = %if.end4.i
   %conv12.i = zext i1 %cmp11.i to i32
   %call13.i = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 5388, ptr noundef nonnull @.str.751, i32 noundef %conv12.i) #8
   %tobool14.not.i = icmp eq i32 %call13.i, 0
-  br i1 %tobool14.not.i, label %rc4_decrypt.argprom.exit, label %lor.lhs.false15.i
+  br i1 %tobool14.not.i, label %rc4_decrypt.exit, label %lor.lhs.false15.i
 
 lor.lhs.false15.i:                                ; preds = %lor.lhs.false.i13
   %4 = load i32, ptr %outlen.i2, align 4
@@ -8420,9 +8420,9 @@ lor.lhs.false15.i:                                ; preds = %lor.lhs.false.i13
   %call18.i14 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 5389, ptr noundef nonnull @.str.583, ptr noundef nonnull @.str.752, ptr noundef nonnull %outbuf.i3, i64 noundef %conv17.i, ptr noundef nonnull @test_aes_rc4_keylen_change_cve_2023_5363.rc4_pt, i64 noundef 16) #8
   %tobool19.not.i = icmp ne i32 %call18.i14, 0
   %spec.select.i15 = zext i1 %tobool19.not.i to i32
-  br label %rc4_decrypt.argprom.exit
+  br label %rc4_decrypt.exit
 
-rc4_decrypt.argprom.exit:                         ; preds = %land.rhs, %if.end.i8, %if.end4.i, %lor.lhs.false.i13, %lor.lhs.false15.i
+rc4_decrypt.exit:                                 ; preds = %land.rhs, %if.end.i8, %if.end4.i, %lor.lhs.false.i13, %lor.lhs.false15.i
   %ret.0.i16 = phi i32 [ 0, %land.rhs ], [ 0, %if.end.i8 ], [ 0, %lor.lhs.false.i13 ], [ 0, %if.end4.i ], [ %spec.select.i15, %lor.lhs.false15.i ]
   %cipher.0.i17 = phi ptr [ null, %land.rhs ], [ null, %if.end.i8 ], [ %call1.i9, %lor.lhs.false.i13 ], [ %call1.i9, %if.end4.i ], [ %call1.i9, %lor.lhs.false15.i ]
   call void @EVP_CIPHER_free(ptr noundef %cipher.0.i17) #8
@@ -8446,8 +8446,8 @@ return.critedge:                                  ; preds = %if.end, %lor.lhs.fa
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
   br label %return
 
-return:                                           ; preds = %return.critedge, %if.end24.i, %rc4_decrypt.argprom.exit, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %if.end24.i ], [ %ret.0.i16, %rc4_decrypt.argprom.exit ], [ 0, %return.critedge ]
+return:                                           ; preds = %return.critedge, %if.end24.i, %rc4_decrypt.exit, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %if.end24.i ], [ %ret.0.i16, %rc4_decrypt.exit ], [ 0, %return.critedge ]
   ret i32 %retval.0
 }
 

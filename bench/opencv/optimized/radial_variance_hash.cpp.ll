@@ -344,7 +344,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_122RadialVar
 93:                                               ; preds = %91, %89
   %.0.i.i.i.i.i8 = phi i32 [ %82, %89 ], [ %92, %91 ]
   %94 = icmp eq i32 %.0.i.i.i.i.i8, 1
-  br i1 %94, label %95, label %_ZN2cv3PtrIN12_GLOBAL__N_122RadialVarianceHashImplEED2Ev.argprom.exit
+  br i1 %94, label %95, label %_ZN2cv3PtrIN12_GLOBAL__N_122RadialVarianceHashImplEED2Ev.exit
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr %24, align 8
@@ -368,16 +368,16 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_122RadialVar
 105:                                              ; preds = %103, %100
   %.0.i.i.i.i.i.i.i10 = phi i32 [ %101, %100 ], [ %104, %103 ]
   %106 = icmp eq i32 %.0.i.i.i.i.i.i.i10, 1
-  br i1 %106, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i11, label %_ZN2cv3PtrIN12_GLOBAL__N_122RadialVarianceHashImplEED2Ev.argprom.exit
+  br i1 %106, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i11, label %_ZN2cv3PtrIN12_GLOBAL__N_122RadialVarianceHashImplEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i11: ; preds = %105, %83
   %107 = load ptr, ptr %24, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 24
   %109 = load ptr, ptr %108, align 8
   tail call void %109(ptr noundef nonnull align 8 dereferenceable(16) %24) #22
-  br label %_ZN2cv3PtrIN12_GLOBAL__N_122RadialVarianceHashImplEED2Ev.argprom.exit
+  br label %_ZN2cv3PtrIN12_GLOBAL__N_122RadialVarianceHashImplEED2Ev.exit
 
-_ZN2cv3PtrIN12_GLOBAL__N_122RadialVarianceHashImplEED2Ev.argprom.exit: ; preds = %93, %105, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i11
+_ZN2cv3PtrIN12_GLOBAL__N_122RadialVarianceHashImplEED2Ev.exit: ; preds = %93, %105, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i11
   ret void
 
 110:                                              ; preds = %3
@@ -2624,13 +2624,13 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_122RadialVari
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_122RadialVarianceHashImplEEEvRS0_PT_.argprom.exit, label %7
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_122RadialVarianceHashImplEEEvRS0_PT_.exit, label %7
 
 7:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %6) #25
-  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_122RadialVarianceHashImplEEEvRS0_PT_.argprom.exit
+  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_122RadialVarianceHashImplEEEvRS0_PT_.exit
 
-_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_122RadialVarianceHashImplEEEvRS0_PT_.argprom.exit: ; preds = %1, %7
+_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_122RadialVarianceHashImplEEEvRS0_PT_.exit: ; preds = %1, %7
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #22
   ret void
@@ -2638,7 +2638,7 @@ _ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_122RadialVarianceHashImplEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_122RadialVarianceHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_122RadialVarianceHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_122RadialVarianceHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -2742,10 +2742,10 @@ attributes #25 = { builtin nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5, !7}
-!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN12_GLOBAL__N_122RadialVarianceHashImplEJRKdRKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_sharedIN12_GLOBAL__N_122RadialVarianceHashImplEJRKdRKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom"}
-!7 = distinct !{!7, !8, !"_ZN2cvL7makePtrIN12_GLOBAL__N_122RadialVarianceHashImplEJdiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZN2cvL7makePtrIN12_GLOBAL__N_122RadialVarianceHashImplEJdiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN12_GLOBAL__N_122RadialVarianceHashImplEJRKdRKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_sharedIN12_GLOBAL__N_122RadialVarianceHashImplEJRKdRKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
+!7 = distinct !{!7, !8, !"_ZN2cvL7makePtrIN12_GLOBAL__N_122RadialVarianceHashImplEJdiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!8 = distinct !{!8, !"_ZN2cvL7makePtrIN12_GLOBAL__N_122RadialVarianceHashImplEJdiEEENS_3PtrIT_EEDpRKT0_"}
 !9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}

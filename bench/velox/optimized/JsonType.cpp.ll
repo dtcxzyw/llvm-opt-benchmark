@@ -34136,11 +34136,11 @@ call.i4.i.noexc.i.i.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i.i
 invoke.cont2.i.i.i.i.i.i.i.i:                     ; preds = %call.i4.i.noexc.i.i.i.i.i.i
   %51 = load ptr, ptr %exec_.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %51, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %invoke.cont2.i.i.i.i.i.i.i.i
   %call.i.i.i.i.i.i.i.i.i.i.i = call noundef i64 %51(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i4.i.i.i.i.i.i.i.i, ptr noundef null) #35
-  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %call.i4.i.noexc.i.i.i.i.i.i
   %52 = landingpad { ptr, i32 }
@@ -34155,7 +34155,7 @@ if.end.i.i.i3.i.i.i.i.i.i.i.i:                    ; preds = %lpad.i.i.i.i.i.i.i.
   %call.i.i.i5.i.i.i.i.i.i.i.i = call noundef i64 %53(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i4.i.i.i.i.i.i.i.i, ptr noundef null) #35
   br label %lpad.i18.body.i.i.i.i.i.i
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont2.i.i.i.i.i.i.i.i
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont2.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %opts.i.i.i.i.i.i.i.i)
   %54 = load ptr, ptr %agg.tmp.sroa.2.0.agg.tmp6.sroa_idx, align 8
@@ -34167,11 +34167,11 @@ _ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS
   %cmp.i.i7.i.i.i.i.i.i.i = icmp slt i32 %conv.i6.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i7.i.i.i.i.i.i.i, label %if.then.i.i18.i.i.i.i.i.i.i, label %if.end.i.i8.i.i.i.i.i.i.i
 
-if.then.i.i18.i.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+if.then.i.i18.i.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
   call void @llvm.trap()
   unreachable
 
-if.end.i.i8.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+if.end.i.i8.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
   %cmp.i.i.i.i9.i.i.i.i.i.i.i = icmp ult i32 %conv.i6.i.i.i.i.i.i.i, 13
   br i1 %cmp.i.i.i.i9.i.i.i.i.i.i.i, label %if.then2.i.i13.i.i.i.i.i.i.i, label %if.else.i.i11.i.i.i.i.i.i.i
 
@@ -34912,11 +34912,11 @@ call.i.i.noexc.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 invoke.cont2.i.i.i.i.i.i.i.i143:                  ; preds = %call.i.i.noexc.i.i.i.i.i.i
   %142 = load ptr, ptr %exec_.i.i.i.i.i.i.i.i.i.i63, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i144 = icmp eq ptr %142, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i144, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i145
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i144, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i145
 
 if.end.i.i.i.i.i.i.i.i.i.i.i145:                  ; preds = %invoke.cont2.i.i.i.i.i.i.i.i143
   %call.i.i.i.i.i.i.i.i.i.i.i146 = call noundef i64 %142(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i4.i.i.i.i.i.i.i.i70, ptr noundef null) #35
-  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
 
 lpad.i.i.i.i.i.i.i.i139:                          ; preds = %call.i.i.noexc.i.i.i.i.i.i
   %143 = landingpad { ptr, i32 }
@@ -34931,7 +34931,7 @@ if.end.i.i.i3.i.i.i.i.i.i.i.i141:                 ; preds = %lpad.i.i.i.i.i.i.i.
   %call.i.i.i5.i.i.i.i.i.i.i.i142 = call noundef i64 %144(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i4.i.i.i.i.i.i.i.i70, ptr noundef null) #35
   br label %lpad.i18.body.i.i.i.i.i.i101
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i145, %invoke.cont2.i.i.i.i.i.i.i.i143
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i145, %invoke.cont2.i.i.i.i.i.i.i.i143
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i.i.i.i.i.i.i.i14)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %opts.i.i.i.i.i.i.i.i15)
   %145 = load ptr, ptr %agg.tmp1.sroa.4.0.agg.tmp113.sroa_idx, align 8
@@ -34943,11 +34943,11 @@ _ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS
   %cmp.i.i.i.i.i.i.i.i.i = icmp slt i32 %conv.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
   call void @llvm.trap()
   unreachable
 
-if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %conv.i.i.i.i.i.i.i.i, 13
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i
 
@@ -35681,11 +35681,11 @@ call.i4.i.noexc.i.i.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i.i
 invoke.cont2.i.i.i.i.i.i.i.i:                     ; preds = %call.i4.i.noexc.i.i.i.i.i.i
   %51 = load ptr, ptr %exec_.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %51, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %invoke.cont2.i.i.i.i.i.i.i.i
   %call.i.i.i.i.i.i.i.i.i.i.i = call noundef i64 %51(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i4.i.i.i.i.i.i.i.i, ptr noundef null) #35
-  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %call.i4.i.noexc.i.i.i.i.i.i
   %52 = landingpad { ptr, i32 }
@@ -35700,7 +35700,7 @@ if.end.i.i.i3.i.i.i.i.i.i.i.i:                    ; preds = %lpad.i.i.i.i.i.i.i.
   %call.i.i.i5.i.i.i.i.i.i.i.i = call noundef i64 %53(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i4.i.i.i.i.i.i.i.i, ptr noundef null) #35
   br label %lpad.i18.body.i.i.i.i.i.i
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont2.i.i.i.i.i.i.i.i
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont2.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %opts.i.i.i.i.i.i.i.i)
   %54 = load ptr, ptr %agg.tmp.sroa.2.0.agg.tmp6.sroa_idx, align 8
@@ -35712,11 +35712,11 @@ _ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS
   %cmp.i.i7.i.i.i.i.i.i.i = icmp slt i32 %conv.i6.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i7.i.i.i.i.i.i.i, label %if.then.i.i18.i.i.i.i.i.i.i, label %if.end.i.i8.i.i.i.i.i.i.i
 
-if.then.i.i18.i.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+if.then.i.i18.i.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
   call void @llvm.trap()
   unreachable
 
-if.end.i.i8.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+if.end.i.i8.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
   %cmp.i.i.i.i9.i.i.i.i.i.i.i = icmp ult i32 %conv.i6.i.i.i.i.i.i.i, 13
   br i1 %cmp.i.i.i.i9.i.i.i.i.i.i.i, label %if.then2.i.i13.i.i.i.i.i.i.i, label %if.else.i.i11.i.i.i.i.i.i.i
 
@@ -36457,11 +36457,11 @@ call.i.i.noexc.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 invoke.cont2.i.i.i.i.i.i.i.i143:                  ; preds = %call.i.i.noexc.i.i.i.i.i.i
   %142 = load ptr, ptr %exec_.i.i.i.i.i.i.i.i.i.i63, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i144 = icmp eq ptr %142, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i144, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i145
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i144, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i145
 
 if.end.i.i.i.i.i.i.i.i.i.i.i145:                  ; preds = %invoke.cont2.i.i.i.i.i.i.i.i143
   %call.i.i.i.i.i.i.i.i.i.i.i146 = call noundef i64 %142(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i4.i.i.i.i.i.i.i.i70, ptr noundef null) #35
-  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
 
 lpad.i.i.i.i.i.i.i.i139:                          ; preds = %call.i.i.noexc.i.i.i.i.i.i
   %143 = landingpad { ptr, i32 }
@@ -36476,7 +36476,7 @@ if.end.i.i.i3.i.i.i.i.i.i.i.i141:                 ; preds = %lpad.i.i.i.i.i.i.i.
   %call.i.i.i5.i.i.i.i.i.i.i.i142 = call noundef i64 %144(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i4.i.i.i.i.i.i.i.i70, ptr noundef null) #35
   br label %lpad.i18.body.i.i.i.i.i.i101
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i145, %invoke.cont2.i.i.i.i.i.i.i.i143
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i145, %invoke.cont2.i.i.i.i.i.i.i.i143
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i.i.i.i.i.i.i.i14)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %opts.i.i.i.i.i.i.i.i15)
   %145 = load ptr, ptr %agg.tmp1.sroa.4.0.agg.tmp113.sroa_idx, align 8
@@ -36488,11 +36488,11 @@ _ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS
   %cmp.i.i.i.i.i.i.i.i.i = icmp slt i32 %conv.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
   call void @llvm.trap()
   unreachable
 
-if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %conv.i.i.i.i.i.i.i.i, 13
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i
 
@@ -37197,7 +37197,7 @@ call.i4.i.noexc.i.i.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i.i
 
 .noexc27.i.i.i.i.i.i:                             ; preds = %call.i4.i.noexc.i.i.i.i.i.i
   %call1.i.i.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i)
-          to label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i
+          to label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc27.i.i.i.i.i.i
   %50 = landingpad { ptr, i32 }
@@ -37207,7 +37207,7 @@ lpad.i.i.i.i.i.i.i.i:                             ; preds = %.noexc27.i.i.i.i.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i) #35
   br label %lpad.i18.body.i.i.i.i.i.i
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i: ; preds = %.noexc27.i.i.i.i.i.i
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i: ; preds = %.noexc27.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
@@ -37220,11 +37220,11 @@ _ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_
   %cmp.i.i7.i.i.i.i.i.i.i = icmp slt i32 %conv.i6.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i7.i.i.i.i.i.i.i, label %if.then.i.i18.i.i.i.i.i.i.i, label %if.end.i.i8.i.i.i.i.i.i.i
 
-if.then.i.i18.i.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+if.then.i.i18.i.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
   call void @llvm.trap()
   unreachable
 
-if.end.i.i8.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+if.end.i.i8.i.i.i.i.i.i.i:                        ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
   %cmp.i.i.i.i9.i.i.i.i.i.i.i = icmp ult i32 %conv.i6.i.i.i.i.i.i.i, 13
   br i1 %cmp.i.i.i.i9.i.i.i.i.i.i.i, label %if.then2.i.i13.i.i.i.i.i.i.i, label %if.else.i.i11.i.i.i.i.i.i.i
 
@@ -37940,7 +37940,7 @@ call1.i.i.noexc.i.i.i.i.i.i:                      ; preds = %call.i.i.noexc.i.i.
 
 .noexc.i.i.i.i.i.i:                               ; preds = %call1.i.i.noexc.i.i.i.i.i.i
   %call2.i.i.i.i.i.i.i.i133 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i15)
-          to label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i134
+          to label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i134
 
 lpad.i.i.i.i.i.i.i.i134:                          ; preds = %.noexc.i.i.i.i.i.i
   %138 = landingpad { ptr, i32 }
@@ -37950,12 +37950,12 @@ lpad.i.i.i.i.i.i.i.i134:                          ; preds = %.noexc.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i15) #35
   br label %lpad.i18.body.i.i.i.i.i.i90
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i.i
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i15) #35
   %call3.i.i27.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull @.str.15)
           to label %call3.i.i.noexc.i.i.i.i.i.i unwind label %lpad.i18.i.i.i.i.i.i89
 
-call3.i.i.noexc.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i
+call3.i.i.noexc.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i.i.i.i.i.i.i.i14)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i15)
   %139 = load ptr, ptr %agg.tmp1.sroa.4.0.agg.tmp113.sroa_idx, align 8
@@ -38002,7 +38002,7 @@ _ZZN8facebook5velox12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIX
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i.i)
   br label %for.inc.i.i.i.i.i.i107
 
-lpad.i18.i.i.i.i.i.i89:                           ; preds = %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i135, %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit.i.i.i.i.i.i.i, %call1.i.i.noexc.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i130, %for.body.i.i.i.i.i.i84
+lpad.i18.i.i.i.i.i.i89:                           ; preds = %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i135, %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i.i.i.i.i.i, %call1.i.i.noexc.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i130, %for.body.i.i.i.i.i.i84
   %142 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -39441,8 +39441,8 @@ for.body.lr.ph.i.i.i.i.i.i.i141:                  ; preds = %if.end.i23.i.i.i.i.
   %165 = sext i32 %add.i.i.i.i.i.i.i144 to i64
   br label %for.body.i.i.i.i.i.i.i145
 
-for.body.i.i.i.i.i.i.i145:                        ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i.i141
-  %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %164, %for.body.lr.ph.i.i.i.i.i.i.i141 ], [ %indvars.iv.next.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i ]
+for.body.i.i.i.i.i.i.i145:                        ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i.i141
+  %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %164, %for.body.lr.ph.i.i.i.i.i.i.i141 ], [ %indvars.iv.next.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i ]
   %166 = load ptr, ptr %agg.tmp17.i.sroa.5.0.agg.tmp17.i33.sroa_idx, align 8
   %167 = getelementptr i8, ptr %166, i64 8
   %.val.i.i.i.i.i.i.i146 = load ptr, ptr %167, align 8
@@ -39458,7 +39458,7 @@ for.body.i.i.i.i.i.i.i145:                        ; preds = %_ZNK8facebook5velox
 
 for.body.if.else.i_crit_edge.i.i.i.i.i.i.i:       ; preds = %for.body.i.i.i.i.i.i.i145
   %170 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i to i32
-  br i1 %.pre.i.i.i.i.i.i.i148, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %.pre.i.i.i.i.i.i.i148, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i149:                      ; preds = %for.body.i.i.i.i.i.i.i145
   br i1 %.pre.i.i.i.i.i.i.i148, label %if.then4.i.i.i.i.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i.i.i.i
@@ -39477,7 +39477,7 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
   %shl.i.i.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i.i.i.i.i.i.i
   %and2.i.i.i.i.i.i.i.i.i.i.i = and i64 %172, %shl.i.i.i.i.i.i.i.i.i.i.i
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i158
+  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i158
 
 if.then4.i.i.i.thread.i.i.i.i.i.i:                ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i.i
   %div2.i.i.i.i.i58.i.i.i.i.i.i = lshr i64 %indvars.iv.i.i.i.i.i.i.i, 6
@@ -39487,7 +39487,7 @@ if.then4.i.i.i.thread.i.i.i.i.i.i:                ; preds = %lor.lhs.false.i.i.i
   %shl.i.i.i.i.i61.i.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i60.i.i.i.i.i.i
   %and2.i.i.i.i.i62.i.i.i.i.i.i = and i64 %173, %shl.i.i.i.i.i61.i.i.i.i.i.i
   %tobool.i.not.i.i.i.i63.i.i.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i62.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i63.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i63.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i.i
   %isConstantMapping_.i.i.i.i.i.i.i.i.i150 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i146, i64 59
@@ -39499,7 +39499,7 @@ if.then8.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end6.i.i.i.i.i.i
   %175 = load i64, ptr %169, align 8
   %and2.i.i3.i.i.i.i.i.i.i.i.i = and i64 %175, 1
   %tobool.i.not.i4.i.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i3.i.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i: ; preds = %if.end6.i.i.i.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i.i151 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i146, i64 8
@@ -39514,11 +39514,11 @@ _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i: ; preds = %i
   %shl.i.i9.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %and.i.i8.i.i.i.i.i.i.i.i.i
   %and2.i.i10.i.i.i.i.i.i.i.i.i = and i64 %shl.i.i9.i.i.i.i.i.i.i.i.i, %178
   %tobool.i.not.i11.i.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i10.i.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i158:                       ; preds = %if.then4.i.i.i.i.i.i.i.i.i
   %179 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i to i32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i.i, %for.body.if.else.i_crit_edge.i.i.i.i.i.i.i
   %isConstantMapping_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i146, i64 59
@@ -39529,16 +39529,16 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox
 if.then3.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %constantIndex_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i146, i64 64
   %181 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i146, i64 8
   %182 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i.i.i.i.i.i153 = getelementptr inbounds i32, ptr %182, i64 %indvars.iv.i.i.i.i.i.i.i
   %183 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i153, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i158, %for.body.if.else.i_crit_edge.i.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i158, %for.body.if.else.i_crit_edge.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %181, %if.then3.i.i.i.i.i.i.i.i.i.i ], [ %183, %if.end4.i.i.i.i.i.i.i.i.i.i ], [ %179, %if.else.i.i.i.i.i.i.i.i158 ], [ %170, %for.body.if.else.i_crit_edge.i.i.i.i.i.i.i ]
   %vtable.i.i.i.i.i.i.i.i.i154 = load ptr, ptr %.val8.i.i.i.i.i.i.i, align 8
   %vfn.i.i.i.i.i.i.i.i.i155 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i154, i64 352
@@ -39546,13 +39546,13 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i: ; pr
   %call3.i.i.i26.i.i.i.i.i.i = invoke { i64, ptr } %184(ptr noundef nonnull align 8 dereferenceable(208) %.val8.i.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i.i.i.i.i.i.i.i)
           to label %call3.i.i.i.noexc.i.i.i.i.i.i unwind label %lpad.i18.loopexit.i.i.i.i.i.i
 
-call3.i.i.i.noexc.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+call3.i.i.i.noexc.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
   %185 = extractvalue { i64, ptr } %call3.i.i.i26.i.i.i.i.i.i, 0
   %sext11.i.i.i.i.i.i.i = shl i64 %185, 32
   %186 = ashr exact i64 %sext11.i.i.i.i.i.i.i, 32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i = phi i64 [ %186, %call3.i.i.i.noexc.i.i.i.i.i.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i ], [ 4, %if.then4.i.i.i.i.i.i.i.i.i ], [ 4, %if.then8.i.i.i.i.i.i.i.i.i ], [ 4, %if.then4.i.i.i.thread.i.i.i.i.i.i ]
   %187 = load ptr, ptr %agg.tmp17.i.sroa.4.0.agg.tmp17.i33.sroa_idx, align 8
   %188 = load i64, ptr %187, align 8
@@ -39562,7 +39562,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i: 
   %cmp.i.i.i.i.i.i.i157 = icmp slt i64 %indvars.iv.next.i.i.i.i.i.i.i, %165
   br i1 %cmp.i.i.i.i.i.i.i157, label %for.body.i.i.i.i.i.i.i145, label %for.end.i.i.i.i.i.i.i, !llvm.loop !205
 
-for.end.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, %if.end.i23.i.i.i.i.i.i
+for.end.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, %if.end.i23.i.i.i.i.i.i
   %add10.i.i.i.i.i.i.i = add nuw nsw i32 %161, 1
   %cond.i.i.i.i.i.i.i = select i1 %cmp12.i.i.i.i.i.i.i, i32 %add10.i.i.i.i.i.i.i, i32 2
   %conv11.i24.i.i.i.i.i.i = sext i32 %cond.i.i.i.i.i.i.i to i64
@@ -39572,7 +39572,7 @@ for.end.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox
   store i64 %add12.i.i.i.i.i.i.i, ptr %189, align 8
   br label %for.inc.i.i.i.i.i.i117
 
-lpad.i18.loopexit.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+lpad.i18.loopexit.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
   %lpad.loopexit.i.i.i.i.i.i156 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -39734,8 +39734,8 @@ for.body.lr.ph.i38.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i
   %216 = sext i32 %add.i39.i.i.i.i.i to i64
   br label %for.body.i40.i.i.i.i.i
 
-for.body.i40.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, %for.body.lr.ph.i38.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i197 = phi i64 [ %215, %for.body.lr.ph.i38.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i224, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i ]
+for.body.i40.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, %for.body.lr.ph.i38.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i197 = phi i64 [ %215, %for.body.lr.ph.i38.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i224, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i ]
   %217 = load ptr, ptr %agg.tmp17.i.sroa.5.0.agg.tmp17.i33.sroa_idx, align 8
   %218 = getelementptr i8, ptr %217, i64 8
   %.val.i.i.i.i.i.i = load ptr, ptr %218, align 8
@@ -39751,7 +39751,7 @@ for.body.i40.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox
 
 for.body.if.else.i_crit_edge.i.i.i.i.i.i:         ; preds = %for.body.i40.i.i.i.i.i
   %221 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i197 to i32
-  br i1 %.pre.i.i.i.i.i.i201, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i220, label %if.end.i.i.i.i43.i.i.i.i.i
+  br i1 %.pre.i.i.i.i.i.i201, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i220, label %if.end.i.i.i.i43.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i202:                        ; preds = %for.body.i40.i.i.i.i.i
   br i1 %.pre.i.i.i.i.i.i201, label %if.then4.i.i.i.i.i.i.i.i232, label %lor.lhs.false.i.i.i.i.i.i.i.i203
@@ -39770,7 +39770,7 @@ if.then4.i.i.i.i.i.i.i.i232:                      ; preds = %if.end.i.i.i.i.i.i.
   %shl.i.i.i.i.i.i.i.i.i.i235 = shl nuw i64 1, %and.i.i.i.i.i.i.i.i.i.i234
   %and2.i.i.i.i.i.i.i.i.i.i236 = and i64 %223, %shl.i.i.i.i.i.i.i.i.i.i235
   %tobool.i.not.i.i.i.i.i.i.i.i.i237 = icmp eq i64 %and2.i.i.i.i.i.i.i.i.i.i236, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i237, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i238
+  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i237, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i238
 
 if.then4.i.i.i.thread.i.i.i.i.i231:               ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i203
   %div2.i.i.i.i.i50.i.i.i.i.i = lshr i64 %indvars.iv.i.i.i.i.i.i197, 6
@@ -39780,7 +39780,7 @@ if.then4.i.i.i.thread.i.i.i.i.i231:               ; preds = %lor.lhs.false.i.i.i
   %shl.i.i.i.i.i53.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i52.i.i.i.i.i
   %and2.i.i.i.i.i54.i.i.i.i.i = and i64 %224, %shl.i.i.i.i.i53.i.i.i.i.i
   %tobool.i.not.i.i.i.i55.i.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i54.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i55.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i43.i.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i55.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i43.i.i.i.i.i
 
 if.end6.i.i.i.i.i.i.i.i206:                       ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i203
   %isConstantMapping_.i.i.i.i.i.i.i.i207 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i, i64 59
@@ -39792,7 +39792,7 @@ if.then8.i.i.i.i.i.i.i.i228:                      ; preds = %if.end6.i.i.i.i.i.i
   %226 = load i64, ptr %220, align 8
   %and2.i.i3.i.i.i.i.i.i.i.i229 = and i64 %226, 1
   %tobool.i.not.i4.i.i.i.i.i.i.i.i230 = icmp eq i64 %and2.i.i3.i.i.i.i.i.i.i.i229, 0
-  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i230, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i43.i.i.i.i.i
+  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i230, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i43.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i209: ; preds = %if.end6.i.i.i.i.i.i.i.i206
   %indices_.i.i.i.i.i.i.i.i210 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i, i64 8
@@ -39807,11 +39807,11 @@ _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i209: ; preds = %
   %shl.i.i9.i.i.i.i.i.i.i.i215 = shl nuw i64 1, %and.i.i8.i.i.i.i.i.i.i.i214
   %and2.i.i10.i.i.i.i.i.i.i.i216 = and i64 %shl.i.i9.i.i.i.i.i.i.i.i215, %229
   %tobool.i.not.i11.i.i.i.i.i.i.i.i217 = icmp eq i64 %and2.i.i10.i.i.i.i.i.i.i.i216, 0
-  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i217, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i43.i.i.i.i.i
+  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i217, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i43.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i238:                         ; preds = %if.then4.i.i.i.i.i.i.i.i232
   %230 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i197 to i32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i220
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i220
 
 if.end.i.i.i.i43.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i209, %if.then8.i.i.i.i.i.i.i.i228, %if.then4.i.i.i.thread.i.i.i.i.i231, %for.body.if.else.i_crit_edge.i.i.i.i.i.i
   %isConstantMapping_.i.i.i.i44.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i, i64 59
@@ -39822,16 +39822,16 @@ if.end.i.i.i.i43.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox
 if.then3.i.i.i.i.i.i.i.i.i226:                    ; preds = %if.end.i.i.i.i43.i.i.i.i.i
   %constantIndex_.i.i.i.i.i.i.i.i.i227 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i, i64 64
   %232 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i.i227, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i220
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i220
 
 if.end4.i.i.i.i.i.i.i.i.i219:                     ; preds = %if.end.i.i.i.i43.i.i.i.i.i
   %indices_.i.i.i.i45.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i, i64 8
   %233 = load ptr, ptr %indices_.i.i.i.i45.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i46.i.i.i.i.i = getelementptr inbounds i32, ptr %233, i64 %indvars.iv.i.i.i.i.i.i197
   %234 = load i32, ptr %arrayidx.i.i.i.i46.i.i.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i220
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i220
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i220: ; preds = %if.end4.i.i.i.i.i.i.i.i.i219, %if.then3.i.i.i.i.i.i.i.i.i226, %if.else.i.i.i.i.i.i.i238, %for.body.if.else.i_crit_edge.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i220: ; preds = %if.end4.i.i.i.i.i.i.i.i.i219, %if.then3.i.i.i.i.i.i.i.i.i226, %if.else.i.i.i.i.i.i.i238, %for.body.if.else.i_crit_edge.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i.i221 = phi i32 [ %232, %if.then3.i.i.i.i.i.i.i.i.i226 ], [ %234, %if.end4.i.i.i.i.i.i.i.i.i219 ], [ %230, %if.else.i.i.i.i.i.i.i238 ], [ %221, %for.body.if.else.i_crit_edge.i.i.i.i.i.i ]
   %vtable.i.i.i.i.i.i.i.i222 = load ptr, ptr %.val8.i.i.i.i.i.i, align 8
   %vfn.i.i.i.i.i.i.i.i223 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i222, i64 352
@@ -39839,13 +39839,13 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i220: ; p
   %call3.i.i.i49.i.i.i.i.i = invoke { i64, ptr } %235(ptr noundef nonnull align 8 dereferenceable(208) %.val8.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i.i.i.i.i.i.i221)
           to label %call3.i.i.i.noexc.i.i.i.i.i unwind label %lpad.i.i.loopexit.i.i.i.i.i
 
-call3.i.i.i.noexc.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i220
+call3.i.i.i.noexc.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i220
   %236 = extractvalue { i64, ptr } %call3.i.i.i49.i.i.i.i.i, 0
   %sext.i.i.i.i.i.i = shl i64 %236, 32
   %237 = ashr exact i64 %sext.i.i.i.i.i.i, 32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i209, %if.then8.i.i.i.i.i.i.i.i228, %if.then4.i.i.i.thread.i.i.i.i.i231, %if.then4.i.i.i.i.i.i.i.i232
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i209, %if.then8.i.i.i.i.i.i.i.i228, %if.then4.i.i.i.thread.i.i.i.i.i231, %if.then4.i.i.i.i.i.i.i.i232
   %retval.0.i.i.i.i.i.i.i = phi i64 [ %237, %call3.i.i.i.noexc.i.i.i.i.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i209 ], [ 4, %if.then4.i.i.i.i.i.i.i.i232 ], [ 4, %if.then8.i.i.i.i.i.i.i.i228 ], [ 4, %if.then4.i.i.i.thread.i.i.i.i.i231 ]
   %238 = load ptr, ptr %agg.tmp17.i.sroa.4.0.agg.tmp17.i33.sroa_idx, align 8
   %239 = load i64, ptr %238, align 8
@@ -39855,7 +39855,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i: ; 
   %cmp.i.i.i.i.i.i225 = icmp slt i64 %indvars.iv.next.i.i.i.i.i.i224, %216
   br i1 %cmp.i.i.i.i.i.i225, label %for.body.i40.i.i.i.i.i, label %for.end.i.i.i.i.i.i, !llvm.loop !207
 
-for.end.i.i.i.i.i.i:                              ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
+for.end.i.i.i.i.i.i:                              ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %add7.i.i.i.i.i.i = add nuw nsw i32 %212, 1
   %cond.i36.i.i.i.i.i = select i1 %cmp11.i.i.i.i.i.i, i32 %add7.i.i.i.i.i.i, i32 2
   %conv8.i.i.i.i.i.i = sext i32 %cond.i36.i.i.i.i.i to i64
@@ -39865,7 +39865,7 @@ for.end.i.i.i.i.i.i:                              ; preds = %_ZNK8facebook5velox
   store i64 %add9.i37.i.i.i.i.i, ptr %240, align 8
   br label %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i"
 
-lpad.i.i.loopexit.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i220
+lpad.i.i.loopexit.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i220
   %lpad.loopexit.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -40443,7 +40443,7 @@ _ZN8facebook5velox15UDFOutputString6resizeEm.exit.i37.i.i.i.i.i.i.i: ; preds = %
   store i8 44, ptr %add.ptr.i42.i.i.i.i.i.i.i, align 1
   br label %if.end16.i.i.i.i.i.i.i
 
-lpad.loopexit.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %if.then.i.i47.i.i.i.i.i.i.i
+lpad.loopexit.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %if.then.i.i47.i.i.i.i.i.i.i
   %lpad.loopexit116.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -40480,7 +40480,7 @@ if.end16.i.i.i.i.i.i.i:                           ; preds = %_ZN8facebook5velox1
 
 if.end16.i.if.else.i_crit_edge.i.i.i.i.i.i:       ; preds = %if.end16.i.i.i.i.i.i.i
   %322 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i to i32
-  br i1 %.pre.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
+  br i1 %.pre.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
 if.end.i.i59.i.i.i.i.i.i:                         ; preds = %if.end16.i.i.i.i.i.i.i
   br i1 %.pre.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i.i.i
@@ -40561,7 +40561,7 @@ _ZN8facebook5velox15UDFOutputString6resizeEm.exit.i.i.i.i.i.i.i.i.i: ; preds = %
 
 if.else.i.i.i.i.i.i.i21:                          ; preds = %if.then4.i.i.i.i.i.i.i.i
   %335 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i to i32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i, %if.end16.i.if.else.i_crit_edge.i.i.i.i.i.i
   %isConstantMapping_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i, i64 59
@@ -40572,16 +40572,16 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK8facebook5velox
 if.then3.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.i.i.i
   %constantIndex_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i, i64 64
   %337 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i, i64 8
   %338 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %338, i64 %indvars.iv.i.i.i.i.i.i
   %339 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i21, %if.end16.i.if.else.i_crit_edge.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i21, %if.end16.i.if.else.i_crit_edge.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %337, %if.then3.i.i.i.i.i.i.i.i.i ], [ %339, %if.end4.i.i.i.i.i.i.i.i.i ], [ %335, %if.else.i.i.i.i.i.i.i21 ], [ %322, %if.end16.i.if.else.i_crit_edge.i.i.i.i.i.i ]
   %vtable.i.i62.i.i.i.i.i.i = load ptr, ptr %.val10.i.i.i.i.i.i.i, align 8
   %vfn.i.i63.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i62.i.i.i.i.i.i, i64 352
@@ -40589,7 +40589,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i: ; pred
   %call3.i.i75.i.i.i.i.i.i = invoke { i64, ptr } %340(ptr noundef nonnull align 8 dereferenceable(208) %.val10.i.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i.i.i.i.i.i.i)
           to label %call3.i.i.noexc.i.i.i.i.i.i unwind label %lpad.loopexit.i.i.i.i.i.i.i
 
-call3.i.i.noexc.i.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i
+call3.i.i.noexc.i.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i
   %341 = extractvalue { i64, ptr } %call3.i.i75.i.i.i.i.i.i, 0
   store i64 %341, ptr %ref.tmp.i58.i.i.i.i.i.i, align 8
   %342 = extractvalue { i64, ptr } %call3.i.i75.i.i.i.i.i.i, 1
@@ -46678,12 +46678,12 @@ if.else:                                          ; preds = %entry
 invoke.cont2.i:                                   ; preds = %if.else
   %15 = load ptr, ptr %exec_.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit, label %if.end.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont2.i
   %sort_keys_by.i.i = getelementptr inbounds i8, ptr %opts.i, i64 16
   %call.i.i.i.i = call noundef i64 %15(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i.i, ptr noundef null) #35
-  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
 
 lpad.i:                                           ; preds = %if.else
   %16 = landingpad { ptr, i32 }
@@ -46700,7 +46700,7 @@ if.end.i.i.i3.i:                                  ; preds = %lpad.i
 _ZN5folly4json18serialization_optsD2Ev.exit6.i:   ; preds = %if.end.i.i.i3.i, %lpad.i
   resume { ptr, i32 } %16
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit: ; preds = %invoke.cont2.i, %if.end.i.i.i.i
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %invoke.cont2.i, %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %opts.i)
   %18 = getelementptr inbounds i8, ptr %this, i64 8
@@ -46713,11 +46713,11 @@ _ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS
   %cmp.i.i7 = icmp slt i32 %conv.i6, 0
   br i1 %cmp.i.i7, label %if.then.i.i18, label %if.end.i.i8
 
-if.then.i.i18:                                    ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.then.i.i18:                                    ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   call void @llvm.trap()
   unreachable
 
-if.end.i.i8:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.end.i.i8:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   %cmp.i.i.i.i9 = icmp ult i32 %conv.i6, 13
   br i1 %cmp.i.i.i.i9, label %if.then2.i.i13, label %if.else.i.i11
 
@@ -47019,12 +47019,12 @@ if.else:                                          ; preds = %entry
 invoke.cont2.i:                                   ; preds = %if.else
   %13 = load ptr, ptr %exec_.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit, label %if.end.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont2.i
   %sort_keys_by.i.i = getelementptr inbounds i8, ptr %opts.i, i64 16
   %call.i.i.i.i = call noundef i64 %13(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i.i, ptr noundef null) #35
-  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
 
 lpad.i:                                           ; preds = %if.else
   %14 = landingpad { ptr, i32 }
@@ -47041,7 +47041,7 @@ if.end.i.i.i3.i:                                  ; preds = %lpad.i
 _ZN5folly4json18serialization_optsD2Ev.exit6.i:   ; preds = %if.end.i.i.i3.i, %lpad.i
   resume { ptr, i32 } %14
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit: ; preds = %invoke.cont2.i, %if.end.i.i.i.i
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %invoke.cont2.i, %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %opts.i)
   %16 = getelementptr inbounds i8, ptr %this, i64 24
@@ -47054,11 +47054,11 @@ _ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS
   %cmp.i.i = icmp slt i32 %conv.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.then.i.i:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   call void @llvm.trap()
   unreachable
 
-if.end.i.i:                                       ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.end.i.i:                                       ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   %cmp.i.i.i.i = icmp ult i32 %conv.i, 13
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 
@@ -47320,12 +47320,12 @@ if.else:                                          ; preds = %entry
 invoke.cont2.i:                                   ; preds = %if.else
   %15 = load ptr, ptr %exec_.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit, label %if.end.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont2.i
   %sort_keys_by.i.i = getelementptr inbounds i8, ptr %opts.i, i64 16
   %call.i.i.i.i = call noundef i64 %15(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i.i, ptr noundef null) #35
-  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
 
 lpad.i:                                           ; preds = %if.else
   %16 = landingpad { ptr, i32 }
@@ -47342,7 +47342,7 @@ if.end.i.i.i3.i:                                  ; preds = %lpad.i
 _ZN5folly4json18serialization_optsD2Ev.exit6.i:   ; preds = %if.end.i.i.i3.i, %lpad.i
   resume { ptr, i32 } %16
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit: ; preds = %invoke.cont2.i, %if.end.i.i.i.i
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %invoke.cont2.i, %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %opts.i)
   %18 = getelementptr inbounds i8, ptr %this, i64 8
@@ -47355,11 +47355,11 @@ _ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS
   %cmp.i.i7 = icmp slt i32 %conv.i6, 0
   br i1 %cmp.i.i7, label %if.then.i.i18, label %if.end.i.i8
 
-if.then.i.i18:                                    ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.then.i.i18:                                    ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   call void @llvm.trap()
   unreachable
 
-if.end.i.i8:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.end.i.i8:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   %cmp.i.i.i.i9 = icmp ult i32 %conv.i6, 13
   br i1 %cmp.i.i.i.i9, label %if.then2.i.i13, label %if.else.i.i11
 
@@ -47622,12 +47622,12 @@ if.else:                                          ; preds = %entry
 invoke.cont2.i:                                   ; preds = %if.else
   %13 = load ptr, ptr %exec_.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit, label %if.end.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont2.i
   %sort_keys_by.i.i = getelementptr inbounds i8, ptr %opts.i, i64 16
   %call.i.i.i.i = call noundef i64 %13(i32 noundef 1, ptr noundef nonnull %sort_keys_by.i.i, ptr noundef null) #35
-  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+  br label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
 
 lpad.i:                                           ; preds = %if.else
   %14 = landingpad { ptr, i32 }
@@ -47644,7 +47644,7 @@ if.end.i.i.i3.i:                                  ; preds = %lpad.i
 _ZN5folly4json18serialization_optsD2Ev.exit6.i:   ; preds = %if.end.i.i.i3.i, %lpad.i
   resume { ptr, i32 } %14
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit: ; preds = %invoke.cont2.i, %if.end.i.i.i.i
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %invoke.cont2.i, %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %opts.i)
   %16 = getelementptr inbounds i8, ptr %this, i64 24
@@ -47657,11 +47657,11 @@ _ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS
   %cmp.i.i = icmp slt i32 %conv.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.then.i.i:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   call void @llvm.trap()
   unreachable
 
-if.end.i.i:                                       ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.end.i.i:                                       ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_10StringViewELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   %cmp.i.i.i.i = icmp ult i32 %conv.i, 13
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 
@@ -47893,7 +47893,7 @@ if.else:                                          ; preds = %entry
   store i64 %13, ptr %12, align 8
   call void @_ZSt9to_stringB5cxx11RKN8facebook5velox9TimestampE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %value.i)
   %call1.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit unwind label %lpad.i
+          to label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.else
   %14 = landingpad { ptr, i32 }
@@ -47901,7 +47901,7 @@ lpad.i:                                           ; preds = %if.else
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #35
   resume { ptr, i32 } %14
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit: ; preds = %if.else
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %if.else
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -47915,11 +47915,11 @@ _ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_
   %cmp.i.i7 = icmp slt i32 %conv.i6, 0
   br i1 %cmp.i.i7, label %if.then.i.i18, label %if.end.i.i8
 
-if.then.i.i18:                                    ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.then.i.i18:                                    ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   call void @llvm.trap()
   unreachable
 
-if.end.i.i8:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.end.i.i8:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb0EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   %cmp.i.i.i.i9 = icmp ult i32 %conv.i6, 13
   br i1 %cmp.i.i.i.i9, label %if.then2.i.i13, label %if.else.i.i11
 
@@ -48154,7 +48154,7 @@ if.else:                                          ; preds = %entry
   %call1.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.15)
   call void @_ZSt9to_stringB5cxx11RKN8facebook5velox9TimestampE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %value.i)
   %call2.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit unwind label %lpad.i
+          to label %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.else
   %12 = landingpad { ptr, i32 }
@@ -48162,7 +48162,7 @@ lpad.i:                                           ; preds = %if.else
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #35
   resume { ptr, i32 } %12
 
-_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit: ; preds = %if.else
+_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %if.else
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #35
   %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i)
@@ -48177,11 +48177,11 @@ _ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_
   %cmp.i.i = icmp slt i32 %conv.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.then.i.i:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   call void @llvm.trap()
   unreachable
 
-if.end.i.i:                                       ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.argprom.exit
+if.end.i.i:                                       ; preds = %_ZN8facebook5velox12_GLOBAL__N_117generateJsonTypedINS0_9TimestampELb1EEEvRKNS0_12SimpleVectorIT_EEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIKNS0_4TypeEE.exit
   %cmp.i.i.i.i = icmp ult i32 %conv.i, 13
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 
@@ -48735,7 +48735,7 @@ if.else:                                          ; preds = %_ZN8facebook5velox1
   ]
 
 if.then14:                                        ; preds = %if.else
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_16AsJson6doCastERNS0_4exec7EvalCtxERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorEbRS8_.argprom(ptr noundef nonnull align 8 dereferenceable(104) %context, ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(38) %rows, i1 noundef zeroext %isMapKey, ptr noundef nonnull align 8 dereferenceable(16) %json_)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_16AsJson6doCastERNS0_4exec7EvalCtxERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorEbRS8_(ptr noundef nonnull align 8 dereferenceable(104) %context, ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(38) %rows, i1 noundef zeroext %isMapKey, ptr noundef nonnull align 8 dereferenceable(16) %json_)
           to label %if.end20 unwind label %lpad
 
 if.else17:                                        ; preds = %if.else, %if.else, %if.else
@@ -49117,7 +49117,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN8facebook5velox4exec7EvalCtx17setPeeledEncodingERSt10shared_ptrINS1_14PeeledEncodingEE.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i27.i, %invoke.cont21.i
   %80 = load ptr, ptr %peeledVectors.i, align 8
-  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_16AsJson6doCastERNS0_4exec7EvalCtxERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorEbRS8_.argprom(ptr noundef nonnull align 8 dereferenceable(104) %context, ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(38) %call20.i, i1 noundef zeroext %isMapKey, ptr noundef nonnull align 8 dereferenceable(16) %json_)
+  invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_16AsJson6doCastERNS0_4exec7EvalCtxERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorEbRS8_(ptr noundef nonnull align 8 dereferenceable(104) %context, ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(38) %call20.i, i1 noundef zeroext %isMapKey, ptr noundef nonnull align 8 dereferenceable(16) %json_)
           to label %invoke.cont24.i unwind label %lpad18.i
 
 invoke.cont24.i:                                  ; preds = %_ZN8facebook5velox4exec7EvalCtx17setPeeledEncodingERSt10shared_ptrINS1_14PeeledEncodingEE.exit.i
@@ -51874,7 +51874,7 @@ while.end:                                        ; preds = %"_ZZN8facebook5velo
 declare void @_ZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolE(ptr sret(%"class.boost::intrusive_ptr") align 8, i32 noundef, ptr noundef nonnull align 8 dereferenceable(38), ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_16AsJson6doCastERNS0_4exec7EvalCtxERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorEbRS8_.argprom(ptr noundef nonnull align 8 dereferenceable(104) %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(38) %baseRows, i1 noundef zeroext %isMapKey, ptr noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_16AsJson6doCastERNS0_4exec7EvalCtxERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorEbRS8_(ptr noundef nonnull align 8 dereferenceable(104) %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(38) %baseRows, i1 noundef zeroext %isMapKey, ptr noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp2 = alloca %"class.std::shared_ptr.84", align 8
@@ -53333,8 +53333,8 @@ for.body.lr.ph:                                   ; preds = %if.end
   %12 = sext i32 %add to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit
-  %indvars.iv = phi i64 [ %11, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit
+  %indvars.iv = phi i64 [ %11, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit ]
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr i8, ptr %13, i64 8
   %.val = load ptr, ptr %14, align 8
@@ -53350,7 +53350,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 for.body.if.else.i_crit_edge:                     ; preds = %for.body
   %17 = trunc nsw i64 %indvars.iv to i32
-  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i, label %if.end.i.i.i
+  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i, label %if.end.i.i.i
 
 if.end.i.i:                                       ; preds = %for.body
   br i1 %.pre, label %if.then4.i.i, label %lor.lhs.false.i.i
@@ -53369,7 +53369,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %shl.i.i.i.i = shl nuw i64 1, %and.i.i.i.i
   %and2.i.i.i.i = and i64 %19, %shl.i.i.i.i
   %tobool.i.not.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit, label %if.else.i
+  br i1 %tobool.i.not.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, label %if.else.i
 
 if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
   %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %.val, i64 59
@@ -53381,7 +53381,7 @@ if.then8.i.i:                                     ; preds = %if.end6.i.i
   %21 = load i64, ptr %16, align 8
   %and2.i.i3.i.i = and i64 %21, 1
   %tobool.i.not.i4.i.i = icmp eq i64 %and2.i.i3.i.i, 0
-  br i1 %tobool.i.not.i4.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit, label %if.end.i.i.i
+  br i1 %tobool.i.not.i4.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, label %if.end.i.i.i
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i: ; preds = %if.end6.i.i
   %indices_.i.i = getelementptr inbounds i8, ptr %.val, i64 8
@@ -53396,11 +53396,11 @@ _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i: ; preds = %if.end6.i.i
   %shl.i.i9.i.i = shl nuw i64 1, %and.i.i8.i.i
   %and2.i.i10.i.i = and i64 %shl.i.i9.i.i, %24
   %tobool.i.not.i11.i.i = icmp eq i64 %and2.i.i10.i.i, 0
-  br i1 %tobool.i.not.i11.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit, label %if.end.i.i.i
+  br i1 %tobool.i.not.i11.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, label %if.end.i.i.i
 
 if.else.i:                                        ; preds = %if.then4.i.i
   %25 = trunc nsw i64 %indvars.iv to i32
-  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i, label %if.end.i.i.i
+  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then8.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i, %for.body.if.else.i_crit_edge, %if.else.i
   %isConstantMapping_.i.i.i = getelementptr inbounds i8, ptr %.val, i64 59
@@ -53411,16 +53411,16 @@ if.end.i.i.i:                                     ; preds = %if.then8.i.i, %_ZNK
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   %constantIndex_.i.i.i = getelementptr inbounds i8, ptr %.val, i64 64
   %27 = load i32, ptr %constantIndex_.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %indices_.i.i.i = getelementptr inbounds i8, ptr %.val, i64 8
   %28 = load ptr, ptr %indices_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %28, i64 %indvars.iv
   %29 = load i32, ptr %arrayidx.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i: ; preds = %for.body.if.else.i_crit_edge, %if.end4.i.i.i, %if.then3.i.i.i, %if.else.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i: ; preds = %for.body.if.else.i_crit_edge, %if.end4.i.i.i, %if.then3.i.i.i, %if.else.i
   %retval.0.i.i.i = phi i32 [ %27, %if.then3.i.i.i ], [ %29, %if.end4.i.i.i ], [ %25, %if.else.i ], [ %17, %for.body.if.else.i_crit_edge ]
   %vtable.i.i = load ptr, ptr %.val8, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 352
@@ -53429,10 +53429,10 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i: ; preds = %for.bod
   %31 = extractvalue { i64, ptr } %call3.i.i, 0
   %sext = shl i64 %31, 32
   %32 = ashr exact i64 %sext, 32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit: ; preds = %if.then4.i.i, %if.then8.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i
-  %retval.0.i = phi i64 [ %32, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i ], [ 4, %if.then4.i.i ], [ 4, %if.then8.i.i ]
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit: ; preds = %if.then4.i.i, %if.then8.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i
+  %retval.0.i = phi i64 [ %32, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i ], [ 4, %if.then4.i.i ], [ 4, %if.then8.i.i ]
   %33 = load ptr, ptr %10, align 8
   %34 = load i64, ptr %33, align 8
   %add5 = add i64 %34, %retval.0.i
@@ -53441,7 +53441,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit: ; preds = %if.
   %cmp = icmp slt i64 %indvars.iv.next, %12
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !207
 
-for.end:                                          ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit, %if.end
+for.end:                                          ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, %if.end
   %add7 = add nuw nsw i32 %6, 1
   %cond = select i1 %cmp11, i32 %add7, i32 2
   %conv8 = sext i32 %cond to i64
@@ -53736,7 +53736,7 @@ if.end12:                                         ; preds = %_ZN8facebook5velox1
   %.val = load ptr, ptr %23, align 8
   %24 = getelementptr i8, ptr %22, i64 32
   %.val10 = load ptr, ptr %24, align 8
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_16AsJson6appendEiRNS0_4exec12StringWriterILb0EEE.argprom(ptr %.val, ptr %.val10, i32 noundef %i.0119, ptr noundef nonnull align 8 dereferenceable(96) %proxy)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_16AsJson6appendEiRNS0_4exec12StringWriterILb0EEE(ptr %.val, ptr %.val10, i32 noundef %i.0119, ptr noundef nonnull align 8 dereferenceable(96) %proxy)
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %if.end12
@@ -53847,7 +53847,7 @@ return:                                           ; preds = %invoke.cont18, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox12_GLOBAL__N_16AsJson6appendEiRNS0_4exec12StringWriterILb0EEE.argprom(ptr nocapture readonly %this.8.val, ptr %this.32.val, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(96) %proxy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox12_GLOBAL__N_16AsJson6appendEiRNS0_4exec12StringWriterILb0EEE(ptr nocapture readonly %this.8.val, ptr %this.32.val, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(96) %proxy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.facebook::velox::StringView", align 8
   %nulls_.i = getelementptr inbounds i8, ptr %this.8.val, i64 24
@@ -53932,7 +53932,7 @@ _ZN8facebook5velox15UDFOutputString6resizeEm.exit.i.i: ; preds = %if.then.i.i.i,
 
 if.else:                                          ; preds = %entry, %if.then8.i, %if.then4.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit
   %tobool.i.i = trunc i8 %.pre to i1
-  br i1 %tobool.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit, label %if.end.i.i
+  br i1 %tobool.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else
   %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 59
@@ -53943,7 +53943,7 @@ if.end.i.i:                                       ; preds = %if.else
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %constantIndex_.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 64
   %13 = load i32, ptr %constantIndex_.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
   %indices_.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -53951,9 +53951,9 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   %idxprom.i.i = sext i32 %i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %14, i64 %idxprom.i.i
   %15 = load i32, ptr %arrayidx.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit: ; preds = %if.else, %if.then3.i.i, %if.end4.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit: ; preds = %if.else, %if.then3.i.i, %if.end4.i.i
   %retval.0.i.i = phi i32 [ %13, %if.then3.i.i ], [ %15, %if.end4.i.i ], [ %i, %if.else ]
   %vtable.i = load ptr, ptr %this.32.val, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 352
@@ -53974,14 +53974,14 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit: ; preds = %if.else, 
   %cmp.i.i = icmp ugt i64 %add.i, %22
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN8facebook5velox15UDFOutputString6resizeEm.exit.i
 
-if.then.i.i:                                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
+if.then.i.i:                                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
   %vtable.i.i = load ptr, ptr %proxy, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %23 = load ptr, ptr %vfn.i.i, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(32) %proxy, i64 noundef %add.i)
   br label %_ZN8facebook5velox15UDFOutputString6resizeEm.exit.i
 
-_ZN8facebook5velox15UDFOutputString6resizeEm.exit.i: ; preds = %if.then.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
+_ZN8facebook5velox15UDFOutputString6resizeEm.exit.i: ; preds = %if.then.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
   store i64 %add.i, ptr %size_.i.i, align 8
   %cmp.not.i = icmp eq i32 %21, 0
   br i1 %cmp.not.i, label %if.end, label %while.end58.i
@@ -55424,8 +55424,8 @@ for.body.lr.ph.i.i.i.i.i.i.i:                     ; preds = %if.end.i23.i.i.i.i.
   %174 = sext i32 %add.i.i.i.i.i.i.i to i64
   br label %for.body.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %173, %for.body.lr.ph.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i ]
+for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %173, %for.body.lr.ph.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i ]
   %175 = load ptr, ptr %agg.tmp18.sroa.3.0.agg.tmp1837.sroa_idx, align 8
   %176 = getelementptr i8, ptr %175, i64 8
   %.val.i.i.i.i.i.i.i = load ptr, ptr %176, align 8
@@ -55435,7 +55435,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox
   %178 = load i8, ptr %isIdentityMapping_.i.i.i.i.i.i.i.i.i, align 2
   %tobool.i.i.i.i.i.i.i.i.i = trunc i8 %178 to i1
   %179 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i to i32
-  br i1 %tobool.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i
   %isConstantMapping_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i, i64 59
@@ -55446,16 +55446,16 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
 if.then3.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.i.i.i
   %constantIndex_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i, i64 64
   %181 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i, i64 8
   %182 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %182, i64 %indvars.iv.i.i.i.i.i.i.i
   %183 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %181, %if.then3.i.i.i.i.i.i.i.i.i ], [ %183, %if.end4.i.i.i.i.i.i.i.i.i ], [ %179, %for.body.i.i.i.i.i.i.i ]
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %.val9.i.i.i.i.i.i.i, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 352
@@ -55463,7 +55463,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i: ; pred
   %call3.i.i25.i.i.i.i.i.i = invoke { i64, ptr } %184(ptr noundef nonnull align 8 dereferenceable(208) %.val9.i.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i.i.i.i.i.i.i)
           to label %call3.i.i.noexc.i.i.i.i.i.i unwind label %lpad.i18.loopexit.i.i.i.i.i.i
 
-call3.i.i.noexc.i.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i
+call3.i.i.noexc.i.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i
   %185 = extractvalue { i64, ptr } %call3.i.i25.i.i.i.i.i.i, 0
   %conv.i.i.i.i.i.i.i.i = and i64 %185, 4294967295
   %186 = load ptr, ptr %agg.tmp18.sroa.4.0.agg.tmp1837.sroa_idx, align 8
@@ -55477,10 +55477,10 @@ call3.i.i.noexc.i.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox
   %isIdentityMapping_.i.i.phi.trans.insert.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i.i, i64 58
   %.pre.i.i.i.i.i.i.i.i = load i8, ptr %isIdentityMapping_.i.i.phi.trans.insert.i.i.i.i.i.i.i.i, align 2
   %.pre.i.i.i.i.i.i.i = trunc i8 %.pre.i.i.i.i.i.i.i.i to i1
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge.i.i.i.i.i.i.i, label %if.end.i.i14.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge.i.i.i.i.i.i.i, label %if.end.i.i14.i.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge.i.i.i.i.i.i.i: ; preds = %call3.i.i.noexc.i.i.i.i.i.i
-  br i1 %.pre.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge.i.i.i.i.i.i.i: ; preds = %call3.i.i.noexc.i.i.i.i.i.i
+  br i1 %.pre.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i14.i.i.i.i.i.i.i:                       ; preds = %call3.i.i.noexc.i.i.i.i.i.i
   br i1 %.pre.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i.i.i.i
@@ -55499,7 +55499,7 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i14.i.i.i.
   %shl.i.i.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i.i.i.i.i.i.i
   %and2.i.i.i.i.i.i.i.i.i.i.i = and i64 %191, %shl.i.i.i.i.i.i.i.i.i.i.i
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
 
 if.then4.i.i.i.thread.i.i.i.i.i.i:                ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i.i
   %div2.i.i.i.i.i58.i.i.i.i.i.i = lshr i64 %indvars.iv.i.i.i.i.i.i.i, 6
@@ -55509,7 +55509,7 @@ if.then4.i.i.i.thread.i.i.i.i.i.i:                ; preds = %lor.lhs.false.i.i.i
   %shl.i.i.i.i.i61.i.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i60.i.i.i.i.i.i
   %and2.i.i.i.i.i62.i.i.i.i.i.i = and i64 %192, %shl.i.i.i.i.i61.i.i.i.i.i.i
   %tobool.i.not.i.i.i.i63.i.i.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i62.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i63.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i63.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i.i
   %isConstantMapping_.i.i16.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i.i, i64 59
@@ -55521,7 +55521,7 @@ if.then8.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end6.i.i.i.i.i.i
   %194 = load i64, ptr %189, align 8
   %and2.i.i3.i.i.i.i.i.i.i.i.i = and i64 %194, 1
   %tobool.i.not.i4.i.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i3.i.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i: ; preds = %if.end6.i.i.i.i.i.i.i.i.i
   %indices_.i.i17.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i.i, i64 8
@@ -55536,9 +55536,9 @@ _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i: ; preds = %i
   %shl.i.i9.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %and.i.i8.i.i.i.i.i.i.i.i.i
   %and2.i.i10.i.i.i.i.i.i.i.i.i = and i64 %shl.i.i9.i.i.i.i.i.i.i.i.i, %197
   %tobool.i.not.i11.i.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i10.i.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge.i.i.i.i.i.i.i
+if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge.i.i.i.i.i.i.i
   %isConstantMapping_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i.i, i64 59
   %198 = load i8, ptr %isConstantMapping_.i.i.i.i.i.i.i.i.i.i, align 1
   %tobool2.i.i.i.i.i.i.i.i.i.i = trunc i8 %198 to i1
@@ -55547,30 +55547,30 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox
 if.then3.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %constantIndex_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i.i, i64 64
   %199 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i.i, i64 8
   %200 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %200, i64 %indvars.iv.i.i.i.i.i.i.i
   %201 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %199, %if.then3.i.i.i.i.i.i.i.i.i.i ], [ %201, %if.end4.i.i.i.i.i.i.i.i.i.i ], [ %179, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge.i.i.i.i.i.i.i ], [ %179, %if.then4.i.i.i.i.i.i.i.i.i ]
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge.i.i.i.i.i.i.i
+  %retval.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %199, %if.then3.i.i.i.i.i.i.i.i.i.i ], [ %201, %if.end4.i.i.i.i.i.i.i.i.i.i ], [ %179, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge.i.i.i.i.i.i.i ], [ %179, %if.then4.i.i.i.i.i.i.i.i.i ]
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %.val11.i.i.i.i.i.i.i, align 8
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 352
   %202 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   %call3.i.i.i26.i.i.i.i.i.i = invoke { i64, ptr } %202(ptr noundef nonnull align 8 dereferenceable(208) %.val11.i.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i.i.i.i.i.i.i.i)
           to label %call3.i.i.i.noexc.i.i.i.i.i.i unwind label %lpad.i18.loopexit.i.i.i.i.i.i
 
-call3.i.i.i.noexc.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+call3.i.i.i.noexc.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
   %203 = extractvalue { i64, ptr } %call3.i.i.i26.i.i.i.i.i.i, 0
   %sext21.i.i.i.i.i.i.i = shl i64 %203, 32
   %204 = ashr exact i64 %sext21.i.i.i.i.i.i.i, 32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i = phi i64 [ %204, %call3.i.i.i.noexc.i.i.i.i.i.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i ], [ 4, %if.then4.i.i.i.i.i.i.i.i.i ], [ 4, %if.then8.i.i.i.i.i.i.i.i.i ], [ 4, %if.then4.i.i.i.thread.i.i.i.i.i.i ]
   %add10.i.i.i.i.i.i.i = add nsw i64 %retval.0.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i
   %205 = load ptr, ptr %agg.tmp18.sroa.2.0.agg.tmp1837.sroa_idx, align 8
@@ -55581,7 +55581,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i: 
   %cmp.i.i.i.i.i.i.i = icmp slt i64 %indvars.iv.next.i.i.i.i.i.i.i, %174
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i, !llvm.loop !271
 
-for.end.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, %if.end.i23.i.i.i.i.i.i
+for.end.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, %if.end.i23.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i = shl nuw nsw i32 %170, 1
   %add13.i.i.i.i.i.i.i = or disjoint i32 %mul.i.i.i.i.i.i.i, 1
   %cond.i.i.i.i.i.i.i = select i1 %cmp22.i.i.i.i.i.i.i, i32 %add13.i.i.i.i.i.i.i, i32 2
@@ -55592,7 +55592,7 @@ for.end.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox
   store i64 %add15.i.i.i.i.i.i.i, ptr %207, align 8
   br label %for.inc.i.i.i.i.i.i114
 
-lpad.i18.loopexit.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i
+lpad.i18.loopexit.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i
   %lpad.loopexit.i.i.i.i.i.i134 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -55754,8 +55754,8 @@ for.body.lr.ph.i38.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i
   %234 = sext i32 %add.i39.i.i.i.i.i to i64
   br label %for.body.i40.i.i.i.i.i
 
-for.body.i40.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, %for.body.lr.ph.i38.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i = phi i64 [ %233, %for.body.lr.ph.i38.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i ]
+for.body.i40.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, %for.body.lr.ph.i38.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i = phi i64 [ %233, %for.body.lr.ph.i38.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i ]
   %235 = load ptr, ptr %agg.tmp18.sroa.3.0.agg.tmp1837.sroa_idx, align 8
   %236 = getelementptr i8, ptr %235, i64 8
   %.val.i.i.i.i.i.i = load ptr, ptr %236, align 8
@@ -55765,7 +55765,7 @@ for.body.i40.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox
   %238 = load i8, ptr %isIdentityMapping_.i.i.i.i.i.i.i.i, align 2
   %tobool.i.i.i.i.i.i.i.i = trunc i8 %238 to i1
   %239 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i to i32
-  br i1 %tobool.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i40.i.i.i.i.i
   %isConstantMapping_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i, i64 59
@@ -55776,16 +55776,16 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i40.i.i.i.
 if.then3.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i
   %constantIndex_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i, i64 64
   %241 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i, i64 8
   %242 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i, align 8
   %arrayidx.i.i.i41.i.i.i.i.i = getelementptr inbounds i32, ptr %242, i64 %indvars.iv.i.i.i.i.i.i
   %243 = load i32, ptr %arrayidx.i.i.i41.i.i.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i, %for.body.i40.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i, %for.body.i40.i.i.i.i.i
   %retval.0.i.i.i42.i.i.i.i.i = phi i32 [ %241, %if.then3.i.i.i.i.i.i.i.i ], [ %243, %if.end4.i.i.i.i.i.i.i.i ], [ %239, %for.body.i40.i.i.i.i.i ]
   %vtable.i.i43.i.i.i.i.i = load ptr, ptr %.val9.i.i.i.i.i.i, align 8
   %vfn.i.i44.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i43.i.i.i.i.i, i64 352
@@ -55793,7 +55793,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i: ; preds 
   %call3.i.i60.i.i.i.i.i = invoke { i64, ptr } %244(ptr noundef nonnull align 8 dereferenceable(208) %.val9.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i42.i.i.i.i.i)
           to label %call3.i.i.noexc.i.i.i.i.i unwind label %lpad.i.i.loopexit.i.i.i.i.i
 
-call3.i.i.noexc.i.i.i.i.i:                        ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i
+call3.i.i.noexc.i.i.i.i.i:                        ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i
   %245 = extractvalue { i64, ptr } %call3.i.i60.i.i.i.i.i, 0
   %conv.i.i.i.i.i.i.i = and i64 %245, 4294967295
   %246 = load ptr, ptr %agg.tmp18.sroa.4.0.agg.tmp1837.sroa_idx, align 8
@@ -55807,10 +55807,10 @@ call3.i.i.noexc.i.i.i.i.i:                        ; preds = %_ZNK8facebook5velox
   %isIdentityMapping_.i.i.phi.trans.insert.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i, i64 58
   %.pre.i.i45.i.i.i.i.i = load i8, ptr %isIdentityMapping_.i.i.phi.trans.insert.i.i.i.i.i.i.i, align 2
   %.pre.i.i.i.i.i.i = trunc i8 %.pre.i.i45.i.i.i.i.i to i1
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge.i.i.i.i.i.i, label %if.end.i.i14.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge.i.i.i.i.i.i, label %if.end.i.i14.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge.i.i.i.i.i.i: ; preds = %call3.i.i.noexc.i.i.i.i.i
-  br i1 %.pre.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i52.i.i.i.i.i, label %if.end.i.i.i.i46.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge.i.i.i.i.i.i: ; preds = %call3.i.i.noexc.i.i.i.i.i
+  br i1 %.pre.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i52.i.i.i.i.i, label %if.end.i.i.i.i46.i.i.i.i.i
 
 if.end.i.i14.i.i.i.i.i.i:                         ; preds = %call3.i.i.noexc.i.i.i.i.i
   br i1 %.pre.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i.i.i
@@ -55829,7 +55829,7 @@ if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i14.i.i.i.
   %shl.i.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i.i.i.i.i.i
   %and2.i.i.i.i.i.i.i.i.i.i = and i64 %251, %shl.i.i.i.i.i.i.i.i.i.i
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i52.i.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i52.i.i.i.i.i
 
 if.then4.i.i.i.thread.i.i.i.i.i:                  ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i
   %div2.i.i.i.i.i62.i.i.i.i.i = lshr i64 %indvars.iv.i.i.i.i.i.i, 6
@@ -55839,7 +55839,7 @@ if.then4.i.i.i.thread.i.i.i.i.i:                  ; preds = %lor.lhs.false.i.i.i
   %shl.i.i.i.i.i65.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i64.i.i.i.i.i
   %and2.i.i.i.i.i66.i.i.i.i.i = and i64 %252, %shl.i.i.i.i.i65.i.i.i.i.i
   %tobool.i.not.i.i.i.i67.i.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i66.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i67.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i46.i.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i67.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i46.i.i.i.i.i
 
 if.end6.i.i.i.i.i.i.i.i:                          ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i
   %isConstantMapping_.i.i16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i, i64 59
@@ -55851,7 +55851,7 @@ if.then8.i.i.i.i.i.i.i.i:                         ; preds = %if.end6.i.i.i.i.i.i
   %254 = load i64, ptr %249, align 8
   %and2.i.i3.i.i.i.i.i.i.i.i = and i64 %254, 1
   %tobool.i.not.i4.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i3.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i46.i.i.i.i.i
+  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i46.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i: ; preds = %if.end6.i.i.i.i.i.i.i.i
   %indices_.i.i17.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i, i64 8
@@ -55866,9 +55866,9 @@ _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i: ; preds = %if.
   %shl.i.i9.i.i.i.i.i.i.i.i = shl nuw i64 1, %and.i.i8.i.i.i.i.i.i.i.i
   %and2.i.i10.i.i.i.i.i.i.i.i = and i64 %shl.i.i9.i.i.i.i.i.i.i.i, %257
   %tobool.i.not.i11.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i10.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i46.i.i.i.i.i
+  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i46.i.i.i.i.i
 
-if.end.i.i.i.i46.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge.i.i.i.i.i.i
+if.end.i.i.i.i46.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge.i.i.i.i.i.i
   %isConstantMapping_.i.i.i.i47.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i, i64 59
   %258 = load i8, ptr %isConstantMapping_.i.i.i.i47.i.i.i.i.i, align 1
   %tobool2.i.i.i.i48.i.i.i.i.i = trunc i8 %258 to i1
@@ -55877,30 +55877,30 @@ if.end.i.i.i.i46.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox
 if.then3.i.i.i.i56.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i46.i.i.i.i.i
   %constantIndex_.i.i.i.i57.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i, i64 64
   %259 = load i32, ptr %constantIndex_.i.i.i.i57.i.i.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i52.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i52.i.i.i.i.i
 
 if.end4.i.i.i.i49.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i46.i.i.i.i.i
   %indices_.i.i.i.i50.i.i.i.i.i = getelementptr inbounds i8, ptr %.val10.i.i.i.i.i.i, i64 8
   %260 = load ptr, ptr %indices_.i.i.i.i50.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i51.i.i.i.i.i = getelementptr inbounds i32, ptr %260, i64 %indvars.iv.i.i.i.i.i.i
   %261 = load i32, ptr %arrayidx.i.i.i.i51.i.i.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i52.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i52.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i52.i.i.i.i.i: ; preds = %if.end4.i.i.i.i49.i.i.i.i.i, %if.then3.i.i.i.i56.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge.i.i.i.i.i.i
-  %retval.0.i.i.i.i53.i.i.i.i.i = phi i32 [ %259, %if.then3.i.i.i.i56.i.i.i.i.i ], [ %261, %if.end4.i.i.i.i49.i.i.i.i.i ], [ %239, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge.i.i.i.i.i.i ], [ %239, %if.then4.i.i.i.i.i.i.i.i ]
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i52.i.i.i.i.i: ; preds = %if.end4.i.i.i.i49.i.i.i.i.i, %if.then3.i.i.i.i56.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge.i.i.i.i.i.i
+  %retval.0.i.i.i.i53.i.i.i.i.i = phi i32 [ %259, %if.then3.i.i.i.i56.i.i.i.i.i ], [ %261, %if.end4.i.i.i.i49.i.i.i.i.i ], [ %239, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge.i.i.i.i.i.i ], [ %239, %if.then4.i.i.i.i.i.i.i.i ]
   %vtable.i.i.i54.i.i.i.i.i = load ptr, ptr %.val11.i.i.i.i.i.i, align 8
   %vfn.i.i.i55.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i54.i.i.i.i.i, i64 352
   %262 = load ptr, ptr %vfn.i.i.i55.i.i.i.i.i, align 8
   %call3.i.i.i61.i.i.i.i.i = invoke { i64, ptr } %262(ptr noundef nonnull align 8 dereferenceable(208) %.val11.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i.i53.i.i.i.i.i)
           to label %call3.i.i.i.noexc.i.i.i.i.i unwind label %lpad.i.i.loopexit.i.i.i.i.i
 
-call3.i.i.i.noexc.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i52.i.i.i.i.i
+call3.i.i.i.noexc.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i52.i.i.i.i.i
   %263 = extractvalue { i64, ptr } %call3.i.i.i61.i.i.i.i.i, 0
   %sext.i.i.i.i.i.i = shl i64 %263, 32
   %264 = ashr exact i64 %sext.i.i.i.i.i.i, 32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.thread.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi i64 [ %264, %call3.i.i.i.noexc.i.i.i.i.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i ], [ 4, %if.then4.i.i.i.i.i.i.i.i ], [ 4, %if.then8.i.i.i.i.i.i.i.i ], [ 4, %if.then4.i.i.i.thread.i.i.i.i.i ]
   %add7.i.i.i.i.i.i = add nsw i64 %retval.0.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %265 = load ptr, ptr %agg.tmp18.sroa.2.0.agg.tmp1837.sroa_idx, align 8
@@ -55911,7 +55911,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i: ; 
   %cmp.i.i.i.i.i.i = icmp slt i64 %indvars.iv.next.i.i.i.i.i.i, %234
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i40.i.i.i.i.i, label %for.end.i.i.i.i.i.i, !llvm.loop !273
 
-for.end.i.i.i.i.i.i:                              ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
+for.end.i.i.i.i.i.i:                              ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %mul.i36.i.i.i.i.i = shl nuw nsw i32 %230, 1
   %add10.i.i.i.i.i.i = or disjoint i32 %mul.i36.i.i.i.i.i, 1
   %cond.i37.i.i.i.i.i = select i1 %cmp21.i.i.i.i.i.i, i32 %add10.i.i.i.i.i.i, i32 2
@@ -55922,7 +55922,7 @@ for.end.i.i.i.i.i.i:                              ; preds = %_ZNK8facebook5velox
   store i64 %add12.i.i.i.i.i.i, ptr %267, align 8
   br label %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i"
 
-lpad.i.i.loopexit.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i52.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i
+lpad.i.i.loopexit.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i52.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i
   %lpad.loopexit.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -56477,7 +56477,7 @@ for.body.i.i.i.i.i.i.i393:                        ; preds = %_ZNSt6vectorISt4pai
   %343 = load i8, ptr %isIdentityMapping_.i.i.i.i.i.i.i.i.i396, align 2
   %tobool.i.i.i.i.i.i.i.i.i397 = trunc i8 %343 to i1
   %344 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i394 to i32
-  br i1 %tobool.i.i.i.i.i.i.i.i.i397, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i403, label %if.end.i.i11.i.i.i.i.i.i.i
+  br i1 %tobool.i.i.i.i.i.i.i.i.i397, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i403, label %if.end.i.i11.i.i.i.i.i.i.i
 
 if.end.i.i11.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i393
   %isConstantMapping_.i.i.i.i.i.i.i.i.i398 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i395, i64 59
@@ -56488,16 +56488,16 @@ if.end.i.i11.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
 if.then3.i.i.i.i.i.i.i.i.i412:                    ; preds = %if.end.i.i11.i.i.i.i.i.i.i
   %constantIndex_.i.i.i.i.i.i.i.i.i413 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i395, i64 64
   %346 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i.i413, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i403
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i403
 
 if.end4.i.i.i.i.i.i.i.i.i400:                     ; preds = %if.end.i.i11.i.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i.i401 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i395, i64 8
   %347 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i.i401, align 8
   %arrayidx.i.i.i.i.i.i.i.i.i402 = getelementptr inbounds i32, ptr %347, i64 %indvars.iv.i.i.i.i.i.i.i394
   %348 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i402, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i403
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i403
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i403: ; preds = %if.end4.i.i.i.i.i.i.i.i.i400, %if.then3.i.i.i.i.i.i.i.i.i412, %for.body.i.i.i.i.i.i.i393
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i403: ; preds = %if.end4.i.i.i.i.i.i.i.i.i400, %if.then3.i.i.i.i.i.i.i.i.i412, %for.body.i.i.i.i.i.i.i393
   %retval.0.i.i.i.i.i.i.i.i.i404 = phi i32 [ %346, %if.then3.i.i.i.i.i.i.i.i.i412 ], [ %348, %if.end4.i.i.i.i.i.i.i.i.i400 ], [ %344, %for.body.i.i.i.i.i.i.i393 ]
   %vtable.i.i.i.i.i.i.i.i405 = load ptr, ptr %.val6.i.i.i.i.i.i.i, align 8
   %vfn.i.i.i.i.i.i.i.i406 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i405, i64 352
@@ -56505,7 +56505,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i403: ; p
   %call3.i.i27.i.i.i.i.i.i = invoke { i64, ptr } %349(ptr noundef nonnull align 8 dereferenceable(208) %.val6.i.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i.i.i.i.i.i.i404)
           to label %call3.i.i.noexc.i.i.i.i.i.i409 unwind label %lpad.i18.loopexit.i.i.i.i.i.i407
 
-call3.i.i.noexc.i.i.i.i.i.i409:                   ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i403
+call3.i.i.noexc.i.i.i.i.i.i409:                   ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i403
   %350 = extractvalue { i64, ptr } %call3.i.i27.i.i.i.i.i.i, 0
   %351 = extractvalue { i64, ptr } %call3.i.i27.i.i.i.i.i.i, 1
   %_M_finish.i.i12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %339, i64 8
@@ -56698,7 +56698,7 @@ _ZN8facebook5velox15UDFOutputString6resizeEm.exit.i43.i.i.i.i.i.i.i: ; preds = %
   %.pre131.i.i.i.i.i.i = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8
   br label %if.end37.i.i.i.i.i.i.i
 
-lpad.loopexit.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i77.i.i.i.i.i.i, %if.then.i.i.i.i92.i.i.i.i.i.i, %if.then.i.i104.i.i.i.i.i.i.i, %if.then.i.i74.i.i.i.i.i.i.i, %if.then.i.i53.i.i.i.i.i.i.i
+lpad.loopexit.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i77.i.i.i.i.i.i, %if.then.i.i.i.i92.i.i.i.i.i.i, %if.then.i.i104.i.i.i.i.i.i.i, %if.then.i.i74.i.i.i.i.i.i.i, %if.then.i.i53.i.i.i.i.i.i.i
   %lpad.loopexit187.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -56789,7 +56789,7 @@ invoke.cont43.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i104.i.i.
   br i1 %tobool.not.i.i.i.i.i.i.i.i357, label %invoke.cont43.i.if.else.i_crit_edge.i.i.i.i.i.i, label %if.end.i.i68.i.i.i.i.i.i
 
 invoke.cont43.i.if.else.i_crit_edge.i.i.i.i.i.i:  ; preds = %invoke.cont43.i.i.i.i.i.i.i
-  br i1 %.pre133.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i77.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i374
+  br i1 %.pre133.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i77.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i374
 
 if.end.i.i68.i.i.i.i.i.i:                         ; preds = %invoke.cont43.i.i.i.i.i.i.i
   br i1 %.pre133.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i382, label %lor.lhs.false.i.i.i.i.i.i.i.i359
@@ -56809,7 +56809,7 @@ if.then4.i.i.i.i.i.i.i.i382:                      ; preds = %if.end.i.i68.i.i.i.
   %shl.i.i.i.i.i.i.i.i.i.i386 = shl nuw i64 1, %and.i.i.i.i.i.i.i.i.i.i385
   %and2.i.i.i.i.i.i.i.i.i.i387 = and i64 %390, %shl.i.i.i.i.i.i.i.i.i.i386
   %tobool.i.not.i.i.i.i.i.i.i.i.i388 = icmp eq i64 %and2.i.i.i.i.i.i.i.i.i.i387, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i388, label %if.then.i91.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i77.i.i.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i388, label %if.then.i91.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i77.i.i.i.i.i.i
 
 if.then4.i.i.i.thread.i.i.i.i.i381:               ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i359
   %conv.i.i.i.i.i36.i.i.i.i.i = sext i32 %385 to i64
@@ -56880,7 +56880,7 @@ if.end.i.i.i.i.i.i.i.i.i374:                      ; preds = %_ZNK8facebook5velox
 if.then3.i.i.i89.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i.i374
   %constantIndex_.i.i.i90.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val7.i.i.i.i.i.i.i, i64 64
   %402 = load i32, ptr %constantIndex_.i.i.i90.i.i.i.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i77.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i77.i.i.i.i.i.i
 
 if.end4.i.i.i74.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i374
   %indices_.i.i.i75.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val7.i.i.i.i.i.i.i, i64 8
@@ -56888,9 +56888,9 @@ if.end4.i.i.i74.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
   %idxprom.i.i.i.i.i.i.i.i.i = sext i32 %385 to i64
   %arrayidx.i.i.i76.i.i.i.i.i.i = getelementptr inbounds i32, ptr %403, i64 %idxprom.i.i.i.i.i.i.i.i.i
   %404 = load i32, ptr %arrayidx.i.i.i76.i.i.i.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i77.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i77.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i77.i.i.i.i.i.i: ; preds = %if.end4.i.i.i74.i.i.i.i.i.i, %if.then3.i.i.i89.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i382, %invoke.cont43.i.if.else.i_crit_edge.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i77.i.i.i.i.i.i: ; preds = %if.end4.i.i.i74.i.i.i.i.i.i, %if.then3.i.i.i89.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i382, %invoke.cont43.i.if.else.i_crit_edge.i.i.i.i.i.i
   %retval.0.i.i.i78.i.i.i.i.i.i = phi i32 [ %402, %if.then3.i.i.i89.i.i.i.i.i.i ], [ %404, %if.end4.i.i.i74.i.i.i.i.i.i ], [ %385, %invoke.cont43.i.if.else.i_crit_edge.i.i.i.i.i.i ], [ %385, %if.then4.i.i.i.i.i.i.i.i382 ]
   %vtable.i.i79.i.i.i.i.i.i = load ptr, ptr %.val8.i.i.i.i.i.i.i, align 8
   %vfn.i.i80.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i79.i.i.i.i.i.i, i64 352
@@ -56898,7 +56898,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i77.i.i.i.i.i.i: ; pr
   %call3.i.i95.i.i.i.i.i.i = invoke { i64, ptr } %405(ptr noundef nonnull align 8 dereferenceable(208) %.val8.i.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i78.i.i.i.i.i.i)
           to label %call3.i.i.noexc94.i.i.i.i.i.i unwind label %lpad.loopexit.i.i.i.i.i.i.i
 
-call3.i.i.noexc94.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i77.i.i.i.i.i.i
+call3.i.i.noexc94.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i77.i.i.i.i.i.i
   %406 = extractvalue { i64, ptr } %call3.i.i95.i.i.i.i.i.i, 0
   store i64 %406, ptr %ref.tmp.i66.i.i.i.i.i.i, align 8
   %407 = extractvalue { i64, ptr } %call3.i.i95.i.i.i.i.i.i, 1
@@ -57038,7 +57038,7 @@ invoke.cont53.i.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox1
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %proxy.i.i.i.i.i.i.i)
   br label %for.inc.i.i.i.i.i.i327
 
-lpad.i18.loopexit.i.i.i.i.i.i407:                 ; preds = %cond.true.i.i.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i403
+lpad.i18.loopexit.i.i.i.i.i.i407:                 ; preds = %cond.true.i.i.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i403
   %lpad.loopexit.i.i.i.i.i.i408 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -58797,8 +58797,8 @@ for.body.lr.ph:                                   ; preds = %if.end
   %13 = sext i32 %add to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit
-  %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit
+  %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit ]
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr i8, ptr %14, i64 8
   %.val = load ptr, ptr %15, align 8
@@ -58808,7 +58808,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %17 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %tobool.i.i = trunc i8 %17 to i1
   %18 = trunc nsw i64 %indvars.iv to i32
-  br i1 %tobool.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit, label %if.end.i.i
+  br i1 %tobool.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body
   %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %.val, i64 59
@@ -58819,16 +58819,16 @@ if.end.i.i:                                       ; preds = %for.body
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %constantIndex_.i.i = getelementptr inbounds i8, ptr %.val, i64 64
   %20 = load i32, ptr %constantIndex_.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
   %indices_.i.i = getelementptr inbounds i8, ptr %.val, i64 8
   %21 = load ptr, ptr %indices_.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i32, ptr %21, i64 %indvars.iv
   %22 = load i32, ptr %arrayidx.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
   %retval.0.i.i = phi i32 [ %20, %if.then3.i.i ], [ %22, %if.end4.i.i ], [ %18, %for.body ]
   %vtable.i = load ptr, ptr %.val9, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 352
@@ -58847,12 +58847,12 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit: ; preds = %for.body,
   %isIdentityMapping_.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.val10, i64 58
   %.pre.i = load i8, ptr %isIdentityMapping_.i.i.phi.trans.insert.i, align 2
   %.pre = trunc i8 %.pre.i to i1
-  br i1 %tobool.not.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge, label %if.end.i.i14
+  br i1 %tobool.not.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge, label %if.end.i.i14
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge: ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
-  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i, label %if.end.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge: ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
+  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i, label %if.end.i.i.i
 
-if.end.i.i14:                                     ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
+if.end.i.i14:                                     ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
   br i1 %.pre, label %if.then4.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i14
@@ -58869,7 +58869,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %shl.i.i.i.i = shl nuw i64 1, %and.i.i.i.i
   %and2.i.i.i.i = and i64 %30, %shl.i.i.i.i
   %tobool.i.not.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit, label %if.else.i
+  br i1 %tobool.i.not.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, label %if.else.i
 
 if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
   %isConstantMapping_.i.i16 = getelementptr inbounds i8, ptr %.val10, i64 59
@@ -58881,7 +58881,7 @@ if.then8.i.i:                                     ; preds = %if.end6.i.i
   %32 = load i64, ptr %28, align 8
   %and2.i.i3.i.i = and i64 %32, 1
   %tobool.i.not.i4.i.i = icmp eq i64 %and2.i.i3.i.i, 0
-  br i1 %tobool.i.not.i4.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit, label %if.end.i.i.i
+  br i1 %tobool.i.not.i4.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, label %if.end.i.i.i
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i: ; preds = %if.end6.i.i
   %indices_.i.i17 = getelementptr inbounds i8, ptr %.val10, i64 8
@@ -58896,12 +58896,12 @@ _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i: ; preds = %if.end6.i.i
   %shl.i.i9.i.i = shl nuw i64 1, %and.i.i8.i.i
   %and2.i.i10.i.i = and i64 %shl.i.i9.i.i, %35
   %tobool.i.not.i11.i.i = icmp eq i64 %and2.i.i10.i.i, 0
-  br i1 %tobool.i.not.i11.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit, label %if.end.i.i.i
+  br i1 %tobool.i.not.i11.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, label %if.end.i.i.i
 
 if.else.i:                                        ; preds = %if.then4.i.i
-  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i, label %if.end.i.i.i
+  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then8.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge, %if.else.i
+if.end.i.i.i:                                     ; preds = %if.then8.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge, %if.else.i
   %isConstantMapping_.i.i.i = getelementptr inbounds i8, ptr %.val10, i64 59
   %36 = load i8, ptr %isConstantMapping_.i.i.i, align 1
   %tobool2.i.i.i = trunc i8 %36 to i1
@@ -58910,17 +58910,17 @@ if.end.i.i.i:                                     ; preds = %if.then8.i.i, %_ZNK
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   %constantIndex_.i.i.i = getelementptr inbounds i8, ptr %.val10, i64 64
   %37 = load i32, ptr %constantIndex_.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %indices_.i.i.i = getelementptr inbounds i8, ptr %.val10, i64 8
   %38 = load ptr, ptr %indices_.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %38, i64 %indvars.iv
   %39 = load i32, ptr %arrayidx.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i: ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge, %if.end4.i.i.i, %if.then3.i.i.i, %if.else.i
-  %retval.0.i.i.i = phi i32 [ %37, %if.then3.i.i.i ], [ %39, %if.end4.i.i.i ], [ %18, %if.else.i ], [ %18, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.if.else.i_crit_edge ]
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i: ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge, %if.end4.i.i.i, %if.then3.i.i.i, %if.else.i
+  %retval.0.i.i.i = phi i32 [ %37, %if.then3.i.i.i ], [ %39, %if.end4.i.i.i ], [ %18, %if.else.i ], [ %18, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.if.else.i_crit_edge ]
   %vtable.i.i = load ptr, ptr %.val11, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 352
   %40 = load ptr, ptr %vfn.i.i, align 8
@@ -58928,10 +58928,10 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i: ; preds = %_ZNK8fa
   %41 = extractvalue { i64, ptr } %call3.i.i, 0
   %sext = shl i64 %41, 32
   %42 = ashr exact i64 %sext, 32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit: ; preds = %if.then4.i.i, %if.then8.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i
-  %retval.0.i = phi i64 [ %42, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i ], [ 4, %if.then4.i.i ], [ 4, %if.then8.i.i ]
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit: ; preds = %if.then4.i.i, %if.then8.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i
+  %retval.0.i = phi i64 [ %42, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i ], [ 4, %if.then4.i.i ], [ 4, %if.then8.i.i ]
   %add7 = add nsw i64 %retval.0.i, %conv.i
   %43 = load ptr, ptr %11, align 8
   %44 = load i64, ptr %43, align 8
@@ -58941,7 +58941,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit: ; preds = %if.
   %cmp = icmp slt i64 %indvars.iv.next, %13
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !273
 
-for.end:                                          ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit, %if.end
+for.end:                                          ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, %if.end
   %mul = shl nuw nsw i32 %6, 1
   %add10 = or disjoint i32 %mul, 1
   %cond = select i1 %cmp21, i32 %add10, i32 2
@@ -59181,7 +59181,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %22 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %tobool.i.i = trunc i8 %22 to i1
   %23 = trunc nsw i64 %indvars.iv to i32
-  br i1 %tobool.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit, label %if.end.i.i11
+  br i1 %tobool.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit, label %if.end.i.i11
 
 if.end.i.i11:                                     ; preds = %for.body
   %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %.val, i64 59
@@ -59192,16 +59192,16 @@ if.end.i.i11:                                     ; preds = %for.body
 if.then3.i.i:                                     ; preds = %if.end.i.i11
   %constantIndex_.i.i = getelementptr inbounds i8, ptr %.val, i64 64
   %25 = load i32, ptr %constantIndex_.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i11
   %indices_.i.i = getelementptr inbounds i8, ptr %.val, i64 8
   %26 = load ptr, ptr %indices_.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
   %27 = load i32, ptr %arrayidx.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
   %retval.0.i.i = phi i32 [ %25, %if.then3.i.i ], [ %27, %if.end4.i.i ], [ %23, %for.body ]
   %vtable.i = load ptr, ptr %.val6, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 352
@@ -59216,7 +59216,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit: ; preds = %for.body,
   %cmp.not.i.i = icmp eq ptr %31, %32
   br i1 %cmp.not.i.i, label %if.else.i.i14, label %if.then.i.i13
 
-if.then.i.i13:                                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
+if.then.i.i13:                                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
   store i64 %29, ptr %31, align 8
   %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %30, ptr %ref.tmp.sroa.3.0..sroa_idx, align 8
@@ -59227,7 +59227,7 @@ if.then.i.i13:                                    ; preds = %_ZNK8facebook5velox
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i12, align 8
   br label %_ZNSt6vectorISt4pairIN8facebook5velox10StringViewEiESaIS4_EE9push_backEOS4_.exit
 
-if.else.i.i14:                                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit
+if.else.i.i14:                                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit
   %34 = load ptr, ptr %18, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %31 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %34 to i64
@@ -59478,7 +59478,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37, %if.
   %.val7 = load ptr, ptr %69, align 8
   %70 = getelementptr i8, ptr %67, i64 32
   %.val8 = load ptr, ptr %70, align 8
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_16AsJson6appendEiRNS0_4exec12StringWriterILb0EEE.argprom(ptr %.val7, ptr %.val8, i32 noundef %68, ptr noundef nonnull align 8 dereferenceable(96) %proxy)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_16AsJson6appendEiRNS0_4exec12StringWriterILb0EEE(ptr %.val7, ptr %.val8, i32 noundef %68, ptr noundef nonnull align 8 dereferenceable(96) %proxy)
           to label %for.inc42 unwind label %lpad.loopexit
 
 for.inc42:                                        ; preds = %invoke.cont39
@@ -60884,7 +60884,7 @@ if.else.i:                                        ; preds = %_ZNK8facebook5velox
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %this.val.i295 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i296 = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i296, label %if.then.i.i304, label %_ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i
+  br i1 %cmp.i.i296, label %if.then.i.i304, label %_ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i304:                                   ; preds = %if.else.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #36
@@ -60893,7 +60893,7 @@ if.then.i.i304:                                   ; preds = %if.else.i
 .noexc305:                                        ; preds = %if.then.i.i304
   unreachable
 
-_ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i: ; preds = %if.else.i
+_ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
   %cmp.i.i.i297 = icmp eq ptr %6, %this.val.i295
   %.sroa.speculated.i.i = select i1 %cmp.i.i.i297, i64 1, i64 %sub.ptr.div.i.i.i
@@ -60902,22 +60902,22 @@ _ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.
   %18 = call i64 @llvm.umin.i64(i64 %add.i.i, i64 230584300921369395)
   %cond.i.i = select i1 %cmp7.i.i, i64 230584300921369395, i64 %18
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.argprom.exit.i, label %cond.true.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 
-cond.true.i.i:                                    ; preds = %_ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i
+cond.true.i.i:                                    ; preds = %_ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
   %call5.i.i.i.i306 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #38
-          to label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.argprom.exit.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.exit.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.argprom.exit.i: ; preds = %cond.true.i.i, %_ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i
-  %cond.i19.i = phi ptr [ null, %_ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i ], [ %call5.i.i.i.i306, %cond.true.i.i ]
+_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i, %_ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.exit.i
+  %cond.i19.i = phi ptr [ null, %_ZNKSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i306, %cond.true.i.i ]
   %add.ptr.i = getelementptr inbounds %"struct.facebook::velox::(anonymous namespace)::AsJson", ptr %cond.i19.i, i64 %sub.ptr.div.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i356)
   store ptr null, ptr %ref.tmp.i356, align 8
   invoke fastcc void @_ZN8facebook5velox12_GLOBAL__N_16AsJsonC2ERNS0_4exec7EvalCtxERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEb(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(104) %context, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i356, i1 noundef zeroext false)
           to label %invoke.cont.i unwind label %lpad.i357
 
-invoke.cont.i:                                    ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.argprom.exit.i
+invoke.cont.i:                                    ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.exit.i
   %19 = load ptr, ptr %ref.tmp.i356, align 8
   %cmp.not.i.i358 = icmp eq ptr %19, null
   br i1 %cmp.not.i.i358, label %_ZNSt16allocator_traitsISaIN8facebook5velox12_GLOBAL__N_16AsJsonEEE9constructIS3_JRNS1_4exec7EvalCtxERKSt10shared_ptrINS1_10BaseVectorEERKNS1_17SelectivityVectorEDnEEEvRS4_PT_DpOT0_.exit.i, label %if.then.i.i359
@@ -60961,7 +60961,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i, %
   call void @__clang_call_terminate(ptr %26) #37
   unreachable
 
-lpad.i357:                                        ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.argprom.exit.i
+lpad.i357:                                        ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_M_allocateEm.exit.i
   %27 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i356) #35
@@ -60972,7 +60972,7 @@ lpad.i357:                                        ; preds = %_ZNSt12_Vector_base
 
 _ZNSt16allocator_traitsISaIN8facebook5velox12_GLOBAL__N_16AsJsonEEE9constructIS3_JRNS1_4exec7EvalCtxERKSt10shared_ptrINS1_10BaseVectorEERKNS1_17SelectivityVectorEDnEEEvRS4_PT_DpOT0_.exit.i: ; preds = %delete.notnull.i.i.i.i, %if.then2.i.i.i.i, %if.then.i.i359, %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i356)
-  br i1 %cmp.i.i.i297, label %_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit36.i, label %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit355
+  br i1 %cmp.i.i.i297, label %_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36.i, label %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit355
 
 _ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit355: ; preds = %_ZNSt16allocator_traitsISaIN8facebook5velox12_GLOBAL__N_16AsJsonEEE9constructIS3_JRNS1_4exec7EvalCtxERKSt10shared_ptrINS1_10BaseVectorEERKNS1_17SelectivityVectorEDnEEEvRS4_PT_DpOT0_.exit.i, %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit355
   %__cur.03.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit355 ], [ %cond.i19.i, %_ZNSt16allocator_traitsISaIN8facebook5velox12_GLOBAL__N_16AsJsonEEE9constructIS3_JRNS1_4exec7EvalCtxERKSt10shared_ptrINS1_10BaseVectorEERKNS1_17SelectivityVectorEDnEEEvRS4_PT_DpOT0_.exit.i ]
@@ -61003,23 +61003,23 @@ _ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit355: ; preds = %_ZNSt16alloc
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 40
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 40
   %cmp.not.i.i.i.i301 = icmp eq ptr %incdec.ptr.i.i.i.i, %6
-  br i1 %cmp.not.i.i.i.i301, label %_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit36.i, label %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit355, !llvm.loop !314
+  br i1 %cmp.not.i.i.i.i301, label %_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36.i, label %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit355, !llvm.loop !314
 
-_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit36.i: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit355, %_ZNSt16allocator_traitsISaIN8facebook5velox12_GLOBAL__N_16AsJsonEEE9constructIS3_JRNS1_4exec7EvalCtxERKSt10shared_ptrINS1_10BaseVectorEERKNS1_17SelectivityVectorEDnEEEvRS4_PT_DpOT0_.exit.i
+_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36.i: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit355, %_ZNSt16allocator_traitsISaIN8facebook5velox12_GLOBAL__N_16AsJsonEEE9constructIS3_JRNS1_4exec7EvalCtxERKSt10shared_ptrINS1_10BaseVectorEERKNS1_17SelectivityVectorEDnEEEvRS4_PT_DpOT0_.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i19.i, %_ZNSt16allocator_traitsISaIN8facebook5velox12_GLOBAL__N_16AsJsonEEE9constructIS3_JRNS1_4exec7EvalCtxERKSt10shared_ptrINS1_10BaseVectorEERKNS1_17SelectivityVectorEDnEEEvRS4_PT_DpOT0_.exit.i ], [ %incdec.ptr1.i.i.i.i, %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit355 ]
   %incdec.ptr.i302 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 40
   %tobool.not.i.i = icmp eq ptr %this.val.i295, null
   br i1 %tobool.not.i.i, label %.noexc11, label %if.then.i37.i
 
-if.then.i37.i:                                    ; preds = %_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit36.i
+if.then.i37.i:                                    ; preds = %_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36.i
   call void @_ZdlPv(ptr noundef nonnull %this.val.i295) #39
   br label %.noexc11
 
 if.end.i.thread:                                  ; preds = %lpad.i357
-  call fastcc void @_ZNSt16allocator_traitsISaIN8facebook5velox12_GLOBAL__N_16AsJsonEEE7destroyIS3_EEvRS4_PT_.argprom(ptr noundef %add.ptr.i) #35
-  br label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.argprom.exit43.i
+  call fastcc void @_ZNSt16allocator_traitsISaIN8facebook5velox12_GLOBAL__N_16AsJsonEEE7destroyIS3_EEvRS4_PT_(ptr noundef %add.ptr.i) #35
+  br label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.exit43.i
 
-lpad23.i:                                         ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.argprom.exit43.i
+lpad23.i:                                         ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.exit43.i
   %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -61027,9 +61027,9 @@ lpad23.i:                                         ; preds = %_ZNSt12_Vector_base
 
 if.then.i42.i:                                    ; preds = %lpad.i357
   call void @_ZdlPv(ptr noundef nonnull %cond.i19.i) #39
-  br label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.argprom.exit43.i
+  br label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.exit43.i
 
-_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.argprom.exit43.i: ; preds = %if.end.i.thread, %if.then.i42.i
+_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.exit43.i: ; preds = %if.end.i.thread, %if.then.i42.i
   invoke void @__cxa_rethrow() #36
           to label %unreachable.i unwind label %lpad23.i
 
@@ -61040,10 +61040,10 @@ terminate.lpad.i:                                 ; preds = %lpad23.i
   call void @__clang_call_terminate(ptr %37) #37
   unreachable
 
-unreachable.i:                                    ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.argprom.exit43.i
+unreachable.i:                                    ; preds = %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE13_M_deallocateEPS3_m.exit43.i
   unreachable
 
-.noexc11:                                         ; preds = %if.then.i37.i, %_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit36.i
+.noexc11:                                         ; preds = %if.then.i37.i, %_ZNSt6vectorIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36.i
   store ptr %cond.i19.i, ptr %childrenAsJson, align 8
   store ptr %incdec.ptr.i302, ptr %_M_finish.i, align 8
   %add.ptr32.i = getelementptr inbounds %"struct.facebook::velox::(anonymous namespace)::AsJson", ptr %cond.i19.i, i64 %cond.i.i
@@ -61173,7 +61173,7 @@ if.end.i312:                                      ; preds = %call.i.noexc
   br i1 %tobool.not.i.i.i315, label %if.end.if.else.i_crit_edge.i, label %if.end.i.i.i316
 
 if.end.if.else.i_crit_edge.i:                     ; preds = %if.end.i312
-  br i1 %.pre.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i, label %if.end.i.i.i.i
+  br i1 %.pre.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i316:                                  ; preds = %if.end.i312
   br i1 %.pre.i, label %if.then4.i.i.i, label %lor.lhs.false.i.i.i
@@ -61192,7 +61192,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i316
   %shl.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i
   %and2.i.i.i.i.i = and i64 %65, %shl.i.i.i.i.i
   %tobool.i.not.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i
+  br i1 %tobool.i.not.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i
 
 if.then4.i.i.i.thread:                            ; preds = %lor.lhs.false.i.i.i
   %div2.i.i.i.i.i483 = lshr i64 %indvars.iv, 6
@@ -61202,7 +61202,7 @@ if.then4.i.i.i.thread:                            ; preds = %lor.lhs.false.i.i.i
   %shl.i.i.i.i.i486 = shl nuw i64 1, %and.i.i.i.i.i485
   %and2.i.i.i.i.i487 = and i64 %66, %shl.i.i.i.i.i486
   %tobool.i.not.i.i.i.i488 = icmp eq i64 %and2.i.i.i.i.i487, 0
-  br i1 %tobool.i.not.i.i.i.i488, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i, label %if.end.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i488, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i, label %if.end.i.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   %isConstantMapping_.i.i.i = getelementptr inbounds i8, ptr %call2.val.i, i64 59
@@ -61214,7 +61214,7 @@ if.then8.i.i.i:                                   ; preds = %if.end6.i.i.i
   %68 = load i64, ptr %63, align 8
   %and2.i.i3.i.i.i = and i64 %68, 1
   %tobool.i.not.i4.i.i.i = icmp eq i64 %and2.i.i3.i.i.i, 0
-  br i1 %tobool.i.not.i4.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i, label %if.end.i.i.i.i
+  br i1 %tobool.i.not.i4.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i, label %if.end.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i: ; preds = %if.end6.i.i.i
   %indices_.i.i.i = getelementptr inbounds i8, ptr %call2.val.i, i64 8
@@ -61229,7 +61229,7 @@ _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i: ; preds = %if.end6.i.i.i
   %shl.i.i9.i.i.i = shl nuw i64 1, %and.i.i8.i.i.i
   %and2.i.i10.i.i.i = and i64 %shl.i.i9.i.i.i, %71
   %tobool.i.not.i11.i.i.i = icmp eq i64 %and2.i.i10.i.i.i, 0
-  br i1 %tobool.i.not.i11.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i, label %if.end.i.i.i.i
+  br i1 %tobool.i.not.i11.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then4.i.i.i.thread, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i, %if.then8.i.i.i, %if.end.if.else.i_crit_edge.i
   %isConstantMapping_.i.i.i.i = getelementptr inbounds i8, ptr %call2.val.i, i64 59
@@ -61240,16 +61240,16 @@ if.end.i.i.i.i:                                   ; preds = %if.then4.i.i.i.thre
 if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %constantIndex_.i.i.i.i = getelementptr inbounds i8, ptr %call2.val.i, i64 64
   %73 = load i32, ptr %constantIndex_.i.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %indices_.i.i.i.i = getelementptr inbounds i8, ptr %call2.val.i, i64 8
   %74 = load ptr, ptr %indices_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %74, i64 %indvars.iv
   %75 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i: ; preds = %if.then4.i.i.i, %if.end4.i.i.i.i, %if.then3.i.i.i.i, %if.end.if.else.i_crit_edge.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i: ; preds = %if.then4.i.i.i, %if.end4.i.i.i.i, %if.then3.i.i.i.i, %if.end.if.else.i_crit_edge.i
   %retval.0.i.i.i.i = phi i32 [ %73, %if.then3.i.i.i.i ], [ %75, %if.end4.i.i.i.i ], [ %57, %if.end.if.else.i_crit_edge.i ], [ %57, %if.then4.i.i.i ]
   %vtable.i.i.i = load ptr, ptr %call2.val2.i, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 352
@@ -61257,13 +61257,13 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i: ; preds = %if.th
   %call3.i.i.i319 = invoke { i64, ptr } %76(ptr noundef nonnull align 8 dereferenceable(208) %call2.val2.i, i32 noundef %retval.0.i.i.i.i)
           to label %call3.i.i.i.noexc unwind label %lpad.i.i.i
 
-call3.i.i.i.noexc:                                ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i
+call3.i.i.i.noexc:                                ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i
   %77 = extractvalue { i64, ptr } %call3.i.i.i319, 0
   %sext.i = shl i64 %77, 32
   %78 = ashr exact i64 %sext.i, 32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i: ; preds = %if.then4.i.i.i.thread, %call3.i.i.i.noexc, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i, %if.then8.i.i.i, %if.then4.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i: ; preds = %if.then4.i.i.i.thread, %call3.i.i.i.noexc, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i, %if.then8.i.i.i, %if.then4.i.i.i
   %retval.0.i.i = phi i64 [ %78, %call3.i.i.i.noexc ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i ], [ 4, %if.then4.i.i.i ], [ 4, %if.then8.i.i.i ], [ 4, %if.then4.i.i.i.thread ]
   %79 = load ptr, ptr %agg.tmp.sroa.2.0.agg.tmp12.sroa_idx, align 8
   %80 = load i64, ptr %79, align 8
@@ -61271,7 +61271,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i: ; preds = %i
   store i64 %add.i, ptr %79, align 8
   br label %for.inc.i.i
 
-lpad.i.i.i:                                       ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i, %for.body.i.i
+lpad.i.i.i:                                       ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i, %for.body.i.i
   %81 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -61380,7 +61380,7 @@ for.inc.sink.split.i.i:                           ; preds = %for.inc.sink.split.
   invoke void @__cxa_end_catch()
           to label %for.inc.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-for.inc.i.i:                                      ; preds = %for.inc.sink.split.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i, %call.i.noexc
+for.inc.i.i:                                      ; preds = %for.inc.sink.split.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i, %call.i.noexc
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %96 = load i32, ptr %end_.i.i.i, align 8
   %97 = sext i32 %96 to i64
@@ -61515,7 +61515,7 @@ if.end.i23.i.i.i.i.i.i:                           ; preds = %call.i22.noexc.i.i.
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %if.end.if.else.i_crit_edge.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
 if.end.if.else.i_crit_edge.i.i.i.i.i.i.i:         ; preds = %if.end.i23.i.i.i.i.i.i
-  br i1 %.pre.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %.pre.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i23.i.i.i.i.i.i
   br i1 %.pre.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i.i.i.i
@@ -61536,7 +61536,7 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %lor.lhs.false.i.i.i
   %shl.i.i.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i.i.i.i.i.i.i
   %and2.i.i.i.i.i.i.i.i.i.i.i = and i64 %116, %shl.i.i.i.i.i.i.i.i.i.i.i
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i.i
   %isConstantMapping_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.val.i.i.i.i.i.i.i, i64 59
@@ -61548,7 +61548,7 @@ if.then8.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end6.i.i.i.i.i.i
   %118 = load i64, ptr %114, align 8
   %and2.i.i3.i.i.i.i.i.i.i.i.i = and i64 %118, 1
   %tobool.i.not.i4.i.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i3.i.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i: ; preds = %if.end6.i.i.i.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.val.i.i.i.i.i.i.i, i64 8
@@ -61565,10 +61565,10 @@ _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i: ; preds = %i
   %shl.i.i9.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %and.i.i8.i.i.i.i.i.i.i.i.i
   %and2.i.i10.i.i.i.i.i.i.i.i.i = and i64 %shl.i.i9.i.i.i.i.i.i.i.i.i, %122
   %tobool.i.not.i11.i.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i10.i.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then4.i.i.i.i.i.i.i.i.i
-  br i1 %.pre.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %.pre.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i.i, %if.end.if.else.i_crit_edge.i.i.i.i.i.i.i
   %isConstantMapping_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.val.i.i.i.i.i.i.i, i64 59
@@ -61579,7 +61579,7 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 if.then3.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %constantIndex_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.val.i.i.i.i.i.i.i, i64 64
   %124 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.val.i.i.i.i.i.i.i, i64 8
@@ -61588,9 +61588,9 @@ if.end4.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
   %126 = ashr exact i64 %sext4.i.i.i.i.i.i.i, 30
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %125, i64 %126
   %127 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i, %if.end.if.else.i_crit_edge.i.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i, %if.end.if.else.i_crit_edge.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %124, %if.then3.i.i.i.i.i.i.i.i.i.i ], [ %127, %if.end4.i.i.i.i.i.i.i.i.i.i ], [ %conv.i21.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ], [ %conv.i21.i.i.i.i.i.i, %if.end.if.else.i_crit_edge.i.i.i.i.i.i.i ]
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %call3.val2.i.i.i.i.i.i.i, align 8
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 352
@@ -61598,13 +61598,13 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i: ; pr
   %call3.i.i.i25.i.i.i.i.i.i = invoke { i64, ptr } %128(ptr noundef nonnull align 8 dereferenceable(208) %call3.val2.i.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i.i.i.i.i.i.i.i)
           to label %call3.i.i.i.noexc.i.i.i.i.i.i unwind label %lpad.i18.i.i.i.i.i.i
 
-call3.i.i.i.noexc.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i
+call3.i.i.i.noexc.i.i.i.i.i.i:                    ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i
   %129 = extractvalue { i64, ptr } %call3.i.i.i25.i.i.i.i.i.i, 0
   %sext5.i.i.i.i.i.i.i = shl i64 %129, 32
   %130 = ashr exact i64 %sext5.i.i.i.i.i.i.i, 32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i = phi i64 [ %130, %call3.i.i.i.noexc.i.i.i.i.i.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i.i ], [ 4, %if.then4.i.i.i.i.i.i.i.i.i ], [ 4, %if.then8.i.i.i.i.i.i.i.i.i ]
   %131 = load ptr, ptr %agg.tmp.sroa.2.0.agg.tmp12.sroa_idx, align 8
   %132 = load i64, ptr %131, align 8
@@ -61612,7 +61612,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i: 
   store i64 %add.i.i.i.i.i.i.i, ptr %131, align 8
   br label %for.inc.i.i.i.i.i.i
 
-lpad.i18.i.i.i.i.i.i:                             ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
+lpad.i18.i.i.i.i.i.i:                             ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %133 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -61721,7 +61721,7 @@ terminate.lpad.i28.i.i.i.i.i.i:                   ; preds = %ehcleanup.i35.i.i.i
 unreachable.i38.i.i.i.i.i.i:                      ; preds = %if.then.i37.i.i.i.i.i.i
   unreachable
 
-for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i.invoke, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i.i, %call.i22.noexc.i.i.i.i.i.i
+for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i.invoke, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, %call.i22.noexc.i.i.i.i.i.i
   %inc.i.i.i.i.i.i = add nuw i64 %row.075.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS4_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSD_T_EUlSJ_E_EEvPKmiibSJ_ENKUliE_clEi.exit.i.i.i.i.i", !llvm.loop !316
@@ -61762,7 +61762,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %call.i.noexc.i.i.i.
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.end.if.else.i_crit_edge.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.if.else.i_crit_edge.i.i.i.i.i.i:           ; preds = %if.end.i.i.i.i.i.i
-  br i1 %.pre.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i38.i.i.i.i.i
+  br i1 %.pre.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i38.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i
   br i1 %.pre.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i.i.i
@@ -61782,7 +61782,7 @@ if.then4.i.i.i.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i
   %shl.i.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %and.i.i.i.i.i.i.i.i.i.i
   %and2.i.i.i.i.i.i.i.i.i.i = and i64 %159, %shl.i.i.i.i.i.i.i.i.i.i
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.end6.i.i.i.i.i.i.i.i:                          ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i
   %isConstantMapping_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.val.i.i.i.i.i.i, i64 59
@@ -61794,7 +61794,7 @@ if.then8.i.i.i.i.i.i.i.i:                         ; preds = %if.end6.i.i.i.i.i.i
   %161 = load i64, ptr %157, align 8
   %and2.i.i3.i.i.i.i.i.i.i.i = and i64 %161, 1
   %tobool.i.not.i4.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i3.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i38.i.i.i.i.i
+  br i1 %tobool.i.not.i4.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i38.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i: ; preds = %if.end6.i.i.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.val.i.i.i.i.i.i, i64 8
@@ -61810,10 +61810,10 @@ _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i: ; preds = %if.
   %shl.i.i9.i.i.i.i.i.i.i.i = shl nuw i64 1, %and.i.i8.i.i.i.i.i.i.i.i
   %and2.i.i10.i.i.i.i.i.i.i.i = and i64 %shl.i.i9.i.i.i.i.i.i.i.i, %164
   %tobool.i.not.i11.i.i.i.i.i.i.i.i = icmp eq i64 %and2.i.i10.i.i.i.i.i.i.i.i, 0
-  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, label %if.end.i.i.i.i38.i.i.i.i.i
+  br i1 %tobool.i.not.i11.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, label %if.end.i.i.i.i38.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then4.i.i.i.i.i.i.i.i
-  br i1 %.pre.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i38.i.i.i.i.i
+  br i1 %.pre.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i, label %if.end.i.i.i.i38.i.i.i.i.i
 
 if.end.i.i.i.i38.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i, %if.end.if.else.i_crit_edge.i.i.i.i.i.i
   %isConstantMapping_.i.i.i.i39.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.val.i.i.i.i.i.i, i64 59
@@ -61824,7 +61824,7 @@ if.end.i.i.i.i38.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 if.then3.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i38.i.i.i.i.i
   %constantIndex_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.val.i.i.i.i.i.i, i64 64
   %166 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i38.i.i.i.i.i
   %indices_.i.i.i.i40.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.val.i.i.i.i.i.i, i64 8
@@ -61832,9 +61832,9 @@ if.end4.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i38.i.
   %idxprom.i.i.i.i.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i41.i.i.i.i.i = getelementptr inbounds i32, ptr %167, i64 %idxprom.i.i.i.i.i.i.i.i.i
   %168 = load i32, ptr %arrayidx.i.i.i.i41.i.i.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i, %if.end.if.else.i_crit_edge.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i, %if.end.if.else.i_crit_edge.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %166, %if.then3.i.i.i.i.i.i.i.i.i ], [ %168, %if.end4.i.i.i.i.i.i.i.i.i ], [ %add9.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ], [ %add9.i.i.i.i.i.i, %if.end.if.else.i_crit_edge.i.i.i.i.i.i ]
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %call2.val2.i.i.i.i.i.i, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 352
@@ -61842,13 +61842,13 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i: ; pred
   %call3.i.i.i45.i.i.i.i.i = invoke { i64, ptr } %169(ptr noundef nonnull align 8 dereferenceable(208) %call2.val2.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i.i.i.i.i.i.i)
           to label %call3.i.i.i.noexc.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i
 
-call3.i.i.i.noexc.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i
+call3.i.i.i.noexc.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i
   %170 = extractvalue { i64, ptr } %call3.i.i.i45.i.i.i.i.i, 0
   %sext.i.i.i.i.i.i = shl i64 %170, 32
   %171 = ashr exact i64 %sext.i.i.i.i.i.i, 32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i: ; preds = %call3.i.i.i.noexc.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi i64 [ %171, %call3.i.i.i.noexc.i.i.i.i.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i.i.i.i.i.i.i ], [ 4, %if.then4.i.i.i.i.i.i.i.i ], [ 4, %if.then8.i.i.i.i.i.i.i.i ]
   %172 = load ptr, ptr %agg.tmp.sroa.2.0.agg.tmp12.sroa_idx, align 8
   %173 = load i64, ptr %172, align 8
@@ -61856,7 +61856,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i: ; 
   store i64 %add.i42.i.i.i.i.i, ptr %172, align 8
   br label %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i"
 
-lpad.i.i.i.i.i.i.i:                               ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i
+lpad.i.i.i.i.i.i.i:                               ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i
   %174 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -61965,7 +61965,7 @@ unreachable.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
   invoke void @__cxa_end_catch()
           to label %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i": ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.sink.split.i.i.i.i.i.i", %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit.i.i.i.i.i.i, %call.i.noexc.i.i.i.i.i
+"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i": ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.sink.split.i.i.i.i.i.i", %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, %call.i.noexc.i.i.i.i.i
   %sub.i32.i.i.i.i.i = add i64 %word.073.i.i.i.i.i.i, -1
   %and.i.i.i.i.i.i = and i64 %sub.i32.i.i.i.i.i, %word.073.i.i.i.i.i.i
   %tobool7.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
@@ -62485,7 +62485,7 @@ _ZN8facebook5velox15UDFOutputString6resizeEm.exit.i32.i.i.i.i.i.i.i: ; preds = %
   store i8 44, ptr %add.ptr.i37.i.i.i.i.i.i.i, align 1
   br label %if.end13.i.i.i.i.i.i.i
 
-lpad.loopexit.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i152, %if.then.i.i.i.i.i.i.i.i.i.i, %if.then.i.i42.i.i.i.i.i.i.i
+lpad.loopexit.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i152, %if.then.i.i.i.i.i.i.i.i.i.i, %if.then.i.i42.i.i.i.i.i.i.i
   %lpad.loopexit112.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
@@ -62523,7 +62523,7 @@ if.end13.i.i.i.i.i.i.i:                           ; preds = %_ZN8facebook5velox1
   br i1 %tobool.not.i.i.i.i.i.i.i.i126, label %if.end13.i.if.else.i_crit_edge.i.i.i.i.i.i, label %if.end.i.i59.i.i.i.i.i.i
 
 if.end13.i.if.else.i_crit_edge.i.i.i.i.i.i:       ; preds = %if.end13.i.i.i.i.i.i.i
-  br i1 %.pre.i.i.i.i.i.i129, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i152, label %if.end.i.i.i.i.i.i.i.i.i146
+  br i1 %.pre.i.i.i.i.i.i129, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i152, label %if.end.i.i.i.i.i.i.i.i.i146
 
 if.end.i.i59.i.i.i.i.i.i:                         ; preds = %if.end13.i.i.i.i.i.i.i
   br i1 %.pre.i.i.i.i.i.i129, label %if.then4.i.i.i.i.i.i.i.i163, label %lor.lhs.false.i.i.i.i.i.i.i.i130
@@ -62539,7 +62539,7 @@ if.then4.i.i.i.i.i.i.i.i163:                      ; preds = %if.end.i.i59.i.i.i.
   %253 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i164, align 8
   %and2.i.i.i.i.i.i.i.i.i.i165 = and i64 %253, %shl.i.i.i.i.i.i.i.i.i.i123
   %tobool.i.not.i.i.i.i.i.i.i.i.i166 = icmp eq i64 %and2.i.i.i.i.i.i.i.i.i.i165, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i166, label %if.then.i71.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i152
+  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i166, label %if.then.i71.i.i.i.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i152
 
 if.then4.i.i.i.thread.i.i.i.i.i:                  ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i130
   %arrayidx.i.i.i.i.i36.i.i.i.i.i = getelementptr inbounds i64, ptr %251, i64 %div2.i.i.i.i.i.i.i.i.i.i121
@@ -62605,16 +62605,16 @@ if.end.i.i.i.i.i.i.i.i.i146:                      ; preds = %_ZNK8facebook5velox
 if.then3.i.i.i.i.i.i.i.i.i158:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i146
   %constantIndex_.i.i.i.i.i.i.i.i.i159 = getelementptr inbounds i8, ptr %call15.val.i.i.i.i.i.i.i, i64 64
   %265 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i.i159, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i152
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i152
 
 if.end4.i.i.i.i.i.i.i.i.i149:                     ; preds = %if.end.i.i.i.i.i.i.i.i.i146
   %indices_.i.i.i.i.i.i.i.i.i150 = getelementptr inbounds i8, ptr %call15.val.i.i.i.i.i.i.i, i64 8
   %266 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i.i150, align 8
   %arrayidx.i.i.i.i.i.i.i.i.i151 = getelementptr inbounds i8, ptr %266, i64 %243
   %267 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i151, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i152
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i152
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i152: ; preds = %if.end4.i.i.i.i.i.i.i.i.i149, %if.then3.i.i.i.i.i.i.i.i.i158, %if.then4.i.i.i.i.i.i.i.i163, %if.end13.i.if.else.i_crit_edge.i.i.i.i.i.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i152: ; preds = %if.end4.i.i.i.i.i.i.i.i.i149, %if.then3.i.i.i.i.i.i.i.i.i158, %if.then4.i.i.i.i.i.i.i.i163, %if.end13.i.if.else.i_crit_edge.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i.i153 = phi i32 [ %265, %if.then3.i.i.i.i.i.i.i.i.i158 ], [ %267, %if.end4.i.i.i.i.i.i.i.i.i149 ], [ %conv.i21.i.i.i.i.i.i84, %if.end13.i.if.else.i_crit_edge.i.i.i.i.i.i ], [ %conv.i21.i.i.i.i.i.i84, %if.then4.i.i.i.i.i.i.i.i163 ]
   %vtable.i.i60.i.i.i.i.i.i = load ptr, ptr %call15.val7.i.i.i.i.i.i.i, align 8
   %vfn.i.i61.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i60.i.i.i.i.i.i, i64 352
@@ -62622,7 +62622,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i152: ; p
   %call3.i.i73.i.i.i.i.i.i = invoke { i64, ptr } %268(ptr noundef nonnull align 8 dereferenceable(208) %call15.val7.i.i.i.i.i.i.i, i32 noundef %retval.0.i.i.i.i.i.i.i.i.i153)
           to label %call3.i.i.noexc.i.i.i.i.i.i unwind label %lpad.loopexit.i.i.i.i.i.i.i
 
-call3.i.i.noexc.i.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i.i.i.i.i.i.i152
+call3.i.i.noexc.i.i.i.i.i.i:                      ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i.i.i.i.i.i.i152
   %269 = extractvalue { i64, ptr } %call3.i.i73.i.i.i.i.i.i, 0
   store i64 %269, ptr %ref.tmp.i58.i.i.i.i.i.i, align 8
   %270 = extractvalue { i64, ptr } %call3.i.i73.i.i.i.i.i.i, 1
@@ -63269,23 +63269,23 @@ invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN8fac
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #39
-  br label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIN8facebook5velox12_GLOBAL__N_16AsJsonESaIS3_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN8facebook5velox12_GLOBAL__N_16AsJsonEEE7destroyIS3_EEvRS4_PT_.argprom(ptr noundef %__p) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN8facebook5velox12_GLOBAL__N_16AsJsonEEE7destroyIS3_EEvRS4_PT_(ptr noundef %__p) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN8facebook5velox12_GLOBAL__N_16AsJsonEE7destroyIS3_EEvPT_.argprom.exit, label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN8facebook5velox12_GLOBAL__N_16AsJsonEE7destroyIS3_EEvPT_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -63321,7 +63321,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i.i ], [ %5, %if.else.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN8facebook5velox12_GLOBAL__N_16AsJsonEE7destroyIS3_EEvPT_.argprom.exit
+  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN8facebook5velox12_GLOBAL__N_16AsJsonEE7destroyIS3_EEvPT_.exit
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -63346,16 +63346,16 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN8facebook5velox12_GLOBAL__N_16AsJsonEE7destroyIS3_EEvPT_.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %_ZNSt15__new_allocatorIN8facebook5velox12_GLOBAL__N_16AsJsonEE7destroyIS3_EEvPT_.exit
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #35
-  br label %_ZNSt15__new_allocatorIN8facebook5velox12_GLOBAL__N_16AsJsonEE7destroyIS3_EEvPT_.argprom.exit
+  br label %_ZNSt15__new_allocatorIN8facebook5velox12_GLOBAL__N_16AsJsonEE7destroyIS3_EEvPT_.exit
 
-_ZNSt15__new_allocatorIN8facebook5velox12_GLOBAL__N_16AsJsonEE7destroyIS3_EEvPT_.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
+_ZNSt15__new_allocatorIN8facebook5velox12_GLOBAL__N_16AsJsonEE7destroyIS3_EEvPT_.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
   tail call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__p) #35
   ret void
 }
@@ -63393,7 +63393,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %if.end.if.else.i_crit_edge, label %if.end.i.i
 
 if.end.if.else.i_crit_edge:                       ; preds = %if.end
-  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i, label %if.end.i.i.i
+  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i, label %if.end.i.i.i
 
 if.end.i.i:                                       ; preds = %if.end
   br i1 %.pre, label %if.then4.i.i, label %lor.lhs.false.i.i
@@ -63413,7 +63413,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %shl.i.i.i.i = shl nuw i64 1, %and.i.i.i.i
   %and2.i.i.i.i = and i64 %12, %shl.i.i.i.i
   %tobool.i.not.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit, label %if.else.i
+  br i1 %tobool.i.not.i.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, label %if.else.i
 
 if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
   %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %call2.val, i64 59
@@ -63425,7 +63425,7 @@ if.then8.i.i:                                     ; preds = %if.end6.i.i
   %14 = load i64, ptr %10, align 8
   %and2.i.i3.i.i = and i64 %14, 1
   %tobool.i.not.i4.i.i = icmp eq i64 %and2.i.i3.i.i, 0
-  br i1 %tobool.i.not.i4.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit, label %if.end.i.i.i
+  br i1 %tobool.i.not.i4.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, label %if.end.i.i.i
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i: ; preds = %if.end6.i.i
   %indices_.i.i = getelementptr inbounds i8, ptr %call2.val, i64 8
@@ -63441,10 +63441,10 @@ _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i: ; preds = %if.end6.i.i
   %shl.i.i9.i.i = shl nuw i64 1, %and.i.i8.i.i
   %and2.i.i10.i.i = and i64 %shl.i.i9.i.i, %17
   %tobool.i.not.i11.i.i = icmp eq i64 %and2.i.i10.i.i, 0
-  br i1 %tobool.i.not.i11.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit, label %if.end.i.i.i
+  br i1 %tobool.i.not.i11.i.i, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, label %if.end.i.i.i
 
 if.else.i:                                        ; preds = %if.then4.i.i
-  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i, label %if.end.i.i.i
+  br i1 %.pre, label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then8.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i, %if.end.if.else.i_crit_edge, %if.else.i
   %isConstantMapping_.i.i.i = getelementptr inbounds i8, ptr %call2.val, i64 59
@@ -63455,7 +63455,7 @@ if.end.i.i.i:                                     ; preds = %if.then8.i.i, %_ZNK
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   %constantIndex_.i.i.i = getelementptr inbounds i8, ptr %call2.val, i64 64
   %19 = load i32, ptr %constantIndex_.i.i.i, align 8
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %indices_.i.i.i = getelementptr inbounds i8, ptr %call2.val, i64 8
@@ -63463,9 +63463,9 @@ if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %idxprom.i.i.i = sext i32 %row to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %20, i64 %idxprom.i.i.i
   %21 = load i32, ptr %arrayidx.i.i.i, align 4
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i: ; preds = %if.end.if.else.i_crit_edge, %if.end4.i.i.i, %if.then3.i.i.i, %if.else.i
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i: ; preds = %if.end.if.else.i_crit_edge, %if.end4.i.i.i, %if.then3.i.i.i, %if.else.i
   %retval.0.i.i.i = phi i32 [ %19, %if.then3.i.i.i ], [ %21, %if.end4.i.i.i ], [ %row, %if.else.i ], [ %row, %if.end.if.else.i_crit_edge ]
   %vtable.i.i = load ptr, ptr %call2.val2, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 352
@@ -63474,10 +63474,10 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i: ; preds = %if.end.
   %23 = extractvalue { i64, ptr } %call3.i.i, 0
   %sext = shl i64 %23, 32
   %24 = ashr exact i64 %sext, 32
-  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit
+  br label %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit
 
-_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit: ; preds = %if.then4.i.i, %if.then8.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i
-  %retval.0.i = phi i64 [ %24, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.argprom.exit.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i ], [ 4, %if.then4.i.i ], [ 4, %if.then8.i.i ]
+_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit: ; preds = %if.then4.i.i, %if.then8.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i
+  %retval.0.i = phi i64 [ %24, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson2atEi.exit.i ], [ 4, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit.i ], [ 4, %if.then4.i.i ], [ 4, %if.then8.i.i ]
   %25 = getelementptr inbounds i8, ptr %this, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load i64, ptr %26, align 8
@@ -63485,7 +63485,7 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit: ; preds = %if.
   store i64 %add, ptr %26, align 8
   br label %return
 
-return:                                           ; preds = %entry, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.argprom.exit
+return:                                           ; preds = %entry, %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit
   ret void
 }
 
@@ -63763,7 +63763,7 @@ if.end10:                                         ; preds = %_ZN8facebook5velox1
   %call12.val = load ptr, ptr %18, align 8
   %19 = getelementptr i8, ptr %add.ptr.i48, i64 32
   %call12.val7 = load ptr, ptr %19, align 8
-  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_16AsJson6appendEiRNS0_4exec12StringWriterILb0EEE.argprom(ptr %call12.val, ptr %call12.val7, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(96) %proxy)
+  invoke fastcc void @_ZNK8facebook5velox12_GLOBAL__N_16AsJson6appendEiRNS0_4exec12StringWriterILb0EEE(ptr %call12.val, ptr %call12.val7, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(96) %proxy)
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %if.end10
@@ -113621,10 +113621,10 @@ attributes #42 = { cold noreturn nounwind }
 !307 = distinct !{!307, !5}
 !308 = distinct !{!308, !5}
 !309 = !{!310}
-!310 = distinct !{!310, !311, !"_ZSt19__relocate_object_aIN8facebook5velox12_GLOBAL__N_16AsJsonES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__dest"}
-!311 = distinct !{!311, !"_ZSt19__relocate_object_aIN8facebook5velox12_GLOBAL__N_16AsJsonES3_SaIS3_EEvPT_PT0_RT1_.argprom"}
+!310 = distinct !{!310, !311, !"_ZSt19__relocate_object_aIN8facebook5velox12_GLOBAL__N_16AsJsonES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
+!311 = distinct !{!311, !"_ZSt19__relocate_object_aIN8facebook5velox12_GLOBAL__N_16AsJsonES3_SaIS3_EEvPT_PT0_RT1_"}
 !312 = !{!313}
-!313 = distinct !{!313, !311, !"_ZSt19__relocate_object_aIN8facebook5velox12_GLOBAL__N_16AsJsonES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__orig"}
+!313 = distinct !{!313, !311, !"_ZSt19__relocate_object_aIN8facebook5velox12_GLOBAL__N_16AsJsonES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
 !314 = distinct !{!314, !5}
 !315 = distinct !{!315, !5}
 !316 = distinct !{!316, !5}

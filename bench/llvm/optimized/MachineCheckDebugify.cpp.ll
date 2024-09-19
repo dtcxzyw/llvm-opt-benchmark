@@ -260,16 +260,16 @@ _ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit: ; pre
   %46 = getelementptr inbounds i8, ptr %41, i64 -32
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #12
-  br label %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.argprom.argprom.exit
+  br label %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit
 
 49:                                               ; preds = %_ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit
   %50 = lshr i64 %43, 2
   %51 = and i64 %50, 15
   %52 = sub nsw i64 0, %51
   %53 = getelementptr inbounds %"class.llvm::MDOperand", ptr %42, i64 %52
-  br label %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.argprom.argprom.exit
+  br label %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit
 
-_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.argprom.argprom.exit: ; preds = %45, %49
+_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit: ; preds = %45, %49
   %.sroa.0.0.i.i.i = phi ptr [ %53, %49 ], [ %47, %45 ]
   %54 = load ptr, ptr %.sroa.0.0.i.i.i, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 128
@@ -289,20 +289,20 @@ _ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_
   %.not.i.i.i54 = icmp eq i64 %66, 0
   br i1 %.not.i.i.i54, label %71, label %67
 
-67:                                               ; preds = %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.argprom.argprom.exit
+67:                                               ; preds = %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit
   %68 = getelementptr inbounds i8, ptr %63, i64 -32
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #12
-  br label %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.argprom.argprom.exit58
+  br label %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit58
 
-71:                                               ; preds = %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.argprom.argprom.exit
+71:                                               ; preds = %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit
   %72 = lshr i64 %65, 2
   %73 = and i64 %72, 15
   %74 = sub nsw i64 0, %73
   %75 = getelementptr inbounds %"class.llvm::MDOperand", ptr %64, i64 %74
-  br label %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.argprom.argprom.exit58
+  br label %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit58
 
-_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.argprom.argprom.exit58: ; preds = %67, %71
+_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit58: ; preds = %67, %71
   %.sroa.0.0.i.i.i55 = phi ptr [ %75, %71 ], [ %69, %67 ]
   %76 = load ptr, ptr %.sroa.0.0.i.i.i55, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 128
@@ -327,7 +327,7 @@ _ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_
   %.not.i.i.i59 = icmp eq i32 %90, 0
   br i1 %.not.i.i.i59, label %_ZN4llvm9BitVectorC2Ejb.exit, label %91
 
-91:                                               ; preds = %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.argprom.argprom.exit58
+91:                                               ; preds = %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit58
   %92 = and i64 %.0.i.i.i, 63
   %93 = shl nsw i64 -1, %92
   %94 = xor i64 %93, -1
@@ -340,7 +340,7 @@ _ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_
   store i64 %100, ptr %98, align 8
   br label %_ZN4llvm9BitVectorC2Ejb.exit
 
-_ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.argprom.argprom.exit58, %91
+_ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit58, %91
   %101 = add i64 %.0.i.i.i57, 63
   %102 = lshr i64 %101, 6
   %103 = and i64 %102, 67108863

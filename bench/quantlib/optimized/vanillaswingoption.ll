@@ -1903,7 +1903,7 @@ entry:
   %ref.tmp2 = alloca %"struct.std::pair", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp) #28
   %from.val = load i64, ptr %from, align 8, !tbaa !47
-  call fastcc void @_ZN8QuantLib12_GLOBAL__N_115createDateTimesERKNS_4DateES3_m.argprom(ptr dead_on_unwind noalias writable align 8 %ref.tmp, i64 %from.val, ptr noundef nonnull align 8 dereferenceable(8) %to, i64 noundef %stepSizeSecs)
+  call fastcc void @_ZN8QuantLib12_GLOBAL__N_115createDateTimesERKNS_4DateES3_m(ptr dead_on_unwind noalias writable align 8 %ref.tmp, i64 %from.val, ptr noundef nonnull align 8 dereferenceable(8) %to, i64 noundef %stepSizeSecs)
   invoke void @_ZN8QuantLib16BermudanExerciseC2ERKSt6vectorINS_4DateESaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(37) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 
@@ -1941,7 +1941,7 @@ _ZNSt4pairISt6vectorIN8QuantLib4DateESaIS2_EES0_ImSaImEEED2Ev.exit: ; preds = %_
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib13SwingExerciseE, i64 16), ptr %this, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2) #28
   %from.val5 = load i64, ptr %from, align 8, !tbaa !47
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_115createDateTimesERKNS_4DateES3_m.argprom(ptr dead_on_unwind noalias writable align 8 %ref.tmp2, i64 %from.val5, ptr noundef nonnull align 8 dereferenceable(8) %to, i64 noundef %stepSizeSecs)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_115createDateTimesERKNS_4DateES3_m(ptr dead_on_unwind noalias writable align 8 %ref.tmp2, i64 %from.val5, ptr noundef nonnull align 8 dereferenceable(8) %to, i64 noundef %stepSizeSecs)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %_ZNSt4pairISt6vectorIN8QuantLib4DateESaIS2_EES0_ImSaImEEED2Ev.exit
@@ -2007,7 +2007,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i.i22, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_115createDateTimesERKNS_4DateES3_m.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, i64 %from.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %to, i64 noundef %stepSize) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_115createDateTimesERKNS_4DateES3_m(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, i64 %from.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %to, i64 noundef %stepSize) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %secs = alloca %"class.std::vector.21", align 8
   %dates = alloca %"class.std::vector", align 8

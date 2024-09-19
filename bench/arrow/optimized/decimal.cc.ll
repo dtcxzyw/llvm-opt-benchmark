@@ -954,14 +954,14 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i
   %6 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %5
   %arrayidx.i.i.i5.i = getelementptr i8, ptr %6, i64 304
   %7 = load float, ptr %arrayidx.i.i.i5.i, align 4
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit.i.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
   %conv.i.i.i.i = sitofp i32 %sub.i.i.i to float
   %call.i.i.i.i.i = call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i.i.i) #20
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit.i.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi float [ %7, %if.then.i.i.i.i ], [ %call.i.i.i.i.i, %if.else.i.i.i.i ]
   %conv3.i.i.i = uitofp i64 %decimal.val.pre.i.i to float
   %add.i.i.i = fadd float %decimal.val7.i.i, %conv3.i.i.i
@@ -991,14 +991,14 @@ if.then.i.i27.i.i:                                ; preds = %if.end.i.i
   %10 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %9
   %arrayidx.i.i28.i.i = getelementptr i8, ptr %10, i64 304
   %11 = load float, ptr %arrayidx.i.i28.i.i, align 4
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit29.i.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i.i
 
 if.else.i.i18.i.i:                                ; preds = %if.end.i.i
   %conv.i.i19.i.i = sitofp i32 %sub.i17.i.i to float
   %call.i.i.i20.i.i = call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i19.i.i) #20
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit29.i.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit29.i.i: ; preds = %if.else.i.i18.i.i, %if.then.i.i27.i.i
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i.i: ; preds = %if.else.i.i18.i.i, %if.then.i.i27.i.i
   %retval.0.i.i21.i.i = phi float [ %11, %if.then.i.i27.i.i ], [ %call.i.i.i20.i.i, %if.else.i.i18.i.i ]
   %conv.i22.i.i = sitofp i64 %ref.tmp6.sroa.2.0.copyload.i.i to float
   %mul.i.i23.i.i = fmul float %conv.i22.i.i, 0x43F0000000000000
@@ -1008,8 +1008,8 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RK
   %add.i.i = fadd float %add.i15.i.i, %mul.i26.i.i
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit29.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit.i.i
-  %retval.0.i.i = phi float [ %mul.i.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit.i.i ], [ %add.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit29.i.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i
+  %retval.0.i.i = phi float [ %mul.i.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i ], [ %add.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %whole_decimal.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fraction_decimal.i.i)
   %fneg.i = fneg float %retval.0.i.i
@@ -1045,14 +1045,14 @@ if.then.i.i.i53.i:                                ; preds = %if.then.i42.i
   %17 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %16
   %arrayidx.i.i.i54.i = getelementptr i8, ptr %17, i64 304
   %18 = load float, ptr %arrayidx.i.i.i54.i, align 4
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit.i48.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i48.i
 
 if.else.i.i.i45.i:                                ; preds = %if.then.i42.i
   %conv.i.i.i46.i = sitofp i32 %sub.i.i44.i to float
   %call.i.i.i.i47.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i.i46.i) #20
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit.i48.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i48.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit.i48.i: ; preds = %if.else.i.i.i45.i, %if.then.i.i.i53.i
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i48.i: ; preds = %if.else.i.i.i45.i, %if.then.i.i.i53.i
   %retval.0.i.i.i49.i = phi float [ %18, %if.then.i.i.i53.i ], [ %call.i.i.i.i47.i, %if.else.i.i.i45.i ]
   %conv3.i.i50.i = uitofp i64 %decimal.val.pre.i9.i to float
   %add.i.i51.i = fadd float %decimal.val7.i43.i, %conv3.i.i50.i
@@ -1082,14 +1082,14 @@ if.then.i.i27.i40.i:                              ; preds = %if.end.i16.i
   %21 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %20
   %arrayidx.i.i28.i41.i = getelementptr i8, ptr %21, i64 304
   %22 = load float, ptr %arrayidx.i.i28.i41.i, align 4
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit29.i31.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i31.i
 
 if.else.i.i18.i28.i:                              ; preds = %if.end.i16.i
   %conv.i.i19.i29.i = sitofp i32 %sub.i17.i27.i to float
   %call.i.i.i20.i30.i = call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i.i19.i29.i) #20
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit29.i31.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i31.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit29.i31.i: ; preds = %if.else.i.i18.i28.i, %if.then.i.i27.i40.i
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i31.i: ; preds = %if.else.i.i18.i28.i, %if.then.i.i27.i40.i
   %retval.0.i.i21.i32.i = phi float [ %22, %if.then.i.i27.i40.i ], [ %call.i.i.i20.i30.i, %if.else.i.i18.i28.i ]
   %conv.i22.i33.i = sitofp i64 %ref.tmp6.sroa.2.0.copyload.i26.i to float
   %mul.i.i23.i34.i = fmul float %conv.i22.i33.i, 0x43F0000000000000
@@ -1099,8 +1099,8 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RK
   %add.i38.i = fadd float %add.i15.i23.i, %mul.i26.i37.i
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit56.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit56.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit29.i31.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit.i48.i
-  %retval.0.i39.i = phi float [ %mul.i.i52.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit.i48.i ], [ %add.i38.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.argprom.exit29.i31.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10Decimal128Ei.exit56.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i31.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i48.i
+  %retval.0.i39.i = phi float [ %mul.i.i52.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i48.i ], [ %add.i38.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit29.i31.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %whole_decimal.i6.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fraction_decimal.i7.i)
   br label %_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal128ENS0_24Decimal128RealConversionEE6ToRealIfEET_RKS2_i.exit
@@ -1159,14 +1159,14 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i
   %6 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %5
   %arrayidx.i.i.i5.i = getelementptr i8, ptr %6, i64 608
   %7 = load double, ptr %arrayidx.i.i.i5.i, align 8
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit.i.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
   %conv.i.i.i.i = sitofp i32 %sub.i.i.i to double
   %call3.i.i.i.i = call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i.i.i) #20
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit.i.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi double [ %7, %if.then.i.i.i.i ], [ %call3.i.i.i.i, %if.else.i.i.i.i ]
   %conv3.i.i.i = uitofp i64 %decimal.val.pre.i.i to double
   %add.i.i.i = fadd double %decimal.val7.i.i, %conv3.i.i.i
@@ -1196,14 +1196,14 @@ if.then.i.i27.i.i:                                ; preds = %if.end.i.i
   %10 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %9
   %arrayidx.i.i28.i.i = getelementptr i8, ptr %10, i64 608
   %11 = load double, ptr %arrayidx.i.i28.i.i, align 8
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit29.i.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i.i
 
 if.else.i.i18.i.i:                                ; preds = %if.end.i.i
   %conv.i.i19.i.i = sitofp i32 %sub.i17.i.i to double
   %call3.i.i20.i.i = call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i19.i.i) #20
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit29.i.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit29.i.i: ; preds = %if.else.i.i18.i.i, %if.then.i.i27.i.i
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i.i: ; preds = %if.else.i.i18.i.i, %if.then.i.i27.i.i
   %retval.0.i.i21.i.i = phi double [ %11, %if.then.i.i27.i.i ], [ %call3.i.i20.i.i, %if.else.i.i18.i.i ]
   %conv.i22.i.i = sitofp i64 %ref.tmp6.sroa.2.0.copyload.i.i to double
   %mul.i.i23.i.i = fmul double %conv.i22.i.i, 0x43F0000000000000
@@ -1213,8 +1213,8 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RK
   %add.i.i = fadd double %add.i15.i.i, %mul.i26.i.i
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit29.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit.i.i
-  %retval.0.i.i = phi double [ %mul.i.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit.i.i ], [ %add.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit29.i.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i
+  %retval.0.i.i = phi double [ %mul.i.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i ], [ %add.i.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %whole_decimal.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fraction_decimal.i.i)
   %fneg.i = fneg double %retval.0.i.i
@@ -1250,14 +1250,14 @@ if.then.i.i.i53.i:                                ; preds = %if.then.i42.i
   %17 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %16
   %arrayidx.i.i.i54.i = getelementptr i8, ptr %17, i64 608
   %18 = load double, ptr %arrayidx.i.i.i54.i, align 8
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit.i48.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i48.i
 
 if.else.i.i.i45.i:                                ; preds = %if.then.i42.i
   %conv.i.i.i46.i = sitofp i32 %sub.i.i44.i to double
   %call3.i.i.i47.i = tail call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i.i46.i) #20
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit.i48.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i48.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit.i48.i: ; preds = %if.else.i.i.i45.i, %if.then.i.i.i53.i
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i48.i: ; preds = %if.else.i.i.i45.i, %if.then.i.i.i53.i
   %retval.0.i.i.i49.i = phi double [ %18, %if.then.i.i.i53.i ], [ %call3.i.i.i47.i, %if.else.i.i.i45.i ]
   %conv3.i.i50.i = uitofp i64 %decimal.val.pre.i9.i to double
   %add.i.i51.i = fadd double %decimal.val7.i43.i, %conv3.i.i50.i
@@ -1287,14 +1287,14 @@ if.then.i.i27.i40.i:                              ; preds = %if.end.i16.i
   %21 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %20
   %arrayidx.i.i28.i41.i = getelementptr i8, ptr %21, i64 608
   %22 = load double, ptr %arrayidx.i.i28.i41.i, align 8
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit29.i31.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i31.i
 
 if.else.i.i18.i28.i:                              ; preds = %if.end.i16.i
   %conv.i.i19.i29.i = sitofp i32 %sub.i17.i27.i to double
   %call3.i.i20.i30.i = call double @pow(double noundef 1.000000e+01, double noundef %conv.i.i19.i29.i) #20
-  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit29.i31.i
+  br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i31.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit29.i31.i: ; preds = %if.else.i.i18.i28.i, %if.then.i.i27.i40.i
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i31.i: ; preds = %if.else.i.i18.i28.i, %if.then.i.i27.i40.i
   %retval.0.i.i21.i32.i = phi double [ %22, %if.then.i.i27.i40.i ], [ %call3.i.i20.i30.i, %if.else.i.i18.i28.i ]
   %conv.i22.i33.i = sitofp i64 %ref.tmp6.sroa.2.0.copyload.i26.i to double
   %mul.i.i23.i34.i = fmul double %conv.i22.i33.i, 0x43F0000000000000
@@ -1304,8 +1304,8 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RK
   %add.i38.i = fadd double %add.i15.i23.i, %mul.i26.i37.i
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit56.i
 
-_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit56.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit29.i31.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit.i48.i
-  %retval.0.i39.i = phi double [ %mul.i.i52.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit.i48.i ], [ %add.i38.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.argprom.exit29.i31.i ]
+_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10Decimal128Ei.exit56.i: ; preds = %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i31.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i48.i
+  %retval.0.i39.i = phi double [ %mul.i.i52.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i48.i ], [ %add.i38.i, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit29.i31.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %whole_decimal.i6.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fraction_decimal.i7.i)
   br label %_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal128ENS0_24Decimal128RealConversionEE6ToRealIdEET_RKS2_i.exit
@@ -1495,14 +1495,14 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   %incdec.ptr.i.i12.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i12.i.i, align 1
   %8 = load i8, ptr %arrayidx.i10.i.i, align 1
-  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
+  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
   %9 = trunc nuw i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i.i = or disjoint i8 %9, 48
-  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
+  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
-_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit: ; preds = %if.then.i.i, %if.else.i.i
+_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %cursor.2.i = phi ptr [ %incdec.ptr.i.i12.i.i, %if.then.i.i ], [ %cursor.1.i, %if.else.i.i ]
   %conv.i.sink.i.i = phi i8 [ %8, %if.then.i.i ], [ %conv.i.i.i, %if.else.i.i ]
   %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.2.i, i64 -1
@@ -1516,14 +1516,14 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %cmp34.not69 = icmp eq i64 %num_segments.0, 0
   br i1 %cmp34.not69, label %while.end, label %while.body.lr.ph
 
-while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
+while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
   %add.ptr.i28 = getelementptr inbounds i8, ptr %buffer.i27, i64 11
   %sub.ptr.lhs.cast.i.i39 = ptrtoint ptr %add.ptr.i28 to i64
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
-  %segment.071 = phi ptr [ %arrayidx.i.i25.le.le, %while.body.lr.ph ], [ %incdec.ptr35, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit ]
-  %output.070 = phi ptr [ %add.ptr.i2.i, %while.body.lr.ph ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit ]
+while.body:                                       ; preds = %while.body.lr.ph, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
+  %segment.071 = phi ptr [ %arrayidx.i.i25.le.le, %while.body.lr.ph ], [ %incdec.ptr35, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
+  %output.070 = phi ptr [ %add.ptr.i2.i, %while.body.lr.ph ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
   %incdec.ptr35 = getelementptr inbounds i8, ptr %segment.071, i64 -4
   %add.ptr = getelementptr inbounds i8, ptr %output.070, i64 9
   %10 = load i32, ptr %incdec.ptr35, align 4
@@ -1564,14 +1564,14 @@ if.then.i.i43:                                    ; preds = %while.end.i.i30
   %incdec.ptr.i.i12.i.i48 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -1
   store i8 %13, ptr %incdec.ptr.i.i12.i.i48, align 1
   %14 = load i8, ptr %arrayidx.i10.i.i46, align 1
-  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
+  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i34:                                    ; preds = %while.end.i.i30
   %15 = trunc nuw i32 %value.addr.0.lcssa.i.i32 to i8
   %conv.i.i.i35 = or disjoint i8 %15, 48
-  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
+  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
-_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit: ; preds = %if.then.i.i43, %if.else.i.i34
+_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit: ; preds = %if.then.i.i43, %if.else.i.i34
   %cursor.2.i36 = phi ptr [ %incdec.ptr.i.i12.i.i48, %if.then.i.i43 ], [ %cursor.1.i31, %if.else.i.i34 ]
   %conv.i.sink.i.i37 = phi i8 [ %14, %if.then.i.i43 ], [ %conv.i.i.i35, %if.else.i.i34 ]
   %incdec.ptr.i.i14.i.i38 = getelementptr inbounds i8, ptr %cursor.2.i36, i64 -1
@@ -1585,8 +1585,8 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %cmp34.not = icmp eq ptr %incdec.ptr35, %segments
   br i1 %cmp34.not, label %while.end, label %while.body, !llvm.loop !24
 
-while.end:                                        ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
-  %output.0.lcssa = phi ptr [ %add.ptr.i2.i, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit ]
+while.end:                                        ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
+  %output.0.lcssa = phi ptr [ %add.ptr.i2.i, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
   %call37 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %result) #20
   %sub.ptr.lhs.cast38 = ptrtoint ptr %output.0.lcssa to i64
   %sub.ptr.rhs.cast39 = ptrtoint ptr %call37 to i64
@@ -1814,14 +1814,14 @@ _ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i: ; preds = %if.else.
   %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.2.i, i64 -1
   store i8 %conv.i.sink.i.i, ptr %incdec.ptr.i.i14.i.i, align 1
   %cmp.i = icmp slt i32 %sub18, 0
-  br i1 %cmp.i, label %if.then.i, label %"_ZN5arrow8internal25IntToStringFormatterMixinINS_9Int32TypeEEclIZNS_L28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDTclclsr3stdE7declvalIT_EEtlSt17basic_string_viewIcS8_EEEEiOSD_.argprom.exit"
+  br i1 %cmp.i, label %if.then.i, label %"_ZN5arrow8internal25IntToStringFormatterMixinINS_9Int32TypeEEclIZNS_L28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDTclclsr3stdE7declvalIT_EEtlSt17basic_string_viewIcS8_EEEEiOSD_.exit"
 
 if.then.i:                                        ; preds = %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %cursor.2.i, i64 -2
   store i8 45, ptr %incdec.ptr.i.i, align 1
-  br label %"_ZN5arrow8internal25IntToStringFormatterMixinINS_9Int32TypeEEclIZNS_L28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDTclclsr3stdE7declvalIT_EEtlSt17basic_string_viewIcS8_EEEEiOSD_.argprom.exit"
+  br label %"_ZN5arrow8internal25IntToStringFormatterMixinINS_9Int32TypeEEclIZNS_L28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDTclclsr3stdE7declvalIT_EEtlSt17basic_string_viewIcS8_EEEEiOSD_.exit"
 
-"_ZN5arrow8internal25IntToStringFormatterMixinINS_9Int32TypeEEclIZNS_L28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDTclclsr3stdE7declvalIT_EEtlSt17basic_string_viewIcS8_EEEEiOSD_.argprom.exit": ; preds = %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i, %if.then.i
+"_ZN5arrow8internal25IntToStringFormatterMixinINS_9Int32TypeEEclIZNS_L28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDTclclsr3stdE7declvalIT_EEtlSt17basic_string_viewIcS8_EEEEiOSD_.exit": ; preds = %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i, %if.then.i
   %cursor.3.i = phi ptr [ %incdec.ptr.i.i, %if.then.i ], [ %incdec.ptr.i.i14.i.i, %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i25 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cursor.3.i to i64
@@ -1853,7 +1853,7 @@ if.end53:                                         ; preds = %if.end37
   store i8 46, ptr %call60, align 1
   br label %return
 
-return:                                           ; preds = %entry, %if.end53, %if.then39, %"_ZN5arrow8internal25IntToStringFormatterMixinINS_9Int32TypeEEclIZNS_L28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDTclclsr3stdE7declvalIT_EEtlSt17basic_string_viewIcS8_EEEEiOSD_.argprom.exit"
+return:                                           ; preds = %entry, %if.end53, %if.then39, %"_ZN5arrow8internal25IntToStringFormatterMixinINS_9Int32TypeEEclIZNS_L28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDTclclsr3stdE7declvalIT_EEtlSt17basic_string_viewIcS8_EEEEiOSD_.exit"
   ret void
 }
 
@@ -1880,7 +1880,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   call void @_ZN5arrow6Status8FromArgsIJRA37_KcRPS2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(37) @.str.25, ptr noundef nonnull align 8 dereferenceable(8) %type_name.addr.i)
-  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom.exit
+  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !28
@@ -1907,7 +1907,7 @@ lpad.i.i.i:                                       ; preds = %if.then4.i
 _ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RPS2_RA8_S2_EEES0_DpOT_.exit.i: ; preds = %if.then4.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !31
-  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom.exit
+  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
 if.end5.i:                                        ; preds = %if.end.i
   %2 = load i64, ptr %dec.i, align 8, !noalias !28
@@ -2010,7 +2010,7 @@ lpad.i.i16.i:                                     ; preds = %if.then44.i
 _ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA28_S2_RPS2_EEES0_DpOT_.exit.i: ; preds = %if.then44.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i15.i) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i15.i), !noalias !38
-  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom.exit
+  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
 if.end45.i:                                       ; preds = %if.then41.i
   br i1 %cmp22.not.i, label %if.end51.i, label %if.then47.i
@@ -2044,9 +2044,9 @@ if.then58.i:                                      ; preds = %if.end56.i
 
 if.end59.i:                                       ; preds = %if.then58.i, %if.end56.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !44
-  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom.exit
+  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
-_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom.exit: ; preds = %if.then.i, %_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RPS2_RA8_S2_EEES0_DpOT_.exit.i, %_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA28_S2_RPS2_EEES0_DpOT_.exit.i, %if.end59.i
+_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit: ; preds = %if.then.i, %_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RPS2_RA8_S2_EEES0_DpOT_.exit.i, %_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA28_S2_RPS2_EEES0_DpOT_.exit.i, %if.end59.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %s.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %type_name.addr.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %dec.i)
@@ -2902,7 +2902,7 @@ for.body.i.preheader.i.i:
   %0 = getelementptr inbounds i8, ptr %array, i64 24
   %agg.tmp.val.val.i.i.i = load i64, ptr %0, align 8, !noalias !74
   %cmp.i.i.not.i.i.i = icmp eq i64 %agg.tmp.val.val.i.i.i, 0
-  br i1 %cmp.i.i.not.i.i.i, label %if.end.i.i.i, label %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.argprom.exit.loopexit
+  br i1 %cmp.i.i.not.i.i.i, label %if.end.i.i.i, label %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.loopexit
 
 if.end.i.i.i:                                     ; preds = %for.body.i.preheader.i.i
   %1 = getelementptr inbounds i8, ptr %array, i64 16
@@ -2921,7 +2921,7 @@ if.end12.i.i.i:                                   ; preds = %if.end7.i.i.i
   %cmp.i.i6.not.i.i.i = icmp eq i64 %agg.tmp14.val.val.i.i.i, 0
   br i1 %cmp.i.i6.not.i.i.i, label %if.then, label %if.end
 
-_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.argprom.exit.loopexit: ; preds = %for.body.i.preheader.i.i
+_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.loopexit: ; preds = %for.body.i.preheader.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %array, i64 32
   br label %if.end
 
@@ -2929,8 +2929,8 @@ if.then:                                          ; preds = %if.end12.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %result, i8 noundef signext 48)
   br label %return
 
-if.end:                                           ; preds = %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.argprom.exit.loopexit, %if.end.i.i.i, %if.end7.i.i.i, %if.end12.i.i.i
-  %.sink.i.i.i = phi ptr [ %add.ptr.i.i, %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.argprom.exit.loopexit ], [ %0, %if.end.i.i.i ], [ %1, %if.end7.i.i.i ], [ %2, %if.end12.i.i.i ]
+if.end:                                           ; preds = %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.loopexit, %if.end.i.i.i, %if.end7.i.i.i, %if.end12.i.i.i
+  %.sink.i.i.i = phi ptr [ %add.ptr.i.i, %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.loopexit ], [ %0, %if.end.i.i.i ], [ %1, %if.end7.i.i.i ], [ %2, %if.end12.i.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %.sink.i.i.i, i64 -8
   %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i.i.i
@@ -3026,14 +3026,14 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   %incdec.ptr.i.i12.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i12.i.i, align 1
   %8 = load i8, ptr %arrayidx.i10.i.i, align 1
-  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
+  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
   %9 = trunc nuw i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i.i = or disjoint i8 %9, 48
-  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
+  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
-_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit: ; preds = %if.then.i.i, %if.else.i.i
+_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %cursor.2.i = phi ptr [ %incdec.ptr.i.i12.i.i, %if.then.i.i ], [ %cursor.1.i, %if.else.i.i ]
   %conv.i.sink.i.i = phi i8 [ %8, %if.then.i.i ], [ %conv.i.i.i, %if.else.i.i ]
   %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.2.i, i64 -1
@@ -3047,14 +3047,14 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %cmp34.not76 = icmp eq i64 %num_segments.0, 0
   br i1 %cmp34.not76, label %while.end, label %while.body.lr.ph
 
-while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
+while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
   %add.ptr.i28 = getelementptr inbounds i8, ptr %buffer.i27, i64 11
   %sub.ptr.lhs.cast.i.i39 = ptrtoint ptr %add.ptr.i28 to i64
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
-  %segment.078 = phi ptr [ %arrayidx.i.i25.le.le, %while.body.lr.ph ], [ %incdec.ptr35, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit ]
-  %output.077 = phi ptr [ %add.ptr.i2.i, %while.body.lr.ph ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit ]
+while.body:                                       ; preds = %while.body.lr.ph, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
+  %segment.078 = phi ptr [ %arrayidx.i.i25.le.le, %while.body.lr.ph ], [ %incdec.ptr35, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
+  %output.077 = phi ptr [ %add.ptr.i2.i, %while.body.lr.ph ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
   %incdec.ptr35 = getelementptr inbounds i8, ptr %segment.078, i64 -4
   %add.ptr = getelementptr inbounds i8, ptr %output.077, i64 9
   %10 = load i32, ptr %incdec.ptr35, align 4
@@ -3095,14 +3095,14 @@ if.then.i.i43:                                    ; preds = %while.end.i.i30
   %incdec.ptr.i.i12.i.i48 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -1
   store i8 %13, ptr %incdec.ptr.i.i12.i.i48, align 1
   %14 = load i8, ptr %arrayidx.i10.i.i46, align 1
-  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
+  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i34:                                    ; preds = %while.end.i.i30
   %15 = trunc nuw i32 %value.addr.0.lcssa.i.i32 to i8
   %conv.i.i.i35 = or disjoint i8 %15, 48
-  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
+  br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
-_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit: ; preds = %if.then.i.i43, %if.else.i.i34
+_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit: ; preds = %if.then.i.i43, %if.else.i.i34
   %cursor.2.i36 = phi ptr [ %incdec.ptr.i.i12.i.i48, %if.then.i.i43 ], [ %cursor.1.i31, %if.else.i.i34 ]
   %conv.i.sink.i.i37 = phi i8 [ %14, %if.then.i.i43 ], [ %conv.i.i.i35, %if.else.i.i34 ]
   %incdec.ptr.i.i14.i.i38 = getelementptr inbounds i8, ptr %cursor.2.i36, i64 -1
@@ -3116,8 +3116,8 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   %cmp34.not = icmp eq ptr %incdec.ptr35, %segments
   br i1 %cmp34.not, label %while.end, label %while.body, !llvm.loop !83
 
-while.end:                                        ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit
-  %output.0.lcssa = phi ptr [ %add.ptr.i2.i, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.argprom.exit ]
+while.end:                                        ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
+  %output.0.lcssa = phi ptr [ %add.ptr.i2.i, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ], [ %add.ptr, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
   %call37 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %result) #20
   %sub.ptr.lhs.cast38 = ptrtoint ptr %output.0.lcssa to i64
   %sub.ptr.rhs.cast39 = ptrtoint ptr %call37 to i64
@@ -3255,7 +3255,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   call void @_ZN5arrow6Status8FromArgsIJRA37_KcRPS2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(37) @.str.25, ptr noundef nonnull align 8 dereferenceable(8) %type_name.addr.i)
-  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom.exit
+  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !87
@@ -3282,7 +3282,7 @@ lpad.i.i.i:                                       ; preds = %if.then4.i
 _ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RPS2_RA8_S2_EEES0_DpOT_.exit.i: ; preds = %if.then4.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !90
-  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom.exit
+  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
 if.end5.i:                                        ; preds = %if.end.i
   %2 = load i64, ptr %dec.i, align 8, !noalias !87
@@ -3380,7 +3380,7 @@ lpad.i.i17.i:                                     ; preds = %if.then43.i
 _ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA28_S2_RPS2_EEES0_DpOT_.exit.i: ; preds = %if.then43.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i16.i) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i16.i), !noalias !96
-  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom.exit
+  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
 if.end44.i:                                       ; preds = %if.then40.i
   br i1 %cmp22.not.i, label %if.end50.i, label %if.then46.i
@@ -3414,9 +3414,9 @@ if.then57.i:                                      ; preds = %if.end55.i
 
 if.end58.i:                                       ; preds = %if.then57.i, %if.end55.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !102
-  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom.exit
+  br label %_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit
 
-_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom.exit: ; preds = %if.then.i, %_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RPS2_RA8_S2_EEES0_DpOT_.exit.i, %_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA28_S2_RPS2_EEES0_DpOT_.exit.i, %if.end58.i
+_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.exit: ; preds = %if.then.i, %_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RPS2_RA8_S2_EEES0_DpOT_.exit.i, %_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA28_S2_RPS2_EEES0_DpOT_.exit.i, %if.end58.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %s.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %type_name.addr.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %dec.i)
@@ -9272,10 +9272,10 @@ attributes #23 = { noreturn nounwind }
 !13 = !{!14, !16, !18}
 !14 = distinct !{!14, !15, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_St26random_access_iterator_tag: %agg.result"}
 !15 = distinct !{!15, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_St26random_access_iterator_tag"}
-!16 = distinct !{!16, !17, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_.argprom: %agg.result"}
-!17 = distinct !{!17, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_.argprom"}
-!18 = distinct !{!18, !19, !"_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.argprom: %agg.result"}
-!19 = distinct !{!19, !"_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.argprom"}
+!16 = distinct !{!16, !17, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_: %agg.result"}
+!17 = distinct !{!17, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_"}
+!18 = distinct !{!18, !19, !"_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_: %agg.result"}
+!19 = distinct !{!19, !"_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_"}
 !20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
 !22 = distinct !{!22, !21}
@@ -9285,8 +9285,8 @@ attributes #23 = { noreturn nounwind }
 !26 = distinct !{!26, !27, !"_ZNK5arrow10Decimal12815ToIntegerStringB5cxx11Ev: %agg.result"}
 !27 = distinct !{!27, !"_ZNK5arrow10Decimal12815ToIntegerStringB5cxx11Ev"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom: %agg.result"}
-!30 = distinct !{!30, !"_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom"}
+!29 = distinct !{!29, !30, !"_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_: %agg.result"}
+!30 = distinct !{!30, !"_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_"}
 !31 = !{!32, !29}
 !32 = distinct !{!32, !33, !"_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RPS2_RA8_S2_EEES0_DpOT_: %agg.result"}
 !33 = distinct !{!33, !"_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RPS2_RA8_S2_EEES0_DpOT_"}
@@ -9333,10 +9333,10 @@ attributes #23 = { noreturn nounwind }
 !74 = !{!75, !77, !79}
 !75 = distinct !{!75, !76, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_St26random_access_iterator_tag: %agg.result"}
 !76 = distinct !{!76, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_St26random_access_iterator_tag"}
-!77 = distinct !{!77, !78, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_.argprom: %agg.result"}
-!78 = distinct !{!78, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_.argprom"}
-!79 = distinct !{!79, !80, !"_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.argprom: %agg.result"}
-!80 = distinct !{!80, !"_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.argprom"}
+!77 = distinct !{!77, !78, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_: %agg.result"}
+!78 = distinct !{!78, !"_ZSt9__find_ifISt16reverse_iteratorIPKmEN9__gnu_cxx5__ops10_Iter_predIZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_EEET_SM_SM_T0_"}
+!79 = distinct !{!79, !80, !"_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_: %agg.result"}
+!80 = distinct !{!80, !"_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_"}
 !81 = distinct !{!81, !21}
 !82 = distinct !{!82, !21}
 !83 = distinct !{!83, !21}
@@ -9344,8 +9344,8 @@ attributes #23 = { noreturn nounwind }
 !85 = distinct !{!85, !86, !"_ZNK5arrow10Decimal25615ToIntegerStringB5cxx11Ev: %agg.result"}
 !86 = distinct !{!86, !"_ZNK5arrow10Decimal25615ToIntegerStringB5cxx11Ev"}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom: %agg.result"}
-!89 = distinct !{!89, !"_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_.argprom"}
+!88 = distinct !{!88, !89, !"_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_: %agg.result"}
+!89 = distinct !{!89, !"_ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17basic_string_viewIcSt11char_traitsIcEEPT_PiSC_"}
 !90 = !{!91, !88}
 !91 = distinct !{!91, !92, !"_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RPS2_RA8_S2_EEES0_DpOT_: %agg.result"}
 !92 = distinct !{!92, !"_ZN5arrow6Status7InvalidIJRA13_KcRSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RPS2_RA8_S2_EEES0_DpOT_"}

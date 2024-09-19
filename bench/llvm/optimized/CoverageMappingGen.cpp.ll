@@ -2295,17 +2295,17 @@ _ZN4llvm11raw_ostreamlsEPKc.exit120.i:            ; preds = %482, %480
   %486 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %186) #22
   %487 = load ptr, ptr %186, align 8
   %488 = icmp eq ptr %487, %187
-  br i1 %488, label %_ZL4dumpRN4llvm11raw_ostreamENS_9StringRefENS_8ArrayRefINS_8coverage17CounterExpressionEEENS3_INS4_20CounterMappingRegionEEE.argprom.exit, label %489
+  br i1 %488, label %_ZL4dumpRN4llvm11raw_ostreamENS_9StringRefENS_8ArrayRefINS_8coverage17CounterExpressionEEENS3_INS4_20CounterMappingRegionEEE.exit, label %489
 
 489:                                              ; preds = %._crit_edge.i
   call void @free(ptr noundef %487) #22
-  br label %_ZL4dumpRN4llvm11raw_ostreamENS_9StringRefENS_8ArrayRefINS_8coverage17CounterExpressionEEENS3_INS4_20CounterMappingRegionEEE.argprom.exit
+  br label %_ZL4dumpRN4llvm11raw_ostreamENS_9StringRefENS_8ArrayRefINS_8coverage17CounterExpressionEEENS3_INS4_20CounterMappingRegionEEE.exit
 
-_ZL4dumpRN4llvm11raw_ostreamENS_9StringRefENS_8ArrayRefINS_8coverage17CounterExpressionEEENS3_INS4_20CounterMappingRegionEEE.argprom.exit: ; preds = %._crit_edge.i, %489
+_ZL4dumpRN4llvm11raw_ostreamENS_9StringRefENS_8ArrayRefINS_8coverage17CounterExpressionEEENS3_INS4_20CounterMappingRegionEEE.exit: ; preds = %._crit_edge.i, %489
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8)
   br label %490
 
-490:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit.thread, %_ZL4dumpRN4llvm11raw_ostreamENS_9StringRefENS_8ArrayRefINS_8coverage17CounterExpressionEEENS3_INS4_20CounterMappingRegionEEE.argprom.exit
+490:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit.thread, %_ZL4dumpRN4llvm11raw_ostreamENS_9StringRefENS_8ArrayRefINS_8coverage17CounterExpressionEEENS3_INS4_20CounterMappingRegionEEE.exit
   %491 = load ptr, ptr %15, align 8
   %.not.i.i.i = icmp eq ptr %491, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm8coverage20CounterMappingRegionESaIS2_EED2Ev.exit, label %492
@@ -2898,15 +2898,15 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i13: ; pre
   %67 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferNameENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %.val.i12, i32 %.sroa.01.0.i.i.i14, ptr noundef null) #22
   %68 = extractvalue { ptr, i64 } %67, 1
   %.not.i.i.i15 = icmp eq i64 %68, 10
-  br i1 %.not.i.i.i15, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i16, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit21
+  br i1 %.not.i.i.i15, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i16, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit21
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i16: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i13
+_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i16: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i13
   %69 = extractvalue { ptr, i64 } %67, 0
   %bcmp.i.i.i17 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %69, ptr noundef nonnull dereferenceable(10) @.str.31, i64 10)
   %70 = icmp eq i32 %bcmp.i.i.i17, 0
   br i1 %70, label %.critedge.i18, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit21
 
-.critedge.i18:                                    ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i16, %60
+.critedge.i18:                                    ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i16, %60
   %71 = load ptr, ptr %23, align 8
   %72 = call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %71, i32 %.sroa.06.0.i11) #22
   %.fca.0.extract.i19 = extractvalue { i64, i8 } %72, 0
@@ -2914,7 +2914,7 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.
   %.pre = load ptr, ptr %23, align 8
   br label %60, !llvm.loop !56
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit21: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i13, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i16
+_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit21: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i13, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i16
   br i1 %64, label %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i, label %73
 
 73:                                               ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit21
@@ -2955,7 +2955,7 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread.i: 
   %89 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %77, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %53, %90
-  br i1 %91, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %91, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %81, %97
   %92 = phi ptr [ %104, %97 ], [ %90, %81 ]
@@ -2983,7 +2983,7 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread.i: 
   %103 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %77, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %53, %104
-  br i1 %105, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !57
+  br i1 %105, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i.i: ; preds = %95, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread.i
   %.sink.i.i.i.i.i.i = phi ptr [ %96, %95 ], [ null, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread.i ]
@@ -2992,9 +2992,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %107, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i32 0, ptr %108, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit.i
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit.i: ; preds = %97, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i.i, %81
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit.i: ; preds = %97, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i.i, %81
   %.0.i.i.i.i = phi ptr [ %106, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i.i ], [ %89, %81 ], [ %103, %97 ]
   %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   %110 = load i32, ptr %109, align 4
@@ -3008,15 +3008,15 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %.not.i = icmp eq i32 %113, 32
   br i1 %.not.i, label %114, label %118
 
-114:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit.i
+114:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit.i
   %115 = getelementptr inbounds i8, ptr %1, i64 82
   %116 = load i32, ptr %115, align 2
   %117 = and i32 %116, 512
   %.not43.i = icmp eq i32 %117, 0
   br label %118
 
-118:                                              ; preds = %114, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit.i
-  %.0.i = phi i1 [ %.not43.i, %114 ], [ true, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit.i ]
+118:                                              ; preds = %114, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit.i
+  %.0.i = phi i1 [ %.not43.i, %114 ], [ true, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit.i ]
   %119 = and i32 %112, 127
   %.not45.i = icmp eq i32 %119, 35
   br i1 %.not45.i, label %120, label %.loopexit.i
@@ -3067,22 +3067,22 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i: ; preds
   %143 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferNameENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %.val.i8, i32 %.sroa.01.0.i.i.i, ptr noundef null) #22
   %144 = extractvalue { ptr, i64 } %143, 1
   %.not.i.i.i9 = icmp eq i64 %144, 10
-  br i1 %.not.i.i.i9, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit
+  br i1 %.not.i.i.i9, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i
+_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i
   %145 = extractvalue { ptr, i64 } %143, 0
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %145, ptr noundef nonnull dereferenceable(10) @.str.31, i64 10)
   %146 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %146, label %.critedge.i10, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit
 
-.critedge.i10:                                    ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i, %136
+.critedge.i10:                                    ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i, %136
   %147 = load ptr, ptr %23, align 8
   %148 = call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %147, i32 %.sroa.06.0.i) #22
   %.fca.0.extract.i = extractvalue { i64, i8 } %148, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %.fca.0.extract.i to i32
   br label %136, !llvm.loop !56
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i
+_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i
   %.not47.i = icmp eq i32 %.sroa.06.0.i, 0
   br i1 %.not47.i, label %.critedge.i, label %149
 
@@ -3609,7 +3609,7 @@ _ZN12_GLOBAL__N_119MCDCCoverageBuilderD2Ev.exit.i: ; preds = %365, %_ZN4llvm8cov
 _ZN4llvm11SmallVectorIN12_GLOBAL__N_119SourceMappingRegionELj1EED2Ev.exit.i: ; preds = %374, %_ZN12_GLOBAL__N_119MCDCCoverageBuilderD2Ev.exit.i
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i1.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i1.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.argprom.exit.i.i, label %375
+  br i1 %.not.i.i.i.i1.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.exit.i.i, label %375
 
 375:                                              ; preds = %_ZN4llvm11SmallVectorIN12_GLOBAL__N_119SourceMappingRegionELj1EED2Ev.exit.i
   %376 = getelementptr inbounds i8, ptr %13, i64 1952
@@ -3618,19 +3618,19 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_119SourceMappingRegionELj1EED2Ev.exit.i: ; p
   %378 = ptrtoint ptr %.val.i.i to i64
   %379 = sub i64 %377, %378
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %379) #25
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.argprom.exit.i.i
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.exit.i.i
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.argprom.exit.i.i: ; preds = %375, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_119SourceMappingRegionELj1EED2Ev.exit.i
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.exit.i.i: ; preds = %375, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_119SourceMappingRegionELj1EED2Ev.exit.i
   %380 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #22
   %381 = load ptr, ptr %27, align 8
   %382 = icmp eq ptr %381, %28
   br i1 %382, label %_ZN4llvm11SmallVectorINS_8coverage20CounterMappingRegionELj32EED2Ev.exit.i.i, label %383
 
-383:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.argprom.exit.i.i
+383:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.exit.i.i
   call void @free(ptr noundef %381) #22
   br label %_ZN4llvm11SmallVectorINS_8coverage20CounterMappingRegionELj32EED2Ev.exit.i.i
 
-_ZN4llvm11SmallVectorINS_8coverage20CounterMappingRegionELj32EED2Ev.exit.i.i: ; preds = %383, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.argprom.exit.i.i
+_ZN4llvm11SmallVectorINS_8coverage20CounterMappingRegionELj32EED2Ev.exit.i.i: ; preds = %383, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.exit.i.i
   %384 = load i32, ptr %25, align 8
   %385 = and i32 %384, 1
   %.not.i.i.i.i = icmp eq i32 %385, 0
@@ -3720,22 +3720,22 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i: ; preds
   %37 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferNameENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %.val.i, i32 %.sroa.01.0.i.i.i5, ptr noundef null) #22
   %38 = extractvalue { ptr, i64 } %37, 1
   %.not.i.i.i = icmp eq i64 %38, 10
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i
+_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i
   %39 = extractvalue { ptr, i64 } %37, 0
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %39, ptr noundef nonnull dereferenceable(10) @.str.31, i64 10)
   %40 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %40, label %.critedge.i6, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit
 
-.critedge.i6:                                     ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i, %30
+.critedge.i6:                                     ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i, %30
   %41 = load ptr, ptr %13, align 8
   %42 = call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %41, i32 %.sroa.06.0.i) #22
   %.fca.0.extract.i = extractvalue { i64, i8 } %42, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %.fca.0.extract.i to i32
   br label %30, !llvm.loop !56
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.i
+_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE.exit: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.i
   %43 = call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder6getEndEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(1960) %7, ptr noundef %28)
   %44 = load ptr, ptr %13, align 8
   %45 = call noundef zeroext i1 @_ZNK5clang13SourceManager19isWrittenInSameFileENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %44, i32 %.sroa.06.0.i, i32 %43)
@@ -4053,13 +4053,13 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit50.i: ; preds = %_Z
   %186 = ptrtoint ptr %.val.i.i.i to i64
   %187 = sub i64 %185, %186
   %188 = icmp eq i64 %187, 9223372036854775800
-  br i1 %188, label %189, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  br i1 %188, label %189, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
 189:                                              ; preds = %184
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #24
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %184
+_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %184
   %190 = sdiv exact i64 %187, 52
   %191 = icmp eq ptr %172, %.val.i.i.i
   %.sroa.speculated.i.i.i.i = select i1 %191, i64 1, i64 %190
@@ -4089,35 +4089,35 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.a
   store i8 0, ptr %203, align 4
   %204 = getelementptr inbounds nuw i8, ptr %198, i64 49
   store i8 0, ptr %204, align 1
-  br i1 %191, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %191, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i = phi ptr [ %206, %.lr.ph.i.i.i.i.i.i ], [ %197, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ]
-  %.092.i.i.i.i.i.i = phi ptr [ %205, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i = phi ptr [ %206, %.lr.ph.i.i.i.i.i.i ], [ %197, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.092.i.i.i.i.i.i = phi ptr [ %205, %.lr.ph.i.i.i.i.i.i ], [ %.val.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(52) %.092.i.i.i.i.i.i, i64 52, i1 false), !alias.scope !74
   %205 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 52
   %206 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 52
   %.not.i.i.i.i.i.i = icmp eq ptr %205, %172
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !78
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !78
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %197, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %206, %.lr.ph.i.i.i.i.i.i ]
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %197, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %206, %.lr.ph.i.i.i.i.i.i ]
   %207 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 52
   %.not.i32.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i32.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i.i, label %208
+  br i1 %.not.i32.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %208
 
-208:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i.i
+208:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i, i64 noundef %187) #25
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i.i
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i.i: ; preds = %208, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i.i
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %208, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i.i
   store ptr %197, ptr %19, align 8
   store ptr %207, ptr %171, align 8
   %209 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %197, i64 %195
   store ptr %209, ptr %173, align 8
   br label %_ZN12_GLOBAL__N_127EmptyCoverageMappingBuilder9VisitDeclEPKN5clang4DeclE.exit
 
-_ZN12_GLOBAL__N_127EmptyCoverageMappingBuilder9VisitDeclEPKN5clang4DeclE.exit: ; preds = %_ZN12_GLOBAL__N_127EmptyCoverageMappingBuilderC2ERN5clang7CodeGen24CoverageMappingModuleGenERNS1_13SourceManagerERKNS1_11LangOptionsE.exit, %175, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i.i
+_ZN12_GLOBAL__N_127EmptyCoverageMappingBuilder9VisitDeclEPKN5clang4DeclE.exit: ; preds = %_ZN12_GLOBAL__N_127EmptyCoverageMappingBuilderC2ERN5clang7CodeGen24CoverageMappingModuleGenERNS1_13SourceManagerERKNS1_11LangOptionsE.exit, %175, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
@@ -4187,7 +4187,7 @@ _ZN12_GLOBAL__N_127EmptyCoverageMappingBuilder5writeERN4llvm11raw_ostreamE.exit:
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   %.val.i.i = load ptr, ptr %19, align 8
   %.not.i.i.i.i.i3 = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i3, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.argprom.exit.i.i, label %236
+  br i1 %.not.i.i.i.i.i3, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.exit.i.i, label %236
 
 236:                                              ; preds = %_ZN12_GLOBAL__N_127EmptyCoverageMappingBuilder5writeERN4llvm11raw_ostreamE.exit
   %237 = getelementptr inbounds i8, ptr %7, i64 1952
@@ -4196,19 +4196,19 @@ _ZN12_GLOBAL__N_127EmptyCoverageMappingBuilder5writeERN4llvm11raw_ostreamE.exit:
   %239 = ptrtoint ptr %.val.i.i to i64
   %240 = sub i64 %238, %239
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %240) #25
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.argprom.exit.i.i
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.exit.i.i
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.argprom.exit.i.i: ; preds = %236, %_ZN12_GLOBAL__N_127EmptyCoverageMappingBuilder5writeERN4llvm11raw_ostreamE.exit
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.exit.i.i: ; preds = %236, %_ZN12_GLOBAL__N_127EmptyCoverageMappingBuilder5writeERN4llvm11raw_ostreamE.exit
   %241 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #22
   %242 = load ptr, ptr %17, align 8
   %243 = icmp eq ptr %242, %18
   br i1 %243, label %_ZN4llvm11SmallVectorINS_8coverage20CounterMappingRegionELj32EED2Ev.exit.i.i, label %244
 
-244:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.argprom.exit.i.i
+244:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.exit.i.i
   call void @free(ptr noundef %242) #22
   br label %_ZN4llvm11SmallVectorINS_8coverage20CounterMappingRegionELj32EED2Ev.exit.i.i
 
-_ZN4llvm11SmallVectorINS_8coverage20CounterMappingRegionELj32EED2Ev.exit.i.i: ; preds = %244, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.argprom.exit.i.i
+_ZN4llvm11SmallVectorINS_8coverage20CounterMappingRegionELj32EED2Ev.exit.i.i: ; preds = %244, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EED2Ev.exit.i.i
   %245 = load i32, ptr %15, align 8
   %246 = and i32 %245, 1
   %.not.i.i.i.i4 = icmp eq i32 %246, 0
@@ -4997,22 +4997,22 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i: ; preds =
   %12 = tail call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferNameENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %.val, i32 %.sroa.01.0.i.i, ptr noundef null) #22
   %13 = extractvalue { ptr, i64 } %12, 1
   %.not.i.i = icmp eq i64 %13, 10
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.thread
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.thread
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i
+_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i
   %14 = extractvalue { ptr, i64 } %12, 0
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %14, ptr noundef nonnull dereferenceable(10) @.str.31, i64 10)
   %15 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %15, label %.critedge, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.thread
+  br i1 %15, label %.critedge, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.thread
 
-.critedge:                                        ; preds = %5, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit
+.critedge:                                        ; preds = %5, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit
   %16 = load ptr, ptr %4, align 8
   %17 = tail call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %16, i32 %.sroa.06.0) #22
   %.fca.0.extract = extractvalue { i64, i8 } %17, 0
   %.sroa.0.0.extract.trunc = trunc i64 %.fca.0.extract to i32
   br label %5, !llvm.loop !56
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.thread: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit
+_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.thread: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit
   ret i32 %.sroa.06.0
 }
 
@@ -5042,31 +5042,31 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i: ; preds =
   %12 = tail call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferNameENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %.val, i32 %.sroa.01.0.i.i, ptr noundef null) #22
   %13 = extractvalue { ptr, i64 } %12, 1
   %.not.i.i = icmp eq i64 %13, 10
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.thread
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.thread
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i
+_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i
   %14 = extractvalue { ptr, i64 } %12, 0
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %14, ptr noundef nonnull dereferenceable(10) @.str.31, i64 10)
   %15 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %15, label %.critedge, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.thread
+  br i1 %15, label %.critedge, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.thread
 
-.critedge:                                        ; preds = %5, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit
+.critedge:                                        ; preds = %5, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit
   %16 = load ptr, ptr %4, align 8
   %17 = tail call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %16, i32 %.sroa.06.0) #22
   %.fca.0.extract = extractvalue { i64, i8 } %17, 0
   %.sroa.0.0.extract.trunc = trunc i64 %.fca.0.extract to i32
   br label %5, !llvm.loop !81
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.thread: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit
+_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.thread: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit
   br i1 %9, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getPreciseTokenLocEndEN5clang14SourceLocationE.exit, label %18
 
-18:                                               ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.thread
+18:                                               ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.thread
   %19 = load ptr, ptr %4, align 8
   %20 = tail call i32 @_ZNK5clang13SourceManager22getSpellingLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %19, i32 %.sroa.06.0) #22
   br label %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getPreciseTokenLocEndEN5clang14SourceLocationE.exit
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder21getPreciseTokenLocEndEN5clang14SourceLocationE.exit: ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.thread, %18
-  %.sroa.01.0.i.i13 = phi i32 [ %20, %18 ], [ %.sroa.06.0, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.argprom.exit.thread ]
+_ZN12_GLOBAL__N_122CoverageMappingBuilder21getPreciseTokenLocEndEN5clang14SourceLocationE.exit: ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.thread, %18
+  %.sroa.01.0.i.i13 = phi i32 [ %20, %18 ], [ %.sroa.06.0, %_ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.exit.thread ]
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -8170,7 +8170,7 @@ select.unfold.i:                                  ; preds = %542, %_ZNK5clang13S
 _ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE.exit: ; preds = %select.unfold.i, %545
   %.sroa.012.0.insert.insert.i.neg = phi i32 [ 0, %select.unfold.i ], [ %.neg, %545 ]
   %548 = add i32 %.sroa.012.0.insert.insert.i.neg, %.sroa.0327.0
-  br label %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.argprom.exit
+  br label %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.exit
 
 549:                                              ; preds = %512
   br i1 %or.cond.i.i.i.i.i.i235, label %550, label %553
@@ -8239,19 +8239,19 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i83: ; preds = %_Z
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i: ; preds = %575, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i83
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  br label %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.argprom.exit
+  br label %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.exit
 
 578:                                              ; preds = %575
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %579 = load i32, ptr %576, align 8
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %579, i32 0)
-  br label %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.argprom.exit
+  br label %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.exit
 
-_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.argprom.exit: ; preds = %_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE.exit, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i, %578
+_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.exit: ; preds = %_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE.exit, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i, %578
   %.sroa.03.0.i = phi i32 [ %548, %_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE.exit ], [ 0, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i ], [ %spec.select.i.i, %578 ]
   br i1 %37, label %663, label %580
 
-580:                                              ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.argprom.exit
+580:                                              ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.exit
   %.val60 = load ptr, ptr %13, align 8
   %.val61 = load ptr, ptr %14, align 8
   %581 = ptrtoint ptr %.val61 to i64
@@ -8268,105 +8268,105 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14Source
   %588 = add i64 %587, %581
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i
-  %589 = phi ptr [ %625, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i ], [ %.val61, %.lr.ph.i.preheader.i.i.i.i.i.i ]
-  %.val15.i.i.i.i.i.i.i = phi i64 [ %628, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i ], [ %581, %.lr.ph.i.preheader.i.i.i.i.i.i ]
-  %.066.i.i.i.i.i.i.i = phi i64 [ %626, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i ], [ %585, %.lr.ph.i.preheader.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i
+  %589 = phi ptr [ %625, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %.val61, %.lr.ph.i.preheader.i.i.i.i.i.i ]
+  %.val15.i.i.i.i.i.i.i = phi i64 [ %628, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %581, %.lr.ph.i.preheader.i.i.i.i.i.i ]
+  %.066.i.i.i.i.i.i.i = phi i64 [ %626, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %585, %.lr.ph.i.preheader.i.i.i.i.i.i ]
   %590 = inttoptr i64 %.val15.i.i.i.i.i.i.i to ptr
   %591 = getelementptr inbounds i8, ptr %590, i64 -20
   %.val.i.i.i.i.i.i.i.i.i = load i32, ptr %591, align 4, !noalias !85
   %592 = icmp eq i32 %.val.i.i.i.i.i.i.i.i.i, %.sroa.03.0.i
-  br i1 %592, label %593, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i
+  br i1 %592, label %593, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i
 
 593:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %594 = getelementptr inbounds i8, ptr %590, i64 -12
   %.val5.i.i.i.i.i.i.i.i.i = load i32, ptr %594, align 4, !noalias !85
   %595 = icmp eq i32 %.val5.i.i.i.i.i.i.i.i.i, %.sroa.0327.0
-  br i1 %595, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i
+  br i1 %595, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i: ; preds = %593
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i: ; preds = %593
   %596 = getelementptr inbounds i8, ptr %590, i64 -36
   %.val4.i.i.i.i.i.i.i.i.i = load i8, ptr %596, align 4, !noalias !85
   %597 = trunc i8 %.val4.i.i.i.i.i.i.i.i.i to i1
-  br i1 %597, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br i1 %597, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i, %593, %.lr.ph.i.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i, %593, %.lr.ph.i.i.i.i.i.i.i
   %598 = getelementptr inbounds i8, ptr %589, i64 -72
   %.val.i.i27.i.i.i.i.i.i.i = load i32, ptr %598, align 4, !noalias !85
   %599 = icmp eq i32 %.val.i.i27.i.i.i.i.i.i.i, %.sroa.03.0.i
-  br i1 %599, label %600, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i
+  br i1 %599, label %600, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i
 
-600:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i
+600:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i
   %601 = getelementptr inbounds i8, ptr %589, i64 -64
   %.val5.i.i28.i.i.i.i.i.i.i = load i32, ptr %601, align 4, !noalias !85
   %602 = icmp eq i32 %.val5.i.i28.i.i.i.i.i.i.i, %.sroa.0327.0
-  br i1 %602, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i
+  br i1 %602, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i: ; preds = %600
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i: ; preds = %600
   %603 = getelementptr inbounds i8, ptr %589, i64 -88
   %.val4.i.i29.i.i.i.i.i.i.i = load i8, ptr %603, align 4, !noalias !85
   %604 = trunc i8 %.val4.i.i29.i.i.i.i.i.i.i to i1
-  br i1 %604, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i, label %605
+  br i1 %604, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i, label %605
 
-605:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i
+605:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i
   %606 = getelementptr inbounds i8, ptr %589, i64 -52
   %.val13.cast.le.i.i.i.i.i.i.i = ptrtoint ptr %606 to i64
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i, %600, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i, %600, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i
   %607 = getelementptr inbounds i8, ptr %589, i64 -124
   %.val.i.i31.i.i.i.i.i.i.i = load i32, ptr %607, align 4, !noalias !85
   %608 = icmp eq i32 %.val.i.i31.i.i.i.i.i.i.i, %.sroa.03.0.i
-  br i1 %608, label %609, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i
+  br i1 %608, label %609, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i
 
-609:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i
+609:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i
   %610 = getelementptr inbounds i8, ptr %589, i64 -116
   %.val5.i.i32.i.i.i.i.i.i.i = load i32, ptr %610, align 4, !noalias !85
   %611 = icmp eq i32 %.val5.i.i32.i.i.i.i.i.i.i, %.sroa.0327.0
-  br i1 %611, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i
+  br i1 %611, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i: ; preds = %609
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i: ; preds = %609
   %612 = getelementptr inbounds i8, ptr %589, i64 -140
   %.val4.i.i33.i.i.i.i.i.i.i = load i8, ptr %612, align 4, !noalias !85
   %613 = trunc i8 %.val4.i.i33.i.i.i.i.i.i.i to i1
-  br i1 %613, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i, label %614
+  br i1 %613, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i, label %614
 
-614:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i
+614:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i
   %615 = getelementptr inbounds i8, ptr %589, i64 -104
   %.val11.cast.le.i.i.i.i.i.i.i = ptrtoint ptr %615 to i64
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i, %609, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i, %609, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i
   %616 = getelementptr inbounds i8, ptr %589, i64 -176
   %.val.i.i35.i.i.i.i.i.i.i = load i32, ptr %616, align 4, !noalias !85
   %617 = icmp eq i32 %.val.i.i35.i.i.i.i.i.i.i, %.sroa.03.0.i
-  br i1 %617, label %618, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i
+  br i1 %617, label %618, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i
 
-618:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i
+618:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i
   %619 = getelementptr inbounds i8, ptr %589, i64 -168
   %.val5.i.i36.i.i.i.i.i.i.i = load i32, ptr %619, align 4, !noalias !85
   %620 = icmp eq i32 %.val5.i.i36.i.i.i.i.i.i.i, %.sroa.0327.0
-  br i1 %620, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i
+  br i1 %620, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i: ; preds = %618
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i: ; preds = %618
   %621 = getelementptr inbounds i8, ptr %589, i64 -192
   %.val4.i.i37.i.i.i.i.i.i.i = load i8, ptr %621, align 4, !noalias !85
   %622 = trunc i8 %.val4.i.i37.i.i.i.i.i.i.i to i1
-  br i1 %622, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i, label %623
+  br i1 %622, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i, label %623
 
-623:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i
+623:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i
   %624 = getelementptr inbounds i8, ptr %589, i64 -156
   %.val9.cast.le.i.i.i.i.i.i.i = ptrtoint ptr %624 to i64
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i, %618, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i, %618, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i
   %625 = getelementptr inbounds i8, ptr %589, i64 -208
   %626 = add nsw i64 %.066.i.i.i.i.i.i.i, -1
   %627 = icmp sgt i64 %.066.i.i.i.i.i.i.i, 1
   %628 = ptrtoint ptr %625 to i64
   br i1 %627, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !92
 
-._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i
+._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i
   %.pre92.i.i.i.i.i.i.i = sub i64 %588, %582
   br label %._crit_edge.i.i.i.i.i.i.i
 
@@ -8375,7 +8375,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder2
   %.val386.i.i.i.i.i.i.i = phi i64 [ %588, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %581, %580 ]
   %629 = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val61, %580 ]
   %630 = sdiv exact i64 %.pre-phi93.i.i.i.i.i.i.i, 52
-  switch i64 %630, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit [
+  switch i64 %630, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit [
     i64 3, label %631
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge87.i.i.i.i.i.i.i
@@ -8386,86 +8386,86 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder2
   %633 = getelementptr inbounds i8, ptr %632, i64 -20
   %.val.i.i39.i.i.i.i.i.i.i = load i32, ptr %633, align 4, !noalias !85
   %634 = icmp eq i32 %.val.i.i39.i.i.i.i.i.i.i, %.sroa.03.0.i
-  br i1 %634, label %635, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i
+  br i1 %634, label %635, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i
 
 635:                                              ; preds = %631
   %636 = getelementptr inbounds i8, ptr %632, i64 -12
   %.val5.i.i40.i.i.i.i.i.i.i = load i32, ptr %636, align 4, !noalias !85
   %637 = icmp eq i32 %.val5.i.i40.i.i.i.i.i.i.i, %.sroa.0327.0
-  br i1 %637, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i
+  br i1 %637, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i: ; preds = %635
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i: ; preds = %635
   %638 = getelementptr inbounds i8, ptr %632, i64 -36
   %.val4.i.i41.i.i.i.i.i.i.i = load i8, ptr %638, align 4, !noalias !85
   %639 = trunc i8 %.val4.i.i41.i.i.i.i.i.i.i to i1
-  br i1 %639, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br i1 %639, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i, %635, %631
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i, %635, %631
   %640 = getelementptr inbounds i8, ptr %629, i64 -52
   %641 = ptrtoint ptr %640 to i64
   br label %._crit_edge._crit_edge.i.i.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %642 = phi ptr [ %640, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i ], [ %629, %._crit_edge.i.i.i.i.i.i.i ]
-  %.val5.i.i.i.i.i.i.i = phi i64 [ %641, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i ], [ %.val386.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
+._crit_edge._crit_edge.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
+  %642 = phi ptr [ %640, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i ], [ %629, %._crit_edge.i.i.i.i.i.i.i ]
+  %.val5.i.i.i.i.i.i.i = phi i64 [ %641, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i ], [ %.val386.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %643 = inttoptr i64 %.val5.i.i.i.i.i.i.i to ptr
   %644 = getelementptr inbounds i8, ptr %643, i64 -20
   %.val.i.i43.i.i.i.i.i.i.i = load i32, ptr %644, align 4, !noalias !85
   %645 = icmp eq i32 %.val.i.i43.i.i.i.i.i.i.i, %.sroa.03.0.i
-  br i1 %645, label %646, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i
+  br i1 %645, label %646, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i
 
 646:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i.i
   %647 = getelementptr inbounds i8, ptr %643, i64 -12
   %.val5.i.i44.i.i.i.i.i.i.i = load i32, ptr %647, align 4, !noalias !85
   %648 = icmp eq i32 %.val5.i.i44.i.i.i.i.i.i.i, %.sroa.0327.0
-  br i1 %648, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i
+  br i1 %648, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i: ; preds = %646
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i: ; preds = %646
   %649 = getelementptr inbounds i8, ptr %643, i64 -36
   %.val4.i.i45.i.i.i.i.i.i.i = load i8, ptr %649, align 4, !noalias !85
   %650 = trunc i8 %.val4.i.i45.i.i.i.i.i.i.i to i1
-  br i1 %650, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br i1 %650, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i, %646, %._crit_edge._crit_edge.i.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i, %646, %._crit_edge._crit_edge.i.i.i.i.i.i.i
   %651 = getelementptr inbounds i8, ptr %642, i64 -52
   %652 = ptrtoint ptr %651 to i64
   br label %._crit_edge._crit_edge87.i.i.i.i.i.i.i
 
-._crit_edge._crit_edge87.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %.val3.i.i.i.i.i.i.i = phi i64 [ %652, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i ], [ %.val386.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
+._crit_edge._crit_edge87.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
+  %.val3.i.i.i.i.i.i.i = phi i64 [ %652, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i ], [ %.val386.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %653 = inttoptr i64 %.val3.i.i.i.i.i.i.i to ptr
   %654 = getelementptr inbounds i8, ptr %653, i64 -20
   %.val.i.i47.i.i.i.i.i.i.i = load i32, ptr %654, align 4, !noalias !85
   %655 = icmp eq i32 %.val.i.i47.i.i.i.i.i.i.i, %.sroa.03.0.i
-  br i1 %655, label %656, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i
+  br i1 %655, label %656, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i
 
 656:                                              ; preds = %._crit_edge._crit_edge87.i.i.i.i.i.i.i
   %657 = getelementptr inbounds i8, ptr %653, i64 -12
   %.val5.i.i48.i.i.i.i.i.i.i = load i32, ptr %657, align 4, !noalias !85
   %658 = icmp eq i32 %.val5.i.i48.i.i.i.i.i.i.i, %.sroa.0327.0
-  br i1 %658, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i
+  br i1 %658, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i: ; preds = %656
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i: ; preds = %656
   %659 = getelementptr inbounds i8, ptr %653, i64 -36
   %.val4.i.i49.i.i.i.i.i.i.i = load i8, ptr %659, align 4, !noalias !85
   %660 = trunc i8 %.val4.i.i49.i.i.i.i.i.i.i to i1
-  br i1 %660, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br i1 %660, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i, %656, %._crit_edge._crit_edge87.i.i.i.i.i.i.i
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i, %656, %._crit_edge._crit_edge87.i.i.i.i.i.i.i
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i, %605, %614, %623, %._crit_edge.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i
-  %.val.sink.i.i.i.i.i.i.i = phi i64 [ %.val9.cast.le.i.i.i.i.i.i.i, %623 ], [ %.val11.cast.le.i.i.i.i.i.i.i, %614 ], [ %.val13.cast.le.i.i.i.i.i.i.i, %605 ], [ %.val386.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i ], [ %.val5.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i ], [ %.val3.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i ], [ %582, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i ], [ %582, %._crit_edge.i.i.i.i.i.i.i ], [ %.val15.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i ]
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i, %605, %614, %623, %._crit_edge.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i
+  %.val.sink.i.i.i.i.i.i.i = phi i64 [ %.val9.cast.le.i.i.i.i.i.i.i, %623 ], [ %.val11.cast.le.i.i.i.i.i.i.i, %614 ], [ %.val13.cast.le.i.i.i.i.i.i.i, %605 ], [ %.val386.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i ], [ %.val5.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i ], [ %.val3.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i ], [ %582, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i ], [ %582, %._crit_edge.i.i.i.i.i.i.i ], [ %.val15.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i ]
   %661 = inttoptr i64 %.val.sink.i.i.i.i.i.i.i to ptr
   %.not359 = icmp eq ptr %.val60, %661
   br i1 %.not359, label %662, label %663
 
-662:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+662:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
   %.val64 = load i64, ptr %21, align 4
-  call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEERS1_DpOT_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 %.val64, i32 %.sroa.03.0.i, i32 %.sroa.0327.0)
+  call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 %.val64, i32 %.sroa.03.0.i, i32 %.sroa.0327.0)
   br label %663
 
-663:                                              ; preds = %662, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit, %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.argprom.exit
+663:                                              ; preds = %662, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit, %_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.exit
   %664 = load ptr, ptr %12, align 8
   br i1 %513, label %700, label %665
 
@@ -8613,105 +8613,105 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder21getPreciseTokenLocEndEN5clang14Source
   %725 = add i64 %724, %718
   br label %.lr.ph.i.i.i.i.i.i.i124
 
-.lr.ph.i.i.i.i.i.i.i124:                          ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i134, %.lr.ph.i.preheader.i.i.i.i.i.i122
-  %726 = phi ptr [ %762, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i134 ], [ %.val63, %.lr.ph.i.preheader.i.i.i.i.i.i122 ]
-  %.val15.i.i.i.i.i.i.i125 = phi i64 [ %765, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i134 ], [ %718, %.lr.ph.i.preheader.i.i.i.i.i.i122 ]
-  %.066.i.i.i.i.i.i.i126 = phi i64 [ %763, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i134 ], [ %722, %.lr.ph.i.preheader.i.i.i.i.i.i122 ]
+.lr.ph.i.i.i.i.i.i.i124:                          ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i134, %.lr.ph.i.preheader.i.i.i.i.i.i122
+  %726 = phi ptr [ %762, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i134 ], [ %.val63, %.lr.ph.i.preheader.i.i.i.i.i.i122 ]
+  %.val15.i.i.i.i.i.i.i125 = phi i64 [ %765, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i134 ], [ %718, %.lr.ph.i.preheader.i.i.i.i.i.i122 ]
+  %.066.i.i.i.i.i.i.i126 = phi i64 [ %763, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i134 ], [ %722, %.lr.ph.i.preheader.i.i.i.i.i.i122 ]
   %727 = inttoptr i64 %.val15.i.i.i.i.i.i.i125 to ptr
   %728 = getelementptr inbounds i8, ptr %727, i64 -20
   %.val.i.i.i.i.i.i.i.i.i127 = load i32, ptr %728, align 4, !noalias !94
   %729 = icmp eq i32 %.val.i.i.i.i.i.i.i.i.i127, %.sroa.0339.0.ph
-  br i1 %729, label %730, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i128
+  br i1 %729, label %730, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i128
 
 730:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i124
   %731 = getelementptr inbounds i8, ptr %727, i64 -12
   %.val5.i.i.i.i.i.i.i.i.i149 = load i32, ptr %731, align 4, !noalias !94
   %732 = icmp eq i32 %.val5.i.i.i.i.i.i.i.i.i149, %716
-  br i1 %732, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i150, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i128
+  br i1 %732, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i150, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i128
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i150: ; preds = %730
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i150: ; preds = %730
   %733 = getelementptr inbounds i8, ptr %727, i64 -36
   %.val4.i.i.i.i.i.i.i.i.i151 = load i8, ptr %733, align 4, !noalias !94
   %734 = trunc i8 %.val4.i.i.i.i.i.i.i.i.i151 to i1
-  br i1 %734, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i128, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152
+  br i1 %734, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i128, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i128: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i150, %730, %.lr.ph.i.i.i.i.i.i.i124
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i128: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i150, %730, %.lr.ph.i.i.i.i.i.i.i124
   %735 = getelementptr inbounds i8, ptr %726, i64 -72
   %.val.i.i27.i.i.i.i.i.i.i129 = load i32, ptr %735, align 4, !noalias !94
   %736 = icmp eq i32 %.val.i.i27.i.i.i.i.i.i.i129, %.sroa.0339.0.ph
-  br i1 %736, label %737, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i130
+  br i1 %736, label %737, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i130
 
-737:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i128
+737:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i128
   %738 = getelementptr inbounds i8, ptr %726, i64 -64
   %.val5.i.i28.i.i.i.i.i.i.i145 = load i32, ptr %738, align 4, !noalias !94
   %739 = icmp eq i32 %.val5.i.i28.i.i.i.i.i.i.i145, %716
-  br i1 %739, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i146, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i130
+  br i1 %739, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i146, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i130
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i146: ; preds = %737
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i146: ; preds = %737
   %740 = getelementptr inbounds i8, ptr %726, i64 -88
   %.val4.i.i29.i.i.i.i.i.i.i147 = load i8, ptr %740, align 4, !noalias !94
   %741 = trunc i8 %.val4.i.i29.i.i.i.i.i.i.i147 to i1
-  br i1 %741, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i130, label %742
+  br i1 %741, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i130, label %742
 
-742:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i146
+742:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i146
   %743 = getelementptr inbounds i8, ptr %726, i64 -52
   %.val13.cast.le.i.i.i.i.i.i.i148 = ptrtoint ptr %743 to i64
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i130: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i146, %737, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i128
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i130: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i146, %737, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i128
   %744 = getelementptr inbounds i8, ptr %726, i64 -124
   %.val.i.i31.i.i.i.i.i.i.i131 = load i32, ptr %744, align 4, !noalias !94
   %745 = icmp eq i32 %.val.i.i31.i.i.i.i.i.i.i131, %.sroa.0339.0.ph
-  br i1 %745, label %746, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i132
+  br i1 %745, label %746, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i132
 
-746:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i130
+746:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i130
   %747 = getelementptr inbounds i8, ptr %726, i64 -116
   %.val5.i.i32.i.i.i.i.i.i.i141 = load i32, ptr %747, align 4, !noalias !94
   %748 = icmp eq i32 %.val5.i.i32.i.i.i.i.i.i.i141, %716
-  br i1 %748, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i142, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i132
+  br i1 %748, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i142, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i132
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i142: ; preds = %746
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i142: ; preds = %746
   %749 = getelementptr inbounds i8, ptr %726, i64 -140
   %.val4.i.i33.i.i.i.i.i.i.i143 = load i8, ptr %749, align 4, !noalias !94
   %750 = trunc i8 %.val4.i.i33.i.i.i.i.i.i.i143 to i1
-  br i1 %750, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i132, label %751
+  br i1 %750, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i132, label %751
 
-751:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i142
+751:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i142
   %752 = getelementptr inbounds i8, ptr %726, i64 -104
   %.val11.cast.le.i.i.i.i.i.i.i144 = ptrtoint ptr %752 to i64
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i132: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i142, %746, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i130
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i132: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i142, %746, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i130
   %753 = getelementptr inbounds i8, ptr %726, i64 -176
   %.val.i.i35.i.i.i.i.i.i.i133 = load i32, ptr %753, align 4, !noalias !94
   %754 = icmp eq i32 %.val.i.i35.i.i.i.i.i.i.i133, %.sroa.0339.0.ph
-  br i1 %754, label %755, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i134
+  br i1 %754, label %755, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i134
 
-755:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i132
+755:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i132
   %756 = getelementptr inbounds i8, ptr %726, i64 -168
   %.val5.i.i36.i.i.i.i.i.i.i137 = load i32, ptr %756, align 4, !noalias !94
   %757 = icmp eq i32 %.val5.i.i36.i.i.i.i.i.i.i137, %716
-  br i1 %757, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i138, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i134
+  br i1 %757, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i138, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i134
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i138: ; preds = %755
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i138: ; preds = %755
   %758 = getelementptr inbounds i8, ptr %726, i64 -192
   %.val4.i.i37.i.i.i.i.i.i.i139 = load i8, ptr %758, align 4, !noalias !94
   %759 = trunc i8 %.val4.i.i37.i.i.i.i.i.i.i139 to i1
-  br i1 %759, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i134, label %760
+  br i1 %759, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i134, label %760
 
-760:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i138
+760:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i138
   %761 = getelementptr inbounds i8, ptr %726, i64 -156
   %.val9.cast.le.i.i.i.i.i.i.i140 = ptrtoint ptr %761 to i64
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i134: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i138, %755, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i132
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i134: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i138, %755, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i132
   %762 = getelementptr inbounds i8, ptr %726, i64 -208
   %763 = add nsw i64 %.066.i.i.i.i.i.i.i126, -1
   %764 = icmp sgt i64 %.066.i.i.i.i.i.i.i126, 1
   %765 = ptrtoint ptr %762 to i64
   br i1 %764, label %.lr.ph.i.i.i.i.i.i.i124, label %._crit_edge.loopexit.i.i.i.i.i.i.i135, !llvm.loop !92
 
-._crit_edge.loopexit.i.i.i.i.i.i.i135:            ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i134
+._crit_edge.loopexit.i.i.i.i.i.i.i135:            ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i134
   %.pre92.i.i.i.i.i.i.i136 = sub i64 %725, %719
   br label %._crit_edge.i.i.i.i.i.i.i99
 
@@ -8720,7 +8720,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder2
   %.val386.i.i.i.i.i.i.i101 = phi i64 [ %725, %._crit_edge.loopexit.i.i.i.i.i.i.i135 ], [ %718, %717 ]
   %766 = phi ptr [ %scevgep.i.i.i.i.i.i123, %._crit_edge.loopexit.i.i.i.i.i.i.i135 ], [ %.val63, %717 ]
   %767 = sdiv exact i64 %.pre-phi93.i.i.i.i.i.i.i100, 52
-  switch i64 %767, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152 [
+  switch i64 %767, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152 [
     i64 3, label %768
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.i110
     i64 1, label %._crit_edge._crit_edge87.i.i.i.i.i.i.i102
@@ -8731,86 +8731,86 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder2
   %770 = getelementptr inbounds i8, ptr %769, i64 -20
   %.val.i.i39.i.i.i.i.i.i.i117 = load i32, ptr %770, align 4, !noalias !94
   %771 = icmp eq i32 %.val.i.i39.i.i.i.i.i.i.i117, %.sroa.0339.0.ph
-  br i1 %771, label %772, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i118
+  br i1 %771, label %772, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i118
 
 772:                                              ; preds = %768
   %773 = getelementptr inbounds i8, ptr %769, i64 -12
   %.val5.i.i40.i.i.i.i.i.i.i119 = load i32, ptr %773, align 4, !noalias !94
   %774 = icmp eq i32 %.val5.i.i40.i.i.i.i.i.i.i119, %716
-  br i1 %774, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i120, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i118
+  br i1 %774, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i120, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i118
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i120: ; preds = %772
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i120: ; preds = %772
   %775 = getelementptr inbounds i8, ptr %769, i64 -36
   %.val4.i.i41.i.i.i.i.i.i.i121 = load i8, ptr %775, align 4, !noalias !94
   %776 = trunc i8 %.val4.i.i41.i.i.i.i.i.i.i121 to i1
-  br i1 %776, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i118, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152
+  br i1 %776, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i118, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i118: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i120, %772, %768
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i118: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i120, %772, %768
   %777 = getelementptr inbounds i8, ptr %766, i64 -52
   %778 = ptrtoint ptr %777 to i64
   br label %._crit_edge._crit_edge.i.i.i.i.i.i.i110
 
-._crit_edge._crit_edge.i.i.i.i.i.i.i110:          ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i118, %._crit_edge.i.i.i.i.i.i.i99
-  %779 = phi ptr [ %777, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i118 ], [ %766, %._crit_edge.i.i.i.i.i.i.i99 ]
-  %.val5.i.i.i.i.i.i.i111 = phi i64 [ %778, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i118 ], [ %.val386.i.i.i.i.i.i.i101, %._crit_edge.i.i.i.i.i.i.i99 ]
+._crit_edge._crit_edge.i.i.i.i.i.i.i110:          ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i118, %._crit_edge.i.i.i.i.i.i.i99
+  %779 = phi ptr [ %777, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i118 ], [ %766, %._crit_edge.i.i.i.i.i.i.i99 ]
+  %.val5.i.i.i.i.i.i.i111 = phi i64 [ %778, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i118 ], [ %.val386.i.i.i.i.i.i.i101, %._crit_edge.i.i.i.i.i.i.i99 ]
   %780 = inttoptr i64 %.val5.i.i.i.i.i.i.i111 to ptr
   %781 = getelementptr inbounds i8, ptr %780, i64 -20
   %.val.i.i43.i.i.i.i.i.i.i112 = load i32, ptr %781, align 4, !noalias !94
   %782 = icmp eq i32 %.val.i.i43.i.i.i.i.i.i.i112, %.sroa.0339.0.ph
-  br i1 %782, label %783, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i113
+  br i1 %782, label %783, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i113
 
 783:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i.i110
   %784 = getelementptr inbounds i8, ptr %780, i64 -12
   %.val5.i.i44.i.i.i.i.i.i.i114 = load i32, ptr %784, align 4, !noalias !94
   %785 = icmp eq i32 %.val5.i.i44.i.i.i.i.i.i.i114, %716
-  br i1 %785, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i115, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i113
+  br i1 %785, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i115, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i113
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i115: ; preds = %783
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i115: ; preds = %783
   %786 = getelementptr inbounds i8, ptr %780, i64 -36
   %.val4.i.i45.i.i.i.i.i.i.i116 = load i8, ptr %786, align 4, !noalias !94
   %787 = trunc i8 %.val4.i.i45.i.i.i.i.i.i.i116 to i1
-  br i1 %787, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i113, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152
+  br i1 %787, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i113, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i113: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i115, %783, %._crit_edge._crit_edge.i.i.i.i.i.i.i110
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i113: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i115, %783, %._crit_edge._crit_edge.i.i.i.i.i.i.i110
   %788 = getelementptr inbounds i8, ptr %779, i64 -52
   %789 = ptrtoint ptr %788 to i64
   br label %._crit_edge._crit_edge87.i.i.i.i.i.i.i102
 
-._crit_edge._crit_edge87.i.i.i.i.i.i.i102:        ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i113, %._crit_edge.i.i.i.i.i.i.i99
-  %.val3.i.i.i.i.i.i.i103 = phi i64 [ %789, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i113 ], [ %.val386.i.i.i.i.i.i.i101, %._crit_edge.i.i.i.i.i.i.i99 ]
+._crit_edge._crit_edge87.i.i.i.i.i.i.i102:        ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i113, %._crit_edge.i.i.i.i.i.i.i99
+  %.val3.i.i.i.i.i.i.i103 = phi i64 [ %789, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i113 ], [ %.val386.i.i.i.i.i.i.i101, %._crit_edge.i.i.i.i.i.i.i99 ]
   %790 = inttoptr i64 %.val3.i.i.i.i.i.i.i103 to ptr
   %791 = getelementptr inbounds i8, ptr %790, i64 -20
   %.val.i.i47.i.i.i.i.i.i.i104 = load i32, ptr %791, align 4, !noalias !94
   %792 = icmp eq i32 %.val.i.i47.i.i.i.i.i.i.i104, %.sroa.0339.0.ph
-  br i1 %792, label %793, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i105
+  br i1 %792, label %793, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i105
 
 793:                                              ; preds = %._crit_edge._crit_edge87.i.i.i.i.i.i.i102
   %794 = getelementptr inbounds i8, ptr %790, i64 -12
   %.val5.i.i48.i.i.i.i.i.i.i107 = load i32, ptr %794, align 4, !noalias !94
   %795 = icmp eq i32 %.val5.i.i48.i.i.i.i.i.i.i107, %716
-  br i1 %795, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i108, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i105
+  br i1 %795, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i108, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i105
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i108: ; preds = %793
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i108: ; preds = %793
   %796 = getelementptr inbounds i8, ptr %790, i64 -36
   %.val4.i.i49.i.i.i.i.i.i.i109 = load i8, ptr %796, align 4, !noalias !94
   %797 = trunc i8 %.val4.i.i49.i.i.i.i.i.i.i109 to i1
-  br i1 %797, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i105, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152
+  br i1 %797, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i105, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i105: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i108, %793, %._crit_edge._crit_edge87.i.i.i.i.i.i.i102
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i105: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i108, %793, %._crit_edge._crit_edge87.i.i.i.i.i.i.i102
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i150, %742, %751, %760, %._crit_edge.i.i.i.i.i.i.i99, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i120, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i115, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i108, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i105
-  %.val.sink.i.i.i.i.i.i.i106 = phi i64 [ %.val9.cast.le.i.i.i.i.i.i.i140, %760 ], [ %.val11.cast.le.i.i.i.i.i.i.i144, %751 ], [ %.val13.cast.le.i.i.i.i.i.i.i148, %742 ], [ %.val386.i.i.i.i.i.i.i101, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i120 ], [ %.val5.i.i.i.i.i.i.i111, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i115 ], [ %.val3.i.i.i.i.i.i.i103, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i108 ], [ %719, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i105 ], [ %719, %._crit_edge.i.i.i.i.i.i.i99 ], [ %.val15.i.i.i.i.i.i.i125, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i150 ]
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i150, %742, %751, %760, %._crit_edge.i.i.i.i.i.i.i99, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i120, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i115, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i108, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i105
+  %.val.sink.i.i.i.i.i.i.i106 = phi i64 [ %.val9.cast.le.i.i.i.i.i.i.i140, %760 ], [ %.val11.cast.le.i.i.i.i.i.i.i144, %751 ], [ %.val13.cast.le.i.i.i.i.i.i.i148, %742 ], [ %.val386.i.i.i.i.i.i.i101, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i120 ], [ %.val5.i.i.i.i.i.i.i111, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i115 ], [ %.val3.i.i.i.i.i.i.i103, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i108 ], [ %719, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i105 ], [ %719, %._crit_edge.i.i.i.i.i.i.i99 ], [ %.val15.i.i.i.i.i.i.i125, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i150 ]
   %798 = inttoptr i64 %.val.sink.i.i.i.i.i.i.i106 to ptr
   %.not360 = icmp eq ptr %.val62, %798
   br i1 %.not360, label %799, label %800
 
-799:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152
+799:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152
   %.val67 = load i64, ptr %21, align 4
-  call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEERS1_DpOT_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 %.val67, i32 %.sroa.0339.0.ph, i32 %716)
+  call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 %.val67, i32 %.sroa.0339.0.ph, i32 %716)
   br label %800
 
-800:                                              ; preds = %799, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit152, %715
+800:                                              ; preds = %799, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit152, %715
   %801 = icmp slt i32 %.sroa.0339.0.ph, 0
   %802 = load ptr, ptr %12, align 8
   br i1 %801, label %838, label %803
@@ -8945,7 +8945,7 @@ _ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit: 
 851:                                              ; preds = %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit
   store i32 %.sroa.0327.0, ptr %16, align 8
   %.val52 = load ptr, ptr %12, align 8
-  %852 = call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.argprom(ptr %.val52, i32 %.sroa.0339.0.ph)
+  %852 = call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE(ptr %.val52, i32 %.sroa.0339.0.ph)
   %853 = icmp eq i32 %.sroa.0339.0.ph, %852
   br i1 %853, label %854, label %.critedge
 
@@ -8978,13 +8978,13 @@ _ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit: 
   %866 = ptrtoint ptr %.val.i.i173 to i64
   %867 = sub i64 %865, %866
   %868 = icmp eq i64 %867, 9223372036854775800
-  br i1 %868, label %869, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %868, label %869, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 869:                                              ; preds = %864
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #24
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %864
+_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %864
   %870 = sdiv exact i64 %867, 52
   %871 = icmp eq ptr %859, %.val.i.i173
   %.sroa.speculated.i.i.i = select i1 %871, i64 1, i64 %870
@@ -8998,28 +8998,28 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.a
   %877 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %876) #23
   %878 = getelementptr inbounds i8, ptr %877, i64 %867
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %878, ptr noundef nonnull readonly align 4 dereferenceable(52) %21, i64 52, i1 false)
-  br i1 %871, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %871, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.03.i.i.i.i.i = phi ptr [ %880, %.lr.ph.i.i.i.i.i ], [ %877, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
-  %.092.i.i.i.i.i = phi ptr [ %879, %.lr.ph.i.i.i.i.i ], [ %.val.i.i173, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
+  %.03.i.i.i.i.i = phi ptr [ %880, %.lr.ph.i.i.i.i.i ], [ %877, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.092.i.i.i.i.i = phi ptr [ %879, %.lr.ph.i.i.i.i.i ], [ %.val.i.i173, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.03.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(52) %.092.i.i.i.i.i, i64 52, i1 false), !alias.scope !101
   %879 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 52
   %880 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 52
   %.not.i.i.i.i.i = icmp eq ptr %879, %859
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !78
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !78
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %877, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ], [ %880, %.lr.ph.i.i.i.i.i ]
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %877, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %880, %.lr.ph.i.i.i.i.i ]
   %881 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 52
   %.not.i27.i.i = icmp eq ptr %.val.i.i173, null
   br i1 %.not.i27.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %882
 
-882:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i
+882:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i173, i64 noundef %867) #25
   br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %882, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit26.i.i
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %882, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i
   store ptr %877, ptr %13, align 8
   store ptr %881, ptr %14, align 8
   %883 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %877, i64 %875
@@ -9274,7 +9274,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %111 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %99, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %1, %112
-  br i1 %113, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %113, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %103, %119
   %114 = phi ptr [ %126, %119 ], [ %112, %103 ]
@@ -9302,7 +9302,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %125 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %99, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %1, %126
-  br i1 %127, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %127, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %117, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit43
   %.sink.i.i.i.i.i = phi ptr [ %118, %117 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit43 ]
@@ -9311,9 +9311,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %129, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i32 0, ptr %130, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %119, %103, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %119, %103, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %128, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %111, %103 ], [ %125, %119 ]
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %132 = load i32, ptr %131, align 4
@@ -9339,7 +9339,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i57, label %145
 
-145:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+145:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
   %146 = ptrtoint ptr %1 to i64
   %147 = trunc i64 %146 to i32
   %148 = lshr i32 %147, 4
@@ -9351,7 +9351,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %153 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %141, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %1, %154
-  br i1 %155, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit59, label %.lr.ph.i.i.i.i.i45
+  br i1 %155, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit59, label %.lr.ph.i.i.i.i.i45
 
 .lr.ph.i.i.i.i.i45:                               ; preds = %145, %161
   %156 = phi ptr [ %168, %161 ], [ %154, %145 ]
@@ -9379,10 +9379,10 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %167 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %141, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %1, %168
-  br i1 %169, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit59, label %.lr.ph.i.i.i.i.i45, !llvm.loop !57
+  br i1 %169, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit59, label %.lr.ph.i.i.i.i.i45, !llvm.loop !57
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i57: ; preds = %159, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
-  %.sink.i.i.i.i.i58 = phi ptr [ %160, %159 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i57: ; preds = %159, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
+  %.sink.i.i.i.i.i58 = phi ptr [ %160, %159 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit ]
   %170 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %.val34, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i.i58)
   %171 = load ptr, ptr %4, align 8
   store ptr %171, ptr %170, align 8
@@ -9391,9 +9391,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   %.val.pre = load ptr, ptr %98, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val.pre, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit59
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit59
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit59: ; preds = %161, %145, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i57
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit59: ; preds = %161, %145, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i57
   %173 = phi i32 [ %.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i57 ], [ %143, %145 ], [ %143, %161 ]
   %.val = phi ptr [ %.val.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i57 ], [ %.val34, %145 ], [ %.val34, %161 ]
   %.0.i.i.i52 = phi ptr [ %170, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i57 ], [ %153, %145 ], [ %167, %161 ]
@@ -9410,7 +9410,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %178 = icmp eq i32 %173, 0
   br i1 %178, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i73, label %179
 
-179:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit59
+179:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit59
   %180 = ptrtoint ptr %176 to i64
   %181 = trunc i64 %180 to i32
   %182 = lshr i32 %181, 4
@@ -9422,7 +9422,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %187 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %177, i64 %186
   %188 = load ptr, ptr %187, align 8
   %189 = icmp eq ptr %176, %188
-  br i1 %189, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit75, label %.lr.ph.i.i.i.i.i61
+  br i1 %189, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit75, label %.lr.ph.i.i.i.i.i61
 
 .lr.ph.i.i.i.i.i61:                               ; preds = %179, %195
   %190 = phi ptr [ %202, %195 ], [ %188, %179 ]
@@ -9450,18 +9450,18 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %201 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %177, i64 %200
   %202 = load ptr, ptr %201, align 8
   %203 = icmp eq ptr %176, %202
-  br i1 %203, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit75, label %.lr.ph.i.i.i.i.i61, !llvm.loop !57
+  br i1 %203, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit75, label %.lr.ph.i.i.i.i.i61, !llvm.loop !57
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i73: ; preds = %193, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit59
-  %.sink.i.i.i.i.i74 = phi ptr [ %194, %193 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit59 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i73: ; preds = %193, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit59
+  %.sink.i.i.i.i.i74 = phi ptr [ %194, %193 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit59 ]
   %204 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %.val, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i.i74)
   %205 = load ptr, ptr %3, align 8
   store ptr %205, ptr %204, align 8
   %206 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i32 0, ptr %206, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit75
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit75
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit75: ; preds = %195, %179, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i73
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit75: ; preds = %195, %179, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i73
   %.0.i.i.i68 = phi ptr [ %204, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i73 ], [ %187, %179 ], [ %201, %195 ]
   %207 = getelementptr inbounds nuw i8, ptr %.0.i.i.i68, i64 8
   %208 = load i32, ptr %207, align 4
@@ -9475,7 +9475,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %211 = trunc i8 %210 to i1
   br i1 %211, label %218, label %212
 
-212:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit75
+212:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit75
   %213 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %.val.i.i.i76, i64 %209
   %214 = getelementptr inbounds i8, ptr %213, i64 -52
   %.sroa.08.0.copyload = load i64, ptr %214, align 4
@@ -9486,8 +9486,8 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %.pre107 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   br label %218
 
-218:                                              ; preds = %212, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit75
-  %219 = phi i8 [ %.pre107, %212 ], [ %210, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit75 ]
+218:                                              ; preds = %212, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit75
+  %219 = phi i8 [ %.pre107, %212 ], [ %210, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit75 ]
   %220 = trunc i8 %219 to i1
   br i1 %220, label %225, label %221
 
@@ -9698,7 +9698,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %112 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %100, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %1, %113
-  br i1 %114, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %114, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %104, %120
   %115 = phi ptr [ %127, %120 ], [ %113, %104 ]
@@ -9726,7 +9726,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %126 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %100, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %1, %127
-  br i1 %128, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %128, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %118, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit45
   %.sink.i.i.i.i.i = phi ptr [ %119, %118 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit45 ]
@@ -9735,9 +9735,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %130, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i32 0, ptr %131, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %120, %104, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %120, %104, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %129, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %112, %104 ], [ %126, %120 ]
   %132 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %133 = load i32, ptr %132, align 4
@@ -9763,7 +9763,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i59, label %146
 
-146:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+146:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
   %147 = ptrtoint ptr %1 to i64
   %148 = trunc i64 %147 to i32
   %149 = lshr i32 %148, 4
@@ -9775,7 +9775,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %154 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %142, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = icmp eq ptr %1, %155
-  br i1 %156, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit61, label %.lr.ph.i.i.i.i.i47
+  br i1 %156, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit61, label %.lr.ph.i.i.i.i.i47
 
 .lr.ph.i.i.i.i.i47:                               ; preds = %146, %162
   %157 = phi ptr [ %169, %162 ], [ %155, %146 ]
@@ -9803,10 +9803,10 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %168 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %142, i64 %167
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %1, %169
-  br i1 %170, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit61, label %.lr.ph.i.i.i.i.i47, !llvm.loop !57
+  br i1 %170, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit61, label %.lr.ph.i.i.i.i.i47, !llvm.loop !57
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i59: ; preds = %160, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
-  %.sink.i.i.i.i.i60 = phi ptr [ %161, %160 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i59: ; preds = %160, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
+  %.sink.i.i.i.i.i60 = phi ptr [ %161, %160 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit ]
   %171 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %.val35, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i.i.i60)
   %172 = load ptr, ptr %5, align 8
   store ptr %172, ptr %171, align 8
@@ -9815,9 +9815,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   %.val.pre = load ptr, ptr %99, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val.pre, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit61
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit61
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit61: ; preds = %162, %146, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i59
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit61: ; preds = %162, %146, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i59
   %174 = phi i32 [ %.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i59 ], [ %144, %146 ], [ %144, %162 ]
   %.val = phi ptr [ %.val.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i59 ], [ %.val35, %146 ], [ %.val35, %162 ]
   %.0.i.i.i54 = phi ptr [ %171, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i59 ], [ %154, %146 ], [ %168, %162 ]
@@ -9834,7 +9834,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %179 = icmp eq i32 %174, 0
   br i1 %179, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i75, label %180
 
-180:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit61
+180:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit61
   %181 = ptrtoint ptr %177 to i64
   %182 = trunc i64 %181 to i32
   %183 = lshr i32 %182, 4
@@ -9846,7 +9846,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %188 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %178, i64 %187
   %189 = load ptr, ptr %188, align 8
   %190 = icmp eq ptr %177, %189
-  br i1 %190, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit77, label %.lr.ph.i.i.i.i.i63
+  br i1 %190, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit77, label %.lr.ph.i.i.i.i.i63
 
 .lr.ph.i.i.i.i.i63:                               ; preds = %180, %196
   %191 = phi ptr [ %203, %196 ], [ %189, %180 ]
@@ -9874,18 +9874,18 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %202 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %178, i64 %201
   %203 = load ptr, ptr %202, align 8
   %204 = icmp eq ptr %177, %203
-  br i1 %204, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit77, label %.lr.ph.i.i.i.i.i63, !llvm.loop !57
+  br i1 %204, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit77, label %.lr.ph.i.i.i.i.i63, !llvm.loop !57
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i75: ; preds = %194, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit61
-  %.sink.i.i.i.i.i76 = phi ptr [ %195, %194 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit61 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i75: ; preds = %194, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit61
+  %.sink.i.i.i.i.i76 = phi ptr [ %195, %194 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit61 ]
   %205 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %.val, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i.i76)
   %206 = load ptr, ptr %4, align 8
   store ptr %206, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 8
   store i32 0, ptr %207, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit77
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit77
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit77: ; preds = %196, %180, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i75
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit77: ; preds = %196, %180, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i75
   %.0.i.i.i70 = phi ptr [ %205, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i75 ], [ %188, %180 ], [ %202, %196 ]
   %208 = getelementptr inbounds nuw i8, ptr %.0.i.i.i70, i64 8
   %209 = load i32, ptr %208, align 4
@@ -9901,31 +9901,31 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %212 = load i16, ptr %211, align 1
   %213 = and i16 %212, 256
   %.not.i78 = icmp eq i16 %213, 0
-  br i1 %.not.i78, label %214, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.argprom.exit.thread
+  br i1 %.not.i78, label %214, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.exit.thread
 
-214:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit77
+214:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit77
   %215 = load ptr, ptr %.val41, align 8
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 144
   %217 = load ptr, ptr %216, align 8
   %218 = call noundef zeroext i1 @_ZNK5clang4Expr26EvaluateAsBooleanConditionERbRKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %210, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(23096) %217, i1 noundef zeroext false) #22
-  br i1 %218, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.argprom.exit, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.argprom.exit.thread
+  br i1 %218, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.exit, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.exit.thread
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.argprom.exit.thread: ; preds = %214, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit77
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.exit.thread: ; preds = %214, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit77
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %223
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.argprom.exit: ; preds = %214
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.exit: ; preds = %214
   %219 = load i8, ptr %3, align 1
   %220 = trunc i8 %219 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br i1 %220, label %221, label %223
 
-221:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.argprom.exit
+221:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.exit
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   store i64 %71, ptr %222, align 8
   br label %223
 
-223:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.argprom.exit.thread, %221, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.argprom.exit
+223:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.exit.thread, %221, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14shouldVisitRHSEPKN5clang4ExprE.exit
   %.val.i.i.i79 = load ptr, ptr %60, align 8
   %224 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %60) #22
   %225 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
@@ -10033,7 +10033,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %44 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %32, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %30, %45
-  br i1 %46, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %46, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %36, %52
   %47 = phi ptr [ %59, %52 ], [ %45, %36 ]
@@ -10061,7 +10061,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %58 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %32, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %30, %59
-  br i1 %60, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %60, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %50, %23
   %.sink.i.i.i.i.i = phi ptr [ %51, %50 ], [ null, %23 ]
@@ -10070,9 +10070,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %62, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 0, ptr %63, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %52, %36, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %52, %36, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %61, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %44, %36 ], [ %58, %52 ]
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %65 = load i32, ptr %64, align 4
@@ -10102,7 +10102,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %80 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %68, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %1, %81
-  br i1 %82, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit66, label %.lr.ph.i.i.i.i.i52
+  br i1 %82, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit66, label %.lr.ph.i.i.i.i.i52
 
 .lr.ph.i.i.i.i.i52:                               ; preds = %72, %88
   %83 = phi ptr [ %95, %88 ], [ %81, %72 ]
@@ -10130,7 +10130,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %94 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %68, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %1, %95
-  br i1 %96, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit66, label %.lr.ph.i.i.i.i.i52, !llvm.loop !57
+  br i1 %96, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit66, label %.lr.ph.i.i.i.i.i52, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i64: ; preds = %86, %66
   %.sink.i.i.i.i.i65 = phi ptr [ %87, %86 ], [ null, %66 ]
@@ -10139,17 +10139,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %98, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i32 0, ptr %99, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit66
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit66
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit66: ; preds = %88, %72, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i64
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit66: ; preds = %88, %72, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i64
   %.0.i.i.i59 = phi ptr [ %97, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i64 ], [ %80, %72 ], [ %94, %88 ]
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i59, i64 8
   %101 = load i32, ptr %100, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %102
 
-102:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit66, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
-  %.sroa.031.0.in.in.in = phi i32 [ %65, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit ], [ %101, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit66 ]
+102:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit66, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
+  %.sroa.031.0.in.in.in = phi i32 [ %65, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit ], [ %101, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit66 ]
   %.sroa.031.0.in.in = zext i32 %.sroa.031.0.in.in.in to i64
   %.sroa.031.0.in = shl nuw i64 %.sroa.031.0.in.in, 32
   %.sroa.031.0 = or disjoint i64 %.sroa.031.0.in, 1
@@ -10253,7 +10253,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %162 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %150, i64 %161
   %163 = load ptr, ptr %162, align 8
   %164 = icmp eq ptr %148, %163
-  br i1 %164, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit90, label %.lr.ph.i.i.i.i.i76
+  br i1 %164, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit90, label %.lr.ph.i.i.i.i.i76
 
 .lr.ph.i.i.i.i.i76:                               ; preds = %154, %170
   %165 = phi ptr [ %177, %170 ], [ %163, %154 ]
@@ -10281,7 +10281,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %176 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %150, i64 %175
   %177 = load ptr, ptr %176, align 8
   %178 = icmp eq ptr %148, %177
-  br i1 %178, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit90, label %.lr.ph.i.i.i.i.i76, !llvm.loop !57
+  br i1 %178, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit90, label %.lr.ph.i.i.i.i.i76, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i88: ; preds = %168, %143
   %.sink.i.i.i.i.i89 = phi ptr [ %169, %168 ], [ null, %143 ]
@@ -10290,9 +10290,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %180, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store i32 0, ptr %181, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit90
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit90
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit90: ; preds = %170, %154, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i88
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit90: ; preds = %170, %154, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i88
   %.0.i.i.i83 = phi ptr [ %179, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i88 ], [ %162, %154 ], [ %176, %170 ]
   %182 = getelementptr inbounds nuw i8, ptr %.0.i.i.i83, i64 8
   %183 = load i32, ptr %182, align 4
@@ -10308,8 +10308,8 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %187 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder3addENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %185, i64 %186, i64 %.sroa.2.0.copyload.i, i1 noundef zeroext true) #22
   br label %188
 
-188:                                              ; preds = %184, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit90
-  %.sroa.024.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i86, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit90 ], [ %187, %184 ]
+188:                                              ; preds = %184, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit90
+  %.sroa.024.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i86, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit90 ], [ %187, %184 ]
   %189 = load i16, ptr %1, align 8
   %190 = lshr i16 %189, 8
   %.lobit.i.i91 = and i16 %190, 1
@@ -10392,7 +10392,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14
   %231 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %219, i64 %230
   %232 = load ptr, ptr %231, align 8
   %233 = icmp eq ptr %1, %232
-  br i1 %233, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit112, label %.lr.ph.i.i.i.i.i98
+  br i1 %233, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit112, label %.lr.ph.i.i.i.i.i98
 
 .lr.ph.i.i.i.i.i98:                               ; preds = %223, %239
   %234 = phi ptr [ %246, %239 ], [ %232, %223 ]
@@ -10420,7 +10420,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14
   %245 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %219, i64 %244
   %246 = load ptr, ptr %245, align 8
   %247 = icmp eq ptr %1, %246
-  br i1 %247, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit112, label %.lr.ph.i.i.i.i.i98, !llvm.loop !57
+  br i1 %247, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit112, label %.lr.ph.i.i.i.i.i98, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i110: ; preds = %237, %217
   %.sink.i.i.i.i.i111 = phi ptr [ %238, %237 ], [ null, %217 ]
@@ -10429,9 +10429,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %249, ptr %248, align 8
   %250 = getelementptr inbounds nuw i8, ptr %248, i64 8
   store i32 0, ptr %250, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit112
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit112
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit112: ; preds = %239, %223, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i110
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit112: ; preds = %239, %223, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i110
   %.0.i.i.i105 = phi ptr [ %248, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i110 ], [ %231, %223 ], [ %245, %239 ]
   %251 = getelementptr inbounds nuw i8, ptr %.0.i.i.i105, i64 8
   %252 = load i32, ptr %251, align 4
@@ -10447,8 +10447,8 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %256 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder3addENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %254, i64 %.sroa.0.0.copyload.i, i64 %255, i1 noundef zeroext true) #22
   br label %257
 
-257:                                              ; preds = %253, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit112
-  %storemerge = phi i64 [ %256, %253 ], [ %.sroa.0.0.insert.insert.i.i108, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit112 ]
+257:                                              ; preds = %253, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit112
+  %storemerge = phi i64 [ %256, %253 ], [ %.sroa.0.0.insert.insert.i.i108, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit112 ]
   %.not3.i.not = icmp eq i64 %storemerge, %20
   br i1 %.not3.i.not, label %263, label %258
 
@@ -10512,7 +10512,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14V
   %18 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %6, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %1, %19
-  br i1 %20, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %20, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %10, %26
   %21 = phi ptr [ %33, %26 ], [ %19, %10 ]
@@ -10540,7 +10540,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14V
   %32 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %6, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %1, %33
-  br i1 %34, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %34, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %24, %2
   %.sink.i.i.i.i.i = phi ptr [ %25, %24 ], [ null, %2 ]
@@ -10549,9 +10549,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %36, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 0, ptr %37, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %26, %10, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %26, %10, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %35, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %18, %10 ], [ %32, %26 ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %39 = load i32, ptr %38, align 4
@@ -10870,7 +10870,7 @@ _ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit: 
   %119 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %107, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %1, %120
-  br i1 %121, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %121, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %111, %127
   %122 = phi ptr [ %134, %127 ], [ %120, %111 ]
@@ -10898,7 +10898,7 @@ _ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit: 
   %133 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %107, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %1, %134
-  br i1 %135, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %135, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %125, %102
   %.sink.i.i.i.i.i = phi ptr [ %126, %125 ], [ null, %102 ]
@@ -10907,9 +10907,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %137, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i32 0, ptr %138, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %127, %111, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %127, %111, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %136, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %119, %111 ], [ %133, %127 ]
   %139 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %140 = load i32, ptr %139, align 4
@@ -10931,7 +10931,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %148 = trunc i8 %147 to i1
   br i1 %148, label %283, label %149
 
-149:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+149:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %storemerge201 = load ptr, ptr %150, align 8
   %.not69202 = icmp eq ptr %storemerge201, null
@@ -10946,11 +10946,11 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %153 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %154
 
-154:                                              ; preds = %.lr.ph208, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit135
-  %storemerge206 = phi ptr [ %storemerge201, %.lr.ph208 ], [ %storemerge, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit135 ]
-  %.064205 = phi i1 [ false, %.lr.ph208 ], [ %159, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit135 ]
-  %.sroa.0.0204 = phi i64 [ 0, %.lr.ph208 ], [ %194, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit135 ]
-  %.sroa.5.0203 = phi i64 [ 0, %.lr.ph208 ], [ %.sroa.5.0.extract.shift151, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit135 ]
+154:                                              ; preds = %.lr.ph208, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit135
+  %storemerge206 = phi ptr [ %storemerge201, %.lr.ph208 ], [ %storemerge, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit135 ]
+  %.064205 = phi i1 [ false, %.lr.ph208 ], [ %159, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit135 ]
+  %.sroa.0.0204 = phi i64 [ 0, %.lr.ph208 ], [ %194, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit135 ]
+  %.sroa.5.0203 = phi i64 [ 0, %.lr.ph208 ], [ %.sroa.5.0.extract.shift151, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit135 ]
   br i1 %.064205, label %158, label %155
 
 155:                                              ; preds = %154
@@ -10983,7 +10983,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %172 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %160, i64 %171
   %173 = load ptr, ptr %172, align 8
   %174 = icmp eq ptr %storemerge206, %173
-  br i1 %174, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit103, label %.lr.ph.i.i.i.i.i89
+  br i1 %174, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit103, label %.lr.ph.i.i.i.i.i89
 
 .lr.ph.i.i.i.i.i89:                               ; preds = %164, %180
   %175 = phi ptr [ %187, %180 ], [ %173, %164 ]
@@ -11011,7 +11011,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %186 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %160, i64 %185
   %187 = load ptr, ptr %186, align 8
   %188 = icmp eq ptr %storemerge206, %187
-  br i1 %188, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit103, label %.lr.ph.i.i.i.i.i89, !llvm.loop !57
+  br i1 %188, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit103, label %.lr.ph.i.i.i.i.i89, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i101: ; preds = %178, %158
   %.sink.i.i.i.i.i102 = phi ptr [ %179, %178 ], [ null, %158 ]
@@ -11020,9 +11020,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %190, ptr %189, align 8
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i32 0, ptr %191, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit103
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit103
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit103: ; preds = %180, %164, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i101
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit103: ; preds = %180, %164, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i101
   %.0.i.i.i96 = phi ptr [ %189, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i101 ], [ %172, %164 ], [ %186, %180 ]
   %192 = getelementptr inbounds nuw i8, ptr %.0.i.i.i96, i64 8
   %193 = load i32, ptr %192, align 4
@@ -11041,7 +11041,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %198 = icmp eq i32 %197, 0
   br i1 %198, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i117, label %199
 
-199:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit103
+199:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit103
   %200 = ptrtoint ptr %storemerge206 to i64
   %201 = trunc i64 %200 to i32
   %202 = lshr i32 %201, 4
@@ -11053,9 +11053,9 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %207 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %195, i64 %206
   %208 = load ptr, ptr %207, align 8
   %209 = icmp eq ptr %storemerge206, %208
-  br i1 %209, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119.thread, label %.lr.ph.i.i.i.i.i105
+  br i1 %209, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119.thread, label %.lr.ph.i.i.i.i.i105
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119.thread: ; preds = %199
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119.thread: ; preds = %199
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %211 = load i32, ptr %210, align 4
   %.sroa.2.0.insert.ext.i.i113233 = zext i32 %211 to i64
@@ -11092,10 +11092,10 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %223 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %195, i64 %222
   %224 = load ptr, ptr %223, align 8
   %225 = icmp eq ptr %storemerge206, %224
-  br i1 %225, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119, label %.lr.ph.i.i.i.i.i105, !llvm.loop !57
+  br i1 %225, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119, label %.lr.ph.i.i.i.i.i105, !llvm.loop !57
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i117: ; preds = %215, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit103
-  %.sink.i.i.i.i.i118 = phi ptr [ %216, %215 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit103 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i117: ; preds = %215, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit103
+  %.sink.i.i.i.i.i118 = phi ptr [ %216, %215 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit103 ]
   %226 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %.val70, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i.i.i118)
   %227 = load ptr, ptr %5, align 8
   store ptr %227, ptr %226, align 8
@@ -11104,9 +11104,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   %.val.pre = load ptr, ptr %106, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val.pre, i64 16
   %.pre230 = load i32, ptr %.phi.trans.insert, align 8
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119: ; preds = %217, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i117
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119: ; preds = %217, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i117
   %229 = phi i32 [ %.pre230, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i117 ], [ %197, %217 ]
   %.val = phi ptr [ %.val.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i117 ], [ %.val70, %217 ]
   %.0.i.i.i112 = phi ptr [ %226, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i117 ], [ %223, %217 ]
@@ -11121,10 +11121,10 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %232 = icmp eq i32 %229, 0
   br i1 %232, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i133, label %233
 
-233:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119.thread, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119
-  %.sroa.0.0.insert.insert.i.i115240 = phi i64 [ %.sroa.0.0.insert.insert.i.i115235, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119.thread ], [ %.sroa.0.0.insert.insert.i.i115, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119 ]
-  %.val236 = phi ptr [ %.val70, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119.thread ], [ %.val, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119 ]
-  %234 = phi i32 [ %197, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119.thread ], [ %229, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119 ]
+233:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119.thread, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119
+  %.sroa.0.0.insert.insert.i.i115240 = phi i64 [ %.sroa.0.0.insert.insert.i.i115235, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119.thread ], [ %.sroa.0.0.insert.insert.i.i115, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119 ]
+  %.val236 = phi ptr [ %.val70, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119.thread ], [ %.val, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119 ]
+  %234 = phi i32 [ %197, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119.thread ], [ %229, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119 ]
   %235 = load ptr, ptr %.val236, align 8
   %236 = ptrtoint ptr %storemerge206 to i64
   %237 = trunc i64 %236 to i32
@@ -11137,7 +11137,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %243 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %235, i64 %242
   %244 = load ptr, ptr %243, align 8
   %245 = icmp eq ptr %storemerge206, %244
-  br i1 %245, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit135, label %.lr.ph.i.i.i.i.i121
+  br i1 %245, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit135, label %.lr.ph.i.i.i.i.i121
 
 .lr.ph.i.i.i.i.i121:                              ; preds = %233, %251
   %246 = phi ptr [ %258, %251 ], [ %244, %233 ]
@@ -11165,20 +11165,20 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %257 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %235, i64 %256
   %258 = load ptr, ptr %257, align 8
   %259 = icmp eq ptr %storemerge206, %258
-  br i1 %259, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit135, label %.lr.ph.i.i.i.i.i121, !llvm.loop !57
+  br i1 %259, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit135, label %.lr.ph.i.i.i.i.i121, !llvm.loop !57
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i133: ; preds = %249, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119
-  %.sroa.0.0.insert.insert.i.i115238 = phi i64 [ %.sroa.0.0.insert.insert.i.i115240, %249 ], [ %.sroa.0.0.insert.insert.i.i115, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119 ]
-  %.val237 = phi ptr [ %.val236, %249 ], [ %.val, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119 ]
-  %.sink.i.i.i.i.i134 = phi ptr [ %250, %249 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit119 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i133: ; preds = %249, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119
+  %.sroa.0.0.insert.insert.i.i115238 = phi i64 [ %.sroa.0.0.insert.insert.i.i115240, %249 ], [ %.sroa.0.0.insert.insert.i.i115, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119 ]
+  %.val237 = phi ptr [ %.val236, %249 ], [ %.val, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119 ]
+  %.sink.i.i.i.i.i134 = phi ptr [ %250, %249 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit119 ]
   %260 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %.val237, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i.i134)
   %261 = load ptr, ptr %4, align 8
   store ptr %261, ptr %260, align 8
   %262 = getelementptr inbounds nuw i8, ptr %260, i64 8
   store i32 0, ptr %262, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit135
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit135
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit135: ; preds = %251, %233, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i133
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit135: ; preds = %251, %233, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i133
   %.sroa.0.0.insert.insert.i.i115239 = phi i64 [ %.sroa.0.0.insert.insert.i.i115238, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i133 ], [ %.sroa.0.0.insert.insert.i.i115240, %233 ], [ %.sroa.0.0.insert.insert.i.i115240, %251 ]
   %.0.i.i.i128 = phi ptr [ %260, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i133 ], [ %243, %233 ], [ %257, %251 ]
   %263 = getelementptr inbounds nuw i8, ptr %.0.i.i.i128, i64 8
@@ -11205,7 +11205,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %.not69 = icmp eq ptr %storemerge, null
   br i1 %.not69, label %._crit_edge209, label %154, !llvm.loop !118
 
-._crit_edge209:                                   ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit135
+._crit_edge209:                                   ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit135
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 2168
   %271 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder3addENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %270, i64 %194, i64 0, i1 noundef zeroext true) #22
   br i1 %159, label %283, label %272
@@ -11228,7 +11228,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder18createBranchRegionEPKN5clang4ExprEN4llvm8coverage7CounterES7_RKSt5arrayIsLm2EE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %282, i64 %275, i64 %276, ptr noundef nonnull align 2 dereferenceable(4) %10)
   br label %283
 
-283:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, %272, %._crit_edge209
+283:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, %272, %._crit_edge209
   ret void
 }
 
@@ -11319,7 +11319,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %32 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %20, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %1, %33
-  br i1 %34, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %34, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %24, %40
   %35 = phi ptr [ %47, %40 ], [ %33, %24 ]
@@ -11347,7 +11347,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %46 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %20, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %1, %47
-  br i1 %48, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %48, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %38, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit
   %.sink.i.i.i.i.i = phi ptr [ %39, %38 ], [ null, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.exit ]
@@ -11356,9 +11356,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %50, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 0, ptr %51, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %40, %24, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %40, %24, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %49, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %32, %24 ], [ %46, %40 ]
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %53 = load i32, ptr %52, align 4
@@ -11373,12 +11373,12 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %.not.i.i.i = icmp ugt i64 %56, %57
   br i1 %.not.i.i.i, label %58, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_129CounterCoverageMappingBuilder13BreakContinueELb1EE9push_backES3_.exit
 
-58:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+58:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
   %59 = getelementptr inbounds i8, ptr %0, i64 2248
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull %59, i64 noundef %56, i64 noundef 16) #22
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_129CounterCoverageMappingBuilder13BreakContinueELb1EE9push_backES3_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_129CounterCoverageMappingBuilder13BreakContinueELb1EE9push_backES3_.exit: ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, %58
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_129CounterCoverageMappingBuilder13BreakContinueELb1EE9push_backES3_.exit: ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, %58
   %.val.i.i = load ptr, ptr %54, align 8
   %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %54) #22
   %61 = getelementptr inbounds %"struct.(anonymous namespace)::CounterCoverageMappingBuilder::BreakContinue", ptr %.val.i.i, i64 %60
@@ -11837,7 +11837,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %173 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %161, i64 %172
   %174 = load ptr, ptr %173, align 8
   %175 = icmp eq ptr %159, %174
-  br i1 %175, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %175, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %165, %181
   %176 = phi ptr [ %188, %181 ], [ %174, %165 ]
@@ -11865,7 +11865,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %187 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %161, i64 %186
   %188 = load ptr, ptr %187, align 8
   %189 = icmp eq ptr %159, %188
-  br i1 %189, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %189, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %179, %153
   %.sink.i.i.i.i.i = phi ptr [ %180, %179 ], [ null, %153 ]
@@ -11874,9 +11874,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %191, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i32 0, ptr %192, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %181, %165, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %181, %165, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %190, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %173, %165 ], [ %187, %181 ]
   %193 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %194 = load i32, ptr %193, align 4
@@ -11906,7 +11906,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %209 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %197, i64 %208
   %210 = load ptr, ptr %209, align 8
   %211 = icmp eq ptr %1, %210
-  br i1 %211, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit101, label %.lr.ph.i.i.i.i.i87
+  br i1 %211, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit101, label %.lr.ph.i.i.i.i.i87
 
 .lr.ph.i.i.i.i.i87:                               ; preds = %201, %217
   %212 = phi ptr [ %224, %217 ], [ %210, %201 ]
@@ -11934,7 +11934,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %223 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %197, i64 %222
   %224 = load ptr, ptr %223, align 8
   %225 = icmp eq ptr %1, %224
-  br i1 %225, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit101, label %.lr.ph.i.i.i.i.i87, !llvm.loop !57
+  br i1 %225, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit101, label %.lr.ph.i.i.i.i.i87, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i99: ; preds = %215, %195
   %.sink.i.i.i.i.i100 = phi ptr [ %216, %215 ], [ null, %195 ]
@@ -11943,17 +11943,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %227, ptr %226, align 8
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i32 0, ptr %228, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit101
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit101
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit101: ; preds = %217, %201, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i99
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit101: ; preds = %217, %201, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i99
   %.0.i.i.i94 = phi ptr [ %226, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i99 ], [ %209, %201 ], [ %223, %217 ]
   %229 = getelementptr inbounds nuw i8, ptr %.0.i.i.i94, i64 8
   %230 = load i32, ptr %229, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %231
 
-231:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit101, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
-  %.sroa.043.0.in.in.in = phi i32 [ %194, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit ], [ %230, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit101 ]
+231:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit101, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
+  %.sroa.043.0.in.in.in = phi i32 [ %194, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit ], [ %230, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit101 ]
   %.sroa.043.0.in.in = zext i32 %.sroa.043.0.in.in.in to i64
   %.sroa.043.0.in = shl nuw i64 %.sroa.043.0.in.in, 32
   %.sroa.043.0 = or disjoint i64 %.sroa.043.0.in, 1
@@ -12111,7 +12111,7 @@ _ZNK5clang6IfStmt7getElseEv.exit134:              ; preds = %_ZNK5clang6IfStmt7g
   %304 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %292, i64 %303
   %305 = load ptr, ptr %304, align 8
   %306 = icmp eq ptr %290, %305
-  br i1 %306, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit150, label %.lr.ph.i.i.i.i.i136
+  br i1 %306, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit150, label %.lr.ph.i.i.i.i.i136
 
 .lr.ph.i.i.i.i.i136:                              ; preds = %296, %312
   %307 = phi ptr [ %319, %312 ], [ %305, %296 ]
@@ -12139,7 +12139,7 @@ _ZNK5clang6IfStmt7getElseEv.exit134:              ; preds = %_ZNK5clang6IfStmt7g
   %318 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %292, i64 %317
   %319 = load ptr, ptr %318, align 8
   %320 = icmp eq ptr %290, %319
-  br i1 %320, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit150, label %.lr.ph.i.i.i.i.i136, !llvm.loop !57
+  br i1 %320, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit150, label %.lr.ph.i.i.i.i.i136, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i148: ; preds = %310, %_ZNK5clang6IfStmt7getElseEv.exit134
   %.sink.i.i.i.i.i149 = phi ptr [ %311, %310 ], [ null, %_ZNK5clang6IfStmt7getElseEv.exit134 ]
@@ -12148,18 +12148,18 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %322, ptr %321, align 8
   %323 = getelementptr inbounds nuw i8, ptr %321, i64 8
   store i32 0, ptr %323, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit150
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit150
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit150: ; preds = %312, %296, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i148
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit150: ; preds = %312, %296, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i148
   %.0.i.i.i143 = phi ptr [ %321, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i148 ], [ %304, %296 ], [ %318, %312 ]
   %324 = getelementptr inbounds nuw i8, ptr %.0.i.i.i143, i64 8
   %325 = load i32, ptr %324, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %_ZNK5clang6IfStmt7getElseEv.exit.thread
 
-_ZNK5clang6IfStmt7getElseEv.exit.thread:          ; preds = %283, %_ZNK5clang6IfStmt7getElseEv.exit, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit150, %279
-  %.sroa.0241.0 = phi i64 [ 0, %_ZNK5clang6IfStmt7getElseEv.exit ], [ 1, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit150 ], [ %282, %279 ], [ 0, %283 ]
-  %.sroa.6.0 = phi i32 [ 0, %_ZNK5clang6IfStmt7getElseEv.exit ], [ %325, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit150 ], [ %.sroa.6.0.extract.trunc258, %279 ], [ 0, %283 ]
+_ZNK5clang6IfStmt7getElseEv.exit.thread:          ; preds = %283, %_ZNK5clang6IfStmt7getElseEv.exit, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit150, %279
+  %.sroa.0241.0 = phi i64 [ 0, %_ZNK5clang6IfStmt7getElseEv.exit ], [ 1, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit150 ], [ %282, %279 ], [ 0, %283 ]
+  %.sroa.6.0 = phi i32 [ 0, %_ZNK5clang6IfStmt7getElseEv.exit ], [ %325, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit150 ], [ %.sroa.6.0.extract.trunc258, %279 ], [ 0, %283 ]
   %326 = load i16, ptr %1, align 8
   %327 = and i16 %326, 2048
   %.not.i151 = icmp eq i16 %327, 0
@@ -12322,7 +12322,7 @@ _ZNK5clang6IfStmt7getElseEv.exit156.thread:       ; preds = %_ZNK5clang6IfStmt7g
   %392 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %380, i64 %391
   %393 = load ptr, ptr %392, align 8
   %394 = icmp eq ptr %1, %393
-  br i1 %394, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit188, label %.lr.ph.i.i.i.i.i174
+  br i1 %394, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit188, label %.lr.ph.i.i.i.i.i174
 
 .lr.ph.i.i.i.i.i174:                              ; preds = %384, %400
   %395 = phi ptr [ %407, %400 ], [ %393, %384 ]
@@ -12350,7 +12350,7 @@ _ZNK5clang6IfStmt7getElseEv.exit156.thread:       ; preds = %_ZNK5clang6IfStmt7g
   %406 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %380, i64 %405
   %407 = load ptr, ptr %406, align 8
   %408 = icmp eq ptr %1, %407
-  br i1 %408, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit188, label %.lr.ph.i.i.i.i.i174, !llvm.loop !57
+  br i1 %408, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit188, label %.lr.ph.i.i.i.i.i174, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i186: ; preds = %398, %378
   %.sink.i.i.i.i.i187 = phi ptr [ %399, %398 ], [ null, %378 ]
@@ -12359,18 +12359,18 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %410, ptr %409, align 8
   %411 = getelementptr inbounds nuw i8, ptr %409, i64 8
   store i32 0, ptr %411, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit188
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit188
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit188: ; preds = %400, %384, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i186
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit188: ; preds = %400, %384, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i186
   %.0.i.i.i181 = phi ptr [ %409, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i186 ], [ %392, %384 ], [ %406, %400 ]
   %412 = getelementptr inbounds nuw i8, ptr %.0.i.i.i181, i64 8
   %413 = load i32, ptr %412, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %414
 
-414:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit188, %375
-  %.sroa.0259.2 = phi i32 [ 1, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit188 ], [ %.sroa.0259.1, %375 ]
-  %.sroa.9.2 = phi i32 [ %413, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit188 ], [ %.sroa.9.1, %375 ]
+414:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit188, %375
+  %.sroa.0259.2 = phi i32 [ 1, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit188 ], [ %.sroa.0259.1, %375 ]
+  %.sroa.9.2 = phi i32 [ %413, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit188 ], [ %.sroa.9.1, %375 ]
   %415 = icmp ne i32 %.sroa.0259.2, %.sroa.0294.0.extract.trunc
   %416 = icmp ne i32 %.sroa.9.2, %.sroa.5.0.extract.trunc
   %.not3.i = select i1 %415, i1 true, i1 %416
@@ -12490,7 +12490,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %44 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %32, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %30, %45
-  br i1 %46, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %46, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %36, %52
   %47 = phi ptr [ %59, %52 ], [ %45, %36 ]
@@ -12518,7 +12518,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %58 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %32, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %30, %59
-  br i1 %60, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %60, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %50, %28
   %.sink.i.i.i.i.i = phi ptr [ %51, %50 ], [ null, %28 ]
@@ -12527,9 +12527,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %62, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 0, ptr %63, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %52, %36, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %52, %36, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %61, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %44, %36 ], [ %58, %52 ]
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %65 = load i32, ptr %64, align 4
@@ -12559,7 +12559,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %80 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %68, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %1, %81
-  br i1 %82, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit94, label %.lr.ph.i.i.i.i.i80
+  br i1 %82, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit94, label %.lr.ph.i.i.i.i.i80
 
 .lr.ph.i.i.i.i.i80:                               ; preds = %72, %88
   %83 = phi ptr [ %95, %88 ], [ %81, %72 ]
@@ -12587,7 +12587,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %94 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %68, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %1, %95
-  br i1 %96, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit94, label %.lr.ph.i.i.i.i.i80, !llvm.loop !57
+  br i1 %96, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit94, label %.lr.ph.i.i.i.i.i80, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i92: ; preds = %86, %66
   %.sink.i.i.i.i.i93 = phi ptr [ %87, %86 ], [ null, %66 ]
@@ -12596,17 +12596,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %98, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i32 0, ptr %99, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit94
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit94
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit94: ; preds = %88, %72, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i92
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit94: ; preds = %88, %72, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i92
   %.0.i.i.i87 = phi ptr [ %97, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i92 ], [ %80, %72 ], [ %94, %88 ]
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i87, i64 8
   %101 = load i32, ptr %100, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %102
 
-102:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit94, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
-  %.sroa.047.0.in.in.in = phi i32 [ %65, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit ], [ %101, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit94 ]
+102:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit94, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
+  %.sroa.047.0.in.in.in = phi i32 [ %65, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit ], [ %101, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit94 ]
   %.sroa.047.0.in.in = zext i32 %.sroa.047.0.in.in.in to i64
   %.sroa.047.0.in = shl nuw i64 %.sroa.047.0.in.in, 32
   %.sroa.047.0 = or disjoint i64 %.sroa.047.0.in, 1
@@ -12617,12 +12617,12 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 2232
-  call fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_129CounterCoverageMappingBuilder13BreakContinueEE12emplace_backIJEEERS3_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %106)
+  call fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_129CounterCoverageMappingBuilder13BreakContinueEE12emplace_backIJEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %106)
   br label %107
 
 107:                                              ; preds = %105, %102
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 2232
-  call fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_129CounterCoverageMappingBuilder13BreakContinueEE12emplace_backIJEEERS3_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %108)
+  call fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_129CounterCoverageMappingBuilder13BreakContinueEE12emplace_backIJEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %108)
   %109 = getelementptr inbounds i8, ptr %1, i64 40
   %110 = load ptr, ptr %109, align 8
   %.val.i.i.i.i95 = load ptr, ptr %11, align 8
@@ -12690,7 +12690,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %145 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %133, i64 %144
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %127, %146
-  br i1 %147, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit115, label %.lr.ph.i.i.i.i.i101
+  br i1 %147, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit115, label %.lr.ph.i.i.i.i.i101
 
 .lr.ph.i.i.i.i.i101:                              ; preds = %137, %153
   %148 = phi ptr [ %160, %153 ], [ %146, %137 ]
@@ -12718,7 +12718,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %159 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %133, i64 %158
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %127, %160
-  br i1 %161, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit115, label %.lr.ph.i.i.i.i.i101, !llvm.loop !57
+  br i1 %161, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit115, label %.lr.ph.i.i.i.i.i101, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i113: ; preds = %151, %131
   %.sink.i.i.i.i.i114 = phi ptr [ %152, %151 ], [ null, %131 ]
@@ -12727,9 +12727,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %163, ptr %162, align 8
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i32 0, ptr %164, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit115
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit115
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit115: ; preds = %153, %137, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i113
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit115: ; preds = %153, %137, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i113
   %.0.i.i.i108 = phi ptr [ %162, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i113 ], [ %145, %137 ], [ %159, %153 ]
   %165 = getelementptr inbounds nuw i8, ptr %.0.i.i.i108, i64 8
   %166 = load i32, ptr %165, align 4
@@ -12744,8 +12744,8 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %169 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder3addENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %168, i64 %118, i64 %.sroa.2.0.copyload.i, i1 noundef zeroext true) #22
   br label %170
 
-170:                                              ; preds = %167, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit115
-  %storemerge = phi i64 [ %169, %167 ], [ %.sroa.0.0.insert.insert.i.i111, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit115 ]
+170:                                              ; preds = %167, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit115
+  %storemerge = phi i64 [ %169, %167 ], [ %.sroa.0.0.insert.insert.i.i111, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit115 ]
   %171 = call fastcc i64 @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15propagateCountsEN4llvm8coverage7CounterEPKN5clang4StmtEb(ptr noundef nonnull align 8 dereferenceable(2376) %0, i64 %storemerge, ptr noundef nonnull %127, i1 noundef zeroext true)
   %.val.i.i.i116 = load ptr, ptr %108, align 8
   %172 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %108) #22
@@ -12791,7 +12791,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %196 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %184, i64 %195
   %197 = load ptr, ptr %196, align 8
   %198 = icmp eq ptr %182, %197
-  br i1 %198, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit137, label %.lr.ph.i.i.i.i.i123
+  br i1 %198, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit137, label %.lr.ph.i.i.i.i.i123
 
 .lr.ph.i.i.i.i.i123:                              ; preds = %188, %204
   %199 = phi ptr [ %211, %204 ], [ %197, %188 ]
@@ -12819,7 +12819,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %210 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %184, i64 %209
   %211 = load ptr, ptr %210, align 8
   %212 = icmp eq ptr %182, %211
-  br i1 %212, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit137, label %.lr.ph.i.i.i.i.i123, !llvm.loop !57
+  br i1 %212, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit137, label %.lr.ph.i.i.i.i.i123, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i135: ; preds = %202, %180
   %.sink.i.i.i.i.i136 = phi ptr [ %203, %202 ], [ null, %180 ]
@@ -12828,9 +12828,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %214, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store i32 0, ptr %215, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit137
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit137
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit137: ; preds = %204, %188, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i135
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit137: ; preds = %204, %188, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i135
   %.0.i.i.i130 = phi ptr [ %213, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i135 ], [ %196, %188 ], [ %210, %204 ]
   %216 = getelementptr inbounds nuw i8, ptr %.0.i.i.i130, i64 8
   %217 = load i32, ptr %216, align 4
@@ -12847,8 +12847,8 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %222 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder3addENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %219, i64 %221, i64 %.sroa.3180.0, i1 noundef zeroext true) #22
   br label %223
 
-223:                                              ; preds = %218, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit137
-  %.sroa.028.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i133, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit137 ], [ %222, %218 ]
+223:                                              ; preds = %218, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit137
+  %.sroa.028.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i133, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit137 ], [ %222, %218 ]
   %224 = getelementptr inbounds i8, ptr %1, i64 24
   %225 = load ptr, ptr %224, align 8
   %.not73 = icmp eq ptr %225, null
@@ -12928,7 +12928,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14
   %260 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %248, i64 %259
   %261 = load ptr, ptr %260, align 8
   %262 = icmp eq ptr %1, %261
-  br i1 %262, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit157, label %.lr.ph.i.i.i.i.i143
+  br i1 %262, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit157, label %.lr.ph.i.i.i.i.i143
 
 .lr.ph.i.i.i.i.i143:                              ; preds = %252, %268
   %263 = phi ptr [ %275, %268 ], [ %261, %252 ]
@@ -12956,7 +12956,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14
   %274 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %248, i64 %273
   %275 = load ptr, ptr %274, align 8
   %276 = icmp eq ptr %1, %275
-  br i1 %276, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit157, label %.lr.ph.i.i.i.i.i143, !llvm.loop !57
+  br i1 %276, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit157, label %.lr.ph.i.i.i.i.i143, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i155: ; preds = %266, %246
   %.sink.i.i.i.i.i156 = phi ptr [ %267, %266 ], [ null, %246 ]
@@ -12965,9 +12965,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %278, ptr %277, align 8
   %279 = getelementptr inbounds nuw i8, ptr %277, i64 8
   store i32 0, ptr %279, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit157
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit157
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit157: ; preds = %268, %252, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i155
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit157: ; preds = %268, %252, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i155
   %.0.i.i.i150 = phi ptr [ %277, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i155 ], [ %260, %252 ], [ %274, %268 ]
   %280 = getelementptr inbounds nuw i8, ptr %.0.i.i.i150, i64 8
   %281 = load i32, ptr %280, align 4
@@ -12984,8 +12984,8 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %286 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder3addENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %283, i64 %285, i64 %284, i1 noundef zeroext true) #22
   br label %287
 
-287:                                              ; preds = %282, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit157
-  %storemerge74 = phi i64 [ %286, %282 ], [ %.sroa.0.0.insert.insert.i.i153, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit157 ]
+287:                                              ; preds = %282, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit157
+  %storemerge74 = phi i64 [ %286, %282 ], [ %.sroa.0.0.insert.insert.i.i153, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit157 ]
   %.not3.i.not = icmp eq i64 %storemerge74, %25
   br i1 %.not3.i.not, label %293, label %288
 
@@ -13078,7 +13078,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %38 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %26, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %24, %39
-  br i1 %40, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %40, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %30, %46
   %41 = phi ptr [ %53, %46 ], [ %39, %30 ]
@@ -13106,7 +13106,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %52 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %26, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %24, %53
-  br i1 %54, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %54, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %44, %22
   %.sink.i.i.i.i.i = phi ptr [ %45, %44 ], [ null, %22 ]
@@ -13115,9 +13115,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %56, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 0, ptr %57, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %46, %30, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %46, %30, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %55, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %38, %30 ], [ %52, %46 ]
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %59 = load i32, ptr %58, align 4
@@ -13147,7 +13147,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %74 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %62, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %1, %75
-  br i1 %76, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit58, label %.lr.ph.i.i.i.i.i44
+  br i1 %76, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit58, label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %66, %82
   %77 = phi ptr [ %89, %82 ], [ %75, %66 ]
@@ -13175,7 +13175,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %88 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %62, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %1, %89
-  br i1 %90, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit58, label %.lr.ph.i.i.i.i.i44, !llvm.loop !57
+  br i1 %90, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit58, label %.lr.ph.i.i.i.i.i44, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i56: ; preds = %80, %60
   %.sink.i.i.i.i.i57 = phi ptr [ %81, %80 ], [ null, %60 ]
@@ -13184,17 +13184,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %92, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i32 0, ptr %93, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit58
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit58
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit58: ; preds = %82, %66, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i56
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit58: ; preds = %82, %66, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i56
   %.0.i.i.i51 = phi ptr [ %91, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i56 ], [ %74, %66 ], [ %88, %82 ]
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i51, i64 8
   %95 = load i32, ptr %94, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %96
 
-96:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit58, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
-  %.sroa.025.0.in.in.in = phi i32 [ %59, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit ], [ %95, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit58 ]
+96:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit58, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
+  %.sroa.025.0.in.in.in = phi i32 [ %59, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit ], [ %95, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit58 ]
   %.sroa.025.0.in.in = zext i32 %.sroa.025.0.in.in.in to i64
   %.sroa.025.0.in = shl nuw i64 %.sroa.025.0.in.in, 32
   %.sroa.025.0 = or disjoint i64 %.sroa.025.0.in, 1
@@ -13301,7 +13301,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %153 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %141, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %139, %154
-  br i1 %155, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit80, label %.lr.ph.i.i.i.i.i66
+  br i1 %155, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit80, label %.lr.ph.i.i.i.i.i66
 
 .lr.ph.i.i.i.i.i66:                               ; preds = %145, %161
   %156 = phi ptr [ %168, %161 ], [ %154, %145 ]
@@ -13329,7 +13329,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %167 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %141, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %139, %168
-  br i1 %169, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit80, label %.lr.ph.i.i.i.i.i66, !llvm.loop !57
+  br i1 %169, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit80, label %.lr.ph.i.i.i.i.i66, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i78: ; preds = %159, %137
   %.sink.i.i.i.i.i79 = phi ptr [ %160, %159 ], [ null, %137 ]
@@ -13338,9 +13338,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %171, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i32 0, ptr %172, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit80
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit80
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit80: ; preds = %161, %145, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i78
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit80: ; preds = %161, %145, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i78
   %.0.i.i.i73 = phi ptr [ %170, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i78 ], [ %153, %145 ], [ %167, %161 ]
   %173 = getelementptr inbounds nuw i8, ptr %.0.i.i.i73, i64 8
   %174 = load i32, ptr %173, align 4
@@ -13356,8 +13356,8 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %177 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder3addENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %176, i64 %.sroa.0115.0.insert.insert, i64 %.sroa.2.0.copyload.i, i1 noundef zeroext true) #22
   br label %178
 
-178:                                              ; preds = %175, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit80
-  %.sroa.014.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i76, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit80 ], [ %177, %175 ]
+178:                                              ; preds = %175, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit80
+  %.sroa.014.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i76, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit80 ], [ %177, %175 ]
   %179 = getelementptr inbounds i8, ptr %1, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = call fastcc i64 @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15propagateCountsEN4llvm8coverage7CounterEPKN5clang4StmtEb(ptr noundef nonnull align 8 dereferenceable(2376) %0, i64 %.sroa.014.0, ptr noundef %180, i1 noundef zeroext true)
@@ -13388,7 +13388,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %198 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %186, i64 %197
   %199 = load ptr, ptr %198, align 8
   %200 = icmp eq ptr %1, %199
-  br i1 %200, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit96, label %.lr.ph.i.i.i.i.i82
+  br i1 %200, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit96, label %.lr.ph.i.i.i.i.i82
 
 .lr.ph.i.i.i.i.i82:                               ; preds = %190, %206
   %201 = phi ptr [ %213, %206 ], [ %199, %190 ]
@@ -13416,7 +13416,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %212 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %186, i64 %211
   %213 = load ptr, ptr %212, align 8
   %214 = icmp eq ptr %1, %213
-  br i1 %214, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit96, label %.lr.ph.i.i.i.i.i82, !llvm.loop !57
+  br i1 %214, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit96, label %.lr.ph.i.i.i.i.i82, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i94: ; preds = %204, %184
   %.sink.i.i.i.i.i95 = phi ptr [ %205, %204 ], [ null, %184 ]
@@ -13425,9 +13425,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %216, ptr %215, align 8
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i32 0, ptr %217, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit96
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit96
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit96: ; preds = %206, %190, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i94
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit96: ; preds = %206, %190, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i94
   %.0.i.i.i89 = phi ptr [ %215, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i94 ], [ %198, %190 ], [ %212, %206 ]
   %218 = getelementptr inbounds nuw i8, ptr %.0.i.i.i89, i64 8
   %219 = load i32, ptr %218, align 4
@@ -13443,8 +13443,8 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %223 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder3addENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %221, i64 %.sroa.0.0.copyload.i, i64 %222, i1 noundef zeroext true) #22
   br label %224
 
-224:                                              ; preds = %220, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit96
-  %storemerge = phi i64 [ %223, %220 ], [ %.sroa.0.0.insert.insert.i.i92, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit96 ]
+224:                                              ; preds = %220, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit96
+  %storemerge = phi i64 [ %223, %220 ], [ %.sroa.0.0.insert.insert.i.i92, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit96 ]
   %.not3.i.not = icmp eq i64 %storemerge, %19
   br i1 %.not3.i.not, label %229, label %225
 
@@ -13662,7 +13662,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %42 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %30, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %1, %43
-  br i1 %44, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %44, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %34, %50
   %45 = phi ptr [ %57, %50 ], [ %43, %34 ]
@@ -13690,7 +13690,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %56 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %30, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %1, %57
-  br i1 %58, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %58, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %48, %._crit_edge
   %.sink.i.i.i.i.i = phi ptr [ %49, %48 ], [ null, %._crit_edge ]
@@ -13699,9 +13699,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %60, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i32 0, ptr %61, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %50, %34, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %50, %34, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %59, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %42, %34 ], [ %56, %50 ]
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %63 = load i32, ptr %62, align 4
@@ -13791,7 +13791,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %46 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %34, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %32, %47
-  br i1 %48, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %48, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %38, %54
   %49 = phi ptr [ %61, %54 ], [ %47, %38 ]
@@ -13819,7 +13819,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %60 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %34, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %32, %61
-  br i1 %62, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %62, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %52, %30
   %.sink.i.i.i.i.i = phi ptr [ %53, %52 ], [ null, %30 ]
@@ -13828,9 +13828,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 0, ptr %65, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %54, %38, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %54, %38, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %63, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %46, %38 ], [ %60, %54 ]
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %67 = load i32, ptr %66, align 4
@@ -13860,7 +13860,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %82 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %70, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %1, %83
-  br i1 %84, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit63, label %.lr.ph.i.i.i.i.i49
+  br i1 %84, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit63, label %.lr.ph.i.i.i.i.i49
 
 .lr.ph.i.i.i.i.i49:                               ; preds = %74, %90
   %85 = phi ptr [ %97, %90 ], [ %83, %74 ]
@@ -13888,7 +13888,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %96 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %70, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %1, %97
-  br i1 %98, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit63, label %.lr.ph.i.i.i.i.i49, !llvm.loop !57
+  br i1 %98, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit63, label %.lr.ph.i.i.i.i.i49, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i61: ; preds = %88, %68
   %.sink.i.i.i.i.i62 = phi ptr [ %89, %88 ], [ null, %68 ]
@@ -13897,17 +13897,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %100, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i32 0, ptr %101, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit63
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit63
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit63: ; preds = %90, %74, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i61
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit63: ; preds = %90, %74, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i61
   %.0.i.i.i56 = phi ptr [ %99, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i61 ], [ %82, %74 ], [ %96, %90 ]
   %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i56, i64 8
   %103 = load i32, ptr %102, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %104
 
-104:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit63, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
-  %.sroa.028.0.in.in.in = phi i32 [ %67, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit ], [ %103, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit63 ]
+104:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit63, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
+  %.sroa.028.0.in.in.in = phi i32 [ %67, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit ], [ %103, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit63 ]
   %.sroa.028.0.in.in = zext i32 %.sroa.028.0.in.in.in to i64
   %.sroa.028.0.in = shl nuw i64 %.sroa.028.0.in.in, 32
   %.sroa.028.0 = or disjoint i64 %.sroa.028.0.in, 1
@@ -14033,7 +14033,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14
   %163 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %151, i64 %162
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %1, %164
-  br i1 %165, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit89, label %.lr.ph.i.i.i.i.i75
+  br i1 %165, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit89, label %.lr.ph.i.i.i.i.i75
 
 .lr.ph.i.i.i.i.i75:                               ; preds = %155, %171
   %166 = phi ptr [ %178, %171 ], [ %164, %155 ]
@@ -14061,7 +14061,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20fillGapAreaWithCountEN5clang14
   %177 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %151, i64 %176
   %178 = load ptr, ptr %177, align 8
   %179 = icmp eq ptr %1, %178
-  br i1 %179, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit89, label %.lr.ph.i.i.i.i.i75, !llvm.loop !57
+  br i1 %179, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit89, label %.lr.ph.i.i.i.i.i75, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i87: ; preds = %169, %149
   %.sink.i.i.i.i.i88 = phi ptr [ %170, %169 ], [ null, %149 ]
@@ -14070,9 +14070,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %181, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i32 0, ptr %182, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit89
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit89
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit89: ; preds = %171, %155, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i87
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit89: ; preds = %171, %155, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i87
   %.0.i.i.i82 = phi ptr [ %180, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i87 ], [ %163, %155 ], [ %177, %171 ]
   %183 = getelementptr inbounds nuw i8, ptr %.0.i.i.i82, i64 8
   %184 = load i32, ptr %183, align 4
@@ -14092,10 +14092,10 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %191 = and i64 %188, 4294967295
   br label %192
 
-192:                                              ; preds = %185, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit89
-  %.sroa.099.0 = phi i64 [ 0, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit89 ], [ %191, %185 ]
-  %.sroa.3.0 = phi i64 [ 0, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit89 ], [ %.sroa.3.0.extract.shift, %185 ]
-  %storemerge = phi i64 [ %.sroa.0.0.insert.insert.i.i85, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit89 ], [ %190, %185 ]
+192:                                              ; preds = %185, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit89
+  %.sroa.099.0 = phi i64 [ 0, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit89 ], [ %191, %185 ]
+  %.sroa.3.0 = phi i64 [ 0, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit89 ], [ %.sroa.3.0.extract.shift, %185 ]
+  %storemerge = phi i64 [ %.sroa.0.0.insert.insert.i.i85, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit89 ], [ %190, %185 ]
   %.not3.i.not = icmp eq i64 %storemerge, %27
   br i1 %.not3.i.not, label %198, label %193
 
@@ -14155,7 +14155,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder17V
   %17 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %1, %18
-  br i1 %19, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %19, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %9, %25
   %20 = phi ptr [ %32, %25 ], [ %18, %9 ]
@@ -14183,7 +14183,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder17V
   %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %5, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %1, %32
-  br i1 %33, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %33, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %23, %2
   %.sink.i.i.i.i.i = phi ptr [ %24, %23 ], [ null, %2 ]
@@ -14192,9 +14192,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %35, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 0, ptr %36, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %25, %9, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %25, %9, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %34, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %17, %9 ], [ %31, %25 ]
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %38 = load i32, ptr %37, align 4
@@ -14543,7 +14543,7 @@ _ZNK12_GLOBAL__N_119MCDCCoverageBuilder9getCondIDEPKN5clang4ExprE.exit: ; preds 
   %140 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1608", ptr %129, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %128, %141
-  br i1 %142, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %142, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %132, %148
   %143 = phi ptr [ %155, %148 ], [ %141, %132 ]
@@ -14571,7 +14571,7 @@ _ZNK12_GLOBAL__N_119MCDCCoverageBuilder9getCondIDEPKN5clang4ExprE.exit: ; preds 
   %154 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1608", ptr %129, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = icmp eq ptr %128, %155
-  br i1 %156, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !122
+  br i1 %156, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !122
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i: ; preds = %146, %_ZNK12_GLOBAL__N_119MCDCCoverageBuilder9getCondIDEPKN5clang4ExprE.exit
   %.sink.i.i.i.i.i = phi ptr [ %147, %146 ], [ null, %_ZNK12_GLOBAL__N_119MCDCCoverageBuilder9getCondIDEPKN5clang4ExprE.exit ]
@@ -14580,9 +14580,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6Branc
   store ptr %158, ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, i8 0, i64 16, i1 false)
-  br label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit
+  br label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit
 
-_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit: ; preds = %148, %132, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i
+_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit: ; preds = %148, %132, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i
   %.0.i.i.i34 = phi ptr [ %157, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i ], [ %140, %132 ], [ %154, %148 ]
   %160 = getelementptr inbounds nuw i8, ptr %.0.i.i.i34, i64 8
   store i16 %.0.i, ptr %160, align 8
@@ -14622,7 +14622,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6Bran
   %180 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1608", ptr %168, i64 %179
   %181 = load ptr, ptr %180, align 8
   %182 = icmp eq ptr %167, %181
-  br i1 %182, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit48, label %.lr.ph.i.i.i.i.i36
+  br i1 %182, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit48, label %.lr.ph.i.i.i.i.i36
 
 .lr.ph.i.i.i.i.i36:                               ; preds = %172, %188
   %183 = phi ptr [ %195, %188 ], [ %181, %172 ]
@@ -14650,7 +14650,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6Bran
   %194 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1608", ptr %168, i64 %193
   %195 = load ptr, ptr %194, align 8
   %196 = icmp eq ptr %167, %195
-  br i1 %196, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit48, label %.lr.ph.i.i.i.i.i36, !llvm.loop !122
+  br i1 %196, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit48, label %.lr.ph.i.i.i.i.i36, !llvm.loop !122
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i46: ; preds = %186, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E8containsES5_.exit
   %.sink.i.i.i.i.i47 = phi ptr [ %187, %186 ], [ null, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E8containsES5_.exit ]
@@ -14659,9 +14659,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6Branc
   store ptr %198, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %197, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, i8 0, i64 16, i1 false)
-  br label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit48
+  br label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit48
 
-_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit48: ; preds = %188, %172, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i46
+_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit48: ; preds = %188, %172, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i46
   %.0.i.i.i43 = phi ptr [ %197, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i46 ], [ %180, %172 ], [ %194, %188 ]
   %200 = getelementptr inbounds nuw i8, ptr %.0.i.i.i43, i64 8
   store i16 %163, ptr %200, align 8
@@ -14670,7 +14670,7 @@ _ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %201
 
-201:                                              ; preds = %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit48, %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit
+201:                                              ; preds = %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit48, %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit
   %202 = load i16, ptr %13, align 8
   %203 = add i16 %202, 1
   store i16 %203, ptr %13, align 8
@@ -14701,7 +14701,7 @@ _ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit48
   %221 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1608", ptr %209, i64 %220
   %222 = load ptr, ptr %221, align 8
   %223 = icmp eq ptr %208, %222
-  br i1 %223, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit62, label %.lr.ph.i.i.i.i.i50
+  br i1 %223, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit62, label %.lr.ph.i.i.i.i.i50
 
 .lr.ph.i.i.i.i.i50:                               ; preds = %213, %229
   %224 = phi ptr [ %236, %229 ], [ %222, %213 ]
@@ -14729,7 +14729,7 @@ _ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit48
   %235 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1608", ptr %209, i64 %234
   %236 = load ptr, ptr %235, align 8
   %237 = icmp eq ptr %208, %236
-  br i1 %237, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit62, label %.lr.ph.i.i.i.i.i50, !llvm.loop !122
+  br i1 %237, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit62, label %.lr.ph.i.i.i.i.i50, !llvm.loop !122
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i60: ; preds = %227, %201
   %.sink.i.i.i.i.i61 = phi ptr [ %228, %227 ], [ null, %201 ]
@@ -14738,9 +14738,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6Branc
   store ptr %239, ptr %238, align 8
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %240, i8 0, i64 16, i1 false)
-  br label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit62
+  br label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit62
 
-_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit62: ; preds = %229, %213, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i60
+_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit62: ; preds = %229, %213, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i60
   %.0.i.i.i57 = phi ptr [ %238, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E15LookupBucketForIS5_EEbRKT_RPSE_.exit.i.i.i60 ], [ %221, %213 ], [ %235, %229 ]
   %241 = getelementptr inbounds nuw i8, ptr %.0.i.i.i57, i64 8
   store i16 %202, ptr %241, align 8
@@ -14752,7 +14752,7 @@ _ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit62
   %243 = icmp eq i32 %242, 4980736
   br i1 %243, label %244, label %249
 
-244:                                              ; preds = %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit62
+244:                                              ; preds = %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit62
   %245 = load i16, ptr %57, align 2
   %.sroa.22.0.insert.ext = zext i16 %202 to i32
   %.sroa.22.0.insert.shift = shl nuw i32 %.sroa.22.0.insert.ext, 16
@@ -14764,7 +14764,7 @@ _ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit62
   %.not.i.i.i = icmp ugt i64 %247, %248
   br i1 %.not.i.i.i, label %.sink.split.sink.split, label %.sink.split
 
-249:                                              ; preds = %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.argprom.exit62
+249:                                              ; preds = %_ZN12_GLOBAL__N_119MCDCCoverageBuilder9setCondIDEPKN5clang4ExprEs.exit62
   %250 = getelementptr inbounds i8, ptr %56, i64 -2
   %251 = load i16, ptr %250, align 2
   %.sroa.2.0.insert.ext = zext i16 %251 to i32
@@ -15015,8 +15015,8 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit78: ; preds = %_ZNK
   %.sroa.017.0.copyload.pre = load i32, ptr %4, align 4
   br label %107
 
-107:                                              ; preds = %.preheader, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.argprom.exit
-  %.sroa.017.0.copyload = phi i32 [ %.sroa.017.0.copyload.pre, %.preheader ], [ %214, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.argprom.exit ]
+107:                                              ; preds = %.preheader, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.exit
+  %.sroa.017.0.copyload = phi i32 [ %.sroa.017.0.copyload.pre, %.preheader ], [ %214, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.exit ]
   %108 = load ptr, ptr %10, align 8
   %109 = and i32 %.sroa.017.0.copyload, 2147483647
   br i1 %or.cond.i.i.i.i, label %110, label %113
@@ -15064,7 +15064,7 @@ _ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit.thr
   call void @_ZN4llvm8SmallSetIN5clang14SourceLocationELj8ESt4lessIS2_EE6insertERKS2_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1625") align 8 %5, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %132 = load i8, ptr %91, align 8
   %133 = trunc i8 %132 to i1
-  br i1 %133, label %134, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.argprom.exit
+  br i1 %133, label %134, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.exit
 
 134:                                              ; preds = %_ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit.thread130
   %.val53 = load i8, ptr %103, align 4
@@ -15111,7 +15111,7 @@ _ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit.thr
   %148 = load ptr, ptr %93, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 52
   store ptr %149, ptr %93, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.exit
 
 150:                                              ; preds = %137
   %.val27.i.i = load ptr, ptr %92, align 8
@@ -15119,13 +15119,13 @@ _ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit.thr
   %152 = ptrtoint ptr %.val27.i.i to i64
   %153 = sub i64 %151, %152
   %154 = icmp eq i64 %153, 9223372036854775800
-  br i1 %154, label %155, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %154, label %155, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 155:                                              ; preds = %150
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #24
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %150
+_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %150
   %156 = sdiv exact i64 %153, 52
   %157 = icmp eq ptr %139, %.val27.i.i
   %.sroa.speculated.i.i.i = select i1 %157, i64 1, i64 %156
@@ -15159,33 +15159,33 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.a
   store i8 %138, ptr %169, align 4
   %170 = getelementptr inbounds nuw i8, ptr %164, i64 49
   store i8 0, ptr %170, align 1
-  br i1 %157, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit38.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %157, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.03.i.i.i.i.i = phi ptr [ %172, %.lr.ph.i.i.i.i.i ], [ %163, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
-  %.092.i.i.i.i.i = phi ptr [ %171, %.lr.ph.i.i.i.i.i ], [ %.val27.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
+  %.03.i.i.i.i.i = phi ptr [ %172, %.lr.ph.i.i.i.i.i ], [ %163, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.092.i.i.i.i.i = phi ptr [ %171, %.lr.ph.i.i.i.i.i ], [ %.val27.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.03.i.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(52) %.092.i.i.i.i.i, i64 52, i1 false), !alias.scope !136
   %171 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 52
   %172 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 52
   %.not.i.i.i.i.i = icmp eq ptr %171, %139
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit38.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !78
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !78
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit38.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %163, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ], [ %172, %.lr.ph.i.i.i.i.i ]
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %163, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %172, %.lr.ph.i.i.i.i.i ]
   %173 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 52
   %.not.i39.i.i = icmp eq ptr %.val27.i.i, null
-  br i1 %.not.i39.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i, label %174
+  br i1 %.not.i39.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %174
 
-174:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit38.i.i
+174:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.val27.i.i, i64 noundef %153) #25
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i: ; preds = %174, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit38.i.i
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %174, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %163, ptr %92, align 8
   store ptr %173, ptr %93, align 8
   %175 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %163, i64 %161
   store ptr %175, ptr %94, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.exit
 
 176:                                              ; preds = %134
   %.val62 = load i64, ptr %97, align 4
@@ -15216,7 +15216,7 @@ _ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJR
   %186 = load ptr, ptr %93, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 52
   store ptr %187, ptr %93, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.exit
 
 188:                                              ; preds = %176
   %.val.i.i = load ptr, ptr %92, align 8
@@ -15224,13 +15224,13 @@ _ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJR
   %190 = ptrtoint ptr %.val.i.i to i64
   %191 = sub i64 %189, %190
   %192 = icmp eq i64 %191, 9223372036854775800
-  br i1 %192, label %193, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i82
+  br i1 %192, label %193, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i82
 
 193:                                              ; preds = %188
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #24
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i82: ; preds = %188
+_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i82: ; preds = %188
   %194 = sdiv exact i64 %191, 52
   %195 = icmp eq ptr %177, %.val.i.i
   %.sroa.speculated.i.i.i83 = select i1 %195, i64 1, i64 %194
@@ -15260,35 +15260,35 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.a
   store i8 0, ptr %207, align 4
   %208 = getelementptr inbounds nuw i8, ptr %202, i64 49
   store i8 0, ptr %208, align 1
-  br i1 %195, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i, label %.lr.ph.i.i.i.i.i87
+  br i1 %195, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i, label %.lr.ph.i.i.i.i.i87
 
-.lr.ph.i.i.i.i.i87:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i82, %.lr.ph.i.i.i.i.i87
-  %.03.i.i.i.i.i88 = phi ptr [ %210, %.lr.ph.i.i.i.i.i87 ], [ %201, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i82 ]
-  %.092.i.i.i.i.i89 = phi ptr [ %209, %.lr.ph.i.i.i.i.i87 ], [ %.val.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i82 ]
+.lr.ph.i.i.i.i.i87:                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i82, %.lr.ph.i.i.i.i.i87
+  %.03.i.i.i.i.i88 = phi ptr [ %210, %.lr.ph.i.i.i.i.i87 ], [ %201, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ]
+  %.092.i.i.i.i.i89 = phi ptr [ %209, %.lr.ph.i.i.i.i.i87 ], [ %.val.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.03.i.i.i.i.i88, ptr noundef nonnull readonly align 4 dereferenceable(52) %.092.i.i.i.i.i89, i64 52, i1 false), !alias.scope !140
   %209 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i89, i64 52
   %210 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i88, i64 52
   %.not.i.i.i.i.i90 = icmp eq ptr %209, %177
-  br i1 %.not.i.i.i.i.i90, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i, label %.lr.ph.i.i.i.i.i87, !llvm.loop !78
+  br i1 %.not.i.i.i.i.i90, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i, label %.lr.ph.i.i.i.i.i87, !llvm.loop !78
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i: ; preds = %.lr.ph.i.i.i.i.i87, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i82
-  %.0.lcssa.i.i.i.i.i91 = phi ptr [ %201, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i82 ], [ %210, %.lr.ph.i.i.i.i.i87 ]
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i: ; preds = %.lr.ph.i.i.i.i.i87, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i82
+  %.0.lcssa.i.i.i.i.i91 = phi ptr [ %201, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ], [ %210, %.lr.ph.i.i.i.i.i87 ]
   %211 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i91, i64 52
   %.not.i32.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i32.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESB_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i, label %212
+  br i1 %.not.i32.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESB_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %212
 
-212:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i
+212:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %191) #25
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESB_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESB_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESB_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i: ; preds = %212, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESB_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %212, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i
   store ptr %201, ptr %92, align 8
   store ptr %211, ptr %93, align 8
   %213 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %201, i64 %199
   store ptr %213, ptr %94, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.argprom.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESB_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i, %179, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i, %141, %_ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit.thread130
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEERS1_DpOT_.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESB_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %179, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %141, %_ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit.thread130
   %.sroa.012.0.copyload = load i32, ptr %4, align 4
   %214 = call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(1960) %0, i32 %.sroa.012.0.copyload, i1 noundef zeroext true)
   store i32 %214, ptr %4, align 4
@@ -15337,15 +15337,15 @@ _ZN12_GLOBAL__N_119SourceMappingRegion11setStartLocEN5clang14SourceLocationE.exi
   %229 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %230
 
-230:                                              ; preds = %.lr.ph150, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.argprom.exit
-  %.sroa.06.0148 = phi i32 [ %.sroa.06.0.copyload, %.lr.ph150 ], [ %273, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.argprom.exit ]
+230:                                              ; preds = %.lr.ph150, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.exit
+  %.sroa.06.0148 = phi i32 [ %.sroa.06.0.copyload, %.lr.ph150 ], [ %273, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.exit ]
   %.val65 = load ptr, ptr %10, align 8
-  %231 = call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.argprom(ptr %.val65, i32 %.sroa.06.0148)
+  %231 = call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE(ptr %.val65, i32 %.sroa.06.0148)
   store i32 %231, ptr %6, align 4
   call void @_ZN4llvm8SmallSetIN5clang14SourceLocationELj8ESt4lessIS2_EE6insertERKS2_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1625") align 8 %7, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %232 = load i8, ptr %229, align 8
   %233 = trunc i8 %232 to i1
-  br i1 %233, label %234, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.argprom.exit
+  br i1 %233, label %234, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.exit
 
 234:                                              ; preds = %230
   %235 = call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder19getEndOfFileOrMacroEN5clang14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(1960) %0, i32 %.sroa.06.0148)
@@ -15376,7 +15376,7 @@ _ZN12_GLOBAL__N_119SourceMappingRegion11setStartLocEN5clang14SourceLocationE.exi
   %245 = load ptr, ptr %93, align 8
   %246 = getelementptr inbounds i8, ptr %245, i64 52
   store ptr %246, ptr %93, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.exit
 
 247:                                              ; preds = %234
   %.val.i.i97 = load ptr, ptr %92, align 8
@@ -15384,13 +15384,13 @@ _ZN12_GLOBAL__N_119SourceMappingRegion11setStartLocEN5clang14SourceLocationE.exi
   %249 = ptrtoint ptr %.val.i.i97 to i64
   %250 = sub i64 %248, %249
   %251 = icmp eq i64 %250, 9223372036854775800
-  br i1 %251, label %252, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i98
+  br i1 %251, label %252, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i98
 
 252:                                              ; preds = %247
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #24
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i98: ; preds = %247
+_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i98: ; preds = %247
   %253 = sdiv exact i64 %250, 52
   %254 = icmp eq ptr %236, %.val.i.i97
   %.sroa.speculated.i.i.i99 = select i1 %254, i64 1, i64 %253
@@ -15420,40 +15420,40 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.a
   store i8 0, ptr %266, align 4
   %267 = getelementptr inbounds nuw i8, ptr %261, i64 49
   store i8 0, ptr %267, align 1
-  br i1 %254, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i109, label %.lr.ph.i.i.i.i.i105
+  br i1 %254, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i109, label %.lr.ph.i.i.i.i.i105
 
-.lr.ph.i.i.i.i.i105:                              ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i98, %.lr.ph.i.i.i.i.i105
-  %.03.i.i.i.i.i106 = phi ptr [ %269, %.lr.ph.i.i.i.i.i105 ], [ %260, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i98 ]
-  %.092.i.i.i.i.i107 = phi ptr [ %268, %.lr.ph.i.i.i.i.i105 ], [ %.val.i.i97, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i98 ]
+.lr.ph.i.i.i.i.i105:                              ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i98, %.lr.ph.i.i.i.i.i105
+  %.03.i.i.i.i.i106 = phi ptr [ %269, %.lr.ph.i.i.i.i.i105 ], [ %260, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i98 ]
+  %.092.i.i.i.i.i107 = phi ptr [ %268, %.lr.ph.i.i.i.i.i105 ], [ %.val.i.i97, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i98 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.03.i.i.i.i.i106, ptr noundef nonnull readonly align 4 dereferenceable(52) %.092.i.i.i.i.i107, i64 52, i1 false), !alias.scope !145
   %268 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i107, i64 52
   %269 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i106, i64 52
   %.not.i.i.i.i.i108 = icmp eq ptr %268, %236
-  br i1 %.not.i.i.i.i.i108, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i109, label %.lr.ph.i.i.i.i.i105, !llvm.loop !78
+  br i1 %.not.i.i.i.i.i108, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i109, label %.lr.ph.i.i.i.i.i105, !llvm.loop !78
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i109: ; preds = %.lr.ph.i.i.i.i.i105, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i98
-  %.0.lcssa.i.i.i.i.i110 = phi ptr [ %260, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i98 ], [ %269, %.lr.ph.i.i.i.i.i105 ]
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i109: ; preds = %.lr.ph.i.i.i.i.i105, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i98
+  %.0.lcssa.i.i.i.i.i110 = phi ptr [ %260, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i98 ], [ %269, %.lr.ph.i.i.i.i.i105 ]
   %270 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i110, i64 52
   %.not.i32.i.i111 = icmp eq ptr %.val.i.i97, null
-  br i1 %.not.i32.i.i111, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i, label %271
+  br i1 %.not.i32.i.i111, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %271
 
-271:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i109
+271:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i109
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i97, i64 noundef %250) #25
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i: ; preds = %271, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i.i109
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %271, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i109
   store ptr %260, ptr %92, align 8
   store ptr %270, ptr %93, align 8
   %272 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %260, i64 %258
   store ptr %272, ptr %94, align 8
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.argprom.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit.i, %238, %230
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %238, %230
   %273 = call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(1960) %0, i32 %.sroa.06.0148, i1 noundef zeroext true)
   %274 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122CoverageMappingBuilder10isNestedInEN5clang14SourceLocationENS1_6FileIDE(ptr noundef nonnull align 8 dereferenceable(1960) %0, i32 %273, i32 %.sroa.040.0.lcssa)
   br i1 %274, label %230, label %.loopexit, !llvm.loop !149
 
-.loopexit:                                        ; preds = %225, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.argprom.exit, %._crit_edge, %226
+.loopexit:                                        ; preds = %225, %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEERS1_DpOT_.exit, %._crit_edge, %226
   store i32 %1, ptr %12, align 8
   %275 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %276 = load ptr, ptr %82, align 8
@@ -15613,13 +15613,13 @@ _ZNK12_GLOBAL__N_119MCDCCoverageBuilder9getCondIDEPKN5clang4ExprE.exit.thread: ;
   %84 = call noundef zeroext i1 @_ZNK5clang4Expr13EvaluateAsIntERNS0_10EvalResultERKNS_10ASTContextENS0_15SideEffectsKindEb(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(23096) %.val.val.val, i32 noundef 0, i1 noundef zeroext false) #22
   %85 = load i32, ptr %83, align 8
   %switch.i.i.i = icmp ult i32 %85, 2
-  br i1 %switch.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20ConditionFoldsToBoolEPKN5clang4ExprE.argprom.argprom.argprom.exit, label %86
+  br i1 %switch.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20ConditionFoldsToBoolEPKN5clang4ExprE.exit, label %86
 
 86:                                               ; preds = %_ZNK12_GLOBAL__N_119MCDCCoverageBuilder9getCondIDEPKN5clang4ExprE.exit.thread
   call void @_ZN5clang7APValue24DestroyDataAndMakeUninitEv(ptr noundef nonnull align 8 dereferenceable(72) %83) #22
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20ConditionFoldsToBoolEPKN5clang4ExprE.argprom.argprom.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20ConditionFoldsToBoolEPKN5clang4ExprE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20ConditionFoldsToBoolEPKN5clang4ExprE.argprom.argprom.argprom.exit: ; preds = %_ZNK12_GLOBAL__N_119MCDCCoverageBuilder9getCondIDEPKN5clang4ExprE.exit.thread, %86
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20ConditionFoldsToBoolEPKN5clang4ExprE.exit: ; preds = %_ZNK12_GLOBAL__N_119MCDCCoverageBuilder9getCondIDEPKN5clang4ExprE.exit.thread, %86
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6)
   %87 = call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull %1)
   %88 = call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder6getEndEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull %1)
@@ -15629,11 +15629,11 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20ConditionFoldsToBoolEPKN5clang
   %.sroa.034.0.insert.insert = or disjoint i64 %.sroa.034.0.insert.ext, 4294967296
   br i1 %84, label %89, label %91
 
-89:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20ConditionFoldsToBoolEPKN5clang4ExprE.argprom.argprom.argprom.exit
+89:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20ConditionFoldsToBoolEPKN5clang4ExprE.exit
   %90 = call fastcc noundef i64 @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder10pushRegionEN4llvm8coverage7CounterESt8optionalIN5clang14SourceLocationEES7_S4_IS3_ERKSt7variantIJSt9monostateNS2_4mcdc18DecisionParametersENSB_16BranchParametersEEE(ptr noundef nonnull align 8 dereferenceable(2376) %0, i64 0, i64 %.sroa.042.0.insert.insert, i64 %.sroa.034.0.insert.insert, i64 0, i8 1, ptr noundef nonnull align 4 dereferenceable(9) %7)
   br label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4StmtENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5countES5_.exit.thread.sink.split
 
-91:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20ConditionFoldsToBoolEPKN5clang4ExprE.argprom.argprom.argprom.exit
+91:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20ConditionFoldsToBoolEPKN5clang4ExprE.exit
   %92 = call fastcc noundef i64 @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder10pushRegionEN4llvm8coverage7CounterESt8optionalIN5clang14SourceLocationEES7_S4_IS3_ERKSt7variantIJSt9monostateNS2_4mcdc18DecisionParametersENSB_16BranchParametersEEE(ptr noundef nonnull align 8 dereferenceable(2376) %0, i64 %2, i64 %.sroa.042.0.insert.insert, i64 %.sroa.034.0.insert.insert, i64 %3, i8 1, ptr noundef nonnull align 4 dereferenceable(9) %7)
   br label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4StmtENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5countES5_.exit.thread.sink.split
 
@@ -15667,20 +15667,20 @@ define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder22c
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2162
   %18 = load i8, ptr %17, align 2
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder26getTotalConditionsAndResetEPKN5clang14BinaryOperatorE.argprom.exit
+  br i1 %19, label %20, label %_ZN12_GLOBAL__N_119MCDCCoverageBuilder26getTotalConditionsAndResetEPKN5clang14BinaryOperatorE.exit
 
 20:                                               ; preds = %16
   store i8 0, ptr %17, align 2
   br label %_ZN4llvm11SmallVectorISt5arrayIsLm2EELj12EED2Ev.exit
 
-_ZN12_GLOBAL__N_119MCDCCoverageBuilder26getTotalConditionsAndResetEPKN5clang14BinaryOperatorE.argprom.exit: ; preds = %16
+_ZN12_GLOBAL__N_119MCDCCoverageBuilder26getTotalConditionsAndResetEPKN5clang14BinaryOperatorE.exit: ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   %22 = load i16, ptr %21, align 8
   store i16 0, ptr %21, align 8
   %23 = icmp eq i16 %22, 0
   br i1 %23, label %_ZN4llvm11SmallVectorISt5arrayIsLm2EELj12EED2Ev.exit, label %24
 
-24:                                               ; preds = %_ZN12_GLOBAL__N_119MCDCCoverageBuilder26getTotalConditionsAndResetEPKN5clang14BinaryOperatorE.argprom.exit
+24:                                               ; preds = %_ZN12_GLOBAL__N_119MCDCCoverageBuilder26getTotalConditionsAndResetEPKN5clang14BinaryOperatorE.exit
   %25 = sext i16 %22 to i64
   %26 = and i64 %25, 4294967295
   %27 = getelementptr inbounds i8, ptr %5, i64 16
@@ -15711,21 +15711,21 @@ _ZN12_GLOBAL__N_119MCDCCoverageBuilder26getTotalConditionsAndResetEPKN5clang14Bi
 
 37:                                               ; preds = %33
   %38 = icmp ult i64 %.079.i.i.i, 3
-  br i1 %38, label %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.argprom.exit, label %39
+  br i1 %38, label %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit, label %39
 
 39:                                               ; preds = %37, %33
   %.1.i.i.i = phi i64 [ %.079.i.i.i, %33 ], [ %.010.i.i.i, %37 ]
   %40 = add nuw nsw i64 %.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %40, 3
-  br i1 %exitcond.not.i.i.i, label %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.argprom.exit, label %33, !llvm.loop !151
+  br i1 %exitcond.not.i.i.i, label %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit, label %33, !llvm.loop !151
 
-_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.argprom.exit: ; preds = %37, %39
+_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit: ; preds = %37, %39
   %.08.i.i.i = phi i64 [ 3, %37 ], [ %.1.i.i.i, %39 ]
   %41 = zext i8 %.0.val to i64
   %42 = icmp eq i64 %.08.i.i.i, %41
   br i1 %42, label %43, label %49
 
-43:                                               ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.argprom.exit
+43:                                               ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit
   %44 = getelementptr inbounds nuw i8, ptr %.051, i64 20
   %45 = icmp eq i8 %.0.val, 2
   %spec.select.i.i.i.i = select i1 %45, ptr %44, ptr null
@@ -15738,7 +15738,7 @@ _ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.argprom.exit: ; preds = 
   store i32 %.sroa.2.0.copyload, ptr %48, align 2
   br label %49
 
-49:                                               ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.argprom.exit, %43
+49:                                               ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit, %43
   %50 = getelementptr inbounds i8, ptr %.051, i64 52
   %.not = icmp eq ptr %50, %.val3.i
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -15841,27 +15841,27 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %.lr.ph.i.i.i.i.i, %
 
 104:                                              ; preds = %100
   %105 = icmp ult i64 %.079.i.i.i.i, 3
-  br i1 %105, label %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.argprom.exit.i, label %106
+  br i1 %105, label %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit.i, label %106
 
 106:                                              ; preds = %104, %100
   %.1.i.i.i.i = phi i64 [ %.079.i.i.i.i, %100 ], [ %.010.i.i.i.i, %104 ]
   %107 = add nuw nsw i64 %.010.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %107, 3
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.argprom.exit.i, label %100, !llvm.loop !151
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit.i, label %100, !llvm.loop !151
 
-_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.argprom.exit.i: ; preds = %106, %104
+_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit.i: ; preds = %106, %104
   %.08.i.i.i.i = phi i64 [ 3, %104 ], [ %.1.i.i.i.i, %106 ]
   %108 = zext i8 %.0.val.i to i64
   %109 = icmp eq i64 %.08.i.i.i.i, %108
   br i1 %109, label %110, label %112
 
-110:                                              ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.argprom.exit.i
+110:                                              ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit.i
   %111 = getelementptr inbounds nuw i8, ptr %.033.i, i64 20
   store i64 0, ptr %111, align 4
   store i8 0, ptr %99, align 4
   br label %112
 
-112:                                              ; preds = %110, %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.argprom.exit.i
+112:                                              ; preds = %110, %_ZNK12_GLOBAL__N_119SourceMappingRegion12isMCDCBranchEv.exit.i
   %113 = getelementptr inbounds i8, ptr %.033.i, i64 52
   %.not.i29 = icmp eq ptr %113, %.val3.i.i.i
   br i1 %.not.i29, label %._crit_edge.i, label %.lr.ph.i
@@ -16130,7 +16130,7 @@ _ZN4llvm8coverage4mcdc12TVIdxBuilderD2Ev.exit:    ; preds = %_ZN12_GLOBAL__N_129
   call void @free(ptr noundef %244) #22
   br label %_ZN4llvm11SmallVectorISt5arrayIsLm2EELj12EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt5arrayIsLm2EELj12EED2Ev.exit: ; preds = %3, %20, %246, %_ZN4llvm8coverage4mcdc12TVIdxBuilderD2Ev.exit, %_ZN12_GLOBAL__N_119MCDCCoverageBuilder26getTotalConditionsAndResetEPKN5clang14BinaryOperatorE.argprom.exit
+_ZN4llvm11SmallVectorISt5arrayIsLm2EELj12EED2Ev.exit: ; preds = %3, %20, %246, %_ZN4llvm8coverage4mcdc12TVIdxBuilderD2Ev.exit, %_ZN12_GLOBAL__N_119MCDCCoverageBuilder26getTotalConditionsAndResetEPKN5clang14BinaryOperatorE.exit
   ret void
 }
 
@@ -17406,7 +17406,7 @@ _ZNK5clang13SourceManager18getLocForEndOfFileENS_6FileIDE.exit: ; preds = %_ZNK5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.argprom(ptr %.8.val, i32 %0) unnamed_addr #0 align 2 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE(ptr %.8.val, i32 %0) unnamed_addr #0 align 2 {
   %2 = alloca i8, align 1
   %3 = icmp slt i32 %0, 0
   br i1 %3, label %4, label %7
@@ -18287,7 +18287,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder28a
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %.val7 = load ptr, ptr %14, align 8
-  %15 = tail call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE.argprom(ptr %.val7, i32 %10)
+  %15 = tail call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder21getStartOfFileOrMacroEN5clang14SourceLocationE(ptr %.val7, i32 %10)
   %.sroa.02.0.copyload = load i32, ptr %3, align 8
   %.val.i.i.i11 = load ptr, ptr %4, align 8
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
@@ -18312,109 +18312,109 @@ define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder28a
   %28 = add i64 %27, %21
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i
-  %29 = phi ptr [ %69, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i ], [ %.val10, %.lr.ph.i.preheader.i.i.i.i.i.i ]
-  %.val15.i.i.i.i.i.i.i = phi i64 [ %72, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i ], [ %21, %.lr.ph.i.preheader.i.i.i.i.i.i ]
-  %.066.i.i.i.i.i.i.i = phi i64 [ %70, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i ], [ %25, %.lr.ph.i.preheader.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i
+  %29 = phi ptr [ %69, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %.val10, %.lr.ph.i.preheader.i.i.i.i.i.i ]
+  %.val15.i.i.i.i.i.i.i = phi i64 [ %72, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %21, %.lr.ph.i.preheader.i.i.i.i.i.i ]
+  %.066.i.i.i.i.i.i.i = phi i64 [ %70, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i ], [ %25, %.lr.ph.i.preheader.i.i.i.i.i.i ]
   %30 = inttoptr i64 %.val15.i.i.i.i.i.i.i to ptr
   %31 = getelementptr inbounds i8, ptr %30, i64 -20
   %.val.i.i.i.i.i.i.i.i.i = load i32, ptr %31, align 4, !noalias !169
   %32 = icmp eq i32 %.val.i.i.i.i.i.i.i.i.i, %15
-  br i1 %32, label %33, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i
+  br i1 %32, label %33, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i
 
 33:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %30, i64 -12
   %.val5.i.i.i.i.i.i.i.i.i = load i32, ptr %34, align 4, !noalias !169
   %35 = icmp eq i32 %.val5.i.i.i.i.i.i.i.i.i, %.sroa.02.0.copyload
-  br i1 %35, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i
+  br i1 %35, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i: ; preds = %33
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i: ; preds = %33
   %36 = getelementptr inbounds i8, ptr %30, i64 -36
   %.val4.i.i.i.i.i.i.i.i.i = load i8, ptr %36, align 4, !noalias !169
   %37 = xor i8 %.val4.i.i.i.i.i.i.i.i.i, %.val
   %38 = trunc i8 %37 to i1
-  br i1 %38, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br i1 %38, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i, %33, %.lr.ph.i.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i, %33, %.lr.ph.i.i.i.i.i.i.i
   %39 = getelementptr inbounds i8, ptr %29, i64 -72
   %.val.i.i27.i.i.i.i.i.i.i = load i32, ptr %39, align 4, !noalias !169
   %40 = icmp eq i32 %.val.i.i27.i.i.i.i.i.i.i, %15
-  br i1 %40, label %41, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i
+  br i1 %40, label %41, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i
 
-41:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i
   %42 = getelementptr inbounds i8, ptr %29, i64 -64
   %.val5.i.i28.i.i.i.i.i.i.i = load i32, ptr %42, align 4, !noalias !169
   %43 = icmp eq i32 %.val5.i.i28.i.i.i.i.i.i.i, %.sroa.02.0.copyload
-  br i1 %43, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i
+  br i1 %43, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i: ; preds = %41
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i: ; preds = %41
   %44 = getelementptr inbounds i8, ptr %29, i64 -88
   %.val4.i.i29.i.i.i.i.i.i.i = load i8, ptr %44, align 4, !noalias !169
   %45 = xor i8 %.val4.i.i29.i.i.i.i.i.i.i, %.val
   %46 = trunc i8 %45 to i1
-  br i1 %46, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i, label %47
+  br i1 %46, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i, label %47
 
-47:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i
+47:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i
   %48 = getelementptr inbounds i8, ptr %29, i64 -52
   %.val13.cast.le.i.i.i.i.i.i.i = ptrtoint ptr %48 to i64
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.i.i.i.i.i.i.i, %41, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.i.i.i.i.i.i.i, %41, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.thread.i.i.i.i.i.i.i
   %49 = getelementptr inbounds i8, ptr %29, i64 -124
   %.val.i.i31.i.i.i.i.i.i.i = load i32, ptr %49, align 4, !noalias !169
   %50 = icmp eq i32 %.val.i.i31.i.i.i.i.i.i.i, %15
-  br i1 %50, label %51, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i
+  br i1 %50, label %51, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i
 
-51:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i
+51:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i
   %52 = getelementptr inbounds i8, ptr %29, i64 -116
   %.val5.i.i32.i.i.i.i.i.i.i = load i32, ptr %52, align 4, !noalias !169
   %53 = icmp eq i32 %.val5.i.i32.i.i.i.i.i.i.i, %.sroa.02.0.copyload
-  br i1 %53, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i
+  br i1 %53, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i: ; preds = %51
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i: ; preds = %51
   %54 = getelementptr inbounds i8, ptr %29, i64 -140
   %.val4.i.i33.i.i.i.i.i.i.i = load i8, ptr %54, align 4, !noalias !169
   %55 = xor i8 %.val4.i.i33.i.i.i.i.i.i.i, %.val
   %56 = trunc i8 %55 to i1
-  br i1 %56, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i, label %57
+  br i1 %56, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i, label %57
 
-57:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i
+57:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i
   %58 = getelementptr inbounds i8, ptr %29, i64 -104
   %.val11.cast.le.i.i.i.i.i.i.i = ptrtoint ptr %58 to i64
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.i.i.i.i.i.i.i, %51, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit30.thread.i.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.i.i.i.i.i.i.i, %51, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit30.thread.i.i.i.i.i.i.i
   %59 = getelementptr inbounds i8, ptr %29, i64 -176
   %.val.i.i35.i.i.i.i.i.i.i = load i32, ptr %59, align 4, !noalias !169
   %60 = icmp eq i32 %.val.i.i35.i.i.i.i.i.i.i, %15
-  br i1 %60, label %61, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i
+  br i1 %60, label %61, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i
 
-61:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i
+61:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i
   %62 = getelementptr inbounds i8, ptr %29, i64 -168
   %.val5.i.i36.i.i.i.i.i.i.i = load i32, ptr %62, align 4, !noalias !169
   %63 = icmp eq i32 %.val5.i.i36.i.i.i.i.i.i.i, %.sroa.02.0.copyload
-  br i1 %63, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i
+  br i1 %63, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i: ; preds = %61
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i: ; preds = %61
   %64 = getelementptr inbounds i8, ptr %29, i64 -192
   %.val4.i.i37.i.i.i.i.i.i.i = load i8, ptr %64, align 4, !noalias !169
   %65 = xor i8 %.val4.i.i37.i.i.i.i.i.i.i, %.val
   %66 = trunc i8 %65 to i1
-  br i1 %66, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i, label %67
+  br i1 %66, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i, label %67
 
-67:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i
+67:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i
   %68 = getelementptr inbounds i8, ptr %29, i64 -156
   %.val9.cast.le.i.i.i.i.i.i.i = ptrtoint ptr %68 to i64
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.i.i.i.i.i.i.i, %61, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit34.thread.i.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.i.i.i.i.i.i.i, %61, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit34.thread.i.i.i.i.i.i.i
   %69 = getelementptr inbounds i8, ptr %29, i64 -208
   %70 = add nsw i64 %.066.i.i.i.i.i.i.i, -1
   %71 = icmp sgt i64 %.066.i.i.i.i.i.i.i, 1
   %72 = ptrtoint ptr %69 to i64
   br i1 %71, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !92
 
-._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit38.thread.i.i.i.i.i.i.i
+._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit38.thread.i.i.i.i.i.i.i
   %.pre92.i.i.i.i.i.i.i = sub i64 %28, %22
   br label %._crit_edge.i.i.i.i.i.i.i
 
@@ -18423,7 +18423,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder2
   %.val386.i.i.i.i.i.i.i = phi i64 [ %28, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %21, %13 ]
   %73 = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val10, %13 ]
   %74 = sdiv exact i64 %.pre-phi93.i.i.i.i.i.i.i, 52
-  switch i64 %74, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit [
+  switch i64 %74, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit [
     i64 3, label %75
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge87.i.i.i.i.i.i.i
@@ -18434,90 +18434,90 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder2
   %77 = getelementptr inbounds i8, ptr %76, i64 -20
   %.val.i.i39.i.i.i.i.i.i.i = load i32, ptr %77, align 4, !noalias !169
   %78 = icmp eq i32 %.val.i.i39.i.i.i.i.i.i.i, %15
-  br i1 %78, label %79, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i
+  br i1 %78, label %79, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds i8, ptr %76, i64 -12
   %.val5.i.i40.i.i.i.i.i.i.i = load i32, ptr %80, align 4, !noalias !169
   %81 = icmp eq i32 %.val5.i.i40.i.i.i.i.i.i.i, %.sroa.02.0.copyload
-  br i1 %81, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i
+  br i1 %81, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i: ; preds = %79
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i: ; preds = %79
   %82 = getelementptr inbounds i8, ptr %76, i64 -36
   %.val4.i.i41.i.i.i.i.i.i.i = load i8, ptr %82, align 4, !noalias !169
   %83 = xor i8 %.val4.i.i41.i.i.i.i.i.i.i, %.val
   %84 = trunc i8 %83 to i1
-  br i1 %84, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br i1 %84, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i, %79, %75
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i, %79, %75
   %85 = getelementptr inbounds i8, ptr %73, i64 -52
   %86 = ptrtoint ptr %85 to i64
   br label %._crit_edge._crit_edge.i.i.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %87 = phi ptr [ %85, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i ], [ %73, %._crit_edge.i.i.i.i.i.i.i ]
-  %.val5.i.i.i.i.i.i.i = phi i64 [ %86, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.thread.i.i.i.i.i.i.i ], [ %.val386.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
+._crit_edge._crit_edge.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
+  %87 = phi ptr [ %85, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i ], [ %73, %._crit_edge.i.i.i.i.i.i.i ]
+  %.val5.i.i.i.i.i.i.i = phi i64 [ %86, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.thread.i.i.i.i.i.i.i ], [ %.val386.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %88 = inttoptr i64 %.val5.i.i.i.i.i.i.i to ptr
   %89 = getelementptr inbounds i8, ptr %88, i64 -20
   %.val.i.i43.i.i.i.i.i.i.i = load i32, ptr %89, align 4, !noalias !169
   %90 = icmp eq i32 %.val.i.i43.i.i.i.i.i.i.i, %15
-  br i1 %90, label %91, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i
+  br i1 %90, label %91, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i
 
 91:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i.i
   %92 = getelementptr inbounds i8, ptr %88, i64 -12
   %.val5.i.i44.i.i.i.i.i.i.i = load i32, ptr %92, align 4, !noalias !169
   %93 = icmp eq i32 %.val5.i.i44.i.i.i.i.i.i.i, %.sroa.02.0.copyload
-  br i1 %93, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i
+  br i1 %93, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i: ; preds = %91
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i: ; preds = %91
   %94 = getelementptr inbounds i8, ptr %88, i64 -36
   %.val4.i.i45.i.i.i.i.i.i.i = load i8, ptr %94, align 4, !noalias !169
   %95 = xor i8 %.val4.i.i45.i.i.i.i.i.i.i, %.val
   %96 = trunc i8 %95 to i1
-  br i1 %96, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br i1 %96, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i, %91, %._crit_edge._crit_edge.i.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i, %91, %._crit_edge._crit_edge.i.i.i.i.i.i.i
   %97 = getelementptr inbounds i8, ptr %87, i64 -52
   %98 = ptrtoint ptr %97 to i64
   br label %._crit_edge._crit_edge87.i.i.i.i.i.i.i
 
-._crit_edge._crit_edge87.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %.val3.i.i.i.i.i.i.i = phi i64 [ %98, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.thread.i.i.i.i.i.i.i ], [ %.val386.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
+._crit_edge._crit_edge87.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
+  %.val3.i.i.i.i.i.i.i = phi i64 [ %98, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.thread.i.i.i.i.i.i.i ], [ %.val386.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %99 = inttoptr i64 %.val3.i.i.i.i.i.i.i to ptr
   %100 = getelementptr inbounds i8, ptr %99, i64 -20
   %.val.i.i47.i.i.i.i.i.i.i = load i32, ptr %100, align 4, !noalias !169
   %101 = icmp eq i32 %.val.i.i47.i.i.i.i.i.i.i, %15
-  br i1 %101, label %102, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i
+  br i1 %101, label %102, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i
 
 102:                                              ; preds = %._crit_edge._crit_edge87.i.i.i.i.i.i.i
   %103 = getelementptr inbounds i8, ptr %99, i64 -12
   %.val5.i.i48.i.i.i.i.i.i.i = load i32, ptr %103, align 4, !noalias !169
   %104 = icmp eq i32 %.val5.i.i48.i.i.i.i.i.i.i, %.sroa.02.0.copyload
-  br i1 %104, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i
+  br i1 %104, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i: ; preds = %102
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i: ; preds = %102
   %105 = getelementptr inbounds i8, ptr %99, i64 -36
   %.val4.i.i49.i.i.i.i.i.i.i = load i8, ptr %105, align 4, !noalias !169
   %106 = xor i8 %.val4.i.i49.i.i.i.i.i.i.i, %.val
   %107 = trunc i8 %106 to i1
-  br i1 %107, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+  br i1 %107, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i, %102, %._crit_edge._crit_edge87.i.i.i.i.i.i.i
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i, %102, %._crit_edge._crit_edge87.i.i.i.i.i.i.i
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i, %47, %57, %67, %._crit_edge.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i
-  %.val.sink.i.i.i.i.i.i.i = phi i64 [ %.val9.cast.le.i.i.i.i.i.i.i, %67 ], [ %.val11.cast.le.i.i.i.i.i.i.i, %57 ], [ %.val13.cast.le.i.i.i.i.i.i.i, %47 ], [ %.val386.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit42.i.i.i.i.i.i.i ], [ %.val5.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit46.i.i.i.i.i.i.i ], [ %.val3.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.i.i.i.i.i.i.i ], [ %22, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit50.thread.i.i.i.i.i.i.i ], [ %22, %._crit_edge.i.i.i.i.i.i.i ], [ %.val15.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.argprom.exit.i.i.i.i.i.i.i ]
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i, %47, %57, %67, %._crit_edge.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i
+  %.val.sink.i.i.i.i.i.i.i = phi i64 [ %.val9.cast.le.i.i.i.i.i.i.i, %67 ], [ %.val11.cast.le.i.i.i.i.i.i.i, %57 ], [ %.val13.cast.le.i.i.i.i.i.i.i, %47 ], [ %.val386.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit42.i.i.i.i.i.i.i ], [ %.val5.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit46.i.i.i.i.i.i.i ], [ %.val3.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.i.i.i.i.i.i.i ], [ %22, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit50.thread.i.i.i.i.i.i.i ], [ %22, %._crit_edge.i.i.i.i.i.i.i ], [ %.val15.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES5_bEUlRKNS2_19SourceMappingRegionEE_EclISt16reverse_iteratorINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEEbT_.exit.i.i.i.i.i.i.i ]
   %108 = inttoptr i64 %.val.sink.i.i.i.i.i.i.i to ptr
   %.not = icmp eq ptr %.val9, %108
   br i1 %.not, label %.critedge, label %109
 
-109:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+109:                                              ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
   %.sroa.0.0.copyload = load i32, ptr %3, align 8
   %110 = tail call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(1960) %0, i32 %.sroa.0.0.copyload, i1 noundef zeroext true)
   store i32 %110, ptr %3, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %9, %2, %109, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.argprom.exit
+.critedge:                                        ; preds = %9, %2, %109, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationES2_b.exit
   ret void
 }
 
@@ -19149,7 +19149,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %38 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %26, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %.0.i, %39
-  br i1 %40, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %40, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %30, %46
   %41 = phi ptr [ %53, %46 ], [ %39, %30 ]
@@ -19177,7 +19177,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %52 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %26, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %.0.i, %53
-  br i1 %54, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %54, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %44, %23
   %.sink.i.i.i.i.i = phi ptr [ %45, %44 ], [ null, %23 ]
@@ -19186,9 +19186,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %56, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 0, ptr %57, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %46, %30, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %46, %30, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %55, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %38, %30 ], [ %52, %46 ]
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %59 = load i32, ptr %58, align 4
@@ -19218,7 +19218,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %74 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %62, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %1, %75
-  br i1 %76, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit69, label %.lr.ph.i.i.i.i.i55
+  br i1 %76, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit69, label %.lr.ph.i.i.i.i.i55
 
 .lr.ph.i.i.i.i.i55:                               ; preds = %66, %82
   %77 = phi ptr [ %89, %82 ], [ %75, %66 ]
@@ -19246,7 +19246,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %88 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %62, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %1, %89
-  br i1 %90, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit69, label %.lr.ph.i.i.i.i.i55, !llvm.loop !57
+  br i1 %90, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit69, label %.lr.ph.i.i.i.i.i55, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i67: ; preds = %80, %60
   %.sink.i.i.i.i.i68 = phi ptr [ %81, %80 ], [ null, %60 ]
@@ -19255,17 +19255,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %92, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i32 0, ptr %93, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit69
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit69
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit69: ; preds = %82, %66, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i67
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit69: ; preds = %82, %66, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i67
   %.0.i.i.i62 = phi ptr [ %91, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i67 ], [ %74, %66 ], [ %88, %82 ]
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i62, i64 8
   %95 = load i32, ptr %94, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %96
 
-96:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit69, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
-  %.sroa.030.0.in.in.in = phi i32 [ %59, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit ], [ %95, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit69 ]
+96:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit69, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
+  %.sroa.030.0.in.in.in = phi i32 [ %59, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit ], [ %95, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit69 ]
   %.sroa.030.0.in.in = zext i32 %.sroa.030.0.in.in.in to i64
   %.sroa.030.0.in = shl nuw i64 %.sroa.030.0.in.in, 32
   %.sroa.030.0 = or disjoint i64 %.sroa.030.0.in, 1
@@ -19417,7 +19417,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %153 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %141, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %.0.i104, %154
-  br i1 %155, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit120, label %.lr.ph.i.i.i.i.i106
+  br i1 %155, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit120, label %.lr.ph.i.i.i.i.i106
 
 .lr.ph.i.i.i.i.i106:                              ; preds = %145, %161
   %156 = phi ptr [ %168, %161 ], [ %154, %145 ]
@@ -19445,7 +19445,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %167 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %141, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %.0.i104, %168
-  br i1 %169, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit120, label %.lr.ph.i.i.i.i.i106, !llvm.loop !57
+  br i1 %169, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit120, label %.lr.ph.i.i.i.i.i106, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i118: ; preds = %159, %138
   %.sink.i.i.i.i.i119 = phi ptr [ %160, %159 ], [ null, %138 ]
@@ -19454,9 +19454,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %171, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i32 0, ptr %172, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit120
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit120
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit120: ; preds = %161, %145, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i118
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit120: ; preds = %161, %145, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i118
   %.0.i.i.i113 = phi ptr [ %170, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i118 ], [ %153, %145 ], [ %167, %161 ]
   %173 = getelementptr inbounds nuw i8, ptr %.0.i.i.i113, i64 8
   %174 = load i32, ptr %173, align 4
@@ -19471,8 +19471,8 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %177 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder8subtractENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %176, i64 %20, i64 %.sroa.030.0, i1 noundef zeroext true) #22
   br label %178
 
-178:                                              ; preds = %175, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit120
-  %.sroa.014.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i116, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit120 ], [ %177, %175 ]
+178:                                              ; preds = %175, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit120
+  %.sroa.014.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i116, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit120 ], [ %177, %175 ]
   %179 = load i8, ptr %1, align 8
   %.not.i121 = icmp eq i8 %179, -128
   %.0.in.v.i122 = select i1 %.not.i121, i64 40, i64 48
@@ -19506,7 +19506,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %197 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %185, i64 %196
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %1, %198
-  br i1 %199, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit140, label %.lr.ph.i.i.i.i.i126
+  br i1 %199, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit140, label %.lr.ph.i.i.i.i.i126
 
 .lr.ph.i.i.i.i.i126:                              ; preds = %189, %205
   %200 = phi ptr [ %212, %205 ], [ %198, %189 ]
@@ -19534,7 +19534,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %211 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %185, i64 %210
   %212 = load ptr, ptr %211, align 8
   %213 = icmp eq ptr %1, %212
-  br i1 %213, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit140, label %.lr.ph.i.i.i.i.i126, !llvm.loop !57
+  br i1 %213, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit140, label %.lr.ph.i.i.i.i.i126, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i138: ; preds = %203, %183
   %.sink.i.i.i.i.i139 = phi ptr [ %204, %203 ], [ null, %183 ]
@@ -19543,9 +19543,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %215, ptr %214, align 8
   %216 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i32 0, ptr %216, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit140
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit140
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit140: ; preds = %205, %189, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i138
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit140: ; preds = %205, %189, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i138
   %.0.i.i.i133 = phi ptr [ %214, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i138 ], [ %197, %189 ], [ %211, %205 ]
   %217 = getelementptr inbounds nuw i8, ptr %.0.i.i.i133, i64 8
   %218 = load i32, ptr %217, align 4
@@ -19560,8 +19560,8 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %221 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder3addENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %220, i64 %storemerge, i64 %180, i1 noundef zeroext true) #22
   br label %222
 
-222:                                              ; preds = %219, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit140
-  %storemerge50 = phi i64 [ %221, %219 ], [ %.sroa.0.0.insert.insert.i.i136, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit140 ]
+222:                                              ; preds = %219, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit140
+  %storemerge50 = phi i64 [ %221, %219 ], [ %.sroa.0.0.insert.insert.i.i136, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit140 ]
   %.not3.i.not = icmp eq i64 %storemerge50, %20
   br i1 %.not3.i.not, label %227, label %223
 
@@ -19648,7 +19648,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %32 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %20, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %1, %33
-  br i1 %34, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %34, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %24, %40
   %35 = phi ptr [ %47, %40 ], [ %33, %24 ]
@@ -19676,7 +19676,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12extendRegionEPKN5clang4StmtE.e
   %46 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %20, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %1, %47
-  br i1 %48, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
+  br i1 %48, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i: ; preds = %38, %18
   %.sink.i.i.i.i.i = phi ptr [ %39, %38 ], [ null, %18 ]
@@ -19685,9 +19685,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %50, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 0, ptr %51, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit: ; preds = %40, %24, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit: ; preds = %40, %24, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %49, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i ], [ %32, %24 ], [ %46, %40 ]
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %53 = load i32, ptr %52, align 4
@@ -19721,7 +19721,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %68 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %56, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %1, %69
-  br i1 %70, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit43, label %.lr.ph.i.i.i.i.i29
+  br i1 %70, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit43, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %60, %76
   %71 = phi ptr [ %83, %76 ], [ %69, %60 ]
@@ -19749,7 +19749,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %82 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1273", ptr %56, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %1, %83
-  br i1 %84, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit43, label %.lr.ph.i.i.i.i.i29, !llvm.loop !57
+  br i1 %84, label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit43, label %.lr.ph.i.i.i.i.i29, !llvm.loop !57
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i41: ; preds = %74, %54
   %.sink.i.i.i.i.i42 = phi ptr [ %75, %74 ], [ null, %54 ]
@@ -19758,9 +19758,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
   store ptr %86, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 0, ptr %87, align 4
-  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit43
+  br label %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit43
 
-_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit43: ; preds = %76, %60, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i41
+_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit43: ; preds = %76, %60, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i41
   %.0.i.i.i36 = phi ptr [ %85, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i41 ], [ %68, %60 ], [ %82, %76 ]
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i.i36, i64 8
   %89 = load i32, ptr %88, align 4
@@ -19772,8 +19772,8 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4Stm
   %91 = call i64 @_ZN4llvm8coverage24CounterExpressionBuilder3addENS0_7CounterES2_b(ptr noundef nonnull align 8 dereferenceable(48) %90, i64 %.sroa.08.0.copyload, i64 %.sroa.0.0.insert.insert.i.i39, i1 noundef zeroext true) #22
   br label %92
 
-92:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit43, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit
-  %.sroa.09.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit ], [ %91, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.argprom.exit43 ]
+92:                                               ; preds = %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit43, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit
+  %.sroa.09.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit ], [ %91, %_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder16getRegionCounterEPKN5clang4StmtE.exit43 ]
   %93 = getelementptr i8, ptr %14, i64 -16
   %.val26 = load i8, ptr %93, align 4
   %94 = trunc i8 %.val26 to i1
@@ -20084,7 +20084,7 @@ declare noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef no
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_129CounterCoverageMappingBuilder13BreakContinueEE12emplace_backIJEEERS3_DpOT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_129CounterCoverageMappingBuilder13BreakContinueEE12emplace_backIJEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %.not = icmp ult i64 %2, %3
@@ -20125,7 +20125,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_129CounterCoverageMappingBuilder
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEERS1_DpOT_.argprom.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %.0.val, i32 %.0.val1, i32 %.0.val3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEERS1_DpOT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %.0.val, i32 %.0.val1, i32 %.0.val3) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20162,13 +20162,13 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionES
   %17 = ptrtoint ptr %.val.i to i64
   %18 = sub i64 %16, %17
   %19 = icmp eq i64 %18, 9223372036854775800
-  br i1 %19, label %20, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i
+  br i1 %19, label %20, label %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 20:                                               ; preds = %15
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #24
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i: ; preds = %15
+_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %15
   %21 = sdiv exact i64 %18, 52
   %22 = icmp eq ptr %3, %.val.i
   %.sroa.speculated.i.i = select i1 %22, i64 1, i64 %21
@@ -20198,35 +20198,35 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.a
   store i8 0, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 49
   store i8 0, ptr %35, align 1
-  br i1 %22, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i, label %.lr.ph.i.i.i.i
+  br i1 %22, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i, %.lr.ph.i.i.i.i
-  %.03.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %28, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i ]
-  %.092.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i ], [ %.val.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i
+  %.03.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %28, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i ]
+  %.092.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i ], [ %.val.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.03.i.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(52) %.092.i.i.i.i, i64 52, i1 false), !alias.scope !181
   %36 = getelementptr inbounds i8, ptr %.092.i.i.i.i, i64 52
   %37 = getelementptr inbounds i8, ptr %.03.i.i.i.i, i64 52
   %.not.i.i.i.i = icmp eq ptr %36, %3
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i, label %.lr.ph.i.i.i.i, !llvm.loop !78
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i, label %.lr.ph.i.i.i.i, !llvm.loop !78
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %28, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i ], [ %37, %.lr.ph.i.i.i.i ]
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i
+  %.0.lcssa.i.i.i.i = phi ptr [ %28, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i ], [ %37, %.lr.ph.i.i.i.i ]
   %38 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 52
   %.not.i32.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i32.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit, label %39
+  br i1 %.not.i32.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %39
 
-39:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i
+39:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i, i64 noundef %18) #25
-  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit31.i, %39
+_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i, %39
   store ptr %28, ptr %0, align 8
   store ptr %38, ptr %2, align 8
   %40 = getelementptr inbounds %"class.(anonymous namespace)::SourceMappingRegion", ptr %28, i64 %26
   store ptr %40, ptr %4, align 8
   br label %41
 
-41:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.argprom.exit, %6
+41:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, %6
   ret void
 }
 
@@ -21354,21 +21354,21 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; 
 
 103:                                              ; preds = %99
   %104 = icmp ult i64 %.079.i.i.i, 3
-  br i1 %104, label %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.argprom.exit, label %105
+  br i1 %104, label %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit, label %105
 
 105:                                              ; preds = %103, %99
   %.1.i.i.i = phi i64 [ %.079.i.i.i, %99 ], [ %.010.i.i.i, %103 ]
   %106 = add nuw nsw i64 %.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %106, 3
-  br i1 %exitcond.not.i.i.i, label %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.argprom.exit, label %99, !llvm.loop !202
+  br i1 %exitcond.not.i.i.i, label %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit, label %99, !llvm.loop !202
 
-_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.argprom.exit: ; preds = %103, %105
+_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit: ; preds = %103, %105
   %.08.i.i.i = phi i64 [ 3, %103 ], [ %.1.i.i.i, %105 ]
   %107 = zext i8 %.val33 to i64
   %108 = icmp eq i64 %.08.i.i.i, %107
   br i1 %108, label %109, label %112
 
-109:                                              ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.argprom.exit
+109:                                              ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.063.068, i64 20
   call void @llvm.experimental.noalias.scope.decl(metadata !203)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !203
@@ -21384,7 +21384,7 @@ _ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.argprom.exit: ; preds 
   store i32 5, ptr %31, align 4, !alias.scope !203
   br label %.sink.split
 
-112:                                              ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.argprom.exit
+112:                                              ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit
   %.sroa.0.0.copyload = load i64, ptr %.sroa.063.068, align 4
   store i64 %.sroa.0.0.copyload, ptr %8, align 8, !alias.scope !206
   store i32 0, ptr %13, align 8, !alias.scope !206
@@ -24685,7 +24685,7 @@ define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJRKN5clang5TokenEEE8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 %.sroa.0.0.copyload, ptr %4, align 8
   %.not.i = icmp eq i16 %.sroa.24.0.copyload, 2
-  br i1 %.not.i, label %"_ZZN5clang7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS_12PreprocessorEENK3$_0clENS_5TokenE.argprom.exit", label %5
+  br i1 %.not.i, label %"_ZZN5clang7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS_12PreprocessorEENK3$_0clENS_5TokenE.exit", label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
@@ -24694,19 +24694,19 @@ define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJRKN5clang5TokenEEE8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %8, %10
-  br i1 %11, label %"_ZZN5clang7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS_12PreprocessorEENK3$_0clENS_5TokenE.argprom.exit", label %12
+  br i1 %11, label %"_ZZN5clang7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS_12PreprocessorEENK3$_0clENS_5TokenE.exit", label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %10, i64 -8
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %"_ZZN5clang7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS_12PreprocessorEENK3$_0clENS_5TokenE.argprom.exit"
+  br i1 %15, label %16, label %"_ZZN5clang7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS_12PreprocessorEENK3$_0clENS_5TokenE.exit"
 
 16:                                               ; preds = %12
   store i32 %.sroa.0.0.copyload, ptr %13, align 4
-  br label %"_ZZN5clang7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS_12PreprocessorEENK3$_0clENS_5TokenE.argprom.exit"
+  br label %"_ZZN5clang7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS_12PreprocessorEENK3$_0clENS_5TokenE.exit"
 
-"_ZZN5clang7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS_12PreprocessorEENK3$_0clENS_5TokenE.argprom.exit": ; preds = %2, %5, %12, %16
+"_ZZN5clang7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS_12PreprocessorEENK3$_0clENS_5TokenE.exit": ; preds = %2, %5, %12, %16
   ret void
 }
 
@@ -25800,17 +25800,17 @@ attributes #27 = { nounwind allocsize(0) }
 !64 = distinct !{!64, !"_ZN4llvm8coverage20CounterMappingRegion13makeExpansionEjjjjjj"}
 !65 = distinct !{!65, !12}
 !66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN12_GLOBAL__N_122CoverageMappingBuilder18adjustSkippedRangeERN5clang13SourceManagerENS1_14SourceLocationES4_S4_S4_.argprom: argument 0"}
-!68 = distinct !{!68, !"_ZN12_GLOBAL__N_122CoverageMappingBuilder18adjustSkippedRangeERN5clang13SourceManagerENS1_14SourceLocationES4_S4_S4_.argprom"}
+!67 = distinct !{!67, !68, !"_ZN12_GLOBAL__N_122CoverageMappingBuilder18adjustSkippedRangeERN5clang13SourceManagerENS1_14SourceLocationES4_S4_S4_: argument 0"}
+!68 = distinct !{!68, !"_ZN12_GLOBAL__N_122CoverageMappingBuilder18adjustSkippedRangeERN5clang13SourceManagerENS1_14SourceLocationES4_S4_S4_"}
 !69 = !{!70}
 !70 = distinct !{!70, !71, !"_ZN4llvm8coverage20CounterMappingRegion11makeSkippedEjjjjj: argument 0"}
 !71 = distinct !{!71, !"_ZN4llvm8coverage20CounterMappingRegion11makeSkippedEjjjjj"}
 !72 = distinct !{!72, !12}
 !73 = distinct !{!73, !12}
 !74 = !{!75, !77}
-!75 = distinct !{!75, !76, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
-!76 = distinct !{!76, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
-!77 = distinct !{!77, !76, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
+!75 = distinct !{!75, !76, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!76 = distinct !{!76, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_"}
+!77 = distinct !{!77, !76, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !78 = distinct !{!78, !12}
 !79 = distinct !{!79, !12}
 !80 = distinct !{!80, !12}
@@ -25821,23 +25821,23 @@ attributes #27 = { nounwind allocsize(0) }
 !85 = !{!86, !88, !90}
 !86 = distinct !{!86, !87, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_St26random_access_iterator_tag: argument 0"}
 !87 = distinct !{!87, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_St26random_access_iterator_tag"}
-!88 = distinct !{!88, !89, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_.argprom: argument 0"}
-!89 = distinct !{!89, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_.argprom"}
-!90 = distinct !{!90, !91, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_.argprom: argument 0"}
-!91 = distinct !{!91, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_.argprom"}
+!88 = distinct !{!88, !89, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_: argument 0"}
+!89 = distinct !{!89, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_"}
+!90 = distinct !{!90, !91, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_: argument 0"}
+!91 = distinct !{!91, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_"}
 !92 = distinct !{!92, !12}
 !93 = distinct !{!93, !12}
 !94 = !{!95, !97, !99}
 !95 = distinct !{!95, !96, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_St26random_access_iterator_tag: argument 0"}
 !96 = distinct !{!96, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_St26random_access_iterator_tag"}
-!97 = distinct !{!97, !98, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_.argprom: argument 0"}
-!98 = distinct !{!98, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_.argprom"}
-!99 = distinct !{!99, !100, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_.argprom: argument 0"}
-!100 = distinct !{!100, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_.argprom"}
+!97 = distinct !{!97, !98, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_: argument 0"}
+!98 = distinct !{!98, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_"}
+!99 = distinct !{!99, !100, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_: argument 0"}
+!100 = distinct !{!100, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_"}
 !101 = !{!102, !104}
-!102 = distinct !{!102, !103, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
-!103 = distinct !{!103, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
-!104 = distinct !{!104, !103, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
+!102 = distinct !{!102, !103, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!103 = distinct !{!103, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_"}
+!104 = distinct !{!104, !103, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !105 = distinct !{!105, !12}
 !106 = !{!107, !109}
 !107 = distinct !{!107, !108, !"_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E11try_emplaceIJRS7_EEESt4pairINS_16DenseMapIteratorIS5_S7_S9_SB_Lb0EEEbEOS5_DpOT_: argument 0"}
@@ -25870,18 +25870,18 @@ attributes #27 = { nounwind allocsize(0) }
 !134 = distinct !{!134, !"_ZN4llvm7reverseIRNS_11SmallVectorIN12_GLOBAL__N_119SourceMappingRegionELj1EEEEEDaOT_"}
 !135 = !{!133}
 !136 = !{!137, !139}
-!137 = distinct !{!137, !138, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
-!138 = distinct !{!138, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
-!139 = distinct !{!139, !138, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
+!137 = distinct !{!137, !138, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!138 = distinct !{!138, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_"}
+!139 = distinct !{!139, !138, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !140 = !{!141, !143}
-!141 = distinct !{!141, !142, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
-!142 = distinct !{!142, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
-!143 = distinct !{!143, !142, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
+!141 = distinct !{!141, !142, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!142 = distinct !{!142, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_"}
+!143 = distinct !{!143, !142, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !144 = distinct !{!144, !12}
 !145 = !{!146, !148}
-!146 = distinct !{!146, !147, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
-!147 = distinct !{!147, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
-!148 = distinct !{!148, !147, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
+!146 = distinct !{!146, !147, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!147 = distinct !{!147, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_"}
+!148 = distinct !{!148, !147, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !149 = distinct !{!149, !12}
 !150 = distinct !{!150, !12}
 !151 = distinct !{!151, !12}
@@ -25905,19 +25905,19 @@ attributes #27 = { nounwind allocsize(0) }
 !169 = !{!170, !172, !174}
 !170 = distinct !{!170, !171, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_St26random_access_iterator_tag: argument 0"}
 !171 = distinct !{!171, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_St26random_access_iterator_tag"}
-!172 = distinct !{!172, !173, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_.argprom: argument 0"}
-!173 = distinct !{!173, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_.argprom"}
-!174 = distinct !{!174, !175, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_.argprom: argument 0"}
-!175 = distinct !{!175, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_.argprom"}
+!172 = distinct !{!172, !173, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_: argument 0"}
+!173 = distinct !{!173, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEENS1_5__ops10_Iter_predIZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESF_bEUlRKS4_E_EEET_SK_SK_T0_"}
+!174 = distinct !{!174, !175, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_: argument 0"}
+!175 = distinct !{!175, !"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119SourceMappingRegionESt6vectorIS4_SaIS4_EEEEEZNS3_29CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14SourceLocationESD_bEUlRKS4_E_ET_SH_SH_T0_"}
 !176 = distinct !{!176, !12}
 !177 = !{!178}
 !178 = distinct !{!178, !179, !"_ZNK5clang4Stmt8childrenEv: argument 0"}
 !179 = distinct !{!179, !"_ZNK5clang4Stmt8childrenEv"}
 !180 = distinct !{!180, !12}
 !181 = !{!182, !184}
-!182 = distinct !{!182, !183, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
-!183 = distinct !{!183, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
-!184 = distinct !{!184, !183, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
+!182 = distinct !{!182, !183, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!183 = distinct !{!183, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_"}
+!184 = distinct !{!184, !183, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_119SourceMappingRegionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !185 = distinct !{!185, !12}
 !186 = distinct !{!186, !12}
 !187 = distinct !{!187, !12}

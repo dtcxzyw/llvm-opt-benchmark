@@ -338,7 +338,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal range(i32 0, 2) i32 @dissect_websocket_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %6 = icmp ult i32 %5, 2
-  br i1 %6, label %test_websocket.argprom.exit.thread, label %7
+  br i1 %6, label %test_websocket.exit.thread, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
@@ -346,7 +346,7 @@ define internal range(i32 0, 2) i32 @dissect_websocket_heur_tcp(ptr noundef %0, 
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
   %10 = and i8 %.fr1.i, 112
   %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %11, label %test_websocket.argprom.exit.thread
+  br i1 %.not.i, label %11, label %test_websocket.exit.thread
 
 11:                                               ; preds = %7
   %12 = and i8 %.fr1.i, 14
@@ -355,7 +355,7 @@ define internal range(i32 0, 2) i32 @dissect_websocket_heur_tcp(ptr noundef %0, 
 
 switch.early.test.i:                              ; preds = %11
   %14 = and i8 %.fr1.i, 15
-  switch i8 %14, label %test_websocket.argprom.exit.thread [
+  switch i8 %14, label %test_websocket.exit.thread [
     i8 10, label %15
     i8 2, label %15
     i8 1, label %15
@@ -365,23 +365,23 @@ switch.early.test.i:                              ; preds = %11
 15:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %11
   %16 = add i8 %.fr1.i, -65
   %or.cond.i = icmp ult i8 %16, 26
-  br i1 %or.cond.i, label %17, label %test_websocket.argprom.exit
+  br i1 %or.cond.i, label %17, label %test_websocket.exit
 
 17:                                               ; preds = %15
   %18 = and i8 %9, -33
   %19 = add i8 %18, -65
   %or.cond46.i = icmp ult i8 %19, 26
-  br i1 %or.cond46.i, label %test_websocket.argprom.exit.thread, label %test_websocket.argprom.exit
+  br i1 %or.cond46.i, label %test_websocket.exit.thread, label %test_websocket.exit
 
-test_websocket.argprom.exit:                      ; preds = %17, %15
+test_websocket.exit:                              ; preds = %17, %15
   %20 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #6
   %21 = load ptr, ptr @websocket_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %20, ptr noundef %21) #6
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 2, ptr noundef nonnull @get_websocket_frame_length, ptr noundef nonnull @dissect_websocket_frame, ptr noundef %3) #6
-  br label %test_websocket.argprom.exit.thread
+  br label %test_websocket.exit.thread
 
-test_websocket.argprom.exit.thread:               ; preds = %17, %switch.early.test.i, %7, %4, %test_websocket.argprom.exit
-  %.0 = phi i32 [ 1, %test_websocket.argprom.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %switch.early.test.i ], [ 0, %17 ]
+test_websocket.exit.thread:                       ; preds = %17, %switch.early.test.i, %7, %4, %test_websocket.exit
+  %.0 = phi i32 [ 1, %test_websocket.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %switch.early.test.i ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -842,7 +842,7 @@ websocket_parse_extensions.exit:                  ; preds = %websocket_init_z_st
   %214 = call noalias ptr @wmem_alloc(ptr noundef %.val, i64 noundef %213) #6
   %215 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %151, i32 noundef %212) #6
   %.not.i143 = icmp eq i32 %211, 0
-  br i1 %.not.i143, label %tvb_unmasked.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i143, label %tvb_unmasked.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %207, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %207 ]
@@ -856,9 +856,9 @@ websocket_parse_extensions.exit:                  ; preds = %websocket_init_z_st
   store i8 %221, ptr %222, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %213
-  br i1 %exitcond.not.i, label %tvb_unmasked.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %tvb_unmasked.exit, label %.lr.ph.i, !llvm.loop !4
 
-tvb_unmasked.argprom.exit:                        ; preds = %.lr.ph.i, %207
+tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
   %223 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %214, i32 noundef %212, i32 noundef %.0120) #6
   call void @add_new_data_source(ptr noundef %1, ptr noundef %223, ptr noundef nonnull @.str.135) #6
   br label %226
@@ -867,9 +867,9 @@ tvb_unmasked.argprom.exit:                        ; preds = %.lr.ph.i, %207
   %225 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %151, i32 noundef %.0120) #6
   br label %226
 
-226:                                              ; preds = %224, %tvb_unmasked.argprom.exit
-  %227 = phi i32 [ %.0120, %tvb_unmasked.argprom.exit ], [ 0, %224 ]
-  %.0123 = phi ptr [ %223, %tvb_unmasked.argprom.exit ], [ %225, %224 ]
+226:                                              ; preds = %224, %tvb_unmasked.exit
+  %227 = phi i32 [ %.0120, %tvb_unmasked.exit ], [ 0, %224 ]
+  %.0123 = phi ptr [ %223, %tvb_unmasked.exit ], [ %225, %224 ]
   %228 = call i32 @tvb_raw_offset(ptr noundef %0) #6
   %229 = call i32 @tvb_reported_length(ptr noundef %.0123) #6
   %230 = call i32 @tvb_captured_length(ptr noundef %.0123) #6

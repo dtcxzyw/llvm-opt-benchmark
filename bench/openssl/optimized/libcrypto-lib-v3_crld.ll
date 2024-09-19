@@ -294,7 +294,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %tobool.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  tail call fastcc void @print_distpoint.retelim(ptr noundef %out, ptr noundef %0, i32 noundef %indent)
+  tail call fastcc void @print_distpoint(ptr noundef %out, ptr noundef %0, i32 noundef %indent)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %if.end
@@ -662,7 +662,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @print_distpoint.retelim(ptr noundef %out, ptr noundef %0, i32 noundef %indent)
+  tail call fastcc void @print_distpoint(ptr noundef %out, ptr noundef %0, i32 noundef %indent)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1195,7 +1195,7 @@ declare i32 @X509V3_get_value_bool(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_distpoint.retelim(ptr noundef %out, ptr nocapture noundef nonnull readonly %dpn, i32 noundef %indent) unnamed_addr #1 {
+define internal fastcc void @print_distpoint(ptr noundef %out, ptr nocapture noundef nonnull readonly %dpn, i32 noundef %indent) unnamed_addr #1 {
 entry:
   %ntmp = alloca %struct.X509_name_st, align 8
   %0 = load i32, ptr %dpn, align 8

@@ -1064,7 +1064,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10ReturnInstELb1EE9push_backES2_.exit: ; p
   br i1 %.not205, label %_ZN4llvm15SmallPtrSetImplIPKNS_12DISubprogramEE6insertES3_.exit, label %198
 
 198:                                              ; preds = %.lr.ph386
-  call fastcc void @"_ZZN4llvm17CloneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEENS_23CloneFunctionChangeTypeERNS_15SmallVectorImplIPNS_10ReturnInstEEEPKcPNS_14ClonedCodeInfoEPNS_20ValueMapTypeRemapperEPNS_17ValueMaterializerEENK3$_0clEPNS_6MDNodeE.argprom"(ptr nonnull %2, ptr noundef %197)
+  call fastcc void @"_ZZN4llvm17CloneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEENS_23CloneFunctionChangeTypeERNS_15SmallVectorImplIPNS_10ReturnInstEEEPKcPNS_14ClonedCodeInfoEPNS_20ValueMapTypeRemapperEPNS_17ValueMaterializerEENK3$_0clEPNS_6MDNodeE"(ptr nonnull %2, ptr noundef %197)
   %199 = load ptr, ptr %190, align 8, !noalias !30
   %200 = load ptr, ptr %25, align 8, !noalias !30
   %201 = icmp eq ptr %199, %200
@@ -1188,7 +1188,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_12DISubprogramEE5countES3_.exit: ; preds = %.lr.
   br i1 %.not363, label %253, label %252
 
 252:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPKNS_12DISubprogramEE5countES3_.exit
-  call fastcc void @"_ZZN4llvm17CloneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEENS_23CloneFunctionChangeTypeERNS_15SmallVectorImplIPNS_10ReturnInstEEEPKcPNS_14ClonedCodeInfoEPNS_20ValueMapTypeRemapperEPNS_17ValueMaterializerEENK3$_0clEPNS_6MDNodeE.argprom"(ptr nonnull %2, ptr noundef nonnull %221)
+  call fastcc void @"_ZZN4llvm17CloneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEENS_23CloneFunctionChangeTypeERNS_15SmallVectorImplIPNS_10ReturnInstEEEPKcPNS_14ClonedCodeInfoEPNS_20ValueMapTypeRemapperEPNS_17ValueMaterializerEENK3$_0clEPNS_6MDNodeE"(ptr nonnull %2, ptr noundef nonnull %221)
   br label %253
 
 253:                                              ; preds = %.lr.ph391, %_ZNK4llvm15SmallPtrSetImplIPKNS_12DISubprogramEE5countES3_.exit, %252
@@ -1206,7 +1206,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_12DISubprogramEE5countES3_.exit: ; preds = %.lr.
 .lr.ph396:                                        ; preds = %._crit_edge392, %.lr.ph396
   %.0185394 = phi ptr [ %259, %.lr.ph396 ], [ %255, %._crit_edge392 ]
   %258 = load ptr, ptr %.0185394, align 8
-  call fastcc void @"_ZZN4llvm17CloneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEENS_23CloneFunctionChangeTypeERNS_15SmallVectorImplIPNS_10ReturnInstEEEPKcPNS_14ClonedCodeInfoEPNS_20ValueMapTypeRemapperEPNS_17ValueMaterializerEENK3$_0clEPNS_6MDNodeE.argprom"(ptr nonnull %2, ptr noundef %258)
+  call fastcc void @"_ZZN4llvm17CloneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEENS_23CloneFunctionChangeTypeERNS_15SmallVectorImplIPNS_10ReturnInstEEEPKcPNS_14ClonedCodeInfoEPNS_20ValueMapTypeRemapperEPNS_17ValueMaterializerEENK3$_0clEPNS_6MDNodeE"(ptr nonnull %2, ptr noundef %258)
   %259 = getelementptr inbounds i8, ptr %.0185394, i64 8
   %.not198 = icmp eq ptr %259, %257
   br i1 %.not198, label %._crit_edge397, label %.lr.ph396
@@ -1222,7 +1222,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_12DISubprogramEE5countES3_.exit: ; preds = %.lr.
 .lr.ph401:                                        ; preds = %._crit_edge397, %.lr.ph401
   %.0186399 = phi ptr [ %265, %.lr.ph401 ], [ %261, %._crit_edge397 ]
   %264 = load ptr, ptr %.0186399, align 8
-  call fastcc void @"_ZZN4llvm17CloneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEENS_23CloneFunctionChangeTypeERNS_15SmallVectorImplIPNS_10ReturnInstEEEPKcPNS_14ClonedCodeInfoEPNS_20ValueMapTypeRemapperEPNS_17ValueMaterializerEENK3$_0clEPNS_6MDNodeE.argprom"(ptr nonnull %2, ptr noundef %264)
+  call fastcc void @"_ZZN4llvm17CloneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEENS_23CloneFunctionChangeTypeERNS_15SmallVectorImplIPNS_10ReturnInstEEEPKcPNS_14ClonedCodeInfoEPNS_20ValueMapTypeRemapperEPNS_17ValueMaterializerEENK3$_0clEPNS_6MDNodeE"(ptr nonnull %2, ptr noundef %264)
   %265 = getelementptr inbounds i8, ptr %.0186399, i64 8
   %.not199 = icmp eq ptr %265, %263
   br i1 %.not199, label %._crit_edge402, label %.lr.ph401
@@ -1619,7 +1619,7 @@ declare void @_ZN4llvm15DebugInfoFinder17processSubprogramEPNS_12DISubprogramE(p
 declare noundef ptr @_ZN4llvm12BlockAddress3getEPNS_8FunctionEPNS_10BasicBlockE(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm17CloneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEENS_23CloneFunctionChangeTypeERNS_15SmallVectorImplIPNS_10ReturnInstEEEPKcPNS_14ClonedCodeInfoEPNS_20ValueMapTypeRemapperEPNS_17ValueMaterializerEENK3$_0clEPNS_6MDNodeE.argprom"(ptr %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm17CloneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEENS_23CloneFunctionChangeTypeERNS_15SmallVectorImplIPNS_10ReturnInstEEEPKcPNS_14ClonedCodeInfoEPNS_20ValueMapTypeRemapperEPNS_17ValueMaterializerEENK3$_0clEPNS_6MDNodeE"(ptr %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
@@ -2318,7 +2318,7 @@ _ZN4llvm8dyn_castINS_20DbgVariableIntrinsicEKNS_11InstructionEEEDcPT0_.exit.thre
 ._crit_edge1002:                                  ; preds = %._crit_edge, %60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   %103 = getelementptr inbounds i8, ptr %.0, i64 24
-  call fastcc void @_ZN12_GLOBAL__N_121PruningFunctionCloner10CloneBlockEPKN4llvm10BasicBlockENS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ES2_EELb0ELb1EEERSt6vectorIS4_SaIS4_EE.argelim(ptr noundef nonnull align 8 dereferenceable(49) %22, ptr noundef %.0278, ptr nonnull %103, ptr noundef nonnull align 8 dereferenceable(24) %24)
+  call fastcc void @_ZN12_GLOBAL__N_121PruningFunctionCloner10CloneBlockEPKN4llvm10BasicBlockENS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ES2_EELb0ELb1EEERSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(49) %22, ptr noundef %.0278, ptr nonnull %103, ptr noundef nonnull align 8 dereferenceable(24) %24)
   %104 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %105 = load ptr, ptr %24, align 8
   %106 = load ptr, ptr %104, align 8
@@ -2332,7 +2332,7 @@ _ZN4llvm8dyn_castINS_20DbgVariableIntrinsicEKNS_11InstructionEEEDcPT0_.exit.thre
   store ptr %109, ptr %104, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 56
   %112 = load ptr, ptr %111, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121PruningFunctionCloner10CloneBlockEPKN4llvm10BasicBlockENS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ES2_EELb0ELb1EEERSt6vectorIS4_SaIS4_EE.argelim(ptr noundef nonnull align 8 dereferenceable(49) %22, ptr noundef nonnull %110, ptr %112, ptr noundef nonnull align 8 dereferenceable(24) %24)
+  call fastcc void @_ZN12_GLOBAL__N_121PruningFunctionCloner10CloneBlockEPKN4llvm10BasicBlockENS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ES2_EELb0ELb1EEERSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(49) %22, ptr noundef nonnull %110, ptr %112, ptr noundef nonnull align 8 dereferenceable(24) %24)
   %113 = load ptr, ptr %24, align 8
   %114 = load ptr, ptr %104, align 8
   %115 = icmp eq ptr %113, %114
@@ -5850,7 +5850,7 @@ _ZN4llvm11SmallVectorIPKNS_20DbgVariableIntrinsicELj8EED2Ev.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121PruningFunctionCloner10CloneBlockEPKN4llvm10BasicBlockENS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ES2_EELb0ELb1EEERSt6vectorIS4_SaIS4_EE.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121PruningFunctionCloner10CloneBlockEPKN4llvm10BasicBlockENS1_21ilist_iterator_w_bitsINS1_12ilist_detail12node_optionsINS1_11InstructionELb0ELb0EvLb1ES2_EELb0ELb1EEERSt6vectorIS4_SaIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::ValueMapCallbackVH", align 8
   %6 = alloca %"class.llvm::ValueMapCallbackVH", align 8
   %7 = alloca %"class.llvm::ValueMapCallbackVH", align 8

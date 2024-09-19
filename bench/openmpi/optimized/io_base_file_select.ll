@@ -86,7 +86,7 @@ tailrecurse:                                      ; preds = %20, %2
   br label %20
 
 20:                                               ; preds = %14, %18
-  %21 = call fastcc ptr @check_components.argprom(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1)
+  %21 = call fastcc ptr @check_components(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %tailrecurse, label %.thread
 
@@ -101,7 +101,7 @@ tailrecurse:                                      ; preds = %20, %2
   br label %28
 
 28:                                               ; preds = %26, %23
-  %29 = tail call fastcc ptr @check_components.argprom(ptr noundef nonnull %0, ptr noundef null, i32 noundef 0)
+  %29 = tail call fastcc ptr @check_components(ptr noundef nonnull %0, ptr noundef null, i32 noundef 0)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %module_init.exit.thread, label %.thread
 
@@ -439,7 +439,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @check_components.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @check_components(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8

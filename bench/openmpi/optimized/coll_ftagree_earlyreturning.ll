@@ -1432,14 +1432,14 @@ define internal void @era_on_comm_rank_failure(ptr noundef %0, i32 noundef %1, i
   %27 = and i64 %26, 32767
   %28 = and i64 %23, -65536
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %27, %28
-  br label %ompi_group_get_proc_name.argprom.exit
+  br label %ompi_group_get_proc_name.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds i8, ptr %22, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %30, align 8
-  br label %ompi_group_get_proc_name.argprom.exit
+  br label %ompi_group_get_proc_name.exit
 
-ompi_group_get_proc_name.argprom.exit:            ; preds = %25, %29
+ompi_group_get_proc_name.exit:                    ; preds = %25, %29
   %.sroa.0.0.i = phi i64 [ %.sroa.0.0.insert.insert.i.i, %25 ], [ %.sroa.0.0.copyload.i, %29 ]
   %.sroa.0.0.insert.insert.i = tail call i64 @llvm.fshl.i64(i64 %.sroa.0.0.i, i64 %.sroa.0.0.i, i64 32)
   store i64 %.sroa.0.0.insert.insert.i, ptr %7, align 8
@@ -1447,7 +1447,7 @@ ompi_group_get_proc_name.argprom.exit:            ; preds = %25, %29
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %42
 
-33:                                               ; preds = %ompi_group_get_proc_name.argprom.exit
+33:                                               ; preds = %ompi_group_get_proc_name.exit
   %34 = load ptr, ptr %4, align 8
   %35 = call i32 @opal_hash_table_get_first_key_uint64(ptr noundef %34, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %6) #19
   %36 = icmp eq i32 %35, 0
@@ -1465,7 +1465,7 @@ ompi_group_get_proc_name.argprom.exit:            ; preds = %25, %29
   %41 = call i32 @opal_hash_table_remove_value_uint64(ptr noundef nonnull @era_incomplete_messages, i64 noundef %.sroa.0.0.insert.insert.i) #19
   br label %42
 
-42:                                               ; preds = %._crit_edge, %ompi_group_get_proc_name.argprom.exit
+42:                                               ; preds = %._crit_edge, %ompi_group_get_proc_name.exit
   %43 = call i32 @opal_hash_table_get_first_key_uint64(ptr noundef nonnull @era_ongoing_agreements, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %6) #19
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.preheader, label %.loopexit
@@ -2193,10 +2193,10 @@ define range(i32 -2, 1) i32 @mca_coll_ftagree_iera_intra(ptr noundef %0, i32 nou
   %27 = icmp eq ptr %26, getelementptr inbounds (i8, ptr @era_iagree_requests, i64 32)
   br i1 %27, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %22, %opal_update_counted_pointer.argprom.exit.i.i.i
-  %28 = phi ptr [ %36, %opal_update_counted_pointer.argprom.exit.i.i.i ], [ %26, %22 ]
-  %.sroa.4.0..sroa.4.8.7.i.i.i = phi i64 [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, %opal_update_counted_pointer.argprom.exit.i.i.i ], [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i, %22 ]
-  %.sroa.0.06.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i, %opal_update_counted_pointer.argprom.exit.i.i.i ], [ %23, %22 ]
+.lr.ph.i.i.i:                                     ; preds = %22, %opal_update_counted_pointer.exit.i.i.i
+  %28 = phi ptr [ %36, %opal_update_counted_pointer.exit.i.i.i ], [ %26, %22 ]
+  %.sroa.4.0..sroa.4.8.7.i.i.i = phi i64 [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, %opal_update_counted_pointer.exit.i.i.i ], [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i, %22 ]
+  %.sroa.0.06.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i, %opal_update_counted_pointer.exit.i.i.i ], [ %23, %22 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load volatile ptr, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
@@ -2216,9 +2216,9 @@ define range(i32 -2, 1) i32 @mca_coll_ftagree_iera_intra(ptr noundef %0, i32 nou
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i128 %.sroa.4.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
   %33 = cmpxchg volatile ptr %.0..0..0..0..0..0..0..0..0..0..0..0.5.i.i.i.i, i128 %.sroa.0.0.insert.insert.i.i.i, i128 %.sroa.0.0.insert.insert.i.i.i.i.i acquire monotonic, align 16
   %34 = extractvalue { i128, i1 } %33, 1
-  br i1 %34, label %opal_lifo_pop_atomic.argprom.exit.i.i, label %opal_update_counted_pointer.argprom.exit.i.i.i
+  br i1 %34, label %opal_lifo_pop_atomic.exit.i.i, label %opal_update_counted_pointer.exit.i.i.i
 
-opal_update_counted_pointer.argprom.exit.i.i.i:   ; preds = %.lr.ph.i.i.i
+opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %35 = extractvalue { i128, i1 } %33, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %35 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %35, 64
@@ -2231,7 +2231,7 @@ opal_update_counted_pointer.argprom.exit.i.i.i:   ; preds = %.lr.ph.i.i.i
   %37 = icmp eq ptr %36, getelementptr inbounds (i8, ptr @era_iagree_requests, i64 32)
   br i1 %37, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
-opal_lifo_pop_atomic.argprom.exit.i.i:            ; preds = %.lr.ph.i.i.i
+opal_lifo_pop_atomic.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   %38 = getelementptr inbounds i8, ptr %28, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -2239,9 +2239,9 @@ opal_lifo_pop_atomic.argprom.exit.i.i:            ; preds = %.lr.ph.i.i.i
   store volatile ptr null, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
-  br label %opal_free_list_get_mt.argprom.exit.i
+  br label %opal_free_list_get_mt.exit.i
 
-.loopexit.i.i:                                    ; preds = %opal_update_counted_pointer.argprom.exit.i.i.i, %22
+.loopexit.i.i:                                    ; preds = %opal_update_counted_pointer.exit.i.i.i, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
   store ptr null, ptr %19, align 8
@@ -2250,12 +2250,12 @@ opal_lifo_pop_atomic.argprom.exit.i.i:            ; preds = %.lr.ph.i.i.i
   %41 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @era_iagree_requests, i64 noundef %40, ptr noundef nonnull %19) #19
   %42 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_iagree_requests, i64 184)) #19
   %.pre.i.i = load ptr, ptr %19, align 8
-  br label %opal_free_list_get_mt.argprom.exit.i
+  br label %opal_free_list_get_mt.exit.i
 
-opal_free_list_get_mt.argprom.exit.i:             ; preds = %.loopexit.i.i, %opal_lifo_pop_atomic.argprom.exit.i.i
-  %43 = phi ptr [ %28, %opal_lifo_pop_atomic.argprom.exit.i.i ], [ %.pre.i.i, %.loopexit.i.i ]
+opal_free_list_get_mt.exit.i:                     ; preds = %.loopexit.i.i, %opal_lifo_pop_atomic.exit.i.i
+  %43 = phi ptr [ %28, %opal_lifo_pop_atomic.exit.i.i ], [ %.pre.i.i, %.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  br label %opal_free_list_get.argprom.exit
+  br label %opal_free_list_get.exit
 
 44:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
@@ -2266,32 +2266,32 @@ opal_free_list_get_mt.argprom.exit.i:             ; preds = %.loopexit.i.i, %opa
   %49 = ptrtoint ptr %48 to i64
   store volatile i64 %49, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 24), align 8
   %50 = icmp eq ptr %46, getelementptr inbounds (i8, ptr @era_iagree_requests, i64 32)
-  br i1 %50, label %52, label %opal_lifo_pop_st.argprom.exit.i.i
+  br i1 %50, label %52, label %opal_lifo_pop_st.exit.i.i
 
-opal_lifo_pop_st.argprom.exit.i.i:                ; preds = %44
+opal_lifo_pop_st.exit.i.i:                        ; preds = %44
   store volatile ptr null, ptr %47, align 8
   %51 = getelementptr inbounds i8, ptr %46, i64 32
   store i32 1, ptr %51, align 8
-  br label %opal_free_list_get_st.argprom.exit.i
+  br label %opal_free_list_get_st.exit.i
 
 52:                                               ; preds = %44
   store ptr null, ptr %16, align 8
   %53 = load i64, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 96), align 16
   %54 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @era_iagree_requests, i64 noundef %53, ptr noundef nonnull %16) #19
   %.pre.i3.i = load ptr, ptr %16, align 8
-  br label %opal_free_list_get_st.argprom.exit.i
+  br label %opal_free_list_get_st.exit.i
 
-opal_free_list_get_st.argprom.exit.i:             ; preds = %52, %opal_lifo_pop_st.argprom.exit.i.i
-  %55 = phi ptr [ %46, %opal_lifo_pop_st.argprom.exit.i.i ], [ %.pre.i3.i, %52 ]
+opal_free_list_get_st.exit.i:                     ; preds = %52, %opal_lifo_pop_st.exit.i.i
+  %55 = phi ptr [ %46, %opal_lifo_pop_st.exit.i.i ], [ %.pre.i3.i, %52 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br label %opal_free_list_get.argprom.exit
+  br label %opal_free_list_get.exit
 
-opal_free_list_get.argprom.exit:                  ; preds = %opal_free_list_get_mt.argprom.exit.i, %opal_free_list_get_st.argprom.exit.i
-  %.0.i = phi ptr [ %43, %opal_free_list_get_mt.argprom.exit.i ], [ %55, %opal_free_list_get_st.argprom.exit.i ]
+opal_free_list_get.exit:                          ; preds = %opal_free_list_get_mt.exit.i, %opal_free_list_get_st.exit.i
+  %.0.i = phi ptr [ %43, %opal_free_list_get_mt.exit.i ], [ %55, %opal_free_list_get_st.exit.i ]
   %56 = icmp eq ptr %.0.i, null
   br i1 %56, label %475, label %57
 
-57:                                               ; preds = %opal_free_list_get.argprom.exit
+57:                                               ; preds = %opal_free_list_get.exit
   %58 = getelementptr inbounds i8, ptr %.0.i, i64 88
   store ptr null, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %.0.i, i64 96
@@ -3055,7 +3055,7 @@ era_agreement_value_set_gcrange.exit.i:           ; preds = %._crit_edge45.i.i, 
   %442 = load ptr, ptr %441, align 8
   %443 = load ptr, ptr %442, align 8
   %.not6.i95.i = icmp eq ptr %443, null
-  br i1 %.not6.i95.i, label %mca_coll_ftagree_era_prepare_agreement.argprom.exit, label %.lr.ph.i96.i
+  br i1 %.not6.i95.i, label %mca_coll_ftagree_era_prepare_agreement.exit, label %.lr.ph.i96.i
 
 .lr.ph.i96.i:                                     ; preds = %era_agreement_value_set_gcrange.exit.i, %.lr.ph.i96.i
   %444 = phi ptr [ %446, %.lr.ph.i96.i ], [ %443, %era_agreement_value_set_gcrange.exit.i ]
@@ -3064,9 +3064,9 @@ era_agreement_value_set_gcrange.exit.i:           ; preds = %._crit_edge45.i.i, 
   %445 = getelementptr inbounds i8, ptr %.07.i97.i, i64 8
   %446 = load ptr, ptr %445, align 8
   %.not.i98.i = icmp eq ptr %446, null
-  br i1 %.not.i98.i, label %mca_coll_ftagree_era_prepare_agreement.argprom.exit, label %.lr.ph.i96.i, !llvm.loop !6
+  br i1 %.not.i98.i, label %mca_coll_ftagree_era_prepare_agreement.exit, label %.lr.ph.i96.i, !llvm.loop !6
 
-mca_coll_ftagree_era_prepare_agreement.argprom.exit: ; preds = %.lr.ph.i96.i, %era_agreement_value_set_gcrange.exit.i
+mca_coll_ftagree_era_prepare_agreement.exit:      ; preds = %.lr.ph.i96.i, %era_agreement_value_set_gcrange.exit.i
   %447 = getelementptr inbounds i8, ptr %.0.i39, i64 32
   store i32 2, ptr %447, align 8
   call fastcc void @era_check_status(ptr noundef %.0.i39)
@@ -3111,7 +3111,7 @@ mca_coll_ftagree_era_prepare_agreement.argprom.exit: ; preds = %.lr.ph.i96.i, %e
   %466 = icmp eq i32 %465, 4
   br i1 %466, label %467, label %474
 
-467:                                              ; preds = %mca_coll_ftagree_era_prepare_agreement.argprom.exit
+467:                                              ; preds = %mca_coll_ftagree_era_prepare_agreement.exit
   %468 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_mutex, i64 16)) #19
   %469 = load ptr, ptr %61, align 8
   %.not.i41 = icmp eq ptr %469, null
@@ -3131,12 +3131,12 @@ ompi_request_complete.exit:                       ; preds = %470, %.critedge.i
   %473 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_mutex, i64 16)) #19
   br label %474
 
-474:                                              ; preds = %ompi_request_complete.exit, %mca_coll_ftagree_era_prepare_agreement.argprom.exit
+474:                                              ; preds = %ompi_request_complete.exit, %mca_coll_ftagree_era_prepare_agreement.exit
   store ptr %.0.i, ptr %7, align 8
   br label %475
 
-475:                                              ; preds = %opal_free_list_get.argprom.exit, %474
-  %.0 = phi i32 [ 0, %474 ], [ -2, %opal_free_list_get.argprom.exit ]
+475:                                              ; preds = %opal_free_list_get.exit, %474
+  %.0 = phi i32 [ 0, %474 ], [ -2, %opal_free_list_get.exit ]
   ret i32 %.0
 }
 
@@ -3358,7 +3358,7 @@ define internal noundef i32 @era_iagree_req_free(ptr nocapture noundef %0) #2 {
   %19 = ptrtoint ptr %2 to i64
   %20 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 24), i64 %16, i64 %19 acquire monotonic, align 8
   %21 = extractvalue { i64, i1 } %20, 1
-  br i1 %21, label %opal_lifo_push_atomic.argprom.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
+  br i1 %21, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
 opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %17, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
   %22 = phi { i64, i1 } [ %24, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ], [ %20, %17 ]
@@ -3368,20 +3368,20 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %17, %opal_atomic_
   fence release
   %24 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 24), i64 %23, i64 %19 acquire monotonic, align 8
   %25 = extractvalue { i64, i1 } %24, 1
-  br i1 %25, label %opal_lifo_push_atomic.argprom.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
+  br i1 %25, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
-opal_lifo_push_atomic.argprom.exit.i.i:           ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %17
+opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %17
   %.0.lcssa.i.i.i = phi ptr [ %.04.i.i.i, %17 ], [ %.0.i.i.i, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
   %26 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (i8, ptr @era_iagree_requests, i64 32)
   %27 = load i64, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 104), align 8
   %.not.i.i = icmp eq i64 %27, 0
   %or.cond.i.i = select i1 %26, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i.i, label %opal_free_list_return.argprom.exit, label %28
+  br i1 %or.cond.i.i, label %opal_free_list_return.exit, label %28
 
-28:                                               ; preds = %opal_lifo_push_atomic.argprom.exit.i.i
+28:                                               ; preds = %opal_lifo_push_atomic.exit.i.i
   %29 = load volatile i32, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 248), align 8
   %.not.i.i.i = icmp eq i32 %29, 0
-  br i1 %.not.i.i.i, label %opal_free_list_return.argprom.exit, label %opal_free_list_return_mt.argprom.exit.sink.split.i
+  br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
 30:                                               ; preds = %13
   %31 = inttoptr i64 %16 to ptr
@@ -3396,20 +3396,20 @@ opal_lifo_push_atomic.argprom.exit.i.i:           ; preds = %opal_atomic_compare
   %37 = load i64, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 104), align 8
   %.not.i4.i = icmp eq i64 %37, 0
   %or.cond.i5.i = select i1 %36, i1 true, i1 %.not.i4.i
-  br i1 %or.cond.i5.i, label %opal_free_list_return.argprom.exit, label %38
+  br i1 %or.cond.i5.i, label %opal_free_list_return.exit, label %38
 
 38:                                               ; preds = %30
   %39 = load volatile i32, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 248), align 8
   %.not.i.i6.i = icmp eq i32 %39, 0
-  br i1 %.not.i.i6.i, label %opal_free_list_return.argprom.exit, label %opal_free_list_return_mt.argprom.exit.sink.split.i
+  br i1 %.not.i.i6.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
-opal_free_list_return_mt.argprom.exit.sink.split.i: ; preds = %38, %28
+opal_free_list_return_mt.exit.sink.split.i:       ; preds = %38, %28
   %40 = load volatile i32, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 252), align 4
   %41 = add nsw i32 %40, 1
   store volatile i32 %41, ptr getelementptr inbounds (i8, ptr @era_iagree_requests, i64 252), align 4
-  br label %opal_free_list_return.argprom.exit
+  br label %opal_free_list_return.exit
 
-opal_free_list_return.argprom.exit:               ; preds = %opal_lifo_push_atomic.argprom.exit.i.i, %28, %30, %38, %opal_free_list_return_mt.argprom.exit.sink.split.i
+opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atomic.exit.i.i, %28, %30, %38, %opal_free_list_return_mt.exit.sink.split.i
   store ptr @ompi_request_null, ptr %0, align 8
   ret i32 0
 }
@@ -3791,9 +3791,9 @@ define internal fastcc void @result_request(ptr noundef %0) unnamed_addr #2 {
   %38 = load i32, ptr %37, align 4
   %.not10.i.i = icmp eq i32 %38, %.val.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.argprom.exit.preheader.i, label %36, !llvm.loop !34
+  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.exit.preheader.i, label %36, !llvm.loop !34
 
-era_tree_rank_from_comm_rank.argprom.exit.preheader.i: ; preds = %36
+era_tree_rank_from_comm_rank.exit.preheader.i:    ; preds = %36
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %39 = ashr exact i64 %sext.i, 32
   %40 = getelementptr inbounds %struct.era_tree_s, ptr %34, i64 %39, i32 1
@@ -3802,10 +3802,10 @@ era_tree_rank_from_comm_rank.argprom.exit.preheader.i: ; preds = %36
   %43 = getelementptr inbounds %struct.era_tree_s, ptr %34, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %26, i32 noundef %44, i1 noundef zeroext false) #19
-  br i1 %45, label %era_parent.exit, label %era_tree_rank_from_comm_rank.argprom.exit.i
+  br i1 %45, label %era_parent.exit, label %era_tree_rank_from_comm_rank.exit.i
 
-era_tree_rank_from_comm_rank.argprom.exit.i:      ; preds = %era_tree_rank_from_comm_rank.argprom.exit.preheader.i, %era_tree_rank_from_comm_rank.argprom.exit.i
-  %46 = phi i32 [ %51, %era_tree_rank_from_comm_rank.argprom.exit.i ], [ %41, %era_tree_rank_from_comm_rank.argprom.exit.preheader.i ]
+era_tree_rank_from_comm_rank.exit.i:              ; preds = %era_tree_rank_from_comm_rank.exit.preheader.i, %era_tree_rank_from_comm_rank.exit.i
+  %46 = phi i32 [ %51, %era_tree_rank_from_comm_rank.exit.i ], [ %41, %era_tree_rank_from_comm_rank.exit.preheader.i ]
   call fastcc void @era_tree_remove_node(ptr noundef nonnull readonly %19, i32 noundef %46)
   %47 = load ptr, ptr %28, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 32
@@ -3817,10 +3817,10 @@ era_tree_rank_from_comm_rank.argprom.exit.i:      ; preds = %era_tree_rank_from_
   %54 = load i32, ptr %53, align 4
   %55 = load ptr, ptr %25, align 8
   %56 = call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %55, i32 noundef %54, i1 noundef zeroext false) #19
-  br i1 %56, label %era_parent.exit, label %era_tree_rank_from_comm_rank.argprom.exit.i
+  br i1 %56, label %era_parent.exit, label %era_tree_rank_from_comm_rank.exit.i
 
-era_parent.exit:                                  ; preds = %era_tree_rank_from_comm_rank.argprom.exit.i, %era_tree_rank_from_comm_rank.argprom.exit.preheader.i
-  %.lcssa.i = phi i32 [ %44, %era_tree_rank_from_comm_rank.argprom.exit.preheader.i ], [ %54, %era_tree_rank_from_comm_rank.argprom.exit.i ]
+era_parent.exit:                                  ; preds = %era_tree_rank_from_comm_rank.exit.i, %era_tree_rank_from_comm_rank.exit.preheader.i
+  %.lcssa.i = phi i32 [ %44, %era_tree_rank_from_comm_rank.exit.preheader.i ], [ %54, %era_tree_rank_from_comm_rank.exit.i ]
   %57 = load ptr, ptr %25, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 220
   %59 = load i32, ptr %58, align 4
@@ -4412,7 +4412,7 @@ define internal fastcc void @send_msg(ptr noundef readonly %0, i32 noundef %1, p
 
 13:                                               ; preds = %8
   %14 = tail call ptr @ompi_proc_find(ptr noundef %2) #19
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
 15:                                               ; preds = %8
   %16 = getelementptr i8, ptr %0, i64 256
@@ -4425,7 +4425,7 @@ define internal fastcc void @send_msg(ptr noundef readonly %0, i32 noundef %1, p
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
   %.not.i.i.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.argprom.exit, label %24
+  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.exit, label %24
 
 24:                                               ; preds = %15
   %25 = lshr i64 %22, 1
@@ -4438,7 +4438,7 @@ define internal fastcc void @send_msg(ptr noundef readonly %0, i32 noundef %1, p
   %31 = ptrtoint ptr %28 to i64
   %32 = cmpxchg volatile ptr %30, i64 %22, i64 %31 acquire monotonic, align 8
   %33 = extractvalue { i64, i1 } %32, 1
-  br i1 %33, label %34, label %ompi_comm_peer_lookup.argprom.exit
+  br i1 %33, label %34, label %ompi_comm_peer_lookup.exit
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds i8, ptr %28, i64 8
@@ -4448,16 +4448,16 @@ define internal fastcc void @send_msg(ptr noundef readonly %0, i32 noundef %1, p
 
 38:                                               ; preds = %34
   %39 = atomicrmw volatile add ptr %35, i32 1 monotonic, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
 40:                                               ; preds = %34
   %41 = load volatile i32, ptr %35, align 4
   %42 = add nsw i32 %41, 1
   store volatile i32 %42, ptr %35, align 4
   %43 = load volatile i32, ptr %35, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
-ompi_comm_peer_lookup.argprom.exit:               ; preds = %40, %38, %24, %15, %13
+ompi_comm_peer_lookup.exit:                       ; preds = %40, %38, %24, %15, %13
   %.0105 = phi ptr [ %14, %13 ], [ %21, %15 ], [ %28, %40 ], [ %28, %38 ], [ %28, %24 ]
   %44 = getelementptr inbounds i8, ptr %.0105, i64 72
   %45 = load ptr, ptr %44, align 8
@@ -4465,7 +4465,7 @@ ompi_comm_peer_lookup.argprom.exit:               ; preds = %40, %38, %24, %15, 
   %.pre147 = load i8, ptr @opal_uses_threads, align 1
   br i1 %46, label %47, label %mca_bml_base_get_endpoint.exit.thread
 
-47:                                               ; preds = %ompi_comm_peer_lookup.argprom.exit
+47:                                               ; preds = %ompi_comm_peer_lookup.exit
   %48 = trunc i8 %.pre147 to i1
   br i1 %48, label %49, label %.thread.i
 
@@ -4538,9 +4538,9 @@ switch.lookup:                                    ; preds = %60
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %63, ptr noundef nonnull @.str.7, ptr noundef %64, i32 noundef %11, i32 noundef %.sroa.4.0.extract.trunc, i32 noundef %65, ptr noundef nonnull %switch.load, i32 noundef %72, i32 noundef %74, i32 noundef %76, i32 noundef %1, ptr noundef %80) #19
   br label %.loopexit
 
-mca_bml_base_get_endpoint.exit.thread:            ; preds = %mca_bml_base_get_endpoint.exit.mca_bml_base_get_endpoint.exit.thread_crit_edge, %ompi_comm_peer_lookup.argprom.exit
-  %81 = phi i8 [ %.pre, %mca_bml_base_get_endpoint.exit.mca_bml_base_get_endpoint.exit.thread_crit_edge ], [ %.pre147, %ompi_comm_peer_lookup.argprom.exit ]
-  %82 = phi ptr [ %.pr, %mca_bml_base_get_endpoint.exit.mca_bml_base_get_endpoint.exit.thread_crit_edge ], [ %45, %ompi_comm_peer_lookup.argprom.exit ]
+mca_bml_base_get_endpoint.exit.thread:            ; preds = %mca_bml_base_get_endpoint.exit.mca_bml_base_get_endpoint.exit.thread_crit_edge, %ompi_comm_peer_lookup.exit
+  %81 = phi i8 [ %.pre, %mca_bml_base_get_endpoint.exit.mca_bml_base_get_endpoint.exit.thread_crit_edge ], [ %.pre147, %ompi_comm_peer_lookup.exit ]
+  %82 = phi ptr [ %.pr, %mca_bml_base_get_endpoint.exit.mca_bml_base_get_endpoint.exit.thread_crit_edge ], [ %45, %ompi_comm_peer_lookup.exit ]
   %83 = getelementptr inbounds i8, ptr %82, i64 88
   %84 = load i64, ptr %83, align 8
   %.not.i = icmp ne i64 %84, 0
@@ -5253,9 +5253,9 @@ define internal fastcc void @era_check_status(ptr noundef %0) unnamed_addr #2 {
   %18 = load i32, ptr %17, align 4
   %.not10.i.i = icmp eq i32 %18, %.val.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.argprom.exit.preheader.i, label %16, !llvm.loop !34
+  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.exit.preheader.i, label %16, !llvm.loop !34
 
-era_tree_rank_from_comm_rank.argprom.exit.preheader.i: ; preds = %16
+era_tree_rank_from_comm_rank.exit.preheader.i:    ; preds = %16
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %19 = ashr exact i64 %sext.i, 32
   %20 = getelementptr inbounds %struct.era_tree_s, ptr %14, i64 %19, i32 1
@@ -5264,10 +5264,10 @@ era_tree_rank_from_comm_rank.argprom.exit.preheader.i: ; preds = %16
   %23 = getelementptr inbounds %struct.era_tree_s, ptr %14, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %6, i32 noundef %24, i1 noundef zeroext false) #19
-  br i1 %25, label %era_parent.exit, label %era_tree_rank_from_comm_rank.argprom.exit.i
+  br i1 %25, label %era_parent.exit, label %era_tree_rank_from_comm_rank.exit.i
 
-era_tree_rank_from_comm_rank.argprom.exit.i:      ; preds = %era_tree_rank_from_comm_rank.argprom.exit.preheader.i, %era_tree_rank_from_comm_rank.argprom.exit.i
-  %26 = phi i32 [ %31, %era_tree_rank_from_comm_rank.argprom.exit.i ], [ %21, %era_tree_rank_from_comm_rank.argprom.exit.preheader.i ]
+era_tree_rank_from_comm_rank.exit.i:              ; preds = %era_tree_rank_from_comm_rank.exit.preheader.i, %era_tree_rank_from_comm_rank.exit.i
+  %26 = phi i32 [ %31, %era_tree_rank_from_comm_rank.exit.i ], [ %21, %era_tree_rank_from_comm_rank.exit.preheader.i ]
   tail call fastcc void @era_tree_remove_node(ptr noundef nonnull readonly %0, i32 noundef %26)
   %27 = load ptr, ptr %8, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 32
@@ -5279,9 +5279,9 @@ era_tree_rank_from_comm_rank.argprom.exit.i:      ; preds = %era_tree_rank_from_
   %34 = load i32, ptr %33, align 4
   %35 = load ptr, ptr %5, align 8
   %36 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %35, i32 noundef %34, i1 noundef zeroext false) #19
-  br i1 %36, label %era_parent.exit, label %era_tree_rank_from_comm_rank.argprom.exit.i
+  br i1 %36, label %era_parent.exit, label %era_tree_rank_from_comm_rank.exit.i
 
-era_parent.exit:                                  ; preds = %era_tree_rank_from_comm_rank.argprom.exit.i, %era_tree_rank_from_comm_rank.argprom.exit.preheader.i
+era_parent.exit:                                  ; preds = %era_tree_rank_from_comm_rank.exit.i, %era_tree_rank_from_comm_rank.exit.preheader.i
   %37 = tail call fastcc i32 @era_next_child(ptr noundef %0, i32 noundef -1)
   %38 = load ptr, ptr %5, align 8
   %39 = getelementptr i8, ptr %38, i64 248
@@ -5347,9 +5347,9 @@ era_parent.exit:                                  ; preds = %era_tree_rank_from_
   %68 = load i32, ptr %67, align 4
   %.not10.i.i37 = icmp eq i32 %68, %58
   %indvars.iv.next.i.i38 = add nsw i64 %indvars.iv.i.i36, -1
-  br i1 %.not10.i.i37, label %era_tree_rank_from_comm_rank.argprom.exit.preheader.i39, label %66, !llvm.loop !34
+  br i1 %.not10.i.i37, label %era_tree_rank_from_comm_rank.exit.preheader.i39, label %66, !llvm.loop !34
 
-era_tree_rank_from_comm_rank.argprom.exit.preheader.i39: ; preds = %66
+era_tree_rank_from_comm_rank.exit.preheader.i39:  ; preds = %66
   %sext.i40 = shl i64 %indvars.iv.i.i36, 32
   %69 = ashr exact i64 %sext.i40, 32
   %70 = getelementptr inbounds %struct.era_tree_s, ptr %64, i64 %69, i32 1
@@ -5358,10 +5358,10 @@ era_tree_rank_from_comm_rank.argprom.exit.preheader.i39: ; preds = %66
   %73 = getelementptr inbounds %struct.era_tree_s, ptr %64, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %56, i32 noundef %74, i1 noundef zeroext false) #19
-  br i1 %75, label %era_parent.exit43, label %era_tree_rank_from_comm_rank.argprom.exit.i41
+  br i1 %75, label %era_parent.exit43, label %era_tree_rank_from_comm_rank.exit.i41
 
-era_tree_rank_from_comm_rank.argprom.exit.i41:    ; preds = %era_tree_rank_from_comm_rank.argprom.exit.preheader.i39, %era_tree_rank_from_comm_rank.argprom.exit.i41
-  %76 = phi i32 [ %81, %era_tree_rank_from_comm_rank.argprom.exit.i41 ], [ %71, %era_tree_rank_from_comm_rank.argprom.exit.preheader.i39 ]
+era_tree_rank_from_comm_rank.exit.i41:            ; preds = %era_tree_rank_from_comm_rank.exit.preheader.i39, %era_tree_rank_from_comm_rank.exit.i41
+  %76 = phi i32 [ %81, %era_tree_rank_from_comm_rank.exit.i41 ], [ %71, %era_tree_rank_from_comm_rank.exit.preheader.i39 ]
   tail call fastcc void @era_tree_remove_node(ptr noundef nonnull readonly %0, i32 noundef %76)
   %77 = load ptr, ptr %8, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 32
@@ -5373,10 +5373,10 @@ era_tree_rank_from_comm_rank.argprom.exit.i41:    ; preds = %era_tree_rank_from_
   %84 = load i32, ptr %83, align 4
   %85 = load ptr, ptr %5, align 8
   %86 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %85, i32 noundef %84, i1 noundef zeroext false) #19
-  br i1 %86, label %era_parent.exit43, label %era_tree_rank_from_comm_rank.argprom.exit.i41
+  br i1 %86, label %era_parent.exit43, label %era_tree_rank_from_comm_rank.exit.i41
 
-era_parent.exit43:                                ; preds = %era_tree_rank_from_comm_rank.argprom.exit.i41, %era_tree_rank_from_comm_rank.argprom.exit.preheader.i39
-  %.lcssa.i42 = phi i32 [ %74, %era_tree_rank_from_comm_rank.argprom.exit.preheader.i39 ], [ %84, %era_tree_rank_from_comm_rank.argprom.exit.i41 ]
+era_parent.exit43:                                ; preds = %era_tree_rank_from_comm_rank.exit.i41, %era_tree_rank_from_comm_rank.exit.preheader.i39
+  %.lcssa.i42 = phi i32 [ %74, %era_tree_rank_from_comm_rank.exit.preheader.i39 ], [ %84, %era_tree_rank_from_comm_rank.exit.i41 ]
   %87 = icmp eq i32 %58, %.lcssa.i42
   br i1 %87, label %88, label %91
 
@@ -6191,15 +6191,15 @@ define internal fastcc i32 @era_next_child(ptr nocapture noundef readonly %0, i3
   %14 = load i32, ptr %13, align 4
   %.not10.i = icmp eq i32 %14, %1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  br i1 %.not10.i, label %era_tree_rank_from_comm_rank.argprom.exit, label %12, !llvm.loop !34
+  br i1 %.not10.i, label %era_tree_rank_from_comm_rank.exit, label %12, !llvm.loop !34
 
-era_tree_rank_from_comm_rank.argprom.exit:        ; preds = %12
+era_tree_rank_from_comm_rank.exit:                ; preds = %12
   %15 = icmp eq i64 %indvars.iv.i, -1
   br i1 %15, label %.critedge, label %.preheader
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %era_tree_rank_from_comm_rank.argprom.exit
-  %.pre-phi = phi i32 [ %.pre63, %..critedge_crit_edge ], [ %7, %era_tree_rank_from_comm_rank.argprom.exit ]
-  %16 = phi ptr [ %.pre62, %..critedge_crit_edge ], [ %10, %era_tree_rank_from_comm_rank.argprom.exit ]
+.critedge:                                        ; preds = %..critedge_crit_edge, %era_tree_rank_from_comm_rank.exit
+  %.pre-phi = phi i32 [ %.pre63, %..critedge_crit_edge ], [ %7, %era_tree_rank_from_comm_rank.exit ]
+  %16 = phi ptr [ %.pre62, %..critedge_crit_edge ], [ %10, %era_tree_rank_from_comm_rank.exit ]
   %17 = getelementptr i8, ptr %4, i64 220
   %.val = load i32, ptr %17, align 4
   %18 = getelementptr i8, ptr %0, i64 56
@@ -6214,9 +6214,9 @@ era_tree_rank_from_comm_rank.argprom.exit:        ; preds = %12
   %23 = load i32, ptr %22, align 4
   %.not10.i43 = icmp eq i32 %23, %.val
   %indvars.iv.next.i44 = add nsw i64 %indvars.iv.i42, -1
-  br i1 %.not10.i43, label %era_tree_rank_from_comm_rank.argprom.exit45.preheader, label %21, !llvm.loop !34
+  br i1 %.not10.i43, label %era_tree_rank_from_comm_rank.exit45.preheader, label %21, !llvm.loop !34
 
-era_tree_rank_from_comm_rank.argprom.exit45.preheader: ; preds = %21
+era_tree_rank_from_comm_rank.exit45.preheader:    ; preds = %21
   %sext51 = shl i64 %indvars.iv.i42, 32
   %24 = ashr exact i64 %sext51, 32
   %25 = getelementptr inbounds %struct.era_tree_s, ptr %16, i64 %24, i32 3
@@ -6224,16 +6224,16 @@ era_tree_rank_from_comm_rank.argprom.exit45.preheader: ; preds = %21
   %27 = icmp eq i32 %26, %.pre
   br i1 %27, label %.loopexit.sink.split, label %.lr.ph54
 
-.lr.ph54:                                         ; preds = %era_tree_rank_from_comm_rank.argprom.exit45.preheader, %era_tree_rank_from_comm_rank.argprom.exit45
-  %28 = phi i32 [ %38, %era_tree_rank_from_comm_rank.argprom.exit45 ], [ %26, %era_tree_rank_from_comm_rank.argprom.exit45.preheader ]
-  %29 = phi ptr [ %36, %era_tree_rank_from_comm_rank.argprom.exit45 ], [ %16, %era_tree_rank_from_comm_rank.argprom.exit45.preheader ]
+.lr.ph54:                                         ; preds = %era_tree_rank_from_comm_rank.exit45.preheader, %era_tree_rank_from_comm_rank.exit45
+  %28 = phi i32 [ %38, %era_tree_rank_from_comm_rank.exit45 ], [ %26, %era_tree_rank_from_comm_rank.exit45.preheader ]
+  %29 = phi ptr [ %36, %era_tree_rank_from_comm_rank.exit45 ], [ %16, %era_tree_rank_from_comm_rank.exit45.preheader ]
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds %struct.era_tree_s, ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %4, i32 noundef %32, i1 noundef zeroext false) #19
-  br i1 %33, label %.loopexit, label %era_tree_rank_from_comm_rank.argprom.exit45
+  br i1 %33, label %.loopexit, label %era_tree_rank_from_comm_rank.exit45
 
-era_tree_rank_from_comm_rank.argprom.exit45:      ; preds = %.lr.ph54
+era_tree_rank_from_comm_rank.exit45:              ; preds = %.lr.ph54
   tail call fastcc void @era_tree_remove_node(ptr noundef nonnull %0, i32 noundef %28)
   %34 = load ptr, ptr %18, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 32
@@ -6245,15 +6245,15 @@ era_tree_rank_from_comm_rank.argprom.exit45:      ; preds = %.lr.ph54
   %41 = icmp eq i32 %38, %40
   br i1 %41, label %.loopexit.sink.split, label %.lr.ph54
 
-.preheader:                                       ; preds = %era_tree_rank_from_comm_rank.argprom.exit, %.preheader
-  %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i49, %.preheader ], [ %11, %era_tree_rank_from_comm_rank.argprom.exit ]
+.preheader:                                       ; preds = %era_tree_rank_from_comm_rank.exit, %.preheader
+  %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i49, %.preheader ], [ %11, %era_tree_rank_from_comm_rank.exit ]
   %42 = getelementptr inbounds %struct.era_tree_s, ptr %10, i64 %indvars.iv.i47
   %43 = load i32, ptr %42, align 4
   %.not10.i48 = icmp eq i32 %43, %1
   %indvars.iv.next.i49 = add nsw i64 %indvars.iv.i47, -1
-  br i1 %.not10.i48, label %era_tree_rank_from_comm_rank.argprom.exit50.preheader, label %.preheader, !llvm.loop !34
+  br i1 %.not10.i48, label %era_tree_rank_from_comm_rank.exit50.preheader, label %.preheader, !llvm.loop !34
 
-era_tree_rank_from_comm_rank.argprom.exit50.preheader: ; preds = %.preheader
+era_tree_rank_from_comm_rank.exit50.preheader:    ; preds = %.preheader
   %sext = shl i64 %indvars.iv.i47, 32
   %44 = ashr exact i64 %sext, 32
   %45 = getelementptr inbounds %struct.era_tree_s, ptr %10, i64 %44, i32 2
@@ -6261,16 +6261,16 @@ era_tree_rank_from_comm_rank.argprom.exit50.preheader: ; preds = %.preheader
   %47 = icmp eq i32 %46, %.pre
   br i1 %47, label %.loopexit.sink.split, label %.lr.ph
 
-.lr.ph:                                           ; preds = %era_tree_rank_from_comm_rank.argprom.exit50.preheader, %era_tree_rank_from_comm_rank.argprom.exit50
-  %48 = phi i32 [ %58, %era_tree_rank_from_comm_rank.argprom.exit50 ], [ %46, %era_tree_rank_from_comm_rank.argprom.exit50.preheader ]
-  %49 = phi ptr [ %56, %era_tree_rank_from_comm_rank.argprom.exit50 ], [ %10, %era_tree_rank_from_comm_rank.argprom.exit50.preheader ]
+.lr.ph:                                           ; preds = %era_tree_rank_from_comm_rank.exit50.preheader, %era_tree_rank_from_comm_rank.exit50
+  %48 = phi i32 [ %58, %era_tree_rank_from_comm_rank.exit50 ], [ %46, %era_tree_rank_from_comm_rank.exit50.preheader ]
+  %49 = phi ptr [ %56, %era_tree_rank_from_comm_rank.exit50 ], [ %10, %era_tree_rank_from_comm_rank.exit50.preheader ]
   %50 = sext i32 %48 to i64
   %51 = getelementptr inbounds %struct.era_tree_s, ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %4, i32 noundef %52, i1 noundef zeroext false) #19
-  br i1 %53, label %.loopexit, label %era_tree_rank_from_comm_rank.argprom.exit50
+  br i1 %53, label %.loopexit, label %era_tree_rank_from_comm_rank.exit50
 
-era_tree_rank_from_comm_rank.argprom.exit50:      ; preds = %.lr.ph
+era_tree_rank_from_comm_rank.exit50:              ; preds = %.lr.ph
   tail call fastcc void @era_tree_remove_node(ptr noundef nonnull %0, i32 noundef %48)
   %54 = load ptr, ptr %.phi.trans.insert, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 32
@@ -6282,7 +6282,7 @@ era_tree_rank_from_comm_rank.argprom.exit50:      ; preds = %.lr.ph
   %61 = icmp eq i32 %58, %60
   br i1 %61, label %.loopexit.sink.split, label %.lr.ph
 
-.loopexit.sink.split:                             ; preds = %era_tree_rank_from_comm_rank.argprom.exit50, %era_tree_rank_from_comm_rank.argprom.exit45, %era_tree_rank_from_comm_rank.argprom.exit50.preheader, %era_tree_rank_from_comm_rank.argprom.exit45.preheader
+.loopexit.sink.split:                             ; preds = %era_tree_rank_from_comm_rank.exit50, %era_tree_rank_from_comm_rank.exit45, %era_tree_rank_from_comm_rank.exit50.preheader, %era_tree_rank_from_comm_rank.exit45.preheader
   %62 = getelementptr i8, ptr %4, i64 248
   %.val40 = load ptr, ptr %62, align 8
   %63 = getelementptr i8, ptr %.val40, i64 16
@@ -7010,9 +7010,9 @@ define internal fastcc void @era_mark_process_failed(ptr noundef %0, i32 noundef
   %40 = load i32, ptr %39, align 4
   %.not10.i.i = icmp eq i32 %40, %.val.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.argprom.exit.preheader.i, label %38, !llvm.loop !34
+  br i1 %.not10.i.i, label %era_tree_rank_from_comm_rank.exit.preheader.i, label %38, !llvm.loop !34
 
-era_tree_rank_from_comm_rank.argprom.exit.preheader.i: ; preds = %38
+era_tree_rank_from_comm_rank.exit.preheader.i:    ; preds = %38
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %41 = ashr exact i64 %sext.i, 32
   %42 = getelementptr inbounds %struct.era_tree_s, ptr %36, i64 %41, i32 1
@@ -7021,10 +7021,10 @@ era_tree_rank_from_comm_rank.argprom.exit.preheader.i: ; preds = %38
   %45 = getelementptr inbounds %struct.era_tree_s, ptr %36, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %28, i32 noundef %46, i1 noundef zeroext false) #19
-  br i1 %47, label %era_parent.exit, label %era_tree_rank_from_comm_rank.argprom.exit.i
+  br i1 %47, label %era_parent.exit, label %era_tree_rank_from_comm_rank.exit.i
 
-era_tree_rank_from_comm_rank.argprom.exit.i:      ; preds = %era_tree_rank_from_comm_rank.argprom.exit.preheader.i, %era_tree_rank_from_comm_rank.argprom.exit.i
-  %48 = phi i32 [ %53, %era_tree_rank_from_comm_rank.argprom.exit.i ], [ %43, %era_tree_rank_from_comm_rank.argprom.exit.preheader.i ]
+era_tree_rank_from_comm_rank.exit.i:              ; preds = %era_tree_rank_from_comm_rank.exit.preheader.i, %era_tree_rank_from_comm_rank.exit.i
+  %48 = phi i32 [ %53, %era_tree_rank_from_comm_rank.exit.i ], [ %43, %era_tree_rank_from_comm_rank.exit.preheader.i ]
   tail call fastcc void @era_tree_remove_node(ptr noundef nonnull readonly %0, i32 noundef %48)
   %49 = load ptr, ptr %30, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 32
@@ -7036,10 +7036,10 @@ era_tree_rank_from_comm_rank.argprom.exit.i:      ; preds = %era_tree_rank_from_
   %56 = load i32, ptr %55, align 4
   %57 = load ptr, ptr %27, align 8
   %58 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %57, i32 noundef %56, i1 noundef zeroext false) #19
-  br i1 %58, label %era_parent.exit, label %era_tree_rank_from_comm_rank.argprom.exit.i
+  br i1 %58, label %era_parent.exit, label %era_tree_rank_from_comm_rank.exit.i
 
-era_parent.exit:                                  ; preds = %era_tree_rank_from_comm_rank.argprom.exit.i, %era_tree_rank_from_comm_rank.argprom.exit.preheader.i
-  %.lcssa.i = phi i32 [ %46, %era_tree_rank_from_comm_rank.argprom.exit.preheader.i ], [ %56, %era_tree_rank_from_comm_rank.argprom.exit.i ]
+era_parent.exit:                                  ; preds = %era_tree_rank_from_comm_rank.exit.i, %era_tree_rank_from_comm_rank.exit.preheader.i
+  %.lcssa.i = phi i32 [ %46, %era_tree_rank_from_comm_rank.exit.preheader.i ], [ %56, %era_tree_rank_from_comm_rank.exit.i ]
   %59 = load ptr, ptr %27, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 220
   %61 = load i32, ptr %60, align 4
@@ -7066,9 +7066,9 @@ era_parent.exit:                                  ; preds = %era_tree_rank_from_
   %68 = load i32, ptr %67, align 4
   %.not10.i43.i = icmp eq i32 %68, %.val.i79
   %indvars.iv.next.i44.i = add nsw i64 %indvars.iv.i42.i, -1
-  br i1 %.not10.i43.i, label %era_tree_rank_from_comm_rank.argprom.exit45.preheader.i, label %66, !llvm.loop !34
+  br i1 %.not10.i43.i, label %era_tree_rank_from_comm_rank.exit45.preheader.i, label %66, !llvm.loop !34
 
-era_tree_rank_from_comm_rank.argprom.exit45.preheader.i: ; preds = %66
+era_tree_rank_from_comm_rank.exit45.preheader.i:  ; preds = %66
   %sext51.i = shl i64 %indvars.iv.i42.i, 32
   %69 = ashr exact i64 %sext51.i, 32
   %70 = getelementptr inbounds %struct.era_tree_s, ptr %.pre62.i, i64 %69, i32 3
@@ -7076,16 +7076,16 @@ era_tree_rank_from_comm_rank.argprom.exit45.preheader.i: ; preds = %66
   %72 = icmp eq i32 %71, %.pre.i
   br i1 %72, label %.loopexit.sink.split.i, label %.lr.ph54.i
 
-.lr.ph54.i:                                       ; preds = %era_tree_rank_from_comm_rank.argprom.exit45.preheader.i, %era_tree_rank_from_comm_rank.argprom.exit45.i
-  %73 = phi i32 [ %83, %era_tree_rank_from_comm_rank.argprom.exit45.i ], [ %71, %era_tree_rank_from_comm_rank.argprom.exit45.preheader.i ]
-  %74 = phi ptr [ %81, %era_tree_rank_from_comm_rank.argprom.exit45.i ], [ %.pre62.i, %era_tree_rank_from_comm_rank.argprom.exit45.preheader.i ]
+.lr.ph54.i:                                       ; preds = %era_tree_rank_from_comm_rank.exit45.preheader.i, %era_tree_rank_from_comm_rank.exit45.i
+  %73 = phi i32 [ %83, %era_tree_rank_from_comm_rank.exit45.i ], [ %71, %era_tree_rank_from_comm_rank.exit45.preheader.i ]
+  %74 = phi ptr [ %81, %era_tree_rank_from_comm_rank.exit45.i ], [ %.pre62.i, %era_tree_rank_from_comm_rank.exit45.preheader.i ]
   %75 = sext i32 %73 to i64
   %76 = getelementptr inbounds %struct.era_tree_s, ptr %74, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %59, i32 noundef %77, i1 noundef zeroext false) #19
-  br i1 %78, label %era_next_child.exit, label %era_tree_rank_from_comm_rank.argprom.exit45.i
+  br i1 %78, label %era_next_child.exit, label %era_tree_rank_from_comm_rank.exit45.i
 
-era_tree_rank_from_comm_rank.argprom.exit45.i:    ; preds = %.lr.ph54.i
+era_tree_rank_from_comm_rank.exit45.i:            ; preds = %.lr.ph54.i
   tail call fastcc void @era_tree_remove_node(ptr noundef nonnull readonly %0, i32 noundef %73)
   %79 = load ptr, ptr %30, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 32
@@ -7097,7 +7097,7 @@ era_tree_rank_from_comm_rank.argprom.exit45.i:    ; preds = %.lr.ph54.i
   %86 = icmp eq i32 %83, %85
   br i1 %86, label %.loopexit.sink.split.i, label %.lr.ph54.i
 
-.loopexit.sink.split.i:                           ; preds = %era_tree_rank_from_comm_rank.argprom.exit45.i, %era_tree_rank_from_comm_rank.argprom.exit45.preheader.i
+.loopexit.sink.split.i:                           ; preds = %era_tree_rank_from_comm_rank.exit45.i, %era_tree_rank_from_comm_rank.exit45.preheader.i
   %87 = getelementptr i8, ptr %59, i64 248
   %.val40.i = load ptr, ptr %87, align 8
   %88 = getelementptr i8, ptr %.val40.i, i64 16

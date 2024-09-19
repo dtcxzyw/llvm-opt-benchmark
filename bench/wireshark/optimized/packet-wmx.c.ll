@@ -259,35 +259,35 @@ define hidden range(i32 0, 2) i32 @is_down_link(ptr nocapture noundef readonly %
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @bs_address, i64 4), align 4
   %8 = icmp ne i32 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
-  br i1 %or.cond, label %9, label %cmp_address.argprom.exit.thread
+  br i1 %or.cond, label %9, label %cmp_address.exit.thread
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 208
   %11 = load i32, ptr @bs_address, align 8
   %12 = load i32, ptr %10, align 8
   %or.cond8.not = icmp eq i32 %11, %12
-  br i1 %or.cond8.not, label %13, label %cmp_address.argprom.exit.thread
+  br i1 %or.cond8.not, label %13, label %cmp_address.exit.thread
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 212
   %15 = load i32, ptr %14, align 4
   %or.cond9.not = icmp eq i32 %7, %15
-  br i1 %or.cond9.not, label %cmp_address.argprom.exit, label %cmp_address.argprom.exit.thread
+  br i1 %or.cond9.not, label %cmp_address.exit, label %cmp_address.exit.thread
 
-cmp_address.argprom.exit:                         ; preds = %13
+cmp_address.exit:                                 ; preds = %13
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @bs_address, i64 8), align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 216
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %7 to i64
   %bcmp = tail call i32 @bcmp(ptr %16, ptr %18, i64 %19)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %20, label %cmp_address.argprom.exit.thread
+  br i1 %.not, label %20, label %cmp_address.exit.thread
 
-cmp_address.argprom.exit.thread:                  ; preds = %13, %9, %cmp_address.argprom.exit, %5
+cmp_address.exit.thread:                          ; preds = %13, %9, %cmp_address.exit, %5
   br label %20
 
-20:                                               ; preds = %cmp_address.argprom.exit, %1, %cmp_address.argprom.exit.thread
-  %.0 = phi i32 [ 0, %cmp_address.argprom.exit.thread ], [ 1, %1 ], [ 1, %cmp_address.argprom.exit ]
+20:                                               ; preds = %cmp_address.exit, %1, %cmp_address.exit.thread
+  %.0 = phi i32 [ 0, %cmp_address.exit.thread ], [ 1, %1 ], [ 1, %cmp_address.exit ]
   ret i32 %.0
 }
 

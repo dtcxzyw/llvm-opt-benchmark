@@ -2949,7 +2949,7 @@ Vec_IntCountPositive.exit:                        ; preds = %48, %.critedge
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %.not.i.not.i.i = icmp slt i64 %indvars.iv82, %82
-  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.argprom.exit, label %83
+  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.exit, label %83
 
 83:                                               ; preds = %70
   %84 = load i32, ptr %.val59, align 8
@@ -3035,9 +3035,9 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
 ._crit_edge.i.i.i:                                ; preds = %112, %Vec_IntGrow.exit.i.i.i
   %115 = trunc nuw nsw i64 %79 to i32
   store i32 %115, ptr %80, align 4
-  br label %Gia_ObjLevelId.argprom.exit
+  br label %Gia_ObjLevelId.exit
 
-Gia_ObjLevelId.argprom.exit:                      ; preds = %70, %._crit_edge.i.i.i
+Gia_ObjLevelId.exit:                              ; preds = %70, %._crit_edge.i.i.i
   %116 = getelementptr i8, ptr %.val59, i64 8
   %.val.i.i64 = load ptr, ptr %116, align 8
   %117 = getelementptr inbounds i32, ptr %.val.i.i64, i64 %indvars.iv82
@@ -3077,9 +3077,9 @@ Gia_ObjLevelId.argprom.exit:                      ; preds = %70, %._crit_edge.i.
   %.pre = load i32, ptr %4, align 8
   br label %144
 
-144:                                              ; preds = %Gia_ObjLevelId.argprom.exit, %61, %67
-  %145 = phi i32 [ %.pre, %Gia_ObjLevelId.argprom.exit ], [ %60, %67 ], [ %60, %61 ]
-  %.1 = phi i32 [ %74, %Gia_ObjLevelId.argprom.exit ], [ %.078, %67 ], [ %.078, %61 ]
+144:                                              ; preds = %Gia_ObjLevelId.exit, %61, %67
+  %145 = phi i32 [ %.pre, %Gia_ObjLevelId.exit ], [ %60, %67 ], [ %60, %61 ]
+  %.1 = phi i32 [ %74, %Gia_ObjLevelId.exit ], [ %.078, %67 ], [ %.078, %61 ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %146 = sext i32 %145 to i64
   %147 = icmp slt i64 %indvars.iv.next83, %146

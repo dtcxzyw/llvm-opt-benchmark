@@ -697,26 +697,26 @@ spec_iter.exit485:                                ; preds = %spec_iter.exit
   %.0361785.us793.us.fr = freeze i32 %.0361785.us793.us
   %211 = trunc i32 %.0361785.us793.us.fr to i8
   %or.cond7.us.us.us.us = icmp slt i8 %211, 32
-  switch i8 %211, label %spec_ith_char.argprom.exit.us.us.us.us.us.us [
-    i8 0, label %spec_ith_char.argprom.exit.us.us.us756.us.us
+  switch i8 %211, label %spec_ith_char.exit.us.us.us.us.us.us [
+    i8 0, label %spec_ith_char.exit.us.us.us756.us.us
     i8 -1, label %.lr.ph657.split.us.split.us.split.us.split.us889.us
   ]
 
-._crit_edge666.split.us.split.us.us.us:           ; preds = %221, %spec_ith_char.argprom.exit489.us.us.us.us876.us, %245, %spec_ith_char.argprom.exit.us.us.us.us873.us.us, %239, %spec_ith_char.argprom.exit489.us.us.us759.us.us, %268, %spec_ith_char.argprom.exit489.us.us.us.us.us.us
-  %.1404.lcssa.us796.us = phi i8 [ %.1404654.us.us.us.us.us.us, %spec_ith_char.argprom.exit489.us.us.us.us.us.us ], [ %.2405.us.us.us.us.us.us, %268 ], [ %.2405.us.us.us764.us.us, %239 ], [ %.1404654.us.us.us758.us.us, %spec_ith_char.argprom.exit489.us.us.us759.us.us ], [ %.2405.us.us.us.us880.us.us, %245 ], [ %.1404654.us.us.us.us875.us.us, %spec_ith_char.argprom.exit.us.us.us.us873.us.us ], [ %.2405.us.us.us.us880.us, %221 ], [ %.1404654.us.us.us.us875.us, %spec_ith_char.argprom.exit489.us.us.us.us876.us ]
-  %.1402.us797.us = phi i32 [ 3, %spec_ith_char.argprom.exit489.us.us.us.us.us.us ], [ %.0401784.us794.us, %268 ], [ %.0401784.us794.us, %239 ], [ 1, %spec_ith_char.argprom.exit489.us.us.us759.us.us ], [ %.0401784.us794.us, %245 ], [ 1, %spec_ith_char.argprom.exit.us.us.us.us873.us.us ], [ %.0401784.us794.us, %221 ], [ 1, %spec_ith_char.argprom.exit489.us.us.us.us876.us ]
+._crit_edge666.split.us.split.us.us.us:           ; preds = %221, %spec_ith_char.exit489.us.us.us.us876.us, %245, %spec_ith_char.exit.us.us.us.us873.us.us, %239, %spec_ith_char.exit489.us.us.us759.us.us, %268, %spec_ith_char.exit489.us.us.us.us.us.us
+  %.1404.lcssa.us796.us = phi i8 [ %.1404654.us.us.us.us.us.us, %spec_ith_char.exit489.us.us.us.us.us.us ], [ %.2405.us.us.us.us.us.us, %268 ], [ %.2405.us.us.us764.us.us, %239 ], [ %.1404654.us.us.us758.us.us, %spec_ith_char.exit489.us.us.us759.us.us ], [ %.2405.us.us.us.us880.us.us, %245 ], [ %.1404654.us.us.us.us875.us.us, %spec_ith_char.exit.us.us.us.us873.us.us ], [ %.2405.us.us.us.us880.us, %221 ], [ %.1404654.us.us.us.us875.us, %spec_ith_char.exit489.us.us.us.us876.us ]
+  %.1402.us797.us = phi i32 [ 3, %spec_ith_char.exit489.us.us.us.us.us.us ], [ %.0401784.us794.us, %268 ], [ %.0401784.us794.us, %239 ], [ 1, %spec_ith_char.exit489.us.us.us759.us.us ], [ %.0401784.us794.us, %245 ], [ 1, %spec_ith_char.exit.us.us.us.us873.us.us ], [ %.0401784.us794.us, %221 ], [ 1, %spec_ith_char.exit489.us.us.us.us876.us ]
   %212 = add nuw nsw i32 %210, %201
   %213 = and i32 %212, 65535
   %.not453.us798.us = icmp ugt i32 %213, %197
   br i1 %.not453.us798.us, label %._crit_edge788, label %.lr.ph657.us.us
 
-spec_ith_char.argprom.exit.us.us.us.us873.us:     ; preds = %.lr.ph657.split.us.split.us.split.us.split.us889.us.split.split, %221
+spec_ith_char.exit.us.us.us.us873.us:             ; preds = %.lr.ph657.split.us.split.us.split.us.split.us889.us.split.split, %221
   %214 = phi i32 [ %198, %.lr.ph657.split.us.split.us.split.us.split.us889.us.split.split ], [ %223, %221 ]
   %.1404654.us.us.us.us875.us = phi i8 [ %.0403783.us795.us, %.lr.ph657.split.us.split.us.split.us.split.us889.us.split.split ], [ %.2405.us.us.us.us880.us, %221 ]
   %215 = icmp ult i32 %214, %251
-  br i1 %215, label %spec_ith_char.argprom.exit489.us.us.us.us876.us, label %.split677.us
+  br i1 %215, label %spec_ith_char.exit489.us.us.us.us876.us, label %.split677.us
 
-spec_ith_char.argprom.exit489.us.us.us.us876.us:  ; preds = %spec_ith_char.argprom.exit.us.us.us.us873.us
+spec_ith_char.exit489.us.us.us.us876.us:          ; preds = %spec_ith_char.exit.us.us.us.us873.us
   %216 = load ptr, ptr %.val478.us.us.us.us, align 8
   %217 = zext nneg i32 %214 to i64
   %218 = getelementptr inbounds i8, ptr %216, i64 %217
@@ -724,22 +724,22 @@ spec_ith_char.argprom.exit489.us.us.us.us876.us:  ; preds = %spec_ith_char.argpr
   %220 = icmp eq i8 %219, -1
   br i1 %220, label %._crit_edge666.split.us.split.us.us.us, label %221
 
-221:                                              ; preds = %spec_ith_char.argprom.exit489.us.us.us.us876.us
+221:                                              ; preds = %spec_ith_char.exit489.us.us.us.us876.us
   %or.cond10.us.us.us.us878.us = icmp slt i8 %219, 32
   %or.cond466.us.us.us.us879.us = and i1 %or.cond7.us.us.us.us, %or.cond10.us.us.us.us878.us
   %.2405.us.us.us.us880.us = select i1 %or.cond466.us.us.us.us879.us, i8 1, i8 %.1404654.us.us.us.us875.us
   %222 = add nuw nsw i32 %214, %200
   %223 = and i32 %222, 65535
   %.not454.us.us.us.us881.us = icmp ugt i32 %223, %199
-  br i1 %.not454.us.us.us.us881.us, label %._crit_edge666.split.us.split.us.us.us, label %spec_ith_char.argprom.exit.us.us.us.us873.us
+  br i1 %.not454.us.us.us.us881.us, label %._crit_edge666.split.us.split.us.us.us, label %spec_ith_char.exit.us.us.us.us873.us
 
-spec_ith_char.argprom.exit.us.us.us756.us.us:     ; preds = %.lr.ph657.us.us, %239
+spec_ith_char.exit.us.us.us756.us.us:             ; preds = %.lr.ph657.us.us, %239
   %224 = phi i32 [ %241, %239 ], [ %198, %.lr.ph657.us.us ]
   %.0367655.us.us.us757.us.us = phi i32 [ %240, %239 ], [ %198, %.lr.ph657.us.us ]
   %.1404654.us.us.us758.us.us = phi i8 [ %.2405.us.us.us764.us.us, %239 ], [ %.0403783.us795.us, %.lr.ph657.us.us ]
   br i1 %.not.i487.us.us.us.us, label %237, label %225
 
-225:                                              ; preds = %spec_ith_char.argprom.exit.us.us.us756.us.us
+225:                                              ; preds = %spec_ith_char.exit.us.us.us756.us.us
   %226 = load i16, ptr %208, align 2
   %227 = icmp eq i16 %226, 1
   br i1 %227, label %228, label %.split675.us
@@ -755,30 +755,30 @@ spec_ith_char.argprom.exit.us.us.us756.us.us:     ; preds = %.lr.ph657.us.us, %2
   %234 = zext nneg i32 %224 to i64
   %235 = getelementptr inbounds i8, ptr %233, i64 %234
   %236 = load i8, ptr %235, align 1
-  br label %spec_ith_char.argprom.exit489.us.us.us759.us.us
+  br label %spec_ith_char.exit489.us.us.us759.us.us
 
-237:                                              ; preds = %spec_ith_char.argprom.exit.us.us.us756.us.us
+237:                                              ; preds = %spec_ith_char.exit.us.us.us756.us.us
   %238 = trunc i32 %.0367655.us.us.us757.us.us to i8
-  br label %spec_ith_char.argprom.exit489.us.us.us759.us.us
+  br label %spec_ith_char.exit489.us.us.us759.us.us
 
-spec_ith_char.argprom.exit489.us.us.us759.us.us:  ; preds = %237, %232
+spec_ith_char.exit489.us.us.us759.us.us:          ; preds = %237, %232
   %.0.i488.us.us.us760.us.us = phi i8 [ %236, %232 ], [ %238, %237 ]
   %.not1022 = icmp eq i8 %.0.i488.us.us.us760.us.us, 0
   br i1 %.not1022, label %._crit_edge666.split.us.split.us.us.us, label %239
 
-239:                                              ; preds = %spec_ith_char.argprom.exit489.us.us.us759.us.us
+239:                                              ; preds = %spec_ith_char.exit489.us.us.us759.us.us
   %or.cond10.us.us.us762.us.us = icmp slt i8 %.0.i488.us.us.us760.us.us, 32
   %or.cond466.us.us.us763.us.us = and i1 %or.cond7.us.us.us.us, %or.cond10.us.us.us762.us.us
   %.2405.us.us.us764.us.us = select i1 %or.cond466.us.us.us763.us.us, i8 1, i8 %.1404654.us.us.us758.us.us
   %240 = add nuw nsw i32 %224, %200
   %241 = and i32 %240, 65535
   %.not454.us.us.us765.us.us = icmp ugt i32 %241, %199
-  br i1 %.not454.us.us.us765.us.us, label %._crit_edge666.split.us.split.us.us.us, label %spec_ith_char.argprom.exit.us.us.us756.us.us
+  br i1 %.not454.us.us.us765.us.us, label %._crit_edge666.split.us.split.us.us.us, label %spec_ith_char.exit.us.us.us756.us.us
 
 .lr.ph657.split.us.split.us.split.us.split.us889.us: ; preds = %.lr.ph657.us.us
-  br i1 %.not.i487.us.us.us.us, label %spec_ith_char.argprom.exit.us.us.us.us873.us.us, label %.lr.ph657.split.us.split.us.split.us.split.us889.us.split
+  br i1 %.not.i487.us.us.us.us, label %spec_ith_char.exit.us.us.us.us873.us.us, label %.lr.ph657.split.us.split.us.split.us.split.us889.us.split
 
-spec_ith_char.argprom.exit.us.us.us.us873.us.us:  ; preds = %.lr.ph657.split.us.split.us.split.us.split.us889.us, %245
+spec_ith_char.exit.us.us.us.us873.us.us:          ; preds = %.lr.ph657.split.us.split.us.split.us.split.us889.us, %245
   %242 = phi i32 [ %247, %245 ], [ %198, %.lr.ph657.split.us.split.us.split.us.split.us889.us ]
   %.0367655.us.us.us.us874.us.us = phi i32 [ %246, %245 ], [ %198, %.lr.ph657.split.us.split.us.split.us.split.us889.us ]
   %.1404654.us.us.us.us875.us.us = phi i8 [ %.2405.us.us.us.us880.us.us, %245 ], [ %.0403783.us795.us, %.lr.ph657.split.us.split.us.split.us.split.us889.us ]
@@ -786,14 +786,14 @@ spec_ith_char.argprom.exit.us.us.us.us873.us.us:  ; preds = %.lr.ph657.split.us.
   %244 = icmp eq i8 %243, -1
   br i1 %244, label %._crit_edge666.split.us.split.us.us.us, label %245
 
-245:                                              ; preds = %spec_ith_char.argprom.exit.us.us.us.us873.us.us
+245:                                              ; preds = %spec_ith_char.exit.us.us.us.us873.us.us
   %or.cond10.us.us.us.us878.us.us = icmp slt i8 %243, 32
   %or.cond466.us.us.us.us879.us.us = and i1 %or.cond7.us.us.us.us, %or.cond10.us.us.us.us878.us.us
   %.2405.us.us.us.us880.us.us = select i1 %or.cond466.us.us.us.us879.us.us, i8 1, i8 %.1404654.us.us.us.us875.us.us
   %246 = add nuw nsw i32 %242, %200
   %247 = and i32 %246, 65535
   %.not454.us.us.us.us881.us.us = icmp ugt i32 %247, %199
-  br i1 %.not454.us.us.us.us881.us.us, label %._crit_edge666.split.us.split.us.us.us, label %spec_ith_char.argprom.exit.us.us.us.us873.us.us
+  br i1 %.not454.us.us.us.us881.us.us, label %._crit_edge666.split.us.split.us.us.us, label %spec_ith_char.exit.us.us.us.us873.us.us
 
 .lr.ph657.split.us.split.us.split.us.split.us889.us.split: ; preds = %.lr.ph657.split.us.split.us.split.us.split.us889.us
   %248 = load i16, ptr %208, align 2
@@ -803,15 +803,15 @@ spec_ith_char.argprom.exit.us.us.us.us873.us.us:  ; preds = %.lr.ph657.split.us.
 .lr.ph657.split.us.split.us.split.us.split.us889.us.split.split: ; preds = %.lr.ph657.split.us.split.us.split.us.split.us889.us.split
   %250 = load i16, ptr %209, align 4
   %251 = zext i16 %250 to i32
-  br label %spec_ith_char.argprom.exit.us.us.us.us873.us
+  br label %spec_ith_char.exit.us.us.us.us873.us
 
-spec_ith_char.argprom.exit.us.us.us.us.us.us:     ; preds = %.lr.ph657.us.us, %268
+spec_ith_char.exit.us.us.us.us.us.us:             ; preds = %.lr.ph657.us.us, %268
   %252 = phi i32 [ %270, %268 ], [ %198, %.lr.ph657.us.us ]
   %.0367655.us.us.us.us.us.us = phi i32 [ %269, %268 ], [ %198, %.lr.ph657.us.us ]
   %.1404654.us.us.us.us.us.us = phi i8 [ %.2405.us.us.us.us.us.us, %268 ], [ %.0403783.us795.us, %.lr.ph657.us.us ]
   br i1 %.not.i487.us.us.us.us, label %265, label %253
 
-253:                                              ; preds = %spec_ith_char.argprom.exit.us.us.us.us.us.us
+253:                                              ; preds = %spec_ith_char.exit.us.us.us.us.us.us
   %254 = load i16, ptr %208, align 2
   %255 = icmp eq i16 %254, 1
   br i1 %255, label %256, label %.split675.us
@@ -827,25 +827,25 @@ spec_ith_char.argprom.exit.us.us.us.us.us.us:     ; preds = %.lr.ph657.us.us, %2
   %262 = zext nneg i32 %252 to i64
   %263 = getelementptr inbounds i8, ptr %261, i64 %262
   %264 = load i8, ptr %263, align 1
-  br label %spec_ith_char.argprom.exit489.us.us.us.us.us.us
+  br label %spec_ith_char.exit489.us.us.us.us.us.us
 
-265:                                              ; preds = %spec_ith_char.argprom.exit.us.us.us.us.us.us
+265:                                              ; preds = %spec_ith_char.exit.us.us.us.us.us.us
   %266 = trunc i32 %.0367655.us.us.us.us.us.us to i8
-  br label %spec_ith_char.argprom.exit489.us.us.us.us.us.us
+  br label %spec_ith_char.exit489.us.us.us.us.us.us
 
-spec_ith_char.argprom.exit489.us.us.us.us.us.us:  ; preds = %265, %260
+spec_ith_char.exit489.us.us.us.us.us.us:          ; preds = %265, %260
   %.0.i488.us.us.us.us.us.us = phi i8 [ %264, %260 ], [ %266, %265 ]
   %267 = icmp eq i8 %.0.i488.us.us.us.us.us.us, %211
   br i1 %267, label %._crit_edge666.split.us.split.us.us.us, label %268
 
-268:                                              ; preds = %spec_ith_char.argprom.exit489.us.us.us.us.us.us
+268:                                              ; preds = %spec_ith_char.exit489.us.us.us.us.us.us
   %or.cond10.us.us.us.us.us.us = icmp slt i8 %.0.i488.us.us.us.us.us.us, 32
   %or.cond466.us.us.us.us.us.us = and i1 %or.cond7.us.us.us.us, %or.cond10.us.us.us.us.us.us
   %.2405.us.us.us.us.us.us = select i1 %or.cond466.us.us.us.us.us.us, i8 1, i8 %.1404654.us.us.us.us.us.us
   %269 = add nuw nsw i32 %252, %200
   %270 = and i32 %269, 65535
   %.not454.us.us.us.us.us.us = icmp ugt i32 %270, %199
-  br i1 %.not454.us.us.us.us.us.us, label %._crit_edge666.split.us.split.us.us.us, label %spec_ith_char.argprom.exit.us.us.us.us.us.us
+  br i1 %.not454.us.us.us.us.us.us, label %._crit_edge666.split.us.split.us.us.us, label %spec_ith_char.exit.us.us.us.us.us.us
 
 .lr.ph787.split.split.us.split:                   ; preds = %.lr.ph787.split.split.us
   %271 = load i16, ptr %206, align 2
@@ -864,9 +864,9 @@ spec_ith_char.argprom.exit489.us.us.us.us.us.us:  ; preds = %265, %260
   %276 = icmp ult i32 %275, %274
   br i1 %276, label %.lr.ph657.split.us.split.split.split.us, label %.split673.us
 
-._crit_edge666.split.us.split.us838:              ; preds = %301, %spec_ith_char.argprom.exit489.us.us695.us844, %310, %spec_ith_char.argprom.exit489.us.us718.us, %317, %spec_ith_char.argprom.exit.us.us715.us.us, %338, %spec_ith_char.argprom.exit489.us.us695.us.us
-  %.1404.lcssa.us796 = phi i8 [ %.1404654.us.us694.us.us, %spec_ith_char.argprom.exit489.us.us695.us.us ], [ %.2405.us.us701.us.us, %338 ], [ %.2405.us.us723.us.us, %317 ], [ %.1404654.us.us717.us.us, %spec_ith_char.argprom.exit.us.us715.us.us ], [ %.2405.us.us723.us862, %310 ], [ %.1404654.us.us717.us859, %spec_ith_char.argprom.exit489.us.us718.us ], [ %.2405.us.us701.us848, %301 ], [ %.1404654.us.us694.us843, %spec_ith_char.argprom.exit489.us.us695.us844 ]
-  %.1402.us797 = phi i32 [ 3, %spec_ith_char.argprom.exit489.us.us695.us.us ], [ %.0401784.us794, %338 ], [ %.0401784.us794, %317 ], [ 1, %spec_ith_char.argprom.exit.us.us715.us.us ], [ %.0401784.us794, %310 ], [ 1, %spec_ith_char.argprom.exit489.us.us718.us ], [ %.0401784.us794, %301 ], [ 1, %spec_ith_char.argprom.exit489.us.us695.us844 ]
+._crit_edge666.split.us.split.us838:              ; preds = %301, %spec_ith_char.exit489.us.us695.us844, %310, %spec_ith_char.exit489.us.us718.us, %317, %spec_ith_char.exit.us.us715.us.us, %338, %spec_ith_char.exit489.us.us695.us.us
+  %.1404.lcssa.us796 = phi i8 [ %.1404654.us.us694.us.us, %spec_ith_char.exit489.us.us695.us.us ], [ %.2405.us.us701.us.us, %338 ], [ %.2405.us.us723.us.us, %317 ], [ %.1404654.us.us717.us.us, %spec_ith_char.exit.us.us715.us.us ], [ %.2405.us.us723.us862, %310 ], [ %.1404654.us.us717.us859, %spec_ith_char.exit489.us.us718.us ], [ %.2405.us.us701.us848, %301 ], [ %.1404654.us.us694.us843, %spec_ith_char.exit489.us.us695.us844 ]
+  %.1402.us797 = phi i32 [ 3, %spec_ith_char.exit489.us.us695.us.us ], [ %.0401784.us794, %338 ], [ %.0401784.us794, %317 ], [ 1, %spec_ith_char.exit.us.us715.us.us ], [ %.0401784.us794, %310 ], [ 1, %spec_ith_char.exit489.us.us718.us ], [ %.0401784.us794, %301 ], [ 1, %spec_ith_char.exit489.us.us695.us844 ]
   %277 = add nuw nsw i32 %275, %201
   %278 = and i32 %277, 65535
   %.not453.us798 = icmp ugt i32 %278, %197
@@ -883,18 +883,18 @@ spec_ith_char.argprom.exit489.us.us.us.us.us.us:  ; preds = %265, %260
   %283 = getelementptr inbounds i8, ptr %.val478.us.us834, i64 14
   %284 = getelementptr inbounds i8, ptr %.val478.us.us834, i64 12
   %or.cond7.us.us836 = icmp slt i8 %.fr1016, 32
-  switch i8 %.fr1016, label %spec_ith_char.argprom.exit.us.us692.us.us [
+  switch i8 %.fr1016, label %spec_ith_char.exit.us.us692.us.us [
     i8 0, label %.lr.ph657.split.us.split.split.split.split.split.us.us
-    i8 -1, label %spec_ith_char.argprom.exit.us.us692.us841
+    i8 -1, label %spec_ith_char.exit.us.us692.us841
   ]
 
-spec_ith_char.argprom.exit.us.us692.us841:        ; preds = %.lr.ph657.split.us.split.split.split.us, %301
+spec_ith_char.exit.us.us692.us841:                ; preds = %.lr.ph657.split.us.split.split.split.us, %301
   %285 = phi i32 [ %303, %301 ], [ %198, %.lr.ph657.split.us.split.split.split.us ]
   %.0367655.us.us693.us842 = phi i32 [ %302, %301 ], [ %198, %.lr.ph657.split.us.split.split.split.us ]
   %.1404654.us.us694.us843 = phi i8 [ %.2405.us.us701.us848, %301 ], [ %.0403783.us795, %.lr.ph657.split.us.split.split.split.us ]
   br i1 %.not.i487.us.us835, label %298, label %286
 
-286:                                              ; preds = %spec_ith_char.argprom.exit.us.us692.us841
+286:                                              ; preds = %spec_ith_char.exit.us.us692.us841
   %287 = load i16, ptr %283, align 2
   %288 = icmp eq i16 %287, 1
   br i1 %288, label %289, label %.split675.us
@@ -910,36 +910,36 @@ spec_ith_char.argprom.exit.us.us692.us841:        ; preds = %.lr.ph657.split.us.
   %295 = zext nneg i32 %285 to i64
   %296 = getelementptr inbounds i8, ptr %294, i64 %295
   %297 = load i8, ptr %296, align 1
-  br label %spec_ith_char.argprom.exit489.us.us695.us844
+  br label %spec_ith_char.exit489.us.us695.us844
 
-298:                                              ; preds = %spec_ith_char.argprom.exit.us.us692.us841
+298:                                              ; preds = %spec_ith_char.exit.us.us692.us841
   %299 = trunc i32 %.0367655.us.us693.us842 to i8
-  br label %spec_ith_char.argprom.exit489.us.us695.us844
+  br label %spec_ith_char.exit489.us.us695.us844
 
-spec_ith_char.argprom.exit489.us.us695.us844:     ; preds = %298, %293
+spec_ith_char.exit489.us.us695.us844:             ; preds = %298, %293
   %.0.i488.us.us696.us845 = phi i8 [ %297, %293 ], [ %299, %298 ]
   %300 = icmp eq i8 %.0.i488.us.us696.us845, -1
   br i1 %300, label %._crit_edge666.split.us.split.us838, label %301
 
-301:                                              ; preds = %spec_ith_char.argprom.exit489.us.us695.us844
+301:                                              ; preds = %spec_ith_char.exit489.us.us695.us844
   %or.cond10.us.us699.us846 = icmp slt i8 %.0.i488.us.us696.us845, 32
   %or.cond466.us.us700.us847 = and i1 %or.cond7.us.us836, %or.cond10.us.us699.us846
   %.2405.us.us701.us848 = select i1 %or.cond466.us.us700.us847, i8 1, i8 %.1404654.us.us694.us843
   %302 = add nuw nsw i32 %285, %200
   %303 = and i32 %302, 65535
   %.not454.us.us702.us849 = icmp ugt i32 %303, %199
-  br i1 %.not454.us.us702.us849, label %._crit_edge666.split.us.split.us838, label %spec_ith_char.argprom.exit.us.us692.us841
+  br i1 %.not454.us.us702.us849, label %._crit_edge666.split.us.split.us838, label %spec_ith_char.exit.us.us692.us841
 
 .lr.ph657.split.us.split.split.split.split.split.us.us: ; preds = %.lr.ph657.split.us.split.split.split.us
-  br i1 %.not.i487.us.us835, label %spec_ith_char.argprom.exit.us.us715.us.us, label %.lr.ph657.split.us.split.split.split.split.split.us.split.us870
+  br i1 %.not.i487.us.us835, label %spec_ith_char.exit.us.us715.us.us, label %.lr.ph657.split.us.split.split.split.split.split.us.split.us870
 
-spec_ith_char.argprom.exit.us.us715.us858:        ; preds = %.lr.ph657.split.us.split.split.split.split.split.us.split.split.us, %310
+spec_ith_char.exit.us.us715.us858:                ; preds = %.lr.ph657.split.us.split.split.split.split.split.us.split.split.us, %310
   %304 = phi i32 [ %198, %.lr.ph657.split.us.split.split.split.split.split.us.split.split.us ], [ %312, %310 ]
   %.1404654.us.us717.us859 = phi i8 [ %.0403783.us795, %.lr.ph657.split.us.split.split.split.split.split.us.split.split.us ], [ %.2405.us.us723.us862, %310 ]
   %305 = icmp ult i32 %304, %321
-  br i1 %305, label %spec_ith_char.argprom.exit489.us.us718.us, label %.split677.us
+  br i1 %305, label %spec_ith_char.exit489.us.us718.us, label %.split677.us
 
-spec_ith_char.argprom.exit489.us.us718.us:        ; preds = %spec_ith_char.argprom.exit.us.us715.us858
+spec_ith_char.exit489.us.us718.us:                ; preds = %spec_ith_char.exit.us.us715.us858
   %306 = load ptr, ptr %.val478.us.us834, align 8
   %307 = zext nneg i32 %304 to i64
   %308 = getelementptr inbounds i8, ptr %306, i64 %307
@@ -947,21 +947,21 @@ spec_ith_char.argprom.exit489.us.us718.us:        ; preds = %spec_ith_char.argpr
   %.not1018 = icmp eq i8 %309, 0
   br i1 %.not1018, label %._crit_edge666.split.us.split.us838, label %310
 
-310:                                              ; preds = %spec_ith_char.argprom.exit489.us.us718.us
+310:                                              ; preds = %spec_ith_char.exit489.us.us718.us
   %or.cond10.us.us721.us860 = icmp slt i8 %309, 32
   %or.cond466.us.us722.us861 = and i1 %or.cond7.us.us836, %or.cond10.us.us721.us860
   %.2405.us.us723.us862 = select i1 %or.cond466.us.us722.us861, i8 1, i8 %.1404654.us.us717.us859
   %311 = add nuw nsw i32 %304, %200
   %312 = and i32 %311, 65535
   %.not454.us.us724.us863 = icmp ugt i32 %312, %199
-  br i1 %.not454.us.us724.us863, label %._crit_edge666.split.us.split.us838, label %spec_ith_char.argprom.exit.us.us715.us858
+  br i1 %.not454.us.us724.us863, label %._crit_edge666.split.us.split.us838, label %spec_ith_char.exit.us.us715.us858
 
 .lr.ph657.split.us.split.split.split.split.split.us.split.us870: ; preds = %.lr.ph657.split.us.split.split.split.split.split.us.us
   %313 = load i16, ptr %283, align 2
   %314 = icmp eq i16 %313, 1
   br i1 %314, label %.lr.ph657.split.us.split.split.split.split.split.us.split.split.us, label %.split675.us
 
-spec_ith_char.argprom.exit.us.us715.us.us:        ; preds = %.lr.ph657.split.us.split.split.split.split.split.us.us, %317
+spec_ith_char.exit.us.us715.us.us:                ; preds = %.lr.ph657.split.us.split.split.split.split.split.us.us, %317
   %315 = phi i32 [ %319, %317 ], [ %198, %.lr.ph657.split.us.split.split.split.split.split.us.us ]
   %.0367655.us.us716.us.us = phi i32 [ %318, %317 ], [ %198, %.lr.ph657.split.us.split.split.split.split.split.us.us ]
   %.1404654.us.us717.us.us = phi i8 [ %.2405.us.us723.us.us, %317 ], [ %.0403783.us795, %.lr.ph657.split.us.split.split.split.split.split.us.us ]
@@ -969,27 +969,27 @@ spec_ith_char.argprom.exit.us.us715.us.us:        ; preds = %.lr.ph657.split.us.
   %.not1019 = icmp eq i8 %316, 0
   br i1 %.not1019, label %._crit_edge666.split.us.split.us838, label %317
 
-317:                                              ; preds = %spec_ith_char.argprom.exit.us.us715.us.us
+317:                                              ; preds = %spec_ith_char.exit.us.us715.us.us
   %or.cond10.us.us721.us.us = icmp slt i8 %316, 32
   %or.cond466.us.us722.us.us = and i1 %or.cond7.us.us836, %or.cond10.us.us721.us.us
   %.2405.us.us723.us.us = select i1 %or.cond466.us.us722.us.us, i8 1, i8 %.1404654.us.us717.us.us
   %318 = add nuw nsw i32 %315, %200
   %319 = and i32 %318, 65535
   %.not454.us.us724.us.us = icmp ugt i32 %319, %199
-  br i1 %.not454.us.us724.us.us, label %._crit_edge666.split.us.split.us838, label %spec_ith_char.argprom.exit.us.us715.us.us
+  br i1 %.not454.us.us724.us.us, label %._crit_edge666.split.us.split.us838, label %spec_ith_char.exit.us.us715.us.us
 
 .lr.ph657.split.us.split.split.split.split.split.us.split.split.us: ; preds = %.lr.ph657.split.us.split.split.split.split.split.us.split.us870
   %320 = load i16, ptr %284, align 4
   %321 = zext i16 %320 to i32
-  br label %spec_ith_char.argprom.exit.us.us715.us858
+  br label %spec_ith_char.exit.us.us715.us858
 
-spec_ith_char.argprom.exit.us.us692.us.us:        ; preds = %.lr.ph657.split.us.split.split.split.us, %338
+spec_ith_char.exit.us.us692.us.us:                ; preds = %.lr.ph657.split.us.split.split.split.us, %338
   %322 = phi i32 [ %340, %338 ], [ %198, %.lr.ph657.split.us.split.split.split.us ]
   %.0367655.us.us693.us.us = phi i32 [ %339, %338 ], [ %198, %.lr.ph657.split.us.split.split.split.us ]
   %.1404654.us.us694.us.us = phi i8 [ %.2405.us.us701.us.us, %338 ], [ %.0403783.us795, %.lr.ph657.split.us.split.split.split.us ]
   br i1 %.not.i487.us.us835, label %335, label %323
 
-323:                                              ; preds = %spec_ith_char.argprom.exit.us.us692.us.us
+323:                                              ; preds = %spec_ith_char.exit.us.us692.us.us
   %324 = load i16, ptr %283, align 2
   %325 = icmp eq i16 %324, 1
   br i1 %325, label %326, label %.split675.us
@@ -1005,25 +1005,25 @@ spec_ith_char.argprom.exit.us.us692.us.us:        ; preds = %.lr.ph657.split.us.
   %332 = zext nneg i32 %322 to i64
   %333 = getelementptr inbounds i8, ptr %331, i64 %332
   %334 = load i8, ptr %333, align 1
-  br label %spec_ith_char.argprom.exit489.us.us695.us.us
+  br label %spec_ith_char.exit489.us.us695.us.us
 
-335:                                              ; preds = %spec_ith_char.argprom.exit.us.us692.us.us
+335:                                              ; preds = %spec_ith_char.exit.us.us692.us.us
   %336 = trunc i32 %.0367655.us.us693.us.us to i8
-  br label %spec_ith_char.argprom.exit489.us.us695.us.us
+  br label %spec_ith_char.exit489.us.us695.us.us
 
-spec_ith_char.argprom.exit489.us.us695.us.us:     ; preds = %335, %330
+spec_ith_char.exit489.us.us695.us.us:             ; preds = %335, %330
   %.0.i488.us.us696.us.us = phi i8 [ %334, %330 ], [ %336, %335 ]
   %337 = icmp eq i8 %.fr1016, %.0.i488.us.us696.us.us
   br i1 %337, label %._crit_edge666.split.us.split.us838, label %338
 
-338:                                              ; preds = %spec_ith_char.argprom.exit489.us.us695.us.us
+338:                                              ; preds = %spec_ith_char.exit489.us.us695.us.us
   %or.cond10.us.us699.us.us = icmp slt i8 %.0.i488.us.us696.us.us, 32
   %or.cond466.us.us700.us.us = and i1 %or.cond7.us.us836, %or.cond10.us.us699.us.us
   %.2405.us.us701.us.us = select i1 %or.cond466.us.us700.us.us, i8 1, i8 %.1404654.us.us694.us.us
   %339 = add nuw nsw i32 %322, %200
   %340 = and i32 %339, 65535
   %.not454.us.us702.us.us = icmp ugt i32 %340, %199
-  br i1 %.not454.us.us702.us.us, label %._crit_edge666.split.us.split.us838, label %spec_ith_char.argprom.exit.us.us692.us.us
+  br i1 %.not454.us.us702.us.us, label %._crit_edge666.split.us.split.us838, label %spec_ith_char.exit.us.us692.us.us
 
 .lr.ph787.split.split:                            ; preds = %.lr.ph787.split
   br i1 %.not.i486, label %.lr.ph787.split.split.split.us, label %.lr.ph787.split.split.split
@@ -1069,10 +1069,10 @@ spec_ith_char.argprom.exit489.us.us695.us.us:     ; preds = %335, %330
   %356 = zext i16 %355 to i32
   br label %.lr.ph657
 
-.lr.ph657:                                        ; preds = %.lr.ph787.split.split.split.split, %spec_ith_char.argprom.exit489
-  %357 = phi i32 [ %196, %.lr.ph787.split.split.split.split ], [ %368, %spec_ith_char.argprom.exit489 ]
+.lr.ph657:                                        ; preds = %.lr.ph787.split.split.split.split, %spec_ith_char.exit489
+  %357 = phi i32 [ %196, %.lr.ph787.split.split.split.split ], [ %368, %spec_ith_char.exit489 ]
   %358 = icmp ult i32 %357, %356
-  br i1 %358, label %spec_ith_char.argprom.exit, label %.split673.us
+  br i1 %358, label %spec_ith_char.exit, label %.split673.us
 
 .split.us:                                        ; preds = %.lr.ph787.split.split.split, %.lr.ph787.split.split.us.split
   tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 280, ptr noundef nonnull @__PRETTY_FUNCTION__.spec_ith_char) #8
@@ -1082,12 +1082,12 @@ spec_ith_char.argprom.exit489.us.us695.us.us:     ; preds = %335, %330
   tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 281, ptr noundef nonnull @__PRETTY_FUNCTION__.spec_ith_char) #8
   unreachable
 
-spec_ith_char.argprom.exit:                       ; preds = %.lr.ph657
+spec_ith_char.exit:                               ; preds = %.lr.ph657
   %.val478 = load ptr, ptr %157, align 16
   %.not.i487 = icmp eq ptr %.val478, null
-  br i1 %.not.i487, label %spec_ith_char.argprom.exit489, label %359
+  br i1 %.not.i487, label %spec_ith_char.exit489, label %359
 
-359:                                              ; preds = %spec_ith_char.argprom.exit
+359:                                              ; preds = %spec_ith_char.exit
   %360 = getelementptr inbounds i8, ptr %.val478, i64 14
   %361 = load i16, ptr %360, align 2
   %362 = icmp eq i16 %361, 1
@@ -1101,21 +1101,21 @@ spec_ith_char.argprom.exit:                       ; preds = %.lr.ph657
   %364 = getelementptr inbounds i8, ptr %.val478, i64 12
   %365 = load i16, ptr %364, align 4
   %366 = icmp ugt i16 %365, %182
-  br i1 %366, label %spec_ith_char.argprom.exit489, label %.split677.us
+  br i1 %366, label %spec_ith_char.exit489, label %.split677.us
 
-.split677.us:                                     ; preds = %.lr.ph787.split.split.split.us.split.split, %363, %289, %spec_ith_char.argprom.exit.us.us715.us858, %326, %spec_ith_char.argprom.exit.us.us.us.us873.us, %228, %256
+.split677.us:                                     ; preds = %.lr.ph787.split.split.split.us.split.split, %363, %289, %spec_ith_char.exit.us.us715.us858, %326, %spec_ith_char.exit.us.us.us.us873.us, %228, %256
   tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 281, ptr noundef nonnull @__PRETTY_FUNCTION__.spec_ith_char) #8
   unreachable
 
-spec_ith_char.argprom.exit489:                    ; preds = %spec_ith_char.argprom.exit, %363
+spec_ith_char.exit489:                            ; preds = %spec_ith_char.exit, %363
   %367 = add nuw nsw i32 %357, %201
   %368 = and i32 %367, 65535
   %.not453 = icmp ugt i32 %368, %197
   br i1 %.not453, label %._crit_edge788, label %.lr.ph657
 
-._crit_edge788:                                   ; preds = %spec_ith_char.argprom.exit489, %.lr.ph657.us894, %.lr.ph657.us894.us, %._crit_edge666.split.us.split.us838, %._crit_edge666.split.us.split.us.us.us, %.lr.ph787.split.us, %195
-  %.0403.lcssa = phi i8 [ 0, %195 ], [ 0, %.lr.ph787.split.us ], [ %.1404.lcssa.us796.us, %._crit_edge666.split.us.split.us.us.us ], [ %.1404.lcssa.us796, %._crit_edge666.split.us.split.us838 ], [ 0, %.lr.ph657.us894.us ], [ 0, %.lr.ph657.us894 ], [ 0, %spec_ith_char.argprom.exit489 ]
-  %.0401.lcssa = phi i32 [ 4, %195 ], [ 4, %.lr.ph787.split.us ], [ %.1402.us797.us, %._crit_edge666.split.us.split.us.us.us ], [ %.1402.us797, %._crit_edge666.split.us.split.us838 ], [ 2, %.lr.ph657.us894.us ], [ 2, %.lr.ph657.us894 ], [ 2, %spec_ith_char.argprom.exit489 ]
+._crit_edge788:                                   ; preds = %spec_ith_char.exit489, %.lr.ph657.us894, %.lr.ph657.us894.us, %._crit_edge666.split.us.split.us838, %._crit_edge666.split.us.split.us.us.us, %.lr.ph787.split.us, %195
+  %.0403.lcssa = phi i8 [ 0, %195 ], [ 0, %.lr.ph787.split.us ], [ %.1404.lcssa.us796.us, %._crit_edge666.split.us.split.us.us.us ], [ %.1404.lcssa.us796, %._crit_edge666.split.us.split.us838 ], [ 0, %.lr.ph657.us894.us ], [ 0, %.lr.ph657.us894 ], [ 0, %spec_ith_char.exit489 ]
+  %.0401.lcssa = phi i32 [ 4, %195 ], [ 4, %.lr.ph787.split.us ], [ %.1402.us797.us, %._crit_edge666.split.us.split.us.us.us ], [ %.1402.us797, %._crit_edge666.split.us.split.us838 ], [ 2, %.lr.ph657.us894.us ], [ 2, %.lr.ph657.us894 ], [ 2, %spec_ith_char.exit489 ]
   %369 = icmp eq i32 %.0401.lcssa, 4
   %370 = icmp ne i8 %.0403.lcssa, 0
   %or.cond13 = select i1 %369, i1 %370, i1 false
@@ -1455,7 +1455,7 @@ add_choice.exit:                                  ; preds = %414, %435
   %.064148.i = phi i32 [ %475, %.lr.ph150.i ], [ %580, %.split.us.i ]
   %.166147.i = phi i32 [ %.065155.i, %.lr.ph150.i ], [ %.us-phi144.i, %.split.us.i ]
   %.168146.i = phi i32 [ %.067154.i, %.lr.ph150.i ], [ %.us-phi143.i, %.split.us.i ]
-  br i1 %.not.i.i, label %spec_ith_char.argprom.exit.i, label %494
+  br i1 %.not.i.i, label %spec_ith_char.exit.i, label %494
 
 494:                                              ; preds = %493
   %495 = load i16, ptr %487, align 2
@@ -1480,15 +1480,15 @@ add_choice.exit:                                  ; preds = %414, %435
   %504 = load ptr, ptr %.val85.i, align 8
   %505 = getelementptr inbounds i8, ptr %504, i64 %491
   %506 = load i8, ptr %505, align 1
-  br label %spec_ith_char.argprom.exit.i
+  br label %spec_ith_char.exit.i
 
-spec_ith_char.argprom.exit.i:                     ; preds = %503, %493
+spec_ith_char.exit.i:                             ; preds = %503, %493
   %.0.i.i = phi i8 [ %506, %503 ], [ %492, %493 ]
   %.val.i = load ptr, ptr %462, align 16
   %.not.i86.i = icmp eq ptr %.val.i, null
   br i1 %.not.i86.i, label %523, label %507
 
-507:                                              ; preds = %spec_ith_char.argprom.exit.i
+507:                                              ; preds = %spec_ith_char.exit.i
   %508 = getelementptr inbounds i8, ptr %.val.i, i64 14
   %509 = load i16, ptr %508, align 2
   %510 = icmp eq i16 %509, 1
@@ -1514,13 +1514,13 @@ spec_ith_char.argprom.exit.i:                     ; preds = %503, %493
   %520 = zext nneg i32 %.064148.i to i64
   %521 = getelementptr inbounds i8, ptr %519, i64 %520
   %522 = load i8, ptr %521, align 1
-  br label %spec_ith_char.argprom.exit88.i
+  br label %spec_ith_char.exit88.i
 
-523:                                              ; preds = %spec_ith_char.argprom.exit.i
+523:                                              ; preds = %spec_ith_char.exit.i
   %524 = trunc nuw i32 %.064148.i to i8
-  br label %spec_ith_char.argprom.exit88.i
+  br label %spec_ith_char.exit88.i
 
-spec_ith_char.argprom.exit88.i:                   ; preds = %523, %518
+spec_ith_char.exit88.i:                           ; preds = %523, %518
   %.0.i87.i = phi i8 [ %522, %518 ], [ %524, %523 ]
   %525 = load i8, ptr %479, align 1
   %.not75.i = icmp eq i8 %525, 0
@@ -1535,15 +1535,15 @@ spec_ith_char.argprom.exit88.i:                   ; preds = %523, %518
   %.not79.i = icmp ne i8 %525, 0
   br i1 %.not76.i, label %.preheader.preheader.i, label %.preheader.us.i
 
-.preheader.preheader.i:                           ; preds = %spec_ith_char.argprom.exit88.i
+.preheader.preheader.i:                           ; preds = %spec_ith_char.exit88.i
   %532 = add nuw nsw i32 %529, 1
   br label %.preheader.i494
 
-.preheader.us.i:                                  ; preds = %spec_ith_char.argprom.exit88.i, %._crit_edge.us.i
-  %.061135.us.i = phi i32 [ %.1.lcssa.us.i, %._crit_edge.us.i ], [ 0, %spec_ith_char.argprom.exit88.i ]
-  %.062132.us.i = phi i32 [ %555, %._crit_edge.us.i ], [ %531, %spec_ith_char.argprom.exit88.i ]
-  %.2131.us.i = phi i32 [ %.3.lcssa.us.i, %._crit_edge.us.i ], [ %.166147.i, %spec_ith_char.argprom.exit88.i ]
-  %.269130.us.i = phi i32 [ %.370.lcssa.us.i, %._crit_edge.us.i ], [ %.168146.i, %spec_ith_char.argprom.exit88.i ]
+.preheader.us.i:                                  ; preds = %spec_ith_char.exit88.i, %._crit_edge.us.i
+  %.061135.us.i = phi i32 [ %.1.lcssa.us.i, %._crit_edge.us.i ], [ 0, %spec_ith_char.exit88.i ]
+  %.062132.us.i = phi i32 [ %555, %._crit_edge.us.i ], [ %531, %spec_ith_char.exit88.i ]
+  %.2131.us.i = phi i32 [ %.3.lcssa.us.i, %._crit_edge.us.i ], [ %.166147.i, %spec_ith_char.exit88.i ]
+  %.269130.us.i = phi i32 [ %.370.lcssa.us.i, %._crit_edge.us.i ], [ %.168146.i, %spec_ith_char.exit88.i ]
   %.not78110.us.i = icmp ugt i32 %.061135.us.i, %530
   br i1 %.not78110.us.i, label %._crit_edge.us.i, label %.lr.ph.us.i
 
@@ -1808,7 +1808,7 @@ get_score.exit.thread:                            ; preds = %466, %get_score.exi
 648:                                              ; preds = %.lr.ph978, %.split974.us
   %649 = phi i32 [ %625, %.lr.ph978 ], [ %719, %.split974.us ]
   %.1368976 = phi i32 [ %625, %.lr.ph978 ], [ %718, %.split974.us ]
-  br i1 %.not.i496, label %spec_ith_char.argprom.exit498, label %650
+  br i1 %.not.i496, label %spec_ith_char.exit498, label %650
 
 650:                                              ; preds = %648
   %651 = load i16, ptr %642, align 2
@@ -1832,15 +1832,15 @@ get_score.exit.thread:                            ; preds = %466, %get_score.exi
   %659 = load ptr, ptr %.val479, align 8
   %660 = getelementptr inbounds i8, ptr %659, i64 %645
   %661 = load i8, ptr %660, align 1
-  br label %spec_ith_char.argprom.exit498
+  br label %spec_ith_char.exit498
 
-spec_ith_char.argprom.exit498:                    ; preds = %648, %658
+spec_ith_char.exit498:                            ; preds = %648, %658
   %.0.i497 = phi i8 [ %661, %658 ], [ %646, %648 ]
   %.val480 = load ptr, ptr %616, align 16
   %.not.i499 = icmp eq ptr %.val480, null
   br i1 %.not.i499, label %678, label %662
 
-662:                                              ; preds = %spec_ith_char.argprom.exit498
+662:                                              ; preds = %spec_ith_char.exit498
   %663 = getelementptr inbounds i8, ptr %.val480, i64 14
   %664 = load i16, ptr %663, align 2
   %665 = icmp eq i16 %664, 1
@@ -1866,13 +1866,13 @@ spec_ith_char.argprom.exit498:                    ; preds = %648, %658
   %675 = zext nneg i32 %649 to i64
   %676 = getelementptr inbounds i8, ptr %674, i64 %675
   %677 = load i8, ptr %676, align 1
-  br label %spec_ith_char.argprom.exit501
+  br label %spec_ith_char.exit501
 
-678:                                              ; preds = %spec_ith_char.argprom.exit498
+678:                                              ; preds = %spec_ith_char.exit498
   %679 = trunc i32 %.1368976 to i8
-  br label %spec_ith_char.argprom.exit501
+  br label %spec_ith_char.exit501
 
-spec_ith_char.argprom.exit501:                    ; preds = %673, %678
+spec_ith_char.exit501:                            ; preds = %673, %678
   %.0.i500 = phi i8 [ %677, %673 ], [ %679, %678 ]
   %680 = load i8, ptr %629, align 1
   %.not445 = icmp eq i8 %680, 0
@@ -1887,13 +1887,13 @@ spec_ith_char.argprom.exit501:                    ; preds = %673, %678
   %.not449 = icmp ne i8 %680, 0
   br i1 %.not446, label %.preheader533.preheader, label %.preheader533.us
 
-.preheader533.preheader:                          ; preds = %spec_ith_char.argprom.exit501
+.preheader533.preheader:                          ; preds = %spec_ith_char.exit501
   %687 = add nuw nsw i32 %684, 1
   br label %.preheader533
 
-.preheader533.us:                                 ; preds = %spec_ith_char.argprom.exit501, %._crit_edge953.us
-  %.0364963.us = phi i32 [ %.1365.lcssa.us, %._crit_edge953.us ], [ 0, %spec_ith_char.argprom.exit501 ]
-  %.0366960.us = phi i32 [ %701, %._crit_edge953.us ], [ %686, %spec_ith_char.argprom.exit501 ]
+.preheader533.us:                                 ; preds = %spec_ith_char.exit501, %._crit_edge953.us
+  %.0364963.us = phi i32 [ %.1365.lcssa.us, %._crit_edge953.us ], [ 0, %spec_ith_char.exit501 ]
+  %.0366960.us = phi i32 [ %701, %._crit_edge953.us ], [ %686, %spec_ith_char.exit501 ]
   %.not448950.us = icmp ugt i32 %.0364963.us, %685
   br i1 %.not448950.us, label %._crit_edge953.us, label %.lr.ph952.us
 
@@ -2043,7 +2043,7 @@ filter_set_atpos.exit.us956:                      ; preds = %712, %.lr.ph952.spl
 751:                                              ; preds = %.lr.ph1007, %825
   %752 = phi i32 [ %741, %.lr.ph1007 ], [ %829, %825 ]
   %.23691005 = phi i32 [ %741, %.lr.ph1007 ], [ %828, %825 ]
-  br i1 %.not.i502, label %spec_ith_char.argprom.exit504, label %753
+  br i1 %.not.i502, label %spec_ith_char.exit504, label %753
 
 753:                                              ; preds = %751
   %754 = load i16, ptr %749, align 2
@@ -2067,15 +2067,15 @@ filter_set_atpos.exit.us956:                      ; preds = %712, %.lr.ph952.spl
   %762 = load ptr, ptr %.1385.val, align 8
   %763 = getelementptr inbounds i8, ptr %762, i64 %746
   %764 = load i8, ptr %763, align 1
-  br label %spec_ith_char.argprom.exit504
+  br label %spec_ith_char.exit504
 
-spec_ith_char.argprom.exit504:                    ; preds = %751, %761
+spec_ith_char.exit504:                            ; preds = %751, %761
   %.0.i503 = phi i8 [ %764, %761 ], [ %747, %751 ]
   %.1398.val = load ptr, ptr %616, align 8
   %.not.i505 = icmp eq ptr %.1398.val, null
   br i1 %.not.i505, label %781, label %765
 
-765:                                              ; preds = %spec_ith_char.argprom.exit504
+765:                                              ; preds = %spec_ith_char.exit504
   %766 = getelementptr inbounds i8, ptr %.1398.val, i64 14
   %767 = load i16, ptr %766, align 2
   %768 = icmp eq i16 %767, 1
@@ -2101,13 +2101,13 @@ spec_ith_char.argprom.exit504:                    ; preds = %751, %761
   %778 = zext nneg i32 %752 to i64
   %779 = getelementptr inbounds i8, ptr %777, i64 %778
   %780 = load i8, ptr %779, align 1
-  br label %spec_ith_char.argprom.exit507
+  br label %spec_ith_char.exit507
 
-781:                                              ; preds = %spec_ith_char.argprom.exit504
+781:                                              ; preds = %spec_ith_char.exit504
   %782 = trunc i32 %.23691005 to i8
-  br label %spec_ith_char.argprom.exit507
+  br label %spec_ith_char.exit507
 
-spec_ith_char.argprom.exit507:                    ; preds = %776, %781
+spec_ith_char.exit507:                            ; preds = %776, %781
   %.0.i506 = phi i8 [ %780, %776 ], [ %782, %781 ]
   %783 = load i8, ptr %732, align 1
   %.not437 = icmp eq i8 %783, 0
@@ -2122,9 +2122,9 @@ spec_ith_char.argprom.exit507:                    ; preds = %776, %781
   %791 = add nuw nsw i32 %788, 1
   br label %.preheader
 
-.preheader:                                       ; preds = %spec_ith_char.argprom.exit507, %._crit_edge993
-  %.03541003 = phi i32 [ %790, %spec_ith_char.argprom.exit507 ], [ %.1.lcssa, %._crit_edge993 ]
-  %.03551001 = phi i32 [ %789, %spec_ith_char.argprom.exit507 ], [ %824, %._crit_edge993 ]
+.preheader:                                       ; preds = %spec_ith_char.exit507, %._crit_edge993
+  %.03541003 = phi i32 [ %790, %spec_ith_char.exit507 ], [ %.1.lcssa, %._crit_edge993 ]
+  %.03551001 = phi i32 [ %789, %spec_ith_char.exit507 ], [ %824, %._crit_edge993 ]
   %.not440990 = icmp ugt i32 %.03541003, %788
   br i1 %.not440990, label %._crit_edge993, label %.lr.ph992
 

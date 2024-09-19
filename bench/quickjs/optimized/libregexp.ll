@@ -417,7 +417,7 @@ define dso_local ptr @lre_compile(ptr nocapture noundef writeonly %0, ptr nounde
 
 .sink.split:                                      ; preds = %72, %compute_stack_size.exit, %52, %46
   %.str.1.sink = phi ptr [ @.str, %46 ], [ @.str.33, %52 ], [ @.str.1, %compute_stack_size.exit ], [ @.str.1, %72 ]
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %11, ptr noundef nonnull %.str.1.sink)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %11, ptr noundef nonnull %.str.1.sink)
   br label %44
 
 44:                                               ; preds = %.sink.split, %40
@@ -571,7 +571,7 @@ declare ptr @lre_realloc(ptr noundef, ptr noundef, i64 noundef) #4
 declare i32 @dbuf_putc(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @re_emit_op_u32.retelim(ptr noundef nonnull %0, i32 noundef range(i32 2, 25) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @re_emit_op_u32(ptr noundef nonnull %0, i32 noundef range(i32 2, 25) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = trunc nuw nsw i32 %1 to i8
   %6 = tail call i32 @dbuf_putc(ptr noundef nonnull %0, i8 noundef zeroext %5) #17
@@ -592,7 +592,7 @@ define internal fastcc range(i32 -1, 1) i32 @re_parse_disjunction(ptr noundef no
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.2)
   br label %re_parse_alternative.exit35
 
 8:                                                ; preds = %2
@@ -693,7 +693,7 @@ re_parse_alternative.exit:                        ; preds = %.lr.ph.split, %.lr.
   br i1 %.not.i28, label %52, label %dbuf_insert.exit
 
 dbuf_insert.exit:                                 ; preds = %46
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.33)
   br label %re_parse_alternative.exit35
 
 52:                                               ; preds = %46
@@ -813,7 +813,7 @@ declare void @dbuf_free(ptr noundef) local_unnamed_addr #4
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @re_parse_error.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #5 {
+define internal void @re_parse_error(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 160
@@ -2534,7 +2534,7 @@ define internal fastcc range(i32 -1, 1) i32 @re_parse_term(ptr noundef nonnull %
   br i1 %.not358, label %44, label %43
 
 43:                                               ; preds = %40
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.3)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.3)
   br label %664
 
 44:                                               ; preds = %40
@@ -2589,7 +2589,7 @@ parse_digits.exit406:                             ; preds = %.lr.ph.split.i399, 
   br i1 %.not361, label %69, label %371
 
 69:                                               ; preds = %parse_digits.exit406, %2, %2, %2
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.4)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.4)
   br label %664
 
 70:                                               ; preds = %2
@@ -2632,7 +2632,7 @@ re_parse_expect.exit.thread:                      ; preds = %84
   br label %409
 
 re_parse_expect.exit:                             ; preds = %84
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 41)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 41)
   br label %664
 
 89:                                               ; preds = %74
@@ -2690,7 +2690,7 @@ re_parse_expect.exit:                             ; preds = %84
   br i1 %.not.i407, label %114, label %re_parse_expect.exit409
 
 re_parse_expect.exit409:                          ; preds = %111
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 41)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 41)
   br label %664
 
 114:                                              ; preds = %111
@@ -2717,12 +2717,12 @@ re_parse_expect.exit409:                          ; preds = %111
 125:                                              ; preds = %89
   store ptr %90, ptr %13, align 8
   %126 = getelementptr inbounds i8, ptr %0, i64 160
-  %127 = call fastcc i32 @re_parse_group_name.argelim(ptr noundef %126, ptr noundef %13)
+  %127 = call fastcc i32 @re_parse_group_name(ptr noundef %126, ptr noundef %13)
   %.not350 = icmp eq i32 %127, 0
   br i1 %.not350, label %129, label %128
 
 128:                                              ; preds = %125
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.5)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.5)
   br label %664
 
 129:                                              ; preds = %125
@@ -2731,7 +2731,7 @@ re_parse_expect.exit409:                          ; preds = %111
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %129
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.6)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.6)
   br label %664
 
 133:                                              ; preds = %129
@@ -2744,7 +2744,7 @@ re_parse_expect.exit409:                          ; preds = %111
   br label %143
 
 139:                                              ; preds = %74
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.7)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.7)
   br label %664
 
 140:                                              ; preds = %70
@@ -2760,7 +2760,7 @@ re_parse_expect.exit409:                          ; preds = %111
   br i1 %146, label %147, label %148
 
 147:                                              ; preds = %143
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.8)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.8)
   br label %664
 
 148:                                              ; preds = %143
@@ -2795,7 +2795,7 @@ re_parse_expect.exit412.thread:                   ; preds = %159
   br label %409
 
 re_parse_expect.exit412:                          ; preds = %159
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 41)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 41)
   br label %664
 
 167:                                              ; preds = %2
@@ -2846,14 +2846,14 @@ re_parse_expect.exit412:                          ; preds = %159
   br i1 %.not348, label %371, label %182
 
 182:                                              ; preds = %180, %177
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.9)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.9)
   br label %664
 
 183:                                              ; preds = %174
   %184 = getelementptr i8, ptr %18, i64 3
   store ptr %184, ptr %15, align 8
   %185 = getelementptr inbounds i8, ptr %0, i64 160
-  %186 = call fastcc i32 @re_parse_group_name.argelim(ptr noundef %185, ptr noundef %15)
+  %186 = call fastcc i32 @re_parse_group_name(ptr noundef %185, ptr noundef %15)
   %.not342 = icmp eq i32 %186, 0
   br i1 %.not342, label %193, label %187
 
@@ -2869,7 +2869,7 @@ re_parse_expect.exit412:                          ; preds = %159
   br i1 %.not346, label %371, label %192
 
 192:                                              ; preds = %190, %187
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.5)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.5)
   br label %664
 
 193:                                              ; preds = %183
@@ -2894,7 +2894,7 @@ re_parse_expect.exit412:                          ; preds = %159
   br i1 %.not344, label %371, label %204
 
 204:                                              ; preds = %202, %199
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.10)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.10)
   br label %664
 
 205:                                              ; preds = %196, %193
@@ -2919,7 +2919,7 @@ re_parse_expect.exit412:                          ; preds = %159
   br i1 %215, label %374, label %216
 
 216:                                              ; preds = %212
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.11)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.11)
   br label %664
 
 217:                                              ; preds = %207
@@ -3037,7 +3037,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
   br label %374
 
 278:                                              ; preds = %parse_digits.exit418.thread
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.12)
   br label %664
 
 279:                                              ; preds = %parse_digits.exit418, %244, %205
@@ -3219,7 +3219,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
 
 .loopexit.sink.split.i:                           ; preds = %.thread55.i, %.thread.i, %338, %335, %333, %359, %354, %327
   %.str.33.sink.i = phi ptr [ @.str.15, %327 ], [ @.str.33, %359 ], [ @.str.33, %354 ], [ @.str.33, %338 ], [ @.str.33, %.thread.i ], [ @.str.33, %.thread55.i ], [ @.str.15, %333 ], [ @.str.15, %335 ]
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull %.str.33.sink.i)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull %.str.33.sink.i)
   br label %re_parse_char_class.exit
 
 re_parse_char_class.exit:                         ; preds = %313, %328, %361, %.loopexit.sink.split.i
@@ -3251,7 +3251,7 @@ re_parse_char_class.exit:                         ; preds = %313, %328, %361, %.
   br i1 %.not, label %371, label %370
 
 370:                                              ; preds = %367
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.3)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.3)
   br label %664
 
 371:                                              ; preds = %2, %367, %167, %202, %190, %180, %parse_digits.exit406, %44
@@ -3438,7 +3438,7 @@ parse_digits.exit448._crit_edge:                  ; preds = %parse_digits.exit44
   br label %456
 
 455:                                              ; preds = %parse_digits.exit448, %421
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.13)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.13)
   br label %664
 
 456:                                              ; preds = %parse_digits.exit448._crit_edge, %437, %parse_digits.exit435
@@ -3455,7 +3455,7 @@ parse_digits.exit448._crit_edge:                  ; preds = %parse_digits.exit44
   br i1 %.not371, label %.thread479, label %re_parse_expect.exit451
 
 re_parse_expect.exit451:                          ; preds = %459
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 125)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 125)
   br label %664
 
 re_parse_expect.exit451.thread:                   ; preds = %456, %411, %414, %413
@@ -3645,7 +3645,7 @@ re_parse_expect.exit451.thread:                   ; preds = %456, %411, %414, %4
   br i1 %543, label %567, label %.thread479
 
 567:                                              ; preds = %566
-  call fastcc void @re_emit_goto.argelim(ptr noundef %0, i32 noundef 7, i32 noundef %.2309)
+  call fastcc void @re_emit_goto(ptr noundef %0, i32 noundef 7, i32 noundef %.2309)
   br label %.thread479
 
 568:                                              ; preds = %542
@@ -3692,7 +3692,7 @@ re_parse_expect.exit451.thread:                   ; preds = %456, %411, %414, %4
   br label %598
 
 598:                                              ; preds = %592, %571
-  call fastcc void @re_emit_goto.argelim(ptr noundef %0, i32 noundef 14, i32 noundef %579)
+  call fastcc void @re_emit_goto(ptr noundef %0, i32 noundef 14, i32 noundef %579)
   %599 = call i32 @dbuf_putc(ptr noundef nonnull %0, i8 noundef zeroext 16) #17
   br label %.thread479
 
@@ -3735,7 +3735,7 @@ re_parse_expect.exit451.thread:                   ; preds = %456, %411, %414, %4
   %620 = getelementptr i8, ptr %619, i64 1
   store i32 %.0311, ptr %620, align 1
   %621 = add nuw i32 %.0307, 5
-  call fastcc void @re_emit_goto.argelim(ptr noundef %0, i32 noundef 14, i32 noundef %621)
+  call fastcc void @re_emit_goto(ptr noundef %0, i32 noundef 14, i32 noundef %621)
   %622 = call i32 @dbuf_putc(ptr noundef nonnull %0, i8 noundef zeroext 16) #17
   br label %623
 
@@ -3750,7 +3750,7 @@ re_parse_expect.exit451.thread:                   ; preds = %456, %411, %414, %4
   %628 = shl nuw nsw i32 %.0317, 1
   %629 = or disjoint i32 %628, 5
   %630 = add i32 %629, %.pre-phi522
-  call fastcc void @re_emit_op_u32.retelim(ptr noundef %0, i32 noundef %627, i32 noundef %630)
+  call fastcc void @re_emit_op_u32(ptr noundef %0, i32 noundef %627, i32 noundef %630)
   br i1 %603, label %631, label %.critedge392
 
 631:                                              ; preds = %624
@@ -3768,7 +3768,7 @@ re_parse_expect.exit451.thread:                   ; preds = %456, %411, %414, %4
   br label %640
 
 640:                                              ; preds = %.critedge392, %631
-  call fastcc void @re_emit_goto.argelim(ptr noundef %0, i32 noundef 7, i32 noundef %626)
+  call fastcc void @re_emit_goto(ptr noundef %0, i32 noundef 7, i32 noundef %626)
   br label %.thread479
 
 641:                                              ; preds = %623
@@ -3777,14 +3777,14 @@ re_parse_expect.exit451.thread:                   ; preds = %456, %411, %414, %4
 
 643:                                              ; preds = %641
   %644 = sub nsw i32 %.0312, %.0311
-  call fastcc void @re_emit_op_u32.retelim(ptr noundef %0, i32 noundef 15, i32 noundef %644)
+  call fastcc void @re_emit_op_u32(ptr noundef %0, i32 noundef 15, i32 noundef %644)
   %645 = load i64, ptr %515, align 8
   %646 = trunc i64 %645 to i32
   %647 = or disjoint i32 %.0316487, 8
   %648 = shl nuw nsw i32 %.0317, 1
   %649 = or disjoint i32 %648, 5
   %650 = add i32 %649, %.pre-phi522
-  call fastcc void @re_emit_op_u32.retelim(ptr noundef %0, i32 noundef %647, i32 noundef %650)
+  call fastcc void @re_emit_op_u32(ptr noundef %0, i32 noundef %647, i32 noundef %650)
   br i1 %603, label %651, label %.critedge394
 
 651:                                              ; preds = %643
@@ -3802,7 +3802,7 @@ re_parse_expect.exit451.thread:                   ; preds = %456, %411, %414, %4
   br label %660
 
 660:                                              ; preds = %.critedge394, %651
-  call fastcc void @re_emit_goto.argelim(ptr noundef %0, i32 noundef 14, i32 noundef %646)
+  call fastcc void @re_emit_goto(ptr noundef %0, i32 noundef 14, i32 noundef %646)
   %661 = call i32 @dbuf_putc(ptr noundef nonnull %0, i8 noundef zeroext 16) #17
   br label %.thread479
 
@@ -3812,7 +3812,7 @@ re_parse_expect.exit451.thread:                   ; preds = %456, %411, %414, %4
   br label %664
 
 663:                                              ; preds = %613, %568, %544, %520, %504, %479, %468
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.33)
   br label %664
 
 664:                                              ; preds = %re_parse_expect.exit451, %re_parse_char_class.exit, %re_parse_expect.exit412, %re_parse_expect.exit409, %re_parse_expect.exit, %384, %371, %148, %114, %103, %77, %663, %.thread479, %455, %370, %278, %216, %204, %192, %182, %147, %139, %132, %128, %69, %43
@@ -3829,7 +3829,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @re_parse_group_name.argelim(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @re_parse_group_name(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %1, align 8
@@ -4291,7 +4291,7 @@ define internal fastcc i32 @re_parse_captures(ptr nocapture noundef nonnull read
 55:                                               ; preds = %52
   store i32 1, ptr %1, align 4
   store ptr %53, ptr %4, align 8
-  %56 = call fastcc i32 @re_parse_group_name.argelim(ptr noundef %5, ptr noundef %4)
+  %56 = call fastcc i32 @re_parse_group_name(ptr noundef %5, ptr noundef %4)
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %60
 
@@ -4554,7 +4554,7 @@ define internal fastcc i32 @get_class_atom(ptr nocapture noundef nonnull %0, ptr
   %41 = add i32 %38, 1
   %42 = tail call i32 @cr_realloc(ptr noundef nonnull %1, i32 noundef %41) #17
   %.not8.i.i = icmp eq i32 %42, 0
-  br i1 %.not8.i.i, label %._crit_edge.i.i, label %cr_init_char_range.argprom.exit
+  br i1 %.not8.i.i, label %._crit_edge.i.i, label %cr_init_char_range.exit
 
 ._crit_edge.i.i:                                  ; preds = %40
   %.pre.i.i = load i32, ptr %1, align 8
@@ -4574,14 +4574,14 @@ define internal fastcc i32 @get_class_atom(ptr nocapture noundef nonnull %0, ptr
 
 ._crit_edge.i:                                    ; preds = %43, %22
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %cr_init_char_range.argprom.exit.thread, label %49
+  br i1 %.not.i, label %cr_init_char_range.exit.thread, label %49
 
 49:                                               ; preds = %._crit_edge.i
   %50 = tail call i32 @cr_invert(ptr noundef nonnull %1) #17
   %.not15.i = icmp eq i32 %50, 0
-  br i1 %.not15.i, label %cr_init_char_range.argprom.exit.thread, label %cr_init_char_range.argprom.exit
+  br i1 %.not15.i, label %cr_init_char_range.exit.thread, label %cr_init_char_range.exit
 
-cr_init_char_range.argprom.exit:                  ; preds = %40, %49
+cr_init_char_range.exit:                          ; preds = %40, %49
   tail call void @cr_free(ptr noundef nonnull %1) #17
   br label %188
 
@@ -4612,14 +4612,14 @@ cr_init_char_range.argprom.exit:                  ; preds = %40, %49
   %64 = zext nneg i8 %63 to i32
   %65 = getelementptr i8, ptr %8, i64 3
   store ptr %65, ptr %7, align 8
-  br label %cr_init_char_range.argprom.exit.thread
+  br label %cr_init_char_range.exit.thread
 
 66:                                               ; preds = %55
   br i1 %.not56, label %67, label %.thread85
 
 67:                                               ; preds = %66
   store ptr %11, ptr %7, align 8
-  br label %cr_init_char_range.argprom.exit.thread
+  br label %cr_init_char_range.exit.thread
 
 68:                                               ; preds = %14, %14
   %69 = getelementptr inbounds i8, ptr %0, i64 76
@@ -4656,7 +4656,7 @@ cr_init_char_range.argprom.exit:                  ; preds = %40, %49
   br label %81
 
 80:                                               ; preds = %71
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.20)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.20)
   br label %parse_unicode_property.exit.thread
 
 81:                                               ; preds = %86, %.lr.ph.i65
@@ -4724,7 +4724,7 @@ cr_init_char_range.argprom.exit:                  ; preds = %40, %49
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %103
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.21)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.21)
   br label %parse_unicode_property.exit.thread
 
 109:                                              ; preds = %103
@@ -4754,7 +4754,7 @@ cr_init_char_range.argprom.exit:                  ; preds = %40, %49
   br i1 %.not63.i, label %119, label %118
 
 118:                                              ; preds = %.loopexit.i
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.22)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.22)
   br label %parse_unicode_property.exit.thread
 
 119:                                              ; preds = %.loopexit.i
@@ -4791,7 +4791,7 @@ cr_init_char_range.argprom.exit:                  ; preds = %40, %49
   br i1 %128, label %129, label %158
 
 129:                                              ; preds = %127
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.27)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.27)
   br label %parse_unicode_property.exit.thread
 
 130:                                              ; preds = %122
@@ -4818,7 +4818,7 @@ cr_init_char_range.argprom.exit:                  ; preds = %40, %49
   br i1 %137, label %138, label %158
 
 138:                                              ; preds = %136
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.30)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.30)
   br label %parse_unicode_property.exit.thread
 
 139:                                              ; preds = %131
@@ -4853,7 +4853,7 @@ cr_init_char_range.argprom.exit:                  ; preds = %40, %49
   br i1 %153, label %.loopexit93.i, label %158
 
 .loopexit93.i:                                    ; preds = %81, %152, %139
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.31)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.31)
   br label %parse_unicode_property.exit.thread
 
 154:                                              ; preds = %150, %148, %132, %123
@@ -4869,7 +4869,7 @@ cr_init_char_range.argprom.exit:                  ; preds = %40, %49
   br label %parse_unicode_property.exit.thread
 
 158:                                              ; preds = %152, %147, %136, %127
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.33)
   br label %parse_unicode_property.exit.thread
 
 parse_unicode_property.exit.thread:               ; preds = %80, %.loopexit93.i, %108, %118, %158, %157, %138, %129
@@ -4881,7 +4881,7 @@ parse_unicode_property.exit:                      ; preds = %154, %155
   store ptr %120, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br label %cr_init_char_range.argprom.exit.thread
+  br label %cr_init_char_range.exit.thread
 
 159:                                              ; preds = %._crit_edge79, %68
   %160 = phi i32 [ %.pre81, %._crit_edge79 ], [ 0, %68 ]
@@ -4889,7 +4889,7 @@ parse_unicode_property.exit:                      ; preds = %154, %155
   %161 = shl i32 %160, 1
   %162 = call i32 @lre_parse_escape(ptr noundef nonnull %7, i32 noundef %161)
   %163 = icmp sgt i32 %162, -1
-  br i1 %163, label %cr_init_char_range.argprom.exit.thread, label %164
+  br i1 %163, label %cr_init_char_range.exit.thread, label %164
 
 164:                                              ; preds = %159
   %165 = icmp eq i32 %162, -2
@@ -4918,7 +4918,7 @@ parse_unicode_property.exit:                      ; preds = %154, %155
   br label %176
 
 .thread85:                                        ; preds = %61, %169, %171, %66
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.17)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.17)
   br label %188
 
 172:                                              ; preds = %4
@@ -4928,7 +4928,7 @@ parse_unicode_property.exit:                      ; preds = %154, %155
   br i1 %.not, label %.thread, label %175
 
 175:                                              ; preds = %172, %10
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.18)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.18)
   br label %188
 
 176:                                              ; preds = %._crit_edge83, %4, %169
@@ -4940,16 +4940,16 @@ parse_unicode_property.exit:                      ; preds = %154, %155
 178:                                              ; preds = %176
   %179 = call i32 @unicode_from_utf8(ptr noundef %.pre82, i32 noundef 6, ptr noundef nonnull %7) #17
   %180 = icmp ugt i32 %179, 65535
-  br i1 %180, label %181, label %cr_init_char_range.argprom.exit.thread
+  br i1 %180, label %181, label %cr_init_char_range.exit.thread
 
 181:                                              ; preds = %178
   %182 = getelementptr inbounds i8, ptr %0, i64 76
   %183 = load i32, ptr %182, align 4
   %.not62 = icmp eq i32 %183, 0
-  br i1 %.not62, label %184, label %cr_init_char_range.argprom.exit.thread
+  br i1 %.not62, label %184, label %cr_init_char_range.exit.thread
 
 184:                                              ; preds = %181
-  call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.19)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.19)
   br label %188
 
 .thread:                                          ; preds = %172, %176
@@ -4958,16 +4958,16 @@ parse_unicode_property.exit:                      ; preds = %154, %155
   %.1 = zext nneg i8 %.1.shrunk72 to i32
   %186 = getelementptr i8, ptr %185, i64 1
   store ptr %186, ptr %7, align 8
-  br label %cr_init_char_range.argprom.exit.thread
+  br label %cr_init_char_range.exit.thread
 
-cr_init_char_range.argprom.exit.thread:           ; preds = %._crit_edge.i, %49, %parse_unicode_property.exit, %159, %.thread, %181, %178, %67, %62
+cr_init_char_range.exit.thread:                   ; preds = %._crit_edge.i, %49, %parse_unicode_property.exit, %159, %.thread, %181, %178, %67, %62
   %.2 = phi i32 [ %179, %181 ], [ %179, %178 ], [ %.1, %.thread ], [ %64, %62 ], [ 92, %67 ], [ 1073741824, %parse_unicode_property.exit ], [ %162, %159 ], [ 1073741824, %49 ], [ 1073741824, %._crit_edge.i ]
   %187 = load ptr, ptr %7, align 8
   store ptr %187, ptr %2, align 8
   br label %188
 
-188:                                              ; preds = %parse_unicode_property.exit.thread, %cr_init_char_range.argprom.exit, %cr_init_char_range.argprom.exit.thread, %184, %175, %.thread85
-  %.0 = phi i32 [ %.2, %cr_init_char_range.argprom.exit.thread ], [ -1, %184 ], [ -1, %175 ], [ -1, %.thread85 ], [ -1, %cr_init_char_range.argprom.exit ], [ -1, %parse_unicode_property.exit.thread ]
+188:                                              ; preds = %parse_unicode_property.exit.thread, %cr_init_char_range.exit, %cr_init_char_range.exit.thread, %184, %175, %.thread85
+  %.0 = phi i32 [ %.2, %cr_init_char_range.exit.thread ], [ -1, %184 ], [ -1, %175 ], [ -1, %.thread85 ], [ -1, %cr_init_char_range.exit ], [ -1, %parse_unicode_property.exit.thread ]
   ret i32 %.0
 }
 
@@ -4986,7 +4986,7 @@ define internal fastcc range(i32 -1, 1) i32 @re_emit_range(ptr noundef nonnull %
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  tail call void (ptr, ptr, ...) @re_parse_error.retelim(ptr noundef %0, ptr noundef nonnull @.str.32)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.32)
   br label %.loopexit
 
 14:                                               ; preds = %2
@@ -5231,7 +5231,7 @@ define internal fastcc range(i32 0, 2) i32 @re_need_check_advance(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @re_emit_goto.argelim(ptr noundef nonnull %0, i32 noundef range(i32 7, 15) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @re_emit_goto(ptr noundef nonnull %0, i32 noundef range(i32 7, 15) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = trunc nuw nsw i32 %1 to i8
   %6 = tail call i32 @dbuf_putc(ptr noundef nonnull %0, i8 noundef zeroext %5) #17

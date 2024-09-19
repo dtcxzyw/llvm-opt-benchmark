@@ -3108,7 +3108,7 @@ lpad.loopexit.split-lp.loopexit:                  ; preds = %if.end15.i145
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end5.i376, %call11.i.i.noexc388, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i381, %if.end5.i353, %call11.i.i.noexc363, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i357, %if.end5.i329, %call11.i.i.noexc341, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i334, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i217, %if.end15.i183, %if.end15.i, %if.end207, %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit, %land.rhs
+lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end5.i376, %call11.i.i.noexc388, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i381, %if.end5.i353, %call11.i.i.noexc363, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i357, %if.end5.i329, %call11.i.i.noexc341, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i334, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i217, %if.end15.i183, %if.end15.i, %if.end207, %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit, %land.rhs
   %lpad.loopexit.split-lp455 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -3720,7 +3720,7 @@ land.lhs.true145:                                 ; preds = %land.lhs.true142
 
 land.rhs:                                         ; preds = %land.lhs.true145
   %102 = load ptr, ptr %nfd, align 8
-  %call150 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi.argprom(ptr nonnull %96, i32 %97, i32 noundef %maxLimit.0)
+  %call150 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi(ptr nonnull %96, i32 %97, i32 noundef %maxLimit.0)
   %vtable = load ptr, ptr %102, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %103 = load ptr, ptr %vfn, align 8
@@ -3734,7 +3734,7 @@ invoke.cont151:                                   ; preds = %land.rhs
 lor.rhs:                                          ; preds = %invoke.cont151
   %104 = load ptr, ptr %nfd, align 8
   %cmp.i317 = icmp sgt i32 %maxLimit.0, 0
-  br i1 %cmp.i317, label %do.body.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit
+  br i1 %cmp.i317, label %do.body.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
 
 do.body.i:                                        ; preds = %lor.rhs
   %105 = load ptr, ptr %strsrch, align 8
@@ -3748,7 +3748,7 @@ do.body.i:                                        ; preds = %lor.rhs
   %cmp1.i321 = icmp eq i32 %and.i, 56320
   %cmp3.i = icmp ne i32 %maxLimit.0, 1
   %or.cond.i322 = and i1 %cmp3.i, %cmp1.i321
-  br i1 %or.cond.i322, label %land.lhs.true.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit
+  br i1 %or.cond.i322, label %land.lhs.true.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
 
 land.lhs.true.i:                                  ; preds = %do.body.i
   %arrayidx6.i = getelementptr i8, ptr %107, i64 -4
@@ -3756,15 +3756,15 @@ land.lhs.true.i:                                  ; preds = %do.body.i
   %conv7.i323 = zext i16 %109 to i32
   %and8.i = and i32 %conv7.i323, 64512
   %cmp9.i = icmp eq i32 %and8.i, 55296
-  br i1 %cmp9.i, label %if.then10.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit
+  br i1 %cmp9.i, label %if.then10.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
   %shl.i = shl nuw nsw i32 %conv7.i323, 10
   %add.i = add nuw nsw i32 %conv.i320, -56613888
   %sub13.i = add nsw i32 %add.i, %shl.i
-  br label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit
+  br label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
 
-_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit: ; preds = %lor.rhs, %do.body.i, %land.lhs.true.i, %if.then10.i
+_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit: ; preds = %lor.rhs, %do.body.i, %land.lhs.true.i, %if.then10.i
   %retval.0.i318 = phi i32 [ %sub13.i, %if.then10.i ], [ %conv.i320, %land.lhs.true.i ], [ %conv.i320, %do.body.i ], [ -1, %lor.rhs ]
   %vtable158 = load ptr, ptr %104, align 8
   %vfn159 = getelementptr inbounds i8, ptr %vtable158, i64 128
@@ -3772,7 +3772,7 @@ _ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit: ; preds = %lor.rhs,
   %call161 = invoke noundef signext i8 %110(ptr noundef nonnull align 8 dereferenceable(8) %104, i32 noundef %retval.0.i318)
           to label %invoke.cont160 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont160:                                   ; preds = %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit
+invoke.cont160:                                   ; preds = %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
   %tobool162.not = icmp eq i8 %call161, 0
   br label %if.end164
 
@@ -4307,7 +4307,7 @@ if.end43:                                         ; preds = %if.end43.sink.split
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 -56613888, 10559488) i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi.argprom(ptr nocapture readonly %search.0.val, i32 %search.8.val, i32 noundef %index) unnamed_addr #8 {
+define internal fastcc noundef range(i32 -56613888, 10559488) i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi(ptr nocapture readonly %search.0.val, i32 %search.8.val, i32 noundef %index) unnamed_addr #8 {
 entry:
   %cmp = icmp slt i32 %index, %search.8.val
   br i1 %cmp, label %do.body, label %return
@@ -4636,7 +4636,7 @@ lpad.loopexit:                                    ; preds = %if.end15.i180
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit:                  ; preds = %if.end5.i335, %call11.i.i.noexc347, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i340, %if.end5.i309, %call11.i.i.noexc321, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i314, %if.end5.i288, %call11.i.i.noexc298, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i292, %if.end15.i259, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i218, %if.end15.i146, %if.end194, %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit, %land.rhs
+lpad.loopexit.split-lp.loopexit:                  ; preds = %if.end5.i335, %call11.i.i.noexc347, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i340, %if.end5.i309, %call11.i.i.noexc321, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i314, %if.end5.i288, %call11.i.i.noexc298, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i292, %if.end15.i259, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i218, %if.end15.i146, %if.end194, %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit, %land.rhs
   %lpad.loopexit397 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -5227,7 +5227,7 @@ land.lhs.true136:                                 ; preds = %land.lhs.true133
 
 land.rhs:                                         ; preds = %land.lhs.true136
   %104 = load ptr, ptr %nfd, align 8
-  %call144 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi.argprom(ptr nonnull %99, i32 %100, i32 noundef %95)
+  %call144 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi(ptr nonnull %99, i32 %100, i32 noundef %95)
   %vtable = load ptr, ptr %104, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %105 = load ptr, ptr %vfn, align 8
@@ -5241,7 +5241,7 @@ invoke.cont145:                                   ; preds = %land.rhs
 lor.rhs:                                          ; preds = %invoke.cont145
   %106 = load ptr, ptr %nfd, align 8
   %cmp.i276 = icmp sgt i32 %95, 0
-  br i1 %cmp.i276, label %do.body.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit
+  br i1 %cmp.i276, label %do.body.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
 
 do.body.i:                                        ; preds = %lor.rhs
   %107 = load ptr, ptr %strsrch, align 8
@@ -5255,7 +5255,7 @@ do.body.i:                                        ; preds = %lor.rhs
   %cmp1.i280 = icmp eq i32 %and.i, 56320
   %cmp3.i = icmp ne i32 %95, 1
   %or.cond.i281 = and i1 %cmp3.i, %cmp1.i280
-  br i1 %or.cond.i281, label %land.lhs.true.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit
+  br i1 %or.cond.i281, label %land.lhs.true.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
 
 land.lhs.true.i:                                  ; preds = %do.body.i
   %arrayidx6.i = getelementptr i8, ptr %109, i64 -4
@@ -5263,15 +5263,15 @@ land.lhs.true.i:                                  ; preds = %do.body.i
   %conv7.i282 = zext i16 %111 to i32
   %and8.i = and i32 %conv7.i282, 64512
   %cmp9.i = icmp eq i32 %and8.i, 55296
-  br i1 %cmp9.i, label %if.then10.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit
+  br i1 %cmp9.i, label %if.then10.i, label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
   %shl.i = shl nuw nsw i32 %conv7.i282, 10
   %add.i = add nuw nsw i32 %conv.i279, -56613888
   %sub13.i = add nsw i32 %add.i, %shl.i
-  br label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit
+  br label %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
 
-_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit: ; preds = %lor.rhs, %do.body.i, %land.lhs.true.i, %if.then10.i
+_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit: ; preds = %lor.rhs, %do.body.i, %land.lhs.true.i, %if.then10.i
   %retval.0.i277 = phi i32 [ %sub13.i, %if.then10.i ], [ %conv.i279, %land.lhs.true.i ], [ %conv.i279, %do.body.i ], [ -1, %lor.rhs ]
   %vtable152 = load ptr, ptr %106, align 8
   %vfn153 = getelementptr inbounds i8, ptr %vtable152, i64 128
@@ -5279,7 +5279,7 @@ _ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit: ; preds = %lor.rhs,
   %call155 = invoke noundef signext i8 %112(ptr noundef nonnull align 8 dereferenceable(8) %106, i32 noundef %retval.0.i277)
           to label %invoke.cont154 unwind label %lpad.loopexit.split-lp.loopexit
 
-invoke.cont154:                                   ; preds = %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.argprom.exit
+invoke.cont154:                                   ; preds = %_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi.exit
   %tobool156.not = icmp eq i8 %call155, 0
   br label %if.end157
 

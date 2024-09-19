@@ -2759,7 +2759,7 @@ if.else.i:                                        ; preds = %if.then52
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %possibleImporters.sroa.0.0497 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775792
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_check_lenEmS3_.argprom.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_check_lenEmS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #30
@@ -2768,7 +2768,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 .noexc124:                                        ; preds = %if.then.i.i.i
   unreachable
 
-_ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_check_lenEmS3_.argprom.exit.i.i: ; preds = %if.else.i
+_ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_check_lenEmS3_.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
   %cmp.i.i.i.i = icmp eq ptr %possibleImporters.sroa.11.0496, %possibleImporters.sroa.0.0497
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
@@ -2777,37 +2777,37 @@ _ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_ch
   %40 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %40
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.argprom.exit.i.i, label %cond.true.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_check_lenEmS3_.argprom.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_check_lenEmS3_.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
   %call5.i.i.i.i.i125 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #27
-          to label %_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.argprom.exit.i.i unwind label %lpad48.loopexit
+          to label %_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.exit.i.i unwind label %lpad48.loopexit
 
-_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_check_lenEmS3_.argprom.exit.i.i
-  %cond.i12.i.i = phi ptr [ null, %_ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_check_lenEmS3_.argprom.exit.i.i ], [ %call5.i.i.i.i.i125, %cond.true.i.i.i ]
+_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_check_lenEmS3_.exit.i.i
+  %cond.i12.i.i = phi ptr [ null, %_ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_check_lenEmS3_.exit.i.i ], [ %call5.i.i.i.i.i125, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds %struct.ImporterAndIndex, ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr %39, ptr %add.ptr.i.i, align 8
   %candidate.sroa.3.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i32 %a.0498, ptr %candidate.sroa.3.0.add.ptr.i.i.sroa_idx, align 8
   %cmp.i.i.i.i.i122 = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i122, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit19.i.i
+  br i1 %cmp.i.i.i.i.i122, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.argprom.exit.i.i
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.exit.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i, ptr align 8 %possibleImporters.sroa.0.0497, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit19.i.i
+  br label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
 
-_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit19.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.argprom.exit.i.i
+_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i123 = getelementptr inbounds i8, ptr %cond.i12.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i123, i64 16
   %tobool.not.i.i.i = icmp eq ptr %possibleImporters.sroa.0.0497, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
-if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit19.i.i
+if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
   call void @_ZdlPv(ptr noundef nonnull %possibleImporters.sroa.0.0497) #28
   br label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
-_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit19.i.i
+_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
   %add.ptr19.i.i = getelementptr inbounds %struct.ImporterAndIndex, ptr %cond.i12.i.i, i64 %cond.i.i.i
   br label %if.end58
 
@@ -4043,18 +4043,18 @@ ehcleanup362:                                     ; preds = %lpad357, %lpad.i363
 cleanup364:                                       ; preds = %_ZN6Assimp21SharedPostProcessInfo5CleanEv.exit, %invoke.cont360
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ext) #26
   %tobool.not.i.i.i369 = icmp eq ptr %possibleImporters.sroa.0.0.lcssa560, null
-  br i1 %tobool.not.i.i.i369, label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit, label %if.then.i.i.i370
+  br i1 %tobool.not.i.i.i369, label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit, label %if.then.i.i.i370
 
 if.then.i.i.i370:                                 ; preds = %cleanup364
   call void @_ZdlPv(ptr noundef nonnull %possibleImporters.sroa.0.0.lcssa560) #28
-  br label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit
 
-_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit: ; preds = %cleanup364, %if.then.i.i.i370
+_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit: ; preds = %cleanup364, %if.then.i.i.i370
   %174 = load ptr, ptr %profiler, align 8
   %cmp.not.i371 = icmp eq ptr %174, null
   br i1 %cmp.not.i371, label %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i
 
-delete.notnull.i.i:                               ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit
+delete.notnull.i.i:                               ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %174, i64 16
   %175 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_NSt6chrono10time_pointINS8_3_V212system_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE8_M_eraseEPSt13_Rb_tree_nodeISH_E(ptr noundef nonnull align 8 dereferenceable(48) %174, ptr noundef %175)
@@ -4071,7 +4071,7 @@ _ZNKSt14default_deleteIN6Assimp9Profiling8ProfilerEEclEPS2_.exit.i: ; preds = %d
   call void @_ZdlPv(ptr noundef nonnull %174) #28
   br label %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit, %_ZNKSt14default_deleteIN6Assimp9Profiling8ProfilerEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit, %_ZNKSt14default_deleteIN6Assimp9Profiling8ProfilerEEclEPS2_.exit.i
   store ptr null, ptr %profiler, align 8
   br label %try.cont445
 
@@ -4156,18 +4156,18 @@ delete.end:                                       ; preds = %delete.notnull, %in
 
 cleanup400.critedge:                              ; preds = %invoke.cont162
   %tobool.not.i.i.i381 = icmp eq ptr %possibleImporters.sroa.0.0.lcssa558, null
-  br i1 %tobool.not.i.i.i381, label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit383, label %if.then.i.i.i382
+  br i1 %tobool.not.i.i.i381, label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit383, label %if.then.i.i.i382
 
 if.then.i.i.i382:                                 ; preds = %cleanup400.critedge
   call void @_ZdlPv(ptr noundef nonnull %possibleImporters.sroa.0.0.lcssa558) #28
-  br label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit383
+  br label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit383
 
-_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit383: ; preds = %cleanup400.critedge, %if.then.i.i.i382
+_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit383: ; preds = %cleanup400.critedge, %if.then.i.i.i382
   %186 = load ptr, ptr %profiler, align 8
   %cmp.not.i384 = icmp eq ptr %186, null
   br i1 %cmp.not.i384, label %cleanup400.thread.sink.split, label %delete.notnull.i.i385
 
-delete.notnull.i.i385:                            ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit383
+delete.notnull.i.i385:                            ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit383
   %_M_parent.i.i.i.i.i.i.i386 = getelementptr inbounds i8, ptr %186, i64 16
   %187 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i386, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_NSt6chrono10time_pointINS8_3_V212system_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE8_M_eraseEPSt13_Rb_tree_nodeISH_E(ptr noundef nonnull align 8 dereferenceable(48) %186, ptr noundef %187)
@@ -4183,18 +4183,18 @@ terminate.lpad.i.i.i.i.i387:                      ; preds = %delete.notnull.i.i3
 cleanup400.critedge60:                            ; preds = %invoke.cont294
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ext) #26
   %tobool.not.i.i.i392 = icmp eq ptr %possibleImporters.sroa.0.0.lcssa560, null
-  br i1 %tobool.not.i.i.i392, label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit394, label %if.then.i.i.i393
+  br i1 %tobool.not.i.i.i392, label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit394, label %if.then.i.i.i393
 
 if.then.i.i.i393:                                 ; preds = %cleanup400.critedge60
   call void @_ZdlPv(ptr noundef nonnull %possibleImporters.sroa.0.0.lcssa560) #28
-  br label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit394
+  br label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit394
 
-_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit394: ; preds = %cleanup400.critedge60, %if.then.i.i.i393
+_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit394: ; preds = %cleanup400.critedge60, %if.then.i.i.i393
   %190 = load ptr, ptr %profiler, align 8
   %cmp.not.i395 = icmp eq ptr %190, null
   br i1 %cmp.not.i395, label %cleanup400.thread.sink.split, label %delete.notnull.i.i396
 
-delete.notnull.i.i396:                            ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit394
+delete.notnull.i.i396:                            ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit394
   %_M_parent.i.i.i.i.i.i.i397 = getelementptr inbounds i8, ptr %190, i64 16
   %191 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i397, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_NSt6chrono10time_pointINS8_3_V212system_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE8_M_eraseEPSt13_Rb_tree_nodeISH_E(ptr noundef nonnull align 8 dereferenceable(48) %190, ptr noundef %191)
@@ -4212,7 +4212,7 @@ cleanup400.thread.sink.split.sink.split:          ; preds = %delete.notnull.i.i3
   call void @_ZdlPv(ptr noundef nonnull %.sink) #28
   br label %cleanup400.thread.sink.split
 
-cleanup400.thread.sink.split:                     ; preds = %cleanup400.thread.sink.split.sink.split, %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit394, %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.argprom.argprom.exit383
+cleanup400.thread.sink.split:                     ; preds = %cleanup400.thread.sink.split.sink.split, %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit394, %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit383
   store ptr null, ptr %profiler, align 8
   br label %cleanup400.thread
 

@@ -963,7 +963,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.body, %40
 56:                                               ; preds = %49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !12
   %57 = invoke ptr @_ZSt11__set_unionIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEES7_St20back_insert_iteratorIS6_ENS0_5__ops15_Iter_less_iterEET1_T_SD_T0_SE_SC_T2_(ptr %50, ptr %51, ptr %46, ptr %47, ptr nonnull %7)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.argprom.exit unwind label %58
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.exit unwind label %58
 
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
@@ -980,7 +980,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.body, %40
   call void @_ZdlPvm(ptr noundef nonnull %60, i64 noundef %65) #23
   br label %.body
 
-_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.argprom.exit: ; preds = %56
+_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.exit: ; preds = %56
   %66 = load ptr, ptr %4, align 8
   %67 = load ptr, ptr %10, align 8
   %68 = load ptr, ptr %7, align 8
@@ -993,7 +993,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.argprom.exi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i21, label %_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split, label %_ZNSt6vectorIfSaIfEEaSEOS1_.exit22
 
-_ZNSt6vectorIfSaIfEEaSEOS1_.exit22:               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.argprom.exit
+_ZNSt6vectorIfSaIfEEaSEOS1_.exit22:               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.exit
   %71 = ptrtoint ptr %67 to i64
   %72 = ptrtoint ptr %66 to i64
   %73 = sub i64 %71, %72
@@ -1015,8 +1015,8 @@ _ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split.sink.split: ; preds = %53, %74
   call void @_ZdlPvm(ptr noundef nonnull %.sink46, i64 noundef %78) #23
   br label %_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split
 
-_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split: ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split.sink.split, %_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.argprom.exit, %37, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit22
-  %.2.ph = phi i1 [ true, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit22 ], [ %.032, %37 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.argprom.exit ], [ true, %_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split.sink.split ]
+_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split: ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split.sink.split, %_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.exit, %37, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit22
+  %.2.ph = phi i1 [ true, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit22 ], [ %.032, %37 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.exit ], [ true, %_ZNSt6vectorIfSaIfEEaSEOS1_.exitthread-pre-split.sink.split ]
   %.pr27 = load ptr, ptr %6, align 8
   br label %_ZNSt6vectorIfSaIfEEaSEOS1_.exit
 
@@ -4273,8 +4273,8 @@ attributes #25 = { builtin allocsize(0) }
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.argprom: argument 0"}
-!14 = distinct !{!14, !"_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_.argprom"}
+!13 = distinct !{!13, !14, !"_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_: argument 0"}
+!14 = distinct !{!14, !"_ZN32pxrInternal_v0_24__pxrReserved__L6_UnionERKSt6vectorIfSaIfEES4_"}
 !15 = !{!16}
 !16 = distinct !{!16, !17, !"_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE: argument 0"}
 !17 = distinct !{!17, !"_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE"}

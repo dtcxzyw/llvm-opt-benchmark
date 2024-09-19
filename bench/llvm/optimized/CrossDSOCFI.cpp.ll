@@ -330,9 +330,9 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit.i.i.i: ; pre
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %106 = load i32, ptr %105, align 8
   %.not10.i.i.i = icmp eq i32 %106, 64
-  br i1 %.not10.i.i.i, label %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exit.i.i, label %_ZN4llvm9SetVectorImNS_11SmallVectorImLj0EEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EE6insertERKm.exit.i.i
+  br i1 %.not10.i.i.i, label %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.exit.i.i, label %_ZN4llvm9SetVectorImNS_11SmallVectorImLj0EEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EE6insertERKm.exit.i.i
 
-_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit.i.i.i
+_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit.i.i.i
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %108 = load ptr, ptr %107, align 8
   %109 = ptrtoint ptr %108 to i64
@@ -341,7 +341,7 @@ _ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exi
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %137, label %113
 
-113:                                              ; preds = %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exit.i.i
+113:                                              ; preds = %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.exit.i.i
   %114 = mul i64 %109, -4658895280553007687
   %115 = lshr i64 %114, 31
   %116 = xor i64 %115, %114
@@ -382,8 +382,8 @@ _ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exi
   %136 = icmp eq i64 %135, %109
   br i1 %136, label %_ZN4llvm9SetVectorImNS_11SmallVectorImLj0EEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EE6insertERKm.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !16
 
-137:                                              ; preds = %126, %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exit.i.i
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %127, %126 ], [ null, %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exit.i.i ]
+137:                                              ; preds = %126, %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.exit.i.i
+  %.sink.i.i.i.i.i.i.i = phi ptr [ %127, %126 ], [ null, %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.exit.i.i ]
   %138 = load i32, ptr %54, align 8, !noalias !11
   %139 = shl i32 %138, 2
   %140 = add i32 %139, 4
@@ -920,9 +920,9 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit.i121.i.i: ; 
   %403 = getelementptr inbounds nuw i8, ptr %399, i64 32
   %404 = load i32, ptr %403, align 8
   %.not10.i122.i.i = icmp eq i32 %404, 64
-  br i1 %.not10.i122.i.i, label %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exit124.i.i, label %_ZN4llvm9SetVectorImNS_11SmallVectorImLj0EEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EE6insertERKm.exit139.i.i
+  br i1 %.not10.i122.i.i, label %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.exit124.i.i, label %_ZN4llvm9SetVectorImNS_11SmallVectorImLj0EEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EE6insertERKm.exit139.i.i
 
-_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exit124.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit.i121.i.i
+_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.exit124.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit.i121.i.i
   %405 = getelementptr inbounds nuw i8, ptr %399, i64 24
   %406 = load ptr, ptr %405, align 8
   %407 = ptrtoint ptr %406 to i64
@@ -931,7 +931,7 @@ _ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exi
   %410 = icmp eq i32 %409, 0
   br i1 %410, label %435, label %411
 
-411:                                              ; preds = %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exit124.i.i
+411:                                              ; preds = %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.exit124.i.i
   %412 = mul i64 %407, -4658895280553007687
   %413 = lshr i64 %412, 31
   %414 = xor i64 %413, %412
@@ -972,8 +972,8 @@ _ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exi
   %434 = icmp eq i64 %433, %407
   br i1 %434, label %_ZN4llvm9SetVectorImNS_11SmallVectorImLj0EEENS_8DenseSetImNS_12DenseMapInfoImvEEEELj0EE6insertERKm.exit139.i.i, label %.lr.ph.i.i.i.i.i128.i.i, !llvm.loop !16
 
-435:                                              ; preds = %424, %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exit124.i.i
-  %.sink.i.i.i.i.i136.i.i = phi ptr [ %425, %424 ], [ null, %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.argprom.exit124.i.i ]
+435:                                              ; preds = %424, %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.exit124.i.i
+  %.sink.i.i.i.i.i136.i.i = phi ptr [ %425, %424 ], [ null, %_ZN12_GLOBAL__N_111CrossDSOCFI20extractNumericTypeIdEPN4llvm6MDNodeE.exit124.i.i ]
   %436 = load i32, ptr %54, align 8, !noalias !22
   %437 = shl i32 %436, 2
   %438 = add i32 %437, 4

@@ -692,7 +692,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_123ItaniumNumberingContext17getMang
   %.val.i.i = load ptr, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 120
   %.val4.i.i = load i32, ptr %20, align 8
-  %21 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.argprom(ptr %.val.i.i, i32 %.val4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %21 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %.val.i.i, i32 %.val4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %22 = load ptr, ptr %6, align 8
   br i1 %21, label %._ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit_crit_edge, label %24
 
@@ -808,7 +808,7 @@ _ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.
 65:                                               ; preds = %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit.i.i.i.i.i.i
   %.val.i7.i.i.i.i.i = load ptr, ptr %19, align 8
   %.val23.i.i.i.i.i.i = load i32, ptr %20, align 8
-  %66 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.argprom(ptr %.val.i7.i.i.i.i.i, i32 %.val23.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.043.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %66 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %.val.i7.i.i.i.i.i, i32 %.val23.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.043.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %67 = load ptr, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %.043.i.i.i.i.i.i, i64 16, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -836,7 +836,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_1
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4growEj.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i, %53
   %.val16.i.i.i.i = phi i32 [ 0, %53 ], [ %.val16.i.pre.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i ], [ %.val6.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.val15.i.i.i.i = phi ptr [ %52, %53 ], [ %.val15.i.pre.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i ], [ %52, %.lr.ph.i.i.i.i.i.i ]
-  %75 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.argprom(ptr %.val15.i.i.i.i, i32 %.val16.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %75 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %.val15.i.i.i.i, i32 %.val16.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %.val.i.i.pre.i.i.i = load i32, ptr %25, align 8
   %.pre.i.i.i = load ptr, ptr %5, align 8
   br label %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit.i.i.i.i
@@ -902,7 +902,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_1
   %104 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %spec.select.i.i.i.i.i) #15
   %105 = tail call noundef ptr @_ZNK5clang10RecordDecl24findFirstNamedDataMemberEv(ptr noundef nonnull align 8 dereferenceable(128) %104) #15
   %.not.i = icmp eq ptr %105, null
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.argprom.exit, label %106
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.exit, label %106
 
 106:                                              ; preds = %92
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 40
@@ -912,15 +912,15 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_1
   %111 = and i64 %108, -8
   %112 = inttoptr i64 %111 to ptr
   %.0.i.i.i = select i1 %110, ptr %112, ptr null
-  br label %_ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.exit
 
-_ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.argprom.exit: ; preds = %92, %106
+_ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.exit: ; preds = %92, %106
   %.0.i = phi ptr [ %.0.i.i.i, %106 ], [ null, %92 ]
   store ptr %.0.i, ptr %8, align 8
   br label %113
 
-113:                                              ; preds = %_ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.argprom.exit, %85
-  %114 = phi ptr [ %.0.i, %_ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.argprom.exit ], [ %91, %85 ]
+113:                                              ; preds = %_ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.exit, %85
+  %114 = phi ptr [ %.0.i, %_ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.exit ], [ %91, %85 ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1670,10 +1670,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEjNS_12DenseMapInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.argprom(ptr %.0.val, i32 %.16.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %.0.val, i32 %.16.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
   %3 = alloca [64 x i8], align 16
   %4 = icmp eq i32 %.16.val, 0
-  br i1 %4, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit, label %5
+  br i1 %4, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit, label %5
 
 5:                                                ; preds = %2
   %.val44.i = load ptr, ptr %0, align 8
@@ -1713,7 +1713,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN
 
 16:                                               ; preds = %.critedge.i.i.i.i.i
   %17 = call noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef nonnull %3, i64 noundef %.042.idx.lcssa.i.i.i.i.i, i64 noundef -49064778989728563)
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.i
 
 18:                                               ; preds = %.critedge.i.i.i.i.i
   %19 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1887,9 +1887,9 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN
   %127 = lshr i64 %126, 47
   %128 = xor i64 %127, %126
   %129 = mul i64 %128, -7070675565921424023
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.i: ; preds = %92, %16
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.i: ; preds = %92, %16
   %.sroa.041.0.i.i.i.i.i = phi i64 [ %17, %16 ], [ %129, %92 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %130 = trunc i64 %.sroa.041.0.i.i.i.i.i to i32
@@ -1900,22 +1900,22 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_1
   %.sroa.211.0.copyload.fr.i = freeze i64 %.sroa.211.0.copyload.i
   %132 = getelementptr inbounds ptr, ptr %.sroa.010.0.copyload.fr.i, i64 %.sroa.211.0.copyload.fr.i
   %magicptr116.i = ptrtoint ptr %.sroa.010.0.copyload.fr.i to i64
-  switch i64 %magicptr116.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.i [
-    i64 -1, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.us.i
-    i64 -2, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.us.i
+  switch i64 %magicptr116.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.i [
+    i64 -1, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.us.i
+    i64 -2, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.us.i
   ]
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.us.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.i
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.us.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.i
   %.039.us63.i = and i32 %131, %130
   %133 = zext i32 %.039.us63.i to i64
   %134 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.482", ptr %.0.val, i64 %133
   %.sroa.08.0.copyload.us64.i = load ptr, ptr %134, align 8
   %135 = icmp eq ptr %.sroa.08.0.copyload.us64.i, inttoptr (i64 -1 to ptr)
-  br i1 %135, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit, label %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i
+  br i1 %135, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit, label %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i
 
-_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.us.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i
-  %.039.us67.i = phi i32 [ %.039.us.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i ], [ %.039.us63.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.us.i ]
-  %.040.us65.i = phi i32 [ %136, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i ], [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.us.i ]
+_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.us.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i
+  %.039.us67.i = phi i32 [ %.039.us.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i ], [ %.039.us63.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.us.i ]
+  %.040.us65.i = phi i32 [ %136, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i ], [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.us.i ]
   %136 = add i32 %.040.us65.i, 1
   %137 = add i32 %.040.us65.i, %.039.us67.i
   %.039.us.i = and i32 %137, %131
@@ -1923,12 +1923,12 @@ _ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.
   %139 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.482", ptr %.0.val, i64 %138
   %.sroa.08.0.copyload.us.i = load ptr, ptr %139, align 8
   %140 = icmp eq ptr %.sroa.08.0.copyload.us.i, inttoptr (i64 -1 to ptr)
-  br i1 %140, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit, label %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i, !llvm.loop !33
+  br i1 %140, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit, label %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i, !llvm.loop !33
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.us.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us30.i
-  %.040.us21.i = phi i32 [ %145, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us30.i ], [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.i ]
-  %.pn.us22.i = phi i32 [ %146, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us30.i ], [ %130, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.i ]
-  %.038.us23.i = phi ptr [ %spec.select.us32.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us30.i ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.i ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.us.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us30.i
+  %.040.us21.i = phi i32 [ %145, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us30.i ], [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.i ]
+  %.pn.us22.i = phi i32 [ %146, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us30.i ], [ %130, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.i ]
+  %.038.us23.i = phi ptr [ %spec.select.us32.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us30.i ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.i ]
   %.039.us24.i = and i32 %.pn.us22.i, %131
   %141 = zext i32 %.039.us24.i to i64
   %142 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.482", ptr %.0.val, i64 %141
@@ -1936,45 +1936,45 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_1
   %magicptr.i = ptrtoint ptr %.sroa.08.0.copyload.us25.i to i64
   switch i64 %magicptr.i, label %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us30.i [
     i64 -1, label %.split.us.i
-    i64 -2, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit
+    i64 -2, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit
   ]
 
-_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us30.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.us.i
+_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us30.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.us.i
   %143 = icmp eq ptr %.sroa.08.0.copyload.us25.i, inttoptr (i64 -2 to ptr)
   %144 = icmp eq ptr %.038.us23.i, null
   %or.cond.not.us31.i = select i1 %143, i1 %144, i1 false
   %spec.select.us32.i = select i1 %or.cond.not.us31.i, ptr %142, ptr %.038.us23.i
   %145 = add i32 %.040.us21.i, 1
   %146 = add i32 %.039.us24.i, %.040.us21.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.us.i, !llvm.loop !33
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.us.i, !llvm.loop !33
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.i
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.i
   %.not7.i.i.i.i.i.i = icmp eq i64 %.sroa.211.0.copyload.fr.i, 0
   %.039.us43.i31 = and i32 %131, %130
   %147 = zext i32 %.039.us43.i31 to i64
   %148 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.482", ptr %.0.val, i64 %147
   %.sroa.08.0.copyload.us44.i32 = load ptr, ptr %148, align 8
   %149 = icmp eq ptr %.sroa.08.0.copyload.us44.i32, inttoptr (i64 -1 to ptr)
-  br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.us.split.i.preheader, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.i.preheader
+  br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.us.split.i.preheader, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.i.preheader
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.i.preheader: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.i
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.i.preheader: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.i
   br i1 %149, label %.split.us.i, label %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.us.split.i.preheader: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.i
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.us.split.i.preheader: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.i
   br i1 %149, label %.split.us.i, label %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.us47.i
 
-_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.us47.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.us.split.i.preheader, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i
-  %.sroa.08.0.copyload.us44.i36 = phi ptr [ %.sroa.08.0.copyload.us44.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ %.sroa.08.0.copyload.us44.i32, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.us.split.i.preheader ]
-  %150 = phi ptr [ %157, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ %148, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.us.split.i.preheader ]
-  %.039.us43.i35 = phi i32 [ %.039.us43.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ %.039.us43.i31, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.us.split.i.preheader ]
-  %.038.us42.i34 = phi ptr [ %spec.select.us53.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.us.split.i.preheader ]
-  %.040.us40.i33 = phi i32 [ %154, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.us.split.i.preheader ]
+_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.us47.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.us.split.i.preheader, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i
+  %.sroa.08.0.copyload.us44.i36 = phi ptr [ %.sroa.08.0.copyload.us44.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ %.sroa.08.0.copyload.us44.i32, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.us.split.i.preheader ]
+  %150 = phi ptr [ %157, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ %148, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.us.split.i.preheader ]
+  %.039.us43.i35 = phi i32 [ %.039.us43.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ %.039.us43.i31, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.us.split.i.preheader ]
+  %.038.us42.i34 = phi ptr [ %spec.select.us53.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.us.split.i.preheader ]
+  %.040.us40.i33 = phi i32 [ %154, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.us.split.i.preheader ]
   %.sroa.29.0..sroa_idx.us45.i = getelementptr inbounds i8, ptr %150, i64 8
   %.sroa.29.0.copyload.us46.i = load i64, ptr %.sroa.29.0..sroa_idx.us45.i, align 8
   %151 = icmp eq ptr %.sroa.08.0.copyload.us44.i36, inttoptr (i64 -2 to ptr)
   %152 = icmp ne i64 %.sroa.29.0.copyload.us46.i, 0
   %or.cond.not122.i = select i1 %151, i1 true, i1 %152
-  br i1 %or.cond.not122.i, label %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit
+  br i1 %or.cond.not122.i, label %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit
 
 _ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i: ; preds = %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.us47.i
   %153 = icmp eq ptr %.038.us42.i34, null
@@ -1989,12 +1989,12 @@ _ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.
   %158 = icmp eq ptr %.sroa.08.0.copyload.us44.i, inttoptr (i64 -1 to ptr)
   br i1 %158, label %.split.us.i, label %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.us47.i, !llvm.loop !33
 
-_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.i.preheader, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i
-  %.sroa.08.0.copyload.i29 = phi ptr [ %.sroa.08.0.copyload.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ %.sroa.08.0.copyload.us44.i32, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.i.preheader ]
-  %159 = phi ptr [ %181, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ %148, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.i.preheader ]
-  %.039.i28 = phi i32 [ %.039.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ %.039.us43.i31, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.i.preheader ]
-  %.038.i27 = phi ptr [ %spec.select.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.i.preheader ]
-  %.040.i26 = phi i32 [ %178, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.i.preheader ]
+_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.i.preheader, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i
+  %.sroa.08.0.copyload.i29 = phi ptr [ %.sroa.08.0.copyload.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ %.sroa.08.0.copyload.us44.i32, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.i.preheader ]
+  %159 = phi ptr [ %181, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ %148, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.i.preheader ]
+  %.039.i28 = phi i32 [ %.039.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ %.039.us43.i31, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.i.preheader ]
+  %.038.i27 = phi ptr [ %spec.select.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.i.preheader ]
+  %.040.i26 = phi i32 [ %178, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.i.preheader ]
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds i8, ptr %159, i64 8
   %.sroa.29.0.copyload.i = load i64, ptr %.sroa.29.0..sroa_idx.i, align 8
   %160 = icmp eq ptr %.sroa.08.0.copyload.i29, inttoptr (i64 -2 to ptr)
@@ -2028,14 +2028,14 @@ _ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclE
   %174 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i.i.i, i64 8
   %175 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %174, %132
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !34
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !34
 
-.split.us.i:                                      ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.us.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.i.preheader, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.us.split.i.preheader
-  %.us-phi19.i = phi ptr [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.us.split.i.preheader ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.i.preheader ], [ %spec.select.us53.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ %spec.select.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ %.038.us23.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.us.i ]
-  %.us-phi20.i = phi ptr [ %148, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.us.split.i.preheader ], [ %148, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.split.i.preheader ], [ %157, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ %181, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ %142, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.us.i ]
+.split.us.i:                                      ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.us.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.i.preheader, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.us.split.i.preheader
+  %.us-phi19.i = phi ptr [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.us.split.i.preheader ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.i.preheader ], [ %spec.select.us53.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ %spec.select.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ %.038.us23.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.us.i ]
+  %.us-phi20.i = phi ptr [ %148, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.us.split.i.preheader ], [ %148, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.split.i.preheader ], [ %157, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us51.i ], [ %181, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i ], [ %142, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.us.i ]
   %.not.i = icmp eq ptr %.us-phi19.i, null
   %176 = select i1 %.not.i, ptr %.us-phi20.i, ptr %.us-phi19.i
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit
 
 _ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.i
   %177 = icmp eq ptr %.038.i27, null
@@ -2050,9 +2050,9 @@ _ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.
   %182 = icmp eq ptr %.sroa.08.0.copyload.i, inttoptr (i64 -1 to ptr)
   br i1 %182, label %.split.us.i, label %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.i, !llvm.loop !33
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.us.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i, %173, %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.us47.i, %2, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.us.i, %.split.us.i
-  %.sink.i = phi ptr [ %176, %.split.us.i ], [ null, %2 ], [ %134, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.us.i ], [ %150, %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.us47.i ], [ %159, %173 ], [ %139, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i ], [ %142, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.us.i ]
-  %.0.i = phi i1 [ false, %.split.us.i ], [ false, %2 ], [ true, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.us.i ], [ true, %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.us47.i ], [ true, %173 ], [ true, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i ], [ true, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.argprom.exit.split.split.us.i ]
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.us.i, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i, %173, %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.us47.i, %2, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.us.i, %.split.us.i
+  %.sink.i = phi ptr [ %176, %.split.us.i ], [ null, %2 ], [ %134, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.us.i ], [ %150, %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.us47.i ], [ %159, %173 ], [ %139, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i ], [ %142, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.us.i ]
+  %.0.i = phi i1 [ false, %.split.us.i ], [ false, %2 ], [ true, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.us.i ], [ true, %_ZN4llvm33areDenseMapKeysEqualSpecialValuesINS_8ArrayRefIPKN5clang11BindingDeclEEEEESt8optionalIbET_S9_.exit.i.us47.i ], [ true, %173 ], [ true, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit80.us.i ], [ true, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_121DecompositionDeclNameEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E12getHashValueERKS3_.exit.split.split.us.i ]
   store ptr %.sink.i, ptr %1, align 8
   ret i1 %.0.i
 }
@@ -2753,14 +2753,14 @@ attributes #16 = { builtin nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_123ItaniumNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_123ItaniumNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_123ItaniumNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_123ItaniumNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZSt11make_uniqueIN12_GLOBAL__N_127ItaniumSYCLNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZSt11make_uniqueIN12_GLOBAL__N_127ItaniumSYCLNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!8 = distinct !{!8, !9, !"_ZSt11make_uniqueIN12_GLOBAL__N_127ItaniumSYCLNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!9 = distinct !{!9, !"_ZSt11make_uniqueIN12_GLOBAL__N_127ItaniumSYCLNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt11make_uniqueIN12_GLOBAL__N_123ItaniumNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZSt11make_uniqueIN12_GLOBAL__N_123ItaniumNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!11 = distinct !{!11, !12, !"_ZSt11make_uniqueIN12_GLOBAL__N_123ItaniumNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!12 = distinct !{!12, !"_ZSt11make_uniqueIN12_GLOBAL__N_123ItaniumNumberingContextEJPN5clang20ItaniumMangleContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !13 = !{}
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXMethodDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E11try_emplaceIJRjEEESt4pairINS_16DenseMapIteratorIS5_jS7_SA_Lb0EEEbERKS5_DpOT_: argument 0"}

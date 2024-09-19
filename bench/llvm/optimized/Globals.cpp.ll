@@ -1177,14 +1177,14 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11GlobalValue24canBenefitFromLocal
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 63
   %or.cond = icmp eq i32 %5, 0
-  br i1 %or.cond, label %6, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.argprom.exit"
+  br i1 %or.cond, label %6, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit"
 
 6:                                                ; preds = %1
   %7 = load i8, ptr %0, align 8
   switch i8 %7, label %_ZNK4llvm11GlobalValue9getComdatEv.exit [
     i8 3, label %8
     i8 0, label %13
-    i8 2, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.argprom.exit"
+    i8 2, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit"
     i8 1, label %18
   ]
 
@@ -1193,7 +1193,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11GlobalValue24canBenefitFromLocal
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 134217727
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.argprom.exit", label %_ZNK4llvm11GlobalValue9getComdatEv.exit
+  br i1 %12, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit", label %_ZNK4llvm11GlobalValue9getComdatEv.exit
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1202,14 +1202,14 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11GlobalValue24canBenefitFromLocal
   %17 = and i32 %4, 134217728
   %.not12.i = icmp eq i32 %17, 0
   %or.cond8 = and i1 %.not12.i, %16
-  br i1 %or.cond8, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.argprom.exit", label %_ZNK4llvm11GlobalValue9getComdatEv.exit
+  br i1 %or.cond8, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit", label %_ZNK4llvm11GlobalValue9getComdatEv.exit
 
 18:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %19 = getelementptr inbounds i8, ptr %0, i64 -32
   %20 = load ptr, ptr %19, align 8
-  %21 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_.argprom"(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %21 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %22 = load ptr, ptr %2, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = load i32, ptr %23, align 8
@@ -1218,22 +1218,22 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11GlobalValue24canBenefitFromLocal
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %22, i64 noundef %26, i64 noundef 8) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %.not8.i = icmp eq ptr %21, null
-  br i1 %.not8.i, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.argprom.exit", label %_ZNK4llvm11GlobalValue9getComdatEv.exit
+  br i1 %.not8.i, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit", label %_ZNK4llvm11GlobalValue9getComdatEv.exit
 
 _ZNK4llvm11GlobalValue9getComdatEv.exit:          ; preds = %6, %8, %13, %18
   %.sink9.i = phi ptr [ %21, %18 ], [ %0, %13 ], [ %0, %8 ], [ %0, %6 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 48
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.argprom.exit", label %29
+  br i1 %.not.i, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit", label %29
 
 29:                                               ; preds = %_ZNK4llvm11GlobalValue9getComdatEv.exit
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 3
-  br label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.argprom.exit"
+  br label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit"
 
-"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.argprom.exit": ; preds = %29, %_ZNK4llvm11GlobalValue9getComdatEv.exit, %18, %6, %13, %8, %1
+"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit": ; preds = %29, %_ZNK4llvm11GlobalValue9getComdatEv.exit, %18, %6, %13, %8, %1
   %33 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %13 ], [ false, %6 ], [ true, %_ZNK4llvm11GlobalValue9getComdatEv.exit ], [ %32, %29 ], [ true, %18 ]
   ret i1 %33
 }
@@ -1285,7 +1285,7 @@ define dso_local noundef ptr @_ZNK4llvm11GlobalValue9getComdatEv(ptr nocapture n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 -32
   %6 = load ptr, ptr %5, align 8
-  %7 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_.argprom"(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %7 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i32, ptr %9, align 8
@@ -1689,7 +1689,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm11GlobalValue10getSectionEv(ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 -32
   %6 = load ptr, ptr %5, align 8
-  %7 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_.argprom"(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %7 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i32, ptr %9, align 8
@@ -1726,7 +1726,7 @@ define dso_local noundef ptr @_ZNK4llvm11GlobalAlias16getAliaseeObjectEv(ptr noc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 -32
   %4 = load ptr, ptr %3, align 8
-  %5 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_.argprom"(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %5 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
@@ -2051,7 +2051,7 @@ declare void @_ZN4llvm6TripleC1ERKNS_5TwineE(ptr noundef nonnull align 8 derefer
 define dso_local noundef ptr @_ZNK4llvm11GlobalValue16getAliaseeObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::DenseSet.470", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  %3 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_.argprom"(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %3 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
@@ -2062,7 +2062,7 @@ define dso_local noundef ptr @_ZNK4llvm11GlobalValue16getAliaseeObjectEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_.argprom"(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %tailrecurse
@@ -2138,7 +2138,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   store ptr %38, ptr %37, align 8, !noalias !12
   %39 = getelementptr inbounds i8, ptr %38, i64 -32
   %40 = load ptr, ptr %39, align 8
-  %41 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_.argprom"(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %41 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %common.ret41
 
 _ZN4llvm6detail12DenseSetImplIPKNS_11GlobalAliasENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit.thread: ; preds = %28, %12, %6
@@ -2169,7 +2169,7 @@ common.ret41:                                     ; preds = %.loopexit, %tailrec
   %50 = sub nsw i64 0, %49
   %51 = getelementptr inbounds %"class.llvm::Use", ptr %.tr, i64 %50
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_.argprom"(ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %53 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %54 = load i32, ptr %46, align 4
   %55 = and i32 %54, 134217727
   %56 = zext nneg i32 %55 to i64
@@ -2177,7 +2177,7 @@ common.ret41:                                     ; preds = %.loopexit, %tailrec
   %58 = getelementptr inbounds %"class.llvm::Use", ptr %.tr, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_.argprom"(ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %61 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.not8 = icmp eq ptr %53, null
   %.not7 = icmp eq ptr %61, null
   %62 = select i1 %.not7, ptr %53, ptr null
@@ -2193,7 +2193,7 @@ common.ret41:                                     ; preds = %.loopexit, %tailrec
   %69 = getelementptr inbounds %"class.llvm::Use", ptr %.tr, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_.argprom"(ptr noundef %71, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %72 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalValue16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKNS0_11GlobalAliasENS0_12DenseMapInfoISC_vEEEERKT_"(ptr noundef %71, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.not40 = icmp eq ptr %72, null
   br i1 %.not40, label %tailrecurse.backedge, label %common.ret41
 
@@ -3010,7 +3010,7 @@ define dso_local noundef ptr @_ZN4llvm11GlobalAlias6createERKNS_5TwineEPNS_11Glo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_.argprom"(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define internal fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %tailrecurse
@@ -3086,7 +3086,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   store ptr %38, ptr %37, align 8, !noalias !18
   %39 = getelementptr inbounds i8, ptr %38, i64 -32
   %40 = load ptr, ptr %39, align 8
-  %41 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_.argprom"(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %41 = call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %common.ret41
 
 _ZN4llvm6detail12DenseSetImplIPKNS_11GlobalAliasENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit.thread: ; preds = %28, %12, %6
@@ -3117,7 +3117,7 @@ common.ret41:                                     ; preds = %.loopexit, %tailrec
   %50 = sub nsw i64 0, %49
   %51 = getelementptr inbounds %"class.llvm::Use", ptr %.tr, i64 %50
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_.argprom"(ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %53 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %54 = load i32, ptr %46, align 4
   %55 = and i32 %54, 134217727
   %56 = zext nneg i32 %55 to i64
@@ -3125,7 +3125,7 @@ common.ret41:                                     ; preds = %.loopexit, %tailrec
   %58 = getelementptr inbounds %"class.llvm::Use", ptr %.tr, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_.argprom"(ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %61 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.not8 = icmp eq ptr %53, null
   %.not7 = icmp eq ptr %61, null
   %62 = select i1 %.not7, ptr %53, ptr null
@@ -3141,7 +3141,7 @@ common.ret41:                                     ; preds = %.loopexit, %tailrec
   %69 = getelementptr inbounds %"class.llvm::Use", ptr %.tr, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_.argprom"(ptr noundef %71, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %72 = tail call fastcc noundef ptr @"_ZL14findBaseObjectIZNK4llvm11GlobalAlias16getAliaseeObjectEvE3$_0EPKNS0_12GlobalObjectEPKNS0_8ConstantERNS0_8DenseSetIPKS1_NS0_12DenseMapInfoISB_vEEEERKT_"(ptr noundef %71, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.not40 = icmp eq ptr %72, null
   br i1 %.not40, label %tailrecurse.backedge, label %common.ret41
 

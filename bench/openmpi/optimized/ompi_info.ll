@@ -80,7 +80,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 18:                                               ; preds = %17, %12
   %.not9.i = icmp eq ptr %14, null
-  br i1 %.not9.i, label %opal_obj_new.argprom.exit.thread, label %19
+  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %19
 
 19:                                               ; preds = %18
   store ptr @opal_cmd_line_t_class, ptr %14, align 8
@@ -89,7 +89,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_cmd_line_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i.i = icmp eq ptr %22, null
-  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit.thread86, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.exit.thread86, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
   %23 = phi ptr [ %25, %.lr.ph.i.i ], [ %22, %19 ]
@@ -98,9 +98,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %24 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %opal_obj_new.argprom.exit.thread86, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %opal_obj_new.exit.thread86, label %.lr.ph.i.i, !llvm.loop !5
 
-opal_obj_new.argprom.exit.thread:                 ; preds = %18
+opal_obj_new.exit.thread:                         ; preds = %18
   %26 = tail call ptr @__errno_location() #11
   %27 = load i32, ptr %26, align 4
   %28 = load ptr, ptr @opal_show_help, align 8
@@ -108,18 +108,18 @@ opal_obj_new.argprom.exit.thread:                 ; preds = %18
   call void @exit(i32 noundef %27) #9
   unreachable
 
-opal_obj_new.argprom.exit.thread86:               ; preds = %.lr.ph.i.i, %19
+opal_obj_new.exit.thread86:                       ; preds = %.lr.ph.i.i, %19
   %30 = load i32, ptr %3, align 4
   %31 = load ptr, ptr %4, align 8
   %32 = call i32 @opal_info_init(i32 noundef %30, ptr noundef %31, ptr noundef nonnull %14) #8
   %.not50 = icmp eq i32 %32, 0
   br i1 %.not50, label %34, label %33
 
-33:                                               ; preds = %opal_obj_new.argprom.exit.thread86
+33:                                               ; preds = %opal_obj_new.exit.thread86
   call void @exit(i32 noundef %32) #9
   unreachable
 
-34:                                               ; preds = %opal_obj_new.argprom.exit.thread86
+34:                                               ; preds = %opal_obj_new.exit.thread86
   %35 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.5) #8
   br i1 %35, label %36, label %39
 

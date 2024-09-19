@@ -1120,7 +1120,7 @@ for.body11.i:                                     ; preds = %for.inc.i, %for.bod
   %16 = load i8, ptr %t.0.val.i, align 1
   switch i8 %16, label %sw.epilog.i61.i [
     i8 117, label %sub_1.i57.i
-    i8 34, label %getStringKind.argprom.exit62.i
+    i8 34, label %getStringKind.exit62.i
     i8 76, label %sw.bb4.i56.i
     i8 85, label %sw.bb3.i54.i
   ]
@@ -1135,35 +1135,35 @@ entry.tail.i60.i:                                 ; preds = %sub_1.i57.i
   %19 = getelementptr inbounds i8, ptr %t.0.val.i, i64 2
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
-  br i1 %21, label %getStringKind.argprom.exit62.i, label %sw.bb2.i59.i
+  br i1 %21, label %getStringKind.exit62.i, label %sw.bb2.i59.i
 
 sw.bb2.i59.i:                                     ; preds = %entry.tail.i60.i, %sub_1.i57.i
-  br label %getStringKind.argprom.exit62.i
+  br label %getStringKind.exit62.i
 
 sw.bb3.i54.i:                                     ; preds = %for.body11.i
-  br label %getStringKind.argprom.exit62.i
+  br label %getStringKind.exit62.i
 
 sw.bb4.i56.i:                                     ; preds = %for.body11.i
-  br label %getStringKind.argprom.exit62.i
+  br label %getStringKind.exit62.i
 
 sw.epilog.i61.i:                                  ; preds = %for.body11.i
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, i32 noundef 1129) #16
   unreachable
 
-getStringKind.argprom.exit62.i:                   ; preds = %sw.bb4.i56.i, %sw.bb3.i54.i, %sw.bb2.i59.i, %entry.tail.i60.i, %for.body11.i
+getStringKind.exit62.i:                           ; preds = %sw.bb4.i56.i, %sw.bb3.i54.i, %sw.bb2.i59.i, %entry.tail.i60.i, %for.body11.i
   %cmp17.not.i = phi i1 [ false, %sw.bb4.i56.i ], [ false, %sw.bb3.i54.i ], [ false, %sw.bb2.i59.i ], [ false, %entry.tail.i60.i ], [ true, %for.body11.i ]
   %retval.0.i55.i = phi i32 [ 4, %sw.bb4.i56.i ], [ 3, %sw.bb3.i54.i ], [ 2, %sw.bb2.i59.i ], [ 1, %entry.tail.i60.i ], [ 0, %for.body11.i ]
   %cmp13.i = icmp eq i32 %kind6.075.i, 0
   br i1 %cmp13.i, label %if.then14.i, label %if.else.i
 
-if.then14.i:                                      ; preds = %getStringKind.argprom.exit62.i
+if.then14.i:                                      ; preds = %getStringKind.exit62.i
   %ty15.i = getelementptr inbounds i8, ptr %t.076.i, i64 64
   %22 = load ptr, ptr %ty15.i, align 16
   %base16.i = getelementptr inbounds i8, ptr %22, i64 24
   %23 = load ptr, ptr %base16.i, align 8
   br label %for.inc.i
 
-if.else.i:                                        ; preds = %getStringKind.argprom.exit62.i
+if.else.i:                                        ; preds = %getStringKind.exit62.i
   %cmp18.not.i = icmp eq i32 %kind6.075.i, %retval.0.i55.i
   %or.cond.i = select i1 %cmp17.not.i, i1 true, i1 %cmp18.not.i
   br i1 %or.cond.i, label %for.inc.i, label %if.then19.i
@@ -1927,9 +1927,9 @@ stringize.exit.i:                                 ; preds = %for.cond13.i.i.i.i
   %67 = load ptr, ptr %next8.i181, align 8
   br label %while.cond.i.backedge
 
-while.cond.i.backedge:                            ; preds = %stringize.exit.i, %if.end33.i, %if.end64.i, %paste.argprom.exit103.i, %if.end103.i, %for.end116.i, %if.end140.i, %for.end161.i, %if.end163.i
-  %.sink = phi ptr [ %67, %stringize.exit.i ], [ %storemerge.i, %if.end33.i ], [ %99, %if.end64.i ], [ %108, %paste.argprom.exit103.i ], [ %124, %if.end103.i ], [ %126, %for.end116.i ], [ %call141.i, %if.end140.i ], [ %143, %for.end161.i ], [ %144, %if.end163.i ]
-  %cur.0.i.be = phi ptr [ %call3.i.i.i, %stringize.exit.i ], [ %cur.1.i, %if.end33.i ], [ %cur.2.i, %if.end64.i ], [ %cur.0.i447, %paste.argprom.exit103.i ], [ %cur.5.i, %if.end103.i ], [ %call.i142.i, %for.end116.i ], [ %cur.7.i, %if.end140.i ], [ %cur.9.i.lcssa, %for.end161.i ], [ %call.i153.i, %if.end163.i ]
+while.cond.i.backedge:                            ; preds = %stringize.exit.i, %if.end33.i, %if.end64.i, %paste.exit103.i, %if.end103.i, %for.end116.i, %if.end140.i, %for.end161.i, %if.end163.i
+  %.sink = phi ptr [ %67, %stringize.exit.i ], [ %storemerge.i, %if.end33.i ], [ %99, %if.end64.i ], [ %108, %paste.exit103.i ], [ %124, %if.end103.i ], [ %126, %for.end116.i ], [ %call141.i, %if.end140.i ], [ %143, %for.end161.i ], [ %144, %if.end163.i ]
+  %cur.0.i.be = phi ptr [ %call3.i.i.i, %stringize.exit.i ], [ %cur.1.i, %if.end33.i ], [ %cur.2.i, %if.end64.i ], [ %cur.0.i447, %paste.exit103.i ], [ %cur.5.i, %if.end103.i ], [ %call.i142.i, %for.end116.i ], [ %cur.7.i, %if.end140.i ], [ %cur.9.i.lcssa, %for.end161.i ], [ %call.i153.i, %if.end163.i ]
   store ptr %.sink, ptr %tok.addr.i148, align 8
   %68 = load i32, ptr %.sink, align 16
   %cmp.not.i150 = icmp eq i32 %68, 6
@@ -2093,13 +2093,13 @@ if.then54.i:                                      ; preds = %if.then50.i
   %93 = load ptr, ptr %next.i90.i, align 8
   %94 = load i32, ptr %93, align 16
   %cmp.not.i.i160 = icmp eq i32 %94, 6
-  br i1 %cmp.not.i.i160, label %paste.argprom.exit.i, label %if.then.i.i161
+  br i1 %cmp.not.i.i160, label %paste.exit.i, label %if.then.i.i161
 
 if.then.i.i161:                                   ; preds = %if.then54.i
   call void (ptr, ptr, ...) @error_tok(ptr noundef nonnull %cur.0.i447, ptr noundef nonnull @.str.98, ptr noundef %call.i88.i) #16
   unreachable
 
-paste.argprom.exit.i:                             ; preds = %if.then54.i
+paste.exit.i:                                     ; preds = %if.then54.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %cur.0.i447, ptr noundef nonnull align 16 dereferenceable(128) %call5.i89.i, i64 128, i1 false)
   %95 = load ptr, ptr %tok51.i, align 8
   %t.0.in.i440 = getelementptr inbounds i8, ptr %95, i64 8
@@ -2108,9 +2108,9 @@ paste.argprom.exit.i:                             ; preds = %if.then54.i
   %cmp60.not.i442 = icmp eq i32 %96, 6
   br i1 %cmp60.not.i442, label %if.end64.i, label %for.body.i164
 
-for.body.i164:                                    ; preds = %paste.argprom.exit.i, %for.body.i164
-  %t.0.i163444 = phi ptr [ %t.0.i163, %for.body.i164 ], [ %t.0.i163441, %paste.argprom.exit.i ]
-  %cur.3.i443 = phi ptr [ %call.i91.i, %for.body.i164 ], [ %cur.0.i447, %paste.argprom.exit.i ]
+for.body.i164:                                    ; preds = %paste.exit.i, %for.body.i164
+  %t.0.i163444 = phi ptr [ %t.0.i163, %for.body.i164 ], [ %t.0.i163441, %paste.exit.i ]
+  %cur.3.i443 = phi ptr [ %call.i91.i, %for.body.i164 ], [ %cur.0.i447, %paste.exit.i ]
   %call.i91.i = call noalias noundef dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %call.i91.i, ptr noundef nonnull readonly align 16 dereferenceable(128) %t.0.i163444, i64 128, i1 false)
   %next.i92.i = getelementptr inbounds i8, ptr %call.i91.i, i64 8
@@ -2123,8 +2123,8 @@ for.body.i164:                                    ; preds = %paste.argprom.exit.
   %cmp60.not.i = icmp eq i32 %97, 6
   br i1 %cmp60.not.i, label %if.end64.i, label %for.body.i164, !llvm.loop !32
 
-if.end64.i:                                       ; preds = %for.body.i164, %paste.argprom.exit.i, %if.then50.i
-  %cur.2.i = phi ptr [ %cur.0.i447, %if.then50.i ], [ %cur.0.i447, %paste.argprom.exit.i ], [ %call.i91.i, %for.body.i164 ]
+if.end64.i:                                       ; preds = %for.body.i164, %paste.exit.i, %if.then50.i
+  %cur.2.i = phi ptr [ %cur.0.i447, %if.then50.i ], [ %cur.0.i447, %paste.exit.i ], [ %call.i91.i, %for.body.i164 ]
   %98 = load ptr, ptr %next41.i, align 8
   %next66.i = getelementptr inbounds i8, ptr %98, i64 8
   %99 = load ptr, ptr %next66.i, align 8
@@ -2148,13 +2148,13 @@ if.end67.i:                                       ; preds = %for.inc.i79.i, %if.
   %105 = load ptr, ptr %next.i100.i, align 8
   %106 = load i32, ptr %105, align 16
   %cmp.not.i101.i = icmp eq i32 %106, 6
-  br i1 %cmp.not.i101.i, label %paste.argprom.exit103.i, label %if.then.i102.i
+  br i1 %cmp.not.i101.i, label %paste.exit103.i, label %if.then.i102.i
 
 if.then.i102.i:                                   ; preds = %if.end67.i
   call void (ptr, ptr, ...) @error_tok(ptr noundef nonnull %cur.0.i447, ptr noundef nonnull @.str.98, ptr noundef %call.i95.i) #16
   unreachable
 
-paste.argprom.exit103.i:                          ; preds = %if.end67.i
+paste.exit103.i:                                  ; preds = %if.end67.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %cur.0.i447, ptr noundef nonnull align 16 dereferenceable(128) %call5.i99.i, i64 128, i1 false)
   %107 = load ptr, ptr %next41.i, align 8
   %next71.i = getelementptr inbounds i8, ptr %107, i64 8

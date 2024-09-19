@@ -1002,156 +1002,156 @@ define hidden noundef zeroext i1 @_ZNK5clang7targets13AVRTargetInfo14isValidCPUN
   %.not.i26.i.i.i.i.i.i.i.i = icmp eq i64 %2, 0
   br label %4
 
-4:                                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.thread128.i.i.i.i.i.i", %3
-  %.0172.i.i.i.i.i.i = phi i64 [ 78, %3 ], [ %25, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.thread128.i.i.i.i.i.i" ]
-  %.029171.i.i.i.i.i.i = phi ptr [ @_ZN5clang7targetsL7AVRMcusE, %3 ], [ %24, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.thread128.i.i.i.i.i.i" ]
+4:                                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.thread128.i.i.i.i.i.i", %3
+  %.0172.i.i.i.i.i.i = phi i64 [ 78, %3 ], [ %25, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.thread128.i.i.i.i.i.i" ]
+  %.029171.i.i.i.i.i.i = phi ptr [ @_ZN5clang7targetsL7AVRMcusE, %3 ], [ %24, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.thread128.i.i.i.i.i.i" ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.029171.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.029.val.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit.i.i.i.i.i.i", label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit.i.i.i.i.i.i", label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i.i.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i.i.i:    ; preds = %4
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.029.val.i.i.i.i.i.i) #13
   %.not.i2.i.i.i.i.i.i.i.i = icmp eq i64 %5, %2
-  br i1 %.not.i2.i.i.i.i.i.i.i.i, label %6, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit.thread119.i.i.i.i.i.i"
+  br i1 %.not.i2.i.i.i.i.i.i.i.i, label %6, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit.thread119.i.i.i.i.i.i"
 
 6:                                                ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i.i.i
-  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit", label %7
+  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit", label %7
 
 7:                                                ; preds = %6
   %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.029.val.i.i.i.i.i.i, ptr readonly %1, i64 %2)
   %8 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
-  br i1 %8, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit.thread119.i.i.i.i.i.i"
+  br i1 %8, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit.thread119.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %4
-  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit.thread119.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit.i.i.i.i.i.i": ; preds = %4
+  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit.thread119.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit.thread119.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit.i.i.i.i.i.i", %7, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit.thread119.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit.i.i.i.i.i.i", %7, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i.i.i
   %9 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 40
   %.val31.i.i.i.i.i.i = load ptr, ptr %9, align 8
   %.not.i.i.i40.i.i.i.i.i.i = icmp eq ptr %.val31.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i40.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit52.i.i.i.i.i.i", label %_ZN4llvm9StringRefC2EPKc.exit.i.i41.i.i.i.i.i.i
+  br i1 %.not.i.i.i40.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit52.i.i.i.i.i.i", label %_ZN4llvm9StringRefC2EPKc.exit.i.i41.i.i.i.i.i.i
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i41.i.i.i.i.i.i:  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit.thread119.i.i.i.i.i.i"
+_ZN4llvm9StringRefC2EPKc.exit.i.i41.i.i.i.i.i.i:  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit.thread119.i.i.i.i.i.i"
   %10 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val31.i.i.i.i.i.i) #13
   %.not.i2.i.i45.i.i.i.i.i.i = icmp eq i64 %10, %2
-  br i1 %.not.i2.i.i45.i.i.i.i.i.i, label %11, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit52.thread122.i.i.i.i.i.i"
+  br i1 %.not.i2.i.i45.i.i.i.i.i.i, label %11, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit52.thread122.i.i.i.i.i.i"
 
 11:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i41.i.i.i.i.i.i
-  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit52", label %12
+  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit52", label %12
 
 12:                                               ; preds = %11
   %bcmp.i.i.i47.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val31.i.i.i.i.i.i, ptr readonly %1, i64 %2)
   %13 = icmp eq i32 %bcmp.i.i.i47.i.i.i.i.i.i, 0
-  br i1 %13, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit46", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit52.thread122.i.i.i.i.i.i"
+  br i1 %13, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit46", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit52.thread122.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit52.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit.thread119.i.i.i.i.i.i"
-  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit52.thread122.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit52.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit.thread119.i.i.i.i.i.i"
+  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit52.thread122.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit52.thread122.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit52.i.i.i.i.i.i", %12, %_ZN4llvm9StringRefC2EPKc.exit.i.i41.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit52.thread122.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit52.i.i.i.i.i.i", %12, %_ZN4llvm9StringRefC2EPKc.exit.i.i41.i.i.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 80
   %.val33.i.i.i.i.i.i = load ptr, ptr %14, align 8
   %.not.i.i.i53.i.i.i.i.i.i = icmp eq ptr %.val33.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit65.i.i.i.i.i.i", label %_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i.i.i.i
+  br i1 %.not.i.i.i53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit65.i.i.i.i.i.i", label %_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i.i.i.i
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i.i.i.i:  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit52.thread122.i.i.i.i.i.i"
+_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i.i.i.i:  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit52.thread122.i.i.i.i.i.i"
   %15 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val33.i.i.i.i.i.i) #13
   %.not.i2.i.i58.i.i.i.i.i.i = icmp eq i64 %15, %2
-  br i1 %.not.i2.i.i58.i.i.i.i.i.i, label %16, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit65.thread125.i.i.i.i.i.i"
+  br i1 %.not.i2.i.i58.i.i.i.i.i.i, label %16, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit65.thread125.i.i.i.i.i.i"
 
 16:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i.i.i.i
-  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit54", label %17
+  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit54", label %17
 
 17:                                               ; preds = %16
   %bcmp.i.i.i60.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val33.i.i.i.i.i.i, ptr readonly %1, i64 %2)
   %18 = icmp eq i32 %bcmp.i.i.i60.i.i.i.i.i.i, 0
-  br i1 %18, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit48", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit65.thread125.i.i.i.i.i.i"
+  br i1 %18, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit65.thread125.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit65.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit52.thread122.i.i.i.i.i.i"
-  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit42", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit65.thread125.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit65.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit52.thread122.i.i.i.i.i.i"
+  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit42", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit65.thread125.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit65.thread125.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit65.i.i.i.i.i.i", %17, %_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit65.thread125.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit65.i.i.i.i.i.i", %17, %_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i.i.i.i
   %19 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 120
   %.val35.i.i.i.i.i.i = load ptr, ptr %19, align 8
   %.not.i.i.i66.i.i.i.i.i.i = icmp eq ptr %.val35.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i66.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.i.i.i.i.i.i", label %_ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i.i.i
+  br i1 %.not.i.i.i66.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.i.i.i.i.i.i", label %_ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i.i.i
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i.i.i:  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit65.thread125.i.i.i.i.i.i"
+_ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i.i.i:  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit65.thread125.i.i.i.i.i.i"
   %20 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val35.i.i.i.i.i.i) #13
   %.not.i2.i.i71.i.i.i.i.i.i = icmp eq i64 %20, %2
-  br i1 %.not.i2.i.i71.i.i.i.i.i.i, label %21, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.thread128.i.i.i.i.i.i"
+  br i1 %.not.i2.i.i71.i.i.i.i.i.i, label %21, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.thread128.i.i.i.i.i.i"
 
 21:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i.i.i
-  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit56", label %22
+  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit56", label %22
 
 22:                                               ; preds = %21
   %bcmp.i.i.i73.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val35.i.i.i.i.i.i, ptr readonly %1, i64 %2)
   %23 = icmp eq i32 %bcmp.i.i.i73.i.i.i.i.i.i, 0
-  br i1 %23, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit50", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.thread128.i.i.i.i.i.i"
+  br i1 %23, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.thread128.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit65.thread125.i.i.i.i.i.i"
-  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit44", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.thread128.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit65.thread125.i.i.i.i.i.i"
+  br i1 %.not.i26.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit44", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.thread128.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.thread128.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.i.i.i.i.i.i", %22, %_ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.thread128.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.i.i.i.i.i.i", %22, %_ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 160
   %25 = add nsw i64 %.0172.i.i.i.i.i.i, -1
   %26 = icmp ugt i64 %.0172.i.i.i.i.i.i, 1
   br i1 %26, label %4, label %_ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i.i, !llvm.loop !4
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i.i:  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.thread128.i.i.i.i.i.i"
+_ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i.i:  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.thread128.i.i.i.i.i.i"
   %cond = icmp eq i64 %2, 10
-  br i1 %cond, label %27, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit117.thread137.i.i.i.i.i.i"
+  br i1 %cond, label %27, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit117.thread137.i.i.i.i.i.i"
 
 27:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i.i
   %bcmp.i.i.i99.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly @.str.652, ptr readonly %1, i64 %2)
   %28 = icmp eq i32 %bcmp.i.i.i99.i.i.i.i.i.i, 0
-  br i1 %28, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit", label %_ZN4llvm9StringRefC2EPKc.exit.i.i106.i.i.i.i.i.i
+  br i1 %28, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit", label %_ZN4llvm9StringRefC2EPKc.exit.i.i106.i.i.i.i.i.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i106.i.i.i.i.i.i: ; preds = %27
   %bcmp.i.i.i112.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly @.str.654, ptr readonly %1, i64 %2)
   %29 = icmp eq i32 %bcmp.i.i.i112.i.i.i.i.i.i, 0
-  br i1 %29, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit117.thread137.i.i.i.i.i.i"
+  br i1 %29, label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit117.thread137.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit117.thread137.i.i.i.i.i.i": ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i106.i.i.i.i.i.i
-  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit117.thread137.i.i.i.i.i.i": ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i106.i.i.i.i.i.i
+  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit52.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit52.i.i.i.i.i.i"
   %30 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 40
-  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit42": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit65.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit42": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit65.i.i.i.i.i.i"
   %31 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 80
-  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit44": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit78.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit44": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit78.i.i.i.i.i.i"
   %32 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 120
-  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit46": ; preds = %12
+"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit46": ; preds = %12
   %33 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 40
-  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit48": ; preds = %17
+"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48": ; preds = %17
   %34 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 80
-  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit50": ; preds = %22
+"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50": ; preds = %22
   %35 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 120
-  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit52": ; preds = %11
+"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit52": ; preds = %11
   %36 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 40
-  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit54": ; preds = %16
+"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit54": ; preds = %16
   %37 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 80
-  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit56": ; preds = %21
+"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit56": ; preds = %21
   %38 = getelementptr inbounds i8, ptr %.029171.i.i.i.i.i.i, i64 120
-  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit": ; preds = %6, %7, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit42", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit44", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit46", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit48", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit50", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit52", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit54", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit56", %27, %_ZN4llvm9StringRefC2EPKc.exit.i.i106.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit117.thread137.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN5clang7targetsL7AVRMcusE, i64 12560), %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit117.thread137.i.i.i.i.i.i" ], [ getelementptr inbounds (i8, ptr @_ZN5clang7targetsL7AVRMcusE, i64 12480), %27 ], [ getelementptr inbounds (i8, ptr @_ZN5clang7targetsL7AVRMcusE, i64 12520), %_ZN4llvm9StringRefC2EPKc.exit.i.i106.i.i.i.i.i.i ], [ %30, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %31, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit42" ], [ %32, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit44" ], [ %33, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit46" ], [ %34, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit48" ], [ %35, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit50" ], [ %36, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit52" ], [ %37, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit54" ], [ %38, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit56" ], [ %.029171.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.argprom.exit.i.i.i.i.i.i" ], [ %.029171.i.i.i.i.i.i, %7 ], [ %.029171.i.i.i.i.i.i, %6 ]
+"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit": ; preds = %6, %7, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit42", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit44", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit46", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit52", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit54", %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit56", %27, %_ZN4llvm9StringRefC2EPKc.exit.i.i106.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit117.thread137.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN5clang7targetsL7AVRMcusE, i64 12560), %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit117.thread137.i.i.i.i.i.i" ], [ getelementptr inbounds (i8, ptr @_ZN5clang7targetsL7AVRMcusE, i64 12480), %27 ], [ getelementptr inbounds (i8, ptr @_ZN5clang7targetsL7AVRMcusE, i64 12520), %_ZN4llvm9StringRefC2EPKc.exit.i.i106.i.i.i.i.i.i ], [ %30, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %31, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit42" ], [ %32, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit44" ], [ %33, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit46" ], [ %34, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48" ], [ %35, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50" ], [ %36, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit52" ], [ %37, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit54" ], [ %38, %"_ZN4llvm6any_ofIRA314_N5clang7targets7MCUInfoEZNKS2_13AVRTargetInfo14isValidCPUNameENS_9StringRefEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit56" ], [ %.029171.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets13AVRTargetInfo14isValidCPUNameEN4llvm9StringRefEE3$_0EclIPNS3_7MCUInfoEEEbT_.exit.i.i.i.i.i.i" ], [ %.029171.i.i.i.i.i.i, %7 ], [ %.029171.i.i.i.i.i.i, %6 ]
   %39 = icmp ne ptr %.028.i.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN5clang7targetsL7AVRMcusE, i64 12560)
   ret i1 %39
 }
@@ -1213,7 +1213,7 @@ define hidden noundef zeroext i1 @_ZN5clang7targets13AVRTargetInfo6setCPUERKNSt7
   %.029.val.i.i.i.i = load ptr, ptr %.02950.i.i.i.i.ptr, align 16
   %3 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %.029.val.i.i.i.i) #13
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread39", label %5
+  br i1 %4, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread39", label %5
 
 5:                                                ; preds = %.lr.ph.i.i.i.i
   %.02950.i.i.i.i.add29 = add nuw nsw i64 %.02950.i.i.i.i.idx, 40
@@ -1221,7 +1221,7 @@ define hidden noundef zeroext i1 @_ZN5clang7targets13AVRTargetInfo6setCPUERKNSt7
   %.val31.i.i.i.i = load ptr, ptr %.ptr33, align 8
   %6 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %.val31.i.i.i.i) #13
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread39", label %8
+  br i1 %7, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread39", label %8
 
 8:                                                ; preds = %5
   %.02950.i.i.i.i.add28 = add nuw nsw i64 %.02950.i.i.i.i.idx, 80
@@ -1229,7 +1229,7 @@ define hidden noundef zeroext i1 @_ZN5clang7targets13AVRTargetInfo6setCPUERKNSt7
   %.val33.i.i.i.i = load ptr, ptr %.ptr32, align 16
   %9 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %.val33.i.i.i.i) #13
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit", label %11
+  br i1 %10, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit", label %11
 
 11:                                               ; preds = %8
   %.02950.i.i.i.i.add = add nuw nsw i64 %.02950.i.i.i.i.idx, 120
@@ -1237,7 +1237,7 @@ define hidden noundef zeroext i1 @_ZN5clang7targets13AVRTargetInfo6setCPUERKNSt7
   %.val35.i.i.i.i = load ptr, ptr %.ptr, align 8
   %12 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %.val35.i.i.i.i) #13
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread39", label %14
+  br i1 %13, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread39", label %14
 
 14:                                               ; preds = %11
   %.02950.i.i.i.i.add30 = add nuw nsw i64 %.02950.i.i.i.i.idx, 160
@@ -1248,19 +1248,19 @@ define hidden noundef zeroext i1 @_ZN5clang7targets13AVRTargetInfo6setCPUERKNSt7
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %14
   %17 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.652) #13
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread39", label %19
+  br i1 %18, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread39", label %19
 
 19:                                               ; preds = %._crit_edge.loopexit.i.i.i.i
   %20 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.654) #13
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread39", label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread"
+  br i1 %21, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread39", label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread"
 
-"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit": ; preds = %8
+"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit": ; preds = %8
   %.not.not = icmp eq i64 %.02950.i.i.i.i.add28, 12560
-  br i1 %.not.not, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread", label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread39"
+  br i1 %.not.not, label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread", label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread39"
 
-"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread39": ; preds = %11, %5, %.lr.ph.i.i.i.i, %19, %._crit_edge.loopexit.i.i.i.i, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit"
-  %.028.i.i.i.i.idx.ph.pn = phi i64 [ %.02950.i.i.i.i.add28, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit" ], [ 12520, %19 ], [ 12480, %._crit_edge.loopexit.i.i.i.i ], [ %.02950.i.i.i.i.idx, %.lr.ph.i.i.i.i ], [ %.02950.i.i.i.i.add29, %5 ], [ %.02950.i.i.i.i.add, %11 ]
+"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread39": ; preds = %11, %5, %.lr.ph.i.i.i.i, %19, %._crit_edge.loopexit.i.i.i.i, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit"
+  %.028.i.i.i.i.idx.ph.pn = phi i64 [ %.02950.i.i.i.i.add28, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit" ], [ 12520, %19 ], [ 12480, %._crit_edge.loopexit.i.i.i.i ], [ %.02950.i.i.i.i.idx, %.lr.ph.i.i.i.i ], [ %.02950.i.i.i.i.add29, %5 ], [ %.02950.i.i.i.i.add, %11 ]
   %.028.i.i.i.i.ptr43 = getelementptr inbounds i8, ptr @_ZN5clang7targetsL7AVRMcusE, i64 %.028.i.i.i.i.idx.ph.pn
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
@@ -1270,7 +1270,7 @@ define hidden noundef zeroext i1 @_ZN5clang7targets13AVRTargetInfo6setCPUERKNSt7
   %.not.i = icmp eq i64 %.sroa.2.0.copyload, 3
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread25
 
-_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread39"
+_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread39"
   %.sroa.0.0.copyload = load ptr, ptr %24, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %bcmp.i.fr = freeze i32 %bcmp.i
@@ -1278,8 +1278,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %"_ZN4llvm7find_ifIR
   %spec.select = select i1 %25, ptr @.str.1, ptr @.str.2
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread25
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread25:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread39"
-  %26 = phi ptr [ @.str.2, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread39" ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread25:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread39"
+  %26 = phi ptr [ @.str.2, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread39" ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %27 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #13
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store ptr %26, ptr %28, align 8
@@ -1306,10 +1306,10 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZN4llvmeqENS_9Stri
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store i32 %37, ptr %38, align 8
-  br label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread"
+  br label %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread"
 
-"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit.thread": ; preds = %19, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit", %_ZN4llvm9StringRefC2EPKc.exit
-  %.not22 = phi i1 [ false, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.argprom.exit" ], [ true, %_ZN4llvm9StringRefC2EPKc.exit ], [ false, %19 ]
+"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit.thread": ; preds = %19, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit", %_ZN4llvm9StringRefC2EPKc.exit
+  %.not22 = phi i1 [ false, %"_ZN4llvm7find_ifIRA314_N5clang7targets7MCUInfoEZNS2_13AVRTargetInfo6setCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDaOT_T0_.exit" ], [ true, %_ZN4llvm9StringRefC2EPKc.exit ], [ false, %19 ]
   ret i1 %.not22
 }
 

@@ -1062,8 +1062,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
   %7 = alloca i8, align 1
   %8 = alloca %"class.llvm::MemoryLocation", align 8
   %9 = alloca %"class.llvm::MemoryLocation", align 8
-  call fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_.argprom"(ptr dead_on_unwind noalias writable align 8 %5, ptr nonnull %2, ptr noundef %0)
-  call fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_.argprom"(ptr dead_on_unwind noalias writable align 8 %6, ptr nonnull %2, ptr noundef %1)
+  call fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_"(ptr dead_on_unwind noalias writable align 8 %5, ptr nonnull %2, ptr noundef %0)
+  call fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_"(ptr dead_on_unwind noalias writable align 8 %6, ptr nonnull %2, ptr noundef %1)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp ne i32 %11, 0
@@ -1253,7 +1253,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i16, ptr %3, align 4
   switch i16 %4, label %118 [
@@ -2641,7 +2641,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit106:           ; preds = %.lr.ph157, %_ZNK4ll
   %297 = getelementptr inbounds i8, ptr %296, i64 48
   %298 = load ptr, ptr %297, align 8
   %299 = call noundef zeroext i1 %298(ptr noundef nonnull align 8 dereferenceable(32) %295) #18
-  br i1 %299, label %300, label %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+  br i1 %299, label %300, label %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.exit"
 
 300:                                              ; preds = %291, %._crit_edge158
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
@@ -2821,13 +2821,13 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i: ; preds = %300
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZZN4llvm12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEENK3$_0clEv.exit.i"
   %362 = load ptr, ptr %314, align 8
   %363 = icmp eq ptr %362, %315
-  br i1 %363, label %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit", label %364
+  br i1 %363, label %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.exit", label %364
 
 364:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i
   call void @free(ptr noundef %362) #18
-  br label %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+  br label %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.exit"
 
-"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit": ; preds = %291, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i, %364
+"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.exit": ; preds = %291, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i, %364
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %12)
   %365 = load ptr, ptr %1, align 8
   %366 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
@@ -2835,7 +2835,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %.not65159 = icmp eq i64 %366, 0
   br i1 %.not65159, label %._crit_edge162, label %.lr.ph161
 
-.lr.ph161:                                        ; preds = %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+.lr.ph161:                                        ; preds = %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.exit"
   %368 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -2892,7 +2892,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i108, 
   %.not65 = icmp eq ptr %393, %367
   br i1 %.not65, label %._crit_edge162, label %372
 
-._crit_edge162:                                   ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+._crit_edge162:                                   ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_12LoadStoreOpt18doSingleStoreMergeERNS_15SmallVectorImplIPNS_6GStoreEEEE3$_0EEvT_PDTclfL0p_EE.exit"
   %394 = load i32, ptr %250, align 8
   %395 = icmp ugt i32 %394, 64
   br i1 %395, label %396, label %_ZN4llvm5APIntD2Ev.exit
@@ -3084,8 +3084,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm12LoadStoreOpt21processMergeCandida
   %23 = zext nneg i32 %.014 to i64
   br label %24
 
-24:                                               ; preds = %.lr.ph, %"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.argprom.exit"
-  %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.argprom.exit" ]
+24:                                               ; preds = %.lr.ph, %"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.exit"
+  %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.exit" ]
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
@@ -3114,18 +3114,18 @@ define dso_local noundef zeroext i1 @_ZN4llvm12LoadStoreOpt21processMergeCandida
   %38 = load ptr, ptr %21, align 8
   %39 = load ptr, ptr %22, align 8
   %40 = call noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(70) %27, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(512) %38, ptr noundef %39)
-  br i1 %40, label %"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.argprom.exit", label %32
+  br i1 %40, label %"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.exit", label %32
 
 41:                                               ; preds = %33, %32
   %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplIPNS_6GStoreEE12emplace_backIJRS2_EEES5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br label %"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.argprom.exit"
+  br label %"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.exit"
 
-"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.argprom.exit": ; preds = %36, %41
+"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.exit": ; preds = %36, %41
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %43 = icmp sgt i64 %indvars.iv, 0
   br i1 %43, label %24, label %._crit_edge, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.argprom.exit", %15
+._crit_edge:                                      ; preds = %"_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.exit", %15
   %44 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %45, align 8
@@ -6680,20 +6680,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm15Machin
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm15MachineFunctionEEZNS0_12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm12LoadStoreOptC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 

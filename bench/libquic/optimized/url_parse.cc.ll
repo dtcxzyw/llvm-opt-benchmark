@@ -827,7 +827,7 @@ if.then.i:                                        ; preds = %entry
   store i32 0, ptr %file_name, align 4
   %len.i14.i = getelementptr inbounds i8, ptr %file_name, i64 4
   store i32 -1, ptr %len.i14.i, align 4
-  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_.argprom.exit
+  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_.exit
 
 if.end.i:                                         ; preds = %entry
   %add.i.i = add i32 %path.val1, %path.val
@@ -856,7 +856,7 @@ if.then9.i:                                       ; preds = %for.body.i, %for.bo
   %retval.sroa.0.0.insert.ext.i.i = and i64 %indvars.iv.i, 4294967295
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %file_name, align 4
-  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_.argprom.exit
+  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_.exit
 
 for.inc.fold.split.i:                             ; preds = %for.body.i
   br label %for.inc.i
@@ -873,9 +873,9 @@ for.end.i:                                        ; preds = %for.inc.i
   %retval.sroa.0.0.insert.ext.i22.i = zext i32 %path.val to i64
   %retval.sroa.0.0.insert.insert.i23.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i21.i, %retval.sroa.0.0.insert.ext.i22.i
   store i64 %retval.sroa.0.0.insert.insert.i23.i, ptr %file_name, align 4
-  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_.argprom.exit
+  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_.exit
 
-_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_.argprom.exit: ; preds = %if.then.i, %if.then9.i, %for.end.i
+_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_.exit: ; preds = %if.then.i, %if.then9.i, %for.end.i
   ret void
 }
 
@@ -892,7 +892,7 @@ if.then.i:                                        ; preds = %entry
   store i32 0, ptr %file_name, align 4
   %len.i14.i = getelementptr inbounds i8, ptr %file_name, i64 4
   store i32 -1, ptr %len.i14.i, align 4
-  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_.argprom.exit
+  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_.exit
 
 if.end.i:                                         ; preds = %entry
   %add.i.i = add i32 %path.val1, %path.val
@@ -921,7 +921,7 @@ if.then8.i:                                       ; preds = %for.body.i, %for.bo
   %retval.sroa.0.0.insert.ext.i.i = and i64 %indvars.iv.i, 4294967295
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %file_name, align 4
-  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_.argprom.exit
+  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_.exit
 
 for.inc.fold.split.i:                             ; preds = %for.body.i
   br label %for.inc.i
@@ -938,9 +938,9 @@ for.end.i:                                        ; preds = %for.inc.i
   %retval.sroa.0.0.insert.ext.i22.i = zext i32 %path.val to i64
   %retval.sroa.0.0.insert.insert.i23.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i21.i, %retval.sroa.0.0.insert.ext.i22.i
   store i64 %retval.sroa.0.0.insert.insert.i23.i, ptr %file_name, align 4
-  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_.argprom.exit
+  br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_.exit
 
-_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_.argprom.exit: ; preds = %if.then.i, %if.then8.i, %for.end.i
+_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_.exit: ; preds = %if.then.i, %if.then8.i, %for.end.i
   ret void
 }
 
@@ -1807,7 +1807,7 @@ entry:
   %port.val1 = load i32, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %digits.i)
   %cmp.i.i = icmp sgt i32 %port.val1, 0
-  br i1 %cmp.i.i, label %for.body.preheader.i, label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.argprom.exit
+  br i1 %cmp.i.i, label %for.body.preheader.i, label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit
 
 for.body.preheader.i:                             ; preds = %entry
   %1 = sext i32 %port.val to i64
@@ -1827,13 +1827,13 @@ for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %indvars.iv.next20.i = add i32 %indvars.iv19.i, -1
-  br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.argprom.exit, label %for.body.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit, label %for.body.i, !llvm.loop !22
 
 for.end.i:                                        ; preds = %for.body.i
   %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %sub.i.i = sub nsw i32 %port.val1, %4
   %cmp14.i = icmp sgt i32 %sub.i.i, 5
-  br i1 %cmp14.i, label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.argprom.exit, label %for.cond18.preheader.i
+  br i1 %cmp14.i, label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit, label %for.cond18.preheader.i
 
 for.cond18.preheader.i:                           ; preds = %for.end.i
   %cmp208.i = icmp sgt i32 %sub.i.i, 0
@@ -1853,7 +1853,7 @@ for.body21.i:                                     ; preds = %if.end29.i, %for.bo
   %conv26.i = sext i8 %6 to i16
   %7 = add nsw i16 %conv26.i, -48
   %8 = icmp ult i16 %7, 10
-  br i1 %8, label %if.end29.i, label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.argprom.exit
+  br i1 %8, label %if.end29.i, label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit
 
 if.end29.i:                                       ; preds = %for.body21.i
   %arrayidx31.i = getelementptr inbounds [6 x i8], ptr %digits.i, i64 0, i64 %indvars.iv15.i
@@ -1869,9 +1869,9 @@ for.end34.i:                                      ; preds = %if.end29.i, %for.co
   %call38.i = call i32 @atoi(ptr nocapture noundef nonnull %digits.i) #16
   %cmp39.i = icmp sgt i32 %call38.i, 65535
   %.call38.i = select i1 %cmp39.i, i32 -2, i32 %call38.i
-  br label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.argprom.exit
+  br label %_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit
 
-_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.argprom.exit: ; preds = %for.inc.i, %for.body21.i, %entry, %for.end.i, %for.end34.i
+_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE.exit: ; preds = %for.inc.i, %for.body21.i, %entry, %for.end.i, %for.end34.i
   %retval.0.i = phi i32 [ -1, %entry ], [ -2, %for.end.i ], [ %.call38.i, %for.end34.i ], [ -2, %for.body21.i ], [ 0, %for.inc.i ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %digits.i)
   ret i32 %retval.0.i
@@ -1886,7 +1886,7 @@ entry:
   %port.val1 = load i32, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %digits.i)
   %cmp.i.i = icmp sgt i32 %port.val1, 0
-  br i1 %cmp.i.i, label %for.body.preheader.i, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.argprom.exit
+  br i1 %cmp.i.i, label %for.body.preheader.i, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit
 
 for.body.preheader.i:                             ; preds = %entry
   %1 = sext i32 %port.val to i64
@@ -1906,13 +1906,13 @@ for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %indvars.iv.next20.i = add i32 %indvars.iv19.i, -1
-  br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.argprom.exit, label %for.body.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit, label %for.body.i, !llvm.loop !24
 
 for.end.i:                                        ; preds = %for.body.i
   %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %sub.i.i = sub nsw i32 %port.val1, %4
   %cmp14.i = icmp sgt i32 %sub.i.i, 5
-  br i1 %cmp14.i, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.argprom.exit, label %for.cond18.preheader.i
+  br i1 %cmp14.i, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit, label %for.cond18.preheader.i
 
 for.cond18.preheader.i:                           ; preds = %for.end.i
   %cmp208.i = icmp sgt i32 %sub.i.i, 0
@@ -1931,7 +1931,7 @@ for.body21.i:                                     ; preds = %if.end28.i, %for.bo
   %6 = load i16, ptr %gep.i, align 2
   %7 = add i16 %6, -48
   %8 = icmp ult i16 %7, 10
-  br i1 %8, label %if.end28.i, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.argprom.exit
+  br i1 %8, label %if.end28.i, label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit
 
 if.end28.i:                                       ; preds = %for.body21.i
   %conv29.i = trunc nuw i16 %6 to i8
@@ -1948,9 +1948,9 @@ for.end34.i:                                      ; preds = %if.end28.i, %for.co
   %call38.i = call i32 @atoi(ptr nocapture noundef nonnull %digits.i) #16
   %cmp39.i = icmp sgt i32 %call38.i, 65535
   %.call38.i = select i1 %cmp39.i, i32 -2, i32 %call38.i
-  br label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.argprom.exit
+  br label %_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit
 
-_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.argprom.exit: ; preds = %for.inc.i, %for.body21.i, %entry, %for.end.i, %for.end34.i
+_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE.exit: ; preds = %for.inc.i, %for.body21.i, %entry, %for.end.i, %for.end34.i
   %retval.0.i = phi i32 [ -1, %entry ], [ -2, %for.end.i ], [ %.call38.i, %for.end34.i ], [ -2, %for.body21.i ], [ 0, %for.inc.i ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %digits.i)
   ret i32 %retval.0.i

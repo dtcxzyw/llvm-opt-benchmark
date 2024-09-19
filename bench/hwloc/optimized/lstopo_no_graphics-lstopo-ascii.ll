@@ -976,7 +976,7 @@ define internal fastcc void @merge(ptr nocapture noundef readonly %0, i32 nounde
 
 22:                                               ; preds = %12
   switch i32 %20, label %37 [
-    i32 9484, label %from_directions.argprom.exit
+    i32 9484, label %from_directions.exit
     i32 9488, label %23
     i32 9492, label %24
     i32 9496, label %25
@@ -994,53 +994,53 @@ define internal fastcc void @merge(ptr nocapture noundef readonly %0, i32 nounde
   ]
 
 23:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 24:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 25:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 26:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 27:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 28:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 29:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 30:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 31:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 32:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 33:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 34:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 35:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 36:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 37:                                               ; preds = %22
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 38:                                               ; preds = %12
   switch i32 %20, label %41 [
-    i32 45, label %from_directions.argprom.exit
+    i32 45, label %from_directions.exit
     i32 124, label %39
     i32 47, label %40
     i32 92, label %40
@@ -1048,15 +1048,15 @@ define internal fastcc void @merge(ptr nocapture noundef readonly %0, i32 nounde
   ]
 
 39:                                               ; preds = %38
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 40:                                               ; preds = %38, %38, %38
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
 41:                                               ; preds = %38
-  br label %from_directions.argprom.exit
+  br label %from_directions.exit
 
-from_directions.argprom.exit:                     ; preds = %38, %39, %40, %41, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22
+from_directions.exit:                             ; preds = %38, %39, %40, %41, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22
   %.0.i.sink = phi i32 [ 10, %22 ], [ 6, %23 ], [ 9, %24 ], [ 5, %25 ], [ 12, %26 ], [ 3, %27 ], [ 2, %28 ], [ 1, %29 ], [ 8, %30 ], [ 4, %31 ], [ 11, %32 ], [ 7, %33 ], [ 14, %34 ], [ 13, %35 ], [ 15, %36 ], [ 0, %37 ], [ 0, %41 ], [ 15, %40 ], [ 3, %39 ], [ 12, %38 ]
   %switch.table.merge.3.sink = phi ptr [ @switch.table.merge, %22 ], [ @switch.table.merge, %23 ], [ @switch.table.merge, %24 ], [ @switch.table.merge, %25 ], [ @switch.table.merge, %26 ], [ @switch.table.merge, %27 ], [ @switch.table.merge, %28 ], [ @switch.table.merge, %29 ], [ @switch.table.merge, %30 ], [ @switch.table.merge, %31 ], [ @switch.table.merge, %32 ], [ @switch.table.merge, %33 ], [ @switch.table.merge, %34 ], [ @switch.table.merge, %35 ], [ @switch.table.merge, %36 ], [ @switch.table.merge, %37 ], [ @switch.table.merge.3, %41 ], [ @switch.table.merge.3, %40 ], [ @switch.table.merge.3, %39 ], [ @switch.table.merge.3, %38 ]
   %42 = xor i32 %4, -1
@@ -1070,7 +1070,7 @@ from_directions.argprom.exit:                     ; preds = %38, %39, %40, %41, 
   %.not22.i = icmp eq ptr %5, null
   br i1 %.not22.i, label %put.exit, label %46
 
-46:                                               ; preds = %from_directions.argprom.exit
+46:                                               ; preds = %from_directions.exit
   %47 = load ptr, ptr %13, align 8
   %48 = getelementptr inbounds ptr, ptr %47, i64 %15
   %49 = load ptr, ptr %48, align 8
@@ -1078,7 +1078,7 @@ from_directions.argprom.exit:                     ; preds = %38, %39, %40, %41, 
   store ptr %5, ptr %50, align 8
   br label %put.exit
 
-put.exit:                                         ; preds = %46, %from_directions.argprom.exit, %6, %9
+put.exit:                                         ; preds = %46, %from_directions.exit, %6, %9
   ret void
 }
 

@@ -916,13 +916,13 @@ _ZN2cv3PtrINS_5kinfu6ParamsEEaSERKS3_.exit:       ; preds = %14, %_ZNSt16_Sp_cou
   %90 = icmp eq i32 %.0.i.i.i.i.i.i.i9, 1
   br i1 %90, label %_ZN2cv3PtrINS_5kinfu6ParamsEED2Ev.exit.sink.split, label %_ZN2cv3PtrINS_5kinfu6ParamsEED2Ev.exit
 
-91:                                               ; preds = %_ZN2cv3PtrINS_5kinfu6VolumeEED2Ev.exit, %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit, %_ZN2cv3VecIiLi3EEC2ERKS1_.exit, %96, %13
+91:                                               ; preds = %_ZN2cv3PtrINS_5kinfu6VolumeEED2Ev.exit, %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit, %_ZN2cv3VecIiLi3EEC2ERKS1_.exit, %96, %13
   %92 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit15.i.i.i.i.i.i, %91
-  %eh.lpad-body = phi { ptr, i32 } [ %92, %91 ], [ %298, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit15.i.i.i.i.i.i ]
+.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i, %91
+  %eh.lpad-body = phi { ptr, i32 } [ %92, %91 ], [ %298, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i ]
   %93 = load ptr, ptr %12, align 8
   %.not.i.i.i = icmp eq ptr %93, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv7Affine3IfEESaIS2_EED2Ev.exit, label %94
@@ -934,7 +934,7 @@ _ZN2cv3PtrINS_5kinfu6ParamsEEaSERKS3_.exit:       ; preds = %14, %_ZNSt16_Sp_cou
 _ZNSt6vectorIN2cv7Affine3IfEESaIS2_EED2Ev.exit:   ; preds = %.body, %94
   %95 = getelementptr inbounds i8, ptr %0, i64 40
   %.val3 = load ptr, ptr %95, align 8
-  call fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom(ptr %.val3) #28
+  call fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev(ptr %.val3) #28
   call void @_ZN2cv3PtrINS_5kinfu6VolumeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #28
   call void @_ZN2cv3PtrINS_5kinfu6ParamsEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   resume { ptr, i32 } %eh.lpad-body
@@ -1381,9 +1381,9 @@ _ZN2cv3PtrINS_5kinfu6VolumeEED2Ev.exit:           ; preds = %_ZN2cv3PtrINS_5kinf
   store float 0.000000e+00, ptr %297, align 4, !noalias !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %295, i8 0, i64 64, i1 false), !noalias !8
   invoke void @_ZN2cv7Affine3IfE8rotationERKNS_3VecIfLi3EEE(ptr noundef nonnull align 4 dereferenceable(64) %295, ptr noundef nonnull align 4 dereferenceable(12) %3)
-          to label %299 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit15.i.i.i.i.i.i, !noalias !8
+          to label %299 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i, !noalias !8
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit15.i.i.i.i.i.i: ; preds = %.noexc
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.i: ; preds = %.noexc
   %298 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %289) #26, !noalias !8
@@ -1545,7 +1545,7 @@ _ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEEaSERKS4_.exit: ; preds = %_ZNSt16
 367:                                              ; preds = %365, %363
   %.0.i.i.i.i.i66 = phi i32 [ %356, %363 ], [ %366, %365 ]
   %368 = icmp eq i32 %.0.i.i.i.i.i66, 1
-  br i1 %368, label %369, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit
+  br i1 %368, label %369, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit
 
 369:                                              ; preds = %367
   %370 = load ptr, ptr %289, align 8
@@ -1569,16 +1569,16 @@ _ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEEaSERKS4_.exit: ; preds = %_ZNSt16
 379:                                              ; preds = %377, %374
   %.0.i.i.i.i.i.i.i68 = phi i32 [ %375, %374 ], [ %378, %377 ]
   %380 = icmp eq i32 %.0.i.i.i.i.i.i.i68, 1
-  br i1 %380, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i69, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit
+  br i1 %380, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i69, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i69: ; preds = %379, %357
   %381 = load ptr, ptr %289, align 8
   %382 = getelementptr inbounds i8, ptr %381, i64 24
   %383 = load ptr, ptr %382, align 8
   call void %383(ptr noundef nonnull align 8 dereferenceable(16) %289) #28
-  br label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit
+  br label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit
 
-_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit: ; preds = %367, %379, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i69
+_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit: ; preds = %367, %379, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i69
   %.val4 = load ptr, ptr %11, align 8
   %384 = load ptr, ptr %.val4, align 8
   %385 = getelementptr inbounds i8, ptr %384, i64 24
@@ -1586,7 +1586,7 @@ _ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit: ; preds = %367
   invoke void %386(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.16") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %.val4)
           to label %387 unwind label %91
 
-387:                                              ; preds = %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit
+387:                                              ; preds = %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit
   %388 = load ptr, ptr %12, align 8
   %389 = getelementptr inbounds i8, ptr %0, i64 56
   %390 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1646,7 +1646,7 @@ _ZNSt6vectorIN2cv7Affine3IfEESaIS2_EED2Ev.exit:   ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %.val = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit, label %6
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit, label %6
 
 6:                                                ; preds = %_ZNSt6vectorIN2cv7Affine3IfEESaIS2_EED2Ev.exit
   %7 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -1682,7 +1682,7 @@ _ZNSt6vectorIN2cv7Affine3IfEESaIS2_EED2Ev.exit:   ; preds = %1, %4
 22:                                               ; preds = %20, %18
   %.0.i.i.i.i.i = phi i32 [ %10, %18 ], [ %21, %20 ]
   %23 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit
+  br i1 %23, label %24, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %.val, align 8
@@ -1707,22 +1707,22 @@ _ZNSt6vectorIN2cv7Affine3IfEESaIS2_EED2Ev.exit:   ; preds = %1, %4
 35:                                               ; preds = %33, %30
   %.0.i.i.i.i.i.i.i = phi i32 [ %31, %30 ], [ %34, %33 ]
   %36 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %36, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit
+  br i1 %36, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %35, %11
   %37 = load ptr, ptr %.val, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %.val) #28
-  br label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit
+  br label %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit
 
-_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit: ; preds = %_ZNSt6vectorIN2cv7Affine3IfEESaIS2_EED2Ev.exit, %22, %35, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit: ; preds = %_ZNSt6vectorIN2cv7Affine3IfEESaIS2_EED2Ev.exit, %22, %35, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not.i.i.i.i1 = icmp eq ptr %41, null
   br i1 %.not.i.i.i.i1, label %_ZN2cv3PtrINS_5kinfu6VolumeEED2Ev.exit, label %42
 
-42:                                               ; preds = %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit
+42:                                               ; preds = %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit
   %43 = getelementptr inbounds i8, ptr %41, i64 8
   %44 = load atomic i64, ptr %43 acquire, align 8
   %45 = icmp eq i64 %44, 4294967297
@@ -1790,7 +1790,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   tail call void %75(ptr noundef nonnull align 8 dereferenceable(16) %41) #28
   br label %_ZN2cv3PtrINS_5kinfu6VolumeEED2Ev.exit
 
-_ZN2cv3PtrINS_5kinfu6VolumeEED2Ev.exit:           ; preds = %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit, %58, %71, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i6
+_ZN2cv3PtrINS_5kinfu6VolumeEED2Ev.exit:           ; preds = %_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit, %58, %71, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i6
   %76 = getelementptr inbounds i8, ptr %0, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not.i.i.i.i7 = icmp eq ptr %77, null
@@ -2033,9 +2033,9 @@ _ZNSt10shared_ptrIN2cv5kinfu6VolumeEED2Ev.exit:   ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom(ptr %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev(ptr %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -2071,7 +2071,7 @@ define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -2096,16 +2096,16 @@ define internal fastcc void @_ZN2cv3PtrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #28
-  br label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit
 
-_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN11opencv_test12_GLOBAL__N_15SceneEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
@@ -2131,7 +2131,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -5110,10 +5110,10 @@ attributes #30 = { noreturn }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = !{!9, !11, !13}
-!9 = distinct !{!9, !10, !"_ZSt11make_sharedIN11opencv_test12_GLOBAL__N_115SemisphereSceneEJRKN2cv5Size_IiEERKNS3_4MatxIfLi3ELi3EEERKfRKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESI_E4typeEEDpOT0_.argprom: argument 0"}
-!10 = distinct !{!10, !"_ZSt11make_sharedIN11opencv_test12_GLOBAL__N_115SemisphereSceneEJRKN2cv5Size_IiEERKNS3_4MatxIfLi3ELi3EEERKfRKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESI_E4typeEEDpOT0_.argprom"}
-!11 = distinct !{!11, !12, !"_ZN2cvL7makePtrIN11opencv_test12_GLOBAL__N_115SemisphereSceneEJNS_5Size_IiEENS_4MatxIfLi3ELi3EEEfbEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZN2cvL7makePtrIN11opencv_test12_GLOBAL__N_115SemisphereSceneEJNS_5Size_IiEENS_4MatxIfLi3ELi3EEEfbEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!9 = distinct !{!9, !10, !"_ZSt11make_sharedIN11opencv_test12_GLOBAL__N_115SemisphereSceneEJRKN2cv5Size_IiEERKNS3_4MatxIfLi3ELi3EEERKfRKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESI_E4typeEEDpOT0_: argument 0"}
+!10 = distinct !{!10, !"_ZSt11make_sharedIN11opencv_test12_GLOBAL__N_115SemisphereSceneEJRKN2cv5Size_IiEERKNS3_4MatxIfLi3ELi3EEERKfRKbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESI_E4typeEEDpOT0_"}
+!11 = distinct !{!11, !12, !"_ZN2cvL7makePtrIN11opencv_test12_GLOBAL__N_115SemisphereSceneEJNS_5Size_IiEENS_4MatxIfLi3ELi3EEEfbEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!12 = distinct !{!12, !"_ZN2cvL7makePtrIN11opencv_test12_GLOBAL__N_115SemisphereSceneEJNS_5Size_IiEENS_4MatxIfLi3ELi3EEEfbEEENS_3PtrIT_EEDpRKT0_"}
 !13 = distinct !{!13, !14, !"_ZN11opencv_test12_GLOBAL__N_15Scene6createEN2cv5Size_IiEENS2_4MatxIfLi3ELi3EEEfb: argument 0"}
 !14 = distinct !{!14, !"_ZN11opencv_test12_GLOBAL__N_15Scene6createEN2cv5Size_IiEENS2_4MatxIfLi3ELi3EEEfb"}
 !15 = !{!13}

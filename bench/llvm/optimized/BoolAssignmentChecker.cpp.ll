@@ -688,14 +688,14 @@ define internal void @_ZN5clang4ento5check4Bind10_checkBindIN12_GLOBAL__N_121Boo
   store i8 %2, ptr %14, align 8
   %15 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #16
   %.not.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit, label %16
+  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit, label %16
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, -14
   %20 = icmp ult i32 %19, 13
-  br i1 %20, label %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT0_.exit.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
+  br i1 %20, label %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT0_.exit.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit
 
 _ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT0_.exit.i: ; preds = %16
   %21 = load ptr, ptr %15, align 8
@@ -726,7 +726,7 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.i.i:        ; preds = %_ZN4llvm16dyn_cast_
 _ZNK5clang4Type13isBooleanTypeEv.exit.thread.i.i: ; preds = %_ZNK5clang4Type13isBooleanTypeEv.exit.i.i, %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT0_.exit.i
   %38 = call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %27) #16
   %.not.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit, label %39
+  br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit, label %39
 
 39:                                               ; preds = %_ZNK5clang4Type13isBooleanTypeEv.exit.thread.i.i
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -738,7 +738,7 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread.i.i: ; preds = %_ZNK5clang4Type13is
   %46 = and i64 %43, -8
   %.not2.i.i.i = icmp eq i64 %46, 0
   %.not.i11.i.i = or i1 %45, %.not2.i.i.i
-  br i1 %.not.i11.i.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit, label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i
+  br i1 %.not.i11.i.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit, label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i
 
 _ZNK5clang9NamedDecl7getNameEv.exit.i.i:          ; preds = %39
   %47 = inttoptr i64 %46 to ptr
@@ -746,7 +746,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i.i:          ; preds = %39
   %49 = load ptr, ptr %48, align 8
   %50 = load i64, ptr %49, align 8
   %trunc.i = trunc i64 %50 to i32
-  switch i32 %trunc.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit [
+  switch i32 %trunc.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit [
     i32 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
     i32 5, label %_ZN4llvmeqENS_9StringRefES0_.exit24.i.i
     i32 7, label %_ZL13isBooleanTypeN5clang8QualTypeE.exit.i
@@ -756,24 +756,24 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %_ZNK5clang9NamedDec
   %51 = getelementptr inbounds i8, ptr %49, i64 16
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %51, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
   %52 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %52, label %_ZL13isBooleanTypeN5clang8QualTypeE.exit.thread22.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
+  br i1 %52, label %_ZL13isBooleanTypeN5clang8QualTypeE.exit.thread22.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit24.i.i:          ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i
   %53 = getelementptr inbounds i8, ptr %49, i64 16
   %bcmp.i23.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %53, ptr noundef nonnull dereferenceable(5) @.str.3, i64 5)
   %54 = icmp eq i32 %bcmp.i23.i.i, 0
-  br i1 %54, label %_ZL13isBooleanTypeN5clang8QualTypeE.exit.thread22.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
+  br i1 %54, label %_ZL13isBooleanTypeN5clang8QualTypeE.exit.thread22.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit
 
 _ZL13isBooleanTypeN5clang8QualTypeE.exit.i:       ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i
   %55 = getelementptr inbounds i8, ptr %49, i64 16
   %bcmp.i34.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %55, ptr noundef nonnull dereferenceable(7) @.str.4, i64 7)
   %56 = icmp eq i32 %bcmp.i34.i.i, 0
-  br i1 %56, label %_ZL13isBooleanTypeN5clang8QualTypeE.exit.thread22.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
+  br i1 %56, label %_ZL13isBooleanTypeN5clang8QualTypeE.exit.thread22.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit
 
 _ZL13isBooleanTypeN5clang8QualTypeE.exit.thread22.i: ; preds = %_ZL13isBooleanTypeN5clang8QualTypeE.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit24.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZNK5clang4Type13isBooleanTypeEv.exit.i.i
   %57 = add i8 %4, -5
   %spec.select.i.i.i.i.i.i = icmp ult i8 %57, 6
-  br i1 %spec.select.i.i.i.i.i.i, label %58, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
+  br i1 %spec.select.i.i.i.i.i.i, label %58, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit
 
 58:                                               ; preds = %_ZL13isBooleanTypeN5clang8QualTypeE.exit.thread22.i
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -871,7 +871,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   br i1 %.not.i.i31.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.thread.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.thread36.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.thread.i: ; preds = %100
-  call fastcc void @_ZNK12_GLOBAL__N_121BoolAssignmentChecker10emitReportEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextEb.argprom(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(81) %6, i1 noundef zeroext false)
+  call fastcc void @_ZNK12_GLOBAL__N_121BoolAssignmentChecker10emitReportEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr null, ptr noundef nonnull align 8 dereferenceable(81) %6, i1 noundef zeroext false)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit34.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
@@ -900,13 +900,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i: ; preds
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit42.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i, %106
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %97) #16
-  call fastcc void @_ZNK12_GLOBAL__N_121BoolAssignmentChecker10emitReportEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextEb.argprom(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %97, ptr noundef nonnull align 8 dereferenceable(81) %6, i1 noundef zeroext true)
+  call fastcc void @_ZNK12_GLOBAL__N_121BoolAssignmentChecker10emitReportEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %97, ptr noundef nonnull align 8 dereferenceable(81) %6, i1 noundef zeroext true)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %97) #16
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.thread36.i: ; preds = %100
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %97) #16
-  call fastcc void @_ZNK12_GLOBAL__N_121BoolAssignmentChecker10emitReportEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextEb.argprom(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %97, ptr noundef nonnull align 8 dereferenceable(81) %6, i1 noundef zeroext false)
+  call fastcc void @_ZNK12_GLOBAL__N_121BoolAssignmentChecker10emitReportEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %97, ptr noundef nonnull align 8 dereferenceable(81) %6, i1 noundef zeroext false)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %97) #16
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %97) #16
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46.i
@@ -948,13 +948,13 @@ _ZN4llvm6APSIntD2Ev.exit.i:                       ; preds = %112, %109, %_ZN4llv
   br label %_ZN4llvm6APSIntD2Ev.exit47.i
 
 _ZN4llvm6APSIntD2Ev.exit47.i:                     ; preds = %118, %115, %_ZN4llvm6APSIntD2Ev.exit.i
-  br i1 %.not.i.i24.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit, label %119
+  br i1 %.not.i.i24.i, label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit, label %119
 
 119:                                              ; preds = %_ZN4llvm6APSIntD2Ev.exit47.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %62) #16
-  br label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.argprom.exit: ; preds = %7, %16, %_ZNK5clang4Type13isBooleanTypeEv.exit.thread.i.i, %39, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit24.i.i, %_ZL13isBooleanTypeN5clang8QualTypeE.exit.i, %_ZL13isBooleanTypeN5clang8QualTypeE.exit.thread22.i, %_ZN4llvm6APSIntD2Ev.exit47.i, %119
+_ZNK12_GLOBAL__N_121BoolAssignmentChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit: ; preds = %7, %16, %_ZNK5clang4Type13isBooleanTypeEv.exit.thread.i.i, %39, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit24.i.i, %_ZL13isBooleanTypeN5clang8QualTypeE.exit.i, %_ZL13isBooleanTypeN5clang8QualTypeE.exit.thread22.i, %_ZN4llvm6APSIntD2Ev.exit47.i, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -971,7 +971,7 @@ declare noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicVa
 declare void @_ZN5clang4ento17ConstraintManager24assumeInclusiveRangeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_6NonLocERKNS2_6APSIntESA_(ptr dead_on_unwind writable sret(%"struct.std::pair.173") align 8, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr, i8, ptr noundef nonnull align 8 dereferenceable(13), ptr noundef nonnull align 8 dereferenceable(13)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_121BoolAssignmentChecker10emitReportEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextEb.argprom(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(81) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_121BoolAssignmentChecker10emitReportEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(81) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.298", align 8
   %5 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

@@ -17,18 +17,18 @@ define internal noalias ptr @x25519_newctx(ptr nocapture readnone %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %ecx_newctx.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %ecx_newctx.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 48) #3
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %ecx_newctx.argprom.exit, label %if.end3.i
+  br i1 %cmp.i, label %ecx_newctx.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   store i64 32, ptr %call1.i, align 8
-  br label %ecx_newctx.argprom.exit
+  br label %ecx_newctx.exit
 
-ecx_newctx.argprom.exit:                          ; preds = %entry, %if.end.i, %if.end3.i
+ecx_newctx.exit:                                  ; preds = %entry, %if.end.i, %if.end3.i
   %retval.0.i = phi ptr [ %call1.i, %if.end3.i ], [ null, %entry ], [ null, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -217,18 +217,18 @@ define internal noalias ptr @x448_newctx(ptr nocapture readnone %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %ecx_newctx.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %ecx_newctx.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 48) #3
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %ecx_newctx.argprom.exit, label %if.end3.i
+  br i1 %cmp.i, label %ecx_newctx.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   store i64 56, ptr %call1.i, align 8
-  br label %ecx_newctx.argprom.exit
+  br label %ecx_newctx.exit
 
-ecx_newctx.argprom.exit:                          ; preds = %entry, %if.end.i, %if.end3.i
+ecx_newctx.exit:                                  ; preds = %entry, %if.end.i, %if.end3.i
   %retval.0.i = phi ptr [ %call1.i, %if.end3.i ], [ null, %entry ], [ null, %if.end.i ]
   ret ptr %retval.0.i
 }

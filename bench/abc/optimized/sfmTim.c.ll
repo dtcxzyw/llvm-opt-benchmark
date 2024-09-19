@@ -46,15 +46,15 @@ define void @Sfm_TimNodeRequired(ptr nocapture noundef readonly %0, ptr nocaptur
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @Mio_GateReadPins(ptr noundef %20) #13
   %.not1.i = icmp eq ptr %21, null
-  br i1 %.not1.i, label %Sfm_TimGateRequired.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %Sfm_TimGateRequired.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge
   %22 = getelementptr inbounds i8, ptr %8, i64 4
   br label %23
 
-23:                                               ; preds = %Sfm_TimEdgeRequired.argprom.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Sfm_TimEdgeRequired.argprom.exit.i ]
-  %.072.i = phi ptr [ %21, %.lr.ph.i ], [ %54, %Sfm_TimEdgeRequired.argprom.exit.i ]
+23:                                               ; preds = %Sfm_TimEdgeRequired.exit.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Sfm_TimEdgeRequired.exit.i ]
+  %.072.i = phi ptr [ %21, %.lr.ph.i ], [ %54, %Sfm_TimEdgeRequired.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %24 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
@@ -88,7 +88,7 @@ define void @Sfm_TimNodeRequired(ptr nocapture noundef readonly %0, ptr nocaptur
   %43 = tail call noundef i32 @llvm.smin.i32(i32 %40, i32 %42)
   store i32 %43, ptr %39, align 4
   %.not20.i.i = icmp eq i32 %26, 2
-  br i1 %.not20.i.i, label %Sfm_TimEdgeRequired.argprom.exit.i, label %44
+  br i1 %.not20.i.i, label %Sfm_TimEdgeRequired.exit.i, label %44
 
 44:                                               ; preds = %35, %._crit_edge.i.i
   %45 = phi i32 [ %.pre1.i.i, %._crit_edge.i.i ], [ %43, %35 ]
@@ -102,14 +102,14 @@ define void @Sfm_TimNodeRequired(ptr nocapture noundef readonly %0, ptr nocaptur
   %52 = sub nsw i32 %51, %34
   %53 = tail call noundef i32 @llvm.smin.i32(i32 %45, i32 %52)
   store i32 %53, ptr %50, align 4
-  br label %Sfm_TimEdgeRequired.argprom.exit.i
+  br label %Sfm_TimEdgeRequired.exit.i
 
-Sfm_TimEdgeRequired.argprom.exit.i:               ; preds = %44, %35
+Sfm_TimEdgeRequired.exit.i:                       ; preds = %44, %35
   %54 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.072.i) #13
   %.not.i = icmp eq ptr %54, null
-  br i1 %.not.i, label %Sfm_TimGateRequired.argprom.exit, label %23, !llvm.loop !6
+  br i1 %.not.i, label %Sfm_TimGateRequired.exit, label %23, !llvm.loop !6
 
-Sfm_TimGateRequired.argprom.exit:                 ; preds = %Sfm_TimEdgeRequired.argprom.exit.i, %.critedge
+Sfm_TimGateRequired.exit:                         ; preds = %Sfm_TimEdgeRequired.exit.i, %.critedge
   ret void
 }
 
@@ -120,7 +120,7 @@ define void @Sfm_TimCriticalPath_int(ptr nocapture noundef readonly %0, ptr noca
   %.val3.i = load i32, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %7 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %6, i32 noundef %7)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %6, i32 noundef %7)
   %8 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %8, align 8
   %9 = sext i32 %.val3.i to i64
@@ -136,7 +136,7 @@ define void @Sfm_TimCriticalPath_int(ptr nocapture noundef readonly %0, ptr noca
   %.val25 = load i32, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %16 = add nsw i32 %.val25, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %15, i32 noundef %16)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %15, i32 noundef %16)
   %17 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i32 = load ptr, ptr %17, align 8
   %18 = sext i32 %.val25 to i64
@@ -458,7 +458,7 @@ define range(i32 0, -2147483648) i32 @Sfm_TimTrace(ptr nocapture noundef %0) loc
   %9 = getelementptr i8, ptr %0, i64 40
   br label %16
 
-.critedge.preheader:                              ; preds = %Sfm_TimNodeArrival.argprom.exit, %1
+.critedge.preheader:                              ; preds = %Sfm_TimNodeArrival.exit, %1
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr i8, ptr %10, i64 64
   %.val44 = load ptr, ptr %11, align 8
@@ -475,8 +475,8 @@ define range(i32 0, -2147483648) i32 @Sfm_TimTrace(ptr nocapture noundef %0) loc
   %wide.trip.count = zext nneg i32 %.val44.val to i64
   br label %.critedge
 
-16:                                               ; preds = %.lr.ph, %Sfm_TimNodeArrival.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Sfm_TimNodeArrival.argprom.exit ]
+16:                                               ; preds = %.lr.ph, %Sfm_TimNodeArrival.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Sfm_TimNodeArrival.exit ]
   %.val45 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds ptr, ptr %.val45, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
@@ -487,7 +487,7 @@ define range(i32 0, -2147483648) i32 @Sfm_TimTrace(ptr nocapture noundef %0) loc
   %20 = getelementptr i8, ptr %18, i64 28
   %.val.i = load i32, ptr %20, align 4
   %21 = icmp sgt i32 %.val.i, 0
-  br i1 %21, label %.lr.ph.i, label %Sfm_TimNodeArrival.argprom.exit
+  br i1 %21, label %.lr.ph.i, label %Sfm_TimNodeArrival.exit
 
 .lr.ph.i:                                         ; preds = %16
   %22 = getelementptr i8, ptr %18, i64 32
@@ -506,15 +506,15 @@ define range(i32 0, -2147483648) i32 @Sfm_TimTrace(ptr nocapture noundef %0) loc
   store ptr %28, ptr %29, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Sfm_TimNodeArrival.argprom.exit, label %23, !llvm.loop !10
+  br i1 %exitcond.not.i, label %Sfm_TimNodeArrival.exit, label %23, !llvm.loop !10
 
-Sfm_TimNodeArrival.argprom.exit:                  ; preds = %23, %16
+Sfm_TimNodeArrival.exit:                          ; preds = %23, %16
   %30 = shl nsw i32 %.val14.i, 1
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i32, ptr %.val53, i64 %31
   %33 = getelementptr inbounds i8, ptr %18, i64 56
   %34 = load ptr, ptr %33, align 8
-  call fastcc void @Sfm_TimGateArrival.argprom(ptr noundef %34, ptr noundef %2, ptr noundef %32)
+  call fastcc void @Sfm_TimGateArrival(ptr noundef %34, ptr noundef %2, ptr noundef %32)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %6, align 4
@@ -952,7 +952,7 @@ define void @Sfm_TimUpdateTiming(ptr nocapture noundef %0, ptr nocapture noundef
   %7 = getelementptr i8, ptr %.val6, i64 4
   %.val6.val = load i32, ptr %7, align 4
   %8 = shl nsw i32 %.val6.val, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %3, i32 noundef %8)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %8)
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr i8, ptr %10, i64 32
@@ -960,7 +960,7 @@ define void @Sfm_TimUpdateTiming(ptr nocapture noundef %0, ptr nocapture noundef
   %12 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %12, align 4
   %13 = shl nsw i32 %.val.val, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %9, i32 noundef %13)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %9, i32 noundef %13)
   %14 = tail call i32 @Sfm_TimTrace(ptr noundef %0)
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %14, ptr %15, align 8
@@ -968,7 +968,7 @@ define void @Sfm_TimUpdateTiming(ptr nocapture noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -1744,7 +1744,7 @@ define noundef i32 @Sfm_TimEvalRemapping(ptr nocapture noundef readonly %0, ptr 
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %16, %7
-  call fastcc void @Sfm_TimGateArrival.argprom(ptr noundef %3, ptr noundef %9, ptr noundef nonnull %8)
+  call fastcc void @Sfm_TimGateArrival(ptr noundef %3, ptr noundef %9, ptr noundef nonnull %8)
   %29 = icmp eq ptr %5, null
   br i1 %29, label %30, label %35
 
@@ -1799,7 +1799,7 @@ define noundef i32 @Sfm_TimEvalRemapping(ptr nocapture noundef readonly %0, ptr 
 
 ._crit_edge40:                                    ; preds = %55, %35
   %57 = getelementptr inbounds i8, ptr %8, i64 8
-  call fastcc void @Sfm_TimGateArrival.argprom(ptr noundef nonnull %5, ptr noundef %10, ptr noundef nonnull %57)
+  call fastcc void @Sfm_TimGateArrival(ptr noundef nonnull %5, ptr noundef %10, ptr noundef nonnull %57)
   %58 = load i32, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %8, i64 12
   %60 = load i32, ptr %59, align 4
@@ -1814,7 +1814,7 @@ define noundef i32 @Sfm_TimEvalRemapping(ptr nocapture noundef readonly %0, ptr 
 declare i32 @Mio_GateReadPinNum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Sfm_TimGateArrival.argprom(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @Sfm_TimGateArrival(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   store i32 0, ptr %2, align 4
@@ -1822,9 +1822,9 @@ define internal fastcc void @Sfm_TimGateArrival.argprom(ptr noundef %0, ptr noca
   %.not1 = icmp eq ptr %5, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %Sfm_TimEdgeArrival.argprom.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Sfm_TimEdgeArrival.argprom.exit ], [ 0, %3 ]
-  %.092 = phi ptr [ %36, %Sfm_TimEdgeArrival.argprom.exit ], [ %5, %3 ]
+.lr.ph:                                           ; preds = %3, %Sfm_TimEdgeArrival.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Sfm_TimEdgeArrival.exit ], [ 0, %3 ]
+  %.092 = phi ptr [ %36, %Sfm_TimEdgeArrival.exit ], [ %5, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
@@ -1857,7 +1857,7 @@ define internal fastcc void @Sfm_TimGateArrival.argprom(ptr noundef %0, ptr noca
   %25 = tail call noundef i32 @llvm.smax.i32(i32 %21, i32 %24)
   store i32 %25, ptr %4, align 4
   %.not20.i = icmp eq i32 %8, 2
-  br i1 %.not20.i, label %Sfm_TimEdgeArrival.argprom.exit, label %26
+  br i1 %.not20.i, label %Sfm_TimEdgeArrival.exit, label %26
 
 26:                                               ; preds = %17, %._crit_edge.i
   %27 = phi i32 [ %.pre1.i, %._crit_edge.i ], [ %25, %17 ]
@@ -1871,14 +1871,14 @@ define internal fastcc void @Sfm_TimGateArrival.argprom(ptr noundef %0, ptr noca
   %34 = add nsw i32 %33, %16
   %35 = tail call noundef i32 @llvm.smax.i32(i32 %27, i32 %34)
   store i32 %35, ptr %4, align 4
-  br label %Sfm_TimEdgeArrival.argprom.exit
+  br label %Sfm_TimEdgeArrival.exit
 
-Sfm_TimEdgeArrival.argprom.exit:                  ; preds = %17, %26
+Sfm_TimEdgeArrival.exit:                          ; preds = %17, %26
   %36 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.092) #13
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %Sfm_TimEdgeArrival.argprom.exit, %3
+._crit_edge:                                      ; preds = %Sfm_TimEdgeArrival.exit, %3
   ret void
 }
 

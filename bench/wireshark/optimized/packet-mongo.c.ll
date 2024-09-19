@@ -483,24 +483,24 @@ define internal i32 @dissect_mongo(ptr noundef %0, ptr noundef %1, ptr noundef %
 define internal i32 @dissect_mongo_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #4
   %6 = icmp slt i32 %5, 16
-  br i1 %6, label %test_mongo.argprom.exit.thread, label %test_mongo.argprom.exit
+  br i1 %6, label %test_mongo.exit.thread, label %test_mongo.exit
 
-test_mongo.argprom.exit:                          ; preds = %4
+test_mongo.exit:                                  ; preds = %4
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 12) #4
   %8 = tail call ptr @try_val_to_str(i32 noundef %7, ptr noundef nonnull @opcode_vals) #4
   %.not11 = icmp eq ptr %8, null
-  br i1 %.not11, label %test_mongo.argprom.exit.thread, label %9
+  br i1 %.not11, label %test_mongo.exit.thread, label %9
 
-9:                                                ; preds = %test_mongo.argprom.exit
+9:                                                ; preds = %test_mongo.exit
   %10 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #4
   %11 = load ptr, ptr @mongo_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %10, ptr noundef %11) #4
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 4, ptr noundef nonnull @get_mongo_pdu_len, ptr noundef nonnull @dissect_mongo_pdu, ptr noundef %3) #4
   %12 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %test_mongo.argprom.exit.thread
+  br label %test_mongo.exit.thread
 
-test_mongo.argprom.exit.thread:                   ; preds = %4, %test_mongo.argprom.exit, %9
-  %.0 = phi i32 [ %12, %9 ], [ 0, %test_mongo.argprom.exit ], [ 0, %4 ]
+test_mongo.exit.thread:                           ; preds = %4, %test_mongo.exit, %9
+  %.0 = phi i32 [ %12, %9 ], [ 0, %test_mongo.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

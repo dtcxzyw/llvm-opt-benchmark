@@ -3998,7 +3998,7 @@ define hidden noundef ptr @_ZN11LShiftINode8IdentityEP8PhaseGVN(ptr noundef nonn
   %13 = icmp ne i32 %12, 3
   %.not1.i = icmp eq ptr %10, null
   %.not.i = or i1 %.not1.i, %13
-  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %14
+  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %10, i64 24
@@ -4009,14 +4009,14 @@ define hidden noundef ptr @_ZN11LShiftINode8IdentityEP8PhaseGVN(ptr noundef nonn
   %20 = and i32 %16, 31
   %21 = icmp eq i32 %20, 0
   %or.cond = and i1 %19, %21
-  br i1 %or.cond, label %22, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br i1 %or.cond, label %22, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds i8, ptr %.val3, i64 8
   %24 = load ptr, ptr %23, align 8
-  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread: ; preds = %2, %14, %22
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %2, %14, %22
   %.0 = phi ptr [ %24, %22 ], [ %0, %14 ], [ %0, %2 ]
   ret ptr %.0
 }
@@ -4246,13 +4246,13 @@ _ZN4NodenwEm.exit122:                             ; preds = %118, %120
   %145 = getelementptr inbounds i8, ptr %138, i64 28
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %144, %146
-  br i1 %147, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit, label %.critedge
+  br i1 %147, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit, label %.critedge
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit: ; preds = %142
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit:    ; preds = %142
   %148 = icmp eq i32 %4, %144
   br i1 %148, label %149, label %176
 
-149:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit
+149:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit
   %150 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 1808
@@ -4297,7 +4297,7 @@ _ZN4NodenwEm.exit125:                             ; preds = %165, %167
   store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV8AndINode, i64 16), ptr %.0.i.i.i124, align 8
   br label %.critedge
 
-176:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit
+176:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit
   %177 = add i32 %144, -1
   %or.cond3 = icmp ult i32 %177, 31
   br i1 %or.cond3, label %178, label %.critedge
@@ -4477,7 +4477,7 @@ _ZN4NodenwEm.exit135:                             ; preds = %265, %267
   %282 = load ptr, ptr %281, align 8
   %283 = load ptr, ptr %282, align 8
   %284 = tail call noundef i32 %283(ptr noundef nonnull align 8 dereferenceable(52) %281) #10
-  switch i32 %284, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit145.thread [
+  switch i32 %284, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit145.thread [
     i32 351, label %285
     i32 283, label %285
   ]
@@ -4597,7 +4597,7 @@ _ZN4NodenwEm.exit141:                             ; preds = %339, %341
   %358 = icmp ne i32 %357, 3
   %.not1.i142 = icmp eq ptr %355, null
   %.not.i143 = or i1 %.not1.i142, %358
-  br i1 %.not.i143, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit145.thread, label %359
+  br i1 %.not.i143, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit145.thread, label %359
 
 359:                                              ; preds = %349
   %360 = getelementptr inbounds i8, ptr %355, i64 24
@@ -4608,7 +4608,7 @@ _ZN4NodenwEm.exit141:                             ; preds = %339, %341
   %365 = add i32 %361, -1
   %or.cond7 = icmp ult i32 %365, 31
   %or.cond = and i1 %364, %or.cond7
-  br i1 %or.cond, label %366, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit145.thread
+  br i1 %or.cond, label %366, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit145.thread
 
 366:                                              ; preds = %359
   %367 = getelementptr inbounds i8, ptr %1, i64 24
@@ -4668,9 +4668,9 @@ _ZN4NodenwEm.exit141:                             ; preds = %339, %341
   %398 = getelementptr inbounds i8, ptr %397, i64 32
   %399 = load ptr, ptr %398, align 8
   tail call void %399(ptr noundef nonnull align 8 dereferenceable(2400) %1, ptr noundef nonnull %0) #10
-  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit145.thread
+  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit145.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit145.thread: ; preds = %359, %349, %396, %277
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit145.thread: ; preds = %359, %349, %396, %277
   %400 = sub nsw i32 32, %4
   %401 = zext nneg i32 %400 to i64
   %notmask = shl nsw i64 -1, %401
@@ -4692,7 +4692,7 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit145.thread:
   %417 = icmp eq ptr %415, %416
   br i1 %417, label %418, label %.critedge
 
-418:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit145.thread
+418:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit145.thread
   %419 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #10
   %420 = icmp eq ptr %419, null
   br i1 %420, label %.critedge, label %421
@@ -4710,8 +4710,8 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit145.thread:
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11LShiftINode, i64 16), ptr %419, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %128, %130, %142, %52, %65, %176, %273, %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit145.thread, %418, %421, %388, %394, %_ZN4NodenwEm.exit141, %344, %_ZN4NodenwEm.exit135, %270, %_ZN4NodenwEm.exit132, %235, %_ZN4NodenwEm.exit125, %170, %_ZN4NodenwEm.exit122, %123, %_ZN4NodenwEm.exit, %45, %3
-  %.0 = phi ptr [ null, %3 ], [ %.0.i.i.i, %45 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i121, %123 ], [ null, %_ZN4NodenwEm.exit122 ], [ %.0.i.i.i124, %170 ], [ null, %_ZN4NodenwEm.exit125 ], [ %.0.i.i.i131, %235 ], [ null, %_ZN4NodenwEm.exit132 ], [ %.0.i.i.i134, %270 ], [ null, %_ZN4NodenwEm.exit135 ], [ %.0.i.i.i140, %344 ], [ null, %_ZN4NodenwEm.exit141 ], [ %392, %394 ], [ null, %388 ], [ %419, %421 ], [ null, %418 ], [ null, %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit145.thread ], [ null, %273 ], [ null, %176 ], [ null, %65 ], [ null, %52 ], [ null, %142 ], [ null, %130 ], [ null, %128 ]
+.critedge:                                        ; preds = %128, %130, %142, %52, %65, %176, %273, %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit145.thread, %418, %421, %388, %394, %_ZN4NodenwEm.exit141, %344, %_ZN4NodenwEm.exit135, %270, %_ZN4NodenwEm.exit132, %235, %_ZN4NodenwEm.exit125, %170, %_ZN4NodenwEm.exit122, %123, %_ZN4NodenwEm.exit, %45, %3
+  %.0 = phi ptr [ null, %3 ], [ %.0.i.i.i, %45 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i121, %123 ], [ null, %_ZN4NodenwEm.exit122 ], [ %.0.i.i.i124, %170 ], [ null, %_ZN4NodenwEm.exit125 ], [ %.0.i.i.i131, %235 ], [ null, %_ZN4NodenwEm.exit132 ], [ %.0.i.i.i134, %270 ], [ null, %_ZN4NodenwEm.exit135 ], [ %.0.i.i.i140, %344 ], [ null, %_ZN4NodenwEm.exit141 ], [ %392, %394 ], [ null, %388 ], [ %419, %421 ], [ null, %418 ], [ null, %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit145.thread ], [ null, %273 ], [ null, %176 ], [ null, %65 ], [ null, %52 ], [ null, %142 ], [ null, %130 ], [ null, %128 ]
   ret ptr %.0
 }
 
@@ -4743,15 +4743,15 @@ define internal fastcc noundef range(i32 0, 64) i32 @_ZL15maskShiftAmountP8Phase
   %18 = getelementptr inbounds i8, ptr %11, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %17, %19
-  br i1 %20, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit, label %_ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit
+  br i1 %20, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit, label %_ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit: ; preds = %15
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit:    ; preds = %15
   %21 = add nsw i32 %2, -1
   %22 = and i32 %17, %21
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %_ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit, label %24
 
-24:                                               ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit
+24:                                               ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit
   %.not = icmp eq i32 %17, %22
   br i1 %.not, label %_ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit, label %25
 
@@ -4887,8 +4887,8 @@ _ZN9Node_List4pushEP4Node.exit.i.i:               ; preds = %94, %88
   store ptr %1, ptr %98, align 8
   br label %_ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit
 
-_ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit: ; preds = %3, %15, %_ZN9Node_List4pushEP4Node.exit.i.i, %_ZN9VectorSet8test_setEj.exit.i.i, %24, %_ZN4Node7set_reqEjPS_.exit, %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit
-  %.0 = phi i32 [ 0, %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit ], [ %22, %_ZN4Node7set_reqEjPS_.exit ], [ %17, %24 ], [ %22, %_ZN9VectorSet8test_setEj.exit.i.i ], [ %22, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ 0, %15 ], [ 0, %3 ]
+_ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit: ; preds = %3, %15, %_ZN9Node_List4pushEP4Node.exit.i.i, %_ZN9VectorSet8test_setEj.exit.i.i, %24, %_ZN4Node7set_reqEjPS_.exit, %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit
+  %.0 = phi i32 [ 0, %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit ], [ %22, %_ZN4Node7set_reqEjPS_.exit ], [ %17, %24 ], [ %22, %_ZN9VectorSet8test_setEj.exit.i.i ], [ %22, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ 0, %15 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -5015,7 +5015,7 @@ define hidden noundef ptr @_ZN11LShiftLNode8IdentityEP8PhaseGVN(ptr noundef nonn
   %13 = icmp ne i32 %12, 3
   %.not1.i = icmp eq ptr %10, null
   %.not.i = or i1 %.not1.i, %13
-  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %14
+  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %10, i64 24
@@ -5026,14 +5026,14 @@ define hidden noundef ptr @_ZN11LShiftLNode8IdentityEP8PhaseGVN(ptr noundef nonn
   %20 = and i32 %16, 63
   %21 = icmp eq i32 %20, 0
   %or.cond = and i1 %19, %21
-  br i1 %or.cond, label %22, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br i1 %or.cond, label %22, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds i8, ptr %.val3, i64 8
   %24 = load ptr, ptr %23, align 8
-  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread: ; preds = %2, %14, %22
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %2, %14, %22
   %.0 = phi ptr [ %24, %22 ], [ %0, %14 ], [ %0, %2 ]
   ret ptr %.0
 }
@@ -5273,13 +5273,13 @@ _ZN4NodenwEm.exit120:                             ; preds = %118, %120
   %146 = getelementptr inbounds i8, ptr %139, i64 28
   %147 = load i32, ptr %146, align 4
   %148 = icmp eq i32 %145, %147
-  br i1 %148, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit, label %.critedge
+  br i1 %148, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit, label %.critedge
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit: ; preds = %143
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit:    ; preds = %143
   %149 = icmp eq i32 %4, %145
   br i1 %149, label %150, label %178
 
-150:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit
+150:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit
   %151 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 1808
@@ -5325,7 +5325,7 @@ _ZN4NodenwEm.exit123:                             ; preds = %166, %168
   store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV8AndLNode, i64 16), ptr %.0.i.i.i122, align 8
   br label %.critedge
 
-178:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit
+178:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit
   %179 = add i32 %145, -1
   %or.cond3 = icmp ult i32 %179, 63
   br i1 %or.cond3, label %180, label %.critedge
@@ -5507,7 +5507,7 @@ _ZN4NodenwEm.exit133:                             ; preds = %268, %270
   %286 = load ptr, ptr %285, align 8
   %287 = load ptr, ptr %286, align 8
   %288 = tail call noundef i32 %287(ptr noundef nonnull align 8 dereferenceable(52) %285) #10
-  switch i32 %288, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit143.thread [
+  switch i32 %288, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit143.thread [
     i32 352, label %289
     i32 284, label %289
   ]
@@ -5627,7 +5627,7 @@ _ZN4NodenwEm.exit139:                             ; preds = %343, %345
   %362 = icmp ne i32 %361, 3
   %.not1.i140 = icmp eq ptr %359, null
   %.not.i141 = or i1 %.not1.i140, %362
-  br i1 %.not.i141, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit143.thread, label %363
+  br i1 %.not.i141, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit143.thread, label %363
 
 363:                                              ; preds = %353
   %364 = getelementptr inbounds i8, ptr %359, i64 24
@@ -5638,7 +5638,7 @@ _ZN4NodenwEm.exit139:                             ; preds = %343, %345
   %369 = add i32 %365, -1
   %or.cond7 = icmp ult i32 %369, 63
   %or.cond = and i1 %368, %or.cond7
-  br i1 %or.cond, label %370, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit143.thread
+  br i1 %or.cond, label %370, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit143.thread
 
 370:                                              ; preds = %363
   %371 = getelementptr inbounds i8, ptr %1, i64 24
@@ -5698,9 +5698,9 @@ _ZN4NodenwEm.exit139:                             ; preds = %343, %345
   %402 = getelementptr inbounds i8, ptr %401, i64 32
   %403 = load ptr, ptr %402, align 8
   tail call void %403(ptr noundef nonnull align 8 dereferenceable(2400) %1, ptr noundef nonnull %0) #10
-  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit143.thread
+  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit143.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit143.thread: ; preds = %363, %353, %400, %281
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit143.thread: ; preds = %363, %353, %400, %281
   %404 = zext nneg i32 %4 to i64
   %405 = lshr i64 -1, %404
   %406 = load ptr, ptr %282, align 8
@@ -5719,7 +5719,7 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit143.thread:
   %419 = icmp eq ptr %417, %418
   br i1 %419, label %420, label %.critedge
 
-420:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit143.thread
+420:                                              ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit143.thread
   %421 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #10
   %422 = icmp eq ptr %421, null
   br i1 %422, label %.critedge, label %423
@@ -5737,8 +5737,8 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit143.thread:
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11LShiftLNode, i64 16), ptr %421, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %129, %131, %143, %65, %50, %178, %277, %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit143.thread, %420, %423, %392, %398, %_ZN4NodenwEm.exit139, %348, %_ZN4NodenwEm.exit133, %273, %_ZN4NodenwEm.exit130, %237, %_ZN4NodenwEm.exit123, %171, %_ZN4NodenwEm.exit120, %123, %_ZN4NodenwEm.exit, %43, %3
-  %.0 = phi ptr [ null, %3 ], [ %.0.i.i.i, %43 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i119, %123 ], [ null, %_ZN4NodenwEm.exit120 ], [ %.0.i.i.i122, %171 ], [ null, %_ZN4NodenwEm.exit123 ], [ %.0.i.i.i129, %237 ], [ null, %_ZN4NodenwEm.exit130 ], [ %.0.i.i.i132, %273 ], [ null, %_ZN4NodenwEm.exit133 ], [ %.0.i.i.i138, %348 ], [ null, %_ZN4NodenwEm.exit139 ], [ %396, %398 ], [ null, %392 ], [ %421, %423 ], [ null, %420 ], [ null, %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit143.thread ], [ null, %277 ], [ null, %178 ], [ null, %50 ], [ null, %65 ], [ null, %143 ], [ null, %131 ], [ null, %129 ]
+.critedge:                                        ; preds = %129, %131, %143, %65, %50, %178, %277, %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit143.thread, %420, %423, %392, %398, %_ZN4NodenwEm.exit139, %348, %_ZN4NodenwEm.exit133, %273, %_ZN4NodenwEm.exit130, %237, %_ZN4NodenwEm.exit123, %171, %_ZN4NodenwEm.exit120, %123, %_ZN4NodenwEm.exit, %43, %3
+  %.0 = phi ptr [ null, %3 ], [ %.0.i.i.i, %43 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i119, %123 ], [ null, %_ZN4NodenwEm.exit120 ], [ %.0.i.i.i122, %171 ], [ null, %_ZN4NodenwEm.exit123 ], [ %.0.i.i.i129, %237 ], [ null, %_ZN4NodenwEm.exit130 ], [ %.0.i.i.i132, %273 ], [ null, %_ZN4NodenwEm.exit133 ], [ %.0.i.i.i138, %348 ], [ null, %_ZN4NodenwEm.exit139 ], [ %396, %398 ], [ null, %392 ], [ %421, %423 ], [ null, %420 ], [ null, %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit143.thread ], [ null, %277 ], [ null, %178 ], [ null, %50 ], [ null, %65 ], [ null, %143 ], [ null, %131 ], [ null, %129 ]
   ret ptr %.0
 }
 
@@ -5868,7 +5868,7 @@ define hidden noundef ptr @_ZN11RShiftINode8IdentityEP8PhaseGVN(ptr noundef nonn
   %13 = icmp ne i32 %12, 3
   %.not1.i = icmp eq ptr %10, null
   %.not.i = or i1 %.not1.i, %13
-  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %14
+  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %10, i64 24
@@ -5876,21 +5876,21 @@ define hidden noundef ptr @_ZN11RShiftINode8IdentityEP8PhaseGVN(ptr noundef nonn
   %17 = getelementptr inbounds i8, ptr %10, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %16, %18
-  br i1 %19, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br i1 %19, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit: ; preds = %14
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit:    ; preds = %14
   %20 = and i32 %16, 31
   %21 = icmp eq i32 %20, 0
   %22 = getelementptr inbounds i8, ptr %.val11, i64 8
   %23 = load ptr, ptr %22, align 8
-  br i1 %21, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %24
+  br i1 %21, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %24
 
-24:                                               ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit
+24:                                               ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit
   %25 = load ptr, ptr %23, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(52) %23) #10
   %28 = icmp eq i32 %27, 185
-  br i1 %28, label %29, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br i1 %28, label %29, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %4, align 8
@@ -5899,7 +5899,7 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit: ; preds =
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 3
-  br i1 %35, label %36, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br i1 %35, label %36, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds i8, ptr %32, i64 8
@@ -5909,7 +5909,7 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit: ; preds =
   %41 = getelementptr inbounds i8, ptr %30, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %40, %42
-  br i1 %43, label %44, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br i1 %43, label %44, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
 44:                                               ; preds = %36
   %45 = xor i32 %20, 31
@@ -5930,23 +5930,23 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit: ; preds =
   %60 = icmp ne i32 %59, 3
   %61 = icmp eq ptr %57, null
   %62 = or i1 %61, %60
-  br i1 %62, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %63
+  br i1 %62, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %63
 
 63:                                               ; preds = %44
   %64 = getelementptr inbounds i8, ptr %57, i64 24
   %65 = load i32, ptr %64, align 8
   %.not = icmp sgt i32 %46, %65
-  br i1 %.not, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %66
+  br i1 %.not, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %66
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds i8, ptr %57, i64 28
   %68 = load i32, ptr %67, align 4
   %.not10 = icmp sgt i32 %68, %47
   %spec.select = select i1 %.not10, ptr %0, ptr %49
-  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread: ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit, %66, %2, %14, %63, %36, %29, %24, %44
-  %.0 = phi ptr [ %0, %44 ], [ %0, %24 ], [ %0, %29 ], [ %0, %36 ], [ %0, %63 ], [ %0, %14 ], [ %0, %2 ], [ %spec.select, %66 ], [ %23, %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit ]
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit, %66, %2, %14, %63, %36, %29, %24, %44
+  %.0 = phi ptr [ %0, %44 ], [ %0, %24 ], [ %0, %29 ], [ %0, %36 ], [ %0, %63 ], [ %0, %14 ], [ %0, %2 ], [ %spec.select, %66 ], [ %23, %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit ]
   ret ptr %.0
 }
 
@@ -6563,7 +6563,7 @@ define hidden noundef ptr @_ZN12URShiftINode8IdentityEP8PhaseGVN(ptr noundef non
   %13 = icmp ne i32 %12, 3
   %.not1.i = icmp eq ptr %10, null
   %.not.i = or i1 %.not1.i, %13
-  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %14
+  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %10, i64 24
@@ -6574,9 +6574,9 @@ define hidden noundef ptr @_ZN12URShiftINode8IdentityEP8PhaseGVN(ptr noundef non
   %20 = and i32 %16, 31
   %21 = icmp eq i32 %20, 0
   %or.cond = and i1 %19, %21
-  br i1 %or.cond, label %.sink.split, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br i1 %or.cond, label %.sink.split, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread: ; preds = %2, %14
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %2, %14
   %22 = getelementptr inbounds i8, ptr %.val29, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
@@ -6586,7 +6586,7 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread: ; 
   %.pre39 = load ptr, ptr %3, align 8
   br i1 %27, label %28, label %113
 
-28:                                               ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+28:                                               ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
   %29 = getelementptr inbounds i8, ptr %23, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 16
@@ -6696,8 +6696,8 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread: ; 
   %112 = icmp slt i32 %111, 268435456
   br i1 %112, label %136, label %113
 
-113:                                              ; preds = %28, %43, %51, %94, %105, %109, %84, %76, %58, %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
-  %114 = phi ptr [ %.pre39, %28 ], [ %.pre39, %43 ], [ %.pre, %51 ], [ %.pre, %94 ], [ %.pre, %105 ], [ %.pre, %109 ], [ %.pre, %84 ], [ %.pre, %76 ], [ %.pre, %58 ], [ %.pre39, %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread ]
+113:                                              ; preds = %28, %43, %51, %94, %105, %109, %84, %76, %58, %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
+  %114 = phi ptr [ %.pre39, %28 ], [ %.pre39, %43 ], [ %.pre, %51 ], [ %.pre, %94 ], [ %.pre, %105 ], [ %.pre, %109 ], [ %.pre, %84 ], [ %.pre, %76 ], [ %.pre, %58 ], [ %.pre39, %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread ]
   %115 = load ptr, ptr %4, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8
@@ -7399,7 +7399,7 @@ define hidden noundef ptr @_ZN12URShiftLNode8IdentityEP8PhaseGVN(ptr noundef non
   %13 = icmp ne i32 %12, 3
   %.not1.i = icmp eq ptr %10, null
   %.not.i = or i1 %.not1.i, %13
-  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %14
+  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %10, i64 24
@@ -7410,14 +7410,14 @@ define hidden noundef ptr @_ZN12URShiftLNode8IdentityEP8PhaseGVN(ptr noundef non
   %20 = and i32 %16, 63
   %21 = icmp eq i32 %20, 0
   %or.cond = and i1 %19, %21
-  br i1 %or.cond, label %22, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br i1 %or.cond, label %22, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds i8, ptr %.val3, i64 8
   %24 = load ptr, ptr %23, align 8
-  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread: ; preds = %2, %14, %22
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %2, %14, %22
   %.0 = phi ptr [ %24, %22 ], [ %0, %14 ], [ %0, %2 ]
   ret ptr %.0
 }
@@ -8280,7 +8280,7 @@ define hidden noundef ptr @_ZN14RotateLeftNode8IdentityEP8PhaseGVN(ptr noundef n
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @_ZN4Type3TOPE, align 8
   %17 = icmp eq ptr %15, %16
-  br i1 %17, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %18
+  br i1 %17, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds i8, ptr %15, i64 16
@@ -8298,7 +8298,7 @@ define hidden noundef ptr @_ZN14RotateLeftNode8IdentityEP8PhaseGVN(ptr noundef n
   %28 = icmp ne i32 %27, 3
   %.not1.i = icmp eq ptr %25, null
   %.not.i = or i1 %.not1.i, %28
-  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %29
+  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %29
 
 29:                                               ; preds = %18
   %30 = getelementptr inbounds i8, ptr %25, i64 24
@@ -8306,17 +8306,17 @@ define hidden noundef ptr @_ZN14RotateLeftNode8IdentityEP8PhaseGVN(ptr noundef n
   %32 = getelementptr inbounds i8, ptr %25, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %31, %33
-  br i1 %34, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br i1 %34, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit: ; preds = %29
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit:    ; preds = %29
   %35 = select i1 %.not, i32 31, i32 63
   %36 = and i32 %31, %35
   %37 = icmp eq i32 %36, 0
   %spec.select = select i1 %37, ptr %6, ptr %0
-  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread: ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit, %18, %29, %2
-  %.0 = phi ptr [ %0, %2 ], [ %0, %29 ], [ %0, %18 ], [ %spec.select, %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit ]
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit, %18, %29, %2
+  %.0 = phi ptr [ %0, %2 ], [ %0, %29 ], [ %0, %18 ], [ %spec.select, %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit ]
   ret ptr %.0
 }
 
@@ -8741,7 +8741,7 @@ define hidden noundef ptr @_ZN15RotateRightNode8IdentityEP8PhaseGVN(ptr noundef 
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @_ZN4Type3TOPE, align 8
   %17 = icmp eq ptr %15, %16
-  br i1 %17, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %18
+  br i1 %17, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds i8, ptr %15, i64 16
@@ -8759,7 +8759,7 @@ define hidden noundef ptr @_ZN15RotateRightNode8IdentityEP8PhaseGVN(ptr noundef 
   %28 = icmp ne i32 %27, 3
   %.not1.i = icmp eq ptr %25, null
   %.not.i = or i1 %.not1.i, %28
-  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread, label %29
+  br i1 %.not.i, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread, label %29
 
 29:                                               ; preds = %18
   %30 = getelementptr inbounds i8, ptr %25, i64 24
@@ -8767,17 +8767,17 @@ define hidden noundef ptr @_ZN15RotateRightNode8IdentityEP8PhaseGVN(ptr noundef 
   %32 = getelementptr inbounds i8, ptr %25, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %31, %33
-  br i1 %34, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br i1 %34, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit, label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit: ; preds = %29
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit:    ; preds = %29
   %35 = select i1 %.not, i32 31, i32 63
   %36 = and i32 %31, %35
   %37 = icmp eq i32 %36, 0
   %spec.select = select i1 %37, ptr %6, ptr %0
-  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread
+  br label %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread
 
-_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit.thread: ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit, %18, %29, %2
-  %.0 = phi ptr [ %0, %2 ], [ %0, %29 ], [ %0, %18 ], [ %spec.select, %_ZL17const_shift_countP8PhaseGVNP4NodePi.argprom.argprom.argprom.exit ]
+_ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit, %18, %29, %2
+  %.0 = phi ptr [ %0, %2 ], [ %0, %29 ], [ %0, %18 ], [ %spec.select, %_ZL17const_shift_countP8PhaseGVNP4NodePi.exit ]
   ret ptr %.0
 }
 

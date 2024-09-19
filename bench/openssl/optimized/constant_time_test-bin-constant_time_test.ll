@@ -305,18 +305,18 @@ land.lhs.true4.i70:                               ; preds = %lor.lhs.false21
 land.lhs.true.i76:                                ; preds = %land.lhs.true.i65
   %call1.i77 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %shr.neg.i.i.i, i32 noundef -1) #2
   %tobool2.not.i78 = icmp eq i32 %call1.i77, 0
-  br i1 %tobool2.not.i78, label %test_binary_op.argprom.exit84.thread, label %for.inc
+  br i1 %tobool2.not.i78, label %test_binary_op.exit84.thread, label %for.inc
 
 land.lhs.true4.i81:                               ; preds = %land.lhs.true4.i70
   %call6.i82 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %shr.neg.i.i.i, i32 noundef 0) #2
   %tobool7.not.i83 = icmp eq i32 %call6.i82, 0
-  br i1 %tobool7.not.i83, label %test_binary_op.argprom.exit84.thread, label %for.inc
+  br i1 %tobool7.not.i83, label %test_binary_op.exit84.thread, label %for.inc
 
-test_binary_op.argprom.exit84.thread:             ; preds = %land.lhs.true.i76, %land.lhs.true4.i81
+test_binary_op.exit84.thread:                     ; preds = %land.lhs.true.i76, %land.lhs.true4.i81
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true4.i70, %land.lhs.true.i65, %land.lhs.true4.i59, %land.lhs.true.i54, %land.lhs.true4.i48, %land.lhs.true.i43, %land.lhs.true4.i37, %land.lhs.true.i32, %land.lhs.true4.i, %land.lhs.true.i, %for.body, %test_select.exit, %test_binary_op.argprom.exit84.thread, %land.lhs.true4.i81, %land.lhs.true.i76
-  %ret.1 = phi i32 [ %ret.0114, %land.lhs.true.i76 ], [ %ret.0114, %land.lhs.true4.i81 ], [ 0, %test_binary_op.argprom.exit84.thread ], [ 0, %test_select.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i32 ], [ 0, %land.lhs.true4.i37 ], [ 0, %land.lhs.true.i43 ], [ 0, %land.lhs.true4.i48 ], [ 0, %land.lhs.true.i54 ], [ 0, %land.lhs.true4.i59 ], [ 0, %land.lhs.true.i65 ], [ 0, %land.lhs.true4.i70 ]
+for.inc:                                          ; preds = %land.lhs.true4.i70, %land.lhs.true.i65, %land.lhs.true4.i59, %land.lhs.true.i54, %land.lhs.true4.i48, %land.lhs.true.i43, %land.lhs.true4.i37, %land.lhs.true.i32, %land.lhs.true4.i, %land.lhs.true.i, %for.body, %test_select.exit, %test_binary_op.exit84.thread, %land.lhs.true4.i81, %land.lhs.true.i76
+  %ret.1 = phi i32 [ %ret.0114, %land.lhs.true.i76 ], [ %ret.0114, %land.lhs.true4.i81 ], [ 0, %test_binary_op.exit84.thread ], [ 0, %test_select.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i32 ], [ 0, %land.lhs.true4.i37 ], [ 0, %land.lhs.true.i43 ], [ 0, %land.lhs.true4.i48 ], [ 0, %land.lhs.true.i54 ], [ 0, %land.lhs.true4.i59 ], [ 0, %land.lhs.true.i65 ], [ 0, %land.lhs.true4.i70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -414,18 +414,18 @@ land.lhs.true4.i69:                               ; preds = %lor.lhs.false21
 land.lhs.true.i76:                                ; preds = %land.lhs.true.i64
   %call1.i77 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.19, i32 noundef 255, i32 noundef 255) #2
   %tobool2.not.i78 = icmp eq i32 %call1.i77, 0
-  br i1 %tobool2.not.i78, label %test_binary_op_8.argprom.exit84.thread, label %for.inc
+  br i1 %tobool2.not.i78, label %test_binary_op_8.exit84.thread, label %for.inc
 
 land.lhs.true4.i81:                               ; preds = %land.lhs.true4.i69
   %call7.i82 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 79, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0) #2
   %tobool8.not.i83 = icmp eq i32 %call7.i82, 0
-  br i1 %tobool8.not.i83, label %test_binary_op_8.argprom.exit84.thread, label %for.inc
+  br i1 %tobool8.not.i83, label %test_binary_op_8.exit84.thread, label %for.inc
 
-test_binary_op_8.argprom.exit84.thread:           ; preds = %land.lhs.true.i76, %land.lhs.true4.i81
+test_binary_op_8.exit84.thread:                   ; preds = %land.lhs.true.i76, %land.lhs.true4.i81
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true4.i69, %land.lhs.true.i64, %land.lhs.true4.i57, %land.lhs.true.i52, %land.lhs.true4.i45, %land.lhs.true.i40, %land.lhs.true4.i33, %land.lhs.true.i28, %land.lhs.true4.i, %land.lhs.true.i, %test_binary_op_8.argprom.exit84.thread, %land.lhs.true4.i81, %land.lhs.true.i76
-  %ret.1 = phi i32 [ %ret.0115, %land.lhs.true.i76 ], [ %ret.0115, %land.lhs.true4.i81 ], [ 0, %test_binary_op_8.argprom.exit84.thread ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i28 ], [ 0, %land.lhs.true4.i33 ], [ 0, %land.lhs.true.i40 ], [ 0, %land.lhs.true4.i45 ], [ 0, %land.lhs.true.i52 ], [ 0, %land.lhs.true4.i57 ], [ 0, %land.lhs.true.i64 ], [ 0, %land.lhs.true4.i69 ]
+for.inc:                                          ; preds = %land.lhs.true4.i69, %land.lhs.true.i64, %land.lhs.true4.i57, %land.lhs.true.i52, %land.lhs.true4.i45, %land.lhs.true.i40, %land.lhs.true4.i33, %land.lhs.true.i28, %land.lhs.true4.i, %land.lhs.true.i, %test_binary_op_8.exit84.thread, %land.lhs.true4.i81, %land.lhs.true.i76
+  %ret.1 = phi i32 [ %ret.0115, %land.lhs.true.i76 ], [ %ret.0115, %land.lhs.true4.i81 ], [ 0, %test_binary_op_8.exit84.thread ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i28 ], [ 0, %land.lhs.true4.i33 ], [ 0, %land.lhs.true.i40 ], [ 0, %land.lhs.true4.i45 ], [ 0, %land.lhs.true.i52 ], [ 0, %land.lhs.true4.i57 ], [ 0, %land.lhs.true.i64 ], [ 0, %land.lhs.true4.i69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
@@ -572,18 +572,18 @@ land.lhs.true4.i82:                               ; preds = %lor.lhs.false24
 land.lhs.true.i89:                                ; preds = %land.lhs.true.i77
   %call1.i90 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %shr.neg.i.i.i, i64 noundef -1) #2
   %tobool2.not.i91 = icmp eq i32 %call1.i90, 0
-  br i1 %tobool2.not.i91, label %test_binary_op_s.argprom.exit98.thread, label %for.inc
+  br i1 %tobool2.not.i91, label %test_binary_op_s.exit98.thread, label %for.inc
 
 land.lhs.true4.i94:                               ; preds = %land.lhs.true4.i82
   %call6.i96 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef 0, i32 noundef 0) #2
   %tobool7.not.i97 = icmp eq i32 %call6.i96, 0
-  br i1 %tobool7.not.i97, label %test_binary_op_s.argprom.exit98.thread, label %for.inc
+  br i1 %tobool7.not.i97, label %test_binary_op_s.exit98.thread, label %for.inc
 
-test_binary_op_s.argprom.exit98.thread:           ; preds = %land.lhs.true.i89, %land.lhs.true4.i94
+test_binary_op_s.exit98.thread:                   ; preds = %land.lhs.true.i89, %land.lhs.true4.i94
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true4.i82, %land.lhs.true.i77, %land.lhs.true4.i70, %land.lhs.true.i65, %land.lhs.true4.i58, %land.lhs.true.i53, %land.lhs.true4.i46, %land.lhs.true.i41, %land.lhs.true4.i, %land.lhs.true.i33, %land.lhs.true3.i, %land.lhs.true.i, %for.body, %test_select_s.exit, %test_binary_op_s.argprom.exit98.thread, %land.lhs.true4.i94, %land.lhs.true.i89
-  %ret.1 = phi i32 [ %ret.0130, %land.lhs.true.i89 ], [ %ret.0130, %land.lhs.true4.i94 ], [ 0, %test_binary_op_s.argprom.exit98.thread ], [ 0, %test_select_s.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true3.i ], [ 0, %land.lhs.true.i33 ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i41 ], [ 0, %land.lhs.true4.i46 ], [ 0, %land.lhs.true.i53 ], [ 0, %land.lhs.true4.i58 ], [ 0, %land.lhs.true.i65 ], [ 0, %land.lhs.true4.i70 ], [ 0, %land.lhs.true.i77 ], [ 0, %land.lhs.true4.i82 ]
+for.inc:                                          ; preds = %land.lhs.true4.i82, %land.lhs.true.i77, %land.lhs.true4.i70, %land.lhs.true.i65, %land.lhs.true4.i58, %land.lhs.true.i53, %land.lhs.true4.i46, %land.lhs.true.i41, %land.lhs.true4.i, %land.lhs.true.i33, %land.lhs.true3.i, %land.lhs.true.i, %for.body, %test_select_s.exit, %test_binary_op_s.exit98.thread, %land.lhs.true4.i94, %land.lhs.true.i89
+  %ret.1 = phi i32 [ %ret.0130, %land.lhs.true.i89 ], [ %ret.0130, %land.lhs.true4.i94 ], [ 0, %test_binary_op_s.exit98.thread ], [ 0, %test_select_s.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true3.i ], [ 0, %land.lhs.true.i33 ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i41 ], [ 0, %land.lhs.true4.i46 ], [ 0, %land.lhs.true.i53 ], [ 0, %land.lhs.true4.i58 ], [ 0, %land.lhs.true.i65 ], [ 0, %land.lhs.true4.i70 ], [ 0, %land.lhs.true.i77 ], [ 0, %land.lhs.true4.i82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
@@ -782,7 +782,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then.i:                                        ; preds = %for.body
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.12, i32 noundef 102, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52) #2
-  br label %test_binary_op_64.argprom.exit.thread
+  br label %test_binary_op_64.exit.thread
 
 if.else.i:                                        ; preds = %for.body
   %or.cond8.not.i = and i1 %cmp3, %cmp.not.i
@@ -790,9 +790,9 @@ if.else.i:                                        ; preds = %for.body
 
 if.then5.i:                                       ; preds = %if.else.i
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.12, i32 noundef 106, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.52) #2
-  br label %test_binary_op_64.argprom.exit.thread
+  br label %test_binary_op_64.exit.thread
 
-test_binary_op_64.argprom.exit.thread:            ; preds = %if.then.i, %if.then5.i
+test_binary_op_64.exit.thread:                    ; preds = %if.then.i, %if.then5.i
   %2 = load ptr, ptr @bio_err, align 8
   %call6.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.55, i64 noundef %0, i64 noundef %1) #2
   br label %if.then
@@ -824,7 +824,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %call5.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.59, i64 noundef %0, i64 noundef %1, i64 noundef %or.i14.i) #2
   br label %if.then
 
-if.then:                                          ; preds = %if.then4.i, %if.then.i12, %test_binary_op_64.argprom.exit.thread
+if.then:                                          ; preds = %if.then4.i, %if.then.i12, %test_binary_op_64.exit.thread
   %7 = trunc nsw i64 %indvars.iv.next to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.12, i32 noundef 392, ptr noundef nonnull @.str.53, i32 noundef %i, i32 noundef %7) #2
   br label %for.inc

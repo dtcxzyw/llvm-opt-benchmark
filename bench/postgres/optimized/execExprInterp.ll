@@ -340,13 +340,13 @@ define internal i64 @ExecJustInnerVar(ptr nocapture noundef readonly %0, ptr noc
   %10 = load i16, ptr %9, align 2
   %11 = sext i16 %10 to i32
   %12 = icmp sgt i32 %8, %11
-  br i1 %12, label %slot_getsomeattrs.exit.i.i, label %ExecJustVarImpl.argprom.argprom.exit
+  br i1 %12, label %slot_getsomeattrs.exit.i.i, label %ExecJustVarImpl.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %3
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %5, i32 noundef %8) #15
-  br label %ExecJustVarImpl.argprom.argprom.exit
+  br label %ExecJustVarImpl.exit
 
-ExecJustVarImpl.argprom.argprom.exit:             ; preds = %3, %slot_getsomeattrs.exit.i.i
+ExecJustVarImpl.exit:                             ; preds = %3, %slot_getsomeattrs.exit.i.i
   %13 = getelementptr inbounds i8, ptr %5, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %.val.val to i64
@@ -374,13 +374,13 @@ define internal i64 @ExecJustOuterVar(ptr nocapture noundef readonly %0, ptr noc
   %10 = load i16, ptr %9, align 2
   %11 = sext i16 %10 to i32
   %12 = icmp sgt i32 %8, %11
-  br i1 %12, label %slot_getsomeattrs.exit.i.i, label %ExecJustVarImpl.argprom.argprom.exit
+  br i1 %12, label %slot_getsomeattrs.exit.i.i, label %ExecJustVarImpl.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %3
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %5, i32 noundef %8) #15
-  br label %ExecJustVarImpl.argprom.argprom.exit
+  br label %ExecJustVarImpl.exit
 
-ExecJustVarImpl.argprom.argprom.exit:             ; preds = %3, %slot_getsomeattrs.exit.i.i
+ExecJustVarImpl.exit:                             ; preds = %3, %slot_getsomeattrs.exit.i.i
   %13 = getelementptr inbounds i8, ptr %5, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %.val.val to i64
@@ -408,13 +408,13 @@ define internal i64 @ExecJustScanVar(ptr nocapture noundef readonly %0, ptr noca
   %10 = load i16, ptr %9, align 2
   %11 = sext i16 %10 to i32
   %12 = icmp sgt i32 %8, %11
-  br i1 %12, label %slot_getsomeattrs.exit.i.i, label %ExecJustVarImpl.argprom.argprom.exit
+  br i1 %12, label %slot_getsomeattrs.exit.i.i, label %ExecJustVarImpl.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %3
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %5, i32 noundef %8) #15
-  br label %ExecJustVarImpl.argprom.argprom.exit
+  br label %ExecJustVarImpl.exit
 
-ExecJustVarImpl.argprom.argprom.exit:             ; preds = %3, %slot_getsomeattrs.exit.i.i
+ExecJustVarImpl.exit:                             ; preds = %3, %slot_getsomeattrs.exit.i.i
   %13 = getelementptr inbounds i8, ptr %5, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %.val.val to i64
@@ -448,13 +448,13 @@ define internal noundef i64 @ExecJustAssignInnerVar(ptr nocapture noundef readon
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i32
   %16 = icmp sgt i32 %10, %15
-  br i1 %16, label %slot_getsomeattrs.exit.i.i, label %ExecJustAssignVarImpl.argprom.argprom.exit
+  br i1 %16, label %slot_getsomeattrs.exit.i.i, label %ExecJustAssignVarImpl.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %3
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %5, i32 noundef %10) #15
-  br label %ExecJustAssignVarImpl.argprom.argprom.exit
+  br label %ExecJustAssignVarImpl.exit
 
-ExecJustAssignVarImpl.argprom.argprom.exit:       ; preds = %3, %slot_getsomeattrs.exit.i.i
+ExecJustAssignVarImpl.exit:                       ; preds = %3, %slot_getsomeattrs.exit.i.i
   %17 = sext i32 %.val3.val to i64
   %18 = getelementptr i8, ptr %12, i64 %17
   %19 = getelementptr inbounds i8, ptr %5, i64 32
@@ -494,13 +494,13 @@ define internal noundef i64 @ExecJustAssignOuterVar(ptr nocapture noundef readon
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i32
   %16 = icmp sgt i32 %10, %15
-  br i1 %16, label %slot_getsomeattrs.exit.i.i, label %ExecJustAssignVarImpl.argprom.argprom.exit
+  br i1 %16, label %slot_getsomeattrs.exit.i.i, label %ExecJustAssignVarImpl.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %3
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %5, i32 noundef %10) #15
-  br label %ExecJustAssignVarImpl.argprom.argprom.exit
+  br label %ExecJustAssignVarImpl.exit
 
-ExecJustAssignVarImpl.argprom.argprom.exit:       ; preds = %3, %slot_getsomeattrs.exit.i.i
+ExecJustAssignVarImpl.exit:                       ; preds = %3, %slot_getsomeattrs.exit.i.i
   %17 = sext i32 %.val3.val to i64
   %18 = getelementptr i8, ptr %12, i64 %17
   %19 = getelementptr inbounds i8, ptr %5, i64 32
@@ -540,13 +540,13 @@ define internal noundef i64 @ExecJustAssignScanVar(ptr nocapture noundef readonl
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i32
   %16 = icmp sgt i32 %10, %15
-  br i1 %16, label %slot_getsomeattrs.exit.i.i, label %ExecJustAssignVarImpl.argprom.argprom.exit
+  br i1 %16, label %slot_getsomeattrs.exit.i.i, label %ExecJustAssignVarImpl.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %3
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %5, i32 noundef %10) #15
-  br label %ExecJustAssignVarImpl.argprom.argprom.exit
+  br label %ExecJustAssignVarImpl.exit
 
-ExecJustAssignVarImpl.argprom.argprom.exit:       ; preds = %3, %slot_getsomeattrs.exit.i.i
+ExecJustAssignVarImpl.exit:                       ; preds = %3, %slot_getsomeattrs.exit.i.i
   %17 = sext i32 %.val3.val to i64
   %18 = getelementptr i8, ptr %12, i64 %17
   %19 = getelementptr inbounds i8, ptr %5, i64 32
@@ -4225,7 +4225,7 @@ define dso_local void @ExecEvalRowNull(ptr nocapture noundef readnone %0, ptr no
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   store i8 0, ptr %9, align 1
-  br i1 %11, label %ExecEvalRowNullInt.argprom.exit, label %12
+  br i1 %11, label %ExecEvalRowNullInt.exit, label %12
 
 12:                                               ; preds = %3
   %13 = inttoptr i64 %7 to ptr
@@ -4243,7 +4243,7 @@ define dso_local void @ExecEvalRowNull(ptr nocapture noundef readnone %0, ptr no
   store ptr %14, ptr %23, align 8
   %24 = load i32, ptr %20, align 8
   %.not1.i = icmp slt i32 %24, 1
-  br i1 %.not1.i, label %ExecEvalRowNullInt.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %ExecEvalRowNullInt.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12
   %25 = getelementptr inbounds i8, ptr %20, i64 24
@@ -4261,7 +4261,7 @@ define dso_local void @ExecEvalRowNull(ptr nocapture noundef readnone %0, ptr no
 
 32:                                               ; preds = %.lr.ph.split.us.split.i
   %33 = call zeroext i1 @heap_attisnull(ptr noundef nonnull %4, i32 noundef %.02.us.i, ptr noundef nonnull %20) #15
-  br i1 %33, label %._crit_edge7.i, label %ExecEvalRowNullInt.argprom.exit
+  br i1 %33, label %._crit_edge7.i, label %ExecEvalRowNullInt.exit
 
 ._crit_edge7.i:                                   ; preds = %32
   %.pre8.i = load i32, ptr %20, align 8
@@ -4271,9 +4271,9 @@ define dso_local void @ExecEvalRowNull(ptr nocapture noundef readnone %0, ptr no
   %35 = phi i32 [ %.pre8.i, %._crit_edge7.i ], [ %26, %.lr.ph.split.us.split.i ]
   %36 = add i32 %.02.us.i, 1
   %.not.us.i = icmp sgt i32 %36, %35
-  br i1 %.not.us.i, label %ExecEvalRowNullInt.argprom.exit, label %.lr.ph.split.us.split.i, !llvm.loop !12
+  br i1 %.not.us.i, label %ExecEvalRowNullInt.exit, label %.lr.ph.split.us.split.i, !llvm.loop !12
 
-ExecEvalRowNullInt.argprom.exit:                  ; preds = %32, %34, %3, %12
+ExecEvalRowNullInt.exit:                          ; preds = %32, %34, %3, %12
   %.sink.i = phi i64 [ 1, %12 ], [ 1, %3 ], [ 1, %34 ], [ 0, %32 ]
   %37 = load ptr, ptr %5, align 8
   store i64 %.sink.i, ptr %37, align 8
@@ -4293,7 +4293,7 @@ define dso_local void @ExecEvalRowNotNull(ptr nocapture noundef readnone %0, ptr
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   store i8 0, ptr %9, align 1
-  br i1 %11, label %ExecEvalRowNullInt.argprom.exit, label %12
+  br i1 %11, label %ExecEvalRowNullInt.exit, label %12
 
 12:                                               ; preds = %3
   %13 = inttoptr i64 %7 to ptr
@@ -4311,7 +4311,7 @@ define dso_local void @ExecEvalRowNotNull(ptr nocapture noundef readnone %0, ptr
   store ptr %14, ptr %23, align 8
   %24 = load i32, ptr %20, align 8
   %.not1.i = icmp slt i32 %24, 1
-  br i1 %.not1.i, label %ExecEvalRowNullInt.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %ExecEvalRowNullInt.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12
   %25 = getelementptr inbounds i8, ptr %20, i64 24
@@ -4329,7 +4329,7 @@ define dso_local void @ExecEvalRowNotNull(ptr nocapture noundef readnone %0, ptr
 
 32:                                               ; preds = %.lr.ph.split.i
   %33 = call zeroext i1 @heap_attisnull(ptr noundef nonnull %4, i32 noundef %.02.i, ptr noundef nonnull %20) #15
-  br i1 %33, label %ExecEvalRowNullInt.argprom.exit, label %._crit_edge6.i
+  br i1 %33, label %ExecEvalRowNullInt.exit, label %._crit_edge6.i
 
 ._crit_edge6.i:                                   ; preds = %32
   %.pre.i = load i32, ptr %20, align 8
@@ -4339,9 +4339,9 @@ define dso_local void @ExecEvalRowNotNull(ptr nocapture noundef readnone %0, ptr
   %35 = phi i32 [ %.pre.i, %._crit_edge6.i ], [ %26, %.lr.ph.split.i ]
   %36 = add i32 %.02.i, 1
   %.not.i = icmp sgt i32 %36, %35
-  br i1 %.not.i, label %ExecEvalRowNullInt.argprom.exit, label %.lr.ph.split.i, !llvm.loop !12
+  br i1 %.not.i, label %ExecEvalRowNullInt.exit, label %.lr.ph.split.i, !llvm.loop !12
 
-ExecEvalRowNullInt.argprom.exit:                  ; preds = %32, %34, %3, %12
+ExecEvalRowNullInt.exit:                          ; preds = %32, %34, %3, %12
   %.sink.i = phi i64 [ 1, %12 ], [ 0, %3 ], [ 1, %34 ], [ 0, %32 ]
   %37 = load ptr, ptr %5, align 8
   store i64 %.sink.i, ptr %37, align 8

@@ -4822,11 +4822,11 @@ _ZNSt10shared_ptrIN2cv5gimpl4TaskEEC2ERKS3_.exit17: ; preds = %_ZNSt10shared_ptr
 56:                                               ; preds = %53
   %57 = load ptr, ptr %24, align 8
   %.not.i.i18 = icmp eq ptr %57, null
-  br i1 %.not.i.i18, label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom.exit", label %58
+  br i1 %.not.i.i18, label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.exit", label %58
 
 58:                                               ; preds = %56
   %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom.exit" unwind label %60
+          to label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.exit" unwind label %60
 
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
@@ -4835,12 +4835,12 @@ _ZNSt10shared_ptrIN2cv5gimpl4TaskEEC2ERKS3_.exit17: ; preds = %_ZNSt10shared_ptr
   call void @__clang_call_terminate(ptr %62) #26
   unreachable
 
-"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom.exit": ; preds = %58, %56
+"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.exit": ; preds = %58, %56
   %63 = load ptr, ptr %23, align 8
   %.not.i.i.i20 = icmp eq ptr %63, null
   br i1 %.not.i.i.i20, label %_ZNSt10shared_ptrIN2cv5gimpl4TaskEED2Ev.exit, label %64
 
-64:                                               ; preds = %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom.exit"
+64:                                               ; preds = %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.exit"
   %65 = getelementptr inbounds i8, ptr %63, i64 8
   %66 = load atomic i64, ptr %65 acquire, align 8
   %67 = icmp eq i64 %66, 4294967297
@@ -4908,7 +4908,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %97(ptr noundef nonnull align 8 dereferenceable(16) %63) #23
   br label %_ZNSt10shared_ptrIN2cv5gimpl4TaskEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv5gimpl4TaskEED2Ev.exit:     ; preds = %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom.exit", %80, %93, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv5gimpl4TaskEED2Ev.exit:     ; preds = %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.exit", %80, %93, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %98 = getelementptr inbounds i8, ptr %.sroa.025.042, i64 16
   %.not33 = icmp eq ptr %98, %22
   br i1 %.not33, label %._crit_edge44, label %26
@@ -4939,7 +4939,7 @@ _ZNSt10shared_ptrIN2cv5gimpl4TaskEED2Ev.exit:     ; preds = %"_ZZN2cv5gimpl11Tas
 _ZNSt8functionIFvvEED2Ev.exit23:                  ; preds = %104, %101, %99
   %.sroa.5.0 = phi ptr [ %51, %99 ], [ null, %101 ], [ null, %104 ]
   %.pn = phi { ptr, i32 } [ %100, %99 ], [ %102, %101 ], [ %102, %104 ]
-  call fastcc void @"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom"(ptr %.sroa.5.0) #23
+  call fastcc void @"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev"(ptr %.sroa.5.0) #23
   call void @_ZNSt10shared_ptrIN2cv5gimpl4TaskEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   br label %113
 
@@ -4967,7 +4967,7 @@ _ZNSt8functionIFvvEED2Ev.exit23:                  ; preds = %104, %101, %99
 declare void @_ZN2cv4gapi3own5LatchC1Em(ptr noundef nonnull align 8 dereferenceable(96), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.16.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv5gimpl4TaskEED2Ev.exit, label %1
 
@@ -6149,7 +6149,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit123
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit123:        ; preds = %515, %521, %524
-  invoke fastcc void @"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_1clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE.argprom"(ptr nonnull %0, ptr %516, ptr %517, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  invoke fastcc void @"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_1clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE"(ptr nonnull %0, ptr %516, ptr %517, ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %526 unwind label %560
 
 526:                                              ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit123
@@ -6532,7 +6532,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit163
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit163:        ; preds = %678, %684, %687
-  invoke fastcc void @"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_1clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE.argprom"(ptr nonnull %0, ptr %679, ptr %680, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  invoke fastcc void @"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_1clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE"(ptr nonnull %0, ptr %679, ptr %680, ptr noundef nonnull align 8 dereferenceable(24) %20)
           to label %689 unwind label %723
 
 689:                                              ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit163
@@ -8580,11 +8580,11 @@ _ZNSt10shared_ptrIN2cv5gimpl11IslandActorEEC2ERKS3_.exit: ; preds = %._crit_edge
 1556:                                             ; preds = %1554
   %1557 = load ptr, ptr %223, align 8
   %.not.i.i338 = icmp eq ptr %1557, null
-  br i1 %.not.i.i338, label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom.exit", label %1558
+  br i1 %.not.i.i338, label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.exit", label %1558
 
 1558:                                             ; preds = %1556
   %1559 = invoke noundef zeroext i1 %1557(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef 3)
-          to label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom.exit" unwind label %1560
+          to label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.exit" unwind label %1560
 
 1560:                                             ; preds = %1558
   %1561 = landingpad { ptr, i32 }
@@ -8593,11 +8593,11 @@ _ZNSt10shared_ptrIN2cv5gimpl11IslandActorEEC2ERKS3_.exit: ; preds = %._crit_edge
   call void @__clang_call_terminate(ptr %1562) #26
   unreachable
 
-"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom.exit": ; preds = %1558, %1556
+"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.exit": ; preds = %1558, %1556
   %1563 = invoke { ptr, i8 } @_ZNSt10_HashtableIN3ade6HandleINS0_4NodeEEESt4pairIKS3_St10shared_ptrIN2cv5gimpl4TaskEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_12HandleHasherIS2_EENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RSA_EEES4_INSD_14_Node_iteratorISB_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %40)
           to label %_ZNSt13unordered_mapIN3ade6HandleINS0_4NodeEEESt10shared_ptrIN2cv5gimpl4TaskEENS0_12HandleHasherIS2_EESt8equal_toIS3_ESaISt4pairIKS3_S8_EEE7emplaceIJRS3_RS8_EEESD_INSt8__detail14_Node_iteratorISF_Lb0ELb1EEEbEDpOT_.exit unwind label %1735
 
-_ZNSt13unordered_mapIN3ade6HandleINS0_4NodeEEESt10shared_ptrIN2cv5gimpl4TaskEENS0_12HandleHasherIS2_EESt8equal_toIS3_ESaISt4pairIKS3_S8_EEE7emplaceIJRS3_RS8_EEESD_INSt8__detail14_Node_iteratorISF_Lb0ELb1EEEbEDpOT_.exit: ; preds = %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom.exit"
+_ZNSt13unordered_mapIN3ade6HandleINS0_4NodeEEESt10shared_ptrIN2cv5gimpl4TaskEENS0_12HandleHasherIS2_EESt8equal_toIS3_ESaISt4pairIKS3_S8_EEE7emplaceIJRS3_RS8_EEESD_INSt8__detail14_Node_iteratorISF_Lb0ELb1EEEbEDpOT_.exit: ; preds = %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.exit"
   %1564 = load ptr, ptr %225, align 8
   %.not.i.i.i345 = icmp eq ptr %1564, null
   br i1 %.not.i.i.i345, label %_ZNSt10shared_ptrIN2cv5gimpl4TaskEED2Ev.exit, label %1565
@@ -9010,10 +9010,10 @@ _ZSt8_DestroyIPN2cv5gimpl6RcDescES2_EvT_S4_RSaIT0_E.exit.i376: ; preds = %_ZSt8_
 _ZNSt8functionIFvvEED2Ev.exit380:                 ; preds = %1730, %1727, %1725
   %.sroa.3.0 = phi ptr [ %1544, %1725 ], [ null, %1727 ], [ null, %1730 ]
   %.pn33 = phi { ptr, i32 } [ %1726, %1725 ], [ %1728, %1727 ], [ %1728, %1730 ]
-  call fastcc void @"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom"(ptr %.sroa.3.0) #23
+  call fastcc void @"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev"(ptr %.sroa.3.0) #23
   br label %_ZN3ade6HandleINS_4NodeEED2Ev.exit335
 
-1735:                                             ; preds = %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom.exit"
+1735:                                             ; preds = %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.exit"
   %1736 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN2cv5gimpl4TaskEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #23
@@ -10609,7 +10609,7 @@ _ZNSt12_Vector_baseIN2cv5gimpl6RcDescESaIS2_EE13_M_deallocateEPS2_m.exit: ; pred
 declare void @_ZN3ade4Node8outNodesEv(ptr dead_on_unwind writable sret(%"struct.ade::util::Range::MapRange.278") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_1clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE.argprom"(ptr nocapture readonly %.0.val, ptr %.0.val1, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_1clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE"(ptr nocapture readonly %.0.val, ptr %.0.val1, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.ade::details::MetadataId", align 8
   %3 = alloca %"class.ade::Handle", align 8
   %4 = alloca %"class.ade::details::MetadataId", align 8
@@ -11161,7 +11161,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit:               ; preds = %_ZN2cv5gimpl6RcDesc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom"(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev"(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv5gimpl11IslandActorEED2Ev.exit, label %1
 
@@ -20654,7 +20654,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl11TaskManager15sc
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %23
@@ -20663,12 +20663,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl11T
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -20704,18 +20704,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl11T
 
 "_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.exit.i": ; preds = %21, %18, %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 23:                                               ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %24 = icmp eq ptr %.val7.i, null
-  br i1 %24, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit", label %25
+  br i1 %24, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit", label %25
 
 25:                                               ; preds = %23
   %26 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom.exit.i.i", label %27
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.exit.i.i", label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -20751,7 +20751,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl11T
 43:                                               ; preds = %41, %39
   %.0.i.i.i.i.i.i.i = phi i32 [ %31, %39 ], [ %42, %41 ]
   %44 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %44, label %45, label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %44, label %45, label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.exit.i.i"
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %.val.i.i, align 8
@@ -20776,20 +20776,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl11T
 56:                                               ; preds = %54, %51
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %52, %51 ], [ %55, %54 ]
   %57 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %57, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %57, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %56, %32
   %58 = load ptr, ptr %.val.i.i, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   tail call void %60(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #23
-  br label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.exit.i.i"
 
-"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %56, %43, %25
+"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %56, %43, %25
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.argprom.exit.i.i", %23, %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %3, %"_ZZN2cv5gimpl11TaskManager15scheduleAndWaitERNS_4gapi3own10ThreadPoolEEN3$_0D2Ev.exit.i.i", %23, %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl11TaskManager15scheduleAndWaitERNS1_4gapi3own10ThreadPoolEE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -21951,7 +21951,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl17GThreadedExecut
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %18
@@ -21960,12 +21960,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl17G
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -21977,7 +21977,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl17G
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.val8.i, ptr %9, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.argprom.exit.i", label %10
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %.val8.i, i64 8
@@ -21989,26 +21989,26 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl17G
   %14 = load i32, ptr %11, align 4
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %11, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i"
 
 16:                                               ; preds = %10
   %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i"
 
-"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %16, %13, %6
+"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i": ; preds = %16, %13, %6
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 18:                                               ; preds = %3
   %.val9.i = load ptr, ptr %0, align 8
   %19 = icmp eq ptr %.val9.i, null
-  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %20
+  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr i8, ptr %.val9.i, i64 8
   %.val.i.i = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom.exit.i.i", label %22
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.exit.i.i", label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -22044,7 +22044,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl17G
 38:                                               ; preds = %36, %34
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %34 ], [ %37, %36 ]
   %39 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %39, label %40, label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %39, label %40, label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.exit.i.i"
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %.val.i.i, align 8
@@ -22069,20 +22069,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN2cv5gimpl17G
 51:                                               ; preds = %49, %46
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %47, %46 ], [ %50, %49 ]
   %52 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %51, %27
   %53 = load ptr, ptr %.val.i.i, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #23
-  br label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.exit.i.i"
 
-"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
+"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
   tail call void @_ZdlPv(ptr noundef nonnull %.val9.i) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.argprom.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.argprom.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %"_ZZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEEN3$_0D2Ev.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl17GThreadedExecutorC1EjOSt10unique_ptrIN3ade5GraphESt14default_deleteIS6_EEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 

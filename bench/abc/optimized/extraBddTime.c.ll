@@ -12,7 +12,7 @@ define ptr @Extra_bddAndTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 
 6:                                                ; preds = %6, %4
   store i32 0, ptr %5, align 8
-  %7 = tail call fastcc ptr @cuddBddAndRecurTime.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  %7 = tail call fastcc ptr @cuddBddAndRecurTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %8 = load i32, ptr %5, align 8
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %6, label %10, !llvm.loop !4
@@ -22,7 +22,7 @@ define ptr @Extra_bddAndTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cuddBddAndRecurTime.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @cuddBddAndRecurTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -179,7 +179,7 @@ Abc_Clock.exit:                                   ; preds = %41, %44
 93:                                               ; preds = %78, %79, %86
   %.0115 = phi ptr [ %89, %86 ], [ %81, %79 ], [ %.0109, %78 ]
   %.0114 = phi ptr [ %92, %86 ], [ %83, %79 ], [ %.0109, %78 ]
-  %94 = call fastcc ptr @cuddBddAndRecurTime.argprom(ptr noundef nonnull %0, ptr noundef %.0111, ptr noundef %.0115, i32 noundef %3)
+  %94 = call fastcc ptr @cuddBddAndRecurTime(ptr noundef nonnull %0, ptr noundef %.0111, ptr noundef %.0115, i32 noundef %3)
   %95 = icmp eq ptr %94, null
   br i1 %95, label %140, label %96
 
@@ -191,7 +191,7 @@ Abc_Clock.exit:                                   ; preds = %41, %44
   %101 = load i32, ptr %100, align 4
   %102 = add i32 %101, 1
   store i32 %102, ptr %100, align 4
-  %103 = call fastcc ptr @cuddBddAndRecurTime.argprom(ptr noundef nonnull %0, ptr noundef %.0113, ptr noundef %.0114, i32 noundef %3)
+  %103 = call fastcc ptr @cuddBddAndRecurTime(ptr noundef nonnull %0, ptr noundef %.0113, ptr noundef %.0114, i32 noundef %3)
   %104 = icmp eq ptr %103, null
   br i1 %104, label %105, label %106
 
@@ -277,7 +277,7 @@ define ptr @Extra_bddAndAbstractTime(ptr noundef %0, ptr noundef %1, ptr noundef
 
 7:                                                ; preds = %7, %5
   store i32 0, ptr %6, align 8
-  %8 = tail call fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %8 = tail call fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %9 = load i32, ptr %6, align 8
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %7, label %11, !llvm.loop !6
@@ -287,7 +287,7 @@ define ptr @Extra_bddAndAbstractTime(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -314,7 +314,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, 
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  %23 = tail call fastcc ptr @cuddBddAndRecurTime.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %4)
+  %23 = tail call fastcc ptr @cuddBddAndRecurTime(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %4)
   br label %217
 
 24:                                               ; preds = %20
@@ -372,7 +372,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, 
   br i1 %55, label %56, label %50, !llvm.loop !7
 
 56:                                               ; preds = %52
-  %57 = tail call fastcc ptr @cuddBddAndRecurTime.argprom(ptr noundef %0, ptr noundef %spec.select252, ptr noundef %spec.select, i32 noundef %4)
+  %57 = tail call fastcc ptr @cuddBddAndRecurTime(ptr noundef %0, ptr noundef %spec.select252, ptr noundef %spec.select, i32 noundef %4)
   br label %217
 
 58:                                               ; preds = %50
@@ -463,7 +463,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds i8, ptr %.0212, i64 16
   %106 = load ptr, ptr %105, align 8
-  %107 = tail call fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, ptr noundef %.0213, ptr noundef %.0217, ptr noundef %106, i32 noundef %4)
+  %107 = tail call fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noundef %.0213, ptr noundef %.0217, ptr noundef %106, i32 noundef %4)
   %108 = icmp eq ptr %107, null
   br i1 %108, label %217, label %109
 
@@ -520,7 +520,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, 
   br label %141
 
 139:                                              ; preds = %132
-  %140 = tail call fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, ptr noundef %.0216, ptr noundef %.0218, ptr noundef %106, i32 noundef %4)
+  %140 = tail call fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noundef %.0216, ptr noundef %.0218, ptr noundef %106, i32 noundef %4)
   br label %141
 
 141:                                              ; preds = %137, %139, %130
@@ -548,7 +548,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, 
   %154 = inttoptr i64 %153 to ptr
   %155 = xor i64 %147, 1
   %156 = inttoptr i64 %155 to ptr
-  %157 = tail call fastcc ptr @cuddBddAndRecurTime.argprom(ptr noundef %0, ptr noundef %154, ptr noundef %156, i32 noundef %4)
+  %157 = tail call fastcc ptr @cuddBddAndRecurTime(ptr noundef %0, ptr noundef %154, ptr noundef %156, i32 noundef %4)
   %158 = icmp eq ptr %157, null
   br i1 %158, label %159, label %160
 
@@ -572,7 +572,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, 
   br label %209
 
 169:                                              ; preds = %102
-  %170 = tail call fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, ptr noundef %.0213, ptr noundef %.0217, ptr noundef nonnull %.0212, i32 noundef %4)
+  %170 = tail call fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noundef %.0213, ptr noundef %.0217, ptr noundef nonnull %.0212, i32 noundef %4)
   %171 = icmp eq ptr %170, null
   br i1 %171, label %217, label %172
 
@@ -584,7 +584,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, 
   %177 = load i32, ptr %176, align 4
   %178 = add i32 %177, 1
   store i32 %178, ptr %176, align 4
-  %179 = tail call fastcc ptr @cuddBddAndAbstractRecurTime.argprom(ptr noundef %0, ptr noundef %.0216, ptr noundef %.0218, ptr noundef nonnull %.0212, i32 noundef %4)
+  %179 = tail call fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noundef %.0216, ptr noundef %.0218, ptr noundef nonnull %.0212, i32 noundef %4)
   %180 = icmp eq ptr %179, null
   br i1 %180, label %181, label %182
 
@@ -675,16 +675,16 @@ define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr nou
   %8 = getelementptr inbounds i8, ptr %1, i64 448
   br label %9
 
-9:                                                ; preds = %extraTransferPermuteTime.argprom.exit, %5
+9:                                                ; preds = %extraTransferPermuteTime.exit, %5
   store i32 0, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %10 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #5
   %cond.i = icmp eq ptr %10, null
-  br i1 %cond.i, label %extraTransferPermuteTime.argprom.exit, label %11
+  br i1 %cond.i, label %extraTransferPermuteTime.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = call fastcc ptr @extraTransferPermuteRecurTime.argprom(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, ptr noundef %3, i32 noundef %4)
+  %12 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %10, ptr noundef %3, i32 noundef %4)
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %20, label %13
 
@@ -718,7 +718,7 @@ define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr nou
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   call void @st__free_gen(ptr noundef nonnull %21) #5
   call void @st__free_table(ptr noundef nonnull %10) #5
-  br i1 %.not.i, label %extraTransferPermuteTime.argprom.exit, label %26
+  br i1 %.not.i, label %extraTransferPermuteTime.exit, label %26
 
 26:                                               ; preds = %._crit_edge.i
   %27 = ptrtoint ptr %12 to i64
@@ -728,13 +728,13 @@ define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr nou
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, -1
   store i32 %32, ptr %30, align 4
-  br label %extraTransferPermuteTime.argprom.exit
+  br label %extraTransferPermuteTime.exit
 
 33:                                               ; preds = %20
   call void @st__free_table(ptr noundef nonnull %10) #5
-  br label %extraTransferPermuteTime.argprom.exit
+  br label %extraTransferPermuteTime.exit
 
-extraTransferPermuteTime.argprom.exit:            ; preds = %9, %._crit_edge.i, %26, %33
+extraTransferPermuteTime.exit:                    ; preds = %9, %._crit_edge.i, %26, %33
   %.022.i = phi ptr [ %12, %26 ], [ null, %._crit_edge.i ], [ null, %33 ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -742,7 +742,7 @@ extraTransferPermuteTime.argprom.exit:            ; preds = %9, %._crit_edge.i, 
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %9, label %36, !llvm.loop !9
 
-36:                                               ; preds = %extraTransferPermuteTime.argprom.exit
+36:                                               ; preds = %extraTransferPermuteTime.exit
   ret ptr %.022.i
 }
 
@@ -795,7 +795,7 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #1
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extraTransferPermuteRecurTime.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @extraTransferPermuteRecurTime(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -865,7 +865,7 @@ Abc_Clock.exit:                                   ; preds = %28, %31
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %12, i64 24
   %48 = load ptr, ptr %47, align 8
-  %49 = call fastcc ptr @extraTransferPermuteRecurTime.argprom(ptr noundef nonnull %0, ptr noundef %46, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4)
+  %49 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %0, ptr noundef %46, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4)
   br label %55
 
 .split64:                                         ; preds = %40
@@ -873,7 +873,7 @@ Abc_Clock.exit:                                   ; preds = %28, %31
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %12, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = call fastcc ptr @extraTransferPermuteRecurTime.argprom(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %2, ptr noundef null, i32 noundef %4)
+  %54 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %2, ptr noundef null, i32 noundef %4)
   br label %55
 
 55:                                               ; preds = %.split64, %.split
@@ -891,7 +891,7 @@ Abc_Clock.exit:                                   ; preds = %28, %31
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4
-  %65 = call fastcc ptr @extraTransferPermuteRecurTime.argprom(ptr noundef nonnull %0, ptr noundef %56, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %65 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %0, ptr noundef %56, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %68
 

@@ -36,13 +36,13 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
 
 7:                                                ; preds = %3
   %8 = inttoptr i64 %1 to ptr
-  br label %_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.argprom.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.exit
 
 9:                                                ; preds = %3
   %10 = tail call ptr @__rust_alloc_zeroed(i64 %2, i64 %1) #6
-  br label %_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.argprom.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.argprom.exit: ; preds = %7, %9
+_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.exit: ; preds = %7, %9
   %.sroa.05.0.i = phi ptr [ %8, %7 ], [ %10, %9 ]
   %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0.i, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %2, 1
@@ -59,7 +59,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   %7 = icmp sgt i64 %6, -1
   tail call void @llvm.assume(i1 %7)
   %8 = inttoptr i64 %1 to ptr
-  br label %_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.argprom.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.exit
 
 9:                                                ; preds = %3
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -67,9 +67,9 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   %12 = icmp sgt i64 %11, -1
   tail call void @llvm.assume(i1 %12)
   %13 = tail call ptr @__rust_alloc(i64 %2, i64 %1) #6
-  br label %_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.argprom.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.argprom.exit: ; preds = %5, %9
+_ZN5alloc5alloc6Global10alloc_impl17hd4082973942c7e43E.exit: ; preds = %5, %9
   %.sroa.05.0.i = phi ptr [ %8, %5 ], [ %13, %9 ]
   %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0.i, 0
   %15 = insertvalue { ptr, i64 } %14, i64 %2, 1

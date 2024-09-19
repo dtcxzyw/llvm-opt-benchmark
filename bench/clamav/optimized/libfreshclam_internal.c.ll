@@ -1409,7 +1409,7 @@ mkdir_and_chdir_for_cdiff_tmp.exit.thread.i:      ; preds = %273, %267, %263, %2
   %283 = add i64 %282, %281
   %284 = call noalias ptr @malloc(i64 noundef %283) #25
   %285 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %284, i64 noundef %283, ptr noundef nonnull @.str.111, ptr noundef nonnull %2, ptr noundef nonnull %12) #23
-  %286 = call fastcc i32 @downloadFile.argelim(ptr noundef %284, ptr noundef %276, i32 noundef %.0143, i64 noundef 0)
+  %286 = call fastcc i32 @downloadFile(ptr noundef %284, ptr noundef %276, i32 noundef %.0143, i64 noundef 0)
   switch i32 %286, label %289 [
     i32 0, label %292
     i32 6, label %287
@@ -1800,7 +1800,7 @@ define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef 
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #25
   %15 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %14, i64 noundef %13, ptr noundef nonnull @.str.111, ptr noundef nonnull %2, ptr noundef nonnull %0) #23
   %16 = zext i32 %3 to i64
-  %17 = tail call fastcc i32 @downloadFile.argelim(ptr noundef %14, ptr noundef %1, i32 noundef %5, i64 noundef %16)
+  %17 = tail call fastcc i32 @downloadFile(ptr noundef %14, ptr noundef %1, i32 noundef %5, i64 noundef %16)
   switch i32 %17, label %20 [
     i32 1, label %18
     i32 0, label %23
@@ -2350,7 +2350,7 @@ define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   %61 = getelementptr inbounds i8, ptr %7, i64 88
   %62 = load i64, ptr %61, align 8
   %63 = select i1 %.not109, i64 0, i64 %62
-  %64 = tail call fastcc i32 @downloadFile.argelim(ptr noundef nonnull %0, ptr noundef %16, i32 noundef %2, i64 noundef %63)
+  %64 = tail call fastcc i32 @downloadFile(ptr noundef nonnull %0, ptr noundef %16, i32 noundef %2, i64 noundef %63)
   switch i32 %64, label %67 [
     i32 1, label %65
     i32 0, label %70
@@ -2512,7 +2512,7 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 declare i32 @cli_filecopy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 19) i32 @downloadFile.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [256 x i8], align 16
   %7 = alloca %struct.xfer_progress, align 8
@@ -2535,7 +2535,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile.argelim(ptr noundef %0
   %16 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.110, i64 noundef 4) #27
   %.not69 = icmp eq i32 %16, 0
   %.103 = zext i1 %.not69 to i32
-  %17 = call fastcc i32 @create_curl_handle.argelim(i32 noundef %.103, ptr noundef %5)
+  %17 = call fastcc i32 @create_curl_handle(i32 noundef %.103, ptr noundef %5)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %20, label %18
 
@@ -2906,7 +2906,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #25
   %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %18, i64 noundef %17, ptr noundef nonnull @.str.111, ptr noundef nonnull %2, ptr noundef nonnull %0) #23
   %20 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.112, ptr noundef %18) #23
-  %21 = call fastcc i32 @create_curl_handle.argelim(i32 noundef %.052, ptr noundef %8)
+  %21 = call fastcc i32 @create_curl_handle(i32 noundef %.052, ptr noundef %8)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %24, label %22
 
@@ -3262,7 +3262,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 17) i32 @create_curl_handle.argelim(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @create_curl_handle(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   store ptr null, ptr %1, align 8
   %4 = tail call ptr @curl_easy_init() #23

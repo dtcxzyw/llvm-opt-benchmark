@@ -308,7 +308,7 @@ dissect_knet_message.exit:                        ; preds = %dissect_content_len
   %97 = zext i1 %96 to i32
   %98 = call fastcc i32 @dissect_messageid(ptr noundef %0, ptr noundef %5, ptr noundef %61, ptr noundef readonly %1, i32 noundef %97)
   %99 = load i32, ptr %5, align 4
-  tail call fastcc void @dissect_payload.retelim(ptr noundef %0, i32 noundef %99, i32 noundef %98, ptr noundef %61, i32 noundef %67)
+  tail call fastcc void @dissect_payload(ptr noundef %0, i32 noundef %99, i32 noundef %98, ptr noundef %61, i32 noundef %67)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %100 = add i32 %93, %67
   %101 = add i32 %.040, 1
@@ -368,7 +368,7 @@ define internal fastcc void @dissect_knet(ptr noundef %0, ptr nocapture noundef 
   %25 = tail call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.58) #4
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.55, ptr noundef %25, i32 noundef %19) #4
   %26 = add i32 %..i, %17
-  tail call fastcc void @dissect_payload.retelim(ptr noundef %0, i32 noundef %26, i32 noundef %19, ptr noundef %13, i32 noundef %14)
+  tail call fastcc void @dissect_payload(ptr noundef %0, i32 noundef %26, i32 noundef %19, ptr noundef %13, i32 noundef %14)
   %27 = load ptr, ptr %23, align 8
   tail call void @col_set_fence(ptr noundef %27, i32 noundef 25) #4
   ret void
@@ -475,7 +475,7 @@ define internal fastcc range(i32 0, 256) i32 @dissect_messageid(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_payload.retelim(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2, ptr noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_payload(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2, ptr noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_knet_payload_tree, align 4
   %7 = add nsw i32 %4, -1
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef %7, i32 noundef 0) #4

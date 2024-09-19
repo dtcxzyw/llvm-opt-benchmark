@@ -761,7 +761,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit.thread.i:    ; preds = %.critedge6.i, %_ZN4
   br i1 %313, label %314, label %316
 
 314:                                              ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit.thread.i
-  %315 = tail call fastcc noundef zeroext i1 @_ZL14CC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %315 = tail call fastcc noundef zeroext i1 @_ZL14CC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %315, label %._crit_edge.i, label %_ZL15CC_Intel_OCL_BIjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread
 
 ._crit_edge.i:                                    ; preds = %314
@@ -841,7 +841,7 @@ _ZL15CC_Intel_OCL_BIjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyE
   br i1 %336, label %337, label %338
 
 337:                                              ; preds = %334
-  call fastcc void @_ZL11CC_X86_IntrRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.argelim(ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 2 dereferenceable(2) %24, ptr noundef nonnull align 2 dereferenceable(2) %25, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  call fastcc void @_ZL11CC_X86_IntrRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 2 dereferenceable(2) %24, ptr noundef nonnull align 2 dereferenceable(2) %25, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br label %_ZL9CC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 338:                                              ; preds = %334
@@ -1184,7 +1184,7 @@ thread-pre-split.i:                               ; preds = %468
   br i1 %.not46.i.i.i, label %_ZL23CC_X86_Win32_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread.i, label %477
 
 477:                                              ; preds = %475
-  call fastcc void @_ZL31CC_X86_VectorCallAssignRegisterRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.argelim(ptr noundef nonnull readonly align 4 dereferenceable(4) %19, ptr noundef nonnull readonly align 2 dereferenceable(2) %17, ptr noundef nonnull align 2 dereferenceable(2) %18, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  call fastcc void @_ZL31CC_X86_VectorCallAssignRegisterRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull readonly align 4 dereferenceable(4) %19, ptr noundef nonnull readonly align 2 dereferenceable(2) %17, ptr noundef nonnull align 2 dereferenceable(2) %18, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br label %_ZL23CC_X86_Win32_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread.i
 
 478:                                              ; preds = %473
@@ -2458,7 +2458,7 @@ _ZL14CC_X86_64_HiPEjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyER
   br i1 %262, label %263, label %265
 
 263:                                              ; preds = %260
-  %264 = tail call fastcc noundef zeroext i1 @_ZL14CC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %264 = tail call fastcc noundef zeroext i1 @_ZL14CC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %264, label %._crit_edge, label %1713
 
 ._crit_edge:                                      ; preds = %263
@@ -2504,7 +2504,7 @@ thread-pre-split:                                 ; preds = %268
   br i1 %.not103.i.i, label %_ZL20CC_X86_64_VectorCallRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.thread11.i, label %277
 
 277:                                              ; preds = %275
-  call fastcc void @_ZL31CC_X86_VectorCallAssignRegisterRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.argelim(ptr noundef nonnull readonly align 4 dereferenceable(4) %85, ptr noundef nonnull readonly align 2 dereferenceable(2) %83, ptr noundef nonnull readonly align 2 dereferenceable(2) %84, ptr noundef nonnull readonly align 4 dereferenceable(4) %86, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  call fastcc void @_ZL31CC_X86_VectorCallAssignRegisterRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull readonly align 4 dereferenceable(4) %85, ptr noundef nonnull readonly align 2 dereferenceable(2) %83, ptr noundef nonnull readonly align 2 dereferenceable(2) %84, ptr noundef nonnull readonly align 4 dereferenceable(4) %86, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br label %_ZL20CC_X86_64_VectorCallRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.thread11.i
 
 278:                                              ; preds = %273
@@ -2793,7 +2793,7 @@ _ZL23CC_X86_Win64_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Arg
   br label %1713
 
 _ZL23CC_X86_Win64_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit: ; preds = %_ZL20CC_X86_64_VectorCallRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.thread.i, %_ZL20CC_X86_64_VectorCallRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.i
-  %399 = call fastcc noundef zeroext i1 @_ZL14CC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %399 = call fastcc noundef zeroext i1 @_ZL14CC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %83)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %84)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %85)
@@ -3159,7 +3159,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit145.thread.i: ; preds = %523,
   br i1 %or.cond414.i, label %544, label %thread-pre-split298.i
 
 544:                                              ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit145.thread.i
-  %545 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom(ptr noundef nonnull align 4 dereferenceable(4) %59, ptr noundef nonnull align 2 dereferenceable(2) %57, ptr noundef nonnull align 2 dereferenceable(2) %58, ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %545 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %59, ptr noundef nonnull align 2 dereferenceable(2) %57, ptr noundef nonnull align 2 dereferenceable(2) %58, ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %545, label %_ZL22CC_X86_Win64_RegCallv4jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread, label %.thread332.thread.i
 
 thread-pre-split298.i:                            ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit145.thread.i
@@ -4166,7 +4166,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit145.thread.i118: ; preds = %9
   br i1 %or.cond414.i119, label %954, label %thread-pre-split298.i120
 
 954:                                              ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit145.thread.i118
-  %955 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom(ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 2 dereferenceable(2) %34, ptr noundef nonnull align 2 dereferenceable(2) %35, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %955 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 2 dereferenceable(2) %34, ptr noundef nonnull align 2 dereferenceable(2) %35, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %955, label %_ZL20CC_X86_Win64_RegCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread, label %.thread332.thread.i186
 
 thread-pre-split298.i120:                         ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit145.thread.i118
@@ -5193,7 +5193,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit145.thread.i236: ; preds = %1
   br i1 %or.cond414.i237, label %1363, label %thread-pre-split298.i238
 
 1363:                                             ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit145.thread.i236
-  %1364 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom(ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 2 dereferenceable(2) %10, ptr noundef nonnull align 2 dereferenceable(2) %11, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %1364 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 2 dereferenceable(2) %10, ptr noundef nonnull align 2 dereferenceable(2) %11, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %1364, label %_ZL21CC_X86_SysV64_RegCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread, label %.thread332.thread.i304
 
 thread-pre-split298.i238:                         ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit145.thread.i236
@@ -6015,7 +6015,7 @@ _ZL23CC_X86_64_Preserve_NonejN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Arg
   br i1 %1695, label %1696, label %1697
 
 1696:                                             ; preds = %1693
-  call fastcc void @_ZL11CC_X86_IntrRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.argelim(ptr noundef nonnull align 4 dereferenceable(4) %95, ptr noundef nonnull align 2 dereferenceable(2) %93, ptr noundef nonnull align 2 dereferenceable(2) %94, ptr noundef nonnull align 4 dereferenceable(4) %96, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  call fastcc void @_ZL11CC_X86_IntrRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %95, ptr noundef nonnull align 2 dereferenceable(2) %93, ptr noundef nonnull align 2 dereferenceable(2) %94, ptr noundef nonnull align 4 dereferenceable(4) %96, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br label %1713
 
 1697:                                             ; preds = %.thread605, %1693
@@ -6037,7 +6037,7 @@ _ZL23CC_X86_64_Preserve_NonejN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Arg
   br i1 %1708, label %1709, label %1711
 
 1709:                                             ; preds = %1697
-  %1710 = call fastcc noundef zeroext i1 @_ZL14CC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %.pre581, i16 %.sroa.02.0.copyload.pre, i16 %.sroa.01.0.copyload.pre, i32 noundef %.pre582, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %1710 = call fastcc noundef zeroext i1 @_ZL14CC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %.pre581, i16 %.sroa.02.0.copyload.pre, i16 %.sroa.01.0.copyload.pre, i32 noundef %.pre582, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %1710, label %1711, label %1713
 
 1711:                                             ; preds = %1709, %1697
@@ -6330,7 +6330,7 @@ _ZL18RetCC_Intel_OCL_BIjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlags
   br label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 _ZL18RetCC_Intel_OCL_BIjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit: ; preds = %141, %91, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit46.thread.i, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i52.i, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit55.i
-  %152 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %152 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %86)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %87)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %88)
@@ -6452,7 +6452,7 @@ _ZL17RetCC_X86_64_HiPEjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsT
   br i1 %199, label %200, label %202
 
 200:                                              ; preds = %196
-  %201 = tail call fastcc noundef zeroext i1 @_ZL18RetCC_X86_64_SwiftjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %201 = tail call fastcc noundef zeroext i1 @_ZL18RetCC_X86_64_SwiftjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %201, label %._crit_edge.i, label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 ._crit_edge.i:                                    ; preds = %200
@@ -6465,7 +6465,7 @@ _ZL17RetCC_X86_64_HiPEjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsT
   br i1 %204, label %205, label %207
 
 205:                                              ; preds = %202
-  %206 = tail call fastcc noundef zeroext i1 @_ZL18RetCC_X86_64_SwiftjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %206 = tail call fastcc noundef zeroext i1 @_ZL18RetCC_X86_64_SwiftjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %206, label %thread-pre-split.i, label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 thread-pre-split.i:                               ; preds = %205
@@ -6508,7 +6508,7 @@ thread-pre-split.i:                               ; preds = %205
 _ZL17RetCC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i: ; preds = %218, %211, %210
   %.sroa.014.1.i.i = phi i16 [ %spec.select.i.i, %211 ], [ %2, %210 ], [ %spec.select20.i.i, %218 ]
   %.1.i.i = phi i32 [ %spec.select19.i.i, %211 ], [ %3, %210 ], [ %spec.select21.i.i, %218 ]
-  %225 = tail call fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %.sroa.014.1.i.i, i32 noundef %.1.i.i, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %225 = tail call fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %.sroa.014.1.i.i, i32 noundef %.1.i.i, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %225, label %_ZL17RetCC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit._crit_edge.i, label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 _ZL17RetCC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit._crit_edge.i: ; preds = %_ZL17RetCC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i
@@ -6521,7 +6521,7 @@ _ZL17RetCC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsT
   br i1 %228, label %229, label %231
 
 229:                                              ; preds = %226
-  %230 = tail call fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %230 = tail call fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %230, label %thread-pre-split384.i, label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 thread-pre-split384.i:                            ; preds = %229
@@ -6631,7 +6631,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i.i: ; preds = %248, 
 _ZL23RetCC_X86_64_VectorcalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i: ; preds = %271, %264, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i.i, %234
   %.sroa.014.1.i.i.i = phi i16 [ %spec.select.i.i.i, %264 ], [ %2, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i.i ], [ %spec.select20.i.i.i, %271 ], [ %2, %234 ]
   %.1.i.i.i = phi i32 [ %spec.select19.i.i.i, %264 ], [ %3, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i.i ], [ %spec.select21.i.i.i, %271 ], [ %3, %234 ]
-  %278 = tail call fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %.sroa.014.1.i.i.i, i32 noundef %.1.i.i.i, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %278 = tail call fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %.sroa.014.1.i.i.i, i32 noundef %.1.i.i.i, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %84)
   br i1 %278, label %_ZL23RetCC_X86_64_VectorcalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit._crit_edge.i, label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
@@ -7047,7 +7047,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit109.thread.i.i: ; preds = %44
   br i1 %or.cond356.i.i, label %463, label %thread-pre-split250.i.i
 
 463:                                              ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit109.thread.i.i
-  %464 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom(ptr noundef nonnull align 4 dereferenceable(4) %72, ptr noundef nonnull align 2 dereferenceable(2) %70, ptr noundef nonnull align 2 dereferenceable(2) %71, ptr noundef nonnull align 4 dereferenceable(4) %73, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %464 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %72, ptr noundef nonnull align 2 dereferenceable(2) %70, ptr noundef nonnull align 2 dereferenceable(2) %71, ptr noundef nonnull align 4 dereferenceable(4) %73, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %464, label %_ZL25RetCC_X86_Win64_RegCallv4jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread.i, label %_ZL25RetCC_X86_Win64_RegCallv4jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i
 
 thread-pre-split250.i.i:                          ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit109.thread.i.i
@@ -7836,7 +7836,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit109.thread.i168.i: ; preds = 
   br i1 %or.cond356.i169.i, label %784, label %thread-pre-split250.i170.i
 
 784:                                              ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit109.thread.i168.i
-  %785 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom(ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 2 dereferenceable(2) %56, ptr noundef nonnull align 2 dereferenceable(2) %57, ptr noundef nonnull align 4 dereferenceable(4) %59, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %785 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 2 dereferenceable(2) %56, ptr noundef nonnull align 2 dereferenceable(2) %57, ptr noundef nonnull align 4 dereferenceable(4) %59, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %785, label %_ZL23RetCC_X86_Win64_RegCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread.i, label %.loopexit.i
 
 thread-pre-split250.i170.i:                       ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit109.thread.i168.i
@@ -8598,7 +8598,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit109.thread.i275.i: ; preds = 
   br i1 %or.cond356.i276.i, label %1095, label %thread-pre-split250.i277.i
 
 1095:                                             ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit109.thread.i275.i
-  %1096 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom(ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 2 dereferenceable(2) %42, ptr noundef nonnull align 2 dereferenceable(2) %43, ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %1096 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 2 dereferenceable(2) %42, ptr noundef nonnull align 2 dereferenceable(2) %43, ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %1096, label %_ZL24RetCC_X86_SysV64_RegCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread.i, label %_ZL24RetCC_X86_SysV64_RegCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i
 
 thread-pre-split250.i277.i:                       ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit109.thread.i275.i
@@ -9020,11 +9020,11 @@ _ZL24RetCC_X86_SysV64_RegCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Ar
 _ZL17RetCC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit381.i: ; preds = %1256, %1252, %1251
   %.sroa.014.1.i377.i = phi i16 [ %spec.select.i379.i, %1252 ], [ %2, %1251 ], [ %spec.select20.i375.i, %1256 ]
   %.1.i378.i = phi i32 [ %spec.select19.i380.i, %1252 ], [ %3, %1251 ], [ %spec.select21.i376.i, %1256 ]
-  %1260 = tail call fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %.sroa.014.1.i377.i, i32 noundef %.1.i378.i, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %1260 = tail call fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %.sroa.014.1.i377.i, i32 noundef %.1.i378.i, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %1260, label %_ZL12RetCC_X86_64jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit, label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 _ZL12RetCC_X86_64jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit: ; preds = %.thread401.i, %_ZL17RetCC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit381.i
-  %1261 = tail call fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %1261 = tail call fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %1261, label %_ZL12RetCC_X86_64jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit._crit_edge, label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 _ZL12RetCC_X86_64jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit._crit_edge: ; preds = %_ZL12RetCC_X86_64jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
@@ -9037,7 +9037,7 @@ _ZL12RetCC_X86_64jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS
   br i1 %1264, label %1265, label %1267
 
 1265:                                             ; preds = %1262
-  %1266 = tail call fastcc noundef zeroext i1 @_ZL17RetCC_X86_32_FastjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %1266 = tail call fastcc noundef zeroext i1 @_ZL17RetCC_X86_32_FastjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %1266, label %thread-pre-split.i76, label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 thread-pre-split.i76:                             ; preds = %1265
@@ -9050,7 +9050,7 @@ thread-pre-split.i76:                             ; preds = %1265
   br i1 %1269, label %1270, label %1272
 
 1270:                                             ; preds = %1267
-  %1271 = tail call fastcc noundef zeroext i1 @_ZL17RetCC_X86_32_FastjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %1271 = tail call fastcc noundef zeroext i1 @_ZL17RetCC_X86_32_FastjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %1271, label %._crit_edge.i74, label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 ._crit_edge.i74:                                  ; preds = %1270
@@ -9223,7 +9223,7 @@ _ZL23RetCC_X86_32_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Arg
   br label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 _ZL23RetCC_X86_32_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i: ; preds = %1325, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.i88.i, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i.i87.i, %1311
-  %1341 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %1341 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   br i1 %1341, label %_ZL23RetCC_X86_32_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit._crit_edge.i, label %_ZL12RetCC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
@@ -9590,7 +9590,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit94.thread.thread.i.i: ; preds = %1483
   br i1 %1503, label %.thread308.i.i, label %_ZL26RetCC_X86_32_RegCallv4_WinjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i
 
 .thread308.i.i:                                   ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit94.thread.thread.i.i, %_ZN4llvm7CCState11AllocateRegEt.exit94.thread.i.i
-  %1504 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom(ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 2 dereferenceable(2) %26, ptr noundef nonnull align 2 dereferenceable(2) %27, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %1504 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 2 dereferenceable(2) %26, ptr noundef nonnull align 2 dereferenceable(2) %27, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %1504, label %_ZL26RetCC_X86_32_RegCallv4_WinjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread.i, label %_ZL26RetCC_X86_32_RegCallv4_WinjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i
 
 thread-pre-split232.i.i:                          ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit94.thread.i.i, %_ZN4llvm7CCState11AllocateRegEt.exit94.thread.i.thread.i
@@ -10315,7 +10315,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit94.thread.thread.i154.i: ; preds = %1777
   br i1 %1797, label %.thread308.i152.i, label %_ZL20RetCC_X86_32_RegCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i
 
 .thread308.i152.i:                                ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit94.thread.thread.i154.i, %_ZN4llvm7CCState11AllocateRegEt.exit94.thread.i107.i
-  %1798 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom(ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 2 dereferenceable(2) %12, ptr noundef nonnull align 2 dereferenceable(2) %13, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %1798 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 2 dereferenceable(2) %12, ptr noundef nonnull align 2 dereferenceable(2) %13, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %1798, label %_ZL20RetCC_X86_32_RegCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread.i, label %_ZL20RetCC_X86_32_RegCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i
 
 thread-pre-split232.i109.i:                       ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit94.thread.i107.i, %_ZN4llvm7CCState11AllocateRegEt.exit94.thread.i107.thread.i
@@ -10991,7 +10991,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit72.i.i: ; preds = %_ZNK4llvm7
   br label %_ZL14RetCC_X86_32_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i
 
 _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit72.thread.i.i: ; preds = %2068, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit72.i.i, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i69.i.i, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit63.thread.i.i
-  %2085 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %2085 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br label %_ZL14RetCC_X86_32_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i
 
 _ZL14RetCC_X86_32_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i: ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit72.thread.i.i, %2073, %2042, %2009, %1973
@@ -11106,7 +11106,7 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm7CCState13AllocateStackEjNS_5Ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14CC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14CC_X86_Win64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::CCValAssign", align 8
   %8 = alloca %"class.llvm::CCValAssign", align 8
   %9 = alloca %"class.llvm::CCValAssign", align 8
@@ -12097,13 +12097,13 @@ thread-pre-split:                                 ; preds = %_ZN4llvm7CCState11A
 .thread507:                                       ; preds = %144, %145, %thread-pre-split
   %180 = and i64 %4, 8589934592
   %.not620 = icmp eq i64 %180, 0
-  br i1 %.not620, label %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit, label %181
+  br i1 %.not620, label %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit, label %181
 
 181:                                              ; preds = %.thread507
   %spec.select598 = select i1 %87, i32 %.0491, i32 2
   br label %.thread519
 
-_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit: ; preds = %.thread507
+_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit: ; preds = %.thread507
   switch i16 %.sroa.0376.0, label %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188.thread [
     i16 7, label %.lr.ph.i.i
     i16 8, label %.thread519
@@ -12126,7 +12126,7 @@ _ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10Arg
     i16 128, label %.critedge2.fold.split614
   ]
 
-.lr.ph.i.i:                                       ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+.lr.ph.i.i:                                       ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   %182 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %183 = load ptr, ptr %182, align 8
   br label %184
@@ -12186,8 +12186,8 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit: ; preds = %_ZNK4llvm7CCStat
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %214, ptr noundef nonnull align 8 dereferenceable(26) %16)
   br label %501
 
-.thread519:                                       ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit, %181, %163
-  %.1515525 = phi i32 [ %.0491, %163 ], [ %spec.select598, %181 ], [ %.0491, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit ]
+.thread519:                                       ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit, %181, %163
+  %.1515525 = phi i32 [ %.0491, %163 ], [ %spec.select598, %181 ], [ %.0491, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit ]
   %215 = and i64 %4, 256
   %.not621 = icmp eq i64 %215, 0
   %216 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -12353,7 +12353,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179: ; preds = %_ZNK4llvm7CCS
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %301, ptr noundef nonnull align 8 dereferenceable(26) %19)
   br label %501
 
-302:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+302:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   %303 = and i64 %4, 2
   %.not633 = icmp eq i64 %303, 0
   br i1 %.not633, label %304, label %.critedge2
@@ -12364,7 +12364,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179: ; preds = %_ZNK4llvm7CCS
   %spec.select599 = select i1 %.not634, i32 3, i32 2
   br label %.critedge2
 
-306:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+306:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   %307 = and i64 %4, 2
   %.not631 = icmp eq i64 %307, 0
   br i1 %.not631, label %308, label %.critedge2
@@ -12375,7 +12375,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179: ; preds = %_ZNK4llvm7CCS
   %spec.select600 = select i1 %.not632, i32 3, i32 2
   br label %.critedge2
 
-310:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+310:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   %311 = and i64 %4, 2
   %.not629 = icmp eq i64 %311, 0
   br i1 %.not629, label %312, label %.critedge2
@@ -12386,7 +12386,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179: ; preds = %_ZNK4llvm7CCS
   %spec.select601 = select i1 %.not630, i32 3, i32 2
   br label %.critedge2
 
-314:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+314:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   %315 = and i64 %4, 2
   %.not627 = icmp eq i64 %315, 0
   br i1 %.not627, label %316, label %.critedge2
@@ -12397,7 +12397,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179: ; preds = %_ZNK4llvm7CCS
   %spec.select602 = select i1 %.not628, i32 3, i32 2
   br label %.critedge2
 
-318:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+318:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   %319 = and i64 %4, 2
   %.not625 = icmp eq i64 %319, 0
   br i1 %.not625, label %320, label %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188.thread
@@ -12408,7 +12408,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179: ; preds = %_ZNK4llvm7CCS
   %spec.select603 = select i1 %.not626, i32 3, i32 2
   br label %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188.thread
 
-322:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+322:                                              ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   %323 = and i64 %4, 2
   %.not623 = icmp eq i64 %323, 0
   br i1 %.not623, label %324, label %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188.thread
@@ -12419,40 +12419,40 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179: ; preds = %_ZNK4llvm7CCS
   %spec.select604 = select i1 %.not624, i32 3, i32 2
   br label %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188.thread
 
-.critedge2.fold.split:                            ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+.critedge2.fold.split:                            ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   br label %.critedge2
 
-.critedge2.fold.split605:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+.critedge2.fold.split605:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   br label %.critedge2
 
-.critedge2.fold.split606:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+.critedge2.fold.split606:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   br label %.critedge2
 
-.critedge2.fold.split607:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+.critedge2.fold.split607:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   br label %.critedge2
 
-.critedge2.fold.split608:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+.critedge2.fold.split608:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   br label %.critedge2
 
-.critedge2.fold.split609:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+.critedge2.fold.split609:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   br label %.critedge2
 
-.critedge2.fold.split610:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+.critedge2.fold.split610:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   br label %.critedge2
 
-.critedge2.fold.split611:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+.critedge2.fold.split611:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   br label %.critedge2
 
-.critedge2.fold.split614:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+.critedge2.fold.split614:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   br label %.critedge2
 
-.critedge2.fold.split688:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
+.critedge2.fold.split688:                         ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
   br label %.critedge2
 
-.critedge2:                                       ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit, %.critedge2.fold.split688, %304, %302, %308, %306, %312, %310, %316, %314, %.critedge2.fold.split614, %.critedge2.fold.split611, %.critedge2.fold.split610, %.critedge2.fold.split609, %.critedge2.fold.split608, %.critedge2.fold.split607, %.critedge2.fold.split606, %.critedge2.fold.split605, %.critedge2.fold.split
-  %326 = phi i1 [ false, %.critedge2.fold.split ], [ false, %.critedge2.fold.split605 ], [ false, %.critedge2.fold.split606 ], [ false, %.critedge2.fold.split610 ], [ false, %.critedge2.fold.split611 ], [ false, %.critedge2.fold.split614 ], [ false, %.critedge2.fold.split607 ], [ false, %.critedge2.fold.split608 ], [ false, %.critedge2.fold.split609 ], [ false, %314 ], [ false, %316 ], [ false, %310 ], [ false, %312 ], [ false, %306 ], [ false, %308 ], [ false, %302 ], [ false, %304 ], [ true, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit ], [ false, %.critedge2.fold.split688 ]
-  %.sroa.0376.7571 = phi i16 [ %.sroa.0376.0, %.critedge2.fold.split ], [ %.sroa.0376.0, %.critedge2.fold.split605 ], [ %.sroa.0376.0, %.critedge2.fold.split606 ], [ %.sroa.0376.0, %.critedge2.fold.split610 ], [ %.sroa.0376.0, %.critedge2.fold.split611 ], [ %.sroa.0376.0, %.critedge2.fold.split614 ], [ %.sroa.0376.0, %.critedge2.fold.split607 ], [ %.sroa.0376.0, %.critedge2.fold.split608 ], [ %.sroa.0376.0, %.critedge2.fold.split609 ], [ 39, %314 ], [ 39, %316 ], [ 50, %310 ], [ 50, %312 ], [ 60, %306 ], [ 60, %308 ], [ 78, %302 ], [ 78, %304 ], [ %.sroa.0376.0, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit ], [ %.sroa.0376.0, %.critedge2.fold.split688 ]
-  %.7568 = phi i32 [ %.0491, %.critedge2.fold.split ], [ %.0491, %.critedge2.fold.split605 ], [ %.0491, %.critedge2.fold.split606 ], [ %.0491, %.critedge2.fold.split610 ], [ %.0491, %.critedge2.fold.split611 ], [ %.0491, %.critedge2.fold.split614 ], [ %.0491, %.critedge2.fold.split607 ], [ %.0491, %.critedge2.fold.split608 ], [ %.0491, %.critedge2.fold.split609 ], [ 1, %314 ], [ %spec.select602, %316 ], [ 1, %310 ], [ %spec.select601, %312 ], [ 1, %306 ], [ %spec.select600, %308 ], [ 1, %302 ], [ %spec.select599, %304 ], [ %.0491, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit ], [ %.0491, %.critedge2.fold.split688 ]
+.critedge2:                                       ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit, %.critedge2.fold.split688, %304, %302, %308, %306, %312, %310, %316, %314, %.critedge2.fold.split614, %.critedge2.fold.split611, %.critedge2.fold.split610, %.critedge2.fold.split609, %.critedge2.fold.split608, %.critedge2.fold.split607, %.critedge2.fold.split606, %.critedge2.fold.split605, %.critedge2.fold.split
+  %326 = phi i1 [ false, %.critedge2.fold.split ], [ false, %.critedge2.fold.split605 ], [ false, %.critedge2.fold.split606 ], [ false, %.critedge2.fold.split610 ], [ false, %.critedge2.fold.split611 ], [ false, %.critedge2.fold.split614 ], [ false, %.critedge2.fold.split607 ], [ false, %.critedge2.fold.split608 ], [ false, %.critedge2.fold.split609 ], [ false, %314 ], [ false, %316 ], [ false, %310 ], [ false, %312 ], [ false, %306 ], [ false, %308 ], [ false, %302 ], [ false, %304 ], [ true, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit ], [ false, %.critedge2.fold.split688 ]
+  %.sroa.0376.7571 = phi i16 [ %.sroa.0376.0, %.critedge2.fold.split ], [ %.sroa.0376.0, %.critedge2.fold.split605 ], [ %.sroa.0376.0, %.critedge2.fold.split606 ], [ %.sroa.0376.0, %.critedge2.fold.split610 ], [ %.sroa.0376.0, %.critedge2.fold.split611 ], [ %.sroa.0376.0, %.critedge2.fold.split614 ], [ %.sroa.0376.0, %.critedge2.fold.split607 ], [ %.sroa.0376.0, %.critedge2.fold.split608 ], [ %.sroa.0376.0, %.critedge2.fold.split609 ], [ 39, %314 ], [ 39, %316 ], [ 50, %310 ], [ 50, %312 ], [ 60, %306 ], [ 60, %308 ], [ 78, %302 ], [ 78, %304 ], [ %.sroa.0376.0, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit ], [ %.sroa.0376.0, %.critedge2.fold.split688 ]
+  %.7568 = phi i32 [ %.0491, %.critedge2.fold.split ], [ %.0491, %.critedge2.fold.split605 ], [ %.0491, %.critedge2.fold.split606 ], [ %.0491, %.critedge2.fold.split610 ], [ %.0491, %.critedge2.fold.split611 ], [ %.0491, %.critedge2.fold.split614 ], [ %.0491, %.critedge2.fold.split607 ], [ %.0491, %.critedge2.fold.split608 ], [ %.0491, %.critedge2.fold.split609 ], [ 1, %314 ], [ %spec.select602, %316 ], [ 1, %310 ], [ %spec.select601, %312 ], [ 1, %306 ], [ %spec.select600, %308 ], [ 1, %302 ], [ %spec.select599, %304 ], [ %.0491, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit ], [ %.0491, %.critedge2.fold.split688 ]
   %327 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %328 = load ptr, ptr %327, align 8
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 16
@@ -12522,10 +12522,10 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188: ; preds = %_ZNK4llvm7CCS
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %366, ptr noundef nonnull align 8 dereferenceable(26) %20)
   br label %501
 
-_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188.thread: ; preds = %348, %283, %196, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i176, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit, %324, %320, %318, %322, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i185, %.critedge2, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188
-  %367 = phi i1 [ %326, %.critedge2 ], [ %326, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188 ], [ %326, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i185 ], [ false, %322 ], [ false, %318 ], [ false, %320 ], [ false, %324 ], [ false, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ false, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i ], [ false, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i176 ], [ false, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179 ], [ false, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit ], [ false, %196 ], [ false, %283 ], [ %326, %348 ]
-  %.sroa.0376.7570 = phi i16 [ %.sroa.0376.7571, %.critedge2 ], [ %.sroa.0376.7571, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188 ], [ %.sroa.0376.7571, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i185 ], [ 41, %322 ], [ 40, %318 ], [ 40, %320 ], [ 41, %324 ], [ 7, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ 7, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i ], [ 8, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i176 ], [ 8, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179 ], [ %.sroa.0376.0, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit ], [ 7, %196 ], [ 8, %283 ], [ %.sroa.0376.7571, %348 ]
-  %.7567 = phi i32 [ %.7568, %.critedge2 ], [ %.7568, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188 ], [ %.7568, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i185 ], [ 1, %322 ], [ 1, %318 ], [ %spec.select603, %320 ], [ %spec.select604, %324 ], [ %.0491, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ %.0491, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i ], [ %.1515525, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i176 ], [ %.1515525, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179 ], [ %.0491, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit ], [ %.0491, %196 ], [ %.1515525, %283 ], [ %.7568, %348 ]
+_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188.thread: ; preds = %348, %283, %196, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i176, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit, %324, %320, %318, %322, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i185, %.critedge2, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188
+  %367 = phi i1 [ %326, %.critedge2 ], [ %326, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188 ], [ %326, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i185 ], [ false, %322 ], [ false, %318 ], [ false, %320 ], [ false, %324 ], [ false, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ false, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i ], [ false, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i176 ], [ false, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179 ], [ false, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit ], [ false, %196 ], [ false, %283 ], [ %326, %348 ]
+  %.sroa.0376.7570 = phi i16 [ %.sroa.0376.7571, %.critedge2 ], [ %.sroa.0376.7571, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188 ], [ %.sroa.0376.7571, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i185 ], [ 41, %322 ], [ 40, %318 ], [ 40, %320 ], [ 41, %324 ], [ 7, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ 7, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i ], [ 8, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i176 ], [ 8, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179 ], [ %.sroa.0376.0, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit ], [ 7, %196 ], [ 8, %283 ], [ %.sroa.0376.7571, %348 ]
+  %.7567 = phi i32 [ %.7568, %.critedge2 ], [ %.7568, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit188 ], [ %.7568, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i185 ], [ 1, %322 ], [ 1, %318 ], [ %spec.select603, %320 ], [ %spec.select604, %324 ], [ %.0491, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ %.0491, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i ], [ %.1515525, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i176 ], [ %.1515525, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit179 ], [ %.0491, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit ], [ %.0491, %196 ], [ %.1515525, %283 ], [ %.7568, %348 ]
   %368 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %369 = load i8, ptr %368, align 4
   %370 = trunc i8 %369 to i1
@@ -13756,11 +13756,11 @@ _ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit109: ; preds = %138, %142
   ]
 
 229:                                              ; preds = %228, %228, %228, %228, %228, %.thread207
-  %230 = tail call fastcc noundef zeroext i1 @_ZL23CC_X86_32_Vector_DarwinjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %.sroa.0161.5, i32 noundef %.5, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %230 = tail call fastcc noundef zeroext i1 @_ZL23CC_X86_32_Vector_DarwinjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %.sroa.0161.5, i32 noundef %.5, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %230, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit, label %232
 
 _ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit:   ; preds = %228, %229
-  %231 = tail call fastcc noundef zeroext i1 @_ZL25CC_X86_32_Vector_StandardjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %.sroa.0161.5, i32 noundef %.5, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %231 = tail call fastcc noundef zeroext i1 @_ZL25CC_X86_32_Vector_StandardjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %.sroa.0161.5, i32 noundef %.5, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br label %232
 
 232:                                              ; preds = %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit, %229, %169, %157, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit109, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit, %96, %59, %23, %20
@@ -13769,7 +13769,7 @@ _ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit:   ; preds = %228, %229
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL23CC_X86_32_Vector_DarwinjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL23CC_X86_32_Vector_DarwinjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::CCValAssign", align 8
   %7 = alloca %"class.llvm::CCValAssign", align 8
   %8 = alloca %"class.llvm::CCValAssign", align 8
@@ -14020,7 +14020,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit59: ; preds = %_ZNK4llvm7CCSt
   br label %126
 
 _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit59.thread: ; preds = %106, %91, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i56, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit59, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit50.thread
-  %125 = tail call fastcc noundef zeroext i1 @_ZL23CC_X86_32_Vector_CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(420) %4)
+  %125 = tail call fastcc noundef zeroext i1 @_ZL23CC_X86_32_Vector_CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(420) %4)
   br label %126
 
 126:                                              ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit59.thread, %113, %77, %34
@@ -14029,7 +14029,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit59.thread: ; preds = %106, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL25CC_X86_32_Vector_StandardjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL25CC_X86_32_Vector_StandardjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::CCValAssign", align 8
   %7 = alloca %"class.llvm::CCValAssign", align 8
   %8 = alloca %"class.llvm::CCValAssign", align 8
@@ -14487,7 +14487,7 @@ _ZL19CC_X86_Win32_VectorjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlag
   br label %213
 
 211:                                              ; preds = %130, %_ZL19CC_X86_Win32_VectorjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.thread, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit70.thread
-  %212 = tail call fastcc noundef zeroext i1 @_ZL23CC_X86_32_Vector_CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(420) %4)
+  %212 = tail call fastcc noundef zeroext i1 @_ZL23CC_X86_32_Vector_CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(420) %4)
   br label %213
 
 213:                                              ; preds = %_ZL19CC_X86_Win32_VectorjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit, %211, %116, %80, %37
@@ -14496,7 +14496,7 @@ _ZL19CC_X86_Win32_VectorjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlag
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL23CC_X86_32_Vector_CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL23CC_X86_32_Vector_CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::CCValAssign", align 8
   %7 = alloca %"class.llvm::CCValAssign", align 8
   %8 = alloca %"class.llvm::CCValAssign", align 8
@@ -14618,7 +14618,7 @@ _ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit: ; preds = %14, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11CC_X86_IntrRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.argelim(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %1, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL11CC_X86_IntrRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %1, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::CCValAssign", align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -15579,7 +15579,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit130.thread.thread: ; preds = %117
   br i1 %140, label %.thread383, label %.thread317
 
 .thread383:                                       ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit130.thread, %_ZN4llvm7CCState11AllocateRegEt.exit130.thread.thread
-  %141 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 2 dereferenceable(2) %8, ptr noundef nonnull align 2 dereferenceable(2) %9, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %141 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 2 dereferenceable(2) %8, ptr noundef nonnull align 2 dereferenceable(2) %9, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %141, label %410, label %.thread317
 
 thread-pre-split283:                              ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit130.thread
@@ -16484,7 +16484,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit130.thread.thread: ; preds = %117
   br i1 %140, label %.thread383, label %.thread317
 
 .thread383:                                       ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit130.thread, %_ZN4llvm7CCState11AllocateRegEt.exit130.thread.thread
-  %141 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 2 dereferenceable(2) %8, ptr noundef nonnull align 2 dereferenceable(2) %9, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(420) %6)
+  %141 = call fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 2 dereferenceable(2) %8, ptr noundef nonnull align 2 dereferenceable(2) %9, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(420) %6)
   br i1 %141, label %410, label %.thread317
 
 thread-pre-split283:                              ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit130.thread
@@ -17109,13 +17109,13 @@ declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext)
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31CC_X86_VectorCallAssignRegisterRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.argelim(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %1, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL31CC_X86_VectorCallAssignRegisterRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %1, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::CCValAssign", align 8
   %7 = alloca %"class.llvm::CCValAssign", align 8
   %.val = load i16, ptr %1, align 2
   %8 = add i16 %.val, -17
   %spec.select.i.i.i = icmp ult i16 %8, 120
-  br i1 %spec.select.i.i.i, label %_ZNK4llvm3MVT14is512BitVectorEv.exit.i, label %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.argprom.exit
+  br i1 %spec.select.i.i.i, label %_ZNK4llvm3MVT14is512BitVectorEv.exit.i, label %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.exit
 
 _ZNK4llvm3MVT14is512BitVectorEv.exit.i:           ; preds = %5
   %9 = zext nneg i16 %.val to i64
@@ -17126,9 +17126,9 @@ _ZNK4llvm3MVT14is512BitVectorEv.exit.i:           ; preds = %5
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListYMM, ptr @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListXMM
   %switch.selectcmp1.i = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i, 512
   %switch.select2.i = select i1 %switch.selectcmp1.i, ptr @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListZMM, ptr %switch.select.i
-  br label %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.argprom.exit
+  br label %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.exit
 
-_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.argprom.exit: ; preds = %5, %_ZNK4llvm3MVT14is512BitVectorEv.exit.i
+_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.exit:  ; preds = %5, %_ZNK4llvm3MVT14is512BitVectorEv.exit.i
   %.sroa.0.0.i = phi ptr [ %switch.select2.i, %_ZNK4llvm3MVT14is512BitVectorEv.exit.i ], [ @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListXMM, %5 ]
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %13 = load i16, ptr %.sroa.0.0.i, align 2
@@ -17144,7 +17144,7 @@ _ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.argprom.exit: ; preds = %5, %_ZNK4llv
   %.not8 = icmp eq i32 %22, 0
   br i1 %.not8, label %_ZN4llvm7CCState11AllocateRegEt.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.argprom.exit
+.lr.ph:                                           ; preds = %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.exit
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -17178,9 +17178,9 @@ _ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.argprom.exit: ; preds = %5, %_ZNK4llv
   %.not.us = icmp eq i32 %43, 0
   br i1 %.not.us, label %_ZN4llvm7CCState11AllocateRegEt.exit, label %.lr.ph.split.us
 
-_ZN4llvm7CCState11AllocateRegEt.exit:             ; preds = %.lr.ph.split, %32, %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.argprom.exit
-  %.lcssa6 = phi i16 [ %13, %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.argprom.exit ], [ %34, %32 ], [ %55, %.lr.ph.split ]
-  %.lcssa = phi i32 [ %14, %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.argprom.exit ], [ %35, %32 ], [ %56, %.lr.ph.split ]
+_ZN4llvm7CCState11AllocateRegEt.exit:             ; preds = %.lr.ph.split, %32, %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.exit
+  %.lcssa6 = phi i16 [ %13, %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.exit ], [ %34, %32 ], [ %55, %.lr.ph.split ]
+  %.lcssa = phi i32 [ %14, %_ZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTE.exit ], [ %35, %32 ], [ %56, %.lr.ph.split ]
   tail call void @_ZN4llvm7CCState13MarkAllocatedEt(ptr noundef nonnull align 8 dereferenceable(420) %4, i16 noundef zeroext %.lcssa6) #8
   %44 = load i32, ptr %0, align 4
   %.sroa.04.0.copyload = load i16, ptr %1, align 2
@@ -17252,7 +17252,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit:             ; preds = %.lr.ph.split, %32, 
 declare noundef zeroext i1 @_ZNK4llvm7CCState20IsShadowAllocatedRegENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(420), i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %1, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %1, ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(420) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.265", align 8
   %7 = alloca %"class.llvm::CCValAssign", align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -17384,7 +17384,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(224), i32, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::CCValAssign", align 8
   %8 = alloca %"class.llvm::CCValAssign", align 8
   %9 = alloca %"class.llvm::CCValAssign", align 8
@@ -18042,7 +18042,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit136.thread: ; preds = %68, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17RetCC_X86_32_FastjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL17RetCC_X86_32_FastjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::CCValAssign", align 8
   %8 = alloca %"class.llvm::CCValAssign", align 8
   %9 = alloca %"class.llvm::CCValAssign", align 8
@@ -18394,7 +18394,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit89: ; preds = %_ZNK4llvm7CCSt
   br label %195
 
 .thread134:                                       ; preds = %175, %34, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i, %6, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit62.thread, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit71.thread, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i86, %12, %53, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit89, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit80.thread
-  %194 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5)
+  %194 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5)
   br label %195
 
 195:                                              ; preds = %.thread134, %182, %148, %115, %82, %41
@@ -18403,7 +18403,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit89: ; preds = %_ZNK4llvm7CCSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL18RetCC_X86_64_SwiftjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL18RetCC_X86_64_SwiftjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::CCValAssign", align 8
   %8 = alloca %"class.llvm::CCValAssign", align 8
   %9 = alloca %"class.llvm::CCValAssign", align 8
@@ -18921,7 +18921,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit133: ; preds = %_ZNK4llvm7CCS
 .thread250:                                       ; preds = %257, %190, %91, %58, %157, %35, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit88, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i85, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i103, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit106, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit115, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i112, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit106.thread, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i130, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit133, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit124.thread
   %.1210218226232240246254 = phi i32 [ %3, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit133 ], [ %3, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit124.thread ], [ %.1211, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i ], [ %.1211, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ %3, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i130 ], [ %3, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit106.thread ], [ %3, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i112 ], [ %3, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit115 ], [ %3, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit106 ], [ %3, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i103 ], [ %3, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i85 ], [ %3, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit88 ], [ %3, %35 ], [ %3, %157 ], [ %.1211, %58 ], [ %3, %91 ], [ %3, %190 ], [ %3, %257 ]
   %.sroa.0180.1208219225233239247253 = phi i16 [ 15, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit133 ], [ %2, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit124.thread ], [ 5, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i ], [ 5, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ 15, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i130 ], [ %2, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit106.thread ], [ 12, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i112 ], [ 12, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit115 ], [ 8, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit106 ], [ 8, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i103 ], [ 6, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i85 ], [ 6, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit88 ], [ %2, %35 ], [ 8, %157 ], [ 5, %58 ], [ 6, %91 ], [ 12, %190 ], [ 15, %257 ]
-  %276 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %.sroa.0180.1208219225233239247253, i32 noundef %.1210218226232240246254, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5)
+  %276 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %.sroa.0180.1208219225233239247253, i32 noundef %.1210218226232240246254, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5)
   br label %277
 
 277:                                              ; preds = %.thread250, %264, %230, %197, %164, %131, %98, %65, %24
@@ -18930,7 +18930,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit133: ; preds = %_ZNK4llvm7CCS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14RetCC_X86_64_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::CCValAssign", align 8
   %8 = alloca %"class.llvm::CCValAssign", align 8
   %9 = alloca %"class.llvm::CCValAssign", align 8
@@ -19199,19 +19199,19 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit60.thread: ; preds = %126, %2
   %.not.i = icmp eq i16 %2, 8
   %or.cond = or i1 %.not.i, %146
   %147 = and i64 %4, 16384
-  br i1 %or.cond, label %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit, label %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit.thread
+  br i1 %or.cond, label %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit, label %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.thread
 
-_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit: ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit60.thread
+_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit: ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit60.thread
   %148 = icmp ne i64 %147, 0
   %or.cond136 = and i1 %.not.i, %148
   br i1 %or.cond136, label %.thread, label %_ZN4llvm7CCState11AllocateRegEt.exit.thread
 
-_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit.thread: ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit60.thread
+_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.thread: ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit60.thread
   %.not137 = icmp eq i64 %147, 0
   br i1 %.not137, label %_ZN4llvm7CCState11AllocateRegEt.exit.thread, label %.thread
 
-.thread:                                          ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit.thread
-  %.0115127133 = phi i32 [ 2, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit.thread ], [ %3, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit ]
+.thread:                                          ; preds = %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.thread
+  %.0115127133 = phi i32 [ 2, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.thread ], [ %3, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit ]
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 12
@@ -19241,10 +19241,10 @@ _ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10Arg
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(26) %11)
   br label %166
 
-_ZN4llvm7CCState11AllocateRegEt.exit.thread:      ; preds = %.thread, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit.thread, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit
-  %.sroa.097.0129 = phi i16 [ 8, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit.thread ], [ %2, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit ], [ 8, %.thread ]
-  %.0115126 = phi i32 [ 2, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit.thread ], [ %3, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.argprom.exit ], [ %.0115127133, %.thread ]
-  %165 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.argelim(i32 noundef %0, i16 %1, i16 %.sroa.097.0129, i32 noundef %.0115126, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5)
+_ZN4llvm7CCState11AllocateRegEt.exit.thread:      ; preds = %.thread, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.thread, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit
+  %.sroa.097.0129 = phi i16 [ 8, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.thread ], [ %2, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit ], [ 8, %.thread ]
+  %.0115126 = phi i32 [ 2, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.thread ], [ %3, %_ZL17CC_X86_64_PointerRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit ], [ %.0115127133, %.thread ]
+  %165 = tail call fastcc noundef zeroext i1 @_ZL15RetCC_X86CommonjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %.sroa.097.0129, i32 noundef %.0115126, i64 %4, ptr noundef nonnull align 8 dereferenceable(420) %5)
   br label %166
 
 166:                                              ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit.thread, %154, %133, %99, %66, %33

@@ -353,14 +353,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !8
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !8
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt10__CALLSITE17h925b15fa8e5f1c9cE", align 8, !noalias !8, !nonnull !5, !align !6, !noundef !5
@@ -391,9 +391,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !8
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -409,7 +409,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -588,7 +588,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -598,7 +598,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -612,7 +612,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !68
 
@@ -626,7 +626,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !69)
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !75, !nonnull !5, !noundef !5
@@ -652,7 +652,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -660,8 +660,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -681,7 +681,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -841,7 +841,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -876,11 +876,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -916,14 +916,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !91
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !91
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt10__CALLSITE17hc5f67cd730e6e79eE", align 8, !noalias !91, !nonnull !5, !align !6, !noundef !5
@@ -961,9 +961,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !91
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -977,7 +977,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -990,11 +990,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -1031,16 +1031,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -1053,7 +1053,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -1273,14 +1273,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !94
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !94
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing10__CALLSITE17hbabaccab7a9c5a0aE", align 8, !noalias !94, !nonnull !5, !align !6, !noundef !5
@@ -1311,9 +1311,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !94
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -1329,7 +1329,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -1508,7 +1508,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -1518,7 +1518,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -1532,7 +1532,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !154
 
@@ -1546,7 +1546,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !155)
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !161, !nonnull !5, !noundef !5
@@ -1572,7 +1572,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -1580,8 +1580,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -1601,7 +1601,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -1761,7 +1761,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -1796,11 +1796,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -1836,14 +1836,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !175
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !175
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing10__CALLSITE17h56eabff84187965cE", align 8, !noalias !175, !nonnull !5, !align !6, !noundef !5
@@ -1881,9 +1881,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !175
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -1897,7 +1897,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -1910,11 +1910,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -1951,16 +1951,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -1973,7 +1973,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -2193,14 +2193,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !178
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !178
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit10__CALLSITE17h511df0e264603f4dE", align 8, !noalias !178, !nonnull !5, !align !6, !noundef !5
@@ -2231,9 +2231,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !178
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -2249,7 +2249,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -2428,7 +2428,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -2438,7 +2438,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -2452,7 +2452,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !238
 
@@ -2466,7 +2466,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !239)
   call void @llvm.experimental.noalias.scope.decl(metadata !242)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !245, !nonnull !5, !noundef !5
@@ -2492,7 +2492,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -2500,8 +2500,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -2521,7 +2521,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -2681,7 +2681,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -2716,11 +2716,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -2756,14 +2756,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !259
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !259
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit10__CALLSITE17hf9b79edad190919bE", align 8, !noalias !259, !nonnull !5, !align !6, !noundef !5
@@ -2801,9 +2801,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !259
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -2817,7 +2817,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -2830,11 +2830,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -2871,16 +2871,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -2893,7 +2893,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -3113,14 +3113,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !262
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !262
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt10__CALLSITE17h4434f1d51790b1ddE", align 8, !noalias !262, !nonnull !5, !align !6, !noundef !5
@@ -3151,9 +3151,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !262
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -3169,7 +3169,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -3348,7 +3348,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -3358,7 +3358,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -3372,7 +3372,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !322
 
@@ -3386,7 +3386,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !323)
   call void @llvm.experimental.noalias.scope.decl(metadata !326)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !329, !nonnull !5, !noundef !5
@@ -3412,7 +3412,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -3420,8 +3420,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -3441,7 +3441,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -3601,7 +3601,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -3636,11 +3636,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -3676,14 +3676,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !343
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !343
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt10__CALLSITE17h002802db67680963E", align 8, !noalias !343, !nonnull !5, !align !6, !noundef !5
@@ -3721,9 +3721,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !343
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -3737,7 +3737,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -3750,11 +3750,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -3791,16 +3791,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -3813,7 +3813,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -4033,14 +4033,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !346
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !346
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing10__CALLSITE17hcca2ee8327ef2dd1E", align 8, !noalias !346, !nonnull !5, !align !6, !noundef !5
@@ -4071,9 +4071,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !346
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -4089,7 +4089,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -4268,7 +4268,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -4278,7 +4278,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -4292,7 +4292,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !406
 
@@ -4306,7 +4306,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !407)
   call void @llvm.experimental.noalias.scope.decl(metadata !410)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !413, !nonnull !5, !noundef !5
@@ -4332,7 +4332,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -4340,8 +4340,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -4361,7 +4361,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -4521,7 +4521,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -4556,11 +4556,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -4596,14 +4596,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !427
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !427
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing10__CALLSITE17h4df0ee7a42e75b02E", align 8, !noalias !427, !nonnull !5, !align !6, !noundef !5
@@ -4641,9 +4641,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !427
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -4657,7 +4657,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -4670,11 +4670,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -4711,16 +4711,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -4733,7 +4733,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -4953,14 +4953,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !430
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !430
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution10__CALLSITE17h933c5735c1ec84dcE", align 8, !noalias !430, !nonnull !5, !align !6, !noundef !5
@@ -4991,9 +4991,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !430
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -5009,7 +5009,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -5188,7 +5188,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -5198,7 +5198,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -5212,7 +5212,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !490
 
@@ -5226,7 +5226,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !491)
   call void @llvm.experimental.noalias.scope.decl(metadata !494)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !497, !nonnull !5, !noundef !5
@@ -5252,7 +5252,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -5260,8 +5260,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -5281,7 +5281,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -5441,7 +5441,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -5476,11 +5476,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -5516,14 +5516,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !511
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !511
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution10__CALLSITE17h8f5435f700d126c0E", align 8, !noalias !511, !nonnull !5, !align !6, !noundef !5
@@ -5561,9 +5561,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !511
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -5577,7 +5577,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -5590,11 +5590,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -5631,16 +5631,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -5653,7 +5653,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -5873,14 +5873,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !514
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !514
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit10__CALLSITE17h6cfe7aff3f00918fE", align 8, !noalias !514, !nonnull !5, !align !6, !noundef !5
@@ -5911,9 +5911,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !514
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -5929,7 +5929,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -6108,7 +6108,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -6118,7 +6118,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -6132,7 +6132,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !574
 
@@ -6146,7 +6146,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !575)
   call void @llvm.experimental.noalias.scope.decl(metadata !578)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !581, !nonnull !5, !noundef !5
@@ -6172,7 +6172,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -6180,8 +6180,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -6201,7 +6201,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -6361,7 +6361,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -6396,11 +6396,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -6436,14 +6436,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !595
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !595
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit10__CALLSITE17h0ebdec3e1ce42221E", align 8, !noalias !595, !nonnull !5, !align !6, !noundef !5
@@ -6481,9 +6481,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !595
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -6497,7 +6497,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -6510,11 +6510,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -6551,16 +6551,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -6573,7 +6573,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -6793,14 +6793,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !598
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !598
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing10__CALLSITE17h18ef37c382f6d610E", align 8, !noalias !598, !nonnull !5, !align !6, !noundef !5
@@ -6831,9 +6831,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !598
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -6849,7 +6849,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -7028,7 +7028,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -7038,7 +7038,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -7052,7 +7052,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !658
 
@@ -7066,7 +7066,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !659)
   call void @llvm.experimental.noalias.scope.decl(metadata !662)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !665, !nonnull !5, !noundef !5
@@ -7092,7 +7092,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -7100,8 +7100,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -7121,7 +7121,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -7281,7 +7281,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -7316,11 +7316,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -7356,14 +7356,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !679
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !679
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing10__CALLSITE17h1cfc1f58ea8233a9E", align 8, !noalias !679, !nonnull !5, !align !6, !noundef !5
@@ -7401,9 +7401,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !679
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -7417,7 +7417,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -7430,11 +7430,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -7471,16 +7471,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -7493,7 +7493,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -7713,14 +7713,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !682
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !682
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit10__CALLSITE17h34f380e69b117995E", align 8, !noalias !682, !nonnull !5, !align !6, !noundef !5
@@ -7751,9 +7751,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !682
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -7769,7 +7769,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -7948,7 +7948,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -7958,7 +7958,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -7972,7 +7972,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !742
 
@@ -7986,7 +7986,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !743)
   call void @llvm.experimental.noalias.scope.decl(metadata !746)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !749, !nonnull !5, !noundef !5
@@ -8012,7 +8012,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -8020,8 +8020,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -8041,7 +8041,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -8201,7 +8201,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -8236,11 +8236,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -8276,14 +8276,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !763
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !763
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit10__CALLSITE17hd58abef464ee4a29E", align 8, !noalias !763, !nonnull !5, !align !6, !noundef !5
@@ -8321,9 +8321,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !763
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -8337,7 +8337,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -8350,11 +8350,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -8391,16 +8391,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -8413,7 +8413,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -8633,14 +8633,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !766
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !766
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion10__CALLSITE17hfebf984049febb44E", align 8, !noalias !766, !nonnull !5, !align !6, !noundef !5
@@ -8671,9 +8671,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !766
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -8689,7 +8689,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -8868,7 +8868,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -8878,7 +8878,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -8892,7 +8892,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !826
 
@@ -8906,7 +8906,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !827)
   call void @llvm.experimental.noalias.scope.decl(metadata !830)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !833, !nonnull !5, !noundef !5
@@ -8932,7 +8932,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -8940,8 +8940,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -8961,7 +8961,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -9121,7 +9121,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -9156,11 +9156,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -9196,14 +9196,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !847
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !847
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion10__CALLSITE17h656fb04d6b4308efE", align 8, !noalias !847, !nonnull !5, !align !6, !noundef !5
@@ -9241,9 +9241,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !847
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -9257,7 +9257,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -9270,11 +9270,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -9311,16 +9311,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -9333,7 +9333,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -9553,14 +9553,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !850
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !850
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop10__CALLSITE17hb1689d52ff6c395dE", align 8, !noalias !850, !nonnull !5, !align !6, !noundef !5
@@ -9591,9 +9591,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !850
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -9609,7 +9609,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -9788,7 +9788,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -9798,7 +9798,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -9812,7 +9812,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !910
 
@@ -9826,7 +9826,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !911)
   call void @llvm.experimental.noalias.scope.decl(metadata !914)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !917, !nonnull !5, !noundef !5
@@ -9852,7 +9852,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -9860,8 +9860,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -9881,7 +9881,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -10041,7 +10041,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -10076,11 +10076,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -10116,14 +10116,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !931
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !931
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop10__CALLSITE17h8faf6e58c48c9e8dE", align 8, !noalias !931, !nonnull !5, !align !6, !noundef !5
@@ -10161,9 +10161,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !931
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -10177,7 +10177,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -10190,11 +10190,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -10231,16 +10231,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -10253,7 +10253,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -10473,14 +10473,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !934
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !934
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization10__CALLSITE17h94ebc07c4175e2c1E", align 8, !noalias !934, !nonnull !5, !align !6, !noundef !5
@@ -10511,9 +10511,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !934
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -10529,7 +10529,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -10708,7 +10708,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -10718,7 +10718,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -10732,7 +10732,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !994
 
@@ -10746,7 +10746,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !995)
   call void @llvm.experimental.noalias.scope.decl(metadata !998)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !1001, !nonnull !5, !noundef !5
@@ -10772,7 +10772,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -10780,8 +10780,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -10801,7 +10801,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -10961,7 +10961,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -10996,11 +10996,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -11036,14 +11036,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1015
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1015
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization10__CALLSITE17h22ccc4dee0aacda2E", align 8, !noalias !1015, !nonnull !5, !align !6, !noundef !5
@@ -11081,9 +11081,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1015
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -11097,7 +11097,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -11110,11 +11110,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -11151,16 +11151,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -11173,7 +11173,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -11393,14 +11393,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1018
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1018
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization10__CALLSITE17h6ee0520ddc4a3861E", align 8, !noalias !1018, !nonnull !5, !align !6, !noundef !5
@@ -11431,9 +11431,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1018
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -11449,7 +11449,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -11628,7 +11628,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -11638,7 +11638,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -11652,7 +11652,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !1078
 
@@ -11666,7 +11666,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !1079)
   call void @llvm.experimental.noalias.scope.decl(metadata !1082)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !1085, !nonnull !5, !noundef !5
@@ -11692,7 +11692,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -11700,8 +11700,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -11721,7 +11721,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -11881,7 +11881,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -11916,11 +11916,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -11956,14 +11956,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1099
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1099
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization10__CALLSITE17hedcf5723cd1880b5E", align 8, !noalias !1099, !nonnull !5, !align !6, !noundef !5
@@ -12001,9 +12001,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1099
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -12017,7 +12017,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -12030,11 +12030,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -12071,16 +12071,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -12093,7 +12093,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -12313,14 +12313,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1102
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1102
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization10__CALLSITE17h6d36931a40c57485E", align 8, !noalias !1102, !nonnull !5, !align !6, !noundef !5
@@ -12351,9 +12351,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1102
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -12369,7 +12369,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -12548,7 +12548,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -12558,7 +12558,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -12572,7 +12572,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !1162
 
@@ -12586,7 +12586,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !1163)
   call void @llvm.experimental.noalias.scope.decl(metadata !1166)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !1169, !nonnull !5, !noundef !5
@@ -12612,7 +12612,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -12620,8 +12620,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -12641,7 +12641,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -12801,7 +12801,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -12836,11 +12836,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -12876,14 +12876,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1183
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1183
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization10__CALLSITE17hd7f2a51f682f7408E", align 8, !noalias !1183, !nonnull !5, !align !6, !noundef !5
@@ -12921,9 +12921,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1183
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -12937,7 +12937,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -12950,11 +12950,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -12991,16 +12991,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -13013,7 +13013,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -13233,14 +13233,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1186
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1186
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization10__CALLSITE17h5360ce40ddf38070E", align 8, !noalias !1186, !nonnull !5, !align !6, !noundef !5
@@ -13271,9 +13271,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1186
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -13289,7 +13289,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -13468,7 +13468,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -13478,7 +13478,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -13492,7 +13492,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !1246
 
@@ -13506,7 +13506,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !1247)
   call void @llvm.experimental.noalias.scope.decl(metadata !1250)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !1253, !nonnull !5, !noundef !5
@@ -13532,7 +13532,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -13540,8 +13540,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -13561,7 +13561,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -13721,7 +13721,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -13756,11 +13756,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -13796,14 +13796,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1267
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1267
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization10__CALLSITE17hf254fcb06036d68bE", align 8, !noalias !1267, !nonnull !5, !align !6, !noundef !5
@@ -13841,9 +13841,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1267
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -13857,7 +13857,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -13870,11 +13870,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -13911,16 +13911,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -13933,7 +13933,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -14153,14 +14153,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1270
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1270
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization10__CALLSITE17h71dc2e198027df39E", align 8, !noalias !1270, !nonnull !5, !align !6, !noundef !5
@@ -14191,9 +14191,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1270
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -14209,7 +14209,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -14388,7 +14388,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -14398,7 +14398,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -14412,7 +14412,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !1330
 
@@ -14426,7 +14426,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !1331)
   call void @llvm.experimental.noalias.scope.decl(metadata !1334)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !1337, !nonnull !5, !noundef !5
@@ -14452,7 +14452,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -14460,8 +14460,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -14481,7 +14481,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -14641,7 +14641,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -14676,11 +14676,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -14716,14 +14716,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1351
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1351
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization10__CALLSITE17hf8c8143c4a1be96cE", align 8, !noalias !1351, !nonnull !5, !align !6, !noundef !5
@@ -14761,9 +14761,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1351
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -14777,7 +14777,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -14790,11 +14790,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -14831,16 +14831,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -14853,7 +14853,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -15073,14 +15073,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1354
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1354
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization10__CALLSITE17h5bdfd5fb9edf5a3fE", align 8, !noalias !1354, !nonnull !5, !align !6, !noundef !5
@@ -15111,9 +15111,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1354
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -15129,7 +15129,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -15308,7 +15308,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -15318,7 +15318,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -15332,7 +15332,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !1414
 
@@ -15346,7 +15346,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !1415)
   call void @llvm.experimental.noalias.scope.decl(metadata !1418)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !1421, !nonnull !5, !noundef !5
@@ -15372,7 +15372,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -15380,8 +15380,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -15401,7 +15401,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -15561,7 +15561,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -15596,11 +15596,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -15636,14 +15636,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1435
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1435
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization10__CALLSITE17hf28aea95ebc4f0e7E", align 8, !noalias !1435, !nonnull !5, !align !6, !noundef !5
@@ -15681,9 +15681,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1435
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -15697,7 +15697,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -15710,11 +15710,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -15751,16 +15751,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -15773,7 +15773,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -15993,14 +15993,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @_ZN12tracing_core5event5Event8dispatch17h9dcd5755fb93b85bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %102 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1438
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.argprom.exit"
+  br i1 %103, label %104, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.exit"
 
 104:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit"
   %105 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1438
   %106 = icmp ult i64 %105, 6
   call void @llvm.assume(i1 %106)
   %107 = icmp ult i64 %105, 5
-  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.argprom.exit", label %.critedge9.i
+  br i1 %107, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.exit", label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %104
   %108 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion10__CALLSITE17he17782a0d0d52da4E", align 8, !noalias !1438, !nonnull !5, !align !6, !noundef !5
@@ -16031,9 +16031,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 122:                                              ; preds = %121, %.critedge9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1438
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.argprom.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %104, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36)
@@ -16049,7 +16049,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not156 = icmp eq ptr %.sroa.0251.0, null
   br i1 %.not156, label %.thread, label %344
 
-123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.argprom.exit", %.critedge160, %62, %89
+123:                                              ; preds = %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.exit", %.critedge160, %62, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %3, ptr %28, align 8
   %124 = icmp ne ptr %2, null
@@ -16228,7 +16228,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %184 = extractvalue { ptr, ptr } %180, 0
   %185 = extractvalue { ptr, ptr } %180, 1
   %.not = icmp eq ptr %184, null
-  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %186
+  br i1 %.not, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %186
 
 186:                                              ; preds = %183
   %187 = icmp ne ptr %185, null
@@ -16238,7 +16238,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %190 = invoke { ptr, ptr } %189(ptr noundef nonnull align 1 %184, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
           to label %203 unwind label %181
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230": ; preds = %203, %318, %315, %333, %341, %183
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230": ; preds = %203, %318, %315, %333, %341, %183
   %.sroa.16.3 = phi ptr [ %.sroa.16.1440, %183 ], [ %.sroa.16.1440, %203 ], [ %205, %318 ], [ %205, %315 ], [ %205, %333 ], [ %205, %341 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.1441, %183 ], [ %.sroa.12.1441, %203 ], [ %204, %318 ], [ %204, %315 ], [ %204, %333 ], [ %204, %341 ]
   %.sroa.10255.1 = phi i64 [ %.sroa.10255.0442, %183 ], [ %.sroa.10255.0442, %203 ], [ %317, %318 ], [ %317, %315 ], [ %317, %333 ], [ %317, %341 ]
@@ -16252,7 +16252,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i"
 
-194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+194:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2)
           to label %.noexc.i.i unwind label %195, !noalias !1498
 
@@ -16266,7 +16266,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   invoke void @"_ZN4core3ptr214drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..config_bag..ConfigBag$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h560a9cc25f1ce13dE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.8266.0..sroa_idx) #14
           to label %.body201 unwind label %201
 
-"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i": ; preds = %.noexc.i.i, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
   call void @llvm.experimental.noalias.scope.decl(metadata !1499)
   call void @llvm.experimental.noalias.scope.decl(metadata !1502)
   %197 = load ptr, ptr %.sroa.8266.0..sroa_idx, align 8, !alias.scope !1505, !nonnull !5, !noundef !5
@@ -16292,7 +16292,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %204 = extractvalue { ptr, ptr } %190, 0
   %205 = extractvalue { ptr, ptr } %190, 1
   %.not148 = icmp eq ptr %204, null
-  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %206
+  br i1 %.not148, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %206
 
 206:                                              ; preds = %203
   %207 = icmp ne ptr %205, null
@@ -16300,8 +16300,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not149 = icmp eq ptr %.sroa.0251.1443, null
   br i1 %.not149, label %208, label %213
 
-208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", %206
-  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit" ], [ 1, %206 ]
+208:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", %206
+  %.8139 = phi i8 [ 0, %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit" ], [ 1, %206 ]
   %209 = getelementptr inbounds i8, ptr %185, i64 48
   %210 = load ptr, ptr %209, align 8, !invariant.load !5, !nonnull !5
   %211 = invoke { ptr, i64 } %210(ptr noundef nonnull align 1 %184)
@@ -16321,7 +16321,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val183 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val184 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.val183, ptr nonnull %.val184) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.val183, ptr nonnull %.val184) #14
           to label %342 unwind label %313
 
 213:                                              ; preds = %206
@@ -16481,7 +16481,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %263
 
-268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.argprom.exit"
+268:                                              ; preds = %263, %236, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205.thread325, %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.exit"
   %.val185 = load ptr, ptr %.sroa.12.0..sroa_idx258, align 8, !noundef !5
   %.val186 = load ptr, ptr %.sroa.16.0..sroa_idx260, align 8, !nonnull !5, !align !6, !noundef !5
   %269 = load ptr, ptr %.val186, align 8, !invariant.load !5, !nonnull !5
@@ -16516,11 +16516,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %286 = icmp ult i64 %285, -9223372036854775807
   call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit", label %288
+  br i1 %287, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit", label %288
 
 288:                                              ; preds = %280
   call void @__rust_dealloc(ptr noundef nonnull %.val185, i64 noundef %283, i64 noundef %285) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit"
 
 289:                                              ; preds = %224
   store ptr %227, ptr %23, align 8
@@ -16556,14 +16556,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 .noexc223:                                        ; preds = %289
   %292 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !1519
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.argprom.exit"
+  br i1 %293, label %294, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.exit"
 
 294:                                              ; preds = %.noexc223
   %295 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8, !noalias !1519
   %296 = icmp ult i64 %295, 6
   call void @llvm.assume(i1 %296)
   %297 = icmp ult i64 %295, 4
-  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.argprom.exit", label %.critedge9.i222
+  br i1 %297, label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.exit", label %.critedge9.i222
 
 .critedge9.i222:                                  ; preds = %294
   %298 = load ptr, ptr @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion10__CALLSITE17hd90f28ec2a47b843E", align 8, !noalias !1519, !nonnull !5, !align !6, !noundef !5
@@ -16601,9 +16601,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 
 310:                                              ; preds = %.noexc226, %.noexc225
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1519
-  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.argprom.exit"
+  br label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.exit"
 
-"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.argprom.exit": ; preds = %310, %294, %.noexc223
+"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.exit": ; preds = %310, %294, %.noexc223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -16617,7 +16617,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
           cleanup
   br label %342
 
-"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit": ; preds = %288, %280
+"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit": ; preds = %288, %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   br label %208
 
@@ -16630,11 +16630,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 315:                                              ; preds = %208
   %316 = extractvalue { ptr, i64 } %211, 0
   %317 = extractvalue { ptr, i64 } %211, 1
-  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %318
+  br i1 %.not149, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %318
 
 318:                                              ; preds = %315
   %319 = trunc nuw i8 %.8139 to i1
-  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br i1 %319, label %320, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 320:                                              ; preds = %318
   %321 = icmp ne ptr %.sroa.16.1440, null
@@ -16671,16 +16671,16 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   %339 = icmp ult i64 %338, -9223372036854775807
   call void @llvm.assume(i1 %339)
   %340 = icmp eq i64 %336, 0
-  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230", label %341
+  br i1 %340, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230", label %341
 
 341:                                              ; preds = %333
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1441, i64 noundef %336, i64 noundef %338) #15
-  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom.exit230"
+  br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.exit230"
 
 342:                                              ; preds = %212, %270, %279, %311
   %.10.ph = phi i8 [ 0, %212 ], [ %.8139, %311 ], [ 0, %279 ], [ 0, %270 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %212 ], [ %312, %311 ], [ %271, %279 ], [ %271, %270 ]
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr nonnull %204, ptr nonnull %205) #14
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr nonnull %204, ptr nonnull %205) #14
           to label %.body231 unwind label %313
 
 "_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h92f9432102c36266E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h1b9dab28932e2179E.llvm.13640993958878838948.exit.i.i", %.noexc
@@ -16693,7 +16693,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
-  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
+  invoke fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.sroa.12.0, ptr %.sroa.16.0) #14
           to label %.thread unwind label %313
 
 .thread:                                          ; preds = %172, %346, %.body201, %344
@@ -16702,7 +16702,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit205
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !5, !nonnull !5
@@ -16721,11 +16721,11 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$
   %10 = icmp ult i64 %9, -9223372036854775807
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i64 %7, 0
-  br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.argprom.exit", label %12
+  br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.exit", label %12
 
 12:                                               ; preds = %3
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %7, i64 noundef %9) #15
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.argprom.exit"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.exit"
 
 13:                                               ; preds = %0
   %14 = icmp ne ptr %.0.val, null
@@ -16737,21 +16737,21 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$
   %19 = icmp ult i64 %18, -9223372036854775807
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i64 %16, 0
-  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.argprom.exit4", label %21
+  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.exit4", label %21
 
 21:                                               ; preds = %13
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %16, i64 noundef %18) #15
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.argprom.exit4"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.argprom.exit4": ; preds = %13, %21
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.exit4": ; preds = %13, %21
   ret void
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.argprom.exit": ; preds = %12, %3
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.exit": ; preds = %12, %3
   resume { ptr, i32 } %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E.argprom"(ptr %.16.val, ptr readonly %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17he843b9cf6da54e05E"(ptr %.16.val, ptr readonly %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.24.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.24.val, align 8, !invariant.load !5, !nonnull !5
@@ -16770,11 +16770,11 @@ define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$allo
   %10 = icmp ult i64 %9, -9223372036854775807
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i64 %7, 0
-  br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.argprom.exit.i", label %12
+  br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.exit.i", label %12
 
 12:                                               ; preds = %3
   tail call void @__rust_dealloc(ptr noundef nonnull %.16.val, i64 noundef %7, i64 noundef %9) #15
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.argprom.exit.i"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.exit.i"
 
 13:                                               ; preds = %0
   %14 = icmp ne ptr %.16.val, null
@@ -16786,16 +16786,16 @@ define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$allo
   %19 = icmp ult i64 %18, -9223372036854775807
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i64 %16, 0
-  br i1 %20, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom.exit", label %21
+  br i1 %20, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.exit", label %21
 
 21:                                               ; preds = %13
   tail call void @__rust_dealloc(ptr noundef nonnull %.16.val, i64 noundef %16, i64 noundef %18) #15
-  br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom.exit"
+  br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.exit"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.argprom.exit.i": ; preds = %12, %3
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd5f8b2c4012927E.exit.i": ; preds = %12, %3
   resume { ptr, i32 } %4
 
-"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.argprom.exit": ; preds = %13, %21
+"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.exit": ; preds = %13, %21
   ret void
 }
 
@@ -16911,8 +16911,8 @@ attributes #15 = { nounwind }
 !6 = !{i64 8}
 !7 = !{i64 1}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.argprom: argument 0"}
-!10 = distinct !{!10, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E.argprom"}
+!9 = distinct !{!9, !10, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E: argument 0"}
+!10 = distinct !{!10, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h0bb914f13baab9d6E"}
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !13 = distinct !{!13, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -16994,11 +16994,11 @@ attributes #15 = { nounwind }
 !89 = distinct !{!89, !87, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !90 = distinct !{!90, !87, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.argprom: argument 0"}
-!93 = distinct !{!93, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E.argprom"}
+!92 = distinct !{!92, !93, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E: argument 0"}
+!93 = distinct !{!93, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h5ca3c04205798b34E"}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.argprom: argument 0"}
-!96 = distinct !{!96, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E.argprom"}
+!95 = distinct !{!95, !96, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E: argument 0"}
+!96 = distinct !{!96, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h680759dd74d0bfe2E"}
 !97 = !{!98}
 !98 = distinct !{!98, !99, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !99 = distinct !{!99, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -17078,11 +17078,11 @@ attributes #15 = { nounwind }
 !173 = distinct !{!173, !171, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !174 = distinct !{!174, !171, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !175 = !{!176}
-!176 = distinct !{!176, !177, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.argprom: argument 0"}
-!177 = distinct !{!177, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE.argprom"}
+!176 = distinct !{!176, !177, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE: argument 0"}
+!177 = distinct !{!177, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17hff01ef705e1ece0eE"}
 !178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.argprom: argument 0"}
-!180 = distinct !{!180, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E.argprom"}
+!179 = distinct !{!179, !180, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E: argument 0"}
+!180 = distinct !{!180, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0db34d1231583E"}
 !181 = !{!182}
 !182 = distinct !{!182, !183, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !183 = distinct !{!183, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -17162,11 +17162,11 @@ attributes #15 = { nounwind }
 !257 = distinct !{!257, !255, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !258 = distinct !{!258, !255, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.argprom: argument 0"}
-!261 = distinct !{!261, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E.argprom"}
+!260 = distinct !{!260, !261, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E: argument 0"}
+!261 = distinct !{!261, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hac587bcb65a283f2E"}
 !262 = !{!263}
-!263 = distinct !{!263, !264, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.argprom: argument 0"}
-!264 = distinct !{!264, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E.argprom"}
+!263 = distinct !{!263, !264, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E: argument 0"}
+!264 = distinct !{!264, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hd49661cc5ed60595E"}
 !265 = !{!266}
 !266 = distinct !{!266, !267, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !267 = distinct !{!267, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -17246,11 +17246,11 @@ attributes #15 = { nounwind }
 !341 = distinct !{!341, !339, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !342 = distinct !{!342, !339, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !343 = !{!344}
-!344 = distinct !{!344, !345, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.argprom: argument 0"}
-!345 = distinct !{!345, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E.argprom"}
+!344 = distinct !{!344, !345, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E: argument 0"}
+!345 = distinct !{!345, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h7e44b3e512d20cf1E"}
 !346 = !{!347}
-!347 = distinct !{!347, !348, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.argprom: argument 0"}
-!348 = distinct !{!348, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E.argprom"}
+!347 = distinct !{!347, !348, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E: argument 0"}
+!348 = distinct !{!348, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hea8a42ff11da2858E"}
 !349 = !{!350}
 !350 = distinct !{!350, !351, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !351 = distinct !{!351, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -17330,11 +17330,11 @@ attributes #15 = { nounwind }
 !425 = distinct !{!425, !423, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !426 = distinct !{!426, !423, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !427 = !{!428}
-!428 = distinct !{!428, !429, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.argprom: argument 0"}
-!429 = distinct !{!429, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE.argprom"}
+!428 = distinct !{!428, !429, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE: argument 0"}
+!429 = distinct !{!429, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hfadc0498ed42c64bE"}
 !430 = !{!431}
-!431 = distinct !{!431, !432, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.argprom: argument 0"}
-!432 = distinct !{!432, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E.argprom"}
+!431 = distinct !{!431, !432, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E: argument 0"}
+!432 = distinct !{!432, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17heae6a943544cae86E"}
 !433 = !{!434}
 !434 = distinct !{!434, !435, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !435 = distinct !{!435, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -17414,11 +17414,11 @@ attributes #15 = { nounwind }
 !509 = distinct !{!509, !507, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !510 = distinct !{!510, !507, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !511 = !{!512}
-!512 = distinct !{!512, !513, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.argprom: argument 0"}
-!513 = distinct !{!513, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E.argprom"}
+!512 = distinct !{!512, !513, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E: argument 0"}
+!513 = distinct !{!513, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17he7aa58b2908119a4E"}
 !514 = !{!515}
-!515 = distinct !{!515, !516, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.argprom: argument 0"}
-!516 = distinct !{!516, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E.argprom"}
+!515 = distinct !{!515, !516, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E: argument 0"}
+!516 = distinct !{!516, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17he1f046b146cbfa03E"}
 !517 = !{!518}
 !518 = distinct !{!518, !519, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !519 = distinct !{!519, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -17498,11 +17498,11 @@ attributes #15 = { nounwind }
 !593 = distinct !{!593, !591, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !594 = distinct !{!594, !591, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !595 = !{!596}
-!596 = distinct !{!596, !597, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.argprom: argument 0"}
-!597 = distinct !{!597, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E.argprom"}
+!596 = distinct !{!596, !597, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E: argument 0"}
+!597 = distinct !{!597, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hc91e8807e8f9e449E"}
 !598 = !{!599}
-!599 = distinct !{!599, !600, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.argprom: argument 0"}
-!600 = distinct !{!600, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E.argprom"}
+!599 = distinct !{!599, !600, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E: argument 0"}
+!600 = distinct !{!600, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h89f43e1aff6aae76E"}
 !601 = !{!602}
 !602 = distinct !{!602, !603, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !603 = distinct !{!603, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -17582,11 +17582,11 @@ attributes #15 = { nounwind }
 !677 = distinct !{!677, !675, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !678 = distinct !{!678, !675, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !679 = !{!680}
-!680 = distinct !{!680, !681, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.argprom: argument 0"}
-!681 = distinct !{!681, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E.argprom"}
+!680 = distinct !{!680, !681, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E: argument 0"}
+!681 = distinct !{!681, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hdb1f12004a427155E"}
 !682 = !{!683}
-!683 = distinct !{!683, !684, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.argprom: argument 0"}
-!684 = distinct !{!684, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E.argprom"}
+!683 = distinct !{!683, !684, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E: argument 0"}
+!684 = distinct !{!684, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h5ab7db096741c865E"}
 !685 = !{!686}
 !686 = distinct !{!686, !687, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !687 = distinct !{!687, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -17666,11 +17666,11 @@ attributes #15 = { nounwind }
 !761 = distinct !{!761, !759, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !762 = distinct !{!762, !759, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !763 = !{!764}
-!764 = distinct !{!764, !765, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.argprom: argument 0"}
-!765 = distinct !{!765, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E.argprom"}
+!764 = distinct !{!764, !765, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E: argument 0"}
+!765 = distinct !{!765, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h6d1386c997b8f804E"}
 !766 = !{!767}
-!767 = distinct !{!767, !768, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.argprom: argument 0"}
-!768 = distinct !{!768, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E.argprom"}
+!767 = distinct !{!767, !768, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E: argument 0"}
+!768 = distinct !{!768, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17h49d4670d779182d4E"}
 !769 = !{!770}
 !770 = distinct !{!770, !771, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !771 = distinct !{!771, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -17750,11 +17750,11 @@ attributes #15 = { nounwind }
 !845 = distinct !{!845, !843, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !846 = distinct !{!846, !843, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !847 = !{!848}
-!848 = distinct !{!848, !849, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.argprom: argument 0"}
-!849 = distinct !{!849, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E.argprom"}
+!848 = distinct !{!848, !849, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E: argument 0"}
+!849 = distinct !{!849, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17hf60ff0a554a9c365E"}
 !850 = !{!851}
-!851 = distinct !{!851, !852, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.argprom: argument 0"}
-!852 = distinct !{!852, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E.argprom"}
+!851 = distinct !{!851, !852, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E: argument 0"}
+!852 = distinct !{!852, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e68ecdc7b7e72E"}
 !853 = !{!854}
 !854 = distinct !{!854, !855, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !855 = distinct !{!855, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -17834,11 +17834,11 @@ attributes #15 = { nounwind }
 !929 = distinct !{!929, !927, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !930 = distinct !{!930, !927, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !931 = !{!932}
-!932 = distinct !{!932, !933, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.argprom: argument 0"}
-!933 = distinct !{!933, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E.argprom"}
+!932 = distinct !{!932, !933, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E: argument 0"}
+!933 = distinct !{!933, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17h233163caccf1d106E"}
 !934 = !{!935}
-!935 = distinct !{!935, !936, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.argprom: argument 0"}
-!936 = distinct !{!936, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE.argprom"}
+!935 = distinct !{!935, !936, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE: argument 0"}
+!936 = distinct !{!936, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h245d6eba76e5f8ceE"}
 !937 = !{!938}
 !938 = distinct !{!938, !939, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !939 = distinct !{!939, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -17918,11 +17918,11 @@ attributes #15 = { nounwind }
 !1013 = distinct !{!1013, !1011, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !1014 = distinct !{!1014, !1011, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !1015 = !{!1016}
-!1016 = distinct !{!1016, !1017, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.argprom: argument 0"}
-!1017 = distinct !{!1017, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE.argprom"}
+!1016 = distinct !{!1016, !1017, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE: argument 0"}
+!1017 = distinct !{!1017, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h337b71bba34b8b8dE"}
 !1018 = !{!1019}
-!1019 = distinct !{!1019, !1020, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.argprom: argument 0"}
-!1020 = distinct !{!1020, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE.argprom"}
+!1019 = distinct !{!1019, !1020, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE: argument 0"}
+!1020 = distinct !{!1020, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h9c538990fc8b58eaE"}
 !1021 = !{!1022}
 !1022 = distinct !{!1022, !1023, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !1023 = distinct !{!1023, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -18002,11 +18002,11 @@ attributes #15 = { nounwind }
 !1097 = distinct !{!1097, !1095, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !1098 = distinct !{!1098, !1095, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !1099 = !{!1100}
-!1100 = distinct !{!1100, !1101, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.argprom: argument 0"}
-!1101 = distinct !{!1101, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE.argprom"}
+!1100 = distinct !{!1100, !1101, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE: argument 0"}
+!1101 = distinct !{!1101, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h1f0df403ddc7415eE"}
 !1102 = !{!1103}
-!1103 = distinct !{!1103, !1104, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.argprom: argument 0"}
-!1104 = distinct !{!1104, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E.argprom"}
+!1103 = distinct !{!1103, !1104, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E: argument 0"}
+!1104 = distinct !{!1104, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h7ed6cee752d85af6E"}
 !1105 = !{!1106}
 !1106 = distinct !{!1106, !1107, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !1107 = distinct !{!1107, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -18086,11 +18086,11 @@ attributes #15 = { nounwind }
 !1181 = distinct !{!1181, !1179, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !1182 = distinct !{!1182, !1179, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !1183 = !{!1184}
-!1184 = distinct !{!1184, !1185, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.argprom: argument 0"}
-!1185 = distinct !{!1185, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E.argprom"}
+!1184 = distinct !{!1184, !1185, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E: argument 0"}
+!1185 = distinct !{!1185, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h02deffafd0bc5c37E"}
 !1186 = !{!1187}
-!1187 = distinct !{!1187, !1188, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.argprom: argument 0"}
-!1188 = distinct !{!1188, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E.argprom"}
+!1187 = distinct !{!1187, !1188, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E: argument 0"}
+!1188 = distinct !{!1188, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h5cdbba7b14c12255E"}
 !1189 = !{!1190}
 !1190 = distinct !{!1190, !1191, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !1191 = distinct !{!1191, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -18170,11 +18170,11 @@ attributes #15 = { nounwind }
 !1265 = distinct !{!1265, !1263, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !1266 = distinct !{!1266, !1263, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !1267 = !{!1268}
-!1268 = distinct !{!1268, !1269, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.argprom: argument 0"}
-!1269 = distinct !{!1269, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE.argprom"}
+!1268 = distinct !{!1268, !1269, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE: argument 0"}
+!1269 = distinct !{!1269, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17hae501c4195376d4dE"}
 !1270 = !{!1271}
-!1271 = distinct !{!1271, !1272, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.argprom: argument 0"}
-!1272 = distinct !{!1272, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E.argprom"}
+!1271 = distinct !{!1271, !1272, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E: argument 0"}
+!1272 = distinct !{!1272, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h3ef5c05b558f2888E"}
 !1273 = !{!1274}
 !1274 = distinct !{!1274, !1275, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !1275 = distinct !{!1275, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -18254,11 +18254,11 @@ attributes #15 = { nounwind }
 !1349 = distinct !{!1349, !1347, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !1350 = distinct !{!1350, !1347, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !1351 = !{!1352}
-!1352 = distinct !{!1352, !1353, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.argprom: argument 0"}
-!1353 = distinct !{!1353, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE.argprom"}
+!1352 = distinct !{!1352, !1353, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE: argument 0"}
+!1353 = distinct !{!1353, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h8f32cfb16ae1034aE"}
 !1354 = !{!1355}
-!1355 = distinct !{!1355, !1356, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.argprom: argument 0"}
-!1356 = distinct !{!1356, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E.argprom"}
+!1355 = distinct !{!1355, !1356, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E: argument 0"}
+!1356 = distinct !{!1356, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h60a5b9fc5a2053f7E"}
 !1357 = !{!1358}
 !1358 = distinct !{!1358, !1359, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !1359 = distinct !{!1359, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -18338,11 +18338,11 @@ attributes #15 = { nounwind }
 !1433 = distinct !{!1433, !1431, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !1434 = distinct !{!1434, !1431, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !1435 = !{!1436}
-!1436 = distinct !{!1436, !1437, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.argprom: argument 0"}
-!1437 = distinct !{!1437, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE.argprom"}
+!1436 = distinct !{!1436, !1437, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE: argument 0"}
+!1437 = distinct !{!1437, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h1216d9748e24f10fE"}
 !1438 = !{!1439}
-!1439 = distinct !{!1439, !1440, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.argprom: argument 0"}
-!1440 = distinct !{!1440, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE.argprom"}
+!1439 = distinct !{!1439, !1440, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE: argument 0"}
+!1440 = distinct !{!1440, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17he04d9ffbc9ee9d5fE"}
 !1441 = !{!1442}
 !1442 = distinct !{!1442, !1443, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE: argument 1"}
 !1443 = distinct !{!1443, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hda38dc3a72a606bdE"}
@@ -18422,5 +18422,5 @@ attributes #15 = { nounwind }
 !1517 = distinct !{!1517, !1515, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !1518 = distinct !{!1518, !1515, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !1519 = !{!1520}
-!1520 = distinct !{!1520, !1521, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.argprom: argument 0"}
-!1521 = distinct !{!1521, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E.argprom"}
+!1520 = distinct !{!1520, !1521, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E: argument 0"}
+!1521 = distinct !{!1521, !"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17hbb871e6a9bf10382E"}

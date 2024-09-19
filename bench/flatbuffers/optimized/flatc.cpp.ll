@@ -11992,7 +11992,7 @@ define internal void @"_ZNSt3setIN11flatbuffers11FlatCOptionENS0_3$_0ESaIS1_EED2
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val = load ptr, ptr %0, align 8
-  tail call fastcc void @"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E.argprom"(ptr noundef %this.val)
+  tail call fastcc void @"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E"(ptr noundef %this.val)
   ret void
 }
 
@@ -12085,7 +12085,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont34
-  invoke fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm.argelim(ptr noundef nonnull align 8 dereferenceable(128) %ss_textwrap, ptr noundef nonnull align 8 dereferenceable(32) %help, i64 noundef 0)
+  invoke fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss_textwrap, ptr noundef nonnull align 8 dereferenceable(32) %help, i64 noundef 0)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont36
@@ -12164,7 +12164,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5seekpElSt12_Ios_Se
 declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm.argelim(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(32) %text, i64 noundef range(i64 0, 26) %start_col) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(32) %text, i64 noundef range(i64 0, 26) %start_col) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12230,7 +12230,7 @@ cond.true:                                        ; preds = %lor.lhs.false, %inv
 cond.end:                                         ; preds = %lor.lhs.false, %cond.true
   %cond = phi i64 [ %add, %cond.true ], [ %sub, %lor.lhs.false ]
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %rest_of_description, ptr noundef nonnull align 8 dereferenceable(32) %text, i64 noundef %cond, i64 noundef -1)
-  invoke fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm.argelim(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(32) %rest_of_description, i64 noundef %start_col)
+  invoke fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(32) %rest_of_description, i64 noundef %start_col)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %cond.end
@@ -12308,7 +12308,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
 for.body:                                         ; preds = %invoke.cont4, %for.inc
   %__begin1.sroa.0.015 = phi ptr [ %call.i, %for.inc ], [ %0, %invoke.cont4 ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.015, i64 32
-  invoke fastcc void @_ZN11flatbuffersL12AppendOptionERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERKNS_11FlatCOptionEmm.argelim(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(128) %_M_storage.i.i)
+  invoke fastcc void @_ZN11flatbuffersL12AppendOptionERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERKNS_11FlatCOptionEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(128) %_M_storage.i.i)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %for.body
@@ -12338,7 +12338,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
 for.body20:                                       ; preds = %for.end, %for.inc23
   %__begin117.0.idx16 = phi i64 [ %__begin117.0.add, %for.inc23 ], [ 0, %for.end ]
   %__begin117.0.ptr = getelementptr inbounds i8, ptr @_ZN11flatbuffersL13flatc_optionsE, i64 %__begin117.0.idx16
-  invoke fastcc void @_ZN11flatbuffersL12AppendOptionERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERKNS_11FlatCOptionEmm.argelim(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(128) %__begin117.0.ptr)
+  invoke fastcc void @_ZN11flatbuffersL12AppendOptionERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERKNS_11FlatCOptionEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(128) %__begin117.0.ptr)
           to label %for.inc23 unwind label %lpad.loopexit
 
 for.inc23:                                        ; preds = %for.body20
@@ -12361,7 +12361,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
 invoke.cont30:                                    ; preds = %invoke.cont28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %files_description, ptr noundef nonnull align 8 dereferenceable(32) %call.i56) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
-  invoke fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm.argelim(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(32) %files_description, i64 noundef 0)
+  invoke fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(32) %files_description, i64 noundef 0)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont30
@@ -12396,7 +12396,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffersL12AppendOptionERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERKNS_11FlatCOptionEmm.argelim(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(128) %option) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffersL12AppendOptionERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERKNS_11FlatCOptionEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(128) %option) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp44 = alloca %"class.std::allocator", align 1
@@ -12522,7 +12522,7 @@ if.end52:                                         ; preds = %while.body, %while.
 
 if.then54:                                        ; preds = %if.end52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %description55, ptr noundef nonnull align 8 dereferenceable(32) %description)
-  invoke fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm.argelim(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(32) %description55, i64 noundef 25)
+  invoke fastcc void @_ZN11flatbuffersL23AppendTextWrappedStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS0_12basic_stringIcS3_S4_EEmm(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr noundef nonnull align 8 dereferenceable(32) %description55, i64 noundef 25)
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %if.then54
@@ -21569,8 +21569,8 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end67
   %description.i17.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i, i64 96
   br label %while.body.i.i.i91
 
-while.body.i.i.i91:                               ; preds = %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.argprom.exit.i.i.i", %while.body.lr.ph.i.i.i
-  %__x.050.i.i.i = phi ptr [ %__x.048.i.i.i, %while.body.lr.ph.i.i.i ], [ %__x.0.i.i.i, %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.argprom.exit.i.i.i" ]
+while.body.i.i.i91:                               ; preds = %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.exit.i.i.i", %while.body.lr.ph.i.i.i
+  %__x.050.i.i.i = phi ptr [ %__x.048.i.i.i, %while.body.lr.ph.i.i.i ], [ %__x.0.i.i.i, %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.exit.i.i.i" ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %option)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %long_opt.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %long_opt)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
@@ -21661,7 +21661,7 @@ ehcleanup10.i8.i.i.i:                             ; preds = %ehcleanup.i14.i.i.i
 
 invoke.cont5.i.i.i:                               ; preds = %invoke.cont6.i16.i.i.i
   %call.i.i.i.i.i93 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %long_opt.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %long_opt.i5.i.i.i)
-          to label %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.argprom.exit.i.i.i" unwind label %terminate.lpad.i.i.i.i.i94
+          to label %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.exit.i.i.i" unwind label %terminate.lpad.i.i.i.i.i94
 
 terminate.lpad.i.i.i.i.i94:                       ; preds = %invoke.cont5.i.i.i
   %56 = landingpad { ptr, i32 }
@@ -21670,7 +21670,7 @@ terminate.lpad.i.i.i.i.i94:                       ; preds = %invoke.cont5.i.i.i
   call void @__clang_call_terminate(ptr %57) #26
   unreachable
 
-"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.argprom.exit.i.i.i": ; preds = %invoke.cont5.i.i.i
+"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.exit.i.i.i": ; preds = %invoke.cont5.i.i.i
   %cmp.i.i.i.i.i95 = icmp slt i32 %call.i.i.i.i.i93, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description.i17.i.i.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %parameter.i11.i.i.i) #21
@@ -21696,14 +21696,14 @@ lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %ehclea
   call void @_ZN11flatbuffers11FlatCOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp.i.i.i) #21
   br label %common.resume
 
-while.end.i.i.i:                                  ; preds = %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.argprom.exit.i.i.i"
+while.end.i.i.i:                                  ; preds = %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.exit.i.i.i"
   br i1 %cmp.i.i.i.i.i95, label %if.then.i.i.i98, label %if.end16.i.i.i
 
 if.then.i.i.i98:                                  ; preds = %while.end.i.i.i, %if.end67
   %__y.0.lcssa62.i.i.i = phi ptr [ %__x.050.i.i.i, %while.end.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN11flatbuffersL16language_optionsE, i64 8), %if.end67 ]
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11flatbuffersL16language_optionsE, i64 24), align 8
   %cmp.i.i.i.i99 = icmp eq ptr %__y.0.lcssa62.i.i.i, %59
-  br i1 %cmp.i.i.i.i99, label %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.argprom.exit.i.i", label %if.else.i.i.i
+  br i1 %cmp.i.i.i.i99, label %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.exit.i.i", label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i98
   %call.i.i.i.i100 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa62.i.i.i) #25
@@ -21806,7 +21806,7 @@ ehcleanup10.i47.i.i.i:                            ; preds = %ehcleanup.i53.i.i.i
 
 invoke.cont23.i.i.i:                              ; preds = %invoke.cont6.i55.i.i.i
   %call.i.i64.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %long_opt.i28.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %long_opt.i44.i.i.i)
-          to label %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.argprom.exit67.i.i.i" unwind label %terminate.lpad.i.i65.i.i.i
+          to label %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.exit67.i.i.i" unwind label %terminate.lpad.i.i65.i.i.i
 
 terminate.lpad.i.i65.i.i.i:                       ; preds = %invoke.cont23.i.i.i
   %66 = landingpad { ptr, i32 }
@@ -21815,7 +21815,7 @@ terminate.lpad.i.i65.i.i.i:                       ; preds = %invoke.cont23.i.i.i
   call void @__clang_call_terminate(ptr %67) #26
   unreachable
 
-"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.argprom.exit67.i.i.i": ; preds = %invoke.cont23.i.i.i
+"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.exit67.i.i.i": ; preds = %invoke.cont23.i.i.i
   %cmp.i.i66.i.i.i = icmp slt i32 %call.i.i64.i.i.i, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description.i56.i.i.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %parameter.i50.i.i.i) #21
@@ -21825,9 +21825,9 @@ terminate.lpad.i.i65.i.i.i:                       ; preds = %invoke.cont23.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %parameter.i34.i.i.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %long_opt.i28.i.i.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp19.i.i.i) #21
-  br i1 %cmp.i.i66.i.i.i, label %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.argprom.exit.i.i", label %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.argprom.exit.thread.i.i"
+  br i1 %cmp.i.i66.i.i.i, label %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.exit.i.i", label %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.exit.thread.i.i"
 
-"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.argprom.exit.thread.i.i": ; preds = %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.argprom.exit67.i.i.i"
+"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.exit.thread.i.i": ; preds = %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.exit67.i.i.i"
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp3.i.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp19.i.i.i)
@@ -21844,8 +21844,8 @@ lpad22.body.i.i.i:                                ; preds = %lpad22.i.i.i, %ehcl
   call void @_ZN11flatbuffers11FlatCOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp19.i.i.i) #21
   br label %common.resume
 
-"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.argprom.exit.i.i": ; preds = %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.argprom.exit67.i.i.i", %if.then.i.i.i98
-  %retval.sroa.4.0.i.i.i = phi ptr [ %__y.0.lcssa62.i.i.i, %if.then.i.i.i98 ], [ %__y.0.lcssa63.i.i.i, %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.argprom.exit67.i.i.i" ]
+"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.exit.i.i": ; preds = %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.exit67.i.i.i", %if.then.i.i.i98
+  %retval.sroa.4.0.i.i.i = phi ptr [ %__y.0.lcssa62.i.i.i, %if.then.i.i.i98 ], [ %__y.0.lcssa63.i.i.i, %"_ZNK11flatbuffers3$_0clENS_11FlatCOptionES1_.exit67.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp3.i.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp19.i.i.i)
@@ -21855,7 +21855,7 @@ lpad22.body.i.i.i:                                ; preds = %lpad22.i.i.i, %ehcl
   %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.i.i, getelementptr inbounds (i8, ptr @_ZN11flatbuffersL16language_optionsE, i64 8)
   br i1 %cmp2.i.i.i, label %cleanup.done11.i.i.i, label %lor.rhs.i.i.i
 
-lor.rhs.i.i.i:                                    ; preds = %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.argprom.exit.i.i"
+lor.rhs.i.i.i:                                    ; preds = %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.exit.i.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %option)
   %long_opt.i.i6.i.i = getelementptr inbounds i8, ptr %agg.tmp.i4.i.i, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %long_opt.i.i6.i.i, ptr noundef nonnull align 8 dereferenceable(32) %long_opt)
@@ -21971,8 +21971,8 @@ cleanup.action.i.i.i:                             ; preds = %invoke.cont6.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i4.i.i) #21
   br label %cleanup.done11.i.i.i
 
-cleanup.done11.i.i.i:                             ; preds = %cleanup.action.i.i.i, %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.argprom.exit.i.i"
-  %77 = phi i1 [ %cmp.i.i.i46.i.i, %cleanup.action.i.i.i ], [ true, %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.argprom.exit.i.i" ]
+cleanup.done11.i.i.i:                             ; preds = %cleanup.action.i.i.i, %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.exit.i.i"
+  %77 = phi i1 [ %cmp.i.i.i46.i.i, %cleanup.action.i.i.i ], [ true, %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.exit.i.i" ]
   %call5.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #22
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %option)
@@ -21993,7 +21993,7 @@ invoke.cont6.i.i.i.i.i.i.i.i.i:                   ; preds = %invoke.cont.i.i.i.i
   %description.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 128
   %description7.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %option, i64 96
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %description.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %description7.i.i.i.i.i.i.i.i.i)
-          to label %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.argprom.exit.i.i" unwind label %lpad8.i.i.i.i.i.i.i.i.i
+          to label %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i" unwind label %lpad8.i.i.i.i.i.i.i.i.i
 
 lpad.i.i.i.i.i.i.i.i.i:                           ; preds = %.noexc.i.i.i.i.i.i
   %78 = landingpad { ptr, i32 }
@@ -22060,7 +22060,7 @@ lpad.body.i26.i.i:                                ; preds = %lpad.i25.i.i, %ehcl
   call void @_ZN11flatbuffers11FlatCOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp.i4.i.i) #21
   br label %common.resume
 
-"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.argprom.exit.i.i": ; preds = %invoke.cont6.i.i.i.i.i.i.i.i.i
+"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i": ; preds = %invoke.cont6.i.i.i.i.i.i.i.i.i
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %77, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN11flatbuffersL16language_optionsE, i64 8)) #21
   %88 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN11flatbuffersL16language_optionsE, i64 40), align 8
   %inc.i.i.i = add i64 %88, 1
@@ -22069,8 +22069,8 @@ lpad.body.i26.i.i:                                ; preds = %lpad.i25.i.i, %ehcl
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp4.i.i.i)
   br label %return
 
-return:                                           ; preds = %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.argprom.exit.i.i", %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.argprom.exit.thread.i.i", %invoke.cont55, %invoke.cont16
-  %retval.0 = phi i1 [ false, %invoke.cont16 ], [ false, %invoke.cont55 ], [ true, %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.argprom.exit.thread.i.i" ], [ true, %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.argprom.exit.i.i" ]
+return:                                           ; preds = %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i", %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.exit.thread.i.i", %invoke.cont55, %invoke.cont16
+  %retval.0 = phi i1 [ false, %invoke.cont16 ], [ false, %invoke.cont55 ], [ true, %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE24_M_get_insert_unique_posERKS1_.exit.thread.i.i" ], [ true, %"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i" ]
   ret i1 %retval.0
 }
 
@@ -22141,7 +22141,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E.argprom"(ptr noundef %__x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E"(ptr noundef %__x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not1 = icmp eq ptr %__x, null
   br i1 %cmp.not1, label %while.end, label %while.body
@@ -22150,7 +22150,7 @@ while.body:                                       ; preds = %entry, %while.body
   %__x.addr.02 = phi ptr [ %__x.addr.0.val, %while.body ], [ %__x, %entry ]
   %0 = getelementptr i8, ptr %__x.addr.02, i64 24
   %__x.addr.0.val4 = load ptr, ptr %0, align 8
-  tail call fastcc void @"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E.argprom"(ptr noundef %__x.addr.0.val4)
+  tail call fastcc void @"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E"(ptr noundef %__x.addr.0.val4)
   %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val = load ptr, ptr %1, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 32

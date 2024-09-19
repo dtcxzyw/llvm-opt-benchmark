@@ -685,7 +685,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_jfif(ptr noundef %0, ptr 
   ]
 
 63:                                               ; preds = %57
-  tail call fastcc void @process_app0_segment.retelim(ptr noundef %20, ptr noundef %62, ptr noundef %1, i32 noundef %60, i16 noundef zeroext -32, ptr noundef %53)
+  tail call fastcc void @process_app0_segment(ptr noundef %20, ptr noundef %62, ptr noundef %1, i32 noundef %60, i16 noundef zeroext -32, ptr noundef %53)
   br label %process_sof_header.exit
 
 64:                                               ; preds = %57
@@ -740,7 +740,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_jfif(ptr noundef %0, ptr 
   br i1 %.not35.i, label %process_sof_header.exit, label %.lr.ph.i, !llvm.loop !6
 
 97:                                               ; preds = %57
-  tail call fastcc void @process_sos_header.argelim(ptr noundef %20, ptr noundef %62, i16 noundef zeroext -38, ptr noundef %53)
+  tail call fastcc void @process_sos_header(ptr noundef %20, ptr noundef %62, i16 noundef zeroext -38, ptr noundef %53)
   br label %process_sof_header.exit
 
 98:                                               ; preds = %57
@@ -824,7 +824,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_app0_segment.retelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i16 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @process_app0_segment(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i16 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %73, label %8
@@ -1059,7 +1059,7 @@ define internal fastcc void @process_app2_segment(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_sos_header.argelim(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @process_sos_header(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %37, label %5
 

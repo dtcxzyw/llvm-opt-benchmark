@@ -2276,25 +2276,25 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120PrintLoopPassWrapper9runO
   %.02949.i.i.i.i = phi ptr [ %20, %19 ], [ %5, %.lr.ph.preheader.i.i.i.i ]
   %.029.val.i.i.i.i = load ptr, ptr %.02949.i.i.i.i, align 8
   %.not35.i.i.i.i = icmp eq ptr %.029.val.i.i.i.i, null
-  br i1 %.not35.i.i.i.i, label %13, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit
+  br i1 %.not35.i.i.i.i, label %13, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit
 
 13:                                               ; preds = %.lr.ph.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %14, align 8
   %.not36.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not36.i.i.i.i, label %15, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit
+  br i1 %.not36.i.i.i.i, label %15, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 16
   %.val30.i.i.i.i = load ptr, ptr %16, align 8
   %.not37.i.i.i.i = icmp eq ptr %.val30.i.i.i.i, null
-  br i1 %.not37.i.i.i.i, label %17, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit20
+  br i1 %.not37.i.i.i.i, label %17, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit20
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 24
   %.val31.i.i.i.i = load ptr, ptr %18, align 8
   %.not38.i.i.i.i = icmp eq ptr %.val31.i.i.i.i, null
-  br i1 %.not38.i.i.i.i, label %19, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit22
+  br i1 %.not38.i.i.i.i, label %19, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit22
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 32
@@ -2320,7 +2320,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120PrintLoopPassWrapper9runO
 24:                                               ; preds = %._crit_edge.i.i.i.i
   %.029.val32.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.029.val32.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %25, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit
+  br i1 %.not.i.i.i.i, label %25, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 8
@@ -2330,7 +2330,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120PrintLoopPassWrapper9runO
   %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %26, %25 ]
   %.1.val.i.i.i.i = load ptr, ptr %.1.i.i.i.i, align 8
   %.not33.i.i.i.i = icmp eq ptr %.1.val.i.i.i.i, null
-  br i1 %.not33.i.i.i.i, label %28, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit
+  br i1 %.not33.i.i.i.i, label %28, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 8
@@ -2340,31 +2340,31 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120PrintLoopPassWrapper9runO
   %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %29, %28 ]
   %.2.val.i.i.i.i = load ptr, ptr %.2.i.i.i.i, align 8
   %.not34.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i, null
-  br i1 %.not34.i.i.i.i, label %31, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit
+  br i1 %.not34.i.i.i.i, label %31, label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit
 
 31:                                               ; preds = %30, %._crit_edge.i.i.i.i
-  br label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit
+  br label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit
 
-_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit: ; preds = %13
+_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit: ; preds = %13
   %32 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 8
-  br label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit
+  br label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit
 
-_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit20: ; preds = %15
+_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit20: ; preds = %15
   %33 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 16
-  br label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit
+  br label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit
 
-_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit22: ; preds = %17
+_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit22: ; preds = %17
   %34 = getelementptr inbounds i8, ptr %.02949.i.i.i.i, i64 24
-  br label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit
+  br label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit
 
-_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit20, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit22, %24, %27, %30, %31
-  %.028.i.i.i.i = phi ptr [ %6, %31 ], [ %.029.lcssa.i.i.i.i, %24 ], [ %.1.i.i.i.i, %27 ], [ %.2.i.i.i.i, %30 ], [ %32, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit ], [ %33, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit20 ], [ %34, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit22 ], [ %.02949.i.i.i.i, %.lr.ph.i.i.i.i ]
+_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit20, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit22, %24, %27, %30, %31
+  %.028.i.i.i.i = phi ptr [ %6, %31 ], [ %.029.lcssa.i.i.i.i, %24 ], [ %.1.i.i.i.i, %27 ], [ %.2.i.i.i.i, %30 ], [ %32, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %33, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit20 ], [ %34, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit22 ], [ %.02949.i.i.i.i, %.lr.ph.i.i.i.i ]
   %35 = tail call { ptr, ptr } @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE6blocksEv(ptr noundef nonnull align 8 dereferenceable(152) %1) #18
   %36 = extractvalue { ptr, ptr } %35, 1
   %.not = icmp eq ptr %.028.i.i.i.i, %36
   br i1 %.not, label %.critedge, label %37
 
-37:                                               ; preds = %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit
+37:                                               ; preds = %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit
   %38 = load ptr, ptr %.028.i.i.i.i, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %40 = load ptr, ptr %39, align 8
@@ -2381,7 +2381,7 @@ _ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120Prin
   tail call void @_ZN4llvm9printLoopERNS_4LoopERNS_11raw_ostreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull align 8 dereferenceable(32) %48) #18
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.argprom.exit, %45, %37
+.critedge:                                        ; preds = %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit, %45, %37
   ret i1 false
 }
 
@@ -5878,8 +5878,8 @@ attributes #21 = { noreturn nounwind }
 !103 = distinct !{!103, !104, !"_ZNK4llvm7PMStack3endEv: argument 0"}
 !104 = distinct !{!104, !"_ZNK4llvm7PMStack3endEv"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZL14getDescriptionB5cxx11RKN4llvm4LoopE.argprom: argument 0"}
-!107 = distinct !{!107, !"_ZL14getDescriptionB5cxx11RKN4llvm4LoopE.argprom"}
+!106 = distinct !{!106, !107, !"_ZL14getDescriptionB5cxx11RKN4llvm4LoopE: argument 0"}
+!107 = distinct !{!107, !"_ZL14getDescriptionB5cxx11RKN4llvm4LoopE"}
 !108 = distinct !{!108, !5}
 !109 = distinct !{!109, !5}
 !110 = distinct !{!110, !5}

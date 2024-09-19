@@ -259,7 +259,7 @@ ChooseExtendedStatisticNameAddition.exit:         ; preds = %106, %114, %80, %.l
   %121 = zext i32 %84 to i64
   %122 = call i32 @GetSysCacheOid(i32 noundef 61, i16 noundef signext 1, i64 noundef %120, i64 noundef %121, i64 noundef 0, i64 noundef 0) #10
   %.not1.i = icmp eq i32 %122, 0
-  br i1 %.not1.i, label %ChooseExtendedStatisticName.argprom.exit, label %.lr.ph.i240
+  br i1 %.not1.i, label %ChooseExtendedStatisticName.exit, label %.lr.ph.i240
 
 .lr.ph.i240:                                      ; preds = %ChooseExtendedStatisticNameAddition.exit, %.lr.ph.i240
   %123 = phi ptr [ %126, %.lr.ph.i240 ], [ %119, %ChooseExtendedStatisticNameAddition.exit ]
@@ -271,18 +271,18 @@ ChooseExtendedStatisticNameAddition.exit:         ; preds = %106, %114, %80, %.l
   %127 = ptrtoint ptr %126 to i64
   %128 = call i32 @GetSysCacheOid(i32 noundef 61, i16 noundef signext 1, i64 noundef %127, i64 noundef %121, i64 noundef 0, i64 noundef 0) #10
   %.not.i241 = icmp eq i32 %128, 0
-  br i1 %.not.i241, label %ChooseExtendedStatisticName.argprom.exit, label %.lr.ph.i240
+  br i1 %.not.i241, label %ChooseExtendedStatisticName.exit, label %.lr.ph.i240
 
-ChooseExtendedStatisticName.argprom.exit:         ; preds = %.lr.ph.i240, %ChooseExtendedStatisticNameAddition.exit
+ChooseExtendedStatisticName.exit:                 ; preds = %.lr.ph.i240, %ChooseExtendedStatisticNameAddition.exit
   %.lcssa.i = phi ptr [ %119, %ChooseExtendedStatisticNameAddition.exit ], [ %126, %.lr.ph.i240 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   store ptr %.lcssa.i, ptr %5, align 8
   br label %129
 
-129:                                              ; preds = %ChooseExtendedStatisticName.argprom.exit, %78
-  %.pre-phi = phi i64 [ %121, %ChooseExtendedStatisticName.argprom.exit ], [ %.pre431, %78 ]
-  %130 = phi ptr [ %.lcssa.i, %ChooseExtendedStatisticName.argprom.exit ], [ %.pre, %78 ]
-  %.0179 = phi i32 [ %84, %ChooseExtendedStatisticName.argprom.exit ], [ %79, %78 ]
+129:                                              ; preds = %ChooseExtendedStatisticName.exit, %78
+  %.pre-phi = phi i64 [ %121, %ChooseExtendedStatisticName.exit ], [ %.pre431, %78 ]
+  %130 = phi ptr [ %.lcssa.i, %ChooseExtendedStatisticName.exit ], [ %.pre, %78 ]
+  %.0179 = phi i32 [ %84, %ChooseExtendedStatisticName.exit ], [ %79, %78 ]
   call void @namestrcpy(ptr noundef nonnull %6, ptr noundef %130) #10
   %131 = load ptr, ptr %5, align 8
   %132 = ptrtoint ptr %131 to i64

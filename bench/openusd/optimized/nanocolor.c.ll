@@ -2966,13 +2966,13 @@ define ptr @pxr_nc_1_0_MatchLinearColorSpace(<2 x float> %0, <2 x float> %1, <2 
   %.sroa.0.4.vec.extract = extractelement <2 x float> %3, i64 1
   br label %6
 
-6:                                                ; preds = %5, %CompareChromaticity.argprom.exit.thread
-  %.026 = phi i64 [ 0, %5 ], [ %57, %CompareChromaticity.argprom.exit.thread ]
+6:                                                ; preds = %5, %CompareChromaticity.exit.thread
+  %.026 = phi i64 [ 0, %5 ], [ %57, %CompareChromaticity.exit.thread ]
   %7 = getelementptr inbounds [18 x %struct.pxr_nc_1_0_ColorSpace], ptr @_colorSpaces, i64 0, i64 %.026
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load float, ptr %8, align 8
   %10 = fcmp une float %9, 1.000000e+00
-  br i1 %10, label %CompareChromaticity.argprom.exit.thread, label %11
+  br i1 %10, label %CompareChromaticity.exit.thread, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2980,75 +2980,75 @@ define ptr @pxr_nc_1_0_MatchLinearColorSpace(<2 x float> %0, <2 x float> %1, <2 
   %14 = fsub float %13, %.sroa.025.0.vec.extract
   %15 = tail call float @llvm.fabs.f32(float %14)
   %16 = fcmp olt float %15, %4
-  br i1 %16, label %CompareChromaticity.argprom.exit, label %CompareChromaticity.argprom.exit.thread
+  br i1 %16, label %CompareChromaticity.exit, label %CompareChromaticity.exit.thread
 
-CompareChromaticity.argprom.exit:                 ; preds = %11
+CompareChromaticity.exit:                         ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %18 = load float, ptr %17, align 4
   %19 = fsub float %18, %.sroa.025.4.vec.extract
   %20 = tail call float @llvm.fabs.f32(float %19)
   %21 = fcmp olt float %20, %4
-  br i1 %21, label %22, label %CompareChromaticity.argprom.exit.thread
+  br i1 %21, label %22, label %CompareChromaticity.exit.thread
 
-22:                                               ; preds = %CompareChromaticity.argprom.exit
+22:                                               ; preds = %CompareChromaticity.exit
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %24 = load float, ptr %23, align 16
   %25 = fsub float %24, %.sroa.024.0.vec.extract
   %26 = tail call float @llvm.fabs.f32(float %25)
   %27 = fcmp olt float %26, %4
-  br i1 %27, label %CompareChromaticity.argprom.exit20, label %CompareChromaticity.argprom.exit.thread
+  br i1 %27, label %CompareChromaticity.exit20, label %CompareChromaticity.exit.thread
 
-CompareChromaticity.argprom.exit20:               ; preds = %22
+CompareChromaticity.exit20:                       ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %29 = load float, ptr %28, align 4
   %30 = fsub float %29, %.sroa.024.4.vec.extract
   %31 = tail call float @llvm.fabs.f32(float %30)
   %32 = fcmp olt float %31, %4
-  br i1 %32, label %33, label %CompareChromaticity.argprom.exit.thread
+  br i1 %32, label %33, label %CompareChromaticity.exit.thread
 
-33:                                               ; preds = %CompareChromaticity.argprom.exit20
+33:                                               ; preds = %CompareChromaticity.exit20
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %35 = load float, ptr %34, align 8
   %36 = fsub float %35, %.sroa.023.0.vec.extract
   %37 = tail call float @llvm.fabs.f32(float %36)
   %38 = fcmp olt float %37, %4
-  br i1 %38, label %CompareChromaticity.argprom.exit21, label %CompareChromaticity.argprom.exit.thread
+  br i1 %38, label %CompareChromaticity.exit21, label %CompareChromaticity.exit.thread
 
-CompareChromaticity.argprom.exit21:               ; preds = %33
+CompareChromaticity.exit21:                       ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %40 = load float, ptr %39, align 4
   %41 = fsub float %40, %.sroa.023.4.vec.extract
   %42 = tail call float @llvm.fabs.f32(float %41)
   %43 = fcmp olt float %42, %4
-  br i1 %43, label %44, label %CompareChromaticity.argprom.exit.thread
+  br i1 %43, label %44, label %CompareChromaticity.exit.thread
 
-44:                                               ; preds = %CompareChromaticity.argprom.exit21
+44:                                               ; preds = %CompareChromaticity.exit21
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %46 = load float, ptr %45, align 16
   %47 = fsub float %46, %.sroa.0.0.vec.extract
   %48 = tail call float @llvm.fabs.f32(float %47)
   %49 = fcmp olt float %48, %4
-  br i1 %49, label %CompareChromaticity.argprom.exit22, label %CompareChromaticity.argprom.exit.thread
+  br i1 %49, label %CompareChromaticity.exit22, label %CompareChromaticity.exit.thread
 
-CompareChromaticity.argprom.exit22:               ; preds = %44
+CompareChromaticity.exit22:                       ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %51 = load float, ptr %50, align 4
   %52 = fsub float %51, %.sroa.0.4.vec.extract
   %53 = tail call float @llvm.fabs.f32(float %52)
   %54 = fcmp olt float %53, %4
-  br i1 %54, label %55, label %CompareChromaticity.argprom.exit.thread
+  br i1 %54, label %55, label %CompareChromaticity.exit.thread
 
-55:                                               ; preds = %CompareChromaticity.argprom.exit22
+55:                                               ; preds = %CompareChromaticity.exit22
   %56 = load ptr, ptr %7, align 16
   br label %.loopexit
 
-CompareChromaticity.argprom.exit.thread:          ; preds = %44, %33, %22, %11, %CompareChromaticity.argprom.exit, %CompareChromaticity.argprom.exit20, %CompareChromaticity.argprom.exit21, %CompareChromaticity.argprom.exit22, %6
+CompareChromaticity.exit.thread:                  ; preds = %44, %33, %22, %11, %CompareChromaticity.exit, %CompareChromaticity.exit20, %CompareChromaticity.exit21, %CompareChromaticity.exit22, %6
   %57 = add nuw nsw i64 %.026, 1
   %exitcond.not = icmp eq i64 %57, 18
   br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !42
 
-.loopexit:                                        ; preds = %CompareChromaticity.argprom.exit.thread, %55
-  %.012 = phi ptr [ %56, %55 ], [ null, %CompareChromaticity.argprom.exit.thread ]
+.loopexit:                                        ; preds = %CompareChromaticity.exit.thread, %55
+  %.012 = phi ptr [ %56, %55 ], [ null, %CompareChromaticity.exit.thread ]
   ret ptr %.012
 }
 

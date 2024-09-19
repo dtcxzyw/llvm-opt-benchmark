@@ -1873,7 +1873,7 @@ do.end24.i.i:                                     ; preds = %if.then.i384.i
 
 call29.i.noexc.i:                                 ; preds = %do.end24.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp6.i.i.i)
-  br i1 %prefilter, label %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.argprom.exit.i.i, label %if.end.i34.i.i
+  br i1 %prefilter, label %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.exit.i.i, label %if.end.i34.i.i
 
 if.end.i34.i.i:                                   ; preds = %call29.i.noexc.i
   %__begin1.sroa.0.06.i.i.i = load ptr, ptr %m_header.i.i.i.i.i.i.i35.i.i, align 8
@@ -1936,9 +1936,9 @@ for.body.i.i.i.i.i389.i:                          ; preds = %for.body.i.i.i.i.i3
 
 _ZNK3ue29CharReach3anyEv.exit.i.i.i:              ; preds = %for.body.i.i.i.i.i389.i
   %152 = select i1 %cmp3.not.i.i.i.i.i.i, i64 %109, i64 0
-  br label %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.argprom.exit.i.i
+  br label %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.exit.i.i
 
-_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.argprom.exit.i.i: ; preds = %_ZNK3ue29CharReach3anyEv.exit.i.i.i, %call29.i.noexc.i
+_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.exit.i.i: ; preds = %_ZNK3ue29CharReach3anyEv.exit.i.i.i, %call29.i.noexc.i
   %retval.0.i38.i.i = phi i64 [ 0, %call29.i.noexc.i ], [ %152, %_ZNK3ue29CharReach3anyEv.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp6.i.i.i)
   %153 = load i32, ptr %event.i.i, align 4
@@ -1961,8 +1961,8 @@ for.cond.i.i.i395.i:                              ; preds = %for.body.i.i.i391.i
   %exitcond.not.i.i.i397.i = icmp eq i64 %inc.i.i.i396.i, 3
   br i1 %exitcond.not.i.i.i397.i, label %_ZNK3ue29CharReach3allEv.exit.i.i, label %for.body.i.i.i391.i, !llvm.loop !8
 
-for.body.i.i.i391.i:                              ; preds = %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.argprom.exit.i.i, %for.cond.i.i.i395.i
-  %i.04.i.i.i392.i = phi i64 [ %inc.i.i.i396.i, %for.cond.i.i.i395.i ], [ 0, %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.argprom.exit.i.i ]
+for.body.i.i.i391.i:                              ; preds = %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.exit.i.i, %for.cond.i.i.i395.i
+  %i.04.i.i.i392.i = phi i64 [ %inc.i.i.i396.i, %for.cond.i.i.i395.i ], [ 0, %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.exit.i.i ]
   %arrayidx.i.i.i.i.i393.i = getelementptr inbounds [4 x i64], ptr %props.i.i, i64 0, i64 %i.04.i.i.i392.i
   %154 = load i64, ptr %arrayidx.i.i.i.i.i393.i, align 8
   %cmp4.not.i.i.i394.i = icmp eq i64 %154, -1
@@ -1982,7 +1982,7 @@ call41.i.noexc.i:                                 ; preds = %if.then40.i.i
   store i32 %call41.i410.i, ptr %ekey.i.i.i.i, align 8
   br label %if.end42.i.i
 
-if.end42.i.i:                                     ; preds = %for.body.i.i.i391.i, %call41.i.noexc.i, %_ZNK3ue29CharReach3allEv.exit.i.i, %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.argprom.exit.i.i
+if.end42.i.i:                                     ; preds = %for.body.i.i.i391.i, %call41.i.noexc.i, %_ZNK3ue29CharReach3allEv.exit.i.i, %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.exit.i.i
   %call43.i411.i = invoke noundef i32 @_ZN3ue213ReportManager13getInternalIdERKNS_6ReportE(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(72) %ir.i.i)
           to label %call43.i.noexc.i unwind label %lpad283.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 

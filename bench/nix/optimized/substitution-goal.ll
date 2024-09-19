@@ -22229,7 +22229,7 @@ _ZN3nix12PushActivityD2Ev.exit.i.i.i.i.i:         ; preds = %160
   call void @_ZN3nix8ActivityD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #31
   %164 = getelementptr inbounds i8, ptr %.val, i64 860
   invoke void @_ZN3nix11AutoCloseFD5closeEv(ptr noundef nonnull align 4 dereferenceable(4) %164)
-          to label %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.argprom.exit.i.i.i.i.i" unwind label %165
+          to label %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.exit.i.i.i.i.i" unwind label %165
 
 165:                                              ; preds = %_ZN3nix12PushActivityD2Ev.exit.i.i.i.i.i
   %166 = landingpad { ptr, i32 }
@@ -22238,17 +22238,17 @@ _ZN3nix12PushActivityD2Ev.exit.i.i.i.i.i:         ; preds = %160
   call void @__clang_call_terminate(ptr %167) #34
   unreachable
 
-"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.argprom.exit.i.i.i.i.i": ; preds = %_ZN3nix12PushActivityD2Ev.exit.i.i.i.i.i
+"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.exit.i.i.i.i.i": ; preds = %_ZN3nix12PushActivityD2Ev.exit.i.i.i.i.i
   %168 = load ptr, ptr %13, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEclEv.argprom.exit", label %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEclEv.exit", label %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.argprom.exit.i.i.i.i.i"
+_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.exit.i.i.i.i.i"
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8
   call void %171(ptr noundef nonnull align 8 dereferenceable(8) %168) #31
-  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEclEv.argprom.exit"
+  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEclEv.exit"
 
 .thread.i.i.i.i.i:                                ; preds = %33
   %172 = landingpad { ptr, i32 }
@@ -22336,7 +22336,7 @@ _ZN3nix12PushActivityD2Ev.exit29.i.i.i.i.i:       ; preds = %.body27.i.i.i.i.i, 
   %.pn13.pn.i.i.i.i.i = phi { ptr, i32 } [ %.pn13.i.i.i.i.i, %_ZN3nix12PushActivityD2Ev.exit29.i.i.i.i.i ], [ %.pn.pn.pn.i.i.i.i.i, %184 ], [ %172, %.thread.i.i.i.i.i ], [ %.pn.pn.pn.i.i.i.i.i, %.preheader.i.i.i.i.i ]
   %196 = getelementptr inbounds i8, ptr %.val, i64 860
   invoke void @_ZN3nix11AutoCloseFD5closeEv(ptr noundef nonnull align 4 dereferenceable(4) %196)
-          to label %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.argprom.exit30.i.i.i.i.i" unwind label %197
+          to label %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.exit30.i.i.i.i.i" unwind label %197
 
 197:                                              ; preds = %.loopexit.i.i.i.i.i
   %198 = landingpad { ptr, i32 }
@@ -22345,19 +22345,19 @@ _ZN3nix12PushActivityD2Ev.exit29.i.i.i.i.i:       ; preds = %.body27.i.i.i.i.i, 
   call void @__clang_call_terminate(ptr %199) #34
   unreachable
 
-"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.argprom.exit30.i.i.i.i.i": ; preds = %.loopexit.i.i.i.i.i
+"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.exit30.i.i.i.i.i": ; preds = %.loopexit.i.i.i.i.i
   %200 = load ptr, ptr %13, align 8
   %.not.i.i31.i.i.i.i.i = icmp eq ptr %200, null
   br i1 %.not.i.i31.i.i.i.i.i, label %_ZN3nix17ReceiveInterruptsD2Ev.exit33.i.i.i.i.i, label %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i32.i.i.i.i.i
 
-_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i32.i.i.i.i.i: ; preds = %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.argprom.exit30.i.i.i.i.i"
+_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i32.i.i.i.i.i: ; preds = %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.exit30.i.i.i.i.i"
   %201 = load ptr, ptr %200, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 8
   %203 = load ptr, ptr %202, align 8
   call void %203(ptr noundef nonnull align 8 dereferenceable(8) %200) #31
   br label %_ZN3nix17ReceiveInterruptsD2Ev.exit33.i.i.i.i.i
 
-_ZN3nix17ReceiveInterruptsD2Ev.exit33.i.i.i.i.i:  ; preds = %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i32.i.i.i.i.i, %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.argprom.exit30.i.i.i.i.i"
+_ZN3nix17ReceiveInterruptsD2Ev.exit33.i.i.i.i.i:  ; preds = %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i32.i.i.i.i.i, %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.exit30.i.i.i.i.i"
   store ptr null, ptr %13, align 8
   br label %.body.i.i.i.i.i
 
@@ -22381,7 +22381,7 @@ _ZN3nix17ReceiveInterruptsD2Ev.exit33.i.i.i.i.i:  ; preds = %_ZNKSt14default_del
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %208, %206
   call void @__cxa_end_catch()
-  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEclEv.argprom.exit"
+  br label %"_ZNSt6thread8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEclEv.exit"
 
 209:                                              ; preds = %.body.i.i.i.i.i
   %210 = landingpad { ptr, i32 }
@@ -22408,7 +22408,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit35.i.i.i.i.i: ; preds = %212, %209
   call void @__clang_call_terminate(ptr %216) #34
   unreachable
 
-"_ZNSt6thread8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEclEv.argprom.exit": ; preds = %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.argprom.exit.i.i.i.i.i", %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i
+"_ZNSt6thread8_InvokerISt5tupleIJZN3nix20PathSubstitutionGoal8tryToRunEvE3$_0EEEclEv.exit": ; preds = %"_ZN7FinallyIZZN3nix20PathSubstitutionGoal8tryToRunEvENK3$_0clEvEUlvE_ED2Ev.exit.i.i.i.i.i", %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -22617,13 +22617,13 @@ define linkonce_odr void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #35
           to label %18 unwind label %19
 
@@ -22637,7 +22637,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)

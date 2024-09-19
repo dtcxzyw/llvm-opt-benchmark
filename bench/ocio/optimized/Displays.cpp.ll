@@ -881,7 +881,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i:            ; preds = %if.then.i.i.i23.i.i
   %_M_refcount.i.i26.i.i.i = getelementptr inbounds i8, ptr %matrix.i.i.i, i64 8
   %16 = load ptr, ptr %_M_refcount.i.i26.i.i.i, align 8
   %cmp.not.i.i.i27.i.i.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_0JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i28.i.i.i
+  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_0JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i28.i.i.i
 
 if.then.i.i.i28.i.i.i:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i
   %_M_use_count.i.i.i.i29.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
@@ -917,7 +917,7 @@ if.else.i.i.i.i.i52.i.i.i:                        ; preds = %if.end.i.i.i.i31.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i: ; preds = %if.else.i.i.i.i.i52.i.i.i, %if.then.i.i.i.i.i33.i.i.i
   %retval.i.0.i.i.i.i36.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i33.i.i.i ], [ %21, %if.else.i.i.i.i.i52.i.i.i ]
   %cmp6.i.i.i.i37.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i36.i.i.i, 1
-  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_0JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_0JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.then7.i.i.i.i38.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i
   %vtable.i.i.i.i.i.i39.i.i.i = load ptr, ptr %16, align 8
@@ -942,14 +942,14 @@ if.else.i.i.i.i.i.i.i51.i.i.i:                    ; preds = %if.then7.i.i.i.i38.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i51.i.i.i, %if.then.i.i.i.i.i.i.i43.i.i.i
   %retval.i.0.i.i.i.i.i.i46.i.i.i = phi i32 [ %24, %if.then.i.i.i.i.i.i.i43.i.i.i ], [ %25, %if.else.i.i.i.i.i.i.i51.i.i.i ]
   %cmp.i.i.i.i.i.i47.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i46.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_0JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_0JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.end8.sink.split.i.i.i.i48.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.then.i.i.i.i53.i.i.i
   %vtable2.i.i.i.i.i.i49.i.i.i = load ptr, ptr %16, align 8
   %vfn3.i.i.i.i.i.i50.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i49.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i50.i.i.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
-  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_0JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_0JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %27 = landingpad { ptr, i32 }
@@ -992,7 +992,7 @@ ehcleanup20.i.i.i:                                ; preds = %if.then.i.i.i62.i.i
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #20
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_0JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_0JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matrix.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rgbParams.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %alphaParams.i.i.i)
@@ -1436,7 +1436,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i:            ; preds = %if.then.i.i.i23.i.i
   %_M_refcount.i.i26.i.i.i = getelementptr inbounds i8, ptr %matrix.i.i.i, i64 8
   %16 = load ptr, ptr %_M_refcount.i.i26.i.i.i, align 8
   %cmp.not.i.i.i27.i.i.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_1JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i28.i.i.i
+  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_1JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i28.i.i.i
 
 if.then.i.i.i28.i.i.i:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i
   %_M_use_count.i.i.i.i29.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
@@ -1472,7 +1472,7 @@ if.else.i.i.i.i.i52.i.i.i:                        ; preds = %if.end.i.i.i.i31.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i: ; preds = %if.else.i.i.i.i.i52.i.i.i, %if.then.i.i.i.i.i33.i.i.i
   %retval.i.0.i.i.i.i36.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i33.i.i.i ], [ %21, %if.else.i.i.i.i.i52.i.i.i ]
   %cmp6.i.i.i.i37.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i36.i.i.i, 1
-  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_1JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_1JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.then7.i.i.i.i38.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i
   %vtable.i.i.i.i.i.i39.i.i.i = load ptr, ptr %16, align 8
@@ -1497,14 +1497,14 @@ if.else.i.i.i.i.i.i.i51.i.i.i:                    ; preds = %if.then7.i.i.i.i38.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i51.i.i.i, %if.then.i.i.i.i.i.i.i43.i.i.i
   %retval.i.0.i.i.i.i.i.i46.i.i.i = phi i32 [ %24, %if.then.i.i.i.i.i.i.i43.i.i.i ], [ %25, %if.else.i.i.i.i.i.i.i51.i.i.i ]
   %cmp.i.i.i.i.i.i47.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i46.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_1JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_1JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.end8.sink.split.i.i.i.i48.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.then.i.i.i.i53.i.i.i
   %vtable2.i.i.i.i.i.i49.i.i.i = load ptr, ptr %16, align 8
   %vfn3.i.i.i.i.i.i50.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i49.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i50.i.i.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
-  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_1JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_1JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %27 = landingpad { ptr, i32 }
@@ -1547,7 +1547,7 @@ ehcleanup20.i.i.i:                                ; preds = %if.then.i.i.i62.i.i
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #20
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_1JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_1JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matrix.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rgbParams.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %alphaParams.i.i.i)
@@ -1752,7 +1752,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i:            ; preds = %if.then.i.i.i23.i.i
   %_M_refcount.i.i26.i.i.i = getelementptr inbounds i8, ptr %matrix.i.i.i, i64 8
   %16 = load ptr, ptr %_M_refcount.i.i26.i.i.i, align 8
   %cmp.not.i.i.i27.i.i.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_2JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i28.i.i.i
+  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_2JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i28.i.i.i
 
 if.then.i.i.i28.i.i.i:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i
   %_M_use_count.i.i.i.i29.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
@@ -1788,7 +1788,7 @@ if.else.i.i.i.i.i52.i.i.i:                        ; preds = %if.end.i.i.i.i31.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i: ; preds = %if.else.i.i.i.i.i52.i.i.i, %if.then.i.i.i.i.i33.i.i.i
   %retval.i.0.i.i.i.i36.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i33.i.i.i ], [ %21, %if.else.i.i.i.i.i52.i.i.i ]
   %cmp6.i.i.i.i37.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i36.i.i.i, 1
-  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_2JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_2JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.then7.i.i.i.i38.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i
   %vtable.i.i.i.i.i.i39.i.i.i = load ptr, ptr %16, align 8
@@ -1813,14 +1813,14 @@ if.else.i.i.i.i.i.i.i51.i.i.i:                    ; preds = %if.then7.i.i.i.i38.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i51.i.i.i, %if.then.i.i.i.i.i.i.i43.i.i.i
   %retval.i.0.i.i.i.i.i.i46.i.i.i = phi i32 [ %24, %if.then.i.i.i.i.i.i.i43.i.i.i ], [ %25, %if.else.i.i.i.i.i.i.i51.i.i.i ]
   %cmp.i.i.i.i.i.i47.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i46.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_2JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_2JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.end8.sink.split.i.i.i.i48.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.then.i.i.i.i53.i.i.i
   %vtable2.i.i.i.i.i.i49.i.i.i = load ptr, ptr %16, align 8
   %vfn3.i.i.i.i.i.i50.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i49.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i50.i.i.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
-  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_2JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_2JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %27 = landingpad { ptr, i32 }
@@ -1863,7 +1863,7 @@ ehcleanup20.i.i.i:                                ; preds = %if.then.i.i.i62.i.i
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #20
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_2JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_2JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matrix.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rgbParams.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %alphaParams.i.i.i)
@@ -2072,7 +2072,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i:            ; preds = %if.then.i.i.i23.i.i
   %_M_refcount.i.i26.i.i.i = getelementptr inbounds i8, ptr %matrix.i.i.i, i64 8
   %16 = load ptr, ptr %_M_refcount.i.i26.i.i.i, align 8
   %cmp.not.i.i.i27.i.i.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_3JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i28.i.i.i
+  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_3JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i28.i.i.i
 
 if.then.i.i.i28.i.i.i:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i
   %_M_use_count.i.i.i.i29.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
@@ -2108,7 +2108,7 @@ if.else.i.i.i.i.i52.i.i.i:                        ; preds = %if.end.i.i.i.i31.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i: ; preds = %if.else.i.i.i.i.i52.i.i.i, %if.then.i.i.i.i.i33.i.i.i
   %retval.i.0.i.i.i.i36.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i33.i.i.i ], [ %21, %if.else.i.i.i.i.i52.i.i.i ]
   %cmp6.i.i.i.i37.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i36.i.i.i, 1
-  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_3JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_3JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.then7.i.i.i.i38.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i
   %vtable.i.i.i.i.i.i39.i.i.i = load ptr, ptr %16, align 8
@@ -2133,14 +2133,14 @@ if.else.i.i.i.i.i.i.i51.i.i.i:                    ; preds = %if.then7.i.i.i.i38.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i51.i.i.i, %if.then.i.i.i.i.i.i.i43.i.i.i
   %retval.i.0.i.i.i.i.i.i46.i.i.i = phi i32 [ %24, %if.then.i.i.i.i.i.i.i43.i.i.i ], [ %25, %if.else.i.i.i.i.i.i.i51.i.i.i ]
   %cmp.i.i.i.i.i.i47.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i46.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_3JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_3JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.end8.sink.split.i.i.i.i48.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.then.i.i.i.i53.i.i.i
   %vtable2.i.i.i.i.i.i49.i.i.i = load ptr, ptr %16, align 8
   %vfn3.i.i.i.i.i.i50.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i49.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i50.i.i.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
-  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_3JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_3JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %27 = landingpad { ptr, i32 }
@@ -2183,7 +2183,7 @@ ehcleanup21.i.i.i:                                ; preds = %if.then.i.i.i62.i.i
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #20
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_3JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_3JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matrix.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rgbParams.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %alphaParams.i.i.i)
@@ -2388,7 +2388,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i:            ; preds = %if.then.i.i.i23.i.i
   %_M_refcount.i.i26.i.i.i = getelementptr inbounds i8, ptr %matrix.i.i.i, i64 8
   %16 = load ptr, ptr %_M_refcount.i.i26.i.i.i, align 8
   %cmp.not.i.i.i27.i.i.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_4JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i28.i.i.i
+  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_4JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i28.i.i.i
 
 if.then.i.i.i28.i.i.i:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i
   %_M_use_count.i.i.i.i29.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
@@ -2424,7 +2424,7 @@ if.else.i.i.i.i.i52.i.i.i:                        ; preds = %if.end.i.i.i.i31.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i: ; preds = %if.else.i.i.i.i.i52.i.i.i, %if.then.i.i.i.i.i33.i.i.i
   %retval.i.0.i.i.i.i36.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i33.i.i.i ], [ %21, %if.else.i.i.i.i.i52.i.i.i ]
   %cmp6.i.i.i.i37.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i36.i.i.i, 1
-  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_4JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_4JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.then7.i.i.i.i38.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i
   %vtable.i.i.i.i.i.i39.i.i.i = load ptr, ptr %16, align 8
@@ -2449,14 +2449,14 @@ if.else.i.i.i.i.i.i.i51.i.i.i:                    ; preds = %if.then7.i.i.i.i38.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i51.i.i.i, %if.then.i.i.i.i.i.i.i43.i.i.i
   %retval.i.0.i.i.i.i.i.i46.i.i.i = phi i32 [ %24, %if.then.i.i.i.i.i.i.i43.i.i.i ], [ %25, %if.else.i.i.i.i.i.i.i51.i.i.i ]
   %cmp.i.i.i.i.i.i47.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i46.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_4JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_4JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.end8.sink.split.i.i.i.i48.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.then.i.i.i.i53.i.i.i
   %vtable2.i.i.i.i.i.i49.i.i.i = load ptr, ptr %16, align 8
   %vfn3.i.i.i.i.i.i50.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i49.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i50.i.i.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
-  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_4JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_4JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %27 = landingpad { ptr, i32 }
@@ -2499,7 +2499,7 @@ ehcleanup20.i.i.i:                                ; preds = %if.then.i.i.i62.i.i
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #20
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_4JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_4JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matrix.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rgbParams.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %alphaParams.i.i.i)
@@ -2704,7 +2704,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i:            ; preds = %if.then.i.i.i23.i.i
   %_M_refcount.i.i26.i.i.i = getelementptr inbounds i8, ptr %matrix.i.i.i, i64 8
   %16 = load ptr, ptr %_M_refcount.i.i26.i.i.i, align 8
   %cmp.not.i.i.i27.i.i.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_5JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i28.i.i.i
+  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_5JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i28.i.i.i
 
 if.then.i.i.i28.i.i.i:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i
   %_M_use_count.i.i.i.i29.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
@@ -2740,7 +2740,7 @@ if.else.i.i.i.i.i52.i.i.i:                        ; preds = %if.end.i.i.i.i31.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i: ; preds = %if.else.i.i.i.i.i52.i.i.i, %if.then.i.i.i.i.i33.i.i.i
   %retval.i.0.i.i.i.i36.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i33.i.i.i ], [ %21, %if.else.i.i.i.i.i52.i.i.i ]
   %cmp6.i.i.i.i37.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i36.i.i.i, 1
-  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_5JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_5JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.then7.i.i.i.i38.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i
   %vtable.i.i.i.i.i.i39.i.i.i = load ptr, ptr %16, align 8
@@ -2765,14 +2765,14 @@ if.else.i.i.i.i.i.i.i51.i.i.i:                    ; preds = %if.then7.i.i.i.i38.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i51.i.i.i, %if.then.i.i.i.i.i.i.i43.i.i.i
   %retval.i.0.i.i.i.i.i.i46.i.i.i = phi i32 [ %24, %if.then.i.i.i.i.i.i.i43.i.i.i ], [ %25, %if.else.i.i.i.i.i.i.i51.i.i.i ]
   %cmp.i.i.i.i.i.i47.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i46.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_5JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_5JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.end8.sink.split.i.i.i.i48.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.then.i.i.i.i53.i.i.i
   %vtable2.i.i.i.i.i.i49.i.i.i = load ptr, ptr %16, align 8
   %vfn3.i.i.i.i.i.i50.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i49.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i50.i.i.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
-  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_5JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_5JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %27 = landingpad { ptr, i32 }
@@ -2815,7 +2815,7 @@ ehcleanup20.i.i.i:                                ; preds = %if.then.i.i.i62.i.i
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #20
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_5JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_5JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matrix.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rgbParams.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %alphaParams.i.i.i)
@@ -3020,7 +3020,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i:            ; preds = %if.then.i.i.i23.i.i
   %_M_refcount.i.i26.i.i.i = getelementptr inbounds i8, ptr %matrix.i.i.i, i64 8
   %16 = load ptr, ptr %_M_refcount.i.i26.i.i.i, align 8
   %cmp.not.i.i.i27.i.i.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_6JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i28.i.i.i
+  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_6JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i28.i.i.i
 
 if.then.i.i.i28.i.i.i:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i
   %_M_use_count.i.i.i.i29.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
@@ -3056,7 +3056,7 @@ if.else.i.i.i.i.i52.i.i.i:                        ; preds = %if.end.i.i.i.i31.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i: ; preds = %if.else.i.i.i.i.i52.i.i.i, %if.then.i.i.i.i.i33.i.i.i
   %retval.i.0.i.i.i.i36.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i33.i.i.i ], [ %21, %if.else.i.i.i.i.i52.i.i.i ]
   %cmp6.i.i.i.i37.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i36.i.i.i, 1
-  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_6JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_6JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.then7.i.i.i.i38.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i
   %vtable.i.i.i.i.i.i39.i.i.i = load ptr, ptr %16, align 8
@@ -3081,14 +3081,14 @@ if.else.i.i.i.i.i.i.i51.i.i.i:                    ; preds = %if.then7.i.i.i.i38.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i51.i.i.i, %if.then.i.i.i.i.i.i.i43.i.i.i
   %retval.i.0.i.i.i.i.i.i46.i.i.i = phi i32 [ %24, %if.then.i.i.i.i.i.i.i43.i.i.i ], [ %25, %if.else.i.i.i.i.i.i.i51.i.i.i ]
   %cmp.i.i.i.i.i.i47.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i46.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_6JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_6JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.end8.sink.split.i.i.i.i48.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.then.i.i.i.i53.i.i.i
   %vtable2.i.i.i.i.i.i49.i.i.i = load ptr, ptr %16, align 8
   %vfn3.i.i.i.i.i.i50.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i49.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i50.i.i.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
-  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_6JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_6JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %27 = landingpad { ptr, i32 }
@@ -3131,7 +3131,7 @@ ehcleanup20.i.i.i:                                ; preds = %if.then.i.i.i62.i.i
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #20
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_6JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_6JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matrix.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rgbParams.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %alphaParams.i.i.i)
@@ -3340,7 +3340,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i:            ; preds = %if.then.i.i.i23.i.i
   %_M_refcount.i.i26.i.i.i = getelementptr inbounds i8, ptr %matrix.i.i.i, i64 8
   %16 = load ptr, ptr %_M_refcount.i.i26.i.i.i, align 8
   %cmp.not.i.i.i27.i.i.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_7JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i28.i.i.i
+  br i1 %cmp.not.i.i.i27.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_7JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i28.i.i.i
 
 if.then.i.i.i28.i.i.i:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i
   %_M_use_count.i.i.i.i29.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
@@ -3376,7 +3376,7 @@ if.else.i.i.i.i.i52.i.i.i:                        ; preds = %if.end.i.i.i.i31.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i: ; preds = %if.else.i.i.i.i.i52.i.i.i, %if.then.i.i.i.i.i33.i.i.i
   %retval.i.0.i.i.i.i36.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i33.i.i.i ], [ %21, %if.else.i.i.i.i.i52.i.i.i ]
   %cmp6.i.i.i.i37.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i36.i.i.i, 1
-  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_7JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp6.i.i.i.i37.i.i.i, label %if.then7.i.i.i.i38.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_7JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.then7.i.i.i.i38.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i
   %vtable.i.i.i.i.i.i39.i.i.i = load ptr, ptr %16, align 8
@@ -3401,14 +3401,14 @@ if.else.i.i.i.i.i.i.i51.i.i.i:                    ; preds = %if.then7.i.i.i.i38.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i51.i.i.i, %if.then.i.i.i.i.i.i.i43.i.i.i
   %retval.i.0.i.i.i.i.i.i46.i.i.i = phi i32 [ %24, %if.then.i.i.i.i.i.i.i43.i.i.i ], [ %25, %if.else.i.i.i.i.i.i.i51.i.i.i ]
   %cmp.i.i.i.i.i.i47.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i46.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_7JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i47.i.i.i, label %if.end8.sink.split.i.i.i.i48.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_7JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.end8.sink.split.i.i.i.i48.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.then.i.i.i.i53.i.i.i
   %vtable2.i.i.i.i.i.i49.i.i.i = load ptr, ptr %16, align 8
   %vfn3.i.i.i.i.i.i50.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i49.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i50.i.i.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
-  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_7JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_7JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %27 = landingpad { ptr, i32 }
@@ -3451,7 +3451,7 @@ ehcleanup21.i.i.i:                                ; preds = %if.then.i.i.i62.i.i
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #20
   resume { ptr, i32 } %.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_7JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_7JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i35.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i45.i.i.i, %if.end8.sink.split.i.i.i.i48.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matrix.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rgbParams.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %alphaParams.i.i.i)
@@ -3496,11 +3496,11 @@ entry:
 invoke.cont.i.i.i.i:                              ; preds = %entry
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_8JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_8JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i.i
   %call.i.i.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i32 noundef 3)
-          to label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_8JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_8JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
@@ -3530,7 +3530,7 @@ terminate.lpad.i.i6.i.i.i.i:                      ; preds = %if.then.i.i4.i.i.i.
 _ZNSt8functionIFfdEED2Ev.exit7.i.i.i.i:           ; preds = %if.then.i.i4.i.i.i.i, %lpad.i.i.i.i
   resume { ptr, i32 } %3
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_8JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_8JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   ret void
 }
@@ -3571,11 +3571,11 @@ entry:
 invoke.cont.i.i.i.i:                              ; preds = %entry
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_9JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_9JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i.i
   %call.i.i.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i32 noundef 3)
-          to label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_9JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_9JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
@@ -3605,7 +3605,7 @@ terminate.lpad.i.i6.i.i.i.i:                      ; preds = %if.then.i.i4.i.i.i.
 _ZNSt8functionIFfdEED2Ev.exit7.i.i.i.i:           ; preds = %if.then.i.i4.i.i.i.i, %lpad.i.i.i.i
   resume { ptr, i32 } %3
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_9JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_9JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   ret void
 }
@@ -3689,7 +3689,7 @@ invoke.cont2.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %matrix.i.i.i, i64 8
   %7 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_10JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i2.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_10JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i2.i.i.i
 
 if.then.i.i.i2.i.i.i:                             ; preds = %invoke.cont2.i.i.i
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
@@ -3725,7 +3725,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %9, %if.then.i.i.i.i.i.i.i.i ], [ %12, %if.else.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_10JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_10JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
@@ -3750,14 +3750,14 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %16, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_10JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_10JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %17 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
-  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_10JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_10JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %18 = landingpad { ptr, i32 }
@@ -3769,7 +3769,7 @@ lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %if.the
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #20
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_10JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %invoke.cont2.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_10JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %invoke.cont2.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matrix.i.i.i)
   ret void
 }
@@ -3853,7 +3853,7 @@ invoke.cont2.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %matrix.i.i.i, i64 8
   %7 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_11JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i2.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_11JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i2.i.i.i
 
 if.then.i.i.i2.i.i.i:                             ; preds = %invoke.cont2.i.i.i
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
@@ -3889,7 +3889,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %9, %if.then.i.i.i.i.i.i.i.i ], [ %12, %if.else.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_11JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_11JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
@@ -3914,14 +3914,14 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %16, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_11JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_11JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %17 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
-  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_11JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_11JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %18 = landingpad { ptr, i32 }
@@ -3933,7 +3933,7 @@ lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %if.the
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #20
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_11JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %invoke.cont2.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_11JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %invoke.cont2.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matrix.i.i.i)
   ret void
 }
@@ -4047,7 +4047,7 @@ _ZNSt8functionIFfdEED2Ev.exit.i.i.i:              ; preds = %if.then.i.i.i.i.i, 
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %matrix.i.i.i, i64 8
   %5 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_12JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i14.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_12JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i14.i.i.i
 
 if.then.i.i.i14.i.i.i:                            ; preds = %_ZNSt8functionIFfdEED2Ev.exit.i.i.i
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -4083,7 +4083,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i.i ], [ %10, %if.else.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_12JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_12JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
@@ -4108,14 +4108,14 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %14, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_12JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_12JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
-  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_12JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_12JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit"
 
 lpad.i.i.i:                                       ; preds = %invoke.cont2.i.i.i, %invoke.cont.i.i.i, %entry
   %16 = landingpad { ptr, i32 }
@@ -4156,7 +4156,7 @@ ehcleanup19.i.i.i:                                ; preds = %if.then.i.i21.i.i.i
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #20
   resume { ptr, i32 } %.pn9.i.i.i
 
-"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_12JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %_ZNSt8functionIFfdEED2Ev.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEE4$_12JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit": ; preds = %_ZNSt8functionIFfdEED2Ev.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matrix.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %scale4.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
@@ -4199,7 +4199,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %.sroa.speculated1.i.i.i)
-  br label %"_ZSt10__invoke_rIfRZZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEENK4$_12clERNS0_10OpRcPtrVecEEUldE_JdEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESC_EEE5valueESC_E4typeEOSH_DpOSI_.argprom.exit"
+  br label %"_ZSt10__invoke_rIfRZZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEENK4$_12clERNS0_10OpRcPtrVecEEUldE_JdEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESC_EEE5valueESC_E4typeEOSH_DpOSI_.exit"
 
 if.else.i.i.i:                                    ; preds = %entry
   %sub.i.i.i = fadd double %.sroa.speculated1.i.i.i, 0xBFB23803FD659BE6
@@ -4207,9 +4207,9 @@ if.else.i.i.i:                                    ; preds = %entry
   %0 = tail call double @llvm.fmuladd.f64(double %call7.i.i.i, double 0x3FC6E3FE014D320D, double 0x3FE9D9B50D540AEA)
   %cmp.i2.i.i.i = fcmp olt double %0, 1.000000e+00
   %.sroa.speculated.i.i.i = select i1 %cmp.i2.i.i.i, double %0, double 1.000000e+00
-  br label %"_ZSt10__invoke_rIfRZZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEENK4$_12clERNS0_10OpRcPtrVecEEUldE_JdEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESC_EEE5valueESC_E4typeEOSH_DpOSI_.argprom.exit"
+  br label %"_ZSt10__invoke_rIfRZZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEENK4$_12clERNS0_10OpRcPtrVecEEUldE_JdEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESC_EEE5valueESC_E4typeEOSH_DpOSI_.exit"
 
-"_ZSt10__invoke_rIfRZZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEENK4$_12clERNS0_10OpRcPtrVecEEUldE_JdEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESC_EEE5valueESC_E4typeEOSH_DpOSI_.argprom.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
+"_ZSt10__invoke_rIfRZZN19OpenColorIO_v2_4dev7DISPLAY11RegisterAllERNS0_28BuiltinTransformRegistryImplEENK4$_12clERNS0_10OpRcPtrVecEEUldE_JdEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESC_EEE5valueESC_E4typeEOSH_DpOSI_.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
   %out.0.i.i.i = phi double [ %sqrt.i.i.i, %if.then.i.i.i ], [ %.sroa.speculated.i.i.i, %if.else.i.i.i ]
   %conv.i.i.i = fptrunc double %out.0.i.i.i to float
   ret float %conv.i.i.i

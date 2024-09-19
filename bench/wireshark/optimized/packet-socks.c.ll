@@ -176,7 +176,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.119 = private unnamed_addr constant [41 x i8] c" Command Response: Bind remote host info\00", align 1
 @.str.120 = private unnamed_addr constant [20 x i8] c", Terminate Request\00", align 1
 @.str.121 = private unnamed_addr constant [10 x i8] c", Results\00", align 1
-@switch.table.server_display_socks_v5.argelim = private unnamed_addr constant [4 x ptr] [ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107], align 8
+@switch.table.server_display_socks_v5 = private unnamed_addr constant [4 x ptr] [ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_socks() local_unnamed_addr #0 {
@@ -463,7 +463,7 @@ define internal i32 @dissect_socks(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 104:                                              ; preds = %102
-  tail call fastcc void @state_machine_v4.argelim(ptr noundef nonnull %.0162, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @state_machine_v4(ptr noundef nonnull %.0162, ptr noundef %0, ptr noundef nonnull %1)
   br label %114
 
 105:                                              ; preds = %102
@@ -485,11 +485,11 @@ define internal i32 @dissect_socks(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 112:                                              ; preds = %110
-  tail call fastcc void @state_machine_v4.argelim(ptr noundef nonnull %.0162, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @state_machine_v4(ptr noundef nonnull %.0162, ptr noundef %0, ptr noundef nonnull %1)
   br label %114
 
 113:                                              ; preds = %110
-  tail call fastcc void @server_state_machine_v5.argelim(ptr noundef nonnull %.0162, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @server_state_machine_v5(ptr noundef nonnull %.0162, ptr noundef %0, ptr noundef nonnull %1)
   br label %114
 
 114:                                              ; preds = %106, %101, %110, %102, %113, %112, %105, %104
@@ -654,7 +654,7 @@ proto_item_set_generated.exit196:                 ; preds = %proto_item_set_gene
   ]
 
 201:                                              ; preds = %200
-  tail call fastcc void @display_socks_v4.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0162, ptr noundef nonnull %.0160)
+  tail call fastcc void @display_socks_v4(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0162, ptr noundef nonnull %.0160)
   br label %proto_item_set_generated.exit202
 
 202:                                              ; preds = %200
@@ -668,11 +668,11 @@ proto_item_set_generated.exit196:                 ; preds = %proto_item_set_gene
   ]
 
 204:                                              ; preds = %203
-  tail call fastcc void @display_socks_v4.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0162, ptr noundef nonnull %.0160)
+  tail call fastcc void @display_socks_v4(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0162, ptr noundef nonnull %.0160)
   br label %proto_item_set_generated.exit202
 
 205:                                              ; preds = %203
-  tail call fastcc void @server_display_socks_v5.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0162, ptr noundef nonnull %.0160)
+  tail call fastcc void @server_display_socks_v5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0162, ptr noundef nonnull %.0160)
   br label %proto_item_set_generated.exit202
 
 proto_item_set_generated.exit202:                 ; preds = %189, %186, %181, %proto_item_set_generated.exit196, %203, %200, %204, %205, %201, %202, %125
@@ -992,7 +992,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @state_machine_v4.argelim(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @state_machine_v4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %4, 5
   br i1 %.not, label %save_client_state.exit, label %5
@@ -1246,7 +1246,7 @@ save_server_state.exit:                           ; preds = %26, %22, %save_clie
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @server_state_machine_v5.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @server_state_machine_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call ptr @wmem_file_scope() #6
@@ -1382,7 +1382,7 @@ declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_ipv6(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @display_socks_v4.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @display_socks_v4(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [4 x i8], align 1
   %7 = icmp eq ptr %4, null
   br i1 %7, label %58, label %8
@@ -1516,7 +1516,7 @@ define internal fastcc void @client_display_socks_v5(ptr noundef %0, i32 noundef
 
 switch.lookup:                                    ; preds = %.lr.ph
   %34 = zext nneg i8 %28 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.server_display_socks_v5.argelim, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.server_display_socks_v5, i64 0, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_auth_method_name.exit
 
@@ -1674,7 +1674,7 @@ proto_item_set_generated.exit:                    ; preds = %74, %77, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @server_display_socks_v5.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @server_display_socks_v5(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %101, label %7
 
@@ -1711,7 +1711,7 @@ define internal fastcc void @server_display_socks_v5.argelim(ptr noundef %0, ptr
 
 switch.lookup:                                    ; preds = %10
   %21 = zext nneg i8 %15 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.server_display_socks_v5.argelim, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.server_display_socks_v5, i64 0, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_auth_method_name.exit
 

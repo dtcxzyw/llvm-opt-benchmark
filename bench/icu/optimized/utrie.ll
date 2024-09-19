@@ -792,7 +792,7 @@ if.end8:                                          ; preds = %lor.lhs.false4
 if.then13:                                        ; preds = %if.end8
   %cmp9 = icmp eq ptr %getFoldedValue, null
   %spec.store.select = select i1 %cmp9, ptr @_ZL21defaultGetFoldedValueP8UNewTrieii, ptr %getFoldedValue
-  tail call fastcc void @_ZL13utrie_compactP8UNewTrieaP10UErrorCode.argprom(ptr noundef %trie, i8 noundef signext 0, i32 %0)
+  tail call fastcc void @_ZL13utrie_compactP8UNewTrieaP10UErrorCode(ptr noundef %trie, i8 noundef signext 0, i32 %0)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %leadIndexes.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %trie, i64 6912
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %leadIndexes.i, ptr noundef nonnull align 4 dereferenceable(128) %add.ptr.i, i64 128, i1 false)
@@ -1026,7 +1026,7 @@ do.body56.i:                                      ; preds = %for.end52.i
 _ZL10utrie_foldP8UNewTriePFjS0_iiEP10UErrorCode.exit: ; preds = %if.then3.i, %if.then34.i, %if.then54.i, %do.body56.i
   %pErrorCode.val61 = phi i32 [ 7, %if.then3.i ], [ 7, %if.then34.i ], [ 8, %if.then54.i ], [ %pErrorCode.val61.pre, %do.body56.i ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %leadIndexes.i)
-  tail call fastcc void @_ZL13utrie_compactP8UNewTrieaP10UErrorCode.argprom(ptr noundef %trie, i8 noundef signext 1, i32 %pErrorCode.val61)
+  tail call fastcc void @_ZL13utrie_compactP8UNewTrieaP10UErrorCode(ptr noundef %trie, i8 noundef signext 1, i32 %pErrorCode.val61)
   store i8 1, ptr %isCompacted, align 1
   %21 = load i32, ptr %pErrorCode, align 4
   %cmp.i64 = icmp slt i32 %21, 1
@@ -1239,7 +1239,7 @@ return:                                           ; preds = %if.end5, %if.else, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL13utrie_compactP8UNewTrieaP10UErrorCode.argprom(ptr nocapture noundef nonnull %trie, i8 noundef signext range(i8 0, 2) %overlap, i32 %pErrorCode.0.val) unnamed_addr #8 {
+define internal fastcc void @_ZL13utrie_compactP8UNewTrieaP10UErrorCode(ptr nocapture noundef nonnull %trie, i8 noundef signext range(i8 0, 2) %overlap, i32 %pErrorCode.0.val) unnamed_addr #8 {
 entry:
   %cmp.i = icmp slt i32 %pErrorCode.0.val, 1
   br i1 %cmp.i, label %if.end3, label %return

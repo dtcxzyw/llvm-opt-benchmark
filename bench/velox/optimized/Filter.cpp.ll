@@ -7569,7 +7569,7 @@ init.check.i:                                     ; preds = %invoke.cont11
   br i1 %tobool.not.i, label %init.end.i, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_115filterKindNamesB5cxx11Ev.argprom()
+  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_115filterKindNamesB5cxx11Ev()
           to label %invoke.cont.i unwind label %lpad.i7
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -16696,21 +16696,21 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZSt11l
   %sub.ptr.div.i.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %4 = trunc i64 %sub.ptr.div.i.i.i.i to i32
   %conv.i = xor i32 %4, -1
-  br label %_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.argprom.exit
+  br label %_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.exit
 
 if.else.i:                                        ; preds = %lor.rhs.i
   %sub.ptr.lhs.cast.i.i.i6.i = ptrtoint ptr %__first.sroa.0.0.lcssa.i.i.i to i64
   %sub.ptr.sub.i.i.i8.i = sub i64 %sub.ptr.lhs.cast.i.i.i6.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i9.i = lshr exact i64 %sub.ptr.sub.i.i.i8.i, 3
   %conv27.i = trunc i64 %sub.ptr.div.i.i.i9.i to i32
-  br label %_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.argprom.exit
+  br label %_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.exit
 
-_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.argprom.exit: ; preds = %if.then.i, %if.else.i
+_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.exit: ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi i32 [ %conv.i, %if.then.i ], [ %conv27.i, %if.else.i ]
   %cmp = icmp sgt i32 %retval.0.i, -1
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.argprom.exit
+if.end:                                           ; preds = %_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.exit
   %cmp3 = icmp eq i32 %retval.0.i, -1
   br i1 %cmp3, label %return, label %if.end5
 
@@ -16730,8 +16730,8 @@ if.end5:                                          ; preds = %if.end
   %9 = select i1 %cmp.not.i5, i1 %cmp2.i, i1 false
   br label %return
 
-return:                                           ; preds = %if.end, %_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.argprom.exit, %if.end5
-  %retval.0 = phi i1 [ %9, %if.end5 ], [ true, %_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.argprom.exit ], [ false, %if.end ]
+return:                                           ; preds = %if.end, %_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.exit, %if.end5
+  %retval.0 = phi i1 [ %9, %if.end5 ], [ true, %_ZN8facebook5velox6common12_GLOBAL__N_112binarySearchERKSt6vectorIlSaIlEEl.exit ], [ false, %if.end ]
   ret i1 %retval.0
 }
 
@@ -30814,7 +30814,7 @@ declare void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenc
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_115filterKindNamesB5cxx11Ev.argprom() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_115filterKindNamesB5cxx11Ev() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [22 x %"struct.std::pair.386"], align 8
   %ref.tmp1 = alloca i32, align 4

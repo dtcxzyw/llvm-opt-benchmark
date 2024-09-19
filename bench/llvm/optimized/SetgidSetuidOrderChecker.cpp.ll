@@ -1134,29 +1134,29 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit12.i: ; p
   %50 = load i8, ptr %49, align 8
   %51 = add i8 %50, -94
   %spec.select.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %51, -5
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.argprom.exit.i.i, label %52
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.exit.i.i, label %52
 
 52:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit12.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %54 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(60) %53, ptr noundef nonnull align 8 dereferenceable(24) %49) #17
   %55 = xor i1 %54, true
-  br label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.argprom.exit.i.i
+  br label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.exit.i.i
 
-_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.argprom.exit.i.i: ; preds = %52, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit12.i
+_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.exit.i.i: ; preds = %52, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit12.i
   %.0.i.i.i = phi i1 [ %55, %52 ], [ true, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit12.i ]
   %56 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_120LastSetPrivilegeCallEE8GDMIndexEvE5Index) #17
   %.not.i.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i.i, label %57
 
-57:                                               ; preds = %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.argprom.exit.i.i
+57:                                               ; preds = %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.exit.i.i
   %58 = load ptr, ptr %56, align 8
   %59 = ptrtoint ptr %58 to i64
   %60 = and i64 %59, 4294967295
   %61 = icmp eq i64 %60, 2
   br label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i.i
 
-_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i.i: ; preds = %57, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.argprom.exit.i.i
-  %.not.i.i = phi i1 [ %61, %57 ], [ false, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.argprom.exit.i.i ]
+_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i.i: ; preds = %57, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.exit.i.i
+  %.not.i.i = phi i1 [ %61, %57 ], [ false, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.exit.i.i ]
   %brmerge.i.i = or i1 %.0.i.i.i, %.not.i.i
   br i1 %brmerge.i.i, label %89, label %62
 
@@ -1412,20 +1412,20 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit15.i: ; p
   %128 = load i8, ptr %127, align 8
   %129 = add i8 %128, -94
   %spec.select.i.i.i.i.i.i.i.i.i.i16.i = icmp ult i8 %129, -5
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i16.i, label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.argprom.exit.i17.i, label %130
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i16.i, label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.exit.i17.i, label %130
 
 130:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit15.i
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %132 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription16matchesAsWrittenERKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(60) %131, ptr noundef nonnull align 8 dereferenceable(24) %127) #17
-  br label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.argprom.exit.i17.i
+  br label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.exit.i17.i
 
-_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.argprom.exit.i17.i: ; preds = %130, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit15.i
+_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.exit.i17.i: ; preds = %130, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit15.i
   %.0.i.i18.i = phi i1 [ %132, %130 ], [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit15.i ]
   %133 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_120LastSetPrivilegeCallEE8GDMIndexEvE5Index) #17
   %.not.i.i.i19.i = icmp eq ptr %133, null
   br i1 %.not.i.i.i19.i, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i.i, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i20.i
 
-_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i20.i: ; preds = %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.argprom.exit.i17.i
+_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i20.i: ; preds = %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.exit.i17.i
   %134 = load ptr, ptr %133, align 8
   %135 = ptrtoint ptr %134 to i64
   %136 = and i64 %135, 4294967295
@@ -1584,7 +1584,7 @@ _ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !49
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit13.i.i
 
-_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i.i: ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i20.i, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.argprom.exit.i17.i
+_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i.i: ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_120LastSetPrivilegeCallEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i20.i, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker21isFunctionCalledInArgERKN5clang4ento15CallDescriptionERKNS2_9CallEventE.exit.i17.i
   %185 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %186 = load ptr, ptr %185, align 8, !noalias !55
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %39) #17, !noalias !55
@@ -1777,7 +1777,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit2.i.i: ; pred
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 56
   %.pr.i.i58.i = load ptr, ptr %230, align 8
   %.not.i.i.i.i59.i = icmp eq ptr %.pr.i.i58.i, null
-  br i1 %.not.i.i.i.i59.i, label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker12processOtherEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.argprom.exit.thread.i, label %231
+  br i1 %.not.i.i.i.i59.i, label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker12processOtherEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.exit.thread.i, label %231
 
 231:                                              ; preds = %228, %.thread.i.i50.i
   %.sroa.02.0.i.i = phi ptr [ %.pr.i.i58.i, %228 ], [ %227, %.thread.i.i50.i ]
@@ -1820,9 +1820,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i56.i: ;
 _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i57.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i56.i, %231
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.02.0.i.i) #17
-  br i1 %.not.i.i3.i.i, label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker12processOtherEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.argprom.exit.thread.i, label %244
+  br i1 %.not.i.i3.i.i, label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker12processOtherEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.exit.thread.i, label %244
 
-_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker12processOtherEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.argprom.exit.thread.i: ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i57.i, %228
+_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker12processOtherEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.exit.thread.i: ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i57.i, %228
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i
@@ -1834,7 +1834,7 @@ _ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker12processOtherEN4llvm18IntrusiveRefC
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %227) #17
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i: ; preds = %244, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker12processOtherEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.argprom.exit.thread.i, %.thread95.i, %212, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetgidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.exit.thread.i, %116, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.exit.thread.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i: ; preds = %244, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker12processOtherEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.exit.thread.i, %.thread95.i, %212, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetgidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.exit.thread.i, %116, %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE.exit.thread.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %39) #17
   br label %_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
@@ -2676,33 +2676,33 @@ attributes #20 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !17, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !17 = distinct !{!17, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !18 = !{!19, !16}
-!19 = distinct !{!19, !20, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!19 = distinct !{!19, !20, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!20 = distinct !{!20, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !23 = distinct !{!23, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !24 = !{!25, !22}
-!25 = distinct !{!25, !26, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!26 = distinct !{!26, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!25 = distinct !{!25, !26, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!26 = distinct !{!26, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !27 = !{!28}
 !28 = distinct !{!28, !29, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !29 = distinct !{!29, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !30 = !{!31, !28}
-!31 = distinct !{!31, !32, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!32 = distinct !{!32, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!31 = distinct !{!31, !32, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!32 = distinct !{!32, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !33 = !{!34}
 !34 = distinct !{!34, !35, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !35 = distinct !{!35, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !36 = !{!37, !34}
-!37 = distinct !{!37, !38, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!38 = distinct !{!38, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!37 = distinct !{!37, !38, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!38 = distinct !{!38, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !39 = !{}
 !40 = !{!41}
 !41 = distinct !{!41, !42, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !42 = distinct !{!42, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !43 = !{!44, !41}
-!44 = distinct !{!44, !45, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!45 = distinct !{!45, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!44 = distinct !{!44, !45, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!45 = distinct !{!45, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !46 = !{!47}
 !47 = distinct !{!47, !48, !"_ZSt11make_uniqueIN5clang4ento22PathSensitiveBugReportEJRKNS1_7BugTypeERN4llvm13StringLiteralERPNS1_12ExplodedNodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !48 = distinct !{!48, !"_ZSt11make_uniqueIN5clang4ento22PathSensitiveBugReportEJRKNS1_7BugTypeERN4llvm13StringLiteralERPNS1_12ExplodedNodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -2710,32 +2710,32 @@ attributes #20 = { nounwind willreturn memory(read) }
 !50 = distinct !{!50, !51, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !51 = distinct !{!51, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !52 = !{!53, !50}
-!53 = distinct !{!53, !54, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!54 = distinct !{!54, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!53 = distinct !{!53, !54, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!54 = distinct !{!54, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !55 = !{!56}
 !56 = distinct !{!56, !57, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !57 = distinct !{!57, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !58 = !{!59, !56}
-!59 = distinct !{!59, !60, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!60 = distinct !{!60, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!59 = distinct !{!59, !60, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!60 = distinct !{!60, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !61 = !{!62}
 !62 = distinct !{!62, !63, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !63 = distinct !{!63, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !64 = !{!65, !62}
-!65 = distinct !{!65, !66, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!66 = distinct !{!66, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!65 = distinct !{!65, !66, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!66 = distinct !{!66, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !67 = !{!68}
 !68 = distinct !{!68, !69, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !69 = distinct !{!69, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !70 = !{!71, !68}
-!71 = distinct !{!71, !72, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!72 = distinct !{!72, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!71 = distinct !{!71, !72, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!72 = distinct !{!72, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !73 = !{!74}
 !74 = distinct !{!74, !75, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !75 = distinct !{!75, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !76 = !{!77, !74}
-!77 = distinct !{!77, !78, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!78 = distinct !{!78, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!77 = distinct !{!77, !78, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!78 = distinct !{!78, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !79 = !{!80}
 !80 = distinct !{!80, !81, !"_ZSt19__relocate_object_aISt10unique_ptrIN5clang4ento7DataTagESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
 !81 = distinct !{!81, !"_ZSt19__relocate_object_aISt10unique_ptrIN5clang4ento7DataTagESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
@@ -2757,14 +2757,14 @@ attributes #20 = { nounwind willreturn memory(read) }
 !97 = distinct !{!97, !98, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN5clang4ento14CheckerContext10getNoteTagEOSt8functionIFS5_RNS7_22PathSensitiveBugReportEEEbEUlRNS7_18BugReporterContextESB_E_JSG_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_: argument 0"}
 !98 = distinct !{!98, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN5clang4ento14CheckerContext10getNoteTagEOSt8functionIFS5_RNS7_22PathSensitiveBugReportEEEbEUlRNS7_18BugReporterContextESB_E_JSG_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_"}
 !99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNSB_9CallEventERNSB_14CheckerContextEE3$_0JRNSB_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.argprom: argument 0"}
-!101 = distinct !{!101, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNSB_9CallEventERNSB_14CheckerContextEE3$_0JRNSB_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.argprom"}
+!100 = distinct !{!100, !101, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNSB_9CallEventERNSB_14CheckerContextEE3$_0JRNSB_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_: argument 0"}
+!101 = distinct !{!101, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNSB_9CallEventERNSB_14CheckerContextEE3$_0JRNSB_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_"}
 !102 = !{!103}
 !103 = distinct !{!103, !104, !"_ZNK5clang12ProgramPoint7withTagEPKNS_15ProgramPointTagE: argument 0"}
 !104 = distinct !{!104, !"_ZNK5clang12ProgramPoint7withTagEPKNS_15ProgramPointTagE"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker10evalAssumeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS4_4SValEb.argprom: argument 0"}
-!107 = distinct !{!107, !"_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker10evalAssumeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS4_4SValEb.argprom"}
+!106 = distinct !{!106, !107, !"_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker10evalAssumeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS4_4SValEb: argument 0"}
+!107 = distinct !{!107, !"_ZNK12_GLOBAL__N_124SetgidSetuidOrderChecker10evalAssumeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS4_4SValEb"}
 !108 = !{!109}
 !109 = distinct !{!109, !110, !"_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValE: argument 0"}
 !110 = distinct !{!110, !"_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValE"}
@@ -2773,11 +2773,11 @@ attributes #20 = { nounwind willreturn memory(read) }
 !113 = distinct !{!113, !114, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !114 = distinct !{!114, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !115 = !{!116, !113, !106}
-!116 = distinct !{!116, !117, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!117 = distinct !{!117, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!116 = distinct !{!116, !117, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!117 = distinct !{!117, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !118 = !{!119, !106}
 !119 = distinct !{!119, !120, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !120 = distinct !{!120, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !121 = !{!122, !119, !106}
-!122 = distinct !{!122, !123, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!123 = distinct !{!123, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!122 = distinct !{!122, !123, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!123 = distinct !{!123, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_118LastSetuidCallSValEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}

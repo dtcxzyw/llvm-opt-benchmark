@@ -6341,24 +6341,24 @@ define internal void @dissect_pfcp_pdr_id(ptr noundef %0, ptr noundef %1, ptr no
   %11 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2382, i32 noundef %11) #12
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %decode_pfcp_pdr_id.argprom.exit, label %12
+  br i1 %.not.i, label %decode_pfcp_pdr_id.exit, label %12
 
 12:                                               ; preds = %7
   %13 = load i32, ptr %8, align 4
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   store i32 %13, ptr %14, align 4
-  br label %decode_pfcp_pdr_id.argprom.exit
+  br label %decode_pfcp_pdr_id.exit
 
-decode_pfcp_pdr_id.argprom.exit:                  ; preds = %7, %12
+decode_pfcp_pdr_id.exit:                          ; preds = %7, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %15 = icmp ugt i16 %4, 2
   br i1 %15, label %16, label %18
 
-16:                                               ; preds = %decode_pfcp_pdr_id.argprom.exit
+16:                                               ; preds = %decode_pfcp_pdr_id.exit
   %17 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 2, i32 noundef -1) #12
   br label %18
 
-18:                                               ; preds = %16, %decode_pfcp_pdr_id.argprom.exit
+18:                                               ; preds = %16, %decode_pfcp_pdr_id.exit
   ret void
 }
 
@@ -6724,7 +6724,7 @@ define internal void @dissect_pfcp_node_id(ptr noundef %0, ptr noundef %1, ptr n
   br label %decode_pfcp_address.exit
 
 28:                                               ; preds = %7
-  %29 = call fastcc i32 @decode_pfcp_fqdn.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4)
+  %29 = call fastcc i32 @decode_pfcp_fqdn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4)
   br label %decode_pfcp_address.exit
 
 decode_pfcp_address.exit:                         ; preds = %7, %16, %22, %28
@@ -7492,22 +7492,22 @@ define internal void @dissect_pfcp_urr_id(ptr noundef %0, ptr noundef %1, ptr no
   %15 = and i32 %8, 2147483647
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2392, ptr noundef %14, i32 noundef %15) #12
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %decode_pfcp_urr_id.argprom.exit, label %16
+  br i1 %.not.i, label %decode_pfcp_urr_id.exit, label %16
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds i8, ptr %6, i64 64
   store i32 %8, ptr %17, align 4
-  br label %decode_pfcp_urr_id.argprom.exit
+  br label %decode_pfcp_urr_id.exit
 
-decode_pfcp_urr_id.argprom.exit:                  ; preds = %7, %16
+decode_pfcp_urr_id.exit:                          ; preds = %7, %16
   %18 = icmp ugt i16 %4, 4
   br i1 %18, label %19, label %21
 
-19:                                               ; preds = %decode_pfcp_urr_id.argprom.exit
+19:                                               ; preds = %decode_pfcp_urr_id.exit
   %20 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 4, i32 noundef -1) #12
   br label %21
 
-21:                                               ; preds = %19, %decode_pfcp_urr_id.argprom.exit
+21:                                               ; preds = %19, %decode_pfcp_urr_id.exit
   ret void
 }
 
@@ -7684,24 +7684,24 @@ define internal void @dissect_pfcp_bar_id(ptr noundef %0, ptr noundef %1, ptr no
   %11 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2382, i32 noundef %11) #12
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %decode_pfcp_bar_id.argprom.exit, label %12
+  br i1 %.not.i, label %decode_pfcp_bar_id.exit, label %12
 
 12:                                               ; preds = %7
   %13 = load i32, ptr %8, align 4
   %14 = getelementptr inbounds i8, ptr %6, i64 68
   store i32 %13, ptr %14, align 4
-  br label %decode_pfcp_bar_id.argprom.exit
+  br label %decode_pfcp_bar_id.exit
 
-decode_pfcp_bar_id.argprom.exit:                  ; preds = %7, %12
+decode_pfcp_bar_id.exit:                          ; preds = %7, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %15 = icmp ugt i16 %4, 1
   br i1 %15, label %16, label %18
 
-16:                                               ; preds = %decode_pfcp_bar_id.argprom.exit
+16:                                               ; preds = %decode_pfcp_bar_id.exit
   %17 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 1, i32 noundef -1) #12
   br label %18
 
-18:                                               ; preds = %16, %decode_pfcp_bar_id.argprom.exit
+18:                                               ; preds = %16, %decode_pfcp_bar_id.exit
   ret void
 }
 
@@ -8242,22 +8242,22 @@ define internal void @dissect_pfcp_far_id(ptr noundef %0, ptr noundef %1, ptr no
   %15 = and i32 %8, 2147483647
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2392, ptr noundef %14, i32 noundef %15) #12
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %decode_pfcp_far_id.argprom.exit, label %16
+  br i1 %.not.i, label %decode_pfcp_far_id.exit, label %16
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds i8, ptr %6, i64 52
   store i32 %8, ptr %17, align 4
-  br label %decode_pfcp_far_id.argprom.exit
+  br label %decode_pfcp_far_id.exit
 
-decode_pfcp_far_id.argprom.exit:                  ; preds = %7, %16
+decode_pfcp_far_id.exit:                          ; preds = %7, %16
   %18 = icmp ugt i16 %4, 4
   br i1 %18, label %19, label %21
 
-19:                                               ; preds = %decode_pfcp_far_id.argprom.exit
+19:                                               ; preds = %decode_pfcp_far_id.exit
   %20 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 4, i32 noundef -1) #12
   br label %21
 
-21:                                               ; preds = %19, %decode_pfcp_far_id.argprom.exit
+21:                                               ; preds = %19, %decode_pfcp_far_id.exit
   ret void
 }
 
@@ -8273,22 +8273,22 @@ define internal void @dissect_pfcp_qer_id(ptr noundef %0, ptr noundef %1, ptr no
   %15 = and i32 %8, 2147483647
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2392, ptr noundef %14, i32 noundef %15) #12
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %decode_pfcp_qer_id.argprom.exit, label %16
+  br i1 %.not.i, label %decode_pfcp_qer_id.exit, label %16
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds i8, ptr %6, i64 60
   store i32 %8, ptr %17, align 4
-  br label %decode_pfcp_qer_id.argprom.exit
+  br label %decode_pfcp_qer_id.exit
 
-decode_pfcp_qer_id.argprom.exit:                  ; preds = %7, %16
+decode_pfcp_qer_id.exit:                          ; preds = %7, %16
   %18 = icmp ugt i16 %4, 4
   br i1 %18, label %19, label %21
 
-19:                                               ; preds = %decode_pfcp_qer_id.argprom.exit
+19:                                               ; preds = %decode_pfcp_qer_id.exit
   %20 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 4, i32 noundef -1) #12
   br label %21
 
-21:                                               ; preds = %19, %decode_pfcp_qer_id.argprom.exit
+21:                                               ; preds = %19, %decode_pfcp_qer_id.exit
   ret void
 }
 
@@ -9731,24 +9731,24 @@ define internal void @dissect_pfcp_mar_id(ptr noundef %0, ptr noundef %1, ptr no
   %11 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2382, i32 noundef %11) #12
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %decode_pfcp_mar_id.argprom.exit, label %12
+  br i1 %.not.i, label %decode_pfcp_mar_id.exit, label %12
 
 12:                                               ; preds = %7
   %13 = load i32, ptr %8, align 4
   %14 = getelementptr inbounds i8, ptr %6, i64 72
   store i32 %13, ptr %14, align 4
-  br label %decode_pfcp_mar_id.argprom.exit
+  br label %decode_pfcp_mar_id.exit
 
-decode_pfcp_mar_id.argprom.exit:                  ; preds = %7, %12
+decode_pfcp_mar_id.exit:                          ; preds = %7, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %15 = icmp ugt i16 %4, 2
   br i1 %15, label %16, label %18
 
-16:                                               ; preds = %decode_pfcp_mar_id.argprom.exit
+16:                                               ; preds = %decode_pfcp_mar_id.exit
   %17 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 2, i32 noundef -1) #12
   br label %18
 
-18:                                               ; preds = %16, %decode_pfcp_mar_id.argprom.exit
+18:                                               ; preds = %16, %decode_pfcp_mar_id.exit
   ret void
 }
 
@@ -9909,7 +9909,7 @@ define internal void @dissect_pfcp_packet_replication_and_detection_carry_on_inf
 define internal void @dissect_pfcp_smf_set_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
   %8 = load i32, ptr @hf_pfcp_spare, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
-  %10 = tail call fastcc i32 @decode_pfcp_fqdn.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4)
+  %10 = tail call fastcc i32 @decode_pfcp_fqdn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4)
   %11 = zext i16 %4 to i32
   %12 = icmp ult i32 %10, %11
   br i1 %12, label %13, label %15
@@ -10483,24 +10483,24 @@ define internal void @dissect_pfcp_srr_id(ptr noundef %0, ptr noundef %1, ptr no
   %11 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2382, i32 noundef %11) #12
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %decode_pfcp_srr_id.argprom.exit, label %12
+  br i1 %.not.i, label %decode_pfcp_srr_id.exit, label %12
 
 12:                                               ; preds = %7
   %13 = load i32, ptr %8, align 4
   %14 = getelementptr inbounds i8, ptr %6, i64 76
   store i32 %13, ptr %14, align 4
-  br label %decode_pfcp_srr_id.argprom.exit
+  br label %decode_pfcp_srr_id.exit
 
-decode_pfcp_srr_id.argprom.exit:                  ; preds = %7, %12
+decode_pfcp_srr_id.exit:                          ; preds = %7, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %15 = icmp ugt i16 %4, 1
   br i1 %15, label %16, label %18
 
-16:                                               ; preds = %decode_pfcp_srr_id.argprom.exit
+16:                                               ; preds = %decode_pfcp_srr_id.exit
   %17 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 1, i32 noundef -1) #12
   br label %18
 
-18:                                               ; preds = %16, %decode_pfcp_srr_id.argprom.exit
+18:                                               ; preds = %16, %decode_pfcp_srr_id.exit
   ret void
 }
 
@@ -12625,7 +12625,7 @@ declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 65536) i32 @decode_pfcp_fqdn.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 1, 65536) i32 @decode_pfcp_fqdn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i16 %4 to i32
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %21, label %7

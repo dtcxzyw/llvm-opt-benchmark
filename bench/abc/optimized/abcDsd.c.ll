@@ -169,13 +169,13 @@ Vec_AttGrow.exit.i.i:                             ; preds = %40, %26, %.lr.ph
   %51 = getelementptr inbounds ptr, ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
+  br i1 %53, label %54, label %Abc_ObjGlobalBdd.exit
 
 54:                                               ; preds = %Vec_AttGrow.exit.i.i
   %55 = getelementptr inbounds i8, ptr %.val57.val.val.val, i64 32
   %56 = load ptr, ptr %55, align 8
   %.not18.i.i = icmp eq ptr %56, null
-  br i1 %.not18.i.i, label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit, label %57
+  br i1 %.not18.i.i, label %Abc_ObjGlobalBdd.exit, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds i8, ptr %.val57.val.val.val, i64 16
@@ -187,9 +187,9 @@ Vec_AttGrow.exit.i.i:                             ; preds = %40, %26, %.lr.ph
   %.pre.i.i = load ptr, ptr %48, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %50
   %.pre19.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  br label %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
+  br label %Abc_ObjGlobalBdd.exit
 
-Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit: ; preds = %Vec_AttGrow.exit.i.i, %54, %57
+Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.i, %54, %57
   %63 = phi ptr [ %.pre19.i.i, %57 ], [ null, %54 ], [ %52, %Vec_AttGrow.exit.i.i ]
   %64 = ptrtoint ptr %63 to i64
   %65 = getelementptr i8, ptr %20, i64 20
@@ -204,11 +204,11 @@ Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit: ; preds = %Vec_AttGrow.ex
   %73 = icmp eq i32 %71, %72
   br i1 %73, label %74, label %.Vec_PtrGrow.exit11_crit_edge.i
 
-.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
+.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Abc_ObjGlobalBdd.exit
   %.pre.i = load ptr, ptr %16, align 8
   br label %Vec_PtrPush.exit
 
-74:                                               ; preds = %Abc_ObjGlobalBdd.argprom.argprom.argprom.argprom.exit
+74:                                               ; preds = %Abc_ObjGlobalBdd.exit
   %75 = icmp slt i32 %71, 16
   br i1 %75, label %76, label %83
 

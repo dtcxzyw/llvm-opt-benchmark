@@ -2564,7 +2564,7 @@ dissect_homeplug_av_mmhdr.exit:                   ; preds = %44, %.thread.i, %74
   %96 = zext i16 %35 to i32
   %97 = tail call ptr @val_to_str_ext(i32 noundef %96, ptr noundef nonnull @homeplug_av_mmtype_general_vals_ext, ptr noundef nonnull @.str.1579) #5
   tail call void @col_append_sep_str(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.1577, ptr noundef %97) #5
-  tail call fastcc void @dissect_homeplug_av_mme_general.argelim(ptr noundef %14, i16 noundef zeroext %35, ptr noundef nonnull readonly %1)
+  tail call fastcc void @dissect_homeplug_av_mme_general(ptr noundef %14, i16 noundef zeroext %35, ptr noundef nonnull readonly %1)
   br label %check_tvb_length.exit
 
 98:                                               ; preds = %93
@@ -3410,7 +3410,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_homeplug_av_mme_general.argelim(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_homeplug_av_mme_general(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   switch i16 %1, label %dissect_homeplug_av_cc_disc_list_cnf.exit [
     i16 21, label %4
     i16 24582, label %61

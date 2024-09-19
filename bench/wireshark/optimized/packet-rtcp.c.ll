@@ -1408,7 +1408,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.990 = private unnamed_addr constant [28 x i8] c"MS Dominant Speaker History\00", align 1
 @.str.991 = private unnamed_addr constant [11 x i8] c"( MS-DSH )\00", align 1
 @.str.992 = private unnamed_addr constant [9 x i8] c"PSE:%s  \00", align 1
-@switch.table.dissect_rtcp_common.argprom = private unnamed_addr constant [16 x ptr] [ptr @ett_rtcp_fir, ptr @ett_rtcp_nack, ptr @ett_rtcp, ptr @ett_rtcp, ptr @ett_rtcp, ptr @ett_rtcp, ptr @ett_rtcp, ptr @ett_rtcp, ptr @ett_rtcp_sr, ptr @ett_rtcp_rr, ptr @ett_rtcp_sdes, ptr @ett_rtcp_bye, ptr @ett_rtcp_app, ptr @ett_rtcp_rtpfb, ptr @ett_rtcp_psfb, ptr @ett_rtcp_xr], align 8
+@switch.table.dissect_rtcp_common = private unnamed_addr constant [16 x ptr] [ptr @ett_rtcp_fir, ptr @ett_rtcp_nack, ptr @ett_rtcp, ptr @ett_rtcp, ptr @ett_rtcp, ptr @ett_rtcp, ptr @ett_rtcp, ptr @ett_rtcp, ptr @ett_rtcp_sr, ptr @ett_rtcp_rr, ptr @ett_rtcp_sdes, ptr @ett_rtcp_bye, ptr @ett_rtcp_app, ptr @ett_rtcp_rtpfb, ptr @ett_rtcp_psfb, ptr @ett_rtcp_xr], align 8
 
 ; Function Attrs: nounwind uwtable
 define void @srtcp_add_address(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -1548,13 +1548,13 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_rtcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_rtcp_common.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
+  %5 = tail call fastcc i32 @dissect_rtcp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_srtcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_rtcp_common.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
+  %5 = tail call fastcc i32 @dissect_rtcp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   ret i32 %5
 }
 
@@ -1799,7 +1799,7 @@ define internal range(i32 0, 2) i32 @dissect_rtcp_heur(ptr noundef %0, ptr nound
   %14 = load i32, ptr @global_rtcp_default_protocol, align 4
   %15 = icmp ne i32 %14, 0
   %. = zext i1 %15 to i32
-  %16 = tail call fastcc i32 @dissect_rtcp_common.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.)
+  %16 = tail call fastcc i32 @dissect_rtcp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.)
   br label %17
 
 17:                                               ; preds = %.sink.split, %11, %9, %7, %4
@@ -1808,7 +1808,7 @@ define internal range(i32 0, 2) i32 @dissect_rtcp_heur(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rtcp_common.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rtcp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1974,7 +1974,7 @@ define internal fastcc i32 @dissect_rtcp_common.argprom(ptr noundef %0, ptr noun
 
 switch.lookup:                                    ; preds = %100
   %113 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.dissect_rtcp_common.argprom, i64 0, i64 %113
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.dissect_rtcp_common, i64 0, i64 %113
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %rtcp_packet_type_to_tree.exit
 
@@ -4514,22 +4514,22 @@ dissect_rtcp_xr.exit:                             ; preds = %.loopexit.i, %1139,
   %1602 = load i32, ptr @hf_rtcp_ntp, align 4
   %1603 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1602, ptr noundef %0, i32 noundef %1596, i32 noundef 8, i32 noundef 2) #7
   %.not.i.i391 = icmp eq ptr %1603, null
-  br i1 %.not.i.i391, label %dissect_rtcp_rsi.argprom.exit, label %1604
+  br i1 %.not.i.i391, label %dissect_rtcp_rsi.exit, label %1604
 
 1604:                                             ; preds = %1581
   %1605 = getelementptr inbounds i8, ptr %1603, i64 32
   %1606 = load ptr, ptr %1605, align 8
   %.not5.i.i392 = icmp eq ptr %1606, null
-  br i1 %.not5.i.i392, label %dissect_rtcp_rsi.argprom.exit, label %1607
+  br i1 %.not5.i.i392, label %dissect_rtcp_rsi.exit, label %1607
 
 1607:                                             ; preds = %1604
   %1608 = getelementptr inbounds i8, ptr %1606, i64 28
   %1609 = load i32, ptr %1608, align 4
   %1610 = or i32 %1609, 2
   store i32 %1610, ptr %1608, align 4
-  br label %dissect_rtcp_rsi.argprom.exit
+  br label %dissect_rtcp_rsi.exit
 
-dissect_rtcp_rsi.argprom.exit:                    ; preds = %1581, %1604, %1607
+dissect_rtcp_rsi.exit:                            ; preds = %1581, %1604, %1607
   %1611 = add i32 %107, %1590
   br label %dissect_rtcp_sr.exit
 
@@ -5542,9 +5542,9 @@ dissect_rtcp_rtpfb_transport_cc.exit.us.i:        ; preds = %1927, %._crit_edge2
   %2199 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %2198, ptr noundef %0, i32 noundef %.0114.lcssa.i, i32 noundef %2195, i32 noundef 0) #7
   br label %dissect_rtcp_sr.exit
 
-dissect_rtcp_sr.exit:                             ; preds = %dissect_rtcp_rtpfb_transport_cc.exit.us.i, %.lr.ph.split.us99.i, %.lr.ph.split.us93.i, %dissect_rtcp_rtpfb_nack.exit.us.i, %2197, %._crit_edge.i399, %1969, %.lr.ph.split.i, %.lr.ph.split.us111.i, %1694, %1663, %._crit_edge56.i, %383, %282, %280, %277, %174, %285, %1642, %1627, %1612, %dissect_rtcp_rsi.argprom.exit, %1548, %dissect_rtcp_xr.exit, %dissect_rtcp_app.exit, %dissect_rtcp_sdes.exit
-  %.4 = phi i32 [ %179, %174 ], [ %179, %1642 ], [ %179, %1627 ], [ %179, %1612 ], [ %179, %dissect_rtcp_rsi.argprom.exit ], [ %179, %1548 ], [ %179, %dissect_rtcp_xr.exit ], [ %179, %dissect_rtcp_app.exit ], [ %179, %dissect_rtcp_sdes.exit ], [ %179, %285 ], [ %179, %277 ], [ %179, %280 ], [ %179, %282 ], [ %179, %383 ], [ %179, %._crit_edge56.i ], [ %179, %.lr.ph.split.i ], [ %179, %.lr.ph.split.us111.i ], [ %179, %1694 ], [ %179, %1663 ], [ %179, %1969 ], [ %179, %._crit_edge.i399 ], [ %179, %2197 ], [ %179, %dissect_rtcp_rtpfb_nack.exit.us.i ], [ %179, %.lr.ph.split.us93.i ], [ %179, %.lr.ph.split.us99.i ], [ %.26, %dissect_rtcp_rtpfb_transport_cc.exit.us.i ]
-  %.1 = phi i32 [ %97, %174 ], [ %1662, %1642 ], [ %1641, %1627 ], [ %1626, %1612 ], [ %1611, %dissect_rtcp_rsi.argprom.exit ], [ %1580, %1548 ], [ %.0.i381, %dissect_rtcp_xr.exit ], [ %.0.i376, %dissect_rtcp_app.exit ], [ %.0.lcssa.i, %dissect_rtcp_sdes.exit ], [ %287, %285 ], [ %279, %277 ], [ %230, %280 ], [ %284, %282 ], [ %.1.i, %383 ], [ %394, %._crit_edge56.i ], [ %1937, %.lr.ph.split.i ], [ %1933, %.lr.ph.split.us111.i ], [ %1695, %1694 ], [ %1686, %1663 ], [ %180, %1969 ], [ %.0114.lcssa.i, %._crit_edge.i399 ], [ %180, %2197 ], [ %1720, %dissect_rtcp_rtpfb_nack.exit.us.i ], [ %1724, %.lr.ph.split.us93.i ], [ %1728, %.lr.ph.split.us99.i ], [ %.0.i.us.i, %dissect_rtcp_rtpfb_transport_cc.exit.us.i ]
+dissect_rtcp_sr.exit:                             ; preds = %dissect_rtcp_rtpfb_transport_cc.exit.us.i, %.lr.ph.split.us99.i, %.lr.ph.split.us93.i, %dissect_rtcp_rtpfb_nack.exit.us.i, %2197, %._crit_edge.i399, %1969, %.lr.ph.split.i, %.lr.ph.split.us111.i, %1694, %1663, %._crit_edge56.i, %383, %282, %280, %277, %174, %285, %1642, %1627, %1612, %dissect_rtcp_rsi.exit, %1548, %dissect_rtcp_xr.exit, %dissect_rtcp_app.exit, %dissect_rtcp_sdes.exit
+  %.4 = phi i32 [ %179, %174 ], [ %179, %1642 ], [ %179, %1627 ], [ %179, %1612 ], [ %179, %dissect_rtcp_rsi.exit ], [ %179, %1548 ], [ %179, %dissect_rtcp_xr.exit ], [ %179, %dissect_rtcp_app.exit ], [ %179, %dissect_rtcp_sdes.exit ], [ %179, %285 ], [ %179, %277 ], [ %179, %280 ], [ %179, %282 ], [ %179, %383 ], [ %179, %._crit_edge56.i ], [ %179, %.lr.ph.split.i ], [ %179, %.lr.ph.split.us111.i ], [ %179, %1694 ], [ %179, %1663 ], [ %179, %1969 ], [ %179, %._crit_edge.i399 ], [ %179, %2197 ], [ %179, %dissect_rtcp_rtpfb_nack.exit.us.i ], [ %179, %.lr.ph.split.us93.i ], [ %179, %.lr.ph.split.us99.i ], [ %.26, %dissect_rtcp_rtpfb_transport_cc.exit.us.i ]
+  %.1 = phi i32 [ %97, %174 ], [ %1662, %1642 ], [ %1641, %1627 ], [ %1626, %1612 ], [ %1611, %dissect_rtcp_rsi.exit ], [ %1580, %1548 ], [ %.0.i381, %dissect_rtcp_xr.exit ], [ %.0.i376, %dissect_rtcp_app.exit ], [ %.0.lcssa.i, %dissect_rtcp_sdes.exit ], [ %287, %285 ], [ %279, %277 ], [ %230, %280 ], [ %284, %282 ], [ %.1.i, %383 ], [ %394, %._crit_edge56.i ], [ %1937, %.lr.ph.split.i ], [ %1933, %.lr.ph.split.us111.i ], [ %1695, %1694 ], [ %1686, %1663 ], [ %180, %1969 ], [ %.0114.lcssa.i, %._crit_edge.i399 ], [ %180, %2197 ], [ %1720, %dissect_rtcp_rtpfb_nack.exit.us.i ], [ %1724, %.lr.ph.split.us93.i ], [ %1728, %.lr.ph.split.us99.i ], [ %.0.i.us.i, %dissect_rtcp_rtpfb_transport_cc.exit.us.i ]
   %2200 = load ptr, ptr %77, align 8
   call void @col_set_fence(ptr noundef %2200, i32 noundef 25) #7
   %2201 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.1, i32 noundef 4) #7

@@ -316,7 +316,7 @@ init.check.i:                                     ; preds = %invoke.cont121
   br i1 %tobool.not.i, label %invoke.cont129, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper26IsSocketReusePortSupportedEvENK3$_0clEv.argprom"()
+  %call.i = invoke fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper26IsSocketReusePortSupportedEvENK3$_0clEv"()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -477,7 +477,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  %call = invoke fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper26IsSocketReusePortSupportedEvENK3$_0clEv.argprom"()
+  %call = invoke fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper26IsSocketReusePortSupportedEvENK3$_0clEv"()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -1619,7 +1619,7 @@ eh.resume:                                        ; preds = %lpad21, %lpad25, %l
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper26IsSocketReusePortSupportedEvENK3$_0clEv.argprom"() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper26IsSocketReusePortSupportedEvENK3$_0clEv"() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sock = alloca %"class.grpc_event_engine::experimental::PosixSocketWrapper", align 4
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -2197,7 +2197,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  %call = invoke fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper23IsIpv6LoopbackAvailableEvENK3$_0clEv.argprom"()
+  %call = invoke fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper23IsIpv6LoopbackAvailableEvENK3$_0clEv"()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -2219,7 +2219,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper23IsIpv6LoopbackAvailableEvENK3$_0clEv.argprom"() unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper23IsIpv6LoopbackAvailableEvENK3$_0clEv"() unnamed_addr #3 align 2 {
 entry:
   %addr = alloca %struct.sockaddr_in6, align 4
   %call = tail call i32 @socket(i32 noundef 10, i32 noundef 1, i32 noundef 0) #19
@@ -2678,7 +2678,7 @@ init.check.i:                                     ; preds = %if.then
   br i1 %tobool.not.i, label %_ZN17grpc_event_engine12experimental18PosixSocketWrapper23IsIpv6LoopbackAvailableEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper23IsIpv6LoopbackAvailableEvENK3$_0clEv.argprom"()
+  %call.i = invoke fastcc noundef zeroext i1 @"_ZZN17grpc_event_engine12experimental18PosixSocketWrapper23IsIpv6LoopbackAvailableEvENK3$_0clEv"()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -2810,7 +2810,7 @@ if.then10:                                        ; preds = %if.end8
   br i1 %cmp11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end8.thread, %if.then10
-  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE.argelim(ptr noalias align 8 %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(132) %addr)
+  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE(ptr noalias align 8 %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(132) %addr)
   %19 = load i64, ptr %ref.tmp13, align 8
   store i64 %19, ptr %agg.result, align 8
   store i64 54, ptr %ref.tmp13, align 8
@@ -2930,7 +2930,7 @@ _ZNSt8functionIFiiiiEED2Ev.exit66:                ; preds = %invoke.cont27, %if.
   br i1 %cmp29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %_ZNSt8functionIFiiiiEED2Ev.exit66
-  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE.argelim(ptr noalias align 8 %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(132) %addr)
+  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE(ptr noalias align 8 %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(132) %addr)
   %33 = load i64, ptr %ref.tmp31, align 8
   store i64 %33, ptr %agg.result, align 8
   store i64 54, ptr %ref.tmp31, align 8
@@ -3088,7 +3088,7 @@ if.end19:                                         ; preds = %do.end, %land.lhs.t
 declare noundef zeroext i1 @_ZN17grpc_event_engine12experimental25ResolvedAddressIsV4MappedERKNS0_11EventEngine15ResolvedAddressEPS2_(ptr noundef nonnull align 4 dereferenceable(132), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE.argelim(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(132) %addr) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(132) %addr) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.absl::lts_20230802::AlphaNum", align 8

@@ -125,7 +125,7 @@ entry:
   %host.val = load i32, ptr %host, align 4
   %0 = getelementptr inbounds i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
-  call fastcc void @_ZN3url12_GLOBAL__N_16DoHostIchEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.argprom(ptr noundef %spec, i32 %host.val, i32 %host.val1, ptr noundef %output, ptr noundef nonnull %host_info)
+  call fastcc void @_ZN3url12_GLOBAL__N_16DoHostIchEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, i32 %host.val, i32 %host.val1, ptr noundef %output, ptr noundef nonnull %host_info)
   %1 = load i64, ptr %out_host.i, align 4
   store i64 %1, ptr %out_host, align 4
   %2 = load i32, ptr %host_info, align 4
@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_16DoHostIchEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.argprom(ptr noundef %spec, i32 %host.0.val, i32 %host.4.val, ptr noundef %output, ptr noundef %host_info) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_16DoHostIchEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, i32 %host.0.val, i32 %host.4.val, ptr noundef %output, ptr noundef %host_info) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %has_non_ascii = alloca i8, align 1
   %has_escaped = alloca i8, align 1
@@ -352,7 +352,7 @@ entry:
   %host.val = load i32, ptr %host, align 4
   %0 = getelementptr inbounds i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
-  call fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.argprom(ptr noundef %spec, i32 %host.val, i32 %host.val1, ptr noundef %output, ptr noundef nonnull %host_info)
+  call fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, i32 %host.val, i32 %host.val1, ptr noundef %output, ptr noundef nonnull %host_info)
   %1 = load i64, ptr %out_host.i, align 4
   store i64 %1, ptr %out_host, align 4
   %2 = load i32, ptr %host_info, align 4
@@ -361,7 +361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.argprom(ptr noundef %spec, i32 %host.0.val, i32 %host.4.val, ptr noundef %output, ptr noundef %host_info) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, i32 %host.0.val, i32 %host.4.val, ptr noundef %output, ptr noundef %host_info) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %utf8.i = alloca %"class.url::RawCanonOutputT.2", align 8
   %has_non_ascii = alloca i8, align 1
@@ -679,7 +679,7 @@ delete.notnull.i15.i:                             ; preds = %cleanup.i
   br i1 %call9.i, label %invoke.cont, label %if.then15
 
 _ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit.thread: ; preds = %if.else
-  tail call fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutputTIcEE.retelim(ptr noundef %arrayidx7, i32 noundef %host.4.val, ptr noundef nonnull %output)
+  tail call fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutputTIcEE(ptr noundef %arrayidx7, i32 noundef %host.4.val, ptr noundef nonnull %output)
   br label %if.then15.sink.split
 
 _ZN3url12_GLOBAL__N_113DoComplexHostEPKtibbPNS_12CanonOutputTIcEE.exit: ; preds = %cleanup.i
@@ -830,7 +830,7 @@ entry:
   %host.val = load i32, ptr %host, align 4
   %0 = getelementptr inbounds i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
-  tail call fastcc void @_ZN3url12_GLOBAL__N_16DoHostIchEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.argprom(ptr noundef %spec, i32 %host.val, i32 %host.val1, ptr noundef %output, ptr noundef %host_info)
+  tail call fastcc void @_ZN3url12_GLOBAL__N_16DoHostIchEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, i32 %host.val, i32 %host.val1, ptr noundef %output, ptr noundef %host_info)
   ret void
 }
 
@@ -840,7 +840,7 @@ entry:
   %host.val = load i32, ptr %host, align 4
   %0 = getelementptr inbounds i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
-  tail call fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.argprom(ptr noundef %spec, i32 %host.val, i32 %host.val1, ptr noundef %output, ptr noundef %host_info)
+  tail call fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, i32 %host.val, i32 %host.val1, ptr noundef %output, ptr noundef %host_info)
   ret void
 }
 
@@ -1206,7 +1206,7 @@ if.end22:                                         ; preds = %invoke.cont
   %18 = load ptr, ptr %buffer_.i.i, align 8
   %cur_len_.i40 = getelementptr inbounds i8, ptr %utf16, i64 20
   %19 = load i32, ptr %cur_len_.i40, align 4
-  invoke fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutputTIcEE.retelim(ptr noundef %18, i32 noundef %19, ptr noundef nonnull %output)
+  invoke fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutputTIcEE(ptr noundef %18, i32 noundef %19, ptr noundef nonnull %output)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end22, %delete.notnull.i35, %invoke.cont21
@@ -1575,7 +1575,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutputTIcEE.retelim(ptr noundef %src, i32 noundef %src_len, ptr noundef %output) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutputTIcEE(ptr noundef %src, i32 noundef %src_len, ptr noundef %output) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %url_escaped_host = alloca %"class.url::RawCanonOutputW", align 8
   %wide_output = alloca %"class.url::RawCanonOutputT.0", align 8

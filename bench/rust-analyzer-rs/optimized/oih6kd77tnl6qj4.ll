@@ -562,7 +562,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   store ptr %9, ptr %10, align 8, !noalias !165
   %11 = call noundef align 8 dereferenceable_or_null(56) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83debb3b1cba8908E.llvm.17615631831202531237"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !168
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h41ef81f920f244f1E.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %12, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h41ef81f920f244f1E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %13 = phi ptr [ %15, %.lr.ph.i.i.i ], [ %11, %2 ]
@@ -572,9 +572,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !165
   %15 = call noundef align 8 dereferenceable_or_null(56) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83debb3b1cba8908E.llvm.17615631831202531237"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h41ef81f920f244f1E.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %16, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h41ef81f920f244f1E.exit", label %.lr.ph.i.i.i
 
-"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h41ef81f920f244f1E.argprom.exit": ; preds = %.lr.ph.i.i.i, %2
+"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h41ef81f920f244f1E.exit": ; preds = %.lr.ph.i.i.i, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !165
   %17 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !158
@@ -1215,8 +1215,8 @@ attributes #13 = { noreturn }
 !159 = distinct !{!159, !160, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a7aafd4c716632aE: argument 0"}
 !160 = distinct !{!160, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a7aafd4c716632aE"}
 !161 = distinct !{!161, !160, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a7aafd4c716632aE: argument 1"}
-!162 = distinct !{!162, !163, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h41ef81f920f244f1E.argprom: argument 0"}
-!163 = distinct !{!163, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h41ef81f920f244f1E.argprom"}
+!162 = distinct !{!162, !163, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h41ef81f920f244f1E: argument 0"}
+!163 = distinct !{!163, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h41ef81f920f244f1E"}
 !164 = !{!159}
 !165 = !{!166, !159, !161, !162}
 !166 = distinct !{!166, !167, !"_ZN4core3fmt8builders9DebugList7entries17h32cc6d7cae9d4153E: argument 0"}

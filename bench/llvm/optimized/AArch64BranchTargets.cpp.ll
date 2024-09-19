@@ -490,8 +490,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
 
 143:                                              ; preds = %.critedge.i
   switch i16 %130, label %.critedge5.i [
-    i16 4903, label %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.argprom.exit
-    i16 4909, label %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.argprom.exit
+    i16 4903, label %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.exit
+    i16 4909, label %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.exit
   ]
 
 .critedge5.i:                                     ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i, %143, %.critedge.i, %.thread
@@ -579,21 +579,21 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit33.i: ; preds = %162, %_
 _ZN4llvm10MIMetadataD2Ev.exit35.i:                ; preds = %172, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit33.i
   %173 = load ptr, ptr %7, align 8
   %.not.i.i.i.i36.i = icmp eq ptr %173, null
-  br i1 %.not.i.i.i.i36.i, label %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.argprom.exit, label %174
+  br i1 %.not.i.i.i.i36.i, label %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.exit, label %174
 
 174:                                              ; preds = %_ZN4llvm10MIMetadataD2Ev.exit35.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %7, ptr noundef nonnull align 4 dereferenceable(8) %173) #11
-  br label %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.argprom.exit
+  br label %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.exit
 
-_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.argprom.exit: ; preds = %143, %143, %_ZN4llvm10MIMetadataD2Ev.exit35.i, %174
+_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.exit: ; preds = %143, %143, %_ZN4llvm10MIMetadataD2Ev.exit35.i, %174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %175
 
-175:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit, %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.argprom.exit
-  %.1 = phi i1 [ true, %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.argprom.exit ], [ %.02872, %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit ]
+175:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit, %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.exit
+  %.1 = phi i1 [ true, %_ZN12_GLOBAL__N_120AArch64BranchTargets6addBTIERN4llvm17MachineBasicBlockEbbb.exit ], [ %.02872, %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit ]
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.037.073, i64 8
   %.sroa.037.0 = load ptr, ptr %176, align 8
   %.not54 = icmp eq ptr %.sroa.037.0, %70

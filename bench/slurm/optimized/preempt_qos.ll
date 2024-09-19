@@ -183,13 +183,13 @@ define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %
   %11 = getelementptr inbounds i8, ptr %.val, i64 280
   %12 = load i16, ptr %11, align 8
   %.not6.i = icmp eq i16 %12, 0
-  br i1 %.not6.i, label %13, label %_job_preempt_mode.argprom.exit
+  br i1 %.not6.i, label %13, label %_job_preempt_mode.exit
 
 13:                                               ; preds = %10, %8
   %14 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
-  br label %_job_preempt_mode.argprom.exit
+  br label %_job_preempt_mode.exit
 
-_job_preempt_mode.argprom.exit:                   ; preds = %10, %13
+_job_preempt_mode.exit:                           ; preds = %10, %13
   %.0.i = phi i16 [ %14, %13 ], [ %12, %10 ]
   %15 = and i16 %.0.i, 16383
   store i16 %15, ptr %2, align 2
@@ -222,14 +222,14 @@ _gen_job_prio.exit:                               ; preds = %16, %19
   %27 = getelementptr i8, ptr %0, i64 760
   %.val9 = load ptr, ptr %27, align 8
   %.not.i12 = icmp eq ptr %.val9, null
-  br i1 %.not.i12, label %_get_grace_time.argprom.exit, label %28
+  br i1 %.not.i12, label %_get_grace_time.exit, label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %.val9, i64 16
   %30 = load i32, ptr %29, align 8
-  br label %_get_grace_time.argprom.exit
+  br label %_get_grace_time.exit
 
-_get_grace_time.argprom.exit:                     ; preds = %26, %28
+_get_grace_time.exit:                             ; preds = %26, %28
   %.0.i13 = phi i32 [ %30, %28 ], [ 0, %26 ]
   store i32 %.0.i13, ptr %2, align 4
   br label %33
@@ -238,8 +238,8 @@ _get_grace_time.argprom.exit:                     ; preds = %26, %28
   %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.preempt_p_get_data, i32 noundef %1) #4
   br label %33
 
-33:                                               ; preds = %31, %_get_grace_time.argprom.exit, %_gen_job_prio.exit, %_job_preempt_mode.argprom.exit, %4
-  %.0 = phi i32 [ -1, %31 ], [ 0, %_get_grace_time.argprom.exit ], [ 0, %_gen_job_prio.exit ], [ 0, %_job_preempt_mode.argprom.exit ], [ 0, %4 ]
+33:                                               ; preds = %31, %_get_grace_time.exit, %_gen_job_prio.exit, %_job_preempt_mode.exit, %4
+  %.0 = phi i32 [ -1, %31 ], [ 0, %_get_grace_time.exit ], [ 0, %_gen_job_prio.exit ], [ 0, %_job_preempt_mode.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

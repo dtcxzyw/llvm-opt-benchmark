@@ -78,7 +78,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.argelim(i32 noundef range(i32 0, 1114112) %0, ptr noalias noundef nonnull align 1 %1) unnamed_addr #2 {
+define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E(i32 noundef range(i32 0, 1114112) %0, ptr noalias noundef nonnull align 1 %1) unnamed_addr #2 {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %9, label %4
 
@@ -94,9 +94,9 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01
 9:                                                ; preds = %2
   %10 = trunc nuw i32 %0 to i8
   store i8 %10, ptr %1, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit"
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.argprom.exit": ; preds = %9, %14, %22, %34
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit": ; preds = %9, %14, %22, %34
   %11 = phi i64 [ 4, %34 ], [ 3, %22 ], [ 2, %14 ], [ 1, %9 ]
   %12 = insertvalue { ptr, i64 } poison, ptr %1, 0
   %13 = insertvalue { ptr, i64 } %12, i64 %11, 1
@@ -112,7 +112,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01
   %20 = getelementptr inbounds i8, ptr %1, i64 1
   %21 = or disjoint i8 %19, -128
   store i8 %21, ptr %20, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit"
 
 22:                                               ; preds = %6
   %23 = lshr i32 %0, 12
@@ -129,7 +129,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01
   %32 = getelementptr inbounds i8, ptr %1, i64 2
   %33 = or disjoint i8 %31, -128
   store i8 %33, ptr %32, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit"
 
 34:                                               ; preds = %6
   %35 = lshr i32 %0, 18
@@ -152,7 +152,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01
   %49 = getelementptr inbounds i8, ptr %1, i64 3
   %50 = or disjoint i8 %48, -128
   store i8 %50, ptr %49, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit"
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
@@ -1467,7 +1467,7 @@ _ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9986987180720998494.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %150 = call fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.argelim(i32 noundef %.013, ptr noalias noundef nonnull align 1 %6)
+  %150 = call fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E(i32 noundef %.013, ptr noalias noundef nonnull align 1 %6)
   %151 = extractvalue { ptr, i64 } %150, 0
   %152 = extractvalue { ptr, i64 } %150, 1
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5fe2c8355ca1cc6bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %151, i64 noundef %152)

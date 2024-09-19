@@ -367,7 +367,7 @@ define dso_local noundef ptr @_ZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   %.val28 = load i64, ptr %11, align 8
   %12 = icmp sgt i64 %.val28, 0
-  br i1 %12, label %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.argprom.exit"
+  br i1 %12, label %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.exit"
 
 _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i ], [ %.val, %4 ]
@@ -382,15 +382,15 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   %.112.i.i.i = select i1 %15, i64 %18, i64 %13
   %.1.i.i.i = select i1 %15, ptr %16, ptr %.05.i.i.i
   %19 = icmp sgt i64 %.112.i.i.i, 0
-  br i1 %19, label %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.argprom.exit", !llvm.loop !4
+  br i1 %19, label %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.exit", !llvm.loop !4
 
-"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.argprom.exit": ; preds = %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i, %4
+"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.exit": ; preds = %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i, %4
   %.0.lcssa.i.i.i = phi ptr [ %.val, %4 ], [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i ]
   %20 = getelementptr inbounds %"struct.llvm::PatternsForOpcode", ptr %.val, i64 %.val28
   %21 = icmp eq ptr %.0.lcssa.i.i.i, %20
   br i1 %21, label %.thread, label %22
 
-22:                                               ; preds = %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.argprom.exit"
+22:                                               ; preds = %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.exit"
   %23 = load i32, ptr %.0.lcssa.i.i.i, align 4
   %.not = icmp eq i32 %23, %10
   br i1 %.not, label %24, label %.thread
@@ -461,22 +461,22 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   %.032.i.i.i.i.i = phi i64 [ %68, %66 ], [ %55, %.lr.ph.i.i.i.i.i.preheader ]
   %.02931.i.i.i.i.i = phi ptr [ %67, %66 ], [ %52, %.lr.ph.i.i.i.i.i.preheader ]
   %56 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS2_6MCInstEPKNS2_15MCSubtargetInfoERKNS2_17AliasMatchingDataEE3$_1EclIPKNS2_16AliasPatternCondEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef %.02931.i.i.i.i.i)
-  br i1 %56, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit", label %57
+  br i1 %56, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit", label %57
 
 57:                                               ; preds = %.lr.ph.i.i.i.i.i
   %58 = getelementptr inbounds i8, ptr %.02931.i.i.i.i.i, i64 8
   %59 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS2_6MCInstEPKNS2_15MCSubtargetInfoERKNS2_17AliasMatchingDataEE3$_1EclIPKNS2_16AliasPatternCondEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef nonnull %58)
-  br i1 %59, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit", label %60
+  br i1 %59, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit", label %60
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %.02931.i.i.i.i.i, i64 16
   %62 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS2_6MCInstEPKNS2_15MCSubtargetInfoERKNS2_17AliasMatchingDataEE3$_1EclIPKNS2_16AliasPatternCondEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef nonnull %61)
-  br i1 %62, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit", label %63
+  br i1 %62, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit", label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds i8, ptr %.02931.i.i.i.i.i, i64 24
   %65 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS2_6MCInstEPKNS2_15MCSubtargetInfoERKNS2_17AliasMatchingDataEE3$_1EclIPKNS2_16AliasPatternCondEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef nonnull %64)
-  br i1 %65, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit", label %66
+  br i1 %65, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit", label %66
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds i8, ptr %.02931.i.i.i.i.i, i64 32
@@ -493,7 +493,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %44
   %.pre-phi34.i.i.i.i.i = phi i64 [ %70, %._crit_edge.loopexit.i.i.i.i.i ], [ %50, %44 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %67, %._crit_edge.loopexit.i.i.i.i.i ], [ %52, %44 ]
-  switch i64 %.pre-phi34.i.i.i.i.i, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit.thread" [
+  switch i64 %.pre-phi34.i.i.i.i.i, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit.thread" [
     i64 3, label %71
     i64 2, label %75
     i64 1, label %79
@@ -501,7 +501,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
 
 71:                                               ; preds = %._crit_edge.i.i.i.i.i
   %72 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS2_6MCInstEPKNS2_15MCSubtargetInfoERKNS2_17AliasMatchingDataEE3$_1EclIPKNS2_16AliasPatternCondEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef %.029.lcssa.i.i.i.i.i)
-  br i1 %72, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit", label %73
+  br i1 %72, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit", label %73
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
@@ -510,7 +510,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
 75:                                               ; preds = %73, %._crit_edge.i.i.i.i.i
   %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %74, %73 ]
   %76 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS2_6MCInstEPKNS2_15MCSubtargetInfoERKNS2_17AliasMatchingDataEE3$_1EclIPKNS2_16AliasPatternCondEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef %.1.i.i.i.i.i)
-  br i1 %76, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit", label %77
+  br i1 %76, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit", label %77
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
@@ -519,24 +519,24 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
 79:                                               ; preds = %77, %._crit_edge.i.i.i.i.i
   %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %78, %77 ]
   %80 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS2_6MCInstEPKNS2_15MCSubtargetInfoERKNS2_17AliasMatchingDataEE3$_1EclIPKNS2_16AliasPatternCondEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef %.2.i.i.i.i.i)
-  br i1 %80, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit", label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit.thread"
+  br i1 %80, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit", label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit.thread"
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit.thread": ; preds = %._crit_edge.i.i.i.i.i, %79
+"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit.thread": ; preds = %._crit_edge.i.i.i.i.i, %79
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br label %.loopexit
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %57, %60, %63, %71, %75, %79
+"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %57, %60, %63, %71, %75, %79
   %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %71 ], [ %.1.i.i.i.i.i, %75 ], [ %.2.i.i.i.i.i, %79 ], [ %.02931.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %58, %57 ], [ %61, %60 ], [ %64, %63 ]
   %81 = icmp eq ptr %53, %.028.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br i1 %81, label %.loopexit, label %82
 
-82:                                               ; preds = %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit"
+82:                                               ; preds = %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit"
   %83 = getelementptr inbounds i8, ptr %.02446, i64 12
   %.not26 = icmp eq ptr %83, %34
   br i1 %.not26, label %.thread, label %36
 
-.loopexit:                                        ; preds = %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit", %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.argprom.exit.thread"
+.loopexit:                                        ; preds = %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit", %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit.thread"
   %84 = load i32, ptr %.02446, align 4
   %85 = icmp eq i32 %84, -1
   br i1 %85, label %.thread, label %86
@@ -548,8 +548,8 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   %90 = getelementptr inbounds i8, ptr %88, i64 %89
   br label %.thread
 
-.thread:                                          ; preds = %36, %82, %24, %.loopexit, %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.argprom.exit", %22, %86
-  %.0 = phi ptr [ %90, %86 ], [ null, %22 ], [ null, %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.argprom.exit" ], [ null, %.loopexit ], [ null, %24 ], [ null, %82 ], [ null, %36 ]
+.thread:                                          ; preds = %36, %82, %24, %.loopexit, %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.exit", %22, %86
+  %.0 = phi ptr [ %90, %86 ], [ null, %22 ], [ null, %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.exit" ], [ null, %.loopexit ], [ null, %24 ], [ null, %82 ], [ null, %36 ]
   ret ptr %.0
 }
 

@@ -390,13 +390,13 @@ define dso_local i32 @poll_fd(i32 noundef %0, i32 noundef %1, i32 noundef %2) lo
 .critedge:                                        ; preds = %.preheader, %9
   %.val20.i = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %.val20.i, null
-  br i1 %.not.i.i, label %fds_lock.argprom.exit.i, label %13
+  br i1 %.not.i.i, label %fds_lock.exit.i, label %13
 
 13:                                               ; preds = %.critedge
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %.val20.i) #21
-  br label %fds_lock.argprom.exit.i
+  br label %fds_lock.exit.i
 
-fds_lock.argprom.exit.i:                          ; preds = %13, %.critedge
+fds_lock.exit.i:                                  ; preds = %13, %.critedge
   %15 = getelementptr inbounds i8, ptr %4, i64 16
   %16 = load i64, ptr %15, align 8
   %.not23.i = icmp eq i64 %16, 0
@@ -404,9 +404,9 @@ fds_lock.argprom.exit.i:                          ; preds = %13, %.critedge
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %fds_lock.argprom.exit.i, %21
-  %17 = phi i64 [ %23, %21 ], [ 0, %fds_lock.argprom.exit.i ]
-  %.022.i = phi i32 [ %22, %21 ], [ 0, %fds_lock.argprom.exit.i ]
+.lr.ph.i:                                         ; preds = %fds_lock.exit.i, %21
+  %17 = phi i64 [ %23, %21 ], [ 0, %fds_lock.exit.i ]
+  %.022.i = phi i32 [ %22, %21 ], [ 0, %fds_lock.exit.i ]
   %18 = getelementptr inbounds %struct.fd_buf, ptr %.pre, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not19.i = icmp eq ptr %19, null
@@ -426,7 +426,7 @@ fds_lock.argprom.exit.i:                          ; preds = %13, %.critedge
   %25 = getelementptr inbounds i8, ptr %4, i64 8
   br label %27
 
-._crit_edge.i:                                    ; preds = %fds_lock.argprom.exit.i
+._crit_edge.i:                                    ; preds = %fds_lock.exit.i
   %26 = getelementptr inbounds i8, ptr %4, i64 8
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %29, label %27
@@ -828,31 +828,31 @@ realloc_polldata.exit:                            ; preds = %61
   store i32 %96, ptr %9, align 4
   %.val = load ptr, ptr %0, align 8
   %.not.i123 = icmp eq ptr %.val, null
-  br i1 %.not.i123, label %fds_unlock.argprom.exit, label %97
+  br i1 %.not.i123, label %fds_unlock.exit, label %97
 
 97:                                               ; preds = %94
   %98 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %.val) #21
   %.pre158 = load i32, ptr %9, align 4
-  br label %fds_unlock.argprom.exit
+  br label %fds_unlock.exit
 
-fds_unlock.argprom.exit:                          ; preds = %94, %97
+fds_unlock.exit:                                  ; preds = %94, %97
   %99 = phi i32 [ %96, %94 ], [ %.pre158, %97 ]
   %100 = load ptr, ptr %72, align 8
   %101 = sext i32 %99 to i64
   %102 = call i32 @poll(ptr noundef %100, i64 noundef %101, i32 noundef %spec.select121) #21
   %.val122 = load ptr, ptr %0, align 8
   %.not.i124 = icmp eq ptr %.val122, null
-  br i1 %.not.i124, label %fds_lock.argprom.exit, label %103
+  br i1 %.not.i124, label %fds_lock.exit, label %103
 
-103:                                              ; preds = %fds_unlock.argprom.exit
+103:                                              ; preds = %fds_unlock.exit
   %104 = call i32 @pthread_mutex_lock(ptr noundef nonnull %.val122) #21
-  br label %fds_lock.argprom.exit
+  br label %fds_lock.exit
 
-fds_lock.argprom.exit:                            ; preds = %fds_unlock.argprom.exit, %103
+fds_lock.exit:                                    ; preds = %fds_unlock.exit, %103
   %105 = icmp sgt i32 %102, 0
   br i1 %105, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %fds_lock.argprom.exit
+.preheader:                                       ; preds = %fds_lock.exit
   %106 = load i64, ptr %54, align 8
   %.not155 = icmp eq i64 %106, 0
   br i1 %.not155, label %.critedge.thread163, label %.lr.ph151
@@ -1129,7 +1129,7 @@ read_fd_data.exit..thread133_crit_edge:           ; preds = %read_fd_data.exit
   %233 = icmp ult i64 %231, %232
   br i1 %233, label %.lr.ph151, label %.loopexit
 
-.loopexit:                                        ; preds = %230, %fds_lock.argprom.exit
+.loopexit:                                        ; preds = %230, %fds_lock.exit
   %234 = icmp ne i32 %102, -1
   %or.cond = or i1 %80, %234
   br i1 %or.cond, label %.critedge, label %235
@@ -1165,19 +1165,19 @@ read_fd_data.exit..thread133_crit_edge:           ; preds = %read_fd_data.exit
 define dso_local void @fds_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.val20 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.val20, null
-  br i1 %.not.i, label %fds_lock.argprom.exit, label %2
+  br i1 %.not.i, label %fds_lock.exit, label %2
 
 2:                                                ; preds = %1
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %.val20) #21
-  br label %fds_lock.argprom.exit
+  br label %fds_lock.exit
 
-fds_lock.argprom.exit:                            ; preds = %1, %2
+fds_lock.exit:                                    ; preds = %1, %2
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.not23 = icmp eq i64 %5, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %fds_lock.argprom.exit
+.lr.ph:                                           ; preds = %fds_lock.exit
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   br label %7
 
@@ -1203,7 +1203,7 @@ fds_lock.argprom.exit:                            ; preds = %1, %2
   %18 = icmp ugt i64 %15, %17
   br i1 %18, label %7, label %._crit_edge
 
-._crit_edge:                                      ; preds = %14, %fds_lock.argprom.exit
+._crit_edge:                                      ; preds = %14, %fds_lock.exit
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
@@ -1227,13 +1227,13 @@ fds_lock.argprom.exit:                            ; preds = %1, %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %.val = load ptr, ptr %0, align 8
   %.not.i21 = icmp eq ptr %.val, null
-  br i1 %.not.i21, label %fds_unlock.argprom.exit, label %27
+  br i1 %.not.i21, label %fds_unlock.exit, label %27
 
 27:                                               ; preds = %26
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.val) #21
-  br label %fds_unlock.argprom.exit
+  br label %fds_unlock.exit
 
-fds_unlock.argprom.exit:                          ; preds = %26, %27
+fds_unlock.exit:                                  ; preds = %26, %27
   ret void
 }
 
@@ -1353,19 +1353,19 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 define dso_local void @fds_remove(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.val10 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.val10, null
-  br i1 %.not.i, label %fds_lock.argprom.exit, label %3
+  br i1 %.not.i, label %fds_lock.exit, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %.val10) #21
-  br label %fds_lock.argprom.exit
+  br label %fds_lock.exit
 
-fds_lock.argprom.exit:                            ; preds = %2, %3
+fds_lock.exit:                                    ; preds = %2, %3
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %fds_lock.argprom.exit
+.preheader:                                       ; preds = %fds_lock.exit
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %.not13 = icmp eq i64 %8, 0
@@ -1387,16 +1387,16 @@ fds_lock.argprom.exit:                            ; preds = %2, %3
   store i32 -1, ptr %11, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %9, %.preheader, %14, %fds_lock.argprom.exit
+.loopexit:                                        ; preds = %9, %.preheader, %14, %fds_lock.exit
   %.val = load ptr, ptr %0, align 8
   %.not.i11 = icmp eq ptr %.val, null
-  br i1 %.not.i11, label %fds_unlock.argprom.exit, label %15
+  br i1 %.not.i11, label %fds_unlock.exit, label %15
 
 15:                                               ; preds = %.loopexit
   %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.val) #21
-  br label %fds_unlock.argprom.exit
+  br label %fds_unlock.exit
 
-fds_unlock.argprom.exit:                          ; preds = %.loopexit, %15
+fds_unlock.exit:                                  ; preds = %.loopexit, %15
   ret void
 }
 

@@ -845,9 +845,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %35 = tail call noundef double @llvm.fabs.f64(double %add.r.i.i121)
   %mul.i = fmul double %35, 0x3CD4000000000000
   %cmp.i125 = fcmp ugt double %34, %mul.i
-  br i1 %cmp.i125, label %if.end76, label %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.argprom.exit"
+  br i1 %cmp.i125, label %if.end76, label %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.exit"
 
-"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.argprom.exit": ; preds = %for.body
+"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.exit": ; preds = %for.body
   %sub.i.i.i.i = fsub double %add.i.i.i122, %ei.sroa.9.0458
   %36 = tail call noundef double @llvm.fabs.f64(double %sub.i.i.i.i)
   %37 = tail call noundef double @llvm.fabs.f64(double %add.i.i.i122)
@@ -855,7 +855,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp11.i = fcmp ugt double %36, %mul10.i
   br i1 %cmp11.i, label %if.end76, label %return
 
-if.end76:                                         ; preds = %for.body, %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.argprom.exit"
+if.end76:                                         ; preds = %for.body, %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.exit"
   %_M_value.real.i.i.i140 = load double, ptr %z, align 8
   %_M_value.imag.i.i.i142 = load double, ptr %_M_value.imagp.i, align 8
   %call4.i.i143 = tail call noundef { double, double } @__divdc3(double noundef %conv66460, double noundef 0.000000e+00, double noundef %_M_value.real.i.i.i140, double noundef %_M_value.imag.i.i.i142) #21
@@ -1400,9 +1400,9 @@ ehcleanup313:                                     ; preds = %ehcleanup122, %ehcl
   %.pn55.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup34 ], [ %.pn55.pn.pn.pn, %ehcleanup122 ], [ %.pn49.pn.pn.pn, %ehcleanup265 ]
   resume { ptr, i32 } %.pn55.pn.pn.pn.pn.pn
 
-return:                                           ; preds = %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.argprom.exit", %entry, %if.then42, %for.cond.cleanup143, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, %if.else
-  %retval.sroa.0.0 = phi double [ %add.r.i.i, %if.then42 ], [ %sub.r.i.i, %for.cond.cleanup143 ], [ %add.r.i.i379, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit ], [ %add.r.i.i379, %if.else ], [ 0xFFF0000000000000, %entry ], [ %add.r.i.i121, %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.argprom.exit" ]
-  %retval.sroa.7.0 = phi double [ %add.i.i.i91, %if.then42 ], [ %sub.i.i.i, %for.cond.cleanup143 ], [ %add.i.i.i380, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit ], [ %114, %if.else ], [ 0.000000e+00, %entry ], [ %add.i.i.i122, %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.argprom.exit" ]
+return:                                           ; preds = %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.exit", %entry, %if.then42, %for.cond.cleanup143, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, %if.else
+  %retval.sroa.0.0 = phi double [ %add.r.i.i, %if.then42 ], [ %sub.r.i.i, %for.cond.cleanup143 ], [ %add.r.i.i379, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit ], [ %add.r.i.i379, %if.else ], [ 0xFFF0000000000000, %entry ], [ %add.r.i.i121, %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.exit" ]
+  %retval.sroa.7.0 = phi double [ %add.i.i.i91, %if.then42 ], [ %sub.i.i.i, %for.cond.cleanup143 ], [ %add.i.i.i380, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit ], [ %114, %if.else ], [ 0.000000e+00, %entry ], [ %add.i.i.i122, %"_ZZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_ENK3$_0clES4_S4_.exit" ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.7.0, 1
   ret { double, double } %.fca.1.insert

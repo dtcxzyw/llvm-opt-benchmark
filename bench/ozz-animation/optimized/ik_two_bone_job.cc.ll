@@ -120,7 +120,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   %29 = and i4 %28, 1
   %30 = icmp ne i4 %29, 0
   %31 = select i1 %14, i1 %30, i1 false
-  br i1 %31, label %32, label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.argprom.exit
+  br i1 %31, label %32, label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit
 
 32:                                               ; preds = %1
   %33 = getelementptr inbounds i8, ptr %0, i64 56
@@ -135,11 +135,11 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   %38 = getelementptr inbounds i8, ptr %0, i64 104
   %39 = load ptr, ptr %38, align 8
   %.not15 = icmp eq ptr %39, null
-  br i1 %.not15, label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.argprom.exit, label %40
+  br i1 %.not15, label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit, label %40
 
 40:                                               ; preds = %36
   store i8 0, ptr %39, align 1
-  br label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.argprom.exit
+  br label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit
 
 41:                                               ; preds = %32
   %42 = load <4 x float>, ptr %3, align 16, !noalias !5
@@ -448,7 +448,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   %333 = zext i4 %332 to i32
   %334 = and i32 %333, 11
   %335 = icmp eq i32 %334, 11
-  br i1 %335, label %336, label %_ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.argprom.exit
+  br i1 %335, label %336, label %_ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.exit
 
 336:                                              ; preds = %41
   %337 = fsub <4 x float> %318, %325
@@ -470,9 +470,9 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   %353 = fmul <4 x float> %352, %350
   %354 = shufflevector <4 x float> %353, <4 x float> poison, <4 x i32> zeroinitializer
   %355 = fmul <4 x float> %307, %354
-  br label %_ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.argprom.exit
+  br label %_ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.exit
 
-_ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.argprom.exit: ; preds = %41, %336
+_ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.exit: ; preds = %41, %336
   %.040 = phi <4 x float> [ %351, %336 ], [ %311, %41 ]
   %.0 = phi <4 x float> [ %355, %336 ], [ %307, %41 ]
   %356 = getelementptr inbounds i8, ptr %0, i64 104
@@ -480,7 +480,7 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   %.not = icmp eq ptr %357, null
   br i1 %.not, label %363, label %358
 
-358:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.argprom.exit
+358:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.exit
   %359 = and i32 %333, 5
   %360 = icmp eq i32 %359, 4
   %361 = fcmp oge float %34, 1.000000e+00
@@ -489,7 +489,7 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   store i8 %362, ptr %357, align 1
   br label %363
 
-363:                                              ; preds = %358, %_ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.argprom.exit
+363:                                              ; preds = %358, %_ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.exit
   %364 = fadd <4 x float> %290, %294
   %365 = fmul <4 x float> %290, %294
   %366 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ss(<4 x float> %365)
@@ -674,7 +674,7 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   %515 = bitcast <4 x i1> %514 to i4
   %516 = and i4 %515, 1
   %.not.i22 = icmp eq i4 %516, 0
-  br i1 %.not.i22, label %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.argprom.exit, label %517
+  br i1 %.not.i22, label %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.exit, label %517
 
 517:                                              ; preds = %513
   %518 = shufflevector <4 x float> %.0, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
@@ -820,7 +820,7 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   %648 = bitcast <4 x float> %647 to <4 x i32>
   %649 = xor <4 x i32> %648, <i32 0, i32 0, i32 0, i32 -2147483648>
   %650 = bitcast <4 x i32> %649 to <4 x float>
-  br label %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.argprom.exit
+  br label %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.exit
 
 651:                                              ; preds = %517
   %652 = shufflevector <4 x float> %603, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 2>
@@ -840,9 +840,9 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   %666 = bitcast <4 x float> %665 to <4 x i32>
   %667 = xor <4 x i32> %666, <i32 0, i32 0, i32 0, i32 -2147483648>
   %668 = bitcast <4 x i32> %667 to <4 x float>
-  br label %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.argprom.exit
+  br label %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.exit
 
-_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.argprom.exit: ; preds = %513, %607, %651
+_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.exit: ; preds = %513, %607, %651
   %.sroa.040.0.i = phi <4 x float> [ %650, %607 ], [ %668, %651 ], [ %.sroa.0421.0.i, %513 ]
   %669 = fcmp olt <4 x float> %.sroa.040.0.i, zeroinitializer
   %670 = shufflevector <4 x i1> %669, <4 x i1> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
@@ -858,7 +858,7 @@ _ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15
   %680 = fcmp olt float %679, 1.000000e+00
   br i1 %680, label %681, label %715
 
-681:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.argprom.exit
+681:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.exit
   %682 = bitcast <4 x i32> %678 to <4 x float>
   %683 = bitcast <4 x i32> %673 to <4 x float>
   %684 = insertelement <4 x float> poison, float %679, i64 0
@@ -896,16 +896,16 @@ _ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15
   %713 = fmul <4 x float> %692, %712
   %714 = load ptr, ptr %11, align 16
   store <4 x float> %713, ptr %714, align 16
-  br label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.argprom.exit
+  br label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit
 
-715:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.argprom.exit
+715:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.exit
   %716 = load ptr, ptr %9, align 8
   store <4 x i32> %673, ptr %716, align 16
   %717 = load ptr, ptr %11, align 16
   store <4 x i32> %678, ptr %717, align 16
-  br label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.argprom.exit
+  br label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit
 
-_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.argprom.exit: ; preds = %715, %681, %36, %40, %1
+_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit: ; preds = %715, %681, %36, %40, %1
   ret i1 %31
 }
 

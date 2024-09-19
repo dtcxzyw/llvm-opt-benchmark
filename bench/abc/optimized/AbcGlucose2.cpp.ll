@@ -2291,7 +2291,7 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i:            ; preds = %36, %_ZL12Vec_StrAl
 _ZL11Vec_StrFillP10Vec_Str_t_ic.exit:             ; preds = %.lr.ph.i, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i.thread, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i
   %44 = phi i1 [ false, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i.thread ], [ false, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i ], [ true, %.lr.ph.i ]
   %45 = phi ptr [ %26, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i.thread ], [ %39, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i ], [ %39, %.lr.ph.i ]
-  tail call void (ptr, ptr, ...) @_ZL13Vec_StrPrintFP10Vec_Str_t_PKcz.retelim(ptr noundef nonnull %20, ptr noundef nonnull @.str.25)
+  tail call void (ptr, ptr, ...) @_ZL13Vec_StrPrintFP10Vec_Str_t_PKcz(ptr noundef nonnull %20, ptr noundef nonnull @.str.25)
   %.not = icmp eq i32 %3, 0
   %46 = icmp sgt i32 %3, -1
   br i1 %46, label %.lr.ph105, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit._crit_edge
@@ -2692,7 +2692,7 @@ _ZL11Vec_StrPushP10Vec_Str_t_c.exit:              ; preds = %._ZL11Vec_StrGrowP1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL13Vec_StrPrintFP10Vec_Str_t_PKcz.retelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #4 {
+define internal void @_ZL13Vec_StrPrintFP10Vec_Str_t_PKcz(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 4
@@ -3113,7 +3113,7 @@ _Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii.exit: ; preds = %_ZN6Gluc
   %124 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #36
   %125 = getelementptr inbounds i8, ptr %122, i64 8
   store ptr %124, ptr %125, align 8
-  tail call void (ptr, ptr, ...) @_ZL13Vec_StrPrintFP10Vec_Str_t_PKcz.retelim(ptr noundef nonnull %122, ptr noundef nonnull @.str.26, i32 noundef %121)
+  tail call void (ptr, ptr, ...) @_ZL13Vec_StrPrintFP10Vec_Str_t_PKcz(ptr noundef nonnull %122, ptr noundef nonnull @.str.26, i32 noundef %121)
   tail call void @Cnf_DataFree(ptr noundef nonnull %12)
   br label %bmcg2_sat_solver_stop.exit50
 
@@ -4604,7 +4604,7 @@ define noundef i32 @bmcg2_sat_solver_quantify(ptr nocapture noundef readonly %0,
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %1, i64 392
-  tail call fastcc void @_ZL16Vec_IntFillExtraP10Vec_Int_t_ii.argelim(ptr noundef nonnull %26, i32 noundef %.val110)
+  tail call fastcc void @_ZL16Vec_IntFillExtraP10Vec_Int_t_ii(ptr noundef nonnull %26, i32 noundef %.val110)
   %.val97.pre = load i32, ptr %10, align 4
   %.pre = load i32, ptr %9, align 8
   %27 = icmp eq i32 %.val97.pre, %.pre
@@ -4932,7 +4932,7 @@ _ZL12Vec_StrFreePPP10Vec_Str_t_.exit:             ; preds = %.thread.i120, %_ZL1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16Vec_IntFillExtraP10Vec_Int_t_ii.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @_ZL16Vec_IntFillExtraP10Vec_Int_t_ii(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -5201,8 +5201,8 @@ _ZL9Abc_Clockv.exit30:                            ; preds = %_ZL9Abc_Clockv.exit
   %.not = icmp eq i32 %80, 0
   %str.3.str.4 = select i1 %.not, ptr @str.5, ptr @str.6
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.3.str.4)
-  call fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i.argelim(ptr noundef nonnull %0, i32 noundef %37)
-  call fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i.argelim(ptr noundef nonnull %0, i32 noundef %64)
+  call fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i(ptr noundef nonnull %0, i32 noundef %37)
+  call fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i(ptr noundef nonnull %0, i32 noundef %64)
   %81 = load ptr, ptr %7, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
@@ -5240,7 +5240,7 @@ define range(i32 0, 2) i32 @bmcg2_sat_solver_equiv_overlap_check(ptr noundef %0,
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %1, i64 392
-  tail call fastcc void @_ZL16Vec_IntFillExtraP10Vec_Int_t_ii.argelim(ptr noundef nonnull %17, i32 noundef %.val45)
+  tail call fastcc void @_ZL16Vec_IntFillExtraP10Vec_Int_t_ii(ptr noundef nonnull %17, i32 noundef %.val45)
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
 
 _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %16, %5
@@ -5326,7 +5326,7 @@ _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %.critedge, %37
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i.argelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc noundef ptr @_ZL16Gia_ManAppendObjP10Gia_Man_t_(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648

@@ -850,14 +850,14 @@ define internal fastcc void @_ZL13create_objectP16JfrJavaArgumentsP9JavaValueP10
   %23 = call noundef ptr @_ZN13ObjArrayKlass8allocateEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef %13, ptr noundef nonnull %2) #13
   %24 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %25, label %_ZL18array_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassiP10JavaThread.argprom.exit
+  br i1 %.not.i, label %25, label %_ZL18array_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassiP10JavaThread.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %23, ptr %26, align 8
-  br label %_ZL18array_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassiP10JavaThread.argprom.exit
+  br label %_ZL18array_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassiP10JavaThread.exit
 
-_ZL18array_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassiP10JavaThread.argprom.exit: ; preds = %15, %25
+_ZL18array_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassiP10JavaThread.exit: ; preds = %15, %25
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   br label %53
@@ -930,7 +930,7 @@ _ZL19object_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassP10JavaThr
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   br label %53
 
-53:                                               ; preds = %_ZL18array_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassiP10JavaThread.argprom.exit, %3, %_ZL19object_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassP10JavaThread.exit
+53:                                               ; preds = %_ZL18array_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassiP10JavaThread.exit, %3, %_ZL19object_constructionP16JfrJavaArgumentsP9JavaValueP13InstanceKlassP10JavaThread.exit
   ret void
 }
 
@@ -3278,23 +3278,23 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %29, %27
   %42 = getelementptr inbounds i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not1.i = icmp eq ptr %43, null
-  br i1 %.not1.i, label %44, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread
+  br i1 %.not1.i, label %44, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread
 
 44:                                               ; preds = %38, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9192), align 8
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9176), align 8
   %47 = call noundef ptr @_ZNK13InstanceKlass10find_fieldEP6SymbolS1_bP15fieldDescriptor(ptr noundef nonnull align 8 dereferenceable(464) %34, ptr noundef %45, ptr noundef %46, i1 noundef zeroext true, ptr noundef nonnull %4) #13
   %.not.i10 = icmp eq ptr %47, null
-  br i1 %.not.i10, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread14
+  br i1 %.not.i10, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread14
 
-_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit: ; preds = %44
+_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit: ; preds = %44
   %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9192), align 8
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7456), align 8
   %50 = call noundef ptr @_ZNK13InstanceKlass10find_fieldEP6SymbolS1_bP15fieldDescriptor(ptr noundef nonnull align 8 dereferenceable(464) %34, ptr noundef %48, ptr noundef %49, i1 noundef zeroext true, ptr noundef nonnull %4) #13
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread14
+  br i1 %51, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread14
 
-_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread14: ; preds = %44, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit
+_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread14: ; preds = %44, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit
   %52 = load ptr, ptr %.0.i.i.i.i, align 8
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
@@ -3302,16 +3302,16 @@ _ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.
   %54 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %55 = call noundef ptr %54(ptr noundef nonnull %52, i64 noundef %53) #13
   %.not = icmp eq ptr %55, null
-  br i1 %.not, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread, label %56
+  br i1 %.not, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread, label %56
 
-56:                                               ; preds = %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread14
+56:                                               ; preds = %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread14
   %57 = getelementptr inbounds i8, ptr %1, i64 1072
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef ptr @_ZN14JNIHandleBlock15allocate_handleEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(296) %58, ptr noundef nonnull %1, ptr noundef nonnull %55, i32 noundef 0) #13
-  br label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread
+  br label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread
 
-_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread: ; preds = %38, %56, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread14, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit
-  %.0 = phi ptr [ null, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit ], [ %59, %56 ], [ null, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread14 ], [ null, %38 ]
+_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread: ; preds = %38, %56, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread14, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit
+  %.0 = phi ptr [ null, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit ], [ %59, %56 ], [ null, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread14 ], [ null, %38 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #13
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #13
   ret ptr %.0
@@ -3394,27 +3394,27 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %30, %28
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not1.i = icmp eq ptr %44, null
-  br i1 %.not1.i, label %45, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread15
+  br i1 %.not1.i, label %45, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread15
 
 45:                                               ; preds = %39, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9192), align 8
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9176), align 8
   %48 = call noundef ptr @_ZNK13InstanceKlass10find_fieldEP6SymbolS1_bP15fieldDescriptor(ptr noundef nonnull align 8 dereferenceable(464) %35, ptr noundef %46, ptr noundef %47, i1 noundef zeroext true, ptr noundef nonnull %5) #13
   %.not.i8 = icmp eq ptr %48, null
-  br i1 %.not.i8, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread
+  br i1 %.not.i8, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread
 
-_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit: ; preds = %45
+_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit: ; preds = %45
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9192), align 8
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7456), align 8
   %51 = call noundef ptr @_ZNK13InstanceKlass10find_fieldEP6SymbolS1_bP15fieldDescriptor(ptr noundef nonnull align 8 dereferenceable(464) %35, ptr noundef %49, ptr noundef %50, i1 noundef zeroext true, ptr noundef nonnull %5) #13
   %.not = icmp eq ptr %51, null
-  br i1 %.not, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread15, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread
+  br i1 %.not, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread15, label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread
 
-_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread: ; preds = %45, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit
+_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread: ; preds = %45, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit
   %.not.i10 = icmp eq ptr %1, null
   br i1 %.not.i10, label %_ZN10JNIHandles7resolveEP8_jobject.exit12, label %52
 
-52:                                               ; preds = %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread
+52:                                               ; preds = %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread
   %53 = ptrtoint ptr %1 to i64
   %54 = and i64 %53, 3
   switch i64 %54, label %63 [
@@ -3438,18 +3438,18 @@ _ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.
   %64 = load ptr, ptr %1, align 8
   br label %_ZN10JNIHandles7resolveEP8_jobject.exit12
 
-_ZN10JNIHandles7resolveEP8_jobject.exit12:        ; preds = %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread, %55, %59, %63
-  %.0.i11 = phi ptr [ null, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread ], [ %58, %55 ], [ %62, %59 ], [ %64, %63 ]
+_ZN10JNIHandles7resolveEP8_jobject.exit12:        ; preds = %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread, %55, %59, %63
+  %.0.i11 = phi ptr [ null, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread ], [ %58, %55 ], [ %62, %59 ], [ %64, %63 ]
   %65 = load ptr, ptr %.0.i.i.i.i, align 8
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   %66 = sext i32 %.sroa.1.0.copyload.i to i64
   %67 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   call void %67(ptr noundef nonnull %65, i64 noundef %66, ptr noundef %.0.i11) #13
-  br label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread15
+  br label %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread15
 
-_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit.thread15: ; preds = %39, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit, %_ZN10JNIHandles7resolveEP8_jobject.exit12
-  %68 = phi i1 [ false, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.argprom.exit ], [ true, %_ZN10JNIHandles7resolveEP8_jobject.exit12 ], [ false, %39 ]
+_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit.thread15: ; preds = %39, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit, %_ZN10JNIHandles7resolveEP8_jobject.exit12
+  %68 = phi i1 [ false, %_ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.exit ], [ true, %_ZN10JNIHandles7resolveEP8_jobject.exit12 ], [ false, %39 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #13
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
   ret i1 %68

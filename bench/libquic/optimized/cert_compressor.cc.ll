@@ -70,13 +70,13 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %entries, i64 16
   %cmp3.i.not.i = icmp eq ptr %1, %2
-  br i1 %cmp3.i.not.i, label %invoke.cont.i, label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i
+  br i1 %cmp3.i.not.i, label %invoke.cont.i, label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %if.end.i.i
+_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %if.end.i.i
   %call5.i.i.i.i8.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
-          to label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i, !noalias !5
+          to label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE13_M_deallocateEPS2_m.exit.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i, !noalias !5
 
-_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i
+_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE13_M_deallocateEPS2_m.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i
   %4 = getelementptr inbounds i8, ptr %entries, i64 8
   store ptr %call5.i.i.i.i8.i, ptr %entries, align 8, !alias.scope !5
   store ptr %call5.i.i.i.i8.i, ptr %4, align 8, !alias.scope !5
@@ -84,9 +84,9 @@ _ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE13_M_deallocateEPS2_m.
   store ptr %add.ptr21.i.i, ptr %3, align 8, !alias.scope !5
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i, %if.end.i.i
-  %.promoted = phi ptr [ %add.ptr21.i.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i ], [ null, %if.end.i.i ]
-  %entries.promoted = phi ptr [ %call5.i.i.i.i8.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i.i ], [ null, %if.end.i.i ]
+invoke.cont.i:                                    ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE13_M_deallocateEPS2_m.exit.i.i, %if.end.i.i
+  %.promoted = phi ptr [ %add.ptr21.i.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE13_M_deallocateEPS2_m.exit.i.i ], [ null, %if.end.i.i ]
+  %entries.promoted = phi ptr [ %call5.i.i.i.i8.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE13_M_deallocateEPS2_m.exit.i.i ], [ null, %if.end.i.i ]
   %call2.i = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %client_cached_cert_hashes.i)
           to label %invoke.cont1.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i, !noalias !5
 
@@ -170,8 +170,8 @@ lpad.loopexit.split-lp.loopexit.i:                ; preds = %cond.true.i.i.i77.i
           cleanup
   br label %lpad.i
 
-lpad.loopexit.split-lp.loopexit.split-lp.i:       ; preds = %if.then.i.i.i91.invoke.i, %land.rhs.i, %invoke.cont.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i
-  %agg.result.val.i187 = phi ptr [ %agg.result.val.i188, %if.then.i.i.i91.invoke.i ], [ %entries.promoted, %land.rhs.i ], [ %entries.promoted, %invoke.cont.i ], [ null, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i ]
+lpad.loopexit.split-lp.loopexit.split-lp.i:       ; preds = %if.then.i.i.i91.invoke.i, %land.rhs.i, %invoke.cont.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i
+  %agg.result.val.i187 = phi ptr [ %agg.result.val.i188, %if.then.i.i.i91.invoke.i ], [ %entries.promoted, %land.rhs.i ], [ %entries.promoted, %invoke.cont.i ], [ null, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i ]
   %lpad.loopexit.split-lp104.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
@@ -208,9 +208,9 @@ if.else.i.i:                                      ; preds = %if.end.i
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %cond.i12.i.i.i157 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775776
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i91.invoke.i, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i91.invoke.i, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
-_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %if.else.i.i
+_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 5
   %cmp.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i152, %cond.i12.i.i.i157
   %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
@@ -219,35 +219,35 @@ _ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.
   %10 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 288230376151711743)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 288230376151711743, i64 %10
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i.i, label %cond.true.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 5
   %call5.i.i.i.i.i17.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #14
-          to label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.i, !noalias !5
+          to label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.i, !noalias !5
 
-_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
-  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %call5.i.i.i.i.i17.i, %cond.true.i.i.i.i ]
+_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i17.i, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.net::(anonymous namespace)::CertEntry", ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i.i
+if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i.i, ptr align 8 %cond.i12.i.i.i157, i64 %sub.ptr.sub.i.i.i.i.i, i1 false), !noalias !5
-  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i.i
+  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
 
-_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i.i
+_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i12.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %tobool.not.i.i.i14.i = icmp eq ptr %cond.i12.i.i.i157, null
   br i1 %tobool.not.i.i.i14.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
-if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i.i
+if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %cond.i12.i.i.i157) #16, !noalias !5
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i.i
+_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
   %add.ptr19.i.i.i = getelementptr inbounds %"struct.net::(anonymous namespace)::CertEntry", ptr %cond.i12.i.i.i, i64 %cond.i.i.i.i
   br label %for.inc43.i
 
@@ -285,9 +285,9 @@ if.else.i24.i:                                    ; preds = %if.then37.i
   %sub.ptr.rhs.cast.i.i.i.i27.i = ptrtoint ptr %cond.i12.i.i.i157 to i64
   %sub.ptr.sub.i.i.i.i28.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i26.i, %sub.ptr.rhs.cast.i.i.i.i27.i
   %cmp.i.i.i29.i = icmp eq i64 %sub.ptr.sub.i.i.i.i28.i, 9223372036854775776
-  br i1 %cmp.i.i.i29.i, label %if.then.i.i.i91.invoke.i, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i30.i
+  br i1 %cmp.i.i.i29.i, label %if.then.i.i.i91.invoke.i, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i30.i
 
-_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i30.i: ; preds = %if.else.i24.i
+_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i30.i: ; preds = %if.else.i24.i
   %sub.ptr.div.i.i.i.i31.i = ashr exact i64 %sub.ptr.sub.i.i.i.i28.i, 5
   %cmp.i.i.i.i32.i = icmp eq ptr %incdec.ptr.i.i.i152, %cond.i12.i.i.i157
   %.sroa.speculated.i.i.i33.i = select i1 %cmp.i.i.i.i32.i, i64 1, i64 %sub.ptr.div.i.i.i.i31.i
@@ -296,35 +296,35 @@ _ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.
   %14 = call i64 @llvm.umin.i64(i64 %add.i.i.i34.i, i64 288230376151711743)
   %cond.i.i.i36.i = select i1 %cmp7.i.i.i35.i, i64 288230376151711743, i64 %14
   %cmp.not.i.i.i37.i = icmp eq i64 %cond.i.i.i36.i, 0
-  br i1 %cmp.not.i.i.i37.i, label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i40.i, label %cond.true.i.i.i38.i
+  br i1 %cmp.not.i.i.i37.i, label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i40.i, label %cond.true.i.i.i38.i
 
-cond.true.i.i.i38.i:                              ; preds = %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i30.i
+cond.true.i.i.i38.i:                              ; preds = %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i30.i
   %mul.i.i.i.i.i39.i = shl nuw nsw i64 %cond.i.i.i36.i, 5
   %call5.i.i.i.i.i55.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i39.i) #14
-          to label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i40.i unwind label %lpad.loopexit.split-lp.loopexit.i, !noalias !5
+          to label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i40.i unwind label %lpad.loopexit.split-lp.loopexit.i, !noalias !5
 
-_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i40.i: ; preds = %cond.true.i.i.i38.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i30.i
-  %cond.i12.i.i41.i = phi ptr [ null, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i30.i ], [ %call5.i.i.i.i.i55.i, %cond.true.i.i.i38.i ]
+_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i40.i: ; preds = %cond.true.i.i.i38.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i30.i
+  %cond.i12.i.i41.i = phi ptr [ null, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i30.i ], [ %call5.i.i.i.i.i55.i, %cond.true.i.i.i38.i ]
   %add.ptr.i.i42.i = getelementptr inbounds %"struct.net::(anonymous namespace)::CertEntry", ptr %cond.i12.i.i41.i, i64 %sub.ptr.div.i.i.i.i31.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i42.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
   %cmp.i.i.i.i.i43.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i28.i, 0
-  br i1 %cmp.i.i.i.i.i43.i, label %if.then.i.i.i.i.i51.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i44.i
+  br i1 %cmp.i.i.i.i.i43.i, label %if.then.i.i.i.i.i51.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i44.i
 
-if.then.i.i.i.i.i51.i:                            ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i40.i
+if.then.i.i.i.i.i51.i:                            ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i40.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i41.i, ptr align 8 %cond.i12.i.i.i157, i64 %sub.ptr.sub.i.i.i.i28.i, i1 false), !noalias !5
-  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i44.i
+  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i44.i
 
-_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i44.i: ; preds = %if.then.i.i.i.i.i51.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i40.i
+_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i44.i: ; preds = %if.then.i.i.i.i.i51.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i40.i
   %add.ptr.i.i.i.i.i45.i = getelementptr inbounds i8, ptr %cond.i12.i.i41.i, i64 %sub.ptr.sub.i.i.i.i28.i
   %incdec.ptr.i.i46.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45.i, i64 32
   %tobool.not.i.i.i47.i = icmp eq ptr %cond.i12.i.i.i157, null
   br i1 %tobool.not.i.i.i47.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i49.i, label %if.then.i20.i.i48.i
 
-if.then.i20.i.i48.i:                              ; preds = %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i44.i
+if.then.i20.i.i48.i:                              ; preds = %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i44.i
   call void @_ZdlPv(ptr noundef nonnull %cond.i12.i.i.i157) #16, !noalias !5
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i49.i
 
-_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i49.i: ; preds = %if.then.i20.i.i48.i, %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i44.i
+_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i49.i: ; preds = %if.then.i20.i.i48.i, %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i44.i
   %add.ptr19.i.i50.i = getelementptr inbounds %"struct.net::(anonymous namespace)::CertEntry", ptr %cond.i12.i.i41.i, i64 %cond.i.i.i36.i
   br label %for.inc43.i
 
@@ -343,7 +343,7 @@ if.else.i63.i:                                    ; preds = %if.end40.i
   %sub.ptr.rhs.cast.i.i.i.i66.i = ptrtoint ptr %cond.i12.i.i.i157 to i64
   %sub.ptr.sub.i.i.i.i67.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i65.i, %sub.ptr.rhs.cast.i.i.i.i66.i
   %cmp.i.i.i68.i = icmp eq i64 %sub.ptr.sub.i.i.i.i67.i, 9223372036854775776
-  br i1 %cmp.i.i.i68.i, label %if.then.i.i.i91.invoke.i, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i69.i
+  br i1 %cmp.i.i.i68.i, label %if.then.i.i.i91.invoke.i, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i69.i
 
 if.then.i.i.i91.invoke.i:                         ; preds = %if.else.i63.i, %if.else.i24.i, %if.else.i.i, %entry
   %agg.result.val.i188 = phi ptr [ null, %entry ], [ %cond.i12.i.i.i157, %if.else.i.i ], [ %cond.i12.i.i.i157, %if.else.i24.i ], [ %cond.i12.i.i.i157, %if.else.i63.i ]
@@ -354,7 +354,7 @@ if.then.i.i.i91.invoke.i:                         ; preds = %if.else.i63.i, %if.
 if.then.i.i.i91.cont.i:                           ; preds = %if.then.i.i.i91.invoke.i
   unreachable
 
-_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i69.i: ; preds = %if.else.i63.i
+_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i69.i: ; preds = %if.else.i63.i
   %sub.ptr.div.i.i.i.i70.i = ashr exact i64 %sub.ptr.sub.i.i.i.i67.i, 5
   %cmp.i.i.i.i71.i = icmp eq ptr %incdec.ptr.i.i.i152, %cond.i12.i.i.i157
   %.sroa.speculated.i.i.i72.i = select i1 %cmp.i.i.i.i71.i, i64 1, i64 %sub.ptr.div.i.i.i.i70.i
@@ -363,35 +363,35 @@ _ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.
   %16 = call i64 @llvm.umin.i64(i64 %add.i.i.i73.i, i64 288230376151711743)
   %cond.i.i.i75.i = select i1 %cmp7.i.i.i74.i, i64 288230376151711743, i64 %16
   %cmp.not.i.i.i76.i = icmp eq i64 %cond.i.i.i75.i, 0
-  br i1 %cmp.not.i.i.i76.i, label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i79.i, label %cond.true.i.i.i77.i
+  br i1 %cmp.not.i.i.i76.i, label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i79.i, label %cond.true.i.i.i77.i
 
-cond.true.i.i.i77.i:                              ; preds = %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i69.i
+cond.true.i.i.i77.i:                              ; preds = %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i69.i
   %mul.i.i.i.i.i78.i = shl nuw nsw i64 %cond.i.i.i75.i, 5
   %call5.i.i.i.i.i94.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i78.i) #14
-          to label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i79.i unwind label %lpad.loopexit.split-lp.loopexit.i, !noalias !5
+          to label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i79.i unwind label %lpad.loopexit.split-lp.loopexit.i, !noalias !5
 
-_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i79.i: ; preds = %cond.true.i.i.i77.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i69.i
-  %cond.i12.i.i80.i = phi ptr [ null, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i69.i ], [ %call5.i.i.i.i.i94.i, %cond.true.i.i.i77.i ]
+_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i79.i: ; preds = %cond.true.i.i.i77.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i69.i
+  %cond.i12.i.i80.i = phi ptr [ null, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i69.i ], [ %call5.i.i.i.i.i94.i, %cond.true.i.i.i77.i ]
   %add.ptr.i.i81.i = getelementptr inbounds %"struct.net::(anonymous namespace)::CertEntry", ptr %cond.i12.i.i80.i, i64 %sub.ptr.div.i.i.i.i70.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i81.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %entry9.i, i64 32, i1 false), !noalias !5
   %cmp.i.i.i.i.i82.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i67.i, 0
-  br i1 %cmp.i.i.i.i.i82.i, label %if.then.i.i.i.i.i90.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i83.i
+  br i1 %cmp.i.i.i.i.i82.i, label %if.then.i.i.i.i.i90.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i83.i
 
-if.then.i.i.i.i.i90.i:                            ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i79.i
+if.then.i.i.i.i.i90.i:                            ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i79.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i80.i, ptr align 8 %cond.i12.i.i.i157, i64 %sub.ptr.sub.i.i.i.i67.i, i1 false), !noalias !5
-  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i83.i
+  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i83.i
 
-_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i83.i: ; preds = %if.then.i.i.i.i.i90.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i79.i
+_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i83.i: ; preds = %if.then.i.i.i.i.i90.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i79.i
   %add.ptr.i.i.i.i.i84.i = getelementptr inbounds i8, ptr %cond.i12.i.i80.i, i64 %sub.ptr.sub.i.i.i.i67.i
   %incdec.ptr.i.i85.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i84.i, i64 32
   %tobool.not.i.i.i86.i = icmp eq ptr %cond.i12.i.i.i157, null
   br i1 %tobool.not.i.i.i86.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i88.i, label %if.then.i20.i.i87.i
 
-if.then.i20.i.i87.i:                              ; preds = %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i83.i
+if.then.i20.i.i87.i:                              ; preds = %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i83.i
   call void @_ZdlPv(ptr noundef nonnull %cond.i12.i.i.i157) #16, !noalias !5
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i88.i
 
-_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i88.i: ; preds = %if.then.i20.i.i87.i, %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i83.i
+_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i88.i: ; preds = %if.then.i20.i.i87.i, %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i83.i
   %add.ptr19.i.i89.i = getelementptr inbounds %"struct.net::(anonymous namespace)::CertEntry", ptr %cond.i12.i.i80.i, i64 %cond.i.i.i75.i
   br label %for.inc43.i
 
@@ -451,7 +451,7 @@ if.end73.thread:                                  ; preds = %if.end.thread, %if.
   store ptr null, ptr %scoped_z, align 8
   %type_.i200 = getelementptr inbounds i8, ptr %scoped_z, i64 8
   store i32 1, ptr %type_.i200, align 8
-  br label %_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.argprom.exit
+  br label %_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.exit
 
 for.end:                                          ; preds = %for.inc
   store ptr null, ptr %scoped_z, align 8
@@ -610,9 +610,9 @@ for.inc.i:                                        ; preds = %sw.bb6.i, %sw.bb5.i
 for.end.loopexit.i:                               ; preds = %for.inc.i
   %29 = add i64 %entries_size.1.i, 1
   %30 = trunc i64 %uncompressed_size.1 to i32
-  br label %_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.argprom.exit
+  br label %_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.exit
 
-_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.argprom.exit: ; preds = %if.end73.thread, %for.end.loopexit.i
+_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.exit: ; preds = %if.end73.thread, %for.end.loopexit.i
   %compressed_size.0223 = phi i64 [ %compressed_size.0231, %for.end.loopexit.i ], [ 0, %if.end73.thread ]
   %cond222 = phi i64 [ %cond230, %for.end.loopexit.i ], [ 0, %if.end73.thread ]
   %cmp160.not195202221 = phi i1 [ false, %for.end.loopexit.i ], [ true, %if.end73.thread ]
@@ -628,7 +628,7 @@ _ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.argpr
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %add79)
           to label %invoke.cont81 unwind label %lpad80.loopexit.split-lp
 
-invoke.cont81:                                    ; preds = %_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.argprom.exit
+invoke.cont81:                                    ; preds = %_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.exit
   %call83 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef 0)
           to label %invoke.cont82 unwind label %lpad80.loopexit.split-lp
 
@@ -687,7 +687,7 @@ lpad80.loopexit:                                  ; preds = %if.end101, %if.end1
           cleanup
   br label %ehcleanup231
 
-lpad80.loopexit.split-lp:                         ; preds = %_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.argprom.exit, %invoke.cont81, %for.end196, %if.end221
+lpad80.loopexit.split-lp:                         ; preds = %_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.exit, %invoke.cont81, %for.end196, %if.end221
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup231
@@ -925,13 +925,13 @@ terminate.lpad.i:                                 ; preds = %if.else.i.i131, %if
 _ZN3net12_GLOBAL__N_110ScopedZLibD2Ev.exit:       ; preds = %if.then2.i.i133, %if.else.i.i131, %cleanup228.thread, %cleanup228
   %entries.val38 = load ptr, ptr %entries, align 8
   %tobool.not.i.i.i = icmp eq ptr %entries.val38, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.argprom.argprom.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN3net12_GLOBAL__N_110ScopedZLibD2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %entries.val38) #16
-  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.argprom.argprom.exit: ; preds = %_ZN3net12_GLOBAL__N_110ScopedZLibD2Ev.exit, %if.then.i.i.i
+_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.exit: ; preds = %_ZN3net12_GLOBAL__N_110ScopedZLibD2Ev.exit, %if.then.i.i.i
   ret void
 
 ehcleanup231.thread:                              ; preds = %lpad40.body, %ehcleanup, %lpad20
@@ -1635,7 +1635,7 @@ if.else.i52.i:                                    ; preds = %sw.epilog.i
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %this.val.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775776
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i59.i, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i59.i, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i59.i:                                ; preds = %if.else.i52.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #17
@@ -1644,7 +1644,7 @@ if.then.i.i.i59.i:                                ; preds = %if.else.i52.i
 .noexc60.i:                                       ; preds = %if.then.i.i.i59.i
   unreachable
 
-_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %if.else.i52.i
+_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i52.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 5
   %cmp.i.i.i.i.i = icmp eq ptr %29, %this.val.i.i.i
   %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
@@ -1653,15 +1653,15 @@ _ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.
   %31 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 288230376151711743)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 288230376151711743, i64 %31
   %cmp.not.i.i.i53.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i53.i, label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i.i, label %cond.true.i.i.i.i
+  br i1 %cmp.not.i.i.i53.i, label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %mul.i.i.i.i.i54.i = shl nuw nsw i64 %cond.i.i.i.i, 5
   %call5.i.i.i.i.i61.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i54.i) #14
-          to label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i.i unwind label %lpad.loopexit.i
+          to label %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %lpad.loopexit.i
 
-_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
-  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %call5.i.i.i.i.i61.i, %cond.true.i.i.i.i ]
+_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i61.i, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.net::(anonymous namespace)::CertEntry", ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store i32 %conv.i, ptr %add.ptr.i.i.i, align 8
   %entry1.sroa.378.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
@@ -1671,23 +1671,23 @@ _ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argpro
   %entry1.sroa.7.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 24
   store i32 %entry1.sroa.7.1.i, ptr %entry1.sroa.7.0.add.ptr.i.i.sroa_idx.i, align 8
   %cmp.i.i.i.i.i55.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i55.i, label %if.then.i.i.i.i.i58.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i.i
+  br i1 %cmp.i.i.i.i.i55.i, label %if.then.i.i.i.i.i58.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
 
-if.then.i.i.i.i.i58.i:                            ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i.i
+if.then.i.i.i.i.i58.i:                            ; preds = %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i.i, ptr align 8 %this.val.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i.i
+  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
 
-_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i.i: ; preds = %if.then.i.i.i.i.i58.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.argprom.exit.i.i.i
+_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %if.then.i.i.i.i.i58.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i12.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   %incdec.ptr.i.i56.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %tobool.not.i.i.i57.i = icmp eq ptr %this.val.i.i.i, null
   br i1 %tobool.not.i.i.i57.i, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
-if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i.i
+if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val.i.i.i) #16
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit19.i.i.i
+_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
   store ptr %cond.i12.i.i.i, ptr %entries, align 8
   store ptr %incdec.ptr.i.i56.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr19.i.i.i = getelementptr inbounds %"struct.net::(anonymous namespace)::CertEntry", ptr %cond.i12.i.i.i, i64 %cond.i.i.i.i
@@ -2011,26 +2011,26 @@ cleanup110:                                       ; preds = %invoke.cont, %if.th
   %retval.0 = phi i1 [ false, %invoke.cont ], [ false, %if.then.i.i.i64.i ], [ %retval.1, %cleanup108 ], [ %retval.166, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ], [ false, %if.then.i.i.i64.i.thread ], [ false, %invoke.cont17 ], [ false, %invoke.cont23 ]
   %entries.val23 = load ptr, ptr %entries, align 8
   %tobool.not.i.i.i44 = icmp eq ptr %entries.val23, null
-  br i1 %tobool.not.i.i.i44, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.argprom.argprom.exit, label %if.then.i.i.i45
+  br i1 %tobool.not.i.i.i44, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.exit, label %if.then.i.i.i45
 
 if.then.i.i.i45:                                  ; preds = %cleanup110
   call void @_ZdlPv(ptr noundef nonnull %entries.val23) #16
-  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.argprom.argprom.exit: ; preds = %cleanup110, %if.then.i.i.i45
+_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.exit: ; preds = %cleanup110, %if.then.i.i.i45
   ret i1 %retval.0
 
 ehcleanup111:                                     ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i40, %ehcleanup109, %ehcleanup109.thread73, %if.then.i.i.i68.i, %ehcleanup.i
   %.pn17.pn = phi { ptr, i32 } [ %.pn.i, %if.then.i.i.i68.i ], [ %.pn.i, %ehcleanup.i ], [ %lpad.phi, %ehcleanup109 ], [ %.pn1771, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i40 ], [ %lpad.thr_comm, %ehcleanup109.thread73 ]
   %entries.val21 = load ptr, ptr %entries, align 8
   %tobool.not.i.i.i47 = icmp eq ptr %entries.val21, null
-  br i1 %tobool.not.i.i.i47, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.argprom.argprom.exit49, label %if.then.i.i.i48
+  br i1 %tobool.not.i.i.i47, label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.exit49, label %if.then.i.i.i48
 
 if.then.i.i.i48:                                  ; preds = %ehcleanup111
   call void @_ZdlPv(ptr noundef nonnull %entries.val21) #16
-  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.argprom.argprom.exit49
+  br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.exit49
 
-_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.argprom.argprom.exit49: ; preds = %ehcleanup111, %if.then.i.i.i48
+_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EED2Ev.exit49: ; preds = %ehcleanup111, %if.then.i.i.i48
   resume { ptr, i32 } %.pn17.pn
 }
 

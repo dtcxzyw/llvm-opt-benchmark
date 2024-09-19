@@ -31,15 +31,15 @@ define void @Map_MappingTruths(ptr noundef %0) local_unnamed_addr #0 {
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %18
 
-18:                                               ; preds = %.lr.ph37, %Extra_ProgressBarUpdate.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %Extra_ProgressBarUpdate.argprom.exit ]
+18:                                               ; preds = %.lr.ph37, %Extra_ProgressBarUpdate.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %Extra_ProgressBarUpdate.exit ]
   %19 = load ptr, ptr %5, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @Map_NodeIsAnd(ptr noundef %22) #3
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %Extra_ProgressBarUpdate.argprom.exit, label %24
+  br i1 %.not, label %Extra_ProgressBarUpdate.exit, label %24
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %22, i64 160
@@ -321,19 +321,19 @@ Map_TruthsCut.exit:                               ; preds = %.lr.ph, %Map_Truths
   %187 = load i32, ptr %10, align 4
   %188 = sext i32 %187 to i64
   %189 = icmp slt i64 %indvars.iv, %188
-  br i1 %189, label %Extra_ProgressBarUpdate.argprom.exit, label %190
+  br i1 %189, label %Extra_ProgressBarUpdate.exit, label %190
 
 190:                                              ; preds = %186, %._crit_edge
   %191 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %10, i32 noundef %191, ptr noundef nonnull @.str) #3
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %190, %186, %18
+Extra_ProgressBarUpdate.exit:                     ; preds = %190, %186, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge38, label %18, !llvm.loop !9
 
-._crit_edge38:                                    ; preds = %Extra_ProgressBarUpdate.argprom.exit, %1
+._crit_edge38:                                    ; preds = %Extra_ProgressBarUpdate.exit, %1
   call void @Extra_ProgressBarStop(ptr noundef %10) #3
   ret void
 }

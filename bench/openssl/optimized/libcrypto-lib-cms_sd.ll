@@ -780,17 +780,17 @@ if.then24.i:                                      ; preds = %lor.lhs.false19.i, 
   br label %return
 
 lor.lhs.false:                                    ; preds = %entry, %lor.lhs.false19.i
-  %call1 = tail call fastcc i32 @cms_add_digest_smcap.argelim(ptr noundef %smcap, i32 noundef 982)
+  %call1 = tail call fastcc i32 @cms_add_digest_smcap(ptr noundef %smcap, i32 noundef 982)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = tail call fastcc i32 @cms_add_digest_smcap.argelim(ptr noundef %smcap, i32 noundef 983)
+  %call4 = tail call fastcc i32 @cms_add_digest_smcap(ptr noundef %smcap, i32 noundef 983)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = tail call fastcc i32 @cms_add_digest_smcap.argelim(ptr noundef %smcap, i32 noundef 809)
+  %call7 = tail call fastcc i32 @cms_add_digest_smcap(ptr noundef %smcap, i32 noundef 809)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %lor.lhs.false9
 
@@ -1202,16 +1202,16 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %call.i = call ptr @X509_gmtime_adj(ptr noundef null, i64 noundef 0) #7
   %cmp1.i = icmp eq ptr %call.i, null
-  br i1 %cmp1.i, label %cms_add1_signingTime.argprom.exit.thread, label %if.end3.i
+  br i1 %cmp1.i, label %cms_add1_signingTime.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then4
   %type.i = getelementptr inbounds i8, ptr %call.i, i64 4
   %4 = load i32, ptr %type.i, align 4
   %call4.i = call i32 @CMS_signed_add1_attr_by_NID(ptr noundef nonnull %si, i32 noundef 52, i32 noundef %4, ptr noundef nonnull %call.i, i32 noundef -1) #7
   %cmp5.i = icmp slt i32 %call4.i, 1
-  br i1 %cmp5.i, label %cms_add1_signingTime.argprom.exit.thread, label %cms_add1_signingTime.argprom.exit
+  br i1 %cmp5.i, label %cms_add1_signingTime.exit.thread, label %cms_add1_signingTime.exit
 
-cms_add1_signingTime.argprom.exit.thread:         ; preds = %if.then4, %if.end3.i
+cms_add1_signingTime.exit.thread:                 ; preds = %if.then4, %if.end3.i
   %.sink1.i = phi i32 [ 563, %if.then4 ], [ 569, %if.end3.i ]
   %.sink.i = phi i32 [ 524299, %if.then4 ], [ 524334, %if.end3.i ]
   call void @ERR_new() #7
@@ -1220,11 +1220,11 @@ cms_add1_signingTime.argprom.exit.thread:         ; preds = %if.then4, %if.end3.
   call void @ASN1_TIME_free(ptr noundef %call.i) #7
   br label %err
 
-cms_add1_signingTime.argprom.exit:                ; preds = %if.end3.i
+cms_add1_signingTime.exit:                        ; preds = %if.end3.i
   call void @ASN1_TIME_free(ptr noundef nonnull %call.i) #7
   br label %if.end8
 
-if.end8:                                          ; preds = %cms_add1_signingTime.argprom.exit, %if.end
+if.end8:                                          ; preds = %cms_add1_signingTime.exit, %if.end
   %call9 = call i32 @ossl_cms_si_check_attributes(ptr noundef nonnull %si) #7
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %err, label %if.end12
@@ -1298,7 +1298,7 @@ if.end51:                                         ; preds = %if.end46
   call void @ASN1_STRING_set0(ptr noundef %12, ptr noundef %13, i32 noundef %conv53) #7
   br label %return
 
-err:                                              ; preds = %cms_add1_signingTime.argprom.exit.thread, %if.end46, %if.end41, %if.end36, %if.end31, %if.end26, %if.else, %if.end8
+err:                                              ; preds = %cms_add1_signingTime.exit.thread, %if.end46, %if.end41, %if.end36, %if.end31, %if.end26, %if.else, %if.end8
   %15 = load ptr, ptr %abuf, align 8
   call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 879) #7
   %call54 = call i32 @EVP_MD_CTX_reset(ptr noundef %0) #7
@@ -2868,7 +2868,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_add_digest_smcap.argelim(ptr nocapture noundef %sk, i32 noundef range(i32 809, 984) %nid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_add_digest_smcap(ptr nocapture noundef %sk, i32 noundef range(i32 809, 984) %nid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #7
   %call1 = tail call ptr @EVP_get_digestbyname(ptr noundef %call) #7

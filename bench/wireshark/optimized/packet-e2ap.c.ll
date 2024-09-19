@@ -8333,7 +8333,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %32, %e2ap_get_priva
   %47 = load i32, ptr %46, align 4
   %48 = tail call ptr @find_conversation(i32 noundef %38, ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %43, i32 noundef %45, i32 noundef %47, i32 noundef 0) #8
   %.not.i17 = icmp eq ptr %48, null
-  br i1 %.not.i17, label %49, label %update_conversation_from_gnb_id.argprom.exit
+  br i1 %.not.i17, label %49, label %update_conversation_from_gnb_id.exit
 
 49:                                               ; preds = %e2ap_get_private_data.exit.i
   %50 = load i32, ptr %37, align 4
@@ -8351,7 +8351,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %32, %e2ap_get_priva
   %61 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
   %62 = load i32, ptr @s_gnb_ran_functions_table, align 8
   %.not2.i = icmp eq i32 %62, 0
-  br i1 %.not2.i, label %update_conversation_from_gnb_id.argprom.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %update_conversation_from_gnb_id.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %49
   %.not29.i = icmp eq i32 %60, 0
@@ -8365,7 +8365,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %32, %e2ap_get_priva
   store i32 0, ptr %gep.i, align 8
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next7.i, %wide.trip.count9.i
-  br i1 %exitcond10.not.i, label %update_conversation_from_gnb_id.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %exitcond10.not.i, label %update_conversation_from_gnb_id.exit, label %.lr.ph.split.us.i, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %71
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %71 ], [ 0, %.lr.ph.i ]
@@ -8381,14 +8381,14 @@ e2ap_get_private_data.exit.i:                     ; preds = %32, %e2ap_get_priva
   %69 = load ptr, ptr %68, align 8
   %70 = load i32, ptr @proto_e2ap, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %55, i32 noundef %70, ptr noundef %69) #8
-  br label %update_conversation_from_gnb_id.argprom.exit
+  br label %update_conversation_from_gnb_id.exit
 
 71:                                               ; preds = %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count9.i
-  br i1 %exitcond.not.i, label %update_conversation_from_gnb_id.argprom.exit, label %.lr.ph.split.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %update_conversation_from_gnb_id.exit, label %.lr.ph.split.i, !llvm.loop !12
 
-update_conversation_from_gnb_id.argprom.exit:     ; preds = %71, %.lr.ph.split.us.i, %e2ap_get_private_data.exit.i, %49, %67
+update_conversation_from_gnb_id.exit:             ; preds = %71, %.lr.ph.split.us.i, %e2ap_get_private_data.exit.i, %49, %67
   ret i32 %7
 }
 

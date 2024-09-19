@@ -1906,7 +1906,7 @@ is_ciphered_according_to_rrc.exit:                ; preds = %31, %38, %45, %52, 
 103:                                              ; preds = %96, %99, %101
   %.0.in = phi i1 [ %98, %96 ], [ %100, %99 ], [ %102, %101 ]
   %.0 = zext i1 %.0.in to i32
-  %104 = call fastcc signext i16 @rlc_decode_li.argelim(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %8, i32 noundef %.0)
+  %104 = call fastcc signext i16 @rlc_decode_li(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %8, i32 noundef %.0)
   %105 = icmp eq i16 %104, -1
   br i1 %105, label %289, label %106
 
@@ -2149,7 +2149,7 @@ proto_item_set_hidden.exit:                       ; preds = %131, %128, %127, %1
   %230 = getelementptr inbounds i8, ptr %166, i64 8
   %231 = load ptr, ptr %230, align 8
   %232 = trunc i32 %223 to i16
-  call fastcc void @add_fragment.argelim(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %231, i16 noundef zeroext %.0121152.i, i16 noundef zeroext %35, i16 noundef zeroext %164, i16 noundef zeroext %232, i32 noundef 1, ptr noundef %5)
+  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %231, i16 noundef zeroext %.0121152.i, i16 noundef zeroext %35, i16 noundef zeroext %164, i16 noundef zeroext %232, i32 noundef 1, ptr noundef %5)
   %233 = call fastcc ptr @get_reassembled_data(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext %35, i16 noundef zeroext %164, ptr noundef %5)
   br label %234
 
@@ -2200,7 +2200,7 @@ proto_item_set_hidden.exit:                       ; preds = %131, %128, %127, %1
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds i8, ptr %166, i64 2
   %258 = load i16, ptr %257, align 2
-  call fastcc void @add_fragment.argelim(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %256, i16 noundef zeroext %.0121152.i, i16 noundef zeroext %35, i16 noundef zeroext %164, i16 noundef zeroext %258, i32 noundef 1, ptr noundef %5)
+  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %256, i16 noundef zeroext %.0121152.i, i16 noundef zeroext %35, i16 noundef zeroext %164, i16 noundef zeroext %258, i32 noundef 1, ptr noundef %5)
   %259 = call fastcc ptr @get_reassembled_data(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext %35, i16 noundef zeroext %164, ptr noundef %5)
   br label %260
 
@@ -2254,7 +2254,7 @@ proto_item_set_hidden.exit:                       ; preds = %131, %128, %127, %1
 278:                                              ; preds = %276
   %279 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %269) #14
   %280 = trunc i32 %279 to i16
-  call fastcc void @add_fragment.argelim(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext %.0121.lcssa.i, i16 noundef zeroext %35, i16 noundef zeroext %.lcssa.i, i16 noundef zeroext %280, i32 noundef 0, ptr noundef %5)
+  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext %.0121.lcssa.i, i16 noundef zeroext %35, i16 noundef zeroext %.lcssa.i, i16 noundef zeroext %280, i32 noundef 0, ptr noundef %5)
   br i1 %.0118.lcssa.i, label %.thread151.i, label %284
 
 .thread151.i:                                     ; preds = %278
@@ -2295,7 +2295,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i16 -1, 256) i16 @rlc_decode_li.argelim(i32 noundef range(i32 1, 3) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc signext range(i16 -1, 256) i16 @rlc_decode_li(i32 noundef range(i32 1, 3) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %switch = icmp eq i32 %0, 2
   %. = zext i1 %switch to i32
   %7 = select i1 %switch, i32 2, i32 1
@@ -2993,7 +2993,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_fragment.argelim(i32 noundef range(i32 1, 3) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext range(i16 0, 4096) %5, i16 noundef zeroext range(i16 0, 256) %6, i16 noundef zeroext %7, i32 noundef range(i32 0, 2) %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc void @add_fragment(i32 noundef range(i32 1, 3) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext range(i16 0, 4096) %5, i16 noundef zeroext range(i16 0, 256) %6, i16 noundef zeroext %7, i32 noundef range(i32 0, 2) %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca %struct.rlc_channel, align 4
   %13 = alloca %struct.rlc_frag, align 8
@@ -4156,19 +4156,19 @@ rlc_sdu_add_fragment.exit:                        ; preds = %34, %41, %85
 
 118:                                              ; preds = %103, %109, %._crit_edge
   %.not.i36 = icmp eq ptr %7, null
-  br i1 %.not.i36, label %reassemble_data.argprom.exit, label %119
+  br i1 %.not.i36, label %reassemble_data.exit, label %119
 
 119:                                              ; preds = %118
   %120 = getelementptr inbounds i8, ptr %7, i64 32
   %121 = load ptr, ptr %120, align 8
   %.not30.i = icmp eq ptr %121, null
-  br i1 %.not30.i, label %reassemble_data.argprom.exit, label %122
+  br i1 %.not30.i, label %reassemble_data.exit, label %122
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds i8, ptr %7, i64 16
   %124 = load ptr, ptr %123, align 8
   %.not31.i = icmp eq ptr %124, null
-  br i1 %.not31.i, label %.lr.ph.i.preheader, label %reassemble_data.argprom.exit
+  br i1 %.not31.i, label %.lr.ph.i.preheader, label %reassemble_data.exit
 
 .lr.ph.i.preheader:                               ; preds = %122
   %125 = getelementptr inbounds i8, ptr %7, i64 40
@@ -4194,7 +4194,7 @@ rlc_sdu_add_fragment.exit:                        ; preds = %34, %41, %85
   %138 = load i16, ptr %129, align 8
   %139 = zext i16 %138 to i32
   %.not33.i = icmp ugt i32 %137, %139
-  br i1 %.not33.i, label %reassemble_data.argprom.exit, label %140
+  br i1 %.not33.i, label %reassemble_data.exit, label %140
 
 140:                                              ; preds = %.lr.ph.i
   %141 = load ptr, ptr %123, align 8
@@ -4216,9 +4216,9 @@ rlc_sdu_add_fragment.exit:                        ; preds = %34, %41, %85
   %154 = getelementptr inbounds i8, ptr %.0274.i, i64 48
   %.027.i = load ptr, ptr %154, align 8
   %.not32.i = icmp eq ptr %.027.i, null
-  br i1 %.not32.i, label %reassemble_data.argprom.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not32.i, label %reassemble_data.exit, label %.lr.ph.i, !llvm.loop !20
 
-reassemble_data.argprom.exit:                     ; preds = %.lr.ph.i, %140, %118, %119, %122
+reassemble_data.exit:                             ; preds = %.lr.ph.i, %140, %118, %119, %122
   ret void
 }
 
@@ -4479,7 +4479,7 @@ is_ciphered_according_to_rrc.exit:                ; preds = %86, %92, %99, %106,
 155:                                              ; preds = %148, %151, %153
   %.0.in = phi i1 [ %150, %148 ], [ %152, %151 ], [ %154, %153 ]
   %.0 = zext i1 %.0.in to i32
-  %156 = call fastcc signext i16 @rlc_decode_li.argelim(i32 noundef 2, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %10, i32 noundef %.0)
+  %156 = call fastcc signext i16 @rlc_decode_li(i32 noundef 2, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %10, i32 noundef %.0)
   %157 = icmp eq i16 %156, -1
   br i1 %157, label %230, label %158
 
@@ -4759,7 +4759,7 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
 89:                                               ; preds = %87
   %90 = getelementptr inbounds i8, ptr %74, i64 8
   %91 = load ptr, ptr %90, align 8
-  call fastcc void @add_fragment.argelim(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %91, i16 noundef zeroext %.0113147, i16 noundef zeroext %6, i16 noundef zeroext %69, i16 noundef zeroext 0, i32 noundef 1, ptr noundef %12)
+  call fastcc void @add_fragment(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %91, i16 noundef zeroext %.0113147, i16 noundef zeroext %6, i16 noundef zeroext %69, i16 noundef zeroext 0, i32 noundef 1, ptr noundef %12)
   br label %92
 
 92:                                               ; preds = %87, %89, %79
@@ -4790,7 +4790,7 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %74, i64 2
   %110 = load i16, ptr %109, align 2
-  call fastcc void @add_fragment.argelim(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %108, i16 noundef zeroext %.0113147, i16 noundef zeroext %6, i16 noundef zeroext %69, i16 noundef zeroext %110, i32 noundef 1, ptr noundef %12)
+  call fastcc void @add_fragment(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %108, i16 noundef zeroext %.0113147, i16 noundef zeroext %6, i16 noundef zeroext %69, i16 noundef zeroext %110, i32 noundef 1, ptr noundef %12)
   %111 = call fastcc ptr @get_reassembled_data(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %6, i16 noundef zeroext %69, ptr noundef %12)
   %.not131 = icmp eq ptr %111, null
   br i1 %.not131, label %.thread, label %112
@@ -4846,7 +4846,7 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
 131:                                              ; preds = %129
   %132 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %122) #14
   %133 = trunc i32 %132 to i16
-  call fastcc void @add_fragment.argelim(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %.0113.lcssa164, i16 noundef zeroext %6, i16 noundef zeroext %.lcssa167, i16 noundef zeroext %133, i32 noundef %10, ptr noundef %12)
+  call fastcc void @add_fragment(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %.0113.lcssa164, i16 noundef zeroext %6, i16 noundef zeroext %.lcssa167, i16 noundef zeroext %133, i32 noundef %10, ptr noundef %12)
   %.not123 = icmp eq i32 %10, 0
   br i1 %.not123, label %.thread141, label %134
 

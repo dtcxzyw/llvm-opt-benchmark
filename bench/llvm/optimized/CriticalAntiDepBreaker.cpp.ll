@@ -1114,8 +1114,8 @@ define hidden void @_ZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12Mach
   %37 = getelementptr i8, ptr %29, i64 16
   br label %38
 
-38:                                               ; preds = %.lr.ph, %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.argprom.argprom.argprom.exit"
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.argprom.argprom.argprom.exit" ]
+38:                                               ; preds = %.lr.ph, %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.exit"
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.exit" ]
   %.val.val = load ptr, ptr %15, align 8
   %39 = getelementptr i8, ptr %.val.val, i64 56
   %.val.val.val61 = load ptr, ptr %39, align 8, !noalias !26
@@ -1149,7 +1149,7 @@ define hidden void @_ZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12Mach
   %55 = shl nuw i32 1, %54
   %56 = and i32 %55, %53
   %.not.i.i.i.i.not.i.i.i.i.i.i = icmp eq i32 %56, 0
-  br i1 %.not.i.i.i.i.not.i.i.i.i.i.i, label %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i.i, label %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.argprom.argprom.argprom.exit"
+  br i1 %.not.i.i.i.i.not.i.i.i.i.i.i, label %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i.i, label %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.exit"
 
 _ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i.i:  ; preds = %46
   %57 = getelementptr inbounds i8, ptr %47, i64 2
@@ -1262,11 +1262,11 @@ _ZNSt8_Rb_treeIjSt4pairIKjPN4llvm14MachineOperandEESt10_Select1stIS5_ESt4lessIjE
   store ptr %22, ptr %24, align 8
   store ptr %22, ptr %25, align 8
   store i64 0, ptr %23, align 8
-  br label %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.argprom.argprom.argprom.exit"
+  br label %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.exit"
 
 .critedge.i.i:                                    ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjPN4llvm14MachineOperandEESt10_Select1stIS5_ESt4lessIjESaIS5_EE11equal_rangeERS1_.exit.i
   %.not8.i.i = icmp eq ptr %.sroa.037.0.i.i, %.sroa.3.0.i.i
-  br i1 %.not8.i.i, label %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.argprom.argprom.argprom.exit", label %.lr.ph.i2.i
+  br i1 %.not8.i.i, label %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.exit", label %.lr.ph.i2.i
 
 .lr.ph.i2.i:                                      ; preds = %.critedge.i.i, %.lr.ph.i2.i
   %.sroa.06.09.i.i = phi ptr [ %102, %.lr.ph.i2.i ], [ %.sroa.037.0.i.i, %.critedge.i.i ]
@@ -1277,15 +1277,15 @@ _ZNSt8_Rb_treeIjSt4pairIKjPN4llvm14MachineOperandEESt10_Select1stIS5_ESt4lessIjE
   %105 = add i64 %104, -1
   store i64 %105, ptr %23, align 8
   %.not.i3.i = icmp eq ptr %102, %.sroa.3.0.i.i
-  br i1 %.not.i3.i, label %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.argprom.argprom.argprom.exit", label %.lr.ph.i2.i, !llvm.loop !43
+  br i1 %.not.i3.i, label %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.exit", label %.lr.ph.i2.i, !llvm.loop !43
 
-"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.argprom.argprom.argprom.exit": ; preds = %46, %.lr.ph.i2.i, %.critedge.i.i, %101
+"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.exit": ; preds = %46, %.lr.ph.i2.i, %.critedge.i.i, %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond = icmp eq i32 %36, %lftr.wideiv
   br i1 %exitcond, label %.loopexit139.loopexit, label %38, !llvm.loop !44
 
-.loopexit139.loopexit:                            ; preds = %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.argprom.argprom.argprom.exit"
+.loopexit139.loopexit:                            ; preds = %"_ZZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEjENK3$_0clEj.exit"
   %.pre = load i32, ptr %29, align 8
   br label %.loopexit139
 
@@ -3394,8 +3394,8 @@ attributes #14 = { nounwind willreturn memory(read) }
 !30 = distinct !{!30, !31, !"_ZNK4llvm14MCRegisterInfo17subregs_inclusiveENS_10MCRegisterE: argument 0"}
 !31 = distinct !{!31, !"_ZNK4llvm14MCRegisterInfo17subregs_inclusiveENS_10MCRegisterE"}
 !32 = !{!33, !35, !37}
-!33 = distinct !{!33, !34, !"_ZSt9__find_ifIN4llvm16MCSubRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_22CriticalAntiDepBreaker15ScanInstructionERNS0_12MachineInstrEjENK3$_0clEjEUltE_EEET_SB_SB_T0_St18input_iterator_tag.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZSt9__find_ifIN4llvm16MCSubRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_22CriticalAntiDepBreaker15ScanInstructionERNS0_12MachineInstrEjENK3$_0clEjEUltE_EEET_SB_SB_T0_St18input_iterator_tag.argprom"}
+!33 = distinct !{!33, !34, !"_ZSt9__find_ifIN4llvm16MCSubRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_22CriticalAntiDepBreaker15ScanInstructionERNS0_12MachineInstrEjENK3$_0clEjEUltE_EEET_SB_SB_T0_St18input_iterator_tag: argument 0"}
+!34 = distinct !{!34, !"_ZSt9__find_ifIN4llvm16MCSubRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_22CriticalAntiDepBreaker15ScanInstructionERNS0_12MachineInstrEjENK3$_0clEjEUltE_EEET_SB_SB_T0_St18input_iterator_tag"}
 !35 = distinct !{!35, !36, !"_ZSt13__find_if_notIN4llvm16MCSubRegIteratorEN9__gnu_cxx5__ops10_Iter_predIZZNS0_22CriticalAntiDepBreaker15ScanInstructionERNS0_12MachineInstrEjENK3$_0clEjEUltE_EEET_SB_SB_T0_: argument 0"}
 !36 = distinct !{!36, !"_ZSt13__find_if_notIN4llvm16MCSubRegIteratorEN9__gnu_cxx5__ops10_Iter_predIZZNS0_22CriticalAntiDepBreaker15ScanInstructionERNS0_12MachineInstrEjENK3$_0clEjEUltE_EEET_SB_SB_T0_"}
 !37 = distinct !{!37, !38, !"_ZSt11find_if_notIN4llvm16MCSubRegIteratorEZZNS0_22CriticalAntiDepBreaker15ScanInstructionERNS0_12MachineInstrEjENK3$_0clEjEUltE_ET_S7_S7_T0_: argument 0"}

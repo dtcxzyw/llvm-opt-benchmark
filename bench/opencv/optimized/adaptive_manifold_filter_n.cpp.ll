@@ -2699,12 +2699,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN33buildMa
   tail call fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11compute_w_kERSt6vectorIN2cv3MatESaIS3_EERS3_fi(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %62, float noundef %64, i32 noundef %3)
   %65 = getelementptr inbounds i8, ptr %0, i64 120
   %66 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv3MatESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  tail call fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11mapParallelEMS0_FvRKN2cv3MatERS2_ERKSt6vectorIS2_SaIS2_EERSA_.argelim(ptr noundef nonnull align 8 dereferenceable(592) %0, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN10downsampleERKN2cv3MatERS2_ to i64), ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11mapParallelEMS0_FvRKN2cv3MatERS2_ERKSt6vectorIS2_SaIS2_EERSA_(ptr noundef nonnull align 8 dereferenceable(592) %0, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN10downsampleERKN2cv3MatERS2_ to i64), ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %72
 
 67:                                               ; preds = %4
   %68 = getelementptr inbounds i8, ptr %0, i64 120
-  tail call fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11mapParallelEMS0_FvRKN2cv3MatERS2_ERKSt6vectorIS2_SaIS2_EERSA_.argelim(ptr noundef nonnull align 8 dereferenceable(592) %0, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN8upsampleERKN2cv3MatERS2_ to i64), ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %68)
+  tail call fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11mapParallelEMS0_FvRKN2cv3MatERS2_ERKSt6vectorIS2_SaIS2_EERSA_(ptr noundef nonnull align 8 dereferenceable(592) %0, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN8upsampleERKN2cv3MatERS2_ to i64), ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %68)
   %69 = getelementptr inbounds i8, ptr %0, i64 264
   %70 = getelementptr inbounds i8, ptr %0, i64 580
   %71 = load float, ptr %70, align 4
@@ -6151,7 +6151,7 @@ declare void @_ZN2cv8ximgproc10intrinsics3mulEPfS2_fi(ptr noundef, ptr noundef, 
 declare void @_ZN2cv3expERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11mapParallelEMS0_FvRKN2cv3MatERS2_ERKSt6vectorIS2_SaIS2_EERSA_.argelim(ptr noundef nonnull align 8 dereferenceable(592) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11mapParallelEMS0_FvRKN2cv3MatERS2_ERKSt6vectorIS2_SaIS2_EERSA_(ptr noundef nonnull align 8 dereferenceable(592) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Range", align 4
   %6 = alloca %"struct.(anonymous namespace)::AdaptiveManifoldFilterN::MapPrallelLoopBody", align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8

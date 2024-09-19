@@ -2263,7 +2263,7 @@ _ZNSt6vectorIN5vcpkg20InstalledPackageViewESaIS1_EED2Ev.exit._crit_edge.i: ; pre
   store ptr @_ZN5vcpkg22SwitchNuGetDescriptionE, ptr %397, align 8, !noalias !8
   %398 = getelementptr inbounds i8, ptr %25, i64 40
   store ptr %57, ptr %398, align 8, !noalias !8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_3clERKNS0_13StringLiteralEbRKSt16initializer_listIZNS_31handle_export_command_argumentsES3_S6_S7_SA_E10OptionPairE.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(16) @_ZN5vcpkg11SwitchNuGetE, i1 noundef zeroext %.pre-phi.i, ptr nonnull %25, i64 3)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_3clERKNS0_13StringLiteralEbRKSt16initializer_listIZNS_31handle_export_command_argumentsES3_S6_S7_SA_E10OptionPairE"(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(16) @_ZN5vcpkg11SwitchNuGetE, i1 noundef zeroext %.pre-phi.i, ptr nonnull %25, i64 3)
           to label %399 unwind label %244
 
 399:                                              ; preds = %_ZNSt6vectorIN5vcpkg20InstalledPackageViewESaIS1_EED2Ev.exit._crit_edge.i
@@ -2288,7 +2288,7 @@ _ZNSt6vectorIN5vcpkg20InstalledPackageViewESaIS1_EED2Ev.exit._crit_edge.i: ; pre
   store ptr @_ZN5vcpkg26SwitchIfwInstallerFilePathE, ptr %409, align 8, !noalias !8
   %410 = getelementptr inbounds i8, ptr %26, i64 72
   store ptr %67, ptr %410, align 8, !noalias !8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_3clERKNS0_13StringLiteralEbRKSt16initializer_listIZNS_31handle_export_command_argumentsES3_S6_S7_SA_E10OptionPairE.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(16) @_ZN5vcpkg9SwitchIfwE, i1 noundef zeroext %401, ptr nonnull %26, i64 5)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_3clERKNS0_13StringLiteralEbRKSt16initializer_listIZNS_31handle_export_command_argumentsES3_S6_S7_SA_E10OptionPairE"(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(16) @_ZN5vcpkg9SwitchIfwE, i1 noundef zeroext %401, ptr nonnull %26, i64 5)
           to label %411 unwind label %244
 
 411:                                              ; preds = %399
@@ -2313,7 +2313,7 @@ _ZNSt6vectorIN5vcpkg20InstalledPackageViewESaIS1_EED2Ev.exit._crit_edge.i: ; pre
   store ptr @_ZN5vcpkg19SwitchPrefabVersionE, ptr %421, align 8, !noalias !8
   %422 = getelementptr inbounds i8, ptr %27, i64 72
   store ptr %73, ptr %422, align 8, !noalias !8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_3clERKNS0_13StringLiteralEbRKSt16initializer_listIZNS_31handle_export_command_argumentsES3_S6_S7_SA_E10OptionPairE.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(16) @_ZN5vcpkg12SwitchPrefabE, i1 noundef zeroext %413, ptr nonnull %27, i64 5)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_3clERKNS0_13StringLiteralEbRKSt16initializer_listIZNS_31handle_export_command_argumentsES3_S6_S7_SA_E10OptionPairE"(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(16) @_ZN5vcpkg12SwitchPrefabE, i1 noundef zeroext %413, ptr nonnull %27, i64 5)
           to label %423 unwind label %244
 
 423:                                              ; preds = %411
@@ -2326,7 +2326,7 @@ _ZNSt6vectorIN5vcpkg20InstalledPackageViewESaIS1_EED2Ev.exit._crit_edge.i: ; pre
   store ptr @_ZN5vcpkg20SwitchXVersionSuffixE, ptr %427, align 8, !noalias !8
   %428 = getelementptr inbounds i8, ptr %28, i64 24
   store ptr %83, ptr %428, align 8, !noalias !8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_3clERKNS0_13StringLiteralEbRKSt16initializer_listIZNS_31handle_export_command_argumentsES3_S6_S7_SA_E10OptionPairE.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(16) @_ZN5vcpkg17SwitchXChocolateyE, i1 noundef zeroext %425, ptr nonnull %28, i64 2)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_3clERKNS0_13StringLiteralEbRKSt16initializer_listIZNS_31handle_export_command_argumentsES3_S6_S7_SA_E10OptionPairE"(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(16) @_ZN5vcpkg17SwitchXChocolateyE, i1 noundef zeroext %425, ptr nonnull %28, i64 2)
           to label %429 unwind label %244
 
 .body.i:                                          ; preds = %392, %.body.i.i, %.body290.i, %311, %307, %.thread403.i, %261, %244
@@ -2465,7 +2465,7 @@ _ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev.exi
   store ptr %472, ptr %475, align 8
   %476 = getelementptr inbounds i8, ptr %37, i64 40
   store i64 0, ptr %476, align 8
-  invoke fastcc void @"_ZN5vcpkg4Util8group_byINS_14ExportPlanTypeENS_16ExportPlanActionESt6vectorIS3_SaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EEvRKT1_PSt3mapIT_S4_IPKT0_SaISM_EESt4lessISJ_ESaISt4pairIKSJ_SO_EEEOT2_.argprom"(ptr %449, ptr %451, ptr noundef %37)
+  invoke fastcc void @"_ZN5vcpkg4Util8group_byINS_14ExportPlanTypeENS_16ExportPlanActionESt6vectorIS3_SaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EEvRKT1_PSt3mapIT_S4_IPKT0_SaISM_EESt4lessISJ_ESaISt4pairIKSJ_SO_EEEOT2_"(ptr %449, ptr %451, ptr noundef %37)
           to label %477 unwind label %483
 
 477:                                              ; preds = %471
@@ -2476,43 +2476,43 @@ _ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev.exi
   %.val41 = load ptr, ptr %35, align 8
   %.val42 = load ptr, ptr %450, align 8
   %.not5.i = icmp eq ptr %.val41, %.val42
-  br i1 %.not5.i, label %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i
+  br i1 %.not5.i, label %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %478, %480
   %.sroa.01.06.i = phi ptr [ %481, %480 ], [ %.val41, %478 ]
   %479 = getelementptr i8, ptr %.sroa.01.06.i, i64 44
   %.val.i = load i32, ptr %479, align 4
   %.not4.i = icmp eq i32 %.val.i, 1
-  br i1 %.not4.i, label %480, label %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit"
+  br i1 %.not4.i, label %480, label %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit"
 
 480:                                              ; preds = %.lr.ph.i
   %481 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 88
   %.not.i49 = icmp eq ptr %481, %.val42
-  br i1 %.not.i49, label %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit.thread", label %.lr.ph.i, !llvm.loop !40
+  br i1 %.not.i49, label %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit.thread", label %.lr.ph.i, !llvm.loop !40
 
-"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit": ; preds = %.lr.ph.i, %478
+"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i, %478
   %.sroa.01.0.lcssa.i = phi ptr [ %.val41, %478 ], [ %.sroa.01.06.i, %.lr.ph.i ]
   %.not = icmp eq ptr %.sroa.01.0.lcssa.i, %.val42
-  br i1 %.not, label %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit.thread", label %482
+  br i1 %.not, label %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit.thread", label %482
 
-482:                                              ; preds = %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit"
+482:                                              ; preds = %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit"
   %.sroa.01.0.copyload = load i64, ptr @_ZN5vcpkg29msgAdditionalPackagesToExportE, align 8
   invoke void @_ZN5vcpkg3msg7printlnIJEJEEEvNS_5ColorENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(i8 noundef signext 51, i64 %.sroa.01.0.copyload)
-          to label %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit.thread" unwind label %483
+          to label %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit.thread" unwind label %483
 
 483:                                              ; preds = %471, %530, %527, %498, %482, %477
   %484 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit
 
-"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit.thread": ; preds = %480, %482, %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit"
+"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit.thread": ; preds = %480, %482, %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit"
   %485 = load ptr, ptr %473, align 8
   %.not10.i.i.i = icmp eq ptr %485, null
   br i1 %.not10.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit.thread", %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %485, %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit.thread" ]
-  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %472, %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit.thread" ]
+.lr.ph.i.i.i:                                     ; preds = %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit.thread", %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %485, %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit.thread" ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %472, %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit.thread" ]
   %486 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %487 = load i32, ptr %486, align 4
   %488 = icmp slt i32 %487, 1
@@ -2551,7 +2551,7 @@ _ZNSt3mapIN5vcpkg14ExportPlanTypeESt6vectorIPKNS0_16ExportPlanActionESaIS5_EESt4
   %.val43 = load ptr, ptr %38, align 8
   %500 = getelementptr inbounds i8, ptr %38, i64 8
   %.val44 = load ptr, ptr %500, align 8
-  invoke fastcc void @"_ZN5vcpkg7Strings4joinISt6vectorIPKNS_16ExportPlanActionESaIS5_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESE_E3$_3EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_.argprom"(ptr dead_on_unwind noalias writable align 8 %39, ptr nonnull @.str.14, i64 1, ptr %.val43, ptr %.val44)
+  invoke fastcc void @"_ZN5vcpkg7Strings4joinISt6vectorIPKNS_16ExportPlanActionESaIS5_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESE_E3$_3EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_"(ptr dead_on_unwind noalias writable align 8 %39, ptr nonnull @.str.14, i64 1, ptr %.val43, ptr %.val44)
           to label %501 unwind label %515
 
 501:                                              ; preds = %499
@@ -2621,7 +2621,7 @@ _ZNSt3mapIN5vcpkg14ExportPlanTypeESt6vectorIPKNS0_16ExportPlanActionESaIS5_EESt4
   call void @_ZdlPv(ptr noundef nonnull %523) #25
   br label %_ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit
 
-.critedge:                                        ; preds = %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.argprom.exit.thread", %_ZNSt8_Rb_treeIN5vcpkg14ExportPlanTypeESt4pairIKS1_St6vectorIPKNS0_16ExportPlanActionESaIS7_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNSt3mapIN5vcpkg14ExportPlanTypeESt6vectorIPKNS0_16ExportPlanActionESaIS5_EESt4lessIS1_ESaISt4pairIKS1_S7_EEE4findERSB_.exit, %492
+.critedge:                                        ; preds = %"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_16ExportPlanActionESaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_0EEDaOT_T0_.exit.thread", %_ZNSt8_Rb_treeIN5vcpkg14ExportPlanTypeESt4pairIKS1_St6vectorIPKNS0_16ExportPlanActionESaIS7_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNSt3mapIN5vcpkg14ExportPlanTypeESt6vectorIPKNS0_16ExportPlanActionESaIS5_EESt4lessIS1_ESaISt4pairIKS1_S7_EEE4findERSB_.exit, %492
   %525 = load i8, ptr %31, align 8
   %526 = trunc i8 %525 to i1
   br i1 %526, label %527, label %530
@@ -2916,7 +2916,7 @@ _ZN5vcpkg3msg7printlnENS_5ColorERKNS_15LocalizedStringE.exit: ; preds = %.noexc
 declare void @_ZN5vcpkg6Checks9exit_failERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg4Util8group_byINS_14ExportPlanTypeENS_16ExportPlanActionESt6vectorIS3_SaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EEvRKT1_PSt3mapIT_S4_IPKT0_SaISM_EESt4lessISJ_ESaISt4pairIKSJ_SO_EEEOT2_.argprom"(ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg4Util8group_byINS_14ExportPlanTypeENS_16ExportPlanActionESt6vectorIS3_SaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EEvRKT1_PSt3mapIT_S4_IPKT0_SaISM_EESt4lessISJ_ESaISt4pairIKSJ_SO_EEEOT2_"(ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::tuple.250", align 8
   %3 = alloca %"class.std::tuple.253", align 1
   %4 = alloca i32, align 4
@@ -3702,7 +3702,7 @@ _ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EE5eraseEN9__gnu_cxx17__normal_it
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg7Strings4joinISt6vectorIPKNS_16ExportPlanActionESaIS5_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESE_E3$_3EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg7Strings4joinISt6vectorIPKNS_16ExportPlanActionESaIS5_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESE_E3$_3EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
@@ -3713,13 +3713,13 @@ define internal fastcc void @"_ZN5vcpkg7Strings4joinISt6vectorIPKNS_16ExportPlan
   %.sroa.06.0.i = phi ptr [ %7, %13 ], [ %.0.val, %3 ]
   %6 = load ptr, ptr %.sroa.06.0.i, align 8, !noalias !54
   invoke void @_ZNK5vcpkg11PackageSpec9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %6)
-          to label %"_ZZN5vcpkg23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_ENK3$_3clB5cxx11EPKNS_16ExportPlanActionE.argprom.exit.i" unwind label %9
+          to label %"_ZZN5vcpkg23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_ENK3$_3clB5cxx11EPKNS_16ExportPlanActionE.exit.i" unwind label %9
 
-"_ZZN5vcpkg23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_ENK3$_3clB5cxx11EPKNS_16ExportPlanActionE.argprom.exit.i": ; preds = %.preheader.i
+"_ZZN5vcpkg23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_ENK3$_3clB5cxx11EPKNS_16ExportPlanActionE.exit.i": ; preds = %.preheader.i
   invoke void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i unwind label %11
 
-_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i: ; preds = %"_ZZN5vcpkg23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_ENK3$_3clB5cxx11EPKNS_16ExportPlanActionE.argprom.exit.i"
+_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i: ; preds = %"_ZZN5vcpkg23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_ENK3$_3clB5cxx11EPKNS_16ExportPlanActionE.exit.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %7 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 8
   %8 = icmp eq ptr %7, %.8.val
@@ -3730,7 +3730,7 @@ _ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
           cleanup
   br label %15
 
-11:                                               ; preds = %"_ZZN5vcpkg23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_ENK3$_3clB5cxx11EPKNS_16ExportPlanActionE.argprom.exit.i"
+11:                                               ; preds = %"_ZZN5vcpkg23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_ENK3$_3clB5cxx11EPKNS_16ExportPlanActionE.exit.i"
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
@@ -6291,7 +6291,7 @@ declare void @_ZNK5vcpkg15CommandMetadata16get_example_textEv(ptr dead_on_unwind
 declare { ptr, i64 } @_ZNK5vcpkg15LocalizedStringcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_3clERKNS0_13StringLiteralEbRKSt16initializer_listIZNS_31handle_export_command_argumentsES3_S6_S7_SA_E10OptionPairE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_3clERKNS0_13StringLiteralEbRKSt16initializer_listIZNS_31handle_export_command_argumentsES3_S6_S7_SA_E10OptionPairE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::LocalizedString", align 8
   %5 = alloca %"struct.vcpkg::Optional", align 8
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
@@ -12361,17 +12361,17 @@ attributes #27 = { nounwind willreturn memory(read) }
 !15 = !{!13, !9}
 !16 = distinct !{!16, !6}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNO5vcpkg8OptionalIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3mapIZN12_GLOBAL__N_131handle_export_command_argumentsERKNS_10VcpkgPathsERKNS_17VcpkgCmdArgumentsENS_7TripletERKNS_16StatusParagraphsEE3$_1EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIS8_EDTcl9__declvalISN_ELi0EEEvEEEEEESN_.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZNO5vcpkg8OptionalIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3mapIZN12_GLOBAL__N_131handle_export_command_argumentsERKNS_10VcpkgPathsERKNS_17VcpkgCmdArgumentsENS_7TripletERKNS_16StatusParagraphsEE3$_1EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIS8_EDTcl9__declvalISN_ELi0EEEvEEEEEESN_.argprom"}
+!18 = distinct !{!18, !19, !"_ZNO5vcpkg8OptionalIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3mapIZN12_GLOBAL__N_131handle_export_command_argumentsERKNS_10VcpkgPathsERKNS_17VcpkgCmdArgumentsENS_7TripletERKNS_16StatusParagraphsEE3$_1EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIS8_EDTcl9__declvalISN_ELi0EEEvEEEEEESN_: argument 0"}
+!19 = distinct !{!19, !"_ZNO5vcpkg8OptionalIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3mapIZN12_GLOBAL__N_131handle_export_command_argumentsERKNS_10VcpkgPathsERKNS_17VcpkgCmdArgumentsENS_7TripletERKNS_16StatusParagraphsEE3$_1EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIS8_EDTcl9__declvalISN_ELi0EEEvEEEEEESN_"}
 !20 = !{!21, !18}
-!21 = distinct !{!21, !22, !"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_1clERKNS0_4PathE.argprom: argument 0"}
-!22 = distinct !{!22, !"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_1clERKNS0_4PathE.argprom"}
+!21 = distinct !{!21, !22, !"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_1clERKNS0_4PathE: argument 0"}
+!22 = distinct !{!22, !"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_1clERKNS0_4PathE"}
 !23 = !{!24, !9}
 !24 = distinct !{!24, !25, !"_ZNO5vcpkg8OptionalINS_4PathEE8value_orIRKS1_EES1_OT_: argument 0"}
 !25 = distinct !{!25, !"_ZNO5vcpkg8OptionalINS_4PathEE8value_orIRKS1_EES1_OT_"}
 !26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_2clINS0_20InstalledPackageViewEEEDaRKT_.argprom: argument 0"}
-!28 = distinct !{!28, !"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_2clINS0_20InstalledPackageViewEEEDaRKT_.argprom"}
+!27 = distinct !{!27, !28, !"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_2clINS0_20InstalledPackageViewEEEDaRKT_: argument 0"}
+!28 = distinct !{!28, !"_ZZN12_GLOBAL__N_131handle_export_command_argumentsERKN5vcpkg10VcpkgPathsERKNS0_17VcpkgCmdArgumentsENS0_7TripletERKNS0_16StatusParagraphsEENK3$_2clINS0_20InstalledPackageViewEEEDaRKT_"}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = !{!32}

@@ -961,7 +961,7 @@ find_cols_walker.exit10.i.i:                      ; preds = %433, %431, %428, %4
   %436 = load i32, ptr %435, align 8
   %437 = icmp sgt i32 %436, 0
   %.pre3.i.i = load ptr, ptr %399, align 8
-  br i1 %437, label %.lr.ph.i.i, label %find_cols.argprom.exit.i
+  br i1 %437, label %.lr.ph.i.i, label %find_cols.exit.i
 
 .lr.ph.i.i:                                       ; preds = %find_cols_walker.exit10.i.i
   %438 = getelementptr inbounds i8, ptr %.val106.i, i64 120
@@ -980,9 +980,9 @@ find_cols_walker.exit10.i.i:                      ; preds = %433, %431, %428, %4
   %446 = load i32, ptr %435, align 8
   %447 = sext i32 %446 to i64
   %448 = icmp slt i64 %indvars.iv.next.i.i, %447
-  br i1 %448, label %439, label %find_cols.argprom.exit.i, !llvm.loop !14
+  br i1 %448, label %439, label %find_cols.exit.i, !llvm.loop !14
 
-find_cols.argprom.exit.i:                         ; preds = %439, %find_cols_walker.exit10.i.i
+find_cols.exit.i:                                 ; preds = %439, %find_cols_walker.exit10.i.i
   %449 = phi ptr [ %.pre3.i.i, %find_cols_walker.exit10.i.i ], [ %445, %439 ]
   %450 = load ptr, ptr %398, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -997,7 +997,7 @@ find_cols.argprom.exit.i:                         ; preds = %439, %find_cols_wal
   %456 = icmp sgt i32 %455, 0
   br i1 %456, label %.lr.ph.i, label %.preheader114.i
 
-.preheader114.i:                                  ; preds = %466, %find_cols.argprom.exit.i
+.preheader114.i:                                  ; preds = %466, %find_cols.exit.i
   %457 = icmp sgt i32 %396, 0
   br i1 %457, label %.lr.ph140.i, label %find_hash_columns.exit
 
@@ -1008,8 +1008,8 @@ find_cols.argprom.exit.i:                         ; preds = %439, %find_cols_wal
   %wide.trip.count.i = zext nneg i32 %396 to i64
   br label %469
 
-.lr.ph.i:                                         ; preds = %find_cols.argprom.exit.i, %466
-  %.091115.i = phi i32 [ %461, %466 ], [ 0, %find_cols.argprom.exit.i ]
+.lr.ph.i:                                         ; preds = %find_cols.exit.i, %466
+  %.091115.i = phi i32 [ %461, %466 ], [ 0, %find_cols.exit.i ]
   %461 = add nuw nsw i32 %.091115.i, 1
   %462 = load ptr, ptr %452, align 8
   %463 = call zeroext i1 @bms_is_member(i32 noundef %461, ptr noundef %462) #12
@@ -4893,7 +4893,7 @@ prepare_hash_slot.exit.i:                         ; preds = %352, %slot_getsomea
 
 400:                                              ; preds = %396, %394
   %.2.i = phi i8 [ %.096.i, %394 ], [ 1, %396 ]
-  call fastcc void @hashagg_spill_tuple.retelim(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %291, i32 noundef %304)
+  call fastcc void @hashagg_spill_tuple(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %291, i32 noundef %304)
   %401 = load ptr, ptr %28, align 8
   %402 = load i32, ptr %189, align 8
   %403 = sext i32 %402 to i64
@@ -5297,7 +5297,7 @@ prepare_hash_slot.exit:                           ; preds = %49, %slot_getsomeat
 
 95:                                               ; preds = %87, %78
   %96 = load i32, ptr %2, align 4
-  call fastcc void @hashagg_spill_tuple.retelim(ptr noundef nonnull %0, ptr noundef %80, ptr noundef %83, i32 noundef %96)
+  call fastcc void @hashagg_spill_tuple(ptr noundef nonnull %0, ptr noundef %80, ptr noundef %83, i32 noundef %96)
   br label %97
 
 97:                                               ; preds = %75, %95
@@ -5687,7 +5687,7 @@ define internal fastcc void @hashagg_spill_init(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hashagg_spill_tuple.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @hashagg_spill_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   store i32 %3, ptr %5, align 4
@@ -6715,7 +6715,7 @@ process_ordered_aggregate_multi.exit:             ; preds = %._crit_edge73.i, %2
 372:                                              ; preds = %369
   store i64 0, ptr %354, align 8
   store i8 1, ptr %355, align 1
-  br label %finalize_partialaggregate.argprom.argprom.exit
+  br label %finalize_partialaggregate.exit
 
 ._crit_edge.i56:                                  ; preds = %362
   %373 = getelementptr inbounds i8, ptr %358, i64 360
@@ -6773,7 +6773,7 @@ process_ordered_aggregate_multi.exit:             ; preds = %._crit_edge73.i, %2
 405:                                              ; preds = %403, %400, %385
   %406 = phi i64 [ %404, %403 ], [ %395, %400 ], [ %395, %385 ]
   store i64 %406, ptr %354, align 8
-  br label %finalize_partialaggregate.argprom.argprom.exit
+  br label %finalize_partialaggregate.exit
 
 407:                                              ; preds = %356
   %408 = getelementptr inbounds i8, ptr %351, i64 8
@@ -6802,9 +6802,9 @@ process_ordered_aggregate_multi.exit:             ; preds = %._crit_edge73.i, %2
   %421 = load i8, ptr %408, align 8
   %422 = and i8 %421, 1
   store i8 %422, ptr %355, align 1
-  br label %finalize_partialaggregate.argprom.argprom.exit
+  br label %finalize_partialaggregate.exit
 
-finalize_partialaggregate.argprom.argprom.exit:   ; preds = %372, %405, %419
+finalize_partialaggregate.exit:                   ; preds = %372, %405, %419
   store ptr %359, ptr @CurrentMemoryContext, align 8
   br label %518
 
@@ -7005,7 +7005,7 @@ finalize_aggregate.exit:                          ; preds = %501, %514
   call void @llvm.lifetime.end.p0(i64 1632, ptr nonnull %4)
   br label %518
 
-518:                                              ; preds = %finalize_partialaggregate.argprom.argprom.exit, %finalize_aggregate.exit
+518:                                              ; preds = %finalize_partialaggregate.exit, %finalize_aggregate.exit
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %519 = load i32, ptr %22, align 8
   %520 = sext i32 %519 to i64

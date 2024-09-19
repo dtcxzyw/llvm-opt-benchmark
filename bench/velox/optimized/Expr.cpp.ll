@@ -1404,7 +1404,7 @@ if.else.i.i.i.i:                                  ; preds = %for.end.i.i
 if.then3.i.i.i.i:                                 ; preds = %for.body.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i
   %cmp.i.not4.i.i = phi i1 [ true, %if.then.i.i.i.i ], [ true, %if.else.i.i.i.i ], [ false, %for.body.i.i ]
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec16exprSetListenersEvE10kListeners, i64 24))
-          to label %"_ZN5folly16SynchronizedBaseINS_12SynchronizedISt6vectorISt10shared_ptrIN8facebook5velox4exec15ExprSetListenerEESaIS8_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withWLockIZNS6_23registerExprSetListenerES8_E3$_0EEDaOT_.argprom.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZN5folly16SynchronizedBaseINS_12SynchronizedISt6vectorISt10shared_ptrIN8facebook5velox4exec15ExprSetListenerEESaIS8_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withWLockIZNS6_23registerExprSetListenerES8_E3$_0EEDaOT_.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i
   %11 = landingpad { ptr, i32 }
@@ -1419,7 +1419,7 @@ lpad.i:                                           ; preds = %if.else.i.i.i.i
   call void @_ZN5folly9LockedPtrINS_12SynchronizedISt6vectorISt10shared_ptrIN8facebook5velox4exec15ExprSetListenerEESaIS8_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #33
   resume { ptr, i32 } %13
 
-"_ZN5folly16SynchronizedBaseINS_12SynchronizedISt6vectorISt10shared_ptrIN8facebook5velox4exec15ExprSetListenerEESaIS8_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withWLockIZNS6_23registerExprSetListenerES8_E3$_0EEDaOT_.argprom.exit": ; preds = %if.then3.i.i.i.i
+"_ZN5folly16SynchronizedBaseINS_12SynchronizedISt6vectorISt10shared_ptrIN8facebook5velox4exec15ExprSetListenerEESaIS8_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withWLockIZNS6_23registerExprSetListenerES8_E3$_0EEDaOT_.exit": ; preds = %if.then3.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   ret i1 %cmp.i.not4.i.i
 }
@@ -1482,7 +1482,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 if.then3.i.i.i.i:                                 ; preds = %for.inc.i.i, %if.then.i.i, %_ZN8facebook5velox4exec16exprSetListenersEv.exit
   %cmp.i5.i.i = phi i1 [ false, %_ZN8facebook5velox4exec16exprSetListenersEv.exit ], [ true, %if.then.i.i ], [ false, %for.inc.i.i ]
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN8facebook5velox4exec16exprSetListenersEvE10kListeners, i64 24))
-          to label %"_ZN5folly16SynchronizedBaseINS_12SynchronizedISt6vectorISt10shared_ptrIN8facebook5velox4exec15ExprSetListenerEESaIS8_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withWLockIZNS6_25unregisterExprSetListenerERKS8_E3$_0EEDaOT_.argprom.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZN5folly16SynchronizedBaseINS_12SynchronizedISt6vectorISt10shared_ptrIN8facebook5velox4exec15ExprSetListenerEESaIS8_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withWLockIZNS6_25unregisterExprSetListenerERKS8_E3$_0EEDaOT_.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i
   %7 = landingpad { ptr, i32 }
@@ -1497,7 +1497,7 @@ lpad.i:                                           ; preds = %if.then.i.i
   call void @_ZN5folly9LockedPtrINS_12SynchronizedISt6vectorISt10shared_ptrIN8facebook5velox4exec15ExprSetListenerEESaIS8_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #33
   resume { ptr, i32 } %9
 
-"_ZN5folly16SynchronizedBaseINS_12SynchronizedISt6vectorISt10shared_ptrIN8facebook5velox4exec15ExprSetListenerEESaIS8_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withWLockIZNS6_25unregisterExprSetListenerERKS8_E3$_0EEDaOT_.argprom.exit": ; preds = %if.then3.i.i.i.i
+"_ZN5folly16SynchronizedBaseINS_12SynchronizedISt6vectorISt10shared_ptrIN8facebook5velox4exec15ExprSetListenerEESaIS8_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withWLockIZNS6_25unregisterExprSetListenerERKS8_E3$_0EEDaOT_.exit": ; preds = %if.then3.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   ret i1 %cmp.i5.i.i
 }
@@ -2763,25 +2763,25 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i14.i.i.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i.i.i.i.i ], [ %3, %for.body.i.i.i.i.i.i.i.i.i.i.preheader ]
   %5 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %call.val.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, %call.val.i.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i.i.i.i.i
 
 if.end10.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, %call.val.i.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit124", label %if.end16.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit124", label %if.end16.i.i.i.i.i.i.i.i.i.i
 
 if.end16.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end10.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 24
   %8 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, %call.val.i.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit126", label %if.end22.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit126", label %if.end22.i.i.i.i.i.i.i.i.i.i
 
 if.end22.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end16.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 32
@@ -2790,7 +2790,7 @@ if.end22.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end16.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 for.end.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end22.i.i.i.i.i.i.i.i.i.i
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" [
     i64 3, label %sw.bb.i.i.i.i.i.i.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i.i.i.i.i
@@ -2799,13 +2799,13 @@ for.end.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end22.i.i.i.i.i.
 sw.bb.i.i.i.i.i.i.i.i.i.i:                        ; preds = %for.end.i.i.i.i.i.i.i.i.i.i
   %9 = load ptr, ptr %scevgep.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, %call.val.i.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i", label %sw.bb31.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i", label %sw.bb31.i.i.i.i.i.i.i.i.i.i
 
 sw.bb31.i.i.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i.i.i
   %__first.sroa.0.1.i.i.i.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i20.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i ]
   %10 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %call.val.i.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i", label %if.end36.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i", label %if.end36.i.i.i.i.i.i.i.i.i.i
 
 if.end36.i.i.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb31.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i.i.i.i.i, i64 8
@@ -2816,26 +2816,26 @@ sw.bb38.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end36.i.i.i.i.i.
   %11 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %call.val.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit124": ; preds = %if.end10.i.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit124": ; preds = %if.end10.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit126": ; preds = %if.end16.i.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit126": ; preds = %if.end16.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit124", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit126", %sw.bb38.i.i.i.i.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i, %sw.bb38.i.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit124" ], [ %incdec.ptr.i12.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit126" ], [ %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit124", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit126", %sw.bb38.i.i.i.i.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i, %sw.bb38.i.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit124" ], [ %incdec.ptr.i12.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit126" ], [ %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.not.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit", label %for.body.i.i.i.i.i.i49.i.i.i.i.preheader
+  br i1 %cmp.i.i.i.not.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit", label %for.body.i.i.i.i.i.i49.i.i.i.i.preheader
 
-for.body.i.i.i.i.i.i49.i.i.i.i.preheader:         ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i"
+for.body.i.i.i.i.i.i49.i.i.i.i.preheader:         ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i"
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 8
   %call.val.i22.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i49.i.i.i.i
@@ -2845,25 +2845,25 @@ for.body.i.i.i.i.i.i49.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.
   %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i = phi ptr [ %incdec.ptr.i14.i.i.i.i.i.i63.i.i.i.i, %if.end22.i.i.i.i.i.i62.i.i.i.i ], [ %3, %for.body.i.i.i.i.i.i49.i.i.i.i.preheader ]
   %12 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i52.i.i.i.i = icmp eq ptr %12, %call.val.i22.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i52.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i", label %if.end.i.i.i.i.i.i53.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i52.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i", label %if.end.i.i.i.i.i.i53.i.i.i.i
 
 if.end.i.i.i.i.i.i53.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i49.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i54.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 8
   %13 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i54.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i55.i.i.i.i = icmp eq ptr %13, %call.val.i22.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i55.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i56.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i55.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i56.i.i.i.i
 
 if.end10.i.i.i.i.i.i56.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i53.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i57.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 16
   %14 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i57.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i58.i.i.i.i = icmp eq ptr %14, %call.val.i22.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i58.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit132", label %if.end16.i.i.i.i.i.i59.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i58.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit132", label %if.end16.i.i.i.i.i.i59.i.i.i.i
 
 if.end16.i.i.i.i.i.i59.i.i.i.i:                   ; preds = %if.end10.i.i.i.i.i.i56.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i60.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 24
   %15 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i60.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i61.i.i.i.i = icmp eq ptr %15, %call.val.i22.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i61.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit134", label %if.end22.i.i.i.i.i.i62.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i61.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit134", label %if.end22.i.i.i.i.i.i62.i.i.i.i
 
 if.end22.i.i.i.i.i.i62.i.i.i.i:                   ; preds = %if.end16.i.i.i.i.i.i59.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i63.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 32
@@ -2872,7 +2872,7 @@ if.end22.i.i.i.i.i.i62.i.i.i.i:                   ; preds = %if.end16.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i65.i.i.i.i, label %for.body.i.i.i.i.i.i49.i.i.i.i, label %for.end.i.i.i.i.i.i28.i.i.i.i, !llvm.loop !20
 
 for.end.i.i.i.i.i.i28.i.i.i.i:                    ; preds = %if.end22.i.i.i.i.i.i62.i.i.i.i
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i31.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit160" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i31.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit160" [
     i64 3, label %sw.bb.i.i.i.i.i.i43.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i38.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i32.i.i.i.i
@@ -2881,13 +2881,13 @@ for.end.i.i.i.i.i.i28.i.i.i.i:                    ; preds = %if.end22.i.i.i.i.i.
 sw.bb.i.i.i.i.i.i43.i.i.i.i:                      ; preds = %for.end.i.i.i.i.i.i28.i.i.i.i
   %16 = load ptr, ptr %scevgep.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i44.i.i.i.i = icmp eq ptr %16, %call.val.i22.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i44.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i", label %sw.bb31.i.i.i.i.i.i38.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i44.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i", label %sw.bb31.i.i.i.i.i.i38.i.i.i.i
 
 sw.bb31.i.i.i.i.i.i38.i.i.i.i:                    ; preds = %sw.bb.i.i.i.i.i.i43.i.i.i.i, %for.end.i.i.i.i.i.i28.i.i.i.i
   %__first.sroa.0.1.i.i.i.i.i.i39.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i28.i.i.i.i ], [ %incdec.ptr.i20.i.i.i.i.i.i46.i.i.i.i, %sw.bb.i.i.i.i.i.i43.i.i.i.i ]
   %17 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i39.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i40.i.i.i.i = icmp eq ptr %17, %call.val.i22.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i40.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i", label %if.end36.i.i.i.i.i.i41.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i40.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i", label %if.end36.i.i.i.i.i.i41.i.i.i.i
 
 if.end36.i.i.i.i.i.i41.i.i.i.i:                   ; preds = %sw.bb31.i.i.i.i.i.i38.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i42.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i39.i.i.i.i, i64 8
@@ -2898,26 +2898,26 @@ sw.bb38.i.i.i.i.i.i32.i.i.i.i:                    ; preds = %if.end36.i.i.i.i.i.
   %18 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i33.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i34.i.i.i.i = icmp eq ptr %18, %call.val.i22.i.i.i.i
   %spec.select.i.i.i.i.i.i35.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i34.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i33.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i53.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i53.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i54.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit132": ; preds = %if.end10.i.i.i.i.i.i56.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit132": ; preds = %if.end10.i.i.i.i.i.i56.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i57.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit134": ; preds = %if.end16.i.i.i.i.i.i59.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit134": ; preds = %if.end16.i.i.i.i.i.i59.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i60.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i49.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit132", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit134", %sw.bb38.i.i.i.i.i.i32.i.i.i.i, %sw.bb31.i.i.i.i.i.i38.i.i.i.i, %sw.bb.i.i.i.i.i.i43.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i36.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i43.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i39.i.i.i.i, %sw.bb31.i.i.i.i.i.i38.i.i.i.i ], [ %spec.select.i.i.i.i.i.i35.i.i.i.i, %sw.bb38.i.i.i.i.i.i32.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i54.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i57.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit132" ], [ %incdec.ptr.i12.i.i.i.i.i.i60.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit134" ], [ %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, %for.body.i.i.i.i.i.i49.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i49.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit132", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit134", %sw.bb38.i.i.i.i.i.i32.i.i.i.i, %sw.bb31.i.i.i.i.i.i38.i.i.i.i, %sw.bb.i.i.i.i.i.i43.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i36.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i43.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i39.i.i.i.i, %sw.bb31.i.i.i.i.i.i38.i.i.i.i ], [ %spec.select.i.i.i.i.i.i35.i.i.i.i, %sw.bb38.i.i.i.i.i.i32.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i54.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i57.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit132" ], [ %incdec.ptr.i12.i.i.i.i.i.i60.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit134" ], [ %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, %for.body.i.i.i.i.i.i49.i.i.i.i ]
   %cmp.i.i.i.not.i37.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i36.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i37.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit", label %for.body.i.i.i.i.i.i104.i.i.i.i.preheader
+  br i1 %cmp.i.i.i.not.i37.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit", label %for.body.i.i.i.i.i.i104.i.i.i.i.preheader
 
-for.body.i.i.i.i.i.i104.i.i.i.i.preheader:        ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+for.body.i.i.i.i.i.i104.i.i.i.i.preheader:        ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
   %incdec.ptr.i76.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 16
   %call.val.i77.i.i.i.i = load ptr, ptr %incdec.ptr.i76.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i104.i.i.i.i
@@ -2927,25 +2927,25 @@ for.body.i.i.i.i.i.i104.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.
   %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i = phi ptr [ %incdec.ptr.i14.i.i.i.i.i.i118.i.i.i.i, %if.end22.i.i.i.i.i.i117.i.i.i.i ], [ %3, %for.body.i.i.i.i.i.i104.i.i.i.i.preheader ]
   %19 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i107.i.i.i.i = icmp eq ptr %19, %call.val.i77.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i107.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i", label %if.end.i.i.i.i.i.i108.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i107.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i", label %if.end.i.i.i.i.i.i108.i.i.i.i
 
 if.end.i.i.i.i.i.i108.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i104.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i109.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 8
   %20 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i109.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i110.i.i.i.i = icmp eq ptr %20, %call.val.i77.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i110.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i111.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i110.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i111.i.i.i.i
 
 if.end10.i.i.i.i.i.i111.i.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i108.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i112.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 16
   %21 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i112.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i113.i.i.i.i = icmp eq ptr %21, %call.val.i77.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i113.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit140", label %if.end16.i.i.i.i.i.i114.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i113.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit140", label %if.end16.i.i.i.i.i.i114.i.i.i.i
 
 if.end16.i.i.i.i.i.i114.i.i.i.i:                  ; preds = %if.end10.i.i.i.i.i.i111.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i115.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 24
   %22 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i115.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i116.i.i.i.i = icmp eq ptr %22, %call.val.i77.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i116.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit142", label %if.end22.i.i.i.i.i.i117.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i116.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit142", label %if.end22.i.i.i.i.i.i117.i.i.i.i
 
 if.end22.i.i.i.i.i.i117.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.i114.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i118.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 32
@@ -2954,7 +2954,7 @@ if.end22.i.i.i.i.i.i117.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i120.i.i.i.i, label %for.body.i.i.i.i.i.i104.i.i.i.i, label %for.end.i.i.i.i.i.i83.i.i.i.i, !llvm.loop !20
 
 for.end.i.i.i.i.i.i83.i.i.i.i:                    ; preds = %if.end22.i.i.i.i.i.i117.i.i.i.i
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i86.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit162" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i86.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit162" [
     i64 3, label %sw.bb.i.i.i.i.i.i98.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i93.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i87.i.i.i.i
@@ -2963,13 +2963,13 @@ for.end.i.i.i.i.i.i83.i.i.i.i:                    ; preds = %if.end22.i.i.i.i.i.
 sw.bb.i.i.i.i.i.i98.i.i.i.i:                      ; preds = %for.end.i.i.i.i.i.i83.i.i.i.i
   %23 = load ptr, ptr %scevgep.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i99.i.i.i.i = icmp eq ptr %23, %call.val.i77.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i99.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i", label %sw.bb31.i.i.i.i.i.i93.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i99.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i", label %sw.bb31.i.i.i.i.i.i93.i.i.i.i
 
 sw.bb31.i.i.i.i.i.i93.i.i.i.i:                    ; preds = %sw.bb.i.i.i.i.i.i98.i.i.i.i, %for.end.i.i.i.i.i.i83.i.i.i.i
   %__first.sroa.0.1.i.i.i.i.i.i94.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i83.i.i.i.i ], [ %incdec.ptr.i20.i.i.i.i.i.i101.i.i.i.i, %sw.bb.i.i.i.i.i.i98.i.i.i.i ]
   %24 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i94.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i95.i.i.i.i = icmp eq ptr %24, %call.val.i77.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i95.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i", label %if.end36.i.i.i.i.i.i96.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i95.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i", label %if.end36.i.i.i.i.i.i96.i.i.i.i
 
 if.end36.i.i.i.i.i.i96.i.i.i.i:                   ; preds = %sw.bb31.i.i.i.i.i.i93.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i97.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i94.i.i.i.i, i64 8
@@ -2980,26 +2980,26 @@ sw.bb38.i.i.i.i.i.i87.i.i.i.i:                    ; preds = %if.end36.i.i.i.i.i.
   %25 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i88.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i89.i.i.i.i = icmp eq ptr %25, %call.val.i77.i.i.i.i
   %spec.select.i.i.i.i.i.i90.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i89.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i88.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i108.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i108.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i109.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit140": ; preds = %if.end10.i.i.i.i.i.i111.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit140": ; preds = %if.end10.i.i.i.i.i.i111.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i112.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit142": ; preds = %if.end16.i.i.i.i.i.i114.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit142": ; preds = %if.end16.i.i.i.i.i.i114.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i115.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i104.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit140", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit142", %sw.bb38.i.i.i.i.i.i87.i.i.i.i, %sw.bb31.i.i.i.i.i.i93.i.i.i.i, %sw.bb.i.i.i.i.i.i98.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i91.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i98.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i94.i.i.i.i, %sw.bb31.i.i.i.i.i.i93.i.i.i.i ], [ %spec.select.i.i.i.i.i.i90.i.i.i.i, %sw.bb38.i.i.i.i.i.i87.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i109.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i112.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit140" ], [ %incdec.ptr.i12.i.i.i.i.i.i115.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit142" ], [ %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, %for.body.i.i.i.i.i.i104.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i104.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit140", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit142", %sw.bb38.i.i.i.i.i.i87.i.i.i.i, %sw.bb31.i.i.i.i.i.i93.i.i.i.i, %sw.bb.i.i.i.i.i.i98.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i91.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i98.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i94.i.i.i.i, %sw.bb31.i.i.i.i.i.i93.i.i.i.i ], [ %spec.select.i.i.i.i.i.i90.i.i.i.i, %sw.bb38.i.i.i.i.i.i87.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i109.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i112.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit140" ], [ %incdec.ptr.i12.i.i.i.i.i.i115.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit142" ], [ %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, %for.body.i.i.i.i.i.i104.i.i.i.i ]
   %cmp.i.i.i.not.i92.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i91.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i92.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit156", label %for.body.i.i.i.i.i.i159.i.i.i.i.preheader
+  br i1 %cmp.i.i.i.not.i92.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit156", label %for.body.i.i.i.i.i.i159.i.i.i.i.preheader
 
-for.body.i.i.i.i.i.i159.i.i.i.i.preheader:        ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+for.body.i.i.i.i.i.i159.i.i.i.i.preheader:        ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
   %incdec.ptr.i131.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 24
   %call.val.i132.i.i.i.i = load ptr, ptr %incdec.ptr.i131.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i159.i.i.i.i
@@ -3009,25 +3009,25 @@ for.body.i.i.i.i.i.i159.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.
   %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i = phi ptr [ %incdec.ptr.i14.i.i.i.i.i.i173.i.i.i.i, %if.end22.i.i.i.i.i.i172.i.i.i.i ], [ %3, %for.body.i.i.i.i.i.i159.i.i.i.i.preheader ]
   %26 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i162.i.i.i.i = icmp eq ptr %26, %call.val.i132.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i162.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i", label %if.end.i.i.i.i.i.i163.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i162.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i", label %if.end.i.i.i.i.i.i163.i.i.i.i
 
 if.end.i.i.i.i.i.i163.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i159.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i164.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 8
   %27 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i164.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i165.i.i.i.i = icmp eq ptr %27, %call.val.i132.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i165.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i166.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i165.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i166.i.i.i.i
 
 if.end10.i.i.i.i.i.i166.i.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i163.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i167.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 16
   %28 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i167.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i168.i.i.i.i = icmp eq ptr %28, %call.val.i132.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i168.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit148", label %if.end16.i.i.i.i.i.i169.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i168.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit148", label %if.end16.i.i.i.i.i.i169.i.i.i.i
 
 if.end16.i.i.i.i.i.i169.i.i.i.i:                  ; preds = %if.end10.i.i.i.i.i.i166.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i170.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 24
   %29 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i170.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i171.i.i.i.i = icmp eq ptr %29, %call.val.i132.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i171.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit150", label %if.end22.i.i.i.i.i.i172.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i171.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit150", label %if.end22.i.i.i.i.i.i172.i.i.i.i
 
 if.end22.i.i.i.i.i.i172.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.i169.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i173.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 32
@@ -3036,7 +3036,7 @@ if.end22.i.i.i.i.i.i172.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i175.i.i.i.i, label %for.body.i.i.i.i.i.i159.i.i.i.i, label %for.end.i.i.i.i.i.i138.i.i.i.i, !llvm.loop !20
 
 for.end.i.i.i.i.i.i138.i.i.i.i:                   ; preds = %if.end22.i.i.i.i.i.i172.i.i.i.i
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i141.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit164" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i141.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit164" [
     i64 3, label %sw.bb.i.i.i.i.i.i153.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i148.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i142.i.i.i.i
@@ -3045,13 +3045,13 @@ for.end.i.i.i.i.i.i138.i.i.i.i:                   ; preds = %if.end22.i.i.i.i.i.
 sw.bb.i.i.i.i.i.i153.i.i.i.i:                     ; preds = %for.end.i.i.i.i.i.i138.i.i.i.i
   %30 = load ptr, ptr %scevgep.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i154.i.i.i.i = icmp eq ptr %30, %call.val.i132.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i154.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i", label %sw.bb31.i.i.i.i.i.i148.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i154.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i", label %sw.bb31.i.i.i.i.i.i148.i.i.i.i
 
 sw.bb31.i.i.i.i.i.i148.i.i.i.i:                   ; preds = %sw.bb.i.i.i.i.i.i153.i.i.i.i, %for.end.i.i.i.i.i.i138.i.i.i.i
   %__first.sroa.0.1.i.i.i.i.i.i149.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i138.i.i.i.i ], [ %incdec.ptr.i20.i.i.i.i.i.i156.i.i.i.i, %sw.bb.i.i.i.i.i.i153.i.i.i.i ]
   %31 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i149.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i150.i.i.i.i = icmp eq ptr %31, %call.val.i132.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i150.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i", label %if.end36.i.i.i.i.i.i151.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i150.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i", label %if.end36.i.i.i.i.i.i151.i.i.i.i
 
 if.end36.i.i.i.i.i.i151.i.i.i.i:                  ; preds = %sw.bb31.i.i.i.i.i.i148.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i152.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i149.i.i.i.i, i64 8
@@ -3062,26 +3062,26 @@ sw.bb38.i.i.i.i.i.i142.i.i.i.i:                   ; preds = %if.end36.i.i.i.i.i.
   %32 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i143.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i144.i.i.i.i = icmp eq ptr %32, %call.val.i132.i.i.i.i
   %spec.select.i.i.i.i.i.i145.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i144.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i143.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i163.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i163.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i164.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit148": ; preds = %if.end10.i.i.i.i.i.i166.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit148": ; preds = %if.end10.i.i.i.i.i.i166.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i167.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit150": ; preds = %if.end16.i.i.i.i.i.i169.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit150": ; preds = %if.end16.i.i.i.i.i.i169.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i170.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i159.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit148", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit150", %sw.bb38.i.i.i.i.i.i142.i.i.i.i, %sw.bb31.i.i.i.i.i.i148.i.i.i.i, %sw.bb.i.i.i.i.i.i153.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i146.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i153.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i149.i.i.i.i, %sw.bb31.i.i.i.i.i.i148.i.i.i.i ], [ %spec.select.i.i.i.i.i.i145.i.i.i.i, %sw.bb38.i.i.i.i.i.i142.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i164.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i167.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit148" ], [ %incdec.ptr.i12.i.i.i.i.i.i170.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit150" ], [ %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, %for.body.i.i.i.i.i.i159.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i159.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit148", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit150", %sw.bb38.i.i.i.i.i.i142.i.i.i.i, %sw.bb31.i.i.i.i.i.i148.i.i.i.i, %sw.bb.i.i.i.i.i.i153.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i146.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i153.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i149.i.i.i.i, %sw.bb31.i.i.i.i.i.i148.i.i.i.i ], [ %spec.select.i.i.i.i.i.i145.i.i.i.i, %sw.bb38.i.i.i.i.i.i142.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i164.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i167.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit148" ], [ %incdec.ptr.i12.i.i.i.i.i.i170.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit150" ], [ %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, %for.body.i.i.i.i.i.i159.i.i.i.i ]
   %cmp.i.i.i.not.i147.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i146.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i147.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit158", label %if.end23.i.i.i.i
+  br i1 %cmp.i.i.i.not.i147.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit158", label %if.end23.i.i.i.i
 
-if.end23.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+if.end23.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
   %incdec.ptr.i186.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 32
   %dec.i.i.i.i = add nsw i64 %__trip_count.0438.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.0438.i.i.i.i, 1
@@ -3096,7 +3096,7 @@ for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.
   %sub.ptr.sub.i189.pre-phi.i.i.i.i = phi i64 [ %.pre503.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %sub.ptr.sub.i, %if.end ]
   %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %1, %if.end ]
   %sub.ptr.div.i190.i.i.i.i = ashr exact i64 %sub.ptr.sub.i189.pre-phi.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i190.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" [
+  switch i64 %sub.ptr.div.i190.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" [
     i64 3, label %sw.bb.i.i.i.i
     i64 2, label %sw.bb32.i.i.i.i
     i64 1, label %sw.bb39.i.i.i.i
@@ -3116,25 +3116,25 @@ for.body.i.i.i.i.i.i218.i.i.i.i:                  ; preds = %if.end22.i.i.i.i.i.
   %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i = phi ptr [ %3, %for.body.lr.ph.i.i.i.i.i.i216.i.i.i.i ], [ %incdec.ptr.i14.i.i.i.i.i.i232.i.i.i.i, %if.end22.i.i.i.i.i.i231.i.i.i.i ]
   %34 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i221.i.i.i.i = icmp eq ptr %34, %call.val.i191.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i221.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i", label %if.end.i.i.i.i.i.i222.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i221.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i", label %if.end.i.i.i.i.i.i222.i.i.i.i
 
 if.end.i.i.i.i.i.i222.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i218.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i223.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 8
   %35 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i223.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i224.i.i.i.i = icmp eq ptr %35, %call.val.i191.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i224.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i225.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i224.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i225.i.i.i.i
 
 if.end10.i.i.i.i.i.i225.i.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i222.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i226.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 16
   %36 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i226.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i227.i.i.i.i = icmp eq ptr %36, %call.val.i191.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i227.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit178", label %if.end16.i.i.i.i.i.i228.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i227.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit178", label %if.end16.i.i.i.i.i.i228.i.i.i.i
 
 if.end16.i.i.i.i.i.i228.i.i.i.i:                  ; preds = %if.end10.i.i.i.i.i.i225.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i229.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 24
   %37 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i229.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i230.i.i.i.i = icmp eq ptr %37, %call.val.i191.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i230.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit180", label %if.end22.i.i.i.i.i.i231.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i230.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit180", label %if.end22.i.i.i.i.i.i231.i.i.i.i
 
 if.end22.i.i.i.i.i.i231.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.i228.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i232.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 32
@@ -3151,7 +3151,7 @@ for.end.i.i.i.i.i.i197.i.i.i.i:                   ; preds = %for.end.loopexit.i.
   %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i198.i.i.i.i = phi i64 [ %.pre59.i.i.i.i.i.i237.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i235.i.i.i.i ], [ %sub.ptr.sub.i, %sw.bb.i.i.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i217.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i235.i.i.i.i ], [ %3, %sw.bb.i.i.i.i ]
   %sub.ptr.div.i18.i.i.i.i.i.i200.i.i.i.i = ashr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i198.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i200.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i200.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" [
     i64 3, label %sw.bb.i.i.i.i.i.i212.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i207.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i201.i.i.i.i
@@ -3160,7 +3160,7 @@ for.end.i.i.i.i.i.i197.i.i.i.i:                   ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i.i.i.i212.i.i.i.i:                     ; preds = %for.end.i.i.i.i.i.i197.i.i.i.i
   %38 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i213.i.i.i.i = icmp eq ptr %38, %call.val.i191.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i213.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i", label %if.end29.i.i.i.i.i.i214.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i213.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i", label %if.end29.i.i.i.i.i.i214.i.i.i.i
 
 if.end29.i.i.i.i.i.i214.i.i.i.i:                  ; preds = %sw.bb.i.i.i.i.i.i212.i.i.i.i
   %incdec.ptr.i20.i.i.i.i.i.i215.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i, i64 8
@@ -3170,7 +3170,7 @@ sw.bb31.i.i.i.i.i.i207.i.i.i.i:                   ; preds = %if.end29.i.i.i.i.i.
   %__first.sroa.0.1.i.i.i.i.i.i208.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i.i.i215.i.i.i.i, %if.end29.i.i.i.i.i.i214.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i, %for.end.i.i.i.i.i.i197.i.i.i.i ]
   %39 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i208.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i209.i.i.i.i = icmp eq ptr %39, %call.val.i191.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i209.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i", label %if.end36.i.i.i.i.i.i210.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i209.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i", label %if.end36.i.i.i.i.i.i210.i.i.i.i
 
 if.end36.i.i.i.i.i.i210.i.i.i.i:                  ; preds = %sw.bb31.i.i.i.i.i.i207.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i211.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i208.i.i.i.i, i64 8
@@ -3181,26 +3181,26 @@ sw.bb38.i.i.i.i.i.i201.i.i.i.i:                   ; preds = %if.end36.i.i.i.i.i.
   %40 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i202.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i203.i.i.i.i = icmp eq ptr %40, %call.val.i191.i.i.i.i
   %spec.select.i.i.i.i.i.i204.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i203.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i202.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i222.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i222.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i223.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit178": ; preds = %if.end10.i.i.i.i.i.i225.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit178": ; preds = %if.end10.i.i.i.i.i.i225.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i226.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit180": ; preds = %if.end16.i.i.i.i.i.i228.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit180": ; preds = %if.end16.i.i.i.i.i.i228.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i229.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i218.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit178", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit180", %sw.bb38.i.i.i.i.i.i201.i.i.i.i, %sw.bb31.i.i.i.i.i.i207.i.i.i.i, %sw.bb.i.i.i.i.i.i212.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i205.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i, %sw.bb.i.i.i.i.i.i212.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i208.i.i.i.i, %sw.bb31.i.i.i.i.i.i207.i.i.i.i ], [ %spec.select.i.i.i.i.i.i204.i.i.i.i, %sw.bb38.i.i.i.i.i.i201.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i223.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i226.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit178" ], [ %incdec.ptr.i12.i.i.i.i.i.i229.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit180" ], [ %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, %for.body.i.i.i.i.i.i218.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i218.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit178", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit180", %sw.bb38.i.i.i.i.i.i201.i.i.i.i, %sw.bb31.i.i.i.i.i.i207.i.i.i.i, %sw.bb.i.i.i.i.i.i212.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i205.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i, %sw.bb.i.i.i.i.i.i212.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i208.i.i.i.i, %sw.bb31.i.i.i.i.i.i207.i.i.i.i ], [ %spec.select.i.i.i.i.i.i204.i.i.i.i, %sw.bb38.i.i.i.i.i.i201.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i223.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i226.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit178" ], [ %incdec.ptr.i12.i.i.i.i.i.i229.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit180" ], [ %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, %for.body.i.i.i.i.i.i218.i.i.i.i ]
   %cmp.i.i.i.not.i206.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i205.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i206.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit", label %if.end30.i.i.i.i
+  br i1 %cmp.i.i.i.not.i206.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit", label %if.end30.i.i.i.i
 
-if.end30.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i"
+if.end30.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i"
   %incdec.ptr.i245.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 8
   br label %sw.bb32.i.i.i.i
 
@@ -3219,25 +3219,25 @@ for.body.i.i.i.i.i.i273.i.i.i.i:                  ; preds = %if.end22.i.i.i.i.i.
   %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i = phi ptr [ %3, %for.body.lr.ph.i.i.i.i.i.i271.i.i.i.i ], [ %incdec.ptr.i14.i.i.i.i.i.i287.i.i.i.i, %if.end22.i.i.i.i.i.i286.i.i.i.i ]
   %42 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i276.i.i.i.i = icmp eq ptr %42, %call.val.i246.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i276.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i", label %if.end.i.i.i.i.i.i277.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i276.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i", label %if.end.i.i.i.i.i.i277.i.i.i.i
 
 if.end.i.i.i.i.i.i277.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i273.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i278.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 8
   %43 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i278.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i279.i.i.i.i = icmp eq ptr %43, %call.val.i246.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i279.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i280.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i279.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i280.i.i.i.i
 
 if.end10.i.i.i.i.i.i280.i.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i277.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i281.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 16
   %44 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i281.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i282.i.i.i.i = icmp eq ptr %44, %call.val.i246.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i282.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit186", label %if.end16.i.i.i.i.i.i283.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i282.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit186", label %if.end16.i.i.i.i.i.i283.i.i.i.i
 
 if.end16.i.i.i.i.i.i283.i.i.i.i:                  ; preds = %if.end10.i.i.i.i.i.i280.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i284.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 24
   %45 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i284.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i285.i.i.i.i = icmp eq ptr %45, %call.val.i246.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i285.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit188", label %if.end22.i.i.i.i.i.i286.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i285.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit188", label %if.end22.i.i.i.i.i.i286.i.i.i.i
 
 if.end22.i.i.i.i.i.i286.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.i283.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i287.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 32
@@ -3254,7 +3254,7 @@ for.end.i.i.i.i.i.i252.i.i.i.i:                   ; preds = %for.end.loopexit.i.
   %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i253.i.i.i.i = phi i64 [ %.pre59.i.i.i.i.i.i292.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i290.i.i.i.i ], [ %sub.ptr.sub.i, %sw.bb32.i.i.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i272.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i290.i.i.i.i ], [ %3, %sw.bb32.i.i.i.i ]
   %sub.ptr.div.i18.i.i.i.i.i.i255.i.i.i.i = ashr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i253.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i255.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i255.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" [
     i64 3, label %sw.bb.i.i.i.i.i.i267.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i262.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i256.i.i.i.i
@@ -3263,7 +3263,7 @@ for.end.i.i.i.i.i.i252.i.i.i.i:                   ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i.i.i.i267.i.i.i.i:                     ; preds = %for.end.i.i.i.i.i.i252.i.i.i.i
   %46 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i268.i.i.i.i = icmp eq ptr %46, %call.val.i246.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i268.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i", label %if.end29.i.i.i.i.i.i269.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i268.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i", label %if.end29.i.i.i.i.i.i269.i.i.i.i
 
 if.end29.i.i.i.i.i.i269.i.i.i.i:                  ; preds = %sw.bb.i.i.i.i.i.i267.i.i.i.i
   %incdec.ptr.i20.i.i.i.i.i.i270.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i, i64 8
@@ -3273,7 +3273,7 @@ sw.bb31.i.i.i.i.i.i262.i.i.i.i:                   ; preds = %if.end29.i.i.i.i.i.
   %__first.sroa.0.1.i.i.i.i.i.i263.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i.i.i270.i.i.i.i, %if.end29.i.i.i.i.i.i269.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i, %for.end.i.i.i.i.i.i252.i.i.i.i ]
   %47 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i263.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i264.i.i.i.i = icmp eq ptr %47, %call.val.i246.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i264.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i", label %if.end36.i.i.i.i.i.i265.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i264.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i", label %if.end36.i.i.i.i.i.i265.i.i.i.i
 
 if.end36.i.i.i.i.i.i265.i.i.i.i:                  ; preds = %sw.bb31.i.i.i.i.i.i262.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i266.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i263.i.i.i.i, i64 8
@@ -3284,26 +3284,26 @@ sw.bb38.i.i.i.i.i.i256.i.i.i.i:                   ; preds = %if.end36.i.i.i.i.i.
   %48 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i257.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i258.i.i.i.i = icmp eq ptr %48, %call.val.i246.i.i.i.i
   %spec.select.i.i.i.i.i.i259.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i258.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i257.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i277.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i277.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i278.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit186": ; preds = %if.end10.i.i.i.i.i.i280.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit186": ; preds = %if.end10.i.i.i.i.i.i280.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i281.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit188": ; preds = %if.end16.i.i.i.i.i.i283.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit188": ; preds = %if.end16.i.i.i.i.i.i283.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i284.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i273.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit186", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit188", %sw.bb38.i.i.i.i.i.i256.i.i.i.i, %sw.bb31.i.i.i.i.i.i262.i.i.i.i, %sw.bb.i.i.i.i.i.i267.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i260.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i, %sw.bb.i.i.i.i.i.i267.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i263.i.i.i.i, %sw.bb31.i.i.i.i.i.i262.i.i.i.i ], [ %spec.select.i.i.i.i.i.i259.i.i.i.i, %sw.bb38.i.i.i.i.i.i256.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i278.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i281.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit186" ], [ %incdec.ptr.i12.i.i.i.i.i.i284.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit188" ], [ %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, %for.body.i.i.i.i.i.i273.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i273.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit186", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit188", %sw.bb38.i.i.i.i.i.i256.i.i.i.i, %sw.bb31.i.i.i.i.i.i262.i.i.i.i, %sw.bb.i.i.i.i.i.i267.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i260.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i, %sw.bb.i.i.i.i.i.i267.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i263.i.i.i.i, %sw.bb31.i.i.i.i.i.i262.i.i.i.i ], [ %spec.select.i.i.i.i.i.i259.i.i.i.i, %sw.bb38.i.i.i.i.i.i256.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i278.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i281.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit186" ], [ %incdec.ptr.i12.i.i.i.i.i.i284.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit188" ], [ %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, %for.body.i.i.i.i.i.i273.i.i.i.i ]
   %cmp.i.i.i.not.i261.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i260.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i261.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit", label %if.end37.i.i.i.i
+  br i1 %cmp.i.i.i.not.i261.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit", label %if.end37.i.i.i.i
 
-if.end37.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i"
+if.end37.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i"
   %incdec.ptr.i300.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 8
   br label %sw.bb39.i.i.i.i
 
@@ -3322,25 +3322,25 @@ for.body.i.i.i.i.i.i328.i.i.i.i:                  ; preds = %if.end22.i.i.i.i.i.
   %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i = phi ptr [ %3, %for.body.lr.ph.i.i.i.i.i.i326.i.i.i.i ], [ %incdec.ptr.i14.i.i.i.i.i.i342.i.i.i.i, %if.end22.i.i.i.i.i.i341.i.i.i.i ]
   %50 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i331.i.i.i.i = icmp eq ptr %50, %call.val.i301.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i331.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i", label %if.end.i.i.i.i.i.i332.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i331.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i", label %if.end.i.i.i.i.i.i332.i.i.i.i
 
 if.end.i.i.i.i.i.i332.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i328.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i333.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 8
   %51 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i333.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i334.i.i.i.i = icmp eq ptr %51, %call.val.i301.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i334.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i335.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i334.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i335.i.i.i.i
 
 if.end10.i.i.i.i.i.i335.i.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i332.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i336.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 16
   %52 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i336.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i337.i.i.i.i = icmp eq ptr %52, %call.val.i301.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i337.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit194", label %if.end16.i.i.i.i.i.i338.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i337.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit194", label %if.end16.i.i.i.i.i.i338.i.i.i.i
 
 if.end16.i.i.i.i.i.i338.i.i.i.i:                  ; preds = %if.end10.i.i.i.i.i.i335.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i339.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 24
   %53 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i339.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i340.i.i.i.i = icmp eq ptr %53, %call.val.i301.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i340.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit196", label %if.end22.i.i.i.i.i.i341.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i340.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit196", label %if.end22.i.i.i.i.i.i341.i.i.i.i
 
 if.end22.i.i.i.i.i.i341.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.i338.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i342.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 32
@@ -3357,7 +3357,7 @@ for.end.i.i.i.i.i.i307.i.i.i.i:                   ; preds = %for.end.loopexit.i.
   %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i308.i.i.i.i = phi i64 [ %.pre59.i.i.i.i.i.i347.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i345.i.i.i.i ], [ %sub.ptr.sub.i, %sw.bb39.i.i.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i327.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i345.i.i.i.i ], [ %3, %sw.bb39.i.i.i.i ]
   %sub.ptr.div.i18.i.i.i.i.i.i310.i.i.i.i = ashr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i308.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i310.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i310.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" [
     i64 3, label %sw.bb.i.i.i.i.i.i322.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i317.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i311.i.i.i.i
@@ -3366,7 +3366,7 @@ for.end.i.i.i.i.i.i307.i.i.i.i:                   ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i.i.i.i322.i.i.i.i:                     ; preds = %for.end.i.i.i.i.i.i307.i.i.i.i
   %54 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i323.i.i.i.i = icmp eq ptr %54, %call.val.i301.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i323.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i", label %if.end29.i.i.i.i.i.i324.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i323.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i", label %if.end29.i.i.i.i.i.i324.i.i.i.i
 
 if.end29.i.i.i.i.i.i324.i.i.i.i:                  ; preds = %sw.bb.i.i.i.i.i.i322.i.i.i.i
   %incdec.ptr.i20.i.i.i.i.i.i325.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i, i64 8
@@ -3376,7 +3376,7 @@ sw.bb31.i.i.i.i.i.i317.i.i.i.i:                   ; preds = %if.end29.i.i.i.i.i.
   %__first.sroa.0.1.i.i.i.i.i.i318.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i.i.i325.i.i.i.i, %if.end29.i.i.i.i.i.i324.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i, %for.end.i.i.i.i.i.i307.i.i.i.i ]
   %55 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i318.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i319.i.i.i.i = icmp eq ptr %55, %call.val.i301.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i319.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i", label %if.end36.i.i.i.i.i.i320.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i319.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i", label %if.end36.i.i.i.i.i.i320.i.i.i.i
 
 if.end36.i.i.i.i.i.i320.i.i.i.i:                  ; preds = %sw.bb31.i.i.i.i.i.i317.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i321.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i318.i.i.i.i, i64 8
@@ -3387,57 +3387,57 @@ sw.bb38.i.i.i.i.i.i311.i.i.i.i:                   ; preds = %if.end36.i.i.i.i.i.
   %56 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i312.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i313.i.i.i.i = icmp eq ptr %56, %call.val.i301.i.i.i.i
   %spec.select.i.i.i.i.i.i314.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i313.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i312.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i332.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i332.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i333.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit194": ; preds = %if.end10.i.i.i.i.i.i335.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit194": ; preds = %if.end10.i.i.i.i.i.i335.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i336.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit196": ; preds = %if.end16.i.i.i.i.i.i338.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit196": ; preds = %if.end16.i.i.i.i.i.i338.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i339.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i328.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit194", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit196", %sw.bb38.i.i.i.i.i.i311.i.i.i.i, %sw.bb31.i.i.i.i.i.i317.i.i.i.i, %sw.bb.i.i.i.i.i.i322.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i315.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i, %sw.bb.i.i.i.i.i.i322.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i318.i.i.i.i, %sw.bb31.i.i.i.i.i.i317.i.i.i.i ], [ %spec.select.i.i.i.i.i.i314.i.i.i.i, %sw.bb38.i.i.i.i.i.i311.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i333.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i336.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit194" ], [ %incdec.ptr.i12.i.i.i.i.i.i339.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit196" ], [ %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, %for.body.i.i.i.i.i.i328.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i328.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit194", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit196", %sw.bb38.i.i.i.i.i.i311.i.i.i.i, %sw.bb31.i.i.i.i.i.i317.i.i.i.i, %sw.bb.i.i.i.i.i.i322.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i315.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i, %sw.bb.i.i.i.i.i.i322.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i318.i.i.i.i, %sw.bb31.i.i.i.i.i.i317.i.i.i.i ], [ %spec.select.i.i.i.i.i.i314.i.i.i.i, %sw.bb38.i.i.i.i.i.i311.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i333.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i336.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit194" ], [ %incdec.ptr.i12.i.i.i.i.i.i339.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit196" ], [ %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, %for.body.i.i.i.i.i.i328.i.i.i.i ]
   %cmp.i.i.i.not.i316.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i315.i.i.i.i, %2
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.not.i316.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i, ptr %0
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
   %incdec.ptr.i.i.i.i.i.le176 = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 8
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit156": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit156": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
   %incdec.ptr.i76.i.i.i.i.le173 = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 16
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit158": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit158": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
   %incdec.ptr.i131.i.i.i.i.le170 = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 24
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit160": ; preds = %for.end.i.i.i.i.i.i28.i.i.i.i
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit160": ; preds = %for.end.i.i.i.i.i.i28.i.i.i.i
   %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 8
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit162": ; preds = %for.end.i.i.i.i.i.i83.i.i.i.i
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit162": ; preds = %for.end.i.i.i.i.i.i83.i.i.i.i
   %incdec.ptr.i76.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 16
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit164": ; preds = %for.end.i.i.i.i.i.i138.i.i.i.i
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit164": ; preds = %for.end.i.i.i.i.i.i138.i.i.i.i
   %incdec.ptr.i131.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 24
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit": ; preds = %for.end.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit156", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit158", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit160", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit162", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit164", %for.end.i.i.i.i, %for.end.i.i.i.i.i.i197.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i", %for.end.i.i.i.i.i.i252.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i", %for.end.i.i.i.i.i.i307.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i" ], [ %0, %for.end.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i.i.i197.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %for.end.i.i.i.i.i.i252.i.i.i.i ], [ %__first.sroa.0.2.i.i.i.i, %for.end.i.i.i.i.i.i307.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.le176, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i76.i.i.i.i.le173, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit156" ], [ %incdec.ptr.i131.i.i.i.i.le170, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit158" ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit160" ], [ %incdec.ptr.i76.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit162" ], [ %incdec.ptr.i131.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit164" ], [ %__first.sroa.0.0437.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i" ], [ %__first.sroa.0.0437.i.i.i.i, %for.end.i.i.i.i.i.i.i.i.i.i ]
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit": ; preds = %for.end.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit156", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit158", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit160", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit162", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit164", %for.end.i.i.i.i, %for.end.i.i.i.i.i.i197.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i", %for.end.i.i.i.i.i.i252.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i", %for.end.i.i.i.i.i.i307.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i"
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i" ], [ %0, %for.end.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i.i.i197.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %for.end.i.i.i.i.i.i252.i.i.i.i ], [ %__first.sroa.0.2.i.i.i.i, %for.end.i.i.i.i.i.i307.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.le176, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i76.i.i.i.i.le173, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit156" ], [ %incdec.ptr.i131.i.i.i.i.le170, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit158" ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit160" ], [ %incdec.ptr.i76.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit162" ], [ %incdec.ptr.i131.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit164" ], [ %__first.sroa.0.0437.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i" ], [ %__first.sroa.0.0437.i.i.i.i, %for.end.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i = icmp eq ptr %0, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i
   br label %return
 
-return:                                           ; preds = %entry, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
-  %retval.0 = phi i1 [ %cmp.i.i, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" ], [ false, %entry ]
+return:                                           ; preds = %entry, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
+  %retval.0 = phi i1 [ %cmp.i.i, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr12isSameFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -3486,25 +3486,25 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i, %
   %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i14.i.i.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i.i.i.i.i ], [ %3, %for.body.i.i.i.i ]
   %6 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, %call.val.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i", label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, %call.val.i.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i.i.i.i.i
 
 if.end10.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, %call.val.i.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit124", label %if.end16.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit124", label %if.end16.i.i.i.i.i.i.i.i.i.i
 
 if.end16.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end10.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, %call.val.i.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit126", label %if.end22.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit126", label %if.end22.i.i.i.i.i.i.i.i.i.i
 
 if.end22.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end16.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 32
@@ -3516,7 +3516,7 @@ for.end.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end22.i.i.i.i.i.
   %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i.i.i.i.i = phi i64 [ %sub.ptr.sub.i8, %for.body.i.i.i.i ], [ %.pre59.i.i.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i.i.i.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ %3, %for.body.i.i.i.i ], [ %scevgep.i.i.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i.i.i.i.i ]
   %sub.ptr.div.i18.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" [
     i64 3, label %sw.bb.i.i.i.i.i.i.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i.i.i.i.i
@@ -3525,7 +3525,7 @@ for.end.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end22.i.i.i.i.i.
 sw.bb.i.i.i.i.i.i.i.i.i.i:                        ; preds = %for.end.i.i.i.i.i.i.i.i.i.i
   %10 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %call.val.i.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i", label %if.end29.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i", label %if.end29.i.i.i.i.i.i.i.i.i.i
 
 if.end29.i.i.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i20.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i, i64 8
@@ -3535,7 +3535,7 @@ sw.bb31.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end29.i.i.i.i.i.
   %__first.sroa.0.1.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i.i.i ]
   %11 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %call.val.i.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i", label %if.end36.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i", label %if.end36.i.i.i.i.i.i.i.i.i.i
 
 if.end36.i.i.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb31.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i.i.i.i.i, i64 8
@@ -3546,26 +3546,26 @@ sw.bb38.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end36.i.i.i.i.i.
   %12 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, %call.val.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit124": ; preds = %if.end10.i.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit124": ; preds = %if.end10.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit126": ; preds = %if.end16.i.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit126": ; preds = %if.end16.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit124", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit126", %sw.bb38.i.i.i.i.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i, %sw.bb38.i.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit124" ], [ %incdec.ptr.i12.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i.loopexit.split.loop.exit126" ], [ %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit124", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit126", %sw.bb38.i.i.i.i.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i.i.i.i.i, %sw.bb31.i.i.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i, %sw.bb38.i.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit124" ], [ %incdec.ptr.i12.i.i.i.i.i.i.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i.loopexit.split.loop.exit126" ], [ %__first.sroa.0.051.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.not.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit", label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.not.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit", label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i"
+if.end.i.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i"
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 8
   %call.val.i22.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i, align 8
   br i1 %cmp50.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i49.i.i.i.i, label %for.end.i.i.i.i.i.i28.i.i.i.i
@@ -3575,25 +3575,25 @@ for.body.i.i.i.i.i.i49.i.i.i.i:                   ; preds = %if.end.i.i.i.i, %if
   %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i = phi ptr [ %incdec.ptr.i14.i.i.i.i.i.i63.i.i.i.i, %if.end22.i.i.i.i.i.i62.i.i.i.i ], [ %3, %if.end.i.i.i.i ]
   %13 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i52.i.i.i.i = icmp eq ptr %13, %call.val.i22.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i52.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i", label %if.end.i.i.i.i.i.i53.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i52.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i", label %if.end.i.i.i.i.i.i53.i.i.i.i
 
 if.end.i.i.i.i.i.i53.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i49.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i54.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 8
   %14 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i54.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i55.i.i.i.i = icmp eq ptr %14, %call.val.i22.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i55.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i56.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i55.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i56.i.i.i.i
 
 if.end10.i.i.i.i.i.i56.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i53.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i57.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 16
   %15 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i57.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i58.i.i.i.i = icmp eq ptr %15, %call.val.i22.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i58.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit132", label %if.end16.i.i.i.i.i.i59.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i58.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit132", label %if.end16.i.i.i.i.i.i59.i.i.i.i
 
 if.end16.i.i.i.i.i.i59.i.i.i.i:                   ; preds = %if.end10.i.i.i.i.i.i56.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i60.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 24
   %16 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i60.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i61.i.i.i.i = icmp eq ptr %16, %call.val.i22.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i61.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit134", label %if.end22.i.i.i.i.i.i62.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i61.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit134", label %if.end22.i.i.i.i.i.i62.i.i.i.i
 
 if.end22.i.i.i.i.i.i62.i.i.i.i:                   ; preds = %if.end16.i.i.i.i.i.i59.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i63.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 32
@@ -3605,7 +3605,7 @@ for.end.i.i.i.i.i.i28.i.i.i.i:                    ; preds = %if.end22.i.i.i.i.i.
   %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i29.i.i.i.i = phi i64 [ %sub.ptr.sub.i8, %if.end.i.i.i.i ], [ %.pre59.i.i.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i62.i.i.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i30.i.i.i.i = phi ptr [ %3, %if.end.i.i.i.i ], [ %scevgep.i.i.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i62.i.i.i.i ]
   %sub.ptr.div.i18.i.i.i.i.i.i31.i.i.i.i = ashr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i29.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i31.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit160" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i31.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit160" [
     i64 3, label %sw.bb.i.i.i.i.i.i43.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i38.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i32.i.i.i.i
@@ -3614,7 +3614,7 @@ for.end.i.i.i.i.i.i28.i.i.i.i:                    ; preds = %if.end22.i.i.i.i.i.
 sw.bb.i.i.i.i.i.i43.i.i.i.i:                      ; preds = %for.end.i.i.i.i.i.i28.i.i.i.i
   %17 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i30.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i44.i.i.i.i = icmp eq ptr %17, %call.val.i22.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i44.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i", label %if.end29.i.i.i.i.i.i45.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i44.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i", label %if.end29.i.i.i.i.i.i45.i.i.i.i
 
 if.end29.i.i.i.i.i.i45.i.i.i.i:                   ; preds = %sw.bb.i.i.i.i.i.i43.i.i.i.i
   %incdec.ptr.i20.i.i.i.i.i.i46.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i30.i.i.i.i, i64 8
@@ -3624,7 +3624,7 @@ sw.bb31.i.i.i.i.i.i38.i.i.i.i:                    ; preds = %if.end29.i.i.i.i.i.
   %__first.sroa.0.1.i.i.i.i.i.i39.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i.i.i46.i.i.i.i, %if.end29.i.i.i.i.i.i45.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i30.i.i.i.i, %for.end.i.i.i.i.i.i28.i.i.i.i ]
   %18 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i39.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i40.i.i.i.i = icmp eq ptr %18, %call.val.i22.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i40.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i", label %if.end36.i.i.i.i.i.i41.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i40.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i", label %if.end36.i.i.i.i.i.i41.i.i.i.i
 
 if.end36.i.i.i.i.i.i41.i.i.i.i:                   ; preds = %sw.bb31.i.i.i.i.i.i38.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i42.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i39.i.i.i.i, i64 8
@@ -3635,26 +3635,26 @@ sw.bb38.i.i.i.i.i.i32.i.i.i.i:                    ; preds = %if.end36.i.i.i.i.i.
   %19 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i33.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i34.i.i.i.i = icmp eq ptr %19, %call.val.i22.i.i.i.i
   %spec.select.i.i.i.i.i.i35.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i34.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i33.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i53.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i53.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i54.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit132": ; preds = %if.end10.i.i.i.i.i.i56.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit132": ; preds = %if.end10.i.i.i.i.i.i56.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i57.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit134": ; preds = %if.end16.i.i.i.i.i.i59.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit134": ; preds = %if.end16.i.i.i.i.i.i59.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i60.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i49.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit132", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit134", %sw.bb38.i.i.i.i.i.i32.i.i.i.i, %sw.bb31.i.i.i.i.i.i38.i.i.i.i, %sw.bb.i.i.i.i.i.i43.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i36.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i30.i.i.i.i, %sw.bb.i.i.i.i.i.i43.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i39.i.i.i.i, %sw.bb31.i.i.i.i.i.i38.i.i.i.i ], [ %spec.select.i.i.i.i.i.i35.i.i.i.i, %sw.bb38.i.i.i.i.i.i32.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i54.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i57.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit132" ], [ %incdec.ptr.i12.i.i.i.i.i.i60.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i.loopexit.split.loop.exit134" ], [ %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, %for.body.i.i.i.i.i.i49.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i49.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit132", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit134", %sw.bb38.i.i.i.i.i.i32.i.i.i.i, %sw.bb31.i.i.i.i.i.i38.i.i.i.i, %sw.bb.i.i.i.i.i.i43.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i36.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i30.i.i.i.i, %sw.bb.i.i.i.i.i.i43.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i39.i.i.i.i, %sw.bb31.i.i.i.i.i.i38.i.i.i.i ], [ %spec.select.i.i.i.i.i.i35.i.i.i.i, %sw.bb38.i.i.i.i.i.i32.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i54.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i57.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit132" ], [ %incdec.ptr.i12.i.i.i.i.i.i60.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i.loopexit.split.loop.exit134" ], [ %__first.sroa.0.051.i.i.i.i.i.i51.i.i.i.i, %for.body.i.i.i.i.i.i49.i.i.i.i ]
   %cmp.i.i.i.not.i37.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i36.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i37.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit", label %if.end11.i.i.i.i
+  br i1 %cmp.i.i.i.not.i37.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit", label %if.end11.i.i.i.i
 
-if.end11.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+if.end11.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
   %incdec.ptr.i76.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 16
   %call.val.i77.i.i.i.i = load ptr, ptr %incdec.ptr.i76.i.i.i.i, align 8
   br i1 %cmp50.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i104.i.i.i.i, label %for.end.i.i.i.i.i.i83.i.i.i.i
@@ -3664,25 +3664,25 @@ for.body.i.i.i.i.i.i104.i.i.i.i:                  ; preds = %if.end11.i.i.i.i, %
   %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i = phi ptr [ %incdec.ptr.i14.i.i.i.i.i.i118.i.i.i.i, %if.end22.i.i.i.i.i.i117.i.i.i.i ], [ %3, %if.end11.i.i.i.i ]
   %20 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i107.i.i.i.i = icmp eq ptr %20, %call.val.i77.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i107.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i", label %if.end.i.i.i.i.i.i108.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i107.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i", label %if.end.i.i.i.i.i.i108.i.i.i.i
 
 if.end.i.i.i.i.i.i108.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i104.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i109.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 8
   %21 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i109.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i110.i.i.i.i = icmp eq ptr %21, %call.val.i77.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i110.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i111.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i110.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i111.i.i.i.i
 
 if.end10.i.i.i.i.i.i111.i.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i108.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i112.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 16
   %22 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i112.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i113.i.i.i.i = icmp eq ptr %22, %call.val.i77.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i113.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit140", label %if.end16.i.i.i.i.i.i114.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i113.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit140", label %if.end16.i.i.i.i.i.i114.i.i.i.i
 
 if.end16.i.i.i.i.i.i114.i.i.i.i:                  ; preds = %if.end10.i.i.i.i.i.i111.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i115.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 24
   %23 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i115.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i116.i.i.i.i = icmp eq ptr %23, %call.val.i77.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i116.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit142", label %if.end22.i.i.i.i.i.i117.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i116.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit142", label %if.end22.i.i.i.i.i.i117.i.i.i.i
 
 if.end22.i.i.i.i.i.i117.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.i114.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i118.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 32
@@ -3694,7 +3694,7 @@ for.end.i.i.i.i.i.i83.i.i.i.i:                    ; preds = %if.end22.i.i.i.i.i.
   %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i84.i.i.i.i = phi i64 [ %sub.ptr.sub.i8, %if.end11.i.i.i.i ], [ %.pre59.i.i.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i117.i.i.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i85.i.i.i.i = phi ptr [ %3, %if.end11.i.i.i.i ], [ %scevgep.i.i.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i117.i.i.i.i ]
   %sub.ptr.div.i18.i.i.i.i.i.i86.i.i.i.i = ashr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i84.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i86.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit162" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i86.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit162" [
     i64 3, label %sw.bb.i.i.i.i.i.i98.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i93.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i87.i.i.i.i
@@ -3703,7 +3703,7 @@ for.end.i.i.i.i.i.i83.i.i.i.i:                    ; preds = %if.end22.i.i.i.i.i.
 sw.bb.i.i.i.i.i.i98.i.i.i.i:                      ; preds = %for.end.i.i.i.i.i.i83.i.i.i.i
   %24 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i85.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i99.i.i.i.i = icmp eq ptr %24, %call.val.i77.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i99.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i", label %if.end29.i.i.i.i.i.i100.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i99.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i", label %if.end29.i.i.i.i.i.i100.i.i.i.i
 
 if.end29.i.i.i.i.i.i100.i.i.i.i:                  ; preds = %sw.bb.i.i.i.i.i.i98.i.i.i.i
   %incdec.ptr.i20.i.i.i.i.i.i101.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i85.i.i.i.i, i64 8
@@ -3713,7 +3713,7 @@ sw.bb31.i.i.i.i.i.i93.i.i.i.i:                    ; preds = %if.end29.i.i.i.i.i.
   %__first.sroa.0.1.i.i.i.i.i.i94.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i.i.i101.i.i.i.i, %if.end29.i.i.i.i.i.i100.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i85.i.i.i.i, %for.end.i.i.i.i.i.i83.i.i.i.i ]
   %25 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i94.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i95.i.i.i.i = icmp eq ptr %25, %call.val.i77.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i95.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i", label %if.end36.i.i.i.i.i.i96.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i95.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i", label %if.end36.i.i.i.i.i.i96.i.i.i.i
 
 if.end36.i.i.i.i.i.i96.i.i.i.i:                   ; preds = %sw.bb31.i.i.i.i.i.i93.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i97.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i94.i.i.i.i, i64 8
@@ -3724,26 +3724,26 @@ sw.bb38.i.i.i.i.i.i87.i.i.i.i:                    ; preds = %if.end36.i.i.i.i.i.
   %26 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i88.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i89.i.i.i.i = icmp eq ptr %26, %call.val.i77.i.i.i.i
   %spec.select.i.i.i.i.i.i90.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i89.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i88.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i108.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i108.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i109.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit140": ; preds = %if.end10.i.i.i.i.i.i111.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit140": ; preds = %if.end10.i.i.i.i.i.i111.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i112.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit142": ; preds = %if.end16.i.i.i.i.i.i114.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit142": ; preds = %if.end16.i.i.i.i.i.i114.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i115.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i104.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit140", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit142", %sw.bb38.i.i.i.i.i.i87.i.i.i.i, %sw.bb31.i.i.i.i.i.i93.i.i.i.i, %sw.bb.i.i.i.i.i.i98.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i91.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i85.i.i.i.i, %sw.bb.i.i.i.i.i.i98.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i94.i.i.i.i, %sw.bb31.i.i.i.i.i.i93.i.i.i.i ], [ %spec.select.i.i.i.i.i.i90.i.i.i.i, %sw.bb38.i.i.i.i.i.i87.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i109.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i112.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit140" ], [ %incdec.ptr.i12.i.i.i.i.i.i115.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i.loopexit.split.loop.exit142" ], [ %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, %for.body.i.i.i.i.i.i104.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i104.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit140", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit142", %sw.bb38.i.i.i.i.i.i87.i.i.i.i, %sw.bb31.i.i.i.i.i.i93.i.i.i.i, %sw.bb.i.i.i.i.i.i98.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i91.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i85.i.i.i.i, %sw.bb.i.i.i.i.i.i98.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i94.i.i.i.i, %sw.bb31.i.i.i.i.i.i93.i.i.i.i ], [ %spec.select.i.i.i.i.i.i90.i.i.i.i, %sw.bb38.i.i.i.i.i.i87.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i109.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i112.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit140" ], [ %incdec.ptr.i12.i.i.i.i.i.i115.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i.loopexit.split.loop.exit142" ], [ %__first.sroa.0.051.i.i.i.i.i.i106.i.i.i.i, %for.body.i.i.i.i.i.i104.i.i.i.i ]
   %cmp.i.i.i.not.i92.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i91.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i92.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit156", label %if.end17.i.i.i.i
+  br i1 %cmp.i.i.i.not.i92.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit156", label %if.end17.i.i.i.i
 
-if.end17.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+if.end17.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
   %incdec.ptr.i131.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 24
   %call.val.i132.i.i.i.i = load ptr, ptr %incdec.ptr.i131.i.i.i.i, align 8
   br i1 %cmp50.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i159.i.i.i.i, label %for.end.i.i.i.i.i.i138.i.i.i.i
@@ -3753,25 +3753,25 @@ for.body.i.i.i.i.i.i159.i.i.i.i:                  ; preds = %if.end17.i.i.i.i, %
   %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i = phi ptr [ %incdec.ptr.i14.i.i.i.i.i.i173.i.i.i.i, %if.end22.i.i.i.i.i.i172.i.i.i.i ], [ %3, %if.end17.i.i.i.i ]
   %27 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i162.i.i.i.i = icmp eq ptr %27, %call.val.i132.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i162.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i", label %if.end.i.i.i.i.i.i163.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i162.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i", label %if.end.i.i.i.i.i.i163.i.i.i.i
 
 if.end.i.i.i.i.i.i163.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i159.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i164.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 8
   %28 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i164.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i165.i.i.i.i = icmp eq ptr %28, %call.val.i132.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i165.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i166.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i165.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i166.i.i.i.i
 
 if.end10.i.i.i.i.i.i166.i.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i163.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i167.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 16
   %29 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i167.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i168.i.i.i.i = icmp eq ptr %29, %call.val.i132.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i168.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit148", label %if.end16.i.i.i.i.i.i169.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i168.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit148", label %if.end16.i.i.i.i.i.i169.i.i.i.i
 
 if.end16.i.i.i.i.i.i169.i.i.i.i:                  ; preds = %if.end10.i.i.i.i.i.i166.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i170.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 24
   %30 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i170.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i171.i.i.i.i = icmp eq ptr %30, %call.val.i132.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i171.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit150", label %if.end22.i.i.i.i.i.i172.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i171.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit150", label %if.end22.i.i.i.i.i.i172.i.i.i.i
 
 if.end22.i.i.i.i.i.i172.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.i169.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i173.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 32
@@ -3783,7 +3783,7 @@ for.end.i.i.i.i.i.i138.i.i.i.i:                   ; preds = %if.end22.i.i.i.i.i.
   %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i139.i.i.i.i = phi i64 [ %sub.ptr.sub.i8, %if.end17.i.i.i.i ], [ %.pre59.i.i.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i172.i.i.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i140.i.i.i.i = phi ptr [ %3, %if.end17.i.i.i.i ], [ %scevgep.i.i.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i172.i.i.i.i ]
   %sub.ptr.div.i18.i.i.i.i.i.i141.i.i.i.i = ashr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i139.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i141.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit164" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i141.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit164" [
     i64 3, label %sw.bb.i.i.i.i.i.i153.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i148.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i142.i.i.i.i
@@ -3792,7 +3792,7 @@ for.end.i.i.i.i.i.i138.i.i.i.i:                   ; preds = %if.end22.i.i.i.i.i.
 sw.bb.i.i.i.i.i.i153.i.i.i.i:                     ; preds = %for.end.i.i.i.i.i.i138.i.i.i.i
   %31 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i140.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i154.i.i.i.i = icmp eq ptr %31, %call.val.i132.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i154.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i", label %if.end29.i.i.i.i.i.i155.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i154.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i", label %if.end29.i.i.i.i.i.i155.i.i.i.i
 
 if.end29.i.i.i.i.i.i155.i.i.i.i:                  ; preds = %sw.bb.i.i.i.i.i.i153.i.i.i.i
   %incdec.ptr.i20.i.i.i.i.i.i156.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i140.i.i.i.i, i64 8
@@ -3802,7 +3802,7 @@ sw.bb31.i.i.i.i.i.i148.i.i.i.i:                   ; preds = %if.end29.i.i.i.i.i.
   %__first.sroa.0.1.i.i.i.i.i.i149.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i.i.i156.i.i.i.i, %if.end29.i.i.i.i.i.i155.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i140.i.i.i.i, %for.end.i.i.i.i.i.i138.i.i.i.i ]
   %32 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i149.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i150.i.i.i.i = icmp eq ptr %32, %call.val.i132.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i150.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i", label %if.end36.i.i.i.i.i.i151.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i150.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i", label %if.end36.i.i.i.i.i.i151.i.i.i.i
 
 if.end36.i.i.i.i.i.i151.i.i.i.i:                  ; preds = %sw.bb31.i.i.i.i.i.i148.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i152.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i149.i.i.i.i, i64 8
@@ -3813,26 +3813,26 @@ sw.bb38.i.i.i.i.i.i142.i.i.i.i:                   ; preds = %if.end36.i.i.i.i.i.
   %33 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i143.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i144.i.i.i.i = icmp eq ptr %33, %call.val.i132.i.i.i.i
   %spec.select.i.i.i.i.i.i145.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i144.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i143.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i163.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i163.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i164.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit148": ; preds = %if.end10.i.i.i.i.i.i166.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit148": ; preds = %if.end10.i.i.i.i.i.i166.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i167.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit150": ; preds = %if.end16.i.i.i.i.i.i169.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit150": ; preds = %if.end16.i.i.i.i.i.i169.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i170.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i159.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit148", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit150", %sw.bb38.i.i.i.i.i.i142.i.i.i.i, %sw.bb31.i.i.i.i.i.i148.i.i.i.i, %sw.bb.i.i.i.i.i.i153.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i146.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i140.i.i.i.i, %sw.bb.i.i.i.i.i.i153.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i149.i.i.i.i, %sw.bb31.i.i.i.i.i.i148.i.i.i.i ], [ %spec.select.i.i.i.i.i.i145.i.i.i.i, %sw.bb38.i.i.i.i.i.i142.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i164.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i167.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit148" ], [ %incdec.ptr.i12.i.i.i.i.i.i170.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i.loopexit.split.loop.exit150" ], [ %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, %for.body.i.i.i.i.i.i159.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i159.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit148", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit150", %sw.bb38.i.i.i.i.i.i142.i.i.i.i, %sw.bb31.i.i.i.i.i.i148.i.i.i.i, %sw.bb.i.i.i.i.i.i153.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i146.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i140.i.i.i.i, %sw.bb.i.i.i.i.i.i153.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i149.i.i.i.i, %sw.bb31.i.i.i.i.i.i148.i.i.i.i ], [ %spec.select.i.i.i.i.i.i145.i.i.i.i, %sw.bb38.i.i.i.i.i.i142.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i164.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i167.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit148" ], [ %incdec.ptr.i12.i.i.i.i.i.i170.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i.loopexit.split.loop.exit150" ], [ %__first.sroa.0.051.i.i.i.i.i.i161.i.i.i.i, %for.body.i.i.i.i.i.i159.i.i.i.i ]
   %cmp.i.i.i.not.i147.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i146.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i147.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit158", label %if.end23.i.i.i.i
+  br i1 %cmp.i.i.i.not.i147.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit158", label %if.end23.i.i.i.i
 
-if.end23.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+if.end23.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
   %incdec.ptr.i186.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 32
   %dec.i.i.i.i = add nsw i64 %__trip_count.0438.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.0438.i.i.i.i, 1
@@ -3847,7 +3847,7 @@ for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.
   %sub.ptr.sub.i189.pre-phi.i.i.i.i = phi i64 [ %.pre503.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %sub.ptr.sub.i, %if.end ]
   %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %1, %if.end ]
   %sub.ptr.div.i190.i.i.i.i = ashr exact i64 %sub.ptr.sub.i189.pre-phi.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i190.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" [
+  switch i64 %sub.ptr.div.i190.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" [
     i64 3, label %sw.bb.i.i.i.i
     i64 2, label %for.end.sw.bb32_crit_edge.i.i.i.i
     i64 1, label %for.end.sw.bb39_crit_edge.i.i.i.i
@@ -3877,25 +3877,25 @@ for.body.i.i.i.i.i.i218.i.i.i.i:                  ; preds = %if.end22.i.i.i.i.i.
   %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i = phi ptr [ %3, %for.body.lr.ph.i.i.i.i.i.i216.i.i.i.i ], [ %incdec.ptr.i14.i.i.i.i.i.i232.i.i.i.i, %if.end22.i.i.i.i.i.i231.i.i.i.i ]
   %35 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i221.i.i.i.i = icmp eq ptr %35, %call.val.i191.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i221.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i", label %if.end.i.i.i.i.i.i222.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i221.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i", label %if.end.i.i.i.i.i.i222.i.i.i.i
 
 if.end.i.i.i.i.i.i222.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i218.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i223.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 8
   %36 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i223.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i224.i.i.i.i = icmp eq ptr %36, %call.val.i191.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i224.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i225.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i224.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i225.i.i.i.i
 
 if.end10.i.i.i.i.i.i225.i.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i222.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i226.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 16
   %37 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i226.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i227.i.i.i.i = icmp eq ptr %37, %call.val.i191.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i227.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit178", label %if.end16.i.i.i.i.i.i228.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i227.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit178", label %if.end16.i.i.i.i.i.i228.i.i.i.i
 
 if.end16.i.i.i.i.i.i228.i.i.i.i:                  ; preds = %if.end10.i.i.i.i.i.i225.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i229.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 24
   %38 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i229.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i230.i.i.i.i = icmp eq ptr %38, %call.val.i191.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i230.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit180", label %if.end22.i.i.i.i.i.i231.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i230.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit180", label %if.end22.i.i.i.i.i.i231.i.i.i.i
 
 if.end22.i.i.i.i.i.i231.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.i228.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i232.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 32
@@ -3912,7 +3912,7 @@ for.end.i.i.i.i.i.i197.i.i.i.i:                   ; preds = %for.end.loopexit.i.
   %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i198.i.i.i.i = phi i64 [ %.pre59.i.i.i.i.i.i237.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i235.i.i.i.i ], [ %sub.ptr.sub.i8, %sw.bb.i.i.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i217.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i235.i.i.i.i ], [ %3, %sw.bb.i.i.i.i ]
   %sub.ptr.div.i18.i.i.i.i.i.i200.i.i.i.i = ashr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i198.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i200.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i200.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" [
     i64 3, label %sw.bb.i.i.i.i.i.i212.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i207.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i201.i.i.i.i
@@ -3921,7 +3921,7 @@ for.end.i.i.i.i.i.i197.i.i.i.i:                   ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i.i.i.i212.i.i.i.i:                     ; preds = %for.end.i.i.i.i.i.i197.i.i.i.i
   %39 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i213.i.i.i.i = icmp eq ptr %39, %call.val.i191.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i213.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i", label %if.end29.i.i.i.i.i.i214.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i213.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i", label %if.end29.i.i.i.i.i.i214.i.i.i.i
 
 if.end29.i.i.i.i.i.i214.i.i.i.i:                  ; preds = %sw.bb.i.i.i.i.i.i212.i.i.i.i
   %incdec.ptr.i20.i.i.i.i.i.i215.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i, i64 8
@@ -3931,7 +3931,7 @@ sw.bb31.i.i.i.i.i.i207.i.i.i.i:                   ; preds = %if.end29.i.i.i.i.i.
   %__first.sroa.0.1.i.i.i.i.i.i208.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i.i.i215.i.i.i.i, %if.end29.i.i.i.i.i.i214.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i, %for.end.i.i.i.i.i.i197.i.i.i.i ]
   %40 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i208.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i209.i.i.i.i = icmp eq ptr %40, %call.val.i191.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i209.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i", label %if.end36.i.i.i.i.i.i210.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i209.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i", label %if.end36.i.i.i.i.i.i210.i.i.i.i
 
 if.end36.i.i.i.i.i.i210.i.i.i.i:                  ; preds = %sw.bb31.i.i.i.i.i.i207.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i211.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i208.i.i.i.i, i64 8
@@ -3942,26 +3942,26 @@ sw.bb38.i.i.i.i.i.i201.i.i.i.i:                   ; preds = %if.end36.i.i.i.i.i.
   %41 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i202.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i203.i.i.i.i = icmp eq ptr %41, %call.val.i191.i.i.i.i
   %spec.select.i.i.i.i.i.i204.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i203.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i202.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i222.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i222.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i223.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit178": ; preds = %if.end10.i.i.i.i.i.i225.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit178": ; preds = %if.end10.i.i.i.i.i.i225.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i226.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit180": ; preds = %if.end16.i.i.i.i.i.i228.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit180": ; preds = %if.end16.i.i.i.i.i.i228.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i229.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i218.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit178", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit180", %sw.bb38.i.i.i.i.i.i201.i.i.i.i, %sw.bb31.i.i.i.i.i.i207.i.i.i.i, %sw.bb.i.i.i.i.i.i212.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i205.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i, %sw.bb.i.i.i.i.i.i212.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i208.i.i.i.i, %sw.bb31.i.i.i.i.i.i207.i.i.i.i ], [ %spec.select.i.i.i.i.i.i204.i.i.i.i, %sw.bb38.i.i.i.i.i.i201.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i223.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i226.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit178" ], [ %incdec.ptr.i12.i.i.i.i.i.i229.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i.loopexit.split.loop.exit180" ], [ %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, %for.body.i.i.i.i.i.i218.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i218.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit178", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit180", %sw.bb38.i.i.i.i.i.i201.i.i.i.i, %sw.bb31.i.i.i.i.i.i207.i.i.i.i, %sw.bb.i.i.i.i.i.i212.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i205.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i199.i.i.i.i, %sw.bb.i.i.i.i.i.i212.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i208.i.i.i.i, %sw.bb31.i.i.i.i.i.i207.i.i.i.i ], [ %spec.select.i.i.i.i.i.i204.i.i.i.i, %sw.bb38.i.i.i.i.i.i201.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i223.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i226.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit178" ], [ %incdec.ptr.i12.i.i.i.i.i.i229.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i.loopexit.split.loop.exit180" ], [ %__first.sroa.0.051.i.i.i.i.i.i220.i.i.i.i, %for.body.i.i.i.i.i.i218.i.i.i.i ]
   %cmp.i.i.i.not.i206.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i205.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i206.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit", label %if.end30.i.i.i.i
+  br i1 %cmp.i.i.i.not.i206.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit", label %if.end30.i.i.i.i
 
-if.end30.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i"
+if.end30.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i"
   %incdec.ptr.i245.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 8
   br label %sw.bb32.i.i.i.i
 
@@ -3982,25 +3982,25 @@ for.body.i.i.i.i.i.i273.i.i.i.i:                  ; preds = %if.end22.i.i.i.i.i.
   %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i = phi ptr [ %3, %for.body.lr.ph.i.i.i.i.i.i271.i.i.i.i ], [ %incdec.ptr.i14.i.i.i.i.i.i287.i.i.i.i, %if.end22.i.i.i.i.i.i286.i.i.i.i ]
   %43 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i276.i.i.i.i = icmp eq ptr %43, %call.val.i246.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i276.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i", label %if.end.i.i.i.i.i.i277.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i276.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i", label %if.end.i.i.i.i.i.i277.i.i.i.i
 
 if.end.i.i.i.i.i.i277.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i273.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i278.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 8
   %44 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i278.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i279.i.i.i.i = icmp eq ptr %44, %call.val.i246.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i279.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i280.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i279.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i280.i.i.i.i
 
 if.end10.i.i.i.i.i.i280.i.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i277.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i281.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 16
   %45 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i281.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i282.i.i.i.i = icmp eq ptr %45, %call.val.i246.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i282.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit186", label %if.end16.i.i.i.i.i.i283.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i282.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit186", label %if.end16.i.i.i.i.i.i283.i.i.i.i
 
 if.end16.i.i.i.i.i.i283.i.i.i.i:                  ; preds = %if.end10.i.i.i.i.i.i280.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i284.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 24
   %46 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i284.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i285.i.i.i.i = icmp eq ptr %46, %call.val.i246.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i285.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit188", label %if.end22.i.i.i.i.i.i286.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i285.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit188", label %if.end22.i.i.i.i.i.i286.i.i.i.i
 
 if.end22.i.i.i.i.i.i286.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.i283.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i287.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 32
@@ -4017,7 +4017,7 @@ for.end.i.i.i.i.i.i252.i.i.i.i:                   ; preds = %for.end.loopexit.i.
   %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i253.i.i.i.i = phi i64 [ %.pre59.i.i.i.i.i.i292.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i290.i.i.i.i ], [ %sub.ptr.sub.i8, %sw.bb32.i.i.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i272.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i290.i.i.i.i ], [ %3, %sw.bb32.i.i.i.i ]
   %sub.ptr.div.i18.i.i.i.i.i.i255.i.i.i.i = ashr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i253.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i255.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i255.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" [
     i64 3, label %sw.bb.i.i.i.i.i.i267.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i262.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i256.i.i.i.i
@@ -4026,7 +4026,7 @@ for.end.i.i.i.i.i.i252.i.i.i.i:                   ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i.i.i.i267.i.i.i.i:                     ; preds = %for.end.i.i.i.i.i.i252.i.i.i.i
   %47 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i268.i.i.i.i = icmp eq ptr %47, %call.val.i246.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i268.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i", label %if.end29.i.i.i.i.i.i269.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i268.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i", label %if.end29.i.i.i.i.i.i269.i.i.i.i
 
 if.end29.i.i.i.i.i.i269.i.i.i.i:                  ; preds = %sw.bb.i.i.i.i.i.i267.i.i.i.i
   %incdec.ptr.i20.i.i.i.i.i.i270.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i, i64 8
@@ -4036,7 +4036,7 @@ sw.bb31.i.i.i.i.i.i262.i.i.i.i:                   ; preds = %if.end29.i.i.i.i.i.
   %__first.sroa.0.1.i.i.i.i.i.i263.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i.i.i270.i.i.i.i, %if.end29.i.i.i.i.i.i269.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i, %for.end.i.i.i.i.i.i252.i.i.i.i ]
   %48 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i263.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i264.i.i.i.i = icmp eq ptr %48, %call.val.i246.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i264.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i", label %if.end36.i.i.i.i.i.i265.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i264.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i", label %if.end36.i.i.i.i.i.i265.i.i.i.i
 
 if.end36.i.i.i.i.i.i265.i.i.i.i:                  ; preds = %sw.bb31.i.i.i.i.i.i262.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i266.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i263.i.i.i.i, i64 8
@@ -4047,26 +4047,26 @@ sw.bb38.i.i.i.i.i.i256.i.i.i.i:                   ; preds = %if.end36.i.i.i.i.i.
   %49 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i257.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i258.i.i.i.i = icmp eq ptr %49, %call.val.i246.i.i.i.i
   %spec.select.i.i.i.i.i.i259.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i258.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i257.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i277.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i277.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i278.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit186": ; preds = %if.end10.i.i.i.i.i.i280.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit186": ; preds = %if.end10.i.i.i.i.i.i280.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i281.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit188": ; preds = %if.end16.i.i.i.i.i.i283.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit188": ; preds = %if.end16.i.i.i.i.i.i283.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i284.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i273.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit186", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit188", %sw.bb38.i.i.i.i.i.i256.i.i.i.i, %sw.bb31.i.i.i.i.i.i262.i.i.i.i, %sw.bb.i.i.i.i.i.i267.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i260.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i, %sw.bb.i.i.i.i.i.i267.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i263.i.i.i.i, %sw.bb31.i.i.i.i.i.i262.i.i.i.i ], [ %spec.select.i.i.i.i.i.i259.i.i.i.i, %sw.bb38.i.i.i.i.i.i256.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i278.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i281.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit186" ], [ %incdec.ptr.i12.i.i.i.i.i.i284.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i.loopexit.split.loop.exit188" ], [ %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, %for.body.i.i.i.i.i.i273.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i273.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit186", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit188", %sw.bb38.i.i.i.i.i.i256.i.i.i.i, %sw.bb31.i.i.i.i.i.i262.i.i.i.i, %sw.bb.i.i.i.i.i.i267.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i260.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i254.i.i.i.i, %sw.bb.i.i.i.i.i.i267.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i263.i.i.i.i, %sw.bb31.i.i.i.i.i.i262.i.i.i.i ], [ %spec.select.i.i.i.i.i.i259.i.i.i.i, %sw.bb38.i.i.i.i.i.i256.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i278.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i281.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit186" ], [ %incdec.ptr.i12.i.i.i.i.i.i284.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i.loopexit.split.loop.exit188" ], [ %__first.sroa.0.051.i.i.i.i.i.i275.i.i.i.i, %for.body.i.i.i.i.i.i273.i.i.i.i ]
   %cmp.i.i.i.not.i261.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i260.i.i.i.i, %2
-  br i1 %cmp.i.i.i.not.i261.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit", label %if.end37.i.i.i.i
+  br i1 %cmp.i.i.i.not.i261.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit", label %if.end37.i.i.i.i
 
-if.end37.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i"
+if.end37.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i"
   %incdec.ptr.i300.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 8
   br label %sw.bb39.i.i.i.i
 
@@ -4087,25 +4087,25 @@ for.body.i.i.i.i.i.i328.i.i.i.i:                  ; preds = %if.end22.i.i.i.i.i.
   %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i = phi ptr [ %3, %for.body.lr.ph.i.i.i.i.i.i326.i.i.i.i ], [ %incdec.ptr.i14.i.i.i.i.i.i342.i.i.i.i, %if.end22.i.i.i.i.i.i341.i.i.i.i ]
   %51 = load ptr, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i331.i.i.i.i = icmp eq ptr %51, %call.val.i301.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i331.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i", label %if.end.i.i.i.i.i.i332.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i331.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i", label %if.end.i.i.i.i.i.i332.i.i.i.i
 
 if.end.i.i.i.i.i.i332.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i328.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i333.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 8
   %52 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i333.i.i.i.i, align 8
   %cmp.i9.i.i.i.i.i.i334.i.i.i.i = icmp eq ptr %52, %call.val.i301.i.i.i.i
-  br i1 %cmp.i9.i.i.i.i.i.i334.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i335.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i334.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit", label %if.end10.i.i.i.i.i.i335.i.i.i.i
 
 if.end10.i.i.i.i.i.i335.i.i.i.i:                  ; preds = %if.end.i.i.i.i.i.i332.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i336.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 16
   %53 = load ptr, ptr %incdec.ptr.i10.i.i.i.i.i.i336.i.i.i.i, align 8
   %cmp.i11.i.i.i.i.i.i337.i.i.i.i = icmp eq ptr %53, %call.val.i301.i.i.i.i
-  br i1 %cmp.i11.i.i.i.i.i.i337.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit194", label %if.end16.i.i.i.i.i.i338.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i.i.i337.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit194", label %if.end16.i.i.i.i.i.i338.i.i.i.i
 
 if.end16.i.i.i.i.i.i338.i.i.i.i:                  ; preds = %if.end10.i.i.i.i.i.i335.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i339.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 24
   %54 = load ptr, ptr %incdec.ptr.i12.i.i.i.i.i.i339.i.i.i.i, align 8
   %cmp.i13.i.i.i.i.i.i340.i.i.i.i = icmp eq ptr %54, %call.val.i301.i.i.i.i
-  br i1 %cmp.i13.i.i.i.i.i.i340.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit196", label %if.end22.i.i.i.i.i.i341.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i.i.i340.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit196", label %if.end22.i.i.i.i.i.i341.i.i.i.i
 
 if.end22.i.i.i.i.i.i341.i.i.i.i:                  ; preds = %if.end16.i.i.i.i.i.i338.i.i.i.i
   %incdec.ptr.i14.i.i.i.i.i.i342.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 32
@@ -4122,7 +4122,7 @@ for.end.i.i.i.i.i.i307.i.i.i.i:                   ; preds = %for.end.loopexit.i.
   %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i308.i.i.i.i = phi i64 [ %.pre59.i.i.i.i.i.i347.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i345.i.i.i.i ], [ %sub.ptr.sub.i8, %sw.bb39.i.i.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i327.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i345.i.i.i.i ], [ %3, %sw.bb39.i.i.i.i ]
   %sub.ptr.div.i18.i.i.i.i.i.i310.i.i.i.i = ashr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i.i.i.i308.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i310.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" [
+  switch i64 %sub.ptr.div.i18.i.i.i.i.i.i310.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" [
     i64 3, label %sw.bb.i.i.i.i.i.i322.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i.i317.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i.i311.i.i.i.i
@@ -4131,7 +4131,7 @@ for.end.i.i.i.i.i.i307.i.i.i.i:                   ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i.i.i.i322.i.i.i.i:                     ; preds = %for.end.i.i.i.i.i.i307.i.i.i.i
   %55 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i, align 8
   %cmp.i19.i.i.i.i.i.i323.i.i.i.i = icmp eq ptr %55, %call.val.i301.i.i.i.i
-  br i1 %cmp.i19.i.i.i.i.i.i323.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i", label %if.end29.i.i.i.i.i.i324.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i.i.i323.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i", label %if.end29.i.i.i.i.i.i324.i.i.i.i
 
 if.end29.i.i.i.i.i.i324.i.i.i.i:                  ; preds = %sw.bb.i.i.i.i.i.i322.i.i.i.i
   %incdec.ptr.i20.i.i.i.i.i.i325.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i, i64 8
@@ -4141,7 +4141,7 @@ sw.bb31.i.i.i.i.i.i317.i.i.i.i:                   ; preds = %if.end29.i.i.i.i.i.
   %__first.sroa.0.1.i.i.i.i.i.i318.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i.i.i325.i.i.i.i, %if.end29.i.i.i.i.i.i324.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i, %for.end.i.i.i.i.i.i307.i.i.i.i ]
   %56 = load ptr, ptr %__first.sroa.0.1.i.i.i.i.i.i318.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i.i319.i.i.i.i = icmp eq ptr %56, %call.val.i301.i.i.i.i
-  br i1 %cmp.i21.i.i.i.i.i.i319.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i", label %if.end36.i.i.i.i.i.i320.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i.i.i319.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i", label %if.end36.i.i.i.i.i.i320.i.i.i.i
 
 if.end36.i.i.i.i.i.i320.i.i.i.i:                  ; preds = %sw.bb31.i.i.i.i.i.i317.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.i.i321.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i.i318.i.i.i.i, i64 8
@@ -4152,57 +4152,57 @@ sw.bb38.i.i.i.i.i.i311.i.i.i.i:                   ; preds = %if.end36.i.i.i.i.i.
   %57 = load ptr, ptr %__first.sroa.0.2.i.i.i.i.i.i312.i.i.i.i, align 8
   %cmp.i23.i.i.i.i.i.i313.i.i.i.i = icmp eq ptr %57, %call.val.i301.i.i.i.i
   %spec.select.i.i.i.i.i.i314.i.i.i.i = select i1 %cmp.i23.i.i.i.i.i.i313.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i.i312.i.i.i.i, ptr %2
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i332.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i332.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i333.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit194": ; preds = %if.end10.i.i.i.i.i.i335.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit194": ; preds = %if.end10.i.i.i.i.i.i335.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.i336.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 16
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit196": ; preds = %if.end16.i.i.i.i.i.i338.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit196": ; preds = %if.end16.i.i.i.i.i.i338.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.i339.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, i64 24
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i328.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit194", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit196", %sw.bb38.i.i.i.i.i.i311.i.i.i.i, %sw.bb31.i.i.i.i.i.i317.i.i.i.i, %sw.bb.i.i.i.i.i.i322.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i315.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i, %sw.bb.i.i.i.i.i.i322.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i318.i.i.i.i, %sw.bb31.i.i.i.i.i.i317.i.i.i.i ], [ %spec.select.i.i.i.i.i.i314.i.i.i.i, %sw.bb38.i.i.i.i.i.i311.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i333.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i336.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit194" ], [ %incdec.ptr.i12.i.i.i.i.i.i339.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i.loopexit.split.loop.exit196" ], [ %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, %for.body.i.i.i.i.i.i328.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i328.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit194", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit196", %sw.bb38.i.i.i.i.i.i311.i.i.i.i, %sw.bb31.i.i.i.i.i.i317.i.i.i.i, %sw.bb.i.i.i.i.i.i322.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i315.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i309.i.i.i.i, %sw.bb.i.i.i.i.i.i322.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i318.i.i.i.i, %sw.bb31.i.i.i.i.i.i317.i.i.i.i ], [ %spec.select.i.i.i.i.i.i314.i.i.i.i, %sw.bb38.i.i.i.i.i.i311.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i333.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i10.i.i.i.i.i.i336.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit194" ], [ %incdec.ptr.i12.i.i.i.i.i.i339.i.i.i.i.le, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i.loopexit.split.loop.exit196" ], [ %__first.sroa.0.051.i.i.i.i.i.i330.i.i.i.i, %for.body.i.i.i.i.i.i328.i.i.i.i ]
   %cmp.i.i.i.not.i316.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i315.i.i.i.i, %2
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.not.i316.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i, ptr %0
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit75.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit75.i.i.i.i"
   %incdec.ptr.i.i.i.i.i.le176 = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 8
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit156": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit130.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit156": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit130.i.i.i.i"
   %incdec.ptr.i76.i.i.i.i.le173 = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 16
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit158": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit185.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit158": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit185.i.i.i.i"
   %incdec.ptr.i131.i.i.i.i.le170 = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 24
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit160": ; preds = %for.end.i.i.i.i.i.i28.i.i.i.i
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit160": ; preds = %for.end.i.i.i.i.i.i28.i.i.i.i
   %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 8
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit162": ; preds = %for.end.i.i.i.i.i.i83.i.i.i.i
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit162": ; preds = %for.end.i.i.i.i.i.i83.i.i.i.i
   %incdec.ptr.i76.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 16
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit164": ; preds = %for.end.i.i.i.i.i.i138.i.i.i.i
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit164": ; preds = %for.end.i.i.i.i.i.i138.i.i.i.i
   %incdec.ptr.i131.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0437.i.i.i.i, i64 24
-  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
+  br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit": ; preds = %for.end.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit156", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit158", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit160", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit162", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit164", %for.end.i.i.i.i, %for.end.i.i.i.i.i.i197.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i", %for.end.i.i.i.i.i.i252.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i", %for.end.i.i.i.i.i.i307.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit244.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit299.i.i.i.i" ], [ %0, %for.end.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i.i.i197.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %for.end.i.i.i.i.i.i252.i.i.i.i ], [ %__first.sroa.0.2.i.i.i.i, %for.end.i.i.i.i.i.i307.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit354.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.le176, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i76.i.i.i.i.le173, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit156" ], [ %incdec.ptr.i131.i.i.i.i.le170, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit158" ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit160" ], [ %incdec.ptr.i76.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit162" ], [ %incdec.ptr.i131.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit.loopexit.split.loop.exit164" ], [ %__first.sroa.0.0437.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.argprom.argprom.exit.i.i.i.i" ], [ %__first.sroa.0.0437.i.i.i.i, %for.end.i.i.i.i.i.i.i.i.i.i ]
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit": ; preds = %for.end.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit156", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit158", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit160", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit162", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit164", %for.end.i.i.i.i, %for.end.i.i.i.i.i.i197.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i", %for.end.i.i.i.i.i.i252.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i", %for.end.i.i.i.i.i.i307.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i"
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit244.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit299.i.i.i.i" ], [ %0, %for.end.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i.i.i197.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %for.end.i.i.i.i.i.i252.i.i.i.i ], [ %__first.sroa.0.2.i.i.i.i, %for.end.i.i.i.i.i.i307.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit354.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.le176, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i76.i.i.i.i.le173, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit156" ], [ %incdec.ptr.i131.i.i.i.i.le170, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit158" ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit160" ], [ %incdec.ptr.i76.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit162" ], [ %incdec.ptr.i131.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit164" ], [ %__first.sroa.0.0437.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS4_14FieldReferenceESaIS8_EESC_E3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit.i.i.i.i" ], [ %__first.sroa.0.0437.i.i.i.i, %for.end.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i = icmp eq ptr %0, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i
   br label %return
 
-return:                                           ; preds = %entry, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit"
-  %retval.0 = phi i1 [ %cmp.i.i, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.argprom.exit" ], [ false, %entry ]
+return:                                           ; preds = %entry, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit"
+  %retval.0 = phi i1 [ %cmp.i.i, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPN8facebook5velox4exec14FieldReferenceESt6vectorIS6_SaIS6_EEEEZNS4_4Expr16isSubsetOfFieldsERKSB_SF_E3$_0EbT_SH_T0_.exit" ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -4502,25 +4502,25 @@ for.body.i.i.i.i:                                 ; preds = %if.end22.i.i.i.i, %
   %__first.sroa.0.051.i.i.i.i = phi ptr [ %distinctFields.val, %for.body.lr.ph.i.i.i.i ], [ %incdec.ptr.i14.i.i.i.i, %if.end22.i.i.i.i ]
   %5 = load ptr, ptr %__first.sroa.0.051.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %5, %3
-  br i1 %cmp.i.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 8
   %6 = load ptr, ptr %incdec.ptr.i.i.i.i.i, align 8
   %cmp.i9.i.i.i.i = icmp eq ptr %6, %3
-  br i1 %cmp.i9.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit, label %if.end10.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit, label %if.end10.i.i.i.i
 
 if.end10.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %incdec.ptr.i10.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 16
   %7 = load ptr, ptr %incdec.ptr.i10.i.i.i.i, align 8
   %cmp.i11.i.i.i.i = icmp eq ptr %7, %3
-  br i1 %cmp.i11.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit25, label %if.end16.i.i.i.i
+  br i1 %cmp.i11.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit25, label %if.end16.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i12.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 24
   %8 = load ptr, ptr %incdec.ptr.i12.i.i.i.i, align 8
   %cmp.i13.i.i.i.i = icmp eq ptr %8, %3
-  br i1 %cmp.i13.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit27, label %if.end22.i.i.i.i
+  br i1 %cmp.i13.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit27, label %if.end22.i.i.i.i
 
 if.end22.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i14.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 32
@@ -4546,7 +4546,7 @@ for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   %9 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i.i.i, align 8
   %cmp.i19.i.i.i.i = icmp eq ptr %9, %3
-  br i1 %cmp.i19.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit, label %if.end29.i.i.i.i
+  br i1 %cmp.i19.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit, label %if.end29.i.i.i.i
 
 if.end29.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   %incdec.ptr.i20.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 8
@@ -4556,7 +4556,7 @@ sw.bb31.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i, %
   %__first.sroa.0.1.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i, %if.end29.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %10 = load ptr, ptr %__first.sroa.0.1.i.i.i.i, align 8
   %cmp.i21.i.i.i.i = icmp eq ptr %10, %3
-  br i1 %cmp.i21.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit, label %if.end36.i.i.i.i
+  br i1 %cmp.i21.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit, label %if.end36.i.i.i.i
 
 if.end36.i.i.i.i:                                 ; preds = %sw.bb31.i.i.i.i
   %incdec.ptr.i22.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 8
@@ -4567,33 +4567,33 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
   %11 = load ptr, ptr %__first.sroa.0.2.i.i.i.i, align 8
   %cmp.i23.i.i.i.i = icmp eq ptr %11, %3
   %spec.select.i.i.i.i = select i1 %cmp.i23.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i, ptr %distinctFields.val3
-  br label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit
+  br label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit
 
-_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
+_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 8
-  br label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit
+  br label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit
 
-_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit25: ; preds = %if.end10.i.i.i.i
+_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit25: ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 16
-  br label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit
+  br label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit
 
-_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit27: ; preds = %if.end16.i.i.i.i
+_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit27: ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 24
-  br label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit
+  br label %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit
 
-_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit: ; preds = %for.body.i.i.i.i, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit25, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit27, %sw.bb.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb38.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.i.le, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit25 ], [ %incdec.ptr.i12.i.i.i.i.le, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit.loopexit.split.loop.exit27 ], [ %__first.sroa.0.051.i.i.i.i, %for.body.i.i.i.i ]
+_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit: ; preds = %for.body.i.i.i.i, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit25, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit27, %sw.bb.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb38.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.i.le, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit25 ], [ %incdec.ptr.i12.i.i.i.i.le, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit.loopexit.split.loop.exit27 ], [ %__first.sroa.0.051.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i.i.not = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %distinctFields.val3
   br i1 %cmp.i.i.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit
+if.then:                                          ; preds = %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
   store ptr %multiplyReferencedFields, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIPN8facebook5velox4exec14FieldReferenceES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS4_SK_NS6_10_AllocNodeISaINS6_10_Hash_nodeIS4_Lb0EEEEEEEESt4pairINS6_14_Node_iteratorIS4_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %multiplyReferencedFields, ptr noundef nonnull align 8 dereferenceable(8) %newField, ptr noundef nonnull align 8 dereferenceable(8) %newField, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
   br label %for.inc
 
-if.else:                                          ; preds = %for.end.i.i.i.i, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.argprom.exit
+if.else:                                          ; preds = %for.end.i.i.i.i, %_ZN8facebook5velox4exec12_GLOBAL__N_18isMemberERKSt6vectorIPNS1_14FieldReferenceESaIS5_EERS4_.exit
   %12 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %distinctFields.val3, %12
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -37228,7 +37228,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.cond.i.i
   %row.020.i.i = phi i32 [ %inc.i.i, %for.cond.i.i ], [ %16, %if.then.i.i ]
-  %call2.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi.argprom.argprom"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %row.020.i.i)
+  %call2.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %row.020.i.i)
   br i1 %call2.i.i, label %for.cond.i.i, label %if.end
 
 if.end4.i.i:                                      ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
@@ -37274,7 +37274,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.08.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %25 to i32
   %add.i26.i.i.i.i.i = or disjoint i32 %23, %cast.i.i.i.i.i.i
-  %call.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi.argprom.argprom"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i26.i.i.i.i.i)
+  %call.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i26.i.i.i.i.i)
   br i1 %call.i.i.i.i.i.i, label %if.end7.i.i.i.i.i.i, label %if.end
 
 if.end7.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
@@ -37312,7 +37312,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %if.end7.i51.i.i.i.i
   %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.08.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %27 to i32
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
-  %call.i49.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi.argprom.argprom"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i45.i.i.i.i.i)
+  %call.i49.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i45.i.i.i.i.i)
   br i1 %call.i49.i.i.i.i.i, label %if.end7.i51.i.i.i.i.i, label %if.end
 
 if.end7.i51.i.i.i.i.i:                            ; preds = %while.body.i42.i.i.i.i.i
@@ -37345,7 +37345,7 @@ while.body.i63.i.i.i.i.i:                         ; preds = %if.end7.i72.i.i.i.i
   %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.08.i64.i.i.i.i.i, i1 true)
   %cast.i65.i.i.i.i.i = trunc nuw nsw i64 %29 to i32
   %add.i66.i.i.i.i.i = or disjoint i32 %mul.i62.i.i.i.i.i, %cast.i65.i.i.i.i.i
-  %call.i70.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi.argprom.argprom"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i66.i.i.i.i.i)
+  %call.i70.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i66.i.i.i.i.i)
   br i1 %call.i70.i.i.i.i.i, label %if.end7.i72.i.i.i.i.i, label %if.end
 
 if.end7.i72.i.i.i.i.i:                            ; preds = %while.body.i63.i.i.i.i.i
@@ -37381,7 +37381,7 @@ while.body.i87.i.i.i.i.i:                         ; preds = %if.then26.i.i.i10.i
   %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.08.i88.i.i.i.i.i, i1 true)
   %cast.i89.i.i.i.i.i = trunc nuw nsw i64 %31 to i32
   %add.i90.i.i.i.i.i = or disjoint i32 %23, %cast.i89.i.i.i.i.i
-  %call.i94.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi.argprom.argprom"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i90.i.i.i.i.i)
+  %call.i94.i.i.i.i.i = tail call fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %2, ptr nonnull readonly %argumentErrors, i32 noundef %add.i90.i.i.i.i.i)
   br i1 %call.i94.i.i.i.i.i, label %if.end7.i96.i.i.i.i.i, label %if.end
 
 if.end7.i96.i.i.i.i.i:                            ; preds = %while.body.i87.i.i.i.i.i
@@ -39608,7 +39608,7 @@ _ZN8facebook5velox17SelectivityVector12updateBoundsEv.exit: ; preds = %_ZN8faceb
 declare void @_ZNK8facebook5velox4exec7EvalCtx9addErrorsERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEERSA_(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 8 dereferenceable(38), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi.argprom.argprom"(i32 %this.0.val.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN8facebook5velox4exec12_GLOBAL__N_117rethrowFirstErrorERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10FlatVectorIS6_IvEEEEENK3$_0clEi"(i32 %this.0.val.0.val, ptr nocapture readonly %this.8.val, i32 noundef %row) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exceptionPtr = alloca %"class.std::shared_ptr.655", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.369", align 8
@@ -40867,7 +40867,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %call2.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #33
   %char010.pr.i.i.i.i = load i8, ptr %call2.i.i.i.i, align 1
   %cmp4.i.i.i.i = icmp eq i8 %char010.pr.i.i.i.i, 0
-  br i1 %cmp4.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8facebook5velox4exec7ExprSet4evalEiibRKNS1_17SelectivityVectorERNS2_7EvalCtxERSt6vectorISt10shared_ptrINS1_10BaseVectorEESaISC_EEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit", label %if.end6.i.i.i.i
+  br i1 %cmp4.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8facebook5velox4exec7ExprSet4evalEiibRKNS1_17SelectivityVectorERNS2_7EvalCtxERSt6vectorISt10shared_ptrINS1_10BaseVectorEESaISC_EEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %if.end6.i.i.i.i
 
 if.end6.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %entry
   %basePath.056.i.i.i.i = phi ptr [ %call2.i.i.i.i, %if.end.i.i.i.i ], [ %call.i.i.i.i, %entry ]
@@ -40934,7 +40934,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %cleanup.i.i.i.i
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %cleanup.i.i.i.i
-  br i1 %tobool.i.i.i.i.i.i, label %try.cont.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8facebook5velox4exec7ExprSet4evalEiibRKNS1_17SelectivityVectorERNS2_7EvalCtxERSt6vectorISt10shared_ptrINS1_10BaseVectorEESaISC_EEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit"
+  br i1 %tobool.i.i.i.i.i.i, label %try.cont.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8facebook5velox4exec7ExprSet4evalEiibRKNS1_17SelectivityVectorERNS2_7EvalCtxERSt6vectorISt10shared_ptrINS1_10BaseVectorEESaISC_EEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 lpad10.i.i.i.i:                                   ; preds = %invoke.cont14.i.i.i.i, %invoke.cont11.i.i.i.i
   %8 = landingpad { ptr, i32 }
@@ -41166,7 +41166,7 @@ if.then.i.i.i.i47.i.i.i.i:                        ; preds = %cleanup86.i.i.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit48.i.i.i.i: ; preds = %if.then.i.i.i.i47.i.i.i.i, %cleanup86.i.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %allSql.i.i.i.i) #33
-  br label %"_ZSt10__invoke_rIvRZN8facebook5velox4exec7ExprSet4evalEiibRKNS1_17SelectivityVectorERNS2_7EvalCtxERSt6vectorISt10shared_ptrINS1_10BaseVectorEESaISC_EEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN8facebook5velox4exec7ExprSet4evalEiibRKNS1_17SelectivityVectorERNS2_7EvalCtxERSt6vectorISt10shared_ptrINS1_10BaseVectorEESaISC_EEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 lpad66.i.i.i.i:                                   ; preds = %invoke.cont72.i.i.i.i, %if.end64.i.i.i.i
   %30 = landingpad { ptr, i32 }
@@ -41236,7 +41236,7 @@ invoke.cont104.i.i.i.i:                           ; preds = %invoke.cont102.i.i.
 invoke.cont109.i.i.i.i:                           ; preds = %invoke.cont104.i.i.i.i
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp98.i.i.i.i) #33
   call void @__cxa_end_catch()
-  br label %"_ZSt10__invoke_rIvRZN8facebook5velox4exec7ExprSet4evalEiibRKNS1_17SelectivityVectorERNS2_7EvalCtxERSt6vectorISt10shared_ptrINS1_10BaseVectorEESaISC_EEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN8facebook5velox4exec7ExprSet4evalEiibRKNS1_17SelectivityVectorERNS2_7EvalCtxERSt6vectorISt10shared_ptrINS1_10BaseVectorEESaISC_EEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 lpad99.i.i.i.i:                                   ; preds = %catch95.i.i.i.i
   %37 = landingpad { ptr, i32 }
@@ -41265,7 +41265,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %ehcleanup112.i.i.i.
   call void @__clang_call_terminate(ptr %40) #35
   unreachable
 
-"_ZSt10__invoke_rIvRZN8facebook5velox4exec7ExprSet4evalEiibRKNS1_17SelectivityVectorERNS2_7EvalCtxERSt6vectorISt10shared_ptrINS1_10BaseVectorEESaISC_EEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit": ; preds = %if.end.i.i.i.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit48.i.i.i.i, %invoke.cont109.i.i.i.i
+"_ZSt10__invoke_rIvRZN8facebook5velox4exec7ExprSet4evalEiibRKNS1_17SelectivityVectorERNS2_7EvalCtxERSt6vectorISt10shared_ptrINS1_10BaseVectorEESaISC_EEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %if.end.i.i.i.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit48.i.i.i.i, %invoke.cont109.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %dataPathOpt.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp25.i.i.i.i)

@@ -46,7 +46,7 @@ define void @Abc_NtkTestTimNodeStrash_rec(ptr noundef %0, ptr nocapture noundef 
   %14 = ptrtoint ptr %.val15 to i64
   %15 = and i64 %14, -2
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %Hop_ObjChild0CopyI.argprom.exit, label %16
+  br i1 %.not.i, label %Hop_ObjChild0CopyI.exit, label %16
 
 16:                                               ; preds = %5
   %17 = inttoptr i64 %15 to ptr
@@ -54,26 +54,26 @@ define void @Abc_NtkTestTimNodeStrash_rec(ptr noundef %0, ptr nocapture noundef 
   %19 = trunc i64 %14 to i32
   %20 = and i32 %19, 1
   %21 = xor i32 %18, %20
-  br label %Hop_ObjChild0CopyI.argprom.exit
+  br label %Hop_ObjChild0CopyI.exit
 
-Hop_ObjChild0CopyI.argprom.exit:                  ; preds = %5, %16
+Hop_ObjChild0CopyI.exit:                          ; preds = %5, %16
   %22 = phi i32 [ %21, %16 ], [ -1, %5 ]
   %.val16 = load ptr, ptr %10, align 8
   %23 = ptrtoint ptr %.val16 to i64
   %24 = and i64 %23, -2
   %.not.i17 = icmp eq i64 %24, 0
-  br i1 %.not.i17, label %Hop_ObjChild1CopyI.argprom.exit, label %25
+  br i1 %.not.i17, label %Hop_ObjChild1CopyI.exit, label %25
 
-25:                                               ; preds = %Hop_ObjChild0CopyI.argprom.exit
+25:                                               ; preds = %Hop_ObjChild0CopyI.exit
   %26 = inttoptr i64 %24 to ptr
   %27 = load i32, ptr %26, align 8
   %28 = trunc i64 %23 to i32
   %29 = and i32 %28, 1
   %30 = xor i32 %27, %29
-  br label %Hop_ObjChild1CopyI.argprom.exit
+  br label %Hop_ObjChild1CopyI.exit
 
-Hop_ObjChild1CopyI.argprom.exit:                  ; preds = %Hop_ObjChild0CopyI.argprom.exit, %25
-  %31 = phi i32 [ %30, %25 ], [ -1, %Hop_ObjChild0CopyI.argprom.exit ]
+Hop_ObjChild1CopyI.exit:                          ; preds = %Hop_ObjChild0CopyI.exit, %25
+  %31 = phi i32 [ %30, %25 ], [ -1, %Hop_ObjChild0CopyI.exit ]
   %32 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %22, i32 noundef %31) #11
   store i32 %32, ptr %1, align 8
   %33 = load i32, ptr %3, align 8
@@ -81,7 +81,7 @@ Hop_ObjChild1CopyI.argprom.exit:                  ; preds = %Hop_ObjChild0CopyI.
   store i32 %34, ptr %3, align 8
   br label %35
 
-35:                                               ; preds = %2, %Hop_ObjChild1CopyI.argprom.exit
+35:                                               ; preds = %2, %Hop_ObjChild1CopyI.exit
   ret void
 }
 
@@ -174,7 +174,7 @@ define void @Abc_NtkTestTimCollectCone_rec(ptr noundef %0, ptr nocapture noundef
   %.val3.i = load i32, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %5 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %4, i32 noundef %5)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %4, i32 noundef %5)
   %6 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %6, align 8
   %7 = sext i32 %.val3.i to i64
@@ -190,7 +190,7 @@ define void @Abc_NtkTestTimCollectCone_rec(ptr noundef %0, ptr nocapture noundef
   %.val15 = load i32, ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %14 = add nsw i32 %.val15, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %13, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %13, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i17 = load ptr, ptr %15, align 8
   %16 = sext i32 %.val15 to i64
@@ -668,14 +668,14 @@ Abc_NodeIsWhiteBox.exit:                          ; preds = %24
 
 .lr.ph222:                                        ; preds = %.critedge, %.lr.ph222
   %.1150221 = phi i32 [ %48, %.lr.ph222 ], [ 0, %.critedge ]
-  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef %44)
+  tail call fastcc void @Gia_ManAppendCi(ptr noundef %44)
   %48 = add nuw nsw i32 %.1150221, 1
   %exitcond.not = icmp eq i32 %48, %.0144.lcssa
   br i1 %exitcond.not, label %.preheader, label %.lr.ph222, !llvm.loop !11
 
 .lr.ph224:                                        ; preds = %.preheader, %.lr.ph224
   %.2151223 = phi i32 [ %49, %.lr.ph224 ], [ 0, %.preheader ]
-  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef %45)
+  tail call fastcc void @Gia_ManAppendCi(ptr noundef %45)
   %49 = add nuw nsw i32 %.2151223, 1
   %exitcond253.not = icmp eq i32 %49, %.0.lcssa
   br i1 %exitcond253.not, label %._crit_edge, label %.lr.ph224, !llvm.loop !12
@@ -1005,7 +1005,7 @@ Vec_IntPush.exit205:                              ; preds = %.Vec_IntGrow.exit10
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 64
   %195 = load i32, ptr %194, align 8
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef %44, i32 noundef %195)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef %44, i32 noundef %195)
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %.val172 = load ptr, ptr %5, align 8
   %196 = getelementptr i8, ptr %.val172, i64 4
@@ -1018,7 +1018,7 @@ Vec_IntPush.exit205:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv268 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next269, %.critedge8 ]
   %199 = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv268
   %200 = load i32, ptr %199, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef %44, i32 noundef %200)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef %44, i32 noundef %200)
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond271.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count
   br i1 %exitcond271.not, label %.critedge10.thread, label %.critedge8, !llvm.loop !17
@@ -1046,7 +1046,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge10, %.crit
   %indvars.iv272 = phi i64 [ 0, %.lr.ph250 ], [ %indvars.iv.next273, %202 ]
   %203 = getelementptr inbounds i32, ptr %.pre277, i64 %indvars.iv272
   %204 = load i32, ptr %203, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef %45, i32 noundef %204)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef %45, i32 noundef %204)
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count275
   br i1 %exitcond276.not, label %.critedge12.thread, label %202, !llvm.loop !18
@@ -1124,7 +1124,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCi.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -1225,7 +1225,7 @@ declare void @Tim_ManCreateBox(ptr noundef, i32 noundef, i32 noundef, i32 nounde
 declare void @Abc_NtkCleanMarkA(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -2009,7 +2009,7 @@ declare i32 @Abc_NtkToAig(ptr noundef) local_unnamed_addr #1
 declare i32 @Tim_ManBoxNum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

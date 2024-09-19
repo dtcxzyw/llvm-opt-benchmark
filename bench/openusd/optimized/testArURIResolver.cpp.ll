@@ -5187,7 +5187,7 @@ _ZL24TestCreateDefaultContextv.exit:              ; preds = %_ZSt8_DestroyIPSt10
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i75: ; preds = %1595
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  invoke fastcc void @"_ZZL32TestCreateDefaultContextForAssetvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %23)
+  invoke fastcc void @"_ZZL32TestCreateDefaultContextForAssetvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %1597 unwind label %1603
 
 1597:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i75
@@ -5212,7 +5212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i75: 
   br label %.body.i73
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13.i: ; preds = %.noexc10.i
-  invoke fastcc void @"_ZZL32TestCreateDefaultContextForAssetvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %25)
+  invoke fastcc void @"_ZZL32TestCreateDefaultContextForAssetvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(32) %25)
           to label %_ZL32TestCreateDefaultContextForAssetv.exit unwind label %1607
 
 1601:                                             ; preds = %.noexc.i74, %_ZL24TestCreateDefaultContextv.exit
@@ -6961,7 +6961,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver20CreateDefaultC
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZZL32TestCreateDefaultContextForAssetvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL32TestCreateDefaultContextForAssetvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8

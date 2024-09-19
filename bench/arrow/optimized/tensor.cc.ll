@@ -588,12 +588,12 @@ return:                                           ; preds = %_ZNSt6vectorIlSaIlE
 define noundef zeroext i1 @_ZN5arrow8internal25IsTensorStridesContiguousERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strides) local_unnamed_addr #0 {
 entry:
   %type.val = load ptr, ptr %type, align 8
-  %call = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %strides)
+  %call = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %strides)
   br i1 %call, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %type.val4 = load ptr, ptr %type, align 8
-  %call1 = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %strides)
+  %call1 = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %strides)
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
@@ -602,7 +602,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr nonnull %type.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strides) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr nonnull %type.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strides) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %c_strides = alloca %"class.std::vector.2", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -751,7 +751,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit4:                   ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr nonnull %type.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strides) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr nonnull %type.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strides) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %f_strides = alloca %"class.std::vector.2", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -2581,12 +2581,12 @@ entry:
   %shape_ = getelementptr inbounds i8, ptr %this, i64 40
   %strides_ = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i = load ptr, ptr %type_, align 8
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_)
   br i1 %call.i, label %_ZN5arrow8internal25IsTensorStridesContiguousERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
   %type.val4.i = load ptr, ptr %type_, align 8
-  %call1.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_)
+  %call1.i = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_)
   br label %_ZN5arrow8internal25IsTensorStridesContiguousERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.exit
 
 _ZN5arrow8internal25IsTensorStridesContiguousERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.exit: ; preds = %entry, %lor.rhs.i
@@ -2601,7 +2601,7 @@ entry:
   %shape_ = getelementptr inbounds i8, ptr %this, i64 40
   %strides_ = getelementptr inbounds i8, ptr %this, i64 64
   %type_.val = load ptr, ptr %type_, align 8
-  %call = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type_.val, ptr noundef nonnull align 8 dereferenceable(24) %shape_, ptr noundef nonnull align 8 dereferenceable(24) %strides_)
+  %call = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type_.val, ptr noundef nonnull align 8 dereferenceable(24) %shape_, ptr noundef nonnull align 8 dereferenceable(24) %strides_)
   ret i1 %call
 }
 
@@ -2612,7 +2612,7 @@ entry:
   %shape_ = getelementptr inbounds i8, ptr %this, i64 40
   %strides_ = getelementptr inbounds i8, ptr %this, i64 64
   %type_.val = load ptr, ptr %type_, align 8
-  %call = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type_.val, ptr noundef nonnull align 8 dereferenceable(24) %shape_, ptr noundef nonnull align 8 dereferenceable(24) %strides_)
+  %call = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type_.val, ptr noundef nonnull align 8 dereferenceable(24) %shape_, ptr noundef nonnull align 8 dereferenceable(24) %strides_)
   ret i1 %call
 }
 
@@ -2724,7 +2724,7 @@ sw.bb4.i:                                         ; preds = %_ZNK5arrow6Tensor4t
   %shape_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %strides_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i.i.i.i.i = load ptr, ptr %type_.i, align 8, !noalias !56
-  %call.i.i.i.i.i2 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i.i)
+  %call.i.i.i.i.i2 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.noexc:                             ; preds = %sw.bb4.i
@@ -2732,7 +2732,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %sw.bb4.i
 
 _ZNK5arrow6Tensor13is_contiguousEv.exit.i.i.i:    ; preds = %call.i.i.i.i.i.noexc
   %type.val4.i.i.i.i.i = load ptr, ptr %type_.i, align 8, !noalias !56
-  %call1.i.i.i.i.i3 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i.i)
+  %call1.i.i.i.i.i3 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i.i)
           to label %call1.i.i.i.i.i.noexc unwind label %lpad
 
 call1.i.i.i.i.i.noexc:                            ; preds = %_ZNK5arrow6Tensor13is_contiguousEv.exit.i.i.i
@@ -2794,7 +2794,7 @@ sw.bb6.i:                                         ; preds = %_ZNK5arrow6Tensor4t
   %shape_.i.i.i87.i = getelementptr inbounds i8, ptr %this, i64 40
   %strides_.i.i.i88.i = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i.i.i.i89.i = load ptr, ptr %type_.i, align 8, !noalias !60
-  %call.i.i.i.i90.i4 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i.i.i.i89.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i87.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i88.i)
+  %call.i.i.i.i90.i4 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i.i.i.i89.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i87.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i88.i)
           to label %call.i.i.i.i90.i.noexc unwind label %lpad
 
 call.i.i.i.i90.i.noexc:                           ; preds = %sw.bb6.i
@@ -2802,7 +2802,7 @@ call.i.i.i.i90.i.noexc:                           ; preds = %sw.bb6.i
 
 _ZNK5arrow6Tensor13is_contiguousEv.exit.i.i91.i:  ; preds = %call.i.i.i.i90.i.noexc
   %type.val4.i.i.i.i92.i = load ptr, ptr %type_.i, align 8, !noalias !60
-  %call1.i.i.i.i93.i5 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i.i.i.i92.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i87.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i88.i)
+  %call1.i.i.i.i93.i5 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i.i.i.i92.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i87.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i88.i)
           to label %call1.i.i.i.i93.i.noexc unwind label %lpad
 
 call1.i.i.i.i93.i.noexc:                          ; preds = %_ZNK5arrow6Tensor13is_contiguousEv.exit.i.i91.i
@@ -2864,7 +2864,7 @@ sw.bb8.i:                                         ; preds = %_ZNK5arrow6Tensor4t
   %shape_.i.i.i129.i = getelementptr inbounds i8, ptr %this, i64 40
   %strides_.i.i.i130.i = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i.i.i.i131.i = load ptr, ptr %type_.i, align 8, !noalias !64
-  %call.i.i.i.i132.i6 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i.i.i.i131.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i129.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i130.i)
+  %call.i.i.i.i132.i6 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i.i.i.i131.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i129.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i130.i)
           to label %call.i.i.i.i132.i.noexc unwind label %lpad
 
 call.i.i.i.i132.i.noexc:                          ; preds = %sw.bb8.i
@@ -2872,7 +2872,7 @@ call.i.i.i.i132.i.noexc:                          ; preds = %sw.bb8.i
 
 _ZNK5arrow6Tensor13is_contiguousEv.exit.i.i133.i: ; preds = %call.i.i.i.i132.i.noexc
   %type.val4.i.i.i.i134.i = load ptr, ptr %type_.i, align 8, !noalias !64
-  %call1.i.i.i.i135.i7 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i.i.i.i134.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i129.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i130.i)
+  %call1.i.i.i.i135.i7 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i.i.i.i134.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i129.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i130.i)
           to label %call1.i.i.i.i135.i.noexc unwind label %lpad
 
 call1.i.i.i.i135.i.noexc:                         ; preds = %_ZNK5arrow6Tensor13is_contiguousEv.exit.i.i133.i
@@ -2934,7 +2934,7 @@ sw.bb10.i:                                        ; preds = %_ZNK5arrow6Tensor4t
   %shape_.i.i.i171.i = getelementptr inbounds i8, ptr %this, i64 40
   %strides_.i.i.i172.i = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i.i.i.i173.i = load ptr, ptr %type_.i, align 8, !noalias !68
-  %call.i.i.i.i174.i8 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i.i.i.i173.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i171.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i172.i)
+  %call.i.i.i.i174.i8 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i.i.i.i173.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i171.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i172.i)
           to label %call.i.i.i.i174.i.noexc unwind label %lpad
 
 call.i.i.i.i174.i.noexc:                          ; preds = %sw.bb10.i
@@ -2942,7 +2942,7 @@ call.i.i.i.i174.i.noexc:                          ; preds = %sw.bb10.i
 
 _ZNK5arrow6Tensor13is_contiguousEv.exit.i.i175.i: ; preds = %call.i.i.i.i174.i.noexc
   %type.val4.i.i.i.i176.i = load ptr, ptr %type_.i, align 8, !noalias !68
-  %call1.i.i.i.i177.i9 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i.i.i.i176.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i171.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i172.i)
+  %call1.i.i.i.i177.i9 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i.i.i.i176.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i171.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i172.i)
           to label %call1.i.i.i.i177.i.noexc unwind label %lpad
 
 call1.i.i.i.i177.i.noexc:                         ; preds = %_ZNK5arrow6Tensor13is_contiguousEv.exit.i.i175.i
@@ -3004,7 +3004,7 @@ sw.bb12.i:                                        ; preds = %_ZNK5arrow6Tensor4t
   %shape_.i.i.i213.i = getelementptr inbounds i8, ptr %this, i64 40
   %strides_.i.i.i214.i = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i.i.i.i215.i = load ptr, ptr %type_.i, align 8, !noalias !72
-  %call.i.i.i.i216.i10 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i.i.i.i215.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i213.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i214.i)
+  %call.i.i.i.i216.i10 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i.i.i.i215.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i213.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i214.i)
           to label %call.i.i.i.i216.i.noexc unwind label %lpad
 
 call.i.i.i.i216.i.noexc:                          ; preds = %sw.bb12.i
@@ -3012,7 +3012,7 @@ call.i.i.i.i216.i.noexc:                          ; preds = %sw.bb12.i
 
 _ZNK5arrow6Tensor13is_contiguousEv.exit.i.i217.i: ; preds = %call.i.i.i.i216.i.noexc
   %type.val4.i.i.i.i218.i = load ptr, ptr %type_.i, align 8, !noalias !72
-  %call1.i.i.i.i219.i11 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i.i.i.i218.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i213.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i214.i)
+  %call1.i.i.i.i219.i11 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i.i.i.i218.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i213.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i214.i)
           to label %call1.i.i.i.i219.i.noexc unwind label %lpad
 
 call1.i.i.i.i219.i.noexc:                         ; preds = %_ZNK5arrow6Tensor13is_contiguousEv.exit.i.i217.i
@@ -3074,7 +3074,7 @@ sw.bb14.i:                                        ; preds = %_ZNK5arrow6Tensor4t
   %shape_.i.i.i255.i = getelementptr inbounds i8, ptr %this, i64 40
   %strides_.i.i.i256.i = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i.i.i.i257.i = load ptr, ptr %type_.i, align 8, !noalias !76
-  %call.i.i.i.i258.i12 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i.i.i.i257.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i255.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i256.i)
+  %call.i.i.i.i258.i12 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i.i.i.i257.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i255.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i256.i)
           to label %call.i.i.i.i258.i.noexc unwind label %lpad
 
 call.i.i.i.i258.i.noexc:                          ; preds = %sw.bb14.i
@@ -3082,7 +3082,7 @@ call.i.i.i.i258.i.noexc:                          ; preds = %sw.bb14.i
 
 _ZNK5arrow6Tensor13is_contiguousEv.exit.i.i259.i: ; preds = %call.i.i.i.i258.i.noexc
   %type.val4.i.i.i.i260.i = load ptr, ptr %type_.i, align 8, !noalias !76
-  %call1.i.i.i.i261.i13 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i.i.i.i260.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i255.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i256.i)
+  %call1.i.i.i.i261.i13 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i.i.i.i260.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i255.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i256.i)
           to label %call1.i.i.i.i261.i.noexc unwind label %lpad
 
 call1.i.i.i.i261.i.noexc:                         ; preds = %_ZNK5arrow6Tensor13is_contiguousEv.exit.i.i259.i
@@ -3144,7 +3144,7 @@ sw.bb16.i:                                        ; preds = %_ZNK5arrow6Tensor4t
   %shape_.i.i.i297.i = getelementptr inbounds i8, ptr %this, i64 40
   %strides_.i.i.i298.i = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i.i.i.i299.i = load ptr, ptr %type_.i, align 8, !noalias !80
-  %call.i.i.i.i300.i14 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i.i.i.i299.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i297.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i298.i)
+  %call.i.i.i.i300.i14 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i.i.i.i299.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i297.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i298.i)
           to label %call.i.i.i.i300.i.noexc unwind label %lpad
 
 call.i.i.i.i300.i.noexc:                          ; preds = %sw.bb16.i
@@ -3152,7 +3152,7 @@ call.i.i.i.i300.i.noexc:                          ; preds = %sw.bb16.i
 
 _ZNK5arrow6Tensor13is_contiguousEv.exit.i.i301.i: ; preds = %call.i.i.i.i300.i.noexc
   %type.val4.i.i.i.i302.i = load ptr, ptr %type_.i, align 8, !noalias !80
-  %call1.i.i.i.i303.i15 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i.i.i.i302.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i297.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i298.i)
+  %call1.i.i.i.i303.i15 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i.i.i.i302.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i297.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i298.i)
           to label %call1.i.i.i.i303.i.noexc unwind label %lpad
 
 call1.i.i.i.i303.i.noexc:                         ; preds = %_ZNK5arrow6Tensor13is_contiguousEv.exit.i.i301.i
@@ -3214,7 +3214,7 @@ sw.bb18.i:                                        ; preds = %_ZNK5arrow6Tensor4t
   %shape_.i.i.i339.i = getelementptr inbounds i8, ptr %this, i64 40
   %strides_.i.i.i340.i = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i.i.i.i341.i = load ptr, ptr %type_.i, align 8, !noalias !84
-  %call.i.i.i.i342.i16 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i.i.i.i341.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i339.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i340.i)
+  %call.i.i.i.i342.i16 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i.i.i.i341.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i339.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i340.i)
           to label %call.i.i.i.i342.i.noexc unwind label %lpad
 
 call.i.i.i.i342.i.noexc:                          ; preds = %sw.bb18.i
@@ -3222,7 +3222,7 @@ call.i.i.i.i342.i.noexc:                          ; preds = %sw.bb18.i
 
 _ZNK5arrow6Tensor13is_contiguousEv.exit.i.i343.i: ; preds = %call.i.i.i.i342.i.noexc
   %type.val4.i.i.i.i344.i = load ptr, ptr %type_.i, align 8, !noalias !84
-  %call1.i.i.i.i345.i17 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i.i.i.i344.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i339.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i340.i)
+  %call1.i.i.i.i345.i17 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i.i.i.i344.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i339.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i340.i)
           to label %call1.i.i.i.i345.i.noexc unwind label %lpad
 
 call1.i.i.i.i345.i.noexc:                         ; preds = %_ZNK5arrow6Tensor13is_contiguousEv.exit.i.i343.i
@@ -3284,7 +3284,7 @@ sw.bb20.i:                                        ; preds = %_ZNK5arrow6Tensor4t
   %shape_.i.i.i381.i = getelementptr inbounds i8, ptr %this, i64 40
   %strides_.i.i.i382.i = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i.i.i.i383.i = load ptr, ptr %type_.i, align 8, !noalias !88
-  %call.i.i.i.i384.i18 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i.i.i.i383.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i381.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i382.i)
+  %call.i.i.i.i384.i18 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i.i.i.i383.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i381.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i382.i)
           to label %call.i.i.i.i384.i.noexc unwind label %lpad
 
 call.i.i.i.i384.i.noexc:                          ; preds = %sw.bb20.i
@@ -3292,7 +3292,7 @@ call.i.i.i.i384.i.noexc:                          ; preds = %sw.bb20.i
 
 _ZNK5arrow6Tensor13is_contiguousEv.exit.i.i385.i: ; preds = %call.i.i.i.i384.i.noexc
   %type.val4.i.i.i.i386.i = load ptr, ptr %type_.i, align 8, !noalias !88
-  %call1.i.i.i.i387.i19 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i.i.i.i386.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i381.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i382.i)
+  %call1.i.i.i.i387.i19 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i.i.i.i386.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i381.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i382.i)
           to label %call1.i.i.i.i387.i.noexc unwind label %lpad
 
 call1.i.i.i.i387.i.noexc:                         ; preds = %_ZNK5arrow6Tensor13is_contiguousEv.exit.i.i385.i
@@ -3354,7 +3354,7 @@ sw.bb22.i:                                        ; preds = %_ZNK5arrow6Tensor4t
   %shape_.i.i.i423.i = getelementptr inbounds i8, ptr %this, i64 40
   %strides_.i.i.i424.i = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i.i.i.i425.i = load ptr, ptr %type_.i, align 8, !noalias !92
-  %call.i.i.i.i426.i20 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i.i.i.i425.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i423.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i424.i)
+  %call.i.i.i.i426.i20 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i.i.i.i425.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i423.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i424.i)
           to label %call.i.i.i.i426.i.noexc unwind label %lpad
 
 call.i.i.i.i426.i.noexc:                          ; preds = %sw.bb22.i
@@ -3362,7 +3362,7 @@ call.i.i.i.i426.i.noexc:                          ; preds = %sw.bb22.i
 
 _ZNK5arrow6Tensor13is_contiguousEv.exit.i.i427.i: ; preds = %call.i.i.i.i426.i.noexc
   %type.val4.i.i.i.i428.i = load ptr, ptr %type_.i, align 8, !noalias !92
-  %call1.i.i.i.i429.i21 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i.i.i.i428.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i423.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i424.i)
+  %call1.i.i.i.i429.i21 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i.i.i.i428.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i423.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i424.i)
           to label %call1.i.i.i.i429.i.noexc unwind label %lpad
 
 call1.i.i.i.i429.i.noexc:                         ; preds = %_ZNK5arrow6Tensor13is_contiguousEv.exit.i.i427.i
@@ -3424,7 +3424,7 @@ sw.bb24.i:                                        ; preds = %_ZNK5arrow6Tensor4t
   %shape_.i.i.i464.i = getelementptr inbounds i8, ptr %this, i64 40
   %strides_.i.i.i465.i = getelementptr inbounds i8, ptr %this, i64 64
   %type.val.i.i.i.i466.i = load ptr, ptr %type_.i, align 8, !noalias !96
-  %call.i.i.i.i467.i22 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val.i.i.i.i466.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i464.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i465.i)
+  %call.i.i.i.i467.i22 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_123IsTensorStridesRowMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val.i.i.i.i466.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i464.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i465.i)
           to label %call.i.i.i.i467.i.noexc unwind label %lpad
 
 call.i.i.i.i467.i.noexc:                          ; preds = %sw.bb24.i
@@ -3432,7 +3432,7 @@ call.i.i.i.i467.i.noexc:                          ; preds = %sw.bb24.i
 
 _ZNK5arrow6Tensor13is_contiguousEv.exit.i.i468.i: ; preds = %call.i.i.i.i467.i.noexc
   %type.val4.i.i.i.i469.i = load ptr, ptr %type_.i, align 8, !noalias !96
-  %call1.i.i.i.i470.i23 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_.argprom(ptr %type.val4.i.i.i.i469.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i464.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i465.i)
+  %call1.i.i.i.i470.i23 = invoke fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_126IsTensorStridesColumnMajorERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr %type.val4.i.i.i.i469.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %shape_.i.i.i464.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %strides_.i.i.i465.i)
           to label %call1.i.i.i.i470.i.noexc unwind label %lpad
 
 call1.i.i.i.i470.i.noexc:                         ; preds = %_ZNK5arrow6Tensor13is_contiguousEv.exit.i.i468.i
@@ -3491,7 +3491,7 @@ if.else.i.i471.i:                                 ; preds = %call1.i.i.i.i470.i.
   br label %_ZN5arrow6StatusD2Ev.exit.sink.split
 
 sw.bb84.i.invoke:                                 ; preds = %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit, %_ZNK5arrow6Tensor4typeEv.exit
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitERKNS_8DataTypeE.argprom(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %5)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %5)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 sw.epilog.i:                                      ; preds = %_ZNK5arrow6Tensor4typeEv.exit
@@ -4720,7 +4720,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitERKNS_8DataTypeE.argprom(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitERKNS_8DataTypeE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.arrow::util::ArrowLog", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5831,8 +5831,8 @@ attributes #24 = { noreturn nounwind }
 !19 = distinct !{!19, !20, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !20 = distinct !{!20, !"_ZN5arrow6Status2OKEv"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS_8DataTypeEERKS1_INS_6BufferEERKSt6vectorIlSaIlEE.argprom: %agg.result"}
-!23 = distinct !{!23, !"_ZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS_8DataTypeEERKS1_INS_6BufferEERKSt6vectorIlSaIlEE.argprom"}
+!22 = distinct !{!22, !23, !"_ZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS_8DataTypeEERKS1_INS_6BufferEERKSt6vectorIlSaIlEE: %agg.result"}
+!23 = distinct !{!23, !"_ZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS_8DataTypeEERKS1_INS_6BufferEERKSt6vectorIlSaIlEE"}
 !24 = distinct !{!24, !5}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result:thread"}
@@ -5840,8 +5840,8 @@ attributes #24 = { noreturn nounwind }
 !28 = !{!29}
 !29 = distinct !{!29, !27, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN5arrow12_GLOBAL__N_126CheckTensorStridesValidityERKSt10shared_ptrINS_6BufferEERKSt6vectorIlSaIlEESA_RKS1_INS_8DataTypeEE.argprom: %agg.result"}
-!32 = distinct !{!32, !"_ZN5arrow12_GLOBAL__N_126CheckTensorStridesValidityERKSt10shared_ptrINS_6BufferEERKSt6vectorIlSaIlEESA_RKS1_INS_8DataTypeEE.argprom"}
+!31 = distinct !{!31, !32, !"_ZN5arrow12_GLOBAL__N_126CheckTensorStridesValidityERKSt10shared_ptrINS_6BufferEERKSt6vectorIlSaIlEESA_RKS1_INS_8DataTypeEE: %agg.result"}
+!32 = distinct !{!32, !"_ZN5arrow12_GLOBAL__N_126CheckTensorStridesValidityERKSt10shared_ptrINS_6BufferEERKSt6vectorIlSaIlEESA_RKS1_INS_8DataTypeEE"}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = !{!36}
@@ -5866,48 +5866,48 @@ attributes #24 = { noreturn nounwind }
 !54 = distinct !{!54, !55, !"_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114NonZeroCounterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_: %agg.result"}
 !55 = distinct !{!55, !"_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114NonZeroCounterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_"}
 !56 = !{!57, !54}
-!57 = distinct !{!57, !58, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_8Int8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
-!58 = distinct !{!58, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_8Int8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
+!57 = distinct !{!57, !58, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_8Int8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
+!58 = distinct !{!58, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_8Int8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
 !59 = distinct !{!59, !5}
 !60 = !{!61, !54}
-!61 = distinct !{!61, !62, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
-!62 = distinct !{!62, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
+!61 = distinct !{!61, !62, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
+!62 = distinct !{!62, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
 !63 = distinct !{!63, !5}
 !64 = !{!65, !54}
-!65 = distinct !{!65, !66, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
-!66 = distinct !{!66, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
+!65 = distinct !{!65, !66, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
+!66 = distinct !{!66, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
 !67 = distinct !{!67, !5}
 !68 = !{!69, !54}
-!69 = distinct !{!69, !70, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
-!70 = distinct !{!70, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
+!69 = distinct !{!69, !70, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
+!70 = distinct !{!70, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
 !71 = distinct !{!71, !5}
 !72 = !{!73, !54}
-!73 = distinct !{!73, !74, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
-!74 = distinct !{!74, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
+!73 = distinct !{!73, !74, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
+!74 = distinct !{!74, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
 !75 = distinct !{!75, !5}
 !76 = !{!77, !54}
-!77 = distinct !{!77, !78, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
-!78 = distinct !{!78, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
+!77 = distinct !{!77, !78, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
+!78 = distinct !{!78, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
 !79 = distinct !{!79, !5}
 !80 = !{!81, !54}
-!81 = distinct !{!81, !82, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
-!82 = distinct !{!82, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
+!81 = distinct !{!81, !82, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
+!82 = distinct !{!82, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9Int64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
 !83 = distinct !{!83, !5}
 !84 = !{!85, !54}
-!85 = distinct !{!85, !86, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
-!86 = distinct !{!86, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
+!85 = distinct !{!85, !86, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
+!86 = distinct !{!86, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
 !87 = distinct !{!87, !5}
 !88 = !{!89, !54}
-!89 = distinct !{!89, !90, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
-!90 = distinct !{!90, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
+!89 = distinct !{!89, !90, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
+!90 = distinct !{!90, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
 !91 = distinct !{!91, !5}
 !92 = !{!93, !54}
-!93 = distinct !{!93, !94, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9FloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
-!94 = distinct !{!94, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9FloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
+!93 = distinct !{!93, !94, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9FloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
+!94 = distinct !{!94, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_9FloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
 !95 = distinct !{!95, !5}
 !96 = !{!97, !54}
-!97 = distinct !{!97, !98, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10DoubleTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom: %agg.result"}
-!98 = distinct !{!98, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10DoubleTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_.argprom"}
+!97 = distinct !{!97, !98, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10DoubleTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_: %agg.result"}
+!98 = distinct !{!98, !"_ZN5arrow12_GLOBAL__N_114NonZeroCounter5VisitINS_10DoubleTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS5_"}
 !99 = distinct !{!99, !5}
 !100 = !{!101}
 !101 = distinct !{!101, !102, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}

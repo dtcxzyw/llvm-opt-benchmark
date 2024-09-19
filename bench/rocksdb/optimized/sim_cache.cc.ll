@@ -656,7 +656,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i
   %30 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
   %cmp.not.i.i.i21.i.i.i.i.i.i.i = icmp eq ptr %30, null
-  br i1 %cmp.not.i.i.i21.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.argprom.exit, label %if.then.i.i.i22.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i21.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.exit, label %if.then.i.i.i22.i.i.i.i.i.i.i
 
 if.then.i.i.i22.i.i.i.i.i.i.i:                    ; preds = %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit.i.i.i.i.i.i.i
   %_M_use_count.i.i.i.i23.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
@@ -692,7 +692,7 @@ if.else.i.i.i.i.i46.i.i.i.i.i.i.i:                ; preds = %if.end.i.i.i.i25.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i29.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i46.i.i.i.i.i.i.i, %if.then.i.i.i.i.i27.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i30.i.i.i.i.i.i.i = phi i32 [ %32, %if.then.i.i.i.i.i27.i.i.i.i.i.i.i ], [ %35, %if.else.i.i.i.i.i46.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i31.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i30.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i31.i.i.i.i.i.i.i, label %if.then7.i.i.i.i32.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i31.i.i.i.i.i.i.i, label %if.then7.i.i.i.i32.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.exit
 
 if.then7.i.i.i.i32.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i29.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i33.i.i.i.i.i.i.i = load ptr, ptr %30, align 8, !noalias !4
@@ -717,16 +717,16 @@ if.else.i.i.i.i.i.i.i45.i.i.i.i.i.i.i:            ; preds = %if.then7.i.i.i.i32.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i39.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i45.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i37.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i40.i.i.i.i.i.i.i = phi i32 [ %38, %if.then.i.i.i.i.i.i.i37.i.i.i.i.i.i.i ], [ %39, %if.else.i.i.i.i.i.i.i45.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i41.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i40.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i41.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i42.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i41.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i42.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i42.i.i.i.i.i.i.i:       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i39.i.i.i.i.i.i.i, %if.then.i.i.i.i47.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i43.i.i.i.i.i.i.i = load ptr, ptr %30, align 8, !noalias !4
   %vfn3.i.i.i.i.i.i44.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i43.i.i.i.i.i.i.i, i64 24
   %40 = load ptr, ptr %vfn3.i.i.i.i.i.i44.i.i.i.i.i.i.i, align 8, !noalias !4
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #17, !noalias !4
-  br label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.exit
 
-_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.argprom.exit: ; preds = %if.end8.sink.split.i.i.i.i42.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i39.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i29.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit.i.i.i.i.i.i.i
+_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i42.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i39.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i29.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i), !noalias !4
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
@@ -734,7 +734,7 @@ _ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.argprom.exit: ; pr
   store ptr %call5.i.i.i5.i.i.i.i, ptr %_M_refcount.i.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.argprom.exit, %if.then
+return:                                           ; preds = %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_112SimCacheImplEED2Ev.exit, %if.then
   ret void
 }
 
@@ -1043,7 +1043,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_112SimCacheImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_112SimCacheImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_112SimCacheImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -3887,8 +3887,8 @@ attributes #19 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 1}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_112SimCacheImplEJRSt10shared_ptrINS0_5CacheEES6_EES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom: %agg.result"}
-!6 = distinct !{!6, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_112SimCacheImplEJRSt10shared_ptrINS0_5CacheEES6_EES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_112SimCacheImplEJRSt10shared_ptrINS0_5CacheEES6_EES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: %agg.result"}
+!6 = distinct !{!6, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_112SimCacheImplEJRSt10shared_ptrINS0_5CacheEES6_EES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !9 = distinct !{!9, !"_ZN7rocksdb6Status2OKEv"}

@@ -2441,7 +2441,7 @@ _ZN4llvm16VPTransformState14hasScalarValueEPNS_7VPValueENS_11VPIterationE.exit.t
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr i8, ptr %1, i64 48
   %.val44.val = load ptr, ptr %134, align 8
-  %135 = tail call fastcc noundef ptr @"_ZZN4llvm16VPTransformState3getEPNS_7VPValueEjbENK3$_0clEPNS_5ValueE.argprom.argprom"(ptr nonnull %0, ptr %.val44.val, ptr noundef %133)
+  %135 = tail call fastcc noundef ptr @"_ZZN4llvm16VPTransformState3getEPNS_7VPValueEjbENK3$_0clEPNS_5ValueE"(ptr nonnull %0, ptr %.val44.val, ptr noundef %133)
   tail call void @_ZN4llvm16VPTransformState3setEPNS_7VPValueEPNS_5ValueEjb(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef %1, ptr noundef %135, i32 noundef 0, i1 noundef zeroext false)
   br label %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit
 
@@ -2592,7 +2592,7 @@ _ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11I
 218:                                              ; preds = %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit
   %219 = getelementptr i8, ptr %1, i64 48
   %.val46.val = load ptr, ptr %219, align 8
-  %220 = tail call fastcc noundef ptr @"_ZZN4llvm16VPTransformState3getEPNS_7VPValueEjbENK3$_0clEPNS_5ValueE.argprom.argprom"(ptr nonnull %0, ptr %.val46.val, ptr noundef %139)
+  %220 = tail call fastcc noundef ptr @"_ZZN4llvm16VPTransformState3getEPNS_7VPValueEjbENK3$_0clEPNS_5ValueE"(ptr nonnull %0, ptr %.val46.val, ptr noundef %139)
   tail call void @_ZN4llvm16VPTransformState3setEPNS_7VPValueEPNS_5ValueEjb(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef %1, ptr noundef %220, i32 noundef %.tr110137, i1 noundef zeroext false)
   br label %240
 
@@ -2657,7 +2657,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit: ; preds = %243, %242,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN4llvm16VPTransformState3getEPNS_7VPValueEjbENK3$_0clEPNS_5ValueE.argprom.argprom"(ptr %.0.val, ptr readnone %.8.val.48.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN4llvm16VPTransformState3getEPNS_7VPValueEjbENK3$_0clEPNS_5ValueE"(ptr %.0.val, ptr readnone %.8.val.48.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::IRBuilderBase::InsertPointGuard", align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -4655,7 +4655,7 @@ _ZNK4llvm11VPIteration16isFirstIterationEv.exit:  ; preds = %11, %7, %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.argprom.exit.thread", label %tailrecurse.i.i
+  br i1 %.not, label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit.thread", label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %_ZNK4llvm11VPIteration16isFirstIterationEv.exit, %25
   %.tr.i.i = phi ptr [ %27, %25 ], [ %0, %_ZNK4llvm11VPIteration16isFirstIterationEv.exit ]
@@ -4752,21 +4752,21 @@ _ZN4llvm12VPBasicBlock22getEnclosingLoopRegionEv.exit: ; preds = %50, %55, %59
 63:                                               ; preds = %_ZN4llvm12VPBasicBlock22getEnclosingLoopRegionEv.exit
   %64 = load i8, ptr %33, align 8
   %.not.i35 = icmp eq i8 %64, 0
-  br i1 %.not.i35, label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.argprom.exit", label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.argprom.exit.thread"
+  br i1 %.not.i35, label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit", label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit.thread"
 
-"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.argprom.exit": ; preds = %63
+"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit": ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %31, i64 128
   %66 = load i8, ptr %65, align 8
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.argprom.exit.thread", label %_ZN4llvm11VPBlockBase32getSingleHierarchicalPredecessorEv.exit.thread
+  br i1 %67, label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit.thread", label %_ZN4llvm11VPBlockBase32getSingleHierarchicalPredecessorEv.exit.thread
 
-_ZN4llvm11VPBlockBase32getSingleHierarchicalPredecessorEv.exit.thread: ; preds = %_ZN4llvm11VPBlockBase31getEnclosingBlockWithSuccessorsEv.exit.i, %_ZN4llvm11VPBlockBase33getEnclosingBlockWithPredecessorsEv.exit.i, %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.argprom.exit", %_ZN4llvm12VPBasicBlock22getEnclosingLoopRegionEv.exit, %_ZN4llvm11VPBlockBase30getSingleHierarchicalSuccessorEv.exit, %_ZN4llvm11VPBlockBase20getExitingBasicBlockEv.exit, %_ZN4llvm11VPBlockBase32getSingleHierarchicalPredecessorEv.exit
+_ZN4llvm11VPBlockBase32getSingleHierarchicalPredecessorEv.exit.thread: ; preds = %_ZN4llvm11VPBlockBase31getEnclosingBlockWithSuccessorsEv.exit.i, %_ZN4llvm11VPBlockBase33getEnclosingBlockWithPredecessorsEv.exit.i, %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit", %_ZN4llvm12VPBasicBlock22getEnclosingLoopRegionEv.exit, %_ZN4llvm11VPBlockBase30getSingleHierarchicalSuccessorEv.exit, %_ZN4llvm11VPBlockBase20getExitingBasicBlockEv.exit, %_ZN4llvm11VPBlockBase32getSingleHierarchicalPredecessorEv.exit
   br i1 %18, label %68, label %71
 
 68:                                               ; preds = %_ZN4llvm11VPBlockBase32getSingleHierarchicalPredecessorEv.exit.thread
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %70 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #21
-  br i1 %70, label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.argprom.exit.thread", label %71
+  br i1 %70, label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit.thread", label %71
 
 71:                                               ; preds = %68, %_ZN4llvm11VPBlockBase32getSingleHierarchicalPredecessorEv.exit.thread
   %72 = tail call noundef ptr @_ZN4llvm12VPBasicBlock21createEmptyBasicBlockERNS_16VPTransformState8CFGStateE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(536) %19)
@@ -4830,10 +4830,10 @@ _ZN4llvm13IRBuilderBase17CreateUnreachableEv.exit: ; preds = %.lr.ph.i.i.i, %71
   %102 = load ptr, ptr %73, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %102, ptr noundef nonnull %79)
   store ptr %72, ptr %21, align 8
-  br label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.argprom.exit.thread"
+  br label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit.thread"
 
-"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.argprom.exit.thread": ; preds = %63, %101, %68, %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.argprom.exit", %_ZNK4llvm11VPIteration16isFirstIterationEv.exit
-  %.0 = phi ptr [ %22, %68 ], [ %72, %101 ], [ %22, %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.argprom.exit" ], [ %22, %_ZNK4llvm11VPIteration16isFirstIterationEv.exit ], [ %22, %63 ]
+"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit.thread": ; preds = %63, %101, %68, %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit", %_ZNK4llvm11VPIteration16isFirstIterationEv.exit
+  %.0 = phi ptr [ %22, %68 ], [ %72, %101 ], [ %22, %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit" ], [ %22, %_ZNK4llvm11VPIteration16isFirstIterationEv.exit ], [ %22, %63 ]
   call void @_ZN4llvm12VPBasicBlock14executeRecipesEPNS_16VPTransformStateEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef %.0)
   ret void
 }

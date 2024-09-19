@@ -85,19 +85,19 @@ define dso_local void @_ZN4llvm20CrashRecoveryContextD2Ev(ptr noundef nonnull al
   %.val10 = load i8, ptr %18, align 8
   %19 = and i8 %.val10, 2
   %.not.i = icmp eq i8 %19, 0
-  br i1 %.not.i, label %20, label %_ZN12_GLOBAL__N_124CrashRecoveryContextImplD2Ev.argprom.exit
+  br i1 %.not.i, label %20, label %_ZN12_GLOBAL__N_124CrashRecoveryContextImplD2Ev.exit
 
 20:                                               ; preds = %17
   %.val = load ptr, ptr %15, align 8
   %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN12_GLOBAL__N_114CurrentContextE)
   store ptr %.val, ptr %21, align 8
-  br label %_ZN12_GLOBAL__N_124CrashRecoveryContextImplD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_124CrashRecoveryContextImplD2Ev.exit
 
-_ZN12_GLOBAL__N_124CrashRecoveryContextImplD2Ev.argprom.exit: ; preds = %17, %20
+_ZN12_GLOBAL__N_124CrashRecoveryContextImplD2Ev.exit: ; preds = %17, %20
   tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 224) #20
   br label %22
 
-22:                                               ; preds = %_ZN12_GLOBAL__N_124CrashRecoveryContextImplD2Ev.argprom.exit, %._crit_edge
+22:                                               ; preds = %_ZN12_GLOBAL__N_124CrashRecoveryContextImplD2Ev.exit, %._crit_edge
   ret void
 }
 
@@ -423,26 +423,26 @@ define dso_local noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext17RunSafelyOn
   store ptr @_ZL26RunSafelyOnThread_DispatchPv, ptr %10, align 8
   %11 = call noundef i64 @_ZN4llvm27llvm_execute_on_thread_implEPFPvS0_ES0_St8optionalIjE(ptr noundef nonnull @_ZN4llvm6thread11ThreadProxyISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEES3_S3_, ptr noundef nonnull %9, i64 %.sroa.0.0.insert.insert) #19
   %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %_ZNKSt14default_deleteISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEclEPS7_.argprom.exit.i.i, label %_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.argprom.exit
+  br i1 %.not.i, label %_ZNKSt14default_deleteISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEclEPS7_.exit.i.i, label %_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.exit
 
-_ZNKSt14default_deleteISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEclEPS7_.argprom.exit.i.i: ; preds = %4
+_ZNKSt14default_deleteISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEclEPS7_.exit.i.i: ; preds = %4
   call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 16) #20
-  br label %_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.argprom.exit
+  br label %_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.exit
 
-_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.argprom.exit: ; preds = %4, %_ZNKSt14default_deleteISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEclEPS7_.argprom.exit.i.i
+_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.exit: ; preds = %4, %_ZNKSt14default_deleteISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEclEPS7_.exit.i.i
   call void @_ZN4llvm21llvm_thread_join_implEm(i64 noundef %11) #19
   %12 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %_ZN4llvm6threadD2Ev.exit, label %13
 
-13:                                               ; preds = %_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.argprom.exit
+13:                                               ; preds = %_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.exit
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 216
   %15 = load i8, ptr %14, align 8
   %16 = or i8 %15, 2
   store i8 %16, ptr %14, align 8
   br label %_ZN4llvm6threadD2Ev.exit
 
-_ZN4llvm6threadD2Ev.exit:                         ; preds = %_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.argprom.exit, %13
+_ZN4llvm6threadD2Ev.exit:                         ; preds = %_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.exit, %13
   %17 = load i8, ptr %8, align 1
   %18 = trunc i8 %17 to i1
   ret i1 %18

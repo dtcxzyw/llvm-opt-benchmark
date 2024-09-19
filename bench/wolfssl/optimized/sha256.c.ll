@@ -151,7 +151,7 @@ for.body9.i:                                      ; preds = %if.then21, %for.bod
   br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
-  tail call fastcc void @Transform_Sha256.retelim(ptr noundef %sha256, ptr noundef %buffer)
+  tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   store i32 0, ptr %buffLen, align 16
   br label %if.end33
 
@@ -186,7 +186,7 @@ for.body.i57.us:                                  ; preds = %while.body.us, %for
 
 ByteReverseWords.exit64.loopexit.us:              ; preds = %for.body.i57.us
   %sub39.us = add i32 %len.addr.1.us, -64
-  tail call fastcc void @Transform_Sha256.retelim(ptr noundef %sha256, ptr noundef %buffer)
+  tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   %cmp34.us = icmp ugt i32 %sub39.us, 63
   br i1 %cmp34.us, label %while.body.us, label %while.end, !llvm.loop !7
 
@@ -209,7 +209,7 @@ for.body9.i48:                                    ; preds = %while.body, %for.bo
 
 ByteReverseWords.exit64.loopexit65:               ; preds = %for.body9.i48
   %sub39 = add i32 %len.addr.1, -64
-  tail call fastcc void @Transform_Sha256.retelim(ptr noundef %sha256, ptr noundef %buffer)
+  tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   %cmp34 = icmp ugt i32 %sub39, 63
   br i1 %cmp34, label %while.body, label %while.end, !llvm.loop !7
 
@@ -405,7 +405,7 @@ for.body9.i:                                      ; preds = %if.then7, %for.body
   br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
-  tail call fastcc void @Transform_Sha256.retelim(ptr noundef %sha256, ptr noundef %buffer)
+  tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   store i32 0, ptr %buffLen, align 16
   br label %if.end24
 
@@ -455,7 +455,7 @@ ByteReverseWords.exit52:                          ; preds = %for.body9.i36, %for
   %arrayidx42 = getelementptr inbounds i8, ptr %sha256, i64 92
   %10 = load i32, ptr %loLen, align 4
   store i32 %10, ptr %arrayidx42, align 1
-  tail call fastcc void @Transform_Sha256.retelim(ptr noundef %sha256, ptr noundef %buffer)
+  tail call fastcc void @Transform_Sha256(ptr noundef %sha256, ptr noundef %buffer)
   br label %return
 
 return:                                           ; preds = %entry, %ByteReverseWords.exit52
@@ -904,7 +904,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Transform_Sha256.retelim(ptr nocapture noundef nonnull %sha256, ptr nocapture noundef nonnull readonly %data) unnamed_addr #1 {
+define internal fastcc void @Transform_Sha256(ptr nocapture noundef nonnull %sha256, ptr nocapture noundef nonnull readonly %data) unnamed_addr #1 {
 entry:
   %S = alloca [8 x i32], align 16
   %W = alloca [64 x i32], align 16

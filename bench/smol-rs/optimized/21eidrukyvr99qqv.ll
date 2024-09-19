@@ -454,7 +454,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   store ptr %78, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %.148, i64 488
   %80 = atomicrmw or ptr %79, i64 1 release, align 8
-  br label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17hae1f0257ed15387dE.argprom.exit71"
+  br label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17hae1f0257ed15387dE.exit71"
 
 81:                                               ; preds = %.lr.ph194
   %82 = load atomic i64, ptr %6 acquire, align 128
@@ -490,7 +490,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #13
   unreachable
 
-"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17hae1f0257ed15387dE.argprom.exit71": ; preds = %94, %92, %73
+"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17hae1f0257ed15387dE.exit71": ; preds = %94, %92, %73
   %.sroa.0.0100 = phi i64 [ 2, %73 ], [ %.sroa.0.0101, %92 ], [ %.sroa.0.0101, %94 ]
   %.sroa.3.098 = phi ptr [ undef, %73 ], [ %.sroa.3.099, %92 ], [ %.sroa.3.099, %94 ]
   %90 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0100, 0
@@ -502,11 +502,11 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %.sroa.3.099 = phi ptr [ %20, %.thread92 ], [ undef, %.thread102 ]
   %.17697 = phi ptr [ %.0.ph.lcssa125, %.thread92 ], [ %.3, %.thread102 ]
   %93 = icmp eq ptr %.17697, null
-  br i1 %93, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17hae1f0257ed15387dE.argprom.exit71", label %94
+  br i1 %93, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17hae1f0257ed15387dE.exit71", label %94
 
 94:                                               ; preds = %92
   tail call void @__rust_dealloc(ptr noundef nonnull %.17697, i64 noundef 504, i64 noundef 8) #11
-  br label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17hae1f0257ed15387dE.argprom.exit71"
+  br label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17hae1f0257ed15387dE.exit71"
 
 95:                                               ; preds = %.thread
   resume { ptr, i32 } %.pn84

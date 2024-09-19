@@ -689,7 +689,7 @@ sw.bb:                                            ; preds = %if.end11, %if.end11
 sw.bb16:                                          ; preds = %if.end11
   %7 = getelementptr i8, ptr %state, i64 24
   %state.val = load ptr, ptr %7, align 8
-  %call17 = call fastcc ptr @parse_filter_spec_delta.argprom(ptr %state.val, ptr noundef %spec)
+  %call17 = call fastcc ptr @parse_filter_spec_delta(ptr %state.val, ptr noundef %spec)
   %options18 = getelementptr inbounds i8, ptr %ptr, i64 8
   store ptr %call17, ptr %options18, align 8
   %cmp20 = icmp ne ptr %call17, null
@@ -708,7 +708,7 @@ sw.bb22:                                          ; preds = %if.end11, %if.end11
 if.then.i:                                        ; preds = %sw.bb22
   %9 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.27) #9
-  br label %parse_filter_spec_bcj.argprom.exit
+  br label %parse_filter_spec_bcj.exit
 
 if.end.i18:                                       ; preds = %sw.bb22
   %call1.i = call ptr @PyMem_Calloc(i64 noundef 1, i64 noundef 4) #9
@@ -717,14 +717,14 @@ if.end.i18:                                       ; preds = %sw.bb22
 
 if.then2.i:                                       ; preds = %if.end.i18
   %call3.i = call ptr @PyErr_NoMemory() #9
-  br label %parse_filter_spec_bcj.argprom.exit
+  br label %parse_filter_spec_bcj.exit
 
 if.end4.i:                                        ; preds = %if.end.i18
   %10 = load i32, ptr %start_offset.i, align 4
   store i32 %10, ptr %call1.i, align 4
-  br label %parse_filter_spec_bcj.argprom.exit
+  br label %parse_filter_spec_bcj.exit
 
-parse_filter_spec_bcj.argprom.exit:               ; preds = %if.then.i, %if.then2.i, %if.end4.i
+parse_filter_spec_bcj.exit:                       ; preds = %if.then.i, %if.then2.i, %if.end4.i
   %retval.0.i = phi ptr [ %call3.i, %if.then2.i ], [ %call1.i, %if.end4.i ], [ null, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %id.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %start_offset.i)
@@ -738,8 +738,8 @@ sw.default:                                       ; preds = %if.end11
   %call29 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.7, i64 noundef %6) #9
   br label %return
 
-return:                                           ; preds = %Py_DECREF.exit, %if.end, %sw.default, %parse_filter_spec_bcj.argprom.exit, %sw.bb16, %sw.bb, %if.then5, %if.then
-  %retval.0.shrunk = phi i1 [ false, %if.then5 ], [ false, %sw.default ], [ %cmp26, %parse_filter_spec_bcj.argprom.exit ], [ %cmp20, %sw.bb16 ], [ %cmp15, %sw.bb ], [ false, %if.then ], [ false, %if.end ], [ false, %Py_DECREF.exit ]
+return:                                           ; preds = %Py_DECREF.exit, %if.end, %sw.default, %parse_filter_spec_bcj.exit, %sw.bb16, %sw.bb, %if.then5, %if.then
+  %retval.0.shrunk = phi i1 [ false, %if.then5 ], [ false, %sw.default ], [ %cmp26, %parse_filter_spec_bcj.exit ], [ %cmp20, %sw.bb16 ], [ %cmp15, %sw.bb ], [ false, %if.then ], [ false, %if.end ], [ false, %Py_DECREF.exit ]
   %retval.0 = zext i1 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -859,7 +859,7 @@ return:                                           ; preds = %if.end16, %Py_DECRE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_filter_spec_delta.argprom(ptr %state.24.val, ptr noundef %spec) unnamed_addr #0 {
+define internal fastcc ptr @parse_filter_spec_delta(ptr %state.24.val, ptr noundef %spec) unnamed_addr #0 {
 entry:
   %id = alloca ptr, align 8
   %dist = alloca i32, align 4

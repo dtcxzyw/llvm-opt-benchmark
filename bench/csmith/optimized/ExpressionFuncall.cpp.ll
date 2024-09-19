@@ -75,19 +75,19 @@ define dso_local noundef ptr @_ZN17ExpressionFuncall11make_randomER9CGContextPK4
 
 9:                                                ; preds = %3
   %10 = tail call noundef zeroext i1 @_ZN9CGOptions8builtinsEv()
-  br i1 %10, label %11, label %_ZL29ExpressionFunctionProbabilityRK9CGContext.argprom.exit
+  br i1 %10, label %11, label %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit
 
 11:                                               ; preds = %9, %3
   %12 = tail call noundef zeroext i1 @_Z12rnd_flipcoinjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef 80, ptr noundef null, ptr noundef null)
-  br label %_ZL29ExpressionFunctionProbabilityRK9CGContext.argprom.exit
+  br label %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit
 
-_ZL29ExpressionFunctionProbabilityRK9CGContext.argprom.exit: ; preds = %9, %11
+_ZL29ExpressionFunctionProbabilityRK9CGContext.exit: ; preds = %9, %11
   %.0.i = phi i1 [ %12, %11 ], [ true, %9 ]
   %13 = load i32, ptr @_ZN5Error8r_error_E, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %88
 
-14:                                               ; preds = %_ZL29ExpressionFunctionProbabilityRK9CGContext.argprom.exit
+14:                                               ; preds = %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit
   %.not33 = icmp eq ptr %1, null
   br i1 %.not33, label %22, label %15
 
@@ -297,8 +297,8 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit45:          ; preds = %87, %85, %57
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #15
   br label %common.resume
 
-88:                                               ; preds = %_ZL29ExpressionFunctionProbabilityRK9CGContext.argprom.exit, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
-  %.0 = phi ptr [ %.1, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ null, %_ZL29ExpressionFunctionProbabilityRK9CGContext.argprom.exit ]
+88:                                               ; preds = %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
+  %.0 = phi ptr [ %.1, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ null, %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit ]
   ret ptr %.0
 }
 

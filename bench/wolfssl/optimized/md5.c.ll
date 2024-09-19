@@ -92,7 +92,7 @@ if.then13:                                        ; preds = %AddLength.exit
   br i1 %cmp19, label %if.then21, label %if.end29
 
 if.then21:                                        ; preds = %if.then13
-  tail call fastcc void @Transform.retelim(ptr noundef %md5, ptr noundef %buffer)
+  tail call fastcc void @Transform(ptr noundef %md5, ptr noundef %buffer)
   store i32 0, ptr %md5, align 8
   br label %if.end29
 
@@ -108,7 +108,7 @@ while.body:                                       ; preds = %if.end29, %while.bo
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %buffer, ptr noundef nonnull align 1 dereferenceable(64) %data.addr.140, i64 64, i1 false)
   %add.ptr34 = getelementptr inbounds i8, ptr %data.addr.140, i64 64
   %sub35 = add i32 %len.addr.139, -64
-  tail call fastcc void @Transform.retelim(ptr noundef %md5, ptr noundef %buffer)
+  tail call fastcc void @Transform(ptr noundef %md5, ptr noundef %buffer)
   %cmp30 = icmp ugt i32 %sub35, 63
   br i1 %cmp30, label %while.body, label %while.end, !llvm.loop !4
 
@@ -133,7 +133,7 @@ return:                                           ; preds = %while.end, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @Transform.retelim(ptr nocapture noundef nonnull %md5, ptr nocapture noundef nonnull readonly %data) unnamed_addr #3 {
+define internal fastcc void @Transform(ptr nocapture noundef nonnull %md5, ptr nocapture noundef nonnull readonly %data) unnamed_addr #3 {
 entry:
   %digest = getelementptr inbounds i8, ptr %md5, i64 76
   %0 = load i32, ptr %digest, align 4
@@ -710,7 +710,7 @@ if.then8:                                         ; preds = %if.end4
   %conv = zext nneg i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx11, i8 0, i64 %conv, i1 false)
   store i32 64, ptr %md5, align 8
-  tail call fastcc void @Transform.retelim(ptr noundef %md5, ptr noundef %buffer)
+  tail call fastcc void @Transform(ptr noundef %md5, ptr noundef %buffer)
   store i32 0, ptr %md5, align 8
   br label %if.end17
 
@@ -733,7 +733,7 @@ if.end17:                                         ; preds = %if.then8, %if.end4
   store i32 %shl27, ptr %arrayidx29, align 1
   %arrayidx31 = getelementptr inbounds i8, ptr %md5, i64 72
   store i32 %add24, ptr %arrayidx31, align 1
-  tail call fastcc void @Transform.retelim(ptr noundef %md5, ptr noundef %buffer)
+  tail call fastcc void @Transform(ptr noundef %md5, ptr noundef %buffer)
   %digest = getelementptr inbounds i8, ptr %md5, i64 76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %hash, ptr noundef nonnull align 4 dereferenceable(16) %digest, i64 16, i1 false)
   store i32 1732584193, ptr %digest, align 4
@@ -823,7 +823,7 @@ if.then8.i:                                       ; preds = %if.end4.i
   %conv.i = zext nneg i32 %sub.i to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx11.i, i8 0, i64 %conv.i, i1 false)
   store i32 64, ptr %tmpMd5, align 8
-  call fastcc void @Transform.retelim(ptr noundef %tmpMd5, ptr noundef %buffer.i)
+  call fastcc void @Transform(ptr noundef %tmpMd5, ptr noundef %buffer.i)
   store i32 0, ptr %tmpMd5, align 8
   br label %if.end17.i
 
@@ -846,7 +846,7 @@ if.end17.i:                                       ; preds = %if.then8.i, %if.end
   store i32 %shl27.i, ptr %arrayidx29.i, align 4
   %arrayidx31.i = getelementptr inbounds i8, ptr %tmpMd5, i64 72
   store i32 %add24.i, ptr %arrayidx31.i, align 8
-  call fastcc void @Transform.retelim(ptr noundef %tmpMd5, ptr noundef %buffer.i)
+  call fastcc void @Transform(ptr noundef %tmpMd5, ptr noundef %buffer.i)
   %digest.i = getelementptr inbounds i8, ptr %tmpMd5, i64 76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %hash, ptr noundef nonnull align 4 dereferenceable(16) %digest.i, i64 16, i1 false)
   br label %return

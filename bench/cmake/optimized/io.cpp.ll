@@ -161,7 +161,7 @@ _ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %18, %1
   %24 = load ptr, ptr %23, align 8, !noalias !5
   store ptr %24, ptr %22, align 8, !noalias !5
   %.not.i.i.i3.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i3.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.argprom.exit, label %25
+  br i1 %.not.i.i.i3.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.exit, label %25
 
 25:                                               ; preds = %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
   %26 = getelementptr inbounds i8, ptr %24, i64 8
@@ -173,13 +173,13 @@ _ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %18, %1
   %29 = load i32, ptr %26, align 4, !noalias !5
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %26, align 4, !noalias !5
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.exit
 
 31:                                               ; preds = %25
   %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4, !noalias !5
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.exit
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.argprom.exit: ; preds = %31, %28, %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
+_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.exit:  ; preds = %31, %28, %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %33, align 8
@@ -206,7 +206,7 @@ define dso_local void @_ZN3dap4pipeEv(ptr dead_on_unwind noalias nocapture writa
   %9 = getelementptr inbounds i8, ptr %2, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 80, i1 false), !noalias !8
   invoke void @_ZNSt11_Deque_baseIhSaIhEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %9, i64 noundef 0)
-          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_14PipeEED2Ev.argprom.exit unwind label %.body.i.i.i.i.i, !noalias !8
+          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_14PipeEED2Ev.exit unwind label %.body.i.i.i.i.i, !noalias !8
 
 .body.i.i.i.i.i:                                  ; preds = %1
   %10 = landingpad { ptr, i32 }
@@ -215,7 +215,7 @@ define dso_local void @_ZN3dap4pipeEv(ptr dead_on_unwind noalias nocapture writa
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !8
   resume { ptr, i32 } %10
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_14PipeEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN12_GLOBAL__N_14PipeEED2Ev.exit: ; preds = %1
   %11 = getelementptr inbounds i8, ptr %2, i64 200
   store i8 0, ptr %11, align 8, !noalias !8
   store ptr %5, ptr %0, align 8
@@ -226,7 +226,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_14PipeEED2Ev.argprom.exit: ; preds = %1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3dap4fileEP8_IO_FILEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-_ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.argprom.exit:
+_ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.exit:
   %3 = zext i1 %2 to i8
   %4 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #23, !noalias !11
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -254,9 +254,9 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.argprom.exit:
 define dso_local void @_ZN3dap4fileEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %13, label %_ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.argprom.exit
+  br i1 %.not, label %13, label %_ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.exit
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.argprom.exit: ; preds = %2
+_ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.exit: ; preds = %2
   %4 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #23, !noalias !14
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 1, ptr %5, align 8, !noalias !14
@@ -282,7 +282,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.argprom.exit: ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %14
 
-14:                                               ; preds = %13, %_ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.argprom.exit
+14:                                               ; preds = %13, %_ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.exit
   ret void
 }
 
@@ -391,7 +391,7 @@ _ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %31, %2
 _ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %44, %41, %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
   %46 = getelementptr inbounds i8, ptr %7, i64 56
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_19ReaderSpyEED2Ev.argprom.exit unwind label %.body8.i.i.i.i.i.i.i, !noalias !17
+          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_19ReaderSpyEED2Ev.exit unwind label %.body8.i.i.i.i.i.i.i, !noalias !17
 
 .body8.i.i.i.i.i.i.i:                             ; preds = %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
   %47 = landingpad { ptr, i32 }
@@ -412,7 +412,7 @@ _ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %44, %4
   call void @_ZdlPv(ptr noundef nonnull %7) #25, !noalias !17
   resume { ptr, i32 } %.pn.i.i.i.i.i.i.i
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_19ReaderSpyEED2Ev.argprom.exit: ; preds = %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
+_ZNSt10shared_ptrIN12_GLOBAL__N_19ReaderSpyEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24, !noalias !17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #24, !noalias !17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !17
@@ -525,7 +525,7 @@ _ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %31, %2
 _ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i: ; preds = %44, %41, %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
   %46 = getelementptr inbounds i8, ptr %7, i64 56
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_19WriterSpyEED2Ev.argprom.exit unwind label %.body8.i.i.i.i.i.i.i, !noalias !20
+          to label %_ZNSt10shared_ptrIN12_GLOBAL__N_19WriterSpyEED2Ev.exit unwind label %.body8.i.i.i.i.i.i.i, !noalias !20
 
 .body8.i.i.i.i.i.i.i:                             ; preds = %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i
   %47 = landingpad { ptr, i32 }
@@ -546,7 +546,7 @@ _ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i: ; preds = %44, %
   call void @_ZdlPv(ptr noundef nonnull %7) #25, !noalias !20
   resume { ptr, i32 } %.pn.i.i.i.i.i.i.i
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_19WriterSpyEED2Ev.argprom.exit: ; preds = %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i
+_ZNSt10shared_ptrIN12_GLOBAL__N_19WriterSpyEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24, !noalias !20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #24, !noalias !20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !20
@@ -624,7 +624,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -742,7 +742,7 @@ _ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i:      ; preds = %_ZNSt16_Sp_counted_
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   %.not.i.i.i2.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i2.i, label %_ZN12_GLOBAL__N_12RWD2Ev.argprom.exit, label %41
+  br i1 %.not.i.i.i2.i, label %_ZN12_GLOBAL__N_12RWD2Ev.exit, label %41
 
 41:                                               ; preds = %_ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i
   %42 = getelementptr inbounds i8, ptr %40, i64 8
@@ -778,7 +778,7 @@ _ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i:      ; preds = %_ZNSt16_Sp_counted_
 57:                                               ; preds = %55, %53
   %.0.i.i.i.i4.i = phi i32 [ %45, %53 ], [ %56, %55 ]
   %58 = icmp eq i32 %.0.i.i.i.i4.i, 1
-  br i1 %58, label %59, label %_ZN12_GLOBAL__N_12RWD2Ev.argprom.exit
+  br i1 %58, label %59, label %_ZN12_GLOBAL__N_12RWD2Ev.exit
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %40, align 8
@@ -803,16 +803,16 @@ _ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i:      ; preds = %_ZNSt16_Sp_counted_
 70:                                               ; preds = %68, %65
   %.0.i.i.i.i.i.i6.i = phi i32 [ %66, %65 ], [ %69, %68 ]
   %71 = icmp eq i32 %.0.i.i.i.i.i.i6.i, 1
-  br i1 %71, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i, label %_ZN12_GLOBAL__N_12RWD2Ev.argprom.exit
+  br i1 %71, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i, label %_ZN12_GLOBAL__N_12RWD2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i: ; preds = %70, %46
   %72 = load ptr, ptr %40, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef nonnull align 8 dereferenceable(16) %40) #24
-  br label %_ZN12_GLOBAL__N_12RWD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_12RWD2Ev.exit
 
-_ZN12_GLOBAL__N_12RWD2Ev.argprom.exit:            ; preds = %_ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i, %57, %70, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i
+_ZN12_GLOBAL__N_12RWD2Ev.exit:                    ; preds = %_ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i, %57, %70, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i
   ret void
 }
 
@@ -1114,7 +1114,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvEL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -1167,7 +1167,7 @@ define internal void @_ZN12_GLOBAL__N_14PipeD1Ev(ptr noundef nonnull align 8 der
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_14PipeD2Ev.argprom.exit, label %5
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_14PipeD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 176
@@ -1193,9 +1193,9 @@ _ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.loopexit.i.i.i: ; preds
 _ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.loopexit.i.i.i, %5
   %15 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.loopexit.i.i.i ], [ %4, %5 ]
   tail call void @_ZdlPv(ptr noundef %15) #25
-  br label %_ZN12_GLOBAL__N_14PipeD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_14PipeD2Ev.exit
 
-_ZN12_GLOBAL__N_14PipeD2Ev.argprom.exit:          ; preds = %1, %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i.i.i
+_ZN12_GLOBAL__N_14PipeD2Ev.exit:                  ; preds = %1, %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i.i.i
   %16 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #24
   ret void
@@ -1315,9 +1315,9 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %.013 = phi i64 [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ %.1.lcssa, %.critedge ]
   %19 = load i8, ptr %13, align 8
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %_ZNSt18condition_variable4waitIZN12_GLOBAL__N_14Pipe4readEPvmEUlvE_EEvRSt11unique_lockISt5mutexET_.exit, label %_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.argprom.exit.i
+  br i1 %20, label %_ZNSt18condition_variable4waitIZN12_GLOBAL__N_14Pipe4readEPvmEUlvE_EEvRSt11unique_lockISt5mutexET_.exit, label %_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.exit.i
 
-_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.argprom.exit.i: ; preds = %18, %.noexc
+_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.exit.i: ; preds = %18, %.noexc
   %21 = phi i8 [ %43, %.noexc ], [ %19, %18 ]
   %22 = load ptr, ptr %12, align 8
   %23 = load ptr, ptr %14, align 8
@@ -1343,17 +1343,17 @@ _ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.argprom.exit.i: ; preds = %18, %.no
   %.not.i = icmp eq i64 %41, %38
   br i1 %.not.i, label %42, label %_ZNSt18condition_variable4waitIZN12_GLOBAL__N_14Pipe4readEPvmEUlvE_EEvRSt11unique_lockISt5mutexET_.exit
 
-42:                                               ; preds = %_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.argprom.exit.i
+42:                                               ; preds = %_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.exit.i
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(9) %4)
           to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %42
   %43 = load i8, ptr %13, align 8
   %44 = trunc i8 %43 to i1
-  br i1 %44, label %_ZNSt18condition_variable4waitIZN12_GLOBAL__N_14Pipe4readEPvmEUlvE_EEvRSt11unique_lockISt5mutexET_.exit, label %_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.argprom.exit.i, !llvm.loop !25
+  br i1 %44, label %_ZNSt18condition_variable4waitIZN12_GLOBAL__N_14Pipe4readEPvmEUlvE_EEvRSt11unique_lockISt5mutexET_.exit, label %_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.exit.i, !llvm.loop !25
 
-_ZNSt18condition_variable4waitIZN12_GLOBAL__N_14Pipe4readEPvmEUlvE_EEvRSt11unique_lockISt5mutexET_.exit: ; preds = %.noexc, %_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.argprom.exit.i, %18
-  %45 = phi i8 [ %19, %18 ], [ %43, %.noexc ], [ %21, %_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.argprom.exit.i ]
+_ZNSt18condition_variable4waitIZN12_GLOBAL__N_14Pipe4readEPvmEUlvE_EEvRSt11unique_lockISt5mutexET_.exit: ; preds = %.noexc, %_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.exit.i, %18
+  %45 = phi i8 [ %19, %18 ], [ %43, %.noexc ], [ %21, %_ZZN12_GLOBAL__N_14Pipe4readEPvmENKUlvE_clEv.exit.i ]
   %46 = trunc i8 %45 to i1
   br i1 %46, label %.critedge.thread, label %.preheader
 
@@ -2015,7 +2015,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvEL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -2059,21 +2059,21 @@ define internal void @_ZN12_GLOBAL__N_14FileD1Ev(ptr nocapture noundef nonnull a
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %_ZN12_GLOBAL__N_14FileD2Ev.argprom.exit
+  br i1 %5, label %6, label %_ZN12_GLOBAL__N_14FileD2Ev.exit
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 112
   %8 = atomicrmw xchg ptr %7, i8 1 seq_cst, align 1
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %_ZN12_GLOBAL__N_14FileD2Ev.argprom.exit, label %10
+  br i1 %9, label %_ZN12_GLOBAL__N_14FileD2Ev.exit, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @fclose(ptr noundef %12)
-  br label %_ZN12_GLOBAL__N_14FileD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_14FileD2Ev.exit
 
-_ZN12_GLOBAL__N_14FileD2Ev.argprom.exit:          ; preds = %1, %6, %10
+_ZN12_GLOBAL__N_14FileD2Ev.exit:                  ; preds = %1, %6, %10
   ret void
 }
 
@@ -2316,7 +2316,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19ReaderSpyES
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19ReaderSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19ReaderSpyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19ReaderSpyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -2542,7 +2542,7 @@ _ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i:      ; preds = %_ZNSt16_Sp_counted_
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not.i.i.i2.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i2.i, label %_ZN12_GLOBAL__N_19ReaderSpyD2Ev.argprom.exit, label %41
+  br i1 %.not.i.i.i2.i, label %_ZN12_GLOBAL__N_19ReaderSpyD2Ev.exit, label %41
 
 41:                                               ; preds = %_ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i
   %42 = getelementptr inbounds i8, ptr %40, i64 8
@@ -2578,7 +2578,7 @@ _ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i:      ; preds = %_ZNSt16_Sp_counted_
 57:                                               ; preds = %55, %53
   %.0.i.i.i.i4.i = phi i32 [ %45, %53 ], [ %56, %55 ]
   %58 = icmp eq i32 %.0.i.i.i.i4.i, 1
-  br i1 %58, label %59, label %_ZN12_GLOBAL__N_19ReaderSpyD2Ev.argprom.exit
+  br i1 %58, label %59, label %_ZN12_GLOBAL__N_19ReaderSpyD2Ev.exit
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %40, align 8
@@ -2603,16 +2603,16 @@ _ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i:      ; preds = %_ZNSt16_Sp_counted_
 70:                                               ; preds = %68, %65
   %.0.i.i.i.i.i.i6.i = phi i32 [ %66, %65 ], [ %69, %68 ]
   %71 = icmp eq i32 %.0.i.i.i.i.i.i6.i, 1
-  br i1 %71, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i, label %_ZN12_GLOBAL__N_19ReaderSpyD2Ev.argprom.exit
+  br i1 %71, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i, label %_ZN12_GLOBAL__N_19ReaderSpyD2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i: ; preds = %70, %46
   %72 = load ptr, ptr %40, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef nonnull align 8 dereferenceable(16) %40) #24
-  br label %_ZN12_GLOBAL__N_19ReaderSpyD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_19ReaderSpyD2Ev.exit
 
-_ZN12_GLOBAL__N_19ReaderSpyD2Ev.argprom.exit:     ; preds = %_ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i, %57, %70, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i
+_ZN12_GLOBAL__N_19ReaderSpyD2Ev.exit:             ; preds = %_ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i, %57, %70, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i
   ret void
 }
 
@@ -2732,7 +2732,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19WriterSpyES
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19WriterSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19WriterSpyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19WriterSpyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -2850,7 +2850,7 @@ _ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i:      ; preds = %_ZNSt16_Sp_counted_
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not.i.i.i2.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i2.i, label %_ZN12_GLOBAL__N_19WriterSpyD2Ev.argprom.exit, label %41
+  br i1 %.not.i.i.i2.i, label %_ZN12_GLOBAL__N_19WriterSpyD2Ev.exit, label %41
 
 41:                                               ; preds = %_ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i
   %42 = getelementptr inbounds i8, ptr %40, i64 8
@@ -2886,7 +2886,7 @@ _ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i:      ; preds = %_ZNSt16_Sp_counted_
 57:                                               ; preds = %55, %53
   %.0.i.i.i.i4.i = phi i32 [ %45, %53 ], [ %56, %55 ]
   %58 = icmp eq i32 %.0.i.i.i.i4.i, 1
-  br i1 %58, label %59, label %_ZN12_GLOBAL__N_19WriterSpyD2Ev.argprom.exit
+  br i1 %58, label %59, label %_ZN12_GLOBAL__N_19WriterSpyD2Ev.exit
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %40, align 8
@@ -2911,16 +2911,16 @@ _ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i:      ; preds = %_ZNSt16_Sp_counted_
 70:                                               ; preds = %68, %65
   %.0.i.i.i.i.i.i6.i = phi i32 [ %66, %65 ], [ %69, %68 ]
   %71 = icmp eq i32 %.0.i.i.i.i.i.i6.i, 1
-  br i1 %71, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i, label %_ZN12_GLOBAL__N_19WriterSpyD2Ev.argprom.exit
+  br i1 %71, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i, label %_ZN12_GLOBAL__N_19WriterSpyD2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i: ; preds = %70, %46
   %72 = load ptr, ptr %40, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef nonnull align 8 dereferenceable(16) %40) #24
-  br label %_ZN12_GLOBAL__N_19WriterSpyD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_19WriterSpyD2Ev.exit
 
-_ZN12_GLOBAL__N_19WriterSpyD2Ev.argprom.exit:     ; preds = %_ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i, %57, %70, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i
+_ZN12_GLOBAL__N_19WriterSpyD2Ev.exit:             ; preds = %_ZNSt10shared_ptrIN3dap6WriterEED2Ev.exit.i, %57, %70, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i7.i
   ret void
 }
 
@@ -3059,23 +3059,23 @@ attributes #28 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZSt11make_sharedIN12_GLOBAL__N_12RWEJRKSt10shared_ptrIN3dap6ReaderEERKS2_INS3_6WriterEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom: argument 0"}
-!7 = distinct !{!7, !"_ZSt11make_sharedIN12_GLOBAL__N_12RWEJRKSt10shared_ptrIN3dap6ReaderEERKS2_INS3_6WriterEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.argprom"}
+!6 = distinct !{!6, !7, !"_ZSt11make_sharedIN12_GLOBAL__N_12RWEJRKSt10shared_ptrIN3dap6ReaderEERKS2_INS3_6WriterEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_: argument 0"}
+!7 = distinct !{!7, !"_ZSt11make_sharedIN12_GLOBAL__N_12RWEJRKSt10shared_ptrIN3dap6ReaderEERKS2_INS3_6WriterEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_"}
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZSt11make_sharedIN12_GLOBAL__N_14PipeEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_: argument 0"}
 !10 = distinct !{!10, !"_ZSt11make_sharedIN12_GLOBAL__N_14PipeEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZSt11make_sharedIN12_GLOBAL__N_14FileEJRP8_IO_FILERbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom: argument 0"}
-!13 = distinct !{!13, !"_ZSt11make_sharedIN12_GLOBAL__N_14FileEJRP8_IO_FILERbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom"}
+!12 = distinct !{!12, !13, !"_ZSt11make_sharedIN12_GLOBAL__N_14FileEJRP8_IO_FILERbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: argument 0"}
+!13 = distinct !{!13, !"_ZSt11make_sharedIN12_GLOBAL__N_14FileEJRP8_IO_FILERbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZSt11make_sharedIN12_GLOBAL__N_14FileEJRP8_IO_FILEbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.argprom: argument 0"}
-!16 = distinct !{!16, !"_ZSt11make_sharedIN12_GLOBAL__N_14FileEJRP8_IO_FILEbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.argprom"}
+!15 = distinct !{!15, !16, !"_ZSt11make_sharedIN12_GLOBAL__N_14FileEJRP8_IO_FILEbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
+!16 = distinct !{!16, !"_ZSt11make_sharedIN12_GLOBAL__N_14FileEJRP8_IO_FILEbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZSt11make_sharedIN12_GLOBAL__N_19ReaderSpyEJRKSt10shared_ptrIN3dap6ReaderEERKS2_INS3_6WriterEERPKcEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZSt11make_sharedIN12_GLOBAL__N_19ReaderSpyEJRKSt10shared_ptrIN3dap6ReaderEERKS2_INS3_6WriterEERPKcEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.argprom"}
+!18 = distinct !{!18, !19, !"_ZSt11make_sharedIN12_GLOBAL__N_19ReaderSpyEJRKSt10shared_ptrIN3dap6ReaderEERKS2_INS3_6WriterEERPKcEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_: argument 0"}
+!19 = distinct !{!19, !"_ZSt11make_sharedIN12_GLOBAL__N_19ReaderSpyEJRKSt10shared_ptrIN3dap6ReaderEERKS2_INS3_6WriterEERPKcEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_"}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZSt11make_sharedIN12_GLOBAL__N_19WriterSpyEJRKSt10shared_ptrIN3dap6WriterEES7_RPKcEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom: argument 0"}
-!22 = distinct !{!22, !"_ZSt11make_sharedIN12_GLOBAL__N_19WriterSpyEJRKSt10shared_ptrIN3dap6WriterEES7_RPKcEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom"}
+!21 = distinct !{!21, !22, !"_ZSt11make_sharedIN12_GLOBAL__N_19WriterSpyEJRKSt10shared_ptrIN3dap6WriterEES7_RPKcEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_: argument 0"}
+!22 = distinct !{!22, !"_ZSt11make_sharedIN12_GLOBAL__N_19WriterSpyEJRKSt10shared_ptrIN3dap6WriterEES7_RPKcEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"}
 !23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
 !25 = distinct !{!25, !24}

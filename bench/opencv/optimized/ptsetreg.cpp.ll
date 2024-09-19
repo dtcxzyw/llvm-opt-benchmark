@@ -11684,7 +11684,7 @@ _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %15, %18
   %19 = getelementptr inbounds i8, ptr %5, i64 16
   %.val = load ptr, ptr %19, align 8
   %20 = icmp sgt i32 %3, 1
-  br i1 %20, label %.lr.ph6.i, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit
+  br i1 %20, label %.lr.ph6.i, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
 .lr.ph6.i:                                        ; preds = %_ZNK2cv11_InputArray6getMatEi.exit12
   %21 = add nsw i32 %3, -1
@@ -11739,7 +11739,7 @@ _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %15, %18
   %56 = fadd double %54, %55
   %57 = fmul double %56, 0x3E80000000000000
   %58 = fcmp ugt double %52, %57
-  br i1 %58, label %40, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit
+  br i1 %58, label %40, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
 ._crit_edge.i:                                    ; preds = %40, %27
   %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
@@ -11799,14 +11799,14 @@ _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %15, %18
   %93 = fadd double %91, %92
   %94 = fmul double %93, 0x3E80000000000000
   %95 = fcmp ugt double %89, %94
-  br i1 %95, label %77, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit
+  br i1 %95, label %77, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
 ._crit_edge.i21:                                  ; preds = %77, %64
   %indvars.iv.next10.i22 = add nuw nsw i64 %indvars.iv9.i15, 1
   %exitcond13.not.i23 = icmp eq i64 %indvars.iv.next10.i22, %22
-  br i1 %exitcond13.not.i23, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit, label %64, !llvm.loop !258
+  br i1 %exitcond13.not.i23, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit, label %64, !llvm.loop !258
 
-_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit: ; preds = %41, %._crit_edge.i21, %78, %_ZNK2cv11_InputArray6getMatEi.exit12
+_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %41, %._crit_edge.i21, %78, %_ZNK2cv11_InputArray6getMatEi.exit12
   %96 = phi i1 [ true, %_ZNK2cv11_InputArray6getMatEi.exit12 ], [ false, %78 ], [ true, %._crit_edge.i21 ], [ false, %41 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #21
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21

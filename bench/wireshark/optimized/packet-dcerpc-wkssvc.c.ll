@@ -3888,7 +3888,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersInfo(ptr noundef %0, i
 75:                                               ; preds = %72, %70, %67, %65
   %.0.i.i = phi i32 [ %58, %65 ], [ %69, %67 ], [ %58, %70 ], [ %74, %72 ]
   %76 = load i32, ptr %10, align 4
-  switch i32 %76, label %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.argprom.exit [
+  switch i32 %76, label %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit [
     i32 0, label %77
     i32 1, label %80
   ]
@@ -3896,14 +3896,14 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersInfo(ptr noundef %0, i
 77:                                               ; preds = %75
   %78 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaEnumUsersCtr_user0, align 4
   %79 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetWkstaEnumUsersCtr_user0_, i32 noundef 2, ptr noundef nonnull @.str.608, i32 noundef %78) #3
-  br label %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.argprom.exit
+  br label %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit
 
 80:                                               ; preds = %75
   %81 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaEnumUsersCtr_user1, align 4
   %82 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetWkstaEnumUsersCtr_user1_, i32 noundef 2, ptr noundef nonnull @.str.609, i32 noundef %81) #3
-  br label %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.argprom.exit
+  br label %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit
 
-wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.argprom.exit: ; preds = %75, %77, %80
+wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit: ; preds = %75, %77, %80
   %.1.i.i = phi i32 [ %.0.i.i, %75 ], [ %82, %80 ], [ %79, %77 ]
   %83 = load ptr, ptr %9, align 8
   %84 = sub i32 %.1.i.i, %.1
@@ -3919,7 +3919,7 @@ wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.argprom.exit: ; preds = %75, %7
   %.not57 = icmp eq i32 %89, 0
   br i1 %.not57, label %96, label %90
 
-90:                                               ; preds = %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.argprom.exit
+90:                                               ; preds = %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit
   %91 = load i32, ptr %63, align 4
   %.not58 = icmp ne i32 %91, 0
   %92 = and i32 %.1.i.i, 7
@@ -3932,8 +3932,8 @@ wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.argprom.exit: ; preds = %75, %7
   %95 = add i32 %94, 8
   br label %96
 
-96:                                               ; preds = %93, %90, %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.argprom.exit
-  %.2 = phi i32 [ %.1.i.i, %90 ], [ %95, %93 ], [ %.1.i.i, %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.argprom.exit ]
+96:                                               ; preds = %93, %90, %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit
+  %.2 = phi i32 [ %.1.i.i, %90 ], [ %95, %93 ], [ %.1.i.i, %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit ]
   ret i32 %.2
 }
 
@@ -4288,14 +4288,14 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportInfo(ptr noundef %0, i
   %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
   %cond.i.i = icmp eq i32 %59, 0
-  br i1 %cond.i.i, label %60, label %wkssvc_dissect_element_NetWkstaTransportInfo_ctr.argprom.exit
+  br i1 %cond.i.i, label %60, label %wkssvc_dissect_element_NetWkstaTransportInfo_ctr.exit
 
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaTransportCtr_ctr0, align 4
   %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetWkstaTransportCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.613, i32 noundef %61) #3
-  br label %wkssvc_dissect_element_NetWkstaTransportInfo_ctr.argprom.exit
+  br label %wkssvc_dissect_element_NetWkstaTransportInfo_ctr.exit
 
-wkssvc_dissect_element_NetWkstaTransportInfo_ctr.argprom.exit: ; preds = %58, %60
+wkssvc_dissect_element_NetWkstaTransportInfo_ctr.exit: ; preds = %58, %60
   %.1.i.i = phi i32 [ %62, %60 ], [ %.0.i.i, %58 ]
   %63 = load ptr, ptr %9, align 8
   %64 = sub i32 %.1.i.i, %35
@@ -4311,7 +4311,7 @@ wkssvc_dissect_element_NetWkstaTransportInfo_ctr.argprom.exit: ; preds = %58, %6
   %.not45 = icmp eq i32 %69, 0
   br i1 %.not45, label %76, label %70
 
-70:                                               ; preds = %wkssvc_dissect_element_NetWkstaTransportInfo_ctr.argprom.exit
+70:                                               ; preds = %wkssvc_dissect_element_NetWkstaTransportInfo_ctr.exit
   %71 = load i32, ptr %46, align 4
   %.not46 = icmp ne i32 %71, 0
   %72 = and i32 %.1.i.i, 7
@@ -4324,8 +4324,8 @@ wkssvc_dissect_element_NetWkstaTransportInfo_ctr.argprom.exit: ; preds = %58, %6
   %75 = add i32 %74, 8
   br label %76
 
-76:                                               ; preds = %73, %70, %wkssvc_dissect_element_NetWkstaTransportInfo_ctr.argprom.exit
-  %.1 = phi i32 [ %.1.i.i, %70 ], [ %75, %73 ], [ %.1.i.i, %wkssvc_dissect_element_NetWkstaTransportInfo_ctr.argprom.exit ]
+76:                                               ; preds = %73, %70, %wkssvc_dissect_element_NetWkstaTransportInfo_ctr.exit
+  %.1 = phi i32 [ %.1.i.i, %70 ], [ %75, %73 ], [ %.1.i.i, %wkssvc_dissect_element_NetWkstaTransportInfo_ctr.exit ]
   ret i32 %.1
 }
 
@@ -5023,7 +5023,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumInfo(ptr noundef %0, i32 nou
 58:                                               ; preds = %55, %53, %50, %48
   %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
-  switch i32 %59, label %wkssvc_dissect_element_NetrUseEnumInfo_ctr.argprom.exit [
+  switch i32 %59, label %wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit [
     i32 0, label %60
     i32 1, label %63
     i32 2, label %66
@@ -5032,19 +5032,19 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumInfo(ptr noundef %0, i32 nou
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseEnumCtr_ctr0, align 4
   %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUseEnumCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.623, i32 noundef %61) #3
-  br label %wkssvc_dissect_element_NetrUseEnumInfo_ctr.argprom.exit
+  br label %wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseEnumCtr_ctr1, align 4
   %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUseEnumCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.624, i32 noundef %64) #3
-  br label %wkssvc_dissect_element_NetrUseEnumInfo_ctr.argprom.exit
+  br label %wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit
 
 66:                                               ; preds = %58
   %67 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseEnumCtr_ctr2, align 4
   %68 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUseEnumCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.625, i32 noundef %67) #3
-  br label %wkssvc_dissect_element_NetrUseEnumInfo_ctr.argprom.exit
+  br label %wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit
 
-wkssvc_dissect_element_NetrUseEnumInfo_ctr.argprom.exit: ; preds = %58, %60, %63, %66
+wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit:  ; preds = %58, %60, %63, %66
   %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ]
   %69 = load ptr, ptr %9, align 8
   %70 = sub i32 %.1.i.i, %35
@@ -5060,7 +5060,7 @@ wkssvc_dissect_element_NetrUseEnumInfo_ctr.argprom.exit: ; preds = %58, %60, %63
   %.not45 = icmp eq i32 %75, 0
   br i1 %.not45, label %82, label %76
 
-76:                                               ; preds = %wkssvc_dissect_element_NetrUseEnumInfo_ctr.argprom.exit
+76:                                               ; preds = %wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit
   %77 = load i32, ptr %46, align 4
   %.not46 = icmp ne i32 %77, 0
   %78 = and i32 %.1.i.i, 7
@@ -5073,8 +5073,8 @@ wkssvc_dissect_element_NetrUseEnumInfo_ctr.argprom.exit: ; preds = %58, %60, %63
   %81 = add i32 %80, 8
   br label %82
 
-82:                                               ; preds = %79, %76, %wkssvc_dissect_element_NetrUseEnumInfo_ctr.argprom.exit
-  %.1 = phi i32 [ %.1.i.i, %76 ], [ %81, %79 ], [ %.1.i.i, %wkssvc_dissect_element_NetrUseEnumInfo_ctr.argprom.exit ]
+82:                                               ; preds = %79, %76, %wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit
+  %.1 = phi i32 [ %.1.i.i, %76 ], [ %81, %79 ], [ %.1.i.i, %wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit ]
   ret i32 %.1
 }
 
@@ -7363,12 +7363,12 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_element_NetWkstaGetInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaGetInfo_info, align 4
-  %8 = tail call fastcc i32 @wkssvc_dissect_NetWkstaInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @wkssvc_dissect_NetWkstaInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wkssvc_dissect_NetWkstaInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @wkssvc_dissect_NetWkstaInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -7911,7 +7911,7 @@ define internal i32 @wkssvc_dissect_element_NetWkstaSetInfo_server_name_(ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_element_NetWkstaSetInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaSetInfo_info, align 4
-  %8 = tail call fastcc i32 @wkssvc_dissect_NetWkstaInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @wkssvc_dissect_NetWkstaInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -7966,12 +7966,12 @@ define internal i32 @wkssvc_dissect_element_NetrWkstaUserGetInfo_unknown_(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_element_NetrWkstaUserGetInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaUserGetInfo_info, align 4
-  %8 = tail call fastcc i32 @wkssvc_dissect_NetrWkstaUserInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @wkssvc_dissect_NetrWkstaUserInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wkssvc_dissect_NetrWkstaUserInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @wkssvc_dissect_NetrWkstaUserInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -8085,7 +8085,7 @@ define internal i32 @wkssvc_dissect_element_NetrWkstaUserSetInfo_unknown_(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_element_NetrWkstaUserSetInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaUserSetInfo_info, align 4
-  %8 = tail call fastcc i32 @wkssvc_dissect_NetrWkstaUserInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @wkssvc_dissect_NetrWkstaUserInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -8184,12 +8184,12 @@ define internal i32 @wkssvc_dissect_element_NetrUseAdd_server_name_(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_element_NetrUseAdd_ctr_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseAdd_ctr, align 4
-  %8 = tail call fastcc i32 @wkssvc_dissect_NetrUseGetInfoCtr.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @wkssvc_dissect_NetrUseGetInfoCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wkssvc_dissect_NetrUseGetInfoCtr.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @wkssvc_dissect_NetrUseGetInfoCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -8333,7 +8333,7 @@ define internal i32 @wkssvc_dissect_element_NetrUseGetInfo_use_name_(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_element_NetrUseGetInfo_ctr_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseGetInfo_ctr, align 4
-  %8 = tail call fastcc i32 @wkssvc_dissect_NetrUseGetInfoCtr.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @wkssvc_dissect_NetrUseGetInfoCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 

@@ -505,7 +505,7 @@ define void @_ZN2cv4rgbd11RgbdNormals6createEiiiRKNS_11_InputArrayEii(ptr dead_o
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !7
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   invoke void @_ZN2cv4rgbd11RgbdNormalsC1EiiiRKNS_11_InputArrayEii(ptr noundef nonnull align 8 dereferenceable(136) %11, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5, i32 noundef %6)
-          to label %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_11_InputArrayEiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !7
+          to label %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_11_InputArrayEiiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !7
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i: ; preds = %7
   %12 = landingpad { ptr, i32 }
@@ -513,7 +513,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaI
   tail call void @_ZdlPv(ptr noundef nonnull %8) #27, !noalias !7
   resume { ptr, i32 } %12
 
-_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_11_InputArrayEiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %7
+_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_11_InputArrayEiiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %7
   store ptr %11, ptr %0, align 8, !alias.scope !4
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8, !alias.scope !4
@@ -531,7 +531,7 @@ define void @_ZN2cv4rgbd12DepthCleaner6createEiii(ptr dead_on_unwind noalias noc
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4rgbd12DepthCleanerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !13
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   invoke void @_ZN2cv4rgbd12DepthCleanerC1Eiii(ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %1, i32 noundef %2, i32 noundef %3)
-          to label %_ZN2cvL7makePtrINS_4rgbd12DepthCleanerEJiiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd12DepthCleanerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !13
+          to label %_ZN2cvL7makePtrINS_4rgbd12DepthCleanerEJiiiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd12DepthCleanerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !13
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd12DepthCleanerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %4
   %9 = landingpad { ptr, i32 }
@@ -539,7 +539,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd12DepthCleanerESa
   tail call void @_ZdlPv(ptr noundef nonnull %5) #27, !noalias !13
   resume { ptr, i32 } %9
 
-_ZN2cvL7makePtrINS_4rgbd12DepthCleanerEJiiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %4
+_ZN2cvL7makePtrINS_4rgbd12DepthCleanerEJiiiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %4
   store ptr %8, ptr %0, align 8, !alias.scope !10
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %10, align 8, !alias.scope !10
@@ -658,7 +658,7 @@ define void @_ZN2cv4rgbd9RgbdFrame6createERKNS_3MatES4_S4_S4_i(ptr dead_on_unwin
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4rgbd9RgbdFrameESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !noalias !19
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   invoke void @_ZN2cv4rgbd9RgbdFrameC1ERKNS_3MatES4_S4_S4_i(ptr noundef nonnull align 8 dereferenceable(400) %10, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %5)
-          to label %_ZN2cvL7makePtrINS_4rgbd9RgbdFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd9RgbdFrameESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !19
+          to label %_ZN2cvL7makePtrINS_4rgbd9RgbdFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd9RgbdFrameESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !19
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd9RgbdFrameESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i: ; preds = %6
   %11 = landingpad { ptr, i32 }
@@ -666,7 +666,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd9RgbdFrameESaIvEL
   tail call void @_ZdlPv(ptr noundef nonnull %7) #27, !noalias !19
   resume { ptr, i32 } %11
 
-_ZN2cvL7makePtrINS_4rgbd9RgbdFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %6
+_ZN2cvL7makePtrINS_4rgbd9RgbdFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %6
   store ptr %10, ptr %0, align 8, !alias.scope !16
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %7, ptr %12, align 8, !alias.scope !16
@@ -774,7 +774,7 @@ define void @_ZN2cv4rgbd13OdometryFrame6createERKNS_3MatES4_S4_S4_i(ptr dead_on_
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4rgbd13OdometryFrameESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !noalias !25
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   invoke void @_ZN2cv4rgbd13OdometryFrameC1ERKNS_3MatES4_S4_S4_i(ptr noundef nonnull align 8 dereferenceable(616) %10, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %5)
-          to label %_ZN2cvL7makePtrINS_4rgbd13OdometryFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd13OdometryFrameESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !25
+          to label %_ZN2cvL7makePtrINS_4rgbd13OdometryFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd13OdometryFrameESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !25
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd13OdometryFrameESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i: ; preds = %6
   %11 = landingpad { ptr, i32 }
@@ -782,7 +782,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd13OdometryFrameES
   tail call void @_ZdlPv(ptr noundef nonnull %7) #27, !noalias !25
   resume { ptr, i32 } %11
 
-_ZN2cvL7makePtrINS_4rgbd13OdometryFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %6
+_ZN2cvL7makePtrINS_4rgbd13OdometryFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %6
   store ptr %10, ptr %0, align 8, !alias.scope !22
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %7, ptr %12, align 8, !alias.scope !22
@@ -1980,7 +1980,7 @@ define void @_ZN2cv4rgbd12RgbdOdometry6createERKNS_3MatEfffRKSt6vectorIiSaIiEERK
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4rgbd12RgbdOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !noalias !54
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   invoke void @_ZN2cv4rgbd12RgbdOdometryC1ERKNS_3MatEfffRKSt6vectorIiSaIiEERKS5_IfSaIfEEfi(ptr noundef nonnull align 8 dereferenceable(352) %13, ptr noundef nonnull align 8 dereferenceable(96) %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, float noundef %7, i32 noundef %8)
-          to label %_ZN2cvL7makePtrINS_4rgbd12RgbdOdometryEJNS_3MatEfffSt6vectorIiSaIiEES4_IfSaIfEEfiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd12RgbdOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit17.i.i.i.i.i, !noalias !54
+          to label %_ZN2cvL7makePtrINS_4rgbd12RgbdOdometryEJNS_3MatEfffSt6vectorIiSaIiEES4_IfSaIfEEfiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd12RgbdOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit17.i.i.i.i.i, !noalias !54
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd12RgbdOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit17.i.i.i.i.i: ; preds = %9
   %14 = landingpad { ptr, i32 }
@@ -1988,7 +1988,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd12RgbdOdometryESa
   tail call void @_ZdlPv(ptr noundef nonnull %10) #27, !noalias !54
   resume { ptr, i32 } %14
 
-_ZN2cvL7makePtrINS_4rgbd12RgbdOdometryEJNS_3MatEfffSt6vectorIiSaIiEES4_IfSaIfEEfiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %9
+_ZN2cvL7makePtrINS_4rgbd12RgbdOdometryEJNS_3MatEfffSt6vectorIiSaIiEES4_IfSaIfEEfiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %9
   store ptr %13, ptr %0, align 8, !alias.scope !51
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %10, ptr %15, align 8, !alias.scope !51
@@ -7530,7 +7530,7 @@ define void @_ZN2cv4rgbd11ICPOdometry6createERKNS_3MatEffffRKSt6vectorIiSaIiEEi(
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4rgbd11ICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !135
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   invoke void @_ZN2cv4rgbd11ICPOdometryC1ERKNS_3MatEffffRKSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(272) %12, ptr noundef nonnull align 8 dereferenceable(96) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %7)
-          to label %_ZN2cvL7makePtrINS_4rgbd11ICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11ICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !135
+          to label %_ZN2cvL7makePtrINS_4rgbd11ICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEEiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11ICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !135
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11ICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i: ; preds = %8
   %13 = landingpad { ptr, i32 }
@@ -7538,7 +7538,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11ICPOdometryESaI
   tail call void @_ZdlPv(ptr noundef nonnull %9) #27, !noalias !135
   resume { ptr, i32 } %13
 
-_ZN2cvL7makePtrINS_4rgbd11ICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %8
+_ZN2cvL7makePtrINS_4rgbd11ICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEEiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %8
   store ptr %12, ptr %0, align 8, !alias.scope !132
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !132
@@ -7896,7 +7896,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %170 = load i32, ptr @_ZN2cv4rgbd13normalWinSizeE, align 4, !noalias !138
   %171 = load i32, ptr @_ZN2cv4rgbd12normalMethodE, align 4, !noalias !138
   invoke void @_ZN2cv4rgbd11RgbdNormalsC1EiiiRKNS_11_InputArrayEii(ptr noundef nonnull align 8 dereferenceable(136) %166, i32 noundef %.val, i32 noundef %.val83, i32 noundef %162, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %170, i32 noundef %171)
-          to label %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !138
+          to label %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !138
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i: ; preds = %.critedge82.thread
   %172 = landingpad { ptr, i32 }
@@ -7904,7 +7904,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaI
   call void @_ZdlPv(ptr noundef nonnull %163) #27, !noalias !138
   br label %common.resume
 
-_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %.critedge82.thread
+_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %.critedge82.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !138
   store ptr %166, ptr %132, align 8
   %173 = getelementptr inbounds i8, ptr %0, i64 264
@@ -7912,7 +7912,7 @@ _ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argpr
   %.not.i.i.i.i96 = icmp eq ptr %163, %174
   br i1 %.not.i.i.i.i96, label %_ZN2cv3PtrINS_4rgbd11RgbdNormalsEEaSERKS3_.exit, label %175
 
-175:                                              ; preds = %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+175:                                              ; preds = %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.exit
   %176 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %176, 0
   br i1 %.not.i.i.i.i.i, label %180, label %177
@@ -8005,7 +8005,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
   store ptr %163, ptr %173, align 8
   br label %_ZN2cv3PtrINS_4rgbd11RgbdNormalsEEaSERKS3_.exit
 
-_ZN2cv3PtrINS_4rgbd11RgbdNormalsEEaSERKS3_.exit:  ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+_ZN2cv3PtrINS_4rgbd11RgbdNormalsEEaSERKS3_.exit:  ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.exit
   %216 = load atomic i64, ptr %164 acquire, align 8
   %217 = icmp eq i64 %216, 4294967297
   %218 = trunc i64 %216 to i32
@@ -8111,7 +8111,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.val86.val = load i32, ptr %.val86, align 4
   %268 = getelementptr i8, ptr %.val86, i64 4
   %.val86.val89 = load i32, ptr %268, align 4
-  call fastcc void @_ZN2cv4rgbdL12checkNormalsERKNS_3MatERKNS_5Size_IiEE.argprom.argprom(i32 %.val85, i32 %.val86.val, i32 %.val86.val89, i32 %265, i32 %266)
+  call fastcc void @_ZN2cv4rgbdL12checkNormalsERKNS_3MatERKNS_5Size_IiEE(i32 %.val85, i32 %.val86.val, i32 %.val86.val89, i32 %265, i32 %266)
   %269 = load ptr, ptr %1, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 304
   %271 = getelementptr inbounds i8, ptr %269, i64 424
@@ -8119,7 +8119,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.val90 = load ptr, ptr %271, align 8
   %273 = getelementptr i8, ptr %269, i64 432
   %.val91 = load ptr, ptr %273, align 8
-  call fastcc void @_ZN2cv4rgbdL21preparePyramidNormalsERKNS_3MatERKSt6vectorIS1_SaIS1_EERS6_.argprom(ptr noundef nonnull align 8 dereferenceable(96) %270, ptr %.val90, ptr %.val91, ptr noundef nonnull align 8 dereferenceable(24) %272)
+  call fastcc void @_ZN2cv4rgbdL21preparePyramidNormalsERKNS_3MatERKSt6vectorIS1_SaIS1_EERS6_(ptr noundef nonnull align 8 dereferenceable(96) %270, ptr %.val90, ptr %.val91, ptr noundef nonnull align 8 dereferenceable(24) %272)
   %274 = load ptr, ptr %1, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 208
   %276 = getelementptr inbounds i8, ptr %274, i64 424
@@ -8176,7 +8176,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() loca
 declare void @_ZNK2cv4rgbd11RgbdNormalsclERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4rgbdL12checkNormalsERKNS_3MatERKNS_5Size_IiEE.argprom.argprom(i32 %.0.val, i32 %.64.val.0.val, i32 %.64.val.4.val, i32 %.0.val1, i32 %.4.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4rgbdL12checkNormalsERKNS_3MatERKNS_5Size_IiEE(i32 %.0.val, i32 %.64.val.0.val, i32 %.64.val.4.val, i32 %.0.val1, i32 %.4.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator.12", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8248,7 +8248,7 @@ define internal fastcc void @_ZN2cv4rgbdL12checkNormalsERKNS_3MatERKNS_5Size_IiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4rgbdL21preparePyramidNormalsERKNS_3MatERKSt6vectorIS1_SaIS1_EERS6_.argprom(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4rgbdL21preparePyramidNormalsERKNS_3MatERKSt6vectorIS1_SaIS1_EERS6_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.12", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9195,7 +9195,7 @@ define void @_ZN2cv4rgbd15RgbdICPOdometry6createERKNS_3MatEffffRKSt6vectorIiSaIi
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4rgbd15RgbdICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !noalias !157
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   invoke void @_ZN2cv4rgbd15RgbdICPOdometryC1ERKNS_3MatEffffRKSt6vectorIiSaIiEERKS5_IfSaIfEEi(ptr noundef nonnull align 8 dereferenceable(368) %13, ptr noundef nonnull align 8 dereferenceable(96) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %8)
-          to label %_ZN2cvL7makePtrINS_4rgbd15RgbdICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEES4_IfSaIfEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd15RgbdICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit17.i.i.i.i.i, !noalias !157
+          to label %_ZN2cvL7makePtrINS_4rgbd15RgbdICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEES4_IfSaIfEEiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd15RgbdICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit17.i.i.i.i.i, !noalias !157
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd15RgbdICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit17.i.i.i.i.i: ; preds = %9
   %14 = landingpad { ptr, i32 }
@@ -9203,7 +9203,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd15RgbdICPOdometry
   tail call void @_ZdlPv(ptr noundef nonnull %10) #27, !noalias !157
   resume { ptr, i32 } %14
 
-_ZN2cvL7makePtrINS_4rgbd15RgbdICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEES4_IfSaIfEEiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %9
+_ZN2cvL7makePtrINS_4rgbd15RgbdICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEES4_IfSaIfEEiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %9
   store ptr %13, ptr %0, align 8, !alias.scope !154
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %10, ptr %15, align 8, !alias.scope !154
@@ -9579,7 +9579,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %192 = load i32, ptr @_ZN2cv4rgbd13normalWinSizeE, align 4, !noalias !160
   %193 = load i32, ptr @_ZN2cv4rgbd12normalMethodE, align 4, !noalias !160
   invoke void @_ZN2cv4rgbd11RgbdNormalsC1EiiiRKNS_11_InputArrayEii(ptr noundef nonnull align 8 dereferenceable(136) %188, i32 noundef %.val, i32 noundef %.val98, i32 noundef %184, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %192, i32 noundef %193)
-          to label %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !160
+          to label %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !160
 
 common.resume:                                    ; preds = %42, %88, %96, %268, %336, %339, %317, %320, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %194, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i ], [ %318, %320 ], [ %318, %317 ], [ %.pn94, %42 ], [ %.pn92, %96 ], [ %269, %268 ], [ %.pn83, %88 ], [ %337, %336 ], [ %337, %339 ]
@@ -9591,7 +9591,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd11RgbdNormalsESaI
   call void @_ZdlPv(ptr noundef nonnull %185) #27, !noalias !160
   br label %common.resume
 
-_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %.critedge97.thread
+_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %.critedge97.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !160
   store ptr %188, ptr %154, align 8
   %195 = getelementptr inbounds i8, ptr %0, i64 360
@@ -9599,7 +9599,7 @@ _ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argpr
   %.not.i.i.i.i111 = icmp eq ptr %185, %196
   br i1 %.not.i.i.i.i111, label %_ZN2cv3PtrINS_4rgbd11RgbdNormalsEEaSERKS3_.exit, label %197
 
-197:                                              ; preds = %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+197:                                              ; preds = %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.exit
   %198 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %198, 0
   br i1 %.not.i.i.i.i.i, label %202, label %199
@@ -9692,7 +9692,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
   store ptr %185, ptr %195, align 8
   br label %_ZN2cv3PtrINS_4rgbd11RgbdNormalsEEaSERKS3_.exit
 
-_ZN2cv3PtrINS_4rgbd11RgbdNormalsEEaSERKS3_.exit:  ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+_ZN2cv3PtrINS_4rgbd11RgbdNormalsEEaSERKS3_.exit:  ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.exit
   %238 = load atomic i64, ptr %186 acquire, align 8
   %239 = icmp eq i64 %238, 4294967297
   %240 = trunc i64 %238 to i32
@@ -9798,7 +9798,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.val101.val = load i32, ptr %.val101, align 4
   %290 = getelementptr i8, ptr %.val101, i64 4
   %.val101.val104 = load i32, ptr %290, align 4
-  call fastcc void @_ZN2cv4rgbdL12checkNormalsERKNS_3MatERKNS_5Size_IiEE.argprom.argprom(i32 %.val100, i32 %.val101.val, i32 %.val101.val104, i32 %287, i32 %288)
+  call fastcc void @_ZN2cv4rgbdL12checkNormalsERKNS_3MatERKNS_5Size_IiEE(i32 %.val100, i32 %.val101.val, i32 %.val101.val104, i32 %287, i32 %288)
   %291 = load ptr, ptr %1, align 8
   %292 = getelementptr inbounds i8, ptr %291, i64 304
   %293 = getelementptr inbounds i8, ptr %291, i64 424
@@ -9806,7 +9806,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.val105 = load ptr, ptr %293, align 8
   %295 = getelementptr i8, ptr %291, i64 432
   %.val106 = load ptr, ptr %295, align 8
-  call fastcc void @_ZN2cv4rgbdL21preparePyramidNormalsERKNS_3MatERKSt6vectorIS1_SaIS1_EERS6_.argprom(ptr noundef nonnull align 8 dereferenceable(96) %292, ptr %.val105, ptr %.val106, ptr noundef nonnull align 8 dereferenceable(24) %294)
+  call fastcc void @_ZN2cv4rgbdL21preparePyramidNormalsERKNS_3MatERKSt6vectorIS1_SaIS1_EERS6_(ptr noundef nonnull align 8 dereferenceable(96) %292, ptr %.val105, ptr %.val106, ptr noundef nonnull align 8 dereferenceable(24) %294)
   %296 = load ptr, ptr %1, align 8
   %297 = getelementptr inbounds i8, ptr %296, i64 208
   %298 = getelementptr inbounds i8, ptr %296, i64 424
@@ -10309,7 +10309,7 @@ define void @_ZN2cv4rgbd15FastICPOdometry6createERKNS_3MatEffffiRKSt6vectorIiSaI
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4rgbd15FastICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !174
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   invoke void @_ZN2cv4rgbd15FastICPOdometryC1ERKNS_3MatEffffiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(224) %12, ptr noundef nonnull align 8 dereferenceable(96) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %_ZN2cvL7makePtrINS_4rgbd15FastICPOdometryEJNS_3MatEffffiSt6vectorIiSaIiEEEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd15FastICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !174
+          to label %_ZN2cvL7makePtrINS_4rgbd15FastICPOdometryEJNS_3MatEffffiSt6vectorIiSaIiEEEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd15FastICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !174
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd15FastICPOdometryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i: ; preds = %8
   %13 = landingpad { ptr, i32 }
@@ -10317,7 +10317,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4rgbd15FastICPOdometry
   tail call void @_ZdlPv(ptr noundef nonnull %9) #27, !noalias !174
   resume { ptr, i32 } %13
 
-_ZN2cvL7makePtrINS_4rgbd15FastICPOdometryEJNS_3MatEffffiSt6vectorIiSaIiEEEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %8
+_ZN2cvL7makePtrINS_4rgbd15FastICPOdometryEJNS_3MatEffffiSt6vectorIiSaIiEEEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %8
   store ptr %12, ptr %0, align 8, !alias.scope !171
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %14, align 8, !alias.scope !171
@@ -15511,26 +15511,26 @@ attributes #30 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_11_InputArrayEiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_11_InputArrayEiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_11_InputArrayEiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!6 = distinct !{!6, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_11_InputArrayEiiEEENS_3PtrIT_EEDpRKT0_"}
 !7 = !{!8, !5}
 !8 = distinct !{!8, !9, !"_ZSt11make_sharedIN2cv4rgbd11RgbdNormalsEJRKiS4_S4_RKNS0_11_InputArrayES4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
 !9 = distinct !{!9, !"_ZSt11make_sharedIN2cv4rgbd11RgbdNormalsEJRKiS4_S4_RKNS0_11_InputArrayES4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN2cvL7makePtrINS_4rgbd12DepthCleanerEJiiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZN2cvL7makePtrINS_4rgbd12DepthCleanerEJiiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!11 = distinct !{!11, !12, !"_ZN2cvL7makePtrINS_4rgbd12DepthCleanerEJiiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!12 = distinct !{!12, !"_ZN2cvL7makePtrINS_4rgbd12DepthCleanerEJiiiEEENS_3PtrIT_EEDpRKT0_"}
 !13 = !{!14, !11}
 !14 = distinct !{!14, !15, !"_ZSt11make_sharedIN2cv4rgbd12DepthCleanerEJRKiS4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
 !15 = distinct !{!15, !"_ZSt11make_sharedIN2cv4rgbd12DepthCleanerEJRKiS4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN2cvL7makePtrINS_4rgbd9RgbdFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!18 = distinct !{!18, !"_ZN2cvL7makePtrINS_4rgbd9RgbdFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!17 = distinct !{!17, !18, !"_ZN2cvL7makePtrINS_4rgbd9RgbdFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!18 = distinct !{!18, !"_ZN2cvL7makePtrINS_4rgbd9RgbdFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_"}
 !19 = !{!20, !17}
 !20 = distinct !{!20, !21, !"_ZSt11make_sharedIN2cv4rgbd9RgbdFrameEJRKNS0_3MatES5_S5_S5_RKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
 !21 = distinct !{!21, !"_ZSt11make_sharedIN2cv4rgbd9RgbdFrameEJRKNS0_3MatES5_S5_S5_RKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN2cvL7makePtrINS_4rgbd13OdometryFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZN2cvL7makePtrINS_4rgbd13OdometryFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!23 = distinct !{!23, !24, !"_ZN2cvL7makePtrINS_4rgbd13OdometryFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!24 = distinct !{!24, !"_ZN2cvL7makePtrINS_4rgbd13OdometryFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_"}
 !25 = !{!26, !23}
 !26 = distinct !{!26, !27, !"_ZSt11make_sharedIN2cv4rgbd13OdometryFrameEJRKNS0_3MatES5_S5_S5_RKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
 !27 = distinct !{!27, !"_ZSt11make_sharedIN2cv4rgbd13OdometryFrameEJRKNS0_3MatES5_S5_S5_RKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
@@ -15558,8 +15558,8 @@ attributes #30 = { noreturn nounwind }
 !49 = distinct !{!49, !50, !"_ZN2cvL7makePtrINS_4rgbd15FastICPOdometryEJEEENS_3PtrIT_EEDpRKT0_: argument 0"}
 !50 = distinct !{!50, !"_ZN2cvL7makePtrINS_4rgbd15FastICPOdometryEJEEENS_3PtrIT_EEDpRKT0_"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN2cvL7makePtrINS_4rgbd12RgbdOdometryEJNS_3MatEfffSt6vectorIiSaIiEES4_IfSaIfEEfiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!53 = distinct !{!53, !"_ZN2cvL7makePtrINS_4rgbd12RgbdOdometryEJNS_3MatEfffSt6vectorIiSaIiEES4_IfSaIfEEfiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!52 = distinct !{!52, !53, !"_ZN2cvL7makePtrINS_4rgbd12RgbdOdometryEJNS_3MatEfffSt6vectorIiSaIiEES4_IfSaIfEEfiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!53 = distinct !{!53, !"_ZN2cvL7makePtrINS_4rgbd12RgbdOdometryEJNS_3MatEfffSt6vectorIiSaIiEES4_IfSaIfEEfiEEENS_3PtrIT_EEDpRKT0_"}
 !54 = !{!55, !52}
 !55 = distinct !{!55, !56, !"_ZSt11make_sharedIN2cv4rgbd12RgbdOdometryEJRKNS0_3MatERKfS7_S7_RKSt6vectorIiSaIiEERKS8_IfSaIfEES7_RKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_: argument 0"}
 !56 = distinct !{!56, !"_ZSt11make_sharedIN2cv4rgbd12RgbdOdometryEJRKNS0_3MatERKfS7_S7_RKSt6vectorIiSaIiEERKS8_IfSaIfEES7_RKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_"}
@@ -15639,16 +15639,16 @@ attributes #30 = { noreturn nounwind }
 !130 = distinct !{!130, !131, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
 !131 = distinct !{!131, !"_ZNK2cv11_InputArray6getMatEi"}
 !132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZN2cvL7makePtrINS_4rgbd11ICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEEiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!134 = distinct !{!134, !"_ZN2cvL7makePtrINS_4rgbd11ICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEEiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!133 = distinct !{!133, !134, !"_ZN2cvL7makePtrINS_4rgbd11ICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEEiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!134 = distinct !{!134, !"_ZN2cvL7makePtrINS_4rgbd11ICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEEiEEENS_3PtrIT_EEDpRKT0_"}
 !135 = !{!136, !133}
 !136 = distinct !{!136, !137, !"_ZSt11make_sharedIN2cv4rgbd11ICPOdometryEJRKNS0_3MatERKfS7_S7_S7_RKSt6vectorIiSaIiEERKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_: argument 0"}
 !137 = distinct !{!137, !"_ZSt11make_sharedIN2cv4rgbd11ICPOdometryEJRKNS0_3MatERKfS7_S7_S7_RKSt6vectorIiSaIiEERKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_"}
 !138 = !{!139, !141}
 !139 = distinct !{!139, !140, !"_ZSt11make_sharedIN2cv4rgbd11RgbdNormalsEJRKiS4_S4_RKNS0_3MatES4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
 !140 = distinct !{!140, !"_ZSt11make_sharedIN2cv4rgbd11RgbdNormalsEJRKiS4_S4_RKNS0_3MatES4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
-!141 = distinct !{!141, !142, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!142 = distinct !{!142, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!141 = distinct !{!141, !142, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!142 = distinct !{!142, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_"}
 !143 = distinct !{!143, !29}
 !144 = distinct !{!144, !29}
 !145 = distinct !{!145, !29, !86}
@@ -15661,16 +15661,16 @@ attributes #30 = { noreturn nounwind }
 !152 = distinct !{!152, !153, !"_ZNK2cv3MatcvSt6vectorIT_SaIS2_EEIiEEv: argument 0"}
 !153 = distinct !{!153, !"_ZNK2cv3MatcvSt6vectorIT_SaIS2_EEIiEEv"}
 !154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZN2cvL7makePtrINS_4rgbd15RgbdICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEES4_IfSaIfEEiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!156 = distinct !{!156, !"_ZN2cvL7makePtrINS_4rgbd15RgbdICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEES4_IfSaIfEEiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!155 = distinct !{!155, !156, !"_ZN2cvL7makePtrINS_4rgbd15RgbdICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEES4_IfSaIfEEiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!156 = distinct !{!156, !"_ZN2cvL7makePtrINS_4rgbd15RgbdICPOdometryEJNS_3MatEffffSt6vectorIiSaIiEES4_IfSaIfEEiEEENS_3PtrIT_EEDpRKT0_"}
 !157 = !{!158, !155}
 !158 = distinct !{!158, !159, !"_ZSt11make_sharedIN2cv4rgbd15RgbdICPOdometryEJRKNS0_3MatERKfS7_S7_S7_RKSt6vectorIiSaIiEERKS8_IfSaIfEERKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_: argument 0"}
 !159 = distinct !{!159, !"_ZSt11make_sharedIN2cv4rgbd15RgbdICPOdometryEJRKNS0_3MatERKfS7_S7_S7_RKSt6vectorIiSaIiEERKS8_IfSaIfEERKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_"}
 !160 = !{!161, !163}
 !161 = distinct !{!161, !162, !"_ZSt11make_sharedIN2cv4rgbd11RgbdNormalsEJRKiS4_S4_RKNS0_3MatES4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
 !162 = distinct !{!162, !"_ZSt11make_sharedIN2cv4rgbd11RgbdNormalsEJRKiS4_S4_RKNS0_3MatES4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
-!163 = distinct !{!163, !164, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!164 = distinct !{!164, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!163 = distinct !{!163, !164, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!164 = distinct !{!164, !"_ZN2cvL7makePtrINS_4rgbd11RgbdNormalsEJiiiNS_3MatEiiEEENS_3PtrIT_EEDpRKT0_"}
 !165 = !{!166}
 !166 = distinct !{!166, !167, !"_ZNK2cv3MatcvSt6vectorIT_SaIS2_EEIfEEv: argument 0"}
 !167 = distinct !{!167, !"_ZNK2cv3MatcvSt6vectorIT_SaIS2_EEIfEEv"}
@@ -15678,8 +15678,8 @@ attributes #30 = { noreturn nounwind }
 !169 = distinct !{!169, !170, !"_ZNK2cv3MatcvSt6vectorIT_SaIS2_EEIiEEv: argument 0"}
 !170 = distinct !{!170, !"_ZNK2cv3MatcvSt6vectorIT_SaIS2_EEIiEEv"}
 !171 = !{!172}
-!172 = distinct !{!172, !173, !"_ZN2cvL7makePtrINS_4rgbd15FastICPOdometryEJNS_3MatEffffiSt6vectorIiSaIiEEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!173 = distinct !{!173, !"_ZN2cvL7makePtrINS_4rgbd15FastICPOdometryEJNS_3MatEffffiSt6vectorIiSaIiEEEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!172 = distinct !{!172, !173, !"_ZN2cvL7makePtrINS_4rgbd15FastICPOdometryEJNS_3MatEffffiSt6vectorIiSaIiEEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!173 = distinct !{!173, !"_ZN2cvL7makePtrINS_4rgbd15FastICPOdometryEJNS_3MatEffffiSt6vectorIiSaIiEEEEENS_3PtrIT_EEDpRKT0_"}
 !174 = !{!175, !172}
 !175 = distinct !{!175, !176, !"_ZSt11make_sharedIN2cv4rgbd15FastICPOdometryEJRKNS0_3MatERKfS7_S7_S7_RKiRKSt6vectorIiSaIiEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_: argument 0"}
 !176 = distinct !{!176, !"_ZSt11make_sharedIN2cv4rgbd15FastICPOdometryEJRKNS0_3MatERKfS7_S7_S7_RKiRKSt6vectorIiSaIiEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_"}

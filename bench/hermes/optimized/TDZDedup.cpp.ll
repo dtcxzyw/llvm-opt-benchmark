@@ -692,7 +692,7 @@ if.then.i.i.i:                                    ; preds = %while.body.i.i.i
   %InstList.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i.i, i64 56
   %__begin2.sroa.0.011.i.i.i.i = load ptr, ptr %Next.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.not12.i.i.i.i = icmp eq ptr %__begin2.sroa.0.011.i.i.i.i, %InstList.i.i.i.i.i
-  br i1 %cmp.i.not12.i.i.i.i, label %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.argprom.exit.i.i.i, label %for.body.i.i.i.i
+  br i1 %cmp.i.not12.i.i.i.i, label %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.exit.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for.inc.i.i.i.i
   %__begin2.sroa.0.014.i.i.i.i = phi ptr [ %__begin2.sroa.0.0.i.i.i.i, %for.inc.i.i.i.i ], [ %__begin2.sroa.0.011.i.i.i.i, %if.then.i.i.i ]
@@ -1251,13 +1251,13 @@ for.end.loopexit.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i
 for.end.i.i.i.i.i:                                ; preds = %for.end.loopexit.i.i.i.i.i, %for.end.i.i.i.i
   %132 = phi ptr [ %.pre.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i ], [ %.pre.i11.i.i.i, %for.end.i.i.i.i ]
   %cmp.i.i.i.i125.i.i.i.i = icmp eq ptr %132, %add.ptr.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i125.i.i.i.i, label %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.argprom.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i125.i.i.i.i, label %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i
   call void @free(ptr noundef %132) #10
-  br label %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.argprom.exit.i.i.i
+  br label %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.exit.i.i.i
 
-_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.argprom.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.end.i.i.i.i.i, %if.then.i.i.i
+_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.end.i.i.i.i.i, %if.then.i.i.i
   %changed.0.lcssa2225.i.i.i.i = phi i1 [ %changed.1.i.i.i.i, %for.end.i.i.i.i.i ], [ %changed.1.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ false, %if.then.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %destroyer.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tdzStorage.i.i.i.i)
@@ -1626,8 +1626,8 @@ _ZN6hermes10DomTreeDFS7VisitorINS_12_GLOBAL__N_115TDZDedupContextENS2_9StackNode
   store ptr %143, ptr %CCtx, align 8
   br label %if.end16thread-pre-split.i.i.i
 
-if.end16thread-pre-split.i.i.i:                   ; preds = %_ZN6hermes10DomTreeDFS7VisitorINS_12_GLOBAL__N_115TDZDedupContextENS2_9StackNodeEE8freeNodeEPS4_.exit.i.i.i, %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.argprom.exit.i.i.i
-  %changed.1.ph.i.i.i = phi i1 [ %133, %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.argprom.exit.i.i.i ], [ %changed.0223.i.i.i, %_ZN6hermes10DomTreeDFS7VisitorINS_12_GLOBAL__N_115TDZDedupContextENS2_9StackNodeEE8freeNodeEPS4_.exit.i.i.i ]
+if.end16thread-pre-split.i.i.i:                   ; preds = %_ZN6hermes10DomTreeDFS7VisitorINS_12_GLOBAL__N_115TDZDedupContextENS2_9StackNodeEE8freeNodeEPS4_.exit.i.i.i, %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.exit.i.i.i
+  %changed.1.ph.i.i.i = phi i1 [ %133, %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.exit.i.i.i ], [ %changed.0223.i.i.i, %_ZN6hermes10DomTreeDFS7VisitorINS_12_GLOBAL__N_115TDZDedupContextENS2_9StackNodeEE8freeNodeEPS4_.exit.i.i.i ]
   %.pr.pr.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   br label %if.end16.i.i.i
 

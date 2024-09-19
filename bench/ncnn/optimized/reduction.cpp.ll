@@ -530,7 +530,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   %98 = load float, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %100 = load i32, ptr %99, align 8
-  %101 = tail call fastcc noundef i32 @_ZN4ncnnL12reduction_opINS_16reduction_op_addIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.argelim(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, i32 noundef %100, ptr noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %101 = tail call fastcc noundef i32 @_ZN4ncnnL12reduction_opINS_16reduction_op_addIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, i32 noundef %100, ptr noundef nonnull readonly align 8 dereferenceable(64) %3)
   %.not.i = icmp eq i32 %101, 0
   br i1 %.not.i, label %102, label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
@@ -541,7 +541,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %105, label %106, label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 106:                                              ; preds = %102
-  tail call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %98)
+  tail call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %98)
   br label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 107:                                              ; preds = %93
@@ -549,7 +549,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   %109 = load float, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %111 = load i32, ptr %110, align 8
-  %112 = tail call fastcc noundef i32 @_ZN4ncnnL9reductionINS_17reduction_op_asumIfEENS_16reduction_op_addIfEENS_21post_process_identityIfEEEEiRKNS_3MatERS7_fbbbbbfiRKNS_6OptionE.argelim(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, float noundef nofpclass(nan inf) %109, i32 noundef %111, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %112 = tail call fastcc noundef i32 @_ZN4ncnnL9reductionINS_17reduction_op_asumIfEENS_16reduction_op_addIfEENS_21post_process_identityIfEEEEiRKNS_3MatERS7_fbbbbbfiRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, float noundef nofpclass(nan inf) %109, i32 noundef %111, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 113:                                              ; preds = %93
@@ -557,7 +557,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   %115 = load float, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %117 = load i32, ptr %116, align 8
-  %118 = tail call fastcc noundef i32 @_ZN4ncnnL12reduction_opINS_18reduction_op_sumsqIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.argelim(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, i32 noundef %117, ptr noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %118 = tail call fastcc noundef i32 @_ZN4ncnnL12reduction_opINS_18reduction_op_sumsqIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, i32 noundef %117, ptr noundef nonnull readonly align 8 dereferenceable(64) %3)
   %.not.i152 = icmp eq i32 %118, 0
   br i1 %.not.i152, label %119, label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
@@ -568,7 +568,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %122, label %123, label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 123:                                              ; preds = %119
-  tail call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %115)
+  tail call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %115)
   br label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 124:                                              ; preds = %93
@@ -638,14 +638,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   %160 = load float, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %162 = load i32, ptr %161, align 8
-  %163 = tail call fastcc noundef i32 @_ZN4ncnnL12reduction_opINS_16reduction_op_addIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.argelim(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, i32 noundef %162, ptr noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %163 = tail call fastcc noundef i32 @_ZN4ncnnL12reduction_opINS_16reduction_op_addIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, i32 noundef %162, ptr noundef nonnull readonly align 8 dereferenceable(64) %3)
   %.not.i154 = icmp eq i32 %163, 0
   br i1 %.not.i154, label %164, label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 164:                                              ; preds = %158
   %165 = sitofp i32 %.0129 to float
   %166 = fdiv fast float %160, %165
-  tail call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %166)
+  tail call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %166)
   br label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 167:                                              ; preds = %93
@@ -4606,7 +4606,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %1839, label %1840, label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 1840:                                             ; preds = %1836
-  call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %169)
+  call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %169)
   br label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 1841:                                             ; preds = %93
@@ -8567,7 +8567,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %3513, label %3514, label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 3514:                                             ; preds = %3510
-  call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %1843)
+  call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %1843)
   br label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 3515:                                             ; preds = %93
@@ -12493,19 +12493,19 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %5147, label %5148, label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 5148:                                             ; preds = %5144
-  call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %3517)
+  call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %2, float noundef nofpclass(nan inf) %3517)
   br label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 5149:                                             ; preds = %93
   %5150 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5151 = load i32, ptr %5150, align 8
-  %5152 = tail call fastcc noundef i32 @_ZN4ncnnL9reductionINS_17reduction_op_asumIfEENS_16reduction_op_addIfEENS_21post_process_identityIfEEEEiRKNS_3MatERS7_fbbbbbfiRKNS_6OptionE.argelim(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, float noundef nofpclass(nan inf) 1.000000e+00, i32 noundef %5151, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %5152 = tail call fastcc noundef i32 @_ZN4ncnnL9reductionINS_17reduction_op_asumIfEENS_16reduction_op_addIfEENS_21post_process_identityIfEEEEiRKNS_3MatERS7_fbbbbbfiRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, float noundef nofpclass(nan inf) 1.000000e+00, i32 noundef %5151, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 5153:                                             ; preds = %93
   %5154 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5155 = load i32, ptr %5154, align 8
-  %5156 = tail call fastcc noundef i32 @_ZN4ncnnL12reduction_opINS_18reduction_op_sumsqIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.argelim(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, i32 noundef %5155, ptr noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %5156 = tail call fastcc noundef i32 @_ZN4ncnnL12reduction_opINS_18reduction_op_sumsqIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, i32 noundef %5155, ptr noundef nonnull readonly align 8 dereferenceable(64) %3)
   %.not.i1133 = icmp eq i32 %5156, 0
   br i1 %.not.i1133, label %5157, label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
@@ -12651,12 +12651,12 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 5220:                                             ; preds = %93
   %5221 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5222 = load i32, ptr %5221, align 8
-  %5223 = tail call fastcc noundef i32 @_ZN4ncnnL12reduction_opINS_16reduction_op_addIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.argelim(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, i32 noundef %5222, ptr noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %5223 = tail call fastcc noundef i32 @_ZN4ncnnL12reduction_opINS_16reduction_op_addIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %.0128, i1 noundef zeroext %.0132.shrunk, i1 noundef zeroext %.0136, i1 noundef zeroext %.0138.shrunk, i32 noundef %5222, ptr noundef nonnull readonly align 8 dereferenceable(64) %3)
   %.not.i1141 = icmp eq i32 %5223, 0
   br i1 %.not.i1141, label %5224, label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 5224:                                             ; preds = %5220
-  tail call fastcc void @_ZN4ncnnL22reduction_post_processINS_16post_process_logIfEEEEiRNS_3MatEfRKNS_6OptionE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(72) %2)
+  tail call fastcc void @_ZN4ncnnL22reduction_post_processINS_16post_process_logIfEEEEiRNS_3MatEfRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %2)
   br label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 5225:                                             ; preds = %93
@@ -16468,7 +16468,7 @@ _ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEE
   br i1 %.not.i1158, label %6887, label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 6887:                                             ; preds = %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i, %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.thread.i
-  call fastcc void @_ZN4ncnnL22reduction_post_processINS_16post_process_logIfEEEEiRNS_3MatEfRKNS_6OptionE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(72) %2)
+  call fastcc void @_ZN4ncnnL22reduction_post_processINS_16post_process_logIfEEEEiRNS_3MatEfRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %2)
   br label %_ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit
 
 _ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEEiRKNS_3MatERS5_fbbbbbfiRKNS_6OptionE.exit: ; preds = %.lr.ph.i.i1136, %.lr.ph7.i.i, %._crit_edge.us.i.i, %.lr.ph13.i.i, %6887, %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i, %5224, %5220, %.preheader.i.i1140, %.lr.ph11.i.i, %.preheader1.i.i, %5183, %5170, %5160, %5153, %5148, %5144, %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i, %3514, %3510, %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i, %1840, %1836, %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i, %164, %158, %123, %119, %113, %106, %102, %96, %93, %5149, %107
@@ -16480,7 +16480,7 @@ _ZN4ncnnL9reductionINS_16reduction_op_addIfEES2_NS_21post_process_identityIfEEEE
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17reduction_op_asumIfEENS_16reduction_op_addIfEENS_21post_process_identityIfEEEEiRKNS_3MatERS7_fbbbbbfiRKNS_6OptionE.argelim(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, float noundef nofpclass(nan inf) %6, i32 noundef %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17reduction_op_asumIfEENS_16reduction_op_addIfEENS_21post_process_identityIfEEEEiRKNS_3MatERS7_fbbbbbfiRKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, float noundef nofpclass(nan inf) %6, i32 noundef %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.ncnn::Mat", align 8
   %11 = alloca %"class.ncnn::Mat", align 8
   %12 = alloca %"class.ncnn::Mat", align 8
@@ -20280,7 +20280,7 @@ _ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRK
   br i1 %1675, label %1676, label %1677
 
 1676:                                             ; preds = %1672
-  call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(72) %1, float noundef nofpclass(nan inf) %6)
+  call fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, float noundef nofpclass(nan inf) %6)
   br label %1677
 
 1677:                                             ; preds = %1672, %1676, %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit
@@ -20426,7 +20426,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opINS_16reduction_op_addIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.argelim(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opINS_16reduction_op_addIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.ncnn::Mat", align 8
   %10 = alloca %"class.ncnn::Mat", align 8
   %11 = alloca %"class.ncnn::Mat", align 8
@@ -24223,7 +24223,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 declare float @llvm.fabs.f32(float) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE.argprom.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, float noundef nofpclass(nan inf) %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process_identityIfEEEEiRNS_3MatEfRKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, float noundef nofpclass(nan inf) %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %24 [
@@ -24367,7 +24367,7 @@ declare void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 
 declare void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opINS_18reduction_op_sumsqIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.argelim(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opINS_18reduction_op_sumsqIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.ncnn::Mat", align 8
   %10 = alloca %"class.ncnn::Mat", align 8
   %11 = alloca %"class.ncnn::Mat", align 8
@@ -28190,7 +28190,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 declare float @llvm.sqrt.f32(float) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_16post_process_logIfEEEEiRNS_3MatEfRKNS_6OptionE.argprom.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_16post_process_logIfEEEEiRNS_3MatEfRKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %23 [

@@ -122,18 +122,18 @@ define dso_local void @callthunks_patch_builtin_calls() local_unnamed_addr #1 se
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.loopexit2.i
   %21 = load i1, ptr @debug_callthunks, align 4
-  br i1 %21, label %22, label %callthunks_setup.argprom.exit
+  br i1 %21, label %22, label %callthunks_setup.exit
 
 22:                                               ; preds = %.loopexit.i
   %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6) #13
-  br label %callthunks_setup.argprom.exit
+  br label %callthunks_setup.exit
 
-callthunks_setup.argprom.exit:                    ; preds = %.loopexit.i, %22
+callthunks_setup.exit:                            ; preds = %.loopexit.i, %22
   store i1 true, ptr @thunks_initialized, align 1
   tail call void @mutex_unlock(ptr noundef nonnull @text_mutex) #12
   br label %24
 
-24:                                               ; preds = %callthunks_setup.argprom.exit, %0
+24:                                               ; preds = %callthunks_setup.exit, %0
   ret void
 }
 

@@ -724,7 +724,7 @@ srt_format_ip_address.exit.i:                     ; preds = %.loopexit.i.i, %118
   %164 = zext i16 %128 to i32
   %165 = shl nuw nsw i32 %164, 2
   %.val.i = load ptr, ptr %103, align 8
-  call fastcc void @format_text_reorder_32.argprom(ptr noundef %19, ptr noundef %0, ptr %.val.i, i32 noundef %163, i32 noundef %133, i32 noundef %165)
+  call fastcc void @format_text_reorder_32(ptr noundef %19, ptr noundef %0, ptr %.val.i, i32 noundef %163, i32 noundef %133, i32 noundef %165)
   br label %srt_format_hs_ext_group.exit.i
 
 166:                                              ; preds = %.preheader.i
@@ -732,7 +732,7 @@ srt_format_ip_address.exit.i:                     ; preds = %.loopexit.i.i, %118
   %168 = zext i16 %128 to i32
   %169 = shl nuw nsw i32 %168, 2
   %.val211.i = load ptr, ptr %103, align 8
-  call fastcc void @format_text_reorder_32.argprom(ptr noundef %19, ptr noundef %0, ptr %.val211.i, i32 noundef %167, i32 noundef %133, i32 noundef %169)
+  call fastcc void @format_text_reorder_32(ptr noundef %19, ptr noundef %0, ptr %.val211.i, i32 noundef %167, i32 noundef %133, i32 noundef %169)
   br label %srt_format_hs_ext_group.exit.i
 
 170:                                              ; preds = %.preheader.i
@@ -740,7 +740,7 @@ srt_format_ip_address.exit.i:                     ; preds = %.loopexit.i.i, %118
   %172 = zext i16 %128 to i32
   %173 = shl nuw nsw i32 %172, 2
   %.val212.i = load ptr, ptr %103, align 8
-  call fastcc void @format_text_reorder_32.argprom(ptr noundef %19, ptr noundef %0, ptr %.val212.i, i32 noundef %171, i32 noundef %133, i32 noundef %173)
+  call fastcc void @format_text_reorder_32(ptr noundef %19, ptr noundef %0, ptr %.val212.i, i32 noundef %171, i32 noundef %133, i32 noundef %173)
   br label %srt_format_hs_ext_group.exit.i
 
 174:                                              ; preds = %.preheader.i
@@ -1164,7 +1164,7 @@ define internal fastcc void @srt_format_kmx(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @format_text_reorder_32.argprom(ptr noundef %0, ptr noundef %1, ptr %.408.val, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 262141) %4) unnamed_addr #0 {
+define internal fastcc void @format_text_reorder_32(ptr noundef %0, ptr noundef %1, ptr %.408.val, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 262141) %4) unnamed_addr #0 {
   %6 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %.408.val, ptr noundef nonnull @.str.224) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph

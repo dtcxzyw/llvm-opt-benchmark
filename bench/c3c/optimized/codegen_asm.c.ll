@@ -108,7 +108,7 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   %29 = add nsw i64 %indvars.iv.i, -1
   %30 = getelementptr inbounds ptr, ptr %22, i64 %29
   %31 = load ptr, ptr %30, align 8
-  tail call fastcc void @codegen_create_x86att_arg.argprom(i32 noundef %.024.i, ptr noundef %31)
+  tail call fastcc void @codegen_create_x86att_arg(i32 noundef %.024.i, ptr noundef %31)
   %.not31.wide.i = icmp eq i64 %29, 0
   br i1 %.not31.wide.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
@@ -166,8 +166,8 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   %wide.trip.count.i = zext i32 %52 to i64
   br label %.lr.ph.i8
 
-.lr.ph.i8:                                        ; preds = %codegen_create_aarch64_arg.argprom.exit.i, %.lr.ph.preheader.i7
-  %indvars.iv.i9 = phi i64 [ 0, %.lr.ph.preheader.i7 ], [ %indvars.iv.next.i, %codegen_create_aarch64_arg.argprom.exit.i ]
+.lr.ph.i8:                                        ; preds = %codegen_create_aarch64_arg.exit.i, %.lr.ph.preheader.i7
+  %indvars.iv.i9 = phi i64 [ 0, %.lr.ph.preheader.i7 ], [ %indvars.iv.next.i, %codegen_create_aarch64_arg.exit.i ]
   %.not30.i10 = icmp eq i64 %indvars.iv.i9, 0
   br i1 %.not30.i10, label %54, label %53
 
@@ -195,7 +195,7 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   %61 = getelementptr inbounds i8, ptr %56, i64 32
   %62 = load i64, ptr %61, align 8
   tail call void @scratch_buffer_append_unsigned_int(i64 noundef %62) #3
-  br label %codegen_create_aarch64_arg.argprom.exit.i
+  br label %codegen_create_aarch64_arg.exit.i
 
 63:                                               ; preds = %54
   %64 = getelementptr inbounds i8, ptr %56, i64 32
@@ -203,7 +203,7 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 1
   tail call void @scratch_buffer_append(ptr noundef nonnull %67) #3
-  br label %codegen_create_aarch64_arg.argprom.exit.i
+  br label %codegen_create_aarch64_arg.exit.i
 
 68:                                               ; preds = %54
   tail call void @scratch_buffer_append_char(i8 noundef signext 36) #3
@@ -213,7 +213,7 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   %72 = add i32 %71, %.023.i
   %73 = zext i32 %72 to i64
   tail call void @scratch_buffer_append_unsigned_int(i64 noundef %73) #3
-  br label %codegen_create_aarch64_arg.argprom.exit.i
+  br label %codegen_create_aarch64_arg.exit.i
 
 74:                                               ; preds = %54, %54
   tail call void @scratch_buffer_append_char(i8 noundef signext 36) #3
@@ -234,14 +234,14 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   %84 = add i32 %83, %.023.i
   %85 = zext i32 %84 to i64
   tail call void @scratch_buffer_append_unsigned_int(i64 noundef %85) #3
-  br label %codegen_create_aarch64_arg.argprom.exit.i
+  br label %codegen_create_aarch64_arg.exit.i
 
 86:                                               ; preds = %78, %74
   %87 = load i64, ptr %57, align 8
   %88 = lshr i64 %87, 16
   %89 = and i64 %88, 65535
   tail call void @scratch_buffer_append_unsigned_int(i64 noundef %89) #3
-  br label %codegen_create_aarch64_arg.argprom.exit.i
+  br label %codegen_create_aarch64_arg.exit.i
 
 90:                                               ; preds = %54
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.codegen_create_aarch64_arg, ptr noundef nonnull @.str.2, i32 noundef 108) #4
@@ -255,12 +255,12 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.codegen_create_aarch64_arg, ptr noundef nonnull @.str.2, i32 noundef 112) #4
   unreachable
 
-codegen_create_aarch64_arg.argprom.exit.i:        ; preds = %86, %80, %68, %63, %60
+codegen_create_aarch64_arg.exit.i:                ; preds = %86, %80, %68, %63, %60
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i11, label %.lr.ph.i8, !llvm.loop !10
 
-._crit_edge.i11:                                  ; preds = %codegen_create_aarch64_arg.argprom.exit.i, %50, %.thread.i12
+._crit_edge.i11:                                  ; preds = %codegen_create_aarch64_arg.exit.i, %50, %.thread.i12
   tail call void @scratch_buffer_append_char(i8 noundef signext 10) #3
   %.not28.i = icmp eq i32 %45, 0
   br i1 %.not28.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph35.i, !llvm.loop !11
@@ -284,7 +284,7 @@ declare void @scratch_buffer_append(ptr noundef) local_unnamed_addr #1
 declare void @scratch_buffer_append_char(i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @codegen_create_x86att_arg.argprom(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i8
@@ -384,7 +384,7 @@ define internal fastcc void @codegen_create_x86att_arg.argprom(i32 noundef %0, p
   %48 = load ptr, ptr @expr_arena, align 8
   %49 = zext i32 %46 to i64
   %50 = getelementptr inbounds %struct.Expr_, ptr %48, i64 %49
-  tail call fastcc void @codegen_create_x86att_arg.argprom(i32 noundef %0, ptr noundef nonnull %50)
+  tail call fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr noundef nonnull %50)
   br label %51
 
 51:                                               ; preds = %47, %45
@@ -399,7 +399,7 @@ define internal fastcc void @codegen_create_x86att_arg.argprom(i32 noundef %0, p
   %56 = load ptr, ptr @expr_arena, align 8
   %57 = zext i32 %55 to i64
   %58 = getelementptr inbounds %struct.Expr_, ptr %56, i64 %57
-  tail call fastcc void @codegen_create_x86att_arg.argprom(i32 noundef %0, ptr noundef %58)
+  tail call fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr noundef %58)
   tail call void @scratch_buffer_append_char(i8 noundef signext 44) #3
   %59 = load i64, ptr %3, align 8
   %60 = lshr i64 %59, 32

@@ -2831,31 +2831,31 @@ for.body.lr.ph.i:                                 ; preds = %for.body.preheader.
   %13 = getelementptr i8, ptr %retval.0.i.i, i64 88
   br label %for.body.i
 
-for.body.i:                                       ; preds = %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.argprom.argprom.exit.i", %for.body.lr.ph.i
-  %__first.sroa.0.07.i = phi ptr [ %call5.i.i.i.i.i.i, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.argprom.argprom.exit.i" ]
-  %__result.sroa.0.06.i = phi ptr [ %call5.i.i.i.i.i.i12, %for.body.lr.ph.i ], [ %incdec.ptr.i1.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.argprom.argprom.exit.i" ]
+for.body.i:                                       ; preds = %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i", %for.body.lr.ph.i
+  %__first.sroa.0.07.i = phi ptr [ %call5.i.i.i.i.i.i, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
+  %__result.sroa.0.06.i = phi ptr [ %call5.i.i.i.i.i.i12, %for.body.lr.ph.i ], [ %incdec.ptr.i1.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
   %call4.val.i = load i32, ptr %__first.sroa.0.07.i, align 8
   %__unary_op.val.val.i = load ptr, ptr %13, align 8
   %call2.i.i = tail call ptr @OBJ_nid2sn(i32 noundef %call4.val.i) #21
   %call.i.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %__unary_op.val.val.i, ptr noundef %call2.i.i, i32 noundef 0, i32 noundef -1) #21
   %cmp.i.i.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.argprom.argprom.exit.i"
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i"
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i
   tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #21
-  br label %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.argprom.argprom.exit.i"
+  br label %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i"
 
-"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.argprom.argprom.exit.i": ; preds = %if.then.i.i.i.i, %for.body.i
+"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i": ; preds = %if.then.i.i.i.i, %for.body.i
   store ptr %call.i.i.i, ptr %__result.sroa.0.06.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i, i64 16
   %incdec.ptr.i1.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i3134
   br i1 %cmp.i.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIP16EC_builtin_curveSt6vectorIS2_SaIS2_EEEENS1_IPN2v85LocalINS8_5ValueEEES4_ISB_SaISB_EEEEZN4node6crypto4ECDH9GetCurvesERKNS8_20FunctionCallbackInfoISA_EEE3$_0ET0_T_SP_SO_T1_.exit", label %for.body.i, !llvm.loop !7
 
-"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIP16EC_builtin_curveSt6vectorIS2_SaIS2_EEEENS1_IPN2v85LocalINS8_5ValueEEES4_ISB_SaISB_EEEEZN4node6crypto4ECDH9GetCurvesERKNS8_20FunctionCallbackInfoISA_EEE3$_0ET0_T_SP_SO_T1_.exit": ; preds = %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.argprom.argprom.exit.i", %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38, %for.body.preheader.i.i.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i53 = phi i64 [ %12, %for.body.preheader.i.i.i.i.i ], [ 0, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %12, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.argprom.argprom.exit.i" ]
-  %arr.sroa.0.052 = phi ptr [ %call5.i.i.i.i.i.i12, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %call5.i.i.i.i.i.i12, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.argprom.argprom.exit.i" ]
-  %curves.sroa.0.0303751 = phi ptr [ %call5.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %call5.i.i.i.i.i.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.argprom.argprom.exit.i" ]
+"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIP16EC_builtin_curveSt6vectorIS2_SaIS2_EEEENS1_IPN2v85LocalINS8_5ValueEEES4_ISB_SaISB_EEEEZN4node6crypto4ECDH9GetCurvesERKNS8_20FunctionCallbackInfoISA_EEE3$_0ET0_T_SP_SO_T1_.exit": ; preds = %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i", %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38, %for.body.preheader.i.i.i.i.i
+  %__cur.0.lcssa.i.i.i.i.i53 = phi i64 [ %12, %for.body.preheader.i.i.i.i.i ], [ 0, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %12, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
+  %arr.sroa.0.052 = phi ptr [ %call5.i.i.i.i.i.i12, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %call5.i.i.i.i.i.i12, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
+  %curves.sroa.0.0303751 = phi ptr [ %call5.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %call5.i.i.i.i.i.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
   %14 = load ptr, ptr %args, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %15 = load ptr, ptr %isolate_.i, align 8
@@ -5924,13 +5924,13 @@ _ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i.i: ; pr
   %pkey_.i.i = getelementptr inbounds i8, ptr %m_pkey.i, i64 8
   %15 = load ptr, ptr %pkey_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %15, null
-  br i1 %cmp.not.i.i.i, label %_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.argprom.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i.i
   call void @EVP_PKEY_free(ptr noundef nonnull %15) #21
-  br label %_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.argprom.exit
+  br label %_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.exit
 
-_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.argprom.exit: ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i.i, %if.then.i.i.i
+_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.exit: ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %m_pkey.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
@@ -6194,8 +6194,8 @@ do.body131:                                       ; preds = %do.end5
   tail call void @abort() #23
   unreachable
 
-return:                                           ; preds = %if.then.i.i, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i, %sw.bb16, %sw.bb8, %if.end13, %_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.argprom.exit
-  %retval.0 = phi i32 [ %call15, %if.end13 ], [ %retval.0.i, %_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.argprom.exit ], [ 1, %sw.bb8 ], [ 1, %sw.bb16 ], [ %retval.1, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i ], [ %retval.1, %if.then.i.i ]
+return:                                           ; preds = %if.then.i.i, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i, %sw.bb16, %sw.bb8, %if.end13, %_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.exit
+  %retval.0 = phi i32 [ %call15, %if.end13 ], [ %retval.0.i, %_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.exit ], [ 1, %sw.bb8 ], [ 1, %sw.bb16 ], [ %retval.1, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i ], [ %retval.1, %if.then.i.i ]
   ret i32 %retval.0
 }
 
@@ -8886,16 +8886,16 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i: ; pre
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i, %arraydestroy.body.i.i
   store ptr null, ptr %arraydestroy.element.i.i, align 8
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %arg_convertibles.i.i
-  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit, label %arraydestroy.body.i.i
+  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit, label %arraydestroy.body.i.i
 
-_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
+_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg1_name.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %arg_type.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_value.i)
   br label %do.end
 
-do.end:                                           ; preds = %if.end, %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.argprom.exit
+do.end:                                           ; preds = %if.end, %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %14 = load ptr, ptr %vfn, align 8

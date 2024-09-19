@@ -44,13 +44,13 @@ define noundef nonnull ptr @"_ZN94_$LT$tokio_util..sync..cancellation_token..Can
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %2 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %3 = icmp slt i64 %2, 0
-  br i1 %3, label %4, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0214e404d8f68749E.argprom.exit"
+  br i1 %3, label %4, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0214e404d8f68749E.exit"
 
 4:                                                ; preds = %1
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0214e404d8f68749E.argprom.exit": ; preds = %1
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0214e404d8f68749E.exit": ; preds = %1
   ret ptr %.val
 }
 

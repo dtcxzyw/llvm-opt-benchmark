@@ -2760,12 +2760,12 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_8internal12_GLO
 entry:
   %0 = load atomic i8, ptr @_ZGVZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsEE6loader acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit, !prof !4
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsE.exit, !prof !4
 
 init.check.i:                                     ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #19
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit, label %invoke.cont2.i
+  br i1 %tobool.not.i, label %_ZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsE.exit, label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %init.check.i
   %call.i1.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
@@ -2785,7 +2785,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont2.i
   store ptr null, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #19
-  br label %_ZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit
+  br label %_ZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsE.exit
 
 lpad.i:                                           ; preds = %invoke.cont2.i
   %2 = landingpad { ptr, i32 }
@@ -2793,7 +2793,7 @@ lpad.i:                                           ; preds = %invoke.cont2.i
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #19
   resume { ptr, i32 } %2
 
-_ZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit: ; preds = %entry, %init.check.i, %invoke.cont3.i
+_ZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsE.exit: ; preds = %entry, %init.check.i, %invoke.cont3.i
   %3 = load ptr, ptr @_ZZN9grpc_core8internal12_GLOBAL__N_112GlobalConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   %vtable = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %vtable, align 8
@@ -2888,12 +2888,12 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_8internal12_GLO
 entry:
   %0 = load atomic i8, ptr @_ZGVZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsEE6loader acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit, !prof !4
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsE.exit, !prof !4
 
 init.check.i:                                     ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #19
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit, label %invoke.cont2.i
+  br i1 %tobool.not.i, label %_ZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsE.exit, label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %init.check.i
   %call.i1.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
@@ -2913,7 +2913,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont2.i
   store ptr null, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #19
-  br label %_ZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit
+  br label %_ZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsE.exit
 
 lpad.i:                                           ; preds = %invoke.cont2.i
   %2 = landingpad { ptr, i32 }
@@ -2921,7 +2921,7 @@ lpad.i:                                           ; preds = %invoke.cont2.i
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #19
   resume { ptr, i32 } %2
 
-_ZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsE.argprom.exit: ; preds = %entry, %init.check.i, %invoke.cont3.i
+_ZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsE.exit: ; preds = %entry, %init.check.i, %invoke.cont3.i
   %3 = load ptr, ptr @_ZZN9grpc_core8internal12_GLOBAL__N_112MethodConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   %vtable = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %vtable, align 8

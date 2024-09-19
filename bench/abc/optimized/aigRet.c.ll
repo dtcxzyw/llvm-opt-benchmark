@@ -618,7 +618,7 @@ define void @Rtm_ObjRetimeFwd(ptr nocapture noundef %0, ptr nocapture noundef %1
   %33 = getelementptr inbounds i32, ptr %23, i64 %32
   %.01.i.i = getelementptr inbounds i8, ptr %33, i64 -4
   %.not2.i.i = icmp ult ptr %.01.i.i, %23
-  br i1 %.not2.i.i, label %Rtm_ObjRemFirst2.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %Rtm_ObjRemFirst2.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
   %.04.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.01.i.i, %20 ]
@@ -629,7 +629,7 @@ define void @Rtm_ObjRetimeFwd(ptr nocapture noundef %0, ptr nocapture noundef %1
   store i32 %36, ptr %.04.i.i, align 4
   %.0.i.i = getelementptr inbounds i8, ptr %.04.i.i, i64 -4
   %.not.i.i = icmp ult ptr %.0.i.i, %23
-  br i1 %.not.i.i, label %Rtm_ObjRemFirst2.argprom.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %Rtm_ObjRemFirst2.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 37:                                               ; preds = %14
   %38 = lshr i32 %15, 12
@@ -638,20 +638,20 @@ define void @Rtm_ObjRetimeFwd(ptr nocapture noundef %0, ptr nocapture noundef %1
   %41 = and i32 %40, 1073737728
   %42 = or disjoint i32 %41, %19
   store i32 %42, ptr %gep, align 8
-  br label %Rtm_ObjRemFirst2.argprom.exit.i
+  br label %Rtm_ObjRemFirst2.exit.i
 
-Rtm_ObjRemFirst2.argprom.exit.loopexit.i:         ; preds = %.lr.ph.i.i
+Rtm_ObjRemFirst2.exit.loopexit.i:                 ; preds = %.lr.ph.i.i
   %.pre.i = load i32, ptr %gep, align 8
-  br label %Rtm_ObjRemFirst2.argprom.exit.i
+  br label %Rtm_ObjRemFirst2.exit.i
 
-Rtm_ObjRemFirst2.argprom.exit.i:                  ; preds = %Rtm_ObjRemFirst2.argprom.exit.loopexit.i, %37, %20
-  %43 = phi i32 [ %42, %37 ], [ %25, %20 ], [ %.pre.i, %Rtm_ObjRemFirst2.argprom.exit.loopexit.i ]
-  %44 = phi i32 [ %39, %37 ], [ 0, %20 ], [ %35, %Rtm_ObjRemFirst2.argprom.exit.loopexit.i ]
+Rtm_ObjRemFirst2.exit.i:                          ; preds = %Rtm_ObjRemFirst2.exit.loopexit.i, %37, %20
+  %43 = phi i32 [ %42, %37 ], [ %25, %20 ], [ %.pre.i, %Rtm_ObjRemFirst2.exit.loopexit.i ]
+  %44 = phi i32 [ %39, %37 ], [ 0, %20 ], [ %35, %Rtm_ObjRemFirst2.exit.loopexit.i ]
   %45 = and i32 %43, 4095
   %46 = icmp eq i32 %45, 10
   br i1 %46, label %47, label %Rtm_ObjRemFirst.exit
 
-47:                                               ; preds = %Rtm_ObjRemFirst2.argprom.exit.i
+47:                                               ; preds = %Rtm_ObjRemFirst2.exit.i
   %.val7.i = load ptr, ptr %6, align 8
   %48 = lshr i32 %43, 12
   %49 = zext nneg i32 %48 to i64
@@ -662,7 +662,7 @@ Rtm_ObjRemFirst2.argprom.exit.i:                  ; preds = %Rtm_ObjRemFirst2.ar
   store i32 %53, ptr %gep, align 8
   br label %Rtm_ObjRemFirst.exit
 
-Rtm_ObjRemFirst.exit:                             ; preds = %Rtm_ObjRemFirst2.argprom.exit.i, %47
+Rtm_ObjRemFirst.exit:                             ; preds = %Rtm_ObjRemFirst2.exit.i, %47
   %.not = icmp eq i64 %indvars.iv, 0
   %54 = load i32, ptr %3, align 8
   %55 = select i1 %.not, i32 32, i32 64
@@ -1176,7 +1176,7 @@ Rtm_ObjTransferToBigger.exit:                     ; preds = %._crit_edge.i12, %5
   %102 = zext nneg i32 %101 to i64
   %103 = getelementptr inbounds i32, ptr %93, i64 %102
   %.not.i15 = icmp eq i32 %101, 0
-  br i1 %.not.i15, label %Rtm_ObjAddFirst2.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i15, label %Rtm_ObjAddFirst2.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %89, %.lr.ph.i
   %.02.i = phi i32 [ %105, %.lr.ph.i ], [ %2, %89 ]
@@ -1188,7 +1188,7 @@ Rtm_ObjTransferToBigger.exit:                     ; preds = %._crit_edge.i12, %5
   store i32 %107, ptr %.0111.i, align 4
   %108 = getelementptr inbounds i8, ptr %.0111.i, i64 4
   %109 = icmp ult ptr %108, %103
-  br i1 %109, label %.lr.ph.i, label %Rtm_ObjAddFirst2.argprom.exit, !llvm.loop !16
+  br i1 %109, label %.lr.ph.i, label %Rtm_ObjAddFirst2.exit, !llvm.loop !16
 
 110:                                              ; preds = %85
   %111 = lshr i32 %86, 10
@@ -1199,9 +1199,9 @@ Rtm_ObjTransferToBigger.exit:                     ; preds = %._crit_edge.i12, %5
   %115 = and i32 %narrow.i17, 4095
   %116 = or disjoint i32 %114, %115
   store i32 %116, ptr %1, align 8
-  br label %Rtm_ObjAddFirst2.argprom.exit
+  br label %Rtm_ObjAddFirst2.exit
 
-Rtm_ObjAddFirst2.argprom.exit:                    ; preds = %.lr.ph.i, %89, %110
+Rtm_ObjAddFirst2.exit:                            ; preds = %.lr.ph.i, %89, %110
   ret void
 }
 
@@ -2332,13 +2332,13 @@ define ptr @Rtm_ManToAig_rec(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %.val.i, i64 %29
   %31 = load i32, ptr %30, align 4
-  br label %Rtm_ObjGetFirst.argprom.exit
+  br label %Rtm_ObjGetFirst.exit
 
 32:                                               ; preds = %25
   %33 = lshr i32 %17, 12
-  br label %Rtm_ObjGetFirst.argprom.exit
+  br label %Rtm_ObjGetFirst.exit
 
-Rtm_ObjGetFirst.argprom.exit:                     ; preds = %27, %32
+Rtm_ObjGetFirst.exit:                             ; preds = %27, %32
   %.in.i = phi i32 [ %31, %27 ], [ %33, %32 ]
   %34 = and i32 %.in.i, 3
   %35 = load i32, ptr %13, align 4
@@ -2362,8 +2362,8 @@ Rtm_ObjGetFirst.argprom.exit:                     ; preds = %27, %32
   %51 = xor i64 %49, %50
   br label %52
 
-52:                                               ; preds = %Rtm_ObjGetFirst.argprom.exit, %20
-  %.033 = phi i64 [ %24, %20 ], [ %51, %Rtm_ObjGetFirst.argprom.exit ]
+52:                                               ; preds = %Rtm_ObjGetFirst.exit, %20
+  %.033 = phi i64 [ %24, %20 ], [ %51, %Rtm_ObjGetFirst.exit ]
   %.not36 = icmp eq i64 %indvars.iv, 0
   %53 = load i32, ptr %8, align 8
   %. = select i1 %.not36, i32 5, i32 6
@@ -2606,11 +2606,11 @@ define ptr @Rtm_ManToAig(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %103 = trunc nuw nsw i64 %indvars.iv172 to i32
   br label %.lr.ph143
 
-.lr.ph143:                                        ; preds = %.lr.ph143.preheader, %Rtm_ObjGetOne.argprom.exit
-  %104 = phi i32 [ %145, %Rtm_ObjGetOne.argprom.exit ], [ %97, %.lr.ph143.preheader ]
-  %105 = phi i32 [ %144, %Rtm_ObjGetOne.argprom.exit ], [ %96, %.lr.ph143.preheader ]
-  %.099142 = phi i64 [ %142, %Rtm_ObjGetOne.argprom.exit ], [ %102, %.lr.ph143.preheader ]
-  %.0100141 = phi i32 [ %143, %Rtm_ObjGetOne.argprom.exit ], [ 0, %.lr.ph143.preheader ]
+.lr.ph143:                                        ; preds = %.lr.ph143.preheader, %Rtm_ObjGetOne.exit
+  %104 = phi i32 [ %145, %Rtm_ObjGetOne.exit ], [ %97, %.lr.ph143.preheader ]
+  %105 = phi i32 [ %144, %Rtm_ObjGetOne.exit ], [ %96, %.lr.ph143.preheader ]
+  %.099142 = phi i64 [ %142, %Rtm_ObjGetOne.exit ], [ %102, %.lr.ph143.preheader ]
+  %.0100141 = phi i32 [ %143, %Rtm_ObjGetOne.exit ], [ 0, %.lr.ph143.preheader ]
   %106 = xor i32 %.0100141, -1
   %107 = add nsw i32 %104, %106
   %108 = icmp ugt i32 %104, 10
@@ -2628,15 +2628,15 @@ define ptr @Rtm_ManToAig(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %117 = shl nsw i32 %107, 1
   %118 = and i32 %117, 30
   %119 = lshr i32 %116, %118
-  br label %Rtm_ObjGetOne.argprom.exit
+  br label %Rtm_ObjGetOne.exit
 
 120:                                              ; preds = %.lr.ph143
   %121 = lshr i32 %105, 12
   %122 = shl nsw i32 %107, 1
   %123 = lshr i32 %121, %122
-  br label %Rtm_ObjGetOne.argprom.exit
+  br label %Rtm_ObjGetOne.exit
 
-Rtm_ObjGetOne.argprom.exit:                       ; preds = %109, %120
+Rtm_ObjGetOne.exit:                               ; preds = %109, %120
   %.in.i = phi i32 [ %119, %109 ], [ %123, %120 ]
   %124 = and i32 %.in.i, 3
   %125 = icmp eq i32 %124, 2
@@ -2665,7 +2665,7 @@ Rtm_ObjGetOne.argprom.exit:                       ; preds = %109, %120
   %146 = icmp ult i32 %143, %145
   br i1 %146, label %.lr.ph143, label %.loopexit.loopexit, !llvm.loop !40
 
-.loopexit.loopexit:                               ; preds = %Rtm_ObjGetOne.argprom.exit
+.loopexit.loopexit:                               ; preds = %Rtm_ObjGetOne.exit
   %.pre178 = load i32, ptr %88, align 8
   br label %.loopexit
 

@@ -610,7 +610,7 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef %0, i32 noundef %1, pt
   %.031.lcssa.i = phi x86_fp80 [ %67, %53 ], [ %76, %.lr.ph.i ]
   %.0.lcssa.i = phi x86_fp80 [ %73, %53 ], [ %77, %.lr.ph.i ]
   %75 = fcmp olt x86_fp80 %.0.lcssa.i, 0xK00000000000000000000
-  br i1 %75, label %.lr.ph10.i, label %calcNT3.argprom.exit
+  br i1 %75, label %.lr.ph10.i, label %calcNT3.exit
 
 .lr.ph.i:                                         ; preds = %53, %.lr.ph.i
   %.06.i = phi x86_fp80 [ %77, %.lr.ph.i ], [ %73, %53 ]
@@ -626,9 +626,9 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef %0, i32 noundef %1, pt
   %79 = fadd x86_fp80 %.1328.i, 0xKBFFF8000000000000000
   %80 = fadd x86_fp80 %.19.i, 0xK401CEE6B280000000000
   %81 = fcmp olt x86_fp80 %80, 0xK00000000000000000000
-  br i1 %81, label %.lr.ph10.i, label %calcNT3.argprom.exit, !llvm.loop !9
+  br i1 %81, label %.lr.ph10.i, label %calcNT3.exit, !llvm.loop !9
 
-calcNT3.argprom.exit:                             ; preds = %.lr.ph10.i, %.preheader.i
+calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.preheader.i
   %.132.lcssa.i = phi x86_fp80 [ %.031.lcssa.i, %.preheader.i ], [ %79, %.lr.ph10.i ]
   %.1.lcssa.i = phi x86_fp80 [ %.0.lcssa.i, %.preheader.i ], [ %80, %.lr.ph10.i ]
   %82 = fptosi x86_fp80 %.132.lcssa.i to i64
@@ -644,7 +644,7 @@ calcNT3.argprom.exit:                             ; preds = %.lr.ph10.i, %.prehe
   call void @nstime_sum(ptr noundef nonnull %55, ptr noundef nonnull %55, ptr noundef nonnull %13) #9
   br label %84
 
-84:                                               ; preds = %49, %calcNT3.argprom.exit
+84:                                               ; preds = %49, %calcNT3.exit
   %85 = add i32 %.063, 1
   %86 = load i32, ptr %20, align 8
   %.not54 = icmp ugt i32 %85, %86

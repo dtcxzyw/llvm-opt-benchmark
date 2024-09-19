@@ -17,7 +17,7 @@ if.end.i:                                         ; preds = %entry
   %0 = load i32, ptr %width.i, align 8
   %height.i = getelementptr inbounds i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height.i, align 4
-  tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii.retelim(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 1)
+  tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 1)
   %2 = load i32, ptr %height.i, align 4
   %cmp10.i = icmp sgt i32 %2, 0
   br i1 %cmp10.i, label %for.body.i, label %for.end.i
@@ -57,7 +57,7 @@ if.end.i:                                         ; preds = %entry
   %0 = load i32, ptr %width.i, align 8
   %height.i = getelementptr inbounds i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height.i, align 4
-  tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii.retelim(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 3)
+  tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 3)
   %2 = load i32, ptr %height.i, align 4
   %cmp10.i = icmp sgt i32 %2, 0
   br i1 %cmp10.i, label %for.body.i, label %for.end.i
@@ -98,7 +98,7 @@ if.end.i:                                         ; preds = %entry
   %0 = load i32, ptr %width.i, align 8
   %height.i = getelementptr inbounds i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height.i, align 4
-  tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii.retelim(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 4)
+  tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 4)
   %2 = load i32, ptr %height.i, align 4
   %cmp10.i = icmp sgt i32 %2, 0
   br i1 %cmp10.i, label %for.body.i, label %for.end.i
@@ -132,7 +132,7 @@ _ZN7msdfgen13saveTiffFloatILi4EEEbRKNS_14BitmapConstRefIfXT_EEEPKc.exit: ; preds
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii.retelim(ptr nocapture noundef nonnull %file, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels) unnamed_addr #0 {
+define internal fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr nocapture noundef nonnull %file, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels) unnamed_addr #0 {
 entry:
   %value.addr.i377 = alloca i32, align 4
   %value.addr.i374 = alloca i32, align 4

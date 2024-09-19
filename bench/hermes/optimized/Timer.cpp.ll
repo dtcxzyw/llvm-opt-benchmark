@@ -1144,13 +1144,13 @@ entry:
 cond.false:                                       ; preds = %entry
   %0 = load atomic i64, ptr @_ZL18NamedGroupedTimers acquire, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.argprom.exit
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit
 
 if.then.i.i:                                      ; preds = %cond.false
   tail call void @_ZNK4llvh17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL18NamedGroupedTimers, ptr noundef nonnull @_ZN4llvh14object_creatorIN12_GLOBAL__N_112Name2PairMapEE4callEv, ptr noundef nonnull @_ZN4llvh14object_deleterIN12_GLOBAL__N_112Name2PairMapEE4callEPv) #21
-  br label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.argprom.exit
+  br label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit
 
-_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.argprom.exit: ; preds = %cond.false, %if.then.i.i
+_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit: ; preds = %cond.false, %if.then.i.i
   %1 = load atomic i64, ptr @_ZL18NamedGroupedTimers monotonic, align 8
   %atomic-temp.i.0.i1.i.i = inttoptr i64 %1 to ptr
   %agg.tmp3.sroa.0.0.copyload = load ptr, ptr %GroupName, align 8
@@ -1163,11 +1163,11 @@ _ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EEN
   %tobool.not.i.i3 = icmp eq i64 %2, 0
   br i1 %tobool.not.i.i3, label %if.then.i.i5, label %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
 
-if.then.i.i5:                                     ; preds = %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.argprom.exit
+if.then.i.i5:                                     ; preds = %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit
   tail call void @_ZNK4llvh17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL9TimerLock, ptr noundef nonnull @_ZN4llvh14object_creatorINS_3sys10SmartMutexILb1EEEE4callEv, ptr noundef nonnull @_ZN4llvh14object_deleterINS_3sys10SmartMutexILb1EEEE4callEPv) #21
   br label %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
 
-_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i: ; preds = %if.then.i.i5, %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.argprom.exit
+_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i: ; preds = %if.then.i.i5, %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit
   %3 = load atomic i64, ptr @_ZL9TimerLock monotonic, align 8
   %atomic-temp.i.0.i1.i.i4 = inttoptr i64 %3 to ptr
   %call.i.i.i = tail call noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() #21
@@ -3046,13 +3046,13 @@ define hidden void @_ZN4llvh10TimerGroup19ConstructTimerListsEv() local_unnamed_
 entry:
   %0 = load atomic i64, ptr @_ZL18NamedGroupedTimers acquire, align 8
   %tobool.not.i = icmp eq i64 %0, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
+  br i1 %tobool.not.i, label %if.then.i, label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZNK4llvh17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL18NamedGroupedTimers, ptr noundef nonnull @_ZN4llvh14object_creatorIN12_GLOBAL__N_112Name2PairMapEE4callEv, ptr noundef nonnull @_ZN4llvh14object_deleterIN12_GLOBAL__N_112Name2PairMapEE4callEPv) #21
-  br label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
+  br label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
 
-_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit: ; preds = %entry, %if.then.i
+_ZN4llvh13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit: ; preds = %entry, %if.then.i
   %1 = load atomic i64, ptr @_ZL18NamedGroupedTimers monotonic, align 8
   ret void
 }

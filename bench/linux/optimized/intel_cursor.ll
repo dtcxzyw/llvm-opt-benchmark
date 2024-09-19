@@ -999,7 +999,7 @@ define internal void @i9xx_cursor_update_arm(ptr noundef %0, ptr noundef %1, ptr
   %119 = getelementptr inbounds i8, ptr %1, i64 1411
   %120 = load i8, ptr %119, align 1, !range !6, !noundef !7
   %121 = icmp eq i8 %120, 0
-  br i1 %121, label %i9xx_cursor_disable_sel_fetch_arm.argprom.exit26, label %122
+  br i1 %121, label %i9xx_cursor_disable_sel_fetch_arm.exit26, label %122
 
 122:                                              ; preds = %117
   %123 = load i32, ptr %5, align 8
@@ -1078,7 +1078,7 @@ define internal void @i9xx_cursor_update_arm(ptr noundef %0, ptr noundef %1, ptr
   %171 = zext i32 %168 to i64
   %172 = getelementptr i8, ptr %170, i64 %171
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %139, ptr elementtype(i32) %172) #10, !srcloc !17
-  br label %i9xx_cursor_disable_sel_fetch_arm.argprom.exit26
+  br label %i9xx_cursor_disable_sel_fetch_arm.exit26
 
 173:                                              ; preds = %122
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -1122,29 +1122,29 @@ define internal void @i9xx_cursor_update_arm(ptr noundef %0, ptr noundef %1, ptr
 
 194:                                              ; preds = %191, %187, %174, %173
   %195 = icmp ult i32 %136, 262144
-  br i1 %195, label %196, label %i9xx_cursor_disable_sel_fetch_arm.argprom.exit
+  br i1 %195, label %196, label %i9xx_cursor_disable_sel_fetch_arm.exit
 
 196:                                              ; preds = %194
   %197 = getelementptr inbounds i8, ptr %118, i64 7404
   %198 = load i32, ptr %197, align 4
   %199 = add i32 %198, %136
-  br label %i9xx_cursor_disable_sel_fetch_arm.argprom.exit
+  br label %i9xx_cursor_disable_sel_fetch_arm.exit
 
-i9xx_cursor_disable_sel_fetch_arm.argprom.exit:   ; preds = %194, %196
+i9xx_cursor_disable_sel_fetch_arm.exit:           ; preds = %194, %196
   %200 = phi i32 [ %199, %196 ], [ %136, %194 ]
   %201 = getelementptr inbounds i8, ptr %118, i64 7368
   %202 = load ptr, ptr %201, align 8
   %203 = zext i32 %200 to i64
   %204 = getelementptr i8, ptr %202, i64 %203
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %204) #10, !srcloc !17
-  br label %i9xx_cursor_disable_sel_fetch_arm.argprom.exit26
+  br label %i9xx_cursor_disable_sel_fetch_arm.exit26
 
 205:                                              ; preds = %116
   %206 = getelementptr i8, ptr %1, i64 1411
   %.val25 = load i8, ptr %206, align 1, !range !6, !noundef !7
   %207 = load ptr, ptr %0, align 8
   %208 = icmp eq i8 %.val25, 0
-  br i1 %208, label %i9xx_cursor_disable_sel_fetch_arm.argprom.exit26, label %209
+  br i1 %208, label %i9xx_cursor_disable_sel_fetch_arm.exit26, label %209
 
 209:                                              ; preds = %205
   %210 = load i32, ptr %5, align 8
@@ -1211,15 +1211,15 @@ i9xx_cursor_disable_sel_fetch_arm.argprom.exit:   ; preds = %194, %196
   %248 = zext i32 %245 to i64
   %249 = getelementptr i8, ptr %247, i64 %248
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %249) #10, !srcloc !17
-  br label %i9xx_cursor_disable_sel_fetch_arm.argprom.exit26
+  br label %i9xx_cursor_disable_sel_fetch_arm.exit26
 
-i9xx_cursor_disable_sel_fetch_arm.argprom.exit26: ; preds = %244, %205, %i9xx_cursor_disable_sel_fetch_arm.argprom.exit, %167, %117
+i9xx_cursor_disable_sel_fetch_arm.exit26:         ; preds = %244, %205, %i9xx_cursor_disable_sel_fetch_arm.exit, %167, %117
   %250 = getelementptr inbounds i8, ptr %0, i64 1340
   %251 = load i32, ptr %250, align 4
   %252 = icmp eq i32 %251, %109
   br i1 %252, label %253, label %261
 
-253:                                              ; preds = %i9xx_cursor_disable_sel_fetch_arm.argprom.exit26
+253:                                              ; preds = %i9xx_cursor_disable_sel_fetch_arm.exit26
   %254 = getelementptr inbounds i8, ptr %0, i64 1348
   %255 = load i32, ptr %254, align 4
   %256 = icmp eq i32 %255, %107
@@ -1231,7 +1231,7 @@ i9xx_cursor_disable_sel_fetch_arm.argprom.exit26: ; preds = %244, %205, %i9xx_cu
   %260 = icmp eq i32 %259, %110
   br i1 %260, label %446, label %261
 
-261:                                              ; preds = %257, %253, %i9xx_cursor_disable_sel_fetch_arm.argprom.exit26
+261:                                              ; preds = %257, %253, %i9xx_cursor_disable_sel_fetch_arm.exit26
   %262 = load ptr, ptr %111, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 28
   %264 = load i16, ptr %263, align 4

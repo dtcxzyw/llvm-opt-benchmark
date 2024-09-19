@@ -232,7 +232,7 @@ define dso_local void @json_errsave_error(i32 noundef %0, ptr noundef %1, ptr no
   %.sink = phi i32 [ 660, %22 ], [ 648, %6 ]
   %25 = tail call ptr @json_errdetail(i32 noundef %0, ptr noundef %1) #15
   %26 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.5, ptr noundef %25) #15
-  tail call fastcc void @report_json_context.retelim(ptr noundef %1)
+  tail call fastcc void @report_json_context(ptr noundef %1)
   tail call void @errsave_finish(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.json_errsave_error) #15
   br label %27
 
@@ -476,7 +476,7 @@ declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @json_errdetail(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @report_json_context.retelim(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @report_json_context(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2778,12 +2778,12 @@ define dso_local range(i64 0, 268435456) i64 @jsonb_array_length(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @json_each(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @each_worker.retelim(ptr noundef %0, i1 noundef zeroext false)
+  tail call fastcc void @each_worker(ptr noundef %0, i1 noundef zeroext false)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @each_worker.retelim(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @each_worker(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct.JsonLexContext, align 8
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2880,12 +2880,12 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @jsonb_each(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @each_worker_jsonb.retelim(ptr noundef %0, ptr noundef nonnull @.str.12, i1 noundef zeroext false)
+  tail call fastcc void @each_worker_jsonb(ptr noundef %0, ptr noundef nonnull @.str.12, i1 noundef zeroext false)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @each_worker_jsonb.retelim(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @each_worker_jsonb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.JsonbValue, align 8
   %6 = alloca [2 x i64], align 16
@@ -3008,24 +3008,24 @@ define internal fastcc void @each_worker_jsonb.retelim(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @json_each_text(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @each_worker.retelim(ptr noundef %0, i1 noundef zeroext true)
+  tail call fastcc void @each_worker(ptr noundef %0, i1 noundef zeroext true)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @jsonb_each_text(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @each_worker_jsonb.retelim(ptr noundef %0, ptr noundef nonnull @.str.13, i1 noundef zeroext true)
+  tail call fastcc void @each_worker_jsonb(ptr noundef %0, ptr noundef nonnull @.str.13, i1 noundef zeroext true)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @jsonb_array_elements(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @elements_worker_jsonb.argprom.retelim(ptr noundef %0, i1 noundef zeroext false)
+  tail call fastcc void @elements_worker_jsonb(ptr noundef %0, i1 noundef zeroext false)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @elements_worker_jsonb.argprom.retelim(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @elements_worker_jsonb(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.JsonbValue, align 8
   %5 = alloca [1 x i64], align 8
@@ -3145,18 +3145,18 @@ define internal fastcc void @elements_worker_jsonb.argprom.retelim(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @jsonb_array_elements_text(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @elements_worker_jsonb.argprom.retelim(ptr noundef %0, i1 noundef zeroext true)
+  tail call fastcc void @elements_worker_jsonb(ptr noundef %0, i1 noundef zeroext true)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @json_array_elements(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @elements_worker.retelim(ptr noundef %0, ptr noundef nonnull @.str.16, i1 noundef zeroext false)
+  tail call fastcc void @elements_worker(ptr noundef %0, ptr noundef nonnull @.str.16, i1 noundef zeroext false)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @elements_worker.retelim(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @elements_worker(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.JsonLexContext, align 8
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3255,7 +3255,7 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @json_array_elements_text(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @elements_worker.retelim(ptr noundef %0, ptr noundef nonnull @.str.17, i1 noundef zeroext true)
+  tail call fastcc void @elements_worker(ptr noundef %0, ptr noundef nonnull @.str.17, i1 noundef zeroext true)
   ret i64 0
 }
 
@@ -3291,7 +3291,7 @@ define internal fastcc i64 @populate_record_worker(ptr noundef %0, ptr noundef %
 
 .thread:                                          ; preds = %15
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @get_record_type_from_argument.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull %16)
+  tail call fastcc void @get_record_type_from_argument(ptr %.val, ptr noundef %1, ptr noundef nonnull %16)
   br label %21
 
 .thread68:                                        ; preds = %15
@@ -3435,7 +3435,7 @@ define internal fastcc i64 @populate_record_worker(ptr noundef %0, ptr noundef %
   store i8 0, ptr %7, align 1
   %99 = getelementptr inbounds i8, ptr %.05767, i64 80
   %100 = load i32, ptr %.05767, align 8
-  %101 = call fastcc i64 @populate_composite.argprom(ptr noundef nonnull %99, i32 noundef %100, ptr noundef %12, ptr noundef %.056, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %4)
+  %101 = call fastcc i64 @populate_composite(ptr noundef nonnull %99, i32 noundef %100, ptr noundef %12, ptr noundef %.056, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %4)
   br label %102
 
 102:                                              ; preds = %98, %53, %51
@@ -3476,12 +3476,12 @@ define dso_local i64 @json_to_record(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @jsonb_populate_recordset(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @populate_recordset_worker.retelim(ptr noundef %0, ptr noundef nonnull @.str.22, i1 noundef zeroext false, i1 noundef zeroext true)
+  tail call fastcc void @populate_recordset_worker(ptr noundef %0, ptr noundef nonnull @.str.22, i1 noundef zeroext false, i1 noundef zeroext true)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @populate_recordset_worker.retelim(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @populate_recordset_worker(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.JsonLexContext, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct.JsonbValue, align 8
@@ -3545,7 +3545,7 @@ define internal fastcc void @populate_recordset_worker.retelim(ptr noundef %0, p
 
 .thread:                                          ; preds = %31
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @get_record_type_from_argument.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull %35)
+  tail call fastcc void @get_record_type_from_argument(ptr %.val, ptr noundef %1, ptr noundef nonnull %35)
   br label %43
 
 .thread94:                                        ; preds = %31
@@ -3835,19 +3835,19 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @jsonb_to_recordset(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @populate_recordset_worker.retelim(ptr noundef %0, ptr noundef nonnull @.str.23, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @populate_recordset_worker(ptr noundef %0, ptr noundef nonnull @.str.23, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @json_populate_recordset(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @populate_recordset_worker.retelim(ptr noundef %0, ptr noundef nonnull @.str.24, i1 noundef zeroext true, i1 noundef zeroext true)
+  tail call fastcc void @populate_recordset_worker(ptr noundef %0, ptr noundef nonnull @.str.24, i1 noundef zeroext true, i1 noundef zeroext true)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @json_to_recordset(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @populate_recordset_worker.retelim(ptr noundef %0, ptr noundef nonnull @.str.25, i1 noundef zeroext true, i1 noundef zeroext false)
+  tail call fastcc void @populate_recordset_worker(ptr noundef %0, ptr noundef nonnull @.str.25, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i64 0
 }
 
@@ -7500,7 +7500,7 @@ define internal noundef i32 @elements_array_element_end(ptr nocapture noundef %0
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_record_type_from_argument.argprom(ptr %.0.val, ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @get_record_type_from_argument(ptr %.0.val, ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @get_fn_expr_argtype(ptr noundef %.0.val, i32 noundef 0) #15
   store i32 %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7579,7 +7579,7 @@ define internal fastcc void @get_record_type_from_query(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @populate_composite.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i64 @populate_composite(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.HASHCTL, align 8
   %9 = alloca %struct.JsObject, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7693,15 +7693,15 @@ update_cached_tupdesc.exit:                       ; preds = %17, %29, %35
   %68 = load ptr, ptr %58, align 8
   %69 = call i32 @pg_parse_json(ptr noundef %68, ptr noundef nonnull %59) #15
   %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %get_json_object_as_hash.argprom.exit.i, label %70
+  br i1 %.not.i.i.i, label %get_json_object_as_hash.exit.i, label %70
 
 70:                                               ; preds = %51
   call void @json_errsave_error(i32 noundef %69, ptr noundef %68, ptr noundef %6)
   %71 = load ptr, ptr %61, align 8
   call void @hash_destroy(ptr noundef %71) #15
-  br label %get_json_object_as_hash.argprom.exit.i
+  br label %get_json_object_as_hash.exit.i
 
-get_json_object_as_hash.argprom.exit.i:           ; preds = %70, %51
+get_json_object_as_hash.exit.i:                   ; preds = %70, %51
   %.0.i.i = phi ptr [ null, %70 ], [ %57, %51 ]
   %72 = load ptr, ptr %58, align 8
   call void @freeJsonLexContext(ptr noundef %72) #15
@@ -7765,7 +7765,7 @@ get_json_object_as_hash.argprom.exit.i:           ; preds = %70, %51
   tail call void @errsave_finish(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 3016, ptr noundef nonnull @__func__.JsValueToJsObject) #15
   br label %95
 
-95:                                               ; preds = %92, %90, %82, %get_json_object_as_hash.argprom.exit.i
+95:                                               ; preds = %92, %90, %82, %get_json_object_as_hash.exit.i
   %.not27.i = icmp eq ptr %6, null
   br i1 %.not27.i, label %.thread1, label %98
 
@@ -8877,7 +8877,7 @@ populate_array.exit:                              ; preds = %175, %populate_arra
 
 203:                                              ; preds = %198, %200
   %204 = phi ptr [ %202, %200 ], [ null, %198 ]
-  %205 = tail call fastcc i64 @populate_composite.argprom(ptr noundef nonnull %199, i32 noundef %1, ptr noundef %4, ptr noundef %204, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8)
+  %205 = tail call fastcc i64 @populate_composite(ptr noundef nonnull %199, i32 noundef %1, ptr noundef %4, ptr noundef %204, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8)
   br label %populate_domain.exit
 
 206:                                              ; preds = %55

@@ -1978,15 +1978,15 @@ entry:
   %1 = getelementptr i8, ptr %item.val11, i64 96
   %item.val11.val = load ptr, ptr %1, align 8
   %cmp.not.i = icmp eq ptr %item.val11.val, null
-  br i1 %cmp.not.i, label %if.end5, label %_PyIndex_Check.argprom.argprom.exit
+  br i1 %cmp.not.i, label %if.end5, label %_PyIndex_Check.exit
 
-_PyIndex_Check.argprom.argprom.exit:              ; preds = %entry
+_PyIndex_Check.exit:                              ; preds = %entry
   %nb_index.i = getelementptr inbounds i8, ptr %item.val11.val, i64 264
   %2 = load ptr, ptr %nb_index.i, align 8
   %cmp2.i.not = icmp eq ptr %2, null
   br i1 %cmp2.i.not, label %if.end5, label %if.then
 
-if.then:                                          ; preds = %_PyIndex_Check.argprom.argprom.exit
+if.then:                                          ; preds = %_PyIndex_Check.exit
   %call1 = tail call ptr @PyNumber_Index(ptr noundef nonnull %item) #6
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %return, label %if.end
@@ -2008,7 +2008,7 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call1) #6
   br label %return
 
-if.end5:                                          ; preds = %entry, %_PyIndex_Check.argprom.argprom.exit
+if.end5:                                          ; preds = %entry, %_PyIndex_Check.exit
   %cmp.i12.not = icmp eq ptr %item.val11, @PySlice_Type
   br i1 %cmp.i12.not, label %if.then8, label %if.end10
 

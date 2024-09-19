@@ -4028,14 +4028,14 @@ define void @_ZN5tokio3net4unix4pipe6Sender13from_owned_fd17h5c6214d5c627ff96E(p
   %57 = tail call noundef i32 @close(i32 noundef %1)
   br label %.thread68
 
-"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.argprom.exit": ; preds = %58
+"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit": ; preds = %58
   resume { ptr, i32 } %lpad.thr_comm
 
 58:                                               ; preds = %5, %40, %22, %9, %27, %30, %44, %47
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %59 = invoke noundef i32 @close(i32 noundef %1)
-          to label %"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.argprom.exit" unwind label %60
+          to label %"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit" unwind label %60
 
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
@@ -4181,7 +4181,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender16into_blocking_fd17h5f4de4f99f20f90e
   %21 = landingpad { ptr, i32 }
           cleanup
   %22 = invoke noundef i32 @close(i32 noundef %9)
-          to label %"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.argprom.exit" unwind label %33
+          to label %"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit" unwind label %33
 
 23:                                               ; preds = %.noexc13
   %24 = getelementptr inbounds i8, ptr %0, i64 4
@@ -4209,7 +4209,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender16into_blocking_fd17h5f4de4f99f20f90e
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.argprom.exit": ; preds = %20
+"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit": ; preds = %20
   resume { ptr, i32 } %21
 }
 
@@ -4512,14 +4512,14 @@ define void @_ZN5tokio3net4unix4pipe8Receiver13from_owned_fd17hbe545561190f1354E
   %56 = tail call noundef i32 @close(i32 noundef %1)
   br label %.thread68
 
-"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.argprom.exit": ; preds = %57
+"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit": ; preds = %57
   resume { ptr, i32 } %lpad.thr_comm
 
 57:                                               ; preds = %5, %39, %22, %9, %27, %30, %43, %46
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %58 = invoke noundef i32 @close(i32 noundef %1)
-          to label %"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.argprom.exit" unwind label %59
+          to label %"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit" unwind label %59
 
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
@@ -4665,7 +4665,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver16into_blocking_fd17h20a884cf2690a2
   %21 = landingpad { ptr, i32 }
           cleanup
   %22 = invoke noundef i32 @close(i32 noundef %9)
-          to label %"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.argprom.exit" unwind label %33
+          to label %"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit" unwind label %33
 
 23:                                               ; preds = %.noexc13
   %24 = getelementptr inbounds i8, ptr %0, i64 4
@@ -4693,7 +4693,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver16into_blocking_fd17h20a884cf2690a2
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.argprom.exit": ; preds = %20
+"_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit": ; preds = %20
   resume { ptr, i32 } %21
 }
 
@@ -9339,7 +9339,7 @@ define { ptr, ptr } @_ZN5tokio7runtime4task5error9JoinError10into_panic17h8d4c37
   %.not.i = icmp eq ptr %4, null
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.8.8.copyload = load ptr, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !1783
-  br i1 %.not.i, label %5, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f3287a02739c4dcE.argprom.exit"
+  br i1 %.not.i, label %5, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f3287a02739c4dcE.exit"
 
 5:                                                ; preds = %2
   %.sroa.10.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -9371,7 +9371,7 @@ define { ptr, ptr } @_ZN5tokio7runtime4task5error9JoinError10into_panic17h8d4c37
 11:                                               ; preds = %6
   resume { ptr, i32 } %7
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f3287a02739c4dcE.argprom.exit": ; preds = %2
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f3287a02739c4dcE.exit": ; preds = %2
   %12 = insertvalue { ptr, ptr } poison, ptr %4, 0
   %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.8.8.copyload, 1
   ret { ptr, ptr } %13
@@ -9688,17 +9688,17 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$
   %.val = load ptr, ptr %0, align 8, !nonnull !12, !noundef !12
   %2 = load ptr, ptr %.val, align 8, !noundef !12
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %4, label %"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$4tail17hd1e4d1e30b2da2d7E.argprom.exit"
+  br i1 %3, label %4, label %"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$4tail17hd1e4d1e30b2da2d7E.exit"
 
 4:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b5a3c8cd17d91072910360124f8e4f8c.65, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5a3c8cd17d91072910360124f8e4f8c.67) #21
   unreachable
 
-"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$4tail17hd1e4d1e30b2da2d7E.argprom.exit": ; preds = %1
+"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$4tail17hd1e4d1e30b2da2d7E.exit": ; preds = %1
   %.not.i = icmp eq ptr %2, %.val
   br i1 %.not.i, label %11, label %5
 
-5:                                                ; preds = %"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$4tail17hd1e4d1e30b2da2d7E.argprom.exit"
+5:                                                ; preds = %"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$4tail17hd1e4d1e30b2da2d7E.exit"
   %6 = load ptr, ptr %2, align 8, !noundef !12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -9714,8 +9714,8 @@ define hidden noundef ptr @"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %11
 
-11:                                               ; preds = %"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$4tail17hd1e4d1e30b2da2d7E.argprom.exit", %9
-  %.0 = phi ptr [ %2, %9 ], [ null, %"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$4tail17hd1e4d1e30b2da2d7E.argprom.exit" ]
+11:                                               ; preds = %"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$4tail17hd1e4d1e30b2da2d7E.exit", %9
+  %.0 = phi ptr [ %2, %9 ], [ null, %"_ZN5tokio4util11linked_list88GuardedLinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$4tail17hd1e4d1e30b2da2d7E.exit" ]
   ret ptr %.0
 }
 
@@ -12082,9 +12082,9 @@ attributes #24 = { nounwind }
 !1782 = distinct !{!1782, !1781, !"_ZN5tokio7runtime4task5error9JoinError14try_into_panic17he183b830c85d1a7dE: argument 0"}
 !1783 = !{!1782, !1780}
 !1784 = !{!1785, !1787}
-!1785 = distinct !{!1785, !1786, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f3287a02739c4dcE.argprom: argument 0"}
-!1786 = distinct !{!1786, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f3287a02739c4dcE.argprom"}
-!1787 = distinct !{!1787, !1786, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f3287a02739c4dcE.argprom: argument 1"}
+!1785 = distinct !{!1785, !1786, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f3287a02739c4dcE: argument 0"}
+!1786 = distinct !{!1786, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f3287a02739c4dcE"}
+!1787 = distinct !{!1787, !1786, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f3287a02739c4dcE: argument 1"}
 !1788 = !{!1787}
 !1789 = !{!1785}
 !1790 = !{!1791}

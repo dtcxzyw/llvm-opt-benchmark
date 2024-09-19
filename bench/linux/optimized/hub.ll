@@ -3757,12 +3757,12 @@ usb_set_lpm_timeout.exit:                         ; preds = %57, %40
   br i1 %121, label %.loopexit9, label %89, !llvm.loop !31
 
 .loopexit9:                                       ; preds = %.loopexit8, %76
-  %122 = tail call fastcc i32 @usb_set_device_initiated_lpm.argelim(ptr noundef %1, i32 noundef %2)
+  %122 = tail call fastcc i32 @usb_set_device_initiated_lpm(ptr noundef %1, i32 noundef %2)
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %.loopexit, label %124
 
 124:                                              ; preds = %.loopexit9
-  tail call fastcc void @usb_set_lpm_timeout.retelim(ptr noundef %1, i32 noundef %2, i32 noundef 0)
+  tail call fastcc void @usb_set_lpm_timeout(ptr noundef %1, i32 noundef %2, i32 noundef 0)
   %125 = load ptr, ptr %22, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 344
   %127 = load ptr, ptr %126, align 8
@@ -5050,7 +5050,7 @@ declare dso_local i32 @usb_get_status(ptr noundef, i32 noundef, i32 noundef, i32
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @usb_set_lpm_timeout.retelim(ptr noundef nonnull %0, i32 noundef range(i32 1, 3) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #1 align 16 {
+define internal fastcc void @usb_set_lpm_timeout(ptr noundef nonnull %0, i32 noundef range(i32 1, 3) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #1 align 16 {
   %4 = icmp eq i32 %1, 1
   %5 = icmp ugt i32 %2, 127
   %6 = icmp ne i32 %2, 255
@@ -5106,7 +5106,7 @@ define internal fastcc void @usb_set_lpm_timeout.retelim(ptr noundef nonnull %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -16, 1) i32 @usb_set_device_initiated_lpm.argelim(ptr noundef nonnull %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @usb_set_device_initiated_lpm(ptr noundef nonnull %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 7

@@ -2011,7 +2011,7 @@ Dau_DsdMergeMatches.exit245:                      ; preds = %424, %Dau_DsdIsCons
   %.0.i247 = phi ptr [ @Dau_DsdMerge.pRes, %Dau_DsdMergeMatches.exit245 ], [ %.5.i, %.loopexit.i ]
   %429 = sext i32 %.055.i to i64
   switch i8 %428, label %.loopexit4.i [
-    i8 0, label %Dau_DsdMergeInlineDefinitions.argprom.exit
+    i8 0, label %Dau_DsdMergeInlineDefinitions.exit
     i8 60, label %430
   ]
 
@@ -2124,17 +2124,17 @@ Dau_DsdMergeMatches.exit245:                      ; preds = %424, %Dau_DsdIsCons
   %.pre331 = load i8, ptr %.phi.trans.insert330, align 1
   br label %427, !llvm.loop !28
 
-Dau_DsdMergeInlineDefinitions.argprom.exit:       ; preds = %427
+Dau_DsdMergeInlineDefinitions.exit:               ; preds = %427
   store i8 0, ptr %.0.i247, align 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   %470 = load i8, ptr @Dau_DsdMerge.pRes, align 16
   %.not27.i261 = icmp eq i8 %470, 0
   br i1 %.not27.i261, label %Dau_DsdMergeMatches.exit271, label %.lr.ph.i262
 
-.lr.ph.i262:                                      ; preds = %Dau_DsdMergeInlineDefinitions.argprom.exit, %485
-  %471 = phi i8 [ %487, %485 ], [ %470, %Dau_DsdMergeInlineDefinitions.argprom.exit ]
-  %indvars.iv.i263 = phi i64 [ %indvars.iv.next.i269, %485 ], [ 0, %Dau_DsdMergeInlineDefinitions.argprom.exit ]
-  %.029.i264 = phi i32 [ %.1.i268, %485 ], [ 0, %Dau_DsdMergeInlineDefinitions.argprom.exit ]
+.lr.ph.i262:                                      ; preds = %Dau_DsdMergeInlineDefinitions.exit, %485
+  %471 = phi i8 [ %487, %485 ], [ %470, %Dau_DsdMergeInlineDefinitions.exit ]
+  %indvars.iv.i263 = phi i64 [ %indvars.iv.next.i269, %485 ], [ 0, %Dau_DsdMergeInlineDefinitions.exit ]
+  %.029.i264 = phi i32 [ %.1.i268, %485 ], [ 0, %Dau_DsdMergeInlineDefinitions.exit ]
   %472 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv.i263
   store i32 0, ptr %472, align 4
   switch i8 %471, label %485 [
@@ -2178,7 +2178,7 @@ Dau_DsdMergeInlineDefinitions.argprom.exit:       ; preds = %427
   %.not.i270 = icmp eq i8 %487, 0
   br i1 %.not.i270, label %Dau_DsdMergeMatches.exit271, label %.lr.ph.i262, !llvm.loop !17
 
-Dau_DsdMergeMatches.exit271:                      ; preds = %485, %Dau_DsdMergeInlineDefinitions.argprom.exit
+Dau_DsdMergeMatches.exit271:                      ; preds = %485, %Dau_DsdMergeInlineDefinitions.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   %invariant.gep.i272 = getelementptr i8, ptr %28, i64 -388
   br label %488

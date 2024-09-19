@@ -1161,7 +1161,7 @@ define noundef i64 @_ZNK5faiss18SliceInvertedLists9list_sizeEm(ptr nocapture nou
   %.val = load i64, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %.val1 = load i64, ptr %6, align 8
-  %7 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl.argprom(i64 %.val, i64 %.val1, i64 noundef %1)
+  %7 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl(i64 %.val, i64 %.val1, i64 noundef %1)
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -1177,7 +1177,7 @@ define noundef ptr @_ZNK5faiss18SliceInvertedLists9get_codesEm(ptr nocapture nou
   %.val = load i64, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %.val1 = load i64, ptr %6, align 8
-  %7 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl.argprom(i64 %.val, i64 %.val1, i64 noundef %1)
+  %7 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl(i64 %.val, i64 %.val1, i64 noundef %1)
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
@@ -1193,7 +1193,7 @@ define noundef ptr @_ZNK5faiss18SliceInvertedLists7get_idsEm(ptr nocapture nound
   %.val = load i64, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %.val1 = load i64, ptr %6, align 8
-  %7 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl.argprom(i64 %.val, i64 %.val1, i64 noundef %1)
+  %7 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl(i64 %.val, i64 %.val1, i64 noundef %1)
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
@@ -1209,7 +1209,7 @@ define void @_ZNK5faiss18SliceInvertedLists13release_codesEmPKh(ptr nocapture no
   %.val = load i64, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %.val2 = load i64, ptr %7, align 8
-  %8 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl.argprom(i64 %.val, i64 %.val2, i64 noundef %1)
+  %8 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl(i64 %.val, i64 %.val2, i64 noundef %1)
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
@@ -1225,7 +1225,7 @@ define void @_ZNK5faiss18SliceInvertedLists11release_idsEmPKl(ptr nocapture noun
   %.val = load i64, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %.val2 = load i64, ptr %7, align 8
-  %8 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl.argprom(i64 %.val, i64 %.val2, i64 noundef %1)
+  %8 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl(i64 %.val, i64 %.val2, i64 noundef %1)
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
@@ -1241,7 +1241,7 @@ define noundef i64 @_ZNK5faiss18SliceInvertedLists13get_single_idEmm(ptr nocaptu
   %.val = load i64, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %.val2 = load i64, ptr %7, align 8
-  %8 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl.argprom(i64 %.val, i64 %.val2, i64 noundef %1)
+  %8 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl(i64 %.val, i64 %.val2, i64 noundef %1)
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
@@ -1257,7 +1257,7 @@ define noundef ptr @_ZNK5faiss18SliceInvertedLists15get_single_codeEmm(ptr nocap
   %.val = load i64, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %.val2 = load i64, ptr %7, align 8
-  %8 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl.argprom(i64 %.val, i64 %.val2, i64 noundef %1)
+  %8 = tail call fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl(i64 %.val, i64 %.val2, i64 noundef %1)
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
@@ -1289,7 +1289,7 @@ define void @_ZNK5faiss18SliceInvertedLists14prefetch_listsEPKli(ptr nocapture n
 11:                                               ; preds = %7
   %.val = load i64, ptr %5, align 8
   %.val10 = load i64, ptr %6, align 8
-  %12 = invoke fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl.argprom(i64 %.val, i64 %.val10, i64 noundef %9)
+  %12 = invoke fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl(i64 %.val, i64 %.val10, i64 noundef %9)
           to label %13 unwind label %.loopexit
 
 13:                                               ; preds = %11
@@ -5304,7 +5304,7 @@ define void @_ZN5faiss18SliceInvertedListsC2EPKNS_13InvertedListsEll(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl.argprom(i64 %.8.val, i64 %.40.val, i64 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl(i64 %.8.val, i64 %.40.val, i64 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = icmp sgt i64 %0, -1
   %4 = icmp ult i64 %0, %.8.val

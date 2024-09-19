@@ -908,7 +908,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @PyCStgDict_clone(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
-  tail call fastcc void @PyCStgDict_clear.retelim(ptr noundef %dst)
+  tail call fastcc void @PyCStgDict_clear(ptr noundef %dst)
   %elements = getelementptr inbounds i8, ptr %dst, i64 88
   %0 = load ptr, ptr %elements, align 8
   tail call void @PyMem_Free(ptr noundef %0) #9
@@ -1085,7 +1085,7 @@ return:                                           ; preds = %if.end34, %if.end52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PyCStgDict_clear.retelim(ptr nocapture noundef %self) unnamed_addr #0 {
+define internal fastcc void @PyCStgDict_clear(ptr nocapture noundef %self) unnamed_addr #0 {
 entry:
   %proto = getelementptr inbounds i8, ptr %self, i64 96
   %0 = load ptr, ptr %proto, align 8
@@ -1223,7 +1223,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 ; Function Attrs: nounwind uwtable
 define internal void @PyCStgDict_dealloc(ptr noundef %self) #0 {
 entry:
-  tail call fastcc void @PyCStgDict_clear.retelim(ptr noundef %self)
+  tail call fastcc void @PyCStgDict_clear(ptr noundef %self)
   %format = getelementptr inbounds i8, ptr %self, i64 168
   %0 = load ptr, ptr %format, align 8
   tail call void @PyMem_Free(ptr noundef %0) #9
@@ -1682,9 +1682,9 @@ if.end150:                                        ; preds = %lor.lhs.false146
   %38 = getelementptr i8, ptr %37, i64 8
   %.val = load ptr, ptr %38, align 8
   %cmp.i.not.i301 = icmp eq ptr %.val, @PyCArrayType_Type
-  br i1 %cmp.i.not.i301, label %PyObject_TypeCheck.argprom.exit.thread, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i301, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end150
+PyObject_TypeCheck.exit:                          ; preds = %if.end150
   %call2.i = call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyCArrayType_Type) #9
   %call2.i.fr = freeze i32 %call2.i
   %tobool3.i.not = icmp eq i32 %call2.i.fr, 0
@@ -1692,19 +1692,19 @@ PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end150
   %.pre587 = load ptr, ptr %desc, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre587, i64 8
   %obj.val.i302.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %PyObject_TypeCheck.argprom.exit.thread
+  br label %PyObject_TypeCheck.exit.thread
 
-PyObject_TypeCheck.argprom.exit.thread:           ; preds = %PyObject_TypeCheck.argprom.exit, %if.end150
-  %obj.val.i302 = phi ptr [ @PyCArrayType_Type, %if.end150 ], [ %obj.val.i302.pre, %PyObject_TypeCheck.argprom.exit ]
-  %39 = phi ptr [ %37, %if.end150 ], [ %.pre587, %PyObject_TypeCheck.argprom.exit ]
-  %40 = phi i32 [ 1, %if.end150 ], [ %spec.select, %PyObject_TypeCheck.argprom.exit ]
+PyObject_TypeCheck.exit.thread:                   ; preds = %PyObject_TypeCheck.exit, %if.end150
+  %obj.val.i302 = phi ptr [ @PyCArrayType_Type, %if.end150 ], [ %obj.val.i302.pre, %PyObject_TypeCheck.exit ]
+  %39 = phi ptr [ %37, %if.end150 ], [ %.pre587, %PyObject_TypeCheck.exit ]
+  %40 = phi i32 [ 1, %if.end150 ], [ %spec.select, %PyObject_TypeCheck.exit ]
   %41 = getelementptr i8, ptr %obj.val.i302, i64 168
   %obj.val.val.i303 = load i64, ptr %41, align 8
   %and.i.i.i304 = and i64 %obj.val.val.i303, 2147483648
   %cmp.i.i.not.i305 = icmp eq i64 %and.i.i.i304, 0
   br i1 %cmp.i.i.not.i305, label %if.then157, label %if.end.i306
 
-if.end.i306:                                      ; preds = %PyObject_TypeCheck.argprom.exit.thread
+if.end.i306:                                      ; preds = %PyObject_TypeCheck.exit.thread
   %tp_dict.i307 = getelementptr inbounds i8, ptr %39, i64 264
   %42 = load ptr, ptr %tp_dict.i307, align 8
   %tobool1.not.i308 = icmp eq ptr %42, null
@@ -1716,7 +1716,7 @@ lor.lhs.false.i309:                               ; preds = %if.end.i306
   %cmp.i.not.i311 = icmp eq ptr %.val.i310, @PyCStgDict_Type
   br i1 %cmp.i.not.i311, label %if.end159, label %if.then157
 
-if.then157:                                       ; preds = %PyObject_TypeCheck.argprom.exit.thread, %if.end.i306, %lor.lhs.false.i309
+if.then157:                                       ; preds = %PyObject_TypeCheck.exit.thread, %if.end.i306, %lor.lhs.false.i309
   %44 = load i64, ptr %call144, align 8
   %45 = and i64 %44, 2147483648
   %cmp.i719.not = icmp eq i64 %45, 0
@@ -2323,14 +2323,14 @@ Py_DECREF.exit552:                                ; preds = %if.then362, %if.the
 
 if.end364:                                        ; preds = %lor.lhs.false.i322
   %cmp.i.not.i328 = icmp eq ptr %obj.val.i315, @PyCArrayType_Type
-  br i1 %cmp.i.not.i328, label %if.else369, label %PyObject_TypeCheck.argprom.exit333
+  br i1 %cmp.i.not.i328, label %if.else369, label %PyObject_TypeCheck.exit333
 
-PyObject_TypeCheck.argprom.exit333:               ; preds = %if.end364
+PyObject_TypeCheck.exit333:                       ; preds = %if.end364
   %call2.i330 = call i32 @PyType_IsSubtype(ptr noundef %obj.val.i315, ptr noundef nonnull @PyCArrayType_Type) #9
   %tobool3.i331.not = icmp eq i32 %call2.i330, 0
   br i1 %tobool3.i331.not, label %if.end381, label %if.else369
 
-if.else369:                                       ; preds = %if.end364, %PyObject_TypeCheck.argprom.exit333
+if.else369:                                       ; preds = %if.end364, %PyObject_TypeCheck.exit333
   %length371 = getelementptr inbounds i8, ptr %126, i64 64
   %131 = load i64, ptr %length371, align 8
   %proto = getelementptr inbounds i8, ptr %126, i64 96
@@ -2381,9 +2381,9 @@ if.end377:                                        ; preds = %lor.lhs.false.i341
   %add379 = add i64 %131, 1
   br label %if.end381
 
-if.end381:                                        ; preds = %PyObject_TypeCheck.argprom.exit333, %if.end377
-  %num_ffi_types.1 = phi i64 [ %inc378, %if.end377 ], [ %num_ffi_types.0513, %PyObject_TypeCheck.argprom.exit333 ]
-  %add379.pn = phi i64 [ %add379, %if.end377 ], [ 1, %PyObject_TypeCheck.argprom.exit333 ]
+if.end381:                                        ; preds = %PyObject_TypeCheck.exit333, %if.end377
+  %num_ffi_types.1 = phi i64 [ %inc378, %if.end377 ], [ %num_ffi_types.0513, %PyObject_TypeCheck.exit333 ]
+  %add379.pn = phi i64 [ %add379, %if.end377 ], [ 1, %PyObject_TypeCheck.exit333 ]
   %num_ffi_type_pointers.1 = add i64 %add379.pn, %num_ffi_type_pointers.0514
   %140 = load i64, ptr %call348, align 8
   %141 = and i64 %140, 2147483648
@@ -2536,20 +2536,20 @@ Py_DECREF.exit516:                                ; preds = %if.then436, %if.the
 
 if.end438:                                        ; preds = %lor.lhs.false.i354
   %cmp.i.not.i360 = icmp eq ptr %obj.val.i347, @PyCArrayType_Type
-  br i1 %cmp.i.not.i360, label %if.else445, label %PyObject_TypeCheck.argprom.exit365
+  br i1 %cmp.i.not.i360, label %if.else445, label %PyObject_TypeCheck.exit365
 
-PyObject_TypeCheck.argprom.exit365:               ; preds = %if.end438
+PyObject_TypeCheck.exit365:                       ; preds = %if.end438
   %call2.i362 = call i32 @PyType_IsSubtype(ptr noundef %obj.val.i347, ptr noundef nonnull @PyCArrayType_Type) #9
   %tobool3.i363.not = icmp eq i32 %call2.i362, 0
   br i1 %tobool3.i363.not, label %if.then441, label %if.else445
 
-if.then441:                                       ; preds = %PyObject_TypeCheck.argprom.exit365
+if.then441:                                       ; preds = %PyObject_TypeCheck.exit365
   %ffi_type_pointer442 = getelementptr inbounds i8, ptr %151, i64 72
   %arrayidx444 = getelementptr ptr, ptr %call391, i64 %element_index.0523
   store ptr %ffi_type_pointer442, ptr %arrayidx444, align 8
   br label %if.end481
 
-if.else445:                                       ; preds = %if.end438, %PyObject_TypeCheck.argprom.exit365
+if.else445:                                       ; preds = %if.end438, %PyObject_TypeCheck.exit365
   %length447 = getelementptr inbounds i8, ptr %151, i64 64
   %156 = load i64, ptr %length447, align 8
   %proto449 = getelementptr inbounds i8, ptr %151, i64 96

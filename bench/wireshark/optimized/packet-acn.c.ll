@@ -2628,7 +2628,7 @@ is_rdmnet_over_udp.exit:                          ; preds = %7
   br i1 %.not, label %11, label %is_rdmnet_over_udp.exit.thread
 
 11:                                               ; preds = %is_rdmnet_over_udp.exit
-  tail call fastcc void @dissect_rdmnet.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
+  tail call fastcc void @dissect_rdmnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   br label %is_rdmnet_over_udp.exit.thread
 
 is_rdmnet_over_udp.exit.thread:                   ; preds = %7, %4, %is_rdmnet_over_udp.exit, %11
@@ -3092,7 +3092,7 @@ dissect_pdu_bit_flag_v.exit.i.i:                  ; preds = %270, %.thread.i
   %301 = zext nneg i8 %.lobit83.i to i32
   %302 = add i32 %.pre.i, %301
   %.0168.i.i = select i1 %.not.i124.i.not.not.i, i32 0, i32 %.pre.i
-  %303 = call fastcc i32 @acn_add_dmp_address_type.argprom(ptr noundef %0, ptr noundef %285, i32 noundef %.0168.i.i, ptr noundef %173)
+  %303 = call fastcc i32 @acn_add_dmp_address_type(ptr noundef %0, ptr noundef %285, i32 noundef %.0168.i.i, ptr noundef %173)
   %304 = and i8 %291, 16
   %.not.i125.i.i = icmp eq i8 %304, 0
   %305 = add i32 %288, %293
@@ -3954,7 +3954,7 @@ dissect_pdu_bit_flag_v.exit.i.i.i:                ; preds = %694, %684
   br label %dissect_acn_sdt_wrapped_pdu.exit.i.i
 
 707:                                              ; preds = %dissect_pdu_bit_flag_v.exit.i.i.i
-  %708 = call fastcc i32 @acn_add_channel_parameter.argprom(ptr noundef %0, ptr noundef %686, i32 noundef %spec.select.i.i)
+  %708 = call fastcc i32 @acn_add_channel_parameter(ptr noundef %0, ptr noundef %686, i32 noundef %spec.select.i.i)
   %709 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef readonly %1, ptr noundef %686, i32 noundef %708, ptr noundef nonnull @.str.729)
   %710 = load i32, ptr @hf_acn_adhoc_expiry, align 4
   %711 = call ptr @proto_tree_add_item(ptr noundef %686, i32 noundef %710, ptr noundef %0, i32 noundef %709, i32 noundef 1, i32 noundef 0) #6
@@ -4074,7 +4074,7 @@ dissect_pdu_bit_flag_h.exit.i.i.i:                ; preds = %757, %dissect_pdu_b
   %760 = phi i32 [ %758, %757 ], [ %.pre.i.i, %dissect_pdu_bit_flag_v.exit.i29.i.i ]
   %.sroa.5.1.i.i = phi i32 [ %.pre.i.i, %757 ], [ %.sroa.5.0.i.i, %dissect_pdu_bit_flag_v.exit.i29.i.i ]
   %761 = phi i32 [ %759, %757 ], [ %749, %dissect_pdu_bit_flag_v.exit.i29.i.i ]
-  %762 = call fastcc i32 @acn_add_dmp_address_type.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.sroa.5.1.i.i, ptr noundef %128)
+  %762 = call fastcc i32 @acn_add_dmp_address_type(ptr noundef %0, ptr noundef %738, i32 noundef %.sroa.5.1.i.i, ptr noundef %128)
   %763 = and i8 %744, 16
   %.not.i150.i.i.i = icmp eq i8 %763, 0
   %764 = sub i32 %742, %761
@@ -4134,7 +4134,7 @@ dissect_pdu_bit_flag_h.exit.i.i.i:                ; preds = %757, %dissect_pdu_b
   br i1 %776, label %777, label %.loopexit.i.i.i
 
 777:                                              ; preds = %.preheader.i.i.i90
-  %778 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.0189.i.i.i, ptr noundef %128)
+  %778 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.0189.i.i.i, ptr noundef %128)
   %779 = icmp eq i32 %.0189.i.i.i, %778
   br i1 %779, label %.loopexit.i.i.i, label %.preheader.i.i.i90, !llvm.loop !16
 
@@ -4144,7 +4144,7 @@ dissect_pdu_bit_flag_h.exit.i.i.i:                ; preds = %757, %dissect_pdu_b
   br i1 %780, label %781, label %.loopexit.i.i.i
 
 781:                                              ; preds = %.preheader200.i.i.i
-  %782 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.1190.i.i.i, ptr noundef %128)
+  %782 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.1190.i.i.i, ptr noundef %128)
   %783 = icmp eq i32 %.1190.i.i.i, %782
   br i1 %783, label %.loopexit.i.i.i, label %784
 
@@ -4162,7 +4162,7 @@ dissect_pdu_bit_flag_h.exit.i.i.i:                ; preds = %757, %dissect_pdu_b
   br i1 %788, label %789, label %.loopexit.i.i.i
 
 789:                                              ; preds = %.preheader202.i.i.i
-  %790 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.2.i.i.i, ptr noundef %128)
+  %790 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.2.i.i.i, ptr noundef %128)
   %791 = icmp eq i32 %.2.i.i.i, %790
   br i1 %791, label %.loopexit.i.i.i, label %792
 
@@ -4180,7 +4180,7 @@ dissect_pdu_bit_flag_h.exit.i.i.i:                ; preds = %757, %dissect_pdu_b
   br i1 %797, label %798, label %.loopexit.i.i.i
 
 798:                                              ; preds = %796
-  %799 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.3.i.i.i, ptr noundef %128)
+  %799 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.3.i.i.i, ptr noundef %128)
   %800 = icmp eq i32 %.3.i.i.i, %799
   br i1 %800, label %.loopexit.i.i.i, label %801
 
@@ -4193,7 +4193,7 @@ dissect_pdu_bit_flag_h.exit.i.i.i:                ; preds = %757, %dissect_pdu_b
   br i1 %804, label %.loopexit.i.i.i, label %796, !llvm.loop !19
 
 805:                                              ; preds = %.critedge.i.i.i
-  %806 = call fastcc i32 @acn_add_dmp_address_type.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.sroa.7.3.i.i, ptr noundef %129)
+  %806 = call fastcc i32 @acn_add_dmp_address_type(ptr noundef %0, ptr noundef %738, i32 noundef %.sroa.7.3.i.i, ptr noundef %129)
   %807 = icmp ult i32 %806, %.0122.i.i.i
   br i1 %807, label %.lr.ph238.i.i.i, label %.loopexit.i.i.i
 
@@ -4204,7 +4204,7 @@ dissect_pdu_bit_flag_h.exit.i.i.i:                ; preds = %757, %dissect_pdu_b
 
 .lr.ph238.i.i.i:                                  ; preds = %805, %.loopexit205.i.i.i
   %.4237.i.i.i = phi i32 [ %.5.lcssa.i.i.i, %.loopexit205.i.i.i ], [ %806, %805 ]
-  %809 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.4237.i.i.i, ptr noundef %128)
+  %809 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.4237.i.i.i, ptr noundef %128)
   %810 = icmp eq i32 %.4237.i.i.i, %809
   br i1 %810, label %.loopexit.i.i.i, label %811
 
@@ -4234,7 +4234,7 @@ default.unreachable:                              ; preds = %811
 .lr.ph235.i.i.i:                                  ; preds = %.lr.ph235.i.i.i.preheader, %.lr.ph235.i.i.i
   %.1234.i.i.i = phi i32 [ %818, %.lr.ph235.i.i.i ], [ %.1234.i.i.i.ph, %.lr.ph235.i.i.i.preheader ]
   %.5233.i.i.i = phi i32 [ %817, %.lr.ph235.i.i.i ], [ %809, %.lr.ph235.i.i.i.preheader ]
-  %817 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.5233.i.i.i, ptr noundef %129)
+  %817 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.5233.i.i.i, ptr noundef %129)
   %818 = add i32 %.1234.i.i.i, -1
   %.not.i32.i.i = icmp eq i32 %818, 0
   br i1 %.not.i32.i.i, label %.loopexit205.i.i.i, label %.lr.ph235.i.i.i, !llvm.loop !21
@@ -4245,7 +4245,7 @@ default.unreachable:                              ; preds = %811
   br i1 %819, label %820, label %.loopexit.i.i.i
 
 820:                                              ; preds = %.preheader207.i.i.i
-  %821 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.6.i.i.i, ptr noundef %128)
+  %821 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.6.i.i.i, ptr noundef %128)
   %822 = icmp eq i32 %.6.i.i.i, %821
   br i1 %822, label %.loopexit.i.i.i, label %.preheader207.i.i.i, !llvm.loop !22
 
@@ -4255,7 +4255,7 @@ default.unreachable:                              ; preds = %811
   br i1 %823, label %824, label %.loopexit.i.i.i
 
 824:                                              ; preds = %.preheader209.i.i.i
-  %825 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.7.i.i.i, ptr noundef %128)
+  %825 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.7.i.i.i, ptr noundef %128)
   %826 = icmp eq i32 %.7.i.i.i, %825
   br i1 %826, label %.loopexit.i.i.i, label %.preheader209.i.i.i, !llvm.loop !23
 
@@ -4265,7 +4265,7 @@ default.unreachable:                              ; preds = %811
   br i1 %827, label %828, label %.loopexit.i.i.i
 
 828:                                              ; preds = %.preheader211.i.i.i
-  %829 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.8.i.i.i, ptr noundef %128)
+  %829 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.8.i.i.i, ptr noundef %128)
   %830 = icmp eq i32 %.8.i.i.i, %829
   br i1 %830, label %.loopexit.i.i.i, label %.preheader211.i.i.i, !llvm.loop !24
 
@@ -4275,7 +4275,7 @@ default.unreachable:                              ; preds = %811
   br i1 %831, label %832, label %.loopexit.i.i.i
 
 832:                                              ; preds = %.preheader213.i.i.i
-  %833 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.9.i.i.i, ptr noundef %128)
+  %833 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.9.i.i.i, ptr noundef %128)
   %834 = icmp eq i32 %.9.i.i.i, %833
   br i1 %834, label %.loopexit.i.i.i, label %835
 
@@ -4293,7 +4293,7 @@ default.unreachable:                              ; preds = %811
   br i1 %839, label %840, label %.loopexit.i.i.i
 
 840:                                              ; preds = %.preheader215.i.i.i
-  %841 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.10.i.i.i, ptr noundef %128)
+  %841 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.10.i.i.i, ptr noundef %128)
   %842 = icmp eq i32 %.10.i.i.i, %841
   br i1 %842, label %.loopexit.i.i.i, label %843
 
@@ -4311,7 +4311,7 @@ default.unreachable:                              ; preds = %811
   br i1 %847, label %848, label %.loopexit.i.i.i
 
 848:                                              ; preds = %.preheader217.i.i.i
-  %849 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.11.i.i.i, ptr noundef %128)
+  %849 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.11.i.i.i, ptr noundef %128)
   %850 = icmp eq i32 %.11.i.i.i, %849
   br i1 %850, label %.loopexit.i.i.i, label %851
 
@@ -4329,7 +4329,7 @@ default.unreachable:                              ; preds = %811
   br i1 %855, label %856, label %.loopexit.i.i.i
 
 856:                                              ; preds = %.preheader219.i.i.i
-  %857 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.12.i.i.i, ptr noundef %128)
+  %857 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.12.i.i.i, ptr noundef %128)
   %858 = icmp eq i32 %.12.i.i.i, %857
   br i1 %858, label %.loopexit.i.i.i, label %.preheader219.i.i.i, !llvm.loop !28
 
@@ -4339,7 +4339,7 @@ default.unreachable:                              ; preds = %811
   br i1 %859, label %860, label %.loopexit.i.i.i
 
 860:                                              ; preds = %.preheader221.i.i.i
-  %861 = call fastcc i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %738, i32 noundef %.13.i.i.i, ptr noundef %128)
+  %861 = call fastcc i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %738, i32 noundef %.13.i.i.i, ptr noundef %128)
   %862 = icmp eq i32 %.13.i.i.i, %861
   br i1 %862, label %.loopexit.i.i.i, label %863
 
@@ -4469,7 +4469,7 @@ get_blob_type_from_fields.exit.i.i.i.i:           ; preds = %get_field_type_para
 
 .preheader.i.i.i.i:                               ; preds = %get_blob_type_from_fields.exit.i.i.i.i
   %916 = icmp slt i32 %887, %874
-  br i1 %916, label %.lr.ph.i.i.i.i, label %dissect_acn_blob.argprom.exit.i.i.i
+  br i1 %916, label %.lr.ph.i.i.i.i, label %dissect_acn_blob.exit.i.i.i
 
 917:                                              ; preds = %get_blob_type_from_fields.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %117)
@@ -4497,7 +4497,7 @@ get_blob_type_from_fields.exit.i.i.i.i:           ; preds = %get_field_type_para
 dissect_acn_blob_metadata.exit.i.i.i.i:           ; preds = %.lr.phthread-pre-split.i.i.i.i.i, %.lr.ph.i43.preheader.i.i.i.i, %917
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %117)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %118)
-  br label %dissect_acn_blob.argprom.exit.i.i.i
+  br label %dissect_acn_blob.exit.i.i.i
 
 924:                                              ; preds = %get_blob_type_from_fields.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %115)
@@ -4599,7 +4599,7 @@ get_field_type_parameters.exit.i46.i.i.i.i:       ; preds = %941, %940, %935, %9
 dissect_acn_blob_preset_properties.exit.i.i.i.i:  ; preds = %.loopexit.i.i.i.i.i, %924
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %115)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %116)
-  br label %dissect_acn_blob.argprom.exit.i.i.i
+  br label %dissect_acn_blob.exit.i.i.i
 
 956:                                              ; preds = %get_blob_type_from_fields.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %113)
@@ -4627,7 +4627,7 @@ dissect_acn_blob_preset_properties.exit.i.i.i.i:  ; preds = %.loopexit.i.i.i.i.i
 dissect_acn_blob_dimming_rack_properties_v2.exit.i.i.i.i: ; preds = %.lr.phthread-pre-split.i50.i.i.i.i, %.lr.ph.i48.preheader.i.i.i.i, %956
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %113)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %114)
-  br label %dissect_acn_blob.argprom.exit.i.i.i
+  br label %dissect_acn_blob.exit.i.i.i
 
 963:                                              ; preds = %get_blob_type_from_fields.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %111)
@@ -4729,20 +4729,20 @@ get_field_type_parameters.exit.i57.i.i.i.i:       ; preds = %980, %979, %974, %9
 dissect_acn_blob_dimming_rack_status_properties_v2.exit.i.i.i.i: ; preds = %.loopexit.i54.i.i.i.i, %963
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %111)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %112)
-  br label %dissect_acn_blob.argprom.exit.i.i.i
+  br label %dissect_acn_blob.exit.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %.lr.ph.i.i.i.i
   call fastcc void @display_blob_field(ptr noundef %0, ptr noundef %873, i8 noundef zeroext %.041.i.i.i.i, ptr noundef %119, ptr noundef %120, i32 noundef 0)
   %995 = load i32, ptr %119, align 4
   %996 = icmp slt i32 %995, %874
-  br i1 %996, label %.lr.ph.i.i.i.i, label %dissect_acn_blob.argprom.exit.i.i.i, !llvm.loop !37
+  br i1 %996, label %.lr.ph.i.i.i.i, label %dissect_acn_blob.exit.i.i.i, !llvm.loop !37
 
-dissect_acn_blob.argprom.exit.i.i.i:              ; preds = %.lr.ph.i.i.i.i, %dissect_acn_blob_dimming_rack_status_properties_v2.exit.i.i.i.i, %dissect_acn_blob_dimming_rack_properties_v2.exit.i.i.i.i, %dissect_acn_blob_preset_properties.exit.i.i.i.i, %dissect_acn_blob_metadata.exit.i.i.i.i, %.preheader.i.i.i.i
+dissect_acn_blob.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i, %dissect_acn_blob_dimming_rack_status_properties_v2.exit.i.i.i.i, %dissect_acn_blob_dimming_rack_properties_v2.exit.i.i.i.i, %dissect_acn_blob_preset_properties.exit.i.i.i.i, %dissect_acn_blob_metadata.exit.i.i.i.i, %.preheader.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %119)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %120)
   br label %dissect_acn_dmp_pdu.exit.i.i
 
-dissect_acn_dmp_pdu.exit.i.i:                     ; preds = %811, %dissect_acn_blob.argprom.exit.i.i.i, %.loopexit.i.i.i
+dissect_acn_dmp_pdu.exit.i.i:                     ; preds = %811, %dissect_acn_blob.exit.i.i.i, %.loopexit.i.i.i
   %.0.i31.i.i = add i32 %742, %740
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %121)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %122)
@@ -4788,7 +4788,7 @@ dissect_acn_sdt_client_pdu.exit.i:                ; preds = %dissect_acn_dmp_pdu
   %1017 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %1016, ptr noundef %0, i32 noundef %1015, i32 noundef 4, i32 noundef 0) #6
   %1018 = add i32 %.sroa.17178.11, 30
   %1019 = call fastcc i32 @acn_add_address(ptr noundef %0, ptr noundef readonly %1, ptr noundef %601, i32 noundef %1018, ptr noundef nonnull @.str.726)
-  %1020 = call fastcc i32 @acn_add_channel_parameter.argprom(ptr noundef %0, ptr noundef %601, i32 noundef %1019)
+  %1020 = call fastcc i32 @acn_add_channel_parameter(ptr noundef %0, ptr noundef %601, i32 noundef %1019)
   %1021 = load i32, ptr @hf_acn_adhoc_expiry, align 4
   %1022 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %1021, ptr noundef %0, i32 noundef %1020, i32 noundef 1, i32 noundef 0) #6
   br label %dissect_acn_sdt_base_pdu.exit
@@ -6457,7 +6457,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @acn_add_dmp_address_type.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @acn_add_dmp_address_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #6
   store i8 %5, ptr %3, align 4
   %6 = lshr i8 %5, 4
@@ -6583,7 +6583,7 @@ define internal fastcc noundef i32 @acn_add_address(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @acn_add_channel_parameter.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @acn_add_channel_parameter(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @ett_acn_channel_parameter, align 4
   %5 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 8, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.1825) #6
   %6 = load i32, ptr @hf_acn_expiry, align 4
@@ -6605,7 +6605,7 @@ define internal fastcc noundef i32 @acn_add_channel_parameter.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @acn_add_dmp_address.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @acn_add_dmp_address(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i8, ptr %3, align 4
   %6 = lshr i8 %5, 4
   %7 = and i8 %6, 3
@@ -8114,7 +8114,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @proto_tree_add_item_ret_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rdmnet.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_rdmnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.acn_pdu_offsets, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, i8 0, i64 20, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -8210,7 +8210,7 @@ define internal i32 @dissect_one_rdmnet_over_tcp_message(ptr noundef %0, ptr nou
   ]
 
 is_rdmnet_over_tcp.exit:                          ; preds = %9, %9, %9
-  tail call fastcc void @dissect_rdmnet.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
+  tail call fastcc void @dissect_rdmnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %12 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   br label %is_rdmnet_over_tcp.exit.thread
 

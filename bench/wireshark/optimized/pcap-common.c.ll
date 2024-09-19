@@ -1074,7 +1074,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
-  switch i32 %1, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit [
+  switch i32 %1, label %pcap_byteswap_linux_sll_pseudoheader.exit [
     i32 13, label %7
     i32 1, label %14
     i32 25, label %21
@@ -1093,17 +1093,17 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
 
 8:                                                ; preds = %7
   tail call void @atm_guess_traffic_type(ptr noundef %2, ptr noundef %3) #9
-  br label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %2, i64 85
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 3
-  br i1 %12, label %13, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br i1 %12, label %13, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 13:                                               ; preds = %9
   tail call void @atm_guess_lane_type(ptr noundef nonnull %2, ptr noundef %3) #9
-  br label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 14:                                               ; preds = %6
   %15 = icmp slt i32 %5, 8
@@ -1112,17 +1112,17 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %2, i64 80
   store i32 %5, ptr %17, align 8
-  br label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 18:                                               ; preds = %14
   %19 = lshr i32 %5, 3
   %20 = getelementptr inbounds i8, ptr %2, i64 80
   store i32 %19, ptr %20, align 8
-  br label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 21:                                               ; preds = %6
   %.not45 = icmp eq i32 %4, 0
-  br i1 %.not45, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %22
+  br i1 %.not45, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %22
 
 22:                                               ; preds = %21
   %23 = getelementptr i8, ptr %2, i64 64
@@ -1131,7 +1131,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %.val47 = load i32, ptr %24, align 4
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %.val, i32 %.val47)
   %25 = icmp ult i32 %spec.select.i, 16
-  br i1 %25, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %26
+  br i1 %25, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %3, i64 14
@@ -1144,7 +1144,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %32 = or disjoint i16 %30, %31
   %33 = add i32 %spec.select.i, -16
   %34 = getelementptr i8, ptr %3, i64 16
-  switch i16 %32, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit [
+  switch i16 %32, label %pcap_byteswap_linux_sll_pseudoheader.exit [
     i16 12, label %35
     i16 13, label %35
     i16 14, label %37
@@ -1152,11 +1152,11 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
 
 35:                                               ; preds = %26, %26
   %36 = icmp ult i32 %33, 4
-  br i1 %36, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %.sink.split.i.i
+  br i1 %36, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %.sink.split.i.i
 
 37:                                               ; preds = %26
   %38 = icmp ult i32 %33, 4
-  br i1 %38, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %39
+  br i1 %38, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %39
 
 39:                                               ; preds = %37
   %40 = getelementptr i8, ptr %3, i64 19
@@ -1171,7 +1171,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   store i8 %46, ptr %43, align 1
   store i8 %44, ptr %45, align 1
   %47 = icmp ult i32 %33, 8
-  br i1 %47, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %48
+  br i1 %47, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %48
 
 48:                                               ; preds = %39
   %49 = getelementptr i8, ptr %3, i64 22
@@ -1181,7 +1181,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   store i8 %52, ptr %50, align 1
   store i8 %51, ptr %49, align 1
   %53 = icmp ult i32 %33, 12
-  br i1 %53, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %54
+  br i1 %53, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %54
 
 54:                                               ; preds = %48
   %55 = getelementptr i8, ptr %3, i64 24
@@ -1203,11 +1203,11 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %62 = load i8, ptr %61, align 1
   store i8 %62, ptr %59, align 1
   store i8 %60, ptr %61, align 1
-  br label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 63:                                               ; preds = %6
   %.not44 = icmp eq i32 %4, 0
-  br i1 %.not44, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %64
+  br i1 %.not44, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %64
 
 64:                                               ; preds = %63
   %65 = getelementptr i8, ptr %2, i64 64
@@ -1216,7 +1216,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %.val49 = load i32, ptr %66, align 4
   %spec.select.i58 = tail call i32 @llvm.umin.i32(i32 %.val48, i32 %.val49)
   %67 = icmp ult i32 %spec.select.i58, 20
-  br i1 %67, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %68
+  br i1 %67, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %68
 
 68:                                               ; preds = %64
   %.val.i59 = load i8, ptr %3, align 1
@@ -1228,7 +1228,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %73 = or disjoint i16 %71, %72
   %74 = add i32 %spec.select.i58, -20
   %75 = getelementptr i8, ptr %3, i64 20
-  switch i16 %73, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit [
+  switch i16 %73, label %pcap_byteswap_linux_sll_pseudoheader.exit [
     i16 12, label %76
     i16 13, label %76
     i16 14, label %78
@@ -1236,11 +1236,11 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
 
 76:                                               ; preds = %68, %68
   %77 = icmp ult i32 %74, 4
-  br i1 %77, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %.sink.split.i.i61
+  br i1 %77, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %.sink.split.i.i61
 
 78:                                               ; preds = %68
   %79 = icmp ult i32 %74, 4
-  br i1 %79, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %80
+  br i1 %79, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %80
 
 80:                                               ; preds = %78
   %81 = getelementptr i8, ptr %3, i64 23
@@ -1255,7 +1255,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   store i8 %87, ptr %84, align 1
   store i8 %85, ptr %86, align 1
   %88 = icmp ult i32 %74, 8
-  br i1 %88, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %89
+  br i1 %88, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %89
 
 89:                                               ; preds = %80
   %90 = getelementptr i8, ptr %3, i64 26
@@ -1265,7 +1265,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   store i8 %93, ptr %91, align 1
   store i8 %92, ptr %90, align 1
   %94 = icmp ult i32 %74, 12
-  br i1 %94, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %95
+  br i1 %94, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %95
 
 95:                                               ; preds = %89
   %96 = getelementptr i8, ptr %3, i64 28
@@ -1287,19 +1287,19 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %103 = load i8, ptr %102, align 1
   store i8 %103, ptr %100, align 1
   store i8 %101, ptr %102, align 1
-  br label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 104:                                              ; preds = %6
   %.not43 = icmp eq i32 %4, 0
-  br i1 %.not43, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %105
+  br i1 %.not43, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %105
 
 105:                                              ; preds = %104
   %106 = getelementptr i8, ptr %2, i64 64
   %.val50 = load i32, ptr %106, align 8
   %107 = getelementptr i8, ptr %2, i64 68
   %.val51 = load i32, ptr %107, align 4
-  tail call fastcc void @pcap_byteswap_linux_usb_pseudoheader.argprom(i32 %.val50, i32 %.val51, ptr noundef %3, i32 noundef 0)
-  br label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  tail call fastcc void @pcap_byteswap_linux_usb_pseudoheader(i32 %.val50, i32 %.val51, ptr noundef %3, i32 noundef 0)
+  br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 108:                                              ; preds = %6
   %.not42 = icmp eq i32 %4, 0
@@ -1310,20 +1310,20 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %.val52 = load i32, ptr %110, align 8
   %111 = getelementptr i8, ptr %2, i64 68
   %.val53 = load i32, ptr %111, align 4
-  tail call fastcc void @pcap_byteswap_linux_usb_pseudoheader.argprom(i32 %.val52, i32 %.val53, ptr noundef %3, i32 noundef 1)
+  tail call fastcc void @pcap_byteswap_linux_usb_pseudoheader(i32 %.val52, i32 %.val53, ptr noundef %3, i32 noundef 1)
   br label %112
 
 112:                                              ; preds = %109, %108
   %113 = getelementptr inbounds i8, ptr %2, i64 64
   %114 = load i32, ptr %113, align 8
   %115 = icmp ugt i32 %114, 63
-  br i1 %115, label %116, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br i1 %115, label %116, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 116:                                              ; preds = %112
   %117 = getelementptr inbounds i8, ptr %3, i64 15
   %118 = load i8, ptr %117, align 1
   %.not.i = icmp eq i8 %118, 0
-  br i1 %.not.i, label %119, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br i1 %.not.i, label %119, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 119:                                              ; preds = %116
   %120 = getelementptr inbounds i8, ptr %2, i64 68
@@ -1339,26 +1339,26 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %130 = zext i32 %129 to i64
   %131 = add nuw nsw i64 %127, %130
   %132 = icmp eq i64 %131, %122
-  br i1 %132, label %133, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br i1 %132, label %133, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 133:                                              ; preds = %119
   %134 = add i32 %114, -64
   %135 = getelementptr inbounds i8, ptr %3, i64 9
   %136 = load i8, ptr %135, align 1
   %137 = icmp eq i8 %136, 0
-  br i1 %137, label %138, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br i1 %137, label %138, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 138:                                              ; preds = %133
   %139 = getelementptr inbounds i8, ptr %3, i64 8
   %140 = load i8, ptr %139, align 8
   %141 = icmp eq i8 %140, 67
-  br i1 %141, label %142, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br i1 %141, label %142, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds i8, ptr %3, i64 10
   %144 = load i8, ptr %143, align 2
   %.not41.i.i = icmp sgt i8 %144, -1
-  br i1 %.not41.i.i, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %145
+  br i1 %.not41.i.i, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %145
 
 145:                                              ; preds = %142
   %146 = getelementptr i8, ptr %3, i64 64
@@ -1402,21 +1402,21 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %165 = select i1 %.not42.i.i, i32 %164, i32 %121
   %.not48.i.i = icmp ugt i32 %114, %165
   %166 = or i1 %.not42.i.i, %.not48.i.i
-  br i1 %166, label %167, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br i1 %166, label %167, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 167:                                              ; preds = %._crit_edge.i.i
   %simplifycfg.merge.i.i = tail call i32 @llvm.umax.i32(i32 %114, i32 %165)
   store i32 %simplifycfg.merge.i.i, ptr %120, align 4
-  br label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 168:                                              ; preds = %6
   %169 = getelementptr inbounds i8, ptr %2, i64 80
   store i32 4, ptr %169, align 8
-  br label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 170:                                              ; preds = %6
   %.not41 = icmp eq i32 %4, 0
-  br i1 %.not41, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %171
+  br i1 %.not41, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %171
 
 171:                                              ; preds = %170
   %172 = getelementptr i8, ptr %2, i64 64
@@ -1425,7 +1425,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %.val55 = load i32, ptr %173, align 4
   %spec.select.i66 = tail call i32 @llvm.umin.i32(i32 %.val54, i32 %.val55)
   %174 = icmp ult i32 %spec.select.i66, 4
-  br i1 %174, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %175
+  br i1 %174, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %175
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds i8, ptr %3, i64 1
@@ -1434,7 +1434,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %178 = add i32 %spec.select.i66, -4
   %179 = icmp ugt i32 %178, 3
   %or.cond6.i = and i1 %179, %.not.i67
-  br i1 %or.cond6.i, label %.lr.ph.preheader.i, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br i1 %or.cond6.i, label %.lr.ph.preheader.i, label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 .lr.ph.preheader.i:                               ; preds = %175
   %180 = getelementptr i8, ptr %3, i64 4
@@ -1469,7 +1469,7 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %196 = getelementptr i8, ptr %.0321.i, i64 %194
   %197 = icmp ugt i32 %195, 3
   %or.cond10.i = select i1 %or.cond.not13.i, i1 %197, i1 false
-  br i1 %or.cond10.i, label %.lr.ph.i, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, !llvm.loop !9
+  br i1 %or.cond10.i, label %.lr.ph.i, label %pcap_byteswap_linux_sll_pseudoheader.exit, !llvm.loop !9
 
 198:                                              ; preds = %6
   %199 = getelementptr inbounds i8, ptr %2, i64 64
@@ -1481,11 +1481,11 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %204 = load i32, ptr %199, align 8
   %. = tail call i32 @llvm.umin.i32(i32 %204, i32 %202)
   store i32 %., ptr %199, align 8
-  br label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
 205:                                              ; preds = %6
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %206
+  br i1 %.not, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %206
 
 206:                                              ; preds = %205
   %207 = getelementptr i8, ptr %2, i64 64
@@ -1494,12 +1494,12 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %.val57 = load i32, ptr %208, align 4
   %spec.select.i68 = tail call i32 @llvm.umin.i32(i32 %.val56, i32 %.val57)
   %209 = icmp ult i32 %spec.select.i68, 64
-  br i1 %209, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %210
+  br i1 %209, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %210
 
 210:                                              ; preds = %206
   %211 = load i8, ptr %3, align 4
   %212 = icmp ult i8 %211, 60
-  br i1 %212, label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit, label %213
+  br i1 %212, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %213
 
 213:                                              ; preds = %210
   %214 = getelementptr inbounds i8, ptr %3, i64 44
@@ -1550,9 +1550,9 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %245 = load i8, ptr %244, align 1
   store i8 %245, ptr %242, align 2
   store i8 %243, ptr %244, align 1
-  br label %pcap_byteswap_linux_sll_pseudoheader.argprom.exit
+  br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-pcap_byteswap_linux_sll_pseudoheader.argprom.exit: ; preds = %.lr.ph.i, %213, %210, %206, %175, %171, %167, %._crit_edge.i.i, %142, %138, %133, %119, %116, %112, %.sink.split.i.i61, %89, %80, %78, %76, %68, %64, %.sink.split.i.i, %48, %39, %37, %35, %26, %22, %6, %205, %170, %104, %105, %63, %21, %16, %18, %8, %13, %9, %198, %168
+pcap_byteswap_linux_sll_pseudoheader.exit:        ; preds = %.lr.ph.i, %213, %210, %206, %175, %171, %167, %._crit_edge.i.i, %142, %138, %133, %119, %116, %112, %.sink.split.i.i61, %89, %80, %78, %76, %68, %64, %.sink.split.i.i, %48, %39, %37, %35, %26, %22, %6, %205, %170, %104, %105, %63, %21, %16, %18, %8, %13, %9, %198, %168
   ret void
 }
 
@@ -1561,7 +1561,7 @@ declare void @atm_guess_traffic_type(ptr noundef, ptr noundef) local_unnamed_add
 declare void @atm_guess_lane_type(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @pcap_byteswap_linux_usb_pseudoheader.argprom(i32 %.64.val, i32 %.68.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #5 {
+define internal fastcc void @pcap_byteswap_linux_usb_pseudoheader(i32 %.64.val, i32 %.68.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #5 {
   %spec.select = tail call i32 @llvm.umin.i32(i32 %.64.val, i32 %.68.val)
   %3 = zext i32 %spec.select to i64
   %4 = ptrtoint ptr %0 to i64

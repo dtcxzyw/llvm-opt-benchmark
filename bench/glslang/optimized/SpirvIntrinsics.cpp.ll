@@ -2745,8 +2745,8 @@ define void @_ZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11Ev(
   %.not143 = icmp eq ptr %20, %21
   br i1 %.not143, label %._crit_edge147, label %.lr.ph146
 
-.lr.ph146:                                        ; preds = %2, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit45"
-  %.sroa.0128.0144 = phi ptr [ %101, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit45" ], [ %20, %2 ]
+.lr.ph146:                                        ; preds = %2, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit45"
+  %.sroa.0128.0144 = phi ptr [ %101, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit45" ], [ %20, %2 ]
   %22 = getelementptr inbounds i8, ptr %.sroa.0128.0144, i64 32
   %.val = load ptr, ptr %7, align 8
   %23 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -2780,20 +2780,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 36:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i
   %37 = getelementptr inbounds i8, ptr %29, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %37, ptr noundef nonnull align 1 dereferenceable(15) @.str.5, i64 15, i1 false)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit"
 
 38:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %.val, i64 noundef %24, i64 noundef 0, ptr noundef nonnull @.str.5, i64 noundef 15)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit": ; preds = %36, %38
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit": ; preds = %36, %38
   store i64 %27, ptr %23, align 8
   %39 = load ptr, ptr %28, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 %27
   store i8 0, ptr %40, align 1
   %41 = load i32, ptr %22, align 8
   %.val31 = load ptr, ptr %4, align 8
-  call fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_1clEi.argprom"(ptr %.val31, i32 noundef %41)
+  call fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_1clEi"(ptr %.val31, i32 noundef %41)
   %42 = getelementptr inbounds i8, ptr %.sroa.0128.0144, i64 48
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %.sroa.0128.0144, i64 56
@@ -2801,8 +2801,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %.not140141 = icmp eq ptr %43, %45
   br i1 %.not140141, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit39"
-  %.sroa.0124.0142 = phi ptr [ %81, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit39" ], [ %43, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit" ]
+.lr.ph:                                           ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit39"
+  %.sroa.0124.0142 = phi ptr [ %81, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit39" ], [ %43, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit" ]
   %46 = load ptr, ptr %.sroa.0124.0142, align 8
   %.val23 = load ptr, ptr %7, align 8
   %47 = getelementptr inbounds i8, ptr %.val23, i64 16
@@ -2838,7 +2838,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %60 = getelementptr inbounds i8, ptr %54, i64 %48
   store i16 8236, ptr %60, align 1
   %.pre = load ptr, ptr %53, align 8
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit39"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit39"
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i35.thread
   %61 = phi i64 [ %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i35.thread ], [ 15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i35 ]
@@ -2890,9 +2890,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i
   store ptr %68, ptr %53, align 8
   store i64 %.0.i, ptr %55, align 8
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit39"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit39"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit39": ; preds = %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit39": ; preds = %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit
   %79 = phi ptr [ %.pre, %59 ], [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit ]
   store i64 %52, ptr %47, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 %52
@@ -2902,7 +2902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   %.not140 = icmp eq ptr %81, %45
   br i1 %.not140, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit39", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit"
+._crit_edge:                                      ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit39", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit"
   %.val24 = load ptr, ptr %7, align 8
   %82 = getelementptr inbounds i8, ptr %.val24, i64 16
   %83 = load i64, ptr %82, align 8
@@ -2936,13 +2936,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 96:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i41
   %97 = getelementptr inbounds i8, ptr %89, i64 %83
   store i16 8233, ptr %97, align 1
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit45"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit45"
 
 98:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %.val24, i64 noundef %83, i64 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 2)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit45"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit45"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit45": ; preds = %96, %98
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit45": ; preds = %96, %98
   store i64 %87, ptr %82, align 8
   %99 = load ptr, ptr %88, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 %87
@@ -2951,7 +2951,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %.not = icmp eq ptr %101, %21
   br i1 %.not, label %._crit_edge147.loopexit, label %.lr.ph146
 
-._crit_edge147.loopexit:                          ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit45"
+._crit_edge147.loopexit:                          ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit45"
   %.pre166 = load ptr, ptr %17, align 8
   br label %._crit_edge147
 
@@ -2963,8 +2963,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %.not136152 = icmp eq ptr %104, %105
   br i1 %.not136152, label %._crit_edge156, label %.lr.ph155
 
-.lr.ph155:                                        ; preds = %._crit_edge147, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit63"
-  %.sroa.0120.0153 = phi ptr [ %185, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit63" ], [ %104, %._crit_edge147 ]
+.lr.ph155:                                        ; preds = %._crit_edge147, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit63"
+  %.sroa.0120.0153 = phi ptr [ %185, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit63" ], [ %104, %._crit_edge147 ]
   %106 = getelementptr inbounds i8, ptr %.sroa.0120.0153, i64 32
   %.val25 = load ptr, ptr %7, align 8
   %107 = getelementptr inbounds i8, ptr %.val25, i64 16
@@ -2998,20 +2998,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 120:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i47
   %121 = getelementptr inbounds i8, ptr %113, i64 %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %121, ptr noundef nonnull align 1 dereferenceable(18) @.str.8, i64 18, i1 false)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit51"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit51"
 
 122:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %.val25, i64 noundef %108, i64 noundef 0, ptr noundef nonnull @.str.8, i64 noundef 18)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit51"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit51"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit51": ; preds = %120, %122
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit51": ; preds = %120, %122
   store i64 %111, ptr %107, align 8
   %123 = load ptr, ptr %112, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 %111
   store i8 0, ptr %124, align 1
   %125 = load i32, ptr %106, align 8
   %.val32 = load ptr, ptr %4, align 8
-  call fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_1clEi.argprom"(ptr %.val32, i32 noundef %125)
+  call fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_1clEi"(ptr %.val32, i32 noundef %125)
   %126 = getelementptr inbounds i8, ptr %.sroa.0120.0153, i64 48
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %.sroa.0120.0153, i64 56
@@ -3019,8 +3019,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %.not139148 = icmp eq ptr %127, %129
   br i1 %.not139148, label %._crit_edge151, label %.lr.ph150
 
-.lr.ph150:                                        ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit51", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit57"
-  %.sroa.0116.0149 = phi ptr [ %165, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit57" ], [ %127, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit51" ]
+.lr.ph150:                                        ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit51", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit57"
+  %.sroa.0116.0149 = phi ptr [ %165, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit57" ], [ %127, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit51" ]
   %130 = load ptr, ptr %.sroa.0116.0149, align 8
   %.val26 = load ptr, ptr %7, align 8
   %131 = getelementptr inbounds i8, ptr %.val26, i64 16
@@ -3056,7 +3056,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %144 = getelementptr inbounds i8, ptr %138, i64 %132
   store i16 8236, ptr %144, align 1
   %.pre167 = load ptr, ptr %137, align 8
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit57"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit57"
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i82: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i53.thread
   %145 = phi i64 [ %142, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i53.thread ], [ 15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i53 ]
@@ -3108,9 +3108,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit94: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i91
   store ptr %152, ptr %137, align 8
   store i64 %.0.i84, ptr %139, align 8
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit57"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit57"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit57": ; preds = %143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit94
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit57": ; preds = %143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit94
   %163 = phi ptr [ %.pre167, %143 ], [ %152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit94 ]
   store i64 %136, ptr %131, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 %136
@@ -3120,7 +3120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   %.not139 = icmp eq ptr %165, %129
   br i1 %.not139, label %._crit_edge151, label %.lr.ph150
 
-._crit_edge151:                                   ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit57", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit51"
+._crit_edge151:                                   ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit57", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit51"
   %.val27 = load ptr, ptr %7, align 8
   %166 = getelementptr inbounds i8, ptr %.val27, i64 16
   %167 = load i64, ptr %166, align 8
@@ -3154,13 +3154,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 180:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i59
   %181 = getelementptr inbounds i8, ptr %173, i64 %167
   store i16 8233, ptr %181, align 1
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit63"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit63"
 
 182:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i59
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %.val27, i64 noundef %167, i64 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 2)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit63"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit63"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit63": ; preds = %180, %182
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit63": ; preds = %180, %182
   store i64 %171, ptr %166, align 8
   %183 = load ptr, ptr %172, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 %171
@@ -3169,7 +3169,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %.not136 = icmp eq ptr %185, %105
   br i1 %.not136, label %._crit_edge156.loopexit, label %.lr.ph155
 
-._crit_edge156.loopexit:                          ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit63"
+._crit_edge156.loopexit:                          ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit63"
   %.pre168 = load ptr, ptr %17, align 8
   br label %._crit_edge156
 
@@ -3181,8 +3181,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %.not137161 = icmp eq ptr %188, %189
   br i1 %.not137161, label %._crit_edge165, label %.lr.ph164
 
-.lr.ph164:                                        ; preds = %._crit_edge156, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit81"
-  %.sroa.0112.0162 = phi ptr [ %269, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit81" ], [ %188, %._crit_edge156 ]
+.lr.ph164:                                        ; preds = %._crit_edge156, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit81"
+  %.sroa.0112.0162 = phi ptr [ %269, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit81" ], [ %188, %._crit_edge156 ]
   %190 = getelementptr inbounds i8, ptr %.sroa.0112.0162, i64 32
   %.val28 = load ptr, ptr %7, align 8
   %191 = getelementptr inbounds i8, ptr %.val28, i64 16
@@ -3216,20 +3216,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 204:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i65
   %205 = getelementptr inbounds i8, ptr %197, i64 %192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %205, ptr noundef nonnull align 1 dereferenceable(22) @.str.9, i64 22, i1 false)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit69"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit69"
 
 206:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i65
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %.val28, i64 noundef %192, i64 noundef 0, ptr noundef nonnull @.str.9, i64 noundef 22)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit69"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit69"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit69": ; preds = %204, %206
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit69": ; preds = %204, %206
   store i64 %195, ptr %191, align 8
   %207 = load ptr, ptr %196, align 8
   %208 = getelementptr inbounds i8, ptr %207, i64 %195
   store i8 0, ptr %208, align 1
   %209 = load i32, ptr %190, align 8
   %.val33 = load ptr, ptr %4, align 8
-  call fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_1clEi.argprom"(ptr %.val33, i32 noundef %209)
+  call fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_1clEi"(ptr %.val33, i32 noundef %209)
   %210 = getelementptr inbounds i8, ptr %.sroa.0112.0162, i64 48
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds i8, ptr %.sroa.0112.0162, i64 56
@@ -3237,8 +3237,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %.not138157 = icmp eq ptr %211, %213
   br i1 %.not138157, label %._crit_edge160, label %.lr.ph159
 
-.lr.ph159:                                        ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit69", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit75"
-  %.sroa.0108.0158 = phi ptr [ %249, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit75" ], [ %211, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit69" ]
+.lr.ph159:                                        ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit69", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit75"
+  %.sroa.0108.0158 = phi ptr [ %249, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit75" ], [ %211, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit69" ]
   %214 = load ptr, ptr %.sroa.0108.0158, align 8
   %.val29 = load ptr, ptr %7, align 8
   %215 = getelementptr inbounds i8, ptr %.val29, i64 16
@@ -3274,7 +3274,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %228 = getelementptr inbounds i8, ptr %222, i64 %216
   store i16 8236, ptr %228, align 1
   %.pre169 = load ptr, ptr %221, align 8
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit75"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit75"
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i95: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i71.thread
   %229 = phi i64 [ %226, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i71.thread ], [ 15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i71 ]
@@ -3326,9 +3326,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit107: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i104
   store ptr %236, ptr %221, align 8
   store i64 %.0.i97, ptr %223, align 8
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit75"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit75"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit75": ; preds = %227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit107
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit75": ; preds = %227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit107
   %247 = phi ptr [ %.pre169, %227 ], [ %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm.exit107 ]
   store i64 %220, ptr %215, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 %220
@@ -3338,7 +3338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   %.not138 = icmp eq ptr %249, %213
   br i1 %.not138, label %._crit_edge160, label %.lr.ph159
 
-._crit_edge160:                                   ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit75", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit69"
+._crit_edge160:                                   ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit75", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit69"
   %.val30 = load ptr, ptr %7, align 8
   %250 = getelementptr inbounds i8, ptr %.val30, i64 16
   %251 = load i64, ptr %250, align 8
@@ -3372,13 +3372,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 264:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i77
   %265 = getelementptr inbounds i8, ptr %257, i64 %251
   store i16 8233, ptr %265, align 1
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit81"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit81"
 
 266:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i77
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %.val30, i64 noundef %251, i64 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 2)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit81"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit81"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit81": ; preds = %264, %266
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit81": ; preds = %264, %266
   store i64 %255, ptr %250, align 8
   %267 = load ptr, ptr %256, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 %255
@@ -3387,12 +3387,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %.not137 = icmp eq ptr %269, %189
   br i1 %.not137, label %._crit_edge165, label %.lr.ph164
 
-._crit_edge165:                                   ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit81", %._crit_edge156
+._crit_edge165:                                   ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit81", %._crit_edge156
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom"(ptr %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc"(ptr %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 16
   %4 = load i64, ptr %3, align 8
@@ -3454,7 +3454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_1clEi.argprom"(ptr %.0.val, i32 noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_1clEi"(ptr %.0.val, i32 noundef %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::__cxx11::basic_string.80", align 8
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.80") align 8 %2, i32 noundef %0) #14
   %3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
@@ -3588,7 +3588,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 
 45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i
   %.not8.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not8.i.i.i, label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.argprom.exit", label %46
+  br i1 %.not8.i.i.i, label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.exit", label %46
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds i8, ptr %38, i64 %32
@@ -3598,17 +3598,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 48:                                               ; preds = %46
   %49 = load i8, ptr %29, align 1
   store i8 %49, ptr %47, align 1
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.exit"
 
 50:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %29, i64 %30, i1 false)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.exit"
 
 51:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %.val20, i64 noundef %32, i64 noundef 0, ptr noundef %29, i64 noundef %30)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.exit"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.argprom.exit": ; preds = %45, %48, %50, %51
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.exit": ; preds = %45, %48, %50, %51
   store i64 %36, ptr %31, align 8
   %52 = load ptr, ptr %37, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 %36
@@ -3634,7 +3634,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %66 = getelementptr inbounds i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8
   %.val19 = load ptr, ptr %67, align 8
-  tail call fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_1clEi.argprom"(ptr %.val19, i32 noundef %65)
+  tail call fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_1clEi"(ptr %.val19, i32 noundef %65)
   br label %201
 
 68:                                               ; preds = %54
@@ -3689,7 +3689,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 
 98:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i24
   %.not8.i.i.i26 = icmp eq i64 %83, 0
-  br i1 %.not8.i.i.i26, label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.argprom.exit", label %99
+  br i1 %.not8.i.i.i26, label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.exit", label %99
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds i8, ptr %91, i64 %85
@@ -3699,17 +3699,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 101:                                              ; preds = %99
   %102 = load i8, ptr %82, align 1
   store i8 %102, ptr %100, align 1
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.exit"
 
 103:                                              ; preds = %99
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr align 1 %82, i64 %83, i1 false)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.exit"
 
 104:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %.val21, i64 noundef %85, i64 noundef 0, ptr noundef %82, i64 noundef %83)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.exit"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.argprom.exit": ; preds = %98, %101, %103, %104
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.exit": ; preds = %98, %101, %103, %104
   store i64 %89, ptr %84, align 8
   %105 = load ptr, ptr %90, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 %89
@@ -3772,7 +3772,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 
 139:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i29
   %.not8.i.i.i31 = icmp eq i64 %124, 0
-  br i1 %.not8.i.i.i31, label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.argprom.exit", label %140
+  br i1 %.not8.i.i.i31, label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.exit", label %140
 
 140:                                              ; preds = %139
   %141 = getelementptr inbounds i8, ptr %132, i64 %126
@@ -3782,17 +3782,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 142:                                              ; preds = %140
   %143 = load i8, ptr %123, align 1
   store i8 %143, ptr %141, align 1
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.exit"
 
 144:                                              ; preds = %140
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %141, ptr align 1 %123, i64 %124, i1 false)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.exit"
 
 145:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %.val22, i64 noundef %126, i64 noundef 0, ptr noundef %123, i64 noundef %124)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.exit"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.argprom.exit": ; preds = %139, %142, %144, %145
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.exit": ; preds = %139, %142, %144, %145
   store i64 %130, ptr %125, align 8
   %146 = load ptr, ptr %131, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 %130
@@ -3820,7 +3820,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %162 = getelementptr inbounds i8, ptr %159, i64 8
   %163 = load ptr, ptr %162, align 8
   %.val18 = load ptr, ptr %161, align 8
-  tail call fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom"(ptr %.val18, ptr noundef %163)
+  tail call fastcc void @"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc"(ptr %.val18, ptr noundef %163)
   br label %201
 
 164:                                              ; preds = %2
@@ -3869,7 +3869,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 
 192:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i34
   %.not8.i.i.i36 = icmp eq i64 %177, 0
-  br i1 %.not8.i.i.i36, label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit", label %193
+  br i1 %.not8.i.i.i36, label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit", label %193
 
 193:                                              ; preds = %192
   %194 = getelementptr inbounds i8, ptr %185, i64 %179
@@ -3879,24 +3879,24 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 195:                                              ; preds = %193
   %196 = load i8, ptr %176, align 1
   store i8 %196, ptr %194, align 1
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit"
 
 197:                                              ; preds = %193
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %194, ptr align 1 %176, i64 %177, i1 false)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit"
 
 198:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i.i34
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %.val, i64 noundef %179, i64 noundef 0, ptr noundef %176, i64 noundef %177)
-  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit"
+  br label %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit"
 
-"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit": ; preds = %192, %195, %197, %198
+"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit": ; preds = %192, %195, %197, %198
   store i64 %183, ptr %178, align 8
   %199 = load ptr, ptr %184, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 %183
   store i8 0, ptr %200, align 1
   br label %201
 
-201:                                              ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.argprom.exit", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.argprom.exit", %154, %148, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.argprom.exit", %60, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.argprom.exit"
+201:                                              ; preds = %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_3clEf.exit", %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_4clEj.exit", %154, %148, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_5clEb.exit", %60, %"_ZZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11EvENK3$_0clEPKc.exit"
   ret void
 }
 

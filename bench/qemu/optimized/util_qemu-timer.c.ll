@@ -295,7 +295,7 @@ for.body.us:                                      ; preds = %entry
   tail call void %2(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #17
   %3 = load ptr, ptr %active_timers, align 8
   %tobool3.not.us = icmp eq ptr %3, null
-  br i1 %tobool3.not.us, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %qemu_lockable_auto_unlock.exit.us
+  br i1 %tobool3.not.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %qemu_lockable_auto_unlock.exit.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %for.body.us
   %4 = load i64, ptr %3, align 8
@@ -307,12 +307,12 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %for.body.us
   %cmp = icmp sle i64 %4, %call8
   br label %return
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.body.us
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 132) #17
   br label %return
 
-return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.argprom.exit, %entry, %qemu_lockable_auto_unlock.exit.us
-  %retval.0 = phi i1 [ false, %glib_autoptr_cleanup_QemuLockable.argprom.exit ], [ %cmp, %qemu_lockable_auto_unlock.exit.us ], [ false, %entry ]
+return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %entry, %qemu_lockable_auto_unlock.exit.us
+  %retval.0 = phi i1 [ false, %glib_autoptr_cleanup_QemuLockable.exit ], [ %cmp, %qemu_lockable_auto_unlock.exit.us ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -448,7 +448,7 @@ for.body.us.i:                                    ; preds = %entry
   tail call void %3(ptr noundef nonnull %active_timers_lock.i, ptr noundef nonnull @.str.3, i32 noundef 122) #17
   %4 = load ptr, ptr %active_timers.i, align 8
   %tobool3.not.us.i = icmp eq ptr %4, null
-  br i1 %tobool3.not.us.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit.i, label %qemu_lockable_auto_unlock.exit.us.i
+  br i1 %tobool3.not.us.i, label %glib_autoptr_cleanup_QemuLockable.exit.i, label %qemu_lockable_auto_unlock.exit.us.i
 
 qemu_lockable_auto_unlock.exit.us.i:              ; preds = %for.body.us.i
   %5 = load i64, ptr %4, align 8
@@ -460,12 +460,12 @@ qemu_lockable_auto_unlock.exit.us.i:              ; preds = %for.body.us.i
   %cmp.i = icmp sle i64 %5, %call8.i
   br label %timerlist_expired.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit.i: ; preds = %for.body.us.i
+glib_autoptr_cleanup_QemuLockable.exit.i:         ; preds = %for.body.us.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock.i, ptr noundef nonnull @.str.3, i32 noundef 132) #17
   br label %timerlist_expired.exit
 
-timerlist_expired.exit:                           ; preds = %entry, %qemu_lockable_auto_unlock.exit.us.i, %glib_autoptr_cleanup_QemuLockable.argprom.exit.i
-  %retval.0.i = phi i1 [ false, %glib_autoptr_cleanup_QemuLockable.argprom.exit.i ], [ %cmp.i, %qemu_lockable_auto_unlock.exit.us.i ], [ false, %entry ]
+timerlist_expired.exit:                           ; preds = %entry, %qemu_lockable_auto_unlock.exit.us.i, %glib_autoptr_cleanup_QemuLockable.exit.i
+  %retval.0.i = phi i1 [ false, %glib_autoptr_cleanup_QemuLockable.exit.i ], [ %cmp.i, %qemu_lockable_auto_unlock.exit.us.i ], [ false, %entry ]
   ret i1 %retval.0.i
 }
 
@@ -491,7 +491,7 @@ for.body.us:                                      ; preds = %if.end
   tail call void %4(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #17
   %5 = load ptr, ptr %active_timers, align 8
   %tobool6.not.us = icmp eq ptr %5, null
-  br i1 %tobool6.not.us, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %qemu_lockable_auto_unlock.exit.us
+  br i1 %tobool6.not.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %qemu_lockable_auto_unlock.exit.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %for.body.us
   %6 = load i64, ptr %5, align 8
@@ -504,12 +504,12 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %for.body.us
   %.sub = tail call i64 @llvm.smax.i64(i64 %sub, i64 0)
   br label %return
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.body.us
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 132) #17
   br label %return
 
-return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.argprom.exit, %qemu_lockable_auto_unlock.exit.us, %if.end, %entry
-  %retval.0 = phi i64 [ -1, %glib_autoptr_cleanup_QemuLockable.argprom.exit ], [ -1, %entry ], [ -1, %if.end ], [ %.sub, %qemu_lockable_auto_unlock.exit.us ]
+return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %qemu_lockable_auto_unlock.exit.us, %if.end, %entry
+  %retval.0 = phi i64 [ -1, %glib_autoptr_cleanup_QemuLockable.exit ], [ -1, %entry ], [ -1, %if.end ], [ %.sub, %qemu_lockable_auto_unlock.exit.us ]
   ret i64 %retval.0
 }
 
@@ -1341,7 +1341,7 @@ for.body.us.i:                                    ; preds = %if.end.i
   tail call void %6(ptr noundef nonnull %active_timers_lock.i, ptr noundef nonnull @.str.3, i32 noundef 122) #17
   %7 = load ptr, ptr %active_timers.i, align 8
   %tobool6.not.us.i = icmp eq ptr %7, null
-  br i1 %tobool6.not.us.i, label %glib_autoptr_cleanup_QemuLockable.argprom.exit.i, label %qemu_lockable_auto_unlock.exit.us.i
+  br i1 %tobool6.not.us.i, label %glib_autoptr_cleanup_QemuLockable.exit.i, label %qemu_lockable_auto_unlock.exit.us.i
 
 qemu_lockable_auto_unlock.exit.us.i:              ; preds = %for.body.us.i
   %8 = load i64, ptr %7, align 8
@@ -1354,12 +1354,12 @@ qemu_lockable_auto_unlock.exit.us.i:              ; preds = %for.body.us.i
   %.sub.i = tail call i64 @llvm.smax.i64(i64 %sub.i, i64 0)
   br label %timerlist_deadline_ns.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit.i: ; preds = %for.body.us.i
+glib_autoptr_cleanup_QemuLockable.exit.i:         ; preds = %for.body.us.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock.i, ptr noundef nonnull @.str.3, i32 noundef 132) #17
   br label %timerlist_deadline_ns.exit
 
-timerlist_deadline_ns.exit:                       ; preds = %if.then, %if.end.i, %qemu_lockable_auto_unlock.exit.us.i, %glib_autoptr_cleanup_QemuLockable.argprom.exit.i
-  %retval.0.i = phi i64 [ -1, %glib_autoptr_cleanup_QemuLockable.argprom.exit.i ], [ -1, %if.then ], [ -1, %if.end.i ], [ %.sub.i, %qemu_lockable_auto_unlock.exit.us.i ]
+timerlist_deadline_ns.exit:                       ; preds = %if.then, %if.end.i, %qemu_lockable_auto_unlock.exit.us.i, %glib_autoptr_cleanup_QemuLockable.exit.i
+  %retval.0.i = phi i64 [ -1, %glib_autoptr_cleanup_QemuLockable.exit.i ], [ -1, %if.then ], [ -1, %if.end.i ], [ %.sub.i, %qemu_lockable_auto_unlock.exit.us.i ]
   %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %deadline.05, i64 %retval.0.i)
   br label %for.inc
 

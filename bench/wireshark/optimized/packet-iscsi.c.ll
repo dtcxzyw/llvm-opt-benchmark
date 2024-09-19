@@ -4755,7 +4755,7 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
   %87 = load i32, ptr getelementptr inbounds (i8, ptr @null_address, i64 4), align 4
   %88 = icmp eq i32 %69, %87
   %or.cond.i.i = select i1 %86, i1 %88, i1 false
-  br i1 %or.cond.i.i, label %89, label %addresses_equal.argprom.exit.i.i
+  br i1 %or.cond.i.i, label %89, label %addresses_equal.exit.i.i
 
 89:                                               ; preds = %84
   br i1 %68, label %iscsi_dissect_TargetAddress.exit.i, label %90
@@ -4765,9 +4765,9 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
   %92 = zext nneg i32 %69 to i64
   %bcmp.i.i.i = call i32 @bcmp(ptr %67, ptr %91, i64 %92)
   %93 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %93, label %iscsi_dissect_TargetAddress.exit.i, label %addresses_equal.argprom.exit.i.i
+  br i1 %93, label %iscsi_dissect_TargetAddress.exit.i, label %addresses_equal.exit.i.i
 
-addresses_equal.argprom.exit.i.i:                 ; preds = %90, %84
+addresses_equal.exit.i.i:                         ; preds = %90, %84
   %94 = load ptr, ptr %25, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 50
   %96 = load i16, ptr %95, align 2
@@ -4775,7 +4775,7 @@ addresses_equal.argprom.exit.i.i:                 ; preds = %90, %84
   %.not56.i.i = icmp eq i16 %97, 0
   br i1 %.not56.i.i, label %98, label %iscsi_dissect_TargetAddress.exit.i
 
-98:                                               ; preds = %addresses_equal.argprom.exit.i.i
+98:                                               ; preds = %addresses_equal.exit.i.i
   %99 = load i32, ptr %26, align 4
   %100 = load i16, ptr %10, align 2
   %101 = zext i16 %100 to i32
@@ -4784,7 +4784,7 @@ addresses_equal.argprom.exit.i.i:                 ; preds = %90, %84
   call void @conversation_set_dissector(ptr noundef nonnull %102, ptr noundef %103) #9
   br label %iscsi_dissect_TargetAddress.exit.i
 
-iscsi_dissect_TargetAddress.exit.i:               ; preds = %98, %addresses_equal.argprom.exit.i.i, %90, %89, %82, %49, %45, %38
+iscsi_dissect_TargetAddress.exit.i:               ; preds = %98, %addresses_equal.exit.i.i, %90, %89, %82, %49, %45, %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
   br label %104

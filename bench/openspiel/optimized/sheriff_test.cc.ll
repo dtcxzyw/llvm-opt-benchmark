@@ -1375,9 +1375,9 @@ _ZN10open_spiel7sheriff12_GLOBAL__N_116BasicSheriffTestEv.exit: ; preds = %_ZNSt
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %164)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %165)
   store i32 3, ptr %7, align 4
-  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj.argprom"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 3, i32 noundef 1)
+  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 3, i32 noundef 1)
   %.val.i = load ptr, ptr %6, align 8
-  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %5, ptr %.val.i)
+  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %5, ptr %.val.i)
           to label %447 unwind label %488
 
 447:                                              ; preds = %_ZN10open_spiel7sheriff12_GLOBAL__N_116BasicSheriffTestEv.exit
@@ -1576,9 +1576,9 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i8: ; preds = %_ZNSt16_Sp_count
 
 524:                                              ; preds = %516
   store i32 3, ptr %30, align 4
-  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj.argprom"(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 4 dereferenceable(4) %30, i32 noundef 5, i32 noundef 2)
+  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj"(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 4 dereferenceable(4) %30, i32 noundef 5, i32 noundef 2)
   %.val3.i = load ptr, ptr %29, align 8
-  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %28, ptr %.val3.i)
+  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %28, ptr %.val3.i)
           to label %525 unwind label %566
 
 525:                                              ; preds = %524
@@ -1774,9 +1774,9 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit15.i: ; preds = %_ZNSt16_Sp_coun
 
 598:                                              ; preds = %591
   store i32 3, ptr %53, align 4
-  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj.argprom"(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull align 4 dereferenceable(4) %53, i32 noundef 3, i32 noundef 3)
+  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj"(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull align 4 dereferenceable(4) %53, i32 noundef 3, i32 noundef 3)
   %.val4.i = load ptr, ptr %52, align 8
-  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %51, ptr %.val4.i)
+  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %51, ptr %.val4.i)
           to label %599 unwind label %640
 
 599:                                              ; preds = %598
@@ -1972,9 +1972,9 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit22.i: ; preds = %_ZNSt16_Sp_coun
 
 672:                                              ; preds = %665
   store i32 3, ptr %76, align 4
-  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj.argprom"(ptr dead_on_unwind noalias writable align 8 %75, ptr noundef nonnull align 4 dereferenceable(4) %76, i32 noundef 5, i32 noundef 4)
+  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj"(ptr dead_on_unwind noalias writable align 8 %75, ptr noundef nonnull align 4 dereferenceable(4) %76, i32 noundef 5, i32 noundef 4)
   %.val5.i = load ptr, ptr %75, align 8
-  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %74, ptr %.val5.i)
+  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %74, ptr %.val5.i)
           to label %673 unwind label %714
 
 673:                                              ; preds = %672
@@ -2170,9 +2170,9 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit29.i: ; preds = %_ZNSt16_Sp_coun
 
 746:                                              ; preds = %739
   store i32 5, ptr %99, align 4
-  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj.argprom"(ptr dead_on_unwind noalias writable align 8 %98, ptr noundef nonnull align 4 dereferenceable(4) %99, i32 noundef 3, i32 noundef 1)
+  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj"(ptr dead_on_unwind noalias writable align 8 %98, ptr noundef nonnull align 4 dereferenceable(4) %99, i32 noundef 3, i32 noundef 1)
   %.val6.i = load ptr, ptr %98, align 8
-  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %97, ptr %.val6.i)
+  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %97, ptr %.val6.i)
           to label %747 unwind label %788
 
 747:                                              ; preds = %746
@@ -2368,9 +2368,9 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit36.i: ; preds = %_ZNSt16_Sp_coun
 
 820:                                              ; preds = %813
   store i32 5, ptr %122, align 4
-  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj.argprom"(ptr dead_on_unwind noalias writable align 8 %121, ptr noundef nonnull align 4 dereferenceable(4) %122, i32 noundef 3, i32 noundef 2)
+  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj"(ptr dead_on_unwind noalias writable align 8 %121, ptr noundef nonnull align 4 dereferenceable(4) %122, i32 noundef 3, i32 noundef 2)
   %.val7.i = load ptr, ptr %121, align 8
-  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %120, ptr %.val7.i)
+  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %120, ptr %.val7.i)
           to label %821 unwind label %862
 
 821:                                              ; preds = %820
@@ -2566,9 +2566,9 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit43.i: ; preds = %_ZNSt16_Sp_coun
 
 894:                                              ; preds = %887
   store i32 5, ptr %145, align 4
-  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj.argprom"(ptr dead_on_unwind noalias writable align 8 %144, ptr noundef nonnull align 4 dereferenceable(4) %145, i32 noundef 5, i32 noundef 3)
+  call fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj"(ptr dead_on_unwind noalias writable align 8 %144, ptr noundef nonnull align 4 dereferenceable(4) %145, i32 noundef 5, i32 noundef 3)
   %.val8.i = load ptr, ptr %144, align 8
-  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias writable align 4 %143, ptr %.val8.i)
+  invoke fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias writable align 4 %143, ptr %.val8.i)
           to label %895 unwind label %936
 
 895:                                              ; preds = %894
@@ -4360,7 +4360,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable align 4 %0, ptr nonnull %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias nocapture nonnull writable align 4 %0, ptr nonnull %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::map.8", align 8
   %3 = alloca %"class.absl::debian2::flat_hash_set", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4639,7 +4639,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, i32 noundef range(i32 3, 6) %2, i32 noundef range(i32 1, 5) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN10open_spiel7sheriff12_GLOBAL__N_113TestGameSizesEvENK3$_0clERKjjj"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, i32 noundef range(i32 3, 6) %2, i32 noundef range(i32 1, 5) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1

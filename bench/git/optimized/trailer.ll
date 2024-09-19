@@ -917,7 +917,7 @@ token_len_without_separator.exit.i.i.i:           ; preds = %while.body.i.i.i.i,
   %call6.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #15
   %invariant.gep.i8.i.i.i = getelementptr i8, ptr %77, i64 -1
   %cmp.not4.i9.i.i.i = icmp eq i64 %call6.i.i.i, 0
-  br i1 %cmp.not4.i9.i.i.i, label %same_token.argprom.exit.i.i, label %land.rhs.i10.i.i.i
+  br i1 %cmp.not4.i9.i.i.i, label %same_token.exit.i.i, label %land.rhs.i10.i.i.i
 
 land.rhs.i10.i.i.i:                               ; preds = %token_len_without_separator.exit.i.i.i, %while.body.i17.i.i.i
   %len.addr.05.i11.i.i.i = phi i64 [ %dec.i18.i.i.i, %while.body.i17.i.i.i ], [ %call6.i.i.i, %token_len_without_separator.exit.i.i.i ]
@@ -928,21 +928,21 @@ land.rhs.i10.i.i.i:                               ; preds = %token_len_without_s
   %79 = load i8, ptr %arrayidx1.i14.i.i.i, align 1
   %80 = and i8 %79, 6
   %cmp2.not.i15.i.i.i = icmp eq i8 %80, 0
-  br i1 %cmp2.not.i15.i.i.i, label %while.body.i17.i.i.i, label %same_token.argprom.exit.i.i
+  br i1 %cmp2.not.i15.i.i.i, label %while.body.i17.i.i.i, label %same_token.exit.i.i
 
 while.body.i17.i.i.i:                             ; preds = %land.rhs.i10.i.i.i
   %dec.i18.i.i.i = add i64 %len.addr.05.i11.i.i.i, -1
   %cmp.not.i19.i.i.i = icmp eq i64 %dec.i18.i.i.i, 0
-  br i1 %cmp.not.i19.i.i.i, label %same_token.argprom.exit.i.i, label %land.rhs.i10.i.i.i, !llvm.loop !10
+  br i1 %cmp.not.i19.i.i.i, label %same_token.exit.i.i, label %land.rhs.i10.i.i.i, !llvm.loop !10
 
-same_token.argprom.exit.i.i:                      ; preds = %while.body.i17.i.i.i, %land.rhs.i10.i.i.i, %token_len_without_separator.exit.i.i.i
+same_token.exit.i.i:                              ; preds = %while.body.i17.i.i.i, %land.rhs.i10.i.i.i, %token_len_without_separator.exit.i.i.i
   %len.addr.0.lcssa.i16.i.i.i = phi i64 [ 0, %token_len_without_separator.exit.i.i.i ], [ 0, %while.body.i17.i.i.i ], [ %len.addr.05.i11.i.i.i, %land.rhs.i10.i.i.i ]
   %cond.i.i.i = call i64 @llvm.umin.i64(i64 %len.addr.0.lcssa.i.i.i.i, i64 %len.addr.0.lcssa.i16.i.i.i)
   %call10.i.i.i = call i32 @strncasecmp(ptr noundef nonnull readonly %pos.0.val.i.i, ptr noundef %77, i64 noundef %cond.i.i.i) #15
   %tobool11.not.i.not.i.i = icmp eq i32 %call10.i.i.i, 0
   br i1 %tobool11.not.i.not.i.i, label %if.end17.i.i, label %for.inc.i.i82
 
-if.end17.i.i:                                     ; preds = %same_token.argprom.exit.i.i
+if.end17.i.i:                                     ; preds = %same_token.exit.i.i
   %cond22.i.i = select i1 %69, ptr %pos.025.i.i, ptr %cond.i.i
   %if_exists.i.i.i = getelementptr inbounds i8, ptr %pos.023.i, i64 68
   %81 = load i32, ptr %if_exists.i.i.i, align 4
@@ -1064,7 +1064,7 @@ sw.default.i.i.i:                                 ; preds = %if.end17.i.i
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.18, i32 noundef 310, ptr noundef nonnull @.str.34, i32 noundef %81) #17
   unreachable
 
-for.inc.i.i82:                                    ; preds = %same_token.argprom.exit.i.i, %for.body.i.i80
+for.inc.i.i82:                                    ; preds = %same_token.exit.i.i, %for.body.i.i80
   %cond29.in.i.i = getelementptr inbounds i8, ptr %pos.025.i.i, i64 %cond.in.idx.i.i
   %pos.0.i.i = load ptr, ptr %cond29.in.i.i, align 8
   %cmp12.not.i.i = icmp eq ptr %pos.0.i.i, %head
@@ -3641,7 +3641,7 @@ token_len_without_separator.exit.i.i:             ; preds = %while.body.i.i.i, %
   %call6.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #15
   %invariant.gep.i8.i.i = getelementptr i8, ptr %8, i64 -1
   %cmp.not4.i9.i.i = icmp eq i64 %call6.i.i, 0
-  br i1 %cmp.not4.i9.i.i, label %same_token.argprom.exit.i, label %land.rhs.i10.i.i
+  br i1 %cmp.not4.i9.i.i, label %same_token.exit.i, label %land.rhs.i10.i.i
 
 land.rhs.i10.i.i:                                 ; preds = %token_len_without_separator.exit.i.i, %while.body.i17.i.i
   %len.addr.05.i11.i.i = phi i64 [ %dec.i18.i.i, %while.body.i17.i.i ], [ %call6.i.i, %token_len_without_separator.exit.i.i ]
@@ -3652,21 +3652,21 @@ land.rhs.i10.i.i:                                 ; preds = %token_len_without_s
   %10 = load i8, ptr %arrayidx1.i14.i.i, align 1
   %11 = and i8 %10, 6
   %cmp2.not.i15.i.i = icmp eq i8 %11, 0
-  br i1 %cmp2.not.i15.i.i, label %while.body.i17.i.i, label %same_token.argprom.exit.i
+  br i1 %cmp2.not.i15.i.i, label %while.body.i17.i.i, label %same_token.exit.i
 
 while.body.i17.i.i:                               ; preds = %land.rhs.i10.i.i
   %dec.i18.i.i = add i64 %len.addr.05.i11.i.i, -1
   %cmp.not.i19.i.i = icmp eq i64 %dec.i18.i.i, 0
-  br i1 %cmp.not.i19.i.i, label %same_token.argprom.exit.i, label %land.rhs.i10.i.i, !llvm.loop !10
+  br i1 %cmp.not.i19.i.i, label %same_token.exit.i, label %land.rhs.i10.i.i, !llvm.loop !10
 
-same_token.argprom.exit.i:                        ; preds = %while.body.i17.i.i, %land.rhs.i10.i.i, %token_len_without_separator.exit.i.i
+same_token.exit.i:                                ; preds = %while.body.i17.i.i, %land.rhs.i10.i.i, %token_len_without_separator.exit.i.i
   %len.addr.0.lcssa.i16.i.i = phi i64 [ 0, %token_len_without_separator.exit.i.i ], [ %len.addr.05.i11.i.i, %land.rhs.i10.i.i ], [ 0, %while.body.i17.i.i ]
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %len.addr.0.lcssa.i.i.i, i64 %len.addr.0.lcssa.i16.i.i)
   %call10.i.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %a.val.i, ptr noundef %8, i64 noundef %cond.i.i) #15
   %tobool11.not.i.not.i = icmp eq i32 %call10.i.i, 0
   br i1 %tobool11.not.i.not.i, label %same_trailer.exit, label %if.end
 
-same_trailer.exit:                                ; preds = %same_token.argprom.exit.i
+same_trailer.exit:                                ; preds = %same_token.exit.i
   %12 = getelementptr i8, ptr %in_tok.addr.0, i64 24
   %a.val3.i = load ptr, ptr %12, align 8
   %b.val.i = load ptr, ptr %1, align 8
@@ -3674,7 +3674,7 @@ same_trailer.exit:                                ; preds = %same_token.argprom.
   %tobool.not.i5.i.not = icmp eq i32 %call.i4.i, 0
   br i1 %tobool.not.i5.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %do.body, %same_token.argprom.exit.i, %same_trailer.exit
+if.end:                                           ; preds = %do.body, %same_token.exit.i, %same_trailer.exit
   %cond.in = getelementptr inbounds i8, ptr %in_tok.addr.0, i64 %cond.in.idx
   %cond = load ptr, ptr %cond.in, align 8
   %cmp = icmp eq ptr %cond, %head

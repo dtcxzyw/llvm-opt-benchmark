@@ -398,7 +398,7 @@ define noundef i32 @_ZN5ZXing23BarcodeFormatFromStringESt17basic_string_viewIcSt
   %.val = load ptr, ptr %3, align 8, !tbaa !24
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %.val2 = load i64, ptr %4, align 8, !tbaa !15
-  %5 = invoke fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %.val, i64 %.val2) #15
+  %5 = invoke fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.val, i64 %.val2) #15
           to label %6 unwind label %15
 
 6:                                                ; preds = %2
@@ -445,7 +445,7 @@ define noundef i32 @_ZN5ZXing23BarcodeFormatFromStringESt17basic_string_viewIcSt
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %2 = alloca %class.anon.2, align 8
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
@@ -551,7 +551,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val = load i64, ptr %55, align 8, !tbaa !18
   %56 = getelementptr i8, ptr %54, i64 16
   %.val13 = load ptr, ptr %56, align 8, !tbaa !19
-  %57 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val, ptr %.val13) #15
+  %57 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val, ptr %.val13) #15
           to label %58 unwind label %115
 
 58:                                               ; preds = %.preheader
@@ -562,7 +562,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val14 = load i64, ptr %60, align 8, !tbaa !18
   %61 = getelementptr i8, ptr %54, i64 40
   %.val15 = load ptr, ptr %61, align 8, !tbaa !19
-  %62 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val14, ptr %.val15) #15
+  %62 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val14, ptr %.val15) #15
           to label %63 unwind label %115
 
 63:                                               ; preds = %59
@@ -573,7 +573,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val16 = load i64, ptr %65, align 8, !tbaa !18
   %66 = getelementptr i8, ptr %54, i64 64
   %.val17 = load ptr, ptr %66, align 8, !tbaa !19
-  %67 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val16, ptr %.val17) #15
+  %67 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val16, ptr %.val17) #15
           to label %68 unwind label %115
 
 68:                                               ; preds = %64
@@ -584,7 +584,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val18 = load i64, ptr %70, align 8, !tbaa !18
   %71 = getelementptr i8, ptr %54, i64 88
   %.val19 = load ptr, ptr %71, align 8, !tbaa !19
-  %72 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val18, ptr %.val19) #15
+  %72 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val18, ptr %.val19) #15
           to label %73 unwind label %115
 
 73:                                               ; preds = %69
@@ -611,7 +611,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val20 = load i64, ptr %83, align 8, !tbaa !18
   %84 = getelementptr i8, ptr %54, i64 112
   %.val21 = load ptr, ptr %84, align 8, !tbaa !19
-  %85 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val20, ptr %.val21) #15
+  %85 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val20, ptr %.val21) #15
           to label %86 unwind label %117
 
 86:                                               ; preds = %82
@@ -627,7 +627,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val22 = load i64, ptr %91, align 8, !tbaa !18
   %92 = getelementptr i8, ptr %90, i64 16
   %.val23 = load ptr, ptr %92, align 8, !tbaa !19
-  %93 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val22, ptr %.val23) #15
+  %93 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val22, ptr %.val23) #15
           to label %94 unwind label %117
 
 94:                                               ; preds = %89
@@ -643,7 +643,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val24 = load i64, ptr %99, align 8, !tbaa !18
   %100 = getelementptr i8, ptr %98, i64 16
   %.val25 = load ptr, ptr %100, align 8, !tbaa !19
-  %101 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val24, ptr %.val25) #15
+  %101 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val24, ptr %.val25) #15
           to label %102 unwind label %117
 
 102:                                              ; preds = %97
@@ -1177,7 +1177,7 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
 
 56:                                               ; preds = %53
   %.val = load ptr, ptr %5, align 8, !tbaa !24
-  %57 = invoke fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr %.val, i64 %54) #15
+  %57 = invoke fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.val, i64 %54) #15
           to label %58 unwind label %65
 
 58:                                               ; preds = %56
@@ -1354,7 +1354,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %.8.val, ptr %.16.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %.8.val, ptr %.16.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
   call fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, i64 %.8.val, ptr %.16.val) #15

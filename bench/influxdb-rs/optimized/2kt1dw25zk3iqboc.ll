@@ -230,7 +230,7 @@ define internal void @"_ZN4core3ptr54drop_in_place$LT$$RF$parquet..format..Milli
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h519d0f4aebb00559E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h519d0f4aebb00559E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -700,7 +700,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parq
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h7ed20b7f347e883bE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h7ed20b7f347e883bE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -878,7 +878,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parq
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h5d3f5c4d87b53b6fE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h5d3f5c4d87b53b6fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -1056,7 +1056,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h9b5ebf84a9e3ac37E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h9b5ebf84a9e3ac37E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -1234,7 +1234,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0e7cdd2da876aef7E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0e7cdd2da876aef7E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -1412,7 +1412,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hbc536fbd89e6998cE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hbc536fbd89e6998cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -2376,7 +2376,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hb3a87c144fbcf070E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hb3a87c144fbcf070E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -2554,7 +2554,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hced5f5bd2c6b4a61E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hced5f5bd2c6b4a61E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -6867,7 +6867,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h994b321df12c4961E.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h994b321df12c4961E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -7193,7 +7193,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$par
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit118": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i115", %99
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h496583acbf8c2d27E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %15, i8 %.1.val, ptr noalias noundef align 8 dereferenceable(72) %1)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h496583acbf8c2d27E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %15, i8 %.1.val, ptr noalias noundef align 8 dereferenceable(72) %1)
           to label %121 unwind label %35
 
 121:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit118"
@@ -7301,7 +7301,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h496583acbf8c2d27E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h496583acbf8c2d27E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -8439,7 +8439,7 @@ default.unreachable:                              ; preds = %69
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h1f6a691095d6d178E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h1f6a691095d6d178E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -10963,7 +10963,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h6c56ed34dcc59be4E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h6c56ed34dcc59be4E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -12006,7 +12006,7 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h28552bcf23bfd5b5E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h28552bcf23bfd5b5E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -12511,7 +12511,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h00f83b7e9cf49a4dE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 %.0.val, i32 %.4.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h00f83b7e9cf49a4dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 %.0.val, i32 %.4.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -12944,7 +12944,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd1149af7442d9405E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd1149af7442d9405E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -13465,7 +13465,7 @@ default.unreachable697:                           ; preds = %96
 128:                                              ; preds = %126
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %78)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %77)
-  invoke fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h6c56ed34dcc59be4E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %77, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h6c56ed34dcc59be4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %77, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %129 unwind label %94
 
 129:                                              ; preds = %128
@@ -13581,7 +13581,7 @@ default.unreachable697:                           ; preds = %96
 161:                                              ; preds = %159
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %74)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %73)
-  invoke fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h7ed20b7f347e883bE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %73, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h7ed20b7f347e883bE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %73, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %162 unwind label %94
 
 162:                                              ; preds = %161
@@ -13667,7 +13667,7 @@ default.unreachable697:                           ; preds = %96
 184:                                              ; preds = %182
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %69)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hb3a87c144fbcf070E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %69, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hb3a87c144fbcf070E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %69, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %185 unwind label %94
 
 185:                                              ; preds = %184
@@ -13753,7 +13753,7 @@ default.unreachable697:                           ; preds = %96
 207:                                              ; preds = %205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %65)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0e7cdd2da876aef7E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %65, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0e7cdd2da876aef7E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %65, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %208 unwind label %94
 
 208:                                              ; preds = %207
@@ -13843,7 +13843,7 @@ default.unreachable697:                           ; preds = %96
   %.val = load i32, ptr %231, align 4
   %232 = getelementptr inbounds i8, ptr %1, i64 8
   %.val571 = load i32, ptr %232, align 4
-  invoke fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h00f83b7e9cf49a4dE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %61, i32 %.val, i32 %.val571, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h00f83b7e9cf49a4dE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %61, i32 %.val, i32 %.val571, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %233 unwind label %94
 
 233:                                              ; preds = %230
@@ -13929,7 +13929,7 @@ default.unreachable697:                           ; preds = %96
 255:                                              ; preds = %253
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %57)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h9b5ebf84a9e3ac37E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %57, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h9b5ebf84a9e3ac37E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %57, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %256 unwind label %94
 
 256:                                              ; preds = %255
@@ -14019,7 +14019,7 @@ default.unreachable697:                           ; preds = %96
   %.val572 = load i8, ptr %279, align 1
   %280 = getelementptr inbounds i8, ptr %1, i64 2
   %.val573 = load i8, ptr %280, align 2
-  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h994b321df12c4961E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %53, i8 %.val572, i8 %.val573, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h994b321df12c4961E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %53, i8 %.val572, i8 %.val573, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %281 unwind label %94
 
 281:                                              ; preds = %278
@@ -14109,7 +14109,7 @@ default.unreachable697:                           ; preds = %96
   %.val574 = load i8, ptr %304, align 1
   %305 = getelementptr inbounds i8, ptr %1, i64 2
   %.val575 = load i8, ptr %305, align 2
-  invoke fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf7b15928bb1a48afE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %49, i8 %.val574, i8 %.val575, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf7b15928bb1a48afE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %49, i8 %.val574, i8 %.val575, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %306 unwind label %94
 
 306:                                              ; preds = %303
@@ -14199,7 +14199,7 @@ default.unreachable697:                           ; preds = %96
   %.val576 = load i8, ptr %329, align 1
   %330 = getelementptr inbounds i8, ptr %1, i64 2
   %.val577 = load i8, ptr %330, align 2
-  invoke fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h519d0f4aebb00559E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %45, i8 %.val576, i8 %.val577, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h519d0f4aebb00559E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %45, i8 %.val576, i8 %.val577, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %331 unwind label %94
 
 331:                                              ; preds = %328
@@ -14285,7 +14285,7 @@ default.unreachable697:                           ; preds = %96
 353:                                              ; preds = %351
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hced5f5bd2c6b4a61E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %41, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hced5f5bd2c6b4a61E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %41, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %354 unwind label %94
 
 354:                                              ; preds = %353
@@ -14371,7 +14371,7 @@ default.unreachable697:                           ; preds = %96
 376:                                              ; preds = %374
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hbc536fbd89e6998cE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %37, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hbc536fbd89e6998cE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %37, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %377 unwind label %94
 
 377:                                              ; preds = %376
@@ -14457,7 +14457,7 @@ default.unreachable697:                           ; preds = %96
 399:                                              ; preds = %397
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h5d3f5c4d87b53b6fE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %33, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h5d3f5c4d87b53b6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %33, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %400 unwind label %94
 
 400:                                              ; preds = %399
@@ -14543,7 +14543,7 @@ default.unreachable697:                           ; preds = %96
 422:                                              ; preds = %420
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h1f6a691095d6d178E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %29, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h1f6a691095d6d178E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %29, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %423 unwind label %94
 
 423:                                              ; preds = %422
@@ -14629,7 +14629,7 @@ default.unreachable697:                           ; preds = %96
 445:                                              ; preds = %443
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25)
-  invoke fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd1149af7442d9405E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %25, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd1149af7442d9405E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %25, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %446 unwind label %94
 
 446:                                              ; preds = %445
@@ -18017,7 +18017,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   %.sroa.5583.0.in690 = phi i64 [ %772, %781 ], [ %765, %770 ]
   %772 = add i64 %.sroa.5583.0.in690, -1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %96)
-  invoke fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h28552bcf23bfd5b5E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %96, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h28552bcf23bfd5b5E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %96, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %778 unwind label %.loopexit
 
 ._crit_edge693:                                   ; preds = %781, %770
@@ -18893,7 +18893,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf7b15928bb1a48afE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hf7b15928bb1a48afE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 %.0.val, i8 %.1.val, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -19219,7 +19219,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u2
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit118": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E.exit.i.i115", %99
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
-  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h496583acbf8c2d27E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %15, i8 %.1.val, ptr noalias noundef align 8 dereferenceable(72) %1)
+  invoke fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h496583acbf8c2d27E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %15, i8 %.1.val, ptr noalias noundef align 8 dereferenceable(72) %1)
           to label %121 unwind label %35
 
 121:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit118"
@@ -21301,7 +21301,7 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h4aa6332b683adfcdE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h4aa6332b683adfcdE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -22710,7 +22710,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
 311:                                              ; preds = %309
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %44)
-  invoke fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h4aa6332b683adfcdE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %44, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h4aa6332b683adfcdE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %44, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %312 unwind label %66
 
 312:                                              ; preds = %311
@@ -22797,7 +22797,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
 333:                                              ; preds = %331
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %40)
-  invoke fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hdcb3e3020524bf04E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %40, ptr noalias noundef align 8 dereferenceable(72) %2)
+  invoke fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hdcb3e3020524bf04E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %40, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %334 unwind label %66
 
 334:                                              ; preds = %333
@@ -26849,7 +26849,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hdcb3e3020524bf04E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hdcb3e3020524bf04E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -28984,10 +28984,10 @@ attributes #11 = { cold noreturn nounwind }
 !1492 = distinct !{!1492, !1493, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E: argument 0"}
 !1493 = distinct !{!1493, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E"}
 !1494 = !{!1495}
-!1495 = distinct !{!1495, !1496, !"_ZN80_$LT$parquet..format..MilliSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h9387c080e35eb63dE.argprom: argument 1"}
-!1496 = distinct !{!1496, !"_ZN80_$LT$parquet..format..MilliSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h9387c080e35eb63dE.argprom"}
+!1495 = distinct !{!1495, !1496, !"_ZN80_$LT$parquet..format..MilliSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h9387c080e35eb63dE: argument 1"}
+!1496 = distinct !{!1496, !"_ZN80_$LT$parquet..format..MilliSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h9387c080e35eb63dE"}
 !1497 = !{!1498, !1495}
-!1498 = distinct !{!1498, !1496, !"_ZN80_$LT$parquet..format..MilliSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h9387c080e35eb63dE.argprom: argument 0"}
+!1498 = distinct !{!1498, !1496, !"_ZN80_$LT$parquet..format..MilliSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h9387c080e35eb63dE: argument 0"}
 !1499 = !{!1500, !1495}
 !1500 = distinct !{!1500, !1501, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17hedd6906d977cdb49E: argument 1"}
 !1501 = distinct !{!1501, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17hedd6906d977cdb49E"}
@@ -29096,10 +29096,10 @@ attributes #11 = { cold noreturn nounwind }
 !1604 = distinct !{!1604, !1605, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E: argument 0"}
 !1605 = distinct !{!1605, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E"}
 !1606 = !{!1607}
-!1607 = distinct !{!1607, !1608, !"_ZN80_$LT$parquet..format..MicroSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17he962d4961a3dc063E.argprom: argument 1"}
-!1608 = distinct !{!1608, !"_ZN80_$LT$parquet..format..MicroSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17he962d4961a3dc063E.argprom"}
+!1607 = distinct !{!1607, !1608, !"_ZN80_$LT$parquet..format..MicroSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17he962d4961a3dc063E: argument 1"}
+!1608 = distinct !{!1608, !"_ZN80_$LT$parquet..format..MicroSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17he962d4961a3dc063E"}
 !1609 = !{!1610, !1607}
-!1610 = distinct !{!1610, !1608, !"_ZN80_$LT$parquet..format..MicroSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17he962d4961a3dc063E.argprom: argument 0"}
+!1610 = distinct !{!1610, !1608, !"_ZN80_$LT$parquet..format..MicroSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17he962d4961a3dc063E: argument 0"}
 !1611 = !{!1612, !1607}
 !1612 = distinct !{!1612, !1613, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17hedd6906d977cdb49E: argument 1"}
 !1613 = distinct !{!1613, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17hedd6906d977cdb49E"}
@@ -29197,10 +29197,10 @@ attributes #11 = { cold noreturn nounwind }
 !1705 = distinct !{!1705, !1706, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E: argument 0"}
 !1706 = distinct !{!1706, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E"}
 !1707 = !{!1708}
-!1708 = distinct !{!1708, !1709, !"_ZN79_$LT$parquet..format..NanoSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hccc5e7aac1119b1fE.argprom: argument 1"}
-!1709 = distinct !{!1709, !"_ZN79_$LT$parquet..format..NanoSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hccc5e7aac1119b1fE.argprom"}
+!1708 = distinct !{!1708, !1709, !"_ZN79_$LT$parquet..format..NanoSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hccc5e7aac1119b1fE: argument 1"}
+!1709 = distinct !{!1709, !"_ZN79_$LT$parquet..format..NanoSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hccc5e7aac1119b1fE"}
 !1710 = !{!1711, !1708}
-!1711 = distinct !{!1711, !1709, !"_ZN79_$LT$parquet..format..NanoSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hccc5e7aac1119b1fE.argprom: argument 0"}
+!1711 = distinct !{!1711, !1709, !"_ZN79_$LT$parquet..format..NanoSeconds$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hccc5e7aac1119b1fE: argument 0"}
 !1712 = !{!1713, !1708}
 !1713 = distinct !{!1713, !1714, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17hedd6906d977cdb49E: argument 1"}
 !1714 = distinct !{!1714, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17hedd6906d977cdb49E"}
@@ -29927,10 +29927,10 @@ attributes #11 = { cold noreturn nounwind }
 !2435 = distinct !{!2435, !2436, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E: argument 0"}
 !2436 = distinct !{!2436, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E"}
 !2437 = !{!2438}
-!2438 = distinct !{!2438, !2439, !"_ZN84_$LT$parquet..format..TypeDefinedOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3f1377303edc6c69E.argprom: argument 1"}
-!2439 = distinct !{!2439, !"_ZN84_$LT$parquet..format..TypeDefinedOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3f1377303edc6c69E.argprom"}
+!2438 = distinct !{!2438, !2439, !"_ZN84_$LT$parquet..format..TypeDefinedOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3f1377303edc6c69E: argument 1"}
+!2439 = distinct !{!2439, !"_ZN84_$LT$parquet..format..TypeDefinedOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3f1377303edc6c69E"}
 !2440 = !{!2441, !2438}
-!2441 = distinct !{!2441, !2439, !"_ZN84_$LT$parquet..format..TypeDefinedOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3f1377303edc6c69E.argprom: argument 0"}
+!2441 = distinct !{!2441, !2439, !"_ZN84_$LT$parquet..format..TypeDefinedOrder$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h3f1377303edc6c69E: argument 0"}
 !2442 = !{!2443, !2438}
 !2443 = distinct !{!2443, !2444, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17hedd6906d977cdb49E: argument 1"}
 !2444 = distinct !{!2444, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17hedd6906d977cdb49E"}
@@ -31457,10 +31457,10 @@ attributes #11 = { cold noreturn nounwind }
 !3965 = distinct !{!3965, !3966, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E: argument 0"}
 !3966 = distinct !{!3966, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E"}
 !3967 = !{!3968}
-!3968 = distinct !{!3968, !3969, !"_ZN74_$LT$parquet..format..XxHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd57fe35ca758b00eE.argprom: argument 1"}
-!3969 = distinct !{!3969, !"_ZN74_$LT$parquet..format..XxHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd57fe35ca758b00eE.argprom"}
+!3968 = distinct !{!3968, !3969, !"_ZN74_$LT$parquet..format..XxHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd57fe35ca758b00eE: argument 1"}
+!3969 = distinct !{!3969, !"_ZN74_$LT$parquet..format..XxHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd57fe35ca758b00eE"}
 !3970 = !{!3971, !3968}
-!3971 = distinct !{!3971, !3969, !"_ZN74_$LT$parquet..format..XxHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd57fe35ca758b00eE.argprom: argument 0"}
+!3971 = distinct !{!3971, !3969, !"_ZN74_$LT$parquet..format..XxHash$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd57fe35ca758b00eE: argument 0"}
 !3972 = !{!3973, !3968}
 !3973 = distinct !{!3973, !3974, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17h27d548a25dcae1ceE: argument 1"}
 !3974 = distinct !{!3974, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17h27d548a25dcae1ceE"}
@@ -31666,10 +31666,10 @@ attributes #11 = { cold noreturn nounwind }
 !4174 = distinct !{!4174, !4175, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E: argument 0"}
 !4175 = distinct !{!4175, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E"}
 !4176 = !{!4177}
-!4177 = distinct !{!4177, !4178, !"_ZN88_$LT$parquet..format..BloomFilterAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hbb047a760d8a7fe5E.argprom: argument 1"}
-!4178 = distinct !{!4178, !"_ZN88_$LT$parquet..format..BloomFilterAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hbb047a760d8a7fe5E.argprom"}
+!4177 = distinct !{!4177, !4178, !"_ZN88_$LT$parquet..format..BloomFilterAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hbb047a760d8a7fe5E: argument 1"}
+!4178 = distinct !{!4178, !"_ZN88_$LT$parquet..format..BloomFilterAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hbb047a760d8a7fe5E"}
 !4179 = !{!4180, !4177}
-!4180 = distinct !{!4180, !4178, !"_ZN88_$LT$parquet..format..BloomFilterAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hbb047a760d8a7fe5E.argprom: argument 0"}
+!4180 = distinct !{!4180, !4178, !"_ZN88_$LT$parquet..format..BloomFilterAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hbb047a760d8a7fe5E: argument 0"}
 !4181 = !{!4182, !4177}
 !4182 = distinct !{!4182, !4183, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17h27d548a25dcae1ceE: argument 1"}
 !4183 = distinct !{!4183, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17h27d548a25dcae1ceE"}
@@ -31718,10 +31718,10 @@ attributes #11 = { cold noreturn nounwind }
 !4226 = distinct !{!4226, !4227, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E: argument 0"}
 !4227 = distinct !{!4227, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E"}
 !4228 = !{!4229}
-!4229 = distinct !{!4229, !4230, !"_ZN87_$LT$parquet..format..SplitBlockAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17ha9d52a55c35276a2E.argprom: argument 1"}
-!4230 = distinct !{!4230, !"_ZN87_$LT$parquet..format..SplitBlockAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17ha9d52a55c35276a2E.argprom"}
+!4229 = distinct !{!4229, !4230, !"_ZN87_$LT$parquet..format..SplitBlockAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17ha9d52a55c35276a2E: argument 1"}
+!4230 = distinct !{!4230, !"_ZN87_$LT$parquet..format..SplitBlockAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17ha9d52a55c35276a2E"}
 !4231 = !{!4232, !4229, !4180, !4177}
-!4232 = distinct !{!4232, !4230, !"_ZN87_$LT$parquet..format..SplitBlockAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17ha9d52a55c35276a2E.argprom: argument 0"}
+!4232 = distinct !{!4232, !4230, !"_ZN87_$LT$parquet..format..SplitBlockAlgorithm$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17ha9d52a55c35276a2E: argument 0"}
 !4233 = !{!4234, !4229, !4177}
 !4234 = distinct !{!4234, !4235, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17h27d548a25dcae1ceE: argument 1"}
 !4235 = distinct !{!4235, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17h27d548a25dcae1ceE"}
@@ -32670,10 +32670,10 @@ attributes #11 = { cold noreturn nounwind }
 !5178 = distinct !{!5178, !5179, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E: argument 0"}
 !5179 = distinct !{!5179, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E"}
 !5180 = !{!5181}
-!5181 = distinct !{!5181, !5182, !"_ZN91_$LT$parquet..format..EncryptionWithFooterKey$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0b17f1b373bb3415E.argprom: argument 1"}
-!5182 = distinct !{!5182, !"_ZN91_$LT$parquet..format..EncryptionWithFooterKey$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0b17f1b373bb3415E.argprom"}
+!5181 = distinct !{!5181, !5182, !"_ZN91_$LT$parquet..format..EncryptionWithFooterKey$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0b17f1b373bb3415E: argument 1"}
+!5182 = distinct !{!5182, !"_ZN91_$LT$parquet..format..EncryptionWithFooterKey$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0b17f1b373bb3415E"}
 !5183 = !{!5184, !5181}
-!5184 = distinct !{!5184, !5182, !"_ZN91_$LT$parquet..format..EncryptionWithFooterKey$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0b17f1b373bb3415E.argprom: argument 0"}
+!5184 = distinct !{!5184, !5182, !"_ZN91_$LT$parquet..format..EncryptionWithFooterKey$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h0b17f1b373bb3415E: argument 0"}
 !5185 = !{!5186, !5181}
 !5186 = distinct !{!5186, !5187, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17hedd6906d977cdb49E: argument 1"}
 !5187 = distinct !{!5187, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17hedd6906d977cdb49E"}
@@ -32957,10 +32957,10 @@ attributes #11 = { cold noreturn nounwind }
 !5465 = distinct !{!5465, !5466, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E: argument 0"}
 !5466 = distinct !{!5466, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3c97cbc0a7d5bfd7E"}
 !5467 = !{!5468}
-!5468 = distinct !{!5468, !5469, !"_ZN80_$LT$parquet..format..Uncompressed$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd549685374d2bf4aE.argprom: argument 1"}
-!5469 = distinct !{!5469, !"_ZN80_$LT$parquet..format..Uncompressed$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd549685374d2bf4aE.argprom"}
+!5468 = distinct !{!5468, !5469, !"_ZN80_$LT$parquet..format..Uncompressed$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd549685374d2bf4aE: argument 1"}
+!5469 = distinct !{!5469, !"_ZN80_$LT$parquet..format..Uncompressed$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd549685374d2bf4aE"}
 !5470 = !{!5471, !5468}
-!5471 = distinct !{!5471, !5469, !"_ZN80_$LT$parquet..format..Uncompressed$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd549685374d2bf4aE.argprom: argument 0"}
+!5471 = distinct !{!5471, !5469, !"_ZN80_$LT$parquet..format..Uncompressed$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17hd549685374d2bf4aE: argument 0"}
 !5472 = !{!5473, !5468}
 !5473 = distinct !{!5473, !5474, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17h27d548a25dcae1ceE: argument 1"}
 !5474 = distinct !{!5474, !"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$18write_struct_begin17h27d548a25dcae1ceE"}

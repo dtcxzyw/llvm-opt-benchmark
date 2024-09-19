@@ -689,7 +689,7 @@ define range(i32 0, 2) i32 @Ssw_ManUniqueAddConstraint(ptr nocapture noundef %0,
   %47 = getelementptr inbounds i8, ptr %.val36, i64 4
   %48 = load i32, ptr %47, align 4
   %.not.i.not.i.i = icmp slt i32 %.val37, %48
-  br i1 %.not.i.not.i.i, label %Ssw_ObjSatNum.argprom.exit, label %49
+  br i1 %.not.i.not.i.i, label %Ssw_ObjSatNum.exit, label %49
 
 49:                                               ; preds = %40
   %50 = load i32, ptr %.val36, align 8
@@ -774,9 +774,9 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i:                                ; preds = %79, %Vec_IntGrow.exit.i.i.i
   store i32 %46, ptr %47, align 4
-  br label %Ssw_ObjSatNum.argprom.exit
+  br label %Ssw_ObjSatNum.exit
 
-Ssw_ObjSatNum.argprom.exit:                       ; preds = %40, %._crit_edge.i.i.i
+Ssw_ObjSatNum.exit:                               ; preds = %40, %._crit_edge.i.i.i
   %82 = getelementptr i8, ptr %.val36, i64 8
   %.val.i.i = load ptr, ptr %82, align 8
   %83 = sext i32 %.val37 to i64
@@ -790,8 +790,8 @@ Ssw_ObjSatNum.argprom.exit:                       ; preds = %40, %._crit_edge.i.
   store i32 %89, ptr %90, align 8
   br label %91
 
-91:                                               ; preds = %.critedge, %Ssw_ObjSatNum.argprom.exit
-  %.0 = phi i32 [ 1, %Ssw_ObjSatNum.argprom.exit ], [ 0, %.critedge ]
+91:                                               ; preds = %.critedge, %Ssw_ObjSatNum.exit
+  %.0 = phi i32 [ 1, %Ssw_ObjSatNum.exit ], [ 0, %.critedge ]
   ret i32 %.0
 }
 

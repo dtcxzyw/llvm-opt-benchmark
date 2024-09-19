@@ -250,7 +250,7 @@ if.end112:                                        ; preds = %land.lhs.true108, %
   br i1 %cmp116, label %exit, label %if.end119
 
 if.end119:                                        ; preds = %if.end112
-  %call120 = tail call fastcc ptr @subprocess_fork_exec_impl.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %call4, ptr noundef nonnull %3, ptr noundef %7, ptr noundef %8, i32 noundef %call19, i32 noundef %call27, i32 noundef %call35, i32 noundef %call43, i32 noundef %call51, i32 noundef %call59, i32 noundef %call67, i32 noundef %call75, i32 noundef %call83, i32 noundef %call88, i32 noundef %conv, ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef %call105, ptr noundef %24, i32 noundef %call115)
+  %call120 = tail call fastcc ptr @subprocess_fork_exec_impl(ptr noundef %0, ptr noundef %1, i32 noundef %call4, ptr noundef nonnull %3, ptr noundef %7, ptr noundef %8, i32 noundef %call19, i32 noundef %call27, i32 noundef %call35, i32 noundef %call43, i32 noundef %call51, i32 noundef %call59, i32 noundef %call67, i32 noundef %call75, i32 noundef %call83, i32 noundef %call88, i32 noundef %conv, ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef %call105, ptr noundef %24, i32 noundef %call115)
   br label %exit
 
 exit:                                             ; preds = %if.end112, %land.lhs.true108, %land.lhs.true96, %if.end86, %if.end81, %land.lhs.true77, %land.lhs.true69, %land.lhs.true61, %land.lhs.true53, %land.lhs.true45, %land.lhs.true37, %land.lhs.true29, %land.lhs.true21, %if.end, %lor.lhs.false, %if.end119, %if.then12
@@ -271,7 +271,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @subprocess_fork_exec_impl.argprom(ptr noundef %process_args, ptr noundef %executable_list, i32 noundef range(i32 0, -2147483648) %close_fds, ptr nocapture noundef readonly %py_fds_to_keep, ptr noundef %cwd_obj, ptr noundef %env_list, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef range(i32 0, -2147483648) %restore_signals, i32 noundef range(i32 0, -2147483648) %call_setsid, i32 noundef %pgid_to_set, ptr noundef %gid_object, ptr noundef %extra_groups_packed, ptr noundef %uid_object, i32 noundef %child_umask, ptr noundef %preexec_fn, i32 noundef range(i32 0, -2147483648) %allow_vfork) unnamed_addr #0 {
+define internal fastcc ptr @subprocess_fork_exec_impl(ptr noundef %process_args, ptr noundef %executable_list, i32 noundef range(i32 0, -2147483648) %close_fds, ptr nocapture noundef readonly %py_fds_to_keep, ptr noundef %cwd_obj, ptr noundef %env_list, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef range(i32 0, -2147483648) %restore_signals, i32 noundef range(i32 0, -2147483648) %call_setsid, i32 noundef %pgid_to_set, ptr noundef %gid_object, ptr noundef %extra_groups_packed, ptr noundef %uid_object, i32 noundef %child_umask, ptr noundef %preexec_fn, i32 noundef range(i32 0, -2147483648) %allow_vfork) unnamed_addr #0 {
 entry:
   %cwd_obj2 = alloca ptr, align 8
   %converted_arg = alloca ptr, align 8
@@ -1477,7 +1477,7 @@ if.end183:                                        ; preds = %if.then177, %if.end
   br i1 %tobool184.not, label %if.end186, label %if.then185
 
 if.then185:                                       ; preds = %if.end183
-  tail call fastcc void @_close_open_fds.argelim(ptr noundef %fds_to_keep, i64 noundef %fds_to_keep_len)
+  tail call fastcc void @_close_open_fds(ptr noundef %fds_to_keep, i64 noundef %fds_to_keep_len)
   br label %if.end186
 
 if.end186:                                        ; preds = %if.then185, %if.end183
@@ -1673,7 +1673,7 @@ declare i32 @setreuid(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @PyObject_Call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_close_open_fds.argelim(ptr nocapture noundef nonnull readonly %fds_to_keep, i64 noundef %fds_to_keep_len) unnamed_addr #0 {
+define internal fastcc void @_close_open_fds(ptr nocapture noundef nonnull readonly %fds_to_keep, i64 noundef %fds_to_keep_len) unnamed_addr #0 {
 entry:
   %buffer.i = alloca [280 x i8], align 16
   %cmp316.i = icmp sgt i64 %fds_to_keep_len, 0

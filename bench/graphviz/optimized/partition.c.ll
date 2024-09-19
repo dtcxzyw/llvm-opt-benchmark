@@ -242,7 +242,7 @@ generateRandomOrdering.exit47:                    ; preds = %53, %generateRandom
   %107 = load ptr, ptr @stderr, align 8
   %108 = call ptr @strerror(i32 noundef %.0.i.ph.i) #16
   %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.2, ptr noundef %108) #18
-  call fastcc void @graphviz_exit.argelim() #19
+  call fastcc void @graphviz_exit() #19
   unreachable
 
 boxes_append.exit:                                ; preds = %92, %101
@@ -318,7 +318,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef %1) #18
-  tail call fastcc void @graphviz_exit.argelim() #19
+  tail call fastcc void @graphviz_exit() #19
   unreachable
 
 8:                                                ; preds = %4
@@ -330,7 +330,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #18
-  tail call fastcc void @graphviz_exit.argelim() #19
+  tail call fastcc void @graphviz_exit() #19
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -580,7 +580,7 @@ define internal fastcc void @monotonate_trapezoids(i32 noundef %0, ptr noundef %
 17:                                               ; preds = %9
   %18 = load ptr, ptr @stderr, align 8
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.1, i64 noundef %14) #18
-  tail call fastcc void @graphviz_exit.argelim() #19
+  tail call fastcc void @graphviz_exit() #19
   unreachable
 
 bitarray_new.exit:                                ; preds = %5, %9
@@ -773,7 +773,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit() unnamed_addr #8 {
   tail call void @exit(i32 noundef 1) #21
   unreachable
 }
@@ -931,7 +931,7 @@ bitarray_set.exit:                                ; preds = %17
   %89 = load ptr, ptr @stderr, align 8
   %90 = tail call ptr @strerror(i32 noundef %.0.i.ph.i) #16
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.2, ptr noundef %90) #18
-  tail call fastcc void @graphviz_exit.argelim() #19
+  tail call fastcc void @graphviz_exit() #19
   unreachable
 
 boxes_append.exit:                                ; preds = %._crit_edge.i.i, %82
@@ -1529,7 +1529,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monoton
   %35 = fdiv double %32, %34
   %36 = tail call double @hypot(double noundef %25, double noundef %26) #16
   %37 = fdiv double %35, %36
-  br label %get_angle.argprom.exit.i
+  br label %get_angle.exit.i
 
 38:                                               ; preds = %18
   %39 = fneg double %32
@@ -1538,20 +1538,20 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monoton
   %42 = tail call double @hypot(double noundef %25, double noundef %26) #16
   %43 = fdiv double %41, %42
   %44 = fadd double %43, -2.000000e+00
-  br label %get_angle.argprom.exit.i
+  br label %get_angle.exit.i
 
-get_angle.argprom.exit.i:                         ; preds = %38, %33
+get_angle.exit.i:                                 ; preds = %38, %33
   %.0.i.i = phi double [ %37, %33 ], [ %44, %38 ]
   %45 = fcmp ogt double %.0.i.i, %.02951.i
   br i1 %45, label %46, label %48
 
-46:                                               ; preds = %get_angle.argprom.exit.i
+46:                                               ; preds = %get_angle.exit.i
   %47 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %48
 
-48:                                               ; preds = %46, %get_angle.argprom.exit.i, %14
-  %.130.i = phi double [ %.02951.i, %14 ], [ %.0.i.i, %46 ], [ %.02951.i, %get_angle.argprom.exit.i ]
-  %.128.i = phi i32 [ %.02752.i, %14 ], [ %47, %46 ], [ %.02752.i, %get_angle.argprom.exit.i ]
+48:                                               ; preds = %46, %get_angle.exit.i, %14
+  %.130.i = phi double [ %.02951.i, %14 ], [ %.0.i.i, %46 ], [ %.02951.i, %get_angle.exit.i ]
+  %.128.i = phi i32 [ %.02752.i, %14 ], [ %47, %46 ], [ %.02752.i, %get_angle.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %49, label %14
@@ -1597,7 +1597,7 @@ get_angle.argprom.exit.i:                         ; preds = %38, %33
   %72 = fdiv double %69, %71
   %73 = tail call double @hypot(double noundef %62, double noundef %63) #16
   %74 = fdiv double %72, %73
-  br label %get_angle.argprom.exit49.i
+  br label %get_angle.exit49.i
 
 75:                                               ; preds = %55
   %76 = fneg double %69
@@ -1606,20 +1606,20 @@ get_angle.argprom.exit.i:                         ; preds = %38, %33
   %79 = tail call double @hypot(double noundef %62, double noundef %63) #16
   %80 = fdiv double %78, %79
   %81 = fadd double %80, -2.000000e+00
-  br label %get_angle.argprom.exit49.i
+  br label %get_angle.exit49.i
 
-get_angle.argprom.exit49.i:                       ; preds = %75, %70
+get_angle.exit49.i:                               ; preds = %75, %70
   %.0.i48.i = phi double [ %74, %70 ], [ %81, %75 ]
   %82 = fcmp ogt double %.0.i48.i, %.254.i
   br i1 %82, label %83, label %85
 
-83:                                               ; preds = %get_angle.argprom.exit49.i
+83:                                               ; preds = %get_angle.exit49.i
   %84 = trunc nuw nsw i64 %indvars.iv57.i to i32
   br label %85
 
-85:                                               ; preds = %83, %get_angle.argprom.exit49.i, %51
-  %.3.i = phi double [ %.254.i, %51 ], [ %.0.i48.i, %83 ], [ %.254.i, %get_angle.argprom.exit49.i ]
-  %.1.i = phi i32 [ %.055.i, %51 ], [ %84, %83 ], [ %.055.i, %get_angle.argprom.exit49.i ]
+85:                                               ; preds = %83, %get_angle.exit49.i, %51
+  %.3.i = phi double [ %.254.i, %51 ], [ %.0.i48.i, %83 ], [ %.254.i, %get_angle.exit49.i ]
+  %.1.i = phi i32 [ %.055.i, %51 ], [ %84, %83 ], [ %.055.i, %get_angle.exit49.i ]
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next58.i, 4
   br i1 %exitcond60.not.i, label %get_vertex_positions.exit, label %51

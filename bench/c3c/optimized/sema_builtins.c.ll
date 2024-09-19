@@ -1318,7 +1318,7 @@ is_valid_atomicity.exit.i:                        ; preds = %391, %388, %383, %3
   %480 = load ptr, ptr %477, align 8
   %481 = load ptr, ptr %480, align 8
   %482 = load ptr, ptr %47, align 8
-  %483 = tail call fastcc zeroext i1 @sema_expr_is_valid_mask_for_value.argprom(ptr noundef %482, ptr %481)
+  %483 = tail call fastcc zeroext i1 @sema_expr_is_valid_mask_for_value(ptr noundef %482, ptr %481)
   br i1 %483, label %1369, label %sema_expr_analyse_swizzle.exit
 
 484:                                              ; preds = %._crit_edge, %._crit_edge, %._crit_edge
@@ -1913,7 +1913,7 @@ is_valid_atomicity.exit.i:                        ; preds = %391, %388, %383, %3
   %824 = load ptr, ptr %823, align 8
   %825 = load ptr, ptr %785, align 8
   %.val468 = load ptr, ptr %825, align 8
-  %826 = tail call fastcc zeroext i1 @sema_expr_is_valid_mask_for_value.argprom(ptr noundef %824, ptr %.val468)
+  %826 = tail call fastcc zeroext i1 @sema_expr_is_valid_mask_for_value(ptr noundef %824, ptr %.val468)
   br i1 %826, label %827, label %sema_expr_analyse_swizzle.exit
 
 827:                                              ; preds = %822
@@ -1993,7 +1993,7 @@ is_valid_atomicity.exit.i:                        ; preds = %391, %388, %383, %3
   %879 = load ptr, ptr %878, align 8
   %880 = load ptr, ptr %839, align 8
   %.val469 = load ptr, ptr %880, align 8
-  %881 = tail call fastcc zeroext i1 @sema_expr_is_valid_mask_for_value.argprom(ptr noundef %879, ptr %.val469)
+  %881 = tail call fastcc zeroext i1 @sema_expr_is_valid_mask_for_value(ptr noundef %879, ptr %.val469)
   br i1 %881, label %882, label %sema_expr_analyse_swizzle.exit
 
 882:                                              ; preds = %877
@@ -2066,7 +2066,7 @@ is_valid_atomicity.exit.i:                        ; preds = %391, %388, %383, %3
   %923 = load ptr, ptr %922, align 8
   %924 = load ptr, ptr %908, align 8
   %.val470 = load ptr, ptr %924, align 8
-  %925 = tail call fastcc zeroext i1 @sema_expr_is_valid_mask_for_value.argprom(ptr noundef %923, ptr %.val470)
+  %925 = tail call fastcc zeroext i1 @sema_expr_is_valid_mask_for_value(ptr noundef %923, ptr %.val470)
   br i1 %925, label %926, label %sema_expr_analyse_swizzle.exit
 
 926:                                              ; preds = %921
@@ -2141,7 +2141,7 @@ is_valid_atomicity.exit.i:                        ; preds = %391, %388, %383, %3
   %969 = load ptr, ptr %968, align 8
   %970 = load ptr, ptr %952, align 8
   %.val471 = load ptr, ptr %970, align 8
-  %971 = tail call fastcc zeroext i1 @sema_expr_is_valid_mask_for_value.argprom(ptr noundef %969, ptr %.val471)
+  %971 = tail call fastcc zeroext i1 @sema_expr_is_valid_mask_for_value(ptr noundef %969, ptr %.val471)
   br i1 %971, label %972, label %sema_expr_analyse_swizzle.exit
 
 972:                                              ; preds = %967
@@ -3379,7 +3379,7 @@ define internal fastcc noundef ptr @type_flatten(ptr nocapture noundef readonly 
 declare ptr @type_get_vector(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_expr_is_valid_mask_for_value.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.0.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_expr_is_valid_mask_for_value(ptr nocapture noundef readonly %0, ptr nocapture readonly %.0.val) unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %15, %1

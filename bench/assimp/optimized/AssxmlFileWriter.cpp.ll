@@ -332,7 +332,7 @@ invoke.cont14.i:                                  ; preds = %invoke.cont12.i
   %call17.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header.i) #15
   %call18.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %c.i) #15
   %9 = load i32, ptr %pScene, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef %call17.i, i32 noundef %call11.i, i32 noundef %call13.i, i32 noundef %call15.i, ptr noundef %pFile, ptr noundef %call18.i, ptr noundef %call16.i, i32 noundef %9, i32 noundef 0)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef %call17.i, i32 noundef %call11.i, i32 noundef %call13.i, i32 noundef %call15.i, ptr noundef %pFile, ptr noundef %call18.i, ptr noundef %call16.i, i32 noundef %9, i32 noundef 0)
           to label %invoke.cont19.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont19.i:                                  ; preds = %invoke.cont14.i
@@ -351,7 +351,7 @@ invoke.cont21.i:                                  ; preds = %invoke.cont19.i
   br i1 %tobool.not.i, label %if.end114.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont21.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.4, i32 noundef %11)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.4, i32 noundef %11)
           to label %for.cond.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 for.cond.preheader.i:                             ; preds = %if.then.i
@@ -381,7 +381,7 @@ cond.end34.i:                                     ; preds = %cond.false32.i, %fo
   %cond466.i = phi i32 [ %16, %cond.false32.i ], [ -1, %for.body.i ]
   %cond37.i = phi ptr [ @.str.7, %cond.false32.i ], [ @.str.6, %for.body.i ]
   %cond35.i = phi i32 [ %15, %cond.false32.i ], [ -1, %for.body.i ]
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.5, i32 noundef %cond466.i, i32 noundef %cond35.i, ptr noundef nonnull %cond37.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.5, i32 noundef %cond466.i, i32 noundef %cond35.i, ptr noundef nonnull %cond37.i)
           to label %invoke.cont38.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont38.i:                                  ; preds = %cond.end34.i
@@ -389,7 +389,7 @@ invoke.cont38.i:                                  ; preds = %cond.end34.i
 
 if.then41.i:                                      ; preds = %invoke.cont38.i
   %17 = load i32, ptr %14, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.8, i32 noundef %17)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.8, i32 noundef %17)
           to label %invoke.cont43.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont43.i:                                  ; preds = %if.then41.i
@@ -410,7 +410,7 @@ for.body50.i:                                     ; preds = %for.inc.i, %for.bod
   %arrayidx52.i = getelementptr inbounds i8, ptr %19, i64 %indvars.iv602.i
   %20 = load i8, ptr %arrayidx52.i, align 1
   %conv.i = zext i8 %20 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.9, i32 noundef %conv.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.9, i32 noundef %conv.i)
           to label %invoke.cont53.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont53.i:                                  ; preds = %for.body50.i
@@ -422,7 +422,7 @@ invoke.cont53.i:                                  ; preds = %for.body50.i
   br i1 %or.cond.i, label %if.then57.i, label %for.inc.i
 
 if.then57.i:                                      ; preds = %invoke.cont53.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.10)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.10)
           to label %for.inc.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 lpad7.i:                                          ; preds = %call.i.noexc371.i, %while.end.i
@@ -590,7 +590,7 @@ if.then62.i:                                      ; preds = %if.else.i
   %26 = load i32, ptr %mHeight.i, align 4
   %mul.i = shl i32 %25, 2
   %mul65.i = mul i32 %mul.i, %26
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.8, i32 noundef %mul65.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.8, i32 noundef %mul65.i)
           to label %for.cond68.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond68.preheader.i:                           ; preds = %if.then62.i
@@ -630,7 +630,7 @@ for.body75.i:                                     ; preds = %for.cond72.preheade
   %a87.i = getelementptr inbounds i8, ptr %add.ptr80.i, i64 3
   %36 = load i8, ptr %a87.i, align 1
   %conv88.i = zext i8 %36 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.11, i32 noundef %conv82.i, i32 noundef %conv84.i, i32 noundef %conv86.i, i32 noundef %conv88.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.11, i32 noundef %conv82.i, i32 noundef %conv84.i, i32 noundef %conv86.i, i32 noundef %conv88.i)
           to label %invoke.cont89.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont89.i:                                  ; preds = %for.body75.i
@@ -643,7 +643,7 @@ invoke.cont89.i:                                  ; preds = %for.body75.i
   br i1 %cmp94.i, label %if.then95.i, label %for.inc99.i
 
 if.then95.i:                                      ; preds = %invoke.cont89.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.10)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.10)
           to label %if.then95.for.inc99_crit_edge.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.then95.for.inc99_crit_edge.i:                  ; preds = %if.then95.i
@@ -669,7 +669,7 @@ for.inc102.i:                                     ; preds = %for.inc102.loopexit
   br i1 %cmp70.i, label %for.cond72.preheader.i, label %if.end106.i, !llvm.loop !8
 
 if.end106.i:                                      ; preds = %for.inc102.i, %for.inc.i, %for.cond72.preheader.lr.ph.i, %for.cond68.preheader.i, %if.else.i, %for.cond47.preheader.i, %invoke.cont43.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.12)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.12)
           to label %for.inc109.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc109.i:                                     ; preds = %if.end106.i
@@ -680,7 +680,7 @@ for.inc109.i:                                     ; preds = %if.end106.i
   br i1 %cmp26.i, label %for.body.i, label %for.end111.i, !llvm.loop !10
 
 for.end111.i:                                     ; preds = %for.inc109.i, %for.cond.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.13)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.13)
           to label %if.end114.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end114.i:                                      ; preds = %for.end111.i, %invoke.cont21.i
@@ -690,7 +690,7 @@ if.end114.i:                                      ; preds = %for.end111.i, %invo
   br i1 %tobool115.not.i, label %if.end275.i, label %if.then116.i
 
 if.then116.i:                                     ; preds = %if.end114.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.14, i32 noundef %45)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.14, i32 noundef %45)
           to label %for.cond121.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 for.cond121.preheader.i:                          ; preds = %if.then116.i
@@ -707,13 +707,13 @@ for.body124.i:                                    ; preds = %for.inc270.i, %for.
   %47 = load ptr, ptr %mMaterials.i, align 8
   %arrayidx126.i = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv620.i
   %48 = load ptr, ptr %arrayidx126.i, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.15)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.15)
           to label %invoke.cont127.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont127.i:                                 ; preds = %for.body124.i
   %mNumProperties.i = getelementptr inbounds i8, ptr %48, i64 8
   %49 = load i32, ptr %mNumProperties.i, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.16, i32 noundef %49)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.16, i32 noundef %49)
           to label %for.cond132.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond132.preheader.i:                          ; preds = %invoke.cont127.i
@@ -749,7 +749,7 @@ invoke.cont156.i:                                 ; preds = %if.end155.i
   %data.i = getelementptr inbounds i8, ptr %52, i64 4
   %mIndex.i = getelementptr inbounds i8, ptr %52, i64 1032
   %57 = load i32, ptr %mIndex.i, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.22, ptr noundef nonnull %data.i, ptr noundef nonnull %sz.0.i, ptr noundef %call157.i, i32 noundef %57)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.22, ptr noundef nonnull %data.i, ptr noundef nonnull %sz.0.i, ptr noundef %call157.i, i32 noundef %57)
           to label %invoke.cont158.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont158.i:                                 ; preds = %invoke.cont156.i
@@ -765,7 +765,7 @@ if.then162.i:                                     ; preds = %invoke.cont158.i
   %mDataLength.i = getelementptr inbounds i8, ptr %52, i64 1036
   %59 = load i32, ptr %mDataLength.i, align 4
   %60 = lshr i32 %59, 2
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.23, i32 noundef %60)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.23, i32 noundef %60)
           to label %for.cond167.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond167.preheader.i:                          ; preds = %if.then162.i
@@ -784,7 +784,7 @@ for.body173.i:                                    ; preds = %for.inc180.i, %for.
   %add.ptr176.i = getelementptr inbounds i8, ptr %62, i64 %mul175.i
   %63 = load float, ptr %add.ptr176.i, align 4
   %conv177.i = fpext float %63 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.24, double noundef %conv177.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.24, double noundef %conv177.i)
           to label %for.inc180.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc180.i:                                     ; preds = %for.body173.i
@@ -799,7 +799,7 @@ if.then186.i:                                     ; preds = %invoke.cont158.i
   %mDataLength187.i = getelementptr inbounds i8, ptr %52, i64 1036
   %67 = load i32, ptr %mDataLength187.i, align 4
   %68 = lshr i32 %67, 2
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.23, i32 noundef %68)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.23, i32 noundef %68)
           to label %for.cond194.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond194.preheader.i:                          ; preds = %if.then186.i
@@ -817,7 +817,7 @@ for.body200.i:                                    ; preds = %for.inc207.i, %for.
   %mul203.i = shl nuw nsw i64 %indvars.iv611.i, 2
   %add.ptr204.i = getelementptr inbounds i8, ptr %70, i64 %mul203.i
   %71 = load i32, ptr %add.ptr204.i, align 4
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.25, i32 noundef %71)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.25, i32 noundef %71)
           to label %for.inc207.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc207.i:                                     ; preds = %for.body200.i
@@ -831,7 +831,7 @@ for.inc207.i:                                     ; preds = %for.body200.i
 if.then213.i:                                     ; preds = %invoke.cont158.i
   %mDataLength214.i = getelementptr inbounds i8, ptr %52, i64 1036
   %75 = load i32, ptr %mDataLength214.i, align 4
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.23, i32 noundef %75)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.23, i32 noundef %75)
           to label %for.cond218.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond218.preheader.i:                          ; preds = %if.then213.i
@@ -849,7 +849,7 @@ for.body221.i:                                    ; preds = %for.inc236.i, %for.
   %arrayidx224.i = getelementptr inbounds i8, ptr %77, i64 %indvars.iv608.i
   %78 = load i8, ptr %arrayidx224.i, align 1
   %conv225.i = sext i8 %78 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.26, i32 noundef %conv225.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.26, i32 noundef %conv225.i)
           to label %invoke.cont226.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont226.i:                                 ; preds = %for.body221.i
@@ -861,7 +861,7 @@ invoke.cont226.i:                                 ; preds = %for.body221.i
   br i1 %or.cond365.i, label %if.then232.i, label %for.inc236.i
 
 if.then232.i:                                     ; preds = %invoke.cont226.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.27)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.27)
           to label %for.inc236.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc236.i:                                     ; preds = %if.then232.i, %invoke.cont226.i
@@ -958,7 +958,7 @@ for.inc.i.i:                                      ; preds = %sw.default.i.i, %sw
 
 invoke.cont251.i:                                 ; preds = %for.inc.i.i, %for.cond.preheader.i.i
   %call252.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp243.i) #15
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.28, ptr noundef %call252.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.28, ptr noundef %call252.i)
           to label %invoke.cont254.i unwind label %lpad253.i
 
 invoke.cont254.i:                                 ; preds = %invoke.cont251.i
@@ -989,7 +989,7 @@ ehcleanup256.i:                                   ; preds = %ehcleanup.i, %lpad2
   br label %ehcleanup864.i
 
 if.end260.i:                                      ; preds = %for.inc236.i, %for.inc207.i, %for.inc180.i, %invoke.cont254.i, %for.cond218.preheader.i, %for.cond194.preheader.i, %for.cond167.preheader.i, %invoke.cont158.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.29)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.29)
           to label %for.inc263.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc263.i:                                     ; preds = %if.end260.i
@@ -1000,11 +1000,11 @@ for.inc263.i:                                     ; preds = %if.end260.i
   br i1 %cmp134.i, label %for.body135.i, label %for.end265.i, !llvm.loop !15
 
 for.end265.i:                                     ; preds = %for.inc263.i, %for.cond132.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.30)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.30)
           to label %invoke.cont266.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont266.i:                                 ; preds = %for.end265.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.31)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.31)
           to label %for.inc270.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc270.i:                                     ; preds = %invoke.cont266.i
@@ -1015,7 +1015,7 @@ for.inc270.i:                                     ; preds = %invoke.cont266.i
   br i1 %cmp123.i, label %for.body124.i, label %for.end272.i, !llvm.loop !16
 
 for.end272.i:                                     ; preds = %for.inc270.i, %for.cond121.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.32)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.32)
           to label %if.end275.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end275.i:                                      ; preds = %for.end272.i, %if.end114.i
@@ -1025,7 +1025,7 @@ if.end275.i:                                      ; preds = %for.end272.i, %if.e
   br i1 %tobool276.not.i, label %if.end419.i, label %if.then277.i
 
 if.then277.i:                                     ; preds = %if.end275.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.33, i32 noundef %93)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.33, i32 noundef %93)
           to label %for.cond282.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 for.cond282.preheader.i:                          ; preds = %if.then277.i
@@ -1047,7 +1047,7 @@ for.body285.i:                                    ; preds = %for.inc414.i, %for.
   %97 = load double, ptr %mDuration.i, align 8
   %mTicksPerSecond.i = getelementptr inbounds i8, ptr %96, i64 1040
   %98 = load double, ptr %mTicksPerSecond.i, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.34, ptr noundef nonnull %data.i.i, double noundef %97, double noundef %98)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.34, ptr noundef nonnull %data.i.i, double noundef %97, double noundef %98)
           to label %invoke.cont291.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont291.i:                                 ; preds = %for.body285.i
@@ -1057,7 +1057,7 @@ invoke.cont291.i:                                 ; preds = %for.body285.i
   br i1 %tobool293.not.i, label %if.end411.i, label %if.then294.i
 
 if.then294.i:                                     ; preds = %invoke.cont291.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.35, i32 noundef %99)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.35, i32 noundef %99)
           to label %for.cond299.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond299.preheader.i:                          ; preds = %if.then294.i
@@ -1193,7 +1193,7 @@ invoke.cont305.i:                                 ; preds = %for.end.loopexit.i.
   %idxprom16.i.i = phi i64 [ %122, %for.end.loopexit.i.i ], [ 0, %for.body302.i ]
   %arrayidx17.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom16.i.i
   store i8 0, ptr %arrayidx17.i.i, align 1
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.36, ptr noundef nonnull %data.i.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.36, ptr noundef nonnull %data.i.i)
           to label %invoke.cont308.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont308.i:                                 ; preds = %invoke.cont305.i
@@ -1206,7 +1206,7 @@ if.then311.i:                                     ; preds = %invoke.cont308.i
   br i1 %tobool312.not.i, label %if.end338.i, label %if.then313.i
 
 if.then313.i:                                     ; preds = %if.then311.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.37, i32 noundef %123)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.37, i32 noundef %123)
           to label %for.cond318.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond318.preheader.i:                          ; preds = %if.then313.i
@@ -1232,7 +1232,7 @@ for.body321.i:                                    ; preds = %for.inc333.i, %for.
   %z.i = getelementptr inbounds i8, ptr %add.ptr323.i, i64 16
   %129 = load float, ptr %z.i, align 8
   %conv330.i = fpext float %129 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.38, double noundef %126, double noundef %conv325.i, double noundef %conv328.i, double noundef %conv330.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.38, double noundef %126, double noundef %conv325.i, double noundef %conv328.i, double noundef %conv330.i)
           to label %for.inc333.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc333.i:                                     ; preds = %for.body321.i
@@ -1243,7 +1243,7 @@ for.inc333.i:                                     ; preds = %for.body321.i
   br i1 %cmp320.i, label %for.body321.i, label %for.end335.i, !llvm.loop !18
 
 for.end335.i:                                     ; preds = %for.inc333.i, %for.cond318.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.39)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.39)
           to label %if.end338.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end338.i:                                      ; preds = %for.end335.i, %if.then311.i
@@ -1253,7 +1253,7 @@ if.end338.i:                                      ; preds = %for.end335.i, %if.t
   br i1 %tobool339.not.i, label %if.end369.i, label %if.then340.i
 
 if.then340.i:                                     ; preds = %if.end338.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.40, i32 noundef %132)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.40, i32 noundef %132)
           to label %for.cond345.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond345.preheader.i:                          ; preds = %if.then340.i
@@ -1279,7 +1279,7 @@ for.body348.i:                                    ; preds = %for.inc364.i, %for.
   %z360.i = getelementptr inbounds i8, ptr %add.ptr351.i, i64 16
   %138 = load float, ptr %z360.i, align 8
   %conv361.i = fpext float %138 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.41, double noundef %135, double noundef %conv355.i, double noundef %conv358.i, double noundef %conv361.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.41, double noundef %135, double noundef %conv355.i, double noundef %conv358.i, double noundef %conv361.i)
           to label %for.inc364.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc364.i:                                     ; preds = %for.body348.i
@@ -1290,7 +1290,7 @@ for.inc364.i:                                     ; preds = %for.body348.i
   br i1 %cmp347.i, label %for.body348.i, label %for.end366.i, !llvm.loop !19
 
 for.end366.i:                                     ; preds = %for.inc364.i, %for.cond345.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.42)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.42)
           to label %if.end369.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end369.i:                                      ; preds = %for.end366.i, %if.end338.i
@@ -1300,7 +1300,7 @@ if.end369.i:                                      ; preds = %for.end366.i, %if.e
   br i1 %tobool370.not.i, label %if.end403.i, label %if.then371.i
 
 if.then371.i:                                     ; preds = %if.end369.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.43, i32 noundef %141)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.43, i32 noundef %141)
           to label %for.cond376.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond376.preheader.i:                          ; preds = %if.then371.i
@@ -1329,7 +1329,7 @@ for.body379.i:                                    ; preds = %for.inc397.i, %for.
   %conv392.i = fpext float %147 to double
   %148 = load float, ptr %mValue384.i, align 8
   %conv394.i = fpext float %148 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.44, double noundef %144, double noundef %conv386.i, double noundef %conv389.i, double noundef %conv392.i, double noundef %conv394.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.44, double noundef %144, double noundef %conv386.i, double noundef %conv389.i, double noundef %conv392.i, double noundef %conv394.i)
           to label %for.inc397.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc397.i:                                     ; preds = %for.body379.i
@@ -1340,11 +1340,11 @@ for.inc397.i:                                     ; preds = %for.body379.i
   br i1 %cmp378.i, label %for.body379.i, label %for.end399.i, !llvm.loop !20
 
 for.end399.i:                                     ; preds = %for.inc397.i, %for.cond376.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.45)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.45)
           to label %if.end403.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end403.i:                                      ; preds = %for.end399.i, %if.end369.i, %invoke.cont308.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.46)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.46)
           to label %for.inc406.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc406.i:                                     ; preds = %if.end403.i
@@ -1355,11 +1355,11 @@ for.inc406.i:                                     ; preds = %if.end403.i
   br i1 %cmp301.i, label %for.body302.i, label %for.end408.i, !llvm.loop !21
 
 for.end408.i:                                     ; preds = %for.inc406.i, %for.cond299.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.47)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.47)
           to label %if.end411.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end411.i:                                      ; preds = %for.end408.i, %invoke.cont291.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.48)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.48)
           to label %for.inc414.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc414.i:                                     ; preds = %if.end411.i
@@ -1370,7 +1370,7 @@ for.inc414.i:                                     ; preds = %if.end411.i
   br i1 %cmp284.i, label %for.body285.i, label %for.end416.i, !llvm.loop !22
 
 for.end416.i:                                     ; preds = %for.inc414.i, %for.cond282.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.49)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.49)
           to label %if.end419.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end419.i:                                      ; preds = %for.end416.i, %if.end275.i
@@ -1380,7 +1380,7 @@ if.end419.i:                                      ; preds = %for.end416.i, %if.e
   br i1 %tobool420.not.i, label %if.end861.i, label %if.then421.i
 
 if.then421.i:                                     ; preds = %if.end419.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.50, i32 noundef %155)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.50, i32 noundef %155)
           to label %for.cond426.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 for.cond426.preheader.i:                          ; preds = %if.then421.i
@@ -1412,7 +1412,7 @@ for.body429.i:                                    ; preds = %for.inc856.i, %for.
   %cond445.i = select i1 %tobool444.not.i, ptr @.str.17, ptr @.str.55
   %mMaterialIndex.i = getelementptr inbounds i8, ptr %158, i64 232
   %160 = load i32, ptr %mMaterialIndex.i, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.51, ptr noundef nonnull %cond433.i, ptr noundef nonnull %cond437.i, ptr noundef nonnull %cond441.i, ptr noundef nonnull %cond445.i, i32 noundef %160)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.51, ptr noundef nonnull %cond433.i, ptr noundef nonnull %cond437.i, ptr noundef nonnull %cond441.i, ptr noundef nonnull %cond445.i, i32 noundef %160)
           to label %invoke.cont446.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont446.i:                                 ; preds = %for.body429.i
@@ -1422,7 +1422,7 @@ invoke.cont446.i:                                 ; preds = %for.body429.i
   br i1 %tobool448.not.i, label %if.end527.i, label %if.then449.i
 
 if.then449.i:                                     ; preds = %invoke.cont446.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.56, i32 noundef %161)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.56, i32 noundef %161)
           to label %for.cond454.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond454.preheader.i:                          ; preds = %if.then449.i
@@ -1606,7 +1606,7 @@ invoke.cont461.i:                                 ; preds = %for.end.loopexit.i4
   %d4.i = getelementptr inbounds i8, ptr %164, i64 1116
   %200 = load float, ptr %d4.i, align 4
   %conv494.i = fpext float %200 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.57, ptr noundef nonnull %data.i.i, double noundef %conv464.i, double noundef %conv466.i, double noundef %conv468.i, double noundef %conv470.i, double noundef %conv472.i, double noundef %conv474.i, double noundef %conv476.i, double noundef %conv478.i, double noundef %conv480.i, double noundef %conv482.i, double noundef %conv484.i, double noundef %conv486.i, double noundef %conv488.i, double noundef %conv490.i, double noundef %conv492.i, double noundef %conv494.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.57, ptr noundef nonnull %data.i.i, double noundef %conv464.i, double noundef %conv466.i, double noundef %conv468.i, double noundef %conv470.i, double noundef %conv472.i, double noundef %conv474.i, double noundef %conv476.i, double noundef %conv478.i, double noundef %conv480.i, double noundef %conv482.i, double noundef %conv484.i, double noundef %conv486.i, double noundef %conv488.i, double noundef %conv490.i, double noundef %conv492.i, double noundef %conv494.i)
           to label %invoke.cont495.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont495.i:                                 ; preds = %invoke.cont461.i
@@ -1619,7 +1619,7 @@ land.lhs.true498.i:                               ; preds = %invoke.cont495.i
   br i1 %tobool499.not.i, label %if.end519.i, label %if.then500.i
 
 if.then500.i:                                     ; preds = %land.lhs.true498.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.58, i32 noundef %201)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.58, i32 noundef %201)
           to label %for.cond505.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond505.preheader.i:                          ; preds = %if.then500.i
@@ -1639,7 +1639,7 @@ for.body508.i:                                    ; preds = %for.inc514.i, %for.
   %mWeight.i = getelementptr inbounds i8, ptr %add.ptr510.i, i64 4
   %205 = load float, ptr %mWeight.i, align 4
   %conv511.i = fpext float %205 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.59, i32 noundef %204, double noundef %conv511.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.59, i32 noundef %204, double noundef %conv511.i)
           to label %for.inc514.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc514.i:                                     ; preds = %for.body508.i
@@ -1650,11 +1650,11 @@ for.inc514.i:                                     ; preds = %for.body508.i
   br i1 %cmp507.i, label %for.body508.i, label %for.end516.i, !llvm.loop !23
 
 for.end516.i:                                     ; preds = %for.inc514.i, %for.cond505.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.60)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.60)
           to label %if.end519.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end519.i:                                      ; preds = %for.end516.i, %land.lhs.true498.i, %invoke.cont495.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.61)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.61)
           to label %for.inc522.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc522.i:                                     ; preds = %if.end519.i
@@ -1665,7 +1665,7 @@ for.inc522.i:                                     ; preds = %if.end519.i
   br i1 %cmp456.i, label %for.body457.i, label %for.end524.i, !llvm.loop !24
 
 for.end524.i:                                     ; preds = %for.inc522.i, %for.cond454.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.62)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.62)
           to label %if.end527.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end527.i:                                      ; preds = %for.end524.i, %invoke.cont446.i
@@ -1678,7 +1678,7 @@ land.lhs.true529.i:                               ; preds = %if.end527.i
   br i1 %tobool530.not.i, label %if.end562.i, label %if.then531.i
 
 if.then531.i:                                     ; preds = %land.lhs.true529.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.63, i32 noundef %210)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.63, i32 noundef %210)
           to label %for.cond536.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond536.preheader.i:                          ; preds = %if.then531.i
@@ -1695,7 +1695,7 @@ for.body539.i:                                    ; preds = %for.inc557.i, %for.
   %212 = load ptr, ptr %mFaces.i, align 8
   %arrayidx541.i = getelementptr inbounds %struct.aiFace, ptr %212, i64 %indvars.iv647.i
   %213 = load i32, ptr %arrayidx541.i, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.64, i32 noundef %213)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.64, i32 noundef %213)
           to label %for.cond544.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond544.preheader.i:                          ; preds = %for.body539.i
@@ -1712,7 +1712,7 @@ for.body547.i:                                    ; preds = %for.inc552.i, %for.
   %215 = load ptr, ptr %mIndices.i, align 8
   %arrayidx549.i = getelementptr inbounds i32, ptr %215, i64 %indvars.iv644.i
   %216 = load i32, ptr %arrayidx549.i, align 4
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.65, i32 noundef %216)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.65, i32 noundef %216)
           to label %for.inc552.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc552.i:                                     ; preds = %for.body547.i
@@ -1723,7 +1723,7 @@ for.inc552.i:                                     ; preds = %for.body547.i
   br i1 %cmp546.i, label %for.body547.i, label %for.end554.i, !llvm.loop !25
 
 for.end554.i:                                     ; preds = %for.inc552.i, %for.cond544.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.66)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.66)
           to label %for.inc557.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc557.i:                                     ; preds = %for.end554.i
@@ -1734,7 +1734,7 @@ for.inc557.i:                                     ; preds = %for.end554.i
   br i1 %cmp538.i, label %for.body539.i, label %for.end559.i, !llvm.loop !26
 
 for.end559.i:                                     ; preds = %for.inc557.i, %for.cond536.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.67)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.67)
           to label %if.end562.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end562.i:                                      ; preds = %for.end559.i, %land.lhs.true529.i, %if.end527.i
@@ -1748,7 +1748,7 @@ if.end562.i:                                      ; preds = %for.end559.i, %land
   br i1 %223, label %if.then565.i, label %if.end597.i
 
 if.then565.i:                                     ; preds = %if.end562.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.68, i32 noundef %222)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.68, i32 noundef %222)
           to label %invoke.cont566.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont566.i:                                 ; preds = %if.then565.i
@@ -1771,7 +1771,7 @@ for.body574.i:                                    ; preds = %for.cond571.prehead
   %z587.i = getelementptr inbounds i8, ptr %arrayidx576.i, i64 8
   %228 = load float, ptr %z587.i, align 4
   %conv588.i = fpext float %228 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv578.i, double noundef %conv583.i, double noundef %conv588.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv578.i, double noundef %conv583.i, double noundef %conv588.i)
           to label %for.inc591.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc591.i:                                     ; preds = %for.body574.i
@@ -1782,7 +1782,7 @@ for.inc591.i:                                     ; preds = %for.body574.i
   br i1 %cmp573.i, label %for.body574.i, label %if.end594.i, !llvm.loop !27
 
 if.end594.i:                                      ; preds = %for.inc591.i, %for.cond571.preheader.i, %invoke.cont566.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.70)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.70)
           to label %if.end594.if.end597_crit_edge.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end594.if.end597_crit_edge.i:                  ; preds = %if.end594.i
@@ -1799,7 +1799,7 @@ if.end597.i:                                      ; preds = %if.end594.if.end597
   br i1 %233, label %if.then600.i, label %if.end633.i
 
 if.then600.i:                                     ; preds = %if.end597.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.71, i32 noundef %231)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.71, i32 noundef %231)
           to label %invoke.cont602.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont602.i:                                 ; preds = %if.then600.i
@@ -1822,7 +1822,7 @@ for.body610.i:                                    ; preds = %for.cond607.prehead
   %z623.i = getelementptr inbounds i8, ptr %arrayidx612.i, i64 8
   %238 = load float, ptr %z623.i, align 4
   %conv624.i = fpext float %238 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv614.i, double noundef %conv619.i, double noundef %conv624.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv614.i, double noundef %conv619.i, double noundef %conv624.i)
           to label %for.inc627.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc627.i:                                     ; preds = %for.body610.i
@@ -1833,7 +1833,7 @@ for.inc627.i:                                     ; preds = %for.body610.i
   br i1 %cmp609.i, label %for.body610.i, label %if.end630.i, !llvm.loop !28
 
 if.end630.i:                                      ; preds = %for.inc627.i, %for.cond607.preheader.i, %invoke.cont602.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.72)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.72)
           to label %if.end633.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end633.i:                                      ; preds = %if.end630.i, %if.end597.i
@@ -1852,7 +1852,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i:   ; preds = %if.end633.i
   br i1 %cmp3.i.not.i, label %if.end701.i, label %if.then636.i
 
 if.then636.i:                                     ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.73, i32 noundef %243)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.73, i32 noundef %243)
           to label %invoke.cont638.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont638.i:                                 ; preds = %if.then636.i
@@ -1875,7 +1875,7 @@ for.body646.i:                                    ; preds = %for.cond643.prehead
   %z659.i = getelementptr inbounds i8, ptr %arrayidx648.i, i64 8
   %248 = load float, ptr %z659.i, align 4
   %conv660.i = fpext float %248 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv650.i, double noundef %conv655.i, double noundef %conv660.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv650.i, double noundef %conv655.i, double noundef %conv660.i)
           to label %for.inc663.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc663.i:                                     ; preds = %for.body646.i
@@ -1886,12 +1886,12 @@ for.inc663.i:                                     ; preds = %for.body646.i
   br i1 %cmp645.i, label %for.body646.i, label %if.end666.i, !llvm.loop !29
 
 if.end666.i:                                      ; preds = %for.inc663.i, %for.cond643.preheader.i, %invoke.cont638.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.74)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.74)
           to label %invoke.cont667.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont667.i:                                 ; preds = %if.end666.i
   %251 = load i32, ptr %mNumVertices.i.i, align 4
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.75, i32 noundef %251)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.75, i32 noundef %251)
           to label %invoke.cont670.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont670.i:                                 ; preds = %invoke.cont667.i
@@ -1914,7 +1914,7 @@ for.body678.i:                                    ; preds = %for.cond675.prehead
   %z691.i = getelementptr inbounds i8, ptr %arrayidx680.i, i64 8
   %256 = load float, ptr %z691.i, align 4
   %conv692.i = fpext float %256 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv682.i, double noundef %conv687.i, double noundef %conv692.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv682.i, double noundef %conv687.i, double noundef %conv692.i)
           to label %for.inc695.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc695.i:                                     ; preds = %for.body678.i
@@ -1925,7 +1925,7 @@ for.inc695.i:                                     ; preds = %for.body678.i
   br i1 %cmp677.i, label %for.body678.i, label %if.end698.i, !llvm.loop !30
 
 if.end698.i:                                      ; preds = %for.inc695.i, %for.cond675.preheader.i, %invoke.cont670.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.76)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.76)
           to label %if.end701.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end701.i:                                      ; preds = %if.end698.i, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i, %if.end633.i
@@ -1960,7 +1960,7 @@ cond.end720.i:                                    ; preds = %_ZNK6aiMesh20HasTex
   %arrayidx723.i = getelementptr inbounds [8 x i32], ptr %mNumUVComponents.i, i64 0, i64 %indvars.iv668.i
   %263 = load i32, ptr %arrayidx723.i, align 4
   %264 = trunc nuw nsw i64 %indvars.iv668.i to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.77, i32 noundef %260, i32 noundef %264, ptr noundef nonnull %cond721.i, i32 noundef %263)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.77, i32 noundef %260, i32 noundef %264, ptr noundef nonnull %cond721.i, i32 noundef %263)
           to label %invoke.cont724.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont724.i:                                 ; preds = %cond.end720.i
@@ -1991,7 +1991,7 @@ for.body737.i:                                    ; preds = %for.cond734.prehead
   %z757.i = getelementptr inbounds i8, ptr %arrayidx742.i, i64 8
   %270 = load float, ptr %z757.i, align 4
   %conv758.i = fpext float %270 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv744.i, double noundef %conv751.i, double noundef %conv758.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv744.i, double noundef %conv751.i, double noundef %conv758.i)
           to label %for.inc761.i unwind label %lpad9.loopexit.split-lp.loopexit.i
 
 for.inc761.i:                                     ; preds = %for.body737.i
@@ -2010,7 +2010,7 @@ for.body769.i:                                    ; preds = %for.cond766.prehead
   %y782.i = getelementptr inbounds i8, ptr %arrayidx774.i, i64 4
   %275 = load float, ptr %y782.i, align 4
   %conv783.i = fpext float %275 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.78, double noundef %conv776.i, double noundef %conv783.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.78, double noundef %conv776.i, double noundef %conv783.i)
           to label %for.inc786.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc786.i:                                     ; preds = %for.body769.i
@@ -2021,7 +2021,7 @@ for.inc786.i:                                     ; preds = %for.body769.i
   br i1 %cmp768.i, label %for.body769.i, label %if.end790.i, !llvm.loop !32
 
 if.end790.i:                                      ; preds = %for.inc786.i, %for.inc761.i, %for.cond734.preheader.i, %for.cond766.preheader.i, %invoke.cont724.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.79)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.79)
           to label %for.inc793.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc793.i:                                     ; preds = %if.end790.i
@@ -2043,7 +2043,7 @@ for.body799.i:                                    ; preds = %for.inc851.i, %for.
 if.end804.i:                                      ; preds = %for.body799.i
   %279 = load i32, ptr %mNumVertices.i.i, align 4
   %280 = trunc nuw nsw i64 %indvars.iv674.i to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.80, i32 noundef %279, i32 noundef %280)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.80, i32 noundef %279, i32 noundef %280)
           to label %invoke.cont806.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont806.i:                                 ; preds = %if.end804.i
@@ -2069,7 +2069,7 @@ for.body814.i:                                    ; preds = %for.cond811.prehead
   %a841.i = getelementptr inbounds i8, ptr %arrayidx819.i, i64 12
   %286 = load float, ptr %a841.i, align 4
   %conv842.i = fpext float %286 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.81, double noundef %conv821.i, double noundef %conv828.i, double noundef %conv835.i, double noundef %conv842.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.81, double noundef %conv821.i, double noundef %conv828.i, double noundef %conv835.i, double noundef %conv842.i)
           to label %for.inc845.i unwind label %lpad9.loopexit.i
 
 for.inc845.i:                                     ; preds = %for.body814.i
@@ -2080,7 +2080,7 @@ for.inc845.i:                                     ; preds = %for.body814.i
   br i1 %cmp813.i, label %for.body814.i, label %if.end848.i, !llvm.loop !34
 
 if.end848.i:                                      ; preds = %for.inc845.i, %for.cond811.preheader.i, %invoke.cont806.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.82)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.82)
           to label %for.inc851.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc851.i:                                     ; preds = %if.end848.i
@@ -2089,7 +2089,7 @@ for.inc851.i:                                     ; preds = %if.end848.i
   br i1 %exitcond677.not.i, label %for.end853.i, label %for.body799.i, !llvm.loop !35
 
 for.end853.i:                                     ; preds = %for.inc851.i, %for.body799.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.83)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.83)
           to label %for.inc856.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc856.i:                                     ; preds = %for.end853.i
@@ -2100,11 +2100,11 @@ for.inc856.i:                                     ; preds = %for.end853.i
   br i1 %cmp428.i, label %for.body429.i, label %for.end858.i, !llvm.loop !36
 
 for.end858.i:                                     ; preds = %for.inc856.i, %for.cond426.preheader.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.84)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.84)
           to label %if.end861.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end861.i:                                      ; preds = %for.end858.i, %if.end419.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %call, ptr noundef nonnull @.str.85)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.85)
           to label %invoke.cont16 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 ehcleanup864.i:                                   ; preds = %ehcleanup256.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.i, %lpad9.loopexit.i
@@ -2227,7 +2227,7 @@ declare i32 @aiGetVersionRevision() local_unnamed_addr #2
 declare ptr @asctime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %io, ptr nocapture noundef readonly %format, ...) unnamed_addr #0 {
+define internal void @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %io, ptr nocapture noundef readonly %format, ...) unnamed_addr #0 {
 entry:
   %sz = alloca [4096 x i8], align 16
   %va = alloca [1 x %struct.__va_list_tag], align 16
@@ -2322,14 +2322,14 @@ for.end:                                          ; preds = %entry, %for.body.pr
   %d4 = getelementptr inbounds i8, ptr %node, i64 1088
   %16 = load float, ptr %d4, align 4
   %conv23 = fpext float %16 to double
-  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %io, ptr noundef nonnull @.str.86, ptr noundef nonnull %prefix, ptr noundef nonnull %data.i, ptr noundef nonnull %prefix, ptr noundef nonnull %prefix, double noundef %conv, double noundef %conv6, double noundef %conv7, double noundef %conv8, ptr noundef nonnull %prefix, double noundef %conv10, double noundef %conv11, double noundef %conv12, double noundef %conv13, ptr noundef nonnull %prefix, double noundef %conv15, double noundef %conv16, double noundef %conv17, double noundef %conv18, ptr noundef nonnull %prefix, double noundef %conv20, double noundef %conv21, double noundef %conv22, double noundef %conv23, ptr noundef nonnull %prefix)
+  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %io, ptr noundef nonnull @.str.86, ptr noundef nonnull %prefix, ptr noundef nonnull %data.i, ptr noundef nonnull %prefix, ptr noundef nonnull %prefix, double noundef %conv, double noundef %conv6, double noundef %conv7, double noundef %conv8, ptr noundef nonnull %prefix, double noundef %conv10, double noundef %conv11, double noundef %conv12, double noundef %conv13, ptr noundef nonnull %prefix, double noundef %conv15, double noundef %conv16, double noundef %conv17, double noundef %conv18, ptr noundef nonnull %prefix, double noundef %conv20, double noundef %conv21, double noundef %conv22, double noundef %conv23, ptr noundef nonnull %prefix)
   %mNumMeshes = getelementptr inbounds i8, ptr %node, i64 1120
   %17 = load i32, ptr %mNumMeshes, align 8
   %tobool.not = icmp eq i32 %17, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
-  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %io, ptr noundef nonnull @.str.87, ptr noundef nonnull %prefix, i32 noundef %17, ptr noundef nonnull %prefix)
+  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %io, ptr noundef nonnull @.str.87, ptr noundef nonnull %prefix, i32 noundef %17, ptr noundef nonnull %prefix)
   %18 = load i32, ptr %mNumMeshes, align 8
   %cmp3243.not = icmp eq i32 %18, 0
   br i1 %cmp3243.not, label %for.end39, label %for.body33.lr.ph
@@ -2343,7 +2343,7 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %19 = load ptr, ptr %mMeshes, align 8
   %arrayidx35 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
   %20 = load i32, ptr %arrayidx35, align 4
-  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %io, ptr noundef nonnull @.str.65, i32 noundef %20)
+  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %io, ptr noundef nonnull @.str.65, i32 noundef %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %mNumMeshes, align 8
   %22 = zext i32 %21 to i64
@@ -2351,7 +2351,7 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   br i1 %cmp32, label %for.body33, label %for.end39, !llvm.loop !37
 
 for.end39:                                        ; preds = %for.body33, %if.then
-  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %io, ptr noundef nonnull @.str.88, ptr noundef nonnull %prefix)
+  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %io, ptr noundef nonnull @.str.88, ptr noundef nonnull %prefix)
   br label %if.end
 
 if.end:                                           ; preds = %for.end39, %for.end
@@ -2361,7 +2361,7 @@ if.end:                                           ; preds = %for.end39, %for.end
   br i1 %tobool42.not, label %if.end59, label %if.then43
 
 if.then43:                                        ; preds = %if.end
-  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %io, ptr noundef nonnull @.str.89, ptr noundef nonnull %prefix, i32 noundef %23)
+  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %io, ptr noundef nonnull @.str.89, ptr noundef nonnull %prefix, i32 noundef %23)
   %24 = load i32, ptr %mNumChildren, align 8
   %cmp5045.not = icmp eq i32 %24, 0
   br i1 %cmp5045.not, label %for.end56, label %for.body51.lr.ph
@@ -2384,11 +2384,11 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   br i1 %cmp50, label %for.body51, label %for.end56, !llvm.loop !38
 
 for.end56:                                        ; preds = %for.body51, %if.then43
-  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %io, ptr noundef nonnull @.str.90, ptr noundef nonnull %prefix)
+  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %io, ptr noundef nonnull @.str.90, ptr noundef nonnull %prefix)
   br label %if.end59
 
 if.end59:                                         ; preds = %for.end56, %if.end
-  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz.retelim(ptr noundef %io, ptr noundef nonnull @.str.91, ptr noundef nonnull %prefix)
+  call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %io, ptr noundef nonnull @.str.91, ptr noundef nonnull %prefix)
   ret void
 }
 

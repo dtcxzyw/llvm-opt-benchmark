@@ -531,12 +531,12 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
 190:                                              ; preds = %184
   %191 = call i32 @get_log_level() #11
   %192 = icmp sgt i32 %191, 4
-  br i1 %192, label %193, label %_open_ss_info.argprom.exit.thread
+  br i1 %192, label %193, label %_open_ss_info.exit.thread
 
 193:                                              ; preds = %190
   %194 = load ptr, ptr %12, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.19, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._open_ss_info, ptr noundef nonnull @plugin_type, ptr noundef %194) #11
-  br label %_open_ss_info.argprom.exit.thread
+  br label %_open_ss_info.exit.thread
 
 .split19.i:                                       ; preds = %.lr.ph.split.split.us.i, %231
   %195 = call i32 @get_log_level() #11
@@ -657,7 +657,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
   %235 = load i32, ptr %11, align 8
   %.not.i143 = icmp eq i32 %235, 5
   %236 = load ptr, ptr %12, align 8
-  br i1 %.not.i143, label %_open_ss_info.argprom.exit, label %237
+  br i1 %.not.i143, label %_open_ss_info.exit, label %237
 
 237:                                              ; preds = %.outer._crit_edge.i
   %238 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef %236, i32 noundef %235, i32 noundef 5) #11
@@ -665,20 +665,20 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
 
 239:                                              ; preds = %237, %203, %.split16.i, %200, %.split.us.i, %197, %.split19.i
   %240 = call i32 @close(i32 noundef %188) #11
-  br label %_open_ss_info.argprom.exit.thread
+  br label %_open_ss_info.exit.thread
 
-_open_ss_info.argprom.exit.thread:                ; preds = %190, %193, %239
+_open_ss_info.exit.thread:                        ; preds = %190, %193, %239
   call void @slurm_xfree(ptr noundef nonnull %12) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   br label %_setup_pals_profiles.exit.thread
 
-_open_ss_info.argprom.exit:                       ; preds = %.outer._crit_edge.i
+_open_ss_info.exit:                               ; preds = %.outer._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %241 = icmp slt i32 %188, 0
   br i1 %241, label %_setup_pals_profiles.exit.thread, label %242
 
-242:                                              ; preds = %_open_ss_info.argprom.exit
+242:                                              ; preds = %_open_ss_info.exit
   %243 = getelementptr inbounds i8, ptr %11, i64 32
   %244 = load i32, ptr %243, align 8
   %245 = icmp slt i32 %244, 0
@@ -852,8 +852,8 @@ _open_ss_info.argprom.exit:                       ; preds = %.outer._crit_edge.i
   call void @slurm_xfree(ptr noundef nonnull %5) #11
   br label %_setup_pals_profiles.exit.thread232
 
-_setup_pals_profiles.exit.thread:                 ; preds = %_open_ss_info.argprom.exit, %_open_ss_info.argprom.exit.thread
-  %.0.i225.ph = phi i32 [ -1, %_open_ss_info.argprom.exit.thread ], [ %188, %_open_ss_info.argprom.exit ]
+_setup_pals_profiles.exit.thread:                 ; preds = %_open_ss_info.exit, %_open_ss_info.exit.thread
+  %.0.i225.ph = phi i32 [ -1, %_open_ss_info.exit.thread ], [ %188, %_open_ss_info.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)

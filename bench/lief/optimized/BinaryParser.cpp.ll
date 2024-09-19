@@ -54247,24 +54247,24 @@ _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_error
   %377 = load ptr, ptr %12, align 8
   %378 = load ptr, ptr %77, align 8
   %.not4.i.i.i.i = icmp eq ptr %377, %378
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %376, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %379, %.lr.ph.i.i.i.i ], [ %377, %376 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #22
   %379 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %379, %378
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !684
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !684
 
-_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit.i: ; preds = %.lr.ph.i.i.i.i, %376
+_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %376
   %.not.i.i.i = icmp eq ptr %377, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.exit, label %380
 
-380:                                              ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit.i
+380:                                              ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit.i
   call void @_ZdlPv(ptr noundef nonnull %377) #23
   br label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit.i, %380
+_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit.i, %380
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   br label %381
 
@@ -55620,13 +55620,13 @@ define internal fastcc void @_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBi
   %14 = ptrtoint ptr %.val.i.i to i64
   %15 = sub i64 %13, %14
   %16 = icmp eq i64 %15, 9223372036854775800
-  br i1 %16, label %17, label %_ZNKSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %16, label %17, label %_ZNKSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 17:                                               ; preds = %12
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #25
   unreachable
 
-_ZNKSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %12
+_ZNKSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %12
   %18 = sdiv exact i64 %15, 56
   %19 = icmp eq ptr %4, %.val.i.i
   %.sroa.speculated.i.i.i = select i1 %19, i64 1, i64 %18
@@ -55635,25 +55635,25 @@ _ZNKSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE12_M_check_le
   %22 = tail call i64 @llvm.umin.i64(i64 %20, i64 164703072086692425)
   %23 = select i1 %21, i64 164703072086692425, i64 %22
   %.not.i.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit.i.i, label %24
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit.i.i, label %24
 
-24:                                               ; preds = %_ZNKSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i
+24:                                               ; preds = %_ZNKSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %25 = mul nuw nsw i64 %23, 56
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #24
-  br label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit.i.i
+  br label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %24, %_ZNKSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i
-  %27 = phi ptr [ %26, %24 ], [ null, %_ZNKSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
+_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %24, %_ZNKSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %27 = phi ptr [ %26, %24 ], [ null, %_ZNKSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %28 = getelementptr inbounds %"struct.LIEF::MachO::(anonymous namespace)::ThreadedBindData", ptr %27, i64 %18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   %29 = getelementptr inbounds i8, ptr %28, i64 32
   %30 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %29, ptr noundef nonnull align 8 dereferenceable(18) %30, i64 18, i1 false)
-  br i1 %19, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit26.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %19, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.03.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %27, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit.i.i ]
-  %.092.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %.val.i.i, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i
+  %.03.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %27, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit.i.i ]
+  %.092.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %.val.i.i, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i) #22
   %31 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 32
   %32 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 32
@@ -55662,19 +55662,19 @@ _ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_al
   %33 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 56
   %34 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i = icmp eq ptr %33, %4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit26.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !709
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !709
 
-_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit26.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %27, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit.i.i ], [ %34, %.lr.ph.i.i.i.i.i ]
+_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit.i.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %27, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit.i.i ], [ %34, %.lr.ph.i.i.i.i.i ]
   %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 56
   %.not.i27.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i27.i.i, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %36
 
-36:                                               ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit26.i.i
+36:                                               ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i.i) #23
   br label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit26.i.i
+_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i
   store ptr %27, ptr %0, align 8
   store ptr %35, ptr %3, align 8
   %37 = getelementptr inbounds %"struct.LIEF::MachO::(anonymous namespace)::ThreadedBindData", ptr %27, i64 %23
@@ -56119,9 +56119,9 @@ define internal fastcc void @_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBi
   %6 = sub i64 %4, %5
   %7 = sdiv exact i64 %6, 56
   %8 = icmp ult i64 %7, %1
-  br i1 %8, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit, label %22
+  br i1 %8, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit, label %22
 
-_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit: ; preds = %2
+_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit: ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %.val8 = load ptr, ptr %9, align 8
   %10 = ptrtoint ptr %.val8 to i64
@@ -56129,11 +56129,11 @@ _ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_al
   %12 = mul nuw nsw i64 %1, 56
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #24
   %.not1.i.i.i = icmp eq ptr %.val9, %.val8
-  br i1 %.not1.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit, label %.lr.ph.i.i.i
+  br i1 %.not1.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit, %.lr.ph.i.i.i
-  %.03.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %13, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit ]
-  %.092.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i ], [ %.val9, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit ]
+.lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
+  %.03.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %13, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit ]
+  %.092.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i ], [ %.val9, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i) #22
   %14 = getelementptr inbounds i8, ptr %.03.i.i.i, i64 32
   %15 = getelementptr inbounds i8, ptr %.092.i.i.i, i64 32
@@ -56142,22 +56142,22 @@ _ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_al
   %16 = getelementptr inbounds i8, ptr %.092.i.i.i, i64 56
   %17 = getelementptr inbounds i8, ptr %.03.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %16, %.val8
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !709
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !709
 
-_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit.loopexit: ; preds = %.lr.ph.i.i.i
+_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.loopexit: ; preds = %.lr.ph.i.i.i
   %.pre = load ptr, ptr %0, align 8
-  br label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit
+  br label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
 
-_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit: ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit.loopexit, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit
-  %18 = phi ptr [ %.pre, %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit.loopexit ], [ %.val9, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.argprom.exit ]
+_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.loopexit, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit
+  %18 = phi ptr [ %.pre, %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.loopexit ], [ %.val9, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit ]
   %.not.i11 = icmp eq ptr %18, null
-  br i1 %.not.i11, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.argprom.exit, label %19
+  br i1 %.not.i11, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.exit, label %19
 
-19:                                               ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit
+19:                                               ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %18) #23
-  br label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.argprom.exit
+  br label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.argprom.exit: ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit, %19
+_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %19
   store ptr %13, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %13, i64 %11
   store ptr %20, ptr %9, align 8
@@ -56165,7 +56165,7 @@ _ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_de
   store ptr %21, ptr %3, align 8
   br label %22
 
-22:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.argprom.exit, %2
+22:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.exit, %2
   ret void
 }
 
@@ -56175,29 +56175,29 @@ define internal fastcc void @_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBi
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
-  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit, label %.lr.ph.i.i.i
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #22
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !684
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !684
 
-_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
+_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.val.pr = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit
+  br label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit
 
-_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit: ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exitthread-pre-split, %1
-  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exitthread-pre-split ], [ %2, %1 ]
+_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exitthread-pre-split, %1
+  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.argprom.exit, label %6
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.exit, label %6
 
-6:                                                ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit
+6:                                                ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #23
-  br label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.argprom.exit: ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit, %6
+_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit, %6
   ret void
 }
 
@@ -70392,24 +70392,24 @@ _ZN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_error
   %377 = load ptr, ptr %12, align 8
   %378 = load ptr, ptr %77, align 8
   %.not4.i.i.i.i = icmp eq ptr %377, %378
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %376, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %379, %.lr.ph.i.i.i.i ], [ %377, %376 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #22
   %379 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %379, %378
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !684
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !684
 
-_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit.i: ; preds = %.lr.ph.i.i.i.i, %376
+_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %376
   %.not.i.i.i = icmp eq ptr %377, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.exit, label %380
 
-380:                                              ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit.i
+380:                                              ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit.i
   call void @_ZdlPv(ptr noundef nonnull %377) #23
   br label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.argprom.exit.i, %380
+_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_EvT_S5_RSaIT0_E.exit.i, %380
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   br label %381
 
@@ -75793,9 +75793,9 @@ attributes #27 = { nounwind willreturn memory(read) }
 !703 = distinct !{!703, !701, !"_ZSt19__relocate_object_aISt10unique_ptrIN4LIEF5MachO15DyldBindingInfoESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
 !704 = distinct !{!704, !13}
 !705 = !{!706, !708}
-!706 = distinct !{!706, !707, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_.argprom: argument 0"}
-!707 = distinct !{!707, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_.argprom"}
-!708 = distinct !{!708, !707, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_.argprom: argument 1"}
+!706 = distinct !{!706, !707, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!707 = distinct !{!707, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_"}
+!708 = distinct !{!708, !707, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
 !709 = distinct !{!709, !13}
 !710 = !{!711}
 !711 = distinct !{!711, !712, !"_ZSt11make_uniqueIN4LIEF5MachO14RelocationDyldEJRmRhEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
@@ -75806,9 +75806,9 @@ attributes #27 = { nounwind willreturn memory(read) }
 !716 = !{!717}
 !717 = distinct !{!717, !715, !"_ZSt19__relocate_object_aISt10unique_ptrIN4LIEF5MachO10RelocationESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
 !718 = !{!719, !721}
-!719 = distinct !{!719, !720, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_.argprom: argument 0"}
-!720 = distinct !{!720, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_.argprom"}
-!721 = distinct !{!721, !720, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_.argprom: argument 1"}
+!719 = distinct !{!719, !720, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!720 = distinct !{!720, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_"}
+!721 = distinct !{!721, !720, !"_ZSt19__relocate_object_aIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
 !722 = !{!723}
 !723 = distinct !{!723, !724, !"_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRKPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSL_: argument 0"}
 !724 = distinct !{!724, !"_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRKPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSL_"}

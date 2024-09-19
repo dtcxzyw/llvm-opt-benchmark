@@ -3082,7 +3082,7 @@ _ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i85: ; preds
   br i1 %97, label %98, label %_ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i89
 
 98:                                               ; preds = %_ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i85
-  tail call fastcc void @"_ZZNK4llvm9Attribute11getAsStringB5cxx11EbENK3$_0clB5cxx11EPKc.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, i8 %51, ptr nonnull %1, ptr noundef nonnull @.str.88)
+  tail call fastcc void @"_ZZNK4llvm9Attribute11getAsStringB5cxx11EbENK3$_0clB5cxx11EPKc"(ptr dead_on_unwind noalias writable align 8 %0, i8 %51, ptr nonnull %1, ptr noundef nonnull @.str.88)
   br label %356
 
 _ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i89: ; preds = %_ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i85
@@ -3092,7 +3092,7 @@ _ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i89: ; preds
   br i1 %101, label %102, label %_ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i93
 
 102:                                              ; preds = %_ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i89
-  tail call fastcc void @"_ZZNK4llvm9Attribute11getAsStringB5cxx11EbENK3$_0clB5cxx11EPKc.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, i8 %51, ptr nonnull %1, ptr noundef nonnull @.str.84)
+  tail call fastcc void @"_ZZNK4llvm9Attribute11getAsStringB5cxx11EbENK3$_0clB5cxx11EPKc"(ptr dead_on_unwind noalias writable align 8 %0, i8 %51, ptr nonnull %1, ptr noundef nonnull @.str.84)
   br label %356
 
 _ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i93: ; preds = %_ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i89
@@ -3102,7 +3102,7 @@ _ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i93: ; preds
   br i1 %105, label %106, label %_ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i97
 
 106:                                              ; preds = %_ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i93
-  tail call fastcc void @"_ZZNK4llvm9Attribute11getAsStringB5cxx11EbENK3$_0clB5cxx11EPKc.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, i8 %51, ptr nonnull %1, ptr noundef nonnull @.str.85)
+  tail call fastcc void @"_ZZNK4llvm9Attribute11getAsStringB5cxx11EbENK3$_0clB5cxx11EPKc"(ptr dead_on_unwind noalias writable align 8 %0, i8 %51, ptr nonnull %1, ptr noundef nonnull @.str.85)
   br label %356
 
 _ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i97: ; preds = %_ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i93
@@ -3800,7 +3800,7 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm9Attribute11getAsStringB5cxx11EbENK3$_0clB5cxx11EPKc.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %0, i8 %.0.val.0.val, ptr nocapture readonly %.8.val, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm9Attribute11getAsStringB5cxx11EbENK3$_0clB5cxx11EPKc"(ptr dead_on_unwind noalias writable align 8 %0, i8 %.0.val.0.val, ptr nocapture readonly %.8.val, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca i64, align 8
@@ -5155,7 +5155,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11AttrBuilder8overlapsERKNS_13Attr
   %.029115.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i ], [ %110, %109 ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.029115.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.029.val.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %22
   %23 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i.i, i64 8
@@ -5182,9 +5182,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4l
   %34 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i.i, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %33, %22
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i": ; preds = %33, %22
   %.0.i.i.i.i.i.i.i.i.i.i = phi i64 [ %36, %33 ], [ 0, %22 ]
   %37 = lshr i64 %.0.i.i.i.i.i.i.i.i.i.i, 6
   %38 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %37
@@ -5195,11 +5195,11 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4l
   %.not90.i.i.i.i.i.i = icmp eq i64 %42, 0
   br i1 %.not90.i.i.i.i.i.i, label %43, label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit"
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i
   %44 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 8
   %.val31.i.i.i.i.i.i = load ptr, ptr %44, align 8
   %.not.i.i.i.i40.i.i.i.i.i.i = icmp eq ptr %.val31.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i40.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit47.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i41.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i40.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit47.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i41.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i41.i.i.i.i.i.i: ; preds = %43
   %45 = getelementptr inbounds nuw i8, ptr %.val31.i.i.i.i.i.i, i64 8
@@ -5226,9 +5226,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i45.i.i.i.i.i.i: ; preds = %_ZNK
   %56 = getelementptr inbounds nuw i8, ptr %.val31.i.i.i.i.i.i, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = zext i32 %57 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit47.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit47.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit47.i.i.i.i.i.i": ; preds = %55, %43
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit47.i.i.i.i.i.i": ; preds = %55, %43
   %.0.i.i.i.i43.i.i.i.i.i.i = phi i64 [ %58, %55 ], [ 0, %43 ]
   %59 = lshr i64 %.0.i.i.i.i43.i.i.i.i.i.i, 6
   %60 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %59
@@ -5239,11 +5239,11 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i45.i.i.i.i.i.i: ; preds = %_ZNK
   %.not91.i.i.i.i.i.i = icmp eq i64 %64, 0
   br i1 %.not91.i.i.i.i.i.i, label %65, label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
-65:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit47.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i45.i.i.i.i.i.i
+65:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit47.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i45.i.i.i.i.i.i
   %66 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 16
   %.val33.i.i.i.i.i.i = load ptr, ptr %66, align 8
   %.not.i.i.i.i48.i.i.i.i.i.i = icmp eq ptr %.val33.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i48.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit55.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i49.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i48.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit55.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i49.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i49.i.i.i.i.i.i: ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %.val33.i.i.i.i.i.i, i64 8
@@ -5270,9 +5270,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i53.i.i.i.i.i.i: ; preds = %_ZNK
   %78 = getelementptr inbounds nuw i8, ptr %.val33.i.i.i.i.i.i, i64 12
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit55.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit55.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit55.i.i.i.i.i.i": ; preds = %77, %65
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit55.i.i.i.i.i.i": ; preds = %77, %65
   %.0.i.i.i.i51.i.i.i.i.i.i = phi i64 [ %80, %77 ], [ 0, %65 ]
   %81 = lshr i64 %.0.i.i.i.i51.i.i.i.i.i.i, 6
   %82 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %81
@@ -5283,11 +5283,11 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i53.i.i.i.i.i.i: ; preds = %_ZNK
   %.not92.i.i.i.i.i.i = icmp eq i64 %86, 0
   br i1 %.not92.i.i.i.i.i.i, label %87, label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit28"
 
-87:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit55.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i53.i.i.i.i.i.i
+87:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit55.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i53.i.i.i.i.i.i
   %88 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 24
   %.val35.i.i.i.i.i.i = load ptr, ptr %88, align 8
   %.not.i.i.i.i56.i.i.i.i.i.i = icmp eq ptr %.val35.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit63.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i57.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit63.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i57.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i57.i.i.i.i.i.i: ; preds = %87
   %89 = getelementptr inbounds nuw i8, ptr %.val35.i.i.i.i.i.i, i64 8
@@ -5314,9 +5314,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i61.i.i.i.i.i.i: ; preds = %_ZNK
   %100 = getelementptr inbounds nuw i8, ptr %.val35.i.i.i.i.i.i, i64 12
   %101 = load i32, ptr %100, align 4
   %102 = zext i32 %101 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit63.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit63.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit63.i.i.i.i.i.i": ; preds = %99, %87
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit63.i.i.i.i.i.i": ; preds = %99, %87
   %.0.i.i.i.i59.i.i.i.i.i.i = phi i64 [ %102, %99 ], [ 0, %87 ]
   %103 = lshr i64 %.0.i.i.i.i59.i.i.i.i.i.i, 6
   %104 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %103
@@ -5327,7 +5327,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i61.i.i.i.i.i.i: ; preds = %_ZNK
   %.not93.i.i.i.i.i.i = icmp eq i64 %108, 0
   br i1 %.not93.i.i.i.i.i.i, label %109, label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit30"
 
-109:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit63.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i61.i.i.i.i.i.i
+109:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit63.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i61.i.i.i.i.i.i
   %110 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 32
   %111 = add nsw i64 %.0116.i.i.i.i.i.i, -1
   %112 = icmp sgt i64 %.0116.i.i.i.i.i.i, 1
@@ -5351,7 +5351,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i61.i.i.i.i.i.i: ; preds = %_ZNK
 114:                                              ; preds = %._crit_edge.i.i.i.i.i.i
   %.029.val37.i.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i.i, align 8
   %.not.i.i.i.i64.i.i.i.i.i.i = icmp eq ptr %.029.val37.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i65.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i65.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i65.i.i.i.i.i.i: ; preds = %114
   %115 = getelementptr inbounds nuw i8, ptr %.029.val37.i.i.i.i.i.i, i64 8
@@ -5380,9 +5380,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i: ; preds = %_ZNK
   %128 = getelementptr inbounds nuw i8, ptr %.029.val37.i.i.i.i.i.i, i64 12
   %129 = load i32, ptr %128, align 4
   %130 = zext i32 %129 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i": ; preds = %127, %114
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i": ; preds = %127, %114
   %.0.i.i.i.i67.i.i.i.i.i.i = phi i64 [ %130, %127 ], [ 0, %114 ]
   %131 = lshr i64 %.0.i.i.i.i67.i.i.i.i.i.i, 6
   %132 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %131
@@ -5393,7 +5393,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i: ; preds = %_ZNK
   %.not.i.i.i.i.i.i = icmp eq i64 %136, 0
   br i1 %.not.i.i.i.i.i.i, label %137, label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit"
 
-137:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i
+137:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i
   %138 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   br label %139
 
@@ -5401,7 +5401,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i: ; preds = %_ZNK
   %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %138, %137 ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8
   %.not.i.i.i.i72.i.i.i.i.i.i = icmp eq ptr %.1.val.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i72.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i73.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i72.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i73.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i73.i.i.i.i.i.i: ; preds = %139
   %140 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 8
@@ -5430,9 +5430,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i: ; preds = %_ZNK
   %153 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 12
   %154 = load i32, ptr %153, align 4
   %155 = zext i32 %154 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i": ; preds = %152, %139
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i": ; preds = %152, %139
   %.0.i.i.i.i75.i.i.i.i.i.i = phi i64 [ %155, %152 ], [ 0, %139 ]
   %156 = lshr i64 %.0.i.i.i.i75.i.i.i.i.i.i, 6
   %157 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %156
@@ -5443,7 +5443,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i: ; preds = %_ZNK
   %.not88.i.i.i.i.i.i = icmp eq i64 %161, 0
   br i1 %.not88.i.i.i.i.i.i, label %162, label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit"
 
-162:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i
+162:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i
   %163 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %164
 
@@ -5451,7 +5451,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i: ; preds = %_ZNK
   %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %163, %162 ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8
   %.not.i.i.i.i80.i.i.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i80.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i81.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i80.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i81.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i81.i.i.i.i.i.i: ; preds = %164
   %165 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 8
@@ -5480,9 +5480,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i: ; preds = %_ZNK
   %178 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 12
   %179 = load i32, ptr %178, align 4
   %180 = zext i32 %179 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i": ; preds = %177, %164
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i": ; preds = %177, %164
   %.0.i.i.i.i83.i.i.i.i.i.i = phi i64 [ %180, %177 ], [ 0, %164 ]
   %181 = lshr i64 %.0.i.i.i.i83.i.i.i.i.i.i, 6
   %182 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %181
@@ -5493,18 +5493,18 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i: ; preds = %_ZNK
   %.not89.i.i.i.i.i.i = icmp eq i64 %186, 0
   br i1 %.not89.i.i.i.i.i.i, label %187, label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit"
 
-187:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+187:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
   br label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit47.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit47.i.i.i.i.i.i"
   %188 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit28": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit55.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit28": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit55.i.i.i.i.i.i"
   %189 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit30": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit63.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit30": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit63.i.i.i.i.i.i"
   %190 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit"
 
@@ -5520,8 +5520,8 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i: ; preds = %_ZNK
   %193 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit": ; preds = %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit28", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit30", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit32", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit34", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit36", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i", %187
-  %.028.i.i.i.i.i.i = phi ptr [ %13, %187 ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i ], [ %188, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %189, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit28" ], [ %190, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit30" ], [ %191, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit32" ], [ %192, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit34" ], [ %193, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit36" ], [ %.029115.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i" ], [ %.029115.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit": ; preds = %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit28", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit30", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit32", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit34", %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit36", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i", %187
+  %.028.i.i.i.i.i.i = phi ptr [ %13, %187 ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i ], [ %188, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %189, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit28" ], [ %190, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit30" ], [ %191, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit32" ], [ %192, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit34" ], [ %193, %"_ZN4llvm6any_ofIRKNS_11SmallVectorINS_9AttributeELj8EEEZNKS_11AttrBuilder8overlapsERKNS_13AttributeMaskEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit36" ], [ %.029115.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm11AttrBuilder8overlapsERKNS2_13AttributeMaskEE3$_0EclIPKNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i" ], [ %.029115.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i ]
   %194 = icmp ne ptr %13, %.028.i.i.i.i.i.i
   ret i1 %194
 }
@@ -5558,7 +5558,7 @@ define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11Attr
   %.029115.i.i.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i.i.i ], [ %111, %110 ]
   %.029.val39.i.i.i.i.i.i = load ptr, ptr %.029115.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.029.val39.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %23
   %24 = getelementptr inbounds nuw i8, ptr %.029.val39.i.i.i.i.i.i, i64 8
@@ -5585,9 +5585,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4l
   %35 = getelementptr inbounds nuw i8, ptr %.029.val39.i.i.i.i.i.i, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %34, %23
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i": ; preds = %34, %23
   %.0.i.i.i.i.i.i.i.i.i.i = phi i64 [ %37, %34 ], [ 0, %23 ]
   %38 = lshr i64 %.0.i.i.i.i.i.i.i.i.i.i, 6
   %39 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %38
@@ -5598,11 +5598,11 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4l
   %.not90.i.i.i.i.i.i = icmp eq i64 %43, 0
   br i1 %.not90.i.i.i.i.i.i, label %44, label %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i"
 
-44:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i
+44:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i
   %45 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 8
   %.val37.i.i.i.i.i.i = load ptr, ptr %45, align 8
   %.not.i.i.i.i40.i.i.i.i.i.i = icmp eq ptr %.val37.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i40.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit47.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i41.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i40.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit47.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i41.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i41.i.i.i.i.i.i: ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %.val37.i.i.i.i.i.i, i64 8
@@ -5629,9 +5629,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i45.i.i.i.i.i.i: ; preds = %_ZNK
   %57 = getelementptr inbounds nuw i8, ptr %.val37.i.i.i.i.i.i, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = zext i32 %58 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit47.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit47.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit47.i.i.i.i.i.i": ; preds = %56, %44
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit47.i.i.i.i.i.i": ; preds = %56, %44
   %.0.i.i.i.i43.i.i.i.i.i.i = phi i64 [ %59, %56 ], [ 0, %44 ]
   %60 = lshr i64 %.0.i.i.i.i43.i.i.i.i.i.i, 6
   %61 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %60
@@ -5642,11 +5642,11 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i45.i.i.i.i.i.i: ; preds = %_ZNK
   %.not91.i.i.i.i.i.i = icmp eq i64 %65, 0
   br i1 %.not91.i.i.i.i.i.i, label %66, label %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit"
 
-66:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit47.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i45.i.i.i.i.i.i
+66:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit47.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i45.i.i.i.i.i.i
   %67 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 16
   %.val35.i.i.i.i.i.i = load ptr, ptr %67, align 8
   %.not.i.i.i.i48.i.i.i.i.i.i = icmp eq ptr %.val35.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i48.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit55.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i49.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i48.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit55.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i49.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i49.i.i.i.i.i.i: ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %.val35.i.i.i.i.i.i, i64 8
@@ -5673,9 +5673,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i53.i.i.i.i.i.i: ; preds = %_ZNK
   %79 = getelementptr inbounds nuw i8, ptr %.val35.i.i.i.i.i.i, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = zext i32 %80 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit55.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit55.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit55.i.i.i.i.i.i": ; preds = %78, %66
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit55.i.i.i.i.i.i": ; preds = %78, %66
   %.0.i.i.i.i51.i.i.i.i.i.i = phi i64 [ %81, %78 ], [ 0, %66 ]
   %82 = lshr i64 %.0.i.i.i.i51.i.i.i.i.i.i, 6
   %83 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %82
@@ -5686,11 +5686,11 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i53.i.i.i.i.i.i: ; preds = %_ZNK
   %.not92.i.i.i.i.i.i = icmp eq i64 %87, 0
   br i1 %.not92.i.i.i.i.i.i, label %88, label %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit28"
 
-88:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit55.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i53.i.i.i.i.i.i
+88:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit55.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i53.i.i.i.i.i.i
   %89 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 24
   %.val33.i.i.i.i.i.i = load ptr, ptr %89, align 8
   %.not.i.i.i.i56.i.i.i.i.i.i = icmp eq ptr %.val33.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit63.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i57.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit63.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i57.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i57.i.i.i.i.i.i: ; preds = %88
   %90 = getelementptr inbounds nuw i8, ptr %.val33.i.i.i.i.i.i, i64 8
@@ -5717,9 +5717,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i61.i.i.i.i.i.i: ; preds = %_ZNK
   %101 = getelementptr inbounds nuw i8, ptr %.val33.i.i.i.i.i.i, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit63.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit63.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit63.i.i.i.i.i.i": ; preds = %100, %88
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit63.i.i.i.i.i.i": ; preds = %100, %88
   %.0.i.i.i.i59.i.i.i.i.i.i = phi i64 [ %103, %100 ], [ 0, %88 ]
   %104 = lshr i64 %.0.i.i.i.i59.i.i.i.i.i.i, 6
   %105 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %104
@@ -5730,7 +5730,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i61.i.i.i.i.i.i: ; preds = %_ZNK
   %.not93.i.i.i.i.i.i = icmp eq i64 %109, 0
   br i1 %.not93.i.i.i.i.i.i, label %110, label %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit30"
 
-110:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit63.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i61.i.i.i.i.i.i
+110:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit63.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i61.i.i.i.i.i.i
   %111 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 32
   %112 = add nsw i64 %.0116.i.i.i.i.i.i, -1
   %113 = icmp sgt i64 %.0116.i.i.i.i.i.i, 1
@@ -5754,7 +5754,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i61.i.i.i.i.i.i: ; preds = %_ZNK
 115:                                              ; preds = %._crit_edge.i.i.i.i.i.i
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i.i, align 8
   %.not.i.i.i.i64.i.i.i.i.i.i = icmp eq ptr %.029.val.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i65.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i65.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i65.i.i.i.i.i.i: ; preds = %115
   %116 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i.i, i64 8
@@ -5783,9 +5783,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i: ; preds = %_ZNK
   %129 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i.i, i64 12
   %130 = load i32, ptr %129, align 4
   %131 = zext i32 %130 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i": ; preds = %128, %115
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i": ; preds = %128, %115
   %.0.i.i.i.i67.i.i.i.i.i.i = phi i64 [ %131, %128 ], [ 0, %115 ]
   %132 = lshr i64 %.0.i.i.i.i67.i.i.i.i.i.i, 6
   %133 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %132
@@ -5796,7 +5796,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i: ; preds = %_ZNK
   %.not.i.i.i.i.i.i = icmp eq i64 %137, 0
   br i1 %.not.i.i.i.i.i.i, label %138, label %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i"
 
-138:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i
+138:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i
   %139 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   br label %140
 
@@ -5804,7 +5804,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i: ; preds = %_ZNK
   %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %139, %138 ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8
   %.not.i.i.i.i72.i.i.i.i.i.i = icmp eq ptr %.1.val.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i72.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i73.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i72.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i73.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i73.i.i.i.i.i.i: ; preds = %140
   %141 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 8
@@ -5833,9 +5833,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i: ; preds = %_ZNK
   %154 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 12
   %155 = load i32, ptr %154, align 4
   %156 = zext i32 %155 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i": ; preds = %153, %140
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i": ; preds = %153, %140
   %.0.i.i.i.i75.i.i.i.i.i.i = phi i64 [ %156, %153 ], [ 0, %140 ]
   %157 = lshr i64 %.0.i.i.i.i75.i.i.i.i.i.i, 6
   %158 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %157
@@ -5846,7 +5846,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i: ; preds = %_ZNK
   %.not88.i.i.i.i.i.i = icmp eq i64 %162, 0
   br i1 %.not88.i.i.i.i.i.i, label %163, label %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i"
 
-163:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i
+163:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i
   %164 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %165
 
@@ -5854,7 +5854,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i: ; preds = %_ZNK
   %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %164, %163 ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8
   %.not.i.i.i.i80.i.i.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i80.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i81.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i80.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i81.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i81.i.i.i.i.i.i: ; preds = %165
   %166 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 8
@@ -5883,9 +5883,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i: ; preds = %_ZNK
   %179 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 12
   %180 = load i32, ptr %179, align 4
   %181 = zext i32 %180 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i": ; preds = %178, %165
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i": ; preds = %178, %165
   %.0.i.i.i.i83.i.i.i.i.i.i = phi i64 [ %181, %178 ], [ 0, %165 ]
   %182 = lshr i64 %.0.i.i.i.i83.i.i.i.i.i.i, 6
   %183 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %182
@@ -5896,15 +5896,15 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i: ; preds = %_ZNK
   %.not89.i.i.i.i.i.i = icmp eq i64 %187, 0
   br i1 %.not89.i.i.i.i.i.i, label %"_ZN4llvm9remove_ifIRNS_11SmallVectorINS_9AttributeELj8EEEZNS_11AttrBuilder6removeERKNS_13AttributeMaskEE3$_0EEDaOT_T0_.exit.i", label %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit47.i.i.i.i.i.i"
+"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit47.i.i.i.i.i.i"
   %188 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 8
   br label %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit28": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit55.i.i.i.i.i.i"
+"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit28": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit55.i.i.i.i.i.i"
   %189 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 16
   br label %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit30": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit63.i.i.i.i.i.i"
+"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit30": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit63.i.i.i.i.i.i"
   %190 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 24
   br label %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i"
 
@@ -5920,8 +5920,8 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i: ; preds = %_ZNK
   %193 = getelementptr inbounds i8, ptr %.029115.i.i.i.i.i.i, i64 24
   br label %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit28", %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit30", %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit32", %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit34", %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit36", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit71.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit79.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i ], [ %188, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %189, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit28" ], [ %190, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit30" ], [ %191, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit32" ], [ %192, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit34" ], [ %193, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit36" ], [ %.029115.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i ], [ %.029115.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i.i.i" ]
+"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit28", %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit30", %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit32", %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit34", %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit36", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit71.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit79.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i69.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i77.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i ], [ %188, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %189, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit28" ], [ %190, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit30" ], [ %191, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit32" ], [ %192, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit34" ], [ %193, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.loopexit.split.loop.exit36" ], [ %.029115.i.i.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i.i.i ], [ %.029115.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i.i.i" ]
   %194 = icmp eq ptr %.028.i.i.i.i.i.i, %14
   br i1 %194, label %"_ZN4llvm9remove_ifIRNS_11SmallVectorINS_9AttributeELj8EEEZNS_11AttrBuilder6removeERKNS_13AttributeMaskEE3$_0EEDaOT_T0_.exit.i", label %.preheader.i.i.i.i
 
@@ -5941,7 +5941,7 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i: ; preds = %_ZNK
   %.017.val.i.i.i.i = load ptr, ptr %.01745.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.017.val.i.i.i.i, null
   %198 = ptrtoint ptr %.017.val.i.i.i.i to i64
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i", label %_ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i.i.i.i.i
 
 _ZNK4llvm9Attribute17isStringAttributeEv.exit.i.i.i.i.i.i.i: ; preds = %197
   %199 = getelementptr inbounds nuw i8, ptr %.017.val.i.i.i.i, i64 8
@@ -5972,9 +5972,9 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i._crit_edge.i.i.i.i: ; preds = 
   %210 = getelementptr inbounds nuw i8, ptr %.017.val.i.i.i.i, i64 12
   %211 = load i32, ptr %210, align 4
   %212 = zext i32 %211 to i64
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i": ; preds = %209, %197
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i": ; preds = %209, %197
   %.0.i.i.i.i.i.i.i.i = phi i64 [ %212, %209 ], [ 0, %197 ]
   %213 = lshr i64 %.0.i.i.i.i.i.i.i.i, 6
   %214 = getelementptr inbounds [2 x i64], ptr %1, i64 0, i64 %213
@@ -5985,20 +5985,20 @@ _ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i._crit_edge.i.i.i.i: ; preds = 
   %.not22.i.i.i.i = icmp eq i64 %218, 0
   br i1 %.not22.i.i.i.i, label %219, label %222
 
-219:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i._crit_edge.i.i.i.i
-  %220 = phi i64 [ %.pre.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i._crit_edge.i.i.i.i ], [ %198, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i" ]
+219:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i._crit_edge.i.i.i.i
+  %220 = phi i64 [ %.pre.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i._crit_edge.i.i.i.i ], [ %198, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i" ]
   store i64 %220, ptr %.044.i.i.i.i, align 8
   %221 = getelementptr inbounds i8, ptr %.044.i.i.i.i, i64 8
   br label %222
 
-222:                                              ; preds = %219, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.044.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit.i.i.i.i" ], [ %221, %219 ], [ %.044.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i ]
+222:                                              ; preds = %219, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %.044.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit.i.i.i.i" ], [ %221, %219 ], [ %.044.i.i.i.i, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i.i.i.i.i ]
   %.017.i.i.i.i = getelementptr inbounds i8, ptr %.01745.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %14
   br i1 %.not.i.i.i.i, label %"_ZN4llvm9remove_ifIRNS_11SmallVectorINS_9AttributeELj8EEEZNS_11AttrBuilder6removeERKNS_13AttributeMaskEE3$_0EEDaOT_T0_.exit.i", label %197, !llvm.loop !48
 
-"_ZN4llvm9remove_ifIRNS_11SmallVectorINS_9AttributeELj8EEEZNS_11AttrBuilder6removeERKNS_13AttributeMaskEE3$_0EEDaOT_T0_.exit.i": ; preds = %222, %.preheader.i.i.i.i, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %14, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i" ], [ %14, %._crit_edge.i.i.i.i.i.i ], [ %14, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i ], [ %14, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.argprom.exit87.i.i.i.i.i.i" ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %222 ]
+"_ZN4llvm9remove_ifIRNS_11SmallVectorINS_9AttributeELj8EEEZNS_11AttrBuilder6removeERKNS_13AttributeMaskEE3$_0EEDaOT_T0_.exit.i": ; preds = %222, %.preheader.i.i.i.i, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i", %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+  %.016.i.i.i.i = phi ptr [ %14, %"_ZSt9__find_ifIPN4llvm9AttributeEN9__gnu_cxx5__ops10_Iter_predIZNS0_11AttrBuilder6removeERKNS0_13AttributeMaskEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i" ], [ %14, %._crit_edge.i.i.i.i.i.i ], [ %14, %_ZNK4llvm9Attribute15getKindAsStringEv.exit.i.i.i85.i.i.i.i.i.i ], [ %14, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11AttrBuilder6removeERKNS2_13AttributeMaskEE3$_0EclIPNS2_9AttributeEEEbT_.exit87.i.i.i.i.i.i" ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %222 ]
   %223 = load ptr, ptr %11, align 8
   %224 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
   %225 = getelementptr inbounds %"class.llvm::Attribute", ptr %223, i64 %224
@@ -6092,21 +6092,21 @@ define dso_local ptr @_ZNK4llvm12AttributeSet12getAttributeENS_9Attribute8AttrKi
   %29 = icmp sgt i64 %28, 0
   br i1 %29, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i
 
-_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
-  %.05.i.i.i.i = phi ptr [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ], [ %15, %14 ]
-  %.0114.i.i.i.i = phi i64 [ %.112.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ], [ %28, %14 ]
+_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
+  %.05.i.i.i.i = phi ptr [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ], [ %15, %14 ]
+  %.0114.i.i.i.i = phi i64 [ %.112.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ], [ %28, %14 ]
   %30 = lshr i64 %.0114.i.i.i.i, 1
   %31 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %30
   %.val.i.i.i.i = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", label %32
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", label %32
 
 32:                                               ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %34 = load i32, ptr %33, align 4
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %32, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %32, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %.0.i.i.i.i.i.i.i = phi i32 [ %34, %32 ], [ 0, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i ]
   %35 = icmp slt i32 %.0.i.i.i.i.i.i.i, %1
   %36 = getelementptr inbounds i8, ptr %31, i64 8
@@ -6117,8 +6117,8 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %"_ZN9__g
   %39 = icmp sgt i64 %.112.i.i.i.i, 0
   br i1 %39, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
-.loopexit.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %14
-  %.0.lcssa.i.i.i.i = phi ptr [ %15, %14 ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+.loopexit.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %14
+  %.0.lcssa.i.i.i.i = phi ptr [ %15, %14 ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %40 = load i64, ptr %.0.lcssa.i.i.i.i, align 8
   %41 = inttoptr i64 %40 to ptr
   br label %_ZNK4llvm16AttributeSetNode12getAttributeENS_9Attribute8AttrKindE.exit
@@ -6160,21 +6160,21 @@ define dso_local ptr @_ZNK4llvm16AttributeSetNode12getAttributeENS_9Attribute8At
   %27 = icmp sgt i64 %26, 0
   br i1 %27, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit
 
-_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %12, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
-  %.05.i.i.i = phi ptr [ %.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ], [ %13, %12 ]
-  %.0114.i.i.i = phi i64 [ %.112.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ], [ %26, %12 ]
+_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %12, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
+  %.05.i.i.i = phi ptr [ %.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ], [ %13, %12 ]
+  %.0114.i.i.i = phi i64 [ %.112.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ], [ %26, %12 ]
   %28 = lshr i64 %.0114.i.i.i, 1
   %29 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %28
   %.val.i.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", label %30
 
 30:                                               ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %32 = load i32, ptr %31, align 4
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %30, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %30, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %.0.i.i.i.i.i.i = phi i32 [ %32, %30 ], [ 0, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i ]
   %33 = icmp slt i32 %.0.i.i.i.i.i.i, %1
   %34 = getelementptr inbounds i8, ptr %29, i64 8
@@ -6185,8 +6185,8 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %12, %"_ZN9__gnu
   %37 = icmp sgt i64 %.112.i.i.i, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
-.loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %12
-  %.0.lcssa.i.i.i = phi ptr [ %13, %12 ], [ %.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+.loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %12
+  %.0.lcssa.i.i.i = phi ptr [ %13, %12 ], [ %.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %38 = load i64, ptr %.0.lcssa.i.i.i, align 8
   %39 = inttoptr i64 %38 to ptr
   br label %40
@@ -6289,7 +6289,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -6297,7 +6297,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr.i = freeze i32 %29
@@ -6309,9 +6309,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select1 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread.i
-  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread.i
+  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -6366,7 +6366,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %22 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %21
   %.val.i.i.i = load ptr, ptr %22, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %23 = getelementptr inbounds i8, ptr %22, i64 8
@@ -6374,7 +6374,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %25 = add nsw i64 %.0114.i.i.i, %24
   br label %32
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %27 = load i32, ptr %26, align 4
   %.fr = freeze i32 %27
@@ -6386,9 +6386,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %spec.select16 = select i1 %28, ptr %29, ptr %.05.i.i.i
   br label %32
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %.thread
-  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
-  %34 = phi ptr [ %23, %.thread ], [ %spec.select16, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %.thread
+  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
+  %34 = phi ptr [ %23, %.thread ], [ %spec.select16, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %35 = icmp sgt i64 %33, 0
   br i1 %35, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
@@ -6448,7 +6448,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -6456,7 +6456,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr.i = freeze i32 %29
@@ -6468,9 +6468,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select1 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread.i
-  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread.i
+  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -6525,7 +6525,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %22 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %21
   %.val.i.i.i = load ptr, ptr %22, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %23 = getelementptr inbounds i8, ptr %22, i64 8
@@ -6533,7 +6533,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %25 = add nsw i64 %.0114.i.i.i, %24
   br label %32
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %27 = load i32, ptr %26, align 4
   %.fr = freeze i32 %27
@@ -6545,9 +6545,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %spec.select16 = select i1 %28, ptr %29, ptr %.05.i.i.i
   br label %32
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %.thread
-  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
-  %34 = phi ptr [ %23, %.thread ], [ %spec.select16, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %.thread
+  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
+  %34 = phi ptr [ %23, %.thread ], [ %spec.select16, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %35 = icmp sgt i64 %33, 0
   br i1 %35, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
@@ -6607,7 +6607,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -6615,7 +6615,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr.i = freeze i32 %29
@@ -6627,9 +6627,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select1 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread.i
-  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread.i
+  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -6679,7 +6679,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %22 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %21
   %.val.i.i.i = load ptr, ptr %22, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %23 = getelementptr inbounds i8, ptr %22, i64 8
@@ -6687,7 +6687,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %25 = add nsw i64 %.0114.i.i.i, %24
   br label %32
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %27 = load i32, ptr %26, align 4
   %.fr = freeze i32 %27
@@ -6699,9 +6699,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %spec.select14 = select i1 %28, ptr %29, ptr %.05.i.i.i
   br label %32
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %.thread
-  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
-  %34 = phi ptr [ %23, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %.thread
+  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
+  %34 = phi ptr [ %23, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %35 = icmp sgt i64 %33, 0
   br i1 %35, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
@@ -6756,7 +6756,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -6764,7 +6764,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr.i = freeze i32 %29
@@ -6776,9 +6776,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select1 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread.i
-  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread.i
+  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -6828,7 +6828,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %22 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %21
   %.val.i.i.i = load ptr, ptr %22, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %23 = getelementptr inbounds i8, ptr %22, i64 8
@@ -6836,7 +6836,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %25 = add nsw i64 %.0114.i.i.i, %24
   br label %32
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %27 = load i32, ptr %26, align 4
   %.fr = freeze i32 %27
@@ -6848,9 +6848,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %spec.select14 = select i1 %28, ptr %29, ptr %.05.i.i.i
   br label %32
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %.thread
-  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
-  %34 = phi ptr [ %23, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %.thread
+  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
+  %34 = phi ptr [ %23, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %35 = icmp sgt i64 %33, 0
   br i1 %35, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
@@ -6905,7 +6905,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -6913,7 +6913,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr = freeze i32 %29
@@ -6925,9 +6925,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select9 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread
-  %35 = phi i64 [ %27, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread
+  %35 = phi i64 [ %27, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -6980,21 +6980,21 @@ define dso_local noundef ptr @_ZNK4llvm16AttributeSetNode16getAttributeTypeENS_9
   %27 = icmp sgt i64 %26, 0
   br i1 %27, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit
 
-_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %12, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
-  %.05.i.i.i = phi ptr [ %.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ], [ %13, %12 ]
-  %.0114.i.i.i = phi i64 [ %.112.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ], [ %26, %12 ]
+_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %12, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
+  %.05.i.i.i = phi ptr [ %.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ], [ %13, %12 ]
+  %.0114.i.i.i = phi i64 [ %.112.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ], [ %26, %12 ]
   %28 = lshr i64 %.0114.i.i.i, 1
   %29 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %28
   %.val.i.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", label %30
 
 30:                                               ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %32 = load i32, ptr %31, align 4
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %30, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %30, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %.0.i.i.i.i.i.i = phi i32 [ %32, %30 ], [ 0, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i ]
   %33 = icmp slt i32 %.0.i.i.i.i.i.i, %1
   %34 = getelementptr inbounds i8, ptr %29, i64 8
@@ -7005,8 +7005,8 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %12, %"_ZN9__gnu
   %37 = icmp sgt i64 %.112.i.i.i, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
-.loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %12
-  %.0.lcssa.i.i.i = phi ptr [ %13, %12 ], [ %.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+.loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %12
+  %.0.lcssa.i.i.i = phi ptr [ %13, %12 ], [ %.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %38 = load i64, ptr %.0.lcssa.i.i.i, align 8
   %.not.i2 = icmp eq i64 %38, 0
   br i1 %.not.i2, label %_ZNK4llvm9Attribute14getValueAsTypeEv.exit, label %39
@@ -7060,7 +7060,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -7068,7 +7068,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr = freeze i32 %29
@@ -7080,9 +7080,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select9 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread
-  %35 = phi i64 [ %27, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread
+  %35 = phi i64 [ %27, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -7141,7 +7141,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -7149,7 +7149,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr = freeze i32 %29
@@ -7161,9 +7161,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select9 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread
-  %35 = phi i64 [ %27, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread
+  %35 = phi i64 [ %27, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -7222,7 +7222,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -7230,7 +7230,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr = freeze i32 %29
@@ -7242,9 +7242,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select9 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread
-  %35 = phi i64 [ %27, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread
+  %35 = phi i64 [ %27, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -7302,7 +7302,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %6, %33
   %23 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %22
   %.val.i.i.i.i = load ptr, ptr %23, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %23, i64 8
@@ -7310,7 +7310,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %6, %33
   %26 = add nsw i64 %.0114.i.i.i.i, %25
   br label %33
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %28 = load i32, ptr %27, align 4
   %.fr = freeze i32 %28
@@ -7322,9 +7322,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %6, %33
   %spec.select9 = select i1 %29, ptr %30, ptr %.05.i.i.i.i
   br label %33
 
-33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread
-  %34 = phi i64 [ %26, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %35 = phi ptr [ %24, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread
+  %34 = phi i64 [ %26, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %35 = phi ptr [ %24, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %36 = icmp sgt i64 %34, 0
   br i1 %36, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -7383,7 +7383,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -7391,7 +7391,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr = freeze i32 %29
@@ -7403,9 +7403,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select9 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread
-  %35 = phi i64 [ %27, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread
+  %35 = phi i64 [ %27, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread ], [ %spec.select9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -7465,7 +7465,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %8, %35
   %25 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %24
   %.val.i.i.i.i = load ptr, ptr %25, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %26 = getelementptr inbounds i8, ptr %25, i64 8
@@ -7473,7 +7473,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %8, %35
   %28 = add nsw i64 %.0114.i.i.i.i, %27
   br label %35
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %30 = load i32, ptr %29, align 4
   %.fr.i = freeze i32 %30
@@ -7485,9 +7485,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %8, %35
   %spec.select1 = select i1 %31, ptr %32, ptr %.05.i.i.i.i
   br label %35
 
-35:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread.i
-  %36 = phi i64 [ %28, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %37 = phi ptr [ %26, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+35:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread.i
+  %36 = phi i64 [ %28, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %37 = phi ptr [ %26, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %38 = icmp sgt i64 %36, 0
   br i1 %38, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -7561,7 +7561,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %6, %33
   %23 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %22
   %.val.i.i.i = load ptr, ptr %23, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %24 = getelementptr inbounds i8, ptr %23, i64 8
@@ -7569,7 +7569,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %6, %33
   %26 = add nsw i64 %.0114.i.i.i, %25
   br label %33
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %28 = load i32, ptr %27, align 4
   %.fr = freeze i32 %28
@@ -7581,9 +7581,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %6, %33
   %spec.select19 = select i1 %29, ptr %30, ptr %.05.i.i.i
   br label %33
 
-33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %.thread
-  %34 = phi i64 [ %26, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
-  %35 = phi ptr [ %24, %.thread ], [ %spec.select19, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %.thread
+  %34 = phi i64 [ %26, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
+  %35 = phi ptr [ %24, %.thread ], [ %spec.select19, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %36 = icmp sgt i64 %34, 0
   br i1 %36, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
@@ -7657,7 +7657,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %8, %35
   %25 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %24
   %.val.i.i.i.i = load ptr, ptr %25, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %26 = getelementptr inbounds i8, ptr %25, i64 8
@@ -7665,7 +7665,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %8, %35
   %28 = add nsw i64 %.0114.i.i.i.i, %27
   br label %35
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %30 = load i32, ptr %29, align 4
   %.fr.i = freeze i32 %30
@@ -7677,9 +7677,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %8, %35
   %spec.select1 = select i1 %31, ptr %32, ptr %.05.i.i.i.i
   br label %35
 
-35:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread.i
-  %36 = phi i64 [ %28, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %37 = phi ptr [ %26, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+35:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread.i
+  %36 = phi i64 [ %28, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %37 = phi ptr [ %26, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %38 = icmp sgt i64 %36, 0
   br i1 %38, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -7743,7 +7743,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %6, %33
   %23 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %22
   %.val.i.i.i = load ptr, ptr %23, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %24 = getelementptr inbounds i8, ptr %23, i64 8
@@ -7751,7 +7751,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %6, %33
   %26 = add nsw i64 %.0114.i.i.i, %25
   br label %33
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %28 = load i32, ptr %27, align 4
   %.fr = freeze i32 %28
@@ -7763,9 +7763,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %6, %33
   %spec.select14 = select i1 %29, ptr %30, ptr %.05.i.i.i
   br label %33
 
-33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %.thread
-  %34 = phi i64 [ %26, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
-  %35 = phi ptr [ %24, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %.thread
+  %34 = phi i64 [ %26, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
+  %35 = phi ptr [ %24, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %36 = icmp sgt i64 %34, 0
   br i1 %36, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
@@ -7834,7 +7834,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %8, %35
   %25 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %24
   %.val.i.i.i.i = load ptr, ptr %25, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %26 = getelementptr inbounds i8, ptr %25, i64 8
@@ -7842,7 +7842,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %8, %35
   %28 = add nsw i64 %.0114.i.i.i.i, %27
   br label %35
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %30 = load i32, ptr %29, align 4
   %.fr.i = freeze i32 %30
@@ -7854,9 +7854,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %8, %35
   %spec.select1 = select i1 %31, ptr %32, ptr %.05.i.i.i.i
   br label %35
 
-35:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread.i
-  %36 = phi i64 [ %28, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %37 = phi ptr [ %26, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+35:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread.i
+  %36 = phi i64 [ %28, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %37 = phi ptr [ %26, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %38 = icmp sgt i64 %36, 0
   br i1 %38, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -7921,7 +7921,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %6, %33
   %23 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %22
   %.val.i.i.i = load ptr, ptr %23, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %24 = getelementptr inbounds i8, ptr %23, i64 8
@@ -7929,7 +7929,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %6, %33
   %26 = add nsw i64 %.0114.i.i.i, %25
   br label %33
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %28 = load i32, ptr %27, align 4
   %.fr = freeze i32 %28
@@ -7941,9 +7941,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %6, %33
   %spec.select16 = select i1 %29, ptr %30, ptr %.05.i.i.i
   br label %33
 
-33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %.thread
-  %34 = phi i64 [ %26, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
-  %35 = phi ptr [ %24, %.thread ], [ %spec.select16, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %.thread
+  %34 = phi i64 [ %26, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
+  %35 = phi ptr [ %24, %.thread ], [ %spec.select16, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %36 = icmp sgt i64 %34, 0
   br i1 %36, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
@@ -8012,7 +8012,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -8020,7 +8020,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr.i = freeze i32 %29
@@ -8032,9 +8032,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select1 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread.i
-  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread.i
+  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -8085,7 +8085,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %22 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %21
   %.val.i.i.i = load ptr, ptr %22, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %23 = getelementptr inbounds i8, ptr %22, i64 8
@@ -8093,7 +8093,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %25 = add nsw i64 %.0114.i.i.i, %24
   br label %32
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %27 = load i32, ptr %26, align 4
   %.fr = freeze i32 %27
@@ -8105,9 +8105,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %spec.select14 = select i1 %28, ptr %29, ptr %.05.i.i.i
   br label %32
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %.thread
-  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
-  %34 = phi ptr [ %23, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %.thread
+  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
+  %34 = phi ptr [ %23, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %35 = icmp sgt i64 %33, 0
   br i1 %35, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
@@ -8163,7 +8163,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -8171,7 +8171,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr.i = freeze i32 %29
@@ -8183,9 +8183,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select1 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread.i
-  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread.i
+  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -8235,7 +8235,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %22 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %21
   %.val.i.i.i = load ptr, ptr %22, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %23 = getelementptr inbounds i8, ptr %22, i64 8
@@ -8243,7 +8243,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %25 = add nsw i64 %.0114.i.i.i, %24
   br label %32
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %27 = load i32, ptr %26, align 4
   %.fr = freeze i32 %27
@@ -8255,9 +8255,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %spec.select14 = select i1 %28, ptr %29, ptr %.05.i.i.i
   br label %32
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %.thread
-  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
-  %34 = phi ptr [ %23, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %.thread
+  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
+  %34 = phi ptr [ %23, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %35 = icmp sgt i64 %33, 0
   br i1 %35, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
@@ -8311,7 +8311,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %6, %33
   %23 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %22
   %.val.i.i.i.i = load ptr, ptr %23, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %23, i64 8
@@ -8319,7 +8319,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %6, %33
   %26 = add nsw i64 %.0114.i.i.i.i, %25
   br label %33
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %28 = load i32, ptr %27, align 4
   %.fr.i = freeze i32 %28
@@ -8331,9 +8331,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %6, %33
   %spec.select1 = select i1 %29, ptr %30, ptr %.05.i.i.i.i
   br label %33
 
-33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread.i
-  %34 = phi i64 [ %26, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %35 = phi ptr [ %24, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+33:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread.i
+  %34 = phi i64 [ %26, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %35 = phi ptr [ %24, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %36 = icmp sgt i64 %34, 0
   br i1 %36, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -8383,7 +8383,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %4, %31
   %21 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %20
   %.val.i.i.i = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %22 = getelementptr inbounds i8, ptr %21, i64 8
@@ -8391,7 +8391,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %4, %31
   %24 = add nsw i64 %.0114.i.i.i, %23
   br label %31
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %26 = load i32, ptr %25, align 4
   %.fr = freeze i32 %26
@@ -8403,9 +8403,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %4, %31
   %spec.select14 = select i1 %27, ptr %28, ptr %.05.i.i.i
   br label %31
 
-31:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %.thread
-  %32 = phi i64 [ %24, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
-  %33 = phi ptr [ %22, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+31:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %.thread
+  %32 = phi i64 [ %24, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
+  %33 = phi ptr [ %22, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %34 = icmp sgt i64 %32, 0
   br i1 %34, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
@@ -8461,7 +8461,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %24 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i, i64 %23
   %.val.i.i.i.i = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -8469,7 +8469,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %27 = add nsw i64 %.0114.i.i.i.i, %26
   br label %34
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.fr.i = freeze i32 %29
@@ -8481,9 +8481,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i: ; preds = %7, %34
   %spec.select1 = select i1 %30, ptr %31, ptr %.05.i.i.i.i
   br label %34
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i", %.thread.i
-  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
-  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i" ]
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i", %.thread.i
+  %35 = phi i64 [ %27, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
+  %36 = phi ptr [ %25, %.thread.i ], [ %spec.select1, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i" ]
   %37 = icmp sgt i64 %35, 0
   br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i, label %.loopexit.i, !llvm.loop !49
 
@@ -8534,7 +8534,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %22 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i, i64 %21
   %.val.i.i.i = load ptr, ptr %22, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i"
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %23 = getelementptr inbounds i8, ptr %22, i64 8
@@ -8542,7 +8542,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %25 = add nsw i64 %.0114.i.i.i, %24
   br label %32
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 12
   %27 = load i32, ptr %26, align 4
   %.fr = freeze i32 %27
@@ -8554,9 +8554,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i: ; preds = %5, %32
   %spec.select14 = select i1 %28, ptr %29, ptr %.05.i.i.i
   br label %32
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i", %.thread
-  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
-  %34 = phi ptr [ %23, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i" ]
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i", %.thread
+  %33 = phi i64 [ %25, %.thread ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
+  %34 = phi ptr [ %23, %.thread ], [ %spec.select14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i" ]
   %35 = icmp sgt i64 %33, 0
   br i1 %35, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i, label %.loopexit, !llvm.loop !49
 
@@ -8928,23 +8928,23 @@ define dso_local { ptr, i8 } @_ZNK4llvm16AttributeSetNode17findEnumAttributeENS_
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 3
   %27 = icmp sgt i64 %26, 0
-  br i1 %27, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.argprom.exit"
+  br i1 %27, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.exit"
 
-_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i: ; preds = %12, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i"
-  %.05.i.i = phi ptr [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i" ], [ %13, %12 ]
-  %.0114.i.i = phi i64 [ %.112.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i" ], [ %26, %12 ]
+_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i: ; preds = %12, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i"
+  %.05.i.i = phi ptr [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i" ], [ %13, %12 ]
+  %.0114.i.i = phi i64 [ %.112.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i" ], [ %26, %12 ]
   %28 = lshr i64 %.0114.i.i, 1
   %29 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i, i64 %28
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i", label %30
 
 30:                                               ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i
   %31 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 12
   %32 = load i32, ptr %31, align 4
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i": ; preds = %30, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i": ; preds = %30, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i
   %.0.i.i.i.i.i = phi i32 [ %32, %30 ], [ 0, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i ]
   %33 = icmp slt i32 %.0.i.i.i.i.i, %1
   %34 = getelementptr inbounds i8, ptr %29, i64 8
@@ -8953,17 +8953,17 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i: ; preds = %12, %"_ZN9__gnu_c
   %.112.i.i = select i1 %33, i64 %36, i64 %28
   %.1.i.i = select i1 %33, ptr %34, ptr %.05.i.i
   %37 = icmp sgt i64 %.112.i.i, 0
-  br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.argprom.exit", !llvm.loop !49
+  br i1 %37, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.exit", !llvm.loop !49
 
-"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i", %12
-  %.0.lcssa.i.i = phi ptr [ %13, %12 ], [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i" ]
+"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i", %12
+  %.0.lcssa.i.i = phi ptr [ %13, %12 ], [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i" ]
   %38 = load i64, ptr %.0.lcssa.i.i, align 8
   %39 = inttoptr i64 %38 to ptr
   br label %40
 
-40:                                               ; preds = %2, %"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.argprom.exit"
-  %.sroa.0.0 = phi ptr [ %39, %"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.argprom.exit" ], [ undef, %2 ]
-  %.sroa.2.0 = phi i8 [ 1, %"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.argprom.exit" ], [ 0, %2 ]
+40:                                               ; preds = %2, %"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.exit"
+  %.sroa.0.0 = phi ptr [ %39, %"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.exit" ], [ undef, %2 ]
+  %.sroa.2.0 = phi i8 [ 1, %"_ZSt11lower_boundIPKN4llvm9AttributeENS1_8AttrKindEZNKS0_16AttributeSetNode17findEnumAttributeES4_E3$_0ET_S7_S7_RKT0_T1_.exit" ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -11816,21 +11816,21 @@ _ZNK4llvm13AttributeList13getAttributesEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %38 = icmp sgt i64 %37, 0
   br i1 %38, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i
 
-_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %23, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
-  %.05.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ], [ %24, %23 ]
-  %.0114.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ], [ %37, %23 ]
+_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %23, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
+  %.05.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ], [ %24, %23 ]
+  %.0114.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ], [ %37, %23 ]
   %39 = lshr i64 %.0114.i.i.i.i.i, 1
   %40 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %39
   %.val.i.i.i.i.i = load ptr, ptr %40, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", label %41
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", label %41
 
 41:                                               ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %43 = load i32, ptr %42, align 4
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %41, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %41, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %43, %41 ], [ 0, %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i ]
   %44 = icmp slt i32 %.0.i.i.i.i.i.i.i.i, %2
   %45 = getelementptr inbounds i8, ptr %40, i64 8
@@ -11841,8 +11841,8 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %23, %"_ZN9_
   %48 = icmp sgt i64 %.112.i.i.i.i.i, 0
   br i1 %48, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
-.loopexit.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %23
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %24, %23 ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+.loopexit.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %23
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %24, %23 ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %49 = load i64, ptr %.0.lcssa.i.i.i.i.i, align 8
   %50 = inttoptr i64 %49 to ptr
   br label %_ZNK4llvm12AttributeSet12getAttributeENS_9Attribute8AttrKindE.exit
@@ -11952,7 +11952,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %29 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %28
   %.val.i.i.i.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -11960,7 +11960,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %32 = add nsw i64 %.0114.i.i.i.i.i, %31
   br label %39
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %34 = load i32, ptr %33, align 4
   %.fr.i.i = freeze i32 %34
@@ -11972,9 +11972,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %spec.select1.i = select i1 %35, ptr %36, ptr %.05.i.i.i.i.i
   br label %39
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %42 = icmp sgt i64 %40, 0
   br i1 %42, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -12050,7 +12050,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %33 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %32
   %.val.i.i.i.i.i = load ptr, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -12058,7 +12058,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %36 = add nsw i64 %.0114.i.i.i.i.i, %35
   br label %43
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %38 = load i32, ptr %37, align 4
   %.fr.i.i = freeze i32 %38
@@ -12070,9 +12070,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %spec.select1.i = select i1 %39, ptr %40, ptr %.05.i.i.i.i.i
   br label %43
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %44 = phi i64 [ %36, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %45 = phi ptr [ %34, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %44 = phi i64 [ %36, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %45 = phi ptr [ %34, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %46 = icmp sgt i64 %44, 0
   br i1 %46, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -12148,7 +12148,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %33 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %32
   %.val.i.i.i.i.i = load ptr, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -12156,7 +12156,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %36 = add nsw i64 %.0114.i.i.i.i.i, %35
   br label %43
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %38 = load i32, ptr %37, align 4
   %.fr.i.i = freeze i32 %38
@@ -12168,9 +12168,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %spec.select1.i = select i1 %39, ptr %40, ptr %.05.i.i.i.i.i
   br label %43
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %44 = phi i64 [ %36, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %45 = phi ptr [ %34, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %44 = phi i64 [ %36, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %45 = phi ptr [ %34, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %46 = icmp sgt i64 %44, 0
   br i1 %46, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -12246,7 +12246,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %33 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %32
   %.val.i.i.i.i.i = load ptr, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -12254,7 +12254,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %36 = add nsw i64 %.0114.i.i.i.i.i, %35
   br label %43
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %38 = load i32, ptr %37, align 4
   %.fr.i = freeze i32 %38
@@ -12266,9 +12266,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %spec.select4 = select i1 %39, ptr %40, ptr %.05.i.i.i.i.i
   br label %43
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i
-  %44 = phi i64 [ %36, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %45 = phi ptr [ %34, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i
+  %44 = phi i64 [ %36, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %45 = phi ptr [ %34, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %46 = icmp sgt i64 %44, 0
   br i1 %46, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -12343,7 +12343,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %33 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %32
   %.val.i.i.i.i.i = load ptr, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -12351,7 +12351,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %36 = add nsw i64 %.0114.i.i.i.i.i, %35
   br label %43
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %38 = load i32, ptr %37, align 4
   %.fr.i = freeze i32 %38
@@ -12363,9 +12363,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %spec.select4 = select i1 %39, ptr %40, ptr %.05.i.i.i.i.i
   br label %43
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i
-  %44 = phi i64 [ %36, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %45 = phi ptr [ %34, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i
+  %44 = phi i64 [ %36, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %45 = phi ptr [ %34, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %46 = icmp sgt i64 %44, 0
   br i1 %46, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -12440,7 +12440,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %33 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %32
   %.val.i.i.i.i.i = load ptr, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -12448,7 +12448,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %36 = add nsw i64 %.0114.i.i.i.i.i, %35
   br label %43
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %38 = load i32, ptr %37, align 4
   %.fr.i = freeze i32 %38
@@ -12460,9 +12460,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %spec.select4 = select i1 %39, ptr %40, ptr %.05.i.i.i.i.i
   br label %43
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i
-  %44 = phi i64 [ %36, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %45 = phi ptr [ %34, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i
+  %44 = phi i64 [ %36, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %45 = phi ptr [ %34, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %46 = icmp sgt i64 %44, 0
   br i1 %46, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -12537,7 +12537,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %33 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %32
   %.val.i.i.i.i.i = load ptr, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -12545,7 +12545,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %36 = add nsw i64 %.0114.i.i.i.i.i, %35
   br label %43
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %38 = load i32, ptr %37, align 4
   %.fr.i = freeze i32 %38
@@ -12557,9 +12557,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %spec.select4 = select i1 %39, ptr %40, ptr %.05.i.i.i.i.i
   br label %43
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i
-  %44 = phi i64 [ %36, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %45 = phi ptr [ %34, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i
+  %44 = phi i64 [ %36, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %45 = phi ptr [ %34, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %46 = icmp sgt i64 %44, 0
   br i1 %46, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -12633,7 +12633,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %15, %42
   %32 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %31
   %.val.i.i.i.i.i = load ptr, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %33 = getelementptr inbounds i8, ptr %32, i64 8
@@ -12641,7 +12641,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %15, %42
   %35 = add nsw i64 %.0114.i.i.i.i.i, %34
   br label %42
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %37 = load i32, ptr %36, align 4
   %.fr.i = freeze i32 %37
@@ -12653,9 +12653,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %15, %42
   %spec.select4 = select i1 %38, ptr %39, ptr %.05.i.i.i.i.i
   br label %42
 
-42:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i
-  %43 = phi i64 [ %35, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %44 = phi ptr [ %33, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+42:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i
+  %43 = phi i64 [ %35, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %44 = phi ptr [ %33, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %45 = icmp sgt i64 %43, 0
   br i1 %45, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -12730,7 +12730,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %33 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %32
   %.val.i.i.i.i.i = load ptr, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -12738,7 +12738,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %36 = add nsw i64 %.0114.i.i.i.i.i, %35
   br label %43
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %38 = load i32, ptr %37, align 4
   %.fr.i = freeze i32 %38
@@ -12750,9 +12750,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %spec.select4 = select i1 %39, ptr %40, ptr %.05.i.i.i.i.i
   br label %43
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i
-  %44 = phi i64 [ %36, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %45 = phi ptr [ %34, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i
+  %44 = phi i64 [ %36, %.thread.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %45 = phi ptr [ %34, %.thread.i ], [ %spec.select4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %46 = icmp sgt i64 %44, 0
   br i1 %46, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -12824,7 +12824,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %29 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %28
   %.val.i.i.i.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -12832,7 +12832,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %32 = add nsw i64 %.0114.i.i.i.i.i, %31
   br label %39
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %34 = load i32, ptr %33, align 4
   %.fr.i.i = freeze i32 %34
@@ -12844,9 +12844,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %spec.select1.i = select i1 %35, ptr %36, ptr %.05.i.i.i.i.i
   br label %39
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %42 = icmp sgt i64 %40, 0
   br i1 %42, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -12919,7 +12919,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %29 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %28
   %.val.i.i.i.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -12927,7 +12927,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %32 = add nsw i64 %.0114.i.i.i.i.i, %31
   br label %39
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %34 = load i32, ptr %33, align 4
   %.fr.i.i = freeze i32 %34
@@ -12939,9 +12939,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %spec.select1.i = select i1 %35, ptr %36, ptr %.05.i.i.i.i.i
   br label %39
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %42 = icmp sgt i64 %40, 0
   br i1 %42, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -13014,7 +13014,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %29 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %28
   %.val.i.i.i.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -13022,7 +13022,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %32 = add nsw i64 %.0114.i.i.i.i.i, %31
   br label %39
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %34 = load i32, ptr %33, align 4
   %.fr.i.i = freeze i32 %34
@@ -13034,9 +13034,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %spec.select1.i = select i1 %35, ptr %36, ptr %.05.i.i.i.i.i
   br label %39
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %42 = icmp sgt i64 %40, 0
   br i1 %42, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -13107,7 +13107,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %33 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %32
   %.val.i.i.i.i.i = load ptr, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -13115,7 +13115,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %36 = add nsw i64 %.0114.i.i.i.i.i, %35
   br label %43
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %38 = load i32, ptr %37, align 4
   %.fr.i.i = freeze i32 %38
@@ -13127,9 +13127,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %spec.select1.i = select i1 %39, ptr %40, ptr %.05.i.i.i.i.i
   br label %43
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %44 = phi i64 [ %36, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %45 = phi ptr [ %34, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %44 = phi i64 [ %36, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %45 = phi ptr [ %34, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %46 = icmp sgt i64 %44, 0
   br i1 %46, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -13197,7 +13197,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %29 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %28
   %.val.i.i.i.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -13205,7 +13205,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %32 = add nsw i64 %.0114.i.i.i.i.i, %31
   br label %39
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %34 = load i32, ptr %33, align 4
   %.fr.i.i = freeze i32 %34
@@ -13217,9 +13217,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %spec.select1.i = select i1 %35, ptr %36, ptr %.05.i.i.i.i.i
   br label %39
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %42 = icmp sgt i64 %40, 0
   br i1 %42, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -13290,7 +13290,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %33 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %32
   %.val.i.i.i.i.i = load ptr, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -13298,7 +13298,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %36 = add nsw i64 %.0114.i.i.i.i.i, %35
   br label %43
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %38 = load i32, ptr %37, align 4
   %.fr.i.i = freeze i32 %38
@@ -13310,9 +13310,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %spec.select1.i = select i1 %39, ptr %40, ptr %.05.i.i.i.i.i
   br label %43
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %44 = phi i64 [ %36, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %45 = phi ptr [ %34, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %44 = phi i64 [ %36, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %45 = phi ptr [ %34, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %46 = icmp sgt i64 %44, 0
   br i1 %46, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -13380,7 +13380,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %29 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %28
   %.val.i.i.i.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -13388,7 +13388,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %32 = add nsw i64 %.0114.i.i.i.i.i, %31
   br label %39
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %34 = load i32, ptr %33, align 4
   %.fr.i.i = freeze i32 %34
@@ -13400,9 +13400,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %spec.select1.i = select i1 %35, ptr %36, ptr %.05.i.i.i.i.i
   br label %39
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %42 = icmp sgt i64 %40, 0
   br i1 %42, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -13474,7 +13474,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %33 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %32
   %.val.i.i.i.i.i = load ptr, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 8
@@ -13482,7 +13482,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %36 = add nsw i64 %.0114.i.i.i.i.i, %35
   br label %43
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %38 = load i32, ptr %37, align 4
   %.fr.i.i = freeze i32 %38
@@ -13494,9 +13494,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %16, %43
   %spec.select1.i = select i1 %39, ptr %40, ptr %.05.i.i.i.i.i
   br label %43
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %44 = phi i64 [ %36, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %45 = phi ptr [ %34, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %44 = phi i64 [ %36, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %45 = phi ptr [ %34, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %46 = icmp sgt i64 %44, 0
   br i1 %46, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -13565,7 +13565,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %29 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %28
   %.val.i.i.i.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -13573,7 +13573,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %32 = add nsw i64 %.0114.i.i.i.i.i, %31
   br label %39
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %34 = load i32, ptr %33, align 4
   %.fr.i.i = freeze i32 %34
@@ -13585,9 +13585,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %spec.select1.i = select i1 %35, ptr %36, ptr %.05.i.i.i.i.i
   br label %39
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %42 = icmp sgt i64 %40, 0
   br i1 %42, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -13656,7 +13656,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %29 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %28
   %.val.i.i.i.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -13664,7 +13664,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %32 = add nsw i64 %.0114.i.i.i.i.i, %31
   br label %39
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %34 = load i32, ptr %33, align 4
   %.fr.i.i = freeze i32 %34
@@ -13676,9 +13676,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %12, %39
   %spec.select1.i = select i1 %35, ptr %36, ptr %.05.i.i.i.i.i
   br label %39
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %40 = phi i64 [ %32, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %41 = phi ptr [ %30, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %42 = icmp sgt i64 %40, 0
   br i1 %42, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -13745,7 +13745,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %11, %38
   %28 = getelementptr inbounds %"class.llvm::Attribute", ptr %.05.i.i.i.i.i, i64 %27
   %.val.i.i.i.i.i = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.thread.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i"
 
 .thread.i.i:                                      ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %29 = getelementptr inbounds i8, ptr %28, i64 8
@@ -13753,7 +13753,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %11, %38
   %31 = add nsw i64 %.0114.i.i.i.i.i, %30
   br label %38
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 12
   %33 = load i32, ptr %32, align 4
   %.fr.i.i = freeze i32 %33
@@ -13765,9 +13765,9 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i: ; preds = %11, %38
   %spec.select1.i = select i1 %34, ptr %35, ptr %.05.i.i.i.i.i
   br label %38
 
-38:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i", %.thread.i.i
-  %39 = phi i64 [ %31, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
-  %40 = phi ptr [ %29, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.argprom.exit.i.i.i.i.i" ]
+38:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i", %.thread.i.i
+  %39 = phi i64 [ %31, %.thread.i.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
+  %40 = phi ptr [ %29, %.thread.i.i ], [ %spec.select1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm16AttributeSetNode17findEnumAttributeENS2_9Attribute8AttrKindEE3$_0EclIPKS4_KS5_EEbT_RT0_.exit.i.i.i.i.i" ]
   %41 = icmp sgt i64 %39, 0
   br i1 %41, label %_ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i.i.i.i, label %.loopexit.i.i, !llvm.loop !49
 
@@ -16085,27 +16085,27 @@ _ZL15checkDenormModeRKN4llvm8FunctionES2_.exit:   ; preds = %_ZNK4llvm12Denormal
   %51 = getelementptr inbounds i8, ptr %1, i64 120
   %.val48 = load ptr, ptr %51, align 8
   %.not.i.i = icmp eq ptr %.val48, null
-  br i1 %.not.i.i, label %_ZL13checkStrictFPRKN4llvm8FunctionES2_.argprom.exit, label %_ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE.exit.i
+  br i1 %.not.i.i, label %_ZL13checkStrictFPRKN4llvm8FunctionES2_.exit, label %_ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE.exit.i
 
 _ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE.exit.i: ; preds = %_ZL15checkDenormModeRKN4llvm8FunctionES2_.exit
   %52 = getelementptr inbounds i8, ptr %.val48, i64 20
   %53 = load i8, ptr %52, align 1
   %54 = and i8 %53, 16
   %.not.i = icmp eq i8 %54, 0
-  br i1 %.not.i, label %_ZL13checkStrictFPRKN4llvm8FunctionES2_.argprom.exit, label %55
+  br i1 %.not.i, label %_ZL13checkStrictFPRKN4llvm8FunctionES2_.exit, label %55
 
 55:                                               ; preds = %_ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE.exit.i
   %.not.i3.i = icmp eq ptr %.val, null
-  br i1 %.not.i3.i, label %_ZL13checkStrictFPRKN4llvm8FunctionES2_.argprom.exit, label %56
+  br i1 %.not.i3.i, label %_ZL13checkStrictFPRKN4llvm8FunctionES2_.exit, label %56
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds i8, ptr %.val, i64 20
   %58 = load i8, ptr %57, align 1
   %59 = and i8 %58, 16
   %60 = icmp ne i8 %59, 0
-  br label %_ZL13checkStrictFPRKN4llvm8FunctionES2_.argprom.exit
+  br label %_ZL13checkStrictFPRKN4llvm8FunctionES2_.exit
 
-_ZL13checkStrictFPRKN4llvm8FunctionES2_.argprom.exit: ; preds = %_ZL15checkDenormModeRKN4llvm8FunctionES2_.exit, %_ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE.exit.i, %55, %56
+_ZL13checkStrictFPRKN4llvm8FunctionES2_.exit:     ; preds = %_ZL15checkDenormModeRKN4llvm8FunctionES2_.exit, %_ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE.exit.i, %55, %56
   %61 = phi i1 [ true, %_ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE.exit.i ], [ false, %55 ], [ %60, %56 ], [ true, %_ZL15checkDenormModeRKN4llvm8FunctionES2_.exit ]
   %62 = icmp eq ptr %3, %4
   %63 = icmp eq ptr %5, %6

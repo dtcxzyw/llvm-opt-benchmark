@@ -383,7 +383,7 @@ define void @Gia_FlaConvertToGla_rec(ptr nocapture noundef readonly %0, ptr noun
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %6, align 8
   %.not26 = icmp eq i32 %14, %15
-  br i1 %.not26, label %Gia_ObjIsRo.argprom.exit._crit_edge, label %.lr.ph
+  br i1 %.not26, label %Gia_ObjIsRo.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %16 = getelementptr i8, ptr %2, i64 8
@@ -391,11 +391,11 @@ define void @Gia_FlaConvertToGla_rec(ptr nocapture noundef readonly %0, ptr noun
   %18 = getelementptr i8, ptr %0, i64 64
   br label %19
 
-19:                                               ; preds = %.lr.ph, %Gia_ObjIsRo.argprom.exit.thread
-  %20 = phi i32 [ %15, %.lr.ph ], [ %50, %Gia_ObjIsRo.argprom.exit.thread ]
-  %21 = phi ptr [ %13, %.lr.ph ], [ %48, %Gia_ObjIsRo.argprom.exit.thread ]
-  %22 = phi i64 [ %8, %.lr.ph ], [ %43, %Gia_ObjIsRo.argprom.exit.thread ]
-  %.tr2227 = phi ptr [ %1, %.lr.ph ], [ %41, %Gia_ObjIsRo.argprom.exit.thread ]
+19:                                               ; preds = %.lr.ph, %Gia_ObjIsRo.exit.thread
+  %20 = phi i32 [ %15, %.lr.ph ], [ %50, %Gia_ObjIsRo.exit.thread ]
+  %21 = phi ptr [ %13, %.lr.ph ], [ %48, %Gia_ObjIsRo.exit.thread ]
+  %22 = phi i64 [ %8, %.lr.ph ], [ %43, %Gia_ObjIsRo.exit.thread ]
+  %.tr2227 = phi ptr [ %1, %.lr.ph ], [ %41, %Gia_ObjIsRo.exit.thread ]
   store i32 %20, ptr %21, align 4
   %.val16 = load ptr, ptr %5, align 8
   %23 = ptrtoint ptr %.val16 to i64
@@ -409,9 +409,9 @@ define void @Gia_FlaConvertToGla_rec(ptr nocapture noundef readonly %0, ptr noun
   %.val17 = load i64, ptr %.tr2227, align 4
   %28 = and i64 %.val17, 2684354559
   %narrow.i.not.i = icmp eq i64 %28, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.argprom.exit, label %Gia_ObjIsRo.argprom.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.exit, label %Gia_ObjIsRo.exit.thread
 
-Gia_ObjIsRo.argprom.exit:                         ; preds = %19
+Gia_ObjIsRo.exit:                                 ; preds = %19
   %29 = lshr i64 %.val17, 32
   %30 = trunc nuw i64 %29 to i32
   %31 = and i32 %30, 536870911
@@ -421,9 +421,9 @@ Gia_ObjIsRo.argprom.exit:                         ; preds = %19
   %.val5.val.i = load i32, ptr %32, align 4
   %33 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not21 = icmp slt i32 %31, %33
-  br i1 %.not21, label %Gia_ObjIsRo.argprom.exit.thread, label %Gia_ObjIsRo.argprom.exit._crit_edge
+  br i1 %.not21, label %Gia_ObjIsRo.exit.thread, label %Gia_ObjIsRo.exit._crit_edge
 
-Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %19, %Gia_ObjIsRo.argprom.exit
+Gia_ObjIsRo.exit.thread:                          ; preds = %19, %Gia_ObjIsRo.exit
   %34 = and i64 %.val17, 536870911
   %35 = sub nsw i64 0, %34
   %36 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr2227, i64 %35
@@ -445,9 +445,9 @@ Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %19, %Gia_ObjIsRo.ar
   %49 = load i32, ptr %48, align 4
   %50 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %49, %50
-  br i1 %.not, label %Gia_ObjIsRo.argprom.exit._crit_edge, label %19
+  br i1 %.not, label %Gia_ObjIsRo.exit._crit_edge, label %19
 
-Gia_ObjIsRo.argprom.exit._crit_edge:              ; preds = %Gia_ObjIsRo.argprom.exit.thread, %Gia_ObjIsRo.argprom.exit, %3
+Gia_ObjIsRo.exit._crit_edge:                      ; preds = %Gia_ObjIsRo.exit.thread, %Gia_ObjIsRo.exit, %3
   ret void
 }
 

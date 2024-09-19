@@ -86,13 +86,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @XML_ParserCreate(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc ptr @parserCreate.argprom(ptr noundef %0, ptr noundef null, ptr noundef null)
+  %2 = tail call fastcc ptr @parserCreate(ptr noundef %0, ptr noundef null, ptr noundef null)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @XML_ParserCreate_MM(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call fastcc ptr @parserCreate.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %4 = tail call fastcc ptr @parserCreate(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %4
 }
 
@@ -102,12 +102,12 @@ define dso_local ptr @XML_ParserCreateNS(ptr noundef %0, i8 noundef signext %1) 
   store i8 %1, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %4, align 1
-  %5 = call fastcc ptr @parserCreate.argprom(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
+  %5 = call fastcc ptr @parserCreate(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parserCreate.argprom(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %4
 
@@ -1024,12 +1024,12 @@ define dso_local ptr @XML_ExternalEntityParserCreate(ptr noundef %0, ptr nocaptu
   %67 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 0, ptr %67, align 1
   %68 = getelementptr inbounds i8, ptr %0, i64 24
-  %69 = call fastcc ptr @parserCreate.argprom(ptr noundef %2, ptr noundef nonnull %68, ptr noundef nonnull %4)
+  %69 = call fastcc ptr @parserCreate(ptr noundef %2, ptr noundef nonnull %68, ptr noundef nonnull %4)
   br label %73
 
 70:                                               ; preds = %6
   %71 = getelementptr inbounds i8, ptr %0, i64 24
-  %72 = tail call fastcc ptr @parserCreate.argprom(ptr noundef %2, ptr noundef nonnull %71, ptr noundef null)
+  %72 = tail call fastcc ptr @parserCreate(ptr noundef %2, ptr noundef nonnull %71, ptr noundef null)
   br label %73
 
 73:                                               ; preds = %70, %64
@@ -4137,7 +4137,7 @@ writeRandomBytes_getrandom_nonblock.exit.i:       ; preds = %17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %25 = call ptr @getenv(ptr noundef nonnull @.str.51) #23
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %getDebugLevel.argprom.exit.thread.i.i, label %27
+  br i1 %26, label %getDebugLevel.exit.thread.i.i, label %27
 
 27:                                               ; preds = %writeRandomBytes_getrandom_nonblock.exit.i
   %28 = tail call ptr @__errno_location() #25
@@ -4152,25 +4152,25 @@ writeRandomBytes_getrandom_nonblock.exit.i:       ; preds = %17
   %32 = load ptr, ptr %5, align 8
   %33 = load i8, ptr %32, align 1
   %.not9.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not9.i.i.i, label %getDebugLevel.argprom.exit.i.i, label %34
+  br i1 %.not9.i.i.i, label %getDebugLevel.exit.i.i, label %34
 
 34:                                               ; preds = %31, %27
   store i32 0, ptr %28, align 4
-  br label %getDebugLevel.argprom.exit.thread.i.i
+  br label %getDebugLevel.exit.thread.i.i
 
-getDebugLevel.argprom.exit.thread.i.i:            ; preds = %34, %writeRandomBytes_getrandom_nonblock.exit.i
+getDebugLevel.exit.thread.i.i:                    ; preds = %34, %writeRandomBytes_getrandom_nonblock.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %generate_hash_secret_salt.argprom.exit
+  br label %generate_hash_secret_salt.exit
 
-getDebugLevel.argprom.exit.i.i:                   ; preds = %31
+getDebugLevel.exit.i.i:                           ; preds = %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i, label %generate_hash_secret_salt.argprom.exit, label %35
+  br i1 %.not.i.i, label %generate_hash_secret_salt.exit, label %35
 
-35:                                               ; preds = %getDebugLevel.argprom.exit.i.i
+35:                                               ; preds = %getDebugLevel.exit.i.i
   %36 = load ptr, ptr @stderr, align 8
   %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.48, i32 noundef 16, i64 noundef %24, i64 noundef 8) #26
-  br label %generate_hash_secret_salt.argprom.exit
+  br label %generate_hash_secret_salt.exit
 
 38:                                               ; preds = %.thread.i.i
   %39 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.49, i32 noundef 0) #23
@@ -4204,7 +4204,7 @@ writeRandomBytes_dev_urandom.exit.thread5.i:      ; preds = %47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %54 = call ptr @getenv(ptr noundef nonnull @.str.51) #23
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %getDebugLevel.argprom.exit.thread.i4.i, label %56
+  br i1 %55, label %getDebugLevel.exit.thread.i4.i, label %56
 
 56:                                               ; preds = %51
   store i32 0, ptr %21, align 4
@@ -4218,25 +4218,25 @@ writeRandomBytes_dev_urandom.exit.thread5.i:      ; preds = %47
   %60 = load ptr, ptr %4, align 8
   %61 = load i8, ptr %60, align 1
   %.not9.i.i5.i = icmp eq i8 %61, 0
-  br i1 %.not9.i.i5.i, label %getDebugLevel.argprom.exit.i6.i, label %62
+  br i1 %.not9.i.i5.i, label %getDebugLevel.exit.i6.i, label %62
 
 62:                                               ; preds = %59, %56
   store i32 0, ptr %21, align 4
-  br label %getDebugLevel.argprom.exit.thread.i4.i
+  br label %getDebugLevel.exit.thread.i4.i
 
-getDebugLevel.argprom.exit.thread.i4.i:           ; preds = %62, %51
+getDebugLevel.exit.thread.i4.i:                   ; preds = %62, %51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %generate_hash_secret_salt.argprom.exit
+  br label %generate_hash_secret_salt.exit
 
-getDebugLevel.argprom.exit.i6.i:                  ; preds = %59
+getDebugLevel.exit.i6.i:                          ; preds = %59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not.i7.i = icmp eq i64 %57, 0
-  br i1 %.not.i7.i, label %generate_hash_secret_salt.argprom.exit, label %63
+  br i1 %.not.i7.i, label %generate_hash_secret_salt.exit, label %63
 
-63:                                               ; preds = %getDebugLevel.argprom.exit.i6.i
+63:                                               ; preds = %getDebugLevel.exit.i6.i
   %64 = load ptr, ptr @stderr, align 8
   %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.49, i32 noundef 16, i64 noundef %53, i64 noundef 8) #26
-  br label %generate_hash_secret_salt.argprom.exit
+  br label %generate_hash_secret_salt.exit
 
 writeRandomBytes_dev_urandom.exit.thread.i:       ; preds = %writeRandomBytes_dev_urandom.exit.thread5.i, %38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -4252,7 +4252,7 @@ writeRandomBytes_dev_urandom.exit.thread.i:       ; preds = %writeRandomBytes_de
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %73 = call ptr @getenv(ptr noundef nonnull @.str.51) #23
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %getDebugLevel.argprom.exit.thread.i10.i, label %75
+  br i1 %74, label %getDebugLevel.exit.thread.i10.i, label %75
 
 75:                                               ; preds = %writeRandomBytes_dev_urandom.exit.thread.i
   store i32 0, ptr %21, align 4
@@ -4266,33 +4266,33 @@ writeRandomBytes_dev_urandom.exit.thread.i:       ; preds = %writeRandomBytes_de
   %79 = load ptr, ptr %2, align 8
   %80 = load i8, ptr %79, align 1
   %.not9.i.i11.i = icmp eq i8 %80, 0
-  br i1 %.not9.i.i11.i, label %getDebugLevel.argprom.exit.i12.i, label %81
+  br i1 %.not9.i.i11.i, label %getDebugLevel.exit.i12.i, label %81
 
 81:                                               ; preds = %78, %75
   store i32 0, ptr %21, align 4
-  br label %getDebugLevel.argprom.exit.thread.i10.i
+  br label %getDebugLevel.exit.thread.i10.i
 
-getDebugLevel.argprom.exit.thread.i10.i:          ; preds = %81, %writeRandomBytes_dev_urandom.exit.thread.i
+getDebugLevel.exit.thread.i10.i:                  ; preds = %81, %writeRandomBytes_dev_urandom.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %generate_hash_secret_salt.argprom.exit
+  br label %generate_hash_secret_salt.exit
 
-getDebugLevel.argprom.exit.i12.i:                 ; preds = %78
+getDebugLevel.exit.i12.i:                         ; preds = %78
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %.not.i13.i = icmp eq i64 %76, 0
-  br i1 %.not.i13.i, label %generate_hash_secret_salt.argprom.exit, label %82
+  br i1 %.not.i13.i, label %generate_hash_secret_salt.exit, label %82
 
-82:                                               ; preds = %getDebugLevel.argprom.exit.i12.i
+82:                                               ; preds = %getDebugLevel.exit.i12.i
   %83 = load ptr, ptr @stderr, align 8
   %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.50, i32 noundef 16, i64 noundef %72, i64 noundef 8) #26
-  br label %generate_hash_secret_salt.argprom.exit
+  br label %generate_hash_secret_salt.exit
 
-generate_hash_secret_salt.argprom.exit:           ; preds = %getDebugLevel.argprom.exit.thread.i.i, %getDebugLevel.argprom.exit.i.i, %35, %getDebugLevel.argprom.exit.thread.i4.i, %getDebugLevel.argprom.exit.i6.i, %63, %getDebugLevel.argprom.exit.thread.i10.i, %getDebugLevel.argprom.exit.i12.i, %82
-  %.0.i = phi i64 [ %24, %getDebugLevel.argprom.exit.thread.i.i ], [ %24, %getDebugLevel.argprom.exit.i.i ], [ %24, %35 ], [ %53, %getDebugLevel.argprom.exit.thread.i4.i ], [ %53, %getDebugLevel.argprom.exit.i6.i ], [ %53, %63 ], [ %72, %getDebugLevel.argprom.exit.thread.i10.i ], [ %72, %getDebugLevel.argprom.exit.i12.i ], [ %72, %82 ]
+generate_hash_secret_salt.exit:                   ; preds = %getDebugLevel.exit.thread.i.i, %getDebugLevel.exit.i.i, %35, %getDebugLevel.exit.thread.i4.i, %getDebugLevel.exit.i6.i, %63, %getDebugLevel.exit.thread.i10.i, %getDebugLevel.exit.i12.i, %82
+  %.0.i = phi i64 [ %24, %getDebugLevel.exit.thread.i.i ], [ %24, %getDebugLevel.exit.i.i ], [ %24, %35 ], [ %53, %getDebugLevel.exit.thread.i4.i ], [ %53, %getDebugLevel.exit.i6.i ], [ %53, %63 ], [ %72, %getDebugLevel.exit.thread.i10.i ], [ %72, %getDebugLevel.exit.i12.i ], [ %72, %82 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store i64 %.0.i, ptr %7, align 8
   br label %85
 
-85:                                               ; preds = %generate_hash_secret_salt.argprom.exit, %1
+85:                                               ; preds = %generate_hash_secret_salt.exit, %1
   %86 = getelementptr inbounds i8, ptr %0, i64 448
   %87 = load i8, ptr %86, align 8
   %.not = icmp eq i8 %87, 0
@@ -6599,7 +6599,7 @@ poolClear.exit796.i:                              ; preds = %.lr.ph.i793.i, %427
   %438 = load ptr, ptr %21, align 8
   %439 = sub nsw i64 0, %436
   %440 = getelementptr inbounds i8, ptr %438, i64 %439
-  %441 = call fastcc i32 @appendAttributeValue.argelim(ptr noundef nonnull %0, ptr noundef %.0563.i, i8 noundef zeroext %433, ptr noundef %437, ptr noundef %440, ptr noundef nonnull %66)
+  %441 = call fastcc i32 @appendAttributeValue(ptr noundef nonnull %0, ptr noundef %.0563.i, i8 noundef zeroext %433, ptr noundef %437, ptr noundef %440, ptr noundef nonnull %66)
   %.not.i797.i = icmp eq i32 %441, 0
   br i1 %.not.i797.i, label %442, label %doProlog.exit
 
@@ -8359,7 +8359,7 @@ poolClear.exit946.i:                              ; preds = %.lr.ph.i942.i, %101
   %1224 = getelementptr inbounds i8, ptr %1219, i64 16
   store i32 0, ptr %1224, align 8
   %.not9.i.i = icmp eq i32 %1221, 0
-  br i1 %.not9.i.i, label %build_model.argprom.exit.thread989.i, label %.lr.ph8.i.i
+  br i1 %.not9.i.i, label %build_model.exit.thread989.i, label %.lr.ph8.i.i
 
 .lr.ph8.i.i:                                      ; preds = %1220
   %1225 = getelementptr inbounds i8, ptr %1219, i64 32
@@ -8446,9 +8446,9 @@ poolClear.exit946.i:                              ; preds = %.lr.ph.i942.i, %101
   %.2.i953.i = phi ptr [ %.0557.i.i, %1248 ], [ %.0557.i.i, %1250 ], [ %1257, %.lr.ph.i950.i ]
   %1265 = getelementptr inbounds i8, ptr %.0595.i.i, i64 32
   %1266 = icmp ult ptr %1265, %1223
-  br i1 %1266, label %1227, label %build_model.argprom.exit.thread989.i, !llvm.loop !33
+  br i1 %1266, label %1227, label %build_model.exit.thread989.i, !llvm.loop !33
 
-build_model.argprom.exit.thread989.i:             ; preds = %.loopexit.i952.i, %1220
+build_model.exit.thread989.i:                     ; preds = %.loopexit.i952.i, %1220
   store ptr %.0564.i, ptr %34, align 8
   %1267 = load ptr, ptr %36, align 8
   %1268 = load ptr, ptr %47, align 8
@@ -8457,7 +8457,7 @@ build_model.argprom.exit.thread989.i:             ; preds = %.loopexit.i952.i, %
   call void %1267(ptr noundef %1268, ptr noundef %1270, ptr noundef nonnull %1219) #23
   br label %1271
 
-1271:                                             ; preds = %build_model.argprom.exit.thread989.i, %1209
+1271:                                             ; preds = %build_model.exit.thread989.i, %1209
   store i8 0, ptr %42, align 8
   store i32 0, ptr %49, align 8
   br label %1293
@@ -9194,7 +9194,7 @@ define internal range(i32 0, 41) i32 @contentProcessor(ptr noundef %0, ptr nound
   %8 = load i8, ptr %7, align 4
   %.not = icmp eq i8 %8, 0
   %9 = zext i1 %.not to i8
-  %10 = tail call fastcc i32 @doContent.argelim(ptr noundef %0, i32 noundef 0, ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %9)
+  %10 = tail call fastcc i32 @doContent(ptr noundef %0, i32 noundef 0, ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %9)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %storeRawNames.exit
 
@@ -10865,7 +10865,7 @@ poolStoreString.exit.thread:                      ; preds = %poolAppend.exit.thr
 declare i32 @XmlParseXmlDecl(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 41) i32 @doContent.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, i8 noundef zeroext range(i8 0, 2) %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 41) i32 @doContent(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, i8 noundef zeroext range(i8 0, 2) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -11460,7 +11460,7 @@ lookup.exit:                                      ; preds = %254, %.lr.ph.i.i, %
   store ptr %314, ptr %25, align 8
   %319 = load i32, ptr %67, align 4
   %320 = load ptr, ptr %101, align 8
-  %321 = call fastcc i32 @doContent.argelim(ptr noundef nonnull %0, i32 noundef %319, ptr noundef %320, ptr noundef %314, ptr noundef %318, ptr noundef nonnull %25, i8 noundef zeroext 0)
+  %321 = call fastcc i32 @doContent(ptr noundef nonnull %0, i32 noundef %319, ptr noundef %320, ptr noundef %314, ptr noundef %318, ptr noundef nonnull %25, i8 noundef zeroext 0)
   %322 = icmp eq i32 %321, 0
   br i1 %322, label %323, label %processInternalEntity.exit
 
@@ -12001,7 +12001,7 @@ getContext.exit:                                  ; preds = %476, %._crit_edge17
   store ptr %.lcssa14, ptr %522, align 8
   store i8 0, ptr %.lcssa16, align 1
   %554 = load ptr, ptr %29, align 8
-  %555 = call fastcc i32 @storeAtts.argelim(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %554, ptr noundef %522, ptr noundef %520)
+  %555 = call fastcc i32 @storeAtts(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %554, ptr noundef %522, ptr noundef %520)
   %.not457 = icmp eq i32 %555, 0
   br i1 %.not457, label %583, label %freeBindings.exit
 
@@ -12223,7 +12223,7 @@ poolStoreString.exit522:                          ; preds = %650, %._crit_edge.i
   %660 = load ptr, ptr %81, align 8
   store ptr %660, ptr %83, align 8
   %661 = load ptr, ptr %29, align 8
-  %662 = call fastcc i32 @storeAtts.argelim(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %661, ptr noundef %36, ptr noundef %35)
+  %662 = call fastcc i32 @storeAtts(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %661, ptr noundef %36, ptr noundef %35)
   %.not447 = icmp eq i32 %662, 0
   br i1 %.not447, label %678, label %663
 
@@ -12920,7 +12920,7 @@ reportDefault.exit565:                            ; preds = %976, %992
   br label %998
 
 998:                                              ; preds = %964, %reportDefault.exit565, %962
-  %999 = call fastcc i32 @doCdataSection.argelim(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %30, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6)
+  %999 = call fastcc i32 @doCdataSection(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %30, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6)
   %.not431 = icmp eq i32 %999, 0
   br i1 %.not431, label %1000, label %freeBindings.exit
 
@@ -13218,7 +13218,7 @@ freeBindings.exit:                                ; preds = %212, %poolAppend.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 41) i32 @storeAtts.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 41) i32 @storeAtts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.siphash, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 648
@@ -13514,7 +13514,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %76, %7
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds i8, ptr %154, i64 16
   %172 = load ptr, ptr %171, align 8
-  %173 = call fastcc i32 @appendAttributeValue.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %.0408, ptr noundef %170, ptr noundef %172, ptr noundef nonnull %119)
+  %173 = call fastcc i32 @appendAttributeValue(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %.0408, ptr noundef %170, ptr noundef %172, ptr noundef nonnull %119)
   %.not.i498 = icmp eq i32 %173, 0
   br i1 %.not.i498, label %174, label %poolCopyString.exit.thread
 
@@ -14678,7 +14678,7 @@ reportDefault.exit46:                             ; preds = %67, %83
 declare i32 @XmlUtf8Encode(i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 36) i32 @doCdataSection.argelim(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3, ptr nocapture noundef writeonly %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 36) i32 @doCdataSection(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3, ptr nocapture noundef writeonly %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -15071,7 +15071,7 @@ define internal range(i32 0, 41) i32 @cdataSectionProcessor(ptr noundef %0, ptr 
   %9 = load i8, ptr %8, align 4
   %.not = icmp eq i8 %9, 0
   %10 = zext i1 %.not to i8
-  %11 = call fastcc i32 @doCdataSection.argelim(ptr noundef %0, ptr noundef %7, ptr noundef %5, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %10)
+  %11 = call fastcc i32 @doCdataSection(ptr noundef %0, ptr noundef %7, ptr noundef %5, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %10)
   %.not18 = icmp eq i32 %11, 0
   br i1 %.not18, label %12, label %22
 
@@ -15128,7 +15128,7 @@ define internal range(i32 0, 41) i32 @internalEntityProcessor(ptr noundef %0, pt
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 432
   %24 = load ptr, ptr %23, align 8
-  %25 = call fastcc i32 @doContent.argelim(ptr noundef nonnull %0, i32 noundef %22, ptr noundef %24, ptr noundef %16, ptr noundef %20, ptr noundef nonnull %5, i8 noundef zeroext 0)
+  %25 = call fastcc i32 @doContent(ptr noundef nonnull %0, i32 noundef %22, ptr noundef %24, ptr noundef %16, ptr noundef %20, ptr noundef nonnull %5, i8 noundef zeroext 0)
   %.not38 = icmp eq i32 %25, 0
   br i1 %.not38, label %26, label %54
 
@@ -15174,7 +15174,7 @@ define internal range(i32 0, 41) i32 @internalEntityProcessor(ptr noundef %0, pt
   %51 = load i8, ptr %50, align 4
   %.not41 = icmp eq i8 %51, 0
   %52 = zext i1 %.not41 to i8
-  %53 = tail call fastcc i32 @doContent.argelim(ptr noundef nonnull %0, i32 noundef %47, ptr noundef %49, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %52)
+  %53 = tail call fastcc i32 @doContent(ptr noundef nonnull %0, i32 noundef %47, ptr noundef %49, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %52)
   br label %54
 
 54:                                               ; preds = %8, %4, %38, %32
@@ -15982,7 +15982,7 @@ define internal range(i32 0, 41) i32 @externalEntityContentProcessor(ptr noundef
   %8 = load i8, ptr %7, align 4
   %.not = icmp eq i8 %8, 0
   %9 = zext i1 %.not to i8
-  %10 = tail call fastcc i32 @doContent.argelim(ptr noundef %0, i32 noundef 1, ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %9)
+  %10 = tail call fastcc i32 @doContent(ptr noundef %0, i32 noundef 1, ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %9)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %storeRawNames.exit
 
@@ -16083,7 +16083,7 @@ storeRawNames.exit:                               ; preds = %.lr.ph.i, %61, %41,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 25) i32 @appendAttributeValue.argelim(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 25) i32 @appendAttributeValue(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -16583,7 +16583,7 @@ lookup.exit:                                      ; preds = %196, %.lr.ph.i.i, %
   %247 = getelementptr inbounds i8, ptr %236, i64 %246
   store i8 1, ptr %217, align 8
   %248 = load ptr, ptr %30, align 8
-  %249 = call fastcc i32 @appendAttributeValue.argelim(ptr noundef nonnull %0, ptr noundef %248, i8 noundef zeroext %2, ptr noundef nonnull %236, ptr noundef nonnull %247, ptr noundef %5)
+  %249 = call fastcc i32 @appendAttributeValue(ptr noundef nonnull %0, ptr noundef %248, i8 noundef zeroext %2, ptr noundef nonnull %236, ptr noundef nonnull %247, ptr noundef %5)
   store i8 0, ptr %217, align 8
   %.not135 = icmp eq i32 %249, 0
   br i1 %.not135, label %.loopexit, label %poolStoreString.exit.thread

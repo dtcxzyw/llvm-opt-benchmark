@@ -345,11 +345,11 @@ isJolietSVD.exit:                                 ; preds = %105, %108, %109
 
 isJolietSVD.exit.thread:                          ; preds = %97, %101, %105, %95, %93
   switch i8 %27, label %.thread [
-    i8 0, label %isBootRecord.argprom.exit
+    i8 0, label %isBootRecord.exit
     i8 2, label %122
   ]
 
-isBootRecord.argprom.exit:                        ; preds = %isJolietSVD.exit.thread
+isBootRecord.exit:                                ; preds = %isJolietSVD.exit.thread
   %120 = getelementptr inbounds i8, ptr %.02667, i64 6
   %121 = load i8, ptr %120, align 1
   %.not2.i.not = icmp eq i8 %121, 1
@@ -449,7 +449,7 @@ isBootRecord.argprom.exit:                        ; preds = %isJolietSVD.exit.th
   %.not39.i = icmp eq i8 %172, 34
   br i1 %.not39.i, label %isPVD.exit, label %.thread
 
-.thread:                                          ; preds = %isJolietSVD.exit.thread, %isBootRecord.argprom.exit, %122, %125, %128, %130, %132, %135, %139, %142, %146, %166, %168, %170
+.thread:                                          ; preds = %isJolietSVD.exit.thread, %isBootRecord.exit, %122, %125, %128, %130, %132, %135, %139, %142, %146, %166, %168, %170
   %173 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef %.02667)
   %.not36 = icmp eq i32 %173, 0
   br i1 %.not36, label %174, label %isPVD.exit
@@ -521,7 +521,7 @@ isPVD.exit.sink.split:                            ; preds = %90, %isJolietSVD.ex
   store i32 %209, ptr %.sink72, align 4
   br label %isPVD.exit
 
-isPVD.exit:                                       ; preds = %isPVD.exit.sink.split, %170, %88, %isVolumePartition.exit, %.thread, %isBootRecord.argprom.exit
+isPVD.exit:                                       ; preds = %isPVD.exit.sink.split, %170, %88, %isVolumePartition.exit, %.thread, %isBootRecord.exit
   %210 = add nsw i64 %26, -2048
   store i64 %210, ptr %3, align 8
   %211 = getelementptr inbounds i8, ptr %.02667, i64 2048
@@ -1909,7 +1909,7 @@ next_entry_seek.exit.thread186:                   ; preds = %577, %586, %next_en
 615:                                              ; preds = %611, %606
   %616 = getelementptr inbounds i8, ptr %7, i64 504
   store i64 0, ptr %616, align 8
-  %617 = call fastcc i32 @build_pathname_utf16be.argelim(ptr noundef nonnull %607, ptr noundef nonnull %616, ptr noundef nonnull %.1169)
+  %617 = call fastcc i32 @build_pathname_utf16be(ptr noundef nonnull %607, ptr noundef nonnull %616, ptr noundef nonnull %.1169)
   %.not132 = icmp eq i32 %617, 0
   br i1 %.not132, label %619, label %618
 
@@ -2753,7 +2753,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_iso9660_cleanup(ptr n
   %5 = getelementptr i8, ptr %4, i64 104
   %.val = load ptr, ptr %5, align 8
   %.not3.i = icmp eq ptr %.val, null
-  br i1 %.not3.i, label %release_files.argprom.exit, label %.lr.ph6.i
+  br i1 %.not3.i, label %release_files.exit, label %.lr.ph6.i
 
 .lr.ph6.i:                                        ; preds = %1, %._crit_edge.i
   %.0134.i = phi ptr [ %6, %._crit_edge.i ], [ %.val, %1 ]
@@ -2781,9 +2781,9 @@ define internal range(i32 -30, 1) i32 @archive_read_format_iso9660_cleanup(ptr n
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph6.i
   tail call void @free(ptr noundef nonnull %.0134.i) #18
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %release_files.argprom.exit, label %.lr.ph6.i, !llvm.loop !19
+  br i1 %.not.i, label %release_files.exit, label %.lr.ph6.i, !llvm.loop !19
 
-release_files.argprom.exit:                       ; preds = %._crit_edge.i, %1
+release_files.exit:                               ; preds = %._crit_edge.i, %1
   %15 = getelementptr inbounds i8, ptr %4, i64 56
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #18
@@ -2805,7 +2805,7 @@ release_files.argprom.exit:                       ; preds = %._crit_edge.i, %1
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %31, label %27
 
-27:                                               ; preds = %release_files.argprom.exit
+27:                                               ; preds = %release_files.exit
   %28 = getelementptr inbounds i8, ptr %4, i64 360
   %29 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %28) #18
   %.not15 = icmp eq i32 %29, 0
@@ -2815,8 +2815,8 @@ release_files.argprom.exit:                       ; preds = %._crit_edge.i, %1
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.59) #18
   br label %31
 
-31:                                               ; preds = %27, %30, %release_files.argprom.exit
-  %.0 = phi i32 [ -30, %30 ], [ 0, %27 ], [ 0, %release_files.argprom.exit ]
+31:                                               ; preds = %27, %30, %release_files.exit
+  %.0 = phi i32 [ -30, %30 ], [ 0, %27 ], [ 0, %release_files.exit ]
   %32 = getelementptr inbounds i8, ptr %4, i64 496
   %33 = load ptr, ptr %32, align 8
   tail call void @free(ptr noundef %33) #18
@@ -2957,7 +2957,7 @@ declare ptr @archive_string_conversion_from_charset(ptr noundef, ptr noundef, i3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @build_pathname_utf16be.argelim(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @build_pathname_utf16be(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -2970,7 +2970,7 @@ define internal fastcc range(i32 -1, 1) i32 @build_pathname_utf16be.argelim(ptr 
   br i1 %.not30, label %19, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @build_pathname_utf16be.argelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5)
+  %10 = tail call fastcc i32 @build_pathname_utf16be(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5)
   %.not31 = icmp eq i32 %10, 0
   br i1 %.not31, label %11, label %43
 

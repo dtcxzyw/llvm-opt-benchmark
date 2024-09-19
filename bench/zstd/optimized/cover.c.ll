@@ -320,7 +320,7 @@ if.then38:                                        ; preds = %if.end36
 if.end41:                                         ; preds = %if.then38, %if.end36
   %freqs = getelementptr inbounds i8, ptr %ctx, i64 64
   %30 = load ptr, ptr %freqs, align 8
-  %call42 = call fastcc i64 @COVER_buildDictionary.argprom(ptr noundef nonnull %ctx, ptr noundef %30, ptr noundef %activeDmers, ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, i32 %2, i32 %1)
+  %call42 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %ctx, ptr noundef %30, ptr noundef %activeDmers, ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, i32 %2, i32 %1)
   %add.ptr = getelementptr inbounds i8, ptr %dictBuffer, i64 %call42
   %sub43 = sub i64 %dictBufferCapacity, %call42
   %call45 = call i64 @ZDICT_finalizeDictionary(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %add.ptr, i64 noundef %sub43, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %zParams) #23
@@ -706,7 +706,7 @@ if.end161:                                        ; preds = %if.then158, %for.en
   %cmp165 = icmp ult i32 %45, 9
   %cond167 = select i1 %cmp165, ptr @COVER_cmp8, ptr @COVER_cmp
   %cmp11.not.i = icmp eq i64 %44, 0
-  br i1 %cmp11.not.i, label %COVER_groupBy.argprom.exit, label %while.cond2.preheader.i
+  br i1 %cmp11.not.i, label %COVER_groupBy.exit, label %while.cond2.preheader.i
 
 while.cond2.preheader.i:                          ; preds = %if.end161, %COVER_group.exit.i
   %num.03.i = phi i64 [ %num.1.lcssa.i, %COVER_group.exit.i ], [ 0, %if.end161 ]
@@ -809,25 +809,25 @@ COVER_group.exit.i:                               ; preds = %for.inc.i.i
   %arrayidx17.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %idxprom16.i.i
   store i32 %freq.1.i.i, ptr %arrayidx17.i.i, align 4
   %cmp1.i = icmp ult i64 %num.1.lcssa.i, %44
-  br i1 %cmp1.i, label %while.cond2.preheader.i, label %COVER_groupBy.argprom.exit.loopexit, !llvm.loop !12
+  br i1 %cmp1.i, label %while.cond2.preheader.i, label %COVER_groupBy.exit.loopexit, !llvm.loop !12
 
-COVER_groupBy.argprom.exit.loopexit:              ; preds = %COVER_group.exit.i
+COVER_groupBy.exit.loopexit:                      ; preds = %COVER_group.exit.i
   %.pre = load ptr, ptr %suffix, align 8
-  br label %COVER_groupBy.argprom.exit
+  br label %COVER_groupBy.exit
 
-COVER_groupBy.argprom.exit:                       ; preds = %COVER_groupBy.argprom.exit.loopexit, %if.end161
-  %57 = phi ptr [ %.pre, %COVER_groupBy.argprom.exit.loopexit ], [ %43, %if.end161 ]
+COVER_groupBy.exit:                               ; preds = %COVER_groupBy.exit.loopexit, %if.end161
+  %57 = phi ptr [ %.pre, %COVER_groupBy.exit.loopexit ], [ %43, %if.end161 ]
   store ptr %57, ptr %freqs, align 8
   store ptr null, ptr %suffix, align 8
   br label %return
 
-return:                                           ; preds = %if.then17.i, %if.end15.i, %if.then53, %if.then56, %if.then43, %if.then46, %if.then, %if.then36, %COVER_groupBy.argprom.exit
-  %retval.0 = phi i64 [ 0, %COVER_groupBy.argprom.exit ], [ -72, %if.then36 ], [ -72, %if.then ], [ -72, %if.then46 ], [ -72, %if.then43 ], [ -72, %if.then56 ], [ -72, %if.then53 ], [ -64, %if.end15.i ], [ -64, %if.then17.i ]
+return:                                           ; preds = %if.then17.i, %if.end15.i, %if.then53, %if.then56, %if.then43, %if.then46, %if.then, %if.then36, %COVER_groupBy.exit
+  %retval.0 = phi i64 [ 0, %COVER_groupBy.exit ], [ -72, %if.then36 ], [ -72, %if.then ], [ -72, %if.then46 ], [ -72, %if.then43 ], [ -72, %if.then56 ], [ -72, %if.then53 ], [ -64, %if.end15.i ], [ -64, %if.then17.i ]
   ret i64 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @COVER_buildDictionary.argprom(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %freqs, ptr nocapture noundef nonnull readonly %activeDmers, ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val) unnamed_addr #4 {
+define internal fastcc i64 @COVER_buildDictionary(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %freqs, ptr nocapture noundef nonnull readonly %activeDmers, ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val) unnamed_addr #4 {
 entry:
   %conv = trunc i64 %dictBufferCapacity to i32
   %suffixSize = getelementptr inbounds i8, ptr %ctx, i64 56
@@ -904,7 +904,7 @@ while.body.lr.ph.i:                               ; preds = %for.body
 
 for.cond.preheader.i:                             ; preds = %if.end36.i
   %cmp46.not18.i = icmp eq i32 %retval.sroa.0.sroa.0.1.i, %retval.sroa.0.sroa.7.1.i
-  br i1 %cmp46.not18.i, label %COVER_selectSegment.argprom.exit, label %for.body.lr.ph.i
+  br i1 %cmp46.not18.i, label %COVER_selectSegment.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %8 = load ptr, ptr %dmerAt.i, align 8
@@ -1152,7 +1152,7 @@ if.end36.i:                                       ; preds = %COVER_map_remove.ex
 
 for.cond61.preheader.i:                           ; preds = %for.body.i
   %cmp63.not24.i = icmp eq i32 %newBegin.1.i, %newEnd.1.i
-  br i1 %cmp63.not24.i, label %COVER_selectSegment.argprom.exit, label %for.body64.i
+  br i1 %cmp63.not24.i, label %COVER_selectSegment.exit, label %for.body64.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %pos.021.i = phi i32 [ %retval.sroa.0.sroa.0.1.i, %for.body.lr.ph.i ], [ %add55.i, %for.body.i ]
@@ -1183,21 +1183,21 @@ for.body64.i:                                     ; preds = %for.cond61.preheade
   store i32 0, ptr %arrayidx69.i, align 4
   %inc71.i = add i32 %pos59.025.i, 1
   %cmp63.not.i = icmp eq i32 %inc71.i, %newEnd.1.i
-  br i1 %cmp63.not.i, label %COVER_selectSegment.argprom.exit, label %for.body64.i, !llvm.loop !15
+  br i1 %cmp63.not.i, label %COVER_selectSegment.exit, label %for.body64.i, !llvm.loop !15
 
-COVER_selectSegment.argprom.exit:                 ; preds = %for.body64.i, %for.cond.preheader.i, %for.cond61.preheader.i
+COVER_selectSegment.exit:                         ; preds = %for.body64.i, %for.cond.preheader.i, %for.cond61.preheader.i
   %newEnd.0.lcssa45.i = phi i32 [ %newBegin.1.i, %for.cond61.preheader.i ], [ %retval.sroa.0.sroa.7.1.i, %for.cond.preheader.i ], [ %newEnd.1.i, %for.body64.i ]
   %newBegin.0.lcssa44.i = phi i32 [ %newBegin.1.i, %for.cond61.preheader.i ], [ %retval.sroa.0.sroa.7.1.i, %for.cond.preheader.i ], [ %newBegin.1.i, %for.body64.i ]
   %retval.sroa.0.sroa.0.0.insert.ext.i = zext i32 %newBegin.0.lcssa44.i to i64
   %cmp34 = icmp eq i32 %retval.sroa.12.1.i, 0
   br i1 %cmp34, label %if.then36, label %if.end41
 
-if.then36:                                        ; preds = %for.body, %COVER_selectSegment.argprom.exit
+if.then36:                                        ; preds = %for.body, %COVER_selectSegment.exit
   %inc = add i64 %zeroScoreRun.017, 1
   %cmp37.not = icmp ult i64 %inc, %cond20
   br i1 %cmp37.not, label %for.inc, label %for.end
 
-if.end41:                                         ; preds = %COVER_selectSegment.argprom.exit
+if.end41:                                         ; preds = %COVER_selectSegment.exit
   %add42 = add i32 %sub, %newEnd.0.lcssa45.i
   %sub43 = sub i32 %add42, %newBegin.0.lcssa44.i
   %conv44 = zext i32 %sub43 to i64
@@ -2316,7 +2316,7 @@ if.end18:                                         ; preds = %if.end9
   %freqs19 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load ptr, ptr %freqs19, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call4, ptr align 4 %12, i64 %mul, i1 false)
-  %call22 = call fastcc i64 @COVER_buildDictionary.argprom(ptr noundef nonnull %0, ptr noundef nonnull %call4, ptr noundef %activeDmers, ptr noundef nonnull %call, i64 noundef %1, i32 %3, i32 %4)
+  %call22 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %0, ptr noundef nonnull %call4, ptr noundef %activeDmers, ptr noundef nonnull %call, i64 noundef %1, i32 %3, i32 %4)
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %call22
   %sub23 = sub i64 %1, %call22
   %13 = load ptr, ptr %0, align 8

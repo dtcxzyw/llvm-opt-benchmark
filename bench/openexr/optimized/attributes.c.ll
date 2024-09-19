@@ -751,7 +751,7 @@ if.end76:                                         ; preds = %if.then68, %if.then
   %.sink = phi i32 [ 29, %if.then68 ], [ %13, %if.then58 ]
   %type69 = getelementptr inbounds i8, ptr %.sink74, i64 20
   store i32 %.sink, ptr %type69, align 4
-  %call75 = tail call fastcc i32 @add_to_list.argprom(ptr noundef %ctxt, ptr noundef %list, ptr noundef nonnull %.sink74)
+  %call75 = tail call fastcc i32 @add_to_list(ptr noundef %ctxt, ptr noundef %list, ptr noundef nonnull %.sink74)
   %cmp77 = icmp eq i32 %call75, 0
   br i1 %cmp77, label %if.then79, label %if.else80
 
@@ -1034,7 +1034,7 @@ return:                                           ; preds = %if.end61, %if.else6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_to_list.argprom(ptr noundef nonnull %ctxt, ptr nocapture noundef %list, ptr noundef %nattr) unnamed_addr #2 {
+define internal fastcc i32 @add_to_list(ptr noundef nonnull %ctxt, ptr nocapture noundef %list, ptr noundef %nattr) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %list, align 8
   %add = add nsw i32 %0, 1
@@ -1701,7 +1701,7 @@ if.end45:                                         ; preds = %if.then63.i, %if.en
   %14 = load i32, ptr %type42, align 4
   %type43 = getelementptr inbounds i8, ptr %call.i, i64 20
   store i32 %14, ptr %type43, align 4
-  %call44 = tail call fastcc i32 @add_to_list.argprom(ptr noundef %ctxt, ptr noundef %list, ptr noundef %call.i)
+  %call44 = tail call fastcc i32 @add_to_list(ptr noundef %ctxt, ptr noundef %list, ptr noundef %call.i)
   %cmp46 = icmp eq i32 %call44, 0
   br i1 %cmp46, label %if.then48, label %if.else
 
@@ -1867,7 +1867,7 @@ if.end47:                                         ; preds = %if.then63.i, %if.en
   %15 = load i32, ptr %type44, align 4
   %type45 = getelementptr inbounds i8, ptr %call.i, i64 20
   store i32 %15, ptr %type45, align 4
-  %call46 = tail call fastcc i32 @add_to_list.argprom(ptr noundef %ctxt, ptr noundef %list, ptr noundef nonnull %call.i)
+  %call46 = tail call fastcc i32 @add_to_list(ptr noundef %ctxt, ptr noundef %list, ptr noundef nonnull %call.i)
   %cmp48 = icmp eq i32 %call46, 0
   br i1 %cmp48, label %if.then50, label %if.else
 

@@ -563,7 +563,7 @@ avifValidateImageBasicProperties.exit:            ; preds = %27
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %42 = tail call fastcc i32 @avifValidateGrid.argelim(i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %41)
+  %42 = tail call fastcc i32 @avifValidateGrid(i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %41)
   %.not208 = icmp eq i32 %42, 0
   br i1 %.not208, label %43, label %avifValidateImageBasicProperties.exit.thread
 
@@ -4827,7 +4827,7 @@ declare void @avifImageDestroy(ptr noundef) local_unnamed_addr #2
 declare ptr @avifCodecName(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 19) i32 @avifValidateGrid.argelim(i32 noundef range(i32 1, 257) %0, i32 noundef range(i32 1, 257) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 19) i32 @avifValidateGrid(i32 noundef range(i32 1, 257) %0, i32 noundef range(i32 1, 257) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #1 {
   %5 = mul nuw nsw i32 %1, %0
   %6 = load ptr, ptr %2, align 8
   %7 = zext nneg i32 %5 to i64

@@ -123,13 +123,13 @@ cleanup:                                          ; preds = %qio_channel_command
   %retval.0 = phi ptr [ %call.i.i, %qio_channel_command_new_pid.exit ], [ null, %if.then ]
   %err.val = load ptr, ptr %err, align 8
   %tobool.not.i.i = icmp eq ptr %err.val, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GError.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GError.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   call void @g_error_free(ptr noundef nonnull %err.val) #6
-  br label %glib_autoptr_cleanup_GError.argprom.exit
+  br label %glib_autoptr_cleanup_GError.exit
 
-glib_autoptr_cleanup_GError.argprom.exit:         ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GError.exit:                 ; preds = %cleanup, %if.then.i.i
   ret ptr %retval.0
 }
 
@@ -302,7 +302,7 @@ if.else.i.i23.i:                                  ; preds = %if.then.i.i21.i
 
 trace_qio_channel_command_wait.exit.i:            ; preds = %if.else.i.i23.i, %if.then8.i.i24.i, %land.lhs.true5.i.i18.i, %trace_qio_channel_command_abort.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i14.i)
-  switch i32 %call.i12, label %qio_channel_command_abort.argprom.exit [
+  switch i32 %call.i12, label %qio_channel_command_abort.exit [
     i32 -1, label %if.then.i
     i32 0, label %if.then11.i
   ]
@@ -317,7 +317,7 @@ if.else.i:                                        ; preds = %if.then.i
   %21 = load i32, ptr %pid, align 8
   %conv.i = sext i32 %21 to i64
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 119, ptr noundef nonnull @__func__.qio_channel_command_abort, i32 noundef %20, ptr noundef nonnull @.str.7, i64 noundef %conv.i) #6
-  br label %qio_channel_command_abort.argprom.exit
+  br label %qio_channel_command_abort.exit
 
 if.then11.i:                                      ; preds = %trace_qio_channel_command_wait.exit.i
   %22 = load i32, ptr %pid, align 8
@@ -332,7 +332,7 @@ if.then20.i:                                      ; preds = %if.then11.i
 if.else23.i:                                      ; preds = %if.then11.i
   %conv25.i = sext i32 %22 to i64
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @__func__.qio_channel_command_abort, ptr noundef nonnull @.str.8, i64 noundef %conv25.i) #6
-  br label %qio_channel_command_abort.argprom.exit
+  br label %qio_channel_command_abort.exit
 
 if.end26.i:                                       ; preds = %if.then20.i, %if.then11.i
   %.sink.i = phi i32 [ 9, %if.then20.i ], [ 15, %if.then11.i ]
@@ -341,13 +341,13 @@ if.end26.i:                                       ; preds = %if.then20.i, %if.th
   %call27.i = call i32 @usleep(i32 noundef 10000) #6
   br label %rewait.outer.i
 
-qio_channel_command_abort.argprom.exit:           ; preds = %trace_qio_channel_command_wait.exit.i, %if.else.i, %if.else23.i
+qio_channel_command_abort.exit:                   ; preds = %trace_qio_channel_command_wait.exit.i, %if.else.i, %if.else23.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
   %23 = load i32, ptr %pid, align 8
   call void @g_spawn_close_pid(i32 noundef %23) #6
   br label %if.end17
 
-if.end17:                                         ; preds = %qio_channel_command_abort.argprom.exit, %if.end10
+if.end17:                                         ; preds = %qio_channel_command_abort.exit, %if.end10
   ret void
 }
 

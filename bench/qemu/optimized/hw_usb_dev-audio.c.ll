@@ -706,7 +706,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @usb_audio_set_output_altset.retelim(ptr noundef %call.i, i32 noundef %value)
+  tail call fastcc void @usb_audio_set_output_altset(ptr noundef %call.i, i32 noundef %value)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -790,7 +790,7 @@ declare i64 @AUD_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @usb_audio_set_output_altset.retelim(ptr noundef %s, i32 noundef %altset) unnamed_addr #0 {
+define internal fastcc void @usb_audio_set_output_altset(ptr noundef %s, i32 noundef %altset) unnamed_addr #0 {
 entry:
   switch i32 %altset, label %return [
     i32 0, label %sw.epilog

@@ -26,7 +26,7 @@ define void @opal_class_initialize(ptr nocapture noundef %0) local_unnamed_addr 
 6:                                                ; preds = %1
   %7 = cmpxchg volatile ptr @class_lock, i32 0, i32 1 acquire monotonic, align 4
   %8 = extractvalue { i32, i1 } %7, 1
-  br i1 %8, label %opal_atomic_lock.argprom.exit, label %.preheader.i
+  br i1 %8, label %opal_atomic_lock.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6, %.preheader.i.backedge
   %9 = load volatile i32, ptr @class_lock, align 4
@@ -39,15 +39,15 @@ define void @opal_class_initialize(ptr nocapture noundef %0) local_unnamed_addr 
 11:                                               ; preds = %.preheader.i
   %12 = cmpxchg volatile ptr @class_lock, i32 0, i32 1 acquire monotonic, align 4
   %13 = extractvalue { i32, i1 } %12, 1
-  br i1 %13, label %opal_atomic_lock.argprom.exit, label %.preheader.i.backedge
+  br i1 %13, label %opal_atomic_lock.exit, label %.preheader.i.backedge
 
-opal_atomic_lock.argprom.exit:                    ; preds = %11, %6
+opal_atomic_lock.exit:                            ; preds = %11, %6
   %14 = load i32, ptr @opal_class_init_epoch, align 4
   %15 = load i32, ptr %3, align 8
   %16 = icmp eq i32 %14, %15
   br i1 %16, label %.sink.split, label %.lr.ph
 
-.lr.ph:                                           ; preds = %opal_atomic_lock.argprom.exit
+.lr.ph:                                           ; preds = %opal_atomic_lock.exit
   %17 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %17, align 4
   br label %18
@@ -185,7 +185,7 @@ save_class.exit:                                  ; preds = %._crit_edge64, %65,
   store i32 %77, ptr @num_classes, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %opal_atomic_lock.argprom.exit, %save_class.exit
+.sink.split:                                      ; preds = %opal_atomic_lock.exit, %save_class.exit
   fence release
   store volatile i32 0, ptr @class_lock, align 4
   br label %78

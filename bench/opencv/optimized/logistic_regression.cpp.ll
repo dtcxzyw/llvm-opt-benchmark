@@ -524,7 +524,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #3 personal
           to label %177 unwind label %431
 
 177:                                              ; preds = %176
-  invoke fastcc void @_ZL9showImageRKN2cv3MatEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argelim(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(32) %30)
+  invoke fastcc void @_ZL9showImageRKN2cv3MatEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(32) %30)
           to label %178 unwind label %433
 
 178:                                              ; preds = %177
@@ -535,7 +535,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #3 personal
           to label %179 unwind label %436
 
 179:                                              ; preds = %178
-  invoke fastcc void @_ZL9showImageRKN2cv3MatEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argelim(ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  invoke fastcc void @_ZL9showImageRKN2cv3MatEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %180 unwind label %438
 
 180:                                              ; preds = %179
@@ -687,7 +687,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #3 personal
   br label %.body72
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %249
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(96) %41)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %41)
           to label %256 unwind label %451
 
 256:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
@@ -720,7 +720,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %249
   br label %.body74
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit76:               ; preds = %262
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(96) %43)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %43)
           to label %269 unwind label %453
 
 269:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit76
@@ -850,7 +850,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit76:               ; preds = %262
   br label %.body77
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit79:               ; preds = %321
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(96) %52)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %52)
           to label %328 unwind label %467
 
 328:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit79
@@ -883,7 +883,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit79:               ; preds = %321
   br label %.body80
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit82:               ; preds = %334
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(96) %54)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %54)
           to label %341 unwind label %469
 
 341:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit82
@@ -1318,7 +1318,7 @@ declare void @_ZN2cv3Mat9push_backERKS0_(ptr noundef nonnull align 8 dereference
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL9showImageRKN2cv3MatEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argelim(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9showImageRKN2cv3MatEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Range", align 4
   %4 = alloca %"class.cv::Range", align 8
   %5 = alloca %"class.cv::Mat", align 8
@@ -1436,7 +1436,7 @@ define internal fastcc void @_ZL9showImageRKN2cv3MatEiRKNSt7__cxx1112basic_strin
 declare void @_ZN2cv2ml18LogisticRegression6createEv(ptr dead_on_unwind writable sret(%"struct.cv::Ptr.0") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::Ptr.4", align 8
   %3 = alloca %"struct.cv::Ptr.8", align 8
   call void @_ZN2cv9Formatter3getENS0_10FormatTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.8") align 8 %3, i32 noundef 0)
@@ -1464,7 +1464,7 @@ define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.argelim(ptr noundef 
 
 .noexc5:                                          ; preds = %.noexc
   %.not1.i = icmp eq ptr %16, null
-  br i1 %.not1.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc5, %.noexc7
   %.02.i = phi ptr [ %21, %.noexc7 ], [ %16, %.noexc5 ]
@@ -1480,15 +1480,15 @@ define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.argelim(ptr noundef 
 
 .noexc7:                                          ; preds = %.noexc6
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit, label %.lr.ph.i, !llvm.loop !35
+  br i1 %.not.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit, label %.lr.ph.i, !llvm.loop !35
 
-_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit: ; preds = %.noexc7, %.noexc5
+_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit:        ; preds = %.noexc7, %.noexc5
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_9FormattedEED2Ev.exit, label %24
 
-24:                                               ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit
+24:                                               ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit
   %25 = getelementptr inbounds i8, ptr %23, i64 8
   %26 = load atomic i64, ptr %25 acquire, align 8
   %27 = icmp eq i64 %26, 4294967297
@@ -1556,7 +1556,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %57(ptr noundef nonnull align 8 dereferenceable(16) %23) #10
   br label %_ZN2cv3PtrINS_9FormattedEED2Ev.exit
 
-_ZN2cv3PtrINS_9FormattedEED2Ev.exit:              ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit, %40, %53, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+_ZN2cv3PtrINS_9FormattedEED2Ev.exit:              ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit, %40, %53, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   %58 = getelementptr inbounds i8, ptr %3, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not.i.i.i.i8 = icmp eq ptr %59, null

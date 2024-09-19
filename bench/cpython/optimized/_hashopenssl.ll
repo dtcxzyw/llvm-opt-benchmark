@@ -399,7 +399,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %1, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %1, ptr noundef null)
   br label %_hashlib_HMAC_digest_impl.exit
 
 if.end.i:                                         ; preds = %entry
@@ -432,7 +432,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %1, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %1, ptr noundef null)
   br label %_hashlib_HMAC_hexdigest_impl.exit
 
 if.end.i:                                         ; preds = %entry
@@ -460,7 +460,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %0, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %0, ptr noundef null)
   br label %_hashlib_HMAC_copy_impl.exit
 
 if.end.i:                                         ; preds = %entry
@@ -504,7 +504,7 @@ locked_HMAC_CTX_copy.exit.i:                      ; preds = %if.then.i5.i.i, %if
 if.then4.i:                                       ; preds = %locked_HMAC_CTX_copy.exit.i
   tail call void @HMAC_CTX_free(ptr noundef nonnull %call.i) #9
   %8 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %8, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %8, ptr noundef null)
   br label %_hashlib_HMAC_copy_impl.exit
 
 if.end6.i:                                        ; preds = %locked_HMAC_CTX_copy.exit.i
@@ -641,7 +641,7 @@ if.end28:                                         ; preds = %if.else, %PyMutex_U
 
 if.then30:                                        ; preds = %if.end28
   %18 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %18, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %18, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %if.end28, %if.end5, %if.then30, %if.then10, %if.then4, %if.then
@@ -667,7 +667,7 @@ declare i32 @HMAC_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @_setException.retelim(ptr noundef %exc, ptr noundef %altmsg, ...) unnamed_addr #0 {
+define internal void @_setException(ptr noundef %exc, ptr noundef %altmsg, ...) unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call i64 @ERR_peek_last_error() #9
@@ -792,7 +792,7 @@ locked_HMAC_CTX_copy.exit:                        ; preds = %if.end.i, %if.then3
 
 if.then3:                                         ; preds = %locked_HMAC_CTX_copy.exit
   %7 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %7, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %7, ptr noundef null)
   br label %return
 
 if.end5:                                          ; preds = %locked_HMAC_CTX_copy.exit
@@ -803,7 +803,7 @@ if.end5:                                          ; preds = %locked_HMAC_CTX_cop
 
 if.then8:                                         ; preds = %if.end5
   %8 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %8, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %8, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then8, %if.then3, %if.then
@@ -842,7 +842,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %1, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %1, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -866,7 +866,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %1, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %1, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1643,7 +1643,7 @@ if.end42.i:                                       ; preds = %if.end36.i
 
 if.then45.i:                                      ; preds = %if.end42.i
   %33 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %33, ptr noundef nonnull @.str.109)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %33, ptr noundef nonnull @.str.109)
   br label %exit
 
 if.end47.i:                                       ; preds = %if.end42.i
@@ -1681,7 +1681,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 do.end.i:                                         ; preds = %if.then1.i.i, %if.end.i.i, %if.then62.i
   %40 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %40, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %40, ptr noundef null)
   br label %exit
 
 exit:                                             ; preds = %do.end.i, %if.end51.i, %if.end47.i, %if.then45.i, %if.then40.i, %if.then34.i, %if.then29.i, %if.then22.i, %if.then15.i, %if.then11.i, %if.then7.i, %if.then3.i, %if.then.i, %land.lhs.true98, %land.lhs.true85, %if.then21, %if.end, %cond.end9, %if.then70, %if.then54, %if.then38
@@ -1784,7 +1784,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i
 if.then9.i:                                       ; preds = %lor.lhs.false.i, %if.then.i
   %12 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.110) #9
-  br label %_hashlib_compare_digest_impl.argprom.exit
+  br label %_hashlib_compare_digest_impl.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %13 = and i32 %a.val15.i, 32
@@ -1848,12 +1848,12 @@ if.then19.i:                                      ; preds = %land.lhs.true16.i
   %tp_name22.i = getelementptr inbounds i8, ptr %b.val.i, i64 24
   %22 = load ptr, ptr %tp_name22.i, align 8
   %call23.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.111, ptr noundef %20, ptr noundef %22) #9
-  br label %_hashlib_compare_digest_impl.argprom.exit
+  br label %_hashlib_compare_digest_impl.exit
 
 if.end24.i:                                       ; preds = %land.lhs.true16.i, %if.else.i
   %call25.i = call i32 @PyObject_GetBuffer(ptr noundef nonnull %0, ptr noundef nonnull %view_a.i, i32 noundef 0) #9
   %cmp26.i = icmp eq i32 %call25.i, -1
-  br i1 %cmp26.i, label %_hashlib_compare_digest_impl.argprom.exit, label %if.end28.i
+  br i1 %cmp26.i, label %_hashlib_compare_digest_impl.exit, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end24.i
   %ndim.i = getelementptr inbounds i8, ptr %view_a.i, i64 36
@@ -1865,7 +1865,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   %24 = load ptr, ptr @PyExc_BufferError, align 8
   call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.45) #9
   call void @PyBuffer_Release(ptr noundef nonnull %view_a.i) #9
-  br label %_hashlib_compare_digest_impl.argprom.exit
+  br label %_hashlib_compare_digest_impl.exit
 
 if.end31.i:                                       ; preds = %if.end28.i
   %call32.i = call i32 @PyObject_GetBuffer(ptr noundef %1, ptr noundef nonnull %view_b.i, i32 noundef 0) #9
@@ -1874,7 +1874,7 @@ if.end31.i:                                       ; preds = %if.end28.i
 
 if.then34.i:                                      ; preds = %if.end31.i
   call void @PyBuffer_Release(ptr noundef nonnull %view_a.i) #9
-  br label %_hashlib_compare_digest_impl.argprom.exit
+  br label %_hashlib_compare_digest_impl.exit
 
 if.end35.i:                                       ; preds = %if.end31.i
   %ndim36.i = getelementptr inbounds i8, ptr %view_b.i, i64 36
@@ -1887,7 +1887,7 @@ if.then38.i:                                      ; preds = %if.end35.i
   call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.45) #9
   call void @PyBuffer_Release(ptr noundef nonnull %view_a.i) #9
   call void @PyBuffer_Release(ptr noundef nonnull %view_b.i) #9
-  br label %_hashlib_compare_digest_impl.argprom.exit
+  br label %_hashlib_compare_digest_impl.exit
 
 if.end39.i:                                       ; preds = %if.end35.i
   %27 = load ptr, ptr %view_a.i, align 8
@@ -1910,16 +1910,16 @@ if.end43.i:                                       ; preds = %if.end39.i, %PyUnic
   %rc.0.in.i = icmp eq i32 %rc.0.in.in.i, 0
   %conv.i = zext i1 %rc.0.in.i to i64
   %call44.i = call ptr @PyBool_FromLong(i64 noundef %conv.i) #9
-  br label %_hashlib_compare_digest_impl.argprom.exit
+  br label %_hashlib_compare_digest_impl.exit
 
-_hashlib_compare_digest_impl.argprom.exit:        ; preds = %if.then9.i, %if.then19.i, %if.end24.i, %if.then30.i, %if.then34.i, %if.then38.i, %if.end43.i
+_hashlib_compare_digest_impl.exit:                ; preds = %if.then9.i, %if.then19.i, %if.end24.i, %if.then30.i, %if.then34.i, %if.then38.i, %if.end43.i
   %retval.0.i = phi ptr [ %call44.i, %if.end43.i ], [ null, %if.then9.i ], [ null, %if.then19.i ], [ null, %if.then30.i ], [ null, %if.then34.i ], [ null, %if.then38.i ], [ null, %if.end24.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %view_a.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %view_b.i)
   br label %exit
 
-exit:                                             ; preds = %lor.lhs.false, %_hashlib_compare_digest_impl.argprom.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %_hashlib_compare_digest_impl.argprom.exit ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %lor.lhs.false, %_hashlib_compare_digest_impl.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %_hashlib_compare_digest_impl.exit ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -1988,7 +1988,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %_hashlib_hmac_singleshot_impl.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call.i = call fastcc ptr @py_digest_by_digestmod.argelim(ptr noundef %module, ptr noundef %3)
+  %call.i = call fastcc ptr @py_digest_by_digestmod(ptr noundef %module, ptr noundef %3)
   %cmp5.i = icmp eq ptr %call.i, null
   br i1 %cmp5.i, label %_hashlib_hmac_singleshot_impl.exit, label %if.end7.i
 
@@ -2009,7 +2009,7 @@ if.end7.i:                                        ; preds = %if.end4.i
 
 if.then17.i:                                      ; preds = %if.end7.i
   %12 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %12, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %12, ptr noundef null)
   br label %_hashlib_hmac_singleshot_impl.exit
 
 if.end19.i:                                       ; preds = %if.end7.i
@@ -2128,7 +2128,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call4.i = call fastcc ptr @py_digest_by_digestmod.argelim(ptr noundef %module, ptr noundef nonnull %digestmod.0)
+  %call4.i = call fastcc ptr @py_digest_by_digestmod(ptr noundef %module, ptr noundef nonnull %digestmod.0)
   %cmp5.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.i, label %exit, label %if.end7.i
 
@@ -2148,7 +2148,7 @@ if.end12.i:                                       ; preds = %if.end7.i
 
 if.then17.i:                                      ; preds = %if.end12.i
   %13 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %13, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %13, ptr noundef null)
   br label %if.end37.thread25.i
 
 if.end19.i:                                       ; preds = %if.end12.i
@@ -2175,7 +2175,7 @@ if.then30.i:                                      ; preds = %if.end24.i
 
 if.end37.thread.i:                                ; preds = %if.end7.i
   %14 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %14, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %14, ptr noundef null)
   br label %exit
 
 if.end37.thread25.i:                              ; preds = %if.end19.i, %if.then17.i
@@ -2983,7 +2983,7 @@ if.end29:                                         ; preds = %do.body.i
 
 if.then32:                                        ; preds = %if.end29
   %9 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %9, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %9, ptr noundef null)
   %10 = load i64, ptr %call.i29, align 8
   %11 = and i64 %10, 2147483648
   %cmp.i82.not = icmp eq i64 %11, 0
@@ -3056,7 +3056,7 @@ while.body.i39:                                   ; preds = %if.else50, %if.end5
 
 if.end54.thread57:                                ; preds = %while.body.i39
   %20 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %20, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %20, ptr noundef null)
   br label %if.then61
 
 if.end5.i46:                                      ; preds = %while.body.i39
@@ -3071,7 +3071,7 @@ if.end54.thread61:                                ; preds = %if.end5.i, %if.then
 
 if.end54:                                         ; preds = %while.body.i
   %21 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %21, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %21, ptr noundef null)
   call void @PyEval_RestoreThread(ptr noundef %call46) #9
   br label %if.then61
 
@@ -3180,7 +3180,7 @@ if.end25:                                         ; preds = %sw.bb20, %sw.bb22
 if.then27:                                        ; preds = %sw.epilog, %if.end25
   %unsupported_digestmod_error = getelementptr inbounds i8, ptr %call.i, i64 32
   %5 = load ptr, ptr %unsupported_digestmod_error, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %5, ptr noundef nonnull @.str.79, ptr noundef %name)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %5, ptr noundef nonnull @.str.79, ptr noundef %name)
   br label %return
 
 return:                                           ; preds = %if.end25.thread25, %if.end25, %if.then27
@@ -3341,7 +3341,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 do.end:                                           ; preds = %if.then52, %if.then1.i, %if.end.i
   %14 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %14, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %14, ptr noundef null)
   br label %if.then58
 
 if.then58:                                        ; preds = %if.end37, %if.end32, %land.lhs.true, %do.end, %if.then31, %if.then27, %if.then13, %if.then10, %if.then7, %if.then3
@@ -3369,7 +3369,7 @@ declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @py_digest_by_digestmod.argelim(ptr noundef %module, ptr noundef %digestmod) unnamed_addr #0 {
+define internal fastcc ptr @py_digest_by_digestmod(ptr noundef %module, ptr noundef %digestmod) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %digestmod, i64 8
   %digestmod.val = load ptr, ptr %0, align 8
@@ -4006,7 +4006,7 @@ while.body.i:                                     ; preds = %if.end5.i, %while.b
 
 if.then3.i:                                       ; preds = %while.body.i
   %15 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %15, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %15, ptr noundef null)
   br label %EVP_hash.exit
 
 if.end5.i:                                        ; preds = %while.body.i
@@ -4047,7 +4047,7 @@ while.body.i15:                                   ; preds = %if.end5.i22, %while
 
 if.end27.thread31:                                ; preds = %while.body.i15
   %21 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %21, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %21, ptr noundef null)
   call void @PyBuffer_Release(ptr noundef nonnull %view) #9
   br label %22
 
@@ -4127,7 +4127,7 @@ locked_EVP_MD_CTX_copy.exit.i:                    ; preds = %if.then.i5.i.i, %if
 
 if.then4.i:                                       ; preds = %locked_EVP_MD_CTX_copy.exit.i
   %7 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %7, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %7, ptr noundef null)
   br label %EVP_digest_impl.exit
 
 if.end6.i:                                        ; preds = %locked_EVP_MD_CTX_copy.exit.i
@@ -4139,7 +4139,7 @@ if.end6.i:                                        ; preds = %locked_EVP_MD_CTX_c
 
 if.then11.i:                                      ; preds = %if.end6.i
   %8 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %8, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %8, ptr noundef null)
   br label %EVP_digest_impl.exit
 
 if.end13.i:                                       ; preds = %if.end6.i
@@ -4207,7 +4207,7 @@ locked_EVP_MD_CTX_copy.exit.i:                    ; preds = %if.then.i5.i.i, %if
 
 if.then3.i:                                       ; preds = %locked_EVP_MD_CTX_copy.exit.i
   %7 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %7, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %7, ptr noundef null)
   br label %EVP_hexdigest_impl.exit
 
 if.end5.i:                                        ; preds = %locked_EVP_MD_CTX_copy.exit.i
@@ -4219,7 +4219,7 @@ if.end5.i:                                        ; preds = %locked_EVP_MD_CTX_c
 
 if.then10.i:                                      ; preds = %if.end5.i
   %8 = load ptr, ptr @PyExc_ValueError, align 8
-  call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %8, ptr noundef null)
+  call void (ptr, ptr, ...) @_setException(ptr noundef %8, ptr noundef null)
   br label %EVP_hexdigest_impl.exit
 
 if.end12.i:                                       ; preds = %if.end5.i
@@ -4330,7 +4330,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.then3.i
   %12 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %12, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %12, ptr noundef null)
   br label %EVP_copy_impl.exit
 
 EVP_copy_impl.exit:                               ; preds = %entry, %Py_DECREF.exit.i.i, %locked_EVP_MD_CTX_copy.exit.i, %Py_DECREF.exit.i
@@ -4619,7 +4619,7 @@ if.then1.i23:                                     ; preds = %if.end.i20
 Py_DECREF.exit25:                                 ; preds = %if.then8, %if.then1.i23, %if.end.i20
   tail call void @EVP_MD_CTX_free(ptr noundef nonnull %call2) #9
   %11 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %11, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %11, ptr noundef null)
   br label %return
 
 if.end10:                                         ; preds = %locked_EVP_MD_CTX_copy.exit
@@ -4647,7 +4647,7 @@ if.then1.i:                                       ; preds = %if.end.i
 Py_DECREF.exit:                                   ; preds = %if.then14, %if.then1.i, %if.end.i
   tail call void @EVP_MD_CTX_free(ptr noundef nonnull %call2) #9
   %14 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %14, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %14, ptr noundef null)
   br label %return
 
 if.end16:                                         ; preds = %if.end10
@@ -4724,7 +4724,7 @@ if.then9:                                         ; preds = %locked_EVP_MD_CTX_c
   tail call void @PyMem_Free(ptr noundef nonnull %call) #9
   tail call void @EVP_MD_CTX_free(ptr noundef nonnull %call3) #9
   %7 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %7, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %7, ptr noundef null)
   br label %return
 
 if.end11:                                         ; preds = %locked_EVP_MD_CTX_copy.exit
@@ -4736,7 +4736,7 @@ if.then14:                                        ; preds = %if.end11
   tail call void @PyMem_Free(ptr noundef nonnull %call) #9
   tail call void @EVP_MD_CTX_free(ptr noundef nonnull %call3) #9
   %8 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void (ptr, ptr, ...) @_setException.retelim(ptr noundef %8, ptr noundef null)
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %8, ptr noundef null)
   br label %return
 
 if.end16:                                         ; preds = %if.end11

@@ -201,17 +201,17 @@ Vec_IntAlloc.exit:                                ; preds = %5, %11
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %15, ptr %16, align 8
   %17 = icmp sgt i32 %.val, 0
-  br i1 %17, label %Aig_ManObj.argprom.exit.lr.ph, label %._crit_edge
+  br i1 %17, label %Aig_ManObj.exit.lr.ph, label %._crit_edge
 
-Aig_ManObj.argprom.exit.lr.ph:                    ; preds = %Vec_IntAlloc.exit
+Aig_ManObj.exit.lr.ph:                            ; preds = %Vec_IntAlloc.exit
   %18 = getelementptr i8, ptr %3, i64 8
   %19 = getelementptr i8, ptr %1, i64 32
   %20 = getelementptr i8, ptr %4, i64 8
   %21 = getelementptr i8, ptr %2, i64 32
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.exit.lr.ph, %155
-  %indvars.iv = phi i64 [ 0, %Aig_ManObj.argprom.exit.lr.ph ], [ %indvars.iv.next, %155 ]
+Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.ph, %155
+  %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit.lr.ph ], [ %indvars.iv.next, %155 ]
   %.val29 = load ptr, ptr %18, align 8
   %22 = getelementptr inbounds i32, ptr %.val29, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
@@ -243,7 +243,7 @@ Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.
   %44 = icmp eq ptr %38, %43
   br i1 %44, label %155, label %45
 
-45:                                               ; preds = %Aig_ManObj.argprom.exit
+45:                                               ; preds = %Aig_ManObj.exit
   %46 = getelementptr inbounds i8, ptr %38, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr inbounds i8, ptr %43, i64 36
@@ -493,12 +493,12 @@ Vec_IntGrow.exit.i56:                             ; preds = %138, %136
   store i32 %.sink, ptr %154, align 4
   br label %155
 
-155:                                              ; preds = %.sink.split, %Aig_ManObj.argprom.exit
+155:                                              ; preds = %.sink.split, %Aig_ManObj.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val28 = load i32, ptr %6, align 4
   %156 = sext i32 %.val28 to i64
   %157 = icmp slt i64 %indvars.iv.next, %156
-  br i1 %157, label %Aig_ManObj.argprom.exit, label %._crit_edge, !llvm.loop !7
+  br i1 %157, label %Aig_ManObj.exit, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %155, %Vec_IntAlloc.exit
   ret ptr %8
@@ -574,7 +574,7 @@ Vec_IntPush.exit141:                              ; preds = %13
   %36 = zext nneg i32 %21 to i64
   %37 = getelementptr inbounds ptr, ptr %4, i64 %36
   %38 = load ptr, ptr %37, align 8
-  tail call fastcc void @Vec_IntPushUniqueOrder.retelim(ptr noundef %38, i32 noundef %18)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef %38, i32 noundef %18)
   store i32 %21, ptr %23, align 4
   br label %.critedge
 
@@ -591,7 +591,7 @@ Vec_IntPush.exit141:                              ; preds = %13
   br i1 %42, label %46, label %47
 
 46:                                               ; preds = %41
-  tail call fastcc void @Vec_IntPushUniqueOrder.retelim(ptr noundef %45, i32 noundef %16)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef %45, i32 noundef %16)
   store i32 %24, ptr %20, align 4
   br label %.critedge
 
@@ -751,7 +751,7 @@ Vec_IntPushFirst.exit:                            ; preds = %79, %Vec_IntGrow.ex
   %.val131 = load ptr, ptr %115, align 8
   %120 = getelementptr inbounds i32, ptr %.val131, i64 %indvars.iv175
   %121 = load i32, ptr %120, align 4
-  tail call fastcc void @Vec_IntPushUniqueOrder.retelim(ptr noundef %118, i32 noundef %121)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef %118, i32 noundef %121)
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds i32, ptr %6, i64 %122
   store i32 %21, ptr %123, align 4
@@ -786,7 +786,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge7, %129
   %.val130 = load ptr, ptr %106, align 8
   %131 = getelementptr inbounds i32, ptr %.val130, i64 %indvars.iv
   %132 = load i32, ptr %131, align 4
-  tail call fastcc void @Vec_IntPushUniqueOrder.retelim(ptr noundef %109, i32 noundef %132)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef %109, i32 noundef %132)
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds i32, ptr %6, i64 %133
   store i32 %24, ptr %134, align 4
@@ -842,7 +842,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUniqueOrder.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUniqueOrder(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1211,15 +1211,15 @@ Vec_IntAlloc.exit56:                              ; preds = %Vec_IntAlloc.exit, 
   %33 = getelementptr i8, ptr %12, i64 32
   br label %34
 
-34:                                               ; preds = %.lr.ph, %Aig_ManObj.argprom.exit.thread
-  %35 = phi ptr [ %.val47, %.lr.ph ], [ %111, %Aig_ManObj.argprom.exit.thread ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ManObj.argprom.exit.thread ]
+34:                                               ; preds = %.lr.ph, %Aig_ManObj.exit.thread
+  %35 = phi ptr [ %.val47, %.lr.ph ], [ %111, %Aig_ManObj.exit.thread ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ManObj.exit.thread ]
   %36 = getelementptr i8, ptr %35, i64 8
   %.val = load ptr, ptr %36, align 8
   %37 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %Aig_ManObj.argprom.exit.thread, label %40
+  br i1 %39, label %Aig_ManObj.exit.thread, label %40
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %38, i64 40
@@ -1227,16 +1227,16 @@ Vec_IntAlloc.exit56:                              ; preds = %Vec_IntAlloc.exit, 
   %43 = ptrtoint ptr %42 to i64
   %44 = and i64 %43, -2
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %Aig_ManObj.argprom.exit.thread, label %46
+  br i1 %45, label %Aig_ManObj.exit.thread, label %46
 
 46:                                               ; preds = %40
   %47 = inttoptr i64 %44 to ptr
   %48 = getelementptr inbounds i8, ptr %47, i64 36
   %.val42 = load ptr, ptr %33, align 8
   %.not.i57 = icmp eq ptr %.val42, null
-  br i1 %.not.i57, label %Aig_ManObj.argprom.exit.thread, label %Aig_ManObj.argprom.exit
+  br i1 %.not.i57, label %Aig_ManObj.exit.thread, label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %46
+Aig_ManObj.exit:                                  ; preds = %46
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr i8, ptr %.val42, i64 8
   %.val.i = load ptr, ptr %50, align 8
@@ -1244,9 +1244,9 @@ Aig_ManObj.argprom.exit:                          ; preds = %46
   %52 = getelementptr inbounds ptr, ptr %.val.i, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %Aig_ManObj.argprom.exit.thread, label %55
+  br i1 %54, label %Aig_ManObj.exit.thread, label %55
 
-55:                                               ; preds = %Aig_ManObj.argprom.exit
+55:                                               ; preds = %Aig_ManObj.exit
   %56 = getelementptr i8, ptr %38, i64 36
   %.val48 = load i32, ptr %56, align 4
   %57 = load i32, ptr %17, align 4
@@ -1373,10 +1373,10 @@ Vec_IntPush.exit64:                               ; preds = %.Vec_IntGrow.exit10
   %110 = getelementptr inbounds i32, ptr %107, i64 %109
   store i32 %.val49, ptr %110, align 4
   %.pre = load ptr, ptr %13, align 8
-  br label %Aig_ManObj.argprom.exit.thread
+  br label %Aig_ManObj.exit.thread
 
-Aig_ManObj.argprom.exit.thread:                   ; preds = %46, %Vec_IntPush.exit64, %34, %Aig_ManObj.argprom.exit, %40
-  %111 = phi ptr [ %35, %46 ], [ %.pre, %Vec_IntPush.exit64 ], [ %35, %34 ], [ %35, %Aig_ManObj.argprom.exit ], [ %35, %40 ]
+Aig_ManObj.exit.thread:                           ; preds = %46, %Vec_IntPush.exit64, %34, %Aig_ManObj.exit, %40
+  %111 = phi ptr [ %35, %46 ], [ %.pre, %Vec_IntPush.exit64 ], [ %35, %34 ], [ %35, %Aig_ManObj.exit ], [ %35, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = getelementptr i8, ptr %111, i64 4
   %.val43 = load i32, ptr %112, align 4
@@ -1384,7 +1384,7 @@ Aig_ManObj.argprom.exit.thread:                   ; preds = %46, %Vec_IntPush.ex
   %114 = icmp slt i64 %indvars.iv.next, %113
   br i1 %114, label %34, label %.critedge.loopexit, !llvm.loop !16
 
-.critedge.loopexit:                               ; preds = %Aig_ManObj.argprom.exit.thread
+.critedge.loopexit:                               ; preds = %Aig_ManObj.exit.thread
   %.val41.pre = load i32, ptr %17, align 4
   br label %.critedge
 

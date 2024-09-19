@@ -802,7 +802,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i
 lpad.i.i:                                         ; preds = %invoke.cont6.i.i, %call.i.i.i26.noexc.i.i, %invoke.cont5.i.i, %invoke.cont2.i.i, %call.i.i.i13.noexc.i.i, %invoke.cont1.i.i, %while.end.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer12_GLOBAL__N_112dumpTimeInfoEvE3$_0Lb1EED2Ev.argelim"() #19
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer12_GLOBAL__N_112dumpTimeInfoEvE3$_0Lb1EED2Ev"() #19
   br label %lpad.body
 
 _ZN5folly10symbolizer12_GLOBAL__N_112dumpTimeInfoEv.exit.i: ; preds = %if.then.i.i.i
@@ -1426,7 +1426,7 @@ terminate.lpad.i.i.i.i24.i:                       ; preds = %if.then.i.i23.i
 
 ehcleanup.i.i:                                    ; preds = %lpad52.i.i, %lpad.i19.i
   %.pn.i.i = phi { ptr, i32 } [ %108, %lpad52.i.i ], [ %41, %lpad.i19.i ]
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer12_GLOBAL__N_114dumpSignalInfoEiP9siginfo_tE3$_0Lb1EED2Ev.argelim"() #19
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer12_GLOBAL__N_114dumpSignalInfoEiP9siginfo_tE3$_0Lb1EED2Ev"() #19
   br label %lpad.body
 
 _ZN5folly10symbolizer12_GLOBAL__N_114dumpSignalInfoEiP9siginfo_t.exit.i: ; preds = %if.then.i.i23.i
@@ -1612,7 +1612,7 @@ declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare i64 @time(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer12_GLOBAL__N_112dumpTimeInfoEvE3$_0Lb1EED2Ev.argelim"() unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer12_GLOBAL__N_112dumpTimeInfoEvE3$_0Lb1EED2Ev"() unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   invoke void @_ZN5folly10symbolizer21SafeStackTracePrinter5flushEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
@@ -1787,7 +1787,7 @@ declare i32 @getpid() local_unnamed_addr #9
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer12_GLOBAL__N_114dumpSignalInfoEiP9siginfo_tE3$_0Lb1EED2Ev.argelim"() unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer12_GLOBAL__N_114dumpSignalInfoEiP9siginfo_tE3$_0Lb1EED2Ev"() unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   invoke void @_ZN5folly10symbolizer21SafeStackTracePrinter5flushEv(ptr noundef nonnull align 8 dereferenceable(56) %0)

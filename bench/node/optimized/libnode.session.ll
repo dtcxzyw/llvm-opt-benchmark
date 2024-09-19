@@ -2406,13 +2406,13 @@ lor.lhs.false29:                                  ; preds = %if.end.i48
   %call2.i.i53 = call ptr %30(ptr noundef nonnull align 8 dereferenceable(872) %29) #29
   %call15.i55 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce, ptr %call2.i.i53, ptr %call31) #29
   %cmp.i.i.i56 = icmp eq ptr %call15.i55, null
-  br i1 %cmp.i.i.i56, label %_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_15TransportParams7OptionsEXadL_ZNS4_16transport_paramsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE.argprom.exit.thread, label %if.end.i57
+  br i1 %cmp.i.i.i56, label %_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_15TransportParams7OptionsEXadL_ZNS4_16transport_paramsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE.exit.thread, label %if.end.i57
 
 if.end.i57:                                       ; preds = %lor.lhs.false29
   call void @_ZN4node4quic15TransportParams7Options4FromEPNS_11EnvironmentEN2v85LocalINS5_5ValueEEE(ptr nonnull sret(%"class.v8::Maybe.754") align 8 %maybeOptions.i, ptr noundef nonnull %env, ptr nonnull %call15.i55) #29
   %31 = load i8, ptr %maybeOptions.i, align 8
   %tobool.i.i58 = trunc i8 %31 to i1
-  br i1 %tobool.i.i58, label %_ZNKR2v85MaybeIKN4node4quic15TransportParams7OptionsEE8FromJustEv.exit.i, label %_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_15TransportParams7OptionsEXadL_ZNS4_16transport_paramsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE.argprom.exit.thread
+  br i1 %tobool.i.i58, label %_ZNKR2v85MaybeIKN4node4quic15TransportParams7OptionsEE8FromJustEv.exit.i, label %_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_15TransportParams7OptionsEXadL_ZNS4_16transport_paramsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE.exit.thread
 
 _ZNKR2v85MaybeIKN4node4quic15TransportParams7OptionsEE8FromJustEv.exit.i: ; preds = %if.end.i57
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %maybeOptions.i, i64 152
@@ -2528,7 +2528,7 @@ if.then.i.i.i.i.i.i15.i.i:                        ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i5.i.i, align 8
   br label %lor.lhs.false36
 
-_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_15TransportParams7OptionsEXadL_ZNS4_16transport_paramsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE.argprom.exit.thread: ; preds = %lor.lhs.false29, %if.end.i57
+_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_15TransportParams7OptionsEXadL_ZNS4_16transport_paramsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE.exit.thread: ; preds = %lor.lhs.false29, %if.end.i57
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %maybeOptions.i)
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %ref.tmp28.sroa.3.i)
   br label %if.then56
@@ -2539,13 +2539,13 @@ lor.lhs.false36:                                  ; preds = %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %ref.tmp28.sroa.3.i)
   %call38 = call ptr @_ZNK4node4quic11BindingData18tls_options_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call5) #29
   store ptr %call38, ptr %ref.tmp37, align 8
-  %call42 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_10TLSContext7OptionsEXadL_ZNS4_11tls_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE.argprom(ptr noundef nonnull %env, ptr noundef %options, ptr nonnull %value.coerce, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37)
+  %call42 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_10TLSContext7OptionsEXadL_ZNS4_11tls_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE(ptr noundef nonnull %env, ptr noundef %options, ptr nonnull %value.coerce, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37)
   br i1 %call42, label %lor.lhs.false43, label %if.then56
 
 lor.lhs.false43:                                  ; preds = %lor.lhs.false36
   %call45 = call ptr @_ZNK4node4quic11BindingData26application_options_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call5) #29
   store ptr %call45, ptr %ref.tmp44, align 8
-  %call49 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS3_19Application_OptionsEXadL_ZNS4_19application_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE.argprom(ptr noundef nonnull %env, ptr noundef %options, ptr nonnull %value.coerce, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp44)
+  %call49 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS3_19Application_OptionsEXadL_ZNS4_19application_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr noundef nonnull %env, ptr noundef %options, ptr nonnull %value.coerce, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp44)
   br i1 %call49, label %lor.rhs, label %if.then56
 
 lor.rhs:                                          ; preds = %lor.lhs.false43
@@ -2554,7 +2554,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false43
   %call55 = call noundef zeroext i1 @_ZN4node4quic9SetOptionINS0_7Session7OptionsETnMT_bXadL_ZNS3_4qlogEEEEEbPNS_11EnvironmentEPS4_RKN2v85LocalINS9_6ObjectEEERKNSA_INS9_6StringEEE(ptr noundef nonnull %env, ptr noundef nonnull %options, ptr noundef nonnull align 8 dereferenceable(8) %params, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50)
   br i1 %call55, label %if.end57, label %if.then56
 
-if.then56:                                        ; preds = %if.end.i48, %lor.lhs.false22, %_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_15TransportParams7OptionsEXadL_ZNS4_16transport_paramsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE.argprom.exit.thread, %lor.lhs.false15, %_ZN4node4quic7Session7OptionsC2Ev.exit, %lor.lhs.false43, %lor.lhs.false36, %lor.rhs
+if.then56:                                        ; preds = %if.end.i48, %lor.lhs.false22, %_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_15TransportParams7OptionsEXadL_ZNS4_16transport_paramsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE.exit.thread, %lor.lhs.false15, %_ZN4node4quic7Session7OptionsC2Ev.exit, %lor.lhs.false43, %lor.lhs.false36, %lor.rhs
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   store i8 0, ptr %agg.result, align 8, !alias.scope !35
   %value_.i.i69 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2656,7 +2656,7 @@ declare ptr @_ZNK4node4quic11BindingData33preferred_address_strategy_stringEv(pt
 declare ptr @_ZNK4node4quic11BindingData23transport_params_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_10TLSContext7OptionsEXadL_ZNS4_11tls_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE.argprom(ptr noundef %env, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_10TLSContext7OptionsEXadL_ZNS4_11tls_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE(ptr noundef %env, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #5 {
 entry:
   %maybeOptions = alloca %"class.v8::Maybe.755", align 8
   %ref.tmp28 = alloca %"struct.node::quic::TLSContext::Options", align 8
@@ -2726,7 +2726,7 @@ return:                                           ; preds = %entry, %cleanup
 declare ptr @_ZNK4node4quic11BindingData18tls_options_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS3_19Application_OptionsEXadL_ZNS4_19application_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE.argprom(ptr noundef %env, ptr nocapture noundef nonnull writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS3_19Application_OptionsEXadL_ZNS4_19application_optionsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr noundef %env, ptr nocapture noundef nonnull writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #5 {
 entry:
   %maybeOptions = alloca %"class.v8::Maybe.758", align 8
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
@@ -3526,14 +3526,14 @@ _ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit: ; preds = %entry
   %call.i.i.i.i2.i = call { ptr, i8 } @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE10_M_emplaceIJRPFvPvERSF_mEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %cleanup_hooks_.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %cb.addr.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %arg.addr.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i)
   %23 = extractvalue { ptr, i8 } %call.i.i.i.i2.i, 1
   %tobool.i.i.i = trunc i8 %23 to i1
-  br i1 %tobool.i.i.i, label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.argprom.exit", label %do.body5.i.i.i
+  br i1 %tobool.i.i.i, label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.exit", label %do.body5.i.i.i
 
 do.body5.i.i.i:                                   ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node12CleanupQueue3AddEPFvPvES1_E4args) #29
   call void @abort() #30
   unreachable
 
-"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.argprom.exit": ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit
+"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.exit": ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EEC2EPS2_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cb.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
@@ -3569,7 +3569,7 @@ do.body5.i.i.i:                                   ; preds = %_ZN4node17BaseObjec
   %cmp.i.i.i = icmp eq ptr %32, null
   br i1 %cmp.i.i.i, label %_ZNK4node13AliasedStructINS_4quic7Session5StateEE14GetArrayBufferEv.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.argprom.exit"
+if.end.i.i:                                       ; preds = %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.exit"
   %33 = load ptr, ptr %state_, align 8
   %34 = load i64, ptr %32, align 8
   %call.i.i29 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %33, i64 noundef %34) #29
@@ -3578,9 +3578,9 @@ if.end.i.i:                                       ; preds = %"_ZZN4node4quic7Ses
   %defineProperty.val.val.val.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZNK4node13AliasedStructINS_4quic7Session5StateEE14GetArrayBufferEv.exit
 
-_ZNK4node13AliasedStructINS_4quic7Session5StateEE14GetArrayBufferEv.exit: ; preds = %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.argprom.exit", %if.end.i.i
-  %defineProperty.val.val.val = phi ptr [ %defineProperty.val.val.val.pre, %if.end.i.i ], [ %29, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.argprom.exit" ]
-  %retval.i12.sroa.0.0.i = phi ptr [ %call.i.i29, %if.end.i.i ], [ null, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.argprom.exit" ]
+_ZNK4node13AliasedStructINS_4quic7Session5StateEE14GetArrayBufferEv.exit: ; preds = %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.exit", %if.end.i.i
+  %defineProperty.val.val.val = phi ptr [ %defineProperty.val.val.val.pre, %if.end.i.i ], [ %29, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.exit" ]
+  %retval.i12.sroa.0.0.i = phi ptr [ %call.i.i29, %if.end.i.i ], [ null, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.exit" ]
   %35 = getelementptr i8, ptr %defineProperty.val.val.val, i64 2728
   %defineProperty.val.val.val.val = load ptr, ptr %35, align 8
   %vtable.i.i = load ptr, ptr %defineProperty.val.val.val.val, align 8
@@ -3589,13 +3589,13 @@ _ZNK4node13AliasedStructINS_4quic7Session5StateEE14GetArrayBufferEv.exit: ; pred
   %call2.i.i = call ptr %36(ptr noundef nonnull align 8 dereferenceable(872) %defineProperty.val.val.val.val) #29
   %call31.i = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %object.coerce, ptr %call2.i.i, ptr %31, ptr %retval.i12.sroa.0.0.i, i32 noundef 1) #29
   %tobool.i.i = trunc i16 %call31.i to i1
-  br i1 %tobool.i.i, label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit", label %if.then.i.i30
+  br i1 %tobool.i.i, label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit", label %if.then.i.i30
 
 if.then.i.i30:                                    ; preds = %_ZNK4node13AliasedStructINS_4quic7Session5StateEE14GetArrayBufferEv.exit
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #29
-  br label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit"
+  br label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit"
 
-"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit": ; preds = %_ZNK4node13AliasedStructINS_4quic7Session5StateEE14GetArrayBufferEv.exit, %if.then.i.i30
+"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit": ; preds = %_ZNK4node13AliasedStructINS_4quic7Session5StateEE14GetArrayBufferEv.exit, %if.then.i.i30
   %37 = load ptr, ptr %realm_.i11, align 8
   %env_.i.i32 = getelementptr inbounds i8, ptr %37, i64 176
   %38 = load ptr, ptr %env_.i.i32, align 8
@@ -3608,7 +3608,7 @@ if.then.i.i30:                                    ; preds = %_ZNK4node13AliasedS
   %cmp.i.i.i35 = icmp eq ptr %41, null
   br i1 %cmp.i.i.i35, label %_ZNK4node13AliasedStructINS_4quic7Session5StatsEE14GetArrayBufferEv.exit, label %if.end.i.i36
 
-if.end.i.i36:                                     ; preds = %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit"
+if.end.i.i36:                                     ; preds = %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit"
   %42 = load ptr, ptr %stats_, align 8
   %43 = load i64, ptr %41, align 8
   %call.i.i37 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %42, i64 noundef %43) #29
@@ -3617,9 +3617,9 @@ if.end.i.i36:                                     ; preds = %"_ZZN4node4quic7Ses
   %defineProperty.val5.val.val.pre = load ptr, ptr %.phi.trans.insert110, align 8
   br label %_ZNK4node13AliasedStructINS_4quic7Session5StatsEE14GetArrayBufferEv.exit
 
-_ZNK4node13AliasedStructINS_4quic7Session5StatsEE14GetArrayBufferEv.exit: ; preds = %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit", %if.end.i.i36
-  %defineProperty.val5.val.val = phi ptr [ %defineProperty.val5.val.val.pre, %if.end.i.i36 ], [ %38, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit" ]
-  %retval.i12.sroa.0.0.i38 = phi ptr [ %call.i.i37, %if.end.i.i36 ], [ null, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit" ]
+_ZNK4node13AliasedStructINS_4quic7Session5StatsEE14GetArrayBufferEv.exit: ; preds = %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit", %if.end.i.i36
+  %defineProperty.val5.val.val = phi ptr [ %defineProperty.val5.val.val.pre, %if.end.i.i36 ], [ %38, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit" ]
+  %retval.i12.sroa.0.0.i38 = phi ptr [ %call.i.i37, %if.end.i.i36 ], [ null, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit" ]
   %44 = getelementptr i8, ptr %defineProperty.val5.val.val, i64 2728
   %defineProperty.val5.val.val.val = load ptr, ptr %44, align 8
   %vtable.i.i39 = load ptr, ptr %defineProperty.val5.val.val.val, align 8
@@ -3628,13 +3628,13 @@ _ZNK4node13AliasedStructINS_4quic7Session5StatsEE14GetArrayBufferEv.exit: ; pred
   %call2.i.i41 = call ptr %45(ptr noundef nonnull align 8 dereferenceable(872) %defineProperty.val5.val.val.val) #29
   %call31.i42 = call i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %object.coerce, ptr %call2.i.i41, ptr %40, ptr %retval.i12.sroa.0.0.i38, i32 noundef 1) #29
   %tobool.i.i43 = trunc i16 %call31.i42 to i1
-  br i1 %tobool.i.i43, label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit45", label %if.then.i.i44
+  br i1 %tobool.i.i43, label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit45", label %if.then.i.i44
 
 if.then.i.i44:                                    ; preds = %_ZNK4node13AliasedStructINS_4quic7Session5StatsEE14GetArrayBufferEv.exit
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #29
-  br label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit45"
+  br label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit45"
 
-"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit45": ; preds = %_ZNK4node13AliasedStructINS_4quic7Session5StatsEE14GetArrayBufferEv.exit, %if.then.i.i44
+"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit45": ; preds = %_ZNK4node13AliasedStructINS_4quic7Session5StatsEE14GetArrayBufferEv.exit, %if.then.i.i44
   %46 = load ptr, ptr %realm_.i11, align 8
   %env_.i.i47 = getelementptr inbounds i8, ptr %46, i64 176
   %47 = load ptr, ptr %env_.i.i47, align 8
@@ -3644,7 +3644,7 @@ if.then.i.i44:                                    ; preds = %_ZNK4node13AliasedS
   %tobool = trunc i8 %48 to i1
   br i1 %tobool, label %if.then, label %if.end88
 
-if.then:                                          ; preds = %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit45"
+if.then:                                          ; preds = %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit45"
   %49 = load ptr, ptr %realm_.i11, align 8
   %env_.i.i49 = getelementptr inbounds i8, ptr %49, i64 176
   %50 = load ptr, ptr %env_.i.i49, align 8
@@ -3731,7 +3731,7 @@ if.then.i.i61:                                    ; preds = %_ZNK4node10BaseObje
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #29
   br label %if.end88
 
-if.end88:                                         ; preds = %if.then.i.i61, %_ZNK4node10BaseObject6objectEv.exit, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.argprom.argprom.argprom.argprom.exit45"
+if.end88:                                         ; preds = %if.then.i.i61, %_ZNK4node10BaseObject6objectEv.exit, %_ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EED2Ev.exit, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit45"
   %keylog = getelementptr inbounds i8, ptr %this, i64 688
   %66 = load i8, ptr %keylog, align 8
   %tobool92 = trunc i8 %66 to i1
@@ -4808,16 +4808,16 @@ _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14def
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 4
   %11 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i2 = icmp eq i32 %11, 0
-  br i1 %cmp.i2, label %if.then4.i, label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit"
+  br i1 %cmp.i2, label %if.then4.i, label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit"
 
 if.then4.i:                                       ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
   tail call void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872) %4, i1 noundef zeroext true) #29
   %.pre.i = load ptr, ptr %buffer_.i.i.i.i, align 8
   %arrayidx.i.i.i5.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 4
   %.pre12.i = load i32, ptr %arrayidx.i.i.i5.phi.trans.insert.i, align 4
-  br label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit"
 
-"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit": ; preds = %if.then4.i, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
+"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit":      ; preds = %if.then4.i, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
   %12 = phi i32 [ %11, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre12.i, %if.then4.i ]
   %13 = phi ptr [ %10, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre.i, %if.then4.i ]
   %arrayidx.i.i.i5.i = getelementptr inbounds i8, ptr %13, i64 4
@@ -4825,7 +4825,7 @@ if.then4.i:                                       ; preds = %_ZNSt10unique_ptrIN
   store i32 %add.i.i.i, ptr %arrayidx.i.i.i5.i, align 4
   br label %if.end8
 
-if.end8:                                          ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit", %if.end
+if.end8:                                          ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit", %if.end
   %keylog_stream_ = getelementptr inbounds i8, ptr %this, i64 2608
   %14 = load ptr, ptr %keylog_stream_, align 8
   %cmp.i5.not = icmp eq ptr %14, null
@@ -6550,7 +6550,7 @@ entry:
   %call3.i = call i32 @ngtcp2_conn_read_pkt_versioned(ptr noundef %5, ptr noundef nonnull %path, i32 noundef 1, ptr noundef nonnull %pi.i, ptr noundef %3, i64 noundef %4, i64 noundef %call.i) #29
   switch i32 %call3.i, label %sw.epilog.i [
     i32 0, label %if.then
-    i32 -231, label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread"
+    i32 -231, label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread"
     i32 -215, label %sw.bb5.i
     i32 -241, label %sw.bb9.i
     i32 -242, label %sw.bb16.i
@@ -6573,7 +6573,7 @@ sw.bb5.i:                                         ; preds = %entry
   %destroyed.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr %destroyed.i.i.i, align 8
   %tobool.i.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool.i.not.i.i, label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread.sink.split", label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread"
+  br i1 %tobool.i.not.i.i, label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread.sink.split", label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread"
 
 sw.bb9.i:                                         ; preds = %entry
   %endpoint_.i = getelementptr inbounds i8, ptr %this, i64 1776
@@ -6598,7 +6598,7 @@ sw.bb9.i:                                         ; preds = %entry
   %destroyed.i.i5.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i8, ptr %destroyed.i.i5.i, align 8
   %tobool.i.not.i6.i = icmp eq i8 %12, 0
-  br i1 %tobool.i.not.i6.i, label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread.sink.split", label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread"
+  br i1 %tobool.i.not.i6.i, label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread.sink.split", label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread"
 
 sw.bb16.i:                                        ; preds = %entry
   %ptr_.i.i.i9.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -6606,7 +6606,7 @@ sw.bb16.i:                                        ; preds = %entry
   %destroyed.i.i10.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i8, ptr %destroyed.i.i10.i, align 8
   %tobool.i.not.i11.i = icmp eq i8 %14, 0
-  br i1 %tobool.i.not.i11.i, label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread.sink.split", label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread"
+  br i1 %tobool.i.not.i11.i, label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread.sink.split", label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread"
 
 sw.epilog.i:                                      ; preds = %entry
   call void @_ZN4node4quic9QuicError14ForNgtcp2ErrorEiSt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.node::quic::QuicError") align 8 %ref.tmp17.i, i32 noundef %call3.i, i64 0, ptr nonnull @.str.13) #29
@@ -6622,14 +6622,14 @@ sw.epilog.i:                                      ; preds = %entry
   %destroyed.i.i23.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i8, ptr %destroyed.i.i23.i, align 8
   %tobool.i.not.i24.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.not.i24.i, label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread.sink.split", label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread"
+  br i1 %tobool.i.not.i24.i, label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread.sink.split", label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread"
 
-"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread.sink.split": ; preds = %sw.epilog.i, %sw.bb16.i, %sw.bb9.i, %sw.bb5.i
+"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread.sink.split": ; preds = %sw.epilog.i, %sw.bb16.i, %sw.bb9.i, %sw.bb5.i
   %.sink = phi i1 [ false, %sw.bb5.i ], [ true, %sw.bb9.i ], [ true, %sw.bb16.i ], [ false, %sw.epilog.i ]
   call void @_ZN4node4quic7Session7DoCloseEb(ptr noundef nonnull align 8 dereferenceable(2616) %this, i1 noundef zeroext %.sink)
-  br label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread"
+  br label %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread"
 
-"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread": ; preds = %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread.sink.split", %sw.bb5.i, %sw.bb9.i, %sw.bb16.i, %sw.epilog.i, %entry
+"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread": ; preds = %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread.sink.split", %sw.bb5.i, %sw.bb9.i, %sw.bb16.i, %sw.epilog.i, %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pi.i)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp11.i)
@@ -6646,13 +6646,13 @@ if.then:                                          ; preds = %entry
   call void @_ZN4node4quic7Session11Application15SendPendingDataEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #29
   br label %if.end
 
-if.end:                                           ; preds = %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.argprom.exit.thread", %if.then
+if.end:                                           ; preds = %"_ZZN4node4quic7Session7ReceiveEONS0_5StoreERKNS_13SocketAddressES6_ENK3$_1clEP11ngtcp2_path10ngtcp2_vec.exit.thread", %if.then
   %ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %18 = load ptr, ptr %ptr_.i.i, align 8
   %destroyed.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i8, ptr %destroyed.i, align 8
   %tobool.i.not = icmp eq i8 %19, 0
-  br i1 %tobool.i.not, label %if.then9, label %"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.argprom.exit"
+  br i1 %tobool.i.not, label %if.then9, label %"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit"
 
 if.then9:                                         ; preds = %if.end
   %20 = load ptr, ptr %connection_.i.i, align 8
@@ -6663,7 +6663,7 @@ if.then9:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.then9
   call void @_ZN4node4quic7Session9OnTimeoutEv(ptr noundef nonnull align 8 dereferenceable(2616) %this)
-  br label %"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.argprom.exit"
+  br label %"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit"
 
 if.end.i:                                         ; preds = %if.then9
   %sub.i = sub nuw i64 %call2.i, %call3.i4
@@ -6672,9 +6672,9 @@ if.end.i:                                         ; preds = %if.then9
   %cmp4.i = icmp ult i64 %sub.i, 1000000
   %cond.i = select i1 %cmp4.i, i64 1, i64 %div.i
   call void @_ZN4node15TimerWrapHandle6UpdateEmm(ptr noundef nonnull align 8 dereferenceable(16) %timer_.i, i64 noundef %cond.i, i64 noundef 0) #29
-  br label %"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.argprom.exit"
+  br label %"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit"
 
-"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.argprom.exit": ; preds = %if.end.i, %if.then.i, %if.end
+"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit": ; preds = %if.end.i, %if.then.i, %if.end
   call void @_ZN4node4quic7Session15UpdateDataStatsEv(ptr noundef nonnull readonly align 8 dereferenceable(2616) %this)
   ret i1 true
 }
@@ -9819,18 +9819,18 @@ _ZN4node4quic13CallbackScopeINS0_7SessionEEC2EPS2_.exit: ; preds = %if.end
 
 sw.bb.i:                                          ; preds = %_ZN4node4quic13CallbackScopeINS0_7SessionEEC2EPS2_.exit
   %call.i = call ptr @_ZNK4node4quic11BindingData19acknowledged_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call4) #29
-  br label %"_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.argprom.argprom.exit"
+  br label %"_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.exit"
 
 sw.bb4.i:                                         ; preds = %_ZN4node4quic13CallbackScopeINS0_7SessionEEC2EPS2_.exit
   %call5.i = call ptr @_ZNK4node4quic11BindingData11lost_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call4) #29
-  br label %"_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.argprom.argprom.exit"
+  br label %"_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.exit"
 
 do.body.i:                                        ; preds = %_ZN4node4quic13CallbackScopeINS0_7SessionEEC2EPS2_.exit
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEvE4args") #29
   call void @abort() #30
   unreachable
 
-"_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.argprom.argprom.exit": ; preds = %sw.bb.i, %sw.bb4.i
+"_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.exit": ; preds = %sw.bb.i, %sw.bb4.i
   %retval.sroa.0.0.i = phi ptr [ %call5.i, %sw.bb4.i ], [ %call.i, %sw.bb.i ]
   store ptr %retval.sroa.0.0.i, ptr %arrayinit.element, align 8
   %call22 = call ptr @_ZNK4node4quic11BindingData32session_datagram_status_callbackEv(ptr noundef nonnull align 8 dereferenceable(992) %call4) #29
@@ -9839,11 +9839,11 @@ do.body.i:                                        ; preds = %_ZN4node4quic13Call
   %cmp.not.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i, label %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %"_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.argprom.argprom.exit"
+if.then.i.i:                                      ; preds = %"_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.exit"
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #29
   br label %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
 
-_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit: ; preds = %"_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.argprom.argprom.exit", %if.then.i.i
+_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit: ; preds = %"_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.exit", %if.then.i.i
   call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #29
   br label %return
 
@@ -10682,22 +10682,22 @@ _ZN4node4quic13CallbackScopeINS0_7SessionEEC2EPS2_.exit: ; preds = %if.end7
 
 sw.bb.i:                                          ; preds = %_ZN4node4quic13CallbackScopeINS0_7SessionEEC2EPS2_.exit
   %call.i = call ptr @_ZNK4node4quic11BindingData14aborted_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call11) #29
-  br label %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.argprom.argprom.exit"
+  br label %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.exit"
 
 sw.bb4.i:                                         ; preds = %_ZN4node4quic13CallbackScopeINS0_7SessionEEC2EPS2_.exit
   %call5.i = call ptr @_ZNK4node4quic11BindingData14failure_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call11) #29
-  br label %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.argprom.argprom.exit"
+  br label %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.exit"
 
 sw.bb9.i:                                         ; preds = %_ZN4node4quic13CallbackScopeINS0_7SessionEEC2EPS2_.exit
   %call10.i = call ptr @_ZNK4node4quic11BindingData14success_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call11) #29
-  br label %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.argprom.argprom.exit"
+  br label %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.exit"
 
 do.body.i:                                        ; preds = %_ZN4node4quic13CallbackScopeINS0_7SessionEEC2EPS2_.exit
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEvE4args") #29
   call void @abort() #30
   unreachable
 
-"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.argprom.argprom.exit": ; preds = %sw.bb.i, %sw.bb4.i, %sw.bb9.i
+"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.exit": ; preds = %sw.bb.i, %sw.bb4.i, %sw.bb9.i
   %retval.sroa.0.0.i = phi ptr [ %call10.i, %sw.bb9.i ], [ %call5.i, %sw.bb4.i ], [ %call.i, %sw.bb.i ]
   store ptr %retval.sroa.0.0.i, ptr %argv, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %argv, i64 8
@@ -10735,7 +10735,7 @@ do.body.i:                                        ; preds = %_ZN4node4quic13Call
   %cmp.i.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.i.i.i.i, label %_ZNK4node10BaseObject6objectEv.exit, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.argprom.argprom.exit"
+if.end.i.i.i:                                     ; preds = %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.exit"
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 11
   %20 = load i8, ptr %add.ptr.i.i.i, align 1
   %21 = and i8 %20, 3
@@ -10747,8 +10747,8 @@ _ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS
   %call.i.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %18, i64 noundef %22) #29
   br label %_ZNK4node10BaseObject6objectEv.exit
 
-_ZNK4node10BaseObject6objectEv.exit:              ; preds = %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.argprom.argprom.exit", %if.end.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ null, %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.argprom.argprom.exit" ], [ %19, %if.end.i.i.i ]
+_ZNK4node10BaseObject6objectEv.exit:              ; preds = %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.exit", %if.end.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i
+  %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ null, %"_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.exit" ], [ %19, %if.end.i.i.i ]
   store ptr %retval.sroa.0.0.i.i, ptr %arrayinit.element, align 8
   %arrayinit.element30 = getelementptr inbounds i8, ptr %argv, i64 16
   %23 = load ptr, ptr %realm_.i, align 8
@@ -19932,7 +19932,7 @@ sw.bb4.i:                                         ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %1, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %call5.val5.i, null
-  br i1 %cmp.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN4node4quic7SessionC1ENS1_17BaseObjectPtrImplINS2_8EndpointELb0EEEN2v85LocalINS7_6ObjectEEERKNS3_6ConfigEE3$_1E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.argprom.exit.i", label %_ZNK4node17BaseObjectPtrImplINS_4quic7SessionELb0EE12pointer_dataEv.exit.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN4node4quic7SessionC1ENS1_17BaseObjectPtrImplINS2_8EndpointELb0EEEN2v85LocalINS7_6ObjectEEERKNS3_6ConfigEE3$_1E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.exit.i", label %_ZNK4node17BaseObjectPtrImplINS_4quic7SessionELb0EE12pointer_dataEv.exit.i.i.i.i.i.i
 
 _ZNK4node17BaseObjectPtrImplINS_4quic7SessionELb0EE12pointer_dataEv.exit.i.i.i.i.i.i: ; preds = %sw.bb4.i
   store ptr %call5.val5.i, ptr %1, align 8
@@ -19947,9 +19947,9 @@ do.body6.i.i.i.i.i.i:                             ; preds = %_ZNK4node17BaseObje
 
 do.end8.i.i.i.i.i.i:                              ; preds = %_ZNK4node17BaseObjectPtrImplINS_4quic7SessionELb0EE12pointer_dataEv.exit.i.i.i.i.i.i
   tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %call5.val5.i) #29
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4node4quic7SessionC1ENS1_17BaseObjectPtrImplINS2_8EndpointELb0EEEN2v85LocalINS7_6ObjectEEERKNS3_6ConfigEE3$_1E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4node4quic7SessionC1ENS1_17BaseObjectPtrImplINS2_8EndpointELb0EEEN2v85LocalINS7_6ObjectEEERKNS3_6ConfigEE3$_1E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.exit.i"
 
-"_ZNSt14_Function_base13_Base_managerIZN4node4quic7SessionC1ENS1_17BaseObjectPtrImplINS2_8EndpointELb0EEEN2v85LocalINS7_6ObjectEEERKNS3_6ConfigEE3$_1E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %do.end8.i.i.i.i.i.i, %sw.bb4.i
+"_ZNSt14_Function_base13_Base_managerIZN4node4quic7SessionC1ENS1_17BaseObjectPtrImplINS2_8EndpointELb0EEEN2v85LocalINS7_6ObjectEEERKNS3_6ConfigEE3$_1E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.exit.i": ; preds = %do.end8.i.i.i.i.i.i, %sw.bb4.i
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -19962,17 +19962,17 @@ delete.notnull.i.i:                               ; preds = %sw.bb6.i
   %2 = getelementptr i8, ptr %__dest.val.i, i64 8
   %.val.i.i = load ptr, ptr %2, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.argprom.exit.i.i", label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.exit.i.i", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %.val.i.i) #29
-  br label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.argprom.exit.i.i"
+  br label %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.exit.i.i"
 
-"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.argprom.exit.i.i": ; preds = %if.then.i.i.i.i, %delete.notnull.i.i
+"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.exit.i.i": ; preds = %if.then.i.i.i.i, %delete.notnull.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #34
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.argprom.exit.i.i", %sw.bb6.i, %"_ZNSt14_Function_base13_Base_managerIZN4node4quic7SessionC1ENS1_17BaseObjectPtrImplINS2_8EndpointELb0EEEN2v85LocalINS7_6ObjectEEERKNS3_6ConfigEE3$_1E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.argprom.exit.i", %sw.bb.i, %sw.bb
+sw.epilog:                                        ; preds = %entry, %"_ZZN4node4quic7SessionC1ENS_17BaseObjectPtrImplINS0_8EndpointELb0EEEN2v85LocalINS5_6ObjectEEERKNS1_6ConfigEEN3$_1D2Ev.exit.i.i", %sw.bb6.i, %"_ZNSt14_Function_base13_Base_managerIZN4node4quic7SessionC1ENS1_17BaseObjectPtrImplINS2_8EndpointELb0EEEN2v85LocalINS7_6ObjectEEERKNS3_6ConfigEE3$_1E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.exit.i", %sw.bb.i, %sw.bb
   ret i1 false
 }
 
@@ -20250,27 +20250,27 @@ entry:
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val = load ptr, ptr %callback_, align 8
   %cmp.not.i.i = icmp eq ptr %callback_.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val) #29
-  br label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit"
 
-"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit": ; preds = %entry, %if.then.i.i
+"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit":      ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %0, null
   br i1 %cmp.not.i.i1, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit"
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit
 
-_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
+_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
   store ptr null, ptr %next_.i, align 8
   ret void
 }
@@ -20281,27 +20281,27 @@ entry:
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val.i = load ptr, ptr %callback_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %callback_.val.i, null
-  br i1 %cmp.not.i.i.i, label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit.i", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit.i", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val.i) #29
-  br label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit.i"
+  br label %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit.i"
 
-"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit.i": ; preds = %if.then.i.i.i, %entry
+"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit.i":    ; preds = %if.then.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i1.i, label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_4quic7SessionD1EvE3$_0ED2Ev.exit", label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit.i"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit.i"
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
   br label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_4quic7SessionD1EvE3$_0ED2Ev.exit"
 
-"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_4quic7SessionD1EvE3$_0ED2Ev.exit": ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.argprom.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
+"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_4quic7SessionD1EvE3$_0ED2Ev.exit": ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_0D2Ev.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
   ret void
 }
@@ -20351,27 +20351,27 @@ entry:
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val = load ptr, ptr %callback_, align 8
   %cmp.not.i.i = icmp eq ptr %callback_.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.argprom.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val) #29
-  br label %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.argprom.exit"
+  br label %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.exit"
 
-"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.argprom.exit": ; preds = %entry, %if.then.i.i
+"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.exit":      ; preds = %entry, %if.then.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %0, null
   br i1 %cmp.not.i.i1, label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit, label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.argprom.exit"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.exit"
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
   br label %_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit
 
-_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.argprom.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
+_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.exit", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i
   store ptr null, ptr %next_.i, align 8
   ret void
 }
@@ -20382,27 +20382,27 @@ entry:
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val.i = load ptr, ptr %callback_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %callback_.val.i, null
-  br i1 %cmp.not.i.i.i, label %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.argprom.exit.i", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.exit.i", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %callback_.val.i) #29
-  br label %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.argprom.exit.i"
+  br label %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.exit.i"
 
-"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.argprom.exit.i": ; preds = %if.then.i.i.i, %entry
+"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.exit.i":    ; preds = %if.then.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i1.i, label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_4quic7SessionD1EvE3$_1ED2Ev.exit", label %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.argprom.exit.i"
+_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i: ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.exit.i"
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
   br label %"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_4quic7SessionD1EvE3$_1ED2Ev.exit"
 
-"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_4quic7SessionD1EvE3$_1ED2Ev.exit": ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.argprom.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
+"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_4quic7SessionD1EvE3$_1ED2Ev.exit": ; preds = %"_ZZN4node4quic7SessionD1EvEN3$_1D2Ev.exit.i", %_ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEclEPS5_.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
   ret void
 }
@@ -21450,15 +21450,15 @@ attributes #36 = { nounwind allocsize(1) }
 !54 = distinct !{!54, !55, !"_ZN4node22MakeDetachedBaseObjectINS_4quic7SessionEJNS_17BaseObjectPtrImplINS1_8EndpointELb0EEERN2v85LocalINS6_6ObjectEEERKNS2_6ConfigEEEENS3_IT_Lb0EEEDpOT0_: %agg.result"}
 !55 = distinct !{!55, !"_ZN4node22MakeDetachedBaseObjectINS_4quic7SessionEJNS_17BaseObjectPtrImplINS1_8EndpointELb0EEERN2v85LocalINS6_6ObjectEEERKNS2_6ConfigEEEENS3_IT_Lb0EEEDpOT0_"}
 !56 = !{!57, !59}
-!57 = distinct !{!57, !58, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7SessionD1EvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!58 = distinct !{!58, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7SessionD1EvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!59 = distinct !{!59, !60, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7SessionD1EvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!60 = distinct !{!60, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7SessionD1EvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!57 = distinct !{!57, !58, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7SessionD1EvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!58 = distinct !{!58, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7SessionD1EvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!59 = distinct !{!59, !60, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7SessionD1EvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!60 = distinct !{!60, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7SessionD1EvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
 !61 = !{!62, !64}
-!62 = distinct !{!62, !63, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7SessionD1EvE3$_1EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!63 = distinct !{!63, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7SessionD1EvE3$_1EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!64 = distinct !{!64, !65, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7SessionD1EvE3$_1EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!65 = distinct !{!65, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7SessionD1EvE3$_1EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!62 = distinct !{!62, !63, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7SessionD1EvE3$_1EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!63 = distinct !{!63, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7SessionD1EvE3$_1EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!64 = distinct !{!64, !65, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7SessionD1EvE3$_1EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!65 = distinct !{!65, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7SessionD1EvE3$_1EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
 !66 = distinct !{!66, !6}
 !67 = !{!68}
 !68 = distinct !{!68, !69, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: %agg.result"}
@@ -21487,10 +21487,10 @@ attributes #36 = { nounwind allocsize(1) }
 !91 = distinct !{!91, !92, !"_ZNK4node4quic7Session4qlogEv: %agg.result"}
 !92 = distinct !{!92, !"_ZNK4node4quic7Session4qlogEv"}
 !93 = !{!94, !96}
-!94 = distinct !{!94, !95, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7Session10HandleQlogEjPKvmE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!95 = distinct !{!95, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7Session10HandleQlogEjPKvmE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!96 = distinct !{!96, !97, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7Session10HandleQlogEjPKvmE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!97 = distinct !{!97, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7Session10HandleQlogEjPKvmE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!94 = distinct !{!94, !95, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7Session10HandleQlogEjPKvmE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!95 = distinct !{!95, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7Session10HandleQlogEjPKvmE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!96 = distinct !{!96, !97, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7Session10HandleQlogEjPKvmE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!97 = distinct !{!97, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7Session10HandleQlogEjPKvmE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE"}
 !98 = distinct !{!98, !6}
 !99 = distinct !{!99, !6}
 !100 = distinct !{!100, !6}
@@ -21554,10 +21554,10 @@ attributes #36 = { nounwind allocsize(1) }
 !158 = distinct !{!158, !159, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: %agg.result"}
 !159 = distinct !{!159, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !160 = !{!161, !163}
-!161 = distinct !{!161, !162, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7Session10EmitKeylogEPKcE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!162 = distinct !{!162, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7Session10EmitKeylogEPKcE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!163 = distinct !{!163, !164, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7Session10EmitKeylogEPKcE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!164 = distinct !{!164, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7Session10EmitKeylogEPKcE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!161 = distinct !{!161, !162, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7Session10EmitKeylogEPKcE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!162 = distinct !{!162, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_4quic7Session10EmitKeylogEPKcE3$_0EEJSA_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!163 = distinct !{!163, !164, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7Session10EmitKeylogEPKcE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!164 = distinct !{!164, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_4quic7Session10EmitKeylogEPKcE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISB_EEOT_NS_13CallbackFlags5FlagsE"}
 !165 = !{!166}
 !166 = distinct !{!166, !167, !"_ZSt11make_sharedIN4node13SocketAddressEJRS1_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: %agg.result"}
 !167 = distinct !{!167, !"_ZSt11make_sharedIN4node13SocketAddressEJRS1_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}

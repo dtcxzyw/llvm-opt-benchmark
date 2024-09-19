@@ -223,7 +223,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @be_filter_process_input.retelim(ptr noundef %bev..i, i32 noundef %mode, ptr noundef %processed_any)
+  call fastcc void @be_filter_process_input(ptr noundef %bev..i, i32 noundef %mode, ptr noundef %processed_any)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -232,7 +232,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  call fastcc void @be_filter_process_output.retelim(ptr noundef %bev..i, i32 noundef %mode, ptr noundef %processed_any)
+  call fastcc void @be_filter_process_output(ptr noundef %bev..i, i32 noundef %mode, ptr noundef %processed_any)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end
@@ -433,7 +433,7 @@ do.end8:                                          ; preds = %if.then, %entry
   br i1 %cmp, label %if.then9, label %do.body12
 
 if.then9:                                         ; preds = %do.end8
-  call fastcc void @be_filter_process_output.retelim(ptr noundef nonnull %me_, i32 noundef 0, ptr noundef %processed_any)
+  call fastcc void @be_filter_process_output(ptr noundef nonnull %me_, i32 noundef 0, ptr noundef %processed_any)
   br label %do.body12
 
 do.body12:                                        ; preds = %do.end8, %if.then9
@@ -569,7 +569,7 @@ entry:
 if.then:                                          ; preds = %entry
   store i32 0, ptr %processed_any, align 4
   tail call void @bufferevent_incref_and_lock_(ptr noundef %arg) #2
-  call fastcc void @be_filter_process_output.retelim(ptr noundef %arg, i32 noundef 0, ptr noundef %processed_any)
+  call fastcc void @be_filter_process_output(ptr noundef %arg, i32 noundef 0, ptr noundef %processed_any)
   %call3 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef %arg) #2
   br label %if.end
 
@@ -602,7 +602,7 @@ declare i32 @event_del(ptr noundef) local_unnamed_addr #1
 declare void @bufferevent_incref_and_lock_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @be_filter_process_output.retelim(ptr noundef %bevf, i32 noundef %state, ptr nocapture noundef nonnull %processed_out) unnamed_addr #0 {
+define internal fastcc void @be_filter_process_output(ptr noundef %bevf, i32 noundef %state, ptr nocapture noundef nonnull %processed_out) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %state, 0
   br i1 %cmp, label %if.then, label %do.body.preheader
@@ -620,9 +620,9 @@ lor.lhs.false:                                    ; preds = %if.then
   %high.i = getelementptr inbounds i8, ptr %bevf.val, i64 296
   %3 = load i64, ptr %high.i, align 8
   %tobool.not.i = icmp eq i64 %3, 0
-  br i1 %tobool.not.i, label %lor.lhs.false3, label %be_underlying_writebuf_full.argprom.exit
+  br i1 %tobool.not.i, label %lor.lhs.false3, label %be_underlying_writebuf_full.exit
 
-be_underlying_writebuf_full.argprom.exit:         ; preds = %lor.lhs.false
+be_underlying_writebuf_full.exit:                 ; preds = %lor.lhs.false
   %output.i = getelementptr inbounds i8, ptr %bevf.val, i64 264
   %4 = load ptr, ptr %output.i, align 8
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %4) #2
@@ -630,7 +630,7 @@ be_underlying_writebuf_full.argprom.exit:         ; preds = %lor.lhs.false
   %cmp3.i.not = icmp ult i64 %call.i, %5
   br i1 %cmp3.i.not, label %lor.lhs.false3, label %return
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false, %be_underlying_writebuf_full.argprom.exit
+lor.lhs.false3:                                   ; preds = %lor.lhs.false, %be_underlying_writebuf_full.exit
   %output = getelementptr inbounds i8, ptr %bevf, i64 264
   %6 = load ptr, ptr %output, align 8
   %call4 = tail call i64 @evbuffer_get_length(ptr noundef %6) #2
@@ -694,9 +694,9 @@ land.lhs.true58.us:                               ; preds = %land.lhs.true54.us
   %high.i48.us = getelementptr inbounds i8, ptr %bevf.val35.us, i64 296
   %16 = load i64, ptr %high.i48.us, align 8
   %tobool.not.i49.us = icmp eq i64 %16, 0
-  br i1 %tobool.not.i49.us, label %do.body10.us.us.backedge, label %be_underlying_writebuf_full.argprom.exit54.us
+  br i1 %tobool.not.i49.us, label %do.body10.us.us.backedge, label %be_underlying_writebuf_full.exit54.us
 
-be_underlying_writebuf_full.argprom.exit54.us:    ; preds = %land.lhs.true58.us
+be_underlying_writebuf_full.exit54.us:            ; preds = %land.lhs.true58.us
   %output.i51.us = getelementptr inbounds i8, ptr %bevf.val35.us, i64 264
   %17 = load ptr, ptr %output.i51.us, align 8
   %call.i52.us = tail call i64 @evbuffer_get_length(ptr noundef %17) #2
@@ -705,8 +705,8 @@ be_underlying_writebuf_full.argprom.exit54.us:    ; preds = %land.lhs.true58.us
   %cond.fr.us = freeze i1 %cmp3.i53.not.us
   br i1 %cond.fr.us, label %do.body10.us.us.backedge, label %do.end66
 
-do.body10.us.us.backedge:                         ; preds = %be_underlying_writebuf_full.argprom.exit54.us, %land.lhs.true58.us, %land.rhs.us.us, %land.rhs.i39.us.us
-  %tobool45.not.us.us.be = phi i1 [ true, %be_underlying_writebuf_full.argprom.exit54.us ], [ true, %land.lhs.true58.us ], [ false, %land.rhs.us.us ], [ false, %land.rhs.i39.us.us ]
+do.body10.us.us.backedge:                         ; preds = %be_underlying_writebuf_full.exit54.us, %land.lhs.true58.us, %land.rhs.us.us, %land.rhs.i39.us.us
+  %tobool45.not.us.us.be = phi i1 [ true, %be_underlying_writebuf_full.exit54.us ], [ true, %land.lhs.true58.us ], [ false, %land.rhs.us.us ], [ false, %land.rhs.i39.us.us ]
   br label %do.body10.us.us, !llvm.loop !5
 
 do.body10.us.us:                                  ; preds = %do.body10.us.us.backedge, %do.body.us.preheader
@@ -830,9 +830,9 @@ land.lhs.true54:                                  ; preds = %land.lhs.true49
   %tobool57.not = icmp eq i64 %call56, 0
   br i1 %tobool57.not, label %do.end66, label %do.body, !llvm.loop !7
 
-do.end66:                                         ; preds = %do.body, %bufferevent_trigger_nolock_.exit, %land.lhs.true49, %land.lhs.true54, %bufferevent_trigger_nolock_.exit.us, %land.lhs.true49.us, %land.lhs.true54.us, %be_underlying_writebuf_full.argprom.exit54.us, %do.end.split.us.us
-  %outbuf_cb106 = phi ptr [ %outbuf_cb97, %do.end.split.us.us ], [ %outbuf_cb97, %be_underlying_writebuf_full.argprom.exit54.us ], [ %outbuf_cb97, %land.lhs.true54.us ], [ %outbuf_cb97, %land.lhs.true49.us ], [ %outbuf_cb97, %bufferevent_trigger_nolock_.exit.us ], [ %outbuf_cb, %land.lhs.true54 ], [ %outbuf_cb, %land.lhs.true49 ], [ %outbuf_cb, %bufferevent_trigger_nolock_.exit ], [ %outbuf_cb, %do.body ]
-  %output8104 = phi ptr [ %output896, %do.end.split.us.us ], [ %output896, %be_underlying_writebuf_full.argprom.exit54.us ], [ %output896, %land.lhs.true54.us ], [ %output896, %land.lhs.true49.us ], [ %output896, %bufferevent_trigger_nolock_.exit.us ], [ %output8, %land.lhs.true54 ], [ %output8, %land.lhs.true49 ], [ %output8, %bufferevent_trigger_nolock_.exit ], [ %output8, %do.body ]
+do.end66:                                         ; preds = %do.body, %bufferevent_trigger_nolock_.exit, %land.lhs.true49, %land.lhs.true54, %bufferevent_trigger_nolock_.exit.us, %land.lhs.true49.us, %land.lhs.true54.us, %be_underlying_writebuf_full.exit54.us, %do.end.split.us.us
+  %outbuf_cb106 = phi ptr [ %outbuf_cb97, %do.end.split.us.us ], [ %outbuf_cb97, %be_underlying_writebuf_full.exit54.us ], [ %outbuf_cb97, %land.lhs.true54.us ], [ %outbuf_cb97, %land.lhs.true49.us ], [ %outbuf_cb97, %bufferevent_trigger_nolock_.exit.us ], [ %outbuf_cb, %land.lhs.true54 ], [ %outbuf_cb, %land.lhs.true49 ], [ %outbuf_cb, %bufferevent_trigger_nolock_.exit ], [ %outbuf_cb, %do.body ]
+  %output8104 = phi ptr [ %output896, %do.end.split.us.us ], [ %output896, %be_underlying_writebuf_full.exit54.us ], [ %output896, %land.lhs.true54.us ], [ %output896, %land.lhs.true49.us ], [ %output896, %bufferevent_trigger_nolock_.exit.us ], [ %output8, %land.lhs.true54 ], [ %output8, %land.lhs.true49 ], [ %output8, %bufferevent_trigger_nolock_.exit ], [ %output8, %do.body ]
   %51 = load ptr, ptr %output8104, align 8
   %52 = load ptr, ptr %outbuf_cb106, align 8
   %call69 = tail call i32 @evbuffer_cb_set_flags(ptr noundef %51, ptr noundef %52, i32 noundef 1) #2
@@ -857,7 +857,7 @@ if.then77:                                        ; preds = %lor.lhs.false74, %d
   %call79 = tail call i32 @event_add(ptr noundef nonnull %ev_write, ptr noundef nonnull %timeout_write) #2
   br label %return
 
-return:                                           ; preds = %do.end66, %lor.lhs.false74, %if.then77, %if.then, %be_underlying_writebuf_full.argprom.exit, %lor.lhs.false3
+return:                                           ; preds = %do.end66, %lor.lhs.false74, %if.then77, %if.then, %be_underlying_writebuf_full.exit, %lor.lhs.false3
   ret void
 }
 
@@ -946,7 +946,7 @@ if.then42.i:                                      ; preds = %lor.lhs.false39.i, 
   br label %if.then4
 
 if.end:                                           ; preds = %if.then
-  call fastcc void @be_filter_process_input.retelim(ptr noundef nonnull %me_, i32 noundef 0, ptr noundef %processed_any)
+  call fastcc void @be_filter_process_input(ptr noundef nonnull %me_, i32 noundef 0, ptr noundef %processed_any)
   %.pr.pre = load i32, ptr %processed_any, align 4
   %tobool3.not = icmp eq i32 %.pr.pre, 0
   br i1 %tobool3.not, label %if.end14, label %if.then4
@@ -997,7 +997,7 @@ if.end14:                                         ; preds = %if.then2.split, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @be_filter_process_input.retelim(ptr noundef %bevf, i32 noundef %state, ptr nocapture noundef nonnull %processed_out) unnamed_addr #0 {
+define internal fastcc void @be_filter_process_input(ptr noundef %bevf, i32 noundef %state, ptr nocapture noundef nonnull %processed_out) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %state, 0
   br i1 %cmp, label %if.then, label %if.end5.split

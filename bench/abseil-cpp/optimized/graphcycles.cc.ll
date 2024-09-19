@@ -600,7 +600,7 @@ if.else.i:                                        ; preds = %entry, %if.end12.i
   %seen_deleted_element.09.i = phi i8 [ %seen_deleted_element.1.i, %if.end12.i ], [ 0, %entry ]
   %deleted_index.08.i = phi i32 [ %deleted_index.1.i, %if.end12.i ], [ 0, %entry ]
   switch i32 %2, label %if.end12.i [
-    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit
+    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit
     i32 -2, label %land.lhs.true.i
   ]
 
@@ -620,7 +620,7 @@ if.end12.i:                                       ; preds = %land.lhs.true.i, %i
   %cmp.i = icmp eq i32 %v, %3
   br i1 %cmp.i, label %return, label %if.else.i, !llvm.loop !11
 
-_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit: ; preds = %if.else.i
+_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit: ; preds = %if.else.i
   %tobool.i = trunc nuw i8 %seen_deleted_element.09.i to i1
   %cond.i = select i1 %tobool.i, i32 %deleted_index.08.i, i32 %i.010.i
   %.pre = zext i32 %cond.i to i64
@@ -630,7 +630,7 @@ _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.ex
   %cmp.not = icmp eq i32 %.pre50, %v
   br i1 %cmp.not, label %return, label %if.end
 
-if.end:                                           ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit
+if.end:                                           ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit
   %cmp5 = icmp eq i32 %.pre50, -1
   br i1 %cmp5, label %if.then6, label %if.end7
 
@@ -875,8 +875,8 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %copy.i)
   br label %return
 
-return:                                           ; preds = %if.end12.i, %entry, %if.end7, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit
-  %cmp60 = phi i1 [ true, %if.end7 ], [ true, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit ], [ false, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit ], [ false, %entry ], [ false, %if.end12.i ]
+return:                                           ; preds = %if.end12.i, %entry, %if.end7, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit
+  %cmp60 = phi i1 [ true, %if.end7 ], [ true, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit ], [ false, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit ], [ false, %entry ], [ false, %if.end12.i ]
   ret i1 %cmp60
 }
 
@@ -1263,7 +1263,7 @@ if.else.i.i:                                      ; preds = %for.body, %if.end12
   %seen_deleted_element.09.i.i = phi i8 [ %seen_deleted_element.1.i.i, %if.end12.i.i ], [ 0, %for.body ]
   %deleted_index.08.i.i = phi i32 [ %deleted_index.1.i.i, %if.end12.i.i ], [ 0, %for.body ]
   switch i32 %24, label %if.end12.i.i [
-    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i
+    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i
     i32 -2, label %land.lhs.true.i.i
   ]
 
@@ -1283,7 +1283,7 @@ if.end12.i.i:                                     ; preds = %land.lhs.true.i.i, 
   %cmp.i.i = icmp eq i32 %.lcssa115, %25
   br i1 %cmp.i.i, label %if.then.i17, label %if.else.i.i, !llvm.loop !11
 
-_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i: ; preds = %if.else.i.i
+_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i: ; preds = %if.else.i.i
   %tobool.i.i = trunc nuw i8 %seen_deleted_element.09.i.i to i1
   %cond.i.i = select i1 %tobool.i.i, i32 %deleted_index.08.i.i, i32 %i.010.i.i
   %.pre.i20 = zext i32 %cond.i.i to i64
@@ -1292,11 +1292,11 @@ _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.ex
   %cmp.i21 = icmp eq i32 %.pre7.i, %.lcssa115
   br i1 %cmp.i21, label %if.then.i17, label %for.cond.backedge
 
-for.cond.backedge:                                ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i, %if.then.i17
+for.cond.backedge:                                ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i, %if.then.i17
   br label %for.cond, !llvm.loop !15
 
-if.then.i17:                                      ; preds = %if.end12.i.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i, %for.body
-  %idxprom.i.pre-phi10.i = phi i64 [ %.pre.i20, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i ], [ %idxprom.i5.i.i, %for.body ], [ %idxprom.i.i.i, %if.end12.i.i ]
+if.then.i17:                                      ; preds = %if.end12.i.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i, %for.body
+  %idxprom.i.pre-phi10.i = phi i64 [ %.pre.i20, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i ], [ %idxprom.i5.i.i, %for.body ], [ %idxprom.i.i.i, %if.end12.i.i ]
   %arrayidx.i.i18 = getelementptr inbounds i32, ptr %in.val, i64 %idxprom.i.pre-phi10.i
   store i32 -2, ptr %arrayidx.i.i18, align 4
   br label %for.cond.backedge
@@ -1347,7 +1347,7 @@ if.else.i.i42:                                    ; preds = %for.body13, %if.end
   %seen_deleted_element.09.i.i44 = phi i8 [ %seen_deleted_element.1.i.i51, %if.end12.i.i49 ], [ 0, %for.body13 ]
   %deleted_index.08.i.i45 = phi i32 [ %deleted_index.1.i.i50, %if.end12.i.i49 ], [ 0, %for.body13 ]
   switch i32 %34, label %if.end12.i.i49 [
-    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i61
+    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i61
     i32 -2, label %land.lhs.true.i.i46
   ]
 
@@ -1367,7 +1367,7 @@ if.end12.i.i49:                                   ; preds = %land.lhs.true.i.i46
   %cmp.i.i56 = icmp eq i32 %.lcssa115, %35
   br i1 %cmp.i.i56, label %if.then.i57, label %if.else.i.i42, !llvm.loop !11
 
-_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i61: ; preds = %if.else.i.i42
+_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i61: ; preds = %if.else.i.i42
   %tobool.i.i62 = trunc nuw i8 %seen_deleted_element.09.i.i44 to i1
   %cond.i.i63 = select i1 %tobool.i.i62, i32 %deleted_index.08.i.i45, i32 %i.010.i.i43
   %.pre.i64 = zext i32 %cond.i.i63 to i64
@@ -1376,11 +1376,11 @@ _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.ex
   %cmp.i67 = icmp eq i32 %.pre7.i66, %.lcssa115
   br i1 %cmp.i67, label %if.then.i57, label %for.cond10.backedge
 
-for.cond10.backedge:                              ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i61, %if.then.i57
+for.cond10.backedge:                              ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i61, %if.then.i57
   br label %for.cond10, !llvm.loop !16
 
-if.then.i57:                                      ; preds = %if.end12.i.i49, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i61, %for.body13
-  %idxprom.i.pre-phi10.i58 = phi i64 [ %.pre.i64, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i61 ], [ %idxprom.i5.i.i39, %for.body13 ], [ %idxprom.i.i.i54, %if.end12.i.i49 ]
+if.then.i57:                                      ; preds = %if.end12.i.i49, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i61, %for.body13
+  %idxprom.i.pre-phi10.i58 = phi i64 [ %.pre.i64, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i61 ], [ %idxprom.i5.i.i39, %for.body13 ], [ %idxprom.i.i.i54, %if.end12.i.i49 ]
   %arrayidx.i.i59 = getelementptr inbounds i32, ptr %out17.val, i64 %idxprom.i.pre-phi10.i58
   store i32 -2, ptr %arrayidx.i.i59, align 4
   br label %for.cond10.backedge
@@ -1620,7 +1620,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   %arrayidx.i6.i.i = getelementptr inbounds i32, ptr %out.val, i64 %idxprom.i5.i.i
   %6 = load i32, ptr %arrayidx.i6.i.i, align 4
   %cmp7.i.i = icmp eq i32 %6, %conv.i
-  br i1 %cmp7.i.i, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.argprom.exit, label %if.else.i.i
+  br i1 %cmp7.i.i, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.rhs, %if.end12.i.i
   %7 = phi i32 [ %8, %if.end12.i.i ], [ %6, %land.rhs ]
@@ -1638,7 +1638,7 @@ if.then6.i.i:                                     ; preds = %if.else.i.i
   %.pre.i = zext i32 %cond.i.i to i64
   %arrayidx.i.phi.trans.insert.i = getelementptr inbounds i32, ptr %out.val, i64 %.pre.i
   %.pre7.i = load i32, ptr %arrayidx.i.phi.trans.insert.i, align 4
-  br label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.argprom.exit
+  br label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit
 
 land.lhs.true.i.i:                                ; preds = %if.else.i.i
   %tobool9.i.i = trunc nuw i8 %seen_deleted_element.09.i.i to i1
@@ -1654,15 +1654,15 @@ if.end12.i.i:                                     ; preds = %land.lhs.true.i.i, 
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %out.val, i64 %idxprom.i.i.i
   %8 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.i.i = icmp eq i32 %8, %conv.i
-  br i1 %cmp.i.i, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.argprom.exit, label %if.else.i.i, !llvm.loop !11
+  br i1 %cmp.i.i, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit, label %if.else.i.i, !llvm.loop !11
 
-_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.argprom.exit: ; preds = %if.end12.i.i, %land.rhs, %if.then6.i.i
+_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit: ; preds = %if.end12.i.i, %land.rhs, %if.then6.i.i
   %9 = phi i32 [ %conv.i, %land.rhs ], [ %.pre7.i, %if.then6.i.i ], [ %conv.i, %if.end12.i.i ]
   %cmp.i12 = icmp eq i32 %9, %conv.i
   br label %land.end
 
-land.end:                                         ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.argprom.exit, %land.lhs.true, %entry
-  %10 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp.i12, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.argprom.exit ]
+land.end:                                         ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit, %land.lhs.true, %entry
+  %10 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp.i12, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit ]
   ret i1 %10
 }
 
@@ -1715,7 +1715,7 @@ if.else.i.i:                                      ; preds = %if.then, %if.end12.
   %seen_deleted_element.09.i.i = phi i8 [ %seen_deleted_element.1.i.i, %if.end12.i.i ], [ 0, %if.then ]
   %deleted_index.08.i.i = phi i32 [ %deleted_index.1.i.i, %if.end12.i.i ], [ 0, %if.then ]
   switch i32 %7, label %if.end12.i.i [
-    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i
+    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i
     i32 -2, label %land.lhs.true.i.i
   ]
 
@@ -1735,22 +1735,22 @@ if.end12.i.i:                                     ; preds = %land.lhs.true.i.i, 
   %cmp.i.i = icmp eq i32 %8, %conv.i
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i.i, !llvm.loop !11
 
-_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i: ; preds = %if.else.i.i
+_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i: ; preds = %if.else.i.i
   %tobool.i.i = trunc nuw i8 %seen_deleted_element.09.i.i to i1
   %cond.i.i = select i1 %tobool.i.i, i32 %deleted_index.08.i.i, i32 %i.010.i.i
   %.pre.i = zext i32 %cond.i.i to i64
   %arrayidx.i.phi.trans.insert.i = getelementptr inbounds i32, ptr %out.val, i64 %.pre.i
   %.pre7.i = load i32, ptr %arrayidx.i.phi.trans.insert.i, align 4
   %cmp.i16 = icmp eq i32 %.pre7.i, %conv.i
-  br i1 %cmp.i16, label %if.then.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit
+  br i1 %cmp.i16, label %if.then.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit
 
-if.then.i:                                        ; preds = %if.end12.i.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i, %if.then
-  %idxprom.i.pre-phi10.i = phi i64 [ %.pre.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i ], [ %idxprom.i5.i.i, %if.then ], [ %idxprom.i.i.i, %if.end12.i.i ]
+if.then.i:                                        ; preds = %if.end12.i.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i, %if.then
+  %idxprom.i.pre-phi10.i = phi i64 [ %.pre.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i ], [ %idxprom.i5.i.i, %if.then ], [ %idxprom.i.i.i, %if.end12.i.i ]
   %arrayidx.i.i15 = getelementptr inbounds i32, ptr %out.val, i64 %idxprom.i.pre-phi10.i
   store i32 -2, ptr %arrayidx.i.i15, align 4
-  br label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit
+  br label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit
 
-_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit: ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i, %if.then.i
+_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit: ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i, %if.then.i
   %in = getelementptr inbounds i8, ptr %cond.i14, i64 24
   %conv.i17 = trunc i64 %x.coerce to i32
   %in.val = load ptr, ptr %in, align 8
@@ -1765,13 +1765,13 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit: ;
   %cmp7.i.i23 = icmp eq i32 %10, %conv.i17
   br i1 %cmp7.i.i23, label %if.then.i39, label %if.else.i.i24
 
-if.else.i.i24:                                    ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit, %if.end12.i.i31
-  %11 = phi i32 [ %12, %if.end12.i.i31 ], [ %10, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit ]
-  %i.010.i.i25 = phi i32 [ %i.0.i.i35, %if.end12.i.i31 ], [ %i.04.i.i20, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit ]
-  %seen_deleted_element.09.i.i26 = phi i8 [ %seen_deleted_element.1.i.i33, %if.end12.i.i31 ], [ 0, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit ]
-  %deleted_index.08.i.i27 = phi i32 [ %deleted_index.1.i.i32, %if.end12.i.i31 ], [ 0, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit ]
+if.else.i.i24:                                    ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit, %if.end12.i.i31
+  %11 = phi i32 [ %12, %if.end12.i.i31 ], [ %10, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit ]
+  %i.010.i.i25 = phi i32 [ %i.0.i.i35, %if.end12.i.i31 ], [ %i.04.i.i20, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit ]
+  %seen_deleted_element.09.i.i26 = phi i8 [ %seen_deleted_element.1.i.i33, %if.end12.i.i31 ], [ 0, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit ]
+  %deleted_index.08.i.i27 = phi i32 [ %deleted_index.1.i.i32, %if.end12.i.i31 ], [ 0, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit ]
   switch i32 %11, label %if.end12.i.i31 [
-    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i42
+    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i42
     i32 -2, label %land.lhs.true.i.i28
   ]
 
@@ -1791,7 +1791,7 @@ if.end12.i.i31:                                   ; preds = %land.lhs.true.i.i28
   %cmp.i.i38 = icmp eq i32 %12, %conv.i17
   br i1 %cmp.i.i38, label %if.then.i39, label %if.else.i.i24, !llvm.loop !11
 
-_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i42: ; preds = %if.else.i.i24
+_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i42: ; preds = %if.else.i.i24
   %tobool.i.i43 = trunc nuw i8 %seen_deleted_element.09.i.i26 to i1
   %cond.i.i44 = select i1 %tobool.i.i43, i32 %deleted_index.08.i.i27, i32 %i.010.i.i25
   %.pre.i45 = zext i32 %cond.i.i44 to i64
@@ -1800,13 +1800,13 @@ _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.ex
   %cmp.i48 = icmp eq i32 %.pre7.i47, %conv.i17
   br i1 %cmp.i48, label %if.then.i39, label %if.end
 
-if.then.i39:                                      ; preds = %if.end12.i.i31, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i42, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit
-  %idxprom.i.pre-phi10.i40 = phi i64 [ %.pre.i45, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i42 ], [ %idxprom.i5.i.i21, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit ], [ %idxprom.i.i.i36, %if.end12.i.i31 ]
+if.then.i39:                                      ; preds = %if.end12.i.i31, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i42, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit
+  %idxprom.i.pre-phi10.i40 = phi i64 [ %.pre.i45, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i42 ], [ %idxprom.i5.i.i21, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit ], [ %idxprom.i.i.i36, %if.end12.i.i31 ]
   %arrayidx.i.i41 = getelementptr inbounds i32, ptr %in.val, i64 %idxprom.i.pre-phi10.i40
   store i32 -2, ptr %arrayidx.i.i41, align 4
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i39, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i42, %entry
+if.end:                                           ; preds = %if.then.i39, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i42, %entry
   ret void
 }
 
@@ -2117,7 +2117,7 @@ if.else.i.i:                                      ; preds = %if.then27, %if.end1
   %seen_deleted_element.09.i.i = phi i8 [ %seen_deleted_element.1.i.i, %if.end12.i.i ], [ 0, %if.then27 ]
   %deleted_index.08.i.i = phi i32 [ %deleted_index.1.i.i, %if.end12.i.i ], [ 0, %if.then27 ]
   switch i32 %45, label %if.end12.i.i [
-    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i
+    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i
     i32 -2, label %land.lhs.true.i.i
   ]
 
@@ -2137,22 +2137,22 @@ if.end12.i.i:                                     ; preds = %land.lhs.true.i.i, 
   %cmp.i.i = icmp eq i32 %46, %conv.i32
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i.i, !llvm.loop !11
 
-_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i: ; preds = %if.else.i.i
+_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i: ; preds = %if.else.i.i
   %tobool.i.i = trunc nuw i8 %seen_deleted_element.09.i.i to i1
   %cond.i.i = select i1 %tobool.i.i, i32 %deleted_index.08.i.i, i32 %i.010.i.i
   %.pre.i = zext i32 %cond.i.i to i64
   %arrayidx.i.phi.trans.insert.i = getelementptr inbounds i32, ptr %out.val, i64 %.pre.i
   %.pre7.i = load i32, ptr %arrayidx.i.phi.trans.insert.i, align 4
   %cmp.i45 = icmp eq i32 %.pre7.i, %conv.i32
-  br i1 %cmp.i45, label %if.then.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit
+  br i1 %cmp.i45, label %if.then.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit
 
-if.then.i:                                        ; preds = %if.end12.i.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i, %if.then27
-  %idxprom.i.pre-phi10.i = phi i64 [ %.pre.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i ], [ %idxprom.i5.i.i, %if.then27 ], [ %idxprom.i.i.i, %if.end12.i.i ]
+if.then.i:                                        ; preds = %if.end12.i.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i, %if.then27
+  %idxprom.i.pre-phi10.i = phi i64 [ %.pre.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i ], [ %idxprom.i5.i.i, %if.then27 ], [ %idxprom.i.i.i, %if.end12.i.i ]
   %arrayidx.i.i43 = getelementptr inbounds i32, ptr %out.val, i64 %idxprom.i.pre-phi10.i
   store i32 -2, ptr %arrayidx.i.i43, align 4
-  br label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit
+  br label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit
 
-_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit: ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i, %if.then.i
+_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit: ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i, %if.then.i
   %in.val = load ptr, ptr %in, align 8
   %47 = getelementptr i8, ptr %cond.i39, i64 64
   %in.val28 = load i32, ptr %47, align 8
@@ -2165,13 +2165,13 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit: ;
   %cmp7.i.i51 = icmp eq i32 %48, %conv.i
   br i1 %cmp7.i.i51, label %if.then.i67, label %if.else.i.i52
 
-if.else.i.i52:                                    ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit, %if.end12.i.i59
-  %49 = phi i32 [ %50, %if.end12.i.i59 ], [ %48, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit ]
-  %i.010.i.i53 = phi i32 [ %i.0.i.i63, %if.end12.i.i59 ], [ %i.04.i.i48, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit ]
-  %seen_deleted_element.09.i.i54 = phi i8 [ %seen_deleted_element.1.i.i61, %if.end12.i.i59 ], [ 0, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit ]
-  %deleted_index.08.i.i55 = phi i32 [ %deleted_index.1.i.i60, %if.end12.i.i59 ], [ 0, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit ]
+if.else.i.i52:                                    ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit, %if.end12.i.i59
+  %49 = phi i32 [ %50, %if.end12.i.i59 ], [ %48, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit ]
+  %i.010.i.i53 = phi i32 [ %i.0.i.i63, %if.end12.i.i59 ], [ %i.04.i.i48, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit ]
+  %seen_deleted_element.09.i.i54 = phi i8 [ %seen_deleted_element.1.i.i61, %if.end12.i.i59 ], [ 0, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit ]
+  %deleted_index.08.i.i55 = phi i32 [ %deleted_index.1.i.i60, %if.end12.i.i59 ], [ 0, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit ]
   switch i32 %49, label %if.end12.i.i59 [
-    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i71
+    i32 -1, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i71
     i32 -2, label %land.lhs.true.i.i56
   ]
 
@@ -2191,22 +2191,22 @@ if.end12.i.i59:                                   ; preds = %land.lhs.true.i.i56
   %cmp.i.i66 = icmp eq i32 %50, %conv.i
   br i1 %cmp.i.i66, label %if.then.i67, label %if.else.i.i52, !llvm.loop !11
 
-_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i71: ; preds = %if.else.i.i52
+_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i71: ; preds = %if.else.i.i52
   %tobool.i.i72 = trunc nuw i8 %seen_deleted_element.09.i.i54 to i1
   %cond.i.i73 = select i1 %tobool.i.i72, i32 %deleted_index.08.i.i55, i32 %i.010.i.i53
   %.pre.i74 = zext i32 %cond.i.i73 to i64
   %arrayidx.i.phi.trans.insert.i75 = getelementptr inbounds i32, ptr %in.val, i64 %.pre.i74
   %.pre7.i76 = load i32, ptr %arrayidx.i.phi.trans.insert.i75, align 4
   %cmp.i77 = icmp eq i32 %.pre7.i76, %conv.i
-  br i1 %cmp.i77, label %if.then.i67, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit78
+  br i1 %cmp.i77, label %if.then.i67, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit78
 
-if.then.i67:                                      ; preds = %if.end12.i.i59, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i71, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit
-  %idxprom.i.pre-phi10.i68 = phi i64 [ %.pre.i74, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i71 ], [ %idxprom.i5.i.i49, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit ], [ %idxprom.i.i.i64, %if.end12.i.i59 ]
+if.then.i67:                                      ; preds = %if.end12.i.i59, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i71, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit
+  %idxprom.i.pre-phi10.i68 = phi i64 [ %.pre.i74, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i71 ], [ %idxprom.i5.i.i49, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit ], [ %idxprom.i.i.i64, %if.end12.i.i59 ]
   %arrayidx.i.i69 = getelementptr inbounds i32, ptr %in.val, i64 %idxprom.i.pre-phi10.i68
   store i32 -2, ptr %arrayidx.i.i69, align 4
-  br label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit78
+  br label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit78
 
-_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit78: ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.argprom.exit.i71, %if.then.i67
+_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit78: ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i71, %if.then.i67
   %deltaf_.val = load ptr, ptr %deltaf_.i, align 8
   %deltaf_.val27 = load i32, ptr %size_.i.i.i, align 8
   %idx.ext.i = zext i32 %deltaf_.val27 to i64
@@ -2214,8 +2214,8 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit78:
   %cmp32.not139 = icmp eq i32 %deltaf_.val27, 0
   br i1 %cmp32.not139, label %return, label %for.body
 
-for.body:                                         ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit78, %for.body
-  %__begin3.0140 = phi ptr [ %incdec.ptr, %for.body ], [ %deltaf_.val, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit78 ]
+for.body:                                         ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit78, %for.body
+  %__begin3.0140 = phi ptr [ %incdec.ptr, %for.body ], [ %deltaf_.val, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit78 ]
   %51 = load i32, ptr %__begin3.0140, align 4
   %.val = load ptr, ptr %0, align 8
   %idxprom.i = zext i32 %51 to i64
@@ -2466,10 +2466,10 @@ for.cond.i92.backedge:                            ; preds = %_ZN4absl24synchroni
 _ZN4absl24synchronization_internalL11BackwardDFSEPNS0_11GraphCycles3RepEii.exit: ; preds = %while.condthread-pre-split.i110
   %deltab_.val34.i = load ptr, ptr %deltab_.i, align 8
   %deltab_.val35.i = load i32, ptr %size_.i.i.i83, align 8
-  tail call fastcc void @_ZN4absl24synchronization_internalL4SortERKNS0_12_GLOBAL__N_13VecIPNS1_4NodeEEEPNS2_IiEE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %deltab_.val34.i, i32 %deltab_.val35.i)
+  tail call fastcc void @_ZN4absl24synchronization_internalL4SortERKNS0_12_GLOBAL__N_13VecIPNS1_4NodeEEEPNS2_IiEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %deltab_.val34.i, i32 %deltab_.val35.i)
   %deltaf_.val36.i = load ptr, ptr %deltaf_.i, align 8
   %deltaf_.val37.i = load i32, ptr %size_.i.i.i, align 8
-  tail call fastcc void @_ZN4absl24synchronization_internalL4SortERKNS0_12_GLOBAL__N_13VecIPNS1_4NodeEEEPNS2_IiEE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %deltaf_.val36.i, i32 %deltaf_.val37.i)
+  tail call fastcc void @_ZN4absl24synchronization_internalL4SortERKNS0_12_GLOBAL__N_13VecIPNS1_4NodeEEEPNS2_IiEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %deltaf_.val36.i, i32 %deltaf_.val37.i)
   %list_.i = getelementptr inbounds i8, ptr %0, i64 32920
   %90 = load ptr, ptr %list_.i, align 8
   %space_.i.i.i114 = getelementptr inbounds i8, ptr %0, i64 32928
@@ -2491,7 +2491,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE5clearEv.exit.i117: ; pre
   %idx.ext.i.i.i = zext i32 %deltab_.val39.i to i64
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %deltab_.val38.i, i64 %idx.ext.i.i.i
   %cmp.not2.i.i = icmp eq i32 %deltab_.val39.i, 0
-  br i1 %cmp.not2.i.i, label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit.i, label %for.body.i.i
+  br i1 %cmp.not2.i.i, label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE5clearEv.exit.i117, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i.i
   %__begin2.03.i.i = phi ptr [ %incdec.ptr.i.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i.i ], [ %deltab_.val38.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE5clearEv.exit.i117 ]
@@ -2573,18 +2573,18 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i.i: 
   store i32 %inc.i.i.i, ptr %size_.i.i.i118, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.03.i.i, i64 4
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit.i, label %for.body.i.i
+  br i1 %cmp.not.i.i, label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit.i, label %for.body.i.i
 
-_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit.i: ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE5clearEv.exit.i117
+_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit.i: ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE5clearEv.exit.i117
   %deltaf_.val40.i = load ptr, ptr %deltaf_.i, align 8
   %deltaf_.val41.i = load i32, ptr %size_.i.i.i, align 8
   %idx.ext.i.i45.i = zext i32 %deltaf_.val41.i to i64
   %add.ptr.i.i46.i = getelementptr inbounds i32, ptr %deltaf_.val40.i, i64 %idx.ext.i.i45.i
   %cmp.not2.i47.i = icmp eq i32 %deltaf_.val41.i, 0
-  br i1 %cmp.not2.i47.i, label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88.i, label %for.body.i52.i
+  br i1 %cmp.not2.i47.i, label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88.i, label %for.body.i52.i
 
-for.body.i52.i:                                   ; preds = %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i63.i
-  %__begin2.03.i53.i = phi ptr [ %incdec.ptr.i67.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i63.i ], [ %deltaf_.val40.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit.i ]
+for.body.i52.i:                                   ; preds = %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i63.i
+  %__begin2.03.i53.i = phi ptr [ %incdec.ptr.i67.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i63.i ], [ %deltaf_.val40.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit.i ]
   %107 = load i32, ptr %__begin2.03.i53.i, align 4
   %r.val6.i54.i = load ptr, ptr %0, align 8
   %idxprom.i.i55.i = zext i32 %107 to i64
@@ -2663,28 +2663,28 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i63.i
   store i32 %inc.i.i66.i, ptr %size_.i.i.i118, align 8
   %incdec.ptr.i67.i = getelementptr inbounds i8, ptr %__begin2.03.i53.i, i64 4
   %cmp.not.i68.i = icmp eq ptr %incdec.ptr.i67.i, %add.ptr.i.i46.i
-  br i1 %cmp.not.i68.i, label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88.loopexit.i, label %for.body.i52.i
+  br i1 %cmp.not.i68.i, label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88.loopexit.i, label %for.body.i52.i
 
-_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88.loopexit.i: ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i63.i
+_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88.loopexit.i: ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i63.i
   %deltaf_.val.pre.i = load i32, ptr %size_.i.i.i, align 8
-  br label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88.i
+  br label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88.i
 
-_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88.i: ; preds = %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88.loopexit.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit.i
-  %deltaf_.val.i = phi i32 [ %deltaf_.val.pre.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88.loopexit.i ], [ 0, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit.i ]
+_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88.i: ; preds = %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88.loopexit.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit.i
+  %deltaf_.val.i = phi i32 [ %deltaf_.val.pre.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88.loopexit.i ], [ 0, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit.i ]
   %merged_.i = getelementptr inbounds i8, ptr %0, i64 32968
   %deltab_.val.i = load i32, ptr %size_.i.i.i83, align 8
   %add.i = add i32 %deltab_.val.i, %deltaf_.val.i
   %capacity_.i.i = getelementptr inbounds i8, ptr %0, i64 33012
   %123 = load i32, ptr %capacity_.i.i, align 4
   %cmp.i.i122 = icmp ugt i32 %add.i, %123
-  br i1 %cmp.i.i122, label %while.body.i.i.i, label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i
+  br i1 %cmp.i.i122, label %while.body.i.i.i, label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i
 
-_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i: ; preds = %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88.i
+_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i: ; preds = %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88.i
   %merged_.val27.pre.i = load ptr, ptr %merged_.i, align 8
   br label %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i
 
-while.body.i.i.i:                                 ; preds = %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88.i, %while.body.i.i.i
-  %124 = phi i32 [ %mul.i.i.i129, %while.body.i.i.i ], [ %123, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88.i ]
+while.body.i.i.i:                                 ; preds = %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88.i, %while.body.i.i.i
+  %124 = phi i32 [ %mul.i.i.i129, %while.body.i.i.i ], [ %123, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88.i ]
   %mul.i.i.i129 = shl i32 %124, 1
   %cmp.i.i89.i = icmp ult i32 %mul.i.i.i129, %add.i
   br i1 %cmp.i.i89.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !12
@@ -2723,10 +2723,10 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE4GrowEj.exit.i.i: ; preds
   %deltaf_.val31.pre.i = load i32, ptr %size_.i.i.i, align 8
   br label %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i
 
-_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i: ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE4GrowEj.exit.i.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i
-  %merged_.val27.i = phi ptr [ %merged_.val27.pre.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i ], [ %call.i.i.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE4GrowEj.exit.i.i ]
-  %deltaf_.val31.i = phi i32 [ %deltaf_.val.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i ], [ %deltaf_.val31.pre.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE4GrowEj.exit.i.i ]
-  %deltab_.val33.i = phi i32 [ %deltab_.val.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.argprom.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i ], [ %deltab_.val33.pre.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE4GrowEj.exit.i.i ]
+_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i: ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE4GrowEj.exit.i.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i
+  %merged_.val27.i = phi ptr [ %merged_.val27.pre.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i ], [ %call.i.i.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE4GrowEj.exit.i.i ]
+  %deltaf_.val31.i = phi i32 [ %deltaf_.val.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i ], [ %deltaf_.val31.pre.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE4GrowEj.exit.i.i ]
+  %deltab_.val33.i = phi i32 [ %deltab_.val.i, %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i ], [ %deltab_.val33.pre.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE4GrowEj.exit.i.i ]
   %size_.i.i = getelementptr inbounds i8, ptr %0, i64 33008
   store i32 %add.i, ptr %size_.i.i, align 8
   %deltab_.val29.i = load ptr, ptr %deltab_.i, align 8
@@ -2809,8 +2809,8 @@ for.body.i123:                                    ; preds = %_ZSt5mergeIPiS0_S0_
   %cmp.i128 = icmp ult i64 %indvars.iv.next.i127, %136
   br i1 %cmp.i128, label %for.body.i123, label %return, !llvm.loop !22
 
-return:                                           ; preds = %for.body, %for.body.i123, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit78, %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i, %if.end19, %if.end16, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ true, %if.end16 ], [ true, %if.end19 ], [ true, %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i ], [ false, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.argprom.exit78 ], [ true, %for.body.i123 ], [ false, %for.body ]
+return:                                           ; preds = %for.body, %for.body.i123, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit78, %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i, %if.end19, %if.end16, %if.end, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ true, %if.end16 ], [ true, %if.end19 ], [ true, %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i ], [ false, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit78 ], [ true, %for.body.i123 ], [ false, %for.body ]
   ret i1 %retval.0
 }
 
@@ -3272,7 +3272,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL4SortERKNS0_12_GLOBAL__N_13VecIPNS1_4NodeEEEPNS2_IiEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %nodes, ptr %delta.0.val, i32 %delta.40.val) unnamed_addr #10 {
+define internal fastcc void @_ZN4absl24synchronization_internalL4SortERKNS0_12_GLOBAL__N_13VecIPNS1_4NodeEEEPNS2_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %nodes, ptr %delta.0.val, i32 %delta.40.val) unnamed_addr #10 {
 entry:
   %idx.ext.i = zext i32 %delta.40.val to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2

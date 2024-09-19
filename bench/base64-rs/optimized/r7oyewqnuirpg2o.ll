@@ -192,7 +192,7 @@ define { ptr, i64 } @_ZN6base648alphabet8Alphabet6as_str17h481df87ac0f4bfe4E(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %4 = load i64, ptr %3, align 8, !range !9, !alias.scope !6, !noundef !4
   %trunc.i = trunc nuw i64 %4 to i1
-  br i1 %trunc.i, label %5, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.argprom.exit"
+  br i1 %trunc.i, label %5, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.exit"
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !6
@@ -201,7 +201,7 @@ define { ptr, i64 } @_ZN6base648alphabet8Alphabet6as_str17h481df87ac0f4bfe4E(ptr
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.77d943629ee838dea50e264cfb34e969.0, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.77d943629ee838dea50e264cfb34e969.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.77d943629ee838dea50e264cfb34e969.12) #10, !noalias !6
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.argprom.exit": ; preds = %1
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.exit": ; preds = %1
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !6, !nonnull !4, !align !10, !noundef !4
   %9 = getelementptr inbounds i8, ptr %3, i64 16
@@ -528,8 +528,8 @@ attributes #10 = { noreturn }
 !4 = !{}
 !5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.argprom"}
+!7 = distinct !{!7, !8, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E: argument 0"}
+!8 = distinct !{!8, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E"}
 !9 = !{i64 0, i64 2}
 !10 = !{i64 1}
 !11 = !{!12}

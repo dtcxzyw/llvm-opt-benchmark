@@ -609,7 +609,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit.i: ; preds = %cond.end.i
   %vertices.i.val = load ptr, ptr %vertices.i, align 8, !noalias !10
   %36 = getelementptr i8, ptr %storemerge.i.i.i.i.i, i64 40
   %vertices.i.val43 = load i64, ptr %36, align 8, !noalias !17
-  %call1.i494 = invoke fastcc noundef zeroext i1 @"_ZN3ue29any_of_inINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS9_ESaIS9_EEEZNS_L24eligibleForAlwaysOnGroupERKNS_13RoseBuildImplEjE3$_0EEbRKT_T0_.argprom"(ptr %vertices.i.val, i64 %vertices.i.val43, ptr nonnull %build)
+  %call1.i494 = invoke fastcc noundef zeroext i1 @"_ZN3ue29any_of_inINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS9_ESaIS9_EEEZNS_L24eligibleForAlwaysOnGroupERKNS_13RoseBuildImplEjE3$_0EEbRKT_T0_"(ptr %vertices.i.val, i64 %vertices.i.val43, ptr nonnull %build)
           to label %call1.i.noexc unwind label %lpad10.loopexit.split-lp
 
 call1.i.noexc:                                    ; preds = %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit.i
@@ -716,7 +716,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit81.i: ; preds = %cond.end
   %vertices10.i.val = load ptr, ptr %vertices10.i, align 8, !noalias !10
   %50 = getelementptr i8, ptr %storemerge.i.i.i.i74.i, i64 40
   %vertices10.i.val44 = load i64, ptr %50, align 8, !noalias !17
-  %call13.i495 = invoke fastcc noundef zeroext i1 @"_ZN3ue29any_of_inINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS9_ESaIS9_EEEZNS_L24eligibleForAlwaysOnGroupERKNS_13RoseBuildImplEjE3$_0EEbRKT_T0_.argprom"(ptr %vertices10.i.val, i64 %vertices10.i.val44, ptr nonnull %build)
+  %call13.i495 = invoke fastcc noundef zeroext i1 @"_ZN3ue29any_of_inINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS9_ESaIS9_EEEZNS_L24eligibleForAlwaysOnGroupERKNS_13RoseBuildImplEjE3$_0EEbRKT_T0_"(ptr %vertices10.i.val, i64 %vertices10.i.val44, ptr nonnull %build)
           to label %call13.i.noexc unwind label %lpad10.loopexit
 
 call13.i.noexc:                                   ; preds = %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit81.i
@@ -6149,7 +6149,7 @@ entry:
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN3ue29any_of_inINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS9_ESaIS9_EEEZNS_L24eligibleForAlwaysOnGroupERKNS_13RoseBuildImplEjE3$_0EEbRKT_T0_.argprom"(ptr %c.0.val, i64 %c.8.val, ptr nonnull %p.coerce) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN3ue29any_of_inINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS9_ESaIS9_EEEZNS_L24eligibleForAlwaysOnGroupERKNS_13RoseBuildImplEjE3$_0EEbRKT_T0_"(ptr %c.0.val, i64 %c.8.val, ptr nonnull %p.coerce) unnamed_addr #0 {
 entry:
   %v.i.i179.i.i.i.i.i = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %ref.tmp.i.i180.i.i.i.i.i = alloca %"struct.ue2::left_id", align 8

@@ -220,7 +220,7 @@ entry:
   %link_down.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load i32, ptr %link_down.i, align 8
   %cmp.i = icmp eq i32 %1, 1
-  br i1 %cmp.i, label %if.then.i, label %fp_port_set_link.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %fp_port_set_link.exit
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %link_down.i, align 8
@@ -228,9 +228,9 @@ if.then.i:                                        ; preds = %entry
   %link_status_changed.i = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load ptr, ptr %link_status_changed.i, align 8
   tail call void %3(ptr noundef nonnull %call.i) #9
-  br label %fp_port_set_link.argprom.exit
+  br label %fp_port_set_link.exit
 
-fp_port_set_link.argprom.exit:                    ; preds = %entry, %if.then.i
+fp_port_set_link.exit:                            ; preds = %entry, %if.then.i
   %enabled = getelementptr inbounds i8, ptr %port, i64 36
   store i8 1, ptr %enabled, align 4
   ret void
@@ -247,7 +247,7 @@ entry:
   %link_down.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load i32, ptr %link_down.i, align 8
   %cmp.i = icmp eq i32 %1, 0
-  br i1 %cmp.i, label %if.then.i, label %fp_port_set_link.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %fp_port_set_link.exit
 
 if.then.i:                                        ; preds = %entry
   store i32 1, ptr %link_down.i, align 8
@@ -255,9 +255,9 @@ if.then.i:                                        ; preds = %entry
   %link_status_changed.i = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load ptr, ptr %link_status_changed.i, align 8
   tail call void %3(ptr noundef nonnull %call.i) #9
-  br label %fp_port_set_link.argprom.exit
+  br label %fp_port_set_link.exit
 
-fp_port_set_link.argprom.exit:                    ; preds = %entry, %if.then.i
+fp_port_set_link.exit:                            ; preds = %entry, %if.then.i
   ret void
 }
 

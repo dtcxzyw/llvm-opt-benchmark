@@ -55,7 +55,7 @@ define dso_local range(i32 0, 40) i32 @_ZN4llvm14identify_magicENS_9StringRefE(p
   switch i8 %5, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread [
     i8 0, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit
     i8 1, label %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit
-    i8 3, label %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.argprom.exit
+    i8 3, label %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit
     i8 7, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit87
     i8 16, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit90
     i8 -34, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit93
@@ -138,12 +138,12 @@ _ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit79: ; preds = %_ZL10startswit
   %24 = icmp eq i32 %bcmp.i.i78, 0
   br i1 %24, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
 
-_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.argprom.exit: ; preds = %4
+_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %4
   %bcmp.i.i81 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %25 = icmp eq i32 %bcmp.i.i81, 0
   br i1 %25, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84: ; preds = %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.argprom.exit
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84: ; preds = %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit
   %bcmp.i.i83 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull readonly dereferenceable(4) @.str.5, i64 4)
   %26 = icmp eq i32 %bcmp.i.i83, 0
   br i1 %26, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
@@ -368,18 +368,18 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit143: ; preds = %_ZNK4llvm9Str
 
 109:                                              ; preds = %4
   %.not.i.i144 = icmp ult i64 %1, 9
-  br i1 %.not.i.i144, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread, label %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.argprom.exit
+  br i1 %.not.i.i144, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread, label %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit
 
-_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.argprom.exit: ; preds = %109
+_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %109
   %bcmp.i.i145 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %0, ptr noundef nonnull dereferenceable(9) @.str.26, i64 9)
   %110 = icmp eq i32 %bcmp.i.i145, 0
   br i1 %110, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %111
 
-111:                                              ; preds = %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.argprom.exit
+111:                                              ; preds = %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit
   %.not.i.i146 = icmp eq i64 %1, 9
-  br i1 %.not.i.i146, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread, label %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.argprom.exit
+  br i1 %.not.i.i146, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread, label %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit
 
-_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.argprom.exit: ; preds = %111
+_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %111
   %bcmp.i.i147 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %0, ptr noundef nonnull dereferenceable(10) @.str.27, i64 10)
   %112 = icmp eq i32 %bcmp.i.i147, 0
   br i1 %112, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
@@ -410,7 +410,7 @@ _ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %122
   %124 = icmp eq i32 %bcmp.i.i152, 0
   br i1 %124, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
 
-_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread: ; preds = %71, %109, %111, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit131, %69, %63, %36, %33, %4, %122, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit, %118, %114, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit150, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.argprom.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit143, %91, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit119, %57, %56, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit113, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit110, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit102, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit96, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit93, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit90, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit87, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit79, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit74
+_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread: ; preds = %71, %109, %111, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit131, %69, %63, %36, %33, %4, %122, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit, %118, %114, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit150, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit143, %91, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit119, %57, %56, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit113, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit110, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit102, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit96, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit93, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit90, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit87, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit79, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit74
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread
 
 switch.lookup:                                    ; preds = %48
@@ -424,8 +424,8 @@ switch.lookup243:                                 ; preds = %71
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread
 
-_ZNK4llvm9StringRef11starts_withES0_.exit140.thread: ; preds = %switch.lookup243, %switch.lookup, %48, %105, %12, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit, %118, %114, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit150, %4, %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.argprom.exit, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.argprom.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit143, %_ZNK4llvm9StringRef11starts_withES0_.exit140, %_ZNK4llvm9StringRef11starts_withES0_.exit, %91, %87, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit134, %57, %40, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit110, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit102, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit99, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit96, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit93, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit90, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit87, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84, %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.argprom.exit, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit79, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit74, %18, %16, %9, %7, %2, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
-  %.sroa.0223.0 = phi i32 [ 0, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread ], [ 0, %2 ], [ 26, %7 ], [ 25, %9 ], [ 28, %16 ], [ 25, %18 ], [ 31, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit74 ], [ 29, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit ], [ 30, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit79 ], [ 9, %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.argprom.exit ], [ 39, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84 ], [ 39, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit87 ], [ 35, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit90 ], [ 1, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit93 ], [ 1, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit96 ], [ 38, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit99 ], [ 2, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit102 ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107 ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit110 ], [ 4, %48 ], [ 4, %40 ], [ 21, %57 ], [ 34, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit134 ], [ 25, %87 ], [ 25, %91 ], [ 27, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ 32, %_ZNK4llvm9StringRef11starts_withES0_.exit140 ], [ 23, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit143 ], [ 33, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.argprom.exit ], [ 33, %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.argprom.exit ], [ 33, %4 ], [ 36, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit150 ], [ 25, %114 ], [ 25, %118 ], [ 37, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit ], [ %spec.select, %12 ], [ %108, %105 ], [ %switch.offset, %switch.lookup ], [ %switch.load, %switch.lookup243 ]
+_ZNK4llvm9StringRef11starts_withES0_.exit140.thread: ; preds = %switch.lookup243, %switch.lookup, %48, %105, %12, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit, %118, %114, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit150, %4, %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit143, %_ZNK4llvm9StringRef11starts_withES0_.exit140, %_ZNK4llvm9StringRef11starts_withES0_.exit, %91, %87, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit134, %57, %40, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit110, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit102, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit99, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit96, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit93, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit90, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit87, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84, %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit79, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit74, %18, %16, %9, %7, %2, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
+  %.sroa.0223.0 = phi i32 [ 0, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread ], [ 0, %2 ], [ 26, %7 ], [ 25, %9 ], [ 28, %16 ], [ 25, %18 ], [ 31, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit74 ], [ 29, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit ], [ 30, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit79 ], [ 9, %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit ], [ 39, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84 ], [ 39, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit87 ], [ 35, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit90 ], [ 1, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit93 ], [ 1, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit96 ], [ 38, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit99 ], [ 2, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit102 ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107 ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit110 ], [ 4, %48 ], [ 4, %40 ], [ 21, %57 ], [ 34, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit134 ], [ 25, %87 ], [ 25, %91 ], [ 27, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ 32, %_ZNK4llvm9StringRef11starts_withES0_.exit140 ], [ 23, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit143 ], [ 33, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit ], [ 33, %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit ], [ 33, %4 ], [ 36, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit150 ], [ 25, %114 ], [ 25, %118 ], [ 37, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit ], [ %spec.select, %12 ], [ %108, %105 ], [ %switch.offset, %switch.lookup ], [ %switch.load, %switch.lookup243 ]
   ret i32 %.sroa.0223.0
 }
 

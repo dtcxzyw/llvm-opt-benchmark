@@ -231,7 +231,7 @@ define { ptr, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a
 
 11:                                               ; preds = %1
   %12 = icmp ugt i64 %5, %9
-  br i1 %12, label %14, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.argprom.exit"
+  br i1 %12, label %14, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit"
 
 13:                                               ; preds = %1
   tail call void @_ZN4core5slice5index22slice_index_order_fail17h4b03447ddded9b9bE(i64 noundef %3, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.063a6eda66e372215699932fa5a1275a.20) #12, !noalias !23
@@ -241,7 +241,7 @@ define { ptr, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %5, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.063a6eda66e372215699932fa5a1275a.20) #12, !noalias !23
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.argprom.exit": ; preds = %11
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit": ; preds = %11
   %15 = sub nuw i64 %5, %3
   %16 = getelementptr inbounds i8, ptr %7, i64 %3
   %17 = insertvalue { ptr, i64 } poison, ptr %16, 0
@@ -671,14 +671,14 @@ attributes #12 = { noreturn }
 !21 = distinct !{!21, !"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h82502c073100b4c3E.llvm.17974589727838856793"}
 !22 = !{i64 0, i64 2}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.argprom: argument 0"}
-!25 = distinct !{!25, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.argprom"}
+!24 = distinct !{!24, !25, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E: argument 0"}
+!25 = distinct !{!25, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E"}
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a4f9537719fE: argument 0"}
 !28 = distinct !{!28, !"_ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a4f9537719fE"}
 !29 = !{!30, !27}
-!30 = distinct !{!30, !31, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.argprom: argument 0"}
-!31 = distinct !{!31, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.argprom"}
+!30 = distinct !{!30, !31, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E: argument 0"}
+!31 = distinct !{!31, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E"}
 !32 = !{!33}
 !33 = distinct !{!33, !34, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17h22b38f42fa194b87E: argument 0"}
 !34 = distinct !{!34, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17h22b38f42fa194b87E"}

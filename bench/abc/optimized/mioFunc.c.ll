@@ -453,18 +453,18 @@ Mio_SopRegister.exit:                             ; preds = %106, %117
   %wide.trip.count.i = zext nneg i32 %130 to i64
   br label %136
 
-136:                                              ; preds = %Exp_Truth6Lit.argprom.exit31.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Exp_Truth6Lit.argprom.exit31.i ]
+136:                                              ; preds = %Exp_Truth6Lit.exit31.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Exp_Truth6Lit.exit31.i ]
   %137 = shl nuw nsw i64 %indvars.iv.i, 1
   %138 = getelementptr inbounds i32, ptr %.val25.i, i64 %137
   %139 = load i32, ptr %138, align 4
   switch i32 %139, label %141 [
-    i32 -1, label %Exp_Truth6Lit.argprom.exit.i
+    i32 -1, label %Exp_Truth6Lit.exit.i
     i32 -2, label %140
   ]
 
 140:                                              ; preds = %136
-  br label %Exp_Truth6Lit.argprom.exit.i
+  br label %Exp_Truth6Lit.exit.i
 
 141:                                              ; preds = %136
   %142 = icmp slt i32 %139, %135
@@ -481,14 +481,14 @@ Mio_SopRegister.exit:                             ; preds = %106, %117
   %148 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %147
   %149 = load i64, ptr %148, align 8
   %150 = xor i64 %149, -1
-  br label %Exp_Truth6Lit.argprom.exit.i
+  br label %Exp_Truth6Lit.exit.i
 
 151:                                              ; preds = %144
   %152 = ashr exact i32 %139, 1
   %153 = sext i32 %152 to i64
   %154 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %153
   %155 = load i64, ptr %154, align 8
-  br label %Exp_Truth6Lit.argprom.exit.i
+  br label %Exp_Truth6Lit.exit.i
 
 156:                                              ; preds = %141
   br i1 %.not17.i.i, label %164, label %157
@@ -500,7 +500,7 @@ Mio_SopRegister.exit:                             ; preds = %106, %117
   %161 = getelementptr inbounds i64, ptr %132, i64 %160
   %162 = load i64, ptr %161, align 8
   %163 = xor i64 %162, -1
-  br label %Exp_Truth6Lit.argprom.exit.i
+  br label %Exp_Truth6Lit.exit.i
 
 164:                                              ; preds = %156
   %165 = ashr exact i32 %139, 1
@@ -508,22 +508,22 @@ Mio_SopRegister.exit:                             ; preds = %106, %117
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds i64, ptr %132, i64 %167
   %169 = load i64, ptr %168, align 8
-  br label %Exp_Truth6Lit.argprom.exit.i
+  br label %Exp_Truth6Lit.exit.i
 
-Exp_Truth6Lit.argprom.exit.i:                     ; preds = %164, %157, %151, %145, %140, %136
+Exp_Truth6Lit.exit.i:                             ; preds = %164, %157, %151, %145, %140, %136
   %.0.i.i = phi i64 [ -1, %140 ], [ 0, %136 ], [ %150, %145 ], [ %155, %151 ], [ %163, %157 ], [ %169, %164 ]
   %170 = or disjoint i64 %137, 1
   %171 = getelementptr inbounds i32, ptr %.val25.i, i64 %170
   %172 = load i32, ptr %171, align 4
   switch i32 %172, label %174 [
-    i32 -1, label %Exp_Truth6Lit.argprom.exit31.i
+    i32 -1, label %Exp_Truth6Lit.exit31.i
     i32 -2, label %173
   ]
 
-173:                                              ; preds = %Exp_Truth6Lit.argprom.exit.i
-  br label %Exp_Truth6Lit.argprom.exit31.i
+173:                                              ; preds = %Exp_Truth6Lit.exit.i
+  br label %Exp_Truth6Lit.exit31.i
 
-174:                                              ; preds = %Exp_Truth6Lit.argprom.exit.i
+174:                                              ; preds = %Exp_Truth6Lit.exit.i
   %175 = icmp slt i32 %172, %135
   %176 = and i32 %172, 1
   %.not17.i30.i = icmp eq i32 %176, 0
@@ -538,14 +538,14 @@ Exp_Truth6Lit.argprom.exit.i:                     ; preds = %164, %157, %151, %1
   %181 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %180
   %182 = load i64, ptr %181, align 8
   %183 = xor i64 %182, -1
-  br label %Exp_Truth6Lit.argprom.exit31.i
+  br label %Exp_Truth6Lit.exit31.i
 
 184:                                              ; preds = %177
   %185 = ashr exact i32 %172, 1
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %186
   %188 = load i64, ptr %187, align 8
-  br label %Exp_Truth6Lit.argprom.exit31.i
+  br label %Exp_Truth6Lit.exit31.i
 
 189:                                              ; preds = %174
   br i1 %.not17.i30.i, label %197, label %190
@@ -557,7 +557,7 @@ Exp_Truth6Lit.argprom.exit.i:                     ; preds = %164, %157, %151, %1
   %194 = getelementptr inbounds i64, ptr %132, i64 %193
   %195 = load i64, ptr %194, align 8
   %196 = xor i64 %195, -1
-  br label %Exp_Truth6Lit.argprom.exit31.i
+  br label %Exp_Truth6Lit.exit31.i
 
 197:                                              ; preds = %189
   %198 = ashr exact i32 %172, 1
@@ -565,10 +565,10 @@ Exp_Truth6Lit.argprom.exit.i:                     ; preds = %164, %157, %151, %1
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds i64, ptr %132, i64 %200
   %202 = load i64, ptr %201, align 8
-  br label %Exp_Truth6Lit.argprom.exit31.i
+  br label %Exp_Truth6Lit.exit31.i
 
-Exp_Truth6Lit.argprom.exit31.i:                   ; preds = %197, %190, %184, %178, %173, %Exp_Truth6Lit.argprom.exit.i
-  %.0.i29.i = phi i64 [ -1, %173 ], [ 0, %Exp_Truth6Lit.argprom.exit.i ], [ %183, %178 ], [ %188, %184 ], [ %196, %190 ], [ %202, %197 ]
+Exp_Truth6Lit.exit31.i:                           ; preds = %197, %190, %184, %178, %173, %Exp_Truth6Lit.exit.i
+  %.0.i29.i = phi i64 [ -1, %173 ], [ 0, %Exp_Truth6Lit.exit.i ], [ %183, %178 ], [ %188, %184 ], [ %196, %190 ], [ %202, %197 ]
   %203 = and i64 %.0.i29.i, %.0.i.i
   %204 = getelementptr inbounds i64, ptr %132, i64 %indvars.iv.i
   store i64 %203, ptr %204, align 8
@@ -576,18 +576,18 @@ Exp_Truth6Lit.argprom.exit31.i:                   ; preds = %197, %190, %184, %1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %136, !llvm.loop !13
 
-._crit_edge.i:                                    ; preds = %Exp_Truth6Lit.argprom.exit31.i, %127
+._crit_edge.i:                                    ; preds = %Exp_Truth6Lit.exit31.i, %127
   %205 = sext i32 %.val.i to i64
   %206 = getelementptr i32, ptr %.val25.i, i64 %205
   %207 = getelementptr i8, ptr %206, i64 -4
   %208 = load i32, ptr %207, align 4
   switch i32 %208, label %210 [
-    i32 -1, label %Exp_Truth6Lit.argprom.exit34.i
+    i32 -1, label %Exp_Truth6Lit.exit34.i
     i32 -2, label %209
   ]
 
 209:                                              ; preds = %._crit_edge.i
-  br label %Exp_Truth6Lit.argprom.exit34.i
+  br label %Exp_Truth6Lit.exit34.i
 
 210:                                              ; preds = %._crit_edge.i
   %211 = shl nsw i32 %57, 1
@@ -605,14 +605,14 @@ Exp_Truth6Lit.argprom.exit31.i:                   ; preds = %197, %190, %184, %1
   %218 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %217
   %219 = load i64, ptr %218, align 8
   %220 = xor i64 %219, -1
-  br label %Exp_Truth6Lit.argprom.exit34.i
+  br label %Exp_Truth6Lit.exit34.i
 
 221:                                              ; preds = %214
   %222 = ashr exact i32 %208, 1
   %223 = sext i32 %222 to i64
   %224 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %223
   %225 = load i64, ptr %224, align 8
-  br label %Exp_Truth6Lit.argprom.exit34.i
+  br label %Exp_Truth6Lit.exit34.i
 
 226:                                              ; preds = %210
   br i1 %.not17.i33.i, label %234, label %227
@@ -624,7 +624,7 @@ Exp_Truth6Lit.argprom.exit31.i:                   ; preds = %197, %190, %184, %1
   %231 = getelementptr inbounds i64, ptr %132, i64 %230
   %232 = load i64, ptr %231, align 8
   %233 = xor i64 %232, -1
-  br label %Exp_Truth6Lit.argprom.exit34.thread.i
+  br label %Exp_Truth6Lit.exit34.thread.i
 
 234:                                              ; preds = %226
   %235 = ashr exact i32 %208, 1
@@ -632,20 +632,20 @@ Exp_Truth6Lit.argprom.exit31.i:                   ; preds = %197, %190, %184, %1
   %237 = sext i32 %236 to i64
   %238 = getelementptr inbounds i64, ptr %132, i64 %237
   %239 = load i64, ptr %238, align 8
-  br label %Exp_Truth6Lit.argprom.exit34.thread.i
+  br label %Exp_Truth6Lit.exit34.thread.i
 
-Exp_Truth6Lit.argprom.exit34.i:                   ; preds = %221, %215, %209, %._crit_edge.i
+Exp_Truth6Lit.exit34.i:                           ; preds = %221, %215, %209, %._crit_edge.i
   %.0.i32.i = phi i64 [ -1, %209 ], [ 0, %._crit_edge.i ], [ %220, %215 ], [ %225, %221 ]
   %.not.i = icmp eq ptr %132, null
-  br i1 %.not.i, label %Exp_Truth6.argprom.exit, label %Exp_Truth6Lit.argprom.exit34.thread.i
+  br i1 %.not.i, label %Exp_Truth6.exit, label %Exp_Truth6Lit.exit34.thread.i
 
-Exp_Truth6Lit.argprom.exit34.thread.i:            ; preds = %Exp_Truth6Lit.argprom.exit34.i, %234, %227
-  %.0.i323.i = phi i64 [ %.0.i32.i, %Exp_Truth6Lit.argprom.exit34.i ], [ %239, %234 ], [ %233, %227 ]
+Exp_Truth6Lit.exit34.thread.i:                    ; preds = %Exp_Truth6Lit.exit34.i, %234, %227
+  %.0.i323.i = phi i64 [ %.0.i32.i, %Exp_Truth6Lit.exit34.i ], [ %239, %234 ], [ %233, %227 ]
   call void @free(ptr noundef nonnull %132) #12
-  br label %Exp_Truth6.argprom.exit
+  br label %Exp_Truth6.exit
 
-Exp_Truth6.argprom.exit:                          ; preds = %Exp_Truth6Lit.argprom.exit34.i, %Exp_Truth6Lit.argprom.exit34.thread.i
-  %.0.i324.i = phi i64 [ %.0.i32.i, %Exp_Truth6Lit.argprom.exit34.i ], [ %.0.i323.i, %Exp_Truth6Lit.argprom.exit34.thread.i ]
+Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit34.i, %Exp_Truth6Lit.exit34.thread.i
+  %.0.i324.i = phi i64 [ %.0.i32.i, %Exp_Truth6Lit.exit34.i ], [ %.0.i323.i, %Exp_Truth6Lit.exit34.thread.i ]
   %240 = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.0.i324.i, ptr %240, align 8
   br label %356
@@ -708,7 +708,7 @@ Exp_Truth6.argprom.exit:                          ; preds = %Exp_Truth6Lit.argpr
   store i64 %266, ptr %267, align 8
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next61.i, 4
-  br i1 %exitcond63.not.i, label %Exp_Truth8.argprom.exit, label %.preheader1.split.us.i, !llvm.loop !15
+  br i1 %exitcond63.not.i, label %Exp_Truth8.exit, label %.preheader1.split.us.i, !llvm.loop !15
 
 .preheader.i:                                     ; preds = %259
   %268 = icmp ne i32 %252, -1
@@ -721,7 +721,7 @@ Exp_Truth6.argprom.exit:                          ; preds = %Exp_Truth6Lit.argpr
   store i64 %269, ptr %271, align 8
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 4
-  br i1 %exitcond67.not.i, label %Exp_Truth8.argprom.exit, label %270, !llvm.loop !16
+  br i1 %exitcond67.not.i, label %Exp_Truth8.exit, label %270, !llvm.loop !16
 
 .preheader1.split.i:                              ; preds = %.preheader1.i, %.preheader1.split.i
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.preheader1.split.i ], [ 0, %.preheader1.i ]
@@ -732,7 +732,7 @@ Exp_Truth6.argprom.exit:                          ; preds = %Exp_Truth6Lit.argpr
   store i64 %274, ptr %275, align 8
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next57.i, 4
-  br i1 %exitcond59.not.i, label %Exp_Truth8.argprom.exit, label %.preheader1.split.i, !llvm.loop !15
+  br i1 %exitcond59.not.i, label %Exp_Truth8.exit, label %.preheader1.split.i, !llvm.loop !15
 
 276:                                              ; preds = %256
   %277 = shl nsw i32 %257, 2
@@ -898,19 +898,19 @@ Exp_Truth6.argprom.exit:                          ; preds = %Exp_Truth6Lit.argpr
 
 .split.us.i:                                      ; preds = %.preheader3.split.i, %.preheader3.split.us.i
   %.not.i114 = icmp eq ptr %279, null
-  br i1 %.not.i114, label %Exp_Truth8.argprom.exit, label %355
+  br i1 %.not.i114, label %Exp_Truth8.exit, label %355
 
 355:                                              ; preds = %.split.us.i
   call void @free(ptr noundef nonnull %279) #12
-  br label %Exp_Truth8.argprom.exit
+  br label %Exp_Truth8.exit
 
-Exp_Truth8.argprom.exit:                          ; preds = %.preheader1.split.i, %.preheader1.split.us.i, %270, %.split.us.i, %355
+Exp_Truth8.exit:                                  ; preds = %.preheader1.split.i, %.preheader1.split.us.i, %270, %.split.us.i, %355
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   br label %356
 
-356:                                              ; preds = %Exp_Truth6.argprom.exit, %Exp_Truth8.argprom.exit, %241, %19, %37, %100, %59, %52
-  %.0100 = phi i32 [ 1, %52 ], [ 1, %59 ], [ 1, %100 ], [ 0, %37 ], [ 0, %19 ], [ 0, %241 ], [ 0, %Exp_Truth8.argprom.exit ], [ 0, %Exp_Truth6.argprom.exit ]
+356:                                              ; preds = %Exp_Truth6.exit, %Exp_Truth8.exit, %241, %19, %37, %100, %59, %52
+  %.0100 = phi i32 [ 1, %52 ], [ 1, %59 ], [ 1, %100 ], [ 0, %37 ], [ 0, %19 ], [ 0, %241 ], [ 0, %Exp_Truth8.exit ], [ 0, %Exp_Truth6.exit ]
   ret i32 %.0100
 }
 

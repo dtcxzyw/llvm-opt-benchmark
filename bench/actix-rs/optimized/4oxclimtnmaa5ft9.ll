@@ -141,9 +141,9 @@ _ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E.exit: ; preds 
 define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8fbb1cdbb6557e09E.argprom.exit"
+  br i1 %.not, label %._crit_edge, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8fbb1cdbb6557e09E.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8fbb1cdbb6557e09E.argprom.exit": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE.exit.thread"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8fbb1cdbb6557e09E.exit": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE.exit.thread"
   %.sroa.01.0.i10139 = phi i64 [ %6, %"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE.exit.thread" ], [ 0, %4 ]
   %6 = add nuw i64 %.sroa.01.0.i10139, 1
   %7 = getelementptr inbounds i8, ptr %2, i64 %.sroa.01.0.i10139
@@ -151,11 +151,11 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %9 = icmp ugt i64 %8, 2
   br i1 %9, label %10, label %"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE.exit.thread": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit31", %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit", %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom.exit.i", %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8fbb1cdbb6557e09E.argprom.exit"
+"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE.exit.thread": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit31", %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit", %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i", %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8fbb1cdbb6557e09E.exit"
   %exitcond.not = icmp eq i64 %6, %3
-  br i1 %exitcond.not, label %._crit_edge, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8fbb1cdbb6557e09E.argprom.exit"
+  br i1 %exitcond.not, label %._crit_edge, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8fbb1cdbb6557e09E.exit"
 
-10:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8fbb1cdbb6557e09E.argprom.exit"
+10:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8fbb1cdbb6557e09E.exit"
   %11 = load i8, ptr %7, align 1, !noalias !13, !noundef !5
   %12 = icmp eq i8 %11, 37
   br i1 %12, label %13, label %"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE.exit.thread"
@@ -198,9 +198,9 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %34 = trunc nuw i32 %.sroa.4.0.i2995 to i8
   %35 = or disjoint i8 %33, %34
   %36 = icmp sgt i8 %33, -1
-  br i1 %36, label %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom.exit.i", label %44
+  br i1 %36, label %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i", label %44
 
-"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom.exit.i": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit31.thread"
+"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit31.thread"
   %37 = lshr i8 %35, 3
   %38 = zext nneg i8 %37 to i64
   %39 = getelementptr inbounds [16 x i8], ptr %1, i64 0, i64 %38
@@ -211,7 +211,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %.not.i.i32 = icmp eq i8 %43, 0
   br i1 %.not.i.i32, label %44, label %"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE.exit.thread"
 
-44:                                               ; preds = %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom.exit.i", %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit31.thread"
+44:                                               ; preds = %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i", %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit31.thread"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %45 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h7aa9cb48765920a8E"(i64 noundef %3, i1 noundef zeroext false)
   %46 = extractvalue { i64, ptr } %45, 0
@@ -305,7 +305,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %73 = icmp ugt i64 %72, 2
   br i1 %73, label %74, label %.noexc8.thread
 
-.noexc8.thread:                                   ; preds = %.noexc23, %.noexc22, %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom.exit.i52", %74, %.noexc6
+.noexc8.thread:                                   ; preds = %.noexc23, %.noexc22, %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i52", %74, %.noexc6
   %exitcond173.not = icmp eq i64 %70, %.sroa.9.0150
   br i1 %exitcond173.not, label %._crit_edge141, label %.noexc6
 
@@ -352,9 +352,9 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %98 = trunc nuw i32 %.sroa.4.0.i47116 to i8
   %99 = or disjoint i8 %97, %98
   %100 = icmp sgt i8 %97, -1
-  br i1 %100, label %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom.exit.i52", label %108
+  br i1 %100, label %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i52", label %108
 
-"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom.exit.i52": ; preds = %.noexc23.thread
+"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i52": ; preds = %.noexc23.thread
   %101 = lshr i8 %99, 3
   %102 = zext nneg i8 %101 to i64
   %103 = getelementptr inbounds [16 x i8], ptr %1, i64 0, i64 %102
@@ -365,7 +365,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %.not.i.i53 = icmp eq i8 %107, 0
   br i1 %.not.i.i53, label %108, label %.noexc8.thread
 
-108:                                              ; preds = %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom.exit.i52", %.noexc23.thread
+108:                                              ; preds = %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i52", %.noexc23.thread
   %109 = icmp eq i64 %.sroa.01.0.i140, 0
   br i1 %109, label %130, label %117
 
@@ -670,8 +670,8 @@ attributes #14 = { nounwind }
 !17 = !{!18, !20, !22}
 !18 = distinct !{!18, !19, !"_ZN12actix_router6quoter11AsciiBitmap6bit_at17h65bc092985fdaf5fE: argument 0"}
 !19 = distinct !{!19, !"_ZN12actix_router6quoter11AsciiBitmap6bit_at17h65bc092985fdaf5fE"}
-!20 = distinct !{!20, !21, !"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom"}
+!20 = distinct !{!20, !21, !"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E: argument 0"}
+!21 = distinct !{!21, !"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E"}
 !22 = distinct !{!22, !23, !"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE: argument 0"}
 !23 = distinct !{!23, !"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE"}
 !24 = !{!25, !27}
@@ -691,8 +691,8 @@ attributes #14 = { nounwind }
 !38 = !{!39, !41, !43}
 !39 = distinct !{!39, !40, !"_ZN12actix_router6quoter11AsciiBitmap6bit_at17h65bc092985fdaf5fE: argument 0"}
 !40 = distinct !{!40, !"_ZN12actix_router6quoter11AsciiBitmap6bit_at17h65bc092985fdaf5fE"}
-!41 = distinct !{!41, !42, !"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom: argument 0"}
-!42 = distinct !{!42, !"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.argprom"}
+!41 = distinct !{!41, !42, !"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E: argument 0"}
+!42 = distinct !{!42, !"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E"}
 !43 = distinct !{!43, !44, !"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE: argument 0"}
 !44 = distinct !{!44, !"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE"}
 !45 = !{!46, !48, !50}

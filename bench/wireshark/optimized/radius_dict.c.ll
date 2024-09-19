@@ -105,7 +105,7 @@ define hidden noundef i32 @Radius_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not26.i, label %28, label %29
 
 28:                                               ; preds = %26
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.25) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #27
   unreachable
 
 29:                                               ; preds = %26
@@ -132,7 +132,7 @@ define hidden noundef i32 @Radius_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not28.i, label %40, label %41
 
 40:                                               ; preds = %36
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.25) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #27
   unreachable
 
 41:                                               ; preds = %36
@@ -1487,7 +1487,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i373, %737
   br i1 %765, label %766, label %767
 
 766:                                              ; preds = %760
-  call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.21) #27
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.21) #27
   unreachable
 
 767:                                              ; preds = %760
@@ -1595,7 +1595,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i373, %737
   br i1 %.not147.i, label %.loopexit.i, label %817
 
 .loopexit.i:                                      ; preds = %813, %.thread.i379
-  call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.22) #27
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.22) #27
   unreachable
 
 817:                                              ; preds = %813
@@ -1684,7 +1684,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i373, %737
   br i1 %.not143.i, label %858, label %857
 
 857:                                              ; preds = %854
-  call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.23) #27
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.23) #27
   unreachable
 
 858:                                              ; preds = %854, %.thread152.i, %.critedge.i
@@ -1724,7 +1724,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i373, %737
   br i1 %.not141.i, label %879, label %878
 
 878:                                              ; preds = %876
-  call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.23) #27
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.23) #27
   unreachable
 
 879:                                              ; preds = %876
@@ -1816,7 +1816,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i373, %737
   br i1 %.not149.i, label %939, label %940
 
 939:                                              ; preds = %921
-  call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.24) #27
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.24) #27
   unreachable
 
 940:                                              ; preds = %921
@@ -2065,7 +2065,7 @@ yy_get_next_buffer.exit.thread415:                ; preds = %773, %yy_get_next_b
   br i1 %exitcond.not.i410, label %.outer.backedge, label %.lr.ph31.i398, !llvm.loop !8
 
 1068:                                             ; preds = %135
-  call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.12) #27
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #27
   unreachable
 
 default.unreachable663:                           ; preds = %yy_get_next_buffer.exit
@@ -2082,7 +2082,7 @@ define hidden nonnull ptr @Radius__create_buffer(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #27
   unreachable
 
 6:                                                ; preds = %3
@@ -2097,7 +2097,7 @@ define hidden nonnull ptr @Radius__create_buffer(ptr noundef %0, i32 noundef %1,
   br i1 %.not12, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.13) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #27
   unreachable
 
 13:                                               ; preds = %6
@@ -2501,7 +2501,7 @@ define hidden void @Radius__switch_to_buffer(ptr noundef %0, ptr nocapture nound
   br i1 %.not26.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.25) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #27
   unreachable
 
 8:                                                ; preds = %5
@@ -2530,7 +2530,7 @@ define hidden void @Radius__switch_to_buffer(ptr noundef %0, ptr nocapture nound
   br i1 %.not28.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.25) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #27
   unreachable
 
 22:                                               ; preds = %17
@@ -2660,7 +2660,7 @@ define hidden void @Radius__delete_buffer(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error.argprom(ptr noundef %0) unnamed_addr #8 {
+define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #8 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.26, ptr noundef %0) #33
   tail call void @exit(i32 noundef 2) #34
@@ -2689,7 +2689,7 @@ define hidden void @Radius_restart(ptr noundef %0, ptr nocapture noundef %1) loc
   br i1 %.not26.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.25) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #27
   unreachable
 
 13:                                               ; preds = %10
@@ -2716,7 +2716,7 @@ define hidden void @Radius_restart(ptr noundef %0, ptr nocapture noundef %1) loc
   br i1 %.not28.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.25) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #27
   unreachable
 
 25:                                               ; preds = %20
@@ -2942,7 +2942,7 @@ define hidden void @Radius_push_buffer_state(ptr noundef %0, ptr nocapture nound
   br i1 %.not26.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.25) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #27
   unreachable
 
 10:                                               ; preds = %7
@@ -2971,7 +2971,7 @@ define hidden void @Radius_push_buffer_state(ptr noundef %0, ptr nocapture nound
   br i1 %.not28.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.25) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #27
   unreachable
 
 24:                                               ; preds = %19
@@ -3166,7 +3166,7 @@ define hidden noundef ptr @Radius__scan_buffer(ptr noundef %0, i64 noundef %1, p
   br i1 %.not26, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.14) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #27
   unreachable
 
 16:                                               ; preds = %13
@@ -3231,7 +3231,7 @@ define hidden nonnull ptr @Radius__scan_bytes(ptr nocapture noundef readonly %0,
   br label %21
 
 14:                                               ; preds = %3
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.15) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #27
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -3265,11 +3265,11 @@ define hidden nonnull ptr @Radius__scan_bytes(ptr nocapture noundef readonly %0,
   br i1 %.not26.i, label %31, label %33
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.14) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #27
   unreachable
 
 32:                                               ; preds = %25, %21, %._crit_edge
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.16) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.16) #27
   unreachable
 
 33:                                               ; preds = %29
@@ -3407,7 +3407,7 @@ define hidden void @Radius_set_lineno(i32 noundef %0, ptr nocapture noundef read
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.17) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.17) #27
   unreachable
 
 11:                                               ; preds = %5
@@ -3432,7 +3432,7 @@ define hidden void @Radius_set_column(i32 noundef %0, ptr nocapture noundef read
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error.argprom(ptr noundef nonnull @.str.18) #27
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.18) #27
   unreachable
 
 11:                                               ; preds = %5

@@ -207,16 +207,16 @@ define ptr @zfp_field_begin(ptr nocapture noundef readonly %0) local_unnamed_add
 ._crit_edge.i:                                    ; preds = %._crit_edge
   %.phi.trans.insert3.i = getelementptr inbounds i8, ptr %0, i64 24
   %.pre4.i = load i64, ptr %.phi.trans.insert3.i, align 8
-  br label %field_index_span.argprom.exit
+  br label %field_index_span.exit
 
 23:                                               ; preds = %._crit_edge
   %24 = mul i64 %18, %16
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = mul i64 %24, %26
-  br label %field_index_span.argprom.exit
+  br label %field_index_span.exit
 
-field_index_span.argprom.exit:                    ; preds = %._crit_edge.i, %23
+field_index_span.exit:                            ; preds = %._crit_edge.i, %23
   %28 = phi i64 [ %26, %23 ], [ %.pre4.i, %._crit_edge.i ]
   %29 = phi i64 [ %27, %23 ], [ %22, %._crit_edge.i ]
   %.not61.i = icmp eq i64 %16, 0
@@ -249,14 +249,14 @@ field_index_span.argprom.exit:                    ; preds = %._crit_edge.i, %23
   %52 = icmp ult i32 %switch.tableidx, 4
   br i1 %52, label %switch.lookup, label %zfp_type_size.exit
 
-switch.lookup:                                    ; preds = %field_index_span.argprom.exit
+switch.lookup:                                    ; preds = %field_index_span.exit
   %53 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.zfp_field_size_bytes, i64 0, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %zfp_type_size.exit
 
-zfp_type_size.exit:                               ; preds = %field_index_span.argprom.exit, %switch.lookup
-  %.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %field_index_span.argprom.exit ]
+zfp_type_size.exit:                               ; preds = %field_index_span.exit, %switch.lookup
+  %.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %field_index_span.exit ]
   %54 = mul nsw i64 %.0.i, %50
   %55 = getelementptr inbounds i8, ptr %3, i64 %54
   br label %56
@@ -424,16 +424,16 @@ define i64 @zfp_field_size_bytes(ptr nocapture noundef readonly %0) local_unname
 ._crit_edge.i:                                    ; preds = %._crit_edge
   %.phi.trans.insert3.i = getelementptr inbounds i8, ptr %0, i64 24
   %.pre4.i = load i64, ptr %.phi.trans.insert3.i, align 8
-  br label %field_index_span.argprom.exit
+  br label %field_index_span.exit
 
 18:                                               ; preds = %._crit_edge
   %19 = mul i64 %15, %13
   %20 = getelementptr inbounds i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = mul i64 %19, %21
-  br label %field_index_span.argprom.exit
+  br label %field_index_span.exit
 
-field_index_span.argprom.exit:                    ; preds = %._crit_edge.i, %18
+field_index_span.exit:                            ; preds = %._crit_edge.i, %18
   %23 = phi i64 [ %21, %18 ], [ %.pre4.i, %._crit_edge.i ]
   %24 = phi i64 [ %22, %18 ], [ %17, %._crit_edge.i ]
   %25 = getelementptr inbounds i8, ptr %0, i64 32
@@ -443,14 +443,14 @@ field_index_span.argprom.exit:                    ; preds = %._crit_edge.i, %18
   %28 = icmp ult i32 %switch.tableidx, 4
   br i1 %28, label %switch.lookup, label %zfp_type_size.exit
 
-switch.lookup:                                    ; preds = %field_index_span.argprom.exit
+switch.lookup:                                    ; preds = %field_index_span.exit
   %29 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.zfp_field_size_bytes, i64 0, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %zfp_type_size.exit
 
-zfp_type_size.exit:                               ; preds = %field_index_span.argprom.exit, %switch.lookup
-  %.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %field_index_span.argprom.exit ]
+zfp_type_size.exit:                               ; preds = %field_index_span.exit, %switch.lookup
+  %.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %field_index_span.exit ]
   %.not59.i = icmp eq i64 %11, 0
   %30 = mul i64 %15, %13
   %31 = select i1 %.not59.i, i64 %30, i64 %11
@@ -685,16 +685,16 @@ define range(i32 0, 2) i32 @zfp_field_is_contiguous(ptr nocapture noundef readon
 ._crit_edge.i:                                    ; preds = %._crit_edge
   %.phi.trans.insert3.i = getelementptr inbounds i8, ptr %0, i64 24
   %.pre4.i = load i64, ptr %.phi.trans.insert3.i, align 8
-  br label %field_index_span.argprom.exit
+  br label %field_index_span.exit
 
 18:                                               ; preds = %._crit_edge
   %19 = mul i64 %15, %13
   %20 = getelementptr inbounds i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = mul i64 %19, %21
-  br label %field_index_span.argprom.exit
+  br label %field_index_span.exit
 
-field_index_span.argprom.exit:                    ; preds = %._crit_edge.i, %18
+field_index_span.exit:                            ; preds = %._crit_edge.i, %18
   %23 = phi i64 [ %21, %18 ], [ %.pre4.i, %._crit_edge.i ]
   %24 = phi i64 [ %22, %18 ], [ %17, %._crit_edge.i ]
   %.not59.i = icmp eq i64 %11, 0
@@ -4700,7 +4700,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
   %46 = load i64, ptr %7, align 8
   %47 = getelementptr i8, ptr %44, i64 16
   %.val = load ptr, ptr %47, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %45, i64 noundef %46)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %45, i64 noundef %46)
   br label %48
 
 48:                                               ; preds = %chunk_count_omp.exit, %43
@@ -4793,7 +4793,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
   %46 = load i64, ptr %7, align 8
   %47 = getelementptr i8, ptr %44, i64 16
   %.val = load ptr, ptr %47, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %45, i64 noundef %46)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %45, i64 noundef %46)
   br label %48
 
 48:                                               ; preds = %chunk_count_omp.exit, %43
@@ -4886,7 +4886,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
   %46 = load i64, ptr %7, align 8
   %47 = getelementptr i8, ptr %44, i64 16
   %.val = load ptr, ptr %47, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %45, i64 noundef %46)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %45, i64 noundef %46)
   br label %48
 
 48:                                               ; preds = %chunk_count_omp.exit, %43
@@ -4979,7 +4979,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
   %46 = load i64, ptr %7, align 8
   %47 = getelementptr i8, ptr %44, i64 16
   %.val = load ptr, ptr %47, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %45, i64 noundef %46)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %45, i64 noundef %46)
   br label %48
 
 48:                                               ; preds = %chunk_count_omp.exit, %43
@@ -5085,7 +5085,7 @@ chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp
   %56 = load i64, ptr %11, align 8
   %57 = getelementptr i8, ptr %54, i64 16
   %.val = load ptr, ptr %57, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %55, i64 noundef %56)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %55, i64 noundef %56)
   br label %58
 
 58:                                               ; preds = %chunk_count_omp.exit, %53
@@ -5191,7 +5191,7 @@ chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp
   %56 = load i64, ptr %11, align 8
   %57 = getelementptr i8, ptr %54, i64 16
   %.val = load ptr, ptr %57, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %55, i64 noundef %56)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %55, i64 noundef %56)
   br label %58
 
 58:                                               ; preds = %chunk_count_omp.exit, %53
@@ -5297,7 +5297,7 @@ chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp
   %56 = load i64, ptr %11, align 8
   %57 = getelementptr i8, ptr %54, i64 16
   %.val = load ptr, ptr %57, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %55, i64 noundef %56)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %55, i64 noundef %56)
   br label %58
 
 58:                                               ; preds = %chunk_count_omp.exit, %53
@@ -5403,7 +5403,7 @@ chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp
   %56 = load i64, ptr %11, align 8
   %57 = getelementptr i8, ptr %54, i64 16
   %.val = load ptr, ptr %57, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %55, i64 noundef %56)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %55, i64 noundef %56)
   br label %58
 
 58:                                               ; preds = %chunk_count_omp.exit, %53
@@ -5525,7 +5525,7 @@ chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp
   %68 = load i64, ptr %14, align 8
   %69 = getelementptr i8, ptr %66, i64 16
   %.val = load ptr, ptr %69, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %67, i64 noundef %68)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %67, i64 noundef %68)
   br label %70
 
 70:                                               ; preds = %chunk_count_omp.exit, %65
@@ -5647,7 +5647,7 @@ chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp
   %68 = load i64, ptr %14, align 8
   %69 = getelementptr i8, ptr %66, i64 16
   %.val = load ptr, ptr %69, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %67, i64 noundef %68)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %67, i64 noundef %68)
   br label %70
 
 70:                                               ; preds = %chunk_count_omp.exit, %65
@@ -5769,7 +5769,7 @@ chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp
   %68 = load i64, ptr %14, align 8
   %69 = getelementptr i8, ptr %66, i64 16
   %.val = load ptr, ptr %69, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %67, i64 noundef %68)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %67, i64 noundef %68)
   br label %70
 
 70:                                               ; preds = %chunk_count_omp.exit, %65
@@ -5891,7 +5891,7 @@ chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp
   %68 = load i64, ptr %14, align 8
   %69 = getelementptr i8, ptr %66, i64 16
   %.val = load ptr, ptr %69, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %67, i64 noundef %68)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %67, i64 noundef %68)
   br label %70
 
 70:                                               ; preds = %chunk_count_omp.exit, %65
@@ -6029,7 +6029,7 @@ chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp
   %79 = load i64, ptr %17, align 8
   %80 = getelementptr i8, ptr %77, i64 16
   %.val = load ptr, ptr %80, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %78, i64 noundef %79)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %78, i64 noundef %79)
   br label %81
 
 81:                                               ; preds = %chunk_count_omp.exit, %76
@@ -6167,7 +6167,7 @@ chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp
   %79 = load i64, ptr %17, align 8
   %80 = getelementptr i8, ptr %77, i64 16
   %.val = load ptr, ptr %80, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %78, i64 noundef %79)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %78, i64 noundef %79)
   br label %81
 
 81:                                               ; preds = %chunk_count_omp.exit, %76
@@ -6305,7 +6305,7 @@ chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp
   %79 = load i64, ptr %17, align 8
   %80 = getelementptr i8, ptr %77, i64 16
   %.val = load ptr, ptr %80, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %78, i64 noundef %79)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %78, i64 noundef %79)
   br label %81
 
 81:                                               ; preds = %chunk_count_omp.exit, %76
@@ -6443,7 +6443,7 @@ chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp
   %79 = load i64, ptr %17, align 8
   %80 = getelementptr i8, ptr %77, i64 16
   %.val = load ptr, ptr %80, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %78, i64 noundef %79)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %78, i64 noundef %79)
   br label %81
 
 81:                                               ; preds = %chunk_count_omp.exit, %76
@@ -6541,7 +6541,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
   %49 = load i64, ptr %8, align 8
   %50 = getelementptr i8, ptr %47, i64 16
   %.val = load ptr, ptr %50, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %48, i64 noundef %49)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %48, i64 noundef %49)
   br label %51
 
 51:                                               ; preds = %chunk_count_omp.exit, %46
@@ -6639,7 +6639,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
   %49 = load i64, ptr %8, align 8
   %50 = getelementptr i8, ptr %47, i64 16
   %.val = load ptr, ptr %50, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %48, i64 noundef %49)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %48, i64 noundef %49)
   br label %51
 
 51:                                               ; preds = %chunk_count_omp.exit, %46
@@ -6737,7 +6737,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
   %49 = load i64, ptr %8, align 8
   %50 = getelementptr i8, ptr %47, i64 16
   %.val = load ptr, ptr %50, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %48, i64 noundef %49)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %48, i64 noundef %49)
   br label %51
 
 51:                                               ; preds = %chunk_count_omp.exit, %46
@@ -6835,7 +6835,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
   %49 = load i64, ptr %8, align 8
   %50 = getelementptr i8, ptr %47, i64 16
   %.val = load ptr, ptr %50, align 8
-  call fastcc void @compress_finish_par.argprom(ptr %.val, ptr noundef %48, i64 noundef %49)
+  call fastcc void @compress_finish_par(ptr %.val, ptr noundef %48, i64 noundef %49)
   br label %51
 
 51:                                               ; preds = %chunk_count_omp.exit, %46
@@ -7180,7 +7180,7 @@ declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #19
 declare !callback !5 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compress_finish_par.argprom(ptr %.16.val, ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #11 {
+define internal fastcc void @compress_finish_par(ptr %.16.val, ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #11 {
   %3 = tail call ptr @stream_data(ptr noundef %.16.val) #19
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @stream_data(ptr noundef %4) #19

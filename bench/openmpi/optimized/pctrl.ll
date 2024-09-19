@@ -1023,7 +1023,7 @@ pmix_cmd_line_get_param.exit436.thread:           ; preds = %351, %pmix_cmd_line
 
 380:                                              ; preds = %379, %pmix_cmd_line_get_param.exit436.thread
   %.not22.i438 = icmp eq ptr %376, null
-  br i1 %.not22.i438, label %pmix_obj_new_tma.argprom.exit, label %381
+  br i1 %.not22.i438, label %pmix_obj_new_tma.exit, label %381
 
 381:                                              ; preds = %380
   %382 = call i32 @pthread_mutex_init(ptr noundef nonnull %376, ptr noundef null) #15
@@ -1038,7 +1038,7 @@ pmix_cmd_line_get_param.exit436.thread:           ; preds = %351, %pmix_cmd_line
   %387 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_shift_caddy_t_class, i64 40), align 8
   %388 = load ptr, ptr %387, align 8
   %.not6.i.i = icmp eq ptr %388, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %381, %.lr.ph.i.i
   %389 = phi ptr [ %391, %.lr.ph.i.i ], [ %388, %381 ]
@@ -1047,17 +1047,17 @@ pmix_cmd_line_get_param.exit436.thread:           ; preds = %351, %pmix_cmd_line
   %390 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %391 = load ptr, ptr %390, align 8
   %.not.i.i = icmp eq ptr %391, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !5
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %380, %381
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %380, %381
   %.not312 = icmp eq ptr %.8, null
   br i1 %.not312, label %394, label %392
 
-392:                                              ; preds = %pmix_obj_new_tma.argprom.exit
+392:                                              ; preds = %pmix_obj_new_tma.exit
   %393 = call noalias ptr @strdup(ptr noundef nonnull %.8) #15
   br label %396
 
-394:                                              ; preds = %pmix_obj_new_tma.argprom.exit
+394:                                              ; preds = %pmix_obj_new_tma.exit
   %395 = call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.60) #15
   br label %396
 

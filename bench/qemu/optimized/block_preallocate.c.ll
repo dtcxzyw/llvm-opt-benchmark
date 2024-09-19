@@ -95,7 +95,7 @@ do.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %do.end
   tail call void @g_free(ptr noundef %call) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end6:                                          ; preds = %do.end
   %flags = getelementptr inbounds i8, ptr %reopen_state, i64 8
@@ -131,14 +131,14 @@ if.end3.i:                                        ; preds = %if.end.i
 
 if.then11:                                        ; preds = %if.end.i
   tail call void @g_free(ptr noundef %call) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end13:                                         ; preds = %if.then7, %if.end3.i, %if.end6
   %opaque = getelementptr inbounds i8, ptr %reopen_state, i64 56
   store ptr %call, ptr %opaque, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end13, %if.then11, %if.then5
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end13, %if.then11, %if.then5
   %retval.0 = phi i32 [ %call.i, %if.then11 ], [ 0, %if.end13 ], [ -22, %if.then5 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   ret i32 %retval.0
@@ -201,7 +201,7 @@ if.end4:                                          ; preds = %do.end
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call7 = tail call fastcc zeroext i1 @preallocate_absorb_opts(ptr noundef nonnull %0, ptr noundef %options, ptr noundef %2, ptr noundef %errp)
-  br i1 %call7, label %if.end9, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %call7, label %if.end9, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end9:                                          ; preds = %if.end4
   %3 = load ptr, ptr %file, align 8
@@ -219,15 +219,15 @@ if.end9:                                          ; preds = %if.end4
   %or16 = or disjoint i32 %and15, 64
   %supported_zero_flags17 = getelementptr inbounds i8, ptr %bs, i64 16592
   store i32 %or16, ptr %supported_zero_flags17, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end4, %if.end9
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end4, %if.end9
   %retval.1 = phi i32 [ 0, %if.end9 ], [ -22, %if.end4 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   br label %return
 
-return:                                           ; preds = %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
-  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %call2, %do.end ]
+return:                                           ; preds = %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call2, %do.end ]
   ret i32 %retval.0
 }
 
@@ -253,13 +253,13 @@ do.end:                                           ; preds = %entry
   %data_end = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %data_end, align 8
   %cmp = icmp sgt i64 %3, -1
-  br i1 %cmp, label %if.then3, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %cmp, label %if.then3, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.then3:                                         ; preds = %do.end
   %call4 = tail call fastcc i32 @preallocate_truncate_to_real_size(ptr noundef nonnull %bs, ptr noundef null)
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.then3, %do.end
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then3, %do.end
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   ret void
 }
@@ -490,7 +490,7 @@ if.then51:                                        ; preds = %if.end45
 if.end55:                                         ; preds = %if.end45
   %bs.val = load ptr, ptr %opaque, align 8
   %bs.val44 = load ptr, ptr %file46, align 8
-  %call56 = call fastcc zeroext i1 @has_prealloc_perms.argprom(ptr %bs.val, ptr %bs.val44)
+  %call56 = call fastcc zeroext i1 @has_prealloc_perms(ptr %bs.val, ptr %bs.val44)
   br i1 %call56, label %if.then57, label %cleanup
 
 if.then57:                                        ; preds = %if.end55
@@ -526,7 +526,7 @@ if.end:                                           ; preds = %entry
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %3) #6
   %bs.val = load ptr, ptr %opaque, align 8
   %bs.val8 = load ptr, ptr %file, align 8
-  %call3 = tail call fastcc zeroext i1 @has_prealloc_perms.argprom(ptr %bs.val, ptr %bs.val8)
+  %call3 = tail call fastcc zeroext i1 @has_prealloc_perms(ptr %bs.val, ptr %bs.val8)
   br i1 %call3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.end
@@ -694,12 +694,12 @@ do.end:                                           ; preds = %entry
   %data_end.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %data_end.i, align 8
   %cmp.i = icmp slt i64 %1, 0
-  br i1 %cmp.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.end
   %call.i = tail call fastcc i32 @preallocate_truncate_to_real_size(ptr noundef nonnull %opaque, ptr noundef null)
   %cmp1.i = icmp slt i32 %call.i, 0
-  br i1 %cmp1.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end3.i
+  br i1 %cmp1.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %zero_start.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -710,9 +710,9 @@ if.end3.i:                                        ; preds = %if.end.i
   %file.i = getelementptr inbounds i8, ptr %opaque, i64 16840
   %2 = load ptr, ptr %file.i, align 8
   %call5.i = tail call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %opaque, ptr noundef %2, ptr noundef null) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %do.end, %if.end.i, %if.end3.i
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %do.end, %if.end.i, %if.end3.i
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   ret void
 }
@@ -754,7 +754,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc zeroext i1 @has_prealloc_perms.argprom(ptr nonnull %0, ptr nonnull %1)
+  %call = tail call fastcc zeroext i1 @has_prealloc_perms(ptr nonnull %0, ptr nonnull %1)
   br i1 %call, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end
@@ -867,7 +867,7 @@ return:                                           ; preds = %if.then56, %land.rh
 declare i32 @bdrv_co_pwritev_part(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @has_prealloc_perms.argprom(ptr nocapture readonly %bs.24.val, ptr nocapture readonly %bs.16840.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @has_prealloc_perms(ptr nocapture readonly %bs.24.val, ptr nocapture readonly %bs.16840.val) unnamed_addr #0 {
 entry:
   %perm = getelementptr inbounds i8, ptr %bs.16840.val, i64 40
   %0 = load i64, ptr %perm, align 8

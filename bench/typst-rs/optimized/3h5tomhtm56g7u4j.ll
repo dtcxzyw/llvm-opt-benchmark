@@ -605,7 +605,7 @@ define hidden noundef i128 @"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden noundef i128 @_ZN5typst4util4hash9hash_item17hfca31474057cdca5E.llvm.2660168047844088129(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
-"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E.argprom.exit":
+"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E.exit":
   %1 = alloca { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1)
   %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
@@ -2018,8 +2018,8 @@ attributes #20 = { nounwind }
 !79 = distinct !{!79, !"_ZN4core4hash6Hasher19write_length_prefix17hd850bb1fe1d3a4ddE"}
 !80 = distinct !{!80, !81, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17h04abf30ab0bf4836E: argument 1"}
 !81 = distinct !{!81, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17h04abf30ab0bf4836E"}
-!82 = distinct !{!82, !83, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E.argprom: argument 0"}
-!83 = distinct !{!83, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E.argprom"}
+!82 = distinct !{!82, !83, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E: argument 0"}
+!83 = distinct !{!83, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h13a85eec880b9716E"}
 !84 = !{!85}
 !85 = distinct !{!85, !81, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17h04abf30ab0bf4836E: argument 0"}
 !86 = !{!87, !74, !76, !78, !80, !82}

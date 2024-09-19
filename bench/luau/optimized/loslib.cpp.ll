@@ -91,7 +91,7 @@ define internal noundef i32 @_ZL7os_dateP9lua_State(ptr noundef %0) #0 {
 
 .thread:                                          ; preds = %22, %26
   call void @_Z11lua_pushnilP9lua_State(ptr noundef %0)
-  br label %_ZL12setboolfieldP9lua_StatePKci.argprom.exit
+  br label %_ZL12setboolfieldP9lua_StatePKci.exit
 
 sub_0:                                            ; preds = %26
   %28 = load i8, ptr %.0, align 1
@@ -150,12 +150,12 @@ sub_1:                                            ; preds = %sub_0
   %54 = getelementptr inbounds i8, ptr %.037, i64 32
   %55 = load i32, ptr %54, align 8
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %_ZL12setboolfieldP9lua_StatePKci.argprom.exit, label %57
+  br i1 %56, label %_ZL12setboolfieldP9lua_StatePKci.exit, label %57
 
 57:                                               ; preds = %34
   call void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef %0, i32 noundef %55)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.15)
-  br label %_ZL12setboolfieldP9lua_StatePKci.argprom.exit
+  br label %_ZL12setboolfieldP9lua_StatePKci.exit
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   store i8 37, ptr %4, align 1
@@ -223,9 +223,9 @@ sub_1:                                            ; preds = %sub_0
 
 85:                                               ; preds = %61
   call void @_Z15luaL_pushresultP11luaL_Strbuf(ptr noundef nonnull %5)
-  br label %_ZL12setboolfieldP9lua_StatePKci.argprom.exit
+  br label %_ZL12setboolfieldP9lua_StatePKci.exit
 
-_ZL12setboolfieldP9lua_StatePKci.argprom.exit:    ; preds = %57, %34, %85, %.thread
+_ZL12setboolfieldP9lua_StatePKci.exit:            ; preds = %57, %34, %85, %.thread
   ret i32 1
 }
 
@@ -330,13 +330,13 @@ _ZL8getfieldP9lua_StatePKci.exit27:               ; preds = %_ZL8getfieldP9lua_S
   %35 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.15)
   %36 = tail call noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef %0, i32 noundef -1)
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %_ZL12getboolfieldP9lua_StatePKc.argprom.exit, label %38
+  br i1 %37, label %_ZL12getboolfieldP9lua_StatePKc.exit, label %38
 
 38:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit27
   %39 = tail call noundef i32 @_Z13lua_tobooleanP9lua_Statei(ptr noundef %0, i32 noundef -1)
-  br label %_ZL12getboolfieldP9lua_StatePKc.argprom.exit
+  br label %_ZL12getboolfieldP9lua_StatePKc.exit
 
-_ZL12getboolfieldP9lua_StatePKc.argprom.exit:     ; preds = %_ZL8getfieldP9lua_StatePKci.exit27, %38
+_ZL12getboolfieldP9lua_StatePKc.exit:             ; preds = %_ZL8getfieldP9lua_StatePKci.exit27, %38
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
   %40 = srem i32 %30, 12
   %41 = icmp slt i32 %40, 2
@@ -362,7 +362,7 @@ _ZL12getboolfieldP9lua_StatePKc.argprom.exit:     ; preds = %_ZL8getfieldP9lua_S
   %58 = icmp slt i32 %57, 2472633
   br i1 %58, label %_ZL9os_timegmP2tm.exit.thread, label %59
 
-59:                                               ; preds = %_ZL12getboolfieldP9lua_StatePKc.argprom.exit
+59:                                               ; preds = %_ZL12getboolfieldP9lua_StatePKc.exit
   %60 = add nsw i32 %57, -32045
   %61 = zext nneg i32 %60 to i64
   %62 = mul nuw nsw i64 %61, 86400
@@ -378,7 +378,7 @@ _ZL9os_timegmP2tm.exit:                           ; preds = %1
   %69 = icmp eq i64 %68, -1
   br i1 %69, label %_ZL9os_timegmP2tm.exit.thread, label %_ZL9os_timegmP2tm.exit.thread30
 
-_ZL9os_timegmP2tm.exit.thread:                    ; preds = %59, %_ZL12getboolfieldP9lua_StatePKc.argprom.exit, %_ZL9os_timegmP2tm.exit
+_ZL9os_timegmP2tm.exit.thread:                    ; preds = %59, %_ZL12getboolfieldP9lua_StatePKc.exit, %_ZL9os_timegmP2tm.exit
   tail call void @_Z11lua_pushnilP9lua_State(ptr noundef %0)
   br label %71
 

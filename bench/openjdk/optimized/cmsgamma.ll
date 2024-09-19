@@ -44,7 +44,7 @@ define hidden void @_cmsAllocCurvesPluginChunk(ptr nocapture noundef %0, ptr nou
   %9 = load ptr, ptr %6, align 8
   %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 184) #13
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %DupPluginCurvesList.argprom.exit, label %12
+  br i1 %11, label %DupPluginCurvesList.exit, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %10, i64 176
@@ -73,9 +73,9 @@ define hidden void @_cmsAllocCurvesPluginChunk(ptr nocapture noundef %0, ptr nou
   %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #13
   %22 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %21, ptr %22, align 8
-  br label %DupPluginCurvesList.argprom.exit
+  br label %DupPluginCurvesList.exit
 
-DupPluginCurvesList.argprom.exit:                 ; preds = %7, %._crit_edge.i
+DupPluginCurvesList.exit:                         ; preds = %7, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %28
 
@@ -87,7 +87,7 @@ DupPluginCurvesList.argprom.exit:                 ; preds = %7, %._crit_edge.i
   store ptr %26, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %23, %DupPluginCurvesList.argprom.exit
+28:                                               ; preds = %23, %DupPluginCurvesList.exit
   ret void
 }
 
@@ -1182,7 +1182,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   %61 = getelementptr i8, ptr %60, i64 80
   %.val = load i32, ptr %61, align 8
   %62 = icmp eq i32 %.val, 0
-  br i1 %62, label %GetInterval.argprom.exit.thread, label %63
+  br i1 %62, label %GetInterval.exit.thread, label %63
 
 63:                                               ; preds = %54
   %64 = load i16, ptr %59, align 2
@@ -1194,10 +1194,10 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   br i1 %68, label %.preheader.i62, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %63
-  br i1 %69, label %.lr.ph.i60, label %GetInterval.argprom.exit.thread
+  br i1 %69, label %.lr.ph.i60, label %GetInterval.exit.thread
 
 .preheader.i62:                                   ; preds = %63
-  br i1 %69, label %.lr.ph12.i, label %GetInterval.argprom.exit.thread
+  br i1 %69, label %.lr.ph12.i, label %GetInterval.exit.thread
 
 .lr.ph12.i:                                       ; preds = %.preheader.i62, %83
   %70 = phi i16 [ %72, %83 ], [ %67, %.preheader.i62 ]
@@ -1214,7 +1214,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   %76 = uitofp i16 %70 to double
   %77 = fcmp ugt double %58, %76
   %or.cond.i = or i1 %77, %75
-  br i1 %or.cond.i, label %83, label %GetInterval.argprom.exit
+  br i1 %or.cond.i, label %83, label %GetInterval.exit
 
 78:                                               ; preds = %.lr.ph12.i
   %79 = uitofp i16 %70 to double
@@ -1222,11 +1222,11 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   %81 = uitofp i16 %72 to double
   %82 = fcmp ugt double %58, %81
   %or.cond61.i = or i1 %80, %82
-  br i1 %or.cond61.i, label %83, label %GetInterval.argprom.exit
+  br i1 %or.cond61.i, label %83, label %GetInterval.exit
 
 83:                                               ; preds = %78, %73
   %84 = icmp ugt i64 %indvars.iv21.i, 1
-  br i1 %84, label %.lr.ph12.i, label %GetInterval.argprom.exit.thread, !llvm.loop !17
+  br i1 %84, label %.lr.ph12.i, label %GetInterval.exit.thread, !llvm.loop !17
 
 .lr.ph.i60:                                       ; preds = %.preheader1.i, %98
   %85 = phi i16 [ %87, %98 ], [ %64, %.preheader1.i ]
@@ -1243,7 +1243,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   %91 = uitofp i16 %87 to double
   %92 = fcmp ugt double %58, %91
   %or.cond63.i = or i1 %90, %92
-  br i1 %or.cond63.i, label %98, label %GetInterval.argprom.exit
+  br i1 %or.cond63.i, label %98, label %GetInterval.exit
 
 93:                                               ; preds = %.lr.ph.i60
   %94 = uitofp i16 %87 to double
@@ -1251,19 +1251,19 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   %96 = uitofp i16 %85 to double
   %97 = fcmp ugt double %58, %96
   %or.cond65.i = or i1 %97, %95
-  br i1 %or.cond65.i, label %98, label %GetInterval.argprom.exit
+  br i1 %or.cond65.i, label %98, label %GetInterval.exit
 
 98:                                               ; preds = %93, %88
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %65
-  br i1 %exitcond.not.i, label %GetInterval.argprom.exit.thread, label %.lr.ph.i60, !llvm.loop !18
+  br i1 %exitcond.not.i, label %GetInterval.exit.thread, label %.lr.ph.i60, !llvm.loop !18
 
-GetInterval.argprom.exit:                         ; preds = %88, %93, %73, %78
+GetInterval.exit:                                 ; preds = %88, %93, %73, %78
   %.046.i.in = phi i64 [ %indvars.iv.next22.i, %78 ], [ %indvars.iv.next22.i, %73 ], [ %indvars.iv.i, %93 ], [ %indvars.iv.i, %88 ]
   %.046.i = trunc i64 %.046.i.in to i32
   %99 = icmp sgt i32 %.046.i, -1
-  br i1 %99, label %100, label %GetInterval.argprom.exit.thread
+  br i1 %99, label %100, label %GetInterval.exit.thread
 
-100:                                              ; preds = %GetInterval.argprom.exit
+100:                                              ; preds = %GetInterval.exit
   %101 = and i64 %.046.i.in, 2147483647
   %102 = getelementptr inbounds i16, ptr %59, i64 %101
   %103 = load i16, ptr %102, align 2
@@ -1309,17 +1309,17 @@ GetInterval.argprom.exit:                         ; preds = %88, %93, %73, %78
   %135 = fdiv double %133, %134
   %136 = fneg double %135
   %137 = tail call double @llvm.fmuladd.f64(double %136, double %109, double %118)
-  br label %GetInterval.argprom.exit.thread
+  br label %GetInterval.exit.thread
 
-GetInterval.argprom.exit.thread:                  ; preds = %98, %83, %.preheader1.i, %.preheader.i62, %54, %132, %GetInterval.argprom.exit
-  %.151 = phi double [ %137, %132 ], [ %.05075, %GetInterval.argprom.exit ], [ %.05075, %54 ], [ %.05075, %.preheader.i62 ], [ %.05075, %.preheader1.i ], [ %.05075, %83 ], [ %.05075, %98 ]
-  %.1 = phi double [ %135, %132 ], [ %.04878, %GetInterval.argprom.exit ], [ %.04878, %54 ], [ %.04878, %.preheader.i62 ], [ %.04878, %.preheader1.i ], [ %.04878, %83 ], [ %.04878, %98 ]
+GetInterval.exit.thread:                          ; preds = %98, %83, %.preheader1.i, %.preheader.i62, %54, %132, %GetInterval.exit
+  %.151 = phi double [ %137, %132 ], [ %.05075, %GetInterval.exit ], [ %.05075, %54 ], [ %.05075, %.preheader.i62 ], [ %.05075, %.preheader1.i ], [ %.05075, %83 ], [ %.05075, %98 ]
+  %.1 = phi double [ %135, %132 ], [ %.04878, %GetInterval.exit ], [ %.04878, %54 ], [ %.04878, %.preheader.i62 ], [ %.04878, %.preheader1.i ], [ %.04878, %83 ], [ %.04878, %98 ]
   %138 = tail call double @llvm.fmuladd.f64(double %.1, double %58, double %.151)
   %139 = fadd double %138, 5.000000e-01
   %140 = fcmp ugt double %139, 0.000000e+00
   br i1 %140, label %141, label %_cmsQuickSaturateWord.exit
 
-141:                                              ; preds = %GetInterval.argprom.exit.thread
+141:                                              ; preds = %GetInterval.exit.thread
   %142 = fcmp ult double %139, 6.553500e+04
   br i1 %142, label %143, label %_cmsQuickSaturateWord.exit
 
@@ -1331,10 +1331,10 @@ GetInterval.argprom.exit.thread:                  ; preds = %98, %83, %.preheade
   %148 = add i16 %147, 32767
   br label %_cmsQuickSaturateWord.exit
 
-_cmsQuickSaturateWord.exit:                       ; preds = %143, %141, %GetInterval.argprom.exit.thread, %126, %124, %120
-  %.0.i64.sink = phi i16 [ %131, %126 ], [ 0, %120 ], [ -1, %124 ], [ %148, %143 ], [ 0, %GetInterval.argprom.exit.thread ], [ -1, %141 ]
-  %.252 = phi double [ %.05075, %126 ], [ %.05075, %120 ], [ %.05075, %124 ], [ %.151, %143 ], [ %.151, %GetInterval.argprom.exit.thread ], [ %.151, %141 ]
-  %.2 = phi double [ %.04878, %126 ], [ %.04878, %120 ], [ %.04878, %124 ], [ %.1, %143 ], [ %.1, %GetInterval.argprom.exit.thread ], [ %.1, %141 ]
+_cmsQuickSaturateWord.exit:                       ; preds = %143, %141, %GetInterval.exit.thread, %126, %124, %120
+  %.0.i64.sink = phi i16 [ %131, %126 ], [ 0, %120 ], [ -1, %124 ], [ %148, %143 ], [ 0, %GetInterval.exit.thread ], [ -1, %141 ]
+  %.252 = phi double [ %.05075, %126 ], [ %.05075, %120 ], [ %.05075, %124 ], [ %.151, %143 ], [ %.151, %GetInterval.exit.thread ], [ %.151, %141 ]
+  %.2 = phi double [ %.04878, %126 ], [ %.04878, %120 ], [ %.04878, %124 ], [ %.1, %143 ], [ %.1, %GetInterval.exit.thread ], [ %.1, %141 ]
   %149 = load ptr, ptr %53, align 8
   %150 = getelementptr inbounds i16, ptr %149, i64 %indvars.iv
   store i16 %.0.i64.sink, ptr %150, align 2

@@ -2817,21 +2817,21 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   store ptr %.val.i, ptr %3, align 8, !alias.scope !23
   %.not.i.i.i.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.argprom.exit.i", label %45
+  br i1 %.not.i.i.i.i.i, label %"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.exit.i", label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %.val.i, i64 8
   %47 = atomicrmw add ptr %46, i32 1 monotonic, align 4, !noalias !23
-  br label %"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.argprom.exit.i"
+  br label %"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.exit.i"
 
-"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.argprom.exit.i": ; preds = %45, %42
+"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.exit.i": ; preds = %45, %42
   %48 = load ptr, ptr %0, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   invoke void %50(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
           to label %51 unwind label %90
 
-51:                                               ; preds = %"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.argprom.exit.i"
+51:                                               ; preds = %"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.exit.i"
   %52 = load ptr, ptr %3, align 8
   %.not.i.i.i14.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i14.i, label %_ZN7xgboost4JsonD2Ev.exit.i, label %53
@@ -2922,7 +2922,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   store ptr %89, ptr %65, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i
 
-90:                                               ; preds = %"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.argprom.exit.i"
+90:                                               ; preds = %"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.exit.i"
   %91 = landingpad { ptr, i32 }
           cleanup
   %92 = load ptr, ptr %3, align 8
@@ -2965,7 +2965,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
   %108 = load ptr, ptr %103, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 1
   store ptr %109, ptr %103, align 8
-  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_9JsonArrayEZNS0_5VisitEPKS2_E3$_0EEvPKT_OT0_.argprom.exit"
+  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_9JsonArrayEZNS0_5VisitEPKS2_E3$_0EEvPKT_OT0_.exit"
 
 110:                                              ; preds = %._crit_edge.i
   %111 = load ptr, ptr %102, align 8
@@ -3017,9 +3017,9 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   store ptr %127, ptr %103, align 8
   %129 = getelementptr inbounds i8, ptr %123, i64 %120
   store ptr %129, ptr %105, align 8
-  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_9JsonArrayEZNS0_5VisitEPKS2_E3$_0EEvPKT_OT0_.argprom.exit"
+  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_9JsonArrayEZNS0_5VisitEPKS2_E3$_0EEvPKT_OT0_.exit"
 
-"_ZN7xgboost10JsonWriter10WriteArrayINS_9JsonArrayEZNS0_5VisitEPKS2_E3$_0EEvPKT_OT0_.argprom.exit": ; preds = %107, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i
+"_ZN7xgboost10JsonWriter10WriteArrayINS_9JsonArrayEZNS0_5VisitEPKS2_E3$_0EEvPKT_OT0_.exit": ; preds = %107, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -3269,7 +3269,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
   %111 = load ptr, ptr %106, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 1
   store ptr %112, ptr %106, align 8
-  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEZNS0_5VisitEPKS5_E3$_0EEvPKT_OT0_.argprom.exit"
+  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEZNS0_5VisitEPKS5_E3$_0EEvPKT_OT0_.exit"
 
 113:                                              ; preds = %._crit_edge.i
   %114 = load ptr, ptr %105, align 8
@@ -3321,9 +3321,9 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   store ptr %130, ptr %106, align 8
   %132 = getelementptr inbounds i8, ptr %126, i64 %123
   store ptr %132, ptr %108, align 8
-  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEZNS0_5VisitEPKS5_E3$_0EEvPKT_OT0_.argprom.exit"
+  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEZNS0_5VisitEPKS5_E3$_0EEvPKT_OT0_.exit"
 
-"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEZNS0_5VisitEPKS5_E3$_0EEvPKT_OT0_.argprom.exit": ; preds = %110, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i
+"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEZNS0_5VisitEPKS5_E3$_0EEvPKT_OT0_.exit": ; preds = %110, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -3573,7 +3573,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
   %111 = load ptr, ptr %106, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 1
   store ptr %112, ptr %106, align 8
-  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.argprom.exit"
+  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
 113:                                              ; preds = %._crit_edge.i
   %114 = load ptr, ptr %105, align 8
@@ -3625,9 +3625,9 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   store ptr %130, ptr %106, align 8
   %132 = getelementptr inbounds i8, ptr %126, i64 %123
   store ptr %132, ptr %108, align 8
-  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.argprom.exit"
+  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
-"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.argprom.exit": ; preds = %110, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i
+"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit": ; preds = %110, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -3878,7 +3878,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
   %112 = load ptr, ptr %107, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 1
   store ptr %113, ptr %107, align 8
-  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.argprom.exit"
+  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
 114:                                              ; preds = %._crit_edge.i
   %115 = load ptr, ptr %106, align 8
@@ -3930,9 +3930,9 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   store ptr %131, ptr %107, align 8
   %133 = getelementptr inbounds i8, ptr %127, i64 %124
   store ptr %133, ptr %109, align 8
-  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.argprom.exit"
+  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
-"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.argprom.exit": ; preds = %111, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i
+"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit": ; preds = %111, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -4182,7 +4182,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
   %111 = load ptr, ptr %106, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 1
   store ptr %112, ptr %106, align 8
-  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.argprom.exit"
+  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
 113:                                              ; preds = %._crit_edge.i
   %114 = load ptr, ptr %105, align 8
@@ -4234,9 +4234,9 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   store ptr %130, ptr %106, align 8
   %132 = getelementptr inbounds i8, ptr %126, i64 %123
   store ptr %132, ptr %108, align 8
-  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.argprom.exit"
+  br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
-"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.argprom.exit": ; preds = %110, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i
+"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit": ; preds = %110, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -19827,24 +19827,24 @@ attributes #37 = { nounwind willreturn memory(read) }
 !21 = distinct !{!21, !22, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
 !22 = distinct !{!22, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.argprom: argument 0"}
-!25 = distinct !{!25, !"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.argprom"}
+!24 = distinct !{!24, !25, !"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_: argument 0"}
+!25 = distinct !{!25, !"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_"}
 !26 = distinct !{!26, !5}
 !27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEENK3$_0clEf.argprom: argument 0"}
-!29 = distinct !{!29, !"_ZZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEENK3$_0clEf.argprom"}
+!28 = distinct !{!28, !29, !"_ZZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEENK3$_0clEf: argument 0"}
+!29 = distinct !{!29, !"_ZZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEENK3$_0clEf"}
 !30 = distinct !{!30, !5}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIhEEDaT_.argprom: argument 0"}
-!33 = distinct !{!33, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIhEEDaT_.argprom"}
+!32 = distinct !{!32, !33, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIhEEDaT_: argument 0"}
+!33 = distinct !{!33, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIhEEDaT_"}
 !34 = distinct !{!34, !5}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIiEEDaT_.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIiEEDaT_.argprom"}
+!36 = distinct !{!36, !37, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIiEEDaT_: argument 0"}
+!37 = distinct !{!37, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIiEEDaT_"}
 !38 = distinct !{!38, !5}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIlEEDaT_.argprom: argument 0"}
-!41 = distinct !{!41, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIlEEDaT_.argprom"}
+!40 = distinct !{!40, !41, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIlEEDaT_: argument 0"}
+!41 = distinct !{!41, !"_ZNK7xgboost12_GLOBAL__N_13$_2clIlEEDaT_"}
 !42 = distinct !{!42, !5}
 !43 = !{!"branch_weights", i32 1, i32 1048575}
 !44 = !{!45}

@@ -9937,7 +9937,7 @@ define dso_local noundef ptr @_ZNK4llvm15DWARFDebugFrame16getEntryAtOffsetEm(ptr
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
   %9 = icmp sgt i64 %8, 0
-  br i1 %9, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.argprom.exit"
+  br i1 %9, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i: ; preds = %2, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i
   %.015.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i ], [ %8, %2 ]
@@ -9954,14 +9954,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10Frame
   %.sroa.013.1.i.i = select i1 %13, ptr %14, ptr %.sroa.013.014.i.i
   %.1.i.i = select i1 %13, i64 %16, i64 %10
   %17 = icmp sgt i64 %.1.i.i, 0
-  br i1 %17, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.argprom.exit", !llvm.loop !537
+  br i1 %17, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.exit", !llvm.loop !537
 
-"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.argprom.exit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i, %2
+"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i, %2
   %.sroa.013.0.lcssa.i.i = phi ptr [ %.val, %2 ], [ %.sroa.013.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i ]
   %.not = icmp eq ptr %.sroa.013.0.lcssa.i.i, %.val3
   br i1 %.not, label %.critedge, label %18
 
-18:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.argprom.exit"
+18:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.exit"
   %19 = load ptr, ptr %.sroa.013.0.lcssa.i.i, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
@@ -9969,8 +9969,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10Frame
   %spec.select = select i1 %22, ptr %19, ptr null
   br label %.critedge
 
-.critedge:                                        ; preds = %18, %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.argprom.exit"
-  %.0 = phi ptr [ null, %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.argprom.exit" ], [ %spec.select, %18 ]
+.critedge:                                        ; preds = %18, %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.exit"
+  %.0 = phi ptr [ null, %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.exit" ], [ %spec.select, %18 ]
   ret ptr %.0
 }
 
@@ -9996,7 +9996,7 @@ define dso_local void @_ZNK4llvm15DWARFDebugFrame4dumpERNS_11raw_ostreamENS_13DI
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 3
   %20 = icmp sgt i64 %19, 0
-  br i1 %20, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.argprom.exit.i"
+  br i1 %20, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.exit.i"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i
   %.015.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i ], [ %19, %13 ]
@@ -10013,14 +10013,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10Frame
   %.sroa.013.1.i.i.i = select i1 %24, ptr %25, ptr %.sroa.013.014.i.i.i
   %.1.i.i.i = select i1 %24, i64 %27, i64 %21
   %28 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %28, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.argprom.exit.i", !llvm.loop !537
+  br i1 %28, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.exit.i", !llvm.loop !537
 
-"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.argprom.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i, %13
+"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.exit.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i, %13
   %.sroa.013.0.lcssa.i.i.i = phi ptr [ %.val.i, %13 ], [ %.sroa.013.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10FrameEntryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i ]
   %.not.i = icmp eq ptr %.sroa.013.0.lcssa.i.i.i, %.val3.i
   br i1 %.not.i, label %_ZNK4llvm15DWARFDebugFrame16getEntryAtOffsetEm.exit.thread, label %29
 
-29:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.argprom.exit.i"
+29:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.exit.i"
   %30 = load ptr, ptr %.sroa.013.0.lcssa.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
@@ -10262,7 +10262,7 @@ _ZN4llvm13DIDumpOptionsD2Ev.exit20:               ; preds = %_ZNSt8functionIFvN4
   %.not = icmp eq ptr %148, %98
   br i1 %.not, label %_ZNK4llvm15DWARFDebugFrame16getEntryAtOffsetEm.exit.thread, label %119
 
-_ZNK4llvm15DWARFDebugFrame16getEntryAtOffsetEm.exit.thread: ; preds = %_ZN4llvm13DIDumpOptionsD2Ev.exit20, %_ZN4llvm11raw_ostreamlsEPKc.exit, %29, %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.argprom.exit.i", %_ZN4llvm13DIDumpOptionsD2Ev.exit
+_ZNK4llvm15DWARFDebugFrame16getEntryAtOffsetEm.exit.thread: ; preds = %_ZN4llvm13DIDumpOptionsD2Ev.exit20, %_ZN4llvm11raw_ostreamlsEPKc.exit, %29, %"_ZN4llvm15partition_pointIRKSt6vectorISt10unique_ptrINS_5dwarf10FrameEntryESt14default_deleteIS4_EESaIS7_EEZNKS_15DWARFDebugFrame16getEntryAtOffsetEmE3$_0RKS7_EEDaOT_T0_.exit.i", %_ZN4llvm13DIDumpOptionsD2Ev.exit
   ret void
 }
 

@@ -45,7 +45,7 @@ entry:
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %0, align 8
@@ -53,9 +53,9 @@ if.end:                                           ; preds = %entry
   %2 = load i64, ptr %total_sectors, align 8
   %total_sectors4 = getelementptr inbounds i8, ptr %bs, i64 16888
   store i64 %2, ptr %total_sectors4, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %entry, %if.end
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry, %if.end
   %retval.0 = phi i32 [ 0, %if.end ], [ -22, %entry ]
   tail call void @bdrv_graph_rdunlock_main_loop() #4
   ret i32 %retval.0

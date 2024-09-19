@@ -3586,7 +3586,7 @@ Mop_ManMergeContainAll.exit98:                    ; preds = %.critedge2.loopexit
   %.0.lcssa.i33126129137144 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %.lcssa157, %.lr.ph31.i79 ], [ %.lcssa157, %.critedge2.loopexit.i86 ]
   %.0.lcssa.i44138143 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %.lcssa155, %.lr.ph31.i79 ], [ %.lcssa155, %.critedge2.loopexit.i86 ]
   %.0.lcssa.i78 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %108, %.lr.ph31.i79 ], [ %111, %.critedge2.loopexit.i86 ]
-  call fastcc void @Mop_ManUnCreateGroups.retelim(ptr noundef %0, ptr noundef %14)
+  call fastcc void @Mop_ManUnCreateGroups(ptr noundef %0, ptr noundef %14)
   %119 = load ptr, ptr %10, align 8
   %120 = getelementptr i8, ptr %119, i64 4
   %.val11.i99 = load i32, ptr %120, align 4
@@ -3832,7 +3832,7 @@ Mop_ManCountOnes.exit:                            ; preds = %.lr.ph.i, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Mop_ManUnCreateGroups.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc void @Mop_ManUnCreateGroups(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -4179,7 +4179,7 @@ Mop_ManCountOnes.exit.loopexit.us.i66:            ; preds = %.lr.ph.i.us.i61
 
 Mop_ManCountOutputLits.exit69:                    ; preds = %Mop_ManCountOnes.exit.loopexit.us.i66, %.critedge2, %.lr.ph.i50
   %.0.lcssa.i49 = phi i32 [ 0, %.critedge2 ], [ 0, %.lr.ph.i50 ], [ %96, %Mop_ManCountOnes.exit.loopexit.us.i66 ]
-  call fastcc void @Mop_ManUnCreateGroups.retelim(ptr noundef %0, ptr noundef %10)
+  call fastcc void @Mop_ManUnCreateGroups(ptr noundef %0, ptr noundef %10)
   %97 = load i32, ptr %10, align 8
   %98 = icmp sgt i32 %97, 0
   %99 = getelementptr inbounds i8, ptr %10, i64 8
@@ -4678,8 +4678,8 @@ define ptr @Mop_ManDerive(ptr nocapture noundef readonly %0, ptr noundef %1) loc
   %46 = getelementptr i8, ptr %29, i64 8
   br label %47
 
-47:                                               ; preds = %.lr.ph80, %Vec_StrAppend.argprom.exit
-  %indvars.iv85 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next86, %Vec_StrAppend.argprom.exit ]
+47:                                               ; preds = %.lr.ph80, %Vec_StrAppend.exit
+  %indvars.iv85 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next86, %Vec_StrAppend.exit ]
   %.val56 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i32, ptr %.val56, i64 %indvars.iv85
   %49 = load i32, ptr %48, align 4
@@ -4841,16 +4841,16 @@ Vec_StrPush.exit.i.i:                             ; preds = %118, %Vec_StrGrow.e
   store i8 %97, ptr %123, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %Vec_StrAppend.argprom.exit, label %.preheader, !llvm.loop !63
+  br i1 %exitcond.not.i.i, label %Vec_StrAppend.exit, label %.preheader, !llvm.loop !63
 
-Vec_StrAppend.argprom.exit:                       ; preds = %Vec_StrPush.exit.i.i
+Vec_StrAppend.exit:                               ; preds = %Vec_StrPush.exit.i.i
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %.val54 = load i32, ptr %32, align 4
   %124 = sext i32 %.val54 to i64
   %125 = icmp slt i64 %indvars.iv.next86, %124
   br i1 %125, label %47, label %.critedge, !llvm.loop !64
 
-.critedge:                                        ; preds = %Vec_StrAppend.argprom.exit
+.critedge:                                        ; preds = %Vec_StrAppend.exit
   %.pre = load i32, ptr %4, align 4
   %126 = load i32, ptr %3, align 8
   %127 = icmp eq i32 %.pre, %126

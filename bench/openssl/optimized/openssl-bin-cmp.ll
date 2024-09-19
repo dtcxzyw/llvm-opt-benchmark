@@ -6828,7 +6828,7 @@ cond.false502:                                    ; preds = %if.then499
   br label %return
 
 if.end506:                                        ; preds = %if.end494
-  %call507 = call fastcc i32 @set_gennames.argprom(ptr noundef %ctx, ptr noundef %165)
+  %call507 = call fastcc i32 @set_gennames(ptr noundef %ctx, ptr noundef %165)
   %tobool508.not = icmp eq i32 %call507, 0
   br i1 %tobool508.not, label %return, label %if.end510
 
@@ -7352,7 +7352,7 @@ declare void @X509_REQ_free(ptr noundef) local_unnamed_addr #1
 declare i32 @OSSL_CMP_CTX_reqExtensions_have_SAN(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @set_gennames.argprom(ptr noundef %ctx, ptr noundef %names) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @set_gennames(ptr noundef %ctx, ptr noundef %names) unnamed_addr #0 {
 entry:
   %cmp.not7 = icmp eq ptr %names, null
   br i1 %cmp.not7, label %return, label %for.body

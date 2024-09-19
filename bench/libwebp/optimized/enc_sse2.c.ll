@@ -990,9 +990,9 @@ TM4_SSE2.exit:                                    ; preds = %24
   store i32 %50, ptr %53, align 1
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 4
-  br i1 %exitcond.not.i28, label %VE4_SSE2.argprom.exit, label %51, !llvm.loop !18
+  br i1 %exitcond.not.i28, label %VE4_SSE2.exit, label %51, !llvm.loop !18
 
-VE4_SSE2.argprom.exit:                            ; preds = %51
+VE4_SSE2.exit:                                    ; preds = %51
   %54 = getelementptr inbounds i8, ptr %0, i64 1548
   %55 = load i8, ptr %22, align 1
   %56 = zext i8 %55 to i32

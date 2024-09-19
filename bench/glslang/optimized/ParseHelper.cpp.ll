@@ -76272,7 +76272,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRK11TIntermNodeE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRK11TIntermNodeEZN7glslang13TParseContext14builtInOpCheckERKNS4_10TSourceLocERKNS4_9TFunctionERNS4_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -76282,29 +76282,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRK11TIntermNodeE
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val5, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 40) #24
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext14builtInOpCheckERKNS1_10TSourceLocERKNS1_9TFunctionERNS1_15TIntermOperatorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -76472,7 +76472,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7)
   %8 = load ptr, ptr %0, align 8
   %9 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br i1 %9, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %10
+  br i1 %9, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %1, i64 8
@@ -76506,7 +76506,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %32 = load ptr, ptr %31, align 8
   %33 = icmp ne ptr %32, null
   %or.cond.i.i.i = select i1 %or.cond.i.i.i.i, i1 %33, i1 false
-  br i1 %or.cond.i.i.i, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i
+  br i1 %or.cond.i.i.i, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i
 
 34:                                               ; preds = %10
   %35 = and i32 %12, 4194304
@@ -76556,7 +76556,7 @@ _ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.i.i.i: ; preds = %56, %50, %40
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i = icmp eq ptr %65, null
   %spec.select19.i.i.i.i = xor i1 %.not20.i.i.i.i, %.not.i.i.i.i
-  br i1 %spec.select19.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i
+  br i1 %spec.select19.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i
 
 _ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i: ; preds = %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.i.i.i, %56, %36, %34, %18, %14
   %66 = getelementptr inbounds i8, ptr %0, i64 8
@@ -76582,25 +76582,25 @@ _ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i: ; preds = %_ZNK7
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 0, i1 noundef zeroext false)
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 8 dereferenceable(152) %2, i32 noundef 0, i1 noundef zeroext false)
   %80 = call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %7)
-  br i1 %80, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %81
+  br i1 %80, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %81
 
 81:                                               ; preds = %79, %74, %69, %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i
   %82 = load ptr, ptr %1, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 232
   %84 = load ptr, ptr %83, align 8
   %85 = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(152) %1) #22
-  br i1 %85, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %86
+  br i1 %85, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %86
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %2, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 232
   %89 = load ptr, ptr %88, align 8
   %90 = call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(152) %2) #22
-  br i1 %90, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %91
+  br i1 %90, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %91
 
 91:                                               ; preds = %86
   %92 = call noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef null, ptr noundef null)
-  br i1 %92, label %93, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
+  br i1 %92, label %93, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
 93:                                               ; preds = %91
   %94 = load i32, ptr %11, align 8
@@ -76617,7 +76617,7 @@ _ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i: ; preds = %_ZNK7
 
 100:                                              ; preds = %96
   %101 = call noundef zeroext i1 @_ZNK7glslang5TType19sameCoopMatBaseTypeERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
 102:                                              ; preds = %96, %93
   %103 = getelementptr inbounds i8, ptr %8, i64 56
@@ -76631,9 +76631,9 @@ _ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i: ; preds = %_ZNK7
   %111 = load ptr, ptr %110, align 8
   %112 = call noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(152) %2) #22
   %113 = call noundef zeroext i1 @_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(2024) %104, i32 noundef %108, i32 noundef %112, i32 noundef 0) #22
-  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
-"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit": ; preds = %5, %18, %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.i.i.i, %79, %81, %86, %91, %100, %102
+"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %5, %18, %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.i.i.i, %79, %81, %86, %91, %100, %102
   %.020.i.i.i = phi i1 [ true, %79 ], [ %101, %100 ], [ %113, %102 ], [ true, %5 ], [ true, %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.i.i.i ], [ false, %91 ], [ false, %86 ], [ false, %81 ], [ true, %18 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7)
@@ -76937,11 +76937,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
 
 6:                                                ; preds = %4
   %7 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeneERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 8:                                                ; preds = %4
   %9 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br i1 %9, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit", label %10
+  br i1 %9, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit", label %10
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %1, align 8
@@ -76965,7 +76965,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(152) %2) #22
   %.not.i.i.i = icmp eq i32 %26, 2
-  br i1 %.not.i.i.i, label %27, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br i1 %.not.i.i.i, label %27, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 27:                                               ; preds = %22, %16, %10
   %28 = load ptr, ptr %3, align 8
@@ -76973,7 +76973,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(152) %3) #22
   %32 = icmp eq i32 %31, 1
-  br i1 %32, label %33, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br i1 %32, label %33, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %2, align 8
@@ -76981,29 +76981,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(152) %2) #22
   %38 = icmp eq i32 %37, 2
-  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
-"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %6, %8, %22, %27, %33
+"_ZSt10__invoke_rIbRZN7glslang13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %6, %8, %22, %27, %33
   %.0.i.i.i = phi i1 [ %7, %6 ], [ false, %8 ], [ true, %22 ], [ false, %27 ], [ %38, %33 ]
   ret i1 %.0.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_13TParseContext15findFunction400ERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #16 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext15findFunction400ERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -77015,7 +77015,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7)
   %8 = load ptr, ptr %0, align 8
   %9 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br i1 %9, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %10
+  br i1 %9, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %1, i64 8
@@ -77049,7 +77049,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %32 = load ptr, ptr %31, align 8
   %33 = icmp ne ptr %32, null
   %or.cond.i.i.i = select i1 %or.cond.i.i.i.i, i1 %33, i1 false
-  br i1 %or.cond.i.i.i, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i
+  br i1 %or.cond.i.i.i, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i
 
 34:                                               ; preds = %10
   %35 = and i32 %12, 4194304
@@ -77099,7 +77099,7 @@ _ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.i.i.i: ; preds = %56, %50, %40
   %65 = load ptr, ptr %64, align 8
   %.not.i.i.i.i = icmp eq ptr %65, null
   %spec.select19.i.i.i.i = xor i1 %.not20.i.i.i.i, %.not.i.i.i.i
-  br i1 %spec.select19.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i
+  br i1 %spec.select19.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i
 
 _ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i: ; preds = %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.i.i.i, %56, %36, %34, %18, %14
   %66 = getelementptr inbounds i8, ptr %0, i64 8
@@ -77125,25 +77125,25 @@ _ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i: ; preds = %_ZNK7
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 0, i1 noundef zeroext false)
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 8 dereferenceable(152) %2, i32 noundef 0, i1 noundef zeroext false)
   %80 = call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %7)
-  br i1 %80, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %81
+  br i1 %80, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %81
 
 81:                                               ; preds = %79, %74, %69, %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i
   %82 = load ptr, ptr %1, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 232
   %84 = load ptr, ptr %83, align 8
   %85 = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(152) %1) #22
-  br i1 %85, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %86
+  br i1 %85, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %86
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %2, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 232
   %89 = load ptr, ptr %88, align 8
   %90 = call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(152) %2) #22
-  br i1 %90, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %91
+  br i1 %90, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %91
 
 91:                                               ; preds = %86
   %92 = call noundef zeroext i1 @_ZNK7glslang5TType16sameElementShapeERKS0_PiS3_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef null, ptr noundef null)
-  br i1 %92, label %93, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
+  br i1 %92, label %93, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
 93:                                               ; preds = %91
   %94 = load i32, ptr %11, align 8
@@ -77160,7 +77160,7 @@ _ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i: ; preds = %_ZNK7
 
 100:                                              ; preds = %96
   %101 = call noundef zeroext i1 @_ZNK7glslang5TType19sameCoopMatBaseTypeERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
 102:                                              ; preds = %96, %93
   %103 = getelementptr inbounds i8, ptr %8, i64 56
@@ -77174,9 +77174,9 @@ _ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.thread.i.i.i: ; preds = %_ZNK7
   %111 = load ptr, ptr %110, align 8
   %112 = call noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(152) %2) #22
   %113 = call noundef zeroext i1 @_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(2024) %104, i32 noundef %108, i32 noundef %112, i32 noundef 0) #22
-  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
-"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit": ; preds = %5, %18, %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.i.i.i, %79, %81, %86, %91, %100, %102
+"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_0JRKNS0_5TTypeESD_NS0_9TOperatorEiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %5, %18, %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.i.i.i, %79, %81, %86, %91, %100, %102
   %.020.i.i.i = phi i1 [ true, %79 ], [ %101, %100 ], [ %113, %102 ], [ true, %5 ], [ true, %_ZNK7glslang5TType18coopMatParameterOKERKS0_.exit.i.i.i ], [ false, %91 ], [ false, %86 ], [ false, %81 ], [ true, %18 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7)
@@ -77215,11 +77215,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
 
 6:                                                ; preds = %4
   %7 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeneERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 8:                                                ; preds = %4
   %9 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2)
-  br i1 %9, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit", label %10
+  br i1 %9, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit", label %10
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %1, align 8
@@ -77257,10 +77257,10 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
 
 .critedge.i.i.i:                                  ; preds = %33, %29
   %36 = xor i1 %30, true
-  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 37:                                               ; preds = %33
-  br i1 %30, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit", label %38
+  br i1 %30, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit", label %38
 
 38:                                               ; preds = %37
   %39 = load ptr, ptr %23, align 8
@@ -77297,16 +77297,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
 58:                                               ; preds = %55, %52, %48
   %59 = phi i1 [ true, %52 ], [ true, %48 ], [ %57, %55 ]
   %60 = and i1 %49, %59
-  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
-"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %6, %8, %.critedge.i.i.i, %37, %58
+"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %6, %8, %.critedge.i.i.i, %37, %58
   %.0.i.i.i = phi i1 [ %7, %6 ], [ %36, %.critedge.i.i.i ], [ %60, %58 ], [ false, %8 ], [ false, %37 ]
   ret i1 %.0.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTypeES3_S3_EZNS0_13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #9 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext25findFunctionExplicitTypesERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext25findFunctionExplicitTypesERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -77314,18 +77314,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext25findFunctionExplicitTypesERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext25findFunctionExplicitTypesERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext25findFunctionExplicitTypesERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext25findFunctionExplicitTypesERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext25findFunctionExplicitTypesERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext25findFunctionExplicitTypesERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext25findFunctionExplicitTypesERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN7glslang13TParseContext25findFunctionExplicitTypesERKNS1_10TSourceLocERKNS1_9TFunctionERbE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -79482,7 +79482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %482 = getelementptr inbounds i8, ptr %372, i64 32
   %483 = load ptr, ptr %482, align 8
   %.not.i = icmp eq ptr %483, null
-  br i1 %.not.i, label %"_ZZN7glslang13TParseContext31vkRelaxedRemapFunctionParameterEPNS_9TFunctionERNS_10TParameterEPSt6vectorIiSaIiEEENK3$_0clERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.argprom.exit", label %484
+  br i1 %.not.i, label %"_ZZN7glslang13TParseContext31vkRelaxedRemapFunctionParameterEPNS_9TFunctionERNS_10TParameterEPSt6vectorIiSaIiEEENK3$_0clERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit", label %484
 
 484:                                              ; preds = %371
   %485 = load ptr, ptr %372, align 8
@@ -79503,7 +79503,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %496 = load ptr, ptr %491, align 8
   %497 = getelementptr inbounds i8, ptr %496, i64 4
   store ptr %497, ptr %491, align 8
-  br label %"_ZZN7glslang13TParseContext31vkRelaxedRemapFunctionParameterEPNS_9TFunctionERNS_10TParameterEPSt6vectorIiSaIiEEENK3$_0clERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.argprom.exit"
+  br label %"_ZZN7glslang13TParseContext31vkRelaxedRemapFunctionParameterEPNS_9TFunctionERNS_10TParameterEPSt6vectorIiSaIiEEENK3$_0clERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit"
 
 498:                                              ; preds = %484
   %499 = load ptr, ptr %483, align 8
@@ -79558,13 +79558,13 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   store ptr %518, ptr %491, align 8
   %520 = getelementptr inbounds i32, ptr %513, i64 %509
   store ptr %520, ptr %493, align 8
-  br label %"_ZZN7glslang13TParseContext31vkRelaxedRemapFunctionParameterEPNS_9TFunctionERNS_10TParameterEPSt6vectorIiSaIiEEENK3$_0clERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.argprom.exit"
+  br label %"_ZZN7glslang13TParseContext31vkRelaxedRemapFunctionParameterEPNS_9TFunctionERNS_10TParameterEPSt6vectorIiSaIiEEENK3$_0clERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit"
 
-"_ZZN7glslang13TParseContext31vkRelaxedRemapFunctionParameterEPNS_9TFunctionERNS_10TParameterEPSt6vectorIiSaIiEEENK3$_0clERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.argprom.exit": ; preds = %371, %495, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i
+"_ZZN7glslang13TParseContext31vkRelaxedRemapFunctionParameterEPNS_9TFunctionERNS_10TParameterEPSt6vectorIiSaIiEEENK3$_0clERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit": ; preds = %371, %495, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit62, %252, %239, %238, %"_ZZN7glslang13TParseContext31vkRelaxedRemapFunctionParameterEPNS_9TFunctionERNS_10TParameterEPSt6vectorIiSaIiEEENK3$_0clERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.argprom.exit", %366
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit62, %252, %239, %238, %"_ZZN7glslang13TParseContext31vkRelaxedRemapFunctionParameterEPNS_9TFunctionERNS_10TParameterEPSt6vectorIiSaIiEEENK3$_0clERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit", %366
   ret void
 }
 

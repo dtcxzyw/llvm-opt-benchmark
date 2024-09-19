@@ -862,7 +862,7 @@ define internal fastcc range(i32 0, 2) i32 @signal_exec(i64 noundef range(i64 1,
   %17 = getelementptr i8, ptr %7, i64 48
   %.0.1.val = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %.0.1.val, null
-  br i1 %.not.i.i, label %rb_ec_ractor_ptr.argprom.exit.i, label %18
+  br i1 %.not.i.i, label %rb_ec_ractor_ptr.exit.i, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds i8, ptr %.0.1.val, i64 32
@@ -870,23 +870,23 @@ define internal fastcc range(i32 0, 2) i32 @signal_exec(i64 noundef range(i64 1,
   %21 = getelementptr inbounds i8, ptr %20, i64 88
   %22 = getelementptr inbounds i8, ptr %.0.1.val, i64 24
   %23 = load ptr, ptr %22, align 8
-  br label %rb_ec_ractor_ptr.argprom.exit.i
+  br label %rb_ec_ractor_ptr.exit.i
 
-rb_ec_ractor_ptr.argprom.exit.i:                  ; preds = %18, %11
+rb_ec_ractor_ptr.exit.i:                          ; preds = %18, %11
   %.in.i = phi ptr [ %21, %18 ], [ inttoptr (i64 88 to ptr), %11 ]
   %.0.i2.i = phi ptr [ %20, %18 ], [ null, %11 ]
   %.0.i6.i = phi ptr [ %23, %18 ], [ null, %11 ]
   %24 = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %24, %.0.i6.i
-  br i1 %.not.i, label %25, label %rb_ec_vm_lock_rec.argprom.exit
+  br i1 %.not.i, label %25, label %rb_ec_vm_lock_rec.exit
 
-25:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i
+25:                                               ; preds = %rb_ec_ractor_ptr.exit.i
   %26 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
   %27 = load i32, ptr %26, align 8
-  br label %rb_ec_vm_lock_rec.argprom.exit
+  br label %rb_ec_vm_lock_rec.exit
 
-rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.argprom.exit.i, %25
-  %.0.i = phi i32 [ %27, %25 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i ]
+rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %25
+  %.0.i = phi i32 [ %27, %25 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
   %28 = getelementptr inbounds i8, ptr %5, i64 68
   store i32 %.0.i, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %5, i64 16
@@ -899,7 +899,7 @@ rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.ar
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %.thread20, label %34
 
-34:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit
+34:                                               ; preds = %rb_ec_vm_lock_rec.exit
   %.0..0..0..0.2 = load volatile ptr, ptr %4, align 8
   %35 = getelementptr inbounds i8, ptr %.0..0..0..0.2, i64 24
   %36 = load ptr, ptr %35, align 8
@@ -911,7 +911,7 @@ rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.ar
   %41 = getelementptr i8, ptr %.0..0..0..0.2, i64 48
   %.val.i.i = load ptr, ptr %41, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.argprom.exit.i.i.i, label %42
+  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i, label %42
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
@@ -919,32 +919,32 @@ rb_ec_vm_lock_rec.argprom.exit:                   ; preds = %rb_ec_ractor_ptr.ar
   %45 = getelementptr inbounds i8, ptr %44, i64 88
   %46 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
   %47 = load ptr, ptr %46, align 8
-  br label %rb_ec_ractor_ptr.argprom.exit.i.i.i
+  br label %rb_ec_ractor_ptr.exit.i.i.i
 
-rb_ec_ractor_ptr.argprom.exit.i.i.i:              ; preds = %42, %34
+rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %42, %34
   %.in.i.i.i = phi ptr [ %45, %42 ], [ inttoptr (i64 88 to ptr), %34 ]
   %.0.i2.i.i.i = phi ptr [ %44, %42 ], [ null, %34 ]
   %.0.i6.i.i.i = phi ptr [ %47, %42 ], [ null, %34 ]
   %48 = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %48, %.0.i6.i.i.i
-  br i1 %.not.i.i.i, label %49, label %rb_ec_vm_lock_rec.argprom.exit.i.i
+  br i1 %.not.i.i.i, label %49, label %rb_ec_vm_lock_rec.exit.i.i
 
-49:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit.i.i.i
+49:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i
   %50 = getelementptr inbounds i8, ptr %.0.i2.i.i.i, i64 96
   %51 = load i32, ptr %50, align 8
-  br label %rb_ec_vm_lock_rec.argprom.exit.i.i
+  br label %rb_ec_vm_lock_rec.exit.i.i
 
-rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %49, %rb_ec_ractor_ptr.argprom.exit.i.i.i
-  %.0.i.i.i = phi i32 [ %51, %49 ], [ 0, %rb_ec_ractor_ptr.argprom.exit.i.i.i ]
+rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %49, %rb_ec_ractor_ptr.exit.i.i.i
+  %.0.i.i.i = phi i32 [ %51, %49 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
   %.not.i.i19 = icmp eq i32 %.0.i.i.i, %40
   br i1 %.not.i.i19, label %61, label %52
 
-52:                                               ; preds = %rb_ec_vm_lock_rec.argprom.exit.i.i
+52:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i
   call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %.0..0..0..0.2, i32 noundef %40, i32 noundef %.0.i.i.i) #16
   %.0..0..0..0.4.pre = load ptr, ptr %4, align 8
   br label %61
 
-.thread20:                                        ; preds = %rb_ec_vm_lock_rec.argprom.exit
+.thread20:                                        ; preds = %rb_ec_vm_lock_rec.exit
   store ptr %5, ptr %14, align 8
   %53 = sext i32 %1 to i64
   %54 = shl nsw i64 %53, 1
@@ -959,8 +959,8 @@ rb_ec_vm_lock_rec.argprom.exit.i.i:               ; preds = %49, %rb_ec_ractor_p
   store i32 %.0..0..0..0.722, ptr %60, align 4
   br label %72
 
-61:                                               ; preds = %52, %rb_ec_vm_lock_rec.argprom.exit.i.i
-  %.0..0..0.4 = phi ptr [ %.0..0..0..0.4.pre, %52 ], [ %.0..0..0..0.2, %rb_ec_vm_lock_rec.argprom.exit.i.i ]
+61:                                               ; preds = %52, %rb_ec_vm_lock_rec.exit.i.i
+  %.0..0..0.4 = phi ptr [ %.0..0..0..0.4.pre, %52 ], [ %.0..0..0..0.2, %rb_ec_vm_lock_rec.exit.i.i ]
   %62 = icmp ne i32 %38, 0
   call void @llvm.assume(i1 %62)
   %63 = load ptr, ptr %16, align 8
@@ -2201,7 +2201,7 @@ define internal void @sigbus(i32 noundef %0, ptr nocapture noundef readonly %1, 
   %.val = load i64, ptr %7, align 8
   %8 = getelementptr i8, ptr %2, i64 160
   %.val6 = load i64, ptr %8, align 8
-  tail call fastcc void @check_stack_overflow.argprom(i32 noundef %0, i64 noundef %6, i64 %.val, i64 %.val6)
+  tail call fastcc void @check_stack_overflow(i32 noundef %0, i64 noundef %6, i64 %.val, i64 %.val6)
   %9 = load ptr, ptr @default_sigbus_handler, align 8
   %10 = load ptr, ptr %4, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @rb_bug_for_fatal_signal(ptr noundef %9, i32 noundef %0, ptr noundef %2, ptr noundef nonnull @.str.40, ptr noundef %10) #17
@@ -2218,7 +2218,7 @@ define internal void @sigill(i32 noundef %0, ptr nocapture noundef readonly %1, 
   %.val = load i64, ptr %7, align 8
   %8 = getelementptr i8, ptr %2, i64 160
   %.val6 = load i64, ptr %8, align 8
-  tail call fastcc void @check_stack_overflow.argprom(i32 noundef %0, i64 noundef %6, i64 %.val, i64 %.val6)
+  tail call fastcc void @check_stack_overflow(i32 noundef %0, i64 noundef %6, i64 %.val, i64 %.val6)
   %9 = load ptr, ptr @default_sigill_handler, align 8
   %10 = load ptr, ptr %4, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @rb_bug_for_fatal_signal(ptr noundef %9, i32 noundef %0, ptr noundef %2, ptr noundef nonnull @.str.42, ptr noundef %10) #17
@@ -2235,7 +2235,7 @@ define internal void @sigsegv(i32 noundef %0, ptr nocapture noundef readonly %1,
   %.val = load i64, ptr %7, align 8
   %8 = getelementptr i8, ptr %2, i64 160
   %.val6 = load i64, ptr %8, align 8
-  tail call fastcc void @check_stack_overflow.argprom(i32 noundef %0, i64 noundef %6, i64 %.val, i64 %.val6)
+  tail call fastcc void @check_stack_overflow(i32 noundef %0, i64 noundef %6, i64 %.val, i64 %.val6)
   %9 = load ptr, ptr @default_sigsegv_handler, align 8
   %10 = load ptr, ptr %4, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @rb_bug_for_fatal_signal(ptr noundef %9, i32 noundef %0, ptr noundef %2, ptr noundef nonnull @.str.44, ptr noundef %10) #17
@@ -2471,7 +2471,7 @@ define internal fastcc void @check_reserved_signal_(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @check_stack_overflow.argprom(i32 noundef %0, i64 noundef %1, i64 %.120.val, i64 %.160.val) unnamed_addr #1 {
+define internal fastcc void @check_stack_overflow(i32 noundef %0, i64 noundef %1, i64 %.120.val, i64 %.160.val) unnamed_addr #1 {
   %3 = lshr i64 %.160.val, 12
   %4 = lshr i64 %1, 12
   %5 = icmp eq i64 %3, %4

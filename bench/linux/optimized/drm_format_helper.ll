@@ -280,7 +280,7 @@ define dso_local void @drm_fb_swab(ptr nocapture noundef readonly %0, ptr nounde
   %14 = getelementptr i8, ptr %0, i64 8
   %.val2 = load i8, ptr %14, align 8, !range !5, !noundef !6
   %.val4 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val2, ptr noundef %1, i8 4, ptr %.val4, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef nonnull @drm_fb_swab32_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val2, ptr noundef %1, i8 4, ptr %.val4, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef nonnull @drm_fb_swab32_line)
   br label %26
 
 .split:                                           ; preds = %7
@@ -288,7 +288,7 @@ define dso_local void @drm_fb_swab(ptr nocapture noundef readonly %0, ptr nounde
   %15 = getelementptr i8, ptr %0, i64 8
   %.val6 = load i8, ptr %15, align 8, !range !5, !noundef !6
   %.val8 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val5, i8 %.val6, ptr noundef %1, i8 2, ptr %.val8, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef nonnull @drm_fb_swab16_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val5, i8 %.val6, ptr noundef %1, i8 2, ptr %.val8, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef nonnull @drm_fb_swab16_line)
   br label %26
 
 16:                                               ; preds = %7
@@ -363,7 +363,7 @@ define internal void @drm_fb_swab16_line(ptr nocapture noundef writeonly %0, ptr
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @drm_fb_xfrm.argprom(ptr %.0.val, i8 %.8.val, ptr noundef readonly %0, i8 %.0.val1, ptr %.0.val3, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #1 align 16 {
+define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef readonly %0, i8 %.0.val1, ptr %.0.val3, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #1 align 16 {
   %7 = icmp eq ptr %0, null
   %8 = select i1 %7, ptr @drm_fb_xfrm.default_dst_pitch, ptr %0
   %9 = icmp eq i8 %.8.val, 0
@@ -628,7 +628,7 @@ define dso_local void @drm_fb_xrgb8888_to_rgb332(ptr nocapture noundef readonly 
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %.val2 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val1, ptr noundef %1, i8 1, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_rgb332_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val1, ptr noundef %1, i8 1, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_rgb332_line)
   ret void
 }
 
@@ -671,7 +671,7 @@ define dso_local void @drm_fb_xrgb8888_to_rgb565(ptr nocapture noundef readonly 
   %9 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %.val2 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val1, ptr noundef %1, i8 2, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull %8)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val1, ptr noundef %1, i8 2, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull %8)
   ret void
 }
 
@@ -746,7 +746,7 @@ define dso_local void @drm_fb_xrgb8888_to_xrgb1555(ptr nocapture noundef readonl
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %.val2 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val1, ptr noundef %1, i8 2, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_xrgb1555_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val1, ptr noundef %1, i8 2, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_xrgb1555_line)
   ret void
 }
 
@@ -788,7 +788,7 @@ define dso_local void @drm_fb_xrgb8888_to_argb1555(ptr nocapture noundef readonl
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %.val2 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val1, ptr noundef %1, i8 2, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_argb1555_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val1, ptr noundef %1, i8 2, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_argb1555_line)
   ret void
 }
 
@@ -831,7 +831,7 @@ define dso_local void @drm_fb_xrgb8888_to_rgba5551(ptr nocapture noundef readonl
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %.val2 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val1, ptr noundef %1, i8 2, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_rgba5551_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val1, ptr noundef %1, i8 2, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_rgba5551_line)
   ret void
 }
 
@@ -874,7 +874,7 @@ define dso_local void @drm_fb_xrgb8888_to_rgb888(ptr nocapture noundef readonly 
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %.val2 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val1, ptr noundef %1, i8 3, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_rgb888_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val1, ptr noundef %1, i8 3, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_rgb888_line)
   ret void
 }
 
@@ -917,7 +917,7 @@ define dso_local void @drm_fb_xrgb8888_to_argb8888(ptr nocapture noundef readonl
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %.val2 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val1, ptr noundef %1, i8 4, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_argb8888_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val1, ptr noundef %1, i8 4, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_argb8888_line)
   ret void
 }
 
@@ -951,7 +951,7 @@ define dso_local void @drm_fb_xrgb8888_to_xrgb2101010(ptr nocapture noundef read
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %.val2 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val1, ptr noundef %1, i8 4, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_xrgb2101010_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val1, ptr noundef %1, i8 4, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_xrgb2101010_line)
   ret void
 }
 
@@ -996,7 +996,7 @@ define dso_local void @drm_fb_xrgb8888_to_argb2101010(ptr nocapture noundef read
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %.val2 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val1, ptr noundef %1, i8 4, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_argb2101010_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val1, ptr noundef %1, i8 4, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_argb2101010_line)
   ret void
 }
 
@@ -1042,7 +1042,7 @@ define dso_local void @drm_fb_xrgb8888_to_gray8(ptr nocapture noundef readonly %
   %7 = getelementptr i8, ptr %0, i64 8
   %.val1 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %.val2 = load ptr, ptr %2, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val1, ptr noundef %1, i8 1, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_gray8_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val1, ptr noundef %1, i8 1, ptr %.val2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5, ptr noundef nonnull @drm_fb_xrgb8888_to_gray8_line)
   ret void
 }
 
@@ -1119,7 +1119,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %23 = getelementptr i8, ptr %0, i64 8
   %.val17 = load i8, ptr %23, align 8, !range !5, !noundef !6
   %.val19 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val16, i8 %.val17, ptr noundef %1, i8 4, ptr %.val19, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_swab32_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val16, i8 %.val17, ptr noundef %1, i8 4, ptr %.val19, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_swab32_line)
   br label %89
 
 .split:                                           ; preds = %18
@@ -1127,7 +1127,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %24 = getelementptr i8, ptr %0, i64 8
   %.val21 = load i8, ptr %24, align 8, !range !5, !noundef !6
   %.val23 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val20, i8 %.val21, ptr noundef %1, i8 2, ptr %.val23, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_swab16_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val20, i8 %.val21, ptr noundef %1, i8 2, ptr %.val23, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_swab16_line)
   br label %89
 
 25:                                               ; preds = %18
@@ -1170,7 +1170,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %43 = getelementptr i8, ptr %0, i64 8
   %.val9 = load i8, ptr %43, align 8, !range !5, !noundef !6
   %.val11 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val, i8 %.val9, ptr noundef %1, i8 4, ptr %.val11, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_swab32_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val, i8 %.val9, ptr noundef %1, i8 4, ptr %.val11, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_swab32_line)
   br label %89
 
 .split3:                                          ; preds = %38
@@ -1178,7 +1178,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %44 = getelementptr i8, ptr %0, i64 8
   %.val13 = load i8, ptr %44, align 8, !range !5, !noundef !6
   %.val15 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val12, i8 %.val13, ptr noundef %1, i8 2, ptr %.val15, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_swab16_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val12, i8 %.val13, ptr noundef %1, i8 2, ptr %.val15, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_swab16_line)
   br label %89
 
 45:                                               ; preds = %38
@@ -1225,7 +1225,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %59 = getelementptr i8, ptr %0, i64 8
   %.val52 = load i8, ptr %59, align 8, !range !5, !noundef !6
   %.val53 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val51, i8 %.val52, ptr noundef %1, i8 2, ptr %.val53, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_rgb565_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val51, i8 %.val52, ptr noundef %1, i8 2, ptr %.val53, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_rgb565_line)
   br label %89
 
 60:                                               ; preds = %57
@@ -1233,7 +1233,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %61 = getelementptr i8, ptr %0, i64 8
   %.val49 = load i8, ptr %61, align 8, !range !5, !noundef !6
   %.val50 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val48, i8 %.val49, ptr noundef %1, i8 2, ptr %.val50, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_xrgb1555_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val48, i8 %.val49, ptr noundef %1, i8 2, ptr %.val50, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_xrgb1555_line)
   br label %89
 
 62:                                               ; preds = %57
@@ -1241,7 +1241,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %63 = getelementptr i8, ptr %0, i64 8
   %.val46 = load i8, ptr %63, align 8, !range !5, !noundef !6
   %.val47 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val45, i8 %.val46, ptr noundef %1, i8 2, ptr %.val47, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_argb1555_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val45, i8 %.val46, ptr noundef %1, i8 2, ptr %.val47, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_argb1555_line)
   br label %89
 
 64:                                               ; preds = %57
@@ -1249,7 +1249,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %65 = getelementptr i8, ptr %0, i64 8
   %.val43 = load i8, ptr %65, align 8, !range !5, !noundef !6
   %.val44 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val42, i8 %.val43, ptr noundef %1, i8 2, ptr %.val44, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_rgba5551_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val42, i8 %.val43, ptr noundef %1, i8 2, ptr %.val44, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_rgba5551_line)
   br label %89
 
 66:                                               ; preds = %57
@@ -1257,7 +1257,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %67 = getelementptr i8, ptr %0, i64 8
   %.val40 = load i8, ptr %67, align 8, !range !5, !noundef !6
   %.val41 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val39, i8 %.val40, ptr noundef %1, i8 3, ptr %.val41, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_rgb888_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val39, i8 %.val40, ptr noundef %1, i8 3, ptr %.val41, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_rgb888_line)
   br label %89
 
 68:                                               ; preds = %57
@@ -1265,7 +1265,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %69 = getelementptr i8, ptr %0, i64 8
   %.val37 = load i8, ptr %69, align 8, !range !5, !noundef !6
   %.val38 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val36, i8 %.val37, ptr noundef %1, i8 4, ptr %.val38, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_argb8888_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val36, i8 %.val37, ptr noundef %1, i8 4, ptr %.val38, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_argb8888_line)
   br label %89
 
 70:                                               ; preds = %57
@@ -1273,7 +1273,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %71 = getelementptr i8, ptr %0, i64 8
   %.val34 = load i8, ptr %71, align 8, !range !5, !noundef !6
   %.val35 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val33, i8 %.val34, ptr noundef %1, i8 4, ptr %.val35, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_xbgr8888_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val33, i8 %.val34, ptr noundef %1, i8 4, ptr %.val35, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_xbgr8888_line)
   br label %89
 
 72:                                               ; preds = %57
@@ -1281,7 +1281,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %73 = getelementptr i8, ptr %0, i64 8
   %.val31 = load i8, ptr %73, align 8, !range !5, !noundef !6
   %.val32 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val30, i8 %.val31, ptr noundef %1, i8 4, ptr %.val32, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_abgr8888_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val30, i8 %.val31, ptr noundef %1, i8 4, ptr %.val32, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_abgr8888_line)
   br label %89
 
 74:                                               ; preds = %57
@@ -1289,7 +1289,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %75 = getelementptr i8, ptr %0, i64 8
   %.val28 = load i8, ptr %75, align 8, !range !5, !noundef !6
   %.val29 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val27, i8 %.val28, ptr noundef %1, i8 4, ptr %.val29, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_xrgb2101010_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val27, i8 %.val28, ptr noundef %1, i8 4, ptr %.val29, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_xrgb2101010_line)
   br label %89
 
 76:                                               ; preds = %57
@@ -1297,7 +1297,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %77 = getelementptr i8, ptr %0, i64 8
   %.val25 = load i8, ptr %77, align 8, !range !5, !noundef !6
   %.val26 = load ptr, ptr %3, align 8
-  tail call fastcc void @drm_fb_xfrm.argprom(ptr %.val24, i8 %.val25, ptr noundef %1, i8 4, ptr %.val26, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_argb2101010_line)
+  tail call fastcc void @drm_fb_xfrm(ptr %.val24, i8 %.val25, ptr noundef %1, i8 4, ptr %.val26, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef %6, ptr noundef nonnull @drm_fb_xrgb8888_to_argb2101010_line)
   br label %89
 
 78:                                               ; preds = %57

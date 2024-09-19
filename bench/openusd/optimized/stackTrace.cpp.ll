@@ -420,14 +420,14 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 40:                                               ; preds = %39, %._crit_edge.i
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(112) %3)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23SetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.argprom.exit unwind label %.loopexit.split-lp.i
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23SetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit unwind label %.loopexit.split-lp.i
 
 41:                                               ; preds = %37, %18
   %.pn.i = phi { ptr, i32 } [ %lpad.phi.i, %37 ], [ %19, %18 ]
   %42 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L26ArchStackTrace_GetProgInfoEvE8progInfo, i64 48)) #31
   resume { ptr, i32 } %.pn.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23SetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.argprom.exit: ; preds = %40
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23SetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit: ; preds = %40
   %43 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #31
   %44 = call noalias ptr @strdup(ptr noundef %43) #31
   store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L26ArchStackTrace_GetProgInfoEvE8progInfo, i64 88), align 8
@@ -519,13 +519,13 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #31
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23GetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23GetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 26:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #31
   %27 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %27)
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23GetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit unwind label %29
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23GetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %29
 
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
@@ -534,7 +534,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESa
   %31 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L26ArchStackTrace_GetProgInfoEvE8progInfo, i64 48)) #31
   resume { ptr, i32 } %30
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23GetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread.i, %26
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23GetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread.i, %26
   %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L26ArchStackTrace_GetProgInfoEvE8progInfo, i64 48)) #31
   ret void
 }
@@ -588,7 +588,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZN32pxrInternal_v0
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKSt6vectorIS5_SaIS5_EEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISD_ESL_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, ptr %18, ptr %19)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo24SetExtraLogInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt6vectorIS7_SaIS7_EE.argprom.exit unwind label %20
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo24SetExtraLogInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt6vectorIS7_SaIS7_EE.exit unwind label %20
 
 20:                                               ; preds = %23, %.noexc.i, %16
   %21 = landingpad { ptr, i32 }
@@ -602,9 +602,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZN32pxrInternal_v0
 
 25:                                               ; preds = %23
   store ptr %1, ptr %24, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo24SetExtraLogInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt6vectorIS7_SaIS7_EE.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo24SetExtraLogInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt6vectorIS7_SaIS7_EE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo24SetExtraLogInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt6vectorIS7_SaIS7_EE.argprom.exit: ; preds = %.noexc.i, %25
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo24SetExtraLogInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt6vectorIS7_SaIS7_EE.exit: ; preds = %.noexc.i, %25
   %26 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, i64 48)) #31
   ret void
 }
@@ -1472,7 +1472,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit94.i: ; preds
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit: ; preds = %107, %110, %112
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm.argprom(ptr noundef nonnull %99, i64 noundef 0)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm(ptr noundef nonnull %99, i64 noundef 0)
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %116, label %114
 
@@ -1506,7 +1506,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit: ; pred
   %128 = sub nsw i32 %.sroa.speculated, %125
   %129 = sdiv i32 %128, 2
   %130 = add nsw i32 %129, -1
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_ENK3$_0clEi.argprom"(i32 noundef %130)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_ENK3$_0clEi"(i32 noundef %130)
   %131 = load ptr, ptr @stderr, align 8
   %fputc60 = call i32 @fputc(i32 32, ptr %131)
   %132 = load ptr, ptr @stderr, align 8
@@ -1518,7 +1518,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit: ; pred
   %137 = add i32 %129, %124
   %138 = sub i32 %.sroa.speculated, %137
   %139 = add i32 %138, -12
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_ENK3$_0clEi.argprom"(i32 noundef %139)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_ENK3$_0clEi"(i32 noundef %139)
   %140 = load ptr, ptr @stderr, align 8
   %fputc62 = call i32 @fputc(i32 10, ptr %140)
   %141 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L26ArchStackTrace_GetProgInfoEvE8progInfo acquire, align 8
@@ -1552,19 +1552,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__L26ArchStackTrace_GetProgInfoEv.exit: ; pre
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26ArchStackTrace_GetProgInfoEv.exit
   %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L26ArchStackTrace_GetProgInfoEvE8progInfo, i64 88), align 8
   %.not.i79 = icmp eq ptr %149, null
-  br i1 %.not.i79, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoForErrorsEv.argprom.exit, label %150
+  br i1 %.not.i79, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoForErrorsEv.exit, label %150
 
 150:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %151 = load ptr, ptr @stderr, align 8
   %fputs.i = call i32 @fputs(ptr nonnull %149, ptr %151) #36
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoForErrorsEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoForErrorsEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoForErrorsEv.argprom.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, %150
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoForErrorsEv.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, %150
   %152 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L26ArchStackTrace_GetProgInfoEvE8progInfo, i64 48)) #31
   %.not63 = icmp eq ptr %1, null
   br i1 %.not63, label %159, label %153
 
-153:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoForErrorsEv.argprom.exit
+153:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoForErrorsEv.exit
   %154 = load ptr, ptr @stderr, align 8
   %155 = call i64 @fwrite(ptr nonnull @.str.29, i64 40, i64 1, ptr %154) #36
   %156 = load ptr, ptr @stderr, align 8
@@ -1573,7 +1573,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoFo
   %fputc64 = call i32 @fputc(i32 10, ptr %158)
   br label %159
 
-159:                                              ; preds = %153, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoForErrorsEv.argprom.exit
+159:                                              ; preds = %153, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoForErrorsEv.exit
   %.not65 = icmp eq ptr %2, null
   br i1 %.not65, label %164, label %160
 
@@ -1632,8 +1632,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoFo
 
 _ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81: ; preds = %180, %186, %188
   %190 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm.argprom(ptr noundef %190, i64 noundef 3)
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_ENK3$_0clEi.argprom"(i32 noundef %.sroa.speculated)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm(ptr noundef %190, i64 noundef 3)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_ENK3$_0clEi"(i32 noundef %.sroa.speculated)
   %191 = load ptr, ptr @stderr, align 8
   %fputc68 = call i32 @fputc(i32 10, ptr %191)
   %.not69 = icmp eq i32 %181, 0
@@ -1833,7 +1833,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %_ZN32pxrInternal_v0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit: ; preds = %43, %46, %48
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm.argprom(ptr noundef %38, i64 noundef 0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm(ptr noundef %38, i64 noundef 0)
           to label %50 unwind label %15
 
 50:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit
@@ -1931,7 +1931,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b
 
 _ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit29: ; preds = %78, %81, %83
   %85 = load ptr, ptr @stderr, align 8
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm.argprom(ptr noundef %85, i64 noundef 0)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm(ptr noundef %85, i64 noundef 0)
           to label %87 unwind label %15
 
 .critedge:                                        ; preds = %42
@@ -2005,7 +2005,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19ArchPrintStackTraceEP8_IO_FI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm.argprom(ptr nocapture noundef %0, i64 noundef range(i64 0, 4) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm(ptr nocapture noundef %0, i64 noundef range(i64 0, 4) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, i64 48)) #31
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %4
@@ -3579,16 +3579,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit42: ; preds
   br label %53
 
 53:                                               ; preds = %51, %49
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115nonLockingExecvEPKcPKPc.argelim(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115nonLockingExecvEPKcPKPc(ptr noundef %0, ptr noundef %1)
   %54 = tail call ptr @__errno_location() #35
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.retelim(ptr noundef %9, i64 noundef %56)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.argelim(ptr noundef nonnull @.str.14)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.argelim(ptr noundef %0)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.argelim(ptr noundef nonnull @.str.15)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.argelim(ptr noundef nonnull %9)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.argelim(ptr noundef nonnull @.str.13)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl(ptr noundef %9, i64 noundef %56)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc(ptr noundef nonnull @.str.14)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc(ptr noundef %0)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc(ptr noundef nonnull @.str.15)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc(ptr noundef nonnull %9)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc(ptr noundef nonnull @.str.13)
   call void @_exit(i32 noundef 127) #32
   unreachable
 
@@ -3908,7 +3908,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit153: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.retelim(ptr noundef nonnull writeonly %0, i64 noundef %1) unnamed_addr #12 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl(ptr noundef nonnull writeonly %0, i64 noundef %1) unnamed_addr #12 {
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %4, label %7
 
@@ -3964,7 +3964,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit: ; preds
 declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.argelim(ptr noundef readonly %0) unnamed_addr #14 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc(ptr noundef readonly %0) unnamed_addr #14 {
   %2 = tail call ptr @__errno_location() #35
   %3 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %0, null
@@ -3998,7 +3998,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #0
 declare i32 @setsid() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115nonLockingExecvEPKcPKPc.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115nonLockingExecvEPKcPKPc(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr @__environ, align 8
   %4 = tail call i64 asm sideeffect "mov    $0, %rdi    \0A\09mov    %rcx, %rsi \0A\09mov    %rdx, %rdx \0A\09mov    $$0x3b, %rax \0A\09syscall             \0A\09", "={ax},0,{cx},{dx},~{memory},~{cc},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1, ptr %3) #31, !srcloc !36
   %5 = icmp ugt i64 %4, -4097
@@ -5586,7 +5586,7 @@ declare noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12ArchOpenFileEPKcS1_(
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_ENK3$_0clEi.argprom"(i32 noundef %0) unnamed_addr #25 align 2 {
+define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_ENK3$_0clEi"(i32 noundef %0) unnamed_addr #25 align 2 {
   %.off = add i32 %0, 63
   %.not1 = icmp ult i32 %.off, 127
   br i1 %.not1, label %._crit_edge, label %.lr.ph.preheader
@@ -6504,8 +6504,8 @@ attributes #39 = { builtin nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23GetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23GetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"}
+!8 = distinct !{!8, !9, !"_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23GetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
+!9 = distinct !{!9, !"_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo23GetProgramInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
 !10 = distinct !{!10, !6}
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17getBaseB5cxx11EPKc: argument 0"}

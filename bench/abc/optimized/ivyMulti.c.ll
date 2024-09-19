@@ -237,16 +237,16 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
 
 128:                                              ; preds = %121
   %.not.i.i = icmp eq ptr %123, null
-  br i1 %.not.i.i, label %Ivy_ObjFaninId1.argprom.exit.i, label %129
+  br i1 %.not.i.i, label %Ivy_ObjFaninId1.exit.i, label %129
 
 129:                                              ; preds = %128
   %130 = ptrtoint ptr %123 to i64
   %131 = and i64 %130, -2
   %132 = inttoptr i64 %131 to ptr
   %.val.i.i = load i32, ptr %132, align 8
-  br label %Ivy_ObjFaninId1.argprom.exit.i
+  br label %Ivy_ObjFaninId1.exit.i
 
-Ivy_ObjFaninId1.argprom.exit.i:                   ; preds = %129, %128
+Ivy_ObjFaninId1.exit.i:                           ; preds = %129, %128
   %133 = phi i32 [ %.val.i.i, %129 ], [ 0, %128 ]
   %134 = ptrtoint ptr %124 to i64
   %135 = and i64 %134, -2
@@ -255,12 +255,12 @@ Ivy_ObjFaninId1.argprom.exit.i:                   ; preds = %129, %128
   %137 = icmp sgt i32 %133, %.val.i19.i
   br i1 %137, label %138, label %Ivy_ObjCreateGhost.exit
 
-138:                                              ; preds = %Ivy_ObjFaninId1.argprom.exit.i
+138:                                              ; preds = %Ivy_ObjFaninId1.exit.i
   store ptr %124, ptr %113, align 8
   store ptr %123, ptr %114, align 8
   br label %Ivy_ObjCreateGhost.exit
 
-Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninId1.argprom.exit.i, %138
+Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninId1.exit.i, %138
   %139 = tail call ptr @Ivy_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %115) #4
   %140 = icmp eq ptr %139, null
   br i1 %140, label %.loopexit, label %141
@@ -374,7 +374,7 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
   %204 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %204, align 4
   %205 = icmp sgt i32 %4, 0
-  br i1 %205, label %.preheader.lr.ph.i, label %Ivy_MultiCover.argprom.exit
+  br i1 %205, label %.preheader.lr.ph.i, label %Ivy_MultiCover.exit
 
 .preheader.lr.ph.i:                               ; preds = %.loopexit142
   %206 = icmp sgt i32 %.6, 0
@@ -385,7 +385,7 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
 208:                                              ; preds = %Vec_PtrPush.exit.i
   %209 = add nuw nsw i32 %.07618.i, 1
   %exitcond26.not.i = icmp eq i32 %209, %4
-  br i1 %exitcond26.not.i, label %Ivy_MultiCover.argprom.exit, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond26.not.i, label %Ivy_MultiCover.exit, label %.preheader.i, !llvm.loop !11
 
 .preheader.i:                                     ; preds = %208, %.preheader.lr.ph.i
   %.06421.i = phi i32 [ -1, %.preheader.lr.ph.i ], [ %.1.lcssa.i, %208 ]
@@ -620,16 +620,16 @@ Vec_PtrPush.exit.i:                               ; preds = %320, %Vec_PtrGrow.e
   %328 = load i32, ptr %327, align 8
   %329 = or i32 %328, %.07717.i
   %330 = icmp eq i32 %329, %203
-  br i1 %330, label %Ivy_MultiCover.argprom.exit, label %208
+  br i1 %330, label %Ivy_MultiCover.exit, label %208
 
-Ivy_MultiCover.argprom.exit:                      ; preds = %208, %Vec_PtrPush.exit.i, %.loopexit142
+Ivy_MultiCover.exit:                              ; preds = %208, %Vec_PtrPush.exit.i, %.loopexit142
   %.178.i = phi i32 [ 0, %.loopexit142 ], [ %203, %Vec_PtrPush.exit.i ], [ %329, %208 ]
   %.not139 = icmp eq i32 %.178.i, %203
   %. = zext i1 %.not139 to i32
   br label %331
 
-331:                                              ; preds = %Ivy_MultiCover.argprom.exit, %6, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ %., %Ivy_MultiCover.argprom.exit ]
+331:                                              ; preds = %Ivy_MultiCover.exit, %6, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ %., %Ivy_MultiCover.exit ]
   ret i32 %.0
 }
 

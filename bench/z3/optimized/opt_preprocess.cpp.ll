@@ -2033,13 +2033,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i: ;
   %m_value.i.i32.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i.i.i, i64 16
   %191 = load ptr, ptr %m_value.i.i32.i.i.i, align 8
   %cmp.i.i39.i.i.i = icmp eq ptr %191, null
-  br i1 %cmp.i.i39.i.i.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit.i, label %entry.split.i40.i.i.i
+  br i1 %cmp.i.i39.i.i.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit.i, label %entry.split.i40.i.i.i
 
 entry.split.i40.i.i.i:                            ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i
   %arrayidx.i.i41.i.i.i = getelementptr inbounds i8, ptr %191, i64 -4
   %192 = load i32, ptr %arrayidx.i.i41.i.i.i, align 4
   %cmp5.not.i42.i.i.i = icmp eq i32 %192, 0
-  br i1 %cmp5.not.i42.i.i.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit.i, label %for.body.preheader.i43.i.i.i
+  br i1 %cmp5.not.i42.i.i.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit.i, label %for.body.preheader.i43.i.i.i
 
 for.body.preheader.i43.i.i.i:                     ; preds = %entry.split.i40.i.i.i
   %wide.trip.count.i44.i.i.i = zext i32 %192 to i64
@@ -2054,15 +2054,15 @@ for.body.i45.i.i.i:                               ; preds = %for.body.i45.i.i.i,
   %add.i49.i.i.i = add i32 %194, %r.06.i47.i.i.i
   %indvars.iv.next.i50.i.i.i = add nuw nsw i64 %indvars.iv.i46.i.i.i, 1
   %exitcond.not.i51.i.i.i = icmp eq i64 %indvars.iv.next.i50.i.i.i, %wide.trip.count.i44.i.i.i
-  br i1 %exitcond.not.i51.i.i.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit.i, label %for.body.i45.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i.i.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit.i, label %for.body.i45.i.i.i, !llvm.loop !11
 
-_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit.i: ; preds = %for.body.i45.i.i.i, %entry.split.i40.i.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i
+_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit.i: ; preds = %for.body.i45.i.i.i, %entry.split.i40.i.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i
   %.us-phi.i52.i.i.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i ], [ 0, %entry.split.i40.i.i.i ], [ %add.i49.i.i.i, %for.body.i45.i.i.i ]
   %cmp.i.i720.i = icmp ult i32 %.us-phi.i.i.i.i, %.us-phi.i52.i.i.i
   %idxprom.i17.i.i.i = zext i32 %idx.addr.029.i.i.i to i64
   br i1 %cmp.i.i720.i, label %if.end.i7.i.i, label %for.inc17.i
 
-if.end.i7.i.i:                                    ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit.i
+if.end.i7.i.i:                                    ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit.i
   %arrayidx.i18.i.i.i = getelementptr inbounds i32, ptr %172, i64 %idxprom.i17.i.i.i
   store i32 %173, ptr %arrayidx.i18.i.i.i, align 4
   %195 = load ptr, ptr %m_values.i.i, align 8
@@ -2079,10 +2079,10 @@ if.end.while.end.loopexit_crit_edge.i.i.i:        ; preds = %if.end.i7.i.i
   %.pre.pre.i.i.i = load ptr, ptr %m_values.i.i, align 8
   br label %for.inc17.i
 
-for.inc17.i:                                      ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit.i, %if.end.while.end.loopexit_crit_edge.i.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i.i
-  %idxprom.i23.pre-phi.i.i.i = phi i64 [ %idxprom.i.i.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i.i ], [ %idxprom.i13.i.i.i, %if.end.while.end.loopexit_crit_edge.i.i.i ], [ %idxprom.i17.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit.i ]
-  %198 = phi ptr [ %170, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i.i ], [ %.pre.pre.i.i.i, %if.end.while.end.loopexit_crit_edge.i.i.i ], [ %172, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit.i ]
-  %idx.addr.0.lcssa.i.i.i = phi i32 [ %retval.0.i.i43.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i.i ], [ %shr.i30.i.i.i, %if.end.while.end.loopexit_crit_edge.i.i.i ], [ %idx.addr.029.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit.i ]
+for.inc17.i:                                      ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit.i, %if.end.while.end.loopexit_crit_edge.i.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i.i
+  %idxprom.i23.pre-phi.i.i.i = phi i64 [ %idxprom.i.i.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i.i ], [ %idxprom.i13.i.i.i, %if.end.while.end.loopexit_crit_edge.i.i.i ], [ %idxprom.i17.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit.i ]
+  %198 = phi ptr [ %170, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i.i ], [ %.pre.pre.i.i.i, %if.end.while.end.loopexit_crit_edge.i.i.i ], [ %172, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit.i ]
+  %idx.addr.0.lcssa.i.i.i = phi i32 [ %retval.0.i.i43.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i.i ], [ %shr.i30.i.i.i, %if.end.while.end.loopexit_crit_edge.i.i.i ], [ %idx.addr.029.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit.i ]
   %arrayidx.i24.i.i.i = getelementptr inbounds i32, ptr %198, i64 %idxprom.i23.pre-phi.i.i.i
   store i32 %171, ptr %arrayidx.i24.i.i.i, align 4
   %199 = load ptr, ptr %m_value2indices.i.i, align 8
@@ -2773,13 +2773,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i: ; p
   %m_value.i.i32.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i.i, i64 16
   %259 = load ptr, ptr %m_value.i.i32.i.i, align 8
   %cmp.i.i39.i.i = icmp eq ptr %259, null
-  br i1 %cmp.i.i39.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i, label %entry.split.i40.i.i
+  br i1 %cmp.i.i39.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i, label %entry.split.i40.i.i
 
 entry.split.i40.i.i:                              ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i
   %arrayidx.i.i41.i.i = getelementptr inbounds i8, ptr %259, i64 -4
   %260 = load i32, ptr %arrayidx.i.i41.i.i, align 4
   %cmp5.not.i42.i.i = icmp eq i32 %260, 0
-  br i1 %cmp5.not.i42.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i, label %for.body.preheader.i43.i.i
+  br i1 %cmp5.not.i42.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i, label %for.body.preheader.i43.i.i
 
 for.body.preheader.i43.i.i:                       ; preds = %entry.split.i40.i.i
   %wide.trip.count.i44.i.i = zext i32 %260 to i64
@@ -2794,17 +2794,17 @@ for.body.i45.i.i:                                 ; preds = %for.body.i45.i.i, %
   %add.i49.i.i = add i32 %262, %r.06.i47.i.i
   %indvars.iv.next.i50.i.i = add nuw nsw i64 %indvars.iv.i46.i.i, 1
   %exitcond.not.i51.i.i = icmp eq i64 %indvars.iv.next.i50.i.i, %wide.trip.count.i44.i.i
-  br i1 %exitcond.not.i51.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i, label %for.body.i45.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i, label %for.body.i45.i.i, !llvm.loop !11
 
-_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i: ; preds = %for.body.i45.i.i, %entry.split.i40.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i
+_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i: ; preds = %for.body.i45.i.i, %entry.split.i40.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i
   %.us-phi.i52.i.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i ], [ 0, %entry.split.i40.i.i ], [ %add.i49.i.i, %for.body.i45.i.i ]
   %cmp.i777.i = icmp ult i32 %.us-phi.i.i.i, %.us-phi.i52.i.i
   br i1 %cmp.i777.i, label %while.body.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_.exit.i.i.i.i.i
 
-while.body.i.i.i.i.i.i:                           ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i.i.i
-  %__next.0.val17.i.i.i.i.i.i = phi i32 [ %__next.0.val.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i.i.i ], [ %__next.0.val11.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i ]
-  %__next.016.i.i.i.i.i.i = phi ptr [ %__next.0.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i.i.i ], [ %__next.010.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i ]
-  %__last.addr.015.i.i.i.i.i.i = phi ptr [ %__next.016.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i.i.i ], [ %__i.08.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i ]
+while.body.i.i.i.i.i.i:                           ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i.i.i
+  %__next.0.val17.i.i.i.i.i.i = phi i32 [ %__next.0.val.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i.i.i ], [ %__next.0.val11.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i ]
+  %__next.016.i.i.i.i.i.i = phi ptr [ %__next.0.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i.i.i ], [ %__next.010.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i ]
+  %__last.addr.015.i.i.i.i.i.i = phi ptr [ %__next.016.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i.i.i ], [ %__i.08.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i ]
   store i32 %__next.0.val17.i.i.i.i.i.i, ptr %__last.addr.015.i.i.i.i.i.i, align 4
   %__next.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__next.016.i.i.i.i.i.i, i64 -4
   %__next.0.val.i.i.i.i.i.i = load i32, ptr %__next.0.i.i.i.i.i.i, align 4
@@ -2964,13 +2964,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i.i.
   %m_value.i.i32.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i.i.i.i.i.i, i64 16
   %279 = load ptr, ptr %m_value.i.i32.i.i.i.i.i.i, align 8
   %cmp.i.i39.i.i.i.i.i.i = icmp eq ptr %279, null
-  br i1 %cmp.i.i39.i.i.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i.i.i, label %entry.split.i40.i.i.i.i.i.i
+  br i1 %cmp.i.i39.i.i.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i.i.i, label %entry.split.i40.i.i.i.i.i.i
 
 entry.split.i40.i.i.i.i.i.i:                      ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i.i.i.i
   %arrayidx.i.i41.i.i.i.i.i.i = getelementptr inbounds i8, ptr %279, i64 -4
   %280 = load i32, ptr %arrayidx.i.i41.i.i.i.i.i.i, align 4
   %cmp5.not.i42.i.i.i.i.i.i = icmp eq i32 %280, 0
-  br i1 %cmp5.not.i42.i.i.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i.i.i, label %for.body.preheader.i43.i.i.i.i.i.i
+  br i1 %cmp5.not.i42.i.i.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i.i.i, label %for.body.preheader.i43.i.i.i.i.i.i
 
 for.body.preheader.i43.i.i.i.i.i.i:               ; preds = %entry.split.i40.i.i.i.i.i.i
   %wide.trip.count.i44.i.i.i.i.i.i = zext i32 %280 to i64
@@ -2985,15 +2985,15 @@ for.body.i45.i.i.i.i.i.i:                         ; preds = %for.body.i45.i.i.i.
   %add.i49.i.i.i.i.i.i = add i32 %282, %r.06.i47.i.i.i.i.i.i
   %indvars.iv.next.i50.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i46.i.i.i.i.i.i, 1
   %exitcond.not.i51.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i50.i.i.i.i.i.i, %wide.trip.count.i44.i.i.i.i.i.i
-  br i1 %exitcond.not.i51.i.i.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i.i.i, label %for.body.i45.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i.i.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i.i.i, label %for.body.i45.i.i.i.i.i.i, !llvm.loop !11
 
-_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i.i.i: ; preds = %for.body.i45.i.i.i.i.i.i, %entry.split.i40.i.i.i.i.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i.i.i.i
+_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i.i.i: ; preds = %for.body.i45.i.i.i.i.i.i, %entry.split.i40.i.i.i.i.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i.i.i.i
   %.us-phi.i52.i.i.i.i.i.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i.i.i.i ], [ 0, %entry.split.i40.i.i.i.i.i.i ], [ %add.i49.i.i.i.i.i.i, %for.body.i45.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i258 = icmp ult i32 %.us-phi.i.i.i.i.i.i.i, %.us-phi.i52.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i258, label %while.body.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_.exit.i.i.i.i.i, !llvm.loop !16
 
-_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_.exit.i.i.i.i.i: ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i
-  %__last.addr.0.lcssa.i.i.i.i.i.i = phi ptr [ %__i.08.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i ], [ %__next.016.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i.i.i ]
+_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_.exit.i.i.i.i.i: ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i
+  %__last.addr.0.lcssa.i.i.i.i.i.i = phi ptr [ %__i.08.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i ], [ %__next.016.i.i.i.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i.i.i ]
   store i32 %242, ptr %__last.addr.0.lcssa.i.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i98.i = getelementptr inbounds i8, ptr %__i.08.i.i.i.i.i, i64 4
   %cmp.not.i.i.i.i99.i = icmp eq ptr %incdec.ptr.i.i.i.i98.i, %add.ptr.i94.i
@@ -3025,9 +3025,9 @@ if.end.i.i109.i:                                  ; preds = %for.body58.i
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i111.i:           ; preds = %if.end.i.i109.i, %for.body58.i
   %retval.0.i.i112.i = phi i32 [ %285, %if.end.i.i109.i ], [ 0, %for.body58.i ]
   %cmp.i113.i = icmp slt i32 %284, %retval.0.i.i112.i
-  br i1 %cmp.i113.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.thread.i
+  br i1 %cmp.i113.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.thread.i
 
-_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i111.i
+_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i111.i
   %idxprom.i.i115.i = zext i32 %284 to i64
   %arrayidx.i2.i116.i = getelementptr inbounds i32, ptr %heap.val27.i, i64 %idxprom.i.i115.i
   %286 = load i32, ptr %arrayidx.i2.i116.i, align 4
@@ -3036,14 +3036,14 @@ _ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1
   %cmp.i.i3.i.i120.i = icmp eq ptr %287, null
   br i1 %cmp.i.i3.i.i120.i, label %for.end80.thread.i, label %_ZN8uint_set8iteratorC2ERKS_b.exit.i123.i
 
-_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.thread.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i111.i
+_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.thread.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i111.i
   %288 = load ptr, ptr %am1.i, align 8
   %cmp.i.i3.i.i120753.i = icmp eq ptr %288, null
   br i1 %cmp.i.i3.i.i120753.i, label %for.inc84.i, label %_ZN8uint_set8iteratorC2ERKS_b.exit.i123.i
 
-_ZN8uint_set8iteratorC2ERKS_b.exit.i123.i:        ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.thread.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.i
-  %289 = phi ptr [ %288, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.thread.i ], [ %287, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.i ]
-  %290 = phi i1 [ false, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.thread.i ], [ %cmp4.i117.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.i ]
+_ZN8uint_set8iteratorC2ERKS_b.exit.i123.i:        ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.thread.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.i
+  %289 = phi ptr [ %288, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.thread.i ], [ %287, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.i ]
+  %290 = phi i1 [ false, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.thread.i ], [ %cmp4.i117.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.i ]
   %arrayidx.i.i5.i.i122.i = getelementptr inbounds i8, ptr %289, i64 -4
   %291 = load i32, ptr %arrayidx.i.i5.i.i122.i, align 4
   %292 = shl i32 %291, 5
@@ -3399,7 +3399,7 @@ _ZN8uint_set8iteratorppEv.exit204.i:              ; preds = %while.body.i17.i104
 for.end80.i:                                      ; preds = %_ZN8uint_set8iteratorppEv.exit204.i, %if.end.i.i4.i.i134.i
   br i1 %290, label %if.then81.i, label %for.inc84.i
 
-for.end80.thread.i:                               ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.i
+for.end80.thread.i:                               ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.i
   br i1 %cmp4.i117.i, label %if.then81.thread.i, label %for.inc84.i
 
 if.then81.thread.i:                               ; preds = %for.end80.thread.i
@@ -3536,7 +3536,7 @@ _ZN8uint_set6insertEj.exit242.i:                  ; preds = %for.body.preheader.
   store i32 %or.i236.i, ptr %arrayidx.i5.i235.i, align 4
   br label %for.inc84.i
 
-for.inc84.i:                                      ; preds = %_ZNK8uint_set8containsEj.exit200.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i190.i, %invoke.cont71.i, %_ZN8uint_set6insertEj.exit242.i, %for.end80.thread.i, %for.end80.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit.thread.i
+for.inc84.i:                                      ; preds = %_ZNK8uint_set8containsEj.exit200.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i190.i, %invoke.cont71.i, %_ZN8uint_set6insertEj.exit242.i, %for.end80.thread.i, %for.end80.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit.thread.i
   %incdec.ptr85.i = getelementptr inbounds i8, ptr %__begin352.0371.i, i64 4
   %cmp57.not.i = icmp eq ptr %incdec.ptr85.i, %add.ptr.i106.i
   br i1 %cmp57.not.i, label %for.end86.i, label %for.body58.i
@@ -4054,16 +4054,16 @@ if.end.i.i445.i:                                  ; preds = %_ZN8uint_set6remove
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i447.i:           ; preds = %if.end.i.i445.i, %_ZN8uint_set6removeEj.exit443.i
   %retval.0.i.i448.i = phi i32 [ %379, %if.end.i.i445.i ], [ 0, %_ZN8uint_set6removeEj.exit443.i ]
   %cmp.i449.i = icmp slt i32 %__begin4106.sroa.2.0381.i, %retval.0.i.i448.i
-  br i1 %cmp.i449.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit454.i, label %for.inc127.i
+  br i1 %cmp.i449.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit454.i, label %for.inc127.i
 
-_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit454.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i447.i
+_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit454.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i447.i
   %idxprom.i.i451.i = zext i32 %__begin4106.sroa.2.0381.i to i64
   %arrayidx.i2.i452.i = getelementptr inbounds i32, ptr %heap.val28.i, i64 %idxprom.i.i451.i
   %380 = load i32, ptr %arrayidx.i2.i452.i, align 4
   %cmp4.i453.not.i = icmp eq i32 %380, 0
   br i1 %cmp4.i453.not.i, label %for.inc127.i, label %if.then124.i
 
-if.then124.i:                                     ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit454.i
+if.then124.i:                                     ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit454.i
   %381 = load ptr, ptr %m_values.i.i, align 8
   %idxprom.i.i.i458.i = zext i32 %380 to i64
   %arrayidx.i.i.i459.i = getelementptr inbounds i32, ptr %381, i64 %idxprom.i.i.i458.i
@@ -4236,13 +4236,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1410.
   %m_value.i.i32.i.i1412.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i.i1411.i, i64 16
   %402 = load ptr, ptr %m_value.i.i32.i.i1412.i, align 8
   %cmp.i.i39.i.i1413.i = icmp eq ptr %402, null
-  br i1 %cmp.i.i39.i.i1413.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1438.i, label %entry.split.i40.i.i1414.i
+  br i1 %cmp.i.i39.i.i1413.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1438.i, label %entry.split.i40.i.i1414.i
 
 entry.split.i40.i.i1414.i:                        ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1410.i
   %arrayidx.i.i41.i.i1415.i = getelementptr inbounds i8, ptr %402, i64 -4
   %403 = load i32, ptr %arrayidx.i.i41.i.i1415.i, align 4
   %cmp5.not.i42.i.i1416.i = icmp eq i32 %403, 0
-  br i1 %cmp5.not.i42.i.i1416.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1438.i, label %for.body.preheader.i43.i.i1417.i
+  br i1 %cmp5.not.i42.i.i1416.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1438.i, label %for.body.preheader.i43.i.i1417.i
 
 for.body.preheader.i43.i.i1417.i:                 ; preds = %entry.split.i40.i.i1414.i
   %wide.trip.count.i44.i.i1418.i = zext i32 %403 to i64
@@ -4257,15 +4257,15 @@ for.body.i45.i.i1419.i:                           ; preds = %for.body.i45.i.i141
   %add.i49.i.i1423.i = add i32 %405, %r.06.i47.i.i1421.i
   %indvars.iv.next.i50.i.i1424.i = add nuw nsw i64 %indvars.iv.i46.i.i1420.i, 1
   %exitcond.not.i51.i.i1425.i = icmp eq i64 %indvars.iv.next.i50.i.i1424.i, %wide.trip.count.i44.i.i1418.i
-  br i1 %exitcond.not.i51.i.i1425.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1438.i, label %for.body.i45.i.i1419.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i.i1425.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1438.i, label %for.body.i45.i.i1419.i, !llvm.loop !11
 
-_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1438.i: ; preds = %for.body.i45.i.i1419.i, %entry.split.i40.i.i1414.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1410.i
+_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1438.i: ; preds = %for.body.i45.i.i1419.i, %entry.split.i40.i.i1414.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1410.i
   %.us-phi.i52.i.i1426.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1410.i ], [ 0, %entry.split.i40.i.i1414.i ], [ %add.i49.i.i1423.i, %for.body.i45.i.i1419.i ]
   %cmp.i.i1427.i = icmp ult i32 %.us-phi.i.i.i1383.i, %.us-phi.i52.i.i1426.i
   %idxprom.i17.i.i478.i = zext i32 %idx.addr.029.i.i462.i to i64
   br i1 %cmp.i.i1427.i, label %if.end.i.i477.i, label %_ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9decreasedEi.exit.i
 
-if.end.i.i477.i:                                  ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1438.i
+if.end.i.i477.i:                                  ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1438.i
   %arrayidx.i18.i.i479.i = getelementptr inbounds i32, ptr %383, i64 %idxprom.i17.i.i478.i
   store i32 %384, ptr %arrayidx.i18.i.i479.i, align 4
   %406 = load ptr, ptr %m_values.i.i, align 8
@@ -4282,10 +4282,10 @@ if.end.while.end.loopexit_crit_edge.i.i484.i:     ; preds = %if.end.i.i477.i
   %.pre.pre.i.i485.i = load ptr, ptr %m_values.i.i, align 8
   br label %_ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9decreasedEi.exit.i
 
-_ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9decreasedEi.exit.i: ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1438.i, %if.end.while.end.loopexit_crit_edge.i.i484.i, %if.then124.i
-  %idxprom.i23.pre-phi.i.i472.i = phi i64 [ 1, %if.then124.i ], [ %idxprom.i13.i.i464.i, %if.end.while.end.loopexit_crit_edge.i.i484.i ], [ %idxprom.i17.i.i478.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1438.i ]
-  %409 = phi ptr [ %381, %if.then124.i ], [ %.pre.pre.i.i485.i, %if.end.while.end.loopexit_crit_edge.i.i484.i ], [ %383, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1438.i ]
-  %idx.addr.0.lcssa.i.i473.i = phi i32 [ 1, %if.then124.i ], [ %shr.i30.i.i463.i, %if.end.while.end.loopexit_crit_edge.i.i484.i ], [ %idx.addr.029.i.i462.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1438.i ]
+_ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9decreasedEi.exit.i: ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1438.i, %if.end.while.end.loopexit_crit_edge.i.i484.i, %if.then124.i
+  %idxprom.i23.pre-phi.i.i472.i = phi i64 [ 1, %if.then124.i ], [ %idxprom.i13.i.i464.i, %if.end.while.end.loopexit_crit_edge.i.i484.i ], [ %idxprom.i17.i.i478.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1438.i ]
+  %409 = phi ptr [ %381, %if.then124.i ], [ %.pre.pre.i.i485.i, %if.end.while.end.loopexit_crit_edge.i.i484.i ], [ %383, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1438.i ]
+  %idx.addr.0.lcssa.i.i473.i = phi i32 [ 1, %if.then124.i ], [ %shr.i30.i.i463.i, %if.end.while.end.loopexit_crit_edge.i.i484.i ], [ %idx.addr.029.i.i462.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1438.i ]
   %arrayidx.i24.i.i474.i = getelementptr inbounds i32, ptr %409, i64 %idxprom.i23.pre-phi.i.i472.i
   store i32 %382, ptr %arrayidx.i24.i.i474.i, align 4
   %410 = load ptr, ptr %m_value2indices.i.i, align 8
@@ -4294,7 +4294,7 @@ _ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1E
   store i32 %idx.addr.0.lcssa.i.i473.i, ptr %arrayidx.i26.i.i476.i, align 4
   br label %for.inc127.i
 
-for.inc127.i:                                     ; preds = %_ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9decreasedEi.exit.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.argprom.exit454.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i447.i
+for.inc127.i:                                     ; preds = %_ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9decreasedEi.exit.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE8containsEi.exit454.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i447.i
   %inc.i487.i = add i32 %__begin4106.sroa.2.0381.i, 1
   %cmp.i3.i.i1442.i = icmp eq i32 %inc.i487.i, %__begin4106.sroa.12.8.extract.trunc160.i
   %.pre565.i = load ptr, ptr %m_value.i.i354.i, align 8
@@ -4926,13 +4926,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i2012.
   %m_value.i.i32.i.i2014.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i.i2013.i, i64 16
   %469 = load ptr, ptr %m_value.i.i32.i.i2014.i, align 8
   %cmp.i.i39.i.i2015.i = icmp eq ptr %469, null
-  br i1 %cmp.i.i39.i.i2015.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit2040.i, label %entry.split.i40.i.i2016.i
+  br i1 %cmp.i.i39.i.i2015.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit2040.i, label %entry.split.i40.i.i2016.i
 
 entry.split.i40.i.i2016.i:                        ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i2012.i
   %arrayidx.i.i41.i.i2017.i = getelementptr inbounds i8, ptr %469, i64 -4
   %470 = load i32, ptr %arrayidx.i.i41.i.i2017.i, align 4
   %cmp5.not.i42.i.i2018.i = icmp eq i32 %470, 0
-  br i1 %cmp5.not.i42.i.i2018.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit2040.i, label %for.body.preheader.i43.i.i2019.i
+  br i1 %cmp5.not.i42.i.i2018.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit2040.i, label %for.body.preheader.i43.i.i2019.i
 
 for.body.preheader.i43.i.i2019.i:                 ; preds = %entry.split.i40.i.i2016.i
   %wide.trip.count.i44.i.i2020.i = zext i32 %470 to i64
@@ -4947,14 +4947,14 @@ for.body.i45.i.i2021.i:                           ; preds = %for.body.i45.i.i202
   %add.i49.i.i2025.i = add i32 %472, %r.06.i47.i.i2023.i
   %indvars.iv.next.i50.i.i2026.i = add nuw nsw i64 %indvars.iv.i46.i.i2022.i, 1
   %exitcond.not.i51.i.i2027.i = icmp eq i64 %indvars.iv.next.i50.i.i2026.i, %wide.trip.count.i44.i.i2020.i
-  br i1 %exitcond.not.i51.i.i2027.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit2040.i, label %for.body.i45.i.i2021.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i.i2027.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit2040.i, label %for.body.i45.i.i2021.i, !llvm.loop !11
 
-_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit2040.i: ; preds = %for.body.i45.i.i2021.i, %entry.split.i40.i.i2016.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i2012.i
+_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit2040.i: ; preds = %for.body.i45.i.i2021.i, %entry.split.i40.i.i2016.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i2012.i
   %.us-phi.i52.i.i2028.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i2012.i ], [ 0, %entry.split.i40.i.i2016.i ], [ %add.i49.i.i2025.i, %for.body.i45.i.i2021.i ]
   %cmp.i.i2029.i = icmp ult i32 %.us-phi.i.i.i1985.i, %.us-phi.i52.i.i2028.i
   br i1 %cmp.i.i2029.i, label %if.then21.i.i, label %if.else22.i.i
 
-if.then21.i.i:                                    ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit2040.i
+if.then21.i.i:                                    ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit2040.i
   %arrayidx.i.i27.i.i = getelementptr inbounds i32, ptr %.pre.i531.i, i64 %idxprom.i16.i.i
   %473 = load i32, ptr %arrayidx.i.i27.i.i, align 4
   br label %lor.lhs.false.i.i535.i
@@ -5124,13 +5124,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1910.
   %m_value.i.i32.i.i1912.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i.i1911.i, i64 16
   %493 = load ptr, ptr %m_value.i.i32.i.i1912.i, align 8
   %cmp.i.i39.i.i1913.i = icmp eq ptr %493, null
-  br i1 %cmp.i.i39.i.i1913.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1938.i, label %entry.split.i40.i.i1914.i
+  br i1 %cmp.i.i39.i.i1913.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1938.i, label %entry.split.i40.i.i1914.i
 
 entry.split.i40.i.i1914.i:                        ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1910.i
   %arrayidx.i.i41.i.i1915.i = getelementptr inbounds i8, ptr %493, i64 -4
   %494 = load i32, ptr %arrayidx.i.i41.i.i1915.i, align 4
   %cmp5.not.i42.i.i1916.i = icmp eq i32 %494, 0
-  br i1 %cmp5.not.i42.i.i1916.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1938.i, label %for.body.preheader.i43.i.i1917.i
+  br i1 %cmp5.not.i42.i.i1916.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1938.i, label %for.body.preheader.i43.i.i1917.i
 
 for.body.preheader.i43.i.i1917.i:                 ; preds = %entry.split.i40.i.i1914.i
   %wide.trip.count.i44.i.i1918.i = zext i32 %494 to i64
@@ -5145,15 +5145,15 @@ for.body.i45.i.i1919.i:                           ; preds = %for.body.i45.i.i191
   %add.i49.i.i1923.i = add i32 %496, %r.06.i47.i.i1921.i
   %indvars.iv.next.i50.i.i1924.i = add nuw nsw i64 %indvars.iv.i46.i.i1920.i, 1
   %exitcond.not.i51.i.i1925.i = icmp eq i64 %indvars.iv.next.i50.i.i1924.i, %wide.trip.count.i44.i.i1918.i
-  br i1 %exitcond.not.i51.i.i1925.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1938.i, label %for.body.i45.i.i1919.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i.i1925.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1938.i, label %for.body.i45.i.i1919.i, !llvm.loop !11
 
-_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1938.i: ; preds = %for.body.i45.i.i1919.i, %entry.split.i40.i.i1914.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1910.i
+_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1938.i: ; preds = %for.body.i45.i.i1919.i, %entry.split.i40.i.i1914.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1910.i
   %.us-phi.i52.i.i1926.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1910.i ], [ 0, %entry.split.i40.i.i1914.i ], [ %add.i49.i.i1923.i, %for.body.i45.i.i1919.i ]
   %cmp.i.i1927.i = icmp ult i32 %.us-phi.i.i.i1883.i, %.us-phi.i52.i.i1926.i
   %idxprom.i17.i.i551.i = zext i32 %idx.addr.029.i.i536.i to i64
   br i1 %cmp.i.i1927.i, label %if.end.i28.i.i, label %_ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE7move_upEi.exit.i.i
 
-if.end.i28.i.i:                                   ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1938.i
+if.end.i28.i.i:                                   ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1938.i
   %arrayidx.i18.i.i552.i = getelementptr inbounds i32, ptr %474, i64 %idxprom.i17.i.i551.i
   store i32 %475, ptr %arrayidx.i18.i.i552.i, align 4
   %497 = load ptr, ptr %m_values.i.i, align 8
@@ -5170,10 +5170,10 @@ if.end.while.end.loopexit_crit_edge.i.i556.i:     ; preds = %if.end.i28.i.i
   %.pre.pre.i.i557.i = load ptr, ptr %m_values.i.i, align 8
   br label %_ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE7move_upEi.exit.i.i
 
-_ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE7move_upEi.exit.i.i: ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1938.i, %if.end.while.end.loopexit_crit_edge.i.i556.i
-  %idxprom.i23.pre-phi.i.i546.i = phi i64 [ %idxprom.i13.i.i538.i, %if.end.while.end.loopexit_crit_edge.i.i556.i ], [ %idxprom.i17.i.i551.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1938.i ]
-  %500 = phi ptr [ %.pre.pre.i.i557.i, %if.end.while.end.loopexit_crit_edge.i.i556.i ], [ %474, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1938.i ]
-  %idx.addr.0.lcssa.i.i547.i = phi i32 [ %shr.i30.i.i537.i, %if.end.while.end.loopexit_crit_edge.i.i556.i ], [ %idx.addr.029.i.i536.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1938.i ]
+_ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE7move_upEi.exit.i.i: ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1938.i, %if.end.while.end.loopexit_crit_edge.i.i556.i
+  %idxprom.i23.pre-phi.i.i546.i = phi i64 [ %idxprom.i13.i.i538.i, %if.end.while.end.loopexit_crit_edge.i.i556.i ], [ %idxprom.i17.i.i551.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1938.i ]
+  %500 = phi ptr [ %.pre.pre.i.i557.i, %if.end.while.end.loopexit_crit_edge.i.i556.i ], [ %474, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1938.i ]
+  %idx.addr.0.lcssa.i.i547.i = phi i32 [ %shr.i30.i.i537.i, %if.end.while.end.loopexit_crit_edge.i.i556.i ], [ %idx.addr.029.i.i536.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1938.i ]
   %arrayidx.i24.i.i548.i = getelementptr inbounds i32, ptr %500, i64 %idxprom.i23.pre-phi.i.i546.i
   store i32 %473, ptr %arrayidx.i24.i.i548.i, align 4
   %501 = load ptr, ptr %m_value2indices.i.i, align 8
@@ -5182,7 +5182,7 @@ _ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1E
   store i32 %idx.addr.0.lcssa.i.i547.i, ptr %arrayidx.i26.i.i550.i, align 4
   br label %for.inc150.i
 
-if.else22.i.i:                                    ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit2040.i, %_ZN6vectorIiLb0EjE4backEv.exit.i.i
+if.else22.i.i:                                    ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit2040.i, %_ZN6vectorIiLb0EjE4backEv.exit.i.i
   %arrayidx.i.i32.i.i = getelementptr inbounds i32, ptr %.pre.i531.i, i64 %idxprom.i16.i.i
   %502 = load i32, ptr %arrayidx.i.i32.i.i, align 4
   %arrayidx.i20.i33.i.i = getelementptr inbounds i8, ptr %.pre.i531.i, i64 -4
@@ -5376,13 +5376,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1808.
   %m_value.i.i32.i.i1810.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i.i1809.i, i64 16
   %523 = load ptr, ptr %m_value.i.i32.i.i1810.i, align 8
   %cmp.i.i39.i.i1811.i = icmp eq ptr %523, null
-  br i1 %cmp.i.i39.i.i1811.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1836.i, label %entry.split.i40.i.i1812.i
+  br i1 %cmp.i.i39.i.i1811.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1836.i, label %entry.split.i40.i.i1812.i
 
 entry.split.i40.i.i1812.i:                        ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1808.i
   %arrayidx.i.i41.i.i1813.i = getelementptr inbounds i8, ptr %523, i64 -4
   %524 = load i32, ptr %arrayidx.i.i41.i.i1813.i, align 4
   %cmp5.not.i42.i.i1814.i = icmp eq i32 %524, 0
-  br i1 %cmp5.not.i42.i.i1814.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1836.i, label %for.body.preheader.i43.i.i1815.i
+  br i1 %cmp5.not.i42.i.i1814.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1836.i, label %for.body.preheader.i43.i.i1815.i
 
 for.body.preheader.i43.i.i1815.i:                 ; preds = %entry.split.i40.i.i1812.i
   %wide.trip.count.i44.i.i1816.i = zext i32 %524 to i64
@@ -5397,22 +5397,22 @@ for.body.i45.i.i1817.i:                           ; preds = %for.body.i45.i.i181
   %add.i49.i.i1821.i = add i32 %526, %r.06.i47.i.i1819.i
   %indvars.iv.next.i50.i.i1822.i = add nuw nsw i64 %indvars.iv.i46.i.i1818.i, 1
   %exitcond.not.i51.i.i1823.i = icmp eq i64 %indvars.iv.next.i50.i.i1822.i, %wide.trip.count.i44.i.i1816.i
-  br i1 %exitcond.not.i51.i.i1823.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1836.i, label %for.body.i45.i.i1817.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i.i1823.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1836.i, label %for.body.i45.i.i1817.i, !llvm.loop !11
 
-_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1836.i: ; preds = %for.body.i45.i.i1817.i, %entry.split.i40.i.i1812.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1808.i
+_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1836.i: ; preds = %for.body.i45.i.i1817.i, %entry.split.i40.i.i1812.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1808.i
   %.us-phi.i52.i.i1824.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1808.i ], [ 0, %entry.split.i40.i.i1812.i ], [ %add.i49.i.i1821.i, %for.body.i45.i.i1817.i ]
   %cmp.i.i1825.i = icmp ult i32 %.us-phi.i.i.i1781.i, %.us-phi.i52.i.i1824.i
   %spec.select.i.i.i = select i1 %cmp.i.i1825.i, i32 %504, i32 %505
   %spec.select55.i.i.i = select i1 %cmp.i.i1825.i, i32 %add.i.i.i.i, i32 %shl.i39.i.i.i
   br label %cond.end.i.i.i
 
-cond.end.i.i.i:                                   ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1836.i, %if.end.cond.false_crit_edge.i.i.i
-  %idx.ext4.i.i.i.i.i.i1637.pre-phi.i = phi i64 [ %idx.ext4.i.i.i.i.i.i1739.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1836.i ], [ %.pre576.i, %if.end.cond.false_crit_edge.i.i.i ]
-  %sub.i.i.i.i.i.i1633.pre-phi.i = phi i32 [ %sub.i.i.i.i.i.i1735.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1836.i ], [ %.pre575.i, %if.end.cond.false_crit_edge.i.i.i ]
-  %this.val.val19.i.i.i = phi i32 [ %this.val17.val18.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1836.i ], [ %this.val.val19.pre.pre.i.i.i, %if.end.cond.false_crit_edge.i.i.i ]
-  %this.val.val.i38.i.i = phi ptr [ %this.val17.val.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1836.i ], [ %this.val.val.pre.pre.i.i.i, %if.end.cond.false_crit_edge.i.i.i ]
-  %527 = phi i32 [ %spec.select.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1836.i ], [ %.pre42.pre.i.i.i, %if.end.cond.false_crit_edge.i.i.i ]
-  %cond.i.i532.i = phi i32 [ %spec.select55.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1836.i ], [ %shl.i39.i.i.i, %if.end.cond.false_crit_edge.i.i.i ]
+cond.end.i.i.i:                                   ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1836.i, %if.end.cond.false_crit_edge.i.i.i
+  %idx.ext4.i.i.i.i.i.i1637.pre-phi.i = phi i64 [ %idx.ext4.i.i.i.i.i.i1739.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1836.i ], [ %.pre576.i, %if.end.cond.false_crit_edge.i.i.i ]
+  %sub.i.i.i.i.i.i1633.pre-phi.i = phi i32 [ %sub.i.i.i.i.i.i1735.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1836.i ], [ %.pre575.i, %if.end.cond.false_crit_edge.i.i.i ]
+  %this.val.val19.i.i.i = phi i32 [ %this.val17.val18.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1836.i ], [ %this.val.val19.pre.pre.i.i.i, %if.end.cond.false_crit_edge.i.i.i ]
+  %this.val.val.i38.i.i = phi ptr [ %this.val17.val.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1836.i ], [ %this.val.val.pre.pre.i.i.i, %if.end.cond.false_crit_edge.i.i.i ]
+  %527 = phi i32 [ %spec.select.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1836.i ], [ %.pre42.pre.i.i.i, %if.end.cond.false_crit_edge.i.i.i ]
+  %cond.i.i532.i = phi i32 [ %spec.select55.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1836.i ], [ %shl.i39.i.i.i, %if.end.cond.false_crit_edge.i.i.i ]
   %and.i.i.i.i.i.i1634.i = and i32 %527, %sub.i.i.i.i.i.i1633.pre-phi.i
   %idx.ext.i.i.i.i.i.i1635.i = zext i32 %and.i.i.i.i.i.i1634.i to i64
   %add.ptr.i.i.i.i.i.i1636.i = getelementptr inbounds %class.default_map_entry.52, ptr %this.val.val.i38.i.i, i64 %idx.ext.i.i.i.i.i.i1635.i
@@ -5565,13 +5565,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1706.
   %m_value.i.i32.i.i1708.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i.i1707.i, i64 16
   %544 = load ptr, ptr %m_value.i.i32.i.i1708.i, align 8
   %cmp.i.i39.i.i1709.i = icmp eq ptr %544, null
-  br i1 %cmp.i.i39.i.i1709.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1734.i, label %entry.split.i40.i.i1710.i
+  br i1 %cmp.i.i39.i.i1709.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1734.i, label %entry.split.i40.i.i1710.i
 
 entry.split.i40.i.i1710.i:                        ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1706.i
   %arrayidx.i.i41.i.i1711.i = getelementptr inbounds i8, ptr %544, i64 -4
   %545 = load i32, ptr %arrayidx.i.i41.i.i1711.i, align 4
   %cmp5.not.i42.i.i1712.i = icmp eq i32 %545, 0
-  br i1 %cmp5.not.i42.i.i1712.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1734.i, label %for.body.preheader.i43.i.i1713.i
+  br i1 %cmp5.not.i42.i.i1712.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1734.i, label %for.body.preheader.i43.i.i1713.i
 
 for.body.preheader.i43.i.i1713.i:                 ; preds = %entry.split.i40.i.i1710.i
   %wide.trip.count.i44.i.i1714.i = zext i32 %545 to i64
@@ -5586,14 +5586,14 @@ for.body.i45.i.i1715.i:                           ; preds = %for.body.i45.i.i171
   %add.i49.i.i1719.i = add i32 %547, %r.06.i47.i.i1717.i
   %indvars.iv.next.i50.i.i1720.i = add nuw nsw i64 %indvars.iv.i46.i.i1716.i, 1
   %exitcond.not.i51.i.i1721.i = icmp eq i64 %indvars.iv.next.i50.i.i1720.i, %wide.trip.count.i44.i.i1714.i
-  br i1 %exitcond.not.i51.i.i1721.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1734.i, label %for.body.i45.i.i1715.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i.i1721.i, label %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1734.i, label %for.body.i45.i.i1715.i, !llvm.loop !11
 
-_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1734.i: ; preds = %for.body.i45.i.i1715.i, %entry.split.i40.i.i1710.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1706.i
+_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1734.i: ; preds = %for.body.i45.i.i1715.i, %entry.split.i40.i.i1710.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1706.i
   %.us-phi.i52.i.i1722.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i1706.i ], [ 0, %entry.split.i40.i.i1710.i ], [ %add.i49.i.i1719.i, %for.body.i45.i.i1715.i ]
   %cmp.i.i1723.i = icmp ult i32 %.us-phi.i.i.i1679.i, %.us-phi.i52.i.i1722.i
   br i1 %cmp.i.i1723.i, label %if.end16.i.i.i, label %while.end.loopexit.i.i.i
 
-if.end16.i.i.i:                                   ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1734.i
+if.end16.i.i.i:                                   ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1734.i
   %idxprom.i28.i.i.i = zext i32 %idx.addr.038.i.i.i to i64
   %arrayidx.i29.i.i.i = getelementptr inbounds i32, ptr %.pre.pre.i37.i.i, i64 %idxprom.i28.i.i.i
   store i32 %527, ptr %arrayidx.i29.i.i.i, align 4
@@ -5609,9 +5609,9 @@ if.end16.while.end.loopexit_crit_edge.i.i.i:      ; preds = %if.end16.i.i.i
   %.pre46.pre.i.i.i = load ptr, ptr %m_values.i.i, align 8
   br label %while.end.loopexit.i.i.i
 
-while.end.loopexit.i.i.i:                         ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1734.i, %if.end16.while.end.loopexit_crit_edge.i.i.i
-  %.pre46.i.i.i = phi ptr [ %.pre46.pre.i.i.i, %if.end16.while.end.loopexit_crit_edge.i.i.i ], [ %.pre.pre.i37.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1734.i ]
-  %idx.addr.0.lcssa.ph.i.i.i = phi i32 [ %cond.i.i532.i, %if.end16.while.end.loopexit_crit_edge.i.i.i ], [ %idx.addr.038.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.argprom.argprom.exit1734.i ]
+while.end.loopexit.i.i.i:                         ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1734.i, %if.end16.while.end.loopexit_crit_edge.i.i.i
+  %.pre46.i.i.i = phi ptr [ %.pre46.pre.i.i.i, %if.end16.while.end.loopexit_crit_edge.i.i.i ], [ %.pre.pre.i37.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1734.i ]
+  %idx.addr.0.lcssa.ph.i.i.i = phi i32 [ %cond.i.i532.i, %if.end16.while.end.loopexit_crit_edge.i.i.i ], [ %idx.addr.038.i.i.i, %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit1734.i ]
   %.pre.i.i533.i = zext i32 %idx.addr.0.lcssa.ph.i.i.i to i64
   br label %_ZN4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9move_downEi.exit.i.i
 
@@ -14337,7 +14337,7 @@ while.body.i.i.i.i:                               ; preds = %if.then, %while.bod
   %add.ptr3.val.i.i.i.i = load i32, ptr %add.ptr3.i.i.i.i, align 4
   %__comp.val.val.i.i.i.i = load ptr, ptr %__comp.coerce, align 8
   %__comp.val.val23.i.i.i.i = load i32, ptr %0, align 8
-  %call.i.i.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom(ptr %__comp.val.val.i.i.i.i, i32 %__comp.val.val23.i.i.i.i, i32 noundef %add.ptr.val.i.i.i.i, i32 noundef %add.ptr3.val.i.i.i.i)
+  %call.i.i.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj(ptr %__comp.val.val.i.i.i.i, i32 %__comp.val.val23.i.i.i.i, i32 noundef %add.ptr.val.i.i.i.i, i32 noundef %add.ptr3.val.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %call.i.i.i.i.i, i64 %sub2.i.i.i.i, i64 %mul.i.i.i.i
   %add.ptr4.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %spec.select.i.i.i.i
   %2 = load i32, ptr %add.ptr4.i.i.i.i, align 4
@@ -14377,7 +14377,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end17.i.i.i.i, %
   %add.ptr.val.i.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %__comp.val.val.i.i.i.i.i = load ptr, ptr %__comp.coerce, align 8
   %__comp.val.val10.i.i.i.i.i = load i32, ptr %0, align 8
-  %call.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom(ptr %__comp.val.val.i.i.i.i.i, i32 %__comp.val.val10.i.i.i.i.i, i32 noundef %add.ptr.val.i.i.i.i.i, i32 noundef %1)
+  %call.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj(ptr %__comp.val.val.i.i.i.i.i, i32 %__comp.val.val10.i.i.i.i.i, i32 noundef %add.ptr.val.i.i.i.i.i, i32 noundef %1)
   br i1 %call.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
@@ -14407,8 +14407,8 @@ if.end8.split.i.i.i:                              ; preds = %_ZSt13__adjust_heap
   %cmp25.i16.not.i.i.i = icmp sgt i64 %__parent.0181.i.i.i, %div.i169171.i.i.i
   br i1 %cmp25.i16.not.i.i.i, label %while.end.i17.i.i.i, label %while.body.i49.i.i.i
 
-while.body.i49.i.i.i:                             ; preds = %if.end8.split.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit168.i.i.i
-  %__secondChild.026.i50.i.i.i = phi i64 [ %spec.select.i61.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit168.i.i.i ], [ %dec.i.i.i, %if.end8.split.i.i.i ]
+while.body.i49.i.i.i:                             ; preds = %if.end8.split.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit168.i.i.i
+  %__secondChild.026.i50.i.i.i = phi i64 [ %spec.select.i61.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit168.i.i.i ], [ %dec.i.i.i, %if.end8.split.i.i.i ]
   %add.i51.i.i.i = shl i64 %__secondChild.026.i50.i.i.i, 1
   %mul.i52.i.i.i = add i64 %add.i51.i.i.i, 2
   %add.ptr.i53.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %mul.i52.i.i.i
@@ -14572,13 +14572,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i140.i.i
   %m_value.i.i32.i142.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i141.i.i.i, i64 16
   %22 = load ptr, ptr %m_value.i.i32.i142.i.i.i, align 8
   %cmp.i.i39.i143.i.i.i = icmp eq ptr %22, null
-  br i1 %cmp.i.i39.i143.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit168.i.i.i, label %entry.split.i40.i144.i.i.i
+  br i1 %cmp.i.i39.i143.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit168.i.i.i, label %entry.split.i40.i144.i.i.i
 
 entry.split.i40.i144.i.i.i:                       ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i140.i.i.i
   %arrayidx.i.i41.i145.i.i.i = getelementptr inbounds i8, ptr %22, i64 -4
   %23 = load i32, ptr %arrayidx.i.i41.i145.i.i.i, align 4
   %cmp5.not.i42.i146.i.i.i = icmp eq i32 %23, 0
-  br i1 %cmp5.not.i42.i146.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit168.i.i.i, label %for.body.preheader.i43.i147.i.i.i
+  br i1 %cmp5.not.i42.i146.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit168.i.i.i, label %for.body.preheader.i43.i147.i.i.i
 
 for.body.preheader.i43.i147.i.i.i:                ; preds = %entry.split.i40.i144.i.i.i
   %wide.trip.count.i44.i148.i.i.i = zext i32 %23 to i64
@@ -14593,9 +14593,9 @@ for.body.i45.i149.i.i.i:                          ; preds = %for.body.i45.i149.i
   %add.i49.i153.i.i.i = add i32 %25, %r.06.i47.i151.i.i.i
   %indvars.iv.next.i50.i154.i.i.i = add nuw nsw i64 %indvars.iv.i46.i150.i.i.i, 1
   %exitcond.not.i51.i155.i.i.i = icmp eq i64 %indvars.iv.next.i50.i154.i.i.i, %wide.trip.count.i44.i148.i.i.i
-  br i1 %exitcond.not.i51.i155.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit168.i.i.i, label %for.body.i45.i149.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i155.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit168.i.i.i, label %for.body.i45.i149.i.i.i, !llvm.loop !11
 
-_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit168.i.i.i: ; preds = %for.body.i45.i149.i.i.i, %entry.split.i40.i144.i.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i140.i.i.i
+_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit168.i.i.i: ; preds = %for.body.i45.i149.i.i.i, %entry.split.i40.i144.i.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i140.i.i.i
   %.us-phi.i52.i156.i.i.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i140.i.i.i ], [ 0, %entry.split.i40.i144.i.i.i ], [ %add.i49.i153.i.i.i, %for.body.i45.i149.i.i.i ]
   %cmp.i157.i.i.i = icmp ult i32 %.us-phi.i.i113.i.i.i, %.us-phi.i52.i156.i.i.i
   %spec.select.i61.i.i.i = select i1 %cmp.i157.i.i.i, i64 %sub2.i54.i.i.i, i64 %mul.i52.i.i.i
@@ -14606,8 +14606,8 @@ _ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8ra
   %cmp.i64.i.i.i = icmp slt i64 %spec.select.i61.i.i.i, %div.i169171.i.i.i
   br i1 %cmp.i64.i.i.i, label %while.body.i49.i.i.i, label %while.end.i17.i.i.i, !llvm.loop !53
 
-while.end.i17.i.i.i:                              ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit168.i.i.i, %if.end8.split.i.i.i
-  %__secondChild.0.lcssa.i18.i.i.i = phi i64 [ %dec.i.i.i, %if.end8.split.i.i.i ], [ %spec.select.i61.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit168.i.i.i ]
+while.end.i17.i.i.i:                              ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit168.i.i.i, %if.end8.split.i.i.i
+  %__secondChild.0.lcssa.i18.i.i.i = phi i64 [ %dec.i.i.i, %if.end8.split.i.i.i ], [ %spec.select.i61.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit168.i.i.i ]
   %cmp9.i42.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i18.i.i.i, %div8.i.i.i.i
   %or.cond170.i.i.i = select i1 %cmp6.i.i.i.i, i1 %cmp9.i42.i.i.i, i1 false
   br i1 %or.cond170.i.i.i, label %if.then10.i43.i.i.i, label %if.end17.i21.i.i.i
@@ -14784,13 +14784,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i.i:
   %m_value.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i.i.i.i, i64 16
   %44 = load ptr, ptr %m_value.i.i32.i.i.i.i, align 8
   %cmp.i.i39.i.i.i.i = icmp eq ptr %44, null
-  br i1 %cmp.i.i39.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i, label %entry.split.i40.i.i.i.i
+  br i1 %cmp.i.i39.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i, label %entry.split.i40.i.i.i.i
 
 entry.split.i40.i.i.i.i:                          ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i.i
   %arrayidx.i.i41.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 -4
   %45 = load i32, ptr %arrayidx.i.i41.i.i.i.i, align 4
   %cmp5.not.i42.i.i.i.i = icmp eq i32 %45, 0
-  br i1 %cmp5.not.i42.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i, label %for.body.preheader.i43.i.i.i.i
+  br i1 %cmp5.not.i42.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i, label %for.body.preheader.i43.i.i.i.i
 
 for.body.preheader.i43.i.i.i.i:                   ; preds = %entry.split.i40.i.i.i.i
   %wide.trip.count.i44.i.i.i.i = zext i32 %45 to i64
@@ -14805,21 +14805,21 @@ for.body.i45.i.i.i.i:                             ; preds = %for.body.i45.i.i.i.
   %add.i49.i.i.i.i = add i32 %47, %r.06.i47.i.i.i.i
   %indvars.iv.next.i50.i.i.i.i = add nuw nsw i64 %indvars.iv.i46.i.i.i.i, 1
   %exitcond.not.i51.i.i.i.i = icmp eq i64 %indvars.iv.next.i50.i.i.i.i, %wide.trip.count.i44.i.i.i.i
-  br i1 %exitcond.not.i51.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i, label %for.body.i45.i.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i, label %for.body.i45.i.i.i.i, !llvm.loop !11
 
-_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i: ; preds = %for.body.i45.i.i.i.i, %entry.split.i40.i.i.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i.i
+_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i: ; preds = %for.body.i45.i.i.i.i, %entry.split.i40.i.i.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i.i
   %.us-phi.i52.i.i.i.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i.i ], [ 0, %entry.split.i40.i.i.i.i ], [ %add.i49.i.i.i.i, %for.body.i45.i.i.i.i ]
   %cmp.i66.i.i.i = icmp ult i32 %.us-phi.i.i.i.i.i, %.us-phi.i52.i.i.i.i
   br i1 %cmp.i66.i.i.i, label %while.body.i.i36.i.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit65.i.i.i
 
-while.body.i.i36.i.i.i:                           ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i
+while.body.i.i36.i.i.i:                           ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i
   %add.ptr2.i.i37.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.015.i.i28.i.i.i
   store i32 %add.ptr.val.i.i32.i.i.i, ptr %add.ptr2.i.i37.i.i.i, align 4
   %cmp.i.i38.not.i.i.i = icmp slt i64 %__parent.016.i.i30.i.i.i, %__parent.0181.i.i.i
   br i1 %cmp.i.i38.not.i.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit65.i.i.i, label %land.rhs.i.i27.i.i.i, !llvm.loop !54
 
-_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit65.i.i.i: ; preds = %while.body.i.i36.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i, %if.end17.i21.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i24.i.i.i = phi i64 [ %__holeIndex.addr.1.i22.i.i.i, %if.end17.i21.i.i.i ], [ %__holeIndex.addr.015.i.i28.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i.i ], [ %__parent.016.i.i30.i.i.i, %while.body.i.i36.i.i.i ]
+_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_T0_SS_T1_T2_.exit65.i.i.i: ; preds = %while.body.i.i36.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i, %if.end17.i21.i.i.i
+  %__holeIndex.addr.0.lcssa.i.i24.i.i.i = phi i64 [ %__holeIndex.addr.1.i22.i.i.i, %if.end17.i21.i.i.i ], [ %__holeIndex.addr.015.i.i28.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i.i ], [ %__parent.016.i.i30.i.i.i, %while.body.i.i36.i.i.i ]
   %add.ptr5.i.i25.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i24.i.i.i
   store i32 %5, ptr %add.ptr5.i.i25.i.i.i, align 4
   %cmp6.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -14842,8 +14842,8 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   %cmp25.i.i = icmp sgt i64 %sub.ptr.div.i17, 2
   br i1 %cmp25.i.i, label %while.body.i.i19, label %while.end.i.i
 
-while.body.i.i19:                                 ; preds = %while.body.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit128
-  %__secondChild.026.i.i = phi i64 [ %spec.select.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit128 ], [ 0, %while.body.i.i ]
+while.body.i.i19:                                 ; preds = %while.body.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit128
+  %__secondChild.026.i.i = phi i64 [ %spec.select.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit128 ], [ 0, %while.body.i.i ]
   %add.i.i = shl i64 %__secondChild.026.i.i, 1
   %mul.i.i = add i64 %add.i.i, 2
   %add.ptr.i.i = getelementptr inbounds i32, ptr %__first, i64 %mul.i.i
@@ -15007,13 +15007,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i100: ; 
   %m_value.i.i32.i102 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i101, i64 16
   %66 = load ptr, ptr %m_value.i.i32.i102, align 8
   %cmp.i.i39.i103 = icmp eq ptr %66, null
-  br i1 %cmp.i.i39.i103, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit128, label %entry.split.i40.i104
+  br i1 %cmp.i.i39.i103, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit128, label %entry.split.i40.i104
 
 entry.split.i40.i104:                             ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i100
   %arrayidx.i.i41.i105 = getelementptr inbounds i8, ptr %66, i64 -4
   %67 = load i32, ptr %arrayidx.i.i41.i105, align 4
   %cmp5.not.i42.i106 = icmp eq i32 %67, 0
-  br i1 %cmp5.not.i42.i106, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit128, label %for.body.preheader.i43.i107
+  br i1 %cmp5.not.i42.i106, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit128, label %for.body.preheader.i43.i107
 
 for.body.preheader.i43.i107:                      ; preds = %entry.split.i40.i104
   %wide.trip.count.i44.i108 = zext i32 %67 to i64
@@ -15028,9 +15028,9 @@ for.body.i45.i109:                                ; preds = %for.body.i45.i109, 
   %add.i49.i113 = add i32 %69, %r.06.i47.i111
   %indvars.iv.next.i50.i114 = add nuw nsw i64 %indvars.iv.i46.i110, 1
   %exitcond.not.i51.i115 = icmp eq i64 %indvars.iv.next.i50.i114, %wide.trip.count.i44.i108
-  br i1 %exitcond.not.i51.i115, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit128, label %for.body.i45.i109, !llvm.loop !11
+  br i1 %exitcond.not.i51.i115, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit128, label %for.body.i45.i109, !llvm.loop !11
 
-_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit128: ; preds = %for.body.i45.i109, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i100, %entry.split.i40.i104
+_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit128: ; preds = %for.body.i45.i109, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i100, %entry.split.i40.i104
   %.us-phi.i52.i116 = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i100 ], [ 0, %entry.split.i40.i104 ], [ %add.i49.i113, %for.body.i45.i109 ]
   %cmp.i117 = icmp ult i32 %.us-phi.i.i73, %.us-phi.i52.i116
   %spec.select.i.i = select i1 %cmp.i117, i64 %sub2.i.i, i64 %mul.i.i
@@ -15041,8 +15041,8 @@ _ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8ra
   %cmp.i.i21 = icmp slt i64 %spec.select.i.i, %div.i.i
   br i1 %cmp.i.i21, label %while.body.i.i19, label %while.end.i.i, !llvm.loop !53
 
-while.end.i.i:                                    ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit128, %while.body.i.i
-  %__secondChild.0.lcssa.i.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit128 ]
+while.end.i.i:                                    ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit128, %while.body.i.i
+  %__secondChild.0.lcssa.i.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit128 ]
   %71 = and i64 %sub.ptr.sub.i16, 4
   %cmp6.i.i = icmp eq i64 %71, 0
   br i1 %cmp6.i.i, label %land.lhs.true.i.i, label %if.end17.i.i
@@ -15229,13 +15229,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i: ; pre
   %m_value.i.i32.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i, i64 16
   %89 = load ptr, ptr %m_value.i.i32.i, align 8
   %cmp.i.i39.i = icmp eq ptr %89, null
-  br i1 %cmp.i.i39.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit, label %entry.split.i40.i
+  br i1 %cmp.i.i39.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit, label %entry.split.i40.i
 
 entry.split.i40.i:                                ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i
   %arrayidx.i.i41.i = getelementptr inbounds i8, ptr %89, i64 -4
   %90 = load i32, ptr %arrayidx.i.i41.i, align 4
   %cmp5.not.i42.i = icmp eq i32 %90, 0
-  br i1 %cmp5.not.i42.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit, label %for.body.preheader.i43.i
+  br i1 %cmp5.not.i42.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit, label %for.body.preheader.i43.i
 
 for.body.preheader.i43.i:                         ; preds = %entry.split.i40.i
   %wide.trip.count.i44.i = zext i32 %90 to i64
@@ -15250,21 +15250,21 @@ for.body.i45.i:                                   ; preds = %for.body.i45.i, %fo
   %add.i49.i = add i32 %92, %r.06.i47.i
   %indvars.iv.next.i50.i = add nuw nsw i64 %indvars.iv.i46.i, 1
   %exitcond.not.i51.i = icmp eq i64 %indvars.iv.next.i50.i, %wide.trip.count.i44.i
-  br i1 %exitcond.not.i51.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit, label %for.body.i45.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit, label %for.body.i45.i, !llvm.loop !11
 
-_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit: ; preds = %for.body.i45.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i, %entry.split.i40.i
+_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit: ; preds = %for.body.i45.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i, %entry.split.i40.i
   %.us-phi.i52.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i ], [ 0, %entry.split.i40.i ], [ %add.i49.i, %for.body.i45.i ]
   %cmp.i = icmp ult i32 %.us-phi.i.i, %.us-phi.i52.i
   br i1 %cmp.i, label %while.body.i.i.i, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_SR_RT0_.exit
 
-while.body.i.i.i:                                 ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit
+while.body.i.i.i:                                 ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit
   %add.ptr2.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.015.i.i.i
   store i32 %add.ptr.val.i.i.i, ptr %add.ptr2.i.i.i, align 4
   %cmp.i.i.not.i = icmp ult i64 %__parent.016.in.i.i.i, 2
   br i1 %cmp.i.i.not.i, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_SR_RT0_.exit, label %land.rhs.i.i.i, !llvm.loop !54
 
-_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_SR_RT0_.exit: ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit, %while.body.i.i.i, %if.end17.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i, %if.end17.i.i ], [ %__holeIndex.addr.015.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit ], [ 0, %while.body.i.i.i ]
+_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEEvT_SR_SR_RT0_.exit: ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit, %while.body.i.i.i, %if.end17.i.i
+  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i, %if.end17.i.i ], [ %__holeIndex.addr.015.i.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit ], [ 0, %while.body.i.i.i ]
   %add.ptr5.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i
   store i32 %48, ptr %add.ptr5.i.i.i, align 4
   %cmp.i4.i = icmp sgt i64 %sub.ptr.sub.i16, 4
@@ -15279,12 +15279,12 @@ if.end:                                           ; preds = %while.body
   %__b.val29.i.i = load i32, ptr %add.ptr.i, align 4
   %__comp.val27.val.i.i = load ptr, ptr %__comp.coerce, align 8
   %__comp.val27.val30.i.i = load i32, ptr %0, align 8
-  %call.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom(ptr %__comp.val27.val.i.i, i32 %__comp.val27.val30.i.i, i32 noundef %__a.val28.i.i, i32 noundef %__b.val29.i.i)
+  %call.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj(ptr %__comp.val27.val.i.i, i32 %__comp.val27.val30.i.i, i32 noundef %__a.val28.i.i, i32 noundef %__b.val29.i.i)
   %__c.val26.i.i = load i32, ptr %add.ptr3.i, align 4
   br i1 %call.i.i.i, label %if.then.i.i, label %if.else8.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %call.i35.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom(ptr %__comp.val27.val.i.i, i32 %__comp.val27.val30.i.i, i32 noundef %__b.val29.i.i, i32 noundef %__c.val26.i.i)
+  %call.i35.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj(ptr %__comp.val27.val.i.i, i32 %__comp.val27.val30.i.i, i32 noundef %__b.val29.i.i, i32 noundef %__c.val26.i.i)
   br i1 %call.i35.i.i, label %if.then3.i.i, label %if.else.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
@@ -15294,7 +15294,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   br label %while.body.i.i10.preheader
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %call.i36.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom(ptr %__comp.val27.val.i.i, i32 %__comp.val27.val30.i.i, i32 noundef %__a.val28.i.i, i32 noundef %__c.val26.i.i)
+  %call.i36.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj(ptr %__comp.val27.val.i.i, i32 %__comp.val27.val30.i.i, i32 noundef %__a.val28.i.i, i32 noundef %__c.val26.i.i)
   %94 = load i32, ptr %__first, align 4
   br i1 %call.i36.i.i, label %if.then5.i.i, label %if.else6.i.i
 
@@ -15309,7 +15309,7 @@ if.else6.i.i:                                     ; preds = %if.else.i.i
   br label %while.body.i.i10.preheader
 
 if.else8.i.i:                                     ; preds = %if.end
-  %call.i37.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom(ptr %__comp.val27.val.i.i, i32 %__comp.val27.val30.i.i, i32 noundef %__a.val28.i.i, i32 noundef %__c.val26.i.i)
+  %call.i37.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj(ptr %__comp.val27.val.i.i, i32 %__comp.val27.val30.i.i, i32 noundef %__a.val28.i.i, i32 noundef %__c.val26.i.i)
   br i1 %call.i37.i.i, label %if.then10.i.i, label %if.else11.i.i
 
 if.then10.i.i:                                    ; preds = %if.else8.i.i
@@ -15319,7 +15319,7 @@ if.then10.i.i:                                    ; preds = %if.else8.i.i
   br label %while.body.i.i10.preheader
 
 if.else11.i.i:                                    ; preds = %if.else8.i.i
-  %call.i38.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom(ptr %__comp.val27.val.i.i, i32 %__comp.val27.val30.i.i, i32 noundef %__b.val29.i.i, i32 noundef %__c.val26.i.i)
+  %call.i38.i.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj(ptr %__comp.val27.val.i.i, i32 %__comp.val27.val30.i.i, i32 noundef %__b.val29.i.i, i32 noundef %__c.val26.i.i)
   %96 = load i32, ptr %__first, align 4
   br i1 %call.i38.i.i, label %if.then13.i.i, label %if.else14.i.i
 
@@ -15352,8 +15352,8 @@ while.body.i.i10:                                 ; preds = %while.body.i.i10.pr
   %cmp19.not31.i.i.i.i17.i.i.i = icmp ne i32 %and.i.i.i.i3.i.i.i, 0
   br label %while.cond2.i.i
 
-while.cond2.i.i:                                  ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i, %while.body.i.i10
-  %__first.addr.1.i.i = phi ptr [ %__first.addr.0.i.i, %while.body.i.i10 ], [ %incdec.ptr.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i ]
+while.cond2.i.i:                                  ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i, %while.body.i.i10
+  %__first.addr.1.i.i = phi ptr [ %__first.addr.0.i.i, %while.body.i.i10 ], [ %incdec.ptr.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i ]
   %__first.addr.1.val.i.i = load i32, ptr %__first.addr.1.i.i, align 4
   %and.i.i.i.i.i.i.i = and i32 %__first.addr.1.val.i.i, %sub.i.i.i.i.i.i.i
   %idx.ext.i.i.i.i.i.i.i = zext i32 %and.i.i.i.i.i.i.i to i64
@@ -15501,13 +15501,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i: ;
   %m_value.i.i32.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i.i.i, i64 16
   %113 = load ptr, ptr %m_value.i.i32.i.i.i, align 8
   %cmp.i.i39.i.i.i = icmp eq ptr %113, null
-  br i1 %cmp.i.i39.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i, label %entry.split.i40.i.i.i
+  br i1 %cmp.i.i39.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i, label %entry.split.i40.i.i.i
 
 entry.split.i40.i.i.i:                            ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i
   %arrayidx.i.i41.i.i.i = getelementptr inbounds i8, ptr %113, i64 -4
   %114 = load i32, ptr %arrayidx.i.i41.i.i.i, align 4
   %cmp5.not.i42.i.i.i = icmp eq i32 %114, 0
-  br i1 %cmp5.not.i42.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i, label %for.body.preheader.i43.i.i.i
+  br i1 %cmp5.not.i42.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i, label %for.body.preheader.i43.i.i.i
 
 for.body.preheader.i43.i.i.i:                     ; preds = %entry.split.i40.i.i.i
   %wide.trip.count.i44.i.i.i = zext i32 %114 to i64
@@ -15522,16 +15522,16 @@ for.body.i45.i.i.i:                               ; preds = %for.body.i45.i.i.i,
   %add.i49.i.i.i = add i32 %116, %r.06.i47.i.i.i
   %indvars.iv.next.i50.i.i.i = add nuw nsw i64 %indvars.iv.i46.i.i.i, 1
   %exitcond.not.i51.i.i.i = icmp eq i64 %indvars.iv.next.i50.i.i.i, %wide.trip.count.i44.i.i.i
-  br i1 %exitcond.not.i51.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i, label %for.body.i45.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i, label %for.body.i45.i.i.i, !llvm.loop !11
 
-_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i: ; preds = %for.body.i45.i.i.i, %entry.split.i40.i.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i
+_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i: ; preds = %for.body.i45.i.i.i, %entry.split.i40.i.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i
   %.us-phi.i52.i.i.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i.i.i ], [ 0, %entry.split.i40.i.i.i ], [ %add.i49.i.i.i, %for.body.i45.i.i.i ]
   %cmp.i.i.i13 = icmp ult i32 %.us-phi.i.i.i.i, %.us-phi.i52.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i, i64 4
   br i1 %cmp.i.i.i13, label %while.cond2.i.i, label %while.cond5.i.i, !llvm.loop !57
 
-while.cond5.i.i:                                  ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit117.i.i
-  %__last.addr.0.pn.i.i = phi ptr [ %__last.addr.1.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit117.i.i ], [ %__last.addr.0.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit.i.i ]
+while.cond5.i.i:                                  ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit117.i.i
+  %__last.addr.0.pn.i.i = phi ptr [ %__last.addr.1.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit117.i.i ], [ %__last.addr.0.i.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit.i.i ]
   %__last.addr.1.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i, i64 -4
   %__last.addr.1.val.i.i = load i32, ptr %__last.addr.1.i.i, align 4
   br i1 %cmp.not29.i.i.i.i8.i.i.i, label %for.body20.i.i.i.i.i32.i.i.preheader, label %for.body.i.i.i.i.i23.i.i
@@ -15680,13 +15680,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i89.i.i:
   %m_value.i.i32.i91.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i90.i.i, i64 16
   %133 = load ptr, ptr %m_value.i.i32.i91.i.i, align 8
   %cmp.i.i39.i92.i.i = icmp eq ptr %133, null
-  br i1 %cmp.i.i39.i92.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit117.i.i, label %entry.split.i40.i93.i.i
+  br i1 %cmp.i.i39.i92.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit117.i.i, label %entry.split.i40.i93.i.i
 
 entry.split.i40.i93.i.i:                          ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i89.i.i
   %arrayidx.i.i41.i94.i.i = getelementptr inbounds i8, ptr %133, i64 -4
   %134 = load i32, ptr %arrayidx.i.i41.i94.i.i, align 4
   %cmp5.not.i42.i95.i.i = icmp eq i32 %134, 0
-  br i1 %cmp5.not.i42.i95.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit117.i.i, label %for.body.preheader.i43.i96.i.i
+  br i1 %cmp5.not.i42.i95.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit117.i.i, label %for.body.preheader.i43.i96.i.i
 
 for.body.preheader.i43.i96.i.i:                   ; preds = %entry.split.i40.i93.i.i
   %wide.trip.count.i44.i97.i.i = zext i32 %134 to i64
@@ -15701,14 +15701,14 @@ for.body.i45.i98.i.i:                             ; preds = %for.body.i45.i98.i.
   %add.i49.i102.i.i = add i32 %136, %r.06.i47.i100.i.i
   %indvars.iv.next.i50.i103.i.i = add nuw nsw i64 %indvars.iv.i46.i99.i.i, 1
   %exitcond.not.i51.i104.i.i = icmp eq i64 %indvars.iv.next.i50.i103.i.i, %wide.trip.count.i44.i97.i.i
-  br i1 %exitcond.not.i51.i104.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit117.i.i, label %for.body.i45.i98.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i104.i.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit117.i.i, label %for.body.i45.i98.i.i, !llvm.loop !11
 
-_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit117.i.i: ; preds = %for.body.i45.i98.i.i, %entry.split.i40.i93.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i89.i.i
+_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit117.i.i: ; preds = %for.body.i45.i98.i.i, %entry.split.i40.i93.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i89.i.i
   %.us-phi.i52.i105.i.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i89.i.i ], [ 0, %entry.split.i40.i93.i.i ], [ %add.i49.i102.i.i, %for.body.i45.i98.i.i ]
   %cmp.i106.i.i = icmp ult i32 %.us-phi.i.i62.i.i, %.us-phi.i52.i105.i.i
   br i1 %cmp.i106.i.i, label %while.cond5.i.i, label %while.end9.i.i, !llvm.loop !58
 
-while.end9.i.i:                                   ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit117.i.i
+while.end9.i.i:                                   ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit117.i.i
   %cmp.i.i = icmp ult ptr %__first.addr.1.i.i, %__last.addr.1.i.i
   br i1 %cmp.i.i, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS5_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS7_ISG_Lb1EjEEUljjE_EEET_SR_SR_T0_.exit
 
@@ -15729,7 +15729,7 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define internal fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom(ptr readonly %this.0.val.0.val, i32 %this.0.val.8.val, i32 noundef %a, i32 noundef %b) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj(ptr readonly %this.0.val.0.val, i32 %this.0.val.8.val, i32 noundef %a, i32 noundef %b) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sub.i.i.i.i = add i32 %this.0.val.8.val, -1
   %and.i.i.i.i = and i32 %sub.i.i.i.i, %a
@@ -15940,7 +15940,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__first.val = load i32, ptr %__first, align 4
   %__comp.val.val = load ptr, ptr %__comp.coerce, align 8
   %__comp.val.val12 = load i32, ptr %0, align 8
-  %call.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom(ptr %__comp.val.val, i32 %__comp.val.val12, i32 noundef %__i.0.val, i32 noundef %__first.val)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj(ptr %__comp.val.val, i32 %__comp.val.val12, i32 noundef %__i.0.val, i32 noundef %__first.val)
   br i1 %call.i, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %for.body
@@ -15955,13 +15955,13 @@ if.then3:                                         ; preds = %for.body
 
 if.else:                                          ; preds = %for.body
   %__next.0.val11.i = load i32, ptr %__first.pn20, align 4
-  %call.i14.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom(ptr %__comp.val.val, i32 %__comp.val.val12, i32 noundef %__i.0.val, i32 noundef %__next.0.val11.i)
+  %call.i14.i = tail call fastcc noundef zeroext i1 @_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj(ptr %__comp.val.val, i32 %__comp.val.val12, i32 noundef %__i.0.val, i32 noundef %__next.0.val11.i)
   br i1 %call.i14.i, label %while.body.i, label %for.inc
 
-while.body.i:                                     ; preds = %if.else, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit
-  %__next.0.val17.i = phi i32 [ %__next.0.val.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit ], [ %__next.0.val11.i, %if.else ]
-  %__next.016.i = phi ptr [ %__next.0.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit ], [ %__first.pn20, %if.else ]
-  %__last.addr.015.i = phi ptr [ %__next.016.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit ], [ %__i.021, %if.else ]
+while.body.i:                                     ; preds = %if.else, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit
+  %__next.0.val17.i = phi i32 [ %__next.0.val.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit ], [ %__next.0.val11.i, %if.else ]
+  %__next.016.i = phi ptr [ %__next.0.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit ], [ %__first.pn20, %if.else ]
+  %__last.addr.015.i = phi ptr [ %__next.016.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit ], [ %__i.021, %if.else ]
   store i32 %__next.0.val17.i, ptr %__last.addr.015.i, align 4
   %__next.0.i = getelementptr inbounds i8, ptr %__next.016.i, i64 -4
   %__next.0.val.i = load i32, ptr %__next.0.i, align 4
@@ -16121,13 +16121,13 @@ _ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i: ; pre
   %m_value.i.i32.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i31.i, i64 16
   %17 = load ptr, ptr %m_value.i.i32.i, align 8
   %cmp.i.i39.i = icmp eq ptr %17, null
-  br i1 %cmp.i.i39.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit, label %entry.split.i40.i
+  br i1 %cmp.i.i39.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit, label %entry.split.i40.i
 
 entry.split.i40.i:                                ; preds = %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i
   %arrayidx.i.i41.i = getelementptr inbounds i8, ptr %17, i64 -4
   %18 = load i32, ptr %arrayidx.i.i41.i, align 4
   %cmp5.not.i42.i = icmp eq i32 %18, 0
-  br i1 %cmp5.not.i42.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit, label %for.body.preheader.i43.i
+  br i1 %cmp5.not.i42.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit, label %for.body.preheader.i43.i
 
 for.body.preheader.i43.i:                         ; preds = %entry.split.i40.i
   %wide.trip.count.i44.i = zext i32 %18 to i64
@@ -16142,15 +16142,15 @@ for.body.i45.i:                                   ; preds = %for.body.i45.i, %fo
   %add.i49.i = add i32 %20, %r.06.i47.i
   %indvars.iv.next.i50.i = add nuw nsw i64 %indvars.iv.i46.i, 1
   %exitcond.not.i51.i = icmp eq i64 %indvars.iv.next.i50.i, %wide.trip.count.i44.i
-  br i1 %exitcond.not.i51.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit, label %for.body.i45.i, !llvm.loop !11
+  br i1 %exitcond.not.i51.i, label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit, label %for.body.i45.i, !llvm.loop !11
 
-_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit: ; preds = %for.body.i45.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i, %entry.split.i40.i
+_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit: ; preds = %for.body.i45.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i, %entry.split.i40.i
   %.us-phi.i52.i = phi i32 [ 0, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit38.i ], [ 0, %entry.split.i40.i ], [ %add.i49.i, %for.body.i45.i ]
   %cmp.i = icmp ult i32 %.us-phi.i.i, %.us-phi.i52.i
   br i1 %cmp.i, label %while.body.i, label %for.inc, !llvm.loop !16
 
-for.inc:                                          ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit, %if.else, %if.then3
-  %__first.sink = phi ptr [ %__first, %if.then3 ], [ %__i.021, %if.else ], [ %__next.016.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.argprom.argprom.exit ]
+for.inc:                                          ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit, %if.else, %if.then3
+  %__first.sink = phi ptr [ %__first, %if.then3 ], [ %__i.021, %if.else ], [ %__next.016.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit ]
   store i32 %__i.0.val, ptr %__first.sink, align 4
   %__i.0 = getelementptr inbounds i8, ptr %__i.021, i64 4
   %cmp2.not = icmp eq ptr %__i.0, %__last

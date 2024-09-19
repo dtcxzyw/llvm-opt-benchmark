@@ -1624,9 +1624,9 @@ _ZN12VNUser3InUseC2Ev.exit.i:                     ; preds = %_ZN12VNUser2InUseC2
 .noexc17.i:                                       ; preds = %_ZN12VNUser3InUseC2Ev.exit.i
   store ptr %40, ptr %10, align 8
   %41 = invoke noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #29
-          to label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EEC2Ev.exit.i.i.i unwind label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i.i.i.i.i.i.i
+          to label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EEC2Ev.exit.i.i.i unwind label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i.i.i.i
 
-_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i.i.i.i.i.i.i: ; preds = %.noexc17.i
+_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i.i.i.i: ; preds = %.noexc17.i
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
@@ -1634,7 +1634,7 @@ _ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPP
   invoke void @__cxa_rethrow() #28
           to label %50 unwind label %45
 
-45:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i.i.i.i.i.i.i
+45:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i.i.i.i
   %46 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
@@ -1647,7 +1647,7 @@ _ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPP
   call void @__clang_call_terminate(ptr %49) #27
   unreachable
 
-50:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i.i.i.i.i.i.i
+50:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i.i.i.i
   unreachable
 
 .body.i.i.i.i.i.i:                                ; preds = %45
@@ -2515,7 +2515,7 @@ define internal void @_ZN12_GLOBAL__N_116MergeCondVisitor5visitEP13AstNodeAssign
   br label %_ZN12_GLOBAL__N_116MergeCondVisitor22mergeEndIfIncompatibleEPK7AstNodeS3_.exit
 
 _ZN12_GLOBAL__N_116MergeCondVisitor22mergeEndIfIncompatibleEPK7AstNodeS3_.exit: ; preds = %9, %15, %19
-  tail call fastcc void @_ZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExpr.argelim(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExpr(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull %6)
   br label %25
 
 20:                                               ; preds = %2
@@ -2617,7 +2617,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %4, %7
 
 _ZN12_GLOBAL__N_116MergeCondVisitor22mergeEndIfIncompatibleEPK7AstNodeS3_.exit: ; preds = %11, %19, %23
   %24 = load ptr, ptr %12, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExpr.argelim(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %1, ptr noundef %24)
+  tail call fastcc void @_ZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExpr(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %1, ptr noundef %24)
   br label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit9
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit9: ; preds = %10, %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, %_ZN12_GLOBAL__N_116MergeCondVisitor22mergeEndIfIncompatibleEPK7AstNodeS3_.exit
@@ -4240,8 +4240,8 @@ define internal fastcc void @_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_E
   %14 = icmp ult ptr %.04.i.i, %13
   br i1 %14, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %1, %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.argprom.exit.i.i
-  %.05.i.i = phi ptr [ %.0.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.argprom.exit.i.i ], [ %.04.i.i, %1 ]
+.lr.ph.i.i:                                       ; preds = %1, %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.exit.i.i
+  %.05.i.i = phi ptr [ %.0.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %.04.i.i, %1 ]
   %15 = load ptr, ptr %.05.i.i, align 8
   br label %.lr.ph.i.i.i.i.i
 
@@ -4278,20 +4278,20 @@ _ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %.lr.p
 _ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i.i.i
   %.05.i.i.i.add.i.i = add nuw nsw i64 %.05.i.i.i.idx.i.i, 120
   %.not.i.i.i.i.i = icmp eq i64 %.05.i.i.i.add.i.i, 480
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
-_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i.i.i
   %.0.i.i = getelementptr inbounds i8, ptr %.05.i.i, i64 8
   %28 = icmp ult ptr %.0.i.i, %13
   br i1 %28, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !26
 
-._crit_edge.i.i:                                  ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.argprom.exit.i.i, %1
+._crit_edge.i.i:                                  ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.exit.i.i, %1
   %.not.i.i = icmp eq ptr %7, %13
   br i1 %.not.i.i, label %56, label %29
 
 29:                                               ; preds = %._crit_edge.i.i
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
-  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.argprom.exit11.i.i, label %.lr.ph.i.i.i6.i.i
+  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.exit11.i.i, label %.lr.ph.i.i.i6.i.i
 
 .lr.ph.i.i.i6.i.i:                                ; preds = %29, %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i9.i.i
   %.05.i.i.i7.i.i = phi ptr [ %42, %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i9.i.i ], [ %3, %29 ]
@@ -4325,14 +4325,14 @@ _ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i8.i.i: ; preds = %.lr.
 _ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i9.i.i: ; preds = %_ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i8.i.i
   %42 = getelementptr inbounds i8, ptr %.05.i.i.i7.i.i, i64 120
   %.not.i.i.i10.i.i = icmp eq ptr %42, %5
-  br i1 %.not.i.i.i10.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.argprom.exit11.i.i, label %.lr.ph.i.i.i6.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i10.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.exit11.i.i, label %.lr.ph.i.i.i6.i.i, !llvm.loop !25
 
-_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.argprom.exit11.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i9.i.i, %29
+_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.exit11.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i9.i.i, %29
   %.not4.i.i.i12.i.i = icmp eq ptr %11, %9
-  br i1 %.not4.i.i.i12.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit, label %.lr.ph.i.i.i13.i.i
+  br i1 %.not4.i.i.i12.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i13.i.i
 
-.lr.ph.i.i.i13.i.i:                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.argprom.exit11.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i16.i.i
-  %.05.i.i.i14.i.i = phi ptr [ %55, %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i16.i.i ], [ %11, %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.argprom.exit11.i.i ]
+.lr.ph.i.i.i13.i.i:                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.exit11.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i16.i.i
+  %.05.i.i.i14.i.i = phi ptr [ %55, %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i16.i.i ], [ %11, %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.exit11.i.i ]
   %43 = getelementptr inbounds i8, ptr %.05.i.i.i14.i.i, i64 56
   %44 = getelementptr inbounds i8, ptr %.05.i.i.i14.i.i, i64 72
   %45 = load ptr, ptr %44, align 8
@@ -4363,11 +4363,11 @@ _ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i15.i.i: ; preds = %.lr
 _ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i16.i.i: ; preds = %_ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i15.i.i
   %55 = getelementptr inbounds i8, ptr %.05.i.i.i14.i.i, i64 120
   %.not.i.i.i17.i.i = icmp eq ptr %55, %9
-  br i1 %.not.i.i.i17.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit, label %.lr.ph.i.i.i13.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i17.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i13.i.i, !llvm.loop !25
 
 56:                                               ; preds = %._crit_edge.i.i
   %.not4.i.i.i19.i.i = icmp eq ptr %3, %9
-  br i1 %.not4.i.i.i19.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit, label %.lr.ph.i.i.i20.i.i
+  br i1 %.not4.i.i.i19.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i20.i.i
 
 .lr.ph.i.i.i20.i.i:                               ; preds = %56, %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i23.i.i
   %.05.i.i.i21.i.i = phi ptr [ %69, %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i23.i.i ], [ %3, %56 ]
@@ -4401,19 +4401,19 @@ _ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i22.i.i: ; preds = %.lr
 _ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i23.i.i: ; preds = %_ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i22.i.i
   %69 = getelementptr inbounds i8, ptr %.05.i.i.i21.i.i, i64 120
   %.not.i.i.i24.i.i = icmp eq ptr %69, %9
-  br i1 %.not.i.i.i24.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit, label %.lr.ph.i.i.i20.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i24.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, label %.lr.ph.i.i.i20.i.i, !llvm.loop !25
 
-_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i16.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i23.i.i, %56, %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.argprom.exit11.i.i
+_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i16.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_114StmtPropertiesEEvPT_.exit.i.i.i23.i.i, %56, %_ZSt8_DestroyIPN12_GLOBAL__N_114StmtPropertiesES1_EvT_S3_RSaIT0_E.exit11.i.i
   %70 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %70, null
   br i1 %.not.i, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev.exit, label %71
 
-71:                                               ; preds = %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit
+71:                                               ; preds = %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit
   %72 = load ptr, ptr %6, align 8
   %73 = load ptr, ptr %12, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = icmp ult ptr %72, %74
-  br i1 %75, label %.lr.ph.i.i1, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i
+  br i1 %75, label %.lr.ph.i.i1, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i1:                                      ; preds = %71, %.lr.ph.i.i1
   %.01.i.i = phi ptr [ %77, %.lr.ph.i.i1 ], [ %72, %71 ]
@@ -4421,18 +4421,18 @@ _ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque
   tail call void @_ZdlPv(ptr noundef %76) #26
   %77 = getelementptr inbounds i8, ptr %.01.i.i, i64 8
   %78 = icmp ult ptr %.01.i.i, %73
-  br i1 %78, label %.lr.ph.i.i1, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.loopexit.i, !llvm.loop !27
+  br i1 %78, label %.lr.ph.i.i1, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i, !llvm.loop !27
 
-_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.loopexit.i: ; preds = %.lr.ph.i.i1
+_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i: ; preds = %.lr.ph.i.i1
   %.pre.i = load ptr, ptr %0, align 8
-  br label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i
+  br label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
-_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i: ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.loopexit.i, %71
-  %79 = phi ptr [ %.pre.i, %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.loopexit.i ], [ %70, %71 ]
+_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i: ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i, %71
+  %79 = phi ptr [ %.pre.i, %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i ], [ %70, %71 ]
   tail call void @_ZdlPv(ptr noundef %79) #26
   br label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev.exit
 
-_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev.exit: ; preds = %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.argprom.exit, %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.argprom.exit.i
+_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EED2Ev.exit: ; preds = %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_.exit, %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
   ret void
 }
 
@@ -4981,7 +4981,7 @@ _ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor11analyzeNodeEP7AstNode.exit.i: ; pr
 
 _ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor11analyzeStmtEP11AstNodeStmtb.exit: ; preds = %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor11analyzeNodeEP7AstNode.exit.i, %143, %148
   store ptr %32, ptr %31, align 8
-  br label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.argprom.exit
+  br label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.exit
 
 _ZN7AstNode11privateCastI9AstVarRefPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit
   %.not46 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 316
@@ -5064,7 +5064,7 @@ _ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS
 _ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EE6insertERKS2_.exit.i: ; preds = %_ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i, %167, %150
   %181 = add i8 %.val20, -1
   %spec.select.i5.i = icmp ult i8 %181, 2
-  br i1 %spec.select.i5.i, label %182, label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.argprom.exit
+  br i1 %spec.select.i5.i, label %182, label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.exit
 
 182:                                              ; preds = %_ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EE6insertERKS2_.exit.i
   %183 = getelementptr inbounds i8, ptr %0, i64 48
@@ -5106,7 +5106,7 @@ _ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EE6insertERKS2_.exit.i: ; preds = %_ZNSt8_R
   %196 = phi ptr [ %.pre.i.i28.i, %193 ], [ %188, %._crit_edge.i.i.i15.i ]
   %.019.lcssa29.i.i.i16.i = phi ptr [ %.019.lcssa28.i.i.i26.i, %193 ], [ %.02024.i.i.i10.i, %._crit_edge.i.i.i15.i ]
   %197 = icmp ult ptr %196, %.val
-  br i1 %197, label %select.unfold.i.i22.i, label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.argprom.exit
+  br i1 %197, label %select.unfold.i.i22.i, label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.exit
 
 select.unfold.i.i22.i:                            ; preds = %195, %._crit_edge.thread.i.i.i25.i
   %.sroa.4.0.i.ph.i.i23.i = phi ptr [ %.019.lcssa28.i.i.i26.i, %._crit_edge.thread.i.i.i25.i ], [ %.019.lcssa29.i.i.i16.i, %195 ]
@@ -5129,7 +5129,7 @@ _ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS
   %207 = load i64, ptr %206, align 8
   %208 = add i64 %207, 1
   store i64 %208, ptr %206, align 8
-  br label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.argprom.exit
+  br label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.exit
 
 209:                                              ; preds = %_ZN7AstNode11privateCastI9AstVarRefPS_EEPT_S2_.exit
   %210 = getelementptr inbounds i8, ptr %0, i64 48
@@ -5152,12 +5152,12 @@ _ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS
 
 _ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor11analyzeNodeEP7AstNode.exit: ; preds = %209, %212, %217
   tail call void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.argprom.exit
+  br label %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.exit
 
-_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.argprom.exit: ; preds = %_ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i24.i, %195, %_ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EE6insertERKS2_.exit.i, %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor11analyzeNodeEP7AstNode.exit, %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor11analyzeStmtEP11AstNodeStmtb.exit
+_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.exit: ; preds = %_ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i24.i, %195, %_ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EE6insertERKS2_.exit.i, %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor11analyzeNodeEP7AstNode.exit, %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor11analyzeStmtEP11AstNodeStmtb.exit
   br i1 %.0.shrunk, label %_ZNSt6vectorI11V3DupFinderSaIS0_EE8pop_backEv.exit, label %220
 
-220:                                              ; preds = %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.argprom.exit
+220:                                              ; preds = %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.exit
   %221 = getelementptr inbounds i8, ptr %1, i64 8
   %222 = load ptr, ptr %221, align 8
   %.not19 = icmp eq ptr %222, null
@@ -5201,7 +5201,7 @@ _ZN8V3HasherD2Ev.exit.i.i.i.i:                    ; preds = %229
   tail call void @__clang_call_terminate(ptr %238) #27
   unreachable
 
-_ZNSt6vectorI11V3DupFinderSaIS0_EE8pop_backEv.exit: ; preds = %233, %220, %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.argprom.exit
+_ZNSt6vectorI11V3DupFinderSaIS0_EE8pop_backEv.exit: ; preds = %233, %220, %_ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor13analyzeVarRefEP9AstVarRef.exit
   ret void
 }
 
@@ -6044,7 +6044,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(120) ptr @_ZN20As
   %76 = add i64 %.sroa.speculated.i.i.i.i, %46
   %77 = add i64 %76, 2
   %78 = icmp ugt i64 %77, 1152921504606846975
-  br i1 %78, label %79, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i
+  br i1 %78, label %79, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
 
 79:                                               ; preds = %75
   %80 = icmp ugt i64 %77, 2305843009213693951
@@ -6058,7 +6058,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(120) ptr @_ZN20As
   tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
-_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i: ; preds = %75
+_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i: ; preds = %75
   %81 = shl nuw nsw i64 %77, 3
   %82 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %81) #29
   %83 = sub nsw i64 %76, %23
@@ -6068,13 +6068,13 @@ _ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.a
   %.not.i.i.i.i.i25.i.i.i.i = icmp eq ptr %86, %19
   br i1 %.not.i.i.i.i.i25.i.i.i.i, label %_ZSt4copyIPPN12_GLOBAL__N_114StmtPropertiesES3_ET0_T_S5_S4_.exit26.i.i.i.i, label %87
 
-87:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i
+87:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
   %88 = ptrtoint ptr %86 to i64
   %89 = sub i64 %88, %21
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %85, ptr align 8 %19, i64 %89, i1 false)
   br label %_ZSt4copyIPPN12_GLOBAL__N_114StmtPropertiesES3_ET0_T_S5_S4_.exit26.i.i.i.i
 
-_ZSt4copyIPPN12_GLOBAL__N_114StmtPropertiesES3_ET0_T_S5_S4_.exit26.i.i.i.i: ; preds = %87, %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i
+_ZSt4copyIPPN12_GLOBAL__N_114StmtPropertiesES3_ET0_T_S5_S4_.exit26.i.i.i.i: ; preds = %87, %_ZNSt11_Deque_baseIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %47) #26
   store ptr %82, ptr %0, align 8
   store i64 %77, ptr %45, align 8
@@ -6679,7 +6679,7 @@ define internal void @_ZN12_GLOBAL__N_125CodeMotionOptimizeVisitor5visitEP11AstN
   %14 = icmp ne i32 %.val5.i, %13
   %.not1.i = icmp eq i64 %.val.i, 0
   %.not.i63 = select i1 %14, i1 true, i1 %.not1.i
-  br i1 %.not.i63, label %15, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit
+  br i1 %.not.i63, label %15, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
 
 15:                                               ; preds = %10
   %16 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.443, i32 noundef 97, i1 noundef zeroext true)
@@ -6688,14 +6688,14 @@ define internal void @_ZN12_GLOBAL__N_125CodeMotionOptimizeVisitor5visitEP11AstN
   tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %18) #28
   unreachable
 
-_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit: ; preds = %10
+_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit: ; preds = %10
   %19 = inttoptr i64 %.val.i to ptr
   %20 = getelementptr inbounds i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
   %.not52 = icmp eq ptr %21, null
   br i1 %.not52, label %_ZN7AstNode12user4SetOnceEv.exit, label %22
 
-22:                                               ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit
+22:                                               ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
   %23 = getelementptr inbounds i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not.i64 = icmp eq ptr %24, null
@@ -6735,7 +6735,7 @@ _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode11
   br i1 %spec.select.i.i67, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit69, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit69.thread.loopexit
 
 _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit69: ; preds = %33
-  %36 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125CodeMotionOptimizeVisitor12areSwappableEPK11AstNodeStmtS3_.argprom(ptr noundef %.04495, ptr noundef nonnull %1)
+  %36 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125CodeMotionOptimizeVisitor12areSwappableEPK11AstNodeStmtS3_(ptr noundef %.04495, ptr noundef nonnull %1)
   br i1 %36, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit69.thread.loopexit
 
 _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit69.thread.loopexit: ; preds = %33, %.lr.ph, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit69, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit
@@ -6759,9 +6759,9 @@ _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit69.thread: ; preds = %_ZN7
 _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.thread.preheader: ; preds = %25, %22, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit69.thread, %38
   br label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.thread
 
-_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.thread: ; preds = %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.thread.preheader, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit84
-  %.0105 = phi ptr [ %67, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit84 ], [ %21, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.thread.preheader ]
-  %.043104 = phi ptr [ %.0105, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit84 ], [ %1, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.thread.preheader ]
+_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.thread: ; preds = %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.thread.preheader, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit84
+  %.0105 = phi ptr [ %67, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit84 ], [ %21, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.thread.preheader ]
+  %.043104 = phi ptr [ %.0105, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit84 ], [ %1, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.thread.preheader ]
   %40 = getelementptr inbounds i8, ptr %.0105, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not.i70 = icmp eq ptr %41, null
@@ -6797,7 +6797,7 @@ _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit74: ; preds = %42, %_ZN7As
   br i1 %spec.select.i.i77, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit79, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit79.thread
 
 _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit79: ; preds = %50
-  %53 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125CodeMotionOptimizeVisitor12areSwappableEPK11AstNodeStmtS3_.argprom(ptr noundef %.0105, ptr noundef nonnull %.042)
+  %53 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125CodeMotionOptimizeVisitor12areSwappableEPK11AstNodeStmtS3_(ptr noundef %.0105, ptr noundef nonnull %.042)
   br i1 %53, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit74, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit79.thread, !llvm.loop !49
 
 _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit79.thread: ; preds = %50, %47, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit79, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit74
@@ -6819,7 +6819,7 @@ _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit74.thread: ; preds = %42, 
   %60 = icmp ne i32 %.val5.i81, %59
   %.not1.i82 = icmp eq i64 %.val.i80, 0
   %.not.i83 = select i1 %60, i1 true, i1 %.not1.i82
-  br i1 %.not.i83, label %61, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit84
+  br i1 %.not.i83, label %61, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit84
 
 61:                                               ; preds = %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit74.thread
   %62 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.443, i32 noundef 97, i1 noundef zeroext true)
@@ -6828,19 +6828,19 @@ _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit74.thread: ; preds = %42, 
   tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %.0105, ptr noundef nonnull align 8 dereferenceable(112) %64) #28
   unreachable
 
-_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit84: ; preds = %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit74.thread
+_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit84: ; preds = %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit74.thread
   %65 = inttoptr i64 %.val.i80 to ptr
   %66 = getelementptr inbounds i8, ptr %65, i64 112
   %67 = load ptr, ptr %66, align 8
   %.not57 = icmp eq ptr %67, null
   br i1 %.not57, label %_ZN7AstNode12user4SetOnceEv.exit, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.thread, !llvm.loop !50
 
-_ZN7AstNode12user4SetOnceEv.exit:                 ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit84, %2, %38, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit
+_ZN7AstNode12user4SetOnceEv.exit:                 ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit84, %2, %38, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125CodeMotionOptimizeVisitor12areSwappableEPK11AstNodeStmtS3_.argprom(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125CodeMotionOptimizeVisitor12areSwappableEPK11AstNodeStmtS3_(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr i8, ptr %0, i64 128
   %.val.i = load i64, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 136
@@ -6849,7 +6849,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125CodeMotionOptimiz
   %6 = icmp ne i32 %.val5.i, %5
   %.not1.i = icmp eq i64 %.val.i, 0
   %.not.i = select i1 %6, i1 true, i1 %.not1.i
-  br i1 %.not.i, label %7, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit
+  br i1 %.not.i, label %7, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
 
 7:                                                ; preds = %2
   %8 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.443, i32 noundef 97, i1 noundef zeroext true)
@@ -6858,7 +6858,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125CodeMotionOptimiz
   tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(112) %10) #28
   unreachable
 
-_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit: ; preds = %2
+_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit: ; preds = %2
   %11 = inttoptr i64 %.val.i to ptr
   %12 = getelementptr i8, ptr %1, i64 128
   %.val.i12 = load i64, ptr %12, align 8
@@ -6867,23 +6867,23 @@ _ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclE
   %14 = icmp ne i32 %.val5.i13, %.val5.i
   %.not1.i14 = icmp eq i64 %.val.i12, 0
   %.not.i15 = select i1 %14, i1 true, i1 %.not1.i14
-  br i1 %.not.i15, label %15, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit16
+  br i1 %.not.i15, label %15, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit16
 
-15:                                               ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit
+15:                                               ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
   %16 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.443, i32 noundef 97, i1 noundef zeroext true)
   %17 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.444)
   tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %18) #28
   unreachable
 
-_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit16: ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit
+_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit16: ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
   %19 = inttoptr i64 %.val.i12 to ptr
   %20 = getelementptr inbounds i8, ptr %11, i64 104
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %37, label %23
 
-23:                                               ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit16
+23:                                               ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit16
   %24 = getelementptr inbounds i8, ptr %19, i64 104
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
@@ -6905,8 +6905,8 @@ _ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclE
   %36 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111areDisjointERKSt3setIPK6AstVarSt4lessIS3_ESaIS3_EES9_(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(48) %29)
   br label %37
 
-37:                                               ; preds = %35, %31, %27, %23, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit16
-  %.0 = phi i1 [ false, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit16 ], [ false, %23 ], [ false, %27 ], [ false, %31 ], [ %36, %35 ]
+37:                                               ; preds = %35, %31, %27, %23, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit16
+  %.0 = phi i1 [ false, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit16 ], [ false, %23 ], [ false, %27 ], [ false, %31 ], [ %36, %35 ]
   ret i1 %.0
 }
 
@@ -9081,7 +9081,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor20
   %6 = icmp ne i32 %.val5.i, %5
   %.not1.i = icmp eq i64 %.val.i, 0
   %.not.i = select i1 %6, i1 true, i1 %.not1.i
-  br i1 %.not.i, label %7, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit
+  br i1 %.not.i, label %7, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
 
 7:                                                ; preds = %2
   %8 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.443, i32 noundef 97, i1 noundef zeroext true)
@@ -9090,7 +9090,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor20
   tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %10) #28
   unreachable
 
-_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit: ; preds = %2
+_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit: ; preds = %2
   %11 = inttoptr i64 %.val.i to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 104
   %13 = load i8, ptr %12, align 8
@@ -9101,7 +9101,7 @@ _ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclE
   %or.cond = select i1 %14, i1 true, i1 %.not
   br i1 %or.cond, label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit.thread, label %17
 
-17:                                               ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit
+17:                                               ; preds = %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
   %18 = getelementptr inbounds i8, ptr %11, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %11, i64 64
@@ -9135,13 +9135,13 @@ _ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit: ; preds = %22
   tail call fastcc void @_ZN12_GLOBAL__N_116MergeCondVisitor8mergeEndEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
   br label %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit.thread
 
-_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit.thread: ; preds = %31, %17, %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.argprom.exit
+_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit.thread: ; preds = %31, %17, %_ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit, %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
   %.0 = xor i1 %14, true
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExpr.argelim(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExpr(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -9203,7 +9203,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
   %23 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
   %24 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 112
   store i32 %23, ptr %24, align 8
-  br label %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.argprom.exit
+  br label %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.exit
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds i8, ptr %2, i64 48
@@ -9256,7 +9256,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
 
 _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.i.i: ; preds = %37
   %40 = icmp ugt i64 %.5.idx.i.i, 16
-  br i1 %40, label %.lr.ph.preheader.i.i, label %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.argprom.exit
+  br i1 %40, label %.lr.ph.preheader.i.i, label %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.thread.i.i
   %.6.idx90.i.i = phi i64 [ %.5.add.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.thread.i.i ], [ %.5.idx.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.i.i ]
@@ -9465,9 +9465,9 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
 _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i: ; preds = %125, %122, %102
   %.10.i.i = phi ptr [ %.2.i.i, %102 ], [ %.9.i.i, %122 ], [ %126, %125 ]
   %127 = icmp ugt ptr %.10.i.i, %.174.i.i
-  br i1 %127, label %.lr.ph.i.i, label %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.argprom.exit
+  br i1 %127, label %.lr.ph.i.i, label %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.exit
 
-_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.argprom.exit: ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.thread91.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.i.i
+_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.exit: ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.thread91.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.i.i
   %.sroa.0.614.i = phi ptr [ %12, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.thread91.i.i ], [ %12, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.i.i ], [ %.sroa.0.5.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.614.i) #26
   %128 = getelementptr inbounds i8, ptr %0, i64 112
@@ -9479,7 +9479,7 @@ _ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP
   %.not12.i = icmp eq ptr %132, %133
   br i1 %.not12.i, label %.loopexit38, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.argprom.exit
+.lr.ph.i:                                         ; preds = %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.exit
   %134 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
   br label %135
 
@@ -9506,7 +9506,7 @@ _ZNK12_GLOBAL__N_114StmtProperties18writesConditionVarEv.exit: ; preds = %135
   tail call void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
   br label %200
 
-.loopexit38:                                      ; preds = %144, %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.argprom.exit
+.loopexit38:                                      ; preds = %144, %_ZN7AstNode7foreachIZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPK9AstVarRefE_EEvOT_.exit
   store ptr %1, ptr %4, align 8
   %146 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %2, ptr %146, align 8

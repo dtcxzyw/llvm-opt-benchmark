@@ -8710,7 +8710,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %11
 
 53:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
   %.val = load ptr, ptr %4, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ProcessPrimvarChangeEbRKNS_7TfTokenEPSt6vectorINS_19HdPrimvarDescriptorESaIS5_EERKNS_7SdfPathE.argprom(i1 noundef zeroext %.013, ptr %.val, ptr noundef %52, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ProcessPrimvarChangeEbRKNS_7TfTokenEPSt6vectorINS_19HdPrimvarDescriptorESaIS5_EERKNS_7SdfPathE(i1 noundef zeroext %.013, ptr %.val, ptr noundef %52, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %54 unwind label %47
 
 54:                                               ; preds = %53, %46
@@ -8850,7 +8850,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingPrimvarDescCache3KeyD2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ProcessPrimvarChangeEbRKNS_7TfTokenEPSt6vectorINS_19HdPrimvarDescriptorESaIS5_EERKNS_7SdfPathE.argprom(i1 noundef zeroext %0, ptr %.0.val, ptr nocapture noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ProcessPrimvarChangeEbRKNS_7TfTokenEPSt6vectorINS_19HdPrimvarDescriptorESaIS5_EERKNS_7SdfPathE(i1 noundef zeroext %0, ptr %.0.val, ptr nocapture noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -9333,7 +9333,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %11
 
 140:                                              ; preds = %135
   %.val = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ProcessPrimvarChangeEbRKNS_7TfTokenEPSt6vectorINS_19HdPrimvarDescriptorESaIS5_EERKNS_7SdfPathE.argprom(i1 noundef zeroext %.0, ptr %.val, ptr noundef %139, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ProcessPrimvarChangeEbRKNS_7TfTokenEPSt6vectorINS_19HdPrimvarDescriptorESaIS5_EERKNS_7SdfPathE(i1 noundef zeroext %.0, ptr %.val, ptr noundef %139, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %141 unwind label %187
 
 141:                                              ; preds = %140

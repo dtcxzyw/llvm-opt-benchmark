@@ -2042,7 +2042,7 @@ _restore_preempt_state.exit:                      ; preds = %122, %125, %131
 309:                                              ; preds = %311, %.outer.i.i
   %310 = call ptr @list_next(ptr noundef %308) #16
   %.not.i.i = icmp eq ptr %310, null
-  br i1 %.not.i.i, label %_het_job_start_compute.argprom.exit.i, label %311
+  br i1 %.not.i.i, label %_het_job_start_compute.exit.i, label %311
 
 311:                                              ; preds = %309
   %312 = load i32, ptr %310, align 8
@@ -2055,12 +2055,12 @@ _restore_preempt_state.exit:                      ; preds = %122, %125, %131
   %.0..i.i = call i64 @llvm.smax.i64(i64 %.0.ph.i.i, i64 %316)
   br label %.outer.i.i, !llvm.loop !10
 
-_het_job_start_compute.argprom.exit.i:            ; preds = %309
+_het_job_start_compute.exit.i:                    ; preds = %309
   call void @list_iterator_destroy(ptr noundef %308) #16
   br label %317
 
-317:                                              ; preds = %_het_job_start_compute.argprom.exit.i, %300
-  %.1.i = phi i64 [ %.0.ph.i.i, %_het_job_start_compute.argprom.exit.i ], [ 0, %300 ]
+317:                                              ; preds = %_het_job_start_compute.exit.i, %300
+  %.1.i = phi i64 [ %.0.ph.i.i, %_het_job_start_compute.exit.i ], [ 0, %300 ]
   %318 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %319 = and i64 %318, 562949953421312
   %.not11.i = icmp eq i64 %319, 0
@@ -5592,13 +5592,13 @@ _het_job_deadlock_fini.exit:                      ; preds = %1952, %1954
   store i32 %2012, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 132), align 4
   %2013 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 112), align 8
   %2014 = icmp ugt i32 %2001, %2013
-  br i1 %2014, label %2015, label %_do_diag_stats.argprom.exit
+  br i1 %2014, label %2015, label %_do_diag_stats.exit
 
 2015:                                             ; preds = %1990
   store i32 %2001, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 112), align 8
-  br label %_do_diag_stats.argprom.exit
+  br label %_do_diag_stats.exit
 
-_do_diag_stats.argprom.exit:                      ; preds = %1990, %2015
+_do_diag_stats.exit:                              ; preds = %1990, %2015
   store i32 %1992, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 176), align 8
   %2016 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 180), align 4
   %2017 = add i32 %2016, %1992
@@ -5608,7 +5608,7 @@ _do_diag_stats.argprom.exit:                      ; preds = %1990, %2015
   %.not753 = icmp eq i64 %2019, 0
   br i1 %.not753, label %2026, label %2020
 
-2020:                                             ; preds = %_do_diag_stats.argprom.exit
+2020:                                             ; preds = %_do_diag_stats.exit
   %2021 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #16
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %6) #16
   %2022 = call i32 @get_log_level() #16
@@ -5620,7 +5620,7 @@ _do_diag_stats.argprom.exit:                      ; preds = %1990, %2015
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.111, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._attempt_backfill, i32 noundef %2025, i32 noundef %.1457, ptr noundef nonnull %5) #16
   br label %2026
 
-2026:                                             ; preds = %_do_diag_stats.argprom.exit, %2024, %2020
+2026:                                             ; preds = %_do_diag_stats.exit, %2024, %2020
   %2027 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #16
   %.not754 = icmp eq i32 %2027, 0
   br i1 %.not754, label %2030, label %2028
@@ -5919,15 +5919,15 @@ define internal noundef i32 @_set_hetjob_details(ptr nocapture noundef %0, ptr n
 24:                                               ; preds = %26, %21
   %25 = tail call ptr @list_next(ptr noundef %23) #16
   %.not.not.not.i.not.not.not.not.not = icmp ne ptr %25, null
-  br i1 %.not.not.not.i.not.not.not.not.not, label %26, label %_hetjob_any_resv.argprom.exit
+  br i1 %.not.not.not.i.not.not.not.not.not, label %26, label %_hetjob_any_resv.exit
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %25, i64 792
   %28 = load i32, ptr %27, align 8
   %.not6.not.i = icmp eq i32 %28, 0
-  br i1 %.not6.not.i, label %24, label %_hetjob_any_resv.argprom.exit, !llvm.loop !13
+  br i1 %.not6.not.i, label %24, label %_hetjob_any_resv.exit, !llvm.loop !13
 
-_hetjob_any_resv.argprom.exit:                    ; preds = %24, %26
+_hetjob_any_resv.exit:                            ; preds = %24, %26
   tail call void @list_iterator_destroy(ptr noundef %23) #16
   %29 = zext i1 %.not.not.not.i.not.not.not.not.not to i8
   store i8 %29, ptr %22, align 4
@@ -5939,9 +5939,9 @@ _hetjob_any_resv.argprom.exit:                    ; preds = %24, %26
   %32 = tail call ptr @list_iterator_create(ptr noundef %.val19) #16
   br label %33
 
-33:                                               ; preds = %85, %_hetjob_any_resv.argprom.exit
-  %.05.i = phi i32 [ %spec.store.select.i, %_hetjob_any_resv.argprom.exit ], [ %.4.i, %85 ]
-  %.0.i = phi i32 [ 0, %_hetjob_any_resv.argprom.exit ], [ %.3.i, %85 ]
+33:                                               ; preds = %85, %_hetjob_any_resv.exit
+  %.05.i = phi i32 [ %spec.store.select.i, %_hetjob_any_resv.exit ], [ %.4.i, %85 ]
+  %.0.i = phi i32 [ 0, %_hetjob_any_resv.exit ], [ %.3.i, %85 ]
   %34 = tail call ptr @list_next(ptr noundef %32) #16
   %.not24.i = icmp eq ptr %34, null
   br i1 %.not24.i, label %89, label %35
@@ -6084,13 +6084,13 @@ _adjust_hetjob_prio.exit37.i:                     ; preds = %75, %74, %71, %61
   %92 = and i16 %.pre, 4
   %.not28.i = icmp eq i16 %92, 0
   %or.cond = select i1 %or.cond5.i.not69, i1 true, i1 %.not28.i
-  br i1 %or.cond, label %_hetjob_calc_prio_tier.argprom.exit, label %93
+  br i1 %or.cond, label %_hetjob_calc_prio_tier.exit, label %93
 
 93:                                               ; preds = %89
   %94 = udiv i32 %.5.i, %.1.i
-  br label %_hetjob_calc_prio_tier.argprom.exit
+  br label %_hetjob_calc_prio_tier.exit
 
-_hetjob_calc_prio_tier.argprom.exit:              ; preds = %89, %93
+_hetjob_calc_prio_tier.exit:                      ; preds = %89, %93
   %.6.i = phi i32 [ %94, %93 ], [ %.5.i, %89 ]
   %95 = getelementptr inbounds i8, ptr %22, i64 4
   store i32 %.6.i, ptr %95, align 4
@@ -6101,9 +6101,9 @@ _hetjob_calc_prio_tier.argprom.exit:              ; preds = %89, %93
   %97 = tail call ptr @list_iterator_create(ptr noundef %.val20) #16
   br label %98
 
-98:                                               ; preds = %147, %_hetjob_calc_prio_tier.argprom.exit
-  %.06.i = phi i32 [ %spec.store.select.i21, %_hetjob_calc_prio_tier.argprom.exit ], [ %.5.i27, %147 ]
-  %.022.i = phi i32 [ 0, %_hetjob_calc_prio_tier.argprom.exit ], [ %.3.i28, %147 ]
+98:                                               ; preds = %147, %_hetjob_calc_prio_tier.exit
+  %.06.i = phi i32 [ %spec.store.select.i21, %_hetjob_calc_prio_tier.exit ], [ %.5.i27, %147 ]
+  %.022.i = phi i32 [ 0, %_hetjob_calc_prio_tier.exit ], [ %.3.i28, %147 ]
   %99 = tail call ptr @list_next(ptr noundef %97) #16
   %.not29.i = icmp eq ptr %99, null
   br i1 %.not29.i, label %.thread.i, label %100
@@ -6287,19 +6287,19 @@ _adjust_hetjob_prio.exit42.i:                     ; preds = %143, %142, %139, %1
   %152 = icmp ne i32 %.6.i30, 0
   %153 = icmp ne i32 %.1.i31, 0
   %or.cond3.i32 = select i1 %152, i1 %153, i1 false
-  br i1 %or.cond3.i32, label %154, label %_hetjob_calc_prio.argprom.exit
+  br i1 %or.cond3.i32, label %154, label %_hetjob_calc_prio.exit
 
 154:                                              ; preds = %.thread.i
   %155 = load i16, ptr @bf_hetjob_prio, align 2
   %156 = and i16 %155, 4
   %.not33.i = icmp eq i16 %156, 0
-  br i1 %.not33.i, label %_hetjob_calc_prio.argprom.exit, label %157
+  br i1 %.not33.i, label %_hetjob_calc_prio.exit, label %157
 
 157:                                              ; preds = %154
   %158 = udiv i32 %.6.i30, %.1.i31
-  br label %_hetjob_calc_prio.argprom.exit
+  br label %_hetjob_calc_prio.exit
 
-_hetjob_calc_prio.argprom.exit:                   ; preds = %.thread.i, %154, %157
+_hetjob_calc_prio.exit:                           ; preds = %.thread.i, %154, %157
   %.7.i = phi i32 [ %.6.i30, %154 ], [ %158, %157 ], [ %.6.i30, %.thread.i ]
   %159 = getelementptr inbounds i8, ptr %22, i64 8
   store i32 %.7.i, ptr %159, align 4
@@ -6307,7 +6307,7 @@ _hetjob_calc_prio.argprom.exit:                   ; preds = %.thread.i, %154, %1
   %161 = tail call i32 @list_for_each(ptr noundef %160, ptr noundef nonnull @_foreach_het_job_details, ptr noundef nonnull %22) #16
   br label %162
 
-162:                                              ; preds = %_hetjob_calc_prio.argprom.exit, %13, %10, %7, %2
+162:                                              ; preds = %_hetjob_calc_prio.exit, %13, %10, %7, %2
   ret i32 0
 }
 
@@ -6844,7 +6844,7 @@ define internal fastcc void @_het_job_start_set(ptr noundef %0, i64 noundef %1, 
 73:                                               ; preds = %75, %.outer.i
   %74 = tail call ptr @list_next(ptr noundef %72) #16
   %.not.i = icmp eq ptr %74, null
-  br i1 %.not.i, label %_het_job_start_compute.argprom.exit, label %75
+  br i1 %.not.i, label %_het_job_start_compute.exit, label %75
 
 75:                                               ; preds = %73
   %76 = load i32, ptr %74, align 8
@@ -6857,13 +6857,13 @@ define internal fastcc void @_het_job_start_set(ptr noundef %0, i64 noundef %1, 
   %.0..i = tail call i64 @llvm.smax.i64(i64 %.0.ph.i, i64 %80)
   br label %.outer.i, !llvm.loop !10
 
-_het_job_start_compute.argprom.exit:              ; preds = %73
+_het_job_start_compute.exit:                      ; preds = %73
   tail call void @list_iterator_destroy(ptr noundef %72) #16
   %81 = tail call i64 @time(ptr noundef null) #16
   %82 = icmp slt i64 %.0.ph.i, %81
   br i1 %82, label %95, label %83
 
-83:                                               ; preds = %_het_job_start_compute.argprom.exit
+83:                                               ; preds = %_het_job_start_compute.exit
   %.0.val69 = load ptr, ptr %70, align 8
   %.0.val70 = load i64, ptr %71, align 8
   %84 = tail call ptr @list_iterator_create(ptr noundef %.0.val69) #16
@@ -6876,7 +6876,7 @@ _het_job_start_compute.argprom.exit:              ; preds = %73
 85:                                               ; preds = %87, %.outer.i71
   %86 = tail call ptr @list_next(ptr noundef %84) #16
   %.not.i73 = icmp eq ptr %86, null
-  br i1 %.not.i73, label %_het_job_start_compute.argprom.exit75, label %87
+  br i1 %.not.i73, label %_het_job_start_compute.exit75, label %87
 
 87:                                               ; preds = %85
   %88 = load i32, ptr %86, align 8
@@ -6889,14 +6889,14 @@ _het_job_start_compute.argprom.exit:              ; preds = %73
   %.0..i74 = tail call i64 @llvm.smax.i64(i64 %.0.ph.i72, i64 %92)
   br label %.outer.i71, !llvm.loop !10
 
-_het_job_start_compute.argprom.exit75:            ; preds = %85
+_het_job_start_compute.exit75:                    ; preds = %85
   tail call void @list_iterator_destroy(ptr noundef %84) #16
   %93 = tail call i64 @time(ptr noundef null) #16
   %94 = sub nsw i64 %.0.ph.i72, %93
   br label %95
 
-95:                                               ; preds = %_het_job_start_compute.argprom.exit, %_het_job_start_compute.argprom.exit75
-  %96 = phi i64 [ %94, %_het_job_start_compute.argprom.exit75 ], [ 0, %_het_job_start_compute.argprom.exit ]
+95:                                               ; preds = %_het_job_start_compute.exit, %_het_job_start_compute.exit75
+  %96 = phi i64 [ %94, %_het_job_start_compute.exit75 ], [ 0, %_het_job_start_compute.exit ]
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.119, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._het_job_start_set, ptr noundef %0, ptr noundef %69, i64 noundef %96) #16
   br label %97
 
@@ -7156,9 +7156,9 @@ define internal fastcc i32 @_try_sched(ptr noundef %0, ptr noundef nonnull %1, i
   %15 = tail call ptr @list_iterator_create(ptr noundef nonnull %12) #16
   %16 = tail call ptr @list_next(ptr noundef %15) #16
   %.not1.i = icmp eq ptr %16, null
-  br i1 %.not1.i, label %_num_feature_count.argprom.exit.thread323, label %.lr.ph.i
+  br i1 %.not1.i, label %_num_feature_count.exit.thread323, label %.lr.ph.i
 
-_num_feature_count.argprom.exit.thread323:        ; preds = %14
+_num_feature_count.exit.thread323:                ; preds = %14
   tail call void @list_iterator_destroy(ptr noundef %15) #16
   %.pre326 = load ptr, ptr %10, align 8
   %.phi.trans.insert327 = getelementptr inbounds i8, ptr %.pre326, i64 200
@@ -7193,9 +7193,9 @@ _num_feature_count.argprom.exit.thread323:        ; preds = %14
   %.1266 = phi i1 [ true, %23 ], [ %.0265, %.lr.ph.i ], [ %.0265, %.thread.fold.split ]
   %24 = tail call ptr @list_next(ptr noundef %15) #16
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %_num_feature_count.argprom.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %_num_feature_count.exit, label %.lr.ph.i, !llvm.loop !19
 
-_num_feature_count.argprom.exit:                  ; preds = %.thread
+_num_feature_count.exit:                          ; preds = %.thread
   %25 = icmp ne i32 %spec.select.i, 0
   %26 = select i1 %.1270274, i1 true, i1 %25
   tail call void @list_iterator_destroy(ptr noundef %15) #16
@@ -7205,7 +7205,7 @@ _num_feature_count.argprom.exit:                  ; preds = %.thread
   %27 = getelementptr inbounds i8, ptr %.pre, i64 200
   br i1 %26, label %28, label %131
 
-28:                                               ; preds = %_num_feature_count.argprom.exit
+28:                                               ; preds = %_num_feature_count.exit
   %29 = load ptr, ptr %1, align 8
   %30 = tail call ptr @bit_copy(ptr noundef %29) #16
   store ptr %30, ptr %8, align 8
@@ -7466,7 +7466,7 @@ thread-pre-split:                                 ; preds = %81, %82
   store ptr %.pre317, ptr %27, align 8
   br label %.thread287
 
-131:                                              ; preds = %_num_feature_count.argprom.exit
+131:                                              ; preds = %_num_feature_count.exit
   br i1 %.1266, label %132, label %.thread337
 
 132:                                              ; preds = %131
@@ -7646,8 +7646,8 @@ thread-pre-split:                                 ; preds = %81, %82
   store ptr %.pre317, ptr %27, align 8
   br label %.thread287
 
-.thread337:                                       ; preds = %_num_feature_count.argprom.exit.thread323, %131
-  %202 = phi ptr [ %.pre317, %131 ], [ %.pre317328, %_num_feature_count.argprom.exit.thread323 ]
+.thread337:                                       ; preds = %_num_feature_count.exit.thread323, %131
+  %202 = phi ptr [ %.pre317, %131 ], [ %.pre317328, %_num_feature_count.exit.thread323 ]
   %.not = icmp eq ptr %202, null
   br i1 %.not, label %.thread337.thread, label %203
 
@@ -9056,7 +9056,7 @@ _het_job_full.exit.thread:                        ; preds = %11, %15, %23, %_het
 61:                                               ; preds = %63, %.outer.i
   %62 = tail call ptr @list_next(ptr noundef %60) #16
   %.not.i36 = icmp eq ptr %62, null
-  br i1 %.not.i36, label %_het_job_start_compute.argprom.exit, label %63
+  br i1 %.not.i36, label %_het_job_start_compute.exit, label %63
 
 63:                                               ; preds = %61
   %64 = load i32, ptr %62, align 8
@@ -9069,13 +9069,13 @@ _het_job_full.exit.thread:                        ; preds = %11, %15, %23, %_het
   %.0..i = tail call i64 @llvm.smax.i64(i64 %.0.ph.i, i64 %68)
   br label %.outer.i, !llvm.loop !10
 
-_het_job_start_compute.argprom.exit:              ; preds = %61
+_het_job_start_compute.exit:                      ; preds = %61
   tail call void @list_iterator_destroy(ptr noundef %60) #16
   store i64 %.0.ph.i, ptr %59, align 8
   %69 = icmp sgt i64 %.0.ph.i, %10
   br i1 %69, label %70, label %81
 
-70:                                               ; preds = %_het_job_start_compute.argprom.exit
+70:                                               ; preds = %_het_job_start_compute.exit
   %71 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %72 = and i64 %71, 562949953421312
   %.not34 = icmp eq i64 %72, 0
@@ -9094,7 +9094,7 @@ _het_job_start_compute.argprom.exit:              ; preds = %61
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.139, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._het_job_start_test_single, i32 noundef %77, i32 noundef %80) #16
   br label %268
 
-81:                                               ; preds = %_het_job_start_compute.argprom.exit
+81:                                               ; preds = %_het_job_start_compute.exit
   %82 = tail call fastcc zeroext i1 @_het_job_limit_check(ptr noundef %1, i64 noundef %10)
   %83 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %84 = and i64 %83, 562949953421312

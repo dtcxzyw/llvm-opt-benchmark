@@ -1020,12 +1020,12 @@ genPoly.exit.i:                                   ; preds = %.lr.ph553.i.i, %482
   %506 = sub nsw i32 0, %.sroa.2389.0.extract.trunc.i.i
   br label %507
 
-507:                                              ; preds = %placeFixed.argprom.exit.i, %.preheader216.i
-  %.0183227.i = phi i64 [ 0, %.preheader216.i ], [ %529, %placeFixed.argprom.exit.i ]
+507:                                              ; preds = %placeFixed.exit.i, %.preheader216.i
+  %.0183227.i = phi i64 [ 0, %.preheader216.i ], [ %529, %placeFixed.exit.i ]
   %508 = getelementptr inbounds i8, ptr %13, i64 %.0183227.i
   %509 = load i8, ptr %508, align 1
   %510 = trunc i8 %509 to i1
-  br i1 %510, label %511, label %placeFixed.argprom.exit.i
+  br i1 %510, label %511, label %placeFixed.exit.i
 
 511:                                              ; preds = %507
   %512 = getelementptr inbounds ptr, ptr %497, i64 %.0183227.i
@@ -1056,20 +1056,20 @@ genPoly.exit.i:                                   ; preds = %.lr.ph553.i.i, %482
 ._crit_edge.i209.i:                               ; preds = %.lr.ph.i210.i, %511
   %524 = load i8, ptr @Verbose, align 1
   %525 = icmp ugt i8 %524, 1
-  br i1 %525, label %526, label %placeFixed.argprom.exit.i
+  br i1 %525, label %526, label %placeFixed.exit.i
 
 526:                                              ; preds = %._crit_edge.i209.i
   %527 = load ptr, ptr @stderr, align 8
   %528 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %527, ptr noundef nonnull @.str.26, i32 noundef %.val208.i, i32 noundef %505, i32 noundef %506) #19
-  br label %placeFixed.argprom.exit.i
+  br label %placeFixed.exit.i
 
-placeFixed.argprom.exit.i:                        ; preds = %526, %._crit_edge.i209.i, %507
+placeFixed.exit.i:                                ; preds = %526, %._crit_edge.i209.i, %507
   %529 = add nuw i64 %.0183227.i, 1
   %exitcond237.not.i = icmp eq i64 %529, %0
   br i1 %exitcond237.not.i, label %.preheader214.i, label %507
 
-.preheader214.i:                                  ; preds = %placeFixed.argprom.exit.i, %540
-  %.0182228.i = phi i64 [ %541, %540 ], [ 0, %placeFixed.argprom.exit.i ]
+.preheader214.i:                                  ; preds = %placeFixed.exit.i, %540
+  %.0182228.i = phi i64 [ %541, %540 ], [ 0, %placeFixed.exit.i ]
   %530 = getelementptr inbounds i8, ptr %13, i64 %.0182228.i
   %531 = load i8, ptr %530, align 1
   %532 = trunc i8 %531 to i1
@@ -1239,7 +1239,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.28, i64 noundef %0, i64 noundef %1) #19
-  tail call fastcc void @graphviz_exit.argelim() #21
+  tail call fastcc void @graphviz_exit() #21
   unreachable
 
 8:                                                ; preds = %4
@@ -1251,7 +1251,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.29, i64 noundef %13) #19
-  tail call fastcc void @graphviz_exit.argelim() #21
+  tail call fastcc void @graphviz_exit() #21
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -1395,13 +1395,13 @@ define internal fastcc noalias noundef ptr @arrayRects(i64 noundef range(i64 1, 
   %73 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_arg)
   store ptr %70, ptr %73, align 8
   %74 = icmp ugt i64 %0, 1
-  br i1 %74, label %75, label %gv_sort.argprom.exit
+  br i1 %74, label %75, label %gv_sort.exit
 
 75:                                               ; preds = %71
   tail call void @qsort(ptr noundef nonnull %63, i64 noundef %0, i64 noundef 8, ptr noundef nonnull @gv_sort_compar_wrapper) #18
-  br label %gv_sort.argprom.exit
+  br label %gv_sort.exit
 
-gv_sort.argprom.exit:                             ; preds = %71, %75
+gv_sort.exit:                                     ; preds = %71, %75
   store ptr null, ptr %72, align 8
   store ptr null, ptr %73, align 8
   br label %.preheader247
@@ -1416,7 +1416,7 @@ gv_sort.argprom.exit:                             ; preds = %71, %75
   tail call void @qsort(ptr noundef nonnull %63, i64 noundef %0, i64 noundef 8, ptr noundef nonnull @acmpf) #18
   br label %.preheader247
 
-.preheader247:                                    ; preds = %76, %79, %gv_sort.argprom.exit
+.preheader247:                                    ; preds = %76, %79, %gv_sort.exit
   br label %80
 
 80:                                               ; preds = %.preheader247, %101
@@ -3661,7 +3661,7 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
 declare i32 @inPS(ptr noundef, i64) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #11 {
+define internal fastcc void @graphviz_exit() unnamed_addr #11 {
   tail call void @exit(i32 noundef 1) #24
   unreachable
 }

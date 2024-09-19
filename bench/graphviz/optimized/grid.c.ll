@@ -32,7 +32,7 @@ define noundef nonnull ptr @mkGrid(i32 noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr @stderr, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.2, i64 noundef 32) #14
-  tail call fastcc void @graphviz_exit.argelim() #15
+  tail call fastcc void @graphviz_exit() #15
   unreachable
 
 newBlock.exit:                                    ; preds = %1
@@ -103,7 +103,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, i64 noundef %0, i64 noundef %1) #14
-  tail call fastcc void @graphviz_exit.argelim() #15
+  tail call fastcc void @graphviz_exit() #15
   unreachable
 
 8:                                                ; preds = %4
@@ -115,7 +115,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.2, i64 noundef %13) #14
-  tail call fastcc void @graphviz_exit.argelim() #15
+  tail call fastcc void @graphviz_exit() #15
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -254,7 +254,7 @@ define internal noundef ptr @newCell(ptr nocapture noundef readonly %0, ptr noca
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
-  br i1 %8, label %9, label %getCell.argprom.exit
+  br i1 %8, label %9, label %getCell.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %3, i64 24
@@ -271,7 +271,7 @@ define internal noundef ptr @newCell(ptr nocapture noundef readonly %0, ptr noca
 17:                                               ; preds = %13
   %18 = load ptr, ptr @stderr, align 8
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.2, i64 noundef 32) #14
-  tail call fastcc void @graphviz_exit.argelim() #15
+  tail call fastcc void @graphviz_exit() #15
   unreachable
 
 newBlock.exit.i:                                  ; preds = %13
@@ -296,9 +296,9 @@ newBlock.exit.i:                                  ; preds = %13
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %30, ptr %31, align 8
-  br label %getCell.argprom.exit
+  br label %getCell.exit
 
-getCell.argprom.exit:                             ; preds = %2, %28
+getCell.exit:                                     ; preds = %2, %28
   %32 = phi ptr [ %30, %28 ], [ %5, %2 ]
   %.0.i = phi ptr [ %29, %28 ], [ %3, %2 ]
   %33 = getelementptr inbounds i8, ptr %.0.i, i64 8
@@ -345,7 +345,7 @@ define internal range(i32 -1, 2) i32 @ijcmpf(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit() unnamed_addr #8 {
   tail call void @exit(i32 noundef 1) #16
   unreachable
 }

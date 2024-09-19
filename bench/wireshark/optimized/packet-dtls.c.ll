@@ -3392,19 +3392,19 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   %135 = load i32, ptr @dtls_hfs, align 4
   %136 = call i32 @ssl_add_vector(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0247, ptr noundef nonnull %1, ptr noundef %29, i32 noundef 2, i32 noundef %46, ptr noundef nonnull %11, i32 noundef %135, i32 noundef 0, i32 noundef 32) #6
   %.not.i = icmp eq i32 %136, 0
-  br i1 %.not.i, label %dissect_dtls_hnd_hello_verify_request.argprom.exit, label %137
+  br i1 %.not.i, label %dissect_dtls_hnd_hello_verify_request.exit, label %137
 
 137:                                              ; preds = %132
   %138 = load i32, ptr %11, align 4
   %.not19.i = icmp eq i32 %138, 0
-  br i1 %.not19.i, label %dissect_dtls_hnd_hello_verify_request.argprom.exit, label %139
+  br i1 %.not19.i, label %dissect_dtls_hnd_hello_verify_request.exit, label %139
 
 139:                                              ; preds = %137
   %140 = load i32, ptr getelementptr inbounds (i8, ptr @dtls_hfs, i64 4), align 4
   %141 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %140, ptr noundef %.0247, i32 noundef 3, i32 noundef %138, i32 noundef 0) #6
-  br label %dissect_dtls_hnd_hello_verify_request.argprom.exit
+  br label %dissect_dtls_hnd_hello_verify_request.exit
 
-dissect_dtls_hnd_hello_verify_request.argprom.exit: ; preds = %132, %137, %139
+dissect_dtls_hnd_hello_verify_request.exit:       ; preds = %132, %137, %139
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %163
 
@@ -3468,7 +3468,7 @@ dissect_dtls_hnd_hello_verify_request.argprom.exit: ; preds = %132, %137, %139
   call void @ssl_dissect_hnd_cli_hello(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0247, ptr noundef nonnull %1, ptr noundef %29, i32 noundef 0, i32 noundef %46, ptr noundef %6, ptr noundef null, ptr noundef nonnull @dtls_hfs) #6
   br label %163
 
-163:                                              ; preds = %.critedge, %118, %124, %dissect_dtls_hnd_hello_verify_request.argprom.exit, %142, %146, %147, %148, %149, %150, %151, %160, %161, %120, %153, %159, %154, %104, %74
+163:                                              ; preds = %.critedge, %118, %124, %dissect_dtls_hnd_hello_verify_request.exit, %142, %146, %147, %148, %149, %150, %151, %160, %161, %120, %153, %159, %154, %104, %74
   %164 = add i32 %32, %60
   %165 = icmp ult i32 %164, %12
   br i1 %165, label %24, label %.loopexit, !llvm.loop !13

@@ -1572,30 +1572,30 @@ define internal fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternVie
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %15, %13
   %.not.i = icmp eq ptr %14, %4
-  br i1 %.not.i, label %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit", label %12, !llvm.loop !41
+  br i1 %.not.i, label %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit", label %12, !llvm.loop !41
 
-"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit": ; preds = %12
+"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit": ; preds = %12
   %17 = getelementptr inbounds i8, ptr %5, i64 16
   br label %18
 
-18:                                               ; preds = %18, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit"
-  %.05.i28 = phi i32 [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit" ], [ %22, %18 ]
-  %.sroa.01.04.i29 = phi ptr [ %17, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit" ], [ %20, %18 ]
+18:                                               ; preds = %18, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit"
+  %.05.i28 = phi i32 [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit" ], [ %22, %18 ]
+  %.sroa.01.04.i29 = phi ptr [ %17, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit" ], [ %20, %18 ]
   %19 = mul nsw i32 %.05.i28, 9
   %20 = getelementptr inbounds i8, ptr %.sroa.01.04.i29, i64 -4
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, %19
   %.not.i30 = icmp eq ptr %20, %5
-  br i1 %.not.i30, label %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit31", label %18, !llvm.loop !41
+  br i1 %.not.i30, label %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit31", label %18, !llvm.loop !41
 
-"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit31": ; preds = %18
+"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit31": ; preds = %18
   %23 = mul nsw i32 %22, 3
   %24 = add nsw i32 %23, %16
   br i1 %1, label %.lr.ph.i.i.i, label %.lr.ph.i.i.i32
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit31", %.lr.ph.i.i.i
-  %.08.i.i.idx.i = phi i64 [ %.08.i.i.add.i, %.lr.ph.i.i.i ], [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit31" ]
-  %.057.i.i.i = phi i32 [ %26, %.lr.ph.i.i.i ], [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit31" ]
+.lr.ph.i.i.i:                                     ; preds = %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit31", %.lr.ph.i.i.i
+  %.08.i.i.idx.i = phi i64 [ %.08.i.i.add.i, %.lr.ph.i.i.i ], [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit31" ]
+  %.057.i.i.i = phi i32 [ %26, %.lr.ph.i.i.i ], [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit31" ]
   %.08.i.i.ptr.i = getelementptr inbounds i8, ptr %4, i64 %.08.i.i.idx.i
   %25 = load i32, ptr %.08.i.i.ptr.i, align 4
   %26 = add nsw i32 %25, %.057.i.i.i
@@ -1621,9 +1621,9 @@ _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   %41 = add nsw i32 %40, %38
   br label %59
 
-.lr.ph.i.i.i32:                                   ; preds = %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit31", %.lr.ph.i.i.i32
-  %.08.i.i.idx.i33 = phi i64 [ %.08.i.i.add.i36, %.lr.ph.i.i.i32 ], [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit31" ]
-  %.057.i.i.i34 = phi i32 [ %43, %.lr.ph.i.i.i32 ], [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.argprom.exit31" ]
+.lr.ph.i.i.i32:                                   ; preds = %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit31", %.lr.ph.i.i.i32
+  %.08.i.i.idx.i33 = phi i64 [ %.08.i.i.add.i36, %.lr.ph.i.i.i32 ], [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit31" ]
+  %.057.i.i.i34 = phi i32 [ %43, %.lr.ph.i.i.i32 ], [ 0, %"_ZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbbENK3$_0clERKSt5arrayIiLm4EE.exit31" ]
   %.08.i.i.ptr.i35 = getelementptr inbounds i8, ptr %5, i64 %.08.i.i.idx.i33
   %42 = load i32, ptr %.08.i.i.ptr.i35, align 4
   %43 = add nsw i32 %42, %.057.i.i.i34

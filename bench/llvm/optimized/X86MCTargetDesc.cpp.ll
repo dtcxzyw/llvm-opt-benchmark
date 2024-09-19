@@ -5730,7 +5730,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6X86_MC17is16BitMemOperandERKNS_6MC
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit, label %.critedge.thread
+  br i1 %26, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.exit, label %.critedge.thread
 
 .critedge:                                        ; preds = %3
   br i1 %14, label %.critedge.thread, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
@@ -5752,19 +5752,19 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %.critedg
   %36 = shl nuw nsw i32 1, %31
   %37 = and i32 %36, %35
   %.not3.i = icmp eq i32 %37, 0
-  br i1 %.not3.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit
+  br i1 %.not3.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.exit
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %15, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %.critedge.thread, %.critedge
   %38 = load i8, ptr %10, align 8
   %39 = icmp eq i8 %38, 1
-  br i1 %39, label %40, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit
+  br i1 %39, label %40, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.exit
 
 40:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, -1
   %or.cond12 = icmp ult i32 %43, 375
-  br i1 %or.cond12, label %44, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit
+  br i1 %or.cond12, label %44, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.exit
 
 44:                                               ; preds = %40
   %45 = lshr i32 %42, 3
@@ -5776,9 +5776,9 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %1
   %51 = shl nuw nsw i32 1, %46
   %52 = and i32 %51, %50
   %53 = icmp ne i32 %52, 0
-  br label %_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit
+  br label %_ZL12isMemOperandRKN4llvm6MCInstEjj.exit
 
-_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit: ; preds = %44, %40, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %23
+_ZL12isMemOperandRKN4llvm6MCInstEjj.exit:         ; preds = %44, %40, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %23
   %.0 = phi i1 [ true, %23 ], [ true, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i ], [ false, %40 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i ], [ %53, %44 ]
   ret i1 %.0
 }
@@ -5800,7 +5800,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6X86_MC17is32BitMemOperandERKNS_6MC
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 29
-  br i1 %15, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit, label %.critedge
+  br i1 %15, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.exit, label %.critedge
 
 .critedge:                                        ; preds = %2, %12
   %16 = load i8, ptr %9, align 8
@@ -5811,7 +5811,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6X86_MC17is32BitMemOperandERKNS_6MC
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 30
-  br i1 %21, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit, label %.critedge2
+  br i1 %21, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.exit, label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge, %18
   br i1 %11, label %22, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
@@ -5834,17 +5834,17 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %22
   %33 = and i32 %32, %31
   %.not3.i = icmp ne i32 %33, 0
   %brmerge = or i1 %17, %.not3.i
-  br i1 %brmerge, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit, label %34
+  br i1 %brmerge, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.exit, label %34
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %22, %.critedge2
-  br i1 %17, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit, label %34
+  br i1 %17, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.exit, label %34
 
 34:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, -1
   %or.cond13 = icmp ult i32 %37, 359
-  br i1 %or.cond13, label %38, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit
+  br i1 %or.cond13, label %38, label %_ZL12isMemOperandRKN4llvm6MCInstEjj.exit
 
 38:                                               ; preds = %34
   %39 = lshr i32 %36, 3
@@ -5856,9 +5856,9 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %2
   %45 = shl nuw nsw i32 1, %40
   %46 = and i32 %45, %44
   %47 = icmp ne i32 %46, 0
-  br label %_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit
+  br label %_ZL12isMemOperandRKN4llvm6MCInstEjj.exit
 
-_ZL12isMemOperandRKN4llvm6MCInstEjj.argprom.exit: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %38, %34, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, %18, %12
+_ZL12isMemOperandRKN4llvm6MCInstEjj.exit:         ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %38, %34, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, %18, %12
   %.0 = phi i1 [ true, %12 ], [ true, %18 ], [ %.not3.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i ], [ false, %34 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i ], [ %47, %38 ]
   ret i1 %.0
 }

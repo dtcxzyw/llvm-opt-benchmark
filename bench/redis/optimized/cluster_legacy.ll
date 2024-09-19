@@ -9419,14 +9419,14 @@ land.lhs.true.i.i:                                ; preds = %if.then253
   %addr.i.i = getelementptr inbounds i8, ptr %51, i64 48
   %52 = load ptr, ptr %addr.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %52, null
-  br i1 %tobool1.not.i.i, label %if.end277, label %connAddrSockName.argprom.exit
+  br i1 %tobool1.not.i.i, label %if.end277, label %connAddrSockName.exit
 
-connAddrSockName.argprom.exit:                    ; preds = %land.lhs.true.i.i
+connAddrSockName.exit:                            ; preds = %land.lhs.true.i.i
   %call.i.i276 = call i32 %52(ptr noundef nonnull %50, ptr noundef nonnull %ip254, i64 noundef 46, ptr noundef null, i32 noundef 0) #33
   %cmp256.not = icmp eq i32 %call.i.i276, -1
   br i1 %cmp256.not, label %if.end277, label %land.lhs.true258
 
-land.lhs.true258:                                 ; preds = %connAddrSockName.argprom.exit
+land.lhs.true258:                                 ; preds = %connAddrSockName.exit
   %53 = load ptr, ptr @myself, align 8
   %ip260 = getelementptr inbounds i8, ptr %53, i64 2264
   %call262 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ip254, ptr noundef nonnull dereferenceable(1) %ip260) #34
@@ -9451,7 +9451,7 @@ do.end275:                                        ; preds = %if.then264, %if.end
   store i32 %or.i278, ptr %todo_before_sleep.i277, align 8
   br label %if.end277
 
-if.end277:                                        ; preds = %if.then253, %land.lhs.true.i.i, %connAddrSockName.argprom.exit, %land.lhs.true258, %do.end275, %land.lhs.true250
+if.end277:                                        ; preds = %if.then253, %land.lhs.true.i.i, %connAddrSockName.exit, %land.lhs.true258, %do.end275, %land.lhs.true250
   %or.cond6 = select i1 %tobool182.not326, i1 %cmp51, i1 false
   br i1 %or.cond6, label %if.then283, label %if.end305.thread
 

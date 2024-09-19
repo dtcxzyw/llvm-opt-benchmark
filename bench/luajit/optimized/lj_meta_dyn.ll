@@ -329,7 +329,7 @@ if.then35:                                        ; preds = %if.end30
   %ffid.i = getelementptr inbounds i8, ptr %28, i64 10
   %29 = load i8, ptr %ffid.i, align 2
   %cmp.i25 = icmp eq i8 %29, 0
-  br i1 %cmp.i25, label %if.then.i26, label %mmcall.argprom.exit
+  br i1 %cmp.i25, label %if.then.i26, label %mmcall.exit
 
 if.then.i26:                                      ; preds = %if.then35
   %pc.i = getelementptr inbounds i8, ptr %28, i64 32
@@ -339,9 +339,9 @@ if.then.i26:                                      ; preds = %if.then35
   %32 = load i8, ptr %framesize.i, align 1
   %idx.ext.i = zext i8 %32 to i64
   %add.ptr10.i = getelementptr inbounds %union.TValue, ptr %L.val, i64 %idx.ext.i
-  br label %mmcall.argprom.exit
+  br label %mmcall.exit
 
-mmcall.argprom.exit:                              ; preds = %if.then35, %if.then.i26
+mmcall.exit:                                      ; preds = %if.then35, %if.then.i26
   %top.0.i = phi ptr [ %add.ptr10.i, %if.then.i26 ], [ %L.val19, %if.then35 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %top.0.i, i64 8
   store i64 ptrtoint (ptr @lj_cont_ra to i64), ptr %top.0.i, align 8
@@ -364,8 +364,8 @@ for.end:                                          ; preds = %for.cond
   tail call void @lj_err_msg(ptr noundef nonnull %L, i32 noundef 364) #6
   unreachable
 
-return:                                           ; preds = %cond.false, %lor.lhs.false, %if.then, %if.then.i, %mmcall.argprom.exit
-  %retval.0 = phi ptr [ null, %mmcall.argprom.exit ], [ %call, %if.then.i ], [ %call, %if.then ], [ %call, %lor.lhs.false ], [ %call, %cond.false ]
+return:                                           ; preds = %cond.false, %lor.lhs.false, %if.then, %if.then.i, %mmcall.exit
+  %retval.0 = phi ptr [ null, %mmcall.exit ], [ %call, %if.then.i ], [ %call, %if.then ], [ %call, %lor.lhs.false ], [ %call, %cond.false ]
   ret ptr %retval.0
 }
 
@@ -597,7 +597,7 @@ if.then95:                                        ; preds = %if.end90
   %ffid.i = getelementptr inbounds i8, ptr %42, i64 10
   %43 = load i8, ptr %ffid.i, align 2
   %cmp.i56 = icmp eq i8 %43, 0
-  br i1 %cmp.i56, label %if.then.i57, label %mmcall.argprom.exit
+  br i1 %cmp.i56, label %if.then.i57, label %mmcall.exit
 
 if.then.i57:                                      ; preds = %if.then95
   %pc.i = getelementptr inbounds i8, ptr %42, i64 32
@@ -607,9 +607,9 @@ if.then.i57:                                      ; preds = %if.then95
   %46 = load i8, ptr %framesize.i, align 1
   %idx.ext.i = zext i8 %46 to i64
   %add.ptr10.i = getelementptr inbounds %union.TValue, ptr %L.val, i64 %idx.ext.i
-  br label %mmcall.argprom.exit
+  br label %mmcall.exit
 
-mmcall.argprom.exit:                              ; preds = %if.then95, %if.then.i57
+mmcall.exit:                                      ; preds = %if.then95, %if.then.i57
   %top.0.i = phi ptr [ %add.ptr10.i, %if.then.i57 ], [ %L.val49, %if.then95 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %top.0.i, i64 8
   store i64 ptrtoint (ptr @lj_cont_nop to i64), ptr %top.0.i, align 8
@@ -638,8 +638,8 @@ for.end:                                          ; preds = %if.end97
   tail call void @lj_err_msg(ptr noundef nonnull %L, i32 noundef 381) #6
   unreachable
 
-return:                                           ; preds = %if.end61, %if.then15, %if.then25, %mmcall.argprom.exit, %if.end80
-  %retval.0 = phi ptr [ null, %mmcall.argprom.exit ], [ %call81, %if.end80 ], [ %call, %if.then25 ], [ %call, %if.then15 ], [ %call, %if.end61 ]
+return:                                           ; preds = %if.end61, %if.then15, %if.then25, %mmcall.exit, %if.end80
+  %retval.0 = phi ptr [ null, %mmcall.exit ], [ %call81, %if.end80 ], [ %call, %if.then25 ], [ %call, %if.then15 ], [ %call, %if.end61 ]
   ret ptr %retval.0
 }
 
@@ -852,7 +852,7 @@ if.end19:                                         ; preds = %lj_meta_lookup.exit
   %ffid.i = getelementptr inbounds i8, ptr %38, i64 10
   %39 = load i8, ptr %ffid.i, align 2
   %cmp.i63 = icmp eq i8 %39, 0
-  br i1 %cmp.i63, label %if.then.i64, label %mmcall.argprom.exit
+  br i1 %cmp.i63, label %if.then.i64, label %mmcall.exit
 
 if.then.i64:                                      ; preds = %if.end19
   %pc.i = getelementptr inbounds i8, ptr %38, i64 32
@@ -862,9 +862,9 @@ if.then.i64:                                      ; preds = %if.end19
   %42 = load i8, ptr %framesize.i, align 1
   %idx.ext.i = zext i8 %42 to i64
   %add.ptr10.i = getelementptr inbounds %union.TValue, ptr %L.val, i64 %idx.ext.i
-  br label %mmcall.argprom.exit
+  br label %mmcall.exit
 
-mmcall.argprom.exit:                              ; preds = %if.end19, %if.then.i64
+mmcall.exit:                                      ; preds = %if.end19, %if.then.i64
   %top.0.i = phi ptr [ %add.ptr10.i, %if.then.i64 ], [ %L.val15, %if.end19 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %top.0.i, i64 8
   store i64 ptrtoint (ptr @lj_cont_ra to i64), ptr %top.0.i, align 8
@@ -882,8 +882,8 @@ mmcall.argprom.exit:                              ; preds = %if.end19, %if.then.
   store i64 %45, ptr %add.ptr14.i, align 8
   br label %return
 
-return:                                           ; preds = %mmcall.argprom.exit, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %incdec.ptr13.i, %mmcall.argprom.exit ]
+return:                                           ; preds = %mmcall.exit, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %incdec.ptr13.i, %mmcall.exit ]
   ret ptr %retval.0
 }
 
@@ -1450,7 +1450,7 @@ if.end:                                           ; preds = %lj_meta_lookup.exit
   %ffid.i = getelementptr inbounds i8, ptr %17, i64 10
   %18 = load i8, ptr %ffid.i, align 2
   %cmp.i = icmp eq i8 %18, 0
-  br i1 %cmp.i, label %if.then.i9, label %mmcall.argprom.exit
+  br i1 %cmp.i, label %if.then.i9, label %mmcall.exit
 
 if.then.i9:                                       ; preds = %if.end
   %pc.i = getelementptr inbounds i8, ptr %17, i64 32
@@ -1460,9 +1460,9 @@ if.then.i9:                                       ; preds = %if.end
   %21 = load i8, ptr %framesize.i, align 1
   %idx.ext.i = zext i8 %21 to i64
   %add.ptr10.i = getelementptr inbounds %union.TValue, ptr %L.val, i64 %idx.ext.i
-  br label %mmcall.argprom.exit
+  br label %mmcall.exit
 
-mmcall.argprom.exit:                              ; preds = %if.end, %if.then.i9
+mmcall.exit:                                      ; preds = %if.end, %if.then.i9
   %top.0.i = phi ptr [ %add.ptr10.i, %if.then.i9 ], [ %L.val7, %if.end ]
   %22 = inttoptr i64 %13 to ptr
   %nilnode = getelementptr inbounds i8, ptr %22, i64 248
@@ -1791,7 +1791,7 @@ if.then55:                                        ; preds = %lj_meta_lookup.exit
   %ffid.i = getelementptr inbounds i8, ptr %32, i64 10
   %33 = load i8, ptr %ffid.i, align 2
   %cmp.i = icmp eq i8 %33, 0
-  br i1 %cmp.i, label %if.then.i23, label %mmcall.argprom.exit
+  br i1 %cmp.i, label %if.then.i23, label %mmcall.exit
 
 if.then.i23:                                      ; preds = %if.then55
   %pc.i = getelementptr inbounds i8, ptr %32, i64 32
@@ -1801,9 +1801,9 @@ if.then.i23:                                      ; preds = %if.then55
   %36 = load i8, ptr %framesize.i, align 1
   %idx.ext.i = zext i8 %36 to i64
   %add.ptr10.i = getelementptr inbounds %union.TValue, ptr %L.val, i64 %idx.ext.i
-  br label %mmcall.argprom.exit
+  br label %mmcall.exit
 
-mmcall.argprom.exit:                              ; preds = %if.then55, %if.then.i23
+mmcall.exit:                                      ; preds = %if.then55, %if.then.i23
   %top.0.i = phi ptr [ %add.ptr10.i, %if.then.i23 ], [ %L.val21, %if.then55 ]
   %37 = select i1 %tobool.not, i64 ptrtoint (ptr @lj_cont_condt to i64), i64 ptrtoint (ptr @lj_cont_condf to i64)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %top.0.i, i64 8
@@ -1827,8 +1827,8 @@ if.else57:                                        ; preds = %lj_meta_lookup.exit
   %41 = inttoptr i64 %conv60 to ptr
   br label %return
 
-return:                                           ; preds = %if.else57, %mmcall.argprom.exit
-  %retval.0 = phi ptr [ %incdec.ptr13.i, %mmcall.argprom.exit ], [ %41, %if.else57 ]
+return:                                           ; preds = %if.else57, %mmcall.exit
+  %retval.0 = phi ptr [ %incdec.ptr13.i, %mmcall.exit ], [ %41, %if.else57 ]
   ret ptr %retval.0
 }
 
@@ -1929,7 +1929,7 @@ if.end:                                           ; preds = %lj_meta_lookup.exit
   %ffid.i = getelementptr inbounds i8, ptr %18, i64 10
   %19 = load i8, ptr %ffid.i, align 2
   %cmp.i = icmp eq i8 %19, 0
-  br i1 %cmp.i, label %if.then.i46, label %mmcall.argprom.exit
+  br i1 %cmp.i, label %if.then.i46, label %mmcall.exit
 
 if.then.i46:                                      ; preds = %if.end
   %pc.i = getelementptr inbounds i8, ptr %18, i64 32
@@ -1939,9 +1939,9 @@ if.then.i46:                                      ; preds = %if.end
   %22 = load i8, ptr %framesize.i, align 1
   %idx.ext.i = zext i8 %22 to i64
   %add.ptr10.i = getelementptr inbounds %union.TValue, ptr %L.val43, i64 %idx.ext.i
-  br label %mmcall.argprom.exit
+  br label %mmcall.exit
 
-mmcall.argprom.exit:                              ; preds = %if.end, %if.then.i46
+mmcall.exit:                                      ; preds = %if.end, %if.then.i46
   %top.0.i = phi ptr [ %add.ptr10.i, %if.then.i46 ], [ %L.val44, %if.end ]
   %23 = select i1 %tobool.not, i64 ptrtoint (ptr @lj_cont_condt to i64), i64 ptrtoint (ptr @lj_cont_condf to i64)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %top.0.i, i64 8
@@ -2148,7 +2148,7 @@ if.end76:                                         ; preds = %lor.lhs.false67
   %ffid.i109 = getelementptr inbounds i8, ptr %56, i64 10
   %57 = load i8, ptr %ffid.i109, align 2
   %cmp.i110 = icmp eq i8 %57, 0
-  br i1 %cmp.i110, label %if.then.i117, label %mmcall.argprom.exit122
+  br i1 %cmp.i110, label %if.then.i117, label %mmcall.exit122
 
 if.then.i117:                                     ; preds = %if.end76
   %pc.i118 = getelementptr inbounds i8, ptr %56, i64 32
@@ -2158,9 +2158,9 @@ if.then.i117:                                     ; preds = %if.end76
   %60 = load i8, ptr %framesize.i119, align 1
   %idx.ext.i120 = zext i8 %60 to i64
   %add.ptr10.i121 = getelementptr inbounds %union.TValue, ptr %L.val, i64 %idx.ext.i120
-  br label %mmcall.argprom.exit122
+  br label %mmcall.exit122
 
-mmcall.argprom.exit122:                           ; preds = %if.end76, %if.then.i117
+mmcall.exit122:                                   ; preds = %if.end76, %if.then.i117
   %top.0.i111 = phi ptr [ %add.ptr10.i121, %if.then.i117 ], [ %L.val42, %if.end76 ]
   %61 = select i1 %tobool56.not.le, i64 ptrtoint (ptr @lj_cont_condt to i64), i64 ptrtoint (ptr @lj_cont_condf to i64)
   %incdec.ptr.i112 = getelementptr inbounds i8, ptr %top.0.i111, i64 8
@@ -2193,8 +2193,8 @@ err:                                              ; preds = %if.then70, %if.else
   tail call void @lj_err_comp(ptr noundef %L, ptr noundef nonnull %o1.addr.0, ptr noundef %o2.addr.0) #6
   unreachable
 
-return:                                           ; preds = %mmcall.argprom.exit122, %if.then36, %mmcall.argprom.exit
-  %retval.0 = phi ptr [ %incdec.ptr13.i, %mmcall.argprom.exit ], [ %29, %if.then36 ], [ %incdec.ptr13.i115, %mmcall.argprom.exit122 ]
+return:                                           ; preds = %mmcall.exit122, %if.then36, %mmcall.exit
+  %retval.0 = phi ptr [ %incdec.ptr13.i, %mmcall.exit ], [ %29, %if.then36 ], [ %incdec.ptr13.i115, %mmcall.exit122 ]
   ret ptr %retval.0
 }
 

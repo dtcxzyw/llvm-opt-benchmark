@@ -1335,13 +1335,13 @@ default.unreachable:                              ; preds = %2
   %.val1 = load i64, ptr %7, align 8
   %8 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %9 = icmp slt i64 %8, 0
-  br i1 %9, label %10, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd3731bd868916c24E.argprom.exit"
+  br i1 %9, label %10, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd3731bd868916c24E.exit"
 
 10:                                               ; preds = %5
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd3731bd868916c24E.argprom.exit": ; preds = %5
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd3731bd868916c24E.exit": ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.val, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1368,7 +1368,7 @@ default.unreachable:                              ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %22, ptr noundef nonnull align 1 dereferenceable(23) %21, i64 23, i1 false)
   br label %23
 
-23:                                               ; preds = %20, %13, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd3731bd868916c24E.argprom.exit"
+23:                                               ; preds = %20, %13, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd3731bd868916c24E.exit"
   ret void
 }
 
@@ -3089,8 +3089,8 @@ attributes #36 = { nounwind }
 !248 = !{!249, !251, !253, !255, !257}
 !249 = distinct !{!249, !250, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E: argument 1"}
 !250 = distinct !{!250, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E"}
-!251 = distinct !{!251, !252, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E.argprom: argument 0"}
-!252 = distinct !{!252, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E.argprom"}
+!251 = distinct !{!251, !252, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E: argument 0"}
+!252 = distinct !{!252, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E"}
 !253 = distinct !{!253, !254, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17hdaf3c64ce7294b9eE.llvm.5225291548100380042: argument 1"}
 !254 = distinct !{!254, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17hdaf3c64ce7294b9eE.llvm.5225291548100380042"}
 !255 = distinct !{!255, !256, !"_ZN4core4hash6Hasher9write_str17h4f350bff4f319480E.llvm.5225291548100380042: argument 1"}
@@ -3149,8 +3149,8 @@ attributes #36 = { nounwind }
 !308 = !{!309, !311, !305, !300}
 !309 = distinct !{!309, !310, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E: argument 1"}
 !310 = distinct !{!310, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E"}
-!311 = distinct !{!311, !312, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E.argprom: argument 0"}
-!312 = distinct !{!312, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E.argprom"}
+!311 = distinct !{!311, !312, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E: argument 0"}
+!312 = distinct !{!312, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E"}
 !313 = !{!314, !302, !297}
 !314 = distinct !{!314, !310, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E: argument 0"}
 !315 = !{!316, !305, !300}
@@ -3182,8 +3182,8 @@ attributes #36 = { nounwind }
 !341 = !{!342, !344, !338, !333, !325}
 !342 = distinct !{!342, !343, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E: argument 1"}
 !343 = distinct !{!343, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E"}
-!344 = distinct !{!344, !345, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E.argprom: argument 0"}
-!345 = distinct !{!345, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E.argprom"}
+!344 = distinct !{!344, !345, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E: argument 0"}
+!345 = distinct !{!345, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E"}
 !346 = !{!347, !335, !330, !328}
 !347 = distinct !{!347, !343, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E: argument 0"}
 !348 = !{!349, !338, !333, !325}
@@ -3220,8 +3220,8 @@ attributes #36 = { nounwind }
 !379 = !{!380, !382, !378}
 !380 = distinct !{!380, !381, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E: argument 1"}
 !381 = distinct !{!381, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E"}
-!382 = distinct !{!382, !383, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E.argprom: argument 0"}
-!383 = distinct !{!383, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E.argprom"}
+!382 = distinct !{!382, !383, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E: argument 0"}
+!383 = distinct !{!383, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E"}
 !384 = !{!385, !375}
 !385 = distinct !{!385, !381, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E: argument 0"}
 !386 = !{!387, !378}
@@ -3325,8 +3325,8 @@ attributes #36 = { nounwind }
 !484 = !{!485, !487}
 !485 = distinct !{!485, !486, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E: argument 1"}
 !486 = distinct !{!486, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E"}
-!487 = distinct !{!487, !488, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E.argprom: argument 0"}
-!488 = distinct !{!488, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E.argprom"}
+!487 = distinct !{!487, !488, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E: argument 0"}
+!488 = distinct !{!488, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17h7ee9dec47497a898E"}
 !489 = !{!490}
 !490 = distinct !{!490, !486, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5550a7b5132a1757E: argument 0"}
 !491 = !{!492}

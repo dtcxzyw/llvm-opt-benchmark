@@ -5727,7 +5727,7 @@ _ZNSt6vectorIsSaIsEE17_M_realloc_insertIJRKsEEEvN9__gnu_cxx17__normal_iteratorIP
 invoke.cont322:                                   ; preds = %_ZNSt6vectorIsSaIsEE17_M_realloc_insertIJRKsEEEvN9__gnu_cxx17__normal_iteratorIPsS1_EEDpOT_.exit.i487, %if.then.i462
   %204 = load i16, ptr %localindex, align 2
   %AddTrivertToBone.val = load ptr, ptr %AddTrivertToBone, align 8
-  invoke fastcc void @"_ZZN6Assimp3MDL8HalfLife12HL1MDLLoader11read_meshesEvENK3$_0clEis.argprom"(ptr %AddTrivertToBone.val, i32 noundef %conv307, i16 noundef signext %204)
+  invoke fastcc void @"_ZZN6Assimp3MDL8HalfLife12HL1MDLLoader11read_meshesEvENK3$_0clEis"(ptr %AddTrivertToBone.val, i32 noundef %conv307, i16 noundef signext %204)
           to label %for.inc377 unwind label %lpad156.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else:                                          ; preds = %for.body303
@@ -16149,7 +16149,7 @@ return:                                           ; preds = %if.then17, %if.end5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN6Assimp3MDL8HalfLife12HL1MDLLoader11read_meshesEvENK3$_0clEis.argprom"(ptr %this.0.val, i32 noundef range(i32 0, 256) %bone, i16 noundef signext %trivert_index) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN6Assimp3MDL8HalfLife12HL1MDLLoader11read_meshesEvENK3$_0clEis"(ptr %this.0.val, i32 noundef range(i32 0, 256) %bone, i16 noundef signext %trivert_index) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.67", align 1
@@ -16868,7 +16868,7 @@ _ZNSt6vectorIsSaIsEE9push_backERKs.exit89:        ; preds = %if.then.i59, %_ZNSt
   %57 = getelementptr inbounds i8, ptr %this, i64 32
   %58 = load ptr, ptr %57, align 8
   %.val = load ptr, ptr %58, align 8
-  call fastcc void @"_ZZN6Assimp3MDL8HalfLife12HL1MDLLoader11read_meshesEvENK3$_0clEis.argprom"(ptr %.val, i32 noundef %bone, i16 noundef signext %conv)
+  call fastcc void @"_ZZN6Assimp3MDL8HalfLife12HL1MDLLoader11read_meshesEvENK3$_0clEis"(ptr %.val, i32 noundef %bone, i16 noundef signext %conv)
   ret void
 }
 

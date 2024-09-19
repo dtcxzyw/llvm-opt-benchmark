@@ -1913,11 +1913,11 @@ define internal fastcc void @_ZN4Luau12_GLOBAL__N_18StateDot10visitChildEPKNS_4T
   %44 = trunc i8 %43 to i1
   %.not.i.i.i21 = icmp ne ptr %1, null
   %or.cond.not = and i1 %.not.i.i.i21, %44
-  br i1 %or.cond.not, label %45, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit
+  br i1 %or.cond.not, label %45, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
 
 45:                                               ; preds = %.loopexit
   %46 = load i32, ptr %1, align 8
-  switch i32 %46, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit [
+  switch i32 %46, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit [
     i32 17, label %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread
     i32 4, label %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread
     i32 12, label %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread
@@ -1988,9 +1988,9 @@ _ZNSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_i
   %.0.i.pn.i.i = phi ptr [ %58, %57 ], [ %73, %.loopexit.i.i ], [ %64, %62 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
   store i32 %48, ptr %.0.i.i, align 4
-  br label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit
+  br label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
 
-_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit: ; preds = %45, %_ZNSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEEixERS9_.exit, %.loopexit
+_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit: ; preds = %45, %_ZNSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEEixERS9_.exit, %.loopexit
   %75 = ptrtoint ptr %1 to i64
   %76 = getelementptr inbounds i8, ptr %0, i64 128
   %77 = load i64, ptr %76, align 8
@@ -2001,7 +2001,7 @@ _ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit:
   %.not.i.i.i.i22 = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i22, label %.loopexit.i.i27, label %82
 
-82:                                               ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit
+82:                                               ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
   %83 = load ptr, ptr %81, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
@@ -2026,7 +2026,7 @@ _ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit:
   %.not17.i.i.i.i26 = icmp eq i64 %94, %78
   br i1 %.not17.i.i.i.i26, label %87, label %.loopexit.i.i27, !llvm.loop !7
 
-.loopexit.i.i27:                                  ; preds = %90, %.lr.ph.i.i.i.i23, %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit
+.loopexit.i.i27:                                  ; preds = %90, %.lr.ph.i.i.i.i23, %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
   %95 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
   store ptr null, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 8
@@ -2068,11 +2068,11 @@ _ZNSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_i
   %108 = trunc i8 %107 to i1
   %.not.i.i.i32 = icmp ne ptr %1, null
   %or.cond62.not = and i1 %.not.i.i.i32, %108
-  br i1 %or.cond62.not, label %109, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit38
+  br i1 %or.cond62.not, label %109, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38
 
 109:                                              ; preds = %105
   %110 = load i32, ptr %1, align 8
-  switch i32 %110, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit38 [
+  switch i32 %110, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38 [
     i32 4, label %111
     i32 12, label %138
     i32 16, label %140
@@ -2156,7 +2156,7 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %109
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull @.str.60, i32 noundef %100)
   br label %183
 
-_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit38: ; preds = %109, %105
+_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38: ; preds = %109, %105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -2168,7 +2168,7 @@ _ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit3
   %.not.not.i.i.i.i = icmp eq i64 %145, 0
   br i1 %.not.not.i.i.i.i, label %146, label %153
 
-146:                                              ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit38
+146:                                              ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38
   %147 = getelementptr inbounds i8, ptr %0, i64 24
   br label %148
 
@@ -2184,7 +2184,7 @@ _ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit3
   %152 = icmp eq ptr %1, %151
   br i1 %152, label %_ZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEi.exit, label %148, !llvm.loop !11
 
-153:                                              ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.argprom.exit38
+153:                                              ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38
   %154 = getelementptr inbounds i8, ptr %0, i64 16
   %155 = load i64, ptr %154, align 8
   %156 = urem i64 %75, %155
@@ -3852,16 +3852,16 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_12_GLOBAL__N_18StateDot13visitChi
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.67, i32 noundef %7)
   %8 = load i8, ptr %3, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9Unifiable5ErrorEEEDaOT_.argprom.exit"
+  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9Unifiable5ErrorEEEDaOT_.exit"
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.64, ptr noundef %13)
-  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9Unifiable5ErrorEEEDaOT_.argprom.exit"
+  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9Unifiable5ErrorEEEDaOT_.exit"
 
-"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9Unifiable5ErrorEEEDaOT_.argprom.exit": ; preds = %2, %10
+"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9Unifiable5ErrorEEEDaOT_.exit": ; preds = %2, %10
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.65)
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.66)
   ret void
@@ -4039,13 +4039,13 @@ _ZN4Luau8toStringB5cxx11EPKNS_4TypeE.exit.i:      ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   %33 = load i8, ptr %5, align 8
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %35, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_13PrimitiveTypeEEEDaOT_.argprom.exit"
+  br i1 %34, label %35, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_13PrimitiveTypeEEEDaOT_.exit"
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %7, align 8
   %37 = load ptr, ptr %36, align 8
   call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.64, ptr noundef %37)
-  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_13PrimitiveTypeEEEDaOT_.argprom.exit"
+  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_13PrimitiveTypeEEEDaOT_.exit"
 
 38:                                               ; preds = %_ZN4Luau8toStringB5cxx11EPKNS_4TypeE.exit.i
   %39 = landingpad { ptr, i32 }
@@ -4053,7 +4053,7 @@ _ZN4Luau8toStringB5cxx11EPKNS_4TypeE.exit.i:      ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   br label %common.resume.i
 
-"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_13PrimitiveTypeEEEDaOT_.argprom.exit": ; preds = %32, %35
+"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_13PrimitiveTypeEEEDaOT_.exit": ; preds = %32, %35
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.65)
   call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.66)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -4166,16 +4166,16 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_12_GLOBAL__N_18StateDot13visitChi
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.79, i32 noundef %7)
   %8 = load i8, ptr %3, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11BlockedTypeEEEDaOT_.argprom.exit"
+  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11BlockedTypeEEEDaOT_.exit"
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.64, ptr noundef %13)
-  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11BlockedTypeEEEDaOT_.argprom.exit"
+  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11BlockedTypeEEEDaOT_.exit"
 
-"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11BlockedTypeEEEDaOT_.argprom.exit": ; preds = %2, %10
+"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11BlockedTypeEEEDaOT_.exit": ; preds = %2, %10
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.65)
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.66)
   ret void
@@ -4191,16 +4191,16 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_12_GLOBAL__N_18StateDot13visitChi
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.80, i32 noundef %7)
   %8 = load i8, ptr %3, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_20PendingExpansionTypeEEEDaOT_.argprom.exit"
+  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_20PendingExpansionTypeEEEDaOT_.exit"
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.64, ptr noundef %13)
-  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_20PendingExpansionTypeEEEDaOT_.argprom.exit"
+  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_20PendingExpansionTypeEEEDaOT_.exit"
 
-"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_20PendingExpansionTypeEEEDaOT_.argprom.exit": ; preds = %2, %10
+"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_20PendingExpansionTypeEEEDaOT_.exit": ; preds = %2, %10
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.65)
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.66)
   ret void
@@ -4541,16 +4541,16 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_12_GLOBAL__N_18StateDot13visitChi
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.97, i32 noundef %7)
   %8 = load i8, ptr %3, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_7AnyTypeEEEDaOT_.argprom.exit"
+  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_7AnyTypeEEEDaOT_.exit"
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.64, ptr noundef %13)
-  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_7AnyTypeEEEDaOT_.argprom.exit"
+  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_7AnyTypeEEEDaOT_.exit"
 
-"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_7AnyTypeEEEDaOT_.argprom.exit": ; preds = %2, %10
+"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_7AnyTypeEEEDaOT_.exit": ; preds = %2, %10
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.65)
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.66)
   ret void
@@ -4650,16 +4650,16 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_12_GLOBAL__N_18StateDot13visitChi
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.100, i32 noundef %7)
   %8 = load i8, ptr %3, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_8LazyTypeEEEDaOT_.argprom.exit"
+  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_8LazyTypeEEEDaOT_.exit"
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.64, ptr noundef %13)
-  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_8LazyTypeEEEDaOT_.argprom.exit"
+  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_8LazyTypeEEEDaOT_.exit"
 
-"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_8LazyTypeEEEDaOT_.argprom.exit": ; preds = %2, %10
+"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_8LazyTypeEEEDaOT_.exit": ; preds = %2, %10
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.65)
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.66)
   ret void
@@ -4675,16 +4675,16 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_12_GLOBAL__N_18StateDot13visitChi
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.101, i32 noundef %7)
   %8 = load i8, ptr %3, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11UnknownTypeEEEDaOT_.argprom.exit"
+  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11UnknownTypeEEEDaOT_.exit"
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.64, ptr noundef %13)
-  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11UnknownTypeEEEDaOT_.argprom.exit"
+  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11UnknownTypeEEEDaOT_.exit"
 
-"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11UnknownTypeEEEDaOT_.argprom.exit": ; preds = %2, %10
+"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_11UnknownTypeEEEDaOT_.exit": ; preds = %2, %10
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.65)
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.66)
   ret void
@@ -4700,16 +4700,16 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_12_GLOBAL__N_18StateDot13visitChi
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.102, i32 noundef %7)
   %8 = load i8, ptr %3, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9NeverTypeEEEDaOT_.argprom.exit"
+  br i1 %9, label %10, label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9NeverTypeEEEDaOT_.exit"
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.64, ptr noundef %13)
-  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9NeverTypeEEEDaOT_.argprom.exit"
+  br label %"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9NeverTypeEEEDaOT_.exit"
 
-"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9NeverTypeEEEDaOT_.argprom.exit": ; preds = %2, %10
+"_ZZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiENK3$_0clIRKNS_9NeverTypeEEEDaOT_.exit": ; preds = %2, %10
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.65)
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.66)
   ret void

@@ -287,7 +287,7 @@ define range(i32 -1, 1) i32 @H5I_clear_type(i32 noundef %0, i1 noundef zeroext %
   %29 = getelementptr inbounds i8, ptr %.086.us, i64 48
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
-  br i1 %31, label %H5I__mark_node.argprom.exit.us, label %32
+  br i1 %31, label %H5I__mark_node.exit.us, label %32
 
 32:                                               ; preds = %.lr.ph.split.us
   %33 = getelementptr inbounds i8, ptr %.086.us, i64 24
@@ -321,13 +321,13 @@ define range(i32 -1, 1) i32 @H5I_clear_type(i32 noundef %0, i1 noundef zeroext %
   %50 = load i64, ptr %28, align 8
   %51 = add i64 %50, -1
   store i64 %51, ptr %28, align 8
-  br label %H5I__mark_node.argprom.exit.us
+  br label %H5I__mark_node.exit.us
 
-H5I__mark_node.argprom.exit.us:                   ; preds = %.critedge.i.us, %.lr.ph.split.us
+H5I__mark_node.exit.us:                           ; preds = %.critedge.i.us, %.lr.ph.split.us
   %.not66.us = icmp eq ptr %.04585.us, null
   br i1 %.not66.us, label %._crit_edge, label %52
 
-52:                                               ; preds = %H5I__mark_node.argprom.exit.us
+52:                                               ; preds = %H5I__mark_node.exit.us
   %53 = getelementptr inbounds i8, ptr %.04585.us, i64 72
   %54 = load ptr, ptr %53, align 8
   br label %.lr.ph.split.us
@@ -341,13 +341,13 @@ H5I__mark_node.argprom.exit.us:                   ; preds = %.critedge.i.us, %.l
   %55 = getelementptr inbounds i8, ptr %.086.us87, i64 48
   %56 = load i8, ptr %55, align 8
   %57 = trunc i8 %56 to i1
-  br i1 %57, label %H5I__mark_node.argprom.exit.us91, label %58
+  br i1 %57, label %H5I__mark_node.exit.us91, label %58
 
 58:                                               ; preds = %.lr.ph.split.split.us
   %59 = getelementptr inbounds i8, ptr %.086.us87, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = icmp ult i32 %60, 2
-  br i1 %61, label %62, label %H5I__mark_node.argprom.exit.us91
+  br i1 %61, label %62, label %H5I__mark_node.exit.us91
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %.086.us87, i64 24
@@ -367,7 +367,7 @@ H5I__mark_node.argprom.exit.us:                   ; preds = %.critedge.i.us, %.l
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i32 %69(ptr noundef %72, ptr noundef null) #7
   %74 = icmp sgt i32 %73, -1
-  br i1 %74, label %.critedge.i.us90, label %H5I__mark_node.argprom.exit.us91
+  br i1 %74, label %.critedge.i.us90, label %H5I__mark_node.exit.us91
 
 75:                                               ; preds = %62
   %76 = getelementptr inbounds i8, ptr %.086.us87, i64 40
@@ -376,20 +376,20 @@ H5I__mark_node.argprom.exit.us:                   ; preds = %.critedge.i.us, %.l
   %79 = load ptr, ptr %78, align 8
   %80 = tail call i32 %77(ptr noundef %79) #7
   %81 = icmp sgt i32 %80, -1
-  br i1 %81, label %.critedge.i.us90, label %H5I__mark_node.argprom.exit.us91
+  br i1 %81, label %.critedge.i.us90, label %H5I__mark_node.exit.us91
 
 .critedge.i.us90:                                 ; preds = %75, %70, %66
   store i8 1, ptr %55, align 8
   %82 = load i64, ptr %28, align 8
   %83 = add i64 %82, -1
   store i64 %83, ptr %28, align 8
-  br label %H5I__mark_node.argprom.exit.us91
+  br label %H5I__mark_node.exit.us91
 
-H5I__mark_node.argprom.exit.us91:                 ; preds = %58, %.critedge.i.us90, %75, %70, %.lr.ph.split.split.us
+H5I__mark_node.exit.us91:                         ; preds = %58, %.critedge.i.us90, %75, %70, %.lr.ph.split.split.us
   %.not66.us92 = icmp eq ptr %.04585.us88, null
   br i1 %.not66.us92, label %._crit_edge, label %84
 
-84:                                               ; preds = %H5I__mark_node.argprom.exit.us91
+84:                                               ; preds = %H5I__mark_node.exit.us91
   %85 = getelementptr inbounds i8, ptr %.04585.us88, i64 72
   %86 = load ptr, ptr %85, align 8
   br label %.lr.ph.split.split.us
@@ -400,7 +400,7 @@ H5I__mark_node.argprom.exit.us91:                 ; preds = %58, %.critedge.i.us
   %87 = getelementptr inbounds i8, ptr %.086, i64 48
   %88 = load i8, ptr %87, align 8
   %89 = trunc i8 %88 to i1
-  br i1 %89, label %H5I__mark_node.argprom.exit, label %90
+  br i1 %89, label %H5I__mark_node.exit, label %90
 
 90:                                               ; preds = %.lr.ph.split.split
   %91 = getelementptr inbounds i8, ptr %.086, i64 8
@@ -409,7 +409,7 @@ H5I__mark_node.argprom.exit.us91:                 ; preds = %58, %.critedge.i.us
   %94 = load i32, ptr %93, align 4
   %95 = sub i32 %92, %94
   %96 = icmp ult i32 %95, 2
-  br i1 %96, label %97, label %H5I__mark_node.argprom.exit
+  br i1 %96, label %97, label %H5I__mark_node.exit
 
 97:                                               ; preds = %90
   %98 = getelementptr inbounds i8, ptr %.086, i64 24
@@ -424,7 +424,7 @@ H5I__mark_node.argprom.exit.us91:                 ; preds = %58, %.critedge.i.us
   %105 = load ptr, ptr %104, align 8
   %106 = tail call i32 %103(ptr noundef %105) #7
   %107 = icmp sgt i32 %106, -1
-  br i1 %107, label %.critedge.i, label %H5I__mark_node.argprom.exit
+  br i1 %107, label %.critedge.i, label %H5I__mark_node.exit
 
 108:                                              ; preds = %97
   %109 = load ptr, ptr %13, align 8
@@ -438,25 +438,25 @@ H5I__mark_node.argprom.exit.us91:                 ; preds = %58, %.critedge.i.us
   %114 = load ptr, ptr %113, align 8
   %115 = tail call i32 %111(ptr noundef %114, ptr noundef null) #7
   %116 = icmp sgt i32 %115, -1
-  br i1 %116, label %.critedge.i, label %H5I__mark_node.argprom.exit
+  br i1 %116, label %.critedge.i, label %H5I__mark_node.exit
 
 .critedge.i:                                      ; preds = %112, %101, %108
   store i8 1, ptr %87, align 8
   %117 = load i64, ptr %28, align 8
   %118 = add i64 %117, -1
   store i64 %118, ptr %28, align 8
-  br label %H5I__mark_node.argprom.exit
+  br label %H5I__mark_node.exit
 
-H5I__mark_node.argprom.exit:                      ; preds = %112, %101, %.critedge.i, %90, %.lr.ph.split.split
+H5I__mark_node.exit:                              ; preds = %112, %101, %.critedge.i, %90, %.lr.ph.split.split
   %.not66 = icmp eq ptr %.04585, null
   br i1 %.not66, label %._crit_edge, label %119
 
-119:                                              ; preds = %H5I__mark_node.argprom.exit
+119:                                              ; preds = %H5I__mark_node.exit
   %120 = getelementptr inbounds i8, ptr %.04585, i64 72
   %121 = load ptr, ptr %120, align 8
   br label %.lr.ph.split.split
 
-._crit_edge:                                      ; preds = %H5I__mark_node.argprom.exit, %H5I__mark_node.argprom.exit.us91, %H5I__mark_node.argprom.exit.us
+._crit_edge:                                      ; preds = %H5I__mark_node.exit, %H5I__mark_node.exit.us91, %H5I__mark_node.exit.us
   %.pr = load ptr, ptr %24, align 8
   store i1 false, ptr @H5I_marking_s, align 1
   %.not59 = icmp eq ptr %.pr, null
@@ -3182,32 +3182,32 @@ define range(i32 -1, 1) i32 @H5I_iterate(i32 noundef %0, ptr nocapture noundef r
   %8 = load i64, ptr @H5E_ARGS_g, align 8
   %9 = load i64, ptr @H5E_BADRANGE_g, align 8
   %10 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5I_iterate, i32 noundef 1503, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.2) #7
-  br label %H5I__iterate_cb.argprom.exit.thread36
+  br label %H5I__iterate_cb.exit.thread36
 
 11:                                               ; preds = %4
   %12 = zext nneg i32 %0 to i64
   %13 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not29 = icmp eq ptr %14, null
-  br i1 %.not29, label %H5I__iterate_cb.argprom.exit.thread36, label %15
+  br i1 %.not29, label %H5I__iterate_cb.exit.thread36, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   %.not30 = icmp eq i32 %17, 0
-  br i1 %.not30, label %H5I__iterate_cb.argprom.exit.thread36, label %18
+  br i1 %.not30, label %H5I__iterate_cb.exit.thread36, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %14, i64 16
   %20 = load i64, ptr %19, align 8
   %.not31 = icmp eq i64 %20, 0
-  br i1 %.not31, label %H5I__iterate_cb.argprom.exit.thread36, label %21
+  br i1 %.not31, label %H5I__iterate_cb.exit.thread36, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %14, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not32 = icmp eq ptr %23, null
-  br i1 %.not32, label %H5I__iterate_cb.argprom.exit.thread36, label %.lr.ph
+  br i1 %.not32, label %H5I__iterate_cb.exit.thread36, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
   %24 = getelementptr inbounds i8, ptr %23, i64 72
@@ -3220,13 +3220,13 @@ define range(i32 -1, 1) i32 @H5I_iterate(i32 noundef %0, ptr nocapture noundef r
   %26 = getelementptr inbounds i8, ptr %.02339.us, i64 48
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1
-  br i1 %28, label %H5I__iterate_cb.argprom.exit.thread.us, label %29
+  br i1 %28, label %H5I__iterate_cb.exit.thread.us, label %29
 
 29:                                               ; preds = %.lr.ph.split.us
   %30 = getelementptr inbounds i8, ptr %.02339.us, i64 12
   %31 = load i32, ptr %30, align 4
   %.not.i.us = icmp eq i32 %31, 0
-  br i1 %.not.i.us, label %H5I__iterate_cb.argprom.exit.thread.us, label %32
+  br i1 %.not.i.us, label %H5I__iterate_cb.exit.thread.us, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %.02339.us, i64 16
@@ -3252,17 +3252,17 @@ H5I__unwrap.exit.i.us:                            ; preds = %37, %35, %32
   %39 = load i64, ptr %.02339.us, align 8
   %40 = tail call i32 %1(ptr noundef %.0.i.i.us, i64 noundef %39, ptr noundef %2) #7
   %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %H5I__iterate_cb.argprom.exit.thread36, label %H5I__iterate_cb.argprom.exit.us
+  br i1 %41, label %H5I__iterate_cb.exit.thread36, label %H5I__iterate_cb.exit.us
 
-H5I__iterate_cb.argprom.exit.us:                  ; preds = %H5I__unwrap.exit.i.us
+H5I__iterate_cb.exit.us:                          ; preds = %H5I__unwrap.exit.i.us
   %.not1.i.not.us = icmp eq i32 %40, 0
-  br i1 %.not1.i.not.us, label %H5I__iterate_cb.argprom.exit.thread.us, label %.split.us
+  br i1 %.not1.i.not.us, label %H5I__iterate_cb.exit.thread.us, label %.split.us
 
-H5I__iterate_cb.argprom.exit.thread.us:           ; preds = %H5I__iterate_cb.argprom.exit.us, %29, %.lr.ph.split.us
+H5I__iterate_cb.exit.thread.us:                   ; preds = %H5I__iterate_cb.exit.us, %29, %.lr.ph.split.us
   %.not34.us = icmp eq ptr %.040.us, null
-  br i1 %.not34.us, label %H5I__iterate_cb.argprom.exit.thread36, label %42
+  br i1 %.not34.us, label %H5I__iterate_cb.exit.thread36, label %42
 
-42:                                               ; preds = %H5I__iterate_cb.argprom.exit.thread.us
+42:                                               ; preds = %H5I__iterate_cb.exit.thread.us
   %43 = getelementptr inbounds i8, ptr %.040.us, i64 72
   %44 = load ptr, ptr %43, align 8
   br label %.lr.ph.split.us
@@ -3285,7 +3285,7 @@ H5I__iterate_cb.argprom.exit.thread.us:           ; preds = %H5I__iterate_cb.arg
   %45 = getelementptr inbounds i8, ptr %.02339.us42, i64 48
   %46 = load i8, ptr %45, align 8
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %H5I__iterate_cb.argprom.exit.thread.us47, label %H5I__unwrap.exit.i.us43
+  br i1 %47, label %H5I__iterate_cb.exit.thread.us47, label %H5I__unwrap.exit.i.us43
 
 H5I__unwrap.exit.i.us43:                          ; preds = %.lr.ph.split.split.us
   %48 = getelementptr inbounds i8, ptr %.02339.us42, i64 16
@@ -3294,17 +3294,17 @@ H5I__unwrap.exit.i.us43:                          ; preds = %.lr.ph.split.split.
   %51 = load i64, ptr %.02339.us42, align 8
   %52 = tail call i32 %1(ptr noundef %50, i64 noundef %51, ptr noundef %2) #7
   %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %H5I__iterate_cb.argprom.exit.thread36, label %H5I__iterate_cb.argprom.exit.us45
+  br i1 %53, label %H5I__iterate_cb.exit.thread36, label %H5I__iterate_cb.exit.us45
 
-H5I__iterate_cb.argprom.exit.us45:                ; preds = %H5I__unwrap.exit.i.us43
+H5I__iterate_cb.exit.us45:                        ; preds = %H5I__unwrap.exit.i.us43
   %.not1.i.not.us46 = icmp eq i32 %52, 0
-  br i1 %.not1.i.not.us46, label %H5I__iterate_cb.argprom.exit.thread.us47, label %.split.us
+  br i1 %.not1.i.not.us46, label %H5I__iterate_cb.exit.thread.us47, label %.split.us
 
-H5I__iterate_cb.argprom.exit.thread.us47:         ; preds = %H5I__iterate_cb.argprom.exit.us45, %.lr.ph.split.split.us
+H5I__iterate_cb.exit.thread.us47:                 ; preds = %H5I__iterate_cb.exit.us45, %.lr.ph.split.split.us
   %.not34.us48 = icmp eq ptr %.040.us41, null
-  br i1 %.not34.us48, label %H5I__iterate_cb.argprom.exit.thread36, label %54
+  br i1 %.not34.us48, label %H5I__iterate_cb.exit.thread36, label %54
 
-54:                                               ; preds = %H5I__iterate_cb.argprom.exit.thread.us47
+54:                                               ; preds = %H5I__iterate_cb.exit.thread.us47
   %55 = getelementptr inbounds i8, ptr %.040.us41, i64 72
   %56 = load ptr, ptr %55, align 8
   br label %.lr.ph.split.split.us
@@ -3315,7 +3315,7 @@ H5I__iterate_cb.argprom.exit.thread.us47:         ; preds = %H5I__iterate_cb.arg
   %57 = getelementptr inbounds i8, ptr %.02339.us52, i64 48
   %58 = load i8, ptr %57, align 8
   %59 = trunc i8 %58 to i1
-  br i1 %59, label %H5I__iterate_cb.argprom.exit.thread.us57, label %H5I__unwrap.exit.i.us53
+  br i1 %59, label %H5I__iterate_cb.exit.thread.us57, label %H5I__unwrap.exit.i.us53
 
 H5I__unwrap.exit.i.us53:                          ; preds = %.lr.ph.split.split.us50
   %60 = getelementptr inbounds i8, ptr %.02339.us52, i64 16
@@ -3324,17 +3324,17 @@ H5I__unwrap.exit.i.us53:                          ; preds = %.lr.ph.split.split.
   %63 = load i64, ptr %.02339.us52, align 8
   %64 = tail call i32 %1(ptr noundef %62, i64 noundef %63, ptr noundef %2) #7
   %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %H5I__iterate_cb.argprom.exit.thread36, label %H5I__iterate_cb.argprom.exit.us55
+  br i1 %65, label %H5I__iterate_cb.exit.thread36, label %H5I__iterate_cb.exit.us55
 
-H5I__iterate_cb.argprom.exit.us55:                ; preds = %H5I__unwrap.exit.i.us53
+H5I__iterate_cb.exit.us55:                        ; preds = %H5I__unwrap.exit.i.us53
   %.not1.i.not.us56 = icmp eq i32 %64, 0
-  br i1 %.not1.i.not.us56, label %H5I__iterate_cb.argprom.exit.thread.us57, label %.split.us
+  br i1 %.not1.i.not.us56, label %H5I__iterate_cb.exit.thread.us57, label %.split.us
 
-H5I__iterate_cb.argprom.exit.thread.us57:         ; preds = %H5I__iterate_cb.argprom.exit.us55, %.lr.ph.split.split.us50
+H5I__iterate_cb.exit.thread.us57:                 ; preds = %H5I__iterate_cb.exit.us55, %.lr.ph.split.split.us50
   %.not34.us58 = icmp eq ptr %.040.us51, null
-  br i1 %.not34.us58, label %H5I__iterate_cb.argprom.exit.thread36, label %66
+  br i1 %.not34.us58, label %H5I__iterate_cb.exit.thread36, label %66
 
-66:                                               ; preds = %H5I__iterate_cb.argprom.exit.thread.us57
+66:                                               ; preds = %H5I__iterate_cb.exit.thread.us57
   %67 = getelementptr inbounds i8, ptr %.040.us51, i64 72
   %68 = load ptr, ptr %67, align 8
   br label %.lr.ph.split.split.us50
@@ -3345,7 +3345,7 @@ H5I__iterate_cb.argprom.exit.thread.us57:         ; preds = %H5I__iterate_cb.arg
   %69 = getelementptr inbounds i8, ptr %.02339, i64 48
   %70 = load i8, ptr %69, align 8
   %71 = trunc i8 %70 to i1
-  br i1 %71, label %H5I__iterate_cb.argprom.exit.thread, label %H5I__unwrap.exit.i
+  br i1 %71, label %H5I__iterate_cb.exit.thread, label %H5I__unwrap.exit.i
 
 H5I__unwrap.exit.i:                               ; preds = %.lr.ph.split.split
   %72 = getelementptr inbounds i8, ptr %.02339, i64 16
@@ -3353,29 +3353,29 @@ H5I__unwrap.exit.i:                               ; preds = %.lr.ph.split.split
   %74 = load i64, ptr %.02339, align 8
   %75 = tail call i32 %1(ptr noundef %73, i64 noundef %74, ptr noundef %2) #7
   %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %H5I__iterate_cb.argprom.exit.thread36, label %H5I__iterate_cb.argprom.exit
+  br i1 %76, label %H5I__iterate_cb.exit.thread36, label %H5I__iterate_cb.exit
 
-H5I__iterate_cb.argprom.exit:                     ; preds = %H5I__unwrap.exit.i
+H5I__iterate_cb.exit:                             ; preds = %H5I__unwrap.exit.i
   %.not1.i.not = icmp eq i32 %75, 0
-  br i1 %.not1.i.not, label %H5I__iterate_cb.argprom.exit.thread, label %.split.us
+  br i1 %.not1.i.not, label %H5I__iterate_cb.exit.thread, label %.split.us
 
-.split.us:                                        ; preds = %H5I__iterate_cb.argprom.exit.us55, %H5I__iterate_cb.argprom.exit.us45, %H5I__iterate_cb.argprom.exit, %H5I__iterate_cb.argprom.exit.us
+.split.us:                                        ; preds = %H5I__iterate_cb.exit.us55, %H5I__iterate_cb.exit.us45, %H5I__iterate_cb.exit, %H5I__iterate_cb.exit.us
   %77 = load i64, ptr @H5E_ID_g, align 8
   %78 = load i64, ptr @H5E_BADITER_g, align 8
   %79 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5I_iterate, i32 noundef 1524, i64 noundef %77, i64 noundef %78, ptr noundef nonnull @.str.16) #7
-  br label %H5I__iterate_cb.argprom.exit.thread36
+  br label %H5I__iterate_cb.exit.thread36
 
-H5I__iterate_cb.argprom.exit.thread:              ; preds = %H5I__iterate_cb.argprom.exit, %.lr.ph.split.split
+H5I__iterate_cb.exit.thread:                      ; preds = %H5I__iterate_cb.exit, %.lr.ph.split.split
   %.not34 = icmp eq ptr %.040, null
-  br i1 %.not34, label %H5I__iterate_cb.argprom.exit.thread36, label %80
+  br i1 %.not34, label %H5I__iterate_cb.exit.thread36, label %80
 
-80:                                               ; preds = %H5I__iterate_cb.argprom.exit.thread
+80:                                               ; preds = %H5I__iterate_cb.exit.thread
   %81 = getelementptr inbounds i8, ptr %.040, i64 72
   %82 = load ptr, ptr %81, align 8
   br label %.lr.ph.split.split
 
-H5I__iterate_cb.argprom.exit.thread36:            ; preds = %H5I__iterate_cb.argprom.exit.thread.us57, %H5I__unwrap.exit.i.us53, %H5I__iterate_cb.argprom.exit.thread.us47, %H5I__unwrap.exit.i.us43, %H5I__iterate_cb.argprom.exit.thread, %H5I__unwrap.exit.i, %H5I__iterate_cb.argprom.exit.thread.us, %H5I__unwrap.exit.i.us, %21, %11, %15, %18, %.split.us, %7
-  %.024 = phi i32 [ -1, %7 ], [ -1, %.split.us ], [ 0, %18 ], [ 0, %15 ], [ 0, %11 ], [ 0, %21 ], [ 0, %H5I__unwrap.exit.i.us ], [ 0, %H5I__iterate_cb.argprom.exit.thread.us ], [ 0, %H5I__unwrap.exit.i ], [ 0, %H5I__iterate_cb.argprom.exit.thread ], [ 0, %H5I__unwrap.exit.i.us43 ], [ 0, %H5I__iterate_cb.argprom.exit.thread.us47 ], [ 0, %H5I__unwrap.exit.i.us53 ], [ 0, %H5I__iterate_cb.argprom.exit.thread.us57 ]
+H5I__iterate_cb.exit.thread36:                    ; preds = %H5I__iterate_cb.exit.thread.us57, %H5I__unwrap.exit.i.us53, %H5I__iterate_cb.exit.thread.us47, %H5I__unwrap.exit.i.us43, %H5I__iterate_cb.exit.thread, %H5I__unwrap.exit.i, %H5I__iterate_cb.exit.thread.us, %H5I__unwrap.exit.i.us, %21, %11, %15, %18, %.split.us, %7
+  %.024 = phi i32 [ -1, %7 ], [ -1, %.split.us ], [ 0, %18 ], [ 0, %15 ], [ 0, %11 ], [ 0, %21 ], [ 0, %H5I__unwrap.exit.i.us ], [ 0, %H5I__iterate_cb.exit.thread.us ], [ 0, %H5I__unwrap.exit.i ], [ 0, %H5I__iterate_cb.exit.thread ], [ 0, %H5I__unwrap.exit.i.us43 ], [ 0, %H5I__iterate_cb.exit.thread.us47 ], [ 0, %H5I__unwrap.exit.i.us53 ], [ 0, %H5I__iterate_cb.exit.thread.us57 ]
   ret i32 %.024
 }
 
@@ -3428,20 +3428,20 @@ H5I__unwrap.exit.i.us42.preheader:                ; preds = %.lr.ph
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @H5T_get_actual_type(ptr noundef %24) #7
   %26 = icmp eq ptr %25, %0
-  br i1 %26, label %H5I__find_id_cb.argprom.exit, label %.lr.ph73
+  br i1 %26, label %H5I__find_id_cb.exit, label %.lr.ph73
 
 H5I__unwrap.exit.i.preheader:                     ; preds = %.lr.ph
   %27 = getelementptr inbounds i8, ptr %20, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %0
-  br i1 %29, label %H5I__find_id_cb.argprom.exit, label %.lr.ph78
+  br i1 %29, label %H5I__find_id_cb.exit, label %.lr.ph78
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %30 = getelementptr inbounds i8, ptr %20, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @H5VL_object_data(ptr noundef %31) #7
   %33 = icmp eq ptr %32, %0
-  br i1 %33, label %H5I__find_id_cb.argprom.exit, label %.lr.ph75
+  br i1 %33, label %H5I__find_id_cb.exit, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %.lr.ph.split.us, %H5I__unwrap.exit.i.us
   %.038.us74 = phi ptr [ %35, %H5I__unwrap.exit.i.us ], [ %22, %.lr.ph.split.us ]
@@ -3455,7 +3455,7 @@ H5I__unwrap.exit.i.us:                            ; preds = %.lr.ph75
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @H5VL_object_data(ptr noundef %37) #7
   %39 = icmp eq ptr %38, %0
-  br i1 %39, label %H5I__find_id_cb.argprom.exit, label %.lr.ph75
+  br i1 %39, label %H5I__find_id_cb.exit, label %.lr.ph75
 
 .lr.ph73:                                         ; preds = %H5I__unwrap.exit.i.us42.preheader, %H5I__unwrap.exit.i.us42
   %.038.us4072 = phi ptr [ %41, %H5I__unwrap.exit.i.us42 ], [ %22, %H5I__unwrap.exit.i.us42.preheader ]
@@ -3469,9 +3469,9 @@ H5I__unwrap.exit.i.us42:                          ; preds = %.lr.ph73
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr @H5T_get_actual_type(ptr noundef %43) #7
   %45 = icmp eq ptr %44, %0
-  br i1 %45, label %H5I__find_id_cb.argprom.exit, label %.lr.ph73
+  br i1 %45, label %H5I__find_id_cb.exit, label %.lr.ph73
 
-H5I__find_id_cb.argprom.exit:                     ; preds = %H5I__unwrap.exit.i.us42, %H5I__unwrap.exit.i.us, %H5I__unwrap.exit.i, %H5I__unwrap.exit.i.us42.preheader, %.lr.ph.split.us, %H5I__unwrap.exit.i.preheader
+H5I__find_id_cb.exit:                             ; preds = %H5I__unwrap.exit.i.us42, %H5I__unwrap.exit.i.us, %H5I__unwrap.exit.i, %H5I__unwrap.exit.i.us42.preheader, %.lr.ph.split.us, %H5I__unwrap.exit.i.preheader
   %.us-phi = phi ptr [ %20, %H5I__unwrap.exit.i.preheader ], [ %20, %.lr.ph.split.us ], [ %20, %H5I__unwrap.exit.i.us42.preheader ], [ %.03877, %H5I__unwrap.exit.i ], [ %.038.us74, %H5I__unwrap.exit.i.us ], [ %.038.us4072, %H5I__unwrap.exit.i.us42 ]
   %46 = load i64, ptr %.us-phi, align 8
   br label %.loopexit
@@ -3487,10 +3487,10 @@ H5I__unwrap.exit.i:                               ; preds = %.lr.ph78
   %49 = getelementptr inbounds i8, ptr %.03877, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %0
-  br i1 %51, label %H5I__find_id_cb.argprom.exit, label %.lr.ph78
+  br i1 %51, label %H5I__find_id_cb.exit, label %.lr.ph78
 
-.loopexit:                                        ; preds = %.lr.ph73, %.lr.ph75, %.lr.ph78, %18, %H5I__find_id_cb.argprom.exit
-  %.sroa.4.1 = phi i64 [ %46, %H5I__find_id_cb.argprom.exit ], [ -1, %18 ], [ -1, %.lr.ph78 ], [ -1, %.lr.ph75 ], [ -1, %.lr.ph73 ]
+.loopexit:                                        ; preds = %.lr.ph73, %.lr.ph75, %.lr.ph78, %18, %H5I__find_id_cb.exit
+  %.sroa.4.1 = phi i64 [ %46, %H5I__find_id_cb.exit ], [ -1, %18 ], [ -1, %.lr.ph78 ], [ -1, %.lr.ph75 ], [ -1, %.lr.ph73 ]
   store i64 %.sroa.4.1, ptr %2, align 8
   br label %52
 

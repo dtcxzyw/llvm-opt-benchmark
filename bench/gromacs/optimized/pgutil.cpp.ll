@@ -295,7 +295,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %79, %69, %76
   %112 = getelementptr inbounds %struct.t_resinfo, ptr %110, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %113, align 8
-  tail call fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b.argprom.argelim(i32 noundef 154, ptr noundef %.097250, i32 noundef %108, ptr noundef %114, ptr noundef %3, i1 noundef zeroext %4)
+  tail call fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef 154, ptr noundef %.097250, i32 noundef %108, ptr noundef %114, ptr noundef %3, i1 noundef zeroext %4)
   br label %.loopexit
 
 115:                                              ; preds = %6
@@ -513,7 +513,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit146:    ; preds = %177, %167, %174
   %209 = getelementptr inbounds %struct.t_resinfo, ptr %207, i64 %208
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %210, align 8
-  tail call fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b.argprom.argelim(i32 noundef 193, ptr noundef nonnull %116, i32 noundef %205, ptr noundef %211, ptr noundef %3, i1 noundef zeroext %4)
+  tail call fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef 193, ptr noundef nonnull %116, i32 noundef %205, ptr noundef %211, ptr noundef %3, i1 noundef zeroext %4)
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %94
@@ -571,7 +571,7 @@ define noundef i32 @_Z15search_res_atomPKciPK7t_atomsS0_b(ptr noundef %0, i32 no
 declare noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b.argprom.argelim(i32 noundef range(i32 154, 194) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef range(i32 154, 194) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1024 x i8], align 16
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8

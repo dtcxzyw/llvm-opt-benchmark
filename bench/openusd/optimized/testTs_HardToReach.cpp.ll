@@ -29399,7 +29399,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2INS_7GfVec2dEEERKdRKT_NS_10Ts
   store atomic i32 0, ptr %2079 seq_cst, align 4
   store ptr %2077, ptr %263, align 8
   %2080 = atomicrmw add ptr %2079, i32 1 monotonic, align 4
-  %2081 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %262, ptr noundef nonnull align 8 dereferenceable(16) %263)
+  %2081 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %262, ptr noundef nonnull align 8 dereferenceable(16) %263)
           to label %2082 unwind label %9233
 
 2082:                                             ; preds = %2078
@@ -29492,7 +29492,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit998: ; preds = %_ZN32pxrIn
   store atomic i32 0, ptr %2115 seq_cst, align 4
   store ptr %2113, ptr %265, align 8
   %2116 = atomicrmw add ptr %2115, i32 1 monotonic, align 4
-  %2117 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %264, ptr noundef nonnull align 8 dereferenceable(16) %265)
+  %2117 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %264, ptr noundef nonnull align 8 dereferenceable(16) %265)
           to label %2118 unwind label %9238
 
 2118:                                             ; preds = %2114
@@ -29585,7 +29585,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1008: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2151 seq_cst, align 4
   store ptr %2149, ptr %267, align 8
   %2152 = atomicrmw add ptr %2151, i32 1 monotonic, align 4
-  %2153 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %266, ptr noundef nonnull align 8 dereferenceable(16) %267)
+  %2153 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %266, ptr noundef nonnull align 8 dereferenceable(16) %267)
           to label %2154 unwind label %9243
 
 2154:                                             ; preds = %2150
@@ -29678,7 +29678,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1018: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2187 seq_cst, align 4
   store ptr %2185, ptr %269, align 8
   %2188 = atomicrmw add ptr %2187, i32 1 monotonic, align 4
-  %2189 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %268, ptr noundef nonnull align 8 dereferenceable(16) %269)
+  %2189 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %268, ptr noundef nonnull align 8 dereferenceable(16) %269)
           to label %2190 unwind label %9248
 
 2190:                                             ; preds = %2186
@@ -29771,7 +29771,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1028: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2223 seq_cst, align 4
   store ptr %2221, ptr %271, align 8
   %2224 = atomicrmw add ptr %2223, i32 1 monotonic, align 4
-  %2225 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %270, ptr noundef nonnull align 8 dereferenceable(16) %271)
+  %2225 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %270, ptr noundef nonnull align 8 dereferenceable(16) %271)
           to label %2226 unwind label %9253
 
 2226:                                             ; preds = %2222
@@ -29864,7 +29864,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1038: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2259 seq_cst, align 4
   store ptr %2257, ptr %273, align 8
   %2260 = atomicrmw add ptr %2259, i32 1 monotonic, align 4
-  %2261 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 8 dereferenceable(16) %273)
+  %2261 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 8 dereferenceable(16) %273)
           to label %2262 unwind label %9258
 
 2262:                                             ; preds = %2258
@@ -29957,7 +29957,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1048: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2295 seq_cst, align 4
   store ptr %2293, ptr %275, align 8
   %2296 = atomicrmw add ptr %2295, i32 1 monotonic, align 4
-  %2297 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %274, ptr noundef nonnull align 8 dereferenceable(16) %275)
+  %2297 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %274, ptr noundef nonnull align 8 dereferenceable(16) %275)
           to label %2298 unwind label %9263
 
 2298:                                             ; preds = %2294
@@ -30050,7 +30050,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1058: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2331 seq_cst, align 4
   store ptr %2329, ptr %277, align 8
   %2332 = atomicrmw add ptr %2331, i32 1 monotonic, align 4
-  %2333 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %276, ptr noundef nonnull align 8 dereferenceable(16) %277)
+  %2333 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %276, ptr noundef nonnull align 8 dereferenceable(16) %277)
           to label %2334 unwind label %9268
 
 2334:                                             ; preds = %2330
@@ -30213,7 +30213,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2INS_7GfVec2dEEERKdRKT_NS_10Ts
   store atomic i32 0, ptr %2378 seq_cst, align 4
   store ptr %2376, ptr %281, align 8
   %2379 = atomicrmw add ptr %2378, i32 1 monotonic, align 4
-  %2380 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef nonnull align 8 dereferenceable(16) %281)
+  %2380 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef nonnull align 8 dereferenceable(16) %281)
           to label %2381 unwind label %9277
 
 2381:                                             ; preds = %2377
@@ -30306,7 +30306,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1086: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2414 seq_cst, align 4
   store ptr %2412, ptr %283, align 8
   %2415 = atomicrmw add ptr %2414, i32 1 monotonic, align 4
-  %2416 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %282, ptr noundef nonnull align 8 dereferenceable(16) %283)
+  %2416 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %282, ptr noundef nonnull align 8 dereferenceable(16) %283)
           to label %2417 unwind label %9282
 
 2417:                                             ; preds = %2413
@@ -30401,7 +30401,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1096: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2450 seq_cst, align 4
   store ptr %2448, ptr %285, align 8
   %2451 = atomicrmw add ptr %2450, i32 1 monotonic, align 4
-  %2452 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %284, ptr noundef nonnull align 8 dereferenceable(16) %285)
+  %2452 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %284, ptr noundef nonnull align 8 dereferenceable(16) %285)
           to label %2453 unwind label %9287
 
 2453:                                             ; preds = %2449
@@ -30496,7 +30496,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1106: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2486 seq_cst, align 4
   store ptr %2484, ptr %287, align 8
   %2487 = atomicrmw add ptr %2486, i32 1 monotonic, align 4
-  %2488 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %286, ptr noundef nonnull align 8 dereferenceable(16) %287)
+  %2488 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %286, ptr noundef nonnull align 8 dereferenceable(16) %287)
           to label %2489 unwind label %9292
 
 2489:                                             ; preds = %2485
@@ -30589,7 +30589,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1116: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2522 seq_cst, align 4
   store ptr %2520, ptr %289, align 8
   %2523 = atomicrmw add ptr %2522, i32 1 monotonic, align 4
-  %2524 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %288, ptr noundef nonnull align 8 dereferenceable(16) %289)
+  %2524 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %288, ptr noundef nonnull align 8 dereferenceable(16) %289)
           to label %2525 unwind label %9297
 
 2525:                                             ; preds = %2521
@@ -30684,7 +30684,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1126: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2558 seq_cst, align 4
   store ptr %2556, ptr %291, align 8
   %2559 = atomicrmw add ptr %2558, i32 1 monotonic, align 4
-  %2560 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %290, ptr noundef nonnull align 8 dereferenceable(16) %291)
+  %2560 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %290, ptr noundef nonnull align 8 dereferenceable(16) %291)
           to label %2561 unwind label %9302
 
 2561:                                             ; preds = %2557
@@ -30779,7 +30779,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1136: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2594 seq_cst, align 4
   store ptr %2592, ptr %293, align 8
   %2595 = atomicrmw add ptr %2594, i32 1 monotonic, align 4
-  %2596 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef nonnull align 8 dereferenceable(16) %293)
+  %2596 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef nonnull align 8 dereferenceable(16) %293)
           to label %2597 unwind label %9307
 
 2597:                                             ; preds = %2593
@@ -30874,7 +30874,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1146: ; preds = %_ZN32pxrI
   store atomic i32 0, ptr %2630 seq_cst, align 4
   store ptr %2628, ptr %295, align 8
   %2631 = atomicrmw add ptr %2630, i32 1 monotonic, align 4
-  %2632 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %294, ptr noundef nonnull align 8 dereferenceable(16) %295)
+  %2632 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %294, ptr noundef nonnull align 8 dereferenceable(16) %295)
           to label %2633 unwind label %9312
 
 2633:                                             ; preds = %2629
@@ -32993,7 +32993,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exi
   %3386 = load ptr, ptr %3385, align 8
   store ptr %3386, ptr %3381, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %345, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(24) %342, double noundef -1.000000e+00, double noundef 1.100000e+01)
+  invoke fastcc void @_ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(24) %342, double noundef -1.000000e+00, double noundef 1.100000e+01)
           to label %3387 unwind label %9381
 
 3387:                                             ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exit
@@ -33168,7 +33168,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__13TsValueSampleES1_EvT_S3_RSaI
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exit1371
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exit1371: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__13TsValueSampleES1_EvT_S3_RSaIT0_E.exit.i1369, %3459
-  invoke fastcc void @_ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(24) %342, double noundef -3.000000e+02, double noundef -2.000000e+02)
+  invoke fastcc void @_ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(24) %342, double noundef -3.000000e+02, double noundef -2.000000e+02)
           to label %3464 unwind label %9381
 
 3464:                                             ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exit1371
@@ -33346,7 +33346,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__13TsValueSampleES1_EvT_S3_RSaI
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exit1386
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exit1386: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__13TsValueSampleES1_EvT_S3_RSaIT0_E.exit.i1384, %3539
-  invoke fastcc void @_ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(24) %342, double noundef 3.000000e+02, double noundef 4.000000e+02)
+  invoke fastcc void @_ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(24) %342, double noundef 3.000000e+02, double noundef 4.000000e+02)
           to label %3544 unwind label %9381
 
 3544:                                             ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exit1386
@@ -49840,7 +49840,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL8_IsCloseIN32pxrInternal_v0_24__pxrReserved__7GfVec2dEEbRKNS0_7VtValueES4_T_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -50160,7 +50160,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2, double noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2, double noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %6 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %7 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
@@ -50272,7 +50272,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %43 = load double, ptr %26, align 8
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline4EvalEdNS_6TsSideE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %43, i32 noundef 1)
-  %44 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIfEbRKN32pxrInternal_v0_24__pxrReserved__7VtValueES3_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %44 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIfEbRKN32pxrInternal_v0_24__pxrReserved__7VtValueES3_T_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %45 unwind label %.loopexit
 
 45:                                               ; preds = %41
@@ -50348,7 +50348,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %48, %53
 65:                                               ; preds = %61
   %66 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %62, i64 %.039113, i32 4
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline4EvalEdNS_6TsSideE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %63, i32 noundef 0)
-  %67 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIfEbRKN32pxrInternal_v0_24__pxrReserved__7VtValueES3_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  %67 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIfEbRKN32pxrInternal_v0_24__pxrReserved__7VtValueES3_T_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %13)
           to label %68 unwind label %.loopexit89
 
 68:                                               ; preds = %65
@@ -64693,7 +64693,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValu
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7GfVec2dE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL8_IsCloseIfEbRKN32pxrInternal_v0_24__pxrReserved__7VtValueES3_T_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL8_IsCloseIfEbRKN32pxrInternal_v0_24__pxrReserved__7VtValueES3_T_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64

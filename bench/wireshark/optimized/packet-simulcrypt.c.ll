@@ -694,7 +694,7 @@ proto_item_set_generated.exit:                    ; preds = %26, %44, %47
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %58, ptr noundef nonnull @.str.350) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %58, ptr noundef nonnull @.str.351, i32 noundef %54) #3
   %59 = add nuw nsw i32 %54, 5
-  tail call fastcc void @dissect_simulcrypt_data.argprom(ptr noundef %58, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef 5, i32 noundef %59, i16 noundef zeroext %.04.i, i32 noundef 0)
+  tail call fastcc void @dissect_simulcrypt_data(ptr noundef %58, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef 5, i32 noundef %59, i16 noundef zeroext %.04.i, i32 noundef 0)
   br label %60
 
 60:                                               ; preds = %proto_item_set_generated.exit, %get_interface.exit
@@ -727,7 +727,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_simulcrypt_data.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65541) %5, i16 noundef zeroext range(i16 0, 9) %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #0 {
+define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65541) %5, i16 noundef zeroext range(i16 0, 9) %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #0 {
   %.not = icmp eq i32 %7, 0
   %. = select i1 %.not, i32 %4, i32 0
   %9 = icmp slt i32 %., %5
@@ -1176,7 +1176,7 @@ define internal fastcc void @dissect_simulcrypt_data.argprom(ptr noundef %0, ptr
   %222 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %221, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0) #3
   %223 = load i32, ptr @ett_simulcrypt_ecm_group, align 4
   %224 = tail call ptr @proto_item_add_subtree(ptr noundef %222, i32 noundef %223) #3
-  tail call fastcc void @dissect_simulcrypt_data.argprom(ptr noundef %224, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %40, i32 noundef %18, i32 noundef %19, i16 noundef zeroext 4, i32 noundef 1)
+  tail call fastcc void @dissect_simulcrypt_data(ptr noundef %224, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %40, i32 noundef %18, i32 noundef %19, i16 noundef zeroext 4, i32 noundef 1)
   br label %dissect_ecmg_parameter_value.exit
 
 225:                                              ; preds = %207
@@ -1419,7 +1419,7 @@ define internal fastcc void @dissect_simulcrypt_data.argprom(ptr noundef %0, ptr
   %360 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %359, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0) #3
   %361 = load i32, ptr @ett_simulcrypt_table_period_pair, align 4
   %362 = tail call ptr @proto_item_add_subtree(ptr noundef %360, i32 noundef %361) #3
-  tail call fastcc void @dissect_simulcrypt_data.argprom(ptr noundef %362, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %40, i32 noundef %18, i32 noundef %19, i16 noundef zeroext 6, i32 noundef 1)
+  tail call fastcc void @dissect_simulcrypt_data(ptr noundef %362, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %40, i32 noundef %18, i32 noundef %19, i16 noundef zeroext 6, i32 noundef 1)
   br label %dissect_ecmg_parameter_value.exit
 
 363:                                              ; preds = %329

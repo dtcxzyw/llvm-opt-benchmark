@@ -830,7 +830,7 @@ define dso_local ptr @scanNSItemForColumn(ptr noundef %0, ptr nocapture noundef 
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr i8, ptr %8, i64 16
   %.val = load ptr, ptr %9, align 8
-  %10 = tail call fastcc i32 @scanRTEForColumn.argprom(ptr noundef %0, ptr noundef %7, ptr %.val, ptr noundef %3, i32 noundef %4, i32 noundef 0, ptr noundef null)
+  %10 = tail call fastcc i32 @scanRTEForColumn(ptr noundef %0, ptr noundef %7, ptr %.val, ptr noundef %3, i32 noundef %4, i32 noundef 0, ptr noundef null)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %112, label %12
 
@@ -1023,7 +1023,7 @@ markVarForSelectPriv.exit:                        ; preds = %.lr.ph.i70, %markNu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @scanRTEForColumn.argprom(ptr noundef %0, ptr noundef %1, ptr readonly %.16.val, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @scanRTEForColumn(ptr noundef %0, ptr noundef %1, ptr readonly %.16.val, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %.not = icmp eq ptr %.16.val, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
@@ -6522,7 +6522,7 @@ define dso_local void @errorMissingColumn(ptr noundef %0, ptr noundef %1, ptr no
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 16
   %.val.us.us63.i = load ptr, ptr %28, align 8
-  %29 = tail call fastcc i32 @scanRTEForColumn.argprom(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr %.val.us.us63.i, ptr noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
+  %29 = tail call fastcc i32 @scanRTEForColumn(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr %.val.us.us63.i, ptr noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
   %.not66.i = icmp eq i32 %29, 0
   br i1 %.not66.i, label %33, label %.sink.split.i
 
@@ -6580,7 +6580,7 @@ define dso_local void @errorMissingColumn(ptr noundef %0, ptr noundef %1, ptr no
   %59 = load ptr, ptr %52, align 8
   %60 = getelementptr i8, ptr %59, i64 16
   %.val.i = load ptr, ptr %60, align 8
-  %61 = tail call fastcc i32 @scanRTEForColumn.argprom(ptr noundef nonnull %0, ptr noundef nonnull %45, ptr %.val.i, ptr noundef %2, i32 noundef %3, i32 noundef %58, ptr noundef nonnull %5)
+  %61 = tail call fastcc i32 @scanRTEForColumn(ptr noundef nonnull %0, ptr noundef nonnull %45, ptr %.val.i, ptr noundef %2, i32 noundef %3, i32 noundef %58, ptr noundef nonnull %5)
   %62 = icmp ne i32 %61, 0
   %63 = icmp eq i32 %58, 0
   %or.cond.i = and i1 %63, %62

@@ -549,7 +549,7 @@ define hidden range(i32 0, 2) i32 @init_classsharing_workaround(ptr noundef %0) 
   %86 = load i64, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %72, i64 24
   %88 = load i64, ptr %87, align 8
-  call fastcc void @add_class_share_map_info.retelim(ptr noundef %0, i64 noundef %88, i64 noundef %84, i64 noundef %86)
+  call fastcc void @add_class_share_map_info(ptr noundef %0, i64 noundef %88, i64 noundef %84, i64 noundef %86)
   %89 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.21, i32 noundef %89, i64 noundef %84, i64 noundef %86) #8
   br label %90
@@ -588,7 +588,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_class_share_map_info.retelim(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @add_class_share_map_info(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 12

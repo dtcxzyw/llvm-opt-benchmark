@@ -1165,7 +1165,7 @@ sw.bb319:                                         ; preds = %land.lhs.true, %if.
 
 if.end324:                                        ; preds = %sw.bb319
   %container.val = load i32, ptr %container, align 4
-  call fastcc void @usb_mtp_get_data.argprom(ptr noundef nonnull %call.i, i32 %container.val, ptr noundef nonnull %p)
+  call fastcc void @usb_mtp_get_data(ptr noundef nonnull %call.i, i32 %container.val, ptr noundef nonnull %p)
   br label %sw.epilog384
 
 sw.default:                                       ; preds = %if.end203
@@ -4111,7 +4111,7 @@ usb_mtp_queue_result.exit31.i:                    ; preds = %if.then7.i
 
 if.end8.i373:                                     ; preds = %for.body.i.i, %if.end5.i
   %o.058.i = phi ptr [ %425, %if.end5.i ], [ %o.06.i.i, %for.body.i.i ]
-  %call9.i = tail call fastcc i32 @usb_mtp_deletefn.argelim(ptr noundef %s, ptr noundef %o.058.i)
+  %call9.i = tail call fastcc i32 @usb_mtp_deletefn(ptr noundef %s, ptr noundef %o.058.i)
   switch i32 %call9.i, label %default.unreachable [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb10.i
@@ -6169,7 +6169,7 @@ return:                                           ; preds = %usb_mtp_queue_resul
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @usb_mtp_get_data.argprom(ptr nocapture noundef %s, i32 %container.0.val, ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @usb_mtp_get_data(ptr nocapture noundef %s, i32 %container.0.val, ptr noundef %p) unnamed_addr #0 {
 entry:
   %data_out = getelementptr inbounds i8, ptr %s, i64 5896
   %0 = load ptr, ptr %data_out, align 8
@@ -8224,13 +8224,13 @@ usb_mtp_add_str.exit:                             ; preds = %if.then.i, %if.else
   tail call void @g_free(ptr noundef %call2.i) #15
   tail call void @g_free(ptr noundef %call1) #15
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GDateTime.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GDateTime.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %usb_mtp_add_str.exit
   tail call void @g_date_time_unref(ptr noundef nonnull %call) #15
-  br label %glib_autoptr_cleanup_GDateTime.argprom.exit
+  br label %glib_autoptr_cleanup_GDateTime.exit
 
-glib_autoptr_cleanup_GDateTime.argprom.exit:      ; preds = %usb_mtp_add_str.exit, %if.then.i.i
+glib_autoptr_cleanup_GDateTime.exit:              ; preds = %usb_mtp_add_str.exit, %if.then.i.i
   ret void
 }
 
@@ -8244,7 +8244,7 @@ declare void @g_date_time_unref(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 4) i32 @usb_mtp_deletefn.argelim(ptr nocapture noundef %s, ptr noundef nonnull %o) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @usb_mtp_deletefn(ptr nocapture noundef %s, ptr noundef nonnull %o) unnamed_addr #0 {
 entry:
   %children = getelementptr inbounds i8, ptr %o, i64 192
   %iter.023 = load ptr, ptr %children, align 8
@@ -8268,7 +8268,7 @@ if.then:                                          ; preds = %for.body
 for.body6:                                        ; preds = %if.then, %for.body6
   %iter2.022 = phi ptr [ %iter2.0, %for.body6 ], [ %iter2.019, %if.then ]
   %ret.121 = phi i32 [ %or, %for.body6 ], [ %ret.025, %if.then ]
-  %call = tail call fastcc i32 @usb_mtp_deletefn.argelim(ptr noundef %s, ptr noundef %iter2.022)
+  %call = tail call fastcc i32 @usb_mtp_deletefn(ptr noundef %s, ptr noundef %iter2.022)
   %or = or i32 %call, %ret.121
   %list = getelementptr inbounds i8, ptr %iter2.022, i64 200
   %iter2.0 = load ptr, ptr %list, align 8

@@ -594,13 +594,13 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_s32(ptr nocapture noundef read
 
 ._crit_edge.i:                                    ; preds = %._crit_edge70.split.us89.i, %._crit_edge70.split.us.us.us.i, %.lr.ph.i, %57
   %.not384.i = icmp eq ptr %.0331.i, %10
-  br i1 %.not384.i, label %mlib_ImageConv1xN.argprom.exit, label %302
+  br i1 %.not384.i, label %mlib_ImageConv1xN.exit, label %302
 
 302:                                              ; preds = %._crit_edge.i
   call void @mlib_free(ptr noundef %.0331.i) #6
-  br label %mlib_ImageConv1xN.argprom.exit
+  br label %mlib_ImageConv1xN.exit
 
-mlib_ImageConv1xN.argprom.exit:                   ; preds = %._crit_edge.i, %302
+mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %302
   call void @llvm.lifetime.end.p0(i64 12800, ptr nonnull %10)
   %.not929 = icmp eq ptr %.07741354, %13
   br i1 %.not929, label %826, label %.sink.split
@@ -1633,13 +1633,13 @@ mlib_ImageConv1xN.argprom.exit:                   ; preds = %._crit_edge.i, %302
   %.not913 = icmp eq ptr %.07741354, %13
   br i1 %.not913, label %826, label %.sink.split
 
-.sink.split:                                      ; preds = %825, %315, %mlib_ImageConv1xN.argprom.exit
-  %.0.ph = phi i32 [ 0, %mlib_ImageConv1xN.argprom.exit ], [ 1, %315 ], [ 0, %825 ]
+.sink.split:                                      ; preds = %825, %315, %mlib_ImageConv1xN.exit
+  %.0.ph = phi i32 [ 0, %mlib_ImageConv1xN.exit ], [ 1, %315 ], [ 0, %825 ]
   call void @mlib_free(ptr noundef nonnull %.07741354) #6
   br label %826
 
-826:                                              ; preds = %.sink.split, %825, %315, %mlib_ImageConv1xN.argprom.exit, %31
-  %.0 = phi i32 [ 1, %31 ], [ 0, %mlib_ImageConv1xN.argprom.exit ], [ 1, %315 ], [ 0, %825 ], [ %.0.ph, %.sink.split ]
+826:                                              ; preds = %.sink.split, %825, %315, %mlib_ImageConv1xN.exit, %31
+  %.0 = phi i32 [ 1, %31 ], [ 0, %mlib_ImageConv1xN.exit ], [ 1, %315 ], [ 0, %825 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

@@ -22404,14 +22404,14 @@ _ZN4NodenwEm.exit:                                ; preds = %95, %97
   %147 = tail call noundef ptr %146(ptr noundef nonnull align 8 dereferenceable(20) %140) #13
   %148 = tail call noundef zeroext i1 @_ZN4Type6equalsEPKS_S1_(ptr noundef %143, ptr noundef %147) #13
   %149 = and i1 %142, %148
-  br i1 %149, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread, label %150
+  br i1 %149, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread, label %150
 
 150:                                              ; preds = %108
-  br i1 %148, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit, label %151
+  br i1 %148, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit, label %151
 
 151:                                              ; preds = %150
   %.not.i = icmp eq ptr %..i.i, null
-  br i1 %.not.i, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread, label %152
+  br i1 %.not.i, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread, label %152
 
 152:                                              ; preds = %151
   %153 = getelementptr inbounds i8, ptr %..i.i, i64 80
@@ -22420,9 +22420,9 @@ _ZN4NodenwEm.exit:                                ; preds = %95, %97
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
   %.not1.i = icmp eq ptr %156, %157
-  br i1 %.not1.i, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit
+  br i1 %.not1.i, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit
 
-_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit: ; preds = %152, %150
+_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit:        ; preds = %152, %150
   %158 = load ptr, ptr %25, align 8
   %159 = load ptr, ptr %3, align 8
   %160 = getelementptr i8, ptr %158, i64 40
@@ -22452,14 +22452,14 @@ _ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit: ; preds = %152, %150
   %179 = tail call noundef ptr %178(ptr noundef nonnull align 8 dereferenceable(20) %172) #13
   %180 = tail call noundef zeroext i1 @_ZN4Type6equalsEPKS_S1_(ptr noundef %175, ptr noundef %179) #13
   %181 = and i1 %174, %180
-  br i1 %181, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread, label %182
+  br i1 %181, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread, label %182
 
-182:                                              ; preds = %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit
-  br i1 %180, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit32, label %183
+182:                                              ; preds = %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit
+  br i1 %180, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit32, label %183
 
 183:                                              ; preds = %182
   %.not.i29 = icmp eq ptr %..i.i28, null
-  br i1 %.not.i29, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread, label %184
+  br i1 %.not.i29, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread, label %184
 
 184:                                              ; preds = %183
   %185 = getelementptr inbounds i8, ptr %..i.i28, i64 80
@@ -22468,9 +22468,9 @@ _ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit: ; preds = %152, %150
   %188 = load ptr, ptr %187, align 8
   %189 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
   %.not1.i30 = icmp eq ptr %188, %189
-  br i1 %.not1.i30, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit32
+  br i1 %.not1.i30, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit32
 
-_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit32: ; preds = %184, %182
+_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit32:      ; preds = %184, %182
   %190 = load ptr, ptr %25, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 40
   %192 = load ptr, ptr %191, align 8
@@ -22492,11 +22492,11 @@ _ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit32: ; preds = %184, %18
   %208 = load i32, ptr %207, align 8
   %209 = icmp eq i32 %205, %208
   %spec.select = select i1 %209, i32 17, i32 1
-  br label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread
+  br label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread
 
-_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread: ; preds = %183, %184, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit, %151, %152, %108, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit32
-  %.021 = phi i32 [ %spec.select, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit32 ], [ 1, %108 ], [ 1, %152 ], [ 1, %151 ], [ 1, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit ], [ 1, %184 ], [ 1, %183 ]
-  %.020 = phi ptr [ %198, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit32 ], [ %125, %108 ], [ %125, %152 ], [ %125, %151 ], [ %125, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit ], [ %125, %184 ], [ %125, %183 ]
+_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread: ; preds = %183, %184, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit, %151, %152, %108, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit32
+  %.021 = phi i32 [ %spec.select, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit32 ], [ 1, %108 ], [ 1, %152 ], [ 1, %151 ], [ 1, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit ], [ 1, %184 ], [ 1, %183 ]
+  %.020 = phi ptr [ %198, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit32 ], [ %125, %108 ], [ %125, %152 ], [ %125, %151 ], [ %125, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit ], [ %125, %184 ], [ %125, %183 ]
   %210 = tail call noundef ptr @_ZN11OptoRuntime19fast_arraycopy_TypeEv() #13
   %211 = load ptr, ptr @_ZN12StubRoutines17_unsafe_arraycopyE, align 8
   %212 = load ptr, ptr %44, align 8
@@ -22512,7 +22512,7 @@ _ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread: ; preds = %183
   %222 = tail call noundef ptr @_ZN8GraphKit15store_to_memoryEP4NodeS1_S1_9BasicTypeiN7MemNode6MemOrdEbbbbi(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %219, ptr noundef %117, ptr noundef %221, i8 noundef zeroext 8, i32 noundef 3, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0) #13
   br label %223
 
-223:                                              ; preds = %10, %1, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread
+223:                                              ; preds = %10, %1, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread
   ret i1 %.not
 }
 
@@ -22689,14 +22689,14 @@ _ZN4NodenwEm.exit:                                ; preds = %89, %91
   %141 = tail call noundef ptr %140(ptr noundef nonnull align 8 dereferenceable(20) %134) #13
   %142 = tail call noundef zeroext i1 @_ZN4Type6equalsEPKS_S1_(ptr noundef %137, ptr noundef %141) #13
   %143 = and i1 %136, %142
-  br i1 %143, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread, label %144
+  br i1 %143, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread, label %144
 
 144:                                              ; preds = %102
-  br i1 %142, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit, label %145
+  br i1 %142, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit, label %145
 
 145:                                              ; preds = %144
   %.not.i = icmp eq ptr %..i.i, null
-  br i1 %.not.i, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread, label %146
+  br i1 %.not.i, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread, label %146
 
 146:                                              ; preds = %145
   %147 = getelementptr inbounds i8, ptr %..i.i, i64 80
@@ -22705,9 +22705,9 @@ _ZN4NodenwEm.exit:                                ; preds = %89, %91
   %150 = load ptr, ptr %149, align 8
   %151 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
   %.not1.i = icmp eq ptr %150, %151
-  br i1 %.not1.i, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit
+  br i1 %.not1.i, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread, label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit
 
-_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit: ; preds = %146, %144
+_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit:        ; preds = %146, %144
   %152 = load ptr, ptr %24, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 40
   %154 = load ptr, ptr %153, align 8
@@ -22717,11 +22717,11 @@ _ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit: ; preds = %146, %144
   %158 = zext i32 %155 to i64
   %159 = getelementptr inbounds ptr, ptr %157, i64 %158
   %160 = load ptr, ptr %159, align 8
-  br label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread
+  br label %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread
 
-_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread: ; preds = %145, %146, %102, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit
-  %.015 = phi i32 [ 17, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit ], [ 1, %102 ], [ 1, %146 ], [ 1, %145 ]
-  %.0 = phi ptr [ %160, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit ], [ %119, %102 ], [ %119, %146 ], [ %119, %145 ]
+_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread: ; preds = %145, %146, %102, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit
+  %.015 = phi i32 [ 17, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit ], [ 1, %102 ], [ 1, %146 ], [ 1, %145 ]
+  %.0 = phi ptr [ %160, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit ], [ %119, %102 ], [ %119, %146 ], [ %119, %145 ]
   %161 = tail call noundef ptr @_ZN11OptoRuntime19make_setmemory_TypeEv() #13
   %162 = load ptr, ptr @_ZN12StubRoutines17_unsafe_setmemoryE, align 8
   %163 = load ptr, ptr %43, align 8
@@ -22737,7 +22737,7 @@ _ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread: ; preds = %145
   %173 = tail call noundef ptr @_ZN8GraphKit15store_to_memoryEP4NodeS1_S1_9BasicTypeiN7MemNode6MemOrdEbbbbi(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %170, ptr noundef %111, ptr noundef %172, i8 noundef zeroext 8, i32 noundef 3, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0) #13
   br label %174
 
-174:                                              ; preds = %9, %1, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.argprom.argprom.exit.thread
+174:                                              ; preds = %9, %1, %_ZL12has_wide_memR8PhaseGVNP4NodeS2_.exit.thread
   ret i1 %.not
 }
 

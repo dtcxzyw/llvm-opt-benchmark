@@ -1594,7 +1594,7 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %187, %179
   %308 = trunc i32 %307 to i8
   %309 = lshr i8 %308, 1
   %310 = and i8 %309, 1
-  tail call fastcc void @pfr_load_bitmap_bits.retelim(ptr noundef %304, ptr noundef %305, i32 noundef %226, i8 noundef zeroext %310, ptr noundef nonnull %266)
+  tail call fastcc void @pfr_load_bitmap_bits(ptr noundef %304, ptr noundef %305, i32 noundef %226, i8 noundef zeroext %310, ptr noundef nonnull %266)
   br label %pfr_slot_load_bitmap.exit
 
 pfr_slot_load_bitmap.exit.thread107:              ; preds = %221, %299, %242, %227, %235, %251, %257, %225
@@ -4154,7 +4154,7 @@ default.unreachable97:                            ; preds = %130, %91, %13
 declare hidden i32 @ft_glyphslot_alloc_bitmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pfr_load_bitmap_bits.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 2) %3, ptr nocapture noundef readonly %4) unnamed_addr #9 {
+define internal fastcc void @pfr_load_bitmap_bits(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 2) %3, ptr nocapture noundef readonly %4) unnamed_addr #9 {
   %6 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %pfr_bitwriter_decode_bytes.exit, label %7
@@ -5448,7 +5448,7 @@ default.unreachable:                              ; preds = %456, %.lr.ph181.i
   %.7.lcssa199.i = phi ptr [ %.10.i, %._crit_edge182.i ], [ %.10.i, %._crit_edge182.i ], [ %.10.i, %._crit_edge182.i ], [ %401, %._crit_edge182.thread.sink.split.i ]
   %.val.i = load ptr, ptr %284, align 8
   %.val144.i = load i8, ptr %392, align 8
-  %508 = call fastcc i32 @pfr_glyph_line_to.argprom(ptr %.val.i, i8 %.val144.i, ptr noundef %7)
+  %508 = call fastcc i32 @pfr_glyph_line_to(ptr %.val.i, i8 %.val144.i, ptr noundef %7)
   br label %513
 
 509:                                              ; preds = %._crit_edge182.i, %._crit_edge182.i
@@ -5458,7 +5458,7 @@ default.unreachable:                              ; preds = %456, %.lr.ph181.i
 511:                                              ; preds = %._crit_edge182.i
   %.val145.i = load ptr, ptr %284, align 8
   %.val146.i = load i8, ptr %392, align 8
-  %512 = call fastcc i32 @pfr_glyph_curve_to.argprom(ptr %.val145.i, i8 %.val146.i, ptr noundef %7, ptr noundef %396, ptr noundef %397)
+  %512 = call fastcc i32 @pfr_glyph_curve_to(ptr %.val145.i, i8 %.val146.i, ptr noundef %7, ptr noundef %396, ptr noundef %397)
   br label %513
 
 513:                                              ; preds = %511, %509, %._crit_edge182.thread.i
@@ -5573,7 +5573,7 @@ pfr_glyph_close_contour.exit:                     ; preds = %1, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pfr_glyph_line_to.argprom(ptr %.40.val, i8 %.48.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc i32 @pfr_glyph_line_to(ptr %.40.val, i8 %.48.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq i8 %.48.val, 0
   br i1 %.not, label %24, label %2
 
@@ -5726,12 +5726,12 @@ pfr_glyph_close_contour.exit:                     ; preds = %44, %45, %2
 70:                                               ; preds = %pfr_glyph_close_contour.exit, %61
   %71 = tail call i32 @FT_GlyphLoader_CheckPoints(ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1) #12
   %.not = icmp eq i32 %71, 0
-  br i1 %.not, label %.thread, label %pfr_glyph_line_to.argprom.exit
+  br i1 %.not, label %.thread, label %pfr_glyph_line_to.exit
 
 .thread:                                          ; preds = %70
   %.val15.pre = load i8, ptr %6, align 8
   %72 = icmp eq i8 %.val15.pre, 0
-  br i1 %72, label %pfr_glyph_line_to.argprom.exit, label %.thread.thread
+  br i1 %72, label %pfr_glyph_line_to.exit, label %.thread.thread
 
 .thread.thread:                                   ; preds = %61, %.thread
   %.val22 = load ptr, ptr %3, align 8
@@ -5750,7 +5750,7 @@ pfr_glyph_close_contour.exit:                     ; preds = %44, %45, %2
 82:                                               ; preds = %.thread.thread
   %83 = tail call i32 @FT_GlyphLoader_CheckPoints(ptr noundef nonnull %.val22, i32 noundef 1, i32 noundef 0) #12
   %.not17.i = icmp eq i32 %83, 0
-  br i1 %.not17.i, label %..thread_crit_edge.i, label %pfr_glyph_line_to.argprom.exit
+  br i1 %.not17.i, label %..thread_crit_edge.i, label %pfr_glyph_line_to.exit
 
 ..thread_crit_edge.i:                             ; preds = %82
   %.pre.i = load i16, ptr %76, align 2
@@ -5770,15 +5770,15 @@ pfr_glyph_close_contour.exit:                     ; preds = %44, %45, %2
   %92 = load i16, ptr %76, align 2
   %93 = add i16 %92, 1
   store i16 %93, ptr %76, align 2
-  br label %pfr_glyph_line_to.argprom.exit
+  br label %pfr_glyph_line_to.exit
 
-pfr_glyph_line_to.argprom.exit:                   ; preds = %.thread.i, %82, %.thread, %70
+pfr_glyph_line_to.exit:                           ; preds = %.thread.i, %82, %.thread, %70
   %.0 = phi i32 [ %71, %70 ], [ %83, %82 ], [ 0, %.thread.i ], [ 8, %.thread ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pfr_glyph_curve_to.argprom(ptr %.40.val, i8 %.48.val, ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #3 {
+define internal fastcc i32 @pfr_glyph_curve_to(ptr %.40.val, i8 %.48.val, ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #3 {
   %.not = icmp eq i8 %.48.val, 0
   br i1 %.not, label %31, label %4
 

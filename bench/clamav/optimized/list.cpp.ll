@@ -220,7 +220,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 69:                                               ; preds = %68
   %70 = load i8, ptr %31, align 1
   %71 = trunc i8 %70 to i1
-  invoke fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb.argelim(ptr noundef nonnull align 8 dereferenceable(57108) %3, ptr noundef nonnull align 8 dereferenceable(17184) %32, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext %14, i1 noundef zeroext true, i1 noundef zeroext %71)
+  invoke fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr noundef nonnull align 8 dereferenceable(57108) %3, ptr noundef nonnull align 8 dereferenceable(17184) %32, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext %14, i1 noundef zeroext true, i1 noundef zeroext %71)
           to label %72 unwind label %.loopexit.split.us
 
 72:                                               ; preds = %69
@@ -299,7 +299,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 97:                                               ; preds = %96
   %98 = load i8, ptr %31, align 1
   %99 = trunc i8 %98 to i1
-  invoke fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb.argelim(ptr noundef nonnull align 8 dereferenceable(57108) %3, ptr noundef nonnull align 8 dereferenceable(17184) %32, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext %14, i1 noundef zeroext false, i1 noundef zeroext %99)
+  invoke fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr noundef nonnull align 8 dereferenceable(57108) %3, ptr noundef nonnull align 8 dereferenceable(17184) %32, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext %14, i1 noundef zeroext false, i1 noundef zeroext %99)
           to label %100 unwind label %.loopexit.split
 
 100:                                              ; preds = %97
@@ -320,7 +320,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 109:                                              ; preds = %107
   %110 = load i8, ptr %31, align 1
   %111 = trunc i8 %110 to i1
-  invoke fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb.argelim(ptr noundef nonnull align 8 dereferenceable(57108) %3, ptr noundef nonnull align 8 dereferenceable(17184) %30, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %111)
+  invoke fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr noundef nonnull align 8 dereferenceable(57108) %3, ptr noundef nonnull align 8 dereferenceable(17184) %30, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %111)
           to label %112 unwind label %.loopexit.split
 
 112:                                              ; preds = %109, %107, %83, %96, %100
@@ -480,7 +480,7 @@ declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_
 declare noundef i32 @_ZN11CommandData13IsProcessFileER10FileHeaderPbibPwj(ptr noundef nonnull align 8 dereferenceable(100904), ptr noundef nonnull align 8 dereferenceable(17184), ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb.argelim(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull align 8 dereferenceable(17184) %1, ptr nocapture noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull align 8 dereferenceable(17184) %1, ptr nocapture noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca [30 x i32], align 16
   %8 = alloca [30 x i32], align 16
   %9 = alloca [30 x i32], align 16

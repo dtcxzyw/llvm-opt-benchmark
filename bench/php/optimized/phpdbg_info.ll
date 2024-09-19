@@ -912,13 +912,13 @@ define hidden noundef i32 @phpdbg_do_info_constants(ptr nocapture readnone %0) #
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @phpdbg_do_info_vars(ptr nocapture readnone %0) #0 {
-  tail call fastcc void @phpdbg_print_symbols.retelim(i1 noundef zeroext false)
+  tail call fastcc void @phpdbg_print_symbols(i1 noundef zeroext false)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @phpdbg_do_info_globals(ptr nocapture readnone %0) #0 {
-  tail call fastcc void @phpdbg_print_symbols.retelim(i1 noundef zeroext true)
+  tail call fastcc void @phpdbg_print_symbols(i1 noundef zeroext true)
   ret i32 0
 }
 
@@ -1133,7 +1133,7 @@ declare i32 @phpdbg_out_internal(i32 noundef, ptr noundef, ...) local_unnamed_ad
 declare ptr @zend_get_type_by_const(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phpdbg_print_symbols.retelim(i1 noundef zeroext %0) unnamed_addr #0 {
+define internal fastcc void @phpdbg_print_symbols(i1 noundef zeroext %0) unnamed_addr #0 {
   %2 = alloca %struct._zend_array, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16

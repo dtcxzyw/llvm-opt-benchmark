@@ -784,18 +784,18 @@ define internal void @hwloc_nolibxml_look_done(ptr nocapture noundef readonly %0
   %4 = getelementptr inbounds i8, ptr %.val, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %hwloc_nolibxml_free_buffers.argprom.exit, label %6
+  br i1 %.not.i, label %hwloc_nolibxml_free_buffers.exit, label %6
 
 6:                                                ; preds = %2
   tail call void @free(ptr noundef nonnull %5) #20
   store ptr null, ptr %4, align 8
-  br label %hwloc_nolibxml_free_buffers.argprom.exit
+  br label %hwloc_nolibxml_free_buffers.exit
 
-hwloc_nolibxml_free_buffers.argprom.exit:         ; preds = %2, %6
+hwloc_nolibxml_free_buffers.exit:                 ; preds = %2, %6
   %7 = icmp slt i32 %1, 0
   br i1 %7, label %8, label %13
 
-8:                                                ; preds = %hwloc_nolibxml_free_buffers.argprom.exit
+8:                                                ; preds = %hwloc_nolibxml_free_buffers.exit
   %9 = tail call i32 @hwloc__xml_verbose() #20
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %13, label %10
@@ -805,7 +805,7 @@ hwloc_nolibxml_free_buffers.argprom.exit:         ; preds = %2, %6
   %12 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 134, i64 1, ptr %11) #24
   br label %13
 
-13:                                               ; preds = %10, %8, %hwloc_nolibxml_free_buffers.argprom.exit
+13:                                               ; preds = %10, %8, %hwloc_nolibxml_free_buffers.exit
   ret void
 }
 
@@ -816,13 +816,13 @@ define internal void @hwloc_nolibxml_backend_exit(ptr nocapture noundef readonly
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %hwloc_nolibxml_free_buffers.argprom.exit, label %6
+  br i1 %.not.i, label %hwloc_nolibxml_free_buffers.exit, label %6
 
 6:                                                ; preds = %1
   tail call void @free(ptr noundef nonnull %5) #20
-  br label %hwloc_nolibxml_free_buffers.argprom.exit
+  br label %hwloc_nolibxml_free_buffers.exit
 
-hwloc_nolibxml_free_buffers.argprom.exit:         ; preds = %1, %6
+hwloc_nolibxml_free_buffers.exit:                 ; preds = %1, %6
   tail call void @free(ptr noundef nonnull %3) #20
   ret void
 }

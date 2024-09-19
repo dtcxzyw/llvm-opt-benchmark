@@ -1228,13 +1228,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt3mapIjPNS2_10RawCommentESt4
   %156 = call noundef i32 @_ZNK5clang13SourceManager23getPresumedColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %155, i32 %.val, ptr noundef nonnull %6) #17
   %157 = load i8, ptr %6, align 1
   %158 = trunc i8 %157 to i1
-  br i1 %158, label %_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.argprom.exit.thread, label %_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.argprom.exit
+  br i1 %158, label %_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.exit.thread, label %_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.exit
 
-_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.argprom.exit.thread: ; preds = %154
+_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.exit.thread: ; preds = %154
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %219
 
-_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.argprom.exit: ; preds = %154
+_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.exit: ; preds = %154
   %159 = call noundef i32 @_ZNK5clang13SourceManager23getPresumedColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %155, i32 %.val28, ptr noundef nonnull %6) #17
   %160 = load i8, ptr %6, align 1
   %161 = trunc i8 %160 to i1
@@ -1243,7 +1243,7 @@ _ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10Ra
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br i1 %.not115, label %219, label %163
 
-163:                                              ; preds = %_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.argprom.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt3mapIjPNS2_10RawCommentESt4lessIjESaISt4pairIKjS6_EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SD_EEEES3_SD_SF_SI_EixERKS3_.exit62
+163:                                              ; preds = %_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt3mapIjPNS2_10RawCommentESt4lessIjESaISt4pairIKjS6_EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SD_EEEES3_SD_SF_SI_EixERKS3_.exit62
   %164 = load ptr, ptr %0, align 8
   %165 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %.sroa.0.0.copyload.i.i63 = load i32, ptr %165, align 4
@@ -1403,7 +1403,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt3mapIjPNS2_10RawCommentESt4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %218, ptr noundef nonnull align 8 dereferenceable(33) %9, i64 33, i1 false)
   br label %269
 
-219:                                              ; preds = %_ZL21onlyWhitespaceBetweenRN5clang13SourceManagerENS_14SourceLocationES2_j.exit.thread, %_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.argprom.exit.thread, %147, %_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.argprom.exit, %148
+219:                                              ; preds = %_ZL21onlyWhitespaceBetweenRN5clang13SourceManagerENS_14SourceLocationES2_j.exit.thread, %_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.exit.thread, %147, %_ZN12_GLOBAL__N_125commentsStartOnSameColumnERKN5clang13SourceManagerERKNS0_10RawCommentES6_.exit, %148
   %220 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %221 = load i64, ptr %220, align 8
   %222 = add i64 %221, 40

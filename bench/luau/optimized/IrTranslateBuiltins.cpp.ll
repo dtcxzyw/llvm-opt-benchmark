@@ -86,17 +86,17 @@ define dso_local i64 @_ZN4Luau7CodeGen16translateBuiltinERNS0_9IrBuilderEiiiNS0_
   ]
 
 13:                                               ; preds = %12
-  %14 = tail call fastcc i64 @_ZN4Luau7CodeGenL22translateBuiltinAssertERNS0_9IrBuilderEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 noundef %7, i32 noundef %9)
+  %14 = tail call fastcc i64 @_ZN4Luau7CodeGenL22translateBuiltinAssertERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 noundef %7, i32 noundef %9)
   %.sroa.53.0.extract.shift = and i64 %14, -4294967296
   br label %167
 
 15:                                               ; preds = %12
-  %16 = tail call fastcc i64 @_ZN4Luau7CodeGenL26translateBuiltinMathDegRadERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 25, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
+  %16 = tail call fastcc i64 @_ZN4Luau7CodeGenL26translateBuiltinMathDegRadERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 25, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
   %.sroa.53.0.extract.shift498 = and i64 %16, -4294967296
   br label %167
 
 17:                                               ; preds = %12
-  %18 = tail call fastcc i64 @_ZN4Luau7CodeGenL26translateBuiltinMathDegRadERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 24, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
+  %18 = tail call fastcc i64 @_ZN4Luau7CodeGenL26translateBuiltinMathDegRadERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 24, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
   %.sroa.53.0.extract.shift500 = and i64 %18, -4294967296
   br label %167
 
@@ -195,7 +195,7 @@ _ZN4Luau7CodeGenL34translateBuiltinNumberToNumberLibmERNS0_9IrBuilderE19LuauBuil
   br label %167
 
 61:                                               ; preds = %12
-  %62 = tail call fastcc i64 @_ZN4Luau7CodeGenL30translateBuiltinNumberToNumberERNS0_9IrBuilderE19LuauBuiltinFunctioniiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %7, i32 noundef %9)
+  %62 = tail call fastcc i64 @_ZN4Luau7CodeGenL30translateBuiltinNumberToNumberERNS0_9IrBuilderE19LuauBuiltinFunctioniiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %7, i32 noundef %9)
   %.sroa.53.0.extract.shift522 = and i64 %62, -4294967296
   br label %167
 
@@ -276,7 +276,7 @@ _ZN4Luau7CodeGenL35translateBuiltin2NumberToNumberLibmERNS0_9IrBuilderE19LuauBui
   br label %167
 
 97:                                               ; preds = %12, %12
-  %98 = tail call fastcc i64 @_ZN4Luau7CodeGenL31translateBuiltinNumberTo2NumberERNS0_9IrBuilderE19LuauBuiltinFunctioniiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
+  %98 = tail call fastcc i64 @_ZN4Luau7CodeGenL31translateBuiltinNumberTo2NumberERNS0_9IrBuilderE19LuauBuiltinFunctioniiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
   %.sroa.53.0.extract.shift526 = and i64 %98, -4294967296
   br label %167
 
@@ -301,7 +301,7 @@ _ZN4Luau7CodeGenL35translateBuiltin2NumberToNumberLibmERNS0_9IrBuilderE19LuauBui
   br label %167
 
 107:                                              ; preds = %12
-  %108 = tail call fastcc i64 @_ZN4Luau7CodeGenL25translateBuiltinBit32BnotERNS0_9IrBuilderEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
+  %108 = tail call fastcc i64 @_ZN4Luau7CodeGenL25translateBuiltinBit32BnotERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
   %.sroa.53.0.extract.shift536 = and i64 %108, -4294967296
   br label %167
 
@@ -341,12 +341,12 @@ _ZN4Luau7CodeGenL35translateBuiltin2NumberToNumberLibmERNS0_9IrBuilderE19LuauBui
   br label %167
 
 123:                                              ; preds = %12
-  %124 = tail call fastcc i64 @_ZN4Luau7CodeGenL26translateBuiltinBit32UnaryERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 125, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
+  %124 = tail call fastcc i64 @_ZN4Luau7CodeGenL26translateBuiltinBit32UnaryERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 125, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
   %.sroa.53.0.extract.shift552 = and i64 %124, -4294967296
   br label %167
 
 125:                                              ; preds = %12
-  %126 = tail call fastcc i64 @_ZN4Luau7CodeGenL26translateBuiltinBit32UnaryERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 126, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
+  %126 = tail call fastcc i64 @_ZN4Luau7CodeGenL26translateBuiltinBit32UnaryERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 126, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
   %.sroa.53.0.extract.shift554 = and i64 %126, -4294967296
   br label %167
 
@@ -356,12 +356,12 @@ _ZN4Luau7CodeGenL35translateBuiltin2NumberToNumberLibmERNS0_9IrBuilderE19LuauBui
   br label %167
 
 129:                                              ; preds = %12
-  %130 = tail call fastcc i64 @_ZN4Luau7CodeGenL20translateBuiltinTypeERNS0_9IrBuilderEiiiNS0_4IrOpEi.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7)
+  %130 = tail call fastcc i64 @_ZN4Luau7CodeGenL20translateBuiltinTypeERNS0_9IrBuilderEiiiNS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7)
   %.sroa.53.0.extract.shift558 = and i64 %130, -4294967296
   br label %167
 
 131:                                              ; preds = %12
-  %132 = tail call fastcc i64 @_ZN4Luau7CodeGenL22translateBuiltinTypeofERNS0_9IrBuilderEiiiNS0_4IrOpEi.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7)
+  %132 = tail call fastcc i64 @_ZN4Luau7CodeGenL22translateBuiltinTypeofERNS0_9IrBuilderEiiiNS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7)
   %.sroa.53.0.extract.shift560 = and i64 %132, -4294967296
   br label %167
 
@@ -371,17 +371,17 @@ _ZN4Luau7CodeGenL35translateBuiltin2NumberToNumberLibmERNS0_9IrBuilderE19LuauBui
   br label %167
 
 135:                                              ; preds = %12
-  %136 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinTableInsertERNS0_9IrBuilderEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 noundef %7, i32 noundef %9)
+  %136 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinTableInsertERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 noundef %7, i32 noundef %9)
   %.sroa.53.0.extract.shift564 = and i64 %136, -4294967296
   br label %167
 
 137:                                              ; preds = %12
-  %138 = tail call fastcc i64 @_ZN4Luau7CodeGenL25translateBuiltinStringLenERNS0_9IrBuilderEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
+  %138 = tail call fastcc i64 @_ZN4Luau7CodeGenL25translateBuiltinStringLenERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
   %.sroa.53.0.extract.shift566 = and i64 %138, -4294967296
   br label %167
 
 139:                                              ; preds = %12
-  %140 = tail call fastcc i64 @_ZN4Luau7CodeGenL26translateBuiltinBit32UnaryERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 127, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
+  %140 = tail call fastcc i64 @_ZN4Luau7CodeGenL26translateBuiltinBit32UnaryERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 127, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %7, i32 noundef %9)
   %.sroa.53.0.extract.shift568 = and i64 %140, -4294967296
   br label %167
 
@@ -396,7 +396,7 @@ _ZN4Luau7CodeGenL35translateBuiltin2NumberToNumberLibmERNS0_9IrBuilderE19LuauBui
   br label %167
 
 145:                                              ; preds = %12
-  %146 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 %5, i32 noundef %7, i32 noundef %9, i8 noundef zeroext -122, i32 noundef 1, i8 noundef zeroext 63)
+  %146 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 %5, i32 noundef %7, i32 noundef %9, i8 noundef zeroext -122, i32 noundef 1, i8 noundef zeroext 63)
   %.sroa.53.0.extract.shift574 = and i64 %146, -4294967296
   br label %167
 
@@ -411,7 +411,7 @@ _ZN4Luau7CodeGenL35translateBuiltin2NumberToNumberLibmERNS0_9IrBuilderE19LuauBui
   br label %167
 
 151:                                              ; preds = %12
-  %152 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 %5, i32 noundef %7, i32 noundef %9, i8 noundef zeroext -119, i32 noundef 2, i8 noundef zeroext 63)
+  %152 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 %5, i32 noundef %7, i32 noundef %9, i8 noundef zeroext -119, i32 noundef 2, i8 noundef zeroext 63)
   %.sroa.53.0.extract.shift580 = and i64 %152, -4294967296
   br label %167
 
@@ -426,7 +426,7 @@ _ZN4Luau7CodeGenL35translateBuiltin2NumberToNumberLibmERNS0_9IrBuilderE19LuauBui
   br label %167
 
 157:                                              ; preds = %12
-  %158 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 %5, i32 noundef %7, i32 noundef %9, i8 noundef zeroext -117, i32 noundef 4, i8 noundef zeroext 63)
+  %158 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 %5, i32 noundef %7, i32 noundef %9, i8 noundef zeroext -117, i32 noundef 4, i8 noundef zeroext 63)
   %.sroa.53.0.extract.shift586 = and i64 %158, -4294967296
   br label %167
 
@@ -436,7 +436,7 @@ _ZN4Luau7CodeGenL35translateBuiltin2NumberToNumberLibmERNS0_9IrBuilderE19LuauBui
   br label %167
 
 161:                                              ; preds = %12
-  %162 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 %5, i32 noundef %7, i32 noundef %9, i8 noundef zeroext -115, i32 noundef 4, i8 noundef zeroext 0)
+  %162 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 %5, i32 noundef %7, i32 noundef %9, i8 noundef zeroext -115, i32 noundef 4, i8 noundef zeroext 0)
   %.sroa.53.0.extract.shift590 = and i64 %162, -4294967296
   br label %167
 
@@ -446,7 +446,7 @@ _ZN4Luau7CodeGenL35translateBuiltin2NumberToNumberLibmERNS0_9IrBuilderE19LuauBui
   br label %167
 
 165:                                              ; preds = %12
-  %166 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 %5, i32 noundef %7, i32 noundef %9, i8 noundef zeroext -113, i32 noundef 8, i8 noundef zeroext 0)
+  %166 = tail call fastcc i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %6, i32 noundef %3, i32 %4, i32 %5, i32 noundef %7, i32 noundef %9, i8 noundef zeroext -113, i32 noundef 8, i8 noundef zeroext 0)
   %.sroa.53.0.extract.shift594 = and i64 %166, -4294967296
   br label %167
 
@@ -459,7 +459,7 @@ _ZN4Luau7CodeGenL35translateBuiltin2NumberToNumberLibmERNS0_9IrBuilderE19LuauBui
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 -4294967296, 2) i64 @_ZN4Luau7CodeGenL22translateBuiltinAssertERNS0_9IrBuilderEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 2) i64 @_ZN4Luau7CodeGenL22translateBuiltinAssertERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp slt i32 %1, 1
   %7 = icmp ne i32 %3, 0
   %or.cond = or i1 %6, %7
@@ -481,7 +481,7 @@ define internal fastcc range(i64 -4294967296, 2) i64 @_ZN4Luau7CodeGenL22transla
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL26translateBuiltinMathDegRadERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext range(i8 24, 26) %1, i32 noundef range(i32 0, -1) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL26translateBuiltinMathDegRadERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext range(i8 24, 26) %1, i32 noundef range(i32 0, -1) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = icmp slt i32 %2, 1
   %9 = icmp sgt i32 %5, 1
   %or.cond = or i1 %8, %9
@@ -965,7 +965,7 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL30translateBuiltinNumberToNumberERNS0_9IrBuilderE19LuauBuiltinFunctioniiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL30translateBuiltinNumberToNumberERNS0_9IrBuilderE19LuauBuiltinFunctioniiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = icmp slt i32 %1, 1
   %9 = icmp sgt i32 %5, 1
   %or.cond = or i1 %8, %9
@@ -1008,7 +1008,7 @@ _ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 -4294967296, 8589934595) i64 @_ZN4Luau7CodeGenL31translateBuiltinNumberTo2NumberERNS0_9IrBuilderE19LuauBuiltinFunctioniiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 8589934595) i64 @_ZN4Luau7CodeGenL31translateBuiltinNumberTo2NumberERNS0_9IrBuilderE19LuauBuiltinFunctioniiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = icmp slt i32 %2, 1
   %9 = icmp sgt i32 %5, 2
   %or.cond = or i1 %8, %9
@@ -1258,7 +1258,7 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit174: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL25translateBuiltinBit32BnotERNS0_9IrBuilderEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL25translateBuiltinBit32BnotERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp slt i32 %1, 1
   %8 = icmp sgt i32 %4, 1
   %or.cond = or i1 %7, %8
@@ -1796,7 +1796,7 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL26translateBuiltinBit32UnaryERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext range(i8 125, -128) %1, i32 noundef range(i32 0, -1) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL26translateBuiltinBit32UnaryERNS0_9IrBuilderENS0_5IrCmdEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext range(i8 125, -128) %1, i32 noundef range(i32 0, -1) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = icmp slt i32 %2, 1
   %9 = icmp sgt i32 %5, 1
   %or.cond = or i1 %8, %9
@@ -2036,7 +2036,7 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit226: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL20translateBuiltinTypeERNS0_9IrBuilderEiiiNS0_4IrOpEi.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL20translateBuiltinTypeERNS0_9IrBuilderEiiiNS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp slt i32 %1, 1
   %7 = icmp sgt i32 %4, 1
   %or.cond = or i1 %6, %7
@@ -2061,7 +2061,7 @@ define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL22translateBuiltinTypeofERNS0_9IrBuilderEiiiNS0_4IrOpEi.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL22translateBuiltinTypeofERNS0_9IrBuilderEiiiNS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp slt i32 %1, 1
   %7 = icmp sgt i32 %4, 1
   %or.cond = or i1 %6, %7
@@ -2193,7 +2193,7 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit56: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 -4294967296, 3) i64 @_ZN4Luau7CodeGenL27translateBuiltinTableInsertERNS0_9IrBuilderEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 3) i64 @_ZN4Luau7CodeGenL27translateBuiltinTableInsertERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp ne i32 %1, 2
   %8 = icmp sgt i32 %4, 0
   %or.cond = or i1 %7, %8
@@ -2256,7 +2256,7 @@ define internal fastcc range(i64 -4294967296, 3) i64 @_ZN4Luau7CodeGenL27transla
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL25translateBuiltinStringLenERNS0_9IrBuilderEiiiNS0_4IrOpEii.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL25translateBuiltinStringLenERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp slt i32 %1, 1
   %8 = icmp sgt i32 %4, 1
   %or.cond = or i1 %7, %8
@@ -2323,7 +2323,7 @@ define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 -4294967296, 3) i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_.argelim(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 %3, i32 %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext range(i8 -122, -112) %7, i32 noundef range(i32 1, 9) %8, i8 noundef zeroext range(i8 0, 64) %9) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 3) i64 @_ZN4Luau7CodeGenL27translateBuiltinBufferWriteERNS0_9IrBuilderEiiiNS0_4IrOpES3_iiNS0_5IrCmdEiS4_(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 %3, i32 %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext range(i8 -122, -112) %7, i32 noundef range(i32 1, 9) %8, i8 noundef zeroext range(i8 0, 64) %9) unnamed_addr #0 {
   %11 = alloca %"struct.Luau::CodeGen::IrOp", align 4
   %12 = alloca %"struct.Luau::CodeGen::IrOp", align 4
   %13 = icmp slt i32 %1, 3

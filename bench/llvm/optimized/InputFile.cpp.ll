@@ -2615,7 +2615,7 @@ define dso_local void @_ZNK4llvm3pdb11SymbolGroup18formatFromFileNameERNS0_11Lin
   call void @_ZN4llvm3pdb11LinePrinter5printERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(34) %12) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  br label %_ZL14formatInternalIJRA20_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA20_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit
 
 37:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
@@ -2643,7 +2643,7 @@ define dso_local void @_ZNK4llvm3pdb11SymbolGroup18formatFromFileNameERNS0_11Lin
   call void @_ZN4llvm3pdb11LinePrinter9printLineERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(34) %10) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
-  br label %_ZL14formatInternalIJRA20_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA20_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit
 
 45:                                               ; preds = %5
   %46 = load ptr, ptr %18, align 8
@@ -2680,7 +2680,7 @@ define dso_local void @_ZNK4llvm3pdb11SymbolGroup18formatFromFileNameERNS0_11Lin
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9)
-  br label %_ZL14formatInternalIJRA17_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RN4llvm9StringRefEEEvRNS9_3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA17_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RN4llvm9StringRefEEEvRNS9_3pdb11LinePrinterEbDpOT_.exit
 
 59:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
@@ -2702,14 +2702,14 @@ define dso_local void @_ZNK4llvm3pdb11SymbolGroup18formatFromFileNameERNS0_11Lin
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7)
-  br label %_ZL14formatInternalIJRA17_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RN4llvm9StringRefEEEvRNS9_3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA17_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RN4llvm9StringRefEEEvRNS9_3pdb11LinePrinterEbDpOT_.exit
 
-_ZL14formatInternalIJRA17_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RN4llvm9StringRefEEEvRNS9_3pdb11LinePrinterEbDpOT_.argprom.exit: ; preds = %52, %59
+_ZL14formatInternalIJRA17_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RN4llvm9StringRefEEEvRNS9_3pdb11LinePrinterEbDpOT_.exit: ; preds = %52, %59
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #19
-  br label %_ZL14formatInternalIJRA20_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA20_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit
 
-_ZL14formatInternalIJRA20_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit: ; preds = %37, %29, %_ZL14formatInternalIJRA17_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RN4llvm9StringRefEEEvRNS9_3pdb11LinePrinterEbDpOT_.argprom.exit
+_ZL14formatInternalIJRA20_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit: ; preds = %37, %29, %_ZL14formatInternalIJRA17_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RN4llvm9StringRefEEEvRNS9_3pdb11LinePrinterEbDpOT_.exit
   ret void
 }
 
@@ -2861,7 +2861,7 @@ define dso_local void @_ZNK4llvm3pdb11SymbolGroup25formatFromChecksumsOffsetERNS
   call void @_ZN4llvm3pdb11LinePrinter5printERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(34) %26) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
-  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit
 
 44:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24)
@@ -2889,7 +2889,7 @@ define dso_local void @_ZNK4llvm3pdb11SymbolGroup25formatFromChecksumsOffsetERNS
   call void @_ZN4llvm3pdb11LinePrinter9printLineERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(34) %24) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
-  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit
 
 _ZN4llvm22VarStreamArrayIteratorINS_8codeview17FileChecksumEntryENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit: ; preds = %4
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -2929,7 +2929,7 @@ _ZN4llvm22VarStreamArrayIteratorINS_8codeview17FileChecksumEntryENS_23VarStreamA
   call void @_ZN4llvm3pdb11LinePrinter5printERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(34) %22) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
-  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit15
+  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit15
 
 65:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
@@ -2957,7 +2957,7 @@ _ZN4llvm22VarStreamArrayIteratorINS_8codeview17FileChecksumEntryENS_23VarStreamA
   call void @_ZN4llvm3pdb11LinePrinter9printLineERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(34) %20) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21)
-  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit15
+  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit15
 
 73:                                               ; preds = %_ZN4llvm22VarStreamArrayIteratorINS_8codeview17FileChecksumEntryENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit
   %74 = load i32, ptr %29, align 8
@@ -2998,7 +2998,7 @@ _ZN4llvm22VarStreamArrayIteratorINS_8codeview17FileChecksumEntryENS_23VarStreamA
   call void @_ZN4llvm3pdb11LinePrinter5printERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(34) %18) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
-  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit20
+  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit20
 
 89:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
@@ -3026,21 +3026,21 @@ _ZN4llvm22VarStreamArrayIteratorINS_8codeview17FileChecksumEntryENS_23VarStreamA
   call void @_ZN4llvm3pdb11LinePrinter9printLineERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(34) %16) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
-  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit20
+  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit20
 
-_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit20: ; preds = %81, %89
+_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit20: ; preds = %81, %89
   %97 = load i8, ptr %77, align 8, !noalias !139
   %98 = trunc i8 %97 to i1
   br i1 %98, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit20
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit20
   %99 = load i64, ptr %30, align 8, !noalias !139
   %100 = inttoptr i64 %99 to ptr
   store ptr null, ptr %30, align 8, !noalias !139
   br label %_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit
 
-_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit: ; preds = %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit20, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %storemerge.i = phi ptr [ %100, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ null, %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit20 ]
+_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit: ; preds = %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit20, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+  %storemerge.i = phi ptr [ %100, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ null, %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit20 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
@@ -3064,7 +3064,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %104, %_ZN4llvm8Expe
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
-  br label %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit
 
 108:                                              ; preds = %73
   %109 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -3101,7 +3101,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %104, %_ZN4llvm8Expe
   call void @_ZN4llvm3pdb11LinePrinter5printERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(34) %11) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
-  br label %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit
 
 121:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
@@ -3129,7 +3129,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %104, %_ZN4llvm8Expe
   call void @_ZN4llvm3pdb11LinePrinter9printLineERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(34) %9) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
-  br label %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit
 
 129:                                              ; preds = %108
   call fastcc void @_ZL18formatChecksumKindB5cxx11N4llvm8codeview16FileChecksumKindE(ptr dead_on_unwind noalias writable align 8 %31, i8 noundef zeroext %110)
@@ -3160,7 +3160,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %104, %_ZN4llvm8Expe
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %137) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8)
-  br label %_ZL14formatInternalIJRA15_KcRN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA15_KcRN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEvRNS3_3pdb11LinePrinterEbDpOT_.exit
 
 138:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
@@ -3182,19 +3182,19 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %104, %_ZN4llvm8Expe
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %144) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6)
-  br label %_ZL14formatInternalIJRA15_KcRN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA15_KcRN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEvRNS3_3pdb11LinePrinterEbDpOT_.exit
 
-_ZL14formatInternalIJRA15_KcRN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit: ; preds = %131, %138
+_ZL14formatInternalIJRA15_KcRN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEvRNS3_3pdb11LinePrinterEbDpOT_.exit: ; preds = %131, %138
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #19
-  br label %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit
 
-_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit: ; preds = %121, %113, %_ZL14formatInternalIJRA15_KcRN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit, %_ZN4llvm5ErrorD2Ev.exit
+_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit: ; preds = %121, %113, %_ZL14formatInternalIJRA15_KcRN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEvRNS3_3pdb11LinePrinterEbDpOT_.exit, %_ZN4llvm5ErrorD2Ev.exit
   %145 = load i8, ptr %77, align 8
   %146 = trunc i8 %145 to i1
-  br i1 %146, label %147, label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit15
+  br i1 %146, label %147, label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit15
 
-147:                                              ; preds = %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit
+147:                                              ; preds = %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit
   %148 = load ptr, ptr %30, align 8
   %.not.i.i26 = icmp eq ptr %148, null
   br i1 %.not.i.i26, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i27, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
@@ -3208,15 +3208,15 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %147
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i27: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %147
   store ptr null, ptr %30, align 8
-  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit15
+  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit15
 
-_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit15: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i27, %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.argprom.exit, %65, %57
+_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit15: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i27, %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit, %65, %57
   %152 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %153 = load ptr, ptr %152, align 8
   %.not.i.i.i.i.i.i28 = icmp eq ptr %153, null
-  br i1 %.not.i.i.i.i.i.i28, label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit, label %154
+  br i1 %.not.i.i.i.i.i.i28, label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit, label %154
 
-154:                                              ; preds = %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit15
+154:                                              ; preds = %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit15
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %156 = load atomic i64, ptr %155 acquire, align 8
   %157 = icmp eq i64 %156, 4294967297
@@ -3250,7 +3250,7 @@ _ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit15:
 170:                                              ; preds = %168, %166
   %.0.i.i.i.i.i.i.i30 = phi i32 [ %158, %166 ], [ %169, %168 ]
   %171 = icmp eq i32 %.0.i.i.i.i.i.i.i30, 1
-  br i1 %171, label %172, label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit
+  br i1 %171, label %172, label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit
 
 172:                                              ; preds = %170
   %173 = load ptr, ptr %153, align 8
@@ -3275,16 +3275,16 @@ _ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit15:
 183:                                              ; preds = %181, %178
   %.0.i.i.i.i.i.i.i.i.i32 = phi i32 [ %179, %178 ], [ %182, %181 ]
   %184 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i32, 1
-  br i1 %184, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i33, label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit
+  br i1 %184, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i33, label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i33: ; preds = %183, %159
   %185 = load ptr, ptr %153, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 24
   %187 = load ptr, ptr %186, align 8
   call void %187(ptr noundef nonnull align 8 dereferenceable(16) %153) #19
-  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit
+  br label %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit
 
-_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i33, %183, %170, %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.argprom.exit15, %44, %36
+_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i33, %183, %170, %_ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit15, %44, %36
   ret void
 }
 

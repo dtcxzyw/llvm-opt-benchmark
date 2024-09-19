@@ -936,7 +936,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %86
   %.val44 = load ptr, ptr %95, align 8
   %96 = getelementptr i8, ptr %95, i64 56
   %.val45 = load ptr, ptr %96, align 8
-  %97 = call fastcc noundef zeroext i1 @_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom(ptr %.val44, ptr %.val45, ptr noundef nonnull align 8 dereferenceable(70) %35, ptr noundef %74, ptr noundef nonnull align 8 dereferenceable(32) %.098)
+  %97 = call fastcc noundef zeroext i1 @_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE(ptr %.val44, ptr %.val45, ptr noundef nonnull align 8 dereferenceable(70) %35, ptr noundef %74, ptr noundef nonnull align 8 dereferenceable(32) %.098)
   br i1 %97, label %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit, label %98
 
 98:                                               ; preds = %94
@@ -1059,7 +1059,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom(ptr nocapture readonly %.0.val, ptr nocapture readonly %.56.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE(ptr nocapture readonly %.0.val, ptr nocapture readonly %.56.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1250,7 +1250,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %_ZN4llvm19MachineRe
 29:                                               ; preds = %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread
   %30 = lshr i32 %21, 8
   %31 = and i32 %30, 4095
-  switch i16 %27, label %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.argprom.exit [
+  switch i16 %27, label %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit [
     i16 19, label %32
     i16 0, label %32
     i16 9, label %32
@@ -1265,7 +1265,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %_ZN4llvm19MachineRe
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %37, 0
-  br i1 %38, label %39, label %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.argprom.exit
+  br i1 %38, label %39, label %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit
 
 39:                                               ; preds = %32
   %.val = load i16, ptr %26, align 4
@@ -1288,19 +1288,19 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %_ZN4llvm19MachineRe
   %47 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %48 = inttoptr i64 %47 to ptr
   %.val23 = load ptr, ptr %41, align 8
-  %49 = tail call fastcc noundef zeroext i1 @_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom(ptr %.val23, ptr %45, ptr noundef nonnull align 8 dereferenceable(70) %25, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.036.050)
-  br i1 %49, label %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.argprom.exit, label %.critedge
+  %49 = tail call fastcc noundef zeroext i1 @_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE(ptr %.val23, ptr %45, ptr noundef nonnull align 8 dereferenceable(70) %25, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.036.050)
+  br i1 %49, label %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit, label %.critedge
 
-_ZL14lowersToCopiesRKN4llvm12MachineInstrE.argprom.exit: ; preds = %29, %32, %40
+_ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit:  ; preds = %29, %32, %40
   %50 = icmp eq i32 %31, 0
   br i1 %50, label %51, label %54
 
-51:                                               ; preds = %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.argprom.exit
+51:                                               ; preds = %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit
   %52 = load ptr, ptr %0, align 8
   %53 = tail call i64 @_ZNK4llvm19MachineRegisterInfo21getMaxLaneMaskForVRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %52, i32 %1) #15
   br label %.loopexit
 
-54:                                               ; preds = %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.argprom.exit
+54:                                               ; preds = %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit
   %55 = load ptr, ptr %20, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 256
   %57 = load ptr, ptr %56, align 8
@@ -2606,9 +2606,9 @@ _ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKN
   %178 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %179 = inttoptr i64 %178 to ptr
   %180 = icmp eq ptr %174, %179
-  br i1 %180, label %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit.thread, label %183
+  br i1 %180, label %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit.thread, label %183
 
-_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit.thread: ; preds = %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.i
+_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit.thread: ; preds = %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %181 = load i32, ptr %.074.i, align 8
@@ -2673,7 +2673,7 @@ _ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetR
 _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.i: ; preds = %212, %206, %194, %183
   %.038.ph.i = phi i32 [ %186, %206 ], [ %216, %212 ], [ %186, %194 ], [ %186, %183 ]
   %.not10.i = icmp eq i32 %.038.ph.i, 0
-  br i1 %.not10.i, label %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit, label %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i
+  br i1 %.not10.i, label %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit, label %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i
 
 _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i: ; preds = %200, %197
   %.039.in.in.i = phi ptr [ %205, %200 ], [ %199, %197 ]
@@ -2712,7 +2712,7 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i: ; p
   br i1 %.not43.i, label %241, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread54.i
 
 230:                                              ; preds = %223
-  br i1 %218, label %231, label %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit
+  br i1 %218, label %231, label %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit
 
 231:                                              ; preds = %230
   %232 = load ptr, ptr %192, align 8
@@ -2727,7 +2727,7 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i: ; p
   store i32 %237, ptr %.074.i, align 8
   br i1 %.not42.i, label %241, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread54.i
 
-_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit: ; preds = %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.i, %230
+_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit: ; preds = %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.i, %230
   %238 = call noundef ptr @_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEPKNS_19TargetRegisterClassES3_(ptr noundef nonnull align 8 dereferenceable(308) %192, ptr noundef %179, ptr noundef %174) #15
   %.not.i7 = icmp eq ptr %238, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -2737,12 +2737,12 @@ _ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetR
   store i32 %240, ptr %.074.i, align 8
   br i1 %.not.i7, label %241, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread54.i
 
-241:                                              ; preds = %231, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i, %219, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit
+241:                                              ; preds = %231, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i, %219, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit
   br label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread54.i
 
-_ZNK4llvm14MachineOperand8readsRegEv.exit.thread54.i: ; preds = %241, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit.thread, %219, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i, %231, %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.thread57.i, %_ZNK4llvm16DeadLaneDetector17transferUsedLanesERKNS_12MachineInstrENS_11LaneBitmaskERKNS_14MachineOperandE.exit.i, %84, %78, %74, %72, %70, %57, %39, %.lr.ph.i
-  %.353.i = phi i1 [ %.25272.i, %70 ], [ %.25272.i, %39 ], [ %.25272.i, %.lr.ph.i ], [ %.25272.i, %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.thread57.i ], [ %.25272.i, %57 ], [ %.25272.i, %72 ], [ %.25272.i, %78 ], [ %.25272.i, %84 ], [ %.25272.i, %_ZNK4llvm16DeadLaneDetector17transferUsedLanesERKNS_12MachineInstrENS_11LaneBitmaskERKNS_14MachineOperandE.exit.i ], [ %.25272.i, %74 ], [ true, %241 ], [ %.25272.i, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit ], [ %.25272.i, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit.thread ], [ %.25272.i, %219 ], [ %.25272.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i ], [ %.25272.i, %231 ]
-  %.3.i = phi i8 [ 1, %70 ], [ %.273.i, %39 ], [ %.273.i, %.lr.ph.i ], [ 1, %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.thread57.i ], [ %.4.i, %57 ], [ %.4.i, %72 ], [ %.4.i, %78 ], [ %.4.i, %84 ], [ %.4.i, %_ZNK4llvm16DeadLaneDetector17transferUsedLanesERKNS_12MachineInstrENS_11LaneBitmaskERKNS_14MachineOperandE.exit.i ], [ %.4.i, %74 ], [ 1, %241 ], [ 1, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit ], [ 1, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.argprom.exit.thread ], [ 1, %219 ], [ 1, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i ], [ 1, %231 ]
+_ZNK4llvm14MachineOperand8readsRegEv.exit.thread54.i: ; preds = %241, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit.thread, %219, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i, %231, %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.thread57.i, %_ZNK4llvm16DeadLaneDetector17transferUsedLanesERKNS_12MachineInstrENS_11LaneBitmaskERKNS_14MachineOperandE.exit.i, %84, %78, %74, %72, %70, %57, %39, %.lr.ph.i
+  %.353.i = phi i1 [ %.25272.i, %70 ], [ %.25272.i, %39 ], [ %.25272.i, %.lr.ph.i ], [ %.25272.i, %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.thread57.i ], [ %.25272.i, %57 ], [ %.25272.i, %72 ], [ %.25272.i, %78 ], [ %.25272.i, %84 ], [ %.25272.i, %_ZNK4llvm16DeadLaneDetector17transferUsedLanesERKNS_12MachineInstrENS_11LaneBitmaskERKNS_14MachineOperandE.exit.i ], [ %.25272.i, %74 ], [ true, %241 ], [ %.25272.i, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit ], [ %.25272.i, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit.thread ], [ %.25272.i, %219 ], [ %.25272.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i ], [ %.25272.i, %231 ]
+  %.3.i = phi i8 [ 1, %70 ], [ %.273.i, %39 ], [ %.273.i, %.lr.ph.i ], [ 1, %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.thread57.i ], [ %.4.i, %57 ], [ %.4.i, %72 ], [ %.4.i, %78 ], [ %.4.i, %84 ], [ %.4.i, %_ZNK4llvm16DeadLaneDetector17transferUsedLanesERKNS_12MachineInstrENS_11LaneBitmaskERKNS_14MachineOperandE.exit.i ], [ %.4.i, %74 ], [ 1, %241 ], [ 1, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit ], [ 1, %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit.thread ], [ 1, %219 ], [ 1, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i ], [ 1, %231 ]
   %242 = getelementptr inbounds i8, ptr %.074.i, i64 32
   %.not.i = icmp eq ptr %242, %35
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i

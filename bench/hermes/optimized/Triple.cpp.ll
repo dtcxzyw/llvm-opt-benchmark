@@ -827,7 +827,7 @@ if.end55:                                         ; preds = %if.end55thread-pre-
 if.then58:                                        ; preds = %if.end55
   %this.val = load i32, ptr %Arch, align 8
   %this.val36 = load i32, ptr %OS, align 4
-  %call59 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvh6TripleE.argprom(i32 %this.val, i32 %this.val36)
+  %call59 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvh6TripleE(i32 %this.val, i32 %this.val36)
   store i32 %call59, ptr %ObjectFormat, align 4
   br label %if.end61
 
@@ -2068,7 +2068,7 @@ _ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E7DefaultES2_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getDefaultFormatRKN4llvh6TripleE.argprom(i32 %T.32.val, i32 %T.44.val) unnamed_addr #0 {
+define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getDefaultFormatRKN4llvh6TripleE(i32 %T.32.val, i32 %T.44.val) unnamed_addr #0 {
 entry:
   switch i32 %T.32.val, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2365,7 +2365,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit98:                ; preds = %if.then.i.i95, %if.
   store i32 0, ptr %Environment, align 8
   %ObjectFormat = getelementptr inbounds i8, ptr %this, i64 52
   %this.val = load i32, ptr %Arch, align 8
-  %call17 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvh6TripleE.argprom(i32 %this.val, i32 %call16)
+  %call17 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvh6TripleE(i32 %this.val, i32 %call16)
   store i32 %call17, ptr %ObjectFormat, align 4
   ret void
 }
@@ -2668,7 +2668,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit162:               ; preds = %if.then.i.i159, %if
 if.then:                                          ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit162
   %this.val = load i32, ptr %Arch, align 8
   %this.val13 = load i32, ptr %OS, align 4
-  %call27 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvh6TripleE.argprom(i32 %this.val, i32 %this.val13)
+  %call27 = call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvh6TripleE(i32 %this.val, i32 %this.val13)
   store i32 %call27, ptr %ObjectFormat, align 4
   br label %if.end
 
@@ -4625,7 +4625,7 @@ entry:
   %this.val = load i32, ptr %1, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 44
   %this.val3 = load i32, ptr %2, align 4
-  %call = tail call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvh6TripleE.argprom(i32 %this.val, i32 %this.val3)
+  %call = tail call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvh6TripleE(i32 %this.val, i32 %this.val3)
   %cmp = icmp eq i32 %0, %call
   br i1 %cmp, label %switch.lookup, label %switch.lookup68
 

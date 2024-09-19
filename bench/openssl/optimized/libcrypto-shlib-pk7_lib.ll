@@ -695,7 +695,7 @@ if.end28:                                         ; preds = %lor.lhs.false
 if.then31:                                        ; preds = %if.end28
   %11 = getelementptr i8, ptr %p7i, i64 32
   %p7i.val = load ptr, ptr %11, align 8
-  %call32 = tail call fastcc i32 @pkcs7_rsa_sign_verify_setup.argprom.argelim(ptr %p7i.val)
+  %call32 = tail call fastcc i32 @pkcs7_rsa_sign_verify_setup(ptr %p7i.val)
   br label %return
 
 if.end33:                                         ; preds = %if.end28
@@ -755,7 +755,7 @@ declare i32 @EVP_MD_get_type(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pkcs7_rsa_sign_verify_setup.argprom.argelim(ptr %si.32.val) unnamed_addr #0 {
+define internal fastcc i32 @pkcs7_rsa_sign_verify_setup(ptr %si.32.val) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %si.32.val, null
   br i1 %cmp.not, label %return, label %if.then1
@@ -1334,9 +1334,9 @@ if.then23:                                        ; preds = %if.end20
   %5 = getelementptr i8, ptr %p7i, i64 16
   %p7i.val = load ptr, ptr %5, align 8
   %cmp.not.i = icmp eq ptr %p7i.val, null
-  br i1 %cmp.not.i, label %finished, label %pkcs7_rsa_encrypt_decrypt_setup.argprom.exit
+  br i1 %cmp.not.i, label %finished, label %pkcs7_rsa_encrypt_decrypt_setup.exit
 
-pkcs7_rsa_encrypt_decrypt_setup.argprom.exit:     ; preds = %if.then23
+pkcs7_rsa_encrypt_decrypt_setup.exit:             ; preds = %if.then23
   %call.i = tail call ptr @OBJ_nid2obj(i32 noundef 6) #7
   %call2.i = tail call i32 @X509_ALGOR_set0(ptr noundef nonnull %p7i.val, ptr noundef %call.i, i32 noundef 5, ptr noundef null) #7
   %cmp25 = icmp slt i32 %call2.i, 1
@@ -1381,14 +1381,14 @@ if.then41:                                        ; preds = %if.end39
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef 149, ptr noundef null) #7
   br label %return
 
-finished:                                         ; preds = %if.then23, %if.end39, %pkcs7_rsa_encrypt_decrypt_setup.argprom.exit
+finished:                                         ; preds = %if.then23, %if.end39, %pkcs7_rsa_encrypt_decrypt_setup.exit
   %call43 = tail call i32 @X509_up_ref(ptr noundef %x509) #7
   %cert = getelementptr inbounds i8, ptr %p7i, i64 32
   store ptr %x509, ptr %cert, align 8
   br label %return
 
-return:                                           ; preds = %if.then32, %if.then38, %if.then41, %pkcs7_rsa_encrypt_decrypt_setup.argprom.exit, %if.end16, %if.end13, %if.end5, %if.end, %entry, %finished
-  %retval.0 = phi i32 [ 1, %finished ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end5 ], [ 0, %if.end13 ], [ -2, %if.end16 ], [ 0, %pkcs7_rsa_encrypt_decrypt_setup.argprom.exit ], [ 0, %if.then41 ], [ 0, %if.then38 ], [ 0, %if.then32 ]
+return:                                           ; preds = %if.then32, %if.then38, %if.then41, %pkcs7_rsa_encrypt_decrypt_setup.exit, %if.end16, %if.end13, %if.end5, %if.end, %entry, %finished
+  %retval.0 = phi i32 [ 1, %finished ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end5 ], [ 0, %if.end13 ], [ -2, %if.end16 ], [ 0, %pkcs7_rsa_encrypt_decrypt_setup.exit ], [ 0, %if.then41 ], [ 0, %if.then38 ], [ 0, %if.then32 ]
   ret i32 %retval.0
 }
 

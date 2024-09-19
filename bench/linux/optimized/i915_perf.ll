@@ -5973,7 +5973,7 @@ define internal i32 @gen12_enable_metric_set(ptr noundef %0, ptr noundef %1) #0 
 65:                                               ; preds = %23
   %.val = load ptr, ptr %0, align 8
   %.val.val = load ptr, ptr %.val, align 8
-  %66 = call fastcc i32 @oa_configure_all_contexts.argprom.argprom(ptr %.val.val, ptr noundef nonnull %3, i64 noundef 1, ptr noundef %1)
+  %66 = call fastcc i32 @oa_configure_all_contexts(ptr %.val.val, ptr noundef nonnull %3, i64 noundef 1, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #20
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %87
@@ -6051,7 +6051,7 @@ define internal void @gen12_disable_metric_set(ptr nocapture noundef readonly %0
 24:                                               ; preds = %16
   %.val = load ptr, ptr %0, align 8
   %.val.val = load ptr, ptr %.val, align 8
-  %25 = call fastcc i32 @oa_configure_all_contexts.argprom.argprom(ptr %.val.val, ptr noundef nonnull %2, i64 noundef 1, ptr noundef null)
+  %25 = call fastcc i32 @oa_configure_all_contexts(ptr %.val.val, ptr noundef nonnull %2, i64 noundef 1, ptr noundef null)
   br label %26
 
 26:                                               ; preds = %24, %16
@@ -9062,13 +9062,13 @@ define internal fastcc i32 @lrc_configure_all_contexts(ptr nocapture noundef rea
 
 .split5.us:                                       ; preds = %.loopexit, %.split.split.us, %.split.us
   %.val.val = load ptr, ptr %5, align 8
-  %85 = call fastcc i32 @oa_configure_all_contexts.argprom.argprom(ptr %.val.val, ptr noundef nonnull %4, i64 noundef 9, ptr noundef %2)
+  %85 = call fastcc i32 @oa_configure_all_contexts(ptr %.val.val, ptr noundef nonnull %4, i64 noundef 9, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %4) #20
   ret i32 %85
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @oa_configure_all_contexts.argprom.argprom(ptr %.0.val.0.val, ptr nocapture noundef %0, i64 noundef range(i64 1, 10) %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @oa_configure_all_contexts(ptr %.0.val.0.val, ptr nocapture noundef %0, i64 noundef range(i64 1, 10) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.i915_gem_engines_iter, align 8
   %5 = getelementptr inbounds i8, ptr %.0.val.0.val, i64 9336
   tail call void @_raw_spin_lock(ptr noundef %5) #20

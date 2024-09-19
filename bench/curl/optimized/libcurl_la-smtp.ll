@@ -873,15 +873,15 @@ if.end:                                           ; preds = %land.rhs.i, %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %data.val19, i64 1
   %7 = load i8, ptr %arrayidx.i, align 1
   %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %if.then.i, label %smtp_parse_url_path.argprom.exit
+  br i1 %tobool.not.i, label %if.then.i, label %smtp_parse_url_path.exit
 
 if.then.i:                                        ; preds = %if.end
   %call.i20 = call i32 @Curl_gethostname(ptr noundef nonnull %localhost.i, i64 noundef 1025) #8
   %tobool3.not.i = icmp eq i32 %call.i20, 0
   %localhost..str.39.i = select i1 %tobool3.not.i, ptr %localhost.i, ptr @.str.39
-  br label %smtp_parse_url_path.argprom.exit
+  br label %smtp_parse_url_path.exit
 
-smtp_parse_url_path.argprom.exit:                 ; preds = %if.end, %if.then.i
+smtp_parse_url_path.exit:                         ; preds = %if.end, %if.then.i
   %path.0.i = phi ptr [ %arrayidx.i, %if.end ], [ %localhost..str.39.i, %if.then.i ]
   %domain.i = getelementptr inbounds i8, ptr %data.val18, i64 1032
   %call7.i = call i32 @Curl_urldecode(ptr noundef nonnull %path.0.i, i64 noundef 0, ptr noundef nonnull %domain.i, ptr noundef null, i32 noundef 3) #8
@@ -889,7 +889,7 @@ smtp_parse_url_path.argprom.exit:                 ; preds = %if.end, %if.then.i
   %tobool4.not = icmp eq i32 %call7.i, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
-if.end6:                                          ; preds = %smtp_parse_url_path.argprom.exit
+if.end6:                                          ; preds = %smtp_parse_url_path.exit
   %data.val = load ptr, ptr %conn1, align 8
   %state.i = getelementptr inbounds i8, ptr %data.val, i64 1024
   store i32 1, ptr %state.i, align 8
@@ -939,8 +939,8 @@ smtp_multi_statemach.exit:                        ; preds = %if.then.i24, %if.en
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ssldone3.i)
   br label %return
 
-return:                                           ; preds = %if.end.i, %while.end21.i, %smtp_parse_url_path.argprom.exit, %smtp_multi_statemach.exit
-  %retval.0 = phi i32 [ %retval.0.i, %smtp_multi_statemach.exit ], [ %call7.i, %smtp_parse_url_path.argprom.exit ], [ %call23.i, %if.end.i ], [ 3, %while.end21.i ]
+return:                                           ; preds = %if.end.i, %while.end21.i, %smtp_parse_url_path.exit, %smtp_multi_statemach.exit
+  %retval.0 = phi i32 [ %retval.0.i, %smtp_multi_statemach.exit ], [ %call7.i, %smtp_parse_url_path.exit ], [ %call23.i, %if.end.i ], [ 3, %while.end21.i ]
   ret i32 %retval.0
 }
 

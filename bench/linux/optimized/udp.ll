@@ -296,9 +296,9 @@ define dso_local i32 @udp_v6_get_port(ptr noundef %0, i16 noundef zeroext %1) #0
   %5 = zext i16 %1 to i32
   %6 = getelementptr i8, ptr %4, i64 336
   %.val = load i32, ptr %6, align 16
-  %7 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val, ptr noundef nonnull @in6addr_any, i32 noundef %5)
+  %7 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val, ptr noundef nonnull @in6addr_any, i32 noundef %5)
   %8 = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val, ptr noundef %8, i32 noundef 0)
+  %9 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val, ptr noundef %8, i32 noundef 0)
   %10 = trunc i32 %9 to i16
   %11 = getelementptr i8, ptr %0, i64 10
   store i16 %10, ptr %11, align 2
@@ -307,7 +307,7 @@ define dso_local i32 @udp_v6_get_port(ptr noundef %0, i16 noundef zeroext %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.336.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #3 align 16 {
+define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #3 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -448,7 +448,7 @@ define dso_local void @udp_v6_rehash(ptr noundef %0) #0 align 16 {
   %7 = zext i16 %6 to i32
   %8 = getelementptr i8, ptr %3, i64 336
   %.val = load i32, ptr %8, align 16
-  %9 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val, ptr noundef %4, i32 noundef %7)
+  %9 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val, ptr noundef %4, i32 noundef %7)
   %10 = trunc i32 %9 to i16
   tail call void @udp_lib_rehash(ptr noundef %0, i16 noundef zeroext %10) #14
   ret void
@@ -463,7 +463,7 @@ define dso_local ptr @__udp6_lib_lookup(ptr noundef %0, ptr noundef %1, i16 noun
   %11 = zext i16 %10 to i32
   %12 = getelementptr i8, ptr %0, i64 336
   %.val1 = load i32, ptr %12, align 16
-  %13 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val1, ptr noundef %3, i32 noundef %11)
+  %13 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val1, ptr noundef %3, i32 noundef %11)
   %14 = getelementptr inbounds i8, ptr %7, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, %13
@@ -505,7 +505,7 @@ define dso_local ptr @__udp6_lib_lookup(ptr noundef %0, ptr noundef %1, i16 noun
 
 40:                                               ; preds = %39, %34
   %.val = load i32, ptr %12, align 16
-  %41 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val, ptr noundef nonnull @in6addr_any, i32 noundef %11)
+  %41 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val, ptr noundef nonnull @in6addr_any, i32 noundef %11)
   %42 = load i32, ptr %14, align 8
   %43 = and i32 %42, %41
   %44 = load ptr, ptr %17, align 8
@@ -2356,9 +2356,9 @@ define internal fastcc void @__udp6_lib_mcast_deliver(ptr noundef readonly %0, p
   br i1 %28, label %44, label %31
 
 31:                                               ; preds = %6
-  %32 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %21, ptr noundef nonnull @in6addr_any, i32 noundef %16)
+  %32 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %21, ptr noundef nonnull @in6addr_any, i32 noundef %16)
   %33 = and i32 %32, %19
-  %34 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %21, ptr noundef %3, i32 noundef %16)
+  %34 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %21, ptr noundef %3, i32 noundef %16)
   %35 = and i32 %34, %19
   br label %36
 
@@ -2670,7 +2670,7 @@ define dso_local void @udp_v6_early_demux(ptr noundef %0) local_unnamed_addr #0 
   %55 = zext i16 %54 to i32
   %56 = getelementptr i8, ptr %5, i64 336
   %.val = load i32, ptr %56, align 16
-  %57 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val, ptr noundef %49, i32 noundef %55)
+  %57 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val, ptr noundef %49, i32 noundef %55)
   %58 = getelementptr inbounds i8, ptr %53, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, %57

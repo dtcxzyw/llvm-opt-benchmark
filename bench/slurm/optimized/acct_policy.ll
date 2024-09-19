@@ -159,10 +159,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.117 = private unnamed_addr constant [49 x i8] c"ACCRUE: %s: Adding %d to assoc_ptr %p (%p %p %p)\00", align 1
 @__func__._add_accrue_time_internal = private unnamed_addr constant [26 x i8] c"_add_accrue_time_internal\00", align 1
 @.str.118 = private unnamed_addr constant [51 x i8] c"ACCRUE: assoc_id %u(%s/%s/%s/%p) added %d count %d\00", align 1
-@switch.table._acct_policy_validate.argelim = private unnamed_addr constant [5 x i32] [i32 57, i32 61, i32 93, i32 62, i32 183], align 4
-@switch.table._acct_policy_validate.argelim.7 = private unnamed_addr constant [5 x i32] [i32 58, i32 85, i32 94, i32 90, i32 184], align 4
-@switch.table._acct_policy_validate.argelim.8 = private unnamed_addr constant [5 x i32] [i32 66, i32 87, i32 96, i32 68, i32 186], align 4
-@switch.table._acct_policy_validate.argelim.9 = private unnamed_addr constant [5 x i32] [i32 84, i32 88, i32 97, i32 82, i32 187], align 4
+@switch.table._acct_policy_validate = private unnamed_addr constant [5 x i32] [i32 57, i32 61, i32 93, i32 62, i32 183], align 4
+@switch.table._acct_policy_validate.7 = private unnamed_addr constant [5 x i32] [i32 58, i32 85, i32 94, i32 90, i32 184], align 4
+@switch.table._acct_policy_validate.8 = private unnamed_addr constant [5 x i32] [i32 66, i32 87, i32 96, i32 68, i32 186], align 4
+@switch.table._acct_policy_validate.9 = private unnamed_addr constant [5 x i32] [i32 84, i32 88, i32 97, i32 82, i32 187], align 4
 @switch.table._qos_policy_validate = private unnamed_addr constant [5 x i32] [i32 169, i32 174, i32 170, i32 172, i32 196], align 4
 @switch.table._qos_policy_validate.10 = private unnamed_addr constant [5 x i32] [i32 52, i32 130, i32 137, i32 54, i32 194], align 4
 @switch.table._qos_policy_validate.11 = private unnamed_addr constant [5 x i32] [i32 40, i32 44, i32 132, i32 45, i32 189], align 4
@@ -1424,7 +1424,7 @@ define dso_local zeroext i1 @acct_policy_validate(ptr noundef %0, ptr noundef re
 _list_acct_policy_validate.exit:                  ; preds = %18, %19, %22, %27, %28
   %.017.i = phi ptr [ null, %27 ], [ %spec.store.select.i.i, %22 ], [ null, %19 ], [ null, %18 ], [ null, %28 ]
   %.1.i = phi ptr [ null, %27 ], [ %spec.select.i, %22 ], [ %4, %19 ], [ %4, %18 ], [ %30, %28 ]
-  %31 = call fastcc zeroext i1 @_acct_policy_validate.argelim(ptr noundef %0, ptr noundef readonly %1, ptr noundef %3, ptr noundef %.1.i, ptr noundef %.017.i, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7)
+  %31 = call fastcc zeroext i1 @_acct_policy_validate(ptr noundef %0, ptr noundef readonly %1, ptr noundef %3, ptr noundef %.1.i, ptr noundef %.017.i, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7)
   br label %35
 
 32:                                               ; preds = %8
@@ -1487,7 +1487,7 @@ acct_policy_set_qos_order.exit:                   ; preds = %15, %5, %6, %9, %14
   %25 = getelementptr inbounds i8, ptr %1, i64 40
   %26 = load i8, ptr %25, align 8
   %27 = trunc i8 %26 to i1
-  %28 = tail call fastcc zeroext i1 @_acct_policy_validate.argelim(ptr noundef %19, ptr noundef %0, ptr noundef %21, ptr noundef %.1, ptr noundef %.017, ptr noundef %23, ptr noundef %24, i1 noundef zeroext %27)
+  %28 = tail call fastcc zeroext i1 @_acct_policy_validate(ptr noundef %19, ptr noundef %0, ptr noundef %21, ptr noundef %.1, ptr noundef %.017, ptr noundef %23, ptr noundef %24, i1 noundef zeroext %27)
   %. = select i1 %28, i32 1, i32 -1
   ret i32 %.
 }
@@ -2933,7 +2933,7 @@ _apply_limit_factor.exit200:                      ; preds = %134, %155, %.sink.s
 
 switch.lookup:                                    ; preds = %175
   %202 = zext nneg i32 %178 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.argelim.7, i64 0, i64 %202
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.7, i64 0, i64 %202
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_get_tres_state_reason.exit
 
@@ -3007,7 +3007,7 @@ _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %195
 
 switch.lookup576:                                 ; preds = %223
   %250 = zext nneg i32 %226 to i64
-  %switch.gep577 = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.argelim.7, i64 0, i64 %250
+  %switch.gep577 = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.7, i64 0, i64 %250
   %switch.load578 = load i32, ptr %switch.gep577, align 4
   br label %_get_tres_state_reason.exit207
 
@@ -3081,7 +3081,7 @@ _get_tres_state_reason.exit207:                   ; preds = %switch.lookup576, %
 
 switch.lookup579:                                 ; preds = %271
   %298 = zext nneg i32 %274 to i64
-  %switch.gep580 = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.argelim.7, i64 0, i64 %298
+  %switch.gep580 = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.7, i64 0, i64 %298
   %switch.load581 = load i32, ptr %switch.gep580, align 4
   br label %_get_tres_state_reason.exit212
 
@@ -5453,7 +5453,7 @@ define internal fastcc void @_get_unique_job_node_cnt(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc.argelim(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #5 {
   %9 = load i32, ptr @g_tres_count, align 4
   %10 = icmp ne i32 %9, 0
   %or.cond46 = select i1 %6, i1 %10, i1 false
@@ -8945,7 +8945,7 @@ declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @assoc_mgr_fill_in_assoc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_acct_policy_validate.argelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_acct_policy_validate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca %struct.slurmdb_qos_rec_t, align 8
   %10 = alloca i32, align 4
   %11 = load i32, ptr @slurmctld_tres_cnt, align 4
@@ -9270,7 +9270,7 @@ _validate_tres_limits_for_assoc.exit:             ; preds = %142, %127
 
 switch.lookup:                                    ; preds = %147
   %171 = and i64 %storemerge.in, 7
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.argelim, i64 0, i64 %171
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate, i64 0, i64 %171
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_get_tres_state_reason.exit
 
@@ -9495,7 +9495,7 @@ _validate_tres_time_limits.exit:                  ; preds = %_validate_time_limi
   br label %_get_tres_state_reason.exit248
 
 switch.lookup29:                                  ; preds = %264
-  %switch.gep30 = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.argelim.7, i64 0, i64 %indvars.iv.i
+  %switch.gep30 = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.7, i64 0, i64 %indvars.iv.i
   %switch.load31 = load i32, ptr %switch.gep30, align 4
   br label %_get_tres_state_reason.exit248
 
@@ -9901,7 +9901,7 @@ _validate_tres_limits_for_assoc.exit283:          ; preds = %455, %440
 
 switch.lookup32:                                  ; preds = %460
   %484 = and i64 %storemerge454.in, 7
-  %switch.gep33 = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.argelim.8, i64 0, i64 %484
+  %switch.gep33 = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.8, i64 0, i64 %484
   %switch.load34 = load i32, ptr %switch.gep33, align 4
   br label %_get_tres_state_reason.exit288
 
@@ -9940,7 +9940,7 @@ _get_tres_state_reason.exit288:                   ; preds = %switch.lookup32, %4
   %504 = getelementptr inbounds i8, ptr %.0190448, i64 240
   %505 = load ptr, ptr %504, align 8
   %506 = load ptr, ptr %65, align 8
-  %507 = call fastcc zeroext i1 @_validate_tres_limits_for_assoc.argelim(ptr noundef %10, ptr noundef %424, i64 noundef %503, ptr noundef %505, ptr noundef %506, ptr noundef %426, i1 noundef zeroext %56, i1 noundef zeroext %7)
+  %507 = call fastcc zeroext i1 @_validate_tres_limits_for_assoc(ptr noundef %10, ptr noundef %424, i64 noundef %503, ptr noundef %505, ptr noundef %506, ptr noundef %426, i1 noundef zeroext %56, i1 noundef zeroext %7)
   br i1 %507, label %558, label %508
 
 508:                                              ; preds = %.loopexit
@@ -9987,7 +9987,7 @@ _get_tres_state_reason.exit288:                   ; preds = %switch.lookup32, %4
 
 switch.lookup35:                                  ; preds = %510
   %535 = zext nneg i32 %511 to i64
-  %switch.gep36 = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.argelim.9, i64 0, i64 %535
+  %switch.gep36 = getelementptr inbounds [5 x i32], ptr @switch.table._acct_policy_validate.9, i64 0, i64 %535
   %switch.load37 = load i32, ptr %switch.gep36, align 4
   br label %_get_tres_state_reason.exit293
 

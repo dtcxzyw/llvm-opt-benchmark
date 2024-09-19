@@ -191,7 +191,7 @@ define internal i32 @T42_Face_Init(ptr nocapture readnone %0, ptr noundef %1, i3
 
 ._crit_edge.i.i:                                  ; preds = %47
   %.pre.i.i = load i64, ptr %30, align 8
-  br label %t42_parser_init.argprom.argprom.exit.thread.i
+  br label %t42_parser_init.exit.thread.i
 
 53:                                               ; preds = %42
   %54 = call ptr @ft_mem_qalloc(ptr noundef %24, i64 noundef %44, ptr noundef nonnull %8) #13
@@ -208,9 +208,9 @@ define internal i32 @T42_Face_Init(ptr nocapture readnone %0, ptr noundef %1, i3
 
 58:                                               ; preds = %56
   store i64 %44, ptr %30, align 8
-  br label %t42_parser_init.argprom.argprom.exit.thread.i
+  br label %t42_parser_init.exit.thread.i
 
-t42_parser_init.argprom.argprom.exit.thread.i:    ; preds = %58, %._crit_edge.i.i
+t42_parser_init.exit.thread.i:                    ; preds = %58, %._crit_edge.i.i
   %59 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %44, %58 ]
   %60 = load ptr, ptr %31, align 8
   %61 = getelementptr inbounds i8, ptr %9, i64 8
@@ -222,28 +222,28 @@ t42_parser_init.argprom.argprom.exit.thread.i:    ; preds = %58, %._crit_edge.i.
   %62 = phi i32 [ %35, %34 ], [ %33, %22 ], [ %41, %40 ], [ 2, %39 ], [ %52, %47 ], [ %57, %56 ], [ %55, %53 ]
   %63 = load i8, ptr %32, align 8
   %.not50.i.i = icmp eq i8 %63, 0
-  br i1 %.not50.i.i, label %t42_parser_init.argprom.argprom.exit.i, label %t42_parser_init.argprom.argprom.exit.thread85.i
+  br i1 %.not50.i.i, label %t42_parser_init.exit.i, label %t42_parser_init.exit.thread85.i
 
-t42_parser_init.argprom.argprom.exit.thread85.i:  ; preds = %.thread.i.i
+t42_parser_init.exit.thread85.i:                  ; preds = %.thread.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %233
 
-t42_parser_init.argprom.argprom.exit.i:           ; preds = %.thread.i.i
+t42_parser_init.exit.i:                           ; preds = %.thread.i.i
   %64 = load ptr, ptr %31, align 8
   call void @ft_mem_free(ptr noundef %24, ptr noundef %64) #13
   store ptr null, ptr %31, align 8
   %.pre3.i.i = load i32, ptr %8, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %.not.i = icmp eq i32 %.pre3.i.i, 0
-  br i1 %.not.i, label %t42_parser_init.argprom.argprom.exit._crit_edge.i, label %233
+  br i1 %.not.i, label %t42_parser_init.exit._crit_edge.i, label %233
 
-t42_parser_init.argprom.argprom.exit._crit_edge.i: ; preds = %t42_parser_init.argprom.argprom.exit.i
+t42_parser_init.exit._crit_edge.i:                ; preds = %t42_parser_init.exit.i
   %.pre.i = load i64, ptr %30, align 8
   br label %65
 
-65:                                               ; preds = %t42_parser_init.argprom.argprom.exit._crit_edge.i, %t42_parser_init.argprom.argprom.exit.thread.i
-  %66 = phi i64 [ %59, %t42_parser_init.argprom.argprom.exit.thread.i ], [ %.pre.i, %t42_parser_init.argprom.argprom.exit._crit_edge.i ]
-  %67 = phi ptr [ %60, %t42_parser_init.argprom.argprom.exit.thread.i ], [ null, %t42_parser_init.argprom.argprom.exit._crit_edge.i ]
+65:                                               ; preds = %t42_parser_init.exit._crit_edge.i, %t42_parser_init.exit.thread.i
+  %66 = phi i64 [ %59, %t42_parser_init.exit.thread.i ], [ %.pre.i, %t42_parser_init.exit._crit_edge.i ]
+  %67 = phi ptr [ %60, %t42_parser_init.exit.thread.i ], [ null, %t42_parser_init.exit._crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store ptr %67, ptr %9, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 %66
@@ -595,8 +595,8 @@ t42_parse_dict.exit.i:                            ; preds = %.loopexit102.i.i, %
   store i32 %232, ptr %228, align 8
   br label %233
 
-233:                                              ; preds = %._crit_edge.i, %167, %164, %t42_parse_dict.exit.i, %t42_parse_dict.exit.thread89.i, %t42_parse_dict.exit.thread.i, %t42_parser_init.argprom.argprom.exit.i, %t42_parser_init.argprom.argprom.exit.thread85.i
-  %.0.i = phi i32 [ %.pre3.i.i, %t42_parser_init.argprom.argprom.exit.i ], [ %.pr.i, %t42_parse_dict.exit.i ], [ %spec.select.i, %._crit_edge.i ], [ %spec.select.i, %167 ], [ 2, %164 ], [ %62, %t42_parser_init.argprom.argprom.exit.thread85.i ], [ %.0.i.i.i, %t42_parse_dict.exit.thread.i ], [ %.ph.i, %t42_parse_dict.exit.thread89.i ]
+233:                                              ; preds = %._crit_edge.i, %167, %164, %t42_parse_dict.exit.i, %t42_parse_dict.exit.thread89.i, %t42_parse_dict.exit.thread.i, %t42_parser_init.exit.i, %t42_parser_init.exit.thread85.i
+  %.0.i = phi i32 [ %.pre3.i.i, %t42_parser_init.exit.i ], [ %.pr.i, %t42_parse_dict.exit.i ], [ %spec.select.i, %._crit_edge.i ], [ %spec.select.i, %167 ], [ 2, %164 ], [ %62, %t42_parser_init.exit.thread85.i ], [ %.0.i.i.i, %t42_parse_dict.exit.thread.i ], [ %.ph.i, %t42_parse_dict.exit.thread89.i ]
   %234 = getelementptr inbounds i8, ptr %9, i64 272
   %235 = load ptr, ptr %234, align 8
   %.not.i83.i = icmp eq ptr %235, null

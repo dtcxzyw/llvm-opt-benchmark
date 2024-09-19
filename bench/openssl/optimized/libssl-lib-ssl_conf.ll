@@ -245,9 +245,9 @@ if.end.i.i:                                       ; preds = %for.body.i
   %and7.i.i = and i32 %cctx.val.i, 4
   %tobool8.not.i.i = icmp eq i32 %and7.i.i, 0
   %or.cond5.i.i = select i1 %tobool5.not.i.i, i1 %tobool8.not.i.i, i1 false
-  br i1 %or.cond5.i.i, label %for.inc.i, label %ssl_conf_cmd_allowed.argprom.exit.i
+  br i1 %or.cond5.i.i, label %for.inc.i, label %ssl_conf_cmd_allowed.exit.i
 
-ssl_conf_cmd_allowed.argprom.exit.i:              ; preds = %if.end.i.i
+ssl_conf_cmd_allowed.exit.i:                      ; preds = %if.end.i.i
   %and11.i.i = and i32 %conv.i.i, 32
   %tobool12.not.i.i = icmp ne i32 %and11.i.i, 0
   %and14.i.i = and i32 %cctx.val.i, 32
@@ -255,7 +255,7 @@ ssl_conf_cmd_allowed.argprom.exit.i:              ; preds = %if.end.i.i
   %or.cond6.not.i.not.i = select i1 %tobool12.not.i.i, i1 %tobool15.not.i.i, i1 false
   br i1 %or.cond6.not.i.not.i, label %for.inc.i, label %if.then2.i12
 
-if.then2.i12:                                     ; preds = %ssl_conf_cmd_allowed.argprom.exit.i
+if.then2.i12:                                     ; preds = %ssl_conf_cmd_allowed.exit.i
   %and.i13 = and i32 %cctx.val.i, 1
   %tobool3.not.i = icmp eq i32 %and.i13, 0
   br i1 %tobool3.not.i, label %if.end11.i, label %if.then4.i
@@ -287,7 +287,7 @@ land.lhs.true17.i:                                ; preds = %if.then15.i
   %cmp20.i = icmp eq i32 %call19.i15, 0
   br i1 %cmp20.i, label %if.then5, label %for.inc.i
 
-for.inc.i:                                        ; preds = %land.lhs.true17.i, %if.then15.i, %if.end11.i, %ssl_conf_cmd_allowed.argprom.exit.i, %if.end.i.i, %for.body.i
+for.inc.i:                                        ; preds = %land.lhs.true17.i, %if.then15.i, %if.end11.i, %ssl_conf_cmd_allowed.exit.i, %if.end.i.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.017.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %t.016.i, i64 32
   %exitcond.not.i = icmp eq i64 %inc.i, 60
@@ -579,9 +579,9 @@ if.end.i.i:                                       ; preds = %for.body.i
   %and7.i.i = and i32 %cctx.val.i, 4
   %tobool8.not.i.i = icmp eq i32 %and7.i.i, 0
   %or.cond5.i.i = select i1 %tobool5.not.i.i, i1 %tobool8.not.i.i, i1 false
-  br i1 %or.cond5.i.i, label %for.inc.i, label %ssl_conf_cmd_allowed.argprom.exit.i
+  br i1 %or.cond5.i.i, label %for.inc.i, label %ssl_conf_cmd_allowed.exit.i
 
-ssl_conf_cmd_allowed.argprom.exit.i:              ; preds = %if.end.i.i
+ssl_conf_cmd_allowed.exit.i:                      ; preds = %if.end.i.i
   %and11.i.i = and i32 %conv.i.i, 32
   %tobool12.not.i.i = icmp ne i32 %and11.i.i, 0
   %and14.i.i = and i32 %cctx.val.i, 32
@@ -589,7 +589,7 @@ ssl_conf_cmd_allowed.argprom.exit.i:              ; preds = %if.end.i.i
   %or.cond6.not.i.not.i = select i1 %tobool12.not.i.i, i1 %tobool15.not.i.i, i1 false
   br i1 %or.cond6.not.i.not.i, label %for.inc.i, label %if.then2.i3
 
-if.then2.i3:                                      ; preds = %ssl_conf_cmd_allowed.argprom.exit.i
+if.then2.i3:                                      ; preds = %ssl_conf_cmd_allowed.exit.i
   %and.i4 = and i32 %cctx.val.i, 1
   %tobool3.not.i = icmp eq i32 %and.i4, 0
   br i1 %tobool3.not.i, label %if.end11.i, label %if.then4.i
@@ -621,7 +621,7 @@ land.lhs.true17.i:                                ; preds = %if.then15.i
   %cmp20.i = icmp eq i32 %call19.i6, 0
   br i1 %cmp20.i, label %if.then3, label %for.inc.i
 
-for.inc.i:                                        ; preds = %land.lhs.true17.i, %if.then15.i, %if.end11.i, %ssl_conf_cmd_allowed.argprom.exit.i, %if.end.i.i, %for.body.i
+for.inc.i:                                        ; preds = %land.lhs.true17.i, %if.then15.i, %if.end11.i, %ssl_conf_cmd_allowed.exit.i, %if.end.i.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.017.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %t.016.i, i64 32
   %exitcond.not.i = icmp eq i64 %inc.i, 60

@@ -389,10 +389,10 @@ sw.bb:                                            ; preds = %if.then54
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %if.then54
-  %call63 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_18quantileERKSt6vectorIdSaIdEEd.argprom(ptr nonnull %0, ptr %1, double noundef 2.500000e-01)
+  %call63 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_18quantileERKSt6vectorIdSaIdEEd(ptr nonnull %0, ptr %1, double noundef 2.500000e-01)
   %this.val33 = load ptr, ptr %this, align 8, !tbaa !21
   %this.val34 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !35
-  %call65 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_18quantileERKSt6vectorIdSaIdEEd.argprom(ptr %this.val33, ptr %this.val34, double noundef 7.500000e-01)
+  %call65 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_18quantileERKSt6vectorIdSaIdEEd(ptr %this.val33, ptr %this.val34, double noundef 7.500000e-01)
   %sub = fsub double %call65, %call63
   %mul = fmul double %sub, 2.000000e+00
   %36 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !35
@@ -1376,7 +1376,7 @@ declare double @log(double noundef) local_unnamed_addr #9
 declare double @llvm.ceil.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_18quantileERKSt6vectorIdSaIdEEd.argprom(ptr %samples.0.val, ptr %samples.8.val, double noundef %prob) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_18quantileERKSt6vectorIdSaIdEEd(ptr %samples.0.val, ptr %samples.8.val, double noundef %prob) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -881,13 +881,13 @@ list_length.exit:                                 ; preds = %10, %14
   %48 = load i16, ptr %47, align 2
   %49 = load i32, ptr %44, align 4
   switch i32 %49, label %428 [
-    i32 15, label %get_leftop.argprom.exit
+    i32 15, label %get_leftop.exit
     i32 35, label %131
     i32 18, label %309
     i32 45, label %399
   ]
 
-get_leftop.argprom.exit:                          ; preds = %40
+get_leftop.exit:                                  ; preds = %40
   %50 = getelementptr inbounds i8, ptr %44, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = getelementptr inbounds i8, ptr %44, i64 8
@@ -901,15 +901,15 @@ get_leftop.argprom.exit:                          ; preds = %40
   %58 = icmp eq i32 %57, 25
   br i1 %58, label %thread-pre-split, label %61
 
-thread-pre-split:                                 ; preds = %get_leftop.argprom.exit
+thread-pre-split:                                 ; preds = %get_leftop.exit
   %59 = getelementptr inbounds i8, ptr %56, i64 8
   %60 = load ptr, ptr %59, align 8
   %.pr = load i32, ptr %60, align 4
   br label %61
 
-61:                                               ; preds = %thread-pre-split, %get_leftop.argprom.exit
-  %62 = phi i32 [ %.pr, %thread-pre-split ], [ %57, %get_leftop.argprom.exit ]
-  %.0302 = phi ptr [ %60, %thread-pre-split ], [ %56, %get_leftop.argprom.exit ]
+61:                                               ; preds = %thread-pre-split, %get_leftop.exit
+  %62 = phi i32 [ %.pr, %thread-pre-split ], [ %57, %get_leftop.exit ]
+  %.0302 = phi ptr [ %60, %thread-pre-split ], [ %56, %get_leftop.exit ]
   %63 = icmp eq i32 %62, 6
   br i1 %63, label %64, label %68
 

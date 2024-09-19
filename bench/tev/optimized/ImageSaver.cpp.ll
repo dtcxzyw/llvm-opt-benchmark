@@ -48,7 +48,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tev10Image
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @"_ZZN3tev10ImageSaver9getSaversEvENK3$_0clEv.argprom"()
+  invoke fastcc void @"_ZZN3tev10ImageSaver9getSaversEvENK3$_0clEv"()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -73,7 +73,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ImageSaver9getSaversEvENK3$_0clEv.argprom"() unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ImageSaver9getSaversEvENK3$_0clEv"() unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i8 0, i64 24, i1 false)
   %1 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i unwind label %65

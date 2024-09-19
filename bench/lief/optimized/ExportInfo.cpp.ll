@@ -476,8 +476,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF5MachOlsERSoRKNS0
   %.not4.i = icmp eq ptr %9, %11
   br i1 %.not4.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2, %"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.argprom.exit.i"
-  %.sroa.01.05.i = phi ptr [ %34, %"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.argprom.exit.i" ], [ %9, %2 ]
+.lr.ph.i:                                         ; preds = %2, %"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.exit.i"
+  %.sroa.01.05.i = phi ptr [ %34, %"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.exit.i" ], [ %9, %2 ]
   %12 = load i64, ptr %.sroa.01.05.i, align 8, !noalias !6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !6
@@ -554,11 +554,11 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 29:                                               ; preds = %27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %28) #17, !noalias !6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17, !noalias !6
-  br label %"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.argprom.exit.i"
+  br label %"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.exit.i"
 
 .critedge.i.i:                                    ; preds = %20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17, !noalias !6
-  br label %"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.argprom.exit.i"
+  br label %"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.exit.i"
 
 30:                                               ; preds = %27, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i.i
   %31 = landingpad { ptr, i32 }
@@ -576,7 +576,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17, !noalias !6
   br label %.body
 
-"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.argprom.exit.i": ; preds = %.critedge.i.i, %29
+"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.exit.i": ; preds = %.critedge.i.i, %29
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !6
   %33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5) #17, !noalias !6
@@ -585,7 +585,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not.i = icmp eq ptr %34, %11
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
 
-.loopexit:                                        ; preds = %"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.argprom.exit.i", %2
+.loopexit:                                        ; preds = %"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.exit.i", %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
@@ -1063,6 +1063,6 @@ attributes #21 = { noreturn nounwind }
 !7 = distinct !{!7, !8, !"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKN4LIEF5MachO19EXPORT_SYMBOL_FLAGSESt6vectorIS4_SaIS4_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS3_lsERSoRKNS3_10ExportInfoEE3$_0ET0_T_SN_SM_T1_: argument 0"}
 !8 = distinct !{!8, !"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKN4LIEF5MachO19EXPORT_SYMBOL_FLAGSESt6vectorIS4_SaIS4_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS3_lsERSoRKNS3_10ExportInfoEE3$_0ET0_T_SN_SM_T1_"}
 !9 = !{!10, !7}
-!10 = distinct !{!10, !11, !"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.argprom: argument 0"}
-!11 = distinct !{!11, !"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE.argprom"}
+!10 = distinct !{!10, !11, !"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE: argument 0"}
+!11 = distinct !{!11, !"_ZZN4LIEF5MachOlsERSoRKNS0_10ExportInfoEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19EXPORT_SYMBOL_FLAGSE"}
 !12 = distinct !{!12, !5}

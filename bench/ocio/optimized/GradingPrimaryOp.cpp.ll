@@ -321,7 +321,7 @@ lpad:                                             ; preds = %if.end, %if.then
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEEaSEOS2_.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEEC2ERKS2_.exit
   %prim.val = load ptr, ptr %prim, align 8
   %prim.val3 = load ptr, ptr %_M_refcount.i.i, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom(ptr noalias align 8 %ref.tmp3, ptr %prim.val, ptr %prim.val3)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp3, ptr %prim.val, ptr %prim.val3)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %if.end
@@ -412,7 +412,7 @@ if.end8.sink.split.i.i.i.i36:                     ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEED2Ev.exit: ; preds = %invoke.cont6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i33, %if.end8.sink.split.i.i.i.i36
   %ref.tmp3.val = load ptr, ptr %_M_refcount4.i.i, align 8
   %cmp.not.i.i.i45 = icmp eq ptr %ref.tmp3.val, null
-  br i1 %cmp.not.i.i.i45, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit, label %if.then.i.i.i46
+  br i1 %cmp.not.i.i.i45, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit, label %if.then.i.i.i46
 
 if.then.i.i.i46:                                  ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEED2Ev.exit
   %_M_use_count.i.i.i.i47 = getelementptr inbounds i8, ptr %ref.tmp3.val, i64 8
@@ -448,7 +448,7 @@ if.else.i.i.i.i.i70:                              ; preds = %if.end.i.i.i.i49
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i53: ; preds = %if.else.i.i.i.i.i70, %if.then.i.i.i.i.i51
   %retval.i.0.i.i.i.i54 = phi i32 [ %45, %if.then.i.i.i.i.i51 ], [ %48, %if.else.i.i.i.i.i70 ]
   %cmp6.i.i.i.i55 = icmp eq i32 %retval.i.0.i.i.i.i54, 1
-  br i1 %cmp6.i.i.i.i55, label %if.then7.i.i.i.i56, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i55, label %if.then7.i.i.i.i56, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
 if.then7.i.i.i.i56:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i53
   %vtable.i.i.i.i.i.i57 = load ptr, ptr %ref.tmp3.val, align 8
@@ -473,21 +473,21 @@ if.else.i.i.i.i.i.i.i69:                          ; preds = %if.then7.i.i.i.i56
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i63: ; preds = %if.else.i.i.i.i.i.i.i69, %if.then.i.i.i.i.i.i.i61
   %retval.i.0.i.i.i.i.i.i64 = phi i32 [ %51, %if.then.i.i.i.i.i.i.i61 ], [ %52, %if.else.i.i.i.i.i.i.i69 ]
   %cmp.i.i.i.i.i.i65 = icmp eq i32 %retval.i.0.i.i.i.i.i.i64, 1
-  br i1 %cmp.i.i.i.i.i.i65, label %if.end8.sink.split.i.i.i.i66, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i65, label %if.end8.sink.split.i.i.i.i66, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i66:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i63, %if.then.i.i.i.i71
   %vtable2.i.i.i.i.i.i67 = load ptr, ptr %ref.tmp3.val, align 8
   %vfn3.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i67, i64 24
   %53 = load ptr, ptr %vfn3.i.i.i.i.i.i68, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.val) #14
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i53, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i63, %if.end8.sink.split.i.i.i.i66
+_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i53, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i63, %if.end8.sink.split.i.i.i.i66
   %54 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i76 = icmp eq ptr %54, null
   br i1 %cmp.not.i.i.i76, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit106, label %if.then.i.i.i77
 
-if.then.i.i.i77:                                  ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+if.then.i.i.i77:                                  ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
   %_M_use_count.i.i.i.i78 = getelementptr inbounds i8, ptr %54, i64 8
   %55 = load atomic i64, ptr %_M_use_count.i.i.i.i78 acquire, align 8
   %cmp.i.i.i.i79 = icmp eq i64 %55, 4294967297
@@ -555,14 +555,14 @@ if.end8.sink.split.i.i.i.i97:                     ; preds = %_ZN9__gnu_cxx27__ex
   call void %64(ptr noundef nonnull align 8 dereferenceable(16) %54) #14
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit106
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit106: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i84, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i94, %if.end8.sink.split.i.i.i.i97
+_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit106: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i84, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i94, %if.end8.sink.split.i.i.i.i97
   ret void
 
 lpad5:                                            ; preds = %invoke.cont4
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #14
-  call fastcc void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom(ptr null) #14
+  call fastcc void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev(ptr null) #14
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
@@ -658,7 +658,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataELN9__gnu_cxx12_
 declare void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec9push_backERKSt10shared_ptrINS_2OpEE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %call5.i.i.i5.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
@@ -674,7 +674,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpE, i64 16), ptr %_M_impl.i.i.i.i.i, align 8
   store ptr %__args.0.val, ptr %m_data.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %__args.8.val, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEEC2ISaIvEJRS_INS0_20GradingPrimaryOpDataEEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.argprom.exit, label %if.then4.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEEC2ISaIvEJRS_INS0_20GradingPrimaryOpDataEEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit, label %if.then4.i.i.i.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i.i.i.i:                     ; preds = %entry
   %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.8.val, i64 8
@@ -764,9 +764,9 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %_ZN9__gnu_cxx27__ex
 
 if.end9.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.thread.i.i.i
   store ptr %__args.8.val, ptr %0, align 8
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEEC2ISaIvEJRS_INS0_20GradingPrimaryOpDataEEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.argprom.exit
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEEC2ISaIvEJRS_INS0_20GradingPrimaryOpDataEEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEEC2ISaIvEJRS_INS0_20GradingPrimaryOpDataEEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.argprom.exit: ; preds = %entry, %if.end9.i.i.i.i.i.i.i.i.i.i
+_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEEC2ISaIvEJRS_INS0_20GradingPrimaryOpDataEEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit: ; preds = %entry, %if.end9.i.i.i.i.i.i.i.i.i.i
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i5.i.i.i, ptr %_M_refcount.i.i, align 8
   store ptr %_M_impl.i.i.i.i.i, ptr %agg.result, align 8
@@ -854,10 +854,10 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom(ptr %this.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev(ptr %this.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -893,7 +893,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -918,16 +918,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #14
-  br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -1389,7 +1389,7 @@ if.end8.sink.split.i.i.i.i124:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i121, %if.end8.sink.split.i.i.i.i124
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit, label %if.then.i.i.i134
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit, label %if.then.i.i.i134
 
 if.then.i.i.i134:                                 ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit
   %_M_use_count.i.i.i.i135 = getelementptr inbounds i8, ptr %op.val4, i64 8
@@ -1425,7 +1425,7 @@ if.else.i.i.i.i.i158:                             ; preds = %if.end.i.i.i.i137
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141: ; preds = %if.else.i.i.i.i.i158, %if.then.i.i.i.i.i139
   %retval.i.0.i.i.i.i142 = phi i32 [ %75, %if.then.i.i.i.i.i139 ], [ %78, %if.else.i.i.i.i.i158 ]
   %cmp6.i.i.i.i143 = icmp eq i32 %retval.i.0.i.i.i.i142, 1
-  br i1 %cmp6.i.i.i.i143, label %if.then7.i.i.i.i144, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i143, label %if.then7.i.i.i.i144, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
 if.then7.i.i.i.i144:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141
   %vtable.i.i.i.i.i.i145 = load ptr, ptr %op.val4, align 8
@@ -1450,16 +1450,16 @@ if.else.i.i.i.i.i.i.i157:                         ; preds = %if.then7.i.i.i.i144
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151: ; preds = %if.else.i.i.i.i.i.i.i157, %if.then.i.i.i.i.i.i.i149
   %retval.i.0.i.i.i.i.i.i152 = phi i32 [ %81, %if.then.i.i.i.i.i.i.i149 ], [ %82, %if.else.i.i.i.i.i.i.i157 ]
   %cmp.i.i.i.i.i.i153 = icmp eq i32 %retval.i.0.i.i.i.i.i.i152, 1
-  br i1 %cmp.i.i.i.i.i.i153, label %if.end8.sink.split.i.i.i.i154, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i153, label %if.end8.sink.split.i.i.i.i154, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i154:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %if.then.i.i.i.i159
   %vtable2.i.i.i.i.i.i155 = load ptr, ptr %op.val4, align 8
   %vfn3.i.i.i.i.i.i156 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i155, i64 24
   %83 = load ptr, ptr %vfn3.i.i.i.i.i.i156, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(16) %op.val4) #14
-  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
-_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %if.end8.sink.split.i.i.i.i154
+_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %if.end8.sink.split.i.i.i.i154
   ret void
 
 lpad13:                                           ; preds = %invoke.cont9
@@ -1476,7 +1476,7 @@ ehcleanup:                                        ; preds = %lpad13, %lpad8
 ehcleanup17:                                      ; preds = %ehcleanup, %lpad1, %lpad
   %prim.sroa.3.0168 = phi ptr [ %op.val4, %ehcleanup ], [ null, %lpad1 ], [ null, %lpad ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad1 ], [ %6, %lpad ]
-  call fastcc void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom(ptr %prim.sroa.3.0168) #14
+  call fastcc void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev(ptr %prim.sroa.3.0168) #14
   resume { ptr, i32 } %.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont
@@ -1663,10 +1663,10 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataELN9__gnu_cxx12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom(ptr %this.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev(ptr %this.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -1702,7 +1702,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -1727,16 +1727,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #14
-  br label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -1878,7 +1878,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
@@ -2091,7 +2091,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
   %2 = load ptr, ptr %ref.tmp, align 8
   invoke void @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData5cloneEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %p, ptr noundef nonnull align 8 dereferenceable(192) %2)
           to label %invoke.cont unwind label %lpad
@@ -2174,10 +2174,10 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit: ; pr
   %p.val = load ptr, ptr %p, align 8
   %14 = getelementptr inbounds i8, ptr %p, i64 8
   %p.val3 = load ptr, ptr %14, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom(ptr noalias align 8 %ref.tmp2, ptr %p.val, ptr %p.val3)
-          to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit unwind label %lpad3
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEJRSt10shared_ptrINS0_20GradingPrimaryOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp2, ptr %p.val, ptr %p.val3)
+          to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit unwind label %lpad3
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit
+_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit
   %15 = load ptr, ptr %ref.tmp2, align 8
   store ptr %15, ptr %agg.result, align 8
   %_M_refcount.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2190,7 +2190,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.a
   %cmp.not.i.i.i36 = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i36, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit, label %if.then.i.i.i37
 
-if.then.i.i.i37:                                  ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+if.then.i.i.i37:                                  ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
   %_M_use_count.i.i.i.i38 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load atomic i64, ptr %_M_use_count.i.i.i.i38 acquire, align 8
   %cmp.i.i.i.i39 = icmp eq i64 %18, 4294967297
@@ -2258,7 +2258,7 @@ if.end8.sink.split.i.i.i.i57:                     ; preds = %_ZN9__gnu_cxx27__ex
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %17) #14
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i54, %if.end8.sink.split.i.i.i.i57
+_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i54, %if.end8.sink.split.i.i.i.i57
   ret void
 
 lpad:                                             ; preds = %entry
@@ -2330,7 +2330,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
   %2 = load ptr, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
@@ -2429,16 +2429,16 @@ entry:
   %0 = getelementptr inbounds i8, ptr %op, i64 8
   %op.val1 = load ptr, ptr %0, align 8
   %1 = icmp eq ptr %op.val, null
-  br i1 %1, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit, label %dynamic_cast.end.i.i
+  br i1 %1, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit, label %dynamic_cast.end.i.i
 
 dynamic_cast.end.i.i:                             ; preds = %entry
   %2 = tail call ptr @__dynamic_cast(ptr nonnull %op.val, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev2OpE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpE, i64 0) #14, !noalias !27
   %tobool.not.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %dynamic_cast.end.i.i
   %cmp.not.i.i.i.i.i = icmp eq ptr %op.val1, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit, label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %op.val1, i64 8
@@ -2489,7 +2489,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i3
   %retval.i.0.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i3 ], [ %10, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %op.val1, align 8
@@ -2514,16 +2514,16 @@ if.else.i.i.i.i.i.i.i6:                           ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i6, %if.then.i.i.i.i.i.i.i4
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i.i4 ], [ %14, %if.else.i.i.i.i.i.i.i6 ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %op.val1, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %op.val1) #14
-  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
-_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit: ; preds = %entry, %dynamic_cast.end.i.i, %if.then.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit: ; preds = %entry, %dynamic_cast.end.i.i, %if.then.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %cmp.i11 = phi i1 [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ true, %if.end8.sink.split.i.i.i.i ], [ false, %entry ], [ false, %dynamic_cast.end.i.i ], [ true, %if.then.i.i ]
   ret i1 %cmp.i11
 }
@@ -2537,12 +2537,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %op, i64 8
   %op.val3 = load ptr, ptr %0, align 8
   %1 = icmp eq ptr %op.val, null
-  br i1 %1, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit, label %dynamic_cast.end.i.i
+  br i1 %1, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit, label %dynamic_cast.end.i.i
 
 dynamic_cast.end.i.i:                             ; preds = %entry
   %2 = tail call ptr @__dynamic_cast(ptr nonnull %op.val, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev2OpE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpE, i64 0) #14, !noalias !32
   %tobool.not.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %dynamic_cast.end.i.i
   %cmp.not.i.i.i.i.i = icmp eq ptr %op.val3, null
@@ -2569,12 +2569,12 @@ if.end:                                           ; preds = %if.then.i.i, %if.el
   %call2.val = load ptr, ptr %6, align 8, !noalias !22
   %7 = getelementptr i8, ptr %2, i64 16
   %call2.val1 = load ptr, ptr %7, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom(ptr noalias align 8 %primOpData, ptr %call2.val, ptr %call2.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %primOpData, ptr %call2.val, ptr %call2.val1)
   %8 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %8, align 8, !noalias !22
   %9 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %9, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
   %10 = load ptr, ptr %ref.tmp, align 8
   %call4 = invoke noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData9isInverseERSt10shared_ptrIKS0_E(ptr noundef nonnull align 8 dereferenceable(192) %10, ptr noundef nonnull align 8 dereferenceable(16) %primOpData)
           to label %invoke.cont unwind label %lpad
@@ -2732,11 +2732,11 @@ lpad:                                             ; preds = %if.end
           cleanup
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #14
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %primOpData) #14
-  call fastcc void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom(ptr %op.val3) #14
+  call fastcc void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev(ptr %op.val3) #14
   resume { ptr, i32 } %33
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i33, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i30, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i20, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit, label %if.then.i.i.i44
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit, label %if.then.i.i.i44
 
 if.then.i.i.i44:                                  ; preds = %cleanup
   %_M_use_count.i.i.i.i45 = getelementptr inbounds i8, ptr %op.val3, i64 8
@@ -2772,7 +2772,7 @@ if.else.i.i.i.i.i68:                              ; preds = %if.end.i.i.i.i47
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i51: ; preds = %if.else.i.i.i.i.i68, %if.then.i.i.i.i.i49
   %retval.i.0.i.i.i.i52 = phi i32 [ %35, %if.then.i.i.i.i.i49 ], [ %38, %if.else.i.i.i.i.i68 ]
   %cmp6.i.i.i.i53 = icmp eq i32 %retval.i.0.i.i.i.i52, 1
-  br i1 %cmp6.i.i.i.i53, label %if.then7.i.i.i.i54, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i53, label %if.then7.i.i.i.i54, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
 if.then7.i.i.i.i54:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i51
   %vtable.i.i.i.i.i.i55 = load ptr, ptr %op.val3, align 8
@@ -2797,16 +2797,16 @@ if.else.i.i.i.i.i.i.i67:                          ; preds = %if.then7.i.i.i.i54
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61: ; preds = %if.else.i.i.i.i.i.i.i67, %if.then.i.i.i.i.i.i.i59
   %retval.i.0.i.i.i.i.i.i62 = phi i32 [ %41, %if.then.i.i.i.i.i.i.i59 ], [ %42, %if.else.i.i.i.i.i.i.i67 ]
   %cmp.i.i.i.i.i.i63 = icmp eq i32 %retval.i.0.i.i.i.i.i.i62, 1
-  br i1 %cmp.i.i.i.i.i.i63, label %if.end8.sink.split.i.i.i.i64, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i63, label %if.end8.sink.split.i.i.i.i64, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i64:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61, %if.then.i.i.i.i69
   %vtable2.i.i.i.i.i.i65 = load ptr, ptr %op.val3, align 8
   %vfn3.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i65, i64 24
   %43 = load ptr, ptr %vfn3.i.i.i.i.i.i66, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(16) %op.val3) #14
-  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit
 
-_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.argprom.exit: ; preds = %entry, %dynamic_cast.end.i.i, %cleanup, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i51, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61, %if.end8.sink.split.i.i.i.i64
+_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEED2Ev.exit: ; preds = %entry, %dynamic_cast.end.i.i, %cleanup, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i51, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61, %if.end8.sink.split.i.i.i.i64
   %retval.082 = phi i1 [ %call4, %cleanup ], [ %call4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i51 ], [ %call4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61 ], [ %call4, %if.end8.sink.split.i.i.i.i64 ], [ false, %dynamic_cast.end.i.i ], [ false, %entry ]
   ret i1 %retval.082
 }
@@ -2884,7 +2884,7 @@ invoke.cont:                                      ; preds = %entry
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val4 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom(ptr noalias align 8 %ref.tmp2, ptr %this.val, ptr %this.val4)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp2, ptr %this.val, ptr %this.val4)
   %2 = load ptr, ptr %ref.tmp2, align 8
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
@@ -3222,7 +3222,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom(ptr noalias align 8 %data, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %data, ptr %this.val, ptr %this.val1)
   invoke void @_ZN19OpenColorIO_v2_4dev33GetGradingPrimaryGPUShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS0_IKNS_20GradingPrimaryOpDataEE(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %invoke.cont unwind label %lpad
 
@@ -3318,7 +3318,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
   %2 = load ptr, ptr %ref.tmp, align 8
   %call2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(192) %2) #14
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -3410,7 +3410,7 @@ if.end:                                           ; preds = %entry
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
   %2 = load ptr, ptr %ref.tmp, align 8
   %call2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(192) %2) #14
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -3538,7 +3538,7 @@ if.end6:                                          ; preds = %if.end
   %this.val = load ptr, ptr %3, align 8, !noalias !22
   %4 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %4, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
   %5 = load ptr, ptr %ref.tmp, align 8
   tail call void @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData18getDynamicPropertyEv(ptr sret(%"class.std::shared_ptr.51") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %5) #14
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -4088,7 +4088,7 @@ entry:
   %tobool.not.i.i.i = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %tobool.not.i.i.i)
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %this.val1, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom.exit.thread, label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.exit.thread, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val1, i64 8
@@ -4106,7 +4106,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
   %5 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !52
   br label %if.then.i.i.i2
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom.exit.thread: ; preds = %entry
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.exit.thread: ; preds = %entry
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpData21removeDynamicPropertyEv(ptr noundef nonnull align 8 dereferenceable(192) %2) #14
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit
 
@@ -4178,7 +4178,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %this.val1) #14
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom.exit.thread, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.exit.thread, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
@@ -4190,7 +4190,7 @@ entry:
   %this.val = load ptr, ptr %1, align 8, !noalias !22
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %2, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom(ptr noalias align 8 %data, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias align 8 %data, ptr %this.val, ptr %this.val1)
   invoke void @_ZN19OpenColorIO_v2_4dev28GetGradingPrimaryCPURendererERSt10shared_ptrIKNS_20GradingPrimaryOpDataEE(ptr sret(%"class.std::shared_ptr.54") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %invoke.cont unwind label %lpad
 
@@ -4282,7 +4282,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i.i = icmp eq ptr %this.16.val, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev2Op4dataEv.exit, label %if.then.i.i.i.i.i
@@ -4647,10 +4647,10 @@ attributes #17 = { builtin nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5, !7}
-!5 = distinct !{!5, !6, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
-!6 = distinct !{!6, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
-!7 = distinct !{!7, !8, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
-!8 = distinct !{!8, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
+!6 = distinct !{!6, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E"}
+!7 = distinct !{!7, !8, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
+!8 = distinct !{!8, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E"}
 !9 = !{!10, !12}
 !10 = distinct !{!10, !11, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_4dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: %agg.result"}
 !11 = distinct !{!11, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_4dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
@@ -4670,15 +4670,15 @@ attributes #17 = { builtin nounwind }
 !25 = distinct !{!25, !26, !"_ZNK19OpenColorIO_v2_4dev2Op4dataEv: %agg.result"}
 !26 = distinct !{!26, !"_ZNK19OpenColorIO_v2_4dev2Op4dataEv"}
 !27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
-!29 = distinct !{!29, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
-!30 = distinct !{!30, !31, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
-!31 = distinct !{!31, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
+!28 = distinct !{!28, !29, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
+!29 = distinct !{!29, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E"}
+!30 = distinct !{!30, !31, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
+!31 = distinct !{!31, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E"}
 !32 = !{!33, !35}
-!33 = distinct !{!33, !34, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
-!34 = distinct !{!34, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
-!35 = distinct !{!35, !36, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.argprom: %agg.result"}
-!36 = distinct !{!36, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.argprom"}
+!33 = distinct !{!33, !34, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
+!34 = distinct !{!34, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOpEKNS0_2OpEESt10shared_ptrIT_ERKS6_IT0_E"}
+!35 = distinct !{!35, !36, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E: %agg.result"}
+!36 = distinct !{!36, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E"}
 !37 = !{!38}
 !38 = distinct !{!38, !39, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E: %agg.result"}
 !39 = distinct !{!39, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E"}
@@ -4692,15 +4692,15 @@ attributes #17 = { builtin nounwind }
 !47 = distinct !{!47, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E"}
 !48 = distinct !{!48, !49, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastINS_20GradingPrimaryOpDataENS_6OpDataEEESt10shared_ptrIT_ERKS3_IT0_E: %agg.result"}
 !49 = distinct !{!49, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastINS_20GradingPrimaryOpDataENS_6OpDataEEESt10shared_ptrIT_ERKS3_IT0_E"}
-!50 = distinct !{!50, !51, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom: %agg.result"}
-!51 = distinct !{!51, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom"}
+!50 = distinct !{!50, !51, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv: %agg.result"}
+!51 = distinct !{!51, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv"}
 !52 = !{!53, !55, !57}
 !53 = distinct !{!53, !54, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E: %agg.result"}
 !54 = distinct !{!54, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E"}
 !55 = distinct !{!55, !56, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastINS_20GradingPrimaryOpDataENS_6OpDataEEESt10shared_ptrIT_ERKS3_IT0_E: %agg.result"}
 !56 = distinct !{!56, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastINS_20GradingPrimaryOpDataENS_6OpDataEEESt10shared_ptrIT_ERKS3_IT0_E"}
-!57 = distinct !{!57, !58, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom: %agg.result"}
-!58 = distinct !{!58, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.argprom"}
+!57 = distinct !{!57, !58, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv: %agg.result"}
+!58 = distinct !{!58, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv"}
 !59 = !{!60}
 !60 = distinct !{!60, !61, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_20GradingPrimaryOpDataEKNS_6OpDataEEESt10shared_ptrIT_ERKS5_IT0_E: %agg.result"}
 !61 = distinct !{!61, !"_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_20GradingPrimaryOpDataEKNS_6OpDataEEESt10shared_ptrIT_ERKS5_IT0_E"}

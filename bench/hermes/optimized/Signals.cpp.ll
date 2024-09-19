@@ -595,23 +595,23 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load atomic i64, ptr @_ZZN4llvh3sys18RemoveFileOnSignalENS_9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20FilesToRemoveCleanup acquire, align 8
   %tobool.not.i = icmp eq i64 %0, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
+  br i1 %tobool.not.i, label %if.then.i, label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZNK4llvh17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvh3sys18RemoveFileOnSignalENS_9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20FilesToRemoveCleanup, ptr noundef nonnull @_ZN4llvh14object_creatorIN12_GLOBAL__N_120FilesToRemoveCleanupEE4callEv, ptr noundef nonnull @_ZN4llvh14object_deleterIN12_GLOBAL__N_120FilesToRemoveCleanupEE4callEPv) #15
-  br label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
+  br label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
 
-_ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit: ; preds = %entry, %if.then.i
+_ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit: ; preds = %entry, %if.then.i
   %1 = load atomic i64, ptr @_ZZN4llvh3sys18RemoveFileOnSignalENS_9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20FilesToRemoveCleanup monotonic, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %tobool.not.i1 = icmp eq ptr %Filename.coerce0, null
   br i1 %tobool.not.i1, label %if.then.i2, label %if.end.i
 
-if.then.i2:                                       ; preds = %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
+if.then.i2:                                       ; preds = %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
 
-if.end.i:                                         ; preds = %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.argprom.exit
+if.end.i:                                         ; preds = %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15, !noalias !14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %Filename.coerce0, i64 noundef %Filename.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
@@ -628,7 +628,7 @@ _ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i2, %if.end
   %2 = ptrtoint ptr %call.i to i64
   %3 = cmpxchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 0, i64 %2 seq_cst seq_cst, align 8
   %4 = extractvalue { i64, i1 } %3, 1
-  br i1 %4, label %_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %while.body.i
+  br i1 %4, label %_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZNK4llvh9StringRef3strB5cxx11Ev.exit, %while.body.i
   %5 = phi { i64, i1 } [ %8, %while.body.i ], [ %3, %_ZNK4llvh9StringRef3strB5cxx11Ev.exit ]
@@ -637,9 +637,9 @@ while.body.i:                                     ; preds = %_ZNK4llvh9StringRef
   %Next.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = cmpxchg ptr %Next.i, i64 0, i64 %2 seq_cst seq_cst, align 8
   %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %while.body.i, !llvm.loop !17
+  br i1 %9, label %_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %while.body.i, !llvm.loop !17
 
-_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %while.body.i, %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
+_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %while.body.i, %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   call fastcc void @_ZL16RegisterHandlersv()
   ret i1 false
@@ -731,16 +731,16 @@ for.end.i:                                        ; preds = %for.inc.i, %_ZN4llv
 
 if.then.i.i12.i:                                  ; preds = %for.end.i
   %call2.i.i13.i = call noundef zeroext i1 @_ZN4llvh3sys9MutexImpl7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %atomic-temp.i.0.i1.i.i) #15
-  br label %_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.else.i.i10.i:                                  ; preds = %for.end.i
   %acquired.i.i11.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i.i, i64 8
   %7 = load i32, ptr %acquired.i.i11.i, align 8
   %dec.i.i.i = add i32 %7, -1
   store i32 %dec.i.i.i, ptr %acquired.i.i11.i, align 8
-  br label %_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %if.then.i.i12.i, %if.else.i.i10.i
+_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.then.i.i12.i, %if.else.i.i10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   ret void
 }
@@ -1074,19 +1074,19 @@ entry:
 delete.notnull:                                   ; preds = %entry
   %0 = atomicrmw xchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 0 seq_cst, align 8
   %tobool.not.i = icmp eq i64 %0, 0
-  br i1 %tobool.not.i, label %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.argprom.exit, label %delete.notnull.i
+  br i1 %tobool.not.i, label %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %delete.notnull
   %1 = inttoptr i64 %0 to ptr
   tail call fastcc void @_ZN12_GLOBAL__N_116FileToRemoveListD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   tail call void @_ZdlPv(ptr noundef nonnull %1) #20
-  br label %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.exit
 
-_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.argprom.exit: ; preds = %delete.notnull, %delete.notnull.i
+_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.exit: ; preds = %delete.notnull, %delete.notnull.i
   tail call void @_ZdlPv(ptr noundef nonnull %Ptr) #20
   br label %delete.end
 
-delete.end:                                       ; preds = %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.argprom.exit, %entry
+delete.end:                                       ; preds = %_ZN12_GLOBAL__N_120FilesToRemoveCleanupD2Ev.exit, %entry
   ret void
 }
 

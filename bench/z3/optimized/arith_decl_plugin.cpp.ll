@@ -8880,7 +8880,7 @@ if.then62:                                        ; preds = %land.lhs.true60, %l
   %.k.i = select i1 %or.cond.i, i32 8, i32 %k
   %m_real_decl = getelementptr inbounds i8, ptr %this, i64 56
   %40 = load ptr, ptr %m_real_decl, align 8
-  br i1 %cmp2, label %for.body.preheader.i, label %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.argprom.exit
+  br i1 %cmp2, label %for.body.preheader.i, label %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit
 
 for.body.preheader.i:                             ; preds = %if.then62
   %wide.trip.count.i = zext i32 %num_args to i64
@@ -8895,9 +8895,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %or.cond72 = select i1 %cmp1.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond72, label %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.argprom.exit, label %for.body.i, !llvm.loop !10
+  br i1 %or.cond72, label %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit, label %for.body.i, !llvm.loop !10
 
-_ZL12has_real_argP11ast_managerjPKP4exprP4sort.argprom.exit: ; preds = %for.body.i, %if.then62
+_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit: ; preds = %for.body.i, %if.then62
   %cmp.lcssa.i = phi i1 [ false, %if.then62 ], [ %cmp1.i, %for.body.i ]
   %call66 = tail call noundef ptr @_ZN17arith_decl_plugin12mk_func_declEib(ptr noundef nonnull align 8 dereferenceable(441) %this, i32 noundef %.k.i, i1 noundef zeroext %cmp.lcssa.i)
   br label %return
@@ -8922,8 +8922,8 @@ land.end:                                         ; preds = %land.rhs, %if.else
   %call73 = tail call noundef ptr @_ZN17arith_decl_plugin12mk_func_declEib(ptr noundef nonnull align 8 dereferenceable(441) %this, i32 noundef %.k.i69, i1 noundef zeroext %44)
   br label %return
 
-return:                                           ; preds = %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i61, %invoke.cont55, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i, %invoke.cont, %land.end, %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.argprom.exit, %if.then
-  %retval.0 = phi ptr [ %call, %if.then ], [ %call66, %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.argprom.exit ], [ %call73, %land.end ], [ %retval.0.i, %invoke.cont ], [ %retval.0.i, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i ], [ %retval.0.i36, %invoke.cont55 ], [ %retval.0.i36, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i61 ]
+return:                                           ; preds = %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i61, %invoke.cont55, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i, %invoke.cont, %land.end, %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit, %if.then
+  %retval.0 = phi ptr [ %call, %if.then ], [ %call66, %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit ], [ %call73, %land.end ], [ %retval.0.i, %invoke.cont ], [ %retval.0.i, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i ], [ %retval.0.i36, %invoke.cont55 ], [ %retval.0.i36, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i61 ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad54, %lpad

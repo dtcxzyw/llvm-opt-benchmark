@@ -401,7 +401,7 @@ if.end137.i:                                      ; preds = %if.end131.i
   %45 = load ptr, ptr %h.i, align 8
   %call139.i = call ptr @ossl_ackm_get0_probe_request(ptr noundef %45) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %probe.i, ptr noundef nonnull align 4 dereferenceable(20) %call139.i, i64 20, i1 false)
-  %call140.i = call fastcc i32 @test_probe_counts.argelim(ptr noundef %probe.i, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call140.i = call fastcc i32 @test_probe_counts(ptr noundef %probe.i, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %call141.i = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 429, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6, i32 noundef %call140.i, i32 noundef 1) #9
   %tobool142.not.i = icmp eq i32 %call141.i, 0
   br i1 %tobool142.not.i, label %err.i, label %if.end144.i
@@ -449,14 +449,14 @@ if.then175.i:                                     ; preds = %for.body170.i
   br i1 %cmp179.i, label %if.then181.i, label %if.else187.i
 
 if.then181.i:                                     ; preds = %if.then175.i
-  %call182.i = call fastcc i32 @test_probe_counts.argelim(ptr noundef %probe.i, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call182.i = call fastcc i32 @test_probe_counts(ptr noundef %probe.i, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %call183.i = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 453, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6, i32 noundef %call182.i, i32 noundef 1) #9
   %tobool184.not.i = icmp ne i32 %call183.i, 0
   %spec.select.i = zext i1 %tobool184.not.i to i32
   br label %err.i
 
 if.else187.i:                                     ; preds = %if.then175.i, %for.body170.i
-  %call194.i = call fastcc i32 @test_probe_counts.argelim(ptr noundef %probe.i, i32 noundef %conv189.i, i32 noundef %conv191.i, i32 noundef %conv193.i)
+  %call194.i = call fastcc i32 @test_probe_counts(ptr noundef %probe.i, i32 noundef %conv189.i, i32 noundef %conv191.i, i32 noundef %conv193.i)
   %call195.i = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 459, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.6, i32 noundef %call194.i, i32 noundef 1) #9
   %tobool196.not.i = icmp eq i32 %call195.i, 0
   %inc201.i = add nuw nsw i64 %i.365.i, 1
@@ -1201,7 +1201,7 @@ declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare ptr @ossl_ackm_get0_probe_request(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_probe_counts.argelim(ptr nocapture noundef nonnull readonly %p, i32 noundef range(i32 0, 2) %pto_initial, i32 noundef range(i32 0, 2) %pto_handshake, i32 noundef range(i32 0, 2) %pto_app) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_probe_counts(ptr nocapture noundef nonnull readonly %p, i32 noundef range(i32 0, 2) %pto_initial, i32 noundef range(i32 0, 2) %pto_handshake, i32 noundef range(i32 0, 2) %pto_app) unnamed_addr #0 {
 entry:
   %anti_deadlock_handshake1 = getelementptr inbounds i8, ptr %p, i64 4
   %0 = load i32, ptr %anti_deadlock_handshake1, align 4

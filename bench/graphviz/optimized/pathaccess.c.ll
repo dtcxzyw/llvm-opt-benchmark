@@ -63,7 +63,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %agxbsizeof.exit.i.i
 23:                                               ; preds = %20
   %24 = load ptr, ptr @stderr, align 8
   %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.1, i64 noundef %spec.select33.i.i.i) #13
-  call fastcc void @graphviz_exit.argelim() #14
+  call fastcc void @graphviz_exit() #14
   unreachable
 
 26:                                               ; preds = %20
@@ -84,7 +84,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %agxbsizeof.exit.i.i
 33:                                               ; preds = %.thread.i.i
   %34 = load ptr, ptr @stderr, align 8
   %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.1, i64 noundef 62) #13
-  call fastcc void @graphviz_exit.argelim() #14
+  call fastcc void @graphviz_exit() #14
   unreachable
 
 gv_calloc.exit.i.i.i:                             ; preds = %.thread.i.i
@@ -161,7 +161,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %58 = call ptr @realpath(ptr noundef %49, ptr noundef null) #11
   %.val13 = load i8, ptr %6, align 1
   %59 = icmp eq i8 %.val13, -1
-  br i1 %59, label %agxbfree.argprom.exit.sink.split, label %agxbfree.argprom.exit
+  br i1 %59, label %agxbfree.exit.sink.split, label %agxbfree.exit
 
 60:                                               ; preds = %agxbuse.exit, %51, %53
   %.not12 = icmp eq ptr %11, null
@@ -170,16 +170,16 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 61:                                               ; preds = %60
   %.val15 = load i8, ptr %6, align 1
   %62 = icmp eq i8 %.val15, -1
-  br i1 %62, label %agxbfree.argprom.exit.sink.split, label %agxbfree.argprom.exit
+  br i1 %62, label %agxbfree.exit.sink.split, label %agxbfree.exit
 
-agxbfree.argprom.exit.sink.split:                 ; preds = %61, %57
+agxbfree.exit.sink.split:                         ; preds = %61, %57
   %.0.ph = phi ptr [ %58, %57 ], [ null, %61 ]
   %.val14 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %.val14) #11
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %agxbfree.argprom.exit.sink.split, %61, %57
-  %.0 = phi ptr [ %58, %57 ], [ null, %61 ], [ %.0.ph, %agxbfree.argprom.exit.sink.split ]
+agxbfree.exit:                                    ; preds = %agxbfree.exit.sink.split, %61, %57
+  %.0 = phi ptr [ %58, %57 ], [ null, %61 ], [ %.0.ph, %agxbfree.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -204,7 +204,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #5 {
+define internal fastcc void @graphviz_exit() unnamed_addr #5 {
   tail call void @exit(i32 noundef 1) #16
   unreachable
 }

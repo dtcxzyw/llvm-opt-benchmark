@@ -6464,7 +6464,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LAI_PDU(ptr nounde
   %10 = load i32, ptr @proto_ranap, align 4
   %11 = call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %.val.i, i32 noundef %10, i32 noundef 0) #3
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %ranap_get_private_data.argprom.exit.i
+  br i1 %12, label %13, label %ranap_get_private_data.exit.i
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %8, align 8
@@ -6472,20 +6472,20 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LAI_PDU(ptr nounde
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %.val.i, i32 noundef %17, i32 noundef 0, ptr noundef %15) #3
-  br label %ranap_get_private_data.argprom.exit.i
+  br label %ranap_get_private_data.exit.i
 
-ranap_get_private_data.argprom.exit.i:            ; preds = %13, %4
+ranap_get_private_data.exit.i:                    ; preds = %13, %4
   %.0.i.i = phi ptr [ %15, %13 ], [ %11, %4 ]
   %18 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %19 = load i32, ptr %18, align 4
   %.not.i = icmp eq i32 %19, 2
   br i1 %.not.i, label %dissect_ranap_LAI.exit, label %20
 
-20:                                               ; preds = %ranap_get_private_data.argprom.exit.i
+20:                                               ; preds = %ranap_get_private_data.exit.i
   store i32 1, ptr %18, align 4
   br label %dissect_ranap_LAI.exit
 
-dissect_ranap_LAI.exit:                           ; preds = %ranap_get_private_data.argprom.exit.i, %20
+dissect_ranap_LAI.exit:                           ; preds = %ranap_get_private_data.exit.i, %20
   %21 = load i32, ptr @ett_ranap_LAI, align 4
   %22 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %21, ptr noundef nonnull @LAI_sequence) #3
   %23 = add i32 %22, 7
@@ -6733,7 +6733,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAB_SetupOrModifie
   %12 = load i32, ptr @proto_ranap, align 4
   %13 = call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %.val.i, i32 noundef %12, i32 noundef 0) #3
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %private_data_set_transportLayerAddress_ipv4.argprom.exit.i
+  br i1 %14, label %15, label %private_data_set_transportLayerAddress_ipv4.exit.i
 
 15:                                               ; preds = %4
   %16 = load ptr, ptr %10, align 8
@@ -6741,9 +6741,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAB_SetupOrModifie
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %18, ptr noundef nonnull %.val.i, i32 noundef %19, i32 noundef 0, ptr noundef %17) #3
-  br label %private_data_set_transportLayerAddress_ipv4.argprom.exit.i
+  br label %private_data_set_transportLayerAddress_ipv4.exit.i
 
-private_data_set_transportLayerAddress_ipv4.argprom.exit.i: ; preds = %15, %4
+private_data_set_transportLayerAddress_ipv4.exit.i: ; preds = %15, %4
   %.0.i.i.i = phi ptr [ %17, %15 ], [ %13, %4 ]
   store i32 0, ptr %.0.i.i.i, align 4
   %.val20.i = load ptr, ptr %9, align 8
@@ -6752,18 +6752,18 @@ private_data_set_transportLayerAddress_ipv4.argprom.exit.i: ; preds = %15, %4
   %22 = load i32, ptr @proto_ranap, align 4
   %23 = call ptr @p_get_proto_data(ptr noundef %21, ptr noundef %.val20.i, i32 noundef %22, i32 noundef 0) #3
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %private_data_set_binding_id_port.argprom.exit.i
+  br i1 %24, label %25, label %private_data_set_binding_id_port.exit.i
 
-25:                                               ; preds = %private_data_set_transportLayerAddress_ipv4.argprom.exit.i
+25:                                               ; preds = %private_data_set_transportLayerAddress_ipv4.exit.i
   %26 = load ptr, ptr %20, align 8
   %27 = call noalias ptr @wmem_alloc0(ptr noundef %26, i64 noundef 12) #3
   %28 = load ptr, ptr %20, align 8
   %29 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %28, ptr noundef nonnull %.val20.i, i32 noundef %29, i32 noundef 0, ptr noundef %27) #3
-  br label %private_data_set_binding_id_port.argprom.exit.i
+  br label %private_data_set_binding_id_port.exit.i
 
-private_data_set_binding_id_port.argprom.exit.i:  ; preds = %25, %private_data_set_transportLayerAddress_ipv4.argprom.exit.i
-  %.0.i.i23.i = phi ptr [ %27, %25 ], [ %23, %private_data_set_transportLayerAddress_ipv4.argprom.exit.i ]
+private_data_set_binding_id_port.exit.i:          ; preds = %25, %private_data_set_transportLayerAddress_ipv4.exit.i
+  %.0.i.i23.i = phi ptr [ %27, %25 ], [ %23, %private_data_set_transportLayerAddress_ipv4.exit.i ]
   %30 = getelementptr inbounds i8, ptr %.0.i.i23.i, i64 4
   store i16 0, ptr %30, align 4
   %31 = load i32, ptr @ett_ranap_RAB_SetupOrModifiedItem, align 4
@@ -6774,18 +6774,18 @@ private_data_set_binding_id_port.argprom.exit.i:  ; preds = %25, %private_data_s
   %35 = load i32, ptr @proto_ranap, align 4
   %36 = call ptr @p_get_proto_data(ptr noundef %34, ptr noundef %.val21.i, i32 noundef %35, i32 noundef 0) #3
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %private_data_get_transportLayerAddress_ipv4.argprom.exit.i
+  br i1 %37, label %38, label %private_data_get_transportLayerAddress_ipv4.exit.i
 
-38:                                               ; preds = %private_data_set_binding_id_port.argprom.exit.i
+38:                                               ; preds = %private_data_set_binding_id_port.exit.i
   %39 = load ptr, ptr %33, align 8
   %40 = call noalias ptr @wmem_alloc0(ptr noundef %39, i64 noundef 12) #3
   %41 = load ptr, ptr %33, align 8
   %42 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %41, ptr noundef nonnull %.val21.i, i32 noundef %42, i32 noundef 0, ptr noundef %40) #3
-  br label %private_data_get_transportLayerAddress_ipv4.argprom.exit.i
+  br label %private_data_get_transportLayerAddress_ipv4.exit.i
 
-private_data_get_transportLayerAddress_ipv4.argprom.exit.i: ; preds = %38, %private_data_set_binding_id_port.argprom.exit.i
-  %.0.i.i24.i = phi ptr [ %40, %38 ], [ %36, %private_data_set_binding_id_port.argprom.exit.i ]
+private_data_get_transportLayerAddress_ipv4.exit.i: ; preds = %38, %private_data_set_binding_id_port.exit.i
+  %.0.i.i24.i = phi ptr [ %40, %38 ], [ %36, %private_data_set_binding_id_port.exit.i ]
   %43 = load i32, ptr %.0.i.i24.i, align 4
   store i32 %43, ptr %6, align 4
   %.val22.i = load ptr, ptr %9, align 8
@@ -6794,18 +6794,18 @@ private_data_get_transportLayerAddress_ipv4.argprom.exit.i: ; preds = %38, %priv
   %46 = load i32, ptr @proto_ranap, align 4
   %47 = call ptr @p_get_proto_data(ptr noundef %45, ptr noundef %.val22.i, i32 noundef %46, i32 noundef 0) #3
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %private_data_get_binding_id_port.argprom.exit.i
+  br i1 %48, label %49, label %private_data_get_binding_id_port.exit.i
 
-49:                                               ; preds = %private_data_get_transportLayerAddress_ipv4.argprom.exit.i
+49:                                               ; preds = %private_data_get_transportLayerAddress_ipv4.exit.i
   %50 = load ptr, ptr %44, align 8
   %51 = call noalias ptr @wmem_alloc0(ptr noundef %50, i64 noundef 12) #3
   %52 = load ptr, ptr %44, align 8
   %53 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %52, ptr noundef nonnull %.val22.i, i32 noundef %53, i32 noundef 0, ptr noundef %51) #3
-  br label %private_data_get_binding_id_port.argprom.exit.i
+  br label %private_data_get_binding_id_port.exit.i
 
-private_data_get_binding_id_port.argprom.exit.i:  ; preds = %49, %private_data_get_transportLayerAddress_ipv4.argprom.exit.i
-  %.0.i.i25.i = phi ptr [ %51, %49 ], [ %47, %private_data_get_transportLayerAddress_ipv4.argprom.exit.i ]
+private_data_get_binding_id_port.exit.i:          ; preds = %49, %private_data_get_transportLayerAddress_ipv4.exit.i
+  %.0.i.i25.i = phi ptr [ %51, %49 ], [ %47, %private_data_get_transportLayerAddress_ipv4.exit.i ]
   %54 = getelementptr inbounds i8, ptr %.0.i.i25.i, i64 4
   %55 = load i16, ptr %54, align 4
   %56 = load ptr, ptr %9, align 8
@@ -6821,7 +6821,7 @@ private_data_get_binding_id_port.argprom.exit.i:  ; preds = %49, %private_data_g
   %or.cond4.i = select i1 %or.cond.i, i1 true, i1 %64
   br i1 %or.cond4.i, label %dissect_ranap_RAB_SetupOrModifiedItem.exit, label %65
 
-65:                                               ; preds = %private_data_get_binding_id_port.argprom.exit.i
+65:                                               ; preds = %private_data_get_binding_id_port.exit.i
   %66 = zext i16 %55 to i32
   store i32 2, ptr %5, align 8
   %67 = getelementptr inbounds i8, ptr %5, i64 4
@@ -6835,7 +6835,7 @@ private_data_get_binding_id_port.argprom.exit.i:  ; preds = %49, %private_data_g
   call void @rtp_add_address(ptr noundef nonnull %56, i32 noundef 3, ptr noundef nonnull %5, i32 noundef %66, i32 noundef 0, ptr noundef nonnull @.str.1623, i32 noundef %71, i32 noundef 0, ptr noundef null) #3
   br label %dissect_ranap_RAB_SetupOrModifiedItem.exit
 
-dissect_ranap_RAB_SetupOrModifiedItem.exit:       ; preds = %private_data_get_binding_id_port.argprom.exit.i, %65
+dissect_ranap_RAB_SetupOrModifiedItem.exit:       ; preds = %private_data_get_binding_id_port.exit.i, %65
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %72 = add i32 %32, 7
@@ -7638,7 +7638,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAB_SetupOrModifyI
   %12 = load i32, ptr @proto_ranap, align 4
   %13 = call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %.val.i, i32 noundef %12, i32 noundef 0) #3
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %private_data_set_transportLayerAddress_ipv4.argprom.exit.i
+  br i1 %14, label %15, label %private_data_set_transportLayerAddress_ipv4.exit.i
 
 15:                                               ; preds = %4
   %16 = load ptr, ptr %10, align 8
@@ -7646,9 +7646,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAB_SetupOrModifyI
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %18, ptr noundef nonnull %.val.i, i32 noundef %19, i32 noundef 0, ptr noundef %17) #3
-  br label %private_data_set_transportLayerAddress_ipv4.argprom.exit.i
+  br label %private_data_set_transportLayerAddress_ipv4.exit.i
 
-private_data_set_transportLayerAddress_ipv4.argprom.exit.i: ; preds = %15, %4
+private_data_set_transportLayerAddress_ipv4.exit.i: ; preds = %15, %4
   %.0.i.i.i = phi ptr [ %17, %15 ], [ %13, %4 ]
   store i32 0, ptr %.0.i.i.i, align 4
   %.val20.i = load ptr, ptr %9, align 8
@@ -7657,18 +7657,18 @@ private_data_set_transportLayerAddress_ipv4.argprom.exit.i: ; preds = %15, %4
   %22 = load i32, ptr @proto_ranap, align 4
   %23 = call ptr @p_get_proto_data(ptr noundef %21, ptr noundef %.val20.i, i32 noundef %22, i32 noundef 0) #3
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %private_data_set_binding_id_port.argprom.exit.i
+  br i1 %24, label %25, label %private_data_set_binding_id_port.exit.i
 
-25:                                               ; preds = %private_data_set_transportLayerAddress_ipv4.argprom.exit.i
+25:                                               ; preds = %private_data_set_transportLayerAddress_ipv4.exit.i
   %26 = load ptr, ptr %20, align 8
   %27 = call noalias ptr @wmem_alloc0(ptr noundef %26, i64 noundef 12) #3
   %28 = load ptr, ptr %20, align 8
   %29 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %28, ptr noundef nonnull %.val20.i, i32 noundef %29, i32 noundef 0, ptr noundef %27) #3
-  br label %private_data_set_binding_id_port.argprom.exit.i
+  br label %private_data_set_binding_id_port.exit.i
 
-private_data_set_binding_id_port.argprom.exit.i:  ; preds = %25, %private_data_set_transportLayerAddress_ipv4.argprom.exit.i
-  %.0.i.i23.i = phi ptr [ %27, %25 ], [ %23, %private_data_set_transportLayerAddress_ipv4.argprom.exit.i ]
+private_data_set_binding_id_port.exit.i:          ; preds = %25, %private_data_set_transportLayerAddress_ipv4.exit.i
+  %.0.i.i23.i = phi ptr [ %27, %25 ], [ %23, %private_data_set_transportLayerAddress_ipv4.exit.i ]
   %30 = getelementptr inbounds i8, ptr %.0.i.i23.i, i64 4
   store i16 0, ptr %30, align 4
   %31 = load i32, ptr @ett_ranap_RAB_SetupOrModifyItemFirst, align 4
@@ -7679,18 +7679,18 @@ private_data_set_binding_id_port.argprom.exit.i:  ; preds = %25, %private_data_s
   %35 = load i32, ptr @proto_ranap, align 4
   %36 = call ptr @p_get_proto_data(ptr noundef %34, ptr noundef %.val21.i, i32 noundef %35, i32 noundef 0) #3
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %private_data_get_transportLayerAddress_ipv4.argprom.exit.i
+  br i1 %37, label %38, label %private_data_get_transportLayerAddress_ipv4.exit.i
 
-38:                                               ; preds = %private_data_set_binding_id_port.argprom.exit.i
+38:                                               ; preds = %private_data_set_binding_id_port.exit.i
   %39 = load ptr, ptr %33, align 8
   %40 = call noalias ptr @wmem_alloc0(ptr noundef %39, i64 noundef 12) #3
   %41 = load ptr, ptr %33, align 8
   %42 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %41, ptr noundef nonnull %.val21.i, i32 noundef %42, i32 noundef 0, ptr noundef %40) #3
-  br label %private_data_get_transportLayerAddress_ipv4.argprom.exit.i
+  br label %private_data_get_transportLayerAddress_ipv4.exit.i
 
-private_data_get_transportLayerAddress_ipv4.argprom.exit.i: ; preds = %38, %private_data_set_binding_id_port.argprom.exit.i
-  %.0.i.i24.i = phi ptr [ %40, %38 ], [ %36, %private_data_set_binding_id_port.argprom.exit.i ]
+private_data_get_transportLayerAddress_ipv4.exit.i: ; preds = %38, %private_data_set_binding_id_port.exit.i
+  %.0.i.i24.i = phi ptr [ %40, %38 ], [ %36, %private_data_set_binding_id_port.exit.i ]
   %43 = load i32, ptr %.0.i.i24.i, align 4
   store i32 %43, ptr %6, align 4
   %.val22.i = load ptr, ptr %9, align 8
@@ -7699,18 +7699,18 @@ private_data_get_transportLayerAddress_ipv4.argprom.exit.i: ; preds = %38, %priv
   %46 = load i32, ptr @proto_ranap, align 4
   %47 = call ptr @p_get_proto_data(ptr noundef %45, ptr noundef %.val22.i, i32 noundef %46, i32 noundef 0) #3
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %private_data_get_binding_id_port.argprom.exit.i
+  br i1 %48, label %49, label %private_data_get_binding_id_port.exit.i
 
-49:                                               ; preds = %private_data_get_transportLayerAddress_ipv4.argprom.exit.i
+49:                                               ; preds = %private_data_get_transportLayerAddress_ipv4.exit.i
   %50 = load ptr, ptr %44, align 8
   %51 = call noalias ptr @wmem_alloc0(ptr noundef %50, i64 noundef 12) #3
   %52 = load ptr, ptr %44, align 8
   %53 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %52, ptr noundef nonnull %.val22.i, i32 noundef %53, i32 noundef 0, ptr noundef %51) #3
-  br label %private_data_get_binding_id_port.argprom.exit.i
+  br label %private_data_get_binding_id_port.exit.i
 
-private_data_get_binding_id_port.argprom.exit.i:  ; preds = %49, %private_data_get_transportLayerAddress_ipv4.argprom.exit.i
-  %.0.i.i25.i = phi ptr [ %51, %49 ], [ %47, %private_data_get_transportLayerAddress_ipv4.argprom.exit.i ]
+private_data_get_binding_id_port.exit.i:          ; preds = %49, %private_data_get_transportLayerAddress_ipv4.exit.i
+  %.0.i.i25.i = phi ptr [ %51, %49 ], [ %47, %private_data_get_transportLayerAddress_ipv4.exit.i ]
   %54 = getelementptr inbounds i8, ptr %.0.i.i25.i, i64 4
   %55 = load i16, ptr %54, align 4
   %56 = load ptr, ptr %9, align 8
@@ -7726,7 +7726,7 @@ private_data_get_binding_id_port.argprom.exit.i:  ; preds = %49, %private_data_g
   %or.cond4.i = select i1 %or.cond.i, i1 true, i1 %64
   br i1 %or.cond4.i, label %dissect_ranap_RAB_SetupOrModifyItemFirst.exit, label %65
 
-65:                                               ; preds = %private_data_get_binding_id_port.argprom.exit.i
+65:                                               ; preds = %private_data_get_binding_id_port.exit.i
   %66 = zext i16 %55 to i32
   store i32 2, ptr %5, align 8
   %67 = getelementptr inbounds i8, ptr %5, i64 4
@@ -7740,7 +7740,7 @@ private_data_get_binding_id_port.argprom.exit.i:  ; preds = %49, %private_data_g
   call void @rtp_add_address(ptr noundef nonnull %56, i32 noundef 3, ptr noundef nonnull %5, i32 noundef %66, i32 noundef 0, ptr noundef nonnull @.str.1623, i32 noundef %71, i32 noundef 0, ptr noundef null) #3
   br label %dissect_ranap_RAB_SetupOrModifyItemFirst.exit
 
-dissect_ranap_RAB_SetupOrModifyItemFirst.exit:    ; preds = %private_data_get_binding_id_port.argprom.exit.i, %65
+dissect_ranap_RAB_SetupOrModifyItemFirst.exit:    ; preds = %private_data_get_binding_id_port.exit.i, %65
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %72 = add i32 %32, 7
@@ -10588,7 +10588,7 @@ define internal i32 @dissect_ranap_LAI(ptr noundef %0, i32 noundef %1, ptr nound
   %9 = load i32, ptr @proto_ranap, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %.val, i32 noundef %9, i32 noundef 0) #3
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %ranap_get_private_data.argprom.exit
+  br i1 %11, label %12, label %ranap_get_private_data.exit
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %7, align 8
@@ -10596,20 +10596,20 @@ define internal i32 @dissect_ranap_LAI(ptr noundef %0, i32 noundef %1, ptr nound
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr @proto_ranap, align 4
   tail call void @p_add_proto_data(ptr noundef %15, ptr noundef nonnull %.val, i32 noundef %16, i32 noundef 0, ptr noundef %14) #3
-  br label %ranap_get_private_data.argprom.exit
+  br label %ranap_get_private_data.exit
 
-ranap_get_private_data.argprom.exit:              ; preds = %5, %12
+ranap_get_private_data.exit:                      ; preds = %5, %12
   %.0.i = phi ptr [ %14, %12 ], [ %10, %5 ]
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 2
   br i1 %.not, label %20, label %19
 
-19:                                               ; preds = %ranap_get_private_data.argprom.exit
+19:                                               ; preds = %ranap_get_private_data.exit
   store i32 1, ptr %17, align 4
   br label %20
 
-20:                                               ; preds = %19, %ranap_get_private_data.argprom.exit
+20:                                               ; preds = %19, %ranap_get_private_data.exit
   %21 = load i32, ptr @ett_ranap_LAI, align 4
   %22 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %21, ptr noundef nonnull @LAI_sequence) #3
   ret i32 %22
@@ -10657,7 +10657,7 @@ define internal i32 @dissect_ranap_PLMNidentity(ptr noundef %0, i32 noundef %1, 
   %10 = load i32, ptr @proto_ranap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %.val, i32 noundef %10, i32 noundef 0) #3
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %ranap_get_private_data.argprom.exit
+  br i1 %12, label %13, label %ranap_get_private_data.exit
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr %8, align 8
@@ -10665,9 +10665,9 @@ define internal i32 @dissect_ranap_PLMNidentity(ptr noundef %0, i32 noundef %1, 
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ranap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %.val, i32 noundef %17, i32 noundef 0, ptr noundef %15) #3
-  br label %ranap_get_private_data.argprom.exit
+  br label %ranap_get_private_data.exit
 
-ranap_get_private_data.argprom.exit:              ; preds = %5, %13
+ranap_get_private_data.exit:                      ; preds = %5, %13
   %.0.i = phi ptr [ %15, %13 ], [ %11, %5 ]
   %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %19 = load i32, ptr %18, align 4
@@ -10677,12 +10677,12 @@ ranap_get_private_data.argprom.exit:              ; preds = %5, %13
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %25, label %22
 
-22:                                               ; preds = %ranap_get_private_data.argprom.exit
+22:                                               ; preds = %ranap_get_private_data.exit
   %23 = load ptr, ptr %7, align 8
   %24 = call i32 @dissect_e212_mcc_mnc(ptr noundef nonnull %21, ptr noundef %23, ptr noundef %3, i32 noundef 0, i32 noundef %19, i32 noundef 0) #3
   br label %25
 
-25:                                               ; preds = %ranap_get_private_data.argprom.exit, %22
+25:                                               ; preds = %ranap_get_private_data.exit, %22
   ret i32 %20
 }
 
@@ -10827,7 +10827,7 @@ define internal i32 @dissect_ranap_CGI(ptr noundef %0, i32 noundef %1, ptr nound
   %9 = load i32, ptr @proto_ranap, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %.val, i32 noundef %9, i32 noundef 0) #3
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %ranap_get_private_data.argprom.exit
+  br i1 %11, label %12, label %ranap_get_private_data.exit
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %7, align 8
@@ -10835,9 +10835,9 @@ define internal i32 @dissect_ranap_CGI(ptr noundef %0, i32 noundef %1, ptr nound
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr @proto_ranap, align 4
   tail call void @p_add_proto_data(ptr noundef %15, ptr noundef nonnull %.val, i32 noundef %16, i32 noundef 0, ptr noundef %14) #3
-  br label %ranap_get_private_data.argprom.exit
+  br label %ranap_get_private_data.exit
 
-ranap_get_private_data.argprom.exit:              ; preds = %5, %12
+ranap_get_private_data.exit:                      ; preds = %5, %12
   %.0.i = phi ptr [ %14, %12 ], [ %10, %5 ]
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
   store i32 4, ptr %17, align 4
@@ -11338,7 +11338,7 @@ define internal i32 @dissect_ranap_SAI(ptr noundef %0, i32 noundef %1, ptr nound
   %9 = load i32, ptr @proto_ranap, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %.val, i32 noundef %9, i32 noundef 0) #3
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %ranap_get_private_data.argprom.exit
+  br i1 %11, label %12, label %ranap_get_private_data.exit
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %7, align 8
@@ -11346,9 +11346,9 @@ define internal i32 @dissect_ranap_SAI(ptr noundef %0, i32 noundef %1, ptr nound
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr @proto_ranap, align 4
   tail call void @p_add_proto_data(ptr noundef %15, ptr noundef nonnull %.val, i32 noundef %16, i32 noundef 0, ptr noundef %14) #3
-  br label %ranap_get_private_data.argprom.exit
+  br label %ranap_get_private_data.exit
 
-ranap_get_private_data.argprom.exit:              ; preds = %5, %12
+ranap_get_private_data.exit:                      ; preds = %5, %12
   %.0.i = phi ptr [ %14, %12 ], [ %10, %5 ]
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
   store i32 3, ptr %17, align 4
@@ -11399,7 +11399,7 @@ define internal i32 @dissect_ranap_TAI(ptr noundef %0, i32 noundef %1, ptr nound
   %9 = load i32, ptr @proto_ranap, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %.val, i32 noundef %9, i32 noundef 0) #3
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %ranap_get_private_data.argprom.exit
+  br i1 %11, label %12, label %ranap_get_private_data.exit
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %7, align 8
@@ -11407,9 +11407,9 @@ define internal i32 @dissect_ranap_TAI(ptr noundef %0, i32 noundef %1, ptr nound
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr @proto_ranap, align 4
   tail call void @p_add_proto_data(ptr noundef %15, ptr noundef nonnull %.val, i32 noundef %16, i32 noundef 0, ptr noundef %14) #3
-  br label %ranap_get_private_data.argprom.exit
+  br label %ranap_get_private_data.exit
 
-ranap_get_private_data.argprom.exit:              ; preds = %5, %12
+ranap_get_private_data.exit:                      ; preds = %5, %12
   %.0.i = phi ptr [ %14, %12 ], [ %10, %5 ]
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
   store i32 6, ptr %17, align 4
@@ -11500,7 +11500,7 @@ define internal i32 @dissect_ranap_TransportLayerAddress(ptr noundef %0, i32 nou
   %24 = load i32, ptr @proto_ranap, align 4
   %25 = call ptr @p_get_proto_data(ptr noundef %23, ptr noundef %.val, i32 noundef %24, i32 noundef 0) #3
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %private_data_set_transportLayerAddress_ipv4.argprom.exit
+  br i1 %26, label %27, label %private_data_set_transportLayerAddress_ipv4.exit
 
 27:                                               ; preds = %15
   %28 = load ptr, ptr %22, align 8
@@ -11508,9 +11508,9 @@ define internal i32 @dissect_ranap_TransportLayerAddress(ptr noundef %0, i32 nou
   %30 = load ptr, ptr %22, align 8
   %31 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %30, ptr noundef nonnull %.val, i32 noundef %31, i32 noundef 0, ptr noundef %29) #3
-  br label %private_data_set_transportLayerAddress_ipv4.argprom.exit
+  br label %private_data_set_transportLayerAddress_ipv4.exit
 
-private_data_set_transportLayerAddress_ipv4.argprom.exit: ; preds = %15, %27
+private_data_set_transportLayerAddress_ipv4.exit: ; preds = %15, %27
   %.0.i.i = phi ptr [ %29, %27 ], [ %25, %15 ]
   store i32 %20, ptr %.0.i.i, align 4
   br label %.thread
@@ -11561,7 +11561,7 @@ private_data_set_transportLayerAddress_ipv4.argprom.exit: ; preds = %15, %27
   %63 = load i32, ptr @proto_ranap, align 4
   %64 = call ptr @p_get_proto_data(ptr noundef %62, ptr noundef %.val34, i32 noundef %63, i32 noundef 0) #3
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %private_data_set_transportLayerAddress_ipv4.argprom.exit36
+  br i1 %65, label %66, label %private_data_set_transportLayerAddress_ipv4.exit36
 
 66:                                               ; preds = %57
   %67 = load ptr, ptr %61, align 8
@@ -11569,18 +11569,18 @@ private_data_set_transportLayerAddress_ipv4.argprom.exit: ; preds = %15, %27
   %69 = load ptr, ptr %61, align 8
   %70 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %69, ptr noundef nonnull %.val34, i32 noundef %70, i32 noundef 0, ptr noundef %68) #3
-  br label %private_data_set_transportLayerAddress_ipv4.argprom.exit36
+  br label %private_data_set_transportLayerAddress_ipv4.exit36
 
-private_data_set_transportLayerAddress_ipv4.argprom.exit36: ; preds = %57, %66
+private_data_set_transportLayerAddress_ipv4.exit36: ; preds = %57, %66
   %.0.i.i35 = phi ptr [ %68, %66 ], [ %64, %57 ]
   store i32 %59, ptr %.0.i.i35, align 4
   br label %71
 
-71:                                               ; preds = %private_data_set_transportLayerAddress_ipv4.argprom.exit36, %48
+71:                                               ; preds = %private_data_set_transportLayerAddress_ipv4.exit36, %48
   call void @dissect_nsap(ptr noundef %.032, i32 noundef 0, i32 noundef 20, ptr noundef %53) #3
   br label %.thread
 
-.thread:                                          ; preds = %9, %32, %private_data_set_transportLayerAddress_ipv4.argprom.exit, %71, %5
+.thread:                                          ; preds = %9, %32, %private_data_set_transportLayerAddress_ipv4.exit, %71, %5
   ret i32 %7
 }
 
@@ -11640,7 +11640,7 @@ define internal i32 @dissect_ranap_BindingID(ptr noundef %0, i32 noundef %1, ptr
   %17 = load i32, ptr @proto_ranap, align 4
   %18 = call ptr @p_get_proto_data(ptr noundef %16, ptr noundef %.val, i32 noundef %17, i32 noundef 0) #3
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %private_data_set_binding_id_port.argprom.exit
+  br i1 %19, label %20, label %private_data_set_binding_id_port.exit
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr %15, align 8
@@ -11648,9 +11648,9 @@ define internal i32 @dissect_ranap_BindingID(ptr noundef %0, i32 noundef %1, ptr
   %23 = load ptr, ptr %15, align 8
   %24 = load i32, ptr @proto_ranap, align 4
   call void @p_add_proto_data(ptr noundef %23, ptr noundef nonnull %.val, i32 noundef %24, i32 noundef 0, ptr noundef %22) #3
-  br label %private_data_set_binding_id_port.argprom.exit
+  br label %private_data_set_binding_id_port.exit
 
-private_data_set_binding_id_port.argprom.exit:    ; preds = %11, %20
+private_data_set_binding_id_port.exit:            ; preds = %11, %20
   %.0.i.i = phi ptr [ %22, %20 ], [ %18, %11 ]
   %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
   store i16 %13, ptr %25, align 4
@@ -11660,7 +11660,7 @@ private_data_set_binding_id_port.argprom.exit:    ; preds = %11, %20
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.2337, i32 noundef %28) #3
   br label %29
 
-29:                                               ; preds = %private_data_set_binding_id_port.argprom.exit, %5
+29:                                               ; preds = %private_data_set_binding_id_port.exit, %5
   ret i32 %7
 }
 
@@ -12053,7 +12053,7 @@ define internal i32 @dissect_ranap_RAI(ptr noundef %0, i32 noundef %1, ptr nound
   %9 = load i32, ptr @proto_ranap, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %.val, i32 noundef %9, i32 noundef 0) #3
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %ranap_get_private_data.argprom.exit
+  br i1 %11, label %12, label %ranap_get_private_data.exit
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %7, align 8
@@ -12061,9 +12061,9 @@ define internal i32 @dissect_ranap_RAI(ptr noundef %0, i32 noundef %1, ptr nound
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr @proto_ranap, align 4
   tail call void @p_add_proto_data(ptr noundef %15, ptr noundef nonnull %.val, i32 noundef %16, i32 noundef 0, ptr noundef %14) #3
-  br label %ranap_get_private_data.argprom.exit
+  br label %ranap_get_private_data.exit
 
-ranap_get_private_data.argprom.exit:              ; preds = %5, %12
+ranap_get_private_data.exit:                      ; preds = %5, %12
   %.0.i = phi ptr [ %14, %12 ], [ %10, %5 ]
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
   store i32 2, ptr %17, align 4

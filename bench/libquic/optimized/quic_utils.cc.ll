@@ -238,7 +238,7 @@ define dso_local void @_ZN3net9QuicUtils18FNV1a_128_Hash_TwoEPKciS2_i(ptr noalia
 entry:
   %conv = sext i32 %len1 to i64
   %cmp1.not.i.i = icmp eq i32 %len1, 0
-  br i1 %cmp1.not.i.i, label %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom.exit, label %for.body.i.i
+  br i1 %cmp1.not.i.i, label %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %i.03.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %entry ]
@@ -256,15 +256,15 @@ for.end.loopexit.i.i:                             ; preds = %for.body.i.i
   %extract6.i.i = lshr i128 %mul.i.i, 64
   %extract.t7.i.i = trunc nuw i128 %extract6.i.i to i64
   %extract.t4.i.i = trunc i128 %mul.i.i to i64
-  br label %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom.exit
+  br label %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.exit
 
-_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom.exit: ; preds = %entry, %for.end.loopexit.i.i
+_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.exit: ; preds = %entry, %for.end.loopexit.i.i
   %xhash.0.lcssa.off0.i.i = phi i64 [ 7113472399480571277, %entry ], [ %extract.t4.i.i, %for.end.loopexit.i.i ]
   %xhash.0.lcssa.off64.i.i = phi i64 [ 7809847782465536322, %entry ], [ %extract.t7.i.i, %for.end.loopexit.i.i ]
   %cmp = icmp eq ptr %data2, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom.exit
+if.end:                                           ; preds = %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.exit
   %conv2 = sext i32 %len2 to i64
   %cmp1.not.i.i9 = icmp eq i32 %len2, 0
   br i1 %cmp1.not.i.i9, label %return, label %for.body.preheader.i.i10
@@ -294,9 +294,9 @@ for.end.loopexit.i.i24:                           ; preds = %for.body.i.i15
   %extract.t4.i.i27 = trunc i128 %mul.i.i21 to i64
   br label %return
 
-return:                                           ; preds = %for.end.loopexit.i.i24, %if.end, %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom.exit
-  %xhash.0.lcssa.off0.i.i28.sink = phi i64 [ %xhash.0.lcssa.off0.i.i, %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom.exit ], [ %xhash.0.lcssa.off0.i.i, %if.end ], [ %extract.t4.i.i27, %for.end.loopexit.i.i24 ]
-  %xhash.0.lcssa.off64.i.i29.sink = phi i64 [ %xhash.0.lcssa.off64.i.i, %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom.exit ], [ %xhash.0.lcssa.off64.i.i, %if.end ], [ %extract.t7.i.i26, %for.end.loopexit.i.i24 ]
+return:                                           ; preds = %for.end.loopexit.i.i24, %if.end, %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.exit
+  %xhash.0.lcssa.off0.i.i28.sink = phi i64 [ %xhash.0.lcssa.off0.i.i, %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.exit ], [ %xhash.0.lcssa.off0.i.i, %if.end ], [ %extract.t4.i.i27, %for.end.loopexit.i.i24 ]
+  %xhash.0.lcssa.off64.i.i29.sink = phi i64 [ %xhash.0.lcssa.off64.i.i, %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.exit ], [ %xhash.0.lcssa.off64.i.i, %if.end ], [ %extract.t7.i.i26, %for.end.loopexit.i.i24 ]
   store i64 %xhash.0.lcssa.off0.i.i28.sink, ptr %agg.result, align 8
   %hi_.i5.i.i30 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %xhash.0.lcssa.off64.i.i29.sink, ptr %hi_.i5.i.i30, align 8
@@ -1782,21 +1782,21 @@ attributes #26 = { noreturn nounwind }
 !8 = distinct !{!8, !9, !"_ZN3net9QuicUtils18FNV1a_128_Hash_TwoEPKciS2_i: %agg.result"}
 !9 = distinct !{!9, !"_ZN3net9QuicUtils18FNV1a_128_Hash_TwoEPKciS2_i"}
 !10 = !{!11, !13, !8}
-!11 = distinct !{!11, !12, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm.argprom: %agg.result"}
-!12 = distinct !{!12, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm.argprom"}
-!13 = distinct !{!13, !14, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom: %agg.result"}
-!14 = distinct !{!14, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom"}
+!11 = distinct !{!11, !12, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm: %agg.result"}
+!12 = distinct !{!12, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm"}
+!13 = distinct !{!13, !14, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm: %agg.result"}
+!14 = distinct !{!14, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm"}
 !15 = distinct !{!15, !6}
 !16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm.argprom: %agg.result"}
-!18 = distinct !{!18, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm.argprom"}
-!19 = distinct !{!19, !20, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom: %agg.result"}
-!20 = distinct !{!20, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom"}
+!17 = distinct !{!17, !18, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm: %agg.result"}
+!18 = distinct !{!18, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm"}
+!19 = distinct !{!19, !20, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm: %agg.result"}
+!20 = distinct !{!20, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm"}
 !21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm.argprom: %agg.result"}
-!23 = distinct !{!23, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm.argprom"}
-!24 = distinct !{!24, !25, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom: %agg.result"}
-!25 = distinct !{!25, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.argprom"}
+!22 = distinct !{!22, !23, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm: %agg.result"}
+!23 = distinct !{!23, !"_ZN3net12_GLOBAL__N_119IncrementalHashFastENS_7uint128EPKcm"}
+!24 = distinct !{!24, !25, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm: %agg.result"}
+!25 = distinct !{!25, !"_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm"}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}

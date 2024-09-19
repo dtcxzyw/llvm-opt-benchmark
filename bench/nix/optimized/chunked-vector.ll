@@ -1567,7 +1567,7 @@ define void @_ZN3nix26ChunkedVector_ForEach_Test8TestBodyEv(ptr nocapture nonnul
   %14 = getelementptr inbounds i8, ptr %2, i64 16
   %.val15 = load ptr, ptr %14, align 8
   %15 = icmp eq ptr %.val, %.val15
-  br i1 %15, label %"_ZNK3nix13ChunkedVectorIiLm2EE7forEachIZNS_26ChunkedVector_ForEach_Test8TestBodyEvE3$_0EEvT_.argprom.exit", label %.lr.ph12.i
+  br i1 %15, label %"_ZNK3nix13ChunkedVectorIiLm2EE7forEachIZNS_26ChunkedVector_ForEach_Test8TestBodyEvE3$_0EEvT_.exit", label %.lr.ph12.i
 
 .lr.ph12.i:                                       ; preds = %12, %28
   %16 = phi i32 [ %29, %28 ], [ 0, %12 ]
@@ -1594,20 +1594,20 @@ define void @_ZN3nix26ChunkedVector_ForEach_Test8TestBodyEv(ptr nocapture nonnul
   %29 = phi i32 [ %27, %.lr.ph.i ], [ %16, %.lr.ph12.i ]
   %30 = getelementptr inbounds i8, ptr %.sroa.05.010.i, i64 24
   %31 = icmp eq ptr %30, %.val15
-  br i1 %31, label %"_ZNK3nix13ChunkedVectorIiLm2EE7forEachIZNS_26ChunkedVector_ForEach_Test8TestBodyEvE3$_0EEvT_.argprom.exit", label %.lr.ph12.i
+  br i1 %31, label %"_ZNK3nix13ChunkedVectorIiLm2EE7forEachIZNS_26ChunkedVector_ForEach_Test8TestBodyEvE3$_0EEvT_.exit", label %.lr.ph12.i
 
-"_ZNK3nix13ChunkedVectorIiLm2EE7forEachIZNS_26ChunkedVector_ForEach_Test8TestBodyEvE3$_0EEvT_.argprom.exit": ; preds = %28, %12
+"_ZNK3nix13ChunkedVectorIiLm2EE7forEachIZNS_26ChunkedVector_ForEach_Test8TestBodyEvE3$_0EEvT_.exit": ; preds = %28, %12
   %32 = phi i32 [ 0, %12 ], [ %29, %28 ]
   %33 = load i32, ptr %2, align 8
   store i32 %33, ptr %5, align 4
   %34 = icmp eq i32 %32, %33
   br i1 %34, label %35, label %36
 
-35:                                               ; preds = %"_ZNK3nix13ChunkedVectorIiLm2EE7forEachIZNS_26ChunkedVector_ForEach_Test8TestBodyEvE3$_0EEvT_.argprom.exit"
+35:                                               ; preds = %"_ZNK3nix13ChunkedVectorIiLm2EE7forEachIZNS_26ChunkedVector_ForEach_Test8TestBodyEvE3$_0EEvT_.exit"
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %4)
           to label %_ZN7testing8internal8EqHelper7CompareIijTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit unwind label %.loopexit.split-lp
 
-36:                                               ; preds = %"_ZNK3nix13ChunkedVectorIiLm2EE7forEachIZNS_26ChunkedVector_ForEach_Test8TestBodyEvE3$_0EEvT_.argprom.exit"
+36:                                               ; preds = %"_ZNK3nix13ChunkedVectorIiLm2EE7forEachIZNS_26ChunkedVector_ForEach_Test8TestBodyEvE3$_0EEvT_.exit"
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIijEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZN7testing8internal8EqHelper7CompareIijTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit unwind label %.loopexit.split-lp
 

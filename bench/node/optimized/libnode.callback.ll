@@ -523,32 +523,32 @@ if.then16:                                        ; preds = %if.end14
 if.end22:                                         ; preds = %if.then16, %if.end14
   %14 = load i8, ptr %failed_, align 2
   %tobool24 = trunc i8 %14 to i1
-  br i1 %tobool24, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.argprom.exit", label %if.end26
+  br i1 %tobool24, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit", label %if.end26
 
 if.end26:                                         ; preds = %if.end22
   %15 = load ptr, ptr %this, align 8
   %async_callback_scope_depth_.i = getelementptr inbounds i8, ptr %15, i64 1408
   %16 = load i64, ptr %async_callback_scope_depth_.i, align 8
   %cmp29 = icmp ugt i64 %16, 1
-  br i1 %cmp29, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.argprom.exit", label %lor.lhs.false
+  br i1 %cmp29, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit", label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end26
   %skip_task_queues_ = getelementptr inbounds i8, ptr %this, i64 33
   %17 = load i8, ptr %skip_task_queues_, align 1
   %tobool30 = trunc i8 %17 to i1
-  br i1 %tobool30, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.argprom.exit", label %if.end32
+  br i1 %tobool30, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit", label %if.end32
 
 if.end32:                                         ; preds = %lor.lhs.false
   %can_call_into_js_.i = getelementptr inbounds i8, ptr %15, i64 873
   %18 = load atomic i8, ptr %can_call_into_js_.i seq_cst, align 1
   %tobool.i.i.i6 = trunc i8 %18 to i1
-  br i1 %tobool.i.i.i6, label %_ZNK4node11Environment16can_call_into_jsEv.exit, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.argprom.exit"
+  br i1 %tobool.i.i.i6, label %_ZNK4node11Environment16can_call_into_jsEv.exit, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit"
 
 _ZNK4node11Environment16can_call_into_jsEv.exit:  ; preds = %if.end32
   %is_stopping_.i.i7 = getelementptr inbounds i8, ptr %15, i64 872
   %19 = load atomic i8, ptr %is_stopping_.i.i7 seq_cst, align 1
   %tobool.i.i.i.i8 = trunc i8 %19 to i1
-  br i1 %tobool.i.i.i.i8, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.argprom.exit", label %if.end38
+  br i1 %tobool.i.i.i.i8, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit", label %if.end38
 
 if.end38:                                         ; preds = %_ZNK4node11Environment16can_call_into_jsEv.exit
   %20 = load ptr, ptr %this, align 8
@@ -625,7 +625,7 @@ land.lhs.true82:                                  ; preds = %if.end80
   %arrayidx.i.i.i23 = getelementptr inbounds i8, ptr %35, i64 1
   %37 = load i8, ptr %arrayidx.i.i.i23, align 1
   %cmp.i24 = icmp eq i8 %37, 1
-  br i1 %cmp.i24, label %if.end85, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_2ED2Ev.argprom.exit"
+  br i1 %cmp.i24, label %if.end85, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_2ED2Ev.exit"
 
 if.end85:                                         ; preds = %land.lhs.true82, %if.end80
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %7) #13
@@ -690,18 +690,18 @@ if.then.i41:                                      ; preds = %if.end134
 cleanup:                                          ; preds = %if.end85, %if.then.i41, %if.end134, %_ZNK4node11Environment16can_call_into_jsEv.exit34
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #13
   %this.val.val.i.pre = load ptr, ptr %this, align 8
-  br label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_2ED2Ev.argprom.exit"
+  br label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_2ED2Ev.exit"
 
-"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_2ED2Ev.argprom.exit": ; preds = %land.lhs.true82, %cleanup
+"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_2ED2Ev.exit": ; preds = %land.lhs.true82, %cleanup
   %this.val.val.i = phi ptr [ %29, %land.lhs.true82 ], [ %this.val.val.i.pre, %cleanup ]
   call void @_ZN4node11Environment17RunWeakRefCleanupEv(ptr noundef nonnull align 8 dereferenceable(2872) %this.val.val.i) #13
-  br label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.argprom.exit"
+  br label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit"
 
-"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.argprom.exit": ; preds = %if.end32, %_ZNK4node11Environment16can_call_into_jsEv.exit, %if.end26, %lor.lhs.false, %if.end22, %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_2ED2Ev.argprom.exit"
+"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit": ; preds = %if.end32, %_ZNK4node11Environment16can_call_into_jsEv.exit, %if.end26, %lor.lhs.false, %if.end22, %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_2ED2Ev.exit"
   call void @_ZN2v87Isolate7SetIdleEb(ptr noundef nonnull align 1 dereferenceable(1) %7, i1 noundef zeroext true) #13
   br label %cleanup.cont
 
-cleanup.cont:                                     ; preds = %"_ZZN4node21InternalCallbackScope5CloseEvENK3$_0clEv.exit", %entry, %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.argprom.exit"
+cleanup.cont:                                     ; preds = %"_ZZN4node21InternalCallbackScope5CloseEvENK3$_0clEv.exit", %entry, %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit"
   ret void
 }
 

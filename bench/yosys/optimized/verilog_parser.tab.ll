@@ -1664,7 +1664,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
 308:                                              ; preds = %306
   %.sroa.0252.16.copyload = load i32, ptr %2, align 4
   %.sroa.5.16.copyload = load i32, ptr %.sroa.5.16..sroa_idx, align 4
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
 
 309:                                              ; preds = %306
   %310 = icmp ult i32 %.5, 403
@@ -1687,7 +1687,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
   %320 = load ptr, ptr @stderr, align 8
   %321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %320, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #34
   %322 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE.argprom(ptr noundef %322, i32 noundef %317, ptr noundef %2)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %322, i32 noundef %317, ptr noundef %2)
   %323 = load ptr, ptr @stderr, align 8
   %fputc = call i32 @fputc(i32 10, ptr %323)
   br label %324
@@ -1781,7 +1781,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
   %365 = load ptr, ptr @stderr, align 8
   %366 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %365, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.16) #34
   %367 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE.argprom(ptr noundef %367, i32 noundef %.01739, ptr noundef %2)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %367, i32 noundef %.01739, ptr noundef %2)
   %368 = load ptr, ptr @stderr, align 8
   %fputc2082 = call i32 @fputc(i32 10, ptr %368)
   %.pre = load i32, ptr @frontend_verilog_yydebug, align 4
@@ -1936,7 +1936,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
   br i1 %.not2090, label %432, label %431
 
 431:                                              ; preds = %425
-  call fastcc void @_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.argprom(ptr noundef %.21701, ptr noundef %.21721, i32 noundef %.01737)
+  call fastcc void @_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi(ptr noundef %.21701, ptr noundef %.21721, i32 noundef %.01737)
   br label %432
 
 432:                                              ; preds = %425, %431
@@ -6782,7 +6782,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 
 2686:                                             ; preds = %432
   %2687 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND7astbuf1E, align 8
-  call fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib.argelim(ptr noundef %2687, i32 noundef 0, i1 noundef zeroext true)
+  call fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib(ptr noundef %2687, i32 noundef 0, i1 noundef zeroext true)
   br label %.loopexit2689
 
 2688:                                             ; preds = %432
@@ -7206,7 +7206,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   %2893 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND7astbuf1E, align 8
   %2894 = getelementptr inbounds i8, ptr %2893, i64 138
   store i8 1, ptr %2894, align 2
-  call fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib.argelim(ptr noundef %2893, i32 noundef 31, i1 noundef zeroext true)
+  call fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib(ptr noundef %2893, i32 noundef 31, i1 noundef zeroext true)
   br label %.loopexit2689
 
 2895:                                             ; preds = %432
@@ -7217,7 +7217,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorI
   store i8 1, ptr %2898, align 4
   %2899 = load i32, ptr %.21711, align 8
   %2900 = add nsw i32 %2899, -1
-  call fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib.argelim(ptr noundef %2896, i32 noundef %2900, i1 noundef zeroext true)
+  call fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib(ptr noundef %2896, i32 noundef %2900, i1 noundef zeroext true)
   br label %.loopexit2689
 
 2901:                                             ; preds = %432
@@ -8557,7 +8557,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2277:        ; preds = %3422, %3431
   br i1 %3662, label %3664, label %3663
 
 3663:                                             ; preds = %3659
-  call fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib.argelim(ptr noundef nonnull %.pre6986, i32 noundef 0, i1 noundef zeroext false)
+  call fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib(ptr noundef nonnull %.pre6986, i32 noundef 0, i1 noundef zeroext false)
   %.pre6985 = load ptr, ptr %117, align 8
   br label %3664
 
@@ -8847,7 +8847,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2277:        ; preds = %3422, %3431
   br i1 %3833, label %3835, label %3834
 
 3834:                                             ; preds = %3830
-  call fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib.argelim(ptr noundef nonnull %.pre6982, i32 noundef 0, i1 noundef zeroext false)
+  call fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib(ptr noundef nonnull %.pre6982, i32 noundef 0, i1 noundef zeroext false)
   %.pre6981 = load ptr, ptr @_ZN5Yosys16VERILOG_FRONTEND7astbuf1E, align 8
   %.pre6983 = load ptr, ptr %3826, align 8
   br label %3835
@@ -11225,7 +11225,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2277:        ; preds = %3422, %3431
   %.sroa.12298.0.copyload = load i32, ptr %.sroa.12298.0..21721.sroa_idx, align 4
   %.sroa.22299.0..21721.sroa_idx = getelementptr inbounds i8, ptr %.21721, i64 12
   %.sroa.22299.0.copyload = load i32, ptr %.sroa.22299.0..21721.sroa_idx, align 4
-  %5099 = call fastcc noundef ptr @_ZL15addIncOrDecStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_SA_NS4_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_.argprom.argelim(ptr noundef %5092, ptr noundef %5094, ptr noundef %5096, i32 noundef %5097, i64 %.sroa.080.0.copyload, i32 %.sroa.12298.0.copyload, i32 %.sroa.22299.0.copyload)
+  %5099 = call fastcc noundef ptr @_ZL15addIncOrDecStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_SA_NS4_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_(ptr noundef %5092, ptr noundef %5094, ptr noundef %5096, i32 noundef %5097, i64 %.sroa.080.0.copyload, i32 %.sroa.12298.0.copyload, i32 %.sroa.22299.0.copyload)
   br label %.loopexit2689
 
 5100:                                             ; preds = %432
@@ -11242,7 +11242,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2277:        ; preds = %3422, %3431
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..21721.sroa_idx, align 4
   %.sroa.2.0..21721.sroa_idx = getelementptr inbounds i8, ptr %.21721, i64 12
   %.sroa.2.0.copyload2296 = load i32, ptr %.sroa.2.0..21721.sroa_idx, align 4
-  %5109 = call fastcc noundef ptr @_ZL15addIncOrDecStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_SA_NS4_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_.argprom.argelim(ptr noundef %5102, ptr noundef %5103, ptr noundef %5105, i32 noundef %5107, i64 %.sroa.078.0.copyload, i32 %.sroa.1.0.copyload, i32 %.sroa.2.0.copyload2296)
+  %5109 = call fastcc noundef ptr @_ZL15addIncOrDecStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_SA_NS4_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_(ptr noundef %5102, ptr noundef %5103, ptr noundef %5105, i32 noundef %5107, i64 %.sroa.078.0.copyload, i32 %.sroa.1.0.copyload, i32 %.sroa.2.0.copyload2296)
   br label %.loopexit2689
 
 5110:                                             ; preds = %432
@@ -11299,7 +11299,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2277:        ; preds = %3422, %3431
   %5145 = getelementptr inbounds i8, ptr %.21721, i64 -48
   %.sroa.076.0.copyload = load i64, ptr %5145, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull align 4 dereferenceable(16) %.21721, i64 16, i1 false)
-  %5146 = call fastcc noundef ptr @_ZL16addAsgnBinopStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_NS4_11AstNodeTypeES6_24FRONTEND_VERILOG_YYLTYPESC_.argelim(ptr noundef %5139, ptr noundef %5141, i32 noundef %5143, ptr noundef %5144, i64 %.sroa.076.0.copyload, ptr noundef nonnull byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %160)
+  %5146 = call fastcc noundef ptr @_ZL16addAsgnBinopStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_NS4_11AstNodeTypeES6_24FRONTEND_VERILOG_YYLTYPESC_(ptr noundef %5139, ptr noundef %5141, i32 noundef %5143, ptr noundef %5144, i64 %.sroa.076.0.copyload, ptr noundef nonnull byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %160)
   br label %.loopexit2689
 
 5147:                                             ; preds = %432
@@ -13650,7 +13650,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2279: ; preds = %5261
   %6478 = getelementptr inbounds i8, ptr %.21721, i64 -32
   %.sroa.051.0.copyload = load i64, ptr %6478, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %208, ptr noundef nonnull align 4 dereferenceable(16) %.21721, i64 16, i1 false)
-  %6479 = call fastcc noundef ptr @_ZL15addIncOrDecExprPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEENS0_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_b.argelim(ptr noundef %6473, ptr noundef %6475, i32 noundef %6477, i64 %.sroa.051.0.copyload, ptr noundef nonnull byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %208, i1 noundef zeroext false)
+  %6479 = call fastcc noundef ptr @_ZL15addIncOrDecExprPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEENS0_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_b(ptr noundef %6473, ptr noundef %6475, i32 noundef %6477, i64 %.sroa.051.0.copyload, ptr noundef nonnull byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %208, i1 noundef zeroext false)
   br label %.loopexit2689
 
 6480:                                             ; preds = %432
@@ -13660,7 +13660,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2279: ; preds = %5261
   %6484 = getelementptr inbounds i8, ptr %.21721, i64 -16
   %.sroa.049.0.copyload = load i64, ptr %6484, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %209, ptr noundef nonnull align 4 dereferenceable(16) %.21721, i64 16, i1 false)
-  %6485 = call fastcc noundef ptr @_ZL15addIncOrDecExprPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEENS0_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_b.argelim(ptr noundef %6482, ptr noundef null, i32 noundef %6483, i64 %.sroa.049.0.copyload, ptr noundef nonnull byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %209, i1 noundef zeroext true)
+  %6485 = call fastcc noundef ptr @_ZL15addIncOrDecExprPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEENS0_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_b(ptr noundef %6482, ptr noundef null, i32 noundef %6483, i64 %.sroa.049.0.copyload, ptr noundef nonnull byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %209, i1 noundef zeroext true)
   br label %.loopexit2689
 
 6486:                                             ; preds = %432
@@ -15764,7 +15764,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2279: ; preds = %5261
   %.sroa.0.0.copyload = load i64, ptr %7690, align 4
   %7691 = getelementptr inbounds i8, ptr %.21721, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %216, ptr noundef nonnull align 4 dereferenceable(16) %7691, i64 16, i1 false)
-  %7692 = call fastcc noundef ptr @_ZL16addAsgnBinopStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_NS4_11AstNodeTypeES6_24FRONTEND_VERILOG_YYLTYPESC_.argelim(ptr noundef null, ptr noundef %7685, i32 noundef %7687, ptr noundef %7689, i64 %.sroa.0.0.copyload, ptr noundef nonnull byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %216)
+  %7692 = call fastcc noundef ptr @_ZL16addAsgnBinopStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_NS4_11AstNodeTypeES6_24FRONTEND_VERILOG_YYLTYPESC_(ptr noundef null, ptr noundef %7685, i32 noundef %7687, ptr noundef %7689, i64 %.sroa.0.0.copyload, ptr noundef nonnull byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %216)
   %7693 = call noundef ptr @_ZNK5Yosys3AST7AstNode5cloneEv(ptr noundef nonnull align 8 dereferenceable(284) %7685)
   br label %.loopexit2689
 
@@ -15856,7 +15856,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2279: ; preds = %5261
   %7737 = getelementptr inbounds [702 x i16], ptr @_ZL4yyr1, i64 0, i64 %401
   %7738 = load i16, ptr %7737, align 2
   %7739 = sext i16 %7738 to i32
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE.argprom(ptr noundef %7736, i32 noundef %7739, ptr noundef %9)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7736, i32 noundef %7739, ptr noundef %9)
   %7740 = load ptr, ptr @stderr, align 8
   %fputc2223 = call i32 @fputc(i32 10, ptr %7740)
   br label %7741
@@ -15914,7 +15914,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2279: ; preds = %5261
   %.sroa.0252.16.copyload254 = load i32, ptr %2, align 4
   %.sroa.5.16.copyload259 = load i32, ptr %.sroa.5.16..sroa_idx, align 4
   %7775 = icmp eq i32 %.01686, 3
-  br i1 %7775, label %7787, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit
+  br i1 %7775, label %7787, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
 
 .thread2606:                                      ; preds = %.split.us
   %7776 = load ptr, ptr %11, align 8
@@ -15955,7 +15955,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2279: ; preds = %5261
 .thread2610:                                      ; preds = %.thread2606, %7784
   %.sroa.0252.16.copyload2542613 = load i32, ptr %2, align 4
   %.sroa.5.16.copyload2592615 = load i32, ptr %.sroa.5.16..sroa_idx, align 4
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
 
 7787:                                             ; preds = %7773
   %7788 = icmp slt i32 %.8.ph, 1
@@ -15963,37 +15963,37 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2279: ; preds = %5261
 
 7789:                                             ; preds = %7787
   %7790 = icmp eq i32 %.8.ph, 0
-  br i1 %7790, label %.thread2636, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit
+  br i1 %7790, label %.thread2636, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
 
 7791:                                             ; preds = %7787
   %7792 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not4.i = icmp eq i32 %7792, 0
-  br i1 %.not4.i, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit, label %7793
+  br i1 %.not4.i, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit, label %7793
 
 7793:                                             ; preds = %7791
   %7794 = load ptr, ptr @stderr, align 8
   %7795 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7794, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.113) #34
   %7796 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE.argprom(ptr noundef %7796, i32 noundef %7774, ptr noundef readonly %2)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7796, i32 noundef %7774, ptr noundef readonly %2)
   %7797 = load ptr, ptr @stderr, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %7797)
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
 
-_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit: ; preds = %7793, %7791, %.thread2610, %7773, %7789, %308
+_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit: ; preds = %7793, %7791, %.thread2610, %7773, %7789, %308
   %.sroa.0252.0 = phi i32 [ %.sroa.0252.16.copyload254, %7789 ], [ %.sroa.0252.16.copyload254, %7773 ], [ %.sroa.0252.16.copyload, %308 ], [ %.sroa.0252.16.copyload2542613, %.thread2610 ], [ %.sroa.0252.16.copyload254, %7791 ], [ %.sroa.0252.16.copyload254, %7793 ]
   %.sroa.5.0 = phi i32 [ %.sroa.5.16.copyload259, %7789 ], [ %.sroa.5.16.copyload259, %7773 ], [ %.sroa.5.16.copyload, %308 ], [ %.sroa.5.16.copyload2592615, %.thread2610 ], [ %.sroa.5.16.copyload259, %7791 ], [ %.sroa.5.16.copyload259, %7793 ]
   %.31730 = phi i32 [ %.41731.ph, %7789 ], [ %.41731.ph, %7773 ], [ %.01727, %308 ], [ %.us-phi4827, %.thread2610 ], [ %.41731.ph, %7791 ], [ %.41731.ph, %7793 ]
   %.7 = phi i32 [ %.8.ph, %7789 ], [ %.8.ph, %7773 ], [ 257, %308 ], [ %.8.ph, %.thread2610 ], [ -2, %7791 ], [ -2, %7793 ]
   br label %7798
 
-7798:                                             ; preds = %7828, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit
-  %7799 = phi i16 [ %287, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit ], [ %.pre7002, %7828 ]
-  %.sroa.0252.1 = phi i32 [ %.sroa.0252.0, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit ], [ %.sroa.0252.16.copyload255, %7828 ]
-  %.sroa.5.1 = phi i32 [ %.sroa.5.0, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit ], [ %.sroa.5.16.copyload261, %7828 ]
-  %.51724 = phi ptr [ %.21721, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit ], [ %7831, %7828 ]
-  %.51714 = phi ptr [ %.21711, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit ], [ %7830, %7828 ]
-  %.51704 = phi ptr [ %.21701, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit ], [ %7829, %7828 ]
-  %.21685 = phi i32 [ %.01683, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit ], [ %7832, %7828 ]
+7798:                                             ; preds = %7828, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
+  %7799 = phi i16 [ %287, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %.pre7002, %7828 ]
+  %.sroa.0252.1 = phi i32 [ %.sroa.0252.0, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %.sroa.0252.16.copyload255, %7828 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.0, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %.sroa.5.16.copyload261, %7828 ]
+  %.51724 = phi ptr [ %.21721, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7831, %7828 ]
+  %.51714 = phi ptr [ %.21711, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7830, %7828 ]
+  %.51704 = phi ptr [ %.21701, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7829, %7828 ]
+  %.21685 = phi i32 [ %.01683, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7832, %7828 ]
   %7800 = sext i32 %.21685 to i64
   %7801 = add i16 %7799, 1
   %or.cond9 = icmp ult i16 %7801, 3158
@@ -16023,21 +16023,21 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   %.sroa.5.16.copyload261 = load i32, ptr %.sroa.5.16..sroa_idx260, align 4
   %7815 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not4.i2283 = icmp eq i32 %7815, 0
-  br i1 %.not4.i2283, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2285.thread, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2285
+  br i1 %.not4.i2283, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285.thread, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285
 
-_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2285.thread: ; preds = %7814
+_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285.thread: ; preds = %7814
   %7816 = getelementptr inbounds i8, ptr %.51704, i64 -2
   %7817 = load i16, ptr %7816, align 2
   br label %7828
 
-_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2285: ; preds = %7814
+_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285: ; preds = %7814
   %7818 = getelementptr inbounds [1357 x i16], ptr @_ZL6yystos, i64 0, i64 %7800
   %7819 = load i16, ptr %7818, align 2
   %7820 = sext i16 %7819 to i32
   %7821 = load ptr, ptr @stderr, align 8
   %7822 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7821, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.114) #34
   %7823 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE.argprom(ptr noundef %7823, i32 noundef %7820, ptr noundef readonly %.51724)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7823, i32 noundef %7820, ptr noundef readonly %.51724)
   %7824 = load ptr, ptr @stderr, align 8
   %fputc.i2284 = call i32 @fputc(i32 10, ptr %7824)
   %.pr = load i32, ptr @frontend_verilog_yydebug, align 4
@@ -16046,13 +16046,13 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   %.not2232 = icmp eq i32 %.pr, 0
   br i1 %.not2232, label %7828, label %7827
 
-7827:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2285
+7827:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285
   call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.11695, ptr noundef %7825)
   br label %7828
 
-7828:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2285.thread, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2285, %7827
-  %.in2686 = phi i16 [ %7817, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2285.thread ], [ %7826, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2285 ], [ %7826, %7827 ]
-  %7829 = phi ptr [ %7816, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2285.thread ], [ %7825, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2285 ], [ %7825, %7827 ]
+7828:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285.thread, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285, %7827
+  %.in2686 = phi i16 [ %7817, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285.thread ], [ %7826, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285 ], [ %7826, %7827 ]
+  %7829 = phi ptr [ %7816, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285.thread ], [ %7825, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285 ], [ %7825, %7827 ]
   %7830 = getelementptr inbounds i8, ptr %.51714, i64 -8
   %7831 = getelementptr inbounds i8, ptr %.51724, i64 -16
   %7832 = sext i16 %.in2686 to i32
@@ -16101,7 +16101,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   %7852 = getelementptr inbounds [1357 x i16], ptr @_ZL6yystos, i64 0, i64 %7851
   %7853 = load i16, ptr %7852, align 2
   %7854 = sext i16 %7853 to i32
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE.argprom(ptr noundef %7850, i32 noundef %7854, ptr noundef %7843)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7850, i32 noundef %7854, ptr noundef %7843)
   %7855 = load ptr, ptr @stderr, align 8
   %fputc2231 = call i32 @fputc(i32 10, ptr %7855)
   br label %231
@@ -16121,7 +16121,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   %.41698 = phi ptr [ %.21696, %.loopexit2688 ], [ %.11695, %7812 ], [ %256, %281 ], [ %.11695, %282 ]
   %.10 = phi i32 [ %.2, %.loopexit2688 ], [ %.7, %7812 ], [ %.01677, %282 ], [ %.01677, %281 ]
   %.not2233 = icmp eq i32 %.10, -2
-  br i1 %.not2233, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288, label %7856
+  br i1 %.not2233, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288, label %7856
 
 7856:                                             ; preds = %.loopexit
   %or.cond11 = icmp ult i32 %.10, 403
@@ -16147,47 +16147,47 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   %7862 = phi i32 [ %7860, %.thread2636 ], [ 2, %7856 ]
   %7863 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not4.i2286 = icmp eq i32 %7863, 0
-  br i1 %.not4.i2286, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288.thread, label %7864
+  br i1 %.not4.i2286, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288.thread, label %7864
 
 7864:                                             ; preds = %7861
   %7865 = load ptr, ptr @stderr, align 8
   %7866 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7865, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.117) #34
   %7867 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE.argprom(ptr noundef %7867, i32 noundef %7862, ptr noundef readonly %2)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7867, i32 noundef %7862, ptr noundef readonly %2)
   %7868 = load ptr, ptr @stderr, align 8
   %fputc.i2287 = call i32 @fputc(i32 10, ptr %7868)
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288
 
-_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288: ; preds = %7864, %.loopexit
+_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288: ; preds = %7864, %.loopexit
   %.416982634.ph = phi ptr [ %.4169826332645, %7864 ], [ %.41698, %.loopexit ]
   %.617052632.ph = phi ptr [ %.6170526312647, %7864 ], [ %.61705, %.loopexit ]
   %.617252628.ph = phi ptr [ %.6172526272651, %7864 ], [ %.61725, %.loopexit ]
   %.017382626.ph = phi i32 [ %.0173826252653, %7864 ], [ %.01738, %.loopexit ]
   %.pr2655 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not2234 = icmp eq i32 %.pr2655, 0
-  br i1 %.not2234, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288.thread, label %7869
+  br i1 %.not2234, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288.thread, label %7869
 
-7869:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288
+7869:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288
   call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.416982634.ph, ptr noundef %.617052632.ph)
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288.thread
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288.thread
 
-_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288.thread: ; preds = %7861, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288, %7869
-  %.0173826262666 = phi i32 [ %.017382626.ph, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288 ], [ %.017382626.ph, %7869 ], [ %.0173826252653, %7861 ]
-  %.6172526282665 = phi ptr [ %.617252628.ph, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288 ], [ %.617252628.ph, %7869 ], [ %.6172526272651, %7861 ]
-  %.6170526322663 = phi ptr [ %.617052632.ph, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288 ], [ %.617052632.ph, %7869 ], [ %.6170526312647, %7861 ]
-  %.4169826342662 = phi ptr [ %.416982634.ph, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288 ], [ %.416982634.ph, %7869 ], [ %.4169826332645, %7861 ]
+_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288.thread: ; preds = %7861, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288, %7869
+  %.0173826262666 = phi i32 [ %.017382626.ph, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288 ], [ %.017382626.ph, %7869 ], [ %.0173826252653, %7861 ]
+  %.6172526282665 = phi ptr [ %.617252628.ph, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288 ], [ %.617252628.ph, %7869 ], [ %.6172526272651, %7861 ]
+  %.6170526322663 = phi ptr [ %.617052632.ph, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288 ], [ %.617052632.ph, %7869 ], [ %.6170526312647, %7861 ]
+  %.4169826342662 = phi ptr [ %.416982634.ph, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288 ], [ %.416982634.ph, %7869 ], [ %.4169826332645, %7861 ]
   %.not22354829 = icmp eq ptr %.6170526322663, %.4169826342662
   %7870 = load i32, ptr @frontend_verilog_yydebug, align 4
   %7871 = icmp eq i32 %7870, 0
   %or.cond = select i1 %.not22354829, i1 true, i1 %7871
   br i1 %or.cond, label %._crit_edge4833, label %.lr.ph4832.split
 
-.lr.ph4832.split:                                 ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288.thread, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2291
-  %7872 = phi i32 [ %7883, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2291 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288.thread ]
-  %.717064831 = phi ptr [ %7884, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2291 ], [ %.6170526322663, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288.thread ]
-  %.717264830 = phi ptr [ %7885, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2291 ], [ %.6172526282665, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288.thread ]
+.lr.ph4832.split:                                 ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288.thread, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2291
+  %7872 = phi i32 [ %7883, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2291 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288.thread ]
+  %.717064831 = phi ptr [ %7884, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2291 ], [ %.6170526322663, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288.thread ]
+  %.717264830 = phi ptr [ %7885, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2291 ], [ %.6172526282665, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288.thread ]
   %.not4.i2289 = icmp eq i32 %7872, 0
-  br i1 %.not4.i2289, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2291, label %7873
+  br i1 %.not4.i2289, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2291, label %7873
 
 7873:                                             ; preds = %.lr.ph4832.split
   %7874 = load i16, ptr %.717064831, align 2
@@ -16198,20 +16198,20 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   %7879 = load ptr, ptr @stderr, align 8
   %7880 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7879, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.118) #34
   %7881 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE.argprom(ptr noundef %7881, i32 noundef %7878, ptr noundef readonly %.717264830)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7881, i32 noundef %7878, ptr noundef readonly %.717264830)
   %7882 = load ptr, ptr @stderr, align 8
   %fputc.i2290 = call i32 @fputc(i32 10, ptr %7882)
   %.pre7004 = load i32, ptr @frontend_verilog_yydebug, align 4
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2291
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2291
 
-_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2291: ; preds = %.lr.ph4832.split, %7873
+_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2291: ; preds = %.lr.ph4832.split, %7873
   %7883 = phi i32 [ 0, %.lr.ph4832.split ], [ %.pre7004, %7873 ]
   %7884 = getelementptr inbounds i8, ptr %.717064831, i64 -2
   %7885 = getelementptr inbounds i8, ptr %.717264830, i64 -16
   %.not2235 = icmp eq ptr %7884, %.4169826342662
   br i1 %.not2235, label %._crit_edge4833, label %.lr.ph4832.split, !llvm.loop !21
 
-._crit_edge4833:                                  ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2291, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.argprom.exit2288.thread
+._crit_edge4833:                                  ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2291, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288.thread
   %.not2236 = icmp eq ptr %.4169826342662, %3
   br i1 %.not2236, label %7887, label %7886
 
@@ -16283,7 +16283,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 declare noundef i32 @_Z22frontend_verilog_yylexP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE.argprom(ptr nocapture noundef %0, i32 noundef range(i32 -32768, 32768) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #10 {
+define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr nocapture noundef %0, i32 noundef range(i32 -32768, 32768) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #10 {
   %4 = icmp slt i32 %1, 174
   %.str.122..str.123 = select i1 %4, ptr @.str.122, ptr @.str.123
   %5 = sext i32 %1 to i64
@@ -16533,7 +16533,7 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymb
   %109 = add nsw i64 %108, 1
   %110 = load i64, ptr %2, align 8
   %.not.i = icmp sgt i64 %110, %109
-  br i1 %.not.i, label %_ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.argprom.exit, label %111
+  br i1 %.not.i, label %_ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.exit, label %111
 
 111:                                              ; preds = %104
   %112 = icmp sgt i64 %108, 9999998
@@ -16572,7 +16572,7 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymb
 125:                                              ; preds = %124, %121
   store ptr %118, ptr %1, align 8
   store i64 %spec.store.select.i, ptr %2, align 8
-  br label %_ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.argprom.exit
+  br label %_ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.exit
 
 126:                                              ; preds = %119, %113
   %.str.619.sink = phi ptr [ @.str.619, %113 ], [ @.str.620, %119 ]
@@ -16587,13 +16587,13 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymb
   %fputc = tail call i32 @fputc(i32 10, ptr %130)
   br label %.thread85
 
-_ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.argprom.exit: ; preds = %125, %104
+_ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.exit: ; preds = %125, %104
   %.5 = phi ptr [ %123, %125 ], [ %.2, %104 ]
   %131 = getelementptr inbounds i8, ptr %.5, i64 2
   br label %132
 
-132:                                              ; preds = %99, %_ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.argprom.exit
-  %.sink = phi ptr [ %131, %_ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.argprom.exit ], [ %103, %99 ]
+132:                                              ; preds = %99, %_ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.exit
+  %.sink = phi ptr [ %131, %_ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.exit ], [ %103, %99 ]
   store i16 %100, ptr %.sink, align 2
   %133 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not68 = icmp eq i32 %133, 0
@@ -16613,7 +16613,7 @@ _ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.argprom.exit: ; preds = %125, %10
 }
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi.argprom(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 -32768, 32769) %2) unnamed_addr #7 {
+define internal fastcc void @_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 -32768, 32769) %2) unnamed_addr #7 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds [702 x i16], ptr @_ZL7yyrline, i64 0, i64 %4
   %6 = load i16, ptr %5, align 2
@@ -16646,7 +16646,7 @@ define internal fastcc void @_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP2
   %24 = load i16, ptr %23, align 2
   %25 = sext i16 %24 to i32
   %26 = getelementptr inbounds %struct.FRONTEND_VERILOG_YYLTYPE, ptr %1, i64 %19
-  tail call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE.argprom(ptr noundef %18, i32 noundef %25, ptr noundef %26)
+  tail call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %18, i32 noundef %25, ptr noundef %26)
   %27 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %27)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -18540,7 +18540,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @_ZN5Yosys16log_file_warningERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPKcz(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483648, 2147483647) %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define internal fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib(ptr nocapture noundef %0, i32 noundef range(i32 -2147483648, 2147483647) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = tail call fastcc noundef ptr @_ZL9makeRangeiib(i32 noundef %1, i32 noundef 0, i1 noundef zeroext %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -19397,7 +19397,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_.exit: ; preds = %56, 
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZL15addIncOrDecStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_SA_NS4_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 %4, i32 %.8.val, i32 %.12.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZL15addIncOrDecStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_SA_NS4_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 %4, i32 %.8.val, i32 %.12.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.2.0.extract.shift = lshr i64 %4, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -19534,7 +19534,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_.exit: ; preds = %33, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL16addAsgnBinopStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_NS4_11AstNodeTypeES6_24FRONTEND_VERILOG_YYLTYPESC_.argelim(ptr noundef %0, ptr noundef returned %1, i32 noundef %2, ptr noundef %3, i64 %4, ptr nocapture noundef readonly byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL16addAsgnBinopStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_NS4_11AstNodeTypeES6_24FRONTEND_VERILOG_YYLTYPESC_(ptr noundef %0, ptr noundef returned %1, i32 noundef %2, ptr noundef %3, i64 %4, ptr nocapture noundef readonly byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.3.0.extract.shift = lshr i64 %4, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
@@ -20154,7 +20154,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15addIncOrDecExprPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEENS0_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_b.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 %3, ptr nocapture noundef readonly byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %4, i1 noundef zeroext %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL15addIncOrDecExprPN5Yosys3AST7AstNodeEPNS_7hashlib4dictINS_5RTLIL8IdStringES2_NS3_8hash_opsIS6_EEEENS0_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_b(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 %3, ptr nocapture noundef readonly byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %4, i1 noundef zeroext %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = load i8, ptr @_ZN5Yosys16VERILOG_FRONTEND7sv_modeE, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %10, label %9
@@ -20181,7 +20181,7 @@ _ZL21ensureAsgnExprAllowedv.exit:                 ; preds = %10, %16
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %17 = tail call fastcc noundef ptr @_ZL15addIncOrDecStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_SA_NS4_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_.argprom.argelim(ptr noundef null, ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 %3, i32 %.sroa.1.0.copyload, i32 %.sroa.2.0.copyload)
+  %17 = tail call fastcc noundef ptr @_ZL15addIncOrDecStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_SA_NS4_11AstNodeTypeE24FRONTEND_VERILOG_YYLTYPESC_(ptr noundef null, ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 %3, i32 %.sroa.1.0.copyload, i32 %.sroa.2.0.copyload)
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
@@ -24370,7 +24370,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %24 = getelementptr inbounds i8, ptr %.val2, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not12.i.i.i = icmp eq ptr %23, %25
-  br i1 %.not12.i.i.i, label %"_ZSt10__invoke_rIvRZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not12.i.i.i, label %"_ZSt10__invoke_rIvRZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i.i.i
   %26 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -24398,15 +24398,15 @@ _ZNKSt8functionIFvPN5Yosys3AST7AstNodeEEEclES3_.exit.i.i.i: ; preds = %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %35 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %35, %25
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIvRZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.argprom.exit", label %27
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIvRZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit", label %27
 
-"_ZSt10__invoke_rIvRZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZNKSt8functionIFvPN5Yosys3AST7AstNodeEEEclES3_.exit.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i.i.i
+"_ZSt10__invoke_rIvRZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0JS3_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit": ; preds = %_ZNKSt8functionIFvPN5Yosys3AST7AstNodeEEEclES3_.exit.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread11.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN5Yosys3AST7AstNodeEEZL21rewriteGenForDeclInitS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -24415,30 +24415,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN5Yosys3AST7Ast
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL21rewriteGenForDeclInitPN5Yosys3AST7AstNodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

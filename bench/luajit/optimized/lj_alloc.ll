@@ -208,7 +208,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @lj_alloc_free.retelim(ptr noundef %msp, ptr noundef %ptr)
+  tail call fastcc void @lj_alloc_free(ptr noundef %msp, ptr noundef %ptr)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -307,7 +307,7 @@ if.then14.i:                                      ; preds = %if.then12.i
   %or30.i = or i64 %4, 1
   store i64 %or30.i, ptr %head29.i, align 8
   %add.ptr31.i = getelementptr inbounds i8, ptr %add.ptr15.i, i64 16
-  tail call fastcc void @lj_alloc_free.retelim(ptr noundef %msp, ptr noundef nonnull %add.ptr31.i)
+  tail call fastcc void @lj_alloc_free(ptr noundef %msp, ptr noundef nonnull %add.ptr31.i)
   br label %if.then59.i
 
 if.else33.i:                                      ; preds = %if.else10.i
@@ -364,7 +364,7 @@ land.end.i:                                       ; preds = %land.rhs.i, %if.the
   %sub72.i = add i64 %cond71.neg.i, %and.i
   %cond77.i = tail call i64 @llvm.umin.i64(i64 %sub72.i, i64 %nsize)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call62.i, ptr nonnull align 1 %ptr, i64 %cond77.i, i1 false)
-  tail call fastcc void @lj_alloc_free.retelim(ptr noundef %msp, ptr noundef nonnull %ptr)
+  tail call fastcc void @lj_alloc_free(ptr noundef %msp, ptr noundef nonnull %ptr)
   br label %return
 
 return:                                           ; preds = %land.end.i, %if.else61.i, %if.then59.i, %if.else4, %if.then2, %if.then
@@ -373,7 +373,7 @@ return:                                           ; preds = %land.end.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lj_alloc_free.retelim(ptr noundef %msp, ptr noundef %ptr) unnamed_addr #0 {
+define internal fastcc void @lj_alloc_free(ptr noundef %msp, ptr noundef %ptr) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ptr, null
   br i1 %cmp.not, label %return, label %if.then

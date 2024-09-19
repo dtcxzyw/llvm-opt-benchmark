@@ -5401,7 +5401,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_
   %.val4.i = load i32, ptr %5, align 8, !noalias !89
   %.val5.i = load i32, ptr %2, align 8, !noalias !89
   %6 = icmp eq i32 %.val4.i, 0
-  br i1 %6, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i, label %7
+  br i1 %6, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i, label %7
 
 7:                                                ; preds = %3
   %8 = mul i32 %.val5.i, 37
@@ -5425,7 +5425,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_
 17:                                               ; preds = %.lr.ph.i.i.i
   %.not.i.i.i = icmp eq ptr %.0267.i.i.i, null
   %18 = select i1 %.not.i.i.i, ptr %15, ptr %.0267.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i
 
 19:                                               ; preds = %.lr.ph.i.i.i
   %20 = icmp eq i32 %14, -2147483648
@@ -5441,7 +5441,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_
   %27 = icmp eq i32 %.val5.i, %26
   br i1 %27, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E11try_emplaceIJS3_EEESt4pairINS_16DenseMapIteratorIiS3_S5_S8_Lb0EEEbEOiDpOT_.exit, label %.lr.ph.i.i.i, !llvm.loop !92
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i: ; preds = %17, %3
+_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i: ; preds = %17, %3
   %.sink.i.i.i = phi ptr [ %18, %17 ], [ null, %3 ]
   %28 = getelementptr i8, ptr %1, i64 8
   %.val17.i.i.i = load i32, ptr %28, align 8, !noalias !89
@@ -5451,14 +5451,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
   %.not.i.i14.i = icmp ult i32 %30, %31
   br i1 %.not.i.i14.i, label %56, label %32
 
-32:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i
+32:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i
   %33 = shl i32 %.val4.i, 1
   tail call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %33), !noalias !89
   %.val14.i.i.i = load ptr, ptr %1, align 8, !noalias !89
   %.val15.i.i.i = load i32, ptr %5, align 8, !noalias !89
   %.val16.i.i.i = load i32, ptr %2, align 8, !noalias !89
   %34 = icmp eq i32 %.val15.i.i.i, 0
-  br i1 %34, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i, label %35
+  br i1 %34, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i, label %35
 
 35:                                               ; preds = %32
   %36 = mul i32 %.val16.i.i.i, 37
@@ -5468,7 +5468,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
   %39 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.543", ptr %.val14.i.i.i, i64 %38
   %40 = load i32, ptr %39, align 4, !noalias !89
   %41 = icmp eq i32 %.val16.i.i.i, %40
-  br i1 %41, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %41, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %35, %47
   %42 = phi i32 [ %54, %47 ], [ %40, %35 ]
@@ -5482,7 +5482,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
 45:                                               ; preds = %.lr.ph.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq ptr %.0267.i.i.i.i.i, null
   %46 = select i1 %.not.i.i.i.i.i, ptr %43, ptr %.0267.i.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i
 
 47:                                               ; preds = %.lr.ph.i.i.i.i.i
   %48 = icmp eq i32 %42, -2147483648
@@ -5496,9 +5496,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
   %53 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.543", ptr %.val14.i.i.i, i64 %52
   %54 = load i32, ptr %53, align 4, !noalias !89
   %55 = icmp eq i32 %.val16.i.i.i, %54
-  br i1 %55, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !92
+  br i1 %55, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !92
 
-56:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i
+56:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i
   %57 = getelementptr i8, ptr %1, i64 12
   %.val18.i.i.i = load i32, ptr %57, align 4, !noalias !89
   %.neg.i.i.i = xor i32 %.val17.i.i.i, -1
@@ -5506,7 +5506,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
   %58 = sub i32 %.neg2.i.i.i, %.val18.i.i.i
   %59 = lshr i32 %.val4.i, 3
   %.not9.i.i.i = icmp ugt i32 %58, %59
-  br i1 %.not9.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i, label %60
+  br i1 %.not9.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i, label %60
 
 60:                                               ; preds = %56
   tail call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %.val4.i), !noalias !89
@@ -5514,7 +5514,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
   %.val12.i.i.i = load i32, ptr %5, align 8, !noalias !89
   %.val13.i.i.i = load i32, ptr %2, align 8, !noalias !89
   %61 = icmp eq i32 %.val12.i.i.i, 0
-  br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i, label %62
+  br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i, label %62
 
 62:                                               ; preds = %60
   %63 = mul i32 %.val13.i.i.i, 37
@@ -5524,7 +5524,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
   %66 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.543", ptr %.val11.i.i.i, i64 %65
   %67 = load i32, ptr %66, align 4, !noalias !89
   %68 = icmp eq i32 %.val13.i.i.i, %67
-  br i1 %68, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i, label %.lr.ph.i.i20.i.i.i
+  br i1 %68, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i, label %.lr.ph.i.i20.i.i.i
 
 .lr.ph.i.i20.i.i.i:                               ; preds = %62, %74
   %69 = phi i32 [ %81, %74 ], [ %67, %62 ]
@@ -5538,7 +5538,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
 72:                                               ; preds = %.lr.ph.i.i20.i.i.i
   %.not.i.i29.i.i.i = icmp eq ptr %.0267.i.i23.i.i.i, null
   %73 = select i1 %.not.i.i29.i.i.i, ptr %70, ptr %.0267.i.i23.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i
 
 74:                                               ; preds = %.lr.ph.i.i20.i.i.i
   %75 = icmp eq i32 %69, -2147483648
@@ -5552,9 +5552,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
   %80 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.543", ptr %.val11.i.i.i, i64 %79
   %81 = load i32, ptr %80, align 4, !noalias !89
   %82 = icmp eq i32 %.val13.i.i.i, %81
-  br i1 %82, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i, label %.lr.ph.i.i20.i.i.i, !llvm.loop !92
+  br i1 %82, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i, label %.lr.ph.i.i20.i.i.i, !llvm.loop !92
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i: ; preds = %47, %74, %72, %62, %60, %56, %45, %35, %32
+_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i: ; preds = %47, %74, %72, %62, %60, %56, %45, %35, %32
   %.0.i.i15.i = phi ptr [ %.sink.i.i.i, %56 ], [ %46, %45 ], [ null, %32 ], [ %39, %35 ], [ %73, %72 ], [ null, %60 ], [ %66, %62 ], [ %80, %74 ], [ %53, %47 ]
   %.val.i.i.i.i = load i32, ptr %28, align 8, !noalias !89
   %83 = add i32 %.val.i.i.i.i, 1
@@ -5563,14 +5563,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
   %85 = icmp eq i32 %84, 2147483647
   br i1 %85, label %89, label %86
 
-86:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i
+86:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i
   %87 = getelementptr i8, ptr %1, i64 12
   %.val.i31.i.i.i = load i32, ptr %87, align 4, !noalias !89
   %88 = add i32 %.val.i31.i.i.i, -1
   store i32 %88, ptr %87, align 4, !noalias !89
   br label %89
 
-89:                                               ; preds = %86, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i.i
+89:                                               ; preds = %86, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i.i
   %90 = load i32, ptr %2, align 8, !noalias !89
   store i32 %90, ptr %.0.i.i15.i, align 4, !noalias !89
   %91 = getelementptr inbounds nuw i8, ptr %.0.i.i15.i, i64 8
@@ -5689,7 +5689,7 @@ define dso_local void @_ZN4llvm9MIPrinter25printStackObjectReferenceEi(ptr nocap
   %11 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.543", ptr %.val, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %1, %12
-  br i1 %13, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4findERKi.argprom.exit, label %.lr.ph.i.i.i
+  br i1 %13, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4findERKi.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %7, %16
   %14 = phi i32 [ %21, %16 ], [ %12, %7 ]
@@ -5706,14 +5706,14 @@ define dso_local void @_ZN4llvm9MIPrinter25printStackObjectReferenceEi(ptr nocap
   %20 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.543", ptr %.val, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %1, %21
-  br i1 %22, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4findERKi.argprom.exit, label %.lr.ph.i.i.i, !llvm.loop !36
+  br i1 %22, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4findERKi.exit, label %.lr.ph.i.i.i, !llvm.loop !36
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %2
   %23 = zext i32 %.val4 to i64
   %24 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.543", ptr %.val, i64 %23
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4findERKi.argprom.exit
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4findERKi.exit
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4findERKi.argprom.exit: ; preds = %16, %7, %.loopexit.i
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4findERKi.exit: ; preds = %16, %7, %.loopexit.i
   %.0.i.i.pn.i = phi ptr [ %24, %.loopexit.i ], [ %11, %7 ], [ %20, %16 ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i, i64 8
   %26 = load ptr, ptr %0, align 8
@@ -8888,18 +8888,18 @@ define dso_local void @_ZN4llvm8printMIRERNS_11raw_ostreamERKNS_17MachineModuleI
 20:                                               ; preds = %18, %.lr.ph.i.i.i
   %21 = getelementptr inbounds i8, ptr %.03.i.i.i, i64 48
   %.not.i.i.i = icmp eq ptr %21, %16
-  br i1 %.not.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E10destroyAllEv.argprom.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !118
+  br i1 %.not.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E10destroyAllEv.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !118
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E10destroyAllEv.argprom.exit.loopexit.i.i: ; preds = %20
+_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E10destroyAllEv.exit.loopexit.i.i: ; preds = %20
   %.pre.i.i = load ptr, ptr %12, align 8
   %.pre3.i.i = load i32, ptr %13, align 8
   %22 = zext i32 %.pre3.i.i to i64
   %23 = mul nuw nsw i64 %22, 48
   br label %_ZN4llvm10MIRPrinterD2Ev.exit
 
-_ZN4llvm10MIRPrinterD2Ev.exit:                    ; preds = %3, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E10destroyAllEv.argprom.exit.loopexit.i.i
-  %24 = phi i64 [ %23, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E10destroyAllEv.argprom.exit.loopexit.i.i ], [ 0, %3 ]
-  %25 = phi ptr [ %.pre.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E10destroyAllEv.argprom.exit.loopexit.i.i ], [ %.pre2.i.i, %3 ]
+_ZN4llvm10MIRPrinterD2Ev.exit:                    ; preds = %3, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E10destroyAllEv.exit.loopexit.i.i
+  %24 = phi i64 [ %23, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E10destroyAllEv.exit.loopexit.i.i ], [ 0, %3 ]
+  %25 = phi ptr [ %.pre.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E10destroyAllEv.exit.loopexit.i.i ], [ %.pre2.i.i, %3 ]
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %25, i64 noundef %24, i64 noundef 8) #20
   %26 = load ptr, ptr %11, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -23794,7 +23794,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
   %43 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.543", ptr %.val.i8.i, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %37, %44
-  br i1 %45, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %45, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %38, %51
   %46 = phi i32 [ %58, %51 ], [ %44, %38 ]
@@ -23808,7 +23808,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
 49:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.0267.i.i.i.i, null
   %50 = select i1 %.not.i.i.i.i, ptr %47, ptr %.0267.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = icmp eq i32 %46, -2147483648
@@ -23822,9 +23822,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
   %57 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.543", ptr %.val.i8.i, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %37, %58
-  br i1 %59, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !92
+  br i1 %59, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !92
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i: ; preds = %51, %49, %38
+_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i: ; preds = %51, %49, %38
   %.sink.i.i.i.i = phi ptr [ %50, %49 ], [ %43, %38 ], [ %57, %51 ]
   store i32 %37, ptr %.sink.i.i.i.i, align 4
   %60 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 8
@@ -23839,7 +23839,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12Den
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #20
   br label %65
 
-65:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.argprom.exit.i.i, %.lr.ph.i7.i
+65:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i.i, %.lr.ph.i7.i
   %66 = getelementptr inbounds i8, ptr %.022.i.i, i64 48
   %.not.i9.i = icmp eq ptr %66, %31
   br i1 %.not.i9.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i, label %.lr.ph.i7.i, !llvm.loop !297
@@ -24206,21 +24206,21 @@ _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i
 _ZN4llvm4yaml12CallSiteInfoD2Ev.exit17.i.i.i:     ; preds = %38, %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %43 = add nsw i64 %.08.i.i.i, -1
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_RT0_.argprom.exit.i.i", label %26
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_RT0_.exit.i.i", label %26
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_RT0_.argprom.exit.i.i": ; preds = %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit17.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_RT0_.exit.i.i": ; preds = %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit17.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %44 = icmp sgt i64 %.lcssa41, 32
   br i1 %44, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_RT0_.argprom.exit.i.i"
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_RT0_.exit.i.i"
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %48
 
-48:                                               ; preds = %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit.i16.i", %.lr.ph.i9.i
-  %.sroa.0.03.i.i = phi ptr [ %storemerge25.lcssa, %.lr.ph.i9.i ], [ %49, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit.i16.i" ]
+48:                                               ; preds = %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.exit.i16.i", %.lr.ph.i9.i
+  %.sroa.0.03.i.i = phi ptr [ %storemerge25.lcssa, %.lr.ph.i9.i ], [ %49, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.exit.i16.i" ]
   %49 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %50 = load i64, ptr %49, align 8
@@ -24262,7 +24262,7 @@ _ZN4llvm4yaml12CallSiteInfoD2Ev.exit17.i.i.i:     ; preds = %38, %_ZSt8_DestroyI
 
 _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i.i.i14.i: ; preds = %.lr.ph.i.i.i.i.i.i.i11.i, %48
   %.not.i.i.i.i.i.i15.i = icmp eq ptr %64, null
-  br i1 %.not.i.i.i.i.i.i15.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit.i16.i", label %67
+  br i1 %.not.i.i.i.i.i.i15.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.exit.i16.i", label %67
 
 67:                                               ; preds = %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i.i.i14.i
   %68 = load ptr, ptr %47, align 8
@@ -24270,9 +24270,9 @@ _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i
   %70 = ptrtoint ptr %64 to i64
   %71 = sub i64 %69, %70
   tail call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %71) #23
-  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit.i16.i"
+  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.exit.i16.i"
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit.i16.i": ; preds = %67, %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i.i.i14.i
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.exit.i16.i": ; preds = %67, %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i.i.i14.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %72 = icmp sgt i64 %62, 32
   br i1 %72, label %48, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_T0_.exit", !llvm.loop !309
@@ -24285,11 +24285,11 @@ _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i
   %75 = lshr i64 %73, 1
   %76 = getelementptr inbounds %"struct.llvm::yaml::CallSiteInfo", ptr %0, i64 %75
   %77 = getelementptr inbounds i8, ptr %storemerge2546, i64 -32
-  %78 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr nonnull %11, ptr %76)
+  %78 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nonnull %11, ptr %76)
   br i1 %78, label %79, label %112
 
 79:                                               ; preds = %.lr.ph47
-  %80 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr %76, ptr nonnull %77)
+  %80 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr %76, ptr nonnull %77)
   br i1 %80, label %81, label %93
 
 81:                                               ; preds = %79
@@ -24316,7 +24316,7 @@ _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
 93:                                               ; preds = %79
-  %94 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr nonnull %11, ptr nonnull %77)
+  %94 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nonnull %11, ptr nonnull %77)
   %95 = load i64, ptr %0, align 8
   %96 = load ptr, ptr %12, align 8
   %97 = load ptr, ptr %13, align 8
@@ -24358,7 +24358,7 @@ _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
 112:                                              ; preds = %.lr.ph47
-  %113 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr nonnull %11, ptr nonnull %77)
+  %113 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nonnull %11, ptr nonnull %77)
   br i1 %113, label %114, label %123
 
 114:                                              ; preds = %112
@@ -24381,7 +24381,7 @@ _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
 123:                                              ; preds = %112
-  %124 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr %76, ptr nonnull %77)
+  %124 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr %76, ptr nonnull %77)
   %125 = load i64, ptr %0, align 8
   %126 = load ptr, ptr %12, align 8
   %127 = load ptr, ptr %13, align 8
@@ -24435,14 +24435,14 @@ _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i
 
 145:                                              ; preds = %145, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i"
   %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i" ], [ %147, %145 ]
-  %146 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr nonnull %.sroa.010.1.i.i, ptr readonly %0)
+  %146 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nonnull %.sroa.010.1.i.i, ptr readonly %0)
   %147 = getelementptr inbounds i8, ptr %.sroa.010.1.i.i, i64 32
   br i1 %146, label %145, label %.preheader.i.i, !llvm.loop !310
 
 .preheader.i.i:                                   ; preds = %145, %.preheader.i.i
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %145 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -32
-  %148 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr readonly %0, ptr nonnull %.sroa.0.1.i.i)
+  %148 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr readonly %0, ptr nonnull %.sroa.0.1.i.i)
   br i1 %148, label %.preheader.i.i, label %149, !llvm.loop !311
 
 149:                                              ; preds = %.preheader.i.i
@@ -24483,12 +24483,12 @@ _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i
   %169 = icmp sgt i64 %168, 16
   br i1 %169, label %19, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_T0_.exit", !llvm.loop !308
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEET_SM_SM_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.argprom.exit.i16.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_RT0_.argprom.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEET_SM_SM_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_SM_RT0_.exit.i16.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm4yaml12CallSiteInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10MIRPrinter22convertCallSiteObjectsERNS3_15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EEEvT_SM_RT0_.exit.i.i"
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr %0, align 8
   %.sroa.01.0.extract.trunc = trunc i64 %3 to i32
   %.sroa.22.0.extract.shift = lshr i64 %3, 32
@@ -24639,7 +24639,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %10 = getelementptr inbounds %"struct.llvm::yaml::CallSiteInfo", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
   %12 = getelementptr inbounds %"struct.llvm::yaml::CallSiteInfo", ptr %0, i64 %11
-  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr %10, ptr nonnull %12)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr %10, ptr nonnull %12)
   %spec.select = select i1 %13, i64 %11, i64 %9
   %14 = getelementptr inbounds %"struct.llvm::yaml::CallSiteInfo", ptr %0, i64 %spec.select
   %15 = getelementptr inbounds %"struct.llvm::yaml::CallSiteInfo", ptr %0, i64 %.051
@@ -24881,16 +24881,16 @@ _ZN4llvm4yaml12CallSiteInfoD2Ev.exit.i.i:         ; preds = %_ZSt8_DestroyIPN4ll
 
 _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i22.i.i: ; preds = %.lr.ph.i.i.i.i.i17.i.i, %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit.i.i
   %.not.i.i.i.i23.i.i = icmp eq ptr %98, null
-  br i1 %.not.i.i.i.i23.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i", label %117
+  br i1 %.not.i.i.i.i23.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i", label %117
 
 117:                                              ; preds = %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i22.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef %85) #23
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i": ; preds = %117, %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i22.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i": ; preds = %117, %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i22.i.i
   br i1 %.0.i1013.i.i, label %118, label %.critedge.i
 
-118:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i"
+118:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i"
   %119 = getelementptr inbounds %"struct.llvm::yaml::CallSiteInfo", ptr %0, i64 %.011.i
   %120 = load i64, ptr %77, align 8
   store i64 %120, ptr %119, align 8
@@ -24933,8 +24933,8 @@ _ZN4llvm4yaml12CallSiteInfoaSEOS1_.exit.i:        ; preds = %132, %_ZSt8_Destroy
   %136 = icmp sgt i64 %.0912.i, %1
   br i1 %136, label %.lr.ph.i, label %.critedge.i, !llvm.loop !314
 
-.critedge.i:                                      ; preds = %_ZN4llvm4yaml12CallSiteInfoaSEOS1_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i", %_ZN4llvm4yaml12CallSiteInfoaSEOS1_.exit30
-  %.0.lcssa.i = phi i64 [ %.1, %_ZN4llvm4yaml12CallSiteInfoaSEOS1_.exit30 ], [ %.011.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i" ], [ %.0912.i, %_ZN4llvm4yaml12CallSiteInfoaSEOS1_.exit.i ]
+.critedge.i:                                      ; preds = %_ZN4llvm4yaml12CallSiteInfoaSEOS1_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i", %_ZN4llvm4yaml12CallSiteInfoaSEOS1_.exit30
+  %.0.lcssa.i = phi i64 [ %.1, %_ZN4llvm4yaml12CallSiteInfoaSEOS1_.exit30 ], [ %.011.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i" ], [ %.0912.i, %_ZN4llvm4yaml12CallSiteInfoaSEOS1_.exit.i ]
   %137 = getelementptr inbounds %"struct.llvm::yaml::CallSiteInfo", ptr %0, i64 %.0.lcssa.i
   store i64 %64, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
@@ -24991,7 +24991,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
 8:                                                ; preds = %.lr.ph, %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit
   %.sroa.012.024 = phi ptr [ %.sroa.012.021, %.lr.ph ], [ %.sroa.012.0, %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit ]
   %.pn23 = phi ptr [ %0, %.lr.ph ], [ %.sroa.012.024, %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit ]
-  %9 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom"(ptr nonnull %.sroa.012.024, ptr %0)
+  %9 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS_17__normal_iteratorIPNS4_12CallSiteInfoESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nonnull %.sroa.012.024, ptr %0)
   br i1 %9, label %10, label %53
 
 10:                                               ; preds = %8
@@ -25241,16 +25241,16 @@ _ZN4llvm4yaml12CallSiteInfoD2Ev.exit.i:           ; preds = %_ZSt8_DestroyIPN4ll
 
 _ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i22.i: ; preds = %.lr.ph.i.i.i.i.i17.i, %_ZN4llvm4yaml12CallSiteInfoD2Ev.exit.i
   %.not.i.i.i.i23.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i23.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS4_12CallSiteInfoENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit", label %53
+  br i1 %.not.i.i.i.i23.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS4_12CallSiteInfoENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit", label %53
 
 53:                                               ; preds = %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i22.i
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %11) #23
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS4_12CallSiteInfoENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS4_12CallSiteInfoENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS4_12CallSiteInfoENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit": ; preds = %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i22.i, %53
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS4_12CallSiteInfoENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit": ; preds = %_ZSt8_DestroyIPN4llvm4yaml12CallSiteInfo10ArgRegPairES3_EvT_S5_RSaIT0_E.exit.i.i22.i, %53
   br i1 %.0.i1013.i, label %54, label %71
 
-54:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS4_12CallSiteInfoENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit"
+54:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS4_12CallSiteInfoENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit"
   %55 = load i64, ptr %.sroa.0.0, align 8
   store i64 %55, ptr %.sroa.020.0, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 8
@@ -25291,7 +25291,7 @@ _ZN4llvm4yaml12CallSiteInfoaSEOS1_.exit.backedge: ; preds = %_ZSt8_DestroyIPN4ll
   tail call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %70) #23
   br label %_ZN4llvm4yaml12CallSiteInfoaSEOS1_.exit.backedge
 
-71:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS4_12CallSiteInfoENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit"
+71:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10MIRPrinter22convertCallSiteObjectsERNS2_4yaml15MachineFunctionERKNS2_15MachineFunctionERNS2_17ModuleSlotTrackerEE3$_0EclINS4_12CallSiteInfoENS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit"
   store i64 %2, ptr %.sroa.020.0, align 8
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 8
   %73 = load ptr, ptr %72, align 8
@@ -26302,8 +26302,8 @@ attributes #23 = { builtin nounwind }
 !19 = distinct !{!19, !20, !"_ZNK4llvm9StringRef3strB5cxx11Ev: argument 0"}
 !20 = distinct !{!20, !"_ZNK4llvm9StringRef3strB5cxx11Ev"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZSt9make_pairIRiN12_GLOBAL__N_117FrameIndexOperandEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.argprom: argument 0"}
-!23 = distinct !{!23, !"_ZSt9make_pairIRiN12_GLOBAL__N_117FrameIndexOperandEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.argprom"}
+!22 = distinct !{!22, !23, !"_ZSt9make_pairIRiN12_GLOBAL__N_117FrameIndexOperandEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_: argument 0"}
+!23 = distinct !{!23, !"_ZSt9make_pairIRiN12_GLOBAL__N_117FrameIndexOperandEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_"}
 !24 = distinct !{!24, !10}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZN12_GLOBAL__N_117FrameIndexOperand6createEN4llvm9StringRefEj: argument 0"}
@@ -26312,8 +26312,8 @@ attributes #23 = { builtin nounwind }
 !29 = distinct !{!29, !30, !"_ZNK4llvm9StringRef3strB5cxx11Ev: argument 0"}
 !30 = distinct !{!30, !"_ZNK4llvm9StringRef3strB5cxx11Ev"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZSt9make_pairIRiN12_GLOBAL__N_117FrameIndexOperandEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.argprom: argument 0"}
-!33 = distinct !{!33, !"_ZSt9make_pairIRiN12_GLOBAL__N_117FrameIndexOperandEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.argprom"}
+!32 = distinct !{!32, !33, !"_ZSt9make_pairIRiN12_GLOBAL__N_117FrameIndexOperandEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_: argument 0"}
+!33 = distinct !{!33, !"_ZSt9make_pairIRiN12_GLOBAL__N_117FrameIndexOperandEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_"}
 !34 = distinct !{!34, !10}
 !35 = distinct !{!35, !10}
 !36 = distinct !{!36, !10}

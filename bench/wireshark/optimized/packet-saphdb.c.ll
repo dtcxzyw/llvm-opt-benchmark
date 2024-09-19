@@ -727,7 +727,7 @@ define internal noundef i32 @dissect_saphdb_tcp(ptr noundef %0, ptr noundef %1, 
 14:                                               ; preds = %11
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %16 = icmp ugt i32 %15, 31
-  br i1 %16, label %17, label %dissect_saphdb_message.argprom.exit
+  br i1 %16, label %17, label %dissect_saphdb_message.exit
 
 17:                                               ; preds = %14, %11, %4
   %18 = load i32, ptr @proto_saphdb, align 4
@@ -743,7 +743,7 @@ define internal noundef i32 @dissect_saphdb_tcp(ptr noundef %0, ptr noundef %1, 
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 14, i32 noundef 0) #3
   %27 = load ptr, ptr %6, align 8
   tail call void @col_add_str(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str) #3
-  br label %dissect_saphdb_message.argprom.exit
+  br label %dissect_saphdb_message.exit
 
 28:                                               ; preds = %17
   %29 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
@@ -765,12 +765,12 @@ define internal noundef i32 @dissect_saphdb_tcp(ptr noundef %0, ptr noundef %1, 
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %42, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #3
   %44 = load ptr, ptr %6, align 8
   tail call void @col_add_str(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.2) #3
-  br label %dissect_saphdb_message.argprom.exit
+  br label %dissect_saphdb_message.exit
 
 45:                                               ; preds = %28
   %46 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %47 = icmp ugt i32 %46, 31
-  br i1 %47, label %48, label %dissect_saphdb_message.argprom.exit
+  br i1 %47, label %48, label %dissect_saphdb_message.exit
 
 48:                                               ; preds = %45
   store i32 0, ptr %5, align 4
@@ -826,39 +826,39 @@ define internal noundef i32 @dissect_saphdb_tcp(ptr noundef %0, ptr noundef %1, 
   br i1 %65, label %89, label %.lr.ph.i
 
 89:                                               ; preds = %84
-  %90 = call fastcc i32 @dissect_saphdb_segment.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %88, i32 noundef 32, i16 noundef signext %61, i16 noundef zeroext 1, i32 noundef %66)
+  %90 = call fastcc i32 @dissect_saphdb_segment(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %88, i32 noundef 32, i16 noundef signext %61, i16 noundef zeroext 1, i32 noundef %66)
   %91 = add i32 %90, 32
   %92 = load i32, ptr @hf_saphdb_compressed_buffer, align 4
   %93 = load i32, ptr %5, align 4
   %94 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef %93, i32 noundef 0) #3
   %95 = load i32, ptr @global_saphdb_highlight_items, align 4
   %.not129.i = icmp eq i32 %95, 0
-  br i1 %.not129.i, label %dissect_saphdb_message.argprom.exit, label %96
+  br i1 %.not129.i, label %dissect_saphdb_message.exit, label %96
 
 96:                                               ; preds = %89
   %97 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %94, ptr noundef nonnull @ei_saphdb_compressed_unknown, ptr noundef nonnull @.str.326) #3
-  br label %dissect_saphdb_message.argprom.exit
+  br label %dissect_saphdb_message.exit
 
 .lr.ph.i:                                         ; preds = %84, %100
   %.03.i = phi i16 [ %103, %100 ], [ 1, %84 ]
   %.12.i = phi i32 [ %102, %100 ], [ 32, %84 ]
   %98 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.12.i) #3
   %99 = icmp sgt i32 %98, 12
-  br i1 %99, label %100, label %dissect_saphdb_message.argprom.exit
+  br i1 %99, label %100, label %dissect_saphdb_message.exit
 
 100:                                              ; preds = %.lr.ph.i
-  %101 = call fastcc i32 @dissect_saphdb_segment.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %88, i32 noundef %.12.i, i16 noundef signext %61, i16 noundef zeroext %.03.i, i32 noundef %66)
+  %101 = call fastcc i32 @dissect_saphdb_segment(ptr noundef %0, ptr noundef %1, ptr noundef %88, i32 noundef %.12.i, i16 noundef signext %61, i16 noundef zeroext %.03.i, i32 noundef %66)
   %102 = add i32 %101, %.12.i
   %103 = add i16 %.03.i, 1
   %exitcond.not = icmp eq i16 %.03.i, %61
-  br i1 %exitcond.not, label %dissect_saphdb_message.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not, label %dissect_saphdb_message.exit, label %.lr.ph.i, !llvm.loop !4
 
 104:                                              ; preds = %80
   %105 = sext i16 %61 to i32
   %106 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %63, ptr noundef nonnull @ei_saphdb_segments_number_incorrect, ptr noundef nonnull @.str.327, i32 noundef %105) #3
-  br label %dissect_saphdb_message.argprom.exit
+  br label %dissect_saphdb_message.exit
 
-dissect_saphdb_message.argprom.exit:              ; preds = %.lr.ph.i, %100, %14, %24, %31, %45, %89, %96, %104
+dissect_saphdb_message.exit:                      ; preds = %.lr.ph.i, %100, %14, %24, %31, %45, %89, %96, %104
   %.0124.i = phi i32 [ 14, %24 ], [ 6, %31 ], [ %91, %96 ], [ %91, %89 ], [ 32, %104 ], [ 0, %45 ], [ 0, %14 ], [ %102, %100 ], [ %.12.i, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret i32 %.0124.i
@@ -899,7 +899,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_saphdb_segment.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i16 noundef zeroext %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_saphdb_segment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i16 noundef zeroext %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_saphdb_segment, align 4
@@ -1033,11 +1033,11 @@ define internal fastcc noundef i32 @dissect_saphdb_segment.argprom(ptr noundef %
   %98 = tail call ptr @proto_item_add_subtree(ptr noundef %96, i32 noundef %97) #3
   br label %99
 
-99:                                               ; preds = %93, %dissect_saphdb_part.argprom.exit
-  %100 = phi i32 [ 1, %93 ], [ %316, %dissect_saphdb_part.argprom.exit ]
-  %.05 = phi i16 [ 1, %93 ], [ %315, %dissect_saphdb_part.argprom.exit ]
-  %.24 = phi i32 [ 24, %93 ], [ %314, %dissect_saphdb_part.argprom.exit ]
-  %.11472 = phi i32 [ %.0146, %93 ], [ %.pre-phi, %dissect_saphdb_part.argprom.exit ]
+99:                                               ; preds = %93, %dissect_saphdb_part.exit
+  %100 = phi i32 [ 1, %93 ], [ %316, %dissect_saphdb_part.exit ]
+  %.05 = phi i16 [ 1, %93 ], [ %315, %dissect_saphdb_part.exit ]
+  %.24 = phi i32 [ 24, %93 ], [ %314, %dissect_saphdb_part.exit ]
+  %.11472 = phi i32 [ %.0146, %93 ], [ %.pre-phi, %dissect_saphdb_part.exit ]
   %101 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.11472) #3
   %102 = icmp sgt i32 %101, 15
   br i1 %102, label %103, label %.critedge
@@ -1113,7 +1113,7 @@ define internal fastcc noundef i32 @dissect_saphdb_segment.argprom(ptr noundef %
 148:                                              ; preds = %146, %142
   %149 = phi i32 [ %147, %146 ], [ %144, %142 ]
   %150 = icmp sgt i16 %117, 0
-  br i1 %150, label %151, label %dissect_saphdb_part.argprom.exit
+  br i1 %150, label %151, label %dissect_saphdb_part.exit
 
 151:                                              ; preds = %148
   %152 = load i32, ptr @hf_saphdb_part_buffer, align 4
@@ -1441,9 +1441,9 @@ dissect_saphdb_part_buffer.exit.i:                ; preds = %285, %.lr.ph.i131.i
   %312 = load i32, ptr %9, align 4
   %313 = add i32 %312, 16
   %.pre = add i32 %313, %.11472
-  br label %dissect_saphdb_part.argprom.exit
+  br label %dissect_saphdb_part.exit
 
-dissect_saphdb_part.argprom.exit:                 ; preds = %148, %dissect_saphdb_part_buffer.exit.i
+dissect_saphdb_part.exit:                         ; preds = %148, %dissect_saphdb_part_buffer.exit.i
   %.pre-phi = phi i32 [ %129, %148 ], [ %.pre, %dissect_saphdb_part_buffer.exit.i ]
   %.0.i = phi i32 [ 16, %148 ], [ %313, %dissect_saphdb_part_buffer.exit.i ]
   call void @proto_item_set_len(ptr noundef %107, i32 noundef %.0.i) #3
@@ -1454,8 +1454,8 @@ dissect_saphdb_part.argprom.exit:                 ; preds = %148, %dissect_saphd
   %.not154.not = icmp ult i16 %.05, %23
   br i1 %.not154.not, label %99, label %.critedge, !llvm.loop !9
 
-.critedge:                                        ; preds = %99, %dissect_saphdb_part.argprom.exit, %90
-  %.1 = phi i32 [ 24, %90 ], [ %314, %dissect_saphdb_part.argprom.exit ], [ %.24, %99 ]
+.critedge:                                        ; preds = %99, %dissect_saphdb_part.exit, %90
+  %.1 = phi i32 [ 24, %90 ], [ %314, %dissect_saphdb_part.exit ], [ %.24, %99 ]
   call void @proto_item_set_len(ptr noundef %13, i32 noundef %.1) #3
   br label %317
 
@@ -1500,17 +1500,17 @@ define internal fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr
   %17 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef %13) #3
   %18 = load i32, ptr @hf_saphdb_part_option_name, align 4
   %19 = sext i8 %17 to i32
-  br i1 %.not.i, label %opv_to_opi.argprom.exit, label %.preheader.i
+  br i1 %.not.i, label %opv_to_opi.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %16
   %20 = load ptr, ptr %9, align 8
   %.not121.i = icmp eq ptr %20, null
-  br i1 %.not121.i, label %opv_to_opi.argprom.exit, label %.lr.ph.i.preheader
+  br i1 %.not121.i, label %opv_to_opi.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %21 = load i8, ptr %6, align 8
   %22 = icmp eq i8 %21, %17
-  br i1 %22, label %opv_to_opi.argprom.exit, label %.lr.ph
+  br i1 %22, label %opv_to_opi.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.02.i135 = phi i32 [ %23, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
@@ -1520,14 +1520,14 @@ define internal fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not12.i = icmp eq ptr %27, null
-  br i1 %.not12.i, label %opv_to_opi.argprom.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not12.i, label %opv_to_opi.exit, label %.lr.ph.i, !llvm.loop !10
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %28 = load i8, ptr %25, align 8
   %29 = icmp eq i8 %28, %17
-  br i1 %29, label %opv_to_opi.argprom.exit, label %.lr.ph, !llvm.loop !10
+  br i1 %29, label %opv_to_opi.exit, label %.lr.ph, !llvm.loop !10
 
-opv_to_opi.argprom.exit:                          ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader, %16, %.preheader.i
+opv_to_opi.exit:                                  ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader, %16, %.preheader.i
   %.010.i = phi ptr [ @.str.330, %16 ], [ @.str.330, %.preheader.i ], [ %20, %.lr.ph.i.preheader ], [ %27, %.lr.ph.i ], [ @.str.330, %.lr.ph ]
   %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef %19, ptr noundef nonnull @.str.355, ptr noundef nonnull %.010.i, i32 noundef %19) #3
   %31 = add i32 %10, %.0138
@@ -1538,7 +1538,7 @@ opv_to_opi.argprom.exit:                          ; preds = %.lr.ph.i, %.lr.ph, 
   %36 = sext i8 %32 to i32
   br i1 %.not.i, label %opv_to_opt.exit.thread128, label %.preheader.i116
 
-.preheader.i116:                                  ; preds = %opv_to_opi.argprom.exit
+.preheader.i116:                                  ; preds = %opv_to_opi.exit
   %37 = load ptr, ptr %9, align 8
   %.not1012.i = icmp eq ptr %37, null
   br i1 %.not1012.i, label %opv_to_opt.exit.thread, label %.lr.ph.i117
@@ -1572,7 +1572,7 @@ opv_to_opt.exit:                                  ; preds = %38, %47
   %or.cond = select i1 %50, i1 %52, i1 false
   br i1 %or.cond, label %.lr.ph.i121, label %73
 
-opv_to_opt.exit.thread128:                        ; preds = %opv_to_opi.argprom.exit
+opv_to_opt.exit.thread128:                        ; preds = %opv_to_opi.exit
   %53 = icmp ne i8 %32, 0
   %54 = load i32, ptr @global_saphdb_highlight_items, align 4
   %55 = icmp ne i32 %54, 0

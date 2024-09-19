@@ -2370,7 +2370,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   br i1 %.not336, label %796, label %636
 
 636:                                              ; preds = %634
-  tail call fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE.argprom(ptr dead_on_unwind noalias writable align 8 %0, i32 %635)
+  tail call fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias writable align 8 %0, i32 %635)
   br label %797
 
 637:                                              ; preds = %4
@@ -2471,7 +2471,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   br i1 %.not, label %796, label %691
 
 691:                                              ; preds = %689
-  tail call fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE.argprom(ptr dead_on_unwind noalias writable align 8 %0, i32 %690)
+  tail call fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias writable align 8 %0, i32 %690)
   br label %797
 
 692:                                              ; preds = %4
@@ -2714,7 +2714,7 @@ declare double @tanh(double noundef) local_unnamed_addr #3
 declare double @tan(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE.argprom(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 %.0.val) unnamed_addr #5 {
+define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 %.0.val) unnamed_addr #5 {
   switch i32 %.0.val, label %17 [
     i32 1, label %2
     i32 2, label %5

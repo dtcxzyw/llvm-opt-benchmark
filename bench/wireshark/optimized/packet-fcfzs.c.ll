@@ -603,7 +603,7 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i168, label %223, label %dissect_fcfzs_rjt.exit
 
 223:                                              ; preds = %222
-  call fastcc void @dissect_fcfzs_zoneset.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0141)
+  call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0141)
   br label %dissect_fcfzs_rjt.exit
 
 224:                                              ; preds = %116
@@ -619,21 +619,21 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_fcfzs_rjt.exit
 
 232:                                              ; preds = %224
-  call fastcc void @dissect_fcfzs_zoneset.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0141)
+  call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0141)
   br label %dissect_fcfzs_rjt.exit
 
 233:                                              ; preds = %116
   br i1 %.not.i168, label %dissect_fcfzs_rjt.exit, label %234
 
 234:                                              ; preds = %233
-  call fastcc void @dissect_fcfzs_zoneset.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0141)
+  call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0141)
   br label %dissect_fcfzs_rjt.exit
 
 235:                                              ; preds = %116
   br i1 %.not.i168, label %dissect_fcfzs_rjt.exit, label %236
 
 236:                                              ; preds = %235
-  call fastcc void @dissect_fcfzs_zoneset.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0141)
+  call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0141)
   br label %dissect_fcfzs_rjt.exit
 
 237:                                              ; preds = %116
@@ -847,7 +847,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcfzs_zoneset.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %5 = zext i8 %4 to i32
   %6 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4

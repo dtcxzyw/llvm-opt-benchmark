@@ -41,12 +41,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @json_dumper_begin_object(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @json_dumper_begin_nested_element.retelim(ptr noundef %0, i32 noundef 2)
+  tail call fastcc void @json_dumper_begin_nested_element(ptr noundef %0, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_dumper_begin_nested_element.retelim(ptr nocapture noundef %0, i32 noundef range(i32 2, 5) %1) unnamed_addr #0 {
+define internal fastcc void @json_dumper_begin_nested_element(ptr nocapture noundef %0, i32 noundef range(i32 2, 5) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 65536
@@ -875,12 +875,12 @@ jd_puts.exit:                                     ; preds = %173, %167, %158, %1
 
 ; Function Attrs: nounwind uwtable
 define void @json_dumper_end_object(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @json_dumper_end_nested_element.retelim(ptr noundef %0, i32 noundef 2)
+  tail call fastcc void @json_dumper_end_nested_element(ptr noundef %0, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_dumper_end_nested_element.retelim(ptr noundef %0, i32 noundef range(i32 2, 5) %1) unnamed_addr #0 {
+define internal fastcc void @json_dumper_end_nested_element(ptr noundef %0, i32 noundef range(i32 2, 5) %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1130,13 +1130,13 @@ jd_putc.exit:                                     ; preds = %111, %105, %96, %79
 
 ; Function Attrs: nounwind uwtable
 define void @json_dumper_begin_array(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @json_dumper_begin_nested_element.retelim(ptr noundef %0, i32 noundef 3)
+  tail call fastcc void @json_dumper_begin_nested_element(ptr noundef %0, i32 noundef 3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @json_dumper_end_array(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @json_dumper_end_nested_element.retelim(ptr noundef %0, i32 noundef 3)
+  tail call fastcc void @json_dumper_end_nested_element(ptr noundef %0, i32 noundef 3)
   ret void
 }
 
@@ -1540,7 +1540,7 @@ jd_putc.exit:                                     ; preds = %13, %23, %29
 
 ; Function Attrs: nounwind uwtable
 define void @json_dumper_begin_base64(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @json_dumper_begin_nested_element.retelim(ptr noundef %0, i32 noundef 4)
+  tail call fastcc void @json_dumper_begin_nested_element(ptr noundef %0, i32 noundef 4)
   ret void
 }
 
@@ -1634,7 +1634,7 @@ declare i64 @g_base64_encode_step(ptr noundef, i64 noundef, i32 noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define void @json_dumper_end_base64(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @json_dumper_end_nested_element.retelim(ptr noundef %0, i32 noundef 4)
+  tail call fastcc void @json_dumper_end_nested_element(ptr noundef %0, i32 noundef 4)
   ret void
 }
 

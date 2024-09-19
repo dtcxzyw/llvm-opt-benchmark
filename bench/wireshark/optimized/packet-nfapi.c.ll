@@ -3764,7 +3764,7 @@ define internal i32 @dissect_nfapi_ul_p7(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = alloca i8, align 1
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #7
-  call fastcc void @dissect_p7_header.argprom.argelim(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @dissect_p7_header(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %10 = getelementptr inbounds i8, ptr %1, i64 272
   %11 = load i32, ptr %10, align 8
   %12 = load i8, ptr %5, align 1
@@ -3847,7 +3847,7 @@ define internal i32 @dissect_nfapi_dl_p7(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = alloca i8, align 1
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #7
-  call fastcc void @dissect_p7_header.argprom.argelim(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @dissect_p7_header(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %10 = getelementptr inbounds i8, ptr %1, i64 272
   %11 = load i32, ptr %10, align 8
   %12 = load i8, ptr %5, align 1
@@ -4121,7 +4121,7 @@ define internal i32 @dissect_p45_param_response_msg_id(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_p7_dl_node_sync_msg_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @dissect_p7_header.argprom.argelim(ptr noundef %0, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null)
+  tail call fastcc void @dissect_p7_header(ptr noundef %0, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null)
   %5 = load i32, ptr @hf_nfapi_ul_node_sync_t1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #7
   %7 = load i32, ptr @hf_nfapi_ul_node_sync_t2, align 4
@@ -4133,7 +4133,7 @@ define internal noundef i32 @dissect_p7_dl_node_sync_msg_id(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_p7_ul_node_sync_msg_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @dissect_p7_header.argprom.argelim(ptr noundef %0, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null)
+  tail call fastcc void @dissect_p7_header(ptr noundef %0, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null)
   %5 = load i32, ptr @hf_nfapi_dl_node_sync_t1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #7
   %7 = load i32, ptr @hf_nfapi_dl_node_sync_delta_sfn_sf, align 4
@@ -4143,7 +4143,7 @@ define internal noundef i32 @dissect_p7_ul_node_sync_msg_id(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_p7_timing_info_msg_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @dissect_p7_header.argprom.argelim(ptr noundef %0, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null)
+  tail call fastcc void @dissect_p7_header(ptr noundef %0, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null)
   %5 = load i32, ptr @hf_nfapi_timing_info_last_sfn_sf, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #7
   %7 = load i32, ptr @hf_nfapi_timing_info_time_since_last_timing_info, align 4
@@ -7896,7 +7896,7 @@ dissect_array_value.exit:                         ; preds = %80, %97
   %149 = phi i32 [ 0, %146 ], [ %152, %148 ]
   %.016.i69 = phi i16 [ 0, %146 ], [ %151, %148 ]
   %150 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %144, ptr noundef nonnull @.str.1840, i32 noundef %149) #7
-  call fastcc void @dissect_bf_vector_type_value.argelim(ptr noundef %0) #7
+  call fastcc void @dissect_bf_vector_type_value(ptr noundef %0) #7
   call void @ptvcursor_pop_subtree(ptr noundef %0) #7
   %151 = add i16 %.016.i69, 1
   %152 = zext i16 %151 to i32
@@ -11705,7 +11705,7 @@ dissect_epdcch_prb_index_value.exit:              ; preds = %35, %42
   br label %dissect_array_value.exit
 
 dissect_array_value.exit:                         ; preds = %30, %47
-  call fastcc void @dissect_bf_vector_type_value.argelim(ptr noundef %0)
+  call fastcc void @dissect_bf_vector_type_value(ptr noundef %0)
   ret void
 }
 
@@ -13874,7 +13874,7 @@ declare ptr @ptvcursor_new(ptr noundef, ptr noundef, ptr noundef, i32 noundef) l
 declare void @ptvcursor_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bf_vector_type_value.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @dissect_bf_vector_type_value(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load i32, ptr @hf_nfapi_bf_vector_subband_index, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #7
@@ -14667,7 +14667,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_p7_header.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_p7_header(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = load i32, ptr @ett_nfapi_p7_message_header, align 4
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.2650) #7
   %8 = load i32, ptr @hf_nfapi_p7_message_header_phy_id, align 4

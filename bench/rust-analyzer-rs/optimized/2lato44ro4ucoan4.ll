@@ -17081,11 +17081,11 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom"(i8 %.0.val, ptr %.8.val) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE"(i8 %.0.val, ptr %.8.val) unnamed_addr #6 personality ptr @rust_eh_personality {
   %1 = icmp eq i8 %.0.val, 15
-  br i1 %1, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.argprom.exit", label %2
+  br i1 %1, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.exit", label %2
 
-"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.argprom.exit": ; preds = %10, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i", %2, %2, %2, %2, %0
+"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.exit": ; preds = %10, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i", %2, %2, %2, %2, %0
   ret void
 
 2:                                                ; preds = %0
@@ -17093,11 +17093,11 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$core..option..Optio
   %4 = icmp ult i8 %3, 7
   %narrow.i = select i1 %4, i8 %3, i8 3
   switch i8 %narrow.i, label %5 [
-    i8 0, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.argprom.exit"
-    i8 1, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.argprom.exit"
-    i8 2, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.argprom.exit"
+    i8 0, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.exit"
+    i8 1, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.exit"
+    i8 2, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.exit"
     i8 3, label %10
-    i8 4, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.argprom.exit"
+    i8 4, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.exit"
     i8 5, label %19
   ]
 
@@ -17105,20 +17105,20 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$core..option..Optio
   %6 = getelementptr inbounds i8, ptr %.8.val, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !1438, !noundef !5
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i"
+  br i1 %8, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i"
 
-"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i": ; preds = %19, %15, %11, %5
+"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i": ; preds = %19, %15, %11, %5
   %.sink1.i = phi i64 [ %13, %11 ], [ %17, %15 ], [ %21, %19 ], [ %7, %5 ]
   %9 = load ptr, ptr %.8.val, align 8, !nonnull !5, !noundef !5
   tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %.sink1.i, i64 noundef 1) #23, !noalias !5
-  br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i"
+  br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i"
 
-"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i": ; preds = %19, %15, %11, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i", %5
+"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i": ; preds = %19, %15, %11, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i", %5
   tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef 16, i64 noundef 8) #23
-  br label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.argprom.exit"
+  br label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.exit"
 
 10:                                               ; preds = %2
-  switch i8 %.0.val, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.argprom.exit" [
+  switch i8 %.0.val, label %"_ZN4core3ptr44drop_in_place$LT$hir_expand..ExpandError$GT$17hfdacbacfd0b53dc8E.exit" [
     i8 0, label %11
     i8 1, label %15
   ]
@@ -17127,19 +17127,19 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$core..option..Optio
   %12 = getelementptr inbounds i8, ptr %.8.val, i64 8
   %13 = load i64, ptr %12, align 8, !alias.scope !1443, !noundef !5
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i"
+  br i1 %14, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i"
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %.8.val, i64 8
   %17 = load i64, ptr %16, align 8, !alias.scope !1448, !noundef !5
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i"
+  br i1 %18, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i"
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %.8.val, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !1453, !noundef !5
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i"
+  br i1 %22, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i"
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -18845,7 +18845,7 @@ define hidden { i64, ptr } @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatab
 
 5:                                                ; preds = %2
   %6 = tail call noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$13real_span_map17h4478b1fbd68e3f51E"(ptr noundef align 1 %0, i32 noundef %1)
-  br label %_ZN10hir_expand8span_map7SpanMap3new17h3760d0f4730ddb7dE.argprom.exit
+  br label %_ZN10hir_expand8span_map7SpanMap3new17h3760d0f4730ddb7dE.exit
 
 7:                                                ; preds = %2
   %8 = and i32 %1, 2147483647
@@ -18904,7 +18904,7 @@ define hidden { i64, ptr } @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatab
   %.val.i = load i8, ptr %3, align 8, !range !1553, !noundef !5
   %29 = getelementptr inbounds i8, ptr %3, i64 8
   %.val5.i = load ptr, ptr %29, align 8
-  call fastcc void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom"(i8 %.val.i, ptr %.val5.i) #22
+  call fastcc void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE"(i8 %.val.i, ptr %.val5.i) #22
   resume { ptr, i32 } %eh.lpad-body.i
 
 "_ZN4core3ptr105drop_in_place$LT$syntax..Parse$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h40c8695802d26436E.exit.i": ; preds = %.noexc.i, %19, %"_ZN4core3ptr50drop_in_place$LT$rowan..green..node..GreenNode$GT$17hc7f859fc9f801f94E.llvm.12053455592450410520.exit.i.i"
@@ -18912,18 +18912,18 @@ define hidden { i64, ptr } @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatab
   %30 = getelementptr inbounds i8, ptr %3, i64 8
   %.val7.i = load ptr, ptr %30, align 8
   %31 = icmp eq i8 %.val6.i, 15
-  br i1 %31, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom.exit.i", label %32
+  br i1 %31, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.exit.i", label %32
 
 32:                                               ; preds = %"_ZN4core3ptr105drop_in_place$LT$syntax..Parse$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h40c8695802d26436E.exit.i"
   %33 = add nsw i8 %.val6.i, -8
   %34 = icmp ult i8 %33, 7
   %narrow.i.i.i = select i1 %34, i8 %33, i8 3
   switch i8 %narrow.i.i.i, label %35 [
-    i8 0, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom.exit.i"
-    i8 1, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom.exit.i"
-    i8 2, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom.exit.i"
+    i8 0, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.exit.i"
+    i8 1, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.exit.i"
+    i8 2, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.exit.i"
     i8 3, label %40
-    i8 4, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom.exit.i"
+    i8 4, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.exit.i"
     i8 5, label %49
   ]
 
@@ -18931,20 +18931,20 @@ define hidden { i64, ptr } @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatab
   %36 = getelementptr inbounds i8, ptr %.val7.i, i64 8
   %37 = load i64, ptr %36, align 8, !alias.scope !1554, !noundef !5
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i.i.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i.i.i"
+  br i1 %38, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i.i.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i.i.i"
 
-"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i.i.i": ; preds = %49, %45, %41, %35
+"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i.i.i": ; preds = %49, %45, %41, %35
   %.sink1.i.i.i = phi i64 [ %43, %41 ], [ %47, %45 ], [ %51, %49 ], [ %37, %35 ]
   %39 = load ptr, ptr %.val7.i, align 8, !nonnull !5, !noundef !5
   call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef %.sink1.i.i.i, i64 noundef 1) #23, !noalias !5
-  br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i.i.i"
+  br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i.i.i"
 
-"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i.i.i": ; preds = %49, %45, %41, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i.i.i", %35
+"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i.i.i": ; preds = %49, %45, %41, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i.i.i", %35
   call void @__rust_dealloc(ptr noundef nonnull %.val7.i, i64 noundef 16, i64 noundef 8) #23
-  br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom.exit.i"
+  br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.exit.i"
 
 40:                                               ; preds = %32
-  switch i8 %.val6.i, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom.exit.i" [
+  switch i8 %.val6.i, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.exit.i" [
     i8 0, label %41
     i8 1, label %45
   ]
@@ -18953,27 +18953,27 @@ define hidden { i64, ptr } @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatab
   %42 = getelementptr inbounds i8, ptr %.val7.i, i64 8
   %43 = load i64, ptr %42, align 8, !alias.scope !1559, !noundef !5
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i.i.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i.i.i"
+  br i1 %44, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i.i.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i.i.i"
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %.val7.i, i64 8
   %47 = load i64, ptr %46, align 8, !alias.scope !1564, !noundef !5
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i.i.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i.i.i"
+  br i1 %48, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i.i.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i.i.i"
 
 49:                                               ; preds = %32
   %50 = getelementptr inbounds i8, ptr %.val7.i, i64 8
   %51 = load i64, ptr %50, align 8, !alias.scope !1569, !noundef !5
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i.i.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.sink.split.i.i.i"
+  br i1 %52, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i.i.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i.i.i"
 
-"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom.exit.i": ; preds = %40, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.argprom.exit.sink.split.i.i.i", %32, %32, %32, %32, %"_ZN4core3ptr105drop_in_place$LT$syntax..Parse$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h40c8695802d26436E.exit.i"
+"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.exit.i": ; preds = %40, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i.i.i", %32, %32, %32, %32, %"_ZN4core3ptr105drop_in_place$LT$syntax..Parse$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h40c8695802d26436E.exit.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  br label %_ZN10hir_expand8span_map7SpanMap3new17h3760d0f4730ddb7dE.argprom.exit
+  br label %_ZN10hir_expand8span_map7SpanMap3new17h3760d0f4730ddb7dE.exit
 
-_ZN10hir_expand8span_map7SpanMap3new17h3760d0f4730ddb7dE.argprom.exit: ; preds = %5, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom.exit.i"
-  %.sroa.3.0.i = phi ptr [ %12, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom.exit.i" ], [ %6, %5 ]
-  %.sroa.0.0.i = phi i64 [ 0, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.argprom.exit.i" ], [ 1, %5 ]
+_ZN10hir_expand8span_map7SpanMap3new17h3760d0f4730ddb7dE.exit: ; preds = %5, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.exit.i"
+  %.sroa.3.0.i = phi ptr [ %12, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.exit.i" ], [ %6, %5 ]
+  %.sroa.0.0.i = phi i64 [ 0, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h942f48c04541550dE.exit.i" ], [ 1, %5 ]
   %53 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %54 = insertvalue { i64, ptr } %53, ptr %.sroa.3.0.i, 1
   ret { i64, ptr } %54
@@ -23844,10 +23844,10 @@ attributes #26 = { "function-inline-cost-multiplier"="2" }
 !1583 = distinct !{!1583, !1584, !"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h03f51e637ec7dd71E: argument 0"}
 !1584 = distinct !{!1584, !"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h03f51e637ec7dd71E"}
 !1585 = !{!1586}
-!1586 = distinct !{!1586, !1587, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
-!1587 = distinct !{!1587, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
+!1586 = distinct !{!1586, !1587, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!1587 = distinct !{!1587, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
 !1588 = !{!1589}
-!1589 = distinct !{!1589, !1587, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
+!1589 = distinct !{!1589, !1587, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !1590 = !{!1591, !1593, !1595, !1597}
 !1591 = distinct !{!1591, !1592, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.12053455592450410520: argument 0"}
 !1592 = distinct !{!1592, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.12053455592450410520"}

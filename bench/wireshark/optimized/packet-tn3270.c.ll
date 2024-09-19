@@ -1888,7 +1888,7 @@ dissect_tn3270e_header.exit:                      ; preds = %56, %61
   %118 = load i32, ptr @hf_tn3270_cursor_address, align 4
   %.val.i = load i8, ptr %78, align 2
   %.val31.i = load i8, ptr %79, align 1
-  call fastcc void @dissect_buffer_address.argprom.retelim(ptr noundef %22, ptr noundef %0, i32 noundef %110, i32 noundef %118, i8 %.val.i, i8 %.val31.i)
+  call fastcc void @dissect_buffer_address(ptr noundef %22, ptr noundef %0, i32 noundef %110, i32 noundef %118, i8 %.val.i, i8 %.val31.i)
   %119 = add i32 %.149, 3
   %120 = call fastcc i32 @dissect_orders_and_data(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %119, ptr noundef %16)
   %121 = add i32 %120, %119
@@ -2033,7 +2033,7 @@ define internal fastcc noundef i32 @dissect_orders_and_data(ptr noundef %0, ptr 
   %48 = load i32, ptr @hf_tn3270_buffer_address, align 4
   %.val = load i8, ptr %8, align 2
   %.val46 = load i8, ptr %9, align 1
-  tail call fastcc void @dissect_buffer_address.argprom.retelim(ptr noundef %0, ptr noundef %2, i32 noundef %16, i32 noundef %48, i8 %.val, i8 %.val46)
+  tail call fastcc void @dissect_buffer_address(ptr noundef %0, ptr noundef %2, i32 noundef %16, i32 noundef %48, i8 %.val, i8 %.val46)
   %49 = add i32 %.050, 3
   br label %dissect_field_attribute_pairs.exit
 
@@ -3652,7 +3652,7 @@ define internal fastcc noundef i32 @dissect_field_attribute_pair(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_buffer_address.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 %.10.val, i8 %.11.val) unnamed_addr #0 {
+define internal fastcc void @dissect_buffer_address(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 %.10.val, i8 %.11.val) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #6
   %6 = zext i16 %5 to i32
   %7 = lshr i16 %5, 14
@@ -4156,7 +4156,7 @@ tn3270_add_hf_items.exit.i219:                    ; preds = %206
   %.val.i = load i8, ptr %212, align 2
   %213 = getelementptr i8, ptr %3, i64 11
   %.val16.i = load i8, ptr %213, align 1
-  tail call fastcc void @dissect_buffer_address.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %208, i32 noundef %211, i8 %.val.i, i8 %.val16.i)
+  tail call fastcc void @dissect_buffer_address(ptr noundef %0, ptr noundef %1, i32 noundef %208, i32 noundef %211, i8 %.val.i, i8 %.val16.i)
   %214 = add i32 %208, 2
   br label %.lr.ph.i17.i
 

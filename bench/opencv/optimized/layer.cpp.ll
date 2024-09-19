@@ -1754,7 +1754,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit60:  ; preds = %100, %102, %104, %_
   %118 = sext i32 %.val to i64
   %.idx185 = shl nsw i64 %118, 2
   %.not213 = icmp eq i32 %.val, 0
-  br i1 %.not213, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom.exit, label %119
+  br i1 %.not213, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.exit, label %119
 
 119:                                              ; preds = %111
   %120 = icmp slt i32 %.val, 0
@@ -1777,7 +1777,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector
   %123 = getelementptr inbounds i8, ptr %122, i64 %.idx185
   store ptr %123, ptr %110, align 8
   store ptr %123, ptr %109, align 8
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.exit
 
 .thread:                                          ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %lpad.loopexit190 = landingpad { ptr, i32 }
@@ -1795,11 +1795,11 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector
   call void @_ZdlPv(ptr noundef nonnull %.pre) #25
   br label %.body
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom.exit: ; preds = %111, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.exit: ; preds = %111, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
   invoke void @_ZN2cv4UMat6createERKSt6vectorIiSaIiEEiNS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %114, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 5, i32 noundef 0)
           to label %126 unwind label %137
 
-126:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom.exit
+126:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.exit
   %127 = load ptr, ptr %13, align 8
   %.not.i.i.i = icmp eq ptr %127, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %128
@@ -1819,7 +1819,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %126, %128
   %136 = icmp ult i64 %129, %135
   br i1 %136, label %111, label %._crit_edge199, !llvm.loop !19
 
-137:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom.exit
+137:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.exit
   %138 = landingpad { ptr, i32 }
           cleanup
   %139 = load ptr, ptr %13, align 8
@@ -1898,7 +1898,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit70:  ; preds = %156, %158, %160, %_
   %174 = sext i32 %.val52 to i64
   %.idx = shl nsw i64 %174, 2
   %.not214 = icmp eq i32 %.val52, 0
-  br i1 %.not214, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom.exit75, label %175
+  br i1 %.not214, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.exit75, label %175
 
 175:                                              ; preds = %167
   %176 = icmp slt i32 %.val52, 0
@@ -1921,7 +1921,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i179: ; preds = %_ZNSt12_Vec
   %179 = getelementptr inbounds i8, ptr %178, i64 %.idx
   store ptr %179, ptr %166, align 8
   store ptr %179, ptr %165, align 8
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom.exit75
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.exit75
 
 .thread217:                                       ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i175
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1939,11 +1939,11 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i179: ; preds = %_ZNSt12_Vec
   call void @_ZdlPv(ptr noundef nonnull %.pre212) #25
   br label %.body
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom.exit75: ; preds = %167, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i179
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.exit75: ; preds = %167, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i179
   invoke void @_ZN2cv4UMat6createERKSt6vectorIiSaIiEEiNS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %170, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 5, i32 noundef 0)
           to label %182 unwind label %193
 
-182:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom.exit75
+182:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.exit75
   %183 = load ptr, ptr %14, align 8
   %.not.i.i.i76 = icmp eq ptr %183, null
   br i1 %.not.i.i.i76, label %_ZNSt6vectorIiSaIiEED2Ev.exit77, label %184
@@ -1963,7 +1963,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit77:                  ; preds = %182, %184
   %192 = icmp ult i64 %185, %191
   br i1 %192, label %167, label %._crit_edge202, !llvm.loop !25
 
-193:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom.exit75
+193:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.exit75
   %194 = landingpad { ptr, i32 }
           cleanup
   %195 = load ptr, ptr %14, align 8
@@ -3590,14 +3590,14 @@ attributes #25 = { builtin nounwind }
 !14 = !{!15, !17}
 !15 = distinct !{!15, !16, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii: argument 0"}
 !16 = distinct !{!16, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii"}
-!17 = distinct !{!17, !18, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom: argument 0"}
-!18 = distinct !{!18, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom"}
+!17 = distinct !{!17, !18, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE: argument 0"}
+!18 = distinct !{!18, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE"}
 !19 = distinct !{!19, !5}
 !20 = !{!21, !23}
 !21 = distinct !{!21, !22, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii: argument 0"}
 !22 = distinct !{!22, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii"}
-!23 = distinct !{!23, !24, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE.argprom"}
+!23 = distinct !{!23, !24, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE: argument 0"}
+!24 = distinct !{!24, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_4UMatE"}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}

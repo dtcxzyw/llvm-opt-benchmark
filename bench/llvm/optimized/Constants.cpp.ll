@@ -858,7 +858,7 @@ _ZNK4llvm18ConstantDataVector7isSplatEv.exit.i:   ; preds = %14, %10
   br i1 %94, label %95, label %.critedge2
 
 95:                                               ; preds = %92
-  %96 = tail call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNKS_8Constant13getSplatValueEbE3$_0EEbOT_T0_.argprom"(ptr %80, i64 %81)
+  %96 = tail call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNKS_8Constant13getSplatValueEbE3$_0EEbOT_T0_"(ptr %80, i64 %81)
   br i1 %96, label %_ZNK4llvm18ConstantDataVector13getSplatValueEv.exit, label %.critedge2
 
 .critedge2:                                       ; preds = %2, %46, %68, %95, %92, %78, %61, %64, %50
@@ -13111,7 +13111,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNKS_8Constant13getSplatValueEbE3$_0EEbOT_T0_.argprom"(ptr readonly %.0.val, i64 %.8.val) unnamed_addr #10 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNKS_8Constant13getSplatValueEbE3$_0EEbOT_T0_"(ptr readonly %.0.val, i64 %.8.val) unnamed_addr #10 {
   %.idx1 = shl nsw i64 %.8.val, 2
   %1 = getelementptr inbounds i8, ptr %.0.val, i64 %.idx1
   %2 = ashr i64 %.8.val, 2

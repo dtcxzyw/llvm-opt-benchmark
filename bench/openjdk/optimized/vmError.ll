@@ -1340,7 +1340,7 @@ _ZL17print_oom_reasonsP12outputStream.exit:       ; preds = %63, %66, %.sink.spl
   %131 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #21
   store volatile i64 %131, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
-  tail call fastcc void @_ZL17report_vm_versionP12outputStreamPci.argelim(ptr noundef %0, ptr noundef nonnull @_ZZN7VMError6reportEP12outputStreambE3buf)
+  tail call fastcc void @_ZL17report_vm_versionP12outputStreamPci(ptr noundef %0, ptr noundef nonnull @_ZZN7VMError6reportEP12outputStreambE3buf)
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pre614 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
   br label %132
@@ -2464,7 +2464,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit434:     ; preds = %513
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.88) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %567 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi.argprom(ptr noundef %0, ptr noundef %567)
+  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr noundef %0, ptr noundef %567)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %568 = load ptr, ptr %560, align 8
   %.not.i.i.i.i438 = icmp eq ptr %568, null
@@ -2573,7 +2573,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit447:     ; preds = %601
   %614 = getelementptr inbounds i8, ptr %607, i64 8
   %615 = load i64, ptr %614, align 8
   %616 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi.argprom(ptr noundef %0, ptr noundef %616)
+  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr noundef %0, ptr noundef %616)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %617 = load ptr, ptr %609, align 8
   %.not.i.i.i.i448 = icmp eq ptr %617, null
@@ -2682,7 +2682,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %648
   %661 = getelementptr inbounds i8, ptr %654, i64 8
   %662 = load i64, ptr %661, align 8
   %663 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi.argprom(ptr noundef %0, ptr noundef %663)
+  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr noundef %0, ptr noundef %663)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %664 = load ptr, ptr %656, align 8
   %.not.i.i.i.i458 = icmp eq ptr %664, null
@@ -2782,7 +2782,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %648
 698:                                              ; preds = %695
   %699 = load ptr, ptr @_ZN7VMError7_threadE, align 8
   %700 = load ptr, ptr @_ZN7VMError3_pcE, align 8
-  %701 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i.argelim(ptr noundef %0, ptr noundef %699, ptr noundef %700, i1 noundef zeroext true, ptr noundef %20)
+  %701 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %699, ptr noundef %700, i1 noundef zeroext true, ptr noundef %20)
   %spec.select407 = zext i1 %701 to i32
   br label %.critedge
 
@@ -2813,7 +2813,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %648
   %709 = load ptr, ptr @_ZN7VMError7_threadE, align 8
   %710 = load ptr, ptr @_ZN7VMError3_pcE, align 8
   %711 = icmp eq ptr %707, %710
-  %712 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i.argelim(ptr noundef %0, ptr noundef %709, ptr noundef nonnull %707, i1 noundef zeroext %711, ptr noundef %20)
+  %712 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %709, ptr noundef nonnull %707, i1 noundef zeroext %711, ptr noundef %20)
   %713 = zext i1 %712 to i32
   %spec.select408 = add nuw nsw i32 %.2603, %713
   %714 = load ptr, ptr @_ZN7VMError7_threadE, align 8
@@ -2896,7 +2896,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %744
   %755 = load ptr, ptr @_ZN7VMError7_threadE, align 8
   %756 = load ptr, ptr @_ZN7VMError3_pcE, align 8
   %757 = icmp eq ptr %754, %756
-  %758 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i.argelim(ptr noundef %0, ptr noundef %755, ptr noundef %754, i1 noundef zeroext %757, ptr noundef %20)
+  %758 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %755, ptr noundef %754, i1 noundef zeroext %757, ptr noundef %20)
   %759 = zext i1 %758 to i32
   %spec.select409 = add nsw i32 %.4606, %759
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -3838,7 +3838,7 @@ declare void @_ZN2os22prepare_native_symbolsEv() local_unnamed_addr #3
 declare noundef zeroext i1 @_ZN2os19signal_sent_by_killEPKv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17report_vm_versionP12outputStreamPci.argelim(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17report_vm_versionP12outputStreamPci(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %class.JDK_Version, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.16) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) @_ZN11JDK_Version8_currentE, i64 20, i1 false)
@@ -3994,7 +3994,7 @@ declare void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef, ptr 
 declare void @_ZN2os12print_tos_pcEP12outputStreamPKv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20print_stack_locationP12outputStreamPvRi.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %class.frame, align 8
   %4 = load i32, ptr @_ZZN7VMError6reportEP12outputStreambE12continuation, align 4
   %5 = add nsw i32 %4, 1
@@ -4050,7 +4050,7 @@ define internal fastcc void @_ZL20print_stack_locationP12outputStreamPvRi.argpro
 declare void @_ZN9LockStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i.argelim(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN19TemplateInterpreter8containsEPh.exit.thread, label %_ZN19TemplateInterpreter8containsEPh.exit
@@ -4298,7 +4298,7 @@ declare noundef ptr @_ZN19Abstract_VM_Version23internal_vm_info_stringEv() local
 define hidden void @_ZN7VMError13print_vm_infoEP12outputStream(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [2000 x i8], align 16
   tail call void @_ZN2os22prepare_native_symbolsEv() #21
-  call fastcc void @_ZL17report_vm_versionP12outputStreamPci.argelim(ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_ZL17report_vm_versionP12outputStreamPci(ptr noundef %0, ptr noundef nonnull %2)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.54) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21

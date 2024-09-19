@@ -21,7 +21,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   %.not11.not.i = icmp eq ptr %.promoted.i, null
   br i1 %.not11.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113.exit, label %.lr.ph.split.i
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.argprom.exit.loopexit.i": ; preds = %7
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit.i": ; preds = %7
   store ptr null, ptr %0, align 8, !alias.scope !13, !noalias !16
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113.exit
 
@@ -40,7 +40,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
 7:                                                ; preds = %9, %.lr.ph.split.i
   %8 = phi ptr [ %10, %9 ], [ %.val5.i, %.lr.ph.split.i ]
   %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %8, %6
-  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.argprom.exit.loopexit.i", label %9
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit.i", label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %8, i64 8
@@ -48,8 +48,8 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   %11 = tail call noundef zeroext i1 @"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !noalias !36
   br i1 %11, label %7, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113.exit: ; preds = %9, %3, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.argprom.exit.loopexit.i"
-  %.not10.i = phi i1 [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.argprom.exit.loopexit.i" ], [ false, %3 ], [ true, %9 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113.exit: ; preds = %9, %3, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit.i"
+  %.not10.i = phi i1 [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit.i" ], [ false, %3 ], [ true, %9 ]
   ret i1 %.not10.i
 }
 
@@ -73,7 +73,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hf6e395938f6549
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h527363ff8fe49769E.exit.thread", label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h112c65d363d507fcE.llvm.4771513731481558538.exit.i"
 
-"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h112c65d363d507fcE.llvm.4771513731481558538.exit.i": ; preds = %2, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.argprom.exit"
+"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h112c65d363d507fcE.llvm.4771513731481558538.exit.i": ; preds = %2, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.exit"
   %8 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h40b19744505f6f00E.llvm.4771513731481558538"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc unwind label %12
 
@@ -121,19 +121,19 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hf6e395938f6549
   %23 = icmp eq ptr %21, null
   %24 = icmp eq i64 %22, 0
   %or.cond.i.i.i.i = select i1 %23, i1 true, i1 %24
-  br i1 %or.cond.i.i.i.i, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.argprom.exit", label %25
+  br i1 %or.cond.i.i.i.i, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.exit", label %25
 
 25:                                               ; preds = %.noexc3
   %26 = shl nsw i64 %22, 3
   tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %26, i64 noundef 4) #8
-  br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.argprom.exit"
+  br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.exit"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.argprom.exit": ; preds = %25, %.noexc3
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.exit": ; preds = %25, %.noexc3
   %27 = load i64, ptr %4, align 8, !alias.scope !39, !noalias !44, !noundef !19
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h527363ff8fe49769E.exit.thread", label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h112c65d363d507fcE.llvm.4771513731481558538.exit.i"
 
-"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h527363ff8fe49769E.exit.thread": ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h527363ff8fe49769E.exit", %.noexc, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.argprom.exit", %2
+"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h527363ff8fe49769E.exit.thread": ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h527363ff8fe49769E.exit", %.noexc, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.exit", %2
   tail call void @"_ZN82_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba44c4821b3a5f11E.llvm.2642756825515087045"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
   ret void
 
@@ -154,7 +154,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.not11.not = icmp eq ptr %.promoted, null
   br i1 %.not11.not, label %.loopexit, label %.lr.ph.split
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.argprom.exit.loopexit": ; preds = %7
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit": ; preds = %7
   store ptr null, ptr %0, align 8, !alias.scope !49
   br label %.loopexit
 
@@ -176,7 +176,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 7:                                                ; preds = %9, %.lr.ph.split
   %8 = phi ptr [ %10, %9 ], [ %.val5, %.lr.ph.split ]
   %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not = icmp eq ptr %8, %6
-  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.argprom.exit.loopexit", label %9
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit", label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %8, i64 8
@@ -184,8 +184,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %11 = tail call noundef zeroext i1 @"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !noalias !68
   br i1 %11, label %7, label %.loopexit
 
-.loopexit:                                        ; preds = %9, %2, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.argprom.exit.loopexit"
-  %.not10 = phi i1 [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.argprom.exit.loopexit" ], [ false, %2 ], [ true, %9 ]
+.loopexit:                                        ; preds = %9, %2, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit"
+  %.not10 = phi i1 [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit" ], [ false, %2 ], [ true, %9 ]
   ret i1 %.not10
 }
 
@@ -289,8 +289,8 @@ attributes #9 = { cold noreturn nounwind }
 !44 = !{!45}
 !45 = distinct !{!45, !43, !"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h527363ff8fe49769E: argument 0"}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.argprom: argument 0"}
-!48 = distinct !{!48, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E.argprom"}
+!47 = distinct !{!47, !48, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E: argument 0"}
+!48 = distinct !{!48, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h221aefefd7ce1bd4E"}
 !49 = !{!50}
 !50 = distinct !{!50, !51, !"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1cd5e2a479c35e3E: argument 0"}
 !51 = distinct !{!51, !"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1cd5e2a479c35e3E"}

@@ -911,12 +911,12 @@ Bfree.exit581:                                    ; preds = %268, %269
   %381 = fcmp une double %380, 0.000000e+00
   br i1 %381, label %383, label %382
 
-382:                                              ; preds = %sulp.argprom.exit612, %648, %1090, %721, %379, %367, %338
-  %.2393 = phi ptr [ %.4395, %1090 ], [ %.4395, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4395, %648 ], [ %.4395, %sulp.argprom.exit612 ]
-  %.2386 = phi ptr [ %.4388, %1090 ], [ %.4388, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4388, %648 ], [ %.4388, %sulp.argprom.exit612 ]
-  %.2383 = phi ptr [ null, %1090 ], [ %.231.lcssa.i, %721 ], [ null, %338 ], [ null, %367 ], [ null, %379 ], [ %.231.lcssa.i, %648 ], [ %.231.lcssa.i, %sulp.argprom.exit612 ]
-  %.2378 = phi ptr [ %.4380, %1090 ], [ %.4380, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4380, %648 ], [ %.4380, %sulp.argprom.exit612 ]
-  %.2 = phi ptr [ %.3, %1090 ], [ %566, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4, %648 ], [ %566, %sulp.argprom.exit612 ]
+382:                                              ; preds = %sulp.exit612, %648, %1090, %721, %379, %367, %338
+  %.2393 = phi ptr [ %.4395, %1090 ], [ %.4395, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4395, %648 ], [ %.4395, %sulp.exit612 ]
+  %.2386 = phi ptr [ %.4388, %1090 ], [ %.4388, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4388, %648 ], [ %.4388, %sulp.exit612 ]
+  %.2383 = phi ptr [ null, %1090 ], [ %.231.lcssa.i, %721 ], [ null, %338 ], [ null, %367 ], [ null, %379 ], [ %.231.lcssa.i, %648 ], [ %.231.lcssa.i, %sulp.exit612 ]
+  %.2378 = phi ptr [ %.4380, %1090 ], [ %.4380, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4380, %648 ], [ %.4380, %sulp.exit612 ]
+  %.2 = phi ptr [ %.3, %1090 ], [ %566, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4, %648 ], [ %566, %sulp.exit612 ]
   store double 0.000000e+00, ptr %11, align 8
   br label %236
 
@@ -1535,13 +1535,13 @@ cmp.exit603.thread711._crit_edge:                 ; preds = %cmp.exit603.thread7
   br i1 %.not544, label %672, label %660
 
 660:                                              ; preds = %656
-  br i1 %.not552, label %661, label %sulp.argprom.exit
+  br i1 %.not552, label %661, label %sulp.exit
 
 661:                                              ; preds = %660
   %662 = lshr i32 %620, 20
   %663 = and i32 %662, 2047
   %664 = icmp ugt i32 %663, 106
-  br i1 %664, label %sulp.argprom.exit, label %665
+  br i1 %664, label %sulp.exit, label %665
 
 665:                                              ; preds = %661
   %666 = shl nuw nsw i32 %663, 20
@@ -1550,9 +1550,9 @@ cmp.exit603.thread711._crit_edge:                 ; preds = %cmp.exit603.thread7
   %.sroa.0.4.insert.shift.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i, 32
   %668 = bitcast i64 %.sroa.0.4.insert.shift.i to double
   %669 = fmul double %659, %668
-  br label %sulp.argprom.exit
+  br label %sulp.exit
 
-sulp.argprom.exit:                                ; preds = %660, %661, %665
+sulp.exit:                                        ; preds = %660, %661, %665
   %.0.i605 = phi double [ %669, %665 ], [ %659, %661 ], [ %659, %660 ]
   %670 = load double, ptr %11, align 8
   %671 = fadd double %.0.i605, %670
@@ -1560,13 +1560,13 @@ sulp.argprom.exit:                                ; preds = %660, %661, %665
   br label %685
 
 672:                                              ; preds = %656
-  br i1 %.not552, label %673, label %sulp.argprom.exit612
+  br i1 %.not552, label %673, label %sulp.exit612
 
 673:                                              ; preds = %672
   %674 = lshr i32 %620, 20
   %675 = and i32 %674, 2047
   %676 = icmp ugt i32 %675, 106
-  br i1 %676, label %sulp.argprom.exit612, label %677
+  br i1 %676, label %sulp.exit612, label %677
 
 677:                                              ; preds = %673
   %678 = shl nuw nsw i32 %675, 20
@@ -1575,9 +1575,9 @@ sulp.argprom.exit:                                ; preds = %660, %661, %665
   %.sroa.0.4.insert.shift.i610 = shl nuw nsw i64 %.sroa.0.4.insert.ext.i609, 32
   %680 = bitcast i64 %.sroa.0.4.insert.shift.i610 to double
   %681 = fmul double %659, %680
-  br label %sulp.argprom.exit612
+  br label %sulp.exit612
 
-sulp.argprom.exit612:                             ; preds = %672, %673, %677
+sulp.exit612:                                     ; preds = %672, %673, %677
   %.0.i611 = phi double [ %681, %677 ], [ %659, %673 ], [ %659, %672 ]
   %682 = load double, ptr %11, align 8
   %683 = fsub double %682, %.0.i611
@@ -1585,7 +1585,7 @@ sulp.argprom.exit612:                             ; preds = %672, %673, %677
   %684 = fcmp une double %683, 0.000000e+00
   br i1 %684, label %685, label %382
 
-685:                                              ; preds = %sulp.argprom.exit612, %sulp.argprom.exit
+685:                                              ; preds = %sulp.exit612, %sulp.exit
   %686 = sub nsw i32 1, %568
   br label %cmp.exit603.thread
 
@@ -2426,13 +2426,13 @@ Bfree.exit148.i:                                  ; preds = %1024, %1023, %Bfree
   %.sroa.0.4.insert.ext.i.i.i = zext i32 %1034 to i64
   %.sroa.0.4.insert.shift.i.i.i = shl nuw i64 %.sroa.0.4.insert.ext.i.i.i, 32
   %1035 = bitcast i64 %.sroa.0.4.insert.shift.i.i.i to double
-  br i1 %.not552, label %1036, label %sulp.argprom.exit.i
+  br i1 %.not552, label %1036, label %sulp.exit.i
 
 1036:                                             ; preds = %._crit_edge236.i
   %1037 = lshr i32 %.val140.i, 20
   %1038 = and i32 %1037, 2047
   %1039 = icmp ugt i32 %1038, 106
-  br i1 %1039, label %sulp.argprom.exit.i, label %1040
+  br i1 %1039, label %sulp.exit.i, label %1040
 
 1040:                                             ; preds = %1036
   %1041 = shl nuw nsw i32 %1038, 20
@@ -2441,9 +2441,9 @@ Bfree.exit148.i:                                  ; preds = %1024, %1023, %Bfree
   %.sroa.0.4.insert.shift.i.i643 = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i642, 32
   %1043 = bitcast i64 %.sroa.0.4.insert.shift.i.i643 to double
   %1044 = fmul double %1035, %1043
-  br label %sulp.argprom.exit.i
+  br label %sulp.exit.i
 
-sulp.argprom.exit.i:                              ; preds = %1040, %1036, %._crit_edge236.i
+sulp.exit.i:                                      ; preds = %1040, %1036, %._crit_edge236.i
   %.0.i.i644 = phi double [ %1044, %1040 ], [ %1035, %1036 ], [ %1035, %._crit_edge236.i ]
   %1045 = load double, ptr %11, align 8
   %1046 = fsub double %1045, %.0.i.i644
@@ -2463,13 +2463,13 @@ sulp.argprom.exit.i:                              ; preds = %1040, %1036, %._cri
   %.sroa.0.4.insert.ext.i.i150.i = zext i32 %1051 to i64
   %.sroa.0.4.insert.shift.i.i151.i = shl nuw i64 %.sroa.0.4.insert.ext.i.i150.i, 32
   %1052 = bitcast i64 %.sroa.0.4.insert.shift.i.i151.i to double
-  br i1 %.not552, label %1053, label %sulp.argprom.exit156.i
+  br i1 %.not552, label %1053, label %sulp.exit156.i
 
 1053:                                             ; preds = %._crit_edge232.i
   %1054 = lshr i32 %1048, 20
   %1055 = and i32 %1054, 2047
   %1056 = icmp ugt i32 %1055, 106
-  br i1 %1056, label %sulp.argprom.exit156.i, label %1057
+  br i1 %1056, label %sulp.exit156.i, label %1057
 
 1057:                                             ; preds = %1053
   %1058 = shl nuw nsw i32 %1055, 20
@@ -2478,9 +2478,9 @@ sulp.argprom.exit.i:                              ; preds = %1040, %1036, %._cri
   %.sroa.0.4.insert.shift.i154.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i153.i, 32
   %1060 = bitcast i64 %.sroa.0.4.insert.shift.i154.i to double
   %1061 = fmul double %1052, %1060
-  br label %sulp.argprom.exit156.i
+  br label %sulp.exit156.i
 
-sulp.argprom.exit156.i:                           ; preds = %1057, %1053, %._crit_edge232.i
+sulp.exit156.i:                                   ; preds = %1057, %1053, %._crit_edge232.i
   %.0.i155.i = phi double [ %1061, %1057 ], [ %1052, %1053 ], [ %1052, %._crit_edge232.i ]
   %1062 = load double, ptr %11, align 8
   %1063 = fadd double %.0.i155.i, %1062
@@ -2521,8 +2521,8 @@ sulp.argprom.exit156.i:                           ; preds = %1057, %1053, %._cri
 1083:                                             ; preds = %1080, %1076, %1071
   br i1 %.098.i, label %._crit_edge236.i, label %._crit_edge232.i
 
-.sink.split.i:                                    ; preds = %sulp.argprom.exit156.i, %sulp.argprom.exit.i, %1028
-  %.sink.i = phi double [ %1046, %sulp.argprom.exit.i ], [ %1063, %sulp.argprom.exit156.i ], [ 0.000000e+00, %1028 ]
+.sink.split.i:                                    ; preds = %sulp.exit156.i, %sulp.exit.i, %1028
+  %.sink.i = phi double [ %1046, %sulp.exit.i ], [ %1063, %sulp.exit156.i ], [ 0.000000e+00, %1028 ]
   store double %.sink.i, ptr %11, align 8
   %1084 = bitcast double %.sink.i to i64
   %1085 = lshr i64 %1084, 32

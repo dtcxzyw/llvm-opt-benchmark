@@ -4296,7 +4296,7 @@ _ZSt10__invoke_rIbRN12_GLOBAL__N_115PreserveAPIListEJRKN4llvm11GlobalValueEEENSt
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm11GlobalValueEEN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %26
@@ -4305,11 +4305,11 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm11GlobalV
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
@@ -4352,19 +4352,19 @@ _ZN4llvm11SmallVectorINS_11GlobPatternELj1EEC2ERKS2_.exit.i.i.i.i: ; preds = %10
 
 _ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE15_M_init_functorIRKS2_EEvRSt9_Any_dataOT_.exit.i: ; preds = %24, %21, %_ZN4llvm11SmallVectorINS_11GlobPatternELj1EEC2ERKS2_.exit.i.i.i.i
   store ptr %7, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
 
 26:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val6.i, null
-  br i1 %27, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit, label %28
+  br i1 %27, label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit, label %28
 
 28:                                               ; preds = %26
   tail call fastcc void @_ZN12_GLOBAL__N_115PreserveAPIListD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %.val6.i) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 104) #17
-  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit: ; preds = %3, %28, %26, %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE15_M_init_functorIRKS2_EEvRSt9_Any_dataOT_.exit.i, %5, %4
+_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit: ; preds = %3, %28, %26, %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_115PreserveAPIListEE15_M_init_functorIRKS2_EEvRSt9_Any_dataOT_.exit.i, %5, %4
   ret i1 false
 }
 

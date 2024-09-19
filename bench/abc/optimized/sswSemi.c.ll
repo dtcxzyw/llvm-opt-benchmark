@@ -633,7 +633,7 @@ Abc_Clock.exit:                                   ; preds = %3, %10
   %125 = ptrtoint ptr %.val139 to i64
   %126 = and i64 %125, -2
   %.not.i = icmp eq i64 %126, 0
-  br i1 %.not.i, label %Ssw_ObjChild0Fra.argprom.exit, label %127
+  br i1 %.not.i, label %Ssw_ObjChild0Fra.exit, label %127
 
 127:                                              ; preds = %122
   %128 = inttoptr i64 %126 to ptr
@@ -650,18 +650,18 @@ Abc_Clock.exit:                                   ; preds = %3, %10
   %136 = ptrtoint ptr %134 to i64
   %137 = xor i64 %135, %136
   %138 = inttoptr i64 %137 to ptr
-  br label %Ssw_ObjChild0Fra.argprom.exit
+  br label %Ssw_ObjChild0Fra.exit
 
-Ssw_ObjChild0Fra.argprom.exit:                    ; preds = %122, %127
+Ssw_ObjChild0Fra.exit:                            ; preds = %122, %127
   %139 = phi ptr [ %138, %127 ], [ null, %122 ]
   %140 = getelementptr i8, ptr %115, i64 16
   %.val141 = load ptr, ptr %140, align 8
   %141 = ptrtoint ptr %.val141 to i64
   %142 = and i64 %141, -2
   %.not.i146 = icmp eq i64 %142, 0
-  br i1 %.not.i146, label %Ssw_ObjChild1Fra.argprom.exit, label %143
+  br i1 %.not.i146, label %Ssw_ObjChild1Fra.exit, label %143
 
-143:                                              ; preds = %Ssw_ObjChild0Fra.argprom.exit
+143:                                              ; preds = %Ssw_ObjChild0Fra.exit
   %144 = inttoptr i64 %142 to ptr
   %.val.i = load i32, ptr %68, align 8
   %.val4.i = load ptr, ptr %69, align 8
@@ -676,10 +676,10 @@ Ssw_ObjChild0Fra.argprom.exit:                    ; preds = %122, %127
   %152 = ptrtoint ptr %150 to i64
   %153 = xor i64 %151, %152
   %154 = inttoptr i64 %153 to ptr
-  br label %Ssw_ObjChild1Fra.argprom.exit
+  br label %Ssw_ObjChild1Fra.exit
 
-Ssw_ObjChild1Fra.argprom.exit:                    ; preds = %Ssw_ObjChild0Fra.argprom.exit, %143
-  %155 = phi ptr [ %154, %143 ], [ null, %Ssw_ObjChild0Fra.argprom.exit ]
+Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.exit, %143
+  %155 = phi ptr [ %154, %143 ], [ null, %Ssw_ObjChild0Fra.exit ]
   %156 = call ptr @Aig_And(ptr noundef %123, ptr noundef %139, ptr noundef %155) #18
   %.val132 = load i32, ptr %68, align 8
   %.val133 = load ptr, ptr %69, align 8
@@ -694,7 +694,7 @@ Ssw_ObjChild1Fra.argprom.exit:                    ; preds = %Ssw_ObjChild0Fra.ar
   %.not103 = icmp eq i32 %162, 0
   br i1 %.not103, label %211, label %163
 
-163:                                              ; preds = %Ssw_ObjChild1Fra.argprom.exit
+163:                                              ; preds = %Ssw_ObjChild1Fra.exit
   %164 = load i32, ptr %71, align 4
   %165 = load i32, ptr %72, align 8
   %.not.i148 = icmp slt i32 %164, %165
@@ -778,8 +778,8 @@ Ssw_ManFilterBmcSavePattern.exit:                 ; preds = %163, %.critedge.i
   store i32 %210, ptr %74, align 4
   br label %211
 
-211:                                              ; preds = %Ssw_ManFilterBmcSavePattern.exit, %208, %Ssw_ObjChild1Fra.argprom.exit
-  %.4 = phi i32 [ 1, %208 ], [ 1, %Ssw_ManFilterBmcSavePattern.exit ], [ %.2182, %Ssw_ObjChild1Fra.argprom.exit ]
+211:                                              ; preds = %Ssw_ManFilterBmcSavePattern.exit, %208, %Ssw_ObjChild1Fra.exit
+  %.4 = phi i32 [ 1, %208 ], [ 1, %Ssw_ManFilterBmcSavePattern.exit ], [ %.2182, %Ssw_ObjChild1Fra.exit ]
   br i1 %.not104, label %.critedge2, label %212
 
 212:                                              ; preds = %211
@@ -879,9 +879,9 @@ Ssw_SemCheckTargets.exit.thread:                  ; preds = %247, %237, %Ssw_Sem
   %258 = add nuw nsw i32 %.097190, 1
   br i1 %257, label %.lr.ph189, label %.critedge6
 
-.lr.ph189:                                        ; preds = %Ssw_SemCheckTargets.exit.thread, %Ssw_ObjChild0Fra.argprom.exit160
-  %259 = phi ptr [ %300, %Ssw_ObjChild0Fra.argprom.exit160 ], [ %255, %Ssw_SemCheckTargets.exit.thread ]
-  %.3101188 = phi i32 [ %299, %Ssw_ObjChild0Fra.argprom.exit160 ], [ 0, %Ssw_SemCheckTargets.exit.thread ]
+.lr.ph189:                                        ; preds = %Ssw_SemCheckTargets.exit.thread, %Ssw_ObjChild0Fra.exit160
+  %259 = phi ptr [ %300, %Ssw_ObjChild0Fra.exit160 ], [ %255, %Ssw_SemCheckTargets.exit.thread ]
+  %.3101188 = phi i32 [ %299, %Ssw_ObjChild0Fra.exit160 ], [ 0, %Ssw_SemCheckTargets.exit.thread ]
   %260 = getelementptr i8, ptr %259, i64 24
   %.val142 = load ptr, ptr %260, align 8
   %261 = getelementptr i8, ptr %259, i64 112
@@ -909,7 +909,7 @@ Ssw_SemCheckTargets.exit.thread:                  ; preds = %247, %237, %Ssw_Sem
   %.not.i156 = icmp eq i64 %276, 0
   %.val135.pre = load i32, ptr %68, align 8
   %.val136.pre = load ptr, ptr %69, align 8
-  br i1 %.not.i156, label %Ssw_ObjChild0Fra.argprom.exit160, label %277
+  br i1 %.not.i156, label %Ssw_ObjChild0Fra.exit160, label %277
 
 277:                                              ; preds = %.lr.ph189
   %278 = inttoptr i64 %276 to ptr
@@ -924,9 +924,9 @@ Ssw_SemCheckTargets.exit.thread:                  ; preds = %247, %237, %Ssw_Sem
   %286 = ptrtoint ptr %284 to i64
   %287 = xor i64 %285, %286
   %288 = inttoptr i64 %287 to ptr
-  br label %Ssw_ObjChild0Fra.argprom.exit160
+  br label %Ssw_ObjChild0Fra.exit160
 
-Ssw_ObjChild0Fra.argprom.exit160:                 ; preds = %.lr.ph189, %277
+Ssw_ObjChild0Fra.exit160:                         ; preds = %.lr.ph189, %277
   %289 = phi ptr [ %288, %277 ], [ null, %.lr.ph189 ]
   %290 = getelementptr i8, ptr %273, i64 36
   %.val137 = load i32, ptr %290, align 4
@@ -947,8 +947,8 @@ Ssw_ObjChild0Fra.argprom.exit160:                 ; preds = %.lr.ph189, %277
   %302 = icmp slt i32 %299, %.val118
   br i1 %302, label %.lr.ph189, label %.critedge6, !llvm.loop !13
 
-.critedge6:                                       ; preds = %Ssw_ObjChild0Fra.argprom.exit160, %Ssw_SemCheckTargets.exit.thread
-  %303 = phi ptr [ %255, %Ssw_SemCheckTargets.exit.thread ], [ %300, %Ssw_ObjChild0Fra.argprom.exit160 ]
+.critedge6:                                       ; preds = %Ssw_ObjChild0Fra.exit160, %Ssw_SemCheckTargets.exit.thread
+  %303 = phi ptr [ %255, %Ssw_SemCheckTargets.exit.thread ], [ %300, %Ssw_ObjChild0Fra.exit160 ]
   %304 = load i32, ptr %65, align 8
   %305 = icmp slt i32 %258, %304
   br i1 %305, label %76, label %Ssw_SemCheckTargets.exit.thread165, !llvm.loop !14

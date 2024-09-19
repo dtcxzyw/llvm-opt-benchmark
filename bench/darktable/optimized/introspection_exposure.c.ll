@@ -1258,7 +1258,7 @@ define internal fastcc void @_auto_set_exposure(ptr noundef %0, ptr noundef %1) 
 
 105:                                              ; preds = %47
   %106 = fmul reassoc nsz arcp contract afn float %62, 0x4029D7A1A0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
 107:                                              ; preds = %47
   %108 = extractelement <4 x float> %102, i64 0
@@ -1278,9 +1278,9 @@ define internal fastcc void @_auto_set_exposure(ptr noundef %0, ptr noundef %1) 
   %122 = fmul reassoc nsz arcp contract afn float %121, 0x3FF0E147A0000000
   %123 = fmul reassoc nsz arcp contract afn float %122, %117
   %124 = fadd reassoc nsz arcp contract afn float %123, 0xBFAC28F5C0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
-dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %105, %107
+dt_XYZ_to_sRGB.exit:                              ; preds = %105, %107
   %125 = phi reassoc nsz arcp contract afn float [ %124, %107 ], [ %106, %105 ]
   %126 = extractelement <4 x float> %102, i64 3
   %127 = extractelement <4 x float> %104, i64 3
@@ -1353,7 +1353,7 @@ dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %105, %107
     i32 0, label %245
   ]
 
-185:                                              ; preds = %dt_XYZ_to_sRGB.argprom.exit
+185:                                              ; preds = %dt_XYZ_to_sRGB.exit
   %186 = getelementptr inbounds i8, ptr %6, i64 8
   %187 = load float, ptr %186, align 4, !tbaa !40
   %188 = getelementptr inbounds i8, ptr %6, i64 20
@@ -1436,7 +1436,7 @@ dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %105, %107
   tail call void @dt_conf_set_float(ptr noundef nonnull @.str.8, float noundef %233) #21
   br label %287
 
-245:                                              ; preds = %dt_XYZ_to_sRGB.argprom.exit
+245:                                              ; preds = %dt_XYZ_to_sRGB.exit
   %246 = getelementptr inbounds i8, ptr %0, i64 712
   %247 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %246) #21
   %248 = getelementptr inbounds i8, ptr %4, i64 112
@@ -1491,7 +1491,7 @@ dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %105, %107
   tail call fastcc void @_exposure_set_white(ptr noundef nonnull %0, float noundef %286)
   br label %287
 
-287:                                              ; preds = %dt_XYZ_to_sRGB.argprom.exit, %230, %284, %12, %2
+287:                                              ; preds = %dt_XYZ_to_sRGB.exit, %230, %284, %12, %2
   ret void
 }
 
@@ -2260,7 +2260,7 @@ define internal noundef i32 @_target_color_draw(ptr noundef %0, ptr noundef %1, 
 
 84:                                               ; preds = %3
   %85 = fmul reassoc nsz arcp contract afn float %42, 0x4029D7A1A0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
 86:                                               ; preds = %3
   %87 = extractelement <4 x float> %81, i64 0
@@ -2280,9 +2280,9 @@ define internal noundef i32 @_target_color_draw(ptr noundef %0, ptr noundef %1, 
   %101 = fmul reassoc nsz arcp contract afn float %100, 0x3FF0E147A0000000
   %102 = fmul reassoc nsz arcp contract afn float %101, %96
   %103 = fadd reassoc nsz arcp contract afn float %102, 0xBFAC28F5C0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
-dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %84, %86
+dt_XYZ_to_sRGB.exit:                              ; preds = %84, %86
   %104 = phi reassoc nsz arcp contract afn float [ %103, %86 ], [ %85, %84 ]
   %105 = sitofp i32 %10 to float
   %106 = fmul reassoc nsz arcp contract afn double %27, 3.000000e+00
@@ -2689,7 +2689,7 @@ define internal fastcc void @_paint_hue(ptr nocapture readonly %0) unnamed_addr 
   %7 = fsub reassoc nsz arcp contract afn float %6, %4
   br label %12
 
-8:                                                ; preds = %dt_XYZ_to_sRGB.argprom.exit
+8:                                                ; preds = %dt_XYZ_to_sRGB.exit
   %9 = load ptr, ptr %2, align 16, !tbaa !110
   tail call void @gtk_widget_queue_draw(ptr noundef %9) #21
   %10 = getelementptr inbounds i8, ptr %0, i64 128
@@ -2697,8 +2697,8 @@ define internal fastcc void @_paint_hue(ptr nocapture readonly %0) unnamed_addr 
   tail call void @gtk_widget_queue_draw(ptr noundef %11) #21
   ret void
 
-12:                                               ; preds = %dt_XYZ_to_sRGB.argprom.exit, %1
-  %13 = phi i32 [ 0, %1 ], [ %113, %dt_XYZ_to_sRGB.argprom.exit ]
+12:                                               ; preds = %dt_XYZ_to_sRGB.exit, %1
+  %13 = phi i32 [ 0, %1 ], [ %113, %dt_XYZ_to_sRGB.exit ]
   %14 = uitofp nneg i32 %13 to float
   %15 = fmul reassoc nsz arcp contract afn float %14, 0x3FAAF286C0000000
   %16 = fmul reassoc nsz arcp contract afn float %15, %7
@@ -2763,7 +2763,7 @@ define internal fastcc void @_paint_hue(ptr nocapture readonly %0) unnamed_addr 
 
 71:                                               ; preds = %12
   %72 = fmul reassoc nsz arcp contract afn float %29, 0x4029D7A1A0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
 73:                                               ; preds = %12
   %74 = extractelement <4 x float> %68, i64 0
@@ -2783,9 +2783,9 @@ define internal fastcc void @_paint_hue(ptr nocapture readonly %0) unnamed_addr 
   %88 = fmul reassoc nsz arcp contract afn float %87, 0x3FF0E147A0000000
   %89 = fmul reassoc nsz arcp contract afn float %88, %83
   %90 = fadd reassoc nsz arcp contract afn float %89, 0xBFAC28F5C0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
-dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %71, %73
+dt_XYZ_to_sRGB.exit:                              ; preds = %71, %73
   %91 = phi reassoc nsz arcp contract afn float [ %90, %73 ], [ %72, %71 ]
   %92 = fmul reassoc nsz arcp contract afn <2 x float> %39, <float 0x4029D70A40000000, float 0x4029D70A40000000>
   %93 = fcmp reassoc nsz arcp contract afn ugt <2 x float> %39, <float 0x3F69A5C380000000, float 0x3F69A5C380000000>

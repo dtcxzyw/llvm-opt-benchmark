@@ -49,13 +49,13 @@ define internal void @exported_object_registry_free(ptr nocapture readnone %0) #
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %4, label %rb_vm_lock_enter.argprom.exit
+  br i1 %.not.i.i, label %4, label %rb_vm_lock_enter.exit
 
 4:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #16
-  br label %rb_vm_lock_enter.argprom.exit
+  br label %rb_vm_lock_enter.exit
 
-rb_vm_lock_enter.argprom.exit:                    ; preds = %1, %4
+rb_vm_lock_enter.exit:                            ; preds = %1, %4
   %5 = load ptr, ptr @exported_object_table, align 8
   call void @rb_st_clear(ptr noundef %5) #16
   %6 = load ptr, ptr @exported_object_table, align 8
@@ -63,13 +63,13 @@ rb_vm_lock_enter.argprom.exit:                    ; preds = %1, %4
   store ptr null, ptr @exported_object_table, align 8
   %7 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i1 = icmp eq ptr %7, null
-  br i1 %.not.i.i1, label %8, label %rb_vm_lock_leave.argprom.exit
+  br i1 %.not.i.i1, label %8, label %rb_vm_lock_leave.exit
 
-8:                                                ; preds = %rb_vm_lock_enter.argprom.exit
+8:                                                ; preds = %rb_vm_lock_enter.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #16
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.argprom.exit:                    ; preds = %rb_vm_lock_enter.argprom.exit, %8
+rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.exit, %8
   ret void
 }
 
@@ -1709,24 +1709,24 @@ lookup_memory_view_entry.exit:                    ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %46 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i.i, label %47, label %rb_vm_lock_enter.argprom.exit.i
+  br i1 %.not.i.i.i, label %47, label %rb_vm_lock_enter.exit.i
 
 47:                                               ; preds = %43
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #16
-  br label %rb_vm_lock_enter.argprom.exit.i
+  br label %rb_vm_lock_enter.exit.i
 
-rb_vm_lock_enter.argprom.exit.i:                  ; preds = %47, %43
+rb_vm_lock_enter.exit.i:                          ; preds = %47, %43
   %48 = load ptr, ptr @exported_object_table, align 8
   %49 = call i32 @rb_st_update(ptr noundef %48, i64 noundef %45, ptr noundef nonnull @exported_object_add_ref, i64 noundef 0) #16
   %50 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i1.i = icmp eq ptr %50, null
   br i1 %.not.i.i1.i, label %51, label %register_exported_object.exit
 
-51:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
+51:                                               ; preds = %rb_vm_lock_enter.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #16
   br label %register_exported_object.exit
 
-register_exported_object.exit:                    ; preds = %rb_vm_lock_enter.argprom.exit.i, %51
+register_exported_object.exit:                    ; preds = %rb_vm_lock_enter.exit.i, %51
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %lookup_memory_view_entry.exit.thread
 
@@ -1759,22 +1759,22 @@ define dso_local noundef zeroext i1 @rb_memory_view_release(ptr noundef %0) loca
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %12 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i, label %13, label %rb_vm_lock_enter.argprom.exit.i
+  br i1 %.not.i.i.i, label %13, label %rb_vm_lock_enter.exit.i
 
 13:                                               ; preds = %.thread
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #16
-  br label %rb_vm_lock_enter.argprom.exit.i
+  br label %rb_vm_lock_enter.exit.i
 
-rb_vm_lock_enter.argprom.exit.i:                  ; preds = %13, %.thread
+rb_vm_lock_enter.exit.i:                          ; preds = %13, %.thread
   %14 = load ptr, ptr @exported_object_table, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %17, label %15
 
-15:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
+15:                                               ; preds = %rb_vm_lock_enter.exit.i
   %16 = call i32 @rb_st_update(ptr noundef nonnull %14, i64 noundef %11, ptr noundef nonnull @exported_object_dec_ref, i64 noundef 0) #16
   br label %17
 
-17:                                               ; preds = %15, %rb_vm_lock_enter.argprom.exit.i
+17:                                               ; preds = %15, %rb_vm_lock_enter.exit.i
   %18 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i1.i = icmp eq ptr %18, null
   br i1 %.not.i.i1.i, label %19, label %unregister_exported_object.exit

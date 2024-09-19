@@ -546,7 +546,7 @@ define dso_local i64 @rb_num_coerce_bin(i64 noundef %0, i64 noundef %1, i64 noun
   %5 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
   %6 = load i64, ptr %4, align 8
   %7 = load i64, ptr %5, align 8
   %8 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %2, i32 noundef 1, i64 noundef %7) #23
@@ -554,7 +554,7 @@ define dso_local i64 @rb_num_coerce_bin(i64 noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_coerce.retelim(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc void @do_coerce(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr @id_coerce, align 8
   %6 = tail call i64 @rb_check_funcall(i64 noundef %4, i64 noundef %5, i32 noundef 1, ptr noundef %0) #23
@@ -1216,7 +1216,7 @@ RB_FLOAT_TYPE_P.exit.thread53:                    ; preds = %47, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %131 = load i64, ptr %3, align 8
   %132 = load i64, ptr %4, align 8
   %133 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %131, i64 noundef 43, i32 noundef 1, i64 noundef %132) #23
@@ -1471,7 +1471,7 @@ RB_FLOAT_TYPE_P.exit.thread53:                    ; preds = %47, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %131 = load i64, ptr %3, align 8
   %132 = load i64, ptr %4, align 8
   %133 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %131, i64 noundef 45, i32 noundef 1, i64 noundef %132) #23
@@ -1724,7 +1724,7 @@ RB_FLOAT_TYPE_P.exit.thread53:                    ; preds = %47, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %131 = load i64, ptr %3, align 8
   %132 = load i64, ptr %4, align 8
   %133 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %131, i64 noundef 42, i32 noundef 1, i64 noundef %132) #23
@@ -1933,7 +1933,7 @@ RB_FLOAT_TYPE_P.exit.thread40:                    ; preds = %27, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %44 = load i64, ptr %3, align 8
   %45 = load i64, ptr %4, align 8
   %46 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %44, i64 noundef 47, i32 noundef 1, i64 noundef %45) #23
@@ -2276,7 +2276,7 @@ RB_FLOAT_TYPE_P.exit.thread72:                    ; preds = %63, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %114 = load i64, ptr %3, align 8
   %115 = load i64, ptr %4, align 8
   %116 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %114, i64 noundef 134, i32 noundef 1, i64 noundef %115) #23
@@ -3340,7 +3340,7 @@ RB_FLOAT_TYPE_P.exit.thread30:                    ; preds = %52, %RB_FLOAT_TYPE_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %61, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %76 = load i64, ptr %3, align 8
   %77 = load i64, ptr %4, align 8
   %78 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %76, i64 noundef 45, i32 noundef 1, i64 noundef %77) #23
@@ -3680,7 +3680,7 @@ RB_FLOAT_TYPE_P.exit.thread35:                    ; preds = %56, %RB_FLOAT_TYPE_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %33, ptr %5, align 8
   store i64 %65, ptr %6, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
   %79 = load i64, ptr %5, align 8
   %80 = load i64, ptr %6, align 8
   %81 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %79, i64 noundef 45, i32 noundef 1, i64 noundef %80) #23
@@ -3719,7 +3719,7 @@ rb_int_minus.exit:                                ; preds = %66, %77, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %.026.i, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %96 = load i64, ptr %3, align 8
   %97 = load i64, ptr %4, align 8
   %98 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %96, i64 noundef 43, i32 noundef 1, i64 noundef %97) #23
@@ -3896,7 +3896,7 @@ int_neg_p.exit.thread:                            ; preds = %RB_FLOAT_TYPE_P.exi
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %33, ptr %5, align 8
   store i64 %62, ptr %6, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
   %89 = load i64, ptr %5, align 8
   %90 = load i64, ptr %6, align 8
   %91 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %89, i64 noundef 45, i32 noundef 1, i64 noundef %90) #23
@@ -3933,7 +3933,7 @@ rb_int_minus.exit:                                ; preds = %76, %87, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %.026.i, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %103 = load i64, ptr %3, align 8
   %104 = load i64, ptr %4, align 8
   %105 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %103, i64 noundef 43, i32 noundef 1, i64 noundef %104) #23
@@ -4212,7 +4212,7 @@ define hidden i64 @rb_int_plus(i64 noundef %0, i64 noundef %1) #2 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %20 = load i64, ptr %3, align 8
   %21 = load i64, ptr %4, align 8
   %22 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %20, i64 noundef 43, i32 noundef 1, i64 noundef %21) #23
@@ -4260,7 +4260,7 @@ define hidden i64 @rb_int_minus(i64 noundef %0, i64 noundef %1) #2 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %20 = load i64, ptr %3, align 8
   %21 = load i64, ptr %4, align 8
   %22 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %20, i64 noundef 45, i32 noundef 1, i64 noundef %21) #23
@@ -6519,7 +6519,7 @@ rb_float_value_inline.exit:                       ; preds = %27, %28, %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %60 = load i64, ptr %3, align 8
   %61 = load i64, ptr %4, align 8
   %62 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %60, i64 noundef 43, i32 noundef 1, i64 noundef %61) #23
@@ -6641,7 +6641,7 @@ RB_FLOAT_TYPE_P.exit.thread35:                    ; preds = %20, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %60 = load i64, ptr %3, align 8
   %61 = load i64, ptr %4, align 8
   %62 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %60, i64 noundef 45, i32 noundef 1, i64 noundef %61) #23
@@ -6793,7 +6793,7 @@ rb_float_value_inline.exit.i:                     ; preds = %44, %38, %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %0, ptr %5, align 8
   store i64 %1, ptr %6, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
   %70 = load i64, ptr %5, align 8
   %71 = load i64, ptr %6, align 8
   %72 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %70, i64 noundef 42, i32 noundef 1, i64 noundef %71) #23
@@ -6824,7 +6824,7 @@ rb_float_value_inline.exit.i:                     ; preds = %44, %38, %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %85 = load i64, ptr %3, align 8
   %86 = load i64, ptr %4, align 8
   %87 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %85, i64 noundef 42, i32 noundef 1, i64 noundef %86) #23
@@ -6998,7 +6998,7 @@ RB_FLOAT_TYPE_P.exit.thread41.i:                  ; preds = %.critedge.i, %49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %.036, ptr %3, align 8
   store i64 %.035, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %82 = load i64, ptr %3, align 8
   %83 = load i64, ptr %4, align 8
   %84 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %82, i64 noundef 3569, i32 noundef 1, i64 noundef %83) #23
@@ -7392,7 +7392,7 @@ RB_FLOAT_TYPE_P.exit.thread38:                    ; preds = %31, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %80 = load i64, ptr %3, align 8
   %81 = load i64, ptr %4, align 8
   %82 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %80, i64 noundef 37, i32 noundef 1, i64 noundef %81) #23
@@ -7638,7 +7638,7 @@ RB_FLOAT_TYPE_P.exit.thread46.i:                  ; preds = %.critedge.i, %42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %104 = load i64, ptr %3, align 8
   %105 = load i64, ptr %4, align 8
   %106 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %104, i64 noundef 3553, i32 noundef 1, i64 noundef %105) #23
@@ -7862,7 +7862,7 @@ RB_FLOAT_TYPE_P.exit.thread30:                    ; preds = %36, %.critedge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %82 = load i64, ptr %3, align 8
   %83 = load i64, ptr %4, align 8
   %84 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %82, i64 noundef 134, i32 noundef 1, i64 noundef %83) #23
@@ -8336,7 +8336,7 @@ define dso_local i64 @rb_num_coerce_bit(i64 noundef %0, i64 noundef %1, i64 noun
   store i64 %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %1, ptr %6, align 16
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
   %7 = load i64, ptr %6, align 16
   %8 = load i64, ptr %5, align 8
   %9 = ptrtoint ptr %4 to i64
@@ -8451,7 +8451,7 @@ define hidden i64 @rb_int_and(i64 noundef %0, i64 noundef %1) #2 {
   store i64 %0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %1, ptr %22, align 16
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 1)
   %23 = load i64, ptr %22, align 16
   %24 = load i64, ptr %21, align 8
   %25 = ptrtoint ptr %3 to i64
@@ -9338,7 +9338,7 @@ define internal i64 @num_uminus(i64 noundef %0) #2 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   store i64 1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 1)
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -9536,7 +9536,7 @@ define internal i64 @num_remainder(i64 noundef %0, i64 noundef %1) #2 {
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %2
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
   %.pr = load i64, ptr %5, align 8
   %.pre = load i64, ptr %4, align 8
   br label %9
@@ -9879,7 +9879,7 @@ thread-pre-split:                                 ; preds = %9
   br label %.loopexit
 
 45:                                               ; preds = %3
-  %46 = call fastcc i32 @num_step_scan_args.argelim(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
+  %46 = call fastcc i32 @num_step_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   %47 = load i64, ptr %5, align 8
   %48 = call i64 @rb_equal(i64 noundef %47, i64 noundef 1) #23
   %.not49 = icmp eq i64 %48, 0
@@ -11206,7 +11206,7 @@ define internal i64 @int_or(i64 noundef %0, i64 noundef %1) #2 {
   store i64 %0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %1, ptr %22, align 16
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 1)
   %23 = load i64, ptr %22, align 16
   %24 = load i64, ptr %21, align 8
   %25 = ptrtoint ptr %3 to i64
@@ -11287,7 +11287,7 @@ define internal i64 @int_xor(i64 noundef %0, i64 noundef %1) #2 {
   store i64 %0, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %1, ptr %23, align 16
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %22, ptr noundef nonnull %23, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %22, ptr noundef nonnull %23, i32 noundef 1)
   %24 = load i64, ptr %23, align 16
   %25 = load i64, ptr %22, align 8
   %26 = ptrtoint ptr %3 to i64
@@ -11423,7 +11423,7 @@ rb_check_arity.exit:                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %.pre.i, ptr %8, align 8
   store i64 3, ptr %9, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 1)
   %55 = load i64, ptr %8, align 8
   %56 = load i64, ptr %9, align 8
   %57 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %55, i64 noundef 43, i32 noundef 1, i64 noundef %56) #23
@@ -11507,7 +11507,7 @@ compare_indexes.exit.i:                           ; preds = %68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %75, ptr %6, align 8
   store i64 %79, ptr %7, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1)
   %95 = load i64, ptr %6, align 8
   %96 = load i64, ptr %7, align 8
   %97 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %95, i64 noundef 45, i32 noundef 1, i64 noundef %96) #23
@@ -11561,7 +11561,7 @@ rb_int_minus.exit.i:                              ; preds = %.critedge.i51.i, %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.026.i50.i, ptr %4, align 8
   store i64 3, ptr %5, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
   %121 = load i64, ptr %4, align 8
   %122 = load i64, ptr %5, align 8
   %123 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %121, i64 noundef 43, i32 noundef 1, i64 noundef %122) #23
@@ -12260,7 +12260,7 @@ RB_FLOAT_TYPE_P.exit.thread38:                    ; preds = %14, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %31 = load i64, ptr %3, align 8
   %32 = load i64, ptr %4, align 8
   %33 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %31, i64 noundef 37, i32 noundef 1, i64 noundef %32) #23
@@ -12443,7 +12443,7 @@ RB_FLOAT_TYPE_P.exit.thread45:                    ; preds = %16, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %33 = load i64, ptr %3, align 8
   %34 = load i64, ptr %4, align 8
   %35 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %33, i64 noundef 3553, i32 noundef 1, i64 noundef %34) #23
@@ -14682,7 +14682,7 @@ rb_float_value_inline.exit.i:                     ; preds = %92, %86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
   %113 = load i64, ptr %4, align 8
   %114 = load i64, ptr %5, align 8
   %115 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %113, i64 noundef %2, i32 noundef 1, i64 noundef %114) #23
@@ -15048,7 +15048,7 @@ rb_array_len.exit.i.thread:                       ; preds = %6
 rb_array_const_ptr.exit:                          ; preds = %3, %18, %rb_array_len.exit.i.thread
   %22 = phi i32 [ %15, %rb_array_len.exit.i.thread ], [ %19, %18 ], [ 0, %3 ]
   %23 = phi ptr [ %16, %rb_array_len.exit.i.thread ], [ %21, %18 ], [ null, %3 ]
-  %24 = call fastcc i32 @num_step_scan_args.argelim(i32 noundef %22, ptr noundef %23, ptr noundef %4, ptr noundef %5)
+  %24 = call fastcc i32 @num_step_scan_args(i32 noundef %22, ptr noundef %23, ptr noundef %4, ptr noundef %5)
   %25 = load i64, ptr %4, align 8
   %26 = load i64, ptr %5, align 8
   %27 = call i64 @ruby_num_interval_step_size(i64 noundef %0, i64 noundef %25, i64 noundef %26, i32 noundef 0)
@@ -15058,7 +15058,7 @@ rb_array_const_ptr.exit:                          ; preds = %3, %18, %rb_array_l
 declare i64 @rb_enumeratorize_with_size_kw(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @num_step_scan_args.argelim(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @num_step_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store i64 36, ptr %6, align 8
@@ -15422,7 +15422,7 @@ RB_FLOAT_TYPE_P.exit.thread64:                    ; preds = %73, %RB_FLOAT_TYPE_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %0, ptr %6, align 8
   store i64 %83, ptr %7, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1)
   %98 = load i64, ptr %6, align 8
   %99 = load i64, ptr %7, align 8
   %100 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %98, i64 noundef 45, i32 noundef 1, i64 noundef %99) #23
@@ -15447,17 +15447,17 @@ rb_int_minus.exit:                                ; preds = %84, %96, %.critedge
   ]
 
 106:                                              ; preds = %105
-  %107 = call fastcc i32 @int_half_p_half_even.argelim(i64 noundef %.026.i, i64 noundef %34)
+  %107 = call fastcc i32 @int_half_p_half_even(i64 noundef %.026.i, i64 noundef %34)
   %.not54 = icmp eq i32 %107, 0
   br i1 %.not54, label %rb_long2num_inline.exit, label %112
 
 108:                                              ; preds = %105
-  %109 = call fastcc i32 @int_half_p_half_up.argelim(i64 noundef %0)
+  %109 = call fastcc i32 @int_half_p_half_up(i64 noundef %0)
   %.not53 = icmp eq i32 %109, 0
   br i1 %.not53, label %rb_long2num_inline.exit, label %112
 
 110:                                              ; preds = %105
-  %111 = call fastcc i32 @int_half_p_half_down.argelim(i64 noundef %0)
+  %111 = call fastcc i32 @int_half_p_half_down(i64 noundef %0)
   %.not52 = icmp eq i32 %111, 0
   br i1 %.not52, label %rb_long2num_inline.exit, label %112
 
@@ -15493,7 +15493,7 @@ rb_int_minus.exit:                                ; preds = %84, %96, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.026.i, ptr %4, align 8
   store i64 %34, ptr %5, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
   %128 = load i64, ptr %4, align 8
   %129 = load i64, ptr %5, align 8
   %130 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %128, i64 noundef 43, i32 noundef 1, i64 noundef %129) #23
@@ -15507,7 +15507,7 @@ rb_long2num_inline.exit:                          ; preds = %70, %.critedge.i62,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @int_half_p_half_even.argelim(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc i32 @int_half_p_half_even(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
   %3 = tail call i64 @rb_int_idiv(i64 noundef %0, i64 noundef %1)
   %4 = and i64 %3, 1
   %.not4.i = icmp eq i64 %4, 0
@@ -15530,7 +15530,7 @@ rb_int_odd_p.exit:                                ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @int_half_p_half_up.argelim(i64 noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @int_half_p_half_up(i64 noundef %0) unnamed_addr #2 {
   %2 = and i64 %0, 1
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %5, label %3
@@ -15570,7 +15570,7 @@ int_pos_p.exit:                                   ; preds = %3, %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @int_half_p_half_down.argelim(i64 noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @int_half_p_half_down(i64 noundef %0) unnamed_addr #2 {
   %2 = and i64 %0, 1
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %5, label %3
@@ -15663,7 +15663,7 @@ define internal fastcc i64 @generate_mask(i64 noundef %0) unnamed_addr #2 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %4, ptr %2, align 8
   store i64 3, ptr %3, align 8
-  call fastcc void @do_coerce.retelim(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 1)
+  call fastcc void @do_coerce(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 1)
   %26 = load i64, ptr %2, align 8
   %27 = load i64, ptr %3, align 8
   %28 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %26, i64 noundef 45, i32 noundef 1, i64 noundef %27) #23

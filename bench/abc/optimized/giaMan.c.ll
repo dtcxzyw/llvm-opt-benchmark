@@ -2952,9 +2952,9 @@ Vec_IntPush.exit:
   %27 = sext i32 %.val5286 to i64
   br label %28
 
-28:                                               ; preds = %.preheader, %Gia_ObjIsRo.argprom.exit.thread
-  %indvars.iv89 = phi i64 [ %26, %.preheader ], [ %indvars.iv.next90, %Gia_ObjIsRo.argprom.exit.thread ]
-  %.082 = phi i32 [ 0, %.preheader ], [ %52, %Gia_ObjIsRo.argprom.exit.thread ]
+28:                                               ; preds = %.preheader, %Gia_ObjIsRo.exit.thread
+  %indvars.iv89 = phi i64 [ %26, %.preheader ], [ %indvars.iv.next90, %Gia_ObjIsRo.exit.thread ]
+  %.082 = phi i32 [ 0, %.preheader ], [ %52, %Gia_ObjIsRo.exit.thread ]
   %.val54 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds i32, ptr %.val54, i64 %indvars.iv89
   %30 = load i32, ptr %29, align 4
@@ -2964,9 +2964,9 @@ Vec_IntPush.exit:
   %.val63 = load i64, ptr %32, align 4
   %33 = and i64 %.val63, 2684354559
   %narrow.i.not.i = icmp eq i64 %33, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.argprom.exit, label %Gia_ObjIsRo.argprom.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.exit, label %Gia_ObjIsRo.exit.thread
 
-Gia_ObjIsRo.argprom.exit:                         ; preds = %28
+Gia_ObjIsRo.exit:                                 ; preds = %28
   %34 = lshr i64 %.val63, 32
   %35 = trunc nuw i64 %34 to i32
   %36 = and i32 %35, 536870911
@@ -2978,9 +2978,9 @@ Gia_ObjIsRo.argprom.exit:                         ; preds = %28
   %39 = icmp slt i32 %36, %38
   %40 = zext i1 %39 to i32
   %41 = add nuw nsw i32 %.082, %40
-  br i1 %39, label %Gia_ObjIsRo.argprom.exit.thread, label %42
+  br i1 %39, label %Gia_ObjIsRo.exit.thread, label %42
 
-42:                                               ; preds = %Gia_ObjIsRo.argprom.exit
+42:                                               ; preds = %Gia_ObjIsRo.exit
   %.val4.i = load ptr, ptr %11, align 8
   %43 = getelementptr i8, ptr %.val4.i, i64 4
   %.val4.val.i = load i32, ptr %43, align 4
@@ -2994,15 +2994,15 @@ Gia_ObjIsRo.argprom.exit:                         ; preds = %28
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val55, i64 %50
   tail call void @Gia_ManPrintTents_rec(ptr noundef nonnull %0, ptr noundef %51, ptr noundef nonnull %1)
-  br label %Gia_ObjIsRo.argprom.exit.thread
+  br label %Gia_ObjIsRo.exit.thread
 
-Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %28, %Gia_ObjIsRo.argprom.exit, %42
-  %52 = phi i32 [ %41, %Gia_ObjIsRo.argprom.exit ], [ %41, %42 ], [ %.082, %28 ]
+Gia_ObjIsRo.exit.thread:                          ; preds = %28, %Gia_ObjIsRo.exit, %42
+  %52 = phi i32 [ %41, %Gia_ObjIsRo.exit ], [ %41, %42 ], [ %.082, %28 ]
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
   %53 = icmp slt i64 %indvars.iv.next90, %27
   br i1 %53, label %28, label %.critedge2, !llvm.loop !11
 
-.critedge2:                                       ; preds = %Gia_ObjIsRo.argprom.exit.thread
+.critedge2:                                       ; preds = %Gia_ObjIsRo.exit.thread
   %54 = sub nsw i32 %.val5286, %.04584
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %.04485, i32 noundef %54, i32 noundef %52)
   %55 = add nuw nsw i32 %.04485, 1
@@ -3161,10 +3161,10 @@ define void @Gia_ManPrintChoiceStats(ptr noundef %0) local_unnamed_addr #2 {
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %Gia_ObjSibl.argprom.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %Gia_ObjSibl.argprom.exit.thread ]
-  %.028 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %Gia_ObjSibl.argprom.exit.thread ]
-  %.01427 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.115, %Gia_ObjSibl.argprom.exit.thread ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %Gia_ObjSibl.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %Gia_ObjSibl.exit.thread ]
+  %.028 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %Gia_ObjSibl.exit.thread ]
+  %.01427 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.115, %Gia_ObjSibl.exit.thread ]
   %7 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   %.val21 = load i64, ptr %7, align 4
   %8 = and i64 %.val21, 2147483648
@@ -3172,36 +3172,36 @@ define void @Gia_ManPrintChoiceStats(ptr noundef %0) local_unnamed_addr #2 {
   %9 = and i64 %.val21, 536870911
   %10 = icmp eq i64 %9, 536870911
   %narrow.i.not = or i1 %.not.i, %10
-  br i1 %narrow.i.not, label %Gia_ObjSibl.argprom.exit.thread, label %11
+  br i1 %narrow.i.not, label %Gia_ObjSibl.exit.thread, label %11
 
 11:                                               ; preds = %.lr.ph.split
   %.val22 = load ptr, ptr %6, align 8
   %.not.i23 = icmp eq ptr %.val22, null
-  br i1 %.not.i23, label %Gia_ObjSibl.argprom.exit.thread, label %Gia_ObjSibl.argprom.exit
+  br i1 %.not.i23, label %Gia_ObjSibl.exit.thread, label %Gia_ObjSibl.exit
 
-Gia_ObjSibl.argprom.exit:                         ; preds = %11
+Gia_ObjSibl.exit:                                 ; preds = %11
   %12 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %.not19 = icmp eq i32 %13, 0
-  br i1 %.not19, label %Gia_ObjSibl.argprom.exit.thread, label %14
+  br i1 %.not19, label %Gia_ObjSibl.exit.thread, label %14
 
-14:                                               ; preds = %Gia_ObjSibl.argprom.exit
+14:                                               ; preds = %Gia_ObjSibl.exit
   %15 = add nsw i32 %.01427, 1
   %16 = trunc i64 %.val21 to i32
   %17 = lshr i32 %16, 30
   %spec.select = add i32 %17, %.028
-  br label %Gia_ObjSibl.argprom.exit.thread
+  br label %Gia_ObjSibl.exit.thread
 
-Gia_ObjSibl.argprom.exit.thread:                  ; preds = %11, %14, %.lr.ph.split, %Gia_ObjSibl.argprom.exit
-  %.115 = phi i32 [ %.01427, %Gia_ObjSibl.argprom.exit ], [ %.01427, %.lr.ph.split ], [ %15, %14 ], [ %.01427, %11 ]
-  %.1 = phi i32 [ %.028, %Gia_ObjSibl.argprom.exit ], [ %.028, %.lr.ph.split ], [ %spec.select, %14 ], [ %.028, %11 ]
+Gia_ObjSibl.exit.thread:                          ; preds = %11, %14, %.lr.ph.split, %Gia_ObjSibl.exit
+  %.115 = phi i32 [ %.01427, %Gia_ObjSibl.exit ], [ %.01427, %.lr.ph.split ], [ %15, %14 ], [ %.01427, %11 ]
+  %.1 = phi i32 [ %.028, %Gia_ObjSibl.exit ], [ %.028, %.lr.ph.split ], [ %spec.select, %14 ], [ %.028, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !16
 
-.critedge:                                        ; preds = %Gia_ObjSibl.argprom.exit.thread, %.lr.ph, %1
-  %.014.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.115, %Gia_ObjSibl.argprom.exit.thread ]
-  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.1, %Gia_ObjSibl.argprom.exit.thread ]
+.critedge:                                        ; preds = %Gia_ObjSibl.exit.thread, %.lr.ph, %1
+  %.014.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.115, %Gia_ObjSibl.exit.thread ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.1, %Gia_ObjSibl.exit.thread ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, i32 noundef %.014.lcssa, i32 noundef %.0.lcssa)
   tail call void @Gia_ManCleanMark0(ptr noundef nonnull %0) #25
   ret void
@@ -3888,9 +3888,9 @@ define void @Gia_ManPrintStatsMiter(ptr noundef %0, i32 %1) local_unnamed_addr #
   %12 = getelementptr i8, ptr %5, i64 8
   br label %13
 
-13:                                               ; preds = %.lr.ph, %Gia_ObjLevelId.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjLevelId.argprom.exit ]
-  %.val1928 = phi ptr [ %.val1925, %.lr.ph ], [ %.val19, %Gia_ObjLevelId.argprom.exit ]
+13:                                               ; preds = %.lr.ph, %Gia_ObjLevelId.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjLevelId.exit ]
+  %.val1928 = phi ptr [ %.val1925, %.lr.ph ], [ %.val19, %Gia_ObjLevelId.exit ]
   %.val20 = load ptr, ptr %6, align 8
   %14 = getelementptr i8, ptr %.val1928, i64 8
   %.val21.val = load ptr, ptr %14, align 8
@@ -3911,7 +3911,7 @@ define void @Gia_ManPrintStatsMiter(ptr noundef %0, i32 %1) local_unnamed_addr #
   %24 = getelementptr inbounds i8, ptr %.val22, i64 4
   %25 = load i32, ptr %24, align 4
   %.not.i.not.i.i = icmp slt i32 %22, %25
-  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.argprom.exit, label %26
+  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.exit, label %26
 
 26:                                               ; preds = %19
   %27 = load i32, ptr %.val22, align 8
@@ -3996,9 +3996,9 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i:                                ; preds = %56, %Vec_IntGrow.exit.i.i.i
   store i32 %23, ptr %24, align 4
-  br label %Gia_ObjLevelId.argprom.exit
+  br label %Gia_ObjLevelId.exit
 
-Gia_ObjLevelId.argprom.exit:                      ; preds = %19, %._crit_edge.i.i.i
+Gia_ObjLevelId.exit:                              ; preds = %19, %._crit_edge.i.i.i
   %59 = getelementptr i8, ptr %.val22, i64 8
   %.val.i.i = load ptr, ptr %59, align 8
   %60 = sext i32 %22 to i64
@@ -4033,7 +4033,7 @@ Gia_ObjLevelId.argprom.exit:                      ; preds = %19, %._crit_edge.i.
   %83 = icmp slt i64 %indvars.iv.next, %82
   br i1 %83, label %13, label %.critedge, !llvm.loop !20
 
-.critedge:                                        ; preds = %13, %Gia_ObjLevelId.argprom.exit, %2
+.critedge:                                        ; preds = %13, %Gia_ObjLevelId.exit, %2
   %84 = getelementptr inbounds i8, ptr %5, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not.i = icmp eq ptr %85, null
@@ -5317,9 +5317,9 @@ define void @Gia_ManPrintMiterStatus(ptr nocapture noundef readonly %0) local_un
   %.val40 = load i64, ptr %36, align 4
   %37 = and i64 %.val40, 2684354559
   %narrow.i.not.i = icmp eq i64 %37, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.argprom.exit, label %Gia_ObjIsPi.argprom.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.exit, label %Gia_ObjIsPi.exit.thread
 
-Gia_ObjIsPi.argprom.exit:                         ; preds = %34
+Gia_ObjIsPi.exit:                                 ; preds = %34
   %38 = lshr i64 %.val40, 32
   %39 = trunc nuw i64 %38 to i32
   %40 = and i32 %39, 536870911
@@ -5328,20 +5328,20 @@ Gia_ObjIsPi.argprom.exit:                         ; preds = %34
   %.val3.val.i = load i32, ptr %41, align 4
   %42 = sub nsw i32 %.val3.val.i, %.val36
   %.not43 = icmp slt i32 %40, %42
-  br i1 %.not43, label %43, label %Gia_ObjIsPi.argprom.exit.thread
+  br i1 %.not43, label %43, label %Gia_ObjIsPi.exit.thread
 
-43:                                               ; preds = %Gia_ObjIsPi.argprom.exit
+43:                                               ; preds = %Gia_ObjIsPi.exit
   %44 = add nsw i32 %.02746, 1
   br label %46
 
-Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %34, %Gia_ObjIsPi.argprom.exit
+Gia_ObjIsPi.exit.thread:                          ; preds = %34, %Gia_ObjIsPi.exit
   %45 = add nsw i32 %.02348, 1
   br label %46
 
-46:                                               ; preds = %43, %32, %28, %Gia_ObjIsPi.argprom.exit.thread
-  %.128 = phi i32 [ %.02746, %28 ], [ %.02746, %Gia_ObjIsPi.argprom.exit.thread ], [ %33, %32 ], [ %44, %43 ]
-  %.126 = phi i32 [ %29, %28 ], [ %.02547, %Gia_ObjIsPi.argprom.exit.thread ], [ %.02547, %32 ], [ %.02547, %43 ]
-  %.124 = phi i32 [ %.02348, %28 ], [ %45, %Gia_ObjIsPi.argprom.exit.thread ], [ %.02348, %32 ], [ %.02348, %43 ]
+46:                                               ; preds = %43, %32, %28, %Gia_ObjIsPi.exit.thread
+  %.128 = phi i32 [ %.02746, %28 ], [ %.02746, %Gia_ObjIsPi.exit.thread ], [ %33, %32 ], [ %44, %43 ]
+  %.126 = phi i32 [ %29, %28 ], [ %.02547, %Gia_ObjIsPi.exit.thread ], [ %.02547, %32 ], [ %.02547, %43 ]
+  %.124 = phi i32 [ %.02348, %28 ], [ %45, %Gia_ObjIsPi.exit.thread ], [ %.02348, %32 ], [ %.02348, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !39
@@ -6240,10 +6240,10 @@ Vec_IntAlloc.exit.i:
   %.val130.pre = load ptr, ptr %23, align 8
   br label %30
 
-30:                                               ; preds = %.lr.ph, %Gia_ManDfsUpdateRequired.argprom.exit
-  %.val130 = phi ptr [ %.val130.pre, %.lr.ph ], [ %.val130206, %Gia_ManDfsUpdateRequired.argprom.exit ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ManDfsUpdateRequired.argprom.exit ]
-  %31 = phi ptr [ %24, %.lr.ph ], [ %52, %Gia_ManDfsUpdateRequired.argprom.exit ]
+30:                                               ; preds = %.lr.ph, %Gia_ManDfsUpdateRequired.exit
+  %.val130 = phi ptr [ %.val130.pre, %.lr.ph ], [ %.val130206, %Gia_ManDfsUpdateRequired.exit ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ManDfsUpdateRequired.exit ]
+  %31 = phi ptr [ %24, %.lr.ph ], [ %52, %Gia_ManDfsUpdateRequired.exit ]
   %32 = getelementptr i8, ptr %31, i64 8
   %.val131.val = load ptr, ptr %32, align 8
   %33 = getelementptr inbounds i32, ptr %.val131.val, i64 %indvars.iv
@@ -6255,7 +6255,7 @@ Vec_IntAlloc.exit.i:
 
 37:                                               ; preds = %30
   %.not114 = icmp slt i64 %indvars.iv, %29
-  br i1 %.not114, label %Gia_ManDfsUpdateRequired.argprom.exit, label %38
+  br i1 %.not114, label %Gia_ManDfsUpdateRequired.exit, label %38
 
 38:                                               ; preds = %37
   %39 = trunc nuw nsw i64 %indvars.iv to i32
@@ -6275,13 +6275,13 @@ Vec_IntAlloc.exit.i:
   %49 = icmp eq i32 %48, -1
   %50 = icmp sgt i32 %48, %2
   %or.cond.i = or i1 %49, %50
-  br i1 %or.cond.i, label %51, label %Gia_ManDfsUpdateRequired.argprom.exit
+  br i1 %or.cond.i, label %51, label %Gia_ManDfsUpdateRequired.exit
 
 51:                                               ; preds = %38
   store i32 %2, ptr %47, align 4
-  br label %Gia_ManDfsUpdateRequired.argprom.exit
+  br label %Gia_ManDfsUpdateRequired.exit
 
-Gia_ManDfsUpdateRequired.argprom.exit:            ; preds = %51, %38, %37
+Gia_ManDfsUpdateRequired.exit:                    ; preds = %51, %38, %37
   %.val130206 = phi ptr [ %.val141, %51 ], [ %.val141, %38 ], [ %.val130, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load ptr, ptr %15, align 8
@@ -6291,9 +6291,9 @@ Gia_ManDfsUpdateRequired.argprom.exit:            ; preds = %51, %38, %37
   %55 = icmp slt i64 %indvars.iv.next, %54
   br i1 %55, label %30, label %.critedge, !llvm.loop !51
 
-.lr.ph171:                                        ; preds = %.lr.ph171.preheader, %Gia_ManDfsUpdateRequired.argprom.exit151
-  %.val116208 = phi i32 [ %.val116169, %.lr.ph171.preheader ], [ %.val116, %Gia_ManDfsUpdateRequired.argprom.exit151 ]
-  %indvars.iv188 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next189, %Gia_ManDfsUpdateRequired.argprom.exit151 ]
+.lr.ph171:                                        ; preds = %.lr.ph171.preheader, %Gia_ManDfsUpdateRequired.exit151
+  %.val116208 = phi i32 [ %.val116169, %.lr.ph171.preheader ], [ %.val116, %Gia_ManDfsUpdateRequired.exit151 ]
+  %indvars.iv188 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next189, %Gia_ManDfsUpdateRequired.exit151 ]
   br i1 %.not110, label %.critedge, label %56
 
 56:                                               ; preds = %.lr.ph171
@@ -6312,21 +6312,21 @@ Gia_ManDfsUpdateRequired.argprom.exit:            ; preds = %51, %38, %37
   %67 = icmp eq i32 %66, -1
   %68 = icmp sgt i32 %66, %2
   %or.cond.i150 = or i1 %67, %68
-  br i1 %or.cond.i150, label %69, label %Gia_ManDfsUpdateRequired.argprom.exit151
+  br i1 %or.cond.i150, label %69, label %Gia_ManDfsUpdateRequired.exit151
 
 69:                                               ; preds = %56
   store i32 %2, ptr %65, align 4
   %.val116.pre = load i32, ptr %17, align 4
-  br label %Gia_ManDfsUpdateRequired.argprom.exit151
+  br label %Gia_ManDfsUpdateRequired.exit151
 
-Gia_ManDfsUpdateRequired.argprom.exit151:         ; preds = %56, %69
+Gia_ManDfsUpdateRequired.exit151:                 ; preds = %56, %69
   %.val116 = phi i32 [ %.val116208, %56 ], [ %.val116.pre, %69 ]
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %70 = sext i32 %.val116 to i64
   %71 = icmp slt i64 %indvars.iv.next189, %70
   br i1 %71, label %.lr.ph171, label %.critedge, !llvm.loop !52
 
-.critedge:                                        ; preds = %Gia_ManDfsUpdateRequired.argprom.exit, %30, %Gia_ManDfsUpdateRequired.argprom.exit151, %.lr.ph171, %21, %.preheader164
+.critedge:                                        ; preds = %Gia_ManDfsUpdateRequired.exit, %30, %Gia_ManDfsUpdateRequired.exit151, %.lr.ph171, %21, %.preheader164
   %72 = getelementptr i8, ptr %1, i64 4
   %.val115 = load i32, ptr %72, align 4
   %73 = icmp sgt i32 %.val115, 0
@@ -6399,9 +6399,9 @@ Gia_ManDfsUpdateRequired.argprom.exit151:         ; preds = %56, %69
   %.val126.pre = load ptr, ptr %76, align 8
   br label %.lr.ph181
 
-.lr.ph181:                                        ; preds = %.lr.ph181.preheader, %Gia_ManDfsUpdateRequired.argprom.exit154
-  %.val126 = phi ptr [ %.val126.pre, %.lr.ph181.preheader ], [ %.val139, %Gia_ManDfsUpdateRequired.argprom.exit154 ]
-  %indvars.iv197 = phi i64 [ 0, %.lr.ph181.preheader ], [ %indvars.iv.next198, %Gia_ManDfsUpdateRequired.argprom.exit154 ]
+.lr.ph181:                                        ; preds = %.lr.ph181.preheader, %Gia_ManDfsUpdateRequired.exit154
+  %.val126 = phi ptr [ %.val126.pre, %.lr.ph181.preheader ], [ %.val139, %Gia_ManDfsUpdateRequired.exit154 ]
+  %indvars.iv197 = phi i64 [ 0, %.lr.ph181.preheader ], [ %indvars.iv.next198, %Gia_ManDfsUpdateRequired.exit154 ]
   %.val127 = load ptr, ptr %78, align 8
   %108 = getelementptr i8, ptr %.val127, i64 8
   %.val127.val = load ptr, ptr %108, align 8
@@ -6431,13 +6431,13 @@ Gia_ManDfsUpdateRequired.argprom.exit151:         ; preds = %56, %69
   %128 = icmp eq i32 %127, -1
   %129 = icmp sgt i32 %127, %118
   %or.cond.i153 = or i1 %128, %129
-  br i1 %or.cond.i153, label %130, label %Gia_ManDfsUpdateRequired.argprom.exit154
+  br i1 %or.cond.i153, label %130, label %Gia_ManDfsUpdateRequired.exit154
 
 130:                                              ; preds = %.lr.ph181
   store i32 %118, ptr %126, align 4
-  br label %Gia_ManDfsUpdateRequired.argprom.exit154
+  br label %Gia_ManDfsUpdateRequired.exit154
 
-Gia_ManDfsUpdateRequired.argprom.exit154:         ; preds = %.lr.ph181, %130
+Gia_ManDfsUpdateRequired.exit154:                 ; preds = %.lr.ph181, %130
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
   br i1 %exitcond201.not, label %.critedge6, label %.lr.ph181, !llvm.loop !54
@@ -6466,10 +6466,10 @@ Gia_ManDfsUpdateRequired.argprom.exit154:         ; preds = %.lr.ph181, %130
   %143 = icmp sgt i32 %142, 0
   br i1 %143, label %.lr.ph176, label %.critedge6
 
-.lr.ph176:                                        ; preds = %.preheader, %Gia_ManDfsUpdateRequired.argprom.exit156
-  %.val135.val210 = phi ptr [ %.val135.val, %Gia_ManDfsUpdateRequired.argprom.exit156 ], [ %.val135.val174, %.preheader ]
-  %indvars.iv191 = phi i64 [ %indvars.iv.next192, %Gia_ManDfsUpdateRequired.argprom.exit156 ], [ 0, %.preheader ]
-  %144 = phi ptr [ %157, %Gia_ManDfsUpdateRequired.argprom.exit156 ], [ %141, %.preheader ]
+.lr.ph176:                                        ; preds = %.preheader, %Gia_ManDfsUpdateRequired.exit156
+  %.val135.val210 = phi ptr [ %.val135.val, %Gia_ManDfsUpdateRequired.exit156 ], [ %.val135.val174, %.preheader ]
+  %indvars.iv191 = phi i64 [ %indvars.iv.next192, %Gia_ManDfsUpdateRequired.exit156 ], [ 0, %.preheader ]
+  %144 = phi ptr [ %157, %Gia_ManDfsUpdateRequired.exit156 ], [ %141, %.preheader ]
   %145 = getelementptr inbounds i8, ptr %144, i64 4
   %146 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv191
   %147 = load i32, ptr %146, align 4
@@ -6479,14 +6479,14 @@ Gia_ManDfsUpdateRequired.argprom.exit154:         ; preds = %.lr.ph181, %130
   %151 = icmp eq i32 %150, -1
   %152 = icmp sgt i32 %150, %136
   %or.cond.i155 = or i1 %151, %152
-  br i1 %or.cond.i155, label %153, label %Gia_ManDfsUpdateRequired.argprom.exit156
+  br i1 %or.cond.i155, label %153, label %Gia_ManDfsUpdateRequired.exit156
 
 153:                                              ; preds = %.lr.ph176
   store i32 %136, ptr %149, align 4
   %.val135.val.pre = load ptr, ptr %137, align 8
-  br label %Gia_ManDfsUpdateRequired.argprom.exit156
+  br label %Gia_ManDfsUpdateRequired.exit156
 
-Gia_ManDfsUpdateRequired.argprom.exit156:         ; preds = %.lr.ph176, %153
+Gia_ManDfsUpdateRequired.exit156:                 ; preds = %.lr.ph176, %153
   %.val135.val = phi ptr [ %.val135.val210, %.lr.ph176 ], [ %.val135.val.pre, %153 ]
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %154 = getelementptr inbounds i32, ptr %.val135.val, i64 %133
@@ -6511,14 +6511,14 @@ Gia_ManDfsUpdateRequired.argprom.exit156:         ; preds = %.lr.ph176, %153
   %169 = icmp eq i32 %168, -1
   %170 = icmp sgt i32 %168, %136
   %or.cond.i157 = or i1 %169, %170
-  br i1 %or.cond.i157, label %171, label %Gia_ManDfsUpdateRequired.argprom.exit158
+  br i1 %or.cond.i157, label %171, label %Gia_ManDfsUpdateRequired.exit158
 
 171:                                              ; preds = %161
   store i32 %136, ptr %167, align 4
   %.val142.pre = load i64, ptr %162, align 4
-  br label %Gia_ManDfsUpdateRequired.argprom.exit158
+  br label %Gia_ManDfsUpdateRequired.exit158
 
-Gia_ManDfsUpdateRequired.argprom.exit158:         ; preds = %161, %171
+Gia_ManDfsUpdateRequired.exit158:                 ; preds = %161, %171
   %.val142 = phi i64 [ %.val138, %161 ], [ %.val142.pre, %171 ]
   %172 = lshr i64 %.val142, 32
   %173 = trunc nuw i64 %172 to i32
@@ -6532,11 +6532,11 @@ Gia_ManDfsUpdateRequired.argprom.exit158:         ; preds = %161, %171
   %or.cond.i159 = or i1 %179, %180
   br i1 %or.cond.i159, label %181, label %.critedge6
 
-181:                                              ; preds = %Gia_ManDfsUpdateRequired.argprom.exit158
+181:                                              ; preds = %Gia_ManDfsUpdateRequired.exit158
   store i32 %136, ptr %177, align 4
   br label %.critedge6
 
-.critedge6:                                       ; preds = %Gia_ManDfsUpdateRequired.argprom.exit156, %Gia_ManDfsUpdateRequired.argprom.exit154, %.preheader, %._crit_edge, %181, %Gia_ManDfsUpdateRequired.argprom.exit158, %131
+.critedge6:                                       ; preds = %Gia_ManDfsUpdateRequired.exit156, %Gia_ManDfsUpdateRequired.exit154, %.preheader, %._crit_edge, %181, %Gia_ManDfsUpdateRequired.exit158, %131
   %182 = icmp sgt i64 %indvars.iv202, 1
   br i1 %182, label %80, label %.critedge4, !llvm.loop !56
 
@@ -7828,7 +7828,7 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %.val195 = load i32, ptr %142, align 4
   %143 = getelementptr i8, ptr %29, i64 8
   %.val196 = load ptr, ptr %143, align 8
-  %144 = tail call fastcc i32 @Vec_BitCount.argprom(i32 %.val195, ptr %.val196)
+  %144 = tail call fastcc i32 @Vec_BitCount(i32 %.val195, ptr %.val196)
   %.not = icmp eq i32 %144, 0
   br i1 %.not, label %148, label %145
 
@@ -7844,7 +7844,7 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %.val197 = load i32, ptr %149, align 4
   %150 = getelementptr i8, ptr %28, i64 8
   %.val198 = load ptr, ptr %150, align 8
-  %151 = tail call fastcc i32 @Vec_BitCount.argprom(i32 %.val197, ptr %.val198)
+  %151 = tail call fastcc i32 @Vec_BitCount(i32 %.val197, ptr %.val198)
   %.not146 = icmp eq i32 %151, 0
   br i1 %.not146, label %155, label %152
 
@@ -8441,7 +8441,7 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %.val195 = load i32, ptr %142, align 4
   %143 = getelementptr i8, ptr %29, i64 8
   %.val196 = load ptr, ptr %143, align 8
-  %144 = tail call fastcc i32 @Vec_BitCount.argprom(i32 %.val195, ptr %.val196)
+  %144 = tail call fastcc i32 @Vec_BitCount(i32 %.val195, ptr %.val196)
   %.not = icmp eq i32 %144, 0
   br i1 %.not, label %148, label %145
 
@@ -8457,7 +8457,7 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %.val197 = load i32, ptr %149, align 4
   %150 = getelementptr i8, ptr %28, i64 8
   %.val198 = load ptr, ptr %150, align 8
-  %151 = tail call fastcc i32 @Vec_BitCount.argprom(i32 %.val197, ptr %.val198)
+  %151 = tail call fastcc i32 @Vec_BitCount(i32 %.val197, ptr %.val198)
   %.not146 = icmp eq i32 %151, 0
   br i1 %.not146, label %155, label %152
 
@@ -9430,7 +9430,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %.val326 = load i32, ptr %287, align 4
   %288 = getelementptr i8, ptr %35, i64 8
   %.val327 = load ptr, ptr %288, align 8
-  %289 = tail call fastcc i32 @Vec_BitCount.argprom(i32 %.val326, ptr %.val327)
+  %289 = tail call fastcc i32 @Vec_BitCount(i32 %.val326, ptr %.val327)
   %.not238 = icmp eq i32 %289, 0
   br i1 %.not238, label %293, label %290
 
@@ -9446,7 +9446,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %.val328 = load i32, ptr %294, align 4
   %295 = getelementptr i8, ptr %34, i64 8
   %.val329 = load ptr, ptr %295, align 8
-  %296 = tail call fastcc i32 @Vec_BitCount.argprom(i32 %.val328, ptr %.val329)
+  %296 = tail call fastcc i32 @Vec_BitCount(i32 %.val328, ptr %.val329)
   %.not239 = icmp eq i32 %296, 0
   br i1 %.not239, label %300, label %297
 
@@ -10525,7 +10525,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %.val326 = load i32, ptr %287, align 4
   %288 = getelementptr i8, ptr %35, i64 8
   %.val327 = load ptr, ptr %288, align 8
-  %289 = tail call fastcc i32 @Vec_BitCount.argprom(i32 %.val326, ptr %.val327)
+  %289 = tail call fastcc i32 @Vec_BitCount(i32 %.val326, ptr %.val327)
   %.not238 = icmp eq i32 %289, 0
   br i1 %.not238, label %293, label %290
 
@@ -10541,7 +10541,7 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %.val328 = load i32, ptr %294, align 4
   %295 = getelementptr i8, ptr %34, i64 8
   %.val329 = load ptr, ptr %295, align 8
-  %296 = tail call fastcc i32 @Vec_BitCount.argprom(i32 %.val328, ptr %.val329)
+  %296 = tail call fastcc i32 @Vec_BitCount(i32 %.val328, ptr %.val329)
   %.not239 = icmp eq i32 %296, 0
   br i1 %.not239, label %300, label %297
 
@@ -10904,7 +10904,7 @@ Vec_BitFree.exit494:                              ; preds = %Vec_BitFree.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @Vec_BitCount.argprom(i32 %.4.val, ptr nocapture readonly %.8.val) unnamed_addr #12 {
+define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8.val) unnamed_addr #12 {
   %1 = ashr i32 %.4.val, 5
   %2 = and i32 %.4.val, 31
   %3 = icmp ne i32 %2, 0

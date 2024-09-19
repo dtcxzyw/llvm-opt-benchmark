@@ -1339,10 +1339,10 @@ Vec_IntFree.exit71:                               ; preds = %Vec_IntFree.exit, %
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i32, ptr %.val57, i64 %78
   %80 = load i32, ptr %79, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %17, i32 noundef %80)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %17, i32 noundef %80)
   %81 = getelementptr inbounds i8, ptr %79, i64 4
   %82 = load i32, ptr %81, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %17, i32 noundef %82)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %17, i32 noundef %82)
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %.val64 = load i32, ptr %62, align 4
   %83 = sext i32 %.val64 to i64
@@ -1463,7 +1463,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare ptr @Acb_NtkFindNodes2(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -1913,8 +1913,8 @@ define ptr @Acb_NtkGiaDeriveMiter(ptr nocapture noundef readonly %0, ptr nocaptu
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val157, i64 %178, i32 1
   %180 = load i32, ptr %179, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %12, i32 noundef %174)
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %12, i32 noundef %180)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %12, i32 noundef %174)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %12, i32 noundef %180)
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 2
   %.val135 = load ptr, ptr %7, align 8
   %181 = getelementptr i8, ptr %.val135, i64 4
@@ -1944,8 +1944,8 @@ define ptr @Acb_NtkGiaDeriveMiter(ptr nocapture noundef readonly %0, ptr nocaptu
   %194 = sext i32 %193 to i64
   %195 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val149, i64 %194, i32 1
   %196 = load i32, ptr %195, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %12, i32 noundef %190)
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %12, i32 noundef %196)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %12, i32 noundef %190)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %12, i32 noundef %196)
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 2
   %.val134 = load ptr, ptr %7, align 8
   %197 = getelementptr i8, ptr %.val134, i64 4
@@ -1989,7 +1989,7 @@ define ptr @Acb_NtkGiaDeriveMiter(ptr nocapture noundef readonly %0, ptr nocaptu
   %224 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %12, i32 noundef %211, i32 noundef %223) #18
   %225 = xor i32 %222, 1
   %226 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %12, i32 noundef %225, i32 noundef %224) #18
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %12, i32 noundef %226)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %12, i32 noundef %226)
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 2
   %.val133 = load ptr, ptr %7, align 8
   %227 = getelementptr i8, ptr %.val133, i64 4

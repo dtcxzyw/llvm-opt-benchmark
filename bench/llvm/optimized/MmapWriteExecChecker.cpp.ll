@@ -759,7 +759,7 @@ define internal void @_ZN5clang4ento5check7ASTDeclINS_19TranslationUnitDeclEE10_
   %14 = and i64 %11, 4294967296
   %.not18.i = icmp eq i64 %14, 0
   %or.cond19.i = select i1 %or.cond.i, i1 true, i1 %.not18.i
-  br i1 %or.cond19.i, label %_ZNK12_GLOBAL__N_120MmapWriteExecChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %15
+  br i1 %or.cond19.i, label %_ZNK12_GLOBAL__N_120MmapWriteExecChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %15
 
 15:                                               ; preds = %4
   %.sroa.01.0.extract.trunc.i = trunc i64 %11 to i32
@@ -771,9 +771,9 @@ define internal void @_ZN5clang4ento5check7ASTDeclINS_19TranslationUnitDeclEE10_
   store i32 %.sroa.05.0.extract.trunc.i, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 %.sroa.01.0.extract.trunc.i, ptr %18, align 8
-  br label %_ZNK12_GLOBAL__N_120MmapWriteExecChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_120MmapWriteExecChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_120MmapWriteExecChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %4, %15
+_ZNK12_GLOBAL__N_120MmapWriteExecChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %4, %15
   ret void
 }
 

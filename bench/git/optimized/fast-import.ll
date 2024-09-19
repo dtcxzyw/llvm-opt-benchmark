@@ -690,7 +690,7 @@ if.then.i10.i:                                    ; preds = %do.body.i.i1.i
 
 parse_new_blob.exit:                              ; preds = %do.cond.i.i5.i, %if.then.i10.i
   %27 = load i64, ptr @next_mark, align 8
-  call fastcc void @parse_and_store_blob.argprom(ptr noundef null, i64 noundef %27)
+  call fastcc void @parse_and_store_blob(ptr noundef null, i64 noundef %27)
   br label %if.end100
 
 do.body.i:                                        ; preds = %do.body.i.preheader, %do.cond.i
@@ -921,7 +921,7 @@ do.cond.i.i77.i:                                  ; preds = %do.body.i.i73.i
   br i1 %cmp.i.i81.i, label %do.body.i.i73.i, label %parse_from.exit.i, !llvm.loop !8
 
 if.end.i.i:                                       ; preds = %do.body.i.i73.i
-  call fastcc void @parse_objectish.retelim(ptr noundef %b.0.i, ptr noundef %scevgep.i72.i)
+  call fastcc void @parse_objectish(ptr noundef %b.0.i, ptr noundef %scevgep.i72.i)
   br label %parse_from.exit.i
 
 parse_from.exit.i:                                ; preds = %do.cond.i.i77.i, %if.end.i.i
@@ -1654,7 +1654,7 @@ if.then80.i.i:                                    ; preds = %do.body.i25.i.i
   br i1 %cmp77.not.i.i, label %if.end111.i.i, label %while.body.i150.i, !llvm.loop !17
 
 if.else81.i.i:                                    ; preds = %do.cond.i29.i.i
-  call fastcc void @parse_and_store_blob.argprom(ptr noundef nonnull %oid.i129.i, i64 noundef 0)
+  call fastcc void @parse_and_store_blob(ptr noundef nonnull %oid.i129.i, i64 noundef 0)
   br label %if.end111.i.i
 
 if.else83.i.i:                                    ; preds = %if.else63.thread.i.i, %if.else63.i.i
@@ -2250,7 +2250,7 @@ if.then67.i.i:                                    ; preds = %if.then64.i.i
 
 if.end68.i.i:                                     ; preds = %if.then67.i.i, %if.then64.i.i
   %call69.i.i = call fastcc i32 @read_next_command()
-  call fastcc void @parse_and_store_blob.argprom(ptr noundef nonnull %oid.i235.i, i64 noundef 0)
+  call fastcc void @parse_and_store_blob(ptr noundef nonnull %oid.i235.i, i64 noundef 0)
   br label %if.end101.i.i
 
 if.else70.i.i:                                    ; preds = %if.end62.i.i
@@ -3405,7 +3405,7 @@ do.cond.i.i.i205:                                 ; preds = %do.body.i.i.i201
   br i1 %cmp.i.i.i208, label %do.body.i.i.i201, label %parse_from.exit.i209, !llvm.loop !8
 
 if.end.i.i224:                                    ; preds = %do.body.i.i.i201
-  call fastcc void @parse_objectish.retelim(ptr noundef %b.0.i199, ptr noundef %scevgep.i.i200)
+  call fastcc void @parse_objectish(ptr noundef %b.0.i199, ptr noundef %scevgep.i.i200)
   br label %parse_from.exit.i209
 
 parse_from.exit.i209:                             ; preds = %do.cond.i.i.i205, %if.end.i.i224
@@ -3733,7 +3733,7 @@ if.then4.i317:                                    ; preds = %do.cond.i.i8.i
   unreachable
 
 if.end6.i:                                        ; preds = %do.body.i.i4.i
-  call fastcc void @parse_objectish.retelim(ptr noundef nonnull %b.i, ptr noundef %scevgep.i3.i)
+  call fastcc void @parse_objectish(ptr noundef nonnull %b.i, ptr noundef %scevgep.i3.i)
   %oid.val.i.i320 = load i32, ptr %oid.i319, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i.i298)
   store i32 %oid.val.i.i320, ptr %hash1.i.i.i.i321, align 8
@@ -4980,7 +4980,7 @@ if.end25:                                         ; preds = %if.end22
 if.end26:                                         ; preds = %if.end25, %if.end14
   %root.039 = phi ptr [ %root.040, %if.end25 ], [ %18, %if.end14 ]
   %34 = phi ptr [ %33, %if.end25 ], [ %.pre, %if.end14 ]
-  call fastcc void @tree_content_get.retelim(ptr noundef nonnull %root.039, ptr noundef %34, ptr noundef %leaf, i32 noundef 1)
+  call fastcc void @tree_content_get(ptr noundef nonnull %root.039, ptr noundef %34, ptr noundef %leaf, i32 noundef 1)
   %arrayidx29 = getelementptr inbounds i8, ptr %leaf, i64 56
   %35 = load i16, ptr %arrayidx29, align 8
   %36 = and i16 %35, -4096
@@ -5668,7 +5668,7 @@ if.end23:                                         ; preds = %read_marks.exit, %i
   %26 = load i64, ptr getelementptr inbounds (i8, ptr @sub_marks_from, i64 8), align 8
   %cmp.i1959 = icmp sgt i64 %26, 0
   %or.cond = select i1 %tobool.not3.i, i1 %cmp.i1959, i1 false
-  br i1 %or.cond, label %for.body.i, label %build_mark_map.argprom.exit
+  br i1 %or.cond, label %for.body.i, label %build_mark_map.exit
 
 for.body.i:                                       ; preds = %if.end23, %if.end12.i
   %fromp.04.i60 = phi ptr [ %incdec.ptr.i22, %if.end12.i ], [ %25, %if.end23 ]
@@ -5708,9 +5708,9 @@ if.end12.i:                                       ; preds = %lor.lhs.false.i
   %33 = load i64, ptr getelementptr inbounds (i8, ptr @sub_marks_from, i64 8), align 8
   %add.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %32, i64 %33
   %cmp.i19 = icmp ult ptr %incdec.ptr.i22, %add.ptr.i
-  br i1 %cmp.i19, label %for.body.i, label %build_mark_map.argprom.exit
+  br i1 %cmp.i19, label %for.body.i, label %build_mark_map.exit
 
-build_mark_map.argprom.exit:                      ; preds = %if.end12.i, %if.end23
+build_mark_map.exit:                              ; preds = %if.end12.i, %if.end23
   ret void
 }
 
@@ -6650,7 +6650,7 @@ declare i32 @strbuf_getline_lf(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_and_store_blob.argprom(ptr noundef %oidout, i64 noundef %mark) unnamed_addr #0 {
+define internal fastcc void @parse_and_store_blob(ptr noundef %oidout, i64 noundef %mark) unnamed_addr #0 {
 entry:
   %key.i.i.i = alloca %struct.hashmap_entry, align 8
   %oid.i = alloca %struct.object_id, align 4
@@ -8202,7 +8202,7 @@ if.then19:                                        ; preds = %if.end17
   br label %if.end24
 
 if.else21:                                        ; preds = %if.end17
-  call fastcc void @tree_content_get.retelim(ptr noundef nonnull %branch_tree22, ptr noundef %6, ptr noundef %leaf, i32 noundef 1)
+  call fastcc void @tree_content_get(ptr noundef nonnull %branch_tree22, ptr noundef %6, ptr noundef %leaf, i32 noundef 1)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else21, %if.then19
@@ -8569,7 +8569,7 @@ declare ptr @__errno_location() local_unnamed_addr #13
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_objectish.retelim(ptr noundef %b, ptr noundef %objectish) unnamed_addr #0 {
+define internal fastcc void @parse_objectish(ptr noundef %b, ptr noundef %objectish) unnamed_addr #0 {
 entry:
   %type.i = alloca i32, align 4
   %end.i = alloca ptr, align 8
@@ -10458,7 +10458,7 @@ declare i32 @fspathncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_add
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tree_content_get.retelim(ptr noundef %root, ptr noundef %p, ptr nocapture noundef nonnull writeonly %leaf, i32 noundef range(i32 0, 2) %allow_root) unnamed_addr #0 {
+define internal fastcc void @tree_content_get(ptr noundef %root, ptr noundef %p, ptr nocapture noundef nonnull writeonly %leaf, i32 noundef range(i32 0, 2) %allow_root) unnamed_addr #0 {
 entry:
   %call29 = tail call ptr @strchrnul(ptr noundef %p, i32 noundef 47) #25
   %sub.ptr.lhs.cast30 = ptrtoint ptr %call29 to i64

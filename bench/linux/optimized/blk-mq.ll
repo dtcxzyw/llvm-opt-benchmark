@@ -1529,7 +1529,7 @@ define internal fastcc ptr @__blk_mq_alloc_requests(ptr noundef %0) unnamed_addr
   store volatile i32 1, ptr %161, align 4
   %162 = and i32 %143, 512
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %blk_mq_rq_ctx_init.argprom.exit, label %164
+  br i1 %163, label %blk_mq_rq_ctx_init.exit, label %164
 
 164:                                              ; preds = %._crit_edge.i
   %165 = load ptr, ptr %0, align 8
@@ -1544,13 +1544,13 @@ define internal fastcc ptr @__blk_mq_alloc_requests(ptr noundef %0) unnamed_addr
   %172 = getelementptr inbounds i8, ptr %171, i64 96
   %173 = load ptr, ptr %172, align 8
   %174 = icmp eq ptr %173, null
-  br i1 %174, label %blk_mq_rq_ctx_init.argprom.exit, label %175
+  br i1 %174, label %blk_mq_rq_ctx_init.exit, label %175
 
 175:                                              ; preds = %164
   call void %173(ptr noundef %121) #22
-  br label %blk_mq_rq_ctx_init.argprom.exit
+  br label %blk_mq_rq_ctx_init.exit
 
-blk_mq_rq_ctx_init.argprom.exit:                  ; preds = %._crit_edge.i, %164, %175
+blk_mq_rq_ctx_init.exit:                          ; preds = %._crit_edge.i, %164, %175
   %176 = load ptr, ptr %56, align 8
   %177 = load ptr, ptr %176, align 8
   store ptr %177, ptr %158, align 8
@@ -1559,9 +1559,9 @@ blk_mq_rq_ctx_init.argprom.exit:                  ; preds = %._crit_edge.i, %164
   %179 = add i32 %108, 1
   br label %180
 
-180:                                              ; preds = %blk_mq_rq_ctx_init.argprom.exit, %107
-  %181 = phi i64 [ %123, %blk_mq_rq_ctx_init.argprom.exit ], [ %110, %107 ]
-  %182 = phi i32 [ %179, %blk_mq_rq_ctx_init.argprom.exit ], [ %108, %107 ]
+180:                                              ; preds = %blk_mq_rq_ctx_init.exit, %107
+  %181 = phi i64 [ %123, %blk_mq_rq_ctx_init.exit ], [ %110, %107 ]
+  %182 = phi i32 [ %179, %blk_mq_rq_ctx_init.exit ], [ %108, %107 ]
   %183 = add i32 %109, 1
   %184 = icmp eq i64 %181, 0
   br i1 %184, label %185, label %107, !llvm.loop !27
@@ -1803,7 +1803,7 @@ blk_mq_rq_ctx_init.argprom.exit:                  ; preds = %._crit_edge.i, %164
   store volatile i32 1, ptr %325, align 4
   %326 = and i32 %307, 512
   %327 = icmp eq i32 %326, 0
-  br i1 %327, label %blk_mq_rq_ctx_init.argprom.exit13, label %328
+  br i1 %327, label %blk_mq_rq_ctx_init.exit13, label %328
 
 328:                                              ; preds = %._crit_edge.i12
   %329 = load ptr, ptr %0, align 8
@@ -1818,19 +1818,19 @@ blk_mq_rq_ctx_init.argprom.exit:                  ; preds = %._crit_edge.i, %164
   %336 = getelementptr inbounds i8, ptr %335, i64 96
   %337 = load ptr, ptr %336, align 8
   %338 = icmp eq ptr %337, null
-  br i1 %338, label %blk_mq_rq_ctx_init.argprom.exit13, label %339
+  br i1 %338, label %blk_mq_rq_ctx_init.exit13, label %339
 
 339:                                              ; preds = %328
   call void %337(ptr noundef %290) #22
-  br label %blk_mq_rq_ctx_init.argprom.exit13
+  br label %blk_mq_rq_ctx_init.exit13
 
-blk_mq_rq_ctx_init.argprom.exit13:                ; preds = %._crit_edge.i12, %328, %339
+blk_mq_rq_ctx_init.exit13:                        ; preds = %._crit_edge.i12, %328, %339
   %340 = load i32, ptr %294, align 8
   %341 = and i32 %340, 254
   %342 = icmp eq i32 %341, 34
   br i1 %342, label %349, label %343
 
-343:                                              ; preds = %blk_mq_rq_ctx_init.argprom.exit13
+343:                                              ; preds = %blk_mq_rq_ctx_init.exit13
   %344 = load i32, ptr %308, align 4
   %345 = and i32 %344, 139776
   %346 = icmp eq i32 %345, 0
@@ -1840,8 +1840,8 @@ blk_mq_rq_ctx_init.argprom.exit13:                ; preds = %._crit_edge.i12, %3
   %348 = call i64 @ktime_get() #22
   br label %349
 
-349:                                              ; preds = %347, %343, %blk_mq_rq_ctx_init.argprom.exit13
-  %350 = phi i64 [ %348, %347 ], [ 0, %343 ], [ 0, %blk_mq_rq_ctx_init.argprom.exit13 ]
+349:                                              ; preds = %347, %343, %blk_mq_rq_ctx_init.exit13
+  %350 = phi i64 [ %348, %347 ], [ 0, %343 ], [ 0, %blk_mq_rq_ctx_init.exit13 ]
   %351 = getelementptr inbounds i8, ptr %290, i64 104
   store i64 %350, ptr %351, align 8
   %352 = load ptr, ptr %290, align 8

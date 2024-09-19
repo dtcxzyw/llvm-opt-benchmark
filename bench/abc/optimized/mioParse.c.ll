@@ -43,11 +43,11 @@ define noundef ptr @Mio_ParseFormulaOper(ptr nocapture readnone %0, i32 noundef 
   ]
 
 17:                                               ; preds = %4
-  %18 = tail call fastcc ptr @Exp_And.argprom(i32 noundef %1, ptr noundef %16, ptr noundef %12, i32 noundef 0, i32 noundef 0)
+  %18 = tail call fastcc ptr @Exp_And(i32 noundef %1, ptr noundef %16, ptr noundef %12, i32 noundef 0, i32 noundef 0)
   br label %293
 
 19:                                               ; preds = %4
-  %20 = tail call fastcc ptr @Exp_And.argprom(i32 noundef %1, ptr noundef readonly %16, ptr noundef readonly %12, i32 noundef 1, i32 noundef 1)
+  %20 = tail call fastcc ptr @Exp_And(i32 noundef %1, ptr noundef readonly %16, ptr noundef readonly %12, i32 noundef 1, i32 noundef 1)
   %21 = getelementptr i8, ptr %20, i64 8
   %.val.i.i = load ptr, ptr %21, align 8
   %22 = load i32, ptr %.val.i.i, align 4
@@ -508,7 +508,7 @@ Vec_IntPush.exit91.i:                             ; preds = %223, %Vec_IntGrow.e
 
 .preheader.i:                                     ; preds = %Vec_IntPush.exit99.i, %Vec_IntPush.exit91.i
   %230 = icmp sgt i32 %.val42.i, 1
-  br i1 %230, label %.lr.ph3.preheader.i, label %Exp_Xor.argprom.exit
+  br i1 %230, label %.lr.ph3.preheader.i, label %Exp_Xor.exit
 
 .lr.ph3.preheader.i:                              ; preds = %.preheader.i
   %wide.trip.count8.i = zext nneg i32 %.val42.i to i64
@@ -655,17 +655,17 @@ Vec_IntPush.exit106.i:                            ; preds = %285, %Vec_IntGrow.e
   store i32 %263, ptr %290, align 4
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv5.i, 1
   %exitcond9.not.i = icmp eq i64 %indvars.iv.next6.i, %wide.trip.count8.i
-  br i1 %exitcond9.not.i, label %Exp_Xor.argprom.exit, label %.lr.ph3.i, !llvm.loop !6
+  br i1 %exitcond9.not.i, label %Exp_Xor.exit, label %.lr.ph3.i, !llvm.loop !6
 
-Exp_Xor.argprom.exit:                             ; preds = %Vec_IntPush.exit106.i, %.preheader.i
+Exp_Xor.exit:                                     ; preds = %Vec_IntPush.exit106.i, %.preheader.i
   %.val.i.i24 = load ptr, ptr %37, align 8
   %291 = load i32, ptr %.val.i.i24, align 4
   %292 = xor i32 %291, 1
   store i32 %292, ptr %.val.i.i24, align 4
   br label %293
 
-293:                                              ; preds = %19, %Exp_Xor.argprom.exit, %17
-  %.0 = phi ptr [ %18, %17 ], [ %20, %19 ], [ %29, %Exp_Xor.argprom.exit ]
+293:                                              ; preds = %19, %Exp_Xor.exit, %17
+  %.0 = phi ptr [ %18, %17 ], [ %20, %19 ], [ %29, %Exp_Xor.exit ]
   %294 = getelementptr inbounds i8, ptr %16, i64 8
   %295 = load ptr, ptr %294, align 8
   %.not.i = icmp eq ptr %295, null
@@ -758,7 +758,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Exp_And.argprom(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @Exp_And(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %2, i64 4

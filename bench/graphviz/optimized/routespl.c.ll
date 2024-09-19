@@ -163,7 +163,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.2, i64 noundef %0, i64 noundef %1) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 8:                                                ; preds = %4
@@ -175,7 +175,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, i64 noundef %13) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -1566,7 +1566,7 @@ define void @makeStraightEdges(ptr noundef %0, ptr nocapture noundef readonly %1
 62:                                               ; preds = %.lr.ph.i.i
   %63 = load ptr, ptr @stderr, align 8, !noalias !4
   %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.3, i64 noundef 24) #23, !noalias !4
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 gv_alloc.exit.i.i:                                ; preds = %.lr.ph.i.i
@@ -1599,7 +1599,7 @@ gv_alloc.exit.i.i:                                ; preds = %.lr.ph.i.i
   %79 = load ptr, ptr @stderr, align 8, !noalias !4
   %80 = tail call ptr @strerror(i32 noundef %.0.i.ph.i.i.i) #21, !noalias !4
   %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.21, ptr noundef %80) #23, !noalias !4
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 cycles_append.exit.i.i:                           ; preds = %73, %gv_alloc.exit.i.i
@@ -1704,13 +1704,13 @@ cycle_contains_edge.exit.i.i:                     ; preds = %109, %107, %98, %.l
   %.1.i.i = phi ptr [ %.06.i.i, %.lr.ph.i23.i ], [ %.06.i.i, %98 ], [ %93, %109 ], [ %.06.i.i, %107 ]
   %116 = add nuw i64 %.0145.i.i, 1
   %exitcond.not.i24.i = icmp eq i64 %116, %.val20.i
-  br i1 %exitcond.not.i24.i, label %find_shortest_cycle_with_edge.argprom.exit.i, label %.lr.ph.i23.i
+  br i1 %exitcond.not.i24.i, label %find_shortest_cycle_with_edge.exit.i, label %.lr.ph.i23.i
 
-find_shortest_cycle_with_edge.argprom.exit.i:     ; preds = %cycle_contains_edge.exit.i.i
+find_shortest_cycle_with_edge.exit.i:             ; preds = %cycle_contains_edge.exit.i.i
   %117 = icmp eq ptr %.1.i.i, null
   br i1 %117, label %.lr.ph.i.i26.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %find_shortest_cycle_with_edge.argprom.exit.i
+.preheader.i:                                     ; preds = %find_shortest_cycle_with_edge.exit.i
   %118 = getelementptr i8, ptr %.1.i.i, i64 8
   %.val.i = load i64, ptr %118, align 8
   %.not.i = icmp eq i64 %.val.i, 0
@@ -1720,8 +1720,8 @@ find_shortest_cycle_with_edge.argprom.exit.i:     ; preds = %cycle_contains_edge
   %.val18.i = load ptr, ptr %.1.i.i, align 8
   br label %138
 
-.lr.ph.i.i26.i:                                   ; preds = %find_shortest_cycle_with_edge.argprom.exit.i, %nodes_delete.exit.i.i.i
-  %.07.i.i.i = phi i64 [ %124, %nodes_delete.exit.i.i.i ], [ 0, %find_shortest_cycle_with_edge.argprom.exit.i ]
+.lr.ph.i.i26.i:                                   ; preds = %find_shortest_cycle_with_edge.exit.i, %nodes_delete.exit.i.i.i
+  %.07.i.i.i = phi i64 [ %124, %nodes_delete.exit.i.i.i ], [ 0, %find_shortest_cycle_with_edge.exit.i ]
   %119 = getelementptr inbounds ptr, ptr %.val19.i, i64 %.07.i.i.i
   %120 = load ptr, ptr %119, align 8
   %.not.i.i.i27.i = icmp eq ptr %120, null
@@ -2020,7 +2020,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #7
 declare double @hypot(double noundef, double noundef) local_unnamed_addr #8
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #9 {
+define internal fastcc void @graphviz_exit() unnamed_addr #9 {
   tail call void @exit(i32 noundef 1) #27
   unreachable
 }
@@ -2269,7 +2269,7 @@ define internal fastcc void @cycles_append(ptr nocapture noundef nonnull %0, ptr
   %23 = load ptr, ptr @stderr, align 8
   %24 = tail call ptr @strerror(i32 noundef %.0.i.ph) #21
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.21, ptr noundef %24) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 26:                                               ; preds = %16, %._crit_edge.i
@@ -2304,13 +2304,13 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %12 = getelementptr inbounds ptr, ptr %8, i64 %.01.i
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %1
-  br i1 %14, label %nodes_contains.argprom.exit, label %9
+  br i1 %14, label %nodes_contains.exit, label %9
 
-nodes_contains.argprom.exit:                      ; preds = %11
+nodes_contains.exit:                              ; preds = %11
   %15 = icmp eq ptr %1, %3
   br i1 %15, label %16, label %is_cycle_unique.exit
 
-16:                                               ; preds = %nodes_contains.argprom.exit
+16:                                               ; preds = %nodes_contains.exit
   %17 = getelementptr i8, ptr %4, i64 8
   %.val22.i = load i64, ptr %17, align 8
   %18 = icmp eq i64 %.val22.i, 0
@@ -2333,8 +2333,8 @@ nodes_contains.argprom.exit:                      ; preds = %11
   %.val24.i = load ptr, ptr %21, align 8
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %nodes_contains.argprom.exit.i, %.lr.ph.i27
-  %.01730.i = phi i64 [ 0, %.lr.ph.i27 ], [ %32, %nodes_contains.argprom.exit.i ]
+.lr.ph.i.i:                                       ; preds = %nodes_contains.exit.i, %.lr.ph.i27
+  %.01730.i = phi i64 [ 0, %.lr.ph.i27 ], [ %32, %nodes_contains.exit.i ]
   %24 = getelementptr inbounds ptr, ptr %.val24.i, i64 %.01730.i
   %25 = load ptr, ptr %24, align 8
   br label %28
@@ -2349,9 +2349,9 @@ nodes_contains.argprom.exit:                      ; preds = %11
   %29 = getelementptr inbounds ptr, ptr %8, i64 %.01.i.i
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %25
-  br i1 %31, label %nodes_contains.argprom.exit.i, label %26
+  br i1 %31, label %nodes_contains.exit.i, label %26
 
-nodes_contains.argprom.exit.i:                    ; preds = %28
+nodes_contains.exit.i:                            ; preds = %28
   %32 = add nuw i64 %.01730.i, 1
   %exitcond.not.i28 = icmp eq i64 %32, %7
   br i1 %exitcond.not.i28, label %is_cycle_unique.exit, label %.lr.ph.i.i
@@ -2369,7 +2369,7 @@ nodes_contains.argprom.exit.i:                    ; preds = %28
 36:                                               ; preds = %.loopexit
   %37 = load ptr, ptr @stderr, align 8
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.3, i64 noundef 24) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 gv_alloc.exit:                                    ; preds = %.loopexit
@@ -2429,7 +2429,7 @@ gv_alloc.exit:                                    ; preds = %.loopexit
   %63 = load ptr, ptr @stderr, align 8
   %64 = tail call ptr @strerror(i32 noundef %.0.i.ph.i) #21
   %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.21, ptr noundef %64) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 nodes_append.exit:                                ; preds = %._crit_edge.i.i, %56
@@ -2468,7 +2468,7 @@ nodes_append.exit:                                ; preds = %._crit_edge.i.i, %5
   store i64 %81, ptr %6, align 8
   br label %is_cycle_unique.exit
 
-is_cycle_unique.exit:                             ; preds = %nodes_contains.argprom.exit.i, %._crit_edge, %80, %nodes_contains.argprom.exit, %gv_alloc.exit
+is_cycle_unique.exit:                             ; preds = %nodes_contains.exit.i, %._crit_edge, %80, %nodes_contains.exit, %gv_alloc.exit
   ret void
 }
 

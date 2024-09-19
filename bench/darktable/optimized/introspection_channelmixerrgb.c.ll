@@ -5977,7 +5977,7 @@ find_temperature_from_raw_coeffs.exit.thread:     ; preds = %2813, %2789, %2798,
   %3792 = fmul reassoc nsz arcp contract afn float %3781, %3780
   %3793 = fadd reassoc nsz arcp contract afn float %3792, %3749
   %3794 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3793, float %3791)
-  br i1 %3421, label %3795, label %_luma_chroma.argprom.exit.i
+  br i1 %3421, label %3795, label %_luma_chroma.exit.i
 
 3795:                                             ; preds = %3779
   %3796 = fmul reassoc nsz arcp contract afn <2 x float> %3789, %3789
@@ -5990,9 +5990,9 @@ find_temperature_from_raw_coeffs.exit.thread:     ; preds = %2813, %2789, %2798,
   %3803 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3802, float 0x3EF0000000000000)
   %3804 = fmul reassoc nsz arcp contract afn float %3803, 0x3FE279A740000000
   %3805 = fdiv reassoc nsz arcp contract afn float %3742, %3804
-  br label %_luma_chroma.argprom.exit.i
+  br label %_luma_chroma.exit.i
 
-_luma_chroma.argprom.exit.i:                      ; preds = %3795, %3779
+_luma_chroma.exit.i:                              ; preds = %3795, %3779
   %3806 = phi float [ %3805, %3795 ], [ %3741, %3779 ]
   %3807 = fmul reassoc nsz arcp contract afn <2 x float> %.val10.i, %3733
   %3808 = fmul reassoc nsz arcp contract afn float %.val.i, %3729
@@ -6090,7 +6090,7 @@ _luma_chroma.argprom.exit.i:                      ; preds = %3795, %3779
   %3885 = fmul reassoc nsz arcp contract afn float %3874, %3873
   %3886 = fadd reassoc nsz arcp contract afn float %3885, %3842
   %3887 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3886, float %3884)
-  br i1 %3421, label %3888, label %_luma_chroma.argprom.exit14.i
+  br i1 %3421, label %3888, label %_luma_chroma.exit14.i
 
 3888:                                             ; preds = %3872
   %3889 = fmul reassoc nsz arcp contract afn <2 x float> %3882, %3882
@@ -6103,9 +6103,9 @@ _luma_chroma.argprom.exit.i:                      ; preds = %3795, %3779
   %3896 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3895, float 0x3EF0000000000000)
   %3897 = fmul reassoc nsz arcp contract afn float %3896, 0x3FE279A740000000
   %3898 = fdiv reassoc nsz arcp contract afn float %3837, %3897
-  br label %_luma_chroma.argprom.exit14.i
+  br label %_luma_chroma.exit14.i
 
-_luma_chroma.argprom.exit14.i:                    ; preds = %3888, %3872
+_luma_chroma.exit14.i:                            ; preds = %3888, %3872
   %3899 = phi float [ %3898, %3888 ], [ %3836, %3872 ]
   %3900 = fmul reassoc nsz arcp contract afn <2 x float> %.sroa.084.i.4..sroa.084.i.4..sroa.084.i.4..sroa.084.4..sroa.084.4..sroa.084.4.87.i, %.val12.i
   %3901 = fmul reassoc nsz arcp contract afn float %.val11.i, %.sroa.084.0..sroa.084.0..sroa.084.0.85.i
@@ -6130,8 +6130,8 @@ _luma_chroma.argprom.exit14.i:                    ; preds = %3888, %3872
   %.sroa.0.8.vec.insert83.i = insertelement <4 x float> %.sroa.0.0.vecblend41.i, float %3917, i64 2
   br label %3918
 
-3918:                                             ; preds = %_luma_chroma.argprom.exit14.i, %_luma_chroma.argprom.exit.i
-  %.sroa.0.4.i = phi nsz <4 x float> [ %.sroa.0.8.vec.insert83.i, %_luma_chroma.argprom.exit14.i ], [ %.sroa.0.8.vec.insert59.i, %_luma_chroma.argprom.exit.i ]
+3918:                                             ; preds = %_luma_chroma.exit14.i, %_luma_chroma.exit.i
+  %.sroa.0.4.i = phi nsz <4 x float> [ %.sroa.0.8.vec.insert83.i, %_luma_chroma.exit14.i ], [ %.sroa.0.8.vec.insert59.i, %_luma_chroma.exit.i ]
   br i1 %3389, label %3931, label %3919
 
 3919:                                             ; preds = %3918
@@ -9222,13 +9222,13 @@ find_temperature_from_raw_coeffs.exit9:           ; preds = %330
   %612 = fadd reassoc nsz arcp contract afn float %611, %603
   %613 = fadd reassoc nsz arcp contract afn float %612, %600
   %.val.i = load i32, ptr %604, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val.i, ptr noundef %583, ptr noundef %571, float noundef %609, float noundef %613, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val.i, ptr noundef %583, ptr noundef %571, float noundef %609, float noundef %613, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %614 = fadd reassoc nsz arcp contract afn float %605, %611
   %.val1.i = load i32, ptr %604, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val1.i, ptr noundef %583, ptr noundef %575, float noundef %609, float noundef %614, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val1.i, ptr noundef %583, ptr noundef %575, float noundef %609, float noundef %614, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %615 = fadd reassoc nsz arcp contract afn float %612, %602
   %.val2.i = load i32, ptr %604, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val2.i, ptr noundef %583, ptr noundef %577, float noundef %609, float noundef %615, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val2.i, ptr noundef %583, ptr noundef %577, float noundef %609, float noundef %615, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %616 = add nuw nsw i32 %607, 1
   %617 = icmp eq i32 %616, 20
   br i1 %617, label %_update_RGB_colors.exit, label %606
@@ -9321,13 +9321,13 @@ _update_RGB_colors.exit:                          ; preds = %606
   %679 = fadd reassoc nsz arcp contract afn float %678, %670
   %680 = fadd reassoc nsz arcp contract afn float %679, %667
   %.val.i10 = load i32, ptr %671, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val.i10, ptr noundef %650, ptr noundef %552, float noundef %676, float noundef %680, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val.i10, ptr noundef %650, ptr noundef %552, float noundef %676, float noundef %680, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %681 = fadd reassoc nsz arcp contract afn float %672, %678
   %.val1.i11 = load i32, ptr %671, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val1.i11, ptr noundef %650, ptr noundef %642, float noundef %676, float noundef %681, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val1.i11, ptr noundef %650, ptr noundef %642, float noundef %676, float noundef %681, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %682 = fadd reassoc nsz arcp contract afn float %679, %669
   %.val2.i12 = load i32, ptr %671, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val2.i12, ptr noundef %650, ptr noundef %644, float noundef %676, float noundef %682, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val2.i12, ptr noundef %650, ptr noundef %644, float noundef %676, float noundef %682, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %683 = add nuw nsw i32 %674, 1
   %684 = icmp eq i32 %683, 20
   br i1 %684, label %_update_RGB_colors.exit13, label %673
@@ -9393,13 +9393,13 @@ _update_RGB_colors.exit13:                        ; preds = %673
   %729 = fadd reassoc nsz arcp contract afn float %728, %720
   %730 = fadd reassoc nsz arcp contract afn float %729, %717
   %.val.i14 = load i32, ptr %721, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val.i14, ptr noundef %700, ptr noundef %690, float noundef %726, float noundef %730, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val.i14, ptr noundef %700, ptr noundef %690, float noundef %726, float noundef %730, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
   %731 = fadd reassoc nsz arcp contract afn float %722, %728
   %.val1.i15 = load i32, ptr %721, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val1.i15, ptr noundef %700, ptr noundef %692, float noundef %726, float noundef %731, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val1.i15, ptr noundef %700, ptr noundef %692, float noundef %726, float noundef %731, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
   %732 = fadd reassoc nsz arcp contract afn float %729, %719
   %.val2.i16 = load i32, ptr %721, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val2.i16, ptr noundef %700, ptr noundef %694, float noundef %726, float noundef %732, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val2.i16, ptr noundef %700, ptr noundef %694, float noundef %726, float noundef %732, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
   %733 = add nuw nsw i32 %724, 1
   %734 = icmp eq i32 %733, 20
   br i1 %734, label %_update_RGB_colors.exit17, label %723
@@ -9498,13 +9498,13 @@ _update_RGB_colors.exit17:                        ; preds = %723
   %800 = fadd reassoc nsz arcp contract afn float %799, %791
   %801 = fadd reassoc nsz arcp contract afn float %800, %788
   %.val.i18 = load i32, ptr %792, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val.i18, ptr noundef %771, ptr noundef %761, float noundef %797, float noundef %801, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val.i18, ptr noundef %771, ptr noundef %761, float noundef %797, float noundef %801, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   %802 = fadd reassoc nsz arcp contract afn float %793, %799
   %.val1.i19 = load i32, ptr %792, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val1.i19, ptr noundef %771, ptr noundef %763, float noundef %797, float noundef %802, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val1.i19, ptr noundef %771, ptr noundef %763, float noundef %797, float noundef %802, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   %803 = fadd reassoc nsz arcp contract afn float %800, %790
   %.val2.i20 = load i32, ptr %792, align 4, !tbaa !23
-  tail call fastcc void @_update_RGB_slider_stop.argprom(i32 %.val2.i20, ptr noundef %771, ptr noundef %765, float noundef %797, float noundef %803, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+  tail call fastcc void @_update_RGB_slider_stop(i32 %.val2.i20, ptr noundef %771, ptr noundef %765, float noundef %797, float noundef %803, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   %804 = add nuw nsw i32 %795, 1
   %805 = icmp eq i32 %804, 20
   br i1 %805, label %_update_RGB_colors.exit21, label %794
@@ -10377,7 +10377,7 @@ define internal fastcc void @_paint_hue(ptr nocapture readonly %0) unnamed_addr 
   %11 = fmul reassoc nsz arcp contract afn float %9, 0x3FA13F0E80000000
   br label %18
 
-12:                                               ; preds = %dt_XYZ_to_sRGB.argprom.exit7
+12:                                               ; preds = %dt_XYZ_to_sRGB.exit7
   %13 = load ptr, ptr %2, align 64, !tbaa !249
   tail call void @gtk_widget_queue_draw(ptr noundef %13) #28
   %14 = load ptr, ptr %5, align 16, !tbaa !251
@@ -10389,8 +10389,8 @@ define internal fastcc void @_paint_hue(ptr nocapture readonly %0) unnamed_addr 
   tail call void @gtk_widget_queue_draw(ptr noundef %17) #28
   ret void
 
-18:                                               ; preds = %dt_XYZ_to_sRGB.argprom.exit7, %1
-  %19 = phi i32 [ 0, %1 ], [ %332, %dt_XYZ_to_sRGB.argprom.exit7 ]
+18:                                               ; preds = %dt_XYZ_to_sRGB.exit7, %1
+  %19 = phi i32 [ 0, %1 ], [ %332, %dt_XYZ_to_sRGB.exit7 ]
   %20 = uitofp nneg i32 %19 to float
   %21 = fmul reassoc nsz arcp contract afn float %20, 0x3FAAF286C0000000
   %22 = fmul reassoc nsz arcp contract afn float %20, 0x3FD52A1720000000
@@ -10464,7 +10464,7 @@ define internal fastcc void @_paint_hue(ptr nocapture readonly %0) unnamed_addr 
 
 87:                                               ; preds = %18
   %88 = fmul reassoc nsz arcp contract afn float %46, 0x4029D70A40000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
 89:                                               ; preds = %18
   %90 = extractelement <4 x float> %84, i64 0
@@ -10484,9 +10484,9 @@ define internal fastcc void @_paint_hue(ptr nocapture readonly %0) unnamed_addr 
   %104 = fmul reassoc nsz arcp contract afn float %103, 0x3FF0E147A0000000
   %105 = fmul reassoc nsz arcp contract afn float %104, %99
   %106 = fadd reassoc nsz arcp contract afn float %105, 0xBFAC28F5C0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
-dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %87, %89
+dt_XYZ_to_sRGB.exit:                              ; preds = %87, %89
   %107 = phi reassoc nsz arcp contract afn float [ %106, %89 ], [ %88, %87 ]
   %108 = fmul reassoc nsz arcp contract afn <2 x float> %53, <float 0x4029D70A40000000, float 0x4029D70A40000000>
   %109 = fcmp reassoc nsz arcp contract afn ugt <2 x float> %53, <float 0x3F69A5C380000000, float 0x3F69A5C380000000>
@@ -10574,11 +10574,11 @@ dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %87, %89
   %185 = fsub reassoc nsz arcp contract afn <4 x float> %180, %183
   br i1 %184, label %188, label %186
 
-186:                                              ; preds = %dt_XYZ_to_sRGB.argprom.exit
+186:                                              ; preds = %dt_XYZ_to_sRGB.exit
   %187 = fmul reassoc nsz arcp contract afn float %145, 0x4029D70A40000000
-  br label %dt_XYZ_to_sRGB.argprom.exit6
+  br label %dt_XYZ_to_sRGB.exit6
 
-188:                                              ; preds = %dt_XYZ_to_sRGB.argprom.exit
+188:                                              ; preds = %dt_XYZ_to_sRGB.exit
   %189 = extractelement <4 x float> %183, i64 0
   %190 = extractelement <4 x float> %185, i64 0
   %191 = fmul reassoc nsz arcp contract afn float %190, 0x3F8BB7CD20000000
@@ -10596,9 +10596,9 @@ dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %87, %89
   %203 = fmul reassoc nsz arcp contract afn float %202, 0x3FF0E147A0000000
   %204 = fmul reassoc nsz arcp contract afn float %203, %198
   %205 = fadd reassoc nsz arcp contract afn float %204, 0xBFAC28F5C0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit6
+  br label %dt_XYZ_to_sRGB.exit6
 
-dt_XYZ_to_sRGB.argprom.exit6:                     ; preds = %186, %188
+dt_XYZ_to_sRGB.exit6:                             ; preds = %186, %188
   %206 = phi reassoc nsz arcp contract afn float [ %205, %188 ], [ %187, %186 ]
   %207 = fmul reassoc nsz arcp contract afn <2 x float> %152, <float 0x4029D70A40000000, float 0x4029D70A40000000>
   %208 = fcmp reassoc nsz arcp contract afn ugt <2 x float> %152, <float 0x3F69A5C380000000, float 0x3F69A5C380000000>
@@ -10690,11 +10690,11 @@ dt_XYZ_to_sRGB.argprom.exit6:                     ; preds = %186, %188
   %289 = fsub reassoc nsz arcp contract afn <4 x float> %284, %287
   br i1 %288, label %292, label %290
 
-290:                                              ; preds = %dt_XYZ_to_sRGB.argprom.exit6
+290:                                              ; preds = %dt_XYZ_to_sRGB.exit6
   %291 = fmul reassoc nsz arcp contract afn float %249, 0x4029D70A40000000
-  br label %dt_XYZ_to_sRGB.argprom.exit7
+  br label %dt_XYZ_to_sRGB.exit7
 
-292:                                              ; preds = %dt_XYZ_to_sRGB.argprom.exit6
+292:                                              ; preds = %dt_XYZ_to_sRGB.exit6
   %293 = extractelement <4 x float> %287, i64 0
   %294 = extractelement <4 x float> %289, i64 0
   %295 = fmul reassoc nsz arcp contract afn float %294, 0x3F8BB7CD20000000
@@ -10712,9 +10712,9 @@ dt_XYZ_to_sRGB.argprom.exit6:                     ; preds = %186, %188
   %307 = fmul reassoc nsz arcp contract afn float %306, 0x3FF0E147A0000000
   %308 = fmul reassoc nsz arcp contract afn float %307, %302
   %309 = fadd reassoc nsz arcp contract afn float %308, 0xBFAC28F5C0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit7
+  br label %dt_XYZ_to_sRGB.exit7
 
-dt_XYZ_to_sRGB.argprom.exit7:                     ; preds = %290, %292
+dt_XYZ_to_sRGB.exit7:                             ; preds = %290, %292
   %310 = phi reassoc nsz arcp contract afn float [ %309, %292 ], [ %291, %290 ]
   %311 = fmul reassoc nsz arcp contract afn <2 x float> %256, <float 0x4029D70A40000000, float 0x4029D70A40000000>
   %312 = fcmp reassoc nsz arcp contract afn ugt <2 x float> %256, <float 0x3F69A5C380000000, float 0x3F69A5C380000000>
@@ -11475,7 +11475,7 @@ define internal fastcc void @_auto_set_illuminant(ptr noundef %0, ptr noundef %1
 
 128:                                              ; preds = %35
   %129 = fmul reassoc nsz arcp contract afn float %86, 0x4029D70A40000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
 130:                                              ; preds = %35
   %131 = extractelement <4 x float> %125, i64 0
@@ -11495,9 +11495,9 @@ define internal fastcc void @_auto_set_illuminant(ptr noundef %0, ptr noundef %1
   %145 = fmul reassoc nsz arcp contract afn float %144, 0x3FF0E147A0000000
   %146 = fmul reassoc nsz arcp contract afn float %145, %140
   %147 = fadd reassoc nsz arcp contract afn float %146, 0xBFAC28F5C0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
-dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %128, %130
+dt_XYZ_to_sRGB.exit:                              ; preds = %128, %130
   %148 = phi reassoc nsz arcp contract afn float [ %147, %130 ], [ %129, %128 ]
   %149 = extractelement <4 x float> %125, i64 3
   %150 = extractelement <4 x float> %127, i64 3
@@ -11547,7 +11547,7 @@ dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %128, %130
   %191 = fcmp reassoc nsz arcp contract afn ogt float %190, 0x3F822354E0000000
   br i1 %191, label %192, label %205
 
-192:                                              ; preds = %dt_XYZ_to_sRGB.argprom.exit
+192:                                              ; preds = %dt_XYZ_to_sRGB.exit
   %193 = bitcast float %190 to i32
   %194 = udiv i32 %193, 3
   %195 = add nuw nsw i32 %194, 709921077
@@ -11562,7 +11562,7 @@ dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %128, %130
   %204 = fdiv reassoc nsz arcp contract afn float %201, %203
   br label %208
 
-205:                                              ; preds = %dt_XYZ_to_sRGB.argprom.exit
+205:                                              ; preds = %dt_XYZ_to_sRGB.exit
   %206 = fmul reassoc nsz arcp contract afn float %81, 0x402026FEE0000000
   %207 = fadd reassoc nsz arcp contract afn float %206, 0x3FC1A7B960000000
   br label %208
@@ -14506,7 +14506,7 @@ define internal noundef i32 @_target_color_draw(ptr noundef %0, ptr noundef %1, 
 
 120:                                              ; preds = %3
   %121 = fmul reassoc nsz arcp contract afn float %78, 0x4029D70A40000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
 122:                                              ; preds = %3
   %123 = extractelement <4 x float> %117, i64 0
@@ -14526,9 +14526,9 @@ define internal noundef i32 @_target_color_draw(ptr noundef %0, ptr noundef %1, 
   %137 = fmul reassoc nsz arcp contract afn float %136, 0x3FF0E147A0000000
   %138 = fmul reassoc nsz arcp contract afn float %137, %132
   %139 = fadd reassoc nsz arcp contract afn float %138, 0xBFAC28F5C0000000
-  br label %dt_XYZ_to_sRGB.argprom.exit
+  br label %dt_XYZ_to_sRGB.exit
 
-dt_XYZ_to_sRGB.argprom.exit:                      ; preds = %120, %122
+dt_XYZ_to_sRGB.exit:                              ; preds = %120, %122
   %140 = phi reassoc nsz arcp contract afn float [ %139, %122 ], [ %121, %120 ]
   %141 = sitofp i32 %10 to float
   %142 = fmul reassoc nsz arcp contract afn double %27, 3.000000e+00
@@ -17543,7 +17543,7 @@ declare void @gtk_widget_set_visible(ptr noundef, i32 noundef) local_unnamed_add
 declare void @gtk_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_RGB_slider_stop.argprom(i32 %.132.val, ptr noundef readonly %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #3 {
+define internal fastcc void @_update_RGB_slider_stop(i32 %.132.val, ptr noundef readonly %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #3 {
   %8 = alloca [4 x float], align 16
   %9 = alloca float, align 8
   %10 = alloca float, align 4

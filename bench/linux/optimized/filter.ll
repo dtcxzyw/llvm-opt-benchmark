@@ -14955,19 +14955,19 @@ define internal i32 @bpf_convert_ctx_access(i32 noundef %0, ptr noundef readonly
   br i1 %394, label %396, label %398
 
 396:                                              ; preds = %393
-  %397 = tail call fastcc ptr @bpf_convert_tstamp_write.argprom(i16 %.val, ptr noundef %1, ptr noundef %2)
+  %397 = tail call fastcc ptr @bpf_convert_tstamp_write(i16 %.val, ptr noundef %1, ptr noundef %2)
   br label %496
 
 398:                                              ; preds = %393
   %399 = getelementptr i8, ptr %1, i64 1
   %.val2 = load i8, ptr %399, align 1
-  %400 = tail call fastcc ptr @bpf_convert_tstamp_read.argprom(i16 %.val, i8 %.val2, ptr noundef %2)
+  %400 = tail call fastcc ptr @bpf_convert_tstamp_read(i16 %.val, i8 %.val2, ptr noundef %2)
   br label %496
 
 401:                                              ; preds = %5
   %402 = getelementptr i8, ptr %1, i64 1
   %.val3 = load i8, ptr %402, align 1
-  %403 = tail call fastcc ptr @bpf_convert_tstamp_type_read.argprom(i8 %.val3, ptr noundef %2)
+  %403 = tail call fastcc ptr @bpf_convert_tstamp_type_read(i8 %.val3, ptr noundef %2)
   br label %496
 
 404:                                              ; preds = %5
@@ -28702,7 +28702,7 @@ define internal fastcc noundef zeroext i1 @bpf_skb_is_valid_access(i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef ptr @bpf_convert_tstamp_write.argprom(i16 %.2.val, ptr nocapture noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #15 align 16 {
+define internal fastcc noundef ptr @bpf_convert_tstamp_write(i16 %.2.val, ptr nocapture noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #15 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = and i16 %.2.val, 8192
@@ -28775,7 +28775,7 @@ define internal fastcc noundef ptr @bpf_convert_tstamp_write.argprom(i16 %.2.val
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal fastcc noundef ptr @bpf_convert_tstamp_read.argprom(i16 %.2.val, i8 %.1.val, ptr noundef writeonly %0) unnamed_addr #18 align 16 {
+define internal fastcc noundef ptr @bpf_convert_tstamp_read(i16 %.2.val, i8 %.1.val, ptr noundef writeonly %0) unnamed_addr #18 align 16 {
   %2 = and i16 %.2.val, 8192
   %3 = icmp eq i16 %2, 0
   br i1 %3, label %4, label %28
@@ -28840,7 +28840,7 @@ define internal fastcc noundef ptr @bpf_convert_tstamp_read.argprom(i16 %.2.val,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal fastcc noundef ptr @bpf_convert_tstamp_type_read.argprom(i8 %.1.val, ptr noundef writeonly %0) unnamed_addr #18 align 16 {
+define internal fastcc noundef ptr @bpf_convert_tstamp_type_read(i8 %.1.val, ptr noundef writeonly %0) unnamed_addr #18 align 16 {
   %2 = and i8 %.1.val, 15
   %3 = and i8 %.1.val, -16
   %4 = getelementptr i8, ptr %0, i64 8

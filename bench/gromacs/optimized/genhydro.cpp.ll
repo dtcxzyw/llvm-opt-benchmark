@@ -187,7 +187,7 @@ define noundef i32 @_Z5add_hPP7t_atomsS1_PSt6vectorIN3gmx11BasicVectorIfEESaIS5_
 30:                                               ; preds = %36, %13
   %.018 = phi i32 [ 0, %13 ], [ %37, %36 ]
   %.0 = phi i32 [ 0, %13 ], [ %31, %36 ]
-  %31 = tail call fastcc noundef i32 @_ZL9add_h_lowPP7t_atomsS1_PSt6vectorIN3gmx11BasicVectorIfEESaIS5_EENS3_8ArrayRefIK21MoleculePatchDatabaseEEP8t_symtabiNS9_IKPSA_EESH_NS9_IKiEESJ_bSJ_.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr %18, ptr noundef %5, i32 noundef %6, ptr %19, ptr %20, ptr %21, ptr %22, i1 noundef zeroext false, ptr %23, ptr %29)
+  %31 = tail call fastcc noundef i32 @_ZL9add_h_lowPP7t_atomsS1_PSt6vectorIN3gmx11BasicVectorIfEESaIS5_EENS3_8ArrayRefIK21MoleculePatchDatabaseEEP8t_symtabiNS9_IKPSA_EESH_NS9_IKiEESJ_bSJ_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr %18, ptr noundef %5, i32 noundef %6, ptr %19, ptr %20, ptr %21, ptr %22, i1 noundef zeroext false, ptr %23, ptr %29)
   %exitcond = icmp eq i32 %.018, 100
   br i1 %exitcond, label %32, label %36
 
@@ -214,7 +214,7 @@ define noundef i32 @_Z5add_hPP7t_atomsS1_PSt6vectorIN3gmx11BasicVectorIfEESaIS5_
   br i1 %11, label %42, label %40
 
 40:                                               ; preds = %39
-  %41 = tail call fastcc noundef i32 @_ZL9add_h_lowPP7t_atomsS1_PSt6vectorIN3gmx11BasicVectorIfEESaIS5_EENS3_8ArrayRefIK21MoleculePatchDatabaseEEP8t_symtabiNS9_IKPSA_EESH_NS9_IKiEESJ_bSJ_.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr %18, ptr noundef %5, i32 noundef %6, ptr %19, ptr %20, ptr %21, ptr %22, i1 noundef zeroext true, ptr %23, ptr %29)
+  %41 = tail call fastcc noundef i32 @_ZL9add_h_lowPP7t_atomsS1_PSt6vectorIN3gmx11BasicVectorIfEESaIS5_EENS3_8ArrayRefIK21MoleculePatchDatabaseEEP8t_symtabiNS9_IKPSA_EESH_NS9_IKiEESJ_bSJ_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr %18, ptr noundef %5, i32 noundef %6, ptr %19, ptr %20, ptr %21, ptr %22, i1 noundef zeroext true, ptr %23, ptr %29)
   br label %42
 
 42:                                               ; preds = %40, %39
@@ -222,7 +222,7 @@ define noundef i32 @_Z5add_hPP7t_atomsS1_PSt6vectorIN3gmx11BasicVectorIfEESaIS5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL9add_h_lowPP7t_atomsS1_PSt6vectorIN3gmx11BasicVectorIfEESaIS5_EENS3_8ArrayRefIK21MoleculePatchDatabaseEEP8t_symtabiNS9_IKPSA_EESH_NS9_IKiEESJ_bSJ_.argprom.argelim(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr %3, ptr %4, ptr noundef %5, i32 noundef %6, ptr nocapture readonly %.0.val, ptr nocapture readonly %.0.val1, ptr nocapture readonly %.0.val5, ptr nocapture readonly %.0.val9, i1 noundef zeroext %7, ptr %.0.val13, ptr %.8.val15) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL9add_h_lowPP7t_atomsS1_PSt6vectorIN3gmx11BasicVectorIfEESaIS5_EENS3_8ArrayRefIK21MoleculePatchDatabaseEEP8t_symtabiNS9_IKPSA_EESH_NS9_IKiEESJ_bSJ_(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr %3, ptr %4, ptr noundef %5, i32 noundef %6, ptr nocapture readonly %.0.val, ptr nocapture readonly %.0.val1, ptr nocapture readonly %.0.val5, ptr nocapture readonly %.0.val9, i1 noundef zeroext %7, ptr %.0.val13, ptr %.8.val15) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.gmx::ArrayRef.3", align 8
   %10 = alloca %"class.gmx::InternalError", align 8
   %11 = alloca %"class.gmx::ExceptionInitializer", align 8
@@ -326,7 +326,7 @@ _ZSt10_ConstructI21MoleculePatchDatabaseJEEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds 
 .preheader.i:                                     ; preds = %72, %.loopexit12.i
   %51 = load i32, ptr %29, align 8, !noalias !7
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph15.i, label %_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.argprom.exit
+  br i1 %52, label %.lr.ph15.i, label %_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.exit
 
 .lr.ph15.i:                                       ; preds = %.preheader.i
   %53 = getelementptr inbounds i8, ptr %23, i64 48
@@ -413,14 +413,14 @@ _ZSt10_ConstructI21MoleculePatchDatabaseJEEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds 
   %87 = load i32, ptr %29, align 8, !noalias !7
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next18.i, %88
-  br i1 %89, label %73, label %_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.argprom.exit, !llvm.loop !12
+  br i1 %89, label %73, label %_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.exit, !llvm.loop !12
 
-_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.argprom.exit: ; preds = %86, %.preheader.i
+_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.exit: ; preds = %86, %.preheader.i
   %90 = sext i32 %24 to i64
   invoke void @_ZNSt6vectorIS_I13MoleculePatchSaIS0_EESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %90)
           to label %91 unwind label %368
 
-91:                                               ; preds = %_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.argprom.exit
+91:                                               ; preds = %_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.exit
   %92 = load ptr, ptr %22, align 8
   %93 = getelementptr inbounds i8, ptr %22, i64 8
   %94 = load ptr, ptr %20, align 8
@@ -668,7 +668,7 @@ _ZSt8_DestroyIP21MoleculePatchDatabaseS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %176 = load i32, ptr %23, align 8
   %177 = icmp sgt i32 %176, 0
-  br i1 %177, label %.lr.ph.i.i, label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i
+  br i1 %177, label %.lr.ph.i.i, label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i
 
 .lr.ph.i.i:                                       ; preds = %173
   %178 = load ptr, ptr %146, align 8
@@ -685,20 +685,20 @@ _ZSt8_DestroyIP21MoleculePatchDatabaseS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt
 182:                                              ; preds = %179
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i, label %179, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i, label %179, !llvm.loop !17
 
 .critedge.loopexit.split.loop.exit5.i.i:          ; preds = %179
   %183 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  br label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i
+  br label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i
 
-_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i: ; preds = %182, %.critedge.loopexit.split.loop.exit5.i.i, %173
+_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i: ; preds = %182, %.critedge.loopexit.split.loop.exit5.i.i, %173
   %.0.lcssa.i.i = phi i32 [ 0, %173 ], [ %183, %.critedge.loopexit.split.loop.exit5.i.i ], [ %176, %182 ]
   store ptr %.0.val13, ptr %13, align 8
   store ptr %143, ptr %149, align 8
   %184 = invoke noundef i32 @_Z11search_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE(ptr noundef %175, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull %23, ptr noundef nonnull %147, i1 noundef zeroext %148, ptr noundef nonnull byval(%"class.gmx::ArrayRef.3") align 8 %13)
           to label %.noexc168 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc168:                                        ; preds = %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i
+.noexc168:                                        ; preds = %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %185 = icmp slt i32 %184, 0
   br i1 %185, label %186, label %250
@@ -1034,7 +1034,7 @@ _ZSt4copyIP9t_resinfoS1_ET0_T_S3_S2_.exit.thread64: ; preds = %.loopexit80.threa
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %310 = load i32, ptr %23, align 8
   %311 = icmp sgt i32 %310, 0
-  br i1 %311, label %.lr.ph.i.i181, label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i178
+  br i1 %311, label %.lr.ph.i.i181, label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i178
 
 .lr.ph.i.i181:                                    ; preds = %307
   %312 = load ptr, ptr %295, align 8
@@ -1051,20 +1051,20 @@ _ZSt4copyIP9t_resinfoS1_ET0_T_S3_S2_.exit.thread64: ; preds = %.loopexit80.threa
 316:                                              ; preds = %313
   %indvars.iv.next.i.i185 = add nuw nsw i64 %indvars.iv.i.i183, 1
   %exitcond.not.i.i186 = icmp eq i64 %indvars.iv.next.i.i185, %wide.trip.count.i.i182
-  br i1 %exitcond.not.i.i186, label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i178, label %313, !llvm.loop !17
+  br i1 %exitcond.not.i.i186, label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i178, label %313, !llvm.loop !17
 
 .critedge.loopexit.split.loop.exit5.i.i187:       ; preds = %313
   %317 = trunc nuw nsw i64 %indvars.iv.i.i183 to i32
-  br label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i178
+  br label %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i178
 
-_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i178: ; preds = %316, %.critedge.loopexit.split.loop.exit5.i.i187, %307
+_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i178: ; preds = %316, %.critedge.loopexit.split.loop.exit5.i.i187, %307
   %.0.lcssa.i.i179 = phi i32 [ 0, %307 ], [ %317, %.critedge.loopexit.split.loop.exit5.i.i187 ], [ %310, %316 ]
   store ptr %.0.val13, ptr %9, align 8
   store ptr %143, ptr %296, align 8
   %318 = invoke noundef i32 @_Z11search_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE(ptr noundef %309, i32 noundef %.0.lcssa.i.i179, ptr noundef nonnull %23, ptr noundef nonnull @.str.20, i1 noundef zeroext true, ptr noundef nonnull byval(%"class.gmx::ArrayRef.3") align 8 %9)
           to label %.noexc189 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc189:                                        ; preds = %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i178
+.noexc189:                                        ; preds = %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i178
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %.not.i180 = icmp eq i32 %318, -1
   %319 = getelementptr inbounds i8, ptr %.sroa.029.052.i, i64 240
@@ -1212,12 +1212,12 @@ _ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i178: ; p
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph.i174, %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i178
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph.i174, %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i178
   %lpad.loopexit71 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i
   %lpad.loopexit74 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1232,7 +1232,7 @@ _ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.argprom.exit.i178: ; p
           cleanup
   br label %.body
 
-368:                                              ; preds = %_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.argprom.exit
+368:                                              ; preds = %_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.exit
   %369 = landingpad { ptr, i32 }
           cleanup
   br label %.body157
@@ -1473,14 +1473,14 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit213: ; preds = %462, %4
   %469 = getelementptr inbounds i8, ptr %468, i64 16
   %470 = load ptr, ptr %469, align 8
   %471 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 511, ptr noundef %470, i64 noundef %427, i64 noundef 8)
-          to label %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.argprom.exit unwind label %.loopexit.split-lp.loopexit
+          to label %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit
 
-_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.argprom.exit: ; preds = %467
+_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit:      ; preds = %467
   store ptr %471, ptr %469, align 8
   br label %472
 
-472:                                              ; preds = %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.argprom.exit, %423
-  %.1118 = phi i32 [ %426, %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.argprom.exit ], [ %.0117123, %423 ]
+472:                                              ; preds = %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit, %423
+  %.1118 = phi i32 [ %426, %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit ], [ %.0117123, %423 ]
   %473 = load ptr, ptr %1, align 8
   %474 = load ptr, ptr %295, align 8
   %475 = getelementptr inbounds %struct.t_atom, ptr %474, i64 %413
@@ -1643,14 +1643,14 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit232: ; preds = %548, %5
   %555 = getelementptr inbounds i8, ptr %554, i64 16
   %556 = load ptr, ptr %555, align 8
   %557 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 528, ptr noundef %556, i64 noundef %513, i64 noundef 8)
-          to label %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.argprom.exit236 unwind label %.loopexit
+          to label %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit236 unwind label %.loopexit
 
-_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.argprom.exit236: ; preds = %553
+_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit236:   ; preds = %553
   store ptr %557, ptr %555, align 8
   br label %558
 
-558:                                              ; preds = %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.argprom.exit236, %508
-  %.4 = phi i32 [ %512, %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.argprom.exit236 ], [ %.2117, %508 ]
+558:                                              ; preds = %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit236, %508
+  %.4 = phi i32 [ %512, %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit236 ], [ %.2117, %508 ]
   %559 = load ptr, ptr %295, align 8
   %560 = getelementptr inbounds %struct.t_atom, ptr %559, i64 %413, i32 7
   %561 = load i32, ptr %560, align 4
@@ -3895,8 +3895,8 @@ attributes #23 = { noreturn nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_.argprom"}
+!8 = distinct !{!8, !9, !"_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_: argument 0"}
+!9 = distinct !{!9, !"_ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseEEiNS3_IKPS4_EES9_NS3_IKiEESB_"}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}

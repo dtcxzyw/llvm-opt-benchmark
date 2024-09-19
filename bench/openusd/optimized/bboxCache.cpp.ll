@@ -2739,7 +2739,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread.i: ; preds = %
 62:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(312) %9, i64 312, i1 false)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache32_ComputeBoundWithOverridesHelperINS_12_GLOBAL__N_118_IdentityTransformEEENS_8GfBBox3dERKNS_7UsdPrimERKSt3setINS_7SdfPathESt4lessIS9_ESaIS9_EERKT_RKNS_9TfHashMapIS9_NS_10GfMatrix4dENS9_4HashESt8equal_toIS9_ESaISt4pairIKS9_SK_EEEE.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache32_ComputeBoundWithOverridesHelperINS_12_GLOBAL__N_118_IdentityTransformEEENS_8GfBBox3dERKNS_7UsdPrimERKSt3setINS_7SdfPathESt4lessIS9_ESaIS9_EERKT_RKNS_9TfHashMapIS9_NS_10GfMatrix4dENS9_4HashESt8equal_toIS9_ESaISt4pairIKS9_SK_EEEE.exit
 
 63:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread.i
   %64 = landingpad { ptr, i32 }
@@ -3139,7 +3139,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit61.i: ; pre
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRangeD2Ev.exit.i: ; preds = %261, %248, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit61.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #15
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIbED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #15
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache32_ComputeBoundWithOverridesHelperINS_12_GLOBAL__N_118_IdentityTransformEEENS_8GfBBox3dERKNS_7UsdPrimERKSt3setINS_7SdfPathESt4lessIS9_ESaIS9_EERKT_RKNS_9TfHashMapIS9_NS_10GfMatrix4dENS9_4HashESt8equal_toIS9_ESaISt4pairIKS9_SK_EEEE.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache32_ComputeBoundWithOverridesHelperINS_12_GLOBAL__N_118_IdentityTransformEEENS_8GfBBox3dERKNS_7UsdPrimERKSt3setINS_7SdfPathESt4lessIS9_ESaIS9_EERKT_RKNS_9TfHashMapIS9_NS_10GfMatrix4dENS9_4HashESt8equal_toIS9_ESaISt4pairIKS9_SK_EEEE.exit
 
 265:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit131.i
   %266 = landingpad { ptr, i32 }
@@ -4102,7 +4102,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit120.i: ; 
   %.pn50.pn.i = phi { ptr, i32 } [ %.pn50.i, %661 ], [ %64, %63 ]
   resume { ptr, i32 } %.pn50.pn.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache32_ComputeBoundWithOverridesHelperINS_12_GLOBAL__N_118_IdentityTransformEEENS_8GfBBox3dERKNS_7UsdPrimERKSt3setINS_7SdfPathESt4lessIS9_ESaIS9_EERKT_RKNS_9TfHashMapIS9_NS_10GfMatrix4dENS9_4HashESt8equal_toIS9_ESaISt4pairIKS9_SK_EEEE.argprom.exit: ; preds = %62, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRangeD2Ev.exit.i
+_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache32_ComputeBoundWithOverridesHelperINS_12_GLOBAL__N_118_IdentityTransformEEENS_8GfBBox3dERKNS_7UsdPrimERKSt3setINS_7SdfPathESt4lessIS9_ESaIS9_EERKT_RKNS_9TfHashMapIS9_NS_10GfMatrix4dENS9_4HashESt8equal_toIS9_ESaISt4pairIKS9_SK_EEEE.exit: ; preds = %62, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRangeD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -36170,8 +36170,8 @@ attributes #27 = { nounwind willreturn memory(none) }
 !16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.unswitch.partial.disable"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache32_ComputeBoundWithOverridesHelperINS_12_GLOBAL__N_118_IdentityTransformEEENS_8GfBBox3dERKNS_7UsdPrimERKSt3setINS_7SdfPathESt4lessIS9_ESaIS9_EERKT_RKNS_9TfHashMapIS9_NS_10GfMatrix4dENS9_4HashESt8equal_toIS9_ESaISt4pairIKS9_SK_EEEE.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache32_ComputeBoundWithOverridesHelperINS_12_GLOBAL__N_118_IdentityTransformEEENS_8GfBBox3dERKNS_7UsdPrimERKSt3setINS_7SdfPathESt4lessIS9_ESaIS9_EERKT_RKNS_9TfHashMapIS9_NS_10GfMatrix4dENS9_4HashESt8equal_toIS9_ESaISt4pairIKS9_SK_EEEE.argprom"}
+!19 = distinct !{!19, !20, !"_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache32_ComputeBoundWithOverridesHelperINS_12_GLOBAL__N_118_IdentityTransformEEENS_8GfBBox3dERKNS_7UsdPrimERKSt3setINS_7SdfPathESt4lessIS9_ESaIS9_EERKT_RKNS_9TfHashMapIS9_NS_10GfMatrix4dENS9_4HashESt8equal_toIS9_ESaISt4pairIKS9_SK_EEEE: argument 0"}
+!20 = distinct !{!20, !"_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache32_ComputeBoundWithOverridesHelperINS_12_GLOBAL__N_118_IdentityTransformEEENS_8GfBBox3dERKNS_7UsdPrimERKSt3setINS_7SdfPathESt4lessIS9_ESaIS9_EERKT_RKNS_9TfHashMapIS9_NS_10GfMatrix4dENS9_4HashESt8equal_toIS9_ESaISt4pairIKS9_SK_EEEE"}
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange5beginEv: argument 0"}
 !23 = distinct !{!23, !"_ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange5beginEv"}

@@ -899,7 +899,7 @@ define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @cuddTestInteract(ptr noundef %0, i32 noundef %8, i32 noundef %11) #13
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %cuddXorLinear.argprom.exit, label %13
+  br i1 %.not, label %cuddXorLinear.exit, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %0, i64 152
@@ -1473,7 +1473,7 @@ define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %334 = add nsw i32 %.val, -1
   %335 = ashr i32 %334, 6
   %.not1.i = icmp slt i32 %335, 0
-  br i1 %.not1.i, label %cuddXorLinear.argprom.exit, label %.lr.ph.preheader.i
+  br i1 %.not1.i, label %cuddXorLinear.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge340
   %336 = getelementptr i8, ptr %0, i64 384
@@ -1498,9 +1498,9 @@ define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   store i64 %344, ptr %gep5.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %cuddXorLinear.argprom.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %cuddXorLinear.exit, label %.lr.ph.i, !llvm.loop !31
 
-cuddXorLinear.argprom.exit:                       ; preds = %.lr.ph.i, %._crit_edge340, %3
+cuddXorLinear.exit:                               ; preds = %.lr.ph.i, %._crit_edge340, %3
   %345 = getelementptr inbounds i8, ptr %0, i64 228
   %346 = load i32, ptr %345, align 4
   %347 = getelementptr inbounds i8, ptr %0, i64 304
@@ -1514,8 +1514,8 @@ cuddXorLinear.argprom.exit:                       ; preds = %.lr.ph.i, %._crit_e
   %353 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 39, i64 1, ptr %352)
   br label %354
 
-354:                                              ; preds = %350, %cuddXorLinear.argprom.exit
-  %.0 = phi i32 [ 0, %350 ], [ %349, %cuddXorLinear.argprom.exit ]
+354:                                              ; preds = %350, %cuddXorLinear.exit
+  %.0 = phi i32 [ 0, %350 ], [ %349, %cuddXorLinear.exit ]
   ret i32 %.0
 }
 

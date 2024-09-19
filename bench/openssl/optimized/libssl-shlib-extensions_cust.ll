@@ -961,12 +961,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_CTX_add_client_custom_ext(ptr noundef %ctx, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc i32 @add_old_custom_ext.argelim(ptr noundef %ctx, i32 noundef 0, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg)
+  %call = tail call fastcc i32 @add_old_custom_ext(ptr noundef %ctx, i32 noundef 0, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_old_custom_ext.argelim(ptr noundef %ctx, i32 noundef range(i32 0, 2) %role, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @add_old_custom_ext(ptr noundef %ctx, i32 noundef range(i32 0, 2) %role, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) unnamed_addr #2 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 433) #8
   %call1 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 435) #8
@@ -1006,7 +1006,7 @@ return:                                           ; preds = %if.end, %if.then9, 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_CTX_add_server_custom_ext(ptr noundef %ctx, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc i32 @add_old_custom_ext.argelim(ptr noundef %ctx, i32 noundef 1, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg)
+  %call = tail call fastcc i32 @add_old_custom_ext(ptr noundef %ctx, i32 noundef 1, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg)
   ret i32 %call
 }
 

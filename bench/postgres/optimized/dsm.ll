@@ -464,13 +464,13 @@ define dso_local ptr @dsm_create(i64 noundef %0, i32 noundef %1) local_unnamed_a
   %11 = tail call ptr @MemoryContextAlloc(ptr noundef %10, i64 noundef 64) #12
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %dlist_push_head.argprom.exit.i
+  br i1 %13, label %14, label %dlist_push_head.exit.i
 
 14:                                               ; preds = %9
   store ptr @dsm_segment_list, ptr @dsm_segment_list, align 8
-  br label %dlist_push_head.argprom.exit.i
+  br label %dlist_push_head.exit.i
 
-dlist_push_head.argprom.exit.i:                   ; preds = %14, %9
+dlist_push_head.exit.i:                           ; preds = %14, %9
   %15 = phi ptr [ @dsm_segment_list, %14 ], [ %12, %9 ]
   %16 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %15, ptr %16, align 8
@@ -487,12 +487,12 @@ dlist_push_head.argprom.exit.i:                   ; preds = %14, %9
   %.not10.i = icmp eq ptr %19, null
   br i1 %.not10.i, label %dsm_create_descriptor.exit, label %21
 
-21:                                               ; preds = %dlist_push_head.argprom.exit.i
+21:                                               ; preds = %dlist_push_head.exit.i
   %22 = ptrtoint ptr %11 to i64
   tail call void @ResourceOwnerRemember(ptr noundef nonnull %19, i64 noundef %22, ptr noundef nonnull @dsm_resowner_desc) #12
   br label %dsm_create_descriptor.exit
 
-dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.argprom.exit.i, %21
+dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exit.i, %21
   %23 = getelementptr inbounds i8, ptr %11, i64 56
   store ptr null, ptr %23, align 8
   %.not = icmp eq ptr %4, null
@@ -803,13 +803,13 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %3
   %17 = tail call ptr @MemoryContextAlloc(ptr noundef %16, i64 noundef 64) #12
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @dsm_segment_list, i64 8), align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %dlist_push_head.argprom.exit.i
+  br i1 %19, label %20, label %dlist_push_head.exit.i
 
 20:                                               ; preds = %15
   store ptr @dsm_segment_list, ptr @dsm_segment_list, align 8
-  br label %dlist_push_head.argprom.exit.i
+  br label %dlist_push_head.exit.i
 
-dlist_push_head.argprom.exit.i:                   ; preds = %20, %15
+dlist_push_head.exit.i:                           ; preds = %20, %15
   %21 = phi ptr [ @dsm_segment_list, %20 ], [ %18, %15 ]
   %22 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %21, ptr %22, align 8
@@ -826,12 +826,12 @@ dlist_push_head.argprom.exit.i:                   ; preds = %20, %15
   %.not10.i = icmp eq ptr %25, null
   br i1 %.not10.i, label %dsm_create_descriptor.exit, label %27
 
-27:                                               ; preds = %dlist_push_head.argprom.exit.i
+27:                                               ; preds = %dlist_push_head.exit.i
   %28 = ptrtoint ptr %17 to i64
   tail call void @ResourceOwnerRemember(ptr noundef nonnull %25, i64 noundef %28, ptr noundef nonnull @dsm_resowner_desc) #12
   br label %dsm_create_descriptor.exit
 
-dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.argprom.exit.i, %27
+dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exit.i, %27
   %29 = getelementptr inbounds i8, ptr %17, i64 56
   store ptr null, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %17, i64 24

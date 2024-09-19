@@ -1778,7 +1778,7 @@ for.inc504:                                       ; preds = %for.body492, %land.
 
 for.end506:                                       ; preds = %cond.end488
   %73 = load ptr, ptr %iter, align 8
-  %call509 = tail call fastcc i32 @fold_iter.argprom(ptr noundef %73, ptr noundef %ctx_)
+  %call509 = tail call fastcc i32 @fold_iter(ptr noundef %73, ptr noundef %ctx_)
   %tobool510.not = icmp eq i32 %call509, 0
   br i1 %tobool510.not, label %return, label %sw.epilog
 
@@ -2827,7 +2827,7 @@ if.end15:                                         ; preds = %sw.bb10
   br i1 %tobool18.not, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end15
-  %call21 = tail call fastcc i32 @fold_binop.argprom(ptr noundef nonnull %node_, ptr noundef %ctx_)
+  %call21 = tail call fastcc i32 @fold_binop(ptr noundef nonnull %node_, ptr noundef %ctx_)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %return, label %sw.epilog
 
@@ -2839,7 +2839,7 @@ sw.bb25:                                          ; preds = %if.end
   br i1 %tobool28.not, label %return, label %if.end30
 
 if.end30:                                         ; preds = %sw.bb25
-  %call31 = tail call fastcc i32 @fold_unaryop.argprom(ptr noundef nonnull %node_, ptr noundef %ctx_)
+  %call31 = tail call fastcc i32 @fold_unaryop(ptr noundef nonnull %node_, ptr noundef %ctx_)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %return, label %sw.epilog
 
@@ -3072,7 +3072,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i.for
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end4.i.split, %if.end4.i
   %35 = load ptr, ptr %iter.i, align 8
-  %call15.i = tail call fastcc i32 @fold_iter.argprom(ptr noundef %35, ptr noundef %ctx_)
+  %call15.i = tail call fastcc i32 @fold_iter(ptr noundef %35, ptr noundef %ctx_)
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %return, label %for.inc186
 
@@ -3166,7 +3166,7 @@ for.inc.i285:                                     ; preds = %land.lhs.true.i282.
 
 for.end.i273:                                     ; preds = %for.inc.i285, %if.end4.i263.split, %if.end4.i263
   %47 = load ptr, ptr %iter.i260, align 8
-  %call15.i274 = tail call fastcc i32 @fold_iter.argprom(ptr noundef %47, ptr noundef %ctx_)
+  %call15.i274 = tail call fastcc i32 @fold_iter(ptr noundef %47, ptr noundef %ctx_)
   %tobool16.not.i275 = icmp eq i32 %call15.i274, 0
   br i1 %tobool16.not.i275, label %return, label %for.inc223
 
@@ -3267,7 +3267,7 @@ for.inc.i316:                                     ; preds = %land.lhs.true.i313.
 
 for.end.i304:                                     ; preds = %for.inc.i316, %if.end4.i294.split, %if.end4.i294
   %60 = load ptr, ptr %iter.i291, align 8
-  %call15.i305 = tail call fastcc i32 @fold_iter.argprom(ptr noundef %60, ptr noundef %ctx_)
+  %call15.i305 = tail call fastcc i32 @fold_iter(ptr noundef %60, ptr noundef %ctx_)
   %tobool16.not.i306 = icmp eq i32 %call15.i305, 0
   br i1 %tobool16.not.i306, label %return, label %for.inc264
 
@@ -3361,7 +3361,7 @@ for.inc.i347:                                     ; preds = %land.lhs.true.i344.
 
 for.end.i335:                                     ; preds = %for.inc.i347, %if.end4.i325.split, %if.end4.i325
   %72 = load ptr, ptr %iter.i322, align 8
-  %call15.i336 = tail call fastcc i32 @fold_iter.argprom(ptr noundef %72, ptr noundef %ctx_)
+  %call15.i336 = tail call fastcc i32 @fold_iter(ptr noundef %72, ptr noundef %ctx_)
   %tobool16.not.i337 = icmp eq i32 %call15.i336, 0
   br i1 %tobool16.not.i337, label %return, label %for.inc301
 
@@ -3441,7 +3441,7 @@ for.end365:                                       ; preds = %cond.end347
   %80 = getelementptr i8, ptr %node_, i64 16
   %node_.val = load ptr, ptr %80, align 8
   %node_.val256 = load ptr, ptr %comparators, align 8
-  %call366 = tail call fastcc i32 @fold_compare.argprom(ptr %node_.val, ptr %node_.val256, ptr noundef %ctx_)
+  %call366 = tail call fastcc i32 @fold_compare(ptr %node_.val, ptr %node_.val256, ptr noundef %ctx_)
   %tobool367.not = icmp eq i32 %call366, 0
   br i1 %tobool367.not, label %return, label %sw.epilog
 
@@ -3602,7 +3602,7 @@ if.end496:                                        ; preds = %sw.bb490
   br i1 %tobool499.not, label %return, label %if.end501
 
 if.end501:                                        ; preds = %if.end496
-  %call502 = tail call fastcc i32 @fold_subscr.argprom(ptr noundef nonnull %node_, ptr noundef %ctx_)
+  %call502 = tail call fastcc i32 @fold_subscr(ptr noundef nonnull %node_, ptr noundef %ctx_)
   %tobool503.not = icmp eq i32 %call502, 0
   br i1 %tobool503.not, label %return, label %sw.epilog
 
@@ -3719,7 +3719,7 @@ for.inc603:                                       ; preds = %for.body591, %land.
   br label %for.cond580, !llvm.loop !56
 
 for.end605:                                       ; preds = %cond.end587
-  %call606 = tail call fastcc i32 @fold_tuple.argprom(ptr noundef nonnull %node_, ptr noundef %ctx_)
+  %call606 = tail call fastcc i32 @fold_tuple(ptr noundef nonnull %node_, ptr noundef %ctx_)
   %tobool607.not = icmp eq i32 %call606, 0
   br i1 %tobool607.not, label %return, label %sw.epilog
 
@@ -4046,7 +4046,7 @@ return:                                           ; preds = %land.lhs.true.i, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_iter.argprom(ptr nocapture noundef %arg, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_iter(ptr nocapture noundef %arg, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %arg, align 8
   switch i32 %0, label %return [
@@ -4618,7 +4618,7 @@ return:                                           ; preds = %land.lhs.true105, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_binop.argprom(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_binop(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [9 x i8], align 1
   %v = getelementptr inbounds i8, ptr %node, i64 8
@@ -5642,7 +5642,7 @@ return:                                           ; preds = %cond.end19.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_unaryop.argprom(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_unaryop(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %v = getelementptr inbounds i8, ptr %node, i64 8
   %operand = getelementptr inbounds i8, ptr %node, i64 16
@@ -5757,7 +5757,7 @@ return:                                           ; preds = %if.then11, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_compare.argprom(ptr readonly %node.16.val, ptr nocapture readonly %node.24.val, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_compare(ptr readonly %node.16.val, ptr nocapture readonly %node.24.val, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %node.16.val, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -5780,7 +5780,7 @@ if.then:                                          ; preds = %cond.end
   %typed_elements5 = getelementptr inbounds i8, ptr %node.24.val, i64 16
   %arrayidx6 = getelementptr [1 x ptr], ptr %typed_elements5, i64 0, i64 %cond
   %4 = load ptr, ptr %arrayidx6, align 8
-  %call = tail call fastcc i32 @fold_iter.argprom(ptr noundef %4, ptr noundef %arena)
+  %call = tail call fastcc i32 @fold_iter(ptr noundef %4, ptr noundef %arena)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end8
 
@@ -5793,7 +5793,7 @@ return:                                           ; preds = %if.then, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_subscr.argprom(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_subscr(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %v = getelementptr inbounds i8, ptr %node, i64 8
   %0 = load ptr, ptr %v, align 8
@@ -5866,7 +5866,7 @@ return:                                           ; preds = %if.end6.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_tuple.argprom(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_tuple(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %ctx, align 8

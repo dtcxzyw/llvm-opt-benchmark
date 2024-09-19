@@ -1344,7 +1344,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   invoke void @_ZN4pkpy2VM11__raise_excEb(ptr noundef nonnull align 8 dereferenceable(264913) %0, i1 noundef zeroext false)
           to label %.backedge4997.preheader unwind label %.loopexit.split-lp4969.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.loopexit4968:                                    ; preds = %3869, %"_ZZN4pkpy2VM15__run_top_frameEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i"
+.loopexit4968:                                    ; preds = %3869, %"_ZZN4pkpy2VM15__run_top_frameEvENK3$_0clEPNS_8PyObjectES3_.exit.i"
   %lpad.loopexit4970 = landingpad { ptr, i32 }
           catch ptr @_ZTIN4pkpy16HandledExceptionE
           catch ptr @_ZTIN4pkpy18UnhandledExceptionE
@@ -10455,16 +10455,16 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3855
   %3866 = getelementptr inbounds i8, ptr %3859, i64 10
   %3867 = load i16, ptr %3866, align 2
   %3868 = icmp eq i16 %3867, 5
-  br i1 %3868, label %"_ZZN4pkpy2VM15__run_top_frameEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i", label %3869
+  br i1 %3868, label %"_ZZN4pkpy2VM15__run_top_frameEvENK3$_0clEPNS_8PyObjectES3_.exit.i", label %3869
 
 3869:                                             ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i, %3855
   %3870 = getelementptr inbounds i8, ptr %3859, i64 10
   %3871 = select i1 %3865, ptr @_ZN4pkpy2VM6tp_intE, ptr %3870
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %3871, align 2
   invoke void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %3862, i16 5, i16 %.sroa.0.0.copyload.i.i.i.i.i.i)
-          to label %"_ZZN4pkpy2VM15__run_top_frameEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i" unwind label %.loopexit4968
+          to label %"_ZZN4pkpy2VM15__run_top_frameEvENK3$_0clEPNS_8PyObjectES3_.exit.i" unwind label %.loopexit4968
 
-"_ZZN4pkpy2VM15__run_top_frameEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i": ; preds = %3869, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i
+"_ZZN4pkpy2VM15__run_top_frameEvENK3$_0clEPNS_8PyObjectES3_.exit.i": ; preds = %3869, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i
   %3872 = getelementptr inbounds i8, ptr %3859, i64 24
   %3873 = getelementptr inbounds i8, ptr %3859, i64 32
   %3874 = load ptr, ptr %3873, align 8
@@ -10473,7 +10473,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3855
   %3877 = invoke i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 %3876, ptr %3874)
           to label %.noexc4518 unwind label %.loopexit4968
 
-.noexc4518:                                       ; preds = %"_ZZN4pkpy2VM15__run_top_frameEvENK3$_0clEPNS_8PyObjectES3_.argprom.exit.i"
+.noexc4518:                                       ; preds = %"_ZZN4pkpy2VM15__run_top_frameEvENK3$_0clEPNS_8PyObjectES3_.exit.i"
   %3878 = zext i16 %3877 to i64
   %3879 = shl nuw nsw i64 %3878, 2
   %3880 = or disjoint i64 %3879, 2

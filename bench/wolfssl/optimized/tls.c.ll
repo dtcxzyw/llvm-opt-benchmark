@@ -1071,9 +1071,9 @@ define range(i32 -125, 1) i32 @TLSX_Append(ptr nocapture noundef %list, i32 noun
 entry:
   %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #16
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %return, label %TLSX_New.argprom.exit
+  br i1 %tobool.not.i, label %return, label %TLSX_New.exit
 
-TLSX_New.argprom.exit:                            ; preds = %entry
+TLSX_New.exit:                                    ; preds = %entry
   store i32 %type, ptr %call.i, align 8
   %data2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %data, ptr %data2.i, align 8
@@ -1085,9 +1085,9 @@ TLSX_New.argprom.exit:                            ; preds = %entry
   %cmp1.not14 = icmp eq ptr %cur.013, null
   br i1 %cmp1.not14, label %for.end, label %for.body
 
-for.body:                                         ; preds = %TLSX_New.argprom.exit, %if.end8
-  %cur.016 = phi ptr [ %cur.0, %if.end8 ], [ %cur.013, %TLSX_New.argprom.exit ]
-  %prevNext.015 = phi ptr [ %prevNext.1, %if.end8 ], [ %list, %TLSX_New.argprom.exit ]
+for.body:                                         ; preds = %TLSX_New.exit, %if.end8
+  %cur.016 = phi ptr [ %cur.0, %if.end8 ], [ %cur.013, %TLSX_New.exit ]
+  %prevNext.015 = phi ptr [ %prevNext.1, %if.end8 ], [ %list, %TLSX_New.exit ]
   %0 = load i32, ptr %cur.016, align 8
   %cmp3 = icmp eq i32 %0, %type
   %next = getelementptr inbounds i8, ptr %cur.016, i64 24
@@ -1106,8 +1106,8 @@ if.end8:                                          ; preds = %for.body, %if.then4
   %cmp1.not = icmp eq ptr %cur.0, null
   br i1 %cmp1.not, label %for.end, label %for.body, !llvm.loop !10
 
-for.end:                                          ; preds = %if.end8, %TLSX_New.argprom.exit
-  %prevNext.0.lcssa = phi ptr [ %list, %TLSX_New.argprom.exit ], [ %prevNext.1, %if.end8 ]
+for.end:                                          ; preds = %if.end8, %TLSX_New.exit
+  %prevNext.0.lcssa = phi ptr [ %list, %TLSX_New.exit ], [ %prevNext.1, %if.end8 ]
   store ptr %call.i, ptr %prevNext.0.lcssa, align 8
   br label %return
 
@@ -1141,25 +1141,25 @@ do.end:                                           ; preds = %while.body
   %tobool.not1.i = icmp eq ptr %2, null
   br i1 %tobool.not1.i, label %if.then, label %while.body.i
 
-while.body.i:                                     ; preds = %do.end, %TLSX_SNI_Free.argprom.exit.i
-  %list.addr.02.i = phi ptr [ %3, %TLSX_SNI_Free.argprom.exit.i ], [ %2, %do.end ]
+while.body.i:                                     ; preds = %do.end, %TLSX_SNI_Free.exit.i
+  %list.addr.02.i = phi ptr [ %3, %TLSX_SNI_Free.exit.i ], [ %2, %do.end ]
   %next.i = getelementptr inbounds i8, ptr %list.addr.02.i, i64 16
   %3 = load ptr, ptr %next.i, align 8
   %4 = load i8, ptr %list.addr.02.i, align 8
   %cond.i.i = icmp eq i8 %4, 0
-  br i1 %cond.i.i, label %sw.bb.i.i, label %TLSX_SNI_Free.argprom.exit.i
+  br i1 %cond.i.i, label %sw.bb.i.i, label %TLSX_SNI_Free.exit.i
 
 sw.bb.i.i:                                        ; preds = %while.body.i
   %data.i.i = getelementptr inbounds i8, ptr %list.addr.02.i, i64 8
   %5 = load ptr, ptr %data.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool1.not.i.i, label %TLSX_SNI_Free.argprom.exit.i, label %if.then2.i.i
+  br i1 %tobool1.not.i.i, label %TLSX_SNI_Free.exit.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %sw.bb.i.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %5) #16
-  br label %TLSX_SNI_Free.argprom.exit.i
+  br label %TLSX_SNI_Free.exit.i
 
-TLSX_SNI_Free.argprom.exit.i:                     ; preds = %if.then2.i.i, %sw.bb.i.i, %while.body.i
+TLSX_SNI_Free.exit.i:                             ; preds = %if.then2.i.i, %sw.bb.i.i, %while.body.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %list.addr.02.i) #16
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.then, label %while.body.i, !llvm.loop !11
@@ -1205,10 +1205,10 @@ if.then.i:                                        ; preds = %do.end52
 do.end65:                                         ; preds = %while.body
   %data66 = getelementptr inbounds i8, ptr %list.addr.027, i64 8
   %11 = load ptr, ptr %data66, align 8
-  tail call fastcc void @TLSX_KeyShare_FreeAll.argprom(ptr noundef %11)
+  tail call fastcc void @TLSX_KeyShare_FreeAll(ptr noundef %11)
   br label %if.then
 
-if.then:                                          ; preds = %while.body.i14, %while.body.i19, %TLSX_SNI_Free.argprom.exit.i, %if.then.i, %do.end52, %do.end23, %do.end19, %do.end, %do.end65, %while.body
+if.then:                                          ; preds = %while.body.i14, %while.body.i19, %TLSX_SNI_Free.exit.i, %if.then.i, %do.end52, %do.end23, %do.end19, %do.end, %do.end65, %while.body
   tail call void @wolfSSL_Free(ptr noundef nonnull %list.addr.027) #16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
@@ -1518,18 +1518,18 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
 if.then9:                                         ; preds = %if.then6
   %8 = load i8, ptr %call.i, align 8
   %cond.i24 = icmp eq i8 %8, 0
-  br i1 %cond.i24, label %sw.bb.i26, label %TLSX_SNI_Free.argprom.exit
+  br i1 %cond.i24, label %sw.bb.i26, label %TLSX_SNI_Free.exit
 
 sw.bb.i26:                                        ; preds = %if.then9
   %9 = load ptr, ptr %data6.i, align 8
   %tobool1.not.i = icmp eq ptr %9, null
-  br i1 %tobool1.not.i, label %TLSX_SNI_Free.argprom.exit, label %if.then2.i
+  br i1 %tobool1.not.i, label %TLSX_SNI_Free.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %sw.bb.i26
   tail call void @wolfSSL_Free(ptr noundef nonnull %9) #16
-  br label %TLSX_SNI_Free.argprom.exit
+  br label %TLSX_SNI_Free.exit
 
-TLSX_SNI_Free.argprom.exit:                       ; preds = %if.then9, %sw.bb.i26, %if.then2.i
+TLSX_SNI_Free.exit:                               ; preds = %if.then9, %sw.bb.i26, %if.then2.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %call.i) #16
   br label %return
 
@@ -1559,24 +1559,24 @@ if.then20:                                        ; preds = %land.lhs.true
   store ptr %13, ptr %next13.le, align 8
   %14 = load i8, ptr %11, align 8
   %cond.i27 = icmp eq i8 %14, 0
-  br i1 %cond.i27, label %sw.bb.i29, label %TLSX_SNI_Free.argprom.exit33
+  br i1 %cond.i27, label %sw.bb.i29, label %TLSX_SNI_Free.exit33
 
 sw.bb.i29:                                        ; preds = %if.then20
   %data.i30 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %data.i30, align 8
   %tobool1.not.i31 = icmp eq ptr %15, null
-  br i1 %tobool1.not.i31, label %TLSX_SNI_Free.argprom.exit33, label %if.then2.i32
+  br i1 %tobool1.not.i31, label %TLSX_SNI_Free.exit33, label %if.then2.i32
 
 if.then2.i32:                                     ; preds = %sw.bb.i29
   tail call void @wolfSSL_Free(ptr noundef nonnull %15) #16
-  br label %TLSX_SNI_Free.argprom.exit33
+  br label %TLSX_SNI_Free.exit33
 
-TLSX_SNI_Free.argprom.exit33:                     ; preds = %if.then20, %sw.bb.i29, %if.then2.i32
+TLSX_SNI_Free.exit33:                             ; preds = %if.then20, %sw.bb.i29, %if.then2.i32
   tail call void @wolfSSL_Free(ptr noundef nonnull %11) #16
   br label %return
 
-return:                                           ; preds = %do.body, %do.body.i, %if.then5.i, %if.end, %if.then19.i, %if.then15.i, %TLSX_SNI_Free.argprom.exit33, %entry, %TLSX_SNI_Free.argprom.exit
-  %retval.0 = phi i32 [ -125, %TLSX_SNI_Free.argprom.exit ], [ -173, %entry ], [ 1, %TLSX_SNI_Free.argprom.exit33 ], [ -125, %if.then15.i ], [ -125, %if.then19.i ], [ -125, %if.end ], [ 1, %if.then5.i ], [ 1, %do.body.i ], [ 1, %do.body ]
+return:                                           ; preds = %do.body, %do.body.i, %if.then5.i, %if.end, %if.then19.i, %if.then15.i, %TLSX_SNI_Free.exit33, %entry, %TLSX_SNI_Free.exit
+  %retval.0 = phi i32 [ -125, %TLSX_SNI_Free.exit ], [ -173, %entry ], [ 1, %TLSX_SNI_Free.exit33 ], [ -125, %if.then15.i ], [ -125, %if.then19.i ], [ -125, %if.end ], [ 1, %if.then5.i ], [ 1, %do.body.i ], [ 1, %do.body ]
   ret i32 %retval.0
 }
 
@@ -2019,7 +2019,7 @@ if.then24:                                        ; preds = %land.rhs.i
   %5 = load ptr, ptr %data, align 8
   store ptr null, ptr %data, align 8
   %tobool.not1.i = icmp eq ptr %5, null
-  br i1 %tobool.not1.i, label %TLSX_SupportedCurve_FreeAll.argprom.exit, label %while.body.i23
+  br i1 %tobool.not1.i, label %TLSX_SupportedCurve_FreeAll.exit, label %while.body.i23
 
 while.body.i23:                                   ; preds = %if.then24, %while.body.i23
   %list.addr.02.i = phi ptr [ %6, %while.body.i23 ], [ %5, %if.then24 ]
@@ -2027,9 +2027,9 @@ while.body.i23:                                   ; preds = %if.then24, %while.b
   %6 = load ptr, ptr %next.i24, align 8
   tail call void @wolfSSL_Free(ptr noundef nonnull %list.addr.02.i) #16
   %tobool.not.i25 = icmp eq ptr %6, null
-  br i1 %tobool.not.i25, label %TLSX_SupportedCurve_FreeAll.argprom.exit, label %while.body.i23, !llvm.loop !12
+  br i1 %tobool.not.i25, label %TLSX_SupportedCurve_FreeAll.exit, label %while.body.i23, !llvm.loop !12
 
-TLSX_SupportedCurve_FreeAll.argprom.exit:         ; preds = %while.body.i23, %if.then24
+TLSX_SupportedCurve_FreeAll.exit:                 ; preds = %while.body.i23, %if.then24
   %add.ptr = getelementptr inbounds i8, ptr %input, i64 2
   %add.ptr.val = load i8, ptr %add.ptr, align 1
   %7 = getelementptr i8, ptr %input, i64 3
@@ -2038,7 +2038,7 @@ TLSX_SupportedCurve_FreeAll.argprom.exit:         ; preds = %while.body.i23, %if
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %return, label %if.end35
 
-if.end35:                                         ; preds = %TLSX_SupportedCurve_FreeAll.argprom.exit
+if.end35:                                         ; preds = %TLSX_SupportedCurve_FreeAll.exit
   %conv.i26 = zext i8 %add.ptr.val to i16
   %shl.i27 = shl nuw i16 %conv.i26, 8
   %conv2.i28 = zext i8 %add.ptr.val21 to i16
@@ -2076,8 +2076,8 @@ for.inc:                                          ; preds = %for.body, %for.body
   %cmp41 = icmp ult i16 %add56, %length
   br i1 %cmp41, label %for.body, label %return, !llvm.loop !21
 
-return:                                           ; preds = %for.body, %for.inc, %if.end38, %TLSX_SupportedCurve_FreeAll.argprom.exit, %if.end12, %if.end6, %if.end, %land.lhs.true
-  %retval.0 = phi i32 [ -328, %land.lhs.true ], [ -328, %if.end ], [ -328, %if.end6 ], [ 0, %if.end12 ], [ -125, %TLSX_SupportedCurve_FreeAll.argprom.exit ], [ 0, %if.end38 ], [ %call47, %for.body ], [ 0, %for.inc ]
+return:                                           ; preds = %for.body, %for.inc, %if.end38, %TLSX_SupportedCurve_FreeAll.exit, %if.end12, %if.end6, %if.end, %land.lhs.true
+  %retval.0 = phi i32 [ -328, %land.lhs.true ], [ -328, %if.end ], [ -328, %if.end6 ], [ 0, %if.end12 ], [ -125, %TLSX_SupportedCurve_FreeAll.exit ], [ 0, %if.end38 ], [ %call47, %for.body ], [ 0, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -4402,7 +4402,7 @@ if.else.i:                                        ; preds = %land.rhs.i.i112
   br i1 %cmp3.not.i, label %if.end62, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  tail call fastcc void @TLSX_KeyShare_FreeAll.argprom(ptr noundef nonnull %43)
+  tail call fastcc void @TLSX_KeyShare_FreeAll(ptr noundef nonnull %43)
   store ptr null, ptr %data.i119, align 8
   br label %if.end62
 
@@ -4818,7 +4818,7 @@ if.else:                                          ; preds = %land.rhs.i
   br i1 %cmp3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.else
-  tail call fastcc void @TLSX_KeyShare_FreeAll.argprom(ptr noundef nonnull %7)
+  tail call fastcc void @TLSX_KeyShare_FreeAll(ptr noundef nonnull %7)
   store ptr null, ptr %data, align 8
   br label %if.end8
 
@@ -4939,14 +4939,14 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.e
   %11 = load ptr, ptr %list.addr.0.i, align 8
   %cmp2.not.i = icmp eq ptr %11, null
   %next4.i = getelementptr inbounds i8, ptr %11, i64 64
-  br i1 %cmp2.not.i, label %TLSX_KeyShare_New.argprom.exit.thread, label %while.cond.i, !llvm.loop !38
+  br i1 %cmp2.not.i, label %TLSX_KeyShare_New.exit.thread, label %while.cond.i, !llvm.loop !38
 
-TLSX_KeyShare_New.argprom.exit.thread:            ; preds = %while.cond.i
+TLSX_KeyShare_New.exit.thread:                    ; preds = %while.cond.i
   store ptr %call.i, ptr %list.addr.0.i, align 8
   br label %if.end28
 
-if.end28:                                         ; preds = %while.body, %TLSX_KeyShare_New.argprom.exit.thread
-  %keyShareEntry.0 = phi ptr [ %call.i, %TLSX_KeyShare_New.argprom.exit.thread ], [ %storemerge52, %while.body ]
+if.end28:                                         ; preds = %while.body, %TLSX_KeyShare_New.exit.thread
+  %keyShareEntry.0 = phi ptr [ %call.i, %TLSX_KeyShare_New.exit.thread ], [ %storemerge52, %while.body ]
   %cmp29.not = icmp eq ptr %data, null
   br i1 %cmp29.not, label %if.else, label %if.then31
 
@@ -4986,7 +4986,7 @@ return:                                           ; preds = %while.body.i24, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TLSX_KeyShare_FreeAll.argprom(ptr noundef %list) unnamed_addr #0 {
+define internal fastcc void @TLSX_KeyShare_FreeAll(ptr noundef %list) unnamed_addr #0 {
 entry:
   %cmp.not1 = icmp eq ptr %list, null
   br i1 %cmp.not1, label %while.end, label %while.body
@@ -5473,7 +5473,7 @@ if.then19:                                        ; preds = %if.end16
 
 if.then23:                                        ; preds = %if.then19
   %list.0.list.0.list.0. = load ptr, ptr %list, align 8
-  tail call fastcc void @TLSX_KeyShare_FreeAll.argprom(ptr noundef %list.0.list.0.list.0.)
+  tail call fastcc void @TLSX_KeyShare_FreeAll(ptr noundef %list.0.list.0.list.0.)
   br label %return
 
 if.else:                                          ; preds = %if.end16
@@ -5516,7 +5516,7 @@ if.end35:                                         ; preds = %if.then19, %if.else
   store i16 %13, ptr %namedGroup, align 2
   %data = getelementptr inbounds i8, ptr %extension.05.i, i64 8
   %14 = load ptr, ptr %data, align 8
-  tail call fastcc void @TLSX_KeyShare_FreeAll.argprom(ptr noundef %14)
+  tail call fastcc void @TLSX_KeyShare_FreeAll(ptr noundef %14)
   store ptr %call.i, ptr %data, align 8
   %resp = getelementptr inbounds i8, ptr %extension.05.i, i64 20
   store i8 1, ptr %resp, align 4
@@ -7386,25 +7386,25 @@ sw.bb:                                            ; preds = %entry
   %0 = getelementptr i8, ptr %ssl, i64 1017
   %ssl.val = load i8, ptr %0, align 1
   switch i8 %ssl.val, label %if.end19.i [
-    i8 19, label %TLSX_PointFormat_ValidateResponse.argprom.exit
-    i8 -64, label %TLSX_PointFormat_ValidateResponse.argprom.exit
-    i8 -48, label %TLSX_PointFormat_ValidateResponse.argprom.exit
-    i8 -52, label %TLSX_PointFormat_ValidateResponse.argprom.exit
+    i8 19, label %TLSX_PointFormat_ValidateResponse.exit
+    i8 -64, label %TLSX_PointFormat_ValidateResponse.exit
+    i8 -48, label %TLSX_PointFormat_ValidateResponse.exit
+    i8 -52, label %TLSX_PointFormat_ValidateResponse.exit
   ]
 
 if.end19.i:                                       ; preds = %sw.bb
   %arrayidx.i = getelementptr inbounds i8, ptr %semaphore, i64 1
   store i8 8, ptr %arrayidx.i, align 1
-  br label %TLSX_PointFormat_ValidateResponse.argprom.exit
+  br label %TLSX_PointFormat_ValidateResponse.exit
 
-TLSX_PointFormat_ValidateResponse.argprom.exit:   ; preds = %sw.bb, %sw.bb, %sw.bb, %sw.bb, %if.end19.i
+TLSX_PointFormat_ValidateResponse.exit:           ; preds = %sw.bb, %sw.bb, %sw.bb, %sw.bb, %if.end19.i
   %version = getelementptr inbounds i8, ptr %ssl, i64 694
   %1 = load i16, ptr %version, align 2
   %call = tail call i32 @IsAtLeastTLSv1_3(i16 %1) #16
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %sw.epilog.sink.split, label %if.then
 
-if.then:                                          ; preds = %TLSX_PointFormat_ValidateResponse.argprom.exit
+if.then:                                          ; preds = %TLSX_PointFormat_ValidateResponse.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %semaphore, i8 -1, i64 9, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %semaphore, i64 5
   store i8 -9, ptr %arrayidx, align 1
@@ -7433,8 +7433,8 @@ sw.bb113:                                         ; preds = %entry
   store i8 -33, ptr %semaphore, align 1
   br label %if.end141
 
-sw.epilog.sink.split:                             ; preds = %TLSX_PointFormat_ValidateResponse.argprom.exit, %if.then
-  %.sink = phi i8 [ -9, %if.then ], [ 8, %TLSX_PointFormat_ValidateResponse.argprom.exit ]
+sw.epilog.sink.split:                             ; preds = %TLSX_PointFormat_ValidateResponse.exit, %if.then
+  %.sink = phi i8 [ -9, %if.then ], [ 8, %TLSX_PointFormat_ValidateResponse.exit ]
   %arrayidx21 = getelementptr inbounds i8, ptr %semaphore, i64 6
   store i8 %.sink, ptr %arrayidx21, align 1
   br label %sw.epilog
@@ -7548,25 +7548,25 @@ sw.bb:                                            ; preds = %if.then
   %1 = getelementptr i8, ptr %ssl, i64 1017
   %ssl.val = load i8, ptr %1, align 1
   switch i8 %ssl.val, label %if.end19.i [
-    i8 19, label %TLSX_PointFormat_ValidateResponse.argprom.exit
-    i8 -64, label %TLSX_PointFormat_ValidateResponse.argprom.exit
-    i8 -48, label %TLSX_PointFormat_ValidateResponse.argprom.exit
-    i8 -52, label %TLSX_PointFormat_ValidateResponse.argprom.exit
+    i8 19, label %TLSX_PointFormat_ValidateResponse.exit
+    i8 -64, label %TLSX_PointFormat_ValidateResponse.exit
+    i8 -48, label %TLSX_PointFormat_ValidateResponse.exit
+    i8 -52, label %TLSX_PointFormat_ValidateResponse.exit
   ]
 
 if.end19.i:                                       ; preds = %sw.bb
   %arrayidx.i = getelementptr inbounds i8, ptr %semaphore, i64 1
   store i8 8, ptr %arrayidx.i, align 1
-  br label %TLSX_PointFormat_ValidateResponse.argprom.exit
+  br label %TLSX_PointFormat_ValidateResponse.exit
 
-TLSX_PointFormat_ValidateResponse.argprom.exit:   ; preds = %sw.bb, %sw.bb, %sw.bb, %sw.bb, %if.end19.i
+TLSX_PointFormat_ValidateResponse.exit:           ; preds = %sw.bb, %sw.bb, %sw.bb, %sw.bb, %if.end19.i
   %version = getelementptr inbounds i8, ptr %ssl, i64 694
   %2 = load i16, ptr %version, align 2
   %call2 = tail call i32 @IsAtLeastTLSv1_3(i16 %2) #16
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.else, label %if.then4
 
-if.then4:                                         ; preds = %TLSX_PointFormat_ValidateResponse.argprom.exit
+if.then4:                                         ; preds = %TLSX_PointFormat_ValidateResponse.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %semaphore, i8 -1, i64 9, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %semaphore, i64 5
   store i8 -9, ptr %arrayidx, align 1
@@ -7574,7 +7574,7 @@ if.then4:                                         ; preds = %TLSX_PointFormat_Va
   store i8 -9, ptr %arrayidx25, align 1
   br label %sw.epilog
 
-if.else:                                          ; preds = %TLSX_PointFormat_ValidateResponse.argprom.exit
+if.else:                                          ; preds = %TLSX_PointFormat_ValidateResponse.exit
   %arrayidx39 = getelementptr inbounds i8, ptr %semaphore, i64 6
   store i8 8, ptr %arrayidx39, align 1
   br label %sw.epilog

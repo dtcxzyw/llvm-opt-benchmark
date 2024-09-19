@@ -311,7 +311,7 @@ define dso_local i32 @ext4_ext_migrate(ptr noundef %0) local_unnamed_addr #0 ali
   br label %196
 
 196:                                              ; preds = %.loopexit, %193
-  %197 = call fastcc i32 @ext4_journal_ensure_credits.argelim(ptr noundef %115)
+  %197 = call fastcc i32 @ext4_journal_ensure_credits(ptr noundef %115)
   %198 = icmp slt i32 %197, 0
   br i1 %198, label %201, label %199
 
@@ -766,7 +766,7 @@ define internal fastcc void @free_ext_block(ptr noundef %0, ptr noundef %1) unna
   %.val = load i32, ptr %21, align 4
   %22 = getelementptr i8, ptr %19, i64 8
   %.val1 = load i16, ptr %22, align 4
-  %23 = tail call fastcc i32 @free_ext_idx.argprom(ptr noundef %0, ptr noundef %1, i32 %.val, i16 %.val1)
+  %23 = tail call fastcc i32 @free_ext_idx(ptr noundef %0, ptr noundef %1, i32 %.val, i16 %.val1)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %12, label %.loopexit
 
@@ -986,7 +986,7 @@ define internal fastcc i32 @ext4_ext_swap_inode_data(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_journal_ensure_credits.argelim(ptr noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc i32 @ext4_journal_ensure_credits(ptr noundef %0) unnamed_addr #4 align 16 {
   %2 = tail call i32 @__ext4_journal_ensure_credits(ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %3 = icmp slt i32 %2, 1
   br i1 %3, label %11, label %4
@@ -1233,7 +1233,7 @@ declare dso_local i32 @ext4_ext_insert_extent(ptr noundef, ptr noundef, ptr noun
 declare dso_local void @ext4_free_ext_path(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @free_ext_idx.argprom(ptr noundef %0, ptr noundef %1, i32 %.4.val, i16 %.8.val) unnamed_addr #0 align 16 {
+define internal fastcc i32 @free_ext_idx(ptr noundef %0, ptr noundef %1, i32 %.4.val, i16 %.8.val) unnamed_addr #0 align 16 {
   %3 = zext i32 %.4.val to i64
   %4 = zext i16 %.8.val to i64
   %5 = shl nuw nsw i64 %4, 32
@@ -1278,7 +1278,7 @@ define internal fastcc i32 @free_ext_idx.argprom(ptr noundef %0, ptr noundef %1,
   %.val = load i32, ptr %32, align 4
   %33 = getelementptr i8, ptr %30, i64 20
   %.val6 = load i16, ptr %33, align 4
-  %34 = tail call fastcc i32 @free_ext_idx.argprom(ptr noundef %0, ptr noundef %1, i32 %.val, i16 %.val6)
+  %34 = tail call fastcc i32 @free_ext_idx(ptr noundef %0, ptr noundef %1, i32 %.val, i16 %.val6)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %24, label %36
 

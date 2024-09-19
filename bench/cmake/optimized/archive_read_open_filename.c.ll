@@ -388,7 +388,7 @@ declare i32 @archive_read_set_close_callback(ptr noundef, ptr noundef) local_unn
 define internal noundef i32 @file_close(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, -1
-  br i1 %4, label %5, label %file_close2.argprom.exit
+  br i1 %4, label %5, label %file_close2.exit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 24
@@ -418,14 +418,14 @@ define internal noundef i32 @file_close(ptr nocapture readnone %0, ptr nocapture
   %17 = getelementptr inbounds i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %file_close2.argprom.exit, label %19
+  br i1 %.not.i, label %file_close2.exit, label %19
 
 19:                                               ; preds = %.loopexit.i
   %20 = load i32, ptr %1, align 8
   %21 = tail call i32 @close(i32 noundef %20) #14
-  br label %file_close2.argprom.exit
+  br label %file_close2.exit
 
-file_close2.argprom.exit:                         ; preds = %2, %.loopexit.i, %19
+file_close2.exit:                                 ; preds = %2, %.loopexit.i, %19
   %22 = getelementptr inbounds i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call void @free(ptr noundef %23) #14
@@ -439,7 +439,7 @@ declare i32 @archive_read_set_switch_callback(ptr noundef, ptr noundef) local_un
 define internal range(i32 -30, 1) i32 @file_switch(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = load i32, ptr %1, align 8
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %file_close2.argprom.exit
+  br i1 %5, label %6, label %file_close2.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -469,14 +469,14 @@ define internal range(i32 -30, 1) i32 @file_switch(ptr noundef %0, ptr nocapture
   %18 = getelementptr inbounds i8, ptr %1, i64 32
   %19 = load i32, ptr %18, align 8
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %file_close2.argprom.exit, label %20
+  br i1 %.not.i, label %file_close2.exit, label %20
 
 20:                                               ; preds = %.loopexit.i
   %21 = load i32, ptr %1, align 8
   %22 = tail call i32 @close(i32 noundef %21) #14
-  br label %file_close2.argprom.exit
+  br label %file_close2.exit
 
-file_close2.argprom.exit:                         ; preds = %3, %.loopexit.i, %20
+file_close2.exit:                                 ; preds = %3, %.loopexit.i, %20
   %23 = getelementptr inbounds i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %24) #14

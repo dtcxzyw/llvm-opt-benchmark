@@ -1696,9 +1696,9 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 31:                                               ; preds = %24
   %32 = trunc nuw i32 %0 to i8
   store i8 %32, ptr %1, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd36f77b4a6cd3578E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd36f77b4a6cd3578E.exit"
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd36f77b4a6cd3578E.argprom.exit": ; preds = %31, %36, %44, %57
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd36f77b4a6cd3578E.exit": ; preds = %31, %36, %44, %57
   %33 = phi i64 [ 4, %57 ], [ 3, %44 ], [ 2, %36 ], [ 1, %31 ]
   %34 = insertvalue { ptr, i64 } poison, ptr %1, 0
   %35 = insertvalue { ptr, i64 } %34, i64 %33, 1
@@ -1715,7 +1715,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
   %42 = getelementptr inbounds i8, ptr %1, i64 1
   %43 = or disjoint i8 %41, -128
   store i8 %43, ptr %42, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd36f77b4a6cd3578E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd36f77b4a6cd3578E.exit"
 
 44:                                               ; preds = %27
   %45 = lshr i32 %0, 12
@@ -1733,7 +1733,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
   %55 = getelementptr inbounds i8, ptr %1, i64 2
   %56 = or disjoint i8 %54, -128
   store i8 %56, ptr %55, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd36f77b4a6cd3578E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd36f77b4a6cd3578E.exit"
 
 57:                                               ; preds = %29
   %58 = lshr i32 %0, 18
@@ -1758,7 +1758,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
   %74 = getelementptr inbounds i8, ptr %1, i64 3
   %75 = or disjoint i8 %73, -128
   store i8 %75, ptr %74, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd36f77b4a6cd3578E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd36f77b4a6cd3578E.exit"
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
@@ -4673,7 +4673,7 @@ define hidden void @_ZN9actix_web8response8response12HttpResponse10from_error17h
 .noexc.i.i:                                       ; preds = %2
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcf48de9c49214a82E.argprom.exit"
+  br i1 %8, label %9, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcf48de9c49214a82E.exit"
 
 9:                                                ; preds = %.noexc.i.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 8) #35
@@ -4698,7 +4698,7 @@ common.resume:                                    ; preds = %40, %.body, %10
   %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %41, %40 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcf48de9c49214a82E.argprom.exit": ; preds = %.noexc.i.i
+"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcf48de9c49214a82E.exit": ; preds = %.noexc.i.i
   store ptr %1, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr %7, ptr %5, align 8
@@ -4708,7 +4708,7 @@ common.resume:                                    ; preds = %40, %.body, %10
   %15 = invoke { ptr, ptr } @_ZN9actix_web5error5error5Error17as_response_error17hf544cd3099a0300aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
           to label %16 unwind label %40
 
-16:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcf48de9c49214a82E.argprom.exit"
+16:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcf48de9c49214a82E.exit"
   %17 = extractvalue { ptr, ptr } %15, 0
   %18 = extractvalue { ptr, ptr } %15, 1
   %19 = getelementptr inbounds i8, ptr %18, i64 56
@@ -4777,7 +4777,7 @@ common.resume:                                    ; preds = %40, %.body, %10
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36
   unreachable
 
-40:                                               ; preds = %16, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcf48de9c49214a82E.argprom.exit"
+40:                                               ; preds = %16, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcf48de9c49214a82E.exit"
   %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$actix_web..error..error..Error$GT$17h569fabe5dc64f26fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #37
@@ -4792,13 +4792,13 @@ define hidden void @_ZN9actix_web8response8response12HttpResponse10from_error17h
   %5 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.12734530818944442833(ptr noalias noundef nonnull readonly align 1 @anon.c29a8bfa518d85917f471cda279c2d29.1.llvm.12734530818944442833, i64 noundef 1, i64 noundef 1, i1 noundef zeroext false)
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9d140a6ad7a4ada7E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9d140a6ad7a4ada7E.exit"
 
 8:                                                ; preds = %2
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 1, i64 noundef 1) #35
   unreachable
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9d140a6ad7a4ada7E.argprom.exit": ; preds = %2
+"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9d140a6ad7a4ada7E.exit": ; preds = %2
   %9 = zext i1 %1 to i8
   store i8 %9, ptr %6, align 1
   store ptr %6, ptr %4, align 8
@@ -4808,7 +4808,7 @@ define hidden void @_ZN9actix_web8response8response12HttpResponse10from_error17h
   %11 = invoke { ptr, ptr } @_ZN9actix_web5error5error5Error17as_response_error17hf544cd3099a0300aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %12 unwind label %37
 
-12:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9d140a6ad7a4ada7E.argprom.exit"
+12:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9d140a6ad7a4ada7E.exit"
   %13 = extractvalue { ptr, ptr } %11, 0
   %14 = extractvalue { ptr, ptr } %11, 1
   %15 = getelementptr inbounds i8, ptr %14, i64 56
@@ -4881,7 +4881,7 @@ define hidden void @_ZN9actix_web8response8response12HttpResponse10from_error17h
   %.pn7 = phi { ptr, i32 } [ %38, %37 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn7
 
-37:                                               ; preds = %12, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9d140a6ad7a4ada7E.argprom.exit"
+37:                                               ; preds = %12, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9d140a6ad7a4ada7E.exit"
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$actix_web..error..error..Error$GT$17h569fabe5dc64f26fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #37

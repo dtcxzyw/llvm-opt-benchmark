@@ -2084,7 +2084,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 582:                                              ; preds = %580
   %583 = sdiv i32 %.2.i.i, 4
-  %584 = tail call fastcc i32 @Dedicated_DL_Control_IE.argelim(ptr noundef %495, i32 noundef %583, ptr noundef %4)
+  %584 = tail call fastcc i32 @Dedicated_DL_Control_IE(ptr noundef %495, i32 noundef %583, ptr noundef %4)
   %585 = shl nuw nsw i32 %584, 2
   %586 = add i32 %585, %.2.i.i
   br label %587
@@ -2192,7 +2192,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 668:                                              ; preds = %666
   %669 = sdiv i32 %.1.i154.i, 4
-  %670 = tail call fastcc i32 @Dedicated_DL_Control_IE.argelim(ptr noundef %598, i32 noundef %669, ptr noundef %4)
+  %670 = tail call fastcc i32 @Dedicated_DL_Control_IE(ptr noundef %598, i32 noundef %669, ptr noundef %4)
   %671 = add i32 %670, %.1.i154.i
   br label %672
 
@@ -2342,7 +2342,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 785:                                              ; preds = %783
   %786 = sdiv i32 %.2.i159.i, 4
-  %787 = tail call fastcc i32 @Dedicated_DL_Control_IE.argelim(ptr noundef %693, i32 noundef %786, ptr noundef %4)
+  %787 = tail call fastcc i32 @Dedicated_DL_Control_IE(ptr noundef %693, i32 noundef %786, ptr noundef %4)
   %788 = add i32 %787, %.2.i159.i
   br label %789
 
@@ -2433,7 +2433,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   br i1 %.not110.i.i, label %857, label %854
 
 854:                                              ; preds = %851
-  %855 = tail call fastcc i32 @Dedicated_MIMO_DL_Control_IE.argelim(ptr noundef %807, i32 noundef %.1.i162.i, ptr noundef %4)
+  %855 = tail call fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %807, i32 noundef %.1.i162.i, ptr noundef %4)
   %856 = add i32 %855, %.1.i162.i
   br label %857
 
@@ -2628,7 +2628,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   br i1 %.not95.i.i, label %990, label %987
 
 987:                                              ; preds = %984
-  %988 = tail call fastcc i32 @Dedicated_MIMO_DL_Control_IE.argelim(ptr noundef %940, i32 noundef %.1.i166.i, ptr noundef %4)
+  %988 = tail call fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %940, i32 noundef %.1.i166.i, ptr noundef %4)
   %989 = add i32 %988, %.1.i166.i
   br label %990
 
@@ -2793,7 +2793,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   br i1 %.not99.i177.i, label %1100, label %1097
 
 1097:                                             ; preds = %1094
-  %1098 = tail call fastcc i32 @Dedicated_MIMO_DL_Control_IE.argelim(ptr noundef %1050, i32 noundef %.1.i176.i, ptr noundef %4)
+  %1098 = tail call fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %1050, i32 noundef %.1.i176.i, ptr noundef %4)
   %1099 = add i32 %1098, %.1.i176.i
   br label %1100
 
@@ -2990,7 +2990,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   br i1 %.not99.i196.i, label %1240, label %1237
 
 1237:                                             ; preds = %1226
-  %1238 = tail call fastcc i32 @Dedicated_MIMO_DL_Control_IE.argelim(ptr noundef %1170, i32 noundef %1234, ptr noundef %4)
+  %1238 = tail call fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %1170, i32 noundef %1234, ptr noundef %4)
   %1239 = add i32 %1238, %1234
   br label %1240
 
@@ -5430,7 +5430,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 17) i32 @Dedicated_DL_Control_IE.argelim(ptr noundef %0, i32 noundef range(i32 -536870912, 536870912) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 17) i32 @Dedicated_DL_Control_IE(ptr noundef %0, i32 noundef range(i32 -536870912, 536870912) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = and i32 %1, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
@@ -5558,7 +5558,7 @@ define internal fastcc range(i32 1, 17) i32 @Dedicated_DL_Control_IE.argelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = sdiv i32 %1, 8
   %5 = load i32, ptr @ett_286t, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef 1, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.552) #2

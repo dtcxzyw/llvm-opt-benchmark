@@ -1071,7 +1071,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PAMDecoder10readHeaderEv(ptr noundef n
   br label %.loopexit.split-lp
 
 216:                                              ; preds = %198
-  %217 = invoke fastcc noundef i32 @_ZN2cvL8ParseIntEPKci.argelim(ptr noundef %3)
+  %217 = invoke fastcc noundef i32 @_ZN2cvL8ParseIntEPKci(ptr noundef %3)
           to label %218 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 218:                                              ; preds = %216
@@ -1151,7 +1151,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PAMDecoder10readHeaderEv(ptr noundef n
   br label %.loopexit.split-lp
 
 237:                                              ; preds = %219
-  %238 = invoke fastcc noundef i32 @_ZN2cvL8ParseIntEPKci.argelim(ptr noundef %3)
+  %238 = invoke fastcc noundef i32 @_ZN2cvL8ParseIntEPKci(ptr noundef %3)
           to label %239 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 239:                                              ; preds = %237
@@ -1231,7 +1231,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PAMDecoder10readHeaderEv(ptr noundef n
   br label %.loopexit.split-lp
 
 258:                                              ; preds = %240
-  %259 = invoke fastcc noundef i32 @_ZN2cvL8ParseIntEPKci.argelim(ptr noundef %3)
+  %259 = invoke fastcc noundef i32 @_ZN2cvL8ParseIntEPKci(ptr noundef %3)
           to label %260 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 260:                                              ; preds = %258
@@ -1311,7 +1311,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PAMDecoder10readHeaderEv(ptr noundef n
   br label %.loopexit.split-lp
 
 279:                                              ; preds = %261
-  %280 = invoke fastcc noundef i32 @_ZN2cvL8ParseIntEPKci.argelim(ptr noundef %3)
+  %280 = invoke fastcc noundef i32 @_ZN2cvL8ParseIntEPKci(ptr noundef %3)
           to label %281 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 281:                                              ; preds = %279
@@ -1714,7 +1714,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN2cvL8ParseIntEPKci.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN2cvL8ParseIntEPKci(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

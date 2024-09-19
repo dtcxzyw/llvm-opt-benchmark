@@ -3016,7 +3016,7 @@ _Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i116: ; pr
 170:                                              ; preds = %52
   %171 = load ptr, ptr %1, align 8
   %172 = tail call noundef ptr @_Z13gmx_fio_getfpP8t_fileio(ptr noundef %53)
-  tail call fastcc void @_ZL11pdb_first_xP11t_trxstatusP8_IO_FILEP10t_trxframe.retelim(ptr noundef %171, ptr noundef %172, ptr noundef nonnull %3)
+  tail call fastcc void @_ZL11pdb_first_xP11t_trxstatusP8_IO_FILEP10t_trxframe(ptr noundef %171, ptr noundef %172, ptr noundef nonnull %3)
   %173 = load i32, ptr %21, align 8
   %.not100 = icmp eq i32 %173, 0
   br i1 %.not100, label %_ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit, label %174
@@ -3164,7 +3164,7 @@ declare void @_Z24read_checkpoint_trxframeP8t_fileioP10t_trxframe(ptr noundef, p
 declare noundef i32 @_Z14read_first_xtcP8t_fileioPiPlPfPA3_fPS5_S3_Pb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZL11pdb_first_xP11t_trxstatusP8_IO_FILEP10t_trxframe.retelim(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11pdb_first_xP11t_trxstatusP8_IO_FILEP10t_trxframe(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 -1, ptr %5, align 4

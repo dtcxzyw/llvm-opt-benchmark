@@ -230,7 +230,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %.val = load float, ptr %14, align 8, !tbaa !25
   %15 = getelementptr i8, ptr %1, i64 144
   %.val5 = load <2 x i32>, ptr %15, align 8, !tbaa !14
-  %16 = call fastcc i32 @get_scales.argprom(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %13, ptr noundef %4, float %.val, <2 x i32> %.val5)
+  %16 = call fastcc i32 @get_scales(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %13, ptr noundef %4, float %.val, <2 x i32> %.val5)
   %17 = add nsw i32 %16, -1
   %18 = getelementptr inbounds i8, ptr %5, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !26
@@ -614,7 +614,7 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
   %.val = load float, ptr %11, align 8, !tbaa !25
   %12 = getelementptr i8, ptr %1, i64 144
   %.val1 = load <2 x i32>, ptr %12, align 8, !tbaa !14
-  %13 = call fastcc i32 @get_scales.argprom(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %10, ptr noundef %2, float %.val, <2 x i32> %.val1)
+  %13 = call fastcc i32 @get_scales(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %10, ptr noundef %2, float %.val, <2 x i32> %.val1)
   %14 = shl i32 2, %13
   store float 4.000000e+00, ptr %4, align 4, !tbaa !78
   %15 = sitofp i32 %13 to float
@@ -638,7 +638,7 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales.argprom(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, float %.104.val, <2 x i32> %.144.val) unnamed_addr #8 {
+define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, float %.104.val, <2 x i32> %.144.val) unnamed_addr #8 {
   %6 = alloca [20 x float], align 16
   %7 = alloca [20 x float], align 16
   %8 = alloca [20 x float], align 16

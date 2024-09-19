@@ -1313,7 +1313,7 @@ define dso_local i32 @fat_count_free_clusters(ptr noundef %0) local_unnamed_addr
   %.sroa.20.1 = phi i64 [ %.sroa.20.0, %67 ], [ %.sroa.20.3, %135 ]
   %72 = phi i32 [ 0, %67 ], [ %124, %135 ]
   %73 = icmp ult i64 %.sroa.16.1, %.sroa.20.1
-  br i1 %73, label %74, label %fat_ent_reada.argprom.exit
+  br i1 %73, label %74, label %fat_ent_reada.exit
 
 74:                                               ; preds = %71
   %75 = icmp ult i64 %.sroa.0.1, %.sroa.129.1
@@ -1363,9 +1363,9 @@ define dso_local i32 @fat_count_free_clusters(ptr noundef %0) local_unnamed_addr
   %.sroa.16.3 = phi i64 [ %.sroa.16.1, %74 ], [ %.sroa.20.1, %.loopexit.i ]
   %.sroa.20.2 = phi i64 [ %.sroa.20.1, %74 ], [ %92, %.loopexit.i ]
   %94 = add i64 %.sroa.0.1, 1
-  br label %fat_ent_reada.argprom.exit
+  br label %fat_ent_reada.exit
 
-fat_ent_reada.argprom.exit:                       ; preds = %71, %93
+fat_ent_reada.exit:                               ; preds = %71, %93
   %.sroa.0.2 = phi i64 [ %94, %93 ], [ %.sroa.0.1, %71 ]
   %.sroa.129.3 = phi i64 [ %.sroa.129.2, %93 ], [ %.sroa.129.1, %71 ]
   %.sroa.16.5 = phi i64 [ %.sroa.16.3, %93 ], [ %.sroa.16.1, %71 ]
@@ -1382,9 +1382,9 @@ fat_ent_reada.argprom.exit:                       ; preds = %71, %93
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %.preheader24, label %.loopexit25
 
-.preheader24:                                     ; preds = %fat_ent_reada.argprom.exit, %106
-  %100 = phi i32 [ %107, %106 ], [ %98, %fat_ent_reada.argprom.exit ]
-  %101 = phi i64 [ %108, %106 ], [ 0, %fat_ent_reada.argprom.exit ]
+.preheader24:                                     ; preds = %fat_ent_reada.exit, %106
+  %100 = phi i32 [ %107, %106 ], [ %98, %fat_ent_reada.exit ]
+  %101 = phi i64 [ %108, %106 ], [ 0, %fat_ent_reada.exit ]
   %102 = getelementptr [2 x ptr], ptr %26, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
@@ -1402,7 +1402,7 @@ fat_ent_reada.argprom.exit:                       ; preds = %71, %93
   %110 = icmp slt i64 %108, %109
   br i1 %110, label %.preheader24, label %.loopexit25, !llvm.loop !5
 
-.loopexit25:                                      ; preds = %106, %fat_ent_reada.argprom.exit
+.loopexit25:                                      ; preds = %106, %fat_ent_reada.exit
   store i32 0, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %111 = load ptr, ptr %97, align 8
@@ -1647,7 +1647,7 @@ define dso_local i32 @fat_trim_fs(ptr nocapture noundef readonly %0, ptr nocaptu
   %94 = phi i32 [ 0, %88 ], [ %180, %219 ]
   %95 = phi i64 [ 0, %88 ], [ %179, %219 ]
   %96 = icmp ult i64 %.sroa.16.1, %.sroa.20.1
-  br i1 %96, label %97, label %fat_ent_reada.argprom.exit
+  br i1 %96, label %97, label %fat_ent_reada.exit
 
 97:                                               ; preds = %93
   %98 = icmp ult i64 %.sroa.0.1, %.sroa.1218.1
@@ -1697,9 +1697,9 @@ define dso_local i32 @fat_trim_fs(ptr nocapture noundef readonly %0, ptr nocaptu
   %.sroa.16.3 = phi i64 [ %.sroa.16.1, %97 ], [ %.sroa.20.1, %.loopexit.i ]
   %.sroa.20.2 = phi i64 [ %.sroa.20.1, %97 ], [ %115, %.loopexit.i ]
   %117 = add i64 %.sroa.0.1, 1
-  br label %fat_ent_reada.argprom.exit
+  br label %fat_ent_reada.exit
 
-fat_ent_reada.argprom.exit:                       ; preds = %93, %116
+fat_ent_reada.exit:                               ; preds = %93, %116
   %.sroa.0.2 = phi i64 [ %117, %116 ], [ %.sroa.0.1, %93 ]
   %.sroa.1218.3 = phi i64 [ %.sroa.1218.2, %116 ], [ %.sroa.1218.1, %93 ]
   %.sroa.16.5 = phi i64 [ %.sroa.16.3, %116 ], [ %.sroa.16.1, %93 ]
@@ -1716,9 +1716,9 @@ fat_ent_reada.argprom.exit:                       ; preds = %93, %116
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %.preheader38, label %.loopexit39
 
-.preheader38:                                     ; preds = %fat_ent_reada.argprom.exit, %129
-  %123 = phi i32 [ %130, %129 ], [ %121, %fat_ent_reada.argprom.exit ]
-  %124 = phi i64 [ %131, %129 ], [ 0, %fat_ent_reada.argprom.exit ]
+.preheader38:                                     ; preds = %fat_ent_reada.exit, %129
+  %123 = phi i32 [ %130, %129 ], [ %121, %fat_ent_reada.exit ]
+  %124 = phi i64 [ %131, %129 ], [ 0, %fat_ent_reada.exit ]
   %125 = getelementptr [2 x ptr], ptr %46, i64 0, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
@@ -1736,7 +1736,7 @@ fat_ent_reada.argprom.exit:                       ; preds = %93, %116
   %133 = icmp slt i64 %131, %132
   br i1 %133, label %.preheader38, label %.loopexit39, !llvm.loop !5
 
-.loopexit39:                                      ; preds = %129, %fat_ent_reada.argprom.exit
+.loopexit39:                                      ; preds = %129, %fat_ent_reada.exit
   store i32 0, ptr %44, align 8
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
   %134 = load ptr, ptr %120, align 8

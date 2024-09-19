@@ -624,7 +624,7 @@ if.then53.i:                                      ; preds = %if.then50.i
 
 if.end62.i:                                       ; preds = %if.then53.i, %if.then50.i, %if.end44.i
   %.pr.i = phi i32 [ %87, %if.then50.i ], [ %.pre3.i, %if.then53.i ], [ %87, %if.end44.i ]
-  switch i32 %.pr.i, label %handle_secondary_tcp_pkt.argprom.exit [
+  switch i32 %.pr.i, label %handle_secondary_tcp_pkt.exit [
     i32 5, label %land.lhs.true66.i
     i32 4, label %land.lhs.true80.i
   ]
@@ -633,7 +633,7 @@ land.lhs.true66.i:                                ; preds = %if.end62.i
   %95 = load i8, ptr %th_flags45.i, align 1
   %96 = and i8 %95, 17
   %cmp70.i = icmp eq i8 %96, 17
-  br i1 %cmp70.i, label %if.end76.thread.i, label %handle_secondary_tcp_pkt.argprom.exit
+  br i1 %cmp70.i, label %if.end76.thread.i, label %handle_secondary_tcp_pkt.exit
 
 if.end76.thread.i:                                ; preds = %land.lhs.true66.i
   %th_seq73.i = getelementptr inbounds i8, ptr %11, i64 4
@@ -647,14 +647,14 @@ land.lhs.true80.i:                                ; preds = %if.end62.i
   %98 = load i8, ptr %th_flags45.i, align 1
   %99 = and i8 %98, 17
   %cmp84.i = icmp eq i8 %99, 1
-  br i1 %cmp84.i, label %if.end88.sink.split.i, label %handle_secondary_tcp_pkt.argprom.exit
+  br i1 %cmp84.i, label %if.end88.sink.split.i, label %handle_secondary_tcp_pkt.exit
 
 if.end88.sink.split.i:                            ; preds = %land.lhs.true80.i, %if.end76.thread.i
   %.sink.i = phi i32 [ 8, %if.end76.thread.i ], [ 6, %land.lhs.true80.i ]
   store i32 %.sink.i, ptr %tcp_state.i50, align 4
-  br label %handle_secondary_tcp_pkt.argprom.exit
+  br label %handle_secondary_tcp_pkt.exit
 
-handle_secondary_tcp_pkt.argprom.exit:            ; preds = %if.end62.i, %land.lhs.true66.i, %land.lhs.true80.i, %if.end88.sink.split.i
+handle_secondary_tcp_pkt.exit:                    ; preds = %if.end62.i, %land.lhs.true66.i, %land.lhs.true80.i, %if.end88.sink.split.i
   %incoming_queue36 = getelementptr inbounds i8, ptr %call.i, i64 96
   %100 = load ptr, ptr %incoming_queue36, align 8
   %101 = load ptr, ptr %call7, align 8
@@ -669,8 +669,8 @@ out:                                              ; preds = %land.lhs.true.i, %l
   call void @packet_destroy(ptr noundef %call7, ptr noundef null) #9
   br label %return
 
-return:                                           ; preds = %out, %handle_secondary_tcp_pkt.argprom.exit, %handle_primary_tcp_pkt.exit
-  %retval.0 = phi i64 [ 0, %out ], [ 1, %handle_primary_tcp_pkt.exit ], [ 1, %handle_secondary_tcp_pkt.argprom.exit ]
+return:                                           ; preds = %out, %handle_secondary_tcp_pkt.exit, %handle_primary_tcp_pkt.exit
+  %retval.0 = phi i64 [ 0, %out ], [ 1, %handle_primary_tcp_pkt.exit ], [ 1, %handle_secondary_tcp_pkt.exit ]
   ret i64 %retval.0
 }
 

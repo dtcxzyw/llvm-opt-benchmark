@@ -473,7 +473,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %29, %27, %27, %27, 
   %.val = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %56, i64 88
   %.val81 = load ptr, ptr %58, align 8
-  %59 = tail call fastcc noundef signext i8 @_ZL12GetFirstCharRKN5clang12PreprocessorERKNS_5TokenE.argprom(ptr %.val, ptr %.val81, ptr noundef nonnull align 8 dereferenceable(20) %3)
+  %59 = tail call fastcc noundef signext i8 @_ZL12GetFirstCharRKN5clang12PreprocessorERKNS_5TokenE(ptr %.val, ptr %.val81, ptr noundef nonnull align 8 dereferenceable(20) %3)
   br label %60
 
 60:                                               ; preds = %53, %55
@@ -579,7 +579,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit87.thread: ; preds = %68, %68, %68, %6
   %.val82 = load ptr, ptr %79, align 8
   %80 = getelementptr i8, ptr %78, i64 88
   %.val83 = load ptr, ptr %80, align 8
-  %81 = tail call fastcc noundef signext i8 @_ZL12GetFirstCharRKN5clang12PreprocessorERKNS_5TokenE.argprom(ptr %.val82, ptr %.val83, ptr noundef nonnull align 8 dereferenceable(20) %3)
+  %81 = tail call fastcc noundef signext i8 @_ZL12GetFirstCharRKN5clang12PreprocessorERKNS_5TokenE(ptr %.val82, ptr %.val83, ptr noundef nonnull align 8 dereferenceable(20) %3)
   %82 = icmp ne i8 %81, 46
   br label %switch.edge
 
@@ -744,7 +744,7 @@ switch.edge:                                      ; preds = %146, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef signext i8 @_ZL12GetFirstCharRKN5clang12PreprocessorERKNS_5TokenE.argprom(ptr %.56.val, ptr %.88.val, ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #0 {
+define internal fastcc noundef signext i8 @_ZL12GetFirstCharRKN5clang12PreprocessorERKNS_5TokenE(ptr %.56.val, ptr %.88.val, ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

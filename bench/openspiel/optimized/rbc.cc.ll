@@ -10429,7 +10429,7 @@ _ZN4absl7debian28optionalISt6vectorIlSaIlEEEptEv.exit.i.i.i: ; preds = %2
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %17, ptr %11, align 8
-  br label %"_ZSt10__invoke_rIbRZNK10open_spiel3rbc8RbcState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZNK10open_spiel3rbc8RbcState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 18:                                               ; preds = %_ZN4absl7debian28optionalISt6vectorIlSaIlEEEptEv.exit.i.i.i
   %19 = load ptr, ptr %7, align 8
@@ -10484,9 +10484,9 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   store ptr %38, ptr %11, align 8
   %40 = getelementptr inbounds i64, ptr %33, i64 %29
   store ptr %40, ptr %13, align 8
-  br label %"_ZSt10__invoke_rIbRZNK10open_spiel3rbc8RbcState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZNK10open_spiel3rbc8RbcState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
-"_ZSt10__invoke_rIbRZNK10open_spiel3rbc8RbcState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %15, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIbRZNK10open_spiel3rbc8RbcState25MaybeGenerateLegalActionsEvE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %15, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.i.i.i
   ret i1 true
 }
 

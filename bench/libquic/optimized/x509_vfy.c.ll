@@ -4045,7 +4045,7 @@ for.body.i27.i:                                   ; preds = %for.inc.i28.i, %for
   %CRLissuer.i.i.i = getelementptr inbounds i8, ptr %call16.i.i, i64 16
   %46 = load ptr, ptr %CRLissuer.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %46, null
-  br i1 %tobool.not.i.i.i, label %crldp_check_crlissuer.argprom.argprom.exit.i.i, label %for.cond.preheader.i.i.i
+  br i1 %tobool.not.i.i.i, label %crldp_check_crlissuer.exit.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %for.body.i27.i
   %call1.i.i.i = tail call i64 @sk_num(ptr noundef nonnull %46) #14
@@ -4074,10 +4074,10 @@ for.inc.i.i.i:                                    ; preds = %if.end9.i.i.i, %for
   %cmp.i.i.i = icmp ult i64 %inc.i.i.i, %call.i.i.i
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.inc.i28.i, !llvm.loop !27
 
-crldp_check_crlissuer.argprom.argprom.exit.i.i:   ; preds = %for.body.i27.i
+crldp_check_crlissuer.exit.i.i:                   ; preds = %for.body.i27.i
   br i1 %tobool18.not.i.i, label %for.inc.i28.i, label %if.then19.i.i
 
-if.then19.i.i:                                    ; preds = %if.end9.i.i.i, %crldp_check_crlissuer.argprom.argprom.exit.i.i
+if.then19.i.i:                                    ; preds = %if.end9.i.i.i, %crldp_check_crlissuer.exit.i.i
   %51 = load ptr, ptr %idp.i.i, align 8
   %tobool20.not.i.i = icmp eq ptr %51, null
   br i1 %tobool20.not.i.i, label %if.then25.i.i, label %lor.lhs.false.i.i
@@ -4205,7 +4205,7 @@ if.then25.i.i:                                    ; preds = %idp_check_dp.exit.i
   %and26.i.i = and i32 %69, %41
   br label %if.then51.i
 
-for.inc.i28.i:                                    ; preds = %for.inc.i.i.i, %for.inc66.i.i.i, %for.inc.i22.i.i, %idp_check_dp.exit.i.i, %for.cond45.preheader.i.i.i, %for.cond.preheader.i20.i.i, %if.then22.i.i.i, %if.then8.i.i.i, %if.then2.i.i.i, %crldp_check_crlissuer.argprom.argprom.exit.i.i, %for.cond.preheader.i.i.i
+for.inc.i28.i:                                    ; preds = %for.inc.i.i.i, %for.inc66.i.i.i, %for.inc.i22.i.i, %idp_check_dp.exit.i.i, %for.cond45.preheader.i.i.i, %for.cond.preheader.i20.i.i, %if.then22.i.i.i, %if.then8.i.i.i, %if.then2.i.i.i, %crldp_check_crlissuer.exit.i.i, %for.cond.preheader.i.i.i
   %inc.i29.i = add nuw i64 %i.046.i.i, 1
   %70 = load ptr, ptr %crldp.i.i, align 8
   %call.i30.i = tail call i64 @sk_num(ptr noundef %70) #14

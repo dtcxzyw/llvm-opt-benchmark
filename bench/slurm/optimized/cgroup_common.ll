@@ -658,15 +658,15 @@ define i32 @common_cgroup_move_process(ptr nocapture noundef readonly %0, i32 no
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 128
   %.not.i.i = icmp eq i32 %15, 0
-  br i1 %.not.i.i, label %16, label %_cgroup_procs_writable_path.argprom.exit
+  br i1 %.not.i.i, label %16, label %_cgroup_procs_writable_path.exit
 
 16:                                               ; preds = %12, %2
   %17 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__._cgroup_procs_check, ptr noundef %9) #8
   call void @slurm_xfree(ptr noundef nonnull %6) #8
   %.pre.i.i = load ptr, ptr %6, align 8
-  br label %_cgroup_procs_writable_path.argprom.exit
+  br label %_cgroup_procs_writable_path.exit
 
-_cgroup_procs_writable_path.argprom.exit:         ; preds = %12, %16
+_cgroup_procs_writable_path.exit:                 ; preds = %12, %16
   %18 = phi ptr [ %.pre.i.i, %16 ], [ %9, %12 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -674,12 +674,12 @@ _cgroup_procs_writable_path.argprom.exit:         ; preds = %12, %16
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %22
 
-19:                                               ; preds = %_cgroup_procs_writable_path.argprom.exit
+19:                                               ; preds = %_cgroup_procs_writable_path.exit
   %20 = load ptr, ptr %8, align 8
   %21 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef %20) #8
   br label %46
 
-22:                                               ; preds = %_cgroup_procs_writable_path.argprom.exit
+22:                                               ; preds = %_cgroup_procs_writable_path.exit
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   %.val4 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -693,16 +693,16 @@ _cgroup_procs_writable_path.argprom.exit:         ; preds = %12, %16
   %26 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %27 = and i64 %26, 36028797018963968
   %.not14.i = icmp eq i64 %27, 0
-  br i1 %.not14.i, label %_set_uint32_param.argprom.exit, label %28
+  br i1 %.not14.i, label %_set_uint32_param.exit, label %28
 
 28:                                               ; preds = %25
   %29 = call i32 @get_log_level() #8
   %30 = icmp sgt i32 %29, 3
-  br i1 %30, label %31, label %_set_uint32_param.argprom.exit
+  br i1 %30, label %31, label %_set_uint32_param.exit
 
 31:                                               ; preds = %28
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.19, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._set_uint32_param, ptr noundef %.val4, ptr noundef nonnull @.str.16) #8
-  br label %_set_uint32_param.argprom.exit
+  br label %_set_uint32_param.exit
 
 32:                                               ; preds = %22
   %33 = call i32 @common_file_write_uints(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 32)
@@ -713,37 +713,37 @@ _cgroup_procs_writable_path.argprom.exit:         ; preds = %12, %16
   br i1 %.not.i, label %41, label %36
 
 36:                                               ; preds = %32
-  br i1 %.not12.i, label %_set_uint32_param.argprom.exit, label %37
+  br i1 %.not12.i, label %_set_uint32_param.exit, label %37
 
 37:                                               ; preds = %36
   %38 = call i32 @get_log_level() #8
   %39 = icmp sgt i32 %38, 3
-  br i1 %39, label %40, label %_set_uint32_param.argprom.exit
+  br i1 %39, label %40, label %_set_uint32_param.exit
 
 40:                                               ; preds = %37
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._set_uint32_param, ptr noundef nonnull @.str.16, i32 noundef %1, ptr noundef %.val4) #8
-  br label %_set_uint32_param.argprom.exit
+  br label %_set_uint32_param.exit
 
 41:                                               ; preds = %32
-  br i1 %.not12.i, label %_set_uint32_param.argprom.exit, label %42
+  br i1 %.not12.i, label %_set_uint32_param.exit, label %42
 
 42:                                               ; preds = %41
   %43 = call i32 @get_log_level() #8
   %44 = icmp sgt i32 %43, 3
-  br i1 %44, label %45, label %_set_uint32_param.argprom.exit
+  br i1 %44, label %45, label %_set_uint32_param.exit
 
 45:                                               ; preds = %42
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.42, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._set_uint32_param, ptr noundef nonnull @.str.16, i32 noundef %1, ptr noundef %.val4) #8
-  br label %_set_uint32_param.argprom.exit
+  br label %_set_uint32_param.exit
 
-_set_uint32_param.argprom.exit:                   ; preds = %25, %28, %31, %36, %37, %40, %41, %42, %45
+_set_uint32_param.exit:                           ; preds = %25, %28, %31, %36, %37, %40, %41, %42, %45
   %.0.i = phi i32 [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ 0, %45 ], [ 0, %42 ], [ 0, %41 ], [ %33, %40 ], [ %33, %37 ], [ %33, %36 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
   br label %46
 
-46:                                               ; preds = %_set_uint32_param.argprom.exit, %19
-  %.0 = phi i32 [ %.0.i, %_set_uint32_param.argprom.exit ], [ -1, %19 ]
+46:                                               ; preds = %_set_uint32_param.exit, %19
+  %.0 = phi i32 [ %.0.i, %_set_uint32_param.exit ], [ -1, %19 ]
   ret i32 %.0
 }
 
@@ -1091,15 +1091,15 @@ define range(i32 -1, 1) i32 @common_cgroup_get_pids(ptr nocapture noundef readon
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 256
   %.not.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i, label %20, label %_cgroup_procs_readable_path.argprom.exit
+  br i1 %.not.i.i, label %20, label %_cgroup_procs_readable_path.exit
 
 20:                                               ; preds = %16, %12
   %21 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__._cgroup_procs_check, ptr noundef %13) #8
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   %.pre.i.i = load ptr, ptr %5, align 8
-  br label %_cgroup_procs_readable_path.argprom.exit
+  br label %_cgroup_procs_readable_path.exit
 
-_cgroup_procs_readable_path.argprom.exit:         ; preds = %16, %20
+_cgroup_procs_readable_path.exit:                 ; preds = %16, %20
   %22 = phi ptr [ %.pre.i.i, %20 ], [ %13, %16 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -1107,12 +1107,12 @@ _cgroup_procs_readable_path.argprom.exit:         ; preds = %16, %20
   %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %23, label %26
 
-23:                                               ; preds = %_cgroup_procs_readable_path.argprom.exit
+23:                                               ; preds = %_cgroup_procs_readable_path.exit
   %24 = load ptr, ptr %10, align 8
   %25 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.29, ptr noundef %24) #8
   br label %36
 
-26:                                               ; preds = %_cgroup_procs_readable_path.argprom.exit
+26:                                               ; preds = %_cgroup_procs_readable_path.exit
   %27 = call i32 @common_file_read_uints(ptr noundef nonnull %22, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 32)
   %.not14 = icmp eq i32 %27, 0
   br i1 %.not14, label %35, label %28
@@ -1163,15 +1163,15 @@ define i32 @common_cgroup_add_pids(ptr nocapture noundef readonly %0, ptr nocapt
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 128
   %.not.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i.i, label %15, label %_cgroup_procs_writable_path.argprom.exit
+  br i1 %.not.i.i, label %15, label %_cgroup_procs_writable_path.exit
 
 15:                                               ; preds = %11, %3
   %16 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__._cgroup_procs_check, ptr noundef %8) #8
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   %.pre.i.i = load ptr, ptr %5, align 8
-  br label %_cgroup_procs_writable_path.argprom.exit
+  br label %_cgroup_procs_writable_path.exit
 
-_cgroup_procs_writable_path.argprom.exit:         ; preds = %11, %15
+_cgroup_procs_writable_path.exit:                 ; preds = %11, %15
   %17 = phi ptr [ %.pre.i.i, %15 ], [ %8, %11 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -1180,12 +1180,12 @@ _cgroup_procs_writable_path.argprom.exit:         ; preds = %11, %15
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %22, label %19
 
-19:                                               ; preds = %_cgroup_procs_writable_path.argprom.exit
+19:                                               ; preds = %_cgroup_procs_writable_path.exit
   %20 = load ptr, ptr %7, align 8
   %21 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, ptr noundef %20) #8
   br label %22
 
-22:                                               ; preds = %19, %_cgroup_procs_writable_path.argprom.exit
+22:                                               ; preds = %19, %_cgroup_procs_writable_path.exit
   call void @slurm_xfree(ptr noundef nonnull %6) #8
   ret i32 %18
 }

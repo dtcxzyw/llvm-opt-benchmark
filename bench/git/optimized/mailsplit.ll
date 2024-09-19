@@ -666,32 +666,32 @@ if.then.i:                                        ; preds = %if.then20
 if.end.i:                                         ; preds = %if.then20
   store i64 %sub15, ptr getelementptr inbounds (i8, ptr @buf, i64 8), align 8
   %cmp3.not.i = icmp eq ptr %6, @strbuf_slopbuf
-  br i1 %cmp3.not.i, label %strbuf_setlen.argprom.exit, label %if.then4.i
+  br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   store i8 0, ptr %arrayidx16, align 1
   %.pre = load i64, ptr @buf, align 8
   %.pre16 = load i64, ptr getelementptr inbounds (i8, ptr @buf, i64 8), align 8
-  br label %strbuf_setlen.argprom.exit
+  br label %strbuf_setlen.exit
 
-strbuf_setlen.argprom.exit:                       ; preds = %if.end.i, %if.then4.i
+strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4.i
   %11 = phi i64 [ %sub15, %if.end.i ], [ %.pre16, %if.then4.i ]
   %12 = phi i64 [ %10, %if.end.i ], [ %.pre, %if.then4.i ]
   %tobool.not.i.i = icmp eq i64 %12, 0
   %.neg.i = add i64 %11, 1
   %tobool.not1.i = icmp eq i64 %12, %.neg.i
   %tobool.not.i = select i1 %tobool.not.i.i, i1 true, i1 %tobool.not1.i
-  br i1 %tobool.not.i, label %if.then.i9, label %strbuf_addch.argprom.exit
+  br i1 %tobool.not.i, label %if.then.i9, label %strbuf_addch.exit
 
-if.then.i9:                                       ; preds = %strbuf_setlen.argprom.exit
+if.then.i9:                                       ; preds = %strbuf_setlen.exit
   tail call void @strbuf_grow(ptr noundef nonnull @buf, i64 noundef 1) #16
   %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @buf, i64 8), align 8
   %.pre2.i = add i64 %.pre.i, 1
-  br label %strbuf_addch.argprom.exit
+  br label %strbuf_addch.exit
 
-strbuf_addch.argprom.exit:                        ; preds = %strbuf_setlen.argprom.exit, %if.then.i9
-  %inc.pre-phi.i = phi i64 [ %.pre2.i, %if.then.i9 ], [ %.neg.i, %strbuf_setlen.argprom.exit ]
-  %13 = phi i64 [ %.pre.i, %if.then.i9 ], [ %11, %strbuf_setlen.argprom.exit ]
+strbuf_addch.exit:                                ; preds = %strbuf_setlen.exit, %if.then.i9
+  %inc.pre-phi.i = phi i64 [ %.pre2.i, %if.then.i9 ], [ %.neg.i, %strbuf_setlen.exit ]
+  %13 = phi i64 [ %.pre.i, %if.then.i9 ], [ %11, %strbuf_setlen.exit ]
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @buf, i64 16), align 8
   store i64 %inc.pre-phi.i, ptr getelementptr inbounds (i8, ptr @buf, i64 8), align 8
   %arrayidx.i8 = getelementptr inbounds i8, ptr %14, i64 %13
@@ -703,8 +703,8 @@ strbuf_addch.argprom.exit:                        ; preds = %strbuf_setlen.argpr
   %.pre17 = load i64, ptr getelementptr inbounds (i8, ptr @buf, i64 8), align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %strbuf_addch.argprom.exit, %land.lhs.true14, %land.lhs.true10, %for.cond
-  %17 = phi i64 [ %.pre17, %strbuf_addch.argprom.exit ], [ %5, %land.lhs.true14 ], [ %5, %land.lhs.true10 ], [ %5, %for.cond ]
+if.end22:                                         ; preds = %strbuf_addch.exit, %land.lhs.true14, %land.lhs.true10, %for.cond
+  %17 = phi i64 [ %.pre17, %strbuf_addch.exit ], [ %5, %land.lhs.true14 ], [ %5, %land.lhs.true10 ], [ %5, %for.cond ]
   %.b6 = load i1, ptr @mboxrd, align 4
   %cmp.i10 = icmp ugt i64 %17, 5
   %or.cond.not15 = select i1 %.b6, i1 %cmp.i10, i1 false
@@ -714,19 +714,19 @@ if.end.i11:                                       ; preds = %if.end22
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @buf, i64 16), align 8
   %call.i = tail call i64 @strspn(ptr noundef %18, ptr noundef nonnull @.str.24) #17
   %tobool.not.i12 = icmp eq i64 %call.i, 0
-  br i1 %tobool.not.i12, label %if.end28, label %is_gtfrom.argprom.exit
+  br i1 %tobool.not.i12, label %if.end28, label %is_gtfrom.exit
 
-is_gtfrom.argprom.exit:                           ; preds = %if.end.i11
+is_gtfrom.exit:                                   ; preds = %if.end.i11
   %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %call.i
   %call3.i = tail call i32 @starts_with(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.21) #16
   %tobool4.i.not = icmp eq i32 %call3.i, 0
   br i1 %tobool4.i.not, label %if.end28, label %if.then27
 
-if.then27:                                        ; preds = %is_gtfrom.argprom.exit
+if.then27:                                        ; preds = %is_gtfrom.exit
   tail call void @strbuf_remove(ptr noundef nonnull @buf, i64 noundef 0, i64 noundef 1) #16
   br label %if.end28
 
-if.end28:                                         ; preds = %if.end.i11, %if.then27, %is_gtfrom.argprom.exit, %if.end22
+if.end28:                                         ; preds = %if.end.i11, %if.then27, %is_gtfrom.exit, %if.end22
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @buf, i64 16), align 8
   %20 = load i64, ptr getelementptr inbounds (i8, ptr @buf, i64 8), align 8
   %call29 = tail call i64 @fwrite(ptr noundef %19, i64 noundef 1, i64 noundef %20, ptr noundef %call6)

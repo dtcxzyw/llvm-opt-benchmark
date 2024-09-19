@@ -914,7 +914,7 @@ sw.bb51.i:                                        ; preds = %sw.epilog.i
   br i1 %or.cond1.i, label %if.then62.i, label %if.then232.i
 
 if.then62.i:                                      ; preds = %sw.bb51.i
-  tail call fastcc void @write_bin_response.argelim(ptr noundef nonnull %c, ptr noundef nonnull @.str.27, i32 noundef 6)
+  tail call fastcc void @write_bin_response(ptr noundef nonnull %c, ptr noundef nonnull @.str.27, i32 noundef 6)
   br label %return
 
 sw.bb64.i:                                        ; preds = %sw.epilog.i, %sw.epilog.thread138.i
@@ -937,7 +937,7 @@ sw.bb83.i:                                        ; preds = %sw.epilog.i
   br i1 %or.cond4.i, label %if.then94.i, label %if.then232.i
 
 if.then94.i:                                      ; preds = %sw.bb83.i
-  tail call fastcc void @write_bin_response.argelim(ptr noundef nonnull %c, ptr noundef null, i32 noundef 0)
+  tail call fastcc void @write_bin_response(ptr noundef nonnull %c, ptr noundef null, i32 noundef 0)
   tail call void @conn_set_state(ptr noundef nonnull %c, i32 noundef 9) #12
   br label %return
 
@@ -1039,7 +1039,7 @@ sw.bb178.i:                                       ; preds = %sw.epilog.i, %sw.ep
   br i1 %or.cond11.i, label %if.then189.i, label %if.then232.i
 
 if.then189.i:                                     ; preds = %sw.bb178.i
-  tail call fastcc void @write_bin_response.argelim(ptr noundef nonnull %c, ptr noundef null, i32 noundef 0)
+  tail call fastcc void @write_bin_response(ptr noundef nonnull %c, ptr noundef null, i32 noundef 0)
   tail call void @conn_set_state(ptr noundef nonnull %c, i32 noundef 9) #12
   %close_after_write190.i = getelementptr inbounds i8, ptr %c, i64 16
   store i8 1, ptr %close_after_write190.i, align 8
@@ -1307,7 +1307,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 declare i32 @store_item(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_bin_response.argelim(ptr noundef %c, ptr noundef %d, i32 noundef range(i32 0, 14) %dlen) unnamed_addr #0 {
+define internal fastcc void @write_bin_response(ptr noundef %c, ptr noundef %d, i32 noundef range(i32 0, 14) %dlen) unnamed_addr #0 {
 entry:
   %noreply = getelementptr inbounds i8, ptr %c, i64 364
   %0 = load i8, ptr %noreply, align 4

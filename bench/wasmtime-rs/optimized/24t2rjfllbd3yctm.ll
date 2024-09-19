@@ -208,7 +208,7 @@ default.unreachable:                              ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.argprom"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !5, !nonnull !5
@@ -227,11 +227,11 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$L
   %10 = icmp ult i64 %9, -9223372036854775807
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i64 %7, 0
-  br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.argprom.exit", label %12
+  br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.exit", label %12
 
 12:                                               ; preds = %3
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %7, i64 noundef %9) #14
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.argprom.exit"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.exit"
 
 13:                                               ; preds = %0
   %14 = icmp ne ptr %.0.val, null
@@ -243,16 +243,16 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$L
   %19 = icmp ult i64 %18, -9223372036854775807
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i64 %16, 0
-  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.argprom.exit4", label %21
+  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.exit4", label %21
 
 21:                                               ; preds = %13
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %16, i64 noundef %18) #14
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.argprom.exit4"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.argprom.exit4": ; preds = %13, %21
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.exit4": ; preds = %13, %21
   ret void
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.argprom.exit": ; preds = %12, %3
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadf38db24d691932E.exit": ; preds = %12, %3
   resume { ptr, i32 } %4
 }
 
@@ -429,7 +429,7 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
   %.pn440 = phi { ptr, i32 } [ %94, %93 ], [ %.pn438, %170 ]
   %92 = icmp ne ptr %87, null
   call void @llvm.assume(i1 %92)
-  invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.argprom"(ptr %86, ptr nonnull %87) #15
+  invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE"(ptr %86, ptr nonnull %87) #15
           to label %common.resume unwind label %413
 
 93:                                               ; preds = %475, %173, %95, %5
@@ -847,17 +847,17 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
   %193 = icmp ult i64 %192, -9223372036854775807
   call void @llvm.assume(i1 %193)
   %194 = icmp eq i64 %190, 0
-  br i1 %194, label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.argprom.exit", label %195
+  br i1 %194, label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.exit", label %195
 
 195:                                              ; preds = %187
   call void @__rust_dealloc(ptr noundef nonnull %86, i64 noundef %190, i64 noundef %192) #14
-  br label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.argprom.exit"
+  br label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.exit"
 
 common.resume:                                    ; preds = %91, %479, %488, %177, %186
   %common.resume.op = phi { ptr, i32 } [ %178, %186 ], [ %178, %177 ], [ %480, %488 ], [ %480, %479 ], [ %.pn440, %91 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.argprom.exit": ; preds = %497, %489, %195, %187
+"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.exit": ; preds = %497, %489, %195, %187
   ret void
 
 196:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h3480f44b8b3bc0b8E.exit.thread.i", %155, %143, %124
@@ -2120,11 +2120,11 @@ common.resume:                                    ; preds = %91, %479, %488, %17
   %495 = icmp ult i64 %494, -9223372036854775807
   call void @llvm.assume(i1 %495)
   %496 = icmp eq i64 %492, 0
-  br i1 %496, label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.argprom.exit", label %497
+  br i1 %496, label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.exit", label %497
 
 497:                                              ; preds = %489
   call void @__rust_dealloc(ptr noundef nonnull %86, i64 noundef %492, i64 noundef %494) #14
-  br label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.argprom.exit"
+  br label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable

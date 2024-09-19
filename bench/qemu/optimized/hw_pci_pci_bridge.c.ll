@@ -108,7 +108,7 @@ if.then:                                          ; preds = %entry
   %shl.i = shl nuw nsw i32 %and.i, 8
   %3 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %pci_config_get_io_base.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %pci_config_get_io_base.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %add.ptr.i = getelementptr i8, ptr %bridge.val, i64 48
@@ -116,9 +116,9 @@ if.then.i:                                        ; preds = %if.then
   %conv9.i = zext i16 %add.ptr.val.i to i32
   %shl10.i = shl nuw i32 %conv9.i, 16
   %or.i = or disjoint i32 %shl10.i, %shl.i
-  br label %pci_config_get_io_base.argprom.exit
+  br label %pci_config_get_io_base.exit
 
-pci_config_get_io_base.argprom.exit:              ; preds = %if.then, %if.then.i
+pci_config_get_io_base.exit:                      ; preds = %if.then, %if.then.i
   %val.0.i = phi i32 [ %or.i, %if.then.i ], [ %shl.i, %if.then ]
   %conv1 = zext i32 %val.0.i to i64
   br label %if.end9
@@ -156,8 +156,8 @@ if.else7:                                         ; preds = %if.else
   %shl.i17 = shl nuw nsw i64 %and.i16, 16
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then.i11, %if.then5, %if.else7, %pci_config_get_io_base.argprom.exit
-  %base.0 = phi i64 [ %conv1, %pci_config_get_io_base.argprom.exit ], [ %shl.i17, %if.else7 ], [ %or.i12, %if.then.i11 ], [ %shl.i9, %if.then5 ]
+if.end9:                                          ; preds = %if.then.i11, %if.then5, %if.else7, %pci_config_get_io_base.exit
+  %base.0 = phi i64 [ %conv1, %pci_config_get_io_base.exit ], [ %shl.i17, %if.else7 ], [ %or.i12, %if.then.i11 ], [ %shl.i9, %if.then5 ]
   ret i64 %base.0
 }
 
@@ -178,7 +178,7 @@ if.then:                                          ; preds = %entry
   %shl.i = shl nuw nsw i32 %and.i, 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %pci_config_get_io_base.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %pci_config_get_io_base.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %add.ptr.i = getelementptr i8, ptr %bridge.val, i64 50
@@ -186,9 +186,9 @@ if.then.i:                                        ; preds = %if.then
   %conv9.i = zext i16 %add.ptr.val.i to i32
   %shl10.i = shl nuw i32 %conv9.i, 16
   %or.i = or disjoint i32 %shl10.i, %shl.i
-  br label %pci_config_get_io_base.argprom.exit
+  br label %pci_config_get_io_base.exit
 
-pci_config_get_io_base.argprom.exit:              ; preds = %if.then, %if.then.i
+pci_config_get_io_base.exit:                      ; preds = %if.then, %if.then.i
   %val.0.i = phi i32 [ %or.i, %if.then.i ], [ %shl.i, %if.then ]
   %3 = or i32 %val.0.i, 4095
   %or = zext i32 %3 to i64
@@ -231,8 +231,8 @@ if.end:                                           ; preds = %if.then.i13, %if.th
   %or9 = or i64 %limit.1, 1048575
   br label %if.end10
 
-if.end10:                                         ; preds = %if.end, %pci_config_get_io_base.argprom.exit
-  %limit.0 = phi i64 [ %or, %pci_config_get_io_base.argprom.exit ], [ %or9, %if.end ]
+if.end10:                                         ; preds = %if.end, %pci_config_get_io_base.exit
+  %limit.0 = phi i64 [ %or, %pci_config_get_io_base.exit ], [ %or9, %if.end ]
   ret i64 %limit.0
 }
 
@@ -430,13 +430,13 @@ pci_bridge_init_alias.exit34:                     ; preds = %if.then.i12.i, %if.
   tail call void @memory_region_init_alias(ptr noundef nonnull %alias_vga, ptr noundef %br, ptr noundef nonnull @.str.11, ptr noundef nonnull %address_space_mem, i64 noundef 655360, i64 noundef 131072) #9
   %15 = and i16 %add.ptr.val.i, 8
   %tobool.not.i = icmp eq i16 %15, 0
-  br i1 %tobool.not.i, label %pci_bridge_init_vga_aliases.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %pci_bridge_init_vga_aliases.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %pci_bridge_init_alias.exit34
   tail call void @pci_register_vga(ptr noundef nonnull %call.i.i35, ptr noundef nonnull %alias_vga, ptr noundef %arrayidx.i, ptr noundef %arrayidx2.i) #9
-  br label %pci_bridge_init_vga_aliases.argprom.exit
+  br label %pci_bridge_init_vga_aliases.exit
 
-pci_bridge_init_vga_aliases.argprom.exit:         ; preds = %pci_bridge_init_alias.exit34, %if.then.i
+pci_bridge_init_vga_aliases.exit:                 ; preds = %pci_bridge_init_alias.exit34, %if.then.i
   ret void
 }
 

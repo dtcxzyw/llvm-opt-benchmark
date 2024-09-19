@@ -1336,7 +1336,7 @@ define internal i32 @dissect_smpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %9, label %.lr.ph, label %.loopexit
 
 10:                                               ; preds = %4
-  %11 = tail call fastcc i32 @test_smpp.argprom.argelim(ptr noundef %0)
+  %11 = tail call fastcc i32 @test_smpp(ptr noundef %0)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.loopexit36, label %12
 
@@ -1419,7 +1419,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_smpp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @test_smpp.argprom.argelim(ptr noundef %0)
+  %5 = tail call fastcc i32 @test_smpp(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %31, label %6
 
@@ -1534,7 +1534,7 @@ declare i32 @find_tap_id(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_smpp.argprom.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_smpp(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
   %3 = icmp slt i32 %2, 16
   br i1 %3, label %18, label %4
@@ -1706,7 +1706,7 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %43, %46
   br i1 %.not139, label %63, label %bind_receiver.exit
 
 63:                                               ; preds = %62
-  tail call fastcc void @bind_receiver_resp.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @bind_receiver_resp(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 64:                                               ; preds = %60
@@ -1714,7 +1714,7 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %43, %46
   br i1 %.not138, label %65, label %bind_receiver.exit
 
 65:                                               ; preds = %64
-  tail call fastcc void @query_sm_resp.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @query_sm_resp(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 66:                                               ; preds = %60, %60, %60
@@ -1722,7 +1722,7 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %43, %46
   br i1 %.not140, label %67, label %bind_receiver.exit
 
 67:                                               ; preds = %66
-  tail call fastcc void @submit_sm_resp.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @submit_sm_resp(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 68:                                               ; preds = %60
@@ -1730,7 +1730,7 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %43, %46
   br i1 %.not141, label %69, label %bind_receiver.exit
 
 69:                                               ; preds = %68
-  tail call fastcc void @submit_multi_resp.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @submit_multi_resp(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 70:                                               ; preds = %60
@@ -1738,7 +1738,7 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %43, %46
   br i1 %.not142, label %71, label %bind_receiver.exit
 
 71:                                               ; preds = %70
-  tail call fastcc void @data_sm_resp.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @data_sm_resp(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 72:                                               ; preds = %60
@@ -1746,7 +1746,7 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %43, %46
   br i1 %.not143, label %73, label %bind_receiver.exit
 
 73:                                               ; preds = %72
-  tail call fastcc void @query_broadcast_sm_resp.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @query_broadcast_sm_resp(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 74:                                               ; preds = %60
@@ -1754,7 +1754,7 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %43, %46
   br i1 %.not144, label %75, label %bind_receiver.exit
 
 75:                                               ; preds = %74
-  tail call fastcc void @huawei_auth_acc_resp.argelim(ptr noundef %34, ptr noundef %0)
+  tail call fastcc void @huawei_auth_acc_resp(ptr noundef %34, ptr noundef %0)
   br label %bind_receiver.exit
 
 76:                                               ; preds = %60
@@ -1844,55 +1844,55 @@ smpp_handle_string.exit15.i:                      ; preds = %97, %smpp_handle_st
   br label %bind_receiver.exit
 
 116:                                              ; preds = %80
-  tail call fastcc void @query_sm.argelim(ptr noundef %34, ptr noundef %0)
+  tail call fastcc void @query_sm(ptr noundef %34, ptr noundef %0)
   br label %bind_receiver.exit
 
 117:                                              ; preds = %80, %80
-  tail call fastcc void @submit_sm.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @submit_sm(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 118:                                              ; preds = %80
-  tail call fastcc void @replace_sm.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @replace_sm(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 119:                                              ; preds = %80
-  tail call fastcc void @cancel_sm.argelim(ptr noundef %34, ptr noundef %0)
+  tail call fastcc void @cancel_sm(ptr noundef %34, ptr noundef %0)
   br label %bind_receiver.exit
 
 120:                                              ; preds = %80
-  tail call fastcc void @outbind.argelim(ptr noundef %34, ptr noundef %0)
+  tail call fastcc void @outbind(ptr noundef %34, ptr noundef %0)
   br label %bind_receiver.exit
 
 121:                                              ; preds = %80
-  tail call fastcc void @submit_multi.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @submit_multi(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 122:                                              ; preds = %80
-  tail call fastcc void @alert_notification.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @alert_notification(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 123:                                              ; preds = %80
-  tail call fastcc void @data_sm.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @data_sm(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 124:                                              ; preds = %80
-  tail call fastcc void @broadcast_sm.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @broadcast_sm(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 125:                                              ; preds = %80
-  tail call fastcc void @query_broadcast_sm.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @query_broadcast_sm(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 126:                                              ; preds = %80
-  tail call fastcc void @cancel_broadcast_sm.argelim(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @cancel_broadcast_sm(ptr noundef %34, ptr noundef %0, ptr noundef nonnull %1)
   br label %bind_receiver.exit
 
 127:                                              ; preds = %80
-  tail call fastcc void @huawei_auth_acc.argelim(ptr noundef %34, ptr noundef %0)
+  tail call fastcc void @huawei_auth_acc(ptr noundef %34, ptr noundef %0)
   br label %bind_receiver.exit
 
 128:                                              ; preds = %80
-  tail call fastcc void @huawei_sm_result_notify.argelim(ptr noundef %34, ptr noundef %0)
+  tail call fastcc void @huawei_sm_result_notify(ptr noundef %34, ptr noundef %0)
   br label %bind_receiver.exit
 
 bind_receiver.exit:                               ; preds = %114, %112, %60, %76, %77, %74, %75, %72, %73, %70, %71, %68, %69, %66, %67, %64, %65, %62, %63, %80, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %55
@@ -1953,7 +1953,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bind_receiver_resp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @bind_receiver_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_smpp_system_id, align 4
   %6 = tail call i32 @tvb_strsize(ptr noundef %1, i32 noundef 16) #9
@@ -1972,7 +1972,7 @@ smpp_handle_string.exit:                          ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @query_sm_resp.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @query_sm_resp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_smpp_message_id, align 4
   %6 = tail call i32 @tvb_strsize(ptr noundef %1, i32 noundef 16) #9
@@ -1990,7 +1990,7 @@ smpp_handle_string.exit:                          ; preds = %3, %8
   %12 = load i32, ptr @hf_smpp_final_date_r, align 4
   %13 = getelementptr i8, ptr %2, i64 408
   %.val = load ptr, ptr %13, align 8
-  call fastcc void @smpp_handle_time.argprom(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %11, i32 noundef %12, ptr noundef %4)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %11, i32 noundef %12, ptr noundef %4)
   %14 = load i32, ptr @hf_smpp_message_state, align 4
   %15 = load i32, ptr %4, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef 0) #9
@@ -2001,7 +2001,7 @@ smpp_handle_string.exit:                          ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @submit_sm_resp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @submit_sm_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_smpp_message_id, align 4
   %6 = tail call i32 @tvb_strsize(ptr noundef %1, i32 noundef 16) #9
@@ -2020,7 +2020,7 @@ smpp_handle_string.exit:                          ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @submit_multi_resp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @submit_multi_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_smpp_message_id, align 4
   %6 = tail call i32 @tvb_strsize(ptr noundef %1, i32 noundef 16) #9
@@ -2080,7 +2080,7 @@ smpp_handle_dlist_resp.exit:                      ; preds = %smpp_handle_string.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @data_sm_resp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @data_sm_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_smpp_message_id, align 4
   %6 = tail call i32 @tvb_strsize(ptr noundef %1, i32 noundef 16) #9
@@ -2099,7 +2099,7 @@ smpp_handle_string.exit:                          ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @query_broadcast_sm_resp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @query_broadcast_sm_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_smpp_message_id, align 4
   %6 = tail call i32 @tvb_strsize(ptr noundef %1, i32 noundef 16) #9
@@ -2118,7 +2118,7 @@ smpp_handle_string.exit:                          ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @huawei_auth_acc_resp.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @huawei_auth_acc_resp(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_huawei_smpp_operation_result, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
   %5 = load i32, ptr @hf_huawei_smpp_notify_mode, align 4
@@ -2127,7 +2127,7 @@ define internal fastcc void @huawei_auth_acc_resp.argelim(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @query_sm.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @query_sm(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_smpp_message_id, align 4
   %4 = tail call i32 @tvb_strsize(ptr noundef %1, i32 noundef 16) #9
   %5 = icmp ugt i32 %4, 1
@@ -2159,7 +2159,7 @@ smpp_handle_string.exit8:                         ; preds = %smpp_handle_string.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @submit_sm.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @submit_sm(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2213,14 +2213,14 @@ smpp_handle_string_z.exit:                        ; preds = %22, %24
   %34 = call ptr @tvb_get_stringz_enc(ptr noundef %.val63, ptr noundef %1, i32 noundef %32, ptr noundef nonnull %5, i32 noundef 0) #9
   %35 = load i32, ptr %5, align 4
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %37, label %smpp_handle_string_return.argprom.exit
+  br i1 %36, label %37, label %smpp_handle_string_return.exit
 
 37:                                               ; preds = %smpp_handle_string_z.exit
   %38 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef %32, i32 noundef %35, ptr noundef %34) #9
   %.pre.i = load i32, ptr %5, align 4
-  br label %smpp_handle_string_return.argprom.exit
+  br label %smpp_handle_string_return.exit
 
-smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string_z.exit, %37
+smpp_handle_string_return.exit:                   ; preds = %smpp_handle_string_z.exit, %37
   %39 = phi i32 [ %.pre.i, %37 ], [ %35, %smpp_handle_string_z.exit ]
   %40 = add i32 %32, %39
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -2236,15 +2236,15 @@ smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string_
   %48 = call ptr @tvb_get_stringz_enc(ptr noundef %.val64, ptr noundef %1, i32 noundef %46, ptr noundef nonnull %4, i32 noundef 0) #9
   %49 = load i32, ptr %4, align 4
   %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %51, label %smpp_handle_string_return.argprom.exit66
+  br i1 %50, label %51, label %smpp_handle_string_return.exit66
 
-51:                                               ; preds = %smpp_handle_string_return.argprom.exit
+51:                                               ; preds = %smpp_handle_string_return.exit
   %52 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %47, ptr noundef %1, i32 noundef %46, i32 noundef %49, ptr noundef %48) #9
   %.pre.i65 = load i32, ptr %4, align 4
-  br label %smpp_handle_string_return.argprom.exit66
+  br label %smpp_handle_string_return.exit66
 
-smpp_handle_string_return.argprom.exit66:         ; preds = %smpp_handle_string_return.argprom.exit, %51
-  %53 = phi i32 [ %.pre.i65, %51 ], [ %49, %smpp_handle_string_return.argprom.exit ]
+smpp_handle_string_return.exit66:                 ; preds = %smpp_handle_string_return.exit, %51
+  %53 = phi i32 [ %.pre.i65, %51 ], [ %49, %smpp_handle_string_return.exit ]
   %54 = add i32 %46, %53
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %55 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #9
@@ -2264,15 +2264,15 @@ smpp_handle_string_return.argprom.exit66:         ; preds = %smpp_handle_string_
   %.not = icmp eq i8 %65, 0
   br i1 %.not, label %69, label %66
 
-66:                                               ; preds = %smpp_handle_string_return.argprom.exit66
+66:                                               ; preds = %smpp_handle_string_return.exit66
   %67 = load i32, ptr @hf_smpp_schedule_delivery_time, align 4
   %68 = load i32, ptr @hf_smpp_schedule_delivery_time_r, align 4
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @smpp_handle_time.argprom(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %67, i32 noundef %68, ptr noundef %6)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %67, i32 noundef %68, ptr noundef %6)
   %.pre = load i32, ptr %6, align 4
   br label %73
 
-69:                                               ; preds = %smpp_handle_string_return.argprom.exit66
+69:                                               ; preds = %smpp_handle_string_return.exit66
   %70 = load i32, ptr @hf_smpp_schedule_delivery_time_r, align 4
   %71 = add i32 %54, 4
   store i32 %71, ptr %6, align 4
@@ -2289,7 +2289,7 @@ smpp_handle_string_return.argprom.exit66:         ; preds = %smpp_handle_string_
   %77 = load i32, ptr @hf_smpp_validity_period, align 4
   %78 = load i32, ptr @hf_smpp_validity_period_r, align 4
   %.val62 = load ptr, ptr %10, align 8
-  call fastcc void @smpp_handle_time.argprom(ptr noundef %0, ptr noundef %1, ptr %.val62, i32 noundef %77, i32 noundef %78, ptr noundef %6)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val62, i32 noundef %77, i32 noundef %78, ptr noundef %6)
   %.pre67 = load i32, ptr %6, align 4
   br label %83
 
@@ -2347,7 +2347,7 @@ smpp_handle_string_return.argprom.exit66:         ; preds = %smpp_handle_string_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @replace_sm.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @replace_sm(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -2396,14 +2396,14 @@ smpp_handle_string.exit:                          ; preds = %get_smpp_data.exit,
   %31 = call ptr @tvb_get_stringz_enc(ptr noundef %.val43, ptr noundef %1, i32 noundef %29, ptr noundef nonnull %4, i32 noundef 0) #9
   %32 = load i32, ptr %4, align 4
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %smpp_handle_string_return.argprom.exit
+  br i1 %33, label %34, label %smpp_handle_string_return.exit
 
 34:                                               ; preds = %smpp_handle_string.exit
   %35 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef %29, i32 noundef %32, ptr noundef %31) #9
   %.pre.i = load i32, ptr %4, align 4
-  br label %smpp_handle_string_return.argprom.exit
+  br label %smpp_handle_string_return.exit
 
-smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string.exit, %34
+smpp_handle_string_return.exit:                   ; preds = %smpp_handle_string.exit, %34
   %36 = phi i32 [ %.pre.i, %34 ], [ %32, %smpp_handle_string.exit ]
   %37 = add i32 %29, %36
   store i32 %37, ptr %5, align 4
@@ -2412,15 +2412,15 @@ smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string.
   %.not = icmp eq i8 %38, 0
   br i1 %.not, label %42, label %39
 
-39:                                               ; preds = %smpp_handle_string_return.argprom.exit
+39:                                               ; preds = %smpp_handle_string_return.exit
   %40 = load i32, ptr @hf_smpp_schedule_delivery_time, align 4
   %41 = load i32, ptr @hf_smpp_schedule_delivery_time_r, align 4
   %.val = load ptr, ptr %9, align 8
-  call fastcc void @smpp_handle_time.argprom(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %40, i32 noundef %41, ptr noundef %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %40, i32 noundef %41, ptr noundef %5)
   %.pre = load i32, ptr %5, align 4
   br label %46
 
-42:                                               ; preds = %smpp_handle_string_return.argprom.exit
+42:                                               ; preds = %smpp_handle_string_return.exit
   %43 = load i32, ptr @hf_smpp_schedule_delivery_time_r, align 4
   %44 = add i32 %37, 1
   store i32 %44, ptr %5, align 4
@@ -2437,7 +2437,7 @@ smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string.
   %50 = load i32, ptr @hf_smpp_validity_period, align 4
   %51 = load i32, ptr @hf_smpp_validity_period_r, align 4
   %.val42 = load ptr, ptr %9, align 8
-  call fastcc void @smpp_handle_time.argprom(ptr noundef %0, ptr noundef %1, ptr %.val42, i32 noundef %50, i32 noundef %51, ptr noundef %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val42, i32 noundef %50, i32 noundef %51, ptr noundef %5)
   %.pre44 = load i32, ptr %5, align 4
   br label %56
 
@@ -2491,7 +2491,7 @@ smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cancel_sm.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cancel_sm(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_smpp_service_type, align 4
   %4 = tail call i32 @tvb_strsize(ptr noundef %1, i32 noundef 16) #9
   %5 = icmp sgt i32 %4, 1
@@ -2555,7 +2555,7 @@ smpp_handle_string.exit17:                        ; preds = %smpp_handle_string.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @outbind.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @outbind(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_smpp_system_id, align 4
   %4 = tail call i32 @tvb_strsize(ptr noundef %1, i32 noundef 16) #9
   %5 = icmp ugt i32 %4, 1
@@ -2581,7 +2581,7 @@ smpp_handle_string.exit4:                         ; preds = %smpp_handle_string.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @submit_multi.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @submit_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -2634,14 +2634,14 @@ smpp_handle_string_z.exit:                        ; preds = %21, %23
   %33 = call ptr @tvb_get_stringz_enc(ptr noundef %.val57, ptr noundef %1, i32 noundef %31, ptr noundef nonnull %4, i32 noundef 0) #9
   %34 = load i32, ptr %4, align 4
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %36, label %smpp_handle_string_return.argprom.exit
+  br i1 %35, label %36, label %smpp_handle_string_return.exit
 
 36:                                               ; preds = %smpp_handle_string_z.exit
   %37 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %31, i32 noundef %34, ptr noundef %33) #9
   %.pre.i = load i32, ptr %4, align 4
-  br label %smpp_handle_string_return.argprom.exit
+  br label %smpp_handle_string_return.exit
 
-smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string_z.exit, %36
+smpp_handle_string_return.exit:                   ; preds = %smpp_handle_string_z.exit, %36
   %38 = phi i32 [ %.pre.i, %36 ], [ %34, %smpp_handle_string_z.exit ]
   %39 = add i32 %31, %38
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -2650,7 +2650,7 @@ smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string_
   %.not.i58 = icmp eq i8 %41, 0
   br i1 %.not.i58, label %smpp_handle_dlist.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %smpp_handle_string_return.argprom.exit
+.lr.ph.preheader.i:                               ; preds = %smpp_handle_string_return.exit
   %42 = load i32, ptr @hf_smpp_dlist, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %42, ptr noundef %1, i32 noundef %39, i32 noundef 1, i32 noundef 0) #9
   %44 = load i32, ptr @ett_dlist, align 4
@@ -2705,8 +2705,8 @@ smpp_handle_string.exit19.i:                      ; preds = %67, %63
   %.not18.i = icmp eq i8 %46, 0
   br i1 %.not18.i, label %smpp_handle_dlist.exit, label %.lr.ph.i, !llvm.loop !7
 
-smpp_handle_dlist.exit:                           ; preds = %70, %smpp_handle_string_return.argprom.exit
-  %.030.lcssa.i = phi i32 [ %40, %smpp_handle_string_return.argprom.exit ], [ %.1.i, %70 ]
+smpp_handle_dlist.exit:                           ; preds = %70, %smpp_handle_string_return.exit
+  %.030.lcssa.i = phi i32 [ %40, %smpp_handle_string_return.exit ], [ %.1.i, %70 ]
   %71 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.030.lcssa.i) #9
   %72 = and i8 %71, 64
   %73 = zext nneg i8 %72 to i32
@@ -2728,7 +2728,7 @@ smpp_handle_dlist.exit:                           ; preds = %70, %smpp_handle_st
   %83 = load i32, ptr @hf_smpp_schedule_delivery_time, align 4
   %84 = load i32, ptr @hf_smpp_schedule_delivery_time_r, align 4
   %.val = load ptr, ptr %9, align 8
-  call fastcc void @smpp_handle_time.argprom(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %83, i32 noundef %84, ptr noundef %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %83, i32 noundef %84, ptr noundef %5)
   %.pre = load i32, ptr %5, align 4
   br label %89
 
@@ -2749,7 +2749,7 @@ smpp_handle_dlist.exit:                           ; preds = %70, %smpp_handle_st
   %93 = load i32, ptr @hf_smpp_validity_period, align 4
   %94 = load i32, ptr @hf_smpp_validity_period_r, align 4
   %.val56 = load ptr, ptr %9, align 8
-  call fastcc void @smpp_handle_time.argprom(ptr noundef %0, ptr noundef %1, ptr %.val56, i32 noundef %93, i32 noundef %94, ptr noundef %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val56, i32 noundef %93, i32 noundef %94, ptr noundef %5)
   %.pre59 = load i32, ptr %5, align 4
   br label %99
 
@@ -2807,7 +2807,7 @@ smpp_handle_dlist.exit:                           ; preds = %70, %smpp_handle_st
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @alert_notification.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @alert_notification(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_smpp_source_addr_ton, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef 16, i32 noundef 1, i32 noundef 0) #9
@@ -2848,7 +2848,7 @@ smpp_handle_string.exit15:                        ; preds = %smpp_handle_string.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @data_sm.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @data_sm(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2899,14 +2899,14 @@ smpp_handle_string_z.exit:                        ; preds = %20, %22
   %32 = call ptr @tvb_get_stringz_enc(ptr noundef %.val, ptr noundef %1, i32 noundef %30, ptr noundef nonnull %5, i32 noundef 0) #9
   %33 = load i32, ptr %5, align 4
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %smpp_handle_string_return.argprom.exit
+  br i1 %34, label %35, label %smpp_handle_string_return.exit
 
 35:                                               ; preds = %smpp_handle_string_z.exit
   %36 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %30, i32 noundef %33, ptr noundef %32) #9
   %.pre.i = load i32, ptr %5, align 4
-  br label %smpp_handle_string_return.argprom.exit
+  br label %smpp_handle_string_return.exit
 
-smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string_z.exit, %35
+smpp_handle_string_return.exit:                   ; preds = %smpp_handle_string_z.exit, %35
   %37 = phi i32 [ %.pre.i, %35 ], [ %33, %smpp_handle_string_z.exit ]
   %38 = add i32 %30, %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -2922,15 +2922,15 @@ smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string_
   %46 = call ptr @tvb_get_stringz_enc(ptr noundef %.val33, ptr noundef %1, i32 noundef %44, ptr noundef nonnull %4, i32 noundef 0) #9
   %47 = load i32, ptr %4, align 4
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %49, label %smpp_handle_string_return.argprom.exit35
+  br i1 %48, label %49, label %smpp_handle_string_return.exit35
 
-49:                                               ; preds = %smpp_handle_string_return.argprom.exit
+49:                                               ; preds = %smpp_handle_string_return.exit
   %50 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %44, i32 noundef %47, ptr noundef %46) #9
   %.pre.i34 = load i32, ptr %4, align 4
-  br label %smpp_handle_string_return.argprom.exit35
+  br label %smpp_handle_string_return.exit35
 
-smpp_handle_string_return.argprom.exit35:         ; preds = %smpp_handle_string_return.argprom.exit, %49
-  %51 = phi i32 [ %.pre.i34, %49 ], [ %47, %smpp_handle_string_return.argprom.exit ]
+smpp_handle_string_return.exit35:                 ; preds = %smpp_handle_string_return.exit, %49
+  %51 = phi i32 [ %.pre.i34, %49 ], [ %47, %smpp_handle_string_return.exit ]
   %52 = add i32 %44, %51
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %52) #9
@@ -2949,16 +2949,16 @@ smpp_handle_string_return.argprom.exit35:         ; preds = %smpp_handle_string_
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %61, label %60
 
-60:                                               ; preds = %smpp_handle_string_return.argprom.exit35
+60:                                               ; preds = %smpp_handle_string_return.exit35
   call fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef %59, ptr noundef nonnull %2, ptr noundef %32, ptr noundef %46)
   br label %61
 
-61:                                               ; preds = %60, %smpp_handle_string_return.argprom.exit35
+61:                                               ; preds = %60, %smpp_handle_string_return.exit35
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @broadcast_sm.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @broadcast_sm(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %struct.nstime_t, align 8
@@ -3010,14 +3010,14 @@ smpp_handle_string_z.exit:                        ; preds = %20, %22
   %32 = call ptr @tvb_get_stringz_enc(ptr noundef %.val42, ptr noundef %1, i32 noundef %30, ptr noundef nonnull %4, i32 noundef 0) #9
   %33 = load i32, ptr %4, align 4
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %smpp_handle_string_return.argprom.exit
+  br i1 %34, label %35, label %smpp_handle_string_return.exit
 
 35:                                               ; preds = %smpp_handle_string_z.exit
   %36 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %30, i32 noundef %33, ptr noundef %32) #9
   %.pre.i = load i32, ptr %4, align 4
-  br label %smpp_handle_string_return.argprom.exit
+  br label %smpp_handle_string_return.exit
 
-smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string_z.exit, %35
+smpp_handle_string_return.exit:                   ; preds = %smpp_handle_string_z.exit, %35
   %37 = phi i32 [ %.pre.i, %35 ], [ %33, %smpp_handle_string_z.exit ]
   %38 = add i32 %30, %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -3026,11 +3026,11 @@ smpp_handle_string_return.argprom.exit:           ; preds = %smpp_handle_string_
   %41 = icmp ugt i32 %40, 1
   br i1 %41, label %42, label %smpp_handle_string.exit
 
-42:                                               ; preds = %smpp_handle_string_return.argprom.exit
+42:                                               ; preds = %smpp_handle_string_return.exit
   %43 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef %38, i32 noundef %40, i32 noundef 0) #9
   br label %smpp_handle_string.exit
 
-smpp_handle_string.exit:                          ; preds = %smpp_handle_string_return.argprom.exit, %42
+smpp_handle_string.exit:                          ; preds = %smpp_handle_string_return.exit, %42
   %44 = add i32 %38, %40
   %45 = load i32, ptr @hf_smpp_priority_flag, align 4
   %46 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %44, i32 noundef 1, i32 noundef 0) #9
@@ -3044,7 +3044,7 @@ smpp_handle_string.exit:                          ; preds = %smpp_handle_string_
   %50 = load i32, ptr @hf_smpp_schedule_delivery_time, align 4
   %51 = load i32, ptr @hf_smpp_schedule_delivery_time_r, align 4
   %.val = load ptr, ptr %8, align 8
-  call fastcc void @smpp_handle_time.argprom(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %50, i32 noundef %51, ptr noundef %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val, i32 noundef %50, i32 noundef %51, ptr noundef %5)
   %.pre = load i32, ptr %5, align 4
   br label %56
 
@@ -3065,7 +3065,7 @@ smpp_handle_string.exit:                          ; preds = %smpp_handle_string_
   %60 = load i32, ptr @hf_smpp_validity_period, align 4
   %61 = load i32, ptr @hf_smpp_validity_period_r, align 4
   %.val41 = load ptr, ptr %8, align 8
-  call fastcc void @smpp_handle_time.argprom(ptr noundef %0, ptr noundef %1, ptr %.val41, i32 noundef %60, i32 noundef %61, ptr noundef %5)
+  call fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.val41, i32 noundef %60, i32 noundef %61, ptr noundef %5)
   %.pre43 = load i32, ptr %5, align 4
   br label %66
 
@@ -3102,7 +3102,7 @@ smpp_handle_string.exit:                          ; preds = %smpp_handle_string_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @query_broadcast_sm.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @query_broadcast_sm(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_smpp_message_id, align 4
   %6 = tail call i32 @tvb_strsize(ptr noundef %1, i32 noundef 16) #9
@@ -3138,7 +3138,7 @@ smpp_handle_string.exit11:                        ; preds = %smpp_handle_string.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cancel_broadcast_sm.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @cancel_broadcast_sm(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 16, ptr %4, align 4
   %5 = load i32, ptr @hf_smpp_service_type, align 4
@@ -3190,7 +3190,7 @@ smpp_handle_string.exit13:                        ; preds = %smpp_handle_string.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @huawei_auth_acc.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @huawei_auth_acc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_smpp_error_code, align 4
   %5 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 16, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3) #9
@@ -3276,7 +3276,7 @@ smpp_handle_string.exit25:                        ; preds = %smpp_handle_string.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @huawei_sm_result_notify.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @huawei_sm_result_notify(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_smpp_error_code, align 4
   %5 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 16, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3) #9
@@ -3981,7 +3981,7 @@ define internal fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr
   %327 = load i32, ptr @hf_smpp_broadcast_end_time, align 4
   %328 = load i32, ptr @hf_smpp_broadcast_end_time_r, align 4
   %.val = load ptr, ptr %19, align 8
-  tail call fastcc void @smpp_handle_time.argprom(ptr noundef %34, ptr noundef %1, ptr %.val, i32 noundef %327, i32 noundef %328, ptr noundef %3)
+  tail call fastcc void @smpp_handle_time(ptr noundef %34, ptr noundef %1, ptr %.val, i32 noundef %327, i32 noundef %328, ptr noundef %3)
   br label %437
 
 329:                                              ; preds = %20
@@ -4329,7 +4329,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @smpp_handle_time.argprom(ptr noundef %0, ptr noundef %1, ptr %.408.val, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, ptr %.408.val, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.tm, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.nstime_t, align 8

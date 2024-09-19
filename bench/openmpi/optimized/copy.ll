@@ -60,29 +60,29 @@ define i32 @pmix20_bfrop_copy(ptr noundef %0, ptr noundef %1, i16 noundef zeroex
   %12 = zext i16 %2 to i32
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i = icmp sgt i32 %13, %12
-  br i1 %.not.i, label %pmix_pointer_array_get_item.argprom.exit, label %pmix_pointer_array_get_item.argprom.exit.thread
+  br i1 %.not.i, label %pmix_pointer_array_get_item.exit, label %pmix_pointer_array_get_item.exit.thread
 
-pmix_pointer_array_get_item.argprom.exit:         ; preds = %11
+pmix_pointer_array_get_item.exit:                 ; preds = %11
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %15 = zext i16 %2 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %pmix_pointer_array_get_item.argprom.exit.thread, label %20
+  br i1 %18, label %pmix_pointer_array_get_item.exit.thread, label %20
 
-pmix_pointer_array_get_item.argprom.exit.thread:  ; preds = %11, %pmix_pointer_array_get_item.argprom.exit
+pmix_pointer_array_get_item.exit.thread:          ; preds = %11, %pmix_pointer_array_get_item.exit
   %19 = tail call ptr @PMIx_Error_string(i32 noundef -16) #15
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 52) #15
   br label %24
 
-20:                                               ; preds = %pmix_pointer_array_get_item.argprom.exit
+20:                                               ; preds = %pmix_pointer_array_get_item.exit
   %21 = getelementptr inbounds i8, ptr %17, i64 152
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, i16 noundef zeroext %2) #15
   br label %24
 
-24:                                               ; preds = %20, %pmix_pointer_array_get_item.argprom.exit.thread, %9, %5
-  %.0 = phi i32 [ -27, %5 ], [ -27, %9 ], [ -16, %pmix_pointer_array_get_item.argprom.exit.thread ], [ %23, %20 ]
+24:                                               ; preds = %20, %pmix_pointer_array_get_item.exit.thread, %9, %5
+  %.0 = phi i32 [ -27, %5 ], [ -27, %9 ], [ -16, %pmix_pointer_array_get_item.exit.thread ], [ %23, %20 ]
   ret i32 %.0
 }
 
@@ -2062,7 +2062,7 @@ define noundef i32 @pmix20_bfrop_copy_buf(ptr nocapture noundef writeonly %0, pt
 
 9:                                                ; preds = %8, %3
   %.not22.i = icmp eq ptr %5, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %10
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %10
 
 10:                                               ; preds = %9
   %11 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %5, ptr noundef null) #15
@@ -2077,7 +2077,7 @@ define noundef i32 @pmix20_bfrop_copy_buf(ptr nocapture noundef writeonly %0, pt
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 40), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i.i = icmp eq ptr %17, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %18 = phi ptr [ %20, %.lr.ph.i.i ], [ %17, %10 ]
@@ -2086,9 +2086,9 @@ define noundef i32 @pmix20_bfrop_copy_buf(ptr nocapture noundef writeonly %0, pt
   %19 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !11
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %9, %10
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %9, %10
   store ptr %5, ptr %0, align 8
   %21 = tail call i32 @pmix20_bfrop_copy_payload(ptr noundef %5, ptr noundef %1)
   ret i32 0
@@ -2209,9 +2209,9 @@ define i32 @pmix20_bfrop_copy_kval(ptr nocapture noundef writeonly %0, ptr nocap
 
 9:                                                ; preds = %8, %3
   %.not22.i = icmp eq ptr %5, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit.thread, label %10
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit.thread, label %10
 
-pmix_obj_new_tma.argprom.exit.thread:             ; preds = %9
+pmix_obj_new_tma.exit.thread:                     ; preds = %9
   store ptr null, ptr %0, align 8
   br label %29
 
@@ -2228,7 +2228,7 @@ pmix_obj_new_tma.argprom.exit.thread:             ; preds = %9
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 40), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i.i = icmp eq ptr %17, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit.thread8, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread8, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %18 = phi ptr [ %20, %.lr.ph.i.i ], [ %17, %10 ]
@@ -2237,9 +2237,9 @@ pmix_obj_new_tma.argprom.exit.thread:             ; preds = %9
   %19 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit.thread8, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread8, label %.lr.ph.i.i, !llvm.loop !11
 
-pmix_obj_new_tma.argprom.exit.thread8:            ; preds = %.lr.ph.i.i, %10
+pmix_obj_new_tma.exit.thread8:                    ; preds = %.lr.ph.i.i, %10
   store ptr %5, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 152
   %22 = load ptr, ptr %21, align 8
@@ -2252,8 +2252,8 @@ pmix_obj_new_tma.argprom.exit.thread8:            ; preds = %.lr.ph.i.i, %10
   %28 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef %26, ptr noundef %27)
   br label %29
 
-29:                                               ; preds = %pmix_obj_new_tma.argprom.exit.thread, %pmix_obj_new_tma.argprom.exit.thread8
-  %.0 = phi i32 [ %28, %pmix_obj_new_tma.argprom.exit.thread8 ], [ -29, %pmix_obj_new_tma.argprom.exit.thread ]
+29:                                               ; preds = %pmix_obj_new_tma.exit.thread, %pmix_obj_new_tma.exit.thread8
+  %.0 = phi i32 [ %28, %pmix_obj_new_tma.exit.thread8 ], [ -29, %pmix_obj_new_tma.exit.thread ]
   ret i32 %.0
 }
 

@@ -162,28 +162,28 @@ define hidden range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert_document(ptr no
   %59 = getelementptr inbounds i8, ptr %58, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = icmp ult i64 %60, 17
-  br i1 %61, label %lxb_dom_attr_local_name.argprom.argprom.exit.i, label %62
+  br i1 %61, label %lxb_dom_attr_local_name.exit.i, label %62
 
 62:                                               ; preds = %54
   %63 = load ptr, ptr %58, align 8
-  br label %lxb_dom_attr_local_name.argprom.argprom.exit.i
+  br label %lxb_dom_attr_local_name.exit.i
 
-lxb_dom_attr_local_name.argprom.argprom.exit.i:   ; preds = %62, %54
+lxb_dom_attr_local_name.exit.i:                   ; preds = %62, %54
   %.0.i.i.i = phi ptr [ %63, %62 ], [ %58, %54 ]
   %64 = getelementptr inbounds i8, ptr %.0109160.i, i64 120
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %lxb_dom_attr_value.exit.i, label %67
 
-67:                                               ; preds = %lxb_dom_attr_local_name.argprom.argprom.exit.i
+67:                                               ; preds = %lxb_dom_attr_local_name.exit.i
   %68 = getelementptr inbounds i8, ptr %65, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = load ptr, ptr %65, align 8
   br label %lxb_dom_attr_value.exit.i
 
-lxb_dom_attr_value.exit.i:                        ; preds = %67, %lxb_dom_attr_local_name.argprom.argprom.exit.i
-  %.0140.i = phi i64 [ %69, %67 ], [ 0, %lxb_dom_attr_local_name.argprom.argprom.exit.i ]
-  %.0.i127.i = phi ptr [ %70, %67 ], [ null, %lxb_dom_attr_local_name.argprom.argprom.exit.i ]
+lxb_dom_attr_value.exit.i:                        ; preds = %67, %lxb_dom_attr_local_name.exit.i
+  %.0140.i = phi i64 [ %69, %67 ], [ 0, %lxb_dom_attr_local_name.exit.i ]
+  %.0.i127.i = phi ptr [ %70, %67 ], [ null, %lxb_dom_attr_local_name.exit.i ]
   %71 = icmp ugt i64 %60, 2147483646
   %72 = icmp ugt i64 %.0140.i, 2147483646
   %73 = select i1 %71, i1 true, i1 %72
@@ -357,24 +357,24 @@ lexbor_libxml2_bridge_new_text_node_fast.exit130.i: ; preds = %124
   %159 = load i64, ptr %158, align 8
   %160 = call ptr @lxb_dom_attr_data_by_id(ptr noundef %157, i64 noundef %159) #8
   %161 = icmp eq ptr %160, null
-  br i1 %161, label %lxb_dom_document_type_name.argprom.exit.i, label %162
+  br i1 %161, label %lxb_dom_document_type_name.exit.i, label %162
 
 162:                                              ; preds = %153
   %163 = load i64, ptr %158, align 8
   %164 = icmp eq i64 %163, 0
-  br i1 %164, label %lxb_dom_document_type_name.argprom.exit.i, label %165
+  br i1 %164, label %lxb_dom_document_type_name.exit.i, label %165
 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds i8, ptr %160, i64 24
   %167 = load i64, ptr %166, align 8
   %168 = icmp ult i64 %167, 17
-  br i1 %168, label %lxb_dom_document_type_name.argprom.exit.i, label %169
+  br i1 %168, label %lxb_dom_document_type_name.exit.i, label %169
 
 169:                                              ; preds = %165
   %170 = load ptr, ptr %160, align 8
-  br label %lxb_dom_document_type_name.argprom.exit.i
+  br label %lxb_dom_document_type_name.exit.i
 
-lxb_dom_document_type_name.argprom.exit.i:        ; preds = %169, %165, %162, %153
+lxb_dom_document_type_name.exit.i:                ; preds = %169, %165, %162, %153
   %.0.i131.i = phi ptr [ @lxb_dom_document_type_name.lxb_empty, %153 ], [ @lxb_dom_document_type_name.lxb_empty, %162 ], [ %170, %169 ], [ %160, %165 ]
   %171 = getelementptr inbounds i8, ptr %21, i64 120
   %172 = load i64, ptr %171, align 8
@@ -409,13 +409,13 @@ lxb_dom_document_type_name.argprom.exit.i:        ; preds = %169, %165, %162, %1
   store i16 %.0.i133.i, ptr %192, align 8
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %118, %188, %lxb_dom_document_type_name.argprom.exit.i, %150, %145, %._crit_edge.i, %.lr.ph164.i
+.loopexit.i:                                      ; preds = %118, %188, %lxb_dom_document_type_name.exit.i, %150, %145, %._crit_edge.i, %.lr.ph164.i
   %193 = call ptr @lexbor_array_obj_pop(ptr noundef nonnull %5) #8
   %.not120.i = icmp eq ptr %193, null
   br i1 %.not120.i, label %.loopexit18, label %.lr.ph164.i
 
-.loopexit:                                        ; preds = %26, %120, %lexbor_libxml2_bridge_new_text_node_fast.exit130.i, %lxb_dom_document_type_name.argprom.exit.i, %183, %128, %74, %lxb_dom_attr_value.exit.i, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i
-  %.0.i.ph = phi i32 [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i ], [ 4, %74 ], [ 3, %lxb_dom_attr_value.exit.i ], [ 4, %26 ], [ 3, %120 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit130.i ], [ 4, %lxb_dom_document_type_name.argprom.exit.i ], [ 4, %183 ], [ 4, %128 ]
+.loopexit:                                        ; preds = %26, %120, %lexbor_libxml2_bridge_new_text_node_fast.exit130.i, %lxb_dom_document_type_name.exit.i, %183, %128, %74, %lxb_dom_attr_value.exit.i, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i
+  %.0.i.ph = phi i32 [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i ], [ 4, %74 ], [ 3, %lxb_dom_attr_value.exit.i ], [ 4, %26 ], [ 3, %120 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit130.i ], [ 4, %lxb_dom_document_type_name.exit.i ], [ 4, %183 ], [ 4, %128 ]
   %194 = call ptr @lexbor_array_obj_destroy(ptr noundef nonnull %5, i1 noundef zeroext false) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @xmlFreeDoc(ptr noundef nonnull %6) #8

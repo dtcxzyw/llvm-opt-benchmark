@@ -2375,7 +2375,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %1120 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %265, ptr noundef nonnull @.str.8) #18
   %1121 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %265) #18
   %1122 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %265) #18
-  %1123 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1034, ptr noundef %1037, ptr noundef %1039, ptr noundef %1119, ptr %1121, i64 %1122, ptr noundef nonnull align 8 dereferenceable(128) %302, ptr noundef %.0.i.i60)
+  %1123 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1034, ptr noundef %1037, ptr noundef %1039, ptr noundef %1119, ptr %1121, i64 %1122, ptr noundef nonnull align 8 dereferenceable(128) %302, ptr noundef %.0.i.i60)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %265) #18
   %1124 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %1123) #18
   %1125 = load ptr, ptr %886, align 8
@@ -2385,7 +2385,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %1128 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef nonnull @.str.9) #18
   %1129 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %266) #18
   %1130 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %266) #18
-  %1131 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1123, ptr noundef %1124, ptr noundef %1026, ptr noundef %1127, ptr %1129, i64 %1130, ptr noundef nonnull align 8 dereferenceable(128) %302, ptr noundef %.0162.i.i)
+  %1131 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1123, ptr noundef %1124, ptr noundef %1026, ptr noundef %1127, ptr %1129, i64 %1130, ptr noundef nonnull align 8 dereferenceable(128) %302, ptr noundef %.0162.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %266) #18
   %1132 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %1131) #18
   %1133 = getelementptr inbounds nuw i8, ptr %1131, i64 48
@@ -2412,7 +2412,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %1136, %1116
   %1145 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %267, ptr noundef nonnull @.str.10) #18
   %1146 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %267) #18
   %1147 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %267) #18
-  %1148 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1131, ptr noundef %1132, ptr noundef %1031, ptr noundef %1144, ptr %1146, i64 %1147, ptr noundef nonnull align 8 dereferenceable(128) %302, ptr noundef %.0163.i.i)
+  %1148 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1131, ptr noundef %1132, ptr noundef %1031, ptr noundef %1144, ptr %1146, i64 %1147, ptr noundef nonnull align 8 dereferenceable(128) %302, ptr noundef %.0163.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %267) #18
   %1149 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %1131) #18
   %1150 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %1123) #18
@@ -4139,7 +4139,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %1987 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull @.str.8) #18
   %1988 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %217) #18
   %1989 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %217) #18
-  %1990 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1901, ptr noundef %1904, ptr noundef %1906, ptr noundef %1986, ptr %1988, i64 %1989, ptr noundef nonnull align 8 dereferenceable(128) %254, ptr noundef %.0.i.i99)
+  %1990 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1901, ptr noundef %1904, ptr noundef %1906, ptr noundef %1986, ptr %1988, i64 %1989, ptr noundef nonnull align 8 dereferenceable(128) %254, ptr noundef %.0.i.i99)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %217) #18
   %1991 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %1990) #18
   %1992 = load ptr, ptr %809, align 8
@@ -4149,7 +4149,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %1995 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %218, ptr noundef nonnull @.str.9) #18
   %1996 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %218) #18
   %1997 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %218) #18
-  %1998 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1990, ptr noundef %1991, ptr noundef %1893, ptr noundef %1994, ptr %1996, i64 %1997, ptr noundef nonnull align 8 dereferenceable(128) %254, ptr noundef %.0162.i.i98)
+  %1998 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1990, ptr noundef %1991, ptr noundef %1893, ptr noundef %1994, ptr %1996, i64 %1997, ptr noundef nonnull align 8 dereferenceable(128) %254, ptr noundef %.0162.i.i98)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %218) #18
   %1999 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %1998) #18
   %2000 = getelementptr inbounds nuw i8, ptr %1998, i64 48
@@ -4176,7 +4176,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i101: ; preds = %2003, %1983
   %2012 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %219, ptr noundef nonnull @.str.10) #18
   %2013 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %219) #18
   %2014 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %219) #18
-  %2015 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1998, ptr noundef %1999, ptr noundef %1898, ptr noundef %2011, ptr %2013, i64 %2014, ptr noundef nonnull align 8 dereferenceable(128) %254, ptr noundef %.0163.i.i97)
+  %2015 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1998, ptr noundef %1999, ptr noundef %1898, ptr noundef %2011, ptr %2013, i64 %2014, ptr noundef nonnull align 8 dereferenceable(128) %254, ptr noundef %.0163.i.i97)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %219) #18
   %2016 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %1998) #18
   %2017 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %1990) #18
@@ -5903,7 +5903,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %2854 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef nonnull @.str.8) #18
   %2855 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %169) #18
   %2856 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %169) #18
-  %2857 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %2768, ptr noundef %2771, ptr noundef %2773, ptr noundef %2853, ptr %2855, i64 %2856, ptr noundef nonnull align 8 dereferenceable(128) %206, ptr noundef %.0.i.i334)
+  %2857 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %2768, ptr noundef %2771, ptr noundef %2773, ptr noundef %2853, ptr %2855, i64 %2856, ptr noundef nonnull align 8 dereferenceable(128) %206, ptr noundef %.0.i.i334)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %169) #18
   %2858 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %2857) #18
   %2859 = load ptr, ptr %732, align 8
@@ -5913,7 +5913,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %2862 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull @.str.9) #18
   %2863 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %170) #18
   %2864 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %170) #18
-  %2865 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %2857, ptr noundef %2858, ptr noundef %2760, ptr noundef %2861, ptr %2863, i64 %2864, ptr noundef nonnull align 8 dereferenceable(128) %206, ptr noundef %.0162.i.i333)
+  %2865 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %2857, ptr noundef %2858, ptr noundef %2760, ptr noundef %2861, ptr %2863, i64 %2864, ptr noundef nonnull align 8 dereferenceable(128) %206, ptr noundef %.0162.i.i333)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %170) #18
   %2866 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %2865) #18
   %2867 = getelementptr inbounds nuw i8, ptr %2865, i64 48
@@ -5940,7 +5940,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i336: ; preds = %2870, %2850
   %2879 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull @.str.10) #18
   %2880 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %171) #18
   %2881 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %171) #18
-  %2882 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %2865, ptr noundef %2866, ptr noundef %2765, ptr noundef %2878, ptr %2880, i64 %2881, ptr noundef nonnull align 8 dereferenceable(128) %206, ptr noundef %.0163.i.i332)
+  %2882 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %2865, ptr noundef %2866, ptr noundef %2765, ptr noundef %2878, ptr %2880, i64 %2881, ptr noundef nonnull align 8 dereferenceable(128) %206, ptr noundef %.0163.i.i332)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %171) #18
   %2883 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %2865) #18
   %2884 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %2857) #18
@@ -7667,7 +7667,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %3721 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull @.str.8) #18
   %3722 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %121) #18
   %3723 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %121) #18
-  %3724 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %3635, ptr noundef %3638, ptr noundef %3640, ptr noundef %3720, ptr %3722, i64 %3723, ptr noundef nonnull align 8 dereferenceable(128) %158, ptr noundef %.0.i.i569)
+  %3724 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %3635, ptr noundef %3638, ptr noundef %3640, ptr noundef %3720, ptr %3722, i64 %3723, ptr noundef nonnull align 8 dereferenceable(128) %158, ptr noundef %.0.i.i569)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #18
   %3725 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %3724) #18
   %3726 = load ptr, ptr %655, align 8
@@ -7677,7 +7677,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %3729 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull @.str.9) #18
   %3730 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %122) #18
   %3731 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %122) #18
-  %3732 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %3724, ptr noundef %3725, ptr noundef %3627, ptr noundef %3728, ptr %3730, i64 %3731, ptr noundef nonnull align 8 dereferenceable(128) %158, ptr noundef %.0162.i.i568)
+  %3732 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %3724, ptr noundef %3725, ptr noundef %3627, ptr noundef %3728, ptr %3730, i64 %3731, ptr noundef nonnull align 8 dereferenceable(128) %158, ptr noundef %.0162.i.i568)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %122) #18
   %3733 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %3732) #18
   %3734 = getelementptr inbounds nuw i8, ptr %3732, i64 48
@@ -7704,7 +7704,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i571: ; preds = %3737, %3717
   %3746 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull @.str.10) #18
   %3747 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %123) #18
   %3748 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %123) #18
-  %3749 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %3732, ptr noundef %3733, ptr noundef %3632, ptr noundef %3745, ptr %3747, i64 %3748, ptr noundef nonnull align 8 dereferenceable(128) %158, ptr noundef %.0163.i.i567)
+  %3749 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %3732, ptr noundef %3733, ptr noundef %3632, ptr noundef %3745, ptr %3747, i64 %3748, ptr noundef nonnull align 8 dereferenceable(128) %158, ptr noundef %.0163.i.i567)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #18
   %3750 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %3732) #18
   %3751 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %3724) #18
@@ -9435,7 +9435,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %4588 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull @.str.8) #18
   %4589 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #18
   %4590 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #18
-  %4591 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %4502, ptr noundef %4505, ptr noundef %4507, ptr noundef %4587, ptr %4589, i64 %4590, ptr noundef nonnull align 8 dereferenceable(128) %110, ptr noundef %.0.i.i789)
+  %4591 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %4502, ptr noundef %4505, ptr noundef %4507, ptr noundef %4587, ptr %4589, i64 %4590, ptr noundef nonnull align 8 dereferenceable(128) %110, ptr noundef %.0.i.i789)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #18
   %4592 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %4591) #18
   %4593 = load ptr, ptr %579, align 8
@@ -9445,7 +9445,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %4596 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull @.str.9) #18
   %4597 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %70) #18
   %4598 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %70) #18
-  %4599 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %4591, ptr noundef %4592, ptr noundef %4494, ptr noundef %4595, ptr %4597, i64 %4598, ptr noundef nonnull align 8 dereferenceable(128) %110, ptr noundef %.0175.i.i)
+  %4599 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %4591, ptr noundef %4592, ptr noundef %4494, ptr noundef %4595, ptr %4597, i64 %4598, ptr noundef nonnull align 8 dereferenceable(128) %110, ptr noundef %.0175.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #18
   %4600 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %4599) #18
   %4601 = getelementptr inbounds nuw i8, ptr %4599, i64 48
@@ -9472,7 +9472,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i791: ; preds = %4604, %4584
   %4613 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull @.str.10) #18
   %4614 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %71) #18
   %4615 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %71) #18
-  %4616 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %4599, ptr noundef %4600, ptr noundef %4499, ptr noundef %4612, ptr %4614, i64 %4615, ptr noundef nonnull align 8 dereferenceable(128) %110, ptr noundef %.0176.i.i)
+  %4616 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %4599, ptr noundef %4600, ptr noundef %4499, ptr noundef %4612, ptr %4614, i64 %4615, ptr noundef nonnull align 8 dereferenceable(128) %110, ptr noundef %.0176.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #18
   %4617 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %4599) #18
   %4618 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %4591) #18
@@ -11031,7 +11031,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %5380 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.8) #18
   %5381 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #18
   %5382 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #18
-  %5383 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %5316, ptr noundef %5319, ptr noundef %5321, ptr noundef %5379, ptr %5381, i64 %5382, ptr noundef nonnull align 8 dereferenceable(128) %60, ptr noundef %.0.i.i848)
+  %5383 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %5316, ptr noundef %5319, ptr noundef %5321, ptr noundef %5379, ptr %5381, i64 %5382, ptr noundef nonnull align 8 dereferenceable(128) %60, ptr noundef %.0.i.i848)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #18
   %5384 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %5383) #18
   %5385 = load ptr, ptr %525, align 8
@@ -11041,7 +11041,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %5388 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.9) #18
   %5389 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #18
   %5390 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #18
-  %5391 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %5383, ptr noundef %5384, ptr noundef %5308, ptr noundef %5387, ptr %5389, i64 %5390, ptr noundef nonnull align 8 dereferenceable(128) %60, ptr noundef %.085.i.i)
+  %5391 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %5383, ptr noundef %5384, ptr noundef %5308, ptr noundef %5387, ptr %5389, i64 %5390, ptr noundef nonnull align 8 dereferenceable(128) %60, ptr noundef %.085.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #18
   %5392 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %5391) #18
   %5393 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %5391) #18
@@ -11594,7 +11594,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit134.i.i: ; preds 
 
 _ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i137.i.i: ; preds = %5676, %5671, %5660
   store ptr %5614, ptr %5669, align 8
-  br i1 %.not4.i.i.i.i.i130.i.i, label %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.argprom.exit.i, label %5679
+  br i1 %.not4.i.i.i.i.i130.i.i, label %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.exit.i, label %5679
 
 5679:                                             ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i137.i.i
   %5680 = getelementptr inbounds nuw i8, ptr %5614, i64 16
@@ -11613,9 +11613,9 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i140.i.i: ; preds = %5683, %5679
   %5685 = getelementptr inbounds nuw i8, ptr %5669, i64 16
   store ptr %5680, ptr %5685, align 8
   store ptr %5669, ptr %5680, align 8
-  br label %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.exit.i
 
-_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.argprom.exit.i: ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i140.i.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i137.i.i
+_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.exit.i: ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i140.i.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i137.i.i
   %5686 = load i32, ptr %5509, align 4
   %5687 = and i32 %5686, 134217727
   %5688 = add nsw i32 %5687, -1
@@ -11660,8 +11660,8 @@ _ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm
   %.not57.i = icmp eq ptr %5702, null
   br i1 %.not57.i, label %._crit_edge.i867, label %.lr.ph.i864
 
-.lr.ph.i864:                                      ; preds = %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.argprom.exit.i, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_18CastOperator_matchINS0_7bind_tyINS_5ValueEEELj49EEEEEbPT_RKT0_.exit.thread.i865
-  %.sroa.044.058.i = phi ptr [ %5704, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_18CastOperator_matchINS0_7bind_tyINS_5ValueEEELj49EEEEEbPT_RKT0_.exit.thread.i865 ], [ %5702, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.argprom.exit.i ]
+.lr.ph.i864:                                      ; preds = %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.exit.i, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_18CastOperator_matchINS0_7bind_tyINS_5ValueEEELj49EEEEEbPT_RKT0_.exit.thread.i865
+  %.sroa.044.058.i = phi ptr [ %5704, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_18CastOperator_matchINS0_7bind_tyINS_5ValueEEELj49EEEEEbPT_RKT0_.exit.thread.i865 ], [ %5702, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.exit.i ]
   %5703 = getelementptr inbounds nuw i8, ptr %.sroa.044.058.i, i64 8
   %5704 = load ptr, ptr %5703, align 8
   %5705 = getelementptr inbounds nuw i8, ptr %.sroa.044.058.i, i64 24
@@ -11715,7 +11715,7 @@ _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_18CastOperator_matchINS0_7bind
   %.not.i866 = icmp eq ptr %5704, null
   br i1 %.not.i866, label %._crit_edge.i867, label %.lr.ph.i864
 
-._crit_edge.i867:                                 ; preds = %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_18CastOperator_matchINS0_7bind_tyINS_5ValueEEELj49EEEEEbPT_RKT0_.exit.thread.i865, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.argprom.exit.i
+._crit_edge.i867:                                 ; preds = %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_18CastOperator_matchINS0_7bind_tyINS_5ValueEEELj49EEEEEbPT_RKT0_.exit.thread.i865, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics24createTileLoadStoreLoopsILb1EEEPN4llvm5ValueEPNS2_10BasicBlockES6_RNS2_13IRBuilderBaseES4_S4_S4_S4_S4_.exit.i
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %980, ptr noundef %5700) #18
   %5732 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %980) #18
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %523) #18
@@ -11991,7 +11991,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %5835 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.8) #18
   %5836 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   %5837 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
-  %5838 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %5770, ptr noundef %5773, ptr noundef %5775, ptr noundef %5834, ptr %5836, i64 %5837, ptr noundef nonnull align 8 dereferenceable(128) %30, ptr noundef %.0.i.i891)
+  %5838 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %5770, ptr noundef %5773, ptr noundef %5775, ptr noundef %5834, ptr %5836, i64 %5837, ptr noundef nonnull align 8 dereferenceable(128) %30, ptr noundef %.0.i.i891)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   %5839 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %5838) #18
   %5840 = load ptr, ptr %477, align 8
@@ -12001,7 +12001,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %5843 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.9) #18
   %5844 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %5845 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  %5846 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %5838, ptr noundef %5839, ptr noundef %5762, ptr noundef %5842, ptr %5844, i64 %5845, ptr noundef nonnull align 8 dereferenceable(128) %30, ptr noundef %.064.i.i)
+  %5846 = call fastcc noundef ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %5838, ptr noundef %5839, ptr noundef %5762, ptr noundef %5842, ptr %5844, i64 %5845, ptr noundef nonnull align 8 dereferenceable(128) %30, ptr noundef %.064.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %5847 = call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %5846) #18
   %5848 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %5846) #18
@@ -12382,20 +12382,20 @@ _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_18CastOperator_matchINS0_7bind
   %6012 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #18
   %6013 = load ptr, ptr %2, align 8
   %6014 = icmp eq ptr %6013, %443
-  br i1 %6014, label %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics13lowerTileZeroEPN4llvm11InstructionE.argprom.exit, label %6015
+  br i1 %6014, label %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics13lowerTileZeroEPN4llvm11InstructionE.exit, label %6015
 
 6015:                                             ; preds = %._crit_edge.i916
   call void @free(ptr noundef %6013) #18
-  br label %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics13lowerTileZeroEPN4llvm11InstructionE.argprom.exit
+  br label %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics13lowerTileZeroEPN4llvm11InstructionE.exit
 
-_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics13lowerTileZeroEPN4llvm11InstructionE.argprom.exit: ; preds = %._crit_edge.i916, %6015
+_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics13lowerTileZeroEPN4llvm11InstructionE.exit: ; preds = %._crit_edge.i916, %6015
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
   br label %6017
 
 6016:                                             ; preds = %979
   unreachable
 
-6017:                                             ; preds = %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics11lowerTileDPILj14089EEENSt9enable_ifIXooooooooeqT_LN4llvm9Intrinsic13X86IntrinsicsE14089EeqT_LS5_14091EeqT_LS5_14093EeqT_LS5_14095EeqT_LS5_14087EEbE4typeEPNS3_11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics11lowerTileDPILj14091EEENSt9enable_ifIXooooooooeqT_LN4llvm9Intrinsic13X86IntrinsicsE14089EeqT_LS5_14091EeqT_LS5_14093EeqT_LS5_14095EeqT_LS5_14087EEbE4typeEPNS3_11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics11lowerTileDPILj14093EEENSt9enable_ifIXooooooooeqT_LN4llvm9Intrinsic13X86IntrinsicsE14089EeqT_LS5_14091EeqT_LS5_14093EeqT_LS5_14095EeqT_LS5_14087EEbE4typeEPNS3_11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics11lowerTileDPILj14095EEENSt9enable_ifIXooooooooeqT_LN4llvm9Intrinsic13X86IntrinsicsE14089EeqT_LS5_14091EeqT_LS5_14093EeqT_LS5_14095EeqT_LS5_14087EEbE4typeEPNS3_11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics11lowerTileDPILj14087EEENSt9enable_ifIXooooooooeqT_LN4llvm9Intrinsic13X86IntrinsicsE14089EeqT_LS5_14091EeqT_LS5_14093EeqT_LS5_14095EeqT_LS5_14087EEbE4typeEPNS3_11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics18lowerTileLoadStoreILb1EEEbPN4llvm11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics18lowerTileLoadStoreILb0EEEbPN4llvm11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics13lowerTileZeroEPN4llvm11InstructionE.argprom.exit
+6017:                                             ; preds = %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics11lowerTileDPILj14089EEENSt9enable_ifIXooooooooeqT_LN4llvm9Intrinsic13X86IntrinsicsE14089EeqT_LS5_14091EeqT_LS5_14093EeqT_LS5_14095EeqT_LS5_14087EEbE4typeEPNS3_11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics11lowerTileDPILj14091EEENSt9enable_ifIXooooooooeqT_LN4llvm9Intrinsic13X86IntrinsicsE14089EeqT_LS5_14091EeqT_LS5_14093EeqT_LS5_14095EeqT_LS5_14087EEbE4typeEPNS3_11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics11lowerTileDPILj14093EEENSt9enable_ifIXooooooooeqT_LN4llvm9Intrinsic13X86IntrinsicsE14089EeqT_LS5_14091EeqT_LS5_14093EeqT_LS5_14095EeqT_LS5_14087EEbE4typeEPNS3_11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics11lowerTileDPILj14095EEENSt9enable_ifIXooooooooeqT_LN4llvm9Intrinsic13X86IntrinsicsE14089EeqT_LS5_14091EeqT_LS5_14093EeqT_LS5_14095EeqT_LS5_14087EEbE4typeEPNS3_11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics11lowerTileDPILj14087EEENSt9enable_ifIXooooooooeqT_LN4llvm9Intrinsic13X86IntrinsicsE14089EeqT_LS5_14091EeqT_LS5_14093EeqT_LS5_14095EeqT_LS5_14087EEbE4typeEPNS3_11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics18lowerTileLoadStoreILb1EEEbPN4llvm11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics18lowerTileLoadStoreILb0EEEbPN4llvm11InstructionE.exit, %_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics13lowerTileZeroEPN4llvm11InstructionE.exit
   %6018 = getelementptr inbounds i8, ptr %.039937, i64 8
   %.not = icmp eq ptr %6018, %440
   br i1 %.not, label %._crit_edge939, label %979
@@ -13493,7 +13493,7 @@ declare noundef ptr @_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoop
 declare void @_ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE15addTopLevelLoopEPS2_(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::InsertPosition", align 8
   %10 = alloca %"class.llvm::Twine", align 8

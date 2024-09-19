@@ -2281,7 +2281,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge1374, %7
   %indvars.iv1503 = phi i64 [ 0, %.lr.ph1384 ], [ %indvars.iv.next1504, %748 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv1503
   %749 = load i32, ptr %gep, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef %117, i32 noundef %749)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef %117, i32 noundef %749)
   %indvars.iv.next1504 = add nuw nsw i64 %indvars.iv1503, 1
   %exitcond1507.not = icmp eq i64 %indvars.iv.next1504, %wide.trip.count1506
   br i1 %exitcond1507.not, label %.preheader1270, label %748, !llvm.loop !33
@@ -2290,7 +2290,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge1374, %7
   %indvars.iv1508 = phi i64 [ 0, %.lr.ph1386 ], [ %indvars.iv.next1509, %750 ]
   %751 = getelementptr inbounds i32, ptr %.pre1523.pre1555, i64 %indvars.iv1508
   %752 = load i32, ptr %751, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef %117, i32 noundef %752)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef %117, i32 noundef %752)
   %indvars.iv.next1509 = add nuw nsw i64 %indvars.iv1508, 1
   %exitcond1512.not = icmp eq i64 %indvars.iv.next1509, %wide.trip.count1511
   br i1 %exitcond1512.not, label %._crit_edge1387.thread, label %750, !llvm.loop !34
@@ -4943,7 +4943,7 @@ declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare void @Gia_ManHashStop(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #5 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -7954,27 +7954,27 @@ Gia_FileWriteBufferSize.exit682:                  ; preds = %643
   %wide.trip.count820 = zext nneg i32 %.0366.val502 to i64
   br label %657
 
-657:                                              ; preds = %.lr.ph783, %Gia_ObjSibl.argprom.exit
-  %indvars.iv817 = phi i64 [ 0, %.lr.ph783 ], [ %indvars.iv.next818, %Gia_ObjSibl.argprom.exit ]
-  %.0781 = phi i32 [ 0, %.lr.ph783 ], [ %664, %Gia_ObjSibl.argprom.exit ]
-  br i1 %.not.i683, label %Gia_ObjSibl.argprom.exit, label %658
+657:                                              ; preds = %.lr.ph783, %Gia_ObjSibl.exit
+  %indvars.iv817 = phi i64 [ 0, %.lr.ph783 ], [ %indvars.iv.next818, %Gia_ObjSibl.exit ]
+  %.0781 = phi i32 [ 0, %.lr.ph783 ], [ %664, %Gia_ObjSibl.exit ]
+  br i1 %.not.i683, label %Gia_ObjSibl.exit, label %658
 
 658:                                              ; preds = %657
   %659 = getelementptr inbounds i32, ptr %.0366.val551, i64 %indvars.iv817
   %660 = load i32, ptr %659, align 4
   %661 = icmp sgt i32 %660, 0
   %662 = zext i1 %661 to i32
-  br label %Gia_ObjSibl.argprom.exit
+  br label %Gia_ObjSibl.exit
 
-Gia_ObjSibl.argprom.exit:                         ; preds = %657, %658
+Gia_ObjSibl.exit:                                 ; preds = %657, %658
   %663 = phi i32 [ %662, %658 ], [ 0, %657 ]
   %664 = add nuw nsw i32 %663, %.0781
   %indvars.iv.next818 = add nuw nsw i64 %indvars.iv817, 1
   %exitcond821.not = icmp eq i64 %indvars.iv.next818, %wide.trip.count820
   br i1 %exitcond821.not, label %._crit_edge784, label %657, !llvm.loop !75
 
-._crit_edge784:                                   ; preds = %Gia_ObjSibl.argprom.exit, %655
-  %.0.lcssa = phi i32 [ 0, %655 ], [ %664, %Gia_ObjSibl.argprom.exit ]
+._crit_edge784:                                   ; preds = %Gia_ObjSibl.exit, %655
+  %.0.lcssa = phi i32 [ 0, %655 ], [ %664, %Gia_ObjSibl.exit ]
   %665 = shl i32 %.0.lcssa, 3
   %666 = or disjoint i32 %665, 4
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %13)
@@ -8017,20 +8017,20 @@ Gia_FileWriteBufferSize.exit691:                  ; preds = %674
   %681 = icmp sgt i32 %.0366.val501786, 0
   br i1 %681, label %.lr.ph789, label %.loopexit
 
-.lr.ph789:                                        ; preds = %Gia_FileWriteBufferSize.exit691, %Gia_ObjSibl.argprom.exit693.thread
-  %.0366.val501834 = phi i32 [ %.0366.val501, %Gia_ObjSibl.argprom.exit693.thread ], [ %.0366.val501786, %Gia_FileWriteBufferSize.exit691 ]
-  %indvars.iv822 = phi i64 [ %indvars.iv.next823, %Gia_ObjSibl.argprom.exit693.thread ], [ 0, %Gia_FileWriteBufferSize.exit691 ]
+.lr.ph789:                                        ; preds = %Gia_FileWriteBufferSize.exit691, %Gia_ObjSibl.exit693.thread
+  %.0366.val501834 = phi i32 [ %.0366.val501, %Gia_ObjSibl.exit693.thread ], [ %.0366.val501786, %Gia_FileWriteBufferSize.exit691 ]
+  %indvars.iv822 = phi i64 [ %indvars.iv.next823, %Gia_ObjSibl.exit693.thread ], [ 0, %Gia_FileWriteBufferSize.exit691 ]
   %.0366.val552 = load ptr, ptr %654, align 8
   %.not.i692 = icmp eq ptr %.0366.val552, null
-  br i1 %.not.i692, label %Gia_ObjSibl.argprom.exit693.thread, label %Gia_ObjSibl.argprom.exit693
+  br i1 %.not.i692, label %Gia_ObjSibl.exit693.thread, label %Gia_ObjSibl.exit693
 
-Gia_ObjSibl.argprom.exit693:                      ; preds = %.lr.ph789
+Gia_ObjSibl.exit693:                              ; preds = %.lr.ph789
   %682 = getelementptr inbounds i32, ptr %.0366.val552, i64 %indvars.iv822
   %683 = load i32, ptr %682, align 4
   %.not448 = icmp eq i32 %683, 0
-  br i1 %.not448, label %Gia_ObjSibl.argprom.exit693.thread, label %684
+  br i1 %.not448, label %Gia_ObjSibl.exit693.thread, label %684
 
-684:                                              ; preds = %Gia_ObjSibl.argprom.exit693
+684:                                              ; preds = %Gia_ObjSibl.exit693
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %11)
   %685 = trunc nuw nsw i64 %indvars.iv822 to i32
   br label %686
@@ -8052,21 +8052,21 @@ Gia_FileWriteBufferSize.exit697:                  ; preds = %686
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %11)
   %.0366.val553 = load ptr, ptr %654, align 8
   %.not.i698 = icmp eq ptr %.0366.val553, null
-  br i1 %.not.i698, label %Gia_ObjSibl.argprom.exit699, label %693
+  br i1 %.not.i698, label %Gia_ObjSibl.exit699, label %693
 
 693:                                              ; preds = %Gia_FileWriteBufferSize.exit697
   %694 = getelementptr inbounds i32, ptr %.0366.val553, i64 %indvars.iv822
   %695 = load i32, ptr %694, align 4
-  br label %Gia_ObjSibl.argprom.exit699
+  br label %Gia_ObjSibl.exit699
 
-Gia_ObjSibl.argprom.exit699:                      ; preds = %Gia_FileWriteBufferSize.exit697, %693
+Gia_ObjSibl.exit699:                              ; preds = %Gia_FileWriteBufferSize.exit697, %693
   %696 = phi i32 [ %695, %693 ], [ 0, %Gia_FileWriteBufferSize.exit697 ]
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %10)
   br label %697
 
-697:                                              ; preds = %697, %Gia_ObjSibl.argprom.exit699
-  %.06.i.i700 = phi i32 [ 3, %Gia_ObjSibl.argprom.exit699 ], [ %702, %697 ]
-  %.045.i.i701 = phi ptr [ %10, %Gia_ObjSibl.argprom.exit699 ], [ %701, %697 ]
+697:                                              ; preds = %697, %Gia_ObjSibl.exit699
+  %.06.i.i700 = phi i32 [ 3, %Gia_ObjSibl.exit699 ], [ %702, %697 ]
+  %.045.i.i701 = phi ptr [ %10, %Gia_ObjSibl.exit699 ], [ %701, %697 ]
   %698 = shl nsw i32 %.06.i.i700, 3
   %699 = ashr i32 %696, %698
   %700 = trunc i32 %699 to i8
@@ -8080,16 +8080,16 @@ Gia_FileWriteBufferSize.exit703:                  ; preds = %697
   %703 = call i64 @fwrite(ptr noundef nonnull %10, i64 noundef 1, i64 noundef 4, ptr noundef %44)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %10)
   %.0366.val501.pre = load i32, ptr %60, align 8
-  br label %Gia_ObjSibl.argprom.exit693.thread
+  br label %Gia_ObjSibl.exit693.thread
 
-Gia_ObjSibl.argprom.exit693.thread:               ; preds = %.lr.ph789, %Gia_ObjSibl.argprom.exit693, %Gia_FileWriteBufferSize.exit703
-  %.0366.val501 = phi i32 [ %.0366.val501834, %.lr.ph789 ], [ %.0366.val501834, %Gia_ObjSibl.argprom.exit693 ], [ %.0366.val501.pre, %Gia_FileWriteBufferSize.exit703 ]
+Gia_ObjSibl.exit693.thread:                       ; preds = %.lr.ph789, %Gia_ObjSibl.exit693, %Gia_FileWriteBufferSize.exit703
+  %.0366.val501 = phi i32 [ %.0366.val501834, %.lr.ph789 ], [ %.0366.val501834, %Gia_ObjSibl.exit693 ], [ %.0366.val501.pre, %Gia_FileWriteBufferSize.exit703 ]
   %indvars.iv.next823 = add nuw nsw i64 %indvars.iv822, 1
   %704 = sext i32 %.0366.val501 to i64
   %705 = icmp slt i64 %indvars.iv.next823, %704
   br i1 %705, label %.lr.ph789, label %.loopexit, !llvm.loop !76
 
-.loopexit:                                        ; preds = %Gia_ObjSibl.argprom.exit693.thread, %Gia_FileWriteBufferSize.exit691, %.loopexit725
+.loopexit:                                        ; preds = %Gia_ObjSibl.exit693.thread, %Gia_FileWriteBufferSize.exit691, %.loopexit725
   %706 = getelementptr inbounds i8, ptr %.0366, i64 512
   %707 = load ptr, ptr %706, align 8
   %.not439 = icmp eq ptr %707, null

@@ -2187,26 +2187,26 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %8, %RB_SYMBOL_P.exi
 27:                                               ; preds = %25
   %.pr.i = load i64, ptr @rb_struct_s_def.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   %28 = call i64 @rb_intern2(ptr noundef nonnull @.str.52, i64 noundef 12) #15
   store i64 %28, ptr @rb_struct_s_def.rbimpl_id, align 8
   %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit.loopexit, !llvm.loop !19
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit.loopexit, !llvm.loop !19
 
-rbimpl_intern_const.argprom.exit.loopexit:        ; preds = %.lr.ph.i
+rbimpl_intern_const.exit.loopexit:                ; preds = %.lr.ph.i
   %.pre.pre = load i64, ptr %5, align 8
-  br label %rbimpl_intern_const.argprom.exit
+  br label %rbimpl_intern_const.exit
 
-rbimpl_intern_const.argprom.exit:                 ; preds = %rbimpl_intern_const.argprom.exit.loopexit, %27
-  %.pre = phi i64 [ %23, %27 ], [ %.pre.pre, %rbimpl_intern_const.argprom.exit.loopexit ]
-  %.lcssa.i = phi i64 [ %.pr.i, %27 ], [ %28, %rbimpl_intern_const.argprom.exit.loopexit ]
+rbimpl_intern_const.exit:                         ; preds = %rbimpl_intern_const.exit.loopexit, %27
+  %.pre = phi i64 [ %23, %27 ], [ %.pre.pre, %rbimpl_intern_const.exit.loopexit ]
+  %.lcssa.i = phi i64 [ %.pr.i, %27 ], [ %28, %rbimpl_intern_const.exit.loopexit ]
   store i64 %.lcssa.i, ptr @rb_struct_s_def.keyword_ids, align 8
   br label %29
 
-29:                                               ; preds = %rbimpl_intern_const.argprom.exit, %25
-  %30 = phi i64 [ %.pre, %rbimpl_intern_const.argprom.exit ], [ %23, %25 ]
+29:                                               ; preds = %rbimpl_intern_const.exit, %25
+  %30 = phi i64 [ %.pre, %rbimpl_intern_const.exit ], [ %23, %25 ]
   %31 = call i32 @rb_get_kwargs(i64 noundef %30, ptr noundef nonnull @rb_struct_s_def.keyword_ids, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4) #15
   %32 = load i64, ptr %4, align 8
   %33 = icmp eq i64 %32, 36

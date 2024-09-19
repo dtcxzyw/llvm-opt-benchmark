@@ -417,7 +417,7 @@ iseries_seek_next_packet.exit:                    ; preds = %44
   store i64 %45, ptr %5, align 8
   %54 = load ptr, ptr %0, align 8
   %.val = load ptr, ptr %9, align 8
-  %55 = call fastcc i32 @iseries_parse_packet.argprom(ptr %.val, ptr noundef %54, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %55 = call fastcc i32 @iseries_parse_packet(ptr %.val, ptr noundef %54, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %56
 
 56:                                               ; preds = %iseries_seek_next_packet.exit.thread, %iseries_seek_next_packet.exit, %53
@@ -438,7 +438,7 @@ define internal range(i32 0, 2) i32 @iseries_seek_read(ptr nocapture noundef rea
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %14, align 8
-  %15 = tail call fastcc i32 @iseries_parse_packet.argprom(ptr %.val, ptr noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %15 = tail call fastcc i32 @iseries_parse_packet(ptr %.val, ptr noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %16
 
 16:                                               ; preds = %6, %12
@@ -483,7 +483,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @iseries_parse_packet.argprom(ptr nocapture readonly %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @iseries_parse_packet(ptr nocapture readonly %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -955,7 +955,7 @@ iseries_UNICODE_to_ASCII.exit149:                 ; preds = %153, %.thread.i141
   %222 = load i64, ptr %221, align 8
   %223 = getelementptr i8, ptr %220, i64 %222
   %224 = sext i32 %.0.ph to i64
-  call fastcc void @iseries_parse_hex_string.retelim(ptr noundef %131, ptr noundef %223, i64 noundef %224)
+  call fastcc void @iseries_parse_hex_string(ptr noundef %131, ptr noundef %223, i64 noundef %224)
   store i32 0, ptr %3, align 4
   call void @g_free(ptr noundef %131) #14
   br label %.loopexit1
@@ -1114,7 +1114,7 @@ define internal fastcc i32 @append_hex_digits(ptr nocapture noundef writeonly %0
 declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @iseries_parse_hex_string.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #10 {
+define internal fastcc void @iseries_parse_hex_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #10 {
   %.not33 = icmp eq i64 %2, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 

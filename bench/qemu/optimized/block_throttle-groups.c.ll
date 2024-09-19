@@ -781,14 +781,14 @@ do.body12:                                        ; preds = %if.end
   %round_robin = getelementptr inbounds i8, ptr %tgm, i64 160
   store ptr %3, ptr %round_robin, align 8
   %cmp13.not = icmp eq ptr %3, null
-  br i1 %cmp13.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then14
+  br i1 %cmp13.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then14
 
 if.then14:                                        ; preds = %do.body12
   %le_prev = getelementptr inbounds i8, ptr %3, i64 168
   store ptr %round_robin, ptr %le_prev, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.then14, %do.body12
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then14, %do.body12
   store ptr %tgm, ptr %head, align 8
   %le_prev26 = getelementptr inbounds i8, ptr %tgm, i64 168
   store ptr %head, ptr %le_prev26, align 8

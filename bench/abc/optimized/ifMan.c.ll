@@ -201,7 +201,7 @@ Vec_MemHashAlloc.exit.i:                          ; preds = %73, %Abc_PrimeCudd.
   %81 = getelementptr inbounds i8, ptr %56, i64 40
   store ptr %77, ptr %81, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %55, i8 0, i64 %54, i1 false)
-  tail call fastcc void @Vec_MemHashInsert.retelim(ptr noundef nonnull %56, ptr noundef %55)
+  tail call fastcc void @Vec_MemHashInsert(ptr noundef nonnull %56, ptr noundef %55)
   %.not.i = icmp eq i32 %47, 0
   br i1 %.not.i, label %83, label %82
 
@@ -214,7 +214,7 @@ Vec_MemHashAlloc.exit.i:                          ; preds = %73, %Abc_PrimeCudd.
   br label %84
 
 84:                                               ; preds = %83, %82
-  tail call fastcc void @Vec_MemHashInsert.retelim(ptr noundef nonnull %56, ptr noundef %55)
+  tail call fastcc void @Vec_MemHashInsert(ptr noundef nonnull %56, ptr noundef %55)
   %.not18.i = icmp eq ptr %55, null
   br i1 %.not18.i, label %Vec_MemAllocForTT.exit, label %85
 
@@ -3704,7 +3704,7 @@ If_ManSetupSet.exit:                              ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_MemHashInsert.retelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Vec_MemHashInsert(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 32

@@ -1415,13 +1415,13 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %213, %215
   %.not.i = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not.i, label %_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.argprom.exit, label %216
+  br i1 %.not.i, label %_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.exit, label %216
 
 216:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
   %217 = call i32 @fclose(ptr noundef nonnull %.sroa.0.1)
-  br label %_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.argprom.exit
+  br label %_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.exit
 
-_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.argprom.exit: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %216
+_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.exit: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %216
   %218 = trunc i8 %.0..0..0..0.88 to i1
   ret i1 %218
 
@@ -1438,13 +1438,13 @@ _ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.argp
 
 _ZNSt6vectorIhSaIhEED2Ev.exit159:                 ; preds = %220, %.loopexit.split-lp
   %.not.i160 = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.i160, label %_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.argprom.exit161, label %221
+  br i1 %.not.i160, label %_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.exit161, label %221
 
 221:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit159
   %222 = call i32 @fclose(ptr noundef nonnull %.sroa.0.3)
-  br label %_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.argprom.exit161
+  br label %_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.exit161
 
-_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.argprom.exit161: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit159, %221
+_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.exit161: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit159, %221
   resume { ptr, i32 } %.pn152
 }
 

@@ -409,7 +409,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.end6, label %cleanup
 
 if.end6:                                          ; preds = %if.end
-  call fastcc void @unbundle_all_bundles.retelim(ptr noundef %r, ptr noundef %list)
+  call fastcc void @unbundle_all_bundles(ptr noundef %r, ptr noundef %list)
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %if.end, %if.end6
@@ -797,7 +797,7 @@ return:                                           ; preds = %find_temp_filename.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @unbundle_all_bundles.retelim(ptr noundef %r, ptr noundef nonnull %list) unnamed_addr #0 {
+define internal fastcc void @unbundle_all_bundles(ptr noundef %r, ptr noundef nonnull %list) unnamed_addr #0 {
 entry:
   %i.i = alloca %struct.hashmap_iter, align 8
   %bundles.i = getelementptr inbounds i8, ptr %list, i64 8
@@ -888,7 +888,7 @@ if.then6:                                         ; preds = %if.end3
   br label %cleanup
 
 if.else:                                          ; preds = %if.end3
-  call fastcc void @unbundle_all_bundles.retelim(ptr noundef %r, ptr noundef %global_list)
+  call fastcc void @unbundle_all_bundles(ptr noundef %r, ptr noundef %global_list)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then6, %if.else, %if.end
@@ -981,21 +981,21 @@ if.then:                                          ; preds = %for_all_bundles_in_
 
 if.end:                                           ; preds = %for_all_bundles_in_list.exit
   %cmp.i.not = icmp eq i64 %bundles.sroa.7.0, 0
-  br i1 %cmp.i.not, label %sane_qsort.argprom.exit, label %if.then.i
+  br i1 %cmp.i.not, label %sane_qsort.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   call void @qsort(ptr noundef nonnull %call7, i64 noundef %inc.i, i64 noundef 8, ptr noundef nonnull @compare_creation_token_decreasing) #15
-  br label %sane_qsort.argprom.exit
+  br label %sane_qsort.exit
 
-sane_qsort.argprom.exit:                          ; preds = %if.end, %if.then.i
+sane_qsort.exit:                                  ; preds = %if.end, %if.then.i
   %call14 = call i32 @repo_config_get_value(ptr noundef %r, ptr noundef nonnull @.str.40, ptr noundef nonnull %creationTokenStr) #15
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %land.lhs.true, label %while.body.preheader
 
-while.body.preheader:                             ; preds = %land.lhs.true18, %land.lhs.true, %sane_qsort.argprom.exit
+while.body.preheader:                             ; preds = %land.lhs.true18, %land.lhs.true, %sane_qsort.exit
   br label %while.body
 
-land.lhs.true:                                    ; preds = %sane_qsort.argprom.exit
+land.lhs.true:                                    ; preds = %sane_qsort.exit
   %1 = load ptr, ptr %creationTokenStr, align 8
   %call16 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.41, ptr noundef nonnull %maxCreationToken) #15
   %cmp = icmp eq i32 %call16, 1

@@ -6092,7 +6092,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost3obj10RegLossObjINS0_16LinearSquareLossEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN7xgboost16HostDeviceVectorIfEC1EmfNS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 2, float noundef 0.000000e+00, i32 -65536)
-          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_0EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %4
+          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_0EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %4
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
@@ -6100,7 +6100,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #34
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_0EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %1
+"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_0EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %6, align 1
   ret ptr %2
@@ -11609,7 +11609,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost3obj10RegLossObjINS0_15SquaredLogErrorEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN7xgboost16HostDeviceVectorIfEC1EmfNS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 2, float noundef 0.000000e+00, i32 -65536)
-          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_1EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %4
+          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_1EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %4
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
@@ -11617,7 +11617,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #34
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_1EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %1
+"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_1EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %6, align 1
   ret ptr %2
@@ -14322,7 +14322,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost3obj10RegLossObjINS0_18LogisticRegressionEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN7xgboost16HostDeviceVectorIfEC1EmfNS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 2, float noundef 0.000000e+00, i32 -65536)
-          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_2EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %4
+          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_2EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %4
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
@@ -14330,7 +14330,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #34
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_2EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %1
+"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_2EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %6, align 1
   ret ptr %2
@@ -17136,7 +17136,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost3obj10RegLossObjINS0_22LogisticClassificationEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN7xgboost16HostDeviceVectorIfEC1EmfNS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 2, float noundef 0.000000e+00, i32 -65536)
-          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_3EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %4
+          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_3EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %4
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
@@ -17144,7 +17144,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #34
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_3EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %1
+"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_3EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %6, align 1
   ret ptr %2
@@ -19865,7 +19865,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost3obj10RegLossObjINS0_11LogisticRawEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN7xgboost16HostDeviceVectorIfEC1EmfNS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 2, float noundef 0.000000e+00, i32 -65536)
-          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_4EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %4
+          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_4EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %4
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
@@ -19873,7 +19873,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #34
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_4EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %1
+"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_4EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %6, align 1
   ret ptr %2
@@ -22584,7 +22584,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost3obj10RegLossObjINS0_13GammaDevianceEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN7xgboost16HostDeviceVectorIfEC1EmfNS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 2, float noundef 0.000000e+00, i32 -65536)
-          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_5EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %4
+          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_5EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %4
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
@@ -22592,7 +22592,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #34
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_5EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %1
+"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_5EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 0, ptr %6, align 1
   ret ptr %2
@@ -25346,7 +25346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost3obj10RegLossObjINS0_16LinearSquareLossEEE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   invoke void @_ZN7xgboost16HostDeviceVectorIfEC1EmfNS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 2, float noundef 0.000000e+00, i32 -65536)
-          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_6EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %23
+          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_6EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %23
 
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
@@ -25358,7 +25358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   %.pn6.i.i.i = phi { ptr, i32 } [ %24, %23 ], [ %.pn.pn.i.i.i, %.body.i.i.i ]
   resume { ptr, i32 } %.pn6.i.i.i
 
-"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_6EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %20
+"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_6EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %20
   %26 = getelementptr inbounds i8, ptr %21, i64 24
   store i8 0, ptr %26, align 1
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2)
@@ -28683,7 +28683,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost3obj17PoissonRegressionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   invoke void @_ZN7xgboost16HostDeviceVectorIiEC1EmiNS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0, i32 noundef 0, i32 -65536)
-          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_8EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %4
+          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_8EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %4
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
@@ -28691,7 +28691,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #34
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_8EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %1
+"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj3$_8EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %1
   ret ptr %2
 }
 
@@ -32759,7 +32759,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds i8, ptr %2, i64 56
   invoke void @_ZN7xgboost16HostDeviceVectorIiEC1EmiNS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0, i32 noundef 0, i32 -65536)
-          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj4$_10EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %.body.i.i.i
+          to label %"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj4$_10EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %.body.i.i.i
 
 .body.i.i.i:                                      ; preds = %1
   %6 = landingpad { ptr, i32 }
@@ -32768,7 +32768,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11ObjF
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 64) #34
   resume { ptr, i32 } %6
 
-"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj4$_10EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %1
+"_ZSt10__invoke_rIPN7xgboost11ObjFunctionERNS0_3obj4$_10EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %1
   ret ptr %2
 }
 

@@ -1156,7 +1156,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i: ; preds = %_ZN4llvm14Fu
   %474 = getelementptr inbounds i8, ptr %473, i64 48
   %475 = load ptr, ptr %474, align 8
   %476 = call noundef zeroext i1 %475(ptr noundef nonnull align 8 dereferenceable(32) %472) #17
-  br i1 %476, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br i1 %476, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.exit.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i
   call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(432) %20, ptr noundef nonnull @.str.13, ptr nonnull @.str.14, i64 10, ptr noundef nonnull %315) #17
@@ -1183,13 +1183,13 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i: ; preds = %_ZNK4
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i
   %482 = load ptr, ptr %235, align 8
   %483 = icmp eq ptr %482, %236
-  br i1 %483, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i", label %484
+  br i1 %483, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.exit.i", label %484
 
 484:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i
   call void @free(ptr noundef %482) #17
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.exit.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i": ; preds = %484, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.exit.i": ; preds = %484, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %20)
   br label %516
 
@@ -1232,7 +1232,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i122.i: ; preds = %_ZN4llvm1
   %505 = getelementptr inbounds i8, ptr %504, i64 48
   %506 = load ptr, ptr %505, align 8
   %507 = call noundef zeroext i1 %506(ptr noundef nonnull align 8 dereferenceable(32) %503) #17
-  br i1 %507, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i115.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br i1 %507, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i115.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.exit.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i115.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i122.i, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit112.i
   call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(432) %19, ptr noundef nonnull @.str.13, ptr nonnull @.str.15, i64 15, ptr noundef nonnull %315) #17
@@ -1259,19 +1259,19 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i115.i: ; preds = %_Z
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i121.i: ; preds = %.lr.ph.i.i.i.i.i.i118.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i115.i
   %513 = load ptr, ptr %241, align 8
   %514 = icmp eq ptr %513, %242
-  br i1 %514, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i", label %515
+  br i1 %514, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.exit.i", label %515
 
 515:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i121.i
   call void @free(ptr noundef %513) #17
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.exit.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i": ; preds = %515, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i121.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i122.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.exit.i": ; preds = %515, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i121.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i122.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %19)
   br label %516
 
-516:                                              ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i"
-  %.191.i = phi ptr [ %454, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i" ], [ null, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i" ]
-  %.1.i = phi ptr [ %466, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i" ], [ %497, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.argprom.exit.i" ]
+516:                                              ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.exit.i"
+  %.191.i = phi ptr [ %454, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.exit.i" ], [ null, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.exit.i" ]
+  %.1.i = phi ptr [ %466, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_0EEvT_PDTclfL0p_EE.exit.i" ], [ %497, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_1EEvT_PDTclfL0p_EE.exit.i" ]
   %517 = load ptr, ptr %218, align 8
   %518 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %517) #17
   store i16 257, ptr %243, align 8
@@ -1435,7 +1435,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i144.i: ; preds = %_ZN4llvm9
   %592 = getelementptr inbounds i8, ptr %591, i64 48
   %593 = load ptr, ptr %592, align 8
   %594 = call noundef zeroext i1 %593(ptr noundef nonnull align 8 dereferenceable(32) %590) #17
-  br i1 %594, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i137.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br i1 %594, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i137.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.exit.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i137.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i144.i, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
@@ -1482,13 +1482,13 @@ _ZN4llvm24OptimizationRemarkMissedC2ERKS0_.exit.i.i.i: ; preds = %596, %_ZNK4llv
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm24OptimizationRemarkMissedC2ERKS0_.exit.i.i.i
   %605 = load ptr, ptr %305, align 8, !noalias !21
   %606 = icmp eq ptr %605, %311
-  br i1 %606, label %"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.argprom.exit.i.i", label %607
+  br i1 %606, label %"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.exit.i.i", label %607
 
 607:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i
   call void @free(ptr noundef %605) #17
-  br label %"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.argprom.exit.i.i"
+  br label %"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.exit.i.i"
 
-"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.argprom.exit.i.i": ; preds = %607, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i
+"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.exit.i.i": ; preds = %607, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %15)
   call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %324, ptr noundef nonnull align 8 dereferenceable(424) %16) #17
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %16, align 8
@@ -1497,7 +1497,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %.not4.i.i.i.i.i.i138.i = icmp eq i64 %609, 0
   br i1 %.not4.i.i.i.i.i.i138.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i143.i, label %.lr.ph.i.preheader.i.i.i.i.i139.i
 
-.lr.ph.i.preheader.i.i.i.i.i139.i:                ; preds = %"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.argprom.exit.i.i"
+.lr.ph.i.preheader.i.i.i.i.i139.i:                ; preds = %"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.exit.i.i"
   %610 = getelementptr inbounds %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %608, i64 %609
   br label %.lr.ph.i.i.i.i.i.i140.i
 
@@ -1510,16 +1510,16 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %.not.i.i.i.i.i.i142.i = icmp eq ptr %608, %611
   br i1 %.not.i.i.i.i.i.i142.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i143.i, label %.lr.ph.i.i.i.i.i.i140.i, !llvm.loop !20
 
-_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i143.i: ; preds = %.lr.ph.i.i.i.i.i.i140.i, %"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.argprom.exit.i.i"
+_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i143.i: ; preds = %.lr.ph.i.i.i.i.i.i140.i, %"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.exit.i.i"
   %613 = load ptr, ptr %304, align 8
   %614 = icmp eq ptr %613, %306
-  br i1 %614, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.argprom.exit.i", label %615
+  br i1 %614, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.exit.i", label %615
 
 615:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i143.i
   call void @free(ptr noundef %613) #17
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.exit.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.argprom.exit.i": ; preds = %615, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i143.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i144.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.exit.i": ; preds = %615, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i143.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i144.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %16)
   br label %_ZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionE.exit
 
@@ -2180,8 +2180,8 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit1
   call void @_ZN4llvm11LLVMContext9emitErrorERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(8) %881, ptr noundef nonnull align 8 dereferenceable(34) %45) #17
   br label %_ZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionE.exit
 
-_ZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionE.exit: ; preds = %312, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.argprom.exit.i", %._crit_edge323.i, %880
-  %.0.i = phi i1 [ false, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.argprom.exit.i" ], [ false, %312 ], [ true, %880 ], [ true, %._crit_edge323.i ]
+_ZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionE.exit: ; preds = %312, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.exit.i", %._crit_edge323.i, %880
+  %.0.i = phi i1 [ false, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERNS_8FunctionEE3$_2EEvT_PDTclfL0p_EE.exit.i" ], [ false, %312 ], [ true, %880 ], [ true, %._crit_edge323.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
@@ -4370,8 +4370,8 @@ attributes #20 = { builtin nounwind allocsize(0) }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.argprom: argument 0"}
-!23 = distinct !{!23, !"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv.argprom"}
+!22 = distinct !{!22, !23, !"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv: argument 0"}
+!23 = distinct !{!23, !"_ZZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionEENK3$_2clEv"}
 !24 = !{!25}
 !25 = distinct !{!25, !26, !"_ZN4llvm20make_early_inc_rangeIRNS_10BasicBlockEEENS_14iterator_rangeINS_23early_inc_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEEEEEEOS5_: argument 0"}
 !26 = distinct !{!26, !"_ZN4llvm20make_early_inc_rangeIRNS_10BasicBlockEEENS_14iterator_rangeINS_23early_inc_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEEEEEEOS5_"}

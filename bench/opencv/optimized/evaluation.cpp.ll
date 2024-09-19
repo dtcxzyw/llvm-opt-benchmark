@@ -341,7 +341,7 @@ define hidden void @_ZNK16EllipticKeyPoint14calcProjectionERKN2cv4Mat_IdEERS_(pt
   %30 = load double, ptr %29, align 8
   %31 = fadd double %30, %28
   %32 = fcmp une double %31, 0.000000e+00
-  br i1 %32, label %33, label %_ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.argprom.argprom.exit
+  br i1 %32, label %33, label %_ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.exit
 
 33:                                               ; preds = %3
   %34 = fdiv double 1.000000e+00, %31
@@ -369,9 +369,9 @@ define hidden void @_ZNK16EllipticKeyPoint14calcProjectionERKN2cv4Mat_IdEERS_(pt
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %44, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %55, i64 1
   %56 = bitcast <2 x float> %.sroa.0.4.vec.insert.i to i64
-  br label %_ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.argprom.argprom.exit
+  br label %_ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.exit
 
-_ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.argprom.argprom.exit: ; preds = %3, %33
+_ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.exit: ; preds = %3, %33
   %.sroa.0.0.i = phi i64 [ %56, %33 ], [ 9187343237679939583, %3 ]
   call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #22
   %57 = load i32, ptr %6, align 8
@@ -383,7 +383,7 @@ _ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.argprom.argprom.exit: ; pred
   invoke void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 2, i32 noundef 2, i32 noundef 6)
           to label %60 unwind label %262
 
-60:                                               ; preds = %_ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.argprom.argprom.exit
+60:                                               ; preds = %_ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.exit
   %61 = getelementptr inbounds i8, ptr %0, i64 8
   %62 = load double, ptr %61, align 8, !noalias !13
   %63 = getelementptr inbounds i8, ptr %8, i64 16
@@ -686,7 +686,7 @@ _ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.argprom.argprom.exit: ; pred
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #22
   ret void
 
-262:                                              ; preds = %_ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.argprom.argprom.exit
+262:                                              ; preds = %_ZL15applyHomographyRKN2cv4Mat_IdEERKNS_6Point_IfEE.exit
   %263 = landingpad { ptr, i32 }
           cleanup
   br label %283

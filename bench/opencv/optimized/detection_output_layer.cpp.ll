@@ -2483,7 +2483,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn24DetectionOutputLayer
   %58 = getelementptr i8, ptr %17, i64 8
   %.val32 = load ptr, ptr %58, align 8
   %59 = icmp eq ptr %18, %.val32
-  br i1 %59, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit, label %60
+  br i1 %59, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %60
 
 60:                                               ; preds = %48
   %61 = ptrtoint ptr %.val32 to i64
@@ -2496,7 +2496,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn24DetectionOutputLayer
 
 .preheader.i:                                     ; preds = %60
   %.not.i = icmp eq i32 %65, 1
-  br i1 %.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = and i64 %64, 2147483647
@@ -2514,26 +2514,26 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn24DetectionOutputLayer
   %70 = mul nsw i32 %69, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i, !llvm.loop !12
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit: ; preds = %.lr.ph.i, %48
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.i, %48
   %.024.i = phi i32 [ 0, %48 ], [ %70, %.lr.ph.i ]
   %71 = icmp eq i32 %57, %.024.i
-  br i1 %71, label %79, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread
+  br i1 %71, label %79, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread: ; preds = %.preheader.i, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread: ; preds = %.preheader.i, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.53, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %72 unwind label %74
 
-72:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread
+72:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZNK2cv3dnn24DetectionOutputLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_, ptr noundef nonnull @.str.15, i32 noundef 233) #27
           to label %73 unwind label %76
 
 73:                                               ; preds = %72
   unreachable
 
-74:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread
+74:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -2549,14 +2549,14 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #26
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit48
 
-79:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit
+79:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit
   %80 = getelementptr inbounds i8, ptr %0, i64 100
   %81 = load i32, ptr %80, align 4
   %82 = mul i32 %81, %53
   %83 = getelementptr i8, ptr %17, i64 32
   %.val34 = load ptr, ptr %83, align 8
   %84 = icmp eq ptr %37, %.val34
-  br i1 %84, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit45, label %85
+  br i1 %84, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit45, label %85
 
 85:                                               ; preds = %79
   %86 = ptrtoint ptr %.val34 to i64
@@ -2569,7 +2569,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread: ; p
 
 .preheader.i35:                                   ; preds = %85
   %.not.i36 = icmp eq i32 %90, 1
-  br i1 %.not.i36, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit45, label %.lr.ph.preheader.i37
+  br i1 %.not.i36, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit45, label %.lr.ph.preheader.i37
 
 .lr.ph.preheader.i37:                             ; preds = %.preheader.i35
   %wide.trip.count.i38 = and i64 %89, 2147483647
@@ -2587,14 +2587,14 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread: ; p
   %95 = mul nsw i32 %94, %.0231.i41
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i38
-  br i1 %exitcond.not.i43, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit45, label %.lr.ph.i39, !llvm.loop !12
+  br i1 %exitcond.not.i43, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit45, label %.lr.ph.i39, !llvm.loop !12
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit45: ; preds = %.lr.ph.i39, %79, %.preheader.i35
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit45: ; preds = %.lr.ph.i39, %79, %.preheader.i35
   %.024.i44 = phi i32 [ 0, %79 ], [ 1, %.preheader.i35 ], [ %95, %.lr.ph.i39 ]
   %96 = icmp eq i32 %82, %.024.i44
   br i1 %96, label %105, label %97
 
-97:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit45
+97:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit45
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.54, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %98 unwind label %100
@@ -2622,7 +2622,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit45: ; preds 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #26
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit48
 
-105:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit45
+105:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit45
   %106 = getelementptr inbounds i8, ptr %50, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = getelementptr inbounds i8, ptr %0, i64 152

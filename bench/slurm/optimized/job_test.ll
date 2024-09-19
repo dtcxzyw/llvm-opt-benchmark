@@ -316,7 +316,7 @@ switch.lookup:                                    ; preds = %77
   %.val.val.i = load i16, ptr %94, align 4
   %95 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
   %.not.i.i = icmp eq i16 %.val.val.i, 0
-  br i1 %.not.i.i, label %_setup_cr_type.argprom.argprom.exit.i, label %96
+  br i1 %.not.i.i, label %_setup_cr_type.exit.i, label %96
 
 96:                                               ; preds = %92
   %97 = and i16 %95, 6
@@ -326,18 +326,18 @@ switch.lookup:                                    ; preds = %77
 98:                                               ; preds = %96
   %99 = and i16 %95, -23
   %100 = or i16 %99, %.val.val.i
-  br label %_setup_cr_type.argprom.argprom.exit.i
+  br label %_setup_cr_type.exit.i
 
 101:                                              ; preds = %96
   %102 = tail call i32 @get_log_level() #9
   %103 = icmp sgt i32 %102, 2
-  br i1 %103, label %104, label %_setup_cr_type.argprom.argprom.exit.i
+  br i1 %103, label %104, label %_setup_cr_type.exit.i
 
 104:                                              ; preds = %101
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.16, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._setup_cr_type, ptr noundef nonnull @plugin_type) #9
-  br label %_setup_cr_type.argprom.argprom.exit.i
+  br label %_setup_cr_type.exit.i
 
-_setup_cr_type.argprom.argprom.exit.i:            ; preds = %104, %101, %98, %92
+_setup_cr_type.exit.i:                            ; preds = %104, %101, %98, %92
   %.0.i.i = phi i16 [ %100, %98 ], [ %95, %104 ], [ %95, %101 ], [ %95, %92 ]
   store i8 0, ptr %16, align 1
   %105 = tail call ptr @bit_copy(ptr noundef %1) #9
@@ -348,8 +348,8 @@ _setup_cr_type.argprom.argprom.exit.i:            ; preds = %104, %101, %98, %92
   %.not19.i.i = icmp eq ptr %106, null
   br i1 %.not19.i.i, label %_set_sched_weight.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_setup_cr_type.argprom.argprom.exit.i, %126
-  %107 = phi ptr [ %129, %126 ], [ %106, %_setup_cr_type.argprom.argprom.exit.i ]
+.lr.ph.i.i:                                       ; preds = %_setup_cr_type.exit.i, %126
+  %107 = phi ptr [ %129, %126 ], [ %106, %_setup_cr_type.exit.i ]
   %108 = getelementptr inbounds i8, ptr %107, i64 516
   %109 = load i32, ptr %108, align 4
   %110 = zext i32 %109 to i64
@@ -386,7 +386,7 @@ _setup_cr_type.argprom.argprom.exit.i:            ; preds = %104, %101, %98, %92
   %.not.i177.i = icmp eq ptr %129, null
   br i1 %.not.i177.i, label %_set_sched_weight.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
-_set_sched_weight.exit.i:                         ; preds = %126, %_setup_cr_type.argprom.argprom.exit.i
+_set_sched_weight.exit.i:                         ; preds = %126, %_setup_cr_type.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %130 = zext i16 %.0.i to i32
   %131 = load ptr, ptr @select_part_record, align 8
@@ -867,7 +867,7 @@ _test_only.exit:                                  ; preds = %290, %295, %298, %3
   %.val.val.i83 = load i16, ptr %308, align 4
   %309 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
   %.not.i.i84 = icmp eq i16 %.val.val.i83, 0
-  br i1 %.not.i.i84, label %_setup_cr_type.argprom.argprom.exit.i86, label %310
+  br i1 %.not.i.i84, label %_setup_cr_type.exit.i86, label %310
 
 310:                                              ; preds = %307
   %311 = and i16 %309, 6
@@ -877,18 +877,18 @@ _test_only.exit:                                  ; preds = %290, %295, %298, %3
 312:                                              ; preds = %310
   %313 = and i16 %309, -23
   %314 = or i16 %313, %.val.val.i83
-  br label %_setup_cr_type.argprom.argprom.exit.i86
+  br label %_setup_cr_type.exit.i86
 
 315:                                              ; preds = %310
   %316 = tail call i32 @get_log_level() #9
   %317 = icmp sgt i32 %316, 2
-  br i1 %317, label %318, label %_setup_cr_type.argprom.argprom.exit.i86
+  br i1 %317, label %318, label %_setup_cr_type.exit.i86
 
 318:                                              ; preds = %315
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.16, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._setup_cr_type, ptr noundef nonnull @plugin_type) #9
-  br label %_setup_cr_type.argprom.argprom.exit.i86
+  br label %_setup_cr_type.exit.i86
 
-_setup_cr_type.argprom.argprom.exit.i86:          ; preds = %318, %315, %312, %307
+_setup_cr_type.exit.i86:                          ; preds = %318, %315, %312, %307
   %.0.i.i87 = phi i16 [ %314, %312 ], [ %309, %318 ], [ %309, %315 ], [ %309, %307 ]
   %319 = tail call ptr @bit_copy(ptr noundef %1) #9
   store ptr %319, ptr %13, align 8
@@ -903,11 +903,11 @@ _setup_cr_type.argprom.argprom.exit.i86:          ; preds = %318, %315, %312, %3
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %10, i64 40
   br label %328
 
-328:                                              ; preds = %.backedge, %_setup_cr_type.argprom.argprom.exit.i86
-  %.0134.i = phi i16 [ 0, %_setup_cr_type.argprom.argprom.exit.i86 ], [ %405, %.backedge ]
-  %.0132.i88 = phi i16 [ -2, %_setup_cr_type.argprom.argprom.exit.i86 ], [ %385, %.backedge ]
-  %.0131.i = phi ptr [ %6, %_setup_cr_type.argprom.argprom.exit.i86 ], [ %.1.i, %.backedge ]
-  %.0130.i = phi i1 [ false, %_setup_cr_type.argprom.argprom.exit.i86 ], [ true, %.backedge ]
+328:                                              ; preds = %.backedge, %_setup_cr_type.exit.i86
+  %.0134.i = phi i16 [ 0, %_setup_cr_type.exit.i86 ], [ %405, %.backedge ]
+  %.0132.i88 = phi i16 [ -2, %_setup_cr_type.exit.i86 ], [ %385, %.backedge ]
+  %.0131.i = phi ptr [ %6, %_setup_cr_type.exit.i86 ], [ %.1.i, %.backedge ]
+  %.0130.i = phi i1 [ false, %_setup_cr_type.exit.i86 ], [ true, %.backedge ]
   %329 = call ptr @bit_copy(ptr noundef %319) #9
   store ptr %329, ptr %12, align 8
   %330 = load ptr, ptr @select_part_record, align 8
@@ -4520,7 +4520,7 @@ _is_preemptable.exit.thread:                      ; preds = %25, %_is_preemptabl
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %1, i64 40
   %48 = load ptr, ptr %47, align 8
-  tail call fastcc void @_job_res_rm_job.retelim(ptr noundef %42, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %0, i32 noundef %.029, ptr noundef %48)
+  tail call fastcc void @_job_res_rm_job(ptr noundef %42, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %0, i32 noundef %.029, ptr noundef %48)
   br label %49
 
 49:                                               ; preds = %2, %_is_preemptable.exit.thread, %40, %30, %32, %23, %16, %10
@@ -4728,7 +4728,7 @@ define internal fastcc ptr @_select_nodes(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @core_array_log(ptr noundef nonnull @.str.64, ptr noundef %4, ptr noundef %5) #9
   %.val.i = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %_socks_per_node.argprom.exit.i, label %56
+  br i1 %.not.i.i, label %_socks_per_node.exit.i, label %56
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds i8, ptr %.val.i, i64 296
@@ -4745,7 +4745,7 @@ define internal fastcc ptr @_select_nodes(ptr noundef %0, i32 noundef %1, i32 no
   %67 = tail call i32 @llvm.umax.i32(i32 %66, i32 1)
   %68 = udiv i32 %..i.i, %67
   %69 = icmp ult i32 %68, 2
-  br i1 %69, label %_socks_per_node.argprom.exit.i, label %70
+  br i1 %69, label %_socks_per_node.exit.i, label %70
 
 70:                                               ; preds = %56
   %71 = getelementptr inbounds i8, ptr %.val.i, i64 248
@@ -4753,7 +4753,7 @@ define internal fastcc ptr @_select_nodes(ptr noundef %0, i32 noundef %1, i32 no
   %73 = getelementptr inbounds i8, ptr %72, i64 12
   %74 = load i16, ptr %73, align 2
   %switch.i.i = icmp ugt i16 %74, -3
-  br i1 %switch.i.i, label %_socks_per_node.argprom.exit.i, label %75
+  br i1 %switch.i.i, label %_socks_per_node.exit.i, label %75
 
 75:                                               ; preds = %70
   %76 = zext i16 %74 to i32
@@ -4761,9 +4761,9 @@ define internal fastcc ptr @_select_nodes(ptr noundef %0, i32 noundef %1, i32 no
   %78 = add nsw i32 %76, -1
   %79 = add i32 %78, %77
   %80 = udiv i32 %79, %76
-  br label %_socks_per_node.argprom.exit.i
+  br label %_socks_per_node.exit.i
 
-_socks_per_node.argprom.exit.i:                   ; preds = %75, %70, %56, %55
+_socks_per_node.exit.i:                           ; preds = %75, %70, %56, %55
   %.0.i.i = phi i32 [ %80, %75 ], [ -2, %55 ], [ 1, %56 ], [ -2, %70 ]
   %81 = load i32, ptr @node_record_count, align 4
   %82 = sext i32 %81 to i64
@@ -4773,13 +4773,13 @@ _socks_per_node.argprom.exit.i:                   ; preds = %75, %70, %56, %55
   %.not.i = icmp eq i32 %85, -1
   br i1 %.not.i, label %89, label %86
 
-86:                                               ; preds = %_socks_per_node.argprom.exit.i
+86:                                               ; preds = %_socks_per_node.exit.i
   %87 = tail call i64 @bit_fls(ptr noundef %4) #9
   %88 = trunc i64 %87 to i32
   br label %89
 
-89:                                               ; preds = %86, %_socks_per_node.argprom.exit.i
-  %.022.i = phi i32 [ %88, %86 ], [ -2, %_socks_per_node.argprom.exit.i ]
+89:                                               ; preds = %86, %_socks_per_node.exit.i
+  %.022.i = phi i32 [ %88, %86 ], [ -2, %_socks_per_node.exit.i ]
   %.not2329.i = icmp slt i32 %.022.i, %85
   br i1 %.not2329.i, label %_get_res_avail.exit, label %.lr.ph.i
 
@@ -6812,7 +6812,7 @@ declare ptr @find_job_record(i32 noundef) local_unnamed_addr #1
 declare zeroext i16 @slurm_job_preempt_mode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_job_res_rm_job.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_job_res_rm_job(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.wrapper_rm_job_args_t, align 8
   store i32 %4, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8

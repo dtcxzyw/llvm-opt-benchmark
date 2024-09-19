@@ -66,7 +66,7 @@ define i32 @mca_topo_base_graph_create(ptr noundef %0, ptr noundef %1, i32 nound
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_graph_2_2_0_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i.i.i = icmp eq ptr %28, null
-  br i1 %.not6.i.i.i, label %opal_obj_new.argprom.exit.thread42.i, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread42.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %25, %.lr.ph.i.i.i
   %29 = phi ptr [ %31, %.lr.ph.i.i.i ], [ %28, %25 ]
@@ -75,9 +75,9 @@ define i32 @mca_topo_base_graph_create(ptr noundef %0, ptr noundef %1, i32 nound
   %30 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i, label %opal_obj_new.argprom.exit.thread42.i, label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i, label %opal_obj_new.exit.thread42.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
-opal_obj_new.argprom.exit.thread42.i:             ; preds = %.lr.ph.i.i.i, %25
+opal_obj_new.exit.thread42.i:                     ; preds = %.lr.ph.i.i.i, %25
   %32 = getelementptr inbounds i8, ptr %20, i64 16
   store i32 %2, ptr %32, align 8
   %33 = sext i32 %2 to i64
@@ -98,7 +98,7 @@ opal_obj_new.argprom.exit.thread42.i:             ; preds = %.lr.ph.i.i.i, %25
   %spec.select.i = or i1 %44, %45
   br i1 %spec.select.i, label %46, label %65
 
-46:                                               ; preds = %opal_obj_new.argprom.exit.thread42.i
+46:                                               ; preds = %opal_obj_new.exit.thread42.i
   %47 = load i8, ptr @opal_uses_threads, align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %52
@@ -141,7 +141,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %57
   tail call void @free(ptr noundef %20) #9
   br label %mca_topo_base_graph_allocate.exit.thread
 
-65:                                               ; preds = %opal_obj_new.argprom.exit.thread42.i
+65:                                               ; preds = %opal_obj_new.exit.thread42.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %35, ptr nonnull readonly align 4 %3, i64 %34, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %42, ptr readonly align 4 %4, i64 %41, i1 false)
   %.pre = load ptr, ptr %9, align 8

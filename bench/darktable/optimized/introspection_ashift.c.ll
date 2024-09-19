@@ -3865,7 +3865,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   br i1 %982, label %.loopexit, label %983
 
 983:                                              ; preds = %979
-  call fastcc void @dt_draw_set_color_overlay.argelim(ptr noundef %1)
+  call fastcc void @dt_draw_set_color_overlay(ptr noundef %1)
   %984 = load i32, ptr %906, align 8, !tbaa !210
   %985 = icmp eq i32 %984, 3
   br i1 %985, label %986, label %990
@@ -4026,7 +4026,7 @@ declare void @cairo_close_path(ptr noundef) local_unnamed_addr #7
 declare void @cairo_fill(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @dt_draw_set_color_overlay.argelim(ptr noundef %0) unnamed_addr #13 {
+define internal fastcc void @dt_draw_set_color_overlay(ptr noundef %0) unnamed_addr #13 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !156
   %3 = getelementptr inbounds i8, ptr %2, i64 1424
   %4 = load double, ptr %3, align 8, !tbaa !162

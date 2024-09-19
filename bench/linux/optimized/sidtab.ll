@@ -648,7 +648,7 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %19, label %.thread14, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call fastcc ptr @sidtab_do_lookup.argelim(ptr noundef %0, i32 noundef %18)
+  %21 = tail call fastcc ptr @sidtab_do_lookup(ptr noundef %0, i32 noundef %18)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.thread14, label %23
 
@@ -737,7 +737,7 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds i8, ptr %70, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call fastcc ptr @sidtab_do_lookup.argelim(ptr noundef %74, i32 noundef %18)
+  %75 = tail call fastcc ptr @sidtab_do_lookup(ptr noundef %74, i32 noundef %18)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %78
 
@@ -836,7 +836,7 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #5 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @sidtab_do_lookup.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc ptr @sidtab_do_lookup(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
   %3 = udiv i32 %1, 39
   %4 = urem i32 %1, 39
   %5 = add i32 %1, 1
@@ -1002,7 +1002,7 @@ define dso_local i32 @sidtab_convert(ptr noundef %0, ptr noundef %1) local_unnam
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = add i32 %11, -1
-  %22 = tail call fastcc ptr @sidtab_do_lookup.argelim(ptr noundef %20, i32 noundef %21)
+  %22 = tail call fastcc ptr @sidtab_do_lookup(ptr noundef %20, i32 noundef %21)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %38, label %24
 

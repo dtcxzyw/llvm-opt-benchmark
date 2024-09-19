@@ -147,7 +147,7 @@ do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %drv2, align 8
   %call3 = tail call fastcc ptr @bdrv_snapshot_fallback(ptr noundef %bs)
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end5
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end5
 
 if.end5:                                          ; preds = %do.end
   %bdrv_snapshot_list = getelementptr inbounds i8, ptr %0, i64 264
@@ -157,17 +157,17 @@ if.end5:                                          ; preds = %do.end
 
 if.then7:                                         ; preds = %if.end5
   %call9 = tail call i32 %1(ptr noundef nonnull %bs, ptr noundef %psn_info) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end10:                                         ; preds = %if.end5
   %tobool11.not = icmp eq ptr %call3, null
-  br i1 %tobool11.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then12
+  br i1 %tobool11.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
   %call13 = tail call i32 @bdrv_snapshot_list(ptr noundef nonnull %call3, ptr noundef %psn_info)
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end10, %do.end, %if.then12, %if.then7
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end10, %do.end, %if.then12, %if.then7
   %retval.0 = phi i32 [ %call9, %if.then7 ], [ %call13, %if.then12 ], [ -123, %do.end ], [ -95, %if.end10 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   ret i32 %retval.0
@@ -780,7 +780,7 @@ do.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %do.end
   %call4 = tail call ptr @bdrv_get_device_name(ptr noundef nonnull %bs) #6
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 438, ptr noundef nonnull @__func__.bdrv_snapshot_load_tmp, ptr noundef nonnull @.str.16, ptr noundef %call4) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end5:                                          ; preds = %do.end
   %tobool6 = icmp ne ptr %snapshot_id, null
@@ -790,7 +790,7 @@ if.end5:                                          ; preds = %do.end
 
 if.then8:                                         ; preds = %if.end5
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 442, ptr noundef nonnull @__func__.bdrv_snapshot_load_tmp, ptr noundef nonnull @.str.17) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end9:                                          ; preds = %if.end5
   %call10 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %bs) #6
@@ -798,7 +798,7 @@ if.end9:                                          ; preds = %if.end5
 
 if.then11:                                        ; preds = %if.end9
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 446, ptr noundef nonnull @__func__.bdrv_snapshot_load_tmp, ptr noundef nonnull @.str.19) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end12:                                         ; preds = %if.end9
   %bdrv_snapshot_load_tmp = getelementptr inbounds i8, ptr %0, i64 272
@@ -808,15 +808,15 @@ if.end12:                                         ; preds = %if.end9
 
 if.then14:                                        ; preds = %if.end12
   %call16 = tail call i32 %1(ptr noundef nonnull %bs, ptr noundef %snapshot_id, ptr noundef %name, ptr noundef %errp) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end17:                                         ; preds = %if.end12
   %2 = load ptr, ptr %0, align 8
   %call18 = tail call ptr @bdrv_get_device_name(ptr noundef nonnull %bs) #6
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 454, ptr noundef nonnull @__func__.bdrv_snapshot_load_tmp, ptr noundef nonnull @.str.20, ptr noundef %2, ptr noundef %call18) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end17, %if.then14, %if.then11, %if.then8, %if.then3
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end17, %if.then14, %if.then11, %if.then8, %if.then3
   %retval.0 = phi i32 [ %call16, %if.then14 ], [ -95, %if.end17 ], [ -22, %if.then11 ], [ -22, %if.then8 ], [ -123, %if.then3 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   ret i32 %retval.0
@@ -874,15 +874,15 @@ do.end:                                           ; preds = %entry
   %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
-  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %while.cond.preheader
+  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %do.end
   %tobool5.not26 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool5.not26, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread, label %while.body.lr.ph
+  br i1 %tobool5.not26, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, label %while.body.lr.ph
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread: ; preds = %while.cond.preheader
+glib_autoptr_cleanup_GraphLockableMainloop.exit.thread: ; preds = %while.cond.preheader
   tail call void @bdrv_graph_rdunlock_main_loop() #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %tobool7.not = icmp eq ptr %devices, null
@@ -953,7 +953,7 @@ if.end17.us:                                      ; preds = %if.end6.i.us, %do.e
   %next.us = getelementptr inbounds i8, ptr %iterbdrvs.027.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool5.not.us = icmp eq ptr %iterbdrvs.0.us, null
-  br i1 %tobool5.not.us, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %while.body.us, !llvm.loop !11
+  br i1 %tobool5.not.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body.us, !llvm.loop !11
 
 while.body:                                       ; preds = %while.body.lr.ph, %bdrv_can_snapshot.exit
   %iterbdrvs.027 = phi ptr [ %iterbdrvs.0, %bdrv_can_snapshot.exit ], [ %bdrvs.val.pre, %while.body.lr.ph ]
@@ -1005,7 +1005,7 @@ bdrv_can_snapshot.exit:                           ; preds = %if.end6.i
   %next = getelementptr inbounds i8, ptr %iterbdrvs.027, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
-  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %while.body, !llvm.loop !11
+  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !11
 
 if.then15:                                        ; preds = %if.then8.i, %do.end.i11, %lor.lhs.false.i12, %lor.lhs.false3.i, %do.end.i11.us, %lor.lhs.false.i12.us, %lor.lhs.false3.i.us, %if.then8.i.us
   %.us-phi = phi ptr [ %0, %if.then8.i.us ], [ %0, %lor.lhs.false3.i.us ], [ %0, %lor.lhs.false.i12.us ], [ %0, %do.end.i11.us ], [ %4, %lor.lhs.false3.i ], [ %4, %lor.lhs.false.i12 ], [ %4, %do.end.i11 ], [ %4, %if.then8.i ]
@@ -1013,20 +1013,20 @@ if.then15:                                        ; preds = %if.then8.i, %do.end
   tail call void @aio_context_release(ptr noundef %.us-phi28) #6
   %call16 = tail call ptr @bdrv_get_device_or_node_name(ptr noundef %.us-phi) #6
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 558, ptr noundef nonnull @__func__.bdrv_all_can_snapshot, ptr noundef nonnull @.str.21, ptr noundef %call16) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %bdrv_can_snapshot.exit, %if.end17.us, %do.end, %if.then15
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %bdrv_can_snapshot.exit, %if.end17.us, %do.end, %if.then15
   %retval.0 = phi i1 [ false, %if.then15 ], [ false, %do.end ], [ true, %if.end17.us ], [ true, %bdrv_can_snapshot.exit ]
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   %tobool.not.i.i15 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool.not.i.i15, label %glib_autoptr_cleanup_GList.argprom.exit, label %if.then.i.i16
+  br i1 %tobool.not.i.i15, label %glib_autoptr_cleanup_GList.exit, label %if.then.i.i16
 
-if.then.i.i16:                                    ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+if.then.i.i16:                                    ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit
   tail call void @g_list_free(ptr noundef nonnull %bdrvs.val.pre) #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
-glib_autoptr_cleanup_GList.argprom.exit:          ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, %if.then.i.i16
-  %retval.044 = phi i1 [ true, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %retval.0, %if.then.i.i16 ]
+glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.exit, %if.then.i.i16
+  %retval.044 = phi i1 [ true, %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %retval.0, %if.then.i.i16 ]
   ret i1 %retval.044
 }
 
@@ -1042,7 +1042,7 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 488, ptr noundef nonnull @__func__.bdrv_all_get_snapshot_devices, ptr noundef nonnull @.str.31) #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
 while.body:                                       ; preds = %if.then, %if.end7
   %devices.addr.020 = phi ptr [ %1, %if.end7 ], [ %devices, %if.then ]
@@ -1075,20 +1075,20 @@ for.body:                                         ; preds = %if.else, %for.body
 if.end14:                                         ; preds = %for.body, %if.end7, %if.else
   %bdrvs.2 = phi ptr [ null, %if.else ], [ %call8, %if.end7 ], [ %call12, %for.body ]
   store ptr %bdrvs.2, ptr %all_bdrvs, align 8
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
 cleanup:                                          ; preds = %while.body
   %value.le = getelementptr inbounds i8, ptr %devices.addr.020, i64 8
   %2 = load ptr, ptr %value.le, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 495, ptr noundef nonnull @__func__.bdrv_all_get_snapshot_devices, ptr noundef nonnull @.str.32, ptr noundef %2) #6
   %tobool.not.i.i = icmp eq ptr %bdrvs.119, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GList.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GList.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   tail call void @g_list_free(ptr noundef nonnull %bdrvs.119) #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
-glib_autoptr_cleanup_GList.argprom.exit:          ; preds = %if.end14, %if.then2, %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GList.exit:                  ; preds = %if.end14, %if.then2, %cleanup, %if.then.i.i
   %retval.013 = phi i32 [ -1, %cleanup ], [ -1, %if.then.i.i ], [ -1, %if.then2 ], [ 0, %if.end14 ]
   ret i32 %retval.013
 }
@@ -1120,15 +1120,15 @@ do.end:                                           ; preds = %entry
   %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
-  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %while.cond.preheader
+  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %do.end
   %tobool5.not34 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool5.not34, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread, label %while.body.lr.ph
+  br i1 %tobool5.not34, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, label %while.body.lr.ph
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread: ; preds = %while.cond.preheader
+glib_autoptr_cleanup_GraphLockableMainloop.exit.thread: ; preds = %while.cond.preheader
   tail call void @bdrv_graph_rdunlock_main_loop() #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %tobool7.not = icmp eq ptr %devices, null
@@ -1221,7 +1221,7 @@ if.then11:                                        ; preds = %for.body.i
 if.then17:                                        ; preds = %if.then11
   %call18 = call ptr @bdrv_get_device_or_node_name(ptr noundef %0) #6
   call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.22, ptr noundef %name, ptr noundef %call18) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end19.critedge.sink.split:                     ; preds = %do.end.i16, %bdrv_snapshot_find.exit.thread27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
@@ -1235,20 +1235,20 @@ if.end19:                                         ; preds = %if.end19.critedge, 
   %next = getelementptr inbounds i8, ptr %iterbdrvs.035, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
-  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %while.body, !llvm.loop !14
+  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !14
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end19, %do.end, %if.then17
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end19, %do.end, %if.then17
   %retval.0 = phi i32 [ -1, %if.then17 ], [ -1, %do.end ], [ 0, %if.end19 ]
   call void @bdrv_graph_rdunlock_main_loop() #6
   %tobool.not.i.i20 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool.not.i.i20, label %glib_autoptr_cleanup_GList.argprom.exit, label %if.then.i.i21
+  br i1 %tobool.not.i.i20, label %glib_autoptr_cleanup_GList.exit, label %if.then.i.i21
 
-if.then.i.i21:                                    ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+if.then.i.i21:                                    ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit
   call void @g_list_free(ptr noundef nonnull %bdrvs.val.pre) #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
-glib_autoptr_cleanup_GList.argprom.exit:          ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, %if.then.i.i21
-  %retval.042 = phi i32 [ 0, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %retval.0, %if.then.i.i21 ]
+glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.exit, %if.then.i.i21
+  %retval.042 = phi i32 [ 0, %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %retval.0, %if.then.i.i21 ]
   ret i32 %retval.042
 }
 
@@ -1276,7 +1276,7 @@ do.end:                                           ; preds = %entry
 
 while.cond.preheader:                             ; preds = %do.end
   %tobool4.not14 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool4.not14, label %glib_autoptr_cleanup_GList.argprom.exit, label %while.body.lr.ph
+  br i1 %tobool4.not14, label %glib_autoptr_cleanup_GList.exit, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %tobool8.not.not = icmp eq ptr %devices, null
@@ -1385,13 +1385,13 @@ if.end14:                                         ; preds = %if.end14.critedge, 
 cleanup:                                          ; preds = %if.end14.us, %if.end14, %do.end, %if.then12
   %retval.0 = phi i32 [ -1, %if.then12 ], [ -1, %do.end ], [ 0, %if.end14 ], [ 0, %if.end14.us ]
   %tobool.not.i.i = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GList.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GList.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   tail call void @g_list_free(ptr noundef nonnull %bdrvs.val.pre) #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
-glib_autoptr_cleanup_GList.argprom.exit:          ; preds = %while.cond.preheader, %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GList.exit:                  ; preds = %while.cond.preheader, %cleanup, %if.then.i.i
   %retval.025 = phi i32 [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i ], [ 0, %while.cond.preheader ]
   ret i32 %retval.025
 }
@@ -1414,15 +1414,15 @@ do.end:                                           ; preds = %entry
   %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
-  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %while.cond.preheader
+  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %do.end
   %tobool5.not39 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool5.not39, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread, label %while.body.lr.ph
+  br i1 %tobool5.not39, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, label %while.body.lr.ph
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread: ; preds = %while.cond.preheader
+glib_autoptr_cleanup_GraphLockableMainloop.exit.thread: ; preds = %while.cond.preheader
   tail call void @bdrv_graph_rdunlock_main_loop() #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %tobool7.not = icmp eq ptr %devices, null
@@ -1463,12 +1463,12 @@ if.then9.us:                                      ; preds = %bdrv_all_snapshots_
 do.end.i13.us:                                    ; preds = %if.then9.us
   %call1.i14.us = call i32 @bdrv_snapshot_list(ptr noundef %0, ptr noundef nonnull %sn_tab.i)
   %cmp.i15.us = icmp slt i32 %call1.i14.us, 0
-  br i1 %cmp.i15.us, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.sink.split, label %for.cond.preheader.i.us
+  br i1 %cmp.i15.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split, label %for.cond.preheader.i.us
 
 for.cond.preheader.i.us:                          ; preds = %do.end.i13.us
   %cmp46.not.i.us = icmp eq i32 %call1.i14.us, 0
   %.pre.i.us = load ptr, ptr %sn_tab.i, align 8
-  br i1 %cmp46.not.i.us, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.critedge, label %for.body.lr.ph.i.us
+  br i1 %cmp46.not.i.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge, label %for.body.lr.ph.i.us
 
 for.body.lr.ph.i.us:                              ; preds = %for.cond.preheader.i.us
   %wide.trip.count.i.us = zext nneg i32 %call1.i14.us to i64
@@ -1484,7 +1484,7 @@ for.body.i.us:                                    ; preds = %for.cond.i.us, %for
 for.cond.i.us:                                    ; preds = %for.body.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
-  br i1 %exitcond.not.i.us, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.critedge, label %for.body.i.us, !llvm.loop !5
+  br i1 %exitcond.not.i.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge, label %for.body.i.us, !llvm.loop !5
 
 if.end11.us:                                      ; preds = %for.body.i.us
   call void @g_free(ptr noundef %.pre.i.us) #6
@@ -1496,7 +1496,7 @@ if.end19.us:                                      ; preds = %do.end.i.us, %lor.l
   %next.us = getelementptr inbounds i8, ptr %iterbdrvs.040.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool5.not.us = icmp eq ptr %iterbdrvs.0.us, null
-  br i1 %tobool5.not.us, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %while.body.us, !llvm.loop !16
+  br i1 %tobool5.not.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body.us, !llvm.loop !16
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end11
   %iterbdrvs.040 = phi ptr [ %iterbdrvs.0, %if.end11 ], [ %bdrvs.val.pre, %while.body.lr.ph ]
@@ -1518,12 +1518,12 @@ if.else.i12:                                      ; preds = %while.body, %if.the
 do.end.i13:                                       ; preds = %while.body
   %call1.i14 = call i32 @bdrv_snapshot_list(ptr noundef %2, ptr noundef nonnull %sn_tab.i)
   %cmp.i15 = icmp slt i32 %call1.i14, 0
-  br i1 %cmp.i15, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.sink.split, label %for.cond.preheader.i
+  br i1 %cmp.i15, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %do.end.i13
   %cmp46.not.i = icmp eq i32 %call1.i14, 0
   %.pre.i = load ptr, ptr %sn_tab.i, align 8
-  br i1 %cmp46.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.critedge, label %for.body.lr.ph.i
+  br i1 %cmp46.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %wide.trip.count.i = zext nneg i32 %call1.i14 to i64
@@ -1532,7 +1532,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.critedge, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -1548,32 +1548,32 @@ if.end11:                                         ; preds = %for.body.i
   %next = getelementptr inbounds i8, ptr %iterbdrvs.040, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
-  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %while.body, !llvm.loop !16
+  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !16
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.critedge: ; preds = %for.cond.preheader.i, %for.cond.i, %for.cond.preheader.i.us, %for.cond.i.us
+glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge: ; preds = %for.cond.preheader.i, %for.cond.i, %for.cond.preheader.i.us, %for.cond.i.us
   %.pre.i37 = phi ptr [ %.pre.i.us, %for.cond.i.us ], [ %.pre.i.us, %for.cond.preheader.i.us ], [ %.pre.i, %for.cond.i ], [ %.pre.i, %for.cond.preheader.i ]
   %call635 = phi ptr [ %call6.us, %for.cond.i.us ], [ %call6.us, %for.cond.preheader.i.us ], [ %call6, %for.cond.i ], [ %call6, %for.cond.preheader.i ]
   call void @g_free(ptr noundef %.pre.i37) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.sink.split
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.sink.split: ; preds = %do.end.i13, %do.end.i13.us, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.critedge
-  %call635.sink = phi ptr [ %call635, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.critedge ], [ %call6.us, %do.end.i13.us ], [ %call6, %do.end.i13 ]
+glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split: ; preds = %do.end.i13, %do.end.i13.us, %glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge
+  %call635.sink = phi ptr [ %call635, %glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge ], [ %call6.us, %do.end.i13.us ], [ %call6, %do.end.i13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
   call void @aio_context_release(ptr noundef %call635.sink) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end11, %if.end19.us, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.sink.split, %do.end
-  %retval.0 = phi i32 [ -1, %do.end ], [ 0, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.sink.split ], [ 1, %if.end19.us ], [ 1, %if.end11 ]
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end11, %if.end19.us, %glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split, %do.end
+  %retval.0 = phi i32 [ -1, %do.end ], [ 0, %glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split ], [ 1, %if.end19.us ], [ 1, %if.end11 ]
   call void @bdrv_graph_rdunlock_main_loop() #6
   %tobool.not.i.i17 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool.not.i.i17, label %glib_autoptr_cleanup_GList.argprom.exit, label %if.then.i.i18
+  br i1 %tobool.not.i.i17, label %glib_autoptr_cleanup_GList.exit, label %if.then.i.i18
 
-if.then.i.i18:                                    ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+if.then.i.i18:                                    ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit
   call void @g_list_free(ptr noundef nonnull %bdrvs.val.pre) #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
-glib_autoptr_cleanup_GList.argprom.exit:          ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, %if.then.i.i18
-  %retval.065 = phi i32 [ 1, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %retval.0, %if.then.i.i18 ]
+glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.exit, %if.then.i.i18
+  %retval.065 = phi i32 [ 1, %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %retval.0, %if.then.i.i18 ]
   ret i32 %retval.065
 }
 
@@ -1594,15 +1594,15 @@ do.end:                                           ; preds = %entry
   %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
-  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %while.cond.preheader
+  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %do.end
   %tobool5.not68 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool5.not68, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread, label %while.body.lr.ph
+  br i1 %tobool5.not68, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, label %while.body.lr.ph
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread: ; preds = %while.cond.preheader
+glib_autoptr_cleanup_GraphLockableMainloop.exit.thread: ; preds = %while.cond.preheader
   tail call void @bdrv_graph_rdunlock_main_loop() #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %tobool12.not = icmp eq ptr %devices, null
@@ -1733,26 +1733,26 @@ if.then20:                                        ; preds = %if.end18, %if.end18
   %name = getelementptr inbounds i8, ptr %sn, i64 128
   %call21 = tail call ptr @bdrv_get_device_or_node_name(ptr noundef %0) #6
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 732, ptr noundef nonnull @__func__.bdrv_all_create_snapshot, ptr noundef nonnull @.str.25, ptr noundef nonnull %name, ptr noundef %call21) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end22:                                         ; preds = %if.end18.thread46, %if.end18
   %next = getelementptr inbounds i8, ptr %iterbdrvs.069, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
-  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %while.body, !llvm.loop !17
+  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !17
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end22, %do.end, %if.then20
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end22, %do.end, %if.then20
   %retval.0 = phi i32 [ -1, %if.then20 ], [ -1, %do.end ], [ 0, %if.end22 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   %tobool.not.i.i38 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool.not.i.i38, label %glib_autoptr_cleanup_GList.argprom.exit, label %if.then.i.i39
+  br i1 %tobool.not.i.i38, label %glib_autoptr_cleanup_GList.exit, label %if.then.i.i39
 
-if.then.i.i39:                                    ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+if.then.i.i39:                                    ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit
   tail call void @g_list_free(ptr noundef nonnull %bdrvs.val.pre) #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
-glib_autoptr_cleanup_GList.argprom.exit:          ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, %if.then.i.i39
-  %retval.092 = phi i32 [ 0, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %retval.0, %if.then.i.i39 ]
+glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.exit, %if.then.i.i39
+  %retval.092 = phi i32 [ 0, %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %retval.0, %if.then.i.i39 ]
   ret i32 %retval.092
 }
 
@@ -1773,7 +1773,7 @@ do.end:                                           ; preds = %entry
   %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
-  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %while.cond.preheader
+  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %do.end
   %tobool5.not35 = icmp eq ptr %bdrvs.val.pre, null
@@ -1840,7 +1840,7 @@ if.end6.i.us.us:                                  ; preds = %lor.lhs.false3.i.us
   %bdrv_snapshot_create.i.us.us = getelementptr inbounds i8, ptr %2, i64 240
   %3 = load ptr, ptr %bdrv_snapshot_create.i.us.us, align 8
   %tobool7.not.i.us.us = icmp eq ptr %3, null
-  br i1 %tobool7.not.i.us.us, label %if.then8.i.us.us, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.split.us.split.us.critedge
+  br i1 %tobool7.not.i.us.us, label %if.then8.i.us.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.us.split.us.critedge
 
 if.then8.i.us.us:                                 ; preds = %if.end6.i.us.us
   %call9.i.us.us = tail call fastcc ptr @bdrv_snapshot_fallback(ptr noundef nonnull %bs.tr.i.us.us)
@@ -1854,9 +1854,9 @@ if.end26.us.us:                                   ; preds = %do.end.i20.us.us, %
   %tobool5.not.us.us = icmp eq ptr %iterbdrvs.0.us.us, null
   br i1 %tobool5.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !18
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.split.us.split.us.critedge: ; preds = %if.end6.i.us.us
+glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.us.split.us.critedge: ; preds = %if.end6.i.us.us
   tail call void @aio_context_release(ptr noundef %call6.us.us) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us, %if.end26.us
   %iterbdrvs.036.us = phi ptr [ %iterbdrvs.0.us, %if.end26.us ], [ %bdrvs.val.pre, %while.body.lr.ph.split.us ]
@@ -1965,7 +1965,7 @@ if.end6.i.us52:                                   ; preds = %lor.lhs.false3.i.us
   %bdrv_snapshot_create.i.us53 = getelementptr inbounds i8, ptr %10, i64 240
   %11 = load ptr, ptr %bdrv_snapshot_create.i.us53, align 8
   %tobool7.not.i.us54 = icmp eq ptr %11, null
-  br i1 %tobool7.not.i.us54, label %if.then8.i.us55, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.split.split.us.critedge
+  br i1 %tobool7.not.i.us54, label %if.then8.i.us55, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.split.us.critedge
 
 if.then8.i.us55:                                  ; preds = %if.end6.i.us52
   %call9.i.us56 = tail call fastcc ptr @bdrv_snapshot_fallback(ptr noundef nonnull %bs.tr.i.us43)
@@ -1979,9 +1979,9 @@ land.end.loopexit.us63:                           ; preds = %if.then8.i.us55, %l
   %tobool5.not.us62 = icmp eq ptr %iterbdrvs.0.us61, null
   br i1 %tobool5.not.us62, label %while.end, label %while.body.us39, !llvm.loop !18
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.split.split.us.critedge: ; preds = %if.end6.i.us52
+glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.split.us.critedge: ; preds = %if.end6.i.us52
   tail call void @aio_context_release(ptr noundef %call6.us41) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %if.end26
   %iterbdrvs.036 = phi ptr [ %iterbdrvs.0, %if.end26 ], [ %bdrvs.val.pre, %while.body.lr.ph.split ]
@@ -2039,11 +2039,11 @@ land.end.loopexit:                                ; preds = %do.end.i20, %lor.lh
 if.then17:                                        ; preds = %land.end.loopexit, %land.end.us
   %.us-phi = phi i1 [ %8, %land.end.us ], [ %.ph, %land.end.loopexit ]
   %.us-phi37 = phi ptr [ %4, %land.end.us ], [ %12, %land.end.loopexit ]
-  br i1 %.us-phi, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.else20
+  br i1 %.us-phi, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.else20
 
 if.else20:                                        ; preds = %if.then17
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 776, ptr noundef nonnull @__func__.bdrv_all_find_vmstate_bs, ptr noundef nonnull @.str.26, ptr noundef nonnull %vmstate_bs) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end26:                                         ; preds = %land.end.loopexit
   %next = getelementptr inbounds i8, ptr %iterbdrvs.036, i64 8
@@ -2057,23 +2057,23 @@ while.end:                                        ; preds = %if.end26, %land.end
 
 if.then28:                                        ; preds = %while.end
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 789, ptr noundef nonnull @__func__.bdrv_all_find_vmstate_bs, ptr noundef nonnull @.str.27, ptr noundef nonnull %vmstate_bs) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.else29:                                        ; preds = %while.end
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 792, ptr noundef nonnull @__func__.bdrv_all_find_vmstate_bs, ptr noundef nonnull @.str.28) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.split.split.us.critedge, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.split.us.split.us.critedge, %if.then28, %if.else29, %if.then17, %do.end, %if.else20
-  %retval.0 = phi ptr [ null, %if.else20 ], [ null, %do.end ], [ %.us-phi37, %if.then17 ], [ null, %if.else29 ], [ null, %if.then28 ], [ %9, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.split.split.us.critedge ], [ %0, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.split.us.split.us.critedge ]
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.split.us.critedge, %glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.us.split.us.critedge, %if.then28, %if.else29, %if.then17, %do.end, %if.else20
+  %retval.0 = phi ptr [ null, %if.else20 ], [ null, %do.end ], [ %.us-phi37, %if.then17 ], [ null, %if.else29 ], [ null, %if.then28 ], [ %9, %glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.split.us.critedge ], [ %0, %glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.split.us.split.us.critedge ]
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   %tobool.not.i.i24 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool.not.i.i24, label %glib_autoptr_cleanup_GList.argprom.exit, label %if.then.i.i25
+  br i1 %tobool.not.i.i24, label %glib_autoptr_cleanup_GList.exit, label %if.then.i.i25
 
-if.then.i.i25:                                    ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+if.then.i.i25:                                    ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit
   tail call void @g_list_free(ptr noundef nonnull %bdrvs.val.pre) #6
-  br label %glib_autoptr_cleanup_GList.argprom.exit
+  br label %glib_autoptr_cleanup_GList.exit
 
-glib_autoptr_cleanup_GList.argprom.exit:          ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, %if.then.i.i25
+glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit, %if.then.i.i25
   ret ptr %retval.0
 }
 

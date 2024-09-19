@@ -12087,13 +12087,13 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS0_6paroptEE3$_0JillEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS0_6paroptEE3$_0JillEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #30
   unreachable
 
-"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS0_6paroptEE3$_0JillEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS0_6paroptEE3$_0JillEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 24
   %1 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(16) %call.val, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i.i)
@@ -15579,7 +15579,7 @@ entry:
   %__args1.val = load i64, ptr %__args1, align 8
   %__args3.val = load i64, ptr %__args3, align 8
   %cmp3.i.i.i = icmp slt i64 %__args1.val, %__args3.val
-  br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS0_6paroptEE3$_0JillEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS0_6paroptEE3$_0JillEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZNKSt8functionIFvilEEclEil.exit.i.i.i
   %i.addr.04.i.i.i = phi i64 [ %inc.i.i.i, %_ZNKSt8functionIFvilEEclEil.exit.i.i.i ], [ %__args1.val, %entry ]
@@ -15605,9 +15605,9 @@ _ZNKSt8functionIFvilEEclEil.exit.i.i.i:           ; preds = %for.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i.i.i)
   %inc.i.i.i = add i64 %i.addr.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %__args3.val
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS0_6paroptEE3$_0JillEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %for.body.i.i.i, !llvm.loop !204
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS0_6paroptEE3$_0JillEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %for.body.i.i.i, !llvm.loop !204
 
-"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS0_6paroptEE3$_0JillEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %_ZNKSt8functionIFvilEEclEil.exit.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS0_6paroptEE3$_0JillEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %_ZNKSt8functionIFvilEEclEil.exit.i.i.i, %entry
   ret void
 }
 
@@ -16834,13 +16834,13 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 16
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS0_6paroptEE3$_0JillllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS0_6paroptEE3$_0JillllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #30
   unreachable
 
-"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS0_6paroptEE3$_0JillllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS0_6paroptEE3$_0JillllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 24
   %1 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(16) %call.val, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i.i.i.i)
@@ -16889,7 +16889,7 @@ entry:
   %cmp7.i.i.i = icmp slt i64 %__args5.val, %__args7.val
   %cmp35.i.i.i = icmp slt i64 %__args1.val, %__args3.val
   %or.cond.i.i.i = and i1 %cmp35.i.i.i, %cmp7.i.i.i
-  br i1 %or.cond.i.i.i, label %for.cond2.preheader.us.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS0_6paroptEE3$_0JillllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br i1 %or.cond.i.i.i, label %for.cond2.preheader.us.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS0_6paroptEE3$_0JillllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 for.cond2.preheader.us.i.i.i:                     ; preds = %entry, %for.cond2.for.inc5_crit_edge.us.i.i.i
   %y.08.us.i.i.i = phi i64 [ %inc6.us.i.i.i, %for.cond2.for.inc5_crit_edge.us.i.i.i ], [ %__args5.val, %entry ]
@@ -16920,13 +16920,13 @@ _ZNKSt8functionIFvllEEclEll.exit.us.i.i.i:        ; preds = %for.body4.us.i.i.i
 for.cond2.for.inc5_crit_edge.us.i.i.i:            ; preds = %_ZNKSt8functionIFvllEEclEll.exit.us.i.i.i
   %inc6.us.i.i.i = add i64 %y.08.us.i.i.i, 1
   %exitcond10.not.i.i.i = icmp eq i64 %inc6.us.i.i.i, %__args7.val
-  br i1 %exitcond10.not.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS0_6paroptEE3$_0JillllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit", label %for.cond2.preheader.us.i.i.i, !llvm.loop !221
+  br i1 %exitcond10.not.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS0_6paroptEE3$_0JillllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %for.cond2.preheader.us.i.i.i, !llvm.loop !221
 
 if.then.i.i.i.i:                                  ; preds = %for.body4.us.i.i.i
   call void @_ZSt25__throw_bad_function_callv() #30
   unreachable
 
-"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS0_6paroptEE3$_0JillllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %for.cond2.for.inc5_crit_edge.us.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS0_6paroptEE3$_0JillllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %for.cond2.for.inc5_crit_edge.us.i.i.i, %entry
   ret void
 }
 
@@ -17064,8 +17064,8 @@ attributes #33 = { allocsize(0) }
 !27 = distinct !{!27, !"_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_"}
 !28 = distinct !{!28, !8}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_.argprom: %agg.result"}
-!31 = distinct !{!31, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_.argprom"}
+!30 = distinct !{!30, !31, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_: %agg.result"}
+!31 = distinct !{!31, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_"}
 !32 = !{!33}
 !33 = distinct !{!33, !34, !"_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE6insertENS0_12vec_iteratorIPSt4pairIS3_iELb1EEEONS0_3dtl4pairIS3_iEE: %agg.result"}
 !34 = distinct !{!34, !"_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE6insertENS0_12vec_iteratorIPSt4pairIS3_iELb1EEEONS0_3dtl4pairIS3_iEE"}
@@ -17077,8 +17077,8 @@ attributes #33 = { allocsize(0) }
 !40 = distinct !{!40, !41, !"_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_: %agg.result"}
 !41 = distinct !{!41, !"_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_"}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_.argprom: %agg.result"}
-!44 = distinct !{!44, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_.argprom"}
+!43 = distinct !{!43, !44, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_: %agg.result"}
+!44 = distinct !{!44, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_"}
 !45 = !{!46}
 !46 = distinct !{!46, !47, !"_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE6insertENS0_12vec_iteratorIPSt4pairIS3_iELb1EEEONS0_3dtl4pairIS3_iEE: %agg.result"}
 !47 = distinct !{!47, !"_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE6insertENS0_12vec_iteratorIPSt4pairIS3_iELb1EEEONS0_3dtl4pairIS3_iEE"}
@@ -17090,8 +17090,8 @@ attributes #33 = { allocsize(0) }
 !53 = distinct !{!53, !54, !"_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_: %agg.result"}
 !54 = distinct !{!54, !"_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_"}
 !55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_.argprom: %agg.result"}
-!57 = distinct !{!57, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_.argprom"}
+!56 = distinct !{!56, !57, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_: %agg.result"}
+!57 = distinct !{!57, !"_ZN5boost9container3dtlL10force_copyINS0_12vec_iteratorIPNS1_4pairINSt6thread2idEiEELb1EEENS3_IPSt4pairIS6_iELb1EEEEET_RKT0_"}
 !58 = !{!59}
 !59 = distinct !{!59, !60, !"_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE6insertENS0_12vec_iteratorIPSt4pairIS3_iELb1EEEONS0_3dtl4pairIS3_iEE: %agg.result"}
 !60 = distinct !{!60, !"_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE6insertENS0_12vec_iteratorIPSt4pairIS3_iELb1EEEONS0_3dtl4pairIS3_iEE"}

@@ -256,7 +256,7 @@ define internal i32 @dissect_nano(ptr noundef %0, ptr nocapture noundef readonly
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %19 = load i32, ptr @ett_nano, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #4
-  call fastcc void @dissect_nano_header.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef %9, ptr noundef %10)
+  call fastcc void @dissect_nano_header(ptr noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef %9, ptr noundef %10)
   %21 = load i32, ptr %9, align 4
   switch i32 %21, label %133 [
     i32 2, label %22
@@ -440,7 +440,7 @@ dissect_nano_keepalive.exit:                      ; preds = %46
   br label %136
 
 132:                                              ; preds = %69
-  call fastcc void @dissect_nano_state.argelim(ptr noundef %0, ptr noundef %20, i32 noundef %.0)
+  call fastcc void @dissect_nano_state(ptr noundef %0, ptr noundef %20, i32 noundef %.0)
   br label %136
 
 133:                                              ; preds = %13
@@ -464,7 +464,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_nano_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @test_nano.argprom.argelim(ptr noundef %0)
+  %5 = tail call fastcc i32 @test_nano(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
@@ -575,7 +575,7 @@ define internal i32 @dissect_nano_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_nano_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @test_nano.argprom.argelim(ptr noundef %0)
+  %5 = tail call fastcc i32 @test_nano(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %20, label %6
 
@@ -620,7 +620,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nano_header.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @dissect_nano_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr @ett_nano_header, align 4
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.98) #4
   %8 = getelementptr inbounds i8, ptr %1, i64 408
@@ -650,7 +650,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nano_state.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 113) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_nano_state(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 113) %2) unnamed_addr #0 {
   %4 = load i32, ptr @ett_nano_block, align 4
   %5 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 216, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.121) #4
   %6 = load i32, ptr @hf_nano_block_account, align 4
@@ -701,7 +701,7 @@ declare void @ip_addr_to_str_buf(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @ip6_to_str_buf(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_nano.argprom.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_nano(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %3 = icmp ult i32 %2, 8
   br i1 %3, label %19, label %4
@@ -903,11 +903,11 @@ define internal i32 @dissect_nano_tcp_client_message(ptr noundef %0, ptr nocaptu
   br label %104
 
 65:                                               ; preds = %10
-  call fastcc void @dissect_nano_state.argelim(ptr noundef %0, ptr noundef %2, i32 noundef 1)
+  call fastcc void @dissect_nano_state(ptr noundef %0, ptr noundef %2, i32 noundef 1)
   br label %104
 
 66:                                               ; preds = %4
-  call fastcc void @dissect_nano_header.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %7)
+  call fastcc void @dissect_nano_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %7)
   %67 = load i32, ptr %5, align 4
   store i32 %67, ptr %3, align 4
   switch i32 %67, label %104 [
@@ -1095,7 +1095,7 @@ define internal i32 @dissect_nano_tcp_server_message(ptr noundef %0, ptr nocaptu
   br label %65
 
 64:                                               ; preds = %7
-  call fastcc void @dissect_nano_state.argelim(ptr noundef %0, ptr noundef %2, i32 noundef 1)
+  call fastcc void @dissect_nano_state(ptr noundef %0, ptr noundef %2, i32 noundef 1)
   br label %65
 
 65:                                               ; preds = %64, %53, %40, %29, %16, %15, %7

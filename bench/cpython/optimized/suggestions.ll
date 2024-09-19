@@ -1499,23 +1499,23 @@ if.end8.i.i:                                      ; preds = %if.end.i7.i
   %5 = load i64, ptr %call5.i.i, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i11.not.i.i = icmp eq i64 %6, 0
-  br i1 %cmp.i11.not.i.i, label %if.end.i.i.i, label %get_suggestions_for_attribute_error.argprom.exit.i
+  br i1 %cmp.i11.not.i.i, label %if.end.i.i.i, label %get_suggestions_for_attribute_error.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end8.i.i
   %dec.i.i.i = add i64 %5, -1
   store i64 %dec.i.i.i, ptr %call5.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %get_suggestions_for_attribute_error.argprom.exit.i
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %get_suggestions_for_attribute_error.exit.i
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call5.i.i) #5
-  br label %get_suggestions_for_attribute_error.argprom.exit.i
+  br label %get_suggestions_for_attribute_error.exit.i
 
-get_suggestions_for_attribute_error.argprom.exit.i: ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.end8.i.i
+get_suggestions_for_attribute_error.exit.i:       ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.end8.i.i
   %cmp.i14 = icmp eq ptr %call9.i.i, null
   br i1 %cmp.i14, label %if.end12, label %if.end.i
 
-if.end.i:                                         ; preds = %get_suggestions_for_attribute_error.argprom.exit.i
+if.end.i:                                         ; preds = %get_suggestions_for_attribute_error.exit.i
   %call1.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str, ptr noundef nonnull %call9.i.i) #5
   %7 = load i64, ptr %call9.i.i, align 8
   %8 = and i64 %7, 2147483648
@@ -1957,8 +1957,8 @@ if.then1.i.i40:                                   ; preds = %if.end.i.i37
   tail call void @_Py_Dealloc(ptr noundef nonnull %call17.i) #5
   br label %if.end12
 
-if.end12:                                         ; preds = %if.then1.i.i40, %if.end.i.i37, %if.end20.i, %Py_DECREF.exit30.i, %Py_DECREF.exit39.i, %if.end.i36, %lor.lhs.false6.i, %lor.lhs.false5.i32, %if.then9, %if.then1.i.i32.i, %if.end.i.i29.i, %if.then.i.i, %if.end33.i, %if.then21.i, %land.lhs.true.i, %lor.lhs.false5.i, %lor.lhs.false.i, %if.then4, %if.then1.i.i, %if.end.i.i, %if.end.i, %get_suggestions_for_attribute_error.argprom.exit.i, %if.end.i7.i, %lor.lhs.false4.i.i, %if.then, %if.else6
-  %result.0 = phi ptr [ null, %if.else6 ], [ null, %get_suggestions_for_attribute_error.argprom.exit.i ], [ %call1.i, %if.end.i ], [ %call1.i, %if.then1.i.i ], [ %call1.i, %if.end.i.i ], [ null, %lor.lhs.false4.i.i ], [ null, %if.then ], [ null, %if.end.i7.i ], [ null, %lor.lhs.false5.i ], [ null, %lor.lhs.false.i ], [ null, %if.then4 ], [ null, %land.lhs.true.i ], [ null, %if.then21.i ], [ %call29.i, %if.end33.i ], [ %result.0.ph.i, %if.then.i.i ], [ %result.0.ph.i, %if.end.i.i29.i ], [ %result.0.ph.i, %if.then1.i.i32.i ], [ null, %lor.lhs.false6.i ], [ null, %lor.lhs.false5.i32 ], [ null, %if.then9 ], [ null, %if.end.i36 ], [ null, %Py_DECREF.exit39.i ], [ null, %Py_DECREF.exit30.i ], [ %call21.i, %if.end20.i ], [ %call21.i, %if.then1.i.i40 ], [ %call21.i, %if.end.i.i37 ]
+if.end12:                                         ; preds = %if.then1.i.i40, %if.end.i.i37, %if.end20.i, %Py_DECREF.exit30.i, %Py_DECREF.exit39.i, %if.end.i36, %lor.lhs.false6.i, %lor.lhs.false5.i32, %if.then9, %if.then1.i.i32.i, %if.end.i.i29.i, %if.then.i.i, %if.end33.i, %if.then21.i, %land.lhs.true.i, %lor.lhs.false5.i, %lor.lhs.false.i, %if.then4, %if.then1.i.i, %if.end.i.i, %if.end.i, %get_suggestions_for_attribute_error.exit.i, %if.end.i7.i, %lor.lhs.false4.i.i, %if.then, %if.else6
+  %result.0 = phi ptr [ null, %if.else6 ], [ null, %get_suggestions_for_attribute_error.exit.i ], [ %call1.i, %if.end.i ], [ %call1.i, %if.then1.i.i ], [ %call1.i, %if.end.i.i ], [ null, %lor.lhs.false4.i.i ], [ null, %if.then ], [ null, %if.end.i7.i ], [ null, %lor.lhs.false5.i ], [ null, %lor.lhs.false.i ], [ null, %if.then4 ], [ null, %land.lhs.true.i ], [ null, %if.then21.i ], [ %call29.i, %if.end33.i ], [ %result.0.ph.i, %if.then.i.i ], [ %result.0.ph.i, %if.end.i.i29.i ], [ %result.0.ph.i, %if.then1.i.i32.i ], [ null, %lor.lhs.false6.i ], [ null, %lor.lhs.false5.i32 ], [ null, %if.then9 ], [ null, %if.end.i36 ], [ null, %Py_DECREF.exit39.i ], [ null, %Py_DECREF.exit30.i ], [ %call21.i, %if.end20.i ], [ %call21.i, %if.then1.i.i40 ], [ %call21.i, %if.end.i.i37 ]
   ret ptr %result.0
 }
 

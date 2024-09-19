@@ -1814,7 +1814,7 @@ define dso_local void @_ZN4llvm22getBitcodeFileContentsENS_15MemoryBufferRefE(pt
   %.sroa.2171.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2171.0.copyload = load i64, ptr %.sroa.2171.0..sroa_idx, align 8
   %.sroa.3172.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
-  call fastcc void @_ZL10initStreamN4llvm15MemoryBufferRefE.argprom(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.0170.0.copyload, i64 %.sroa.2171.0.copyload)
+  call fastcc void @_ZL10initStreamN4llvm15MemoryBufferRefE(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.0170.0.copyload, i64 %.sroa.2171.0.copyload)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
@@ -2164,7 +2164,7 @@ _ZNSt6vectorIN4llvm13BitcodeModuleESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_c
   br label %_ZNSt6vectorIN4llvm13BitcodeModuleESaIS1_EE9push_backEOS1_.exit, !llvm.loop !72
 
 139:                                              ; preds = %67
-  call fastcc void @_ZL16readBlobInRecordRN4llvm15BitstreamCursorEjj.argelim(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(344) %3, i32 noundef 23)
+  call fastcc void @_ZL16readBlobInRecordRN4llvm15BitstreamCursorEjj(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(344) %3, i32 noundef 23)
   %140 = load i8, ptr %30, align 8
   %141 = trunc i8 %140 to i1
   br i1 %141, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i86, label %.preheader
@@ -2233,7 +2233,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i90: ;
   br label %_ZNSt6vectorIN4llvm13BitcodeModuleESaIS1_EE9push_backEOS1_.exit
 
 163:                                              ; preds = %67
-  call fastcc void @_ZL16readBlobInRecordRN4llvm15BitstreamCursorEjj.argelim(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(344) %3, i32 noundef 25)
+  call fastcc void @_ZL16readBlobInRecordRN4llvm15BitstreamCursorEjj(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(344) %3, i32 noundef 25)
   %164 = load i8, ptr %29, align 8
   %165 = trunc i8 %164 to i1
   br i1 %165, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i97, label %166
@@ -2380,7 +2380,7 @@ _ZN4llvm8ExpectedINS_15BitstreamCursorEED2Ev.exit: ; preds = %208, %_ZNKSt14defa
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10initStreamN4llvm15MemoryBufferRefE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL10initStreamN4llvm15MemoryBufferRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -3157,7 +3157,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit16:                  ; preds = %_ZN4llvm8ExpectedIj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16readBlobInRecordRN4llvm15BitstreamCursorEjj.argelim(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef range(i32 23, 26) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL16readBlobInRecordRN4llvm15BitstreamCursorEjj(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef range(i32 23, 26) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::Expected.37", align 8
@@ -5739,7 +5739,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11GlobalValue12LinkageTypesENS_12DenseMa
   %224 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #28
   %225 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #28
   %226 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #28
-  call fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader12setValueGUIDEmN4llvm9StringRefENS1_11GlobalValue12LinkageTypesES2_.argprom(ptr noundef nonnull align 8 dereferenceable(600) %1, i64 noundef %222, ptr %223, i64 %224, i32 noundef %221, ptr %225, i64 %226)
+  call fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader12setValueGUIDEmN4llvm9StringRefENS1_11GlobalValue12LinkageTypesES2_(ptr noundef nonnull align 8 dereferenceable(600) %1, i64 noundef %222, ptr %223, i64 %224, i32 noundef %221, ptr %225, i64 %226)
   %227 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #28
   store i64 0, ptr %101, align 8, !noalias !323
   br label %.critedge20.i
@@ -5809,7 +5809,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11GlobalValue12LinkageTypesENS_12DenseMa
   %263 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #28
   %264 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #28
   %265 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #28
-  call fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader12setValueGUIDEmN4llvm9StringRefENS1_11GlobalValue12LinkageTypesES2_.argprom(ptr noundef nonnull align 8 dereferenceable(600) %1, i64 noundef %261, ptr %262, i64 %263, i32 noundef %260, ptr %264, i64 %265)
+  call fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader12setValueGUIDEmN4llvm9StringRefENS1_11GlobalValue12LinkageTypesES2_(ptr noundef nonnull align 8 dereferenceable(600) %1, i64 noundef %261, ptr %262, i64 %263, i32 noundef %260, ptr %264, i64 %265)
   %266 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #28
   store i64 0, ptr %101, align 8, !noalias !323
   br label %.critedge20.i
@@ -6642,7 +6642,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11GlobalValue12LinkageTypesENS_12DenseMa
   %573 = zext i32 %.046 to i64
   %574 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #28
   %575 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #28
-  call fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader12setValueGUIDEmN4llvm9StringRefENS1_11GlobalValue12LinkageTypesES2_.argprom(ptr noundef nonnull align 8 dereferenceable(600) %1, i64 noundef %573, ptr %.sroa.0146.0, i64 %.sroa.4.3, i32 noundef %.0.i, ptr %574, i64 %575)
+  call fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader12setValueGUIDEmN4llvm9StringRefENS1_11GlobalValue12LinkageTypesES2_(ptr noundef nonnull align 8 dereferenceable(600) %1, i64 noundef %573, ptr %.sroa.0146.0, i64 %.sroa.4.3, i32 noundef %.0.i, ptr %574, i64 %575)
   br label %.critedge73
 
 .critedge73:                                      ; preds = %.lr.ph, %491, %_ZN4llvm8ExpectedIjED2Ev.exit, %485, %476, %_ZN4llvm8ExpectedIjED2Ev.exit.thread, %514, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11GlobalValue12LinkageTypesENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixEOj.exit, %572, %463, %_ZN12_GLOBAL__N_117BitcodeReaderBase18readNameFromStrtabEN4llvm8ArrayRefImEE.exit.thread, %513, %488, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i118
@@ -7200,7 +7200,7 @@ _ZN4llvm5ErrorD2Ev.exit28:                        ; preds = %54, %52, %47
   ]
 
 65:                                               ; preds = %64
-  call fastcc void @_ZL35getEnableSplitLTOUnitAndUnifiedFlagRN4llvm15BitstreamCursorEjRNS_14BitcodeLTOInfoE.argprom(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(344) %4, i32 noundef 20)
+  call fastcc void @_ZL35getEnableSplitLTOUnitAndUnifiedFlagRN4llvm15BitstreamCursorEjRNS_14BitcodeLTOInfoE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(344) %4, i32 noundef 20)
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %67 = load i8, ptr %66, align 8
   %68 = trunc i8 %67 to i1
@@ -7237,7 +7237,7 @@ _ZN4llvm5ErrorD2Ev.exit28:                        ; preds = %54, %52, %47
   br label %_ZN4llvm8ExpectedISt4pairIbbEED2Ev.exit
 
 84:                                               ; preds = %64
-  call fastcc void @_ZL35getEnableSplitLTOUnitAndUnifiedFlagRN4llvm15BitstreamCursorEjRNS_14BitcodeLTOInfoE.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(344) %4, i32 noundef 24)
+  call fastcc void @_ZL35getEnableSplitLTOUnitAndUnifiedFlagRN4llvm15BitstreamCursorEjRNS_14BitcodeLTOInfoE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(344) %4, i32 noundef 24)
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %86 = load i8, ptr %85, align 8
   %87 = trunc i8 %86 to i1
@@ -7314,7 +7314,7 @@ _ZN4llvm8ExpectedISt4pairIbbEED2Ev.exit:          ; preds = %78, %97, %88, %69, 
 declare void @_ZN4llvm15BitstreamCursor13EnterSubBlockEjPj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, ptr noundef nonnull align 8 dereferenceable(344), i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL35getEnableSplitLTOUnitAndUnifiedFlagRN4llvm15BitstreamCursorEjRNS_14BitcodeLTOInfoE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef range(i32 20, 25) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL35getEnableSplitLTOUnitAndUnifiedFlagRN4llvm15BitstreamCursorEjRNS_14BitcodeLTOInfoE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef range(i32 20, 25) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Expected.37", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8
@@ -8305,7 +8305,7 @@ define dso_local void @_ZN4llvm22getBitcodeTargetTripleB5cxx11ENS_15MemoryBuffer
   %.sroa.05.0.copyload = load ptr, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZL10initStreamN4llvm15MemoryBufferRefE.argprom(ptr dead_on_unwind noalias writable align 8 %16, ptr %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZL10initStreamN4llvm15MemoryBufferRefE(ptr dead_on_unwind noalias writable align 8 %16, ptr %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 344
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
@@ -8746,7 +8746,7 @@ define dso_local void @_ZN4llvm31isBitcodeContainingObjCCategoryENS_15MemoryBuff
   %.sroa.05.0.copyload = load ptr, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZL10initStreamN4llvm15MemoryBufferRefE.argprom(ptr dead_on_unwind noalias writable align 8 %14, ptr %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZL10initStreamN4llvm15MemoryBufferRefE(ptr dead_on_unwind noalias writable align 8 %14, ptr %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 344
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
@@ -9210,7 +9210,7 @@ define dso_local void @_ZN4llvm24getBitcodeProducerStringB5cxx11ENS_15MemoryBuff
   %.sroa.04.0.copyload = load ptr, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZL10initStreamN4llvm15MemoryBufferRefE.argprom(ptr dead_on_unwind noalias writable align 8 %8, ptr %.sroa.04.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZL10initStreamN4llvm15MemoryBufferRefE(ptr dead_on_unwind noalias writable align 8 %8, ptr %.sroa.04.0.copyload, i64 %.sroa.2.0.copyload)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 344
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
@@ -11430,7 +11430,7 @@ _ZNSt6vectorIN4llvm13AttributeListESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %.val = load ptr, ptr %141, align 8
   %.not.i.i.i10 = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i10, label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.argprom.exit, label %142
+  br i1 %.not.i.i.i10, label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.exit, label %142
 
 142:                                              ; preds = %_ZNSt6vectorIN4llvm13AttributeListESaIS1_EED2Ev.exit
   %143 = getelementptr inbounds i8, ptr %0, i64 1440
@@ -11439,15 +11439,15 @@ _ZNSt6vectorIN4llvm13AttributeListESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN
   %145 = ptrtoint ptr %.val to i64
   %146 = sub i64 %144, %145
   tail call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %146) #32
-  br label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.argprom.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.argprom.exit: ; preds = %_ZNSt6vectorIN4llvm13AttributeListESaIS1_EED2Ev.exit, %142
+_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4llvm13AttributeListESaIS1_EED2Ev.exit, %142
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %148 = load ptr, ptr %147, align 8
   %.not.i.i.i11 = icmp eq ptr %148, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorISt4pairIPN4llvm11GlobalValueEjESaIS4_EED2Ev.exit, label %149
 
-149:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.argprom.exit
+149:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.exit
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %151 to i64
@@ -11456,7 +11456,7 @@ _ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.ar
   tail call void @_ZdlPvm(ptr noundef nonnull %148, i64 noundef %154) #32
   br label %_ZNSt6vectorISt4pairIPN4llvm11GlobalValueEjESaIS4_EED2Ev.exit
 
-_ZNSt6vectorISt4pairIPN4llvm11GlobalValueEjESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.argprom.exit, %149
+_ZNSt6vectorISt4pairIPN4llvm11GlobalValueEjESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.exit, %149
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %156 = load ptr, ptr %155, align 8
   %.not.i.i.i12 = icmp eq ptr %156, null
@@ -11795,7 +11795,7 @@ define internal void @_ZN12_GLOBAL__N_113BitcodeReader11materializeEPN4llvm11Glo
 
 _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %3, %18
   store ptr null, ptr %0, align 8
-  br label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.exit
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 1600
@@ -12041,7 +12041,7 @@ _ZN12_GLOBAL__N_113BitcodeReader29rememberAndSkipFunctionBodiesEv.exit.i: ; pred
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !766
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !766
   %.not.i = icmp eq ptr %.pr, null
-  br i1 %.not.i, label %72, label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.argprom.exit
+  br i1 %.not.i, label %72, label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.exit
 
 _ZN4llvm5ErrorD2Ev.exit.thread:                   ; preds = %72
   store ptr null, ptr %0, align 8, !alias.scope !766
@@ -12054,7 +12054,7 @@ _ZN4llvm5ErrorD2Ev.exit128:                       ; preds = %_ZN4llvm5ErrorD2Ev.
   call void %127(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1960) %1) #28
   %128 = load ptr, ptr %0, align 8
   %.not230 = icmp eq ptr %128, null
-  br i1 %.not230, label %129, label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.argprom.exit
+  br i1 %.not230, label %129, label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.exit
 
 129:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit128
   %130 = getelementptr inbounds i8, ptr %1, i64 8
@@ -12091,7 +12091,7 @@ _ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit: ; preds = %138
   store ptr %144, ptr %0, align 8, !alias.scope !785
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not231 = icmp eq i64 %143, 0
-  br i1 %.not231, label %_ZN4llvm5ErrorD2Ev.exit132, label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.argprom.exit
+  br i1 %.not231, label %_ZN4llvm5ErrorD2Ev.exit132, label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.exit
 
 _ZN4llvm5ErrorD2Ev.exit132:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit131.thread, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -12099,7 +12099,7 @@ _ZN4llvm5ErrorD2Ev.exit132:                       ; preds = %_ZN4llvm5ErrorD2Ev.
   call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPN4llvm8FunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef %2)
   %146 = load ptr, ptr %0, align 8
   %.not232 = icmp eq ptr %146, null
-  br i1 %.not232, label %147, label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.argprom.exit
+  br i1 %.not232, label %147, label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.exit
 
 147:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit132
   %148 = load i32, ptr %19, align 8
@@ -12123,7 +12123,7 @@ _ZN4llvm5ErrorD2Ev.exit132:                       ; preds = %_ZN4llvm5ErrorD2Ev.
   store ptr @.str.39, ptr %12, align 8
   store i8 3, ptr %158, align 8
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %130, ptr noundef nonnull align 8 dereferenceable(34) %12)
-  br label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.exit
 
 160:                                              ; preds = %153, %147
   %161 = load i32, ptr getelementptr inbounds (i8, ptr @PreserveInputDbgFormat, i64 128), align 8
@@ -12868,9 +12868,9 @@ _ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_itera
 _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit150: ; preds = %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit171, %_ZN4llvm12instructionsEPNS_8FunctionE.exit
   call void @_ZN4llvm25UpgradeFunctionAttributesERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %2) #28
   call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader37materializeForwardReferencedFunctionsEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1960) %1)
-  br label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.exit
 
-_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.argprom.exit: ; preds = %_ZN12_GLOBAL__N_113BitcodeReader29rememberAndSkipFunctionBodiesEv.exit.i, %_ZN4llvm5ErrorD2Ev.exit132, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit, %_ZN4llvm5ErrorD2Ev.exit128, %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit150, %157, %_ZN4llvm12ErrorSuccessD2Ev.exit
+_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.exit: ; preds = %_ZN12_GLOBAL__N_113BitcodeReader29rememberAndSkipFunctionBodiesEv.exit.i, %_ZN4llvm5ErrorD2Ev.exit132, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit, %_ZN4llvm5ErrorD2Ev.exit128, %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit150, %157, %_ZN4llvm12ErrorSuccessD2Ev.exit
   ret void
 }
 
@@ -13365,7 +13365,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedIPNS0_5ValueEEEj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8ExpectedIPNS0_5ValueEEEjPNS0_10BasicBlockEEZN12_GLOBAL__N_113BitcodeReaderC1ENS0_15BitstreamCursorENS0_9StringRefESB_RNS0_11LLVMContextEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #16 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReaderC1EN4llvm15BitstreamCursorENS3_9StringRefES5_RNS3_11LLVMContextEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReaderC1EN4llvm15BitstreamCursorENS3_9StringRefES5_RNS3_11LLVMContextEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -13373,18 +13373,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8ExpectedIP
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReaderC1EN4llvm15BitstreamCursorENS3_9StringRefES5_RNS3_11LLVMContextEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReaderC1EN4llvm15BitstreamCursorENS3_9StringRefES5_RNS3_11LLVMContextEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReaderC1EN4llvm15BitstreamCursorENS3_9StringRefES5_RNS3_11LLVMContextEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReaderC1EN4llvm15BitstreamCursorENS3_9StringRefES5_RNS3_11LLVMContextEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReaderC1EN4llvm15BitstreamCursorENS3_9StringRefES5_RNS3_11LLVMContextEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReaderC1EN4llvm15BitstreamCursorENS3_9StringRefES5_RNS3_11LLVMContextEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReaderC1EN4llvm15BitstreamCursorENS3_9StringRefES5_RNS3_11LLVMContextEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReaderC1EN4llvm15BitstreamCursorENS3_9StringRefES5_RNS3_11LLVMContextEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -17751,22 +17751,22 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIj
   %518 = zext i32 %.val1359 to i64
   %519 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val1358, i64 %518
   %520 = icmp eq ptr %.0.i.pn.i.i, %519
-  br i1 %520, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit, label %521
+  br i1 %520, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit, label %521
 
 521:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i
   %522 = zext i32 %499 to i64
   %523 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 8
   %524 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %523) #28
   %.not.i = icmp ugt i64 %524, %522
-  br i1 %.not.i, label %525, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit
+  br i1 %.not.i, label %525, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit
 
 525:                                              ; preds = %521
   %526 = load ptr, ptr %523, align 8
   %527 = getelementptr inbounds i32, ptr %526, i64 %522
   %528 = load i32, ptr %527, align 4
-  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit
+  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit
 
-_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i, %521, %525
+_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i, %521, %525
   %.0.i = phi i32 [ %528, %525 ], [ -1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i ], [ -1, %521 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -17777,7 +17777,7 @@ _ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit: ; preds = 
   %.not.i.i = icmp eq ptr %529, %530
   br i1 %.not.i.i, label %538, label %531
 
-531:                                              ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit
+531:                                              ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit
   store i64 6, ptr %529, align 8
   %532 = getelementptr inbounds nuw i8, ptr %529, i64 8
   store ptr null, ptr %532, align 8
@@ -17802,7 +17802,7 @@ _ZNSt16allocator_traitsISaISt4pairIN4llvm14WeakTrackingVHEjEEE9constructIS3_JRPN
   store ptr %537, ptr %435, align 8
   br label %_ZN4llvm22BitcodeReaderValueList9push_backEPNS_5ValueEj.exit
 
-538:                                              ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit
+538:                                              ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit
   call void @_ZNSt6vectorISt4pairIN4llvm14WeakTrackingVHEjESaIS3_EE17_M_realloc_insertIJRPNS1_5ValueERjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %434, ptr %529, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZN4llvm22BitcodeReaderValueList9push_backEPNS_5ValueEj.exit
 
@@ -19351,7 +19351,7 @@ _ZN4llvm8DebugLocD2Ev.exit1449:                   ; preds = %_ZN4llvm8DebugLocC2
   %1437 = load i32, ptr %57, align 4
   %.val1360 = load ptr, ptr %582, align 8
   %.val1361 = load i32, ptr %583, align 8
-  %1438 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1360, i32 %.val1361, i32 noundef %1437, i32 noundef 0)
+  %1438 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1360, i32 %.val1361, i32 noundef %1437, i32 noundef 0)
   %1439 = load ptr, ptr %56, align 8
   %1440 = getelementptr inbounds nuw i8, ptr %1439, i64 8
   %1441 = load ptr, ptr %1440, align 8
@@ -19365,7 +19365,7 @@ _ZN4llvm8DebugLocD2Ev.exit1449:                   ; preds = %_ZN4llvm8DebugLocC2
 1446:                                             ; preds = %1436
   %.val1362 = load ptr, ptr %582, align 8
   %.val1363 = load i32, ptr %583, align 8
-  %1447 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1362, i32 %.val1363, i32 noundef %1438, i32 noundef 0)
+  %1447 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1362, i32 %.val1363, i32 noundef %1438, i32 noundef 0)
   br label %1448
 
 1448:                                             ; preds = %1446, %1436
@@ -19544,21 +19544,21 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIj
   %1536 = zext i32 %.val1365 to i64
   %1537 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val1364, i64 %1536
   %1538 = icmp eq ptr %.0.i.pn.i.i1482, %1537
-  br i1 %1538, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit1486, label %1539
+  br i1 %1538, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit1486, label %1539
 
 1539:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i1481
   %1540 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i1482, i64 8
   %1541 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1540) #28
   %.not.i1483 = icmp ugt i64 %1541, %.0978
-  br i1 %.not.i1483, label %1542, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit1486
+  br i1 %.not.i1483, label %1542, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit1486
 
 1542:                                             ; preds = %1539
   %1543 = load ptr, ptr %1540, align 8
   %1544 = getelementptr inbounds i32, ptr %1543, i64 %.0978
   %1545 = load i32, ptr %1544, align 4
-  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit1486
+  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit1486
 
-_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit1486: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i1481, %1539, %1542
+_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit1486: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i1481, %1539, %1542
   %.0.i1484 = phi i32 [ %1545, %1542 ], [ -1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i1481 ], [ -1, %1539 ]
   store i32 %.0.i1484, ptr %18, align 4
   %1546 = icmp ne i64 %1496, 4
@@ -19568,7 +19568,7 @@ _ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit1486: ; pred
   %.not.i.i1487 = or i1 %1546, %.not11.i.i
   br i1 %.not.i.i1487, label %1549, label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i
 
-1549:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit1486
+1549:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit1486
   %1550 = icmp ne i64 %1496, 2
   %.not8.i.i = or i1 %1550, %.not11.i.i
   br i1 %.not8.i.i, label %1554, label %1551
@@ -19583,8 +19583,8 @@ _ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit1486: ; pred
   %1556 = call noundef ptr @_ZNK4llvm10StructType14getTypeAtIndexEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %1548, ptr noundef %1555) #28
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i
 
-_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i: ; preds = %1554, %1551, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit1486
-  %.0.i.i1488 = phi ptr [ %1553, %1551 ], [ %1556, %1554 ], [ %1548, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit1486 ]
+_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i: ; preds = %1554, %1551, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit1486
+  %.0.i.i1488 = phi ptr [ %1553, %1551 ], [ %1556, %1554 ], [ %1548, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit1486 ]
   %1557 = getelementptr inbounds nuw i8, ptr %.0.i.i1488, i64 8
   %1558 = load i32, ptr %1557, align 8
   %1559 = and i32 %1558, 255
@@ -19791,7 +19791,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %.loopexit2319, %158
   %1649 = load i32, ptr %18, align 4
   %.val1366 = load ptr, ptr %582, align 8
   %.val1367 = load i32, ptr %583, align 8
-  %1650 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1366, i32 %.val1367, i32 noundef %1649, i32 noundef %.sink2632)
+  %1650 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1366, i32 %.val1367, i32 noundef %1649, i32 noundef %.sink2632)
   store i32 %1650, ptr %18, align 4
   %1651 = add i32 %1617, 1
   %.not1228 = icmp eq i32 %1651, %1612
@@ -20165,7 +20165,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %.loopexit2319, %158
   %1805 = load i32, ptr %111, align 4
   %.val1370 = load ptr, ptr %582, align 8
   %.val1371 = load i32, ptr %583, align 8
-  %1806 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1370, i32 %.val1371, i32 noundef %1805, i32 noundef 0)
+  %1806 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1370, i32 %.val1371, i32 noundef %1805, i32 noundef 0)
   store i32 %1806, ptr %18, align 4
   %1807 = load ptr, ptr %17, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_(ptr noundef nonnull align 8 dereferenceable(16) %431, ptr noundef %1807)
@@ -20208,7 +20208,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %.loopexit2319, %158
   %1824 = load i32, ptr %120, align 4
   %.val1372 = load ptr, ptr %582, align 8
   %.val1373 = load i32, ptr %583, align 8
-  %1825 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1372, i32 %.val1373, i32 noundef %1824, i32 noundef 0)
+  %1825 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1372, i32 %.val1373, i32 noundef %1824, i32 noundef 0)
   %1826 = load ptr, ptr %8, align 8
   %1827 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113BitcodeReader8popValueERKN4llvm15SmallVectorImplImEERjjPNS1_4TypeEjRPNS1_5ValueEPNS1_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(4) %116, i32 noundef %.0944, ptr noundef %1823, i32 noundef %1825, ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef %1826)
   br i1 %1827, label %1831, label %1828
@@ -20307,7 +20307,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %.loopexit2319, %158
   %1870 = load ptr, ptr %1869, align 8
   %.val1374 = load ptr, ptr %582, align 8
   %.val1375 = load i32, ptr %583, align 8
-  %1871 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1374, i32 %.val1375, i32 noundef %1843, i32 noundef 0)
+  %1871 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1374, i32 %.val1375, i32 noundef %1843, i32 noundef 0)
   store i32 %1871, ptr %137, align 4
   %1872 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader16getVirtualTypeIDEPN4llvm4TypeENS1_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef %1870, ptr nonnull %137, i64 1)
   store i32 %1872, ptr %18, align 4
@@ -20600,22 +20600,22 @@ _ZNK4llvm4Type13getScalarTypeEv.exit1548:         ; preds = %1941, %1948
   %1999 = sub i64 %1997, %1998
   %2000 = ashr exact i64 %1999, 3
   %.not.i1553 = icmp ugt i64 %2000, %1996
-  br i1 %.not.i1553, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread
+  br i1 %.not.i1553, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit: ; preds = %1993
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit: ; preds = %1993
   %2001 = getelementptr inbounds ptr, ptr %.val, i64 %1996
   %2002 = load ptr, ptr %2001, align 8
   %.not1215 = icmp eq ptr %2002, null
-  br i1 %.not1215, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread, label %2003
+  br i1 %.not1215, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit.thread, label %2003
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread: ; preds = %1993, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit.thread: ; preds = %1993, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit
   store i8 1, ptr %884, align 1
   store ptr @.str.47, ptr %155, align 8
   store i8 3, ptr %883, align 8
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %155)
   br label %.critedge1284
 
-2003:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit
+2003:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit
   %2004 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #28
   %2005 = icmp eq i64 %2004, 1
   br i1 %2005, label %2006, label %2008
@@ -20638,14 +20638,14 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread: ; preds 
   %2015 = sub i64 %2013, %2014
   %2016 = ashr exact i64 %2015, 3
   %.not.i1556 = icmp ugt i64 %2016, %2012
-  br i1 %.not.i1556, label %2017, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1558
+  br i1 %.not.i1556, label %2017, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1558
 
 2017:                                             ; preds = %2008
   %2018 = getelementptr inbounds ptr, ptr %.val1324, i64 %2012
   %2019 = load ptr, ptr %2018, align 8
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1558
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1558
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1558: ; preds = %2008, %2017
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1558: ; preds = %2008, %2017
   %.0.i1557 = phi ptr [ %2019, %2017 ], [ null, %2008 ]
   %2020 = load ptr, ptr %621, align 8
   %2021 = call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %2020) #28
@@ -20657,14 +20657,14 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1558: ; preds = %
   %or.cond52 = and i1 %2025, %2026
   br i1 %or.cond52, label %2028, label %2027
 
-2027:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1558
+2027:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1558
   store i8 1, ptr %882, align 1
   store ptr @.str.47, ptr %156, align 8
   store i8 3, ptr %881, align 8
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %156)
   br label %.critedge1284
 
-2028:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1558
+2028:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1558
   %2029 = call noundef ptr @_ZN4llvm10BranchInst6CreateEPNS_10BasicBlockES2_PNS_5ValueENS_14InsertPositionE(ptr noundef nonnull %2002, ptr noundef nonnull %.0.i1557, ptr noundef nonnull %2024, ptr null, i64 0)
   store ptr %2029, ptr %17, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_(ptr noundef nonnull align 8 dereferenceable(16) %431, ptr noundef %2029)
@@ -20720,23 +20720,23 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1558: ; preds = %
   %2052 = sub i64 %2050, %2051
   %2053 = ashr exact i64 %2052, 3
   %.not.i1562 = icmp ugt i64 %2053, %2049
-  br i1 %.not.i1562, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564.thread
+  br i1 %.not.i1562, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564: ; preds = %2045
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564: ; preds = %2045
   %2054 = getelementptr inbounds ptr, ptr %.val1326, i64 %2049
   %2055 = load ptr, ptr %2054, align 8
   %.not1212 = icmp eq ptr %2055, null
-  br i1 %.not1212, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564.thread, label %2056
+  br i1 %.not1212, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564.thread, label %2056
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564.thread: ; preds = %2045, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564.thread: ; preds = %2045, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564
   store i8 1, ptr %876, align 1
   store ptr @.str.47, ptr %159, align 8
   store i8 3, ptr %875, align 8
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %159)
   br label %.critedge1284
 
-2056:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564, %2042
-  %.0984 = phi ptr [ %2055, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564 ], [ null, %2042 ]
+2056:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564, %2042
+  %.0984 = phi ptr [ %2055, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564 ], [ null, %2042 ]
   %2057 = call noundef ptr @_ZN4llvm17CleanupReturnInst6CreateEPNS_5ValueEPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull %2040, ptr noundef %.0984, ptr null, i64 0)
   store ptr %2057, ptr %17, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_(ptr noundef nonnull align 8 dereferenceable(16) %431, ptr noundef %2057)
@@ -20782,22 +20782,22 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564.thread: ; pr
   %2075 = sub i64 %2073, %2074
   %2076 = ashr exact i64 %2075, 3
   %.not.i1568 = icmp ugt i64 %2076, %2072
-  br i1 %.not.i1568, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570.thread
+  br i1 %.not.i1568, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1570, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1570.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570: ; preds = %2068
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1570: ; preds = %2068
   %2077 = getelementptr inbounds ptr, ptr %.val1328, i64 %2072
   %2078 = load ptr, ptr %2077, align 8
   %.not1208 = icmp eq ptr %2078, null
-  br i1 %.not1208, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570.thread, label %2079
+  br i1 %.not1208, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1570.thread, label %2079
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570.thread: ; preds = %2068, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1570.thread: ; preds = %2068, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1570
   store i8 1, ptr %870, align 1
   store ptr @.str.47, ptr %162, align 8
   store i8 3, ptr %869, align 8
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %162)
   br label %.critedge1284
 
-2079:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570
+2079:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1570
   %2080 = call noundef ptr @_ZN4llvm15CatchReturnInst6CreateEPNS_5ValueEPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull %2066, ptr noundef nonnull %2078, ptr null, i64 0)
   store ptr %2080, ptr %17, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_(ptr noundef nonnull align 8 dereferenceable(16) %431, ptr noundef %2080)
@@ -20855,15 +20855,15 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570.thread: ; pr
   %2104 = sub i64 %2102, %2103
   %2105 = ashr exact i64 %2104, 3
   %.not.i1574 = icmp ugt i64 %2105, %2101
-  br i1 %.not.i1574, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1576, label %.thread2171
+  br i1 %.not.i1574, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1576, label %.thread2171
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1576: ; preds = %.lr.ph2455
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1576: ; preds = %.lr.ph2455
   %2106 = getelementptr inbounds ptr, ptr %.val1330, i64 %2101
   %2107 = load ptr, ptr %2106, align 8
   %.not1205 = icmp eq ptr %2107, null
   br i1 %.not1205, label %.thread2171, label %2108
 
-2108:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1576
+2108:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1576
   %2109 = add i32 %.09902453, 1
   %2110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %165) #28
   %2111 = add i64 %2110, 1
@@ -20909,17 +20909,17 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit: ; p
   %2133 = sub i64 %2131, %2132
   %2134 = ashr exact i64 %2133, 3
   %.not.i1579 = icmp ugt i64 %2134, %2130
-  br i1 %.not.i1579, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1581, label %.thread2171
+  br i1 %.not.i1579, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1581, label %.thread2171
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1581: ; preds = %2126
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1581: ; preds = %2126
   %2135 = getelementptr inbounds ptr, ptr %.val1332, i64 %2130
   %2136 = load ptr, ptr %2135, align 8
   %.not1202 = icmp eq ptr %2136, null
   br i1 %.not1202, label %.thread2171, label %._crit_edge2456._crit_edge
 
-._crit_edge2456._crit_edge:                       ; preds = %._crit_edge2456, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1581
-  %.pre-phi = phi i64 [ %2122, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1581 ], [ %2125, %._crit_edge2456 ]
-  %.0993 = phi ptr [ %2136, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1581 ], [ null, %._crit_edge2456 ]
+._crit_edge2456._crit_edge:                       ; preds = %._crit_edge2456, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1581
+  %.pre-phi = phi i64 [ %2122, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1581 ], [ %2125, %._crit_edge2456 ]
+  %.0993 = phi ptr [ %2136, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1581 ], [ null, %._crit_edge2456 ]
   %2137 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #28
   %.not1203 = icmp eq i64 %2137, %.pre-phi
   br i1 %.not1203, label %2138, label %.thread2171
@@ -20941,10 +20941,10 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1581: ; preds = %
   %.not1204 = icmp eq ptr %2144, %2142
   br i1 %.not1204, label %._crit_edge2462, label %.lr.ph2461
 
-.thread2171:                                      ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1576, %.lr.ph2455, %._crit_edge2456._crit_edge, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1581, %2126
-  %.sink2641 = phi ptr [ %862, %2126 ], [ %862, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1581 ], [ %859, %._crit_edge2456._crit_edge ], [ %857, %.lr.ph2455 ], [ %857, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1576 ]
-  %.sink2640 = phi ptr [ %167, %2126 ], [ %167, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1581 ], [ %168, %._crit_edge2456._crit_edge ], [ %166, %.lr.ph2455 ], [ %166, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1576 ]
-  %.sink2639 = phi ptr [ %861, %2126 ], [ %861, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1581 ], [ %858, %._crit_edge2456._crit_edge ], [ %856, %.lr.ph2455 ], [ %856, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1576 ]
+.thread2171:                                      ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1576, %.lr.ph2455, %._crit_edge2456._crit_edge, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1581, %2126
+  %.sink2641 = phi ptr [ %862, %2126 ], [ %862, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1581 ], [ %859, %._crit_edge2456._crit_edge ], [ %857, %.lr.ph2455 ], [ %857, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1576 ]
+  %.sink2640 = phi ptr [ %167, %2126 ], [ %167, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1581 ], [ %168, %._crit_edge2456._crit_edge ], [ %166, %.lr.ph2455 ], [ %166, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1576 ]
+  %.sink2639 = phi ptr [ %861, %2126 ], [ %861, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1581 ], [ %858, %._crit_edge2456._crit_edge ], [ %856, %.lr.ph2455 ], [ %856, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1576 ]
   store i8 1, ptr %.sink2641, align 1
   store ptr @.str.47, ptr %.sink2640, align 8
   store i8 3, ptr %.sink2639, align 8
@@ -21110,24 +21110,24 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit1589: ; pre
   %2215 = sub i64 %2213, %2214
   %2216 = ashr exact i64 %2215, 3
   %.not.i1593 = icmp ugt i64 %2216, %2212
-  br i1 %.not.i1593, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1595, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1595.thread
+  br i1 %.not.i1593, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1595, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1595.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1595: ; preds = %2199
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1595: ; preds = %2199
   %2217 = getelementptr inbounds ptr, ptr %.val1334, i64 %2212
   %2218 = load ptr, ptr %2217, align 8
   %2219 = icmp ne ptr %2208, null
   %2220 = icmp ne ptr %2218, null
   %or.cond56 = and i1 %2219, %2220
-  br i1 %or.cond56, label %2221, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1595.thread
+  br i1 %or.cond56, label %2221, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1595.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1595.thread: ; preds = %2199, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1595
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1595.thread: ; preds = %2199, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1595
   store i8 1, ptr %839, align 1
   store ptr @.str.47, ptr %180, align 8
   store i8 3, ptr %838, align 8
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %180)
   br label %.critedge1284
 
-2221:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1595
+2221:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1595
   %2222 = getelementptr inbounds i8, ptr %2209, i64 32
   %2223 = load i64, ptr %2222, align 8
   %2224 = trunc i64 %2223 to i32
@@ -21332,14 +21332,14 @@ _ZN4llvm5APIntD2Ev.exit1601:                      ; preds = %_ZN4llvm5APIntD2Ev.
   %2321 = sub i64 %2319, %2320
   %2322 = ashr exact i64 %2321, 3
   %.not.i1602 = icmp ugt i64 %2322, %2318
-  br i1 %.not.i1602, label %2323, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1604
+  br i1 %.not.i1602, label %2323, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1604
 
 2323:                                             ; preds = %._crit_edge2434
   %2324 = getelementptr inbounds ptr, ptr %.val1336, i64 %2318
   %2325 = load ptr, ptr %2324, align 8
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1604
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1604
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1604: ; preds = %._crit_edge2434, %2323
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1604: ; preds = %._crit_edge2434, %2323
   %.0.i1603 = phi ptr [ %2325, %2323 ], [ null, %._crit_edge2434 ]
   %2326 = load ptr, ptr %181, align 8
   %2327 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %181) #28
@@ -21347,15 +21347,15 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1604: ; preds = %
   %.not11942436 = icmp eq i64 %2327, 0
   br i1 %.not11942436, label %._crit_edge2439, label %.lr.ph2438
 
-.lr.ph2438:                                       ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1604, %.lr.ph2438
-  %.010052437 = phi ptr [ %2330, %.lr.ph2438 ], [ %2326, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1604 ]
+.lr.ph2438:                                       ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1604, %.lr.ph2438
+  %.010052437 = phi ptr [ %2330, %.lr.ph2438 ], [ %2326, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1604 ]
   %2329 = load ptr, ptr %.010052437, align 8
   call void @_ZN4llvm10SwitchInst7addCaseEPNS_11ConstantIntEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(76) %2225, ptr noundef %2329, ptr noundef %.0.i1603) #28
   %2330 = getelementptr inbounds i8, ptr %.010052437, i64 8
   %.not1194 = icmp eq ptr %2330, %2328
   br i1 %.not1194, label %._crit_edge2439, label %.lr.ph2438
 
-._crit_edge2439:                                  ; preds = %.lr.ph2438, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1604
+._crit_edge2439:                                  ; preds = %.lr.ph2438, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1604
   %2331 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %181) #28
   %2332 = load ptr, ptr %181, align 8
   %2333 = icmp eq ptr %2332, %840
@@ -21410,9 +21410,9 @@ _ZN4llvm11SmallVectorIPNS_11ConstantIntELj1EED2Ev.exit: ; preds = %._crit_edge24
   %2357 = sub i64 %2355, %2356
   %2358 = ashr exact i64 %2357, 3
   %.not.i1606 = icmp ugt i64 %2358, %2354
-  br i1 %.not.i1606, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608.thread
+  br i1 %.not.i1606, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1608, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1608.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608: ; preds = %2344
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1608: ; preds = %2344
   %2359 = getelementptr inbounds ptr, ptr %.val1338, i64 %2354
   %2360 = load ptr, ptr %2359, align 8
   %2361 = icmp ne ptr %2348, null
@@ -21420,16 +21420,16 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608: ; preds = %
   %or.cond58 = and i1 %2361, %2362
   %2363 = icmp ne ptr %2360, null
   %or.cond60 = and i1 %or.cond58, %2363
-  br i1 %or.cond60, label %2364, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608.thread
+  br i1 %or.cond60, label %2364, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1608.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608.thread: ; preds = %2344, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1608.thread: ; preds = %2344, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1608
   store i8 1, ptr %833, align 1
   store ptr @.str.47, ptr %186, align 8
   store i8 3, ptr %832, align 8
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %186)
   br label %.critedge1284
 
-2364:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608
+2364:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1608
   %2365 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #28
   %2366 = add i64 %2365, 8589934589
   %2367 = lshr i64 %2366, 1
@@ -21479,17 +21479,17 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit: ; preds = %
   %2391 = sub i64 %2389, %2390
   %2392 = ashr exact i64 %2391, 3
   %.not.i1613 = icmp ugt i64 %2392, %2388
-  br i1 %.not.i1613, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615.thread
+  br i1 %.not.i1613, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1615, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1615.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1615: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit
   %2393 = getelementptr inbounds ptr, ptr %.val1340, i64 %2388
   %2394 = load ptr, ptr %2393, align 8
   %2395 = icmp ne ptr %.0.i.i1612, null
   %2396 = icmp ne ptr %2394, null
   %or.cond62 = and i1 %2395, %2396
-  br i1 %or.cond62, label %2397, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615.thread
+  br i1 %or.cond62, label %2397, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1615.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1615.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1615
   call void @_ZN4llvm11InstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2369) #28
   call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %2369) #28
   store i8 1, ptr %835, align 1
@@ -21498,7 +21498,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615.thread: ; pr
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %187)
   br label %.critedge1284
 
-2397:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615
+2397:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1615
   call void @_ZN4llvm10SwitchInst7addCaseEPNS_11ConstantIntEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(76) %2369, ptr noundef nonnull %.0.i.i1612, ptr noundef nonnull %2394) #28
   %indvars.iv.next2565 = add nuw nsw i64 %indvars.iv2564, 1
   %.not1191 = icmp eq i64 %indvars.iv.next2565, %2370
@@ -21568,21 +21568,21 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615.thread: ; pr
   %2426 = sub i64 %2424, %2425
   %2427 = ashr exact i64 %2426, 3
   %.not.i1619 = icmp ugt i64 %2427, %2423
-  br i1 %.not.i1619, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621.thread
+  br i1 %.not.i1619, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1621, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1621.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621: ; preds = %.lr.ph2419
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1621: ; preds = %.lr.ph2419
   %2428 = getelementptr inbounds ptr, ptr %.val1342, i64 %2423
   %2429 = load ptr, ptr %2428, align 8
   %.not1190 = icmp eq ptr %2429, null
-  br i1 %.not1190, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621.thread, label %2430
+  br i1 %.not1190, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1621.thread, label %2430
 
-2430:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621
+2430:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1621
   call void @_ZN4llvm14IndirectBrInst14addDestinationEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(76) %2416, ptr noundef nonnull %2429) #28
   %indvars.iv.next2562 = add nuw nsw i64 %indvars.iv2561, 1
   %.not1189 = icmp eq i64 %indvars.iv.next2562, %2417
   br i1 %.not1189, label %._crit_edge2420, label %.lr.ph2419, !llvm.loop !920
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621.thread: ; preds = %.lr.ph2419, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1621.thread: ; preds = %.lr.ph2419, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1621
   call void @_ZN4llvm11InstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2416) #28
   call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %2416) #28
   store i8 1, ptr %829, align 1
@@ -21619,15 +21619,15 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621.thread: ; pr
   %2442 = sub i64 %2440, %2441
   %2443 = ashr exact i64 %2442, 3
   %2444 = icmp ugt i64 %2443, %2439
-  br i1 %2444, label %2445, label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit
+  br i1 %2444, label %2445, label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit
 
 2445:                                             ; preds = %2435
   %2446 = getelementptr inbounds %"class.llvm::AttributeList", ptr %.val1408, i64 %2439
   %2447 = load i64, ptr %2446, align 8
   %2448 = inttoptr i64 %2447 to ptr
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit: ; preds = %2435, %2445
+_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit: ; preds = %2435, %2445
   %.sroa.0.0.i = phi ptr [ %2448, %2445 ], [ null, %2435 ]
   %2449 = getelementptr inbounds i8, ptr %2436, i64 8
   %2450 = load i64, ptr %2449, align 8
@@ -21641,34 +21641,34 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit: ; preds = %2435
   %2456 = sub i64 %2454, %2455
   %2457 = ashr exact i64 %2456, 3
   %.not.i1624 = icmp ugt i64 %2457, %2453
-  br i1 %.not.i1624, label %2458, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1626
+  br i1 %.not.i1624, label %2458, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1626
 
-2458:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit
+2458:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit
   %2459 = getelementptr inbounds ptr, ptr %.val1344, i64 %2453
   %2460 = load ptr, ptr %2459, align 8
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1626
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1626
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1626: ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit, %2458
-  %.0.i1625 = phi ptr [ %2460, %2458 ], [ null, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit ]
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1626: ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit, %2458
+  %.0.i1625 = phi ptr [ %2460, %2458 ], [ null, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit ]
   store i32 4, ptr %192, align 4
   %2461 = getelementptr inbounds i8, ptr %2436, i64 24
   %2462 = load i64, ptr %2461, align 8
   %2463 = and i64 %2462, 4294967295
   %.not.i1627 = icmp ugt i64 %2457, %2463
-  br i1 %.not.i1627, label %2464, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1629
+  br i1 %.not.i1627, label %2464, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1629
 
-2464:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1626
+2464:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1626
   %2465 = getelementptr inbounds ptr, ptr %.val1344, i64 %2463
   %2466 = load ptr, ptr %2465, align 8
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1629
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1629
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1629: ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1626, %2464
-  %.0.i1628 = phi ptr [ %2466, %2464 ], [ null, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1626 ]
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1629: ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1626, %2464
+  %.0.i1628 = phi ptr [ %2466, %2464 ], [ null, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1626 ]
   %2467 = and i64 %2450, 8192
   %.not1180 = icmp eq i64 %2467, 0
   br i1 %.not1180, label %2478, label %2468
 
-2468:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1629
+2468:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1629
   store i32 5, ptr %192, align 4
   %2469 = getelementptr inbounds i8, ptr %2436, i64 32
   %2470 = load i64, ptr %2469, align 8
@@ -21689,9 +21689,9 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1629: ; preds = %
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %193)
   br label %.critedge1284
 
-2478:                                             ; preds = %2468, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1629
-  %.01012 = phi ptr [ %2472, %2468 ], [ null, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1629 ]
-  %.01010 = phi i32 [ %2471, %2468 ], [ -1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1629 ]
+2478:                                             ; preds = %2468, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1629
+  %.01012 = phi ptr [ %2472, %2468 ], [ null, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1629 ]
+  %.01010 = phi i32 [ %2471, %2468 ], [ -1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1629 ]
   %2479 = load ptr, ptr %8, align 8
   %2480 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113BitcodeReader16getValueTypePairERKN4llvm15SmallVectorImplImEERjjRPNS1_5ValueES6_PNS1_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(4) %192, i32 noundef %.0944, ptr noundef nonnull align 8 dereferenceable(8) %194, ptr noundef nonnull align 4 dereferenceable(4) %195, ptr noundef %2479)
   br i1 %2480, label %2481, label %2482
@@ -21730,7 +21730,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1629: ; preds = %
   %2493 = load i32, ptr %195, align 4
   %.val1376 = load ptr, ptr %582, align 8
   %.val1377 = load i32, ptr %583, align 8
-  %2494 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1376, i32 %.val1377, i32 noundef %2493, i32 noundef 0)
+  %2494 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1376, i32 %.val1377, i32 noundef %2493, i32 noundef 0)
   %2495 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %2494)
   %.not.i.i1635 = icmp eq ptr %2495, null
   br i1 %.not.i.i1635, label %2501, label %2496
@@ -21789,7 +21789,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12FunctionTypeENS_4TypeEEEDaPT0_.exit: ; preds = %
   %.val1378 = load ptr, ptr %582, align 8
   %.val1379 = load i32, ptr %583, align 8
   %2518 = trunc nuw i64 %indvars.iv.next2559 to i32
-  %2519 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1378, i32 %.val1379, i32 noundef %.11011, i32 noundef %2518)
+  %2519 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1378, i32 %.val1379, i32 noundef %.11011, i32 noundef %2518)
   %2520 = load ptr, ptr %2514, align 8
   %2521 = getelementptr inbounds ptr, ptr %2520, i64 %indvars.iv.next2559
   %2522 = load ptr, ptr %2521, align 8
@@ -21895,7 +21895,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12FunctionTypeENS_4TypeEEEDaPT0_.exit: ; preds = %
   store ptr %2565, ptr %17, align 8
   %.val1380 = load ptr, ptr %582, align 8
   %.val1381 = load i32, ptr %583, align 8
-  %2566 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1380, i32 %.val1381, i32 noundef %.11011, i32 noundef 0)
+  %2566 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1380, i32 %.val1381, i32 noundef %.11011, i32 noundef 0)
   store i32 %2566, ptr %18, align 4
   call void @_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #28
   %2567 = load ptr, ptr %17, align 8
@@ -21914,7 +21914,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12FunctionTypeENS_4TypeEEEDaPT0_.exit: ; preds = %
   store ptr %.sroa.0.0.i, ptr %2576, align 8
   %2577 = load ptr, ptr %201, align 8
   %2578 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %201) #28
-  call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader23propagateAttributeTypesEPN4llvm8CallBaseENS1_8ArrayRefIjEE.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef %2575, ptr %2577)
+  call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader23propagateAttributeTypesEPN4llvm8CallBaseENS1_8ArrayRefIjEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef %2575, ptr %2577)
   %2579 = load ptr, ptr %0, align 8
   %.not2307 = icmp eq ptr %2579, null
   br i1 %.not2307, label %_ZN4llvm5ErrorD2Ev.exit1644, label %2580
@@ -21964,15 +21964,15 @@ _ZN4llvm5ErrorD2Ev.exit1644:                      ; preds = %2580, %2556, %2545,
   %2596 = sub i64 %2594, %2595
   %2597 = ashr exact i64 %2596, 3
   %2598 = icmp ugt i64 %2597, %2593
-  br i1 %2598, label %2599, label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1647
+  br i1 %2598, label %2599, label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1647
 
 2599:                                             ; preds = %2589
   %2600 = getelementptr inbounds %"class.llvm::AttributeList", ptr %.val1410, i64 %2593
   %2601 = load i64, ptr %2600, align 8
   %2602 = inttoptr i64 %2601 to ptr
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1647
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1647
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1647: ; preds = %2589, %2599
+_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1647: ; preds = %2589, %2599
   %.sroa.0.0.i1646 = phi ptr [ %2602, %2599 ], [ null, %2589 ]
   %2603 = getelementptr inbounds i8, ptr %2590, i64 8
   %2604 = load i64, ptr %2603, align 8
@@ -21986,15 +21986,15 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1647: ; preds = %
   %2610 = sub i64 %2608, %2609
   %2611 = ashr exact i64 %2610, 3
   %.not.i1648 = icmp ugt i64 %2611, %2607
-  br i1 %.not.i1648, label %2612, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1650
+  br i1 %.not.i1648, label %2612, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1650
 
-2612:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1647
+2612:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1647
   %2613 = getelementptr inbounds ptr, ptr %.val1348, i64 %2607
   %2614 = load ptr, ptr %2613, align 8
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1650
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1650
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1650: ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1647, %2612
-  %.0.i1649 = phi ptr [ %2614, %2612 ], [ null, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1647 ]
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1650: ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1647, %2612
+  %.0.i1649 = phi ptr [ %2614, %2612 ], [ null, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1647 ]
   %2615 = getelementptr inbounds i8, ptr %2590, i64 24
   %2616 = load i64, ptr %2615, align 8
   %2617 = trunc i64 %2616 to i32
@@ -22002,9 +22002,9 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1650: ; preds = %
   %.not11642373 = icmp eq i32 %2617, 0
   br i1 %.not11642373, label %._crit_edge2376, label %.lr.ph2375
 
-.lr.ph2375:                                       ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1650, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655
-  %.010162374 = phi i32 [ %2642, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655 ], [ 0, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1650 ]
-  %2618 = phi i32 [ %2619, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655 ], [ 4, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1650 ]
+.lr.ph2375:                                       ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1650, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655
+  %.010162374 = phi i32 [ %2642, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655 ], [ 0, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1650 ]
+  %2618 = phi i32 [ %2619, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655 ], [ 4, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1650 ]
   %2619 = add i32 %2618, 1
   %2620 = zext i32 %2618 to i64
   %2621 = load ptr, ptr %14, align 8
@@ -22018,15 +22018,15 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1650: ; preds = %
   %2627 = sub i64 %2625, %2626
   %2628 = ashr exact i64 %2627, 3
   %.not.i1651 = icmp ugt i64 %2628, %2624
-  br i1 %.not.i1651, label %2629, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1653
+  br i1 %.not.i1651, label %2629, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1653
 
 2629:                                             ; preds = %.lr.ph2375
   %2630 = getelementptr inbounds ptr, ptr %.val1350, i64 %2624
   %2631 = load ptr, ptr %2630, align 8
   %2632 = ptrtoint ptr %2631 to i64
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1653
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1653
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1653: ; preds = %.lr.ph2375, %2629
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1653: ; preds = %.lr.ph2375, %2629
   %.0.i1652 = phi i64 [ %2632, %2629 ], [ 0, %.lr.ph2375 ]
   %2633 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %215) #28
   %2634 = add i64 %2633, 1
@@ -22034,11 +22034,11 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1653: ; preds = %
   %.not.i.i.i1654 = icmp ugt i64 %2634, %2635
   br i1 %.not.i.i.i1654, label %2636, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655
 
-2636:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1653
+2636:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1653
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull %776, i64 noundef %2634, i64 noundef 8) #28
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655: ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1653, %2636
+_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655: ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1653, %2636
   %2637 = load ptr, ptr %215, align 8
   %2638 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %215) #28
   %2639 = getelementptr inbounds ptr, ptr %2637, i64 %2638
@@ -22050,8 +22050,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655:
   %.not1164 = icmp eq i32 %2642, %2617
   br i1 %.not1164, label %._crit_edge2376, label %.lr.ph2375, !llvm.loop !923
 
-._crit_edge2376:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1650
-  %2643 = phi i32 [ 4, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1650 ], [ %2619, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655 ]
+._crit_edge2376:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1650
+  %2643 = phi i32 [ 4, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1650 ], [ %2619, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit1655 ]
   store i32 %2643, ptr %214, align 4
   %2644 = and i64 %2604, 32768
   %.not1165 = icmp eq i64 %2644, 0
@@ -22118,7 +22118,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12FunctionTypeENS_4TypeEEEDaPT0_.exit1659: ; preds
   %2673 = load i32, ptr %218, align 4
   %.val1382 = load ptr, ptr %582, align 8
   %.val1383 = load i32, ptr %583, align 8
-  %2674 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1382, i32 %.val1383, i32 noundef %2673, i32 noundef 0)
+  %2674 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1382, i32 %.val1383, i32 noundef %2673, i32 noundef 0)
   %2675 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %2674)
   %.not.i.i1664 = icmp eq ptr %2675, null
   br i1 %.not.i.i1664, label %2681, label %2676
@@ -22173,7 +22173,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12FunctionTypeENS_4TypeEEEDaPT0_.exit1667: ; preds
   %.val1384 = load ptr, ptr %582, align 8
   %.val1385 = load i32, ptr %583, align 8
   %2698 = trunc nuw i64 %indvars.iv.next2556 to i32
-  %2699 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1384, i32 %.val1385, i32 noundef %.11018, i32 noundef %2698)
+  %2699 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1384, i32 %.val1385, i32 noundef %.11018, i32 noundef %2698)
   %2700 = load ptr, ptr %2694, align 8
   %2701 = getelementptr inbounds ptr, ptr %2700, i64 %indvars.iv.next2556
   %2702 = load ptr, ptr %2701, align 8
@@ -22196,24 +22196,24 @@ _ZN4llvm16dyn_cast_or_nullINS_12FunctionTypeENS_4TypeEEEDaPT0_.exit1667: ; preds
   %2715 = sub i64 %2713, %2714
   %2716 = ashr exact i64 %2715, 3
   %.not.i1670 = icmp ugt i64 %2716, %2712
-  br i1 %.not.i1670, label %2717, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672.thread
+  br i1 %.not.i1670, label %2717, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1672.thread
 
 2717:                                             ; preds = %2707
   %2718 = getelementptr inbounds ptr, ptr %.val1352, i64 %2712
   %2719 = load ptr, ptr %2718, align 8
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1672
 
 2720:                                             ; preds = %2696
   %2721 = load ptr, ptr %8, align 8
   %2722 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader8getValueERKN4llvm15SmallVectorImplImEEjjPNS1_4TypeEjPNS1_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %2697, i32 noundef %.0944, ptr noundef nonnull %2702, i32 noundef %2699, ptr noundef %2721)
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1672
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672: ; preds = %2717, %2720
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1672: ; preds = %2717, %2720
   %.01025 = phi ptr [ %2722, %2720 ], [ %2719, %2717 ]
   %.not1179 = icmp eq ptr %.01025, null
-  br i1 %.not1179, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672.thread, label %2723
+  br i1 %.not1179, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1672.thread, label %2723
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672.thread: ; preds = %2707, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1672.thread: ; preds = %2707, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1672
   store i32 %2697, ptr %214, align 4
   store i8 1, ptr %782, align 1
   store ptr @.str.47, ptr %225, align 8
@@ -22221,7 +22221,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672.thread: ; pr
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %225)
   br label %_ZN4llvm5ErrorD2Ev.exit1681
 
-2723:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672
+2723:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1672
   call void @_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_(ptr noundef nonnull align 8 dereferenceable(16) %223, ptr noundef nonnull %.01025)
   call void @_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj(ptr noundef nonnull align 8 dereferenceable(16) %224, i32 noundef %2699)
   %2724 = add i32 %2697, 1
@@ -22294,7 +22294,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672.thread: ; pr
   call void @_ZNK4llvm9InlineAsm16ParseConstraintsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.652") align 8 %230, ptr noundef nonnull align 8 dereferenceable(112) %2663)
   %.val1414 = load ptr, ptr %230, align 8
   %.val1415 = load ptr, ptr %787, align 8
-  %2749 = call fastcc noundef zeroext i1 @"_ZN4llvm7none_ofIRSt6vectorINS_9InlineAsm14ConstraintInfoESaIS3_EEZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPNS_8FunctionEE3$_0EEbOT_T0_.argprom"(ptr %.val1414, ptr %.val1415)
+  %2749 = call fastcc noundef zeroext i1 @"_ZN4llvm7none_ofIRSt6vectorINS_9InlineAsm14ConstraintInfoESaIS3_EEZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPNS_8FunctionEE3$_0EEbOT_T0_"(ptr %.val1414, ptr %.val1415)
   br i1 %2749, label %2750, label %.thread2204
 
 2750:                                             ; preds = %2748
@@ -22489,7 +22489,7 @@ _ZNK4llvm9InlineAsm14ConstraintInfo6hasArgEv.exit.thread2202._crit_edge: ; preds
   store ptr %2854, ptr %17, align 8
   %.val1386 = load ptr, ptr %582, align 8
   %.val1387 = load i32, ptr %583, align 8
-  %2855 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1386, i32 %.val1387, i32 noundef %.11018, i32 noundef 0)
+  %2855 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1386, i32 %.val1387, i32 noundef %.11018, i32 noundef 0)
   store i32 %2855, ptr %18, align 4
   call void @_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #28
   %2856 = load ptr, ptr %17, align 8
@@ -22508,7 +22508,7 @@ _ZNK4llvm9InlineAsm14ConstraintInfo6hasArgEv.exit.thread2202._crit_edge: ; preds
   store ptr %.sroa.0.0.i1646, ptr %2866, align 8
   %2867 = load ptr, ptr %224, align 8
   %2868 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %224) #28
-  call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader23propagateAttributeTypesEPN4llvm8CallBaseENS1_8ArrayRefIjEE.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef %2865, ptr %2867)
+  call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader23propagateAttributeTypesEPN4llvm8CallBaseENS1_8ArrayRefIjEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef %2865, ptr %2867)
   %2869 = load ptr, ptr %0, align 8
   %.not2304 = icmp eq ptr %2869, null
   br i1 %.not2304, label %_ZN4llvm5ErrorD2Ev.exit1681, label %select.unfold2211
@@ -22526,9 +22526,9 @@ select.unfold2211:                                ; preds = %2842
   call void @_ZN4llvm5Value11deleteValueEv(ptr noundef nonnull align 8 dereferenceable(24) %2870) #28
   br label %_ZN4llvm5ErrorD2Ev.exit1681
 
-_ZN4llvm5ErrorD2Ev.exit1681:                      ; preds = %2842, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672.thread, %2732, %2735, %select.unfold2211, %2841
-  %cond26 = phi i1 [ false, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672.thread ], [ false, %2735 ], [ false, %2841 ], [ false, %2732 ], [ false, %select.unfold2211 ], [ true, %2842 ]
-  %.17 = phi i32 [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1672.thread ], [ 1, %2735 ], [ 1, %2841 ], [ 1, %2732 ], [ 1, %select.unfold2211 ], [ 9, %2842 ]
+_ZN4llvm5ErrorD2Ev.exit1681:                      ; preds = %2842, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1672.thread, %2732, %2735, %select.unfold2211, %2841
+  %cond26 = phi i1 [ false, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1672.thread ], [ false, %2735 ], [ false, %2841 ], [ false, %2732 ], [ false, %select.unfold2211 ], [ true, %2842 ]
+  %.17 = phi i32 [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1672.thread ], [ 1, %2735 ], [ 1, %2841 ], [ 1, %2732 ], [ 1, %select.unfold2211 ], [ 9, %2842 ]
   call void @_ZN4llvm11SmallVectorIjLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %224) #28
   call void @_ZN4llvm11SmallVectorIPNS_5ValueELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %223) #28
   call void @_ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %215) #28
@@ -22630,15 +22630,15 @@ _ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEE
   %2906 = sub i64 %2904, %2905
   %2907 = ashr exact i64 %2906, 3
   %.not.i1688 = icmp ugt i64 %2907, %2903
-  br i1 %.not.i1688, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690.thread
+  br i1 %.not.i1688, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1690, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1690.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690: ; preds = %.lr.ph2368
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1690: ; preds = %.lr.ph2368
   %2908 = getelementptr inbounds ptr, ptr %.val1354, i64 %2903
   %2909 = load ptr, ptr %2908, align 8
   %.not1159 = icmp eq ptr %2909, null
-  br i1 %.not1159, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690.thread, label %2911
+  br i1 %.not1159, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1690.thread, label %2911
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690.thread: ; preds = %.lr.ph2368, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1690.thread: ; preds = %.lr.ph2368, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1690
   %2910 = load ptr, ptr %240, align 8
   call void @_ZN4llvm5Value11deleteValueEv(ptr noundef nonnull align 8 dereferenceable(24) %2910) #28
   store i8 1, ptr %771, align 1
@@ -22647,7 +22647,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690.thread: ; pr
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %244)
   br label %2997
 
-2911:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690
+2911:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1690
   %2912 = load i32, ptr %243, align 8
   %2913 = and i32 %2912, 1
   %.not.i.i.i.i.i1692 = icmp eq i32 %2913, 0
@@ -22827,10 +22827,10 @@ _ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEE
   call void @_ZN4llvm11Instruction16setFastMathFlagsENS_13FastMathFlagsE(ptr noundef nonnull align 8 dereferenceable(72) %2996, i32 %.sroa.0.7.i1701) #28
   br label %2997
 
-2997:                                             ; preds = %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit._crit_edge, %2995, %2984, %2964, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690.thread
-  %.not11582328 = phi i1 [ false, %2964 ], [ false, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690.thread ], [ true, %2984 ], [ true, %2995 ], [ true, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit._crit_edge ]
-  %.5955 = phi ptr [ %.7957, %2964 ], [ %.49542366, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690.thread ], [ %.4954.lcssa, %2984 ], [ %.4954.lcssa, %2995 ], [ %.4954.lcssa, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit._crit_edge ]
-  %.20 = phi i32 [ 1, %2964 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1690.thread ], [ 9, %2984 ], [ 9, %2995 ], [ 9, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit._crit_edge ]
+2997:                                             ; preds = %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit._crit_edge, %2995, %2984, %2964, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1690.thread
+  %.not11582328 = phi i1 [ false, %2964 ], [ false, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1690.thread ], [ true, %2984 ], [ true, %2995 ], [ true, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit._crit_edge ]
+  %.5955 = phi ptr [ %.7957, %2964 ], [ %.49542366, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1690.thread ], [ %.4954.lcssa, %2984 ], [ %.4954.lcssa, %2995 ], [ %.4954.lcssa, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit._crit_edge ]
+  %.20 = phi i32 [ 1, %2964 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1690.thread ], [ 9, %2984 ], [ 9, %2995 ], [ 9, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit._crit_edge ]
   %2998 = load i32, ptr %243, align 8
   %2999 = and i32 %2998, 1
   %.not.i.i1702 = icmp eq i32 %2999, 0
@@ -23021,7 +23021,7 @@ _ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEE
   %3076 = load i32, ptr %264, align 4
   %.val1388 = load ptr, ptr %582, align 8
   %.val1389 = load i32, ptr %583, align 8
-  %3077 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1388, i32 %.val1389, i32 noundef %3076, i32 noundef 0)
+  %3077 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1388, i32 %.val1389, i32 noundef %3076, i32 noundef 0)
   store i32 %3077, ptr %264, align 4
   %3078 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %3077)
   %.not1152 = icmp eq ptr %3078, null
@@ -23240,7 +23240,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit:   ; preds = %3144, %3148
   %3184 = load i32, ptr %275, align 4
   %.val1390 = load ptr, ptr %582, align 8
   %.val1391 = load i32, ptr %583, align 8
-  %3185 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1390, i32 %.val1391, i32 noundef %3184, i32 noundef 0)
+  %3185 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1390, i32 %.val1391, i32 noundef %3184, i32 noundef 0)
   br label %3186
 
 3186:                                             ; preds = %3183, %3176
@@ -23407,7 +23407,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1724: ; preds = %3214, %3218
   %3254 = load i32, ptr %286, align 4
   %.val1392 = load ptr, ptr %582, align 8
   %.val1393 = load i32, ptr %583, align 8
-  %3255 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1392, i32 %.val1393, i32 noundef %3254, i32 noundef 0)
+  %3255 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1392, i32 %.val1393, i32 noundef %3254, i32 noundef 0)
   br label %3256
 
 3256:                                             ; preds = %3253, %3246
@@ -23573,7 +23573,7 @@ _ZN4llvm5ErrorD2Ev.exit1734:                      ; preds = %_ZN12_GLOBAL__N_113
   %3318 = load i32, ptr %299, align 4
   %.val1394 = load ptr, ptr %582, align 8
   %.val1395 = load i32, ptr %583, align 8
-  %3319 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1394, i32 %.val1395, i32 noundef %3318, i32 noundef 0)
+  %3319 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1394, i32 %.val1395, i32 noundef %3318, i32 noundef 0)
   store i32 %3319, ptr %300, align 4
   %3320 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %3319)
   %3321 = load ptr, ptr %8, align 8
@@ -23734,7 +23734,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1744: ; preds = %3361, %3365
   %3384 = load i32, ptr %312, align 4
   %.val1396 = load ptr, ptr %582, align 8
   %.val1397 = load i32, ptr %583, align 8
-  %3385 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1396, i32 %.val1397, i32 noundef %3384, i32 noundef 0)
+  %3385 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1396, i32 %.val1397, i32 noundef %3384, i32 noundef 0)
   store i32 %3385, ptr %313, align 4
   %3386 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %3385)
   %3387 = load ptr, ptr %8, align 8
@@ -23915,7 +23915,7 @@ _ZN4llvm5ErrorD2Ev.exit1758:                      ; preds = %3431
   %3459 = load i32, ptr %325, align 4
   %.val1398 = load ptr, ptr %582, align 8
   %.val1399 = load i32, ptr %583, align 8
-  %3460 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1398, i32 %.val1399, i32 noundef %3459, i32 noundef 0)
+  %3460 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1398, i32 %.val1399, i32 noundef %3459, i32 noundef 0)
   %3461 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %3460)
   %3462 = load ptr, ptr %8, align 8
   %3463 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113BitcodeReader8popValueERKN4llvm15SmallVectorImplImEERjjPNS1_4TypeEjRPNS1_5ValueEPNS1_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(4) %323, i32 noundef %.0944, ptr noundef %3461, i32 noundef %3460, ptr noundef nonnull align 8 dereferenceable(8) %328, ptr noundef %3462)
@@ -24458,7 +24458,7 @@ _ZN4llvm5ErrorD2Ev.exit1797.thread:               ; preds = %3646, %_ZN4llvm5Err
   %3710 = load i32, ptr %358, align 4
   %.val1400 = load ptr, ptr %582, align 8
   %.val1401 = load i32, ptr %583, align 8
-  %3711 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1400, i32 %.val1401, i32 noundef %3710, i32 noundef 0)
+  %3711 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1400, i32 %.val1401, i32 noundef %3710, i32 noundef 0)
   store i32 %3711, ptr %362, align 4
   %3712 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %3711)
   %3713 = load ptr, ptr %8, align 8
@@ -24934,15 +24934,15 @@ select.unfold2239:                                ; preds = %3849, %3851, %3854,
   %3929 = sub i64 %3927, %3928
   %3930 = ashr exact i64 %3929, 3
   %3931 = icmp ugt i64 %3930, %3926
-  br i1 %3931, label %3932, label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1842
+  br i1 %3931, label %3932, label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1842
 
 3932:                                             ; preds = %3922
   %3933 = getelementptr inbounds %"class.llvm::AttributeList", ptr %.val1412, i64 %3926
   %3934 = load i64, ptr %3933, align 8
   %3935 = inttoptr i64 %3934 to ptr
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1842
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1842
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1842: ; preds = %3922, %3932
+_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1842: ; preds = %3922, %3932
   %.sroa.0.0.i1841 = phi ptr [ %3935, %3932 ], [ null, %3922 ]
   store i32 2, ptr %381, align 4
   %3936 = getelementptr inbounds i8, ptr %3923, i64 8
@@ -24952,7 +24952,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1842: ; preds = %
   %.not1126 = icmp eq i32 %3939, 0
   br i1 %.not1126, label %3949, label %3940
 
-3940:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1842
+3940:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1842
   store i32 3, ptr %381, align 4
   %3941 = getelementptr inbounds i8, ptr %3923, i64 16
   %3942 = load i64, ptr %3941, align 8
@@ -24974,9 +24974,9 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1842: ; preds = %
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %382)
   br label %.critedge1284
 
-3949:                                             ; preds = %3940, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1842
-  %3950 = phi i32 [ 2, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1842 ], [ 3, %3940 ]
-  %.sroa.01927.0 = phi i32 [ 0, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit1842 ], [ %.sroa.0.7.i1845, %3940 ]
+3949:                                             ; preds = %3940, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1842
+  %3950 = phi i32 [ 2, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1842 ], [ 3, %3940 ]
+  %.sroa.01927.0 = phi i32 [ 0, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit1842 ], [ %.sroa.0.7.i1845, %3940 ]
   %3951 = and i32 %3938, 32768
   %.not1127 = icmp eq i32 %3951, 0
   br i1 %.not1127, label %_ZN4llvm16dyn_cast_or_nullINS_12FunctionTypeENS_4TypeEEEDaPT0_.exit1850, label %3952
@@ -25047,7 +25047,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12FunctionTypeENS_4TypeEEEDaPT0_.exit1850: ; preds
   %3979 = load i32, ptr %385, align 4
   %.val1402 = load ptr, ptr %582, align 8
   %.val1403 = load i32, ptr %583, align 8
-  %3980 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1402, i32 %.val1403, i32 noundef %3979, i32 noundef 0)
+  %3980 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1402, i32 %.val1403, i32 noundef %3979, i32 noundef 0)
   %3981 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %3980)
   %.not.i.i1855 = icmp eq ptr %3981, null
   br i1 %.not.i.i1855, label %3987, label %3982
@@ -25106,7 +25106,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12FunctionTypeENS_4TypeEEEDaPT0_.exit1858: ; preds
   %.val1404 = load ptr, ptr %582, align 8
   %.val1405 = load i32, ptr %583, align 8
   %4004 = trunc nuw i64 %indvars.iv.next to i32
-  %4005 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1404, i32 %.val1405, i32 noundef %.1989, i32 noundef %4004)
+  %4005 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1404, i32 %.val1405, i32 noundef %.1989, i32 noundef %4004)
   %4006 = load ptr, ptr %4000, align 8
   %4007 = getelementptr inbounds ptr, ptr %4006, i64 %indvars.iv.next
   %4008 = load ptr, ptr %4007, align 8
@@ -25129,19 +25129,19 @@ _ZN4llvm16dyn_cast_or_nullINS_12FunctionTypeENS_4TypeEEEDaPT0_.exit1858: ; preds
   %4021 = sub i64 %4019, %4020
   %4022 = ashr exact i64 %4021, 3
   %.not.i1861 = icmp ugt i64 %4022, %4018
-  br i1 %.not.i1861, label %4023, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1863
+  br i1 %.not.i1861, label %4023, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1863
 
 4023:                                             ; preds = %4013
   %4024 = getelementptr inbounds ptr, ptr %.val1356, i64 %4018
   %4025 = load ptr, ptr %4024, align 8
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1863
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1863
 
 4026:                                             ; preds = %4002
   %4027 = load ptr, ptr %8, align 8
   %4028 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader8getValueERKN4llvm15SmallVectorImplImEEjjPNS1_4TypeEjPNS1_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %4003, i32 noundef %.0944, ptr noundef nonnull %4008, i32 noundef %4005, ptr noundef %4027)
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1863
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1863
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1863: ; preds = %4023, %4013, %4026
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1863: ; preds = %4023, %4013, %4026
   %.sink2652 = phi ptr [ %4028, %4026 ], [ %4025, %4023 ], [ null, %4013 ]
   call void @_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_(ptr noundef nonnull align 8 dereferenceable(16) %390, ptr noundef %.sink2652)
   call void @_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj(ptr noundef nonnull align 8 dereferenceable(16) %391, i32 noundef %4005)
@@ -25153,7 +25153,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1863: ; preds = %
   %.not1138 = icmp eq ptr %4033, null
   br i1 %.not1138, label %4034, label %4035
 
-4034:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1863
+4034:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1863
   store i32 %4003, ptr %381, align 4
   store i8 1, ptr %589, align 1
   store ptr @.str.47, ptr %392, align 8
@@ -25161,7 +25161,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1863: ; preds = %
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %421, ptr noundef nonnull align 8 dereferenceable(34) %392)
   br label %.critedge1320
 
-4035:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1863
+4035:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1863
   %4036 = add i32 %4003, 1
   %.not1132 = icmp eq i64 %indvars.iv.next, %4001
   br i1 %.not1132, label %._crit_edge2356, label %4002, !llvm.loop !931
@@ -25238,7 +25238,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1863: ; preds = %
   store ptr %4067, ptr %17, align 8
   %.val1406 = load ptr, ptr %582, align 8
   %.val1407 = load i32, ptr %583, align 8
-  %4068 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val1406, i32 %.val1407, i32 noundef %.1989, i32 noundef 0)
+  %4068 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val1406, i32 %.val1407, i32 noundef %.1989, i32 noundef 0)
   store i32 %4068, ptr %18, align 4
   call void @_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #28
   %4069 = load ptr, ptr %17, align 8
@@ -25279,7 +25279,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1863: ; preds = %
   %4093 = load ptr, ptr %17, align 8
   %4094 = load ptr, ptr %391, align 8
   %4095 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %391) #28
-  call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader23propagateAttributeTypesEPN4llvm8CallBaseENS1_8ArrayRefIjEE.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef %4093, ptr %4094)
+  call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader23propagateAttributeTypesEPN4llvm8CallBaseENS1_8ArrayRefIjEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef %4093, ptr %4094)
   %4096 = load ptr, ptr %0, align 8
   %.not2275 = icmp eq ptr %4096, null
   br i1 %.not2275, label %_ZN4llvm5ErrorD2Ev.exit1869, label %4097
@@ -25625,10 +25625,10 @@ _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backERKS2_.exit: ; preds = %4146, %_ZNS
   %spec.select2262 = zext i1 %.not2313 to i32
   br label %.critedge1284
 
-.critedge1284:                                    ; preds = %_ZNSt6vectorIPN4llvm8FunctionESaIS2_EE9push_backERKS2_.exit, %1121, %4243, %4184, %4182, %3840, %3825, %.thread2208, %.thread2177, %.thread2171, %.thread2157, %.thread2152, %.thread, %3768, %3652, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1792, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1770, %3431, %3396, %_ZN4llvm5ErrorD2Ev.exit1741, %3330, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit, %3260, %_ZN4llvm5ErrorD2Ev.exit1720, %3190, %3080, %4236, %_ZN4llvm5ErrorD2Ev.exit1644, %_ZN4llvm5ErrorD2Ev.exit1681, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1724, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1744, %.critedge1320, %4211, %4204, %4197, %4192, %4137, %4123, %4107, %3996, %3987, %3976, %3967, %3964, %3948, %3921, %3915, %3884, %select.unfold2239, %3824, %_ZL18getDecodedOrderingj.exit1823, %3799, %_ZL18getDecodedOrderingj.exit1810, %3737, %3728, %3719, %3715, %3706, %3697, %_ZN4llvm17AtomicCmpXchgInst22isValidFailureOrderingENS_14AtomicOrderingE.exit, %_ZL18getDecodedOrderingj.exit1787, %3606, %3597, %3589, %3585, %3576, %_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit, %_ZL18getDecodedOrderingj.exit1765, %3479, %3464, %3457, %3448, %3435, %3430, %_ZL18getDecodedOrderingj.exit1751.thread, %3395, %3389, %3382, %.critedge, %3329, %3323, %3316, %3310, %3298, %3276, %_ZL18getDecodedOrderingj.exit, %3259, %3240, %3231, %3189, %3170, %3161, %3099, %3079, %3066, %3058, %3035, %3024, %3019, %3013, %3010, %2893, %2882, %2876, %2585, %2510, %2501, %2490, %2481, %2477, %2434, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621.thread, %2411, %2401, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615.thread, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608.thread, %2343, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1595.thread, %2159, %2152, %2091, %2084, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570.thread, %2067, %2060, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564.thread, %2041, %2034, %2027, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread, %1992, %1983, %1978, %1937, %1930, %1927, %1889, %1884, %1865, %1850, %1846, %1831, %1820, %1811, %1801, %1792, %1765, %1761, %1747, %1729, %1668, %1662, %1658, %1615, %1606, %1434, %1385, %1370, %1354, %1293, %1283, %1248, %1236, %_ZN4llvm8DebugLocD2Ev.exit1449, %1209, %1203, %1176, %_ZN4llvm8DebugLocD2Ev.exit, %1164, %1161, %1120, %.loopexit, %1094, %1060, %1053, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i1424
-  %.2952 = phi ptr [ %.0950, %1053 ], [ %.0950, %4192 ], [ %.0950, %4197 ], [ %.3953, %4211 ], [ %.3953, %4204 ], [ %.0950, %4137 ], [ %.0950, %4107 ], [ %.0950, %4123 ], [ %.0950, %3921 ], [ %.0950, %3967 ], [ %.0950, %3996 ], [ %.0950, %.critedge1320 ], [ %.0950, %3987 ], [ %.0950, %3976 ], [ %.0950, %3964 ], [ %.0950, %3948 ], [ %.0950, %3884 ], [ %.0950, %3915 ], [ %.0950, %select.unfold2239 ], [ %.0950, %3824 ], [ %.0950, %3799 ], [ %.0950, %_ZL18getDecodedOrderingj.exit1823 ], [ %.0950, %3697 ], [ %.0950, %3706 ], [ %.0950, %3715 ], [ %.0950, %3737 ], [ %.0950, %_ZL18getDecodedOrderingj.exit1810 ], [ %.0950, %3728 ], [ %.0950, %3719 ], [ %.0950, %3576 ], [ %.0950, %3585 ], [ %.0950, %3589 ], [ %.0950, %3597 ], [ %.0950, %3606 ], [ %.0950, %_ZN4llvm17AtomicCmpXchgInst22isValidFailureOrderingENS_14AtomicOrderingE.exit ], [ %.0950, %_ZL18getDecodedOrderingj.exit1787 ], [ %.0950, %3448 ], [ %.0950, %3457 ], [ %.0950, %3464 ], [ %.0950, %3479 ], [ %.0950, %_ZL18getDecodedOrderingj.exit1765 ], [ %.0950, %_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit ], [ %.0950, %.critedge ], [ %.0950, %3382 ], [ %.0950, %3395 ], [ %.0950, %_ZL18getDecodedOrderingj.exit1751.thread ], [ %.0950, %3430 ], [ %.0950, %3435 ], [ %.0950, %3389 ], [ %.0950, %3310 ], [ %.0950, %3316 ], [ %.0950, %3329 ], [ %.0950, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1744 ], [ %.0950, %3323 ], [ %.0950, %3231 ], [ %.0950, %3240 ], [ %.0950, %_ZL18getDecodedOrderingj.exit ], [ %.0950, %3276 ], [ %.0950, %3298 ], [ %.0950, %3259 ], [ %.0950, %3161 ], [ %.0950, %3170 ], [ %.0950, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1724 ], [ %.0950, %3189 ], [ %.0950, %3066 ], [ %.0950, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit ], [ %.0950, %3099 ], [ %.0950, %3079 ], [ %.0950, %3010 ], [ %.0950, %3024 ], [ %.0950, %3035 ], [ %.0950, %3058 ], [ %.0950, %3019 ], [ %.0950, %3013 ], [ %.0950, %2876 ], [ %.5955, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ %.0950, %2893 ], [ %.0950, %2882 ], [ %.0950, %_ZN4llvm5ErrorD2Ev.exit1681 ], [ %.0950, %2585 ], [ %.0950, %2434 ], [ %.0950, %2481 ], [ %.0950, %2510 ], [ %.0950, %_ZN4llvm5ErrorD2Ev.exit1644 ], [ %.0950, %2501 ], [ %.0950, %2490 ], [ %.0950, %2477 ], [ %.0950, %2401 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621.thread ], [ %.0950, %2411 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1595.thread ], [ %.0950, %2343 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615.thread ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608.thread ], [ %.0950, %2152 ], [ %.0950, %2159 ], [ %.0950, %2084 ], [ %.0950, %2091 ], [ %.0950, %2060 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570.thread ], [ %.0950, %2067 ], [ %.0950, %2034 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564.thread ], [ %.0950, %2041 ], [ %.0950, %1992 ], [ %.0950, %2027 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread ], [ %.0950, %1978 ], [ %.0950, %1983 ], [ %.0950, %1884 ], [ %.0950, %1889 ], [ %.0950, %1927 ], [ %.0950, %1930 ], [ %.0950, %1937 ], [ %.0950, %1846 ], [ %.0950, %1850 ], [ %.0950, %1865 ], [ %.0950, %1811 ], [ %.0950, %1831 ], [ %.0950, %1820 ], [ %.0950, %1792 ], [ %.0950, %1801 ], [ %.0950, %1747 ], [ %.0950, %1761 ], [ %.0950, %1765 ], [ %.0950, %1729 ], [ %.0950, %1658 ], [ %.0950, %1662 ], [ %.0950, %1668 ], [ %.0950, %1606 ], [ %.0950, %1615 ], [ %.0950, %1434 ], [ %.0950, %1354 ], [ %.0950, %1385 ], [ %.0950, %1370 ], [ %.0950, %1283 ], [ %.0950, %1293 ], [ %.0950, %1236 ], [ %.0950, %1248 ], [ %.0950, %1176 ], [ %.0950, %_ZN4llvm8DebugLocD2Ev.exit1449 ], [ %.0950, %1209 ], [ %.0950, %1203 ], [ %.0950, %_ZN4llvm8DebugLocD2Ev.exit ], [ %.0950, %1164 ], [ %.0950, %1120 ], [ %.0950, %1161 ], [ %.0950, %1060 ], [ %.0950, %.loopexit ], [ %.0950, %1094 ], [ %.0950, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i1424 ], [ %.3953, %4236 ], [ %.0950, %3080 ], [ %.0950, %3190 ], [ %.0950, %_ZN4llvm5ErrorD2Ev.exit1720 ], [ %.0950, %3260 ], [ %.0950, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit ], [ %.0950, %3330 ], [ %.0950, %_ZN4llvm5ErrorD2Ev.exit1741 ], [ %.0950, %3396 ], [ %.0950, %3431 ], [ %.0950, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1770 ], [ %.0950, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1792 ], [ %.0950, %3652 ], [ %.0950, %3768 ], [ %.0950, %.thread ], [ %.0950, %.thread2152 ], [ %.0950, %.thread2157 ], [ %.0950, %.thread2171 ], [ %.0950, %.thread2177 ], [ %.0950, %.thread2208 ], [ %.0950, %3825 ], [ %.0950, %3840 ], [ %.0950, %4182 ], [ %.0950, %4184 ], [ %.3953, %4243 ], [ %.0950, %1121 ], [ %.0950, %_ZNSt6vectorIPN4llvm8FunctionESaIS2_EE9push_backERKS2_.exit ]
-  %.3947 = phi i32 [ %.0944, %1053 ], [ %.0944, %4192 ], [ %.0944, %4197 ], [ %.0944, %4211 ], [ %.0944, %4204 ], [ %.0944, %4137 ], [ %.0944, %4107 ], [ %.0944, %4123 ], [ %.0944, %3921 ], [ %.0944, %3967 ], [ %.0944, %3996 ], [ %.0944, %.critedge1320 ], [ %.0944, %3987 ], [ %.0944, %3976 ], [ %.0944, %3964 ], [ %.0944, %3948 ], [ %.0944, %3884 ], [ %.0944, %3915 ], [ %.0944, %select.unfold2239 ], [ %.0944, %3824 ], [ %.0944, %3799 ], [ %.0944, %_ZL18getDecodedOrderingj.exit1823 ], [ %.0944, %3697 ], [ %.0944, %3706 ], [ %.0944, %3715 ], [ %.0944, %3737 ], [ %.0944, %_ZL18getDecodedOrderingj.exit1810 ], [ %.0944, %3728 ], [ %.0944, %3719 ], [ %.0944, %3576 ], [ %.0944, %3585 ], [ %.0944, %3589 ], [ %.0944, %3597 ], [ %.0944, %3606 ], [ %.0944, %_ZN4llvm17AtomicCmpXchgInst22isValidFailureOrderingENS_14AtomicOrderingE.exit ], [ %.0944, %_ZL18getDecodedOrderingj.exit1787 ], [ %.0944, %3448 ], [ %.0944, %3457 ], [ %.0944, %3464 ], [ %.0944, %3479 ], [ %.0944, %_ZL18getDecodedOrderingj.exit1765 ], [ %.0944, %_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit ], [ %.0944, %.critedge ], [ %.0944, %3382 ], [ %.0944, %3395 ], [ %.0944, %_ZL18getDecodedOrderingj.exit1751.thread ], [ %.0944, %3430 ], [ %.0944, %3435 ], [ %.0944, %3389 ], [ %.0944, %3310 ], [ %.0944, %3316 ], [ %.0944, %3329 ], [ %.0944, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1744 ], [ %.0944, %3323 ], [ %.0944, %3231 ], [ %.0944, %3240 ], [ %.0944, %_ZL18getDecodedOrderingj.exit ], [ %.0944, %3276 ], [ %.0944, %3298 ], [ %.0944, %3259 ], [ %.0944, %3161 ], [ %.0944, %3170 ], [ %.0944, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1724 ], [ %.0944, %3189 ], [ %.0944, %3066 ], [ %.0944, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit ], [ %.0944, %3099 ], [ %.0944, %3079 ], [ %.0944, %3010 ], [ %.0944, %3024 ], [ %.0944, %3035 ], [ %.0944, %3058 ], [ %.0944, %3019 ], [ %.0944, %3013 ], [ %.0944, %2876 ], [ %.0944, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ %.0944, %2893 ], [ %.0944, %2882 ], [ %.0944, %_ZN4llvm5ErrorD2Ev.exit1681 ], [ %.0944, %2585 ], [ %.0944, %2434 ], [ %.0944, %2481 ], [ %.0944, %2510 ], [ %.0944, %_ZN4llvm5ErrorD2Ev.exit1644 ], [ %.0944, %2501 ], [ %.0944, %2490 ], [ %.0944, %2477 ], [ %.0944, %2401 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621.thread ], [ %.0944, %2411 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1595.thread ], [ %.0944, %2343 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615.thread ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608.thread ], [ %.0944, %2152 ], [ %.0944, %2159 ], [ %.0944, %2084 ], [ %.0944, %2091 ], [ %.0944, %2060 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570.thread ], [ %.0944, %2067 ], [ %.0944, %2034 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564.thread ], [ %.0944, %2041 ], [ %.0944, %1992 ], [ %.0944, %2027 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread ], [ %.0944, %1978 ], [ %.0944, %1983 ], [ %.0944, %1884 ], [ %.0944, %1889 ], [ %.0944, %1927 ], [ %.0944, %1930 ], [ %.0944, %1937 ], [ %.0944, %1846 ], [ %.0944, %1850 ], [ %.0944, %1865 ], [ %.0944, %1811 ], [ %.0944, %1831 ], [ %.0944, %1820 ], [ %.0944, %1792 ], [ %.0944, %1801 ], [ %.0944, %1747 ], [ %.0944, %1761 ], [ %.0944, %1765 ], [ %.0944, %1729 ], [ %.0944, %1658 ], [ %.0944, %1662 ], [ %.0944, %1668 ], [ %.0944, %1606 ], [ %.0944, %1615 ], [ %.0944, %1434 ], [ %.0944, %1354 ], [ %.0944, %1385 ], [ %.0944, %1370 ], [ %.0944, %1283 ], [ %.0944, %1293 ], [ %.0944, %1236 ], [ %.0944, %1248 ], [ %.0944, %1176 ], [ %.0944, %_ZN4llvm8DebugLocD2Ev.exit1449 ], [ %.0944, %1209 ], [ %.0944, %1203 ], [ %.0944, %_ZN4llvm8DebugLocD2Ev.exit ], [ %.0944, %1164 ], [ %.0944, %1120 ], [ %.0944, %1161 ], [ %.0944, %1060 ], [ %.0944, %.loopexit ], [ %.0944, %1094 ], [ %.0944, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i1424 ], [ %.0944, %4236 ], [ %.0944, %3080 ], [ %.0944, %3190 ], [ %.0944, %_ZN4llvm5ErrorD2Ev.exit1720 ], [ %.0944, %3260 ], [ %.0944, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit ], [ %.0944, %3330 ], [ %.0944, %_ZN4llvm5ErrorD2Ev.exit1741 ], [ %.0944, %3396 ], [ %.0944, %3431 ], [ %.0944, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1770 ], [ %.0944, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1792 ], [ %.0944, %3652 ], [ %.0944, %3768 ], [ %.0944, %.thread ], [ %.0944, %.thread2152 ], [ %.0944, %.thread2157 ], [ %.0944, %.thread2171 ], [ %.0944, %.thread2177 ], [ %.0944, %.thread2208 ], [ %.0944, %3825 ], [ %.0944, %3840 ], [ %.0944, %4182 ], [ %.0944, %4184 ], [ %4244, %4243 ], [ %.0944, %1121 ], [ %.0944, %_ZNSt6vectorIPN4llvm8FunctionESaIS2_EE9push_backERKS2_.exit ]
-  %.8 = phi i32 [ 1, %1053 ], [ 1, %4192 ], [ 1, %4197 ], [ 1, %4211 ], [ 1, %4204 ], [ 1, %4137 ], [ 1, %4107 ], [ 1, %4123 ], [ 1, %3921 ], [ 1, %3967 ], [ 1, %3996 ], [ %.37, %.critedge1320 ], [ 1, %3987 ], [ 1, %3976 ], [ 1, %3964 ], [ 1, %3948 ], [ 1, %3884 ], [ 4, %3915 ], [ 1, %select.unfold2239 ], [ 1, %3824 ], [ 1, %3799 ], [ 1, %_ZL18getDecodedOrderingj.exit1823 ], [ 1, %3697 ], [ 1, %3706 ], [ 1, %3715 ], [ 1, %3737 ], [ 1, %_ZL18getDecodedOrderingj.exit1810 ], [ 1, %3728 ], [ 1, %3719 ], [ 1, %3576 ], [ 1, %3585 ], [ 1, %3589 ], [ 1, %3597 ], [ 1, %3606 ], [ 1, %_ZN4llvm17AtomicCmpXchgInst22isValidFailureOrderingENS_14AtomicOrderingE.exit ], [ 1, %_ZL18getDecodedOrderingj.exit1787 ], [ 1, %3448 ], [ 1, %3457 ], [ 1, %3464 ], [ 1, %3479 ], [ 1, %_ZL18getDecodedOrderingj.exit1765 ], [ 1, %_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit ], [ 1, %.critedge ], [ 1, %3382 ], [ 1, %3395 ], [ 1, %_ZL18getDecodedOrderingj.exit1751.thread ], [ 1, %3430 ], [ 1, %3435 ], [ 1, %3389 ], [ 1, %3310 ], [ 1, %3316 ], [ 1, %3329 ], [ %.30, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1744 ], [ 1, %3323 ], [ 1, %3231 ], [ 1, %3240 ], [ 1, %_ZL18getDecodedOrderingj.exit ], [ 1, %3276 ], [ 1, %3298 ], [ 1, %3259 ], [ 1, %3161 ], [ 1, %3170 ], [ %.25, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1724 ], [ 1, %3189 ], [ 1, %3066 ], [ %.22, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit ], [ 1, %3099 ], [ 1, %3079 ], [ 1, %3010 ], [ 1, %3024 ], [ 1, %3035 ], [ 1, %3058 ], [ 1, %3019 ], [ 1, %3013 ], [ 1, %2876 ], [ %.20, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ 1, %2893 ], [ 1, %2882 ], [ %.17, %_ZN4llvm5ErrorD2Ev.exit1681 ], [ 1, %2585 ], [ 1, %2434 ], [ 1, %2481 ], [ 1, %2510 ], [ %.14, %_ZN4llvm5ErrorD2Ev.exit1644 ], [ 1, %2501 ], [ 1, %2490 ], [ 1, %2477 ], [ 1, %2401 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1621.thread ], [ 1, %2411 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1595.thread ], [ 1, %2343 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1615.thread ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1608.thread ], [ 1, %2152 ], [ 1, %2159 ], [ 1, %2084 ], [ 1, %2091 ], [ 1, %2060 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1570.thread ], [ 1, %2067 ], [ 1, %2034 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit1564.thread ], [ 1, %2041 ], [ 1, %1992 ], [ 1, %2027 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread ], [ 1, %1978 ], [ 1, %1983 ], [ 1, %1884 ], [ 1, %1889 ], [ 1, %1927 ], [ 1, %1930 ], [ 1, %1937 ], [ 1, %1846 ], [ 1, %1850 ], [ 1, %1865 ], [ 1, %1811 ], [ 1, %1831 ], [ 1, %1820 ], [ 1, %1792 ], [ 1, %1801 ], [ 1, %1747 ], [ 1, %1761 ], [ 1, %1765 ], [ 1, %1729 ], [ 1, %1658 ], [ 1, %1662 ], [ 1, %1668 ], [ 1, %1606 ], [ 1, %1615 ], [ 1, %1434 ], [ 1, %1354 ], [ 1, %1385 ], [ 1, %1370 ], [ 1, %1283 ], [ 1, %1293 ], [ 1, %1236 ], [ 1, %1248 ], [ 1, %1176 ], [ 4, %_ZN4llvm8DebugLocD2Ev.exit1449 ], [ 1, %1209 ], [ 1, %1203 ], [ 4, %_ZN4llvm8DebugLocD2Ev.exit ], [ 1, %1164 ], [ 1, %1120 ], [ 1, %1161 ], [ 1, %1060 ], [ 4, %.loopexit ], [ 1, %1094 ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i1424 ], [ 0, %4236 ], [ 1, %3080 ], [ 1, %3190 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit1720 ], [ 1, %3260 ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit ], [ 1, %3330 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit1741 ], [ 1, %3396 ], [ 1, %3431 ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1770 ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1792 ], [ 1, %3652 ], [ 1, %3768 ], [ 1, %.thread ], [ 1, %.thread2152 ], [ 1, %.thread2157 ], [ 1, %.thread2171 ], [ 1, %.thread2177 ], [ 1, %.thread2208 ], [ 4, %3825 ], [ 4, %3840 ], [ %.39, %4182 ], [ %.39, %4184 ], [ %spec.select2262, %4243 ], [ 4, %1121 ], [ 4, %_ZNSt6vectorIPN4llvm8FunctionESaIS2_EE9push_backERKS2_.exit ]
+.critedge1284:                                    ; preds = %_ZNSt6vectorIPN4llvm8FunctionESaIS2_EE9push_backERKS2_.exit, %1121, %4243, %4184, %4182, %3840, %3825, %.thread2208, %.thread2177, %.thread2171, %.thread2157, %.thread2152, %.thread, %3768, %3652, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1792, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1770, %3431, %3396, %_ZN4llvm5ErrorD2Ev.exit1741, %3330, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit, %3260, %_ZN4llvm5ErrorD2Ev.exit1720, %3190, %3080, %4236, %_ZN4llvm5ErrorD2Ev.exit1644, %_ZN4llvm5ErrorD2Ev.exit1681, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1724, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1744, %.critedge1320, %4211, %4204, %4197, %4192, %4137, %4123, %4107, %3996, %3987, %3976, %3967, %3964, %3948, %3921, %3915, %3884, %select.unfold2239, %3824, %_ZL18getDecodedOrderingj.exit1823, %3799, %_ZL18getDecodedOrderingj.exit1810, %3737, %3728, %3719, %3715, %3706, %3697, %_ZN4llvm17AtomicCmpXchgInst22isValidFailureOrderingENS_14AtomicOrderingE.exit, %_ZL18getDecodedOrderingj.exit1787, %3606, %3597, %3589, %3585, %3576, %_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit, %_ZL18getDecodedOrderingj.exit1765, %3479, %3464, %3457, %3448, %3435, %3430, %_ZL18getDecodedOrderingj.exit1751.thread, %3395, %3389, %3382, %.critedge, %3329, %3323, %3316, %3310, %3298, %3276, %_ZL18getDecodedOrderingj.exit, %3259, %3240, %3231, %3189, %3170, %3161, %3099, %3079, %3066, %3058, %3035, %3024, %3019, %3013, %3010, %2893, %2882, %2876, %2585, %2510, %2501, %2490, %2481, %2477, %2434, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1621.thread, %2411, %2401, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1615.thread, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1608.thread, %2343, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1595.thread, %2159, %2152, %2091, %2084, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1570.thread, %2067, %2060, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564.thread, %2041, %2034, %2027, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit.thread, %1992, %1983, %1978, %1937, %1930, %1927, %1889, %1884, %1865, %1850, %1846, %1831, %1820, %1811, %1801, %1792, %1765, %1761, %1747, %1729, %1668, %1662, %1658, %1615, %1606, %1434, %1385, %1370, %1354, %1293, %1283, %1248, %1236, %_ZN4llvm8DebugLocD2Ev.exit1449, %1209, %1203, %1176, %_ZN4llvm8DebugLocD2Ev.exit, %1164, %1161, %1120, %.loopexit, %1094, %1060, %1053, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i1424
+  %.2952 = phi ptr [ %.0950, %1053 ], [ %.0950, %4192 ], [ %.0950, %4197 ], [ %.3953, %4211 ], [ %.3953, %4204 ], [ %.0950, %4137 ], [ %.0950, %4107 ], [ %.0950, %4123 ], [ %.0950, %3921 ], [ %.0950, %3967 ], [ %.0950, %3996 ], [ %.0950, %.critedge1320 ], [ %.0950, %3987 ], [ %.0950, %3976 ], [ %.0950, %3964 ], [ %.0950, %3948 ], [ %.0950, %3884 ], [ %.0950, %3915 ], [ %.0950, %select.unfold2239 ], [ %.0950, %3824 ], [ %.0950, %3799 ], [ %.0950, %_ZL18getDecodedOrderingj.exit1823 ], [ %.0950, %3697 ], [ %.0950, %3706 ], [ %.0950, %3715 ], [ %.0950, %3737 ], [ %.0950, %_ZL18getDecodedOrderingj.exit1810 ], [ %.0950, %3728 ], [ %.0950, %3719 ], [ %.0950, %3576 ], [ %.0950, %3585 ], [ %.0950, %3589 ], [ %.0950, %3597 ], [ %.0950, %3606 ], [ %.0950, %_ZN4llvm17AtomicCmpXchgInst22isValidFailureOrderingENS_14AtomicOrderingE.exit ], [ %.0950, %_ZL18getDecodedOrderingj.exit1787 ], [ %.0950, %3448 ], [ %.0950, %3457 ], [ %.0950, %3464 ], [ %.0950, %3479 ], [ %.0950, %_ZL18getDecodedOrderingj.exit1765 ], [ %.0950, %_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit ], [ %.0950, %.critedge ], [ %.0950, %3382 ], [ %.0950, %3395 ], [ %.0950, %_ZL18getDecodedOrderingj.exit1751.thread ], [ %.0950, %3430 ], [ %.0950, %3435 ], [ %.0950, %3389 ], [ %.0950, %3310 ], [ %.0950, %3316 ], [ %.0950, %3329 ], [ %.0950, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1744 ], [ %.0950, %3323 ], [ %.0950, %3231 ], [ %.0950, %3240 ], [ %.0950, %_ZL18getDecodedOrderingj.exit ], [ %.0950, %3276 ], [ %.0950, %3298 ], [ %.0950, %3259 ], [ %.0950, %3161 ], [ %.0950, %3170 ], [ %.0950, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1724 ], [ %.0950, %3189 ], [ %.0950, %3066 ], [ %.0950, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit ], [ %.0950, %3099 ], [ %.0950, %3079 ], [ %.0950, %3010 ], [ %.0950, %3024 ], [ %.0950, %3035 ], [ %.0950, %3058 ], [ %.0950, %3019 ], [ %.0950, %3013 ], [ %.0950, %2876 ], [ %.5955, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ %.0950, %2893 ], [ %.0950, %2882 ], [ %.0950, %_ZN4llvm5ErrorD2Ev.exit1681 ], [ %.0950, %2585 ], [ %.0950, %2434 ], [ %.0950, %2481 ], [ %.0950, %2510 ], [ %.0950, %_ZN4llvm5ErrorD2Ev.exit1644 ], [ %.0950, %2501 ], [ %.0950, %2490 ], [ %.0950, %2477 ], [ %.0950, %2401 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1621.thread ], [ %.0950, %2411 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1595.thread ], [ %.0950, %2343 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1615.thread ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1608.thread ], [ %.0950, %2152 ], [ %.0950, %2159 ], [ %.0950, %2084 ], [ %.0950, %2091 ], [ %.0950, %2060 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1570.thread ], [ %.0950, %2067 ], [ %.0950, %2034 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564.thread ], [ %.0950, %2041 ], [ %.0950, %1992 ], [ %.0950, %2027 ], [ %.0950, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit.thread ], [ %.0950, %1978 ], [ %.0950, %1983 ], [ %.0950, %1884 ], [ %.0950, %1889 ], [ %.0950, %1927 ], [ %.0950, %1930 ], [ %.0950, %1937 ], [ %.0950, %1846 ], [ %.0950, %1850 ], [ %.0950, %1865 ], [ %.0950, %1811 ], [ %.0950, %1831 ], [ %.0950, %1820 ], [ %.0950, %1792 ], [ %.0950, %1801 ], [ %.0950, %1747 ], [ %.0950, %1761 ], [ %.0950, %1765 ], [ %.0950, %1729 ], [ %.0950, %1658 ], [ %.0950, %1662 ], [ %.0950, %1668 ], [ %.0950, %1606 ], [ %.0950, %1615 ], [ %.0950, %1434 ], [ %.0950, %1354 ], [ %.0950, %1385 ], [ %.0950, %1370 ], [ %.0950, %1283 ], [ %.0950, %1293 ], [ %.0950, %1236 ], [ %.0950, %1248 ], [ %.0950, %1176 ], [ %.0950, %_ZN4llvm8DebugLocD2Ev.exit1449 ], [ %.0950, %1209 ], [ %.0950, %1203 ], [ %.0950, %_ZN4llvm8DebugLocD2Ev.exit ], [ %.0950, %1164 ], [ %.0950, %1120 ], [ %.0950, %1161 ], [ %.0950, %1060 ], [ %.0950, %.loopexit ], [ %.0950, %1094 ], [ %.0950, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i1424 ], [ %.3953, %4236 ], [ %.0950, %3080 ], [ %.0950, %3190 ], [ %.0950, %_ZN4llvm5ErrorD2Ev.exit1720 ], [ %.0950, %3260 ], [ %.0950, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit ], [ %.0950, %3330 ], [ %.0950, %_ZN4llvm5ErrorD2Ev.exit1741 ], [ %.0950, %3396 ], [ %.0950, %3431 ], [ %.0950, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1770 ], [ %.0950, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1792 ], [ %.0950, %3652 ], [ %.0950, %3768 ], [ %.0950, %.thread ], [ %.0950, %.thread2152 ], [ %.0950, %.thread2157 ], [ %.0950, %.thread2171 ], [ %.0950, %.thread2177 ], [ %.0950, %.thread2208 ], [ %.0950, %3825 ], [ %.0950, %3840 ], [ %.0950, %4182 ], [ %.0950, %4184 ], [ %.3953, %4243 ], [ %.0950, %1121 ], [ %.0950, %_ZNSt6vectorIPN4llvm8FunctionESaIS2_EE9push_backERKS2_.exit ]
+  %.3947 = phi i32 [ %.0944, %1053 ], [ %.0944, %4192 ], [ %.0944, %4197 ], [ %.0944, %4211 ], [ %.0944, %4204 ], [ %.0944, %4137 ], [ %.0944, %4107 ], [ %.0944, %4123 ], [ %.0944, %3921 ], [ %.0944, %3967 ], [ %.0944, %3996 ], [ %.0944, %.critedge1320 ], [ %.0944, %3987 ], [ %.0944, %3976 ], [ %.0944, %3964 ], [ %.0944, %3948 ], [ %.0944, %3884 ], [ %.0944, %3915 ], [ %.0944, %select.unfold2239 ], [ %.0944, %3824 ], [ %.0944, %3799 ], [ %.0944, %_ZL18getDecodedOrderingj.exit1823 ], [ %.0944, %3697 ], [ %.0944, %3706 ], [ %.0944, %3715 ], [ %.0944, %3737 ], [ %.0944, %_ZL18getDecodedOrderingj.exit1810 ], [ %.0944, %3728 ], [ %.0944, %3719 ], [ %.0944, %3576 ], [ %.0944, %3585 ], [ %.0944, %3589 ], [ %.0944, %3597 ], [ %.0944, %3606 ], [ %.0944, %_ZN4llvm17AtomicCmpXchgInst22isValidFailureOrderingENS_14AtomicOrderingE.exit ], [ %.0944, %_ZL18getDecodedOrderingj.exit1787 ], [ %.0944, %3448 ], [ %.0944, %3457 ], [ %.0944, %3464 ], [ %.0944, %3479 ], [ %.0944, %_ZL18getDecodedOrderingj.exit1765 ], [ %.0944, %_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit ], [ %.0944, %.critedge ], [ %.0944, %3382 ], [ %.0944, %3395 ], [ %.0944, %_ZL18getDecodedOrderingj.exit1751.thread ], [ %.0944, %3430 ], [ %.0944, %3435 ], [ %.0944, %3389 ], [ %.0944, %3310 ], [ %.0944, %3316 ], [ %.0944, %3329 ], [ %.0944, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1744 ], [ %.0944, %3323 ], [ %.0944, %3231 ], [ %.0944, %3240 ], [ %.0944, %_ZL18getDecodedOrderingj.exit ], [ %.0944, %3276 ], [ %.0944, %3298 ], [ %.0944, %3259 ], [ %.0944, %3161 ], [ %.0944, %3170 ], [ %.0944, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1724 ], [ %.0944, %3189 ], [ %.0944, %3066 ], [ %.0944, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit ], [ %.0944, %3099 ], [ %.0944, %3079 ], [ %.0944, %3010 ], [ %.0944, %3024 ], [ %.0944, %3035 ], [ %.0944, %3058 ], [ %.0944, %3019 ], [ %.0944, %3013 ], [ %.0944, %2876 ], [ %.0944, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ %.0944, %2893 ], [ %.0944, %2882 ], [ %.0944, %_ZN4llvm5ErrorD2Ev.exit1681 ], [ %.0944, %2585 ], [ %.0944, %2434 ], [ %.0944, %2481 ], [ %.0944, %2510 ], [ %.0944, %_ZN4llvm5ErrorD2Ev.exit1644 ], [ %.0944, %2501 ], [ %.0944, %2490 ], [ %.0944, %2477 ], [ %.0944, %2401 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1621.thread ], [ %.0944, %2411 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1595.thread ], [ %.0944, %2343 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1615.thread ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1608.thread ], [ %.0944, %2152 ], [ %.0944, %2159 ], [ %.0944, %2084 ], [ %.0944, %2091 ], [ %.0944, %2060 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1570.thread ], [ %.0944, %2067 ], [ %.0944, %2034 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564.thread ], [ %.0944, %2041 ], [ %.0944, %1992 ], [ %.0944, %2027 ], [ %.0944, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit.thread ], [ %.0944, %1978 ], [ %.0944, %1983 ], [ %.0944, %1884 ], [ %.0944, %1889 ], [ %.0944, %1927 ], [ %.0944, %1930 ], [ %.0944, %1937 ], [ %.0944, %1846 ], [ %.0944, %1850 ], [ %.0944, %1865 ], [ %.0944, %1811 ], [ %.0944, %1831 ], [ %.0944, %1820 ], [ %.0944, %1792 ], [ %.0944, %1801 ], [ %.0944, %1747 ], [ %.0944, %1761 ], [ %.0944, %1765 ], [ %.0944, %1729 ], [ %.0944, %1658 ], [ %.0944, %1662 ], [ %.0944, %1668 ], [ %.0944, %1606 ], [ %.0944, %1615 ], [ %.0944, %1434 ], [ %.0944, %1354 ], [ %.0944, %1385 ], [ %.0944, %1370 ], [ %.0944, %1283 ], [ %.0944, %1293 ], [ %.0944, %1236 ], [ %.0944, %1248 ], [ %.0944, %1176 ], [ %.0944, %_ZN4llvm8DebugLocD2Ev.exit1449 ], [ %.0944, %1209 ], [ %.0944, %1203 ], [ %.0944, %_ZN4llvm8DebugLocD2Ev.exit ], [ %.0944, %1164 ], [ %.0944, %1120 ], [ %.0944, %1161 ], [ %.0944, %1060 ], [ %.0944, %.loopexit ], [ %.0944, %1094 ], [ %.0944, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i1424 ], [ %.0944, %4236 ], [ %.0944, %3080 ], [ %.0944, %3190 ], [ %.0944, %_ZN4llvm5ErrorD2Ev.exit1720 ], [ %.0944, %3260 ], [ %.0944, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit ], [ %.0944, %3330 ], [ %.0944, %_ZN4llvm5ErrorD2Ev.exit1741 ], [ %.0944, %3396 ], [ %.0944, %3431 ], [ %.0944, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1770 ], [ %.0944, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1792 ], [ %.0944, %3652 ], [ %.0944, %3768 ], [ %.0944, %.thread ], [ %.0944, %.thread2152 ], [ %.0944, %.thread2157 ], [ %.0944, %.thread2171 ], [ %.0944, %.thread2177 ], [ %.0944, %.thread2208 ], [ %.0944, %3825 ], [ %.0944, %3840 ], [ %.0944, %4182 ], [ %.0944, %4184 ], [ %4244, %4243 ], [ %.0944, %1121 ], [ %.0944, %_ZNSt6vectorIPN4llvm8FunctionESaIS2_EE9push_backERKS2_.exit ]
+  %.8 = phi i32 [ 1, %1053 ], [ 1, %4192 ], [ 1, %4197 ], [ 1, %4211 ], [ 1, %4204 ], [ 1, %4137 ], [ 1, %4107 ], [ 1, %4123 ], [ 1, %3921 ], [ 1, %3967 ], [ 1, %3996 ], [ %.37, %.critedge1320 ], [ 1, %3987 ], [ 1, %3976 ], [ 1, %3964 ], [ 1, %3948 ], [ 1, %3884 ], [ 4, %3915 ], [ 1, %select.unfold2239 ], [ 1, %3824 ], [ 1, %3799 ], [ 1, %_ZL18getDecodedOrderingj.exit1823 ], [ 1, %3697 ], [ 1, %3706 ], [ 1, %3715 ], [ 1, %3737 ], [ 1, %_ZL18getDecodedOrderingj.exit1810 ], [ 1, %3728 ], [ 1, %3719 ], [ 1, %3576 ], [ 1, %3585 ], [ 1, %3589 ], [ 1, %3597 ], [ 1, %3606 ], [ 1, %_ZN4llvm17AtomicCmpXchgInst22isValidFailureOrderingENS_14AtomicOrderingE.exit ], [ 1, %_ZL18getDecodedOrderingj.exit1787 ], [ 1, %3448 ], [ 1, %3457 ], [ 1, %3464 ], [ 1, %3479 ], [ 1, %_ZL18getDecodedOrderingj.exit1765 ], [ 1, %_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit ], [ 1, %.critedge ], [ 1, %3382 ], [ 1, %3395 ], [ 1, %_ZL18getDecodedOrderingj.exit1751.thread ], [ 1, %3430 ], [ 1, %3435 ], [ 1, %3389 ], [ 1, %3310 ], [ 1, %3316 ], [ 1, %3329 ], [ %.30, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1744 ], [ 1, %3323 ], [ 1, %3231 ], [ 1, %3240 ], [ 1, %_ZL18getDecodedOrderingj.exit ], [ 1, %3276 ], [ 1, %3298 ], [ 1, %3259 ], [ 1, %3161 ], [ 1, %3170 ], [ %.25, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit1724 ], [ 1, %3189 ], [ 1, %3066 ], [ %.22, %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit ], [ 1, %3099 ], [ 1, %3079 ], [ 1, %3010 ], [ 1, %3024 ], [ 1, %3035 ], [ 1, %3058 ], [ 1, %3019 ], [ 1, %3013 ], [ 1, %2876 ], [ %.20, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ 1, %2893 ], [ 1, %2882 ], [ %.17, %_ZN4llvm5ErrorD2Ev.exit1681 ], [ 1, %2585 ], [ 1, %2434 ], [ 1, %2481 ], [ 1, %2510 ], [ %.14, %_ZN4llvm5ErrorD2Ev.exit1644 ], [ 1, %2501 ], [ 1, %2490 ], [ 1, %2477 ], [ 1, %2401 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1621.thread ], [ 1, %2411 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1595.thread ], [ 1, %2343 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1615.thread ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1608.thread ], [ 1, %2152 ], [ 1, %2159 ], [ 1, %2084 ], [ 1, %2091 ], [ 1, %2060 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1570.thread ], [ 1, %2067 ], [ 1, %2034 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit1564.thread ], [ 1, %2041 ], [ 1, %1992 ], [ 1, %2027 ], [ 1, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit.thread ], [ 1, %1978 ], [ 1, %1983 ], [ 1, %1884 ], [ 1, %1889 ], [ 1, %1927 ], [ 1, %1930 ], [ 1, %1937 ], [ 1, %1846 ], [ 1, %1850 ], [ 1, %1865 ], [ 1, %1811 ], [ 1, %1831 ], [ 1, %1820 ], [ 1, %1792 ], [ 1, %1801 ], [ 1, %1747 ], [ 1, %1761 ], [ 1, %1765 ], [ 1, %1729 ], [ 1, %1658 ], [ 1, %1662 ], [ 1, %1668 ], [ 1, %1606 ], [ 1, %1615 ], [ 1, %1434 ], [ 1, %1354 ], [ 1, %1385 ], [ 1, %1370 ], [ 1, %1283 ], [ 1, %1293 ], [ 1, %1236 ], [ 1, %1248 ], [ 1, %1176 ], [ 4, %_ZN4llvm8DebugLocD2Ev.exit1449 ], [ 1, %1209 ], [ 1, %1203 ], [ 4, %_ZN4llvm8DebugLocD2Ev.exit ], [ 1, %1164 ], [ 1, %1120 ], [ 1, %1161 ], [ 1, %1060 ], [ 4, %.loopexit ], [ 1, %1094 ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i1424 ], [ 0, %4236 ], [ 1, %3080 ], [ 1, %3190 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit1720 ], [ 1, %3260 ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit ], [ 1, %3330 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit1741 ], [ 1, %3396 ], [ 1, %3431 ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1770 ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1792 ], [ 1, %3652 ], [ 1, %3768 ], [ 1, %.thread ], [ 1, %.thread2152 ], [ 1, %.thread2157 ], [ 1, %.thread2171 ], [ 1, %.thread2177 ], [ 1, %.thread2208 ], [ 4, %3825 ], [ 4, %3840 ], [ %.39, %4182 ], [ %.39, %4184 ], [ %spec.select2262, %4243 ], [ 4, %1121 ], [ 4, %_ZNSt6vectorIPN4llvm8FunctionESaIS2_EE9push_backERKS2_.exit ]
   %4247 = load i8, ptr %557, align 8
   %4248 = trunc i8 %4247 to i1
   br i1 %4248, label %4249, label %.critedge1265
@@ -26578,7 +26578,7 @@ declare noundef zeroext i1 @_ZNK4llvm14MetadataLoader10hasFwdRefsEv(ptr noundef 
 declare noundef i32 @_ZNK4llvm14MetadataLoader4sizeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.552.val, i32 %.568.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.552.val, i32 %.568.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %.568.val, 0
   br i1 %3, label %.loopexit.i, label %4
 
@@ -31074,15 +31074,15 @@ _ZN12_GLOBAL__N_113BitcodeReader23setDeferredFunctionInfoEjPN4llvm8FunctionENS1_
   %326 = sub i64 %324, %325
   %327 = ashr exact i64 %326, 3
   %.not.i101 = icmp ugt i64 %327, %323
-  br i1 %.not.i101, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread
+  br i1 %.not.i101, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit.thread
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit: ; preds = %318
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit: ; preds = %318
   %328 = getelementptr inbounds ptr, ptr %.val, i64 %323
   %329 = load ptr, ptr %328, align 8
   %.not45 = icmp eq ptr %329, null
-  br i1 %.not45, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread, label %332
+  br i1 %.not45, label %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit.thread, label %332
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread: ; preds = %318, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit
+_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit.thread: ; preds = %318, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit
   %330 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %331 = getelementptr inbounds nuw i8, ptr %26, i64 33
   store i8 1, ptr %331, align 1
@@ -31091,7 +31091,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread: ; preds 
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %181, ptr noundef nonnull align 8 dereferenceable(34) %26)
   br label %.critedge51
 
-332:                                              ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit
+332:                                              ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit
   %333 = load ptr, ptr %20, align 8
   %334 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #28
   store i8 5, ptr %200, align 8
@@ -31127,7 +31127,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i105: 
 _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.backedge: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i105, %.critedge59
   br label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit
 
-.critedge51:                                      ; preds = %_ZN4llvm8ExpectedIPNS_5ValueEE9takeErrorEv.exit, %_ZN4llvm8ExpectedIPNS_5ValueEE9takeErrorEv.exit94, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.argprom.exit.thread, %315, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i83
+.critedge51:                                      ; preds = %_ZN4llvm8ExpectedIPNS_5ValueEE9takeErrorEv.exit, %_ZN4llvm8ExpectedIPNS_5ValueEE9takeErrorEv.exit94, %_ZNK12_GLOBAL__N_113BitcodeReader13getBasicBlockEj.exit.thread, %315, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i83
   %343 = load i8, ptr %197, align 8
   %344 = trunc i8 %343 to i1
   br i1 %344, label %345, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit124, !llvm.loop !1017
@@ -31555,7 +31555,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_v
   %155 = load i32, ptr %.phi.trans.insert3.i.i, align 8
   %156 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %155, i32 16
   %157 = icmp eq i32 %156, 0
-  br i1 %157, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i.i", label %158
+  br i1 %157, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i.i", label %158
 
 158:                                              ; preds = %150
   %159 = ptrtoint ptr %.01626.i.i to i64
@@ -31606,14 +31606,14 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_
   %187 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.752", ptr %154, i64 %186
   %188 = load ptr, ptr %187, align 8
   %189 = icmp eq ptr %.01824.i.i, %188
-  br i1 %189, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.i.i", label %.lr.ph.i.i.i5.i.i.i
+  br i1 %189, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.i.i", label %.lr.ph.i.i.i5.i.i.i
 
 .lr.ph.i.i.i5.i.i.i:                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i.i, %192
   %190 = phi ptr [ %197, %192 ], [ %188, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i.i ]
   %.01620.i.i.i6.i.i.i = phi i32 [ %.016.i.i.i8.i.i.i, %192 ], [ %.01618.i.i.i4.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i.i ]
   %.01519.i.i.i7.i.i.i = phi i32 [ %193, %192 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i.i ]
   %191 = icmp eq ptr %190, inttoptr (i64 -4096 to ptr)
-  br i1 %191, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i.i", label %192
+  br i1 %191, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i.i", label %192
 
 192:                                              ; preds = %.lr.ph.i.i.i5.i.i.i
   %193 = add i32 %.01519.i.i.i7.i.i.i, 1
@@ -31623,31 +31623,31 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_
   %196 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.752", ptr %154, i64 %195
   %197 = load ptr, ptr %196, align 8
   %198 = icmp eq ptr %.01824.i.i, %197
-  br i1 %198, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.i.i", label %.lr.ph.i.i.i5.i.i.i, !llvm.loop !1029
+  br i1 %198, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.i.i", label %.lr.ph.i.i.i5.i.i.i, !llvm.loop !1029
 
-"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.i.i": ; preds = %192, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i.i
+"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.i.i": ; preds = %192, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i.i
   %199 = phi i64 [ %186, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i.i ], [ %195, %192 ]
   %200 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.752", ptr %154, i64 %199, i32 0, i32 1
   %201 = load i32, ptr %200, align 4
   %202 = icmp ult i32 %.0.i.i.i.i, %201
-  br i1 %202, label %203, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i.i"
+  br i1 %202, label %203, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i.i"
 
-203:                                              ; preds = %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.i.i"
+203:                                              ; preds = %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.i.i"
   store ptr %.01626.i.i, ptr %.029.i.i, align 8
   %204 = getelementptr inbounds nuw i8, ptr %.01626.i.i, i64 8
   %205 = load ptr, ptr %204, align 8
   br label %208
 
-"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i.i": ; preds = %.lr.ph.i.i.i5.i.i.i, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.i.i", %150
+"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i.i": ; preds = %.lr.ph.i.i.i5.i.i.i, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.i.i", %150
   store ptr %.01824.i.i, ptr %.029.i.i, align 8
   %206 = getelementptr inbounds nuw i8, ptr %.01824.i.i, i64 8
   %207 = load ptr, ptr %206, align 8
   br label %208
 
-208:                                              ; preds = %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i.i", %203
-  %.119.i.i = phi ptr [ %.01824.i.i, %203 ], [ %207, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i.i" ]
-  %.117.i.i = phi ptr [ %205, %203 ], [ %.01626.i.i, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i.i" ]
-  %.1.i.i = phi ptr [ %204, %203 ], [ %206, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i.i" ]
+208:                                              ; preds = %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i.i", %203
+  %.119.i.i = phi ptr [ %.01824.i.i, %203 ], [ %207, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i.i" ]
+  %.117.i.i = phi ptr [ %205, %203 ], [ %.01626.i.i, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i.i" ]
+  %.1.i.i = phi ptr [ %204, %203 ], [ %206, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i.i" ]
   %.not.i.i = icmp eq ptr %.119.i.i, null
   br i1 %.not.i.i, label %"_ZN4llvm5Value13mergeUseListsIZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvE3$_0EEPNS_3UseES6_S6_T_.exit.i", label %149, !llvm.loop !1030
 
@@ -31727,7 +31727,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_
   %227 = load i32, ptr %.phi.trans.insert3.i.i, align 8
   %228 = select i1 %.not.i.i.i.i.i.i.i.i49.i, i32 %227, i32 16
   %229 = icmp eq i32 %228, 0
-  br i1 %229, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i64.i", label %230
+  br i1 %229, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i64.i", label %230
 
 230:                                              ; preds = %222
   %231 = ptrtoint ptr %.01626.i46.i to i64
@@ -31778,14 +31778,14 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_
   %259 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.752", ptr %226, i64 %258
   %260 = load ptr, ptr %259, align 8
   %261 = icmp eq ptr %.01824.i47.i, %260
-  br i1 %261, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.i63.i", label %.lr.ph.i.i.i5.i.i59.i
+  br i1 %261, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.i63.i", label %.lr.ph.i.i.i5.i.i59.i
 
 .lr.ph.i.i.i5.i.i59.i:                            ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i56.i, %264
   %262 = phi ptr [ %269, %264 ], [ %260, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i56.i ]
   %.01620.i.i.i6.i.i60.i = phi i32 [ %.016.i.i.i8.i.i62.i, %264 ], [ %.01618.i.i.i4.i.i58.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i56.i ]
   %.01519.i.i.i7.i.i61.i = phi i32 [ %265, %264 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i56.i ]
   %263 = icmp eq ptr %262, inttoptr (i64 -4096 to ptr)
-  br i1 %263, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i64.i", label %264
+  br i1 %263, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i64.i", label %264
 
 264:                                              ; preds = %.lr.ph.i.i.i5.i.i59.i
   %265 = add i32 %.01519.i.i.i7.i.i61.i, 1
@@ -31795,31 +31795,31 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_
   %268 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.752", ptr %226, i64 %267
   %269 = load ptr, ptr %268, align 8
   %270 = icmp eq ptr %.01824.i47.i, %269
-  br i1 %270, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.i63.i", label %.lr.ph.i.i.i5.i.i59.i, !llvm.loop !1029
+  br i1 %270, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.i63.i", label %.lr.ph.i.i.i5.i.i59.i, !llvm.loop !1029
 
-"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.i63.i": ; preds = %264, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i56.i
+"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.i63.i": ; preds = %264, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i56.i
   %271 = phi i64 [ %258, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i56.i ], [ %267, %264 ]
   %272 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.752", ptr %226, i64 %271, i32 0, i32 1
   %273 = load i32, ptr %272, align 4
   %274 = icmp ult i32 %.0.i.i.i57.i, %273
-  br i1 %274, label %275, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i64.i"
+  br i1 %274, label %275, label %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i64.i"
 
-275:                                              ; preds = %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.i63.i"
+275:                                              ; preds = %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.i63.i"
   store ptr %.01626.i46.i, ptr %.029.i45.i, align 8
   %276 = getelementptr inbounds nuw i8, ptr %.01626.i46.i, i64 8
   %277 = load ptr, ptr %276, align 8
   br label %280
 
-"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i64.i": ; preds = %.lr.ph.i.i.i5.i.i59.i, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.i63.i", %222
+"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i64.i": ; preds = %.lr.ph.i.i.i5.i.i59.i, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.i63.i", %222
   store ptr %.01824.i47.i, ptr %.029.i45.i, align 8
   %278 = getelementptr inbounds nuw i8, ptr %.01824.i47.i, i64 8
   %279 = load ptr, ptr %278, align 8
   br label %280
 
-280:                                              ; preds = %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i64.i", %275
-  %.119.i65.i = phi ptr [ %.01824.i47.i, %275 ], [ %279, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i64.i" ]
-  %.117.i66.i = phi ptr [ %277, %275 ], [ %.01626.i46.i, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i64.i" ]
-  %.1.i67.i = phi ptr [ %276, %275 ], [ %278, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.argprom.exit.thread.i64.i" ]
+280:                                              ; preds = %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i64.i", %275
+  %.119.i65.i = phi ptr [ %.01824.i47.i, %275 ], [ %279, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i64.i" ]
+  %.117.i66.i = phi ptr [ %277, %275 ], [ %.01626.i46.i, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i64.i" ]
+  %.1.i67.i = phi ptr [ %276, %275 ], [ %278, %"_ZZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvENK3$_0clERKN4llvm3UseES5_.exit.thread.i64.i" ]
   %.not.i68.i = icmp eq ptr %.119.i65.i, null
   br i1 %.not.i68.i, label %"_ZN4llvm5Value13mergeUseListsIZN12_GLOBAL__N_113BitcodeReader13parseUseListsEvE3$_0EEPNS_3UseES6_S6_T_.exit72.i", label %221, !llvm.loop !1030
 
@@ -33732,7 +33732,7 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EE15_M_erase_at_endEP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113BitcodeReader23propagateAttributeTypesEPN4llvm8CallBaseENS1_8ArrayRefIjEE.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef nonnull %2, ptr nocapture readonly %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113BitcodeReader23propagateAttributeTypesEPN4llvm8CallBaseENS1_8ArrayRefIjEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr noundef nonnull %2, ptr nocapture readonly %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::AttributeList", align 8
   %6 = alloca i32, align 4
   %7 = alloca [3 x i32], align 4
@@ -34338,7 +34338,7 @@ define linkonce_odr hidden void @_ZNK4llvm9InlineAsm16ParseConstraintsEv(ptr dea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm7none_ofIRSt6vectorINS_9InlineAsm14ConstraintInfoESaIS3_EEZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPNS_8FunctionEE3$_0EEbOT_T0_.argprom"(ptr %.0.val, ptr %.8.val) unnamed_addr #19 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm7none_ofIRSt6vectorINS_9InlineAsm14ConstraintInfoESaIS3_EEZN12_GLOBAL__N_113BitcodeReader17parseFunctionBodyEPNS_8FunctionEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val) unnamed_addr #19 {
   %1 = ptrtoint ptr %.8.val to i64
   %2 = ptrtoint ptr %.0.val to i64
   %3 = sub i64 %1, %2
@@ -36115,26 +36115,26 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIj
   %41 = zext i32 %.val6 to i64
   %42 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val, i64 %41
   %43 = icmp eq ptr %.0.i.pn.i.i, %42
-  br i1 %43, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit, label %44
+  br i1 %43, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit, label %44
 
 44:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 8
   %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #28
   %.not.i.not = icmp eq i64 %46, 0
-  br i1 %.not.i.not, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit, label %47
+  br i1 %.not.i.not, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit, label %47
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %45, align 8
   %49 = load i32, ptr %48, align 4
-  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit
+  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit
 
-_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i, %44, %47
+_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i, %44, %47
   %.0.i = phi i32 [ %49, %47 ], [ -1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i ], [ -1, %44 ]
   %50 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %0, i32 noundef %.0.i)
   br label %51
 
-51:                                               ; preds = %12, %2, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit
-  %.0 = phi ptr [ %50, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit ], [ null, %2 ], [ null, %12 ]
+51:                                               ; preds = %12, %2, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit
+  %.0 = phi ptr [ %50, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit ], [ null, %2 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -46620,36 +46620,36 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIj
   %2363 = zext i32 %.val48.i to i64
   %2364 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val.i, i64 %2363
   %2365 = icmp eq ptr %.0.i.pn.i.i.i, %2364
-  br i1 %2365, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i, label %2366
+  br i1 %2365, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i, label %2366
 
 2366:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i
   %2367 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i, i64 8
   %2368 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2367) #28, !noalias !1284
   %.not.i.not.i = icmp eq i64 %2368, 0
-  br i1 %.not.i.not.i, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i, label %2369
+  br i1 %.not.i.not.i, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i, label %2369
 
 2369:                                             ; preds = %2366
   %2370 = load ptr, ptr %2367, align 8, !noalias !1284
   %2371 = load i32, ptr %2370, align 4, !noalias !1284
-  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i
 
-_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i: ; preds = %2369, %2366, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i
+_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i: ; preds = %2369, %2366, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i
   %.0.i.i337 = phi i32 [ %2371, %2369 ], [ -1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i ], [ -1, %2366 ]
   store i32 %.0.i.i337, ptr %47, align 4, !noalias !1284
   %2372 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %.0.i.i337), !noalias !1284
   %.not41.i = icmp eq ptr %2372, null
   br i1 %.not41.i, label %2373, label %2374
 
-2373:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i
+2373:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i
   store i8 1, ptr %552, align 1, !noalias !1284
   store ptr @.str.183, ptr %50, align 8, !noalias !1284
   store i8 3, ptr %551, align 8, !noalias !1284
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %264, ptr noundef nonnull align 8 dereferenceable(34) %50)
   br label %_ZN12_GLOBAL__N_113BitcodeReader20parseGlobalVarRecordEN4llvm8ArrayRefImEE.exit
 
-2374:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i, %2333
-  %.0107.i = phi i32 [ %2343, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i ], [ %2335, %2333 ]
-  %.0.i = phi ptr [ %2372, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i ], [ %2325, %2333 ]
+2374:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i, %2333
+  %.0107.i = phi i32 [ %2343, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i ], [ %2335, %2333 ]
+  %.0.i = phi ptr [ %2372, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i ], [ %2325, %2333 ]
   %2375 = getelementptr inbounds i8, ptr %.sroa.7.0.i326, i64 24
   %2376 = load i64, ptr %2375, align 8, !noalias !1284
   %2377 = trunc i64 %2376 to i32
@@ -47322,42 +47322,42 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIj
   %2635 = zext i32 %.val78.i to i64
   %2636 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val77.i, i64 %2635
   %2637 = icmp eq ptr %.0.i.pn.i.i.i382, %2636
-  br i1 %2637, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i384, label %2638
+  br i1 %2637, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i384, label %2638
 
 2638:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i381
   %2639 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i382, i64 8
   %2640 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2639) #28, !noalias !1299
   %.not.i.not.i383 = icmp eq i64 %2640, 0
-  br i1 %.not.i.not.i383, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i384, label %2641
+  br i1 %.not.i.not.i383, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i384, label %2641
 
 2641:                                             ; preds = %2638
   %2642 = load ptr, ptr %2639, align 8, !noalias !1299
   %2643 = load i32, ptr %2642, align 4, !noalias !1299
-  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i384
+  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i384
 
-_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i384: ; preds = %2641, %2638, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i381
+_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i384: ; preds = %2641, %2638, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i381
   %.0.i.i385 = phi i32 [ %2643, %2641 ], [ -1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i381 ], [ -1, %2638 ]
   store i32 %.0.i.i385, ptr %24, align 4, !noalias !1299
   %2644 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %.0.i.i385), !noalias !1299
   %.not59.i = icmp eq ptr %2644, null
-  br i1 %.not59.i, label %2645, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit._crit_edge.i
+  br i1 %.not59.i, label %2645, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit._crit_edge.i
 
-_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit._crit_edge.i: ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i384
+_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit._crit_edge.i: ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i384
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2644, i64 8
   %.pre.i386 = load i32, ptr %.phi.trans.insert.i, align 8, !noalias !1299
   br label %2646
 
-2645:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i384
+2645:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i384
   store i8 1, ptr %530, align 1, !noalias !1299
   store ptr @.str.186, ptr %26, align 8, !noalias !1299
   store i8 3, ptr %529, align 8, !noalias !1299
   call fastcc void @_ZN12_GLOBAL__N_117BitcodeReaderBase5errorERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(424) %264, ptr noundef nonnull align 8 dereferenceable(34) %26)
   br label %_ZN12_GLOBAL__N_113BitcodeReader19parseFunctionRecordEN4llvm8ArrayRefImEE.exit
 
-2646:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit._crit_edge.i, %2610
-  %2647 = phi i32 [ %.0.i.i385, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit._crit_edge.i ], [ %2607, %2610 ]
-  %2648 = phi i32 [ %.pre.i386, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit._crit_edge.i ], [ %2612, %2610 ]
-  %.0128.i = phi ptr [ %2644, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit._crit_edge.i ], [ %2608, %2610 ]
+2646:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit._crit_edge.i, %2610
+  %2647 = phi i32 [ %.0.i.i385, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit._crit_edge.i ], [ %2607, %2610 ]
+  %2648 = phi i32 [ %.pre.i386, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit._crit_edge.i ], [ %2612, %2610 ]
+  %.0128.i = phi ptr [ %2644, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit._crit_edge.i ], [ %2608, %2610 ]
   %2649 = and i32 %2648, 255
   %2650 = icmp eq i32 %2649, 13
   br i1 %2650, label %2652, label %2651
@@ -47572,15 +47572,15 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i: ; preds = %_ZNK4ll
   %2741 = sub i64 %2739, %2740
   %2742 = ashr exact i64 %2741, 3
   %2743 = icmp ugt i64 %2742, %2738
-  br i1 %2743, label %2744, label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit.i
+  br i1 %2743, label %2744, label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit.i
 
 2744:                                             ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i
   %2745 = getelementptr inbounds %"class.llvm::AttributeList", ptr %.val79.i, i64 %2738
   %2746 = load i64, ptr %2745, align 8, !noalias !1299
   %2747 = inttoptr i64 %2746 to ptr
-  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit.i
+  br label %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit.i
 
-_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit.i: ; preds = %2744, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i
+_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit.i: ; preds = %2744, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i
   %.sroa.0.0.i.i353 = phi ptr [ %2747, %2744 ], [ null, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i ]
   %2748 = getelementptr inbounds nuw i8, ptr %2710, i64 120
   store ptr %.sroa.0.0.i.i353, ptr %2748, align 8, !noalias !1299
@@ -47590,7 +47590,7 @@ _ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit.i: ; preds = %27
   %2750 = trunc i8 %2749 to i1
   br i1 %2750, label %2751, label %_ZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEj.exit.i
 
-2751:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit.i
+2751:                                             ; preds = %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit.i
   store i64 0, ptr %497, align 8, !noalias !1299
   store i64 %498, ptr %21, align 8, !noalias !1299
   store ptr @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPNS0_5ValueEjE3$_0E9_M_invokeERKSt9_Any_dataOj", ptr %496, align 8, !noalias !1299
@@ -47633,7 +47633,7 @@ _ZNSt8functionIFjjjEED2Ev.exit.i.i:               ; preds = %2756, %_ZNKSt8funct
   %2760 = call noundef zeroext i1 %2758(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 3) #28, !noalias !1299
   br label %_ZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEj.exit.i
 
-_ZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEj.exit.i: ; preds = %2759, %_ZNSt8functionIFjjjEED2Ev.exit.i.i, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.argprom.exit.i
+_ZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEj.exit.i: ; preds = %2759, %_ZNSt8functionIFjjjEED2Ev.exit.i.i, %_ZNK12_GLOBAL__N_113BitcodeReader13getAttributesEj.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !1299
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !1299
   %2761 = load ptr, ptr %29, align 8, !noalias !1299
@@ -47713,21 +47713,21 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIj
   %2796 = zext i32 %.val76.i to i64
   %2797 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val75.i, i64 %2796
   %2798 = icmp eq ptr %.0.i.pn.i.i89.i, %2797
-  br i1 %2798, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit93.i, label %2799
+  br i1 %2798, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit93.i, label %2799
 
 2799:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i88.i
   %2800 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i89.i, i64 8
   %2801 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2800) #28, !noalias !1299
   %.not.i90.i = icmp ugt i64 %2801, %2765
-  br i1 %.not.i90.i, label %2802, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit93.i
+  br i1 %.not.i90.i, label %2802, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit93.i
 
 2802:                                             ; preds = %2799
   %2803 = load ptr, ptr %2800, align 8, !noalias !1299
   %2804 = getelementptr inbounds i32, ptr %2803, i64 %2765
   %2805 = load i32, ptr %2804, align 4, !noalias !1299
-  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit93.i
+  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit93.i
 
-_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit93.i: ; preds = %2802, %2799, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i88.i
+_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit93.i: ; preds = %2802, %2799, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i88.i
   %.0.i91.i = phi i32 [ %2805, %2802 ], [ -1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i88.i ], [ -1, %2799 ]
   %2806 = zext i32 %.0.i91.i to i64
   %2807 = load ptr, ptr %309, align 8, !noalias !1299
@@ -47739,7 +47739,7 @@ _ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit93.i: ; pred
   %.not.i94.i = icmp ugt i64 %2812, %2806
   br i1 %.not.i94.i, label %2813, label %_ZN12_GLOBAL__N_113BitcodeReader21getPtrElementTypeByIDEj.exit.thread.i
 
-2813:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit93.i
+2813:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit93.i
   %2814 = getelementptr inbounds ptr, ptr %2808, i64 %2806
   %2815 = load ptr, ptr %2814, align 8, !noalias !1299
   %2816 = getelementptr inbounds nuw i8, ptr %2815, i64 8
@@ -47810,7 +47810,7 @@ _ZN12_GLOBAL__N_113BitcodeReader21getPtrElementTypeByIDEj.exit.i: ; preds = %284
   %.not73.i = icmp eq ptr %2849, null
   br i1 %.not73.i, label %_ZN12_GLOBAL__N_113BitcodeReader21getPtrElementTypeByIDEj.exit.thread.i, label %2850
 
-_ZN12_GLOBAL__N_113BitcodeReader21getPtrElementTypeByIDEj.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_113BitcodeReader21getPtrElementTypeByIDEj.exit.i, %2813, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit93.i
+_ZN12_GLOBAL__N_113BitcodeReader21getPtrElementTypeByIDEj.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_113BitcodeReader21getPtrElementTypeByIDEj.exit.i, %2813, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit93.i
   store i8 1, ptr %509, align 1, !noalias !1299
   store ptr @.str.188, ptr %33, align 8, !noalias !1299
   store i8 3, ptr %508, align 8, !noalias !1299
@@ -47875,7 +47875,7 @@ _ZN12_GLOBAL__N_113BitcodeReader21getPtrElementTypeByIDEj.exit.thread.i: ; preds
   %2874 = load i32, ptr %24, align 4, !noalias !1299
   %.val.i356 = load ptr, ptr %388, align 8, !noalias !1299
   %.val74.i = load i32, ptr %389, align 8, !noalias !1299
-  %2875 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom(ptr %.val.i356, i32 %.val74.i, i32 noundef %2874, i32 noundef 1), !noalias !1299
+  %2875 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr %.val.i356, i32 %.val74.i, i32 noundef %2874, i32 noundef 1), !noalias !1299
   %2876 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader21getPtrElementTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %2875), !noalias !1299
   %.not63.i = icmp eq ptr %2876, null
   br i1 %.not63.i, label %2877, label %2878
@@ -48409,27 +48409,27 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIj
   %3106 = zext i32 %.val62.i to i64
   %3107 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val.i434, i64 %3106
   %3108 = icmp eq ptr %.0.i.pn.i.i.i441, %3107
-  br i1 %3108, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i443, label %3109
+  br i1 %3108, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i443, label %3109
 
 3109:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i440
   %3110 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i441, i64 8
   %3111 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3110) #28, !noalias !1306
   %.not.i.not.i442 = icmp eq i64 %3111, 0
-  br i1 %.not.i.not.i442, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i443, label %3112
+  br i1 %.not.i.not.i442, label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i443, label %3112
 
 3112:                                             ; preds = %3109
   %3113 = load ptr, ptr %3110, align 8, !noalias !1306
   %3114 = load i32, ptr %3113, align 4, !noalias !1306
-  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i443
+  br label %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i443
 
-_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i443: ; preds = %3112, %3109, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i440
+_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i443: ; preds = %3112, %3109, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i440
   %.0.i.i444 = phi i32 [ %3114, %3112 ], [ -1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i440 ], [ -1, %3109 ]
   store i32 %.0.i.i444, ptr %12, align 4, !noalias !1306
   %3115 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113BitcodeReader11getTypeByIDEj(ptr noundef nonnull align 8 dereferenceable(1960) %1, i32 noundef %.0.i.i444), !noalias !1306
   %.not56.i = icmp eq ptr %3115, null
   br i1 %.not56.i, label %3116, label %3121
 
-3116:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i443
+3116:                                             ; preds = %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i443
   store i8 1, ptr %481, align 1, !noalias !1306
   store ptr @.str.191, ptr %15, align 8, !noalias !1306
   store i8 3, ptr %480, align 8, !noalias !1306
@@ -48442,10 +48442,10 @@ _ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i443: ; pre
   %3120 = trunc i64 %3119 to i32
   br label %3121
 
-3121:                                             ; preds = %3117, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i443
-  %.044.i = phi i32 [ %3120, %3117 ], [ %3086, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i443 ]
-  %.043.i = phi ptr [ %3077, %3117 ], [ %3115, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i443 ]
-  %.0.i396 = phi i32 [ 2, %3117 ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.argprom.exit.i443 ]
+3121:                                             ; preds = %3117, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i443
+  %.044.i = phi i32 [ %3120, %3117 ], [ %3086, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i443 ]
+  %.043.i = phi ptr [ %3077, %3117 ], [ %3115, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i443 ]
+  %.0.i396 = phi i32 [ 2, %3117 ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj.exit.i443 ]
   %3122 = add nuw nsw i32 %.0.i396, 1
   %3123 = zext nneg i32 %.0.i396 to i64
   %3124 = getelementptr inbounds i64, ptr %.sroa.7.0.i393, i64 %3123
@@ -50087,13 +50087,13 @@ _ZN4llvm8ExpectedIPNS_8ConstantEED2Ev.exit125.thread: ; preds = %206, %_ZN4llvm8
   %230 = ptrtoint ptr %.val.i.i to i64
   %231 = sub i64 %229, %230
   %232 = icmp eq i64 %231, 9223372036854775800
-  br i1 %232, label %233, label %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %232, label %233, label %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 233:                                              ; preds = %228
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.96) #31
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %228
+_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %228
   %234 = sdiv exact i64 %231, 24
   %235 = icmp eq ptr %223, %.val.i.i
   %.sroa.speculated.i.i.i127 = select i1 %235, i64 1, i64 %234
@@ -50102,35 +50102,35 @@ _ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_c
   %238 = tail call i64 @llvm.umin.i64(i64 %236, i64 384307168202282325)
   %239 = select i1 %237, i64 384307168202282325, i64 %238
   %.not.i.i.i128 = icmp eq i64 %239, 0
-  br i1 %.not.i.i.i128, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i, label %240
+  br i1 %.not.i.i.i128, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.exit.i.i, label %240
 
-240:                                              ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+240:                                              ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %241 = mul nuw nsw i64 %239, 24
   %242 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %241) #30
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %240, %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
-  %243 = phi ptr [ %242, %240 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
+_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %240, %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %243 = phi ptr [ %242, %240 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %244 = getelementptr inbounds %"struct.(anonymous namespace)::BitcodeReader::FunctionOperandInfo", ptr %243, i64 %234
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %244, ptr noundef nonnull readonly align 8 dereferenceable(24) %167, i64 24, i1 false)
   %245 = icmp sgt i64 %231, 0
-  br i1 %245, label %246, label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i
+  br i1 %245, label %246, label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
-246:                                              ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i
+246:                                              ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %243, ptr align 8 %.val.i.i, i64 %231, i1 false)
-  br label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i
+  br label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
-_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i: ; preds = %246, %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.argprom.exit.i.i
+_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %246, %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.exit.i.i
   %247 = getelementptr inbounds i8, ptr %243, i64 %231
   %248 = getelementptr inbounds i8, ptr %247, i64 24
   %.not.i21.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i21.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %249
 
-249:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i
+249:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %231) #32
   br label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %249, %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i.i
+_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %249, %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
   store ptr %243, ptr %22, align 8
   store ptr %248, ptr %24, align 8
   %250 = getelementptr inbounds %"struct.(anonymous namespace)::BitcodeReader::FunctionOperandInfo", ptr %243, i64 %239
@@ -50147,27 +50147,27 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZNSt6vectorIN12_GL
 
 _ZN4llvm8ExpectedIPNS_8ConstantEED2Ev.exit132:    ; preds = %138, %161, %_ZN4llvm8ExpectedIPNS_8ConstantEE9takeErrorEv.exit86, %220, %203, %185, %80, %_ZN4llvm12ErrorSuccessD2Ev.exit
   %.not.i.i.i133 = icmp eq ptr %23, null
-  br i1 %.not.i.i.i133, label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.argprom.exit, label %252
+  br i1 %.not.i.i.i133, label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.exit, label %252
 
 252:                                              ; preds = %_ZN4llvm8ExpectedIPNS_8ConstantEED2Ev.exit132
   %253 = ptrtoint ptr %27 to i64
   %254 = ptrtoint ptr %23 to i64
   %255 = sub i64 %253, %254
   call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %255) #32
-  br label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.argprom.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.argprom.exit: ; preds = %_ZN4llvm8ExpectedIPNS_8ConstantEED2Ev.exit132, %252
+_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.exit: ; preds = %_ZN4llvm8ExpectedIPNS_8ConstantEED2Ev.exit132, %252
   %.not.i.i.i134 = icmp eq ptr %17, null
   br i1 %.not.i.i.i134, label %_ZNSt6vectorISt4pairIPN4llvm11GlobalValueEjESaIS4_EED2Ev.exit, label %256
 
-256:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.argprom.exit
+256:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.exit
   %257 = ptrtoint ptr %21 to i64
   %258 = ptrtoint ptr %17 to i64
   %259 = sub i64 %257, %258
   call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %259) #32
   br label %_ZNSt6vectorISt4pairIPN4llvm11GlobalValueEjESaIS4_EED2Ev.exit
 
-_ZNSt6vectorISt4pairIPN4llvm11GlobalValueEjESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.argprom.exit, %256
+_ZNSt6vectorISt4pairIPN4llvm11GlobalValueEjESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EED2Ev.exit, %256
   %.not.i.i.i135 = icmp eq ptr %11, null
   br i1 %.not.i.i.i135, label %_ZNSt6vectorISt4pairIPN4llvm14GlobalVariableEjESaIS4_EED2Ev.exit, label %260
 
@@ -51771,13 +51771,13 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19Functi
   %12 = ptrtoint ptr %.val.i to i64
   %13 = sub i64 %11, %12
   %14 = icmp eq i64 %13, 9223372036854775800
-  br i1 %14, label %15, label %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i
+  br i1 %14, label %15, label %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 15:                                               ; preds = %10
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.96) #31
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i: ; preds = %10
+_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %10
   %16 = sdiv exact i64 %13, 24
   %17 = icmp eq ptr %4, %.val.i
   %.sroa.speculated.i.i = select i1 %17, i64 1, i64 %16
@@ -51786,35 +51786,35 @@ _ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_c
   %20 = tail call i64 @llvm.umin.i64(i64 %18, i64 384307168202282325)
   %21 = select i1 %19, i64 384307168202282325, i64 %20
   %.not.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.argprom.exit.i, label %22
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.exit.i, label %22
 
-22:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i
+22:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.exit.i
   %23 = mul nuw nsw i64 %21, 24
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #30
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.argprom.exit.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.exit.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.argprom.exit.i: ; preds = %22, %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i
-  %25 = phi ptr [ %24, %22 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i ]
+_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.exit.i: ; preds = %22, %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %25 = phi ptr [ %24, %22 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   %26 = getelementptr inbounds %"struct.(anonymous namespace)::BitcodeReader::FunctionOperandInfo", ptr %25, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
   %27 = icmp sgt i64 %13, 0
-  br i1 %27, label %28, label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i
+  br i1 %27, label %28, label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i
 
-28:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.argprom.exit.i
+28:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.exit.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %25, ptr align 8 %.val.i, i64 %13, i1 false)
-  br label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i
+  br label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i
 
-_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.argprom.exit.i, %28
+_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_M_allocateEm.exit.i, %28
   %29 = getelementptr inbounds i8, ptr %25, i64 %13
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   %.not.i21.i = icmp eq ptr %.val.i, null
   br i1 %.not.i21.i, label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %31
 
-31:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i
+31:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i, i64 noundef %13) #32
   br label %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit20.i, %31
+_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113BitcodeReader19FunctionOperandInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i, %31
   store ptr %25, ptr %0, align 8
   store ptr %30, ptr %3, align 8
   %32 = getelementptr inbounds %"struct.(anonymous namespace)::BitcodeReader::FunctionOperandInfo", ptr %25, i64 %21
@@ -52484,7 +52484,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN12_GLOB
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPNS0_5ValueEjE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #16 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -52492,18 +52492,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -52556,29 +52556,29 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIj
   %25 = zext i32 %.val.val5 to i64
   %26 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val.val, i64 %25
   %27 = icmp eq ptr %.0.i.pn.i.i.i.i.i, %26
-  br i1 %27, label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.argprom.exit", label %28
+  br i1 %27, label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %28
 
 28:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i.i.i
   %29 = zext i32 %.val4 to i64
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i.i.i, i64 8
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #28
   %.not.i.i.i.i = icmp ugt i64 %31, %29
-  br i1 %.not.i.i.i.i, label %32, label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.argprom.exit"
+  br i1 %.not.i.i.i.i, label %32, label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %30, align 8
   %34 = getelementptr inbounds i32, ptr %33, i64 %29
   %35 = load i32, ptr %34, align 4
-  br label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i.i.i, %28, %32
+"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i.i.i, %28, %32
   %.0.i.i.i.i = phi i32 [ %35, %32 ], [ -1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i.i.i ], [ -1, %28 ]
   ret i32 %.0.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFjjjEZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #16 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -52586,18 +52586,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFjjjEZN12_GLOBAL__
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader21callValueTypeCallbackEPN4llvm5ValueEjE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -52718,7 +52718,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN12_GLOB
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPNS0_6ModuleEbbNS0_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #16 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -52726,18 +52726,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -52790,29 +52790,29 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIj
   %25 = zext i32 %.val.val5 to i64
   %26 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.val.val, i64 %25
   %27 = icmp eq ptr %.0.i.pn.i.i.i.i.i, %26
-  br i1 %27, label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS2_15ParserCallbacksEE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit", label %28
+  br i1 %27, label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS2_15ParserCallbacksEE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %28
 
 28:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i.i.i
   %29 = zext i32 %.val4 to i64
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i.i.i, i64 8
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #28
   %.not.i.i.i.i = icmp ugt i64 %31, %29
-  br i1 %.not.i.i.i.i, label %32, label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS2_15ParserCallbacksEE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit"
+  br i1 %.not.i.i.i.i, label %32, label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS2_15ParserCallbacksEE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %30, align 8
   %34 = getelementptr inbounds i32, ptr %33, i64 %29
   %35 = load i32, ptr %34, align 4
-  br label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS2_15ParserCallbacksEE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS2_15ParserCallbacksEE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
-"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS2_15ParserCallbacksEE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i.i.i, %28, %32
+"_ZSt10__invoke_rIjRZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS2_15ParserCallbacksEE3$_1JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i.i.i, %28, %32
   %.0.i.i.i.i = phi i32 [ %35, %32 ], [ -1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit.i.i.i.i ], [ -1, %28 ]
   ret i32 %.0.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFjjjEZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #16 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -52820,18 +52820,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFjjjEZN12_GLOBAL__
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -54624,7 +54624,7 @@ _ZNSt6vectorIN4llvm15FunctionSummary7VFuncIdESaIS2_EE9push_backEOS2_.exit416: ; 
   %899 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #28
   %.sroa.057.0.copyload = load ptr, ptr %206, align 8
   %900 = load ptr, ptr %176, align 8
-  call fastcc void @_ZL24parseTypeIdSummaryRecordN4llvm8ArrayRefImEENS_9StringRefERNS_18ModuleSummaryIndexE.argelim(ptr %898, i64 %899, ptr %.sroa.057.0.copyload, ptr noundef nonnull align 8 dereferenceable(488) %900)
+  call fastcc void @_ZL24parseTypeIdSummaryRecordN4llvm8ArrayRefImEENS_9StringRefERNS_18ModuleSummaryIndexE(ptr %898, i64 %899, ptr %.sroa.057.0.copyload, ptr noundef nonnull align 8 dereferenceable(488) %900)
   br label %_ZNSt6vectorIN4llvm9ValueInfoESaIS1_EED2Ev.exit
 
 901:                                              ; preds = %284
@@ -55478,7 +55478,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader12setValueGUIDEmN4llvm9StringRefENS1_11GlobalValue12LinkageTypesES2_.argprom(ptr noundef nonnull align 8 dereferenceable(600) %0, i64 noundef range(i64 0, 4294967296) %1, ptr %2, i64 %3, i32 noundef %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader12setValueGUIDEmN4llvm9StringRefENS1_11GlobalValue12LinkageTypesES2_(ptr noundef nonnull align 8 dereferenceable(600) %0, i64 noundef range(i64 0, 4294967296) %1, ptr %2, i64 %3, i32 noundef %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca i32, align 4
   call void @_ZN4llvm11GlobalValue19getGlobalIdentifierB5cxx11ENS_9StringRefENS0_12LinkageTypesES1_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr %2, i64 %3, i32 noundef %4, ptr %.0.val, i64 %.8.val) #28
@@ -58468,7 +58468,7 @@ _ZNSt6vectorImSaImEE19_M_range_initializeIPmEEvT_S4_St20forward_iterator_tag.exi
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24parseTypeIdSummaryRecordN4llvm8ArrayRefImEENS_9StringRefERNS_18ModuleSummaryIndexE.argelim(ptr nocapture readonly %0, i64 %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(488) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL24parseTypeIdSummaryRecordN4llvm8ArrayRefImEENS_9StringRefERNS_18ModuleSummaryIndexE(ptr nocapture readonly %0, i64 %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(488) %3) unnamed_addr #0 {
   %5 = alloca %"class.std::tuple.1185", align 8
   %6 = alloca %"class.std::tuple.877", align 1
   %7 = alloca i64, align 8
@@ -67792,14 +67792,14 @@ attributes #33 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !"_ZN4llvm15handleErrorImplIZNS_29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorEE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_"}
 !10 = !{!8, !5}
 !11 = !{!12, !8, !5}
-!12 = distinct !{!12, !13, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorEE3$_0EES9_OT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom: argument 0"}
-!13 = distinct !{!13, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorEE3$_0EES9_OT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom"}
+!12 = distinct !{!12, !13, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorEE3$_0EES9_OT_St10unique_ptrIS1_St14default_deleteIS1_EE: argument 0"}
+!13 = distinct !{!13, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorEE3$_0EES9_OT_St10unique_ptrIS1_St14default_deleteIS1_EE"}
 !14 = !{!15, !5}
 !15 = distinct !{!15, !16, !"_ZN4llvm15handleErrorImplIZNS_29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorEE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_: argument 0"}
 !16 = distinct !{!16, !"_ZN4llvm15handleErrorImplIZNS_29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorEE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_"}
 !17 = !{!18, !15, !5}
-!18 = distinct !{!18, !19, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorEE3$_0EES9_OT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorEE3$_0EES9_OT_St10unique_ptrIS1_St14default_deleteIS1_EE.argprom"}
+!18 = distinct !{!18, !19, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorEE3$_0EES9_OT_St10unique_ptrIS1_St14default_deleteIS1_EE: argument 0"}
+!19 = distinct !{!19, !"_ZN4llvm18ErrorHandlerTraitsIRFvRNS_13ErrorInfoBaseEEE5applyIZNS_29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorEE3$_0EES9_OT_St10unique_ptrIS1_St14default_deleteIS1_EE"}
 !20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
 !22 = !{!"branch_weights", i32 1, i32 1048575}
@@ -68547,8 +68547,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !764 = distinct !{!764, !21}
 !765 = distinct !{!765, !21}
 !766 = !{!767}
-!767 = distinct !{!767, !768, !"_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.argprom: argument 0"}
-!768 = distinct !{!768, !"_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE.argprom"}
+!767 = distinct !{!767, !768, !"_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE: argument 0"}
+!768 = distinct !{!768, !"_ZN12_GLOBAL__N_113BitcodeReader20findFunctionInStreamEPN4llvm8FunctionENS1_16DenseMapIteratorIS3_mNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_mEELb0EEE"}
 !769 = !{!770}
 !770 = distinct !{!770, !771, !"_ZN12_GLOBAL__N_113BitcodeReader29rememberAndSkipFunctionBodiesEv: argument 0"}
 !771 = distinct !{!771, !"_ZN12_GLOBAL__N_113BitcodeReader29rememberAndSkipFunctionBodiesEv"}

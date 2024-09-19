@@ -15221,14 +15221,14 @@ _ZNK5clang12FileEntryRef7getNameEv.exit.i:        ; preds = %9
   %27 = load ptr, ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 32
   store ptr %28, ptr %22, align 8
-  br label %"_ZZN5clang14FrontendAction15BeginSourceFileERNS_16CompilerInstanceERKNS_17FrontendInputFileEENK3$_1clENS_12FileEntryRefE.argprom.argprom.argprom.exit"
+  br label %"_ZZN5clang14FrontendAction15BeginSourceFileERNS_16CompilerInstanceERKNS_17FrontendInputFileEENK3$_1clENS_12FileEntryRefE.exit"
 
 29:                                               ; preds = %_ZNK5clang12FileEntryRef7getNameEv.exit.i
   %30 = getelementptr inbounds nuw i8, ptr %.val.val.val, i64 560
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr %23, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  br label %"_ZZN5clang14FrontendAction15BeginSourceFileERNS_16CompilerInstanceERKNS_17FrontendInputFileEENK3$_1clENS_12FileEntryRefE.argprom.argprom.argprom.exit"
+  br label %"_ZZN5clang14FrontendAction15BeginSourceFileERNS_16CompilerInstanceERKNS_17FrontendInputFileEENK3$_1clENS_12FileEntryRefE.exit"
 
-"_ZZN5clang14FrontendAction15BeginSourceFileERNS_16CompilerInstanceERKNS_17FrontendInputFileEENK3$_1clENS_12FileEntryRefE.argprom.argprom.argprom.exit": ; preds = %26, %29
+"_ZZN5clang14FrontendAction15BeginSourceFileERNS_16CompilerInstanceERKNS_17FrontendInputFileEENK3$_1clENS_12FileEntryRefE.exit": ; preds = %26, %29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)

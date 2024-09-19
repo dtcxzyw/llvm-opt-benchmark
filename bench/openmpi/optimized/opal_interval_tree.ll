@@ -2329,9 +2329,9 @@ define internal fastcc void @opal_interval_tree_delete_fixup(ptr noundef %0, ptr
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   br label %7
 
-7:                                                ; preds = %.lr.ph, %opal_interval_tree_delete_fixup_helper.argprom.exit
-  %.014 = phi ptr [ %2, %.lr.ph ], [ %201, %opal_interval_tree_delete_fixup_helper.argprom.exit ]
-  %.01113 = phi ptr [ %1, %.lr.ph ], [ %.014, %opal_interval_tree_delete_fixup_helper.argprom.exit ]
+7:                                                ; preds = %.lr.ph, %opal_interval_tree_delete_fixup_helper.exit
+  %.014 = phi ptr [ %2, %.lr.ph ], [ %201, %opal_interval_tree_delete_fixup_helper.exit ]
+  %.01113 = phi ptr [ %1, %.lr.ph ], [ %.014, %opal_interval_tree_delete_fixup_helper.exit ]
   %8 = getelementptr inbounds i8, ptr %.01113, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
@@ -2454,7 +2454,7 @@ define internal fastcc void @opal_interval_tree_delete_fixup(ptr noundef %0, ptr
   %79 = getelementptr inbounds i8, ptr %78, i64 56
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %80, 1
-  br i1 %81, label %opal_interval_tree_delete_fixup_helper.argprom.exit, label %92
+  br i1 %81, label %opal_interval_tree_delete_fixup_helper.exit, label %92
 
 .thread20.i:                                      ; preds = %.thread9.i
   %82 = getelementptr inbounds i8, ptr %55, i64 80
@@ -2462,7 +2462,7 @@ define internal fastcc void @opal_interval_tree_delete_fixup(ptr noundef %0, ptr
   %84 = getelementptr inbounds i8, ptr %83, i64 56
   %85 = load i32, ptr %84, align 8
   %86 = icmp eq i32 %85, 1
-  br i1 %86, label %opal_interval_tree_delete_fixup_helper.argprom.exit, label %.thread.thread11.i.loopexit
+  br i1 %86, label %opal_interval_tree_delete_fixup_helper.exit, label %.thread.thread11.i.loopexit
 
 .thread13.i:                                      ; preds = %.thread2.i
   %87 = getelementptr inbounds i8, ptr %70, i64 80
@@ -2470,7 +2470,7 @@ define internal fastcc void @opal_interval_tree_delete_fixup(ptr noundef %0, ptr
   %89 = getelementptr inbounds i8, ptr %88, i64 56
   %90 = load i32, ptr %89, align 8
   %91 = icmp eq i32 %90, 1
-  br i1 %91, label %opal_interval_tree_delete_fixup_helper.argprom.exit, label %.thread17.i.loopexit
+  br i1 %91, label %opal_interval_tree_delete_fixup_helper.exit, label %.thread17.i.loopexit
 
 92:                                               ; preds = %76
   %93 = getelementptr inbounds i8, ptr %16, i64 72
@@ -2583,7 +2583,7 @@ left_rotate.exit52.i:                             ; preds = %134, %122
   store ptr %129, ptr %.sink.i51.i, align 8
   %148 = getelementptr inbounds i8, ptr %129, i64 64
   store ptr %131, ptr %148, align 8
-  br label %opal_interval_tree_delete_fixup_helper.argprom.exit.thread
+  br label %opal_interval_tree_delete_fixup_helper.exit.thread
 
 .thread17.i.loopexit:                             ; preds = %.thread13.i
   %149 = getelementptr inbounds i8, ptr %70, i64 72
@@ -2681,13 +2681,13 @@ right_rotate.exit59.i:                            ; preds = %187, %.thread1.i
   %.sink.i58.i = select i1 %196, ptr %194, ptr %197
   fence release
   store ptr %182, ptr %.sink.i58.i, align 8
-  br label %opal_interval_tree_delete_fixup_helper.argprom.exit.thread
+  br label %opal_interval_tree_delete_fixup_helper.exit.thread
 
-opal_interval_tree_delete_fixup_helper.argprom.exit.thread: ; preds = %left_rotate.exit52.i, %right_rotate.exit59.i
+opal_interval_tree_delete_fixup_helper.exit.thread: ; preds = %left_rotate.exit52.i, %right_rotate.exit59.i
   %198 = load ptr, ptr %4, align 8
   br label %.critedge
 
-opal_interval_tree_delete_fixup_helper.argprom.exit: ; preds = %76, %.thread20.i, %.thread13.i
+opal_interval_tree_delete_fixup_helper.exit:      ; preds = %76, %.thread20.i, %.thread13.i
   %.0616.i = phi ptr [ %70, %.thread13.i ], [ %16, %76 ], [ %55, %.thread20.i ]
   %199 = getelementptr inbounds i8, ptr %.0616.i, i64 56
   store i32 0, ptr %199, align 8
@@ -2697,8 +2697,8 @@ opal_interval_tree_delete_fixup_helper.argprom.exit: ; preds = %76, %.thread20.i
   %.not = icmp eq ptr %.014, %.pre
   br i1 %.not, label %.critedge, label %7, !llvm.loop !20
 
-.critedge:                                        ; preds = %7, %opal_interval_tree_delete_fixup_helper.argprom.exit, %opal_interval_tree_delete_fixup_helper.argprom.exit.thread, %3
-  %.011.lcssa = phi ptr [ %1, %3 ], [ %198, %opal_interval_tree_delete_fixup_helper.argprom.exit.thread ], [ %.014, %opal_interval_tree_delete_fixup_helper.argprom.exit ], [ %.01113, %7 ]
+.critedge:                                        ; preds = %7, %opal_interval_tree_delete_fixup_helper.exit, %opal_interval_tree_delete_fixup_helper.exit.thread, %3
+  %.011.lcssa = phi ptr [ %1, %3 ], [ %198, %opal_interval_tree_delete_fixup_helper.exit.thread ], [ %.014, %opal_interval_tree_delete_fixup_helper.exit ], [ %.01113, %7 ]
   %202 = getelementptr inbounds i8, ptr %.011.lcssa, i64 56
   store i32 1, ptr %202, align 8
   %203 = getelementptr inbounds i8, ptr %0, i64 200

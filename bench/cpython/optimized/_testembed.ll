@@ -1619,14 +1619,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_preinit_compat_config() #0 {
 entry:
-  tail call fastcc void @check_init_compat_config.retelim(i32 noundef 1)
+  tail call fastcc void @check_init_compat_config(i32 noundef 1)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_init_compat_config() #0 {
 entry:
-  tail call fastcc void @check_init_compat_config.retelim(i32 noundef 0)
+  tail call fastcc void @check_init_compat_config(i32 noundef 0)
   ret i32 0
 }
 
@@ -1924,14 +1924,14 @@ init_from_config_clear.exit:                      ; preds = %config_set_string.e
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_init_parse_argv() #0 {
 entry:
-  tail call fastcc void @check_init_parse_argv.retelim(i32 noundef 1)
+  tail call fastcc void @check_init_parse_argv(i32 noundef 1)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_init_dont_parse_argv() #0 {
 entry:
-  tail call fastcc void @check_init_parse_argv.retelim(i32 noundef 0)
+  tail call fastcc void @check_init_parse_argv(i32 noundef 0)
   ret i32 0
 }
 
@@ -2166,28 +2166,28 @@ init_from_config_clear.exit:                      ; preds = %config_set_program_
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_preinit_isolated_config() #0 {
 entry:
-  tail call fastcc void @check_preinit_isolated_config.retelim(i32 noundef 1)
+  tail call fastcc void @check_preinit_isolated_config(i32 noundef 1)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_init_isolated_config() #0 {
 entry:
-  tail call fastcc void @check_preinit_isolated_config.retelim(i32 noundef 0)
+  tail call fastcc void @check_preinit_isolated_config(i32 noundef 0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_preinit_python_config() #0 {
 entry:
-  tail call fastcc void @check_init_python_config.retelim(i32 noundef 1)
+  tail call fastcc void @check_init_python_config(i32 noundef 1)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_init_python_config() #0 {
 entry:
-  tail call fastcc void @check_init_python_config.retelim(i32 noundef 0)
+  tail call fastcc void @check_init_python_config(i32 noundef 0)
   ret i32 0
 }
 
@@ -4353,7 +4353,7 @@ declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #5
 declare i32 @Py_Main(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_init_compat_config.retelim(i32 noundef range(i32 0, 2) %preinit) unnamed_addr #0 {
+define internal fastcc void @check_init_compat_config(i32 noundef range(i32 0, 2) %preinit) unnamed_addr #0 {
 entry:
   %status.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8
@@ -4417,7 +4417,7 @@ declare void @Py_PreInitialize(ptr sret(%struct.PyStatus) align 8, ptr noundef) 
 declare void @PyConfig_SetWideStringList(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_init_parse_argv.retelim(i32 noundef range(i32 0, 2) %parse_argv) unnamed_addr #0 {
+define internal fastcc void @check_init_parse_argv(i32 noundef range(i32 0, 2) %parse_argv) unnamed_addr #0 {
 entry:
   %status.i1 = alloca %struct.PyStatus, align 8
   %status.i = alloca %struct.PyStatus, align 8
@@ -4488,7 +4488,7 @@ entry:
 declare void @PyPreConfig_InitPythonConfig(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_preinit_isolated_config.retelim(i32 noundef range(i32 0, 2) %preinit) unnamed_addr #0 {
+define internal fastcc void @check_preinit_isolated_config(i32 noundef range(i32 0, 2) %preinit) unnamed_addr #0 {
 entry:
   %status.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8
@@ -4604,7 +4604,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @PyConfig_InitIsolatedConfig(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_init_python_config.retelim(i32 noundef range(i32 0, 2) %preinit) unnamed_addr #0 {
+define internal fastcc void @check_init_python_config(i32 noundef range(i32 0, 2) %preinit) unnamed_addr #0 {
 entry:
   %status.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8

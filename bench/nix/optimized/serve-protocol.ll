@@ -3392,13 +3392,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   %.val.i.i.i = load ptr, ptr %5, align 8
   %.val27.i.i.i = load i64, ptr %45, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %.val27.i.i.i, ptr %.val.i.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_SN_E_clESN_SN_.argprom.exit.i.i.i unwind label %82
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_SN_E_clESN_SN_.exit.i.i.i unwind label %82
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_SN_E_clESN_SN_.argprom.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_SN_E_clESN_SN_.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %69 unwind label %82
 
-69:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_SN_E_clESN_SN_.argprom.exit.i.i.i
+69:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_SN_E_clESN_SN_.exit.i.i.i
   %70 = load ptr, ptr %8, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 16
   %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.153)
@@ -3435,7 +3435,7 @@ _ZN7testing7MessageD2Ev.exit.i.i.i:               ; preds = %_ZNKSt14default_del
   store ptr null, ptr %8, align 8
   br label %150
 
-82:                                               ; preds = %95, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_SN_E_clESN_SN_.argprom.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %48, %43
+82:                                               ; preds = %95, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_SN_E_clESN_SN_.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %48, %43
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %161
@@ -3476,16 +3476,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i.i:             ; preds = %_ZNKSt14default_del
 
 95:                                               ; preds = %47
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_E_clB5cxx11ESN_.argprom.exit.i.i.i unwind label %82
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_E_clB5cxx11ESN_.exit.i.i.i unwind label %82
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_E_clB5cxx11ESN_.argprom.exit.i.i.i: ; preds = %95
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_E_clB5cxx11ESN_.exit.i.i.i: ; preds = %95
   %96 = load i64, ptr %45, align 8, !noalias !14
   %97 = getelementptr inbounds i8, ptr %10, i64 8
   %98 = load i64, ptr %97, align 8, !noalias !14
   %99 = icmp eq i64 %96, %98
   br i1 %99, label %100, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i
 
-100:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_E_clB5cxx11ESN_.argprom.exit.i.i.i
+100:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_E_clB5cxx11ESN_.exit.i.i.i
   %101 = icmp eq i64 %96, 0
   br i1 %101, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i
 
@@ -3500,7 +3500,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %107
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_E_clB5cxx11ESN_.argprom.exit.i.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_SD_EEEEvSt17basic_string_viewIcSB_EjRKT_EUlvE_EEvSG_OSH_ENKUlRKSD_E_clB5cxx11ESN_.exit.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %107
 
@@ -4628,13 +4628,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   %.val.i.i.i = load ptr, ptr %5, align 8
   %.val27.i.i.i = load i64, ptr %69, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %.val27.i.i.i, ptr %.val.i.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i unwind label %106
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i unwind label %106
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %93 unwind label %106
 
-93:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i
+93:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i
   %94 = load ptr, ptr %8, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 16
   %96 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull @.str.153)
@@ -4671,7 +4671,7 @@ _ZN7testing7MessageD2Ev.exit.i.i.i:               ; preds = %_ZNKSt14default_del
   store ptr null, ptr %8, align 8
   br label %174
 
-106:                                              ; preds = %119, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %72, %67
+106:                                              ; preds = %119, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %72, %67
   %107 = landingpad { ptr, i32 }
           cleanup
   br label %185
@@ -4712,16 +4712,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i.i:             ; preds = %_ZNKSt14default_del
 
 119:                                              ; preds = %71
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i unwind label %106
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i unwind label %106
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i: ; preds = %119
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i: ; preds = %119
   %120 = load i64, ptr %69, align 8, !noalias !27
   %121 = getelementptr inbounds i8, ptr %10, i64 8
   %122 = load i64, ptr %121, align 8, !noalias !27
   %123 = icmp eq i64 %120, %122
   br i1 %123, label %124, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i
 
-124:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i
+124:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i
   %125 = icmp eq i64 %120, 0
   br i1 %125, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i
 
@@ -4736,7 +4736,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %131
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9StorePathES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %131
 
@@ -5604,13 +5604,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   %.val.i.i.i = load ptr, ptr %5, align 8
   %.val27.i.i.i = load i64, ptr %50, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %.val27.i.i.i, ptr %.val.i.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i unwind label %87
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i unwind label %87
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %74 unwind label %87
 
-74:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i
+74:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i
   %75 = load ptr, ptr %8, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull @.str.153)
@@ -5647,7 +5647,7 @@ _ZN7testing7MessageD2Ev.exit.i.i.i:               ; preds = %_ZNKSt14default_del
   store ptr null, ptr %8, align 8
   br label %155
 
-87:                                               ; preds = %100, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %53, %48
+87:                                               ; preds = %100, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %53, %48
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %166
@@ -5688,16 +5688,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i.i:             ; preds = %_ZNKSt14default_del
 
 100:                                              ; preds = %52
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i unwind label %87
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i unwind label %87
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i: ; preds = %100
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i: ; preds = %100
   %101 = load i64, ptr %50, align 8, !noalias !38
   %102 = getelementptr inbounds i8, ptr %10, i64 8
   %103 = load i64, ptr %102, align 8, !noalias !38
   %104 = icmp eq i64 %101, %103
   br i1 %104, label %105, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i
 
-105:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i
+105:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i
   %106 = icmp eq i64 %101, 0
   br i1 %106, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i
 
@@ -5712,7 +5712,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %112
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_14ContentAddressES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %112
 
@@ -6746,13 +6746,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   %.val.i.i.i = load ptr, ptr %5, align 8
   %.val27.i.i.i = load i64, ptr %53, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %.val27.i.i.i, ptr %.val.i.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i unwind label %90
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i unwind label %90
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %77 unwind label %90
 
-77:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i
+77:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i
   %78 = load ptr, ptr %8, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull @.str.153)
@@ -6789,7 +6789,7 @@ _ZN7testing7MessageD2Ev.exit.i.i.i:               ; preds = %_ZNKSt14default_del
   store ptr null, ptr %8, align 8
   br label %158
 
-90:                                               ; preds = %103, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %56, %51
+90:                                               ; preds = %103, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %56, %51
   %91 = landingpad { ptr, i32 }
           cleanup
   br label %169
@@ -6830,16 +6830,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i.i:             ; preds = %_ZNKSt14default_del
 
 103:                                              ; preds = %55
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i unwind label %90
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i unwind label %90
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i: ; preds = %103
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i: ; preds = %103
   %104 = load i64, ptr %53, align 8, !noalias !46
   %105 = getelementptr inbounds i8, ptr %10, i64 8
   %106 = load i64, ptr %105, align 8, !noalias !46
   %107 = icmp eq i64 %104, %106
   br i1 %107, label %108, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i
 
-108:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i
+108:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i
   %109 = icmp eq i64 %104, 0
   br i1 %109, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i
 
@@ -6854,7 +6854,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %115
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_9DrvOutputES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %115
 
@@ -8762,13 +8762,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   %.val.i.i.i = load ptr, ptr %5, align 8
   %.val27.i.i.i = load i64, ptr %118, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %.val27.i.i.i, ptr %.val.i.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i unwind label %155
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i unwind label %155
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %142 unwind label %155
 
-142:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i
+142:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i
   %143 = load ptr, ptr %8, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 16
   %145 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %144, ptr noundef nonnull @.str.153)
@@ -8805,7 +8805,7 @@ _ZN7testing7MessageD2Ev.exit.i.i.i:               ; preds = %_ZNKSt14default_del
   store ptr null, ptr %8, align 8
   br label %223
 
-155:                                              ; preds = %168, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %121, %116
+155:                                              ; preds = %168, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %121, %116
   %156 = landingpad { ptr, i32 }
           cleanup
   br label %234
@@ -8846,16 +8846,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i.i:             ; preds = %_ZNKSt14default_del
 
 168:                                              ; preds = %120
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i unwind label %155
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i unwind label %155
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i: ; preds = %168
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i: ; preds = %168
   %169 = load i64, ptr %118, align 8, !noalias !62
   %170 = getelementptr inbounds i8, ptr %10, i64 8
   %171 = load i64, ptr %170, align 8, !noalias !62
   %172 = icmp eq i64 %169, %171
   br i1 %172, label %173, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i
 
-173:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i
+173:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i
   %174 = icmp eq i64 %169, 0
   br i1 %174, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i
 
@@ -8870,7 +8870,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %180
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11RealisationES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %180
 
@@ -10758,13 +10758,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %.val.i.i = load ptr, ptr %9, align 8
   %.val27.i.i = load i64, ptr %44, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 %.val27.i.i, ptr %.val.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i unwind label %81
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i unwind label %81
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %68 unwind label %81
 
-68:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i
+68:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i
   %69 = load ptr, ptr %12, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.153)
@@ -10801,7 +10801,7 @@ _ZN7testing7MessageD2Ev.exit.i.i:                 ; preds = %_ZNKSt14default_del
   store ptr null, ptr %12, align 8
   br label %149
 
-81:                                               ; preds = %94, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %47, %42
+81:                                               ; preds = %94, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %47, %42
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %160
@@ -10842,16 +10842,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i:               ; preds = %_ZNKSt14default_del
 
 94:                                               ; preds = %46
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i unwind label %81
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i unwind label %81
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i: ; preds = %94
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i: ; preds = %94
   %95 = load i64, ptr %44, align 8, !noalias !70
   %96 = getelementptr inbounds i8, ptr %14, i64 8
   %97 = load i64, ptr %96, align 8, !noalias !70
   %98 = icmp eq i64 %95, %97
   br i1 %98, label %99, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i
 
-99:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i
+99:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i
   %100 = icmp eq i64 %95, 0
   br i1 %100, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i
 
@@ -10866,7 +10866,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i unwind label %106
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES8_S8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i unwind label %106
 
@@ -14732,13 +14732,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %.val.i.i = load ptr, ptr %9, align 8
   %.val27.i.i = load i64, ptr %43, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 %.val27.i.i, ptr %.val.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i unwind label %80
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i unwind label %80
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %67 unwind label %80
 
-67:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i
+67:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i
   %68 = load ptr, ptr %12, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
   %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull @.str.153)
@@ -14775,7 +14775,7 @@ _ZN7testing7MessageD2Ev.exit.i.i:                 ; preds = %_ZNKSt14default_del
   store ptr null, ptr %12, align 8
   br label %148
 
-80:                                               ; preds = %93, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.argprom.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %46, %41
+80:                                               ; preds = %93, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEESO_E_clESO_SO_.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %46, %41
   %81 = landingpad { ptr, i32 }
           cleanup
   br label %159
@@ -14816,16 +14816,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i:               ; preds = %_ZNKSt14default_del
 
 93:                                               ; preds = %45
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i unwind label %80
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i unwind label %80
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i: ; preds = %93
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i: ; preds = %93
   %94 = load i64, ptr %43, align 8, !noalias !81
   %95 = getelementptr inbounds i8, ptr %14, i64 8
   %96 = load i64, ptr %95, align 8, !noalias !81
   %97 = icmp eq i64 %94, %96
   br i1 %97, label %98, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i
 
-98:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i
+98:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i
   %99 = icmp eq i64 %94, 0
   br i1 %99, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i
 
@@ -14840,7 +14840,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i unwind label %105
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.argprom.exit.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJNS_20UnkeyedValidPathInfoES8_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSD_OSE_ENKUlRKNSt7__cxx1112basic_stringIcSC_SaIcEEEE_clESO_.exit.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i unwind label %105
 
@@ -17150,13 +17150,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %.val.i.i = load ptr, ptr %9, align 8
   %.val27.i.i = load i64, ptr %43, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 %.val27.i.i, ptr %.val.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEESM_E_clESM_SM_.argprom.exit.i.i unwind label %80
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEESM_E_clESM_SM_.exit.i.i unwind label %80
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEESM_E_clESM_SM_.argprom.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEESM_E_clESM_SM_.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %67 unwind label %80
 
-67:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEESM_E_clESM_SM_.argprom.exit.i.i
+67:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEESM_E_clESM_SM_.exit.i.i
   %68 = load ptr, ptr %12, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
   %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull @.str.153)
@@ -17193,7 +17193,7 @@ _ZN7testing7MessageD2Ev.exit.i.i:                 ; preds = %_ZNKSt14default_del
   store ptr null, ptr %12, align 8
   br label %148
 
-80:                                               ; preds = %93, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEESM_E_clESM_SM_.argprom.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %46, %41
+80:                                               ; preds = %93, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEESM_E_clESM_SM_.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %46, %41
   %81 = landingpad { ptr, i32 }
           cleanup
   br label %159
@@ -17234,16 +17234,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i:               ; preds = %_ZNKSt14default_del
 
 93:                                               ; preds = %45
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEEE_clESM_.argprom.exit.i.i unwind label %80
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEEE_clESM_.exit.i.i unwind label %80
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEEE_clESM_.argprom.exit.i.i: ; preds = %93
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEEE_clESM_.exit.i.i: ; preds = %93
   %94 = load i64, ptr %43, align 8, !noalias !95
   %95 = getelementptr inbounds i8, ptr %14, i64 8
   %96 = load i64, ptr %95, align 8, !noalias !95
   %97 = icmp eq i64 %94, %96
   br i1 %97, label %98, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i
 
-98:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEEE_clESM_.argprom.exit.i.i
+98:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEEE_clESM_.exit.i.i
   %99 = icmp eq i64 %94, 0
   br i1 %99, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i
 
@@ -17258,7 +17258,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i unwind label %105
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEEE_clESM_.argprom.exit.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestINS3_12BuildOptionsEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSB_OSC_ENKUlRKNSt7__cxx1112basic_stringIcSA_SaIcEEEE_clESM_.exit.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i unwind label %105
 
@@ -19773,13 +19773,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   %.val.i.i.i = load ptr, ptr %7, align 8
   %.val27.i.i.i = load i64, ptr %180, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 %.val27.i.i.i, ptr %.val.i.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_SS_E_clESS_SS_.argprom.exit.i.i.i unwind label %217
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_SS_E_clESS_SS_.exit.i.i.i unwind label %217
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_SS_E_clESS_SS_.argprom.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_SS_E_clESS_SS_.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %204 unwind label %217
 
-204:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_SS_E_clESS_SS_.argprom.exit.i.i.i
+204:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_SS_E_clESS_SS_.exit.i.i.i
   %205 = load ptr, ptr %10, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 16
   %207 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %206, ptr noundef nonnull @.str.153)
@@ -19816,7 +19816,7 @@ _ZN7testing7MessageD2Ev.exit.i.i.i:               ; preds = %_ZNKSt14default_del
   store ptr null, ptr %10, align 8
   br label %285
 
-217:                                              ; preds = %230, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_SS_E_clESS_SS_.argprom.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %183, %178
+217:                                              ; preds = %230, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_SS_E_clESS_SS_.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %183, %178
   %218 = landingpad { ptr, i32 }
           cleanup
   br label %296
@@ -19857,16 +19857,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i.i:             ; preds = %_ZNKSt14default_del
 
 230:                                              ; preds = %182
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_E_clB5cxx11ESS_.argprom.exit.i.i.i unwind label %217
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_E_clB5cxx11ESS_.exit.i.i.i unwind label %217
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_E_clB5cxx11ESS_.argprom.exit.i.i.i: ; preds = %230
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_E_clB5cxx11ESS_.exit.i.i.i: ; preds = %230
   %231 = load i64, ptr %180, align 8, !noalias !107
   %232 = getelementptr inbounds i8, ptr %12, i64 8
   %233 = load i64, ptr %232, align 8, !noalias !107
   %234 = icmp eq i64 %231, %233
   br i1 %234, label %235, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i
 
-235:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_E_clB5cxx11ESS_.argprom.exit.i.i.i
+235:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_E_clB5cxx11ESS_.exit.i.i.i
   %236 = icmp eq i64 %231, 0
   br i1 %236, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i
 
@@ -19881,7 +19881,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %13)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %242
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_E_clB5cxx11ESS_.argprom.exit.i.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESG_SG_S8_ISG_SaISG_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSL_OSM_ENKUlRKSE_E_clB5cxx11ESS_.exit.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %13, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %242
 
@@ -21857,13 +21857,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   %.val.i.i.i = load ptr, ptr %7, align 8
   %.val27.i.i.i = load i64, ptr %116, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 %.val27.i.i.i, ptr %.val.i.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_SV_E_clESV_SV_.argprom.exit.i.i.i unwind label %153
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_SV_E_clESV_SV_.exit.i.i.i unwind label %153
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_SV_E_clESV_SV_.argprom.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_SV_E_clESV_SV_.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %140 unwind label %153
 
-140:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_SV_E_clESV_SV_.argprom.exit.i.i.i
+140:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_SV_E_clESV_SV_.exit.i.i.i
   %141 = load ptr, ptr %10, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 16
   %143 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull @.str.153)
@@ -21900,7 +21900,7 @@ _ZN7testing7MessageD2Ev.exit.i.i.i:               ; preds = %_ZNKSt14default_del
   store ptr null, ptr %10, align 8
   br label %221
 
-153:                                              ; preds = %166, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_SV_E_clESV_SV_.argprom.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %119, %114
+153:                                              ; preds = %166, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_SV_E_clESV_SV_.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %119, %114
   %154 = landingpad { ptr, i32 }
           cleanup
   br label %232
@@ -21941,16 +21941,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i.i:             ; preds = %_ZNKSt14default_del
 
 166:                                              ; preds = %118
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_E_clB5cxx11ESV_.argprom.exit.i.i.i unwind label %153
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_E_clB5cxx11ESV_.exit.i.i.i unwind label %153
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_E_clB5cxx11ESV_.argprom.exit.i.i.i: ; preds = %166
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_E_clB5cxx11ESV_.exit.i.i.i: ; preds = %166
   %167 = load i64, ptr %116, align 8, !noalias !116
   %168 = getelementptr inbounds i8, ptr %12, i64 8
   %169 = load i64, ptr %168, align 8, !noalias !116
   %170 = icmp eq i64 %167, %169
   br i1 %170, label %171, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i
 
-171:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_E_clB5cxx11ESV_.argprom.exit.i.i.i
+171:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_E_clB5cxx11ESV_.exit.i.i.i
   %172 = icmp eq i64 %167, 0
   br i1 %172, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i
 
@@ -21965,7 +21965,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %13)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %178
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_E_clB5cxx11ESV_.argprom.exit.i.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISE_ESaISE_EESI_SI_S8_ISI_SF_ISI_ESaISI_EEEEEEvSt17basic_string_viewIcSC_EjRKT_EUlvE_EEvSO_OSP_ENKUlRKSE_E_clB5cxx11ESV_.exit.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %13, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %178
 
@@ -23465,13 +23465,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   %.val.i.i.i = load ptr, ptr %5, align 8
   %.val27.i.i.i = load i64, ptr %69, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %.val27.i.i.i, ptr %.val.i.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.argprom.exit.i.i.i unwind label %106
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.exit.i.i.i unwind label %106
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.argprom.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %93 unwind label %106
 
-93:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.argprom.exit.i.i.i
+93:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.exit.i.i.i
   %94 = load ptr, ptr %8, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 16
   %96 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull @.str.153)
@@ -23508,7 +23508,7 @@ _ZN7testing7MessageD2Ev.exit.i.i.i:               ; preds = %_ZNKSt14default_del
   store ptr null, ptr %8, align 8
   br label %174
 
-106:                                              ; preds = %119, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.argprom.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %72, %67
+106:                                              ; preds = %119, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %72, %67
   %107 = landingpad { ptr, i32 }
           cleanup
   br label %185
@@ -23549,16 +23549,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i.i:             ; preds = %_ZNKSt14default_del
 
 119:                                              ; preds = %71
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.argprom.exit.i.i.i unwind label %106
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.exit.i.i.i unwind label %106
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.argprom.exit.i.i.i: ; preds = %119
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.exit.i.i.i: ; preds = %119
   %120 = load i64, ptr %69, align 8, !noalias !124
   %121 = getelementptr inbounds i8, ptr %10, i64 8
   %122 = load i64, ptr %121, align 8, !noalias !124
   %123 = icmp eq i64 %120, %122
   br i1 %123, label %124, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i
 
-124:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.argprom.exit.i.i.i
+124:                                              ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.exit.i.i.i
   %125 = icmp eq i64 %120, 0
   br i1 %125, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i
 
@@ -23573,7 +23573,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %131
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.argprom.exit.i.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_9StorePathEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.exit.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %131
 
@@ -24414,13 +24414,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   %.val.i.i.i = load ptr, ptr %5, align 8
   %.val27.i.i.i = load i64, ptr %44, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %.val27.i.i.i, ptr %.val.i.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.argprom.exit.i.i.i unwind label %81
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.exit.i.i.i unwind label %81
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.argprom.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %68 unwind label %81
 
-68:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.argprom.exit.i.i.i
+68:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.exit.i.i.i
   %69 = load ptr, ptr %8, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.153)
@@ -24457,7 +24457,7 @@ _ZN7testing7MessageD2Ev.exit.i.i.i:               ; preds = %_ZNKSt14default_del
   store ptr null, ptr %8, align 8
   br label %149
 
-81:                                               ; preds = %94, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.argprom.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %47, %42
+81:                                               ; preds = %94, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEESQ_E_clESQ_SQ_.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %47, %42
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %160
@@ -24498,16 +24498,16 @@ _ZN7testing7MessageD2Ev.exit31.i.i.i:             ; preds = %_ZNKSt14default_del
 
 94:                                               ; preds = %46
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.argprom.exit.i.i.i unwind label %81
+          to label %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.exit.i.i.i unwind label %81
 
-_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.argprom.exit.i.i.i: ; preds = %94
+_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.exit.i.i.i: ; preds = %94
   %95 = load i64, ptr %44, align 8, !noalias !135
   %96 = getelementptr inbounds i8, ptr %10, i64 8
   %97 = load i64, ptr %96, align 8, !noalias !135
   %98 = icmp eq i64 %95, %97
   br i1 %98, label %99, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i
 
-99:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.argprom.exit.i.i.i
+99:                                               ; preds = %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.exit.i.i.i
   %100 = icmp eq i64 %95, 0
   br i1 %100, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i
 
@@ -24522,7 +24522,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %106
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.argprom.exit.i.i.i
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i, %_ZZN3nix20CharacterizationTest9writeTestIZNS_18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEE14writeProtoTestISt5tupleIJSt8optionalINS_14ContentAddressEESA_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_EUlvE_EEvSF_OSG_ENKUlRKNSt7__cxx1112basic_stringIcSE_SaIcEEEE_clESQ_.exit.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i.i unwind label %106
 
@@ -25169,13 +25169,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %.val27.i.i = load ptr, ptr %12, align 8
   %.val28.i.i = load i64, ptr %93, align 8
   invoke void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 %.val28.i.i, ptr %.val27.i.i, i32 noundef 438, i1 noundef zeroext false)
-          to label %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEESF_E_clESF_SF_.argprom.exit.i.i" unwind label %151
+          to label %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEESF_E_clESF_SF_.exit.i.i" unwind label %151
 
-"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEESF_E_clESF_SF_.argprom.exit.i.i": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEESF_E_clESF_SF_.exit.i.i": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %138 unwind label %151
 
-138:                                              ; preds = %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEESF_E_clESF_SF_.argprom.exit.i.i"
+138:                                              ; preds = %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEESF_E_clESF_SF_.exit.i.i"
   %139 = load ptr, ptr %15, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 16
   %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull @.str.153)
@@ -25212,7 +25212,7 @@ _ZN7testing7MessageD2Ev.exit.i.i:                 ; preds = %_ZNKSt14default_del
   store ptr null, ptr %15, align 8
   br label %219
 
-151:                                              ; preds = %164, %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEESF_E_clESF_SF_.argprom.exit.i.i", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %117, %114
+151:                                              ; preds = %164, %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEESF_E_clESF_SF_.exit.i.i", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %117, %114
   %152 = landingpad { ptr, i32 }
           cleanup
   br label %230
@@ -25253,16 +25253,16 @@ _ZN7testing7MessageD2Ev.exit34.i.i:               ; preds = %_ZNKSt14default_del
 
 164:                                              ; preds = %116
   invoke void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEEE_clESF_.argprom.exit.i.i" unwind label %151
+          to label %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEEE_clESF_.exit.i.i" unwind label %151
 
-"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEEE_clESF_.argprom.exit.i.i": ; preds = %164
+"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEEE_clESF_.exit.i.i": ; preds = %164
   %165 = load i64, ptr %93, align 8, !noalias !143
   %166 = getelementptr inbounds i8, ptr %17, i64 8
   %167 = load i64, ptr %166, align 8, !noalias !143
   %168 = icmp eq i64 %165, %167
   br i1 %168, label %169, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i
 
-169:                                              ; preds = %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEEE_clESF_.argprom.exit.i.i"
+169:                                              ; preds = %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEEE_clESF_.exit.i.i"
   %170 = icmp eq i64 %165, 0
   br i1 %170, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i
 
@@ -25277,7 +25277,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %18)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i unwind label %176
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEEE_clESF_.argprom.exit.i.i"
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread6.i.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %"_ZZN3nix20CharacterizationTest9writeTestIZNS_33ServeProtoTest_handshake_log_Test8TestBodyEvE3$_0EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_ENKUlRKNSt7__cxx1112basic_stringIcS6_SaIcEEEE_clESF_.exit.i.i"
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %18, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_.exit.i.i unwind label %176
 
@@ -51199,8 +51199,8 @@ attributes #34 = { nounwind willreturn memory(read) }
 !138 = distinct !{!138, !139, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_: argument 0"}
 !139 = distinct !{!139, !"_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSI_RKSA_RKSB_"}
 !140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZZN3nix33ServeProtoTest_handshake_log_Test8TestBodyEvENK3$_0clB5cxx11Ev.argprom: argument 0"}
-!142 = distinct !{!142, !"_ZZN3nix33ServeProtoTest_handshake_log_Test8TestBodyEvENK3$_0clB5cxx11Ev.argprom"}
+!141 = distinct !{!141, !142, !"_ZZN3nix33ServeProtoTest_handshake_log_Test8TestBodyEvENK3$_0clB5cxx11Ev: argument 0"}
+!142 = distinct !{!142, !"_ZZN3nix33ServeProtoTest_handshake_log_Test8TestBodyEvENK3$_0clB5cxx11Ev"}
 !143 = !{!144, !146}
 !144 = distinct !{!144, !145, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: argument 0"}
 !145 = distinct !{!145, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_"}

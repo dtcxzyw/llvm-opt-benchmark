@@ -2513,7 +2513,7 @@ if.end7.i:                                        ; preds = %if.else5.i, %if.end
   %or.cond1.i = select i1 %or.cond.i, i1 true, i1 %cmp11.i
   %cmp13.i = icmp eq ptr %r.0.i, null
   %or.cond2.i = select i1 %or.cond1.i, i1 true, i1 %cmp13.i
-  br i1 %or.cond2.i, label %BN_div_recp.argprom.exit, label %if.end15.i
+  br i1 %or.cond2.i, label %BN_div_recp.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end7.i
   %call16.i = tail call i32 @BN_ucmp(ptr noundef %ca.0, ptr noundef nonnull %recp) #7
@@ -2525,7 +2525,7 @@ if.then18.i:                                      ; preds = %if.end15.i
   %call19.i = tail call ptr @BN_copy(ptr noundef nonnull %r.0.i, ptr noundef %ca.0) #7
   %tobool.not.i = icmp ne ptr %call19.i, null
   %spec.select1.i = zext i1 %tobool.not.i to i32
-  br label %BN_div_recp.argprom.exit
+  br label %BN_div_recp.exit
 
 if.end22.i:                                       ; preds = %if.end15.i
   %call23.i = tail call i32 @BN_num_bits(ptr noundef %ca.0) #7
@@ -2565,38 +2565,38 @@ BN_reciprocal.exit.i:                             ; preds = %if.end3.i.i, %if.en
 if.end32.i:                                       ; preds = %BN_reciprocal.exit.i, %if.end22.i
   %2 = phi i32 [ %ret.0.i.i, %BN_reciprocal.exit.i ], [ %spec.select.i, %if.end22.i ]
   %cmp34.i = icmp eq i32 %2, -1
-  br i1 %cmp34.i, label %BN_div_recp.argprom.exit, label %if.end36.i
+  br i1 %cmp34.i, label %BN_div_recp.exit, label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.end32.i
   %3 = load i32, ptr %num_bits.i, align 8
   %call38.i = tail call i32 @BN_rshift(ptr noundef nonnull %call.i, ptr noundef %ca.0, i32 noundef %3) #7
   %tobool39.not.i = icmp eq i32 %call38.i, 0
-  br i1 %tobool39.not.i, label %BN_div_recp.argprom.exit, label %if.end41.i
+  br i1 %tobool39.not.i, label %BN_div_recp.exit, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.end36.i
   %Nr42.i = getelementptr inbounds i8, ptr %recp, i64 24
   %call43.i = tail call i32 @BN_mul(ptr noundef nonnull %call1.i, ptr noundef nonnull %call.i, ptr noundef nonnull %Nr42.i, ptr noundef %ctx) #7
   %tobool44.not.i = icmp eq i32 %call43.i, 0
-  br i1 %tobool44.not.i, label %BN_div_recp.argprom.exit, label %if.end46.i
+  br i1 %tobool44.not.i, label %BN_div_recp.exit, label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end41.i
   %4 = load i32, ptr %num_bits.i, align 8
   %sub.i = sub nsw i32 %spec.select.i, %4
   %call48.i = tail call i32 @BN_rshift(ptr noundef nonnull %call2.i, ptr noundef nonnull %call1.i, i32 noundef %sub.i) #7
   %tobool49.not.i = icmp eq i32 %call48.i, 0
-  br i1 %tobool49.not.i, label %BN_div_recp.argprom.exit, label %if.end51.i
+  br i1 %tobool49.not.i, label %BN_div_recp.exit, label %if.end51.i
 
 if.end51.i:                                       ; preds = %if.end46.i
   %neg.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   store i32 0, ptr %neg.i, align 8
   %call53.i = tail call i32 @BN_mul(ptr noundef nonnull %call1.i, ptr noundef nonnull %recp, ptr noundef nonnull %call2.i, ptr noundef %ctx) #7
   %tobool54.not.i = icmp eq i32 %call53.i, 0
-  br i1 %tobool54.not.i, label %BN_div_recp.argprom.exit, label %if.end56.i
+  br i1 %tobool54.not.i, label %BN_div_recp.exit, label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.end51.i
   %call57.i = tail call i32 @BN_usub(ptr noundef nonnull %r.0.i, ptr noundef %ca.0, ptr noundef nonnull %call1.i) #7
   %tobool58.not.i = icmp eq i32 %call57.i, 0
-  br i1 %tobool58.not.i, label %BN_div_recp.argprom.exit, label %if.end60.i
+  br i1 %tobool58.not.i, label %BN_div_recp.exit, label %if.end60.i
 
 if.end60.i:                                       ; preds = %if.end56.i
   %neg61.i = getelementptr inbounds i8, ptr %r.0.i, i64 16
@@ -2616,17 +2616,17 @@ while.body.i:                                     ; preds = %while.cond.i
 
 if.then66.i:                                      ; preds = %while.body.i
   tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 348) #7
-  br label %BN_div_recp.argprom.exit
+  br label %BN_div_recp.exit
 
 if.end67.i:                                       ; preds = %while.body.i
   %call69.i = tail call i32 @BN_usub(ptr noundef %r.0.i, ptr noundef %r.0.i, ptr noundef nonnull %recp) #7
   %tobool70.not.i = icmp eq i32 %call69.i, 0
-  br i1 %tobool70.not.i, label %BN_div_recp.argprom.exit, label %if.end72.i
+  br i1 %tobool70.not.i, label %BN_div_recp.exit, label %if.end72.i
 
 if.end72.i:                                       ; preds = %if.end67.i
   %call73.i = tail call i32 @BN_add_word(ptr noundef %call2.i, i64 noundef 1) #7
   %tobool74.not.i = icmp eq i32 %call73.i, 0
-  br i1 %tobool74.not.i, label %BN_div_recp.argprom.exit, label %while.cond.i, !llvm.loop !45
+  br i1 %tobool74.not.i, label %BN_div_recp.exit, label %while.cond.i, !llvm.loop !45
 
 while.end.i:                                      ; preds = %while.cond.i
   %call77.i = tail call i32 @BN_is_zero(ptr noundef %r.0.i) #7
@@ -2647,15 +2647,15 @@ cond.end.i:                                       ; preds = %cond.false.i, %whil
   %7 = load i32, ptr %neg83.i, align 8
   %xor.i = xor i32 %7, %6
   store i32 %xor.i, ptr %neg.i, align 8
-  br label %BN_div_recp.argprom.exit
+  br label %BN_div_recp.exit
 
-BN_div_recp.argprom.exit:                         ; preds = %if.end67.i, %if.end72.i, %if.end7.i, %if.then18.i, %if.end32.i, %if.end36.i, %if.end41.i, %if.end46.i, %if.end51.i, %if.end56.i, %if.then66.i, %cond.end.i
+BN_div_recp.exit:                                 ; preds = %if.end67.i, %if.end72.i, %if.end7.i, %if.then18.i, %if.end32.i, %if.end36.i, %if.end41.i, %if.end46.i, %if.end51.i, %if.end56.i, %if.then66.i, %cond.end.i
   %retval.0.i = phi i32 [ 0, %if.end7.i ], [ 0, %if.end32.i ], [ 0, %if.then66.i ], [ 1, %cond.end.i ], [ 0, %if.end56.i ], [ 0, %if.end51.i ], [ 0, %if.end46.i ], [ 0, %if.end41.i ], [ 0, %if.end36.i ], [ %spec.select1.i, %if.then18.i ], [ 0, %if.end72.i ], [ 0, %if.end67.i ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #7
   br label %err
 
-err:                                              ; preds = %if.else, %if.then4, %entry, %BN_div_recp.argprom.exit
-  %ret.0 = phi i32 [ 0, %entry ], [ %retval.0.i, %BN_div_recp.argprom.exit ], [ 0, %if.then4 ], [ 0, %if.else ]
+err:                                              ; preds = %if.else, %if.then4, %entry, %BN_div_recp.exit
+  %ret.0 = phi i32 [ 0, %entry ], [ %retval.0.i, %BN_div_recp.exit ], [ 0, %if.then4 ], [ 0, %if.else ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #7
   ret i32 %ret.0
 }

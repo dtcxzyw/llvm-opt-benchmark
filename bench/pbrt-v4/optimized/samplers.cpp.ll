@@ -451,7 +451,7 @@ sw.bb.i.i:                                        ; preds = %entry
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8, !noalias !11
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 40, i64 noundef 8), !noalias !11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false), !noalias !11
-  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb1.i.i:                                       ; preds = %entry
   %vtable.i.i.i.i.i.i25.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !16
@@ -459,7 +459,7 @@ sw.bb1.i.i:                                       ; preds = %entry
   %2 = load ptr, ptr %vfn.i.i.i.i.i.i26.i.i, align 8, !noalias !16
   %call.i.i.i.i.i.i27.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 24, i64 noundef 8), !noalias !16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i.i.i.i.i27.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false), !noalias !16
-  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb2.i.i:                                       ; preds = %entry
   %vtable.i.i.i.i.i.i29.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !21
@@ -467,7 +467,7 @@ sw.bb2.i.i:                                       ; preds = %entry
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i30.i.i, align 8, !noalias !21
   %call.i.i.i.i.i.i31.i.i = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 48, i64 noundef 8), !noalias !21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i.i.i.i.i.i31.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i64 48, i1 false), !noalias !21
-  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
   %vtable.i.i.i.i.i.i33.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !26
@@ -475,7 +475,7 @@ sw.bb3.i.i:                                       ; preds = %entry
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i34.i.i, align 8, !noalias !26
   %call.i.i.i.i.i.i35.i.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 56, i64 noundef 8), !noalias !26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i.i.i.i35.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 56, i1 false), !noalias !26
-  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb4.i.i:                                       ; preds = %entry
   %vtable.i.i.i.i.i.i37.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !31
@@ -483,7 +483,7 @@ sw.bb4.i.i:                                       ; preds = %entry
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i38.i.i, align 8, !noalias !31
   %call.i.i.i.i.i.i39.i.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 28, i64 noundef 4), !noalias !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call.i.i.i.i.i.i39.i.i, ptr noundef nonnull readonly align 4 dereferenceable(28) %0, i64 28, i1 false), !noalias !31
-  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb5.i.i:                                       ; preds = %entry
   %vtable.i.i.i.i.i.i41.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !36
@@ -491,7 +491,7 @@ sw.bb5.i.i:                                       ; preds = %entry
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i42.i.i, align 8, !noalias !36
   %call.i.i.i.i.i.i43.i.i = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 40, i64 noundef 8), !noalias !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.i.i43.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false), !noalias !36
-  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb6.i.i:                                       ; preds = %entry
   %vtable.i.i.i.i.i.i45.i.i = load ptr, ptr %alloc.coerce, align 8, !noalias !41
@@ -499,7 +499,7 @@ sw.bb6.i.i:                                       ; preds = %entry
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i46.i.i, align 8, !noalias !41
   %call.i.i.i.i.i.i47.i.i = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 32, i64 noundef 8), !noalias !41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i.i.i47.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !41
-  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.argprom.exit"
+  br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit"
 
 sw.bb7.i.i:                                       ; preds = %entry
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef 336, ptr noundef nonnull @.str.39) #23, !noalias !46
@@ -509,7 +509,7 @@ sw.default.i.i:                                   ; preds = %entry
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef 336, ptr noundef nonnull @.str.39) #23, !noalias !46
   unreachable
 
-"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.argprom.exit": ; preds = %sw.bb.i.i, %sw.bb1.i.i, %sw.bb2.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.bb5.i.i, %sw.bb6.i.i
+"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.exit": ; preds = %sw.bb.i.i, %sw.bb1.i.i, %sw.bb2.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.bb5.i.i, %sw.bb6.i.i
   %call.i.i.i.i.i.i47.sink.i.i = phi ptr [ %call.i.i.i.i.i.i47.i.i, %sw.bb6.i.i ], [ %call.i.i.i.i.i.i43.i.i, %sw.bb5.i.i ], [ %call.i.i.i.i.i.i39.i.i, %sw.bb4.i.i ], [ %call.i.i.i.i.i.i35.i.i, %sw.bb3.i.i ], [ %call.i.i.i.i.i.i31.i.i, %sw.bb2.i.i ], [ %call.i.i.i.i.i.i27.i.i, %sw.bb1.i.i ], [ %call.i.i.i.i.i.i.i.i, %sw.bb.i.i ]
   %.sink1.i.i = phi i64 [ 1008806316530991104, %sw.bb6.i.i ], [ 864691128455135232, %sw.bb5.i.i ], [ 720575940379279360, %sw.bb4.i.i ], [ 576460752303423488, %sw.bb3.i.i ], [ 432345564227567616, %sw.bb2.i.i ], [ 288230376151711744, %sw.bb1.i.i ], [ 144115188075855872, %sw.bb.i.i ]
   %8 = ptrtoint ptr %call.i.i.i.i.i.i47.sink.i.i to i64
@@ -18052,46 +18052,46 @@ attributes #27 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.argprom: %agg.result"}
-!7 = distinct !{!7, !"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_.argprom"}
+!6 = distinct !{!6, !7, !"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_: %agg.result"}
+!7 = distinct !{!7, !"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDcOT_"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN4pbrt6detail11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0S2_NS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEEDaOT_Pvi.argprom: %agg.result"}
-!10 = distinct !{!10, !"_ZN4pbrt6detail11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0S2_NS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEEDaOT_Pvi.argprom"}
+!9 = distinct !{!9, !10, !"_ZN4pbrt6detail11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0S2_NS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEEDaOT_Pvi: %agg.result"}
+!10 = distinct !{!10, !"_ZN4pbrt6detail11DispatchCPUIRZNS_7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0S2_NS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEEDaOT_Pvi"}
 !11 = !{!12, !14, !9, !6}
 !12 = distinct !{!12, !13, !"_ZN4pbrt14PMJ02BNSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE: %agg.result"}
 !13 = distinct !{!13, !"_ZN4pbrt14PMJ02BNSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE"}
-!14 = distinct !{!14, !15, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_14PMJ02BNSamplerEEEDaT_.argprom.argprom: %agg.result"}
-!15 = distinct !{!15, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_14PMJ02BNSamplerEEEDaT_.argprom.argprom"}
+!14 = distinct !{!14, !15, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_14PMJ02BNSamplerEEEDaT_: %agg.result"}
+!15 = distinct !{!15, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_14PMJ02BNSamplerEEEDaT_"}
 !16 = !{!17, !19, !9, !6}
 !17 = distinct !{!17, !18, !"_ZN4pbrt18IndependentSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE: %agg.result"}
 !18 = distinct !{!18, !"_ZN4pbrt18IndependentSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE"}
-!19 = distinct !{!19, !20, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_18IndependentSamplerEEEDaT_.argprom.argprom: %agg.result"}
-!20 = distinct !{!20, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_18IndependentSamplerEEEDaT_.argprom.argprom"}
+!19 = distinct !{!19, !20, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_18IndependentSamplerEEEDaT_: %agg.result"}
+!20 = distinct !{!20, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_18IndependentSamplerEEEDaT_"}
 !21 = !{!22, !24, !9, !6}
 !22 = distinct !{!22, !23, !"_ZN4pbrt17StratifiedSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE: %agg.result"}
 !23 = distinct !{!23, !"_ZN4pbrt17StratifiedSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE"}
-!24 = distinct !{!24, !25, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_17StratifiedSamplerEEEDaT_.argprom.argprom: %agg.result"}
-!25 = distinct !{!25, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_17StratifiedSamplerEEEDaT_.argprom.argprom"}
+!24 = distinct !{!24, !25, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_17StratifiedSamplerEEEDaT_: %agg.result"}
+!25 = distinct !{!25, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_17StratifiedSamplerEEEDaT_"}
 !26 = !{!27, !29, !9, !6}
 !27 = distinct !{!27, !28, !"_ZN4pbrt13HaltonSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE: %agg.result"}
 !28 = distinct !{!28, !"_ZN4pbrt13HaltonSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE"}
-!29 = distinct !{!29, !30, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_13HaltonSamplerEEEDaT_.argprom.argprom: %agg.result"}
-!30 = distinct !{!30, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_13HaltonSamplerEEEDaT_.argprom.argprom"}
+!29 = distinct !{!29, !30, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_13HaltonSamplerEEEDaT_: %agg.result"}
+!30 = distinct !{!30, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_13HaltonSamplerEEEDaT_"}
 !31 = !{!32, !34, !9, !6}
 !32 = distinct !{!32, !33, !"_ZN4pbrt18PaddedSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE: %agg.result"}
 !33 = distinct !{!33, !"_ZN4pbrt18PaddedSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE"}
-!34 = distinct !{!34, !35, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_18PaddedSobolSamplerEEEDaT_.argprom.argprom: %agg.result"}
-!35 = distinct !{!35, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_18PaddedSobolSamplerEEEDaT_.argprom.argprom"}
+!34 = distinct !{!34, !35, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_18PaddedSobolSamplerEEEDaT_: %agg.result"}
+!35 = distinct !{!35, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_18PaddedSobolSamplerEEEDaT_"}
 !36 = !{!37, !39, !9, !6}
 !37 = distinct !{!37, !38, !"_ZN4pbrt12SobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE: %agg.result"}
 !38 = distinct !{!38, !"_ZN4pbrt12SobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE"}
-!39 = distinct !{!39, !40, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_12SobolSamplerEEEDaT_.argprom.argprom: %agg.result"}
-!40 = distinct !{!40, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_12SobolSamplerEEEDaT_.argprom.argprom"}
+!39 = distinct !{!39, !40, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_12SobolSamplerEEEDaT_: %agg.result"}
+!40 = distinct !{!40, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_12SobolSamplerEEEDaT_"}
 !41 = !{!42, !44, !9, !6}
 !42 = distinct !{!42, !43, !"_ZN4pbrt13ZSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE: %agg.result"}
 !43 = distinct !{!43, !"_ZN4pbrt13ZSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE"}
-!44 = distinct !{!44, !45, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_13ZSobolSamplerEEEDaT_.argprom.argprom: %agg.result"}
-!45 = distinct !{!45, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_13ZSobolSamplerEEEDaT_.argprom.argprom"}
+!44 = distinct !{!44, !45, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_13ZSobolSamplerEEEDaT_: %agg.result"}
+!45 = distinct !{!45, !"_ZZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clIPNS_13ZSobolSamplerEEEDaT_"}
 !46 = !{!9, !6}
 !47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}

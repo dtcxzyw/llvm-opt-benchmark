@@ -2664,24 +2664,24 @@ for.body.i19.i:                                   ; preds = %for.cond.i22.i, %fo
   %280 = load ptr, ptr %arrayidx.i21.i, align 16
   %call.i.i250 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %280, ptr noundef nonnull dereferenceable(8) @.str.155) #18
   %tobool.not.i.i251 = icmp eq i32 %call.i.i250, 0
-  br i1 %tobool.not.i.i251, label %has_pack_ext.argprom.exit.i, label %for.cond.i22.i
+  br i1 %tobool.not.i.i251, label %has_pack_ext.exit.i, label %for.cond.i22.i
 
 for.end.i.i:                                      ; preds = %for.cond.i22.i
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.146, i32 noundef 368, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.155) #16
   unreachable
 
-has_pack_ext.argprom.exit.i:                      ; preds = %for.body.i19.i
+has_pack_ext.exit.i:                              ; preds = %for.body.i19.i
   %arrayidx3.i.i = getelementptr inbounds [6 x ptr], ptr %279, i64 0, i64 %indvars.iv.i20.i
   %281 = load ptr, ptr %arrayidx3.i.i, align 8
   %tobool4.i.not.i = icmp eq ptr %281, null
   br i1 %tobool4.i.not.i, label %if.end31.i, label %for.inc.i252
 
-if.end31.i:                                       ; preds = %has_pack_ext.argprom.exit.i
+if.end31.i:                                       ; preds = %has_pack_ext.exit.i
   %282 = load ptr, ptr %item.029.i, align 8
   %call33.i = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cmd.i233, ptr noundef nonnull @.str.167, ptr noundef %282) #15
   br label %if.end36.i
 
-for.inc.i252:                                     ; preds = %has_pack_ext.argprom.exit.i
+for.inc.i252:                                     ; preds = %has_pack_ext.exit.i
   %incdec.ptr.i253 = getelementptr inbounds i8, ptr %item.029.i, i64 16
   %cmp.i254 = icmp ult ptr %incdec.ptr.i253, %add.ptr.i247
   br i1 %cmp.i254, label %for.body.i248, label %if.end36.i, !llvm.loop !21

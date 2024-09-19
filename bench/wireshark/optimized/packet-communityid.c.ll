@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 @.str.20 = private unnamed_addr constant [3 x i8] c"1:\00", align 1
 @.str.21 = private unnamed_addr constant [5 x i8] c"%02x\00", align 1
-@switch.table.communityid_calc.argprom = private unnamed_addr constant [19 x i16] [i16 8, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 10, i16 9, i16 0, i16 0, i16 14, i16 13, i16 16, i16 15, i16 18, i16 17], align 2
+@switch.table.communityid_calc = private unnamed_addr constant [19 x i16] [i16 8, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 10, i16 9, i16 0, i16 0, i16 14, i16 13, i16 16, i16 15, i16 18, i16 17], align 2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_communityid() local_unnamed_addr #0 {
@@ -160,30 +160,30 @@ select.unfold:                                    ; preds = %.thread, %30
   %53 = getelementptr inbounds i8, ptr %1, i64 188
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 4
-  br i1 %55, label %communityid_calc_wrapper.argprom.exit, label %.thread86
+  br i1 %55, label %communityid_calc_wrapper.exit, label %.thread86
 
 56:                                               ; preds = %42
   %57 = getelementptr inbounds i8, ptr %1, i64 188
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %58, 16
-  br i1 %59, label %communityid_calc_wrapper.argprom.exit, label %.thread86
+  br i1 %59, label %communityid_calc_wrapper.exit, label %.thread86
 
-communityid_calc_wrapper.argprom.exit:            ; preds = %52, %56
+communityid_calc_wrapper.exit:                    ; preds = %52, %56
   %.sink.i = phi i8 [ 4, %52 ], [ 16, %56 ]
   %60 = getelementptr inbounds i8, ptr %1, i64 168
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %1, i64 192
   %63 = load ptr, ptr %62, align 8
-  %64 = call fastcc i32 @communityid_calc.argprom(i8 noundef zeroext 1, i8 noundef zeroext %.sink.i, ptr noundef %61, ptr noundef %63, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %5)
+  %64 = call fastcc i32 @communityid_calc(i8 noundef zeroext 1, i8 noundef zeroext %.sink.i, ptr noundef %61, ptr noundef %63, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %5)
   %.not60 = icmp eq i32 %64, 0
-  br i1 %.not60, label %.thread86, label %communityid_calc_wrapper.argprom.exit._crit_edge
+  br i1 %.not60, label %.thread86, label %communityid_calc_wrapper.exit._crit_edge
 
-communityid_calc_wrapper.argprom.exit._crit_edge: ; preds = %communityid_calc_wrapper.argprom.exit
+communityid_calc_wrapper.exit._crit_edge:         ; preds = %communityid_calc_wrapper.exit
   %.pre = load ptr, ptr %5, align 8
   br label %65
 
-65:                                               ; preds = %communityid_calc_wrapper.argprom.exit._crit_edge, %38, %35
-  %66 = phi ptr [ %.pre, %communityid_calc_wrapper.argprom.exit._crit_edge ], [ null, %38 ], [ null, %35 ]
+65:                                               ; preds = %communityid_calc_wrapper.exit._crit_edge, %38, %35
+  %66 = phi ptr [ %.pre, %communityid_calc_wrapper.exit._crit_edge ], [ null, %38 ], [ null, %35 ]
   %67 = icmp eq ptr %66, null
   %68 = load i32, ptr @proto_ipv6, align 4
   %69 = icmp eq i32 %.155, %68
@@ -218,30 +218,30 @@ communityid_calc_wrapper.argprom.exit._crit_edge: ; preds = %communityid_calc_wr
   %85 = getelementptr inbounds i8, ptr %1, i64 188
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, 4
-  br i1 %87, label %communityid_calc_wrapper.argprom.exit76, label %.thread86
+  br i1 %87, label %communityid_calc_wrapper.exit76, label %.thread86
 
 88:                                               ; preds = %74
   %89 = getelementptr inbounds i8, ptr %1, i64 188
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %90, 16
-  br i1 %91, label %communityid_calc_wrapper.argprom.exit76, label %.thread86
+  br i1 %91, label %communityid_calc_wrapper.exit76, label %.thread86
 
-communityid_calc_wrapper.argprom.exit76:          ; preds = %84, %88
+communityid_calc_wrapper.exit76:                  ; preds = %84, %88
   %.sink.i75 = phi i8 [ 4, %84 ], [ 16, %88 ]
   %92 = getelementptr inbounds i8, ptr %1, i64 168
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %1, i64 192
   %95 = load ptr, ptr %94, align 8
-  %96 = call fastcc i32 @communityid_calc.argprom(i8 noundef zeroext 58, i8 noundef zeroext %.sink.i75, ptr noundef %93, ptr noundef %95, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %5)
+  %96 = call fastcc i32 @communityid_calc(i8 noundef zeroext 58, i8 noundef zeroext %.sink.i75, ptr noundef %93, ptr noundef %95, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %5)
   %.not62 = icmp eq i32 %96, 0
-  br i1 %.not62, label %.thread86, label %communityid_calc_wrapper.argprom.exit76.thread-pre-split_crit_edge
+  br i1 %.not62, label %.thread86, label %communityid_calc_wrapper.exit76.thread-pre-split_crit_edge
 
-communityid_calc_wrapper.argprom.exit76.thread-pre-split_crit_edge: ; preds = %communityid_calc_wrapper.argprom.exit76
+communityid_calc_wrapper.exit76.thread-pre-split_crit_edge: ; preds = %communityid_calc_wrapper.exit76
   %.pr.pre = load ptr, ptr %5, align 8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %communityid_calc_wrapper.argprom.exit76.thread-pre-split_crit_edge, %65
-  %97 = phi ptr [ %66, %65 ], [ %.pr.pre, %communityid_calc_wrapper.argprom.exit76.thread-pre-split_crit_edge ]
+thread-pre-split:                                 ; preds = %communityid_calc_wrapper.exit76.thread-pre-split_crit_edge, %65
+  %97 = phi ptr [ %66, %65 ], [ %.pr.pre, %communityid_calc_wrapper.exit76.thread-pre-split_crit_edge ]
   %98 = icmp eq ptr %97, null
   br i1 %98, label %thread-pre-split.thread, label %.thread103
 
@@ -278,25 +278,25 @@ switch.lookup:                                    ; preds = %thread-pre-split.th
   %109 = getelementptr inbounds i8, ptr %1, i64 188
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %110, 4
-  br i1 %111, label %communityid_calc_wrapper.argprom.exit80, label %.thread86
+  br i1 %111, label %communityid_calc_wrapper.exit80, label %.thread86
 
 112:                                              ; preds = %switch.lookup
   %113 = getelementptr inbounds i8, ptr %1, i64 188
   %114 = load i32, ptr %113, align 4
   %115 = icmp eq i32 %114, 16
-  br i1 %115, label %communityid_calc_wrapper.argprom.exit80, label %.thread86
+  br i1 %115, label %communityid_calc_wrapper.exit80, label %.thread86
 
-communityid_calc_wrapper.argprom.exit80:          ; preds = %108, %112
+communityid_calc_wrapper.exit80:                  ; preds = %108, %112
   %.sink.i79 = phi i8 [ 4, %108 ], [ 16, %112 ]
   %116 = getelementptr inbounds i8, ptr %1, i64 168
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %1, i64 192
   %119 = load ptr, ptr %118, align 8
-  %120 = call fastcc i32 @communityid_calc.argprom(i8 noundef zeroext %switch.masked, i8 noundef zeroext %.sink.i79, ptr noundef %117, ptr noundef %119, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %5)
+  %120 = call fastcc i32 @communityid_calc(i8 noundef zeroext %switch.masked, i8 noundef zeroext %.sink.i79, ptr noundef %117, ptr noundef %119, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %5)
   %.not66 = icmp eq i32 %120, 0
   br i1 %.not66, label %.thread86, label %121
 
-121:                                              ; preds = %communityid_calc_wrapper.argprom.exit80
+121:                                              ; preds = %communityid_calc_wrapper.exit80
   %.pre113 = load ptr, ptr %5, align 8
   %122 = icmp eq ptr %.pre113, null
   br i1 %122, label %.thread115, label %.thread103
@@ -349,25 +349,25 @@ communityid_calc_wrapper.argprom.exit80:          ; preds = %108, %112
   %143 = getelementptr inbounds i8, ptr %1, i64 188
   %144 = load i32, ptr %143, align 4
   %145 = icmp eq i32 %144, 4
-  br i1 %145, label %communityid_calc_wrapper.argprom.exit84, label %.thread86
+  br i1 %145, label %communityid_calc_wrapper.exit84, label %.thread86
 
 146:                                              ; preds = %139
   %147 = getelementptr inbounds i8, ptr %1, i64 188
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, 16
-  br i1 %149, label %communityid_calc_wrapper.argprom.exit84, label %.thread86
+  br i1 %149, label %communityid_calc_wrapper.exit84, label %.thread86
 
-communityid_calc_wrapper.argprom.exit84:          ; preds = %142, %146
+communityid_calc_wrapper.exit84:                  ; preds = %142, %146
   %.sink.i83 = phi i8 [ 4, %142 ], [ 16, %146 ]
   %150 = getelementptr inbounds i8, ptr %1, i64 168
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %1, i64 192
   %153 = load ptr, ptr %152, align 8
-  %154 = call fastcc i32 @communityid_calc.argprom(i8 noundef zeroext %.2, i8 noundef zeroext %.sink.i83, ptr noundef %151, ptr noundef %153, ptr noundef null, ptr noundef null, ptr noundef %5)
+  %154 = call fastcc i32 @communityid_calc(i8 noundef zeroext %.2, i8 noundef zeroext %.sink.i83, ptr noundef %151, ptr noundef %153, ptr noundef null, ptr noundef null, ptr noundef %5)
   %.not69 = icmp eq i32 %154, 0
   br i1 %.not69, label %.thread86, label %155
 
-155:                                              ; preds = %communityid_calc_wrapper.argprom.exit84
+155:                                              ; preds = %communityid_calc_wrapper.exit84
   %.pr102.pre = load ptr, ptr %5, align 8
   %.not70 = icmp eq ptr %.pr102.pre, null
   br i1 %.not70, label %.thread120, label %.thread103
@@ -400,8 +400,8 @@ proto_item_set_generated.exit:                    ; preds = %.thread103, %159, %
   %166 = call i32 @tvb_reported_length(ptr noundef %0) #7
   br label %.thread86
 
-.thread86:                                        ; preds = %24, %.thread, %139, %142, %146, %switch.lookup, %108, %112, %74, %84, %88, %42, %52, %56, %30, %communityid_calc_wrapper.argprom.exit84, %communityid_calc_wrapper.argprom.exit80, %communityid_calc_wrapper.argprom.exit76, %communityid_calc_wrapper.argprom.exit, %select.unfold, %4, %.thread120
-  %.0 = phi i32 [ %166, %.thread120 ], [ 0, %4 ], [ 0, %select.unfold ], [ 0, %communityid_calc_wrapper.argprom.exit ], [ 0, %communityid_calc_wrapper.argprom.exit76 ], [ 0, %communityid_calc_wrapper.argprom.exit80 ], [ 0, %communityid_calc_wrapper.argprom.exit84 ], [ 0, %30 ], [ 0, %56 ], [ 0, %52 ], [ 0, %42 ], [ 0, %88 ], [ 0, %84 ], [ 0, %74 ], [ 0, %112 ], [ 0, %108 ], [ 0, %switch.lookup ], [ 0, %146 ], [ 0, %142 ], [ 0, %139 ], [ 0, %.thread ], [ 0, %24 ]
+.thread86:                                        ; preds = %24, %.thread, %139, %142, %146, %switch.lookup, %108, %112, %74, %84, %88, %42, %52, %56, %30, %communityid_calc_wrapper.exit84, %communityid_calc_wrapper.exit80, %communityid_calc_wrapper.exit76, %communityid_calc_wrapper.exit, %select.unfold, %4, %.thread120
+  %.0 = phi i32 [ %166, %.thread120 ], [ 0, %4 ], [ 0, %select.unfold ], [ 0, %communityid_calc_wrapper.exit ], [ 0, %communityid_calc_wrapper.exit76 ], [ 0, %communityid_calc_wrapper.exit80 ], [ 0, %communityid_calc_wrapper.exit84 ], [ 0, %30 ], [ 0, %56 ], [ 0, %52 ], [ 0, %42 ], [ 0, %88 ], [ 0, %84 ], [ 0, %74 ], [ 0, %112 ], [ 0, %108 ], [ 0, %switch.lookup ], [ 0, %146 ], [ 0, %142 ], [ 0, %139 ], [ 0, %.thread ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -432,7 +432,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @communityid_calc.argprom(i8 noundef zeroext %0, i8 noundef zeroext range(i8 4, 17) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @communityid_calc(i8 noundef zeroext %0, i8 noundef zeroext range(i8 4, 17) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i16, align 2
@@ -561,7 +561,7 @@ switch.hole_check:                                ; preds = %27
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %42 = zext nneg i16 %rev87 to i64
-  %switch.gep = getelementptr inbounds [19 x i16], ptr @switch.table.communityid_calc.argprom, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds [19 x i16], ptr @switch.table.communityid_calc, i64 0, i64 %42
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %.thread.critedge
 

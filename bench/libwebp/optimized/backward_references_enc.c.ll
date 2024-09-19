@@ -775,7 +775,7 @@ define hidden i32 @VP8LGetBackwardReferences(i32 noundef %0, i32 noundef %1, ptr
 
 26:                                               ; preds = %14
   store i32 0, ptr %10, align 4
-  %27 = tail call fastcc i32 @BackwardReferencesLz77.argelim(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %8, ptr noundef %9)
+  %27 = tail call fastcc i32 @BackwardReferencesLz77(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %8, ptr noundef %9)
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %GetBackwardReferencesLowEffort.exit.thread53, label %28
 
@@ -1017,7 +1017,7 @@ BackwardRefsNewBlock.exit.thread.i.i.i.i:         ; preds = %138
   %145 = load i32, ptr %103, align 4
   %146 = or i32 %145, 1
   store i32 %146, ptr %103, align 4
-  br label %AddSingleLiteral.argprom.exit.i.i
+  br label %AddSingleLiteral.exit.i.i
 
 147:                                              ; preds = %138
   %148 = getelementptr inbounds i8, ptr %143, i64 24
@@ -1043,13 +1043,13 @@ BackwardRefsNewBlock.exit.thread.i.i.i.i:         ; preds = %138
   %156 = load ptr, ptr %155, align 8
   store i32 1, ptr %154, align 8
   store i64 %.sroa.21.0.insert.insert.i.i.i.i, ptr %156, align 4
-  br label %AddSingleLiteral.argprom.exit.i.i
+  br label %AddSingleLiteral.exit.i.i
 
-AddSingleLiteral.argprom.exit.i.i:                ; preds = %152, %BackwardRefsNewBlock.exit.thread.i.i.i.i
+AddSingleLiteral.exit.i.i:                        ; preds = %152, %BackwardRefsNewBlock.exit.thread.i.i.i.i
   br i1 %95, label %.lr.ph.i.i49, label %BackwardReferencesRle.exit.i
 
-.lr.ph.i.i49:                                     ; preds = %AddSingleLiteral.argprom.exit.i.i, %VP8LBackwardRefsCursorAdd.exit.i.i
-  %.05584.i.i = phi i32 [ %.1.i.i, %VP8LBackwardRefsCursorAdd.exit.i.i ], [ 1, %AddSingleLiteral.argprom.exit.i.i ]
+.lr.ph.i.i49:                                     ; preds = %AddSingleLiteral.exit.i.i, %VP8LBackwardRefsCursorAdd.exit.i.i
+  %.05584.i.i = phi i32 [ %.1.i.i, %VP8LBackwardRefsCursorAdd.exit.i.i ], [ 1, %AddSingleLiteral.exit.i.i ]
   %157 = sub nsw i32 %90, %.05584.i.i
   %158 = call range(i32 -2147483645, 4096) i32 @llvm.smin.i32(i32 %157, i32 4095)
   %159 = zext nneg i32 %.05584.i.i to i64
@@ -1309,14 +1309,14 @@ VP8LBackwardRefsCursorAdd.exit.i.i:               ; preds = %278, %BackwardRefsN
   %286 = icmp slt i32 %.1.i.i, %90
   br i1 %286, label %.lr.ph.i.i49, label %BackwardReferencesRle.exit.i, !llvm.loop !18
 
-BackwardReferencesRle.exit.i:                     ; preds = %VP8LBackwardRefsCursorAdd.exit.i.i, %AddSingleLiteral.argprom.exit.i.i
+BackwardReferencesRle.exit.i:                     ; preds = %VP8LBackwardRefsCursorAdd.exit.i.i, %AddSingleLiteral.exit.i.i
   %287 = load i32, ptr %103, align 4
   %.not.i.i48 = icmp eq i32 %287, 0
   %288 = zext i1 %.not.i.i48 to i32
   br label %431
 
 289:                                              ; preds = %129
-  %290 = call fastcc i32 @BackwardReferencesLz77.argelim(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %8, ptr noundef nonnull %87)
+  %290 = call fastcc i32 @BackwardReferencesLz77(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %8, ptr noundef nonnull %87)
   br label %431
 
 291:                                              ; preds = %129
@@ -1650,7 +1650,7 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %333, %VP8LDistanceT
   %429 = load ptr, ptr %25, align 8
   store i32 0, ptr %429, align 4
   call void @WebPSafeFree(ptr noundef nonnull %295) #11
-  %430 = call fastcc i32 @BackwardReferencesLz77.argelim(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull readonly %25, ptr noundef nonnull %87)
+  %430 = call fastcc i32 @BackwardReferencesLz77(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull readonly %25, ptr noundef nonnull %87)
   br label %BackwardReferencesLz77Box.exit.i
 
 BackwardReferencesLz77Box.exit.i:                 ; preds = %._crit_edge.i.i, %294
@@ -2037,16 +2037,16 @@ VP8LRefsCursorInit.exit.i140.i:                   ; preds = %594
   %598 = load i32, ptr %597, align 8, !noalias !43
   %599 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %17, i32 noundef %.4191.i) #11
   %.not.i141.i = icmp eq i32 %599, 0
-  br i1 %.not.i141.i, label %BackwardRefsWithLocalCache.argprom.exit.thread.i, label %.preheader4.i.i
+  br i1 %.not.i141.i, label %BackwardRefsWithLocalCache.exit.thread.i, label %.preheader4.i.i
 
 VP8LRefsCursorInit.exit.thread.i.i:               ; preds = %594
   %600 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %17, i32 noundef %.4191.i) #11
   %.not17.i.i = icmp eq i32 %600, 0
-  br i1 %.not17.i.i, label %BackwardRefsWithLocalCache.argprom.exit.thread.i, label %BackwardRefsWithLocalCache.argprom.exit.i
+  br i1 %.not17.i.i, label %BackwardRefsWithLocalCache.exit.thread.i, label %BackwardRefsWithLocalCache.exit.i
 
 .preheader4.i.i:                                  ; preds = %VP8LRefsCursorInit.exit.i140.i
   %.not27.i.i = icmp eq ptr %596, null
-  br i1 %.not27.i.i, label %BackwardRefsWithLocalCache.argprom.exit.i, label %.lr.ph12.i.preheader.i
+  br i1 %.not27.i.i, label %BackwardRefsWithLocalCache.exit.i, label %.lr.ph12.i.preheader.i
 
 .lr.ph12.i.preheader.i:                           ; preds = %.preheader4.i.i
   %601 = sext i32 %598 to i64
@@ -2134,7 +2134,7 @@ VP8LRefsCursorInit.exit.thread.i.i:               ; preds = %594
 634:                                              ; preds = %.loopexit.i147.i
   %635 = load ptr, ptr %.sroa.7.09.i.i, align 8
   %636 = icmp eq ptr %635, null
-  br i1 %636, label %BackwardRefsWithLocalCache.argprom.exit.i, label %637
+  br i1 %636, label %BackwardRefsWithLocalCache.exit.i, label %637
 
 637:                                              ; preds = %634
   %638 = getelementptr inbounds i8, ptr %635, i64 8
@@ -2150,18 +2150,18 @@ VP8LRefsCursorNext.exit.i149.i:                   ; preds = %637, %.loopexit.i14
   %.sroa.7.1.i151.i = phi ptr [ %.sroa.7.09.i.i, %.loopexit.i147.i ], [ %635, %637 ]
   %.sroa.0.2.i152.i = phi ptr [ %632, %.loopexit.i147.i ], [ %639, %637 ]
   %.not2.i.i = icmp eq ptr %.sroa.0.2.i152.i, null
-  br i1 %.not2.i.i, label %BackwardRefsWithLocalCache.argprom.exit.i, label %.lr.ph12.i.i, !llvm.loop !47
+  br i1 %.not2.i.i, label %BackwardRefsWithLocalCache.exit.i, label %.lr.ph12.i.i, !llvm.loop !47
 
-BackwardRefsWithLocalCache.argprom.exit.thread.i: ; preds = %VP8LRefsCursorInit.exit.thread.i.i, %VP8LRefsCursorInit.exit.i140.i
+BackwardRefsWithLocalCache.exit.thread.i:         ; preds = %VP8LRefsCursorInit.exit.thread.i.i, %VP8LRefsCursorInit.exit.i140.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   br label %.critedge
 
-BackwardRefsWithLocalCache.argprom.exit.i:        ; preds = %VP8LRefsCursorNext.exit.i149.i, %634, %.preheader4.i.i, %VP8LRefsCursorInit.exit.thread.i.i
+BackwardRefsWithLocalCache.exit.i:                ; preds = %VP8LRefsCursorNext.exit.i149.i, %634, %.preheader4.i.i, %VP8LRefsCursorInit.exit.thread.i.i
   call void @VP8LColorCacheClear(ptr noundef nonnull %17) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   br label %644
 
-644:                                              ; preds = %BackwardRefsWithLocalCache.argprom.exit.i, %592
+644:                                              ; preds = %BackwardRefsWithLocalCache.exit.i, %592
   %645 = icmp eq i32 %.4191.i, 0
   %or.cond5.i = and i1 %85, %645
   br i1 %or.cond5.i, label %647, label %.thread194.i
@@ -2201,9 +2201,9 @@ VP8LClearBackwardRefs.exit.i.i:                   ; preds = %654, %652
   store ptr null, ptr %119, align 8
   store ptr null, ptr %118, align 8
   %.not2.i158.i = icmp eq ptr %.val120.i, null
-  br i1 %.not2.i158.i, label %BackwardRefsClone.argprom.exit.thread.thread.i, label %.lr.ph.i159.i
+  br i1 %.not2.i158.i, label %BackwardRefsClone.exit.thread.thread.i, label %.lr.ph.i159.i
 
-BackwardRefsClone.argprom.exit.thread.thread.i:   ; preds = %VP8LClearBackwardRefs.exit.i.i
+BackwardRefsClone.exit.thread.thread.i:           ; preds = %VP8LClearBackwardRefs.exit.i.i
   store float %.2.i, ptr %648, align 4
   store i32 %.0108221.i, ptr %120, align 4
   br label %698
@@ -2225,7 +2225,7 @@ BackwardRefsClone.argprom.exit.thread.thread.i:   ; preds = %VP8LClearBackwardRe
   %663 = add nsw i64 %662, 24
   %664 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %663) #11
   %665 = icmp eq ptr %664, null
-  br i1 %665, label %BackwardRefsClone.argprom.exit.i, label %666
+  br i1 %665, label %BackwardRefsClone.exit.i, label %666
 
 666:                                              ; preds = %659
   %667 = getelementptr inbounds i8, ptr %664, i64 24
@@ -2260,9 +2260,9 @@ BackwardRefsClone.argprom.exit.thread.thread.i:   ; preds = %VP8LClearBackwardRe
   store i32 %682, ptr %673, align 8
   %683 = load ptr, ptr %.0113.i.i, align 8
   %.not.i160.i = icmp eq ptr %683, null
-  br i1 %.not.i160.i, label %BackwardRefsClone.argprom.exit.thread.i, label %.lr.ph.i159.ithread-pre-split, !llvm.loop !48
+  br i1 %.not.i160.i, label %BackwardRefsClone.exit.thread.i, label %.lr.ph.i159.ithread-pre-split, !llvm.loop !48
 
-BackwardRefsClone.argprom.exit.i:                 ; preds = %659
+BackwardRefsClone.exit.i:                         ; preds = %659
   %684 = getelementptr inbounds i8, ptr %9, i64 44
   %685 = load i32, ptr %684, align 4
   %686 = or i32 %685, 1
@@ -2297,20 +2297,20 @@ BackwardRefsClone.argprom.exit.i:                 ; preds = %659
 
 BackwardRefsSwap.exit.i:                          ; preds = %696, %695
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
-  br label %BackwardRefsClone.argprom.exit.thread.i
+  br label %BackwardRefsClone.exit.thread.i
 
-BackwardRefsClone.argprom.exit.thread.i:          ; preds = %671, %BackwardRefsSwap.exit.i
+BackwardRefsClone.exit.thread.i:                  ; preds = %671, %BackwardRefsSwap.exit.i
   store float %.2.i, ptr %648, align 4
   %697 = getelementptr inbounds [2 x i32], ptr %23, i64 0, i64 %indvars.iv.i
   store i32 %.0108221.i, ptr %697, align 4
   br i1 %436, label %.thread248.i, label %698
 
-.thread248.i:                                     ; preds = %BackwardRefsClone.argprom.exit.thread.i
+.thread248.i:                                     ; preds = %BackwardRefsClone.exit.thread.i
   store i32 %.0181199.i, ptr %10, align 4
   br label %.loopexit206.i
 
-698:                                              ; preds = %BackwardRefsClone.argprom.exit.thread.i, %BackwardRefsClone.argprom.exit.thread.thread.i, %647, %.preheader205.i
-  %.1105.i = phi float [ %.2.i, %BackwardRefsClone.argprom.exit.thread.i ], [ %.2.i, %647 ], [ %.0104218.i, %.preheader205.i ], [ %.2.i, %BackwardRefsClone.argprom.exit.thread.thread.i ]
+698:                                              ; preds = %BackwardRefsClone.exit.thread.i, %BackwardRefsClone.exit.thread.thread.i, %647, %.preheader205.i
+  %.1105.i = phi float [ %.2.i, %BackwardRefsClone.exit.thread.i ], [ %.2.i, %647 ], [ %.0104218.i, %.preheader205.i ], [ %.2.i, %BackwardRefsClone.exit.thread.thread.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not246.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not246.i, label %.loopexit206.i, label %.preheader205.i, !llvm.loop !49
@@ -2402,13 +2402,13 @@ BackwardRefsSwap.exit166.i:                       ; preds = %736, %735
   %738 = getelementptr %struct.VP8LBackwardRefs, ptr %9, i64 %indvars.iv240.i, i32 2
   %.val.i34 = load ptr, ptr %738, align 8, !noalias !51
   %.not.i.i167.i = icmp eq ptr %.val.i34, null
-  br i1 %.not.i.i167.i, label %BackwardReferences2DLocality.argprom.exit.i, label %VP8LRefsCursorInit.exit.i168.i
+  br i1 %.not.i.i167.i, label %BackwardReferences2DLocality.exit.i, label %VP8LRefsCursorInit.exit.i168.i
 
 VP8LRefsCursorInit.exit.i168.i:                   ; preds = %737
   %739 = getelementptr inbounds i8, ptr %.val.i34, i64 8
   %740 = load ptr, ptr %739, align 8, !noalias !54
   %.not45.i.i35 = icmp eq ptr %740, null
-  br i1 %.not45.i.i35, label %BackwardReferences2DLocality.argprom.exit.i, label %.lr.ph.i169.i
+  br i1 %.not45.i.i35, label %BackwardReferences2DLocality.exit.i, label %.lr.ph.i169.i
 
 .lr.ph.i169.i:                                    ; preds = %VP8LRefsCursorInit.exit.i168.i
   %741 = getelementptr inbounds i8, ptr %.val.i34, i64 16
@@ -2481,7 +2481,7 @@ VP8LDistanceToPlaneCode.exit.i176.i:              ; preds = %774, %765, %753
 779:                                              ; preds = %776
   %780 = load ptr, ptr %.sroa.9.07.i.i37, align 8
   %781 = icmp eq ptr %780, null
-  br i1 %781, label %BackwardReferences2DLocality.argprom.exit.i, label %782
+  br i1 %781, label %BackwardReferences2DLocality.exit.i, label %782
 
 782:                                              ; preds = %779
   %783 = getelementptr inbounds i8, ptr %780, i64 8
@@ -2497,16 +2497,16 @@ VP8LRefsCursorNext.exit.i171.i:                   ; preds = %782, %776
   %.sroa.9.1.i.i41 = phi ptr [ %.sroa.9.07.i.i37, %776 ], [ %780, %782 ]
   %.sroa.0.2.i172.i = phi ptr [ %777, %776 ], [ %784, %782 ]
   %.not4.i.i42 = icmp eq ptr %.sroa.0.2.i172.i, null
-  br i1 %.not4.i.i42, label %BackwardReferences2DLocality.argprom.exit.i, label %745, !llvm.loop !17
+  br i1 %.not4.i.i42, label %BackwardReferences2DLocality.exit.i, label %745, !llvm.loop !17
 
-BackwardReferences2DLocality.argprom.exit.i:      ; preds = %VP8LRefsCursorNext.exit.i171.i, %779, %VP8LRefsCursorInit.exit.i168.i, %737
+BackwardReferences2DLocality.exit.i:              ; preds = %VP8LRefsCursorNext.exit.i171.i, %779, %VP8LRefsCursorInit.exit.i168.i, %737
   %789 = icmp eq i64 %indvars.iv240.i, 1
   %790 = load i32, ptr %125, align 4
   %791 = icmp eq i32 %121, %790
   %or.cond225.i = select i1 %789, i1 %791, i1 false
   br i1 %or.cond225.i, label %792, label %798
 
-792:                                              ; preds = %BackwardReferences2DLocality.argprom.exit.i
+792:                                              ; preds = %BackwardReferences2DLocality.exit.i
   %793 = load i32, ptr %10, align 4
   %794 = icmp eq i32 %793, 0
   br i1 %794, label %795, label %798
@@ -2514,11 +2514,11 @@ BackwardReferences2DLocality.argprom.exit.i:      ; preds = %VP8LRefsCursorNext.
 795:                                              ; preds = %792
   %796 = getelementptr i8, ptr %9, i64 48
   %.val121.i = load ptr, ptr %796, align 8
-  %797 = call fastcc i32 @BackwardRefsClone.argprom(ptr %.val121.i, ptr noundef %9)
+  %797 = call fastcc i32 @BackwardRefsClone(ptr %.val121.i, ptr noundef %9)
   %.not113.i = icmp eq i32 %797, 0
   br i1 %.not113.i, label %.critedge, label %.loopexit.i
 
-798:                                              ; preds = %792, %BackwardReferences2DLocality.argprom.exit.i, %702
+798:                                              ; preds = %792, %BackwardReferences2DLocality.exit.i, %702
   %indvars.iv.next241.i = add nsw i64 %indvars.iv240.i, -1
   %.not247.i = icmp eq i64 %indvars.iv240.i, 0
   br i1 %.not247.i, label %.loopexit.i, label %702, !llvm.loop !57
@@ -2535,7 +2535,7 @@ BackwardReferences2DLocality.argprom.exit.i:      ; preds = %VP8LRefsCursorNext.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
   br label %GetBackwardReferencesLowEffort.exit.thread
 
-.critedge:                                        ; preds = %291, %129, %431, %CalculateBestCacheSize.exit.i, %716, %BackwardRefsWithLocalCache.argprom.exit.thread.i, %795, %BackwardRefsClone.argprom.exit.i, %84
+.critedge:                                        ; preds = %291, %129, %431, %CalculateBestCacheSize.exit.i, %716, %BackwardRefsWithLocalCache.exit.thread.i, %795, %BackwardRefsClone.exit.i, %84
   %801 = load ptr, ptr %25, align 8
   call void @WebPSafeFree(ptr noundef %801) #11
   %802 = getelementptr inbounds i8, ptr %25, i64 8
@@ -2560,7 +2560,7 @@ GetBackwardReferencesLowEffort.exit.thread:       ; preds = %GetBackwardReferenc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BackwardReferencesLz77.argelim(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @BackwardReferencesLz77(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #2 {
   %6 = mul nsw i32 %1, %0
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -2590,9 +2590,9 @@ VP8LClearBackwardRefs.exit:                       ; preds = %5, %9
   %18 = getelementptr inbounds i8, ptr %4, i64 4
   br label %19
 
-19:                                               ; preds = %.lr.ph93, %AddSingleLiteral.argprom.exit
-  %.090 = phi i32 [ 0, %.lr.ph93 ], [ %117, %AddSingleLiteral.argprom.exit ]
-  %.05289 = phi i32 [ -1, %.lr.ph93 ], [ %.180, %AddSingleLiteral.argprom.exit ]
+19:                                               ; preds = %.lr.ph93, %AddSingleLiteral.exit
+  %.090 = phi i32 [ 0, %.lr.ph93 ], [ %117, %AddSingleLiteral.exit ]
+  %.05289 = phi i32 [ -1, %.lr.ph93 ], [ %.180, %AddSingleLiteral.exit ]
   %.val.i = load ptr, ptr %3, align 8
   %20 = sext i32 %.090 to i64
   %21 = getelementptr inbounds i32, ptr %.val.i, i64 %20
@@ -2694,7 +2694,7 @@ BackwardRefsNewBlock.exit.thread.i.i:             ; preds = %58
   %65 = load i32, ptr %18, align 4
   %66 = or i32 %65, 1
   store i32 %66, ptr %18, align 4
-  br label %AddSingleLiteral.argprom.exit
+  br label %AddSingleLiteral.exit
 
 67:                                               ; preds = %58
   %68 = getelementptr inbounds i8, ptr %63, i64 24
@@ -2729,7 +2729,7 @@ BackwardRefsNewBlock.exit.i.i:                    ; preds = %70, %67
   %80 = sext i32 %75 to i64
   %81 = getelementptr inbounds %struct.PixOrCopy, ptr %77, i64 %80
   store i64 %.sroa.21.0.insert.insert.i.i, ptr %81, align 4
-  br label %AddSingleLiteral.argprom.exit
+  br label %AddSingleLiteral.exit
 
 82:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.pre95100 = phi ptr [ %.pre9597, %._crit_edge.thread ], [ %.pre95, %._crit_edge ]
@@ -2768,7 +2768,7 @@ BackwardRefsNewBlock.exit.thread.i:               ; preds = %93
   %100 = load i32, ptr %18, align 4
   %101 = or i32 %100, 1
   store i32 %101, ptr %18, align 4
-  br label %AddSingleLiteral.argprom.exit
+  br label %AddSingleLiteral.exit
 
 102:                                              ; preds = %93
   %103 = getelementptr inbounds i8, ptr %98, i64 24
@@ -2803,16 +2803,16 @@ BackwardRefsNewBlock.exit.i:                      ; preds = %105, %102
   %115 = sext i32 %110 to i64
   %116 = getelementptr inbounds %struct.PixOrCopy, ptr %112, i64 %115
   store i64 %.sroa.0.0.insert.insert.i, ptr %116, align 4
-  br label %AddSingleLiteral.argprom.exit
+  br label %AddSingleLiteral.exit
 
-AddSingleLiteral.argprom.exit:                    ; preds = %109, %BackwardRefsNewBlock.exit.thread.i, %74, %BackwardRefsNewBlock.exit.thread.i.i
+AddSingleLiteral.exit:                            ; preds = %109, %BackwardRefsNewBlock.exit.thread.i, %74, %BackwardRefsNewBlock.exit.thread.i.i
   %.180 = phi i32 [ %.181, %BackwardRefsNewBlock.exit.thread.i.i ], [ %.181, %74 ], [ %29, %BackwardRefsNewBlock.exit.thread.i ], [ %29, %109 ]
   %.278 = phi i32 [ 1, %BackwardRefsNewBlock.exit.thread.i.i ], [ 1, %74 ], [ %.298, %BackwardRefsNewBlock.exit.thread.i ], [ %.298, %109 ]
   %117 = add nsw i32 %.278, %.090
   %118 = icmp slt i32 %117, %6
   br i1 %118, label %19, label %._crit_edge94, !llvm.loop !59
 
-._crit_edge94:                                    ; preds = %AddSingleLiteral.argprom.exit, %VP8LClearBackwardRefs.exit
+._crit_edge94:                                    ; preds = %AddSingleLiteral.exit, %VP8LClearBackwardRefs.exit
   %119 = getelementptr inbounds i8, ptr %4, i64 4
   %120 = load i32, ptr %119, align 4
   %.not = icmp eq i32 %120, 0
@@ -2831,7 +2831,7 @@ declare void @VP8LHistogramCreate(ptr noundef, ptr noundef, i32 noundef) local_u
 declare float @VP8LHistogramEstimateBits(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BackwardRefsClone.argprom(ptr readonly %.8.val, ptr noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @BackwardRefsClone(ptr readonly %.8.val, ptr noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

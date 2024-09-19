@@ -910,7 +910,7 @@ define dso_local { ptr, ptr } @_ZN5clang4ento19CheckerRegistryData31getMutableCh
   %7 = getelementptr i8, ptr %5, i64 24
   %.val12 = load i64, ptr %7, align 8
   %.not.i.i = icmp ult i64 %.val12, %2
-  br i1 %.not.i.i, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread, label %8
+  br i1 %.not.i.i, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread, label %8
 
 8:                                                ; preds = %3
   %9 = icmp eq i64 %2, 0
@@ -919,24 +919,24 @@ define dso_local { ptr, ptr } @_ZN5clang4ento19CheckerRegistryData31getMutableCh
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %8
   %bcmp.i.i = tail call i32 @bcmp(ptr readonly %.val, ptr readonly %1, i64 %2)
   %10 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %10, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread
+  br i1 %10, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %8
   %11 = icmp eq i64 %.val12, %2
-  br i1 %11, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread22, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit
+  br i1 %11, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit
 
-_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i
+_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i
   %12 = getelementptr inbounds i8, ptr %.val, i64 %2
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 46
-  br i1 %14, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread22, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread
+  br i1 %14, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22, label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread
 
-_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread: ; preds = %3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit
+_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread: ; preds = %3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   br label %32
 
-_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread22: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit
+_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1, i64 %2) #14
   %19 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %1, i64 %2, i32 noundef %18) #14
@@ -949,7 +949,7 @@ _ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.threa
   %.not = select i1 %20, i1 true, i1 %.not24
   br i1 %.not, label %30, label %25
 
-25:                                               ; preds = %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread22
+25:                                               ; preds = %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22
   %26 = load ptr, ptr %17, align 8
   %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %26, i64 %24
   %27 = load ptr, ptr %.sroa.0.0.i.i, align 8
@@ -957,14 +957,14 @@ _ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.threa
   %29 = load i64, ptr %28, align 8
   br label %30
 
-30:                                               ; preds = %25, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread22
-  %.0 = phi i64 [ %29, %25 ], [ 1, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread22 ]
+30:                                               ; preds = %25, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22
+  %.0 = phi i64 [ %29, %25 ], [ 1, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22 ]
   %31 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %5, i64 %.0
   br label %32
 
-32:                                               ; preds = %30, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread
-  %.sroa.020.0 = phi ptr [ %5, %30 ], [ %16, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread ]
-  %.sroa.3.0 = phi ptr [ %31, %30 ], [ %16, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.argprom.exit.thread ]
+32:                                               ; preds = %30, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread
+  %.sroa.020.0 = phi ptr [ %5, %30 ], [ %16, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread ]
+  %.sroa.3.0 = phi ptr [ %31, %30 ], [ %16, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.020.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -1172,15 +1172,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %20
 
 50:                                               ; preds = %45
   %51 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 noundef zeroext 10) #14
-  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit"
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds i8, ptr %48, i64 1
   store ptr %53, ptr %12, align 8
   store i8 10, ptr %48, align 1
-  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit"
 
-"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit": ; preds = %50, %52
+"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit": ; preds = %50, %52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %84
 
@@ -1233,15 +1233,15 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
 
 70:                                               ; preds = %61
   %71 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 noundef zeroext 10) #14
-  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit30"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit30"
 
 72:                                               ; preds = %61
   %73 = getelementptr inbounds i8, ptr %68, i64 1
   store ptr %73, ptr %12, align 8
   store i8 10, ptr %68, align 1
-  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit30"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit30"
 
-"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit30": ; preds = %70, %72
+"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit30": ; preds = %70, %72
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   br label %84
@@ -1269,19 +1269,19 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread51: ; preds = %._ZNK4llvm9String
 
 80:                                               ; preds = %76
   %81 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 noundef zeroext 10) #14
-  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit33"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit33"
 
 82:                                               ; preds = %76
   %83 = getelementptr inbounds i8, ptr %78, i64 1
   store ptr %83, ptr %12, align 8
   store i8 10, ptr %78, align 1
-  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit33"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit33"
 
-"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit33": ; preds = %80, %82
+"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit33": ; preds = %80, %82
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %84
 
-84:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread51, %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit33", %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit30", %42, %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.argprom.exit"
+84:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread51, %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit33", %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit30", %42, %"_ZZNK5clang4ento19CheckerRegistryData24printCheckerWithDescListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEmENK3$_0clES7_RKNS0_11CheckerInfoENS5_9StringRefE.exit"
   %85 = getelementptr inbounds i8, ptr %.sroa.037.058, i64 120
   %.not53 = icmp eq ptr %85, %26
   br i1 %.not53, label %._crit_edge, label %38
@@ -1853,16 +1853,16 @@ _ZN4llvmplERKNS_5TwineES2_.exit142:               ; preds = %_ZN4llvmplERKNS_5Tw
 
 207:                                              ; preds = %196
   %208 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.29, i64 noundef 2) #14
-  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit"
 
 209:                                              ; preds = %196
   store i16 2570, ptr %202, align 1
   %210 = load ptr, ptr %25, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 2
   store ptr %211, ptr %25, align 8
-  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit"
 
-"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit": ; preds = %207, %209
+"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit": ; preds = %207, %209
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %258
 
@@ -1935,16 +1935,16 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK4llvm9StringRef
 
 235:                                              ; preds = %220
   %236 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.29, i64 noundef 2) #14
-  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit147"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit147"
 
 237:                                              ; preds = %220
   store i16 2570, ptr %230, align 1
   %238 = load ptr, ptr %25, align 8
   %239 = getelementptr inbounds i8, ptr %238, i64 2
   store ptr %239, ptr %25, align 8
-  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit147"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit147"
 
-"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit147": ; preds = %235, %237
+"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit147": ; preds = %235, %237
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #14
@@ -1977,20 +1977,20 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread214: ; preds = %_ZN4llvmeqENS_9S
 
 253:                                              ; preds = %242
   %254 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.29, i64 noundef 2) #14
-  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit150"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit150"
 
 255:                                              ; preds = %242
   store i16 2570, ptr %248, align 1
   %256 = load ptr, ptr %25, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 2
   store ptr %257, ptr %25, align 8
-  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit150"
+  br label %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit150"
 
-"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit150": ; preds = %253, %255
+"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit150": ; preds = %253, %255
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %258
 
-258:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread214, %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit150", %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit147", %193, %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.argprom.exit"
+258:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread214, %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit150", %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit147", %193, %"_ZZNK5clang4ento19CheckerRegistryData22printCheckerOptionListERKNS_15AnalyzerOptionsERN4llvm11raw_ostreamEENK3$_0clES7_NS5_9StringRefES9_.exit"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
   %259 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0194.0235) #15

@@ -260,21 +260,21 @@ entry:
   %qrs.val = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rtt_info.i)
   %cmp.not.i = icmp eq ptr %qrs.val, null
-  br i1 %cmp.not.i, label %get_rtt.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %get_rtt.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   call void @ossl_statm_get_rtt_info(ptr noundef nonnull %qrs.val, ptr noundef nonnull %rtt_info.i) #9
   %retval.sroa.0.0.copyload.i = load i64, ptr %rtt_info.i, align 8
-  br label %get_rtt.argprom.exit
+  br label %get_rtt.exit
 
-get_rtt.argprom.exit:                             ; preds = %entry, %if.then.i
+get_rtt.exit:                                     ; preds = %entry, %if.then.i
   %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.copyload.i, %if.then.i ], [ 0, %entry ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rtt_info.i)
   %call1 = call fastcc i32 @read_internal(ptr noundef nonnull %qrs, ptr noundef %buf, i64 noundef %size, ptr noundef %readbytes, ptr noundef %fin, i32 noundef 1)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %get_rtt.argprom.exit
+if.end:                                           ; preds = %get_rtt.exit
   %rxfc = getelementptr inbounds i8, ptr %qrs, i64 48
   %1 = load ptr, ptr %rxfc, align 8
   %cmp.not = icmp eq ptr %1, null
@@ -289,8 +289,8 @@ land.lhs.true:                                    ; preds = %if.end
 if.end7:                                          ; preds = %land.lhs.true, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %get_rtt.argprom.exit, %if.end7
-  %retval.0 = phi i32 [ 1, %if.end7 ], [ 0, %get_rtt.argprom.exit ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %get_rtt.exit, %if.end7
+  %retval.0 = phi i32 [ 1, %if.end7 ], [ 0, %get_rtt.exit ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -751,15 +751,15 @@ if.then22:                                        ; preds = %if.end20
   %qrs.val = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rtt_info.i)
   %cmp.not.i = icmp eq ptr %qrs.val, null
-  br i1 %cmp.not.i, label %get_rtt.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %get_rtt.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then22
   call void @ossl_statm_get_rtt_info(ptr noundef nonnull %qrs.val, ptr noundef nonnull %rtt_info.i) #9
   %retval.sroa.0.0.copyload.i = load i64, ptr %rtt_info.i, align 8
   %.pre = load ptr, ptr %rxfc, align 8
-  br label %get_rtt.argprom.exit
+  br label %get_rtt.exit
 
-get_rtt.argprom.exit:                             ; preds = %if.then22, %if.then.i
+get_rtt.exit:                                     ; preds = %if.then22, %if.then.i
   %12 = phi ptr [ %.pre, %if.then.i ], [ %10, %if.then22 ]
   %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.copyload.i, %if.then.i ], [ 0, %if.then22 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rtt_info.i)
@@ -767,11 +767,11 @@ get_rtt.argprom.exit:                             ; preds = %if.then22, %if.then
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return, label %if.end30
 
-if.end30:                                         ; preds = %get_rtt.argprom.exit, %if.end20
+if.end30:                                         ; preds = %get_rtt.exit, %if.end20
   br label %return
 
-return:                                           ; preds = %get_rtt.argprom.exit, %if.end10, %if.then2, %entry, %if.end30
-  %retval.0 = phi i32 [ 1, %if.end30 ], [ 0, %entry ], [ 0, %if.then2 ], [ 0, %if.end10 ], [ 0, %get_rtt.argprom.exit ]
+return:                                           ; preds = %get_rtt.exit, %if.end10, %if.then2, %entry, %if.end30
+  %retval.0 = phi i32 [ 1, %if.end30 ], [ 0, %entry ], [ 0, %if.then2 ], [ 0, %if.end10 ], [ 0, %get_rtt.exit ]
   ret i32 %retval.0
 }
 

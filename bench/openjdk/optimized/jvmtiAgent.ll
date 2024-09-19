@@ -412,7 +412,7 @@ define hidden void @_ZN10JvmtiAgent18convert_xrun_agentEv(ptr noundef nonnull al
   br i1 %8, label %_ZL29lookup_JVM_OnLoad_entry_pointP10JvmtiAgent.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.argelim(ptr noundef %0, i1 noundef zeroext true)
+  %10 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef %0, i1 noundef zeroext true)
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %10, ptr %11, align 8
   store i8 1, ptr %4, align 8
@@ -436,7 +436,7 @@ _ZL29lookup_JVM_OnLoad_entry_pointP10JvmtiAgent.exit: ; preds = %1, %7, %9
   br i1 %18, label %_ZL31lookup_Agent_OnLoad_entry_pointP10JvmtiAgent.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.argelim(ptr noundef %0, i1 noundef zeroext true)
+  %20 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef %0, i1 noundef zeroext true)
   %21 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %20, ptr %21, align 8
   store i8 1, ptr %4, align 8
@@ -491,7 +491,7 @@ define hidden noundef zeroext i1 @_ZN10JvmtiAgent4loadEP12outputStream(ptr nound
   br i1 %16, label %_ZL29lookup_JVM_OnLoad_entry_pointP10JvmtiAgent.exit.i, label %17
 
 17:                                               ; preds = %15
-  %18 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.argelim(ptr noundef %0, i1 noundef zeroext true)
+  %18 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef %0, i1 noundef zeroext true)
   %19 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %18, ptr %19, align 8
   store i8 1, ptr %12, align 8
@@ -608,7 +608,7 @@ _ZL17invoke_JVM_OnLoadP10JvmtiAgent.exit:         ; preds = %_ZN18SafepointMecha
 
 69:                                               ; preds = %63
   %70 = call noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef %68, ptr noundef nonnull @_ZL4ebuf, i32 noundef 1024) #12
-  br label %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.i
+  br label %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.i
 
 71:                                               ; preds = %63
   %72 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
@@ -619,45 +619,45 @@ _ZL17invoke_JVM_OnLoadP10JvmtiAgent.exit:         ; preds = %_ZN18SafepointMecha
 75:                                               ; preds = %71
   %76 = call noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef nonnull @_ZL6buffer, ptr noundef nonnull @_ZL4ebuf, i32 noundef 1024) #12
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.thread.i.i.i, label %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.thread51.i
+  br i1 %77, label %.thread.i.i.i, label %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread51.i
 
 .thread.i.i.i:                                    ; preds = %75, %71
   %78 = call noundef zeroext i1 @_ZN2os14dll_build_nameEPcmPKc(ptr noundef nonnull @_ZL6buffer, i64 noundef 4097, ptr noundef %68) #12
-  br i1 %78, label %79, label %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.thread.i
+  br i1 %78, label %79, label %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread.i
 
 79:                                               ; preds = %.thread.i.i.i
   %80 = call noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef nonnull @_ZL6buffer, ptr noundef nonnull @_ZL4ebuf, i32 noundef 1024) #12
-  br label %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.i
+  br label %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.i
 
-_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.i: ; preds = %79, %69
+_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.i:      ; preds = %79, %69
   %81 = phi ptr [ %70, %69 ], [ %80, %79 ]
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.thread.i, label %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.thread51.i
+  br i1 %82, label %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread.i, label %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread51.i
 
-_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.thread.i: ; preds = %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.i, %.thread.i.i.i
+_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread.i: ; preds = %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.i, %.thread.i.i.i
   %83 = load ptr, ptr %67, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.23, ptr noundef %83) #12
   %84 = load i8, ptr @_ZL4ebuf, align 16
   %.not.i3 = icmp eq i8 %84, 0
   br i1 %.not.i3, label %_ZL21invoke_Agent_OnAttachP10JvmtiAgentP12outputStream.exit, label %85
 
-85:                                               ; preds = %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.thread.i
+85:                                               ; preds = %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread.i
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, ptr noundef nonnull @_ZL4ebuf) #12
   br label %_ZL21invoke_Agent_OnAttachP10JvmtiAgentP12outputStream.exit
 
-_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.thread51.i: ; preds = %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.i, %75
-  %86 = phi ptr [ %81, %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.i ], [ %76, %75 ]
+_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread51.i: ; preds = %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.i, %75
+  %86 = phi ptr [ %81, %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.i ], [ %76, %75 ]
   %87 = getelementptr inbounds i8, ptr %0, i64 64
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %92
 
-90:                                               ; preds = %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.thread51.i
+90:                                               ; preds = %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread51.i
   %91 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull @_ZL6buffer, i8 noundef zeroext 23) #12
   store ptr %91, ptr %87, align 8
   br label %92
 
-92:                                               ; preds = %90, %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.thread51.i
+92:                                               ; preds = %90, %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread51.i
   %93 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %86, ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %0, i64 80
@@ -887,8 +887,8 @@ _ZL16convert_to_jplisP10JvmtiAgent.exit.i:        ; preds = %201, %200
   call void @_ZN10JvmtiAgent9set_jplisEPKv(ptr noundef nonnull align 8 dereferenceable(86) %0, ptr noundef %208)
   br label %_ZL21invoke_Agent_OnAttachP10JvmtiAgentP12outputStream.exit
 
-_ZL21invoke_Agent_OnAttachP10JvmtiAgentP12outputStream.exit: ; preds = %56, %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.thread.i, %85, %114, %120, %176, %179, %180, %_ZL16convert_to_jplisP10JvmtiAgent.exit.i
-  %.0.i = phi i1 [ false, %56 ], [ false, %85 ], [ false, %_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.exit.thread.i ], [ true, %_ZL16convert_to_jplisP10JvmtiAgent.exit.i ], [ true, %180 ], [ false, %114 ], [ false, %120 ], [ false, %176 ], [ false, %179 ]
+_ZL21invoke_Agent_OnAttachP10JvmtiAgentP12outputStream.exit: ; preds = %56, %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread.i, %85, %114, %120, %176, %179, %180, %_ZL16convert_to_jplisP10JvmtiAgent.exit.i
+  %.0.i = phi i1 [ false, %56 ], [ false, %85 ], [ false, %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread.i ], [ true, %_ZL16convert_to_jplisP10JvmtiAgent.exit.i ], [ true, %180 ], [ false, %114 ], [ false, %120 ], [ false, %176 ], [ false, %179 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5)
   br label %_ZL19invoke_Agent_OnLoadP10JvmtiAgent.exit
@@ -935,7 +935,7 @@ _ZL14check_cds_dumpP10JvmtiAgent.exit.i:          ; preds = %225, %222, %209
   br i1 %230, label %_ZL31lookup_Agent_OnLoad_entry_pointP10JvmtiAgent.exit.i, label %231
 
 231:                                              ; preds = %229
-  %232 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.argelim(ptr noundef %0, i1 noundef zeroext true)
+  %232 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef %0, i1 noundef zeroext true)
   %233 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %232, ptr %233, align 8
   store i8 1, ptr %226, align 8
@@ -1203,7 +1203,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb.argprom.argelim(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 81
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1

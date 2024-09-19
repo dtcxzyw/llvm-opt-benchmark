@@ -450,7 +450,7 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit153: 
 212:                                              ; preds = %211
   %213 = getelementptr i8, ptr %.016.i, i64 16
   %.016.i.val = load i64, ptr %213, align 8
-  %214 = call fastcc noundef ptr @_ZN5clang8TypeNameL35createNestedNameSpecifierForScopeOfERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %.016.i.val, i1 noundef zeroext %2)
+  %214 = call fastcc noundef ptr @_ZN5clang8TypeNameL35createNestedNameSpecifierForScopeOfERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %.016.i.val, i1 noundef zeroext %2)
   br label %_ZN5clang8TypeNameL35createNestedNameSpecifierForScopeOfERKNS_10ASTContextEPKNS_4TypeEbb.exit
 
 _ZN5clang8TypeNameL35createNestedNameSpecifierForScopeOfERKNS_10ASTContextEPKNS_4TypeEbb.exit: ; preds = %193, %211, %212
@@ -709,7 +709,7 @@ declare noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEv(ptr noundef n
 declare noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN5clang8TypeNameL35createNestedNameSpecifierForScopeOfERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.16.val, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN5clang8TypeNameL35createNestedNameSpecifierForScopeOfERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.16.val, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = and i64 %.16.val, 4
   %4 = icmp eq i64 %3, 0
   %5 = and i64 %.16.val, -8
@@ -845,7 +845,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit45:         ; preds = %66, %71
   br i1 %.not30, label %.thread18, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit
 
 .critedge.i:                                      ; preds = %.thread18
-  %77 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.010.i.val, i1 noundef zeroext %1)
+  %77 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.010.i.val, i1 noundef zeroext %1)
   %78 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_PKNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %77, ptr noundef nonnull %.010.i29) #7
   br label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit
 
@@ -877,7 +877,7 @@ _ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclE
   %.09 = phi ptr [ %90, %89 ], [ %86, %84 ]
   %91 = getelementptr i8, ptr %.01017, i64 16
   %spec.select.i.i41.val = load i64, ptr %91, align 8
-  %92 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %spec.select.i.i41.val, i1 noundef zeroext %1)
+  %92 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %spec.select.i.i41.val, i1 noundef zeroext %1)
   %93 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_bPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %92, i1 noundef zeroext false, ptr noundef %.09) #7
   br label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit
 
@@ -1077,7 +1077,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 declare noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_PKNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.16.val, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.16.val, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = and i64 %.16.val, 4
   %4 = icmp eq i64 %3, 0
   %5 = and i64 %.16.val, -8
@@ -1168,7 +1168,7 @@ common.ret9:                                      ; preds = %72, %_ZN4llvm8dyn_c
   %.010.i23 = getelementptr inbounds i8, ptr %.0.i.i.i.pn, i64 -48
   %41 = getelementptr i8, ptr %.0.i.i.i.pn, i64 -32
   %.010.i.val = load i64, ptr %41, align 8
-  %42 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.010.i.val, i1 noundef zeroext %1)
+  %42 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.010.i.val, i1 noundef zeroext %1)
   %43 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_PKNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %42, ptr noundef nonnull %.010.i23) #7
   br label %common.ret9
 
@@ -1195,7 +1195,7 @@ _ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclE
   %.09 = phi ptr [ %54, %53 ], [ %50, %48 ]
   %55 = getelementptr i8, ptr %.0.i.i, i64 -48
   %spec.select.i.i39.val = load i64, ptr %55, align 8
-  %56 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %spec.select.i.i39.val, i1 noundef zeroext %1)
+  %56 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %spec.select.i.i39.val, i1 noundef zeroext %1)
   %57 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_bPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %56, i1 noundef zeroext false, ptr noundef %.09) #7
   br label %common.ret9
 
@@ -1226,7 +1226,7 @@ _ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclE
   %.08 = phi ptr [ %68, %67 ], [ %64, %62 ]
   %69 = getelementptr i8, ptr %61, i64 16
   %.0.i.i40.val = load i64, ptr %69, align 8
-  %70 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.0.i.i40.val, i1 noundef zeroext %1)
+  %70 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.0.i.i40.val, i1 noundef zeroext %1)
   %71 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_bPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %70, i1 noundef zeroext false, ptr noundef %.08) #7
   br label %common.ret9
 
@@ -1335,7 +1335,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i.i:       ; preds = %34, %29
   br i1 %.not83.i, label %.lr.ph81.i, label %_ZN5clang8TypeNameL36getFullyQualifiedNestedNameSpecifierERKNS_10ASTContextEPNS_19NestedNameSpecifierEb.exit
 
 .critedge.i.i:                                    ; preds = %.lr.ph81.i
-  %40 = call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.010.i.val.i, i1 noundef zeroext %2)
+  %40 = call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.010.i.val.i, i1 noundef zeroext %2)
   %41 = call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_PKNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %40, ptr noundef nonnull %.010.i80.i) #7
   br label %_ZN5clang8TypeNameL36getFullyQualifiedNestedNameSpecifierERKNS_10ASTContextEPNS_19NestedNameSpecifierEb.exit
 
@@ -1394,7 +1394,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i37.i:     ; preds = %63, %58
   br i1 %.not82.i, label %.lr.ph.i, label %_ZN5clang8TypeNameL36getFullyQualifiedNestedNameSpecifierERKNS_10ASTContextEPNS_19NestedNameSpecifierEb.exit
 
 .critedge.i34.i:                                  ; preds = %.lr.ph.i
-  %69 = call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.010.i32.val.i, i1 noundef zeroext %2)
+  %69 = call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.010.i32.val.i, i1 noundef zeroext %2)
   %70 = call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_PKNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %69, ptr noundef nonnull %.010.i3278.i) #7
   br label %_ZN5clang8TypeNameL36getFullyQualifiedNestedNameSpecifierERKNS_10ASTContextEPNS_19NestedNameSpecifierEb.exit
 
@@ -1467,7 +1467,7 @@ _ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclE
   %.052.i = phi ptr [ %101, %100 ], [ %97, %95 ]
   %102 = getelementptr i8, ptr %.026.i, i64 16
   %.026.val.i = load i64, ptr %102, align 8
-  %103 = call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.026.val.i, i1 noundef zeroext %2)
+  %103 = call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.026.val.i, i1 noundef zeroext %2)
   %104 = call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_bPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %103, i1 noundef zeroext false, ptr noundef %.052.i) #7
   br label %_ZN5clang8TypeNameL36getFullyQualifiedNestedNameSpecifierERKNS_10ASTContextEPNS_19NestedNameSpecifierEb.exit
 
@@ -1495,7 +1495,7 @@ _ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclE
   %.053.i = phi ptr [ %115, %114 ], [ %111, %107 ]
   %116 = getelementptr i8, ptr %109, i64 16
   %.val.i = load i64, ptr %116, align 8
-  %117 = call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.val.i, i1 noundef zeroext %2)
+  %117 = call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.val.i, i1 noundef zeroext %2)
   %118 = call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_bPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %117, i1 noundef zeroext false, ptr noundef %.053.i) #7
   br label %_ZN5clang8TypeNameL36getFullyQualifiedNestedNameSpecifierERKNS_10ASTContextEPNS_19NestedNameSpecifierEb.exit
 
@@ -1519,7 +1519,7 @@ _ZN5clang8TypeNameL36getFullyQualifiedNestedNameSpecifierERKNS_10ASTContextEPNS_
 .thread26:                                        ; preds = %10, %15, %18
   %121 = getelementptr i8, ptr %13, i64 16
   %.val = load i64, ptr %121, align 8
-  %122 = call fastcc noundef ptr @_ZN5clang8TypeNameL35createNestedNameSpecifierForScopeOfERKNS_10ASTContextEPKNS_4DeclEbb.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.val, i1 noundef zeroext %2)
+  %122 = call fastcc noundef ptr @_ZN5clang8TypeNameL35createNestedNameSpecifierForScopeOfERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.val, i1 noundef zeroext %2)
   %.not30.i29 = icmp eq ptr %122, null
   br i1 %.not30.i29, label %_ZN5clang8TypeNameL29getFullyQualifiedTemplateNameERKNS_10ASTContextERNS_12TemplateNameEb.exit.thread32, label %123
 

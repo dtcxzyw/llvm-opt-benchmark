@@ -412,7 +412,7 @@ define void @_ZN3gmx36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeOb
   br i1 %.not, label %_ZSt8_DestroyIPN3gmx16KeyValueTreePathES1_EvT_S3_RSaIT0_E.exit.i.i, label %17
 
 17:                                               ; preds = %14
-  invoke fastcc void @"_ZN3gmx13formatAndJoinISt6vectorINS_16KeyValueTreePathESaIS2_EEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_PKcRKT0_.argprom"(ptr dead_on_unwind noalias writable align 8 %4, ptr %.val, ptr %.val15)
+  invoke fastcc void @"_ZN3gmx13formatAndJoinISt6vectorINS_16KeyValueTreePathESaIS2_EEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_PKcRKT0_"(ptr dead_on_unwind noalias writable align 8 %4, ptr %.val, ptr %.val15)
           to label %18 unwind label %26
 
 18:                                               ; preds = %17
@@ -764,12 +764,12 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx7Options11rootSectionEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3gmx13formatAndJoinISt6vectorINS_16KeyValueTreePathESaIS2_EEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_PKcRKT0_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3gmx13formatAndJoinISt6vectorINS_16KeyValueTreePathESaIS2_EEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_PKcRKT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   %.not4.i = icmp eq ptr %.0.val, %.8.val
-  br i1 %.not4.i, label %"_ZN3gmx13formatAndJoinIN9__gnu_cxx17__normal_iteratorIPKNS_16KeyValueTreePathESt6vectorIS3_SaIS3_EEEEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SN_PKcRKT0_.argprom.exit", label %.lr.ph.i
+  br i1 %.not4.i, label %"_ZN3gmx13formatAndJoinIN9__gnu_cxx17__normal_iteratorIPKNS_16KeyValueTreePathESt6vectorIS3_SaIS3_EEEEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SN_PKcRKT0_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %6
   %.066.i = phi ptr [ @.str, %6 ], [ @.str.16, %1 ]
@@ -779,24 +779,24 @@ define internal fastcc void @"_ZN3gmx13formatAndJoinISt6vectorINS_16KeyValueTree
 
 4:                                                ; preds = %.lr.ph.i
   invoke void @_ZNK3gmx16KeyValueTreePath8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.05.i)
-          to label %"_ZZN3gmx36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEENK3$_0clB5cxx11ERKNS_16KeyValueTreePathE.argprom.exit.i" unwind label %8
+          to label %"_ZZN3gmx36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEENK3$_0clB5cxx11ERKNS_16KeyValueTreePathE.exit.i" unwind label %8
 
-"_ZZN3gmx36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEENK3$_0clB5cxx11ERKNS_16KeyValueTreePathE.argprom.exit.i": ; preds = %4
+"_ZZN3gmx36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEENK3$_0clB5cxx11ERKNS_16KeyValueTreePathE.exit.i": ; preds = %4
   %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %6 unwind label %10
 
-6:                                                ; preds = %"_ZZN3gmx36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEENK3$_0clB5cxx11ERKNS_16KeyValueTreePathE.argprom.exit.i"
+6:                                                ; preds = %"_ZZN3gmx36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEENK3$_0clB5cxx11ERKNS_16KeyValueTreePathE.exit.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %7 = getelementptr inbounds i8, ptr %.sroa.0.05.i, i64 24
   %.not.i = icmp eq ptr %7, %.8.val
-  br i1 %.not.i, label %"_ZN3gmx13formatAndJoinIN9__gnu_cxx17__normal_iteratorIPKNS_16KeyValueTreePathESt6vectorIS3_SaIS3_EEEEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SN_PKcRKT0_.argprom.exit", label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %"_ZN3gmx13formatAndJoinIN9__gnu_cxx17__normal_iteratorIPKNS_16KeyValueTreePathESt6vectorIS3_SaIS3_EEEEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SN_PKcRKT0_.exit", label %.lr.ph.i, !llvm.loop !10
 
 8:                                                ; preds = %4, %.lr.ph.i
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %12
 
-10:                                               ; preds = %"_ZZN3gmx36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEENK3$_0clB5cxx11ERKNS_16KeyValueTreePathE.argprom.exit.i"
+10:                                               ; preds = %"_ZZN3gmx36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEENK3$_0clB5cxx11ERKNS_16KeyValueTreePathE.exit.i"
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -807,7 +807,7 @@ define internal fastcc void @"_ZN3gmx13formatAndJoinISt6vectorINS_16KeyValueTree
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   resume { ptr, i32 } %.pn.i
 
-"_ZN3gmx13formatAndJoinIN9__gnu_cxx17__normal_iteratorIPKNS_16KeyValueTreePathESt6vectorIS3_SaIS3_EEEEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SN_PKcRKT0_.argprom.exit": ; preds = %6, %1
+"_ZN3gmx13formatAndJoinIN9__gnu_cxx17__normal_iteratorIPKNS_16KeyValueTreePathESt6vectorIS3_SaIS3_EEEEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SN_PKcRKT0_.exit": ; preds = %6, %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   ret void
 }

@@ -1569,7 +1569,7 @@ if.then44:                                        ; preds = %do.end41
   br label %if.end.i
 
 if.end45:                                         ; preds = %do.end41
-  tail call fastcc void @free_bitmap_clusters.retelim(ptr noundef %bs, ptr noundef %bm.06.i)
+  tail call fastcc void @free_bitmap_clusters(ptr noundef %bs, ptr noundef %bm.06.i)
   br label %if.end.i
 
 out.thread:                                       ; preds = %for.inc.i, %if.end, %if.end3
@@ -1742,7 +1742,7 @@ return:                                           ; preds = %if.end21, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @free_bitmap_clusters.retelim(ptr noundef %bs, ptr nocapture noundef nonnull %tb) unnamed_addr #0 {
+define internal fastcc void @free_bitmap_clusters(ptr noundef %bs, ptr nocapture noundef nonnull %tb) unnamed_addr #0 {
 entry:
   %bitmap_table = alloca ptr, align 8
   %call = call fastcc i32 @bitmap_table_load(ptr noundef %bs, ptr noundef nonnull %tb, ptr noundef %bitmap_table)
@@ -2353,7 +2353,7 @@ land.rhs:                                         ; preds = %if.end115, %land.rh
   %tb.0189 = phi ptr [ %36, %land.rhs ], [ %35, %if.end115 ]
   %entry119 = getelementptr inbounds i8, ptr %tb.0189, i64 16
   %36 = load ptr, ptr %entry119, align 8
-  call fastcc void @free_bitmap_clusters.retelim(ptr noundef %bs, ptr noundef %tb.0189)
+  call fastcc void @free_bitmap_clusters(ptr noundef %bs, ptr noundef %tb.0189)
   call void @g_free(ptr noundef nonnull %tb.0189) #13
   %tobool118.not = icmp eq ptr %36, null
   br i1 %tobool118.not, label %success, label %land.rhs, !llvm.loop !24
@@ -2440,7 +2440,7 @@ lor.lhs.false154:                                 ; preds = %lor.lhs.false149
   br i1 %call156, label %for.inc162, label %if.end159
 
 if.end159:                                        ; preds = %lor.lhs.false154
-  call fastcc void @free_bitmap_clusters.retelim(ptr noundef %bs, ptr noundef %bm.3195)
+  call fastcc void @free_bitmap_clusters(ptr noundef %bs, ptr noundef %bm.3195)
   br label %for.inc162
 
 for.inc162:                                       ; preds = %for.body145, %lor.lhs.false149, %lor.lhs.false154, %if.end159

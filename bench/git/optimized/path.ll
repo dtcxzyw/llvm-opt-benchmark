@@ -387,15 +387,15 @@ while.cond.i.i:                                   ; preds = %lor.lhs.false.i.i, 
   %15 = load i8, ptr %arrayidx7.i.i, align 1
   %cmp.i9.not.i.i = icmp eq i8 %15, 47
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  br i1 %cmp.i9.not.i.i, label %while.cond.i.i, label %is_dir_file.argprom.exit.i, !llvm.loop !9
+  br i1 %cmp.i9.not.i.i, label %while.cond.i.i, label %is_dir_file.exit.i, !llvm.loop !9
 
-is_dir_file.argprom.exit.i:                       ; preds = %while.cond.i.i
+is_dir_file.exit.i:                               ; preds = %while.cond.i.i
   %arrayidx7.i.i.le = getelementptr inbounds i8, ptr %add.ptr.i, i64 %indvars.iv.i.i
   %call11.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %arrayidx7.i.i.le, ptr noundef nonnull dereferenceable(7) @.str.65) #28
   %tobool12.not.i.not.i = icmp eq i32 %call11.i.i, 0
   br i1 %tobool12.not.i.not.i, label %if.then.i16, label %if.else.i14
 
-if.then.i16:                                      ; preds = %is_dir_file.argprom.exit.i
+if.then.i16:                                      ; preds = %is_dir_file.exit.i
   %16 = load i64, ptr %len, align 8
   %graft_file.i = getelementptr inbounds i8, ptr %repo, i64 112
   %17 = load ptr, ptr %graft_file.i, align 8
@@ -403,7 +403,7 @@ if.then.i16:                                      ; preds = %is_dir_file.argprom
   tail call void @strbuf_splice(ptr noundef %buf, i64 noundef 0, i64 noundef %16, ptr noundef %17, i64 noundef %call3.i) #26
   br label %if.end8
 
-if.else.i14:                                      ; preds = %is_dir_file.argprom.exit.i, %lor.lhs.false.i.i, %if.then7
+if.else.i14:                                      ; preds = %is_dir_file.exit.i, %lor.lhs.false.i.i, %if.then7
   %call4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(6) @.str.66) #28
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %if.else10.i
@@ -825,7 +825,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %args)
   %repo.val = load ptr, ptr %worktree, align 8
-  call fastcc void @do_worktree_path.argprom(ptr %repo.val, ptr noundef nonnull %path, ptr noundef %fmt, ptr noundef %args)
+  call fastcc void @do_worktree_path(ptr %repo.val, ptr noundef nonnull %path, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   %call = call ptr @strbuf_detach(ptr noundef nonnull %path, ptr noundef null) #26
   br label %return
@@ -836,7 +836,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_worktree_path.argprom(ptr %repo.128.val, ptr noundef %buf, ptr noundef %fmt, ptr noundef nonnull %args) unnamed_addr #0 {
+define internal fastcc void @do_worktree_path(ptr %repo.128.val, ptr noundef %buf, ptr noundef %fmt, ptr noundef nonnull %args) unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %repo.128.val) #28
   tail call void @strbuf_add(ptr noundef %buf, ptr noundef %repo.128.val, i64 noundef %call.i) #26
@@ -938,7 +938,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %args)
   %repo.val = load ptr, ptr %worktree, align 8
-  call fastcc void @do_worktree_path.argprom(ptr %repo.val, ptr noundef %sb, ptr noundef %fmt, ptr noundef %args)
+  call fastcc void @do_worktree_path(ptr %repo.val, ptr noundef %sb, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   br label %return
 
@@ -1123,14 +1123,14 @@ get_pathname.exit:                                ; preds = %entry, %if.then4.i.
   %3 = load ptr, ptr @the_repository, align 8
   %4 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %4, align 8
-  call fastcc void @do_git_common_path.argprom(ptr %.val, ptr noundef nonnull %arrayidx.i, ptr noundef %fmt, ptr noundef %args)
+  call fastcc void @do_git_common_path(ptr %.val, ptr noundef nonnull %arrayidx.i, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   %5 = load ptr, ptr %buf.i.i, align 8
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_git_common_path.argprom(ptr %repo.8.val, ptr noundef %buf, ptr noundef %fmt, ptr noundef nonnull %args) unnamed_addr #0 {
+define internal fastcc void @do_git_common_path(ptr %repo.8.val, ptr noundef %buf, ptr noundef %fmt, ptr noundef nonnull %args) unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %repo.8.val) #28
   tail call void @strbuf_add(ptr noundef %buf, ptr noundef %repo.8.val, i64 noundef %call.i) #26
@@ -1227,7 +1227,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = getelementptr i8, ptr %repo, i64 8
   %repo.val = load ptr, ptr %0, align 8
-  call fastcc void @do_git_common_path.argprom(ptr %repo.val, ptr noundef %sb, ptr noundef %fmt, ptr noundef %args)
+  call fastcc void @do_git_common_path(ptr %repo.val, ptr noundef %sb, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
@@ -1756,7 +1756,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
-  %call8 = tail call fastcc ptr @_.argprom()
+  %call8 = tail call fastcc ptr @_()
   tail call void (ptr, ...) @die(ptr noundef %call8, ptr noundef %dir) #27
   unreachable
 
@@ -1782,7 +1782,7 @@ declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare void @die(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_.argprom() unnamed_addr #0 {
+define internal fastcc ptr @_() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0
@@ -3605,14 +3605,14 @@ entry:
   %len.i = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len.i, align 8
   %cmp.i.i = icmp ult i64 %1, 5
-  br i1 %cmp.i.i, label %strbuf_strip_suffix.argprom.exit, label %lor.lhs.false.i.i
+  br i1 %cmp.i.i, label %strbuf_strip_suffix.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
   %sub.i.i = add i64 %1, -5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.67, i64 5)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_strip_suffix.argprom.exit
+  br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_strip_suffix.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i.i
   store i64 %sub.i.i, ptr %len.i, align 8
@@ -3627,18 +3627,18 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i5.i:                                      ; preds = %if.then.i
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i, label %strbuf_strip_suffix.argprom.exit, label %if.then4.i.i
+  br i1 %cmp3.not.i.i, label %strbuf_strip_suffix.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i5.i
   store i8 0, ptr %add.ptr.i.i, align 1
-  br label %strbuf_strip_suffix.argprom.exit
+  br label %strbuf_strip_suffix.exit
 
-strbuf_strip_suffix.argprom.exit:                 ; preds = %entry, %lor.lhs.false.i.i, %if.end.i5.i, %if.then4.i.i
+strbuf_strip_suffix.exit:                         ; preds = %entry, %lor.lhs.false.i.i, %if.end.i5.i, %if.then4.i.i
   %tobool.not = phi i1 [ false, %if.end.i5.i ], [ false, %if.then4.i.i ], [ true, %lor.lhs.false.i.i ], [ true, %entry ]
   %.b.i = load i1, ptr @common_trie_done_setup, align 4
   br i1 %.b.i, label %init_common_trie.exit, label %for.cond.preheader.i
 
-for.cond.preheader.i:                             ; preds = %strbuf_strip_suffix.argprom.exit
+for.cond.preheader.i:                             ; preds = %strbuf_strip_suffix.exit
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @common_list, i64 8), align 8
   %tobool1.not23.i = icmp eq ptr %3, null
   br i1 %tobool1.not23.i, label %for.end.i, label %for.body.i
@@ -3830,8 +3830,8 @@ for.end.i:                                        ; preds = %add_to_trie.exit.i,
   store i1 true, ptr @common_trie_done_setup, align 4
   br label %init_common_trie.exit
 
-init_common_trie.exit:                            ; preds = %strbuf_strip_suffix.argprom.exit, %for.end.i
-  %call2 = tail call fastcc i32 @trie_find.argprom(ptr noundef nonnull @common_trie, ptr noundef %add.ptr)
+init_common_trie.exit:                            ; preds = %strbuf_strip_suffix.exit, %for.end.i
+  %call2 = tail call fastcc i32 @trie_find(ptr noundef nonnull @common_trie, ptr noundef %add.ptr)
   %cmp = icmp sgt i32 %call2, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -3884,7 +3884,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @trie_find.argprom(ptr nocapture noundef readonly %root, ptr nocapture noundef readonly %key) unnamed_addr #19 {
+define internal fastcc range(i32 -1, 2) i32 @trie_find(ptr nocapture noundef readonly %root, ptr nocapture noundef readonly %key) unnamed_addr #19 {
 entry:
   %0 = load i8, ptr %key, align 1
   %tobool.not = icmp eq i8 %0, 0
@@ -4005,7 +4005,7 @@ while.end:                                        ; preds = %while.cond, %land.r
 
 if.end51:                                         ; preds = %while.end
   %add.ptr48 = getelementptr inbounds i8, ptr %key.addr.2, i64 1
-  %call49 = tail call fastcc i32 @trie_find.argprom(ptr noundef nonnull %14, ptr noundef nonnull %add.ptr48)
+  %call49 = tail call fastcc i32 @trie_find(ptr noundef nonnull %14, ptr noundef nonnull %add.ptr48)
   %cmp52 = icmp sgt i32 %call49, -1
   br i1 %cmp52, label %return, label %lor.lhs.false
 

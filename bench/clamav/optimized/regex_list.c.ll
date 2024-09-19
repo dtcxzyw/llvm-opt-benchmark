@@ -176,7 +176,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br i1 %.not94, label %138, label %62
 
 62:                                               ; preds = %60
-  call fastcc void @reverse_string.retelim(ptr noundef %61)
+  call fastcc void @reverse_string(ptr noundef %61)
   %63 = getelementptr inbounds i8, ptr %0, i64 1360
   %64 = call i64 @filter_search(ptr noundef nonnull %63, ptr noundef nonnull %61, i64 noundef %42) #13
   %65 = and i64 %64, 4294967295
@@ -392,7 +392,7 @@ declare i32 @cli_ac_initdata(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 declare ptr @cli_safer_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @reverse_string.retelim(ptr nocapture noundef nonnull %0) unnamed_addr #4 {
+define internal fastcc void @reverse_string(ptr nocapture noundef nonnull %0) unnamed_addr #4 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %3 = lshr i64 %2, 1
   %.not = icmp ult i64 %2, 2

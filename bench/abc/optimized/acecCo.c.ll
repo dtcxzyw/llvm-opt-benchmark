@@ -1132,9 +1132,9 @@ Vec_IntRemove.exit121:                            ; preds = %149, %._crit_edge.i
   %194 = load i32, ptr %193, align 4
   %195 = or i32 %194, %190
   store i32 %195, ptr %193, align 4
-  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %3, i32 noundef %168)
-  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %3, i32 noundef %172)
-  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %3, i32 noundef %174)
+  tail call fastcc void @Vec_IntPushUnique(ptr noundef %3, i32 noundef %168)
+  tail call fastcc void @Vec_IntPushUnique(ptr noundef %3, i32 noundef %172)
+  tail call fastcc void @Vec_IntPushUnique(ptr noundef %3, i32 noundef %174)
   %.val.pre = load i32, ptr %25, align 4
   br label %.critedge2
 
@@ -1293,7 +1293,7 @@ Vec_BitFree.exit:                                 ; preds = %.critedge6, %254
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -2840,7 +2840,7 @@ Abc_UtilStrsav.exit101:                           ; preds = %Abc_UtilStrsav.exit
   %114 = lshr i32 %113, 29
   %115 = and i32 %114, 1
   %116 = xor i32 %115, %112
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %7, i32 noundef %116)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %7, i32 noundef %116)
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %117 = load ptr, ptr %97, align 8
   %118 = getelementptr i8, ptr %117, i64 4
@@ -2872,7 +2872,7 @@ Abc_UtilStrsav.exit101:                           ; preds = %Abc_UtilStrsav.exit
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val88, i64 %128, i32 1
   %130 = load i32, ptr %129, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %7, i32 noundef %130)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %7, i32 noundef %130)
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %.val = load i32, ptr %121, align 4
   %131 = sext i32 %.val to i64
@@ -2987,7 +2987,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648

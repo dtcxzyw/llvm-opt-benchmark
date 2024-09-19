@@ -552,7 +552,7 @@ define dso_local void @arp_send(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @arp_send_dst.argelim(i32 noundef range(i32 1, 3) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 align 16 {
+define internal fastcc void @arp_send_dst(i32 noundef range(i32 1, 3) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 align 16 {
   %9 = getelementptr inbounds i8, ptr %2, i64 168
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 128
@@ -1618,7 +1618,7 @@ define internal void @arp_solicit(ptr noundef %0, ptr noundef readonly %1) #1 al
   %114 = phi ptr [ null, %104 ], [ %112, %108 ], [ null, %.loopexit4 ]
   %115 = getelementptr inbounds i8, ptr %5, i64 968
   %116 = load ptr, ptr %115, align 8
-  call fastcc void @arp_send_dst.argelim(i32 noundef 1, i32 noundef %7, ptr noundef %5, i32 noundef %71, ptr noundef %102, ptr noundef %116, ptr noundef null, ptr noundef %114)
+  call fastcc void @arp_send_dst(i32 noundef 1, i32 noundef %7, ptr noundef %5, i32 noundef %71, ptr noundef %102, ptr noundef %116, ptr noundef null, ptr noundef %114)
   br label %117
 
 117:                                              ; preds = %113, %101, %13
@@ -1882,7 +1882,7 @@ thread-pre-split.thread:                          ; preds = %89
 120:                                              ; preds = %117
   %121 = getelementptr inbounds i8, ptr %7, i64 968
   %122 = load ptr, ptr %121, align 8
-  tail call fastcc void @arp_send_dst.argelim(i32 noundef 2, i32 noundef 0, ptr noundef %7, i32 noundef %60, ptr noundef %92, ptr noundef %122, ptr noundef %92, ptr noundef %110)
+  tail call fastcc void @arp_send_dst(i32 noundef 2, i32 noundef 0, ptr noundef %7, i32 noundef %60, ptr noundef %92, ptr noundef %122, ptr noundef %92, ptr noundef %110)
   br label %.thread
 
 123:                                              ; preds = %thread-pre-split
@@ -1941,7 +1941,7 @@ thread-pre-split.thread:                          ; preds = %89
   %159 = load i32, ptr %3, align 4
   %160 = getelementptr inbounds i8, ptr %7, i64 968
   %161 = load ptr, ptr %160, align 8
-  call fastcc void @arp_send_dst.argelim(i32 noundef 2, i32 noundef %159, ptr noundef %7, i32 noundef %60, ptr noundef %92, ptr noundef %161, ptr noundef %92, ptr noundef %110)
+  call fastcc void @arp_send_dst(i32 noundef 2, i32 noundef %159, ptr noundef %7, i32 noundef %60, ptr noundef %92, ptr noundef %161, ptr noundef %92, ptr noundef %110)
   call fastcc void @neigh_release(ptr noundef nonnull %156)
   br label %.thread
 
@@ -1955,7 +1955,7 @@ thread-pre-split.thread:                          ; preds = %89
 
 168:                                              ; preds = %162
   %.val = load ptr, ptr %131, align 8
-  %169 = tail call fastcc i32 @arp_fwd_proxy.argprom(ptr noundef nonnull %9, ptr noundef %7, ptr %.val)
+  %169 = tail call fastcc i32 @arp_fwd_proxy(ptr noundef nonnull %9, ptr noundef %7, ptr %.val)
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %171, label %193
 
@@ -2027,7 +2027,7 @@ thread-pre-split.thread:                          ; preds = %89
   %215 = load i32, ptr %4, align 4
   %216 = getelementptr inbounds i8, ptr %7, i64 968
   %217 = load ptr, ptr %216, align 8
-  call fastcc void @arp_send_dst.argelim(i32 noundef 2, i32 noundef %214, ptr noundef %7, i32 noundef %215, ptr noundef %92, ptr noundef %217, ptr noundef %92, ptr noundef %110)
+  call fastcc void @arp_send_dst(i32 noundef 2, i32 noundef %214, ptr noundef %7, i32 noundef %215, ptr noundef %92, ptr noundef %217, ptr noundef %92, ptr noundef %110)
   br label %.thread
 
 218:                                              ; preds = %207
@@ -2086,7 +2086,7 @@ thread-pre-split.thread:                          ; preds = %89
   br i1 %249, label %250, label %.thread
 
 250:                                              ; preds = %246, %241, %237
-  %251 = call fastcc ptr @__neigh_lookup.argelim(ptr noundef nonnull %3, ptr noundef %7)
+  %251 = call fastcc ptr @__neigh_lookup(ptr noundef nonnull %3, ptr noundef %7)
   br label %252
 
 252:                                              ; preds = %250, %231
@@ -2240,7 +2240,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_filter(i32 noundef %0, i
 declare dso_local ptr @neigh_event_ns(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define internal fastcc range(i32 0, 2) i32 @arp_fwd_proxy.argprom(ptr nocapture noundef nonnull readonly %0, ptr noundef readnone %1, ptr %.0.val) unnamed_addr #11 align 16 {
+define internal fastcc range(i32 0, 2) i32 @arp_fwd_proxy(ptr nocapture noundef nonnull readonly %0, ptr noundef readnone %1, ptr %.0.val) unnamed_addr #11 align 16 {
   %3 = icmp eq ptr %.0.val, %1
   br i1 %3, label %34, label %4
 
@@ -2303,7 +2303,7 @@ declare dso_local ptr @pneigh_lookup(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare dso_local void @pneigh_enqueue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @__neigh_lookup.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #8 align 16 {
+define internal fastcc ptr @__neigh_lookup(ptr noundef %0, ptr noundef %1) unnamed_addr #8 align 16 {
   %3 = tail call ptr @neigh_lookup(ptr noundef nonnull @arp_tbl, ptr noundef %0, ptr noundef %1) #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9

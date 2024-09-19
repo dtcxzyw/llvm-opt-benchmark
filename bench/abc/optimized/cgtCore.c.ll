@@ -1567,29 +1567,29 @@ Abc_Clock.exit29:                                 ; preds = %33, %40
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit29
   %.not.i = icmp eq ptr %54, null
-  br i1 %.not.i, label %Bar_ProgressUpdate.argprom.exit.us, label %.lr.ph.split
+  br i1 %.not.i, label %Bar_ProgressUpdate.exit.us, label %.lr.ph.split
 
-Bar_ProgressUpdate.argprom.exit.us:               ; preds = %.lr.ph, %Bar_ProgressUpdate.argprom.exit.us
-  %.02338.us = phi i32 [ %58, %Bar_ProgressUpdate.argprom.exit.us ], [ 0, %.lr.ph ]
+Bar_ProgressUpdate.exit.us:                       ; preds = %.lr.ph, %Bar_ProgressUpdate.exit.us
+  %.02338.us = phi i32 [ %58, %Bar_ProgressUpdate.exit.us ], [ 0, %.lr.ph ]
   call void @Bar_ProgressUpdate_int(ptr noundef null, i32 noundef %.02338.us, ptr noundef null) #16
   %58 = call i32 @Cgt_ClockGatingRange(ptr noundef nonnull %34, i32 noundef %.02338.us)
   %59 = load ptr, ptr %37, align 8
   %60 = getelementptr i8, ptr %59, i64 140
   %.val.us = load i32, ptr %60, align 4
   %61 = icmp slt i32 %58, %.val.us
-  br i1 %61, label %Bar_ProgressUpdate.argprom.exit.us, label %._crit_edge, !llvm.loop !14
+  br i1 %61, label %Bar_ProgressUpdate.exit.us, label %._crit_edge, !llvm.loop !14
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %Bar_ProgressUpdate.argprom.exit
-  %.02338 = phi i32 [ %65, %Bar_ProgressUpdate.argprom.exit ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %Bar_ProgressUpdate.exit
+  %.02338 = phi i32 [ %65, %Bar_ProgressUpdate.exit ], [ 0, %.lr.ph ]
   %62 = load i32, ptr %54, align 4
   %63 = icmp slt i32 %.02338, %62
-  br i1 %63, label %Bar_ProgressUpdate.argprom.exit, label %64
+  br i1 %63, label %Bar_ProgressUpdate.exit, label %64
 
 64:                                               ; preds = %.lr.ph.split
   call void @Bar_ProgressUpdate_int(ptr noundef nonnull %54, i32 noundef %.02338, ptr noundef null) #16
-  br label %Bar_ProgressUpdate.argprom.exit
+  br label %Bar_ProgressUpdate.exit
 
-Bar_ProgressUpdate.argprom.exit:                  ; preds = %.lr.ph.split, %64
+Bar_ProgressUpdate.exit:                          ; preds = %.lr.ph.split, %64
   %65 = call i32 @Cgt_ClockGatingRange(ptr noundef nonnull %34, i32 noundef %.02338)
   %66 = load ptr, ptr %37, align 8
   %67 = getelementptr i8, ptr %66, i64 140
@@ -1597,7 +1597,7 @@ Bar_ProgressUpdate.argprom.exit:                  ; preds = %.lr.ph.split, %64
   %68 = icmp slt i32 %65, %.val
   br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %Bar_ProgressUpdate.argprom.exit, %Bar_ProgressUpdate.argprom.exit.us, %Abc_Clock.exit29
+._crit_edge:                                      ; preds = %Bar_ProgressUpdate.exit, %Bar_ProgressUpdate.exit.us, %Abc_Clock.exit29
   call void @Bar_ProgressStop(ptr noundef %54) #16
   %69 = getelementptr inbounds i8, ptr %34, i64 40
   %70 = load ptr, ptr %69, align 8

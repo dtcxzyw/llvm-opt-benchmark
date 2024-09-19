@@ -1229,7 +1229,7 @@ _ZL17computeDataLayoutB5cxx11RKN4llvm6TripleE.exit: ; preds = %39, %_ZNK4llvm6Tr
   br i1 %.not6.i, label %69, label %75
 
 69:                                               ; preds = %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleE.exit
-  br i1 %10, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.argprom.exit, label %70
+  br i1 %10, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.exit, label %70
 
 70:                                               ; preds = %69
   %71 = and i32 %.val17, -9
@@ -1247,13 +1247,13 @@ _ZL17computeDataLayoutB5cxx11RKN4llvm6TripleE.exit: ; preds = %39, %_ZNK4llvm6Tr
 
 73:                                               ; preds = %72, %72, %72, %72, %72, %70
   %..i = select i1 %67, i32 1, i32 2
-  br label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.argprom.exit
+  br label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.exit
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit.i23:          ; preds = %72
   %74 = icmp eq i32 %.val17, 14
   %brmerge.not.i = and i1 %67, %74
   %spec.select.i24 = zext i1 %brmerge.not.i to i32
-  br label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.argprom.exit
+  br label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.exit
 
 75:                                               ; preds = %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleE.exit
   switch i32 %.sroa.0.0.extract.trunc.i, label %.thread.i21 [
@@ -1262,7 +1262,7 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.i23:          ; preds = %72
   ]
 
 76:                                               ; preds = %75
-  br i1 %67, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.argprom.exit, label %77
+  br i1 %67, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.exit, label %77
 
 77:                                               ; preds = %76
   %78 = and i32 %.val17, -9
@@ -1270,7 +1270,7 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.i23:          ; preds = %72
   br i1 %spec.select.i.i14.i, label %.thread.i21, label %79
 
 79:                                               ; preds = %77
-  switch i32 %.val17, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.argprom.exit [
+  switch i32 %.val17, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.exit [
     i32 26, label %.thread.i21
     i32 5, label %.thread.i21
     i32 27, label %.thread.i21
@@ -1293,32 +1293,32 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.i23:          ; preds = %72
   ]
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit17.i:          ; preds = %82, %82, %82, %82, %82, %80
-  br i1 %67, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.argprom.exit, label %.thread.i21
+  br i1 %67, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.exit, label %.thread.i21
 
 .thread.i21:                                      ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit17.i, %82, %79, %79, %79, %79, %79, %77, %75
-  br label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.argprom.exit
+  br label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.exit
 
-_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.argprom.exit: ; preds = %69, %73, %_ZNK4llvm6Triple10isOSDarwinEv.exit.i23, %76, %79, %_ZNK4llvm6Triple10isOSDarwinEv.exit17.i, %.thread.i21
+_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.exit: ; preds = %69, %73, %_ZNK4llvm6Triple10isOSDarwinEv.exit.i23, %76, %79, %_ZNK4llvm6Triple10isOSDarwinEv.exit17.i, %.thread.i21
   %.0.i = phi i32 [ %.sroa.0.0.extract.trunc.i, %.thread.i21 ], [ 0, %69 ], [ %..i, %73 ], [ 1, %76 ], [ 1, %_ZNK4llvm6Triple10isOSDarwinEv.exit17.i ], [ %spec.select.i24, %_ZNK4llvm6Triple10isOSDarwinEv.exit.i23 ], [ 0, %79 ]
   %83 = and i64 %8, 4294967296
   %.not.i = icmp eq i64 %83, 0
   br i1 %.not.i, label %87, label %84
 
-84:                                               ; preds = %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.argprom.exit
+84:                                               ; preds = %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.exit
   %.sroa.0.0.extract.trunc.i25 = trunc i64 %8 to i32
   %85 = icmp eq i32 %.sroa.0.0.extract.trunc.i25, 0
-  br i1 %85, label %86, label %_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit
+  br i1 %85, label %86, label %_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit
 
 86:                                               ; preds = %84
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.29, i1 noundef zeroext false) #22
   unreachable
 
-87:                                               ; preds = %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.argprom.exit
+87:                                               ; preds = %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.exit
   %88 = select i1 %10, i1 %67, i1 false
   %spec.select.i27 = select i1 %88, i32 4, i32 1
-  br label %_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit
+  br label %_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit
 
-_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit: ; preds = %84, %87
+_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit: ; preds = %84, %87
   %.0.i26 = phi i32 [ %spec.select.i27, %87 ], [ %.sroa.0.0.extract.trunc.i25, %84 ]
   call void @_ZN4llvm17LLVMTargetMachineC2ERKNS_6TargetENS_9StringRefERKNS_6TripleES4_S4_RKNS_13TargetOptionsENS_5Reloc5ModelENS_9CodeModel5ModelENS_15CodeGenOptLevelE(ptr noundef nonnull align 8 dereferenceable(1232) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr %64, i64 %65, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %14, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5, ptr noundef nonnull align 8 dereferenceable(360) %6, i32 noundef %.0.i, i32 noundef %.0.i26, i32 noundef %9) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
@@ -1334,7 +1334,7 @@ _ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.
     i32 1, label %_ZNSt10unique_ptrIN4llvm28TargetLoweringObjectFileCOFFESt14default_deleteIS1_EED2Ev.exit.i
   ]
 
-92:                                               ; preds = %_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit
+92:                                               ; preds = %_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit
   %93 = icmp eq i32 %.val19, 38
   %94 = call noalias noundef nonnull dereferenceable(968) ptr @_Znwm(i64 noundef 968) #23, !noalias !7
   br i1 %93, label %_ZNSt10unique_ptrIN4llvm27X86_64MachoTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNSt10unique_ptrIN4llvm29TargetLoweringObjectFileMachOESt14default_deleteIS1_EED2Ev.exit.i
@@ -1343,13 +1343,13 @@ _ZNSt10unique_ptrIN4llvm27X86_64MachoTargetObjectFileESt14default_deleteIS1_EED2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(968) %94, i8 0, i64 968, i1 false), !noalias !10
   call void @_ZN4llvm29TargetLoweringObjectFileMachOC2Ev(ptr noundef nonnull align 8 dereferenceable(968) %94) #21, !noalias !10
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN4llvm27X86_64MachoTargetObjectFileE, i64 16), ptr %94, align 8, !noalias !10
-  br label %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
+  br label %_ZL10createTLOFRKN4llvm6TripleE.exit
 
 _ZNSt10unique_ptrIN4llvm29TargetLoweringObjectFileMachOESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %92
   call void @_ZN4llvm29TargetLoweringObjectFileMachOC1Ev(ptr noundef nonnull align 8 dereferenceable(968) %94) #21, !noalias !13
-  br label %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
+  br label %_ZL10createTLOFRKN4llvm6TripleE.exit
 
-_ZNSt10unique_ptrIN4llvm28TargetLoweringObjectFileCOFFESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit
+_ZNSt10unique_ptrIN4llvm28TargetLoweringObjectFileCOFFESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit
   %95 = call noalias noundef nonnull dereferenceable(984) ptr @_Znwm(i64 noundef 984) #23, !noalias !16
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 921
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(976) %95, i8 0, i64 976, i1 false), !noalias !16
@@ -1363,9 +1363,9 @@ _ZNSt10unique_ptrIN4llvm28TargetLoweringObjectFileCOFFESt14default_deleteIS1_EED
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN4llvm28TargetLoweringObjectFileCOFFE, i64 16), ptr %95, align 8, !noalias !16
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 976
   store ptr null, ptr %100, align 8, !noalias !16
-  br label %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
+  br label %_ZL10createTLOFRKN4llvm6TripleE.exit
 
-101:                                              ; preds = %_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit
+101:                                              ; preds = %_ZL24getEffectiveX86CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit
   %102 = icmp eq i32 %.val19, 38
   %103 = call noalias noundef nonnull dereferenceable(1032) ptr @_Znwm(i64 noundef 1032) #23, !noalias !7
   call void @_ZN4llvm27TargetLoweringObjectFileELFC2Ev(ptr noundef nonnull align 8 dereferenceable(1026) %103) #21, !noalias !7
@@ -1377,15 +1377,15 @@ _ZNSt10unique_ptrIN4llvm25X86_64ELFTargetObjectFileESt14default_deleteIS1_EED2Ev
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN4llvm25X86_64ELFTargetObjectFileE, i64 16), ptr %103, align 8, !noalias !19
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 920
   store i8 1, ptr %105, align 8, !noalias !19
-  br label %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
+  br label %_ZL10createTLOFRKN4llvm6TripleE.exit
 
 _ZNSt10unique_ptrIN4llvm22X86ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %101
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN4llvm22X86ELFTargetObjectFileE, i64 16), ptr %103, align 8, !noalias !22
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 1024
   store i16 12, ptr %106, align 8, !noalias !22
-  br label %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
+  br label %_ZL10createTLOFRKN4llvm6TripleE.exit
 
-_ZL10createTLOFRKN4llvm6TripleE.argprom.exit:     ; preds = %_ZNSt10unique_ptrIN4llvm27X86_64MachoTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm29TargetLoweringObjectFileMachOESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm28TargetLoweringObjectFileCOFFESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm25X86_64ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm22X86ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i
+_ZL10createTLOFRKN4llvm6TripleE.exit:             ; preds = %_ZNSt10unique_ptrIN4llvm27X86_64MachoTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm29TargetLoweringObjectFileMachOESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm28TargetLoweringObjectFileCOFFESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm25X86_64ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm22X86ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i
   %.sink.i = phi ptr [ %103, %_ZNSt10unique_ptrIN4llvm22X86ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i ], [ %103, %_ZNSt10unique_ptrIN4llvm25X86_64ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i ], [ %95, %_ZNSt10unique_ptrIN4llvm28TargetLoweringObjectFileCOFFESt14default_deleteIS1_EED2Ev.exit.i ], [ %94, %_ZNSt10unique_ptrIN4llvm29TargetLoweringObjectFileMachOESt14default_deleteIS1_EED2Ev.exit.i ], [ %94, %_ZNSt10unique_ptrIN4llvm27X86_64MachoTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i ]
   store ptr %.sink.i, ptr %89, align 8, !alias.scope !7
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 1240
@@ -1402,7 +1402,7 @@ _ZL10createTLOFRKN4llvm6TripleE.argprom.exit:     ; preds = %_ZNSt10unique_ptrIN
   %or.cond.i.i = select i1 %111, i1 %114, i1 false
   br i1 %or.cond.i.i, label %_ZNK4llvm6Triple4isPSEv.exit, label %_ZNK4llvm6Triple4isPSEv.exit.thread
 
-_ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
+_ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %_ZL10createTLOFRKN4llvm6TripleE.exit
   %115 = load i32, ptr %41, align 4
   %116 = add i32 %115, -23
   %spec.select.i28 = icmp ult i32 %116, 2
@@ -1412,7 +1412,7 @@ _ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %_ZL10createTLOFRKN4
   %or.cond = select i1 %spec.select.i28, i1 true, i1 %119
   br i1 %or.cond, label %120, label %130
 
-_ZNK4llvm6Triple4isPSEv.exit.thread:              ; preds = %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
+_ZNK4llvm6Triple4isPSEv.exit.thread:              ; preds = %_ZL10createTLOFRKN4llvm6TripleE.exit
   %.old = getelementptr inbounds nuw i8, ptr %2, i64 52
   %.old29 = load i32, ptr %.old, align 4
   %.old30 = icmp eq i32 %.old29, 5
@@ -3903,7 +3903,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm15Machin
   %.val.val = load ptr, ptr %3, align 8
   %4 = tail call noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %.val.val, ptr nonnull @.str.36, i64 4) #21
   %.not.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i, label %5, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0JRKN4llvm15MachineFunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit"
+  br i1 %.not.i.i.i, label %5, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0JRKN4llvm15MachineFunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
@@ -3914,7 +3914,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm15Machin
   br i1 %spec.select.i.i.i.i.i, label %11, label %10
 
 10:                                               ; preds = %5
-  switch i32 %8, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0JRKN4llvm15MachineFunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit" [
+  switch i32 %8, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0JRKN4llvm15MachineFunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit" [
     i32 26, label %11
     i32 5, label %11
     i32 27, label %11
@@ -3925,21 +3925,21 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm15Machin
 11:                                               ; preds = %10, %10, %10, %10, %10, %5
   %12 = tail call noundef ptr @_ZNK4llvm6Module11getFunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %.val.val, ptr nonnull @.str.37, i64 34) #21
   %.not6.i.i.i = icmp eq ptr %12, null
-  br i1 %.not6.i.i.i, label %13, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0JRKN4llvm15MachineFunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit"
+  br i1 %.not6.i.i.i, label %13, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0JRKN4llvm15MachineFunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 13:                                               ; preds = %11
   %14 = tail call noundef ptr @_ZNK4llvm6Module11getFunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %.val.val, ptr nonnull @.str.38, i64 39) #21
   %15 = icmp ne ptr %14, null
-  br label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0JRKN4llvm15MachineFunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0JRKN4llvm15MachineFunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
-"_ZSt10__invoke_rIbRZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0JRKN4llvm15MachineFunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom.exit": ; preds = %2, %10, %11, %13
+"_ZSt10__invoke_rIbRZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0JRKN4llvm15MachineFunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %2, %10, %11, %13
   %16 = phi i1 [ true, %2 ], [ true, %11 ], [ %15, %13 ], [ false, %10 ]
   ret i1 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm15MachineFunctionEEZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3947,18 +3947,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm15Machin
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113X86PassConfig15addPreEmitPass2EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -11537,8 +11537,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6, !"_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleE: argument 0"}
 !6 = distinct !{!6, !"_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleE"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZL10createTLOFRKN4llvm6TripleE.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZL10createTLOFRKN4llvm6TripleE.argprom"}
+!8 = distinct !{!8, !9, !"_ZL10createTLOFRKN4llvm6TripleE: argument 0"}
+!9 = distinct !{!9, !"_ZL10createTLOFRKN4llvm6TripleE"}
 !10 = !{!11, !8}
 !11 = distinct !{!11, !12, !"_ZSt11make_uniqueIN4llvm27X86_64MachoTargetObjectFileEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !12 = distinct !{!12, !"_ZSt11make_uniqueIN4llvm27X86_64MachoTargetObjectFileEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

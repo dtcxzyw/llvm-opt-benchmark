@@ -520,7 +520,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10M
 
 81:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit
   %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %.preheader.i, label %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.argprom.exit.thread"
+  br i1 %.not.i, label %.preheader.i, label %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit.thread"
 
 .preheader.i:                                     ; preds = %81, %.preheader.i
   %.0.i.i.i55 = phi ptr [ %85, %.preheader.i ], [ %47, %81 ]
@@ -545,14 +545,14 @@ _ZNK5clang12FileEntryRef7getNameEv.exit.i:        ; preds = %.preheader.i
 
 91:                                               ; preds = %_ZNK5clang12FileEntryRef7getNameEv.exit.i
   %92 = icmp eq i64 %87, 0
-  br i1 %92, label %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.argprom.exit.thread", label %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.argprom.exit"
+  br i1 %92, label %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit.thread", label %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit"
 
-"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.argprom.exit": ; preds = %91
+"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit": ; preds = %91
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %86, ptr %89, i64 %87)
   %93 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %93, label %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.argprom.exit.thread", label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit.thread
+  br i1 %93, label %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit.thread", label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit.thread
 
-"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.argprom.exit.thread": ; preds = %91, %81, %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.argprom.exit"
+"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit.thread": ; preds = %91, %81, %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit"
   %94 = getelementptr inbounds nuw i8, ptr %80, i64 224
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %27)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %27, ptr noundef nonnull align 8 dereferenceable(20) %94, i64 20, i1 false)
@@ -565,7 +565,7 @@ _ZNK5clang12FileEntryRef7getNameEv.exit.i:        ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %25)
   br i1 %.not7.i.i.i.i.i.i.i.not.i, label %98, label %95
 
-95:                                               ; preds = %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.argprom.exit.thread"
+95:                                               ; preds = %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit.thread"
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %27, ptr noundef nonnull readonly dereferenceable(20) %26, i64 20)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %98, label %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -582,7 +582,7 @@ _ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %26)
   br label %_ZNSt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS2_EED2Ev.exit
 
-98:                                               ; preds = %95, %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.argprom.exit.thread"
+98:                                               ; preds = %95, %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit.thread"
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %26)
   store ptr %80, ptr %11, align 8
@@ -621,7 +621,7 @@ _ZL19updateModuleImportsRN5clang13serialization10ModuleFileEPS1_NS_14SourceLocat
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   br label %_ZNSt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS2_EED2Ev.exit
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit.thread: ; preds = %.lr.ph.i.i.i, %_ZNK5clang12FileEntryRef7getNameEv.exit.i, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit, %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.argprom.exit", %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit.thread: ; preds = %.lr.ph.i.i.i, %_ZNK5clang12FileEntryRef7getNameEv.exit.i, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit, %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit", %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %112 = tail call noalias noundef nonnull dereferenceable(3464) ptr @_Znwm(i64 noundef 3464) #16, !noalias !8
   tail call void @_ZN5clang13serialization10ModuleFileC2ENS0_10ModuleKindENS_12FileEntryRefEj(ptr noundef nonnull align 8 dereferenceable(3464) %112, i32 noundef %3, ptr nonnull %47, i32 noundef %6), !noalias !8
@@ -1452,10 +1452,10 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.sroa.025.057 = phi ptr [ %44, %.lr.ph ], [ %39, %_ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_iteratorINS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EES4_EEEET_SG_.exit ]
   %40 = load ptr, ptr %.sroa.025.057, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 3280
-  call fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_.retelim"(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr %3)
+  call fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr %3)
   %42 = load ptr, ptr %.sroa.025.057, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 3240
-  call fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_.retelim"(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr %3)
+  call fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr %3)
   %44 = getelementptr inbounds i8, ptr %.sroa.025.057, i64 8
   %.not = icmp eq ptr %44, %1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
@@ -1495,7 +1495,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.01118.i.i.i.i.i.i.i.i.i.i = phi ptr [ %63, %62 ], [ %53, %56 ]
   %60 = load ptr, ptr %.01118.i.i.i.i.i.i.i.i.i.i, align 8
   %61 = icmp eq ptr %60, %.029.val39.i.i.i.i.i.i
-  br i1 %61, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i.i.i", label %62
+  br i1 %61, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i.i.i", label %62
 
 62:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %63 = getelementptr inbounds i8, ptr %.01118.i.i.i.i.i.i.i.i.i.i, i64 8
@@ -1504,7 +1504,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i:                  ; preds = %62, %56
   %64 = getelementptr inbounds ptr, ptr %54, i64 %58
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i.i.i"
 
 65:                                               ; preds = %52
   %66 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %.029.val39.i.i.i.i.i.i) #15
@@ -1515,7 +1515,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i.i.i: ; preds = %65
   %.pre5.i.i.i.i.i.i.i.i.i = load i32, ptr %15, align 4
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i.i.i"
 
 67:                                               ; preds = %65
   %68 = icmp eq ptr %.pre.i.i.i.i.i.i.i.i.i, %.pre4.i.i.i.i.i.i.i.i.i
@@ -1524,9 +1524,9 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.v.v.i14.i.i.i.i.i.i.i.i.i.i = select i1 %68, i32 %69, i32 %70
   %.v.i15.i.i.i.i.i.i.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i.i.i.i.i.i.i to i64
   %71 = getelementptr inbounds ptr, ptr %.pre.i.i.i.i.i.i.i.i.i, i64 %.v.i15.i.i.i.i.i.i.i.i.i.i
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %67, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %67, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i
   %72 = phi ptr [ %53, %._crit_edge.i.i.i.i.i.i.i.i.i.i ], [ %.pre4.i.i.i.i.i.i.i.i.i, %67 ], [ %.pre4.i.i.i.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i.i.i ], [ %53, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %73 = phi ptr [ %54, %._crit_edge.i.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %67 ], [ %.pre.i.i.i.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i.i.i ], [ %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %74 = phi i32 [ %57, %._crit_edge.i.i.i.i.i.i.i.i.i.i ], [ %69, %67 ], [ %.pre5.i.i.i.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i.i.i ], [ %57, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
@@ -1539,7 +1539,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.not144.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i.i, %77
   br i1 %.not144.i.i.i.i.i.i, label %78, label %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i"
 
-78:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i.i.i"
+78:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i.i.i"
   %79 = getelementptr inbounds i8, ptr %.029165.i.i.i.i.i.i, i64 8
   %.val37.i.i.i.i.i.i = load ptr, ptr %79, align 8
   br i1 %75, label %80, label %88
@@ -1554,7 +1554,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.01118.i.i.i.i53.i.i.i.i.i.i = phi ptr [ %86, %85 ], [ %72, %80 ]
   %83 = load ptr, ptr %.01118.i.i.i.i53.i.i.i.i.i.i, align 8
   %84 = icmp eq ptr %83, %.val37.i.i.i.i.i.i
-  br i1 %84, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit56.i.i.i.i.i.i", label %85
+  br i1 %84, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit56.i.i.i.i.i.i", label %85
 
 85:                                               ; preds = %.lr.ph.i.i.i.i52.i.i.i.i.i.i
   %86 = getelementptr inbounds i8, ptr %.01118.i.i.i.i53.i.i.i.i.i.i, i64 8
@@ -1563,7 +1563,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._crit_edge.i.i.i.i55.i.i.i.i.i.i:                ; preds = %85, %80
   %87 = getelementptr inbounds ptr, ptr %73, i64 %81
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit56.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit56.i.i.i.i.i.i"
 
 88:                                               ; preds = %78
   %89 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %.val37.i.i.i.i.i.i) #15
@@ -1575,7 +1575,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i43.i.i.i.i.i.i: ; preds = %88
   %.pre5.i.i.i45.i.i.i.i.i.i = load i32, ptr %15, align 4
   %.pre179.i.i.i.i.i.i = load i32, ptr %14, align 8
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit56.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit56.i.i.i.i.i.i"
 
 90:                                               ; preds = %88
   %91 = icmp eq ptr %.pre.i.i.i41.i.i.i.i.i.i, %.pre4.i.i.i42.i.i.i.i.i.i
@@ -1584,9 +1584,9 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.v.v.i14.i.i.i.i49.i.i.i.i.i.i = select i1 %91, i32 %92, i32 %93
   %.v.i15.i.i.i.i50.i.i.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i49.i.i.i.i.i.i to i64
   %94 = getelementptr inbounds ptr, ptr %.pre.i.i.i41.i.i.i.i.i.i, i64 %.v.i15.i.i.i.i50.i.i.i.i.i.i
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit56.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit56.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit56.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i52.i.i.i.i.i.i, %90, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i43.i.i.i.i.i.i, %._crit_edge.i.i.i.i55.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit56.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i52.i.i.i.i.i.i, %90, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i43.i.i.i.i.i.i, %._crit_edge.i.i.i.i55.i.i.i.i.i.i
   %95 = phi ptr [ %72, %._crit_edge.i.i.i.i55.i.i.i.i.i.i ], [ %.pre4.i.i.i42.i.i.i.i.i.i, %90 ], [ %.pre4.i.i.i42.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i43.i.i.i.i.i.i ], [ %72, %.lr.ph.i.i.i.i52.i.i.i.i.i.i ]
   %96 = phi ptr [ %73, %._crit_edge.i.i.i.i55.i.i.i.i.i.i ], [ %.pre.i.i.i41.i.i.i.i.i.i, %90 ], [ %.pre.i.i.i41.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i43.i.i.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i52.i.i.i.i.i.i ]
   %97 = phi i32 [ %76, %._crit_edge.i.i.i.i55.i.i.i.i.i.i ], [ %93, %90 ], [ %.pre179.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i43.i.i.i.i.i.i ], [ %76, %.lr.ph.i.i.i.i52.i.i.i.i.i.i ]
@@ -1599,7 +1599,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.not145.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i46.i.i.i.i.i.i, %100
   br i1 %.not145.i.i.i.i.i.i, label %101, label %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit"
 
-101:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit56.i.i.i.i.i.i"
+101:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit56.i.i.i.i.i.i"
   %102 = getelementptr inbounds i8, ptr %.029165.i.i.i.i.i.i, i64 16
   %.val35.i.i.i.i.i.i = load ptr, ptr %102, align 8
   br i1 %99, label %103, label %111
@@ -1614,7 +1614,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.01118.i.i.i.i70.i.i.i.i.i.i = phi ptr [ %109, %108 ], [ %95, %103 ]
   %106 = load ptr, ptr %.01118.i.i.i.i70.i.i.i.i.i.i, align 8
   %107 = icmp eq ptr %106, %.val35.i.i.i.i.i.i
-  br i1 %107, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit73.i.i.i.i.i.i", label %108
+  br i1 %107, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit73.i.i.i.i.i.i", label %108
 
 108:                                              ; preds = %.lr.ph.i.i.i.i69.i.i.i.i.i.i
   %109 = getelementptr inbounds i8, ptr %.01118.i.i.i.i70.i.i.i.i.i.i, i64 8
@@ -1623,7 +1623,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._crit_edge.i.i.i.i72.i.i.i.i.i.i:                ; preds = %108, %103
   %110 = getelementptr inbounds ptr, ptr %96, i64 %104
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit73.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit73.i.i.i.i.i.i"
 
 111:                                              ; preds = %101
   %112 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %.val35.i.i.i.i.i.i) #15
@@ -1635,7 +1635,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i60.i.i.i.i.i.i: ; preds = %111
   %.pre5.i.i.i62.i.i.i.i.i.i = load i32, ptr %15, align 4
   %.pre180.i.i.i.i.i.i = load i32, ptr %14, align 8
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit73.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit73.i.i.i.i.i.i"
 
 113:                                              ; preds = %111
   %114 = icmp eq ptr %.pre.i.i.i58.i.i.i.i.i.i, %.pre4.i.i.i59.i.i.i.i.i.i
@@ -1644,9 +1644,9 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.v.v.i14.i.i.i.i66.i.i.i.i.i.i = select i1 %114, i32 %115, i32 %116
   %.v.i15.i.i.i.i67.i.i.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i66.i.i.i.i.i.i to i64
   %117 = getelementptr inbounds ptr, ptr %.pre.i.i.i58.i.i.i.i.i.i, i64 %.v.i15.i.i.i.i67.i.i.i.i.i.i
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit73.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit73.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit73.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i69.i.i.i.i.i.i, %113, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i60.i.i.i.i.i.i, %._crit_edge.i.i.i.i72.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit73.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i69.i.i.i.i.i.i, %113, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i60.i.i.i.i.i.i, %._crit_edge.i.i.i.i72.i.i.i.i.i.i
   %118 = phi ptr [ %95, %._crit_edge.i.i.i.i72.i.i.i.i.i.i ], [ %.pre4.i.i.i59.i.i.i.i.i.i, %113 ], [ %.pre4.i.i.i59.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i60.i.i.i.i.i.i ], [ %95, %.lr.ph.i.i.i.i69.i.i.i.i.i.i ]
   %119 = phi ptr [ %96, %._crit_edge.i.i.i.i72.i.i.i.i.i.i ], [ %.pre.i.i.i58.i.i.i.i.i.i, %113 ], [ %.pre.i.i.i58.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i60.i.i.i.i.i.i ], [ %96, %.lr.ph.i.i.i.i69.i.i.i.i.i.i ]
   %120 = phi i32 [ %97, %._crit_edge.i.i.i.i72.i.i.i.i.i.i ], [ %116, %113 ], [ %.pre180.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i60.i.i.i.i.i.i ], [ %97, %.lr.ph.i.i.i.i69.i.i.i.i.i.i ]
@@ -1659,7 +1659,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.not146.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i63.i.i.i.i.i.i, %123
   br i1 %.not146.i.i.i.i.i.i, label %124, label %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit116"
 
-124:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit73.i.i.i.i.i.i"
+124:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit73.i.i.i.i.i.i"
   %125 = getelementptr inbounds i8, ptr %.029165.i.i.i.i.i.i, i64 24
   %.val33.i.i.i.i.i.i = load ptr, ptr %125, align 8
   br i1 %122, label %126, label %134
@@ -1674,7 +1674,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.01118.i.i.i.i87.i.i.i.i.i.i = phi ptr [ %132, %131 ], [ %118, %126 ]
   %129 = load ptr, ptr %.01118.i.i.i.i87.i.i.i.i.i.i, align 8
   %130 = icmp eq ptr %129, %.val33.i.i.i.i.i.i
-  br i1 %130, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit90.i.i.i.i.i.i", label %131
+  br i1 %130, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit90.i.i.i.i.i.i", label %131
 
 131:                                              ; preds = %.lr.ph.i.i.i.i86.i.i.i.i.i.i
   %132 = getelementptr inbounds i8, ptr %.01118.i.i.i.i87.i.i.i.i.i.i, i64 8
@@ -1683,7 +1683,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._crit_edge.i.i.i.i89.i.i.i.i.i.i:                ; preds = %131, %126
   %133 = getelementptr inbounds ptr, ptr %119, i64 %127
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit90.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit90.i.i.i.i.i.i"
 
 134:                                              ; preds = %124
   %135 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %.val33.i.i.i.i.i.i) #15
@@ -1695,7 +1695,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i77.i.i.i.i.i.i: ; preds = %134
   %.pre5.i.i.i79.i.i.i.i.i.i = load i32, ptr %15, align 4
   %.pre181.i.i.i.i.i.i = load i32, ptr %14, align 8
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit90.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit90.i.i.i.i.i.i"
 
 136:                                              ; preds = %134
   %137 = icmp eq ptr %.pre.i.i.i75.i.i.i.i.i.i, %.pre4.i.i.i76.i.i.i.i.i.i
@@ -1704,9 +1704,9 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.v.v.i14.i.i.i.i83.i.i.i.i.i.i = select i1 %137, i32 %138, i32 %139
   %.v.i15.i.i.i.i84.i.i.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i83.i.i.i.i.i.i to i64
   %140 = getelementptr inbounds ptr, ptr %.pre.i.i.i75.i.i.i.i.i.i, i64 %.v.i15.i.i.i.i84.i.i.i.i.i.i
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit90.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit90.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit90.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i86.i.i.i.i.i.i, %136, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i77.i.i.i.i.i.i, %._crit_edge.i.i.i.i89.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit90.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i86.i.i.i.i.i.i, %136, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i77.i.i.i.i.i.i, %._crit_edge.i.i.i.i89.i.i.i.i.i.i
   %141 = phi i32 [ %120, %._crit_edge.i.i.i.i89.i.i.i.i.i.i ], [ %139, %136 ], [ %.pre181.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i77.i.i.i.i.i.i ], [ %120, %.lr.ph.i.i.i.i86.i.i.i.i.i.i ]
   %142 = phi ptr [ %118, %._crit_edge.i.i.i.i89.i.i.i.i.i.i ], [ %.pre4.i.i.i76.i.i.i.i.i.i, %136 ], [ %.pre4.i.i.i76.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i77.i.i.i.i.i.i ], [ %118, %.lr.ph.i.i.i.i86.i.i.i.i.i.i ]
   %143 = phi ptr [ %119, %._crit_edge.i.i.i.i89.i.i.i.i.i.i ], [ %.pre.i.i.i75.i.i.i.i.i.i, %136 ], [ %.pre.i.i.i75.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i77.i.i.i.i.i.i ], [ %119, %.lr.ph.i.i.i.i86.i.i.i.i.i.i ]
@@ -1719,7 +1719,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.not147.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i80.i.i.i.i.i.i, %146
   br i1 %.not147.i.i.i.i.i.i, label %147, label %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit118"
 
-147:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit90.i.i.i.i.i.i"
+147:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit90.i.i.i.i.i.i"
   %148 = getelementptr inbounds i8, ptr %.029165.i.i.i.i.i.i, i64 32
   %149 = add nsw i64 %.0166.i.i.i.i.i.i, -1
   %150 = icmp sgt i64 %.0166.i.i.i.i.i.i, 1
@@ -1768,7 +1768,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.01118.i.i.i.i104.i.i.i.i.i.i = phi ptr [ %163, %162 ], [ %154, %156 ]
   %160 = load ptr, ptr %.01118.i.i.i.i104.i.i.i.i.i.i, align 8
   %161 = icmp eq ptr %160, %.029.val.i.i.i.i.i.i
-  br i1 %161, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit107.i.i.i.i.i.i", label %162
+  br i1 %161, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit107.i.i.i.i.i.i", label %162
 
 162:                                              ; preds = %.lr.ph.i.i.i.i103.i.i.i.i.i.i
   %163 = getelementptr inbounds i8, ptr %.01118.i.i.i.i104.i.i.i.i.i.i, i64 8
@@ -1777,7 +1777,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._crit_edge.i.i.i.i106.i.i.i.i.i.i:               ; preds = %162, %156
   %164 = getelementptr inbounds ptr, ptr %153, i64 %158
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit107.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit107.i.i.i.i.i.i"
 
 165:                                              ; preds = %152
   %166 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %.029.val.i.i.i.i.i.i) #15
@@ -1788,7 +1788,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i94.i.i.i.i.i.i: ; preds = %165
   %.pre5.i.i.i96.i.i.i.i.i.i = load i32, ptr %15, align 4
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit107.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit107.i.i.i.i.i.i"
 
 167:                                              ; preds = %165
   %168 = icmp eq ptr %.pre.i.i.i92.i.i.i.i.i.i, %.pre4.i.i.i93.i.i.i.i.i.i
@@ -1797,9 +1797,9 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.v.v.i14.i.i.i.i100.i.i.i.i.i.i = select i1 %168, i32 %169, i32 %170
   %.v.i15.i.i.i.i101.i.i.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i100.i.i.i.i.i.i to i64
   %171 = getelementptr inbounds ptr, ptr %.pre.i.i.i92.i.i.i.i.i.i, i64 %.v.i15.i.i.i.i101.i.i.i.i.i.i
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit107.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit107.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit107.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i103.i.i.i.i.i.i, %167, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i94.i.i.i.i.i.i, %._crit_edge.i.i.i.i106.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit107.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i103.i.i.i.i.i.i, %167, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i94.i.i.i.i.i.i, %._crit_edge.i.i.i.i106.i.i.i.i.i.i
   %172 = phi ptr [ %154, %._crit_edge.i.i.i.i106.i.i.i.i.i.i ], [ %.pre4.i.i.i93.i.i.i.i.i.i, %167 ], [ %.pre4.i.i.i93.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i94.i.i.i.i.i.i ], [ %154, %.lr.ph.i.i.i.i103.i.i.i.i.i.i ]
   %173 = phi i32 [ %157, %._crit_edge.i.i.i.i106.i.i.i.i.i.i ], [ %169, %167 ], [ %.pre5.i.i.i96.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i94.i.i.i.i.i.i ], [ %157, %.lr.ph.i.i.i.i103.i.i.i.i.i.i ]
   %174 = phi ptr [ %153, %._crit_edge.i.i.i.i106.i.i.i.i.i.i ], [ %.pre4.i.i.i93.i.i.i.i.i.i, %167 ], [ %.pre4.i.i.i93.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i94.i.i.i.i.i.i ], [ %153, %.lr.ph.i.i.i.i103.i.i.i.i.i.i ]
@@ -1813,7 +1813,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.not.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i97.i.i.i.i.i.i, %178
   br i1 %.not.i.i.i.i.i.i, label %179, label %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i"
 
-179:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit107.i.i.i.i.i.i"
+179:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit107.i.i.i.i.i.i"
   %180 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   br label %181
 
@@ -1836,7 +1836,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.01118.i.i.i.i121.i.i.i.i.i.i = phi ptr [ %192, %191 ], [ %182, %185 ]
   %189 = load ptr, ptr %.01118.i.i.i.i121.i.i.i.i.i.i, align 8
   %190 = icmp eq ptr %189, %.1.val.i.i.i.i.i.i
-  br i1 %190, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit124.i.i.i.i.i.i", label %191
+  br i1 %190, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit124.i.i.i.i.i.i", label %191
 
 191:                                              ; preds = %.lr.ph.i.i.i.i120.i.i.i.i.i.i
   %192 = getelementptr inbounds i8, ptr %.01118.i.i.i.i121.i.i.i.i.i.i, i64 8
@@ -1845,7 +1845,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._crit_edge.i.i.i.i123.i.i.i.i.i.i:               ; preds = %191, %185
   %193 = getelementptr inbounds ptr, ptr %183, i64 %187
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit124.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit124.i.i.i.i.i.i"
 
 194:                                              ; preds = %181
   %195 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %.1.val.i.i.i.i.i.i) #15
@@ -1856,7 +1856,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i111.i.i.i.i.i.i: ; preds = %194
   %.pre5.i.i.i113.i.i.i.i.i.i = load i32, ptr %15, align 4
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit124.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit124.i.i.i.i.i.i"
 
 196:                                              ; preds = %194
   %197 = icmp eq ptr %.pre.i.i.i109.i.i.i.i.i.i, %.pre4.i.i.i110.i.i.i.i.i.i
@@ -1865,9 +1865,9 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.v.v.i14.i.i.i.i117.i.i.i.i.i.i = select i1 %197, i32 %198, i32 %199
   %.v.i15.i.i.i.i118.i.i.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i117.i.i.i.i.i.i to i64
   %200 = getelementptr inbounds ptr, ptr %.pre.i.i.i109.i.i.i.i.i.i, i64 %.v.i15.i.i.i.i118.i.i.i.i.i.i
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit124.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit124.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit124.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i120.i.i.i.i.i.i, %196, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i111.i.i.i.i.i.i, %._crit_edge.i.i.i.i123.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit124.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i120.i.i.i.i.i.i, %196, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i111.i.i.i.i.i.i, %._crit_edge.i.i.i.i123.i.i.i.i.i.i
   %201 = phi ptr [ %182, %._crit_edge.i.i.i.i123.i.i.i.i.i.i ], [ %.pre4.i.i.i110.i.i.i.i.i.i, %196 ], [ %.pre4.i.i.i110.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i111.i.i.i.i.i.i ], [ %182, %.lr.ph.i.i.i.i120.i.i.i.i.i.i ]
   %202 = phi i32 [ %186, %._crit_edge.i.i.i.i123.i.i.i.i.i.i ], [ %198, %196 ], [ %.pre5.i.i.i113.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i111.i.i.i.i.i.i ], [ %186, %.lr.ph.i.i.i.i120.i.i.i.i.i.i ]
   %203 = phi ptr [ %183, %._crit_edge.i.i.i.i123.i.i.i.i.i.i ], [ %.pre.i.i.i109.i.i.i.i.i.i, %196 ], [ %.pre.i.i.i109.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i111.i.i.i.i.i.i ], [ %183, %.lr.ph.i.i.i.i120.i.i.i.i.i.i ]
@@ -1880,7 +1880,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.not142.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i114.i.i.i.i.i.i, %206
   br i1 %.not142.i.i.i.i.i.i, label %207, label %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i"
 
-207:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit124.i.i.i.i.i.i"
+207:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit124.i.i.i.i.i.i"
   %208 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %209
 
@@ -1903,7 +1903,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.01118.i.i.i.i138.i.i.i.i.i.i = phi ptr [ %220, %219 ], [ %210, %213 ]
   %217 = load ptr, ptr %.01118.i.i.i.i138.i.i.i.i.i.i, align 8
   %218 = icmp eq ptr %217, %.2.val.i.i.i.i.i.i
-  br i1 %218, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit141.i.i.i.i.i.i", label %219
+  br i1 %218, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit141.i.i.i.i.i.i", label %219
 
 219:                                              ; preds = %.lr.ph.i.i.i.i137.i.i.i.i.i.i
   %220 = getelementptr inbounds i8, ptr %.01118.i.i.i.i138.i.i.i.i.i.i, i64 8
@@ -1912,7 +1912,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._crit_edge.i.i.i.i140.i.i.i.i.i.i:               ; preds = %219, %213
   %221 = getelementptr inbounds ptr, ptr %211, i64 %215
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit141.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit141.i.i.i.i.i.i"
 
 222:                                              ; preds = %209
   %223 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %.2.val.i.i.i.i.i.i) #15
@@ -1923,7 +1923,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i128.i.i.i.i.i.i: ; preds = %222
   %.pre5.i.i.i130.i.i.i.i.i.i = load i32, ptr %15, align 4
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit141.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit141.i.i.i.i.i.i"
 
 224:                                              ; preds = %222
   %225 = icmp eq ptr %.pre.i.i.i126.i.i.i.i.i.i, %.pre4.i.i.i127.i.i.i.i.i.i
@@ -1932,9 +1932,9 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.v.v.i14.i.i.i.i134.i.i.i.i.i.i = select i1 %225, i32 %226, i32 %227
   %.v.i15.i.i.i.i135.i.i.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i134.i.i.i.i.i.i to i64
   %228 = getelementptr inbounds ptr, ptr %.pre.i.i.i126.i.i.i.i.i.i, i64 %.v.i15.i.i.i.i135.i.i.i.i.i.i
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit141.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit141.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit141.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i137.i.i.i.i.i.i, %224, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i128.i.i.i.i.i.i, %._crit_edge.i.i.i.i140.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit141.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i137.i.i.i.i.i.i, %224, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i128.i.i.i.i.i.i, %._crit_edge.i.i.i.i140.i.i.i.i.i.i
   %229 = phi i32 [ %214, %._crit_edge.i.i.i.i140.i.i.i.i.i.i ], [ %226, %224 ], [ %.pre5.i.i.i130.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i128.i.i.i.i.i.i ], [ %214, %.lr.ph.i.i.i.i137.i.i.i.i.i.i ]
   %230 = phi ptr [ %210, %._crit_edge.i.i.i.i140.i.i.i.i.i.i ], [ %.pre4.i.i.i127.i.i.i.i.i.i, %224 ], [ %.pre4.i.i.i127.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i128.i.i.i.i.i.i ], [ %210, %.lr.ph.i.i.i.i137.i.i.i.i.i.i ]
   %231 = phi ptr [ %211, %._crit_edge.i.i.i.i140.i.i.i.i.i.i ], [ %.pre.i.i.i126.i.i.i.i.i.i, %224 ], [ %.pre.i.i.i126.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i128.i.i.i.i.i.i ], [ %211, %.lr.ph.i.i.i.i137.i.i.i.i.i.i ]
@@ -1947,20 +1947,20 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.not143.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i131.i.i.i.i.i.i, %234
   br i1 %.not143.i.i.i.i.i.i, label %"_ZN4llvm9remove_ifIRNS_11SmallVectorIPN5clang13serialization10ModuleFileELj2EEEZNS3_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS4_St14default_deleteIS4_EES4_EEE3$_0EEDaOT_T0_.exit.i", label %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit56.i.i.i.i.i.i"
+"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit56.i.i.i.i.i.i"
   %235 = getelementptr inbounds i8, ptr %.029165.i.i.i.i.i.i, i64 8
   br label %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit116": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit73.i.i.i.i.i.i"
+"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit116": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit73.i.i.i.i.i.i"
   %236 = getelementptr inbounds i8, ptr %.029165.i.i.i.i.i.i, i64 16
   br label %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit118": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit90.i.i.i.i.i.i"
+"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit118": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit90.i.i.i.i.i.i"
   %237 = getelementptr inbounds i8, ptr %.029165.i.i.i.i.i.i, i64 24
   br label %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i.i.i", %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit116", %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit118", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit141.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit124.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit107.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit107.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit124.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit141.i.i.i.i.i.i" ], [ %235, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %236, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit116" ], [ %237, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit118" ], [ %.029165.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i.i.i" ]
+"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i.i.i", %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit116", %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit118", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit141.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit124.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit107.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit107.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit124.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit141.i.i.i.i.i.i" ], [ %235, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %236, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit116" ], [ %237, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i.loopexit.split.loop.exit118" ], [ %.029165.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i.i.i" ]
   %238 = icmp eq ptr %.028.i.i.i.i.i.i, %48
   br i1 %238, label %"_ZN4llvm9remove_ifIRNS_11SmallVectorIPN5clang13serialization10ModuleFileELj2EEEZNS3_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS4_St14default_deleteIS4_EES4_EEE3$_0EEDaOT_T0_.exit.i", label %.preheader.i.i.i.i
 
@@ -1989,7 +1989,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.01118.i.i.i.i.i.i.i.i = phi ptr [ %249, %248 ], [ %240, %242 ]
   %246 = load ptr, ptr %.01118.i.i.i.i.i.i.i.i, align 8
   %247 = icmp eq ptr %246, %.017.val.i.i.i.i
-  br i1 %247, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i", label %248
+  br i1 %247, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i", label %248
 
 248:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %249 = getelementptr inbounds i8, ptr %.01118.i.i.i.i.i.i.i.i, i64 8
@@ -1998,7 +1998,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %248, %242
   %250 = getelementptr inbounds ptr, ptr %239, i64 %244
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i"
 
 251:                                              ; preds = %.lr.ph.i.i.i.i4
   %252 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %.017.val.i.i.i.i) #15
@@ -2009,7 +2009,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i: ; preds = %251
   %.pre5.i.i.i.i.i.i.i = load i32, ptr %15, align 4
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i"
 
 253:                                              ; preds = %251
   %254 = icmp eq ptr %.pre.i.i.i.i.i.i.i, %.pre4.i.i.i.i.i.i.i
@@ -2018,9 +2018,9 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.v.v.i14.i.i.i.i.i.i.i.i = select i1 %254, i32 %255, i32 %256
   %.v.i15.i.i.i.i.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i.i.i.i.i to i64
   %257 = getelementptr inbounds ptr, ptr %.pre.i.i.i.i.i.i.i, i64 %.v.i15.i.i.i.i.i.i.i.i
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %253, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %253, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
   %258 = phi i32 [ %243, %._crit_edge.i.i.i.i.i.i.i.i ], [ %255, %253 ], [ %.pre5.i.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i ], [ %243, %.lr.ph.i.i.i.i.i.i.i.i ]
   %259 = phi ptr [ %239, %._crit_edge.i.i.i.i.i.i.i.i ], [ %.pre4.i.i.i.i.i.i.i, %253 ], [ %.pre4.i.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i ], [ %239, %.lr.ph.i.i.i.i.i.i.i.i ]
   %260 = phi ptr [ %239, %._crit_edge.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %253 ], [ %.pre.i.i.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i.i.i ], [ %239, %.lr.ph.i.i.i.i.i.i.i.i ]
@@ -2033,20 +2033,20 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   %.not22.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i.i.i, %263
   br i1 %.not22.i.i.i.i, label %264, label %267
 
-264:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i"
+264:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i"
   %265 = load ptr, ptr %.01742.i.i.i.i, align 8
   store ptr %265, ptr %.041.i.i.i.i, align 8
   %266 = getelementptr inbounds i8, ptr %.041.i.i.i.i, i64 8
   br label %267
 
-267:                                              ; preds = %264, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i"
-  %.1.i.i.i.i = phi ptr [ %.041.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit.i.i.i.i" ], [ %266, %264 ]
+267:                                              ; preds = %264, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i"
+  %.1.i.i.i.i = phi ptr [ %.041.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit.i.i.i.i" ], [ %266, %264 ]
   %.017.i.i.i.i = getelementptr inbounds i8, ptr %.01742.i.i.i.i, i64 8
   %.not.i.i.i.i5 = icmp eq ptr %.017.i.i.i.i, %48
   br i1 %.not.i.i.i.i5, label %"_ZN4llvm9remove_ifIRNS_11SmallVectorIPN5clang13serialization10ModuleFileELj2EEEZNS3_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS4_St14default_deleteIS4_EES4_EEE3$_0EEDaOT_T0_.exit.i", label %.lr.ph.i.i.i.i4, !llvm.loop !32
 
-"_ZN4llvm9remove_ifIRNS_11SmallVectorIPN5clang13serialization10ModuleFileELj2EEEZNS3_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS4_St14default_deleteIS4_EES4_EEE3$_0EEDaOT_T0_.exit.i": ; preds = %267, %.preheader.i.i.i.i, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit141.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %48, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i" ], [ %48, %._crit_edge.i.i.i.i.i.i ], [ %48, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.argprom.exit141.i.i.i.i.i.i" ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %267 ]
+"_ZN4llvm9remove_ifIRNS_11SmallVectorIPN5clang13serialization10ModuleFileELj2EEEZNS3_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS4_St14default_deleteIS4_EES4_EEE3$_0EEDaOT_T0_.exit.i": ; preds = %267, %.preheader.i.i.i.i, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit141.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.016.i.i.i.i = phi ptr [ %48, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIZNS1_13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i" ], [ %48, %._crit_edge.i.i.i.i.i.i ], [ %48, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS3_10ModuleFileESt14default_deleteIS8_EES8_EEE3$_0EclIPPS8_EEbT_.exit141.i.i.i.i.i.i" ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %267 ]
   %268 = load ptr, ptr %45, align 8
   %269 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #15
   %270 = getelementptr inbounds ptr, ptr %268, i64 %269
@@ -2318,7 +2318,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_.retelim"(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2404,7 +2404,7 @@ define internal fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10Module
 
 "_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIS3_NS8_11SmallVectorIS3_Lj0EEENS8_8DenseSetIS3_NS8_12DenseMapInfoIS3_vEEEELj0EE19TestAndEraseFromSetIZNS1_13ModuleManager13removeModulesENS8_16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEEEET_ST_ST_T0_.exit.thread.i.i.i.i": ; preds = %37, %._crit_edge.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.argprom.exit"
+  br label %"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.exit"
 
 "_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIS3_NS8_11SmallVectorIS3_Lj0EEENS8_8DenseSetIS3_NS8_12DenseMapInfoIS3_vEEEELj0EE19TestAndEraseFromSetIZNS1_13ModuleManager13removeModulesENS8_16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEEEET_ST_ST_T0_.exit.i.i.i.i": ; preds = %21, %18, %15, %.lr.ph.i.i.i.i.i.i, %37, %33, %29
   %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %29 ], [ %.1.i.i.i.i.i.i, %33 ], [ %.2.i.i.i.i.i.i, %37 ], [ %22, %21 ], [ %19, %18 ], [ %16, %15 ], [ %.02931.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
@@ -2413,7 +2413,7 @@ define internal fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10Module
   %.01722.i.i.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i.i.i, i64 8
   %.not23.i.i.i.i = icmp eq ptr %.01722.i.i.i.i, %8
   %or.cond.i.i.i.i = select i1 %39, i1 true, i1 %.not23.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIS3_NS8_11SmallVectorIS3_Lj0EEENS8_8DenseSetIS3_NS8_12DenseMapInfoIS3_vEEEELj0EE19TestAndEraseFromSetIZNS1_13ModuleManager13removeModulesENS8_16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEEEET_ST_ST_T0_.exit.i.i.i.i", %44
   %.01725.i.i.i.i = phi ptr [ %.017.i.i.i.i, %44 ], [ %.01722.i.i.i.i, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIS3_NS8_11SmallVectorIS3_Lj0EEENS8_8DenseSetIS3_NS8_12DenseMapInfoIS3_vEEEELj0EE19TestAndEraseFromSetIZNS1_13ModuleManager13removeModulesENS8_16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEEEET_ST_ST_T0_.exit.i.i.i.i" ]
@@ -2431,9 +2431,9 @@ define internal fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10Module
   %.1.i.i.i.i = phi ptr [ %.024.i.i.i.i, %.lr.ph.i.i.i.i ], [ %43, %41 ]
   %.017.i.i.i.i = getelementptr inbounds i8, ptr %.01725.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %8
-  br i1 %.not.i.i.i.i, label %"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i, label %"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.exit", label %.lr.ph.i.i.i.i, !llvm.loop !37
 
-"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.argprom.exit": ; preds = %44, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIS3_NS8_11SmallVectorIS3_Lj0EEENS8_8DenseSetIS3_NS8_12DenseMapInfoIS3_vEEEELj0EE19TestAndEraseFromSetIZNS1_13ModuleManager13removeModulesENS8_16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEEEET_ST_ST_T0_.exit.thread.i.i.i.i", %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIS3_NS8_11SmallVectorIS3_Lj0EEENS8_8DenseSetIS3_NS8_12DenseMapInfoIS3_vEEEELj0EE19TestAndEraseFromSetIZNS1_13ModuleManager13removeModulesENS8_16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEEEET_ST_ST_T0_.exit.i.i.i.i"
+"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.exit": ; preds = %44, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIS3_NS8_11SmallVectorIS3_Lj0EEENS8_8DenseSetIS3_NS8_12DenseMapInfoIS3_vEEEELj0EE19TestAndEraseFromSetIZNS1_13ModuleManager13removeModulesENS8_16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEEEET_ST_ST_T0_.exit.thread.i.i.i.i", %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIS3_NS8_11SmallVectorIS3_Lj0EEENS8_8DenseSetIS3_NS8_12DenseMapInfoIS3_vEEEELj0EE19TestAndEraseFromSetIZNS1_13ModuleManager13removeModulesENS8_16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEEEET_ST_ST_T0_.exit.i.i.i.i"
   %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIS3_NS8_11SmallVectorIS3_Lj0EEENS8_8DenseSetIS3_NS8_12DenseMapInfoIS3_vEEEELj0EE19TestAndEraseFromSetIZNS1_13ModuleManager13removeModulesENS8_16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEEEET_ST_ST_T0_.exit.i.i.i.i" ], [ %8, %"_ZSt9__find_ifIPPN5clang13serialization10ModuleFileEN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIS3_NS8_11SmallVectorIS3_Lj0EEENS8_8DenseSetIS3_NS8_12DenseMapInfoIS3_vEEEELj0EE19TestAndEraseFromSetIZNS1_13ModuleManager13removeModulesENS8_16pointee_iteratorIPSt10unique_ptrIS2_St14default_deleteIS2_EES2_EEE3$_0EEEEET_ST_ST_T0_.exit.thread.i.i.i.i" ], [ %.1.i.i.i.i, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %45 = load ptr, ptr %5, align 8
@@ -2442,7 +2442,7 @@ define internal fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10Module
   %.not = icmp eq ptr %.016.i.i.i.i, %47
   br i1 %.not, label %66, label %48
 
-48:                                               ; preds = %"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.argprom.exit"
+48:                                               ; preds = %"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.exit"
   %49 = load ptr, ptr %5, align 8
   %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   %51 = getelementptr inbounds ptr, ptr %49, i64 %50
@@ -2470,7 +2470,7 @@ _ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE5eraseEPKS4_S7_.e
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %65) #15
   br label %66
 
-66:                                               ; preds = %"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.argprom.exit", %_ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE5eraseEPKS4_S7_.exit
+66:                                               ; preds = %"_ZZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_ENKUlvE_clEv.exit", %_ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE5eraseEPKS4_S7_.exit
   ret void
 }
 
@@ -5341,7 +5341,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIN4ll
   %.01118.i.i.i.i = phi ptr [ %16, %15 ], [ %6, %8 ]
   %13 = load ptr, ptr %.01118.i.i.i.i, align 8
   %14 = icmp eq ptr %13, %3
-  br i1 %14, label %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.argprom.exit.i", label %15
+  br i1 %14, label %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.exit.i", label %15
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.01118.i.i.i.i, i64 8
@@ -5350,7 +5350,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIN4ll
 
 ._crit_edge.i.i.i.i:                              ; preds = %15, %8
   %17 = getelementptr inbounds ptr, ptr %5, i64 %11
-  br label %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.argprom.exit.i"
+  br label %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.exit.i"
 
 18:                                               ; preds = %2
   %19 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %.val.i, ptr noundef %3) #15
@@ -5362,7 +5362,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIN4ll
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i: ; preds = %18
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i, i64 20
   %.pre5.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
-  br label %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.argprom.exit.i"
+  br label %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.exit.i"
 
 20:                                               ; preds = %18
   %21 = icmp eq ptr %.pre.i.i.i, %.pre4.i.i.i
@@ -5373,9 +5373,9 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIN4ll
   %.v.v.i14.i.i.i.i = select i1 %21, i32 %23, i32 %25
   %.v.i15.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i to i64
   %26 = getelementptr inbounds ptr, ptr %.pre.i.i.i, i64 %.v.i15.i.i.i.i
-  br label %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.argprom.exit.i"
+  br label %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.exit.i"
 
-"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i, %20, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i, %._crit_edge.i.i.i.i
+"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.exit.i": ; preds = %.lr.ph.i.i.i.i, %20, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i, %._crit_edge.i.i.i.i
   %27 = phi i32 [ %10, %._crit_edge.i.i.i.i ], [ %23, %20 ], [ %.pre5.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %10, %.lr.ph.i.i.i.i ]
   %28 = phi ptr [ %5, %._crit_edge.i.i.i.i ], [ %.pre4.i.i.i, %20 ], [ %.pre4.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %5, %.lr.ph.i.i.i.i ]
   %29 = phi ptr [ %5, %._crit_edge.i.i.i.i ], [ %.pre.i.i.i, %20 ], [ %.pre.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %5, %.lr.ph.i.i.i.i ]
@@ -5389,7 +5389,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIN4ll
   %34 = icmp ne ptr %.0.i.i.i.i, %33
   br i1 %34, label %35, label %"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE19TestAndEraseFromSetIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EclIS4_EEbRKT_.exit"
 
-35:                                               ; preds = %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.argprom.exit.i"
+35:                                               ; preds = %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.exit.i"
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
@@ -5444,7 +5444,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13serialization10ModuleFileENS_6deta
   store i32 %69, ptr %67, align 4
   br label %"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE19TestAndEraseFromSetIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EclIS4_EEbRKT_.exit"
 
-"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE19TestAndEraseFromSetIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EclIS4_EEbRKT_.exit": ; preds = %.lr.ph.i.i.i4.i, %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.argprom.exit.i", %35, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13serialization10ModuleFileENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E6doFindIS5_EEPSB_RKT_.exit.i.i.i
+"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE19TestAndEraseFromSetIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EclIS4_EEbRKT_.exit": ; preds = %.lr.ph.i.i.i4.i, %"_ZZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EEENK3$_0clEPS5_.exit.i", %35, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13serialization10ModuleFileENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E6doFindIS5_EEPSB_RKT_.exit.i.i.i
   ret i1 %34
 }
 

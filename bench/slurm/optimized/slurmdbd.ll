@@ -1291,7 +1291,7 @@ _request_registrations.exit:                      ; preds = %389, %._crit_edge.i
   br label %488
 
 488:                                              ; preds = %487, %484
-  call fastcc void @_restart_self.argelim(ptr noundef nonnull %1)
+  call fastcc void @_restart_self(ptr noundef nonnull %1)
   br label %489
 
 489:                                              ; preds = %488, %483, %480
@@ -1860,7 +1860,7 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_restart_self.argelim(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc void @_restart_self(ptr noundef %0) unnamed_addr #4 {
   %2 = tail call i32 @get_log_level() #17
   %3 = icmp sgt i32 %2, 2
   br i1 %3, label %4, label %5

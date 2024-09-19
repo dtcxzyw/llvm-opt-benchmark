@@ -2452,7 +2452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3: ;
           to label %895 unwind label %982
 
 895:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_126UnbiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEid.argelim(ptr noundef %14)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_126UnbiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEid(ptr noundef %14)
           to label %896 unwind label %984
 
 896:                                              ; preds = %895
@@ -2576,7 +2576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit17.i: 
           to label %942 unwind label %989
 
 942:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit17.i
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_126UnbiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEid.argelim(ptr noundef %17)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_126UnbiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEid(ptr noundef %17)
           to label %943 unwind label %991
 
 943:                                              ; preds = %942
@@ -2760,7 +2760,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i16: 
           to label %1003 unwind label %1090
 
 1003:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i16
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124BiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEidi.argelim(ptr noundef %8)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124BiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEidi(ptr noundef %8)
           to label %1004 unwind label %1092
 
 1004:                                             ; preds = %1003
@@ -2884,7 +2884,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit17.i24
           to label %1050 unwind label %1097
 
 1050:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit17.i24
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124BiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEidi.argelim(ptr noundef %11)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124BiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEidi(ptr noundef %11)
           to label %1051 unwind label %1099
 
 1051:                                             ; preds = %1050
@@ -7041,7 +7041,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_126UnbiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEid.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_126UnbiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEid(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr.125", align 8
   %3 = alloca %"class.open_spiel::algorithms::OOSAlgorithm", align 8
   %4 = alloca %"class.std::shared_ptr", align 8
@@ -7716,7 +7716,7 @@ _ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev.exit: ; preds = %18, %36, %49, %_ZN
 declare void @_ZN10open_spiel10algorithms16CFRAveragePolicyC1ERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_18CFRInfoStateValuesESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEESt10shared_ptrINS_6PolicyEE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124BiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEidi.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124BiasedIterationsConvergeESt10shared_ptrIKNS_4GameEEidi(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::shared_ptr.28", align 8
   %3 = alloca %"class.std::unique_ptr.125", align 8
   %4 = alloca ptr, align 8
@@ -9036,7 +9036,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN10open_spiel5StateEEZNS0_10a
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %2
   %13 = phi ptr [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %9, %2 ]
   %.not.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN10open_spiel10algorithms12_GLOBAL__N_119CollectStatesInGameESt10shared_ptrIKNS0_4GameEEE3$_0JPNS0_5StateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", label %14
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN10open_spiel10algorithms12_GLOBAL__N_119CollectStatesInGameESt10shared_ptrIKNS0_4GameEEE3$_0JPNS0_5StateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %14
 
 14:                                               ; preds = %._crit_edge.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -9045,7 +9045,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN10open_spiel5StateEEZNS0_10a
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
   call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #25
-  br label %"_ZSt10__invoke_rIvRZN10open_spiel10algorithms12_GLOBAL__N_119CollectStatesInGameESt10shared_ptrIKNS0_4GameEEE3$_0JPNS0_5StateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN10open_spiel10algorithms12_GLOBAL__N_119CollectStatesInGameESt10shared_ptrIKNS0_4GameEEE3$_0JPNS0_5StateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 20:                                               ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i.i.i, %.lr.ph.i.i.i
   %.sroa.019.024.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %56, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i.i.i ]
@@ -9196,7 +9196,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit16.i.i.i:
 _ZNSt6vectorIlSaIlEED2Ev.exit18.i.i.i:            ; preds = %65, %.body.i.i.i
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN10open_spiel10algorithms12_GLOBAL__N_119CollectStatesInGameESt10shared_ptrIKNS0_4GameEEE3$_0JPNS0_5StateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %._crit_edge.i.i.i, %14
+"_ZSt10__invoke_rIvRZN10open_spiel10algorithms12_GLOBAL__N_119CollectStatesInGameESt10shared_ptrIKNS0_4GameEEE3$_0JPNS0_5StateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %._crit_edge.i.i.i, %14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret void
@@ -9422,8 +9422,8 @@ attributes #25 = { builtin nounwind }
 !38 = distinct !{!38, !39, !"_ZNK10open_spiel10algorithms12OOSAlgorithm13AveragePolicyEv: argument 0"}
 !39 = distinct !{!39, !"_ZNK10open_spiel10algorithms12OOSAlgorithm13AveragePolicyEv"}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN10open_spiel10algorithms12_GLOBAL__N_119CollectStatesInGameESt10shared_ptrIKNS_4GameEE.argprom: argument 0"}
-!42 = distinct !{!42, !"_ZN10open_spiel10algorithms12_GLOBAL__N_119CollectStatesInGameESt10shared_ptrIKNS_4GameEE.argprom"}
+!41 = distinct !{!41, !42, !"_ZN10open_spiel10algorithms12_GLOBAL__N_119CollectStatesInGameESt10shared_ptrIKNS_4GameEE: argument 0"}
+!42 = distinct !{!42, !"_ZN10open_spiel10algorithms12_GLOBAL__N_119CollectStatesInGameESt10shared_ptrIKNS_4GameEE"}
 !43 = !{!44}
 !44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !45 = distinct !{!45, !"_ZSt19__relocate_object_aISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}

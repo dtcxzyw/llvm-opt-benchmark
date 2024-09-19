@@ -732,7 +732,7 @@ define noundef nonnull align 8 dereferenceable(369) ptr @_ZN32pxrInternal_v0_24_
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__32UsdImagingGetCapsuleMeshTopologyEvENK3$_0clEv.argprom"()
+  invoke fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__32UsdImagingGetCapsuleMeshTopologyEvENK3$_0clEv"()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -751,7 +751,7 @@ define noundef nonnull align 8 dereferenceable(369) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__32UsdImagingGetCapsuleMeshTopologyEvENK3$_0clEv.argprom"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__32UsdImagingGetCapsuleMeshTopologyEvENK3$_0clEv"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8

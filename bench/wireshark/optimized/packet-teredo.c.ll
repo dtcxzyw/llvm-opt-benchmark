@@ -176,14 +176,14 @@ define internal i32 @dissect_teredo(ptr noundef %0, ptr noundef %1, ptr noundef 
   %52 = load i32, ptr @hf_teredo_auth_conf, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %52, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef 0) #2
   %54 = add nuw nsw i32 %.1.i, 9
-  br label %parse_teredo_auth.argprom.exit
+  br label %parse_teredo_auth.exit
 
 55:                                               ; preds = %21
   %56 = add nuw nsw i32 %23, 13
   %57 = add nuw nsw i32 %56, %26
-  br label %parse_teredo_auth.argprom.exit
+  br label %parse_teredo_auth.exit
 
-parse_teredo_auth.argprom.exit:                   ; preds = %48, %55
+parse_teredo_auth.exit:                           ; preds = %48, %55
   %.2.i = phi i32 [ %54, %48 ], [ %57, %55 ]
   %58 = getelementptr inbounds i8, ptr %18, i64 4
   %59 = add nsw i32 %.2.i, -9
@@ -202,10 +202,10 @@ parse_teredo_auth.argprom.exit:                   ; preds = %48, %55
   store i16 0, ptr %18, align 4
   br label %68
 
-68:                                               ; preds = %67, %parse_teredo_auth.argprom.exit
-  %69 = phi i16 [ %64, %parse_teredo_auth.argprom.exit ], [ %17, %67 ]
-  %70 = phi ptr [ %65, %parse_teredo_auth.argprom.exit ], [ %18, %67 ]
-  %.0 = phi i32 [ %.2.i, %parse_teredo_auth.argprom.exit ], [ 0, %67 ]
+68:                                               ; preds = %67, %parse_teredo_auth.exit
+  %69 = phi i16 [ %64, %parse_teredo_auth.exit ], [ %17, %67 ]
+  %70 = phi ptr [ %65, %parse_teredo_auth.exit ], [ %18, %67 ]
+  %.0 = phi i32 [ %.2.i, %parse_teredo_auth.exit ], [ 0, %67 ]
   %71 = icmp eq i16 %69, 0
   br i1 %71, label %72, label %97
 
@@ -236,7 +236,7 @@ parse_teredo_auth.argprom.exit:                   ; preds = %48, %55
   %83 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %82) #2
   %84 = getelementptr inbounds i8, ptr %70, i64 20
   store i32 %83, ptr %84, align 4
-  br label %parse_teredo_orig.argprom.exit
+  br label %parse_teredo_orig.exit
 
 85:                                               ; preds = %78
   %86 = load i32, ptr @hf_teredo_orig_port, align 4
@@ -250,14 +250,14 @@ parse_teredo_auth.argprom.exit:                   ; preds = %48, %55
   %93 = load i32, ptr @hf_teredo_orig_addr, align 4
   %94 = xor i32 %91, -1
   %95 = tail call ptr @proto_tree_add_ipv4(ptr noundef nonnull %.0.i26, i32 noundef %93, ptr noundef %0, i32 noundef %90, i32 noundef 4, i32 noundef %94) #2
-  br label %parse_teredo_orig.argprom.exit
+  br label %parse_teredo_orig.exit
 
-parse_teredo_orig.argprom.exit:                   ; preds = %.thread.i, %85
+parse_teredo_orig.exit:                           ; preds = %.thread.i, %85
   %96 = add nuw nsw i32 %.0, 8
   br label %97
 
-97:                                               ; preds = %parse_teredo_orig.argprom.exit, %68
-  %.1 = phi i32 [ %96, %parse_teredo_orig.argprom.exit ], [ %.0, %68 ]
+97:                                               ; preds = %parse_teredo_orig.exit, %68
+  %.1 = phi i32 [ %96, %parse_teredo_orig.exit ], [ %.0, %68 ]
   %98 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #2
   %99 = load ptr, ptr @dissect_teredo.teredoh, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 13

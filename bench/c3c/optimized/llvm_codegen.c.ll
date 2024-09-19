@@ -5522,14 +5522,14 @@ define internal fastcc ptr @llvm_gen_module(ptr noundef %0, ptr noundef %1) unna
 13:                                               ; preds = %9
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 204), align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %module_is_stdlib.argprom.exit
+  br i1 %15, label %16, label %module_is_stdlib.exit
 
 16:                                               ; preds = %13
   %.val = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %.val, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %18, 3
-  br i1 %19, label %module_is_stdlib.argprom.exit, label %20
+  br i1 %19, label %module_is_stdlib.exit, label %20
 
 20:                                               ; preds = %16
   %21 = icmp eq i32 %18, 3
@@ -5540,7 +5540,7 @@ define internal fastcc ptr @llvm_gen_module(ptr noundef %0, ptr noundef %1) unna
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(4) @.str.177) #11
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.critedge, label %module_is_stdlib.argprom.exit
+  br i1 %26, label %.critedge, label %module_is_stdlib.exit
 
 27:                                               ; preds = %20
   %28 = icmp ugt i32 %18, 5
@@ -5555,35 +5555,35 @@ define internal fastcc ptr @llvm_gen_module(ptr noundef %0, ptr noundef %1) unna
 
 33:                                               ; preds = %27
   %34 = icmp eq i32 %18, 4
-  br i1 %34, label %35, label %module_is_stdlib.argprom.exit
+  br i1 %34, label %35, label %module_is_stdlib.exit
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %.val, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.179) #11
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.critedge, label %module_is_stdlib.argprom.exit
+  br i1 %39, label %.critedge, label %module_is_stdlib.exit
 
 40:                                               ; preds = %29
   %.not.i = icmp eq i32 %18, 6
-  br i1 %.not.i, label %module_is_stdlib.argprom.exit, label %41
+  br i1 %.not.i, label %module_is_stdlib.exit, label %41
 
 41:                                               ; preds = %40
   %bcmp11.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %31, ptr noundef nonnull dereferenceable(6) @.str.180, i64 6)
   %42 = icmp eq i32 %bcmp11.i, 0
-  br i1 %42, label %.critedge, label %module_is_stdlib.argprom.exit
+  br i1 %42, label %.critedge, label %module_is_stdlib.exit
 
-module_is_stdlib.argprom.exit:                    ; preds = %22, %33, %35, %40, %41, %16, %13
+module_is_stdlib.exit:                            ; preds = %22, %33, %35, %40, %41, %16, %13
   %43 = tail call ptr @cmalloc(i64 noundef 472) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %43, i8 0, i64 472, i1 false)
   %.not.i331 = icmp eq ptr %1, null
   br i1 %.not.i331, label %45, label %44
 
-44:                                               ; preds = %module_is_stdlib.argprom.exit
+44:                                               ; preds = %module_is_stdlib.exit
   store i8 1, ptr %43, align 8
   br label %47
 
-45:                                               ; preds = %module_is_stdlib.argprom.exit
+45:                                               ; preds = %module_is_stdlib.exit
   %46 = tail call ptr @LLVMContextCreate() #10
   br label %47
 

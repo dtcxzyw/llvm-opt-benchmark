@@ -909,7 +909,7 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) @ctucan_receive.rcv, i8 0, i64 80, i1 false)
   %cmp.i = icmp eq ptr %frames, null
-  br i1 %cmp.i, label %ctucan_frame2buff.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %ctucan_frame2buff.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   %can_dlc.i = getelementptr inbounds i8, ptr %frames, i64 4
@@ -954,9 +954,9 @@ if.end.i:                                         ; preds = %if.end
   store i32 %identifier_w.sroa.0.0.i, ptr getelementptr inbounds (i8, ptr @ctucan_receive.rcv, i64 4), align 4
   %data.i = getelementptr inbounds i8, ptr %frames, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) getelementptr inbounds (i8, ptr @ctucan_receive.rcv, i64 16), ptr noundef nonnull readonly align 8 dereferenceable(64) %data.i, i64 64, i1 false)
-  br label %ctucan_frame2buff.argprom.exit
+  br label %ctucan_frame2buff.exit
 
-ctucan_frame2buff.argprom.exit:                   ; preds = %if.end, %if.end.i
+ctucan_frame2buff.exit:                           ; preds = %if.end, %if.end.i
   %retval.0.i = phi i32 [ %add1.i, %if.end.i ], [ -1, %if.end ]
   %rx_cnt = getelementptr i8, ptr %client, i64 -16
   %8 = load i32, ptr %rx_cnt, align 8
@@ -966,7 +966,7 @@ ctucan_frame2buff.argprom.exit:                   ; preds = %if.end, %if.end.i
   %bf.load = load i32, ptr %status, align 4
   br i1 %cmp1, label %if.then2, label %if.end7
 
-if.then2:                                         ; preds = %ctucan_frame2buff.argprom.exit
+if.then2:                                         ; preds = %ctucan_frame2buff.exit
   %bf.set = or i32 %bf.load, 2
   store i32 %bf.set, ptr %status, align 4
   %int_mask = getelementptr i8, ptr %client, i64 -8648
@@ -996,7 +996,7 @@ if.then2:                                         ; preds = %ctucan_frame2buff.a
   %conv = sext i32 %retval.0.i to i64
   br label %return
 
-if.end7:                                          ; preds = %ctucan_frame2buff.argprom.exit
+if.end7:                                          ; preds = %ctucan_frame2buff.exit
   %bf.clear14 = and i32 %bf.load, -145
   %bf.set15 = or disjoint i32 %bf.clear14, 16
   store i32 %bf.set15, ptr %status, align 4

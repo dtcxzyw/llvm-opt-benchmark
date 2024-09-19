@@ -163,7 +163,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %45 = load ptr, ptr @optarg, align 8
   %46 = tail call noalias ptr @fopen(ptr noundef %45, ptr noundef nonnull @.str.1)
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %openFile.argprom.exit.i
+  br i1 %47, label %48, label %openFile.exit.i
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr @stderr, align 8
@@ -172,7 +172,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call fastcc void @graphviz_exit(i32 noundef 1) #19
   unreachable
 
-openFile.argprom.exit.i:                          ; preds = %43
+openFile.exit.i:                                  ; preds = %43
   store ptr %46, ptr @outFile, align 8
   br label %.backedge
 
@@ -180,7 +180,7 @@ openFile.argprom.exit.i:                          ; preds = %43
   store i1 true, ptr @yworks, align 1
   br label %.backedge
 
-.backedge:                                        ; preds = %51, %openFile.argprom.exit.i
+.backedge:                                        ; preds = %51, %openFile.exit.i
   br label %37
 
 52:                                               ; preds = %37
@@ -2912,5 +2912,5 @@ attributes #20 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"tok.argprom: argument 0"}
-!7 = distinct !{!7, !"tok.argprom"}
+!6 = distinct !{!6, !7, !"tok: argument 0"}
+!7 = distinct !{!7, !"tok"}

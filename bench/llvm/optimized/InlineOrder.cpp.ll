@@ -1360,7 +1360,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit: ; pred
   %34 = getelementptr inbounds i8, ptr %0, i64 224
   %.val4.i.i = load i32, ptr %34, align 8
   %35 = icmp eq i32 %.val4.i.i, 0
-  br i1 %35, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %36
+  br i1 %35, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %36
 
 36:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit
   %37 = trunc i64 %20 to i32
@@ -1387,7 +1387,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit: ; pred
 49:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.0286.i.i.i.i, null
   %50 = select i1 %.not.i.i.i.i, ptr %47, ptr %.0286.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = icmp eq ptr %46, inttoptr (i64 -8192 to ptr)
@@ -1403,7 +1403,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit: ; pred
   %59 = icmp eq ptr %8, %58
   br i1 %59, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !20
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i: ; preds = %49, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i: ; preds = %49, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit
   %.sink.i.i.i.i = phi ptr [ %50, %49 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit ]
   %60 = getelementptr inbounds i8, ptr %0, i64 216
   %.val18.i.i.i.i = load i32, ptr %60, align 8
@@ -1413,13 +1413,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   %.not.i.i6.i.i = icmp ult i32 %62, %63
   br i1 %.not.i.i6.i.i, label %91, label %64
 
-64:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+64:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
   %65 = shl i32 %.val4.i.i, 1
   tail call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %33, i32 noundef %65)
   %.val15.i.i.i.i = load ptr, ptr %33, align 8
   %.val16.i.i.i.i = load i32, ptr %34, align 8
   %66 = icmp eq i32 %.val16.i.i.i.i, 0
-  br i1 %66, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %67
+  br i1 %66, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %67
 
 67:                                               ; preds = %64
   %68 = trunc i64 %20 to i32
@@ -1432,7 +1432,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   %74 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val15.i.i.i.i, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %8, %75
-  br i1 %76, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %76, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %67, %82
   %77 = phi ptr [ %89, %82 ], [ %75, %67 ]
@@ -1446,7 +1446,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
 80:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.0286.i.i.i.i.i.i, null
   %81 = select i1 %.not.i.i.i.i.i.i, ptr %78, ptr %.0286.i.i.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
 
 82:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %83 = icmp eq ptr %77, inttoptr (i64 -8192 to ptr)
@@ -1460,9 +1460,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   %88 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val15.i.i.i.i, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %8, %89
-  br i1 %90, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !20
+  br i1 %90, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !20
 
-91:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+91:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
   %92 = getelementptr inbounds i8, ptr %0, i64 220
   %.val19.i.i.i.i = load i32, ptr %92, align 4
   %.neg.i.i.i.i = xor i32 %.val18.i.i.i.i, -1
@@ -1470,14 +1470,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   %93 = sub i32 %.neg2.i.i.i.i, %.val19.i.i.i.i
   %94 = lshr i32 %.val4.i.i, 3
   %.not10.i.i.i.i = icmp ugt i32 %93, %94
-  br i1 %.not10.i.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %95
+  br i1 %.not10.i.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %95
 
 95:                                               ; preds = %91
   tail call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %33, i32 noundef %.val4.i.i)
   %.val12.i.i.i.i = load ptr, ptr %33, align 8
   %.val13.i.i.i.i = load i32, ptr %34, align 8
   %96 = icmp eq i32 %.val13.i.i.i.i, 0
-  br i1 %96, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %97
+  br i1 %96, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %97
 
 97:                                               ; preds = %95
   %98 = trunc i64 %20 to i32
@@ -1490,7 +1490,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   %104 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val12.i.i.i.i, i64 %103
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %8, %105
-  br i1 %106, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i
+  br i1 %106, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i
 
 .lr.ph.i.i21.i.i.i.i:                             ; preds = %97, %112
   %107 = phi ptr [ %119, %112 ], [ %105, %97 ]
@@ -1504,7 +1504,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
 110:                                              ; preds = %.lr.ph.i.i21.i.i.i.i
   %.not.i.i30.i.i.i.i = icmp eq ptr %.0286.i.i24.i.i.i.i, null
   %111 = select i1 %.not.i.i30.i.i.i.i, ptr %108, ptr %.0286.i.i24.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
 
 112:                                              ; preds = %.lr.ph.i.i21.i.i.i.i
   %113 = icmp eq ptr %107, inttoptr (i64 -8192 to ptr)
@@ -1518,9 +1518,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   %118 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val12.i.i.i.i, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %8, %119
-  br i1 %120, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i, !llvm.loop !20
+  br i1 %120, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i, !llvm.loop !20
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i: ; preds = %82, %112, %110, %97, %95, %91, %80, %67, %64
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i: ; preds = %82, %112, %110, %97, %95, %91, %80, %67, %64
   %.0.i.i7.i.i = phi ptr [ %.sink.i.i.i.i, %91 ], [ %81, %80 ], [ null, %64 ], [ %74, %67 ], [ %111, %110 ], [ null, %95 ], [ %104, %97 ], [ %118, %112 ], [ %88, %82 ]
   %.val.i.i.i.i.i = load i32, ptr %60, align 8
   %121 = add i32 %.val.i.i.i.i.i, 1
@@ -1529,14 +1529,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   %123 = icmp eq ptr %122, inttoptr (i64 -4096 to ptr)
   br i1 %123, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i, label %124
 
-124:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+124:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
   %125 = getelementptr inbounds i8, ptr %0, i64 220
   %.val.i32.i.i.i.i = load i32, ptr %125, align 4
   %126 = add i32 %.val.i32.i.i.i.i, -1
   store i32 %126, ptr %125, align 4
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i: ; preds = %124, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i: ; preds = %124, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
   store ptr %8, ptr %.0.i.i7.i.i, align 8
   %127 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i, i64 8
   store i32 -1, ptr %127, align 4
@@ -1898,7 +1898,7 @@ _ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit24.i: ; preds = %_ZNSt8function
   %90 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val.i, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %80, %91
-  br i1 %92, label %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.argprom.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %92, label %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %82, %95
   %93 = phi ptr [ %100, %95 ], [ %91, %82 ]
@@ -1915,14 +1915,14 @@ _ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit24.i: ; preds = %_ZNSt8function
   %99 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val.i, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %80, %100
-  br i1 %101, label %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.argprom.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !23
+  br i1 %101, label %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !23
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit24.i
   %102 = zext i32 %.val1.i to i64
   %103 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val.i, i64 %102
-  br label %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i
 
-_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.argprom.exit.i: ; preds = %95, %.loopexit.i.i.i, %82
+_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i: ; preds = %95, %.loopexit.i.i.i, %82
   %.0.i.pn.i.i.i = phi ptr [ %103, %.loopexit.i.i.i ], [ %90, %82 ], [ %99, %95 ]
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i, i64 8
   %105 = load i32, ptr %104, align 8
@@ -1942,7 +1942,7 @@ _ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecrea
   %116 = icmp ult i32 %105, %115
   br i1 %116, label %117, label %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE15pop_heap_adjustEv.exit
 
-117:                                              ; preds = %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.argprom.exit.i
+117:                                              ; preds = %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i
   %118 = load ptr, ptr %13, align 8
   %119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
   %120 = getelementptr inbounds ptr, ptr %118, i64 %119
@@ -2149,7 +2149,7 @@ _ZSt8pop_heapIPPN4llvm8CallBaseESt8functionIFbPKS1_S6_EEEvT_S9_T0_.exit22.i: ; p
 _ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit24.i.backedge: ; preds = %180, %_ZSt8pop_heapIPPN4llvm8CallBaseESt8functionIFbPKS1_S6_EEEvT_S9_T0_.exit22.i
   br label %_ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit24.i, !llvm.loop !24
 
-_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE15pop_heap_adjustEv.exit: ; preds = %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.argprom.exit.i
+_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE15pop_heap_adjustEv.exit: ; preds = %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -2342,7 +2342,7 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE
   %35 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %24, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %.029.val32.i.i.i.i.i.i, %36
-  br i1 %37, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %37, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %27, %43
   %38 = phi ptr [ %50, %43 ], [ %36, %27 ]
@@ -2370,7 +2370,7 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE
   %49 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %24, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %.029.val32.i.i.i.i.i.i, %50
-  br i1 %51, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %51, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %41, %23
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ null, %23 ]
@@ -2379,9 +2379,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 0, ptr %54, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i: ; preds = %43, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i, %27
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i: ; preds = %43, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i, %27
   %55 = phi ptr [ %53, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i ], [ %.029.val32.i.i.i.i.i.i, %27 ], [ %.029.val32.i.i.i.i.i.i, %43 ]
   %.0.i.i.i.i.i.i.i.i.i.i = phi ptr [ %52, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i ], [ %35, %27 ], [ %49, %43 ]
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i.i, i64 8
@@ -2390,7 +2390,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br i1 %58, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %59
 
-59:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i
+59:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i
   %60 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 8
   %.val31.i.i.i.i.i.i = load ptr, ptr %60, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -2412,7 +2412,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %72 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %.val31.i.i.i.i.i.i, %73
-  br i1 %74, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i
+  br i1 %74, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i:                 ; preds = %64, %80
   %75 = phi ptr [ %87, %80 ], [ %73, %64 ]
@@ -2440,7 +2440,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %86 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %.val31.i.i.i.i.i.i, %87
-  br i1 %88, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %88, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i: ; preds = %78, %59
   %.sink.i.i.i.i.i.i44.i.i.i.i.i.i = phi ptr [ %79, %78 ], [ null, %59 ]
@@ -2449,9 +2449,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %90, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 0, ptr %91, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i: ; preds = %80, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i, %64
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i: ; preds = %80, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i, %64
   %92 = phi ptr [ %90, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i ], [ %.val31.i.i.i.i.i.i, %64 ], [ %.val31.i.i.i.i.i.i, %80 ]
   %.0.i.i.i.i41.i.i.i.i.i.i = phi ptr [ %89, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i ], [ %72, %64 ], [ %86, %80 ]
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i41.i.i.i.i.i.i, i64 8
@@ -2460,7 +2460,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br i1 %95, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, label %96
 
-96:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+96:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
   %97 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i.i = load ptr, ptr %97, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -2482,7 +2482,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %109 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %98, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %.val30.i.i.i.i.i.i, %110
-  br i1 %111, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i
+  br i1 %111, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i:                 ; preds = %101, %117
   %112 = phi ptr [ %124, %117 ], [ %110, %101 ]
@@ -2510,7 +2510,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %123 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %98, i64 %122
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %.val30.i.i.i.i.i.i, %124
-  br i1 %125, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %125, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i: ; preds = %115, %96
   %.sink.i.i.i.i.i.i57.i.i.i.i.i.i = phi ptr [ %116, %115 ], [ null, %96 ]
@@ -2519,9 +2519,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %127, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 0, ptr %128, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i: ; preds = %117, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i, %101
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i: ; preds = %117, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i, %101
   %129 = phi ptr [ %127, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i ], [ %.val30.i.i.i.i.i.i, %101 ], [ %.val30.i.i.i.i.i.i, %117 ]
   %.0.i.i.i.i54.i.i.i.i.i.i = phi ptr [ %126, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i ], [ %109, %101 ], [ %123, %117 ]
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i54.i.i.i.i.i.i, i64 8
@@ -2530,7 +2530,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br i1 %132, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, label %133
 
-133:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+133:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
   %134 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 24
   %.val.i.i.i.i.i.i = load ptr, ptr %134, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -2552,7 +2552,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %146 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %135, i64 %145
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %.val.i.i.i.i.i.i, %147
-  br i1 %148, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i
+  br i1 %148, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i:                 ; preds = %138, %154
   %149 = phi ptr [ %161, %154 ], [ %147, %138 ]
@@ -2580,7 +2580,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %160 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %135, i64 %159
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %.val.i.i.i.i.i.i, %161
-  br i1 %162, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %162, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i: ; preds = %152, %133
   %.sink.i.i.i.i.i.i70.i.i.i.i.i.i = phi ptr [ %153, %152 ], [ null, %133 ]
@@ -2589,9 +2589,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %164, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i32 0, ptr %165, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i: ; preds = %154, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i, %138
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i: ; preds = %154, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i, %138
   %166 = phi ptr [ %164, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %138 ], [ %.val.i.i.i.i.i.i, %154 ]
   %.0.i.i.i.i67.i.i.i.i.i.i = phi ptr [ %163, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i ], [ %146, %138 ], [ %160, %154 ]
   %167 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i67.i.i.i.i.i.i, i64 8
@@ -2600,7 +2600,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br i1 %169, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, label %170
 
-170:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+170:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
   %171 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 32
   %172 = add nsw i64 %.0149.i.i.i.i.i.i, -1
   %173 = icmp sgt i64 %.0149.i.i.i.i.i.i, 1
@@ -2644,7 +2644,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %189 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %177, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = icmp eq ptr %.029.val.i.i.i.i.i.i, %190
-  br i1 %191, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i
+  br i1 %191, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i:                 ; preds = %181, %197
   %192 = phi ptr [ %204, %197 ], [ %190, %181 ]
@@ -2672,7 +2672,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %203 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %177, i64 %202
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %.029.val.i.i.i.i.i.i, %204
-  br i1 %205, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %205, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i: ; preds = %195, %175
   %.sink.i.i.i.i.i.i83.i.i.i.i.i.i = phi ptr [ %196, %195 ], [ null, %175 ]
@@ -2681,9 +2681,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %207, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i32 0, ptr %208, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i: ; preds = %197, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i, %181
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i: ; preds = %197, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i, %181
   %209 = phi ptr [ %207, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i ], [ %.029.val.i.i.i.i.i.i, %181 ], [ %.029.val.i.i.i.i.i.i, %197 ]
   %.0.i.i.i.i80.i.i.i.i.i.i = phi ptr [ %206, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i ], [ %189, %181 ], [ %203, %197 ]
   %210 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i80.i.i.i.i.i.i, i64 8
@@ -2692,7 +2692,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br i1 %212, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %213
 
-213:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
+213:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
   %214 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i.i
 
@@ -2720,7 +2720,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %228 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %216, i64 %227
   %229 = load ptr, ptr %228, align 8
   %230 = icmp eq ptr %.1.val.i.i.i.i.i.i, %229
-  br i1 %230, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i
+  br i1 %230, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i:                 ; preds = %220, %236
   %231 = phi ptr [ %243, %236 ], [ %229, %220 ]
@@ -2748,7 +2748,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %242 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %216, i64 %241
   %243 = load ptr, ptr %242, align 8
   %244 = icmp eq ptr %.1.val.i.i.i.i.i.i, %243
-  br i1 %244, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %244, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i: ; preds = %234, %._crit_edge._crit_edge.i.i.i.i.i.i
   %.sink.i.i.i.i.i.i96.i.i.i.i.i.i = phi ptr [ %235, %234 ], [ null, %._crit_edge._crit_edge.i.i.i.i.i.i ]
@@ -2757,9 +2757,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %246, ptr %245, align 8
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i32 0, ptr %247, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i: ; preds = %236, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i, %220
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i: ; preds = %236, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i, %220
   %248 = phi ptr [ %246, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i ], [ %.1.val.i.i.i.i.i.i, %220 ], [ %.1.val.i.i.i.i.i.i, %236 ]
   %.0.i.i.i.i93.i.i.i.i.i.i = phi ptr [ %245, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i ], [ %228, %220 ], [ %242, %236 ]
   %249 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i93.i.i.i.i.i.i, i64 8
@@ -2768,7 +2768,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br i1 %251, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %252
 
-252:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i
+252:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i
   %253 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %254
 
@@ -2796,7 +2796,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %268 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %256, i64 %267
   %269 = load ptr, ptr %268, align 8
   %270 = icmp eq ptr %.2.val.i.i.i.i.i.i, %269
-  br i1 %270, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i
+  br i1 %270, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i:                 ; preds = %260, %276
   %271 = phi ptr [ %283, %276 ], [ %269, %260 ]
@@ -2824,7 +2824,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   %282 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %256, i64 %281
   %283 = load ptr, ptr %282, align 8
   %284 = icmp eq ptr %.2.val.i.i.i.i.i.i, %283
-  br i1 %284, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %284, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i: ; preds = %274, %254
   %.sink.i.i.i.i.i.i109.i.i.i.i.i.i = phi ptr [ %275, %274 ], [ null, %254 ]
@@ -2833,9 +2833,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %286, ptr %285, align 8
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i32 0, ptr %287, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i: ; preds = %276, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i, %260
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i: ; preds = %276, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i, %260
   %288 = phi ptr [ %286, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i ], [ %.2.val.i.i.i.i.i.i, %260 ], [ %.2.val.i.i.i.i.i.i, %276 ]
   %.0.i.i.i.i106.i.i.i.i.i.i = phi ptr [ %285, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i ], [ %268, %260 ], [ %282, %276 ]
   %289 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i106.i.i.i.i.i.i, i64 8
@@ -2844,20 +2844,20 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br i1 %291, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_12SizePriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
   %292 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 8
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
   %293 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 16
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
   %294 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 24
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i ], [ %292, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %293, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115 ], [ %294, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117 ], [ %.029148.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i ]
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i ], [ %292, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %293, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115 ], [ %294, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117 ], [ %.029148.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i ]
   %295 = icmp eq ptr %.028.i.i.i.i.i.i, %17
   %.01763.i.i.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i.i.i, i64 8
   %.not64.i.i.i.i = icmp eq ptr %.01763.i.i.i.i, %17
@@ -2892,7 +2892,7 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %309 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %298, i64 %308
   %310 = load ptr, ptr %309, align 8
   %311 = icmp eq ptr %.017.val.i.i.i.i, %310
-  br i1 %311, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  br i1 %311, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %301, %317
   %312 = phi ptr [ %324, %317 ], [ %310, %301 ]
@@ -2920,7 +2920,7 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %323 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %298, i64 %322
   %324 = load ptr, ptr %323, align 8
   %325 = icmp eq ptr %.017.val.i.i.i.i, %324
-  br i1 %325, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %325, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i: ; preds = %315, %.lr.ph.i.i.i.i
   %.sink.i.i.i.i.i.i.i.i.i.i = phi ptr [ %316, %315 ], [ null, %.lr.ph.i.i.i.i ]
@@ -2929,9 +2929,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %327, ptr %326, align 8
   %328 = getelementptr inbounds nuw i8, ptr %326, i64 8
   store i32 0, ptr %328, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i: ; preds = %317, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i, %301
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i: ; preds = %317, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i, %301
   %329 = phi ptr [ %327, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i ], [ %.017.val.i.i.i.i, %301 ], [ %.017.val.i.i.i.i, %317 ]
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %326, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i ], [ %309, %301 ], [ %323, %317 ]
   %330 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
@@ -2940,20 +2940,20 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Size
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br i1 %332, label %336, label %333
 
-333:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
+333:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
   %334 = load ptr, ptr %.01766.i.i.i.i, align 8
   store ptr %334, ptr %.065.i.i.i.i, align 8
   %335 = getelementptr inbounds i8, ptr %.065.i.i.i.i, i64 8
   br label %336
 
-336:                                              ; preds = %333, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.065.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i ], [ %335, %333 ]
+336:                                              ; preds = %333, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %.065.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i ], [ %335, %333 ]
   %.017.i.i.i.i = getelementptr inbounds i8, ptr %.01766.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %17
   br i1 %.not.i.i.i.i, label %_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_12SizePriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !27
 
-_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_12SizePriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i: ; preds = %336, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %17, %._crit_edge.i.i.i.i.i.i ], [ %17, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i ], [ %.1.i.i.i.i, %336 ]
+_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_12SizePriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i: ; preds = %336, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %17, %._crit_edge.i.i.i.i.i.i ], [ %17, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12SizePriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i ], [ %.1.i.i.i.i, %336 ]
   %337 = load ptr, ptr %14, align 8
   %338 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #18
   %339 = getelementptr inbounds ptr, ptr %337, i64 %338
@@ -3076,7 +3076,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
   %15 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val.val, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %.val3, %16
-  br i1 %17, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %17, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %7, %20
   %18 = phi ptr [ %25, %20 ], [ %16, %7 ]
@@ -3093,24 +3093,24 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
   %24 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val.val, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %.val3, %25
-  br i1 %26, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !23
+  br i1 %26, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !23
 
 .loopexit.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i.i.i, %3
   %27 = zext i32 %.val.val5 to i64
   %28 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val.val, i64 %27
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i: ; preds = %20, %.loopexit.i.i.i.i.i
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i: ; preds = %20, %.loopexit.i.i.i.i.i
   %.0.i.i.pn.i.i.i.i.i = phi ptr [ %28, %.loopexit.i.i.i.i.i ], [ %24, %20 ]
-  br i1 %6, label %.loopexit.i21.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i
+  br i1 %6, label %.loopexit.i21.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
   %.pre.i.i.i = add i32 %.val.val5, -1
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i, %7
-  %.pre-phi.i.i.i = phi i32 [ %.pre.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i ], [ %13, %7 ]
-  %.0.i.i.pn.i8.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i ], [ %15, %7 ]
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i, %7
+  %.pre-phi.i.i.i = phi i32 [ %.pre.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i ], [ %13, %7 ]
+  %.0.i.i.pn.i8.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i ], [ %15, %7 ]
   %29 = ptrtoint ptr %.val4 to i64
   %30 = trunc i64 %29 to i32
   %31 = lshr i32 %30, 4
@@ -3121,12 +3121,12 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorit
   %35 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val.val, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %.val4, %36
-  br i1 %37, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit, label %.lr.ph.i.i.i11.i.i.i.i
+  br i1 %37, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit, label %.lr.ph.i.i.i11.i.i.i.i
 
-.lr.ph.i.i.i11.i.i.i.i:                           ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, %40
-  %38 = phi ptr [ %45, %40 ], [ %36, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
-  %.0165.i.i.i12.i.i.i.i = phi i32 [ %.016.i.i.i14.i.i.i.i, %40 ], [ %.0163.i.i.i10.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
-  %.0154.i.i.i13.i.i.i.i = phi i32 [ %41, %40 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
+.lr.ph.i.i.i11.i.i.i.i:                           ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, %40
+  %38 = phi ptr [ %45, %40 ], [ %36, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
+  %.0165.i.i.i12.i.i.i.i = phi i32 [ %.016.i.i.i14.i.i.i.i, %40 ], [ %.0163.i.i.i10.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
+  %.0154.i.i.i13.i.i.i.i = phi i32 [ %41, %40 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
   %39 = icmp eq ptr %38, inttoptr (i64 -4096 to ptr)
   br i1 %39, label %.loopexit.i21.i.i.i.i, label %40
 
@@ -3138,17 +3138,17 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorit
   %44 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val.val, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %.val4, %45
-  br i1 %46, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit, label %.lr.ph.i.i.i11.i.i.i.i, !llvm.loop !23
+  br i1 %46, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit, label %.lr.ph.i.i.i11.i.i.i.i, !llvm.loop !23
 
-.loopexit.i21.i.i.i.i:                            ; preds = %.lr.ph.i.i.i11.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
-  %.0.i.i.pn.i6.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %.lr.ph.i.i.i11.i.i.i.i ]
+.loopexit.i21.i.i.i.i:                            ; preds = %.lr.ph.i.i.i11.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
+  %.0.i.i.pn.i6.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %.lr.ph.i.i.i11.i.i.i.i ]
   %47 = zext i32 %.val.val5 to i64
   %48 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val.val, i64 %47
-  br label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit
+  br label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit
 
-_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit: ; preds = %40, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, %.loopexit.i21.i.i.i.i
-  %.0.i.i.pn.i7.i.i.i.i = phi ptr [ %.0.i.i.pn.i6.i.i.i.i, %.loopexit.i21.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %40 ]
-  %.0.i.i.pn.i17.i.i.i.i = phi ptr [ %48, %.loopexit.i21.i.i.i.i ], [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ], [ %44, %40 ]
+_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit: ; preds = %40, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, %.loopexit.i21.i.i.i.i
+  %.0.i.i.pn.i7.i.i.i.i = phi ptr [ %.0.i.i.pn.i6.i.i.i.i, %.loopexit.i21.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %40 ]
+  %.0.i.i.pn.i17.i.i.i.i = phi ptr [ %48, %.loopexit.i21.i.i.i.i ], [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ], [ %44, %40 ]
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i17.i.i.i.i, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i7.i.i.i.i, i64 8
   %.val8.i.i.i.i = load i32, ptr %49, align 4
@@ -3159,7 +3159,7 @@ _ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12SizePriorityEEC1E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBaseES3_EZN12_GLOBAL__N_119PriorityInlineOrderINS5_12SizePriorityEEC1ERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsEEUlS3_S3_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #10 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3167,18 +3167,18 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit: ; preds = %3, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12SizePriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -3280,7 +3280,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   %46 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val.i9.i, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %37, %47
-  br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %38, %54
   %49 = phi ptr [ %61, %54 ], [ %47, %38 ]
@@ -3294,7 +3294,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
 52:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.0286.i.i.i.i, null
   %53 = select i1 %.not.i.i.i.i, ptr %50, ptr %.0286.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
 
 54:                                               ; preds = %.lr.ph.i.i.i.i
   %55 = icmp eq ptr %49, inttoptr (i64 -8192 to ptr)
@@ -3308,9 +3308,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   %60 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.100", ptr %.val.i9.i, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %37, %61
-  br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !20
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i: ; preds = %54, %52, %38
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i: ; preds = %54, %52, %38
   %.sink.i.i.i.i = phi ptr [ %53, %52 ], [ %46, %38 ], [ %60, %54 ]
   store ptr %37, ptr %.sink.i.i.i.i, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 8
@@ -3322,7 +3322,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriority
   store i32 %66, ptr %32, align 8
   br label %67
 
-67:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, %.lr.ph.i7.i, %.lr.ph.i7.i
+67:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, %.lr.ph.i7.i, %.lr.ph.i7.i
   %68 = getelementptr inbounds i8, ptr %.023.i.i, i64 16
   %.not.i8.i = icmp eq ptr %68, %31
   br i1 %.not.i8.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit.i, label %.lr.ph.i7.i, !llvm.loop !29
@@ -4047,7 +4047,7 @@ _ZN12_GLOBAL__N_112CostPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8
   %54 = getelementptr inbounds i8, ptr %0, i64 224
   %.val4.i.i = load i32, ptr %54, align 8
   %55 = icmp eq i32 %.val4.i.i, 0
-  br i1 %55, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %56
+  br i1 %55, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %56
 
 56:                                               ; preds = %_ZN12_GLOBAL__N_112CostPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8FunctionEJEEERKNS1_12InlineParamsE.exit
   %57 = trunc i64 %21 to i32
@@ -4074,7 +4074,7 @@ _ZN12_GLOBAL__N_112CostPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8
 69:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.0286.i.i.i.i, null
   %70 = select i1 %.not.i.i.i.i, ptr %67, ptr %.0286.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
 
 71:                                               ; preds = %.lr.ph.i.i.i.i
   %72 = icmp eq ptr %66, inttoptr (i64 -8192 to ptr)
@@ -4090,7 +4090,7 @@ _ZN12_GLOBAL__N_112CostPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8
   %79 = icmp eq ptr %9, %78
   br i1 %79, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !34
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i: ; preds = %69, %_ZN12_GLOBAL__N_112CostPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8FunctionEJEEERKNS1_12InlineParamsE.exit
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i: ; preds = %69, %_ZN12_GLOBAL__N_112CostPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8FunctionEJEEERKNS1_12InlineParamsE.exit
   %.sink.i.i.i.i = phi ptr [ %70, %69 ], [ null, %_ZN12_GLOBAL__N_112CostPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8FunctionEJEEERKNS1_12InlineParamsE.exit ]
   %80 = getelementptr inbounds i8, ptr %0, i64 216
   %.val18.i.i.i.i = load i32, ptr %80, align 8
@@ -4100,13 +4100,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %.not.i.i6.i.i = icmp ult i32 %82, %83
   br i1 %.not.i.i6.i.i, label %111, label %84
 
-84:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+84:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
   %85 = shl i32 %.val4.i.i, 1
   call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %53, i32 noundef %85)
   %.val15.i.i.i.i = load ptr, ptr %53, align 8
   %.val16.i.i.i.i = load i32, ptr %54, align 8
   %86 = icmp eq i32 %.val16.i.i.i.i, 0
-  br i1 %86, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %87
+  br i1 %86, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %87
 
 87:                                               ; preds = %84
   %88 = trunc i64 %21 to i32
@@ -4119,7 +4119,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %94 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val15.i.i.i.i, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %9, %95
-  br i1 %96, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %96, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %87, %102
   %97 = phi ptr [ %109, %102 ], [ %95, %87 ]
@@ -4133,7 +4133,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
 100:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.0286.i.i.i.i.i.i, null
   %101 = select i1 %.not.i.i.i.i.i.i, ptr %98, ptr %.0286.i.i.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
 
 102:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %103 = icmp eq ptr %97, inttoptr (i64 -8192 to ptr)
@@ -4147,9 +4147,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %108 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val15.i.i.i.i, i64 %107
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %9, %109
-  br i1 %110, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !34
+  br i1 %110, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !34
 
-111:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+111:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
   %112 = getelementptr inbounds i8, ptr %0, i64 220
   %.val19.i.i.i.i = load i32, ptr %112, align 4
   %.neg.i.i.i.i = xor i32 %.val18.i.i.i.i, -1
@@ -4157,14 +4157,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %113 = sub i32 %.neg2.i.i.i.i, %.val19.i.i.i.i
   %114 = lshr i32 %.val4.i.i, 3
   %.not10.i.i.i.i = icmp ugt i32 %113, %114
-  br i1 %.not10.i.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %115
+  br i1 %.not10.i.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %115
 
 115:                                              ; preds = %111
   call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %53, i32 noundef %.val4.i.i)
   %.val12.i.i.i.i = load ptr, ptr %53, align 8
   %.val13.i.i.i.i = load i32, ptr %54, align 8
   %116 = icmp eq i32 %.val13.i.i.i.i, 0
-  br i1 %116, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %117
+  br i1 %116, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %117
 
 117:                                              ; preds = %115
   %118 = trunc i64 %21 to i32
@@ -4177,7 +4177,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %124 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val12.i.i.i.i, i64 %123
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %9, %125
-  br i1 %126, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i
+  br i1 %126, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i
 
 .lr.ph.i.i21.i.i.i.i:                             ; preds = %117, %132
   %127 = phi ptr [ %139, %132 ], [ %125, %117 ]
@@ -4191,7 +4191,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
 130:                                              ; preds = %.lr.ph.i.i21.i.i.i.i
   %.not.i.i30.i.i.i.i = icmp eq ptr %.0286.i.i24.i.i.i.i, null
   %131 = select i1 %.not.i.i30.i.i.i.i, ptr %128, ptr %.0286.i.i24.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
 
 132:                                              ; preds = %.lr.ph.i.i21.i.i.i.i
   %133 = icmp eq ptr %127, inttoptr (i64 -8192 to ptr)
@@ -4205,9 +4205,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %138 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val12.i.i.i.i, i64 %137
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq ptr %9, %139
-  br i1 %140, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i, !llvm.loop !34
+  br i1 %140, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i, !llvm.loop !34
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i: ; preds = %102, %132, %130, %117, %115, %111, %100, %87, %84
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i: ; preds = %102, %132, %130, %117, %115, %111, %100, %87, %84
   %.0.i.i7.i.i = phi ptr [ %.sink.i.i.i.i, %111 ], [ %101, %100 ], [ null, %84 ], [ %94, %87 ], [ %131, %130 ], [ null, %115 ], [ %124, %117 ], [ %138, %132 ], [ %108, %102 ]
   %.val.i.i.i.i.i = load i32, ptr %80, align 8
   %141 = add i32 %.val.i.i.i.i.i, 1
@@ -4216,14 +4216,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %143 = icmp eq ptr %142, inttoptr (i64 -4096 to ptr)
   br i1 %143, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i, label %144
 
-144:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+144:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
   %145 = getelementptr inbounds i8, ptr %0, i64 220
   %.val.i32.i.i.i.i = load i32, ptr %145, align 4
   %146 = add i32 %.val.i32.i.i.i.i, -1
   store i32 %146, ptr %145, align 4
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i: ; preds = %144, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i: ; preds = %144, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
   store ptr %9, ptr %.0.i.i7.i.i, align 8
   %147 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i, i64 8
   store i32 2147483647, ptr %147, align 4
@@ -4593,7 +4593,7 @@ _ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit23.i: ; preds = %_ZNSt8function
   %98 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val4.i.i, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %88, %99
-  br i1 %100, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %100, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %90, %103
   %101 = phi ptr [ %108, %103 ], [ %99, %90 ]
@@ -4610,14 +4610,14 @@ _ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit23.i: ; preds = %_ZNSt8function
   %107 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val4.i.i, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %88, %108
-  br i1 %109, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !35
+  br i1 %109, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !35
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit23.i
   %110 = zext i32 %.val5.i.i to i64
   %111 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val4.i.i, i64 %110
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i: ; preds = %103, %.loopexit.i.i.i, %90
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i: ; preds = %103, %.loopexit.i.i.i, %90
   %.0.i.pn.i.i.i = phi ptr [ %111, %.loopexit.i.i.i ], [ %98, %90 ], [ %107, %103 ]
   %112 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i, i64 8
   %113 = load i32, ptr %112, align 8
@@ -4630,7 +4630,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %118 = trunc i8 %117 to i1
   br i1 %118, label %119, label %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i
 
-119:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i
+119:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i
   store i8 0, ptr %69, align 8
   %120 = load i32, ptr %70, align 8
   %121 = icmp ugt i32 %120, 64
@@ -4659,7 +4659,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i.i.i.i:      ; preds = %125, %122, %119
   call void @_ZdaPv(ptr noundef nonnull %129) #21
   br label %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i
 
-_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i: ; preds = %131, %128, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i
+_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i: ; preds = %131, %128, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i
   %132 = add i32 %116, 2147483647
   %133 = icmp ult i32 %132, -2
   %134 = icmp eq i32 %116, 2147483647
@@ -5070,7 +5070,7 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEE
   %35 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %24, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %.029.val32.i.i.i.i.i.i, %36
-  br i1 %37, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %37, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %27, %43
   %38 = phi ptr [ %50, %43 ], [ %36, %27 ]
@@ -5098,7 +5098,7 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEE
   %49 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %24, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %.029.val32.i.i.i.i.i.i, %50
-  br i1 %51, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %51, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %41, %23
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ null, %23 ]
@@ -5107,9 +5107,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 0, ptr %54, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i: ; preds = %43, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i, %27
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i: ; preds = %43, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i, %27
   %55 = phi ptr [ %53, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i ], [ %.029.val32.i.i.i.i.i.i, %27 ], [ %.029.val32.i.i.i.i.i.i, %43 ]
   %.0.i.i.i.i.i.i.i.i.i.i = phi ptr [ %52, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i ], [ %35, %27 ], [ %49, %43 ]
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i.i, i64 8
@@ -5118,7 +5118,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br i1 %58, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %59
 
-59:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i
+59:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i
   %60 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 8
   %.val31.i.i.i.i.i.i = load ptr, ptr %60, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -5140,7 +5140,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %72 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %.val31.i.i.i.i.i.i, %73
-  br i1 %74, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i
+  br i1 %74, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i:                 ; preds = %64, %80
   %75 = phi ptr [ %87, %80 ], [ %73, %64 ]
@@ -5168,7 +5168,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %86 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %.val31.i.i.i.i.i.i, %87
-  br i1 %88, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %88, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i: ; preds = %78, %59
   %.sink.i.i.i.i.i.i44.i.i.i.i.i.i = phi ptr [ %79, %78 ], [ null, %59 ]
@@ -5177,9 +5177,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %90, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 0, ptr %91, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i: ; preds = %80, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i, %64
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i: ; preds = %80, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i, %64
   %92 = phi ptr [ %90, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i ], [ %.val31.i.i.i.i.i.i, %64 ], [ %.val31.i.i.i.i.i.i, %80 ]
   %.0.i.i.i.i41.i.i.i.i.i.i = phi ptr [ %89, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i ], [ %72, %64 ], [ %86, %80 ]
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i41.i.i.i.i.i.i, i64 8
@@ -5188,7 +5188,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br i1 %95, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, label %96
 
-96:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+96:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
   %97 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i.i = load ptr, ptr %97, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -5210,7 +5210,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %109 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %98, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %.val30.i.i.i.i.i.i, %110
-  br i1 %111, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i
+  br i1 %111, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i:                 ; preds = %101, %117
   %112 = phi ptr [ %124, %117 ], [ %110, %101 ]
@@ -5238,7 +5238,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %123 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %98, i64 %122
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %.val30.i.i.i.i.i.i, %124
-  br i1 %125, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %125, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i: ; preds = %115, %96
   %.sink.i.i.i.i.i.i57.i.i.i.i.i.i = phi ptr [ %116, %115 ], [ null, %96 ]
@@ -5247,9 +5247,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %127, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 0, ptr %128, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i: ; preds = %117, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i, %101
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i: ; preds = %117, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i, %101
   %129 = phi ptr [ %127, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i ], [ %.val30.i.i.i.i.i.i, %101 ], [ %.val30.i.i.i.i.i.i, %117 ]
   %.0.i.i.i.i54.i.i.i.i.i.i = phi ptr [ %126, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i ], [ %109, %101 ], [ %123, %117 ]
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i54.i.i.i.i.i.i, i64 8
@@ -5258,7 +5258,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br i1 %132, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, label %133
 
-133:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+133:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
   %134 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 24
   %.val.i.i.i.i.i.i = load ptr, ptr %134, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -5280,7 +5280,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %146 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %135, i64 %145
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %.val.i.i.i.i.i.i, %147
-  br i1 %148, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i
+  br i1 %148, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i:                 ; preds = %138, %154
   %149 = phi ptr [ %161, %154 ], [ %147, %138 ]
@@ -5308,7 +5308,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %160 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %135, i64 %159
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %.val.i.i.i.i.i.i, %161
-  br i1 %162, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %162, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i: ; preds = %152, %133
   %.sink.i.i.i.i.i.i70.i.i.i.i.i.i = phi ptr [ %153, %152 ], [ null, %133 ]
@@ -5317,9 +5317,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %164, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i32 0, ptr %165, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i: ; preds = %154, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i, %138
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i: ; preds = %154, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i, %138
   %166 = phi ptr [ %164, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %138 ], [ %.val.i.i.i.i.i.i, %154 ]
   %.0.i.i.i.i67.i.i.i.i.i.i = phi ptr [ %163, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i ], [ %146, %138 ], [ %160, %154 ]
   %167 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i67.i.i.i.i.i.i, i64 8
@@ -5328,7 +5328,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br i1 %169, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, label %170
 
-170:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+170:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
   %171 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 32
   %172 = add nsw i64 %.0149.i.i.i.i.i.i, -1
   %173 = icmp sgt i64 %.0149.i.i.i.i.i.i, 1
@@ -5372,7 +5372,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %189 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %177, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = icmp eq ptr %.029.val.i.i.i.i.i.i, %190
-  br i1 %191, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i
+  br i1 %191, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i:                 ; preds = %181, %197
   %192 = phi ptr [ %204, %197 ], [ %190, %181 ]
@@ -5400,7 +5400,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %203 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %177, i64 %202
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %.029.val.i.i.i.i.i.i, %204
-  br i1 %205, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %205, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i: ; preds = %195, %175
   %.sink.i.i.i.i.i.i83.i.i.i.i.i.i = phi ptr [ %196, %195 ], [ null, %175 ]
@@ -5409,9 +5409,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %207, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i32 0, ptr %208, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i: ; preds = %197, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i, %181
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i: ; preds = %197, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i, %181
   %209 = phi ptr [ %207, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i ], [ %.029.val.i.i.i.i.i.i, %181 ], [ %.029.val.i.i.i.i.i.i, %197 ]
   %.0.i.i.i.i80.i.i.i.i.i.i = phi ptr [ %206, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i ], [ %189, %181 ], [ %203, %197 ]
   %210 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i80.i.i.i.i.i.i, i64 8
@@ -5420,7 +5420,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br i1 %212, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %213
 
-213:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
+213:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
   %214 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i.i
 
@@ -5448,7 +5448,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %228 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %216, i64 %227
   %229 = load ptr, ptr %228, align 8
   %230 = icmp eq ptr %.1.val.i.i.i.i.i.i, %229
-  br i1 %230, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i
+  br i1 %230, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i:                 ; preds = %220, %236
   %231 = phi ptr [ %243, %236 ], [ %229, %220 ]
@@ -5476,7 +5476,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %242 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %216, i64 %241
   %243 = load ptr, ptr %242, align 8
   %244 = icmp eq ptr %.1.val.i.i.i.i.i.i, %243
-  br i1 %244, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %244, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i: ; preds = %234, %._crit_edge._crit_edge.i.i.i.i.i.i
   %.sink.i.i.i.i.i.i96.i.i.i.i.i.i = phi ptr [ %235, %234 ], [ null, %._crit_edge._crit_edge.i.i.i.i.i.i ]
@@ -5485,9 +5485,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %246, ptr %245, align 8
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i32 0, ptr %247, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i: ; preds = %236, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i, %220
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i: ; preds = %236, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i, %220
   %248 = phi ptr [ %246, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i ], [ %.1.val.i.i.i.i.i.i, %220 ], [ %.1.val.i.i.i.i.i.i, %236 ]
   %.0.i.i.i.i93.i.i.i.i.i.i = phi ptr [ %245, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i ], [ %228, %220 ], [ %242, %236 ]
   %249 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i93.i.i.i.i.i.i, i64 8
@@ -5496,7 +5496,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br i1 %251, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %252
 
-252:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i
+252:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i
   %253 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %254
 
@@ -5524,7 +5524,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %268 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %256, i64 %267
   %269 = load ptr, ptr %268, align 8
   %270 = icmp eq ptr %.2.val.i.i.i.i.i.i, %269
-  br i1 %270, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i
+  br i1 %270, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i:                 ; preds = %260, %276
   %271 = phi ptr [ %283, %276 ], [ %269, %260 ]
@@ -5552,7 +5552,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   %282 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %256, i64 %281
   %283 = load ptr, ptr %282, align 8
   %284 = icmp eq ptr %.2.val.i.i.i.i.i.i, %283
-  br i1 %284, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %284, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i: ; preds = %274, %254
   %.sink.i.i.i.i.i.i109.i.i.i.i.i.i = phi ptr [ %275, %274 ], [ null, %254 ]
@@ -5561,9 +5561,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %286, ptr %285, align 8
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i32 0, ptr %287, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i: ; preds = %276, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i, %260
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i: ; preds = %276, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i, %260
   %288 = phi ptr [ %286, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i ], [ %.2.val.i.i.i.i.i.i, %260 ], [ %.2.val.i.i.i.i.i.i, %276 ]
   %.0.i.i.i.i106.i.i.i.i.i.i = phi ptr [ %285, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i ], [ %268, %260 ], [ %282, %276 ]
   %289 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i106.i.i.i.i.i.i, i64 8
@@ -5572,20 +5572,20 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br i1 %291, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_12CostPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
   %292 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 8
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
   %293 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 16
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
   %294 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 24
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i ], [ %292, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %293, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115 ], [ %294, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117 ], [ %.029148.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i ]
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i ], [ %292, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %293, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115 ], [ %294, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117 ], [ %.029148.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i ]
   %295 = icmp eq ptr %.028.i.i.i.i.i.i, %17
   %.01763.i.i.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i.i.i, i64 8
   %.not64.i.i.i.i = icmp eq ptr %.01763.i.i.i.i, %17
@@ -5620,7 +5620,7 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %309 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %298, i64 %308
   %310 = load ptr, ptr %309, align 8
   %311 = icmp eq ptr %.017.val.i.i.i.i, %310
-  br i1 %311, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  br i1 %311, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %301, %317
   %312 = phi ptr [ %324, %317 ], [ %310, %301 ]
@@ -5648,7 +5648,7 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %323 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %298, i64 %322
   %324 = load ptr, ptr %323, align 8
   %325 = icmp eq ptr %.017.val.i.i.i.i, %324
-  br i1 %325, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %325, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i: ; preds = %315, %.lr.ph.i.i.i.i
   %.sink.i.i.i.i.i.i.i.i.i.i = phi ptr [ %316, %315 ], [ null, %.lr.ph.i.i.i.i ]
@@ -5657,9 +5657,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %327, ptr %326, align 8
   %328 = getelementptr inbounds nuw i8, ptr %326, i64 8
   store i32 0, ptr %328, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i: ; preds = %317, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i, %301
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i: ; preds = %317, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i, %301
   %329 = phi ptr [ %327, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i ], [ %.017.val.i.i.i.i, %301 ], [ %.017.val.i.i.i.i, %317 ]
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %326, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i ], [ %309, %301 ], [ %323, %317 ]
   %330 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
@@ -5668,20 +5668,20 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br i1 %332, label %336, label %333
 
-333:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
+333:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
   %334 = load ptr, ptr %.01766.i.i.i.i, align 8
   store ptr %334, ptr %.065.i.i.i.i, align 8
   %335 = getelementptr inbounds i8, ptr %.065.i.i.i.i, i64 8
   br label %336
 
-336:                                              ; preds = %333, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.065.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i ], [ %335, %333 ]
+336:                                              ; preds = %333, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %.065.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i ], [ %335, %333 ]
   %.017.i.i.i.i = getelementptr inbounds i8, ptr %.01766.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %17
   br i1 %.not.i.i.i.i, label %_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_12CostPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
-_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_12CostPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i: ; preds = %336, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %17, %._crit_edge.i.i.i.i.i.i ], [ %17, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i ], [ %.1.i.i.i.i, %336 ]
+_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_12CostPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i: ; preds = %336, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %17, %._crit_edge.i.i.i.i.i.i ], [ %17, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_12CostPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i ], [ %.1.i.i.i.i, %336 ]
   %337 = load ptr, ptr %14, align 8
   %338 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #18
   %339 = getelementptr inbounds ptr, ptr %337, i64 %338
@@ -5802,7 +5802,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
   %15 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val.val, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %.val3, %16
-  br i1 %17, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %17, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %7, %20
   %18 = phi ptr [ %25, %20 ], [ %16, %7 ]
@@ -5819,24 +5819,24 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
   %24 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val.val, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %.val3, %25
-  br i1 %26, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !35
+  br i1 %26, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !35
 
 .loopexit.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i.i.i, %3
   %27 = zext i32 %.val.val5 to i64
   %28 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val.val, i64 %27
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i: ; preds = %20, %.loopexit.i.i.i.i.i
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i: ; preds = %20, %.loopexit.i.i.i.i.i
   %.0.i.i.pn.i.i.i.i.i = phi ptr [ %28, %.loopexit.i.i.i.i.i ], [ %24, %20 ]
-  br i1 %6, label %.loopexit.i21.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i
+  br i1 %6, label %.loopexit.i21.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
   %.pre.i.i.i = add i32 %.val.val5, -1
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i, %7
-  %.pre-phi.i.i.i = phi i32 [ %.pre.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i ], [ %13, %7 ]
-  %.0.i.i.pn.i8.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i ], [ %15, %7 ]
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i, %7
+  %.pre-phi.i.i.i = phi i32 [ %.pre.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i ], [ %13, %7 ]
+  %.0.i.i.pn.i8.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i ], [ %15, %7 ]
   %29 = ptrtoint ptr %.val4 to i64
   %30 = trunc i64 %29 to i32
   %31 = lshr i32 %30, 4
@@ -5847,12 +5847,12 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorit
   %35 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val.val, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %.val4, %36
-  br i1 %37, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit, label %.lr.ph.i.i.i11.i.i.i.i
+  br i1 %37, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit, label %.lr.ph.i.i.i11.i.i.i.i
 
-.lr.ph.i.i.i11.i.i.i.i:                           ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, %40
-  %38 = phi ptr [ %45, %40 ], [ %36, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
-  %.0165.i.i.i12.i.i.i.i = phi i32 [ %.016.i.i.i14.i.i.i.i, %40 ], [ %.0163.i.i.i10.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
-  %.0154.i.i.i13.i.i.i.i = phi i32 [ %41, %40 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
+.lr.ph.i.i.i11.i.i.i.i:                           ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, %40
+  %38 = phi ptr [ %45, %40 ], [ %36, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
+  %.0165.i.i.i12.i.i.i.i = phi i32 [ %.016.i.i.i14.i.i.i.i, %40 ], [ %.0163.i.i.i10.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
+  %.0154.i.i.i13.i.i.i.i = phi i32 [ %41, %40 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
   %39 = icmp eq ptr %38, inttoptr (i64 -4096 to ptr)
   br i1 %39, label %.loopexit.i21.i.i.i.i, label %40
 
@@ -5864,17 +5864,17 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorit
   %44 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val.val, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %.val4, %45
-  br i1 %46, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit, label %.lr.ph.i.i.i11.i.i.i.i, !llvm.loop !35
+  br i1 %46, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit, label %.lr.ph.i.i.i11.i.i.i.i, !llvm.loop !35
 
-.loopexit.i21.i.i.i.i:                            ; preds = %.lr.ph.i.i.i11.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
-  %.0.i.i.pn.i6.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %.lr.ph.i.i.i11.i.i.i.i ]
+.loopexit.i21.i.i.i.i:                            ; preds = %.lr.ph.i.i.i11.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
+  %.0.i.i.pn.i6.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %.lr.ph.i.i.i11.i.i.i.i ]
   %47 = zext i32 %.val.val5 to i64
   %48 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val.val, i64 %47
-  br label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit
+  br label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit
 
-_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit: ; preds = %40, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, %.loopexit.i21.i.i.i.i
-  %.0.i.i.pn.i7.i.i.i.i = phi ptr [ %.0.i.i.pn.i6.i.i.i.i, %.loopexit.i21.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %40 ]
-  %.0.i.i.pn.i17.i.i.i.i = phi ptr [ %48, %.loopexit.i21.i.i.i.i ], [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ], [ %44, %40 ]
+_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit: ; preds = %40, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, %.loopexit.i21.i.i.i.i
+  %.0.i.i.pn.i7.i.i.i.i = phi ptr [ %.0.i.i.pn.i6.i.i.i.i, %.loopexit.i21.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %40 ]
+  %.0.i.i.pn.i17.i.i.i.i = phi ptr [ %48, %.loopexit.i21.i.i.i.i ], [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ], [ %44, %40 ]
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i17.i.i.i.i, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i7.i.i.i.i, i64 8
   %.val8.i.i.i.i = load i32, ptr %49, align 4
@@ -5885,7 +5885,7 @@ _ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_12CostPriorityEEC1E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBaseES3_EZN12_GLOBAL__N_119PriorityInlineOrderINS5_12CostPriorityEEC1ERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsEEUlS3_S3_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #10 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -5893,18 +5893,18 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit: ; preds = %3, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_12CostPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -6190,7 +6190,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %46 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val.i9.i, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %37, %47
-  br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %38, %54
   %49 = phi ptr [ %61, %54 ], [ %47, %38 ]
@@ -6204,7 +6204,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
 52:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.0286.i.i.i.i, null
   %53 = select i1 %.not.i.i.i.i, ptr %50, ptr %.0286.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
 
 54:                                               ; preds = %.lr.ph.i.i.i.i
   %55 = icmp eq ptr %49, inttoptr (i64 -8192 to ptr)
@@ -6218,9 +6218,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %60 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.130", ptr %.val.i9.i, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %37, %61
-  br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !34
+  br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !34
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i: ; preds = %54, %52, %38
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i: ; preds = %54, %52, %38
   %.sink.i.i.i.i = phi ptr [ %53, %52 ], [ %46, %38 ], [ %60, %54 ]
   store ptr %37, ptr %.sink.i.i.i.i, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 8
@@ -6232,7 +6232,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   store i32 %66, ptr %32, align 8
   br label %67
 
-67:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, %.lr.ph.i7.i, %.lr.ph.i7.i
+67:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, %.lr.ph.i7.i, %.lr.ph.i7.i
   %68 = getelementptr inbounds i8, ptr %.023.i.i, i64 16
   %.not.i8.i = icmp eq ptr %68, %31
   br i1 %.not.i8.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit.i, label %.lr.ph.i7.i, !llvm.loop !44
@@ -6312,18 +6312,18 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i.i.i:        ; preds = %21, %17, %13
 _ZN12_GLOBAL__N_119CostBenefitPriorityD2Ev.exit.i.i: ; preds = %28, %25, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i.i.i, %8, %.lr.ph.i.i, %.lr.ph.i.i
   %29 = getelementptr inbounds i8, ptr %.02.i.i, i64 56
   %.not.i.i = icmp eq ptr %29, %6
-  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E10destroyAllEv.argprom.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !45
+  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !45
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E10destroyAllEv.argprom.exit.loopexit.i: ; preds = %_ZN12_GLOBAL__N_119CostBenefitPriorityD2Ev.exit.i.i
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E10destroyAllEv.exit.loopexit.i: ; preds = %_ZN12_GLOBAL__N_119CostBenefitPriorityD2Ev.exit.i.i
   %.pre.i = load ptr, ptr %2, align 8
   %.pre3.i = load i32, ptr %3, align 8
   %30 = zext i32 %.pre3.i to i64
   %31 = mul nuw nsw i64 %30, 56
   br label %_ZN4llvm8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEED2Ev.exit
 
-_ZN4llvm8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEED2Ev.exit: ; preds = %1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E10destroyAllEv.argprom.exit.loopexit.i
-  %32 = phi i64 [ %31, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E10destroyAllEv.argprom.exit.loopexit.i ], [ 0, %1 ]
-  %33 = phi ptr [ %.pre.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E10destroyAllEv.argprom.exit.loopexit.i ], [ %.pre2.i, %1 ]
+_ZN4llvm8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEED2Ev.exit: ; preds = %1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E10destroyAllEv.exit.loopexit.i
+  %32 = phi i64 [ %31, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E10destroyAllEv.exit.loopexit.i ], [ 0, %1 ]
+  %33 = phi ptr [ %.pre.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E10destroyAllEv.exit.loopexit.i ], [ %.pre2.i, %1 ]
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %33, i64 noundef %32, i64 noundef 8) #18
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %35 = load ptr, ptr %34, align 8
@@ -6415,7 +6415,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit: ; pred
   %29 = getelementptr inbounds i8, ptr %0, i64 224
   %.val4.i.i = load i32, ptr %29, align 8
   %30 = icmp eq i32 %.val4.i.i, 0
-  br i1 %30, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %31
+  br i1 %30, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit
   %32 = trunc i64 %21 to i32
@@ -6442,7 +6442,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit: ; pred
 44:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.0286.i.i.i.i, null
   %45 = select i1 %.not.i.i.i.i, ptr %42, ptr %.0286.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
 
 46:                                               ; preds = %.lr.ph.i.i.i.i
   %47 = icmp eq ptr %41, inttoptr (i64 -8192 to ptr)
@@ -6458,7 +6458,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit: ; pred
   %54 = icmp eq ptr %9, %53
   br i1 %54, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !46
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i: ; preds = %44, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i: ; preds = %44, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit
   %.sink.i.i.i.i = phi ptr [ %45, %44 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit ]
   %55 = getelementptr inbounds i8, ptr %0, i64 216
   %.val18.i.i.i.i = load i32, ptr %55, align 8
@@ -6468,13 +6468,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   %.not.i.i6.i.i = icmp ult i32 %57, %58
   br i1 %.not.i.i6.i.i, label %86, label %59
 
-59:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+59:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
   %60 = shl i32 %.val4.i.i, 1
   call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %28, i32 noundef %60)
   %.val15.i.i.i.i = load ptr, ptr %28, align 8
   %.val16.i.i.i.i = load i32, ptr %29, align 8
   %61 = icmp eq i32 %.val16.i.i.i.i, 0
-  br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %62
+  br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %62
 
 62:                                               ; preds = %59
   %63 = trunc i64 %21 to i32
@@ -6487,7 +6487,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   %69 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val15.i.i.i.i, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %9, %70
-  br i1 %71, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %71, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %62, %77
   %72 = phi ptr [ %84, %77 ], [ %70, %62 ]
@@ -6501,7 +6501,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
 75:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.0286.i.i.i.i.i.i, null
   %76 = select i1 %.not.i.i.i.i.i.i, ptr %73, ptr %.0286.i.i.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
 
 77:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %78 = icmp eq ptr %72, inttoptr (i64 -8192 to ptr)
@@ -6515,9 +6515,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   %83 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val15.i.i.i.i, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %9, %84
-  br i1 %85, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !46
+  br i1 %85, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !46
 
-86:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+86:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
   %87 = getelementptr inbounds i8, ptr %0, i64 220
   %.val19.i.i.i.i = load i32, ptr %87, align 4
   %.neg.i.i.i.i = xor i32 %.val18.i.i.i.i, -1
@@ -6525,14 +6525,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   %88 = sub i32 %.neg2.i.i.i.i, %.val19.i.i.i.i
   %89 = lshr i32 %.val4.i.i, 3
   %.not10.i.i.i.i = icmp ugt i32 %88, %89
-  br i1 %.not10.i.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %90
+  br i1 %.not10.i.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %90
 
 90:                                               ; preds = %86
   call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %28, i32 noundef %.val4.i.i)
   %.val12.i.i.i.i = load ptr, ptr %28, align 8
   %.val13.i.i.i.i = load i32, ptr %29, align 8
   %91 = icmp eq i32 %.val13.i.i.i.i, 0
-  br i1 %91, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %92
+  br i1 %91, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %92
 
 92:                                               ; preds = %90
   %93 = trunc i64 %21 to i32
@@ -6545,7 +6545,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   %99 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val12.i.i.i.i, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %9, %100
-  br i1 %101, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i
+  br i1 %101, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i
 
 .lr.ph.i.i21.i.i.i.i:                             ; preds = %92, %107
   %102 = phi ptr [ %114, %107 ], [ %100, %92 ]
@@ -6559,7 +6559,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
 105:                                              ; preds = %.lr.ph.i.i21.i.i.i.i
   %.not.i.i30.i.i.i.i = icmp eq ptr %.0286.i.i24.i.i.i.i, null
   %106 = select i1 %.not.i.i30.i.i.i.i, ptr %103, ptr %.0286.i.i24.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
 
 107:                                              ; preds = %.lr.ph.i.i21.i.i.i.i
   %108 = icmp eq ptr %102, inttoptr (i64 -8192 to ptr)
@@ -6573,9 +6573,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   %113 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val12.i.i.i.i, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %9, %114
-  br i1 %115, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i, !llvm.loop !46
+  br i1 %115, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i, !llvm.loop !46
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i: ; preds = %77, %107, %105, %92, %90, %86, %75, %62, %59
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i: ; preds = %77, %107, %105, %92, %90, %86, %75, %62, %59
   %.0.i.i7.i.i = phi ptr [ %.sink.i.i.i.i, %86 ], [ %76, %75 ], [ null, %59 ], [ %69, %62 ], [ %106, %105 ], [ null, %90 ], [ %99, %92 ], [ %113, %107 ], [ %83, %77 ]
   %.val.i.i.i.i.i = load i32, ptr %55, align 8
   %116 = add i32 %.val.i.i.i.i.i, 1
@@ -6584,14 +6584,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   %118 = icmp eq ptr %117, inttoptr (i64 -4096 to ptr)
   br i1 %118, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i, label %119
 
-119:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+119:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
   %120 = getelementptr inbounds i8, ptr %0, i64 220
   %.val.i32.i.i.i.i = load i32, ptr %120, align 4
   %121 = add i32 %.val.i32.i.i.i.i, -1
   store i32 %121, ptr %120, align 4
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i: ; preds = %119, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i: ; preds = %119, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
   store ptr %9, ptr %.0.i.i7.i.i, align 8
   %122 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i, i64 8
   %123 = getelementptr inbounds i8, ptr %.0.i.i7.i.i, i64 16
@@ -7022,7 +7022,7 @@ _ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit23.i: ; preds = %_ZNSt8function
   %110 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val.i.i, i64 %109
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %100, %111
-  br i1 %112, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %112, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %102, %115
   %113 = phi ptr [ %120, %115 ], [ %111, %102 ]
@@ -7039,14 +7039,14 @@ _ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit23.i: ; preds = %_ZNSt8function
   %119 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val.i.i, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %100, %120
-  br i1 %121, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !47
+  br i1 %121, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !47
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit23.i
   %122 = zext i32 %.val3.i.i to i64
   %123 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val.i.i, i64 %122
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i: ; preds = %115, %.loopexit.i.i.i, %102
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i: ; preds = %115, %.loopexit.i.i.i, %102
   %.0.i.pn.i.i.i = phi ptr [ %123, %.loopexit.i.i.i ], [ %110, %102 ], [ %119, %115 ]
   %124 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i, i64 8
   %125 = load i64, ptr %124, align 8
@@ -7058,7 +7058,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   %129 = trunc i8 %128 to i1
   br i1 %129, label %130, label %_ZN12_GLOBAL__N_119CostBenefitPriorityC2ERKS0_.exit.i.i
 
-130:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i
+130:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i, i64 24
   %132 = load i32, ptr %131, align 8
   store i32 %132, ptr %70, align 8
@@ -7095,7 +7095,7 @@ _ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE12_M_constructIJRKS1_EEEv
   store i8 1, ptr %69, align 8
   br label %_ZN12_GLOBAL__N_119CostBenefitPriorityC2ERKS0_.exit.i.i
 
-_ZN12_GLOBAL__N_119CostBenefitPriorityC2ERKS0_.exit.i.i: ; preds = %_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i
+_ZN12_GLOBAL__N_119CostBenefitPriorityC2ERKS0_.exit.i.i: ; preds = %_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i
   %144 = load ptr, ptr %73, align 8
   %145 = load ptr, ptr %74, align 8
   call fastcc void @_ZN12_GLOBAL__N_119CostBenefitPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8FunctionEJEEERKNS1_12InlineParamsE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %100, ptr noundef nonnull align 8 dereferenceable(72) %144, ptr noundef nonnull align 4 dereferenceable(66) %145)
@@ -7655,7 +7655,7 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_19CostBenefitPri
   %35 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %24, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %.029.val32.i.i.i.i.i.i, %36
-  br i1 %37, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %37, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %27, %43
   %38 = phi ptr [ %50, %43 ], [ %36, %27 ]
@@ -7683,7 +7683,7 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_19CostBenefitPri
   %49 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %24, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %.029.val32.i.i.i.i.i.i, %50
-  br i1 %51, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %51, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %41, %23
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ null, %23 ]
@@ -7692,9 +7692,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 0, ptr %54, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i: ; preds = %43, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i, %27
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i: ; preds = %43, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i, %27
   %55 = phi ptr [ %53, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i ], [ %.029.val32.i.i.i.i.i.i, %27 ], [ %.029.val32.i.i.i.i.i.i, %43 ]
   %.0.i.i.i.i.i.i.i.i.i.i = phi ptr [ %52, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i ], [ %35, %27 ], [ %49, %43 ]
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i.i, i64 8
@@ -7703,7 +7703,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br i1 %58, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %59
 
-59:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i
+59:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i
   %60 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 8
   %.val31.i.i.i.i.i.i = load ptr, ptr %60, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -7725,7 +7725,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %72 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %.val31.i.i.i.i.i.i, %73
-  br i1 %74, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i
+  br i1 %74, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i:                 ; preds = %64, %80
   %75 = phi ptr [ %87, %80 ], [ %73, %64 ]
@@ -7753,7 +7753,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %86 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %.val31.i.i.i.i.i.i, %87
-  br i1 %88, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %88, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i: ; preds = %78, %59
   %.sink.i.i.i.i.i.i44.i.i.i.i.i.i = phi ptr [ %79, %78 ], [ null, %59 ]
@@ -7762,9 +7762,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %90, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 0, ptr %91, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i: ; preds = %80, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i, %64
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i: ; preds = %80, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i, %64
   %92 = phi ptr [ %90, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i ], [ %.val31.i.i.i.i.i.i, %64 ], [ %.val31.i.i.i.i.i.i, %80 ]
   %.0.i.i.i.i41.i.i.i.i.i.i = phi ptr [ %89, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i ], [ %72, %64 ], [ %86, %80 ]
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i41.i.i.i.i.i.i, i64 8
@@ -7773,7 +7773,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br i1 %95, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, label %96
 
-96:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+96:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
   %97 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i.i = load ptr, ptr %97, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -7795,7 +7795,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %109 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %98, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %.val30.i.i.i.i.i.i, %110
-  br i1 %111, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i
+  br i1 %111, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i:                 ; preds = %101, %117
   %112 = phi ptr [ %124, %117 ], [ %110, %101 ]
@@ -7823,7 +7823,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %123 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %98, i64 %122
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %.val30.i.i.i.i.i.i, %124
-  br i1 %125, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %125, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i: ; preds = %115, %96
   %.sink.i.i.i.i.i.i57.i.i.i.i.i.i = phi ptr [ %116, %115 ], [ null, %96 ]
@@ -7832,9 +7832,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %127, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 0, ptr %128, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i: ; preds = %117, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i, %101
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i: ; preds = %117, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i, %101
   %129 = phi ptr [ %127, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i ], [ %.val30.i.i.i.i.i.i, %101 ], [ %.val30.i.i.i.i.i.i, %117 ]
   %.0.i.i.i.i54.i.i.i.i.i.i = phi ptr [ %126, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i ], [ %109, %101 ], [ %123, %117 ]
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i54.i.i.i.i.i.i, i64 8
@@ -7843,7 +7843,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br i1 %132, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, label %133
 
-133:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+133:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
   %134 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 24
   %.val.i.i.i.i.i.i = load ptr, ptr %134, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -7865,7 +7865,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %146 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %135, i64 %145
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %.val.i.i.i.i.i.i, %147
-  br i1 %148, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i
+  br i1 %148, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i:                 ; preds = %138, %154
   %149 = phi ptr [ %161, %154 ], [ %147, %138 ]
@@ -7893,7 +7893,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %160 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %135, i64 %159
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %.val.i.i.i.i.i.i, %161
-  br i1 %162, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %162, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i: ; preds = %152, %133
   %.sink.i.i.i.i.i.i70.i.i.i.i.i.i = phi ptr [ %153, %152 ], [ null, %133 ]
@@ -7902,9 +7902,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %164, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i32 0, ptr %165, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i: ; preds = %154, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i, %138
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i: ; preds = %154, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i, %138
   %166 = phi ptr [ %164, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %138 ], [ %.val.i.i.i.i.i.i, %154 ]
   %.0.i.i.i.i67.i.i.i.i.i.i = phi ptr [ %163, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i ], [ %146, %138 ], [ %160, %154 ]
   %167 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i67.i.i.i.i.i.i, i64 8
@@ -7913,7 +7913,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br i1 %169, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, label %170
 
-170:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+170:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
   %171 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 32
   %172 = add nsw i64 %.0149.i.i.i.i.i.i, -1
   %173 = icmp sgt i64 %.0149.i.i.i.i.i.i, 1
@@ -7957,7 +7957,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %189 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %177, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = icmp eq ptr %.029.val.i.i.i.i.i.i, %190
-  br i1 %191, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i
+  br i1 %191, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i:                 ; preds = %181, %197
   %192 = phi ptr [ %204, %197 ], [ %190, %181 ]
@@ -7985,7 +7985,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %203 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %177, i64 %202
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %.029.val.i.i.i.i.i.i, %204
-  br i1 %205, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %205, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i: ; preds = %195, %175
   %.sink.i.i.i.i.i.i83.i.i.i.i.i.i = phi ptr [ %196, %195 ], [ null, %175 ]
@@ -7994,9 +7994,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %207, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i32 0, ptr %208, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i: ; preds = %197, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i, %181
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i: ; preds = %197, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i, %181
   %209 = phi ptr [ %207, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i ], [ %.029.val.i.i.i.i.i.i, %181 ], [ %.029.val.i.i.i.i.i.i, %197 ]
   %.0.i.i.i.i80.i.i.i.i.i.i = phi ptr [ %206, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i ], [ %189, %181 ], [ %203, %197 ]
   %210 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i80.i.i.i.i.i.i, i64 8
@@ -8005,7 +8005,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br i1 %212, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %213
 
-213:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
+213:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
   %214 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i.i
 
@@ -8033,7 +8033,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %228 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %216, i64 %227
   %229 = load ptr, ptr %228, align 8
   %230 = icmp eq ptr %.1.val.i.i.i.i.i.i, %229
-  br i1 %230, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i
+  br i1 %230, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i:                 ; preds = %220, %236
   %231 = phi ptr [ %243, %236 ], [ %229, %220 ]
@@ -8061,7 +8061,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %242 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %216, i64 %241
   %243 = load ptr, ptr %242, align 8
   %244 = icmp eq ptr %.1.val.i.i.i.i.i.i, %243
-  br i1 %244, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %244, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i: ; preds = %234, %._crit_edge._crit_edge.i.i.i.i.i.i
   %.sink.i.i.i.i.i.i96.i.i.i.i.i.i = phi ptr [ %235, %234 ], [ null, %._crit_edge._crit_edge.i.i.i.i.i.i ]
@@ -8070,9 +8070,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %246, ptr %245, align 8
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i32 0, ptr %247, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i: ; preds = %236, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i, %220
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i: ; preds = %236, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i, %220
   %248 = phi ptr [ %246, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i ], [ %.1.val.i.i.i.i.i.i, %220 ], [ %.1.val.i.i.i.i.i.i, %236 ]
   %.0.i.i.i.i93.i.i.i.i.i.i = phi ptr [ %245, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i ], [ %228, %220 ], [ %242, %236 ]
   %249 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i93.i.i.i.i.i.i, i64 8
@@ -8081,7 +8081,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br i1 %251, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %252
 
-252:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i
+252:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i
   %253 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %254
 
@@ -8109,7 +8109,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %268 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %256, i64 %267
   %269 = load ptr, ptr %268, align 8
   %270 = icmp eq ptr %.2.val.i.i.i.i.i.i, %269
-  br i1 %270, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i
+  br i1 %270, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i:                 ; preds = %260, %276
   %271 = phi ptr [ %283, %276 ], [ %269, %260 ]
@@ -8137,7 +8137,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   %282 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %256, i64 %281
   %283 = load ptr, ptr %282, align 8
   %284 = icmp eq ptr %.2.val.i.i.i.i.i.i, %283
-  br i1 %284, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %284, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i: ; preds = %274, %254
   %.sink.i.i.i.i.i.i109.i.i.i.i.i.i = phi ptr [ %275, %274 ], [ null, %254 ]
@@ -8146,9 +8146,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %286, ptr %285, align 8
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i32 0, ptr %287, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i: ; preds = %276, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i, %260
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i: ; preds = %276, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i, %260
   %288 = phi ptr [ %286, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i ], [ %.2.val.i.i.i.i.i.i, %260 ], [ %.2.val.i.i.i.i.i.i, %276 ]
   %.0.i.i.i.i106.i.i.i.i.i.i = phi ptr [ %285, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i ], [ %268, %260 ], [ %282, %276 ]
   %289 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i106.i.i.i.i.i.i, i64 8
@@ -8157,20 +8157,20 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br i1 %291, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_19CostBenefitPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
   %292 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 8
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
   %293 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 16
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
   %294 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 24
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i ], [ %292, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %293, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115 ], [ %294, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117 ], [ %.029148.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i ]
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i ], [ %292, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %293, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115 ], [ %294, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117 ], [ %.029148.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i ]
   %295 = icmp eq ptr %.028.i.i.i.i.i.i, %17
   %.01763.i.i.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i.i.i, i64 8
   %.not64.i.i.i.i = icmp eq ptr %.01763.i.i.i.i, %17
@@ -8205,7 +8205,7 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %309 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %298, i64 %308
   %310 = load ptr, ptr %309, align 8
   %311 = icmp eq ptr %.017.val.i.i.i.i, %310
-  br i1 %311, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  br i1 %311, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %301, %317
   %312 = phi ptr [ %324, %317 ], [ %310, %301 ]
@@ -8233,7 +8233,7 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %323 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %298, i64 %322
   %324 = load ptr, ptr %323, align 8
   %325 = icmp eq ptr %.017.val.i.i.i.i, %324
-  br i1 %325, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %325, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i: ; preds = %315, %.lr.ph.i.i.i.i
   %.sink.i.i.i.i.i.i.i.i.i.i = phi ptr [ %316, %315 ], [ null, %.lr.ph.i.i.i.i ]
@@ -8242,9 +8242,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %327, ptr %326, align 8
   %328 = getelementptr inbounds nuw i8, ptr %326, i64 8
   store i32 0, ptr %328, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i: ; preds = %317, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i, %301
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i: ; preds = %317, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i, %301
   %329 = phi ptr [ %327, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i ], [ %.017.val.i.i.i.i, %301 ], [ %.017.val.i.i.i.i, %317 ]
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %326, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i ], [ %309, %301 ], [ %323, %317 ]
   %330 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
@@ -8253,20 +8253,20 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19Cost
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br i1 %332, label %336, label %333
 
-333:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
+333:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
   %334 = load ptr, ptr %.01766.i.i.i.i, align 8
   store ptr %334, ptr %.065.i.i.i.i, align 8
   %335 = getelementptr inbounds i8, ptr %.065.i.i.i.i, i64 8
   br label %336
 
-336:                                              ; preds = %333, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.065.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i ], [ %335, %333 ]
+336:                                              ; preds = %333, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %.065.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i ], [ %335, %333 ]
   %.017.i.i.i.i = getelementptr inbounds i8, ptr %.01766.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %17
   br i1 %.not.i.i.i.i, label %_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_19CostBenefitPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !50
 
-_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_19CostBenefitPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i: ; preds = %336, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %17, %._crit_edge.i.i.i.i.i.i ], [ %17, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i ], [ %.1.i.i.i.i, %336 ]
+_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_19CostBenefitPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i: ; preds = %336, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %17, %._crit_edge.i.i.i.i.i.i ], [ %17, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_19CostBenefitPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i ], [ %.1.i.i.i.i, %336 ]
   %337 = load ptr, ptr %14, align 8
   %338 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #18
   %339 = getelementptr inbounds ptr, ptr %337, i64 %338
@@ -8387,7 +8387,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
   %15 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val.val, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %.val3, %16
-  br i1 %17, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %17, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %7, %20
   %18 = phi ptr [ %25, %20 ], [ %16, %7 ]
@@ -8404,24 +8404,24 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
   %24 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val.val, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %.val3, %25
-  br i1 %26, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !47
+  br i1 %26, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !47
 
 .loopexit.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i.i.i, %3
   %27 = zext i32 %.val.val5 to i64
   %28 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val.val, i64 %27
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i: ; preds = %20, %.loopexit.i.i.i.i.i
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i: ; preds = %20, %.loopexit.i.i.i.i.i
   %.0.i.i.pn.i.i.i.i.i = phi ptr [ %28, %.loopexit.i.i.i.i.i ], [ %24, %20 ]
-  br i1 %6, label %.loopexit.i19.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i
+  br i1 %6, label %.loopexit.i19.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
   %.pre.i.i.i = add i32 %.val.val5, -1
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i, %7
-  %.pre-phi.i.i.i = phi i32 [ %.pre.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i ], [ %13, %7 ]
-  %.0.i.i.pn.i8.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i ], [ %15, %7 ]
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i, %7
+  %.pre-phi.i.i.i = phi i32 [ %.pre.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i ], [ %13, %7 ]
+  %.0.i.i.pn.i8.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i ], [ %15, %7 ]
   %29 = ptrtoint ptr %.val4 to i64
   %30 = trunc i64 %29 to i32
   %31 = lshr i32 %30, 4
@@ -8432,12 +8432,12 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefit
   %35 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val.val, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %.val4, %36
-  br i1 %37, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit, label %.lr.ph.i.i.i9.i.i.i.i
+  br i1 %37, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit, label %.lr.ph.i.i.i9.i.i.i.i
 
-.lr.ph.i.i.i9.i.i.i.i:                            ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, %40
-  %38 = phi ptr [ %45, %40 ], [ %36, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
-  %.0165.i.i.i10.i.i.i.i = phi i32 [ %.016.i.i.i12.i.i.i.i, %40 ], [ %.0163.i.i.i8.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
-  %.0154.i.i.i11.i.i.i.i = phi i32 [ %41, %40 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
+.lr.ph.i.i.i9.i.i.i.i:                            ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, %40
+  %38 = phi ptr [ %45, %40 ], [ %36, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
+  %.0165.i.i.i10.i.i.i.i = phi i32 [ %.016.i.i.i12.i.i.i.i, %40 ], [ %.0163.i.i.i8.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
+  %.0154.i.i.i11.i.i.i.i = phi i32 [ %41, %40 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
   %39 = icmp eq ptr %38, inttoptr (i64 -4096 to ptr)
   br i1 %39, label %.loopexit.i19.i.i.i.i, label %40
 
@@ -8449,17 +8449,17 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefit
   %44 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val.val, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %.val4, %45
-  br i1 %46, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit, label %.lr.ph.i.i.i9.i.i.i.i, !llvm.loop !47
+  br i1 %46, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit, label %.lr.ph.i.i.i9.i.i.i.i, !llvm.loop !47
 
-.loopexit.i19.i.i.i.i:                            ; preds = %.lr.ph.i.i.i9.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
-  %.0.i.i.pn.i6.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %.lr.ph.i.i.i9.i.i.i.i ]
+.loopexit.i19.i.i.i.i:                            ; preds = %.lr.ph.i.i.i9.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
+  %.0.i.i.pn.i6.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %.lr.ph.i.i.i9.i.i.i.i ]
   %47 = zext i32 %.val.val5 to i64
   %48 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val.val, i64 %47
-  br label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit
+  br label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit
 
-_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit: ; preds = %40, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, %.loopexit.i19.i.i.i.i
-  %.0.i.i.pn.i7.i.i.i.i = phi ptr [ %.0.i.i.pn.i6.i.i.i.i, %.loopexit.i19.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %40 ]
-  %.0.i.i.pn.i15.i.i.i.i = phi ptr [ %48, %.loopexit.i19.i.i.i.i ], [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ], [ %44, %40 ]
+_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit: ; preds = %40, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, %.loopexit.i19.i.i.i.i
+  %.0.i.i.pn.i7.i.i.i.i = phi ptr [ %.0.i.i.pn.i6.i.i.i.i, %.loopexit.i19.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %40 ]
+  %.0.i.i.pn.i15.i.i.i.i = phi ptr [ %48, %.loopexit.i19.i.i.i.i ], [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ], [ %44, %40 ]
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i15.i.i.i.i, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i7.i.i.i.i, i64 8
   %51 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119CostBenefitPriority15isMoreDesirableERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef nonnull align 8 dereferenceable(48) %50)
@@ -8468,7 +8468,7 @@ _ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_19CostBenefitPriori
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBaseES3_EZN12_GLOBAL__N_119PriorityInlineOrderINS5_19CostBenefitPriorityEEC1ERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsEEUlS3_S3_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #10 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -8476,18 +8476,18 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit: ; preds = %3, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_19CostBenefitPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -8945,7 +8945,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   %46 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val.i9.i, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %37, %47
-  br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %38, %54
   %49 = phi ptr [ %61, %54 ], [ %47, %38 ]
@@ -8959,7 +8959,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
 52:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.0286.i.i.i.i, null
   %53 = select i1 %.not.i.i.i.i, ptr %50, ptr %.0286.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
 
 54:                                               ; preds = %.lr.ph.i.i.i.i
   %55 = icmp eq ptr %49, inttoptr (i64 -8192 to ptr)
@@ -8973,9 +8973,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   %60 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.245", ptr %.val.i9.i, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %37, %61
-  br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !46
+  br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !46
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i: ; preds = %54, %52, %38
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i: ; preds = %54, %52, %38
   %.sink.i.i.i.i = phi ptr [ %53, %52 ], [ %46, %38 ], [ %60, %54 ]
   store ptr %37, ptr %.sink.i.i.i.i, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 8
@@ -8989,7 +8989,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %_ZN12_GLOBAL__N_119CostBenefitPriorityC2EOS0_.exit.i.i
 
-70:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+70:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
   %71 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 24
@@ -9011,7 +9011,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   store i8 1, ptr %67, align 8
   br label %_ZN12_GLOBAL__N_119CostBenefitPriorityC2EOS0_.exit.i.i
 
-_ZN12_GLOBAL__N_119CostBenefitPriorityC2EOS0_.exit.i.i: ; preds = %70, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+_ZN12_GLOBAL__N_119CostBenefitPriorityC2EOS0_.exit.i.i: ; preds = %70, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
   %.val.i17.i.i = load i32, ptr %32, align 8
   %83 = add i32 %.val.i17.i.i, 1
   store i32 %83, ptr %32, align 8
@@ -9250,7 +9250,7 @@ _ZN12_GLOBAL__N_110MLPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8Fu
   %54 = getelementptr inbounds i8, ptr %0, i64 224
   %.val4.i.i = load i32, ptr %54, align 8
   %55 = icmp eq i32 %.val4.i.i, 0
-  br i1 %55, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %56
+  br i1 %55, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %56
 
 56:                                               ; preds = %_ZN12_GLOBAL__N_110MLPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8FunctionEJEEERKNS1_12InlineParamsE.exit
   %57 = trunc i64 %21 to i32
@@ -9277,7 +9277,7 @@ _ZN12_GLOBAL__N_110MLPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8Fu
 69:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.0286.i.i.i.i, null
   %70 = select i1 %.not.i.i.i.i, ptr %67, ptr %.0286.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
 
 71:                                               ; preds = %.lr.ph.i.i.i.i
   %72 = icmp eq ptr %66, inttoptr (i64 -8192 to ptr)
@@ -9293,7 +9293,7 @@ _ZN12_GLOBAL__N_110MLPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8Fu
   %79 = icmp eq ptr %9, %78
   br i1 %79, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !56
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i: ; preds = %69, %_ZN12_GLOBAL__N_110MLPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8FunctionEJEEERKNS1_12InlineParamsE.exit
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i: ; preds = %69, %_ZN12_GLOBAL__N_110MLPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8FunctionEJEEERKNS1_12InlineParamsE.exit
   %.sink.i.i.i.i = phi ptr [ %70, %69 ], [ null, %_ZN12_GLOBAL__N_110MLPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8FunctionEJEEERKNS1_12InlineParamsE.exit ]
   %80 = getelementptr inbounds i8, ptr %0, i64 216
   %.val18.i.i.i.i = load i32, ptr %80, align 8
@@ -9303,13 +9303,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %.not.i.i6.i.i = icmp ult i32 %82, %83
   br i1 %.not.i.i6.i.i, label %111, label %84
 
-84:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+84:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
   %85 = shl i32 %.val4.i.i, 1
   call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %53, i32 noundef %85)
   %.val15.i.i.i.i = load ptr, ptr %53, align 8
   %.val16.i.i.i.i = load i32, ptr %54, align 8
   %86 = icmp eq i32 %.val16.i.i.i.i, 0
-  br i1 %86, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %87
+  br i1 %86, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %87
 
 87:                                               ; preds = %84
   %88 = trunc i64 %21 to i32
@@ -9322,7 +9322,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %94 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val15.i.i.i.i, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %9, %95
-  br i1 %96, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %96, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %87, %102
   %97 = phi ptr [ %109, %102 ], [ %95, %87 ]
@@ -9336,7 +9336,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
 100:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %.0286.i.i.i.i.i.i, null
   %101 = select i1 %.not.i.i.i.i.i.i, ptr %98, ptr %.0286.i.i.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
 
 102:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %103 = icmp eq ptr %97, inttoptr (i64 -8192 to ptr)
@@ -9350,9 +9350,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %108 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val15.i.i.i.i, i64 %107
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %9, %109
-  br i1 %110, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !56
+  br i1 %110, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !56
 
-111:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+111:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
   %112 = getelementptr inbounds i8, ptr %0, i64 220
   %.val19.i.i.i.i = load i32, ptr %112, align 4
   %.neg.i.i.i.i = xor i32 %.val18.i.i.i.i, -1
@@ -9360,14 +9360,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %113 = sub i32 %.neg2.i.i.i.i, %.val19.i.i.i.i
   %114 = lshr i32 %.val4.i.i, 3
   %.not10.i.i.i.i = icmp ugt i32 %113, %114
-  br i1 %.not10.i.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %115
+  br i1 %.not10.i.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %115
 
 115:                                              ; preds = %111
   call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %53, i32 noundef %.val4.i.i)
   %.val12.i.i.i.i = load ptr, ptr %53, align 8
   %.val13.i.i.i.i = load i32, ptr %54, align 8
   %116 = icmp eq i32 %.val13.i.i.i.i, 0
-  br i1 %116, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %117
+  br i1 %116, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %117
 
 117:                                              ; preds = %115
   %118 = trunc i64 %21 to i32
@@ -9380,7 +9380,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %124 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val12.i.i.i.i, i64 %123
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %9, %125
-  br i1 %126, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i
+  br i1 %126, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i
 
 .lr.ph.i.i21.i.i.i.i:                             ; preds = %117, %132
   %127 = phi ptr [ %139, %132 ], [ %125, %117 ]
@@ -9394,7 +9394,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
 130:                                              ; preds = %.lr.ph.i.i21.i.i.i.i
   %.not.i.i30.i.i.i.i = icmp eq ptr %.0286.i.i24.i.i.i.i, null
   %131 = select i1 %.not.i.i30.i.i.i.i, ptr %128, ptr %.0286.i.i24.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
 
 132:                                              ; preds = %.lr.ph.i.i21.i.i.i.i
   %133 = icmp eq ptr %127, inttoptr (i64 -8192 to ptr)
@@ -9408,9 +9408,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %138 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val12.i.i.i.i, i64 %137
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq ptr %9, %139
-  br i1 %140, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i, !llvm.loop !56
+  br i1 %140, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i, !llvm.loop !56
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i: ; preds = %102, %132, %130, %117, %115, %111, %100, %87, %84
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i: ; preds = %102, %132, %130, %117, %115, %111, %100, %87, %84
   %.0.i.i7.i.i = phi ptr [ %.sink.i.i.i.i, %111 ], [ %101, %100 ], [ null, %84 ], [ %94, %87 ], [ %131, %130 ], [ null, %115 ], [ %124, %117 ], [ %138, %132 ], [ %108, %102 ]
   %.val.i.i.i.i.i = load i32, ptr %80, align 8
   %141 = add i32 %.val.i.i.i.i.i, 1
@@ -9419,14 +9419,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %143 = icmp eq ptr %142, inttoptr (i64 -4096 to ptr)
   br i1 %143, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i, label %144
 
-144:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+144:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
   %145 = getelementptr inbounds i8, ptr %0, i64 220
   %.val.i32.i.i.i.i = load i32, ptr %145, align 4
   %146 = add i32 %.val.i32.i.i.i.i, -1
   store i32 %146, ptr %145, align 4
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i: ; preds = %144, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i.i.i
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIRKS4_JEEEPSB_SH_OT_DpOT0_.exit.i.i: ; preds = %144, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i.i.i
   store ptr %9, ptr %.0.i.i7.i.i, align 8
   %147 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i, i64 8
   store i32 2147483647, ptr %147, align 4
@@ -9796,7 +9796,7 @@ _ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit23.i: ; preds = %_ZNSt8function
   %98 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val4.i.i, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %88, %99
-  br i1 %100, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %100, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %90, %103
   %101 = phi ptr [ %108, %103 ], [ %99, %90 ]
@@ -9813,14 +9813,14 @@ _ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit23.i: ; preds = %_ZNSt8function
   %107 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val4.i.i, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %88, %108
-  br i1 %109, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
+  br i1 %109, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZNSt8functionIFbPKN4llvm8CallBaseES3_EED2Ev.exit23.i
   %110 = zext i32 %.val5.i.i to i64
   %111 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val4.i.i, i64 %110
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i: ; preds = %103, %.loopexit.i.i.i, %90
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i: ; preds = %103, %.loopexit.i.i.i, %90
   %.0.i.pn.i.i.i = phi ptr [ %111, %.loopexit.i.i.i ], [ %98, %90 ], [ %107, %103 ]
   %112 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i, i64 8
   %113 = load i32, ptr %112, align 8
@@ -9833,7 +9833,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %118 = trunc i8 %117 to i1
   br i1 %118, label %119, label %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i
 
-119:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i
+119:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i
   store i8 0, ptr %69, align 8
   %120 = load i32, ptr %70, align 8
   %121 = icmp ugt i32 %120, 64
@@ -9862,7 +9862,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i.i.i.i:      ; preds = %125, %122, %119
   call void @_ZdaPv(ptr noundef nonnull %129) #21
   br label %_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i
 
-_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i: ; preds = %131, %128, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i
+_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEE23updateAndCheckDecreasedEPKN4llvm8CallBaseE.exit.i: ; preds = %131, %128, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i
   %132 = add i32 %116, 2147483647
   %133 = icmp ult i32 %132, -2
   %134 = icmp eq i32 %116, 2147483647
@@ -10273,7 +10273,7 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEE8e
   %35 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %24, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %.029.val32.i.i.i.i.i.i, %36
-  br i1 %37, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %37, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %27, %43
   %38 = phi ptr [ %50, %43 ], [ %36, %27 ]
@@ -10301,7 +10301,7 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEE8e
   %49 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %24, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %.029.val32.i.i.i.i.i.i, %50
-  br i1 %51, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %51, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %41, %23
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ null, %23 ]
@@ -10310,9 +10310,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 0, ptr %54, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i: ; preds = %43, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i, %27
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i: ; preds = %43, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i, %27
   %55 = phi ptr [ %53, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i ], [ %.029.val32.i.i.i.i.i.i, %27 ], [ %.029.val32.i.i.i.i.i.i, %43 ]
   %.0.i.i.i.i.i.i.i.i.i.i = phi ptr [ %52, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i.i.i ], [ %35, %27 ], [ %49, %43 ]
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i.i, i64 8
@@ -10321,7 +10321,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br i1 %58, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %59
 
-59:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i
+59:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i
   %60 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 8
   %.val31.i.i.i.i.i.i = load ptr, ptr %60, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -10343,7 +10343,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %72 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %.val31.i.i.i.i.i.i, %73
-  br i1 %74, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i
+  br i1 %74, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i:                 ; preds = %64, %80
   %75 = phi ptr [ %87, %80 ], [ %73, %64 ]
@@ -10371,7 +10371,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %86 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %.val31.i.i.i.i.i.i, %87
-  br i1 %88, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %88, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i34.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i: ; preds = %78, %59
   %.sink.i.i.i.i.i.i44.i.i.i.i.i.i = phi ptr [ %79, %78 ], [ null, %59 ]
@@ -10380,9 +10380,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %90, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 0, ptr %91, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i: ; preds = %80, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i, %64
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i: ; preds = %80, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i, %64
   %92 = phi ptr [ %90, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i ], [ %.val31.i.i.i.i.i.i, %64 ], [ %.val31.i.i.i.i.i.i, %80 ]
   %.0.i.i.i.i41.i.i.i.i.i.i = phi ptr [ %89, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i43.i.i.i.i.i.i ], [ %72, %64 ], [ %86, %80 ]
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i41.i.i.i.i.i.i, i64 8
@@ -10391,7 +10391,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br i1 %95, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, label %96
 
-96:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+96:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
   %97 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i.i = load ptr, ptr %97, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -10413,7 +10413,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %109 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %98, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %.val30.i.i.i.i.i.i, %110
-  br i1 %111, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i
+  br i1 %111, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i:                 ; preds = %101, %117
   %112 = phi ptr [ %124, %117 ], [ %110, %101 ]
@@ -10441,7 +10441,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %123 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %98, i64 %122
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %.val30.i.i.i.i.i.i, %124
-  br i1 %125, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %125, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i47.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i: ; preds = %115, %96
   %.sink.i.i.i.i.i.i57.i.i.i.i.i.i = phi ptr [ %116, %115 ], [ null, %96 ]
@@ -10450,9 +10450,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %127, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 0, ptr %128, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i: ; preds = %117, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i, %101
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i: ; preds = %117, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i, %101
   %129 = phi ptr [ %127, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i ], [ %.val30.i.i.i.i.i.i, %101 ], [ %.val30.i.i.i.i.i.i, %117 ]
   %.0.i.i.i.i54.i.i.i.i.i.i = phi ptr [ %126, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i56.i.i.i.i.i.i ], [ %109, %101 ], [ %123, %117 ]
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i54.i.i.i.i.i.i, i64 8
@@ -10461,7 +10461,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br i1 %132, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, label %133
 
-133:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+133:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
   %134 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 24
   %.val.i.i.i.i.i.i = load ptr, ptr %134, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -10483,7 +10483,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %146 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %135, i64 %145
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %.val.i.i.i.i.i.i, %147
-  br i1 %148, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i
+  br i1 %148, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i:                 ; preds = %138, %154
   %149 = phi ptr [ %161, %154 ], [ %147, %138 ]
@@ -10511,7 +10511,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %160 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %135, i64 %159
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %.val.i.i.i.i.i.i, %161
-  br i1 %162, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %162, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i60.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i: ; preds = %152, %133
   %.sink.i.i.i.i.i.i70.i.i.i.i.i.i = phi ptr [ %153, %152 ], [ null, %133 ]
@@ -10520,9 +10520,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %164, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i32 0, ptr %165, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i: ; preds = %154, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i, %138
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i: ; preds = %154, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i, %138
   %166 = phi ptr [ %164, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %138 ], [ %.val.i.i.i.i.i.i, %154 ]
   %.0.i.i.i.i67.i.i.i.i.i.i = phi ptr [ %163, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i69.i.i.i.i.i.i ], [ %146, %138 ], [ %160, %154 ]
   %167 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i67.i.i.i.i.i.i, i64 8
@@ -10531,7 +10531,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br i1 %169, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, label %170
 
-170:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+170:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
   %171 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 32
   %172 = add nsw i64 %.0149.i.i.i.i.i.i, -1
   %173 = icmp sgt i64 %.0149.i.i.i.i.i.i, 1
@@ -10575,7 +10575,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %189 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %177, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = icmp eq ptr %.029.val.i.i.i.i.i.i, %190
-  br i1 %191, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i
+  br i1 %191, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i:                 ; preds = %181, %197
   %192 = phi ptr [ %204, %197 ], [ %190, %181 ]
@@ -10603,7 +10603,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %203 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %177, i64 %202
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %.029.val.i.i.i.i.i.i, %204
-  br i1 %205, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %205, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i: ; preds = %195, %175
   %.sink.i.i.i.i.i.i83.i.i.i.i.i.i = phi ptr [ %196, %195 ], [ null, %175 ]
@@ -10612,9 +10612,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %207, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i32 0, ptr %208, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i: ; preds = %197, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i, %181
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i: ; preds = %197, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i, %181
   %209 = phi ptr [ %207, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i ], [ %.029.val.i.i.i.i.i.i, %181 ], [ %.029.val.i.i.i.i.i.i, %197 ]
   %.0.i.i.i.i80.i.i.i.i.i.i = phi ptr [ %206, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i82.i.i.i.i.i.i ], [ %189, %181 ], [ %203, %197 ]
   %210 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i80.i.i.i.i.i.i, i64 8
@@ -10623,7 +10623,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br i1 %212, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %213
 
-213:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
+213:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
   %214 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i.i
 
@@ -10651,7 +10651,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %228 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %216, i64 %227
   %229 = load ptr, ptr %228, align 8
   %230 = icmp eq ptr %.1.val.i.i.i.i.i.i, %229
-  br i1 %230, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i
+  br i1 %230, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i:                 ; preds = %220, %236
   %231 = phi ptr [ %243, %236 ], [ %229, %220 ]
@@ -10679,7 +10679,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %242 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %216, i64 %241
   %243 = load ptr, ptr %242, align 8
   %244 = icmp eq ptr %.1.val.i.i.i.i.i.i, %243
-  br i1 %244, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %244, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i86.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i: ; preds = %234, %._crit_edge._crit_edge.i.i.i.i.i.i
   %.sink.i.i.i.i.i.i96.i.i.i.i.i.i = phi ptr [ %235, %234 ], [ null, %._crit_edge._crit_edge.i.i.i.i.i.i ]
@@ -10688,9 +10688,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %246, ptr %245, align 8
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i32 0, ptr %247, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i: ; preds = %236, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i, %220
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i: ; preds = %236, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i, %220
   %248 = phi ptr [ %246, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i ], [ %.1.val.i.i.i.i.i.i, %220 ], [ %.1.val.i.i.i.i.i.i, %236 ]
   %.0.i.i.i.i93.i.i.i.i.i.i = phi ptr [ %245, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i95.i.i.i.i.i.i ], [ %228, %220 ], [ %242, %236 ]
   %249 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i93.i.i.i.i.i.i, i64 8
@@ -10699,7 +10699,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br i1 %251, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %252
 
-252:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i
+252:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i
   %253 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %254
 
@@ -10727,7 +10727,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %268 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %256, i64 %267
   %269 = load ptr, ptr %268, align 8
   %270 = icmp eq ptr %.2.val.i.i.i.i.i.i, %269
-  br i1 %270, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i
+  br i1 %270, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i:                 ; preds = %260, %276
   %271 = phi ptr [ %283, %276 ], [ %269, %260 ]
@@ -10755,7 +10755,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   %282 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %256, i64 %281
   %283 = load ptr, ptr %282, align 8
   %284 = icmp eq ptr %.2.val.i.i.i.i.i.i, %283
-  br i1 %284, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %284, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i99.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i: ; preds = %274, %254
   %.sink.i.i.i.i.i.i109.i.i.i.i.i.i = phi ptr [ %275, %274 ], [ null, %254 ]
@@ -10764,9 +10764,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %286, ptr %285, align 8
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i32 0, ptr %287, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i: ; preds = %276, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i, %260
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i: ; preds = %276, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i, %260
   %288 = phi ptr [ %286, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i ], [ %.2.val.i.i.i.i.i.i, %260 ], [ %.2.val.i.i.i.i.i.i, %276 ]
   %.0.i.i.i.i106.i.i.i.i.i.i = phi ptr [ %285, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i108.i.i.i.i.i.i ], [ %268, %260 ], [ %282, %276 ]
   %289 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i106.i.i.i.i.i.i, i64 8
@@ -10775,20 +10775,20 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br i1 %291, label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, label %_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_10MLPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit45.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit45.i.i.i.i.i.i
   %292 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 8
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit58.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit58.i.i.i.i.i.i
   %293 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 16
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit71.i.i.i.i.i.i
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit71.i.i.i.i.i.i
   %294 = getelementptr inbounds i8, ptr %.029148.i.i.i.i.i.i, i64 24
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit84.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit97.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i ], [ %292, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %293, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115 ], [ %294, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117 ], [ %.029148.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i.i.i ]
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit84.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit97.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i ], [ %292, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %293, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit115 ], [ %294, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit117 ], [ %.029148.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i.i.i ]
   %295 = icmp eq ptr %.028.i.i.i.i.i.i, %17
   %.01763.i.i.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i.i.i, i64 8
   %.not64.i.i.i.i = icmp eq ptr %.01763.i.i.i.i, %17
@@ -10823,7 +10823,7 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %309 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %298, i64 %308
   %310 = load ptr, ptr %309, align 8
   %311 = icmp eq ptr %.017.val.i.i.i.i, %310
-  br i1 %311, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  br i1 %311, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %301, %317
   %312 = phi ptr [ %324, %317 ], [ %310, %301 ]
@@ -10851,7 +10851,7 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %323 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %298, i64 %322
   %324 = load ptr, ptr %323, align 8
   %325 = icmp eq ptr %.017.val.i.i.i.i, %324
-  br i1 %325, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %325, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i: ; preds = %315, %.lr.ph.i.i.i.i
   %.sink.i.i.i.i.i.i.i.i.i.i = phi ptr [ %316, %315 ], [ null, %.lr.ph.i.i.i.i ]
@@ -10860,9 +10860,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6d
   store ptr %327, ptr %326, align 8
   %328 = getelementptr inbounds nuw i8, ptr %326, i64 8
   store i32 0, ptr %328, align 4
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i: ; preds = %317, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i, %301
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i: ; preds = %317, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i, %301
   %329 = phi ptr [ %327, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i ], [ %.017.val.i.i.i.i, %301 ], [ %.017.val.i.i.i.i, %317 ]
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %326, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8CallBaseEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i.i.i.i.i.i.i ], [ %309, %301 ], [ %323, %317 ]
   %330 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
@@ -10871,20 +10871,20 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br i1 %332, label %336, label %333
 
-333:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
+333:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
   %334 = load ptr, ptr %.01766.i.i.i.i, align 8
   store ptr %334, ptr %.065.i.i.i.i, align 8
   %335 = getelementptr inbounds i8, ptr %.065.i.i.i.i, i64 8
   br label %336
 
-336:                                              ; preds = %333, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.065.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit.i.i.i.i ], [ %335, %333 ]
+336:                                              ; preds = %333, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %.065.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit.i.i.i.i ], [ %335, %333 ]
   %.017.i.i.i.i = getelementptr inbounds i8, ptr %.01766.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %17
   br i1 %.not.i.i.i.i, label %_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_10MLPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !60
 
-_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_10MLPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i: ; preds = %336, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %17, %._crit_edge.i.i.i.i.i.i ], [ %17, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.argprom.exit110.i.i.i.i.i.i ], [ %.1.i.i.i.i, %336 ]
+_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS6_10MLPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEDaOT_T0_.exit.i: ; preds = %336, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %17, %._crit_edge.i.i.i.i.i.i ], [ %17, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS2_10MLPriorityEE8erase_ifEN4llvm12function_refIFbSt4pairIPNS6_8CallBaseEiEEEEEUlSA_E_EclIPSA_EEbT_.exit110.i.i.i.i.i.i ], [ %.1.i.i.i.i, %336 ]
   %337 = load ptr, ptr %14, align 8
   %338 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #18
   %339 = getelementptr inbounds ptr, ptr %337, i64 %338
@@ -11005,7 +11005,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
   %15 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val.val, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %.val3, %16
-  br i1 %17, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %17, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %7, %20
   %18 = phi ptr [ %25, %20 ], [ %16, %7 ]
@@ -11022,24 +11022,24 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
   %24 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val.val, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %.val3, %25
-  br i1 %26, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !57
+  br i1 %26, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !57
 
 .loopexit.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i.i.i, %3
   %27 = zext i32 %.val.val5 to i64
   %28 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val.val, i64 %27
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i: ; preds = %20, %.loopexit.i.i.i.i.i
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i: ; preds = %20, %.loopexit.i.i.i.i.i
   %.0.i.i.pn.i.i.i.i.i = phi ptr [ %28, %.loopexit.i.i.i.i.i ], [ %24, %20 ]
-  br i1 %6, label %.loopexit.i21.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i
+  br i1 %6, label %.loopexit.i21.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
   %.pre.i.i.i = add i32 %.val.val5, -1
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i, %7
-  %.pre-phi.i.i.i = phi i32 [ %.pre.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i ], [ %13, %7 ]
-  %.0.i.i.pn.i8.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i_crit_edge.i.i.i ], [ %15, %7 ]
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i, %7
+  %.pre-phi.i.i.i = phi i32 [ %.pre.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i ], [ %13, %7 ]
+  %.0.i.i.pn.i8.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i._ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i_crit_edge.i.i.i ], [ %15, %7 ]
   %29 = ptrtoint ptr %.val4 to i64
   %30 = trunc i64 %29 to i32
   %31 = lshr i32 %30, 4
@@ -11050,12 +11050,12 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityE
   %35 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val.val, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %.val4, %36
-  br i1 %37, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit, label %.lr.ph.i.i.i11.i.i.i.i
+  br i1 %37, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit, label %.lr.ph.i.i.i11.i.i.i.i
 
-.lr.ph.i.i.i11.i.i.i.i:                           ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, %40
-  %38 = phi ptr [ %45, %40 ], [ %36, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
-  %.0165.i.i.i12.i.i.i.i = phi i32 [ %.016.i.i.i14.i.i.i.i, %40 ], [ %.0163.i.i.i10.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
-  %.0154.i.i.i13.i.i.i.i = phi i32 [ %41, %40 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ]
+.lr.ph.i.i.i11.i.i.i.i:                           ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, %40
+  %38 = phi ptr [ %45, %40 ], [ %36, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
+  %.0165.i.i.i12.i.i.i.i = phi i32 [ %.016.i.i.i14.i.i.i.i, %40 ], [ %.0163.i.i.i10.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
+  %.0154.i.i.i13.i.i.i.i = phi i32 [ %41, %40 ], [ 1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ]
   %39 = icmp eq ptr %38, inttoptr (i64 -4096 to ptr)
   br i1 %39, label %.loopexit.i21.i.i.i.i, label %40
 
@@ -11067,17 +11067,17 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityE
   %44 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val.val, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %.val4, %45
-  br i1 %46, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit, label %.lr.ph.i.i.i11.i.i.i.i, !llvm.loop !57
+  br i1 %46, label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit, label %.lr.ph.i.i.i11.i.i.i.i, !llvm.loop !57
 
-.loopexit.i21.i.i.i.i:                            ; preds = %.lr.ph.i.i.i11.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i
-  %.0.i.i.pn.i6.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %.lr.ph.i.i.i11.i.i.i.i ]
+.loopexit.i21.i.i.i.i:                            ; preds = %.lr.ph.i.i.i11.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i
+  %.0.i.i.pn.i6.i.i.i.i = phi ptr [ %.0.i.i.pn.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %.lr.ph.i.i.i11.i.i.i.i ]
   %47 = zext i32 %.val.val5 to i64
   %48 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val.val, i64 %47
-  br label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit
+  br label %_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit
 
-_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit: ; preds = %40, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i, %.loopexit.i21.i.i.i.i
-  %.0.i.i.pn.i7.i.i.i.i = phi ptr [ %.0.i.i.pn.i6.i.i.i.i, %.loopexit.i21.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %40 ]
-  %.0.i.i.pn.i17.i.i.i.i = phi ptr [ %48, %.loopexit.i21.i.i.i.i ], [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.argprom.exit.thread.i.i.i.i ], [ %44, %40 ]
+_ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS4_8FunctionEJEEERKNS4_12InlineParamsEEUlPKNS4_8CallBaseESE_E_JSE_SE_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit: ; preds = %40, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i, %.loopexit.i21.i.i.i.i
+  %.0.i.i.pn.i7.i.i.i.i = phi ptr [ %.0.i.i.pn.i6.i.i.i.i, %.loopexit.i21.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ], [ %.0.i.i.pn.i8.i.i.i.i, %40 ]
+  %.0.i.i.pn.i17.i.i.i.i = phi ptr [ %48, %.loopexit.i21.i.i.i.i ], [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit.thread.i.i.i.i ], [ %44, %40 ]
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i17.i.i.i.i, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i7.i.i.i.i, i64 8
   %.val8.i.i.i.i = load i32, ptr %49, align 4
@@ -11088,7 +11088,7 @@ _ZSt10__invoke_rIbRZN12_GLOBAL__N_119PriorityInlineOrderINS0_10MLPriorityEEC1ERN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBaseES3_EZN12_GLOBAL__N_119PriorityInlineOrderINS5_10MLPriorityEEC1ERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsEEUlS3_S3_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #10 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -11096,18 +11096,18 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN4llvm8CallBase
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit: ; preds = %3, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_10MLPriorityEEC1ERN4llvm15AnalysisManagerINS5_8FunctionEJEEERKNS5_12InlineParamsEEUlPKNS5_8CallBaseESF_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -11205,7 +11205,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %46 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val.i9.i, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %37, %47
-  br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %.lr.ph.i.i.i.i
+  br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %38, %54
   %49 = phi ptr [ %61, %54 ], [ %47, %38 ]
@@ -11219,7 +11219,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
 52:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.0286.i.i.i.i, null
   %53 = select i1 %.not.i.i.i.i, ptr %50, ptr %.0286.i.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i
 
 54:                                               ; preds = %.lr.ph.i.i.i.i
   %55 = icmp eq ptr %49, inttoptr (i64 -8192 to ptr)
@@ -11233,9 +11233,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %60 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.259", ptr %.val.i9.i, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %37, %61
-  br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !56
+  br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !56
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i: ; preds = %54, %52, %38
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i: ; preds = %54, %52, %38
   %.sink.i.i.i.i = phi ptr [ %53, %52 ], [ %46, %38 ], [ %60, %54 ]
   store ptr %37, ptr %.sink.i.i.i.i, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 8
@@ -11247,7 +11247,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   store i32 %66, ptr %32, align 8
   br label %67
 
-67:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.argprom.exit.i.i, %.lr.ph.i7.i, %.lr.ph.i7.i
+67:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, %.lr.ph.i7.i, %.lr.ph.i7.i
   %68 = getelementptr inbounds i8, ptr %.023.i.i, i64 16
   %.not.i8.i = icmp eq ptr %68, %31
   br i1 %.not.i8.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit.i, label %.lr.ph.i7.i, !llvm.loop !62

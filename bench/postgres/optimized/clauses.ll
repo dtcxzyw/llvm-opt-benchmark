@@ -2375,7 +2375,7 @@ common.ret1118:                                   ; preds = %.thread741, %976, %
   %.val705.val = load ptr, ptr %.val705, align 8
   %192 = getelementptr i8, ptr %.val705, i64 8
   %.val705.val706 = load ptr, ptr %192, align 8
-  %193 = tail call fastcc ptr @simplify_boolean_equality.argprom.argprom(i32 noundef %188, ptr %.val705.val, ptr %.val705.val706)
+  %193 = tail call fastcc ptr @simplify_boolean_equality(i32 noundef %188, ptr %.val705.val, ptr %.val705.val706)
   %.not695 = icmp eq ptr %193, null
   br i1 %.not695, label %194, label %common.ret1118
 
@@ -4193,7 +4193,7 @@ add_function_defaults.exit:                       ; preds = %122, %123
 .sink.split:                                      ; preds = %reorder_function_arguments.exit, %add_function_defaults.exit
   %.sink = phi ptr [ %125, %add_function_defaults.exit ], [ %.0.lcssa.i, %reorder_function_arguments.exit ]
   %.val54 = load ptr, ptr %7, align 8
-  call fastcc void @recheck_cast_function_args.argprom(ptr noundef %.sink, i32 noundef %2, ptr noundef %.043, i32 noundef %.044, ptr %.val54)
+  call fastcc void @recheck_cast_function_args(ptr noundef %.sink, i32 noundef %2, ptr noundef %.043, i32 noundef %.044, ptr %.val54)
   br label %126
 
 126:                                              ; preds = %.sink.split, %list_length.exit.thread, %list_length.exit
@@ -4206,7 +4206,7 @@ declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr 
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recheck_cast_function_args.argprom(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -32768, -2147483648) %3, ptr nocapture readonly %.16.val) unnamed_addr #0 {
+define internal fastcc void @recheck_cast_function_args(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -32768, -2147483648) %3, ptr nocapture readonly %.16.val) unnamed_addr #0 {
   %5 = alloca [100 x i32], align 16
   %6 = alloca [100 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %.16.val, i64 22
@@ -5026,13 +5026,13 @@ define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i3
   %39 = getelementptr inbounds i8, ptr %38, i64 100
   %40 = load i8, ptr %39, align 4
   %41 = trunc i8 %40 to i1
-  br i1 %41, label %evaluate_function.argprom.exit, label %42
+  br i1 %41, label %evaluate_function.exit, label %42
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %38, i64 108
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 2249
-  br i1 %45, label %evaluate_function.argprom.exit, label %.preheader.i
+  br i1 %45, label %evaluate_function.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %42
   %.not.i = icmp eq ptr %.046, null
@@ -5083,10 +5083,10 @@ define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i3
 
 65:                                               ; preds = %._crit_edge.i
   %66 = tail call ptr @makeNullConst(i32 noundef %1, i32 noundef %2, i32 noundef %3) #9
-  br label %evaluate_function.argprom.exit
+  br label %evaluate_function.exit
 
 67:                                               ; preds = %._crit_edge.i
-  br i1 %.1.i, label %evaluate_function.argprom.exit, label %.thread
+  br i1 %.1.i, label %evaluate_function.exit, label %.thread
 
 .thread:                                          ; preds = %.preheader.i, %.lr.ph.i, %67
   %68 = getelementptr inbounds i8, ptr %38, i64 101
@@ -5100,7 +5100,7 @@ define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i3
   %74 = trunc i8 %73 to i1
   %75 = icmp eq i8 %69, 115
   %or.cond.i = and i1 %75, %74
-  br i1 %or.cond.i, label %76, label %evaluate_function.argprom.exit
+  br i1 %or.cond.i, label %76, label %evaluate_function.exit
 
 76:                                               ; preds = %71, %.thread
   %77 = tail call noundef ptr @palloc0(i64 noundef 48) #9
@@ -5124,15 +5124,15 @@ define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i3
   %86 = getelementptr inbounds i8, ptr %77, i64 40
   store i32 -1, ptr %86, align 8
   %87 = tail call ptr @evaluate_expr(ptr noundef nonnull %77, i32 noundef %1, i32 noundef %2, i32 noundef %3)
-  br label %evaluate_function.argprom.exit
+  br label %evaluate_function.exit
 
-evaluate_function.argprom.exit:                   ; preds = %37, %42, %65, %67, %71, %76
+evaluate_function.exit:                           ; preds = %37, %42, %65, %67, %71, %76
   %.0.i = phi ptr [ %66, %65 ], [ %87, %76 ], [ null, %37 ], [ null, %42 ], [ null, %67 ], [ null, %71 ]
   %.not50 = icmp eq ptr %.0.i, null
   %brmerge.not = and i1 %8, %.not50
   br i1 %brmerge.not, label %88, label %112
 
-88:                                               ; preds = %evaluate_function.argprom.exit
+88:                                               ; preds = %evaluate_function.exit
   %89 = getelementptr inbounds i8, ptr %33, i64 92
   %90 = load i32, ptr %89, align 4
   %.not51 = icmp eq i32 %90, 0
@@ -5174,8 +5174,8 @@ evaluate_function.argprom.exit:                   ; preds = %37, %42, %65, %67, 
   %111 = inttoptr i64 %110 to ptr
   br label %112
 
-112:                                              ; preds = %evaluate_function.argprom.exit, %91, %88
-  %.0 = phi ptr [ %.0.i, %evaluate_function.argprom.exit ], [ %111, %91 ], [ null, %88 ]
+112:                                              ; preds = %evaluate_function.exit, %91, %88
+  %.0 = phi ptr [ %.0.i, %evaluate_function.exit ], [ %111, %91 ], [ null, %88 ]
   %.not52 = icmp eq ptr %.0, null
   %brmerge55.not = and i1 %8, %.not52
   br i1 %brmerge55.not, label %113, label %374
@@ -5717,7 +5717,7 @@ inline_function.exit:                             ; preds = %inline_function.exi
 declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @simplify_boolean_equality.argprom.argprom(i32 noundef %0, ptr %.16.val.0.val, ptr %.16.val.8.val) unnamed_addr #0 {
+define internal fastcc ptr @simplify_boolean_equality(i32 noundef %0, ptr %.16.val.0.val, ptr %.16.val.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.16.val.0.val, null
   br i1 %.not, label %11, label %2
 

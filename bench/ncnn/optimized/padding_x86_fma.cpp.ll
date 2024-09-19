@@ -268,7 +268,7 @@ define hidden noundef i32 @_ZNK4ncnn15Padding_x86_fma7forwardERKNS_3MatERS1_RKNS
   %155 = sdiv i32 %154, 8
   %156 = getelementptr inbounds i8, ptr %2, i64 44
   %.val1113 = load i32, ptr %156, align 4
-  call fastcc void @_ZN4ncnnL26padding_constant_pack8_avxERKNS_3MatERS0_iiiiRKDv8_f.argprom(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nonnull %138, i32 %.val1113, i32 noundef 0, i32 noundef 0, i32 noundef %153, i32 noundef %155, ptr noundef nonnull align 32 dereferenceable(32) %5)
+  call fastcc void @_ZN4ncnnL26padding_constant_pack8_avxERKNS_3MatERS0_iiiiRKDv8_f(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nonnull %138, i32 %.val1113, i32 noundef 0, i32 noundef 0, i32 noundef %153, i32 noundef %155, ptr noundef nonnull align 32 dereferenceable(32) %5)
   br label %.critedge
 
 157:                                              ; preds = %123
@@ -319,7 +319,7 @@ define hidden noundef i32 @_ZNK4ncnn15Padding_x86_fma7forwardERKNS_3MatERS1_RKNS
   %192 = load i32, ptr %28, align 4
   %193 = getelementptr inbounds i8, ptr %2, i64 44
   %.val1115 = load i32, ptr %193, align 4
-  call fastcc void @_ZN4ncnnL26padding_constant_pack8_avxERKNS_3MatERS0_iiiiRKDv8_f.argprom(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nonnull %173, i32 %.val1115, i32 noundef %188, i32 noundef %190, i32 noundef %191, i32 noundef %192, ptr noundef nonnull align 32 dereferenceable(32) %6)
+  call fastcc void @_ZN4ncnnL26padding_constant_pack8_avxERKNS_3MatERS0_iiiiRKDv8_f(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nonnull %173, i32 %.val1115, i32 noundef %188, i32 noundef %190, i32 noundef %191, i32 noundef %192, ptr noundef nonnull align 32 dereferenceable(32) %6)
   br label %.critedge
 
 194:                                              ; preds = %123
@@ -512,14 +512,14 @@ thread-pre-split:                                 ; preds = %314
   %318 = load i32, ptr %22, align 4
   %319 = load i32, ptr %25, align 8
   %320 = load i32, ptr %28, align 4
-  call fastcc void @_ZN4ncnnL26padding_constant_pack8_avxERKNS_3MatERS0_iiiiRKDv8_f.argprom(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr %261, i32 %253, i32 noundef %317, i32 noundef %318, i32 noundef %319, i32 noundef %320, ptr noundef nonnull align 32 dereferenceable(32) %7)
+  call fastcc void @_ZN4ncnnL26padding_constant_pack8_avxERKNS_3MatERS0_iiiiRKDv8_f(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr %261, i32 %253, i32 noundef %317, i32 noundef %318, i32 noundef %319, i32 noundef %320, ptr noundef nonnull align 32 dereferenceable(32) %7)
   %.pr = load i32, ptr %213, align 8
   br label %321
 
 321:                                              ; preds = %thread-pre-split, %314
   %322 = phi i32 [ %.pr, %thread-pre-split ], [ %315, %314 ]
   %323 = icmp eq i32 %322, 1
-  br i1 %323, label %324, label %_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %323, label %324, label %_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit
 
 324:                                              ; preds = %321
   %325 = load i32, ptr %19, align 8
@@ -738,7 +738,7 @@ thread-pre-split:                                 ; preds = %314
   %395 = sub nsw i64 0, %394
   %396 = getelementptr inbounds float, ptr %.0120.lcssa.i, i64 %395
   %397 = icmp sgt i32 %326, 0
-  br i1 %397, label %.lr.ph91.i, label %_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %397, label %.lr.ph91.i, label %_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit
 
 .lr.ph91.i:                                       ; preds = %._crit_edge69.i
   %398 = icmp sgt i32 %327, 0
@@ -797,14 +797,14 @@ thread-pre-split:                                 ; preds = %314
   %.11.lcssa.i = phi ptr [ %.10.lcssa.i, %.preheader.i ], [ %412, %.lr.ph85.i ]
   %414 = add nuw nsw i32 %.010789.i, 1
   %exitcond121.not.i = icmp eq i32 %414, %326
-  br i1 %exitcond121.not.i, label %_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.argprom.exit, label %400, !llvm.loop !22
+  br i1 %exitcond121.not.i, label %_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit, label %400, !llvm.loop !22
 
-_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.argprom.exit: ; preds = %._crit_edge86.i, %._crit_edge69.i, %321
+_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._crit_edge86.i, %._crit_edge69.i, %321
   %415 = load i32, ptr %213, align 8
   %416 = icmp eq i32 %415, 2
-  br i1 %416, label %417, label %_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %416, label %417, label %_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.exit
 
-417:                                              ; preds = %_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.argprom.exit
+417:                                              ; preds = %_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit
   %418 = load i32, ptr %19, align 8
   %419 = load i32, ptr %22, align 4
   %420 = load i32, ptr %25, align 8
@@ -1091,7 +1091,7 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.argprom.exit: ; preds 
   %.4.lcssa.i1133 = phi ptr [ %.0126.lcssa.i, %.preheader6.i1132 ], [ %.7.lcssa.i1147, %._crit_edge.i1146 ]
   %.1.lcssa.i = phi ptr [ %.0.lcssa.i, %.preheader6.i1132 ], [ %.2.lcssa.i1145, %._crit_edge.i1146 ]
   %525 = icmp sgt i32 %419, 0
-  br i1 %525, label %.preheader2.lr.ph.i, label %_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %525, label %.preheader2.lr.ph.i, label %_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.exit
 
 .preheader2.lr.ph.i:                              ; preds = %._crit_edge77.i
   %526 = load i32, ptr %247, align 4
@@ -1183,14 +1183,14 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.argprom.exit: ; preds 
   %557 = getelementptr inbounds float, ptr %.397.i, i64 %556
   %558 = add nuw nsw i32 %.013495.i, 1
   %exitcond155.not.i = icmp eq i32 %558, %419
-  br i1 %exitcond155.not.i, label %_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.argprom.exit, label %.preheader2.i1134, !llvm.loop !35
+  br i1 %exitcond155.not.i, label %_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.exit, label %.preheader2.i1134, !llvm.loop !35
 
-_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.argprom.exit: ; preds = %._crit_edge93.i, %._crit_edge77.i, %_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.argprom.exit
+_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._crit_edge93.i, %._crit_edge77.i, %_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit
   %559 = load ptr, ptr %242, align 8
   %.not1012 = icmp eq ptr %559, null
   br i1 %.not1012, label %572, label %560
 
-560:                                              ; preds = %_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.argprom.exit
+560:                                              ; preds = %_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.exit
   %561 = atomicrmw add ptr %559, i32 -1 acq_rel, align 4
   %562 = icmp eq i32 %561, 1
   br i1 %562, label %563, label %572
@@ -1216,7 +1216,7 @@ _ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.argprom.exit: ; preds = 
   tail call void @free(ptr noundef nonnull %565) #14
   br label %572
 
-572:                                              ; preds = %566, %571, %570, %560, %_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.argprom.exit
+572:                                              ; preds = %566, %571, %570, %560, %_ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.exit
   store i64 0, ptr %251, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %8, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %246, i8 0, i64 20, i1 false)
@@ -1389,7 +1389,7 @@ _ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.argprom.exit: ; preds = 
   %671 = load i32, ptr %22, align 4
   %672 = load i32, ptr %25, align 8
   %673 = load i32, ptr %28, align 4
-  call fastcc void @_ZN4ncnnL26padding_constant_pack8_avxERKNS_3MatERS0_iiiiRKDv8_f.argprom(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr %642, i32 %629, i32 noundef %670, i32 noundef %671, i32 noundef %672, i32 noundef %673, ptr noundef nonnull align 32 dereferenceable(32) %9)
+  call fastcc void @_ZN4ncnnL26padding_constant_pack8_avxERKNS_3MatERS0_iiiiRKDv8_f(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr %642, i32 %629, i32 noundef %670, i32 noundef %671, i32 noundef %672, i32 noundef %673, ptr noundef nonnull align 32 dereferenceable(32) %9)
   store i64 0, ptr %618, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %613, i8 0, i64 20, i1 false)
@@ -1463,7 +1463,7 @@ _ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.argprom.exit: ; preds = 
   %712 = sdiv i32 %711, 4
   %713 = getelementptr inbounds i8, ptr %2, i64 44
   %.val1123 = load i32, ptr %713, align 4
-  call fastcc void @_ZN4ncnnL26padding_constant_pack4_sseERKNS_3MatERS0_iiiiRKDv4_f.argprom(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nonnull %695, i32 %.val1123, i32 noundef 0, i32 noundef 0, i32 noundef %710, i32 noundef %712, ptr noundef nonnull align 16 dereferenceable(16) %11)
+  call fastcc void @_ZN4ncnnL26padding_constant_pack4_sseERKNS_3MatERS0_iiiiRKDv4_f(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nonnull %695, i32 %.val1123, i32 noundef 0, i32 noundef 0, i32 noundef %710, i32 noundef %712, ptr noundef nonnull align 16 dereferenceable(16) %11)
   br label %.critedge
 
 714:                                              ; preds = %674
@@ -1520,7 +1520,7 @@ _ZN4ncnnL25padding_reflect_pack8_avxERKNS_3MatERS0_iiii.argprom.exit: ; preds = 
   %755 = load i32, ptr %28, align 4
   %756 = getelementptr inbounds i8, ptr %2, i64 44
   %.val1125 = load i32, ptr %756, align 4
-  call fastcc void @_ZN4ncnnL26padding_constant_pack4_sseERKNS_3MatERS0_iiiiRKDv4_f.argprom(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nonnull %736, i32 %.val1125, i32 noundef %751, i32 noundef %753, i32 noundef %754, i32 noundef %755, ptr noundef nonnull align 16 dereferenceable(16) %12)
+  call fastcc void @_ZN4ncnnL26padding_constant_pack4_sseERKNS_3MatERS0_iiiiRKDv4_f(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nonnull %736, i32 %.val1125, i32 noundef %751, i32 noundef %753, i32 noundef %754, i32 noundef %755, ptr noundef nonnull align 16 dereferenceable(16) %12)
   br label %.critedge
 
 757:                                              ; preds = %674
@@ -1714,14 +1714,14 @@ thread-pre-split1446:                             ; preds = %877
   %881 = load i32, ptr %22, align 4
   %882 = load i32, ptr %25, align 8
   %883 = load i32, ptr %28, align 4
-  call fastcc void @_ZN4ncnnL26padding_constant_pack4_sseERKNS_3MatERS0_iiiiRKDv4_f.argprom(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr %824, i32 %816, i32 noundef %880, i32 noundef %881, i32 noundef %882, i32 noundef %883, ptr noundef nonnull align 16 dereferenceable(16) %13)
+  call fastcc void @_ZN4ncnnL26padding_constant_pack4_sseERKNS_3MatERS0_iiiiRKDv4_f(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr %824, i32 %816, i32 noundef %880, i32 noundef %881, i32 noundef %882, i32 noundef %883, ptr noundef nonnull align 16 dereferenceable(16) %13)
   %.pr1447 = load i32, ptr %776, align 8
   br label %884
 
 884:                                              ; preds = %thread-pre-split1446, %877
   %885 = phi i32 [ %.pr1447, %thread-pre-split1446 ], [ %878, %877 ]
   %886 = icmp eq i32 %885, 1
-  br i1 %886, label %887, label %_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %886, label %887, label %_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit
 
 887:                                              ; preds = %884
   %888 = load i32, ptr %19, align 8
@@ -1940,7 +1940,7 @@ thread-pre-split1446:                             ; preds = %877
   %958 = sub nsw i64 0, %957
   %959 = getelementptr inbounds float, ptr %.0120.lcssa.i1154, i64 %958
   %960 = icmp sgt i32 %889, 0
-  br i1 %960, label %.lr.ph91.i1156, label %_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %960, label %.lr.ph91.i1156, label %_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit
 
 .lr.ph91.i1156:                                   ; preds = %._crit_edge69.i1153
   %961 = icmp sgt i32 %890, 0
@@ -1999,14 +1999,14 @@ thread-pre-split1446:                             ; preds = %877
   %.11.lcssa.i1165 = phi ptr [ %.10.lcssa.i1162, %.preheader.i1161 ], [ %975, %.lr.ph85.i1167 ]
   %977 = add nuw nsw i32 %.010789.i1157, 1
   %exitcond121.not.i1166 = icmp eq i32 %977, %889
-  br i1 %exitcond121.not.i1166, label %_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.argprom.exit, label %963, !llvm.loop !55
+  br i1 %exitcond121.not.i1166, label %_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit, label %963, !llvm.loop !55
 
-_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.argprom.exit: ; preds = %._crit_edge86.i1164, %._crit_edge69.i1153, %884
+_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._crit_edge86.i1164, %._crit_edge69.i1153, %884
   %978 = load i32, ptr %776, align 8
   %979 = icmp eq i32 %978, 2
-  br i1 %979, label %980, label %_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %979, label %980, label %_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.exit
 
-980:                                              ; preds = %_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.argprom.exit
+980:                                              ; preds = %_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit
   %981 = load i32, ptr %19, align 8
   %982 = load i32, ptr %22, align 4
   %983 = load i32, ptr %25, align 8
@@ -2293,7 +2293,7 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.argprom.exit: ; preds 
   %.4.lcssa.i1256 = phi ptr [ %.0126.lcssa.i1253, %.preheader6.i1252 ], [ %.7.lcssa.i1306, %._crit_edge.i1305 ]
   %.1.lcssa.i1257 = phi ptr [ %.0.lcssa.i1254, %.preheader6.i1252 ], [ %.2.lcssa.i1304, %._crit_edge.i1305 ]
   %1088 = icmp sgt i32 %982, 0
-  br i1 %1088, label %.preheader2.lr.ph.i1258, label %_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %1088, label %.preheader2.lr.ph.i1258, label %_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.exit
 
 .preheader2.lr.ph.i1258:                          ; preds = %._crit_edge77.i1255
   %1089 = load i32, ptr %810, align 4
@@ -2385,14 +2385,14 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.argprom.exit: ; preds 
   %1120 = getelementptr inbounds float, ptr %.397.i1262, i64 %1119
   %1121 = add nuw nsw i32 %.013495.i1264, 1
   %exitcond155.not.i1272 = icmp eq i32 %1121, %982
-  br i1 %exitcond155.not.i1272, label %_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.argprom.exit, label %.preheader2.i1261, !llvm.loop !68
+  br i1 %exitcond155.not.i1272, label %_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.exit, label %.preheader2.i1261, !llvm.loop !68
 
-_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.argprom.exit: ; preds = %._crit_edge93.i1270, %._crit_edge77.i1255, %_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.argprom.exit
+_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._crit_edge93.i1270, %._crit_edge77.i1255, %_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit
   %1122 = load ptr, ptr %805, align 8
   %.not1029 = icmp eq ptr %1122, null
   br i1 %.not1029, label %1135, label %1123
 
-1123:                                             ; preds = %_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.argprom.exit
+1123:                                             ; preds = %_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.exit
   %1124 = atomicrmw add ptr %1122, i32 -1 acq_rel, align 4
   %1125 = icmp eq i32 %1124, 1
   br i1 %1125, label %1126, label %1135
@@ -2418,7 +2418,7 @@ _ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.argprom.exit: ; preds = 
   tail call void @free(ptr noundef nonnull %1128) #14
   br label %1135
 
-1135:                                             ; preds = %1129, %1134, %1133, %1123, %_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.argprom.exit
+1135:                                             ; preds = %1129, %1134, %1133, %1123, %_ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.exit
   store i64 0, ptr %814, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %809, i8 0, i64 20, i1 false)
@@ -2591,7 +2591,7 @@ _ZN4ncnnL25padding_reflect_pack4_sseERKNS_3MatERS0_iiii.argprom.exit: ; preds = 
   %1234 = load i32, ptr %22, align 4
   %1235 = load i32, ptr %25, align 8
   %1236 = load i32, ptr %28, align 4
-  call fastcc void @_ZN4ncnnL26padding_constant_pack4_sseERKNS_3MatERS0_iiiiRKDv4_f.argprom(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr %1205, i32 %1192, i32 noundef %1233, i32 noundef %1234, i32 noundef %1235, i32 noundef %1236, ptr noundef nonnull align 16 dereferenceable(16) %15)
+  call fastcc void @_ZN4ncnnL26padding_constant_pack4_sseERKNS_3MatERS0_iiiiRKDv4_f(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr %1205, i32 %1192, i32 noundef %1233, i32 noundef %1234, i32 noundef %1235, i32 noundef %1236, ptr noundef nonnull align 16 dereferenceable(16) %15)
   store i64 0, ptr %1181, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %16, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1176, i8 0, i64 20, i1 false)
@@ -3172,7 +3172,7 @@ thread-pre-split:                                 ; preds = %289
 296:                                              ; preds = %thread-pre-split, %289
   %297 = phi i32 [ %.pr, %thread-pre-split ], [ %290, %289 ]
   %298 = icmp eq i32 %297, 1
-  br i1 %298, label %299, label %_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %298, label %299, label %_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.exit
 
 299:                                              ; preds = %296
   %300 = load i32, ptr %146, align 8
@@ -3403,7 +3403,7 @@ thread-pre-split:                                 ; preds = %289
   %370 = sub nsw i64 0, %369
   %371 = getelementptr inbounds i64, ptr %.075.lcssa.i, i64 %370
   %372 = icmp sgt i32 %301, 0
-  br i1 %372, label %.preheader2.lr.ph.i, label %_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %372, label %.preheader2.lr.ph.i, label %_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.exit
 
 .preheader2.lr.ph.i:                              ; preds = %._crit_edge68.i
   %373 = icmp sgt i32 %302, 0
@@ -3470,14 +3470,14 @@ thread-pre-split:                                 ; preds = %289
   %.11.lcssa.i = phi ptr [ %.10.lcssa.i, %.preheader.i ], [ %387, %386 ]
   %389 = add nuw nsw i32 %.06487.i, 1
   %exitcond116.not.i = icmp eq i32 %389, %301
-  br i1 %exitcond116.not.i, label %_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit, label %.preheader2.i, !llvm.loop !91
+  br i1 %exitcond116.not.i, label %_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.exit, label %.preheader2.i, !llvm.loop !91
 
-_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit: ; preds = %._crit_edge84.i, %._crit_edge68.i, %296
+_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.exit: ; preds = %._crit_edge84.i, %._crit_edge68.i, %296
   %390 = load i32, ptr %167, align 8
   %391 = icmp eq i32 %390, 2
-  br i1 %391, label %392, label %_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %391, label %392, label %_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.exit
 
-392:                                              ; preds = %_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit
+392:                                              ; preds = %_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.exit
   %393 = load i32, ptr %146, align 8
   %394 = load i32, ptr %149, align 4
   %395 = load i32, ptr %140, align 8
@@ -3750,7 +3750,7 @@ _ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit: ; p
   %.192.lcssa.i = phi ptr [ %.091.lcssa.i, %.preheader6.i527 ], [ %.293.lcssa.i, %._crit_edge.i542 ]
   %.4.lcssa.i528 = phi ptr [ %.090.lcssa.i, %.preheader6.i527 ], [ %.7.lcssa.i543, %._crit_edge.i542 ]
   %493 = icmp sgt i32 %394, 0
-  br i1 %493, label %.preheader2.lr.ph.i529, label %_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit
+  br i1 %493, label %.preheader2.lr.ph.i529, label %_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.exit
 
 .preheader2.lr.ph.i529:                           ; preds = %._crit_edge77.i
   %494 = load i32, ptr %211, align 4
@@ -3837,14 +3837,14 @@ _ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit: ; p
   %523 = getelementptr inbounds i64, ptr %.39495.i, i64 %522
   %524 = add nuw nsw i32 %.08097.i, 1
   %exitcond155.not.i = icmp eq i32 %524, %394
-  br i1 %exitcond155.not.i, label %_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit, label %.preheader2.i530, !llvm.loop !104
+  br i1 %exitcond155.not.i, label %_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.exit, label %.preheader2.i530, !llvm.loop !104
 
-_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit: ; preds = %._crit_edge93.i, %._crit_edge77.i, %_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit
+_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.exit: ; preds = %._crit_edge93.i, %._crit_edge77.i, %_ZN4ncnnL32padding_replicate_pack8_int8_sseERKNS_3MatERS0_iiii.exit
   %525 = load ptr, ptr %206, align 8
   %.not488 = icmp eq ptr %525, null
   br i1 %.not488, label %.loopexit, label %526
 
-526:                                              ; preds = %_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit
+526:                                              ; preds = %_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.exit
   %527 = atomicrmw add ptr %525, i32 -1 acq_rel, align 4
   %528 = icmp eq i32 %527, 1
   br i1 %528, label %529, label %.loopexit
@@ -3877,7 +3877,7 @@ _ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit: ; pre
   tail call void @__clang_call_terminate(ptr %540) #15
   unreachable
 
-.loopexit:                                        ; preds = %_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit, %526, %536, %537, %532
+.loopexit:                                        ; preds = %_ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.exit, %526, %536, %537, %532
   store i64 0, ptr %215, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %210, i8 0, i64 20, i1 false)
@@ -4291,7 +4291,7 @@ _ZN4ncnnL30padding_reflect_pack8_int8_sseERKNS_3MatERS0_iiii.argprom.exit: ; pre
 declare void @_ZN4ncnn3Mat6createEimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL26padding_constant_pack8_avxERKNS_3MatERS0_iiiiRKDv8_f.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture writeonly %.0.val, i32 %.44.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 32 dereferenceable(32) %5) unnamed_addr #3 {
+define internal fastcc void @_ZN4ncnnL26padding_constant_pack8_avxERKNS_3MatERS0_iiiiRKDv8_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture writeonly %.0.val, i32 %.44.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 32 dereferenceable(32) %5) unnamed_addr #3 {
   %7 = load ptr, ptr %0, align 8
   %8 = mul nsw i32 %1, %.44.val
   %9 = mul i32 %2, %.44.val
@@ -4499,7 +4499,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN4ncnn3Mat6createEiiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL26padding_constant_pack4_sseERKNS_3MatERS0_iiiiRKDv4_f.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture writeonly %.0.val, i32 %.44.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %5) unnamed_addr #4 {
+define internal fastcc void @_ZN4ncnnL26padding_constant_pack4_sseERKNS_3MatERS0_iiiiRKDv4_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture writeonly %.0.val, i32 %.44.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %5) unnamed_addr #4 {
   %7 = load ptr, ptr %0, align 8
   %8 = mul nsw i32 %1, %.44.val
   %9 = mul i32 %2, %.44.val

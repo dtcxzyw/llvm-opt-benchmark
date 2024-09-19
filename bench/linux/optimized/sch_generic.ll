@@ -3141,7 +3141,7 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly %0) local_unname
   %90 = icmp eq ptr %89, %0
   br i1 %90, label %.loopexit25, label %.preheader24
 
-.loopexit25.loopexit:                             ; preds = %dev_reset_queue.argprom.exit15
+.loopexit25.loopexit:                             ; preds = %dev_reset_queue.exit15
   %.pre38 = load ptr, ptr %0, align 8
   br label %.loopexit25
 
@@ -3150,8 +3150,8 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly %0) local_unname
   %92 = icmp eq ptr %91, %0
   br i1 %92, label %.loopexit22, label %.preheader21
 
-.preheader24:                                     ; preds = %.loopexit30, %dev_reset_queue.argprom.exit15
-  %93 = phi ptr [ %277, %dev_reset_queue.argprom.exit15 ], [ %89, %.loopexit30 ]
+.preheader24:                                     ; preds = %.loopexit30, %dev_reset_queue.exit15
+  %93 = phi ptr [ %277, %dev_reset_queue.exit15 ], [ %89, %.loopexit30 ]
   %94 = getelementptr i8, ptr %93, i64 648
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, 0
@@ -3161,14 +3161,14 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly %0) local_unname
   %98 = getelementptr i8, ptr %93, i64 -384
   br label %99
 
-99:                                               ; preds = %dev_reset_queue.argprom.exit, %97
-  %100 = phi i32 [ %95, %97 ], [ %254, %dev_reset_queue.argprom.exit ]
-  %101 = phi i64 [ 0, %97 ], [ %255, %dev_reset_queue.argprom.exit ]
+99:                                               ; preds = %dev_reset_queue.exit, %97
+  %100 = phi i32 [ %95, %97 ], [ %254, %dev_reset_queue.exit ]
+  %101 = phi i64 [ 0, %97 ], [ %255, %dev_reset_queue.exit ]
   %102 = load ptr, ptr %98, align 8
   %103 = getelementptr %struct.netdev_queue, ptr %102, i64 %101, i32 3
   %.val = load ptr, ptr %103, align 16
   %104 = icmp eq ptr %.val, null
-  br i1 %104, label %dev_reset_queue.argprom.exit, label %105
+  br i1 %104, label %dev_reset_queue.exit, label %105
 
 105:                                              ; preds = %99
   %106 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -3433,26 +3433,26 @@ qdisc_reset.exit:                                 ; preds = %238, %.loopexit6.i
   %253 = phi ptr [ %111, %qdisc_reset.exit17 ], [ %183, %qdisc_reset.exit ]
   tail call void @_raw_spin_unlock_bh(ptr noundef %253) #20
   %.pre37 = load i32, ptr %94, align 8
-  br label %dev_reset_queue.argprom.exit
+  br label %dev_reset_queue.exit
 
-dev_reset_queue.argprom.exit:                     ; preds = %99, %252
+dev_reset_queue.exit:                             ; preds = %99, %252
   %254 = phi i32 [ %100, %99 ], [ %.pre37, %252 ]
   %255 = add nuw nsw i64 %101, 1
   %256 = zext i32 %254 to i64
   %257 = icmp ult i64 %255, %256
   br i1 %257, label %99, label %.loopexit23, !llvm.loop !85
 
-.loopexit23:                                      ; preds = %dev_reset_queue.argprom.exit, %.preheader24
+.loopexit23:                                      ; preds = %dev_reset_queue.exit, %.preheader24
   %258 = getelementptr i8, ptr %93, i64 576
   %259 = load ptr, ptr %258, align 8
   %260 = icmp eq ptr %259, null
-  br i1 %260, label %dev_reset_queue.argprom.exit15, label %261
+  br i1 %260, label %dev_reset_queue.exit15, label %261
 
 261:                                              ; preds = %.loopexit23
   %262 = getelementptr i8, ptr %259, i64 16
   %.val14 = load ptr, ptr %262, align 16
   %263 = icmp eq ptr %.val14, null
-  br i1 %263, label %dev_reset_queue.argprom.exit15, label %264
+  br i1 %263, label %dev_reset_queue.exit15, label %264
 
 264:                                              ; preds = %261
   %265 = getelementptr inbounds i8, ptr %.val14, i64 16
@@ -3482,9 +3482,9 @@ dev_reset_queue.argprom.exit:                     ; preds = %99, %252
 275:                                              ; preds = %273, %269
   %276 = phi ptr [ %270, %269 ], [ %274, %273 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef %276) #20
-  br label %dev_reset_queue.argprom.exit15
+  br label %dev_reset_queue.exit15
 
-dev_reset_queue.argprom.exit15:                   ; preds = %275, %261, %.loopexit23
+dev_reset_queue.exit15:                           ; preds = %275, %261, %.loopexit23
   %277 = load ptr, ptr %93, align 8
   %278 = icmp eq ptr %277, %0
   br i1 %278, label %.loopexit25.loopexit, label %.preheader24, !llvm.loop !98

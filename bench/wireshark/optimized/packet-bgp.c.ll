@@ -4399,20 +4399,20 @@ save_afi_safi_data.exit:                          ; preds = %329, %345
   br i1 %cond.i.i, label %.thread157.sink.split.i, label %367
 
 367:                                              ; preds = %366
-  %368 = call fastcc i32 @decode_mp_next_hop_ipv6.argelim(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %368 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
   br label %414
 
 369:                                              ; preds = %365
-  %370 = call fastcc i32 @decode_mp_next_hop_ipv4.argelim(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %370 = call fastcc i32 @decode_mp_next_hop_ipv4(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
   br label %414
 
 371:                                              ; preds = %365, %365, %365
-  %372 = call fastcc i32 @decode_mp_next_hop_vpn_ipv4.argelim(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %372 = call fastcc i32 @decode_mp_next_hop_vpn_ipv4(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
   %373 = icmp eq i32 %372, 0
   br i1 %373, label %374, label %.thread157.i
 
 374:                                              ; preds = %371
-  %375 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6.argelim(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %375 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
   br label %414
 
 376:                                              ; preds = %365, %365
@@ -4446,11 +4446,11 @@ save_afi_safi_data.exit:                          ; preds = %329, %345
   ]
 
 383:                                              ; preds = %382, %382, %382, %382, %382, %382, %382, %382
-  %384 = call fastcc i32 @decode_mp_next_hop_ipv6.argelim(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %384 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
   br label %414
 
 385:                                              ; preds = %382, %382, %382
-  %386 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6.argelim(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %386 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
   br label %414
 
 387:                                              ; preds = %382, %382
@@ -4480,7 +4480,7 @@ save_afi_safi_data.exit:                          ; preds = %329, %345
   br i1 %cond.i143.i, label %.thread157.sink.split.i, label %395
 
 395:                                              ; preds = %394
-  %396 = call fastcc i32 @decode_mp_next_hop_ipv6.argelim(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %396 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
   br label %414
 
 397:                                              ; preds = %393
@@ -4499,16 +4499,16 @@ save_afi_safi_data.exit:                          ; preds = %329, %345
   br i1 %cond.i146.i, label %.thread157.sink.split.i, label %402
 
 402:                                              ; preds = %401
-  %403 = call fastcc i32 @decode_mp_next_hop_ipv6.argelim(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %403 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
   br label %414
 
 404:                                              ; preds = %400
-  %405 = call fastcc i32 @decode_mp_next_hop_vpn_ipv4.argelim(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %405 = call fastcc i32 @decode_mp_next_hop_vpn_ipv4(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
   %406 = icmp eq i32 %405, 0
   br i1 %406, label %407, label %.thread157.i
 
 407:                                              ; preds = %404
-  %408 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6.argelim(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %408 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
   br label %414
 
 409:                                              ; preds = %400
@@ -4768,7 +4768,7 @@ save_afi_safi_data.exit1768:                      ; preds = %473, %491
 548:                                              ; preds = %544
   %549 = trunc nuw i32 %.01694 to i16
   %550 = add i32 %.01690, %12
-  call fastcc void @dissect_bgp_update_ext_com.retelim(ptr noundef %32, ptr noundef %1, i16 noundef zeroext %549, i32 noundef %550, ptr noundef %4)
+  call fastcc void @dissect_bgp_update_ext_com(ptr noundef %32, ptr noundef %1, i16 noundef zeroext %549, i32 noundef %550, ptr noundef %4)
   br label %dissect_bgp_update_pmsi_attr.exit
 
 551:                                              ; preds = %60
@@ -6738,7 +6738,7 @@ decode_path_prefix6.exit:                         ; preds = %265, %267
   br label %283
 
 281:                                              ; preds = %254
-  %282 = tail call fastcc i32 @decode_prefix6.argelim(ptr noundef %0, ptr noundef %10, i32 noundef %3, ptr noundef %7, i32 noundef %8, ptr noundef %9)
+  %282 = tail call fastcc i32 @decode_prefix6(ptr noundef %0, ptr noundef %10, i32 noundef %3, ptr noundef %7, i32 noundef %8, ptr noundef %9)
   br label %283
 
 283:                                              ; preds = %281, %decode_path_prefix6.exit
@@ -7379,7 +7379,7 @@ decode_MPLS_stack.exit942:                        ; preds = %483, %482
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bgp_update_ext_com.retelim(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_bgp_update_ext_com(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = zext i16 %2 to i32
   %8 = add i32 %3, %7
@@ -11053,7 +11053,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @decode_mp_next_hop_ipv4.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @decode_mp_next_hop_ipv4(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %cond = icmp eq i32 %4, 4
   br i1 %cond, label %6, label %12
 
@@ -11072,7 +11072,7 @@ define internal fastcc range(i32 0, 5) i32 @decode_mp_next_hop_ipv4.argelim(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_ipv6.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = alloca [46 x i8], align 16
   %trunc = trunc nuw i32 %4 to i8
@@ -11124,7 +11124,7 @@ define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_ipv6.argelim(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 13) i32 @decode_mp_next_hop_vpn_ipv4.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 13) i32 @decode_mp_next_hop_vpn_ipv4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %6 = alloca [8 x i8], align 8
   store i64 0, ptr %6, align 8
   %cond = icmp eq i32 %4, 12
@@ -11159,7 +11159,7 @@ define internal fastcc range(i32 0, 13) i32 @decode_mp_next_hop_vpn_ipv4.argelim
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_vpn_ipv6.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %6 = alloca [8 x i8], align 8
   %7 = alloca %struct.e_in6_addr, align 1
   %8 = alloca [46 x i8], align 16
@@ -11827,7 +11827,7 @@ define internal fastcc range(i32 -1, 4097) i32 @decode_flowspec_nlri(ptr noundef
 
 83:                                               ; preds = %78
   %84 = load i32, ptr @hf_bgp_flowspec_nlri_dst_ipv6_pref, align 4
-  %85 = call fastcc i32 @decode_fspec_match_prefix6.argelim(ptr noundef %71, ptr noundef %69, i32 noundef %84, ptr noundef %1, i32 noundef %.reass236, ptr noundef %5)
+  %85 = call fastcc i32 @decode_fspec_match_prefix6(ptr noundef %71, ptr noundef %69, i32 noundef %84, ptr noundef %1, i32 noundef %.reass236, ptr noundef %5)
   br label %86
 
 86:                                               ; preds = %83, %80
@@ -11848,7 +11848,7 @@ define internal fastcc range(i32 -1, 4097) i32 @decode_flowspec_nlri(ptr noundef
 
 93:                                               ; preds = %88
   %94 = load i32, ptr @hf_bgp_flowspec_nlri_src_ipv6_pref, align 4
-  %95 = call fastcc i32 @decode_fspec_match_prefix6.argelim(ptr noundef %71, ptr noundef %69, i32 noundef %94, ptr noundef %1, i32 noundef %.reass234, ptr noundef %5)
+  %95 = call fastcc i32 @decode_fspec_match_prefix6(ptr noundef %71, ptr noundef %69, i32 noundef %94, ptr noundef %1, i32 noundef %.reass234, ptr noundef %5)
   br label %96
 
 96:                                               ; preds = %93, %90
@@ -12387,7 +12387,7 @@ decode_bgp_mup_nlri_type1_st_route.exit.thread:   ; preds = %94, %83, %91, %deco
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483647) i32 @decode_prefix6.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483647) i32 @decode_prefix6(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.e_in6_addr, align 1
   %8 = alloca %struct._address, align 8
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #4
@@ -12481,7 +12481,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   %33 = tail call ptr @decode_bgp_rd(ptr noundef %32, ptr noundef %1, i32 noundef %6)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.75, ptr noundef %33) #4
   %34 = add i32 %2, 10
-  tail call fastcc void @decode_evpn_nlri_esi.argelim(ptr noundef %15, ptr noundef %1, i32 noundef %34, ptr noundef %3)
+  tail call fastcc void @decode_evpn_nlri_esi(ptr noundef %15, ptr noundef %1, i32 noundef %34, ptr noundef %3)
   %35 = add i32 %2, 20
   %36 = load i32, ptr @hf_bgp_evpn_nlri_etag, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %36, ptr noundef %1, i32 noundef %35, i32 noundef 4, i32 noundef 0) #4
@@ -12531,7 +12531,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   %62 = tail call ptr @decode_bgp_rd(ptr noundef %61, ptr noundef %1, i32 noundef %6)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %59, ptr noundef nonnull @.str.75, ptr noundef %62) #4
   %63 = add i32 %2, 10
-  tail call fastcc void @decode_evpn_nlri_esi.argelim(ptr noundef %15, ptr noundef %1, i32 noundef %63, ptr noundef %3)
+  tail call fastcc void @decode_evpn_nlri_esi(ptr noundef %15, ptr noundef %1, i32 noundef %63, ptr noundef %3)
   %64 = add i32 %2, 20
   %65 = load i32, ptr @hf_bgp_evpn_nlri_etag, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %65, ptr noundef %1, i32 noundef %64, i32 noundef 4, i32 noundef 0) #4
@@ -12724,7 +12724,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   %175 = tail call ptr @decode_bgp_rd(ptr noundef %174, ptr noundef %1, i32 noundef %6)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %172, ptr noundef nonnull @.str.75, ptr noundef %175) #4
   %176 = add i32 %2, 10
-  tail call fastcc void @decode_evpn_nlri_esi.argelim(ptr noundef %15, ptr noundef %1, i32 noundef %176, ptr noundef %3)
+  tail call fastcc void @decode_evpn_nlri_esi(ptr noundef %15, ptr noundef %1, i32 noundef %176, ptr noundef %3)
   %177 = add i32 %2, 20
   %178 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %177) #4
   %179 = lshr i8 %178, 3
@@ -12793,7 +12793,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   %214 = tail call ptr @decode_bgp_rd(ptr noundef %213, ptr noundef %1, i32 noundef %6)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %211, ptr noundef nonnull @.str.75, ptr noundef %214) #4
   %215 = add i32 %2, 10
-  tail call fastcc void @decode_evpn_nlri_esi.argelim(ptr noundef %15, ptr noundef %1, i32 noundef %215, ptr noundef %3)
+  tail call fastcc void @decode_evpn_nlri_esi(ptr noundef %15, ptr noundef %1, i32 noundef %215, ptr noundef %3)
   %216 = add i32 %2, 20
   %217 = load i32, ptr @hf_bgp_evpn_nlri_etag, align 4
   %218 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %217, ptr noundef %1, i32 noundef %216, i32 noundef 4, i32 noundef 0) #4
@@ -12836,7 +12836,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   br label %300
 
 239:                                              ; preds = %233, %231, %223
-  tail call fastcc void @decode_MPLS_stack_tree.argelim(ptr noundef %1, i32 noundef %229, ptr noundef %15)
+  tail call fastcc void @decode_MPLS_stack_tree(ptr noundef %1, i32 noundef %229, ptr noundef %15)
   br label %300
 
 240:                                              ; preds = %209
@@ -12869,7 +12869,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   br label %300
 
 256:                                              ; preds = %250, %248, %240
-  tail call fastcc void @decode_MPLS_stack_tree.argelim(ptr noundef %1, i32 noundef %246, ptr noundef %15)
+  tail call fastcc void @decode_MPLS_stack_tree(ptr noundef %1, i32 noundef %246, ptr noundef %15)
   br label %300
 
 257:                                              ; preds = %209
@@ -12897,7 +12897,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   br i1 %or.cond, label %271, label %273
 
 271:                                              ; preds = %263
-  tail call fastcc void @decode_evpn_nlri_esi.argelim(ptr noundef %15, ptr noundef %1, i32 noundef %269, ptr noundef nonnull %3)
+  tail call fastcc void @decode_evpn_nlri_esi(ptr noundef %15, ptr noundef %1, i32 noundef %269, ptr noundef nonnull %3)
   %272 = add i32 %2, 20
   br label %273
 
@@ -13058,7 +13058,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_bgp_link_node_nlri_tlvs(p
   %23 = load i32, ptr @hf_bgp_ls_length, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 0) #4
   %25 = add i32 %2, 4
-  tail call fastcc void @decode_bgp_link_node_descriptor.argelim(ptr noundef %0, ptr noundef %20, i32 noundef %25, ptr noundef %3, i32 noundef %16)
+  tail call fastcc void @decode_bgp_link_node_descriptor(ptr noundef %0, ptr noundef %20, i32 noundef %25, ptr noundef %3, i32 noundef %16)
   br label %38
 
 26:                                               ; preds = %13
@@ -13073,7 +13073,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_bgp_link_node_nlri_tlvs(p
   %35 = load i32, ptr @hf_bgp_ls_length, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %35, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 0) #4
   %37 = add i32 %2, 4
-  tail call fastcc void @decode_bgp_link_node_descriptor.argelim(ptr noundef %0, ptr noundef %32, i32 noundef %37, ptr noundef %3, i32 noundef %28)
+  tail call fastcc void @decode_bgp_link_node_descriptor(ptr noundef %0, ptr noundef %32, i32 noundef %37, ptr noundef %3, i32 noundef %28)
   br label %38
 
 38:                                               ; preds = %._crit_edge, %26, %14
@@ -13418,7 +13418,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_prefix_des
 82:                                               ; preds = %64
   %83 = load i32, ptr @hf_bgp_ls_nlri_ip_reachability_prefix_ip6, align 4
   %84 = add i32 %.083117, 4
-  %85 = tail call fastcc i32 @decode_prefix6.argelim(ptr noundef %70, ptr noundef %3, i32 noundef %83, ptr noundef %0, i32 noundef %84, ptr noundef nonnull @.str.1878)
+  %85 = tail call fastcc i32 @decode_prefix6(ptr noundef %70, ptr noundef %3, i32 noundef %83, ptr noundef %0, i32 noundef %84, ptr noundef nonnull @.str.1878)
   %86 = icmp eq i32 %85, -1
   br i1 %86, label %87, label %89
 
@@ -13630,7 +13630,7 @@ define internal fastcc noundef i32 @decode_mcast_vpn_nlri_addresses(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483646) i32 @decode_fspec_match_prefix6.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483646) i32 @decode_fspec_match_prefix6(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.e_in6_addr, align 1
   %8 = alloca %struct._address, align 8
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #4
@@ -13871,7 +13871,7 @@ declare ptr @proto_tree_add_ipv4_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_evpn_nlri_esi.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_evpn_nlri_esi(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_bgp_evpn_nlri_esi, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 10, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bgp_evpn_nlri_esi, align 4
@@ -13975,7 +13975,7 @@ define internal fastcc ptr @load_path_attr_data(ptr noundef %0) unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_MPLS_stack_tree.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @decode_MPLS_stack_tree(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_bgp_update_mpls_label, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.16) #4
@@ -14030,7 +14030,7 @@ define internal fastcc void @decode_MPLS_stack_tree.argelim(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_bgp_link_node_descriptor.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #0 {
+define internal fastcc void @decode_bgp_link_node_descriptor(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #0 {
   %.not116 = icmp eq i32 %4, 0
   br i1 %.not116, label %.loopexit, label %.lr.ph
 

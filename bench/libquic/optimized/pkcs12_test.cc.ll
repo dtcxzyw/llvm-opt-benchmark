@@ -99,9 +99,9 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false2
   %call.i = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull @_ZL8kWindows, i32 noundef 2566)
   store ptr %call.i, ptr %bio.i, align 8
   %cmp.i.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i.not.i, label %_ZL10TestCompatPKhm.argprom.exit.thread, label %if.end.i
+  br i1 %cmp.i.not.i, label %_ZL10TestCompatPKhm.exit.thread, label %if.end.i
 
-_ZL10TestCompatPKhm.argprom.exit.thread:          ; preds = %lor.lhs.false4
+_ZL10TestCompatPKhm.exit.thread:                  ; preds = %lor.lhs.false4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p12.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i)
@@ -286,7 +286,7 @@ if.then.i14.i:                                    ; preds = %if.then.i11.i, %if.
   %retval.16.i = phi i1 [ %retval.1.ph.i, %if.then.i11.i ], [ false, %if.then5.i ]
   store ptr null, ptr %p12.i, align 8
   invoke void @BIO_vfree(ptr noundef nonnull %call.i)
-          to label %_ZL10TestCompatPKhm.argprom.exit unwind label %terminate.lpad.i15.i
+          to label %_ZL10TestCompatPKhm.exit unwind label %terminate.lpad.i15.i
 
 terminate.lpad.i15.i:                             ; preds = %if.then.i14.i
   %26 = landingpad { ptr, i32 }
@@ -300,7 +300,7 @@ ehcleanup52.i:                                    ; preds = %ehcleanup.i, %lpad.
   call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bio.i) #9
   resume { ptr, i32 } %.pn.pn.i
 
-_ZL10TestCompatPKhm.argprom.exit:                 ; preds = %if.then.i14.i
+_ZL10TestCompatPKhm.exit:                         ; preds = %if.then.i14.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p12.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i)
@@ -311,12 +311,12 @@ _ZL10TestCompatPKhm.argprom.exit:                 ; preds = %if.then.i14.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %delete_ca_certs.i)
   br i1 %retval.16.i, label %if.end, label %return
 
-if.end:                                           ; preds = %_ZL10TestCompatPKhm.argprom.exit
+if.end:                                           ; preds = %_ZL10TestCompatPKhm.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %return
 
-return:                                           ; preds = %_ZL10TestCompatPKhm.argprom.exit.thread, %entry, %lor.lhs.false, %lor.lhs.false2, %_ZL10TestCompatPKhm.argprom.exit, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %_ZL10TestCompatPKhm.argprom.exit ], [ 1, %lor.lhs.false2 ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %_ZL10TestCompatPKhm.argprom.exit.thread ]
+return:                                           ; preds = %_ZL10TestCompatPKhm.exit.thread, %entry, %lor.lhs.false, %lor.lhs.false2, %_ZL10TestCompatPKhm.exit, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %_ZL10TestCompatPKhm.exit ], [ 1, %lor.lhs.false2 ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %_ZL10TestCompatPKhm.exit.thread ]
   ret i32 %retval.0
 }
 

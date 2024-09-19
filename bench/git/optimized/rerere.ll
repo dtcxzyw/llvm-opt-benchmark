@@ -587,7 +587,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %update.i, i8 0, i64 40, i1 false)
   %2 = getelementptr inbounds i8, ptr %update.i, i64 24
   store i8 1, ptr %2, align 8
-  call fastcc void @find_conflict.retelim(ptr noundef %r, ptr noundef %conflict.i)
+  call fastcc void @find_conflict(ptr noundef %r, ptr noundef %conflict.i)
   %nr.i = getelementptr inbounds i8, ptr %conflict.i, i64 8
   %3 = load i64, ptr %nr.i, align 8
   %cmp42.not.i = icmp eq i64 %3, 0
@@ -1182,7 +1182,7 @@ update_paths.exit.i:                              ; preds = %for.end.i38.i
   br label %do_plain_rerere.exit
 
 do_plain_rerere.exit:                             ; preds = %for.end29.i, %update_paths.exit.i
-  call fastcc void @write_rr.retelim(ptr noundef %merge_rr, i32 noundef %call)
+  call fastcc void @write_rr(ptr noundef %merge_rr, i32 noundef %call)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %conflict.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %update.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hash.i)
@@ -1257,7 +1257,7 @@ if.end7:                                          ; preds = %if.end
   %index = getelementptr inbounds i8, ptr %r, i64 240
   %3 = load ptr, ptr %index, align 8
   call void @unmerge_index(ptr noundef %3, ptr noundef %pathspec, i32 noundef 0) #14
-  call fastcc void @find_conflict.retelim(ptr noundef %r, ptr noundef %conflict)
+  call fastcc void @find_conflict(ptr noundef %r, ptr noundef %conflict)
   %nr = getelementptr inbounds i8, ptr %conflict, i64 8
   %4 = load i64, ptr %nr, align 8
   %cmp918.not = icmp eq i64 %4, 0
@@ -1545,7 +1545,7 @@ for.inc:                                          ; preds = %for.body, %rerere_f
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %if.end7
-  call fastcc void @write_rr.retelim(ptr noundef %merge_rr, i32 noundef %call4)
+  call fastcc void @write_rr(ptr noundef %merge_rr, i32 noundef %call4)
   br label %return
 
 return:                                           ; preds = %if.end, %for.end, %_.exit
@@ -1556,7 +1556,7 @@ return:                                           ; preds = %if.end, %for.end, %
 declare void @unmerge_index(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_conflict.retelim(ptr noundef %r, ptr noundef nonnull %conflict) unnamed_addr #0 {
+define internal fastcc void @find_conflict(ptr noundef %r, ptr noundef nonnull %conflict) unnamed_addr #0 {
 entry:
   %conflict_type = alloca i32, align 4
   %call = tail call i32 @repo_read_index(ptr noundef %r) #14
@@ -1619,7 +1619,7 @@ declare i32 @match_pathspec(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_rr.retelim(ptr nocapture noundef nonnull readonly %rr, i32 noundef range(i32 0, -2147483648) %out_fd) unnamed_addr #0 {
+define internal fastcc void @write_rr(ptr nocapture noundef nonnull readonly %rr, i32 noundef range(i32 0, -2147483648) %out_fd) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   %nr = getelementptr inbounds i8, ptr %rr, i64 8
@@ -1792,14 +1792,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %pr
 
 if.then2.i.i.i:                                   ; preds = %for.body
   %call4.i.i.i = call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str.1, ptr noundef nonnull %name.i9.i.i.i, ptr noundef nonnull @.str.22) #14
-  br label %rerere_last_used_at.argprom.exit.i
+  br label %rerere_last_used_at.exit.i
 
 if.end5.i.i.i:                                    ; preds = %for.body
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %call8.i.i.i = call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str.2, ptr noundef nonnull %name.i9.i.i.i, ptr noundef nonnull @.str.22, i32 noundef %7) #14
-  br label %rerere_last_used_at.argprom.exit.i
+  br label %rerere_last_used_at.exit.i
 
-rerere_last_used_at.argprom.exit.i:               ; preds = %if.end5.i.i.i, %if.then2.i.i.i
+rerere_last_used_at.exit.i:                       ; preds = %if.end5.i.i.i, %if.then2.i.i.i
   %retval.0.i.i.i = phi ptr [ %call4.i.i.i, %if.then2.i.i.i ], [ %call8.i.i.i, %if.end5.i.i.i ]
   %call1.i.i = call i32 @stat64(ptr noundef %retval.0.i.i.i, ptr noundef nonnull %st.i.i) #14
   %tobool.not.i.i = icmp ne i32 %call1.i.i, 0
@@ -1809,20 +1809,20 @@ rerere_last_used_at.argprom.exit.i:               ; preds = %if.end5.i.i.i, %if.
   %tobool.not.i11 = select i1 %tobool.not.i.i, i1 true, i1 %tobool.not28.i
   br i1 %tobool.not.i11, label %if.else.i, label %if.end4.i
 
-if.else.i:                                        ; preds = %rerere_last_used_at.argprom.exit.i
+if.else.i:                                        ; preds = %rerere_last_used_at.exit.i
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i8.i)
   br i1 %cmp.i.i.i, label %if.then2.i.i18.i, label %if.end5.i.i11.i
 
 if.then2.i.i18.i:                                 ; preds = %if.else.i
   %call4.i.i19.i = call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str.1, ptr noundef nonnull %name.i9.i.i.i, ptr noundef nonnull @.str.23) #14
-  br label %rerere_created_at.argprom.exit.i
+  br label %rerere_created_at.exit.i
 
 if.end5.i.i11.i:                                  ; preds = %if.else.i
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %call8.i.i12.i = call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str.2, ptr noundef nonnull %name.i9.i.i.i, ptr noundef nonnull @.str.23, i32 noundef %9) #14
-  br label %rerere_created_at.argprom.exit.i
+  br label %rerere_created_at.exit.i
 
-rerere_created_at.argprom.exit.i:                 ; preds = %if.end5.i.i11.i, %if.then2.i.i18.i
+rerere_created_at.exit.i:                         ; preds = %if.end5.i.i11.i, %if.then2.i.i18.i
   %retval.0.i.i13.i = phi ptr [ %call4.i.i19.i, %if.then2.i.i18.i ], [ %call8.i.i12.i, %if.end5.i.i11.i ]
   %call1.i14.i = call i32 @stat64(ptr noundef %retval.0.i.i13.i, ptr noundef nonnull %st.i8.i) #14
   %tobool.not.i15.i = icmp ne i32 %call1.i14.i, 0
@@ -1832,9 +1832,9 @@ rerere_created_at.argprom.exit.i:                 ; preds = %if.end5.i.i11.i, %i
   %tobool2.not.i = select i1 %tobool.not.i15.i, i1 true, i1 %tobool2.not29.i
   br i1 %tobool2.not.i, label %prune_one.exit, label %if.end4.i
 
-if.end4.i:                                        ; preds = %rerere_created_at.argprom.exit.i, %rerere_last_used_at.argprom.exit.i
-  %then.0.i = phi i64 [ %8, %rerere_last_used_at.argprom.exit.i ], [ %10, %rerere_created_at.argprom.exit.i ]
-  %cutoff.0.i = phi i64 [ %5, %rerere_last_used_at.argprom.exit.i ], [ %6, %rerere_created_at.argprom.exit.i ]
+if.end4.i:                                        ; preds = %rerere_created_at.exit.i, %rerere_last_used_at.exit.i
+  %then.0.i = phi i64 [ %8, %rerere_last_used_at.exit.i ], [ %10, %rerere_created_at.exit.i ]
+  %cutoff.0.i = phi i64 [ %5, %rerere_last_used_at.exit.i ], [ %6, %rerere_created_at.exit.i ]
   %cmp.i = icmp ult i64 %then.0.i, %cutoff.0.i
   br i1 %cmp.i, label %if.then5.i, label %prune_one.exit
 
@@ -1869,7 +1869,7 @@ remove_variant.exit:                              ; preds = %if.then2.i11.i, %if
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %prune_one.exit
 
-prune_one.exit:                                   ; preds = %rerere_created_at.argprom.exit.i, %if.end4.i, %remove_variant.exit
+prune_one.exit:                                   ; preds = %rerere_created_at.exit.i, %if.end4.i, %remove_variant.exit
   %14 = load ptr, ptr %status.i, align 8
   %arrayidx = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
   %15 = load i8, ptr %arrayidx, align 1

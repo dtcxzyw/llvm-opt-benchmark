@@ -1271,7 +1271,7 @@ define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str_ext_const(i32 noundef %19, ptr noundef nonnull @zbee_nwk_gp_cmd_names_ext, ptr noundef nonnull @.str.303) #11
   call void @col_set_str(ptr noundef %25, i32 noundef 25, ptr noundef %26) #11
-  switch i8 %17, label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit [
+  switch i8 %17, label %dissect_zbee_nwk_gp_cmd_move_up_down.exit [
     i8 -13, label %491
     i8 -15, label %449
     i8 -16, label %340
@@ -1307,12 +1307,12 @@ define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr
 27:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   %28 = call i32 @tvb_reported_length(ptr noundef %0) #11
   %.not.i = icmp eq i32 %28, 1
-  br i1 %.not.i, label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit, label %29
+  br i1 %.not.i, label %dissect_zbee_nwk_gp_cmd_move_up_down.exit, label %29
 
 29:                                               ; preds = %27
   %30 = load i32, ptr @hf_zbee_nwk_gp_cmd_move_up_down_rate, align 4
   %31 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %30, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #11
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 32:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   %33 = load i32, ptr @hf_zbee_nwk_gp_cmd_step_up_down_step_size, align 4
@@ -1320,19 +1320,19 @@ define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr
   %35 = call i32 @tvb_reported_length(ptr noundef %0) #11
   %36 = and i32 %35, -2
   %.not.i99 = icmp eq i32 %36, 2
-  br i1 %.not.i99, label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit, label %37
+  br i1 %.not.i99, label %dissect_zbee_nwk_gp_cmd_move_up_down.exit, label %37
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_zbee_nwk_gp_cmd_step_up_down_transition_time, align 4
   %39 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %38, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #11
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 40:                                               ; preds = %4
   %41 = load i32, ptr @hf_zbee_nwk_gp_cmd_move_color_ratex, align 4
   %42 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #11
   %43 = load i32, ptr @hf_zbee_nwk_gp_cmd_move_color_ratey, align 4
   %44 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %43, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648) #11
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 45:                                               ; preds = %4
   %46 = load i32, ptr @hf_zbee_nwk_gp_cmd_step_color_stepx, align 4
@@ -1342,12 +1342,12 @@ define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr
   %50 = call i32 @tvb_reported_length(ptr noundef %0) #11
   %51 = add i32 %50, -7
   %52 = icmp ult i32 %51, -2
-  br i1 %52, label %53, label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br i1 %52, label %53, label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 53:                                               ; preds = %45
   %54 = load i32, ptr @hf_zbee_nwk_gp_cmd_step_color_transition_time, align 4
   %55 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %54, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648) #11
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 56:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
@@ -1361,7 +1361,7 @@ define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr
   call void @dissect_zcl_report_attr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %62, ptr noundef nonnull %15, i16 noundef zeroext %57, i16 noundef zeroext 0, i32 noundef 1) #11
   %63 = load i32, ptr %15, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 64:                                               ; preds = %4
   %65 = load i32, ptr @hf_zbee_zcl_gp_cmd_ms_manufacturer_code, align 4
@@ -1378,18 +1378,18 @@ define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr
   call void @dissect_zcl_report_attr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %73, ptr noundef nonnull %14, i16 noundef zeroext %68, i16 noundef zeroext %67, i32 noundef 1) #11
   %74 = load i32, ptr %14, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 75:                                               ; preds = %4
-  %76 = call fastcc i32 @dissect_zbee_nwk_gp_cmd_multi_cluster_reporting.argprom(ptr noundef %0, ptr noundef %21, i32 noundef 1, i16 noundef zeroext 0)
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  %76 = call fastcc i32 @dissect_zbee_nwk_gp_cmd_multi_cluster_reporting(ptr noundef %0, ptr noundef %21, i32 noundef 1, i16 noundef zeroext 0)
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 77:                                               ; preds = %4
   %78 = load i32, ptr @hf_zbee_zcl_gp_cmd_ms_manufacturer_code, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %78, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #11
   %80 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #11
-  %81 = call fastcc i32 @dissect_zbee_nwk_gp_cmd_multi_cluster_reporting.argprom(ptr noundef %0, ptr noundef %21, i32 noundef 3, i16 noundef zeroext %80)
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  %81 = call fastcc i32 @dissect_zbee_nwk_gp_cmd_multi_cluster_reporting(ptr noundef %0, ptr noundef %21, i32 noundef 3, i16 noundef zeroext %80)
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 82:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
@@ -1414,12 +1414,12 @@ define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr
   %.0.i103 = phi i16 [ %91, %88 ], [ 0, %82 ]
   %94 = call i32 @tvb_captured_length(ptr noundef %0) #11
   %95 = icmp ult i32 %93, %94
-  br i1 %95, label %.lr.ph1.i, label %dissect_zbee_nwk_gp_cmd_read_attributes_response.argprom.exit
+  br i1 %95, label %.lr.ph1.i, label %dissect_zbee_nwk_gp_cmd_read_attributes_response.exit
 
 .loopexit.i:                                      ; preds = %127, %.lr.ph1.i
   %96 = phi i32 [ %113, %.lr.ph1.i ], [ %128, %127 ]
   %97 = icmp ult i32 %96, %94
-  br i1 %97, label %.lr.ph1.i, label %dissect_zbee_nwk_gp_cmd_read_attributes_response.argprom.exit, !llvm.loop !10
+  br i1 %97, label %.lr.ph1.i, label %dissect_zbee_nwk_gp_cmd_read_attributes_response.exit, !llvm.loop !10
 
 .lr.ph1.i:                                        ; preds = %92, %.loopexit.i
   %98 = phi i32 [ %96, %.loopexit.i ], [ %93, %92 ]
@@ -1470,10 +1470,10 @@ define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr
   %129 = icmp ult i32 %128, %115
   br i1 %129, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11
 
-dissect_zbee_nwk_gp_cmd_read_attributes_response.argprom.exit: ; preds = %.loopexit.i, %92
+dissect_zbee_nwk_gp_cmd_read_attributes_response.exit: ; preds = %.loopexit.i, %92
   %.lcssa.i = phi i32 [ %93, %92 ], [ %96, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 130:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -1805,13 +1805,13 @@ dissect_zbee_nwk_gp_cmd_commissioning.exit:       ; preds = %.lr.ph184.i, %227, 
   %.2.i = phi i32 [ %.7.i, %.loopexit173.i ], [ %.5.i, %.loopexit174.i ], [ %.0.i106, %227 ], [ %298, %.lr.ph184.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 299:                                              ; preds = %4
   %300 = load i32, ptr @hf_zbee_nwk_gp_cmd_channel_request_toggling_behaviour, align 4
   %301 = load i32, ptr @ett_zbee_nwk_cmd_options, align 4
   %302 = call ptr @proto_tree_add_bitmask(ptr noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef %300, i32 noundef %301, ptr noundef nonnull @dissect_zbee_nwk_gp_cmd_channel_request.channels, i32 noundef 0) #11
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 303:                                              ; preds = %4, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
@@ -1836,7 +1836,7 @@ dissect_zbee_nwk_gp_cmd_commissioning.exit:       ; preds = %.lr.ph184.i, %227, 
   %.023.i = phi i16 [ %312, %309 ], [ 0, %303 ]
   %315 = call i32 @tvb_captured_length(ptr noundef %0) #11
   %316 = icmp ult i32 %314, %315
-  br i1 %316, label %.lr.ph1.i111, label %dissect_zbee_nwk_gp_cmd_read_attributes.argprom.exit
+  br i1 %316, label %.lr.ph1.i111, label %dissect_zbee_nwk_gp_cmd_read_attributes.exit
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i112
   %.pre.i = load i32, ptr %9, align 4
@@ -1845,7 +1845,7 @@ dissect_zbee_nwk_gp_cmd_commissioning.exit:       ; preds = %.lr.ph184.i, %227, 
 .loopexit.i113:                                   ; preds = %.lr.ph1.i111, %.loopexit.loopexit.i
   %317 = phi i32 [ %.pre.i, %.loopexit.loopexit.i ], [ %334, %.lr.ph1.i111 ]
   %318 = icmp ult i32 %317, %315
-  br i1 %318, label %.lr.ph1.i111, label %dissect_zbee_nwk_gp_cmd_read_attributes.argprom.exit, !llvm.loop !16
+  br i1 %318, label %.lr.ph1.i111, label %dissect_zbee_nwk_gp_cmd_read_attributes.exit, !llvm.loop !16
 
 .lr.ph1.i111:                                     ; preds = %313, %.loopexit.i113
   %319 = phi i32 [ %317, %.loopexit.i113 ], [ %314, %313 ]
@@ -1878,10 +1878,10 @@ dissect_zbee_nwk_gp_cmd_commissioning.exit:       ; preds = %.lr.ph184.i, %227, 
   %339 = icmp ult i32 %338, %335
   br i1 %339, label %.lr.ph.i112, label %.loopexit.loopexit.i, !llvm.loop !17
 
-dissect_zbee_nwk_gp_cmd_read_attributes.argprom.exit: ; preds = %.loopexit.i113, %313
+dissect_zbee_nwk_gp_cmd_read_attributes.exit:     ; preds = %.loopexit.i113, %313
   %.lcssa.i110 = phi i32 [ %314, %313 ], [ %317, %.loopexit.i113 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 340:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
@@ -2091,7 +2091,7 @@ dissect_zbee_nwk_gp_cmd_commissioning_reply.exit: ; preds = %350, %.thread.i132,
   %.3.i = phi i32 [ %371, %440 ], [ %371, %._crit_edge.i131 ], [ %371, %373 ], [ %368, %447 ], [ %368, %365 ], [ %.0.i115, %350 ], [ %371, %376 ], [ %355, %.thread.i132 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 449:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -2116,12 +2116,12 @@ dissect_zbee_nwk_gp_cmd_commissioning_reply.exit: ; preds = %350, %.thread.i132,
   %.0.i134 = phi i16 [ %458, %455 ], [ 0, %449 ]
   %461 = call i32 @tvb_captured_length(ptr noundef %0) #11
   %462 = icmp ult i32 %460, %461
-  br i1 %462, label %.lr.ph1.i137, label %dissect_zbee_nwk_gp_cmd_write_attributes.argprom.exit
+  br i1 %462, label %.lr.ph1.i137, label %dissect_zbee_nwk_gp_cmd_write_attributes.exit
 
 .loopexit.i138:                                   ; preds = %.lr.ph.i139, %.lr.ph1.i137
   %463 = phi i32 [ %480, %.lr.ph1.i137 ], [ %489, %.lr.ph.i139 ]
   %464 = icmp ult i32 %463, %461
-  br i1 %464, label %.lr.ph1.i137, label %dissect_zbee_nwk_gp_cmd_write_attributes.argprom.exit, !llvm.loop !19
+  br i1 %464, label %.lr.ph1.i137, label %dissect_zbee_nwk_gp_cmd_write_attributes.exit, !llvm.loop !19
 
 .lr.ph1.i137:                                     ; preds = %459, %.loopexit.i138
   %465 = phi i32 [ %463, %.loopexit.i138 ], [ %460, %459 ]
@@ -2159,24 +2159,24 @@ dissect_zbee_nwk_gp_cmd_commissioning_reply.exit: ; preds = %350, %.thread.i132,
   %490 = icmp ult i32 %489, %482
   br i1 %490, label %.lr.ph.i139, label %.loopexit.i138, !llvm.loop !20
 
-dissect_zbee_nwk_gp_cmd_write_attributes.argprom.exit: ; preds = %.loopexit.i138, %459
+dissect_zbee_nwk_gp_cmd_write_attributes.exit:    ; preds = %.loopexit.i138, %459
   %.lcssa.i136 = phi i32 [ %460, %459 ], [ %463, %.loopexit.i138 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
 491:                                              ; preds = %4
   %492 = load i32, ptr @hf_zbee_nwk_gp_cmd_operational_channel, align 4
   %493 = load i32, ptr @ett_zbee_nwk_cmd_options, align 4
   %494 = call ptr @proto_tree_add_bitmask(ptr noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef %492, i32 noundef %493, ptr noundef nonnull @dissect_zbee_nwk_gp_cmd_channel_configuration.channels, i32 noundef 0) #11
-  br label %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+  br label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
 
-dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit: ; preds = %53, %45, %37, %32, %29, %27, %491, %dissect_zbee_nwk_gp_cmd_write_attributes.argprom.exit, %dissect_zbee_nwk_gp_cmd_commissioning_reply.exit, %dissect_zbee_nwk_gp_cmd_read_attributes.argprom.exit, %299, %dissect_zbee_nwk_gp_cmd_commissioning.exit, %dissect_zbee_nwk_gp_cmd_read_attributes_response.argprom.exit, %77, %75, %64, %56, %40, %4
-  %.0 = phi i32 [ 1, %4 ], [ 5, %40 ], [ %63, %56 ], [ %74, %64 ], [ %76, %75 ], [ %81, %77 ], [ %.lcssa.i, %dissect_zbee_nwk_gp_cmd_read_attributes_response.argprom.exit ], [ %.2.i, %dissect_zbee_nwk_gp_cmd_commissioning.exit ], [ 2, %299 ], [ %.lcssa.i110, %dissect_zbee_nwk_gp_cmd_read_attributes.argprom.exit ], [ %.3.i, %dissect_zbee_nwk_gp_cmd_commissioning_reply.exit ], [ %.lcssa.i136, %dissect_zbee_nwk_gp_cmd_write_attributes.argprom.exit ], [ 2, %491 ], [ 2, %29 ], [ 1, %27 ], [ 4, %37 ], [ 2, %32 ], [ 7, %53 ], [ 5, %45 ]
+dissect_zbee_nwk_gp_cmd_move_up_down.exit:        ; preds = %53, %45, %37, %32, %29, %27, %491, %dissect_zbee_nwk_gp_cmd_write_attributes.exit, %dissect_zbee_nwk_gp_cmd_commissioning_reply.exit, %dissect_zbee_nwk_gp_cmd_read_attributes.exit, %299, %dissect_zbee_nwk_gp_cmd_commissioning.exit, %dissect_zbee_nwk_gp_cmd_read_attributes_response.exit, %77, %75, %64, %56, %40, %4
+  %.0 = phi i32 [ 1, %4 ], [ 5, %40 ], [ %63, %56 ], [ %74, %64 ], [ %76, %75 ], [ %81, %77 ], [ %.lcssa.i, %dissect_zbee_nwk_gp_cmd_read_attributes_response.exit ], [ %.2.i, %dissect_zbee_nwk_gp_cmd_commissioning.exit ], [ 2, %299 ], [ %.lcssa.i110, %dissect_zbee_nwk_gp_cmd_read_attributes.exit ], [ %.3.i, %dissect_zbee_nwk_gp_cmd_commissioning_reply.exit ], [ %.lcssa.i136, %dissect_zbee_nwk_gp_cmd_write_attributes.exit ], [ 2, %491 ], [ 2, %29 ], [ 1, %27 ], [ 4, %37 ], [ 2, %32 ], [ 7, %53 ], [ 5, %45 ]
   %495 = call i32 @tvb_reported_length(ptr noundef %0) #11
   %496 = icmp ult i32 %.0, %495
   br i1 %496, label %497, label %502
 
-497:                                              ; preds = %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+497:                                              ; preds = %dissect_zbee_nwk_gp_cmd_move_up_down.exit
   %498 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #11
   %499 = call ptr @proto_tree_get_root(ptr noundef %2) #11
   %500 = load ptr, ptr %16, align 8
@@ -2184,7 +2184,7 @@ dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit: ; preds = %53, %45, %37, %32,
   %501 = call i32 @call_data_dissector(ptr noundef %498, ptr noundef %1, ptr noundef %499) #11
   br label %502
 
-502:                                              ; preds = %497, %dissect_zbee_nwk_gp_cmd_move_up_down.argprom.exit
+502:                                              ; preds = %497, %dissect_zbee_nwk_gp_cmd_move_up_down.exit
   ret i32 %.0
 }
 
@@ -2461,7 +2461,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_zbee_nwk_gp_cmd_multi_cluster_reporting.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2, i16 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_zbee_nwk_gp_cmd_multi_cluster_reporting(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2, i16 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #11

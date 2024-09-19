@@ -233,27 +233,27 @@ define noundef zeroext i1 @_ZNK3g2o15MatrixStructure5writeESt17basic_string_view
   %7 = alloca %"class.std::basic_ofstream", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not.i.i.i = icmp eq i64 %1, 0
-  br i1 %.not.i.i.i, label %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom.exit", label %.preheader106
+  br i1 %.not.i.i.i, label %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit", label %.preheader106
 
 .preheader106:                                    ; preds = %3, %9
   %.1.i.i.i = phi i64 [ %10, %9 ], [ %1, %3 ]
   %.not13.i.i.i = icmp eq i64 %.1.i.i.i, 0
-  br i1 %.not13.i.i.i, label %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom.exit", label %9
+  br i1 %.not13.i.i.i, label %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit", label %9
 
 9:                                                ; preds = %.preheader106
   %10 = add i64 %.1.i.i.i, -1
   %11 = getelementptr inbounds i8, ptr %2, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 46
-  br i1 %13, label %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom.exit", label %.preheader106, !llvm.loop !4
+  br i1 %13, label %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit", label %.preheader106, !llvm.loop !4
 
-"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom.exit": ; preds = %.preheader106, %9, %3
+"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit": ; preds = %.preheader106, %9, %3
   %.sroa.0.0.i = phi i64 [ 0, %3 ], [ %1, %.preheader106 ], [ %10, %9 ]
   %14 = load i32, ptr %0, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph140, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEN3g2o7ColSortEEvT_SB_T0_.exit
 
-.lr.ph140:                                        ; preds = %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom.exit"
+.lr.ph140:                                        ; preds = %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit"
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %18
@@ -497,11 +497,11 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit31: ; preds = %.noexc30, %58
   invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3g2o7ColSortEEEEvT_SE_T0_(ptr %.sroa.076.1.lcssa, ptr %.sroa.10.1.lcssa)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEN3g2o7ColSortEEvT_SB_T0_.exit unwind label %.loopexit.split-lp100
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEN3g2o7ColSortEEvT_SB_T0_.exit: ; preds = %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom.exit", %._crit_edge141, %.noexc33
-  %.not.i.i32173 = phi i1 [ true, %._crit_edge141 ], [ false, %.noexc33 ], [ true, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom.exit" ]
-  %.sroa.076.0.lcssa170 = phi ptr [ %.sroa.076.1.lcssa, %._crit_edge141 ], [ %.sroa.076.1.lcssa, %.noexc33 ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom.exit" ]
-  %.sroa.10.0.lcssa169 = phi ptr [ %.sroa.10.1.lcssa, %._crit_edge141 ], [ %.sroa.10.1.lcssa, %.noexc33 ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom.exit" ]
-  %.sroa.23.0.lcssa166 = phi ptr [ %.sroa.23.1.lcssa, %._crit_edge141 ], [ %.sroa.23.1.lcssa, %.noexc33 ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom.exit" ]
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEN3g2o7ColSortEEvT_SB_T0_.exit: ; preds = %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit", %._crit_edge141, %.noexc33
+  %.not.i.i32173 = phi i1 [ true, %._crit_edge141 ], [ false, %.noexc33 ], [ true, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
+  %.sroa.076.0.lcssa170 = phi ptr [ %.sroa.076.1.lcssa, %._crit_edge141 ], [ %.sroa.076.1.lcssa, %.noexc33 ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
+  %.sroa.10.0.lcssa169 = phi ptr [ %.sroa.10.1.lcssa, %._crit_edge141 ], [ %.sroa.10.1.lcssa, %.noexc33 ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
+  %.sroa.23.0.lcssa166 = phi ptr [ %.sroa.23.1.lcssa, %._crit_edge141 ], [ %.sroa.23.1.lcssa, %.noexc33 ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %96 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %1, ptr %2) #16

@@ -3007,9 +3007,9 @@ for.body.i66:                                     ; preds = %for.body.i66, %init
   store i8 %conv.i67, ptr %arrayidx.i.i.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.argprom.exit, label %for.body.i66, !llvm.loop !31
+  br i1 %exitcond.not.i, label %_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit, label %for.body.i66, !llvm.loop !31
 
-_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.argprom.exit: ; preds = %for.body.i66
+_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit: ; preds = %for.body.i66
   %.fca.0.load.i = load i64, ptr %retval.i, align 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
@@ -3018,7 +3018,7 @@ _ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.argpr
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes) #19
   br label %init.end.i
 
-init.end.i:                                       ; preds = %_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.argprom.exit, %init.check.i, %for.end.i
+init.end.i:                                       ; preds = %_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit, %init.check.i, %for.end.i
   %arrayidx.i.i69 = getelementptr inbounds [16 x i8], ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, i64 0, i64 %sub23
   %10 = load i8, ptr %arrayidx.i.i69, align 1
   %conv.i58 = zext i8 %10 to i64

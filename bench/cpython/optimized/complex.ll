@@ -51,15 +51,15 @@ entry:
   %0 = getelementptr i8, ptr %spec.store.select, i64 8
   %spec.store.select.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %spec.store.select.val, @PyComplex_Type
-  br i1 %cmp.i.not.i, label %PyObject_TypeCheck.argprom.exit, label %lor.rhs.i
+  br i1 %cmp.i.not.i, label %PyObject_TypeCheck.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %spec.store.select.val, ptr noundef nonnull @PyComplex_Type) #3
   %tobool3.i = icmp ne i32 %call2.i, 0
   %1 = zext i1 %tobool3.i to i64
-  br label %PyObject_TypeCheck.argprom.exit
+  br label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry, %lor.rhs.i
+PyObject_TypeCheck.exit:                          ; preds = %entry, %lor.rhs.i
   %lor.ext.i = phi i64 [ 1, %entry ], [ %1, %lor.rhs.i ]
   %call1 = tail call ptr @PyLong_FromLong(i64 noundef %lor.ext.i) #3
   ret ptr %call1

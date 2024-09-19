@@ -4289,7 +4289,7 @@ _step_get_alloc_gres_ptr.exit:                    ; preds = %49, %66
   %87 = getelementptr inbounds i8, ptr %0, i64 16
   %88 = load ptr, ptr %87, align 8
   %89 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.55, ptr noundef %88, ptr noundef nonnull @__func__._step_alloc) #8
-  br label %_step_alloc.argprom.exit
+  br label %_step_alloc.exit
 
 90:                                               ; preds = %_step_get_alloc_gres_ptr.exit
   %91 = sext i32 %71 to i64
@@ -4328,7 +4328,7 @@ _step_get_alloc_gres_ptr.exit:                    ; preds = %49, %66
   %108 = getelementptr inbounds i8, ptr %0, i64 16
   %109 = load ptr, ptr %108, align 8
   %110 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef %109, ptr noundef nonnull @__func__._step_alloc, ptr noundef nonnull %72, i32 noundef %71, i32 noundef %106) #8
-  br label %_step_alloc.argprom.exit
+  br label %_step_alloc.exit
 
 111:                                              ; preds = %104
   %112 = getelementptr inbounds i8, ptr %.0.i, i64 96
@@ -4433,9 +4433,9 @@ _step_get_alloc_gres_ptr.exit:                    ; preds = %49, %66
   store ptr %164, ptr %4, align 8
   %165 = call ptr @list_find_first(ptr noundef %79, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %43) #8
   %.not.i.i = icmp eq ptr %165, null
-  br i1 %.not.i.i, label %_set_step_gres_bit_alloc.argprom.exit.thread.i, label %167
+  br i1 %.not.i.i, label %_set_step_gres_bit_alloc.exit.thread.i, label %167
 
-_set_step_gres_bit_alloc.argprom.exit.thread.i:   ; preds = %151
+_set_step_gres_bit_alloc.exit.thread.i:           ; preds = %151
   %166 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -4770,17 +4770,17 @@ _shared_step_gres_avail.exit.thread.i.i:          ; preds = %299, %293, %.thread
 335:                                              ; preds = %331
   call void @bit_or(ptr noundef nonnull %334, ptr noundef %160) #8
   %.not69.i.i = icmp eq ptr %160, null
-  br i1 %.not69.i.i, label %_set_step_gres_bit_alloc.argprom.exit.i, label %336
+  br i1 %.not69.i.i, label %_set_step_gres_bit_alloc.exit.i, label %336
 
 336:                                              ; preds = %335
   call void @slurm_bit_free(ptr noundef nonnull %3) #8
-  br label %_set_step_gres_bit_alloc.argprom.exit.i
+  br label %_set_step_gres_bit_alloc.exit.i
 
 337:                                              ; preds = %331
   store ptr %160, ptr %333, align 8
-  br label %_set_step_gres_bit_alloc.argprom.exit.i
+  br label %_set_step_gres_bit_alloc.exit.i
 
-_set_step_gres_bit_alloc.argprom.exit.i:          ; preds = %337, %336, %335
+_set_step_gres_bit_alloc.exit.i:                  ; preds = %337, %336, %335
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %338 = and i64 %.05.lcssa.i.i, 4294967295
@@ -4789,14 +4789,14 @@ _set_step_gres_bit_alloc.argprom.exit.i:          ; preds = %337, %336, %335
   %or.cond.i = or i1 %340, %339
   br i1 %or.cond.i, label %345, label %341
 
-341:                                              ; preds = %_set_step_gres_bit_alloc.argprom.exit.i
+341:                                              ; preds = %_set_step_gres_bit_alloc.exit.i
   %342 = getelementptr inbounds i8, ptr %0, i64 16
   %343 = load ptr, ptr %342, align 8
   %344 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef %343, ptr noundef nonnull @__func__._step_alloc, ptr noundef nonnull %72, i32 noundef %71) #8
   br label %354
 
-345:                                              ; preds = %_set_step_gres_bit_alloc.argprom.exit.i, %_set_step_gres_bit_alloc.argprom.exit.thread.i
-  %.057.i3.i = phi i64 [ 0, %_set_step_gres_bit_alloc.argprom.exit.thread.i ], [ %.05.lcssa.i.i, %_set_step_gres_bit_alloc.argprom.exit.i ]
+345:                                              ; preds = %_set_step_gres_bit_alloc.exit.i, %_set_step_gres_bit_alloc.exit.thread.i
+  %.057.i3.i = phi i64 [ 0, %_set_step_gres_bit_alloc.exit.thread.i ], [ %.05.lcssa.i.i, %_set_step_gres_bit_alloc.exit.i ]
   %sext.i = shl i64 %.057.i3.i, 32
   %346 = ashr exact i64 %sext.i, 32
   %347 = sub i64 %.1.i, %346
@@ -4913,7 +4913,7 @@ _set_step_gres_bit_alloc.argprom.exit.i:          ; preds = %337, %336, %335
   store i32 %404, ptr %81, align 4
   br label %406
 
-_step_alloc.argprom.exit:                         ; preds = %86, %107
+_step_alloc.exit:                                 ; preds = %86, %107
   %405 = getelementptr inbounds i8, ptr %1, i64 52
   store i32 -1, ptr %405, align 4
   br label %414
@@ -4932,8 +4932,8 @@ _step_alloc.argprom.exit:                         ; preds = %86, %107
   store i32 %413, ptr %408, align 8
   br label %414
 
-414:                                              ; preds = %_step_alloc.argprom.exit, %406, %411, %14, %17, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %17 ], [ 0, %14 ], [ -1, %_step_alloc.argprom.exit ], [ 0, %411 ], [ 0, %406 ]
+414:                                              ; preds = %_step_alloc.exit, %406, %411, %14, %17, %25
+  %.0 = phi i32 [ 0, %25 ], [ 0, %17 ], [ 0, %14 ], [ -1, %_step_alloc.exit ], [ 0, %411 ], [ 0, %406 ]
   ret i32 %.0
 }
 

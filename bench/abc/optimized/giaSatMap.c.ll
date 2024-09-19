@@ -860,17 +860,17 @@ define internal fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr nound
   %28 = shl nsw i32 %25, 1
   %29 = or disjoint i32 %28, 1
   store i32 %29, ptr %14, align 4
-  call fastcc void @Card_AddClause.retelim(ptr noundef %0, ptr noundef %6, ptr noundef %15)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %6, ptr noundef %15)
   store i32 %27, ptr %6, align 4
   %30 = shl nsw i32 %26, 1
   %31 = or disjoint i32 %30, 1
   store i32 %31, ptr %14, align 4
-  call fastcc void @Card_AddClause.retelim(ptr noundef %0, ptr noundef %6, ptr noundef %15)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %6, ptr noundef %15)
   %32 = shl nsw i32 %22, 1
   store i32 %32, ptr %6, align 4
   store i32 %29, ptr %14, align 4
   store i32 %31, ptr %15, align 4
-  call fastcc void @Card_AddClause.retelim(ptr noundef %0, ptr noundef %6, ptr noundef %16)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %6, ptr noundef %16)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   store i32 %21, ptr %24, align 4
   store i32 %22, ptr %gep, align 4
@@ -2523,17 +2523,17 @@ define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr nound
   %38 = shl nsw i32 %35, 1
   %39 = or disjoint i32 %38, 1
   store i32 %39, ptr %16, align 4
-  call fastcc void @Card_AddClause.retelim(ptr noundef %0, ptr noundef %7, ptr noundef %17)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %7, ptr noundef %17)
   store i32 %37, ptr %7, align 4
   %40 = shl nsw i32 %36, 1
   %41 = or disjoint i32 %40, 1
   store i32 %41, ptr %16, align 4
-  call fastcc void @Card_AddClause.retelim(ptr noundef %0, ptr noundef %7, ptr noundef %17)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %7, ptr noundef %17)
   %42 = shl nsw i32 %32, 1
   store i32 %42, ptr %7, align 4
   store i32 %39, ptr %16, align 4
   store i32 %41, ptr %17, align 4
-  call fastcc void @Card_AddClause.retelim(ptr noundef %0, ptr noundef %7, ptr noundef %18)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %7, ptr noundef %18)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
   store i32 %31, ptr %34, align 4
   store i32 %32, ptr %gep, align 4
@@ -2553,7 +2553,7 @@ define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr nound
   %50 = shl nsw i32 %49, 1
   %51 = or disjoint i32 %50, 1
   store i32 %51, ptr %25, align 4
-  call fastcc void @Card_AddClause.retelim(ptr noundef %0, ptr noundef %8, ptr noundef %26)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %8, ptr noundef %26)
   %52 = icmp slt i64 %indvars.iv.next50, %29
   br i1 %52, label %44, label %.loopexit, !llvm.loop !30
 
@@ -2562,7 +2562,7 @@ define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Card_AddClause.retelim(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @Card_AddClause(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5

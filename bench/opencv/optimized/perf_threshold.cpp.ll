@@ -2088,15 +2088,15 @@ define hidden void @_ZN11opencv_test33Size_MatType_ThreshType_threshold12PerfTes
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.5", align 1
   %10 = alloca %"class.cv::_InputArray", align 8
-  %11 = tail call fastcc noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE8GetParamEv.argprom()
+  %11 = tail call fastcc noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE8GetParamEv()
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %.sroa.010.0.copyload = load i32, ptr %12, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 12
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %13 = tail call fastcc noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE8GetParamEv.argprom()
+  %13 = tail call fastcc noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE8GetParamEv()
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = tail call fastcc noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE8GetParamEv.argprom()
+  %16 = tail call fastcc noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE8GetParamEv()
   %17 = load i32, ptr %16, align 4
   %.sroa.4.0.insert.ext14 = zext i32 %.sroa.4.0.copyload to i64
   %.sroa.4.0.insert.shift15 = shl nuw i64 %.sroa.4.0.insert.ext14, 32
@@ -2283,7 +2283,7 @@ define hidden void @_ZN11opencv_test33Size_MatType_ThreshType_threshold12PerfTes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE8GetParamEv.argprom() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE8GetParamEv() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.testing::internal::GTestLog", align 4
   %2 = load ptr, ptr @_ZN7testing8internal12g_parameter_E, align 8
   %3 = icmp ne ptr %2, null
@@ -4560,21 +4560,21 @@ define hidden void @_ZN11opencv_test72Size_AdaptThreshType_AdaptThreshMethod_Blo
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.5", align 1
   %12 = alloca %"class.cv::_InputArray", align 8
-  %13 = tail call fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv.argprom()
+  %13 = tail call fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv()
   %14 = getelementptr inbounds i8, ptr %13, i64 20
   %.sroa.06.0.copyload = load i32, ptr %14, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
-  %15 = tail call fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv.argprom()
+  %15 = tail call fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv()
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = tail call fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv.argprom()
+  %18 = tail call fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv()
   %19 = getelementptr inbounds i8, ptr %18, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = tail call fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv.argprom()
+  %21 = tail call fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv()
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
-  %24 = tail call fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv.argprom()
+  %24 = tail call fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv()
   %25 = load double, ptr %24, align 8
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv()
   %27 = load i64, ptr %26, align 8
@@ -4755,7 +4755,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv.argprom() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(28) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidEEE8GetParamEv() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.testing::internal::GTestLog", align 4
   %2 = load ptr, ptr @_ZN7testing8internal12g_parameter_E, align 8
   %3 = icmp ne ptr %2, null
@@ -6200,13 +6200,13 @@ define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11op
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_110ThreshTypeESaIS2_EED2Ev.argprom.argprom.exit, label %3
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_110ThreshTypeESaIS2_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #30
-  br label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_110ThreshTypeESaIS2_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_110ThreshTypeESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN11opencv_test12_GLOBAL__N_110ThreshTypeESaIS2_EED2Ev.argprom.argprom.exit: ; preds = %1, %3
+_ZNSt6vectorIN11opencv_test12_GLOBAL__N_110ThreshTypeESaIS2_EED2Ev.exit: ; preds = %1, %3
   ret void
 }
 
@@ -8194,9 +8194,9 @@ _ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEdeEv.exit: ; preds = %_ZNK7
   %43 = getelementptr inbounds i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = invoke noundef nonnull align 4 dereferenceable(4) ptr %44(ptr noundef nonnull align 8 dereferenceable(8) %.val)
-          to label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEdeEv.argprom.exit unwind label %63
+          to label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEdeEv.exit unwind label %63
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEdeEv.argprom.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEdeEv.exit
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEdeEv.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEdeEv.exit
   %.val2 = load i32, ptr %45, align 4
   store i32 %.val2, ptr %31, align 4
   %46 = getelementptr inbounds i8, ptr %31, i64 4
@@ -8211,8 +8211,8 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEd
   %52 = icmp eq ptr %51, %50
   br i1 %52, label %55, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEdeEv.argprom.exit, %.preheader.i.i.i
-  %.0.i.i.i = phi ptr [ %53, %.preheader.i.i.i ], [ %51, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEdeEv.argprom.exit ]
+.preheader.i.i.i:                                 ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEdeEv.exit, %.preheader.i.i.i
+  %.0.i.i.i = phi ptr [ %53, %.preheader.i.i.i ], [ %51, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEdeEv.exit ]
   %53 = load ptr, ptr %.0.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %53, %50
   br i1 %.not.i.i.i, label %54, label %.preheader.i.i.i, !llvm.loop !48
@@ -8221,7 +8221,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEd
   store ptr %51, ptr %.0.i.i.i, align 8
   br label %55
 
-55:                                               ; preds = %54, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEdeEv.argprom.exit
+55:                                               ; preds = %54, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEdeEv.exit
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
           to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i unwind label %56
 
@@ -8721,16 +8721,16 @@ define internal void @_ZN7testing8internal26CartesianProductGenerator3IN2cv5Size
   %.val = load ptr, ptr %2, align 8
   %.val1 = load ptr, ptr %6, align 8
   %7 = icmp eq ptr %.val, %.val1
-  br i1 %7, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit
+  br i1 %7, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit: ; preds = %1
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit: ; preds = %1
   %8 = load ptr, ptr %.val, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull align 8 dereferenceable(8) %.val1)
-  br i1 %11, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit.thread, label %33
+  br i1 %11, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit.thread, label %33
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit.thread: ; preds = %1, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit.thread: ; preds = %1, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   %.val.i2 = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %.val.i2, align 8
@@ -8741,7 +8741,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEe
   %.not.i.i = icmp eq ptr %16, %17
   br i1 %.not.i.i, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEaSERKS5_.exit, label %18
 
-18:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit.thread
+18:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit.thread
   %19 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %19, label %20, label %27
 
@@ -8761,7 +8761,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEe
   store ptr %16, ptr %2, align 8
   br label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEaSERKS5_.exit
 
-_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEaSERKS5_.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit.thread, %27
+_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEaSERKS5_.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit.thread, %27
   %28 = getelementptr inbounds i8, ptr %0, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
@@ -8770,7 +8770,7 @@ _ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEaS
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %29)
   br label %33
 
-33:                                               ; preds = %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEaSERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit
+33:                                               ; preds = %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEaSERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit
   %34 = getelementptr inbounds i8, ptr %0, i64 56
   %35 = getelementptr inbounds i8, ptr %0, i64 48
   %36 = load ptr, ptr %34, align 8
@@ -9192,14 +9192,14 @@ _ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN
   %74 = load ptr, ptr %72, align 8
   %75 = load ptr, ptr %73, align 8
   %76 = icmp eq ptr %74, %75
-  br i1 %76, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit, label %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i9
+  br i1 %76, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit, label %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i9
 
 _ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i9: ; preds = %_ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit.thread
   %77 = load ptr, ptr %74, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 48
   %79 = load ptr, ptr %78, align 8
   %80 = call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull align 8 dereferenceable(8) %75)
-  br i1 %80, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit, label %81
+  br i1 %80, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit, label %81
 
 81:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i9
   %82 = getelementptr inbounds i8, ptr %44, i64 56
@@ -9207,14 +9207,14 @@ _ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i9: ; preds = 
   %84 = load ptr, ptr %82, align 8
   %85 = load ptr, ptr %83, align 8
   %86 = icmp eq ptr %84, %85
-  br i1 %86, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit, label %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.i10
+  br i1 %86, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit, label %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.i10
 
 _ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.i10: ; preds = %81
   %87 = load ptr, ptr %84, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 48
   %89 = load ptr, ptr %88, align 8
   %90 = call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull align 8 dereferenceable(8) %85)
-  br i1 %90, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit, label %91
+  br i1 %90, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit, label %91
 
 91:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.i10
   %92 = getelementptr inbounds i8, ptr %44, i64 80
@@ -9222,14 +9222,14 @@ _ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.i10: ; preds 
   %.val.i11 = load ptr, ptr %92, align 8
   %.val1.i12 = load ptr, ptr %93, align 8
   %94 = icmp eq ptr %.val.i11, %.val1.i12
-  br i1 %94, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit, label %_ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit13
+  br i1 %94, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit, label %_ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit13
 
 _ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit13: ; preds = %91
   %95 = load ptr, ptr %.val.i11, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 48
   %97 = load ptr, ptr %96, align 8
   %98 = call noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(8) %.val.i11, ptr noundef nonnull align 8 dereferenceable(8) %.val1.i12)
-  br i1 %98, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit, label %99
+  br i1 %98, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit, label %99
 
 99:                                               ; preds = %_ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit13, %_ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit
   %100 = getelementptr inbounds i8, ptr %44, i64 32
@@ -9243,7 +9243,7 @@ _ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit: ; preds = %99
   %105 = getelementptr inbounds i8, ptr %104, i64 48
   %106 = load ptr, ptr %105, align 8
   %107 = call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull align 8 dereferenceable(8) %102)
-  br i1 %107, label %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit
+  br i1 %107, label %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit
 
 _ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.thread: ; preds = %99, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit
   %108 = getelementptr inbounds i8, ptr %0, i64 56
@@ -9258,7 +9258,7 @@ _ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit: ; preds = %_
   %114 = getelementptr inbounds i8, ptr %113, i64 48
   %115 = load ptr, ptr %114, align 8
   %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(8) %111)
-  br i1 %116, label %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit
+  br i1 %116, label %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit
 
 _ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread: ; preds = %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.thread, %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit
   %117 = getelementptr inbounds i8, ptr %0, i64 80
@@ -9266,16 +9266,16 @@ _ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread: ; pre
   %.val = load ptr, ptr %117, align 8
   %.val8 = load ptr, ptr %118, align 8
   %119 = icmp eq ptr %.val, %.val8
-  br i1 %119, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit, label %120
+  br i1 %119, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit, label %120
 
 120:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread
   %121 = load ptr, ptr %.val, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 48
   %123 = load ptr, ptr %122, align 8
   %124 = call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull align 8 dereferenceable(8) %.val8)
-  br label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit
+  br label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.argprom.exit: ; preds = %81, %_ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit.thread, %91, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i9, %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.i10, %120, %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit, %_ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit13
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit: ; preds = %81, %_ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit.thread, %91, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i9, %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.i10, %120, %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit, %_ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit13
   %125 = phi i1 [ true, %_ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit13 ], [ false, %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit ], [ false, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit ], [ true, %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread ], [ %124, %120 ], [ true, %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.i10 ], [ true, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i9 ], [ true, %91 ], [ true, %_ZNK7testing8internal26CartesianProductGenerator3IN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEE8Iterator5AtEndEv.exit.thread ], [ true, %81 ]
   ret i1 %125
 }
@@ -10630,13 +10630,13 @@ define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11op
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeESaIS2_EED2Ev.argprom.argprom.exit, label %3
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeESaIS2_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #30
-  br label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeESaIS2_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeESaIS2_EED2Ev.argprom.argprom.exit: ; preds = %1, %3
+_ZNSt6vectorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeESaIS2_EED2Ev.exit: ; preds = %1, %3
   ret void
 }
 
@@ -10956,13 +10956,13 @@ define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11op
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodESaIS2_EED2Ev.argprom.argprom.exit, label %3
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodESaIS2_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #30
-  br label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodESaIS2_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodESaIS2_EED2Ev.argprom.argprom.exit: ; preds = %1, %3
+_ZNSt6vectorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodESaIS2_EED2Ev.exit: ; preds = %1, %3
   ret void
 }
 
@@ -13350,31 +13350,31 @@ _ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i: ; preds = %
   %.val.i = load ptr, ptr %12, align 8
   %.val1.i = load ptr, ptr %13, align 8
   %14 = icmp eq ptr %.val.i, %.val1.i
-  br i1 %14, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i
+  br i1 %14, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i: ; preds = %11
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i: ; preds = %11
   %15 = load ptr, ptr %.val.i, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %.val.i, ptr noundef nonnull align 8 dereferenceable(8) %.val1.i)
   br i1 %18, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %19
 
-19:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i
+19:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i
   %20 = getelementptr inbounds i8, ptr %0, i64 80
   %21 = getelementptr inbounds i8, ptr %0, i64 72
   %.val2.i = load ptr, ptr %20, align 8
   %.val3.i = load ptr, ptr %21, align 8
   %22 = icmp eq ptr %.val2.i, %.val3.i
-  br i1 %22, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i
+  br i1 %22, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i: ; preds = %19
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i: ; preds = %19
   %23 = load ptr, ptr %.val2.i, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(8) %.val2.i, ptr noundef nonnull align 8 dereferenceable(8) %.val3.i)
   br i1 %26, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %27
 
-27:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i
+27:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i
   %28 = getelementptr inbounds i8, ptr %0, i64 104
   %29 = getelementptr inbounds i8, ptr %0, i64 96
   %30 = load ptr, ptr %28, align 8
@@ -13420,17 +13420,17 @@ _ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEdeEv.exit: ; preds = %47
   %56 = getelementptr inbounds i8, ptr %55, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = invoke noundef nonnull align 4 dereferenceable(4) ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %.val)
-          to label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEdeEv.argprom.exit unwind label %92
+          to label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEdeEv.exit unwind label %92
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEdeEv.argprom.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEdeEv.exit
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEdeEv.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEdeEv.exit
   %.val2 = load ptr, ptr %20, align 8
   %59 = load ptr, ptr %.val2, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 40
   %61 = load ptr, ptr %60, align 8
   %62 = invoke noundef nonnull align 4 dereferenceable(4) ptr %61(ptr noundef nonnull align 8 dereferenceable(8) %.val2)
-          to label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEdeEv.argprom.exit unwind label %92
+          to label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEdeEv.exit unwind label %92
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEdeEv.argprom.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEdeEv.argprom.exit
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEdeEv.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEdeEv.exit
   %63 = load ptr, ptr %28, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 40
@@ -13438,7 +13438,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMe
   %67 = invoke noundef nonnull align 4 dereferenceable(4) ptr %66(ptr noundef nonnull align 8 dereferenceable(8) %63)
           to label %_ZNK7testing8internal13ParamIteratorIiEdeEv.exit unwind label %92
 
-_ZNK7testing8internal13ParamIteratorIiEdeEv.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEdeEv.argprom.exit
+_ZNK7testing8internal13ParamIteratorIiEdeEv.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEdeEv.exit
   %68 = load ptr, ptr %38, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 40
@@ -13505,13 +13505,13 @@ _ZN7testing8internal10linked_ptrISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL
   store ptr %79, ptr %79, align 8
   br label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread
 
-92:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIiEdeEv.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEdeEv.argprom.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEdeEv.argprom.exit, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEdeEv.exit, %47
+92:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIiEdeEv.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEdeEv.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEdeEv.exit, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEdeEv.exit, %47
   %93 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %49) #30
   resume { ptr, i32 } %93
 
-_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread: ; preds = %27, %19, %11, %1, %37, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i, %_ZN7testing8internal10linked_ptrISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5resetEPSA_.exit, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit
+_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread: ; preds = %27, %19, %11, %1, %37, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i, %_ZN7testing8internal10linked_ptrISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5resetEPSA_.exit, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit
   ret void
 }
 
@@ -14303,16 +14303,16 @@ _ZN7testing8internal13ParamIteratorIiEaSERKS2_.exit: ; preds = %_ZNK7testing8int
   %.val2 = load ptr, ptr %69, align 8
   %.val3 = load ptr, ptr %70, align 8
   %71 = icmp eq ptr %.val2, %.val3
-  br i1 %71, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit
+  br i1 %71, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit: ; preds = %68
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit: ; preds = %68
   %72 = load ptr, ptr %.val2, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 48
   %74 = load ptr, ptr %73, align 8
   %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(8) %.val2, ptr noundef nonnull align 8 dereferenceable(8) %.val3)
-  br i1 %75, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.thread, label %96
+  br i1 %75, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.thread, label %96
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.thread: ; preds = %68, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.thread: ; preds = %68, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit
   %76 = getelementptr inbounds i8, ptr %0, i64 64
   %.val.i5 = load ptr, ptr %76, align 8
   %77 = load ptr, ptr %.val.i5, align 8
@@ -14323,7 +14323,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMe
   %.not.i.i6 = icmp eq ptr %80, %81
   br i1 %.not.i.i6, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEaSERKS5_.exit, label %82
 
-82:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.thread
+82:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.thread
   %83 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %83, label %84, label %91
 
@@ -14343,7 +14343,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMe
   store ptr %80, ptr %69, align 8
   br label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEaSERKS5_.exit
 
-_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEaSERKS5_.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.thread, %91
+_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEaSERKS5_.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.thread, %91
   %92 = getelementptr inbounds i8, ptr %0, i64 56
   %.val.i7 = load ptr, ptr %92, align 8
   %93 = load ptr, ptr %.val.i7, align 8
@@ -14352,22 +14352,22 @@ _ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMet
   tail call void %95(ptr noundef nonnull align 8 dereferenceable(8) %.val.i7)
   br label %96
 
-96:                                               ; preds = %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEaSERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit
+96:                                               ; preds = %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEaSERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit
   %97 = getelementptr inbounds i8, ptr %0, i64 56
   %98 = getelementptr inbounds i8, ptr %0, i64 48
   %.val = load ptr, ptr %97, align 8
   %.val1 = load ptr, ptr %98, align 8
   %99 = icmp eq ptr %.val, %.val1
-  br i1 %99, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit
+  br i1 %99, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit: ; preds = %96
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit: ; preds = %96
   %100 = load ptr, ptr %.val, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 48
   %102 = load ptr, ptr %101, align 8
   %103 = tail call noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull align 8 dereferenceable(8) %.val1)
-  br i1 %103, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.thread, label %125
+  br i1 %103, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.thread, label %125
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.thread: ; preds = %96, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.thread: ; preds = %96, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit
   %104 = getelementptr inbounds i8, ptr %0, i64 40
   %.val.i8 = load ptr, ptr %104, align 8
   %105 = load ptr, ptr %.val.i8, align 8
@@ -14378,7 +14378,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTy
   %.not.i.i9 = icmp eq ptr %108, %109
   br i1 %.not.i.i9, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEaSERKS5_.exit, label %110
 
-110:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.thread
+110:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.thread
   %111 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %111, label %112, label %119
 
@@ -14398,7 +14398,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTy
   store ptr %108, ptr %97, align 8
   br label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEaSERKS5_.exit
 
-_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEaSERKS5_.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.thread, %119
+_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEaSERKS5_.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.thread, %119
   %120 = getelementptr inbounds i8, ptr %0, i64 32
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %121, align 8
@@ -14407,7 +14407,7 @@ _ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTyp
   tail call void %124(ptr noundef nonnull align 8 dereferenceable(8) %121)
   br label %125
 
-125:                                              ; preds = %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEaSERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit
+125:                                              ; preds = %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEaSERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit
   tail call fastcc void @_ZN7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator19ComputeCurrentValueEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
   ret void
 }
@@ -14870,31 +14870,31 @@ _ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i: ; preds = %
   %.val.i = load ptr, ptr %55, align 8
   %.val1.i = load ptr, ptr %56, align 8
   %57 = icmp eq ptr %.val.i, %.val1.i
-  br i1 %57, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i
+  br i1 %57, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i: ; preds = %54
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i: ; preds = %54
   %58 = load ptr, ptr %.val.i, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 48
   %60 = load ptr, ptr %59, align 8
   %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(8) %.val.i, ptr noundef nonnull align 8 dereferenceable(8) %.val1.i)
   br i1 %61, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %62
 
-62:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i
+62:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i
   %63 = getelementptr inbounds i8, ptr %0, i64 80
   %64 = getelementptr inbounds i8, ptr %0, i64 72
   %.val2.i = load ptr, ptr %63, align 8
   %.val3.i = load ptr, ptr %64, align 8
   %65 = icmp eq ptr %.val2.i, %.val3.i
-  br i1 %65, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i
+  br i1 %65, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i: ; preds = %62
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i: ; preds = %62
   %66 = load ptr, ptr %.val2.i, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8
   %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(8) %.val2.i, ptr noundef nonnull align 8 dereferenceable(8) %.val3.i)
   br i1 %69, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %70
 
-70:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i
+70:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i
   %71 = getelementptr inbounds i8, ptr %0, i64 104
   %72 = getelementptr inbounds i8, ptr %0, i64 96
   %73 = load ptr, ptr %71, align 8
@@ -14924,7 +14924,7 @@ _ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12
   %89 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull align 8 dereferenceable(8) %84)
   br i1 %89, label %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, label %135
 
-_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread: ; preds = %70, %62, %54, %_ZN7testing8internal27CheckedDowncastToActualTypeIKNS0_26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidE8IteratorEKNS0_22ParamIteratorInterfaceISt5tupleIJS5_S8_S9_idEEEEEEPT_PT0_.exit, %80, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit
+_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread: ; preds = %70, %62, %54, %_ZN7testing8internal27CheckedDowncastToActualTypeIKNS0_26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidE8IteratorEKNS0_22ParamIteratorInterfaceISt5tupleIJS5_S8_S9_idEEEEEEPT_PT0_.exit, %80, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit
   %90 = getelementptr inbounds i8, ptr %44, i64 32
   %91 = getelementptr inbounds i8, ptr %44, i64 24
   %92 = load ptr, ptr %90, align 8
@@ -14945,31 +14945,31 @@ _ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i13: ; preds =
   %.val.i14 = load ptr, ptr %100, align 8
   %.val1.i15 = load ptr, ptr %101, align 8
   %102 = icmp eq ptr %.val.i14, %.val1.i15
-  br i1 %102, label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i16
+  br i1 %102, label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i16
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i16: ; preds = %99
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i16: ; preds = %99
   %103 = load ptr, ptr %.val.i14, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 48
   %105 = load ptr, ptr %104, align 8
   %106 = call noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(8) %.val.i14, ptr noundef nonnull align 8 dereferenceable(8) %.val1.i15)
   br i1 %106, label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit, label %107
 
-107:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i16
+107:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i16
   %108 = getelementptr inbounds i8, ptr %44, i64 80
   %109 = getelementptr inbounds i8, ptr %44, i64 72
   %.val2.i17 = load ptr, ptr %108, align 8
   %.val3.i18 = load ptr, ptr %109, align 8
   %110 = icmp eq ptr %.val2.i17, %.val3.i18
-  br i1 %110, label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i19
+  br i1 %110, label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i19
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i19: ; preds = %107
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i19: ; preds = %107
   %111 = load ptr, ptr %.val2.i17, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 48
   %113 = load ptr, ptr %112, align 8
   %114 = call noundef zeroext i1 %113(ptr noundef nonnull align 8 dereferenceable(8) %.val2.i17, ptr noundef nonnull align 8 dereferenceable(8) %.val3.i18)
   br i1 %114, label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit, label %115
 
-115:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i19
+115:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i19
   %116 = getelementptr inbounds i8, ptr %44, i64 104
   %117 = getelementptr inbounds i8, ptr %44, i64 96
   %118 = load ptr, ptr %116, align 8
@@ -15019,31 +15019,31 @@ _ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.thread: ; pred
   %.val = load ptr, ptr %144, align 8
   %.val10 = load ptr, ptr %145, align 8
   %146 = icmp eq ptr %.val, %.val10
-  br i1 %146, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit
+  br i1 %146, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.thread
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.thread
   %147 = load ptr, ptr %.val, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 48
   %149 = load ptr, ptr %148, align 8
   %150 = call noundef zeroext i1 %149(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull align 8 dereferenceable(8) %.val10)
-  br i1 %150, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.thread, label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit
+  br i1 %150, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.thread: ; preds = %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.thread, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.thread: ; preds = %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.thread, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit
   %151 = getelementptr inbounds i8, ptr %0, i64 80
   %152 = getelementptr inbounds i8, ptr %44, i64 80
   %.val11 = load ptr, ptr %151, align 8
   %.val12 = load ptr, ptr %152, align 8
   %153 = icmp eq ptr %.val11, %.val12
-  br i1 %153, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit
+  br i1 %153, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.thread
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.thread
   %154 = load ptr, ptr %.val11, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 48
   %156 = load ptr, ptr %155, align 8
   %157 = call noundef zeroext i1 %156(ptr noundef nonnull align 8 dereferenceable(8) %.val11, ptr noundef nonnull align 8 dereferenceable(8) %.val12)
-  br i1 %157, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.thread, label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit
+  br i1 %157, label %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit
 
-_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.thread: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.thread, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit
+_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.thread: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.thread, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit
   %158 = getelementptr inbounds i8, ptr %0, i64 104
   %159 = getelementptr inbounds i8, ptr %44, i64 104
   %160 = load ptr, ptr %158, align 8
@@ -15051,14 +15051,14 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMe
   %162 = icmp eq ptr %160, %161
   br i1 %162, label %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit
 
-_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.thread
+_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.thread
   %163 = load ptr, ptr %160, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 48
   %165 = load ptr, ptr %164, align 8
   %166 = call noundef zeroext i1 %165(ptr noundef nonnull align 8 dereferenceable(8) %160, ptr noundef nonnull align 8 dereferenceable(8) %161)
   br i1 %166, label %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread, label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit
 
-_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.thread, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit
+_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread: ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.thread, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit
   %167 = getelementptr inbounds i8, ptr %0, i64 128
   %168 = getelementptr inbounds i8, ptr %44, i64 128
   %169 = load ptr, ptr %167, align 8
@@ -15073,8 +15073,8 @@ _ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread: ; preds = %_ZNK7tes
   %176 = call noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(8) %169, ptr noundef nonnull align 8 dereferenceable(8) %170)
   br label %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit
 
-_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit: ; preds = %115, %107, %99, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, %125, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i13, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i16, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i19, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i20, %172, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit21
-  %177 = phi i1 [ true, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit21 ], [ false, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit ], [ false, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit ], [ false, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit ], [ false, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit ], [ true, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread ], [ %176, %172 ], [ true, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i20 ], [ true, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.argprom.exit.i19 ], [ true, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.argprom.exit.i16 ], [ true, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i13 ], [ true, %125 ], [ true, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread ], [ true, %99 ], [ true, %107 ], [ true, %115 ]
+_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit: ; preds = %115, %107, %99, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread, %125, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i13, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i16, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i19, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i20, %172, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit21
+  %177 = phi i1 [ true, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit21 ], [ false, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit ], [ false, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit ], [ false, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit ], [ false, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit ], [ true, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread ], [ %176, %172 ], [ true, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i20 ], [ true, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.i19 ], [ true, %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.i16 ], [ true, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i13 ], [ true, %125 ], [ true, %_ZNK7testing8internal26CartesianProductGenerator5IN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS6_17AdaptThreshMethodEidE8Iterator5AtEndEv.exit.thread ], [ true, %99 ], [ true, %107 ], [ true, %115 ]
   ret i1 %177
 }
 
@@ -15389,9 +15389,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %80 = getelementptr inbounds i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8, !noalias !234
   %82 = invoke noundef ptr %81(ptr noundef nonnull align 8 dereferenceable(8) %.val)
-          to label %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.argprom.exit unwind label %161
+          to label %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.exit unwind label %161
 
-_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.argprom.exit: ; preds = %78, %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEppEv.exit
+_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.exit: ; preds = %78, %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEppEv.exit
   %.019 = phi i64 [ %410, %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEppEv.exit ], [ 0, %78 ]
   %.val29 = load ptr, ptr %10, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !237)
@@ -15401,10 +15401,10 @@ _ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11
   %86 = invoke noundef ptr %85(ptr noundef nonnull align 8 dereferenceable(8) %.val29)
           to label %87 unwind label %163
 
-87:                                               ; preds = %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.argprom.exit
+87:                                               ; preds = %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.exit
   store ptr %86, ptr %14, align 8, !alias.scope !237
   %88 = icmp eq ptr %82, %86
-  br i1 %88, label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEneERKSC_.argprom.exit, label %89
+  br i1 %88, label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEneERKSC_.exit, label %89
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %82, align 8
@@ -15415,14 +15415,14 @@ _ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11
 
 .noexc38:                                         ; preds = %89
   %94 = xor i1 %93, true
-  br label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEneERKSC_.argprom.exit
+  br label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEneERKSC_.exit
 
-_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEneERKSC_.argprom.exit: ; preds = %.noexc38, %87
+_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEneERKSC_.exit: ; preds = %.noexc38, %87
   %95 = phi i1 [ false, %87 ], [ %94, %.noexc38 ]
   %.not.i.i.i39 = icmp eq ptr %86, null
   br i1 %.not.i.i.i39, label %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEED2Ev.exit, label %96
 
-96:                                               ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEneERKSC_.argprom.exit
+96:                                               ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEneERKSC_.exit
   %97 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
           to label %.noexc.i.i unwind label %103
 
@@ -15447,7 +15447,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11o
   call void @__clang_call_terminate(ptr %105) #29
   unreachable
 
-_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEED2Ev.exit: ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEneERKSC_.argprom.exit, %102
+_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEED2Ev.exit: ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEneERKSC_.exit, %102
   br i1 %95, label %166, label %106
 
 106:                                              ; preds = %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEED2Ev.exit
@@ -15621,7 +15621,7 @@ _ZN7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11o
           cleanup
   br label %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEED2Ev.exit67
 
-163:                                              ; preds = %_ZN7testing7MessageD2Ev.exit, %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.argprom.exit, %166
+163:                                              ; preds = %_ZN7testing7MessageD2Ev.exit, %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.exit, %166
   %164 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7testing7MessageD2Ev.exit64
@@ -15641,15 +15641,15 @@ _ZN7testing7MessageD2Ev.exit64.thread:            ; preds = %89
   %169 = getelementptr inbounds i8, ptr %168, i64 40
   %170 = load ptr, ptr %169, align 8
   %171 = invoke noundef nonnull align 4 dereferenceable(16) ptr %170(ptr noundef nonnull align 8 dereferenceable(8) %82)
-          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit unwind label %188
+          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit unwind label %188
 
-_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit: ; preds = %167
+_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit: ; preds = %167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 4 dereferenceable(16) %171, i64 16, i1 false)
   store i64 %.019, ptr %36, align 8
   invoke void %60(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %172 unwind label %188
 
-172:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit
+172:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit
   %173 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #27
   br i1 %173, label %_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test33Size_MatType_ThreshType_thresholdEE16IsValidParamNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.preheader.i
 
@@ -15687,7 +15687,7 @@ _ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test33Size_MatType_Thr
 187:                                              ; preds = %_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test33Size_MatType_ThreshType_thresholdEE16IsValidParamNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   br i1 %186, label %212, label %192
 
-188:                                              ; preds = %167, %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit
+188:                                              ; preds = %167, %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit
   %189 = landingpad { ptr, i32 }
           cleanup
   br label %418
@@ -15999,14 +15999,14 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
   %308 = getelementptr inbounds i8, ptr %307, i64 40
   %309 = load ptr, ptr %308, align 8
   %310 = invoke noundef nonnull align 4 dereferenceable(16) ptr %309(ptr noundef nonnull align 8 dereferenceable(8) %82)
-          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit52 unwind label %411
+          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit52 unwind label %411
 
-_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit52: ; preds = %305
+_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit52: ; preds = %305
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %8)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %8)
           to label %.noexc53 unwind label %411
 
-.noexc53:                                         ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit52
+.noexc53:                                         ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit52
   %311 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.57)
           to label %.noexc.i unwind label %369, !noalias !244
 
@@ -16248,9 +16248,9 @@ _ZN7testing8internal21UniversalTersePrinterISt5tupleIJN2cv5Size_IiEEN4perf7MatTy
   %383 = getelementptr inbounds i8, ptr %382, i64 40
   %384 = load ptr, ptr %383, align 8
   %385 = invoke noundef nonnull align 4 dereferenceable(16) ptr %384(ptr noundef nonnull align 8 dereferenceable(8) %82)
-          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit58 unwind label %415
+          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit58 unwind label %415
 
-_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit58: ; preds = %379
+_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit58: ; preds = %379
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %385, i64 16, i1 false)
   %386 = load ptr, ptr %.val35, align 8
   %387 = getelementptr inbounds i8, ptr %386, i64 16
@@ -16258,7 +16258,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11o
   %389 = invoke noundef ptr %388(ptr noundef nonnull align 8 dereferenceable(8) %.val35, ptr noundef nonnull %23)
           to label %390 unwind label %415
 
-390:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit58
+390:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit58
   %391 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %304, ptr noundef %306, ptr noundef null, ptr noundef %372, ptr noundef nonnull %22, ptr noundef %378, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef %389)
           to label %392 unwind label %415
 
@@ -16310,9 +16310,9 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %392, %403
 
 _ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEppEv.exit: ; preds = %_ZN7testing7MessageD2Ev.exit
   %410 = add i64 %.019, 1
-  br label %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.argprom.exit, !llvm.loop !250
+  br label %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.exit, !llvm.loop !250
 
-411:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit52, %305
+411:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit52, %305
   %412 = landingpad { ptr, i32 }
           cleanup
   br label %.body54
@@ -16322,7 +16322,7 @@ _ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11op
           cleanup
   br label %417
 
-415:                                              ; preds = %379, %390, %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.argprom.exit58, %373
+415:                                              ; preds = %379, %390, %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEEdeEv.exit58, %373
   %416 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #27
@@ -18385,9 +18385,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %85 = getelementptr inbounds i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8, !noalias !286
   %87 = invoke noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(8) %.val)
-          to label %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.argprom.exit unwind label %166
+          to label %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.exit unwind label %166
 
-_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.argprom.exit: ; preds = %83, %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEppEv.exit
+_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.exit: ; preds = %83, %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEppEv.exit
   %.019 = phi i64 [ %477, %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEppEv.exit ], [ 0, %83 ]
   %.val29 = load ptr, ptr %14, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !289)
@@ -18397,10 +18397,10 @@ _ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_G
   %91 = invoke noundef ptr %90(ptr noundef nonnull align 8 dereferenceable(8) %.val29)
           to label %92 unwind label %168
 
-92:                                               ; preds = %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.argprom.exit
+92:                                               ; preds = %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.exit
   store ptr %91, ptr %18, align 8, !alias.scope !289
   %93 = icmp eq ptr %87, %91
-  br i1 %93, label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEneERKSB_.argprom.exit, label %94
+  br i1 %93, label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEneERKSB_.exit, label %94
 
 94:                                               ; preds = %92
   %95 = load ptr, ptr %87, align 8
@@ -18411,14 +18411,14 @@ _ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_G
 
 .noexc38:                                         ; preds = %94
   %99 = xor i1 %98, true
-  br label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEneERKSB_.argprom.exit
+  br label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEneERKSB_.exit
 
-_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEneERKSB_.argprom.exit: ; preds = %.noexc38, %92
+_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEneERKSB_.exit: ; preds = %.noexc38, %92
   %100 = phi i1 [ false, %92 ], [ %99, %.noexc38 ]
   %.not.i.i.i39 = icmp eq ptr %91, null
   br i1 %.not.i.i.i39, label %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEED2Ev.exit, label %101
 
-101:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEneERKSB_.argprom.exit
+101:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEneERKSB_.exit
   %102 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
           to label %.noexc.i.i unwind label %108
 
@@ -18443,7 +18443,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   call void @__clang_call_terminate(ptr %110) #29
   unreachable
 
-_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEED2Ev.exit: ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEneERKSB_.argprom.exit, %107
+_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEED2Ev.exit: ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEneERKSB_.exit, %107
   br i1 %100, label %171, label %111
 
 111:                                              ; preds = %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEED2Ev.exit
@@ -18617,7 +18617,7 @@ _ZN7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
           cleanup
   br label %_ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEED2Ev.exit67
 
-168:                                              ; preds = %_ZN7testing7MessageD2Ev.exit, %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.argprom.exit, %171
+168:                                              ; preds = %_ZN7testing7MessageD2Ev.exit, %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.exit, %171
   %169 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7testing7MessageD2Ev.exit64
@@ -18637,15 +18637,15 @@ _ZN7testing7MessageD2Ev.exit64.thread:            ; preds = %94
   %174 = getelementptr inbounds i8, ptr %173, i64 40
   %175 = load ptr, ptr %174, align 8
   %176 = invoke noundef nonnull align 8 dereferenceable(28) ptr %175(ptr noundef nonnull align 8 dereferenceable(8) %87)
-          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit unwind label %193
+          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit unwind label %193
 
-_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit: ; preds = %172
+_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit: ; preds = %172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull readonly align 8 dereferenceable(32) %176, i64 32, i1 false)
   store i64 %.019, ptr %40, align 8
   invoke void %65(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 8 dereferenceable(40) %21)
           to label %177 unwind label %193
 
-177:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit
+177:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit
   %178 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #27
   br i1 %178, label %_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test72Size_AdaptThreshType_AdaptThreshMethod_BlockSize_Delta_adaptiveThresholdEE16IsValidParamNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.preheader.i
 
@@ -18683,7 +18683,7 @@ _ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test72Size_AdaptThresh
 192:                                              ; preds = %_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test72Size_AdaptThreshType_AdaptThreshMethod_BlockSize_Delta_adaptiveThresholdEE16IsValidParamNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   br i1 %191, label %217, label %197
 
-193:                                              ; preds = %172, %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit
+193:                                              ; preds = %172, %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit
   %194 = landingpad { ptr, i32 }
           cleanup
   br label %485
@@ -18995,14 +18995,14 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
   %313 = getelementptr inbounds i8, ptr %312, i64 40
   %314 = load ptr, ptr %313, align 8
   %315 = invoke noundef nonnull align 8 dereferenceable(28) ptr %314(ptr noundef nonnull align 8 dereferenceable(8) %87)
-          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit52 unwind label %478
+          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit52 unwind label %478
 
-_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit52: ; preds = %310
+_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit52: ; preds = %310
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %12)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %12)
           to label %.noexc53 unwind label %478
 
-.noexc53:                                         ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit52
+.noexc53:                                         ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit52
   %316 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull @.str.57)
           to label %.noexc.i unwind label %436, !noalias !294
 
@@ -19432,9 +19432,9 @@ _ZN7testing8internal21UniversalTersePrinterISt5tupleIJN2cv5Size_IiEEN11opencv_te
   %450 = getelementptr inbounds i8, ptr %449, i64 40
   %451 = load ptr, ptr %450, align 8
   %452 = invoke noundef nonnull align 8 dereferenceable(28) ptr %451(ptr noundef nonnull align 8 dereferenceable(8) %87)
-          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit58 unwind label %482
+          to label %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit58 unwind label %482
 
-_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit58: ; preds = %446
+_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit58: ; preds = %446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %452, i64 32, i1 false)
   %453 = load ptr, ptr %.val35, align 8
   %454 = getelementptr inbounds i8, ptr %453, i64 16
@@ -19442,7 +19442,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   %456 = invoke noundef ptr %455(ptr noundef nonnull align 8 dereferenceable(8) %.val35, ptr noundef nonnull %27)
           to label %457 unwind label %482
 
-457:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit58
+457:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit58
   %458 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %309, ptr noundef %311, ptr noundef null, ptr noundef %439, ptr noundef nonnull %26, ptr noundef %445, ptr noundef nonnull @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef nonnull @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef %456)
           to label %459 unwind label %482
 
@@ -19494,9 +19494,9 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %459, %470
 
 _ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEppEv.exit: ; preds = %_ZN7testing7MessageD2Ev.exit
   %477 = add i64 %.019, 1
-  br label %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.argprom.exit, !llvm.loop !303
+  br label %_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.exit, !llvm.loop !303
 
-478:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit52, %310
+478:                                              ; preds = %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit52, %310
   %479 = landingpad { ptr, i32 }
           cleanup
   br label %.body54
@@ -19506,7 +19506,7 @@ _ZN7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLO
           cleanup
   br label %484
 
-482:                                              ; preds = %446, %457, %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.argprom.exit58, %440
+482:                                              ; preds = %446, %457, %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEEdeEv.exit58, %440
   %483 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #27
@@ -20440,8 +20440,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !137 = distinct !{!137, !138, !"_ZNK7testing8internal14ParamGeneratorIN4perf7MatTypeEE5beginEv: argument 0"}
 !138 = distinct !{!138, !"_ZNK7testing8internal14ParamGeneratorIN4perf7MatTypeEE5beginEv"}
 !139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE5beginEv.argprom: argument 0"}
-!141 = distinct !{!141, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE5beginEv.argprom"}
+!140 = distinct !{!140, !141, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE5beginEv: argument 0"}
+!141 = distinct !{!141, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE5beginEv"}
 !142 = !{!143}
 !143 = distinct !{!143, !144, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE3endEv: argument 0"}
 !144 = distinct !{!144, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE3endEv"}
@@ -20449,8 +20449,8 @@ attributes #33 = { nounwind willreturn memory(read) }
 !146 = distinct !{!146, !147, !"_ZNK7testing8internal14ParamGeneratorIN4perf7MatTypeEE3endEv: argument 0"}
 !147 = distinct !{!147, !"_ZNK7testing8internal14ParamGeneratorIN4perf7MatTypeEE3endEv"}
 !148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE3endEv.argprom: argument 0"}
-!150 = distinct !{!150, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE3endEv.argprom"}
+!149 = distinct !{!149, !150, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE3endEv: argument 0"}
+!150 = distinct !{!150, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE3endEv"}
 !151 = !{!152}
 !152 = distinct !{!152, !153, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE5beginEv: argument 0"}
 !153 = distinct !{!153, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE5beginEv"}
@@ -20464,11 +20464,11 @@ attributes #33 = { nounwind willreturn memory(read) }
 !161 = distinct !{!161, !162, !"_ZNK7testing8internal14ParamGeneratorIN4perf7MatTypeEE3endEv: argument 0"}
 !162 = distinct !{!162, !"_ZNK7testing8internal14ParamGeneratorIN4perf7MatTypeEE3endEv"}
 !163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE5beginEv.argprom: argument 0"}
-!165 = distinct !{!165, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE5beginEv.argprom"}
+!164 = distinct !{!164, !165, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE5beginEv: argument 0"}
+!165 = distinct !{!165, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE5beginEv"}
 !166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE3endEv.argprom: argument 0"}
-!168 = distinct !{!168, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE3endEv.argprom"}
+!167 = distinct !{!167, !168, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE3endEv: argument 0"}
+!168 = distinct !{!168, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEE3endEv"}
 !169 = distinct !{!169, !6}
 !170 = distinct !{!170, !6}
 !171 = distinct !{!171, !6}
@@ -20477,11 +20477,11 @@ attributes #33 = { nounwind willreturn memory(read) }
 !174 = distinct !{!174, !175, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE5beginEv: argument 0"}
 !175 = distinct !{!175, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE5beginEv"}
 !176 = !{!177}
-!177 = distinct !{!177, !178, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE5beginEv.argprom: argument 0"}
-!178 = distinct !{!178, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE5beginEv.argprom"}
+!177 = distinct !{!177, !178, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE5beginEv: argument 0"}
+!178 = distinct !{!178, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE5beginEv"}
 !179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE5beginEv.argprom: argument 0"}
-!181 = distinct !{!181, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE5beginEv.argprom"}
+!180 = distinct !{!180, !181, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE5beginEv: argument 0"}
+!181 = distinct !{!181, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE5beginEv"}
 !182 = !{!183}
 !183 = distinct !{!183, !184, !"_ZNK7testing8internal14ParamGeneratorIiE5beginEv: argument 0"}
 !184 = distinct !{!184, !"_ZNK7testing8internal14ParamGeneratorIiE5beginEv"}
@@ -20492,11 +20492,11 @@ attributes #33 = { nounwind willreturn memory(read) }
 !189 = distinct !{!189, !190, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE3endEv: argument 0"}
 !190 = distinct !{!190, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE3endEv"}
 !191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE3endEv.argprom: argument 0"}
-!193 = distinct !{!193, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE3endEv.argprom"}
+!192 = distinct !{!192, !193, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE3endEv: argument 0"}
+!193 = distinct !{!193, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE3endEv"}
 !194 = !{!195}
-!195 = distinct !{!195, !196, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE3endEv.argprom: argument 0"}
-!196 = distinct !{!196, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE3endEv.argprom"}
+!195 = distinct !{!195, !196, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE3endEv: argument 0"}
+!196 = distinct !{!196, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE3endEv"}
 !197 = !{!198}
 !198 = distinct !{!198, !199, !"_ZNK7testing8internal14ParamGeneratorIiE3endEv: argument 0"}
 !199 = distinct !{!199, !"_ZNK7testing8internal14ParamGeneratorIiE3endEv"}
@@ -20510,17 +20510,17 @@ attributes #33 = { nounwind willreturn memory(read) }
 !207 = distinct !{!207, !208, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE3endEv: argument 0"}
 !208 = distinct !{!208, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE3endEv"}
 !209 = !{!210}
-!210 = distinct !{!210, !211, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE5beginEv.argprom: argument 0"}
-!211 = distinct !{!211, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE5beginEv.argprom"}
+!210 = distinct !{!210, !211, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE5beginEv: argument 0"}
+!211 = distinct !{!211, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE5beginEv"}
 !212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE3endEv.argprom: argument 0"}
-!214 = distinct !{!214, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE3endEv.argprom"}
+!213 = distinct !{!213, !214, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE3endEv: argument 0"}
+!214 = distinct !{!214, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEE3endEv"}
 !215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE5beginEv.argprom: argument 0"}
-!217 = distinct !{!217, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE5beginEv.argprom"}
+!216 = distinct !{!216, !217, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE5beginEv: argument 0"}
+!217 = distinct !{!217, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE5beginEv"}
 !218 = !{!219}
-!219 = distinct !{!219, !220, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE3endEv.argprom: argument 0"}
-!220 = distinct !{!220, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE3endEv.argprom"}
+!219 = distinct !{!219, !220, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE3endEv: argument 0"}
+!220 = distinct !{!220, !"_ZNK7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEE3endEv"}
 !221 = !{!222}
 !222 = distinct !{!222, !223, !"_ZNK7testing8internal14ParamGeneratorIiE5beginEv: argument 0"}
 !223 = distinct !{!223, !"_ZNK7testing8internal14ParamGeneratorIiE5beginEv"}
@@ -20535,11 +20535,11 @@ attributes #33 = { nounwind willreturn memory(read) }
 !232 = distinct !{!232, !"_ZNK7testing8internal14ParamGeneratorIdE3endEv"}
 !233 = distinct !{!233, !6}
 !234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.argprom: argument 0"}
-!236 = distinct !{!236, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv.argprom"}
+!235 = distinct !{!235, !236, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv: argument 0"}
+!236 = distinct !{!236, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE5beginEv"}
 !237 = !{!238}
-!238 = distinct !{!238, !239, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE3endEv.argprom: argument 0"}
-!239 = distinct !{!239, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE3endEv.argprom"}
+!238 = distinct !{!238, !239, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE3endEv: argument 0"}
+!239 = distinct !{!239, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEN11opencv_test12_GLOBAL__N_110ThreshTypeEEEE3endEv"}
 !240 = distinct !{!240, !6}
 !241 = distinct !{!241, !6}
 !242 = distinct !{!242, !6}
@@ -20587,11 +20587,11 @@ attributes #33 = { nounwind willreturn memory(read) }
 !284 = distinct !{!284, !283, !"_ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test24Size_Only_threshold_otsuEE17InstantiationInfoES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
 !285 = distinct !{!285, !6}
 !286 = !{!287}
-!287 = distinct !{!287, !288, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.argprom: argument 0"}
-!288 = distinct !{!288, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv.argprom"}
+!287 = distinct !{!287, !288, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv: argument 0"}
+!288 = distinct !{!288, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE5beginEv"}
 !289 = !{!290}
-!290 = distinct !{!290, !291, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE3endEv.argprom: argument 0"}
-!291 = distinct !{!291, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE3endEv.argprom"}
+!290 = distinct !{!290, !291, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE3endEv: argument 0"}
+!291 = distinct !{!291, !"_ZNK7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GLOBAL__N_115AdaptThreshTypeENS7_17AdaptThreshMethodEidEEE3endEv"}
 !292 = distinct !{!292, !6}
 !293 = distinct !{!293, !6}
 !294 = !{!295}

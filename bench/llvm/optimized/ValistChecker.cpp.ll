@@ -1261,7 +1261,7 @@ define internal void @_ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_113
   %24 = getelementptr inbounds i8, ptr %23, i64 96
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 0) #19
-  %27 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE.argprom(ptr %.fca.0.extract.i.i, i8 %.fca.1.extract.i.i, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %27 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE(ptr %.fca.0.extract.i.i, i8 %.fca.1.extract.i.i, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(81) %2)
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_113ValistChecker18checkVAListEndCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i, label %28
 
@@ -1499,7 +1499,7 @@ _ZN12_GLOBAL__N_113ValistChecker14VAListAccepterC2ERKS1_.exit.i: ; preds = %.lr.
   %115 = getelementptr inbounds i8, ptr %114, i64 96
   %116 = load ptr, ptr %115, align 8
   %117 = call noundef ptr %116(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %113) #19
-  %118 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE.argprom(ptr %.fca.0.extract.i, i8 %.fca.1.extract.i, ptr noundef %117, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %118 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE(ptr %.fca.0.extract.i, i8 %.fca.1.extract.i, ptr noundef %117, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(81) %2)
   %.not29.i = icmp eq ptr %118, null
   br i1 %.not29.i, label %_ZN4llvm11SmallStringILj80EED2Ev.exit.i, label %119
 
@@ -1667,7 +1667,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_113ValistChecker20checkVAListStart
   %29 = getelementptr inbounds i8, ptr %28, i64 96
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 0) #19
-  %32 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE.argprom(ptr %.fca.0.extract18, i8 %.fca.1.extract19, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %32 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE(ptr %.fca.0.extract18, i8 %.fca.1.extract19, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(81) %2)
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit114, label %33
 
@@ -1697,7 +1697,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   %45 = getelementptr inbounds i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 1) #19
-  %48 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE.argprom(ptr %.fca.0.extract, i8 %.fca.1.extract, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %48 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE(ptr %.fca.0.extract, i8 %.fca.1.extract, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(81) %2)
   %.not53 = icmp eq ptr %48, null
   br i1 %.not53, label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118InitializedVAListsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit, label %49
 
@@ -2268,7 +2268,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit114: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE.argprom(ptr %0, i8 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %4) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE(ptr %0, i8 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.clang::ento::SVal", align 8
   %7 = alloca %"class.clang::ento::SVal", align 8
   store ptr %0, ptr %6, align 8
@@ -2796,14 +2796,14 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %90 = load ptr, ptr %89, align 8
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %59) #19
   %.not.i28 = icmp eq ptr %90, null
-  br i1 %.not.i28, label %_ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNodeEPKNS2_9MemRegionE.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i28, label %_ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNodeEPKNS2_9MemRegionE.exit, label %.lr.ph.i
 
 .loopexit.sink.split.i:                           ; preds = %82, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118InitializedVAListsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread.i
   %.01810.ph.i = phi ptr [ %.01812.i, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118InitializedVAListsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.thread.i ], [ %.3.i, %82 ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %59) #19
-  br label %_ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNodeEPKNS2_9MemRegionE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNodeEPKNS2_9MemRegionE.exit
 
-_ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNodeEPKNS2_9MemRegionE.argprom.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %.loopexit.sink.split.i
+_ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNodeEPKNS2_9MemRegionE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %.loopexit.sink.split.i
   %.01810.i = phi ptr [ %.01810.ph.i, %.loopexit.sink.split.i ], [ %.3.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ]
   store i32 1, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %31, i8 0, i64 28, i1 false)
@@ -2812,7 +2812,7 @@ _ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNode
   %.not24 = icmp eq ptr %91, null
   br i1 %.not24, label %101, label %92
 
-92:                                               ; preds = %_ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNodeEPKNS2_9MemRegionE.argprom.exit
+92:                                               ; preds = %_ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNodeEPKNS2_9MemRegionE.exit
   %93 = load ptr, ptr %6, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 664
   %95 = load ptr, ptr %94, align 8
@@ -2827,7 +2827,7 @@ _ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNode
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %12, ptr noundef nonnull align 8 dereferenceable(60) %13, i64 60, i1 false)
   br label %101
 
-101:                                              ; preds = %92, %_ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNodeEPKNS2_9MemRegionE.argprom.exit
+101:                                              ; preds = %92, %_ZNK12_GLOBAL__N_113ValistChecker16getStartCallSiteEPKN5clang4ento12ExplodedNodeEPKNS2_9MemRegionE.exit
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull %33, i64 noundef 100) #19
   store i32 2, ptr %34, align 8
   store i8 0, ptr %35, align 8
@@ -6509,7 +6509,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %22, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %22, 1
-  %23 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE.argprom(ptr %.fca.0.extract.i, i8 %.fca.1.extract.i, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %23 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_113ValistChecker17getVAListAsRegionEN5clang4ento4SValEPKNS1_4ExprERbRNS2_14CheckerContextE(ptr %.fca.0.extract.i, i8 %.fca.1.extract.i, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(81) %2)
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118InitializedVAListsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i, label %24
 
@@ -7208,7 +7208,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepter
   %_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE.val2.i.i.i.i.i.i.i = load ptr, ptr @_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE, align 8
   %83 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE) #19
   %.not4.i.i.i.i.i.i.i.i = icmp eq i64 %83, 0
-  br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE19moveElementsForGrowEPS3_.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i.i.i.i.i.i
   %84 = getelementptr inbounds %"struct.(anonymous namespace)::ValistChecker::VAListAccepter", ptr %_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE.val2.i.i.i.i.i.i.i, i64 %83
@@ -7251,24 +7251,24 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZN12_GLOBAL__N_113ValistChecker14VAListAccepterD2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %92, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE.val2.i.i.i.i.i.i.i, %85
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE19moveElementsForGrowEPS3_.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !6
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE19moveElementsForGrowEPS3_.argprom.exit.i.i.i.i.i.i: ; preds = %_ZN12_GLOBAL__N_113ValistChecker14VAListAccepterD2Ev.exit.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i.i.i.i.i.i
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i.i.i: ; preds = %_ZN12_GLOBAL__N_113ValistChecker14VAListAccepterD2Ev.exit.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i.i.i.i.i.i
   %98 = load i64, ptr %4, align 8
   %99 = load ptr, ptr @_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE, align 8
   %100 = icmp eq ptr %99, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE, i64 16)
-  br i1 %100, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE4growEm.argprom.exit.i.i.i.i.i, label %101
+  br i1 %100, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE4growEm.exit.i.i.i.i.i, label %101
 
-101:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE19moveElementsForGrowEPS3_.argprom.exit.i.i.i.i.i.i
+101:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i.i.i
   call void @free(ptr noundef %99) #19
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE4growEm.argprom.exit.i.i.i.i.i
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE4growEm.exit.i.i.i.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE4growEm.argprom.exit.i.i.i.i.i: ; preds = %101, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE19moveElementsForGrowEPS3_.argprom.exit.i.i.i.i.i.i
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE4growEm.exit.i.i.i.i.i: ; preds = %101, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i.i.i
   call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE, ptr noundef %64, i64 noundef %98) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.lr.ph.i.i.i.i8.preheader.i.i.i.i
 
-.lr.ph.i.i.i.i8.preheader.i.i.i.i:                ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE4growEm.argprom.exit.i.i.i.i.i, %0
+.lr.ph.i.i.i.i8.preheader.i.i.i.i:                ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ValistChecker14VAListAccepterELb0EE4growEm.exit.i.i.i.i.i, %0
   %.val.i.i.i.i.i = load ptr, ptr @_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE, align 8
   %102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE) #19
   %103 = getelementptr inbounds %"struct.(anonymous namespace)::ValistChecker::VAListAccepter", ptr %.val.i.i.i.i.i, i64 %102
@@ -7339,17 +7339,17 @@ _ZSt10_ConstructIN12_GLOBAL__N_113ValistChecker14VAListAccepterEJRKS2_EEvPT_DpOT
   %.0811.i.i.i.i.i.add.i.i.i = add nuw nsw i64 %.0811.i.i.i.i.i.idx.i.i.i, 72
   %130 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i.i, i64 72
   %.not.i.i.i.i9.i.i.i.i = icmp eq i64 %.0811.i.i.i.i.i.add.i.i.i, 936
-  br i1 %.not.i.i.i.i9.i.i.i.i, label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ValistChecker14VAListAccepterELj15EEC2ESt16initializer_listIS3_E.argprom.exit.i, label %.lr.ph.i.i.i.i8.i.i.i.i, !llvm.loop !148
+  br i1 %.not.i.i.i.i9.i.i.i.i, label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ValistChecker14VAListAccepterELj15EEC2ESt16initializer_listIS3_E.exit.i, label %.lr.ph.i.i.i.i8.i.i.i.i, !llvm.loop !148
 
-_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ValistChecker14VAListAccepterELj15EEC2ESt16initializer_listIS3_E.argprom.exit.i: ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_113ValistChecker14VAListAccepterEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i
+_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ValistChecker14VAListAccepterELj15EEC2ESt16initializer_listIS3_E.exit.i: ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_113ValistChecker14VAListAccepterEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i
   %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE) #19
   %132 = add i64 %131, 13
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_113ValistChecker15VAListAcceptersE, i64 noundef %132) #19
   %133 = getelementptr inbounds i8, ptr %5, i64 936
   br label %134
 
-134:                                              ; preds = %_ZN12_GLOBAL__N_113ValistChecker14VAListAccepterD2Ev.exit.i, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ValistChecker14VAListAccepterELj15EEC2ESt16initializer_listIS3_E.argprom.exit.i
-  %135 = phi ptr [ %133, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ValistChecker14VAListAccepterELj15EEC2ESt16initializer_listIS3_E.argprom.exit.i ], [ %136, %_ZN12_GLOBAL__N_113ValistChecker14VAListAccepterD2Ev.exit.i ]
+134:                                              ; preds = %_ZN12_GLOBAL__N_113ValistChecker14VAListAccepterD2Ev.exit.i, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ValistChecker14VAListAccepterELj15EEC2ESt16initializer_listIS3_E.exit.i
+  %135 = phi ptr [ %133, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ValistChecker14VAListAccepterELj15EEC2ESt16initializer_listIS3_E.exit.i ], [ %136, %_ZN12_GLOBAL__N_113ValistChecker14VAListAccepterD2Ev.exit.i ]
   %136 = getelementptr inbounds i8, ptr %135, i64 -72
   %137 = getelementptr inbounds i8, ptr %135, i64 -56
   %138 = load ptr, ptr %137, align 8
@@ -7540,8 +7540,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !50 = distinct !{!50, !51, !"_ZSt11make_uniqueIN5clang4ento22PathSensitiveBugReportEJRNS1_7BugTypeERN4llvm9StringRefERPNS1_12ExplodedNodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !51 = distinct !{!51, !"_ZSt11make_uniqueIN5clang4ento22PathSensitiveBugReportEJRNS1_7BugTypeERN4llvm9StringRefERPNS1_12ExplodedNodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZSt11make_uniqueIN12_GLOBAL__N_113ValistChecker16ValistBugVisitorEJRPKN5clang4ento9MemRegionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!54 = distinct !{!54, !"_ZSt11make_uniqueIN12_GLOBAL__N_113ValistChecker16ValistBugVisitorEJRPKN5clang4ento9MemRegionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!53 = distinct !{!53, !54, !"_ZSt11make_uniqueIN12_GLOBAL__N_113ValistChecker16ValistBugVisitorEJRPKN5clang4ento9MemRegionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!54 = distinct !{!54, !"_ZSt11make_uniqueIN12_GLOBAL__N_113ValistChecker16ValistBugVisitorEJRPKN5clang4ento9MemRegionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !55 = !{!56}
 !56 = distinct !{!56, !57, !"_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableSetIPKNS0_9MemRegionENS2_17ImutContainerInfoIS6_EEEEvE8MakeDataEPKPv: argument 0"}
 !57 = distinct !{!57, !"_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableSetIPKNS0_9MemRegionENS2_17ImutContainerInfoIS6_EEEEvE8MakeDataEPKPv"}
@@ -7549,8 +7549,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !59 = distinct !{!59, !60, !"_ZSt11make_uniqueIN5clang4ento22PathSensitiveBugReportEJRNS1_7BugTypeEN4llvm9StringRefERPNS1_12ExplodedNodeERNS1_22PathDiagnosticLocationEPKNS0_4DeclEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !60 = distinct !{!60, !"_ZSt11make_uniqueIN5clang4ento22PathSensitiveBugReportEJRNS1_7BugTypeEN4llvm9StringRefERPNS1_12ExplodedNodeERNS1_22PathDiagnosticLocationEPKNS0_4DeclEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZSt11make_uniqueIN12_GLOBAL__N_113ValistChecker16ValistBugVisitorEJRPKN5clang4ento9MemRegionEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!63 = distinct !{!63, !"_ZSt11make_uniqueIN12_GLOBAL__N_113ValistChecker16ValistBugVisitorEJRPKN5clang4ento9MemRegionEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!62 = distinct !{!62, !63, !"_ZSt11make_uniqueIN12_GLOBAL__N_113ValistChecker16ValistBugVisitorEJRPKN5clang4ento9MemRegionEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!63 = distinct !{!63, !"_ZSt11make_uniqueIN12_GLOBAL__N_113ValistChecker16ValistBugVisitorEJRPKN5clang4ento9MemRegionEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !64 = !{!65}
 !65 = distinct !{!65, !66, !"_ZN5clang4ento19ProgramStateManager6removeIN12_GLOBAL__N_118InitializedVAListsEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E8key_typeENSC_12context_typeE: argument 0"}
 !66 = distinct !{!66, !"_ZN5clang4ento19ProgramStateManager6removeIN12_GLOBAL__N_118InitializedVAListsEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E8key_typeENSC_12context_typeE"}

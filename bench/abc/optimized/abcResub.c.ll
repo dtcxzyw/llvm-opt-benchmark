@@ -565,21 +565,21 @@ Abc_ManResubStart.exit:                           ; preds = %Vec_PtrAlloc.exit92
   %296 = load i32, ptr %236, align 4
   %297 = sext i32 %296 to i64
   %298 = icmp slt i64 %indvars.iv380, %297
-  br i1 %298, label %Extra_ProgressBarUpdate.argprom.exit, label %299
+  br i1 %298, label %Extra_ProgressBarUpdate.exit, label %299
 
 299:                                              ; preds = %295, %294
   %300 = trunc nuw nsw i64 %indvars.iv380 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %236, i32 noundef %300, ptr noundef null) #17
   %.val141.pre = load i32, ptr %292, align 4
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %295, %299
+Extra_ProgressBarUpdate.exit:                     ; preds = %295, %299
   %.val141 = phi i32 [ %.val140, %295 ], [ %.val141.pre, %299 ]
   %301 = and i32 %.val141, 512
   %.not117 = icmp eq i32 %301, 0
   br i1 %.not117, label %302, label %1483
 
-302:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
+302:                                              ; preds = %Extra_ProgressBarUpdate.exit
   %303 = getelementptr i8, ptr %289, i64 44
   %.val142 = load i32, ptr %303, align 4
   %304 = icmp sgt i32 %.val142, 1000
@@ -914,7 +914,7 @@ Vec_PtrPush.exit.i.i:                             ; preds = %439, %Vec_PtrGrow.e
   %448 = load i32, ptr %447, align 8
   %449 = getelementptr inbounds i8, ptr %.val116.i.i, i64 224
   %450 = add nsw i32 %.val117.i.i, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %449, i32 noundef %450)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %449, i32 noundef %450)
   %451 = getelementptr i8, ptr %.val116.i.i, i64 232
   %.val.i.i.i.i.i = load ptr, ptr %451, align 8
   %452 = sext i32 %.val117.i.i to i64
@@ -1162,7 +1162,7 @@ Vec_IntFillExtra.exit.i.i:                        ; preds = %._crit_edge.i.i.i, 
   %.val3.i132.i.i = load i32, ptr %566, align 8
   %567 = getelementptr inbounds i8, ptr %.val2.i131.i.i, i64 224
   %568 = add nsw i32 %.val3.i132.i.i, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %567, i32 noundef %568)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %567, i32 noundef %568)
   %569 = getelementptr i8, ptr %.val2.i131.i.i, i64 232
   %.val.i.i.i133.i.i = load ptr, ptr %569, align 8
   %570 = sext i32 %.val3.i132.i.i to i64
@@ -1191,7 +1191,7 @@ Vec_IntFillExtra.exit.i.i:                        ; preds = %._crit_edge.i.i.i, 
   %.val3.i136.i.i = load i32, ptr %582, align 8
   %583 = getelementptr inbounds i8, ptr %.val2.i135.i.i, i64 224
   %584 = add nsw i32 %.val3.i136.i.i, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %583, i32 noundef %584)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %583, i32 noundef %584)
   %585 = getelementptr i8, ptr %.val2.i135.i.i, i64 232
   %.val.i.i.i137.i.i = load ptr, ptr %585, align 8
   %586 = sext i32 %.val3.i136.i.i to i64
@@ -1300,7 +1300,7 @@ Vec_PtrPush.exit145.i.i:                          ; preds = %630, %Vec_PtrGrow.e
   %638 = load i32, ptr %637, align 8
   %639 = getelementptr inbounds i8, ptr %.val114.i.i, i64 224
   %640 = add nsw i32 %.val115.i.i, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %639, i32 noundef %640)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %639, i32 noundef %640)
   %641 = getelementptr i8, ptr %.val114.i.i, i64 232
   %.val.i.i.i146.i.i = load ptr, ptr %641, align 8
   %642 = sext i32 %.val115.i.i to i64
@@ -2904,7 +2904,7 @@ Abc_Clock.exit172:                                ; preds = %Abc_ManResubDivs1.e
 
 1403:                                             ; preds = %1400
   %1404 = call fastcc i64 @Abc_Clock()
-  %1405 = call fastcc ptr @Abc_ManResubDivs12.argelim(ptr noundef nonnull %calloc.i)
+  %1405 = call fastcc ptr @Abc_ManResubDivs12(ptr noundef nonnull %calloc.i)
   %.not105.i = icmp eq ptr %1405, null
   %1406 = call fastcc i64 @Abc_Clock()
   %1407 = sub i64 %1406, %1404
@@ -2928,7 +2928,7 @@ Abc_Clock.exit172:                                ; preds = %Abc_ManResubDivs1.e
   %1418 = add nsw i64 %1416, %1417
   store i64 %1418, ptr %268, align 8
   %1419 = call fastcc i64 @Abc_Clock()
-  %1420 = call fastcc ptr @Abc_ManResubDivs2.argelim(ptr noundef nonnull %calloc.i)
+  %1420 = call fastcc ptr @Abc_ManResubDivs2(ptr noundef nonnull %calloc.i)
   %.not106.i = icmp eq ptr %1420, null
   %1421 = call fastcc i64 @Abc_Clock()
   %1422 = sub i64 %1421, %1419
@@ -2953,7 +2953,7 @@ Abc_Clock.exit172:                                ; preds = %Abc_ManResubDivs1.e
 
 1432:                                             ; preds = %1429
   %1433 = call fastcc i64 @Abc_Clock()
-  %1434 = call fastcc ptr @Abc_ManResubDivs3.argelim(ptr noundef nonnull %calloc.i)
+  %1434 = call fastcc ptr @Abc_ManResubDivs3(ptr noundef nonnull %calloc.i)
   %.not107.i = icmp eq ptr %1434, null
   %1435 = call fastcc i64 @Abc_Clock()
   %1436 = sub i64 %1435, %1433
@@ -3060,7 +3060,7 @@ Abc_Clock.exit164:                                ; preds = %Abc_Clock.exit162, 
   call void @free(ptr noundef nonnull %.0.i154) #17
   br label %1483
 
-1483:                                             ; preds = %.sink.split, %291, %285, %Abc_Clock.exit159, %302, %Extra_ProgressBarUpdate.argprom.exit
+1483:                                             ; preds = %.sink.split, %291, %285, %Abc_Clock.exit159, %302, %Extra_ProgressBarUpdate.exit
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %1484 = load ptr, ptr %233, align 8
   %1485 = getelementptr i8, ptr %1484, i64 4
@@ -3512,7 +3512,7 @@ define void @Abc_ManResubCollectDivs_rec(ptr noundef %0, ptr noundef %1) local_u
   %.val3.i = load i32, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %5 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %4, i32 noundef %5)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %4, i32 noundef %5)
   %6 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %6, align 8
   %7 = sext i32 %.val3.i to i64
@@ -3528,7 +3528,7 @@ define void @Abc_ManResubCollectDivs_rec(ptr noundef %0, ptr noundef %1) local_u
   %.val9 = load i32, ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %14 = add nsw i32 %.val9, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %13, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %13, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i14 = load ptr, ptr %15, align 8
   %16 = sext i32 %.val9 to i64
@@ -4285,7 +4285,7 @@ define i32 @Abc_CutVolumeCheck_rec(ptr nocapture noundef readonly %0) local_unna
   %.val3.i16 = load i32, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %.val2.i15, i64 224
   %4 = add nsw i32 %.val3.i16, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %4)
   %5 = getelementptr i8, ptr %.val2.i15, i64 232
   %.val.i.i.i17 = load ptr, ptr %5, align 8
   %6 = sext i32 %.val3.i16 to i64
@@ -4306,7 +4306,7 @@ define i32 @Abc_CutVolumeCheck_rec(ptr nocapture noundef readonly %0) local_unna
   %.val6 = load i32, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %.val.i22, i64 224
   %14 = add nsw i32 %.val6, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %13, i32 noundef %14)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %13, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val.i22, i64 232
   %.val.i.i.i12 = load ptr, ptr %15, align 8
   %16 = sext i32 %.val6 to i64
@@ -4355,7 +4355,7 @@ tailrecurse:                                      ; preds = %.lr.ph, %20
   %.val3.i = load i32, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %38 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %37, i32 noundef %38)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %37, i32 noundef %38)
   %39 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %39, align 8
   %40 = sext i32 %.val3.i to i64
@@ -4650,7 +4650,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -4752,7 +4752,7 @@ declare i32 @Abc_ObjRequiredLevel(ptr noundef) local_unnamed_addr #1
 declare i32 @Abc_NodeMffcInside(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs12.argelim(ptr nocapture noundef %0) unnamed_addr #11 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture noundef %0) unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -7567,7 +7567,7 @@ Vec_PtrPush.exit282:                              ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs2.argelim(ptr nocapture noundef %0) unnamed_addr #11 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noundef %0) unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -8457,7 +8457,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2.argelim(ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs3.argelim(ptr nocapture noundef %0) unnamed_addr #11 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs3(ptr nocapture noundef %0) unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56

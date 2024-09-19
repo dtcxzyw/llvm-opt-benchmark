@@ -203,7 +203,7 @@ Ndr_AddModule.exit:
   %35 = getelementptr inbounds i8, ptr %.val66, i64 %26
   %36 = load i8, ptr %35, align 1
   %37 = sext i8 %36 to i32
-  call fastcc void @Ndr_AddObject.argelim(ptr noundef nonnull %2, i32 noundef 258, i32 noundef 3, i32 noundef %32, i32 noundef %34, i32 noundef %37, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %1, ptr noundef null)
+  call fastcc void @Ndr_AddObject(ptr noundef nonnull %2, i32 noundef 258, i32 noundef 3, i32 noundef %32, i32 noundef %34, i32 noundef %37, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %1, ptr noundef null)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val51 = load i32, ptr %14, align 4
   %.val52 = load i32, ptr %15, align 4
@@ -267,19 +267,19 @@ Ndr_AddModule.exit:
 67:                                               ; preds = %.lr.ph93
   %68 = load ptr, ptr %66, align 8
   %69 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv105
-  br label %Wln_ObjFanin.argprom.exit
+  br label %Wln_ObjFanin.exit
 
 70:                                               ; preds = %.lr.ph93
   %71 = getelementptr inbounds [2 x i32], ptr %66, i64 0, i64 %indvars.iv105
-  br label %Wln_ObjFanin.argprom.exit
+  br label %Wln_ObjFanin.exit
 
-Wln_ObjFanin.argprom.exit:                        ; preds = %67, %70
+Wln_ObjFanin.exit:                                ; preds = %67, %70
   %.in.i = phi ptr [ %69, %67 ], [ %71, %70 ]
   %72 = load i32, ptr %.in.i, align 4
   %.not50 = icmp eq i32 %72, 0
   br i1 %.not50, label %101, label %73
 
-73:                                               ; preds = %Wln_ObjFanin.argprom.exit
+73:                                               ; preds = %Wln_ObjFanin.exit
   %74 = load i32, ptr %42, align 4
   %75 = load i32, ptr %41, align 8
   %76 = icmp eq i32 %74, %75
@@ -345,9 +345,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val72.pre = load ptr, ptr %48, align 8
   br label %101
 
-101:                                              ; preds = %Vec_IntPush.exit, %Wln_ObjFanin.argprom.exit
-  %.val72 = phi ptr [ %.val72.pre, %Vec_IntPush.exit ], [ %.val72111, %Wln_ObjFanin.argprom.exit ]
-  %102 = phi i32 [ %.pre, %Vec_IntPush.exit ], [ %62, %Wln_ObjFanin.argprom.exit ]
+101:                                              ; preds = %Vec_IntPush.exit, %Wln_ObjFanin.exit
+  %.val72 = phi ptr [ %.val72.pre, %Vec_IntPush.exit ], [ %.val72111, %Wln_ObjFanin.exit ]
+  %102 = phi i32 [ %.pre, %Vec_IntPush.exit ], [ %62, %Wln_ObjFanin.exit ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val72, i64 %103, i32 1
@@ -399,7 +399,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 124:                                              ; preds = %.critedge2, %122
   %125 = phi ptr [ %123, %122 ], [ null, %.critedge2 ]
-  call fastcc void @Ndr_AddObject.argelim(ptr noundef nonnull %2, i32 noundef 258, i32 noundef %108, i32 noundef %116, i32 noundef %118, i32 noundef %121, i32 noundef %.val, ptr noundef %.val74, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %125)
+  call fastcc void @Ndr_AddObject(ptr noundef nonnull %2, i32 noundef 258, i32 noundef %108, i32 noundef %116, i32 noundef %118, i32 noundef %121, i32 noundef %.val, ptr noundef %.val74, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %125)
   %.val69.pre = load i32, ptr %45, align 4
   br label %126
 
@@ -463,7 +463,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge, %131
   %152 = getelementptr inbounds i8, ptr %.val68, i64 %143
   %153 = load i8, ptr %152, align 1
   %154 = sext i8 %153 to i32
-  call fastcc void @Ndr_AddObject.argelim(ptr noundef nonnull %2, i32 noundef 258, i32 noundef 4, i32 noundef %149, i32 noundef %151, i32 noundef %154, i32 noundef 1, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null, ptr noundef null)
+  call fastcc void @Ndr_AddObject(ptr noundef nonnull %2, i32 noundef 258, i32 noundef 4, i32 noundef %149, i32 noundef %151, i32 noundef %154, i32 noundef 1, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null, ptr noundef null)
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %.val76 = load i32, ptr %132, align 4
   %.val77 = load i32, ptr %15, align 4
@@ -477,7 +477,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge, %131
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Ndr_AddObject.argelim(ptr noundef %0, i32 noundef range(i32 -2147483392, -2147483648) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 -128, 128) %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef range(i32 0, 2) %8, ptr nocapture noundef readonly %9, ptr noundef %10) unnamed_addr #1 {
+define internal fastcc void @Ndr_AddObject(ptr noundef %0, i32 noundef range(i32 -2147483392, -2147483648) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 -128, 128) %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef range(i32 0, 2) %8, ptr nocapture noundef readonly %9, ptr noundef %10) unnamed_addr #1 {
   %12 = load i32, ptr %0, align 8
   %13 = add nsw i32 %12, 6
   %14 = getelementptr inbounds i8, ptr %0, i64 4
@@ -933,7 +933,7 @@ Abc_UtilStrsav.exit:                              ; preds = %.lr.ph, %11
   %.val88.i = load ptr, ptr %22, align 8
   %23 = load i32, ptr %.val88.i, align 4
   %24 = icmp sgt i32 %23, 1
-  br i1 %24, label %.lr.ph.i, label %Ndr_WriteVerilog.argprom.exit
+  br i1 %24, label %.lr.ph.i, label %Ndr_WriteVerilog.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %25 = getelementptr i8, ptr %2, i64 8
@@ -942,7 +942,7 @@ Abc_UtilStrsav.exit:                              ; preds = %.lr.ph, %11
 
 26:                                               ; preds = %._crit_edge
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull @.str.22)
-  br label %Ndr_WriteVerilog.argprom.exit
+  br label %Ndr_WriteVerilog.exit
 
 28:                                               ; preds = %Ndr_DataSize.exit.i, %.lr.ph.i
   %.val.pre186.i = phi ptr [ %.val88.i, %.lr.ph.i ], [ %.val.pre.i, %Ndr_DataSize.exit.i ]
@@ -3582,14 +3582,14 @@ Ndr_DataSize.exit.i:                              ; preds = %1363, %1360
   %1367 = add nsw i32 %1366, %.089.i
   %1368 = load i32, ptr %.val.pre.i, align 4
   %1369 = icmp slt i32 %1367, %1368
-  br i1 %1369, label %28, label %Ndr_WriteVerilog.argprom.exit, !llvm.loop !25
+  br i1 %1369, label %28, label %Ndr_WriteVerilog.exit, !llvm.loop !25
 
-Ndr_WriteVerilog.argprom.exit:                    ; preds = %Ndr_DataSize.exit.i, %.preheader.i, %26
+Ndr_WriteVerilog.exit:                            ; preds = %Ndr_DataSize.exit.i, %.preheader.i, %26
   %1370 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.20)
   %1371 = icmp eq ptr %1370, null
   br i1 %1371, label %Ndr_Write.exit, label %Ndr_Write.exit.thread
 
-Ndr_Write.exit.thread:                            ; preds = %Ndr_WriteVerilog.argprom.exit
+Ndr_Write.exit.thread:                            ; preds = %Ndr_WriteVerilog.exit
   %1372 = getelementptr inbounds i8, ptr %2, i64 16
   %1373 = load ptr, ptr %1372, align 8
   %1374 = load i32, ptr %1373, align 4
@@ -3604,7 +3604,7 @@ Ndr_Write.exit.thread:                            ; preds = %Ndr_WriteVerilog.ar
   %1383 = tail call i32 @fclose(ptr noundef nonnull %1370)
   br label %1385
 
-Ndr_Write.exit:                                   ; preds = %Ndr_WriteVerilog.argprom.exit
+Ndr_Write.exit:                                   ; preds = %Ndr_WriteVerilog.exit
   %1384 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull @.str.1)
   %.not.i29 = icmp eq ptr %2, null
   br i1 %.not.i29, label %Ndr_Delete.exit, label %1385
@@ -3812,25 +3812,25 @@ define void @Ndr_NtkPrintObjects(ptr nocapture noundef readonly %0) local_unname
 21:                                               ; preds = %.lr.ph
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
-  br label %Wln_ObjFanin.argprom.exit
+  br label %Wln_ObjFanin.exit
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds [2 x i32], ptr %20, i64 0, i64 %indvars.iv
-  br label %Wln_ObjFanin.argprom.exit
+  br label %Wln_ObjFanin.exit
 
-Wln_ObjFanin.argprom.exit:                        ; preds = %21, %24
+Wln_ObjFanin.exit:                                ; preds = %21, %24
   %.in.i = phi ptr [ %23, %21 ], [ %25, %24 ]
   %26 = load i32, ptr %.in.i, align 4
   %.not23 = icmp eq i32 %26, 0
   br i1 %.not23, label %29, label %27
 
-27:                                               ; preds = %Wln_ObjFanin.argprom.exit
+27:                                               ; preds = %Wln_ObjFanin.exit
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %26)
   %.val24.pre = load ptr, ptr %4, align 8
   br label %29
 
-29:                                               ; preds = %27, %Wln_ObjFanin.argprom.exit
-  %.val24 = phi ptr [ %.val24.pre, %27 ], [ %.val2453, %Wln_ObjFanin.argprom.exit ]
+29:                                               ; preds = %27, %Wln_ObjFanin.exit
+  %.val24 = phi ptr [ %.val24.pre, %27 ], [ %.val2453, %Wln_ObjFanin.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val24, i64 %indvars.iv50, i32 1
   %31 = load i32, ptr %30, align 4
@@ -4047,7 +4047,7 @@ Ndr_ObjReadBody.exit68.thread:                    ; preds = %Ndr_DataSize.exit.i
 
 56:                                               ; preds = %Ndr_ObjReadBody.exit
   %57 = add nuw nsw i32 %38, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %2, i32 noundef %57)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2, i32 noundef %57)
   %.val.i = load ptr, ptr %5, align 8
   %58 = sext i32 %38 to i64
   %59 = getelementptr inbounds i32, ptr %.val.i, i64 %58
@@ -4056,7 +4056,7 @@ Ndr_ObjReadBody.exit68.thread:                    ; preds = %Ndr_DataSize.exit.i
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %56
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %2, i32 noundef %57)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2, i32 noundef %57)
   %.val.i69 = load ptr, ptr %5, align 8
   %63 = getelementptr inbounds i32, ptr %.val.i69, i64 %58
   %64 = load i32, ptr %63, align 4
@@ -4064,7 +4064,7 @@ Ndr_ObjReadBody.exit68.thread:                    ; preds = %Ndr_DataSize.exit.i
   br label %66
 
 66:                                               ; preds = %62, %56
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %2, i32 noundef %57)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2, i32 noundef %57)
   %.val.i70 = load ptr, ptr %5, align 8
   %67 = getelementptr inbounds i32, ptr %.val.i70, i64 %58
   store i32 %.0104, ptr %67, align 4
@@ -5854,13 +5854,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %649 = load i32, ptr %648, align 4
   %650 = icmp sgt i32 %649, 2
   %651 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val201, i64 %366, i32 2
-  br i1 %650, label %652, label %Wln_ObjFanin0.argprom.exit
+  br i1 %650, label %652, label %Wln_ObjFanin0.exit
 
 652:                                              ; preds = %647
   %653 = load ptr, ptr %651, align 8
-  br label %Wln_ObjFanin0.argprom.exit
+  br label %Wln_ObjFanin0.exit
 
-Wln_ObjFanin0.argprom.exit:                       ; preds = %647, %652
+Wln_ObjFanin0.exit:                               ; preds = %647, %652
   %.in.i.i = phi ptr [ %653, %652 ], [ %651, %647 ]
   %654 = load i32, ptr %.in.i.i, align 4
   tail call fastcc void @Wln_ObjSetSigned(ptr noundef nonnull %31, i32 noundef %654)
@@ -5869,20 +5869,20 @@ Wln_ObjFanin0.argprom.exit:                       ; preds = %647, %652
   %656 = load i32, ptr %655, align 4
   %657 = icmp sgt i32 %656, 2
   %658 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val195, i64 %366, i32 2
-  br i1 %657, label %659, label %Wln_ObjFanin1.argprom.exit
+  br i1 %657, label %659, label %Wln_ObjFanin1.exit
 
-659:                                              ; preds = %Wln_ObjFanin0.argprom.exit
+659:                                              ; preds = %Wln_ObjFanin0.exit
   %660 = load ptr, ptr %658, align 8
-  br label %Wln_ObjFanin1.argprom.exit
+  br label %Wln_ObjFanin1.exit
 
-Wln_ObjFanin1.argprom.exit:                       ; preds = %Wln_ObjFanin0.argprom.exit, %659
-  %.pn.i = phi ptr [ %660, %659 ], [ %658, %Wln_ObjFanin0.argprom.exit ]
+Wln_ObjFanin1.exit:                               ; preds = %Wln_ObjFanin0.exit, %659
+  %.pn.i = phi ptr [ %660, %659 ], [ %658, %Wln_ObjFanin0.exit ]
   %.in.i.i322 = getelementptr inbounds i8, ptr %.pn.i, i64 4
   %661 = load i32, ptr %.in.i.i322, align 4
   tail call fastcc void @Wln_ObjSetSigned(ptr noundef nonnull %31, i32 noundef %661)
   br label %Ndr_ObjIsType.exit238.thread
 
-Ndr_ObjIsType.exit238.thread:                     ; preds = %Ndr_DataSize.exit.i237, %Ndr_DataSize.exit.i244, %Ndr_ObjIsType.exit238, %198, %194, %645, %Wln_ObjFanin1.argprom.exit, %Ndr_ObjIsType.exit245
+Ndr_ObjIsType.exit238.thread:                     ; preds = %Ndr_DataSize.exit.i237, %Ndr_DataSize.exit.i244, %Ndr_ObjIsType.exit238, %198, %194, %645, %Wln_ObjFanin1.exit, %Ndr_ObjIsType.exit245
   %.val.i323 = load ptr, ptr %79, align 8
   %662 = getelementptr inbounds i8, ptr %.val.i323, i64 %195
   %663 = load i8, ptr %662, align 1
@@ -6260,24 +6260,24 @@ Vec_IntInvert.exit:                               ; preds = %796, %773, %Vec_Int
   %.val185542 = phi ptr [ %.val185, %817 ], [ %.val185540, %.preheader494 ]
   %805 = icmp sgt i32 %804, 2
   %806 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val185542, i64 %indvars.iv587, i32 2
-  br i1 %805, label %Wln_ObjFanin.argprom.exit, label %Wln_ObjFanin.argprom.exit.thread
+  br i1 %805, label %Wln_ObjFanin.exit, label %Wln_ObjFanin.exit.thread
 
-Wln_ObjFanin.argprom.exit:                        ; preds = %.lr.ph543
+Wln_ObjFanin.exit:                                ; preds = %.lr.ph543
   %807 = load ptr, ptr %806, align 8
   %808 = getelementptr inbounds i32, ptr %807, i64 %indvars.iv
   %809 = load i32, ptr %808, align 4
   %.not173 = icmp eq i32 %809, 0
-  br i1 %.not173, label %817, label %Wln_ObjSetFanin.argprom.exit
+  br i1 %.not173, label %817, label %Wln_ObjSetFanin.exit
 
-Wln_ObjFanin.argprom.exit.thread:                 ; preds = %.lr.ph543
+Wln_ObjFanin.exit.thread:                         ; preds = %.lr.ph543
   %810 = getelementptr inbounds [2 x i32], ptr %806, i64 0, i64 %indvars.iv
   %811 = load i32, ptr %810, align 4
   %.not173482 = icmp eq i32 %811, 0
-  br i1 %.not173482, label %817, label %Wln_ObjSetFanin.argprom.exit
+  br i1 %.not173482, label %817, label %Wln_ObjSetFanin.exit
 
-Wln_ObjSetFanin.argprom.exit:                     ; preds = %Wln_ObjFanin.argprom.exit, %Wln_ObjFanin.argprom.exit.thread
-  %.sink677 = phi i32 [ %811, %Wln_ObjFanin.argprom.exit.thread ], [ %809, %Wln_ObjFanin.argprom.exit ]
-  %812 = phi ptr [ %806, %Wln_ObjFanin.argprom.exit.thread ], [ %807, %Wln_ObjFanin.argprom.exit ]
+Wln_ObjSetFanin.exit:                             ; preds = %Wln_ObjFanin.exit, %Wln_ObjFanin.exit.thread
+  %.sink677 = phi i32 [ %811, %Wln_ObjFanin.exit.thread ], [ %809, %Wln_ObjFanin.exit ]
+  %812 = phi ptr [ %806, %Wln_ObjFanin.exit.thread ], [ %807, %Wln_ObjFanin.exit ]
   %.val483 = load ptr, ptr %775, align 8
   %813 = sext i32 %.sink677 to i64
   %814 = getelementptr inbounds i32, ptr %.val483, i64 %813
@@ -6287,8 +6287,8 @@ Wln_ObjSetFanin.argprom.exit:                     ; preds = %Wln_ObjFanin.argpro
   %.val185.pre = load ptr, ptr %800, align 8
   br label %817
 
-817:                                              ; preds = %Wln_ObjFanin.argprom.exit.thread, %Wln_ObjSetFanin.argprom.exit, %Wln_ObjFanin.argprom.exit
-  %.val185 = phi ptr [ %.val185605, %Wln_ObjFanin.argprom.exit.thread ], [ %.val185.pre, %Wln_ObjSetFanin.argprom.exit ], [ %.val185605, %Wln_ObjFanin.argprom.exit ]
+817:                                              ; preds = %Wln_ObjFanin.exit.thread, %Wln_ObjSetFanin.exit, %Wln_ObjFanin.exit
+  %.val185 = phi ptr [ %.val185605, %Wln_ObjFanin.exit.thread ], [ %.val185.pre, %Wln_ObjSetFanin.exit ], [ %.val185605, %Wln_ObjFanin.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %818 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val185, i64 %indvars.iv587, i32 1
   %819 = load i32, ptr %818, align 4
@@ -6886,7 +6886,7 @@ Ndr_ObjReadArray.exit:                            ; preds = %25, %Ndr_DataSize.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

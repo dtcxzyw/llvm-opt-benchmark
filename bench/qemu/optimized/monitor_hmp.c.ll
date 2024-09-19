@@ -229,7 +229,7 @@ if.end.i:                                         ; preds = %while.end.i
   br i1 %exitcond.i, label %for.body.preheader.i.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call8.i = call fastcc i32 @get_str.argelim(ptr noundef %buf.i, ptr noundef %p.i)
+  %call8.i = call fastcc i32 @get_str(ptr noundef %buf.i, ptr noundef %p.i)
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %for.cond.preheader.i.i, label %if.end12.i
 
@@ -704,7 +704,7 @@ if.then9.i:                                       ; preds = %while.end.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
   %typestr.1.i = phi ptr [ %incdec.ptr10.i, %if.then9.i ], [ %incdec.ptr.i, %while.end.i ]
-  %call17.i = call fastcc i32 @get_str.argelim(ptr noundef %buf.i, ptr noundef %p.i)
+  %call17.i = call fastcc i32 @get_str(ptr noundef %buf.i, ptr noundef %p.i)
   %cmp18.i = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i, label %if.then20.i, label %if.end28.i
 
@@ -765,7 +765,7 @@ while.end48.i:                                    ; preds = %while.cond38.i
   br i1 %tobool49.not.i, label %sw.epilog495.i, label %if.end51.i
 
 if.end51.i:                                       ; preds = %while.end48.i
-  %call53.i = call fastcc i32 @get_str.argelim(ptr noundef %buf.i, ptr noundef %p.i)
+  %call53.i = call fastcc i32 @get_str(ptr noundef %buf.i, ptr noundef %p.i)
   %cmp54.i = icmp slt i32 %call53.i, 0
   br i1 %cmp54.i, label %fail.i, label %if.end57.i
 
@@ -1288,7 +1288,7 @@ while.cond427.i:                                  ; preds = %if.else420.i, %whil
   br i1 %tobool434.not.i, label %while.end437.i, label %while.cond427.i, !llvm.loop !24
 
 while.end437.i:                                   ; preds = %while.cond427.i
-  %call439.i = call fastcc i32 @get_str.argelim(ptr noundef %buf.i, ptr noundef %p.i)
+  %call439.i = call fastcc i32 @get_str(ptr noundef %buf.i, ptr noundef %p.i)
   %cmp440.i = icmp slt i32 %call439.i, 0
   br i1 %cmp440.i, label %if.then442.i, label %if.end446.i
 
@@ -1393,7 +1393,7 @@ while.cond496.i:                                  ; preds = %while.cond496.i, %w
 while.end506.i:                                   ; preds = %while.cond496.i
   store ptr %incdec.ptr505120.i, ptr %p.i, align 8
   %cmp508.not.i = icmp eq i8 %101, 0
-  br i1 %cmp508.not.i, label %monitor_parse_arguments.argprom.exit, label %if.then510.i
+  br i1 %cmp508.not.i, label %monitor_parse_arguments.exit, label %if.then510.i
 
 if.then510.i:                                     ; preds = %while.end506.i
   %104 = load ptr, ptr %call, align 8
@@ -1403,7 +1403,7 @@ if.then510.i:                                     ; preds = %while.end506.i
 fail.i:                                           ; preds = %if.end204.i, %if.end57.i, %if.end51.i, %if.then510.i, %bad_type.i, %if.then487.i, %if.then442.i, %if.then411.i, %if.else375.i, %if.then322.i, %get_double.exit.thread.i, %if.then261.i, %if.then224.i, %if.then214.i, %if.then127.i, %sw.default.i, %sw.bb23.i, %sw.bb21.i
   %call4.sink.i177.i = phi ptr [ %call4.i.i, %get_double.exit.thread.i ], [ %call4.i.i, %sw.bb21.i ], [ %call4.i.i, %sw.bb23.i ], [ %call4.i.i, %sw.default.i ], [ %call4.sink.i179.i, %if.then510.i ], [ %call4.i.i, %bad_type.i ], [ %call4.i.i, %if.then487.i ], [ %call4.i.i, %if.then442.i ], [ %call4.i.i, %if.then411.i ], [ %call4.i.i, %if.else375.i ], [ %call4.i.i, %if.then322.i ], [ %call4.i.i, %if.then261.i ], [ %call4.i.i, %if.then224.i ], [ %call4.i.i, %if.then214.i ], [ %call4.i.i, %if.then127.i ], [ %call4.i.i, %if.end51.i ], [ %call4.i.i, %if.end57.i ], [ %call4.i.i, %if.end204.i ]
   %tobool515.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool515.not.i, label %monitor_parse_arguments.argprom.exit.thread, label %lor.lhs.false.i.i
+  br i1 %tobool515.not.i, label %monitor_parse_arguments.exit.thread, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %fail.i
   %refcnt.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -1419,13 +1419,13 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   %dec.i.i = add i64 %105, -1
   store i64 %dec.i.i, ptr %refcnt.i.i, align 8
   %cmp.i106.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i106.i, label %if.then5.i.i, label %monitor_parse_arguments.argprom.exit.thread
+  br i1 %cmp.i106.i, label %if.then5.i.i, label %monitor_parse_arguments.exit.thread
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   call void @qobject_destroy(ptr noundef nonnull %call.i) #19
-  br label %monitor_parse_arguments.argprom.exit.thread
+  br label %monitor_parse_arguments.exit.thread
 
-monitor_parse_arguments.argprom.exit.thread:      ; preds = %fail.i, %land.lhs.true.i.i, %if.then5.i.i
+monitor_parse_arguments.exit.thread:              ; preds = %fail.i, %land.lhs.true.i.i, %if.then5.i.i
   call void @g_free(ptr noundef %call4.sink.i177.i) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i)
@@ -1434,7 +1434,7 @@ monitor_parse_arguments.argprom.exit.thread:      ; preds = %fail.i, %land.lhs.t
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   br label %while.cond.preheader
 
-monitor_parse_arguments.argprom.exit:             ; preds = %while.end506.i
+monitor_parse_arguments.exit:                     ; preds = %while.end506.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i)
@@ -1443,7 +1443,7 @@ monitor_parse_arguments.argprom.exit:             ; preds = %while.end506.i
   %tobool9.not = icmp eq ptr %call.i, null
   br i1 %tobool9.not, label %while.cond.preheader, label %if.end23
 
-while.cond.preheader:                             ; preds = %monitor_parse_arguments.argprom.exit.thread, %monitor_parse_arguments.argprom.exit
+while.cond.preheader:                             ; preds = %monitor_parse_arguments.exit.thread, %monitor_parse_arguments.exit
   %cmdline.addr.promoted = load ptr, ptr %cmdline.addr, align 8
   %cmdline.addr.promoted152 = ptrtoint ptr %cmdline.addr.promoted to i64
   %cmp97 = icmp ugt ptr %cmdline.addr.promoted, %cmdline
@@ -1483,7 +1483,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   %call22 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.11, i32 noundef %conv21, ptr noundef %cmdline) #19
   br label %return
 
-if.end23:                                         ; preds = %monitor_parse_arguments.argprom.exit
+if.end23:                                         ; preds = %monitor_parse_arguments.exit
   %coroutine = getelementptr inbounds i8, ptr %call, i64 56
   %111 = load i8, ptr %coroutine, align 8
   %tobool24 = trunc i8 %111 to i1
@@ -1908,7 +1908,7 @@ if.end.i:                                         ; preds = %while.end.i
   br i1 %exitcond.i, label %for.body.preheader.i.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call8.i = call fastcc i32 @get_str.argelim(ptr noundef %buf.i, ptr noundef %p.i)
+  %call8.i = call fastcc i32 @get_str(ptr noundef %buf.i, ptr noundef %p.i)
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %for.cond.preheader.i.i, label %if.end12.i
 
@@ -2451,7 +2451,7 @@ declare i32 @monitor_suspend(ptr noundef) local_unnamed_addr #1
 declare void @monitor_resume(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_str.argelim(ptr noundef nonnull %buf, ptr nocapture noundef nonnull %pp) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @get_str(ptr noundef nonnull %buf, ptr nocapture noundef nonnull %pp) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   %call = tail call ptr @__ctype_b_loc() #21

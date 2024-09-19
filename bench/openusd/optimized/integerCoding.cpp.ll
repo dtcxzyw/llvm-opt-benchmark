@@ -283,17 +283,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
   %.0102115.i.i = phi ptr [ %91, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i ], [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toIiESaISt4pairIimEELb0ENS0_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit.i.i ]
   br label %68
 
-68:                                               ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, %.preheader104.i.i
-  %.2100.i.i = phi ptr [ %.3101.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.098116.i.i, %.preheader104.i.i ]
-  %.195.i.i = phi ptr [ %71, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.094117.i.i, %.preheader104.i.i ]
-  %.193.i.i = phi i32 [ %69, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.092118.i.i, %.preheader104.i.i ]
-  %.030.i.i.i = phi i8 [ %89, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %.preheader104.i.i ]
-  %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %.preheader104.i.i ]
+68:                                               ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, %.preheader104.i.i
+  %.2100.i.i = phi ptr [ %.3101.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.098116.i.i, %.preheader104.i.i ]
+  %.195.i.i = phi ptr [ %71, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.094117.i.i, %.preheader104.i.i ]
+  %.193.i.i = phi i32 [ %69, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.092118.i.i, %.preheader104.i.i ]
+  %.030.i.i.i = phi i8 [ %89, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %.preheader104.i.i ]
+  %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %.preheader104.i.i ]
   %69 = load i32, ptr %.195.i.i, align 4
   %70 = sub nsw i32 %69, %.193.i.i
   %71 = getelementptr inbounds i8, ptr %.195.i.i, i64 4
   %72 = icmp eq i32 %70, %.1.i.i
-  br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, label %73
+  br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %73
 
 73:                                               ; preds = %68
   %.not.i.i.i.i = icmp slt i32 %70, -128
@@ -316,37 +316,37 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
   %79 = shl nuw i32 1, %78
   %80 = trunc i32 %70 to i8
   store i8 %80, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 81:                                               ; preds = %76, %75
   %82 = shl nuw nsw i32 %.02329.i.i.i, 1
   %83 = shl i32 2, %82
   %84 = trunc i32 %70 to i16
   store i16 %84, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 85:                                               ; preds = %76, %75
   %86 = shl nuw nsw i32 %.02329.i.i.i, 1
   %87 = shl i32 3, %86
   store i32 %70, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i: ; preds = %85, %81, %77
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %85, %81, %77
   %.sink.i.i = phi i64 [ 4, %85 ], [ 2, %81 ], [ 1, %77 ]
   %.pn.in.i.i.i = phi i32 [ %87, %85 ], [ %83, %81 ], [ %79, %77 ]
   %88 = getelementptr inbounds i8, ptr %.2100.i.i, i64 %.sink.i.i
   %.pn.i.i.i = trunc i32 %.pn.in.i.i.i to i8
   %.ph.i.i.i = or i8 %.030.i.i.i, %.pn.i.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i, %68
-  %.3101.i.i = phi ptr [ %.2100.i.i, %68 ], [ %88, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
-  %89 = phi i8 [ %.030.i.i.i, %68 ], [ %.ph.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i, %68
+  %.3101.i.i = phi ptr [ %.2100.i.i, %68 ], [ %88, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
+  %89 = phi i8 [ %.030.i.i.i, %68 ], [ %.ph.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
   %90 = add nuw nsw i32 %.02329.i.i.i, 1
   %.not.i.i.i = icmp eq i32 %90, 4
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i, label %68, !llvm.loop !11
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
   store i8 %89, ptr %.0102115.i.i, align 1
   %91 = getelementptr inbounds i8, ptr %.0102115.i.i, i64 1
   %92 = add i64 %.032119.i.i, -4
@@ -405,17 +405,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT
   %109 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 4
   br label %.sink.split.i.i
 
-.preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
-  %.5.i.i = phi ptr [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
-  %.296.i.i = phi ptr [ %112, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
-  %.2.i.i = phi i32 [ %110, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
-  %.030.i47.i.i = phi i8 [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
-  %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+.preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
+  %.5.i.i = phi ptr [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
+  %.296.i.i = phi ptr [ %112, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
+  %.2.i.i = phi i32 [ %110, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
+  %.030.i47.i.i = phi i8 [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+  %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %110 = load i32, ptr %.296.i.i, align 4
   %111 = sub nsw i32 %110, %.2.i.i
   %112 = getelementptr inbounds i8, ptr %.296.i.i, i64 4
   %113 = icmp eq i32 %111, %.1.i.i
-  br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, label %114
+  br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %114
 
 114:                                              ; preds = %.preheader103.i.i
   %.not.i.i49.i.i = icmp slt i32 %111, -128
@@ -438,47 +438,47 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT
   %120 = shl nuw nsw i32 1, %119
   %121 = trunc i32 %111 to i8
   store i8 %121, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 122:                                              ; preds = %117, %116
   %123 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %124 = shl nuw nsw i32 2, %123
   %125 = trunc i32 %111 to i16
   store i16 %125, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 126:                                              ; preds = %117, %116
   %127 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %128 = shl nuw nsw i32 3, %127
   store i32 %111, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i: ; preds = %126, %122, %118
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %126, %122, %118
   %.sink138.i.i = phi i64 [ 4, %126 ], [ 2, %122 ], [ 1, %118 ]
   %.pn.in.i52.i.i = phi i32 [ %128, %126 ], [ %124, %122 ], [ %120, %118 ]
   %129 = getelementptr inbounds i8, ptr %.5.i.i, i64 %.sink138.i.i
   %.pn.i53.i.i = trunc i32 %.pn.in.i52.i.i to i8
   %.ph.i54.i.i = or i8 %.030.i47.i.i, %.pn.i53.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i, %.preheader103.i.i
-  %.6.i.i = phi ptr [ %.5.i.i, %.preheader103.i.i ], [ %129, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
-  %130 = phi i8 [ %.030.i47.i.i, %.preheader103.i.i ], [ %.ph.i54.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i, %.preheader103.i.i
+  %.6.i.i = phi ptr [ %.5.i.i, %.preheader103.i.i ], [ %129, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
+  %130 = phi i8 [ %.030.i47.i.i, %.preheader103.i.i ], [ %.ph.i54.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
   %131 = add nuw nsw i32 %.02329.i48.i.i, 1
   %.not.i55.i.i = icmp eq i32 %131, 2
   br i1 %.not.i55.i.i, label %.sink.split.i.i, label %.preheader103.i.i, !llvm.loop !13
 
-.preheader.i.i:                                   ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
-  %.7.i.i = phi ptr [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
-  %.397.i.i = phi ptr [ %134, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
-  %.3.i.i = phi i32 [ %132, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
-  %.030.i58.i.i = phi i8 [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
-  %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+.preheader.i.i:                                   ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
+  %.7.i.i = phi ptr [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
+  %.397.i.i = phi ptr [ %134, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
+  %.3.i.i = phi i32 [ %132, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
+  %.030.i58.i.i = phi i8 [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+  %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %132 = load i32, ptr %.397.i.i, align 4
   %133 = sub nsw i32 %132, %.3.i.i
   %134 = getelementptr inbounds i8, ptr %.397.i.i, i64 4
   %135 = icmp eq i32 %133, %.1.i.i
-  br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, label %136
+  br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %136
 
 136:                                              ; preds = %.preheader.i.i
   %.not.i.i60.i.i = icmp slt i32 %133, -128
@@ -501,32 +501,32 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvR
   %142 = shl nuw i32 1, %141
   %143 = trunc i32 %133 to i8
   store i8 %143, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 144:                                              ; preds = %139, %138
   %145 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %146 = shl i32 2, %145
   %147 = trunc i32 %133 to i16
   store i16 %147, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 148:                                              ; preds = %139, %138
   %149 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %150 = shl i32 3, %149
   store i32 %133, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i: ; preds = %148, %144, %140
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %148, %144, %140
   %.sink139.i.i = phi i64 [ 4, %148 ], [ 2, %144 ], [ 1, %140 ]
   %.pn.in.i63.i.i = phi i32 [ %150, %148 ], [ %146, %144 ], [ %142, %140 ]
   %151 = getelementptr inbounds i8, ptr %.7.i.i, i64 %.sink139.i.i
   %.pn.i64.i.i = trunc i32 %.pn.in.i63.i.i to i8
   %.ph.i65.i.i = or i8 %.030.i58.i.i, %.pn.i64.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i, %.preheader.i.i
-  %.8.i.i = phi ptr [ %.7.i.i, %.preheader.i.i ], [ %151, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
-  %152 = phi i8 [ %.030.i58.i.i, %.preheader.i.i ], [ %.ph.i65.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i, %.preheader.i.i
+  %.8.i.i = phi ptr [ %.7.i.i, %.preheader.i.i ], [ %151, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
+  %152 = phi i8 [ %.030.i58.i.i, %.preheader.i.i ], [ %.ph.i65.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
   %153 = add nuw nsw i32 %.02329.i59.i.i, 1
   %.not.i66.i.i = icmp eq i32 %153, 3
   br i1 %.not.i66.i.i, label %.sink.split.i.i, label %.preheader.i.i, !llvm.loop !14
@@ -534,9 +534,9 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvR
 ._crit_edge120.unreachabledefault.i.i:            ; preds = %._crit_edge120.i.i
   unreachable
 
-.sink.split.i.i:                                  ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, %108, %105, %102, %94
-  %.lcssa.sink.i.i = phi i8 [ 0, %94 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ], [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ]
-  %.199.ph.i.i = phi ptr [ %.098.lcssa.i.i, %94 ], [ %109, %108 ], [ %107, %105 ], [ %104, %102 ], [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ]
+.sink.split.i.i:                                  ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, %108, %105, %102, %94
+  %.lcssa.sink.i.i = phi i8 [ 0, %94 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ], [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ]
+  %.199.ph.i.i = phi ptr [ %.098.lcssa.i.i, %94 ], [ %109, %108 ], [ %107, %105 ], [ %104, %102 ], [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ]
   store i8 %.lcssa.sink.i.i, ptr %.0102.lcssa.i.i, align 1
   br label %154
 
@@ -739,17 +739,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
   %.0102115.i.i = phi ptr [ %91, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i ], [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toIiESaISt4pairIimEELb0ENS0_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit.i.i ]
   br label %68
 
-68:                                               ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, %.preheader104.i.i
-  %.2100.i.i = phi ptr [ %.3101.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.098116.i.i, %.preheader104.i.i ]
-  %.195.i.i = phi ptr [ %71, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.094117.i.i, %.preheader104.i.i ]
-  %.193.i.i = phi i32 [ %69, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.092118.i.i, %.preheader104.i.i ]
-  %.030.i.i.i = phi i8 [ %89, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %.preheader104.i.i ]
-  %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %.preheader104.i.i ]
+68:                                               ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, %.preheader104.i.i
+  %.2100.i.i = phi ptr [ %.3101.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.098116.i.i, %.preheader104.i.i ]
+  %.195.i.i = phi ptr [ %71, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.094117.i.i, %.preheader104.i.i ]
+  %.193.i.i = phi i32 [ %69, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.092118.i.i, %.preheader104.i.i ]
+  %.030.i.i.i = phi i8 [ %89, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %.preheader104.i.i ]
+  %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %.preheader104.i.i ]
   %69 = load i32, ptr %.195.i.i, align 4
   %70 = sub nsw i32 %69, %.193.i.i
   %71 = getelementptr inbounds i8, ptr %.195.i.i, i64 4
   %72 = icmp eq i32 %70, %.1.i.i
-  br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, label %73
+  br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %73
 
 73:                                               ; preds = %68
   %.not.i.i.i.i = icmp slt i32 %70, -128
@@ -772,37 +772,37 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
   %79 = shl nuw i32 1, %78
   %80 = trunc i32 %70 to i8
   store i8 %80, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 81:                                               ; preds = %76, %75
   %82 = shl nuw nsw i32 %.02329.i.i.i, 1
   %83 = shl i32 2, %82
   %84 = trunc i32 %70 to i16
   store i16 %84, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 85:                                               ; preds = %76, %75
   %86 = shl nuw nsw i32 %.02329.i.i.i, 1
   %87 = shl i32 3, %86
   store i32 %70, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i: ; preds = %85, %81, %77
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %85, %81, %77
   %.sink.i.i = phi i64 [ 4, %85 ], [ 2, %81 ], [ 1, %77 ]
   %.pn.in.i.i.i = phi i32 [ %87, %85 ], [ %83, %81 ], [ %79, %77 ]
   %88 = getelementptr inbounds i8, ptr %.2100.i.i, i64 %.sink.i.i
   %.pn.i.i.i = trunc i32 %.pn.in.i.i.i to i8
   %.ph.i.i.i = or i8 %.030.i.i.i, %.pn.i.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i, %68
-  %.3101.i.i = phi ptr [ %.2100.i.i, %68 ], [ %88, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
-  %89 = phi i8 [ %.030.i.i.i, %68 ], [ %.ph.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i, %68
+  %.3101.i.i = phi ptr [ %.2100.i.i, %68 ], [ %88, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
+  %89 = phi i8 [ %.030.i.i.i, %68 ], [ %.ph.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
   %90 = add nuw nsw i32 %.02329.i.i.i, 1
   %.not.i.i.i = icmp eq i32 %90, 4
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i, label %68, !llvm.loop !19
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
   store i8 %89, ptr %.0102115.i.i, align 1
   %91 = getelementptr inbounds i8, ptr %.0102115.i.i, i64 1
   %92 = add i64 %.032119.i.i, -4
@@ -861,17 +861,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT
   %109 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 4
   br label %.sink.split.i.i
 
-.preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
-  %.5.i.i = phi ptr [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
-  %.296.i.i = phi ptr [ %112, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
-  %.2.i.i = phi i32 [ %110, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
-  %.030.i47.i.i = phi i8 [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
-  %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+.preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
+  %.5.i.i = phi ptr [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
+  %.296.i.i = phi ptr [ %112, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
+  %.2.i.i = phi i32 [ %110, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
+  %.030.i47.i.i = phi i8 [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+  %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %110 = load i32, ptr %.296.i.i, align 4
   %111 = sub nsw i32 %110, %.2.i.i
   %112 = getelementptr inbounds i8, ptr %.296.i.i, i64 4
   %113 = icmp eq i32 %111, %.1.i.i
-  br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, label %114
+  br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %114
 
 114:                                              ; preds = %.preheader103.i.i
   %.not.i.i49.i.i = icmp slt i32 %111, -128
@@ -894,47 +894,47 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT
   %120 = shl nuw nsw i32 1, %119
   %121 = trunc i32 %111 to i8
   store i8 %121, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 122:                                              ; preds = %117, %116
   %123 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %124 = shl nuw nsw i32 2, %123
   %125 = trunc i32 %111 to i16
   store i16 %125, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 126:                                              ; preds = %117, %116
   %127 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %128 = shl nuw nsw i32 3, %127
   store i32 %111, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i: ; preds = %126, %122, %118
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %126, %122, %118
   %.sink138.i.i = phi i64 [ 4, %126 ], [ 2, %122 ], [ 1, %118 ]
   %.pn.in.i52.i.i = phi i32 [ %128, %126 ], [ %124, %122 ], [ %120, %118 ]
   %129 = getelementptr inbounds i8, ptr %.5.i.i, i64 %.sink138.i.i
   %.pn.i53.i.i = trunc i32 %.pn.in.i52.i.i to i8
   %.ph.i54.i.i = or i8 %.030.i47.i.i, %.pn.i53.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i, %.preheader103.i.i
-  %.6.i.i = phi ptr [ %.5.i.i, %.preheader103.i.i ], [ %129, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
-  %130 = phi i8 [ %.030.i47.i.i, %.preheader103.i.i ], [ %.ph.i54.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i, %.preheader103.i.i
+  %.6.i.i = phi ptr [ %.5.i.i, %.preheader103.i.i ], [ %129, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
+  %130 = phi i8 [ %.030.i47.i.i, %.preheader103.i.i ], [ %.ph.i54.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
   %131 = add nuw nsw i32 %.02329.i48.i.i, 1
   %.not.i55.i.i = icmp eq i32 %131, 2
   br i1 %.not.i55.i.i, label %.sink.split.i.i, label %.preheader103.i.i, !llvm.loop !21
 
-.preheader.i.i:                                   ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
-  %.7.i.i = phi ptr [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
-  %.397.i.i = phi ptr [ %134, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
-  %.3.i.i = phi i32 [ %132, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
-  %.030.i58.i.i = phi i8 [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
-  %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+.preheader.i.i:                                   ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
+  %.7.i.i = phi ptr [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
+  %.397.i.i = phi ptr [ %134, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
+  %.3.i.i = phi i32 [ %132, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
+  %.030.i58.i.i = phi i8 [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+  %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %132 = load i32, ptr %.397.i.i, align 4
   %133 = sub nsw i32 %132, %.3.i.i
   %134 = getelementptr inbounds i8, ptr %.397.i.i, i64 4
   %135 = icmp eq i32 %133, %.1.i.i
-  br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, label %136
+  br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %136
 
 136:                                              ; preds = %.preheader.i.i
   %.not.i.i60.i.i = icmp slt i32 %133, -128
@@ -957,32 +957,32 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvR
   %142 = shl nuw i32 1, %141
   %143 = trunc i32 %133 to i8
   store i8 %143, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 144:                                              ; preds = %139, %138
   %145 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %146 = shl i32 2, %145
   %147 = trunc i32 %133 to i16
   store i16 %147, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 148:                                              ; preds = %139, %138
   %149 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %150 = shl i32 3, %149
   store i32 %133, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i: ; preds = %148, %144, %140
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %148, %144, %140
   %.sink139.i.i = phi i64 [ 4, %148 ], [ 2, %144 ], [ 1, %140 ]
   %.pn.in.i63.i.i = phi i32 [ %150, %148 ], [ %146, %144 ], [ %142, %140 ]
   %151 = getelementptr inbounds i8, ptr %.7.i.i, i64 %.sink139.i.i
   %.pn.i64.i.i = trunc i32 %.pn.in.i63.i.i to i8
   %.ph.i65.i.i = or i8 %.030.i58.i.i, %.pn.i64.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i, %.preheader.i.i
-  %.8.i.i = phi ptr [ %.7.i.i, %.preheader.i.i ], [ %151, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
-  %152 = phi i8 [ %.030.i58.i.i, %.preheader.i.i ], [ %.ph.i65.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i, %.preheader.i.i
+  %.8.i.i = phi ptr [ %.7.i.i, %.preheader.i.i ], [ %151, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
+  %152 = phi i8 [ %.030.i58.i.i, %.preheader.i.i ], [ %.ph.i65.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i ]
   %153 = add nuw nsw i32 %.02329.i59.i.i, 1
   %.not.i66.i.i = icmp eq i32 %153, 3
   br i1 %.not.i66.i.i, label %.sink.split.i.i, label %.preheader.i.i, !llvm.loop !22
@@ -990,9 +990,9 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvR
 ._crit_edge120.unreachabledefault.i.i:            ; preds = %._crit_edge120.i.i
   unreachable
 
-.sink.split.i.i:                                  ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i, %108, %105, %102, %94
-  %.lcssa.sink.i.i = phi i8 [ 0, %94 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ], [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ]
-  %.199.ph.i.i = phi ptr [ %.098.lcssa.i.i, %94 ], [ %109, %108 ], [ %107, %105 ], [ %104, %102 ], [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ], [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.argprom.exit.i.i.i ]
+.sink.split.i.i:                                  ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, %108, %105, %102, %94
+  %.lcssa.sink.i.i = phi i8 [ 0, %94 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ], [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ]
+  %.199.ph.i.i = phi ptr [ %.098.lcssa.i.i, %94 ], [ %109, %108 ], [ %107, %105 ], [ %104, %102 ], [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ]
   store i8 %.lcssa.sink.i.i, ptr %.0102.lcssa.i.i, align 1
   br label %154
 
@@ -1794,17 +1794,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
   %.0102115.i.i = phi ptr [ %91, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i ], [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIlmEELb0ENS0_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit.i.i ]
   br label %68
 
-68:                                               ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, %.preheader104.i.i
-  %.2100.i.i = phi ptr [ %.3101.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.098116.i.i, %.preheader104.i.i ]
-  %.195.i.i = phi ptr [ %71, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.094117.i.i, %.preheader104.i.i ]
-  %.193.i.i = phi i64 [ %69, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.092118.i.i, %.preheader104.i.i ]
-  %.030.i.i.i = phi i8 [ %89, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %.preheader104.i.i ]
-  %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %.preheader104.i.i ]
+68:                                               ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, %.preheader104.i.i
+  %.2100.i.i = phi ptr [ %.3101.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.098116.i.i, %.preheader104.i.i ]
+  %.195.i.i = phi ptr [ %71, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.094117.i.i, %.preheader104.i.i ]
+  %.193.i.i = phi i64 [ %69, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.092118.i.i, %.preheader104.i.i ]
+  %.030.i.i.i = phi i8 [ %89, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %.preheader104.i.i ]
+  %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %.preheader104.i.i ]
   %69 = load i64, ptr %.195.i.i, align 8
   %70 = sub nsw i64 %69, %.193.i.i
   %71 = getelementptr inbounds i8, ptr %.195.i.i, i64 8
   %72 = icmp eq i64 %70, %.1.i.i
-  br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, label %73
+  br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %73
 
 73:                                               ; preds = %68
   %.not.i.i.i.i = icmp slt i64 %70, -32768
@@ -1827,37 +1827,37 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
   %79 = shl nuw i32 1, %78
   %80 = trunc i64 %70 to i16
   store i16 %80, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 81:                                               ; preds = %76, %75
   %82 = shl nuw nsw i32 %.02329.i.i.i, 1
   %83 = shl i32 2, %82
   %84 = trunc i64 %70 to i32
   store i32 %84, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 85:                                               ; preds = %76, %75
   %86 = shl nuw nsw i32 %.02329.i.i.i, 1
   %87 = shl i32 3, %86
   store i64 %70, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i: ; preds = %85, %81, %77
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %85, %81, %77
   %.sink.i.i = phi i64 [ 8, %85 ], [ 4, %81 ], [ 2, %77 ]
   %.pn.in.i.i.i = phi i32 [ %87, %85 ], [ %83, %81 ], [ %79, %77 ]
   %88 = getelementptr inbounds i8, ptr %.2100.i.i, i64 %.sink.i.i
   %.pn.i.i.i = trunc i32 %.pn.in.i.i.i to i8
   %.ph.i.i.i = or i8 %.030.i.i.i, %.pn.i.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i, %68
-  %.3101.i.i = phi ptr [ %.2100.i.i, %68 ], [ %88, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
-  %89 = phi i8 [ %.030.i.i.i, %68 ], [ %.ph.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i, %68
+  %.3101.i.i = phi ptr [ %.2100.i.i, %68 ], [ %88, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
+  %89 = phi i8 [ %.030.i.i.i, %68 ], [ %.ph.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
   %90 = add nuw nsw i32 %.02329.i.i.i, 1
   %.not.i.i.i = icmp eq i32 %90, 4
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i, label %68, !llvm.loop !36
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
   store i8 %89, ptr %.0102115.i.i, align 1
   %91 = getelementptr inbounds i8, ptr %.0102115.i.i, i64 1
   %92 = add i64 %.032119.i.i, -4
@@ -1916,17 +1916,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT
   %109 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 8
   br label %.sink.split.i.i
 
-.preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
-  %.5.i.i = phi ptr [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
-  %.296.i.i = phi ptr [ %112, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
-  %.2.i.i = phi i64 [ %110, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
-  %.030.i47.i.i = phi i8 [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
-  %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+.preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
+  %.5.i.i = phi ptr [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
+  %.296.i.i = phi ptr [ %112, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
+  %.2.i.i = phi i64 [ %110, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
+  %.030.i47.i.i = phi i8 [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+  %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %110 = load i64, ptr %.296.i.i, align 8
   %111 = sub nsw i64 %110, %.2.i.i
   %112 = getelementptr inbounds i8, ptr %.296.i.i, i64 8
   %113 = icmp eq i64 %111, %.1.i.i
-  br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, label %114
+  br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %114
 
 114:                                              ; preds = %.preheader103.i.i
   %.not.i.i49.i.i = icmp slt i64 %111, -32768
@@ -1949,47 +1949,47 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT
   %120 = shl nuw nsw i32 1, %119
   %121 = trunc i64 %111 to i16
   store i16 %121, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 122:                                              ; preds = %117, %116
   %123 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %124 = shl nuw nsw i32 2, %123
   %125 = trunc i64 %111 to i32
   store i32 %125, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 126:                                              ; preds = %117, %116
   %127 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %128 = shl nuw nsw i32 3, %127
   store i64 %111, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i: ; preds = %126, %122, %118
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %126, %122, %118
   %.sink138.i.i = phi i64 [ 8, %126 ], [ 4, %122 ], [ 2, %118 ]
   %.pn.in.i52.i.i = phi i32 [ %128, %126 ], [ %124, %122 ], [ %120, %118 ]
   %129 = getelementptr inbounds i8, ptr %.5.i.i, i64 %.sink138.i.i
   %.pn.i53.i.i = trunc i32 %.pn.in.i52.i.i to i8
   %.ph.i54.i.i = or i8 %.030.i47.i.i, %.pn.i53.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i, %.preheader103.i.i
-  %.6.i.i = phi ptr [ %.5.i.i, %.preheader103.i.i ], [ %129, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
-  %130 = phi i8 [ %.030.i47.i.i, %.preheader103.i.i ], [ %.ph.i54.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i, %.preheader103.i.i
+  %.6.i.i = phi ptr [ %.5.i.i, %.preheader103.i.i ], [ %129, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
+  %130 = phi i8 [ %.030.i47.i.i, %.preheader103.i.i ], [ %.ph.i54.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
   %131 = add nuw nsw i32 %.02329.i48.i.i, 1
   %.not.i55.i.i = icmp eq i32 %131, 2
   br i1 %.not.i55.i.i, label %.sink.split.i.i, label %.preheader103.i.i, !llvm.loop !38
 
-.preheader.i.i:                                   ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
-  %.7.i.i = phi ptr [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
-  %.397.i.i = phi ptr [ %134, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
-  %.3.i.i = phi i64 [ %132, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
-  %.030.i58.i.i = phi i8 [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
-  %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+.preheader.i.i:                                   ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
+  %.7.i.i = phi ptr [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
+  %.397.i.i = phi ptr [ %134, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
+  %.3.i.i = phi i64 [ %132, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
+  %.030.i58.i.i = phi i8 [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+  %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %132 = load i64, ptr %.397.i.i, align 8
   %133 = sub nsw i64 %132, %.3.i.i
   %134 = getelementptr inbounds i8, ptr %.397.i.i, i64 8
   %135 = icmp eq i64 %133, %.1.i.i
-  br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, label %136
+  br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %136
 
 136:                                              ; preds = %.preheader.i.i
   %.not.i.i60.i.i = icmp slt i64 %133, -32768
@@ -2012,32 +2012,32 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvR
   %142 = shl nuw i32 1, %141
   %143 = trunc i64 %133 to i16
   store i16 %143, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 144:                                              ; preds = %139, %138
   %145 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %146 = shl i32 2, %145
   %147 = trunc i64 %133 to i32
   store i32 %147, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 148:                                              ; preds = %139, %138
   %149 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %150 = shl i32 3, %149
   store i64 %133, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i: ; preds = %148, %144, %140
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %148, %144, %140
   %.sink139.i.i = phi i64 [ 8, %148 ], [ 4, %144 ], [ 2, %140 ]
   %.pn.in.i63.i.i = phi i32 [ %150, %148 ], [ %146, %144 ], [ %142, %140 ]
   %151 = getelementptr inbounds i8, ptr %.7.i.i, i64 %.sink139.i.i
   %.pn.i64.i.i = trunc i32 %.pn.in.i63.i.i to i8
   %.ph.i65.i.i = or i8 %.030.i58.i.i, %.pn.i64.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i, %.preheader.i.i
-  %.8.i.i = phi ptr [ %.7.i.i, %.preheader.i.i ], [ %151, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
-  %152 = phi i8 [ %.030.i58.i.i, %.preheader.i.i ], [ %.ph.i65.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i, %.preheader.i.i
+  %.8.i.i = phi ptr [ %.7.i.i, %.preheader.i.i ], [ %151, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
+  %152 = phi i8 [ %.030.i58.i.i, %.preheader.i.i ], [ %.ph.i65.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
   %153 = add nuw nsw i32 %.02329.i59.i.i, 1
   %.not.i66.i.i = icmp eq i32 %153, 3
   br i1 %.not.i66.i.i, label %.sink.split.i.i, label %.preheader.i.i, !llvm.loop !39
@@ -2045,9 +2045,9 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvR
 ._crit_edge120.unreachabledefault.i.i:            ; preds = %._crit_edge120.i.i
   unreachable
 
-.sink.split.i.i:                                  ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, %108, %105, %102, %94
-  %.lcssa.sink.i.i = phi i8 [ 0, %94 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ], [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ]
-  %.199.ph.i.i = phi ptr [ %.098.lcssa.i.i, %94 ], [ %109, %108 ], [ %107, %105 ], [ %104, %102 ], [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ]
+.sink.split.i.i:                                  ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, %108, %105, %102, %94
+  %.lcssa.sink.i.i = phi i8 [ 0, %94 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ], [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ]
+  %.199.ph.i.i = phi ptr [ %.098.lcssa.i.i, %94 ], [ %109, %108 ], [ %107, %105 ], [ %104, %102 ], [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ]
   store i8 %.lcssa.sink.i.i, ptr %.0102.lcssa.i.i, align 1
   br label %154
 
@@ -2250,17 +2250,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
   %.0102115.i.i = phi ptr [ %91, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i ], [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIlmEELb0ENS0_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit.i.i ]
   br label %68
 
-68:                                               ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, %.preheader104.i.i
-  %.2100.i.i = phi ptr [ %.3101.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.098116.i.i, %.preheader104.i.i ]
-  %.195.i.i = phi ptr [ %71, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.094117.i.i, %.preheader104.i.i ]
-  %.193.i.i = phi i64 [ %69, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.092118.i.i, %.preheader104.i.i ]
-  %.030.i.i.i = phi i8 [ %89, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %.preheader104.i.i ]
-  %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %.preheader104.i.i ]
+68:                                               ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, %.preheader104.i.i
+  %.2100.i.i = phi ptr [ %.3101.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.098116.i.i, %.preheader104.i.i ]
+  %.195.i.i = phi ptr [ %71, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.094117.i.i, %.preheader104.i.i ]
+  %.193.i.i = phi i64 [ %69, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.092118.i.i, %.preheader104.i.i ]
+  %.030.i.i.i = phi i8 [ %89, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %.preheader104.i.i ]
+  %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %.preheader104.i.i ]
   %69 = load i64, ptr %.195.i.i, align 8
   %70 = sub nsw i64 %69, %.193.i.i
   %71 = getelementptr inbounds i8, ptr %.195.i.i, i64 8
   %72 = icmp eq i64 %70, %.1.i.i
-  br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, label %73
+  br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %73
 
 73:                                               ; preds = %68
   %.not.i.i.i.i = icmp slt i64 %70, -32768
@@ -2283,37 +2283,37 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
   %79 = shl nuw i32 1, %78
   %80 = trunc i64 %70 to i16
   store i16 %80, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 81:                                               ; preds = %76, %75
   %82 = shl nuw nsw i32 %.02329.i.i.i, 1
   %83 = shl i32 2, %82
   %84 = trunc i64 %70 to i32
   store i32 %84, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 85:                                               ; preds = %76, %75
   %86 = shl nuw nsw i32 %.02329.i.i.i, 1
   %87 = shl i32 3, %86
   store i64 %70, ptr %.2100.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i: ; preds = %85, %81, %77
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %85, %81, %77
   %.sink.i.i = phi i64 [ 8, %85 ], [ 4, %81 ], [ 2, %77 ]
   %.pn.in.i.i.i = phi i32 [ %87, %85 ], [ %83, %81 ], [ %79, %77 ]
   %88 = getelementptr inbounds i8, ptr %.2100.i.i, i64 %.sink.i.i
   %.pn.i.i.i = trunc i32 %.pn.in.i.i.i to i8
   %.ph.i.i.i = or i8 %.030.i.i.i, %.pn.i.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i, %68
-  %.3101.i.i = phi ptr [ %.2100.i.i, %68 ], [ %88, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
-  %89 = phi i8 [ %.030.i.i.i, %68 ], [ %.ph.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i, %68
+  %.3101.i.i = phi ptr [ %.2100.i.i, %68 ], [ %88, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
+  %89 = phi i8 [ %.030.i.i.i, %68 ], [ %.ph.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
   %90 = add nuw nsw i32 %.02329.i.i.i, 1
   %.not.i.i.i = icmp eq i32 %90, 4
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i, label %68, !llvm.loop !44
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
   store i8 %89, ptr %.0102115.i.i, align 1
   %91 = getelementptr inbounds i8, ptr %.0102115.i.i, i64 1
   %92 = add i64 %.032119.i.i, -4
@@ -2372,17 +2372,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT
   %109 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 8
   br label %.sink.split.i.i
 
-.preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
-  %.5.i.i = phi ptr [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
-  %.296.i.i = phi ptr [ %112, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
-  %.2.i.i = phi i64 [ %110, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
-  %.030.i47.i.i = phi i8 [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
-  %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+.preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
+  %.5.i.i = phi ptr [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
+  %.296.i.i = phi ptr [ %112, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
+  %.2.i.i = phi i64 [ %110, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
+  %.030.i47.i.i = phi i8 [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+  %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %110 = load i64, ptr %.296.i.i, align 8
   %111 = sub nsw i64 %110, %.2.i.i
   %112 = getelementptr inbounds i8, ptr %.296.i.i, i64 8
   %113 = icmp eq i64 %111, %.1.i.i
-  br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, label %114
+  br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %114
 
 114:                                              ; preds = %.preheader103.i.i
   %.not.i.i49.i.i = icmp slt i64 %111, -32768
@@ -2405,47 +2405,47 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT
   %120 = shl nuw nsw i32 1, %119
   %121 = trunc i64 %111 to i16
   store i16 %121, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 122:                                              ; preds = %117, %116
   %123 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %124 = shl nuw nsw i32 2, %123
   %125 = trunc i64 %111 to i32
   store i32 %125, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 126:                                              ; preds = %117, %116
   %127 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %128 = shl nuw nsw i32 3, %127
   store i64 %111, ptr %.5.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i: ; preds = %126, %122, %118
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %126, %122, %118
   %.sink138.i.i = phi i64 [ 8, %126 ], [ 4, %122 ], [ 2, %118 ]
   %.pn.in.i52.i.i = phi i32 [ %128, %126 ], [ %124, %122 ], [ %120, %118 ]
   %129 = getelementptr inbounds i8, ptr %.5.i.i, i64 %.sink138.i.i
   %.pn.i53.i.i = trunc i32 %.pn.in.i52.i.i to i8
   %.ph.i54.i.i = or i8 %.030.i47.i.i, %.pn.i53.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i, %.preheader103.i.i
-  %.6.i.i = phi ptr [ %.5.i.i, %.preheader103.i.i ], [ %129, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
-  %130 = phi i8 [ %.030.i47.i.i, %.preheader103.i.i ], [ %.ph.i54.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i, %.preheader103.i.i
+  %.6.i.i = phi ptr [ %.5.i.i, %.preheader103.i.i ], [ %129, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
+  %130 = phi i8 [ %.030.i47.i.i, %.preheader103.i.i ], [ %.ph.i54.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
   %131 = add nuw nsw i32 %.02329.i48.i.i, 1
   %.not.i55.i.i = icmp eq i32 %131, 2
   br i1 %.not.i55.i.i, label %.sink.split.i.i, label %.preheader103.i.i, !llvm.loop !46
 
-.preheader.i.i:                                   ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
-  %.7.i.i = phi ptr [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
-  %.397.i.i = phi ptr [ %134, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
-  %.3.i.i = phi i64 [ %132, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
-  %.030.i58.i.i = phi i8 [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
-  %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+.preheader.i.i:                                   ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
+  %.7.i.i = phi ptr [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.098.lcssa.i.i, %._crit_edge120.i.i ]
+  %.397.i.i = phi ptr [ %134, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.094.lcssa.i.i, %._crit_edge120.i.i ]
+  %.3.i.i = phi i64 [ %132, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.092.lcssa.i.i, %._crit_edge120.i.i ]
+  %.030.i58.i.i = phi i8 [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
+  %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %132 = load i64, ptr %.397.i.i, align 8
   %133 = sub nsw i64 %132, %.3.i.i
   %134 = getelementptr inbounds i8, ptr %.397.i.i, i64 8
   %135 = icmp eq i64 %133, %.1.i.i
-  br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, label %136
+  br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %136
 
 136:                                              ; preds = %.preheader.i.i
   %.not.i.i60.i.i = icmp slt i64 %133, -32768
@@ -2468,32 +2468,32 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvR
   %142 = shl nuw i32 1, %141
   %143 = trunc i64 %133 to i16
   store i16 %143, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 144:                                              ; preds = %139, %138
   %145 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %146 = shl i32 2, %145
   %147 = trunc i64 %133 to i32
   store i32 %147, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 148:                                              ; preds = %139, %138
   %149 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %150 = shl i32 3, %149
   store i64 %133, ptr %.7.i.i, align 1
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i: ; preds = %148, %144, %140
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %148, %144, %140
   %.sink139.i.i = phi i64 [ 8, %148 ], [ 4, %144 ], [ 2, %140 ]
   %.pn.in.i63.i.i = phi i32 [ %150, %148 ], [ %146, %144 ], [ %142, %140 ]
   %151 = getelementptr inbounds i8, ptr %.7.i.i, i64 %.sink139.i.i
   %.pn.i64.i.i = trunc i32 %.pn.in.i63.i.i to i8
   %.ph.i65.i.i = or i8 %.030.i58.i.i, %.pn.i64.i.i
-  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i
+  br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
 
-_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i, %.preheader.i.i
-  %.8.i.i = phi ptr [ %.7.i.i, %.preheader.i.i ], [ %151, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
-  %152 = phi i8 [ %.030.i58.i.i, %.preheader.i.i ], [ %.ph.i65.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.sink.split.i.i.i ]
+_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i, %.preheader.i.i
+  %.8.i.i = phi ptr [ %.7.i.i, %.preheader.i.i ], [ %151, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
+  %152 = phi i8 [ %.030.i58.i.i, %.preheader.i.i ], [ %.ph.i65.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i ]
   %153 = add nuw nsw i32 %.02329.i59.i.i, 1
   %.not.i66.i.i = icmp eq i32 %153, 3
   br i1 %.not.i66.i.i, label %.sink.split.i.i, label %.preheader.i.i, !llvm.loop !47
@@ -2501,9 +2501,9 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvR
 ._crit_edge120.unreachabledefault.i.i:            ; preds = %._crit_edge120.i.i
   unreachable
 
-.sink.split.i.i:                                  ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i, %108, %105, %102, %94
-  %.lcssa.sink.i.i = phi i8 [ 0, %94 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ], [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ]
-  %.199.ph.i.i = phi ptr [ %.098.lcssa.i.i, %94 ], [ %109, %108 ], [ %107, %105 ], [ %104, %102 ], [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ], [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.argprom.exit.i.i.i ]
+.sink.split.i.i:                                  ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, %108, %105, %102, %94
+  %.lcssa.sink.i.i = phi i8 [ 0, %94 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ], [ %152, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %130, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ]
+  %.199.ph.i.i = phi ptr [ %.098.lcssa.i.i, %94 ], [ %109, %108 ], [ %107, %105 ], [ %104, %102 ], [ %.8.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ %.6.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ]
   store i8 %.lcssa.sink.i.i, ptr %.0102.lcssa.i.i, align 1
   br label %154
 

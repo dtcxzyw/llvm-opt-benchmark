@@ -802,7 +802,7 @@ _print_jag_prec.exit:                             ; preds = %192, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12)
   %330 = load i32, ptr @cpunfo_frequency, align 4
   %.not.i187 = icmp eq i32 %330, 0
-  br i1 %.not.i187, label %331, label %_get_sys_interface_freq_line.argprom.exit.thread
+  br i1 %.not.i187, label %331, label %_get_sys_interface_freq_line.exit.thread
 
 331:                                              ; preds = %._crit_edge210
   %332 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 79, ptr noundef nonnull @.str.48, i32 noundef %329, ptr noundef nonnull @.str.16) #17
@@ -862,7 +862,7 @@ _print_jag_prec.exit:                             ; preds = %192, %._crit_edge.i
 360:                                              ; preds = %339
   %361 = load i32, ptr @cpunfo_frequency, align 4
   %.not18.i190 = icmp eq i32 %361, 0
-  br i1 %.not18.i190, label %362, label %_get_sys_interface_freq_line.argprom.exit.thread
+  br i1 %.not18.i190, label %362, label %_get_sys_interface_freq_line.exit.thread
 
 362:                                              ; preds = %360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %11, ptr noundef nonnull align 1 dereferenceable(14) @.str.51, i64 14, i1 false)
@@ -883,7 +883,7 @@ _print_jag_prec.exit:                             ; preds = %192, %._crit_edge.i
 369:                                              ; preds = %368, %365, %362
   %370 = call noalias ptr @fopen(ptr noundef nonnull %11, ptr noundef nonnull @.str.1)
   %.not20.i = icmp eq ptr %370, null
-  br i1 %.not20.i, label %_get_sys_interface_freq_line.argprom.exit, label %.preheader.i
+  br i1 %.not20.i, label %_get_sys_interface_freq_line.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %369
   %371 = call ptr @fgets(ptr noundef nonnull %12, i32 noundef 128, ptr noundef nonnull %370)
@@ -946,16 +946,16 @@ _get_freq.exit.i:                                 ; preds = %377, %375, %373
 .sink.split.i:                                    ; preds = %_get_freq.exit.i, %_get_freq.exit.thread.i, %.preheader.i, %359, %356, %351, %347
   %.sink.i = phi ptr [ %340, %359 ], [ %340, %356 ], [ %340, %351 ], [ %340, %347 ], [ %370, %.preheader.i ], [ %370, %_get_freq.exit.thread.i ], [ %370, %_get_freq.exit.i ]
   %393 = call i32 @fclose(ptr noundef nonnull %.sink.i)
-  br label %_get_sys_interface_freq_line.argprom.exit
+  br label %_get_sys_interface_freq_line.exit
 
-_get_sys_interface_freq_line.argprom.exit.thread: ; preds = %._crit_edge210, %360
+_get_sys_interface_freq_line.exit.thread:         ; preds = %._crit_edge210, %360
   %.ph = phi i32 [ %361, %360 ], [ %330, %._crit_edge210 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   br label %396
 
-_get_sys_interface_freq_line.argprom.exit:        ; preds = %369, %.sink.split.i
+_get_sys_interface_freq_line.exit:                ; preds = %369, %.sink.split.i
   %.pr = load i32, ptr @cpunfo_frequency, align 4
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12)
@@ -964,13 +964,13 @@ _get_sys_interface_freq_line.argprom.exit:        ; preds = %369, %.sink.split.i
   %.not.i193 = icmp eq i32 %.pr, 0
   br i1 %.not.i193, label %394, label %396
 
-394:                                              ; preds = %_get_sys_interface_freq_line.argprom.exit
+394:                                              ; preds = %_get_sys_interface_freq_line.exit
   %395 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %15, ptr noundef nonnull @.str.57, ptr noundef nonnull %9) #17
   %.pre.i = load i32, ptr %9, align 4
   br label %396
 
-396:                                              ; preds = %_get_sys_interface_freq_line.argprom.exit.thread, %394, %_get_sys_interface_freq_line.argprom.exit
-  %397 = phi i32 [ %.pre.i, %394 ], [ %.pr, %_get_sys_interface_freq_line.argprom.exit ], [ %.ph, %_get_sys_interface_freq_line.argprom.exit.thread ]
+396:                                              ; preds = %_get_sys_interface_freq_line.exit.thread, %394, %_get_sys_interface_freq_line.exit
+  %397 = phi i32 [ %.pre.i, %394 ], [ %.pr, %_get_sys_interface_freq_line.exit ], [ %.ph, %_get_sys_interface_freq_line.exit.thread ]
   %398 = getelementptr inbounds i8, ptr %75, i64 104
   %399 = load i32, ptr %398, align 8
   %400 = load double, ptr %328, align 8
@@ -1505,8 +1505,8 @@ define internal ptr @_get_precs(ptr noundef %0, i64 noundef %1, ptr nocapture re
   %68 = getelementptr inbounds i8, ptr %64, i64 112
   br label %69
 
-69:                                               ; preds = %.lr.ph, %_handle_stats.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_handle_stats.argprom.exit ]
+69:                                               ; preds = %.lr.ph, %_handle_stats.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_handle_stats.exit ]
   %70 = load ptr, ptr %63, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4
@@ -1576,7 +1576,7 @@ define internal ptr @_get_precs(ptr noundef %0, i64 noundef %1, ptr nocapture re
   %98 = load ptr, ptr %59, align 8
   %99 = call noalias ptr @fopen(ptr noundef %98, ptr noundef nonnull @.str.1)
   %.not22.i = icmp eq ptr %99, null
-  br i1 %.not22.i, label %_handle_stats.argprom.exit, label %100
+  br i1 %.not22.i, label %_handle_stats.exit, label %100
 
 100:                                              ; preds = %97
   %101 = call i32 @fileno(ptr noundef nonnull %99) #17
@@ -2183,9 +2183,9 @@ _remove_share_data.exit.thread.i:                 ; preds = %298, %_get_pss.exit
 .sink.split14.i:                                  ; preds = %_remove_share_data.exit.thread.i, %destroy_jag_prec.exit.i
   %.sink15.i = phi ptr [ %60, %_remove_share_data.exit.thread.i ], [ %59, %destroy_jag_prec.exit.i ]
   call void @slurm_xfree(ptr noundef nonnull %.sink15.i) #17
-  br label %_handle_stats.argprom.exit
+  br label %_handle_stats.exit
 
-_handle_stats.argprom.exit:                       ; preds = %97, %.sink.split14.i
+_handle_stats.exit:                               ; preds = %97, %.sink.split14.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %61)
@@ -2195,7 +2195,7 @@ _handle_stats.argprom.exit:                       ; preds = %97, %.sink.split14.
   %316 = icmp slt i64 %indvars.iv.next, %315
   br i1 %316, label %69, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %_handle_stats.argprom.exit, %.preheader
+._crit_edge:                                      ; preds = %_handle_stats.exit, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %63) #17
   br label %348
 

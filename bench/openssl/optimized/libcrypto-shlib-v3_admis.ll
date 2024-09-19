@@ -284,7 +284,7 @@ if.end41:                                         ; preds = %lor.lhs.false36, %i
   br i1 %cmp42.not, label %if.end49, label %if.then43
 
 if.then43:                                        ; preds = %if.end41
-  %call45 = call fastcc i32 @i2r_NAMING_AUTHORITY.argprom(ptr noundef %7, ptr noundef %bp, i32 noundef %ind)
+  %call45 = call fastcc i32 @i2r_NAMING_AUTHORITY(ptr noundef %7, ptr noundef %bp, i32 noundef %ind)
   %cmp46.not.not = icmp eq i32 %call45, 0
   br i1 %cmp46.not.not, label %return, label %if.end49
 
@@ -332,7 +332,7 @@ if.end76:                                         ; preds = %lor.lhs.false71, %i
   br i1 %cmp78.not, label %if.end86, label %if.then79
 
 if.then79:                                        ; preds = %if.end76
-  %call82 = call fastcc i32 @i2r_NAMING_AUTHORITY.argprom(ptr noundef %12, ptr noundef %bp, i32 noundef %add81)
+  %call82 = call fastcc i32 @i2r_NAMING_AUTHORITY(ptr noundef %12, ptr noundef %bp, i32 noundef %add81)
   %cmp83.not.not = icmp eq i32 %call82, 0
   br i1 %cmp83.not.not, label %return, label %if.end86
 
@@ -689,7 +689,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @i2r_NAMING_AUTHORITY.argprom(ptr nocapture noundef nonnull readonly %in, ptr noundef %bp, i32 noundef %ind) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @i2r_NAMING_AUTHORITY(ptr nocapture noundef nonnull readonly %in, ptr noundef %bp, i32 noundef %ind) unnamed_addr #1 {
 entry:
   %objbuf = alloca [128 x i8], align 16
   %0 = load ptr, ptr %in, align 8

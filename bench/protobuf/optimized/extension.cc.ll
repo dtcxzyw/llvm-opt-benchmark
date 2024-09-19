@@ -4368,7 +4368,7 @@ invoke.cont179:                                   ; preds = %.noexc129
   %53 = load ptr, ptr %this, align 8
   %containing_type_.i132 = getelementptr inbounds i8, ptr %53, i64 32
   %54 = load ptr, ptr %containing_type_.i132, align 8
-  %call186 = invoke fastcc noundef i64 @"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator20GenerateRegistrationEPNS0_2io7PrinterEENK3$_0clIKNS0_10DescriptorEEEDaPT_.argprom"(ptr noundef %54)
+  %call186 = invoke fastcc noundef i64 @"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator20GenerateRegistrationEPNS0_2io7PrinterEENK3$_0clIKNS0_10DescriptorEEEDaPT_"(ptr noundef %54)
           to label %invoke.cont185 unwind label %lpad182
 
 invoke.cont185:                                   ; preds = %invoke.cont179
@@ -4457,7 +4457,7 @@ invoke.cont208:                                   ; preds = %.noexc156
           to label %invoke.cont212 unwind label %lpad211
 
 invoke.cont212:                                   ; preds = %invoke.cont208
-  %call215 = invoke fastcc noundef i64 @"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator20GenerateRegistrationEPNS0_2io7PrinterEENK3$_0clIKNS0_10DescriptorEEEDaPT_.argprom"(ptr noundef %call213)
+  %call215 = invoke fastcc noundef i64 @"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator20GenerateRegistrationEPNS0_2io7PrinterEENK3$_0clIKNS0_10DescriptorEEEDaPT_"(ptr noundef %call213)
           to label %invoke.cont214 unwind label %lpad211
 
 invoke.cont214:                                   ; preds = %invoke.cont212
@@ -4864,7 +4864,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp27UsingImplicitWeakD
 declare void @_ZN6google8protobuf8compiler3cpp19DescriptorTableNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(206)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator20GenerateRegistrationEPNS0_2io7PrinterEENK3$_0clIKNS0_10DescriptorEEEDaPT_.argprom"(ptr noundef readonly %desc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator20GenerateRegistrationEPNS0_2io7PrinterEENK3$_0clIKNS0_10DescriptorEEEDaPT_"(ptr noundef readonly %desc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %msgs = alloca %"class.std::vector.240", align 8
   %file_.i = getelementptr inbounds i8, ptr %desc, i64 16
@@ -12375,18 +12375,18 @@ _ZNK6google8protobuf8compiler3cpp18ExtensionGenerator8IsScopedEv.exit.i.i.i.i: ;
   %4 = load ptr, ptr %scope_.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i)
   %cmp.i.not.i.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.i.not.i.i.i.i, label %"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_2clEv.argprom.argprom.exit.i.i.i", label %if.end.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i, label %"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_2clEv.exit.i.i.i", label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK6google8protobuf8compiler3cpp18ExtensionGenerator8IsScopedEv.exit.i.i.i.i
   %5 = load ptr, ptr %this.val1.i.i.i, align 8
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr null, i64 0, i64 134, ptr nonnull @.str.71)
-  br label %"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_2clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_2clEv.exit.i.i.i"
 
-"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_2clEv.argprom.argprom.exit.i.i.i": ; preds = %if.end.i.i.i.i, %_ZNK6google8protobuf8compiler3cpp18ExtensionGenerator8IsScopedEv.exit.i.i.i.i
+"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_2clEv.exit.i.i.i": ; preds = %if.end.i.i.i.i, %_ZNK6google8protobuf8compiler3cpp18ExtensionGenerator8IsScopedEv.exit.i.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS1_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS3_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS1_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS3_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.exit": ; preds = %entry, %"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_2clEv.argprom.argprom.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS1_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS3_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOST_DpOSU_.exit": ; preds = %entry, %"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_2clEv.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -12884,23 +12884,23 @@ attributes #30 = { noreturn }
 !79 = distinct !{!79, !80, !"_ZN4absl12lts_2023080211MakeCleanupIJEZN6google8protobuf2io7Printer15WithAnnotationsINS0_13flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_16AnnotationRecordENS0_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSD_SE_EEEEEEDaOT_EUlvE_EENS0_7CleanupINS0_16cleanup_internal3TagET0_EEST_: %agg.result"}
 !80 = distinct !{!80, !"_ZN4absl12lts_2023080211MakeCleanupIJEZN6google8protobuf2io7Printer15WithAnnotationsINS0_13flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_16AnnotationRecordENS0_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSD_SE_EEEEEEDaOT_EUlvE_EENS0_7CleanupINS0_16cleanup_internal3TagET0_EEST_"}
 !81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_0clB5cxx11Ev.argprom: %agg.result"}
-!83 = distinct !{!83, !"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_0clB5cxx11Ev.argprom"}
+!82 = distinct !{!82, !83, !"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_0clB5cxx11Ev: %agg.result"}
+!83 = distinct !{!83, !"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_0clB5cxx11Ev"}
 !84 = !{!85, !87, !82}
 !85 = distinct !{!85, !86, !"_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE16try_emplace_implIRA12_KcJEEESF_INS1_12raw_hash_setISC_SD_SE_SI_E8iteratorEbEOT_DpOT0_: %agg.result"}
 !86 = distinct !{!86, !"_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE16try_emplace_implIRA12_KcJEEESF_INS1_12raw_hash_setISC_SD_SE_SI_E8iteratorEbEOT_DpOT0_"}
 !87 = distinct !{!87, !88, !"_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE11try_emplaceIA12_cJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISC_SD_SE_SI_E14const_iteratorEEE5valueEiE4typeELi0EEESF_INSP_8iteratorEbERKSN_DpOT0_: %agg.result"}
 !88 = distinct !{!88, !"_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE11try_emplaceIA12_cJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISC_SD_SE_SI_E14const_iteratorEEE5valueEiE4typeELi0EEESF_INSP_8iteratorEbERKSN_DpOT0_"}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!91 = distinct !{!91, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!90 = distinct !{!90, !91, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!91 = distinct !{!91, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !92 = distinct !{!92, !66}
 !93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!95 = distinct !{!95, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!94 = distinct !{!94, !95, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!95 = distinct !{!95, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!98 = distinct !{!98, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!97 = distinct !{!97, !98, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!98 = distinct !{!98, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS0_8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !99 = !{!100}
 !100 = distinct !{!100, !101, !"_ZN4absl12lts_202308028exchangeINS0_18container_internal12CommonFieldsES3_EET_RS4_OT0_: %agg.result"}
 !101 = distinct !{!101, !"_ZN4absl12lts_202308028exchangeINS0_18container_internal12CommonFieldsES3_EET_RS4_OT0_"}

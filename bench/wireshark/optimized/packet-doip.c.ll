@@ -712,7 +712,7 @@ add_header.exit.i:                                ; preds = %50, %27
 62:                                               ; preds = %add_header.exit.i
   %63 = load i32, ptr @hf_source_address, align 4
   %64 = load i32, ptr @hf_source_address_name, align 4
-  call fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %31, i32 noundef %63, i32 noundef %64, ptr noundef %0, i32 noundef 8, ptr noundef null)
+  call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %63, i32 noundef %64, ptr noundef %0, i32 noundef 8, ptr noundef null)
   %65 = icmp eq i8 %9, 1
   br i1 %65, label %66, label %72
 
@@ -748,10 +748,10 @@ add_header.exit.i:                                ; preds = %50, %27
 82:                                               ; preds = %add_header.exit.i
   %83 = load i32, ptr @hf_tester_logical_address, align 4
   %84 = load i32, ptr @hf_tester_logical_address_name, align 4
-  call fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %31, i32 noundef %83, i32 noundef %84, ptr noundef %0, i32 noundef 8, ptr noundef null)
+  call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %83, i32 noundef %84, ptr noundef %0, i32 noundef 8, ptr noundef null)
   %85 = load i32, ptr @hf_source_address, align 4
   %86 = load i32, ptr @hf_source_address_name, align 4
-  call fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %31, i32 noundef %85, i32 noundef %86, ptr noundef %0, i32 noundef 10, ptr noundef null)
+  call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %85, i32 noundef %86, ptr noundef %0, i32 noundef 10, ptr noundef null)
   %87 = load i32, ptr @hf_response_code, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %87, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #4
   %89 = load i32, ptr @hf_reserved_iso, align 4
@@ -770,7 +770,7 @@ add_header.exit.i:                                ; preds = %50, %27
   %97 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %96, ptr noundef %0, i32 noundef 8, i32 noundef 17, i32 noundef 0) #4
   %98 = load i32, ptr @hf_logical_address, align 4
   %99 = load i32, ptr @hf_logical_address_name, align 4
-  call fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %31, i32 noundef %98, i32 noundef %99, ptr noundef %0, i32 noundef 25, ptr noundef null)
+  call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %98, i32 noundef %99, ptr noundef %0, i32 noundef 25, ptr noundef null)
   %100 = load i32, ptr @hf_eid, align 4
   %101 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %100, ptr noundef %0, i32 noundef 27, i32 noundef 6, i32 noundef 0) #4
   %102 = load i32, ptr @hf_gid, align 4
@@ -789,7 +789,7 @@ add_header.exit.i:                                ; preds = %50, %27
 110:                                              ; preds = %add_header.exit.i
   %111 = load i32, ptr @hf_source_address, align 4
   %112 = load i32, ptr @hf_source_address_name, align 4
-  call fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %31, i32 noundef %111, i32 noundef %112, ptr noundef %0, i32 noundef 8, ptr noundef null)
+  call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %111, i32 noundef %112, ptr noundef %0, i32 noundef 8, ptr noundef null)
   br label %dissect_doip_message.exit
 
 113:                                              ; preds = %add_header.exit.i
@@ -818,14 +818,14 @@ add_header.exit.i:                                ; preds = %50, %27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %128 = load i32, ptr @hf_source_address, align 4
   %129 = load i32, ptr @hf_source_address_name, align 4
-  call fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %31, i32 noundef %128, i32 noundef %129, ptr noundef %0, i32 noundef 8, ptr noundef nonnull %6)
+  call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %128, i32 noundef %129, ptr noundef %0, i32 noundef 8, ptr noundef nonnull %6)
   %130 = load i32, ptr %6, align 4
   %131 = trunc i32 %130 to i16
   %132 = getelementptr inbounds i8, ptr %5, i64 2
   store i16 %131, ptr %132, align 2
   %133 = load i32, ptr @hf_target_address, align 4
   %134 = load i32, ptr @hf_target_address_name, align 4
-  call fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %31, i32 noundef %133, i32 noundef %134, ptr noundef %0, i32 noundef 10, ptr noundef nonnull %6)
+  call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %133, i32 noundef %134, ptr noundef %0, i32 noundef 10, ptr noundef nonnull %6)
   %135 = load i32, ptr %6, align 4
   %136 = trunc i32 %135 to i16
   store i16 %136, ptr %5, align 2
@@ -857,10 +857,10 @@ add_diagnostic_message_fields.exit.i:             ; preds = %144, %141, %138
 148:                                              ; preds = %add_header.exit.i
   %149 = load i32, ptr @hf_source_address, align 4
   %150 = load i32, ptr @hf_source_address_name, align 4
-  call fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %31, i32 noundef %149, i32 noundef %150, ptr noundef %0, i32 noundef 8, ptr noundef null)
+  call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %149, i32 noundef %150, ptr noundef %0, i32 noundef 8, ptr noundef null)
   %151 = load i32, ptr @hf_target_address, align 4
   %152 = load i32, ptr @hf_target_address_name, align 4
-  call fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %31, i32 noundef %151, i32 noundef %152, ptr noundef %0, i32 noundef 10, ptr noundef null)
+  call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %151, i32 noundef %152, ptr noundef %0, i32 noundef 10, ptr noundef null)
   %153 = load i32, ptr @hf_ack_code, align 4
   %154 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %153, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #4
   %155 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 13) #4
@@ -876,10 +876,10 @@ add_diagnostic_message_fields.exit.i:             ; preds = %144, %141, %138
 161:                                              ; preds = %add_header.exit.i
   %162 = load i32, ptr @hf_source_address, align 4
   %163 = load i32, ptr @hf_source_address_name, align 4
-  call fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %31, i32 noundef %162, i32 noundef %163, ptr noundef %0, i32 noundef 8, ptr noundef null)
+  call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %162, i32 noundef %163, ptr noundef %0, i32 noundef 8, ptr noundef null)
   %164 = load i32, ptr @hf_target_address, align 4
   %165 = load i32, ptr @hf_target_address_name, align 4
-  call fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %31, i32 noundef %164, i32 noundef %165, ptr noundef %0, i32 noundef 10, ptr noundef null)
+  call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %164, i32 noundef %165, ptr noundef %0, i32 noundef 10, ptr noundef null)
   %166 = load i32, ptr @hf_nack_code, align 4
   %167 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %166, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #4
   %168 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 13) #4
@@ -1009,7 +1009,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @doip_prototree_add_with_resolv.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 8, 26) %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @doip_prototree_add_with_resolv(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 8, 26) %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr @data_doip_diag_addresses, align 8

@@ -68692,7 +68692,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #23
   br label %if.end
 
-lpad:                                             ; preds = %if.else380.invoke, %_ZN11flatbuffersL9IsPointerERKNS_8FieldDefE.argprom.exit, %invoke.cont364, %if.then363, %invoke.cont358, %invoke.cont353, %invoke.cont342, %invoke.cont340, %invoke.cont336, %invoke.cont330, %if.then327, %invoke.cont302, %sw.bb292, %sw.bb280, %sw.bb
+lpad:                                             ; preds = %if.else380.invoke, %_ZN11flatbuffersL9IsPointerERKNS_8FieldDefE.exit, %invoke.cont364, %if.then363, %invoke.cont358, %invoke.cont353, %invoke.cont342, %invoke.cont340, %invoke.cont336, %invoke.cont330, %if.then327, %invoke.cont302, %sw.bb292, %sw.bb280, %sw.bb
   %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup468
@@ -69865,7 +69865,7 @@ if.else384.critedge:                              ; preds = %invoke.cont320, %_Z
 if.else384:                                       ; preds = %if.else384.critedge, %cond.false.i220
   %field.val = load i32, ptr %value, align 8
   %cmp.i241 = icmp eq i32 %field.val, 15
-  br i1 %cmp.i241, label %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i, label %_ZN11flatbuffersL9IsPointerERKNS_8FieldDefE.argprom.exit
+  br i1 %cmp.i241, label %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i, label %_ZN11flatbuffersL9IsPointerERKNS_8FieldDefE.exit
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %if.else384
   %101 = getelementptr inbounds i8, ptr %field, i64 208
@@ -69874,14 +69874,14 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %if.else384
   %102 = load i8, ptr %fixed.i.i, align 8
   %tobool.i.i = trunc i8 %102 to i1
   %lnot.i242 = xor i1 %tobool.i.i, true
-  br label %_ZN11flatbuffersL9IsPointerERKNS_8FieldDefE.argprom.exit
+  br label %_ZN11flatbuffersL9IsPointerERKNS_8FieldDefE.exit
 
-_ZN11flatbuffersL9IsPointerERKNS_8FieldDefE.argprom.exit: ; preds = %if.else384, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
+_ZN11flatbuffersL9IsPointerERKNS_8FieldDefE.exit: ; preds = %if.else384, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
   %103 = phi i1 [ false, %if.else384 ], [ %lnot.i242, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i ]
   invoke void @_ZNK11flatbuffers3cpp12CppGenerator4NameB5cxx11ERKNS_8FieldDefE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp389, ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(312) %field)
           to label %invoke.cont390 unwind label %lpad
 
-invoke.cont390:                                   ; preds = %_ZN11flatbuffersL9IsPointerERKNS_8FieldDefE.argprom.exit
+invoke.cont390:                                   ; preds = %_ZN11flatbuffersL9IsPointerERKNS_8FieldDefE.exit
   %call.i243244 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp389, i64 noundef 0, ptr noundef nonnull @.str.689)
           to label %invoke.cont392 unwind label %lpad391
 

@@ -239,7 +239,7 @@ define dso_local void @fprop_local_destroy_percpu(ptr noundef %0) local_unnamed_
 define dso_local void @__fprop_add_percpu(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 40
   %.val = load i32, ptr %4, align 8
-  tail call fastcc void @fprop_reflect_period_percpu.argprom(i32 %.val, ptr noundef %1)
+  tail call fastcc void @fprop_reflect_period_percpu(i32 %.val, ptr noundef %1)
   %5 = load i32, ptr @nr_cpu_ids, align 4
   %6 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 -1) #8, !srcloc !15
   %7 = shl i32 %6, 3
@@ -251,7 +251,7 @@ define dso_local void @__fprop_add_percpu(ptr noundef %0, ptr noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fprop_reflect_period_percpu.argprom(i32 %.40.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @fprop_reflect_period_percpu(i32 %.40.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, %.40.val
@@ -345,7 +345,7 @@ define dso_local void @fprop_fraction_percpu(ptr noundef %0, ptr noundef %1, ptr
   %16 = phi i32 [ %10, %9 ], [ %13, %.preheader ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
   %.val = load i32, ptr %8, align 8
-  tail call fastcc void @fprop_reflect_period_percpu.argprom(i32 %.val, ptr noundef %1)
+  tail call fastcc void @fprop_reflect_period_percpu(i32 %.val, ptr noundef %1)
   %17 = load volatile i64, ptr %6, align 8
   %18 = load volatile i64, ptr %7, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
@@ -414,7 +414,7 @@ define dso_local void @__fprop_add_percpu_max(ptr noundef %0, ptr noundef %1, i3
   %26 = phi i64 [ %3, %4 ], [ %.ph, %.thread ]
   %27 = getelementptr i8, ptr %0, i64 40
   %.val = load i32, ptr %27, align 8
-  tail call fastcc void @fprop_reflect_period_percpu.argprom(i32 %.val, ptr noundef %1)
+  tail call fastcc void @fprop_reflect_period_percpu(i32 %.val, ptr noundef %1)
   %28 = load i32, ptr @nr_cpu_ids, align 4
   %29 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 -1) #8, !srcloc !15
   %30 = shl i32 %29, 3

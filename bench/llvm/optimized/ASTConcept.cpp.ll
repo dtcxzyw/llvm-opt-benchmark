@@ -69,7 +69,7 @@ define dso_local void @_ZN5clang25ASTConstraintSatisfactionC2ERKNS_10ASTContextE
   %23 = getelementptr inbounds %"class.llvm::PointerUnion", ptr %22, i64 %21
   %24 = getelementptr inbounds %"class.llvm::PointerUnion", ptr %19, i64 %21
   %.val = load i64, ptr %23, align 8
-  tail call fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10ASTContextERKN4llvm12PointerUnionIJPNS_4ExprEPSt4pairINS_14SourceLocationENS3_9StringRefEEEEEPSC_.argprom(ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %.val, ptr noundef nonnull %24)
+  tail call fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10ASTContextERKN4llvm12PointerUnionIJPNS_4ExprEPSt4pairINS_14SourceLocationENS3_9StringRefEEEEEPSC_(ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %.val, ptr noundef nonnull %24)
   %25 = add i32 %.010, 1
   %26 = zext i32 %25 to i64
   %27 = load i64, ptr %0, align 8
@@ -83,7 +83,7 @@ define dso_local void @_ZN5clang25ASTConstraintSatisfactionC2ERKNS_10ASTContextE
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10ASTContextERKN4llvm12PointerUnionIJPNS_4ExprEPSt4pairINS_14SourceLocationENS3_9StringRefEEEEEPSC_.argprom(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.0.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10ASTContextERKN4llvm12PointerUnionIJPNS_4ExprEPSt4pairINS_14SourceLocationENS3_9StringRefEEEEEPSC_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.0.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = and i64 %.0.val, 2
   %4 = icmp eq i64 %3, 0
   %5 = and i64 %.0.val, -4
@@ -214,7 +214,7 @@ define dso_local void @_ZN5clang25ASTConstraintSatisfactionC2ERKNS_10ASTContextE
   %19 = getelementptr inbounds %"class.llvm::PointerUnion", ptr %15, i64 %18
   %20 = getelementptr inbounds %"class.llvm::PointerUnion", ptr %16, i64 %18
   %.val = load i64, ptr %19, align 8
-  tail call fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10ASTContextERKN4llvm12PointerUnionIJPNS_4ExprEPSt4pairINS_14SourceLocationENS3_9StringRefEEEEEPSC_.argprom(ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %.val, ptr noundef nonnull %20)
+  tail call fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10ASTContextERKN4llvm12PointerUnionIJPNS_4ExprEPSt4pairINS_14SourceLocationENS3_9StringRefEEEEEPSC_(ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %.val, ptr noundef nonnull %20)
   %21 = add i32 %.010, 1
   %22 = zext i32 %21 to i64
   %23 = load i64, ptr %0, align 8

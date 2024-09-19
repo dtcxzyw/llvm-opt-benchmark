@@ -181,17 +181,17 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %.pre106 = ptrtoint ptr %.val51 to i64
   %.pre108 = sub i64 %.pre, %.pre106
   %.pre110 = sdiv exact i64 %.pre108, 12
-  br i1 %.not.i.i, label %Gia_ObjIsMux.argprom.exit.thread, label %Gia_ObjIsMux.argprom.exit
+  br i1 %.not.i.i, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjIsMux.exit
 
-Gia_ObjIsMux.argprom.exit:                        ; preds = %Vec_StrPush.exit
+Gia_ObjIsMux.exit:                                ; preds = %Vec_StrPush.exit
   %sext.i = shl i64 %.pre110, 32
   %45 = ashr exact i64 %sext.i, 30
   %46 = getelementptr inbounds i8, ptr %.val52, i64 %45
   %47 = load i32, ptr %46, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %Gia_ObjIsMux.argprom.exit.thread, label %48
+  br i1 %.not, label %Gia_ObjIsMux.exit.thread, label %48
 
-48:                                               ; preds = %Gia_ObjIsMux.argprom.exit
+48:                                               ; preds = %Gia_ObjIsMux.exit
   %49 = trunc i64 %.pre110 to i32
   %.val3.i.i = load i64, ptr %8, align 4
   %50 = trunc i64 %.val3.i.i to i32
@@ -364,7 +364,7 @@ Vec_StrPush.exit73:                               ; preds = %.Vec_StrGrow.exit10
   %spec.select.i = select i1 %.not7.i, i32 -1, i32 %136
   br label %Gia_ObjFaninLit2p.exit
 
-Gia_ObjIsMux.argprom.exit.thread:                 ; preds = %Vec_StrPush.exit, %Gia_ObjIsMux.argprom.exit
+Gia_ObjIsMux.exit.thread:                         ; preds = %Vec_StrPush.exit, %Gia_ObjIsMux.exit
   %137 = trunc i64 %.pre110 to i32
   %.val3.i.i76 = load i64, ptr %8, align 4
   %138 = trunc i64 %.val3.i.i76 to i32
@@ -382,14 +382,14 @@ Gia_ObjIsMux.argprom.exit.thread:                 ; preds = %Vec_StrPush.exit, %
   %147 = and i64 %.val57, 536870911
   %148 = icmp eq i64 %147, 536870911
   %narrow.i.not.i = or i1 %.not.i.i77, %148
-  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.argprom.exit.thread, label %Gia_ObjIsXor.argprom.exit
+  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
 
-Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %Gia_ObjIsMux.argprom.exit.thread
+Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMux.exit.thread
   %.not49102 = icmp eq i32 %9, 0
   %149 = select i1 %.not49102, i8 38, i8 124
   br label %157
 
-Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsMux.argprom.exit.thread
+Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit.thread
   %150 = trunc i64 %.val57 to i32
   %151 = and i32 %150, 536870911
   %152 = lshr i64 %.val57, 32
@@ -402,8 +402,8 @@ Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsMux.argpro
   %spec.select = select i1 %cond.fr, i8 %156, i8 94
   br label %157
 
-157:                                              ; preds = %Gia_ObjIsXor.argprom.exit, %Gia_ObjIsXor.argprom.exit.thread
-  %158 = phi i8 [ %149, %Gia_ObjIsXor.argprom.exit.thread ], [ %spec.select, %Gia_ObjIsXor.argprom.exit ]
+157:                                              ; preds = %Gia_ObjIsXor.exit, %Gia_ObjIsXor.exit.thread
+  %158 = phi i8 [ %149, %Gia_ObjIsXor.exit.thread ], [ %spec.select, %Gia_ObjIsXor.exit ]
   %159 = load i32, ptr %14, align 4
   %160 = load i32, ptr %2, align 8
   %161 = icmp eq i32 %159, %160
@@ -634,7 +634,7 @@ Vec_StrPush.exit99:                               ; preds = %.Vec_StrGrow.exit10
   %265 = and i64 %264, 536870911
   %266 = getelementptr inbounds ptr, ptr %1, i64 %265
   %267 = load ptr, ptr %266, align 8
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF.retelim(ptr noundef %2, ptr nonnull poison, ptr noundef %267)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %2, ptr nonnull poison, ptr noundef %267)
   br label %268
 
 268:                                              ; preds = %263, %Vec_StrPush.exit92
@@ -642,7 +642,7 @@ Vec_StrPush.exit99:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Vec_StrPrintF.retelim(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
+define internal void @Vec_StrPrintF(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 4
@@ -6838,7 +6838,7 @@ Vec_IntPush.exit269:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %198, label %156, label %.critedge2, !llvm.loop !79
 
 .critedge2:                                       ; preds = %156, %194, %149
-  call fastcc void @Cnf_AddCardinConstr.retelim(ptr noundef %59, ptr noundef %6)
+  call fastcc void @Cnf_AddCardinConstr(ptr noundef %59, ptr noundef %6)
   br label %256
 
 199:                                              ; preds = %.critedge
@@ -7359,7 +7359,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i289, %Vec_I
 declare ptr @Gia_ManMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Cnf_AddCardinConstr.retelim(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @Cnf_AddCardinConstr(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
 .critedge:
   %2 = alloca [3 x i32], align 4
   %3 = alloca [2 x i32], align 4
@@ -8826,7 +8826,7 @@ Vec_IntPush.exit420:                              ; preds = %.Vec_IntGrow.exit10
 
 .critedge7:                                       ; preds = %.critedge7.loopexit, %580
   %633 = phi ptr [ %.pre619, %.critedge7.loopexit ], [ %576, %580 ]
-  call fastcc void @Cnf_AddCardinConstr.retelim(ptr noundef %633, ptr noundef %190)
+  call fastcc void @Cnf_AddCardinConstr(ptr noundef %633, ptr noundef %190)
   %.pre620 = load ptr, ptr %18, align 8
   %.pre621.pre = load ptr, ptr %20, align 8
   br label %634

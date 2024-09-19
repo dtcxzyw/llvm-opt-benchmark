@@ -1346,7 +1346,7 @@ _ZL28outputStartStructureIfWantedRK10gmx_mtop_tPA3_f7PbcTypePA3_Kf.exit.i: ; pre
   %482 = getelementptr inbounds i8, ptr %477, i64 8
   %483 = load i32, ptr %482, align 4
   %.not.i.i352 = icmp slt i32 %466, %483
-  br i1 %.not.i.i352, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit.i, label %484
+  br i1 %.not.i.i352, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, label %484
 
 484:                                              ; preds = %481, %475
   %.127.i.i = phi i32 [ %.1.i351, %475 ], [ %.026.i.i, %481 ]
@@ -1356,12 +1356,12 @@ _ZL28outputStartStructureIfWantedRK10gmx_mtop_tPA3_f7PbcTypePA3_Kf.exit.i: ; pre
   %487 = ashr i32 %486, 1
   br label %475, !llvm.loop !8
 
-_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit.i: ; preds = %481
+_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %481
   %488 = trunc i64 %465 to i32
   %489 = load i32, ptr %477, align 4
   br i1 %459, label %490, label %497
 
-490:                                              ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit.i
+490:                                              ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i
   %491 = load ptr, ptr @stderr, align 8
   %492 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZL3SwSB5cxx11) #22
   %493 = load ptr, ptr %451, align 8
@@ -1370,7 +1370,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit.i: ; preds = %481
   %496 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %491, ptr noundef nonnull @.str.64, ptr noundef %492, ptr noundef %493, i32 noundef %489, ptr noundef nonnull %495) #26
   br label %497
 
-497:                                              ; preds = %490, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit.i
+497:                                              ; preds = %490, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i
   %498 = icmp sgt i32 %488, 1
   br i1 %498, label %.lr.ph.i354, label %_ZL19get_group_apm_checkiP6t_swapbRK10gmx_mtop_t.exit
 
@@ -1386,7 +1386,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit.i: ; preds = %481
   %wide.trip.count.i355 = and i64 %465, 2147483647
   br label %508
 
-507:                                              ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit33.i
+507:                                              ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit33.i
   %indvars.iv.next.i358 = add nuw nsw i64 %indvars.iv.i356, 1
   %exitcond.not.i359 = icmp eq i64 %indvars.iv.next.i358, %wide.trip.count.i355
   br i1 %exitcond.not.i359, label %_ZL19get_group_apm_checkiP6t_swapbRK10gmx_mtop_t.exit, label %508, !llvm.loop !25
@@ -1414,7 +1414,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit.i: ; preds = %481
   %518 = getelementptr inbounds i8, ptr %513, i64 8
   %519 = load i32, ptr %518, align 4
   %.not.i30.i = icmp slt i32 %510, %519
-  br i1 %.not.i30.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit33.i, label %520
+  br i1 %.not.i30.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit33.i, label %520
 
 520:                                              ; preds = %517, %511
   %.127.i31.i = phi i32 [ %.2.i, %511 ], [ %.026.i27.i, %517 ]
@@ -1424,12 +1424,12 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit.i: ; preds = %481
   %523 = ashr i32 %522, 1
   br label %511, !llvm.loop !8
 
-_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit33.i: ; preds = %517
+_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit33.i: ; preds = %517
   %524 = load i32, ptr %513, align 4
   %.not.i357 = icmp eq i32 %489, %524
   br i1 %.not.i357, label %507, label %525
 
-525:                                              ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.argprom.exit33.i
+525:                                              ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit33.i
   %526 = trunc nuw nsw i64 %indvars.iv598 to i32
   call void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 1 dereferenceable(125) @.str.4, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %21, i32 noundef 1078, ptr noundef nonnull @.str.65, i32 noundef %526, i32 noundef %489) #25
@@ -2036,11 +2036,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit380: ;
   %868 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %866, ptr noundef nonnull @.str.69, ptr noundef %867) #26
   %869 = load i32, ptr %198, align 8
   %870 = icmp sgt i32 %869, 3
-  br i1 %870, label %.split.us.us.preheader.i, label %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.argprom.exit.thread
+  br i1 %870, label %.split.us.us.preheader.i, label %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.exit.thread
 
 .thread.i:                                        ; preds = %864
   %871 = icmp sgt i32 %.lcssa500, 3
-  br i1 %871, label %.split.preheader.i, label %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.argprom.exit.thread
+  br i1 %871, label %.split.preheader.i, label %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.exit.thread
 
 .split.preheader.i:                               ; preds = %.thread.i
   %872 = getelementptr inbounds i8, ptr %.0632, i64 72
@@ -2119,7 +2119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit380: ;
   %915 = load i32, ptr %198, align 8
   %916 = sext i32 %915 to i64
   %917 = icmp slt i64 %indvars.iv.next24.i, %916
-  br i1 %917, label %.split.us.us.i, label %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.argprom.exit.thread, !llvm.loop !35
+  br i1 %917, label %.split.us.us.i, label %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.exit.thread, !llvm.loop !35
 
 .split.i:                                         ; preds = %.split6.i, %.split.preheader.i
   %indvars.iv14.i = phi i64 [ 3, %.split.preheader.i ], [ %indvars.iv.next15.i, %.split6.i ]
@@ -2176,7 +2176,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit380: ;
   %946 = load i32, ptr %198, align 8
   %947 = sext i32 %946 to i64
   %948 = icmp slt i64 %indvars.iv.next15.i, %947
-  br i1 %948, label %.split.i, label %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.argprom.exit.thread, !llvm.loop !35
+  br i1 %948, label %.split.i, label %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.exit.thread, !llvm.loop !35
 
 949:                                              ; preds = %.thread455, %863
   %950 = load ptr, ptr @stderr, align 8
@@ -2191,7 +2191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit380: ;
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
   %958 = load i32, ptr %198, align 8
   %959 = icmp sgt i32 %958, 3
-  br i1 %959, label %.lr.ph24.i, label %_ZL21get_initial_ioncountsPK10t_inputrecP6t_swapPA3_KfS6_P9t_commrecb.argprom.exit.thread
+  br i1 %959, label %.lr.ph24.i, label %_ZL21get_initial_ioncountsPK10t_inputrecP6t_swapPA3_KfS6_P9t_commrecb.exit.thread
 
 .lr.ph24.i:                                       ; preds = %949
   %960 = getelementptr inbounds i8, ptr %46, i64 16
@@ -2337,9 +2337,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit380: ;
   %1036 = load i32, ptr %198, align 8
   %1037 = sext i32 %1036 to i64
   %1038 = icmp slt i64 %indvars.iv.next40.i, %1037
-  br i1 %1038, label %963, label %_ZL21get_initial_ioncountsPK10t_inputrecP6t_swapPA3_KfS6_P9t_commrecb.argprom.exit.thread, !llvm.loop !38
+  br i1 %1038, label %963, label %_ZL21get_initial_ioncountsPK10t_inputrecP6t_swapPA3_KfS6_P9t_commrecb.exit.thread, !llvm.loop !38
 
-_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.argprom.exit.thread: ; preds = %.split6.i, %.split6.us.us.i, %.thread.i, %865
+_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.exit.thread: ; preds = %.split6.i, %.split6.us.us.i, %.thread.i, %865
   %1039 = getelementptr inbounds i8, ptr %.0632, i64 8
   %1040 = load i32, ptr %1039, align 8
   %1041 = getelementptr inbounds i8, ptr %45, i64 32
@@ -2347,7 +2347,7 @@ _ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_com
   %.not334 = icmp eq i32 %1040, %1042
   br i1 %.not334, label %1053, label %1043
 
-1043:                                             ; preds = %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.argprom.exit.thread
+1043:                                             ; preds = %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.exit.thread
   call void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 1 dereferenceable(125) @.str.4, i8 noundef zeroext 2)
   %1044 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZL3SwSB5cxx11) #22
   %1045 = load i32, ptr %1039, align 8
@@ -2364,7 +2364,7 @@ _ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_com
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %33) #22
   br label %common.resume
 
-_ZL21get_initial_ioncountsPK10t_inputrecP6t_swapPA3_KfS6_P9t_commrecb.argprom.exit.thread: ; preds = %1035, %949
+_ZL21get_initial_ioncountsPK10t_inputrecP6t_swapPA3_KfS6_P9t_commrecb.exit.thread: ; preds = %1035, %949
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
   %1050 = getelementptr inbounds i8, ptr %45, i64 32
   %1051 = load i32, ptr %1050, align 8
@@ -2372,7 +2372,7 @@ _ZL21get_initial_ioncountsPK10t_inputrecP6t_swapPA3_KfS6_P9t_commrecb.argprom.ex
   store i32 %1051, ptr %1052, align 8
   br label %1053
 
-1053:                                             ; preds = %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.argprom.exit.thread, %_ZL21get_initial_ioncountsPK10t_inputrecP6t_swapPA3_KfS6_P9t_commrecb.argprom.exit.thread
+1053:                                             ; preds = %_ZL30get_initial_ioncounts_from_cptPK10t_inputrecP6t_swapP13swaphistory_tP9t_commrecb.exit.thread, %_ZL21get_initial_ioncountsPK10t_inputrecP6t_swapPA3_KfS6_P9t_commrecb.exit.thread
   %1054 = load ptr, ptr @stderr, align 8
   %1055 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZL3SwSB5cxx11) #22
   %1056 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1054, ptr noundef nonnull @.str.45, ptr noundef %1055) #26

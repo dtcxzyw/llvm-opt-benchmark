@@ -567,29 +567,29 @@ define void @Bac_ManWriteBlifArray2(ptr nocapture noundef %0, ptr nocapture noun
   %6 = getelementptr inbounds i32, ptr %.val28, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.argprom.exit
+  br i1 %8, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.exit
 
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %3
   %9 = getelementptr i8, ptr %.val, i64 36
   %.val.i.i.i = load i32, ptr %9, align 4
   %.not4.i.i = icmp sgt i32 %7, %.val.i.i.i
-  br i1 %.not4.i.i, label %Bac_BoxNtk.argprom.exit, label %10
+  br i1 %.not4.i.i, label %Bac_BoxNtk.exit, label %10
 
 10:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i
   %11 = getelementptr inbounds i8, ptr %.val, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %7 to i64
   %14 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %12, i64 %13
-  br label %Bac_BoxNtk.argprom.exit
+  br label %Bac_BoxNtk.exit
 
-Bac_BoxNtk.argprom.exit:                          ; preds = %3, %Bac_ManNtkIsOk.exit.i.i, %10
+Bac_BoxNtk.exit:                                  ; preds = %3, %Bac_ManNtkIsOk.exit.i.i, %10
   %15 = phi ptr [ %14, %10 ], [ null, %Bac_ManNtkIsOk.exit.i.i ], [ null, %3 ]
   %16 = getelementptr i8, ptr %15, i64 36
   %.val2961 = load i32, ptr %16, align 4
   %17 = icmp sgt i32 %.val2961, 0
   br i1 %17, label %.lr.ph, label %.critedge.preheader
 
-.lr.ph:                                           ; preds = %Bac_BoxNtk.argprom.exit
+.lr.ph:                                           ; preds = %Bac_BoxNtk.exit
   %18 = getelementptr i8, ptr %15, i64 40
   %19 = getelementptr i8, ptr %15, i64 88
   %20 = getelementptr i8, ptr %15, i64 136
@@ -598,7 +598,7 @@ Bac_BoxNtk.argprom.exit:                          ; preds = %3, %Bac_ManNtkIsOk.
   %23 = getelementptr i8, ptr %1, i64 136
   br label %34
 
-.critedge.preheader:                              ; preds = %Bac_ObjNameStr.exit42, %Bac_BoxNtk.argprom.exit
+.critedge.preheader:                              ; preds = %Bac_ObjNameStr.exit42, %Bac_BoxNtk.exit
   %24 = getelementptr i8, ptr %15, i64 52
   %.val3163 = load i32, ptr %24, align 4
   %25 = icmp sgt i32 %.val3163, 0

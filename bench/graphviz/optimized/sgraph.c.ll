@@ -193,7 +193,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef %1) #13
-  tail call fastcc void @graphviz_exit.argelim() #14
+  tail call fastcc void @graphviz_exit() #14
   unreachable
 
 8:                                                ; preds = %4
@@ -205,7 +205,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #13
-  tail call fastcc void @graphviz_exit.argelim() #14
+  tail call fastcc void @graphviz_exit() #14
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -222,7 +222,7 @@ define noalias noundef ptr @createSGraph(i32 noundef %0) local_unnamed_addr #1 {
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stderr, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.1, i64 noundef 32) #13
-  tail call fastcc void @graphviz_exit.argelim() #14
+  tail call fastcc void @graphviz_exit() #14
   unreachable
 
 gv_alloc.exit:                                    ; preds = %1
@@ -387,14 +387,14 @@ define range(i32 0, 2) i32 @shortPath(ptr nocapture noundef readonly %0, ptr nou
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, %.val
   %40 = load ptr, ptr %18, align 8
-  br i1 %39, label %41, label %adjacentNode.argprom.exit
+  br i1 %39, label %41, label %adjacentNode.exit
 
 41:                                               ; preds = %30
   %42 = getelementptr inbounds i8, ptr %36, i64 16
   %43 = load i32, ptr %42, align 8
-  br label %adjacentNode.argprom.exit
+  br label %adjacentNode.exit
 
-adjacentNode.argprom.exit:                        ; preds = %30, %41
+adjacentNode.exit:                                ; preds = %30, %41
   %.sink1.i = phi i32 [ %43, %41 ], [ %38, %30 ]
   %44 = sext i32 %.sink1.i to i64
   %45 = getelementptr inbounds %struct.snode, ptr %40, i64 %44
@@ -402,7 +402,7 @@ adjacentNode.argprom.exit:                        ; preds = %30, %41
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %63
 
-48:                                               ; preds = %adjacentNode.argprom.exit
+48:                                               ; preds = %adjacentNode.exit
   %49 = load i32, ptr %21, align 8
   %50 = sitofp i32 %49 to double
   %51 = load double, ptr %36, align 8
@@ -433,7 +433,7 @@ adjacentNode.argprom.exit:                        ; preds = %30, %41
   store ptr %36, ptr %62, align 8
   br label %63
 
-63:                                               ; preds = %.sink.split, %adjacentNode.argprom.exit, %58
+63:                                               ; preds = %.sink.split, %adjacentNode.exit, %58
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %64 = load i16, ptr %25, align 8
   %65 = sext i16 %64 to i64
@@ -457,7 +457,7 @@ declare void @PQupdate(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit() unnamed_addr #8 {
   tail call void @exit(i32 noundef 1) #16
   unreachable
 }

@@ -247,7 +247,7 @@ define hidden i32 @run_pbl_parser(ptr noundef %0) local_unnamed_addr #3 {
   %25 = getelementptr inbounds i8, ptr %23, i64 24
   %.promoted.i.i.i23 = load ptr, ptr %23, align 8
   %26 = icmp ugt ptr %.promoted.i.i.i23, %25
-  br i1 %26, label %.lr.ph.preheader.i.i.i28, label %ProtobufLangParserFree.argprom.exit.i24
+  br i1 %26, label %.lr.ph.preheader.i.i.i28, label %ProtobufLangParserFree.exit.i24
 
 .lr.ph.preheader.i.i.i28:                         ; preds = %24
   %.promoted4.i.i.i29 = ptrtoint ptr %.promoted.i.i.i23 to i64
@@ -257,14 +257,14 @@ define hidden i32 @run_pbl_parser(ptr noundef %0) local_unnamed_addr #3 {
   %28 = and i64 %.not.i.i.i31, -16
   %scevgep.i.i.i32 = getelementptr i8, ptr %.promoted.i.i.i23, i64 %28
   store ptr %scevgep.i.i.i32, ptr %23, align 8
-  br label %ProtobufLangParserFree.argprom.exit.i24
+  br label %ProtobufLangParserFree.exit.i24
 
-ProtobufLangParserFree.argprom.exit.i24:          ; preds = %.lr.ph.preheader.i.i.i28, %24
+ProtobufLangParserFree.exit.i24:                  ; preds = %.lr.ph.preheader.i.i.i28, %24
   call void @g_free(ptr noundef nonnull %23) #11
   store ptr null, ptr %10, align 8
   br label %29
 
-29:                                               ; preds = %ProtobufLangParserFree.argprom.exit.i24, %22
+29:                                               ; preds = %ProtobufLangParserFree.exit.i24, %22
   %30 = load ptr, ptr %11, align 8
   %.not25.i25 = icmp eq ptr %30, null
   br i1 %.not25.i25, label %32, label %31
@@ -396,7 +396,7 @@ pbl_reinit_state.exit:                            ; preds = %pbl_clear_state.exi
   %79 = getelementptr inbounds i8, ptr %77, i64 24
   %.promoted.i.i.i = load ptr, ptr %77, align 8
   %80 = icmp ugt ptr %.promoted.i.i.i, %79
-  br i1 %80, label %.lr.ph.preheader.i.i.i, label %ProtobufLangParserFree.argprom.exit.i
+  br i1 %80, label %.lr.ph.preheader.i.i.i, label %ProtobufLangParserFree.exit.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %78
   %.promoted4.i.i.i = ptrtoint ptr %.promoted.i.i.i to i64
@@ -406,14 +406,14 @@ pbl_reinit_state.exit:                            ; preds = %pbl_clear_state.exi
   %82 = and i64 %.not.i.i.i, -16
   %scevgep.i.i.i = getelementptr i8, ptr %.promoted.i.i.i, i64 %82
   store ptr %scevgep.i.i.i, ptr %77, align 8
-  br label %ProtobufLangParserFree.argprom.exit.i
+  br label %ProtobufLangParserFree.exit.i
 
-ProtobufLangParserFree.argprom.exit.i:            ; preds = %.lr.ph.preheader.i.i.i, %78
+ProtobufLangParserFree.exit.i:                    ; preds = %.lr.ph.preheader.i.i.i, %78
   call void @g_free(ptr noundef nonnull %77) #11
   store ptr null, ptr %76, align 8
   br label %83
 
-83:                                               ; preds = %ProtobufLangParserFree.argprom.exit.i, %75
+83:                                               ; preds = %ProtobufLangParserFree.exit.i, %75
   %84 = getelementptr inbounds i8, ptr %2, i64 16
   %85 = load ptr, ptr %84, align 8
   %.not25.i = icmp eq ptr %85, null
@@ -479,8 +479,8 @@ define internal fastcc void @ProtobufLangParser(ptr noundef %0, i32 noundef %1, 
   %10 = getelementptr inbounds i8, ptr %0, i64 1624
   br label %11
 
-11:                                               ; preds = %yy_reduce.argprom.exit, %4
-  %.0 = phi i16 [ %8, %4 ], [ %655, %yy_reduce.argprom.exit ]
+11:                                               ; preds = %yy_reduce.exit, %4
+  %.0 = phi i16 [ %8, %4 ], [ %655, %yy_reduce.exit ]
   %12 = icmp ugt i16 %.0, 151
   br i1 %12, label %yy_find_shift_action.exit, label %.preheader.i
 
@@ -556,7 +556,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
 
 45:                                               ; preds = %38, %31
   %46 = load ptr, ptr %5, align 8
-  switch i16 %.0.i, label %yy_reduce.argprom.exit [
+  switch i16 %.0.i, label %yy_reduce.exit [
     i16 500, label %47
     i16 501, label %82
     i16 502, label %98
@@ -667,7 +667,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %70 = tail call ptr @pbl_merge_children(ptr noundef nonnull %67, ptr noundef %69) #11
   %71 = load ptr, ptr %48, align 8
   tail call void @pbl_free_node(ptr noundef %71) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 72:                                               ; preds = %47
   %73 = load ptr, ptr %46, align 8
@@ -679,7 +679,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %79 = tail call noalias ptr @g_strdup(ptr noundef %78) #11
   %80 = load ptr, ptr %48, align 8
   %81 = tail call i32 @g_hash_table_insert(ptr noundef %75, ptr noundef %79, ptr noundef %80) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 82:                                               ; preds = %45
   %83 = getelementptr i8, ptr %.pre, i64 -8
@@ -693,7 +693,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 8
   store i32 3, ptr %89, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 90:                                               ; preds = %82
   %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(7) @.str.8) #12
@@ -705,13 +705,13 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 8
   store i32 2, ptr %95, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 96:                                               ; preds = %90
   tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %46, ptr noundef nonnull @.str.9, ptr noundef %84)
   %97 = getelementptr inbounds i8, ptr %46, i64 48
   store i32 1, ptr %97, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 98:                                               ; preds = %45
   %99 = getelementptr inbounds i8, ptr %46, i64 8
@@ -722,7 +722,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %104 = tail call ptr @pbl_create_node(ptr noundef %100, i32 noundef %103, i32 noundef 1, ptr noundef nonnull @.str.10) #11
   %105 = getelementptr i8, ptr %.pre, i64 24
   store ptr %104, ptr %105, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 106:                                              ; preds = %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45
   %107 = getelementptr i8, ptr %.pre, i64 -8
@@ -731,28 +731,28 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %110 = load ptr, ptr %109, align 8
   %111 = tail call ptr @pbl_add_child(ptr noundef %108, ptr noundef %110) #11
   store ptr %108, ptr %107, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 112:                                              ; preds = %45
   %113 = load ptr, ptr %46, align 8
   %114 = getelementptr i8, ptr %.pre, i64 -8
   %115 = load ptr, ptr %114, align 8
   %116 = tail call i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %113, ptr noundef %115) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 117:                                              ; preds = %45
   %118 = load ptr, ptr %46, align 8
   %119 = getelementptr i8, ptr %.pre, i64 -8
   %120 = load ptr, ptr %119, align 8
   %121 = tail call i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %118, ptr noundef %120) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 122:                                              ; preds = %45
   %123 = load ptr, ptr %46, align 8
   %124 = getelementptr i8, ptr %.pre, i64 -8
   %125 = load ptr, ptr %124, align 8
   %126 = tail call i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %123, ptr noundef %125) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 127:                                              ; preds = %45
   %128 = getelementptr i8, ptr %.pre, i64 -8
@@ -768,7 +768,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %137 = load ptr, ptr %131, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 24
   store i32 %136, ptr %138, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 139:                                              ; preds = %45
   %140 = getelementptr i8, ptr %.pre, i64 -24
@@ -783,7 +783,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   store ptr %147, ptr %145, align 8
   %148 = load ptr, ptr %140, align 8
   store ptr %144, ptr %148, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 149:                                              ; preds = %45
   %150 = getelementptr i8, ptr %.pre, i64 -8
@@ -799,7 +799,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   store ptr %159, ptr %157, align 8
   store ptr %156, ptr %151, align 8
   store ptr %151, ptr %150, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 160:                                              ; preds = %45
   %161 = getelementptr i8, ptr %.pre, i64 -24
@@ -815,7 +815,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   store ptr %170, ptr %168, align 8
   store ptr %167, ptr %162, align 8
   store ptr %162, ptr %161, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 171:                                              ; preds = %45
   %172 = getelementptr i8, ptr %.pre, i64 -8
@@ -831,7 +831,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   store ptr %181, ptr %179, align 8
   store ptr %178, ptr %173, align 8
   store ptr %173, ptr %172, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 182:                                              ; preds = %45
   %183 = getelementptr i8, ptr %.pre, i64 -56
@@ -844,7 +844,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %189 = load i32, ptr %188, align 8
   %190 = load ptr, ptr %187, align 8
   %191 = tail call ptr @pbl_set_node_name(ptr noundef %185, i32 noundef %189, ptr noundef %190) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 192:                                              ; preds = %45, %45
   %193 = getelementptr inbounds i8, ptr %46, i64 8
@@ -855,7 +855,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %198 = tail call ptr @pbl_create_node(ptr noundef %194, i32 noundef %197, i32 noundef 2, ptr noundef nonnull @.str.10) #11
   %199 = getelementptr i8, ptr %.pre, i64 24
   store ptr %198, ptr %199, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 200:                                              ; preds = %45
   %201 = getelementptr i8, ptr %.pre, i64 -8
@@ -866,7 +866,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %206 = load ptr, ptr %203, align 8
   tail call void @pbl_free_node(ptr noundef %206) #11
   store ptr %202, ptr %201, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 207:                                              ; preds = %45
   %208 = getelementptr i8, ptr %.pre, i64 -56
@@ -879,7 +879,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %214 = load i32, ptr %213, align 8
   %215 = load ptr, ptr %212, align 8
   %216 = tail call ptr @pbl_set_node_name(ptr noundef %210, i32 noundef %214, ptr noundef %215) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 217:                                              ; preds = %45
   %218 = getelementptr inbounds i8, ptr %46, i64 8
@@ -890,7 +890,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %223 = tail call ptr @pbl_create_node(ptr noundef %219, i32 noundef %222, i32 noundef 6, ptr noundef nonnull @.str.10) #11
   %224 = getelementptr i8, ptr %.pre, i64 24
   store ptr %223, ptr %224, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 225:                                              ; preds = %45
   %226 = getelementptr inbounds i8, ptr %46, i64 8
@@ -904,7 +904,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %234 = load i32, ptr %233, align 8
   %235 = tail call ptr @pbl_create_enum_value_node(ptr noundef %227, i32 noundef %231, ptr noundef %232, i32 noundef %234) #11
   store ptr %235, ptr %228, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 236:                                              ; preds = %45
   %237 = getelementptr inbounds i8, ptr %46, i64 8
@@ -918,14 +918,14 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %245 = load i32, ptr %244, align 8
   %246 = tail call ptr @pbl_create_enum_value_node(ptr noundef %238, i32 noundef %242, ptr noundef %243, i32 noundef %245) #11
   store ptr %246, ptr %239, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 247:                                              ; preds = %45, %45
   %248 = getelementptr inbounds i8, ptr %.pre, i64 8
   %249 = load i64, ptr %248, align 8
   %250 = trunc i64 %249 to i32
   store i32 %250, ptr %248, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 251:                                              ; preds = %45, %45
   %252 = getelementptr i8, ptr %.pre, i64 -8
@@ -933,7 +933,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %254 = load i64, ptr %253, align 8
   %255 = trunc i64 %254 to i32
   store i32 %255, ptr %252, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 256:                                              ; preds = %45
   %257 = getelementptr i8, ptr %.pre, i64 -8
@@ -942,7 +942,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %260 = trunc i64 %259 to i32
   %261 = sub i32 0, %260
   store i32 %261, ptr %257, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 262:                                              ; preds = %45
   %263 = getelementptr i8, ptr %.pre, i64 -56
@@ -955,7 +955,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %269 = load i32, ptr %268, align 8
   %270 = load ptr, ptr %267, align 8
   %271 = tail call ptr @pbl_set_node_name(ptr noundef %265, i32 noundef %269, ptr noundef %270) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 272:                                              ; preds = %45
   %273 = getelementptr inbounds i8, ptr %46, i64 8
@@ -966,7 +966,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %278 = tail call ptr @pbl_create_node(ptr noundef %274, i32 noundef %277, i32 noundef 8, ptr noundef nonnull @.str.10) #11
   %279 = getelementptr i8, ptr %.pre, i64 24
   store ptr %278, ptr %279, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 280:                                              ; preds = %45
   %281 = getelementptr i8, ptr %.pre, i64 -120
@@ -983,7 +983,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %292 = load ptr, ptr %291, align 8
   %293 = tail call ptr @pbl_create_method_node(ptr noundef %283, i32 noundef %287, ptr noundef %288, ptr noundef %290, i32 noundef 0, ptr noundef %292, i32 noundef 0) #11
   store ptr %293, ptr %281, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 294:                                              ; preds = %45
   %295 = getelementptr i8, ptr %.pre, i64 -136
@@ -1000,7 +1000,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %306 = load ptr, ptr %305, align 8
   %307 = tail call ptr @pbl_create_method_node(ptr noundef %297, i32 noundef %301, ptr noundef %302, ptr noundef %304, i32 noundef 1, ptr noundef %306, i32 noundef 0) #11
   store ptr %307, ptr %295, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 308:                                              ; preds = %45
   %309 = getelementptr i8, ptr %.pre, i64 -136
@@ -1017,7 +1017,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %320 = load ptr, ptr %319, align 8
   %321 = tail call ptr @pbl_create_method_node(ptr noundef %311, i32 noundef %315, ptr noundef %316, ptr noundef %318, i32 noundef 0, ptr noundef %320, i32 noundef 1) #11
   store ptr %321, ptr %309, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 322:                                              ; preds = %45
   %323 = getelementptr i8, ptr %.pre, i64 -152
@@ -1034,7 +1034,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %334 = load ptr, ptr %333, align 8
   %335 = tail call ptr @pbl_create_method_node(ptr noundef %325, i32 noundef %329, ptr noundef %330, ptr noundef %332, i32 noundef 1, ptr noundef %334, i32 noundef 1) #11
   store ptr %335, ptr %323, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 336:                                              ; preds = %45
   %337 = getelementptr i8, ptr %.pre, i64 -88
@@ -1051,7 +1051,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %348 = load ptr, ptr %347, align 8
   %349 = tail call ptr @pbl_create_method_node(ptr noundef %339, i32 noundef %343, ptr noundef %344, ptr noundef %346, i32 noundef 1, ptr noundef %348, i32 noundef 1) #11
   store ptr %349, ptr %337, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 350:                                              ; preds = %45, %45
   %351 = getelementptr inbounds i8, ptr %46, i64 8
@@ -1067,7 +1067,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %361 = load i32, ptr %360, align 8
   %362 = tail call ptr @pbl_create_field_node(ptr noundef %352, i32 noundef %356, ptr noundef null, ptr noundef %358, ptr noundef %359, i32 noundef %361, ptr noundef null) #11
   store ptr %362, ptr %357, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 363:                                              ; preds = %45, %45
   %364 = getelementptr inbounds i8, ptr %46, i64 8
@@ -1085,7 +1085,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %376 = load ptr, ptr %375, align 8
   %377 = tail call ptr @pbl_create_field_node(ptr noundef %365, i32 noundef %369, ptr noundef null, ptr noundef %371, ptr noundef %372, i32 noundef %374, ptr noundef %376) #11
   store ptr %377, ptr %370, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 378:                                              ; preds = %45
   %379 = getelementptr inbounds i8, ptr %46, i64 8
@@ -1103,7 +1103,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %391 = load i32, ptr %390, align 8
   %392 = tail call ptr @pbl_create_field_node(ptr noundef %380, i32 noundef %384, ptr noundef %386, ptr noundef %388, ptr noundef %389, i32 noundef %391, ptr noundef null) #11
   store ptr %392, ptr %385, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 393:                                              ; preds = %45
   %394 = getelementptr inbounds i8, ptr %46, i64 8
@@ -1123,21 +1123,21 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %408 = load ptr, ptr %407, align 8
   %409 = tail call ptr @pbl_create_field_node(ptr noundef %395, i32 noundef %399, ptr noundef %401, ptr noundef %403, ptr noundef %404, i32 noundef %406, ptr noundef %408) #11
   store ptr %409, ptr %400, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 410:                                              ; preds = %45, %45, %45
   %411 = getelementptr inbounds i8, ptr %.pre, i64 8
   %412 = load ptr, ptr %411, align 8
   %413 = load ptr, ptr %412, align 8
   store ptr %413, ptr %411, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 414:                                              ; preds = %45, %45, %45, %45
   %415 = getelementptr inbounds i8, ptr %.pre, i64 8
   %416 = load ptr, ptr %415, align 8
   %417 = load ptr, ptr %416, align 8
   store ptr %417, ptr %415, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 418:                                              ; preds = %45
   %419 = getelementptr inbounds i8, ptr %46, i64 8
@@ -1150,7 +1150,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %426 = load ptr, ptr %425, align 8
   %427 = tail call ptr @pbl_add_child(ptr noundef %424, ptr noundef %426) #11
   store ptr %424, ptr %425, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 428:                                              ; preds = %45
   %429 = getelementptr i8, ptr %.pre, i64 -24
@@ -1159,7 +1159,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %432 = load ptr, ptr %431, align 8
   %433 = tail call ptr @pbl_add_child(ptr noundef %430, ptr noundef %432) #11
   store ptr %430, ptr %429, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 434:                                              ; preds = %45
   %435 = getelementptr inbounds i8, ptr %46, i64 8
@@ -1173,7 +1173,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %443 = load ptr, ptr %442, align 8
   %444 = tail call ptr @pbl_create_option_node(ptr noundef %436, i32 noundef %440, ptr noundef %441, ptr noundef %443) #11
   store ptr %444, ptr %437, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 445:                                              ; preds = %45
   %446 = getelementptr inbounds i8, ptr %46, i64 8
@@ -1190,7 +1190,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   store ptr %456, ptr %454, align 8
   %457 = tail call ptr @pbl_create_option_node(ptr noundef %447, i32 noundef %451, ptr noundef %452, ptr noundef %453) #11
   store ptr %457, ptr %448, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 458:                                              ; preds = %45
   %459 = getelementptr i8, ptr %.pre, i64 -88
@@ -1203,7 +1203,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %465 = load i32, ptr %464, align 8
   %466 = load ptr, ptr %463, align 8
   %467 = tail call ptr @pbl_set_node_name(ptr noundef %461, i32 noundef %465, ptr noundef %466) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 468:                                              ; preds = %45
   %469 = getelementptr i8, ptr %.pre, i64 -8
@@ -1216,7 +1216,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %475 = load i32, ptr %474, align 8
   %476 = load ptr, ptr %473, align 8
   %477 = tail call ptr @pbl_set_node_name(ptr noundef %470, i32 noundef %475, ptr noundef %476) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 478:                                              ; preds = %45
   %479 = getelementptr i8, ptr %.pre, i64 -56
@@ -1229,7 +1229,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %485 = load i32, ptr %484, align 8
   %486 = load ptr, ptr %483, align 8
   %487 = tail call ptr @pbl_set_node_name(ptr noundef %481, i32 noundef %485, ptr noundef %486) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 488:                                              ; preds = %45
   %489 = getelementptr inbounds i8, ptr %46, i64 8
@@ -1240,7 +1240,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %494 = tail call ptr @pbl_create_node(ptr noundef %490, i32 noundef %493, i32 noundef 4, ptr noundef nonnull @.str.10) #11
   %495 = getelementptr i8, ptr %.pre, i64 24
   store ptr %494, ptr %495, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 496:                                              ; preds = %45
   %497 = getelementptr i8, ptr %.pre, i64 -184
@@ -1274,7 +1274,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %524 = load ptr, ptr %523, align 8
   %525 = tail call ptr @pbl_create_field_node(ptr noundef %519, i32 noundef %522, ptr noundef null, ptr noundef %524, ptr noundef nonnull @.str.17, i32 noundef 2, ptr noundef null) #11
   %526 = tail call ptr @pbl_add_child(ptr noundef %518, ptr noundef %525) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 527:                                              ; preds = %45
   %528 = getelementptr i8, ptr %.pre, i64 -136
@@ -1306,7 +1306,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %553 = load ptr, ptr %552, align 8
   %554 = tail call ptr @pbl_create_field_node(ptr noundef %548, i32 noundef %551, ptr noundef null, ptr noundef %553, ptr noundef nonnull @.str.17, i32 noundef 2, ptr noundef null) #11
   %555 = tail call ptr @pbl_add_child(ptr noundef %547, ptr noundef %554) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 556:                                              ; preds = %45
   %557 = getelementptr i8, ptr %.pre, i64 -56
@@ -1314,7 +1314,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %558 = getelementptr i8, ptr %.pre, i64 -8
   %559 = load ptr, ptr %558, align 8
   tail call void @pbl_free_node(ptr noundef %559) #11
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 560:                                              ; preds = %45
   %561 = getelementptr inbounds i8, ptr %.pre, i64 8
@@ -1322,7 +1322,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %563 = load ptr, ptr %562, align 8
   %564 = tail call i64 @g_ascii_strtoull(ptr noundef %563, ptr noundef null, i32 noundef 10) #11
   store i64 %564, ptr %561, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 565:                                              ; preds = %45
   %566 = getelementptr inbounds i8, ptr %.pre, i64 8
@@ -1331,7 +1331,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %569 = getelementptr i8, ptr %568, i64 1
   %570 = tail call i64 @g_ascii_strtoull(ptr noundef %569, ptr noundef null, i32 noundef 8) #11
   store i64 %570, ptr %566, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 571:                                              ; preds = %45
   %572 = getelementptr inbounds i8, ptr %.pre, i64 8
@@ -1340,7 +1340,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %575 = getelementptr i8, ptr %574, i64 2
   %576 = tail call i64 @g_ascii_strtoull(ptr noundef %575, ptr noundef null, i32 noundef 16) #11
   store i64 %576, ptr %572, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 577:                                              ; preds = %45
   %578 = getelementptr inbounds i8, ptr %.pre, i64 8
@@ -1351,7 +1351,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %583 = tail call ptr @g_slist_prepend(ptr noundef %582, ptr noundef %580) #11
   store ptr %583, ptr %581, align 8
   store ptr %580, ptr %578, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 584:                                              ; preds = %45
   %585 = getelementptr i8, ptr %.pre, i64 -8
@@ -1363,7 +1363,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %591 = tail call ptr @g_slist_prepend(ptr noundef %590, ptr noundef %588) #11
   store ptr %591, ptr %589, align 8
   store ptr %588, ptr %585, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 592:                                              ; preds = %45
   %593 = getelementptr i8, ptr %.pre, i64 -8
@@ -1375,7 +1375,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %599 = tail call ptr @g_slist_prepend(ptr noundef %598, ptr noundef %596) #11
   store ptr %599, ptr %597, align 8
   store ptr %596, ptr %593, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 600:                                              ; preds = %45
   %601 = getelementptr i8, ptr %.pre, i64 -8
@@ -1388,7 +1388,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %608 = tail call ptr @g_slist_prepend(ptr noundef %607, ptr noundef %605) #11
   store ptr %608, ptr %606, align 8
   store ptr %605, ptr %601, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 609:                                              ; preds = %45
   %610 = getelementptr i8, ptr %.pre, i64 -8
@@ -1401,7 +1401,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %617 = tail call ptr @g_slist_prepend(ptr noundef %616, ptr noundef %614) #11
   store ptr %617, ptr %615, align 8
   store ptr %614, ptr %610, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 618:                                              ; preds = %45
   %619 = getelementptr inbounds i8, ptr %.pre, i64 8
@@ -1416,7 +1416,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   %628 = tail call ptr @g_slist_prepend(ptr noundef %627, ptr noundef %625) #11
   store ptr %628, ptr %626, align 8
   store ptr %625, ptr %619, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
 629:                                              ; preds = %45
   %630 = getelementptr inbounds i8, ptr %.pre, i64 8
@@ -1435,9 +1435,9 @@ yy_find_shift_action.exit:                        ; preds = %11, %.sink.split.i
   store ptr %642, ptr %640, align 8
   tail call void @g_free(ptr noundef %636) #11
   store ptr %639, ptr %637, align 8
-  br label %yy_reduce.argprom.exit
+  br label %yy_reduce.exit
 
-yy_reduce.argprom.exit:                           ; preds = %45, %68, %72, %86, %92, %96, %98, %106, %112, %117, %122, %127, %139, %149, %160, %171, %182, %192, %200, %207, %217, %225, %236, %247, %251, %256, %262, %272, %280, %294, %308, %322, %336, %350, %363, %378, %393, %410, %414, %418, %428, %434, %445, %458, %468, %478, %488, %496, %527, %556, %560, %565, %571, %577, %584, %592, %600, %609, %618, %629
+yy_reduce.exit:                                   ; preds = %45, %68, %72, %86, %92, %96, %98, %106, %112, %117, %122, %127, %139, %149, %160, %171, %182, %192, %200, %207, %217, %225, %236, %247, %251, %256, %262, %272, %280, %294, %308, %322, %336, %350, %363, %378, %393, %410, %414, %418, %428, %434, %445, %458, %468, %478, %488, %496, %527, %556, %560, %565, %571, %577, %584, %592, %600, %609, %618, %629
   %643 = getelementptr [181 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %34
   %644 = load i8, ptr %643, align 1
   %645 = sext i8 %36 to i64

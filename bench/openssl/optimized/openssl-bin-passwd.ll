@@ -75,7 +75,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @shacrypt.rounds_prefix = internal constant [8 x i8] c"rounds=\00", align 1
 @shacrypt.out_buf = internal global [124 x i8] zeroinitializer, align 16
 @.str.57 = private unnamed_addr constant [10 x i8] c"rounds=%u\00", align 1
-@switch.table.do_passwd.argelim = private unnamed_addr constant [5 x i64] [i64 8, i64 8, i64 0, i64 0, i64 8], align 8
+@switch.table.do_passwd = private unnamed_addr constant [5 x i64] [i64 8, i64 8, i64 0, i64 0, i64 8], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
@@ -290,7 +290,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %3 = phi ptr [ %5, %do.cond ], [ %.pre, %do.body.preheader ]
   %passwds.2 = phi ptr [ %incdec.ptr, %do.cond ], [ %passwds.2.ph, %do.body.preheader ]
   %4 = load ptr, ptr @bio_out, align 8
-  %call98 = call fastcc i32 @do_passwd.argelim(i32 noundef %passed_salt.0, ptr noundef %salt, ptr noundef %salt_malloc, ptr noundef %3, ptr noundef %4, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
+  %call98 = call fastcc i32 @do_passwd(i32 noundef %passed_salt.0, ptr noundef %salt, ptr noundef %salt_malloc, ptr noundef %3, ptr noundef %4, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %end, label %do.cond
 
@@ -327,7 +327,7 @@ land.rhs:                                         ; preds = %do.body116
 if.end127:                                        ; preds = %do.body116, %land.rhs, %if.then114
   %r.1.not = phi i1 [ false, %if.then114 ], [ %cmp119, %land.rhs ], [ %cmp119, %do.body116 ]
   %6 = load ptr, ptr @bio_out, align 8
-  %call128 = call fastcc i32 @do_passwd.argelim(i32 noundef %passed_salt.0, ptr noundef %salt, ptr noundef %salt_malloc, ptr noundef %passwd.05153.ph, ptr noundef %6, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
+  %call128 = call fastcc i32 @do_passwd(i32 noundef %passed_salt.0, ptr noundef %salt, ptr noundef %salt_malloc, ptr noundef %passwd.05153.ph, ptr noundef %6, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
   %tobool129.not = icmp eq i32 %call128, 0
   %brmerge = or i1 %r.1.not, %tobool129.not
   br i1 %brmerge, label %end.loopexit57.split.loop.exit92, label %do.body104
@@ -378,7 +378,7 @@ declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_read_pw_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_passwd.argelim(i32 noundef range(i32 0, 2) %passed_salt, ptr nocapture noundef nonnull %salt_p, ptr nocapture noundef nonnull %salt_malloc_p, ptr noundef %passwd, ptr noundef %out, i32 noundef range(i32 0, 2) %quiet, i32 noundef range(i32 0, 2) %table, i32 noundef range(i32 0, 2) %reverse, i32 noundef range(i32 0, 6) %mode) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_passwd(i32 noundef range(i32 0, 2) %passed_salt, ptr nocapture noundef nonnull %salt_p, ptr nocapture noundef nonnull %salt_malloc_p, ptr noundef %passwd, ptr noundef %out, i32 noundef range(i32 0, 2) %quiet, i32 noundef range(i32 0, 2) %table, i32 noundef range(i32 0, 2) %reverse, i32 noundef range(i32 0, 6) %mode) unnamed_addr #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %temp_buf.i = alloca [64 x i8], align 16
@@ -396,7 +396,7 @@ if.then:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %if.then
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.do_passwd.argelim, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.do_passwd, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %if.end
 

@@ -4212,10 +4212,10 @@ if.then951:                                       ; preds = %get_base_commit.exi
   store i64 %bf.set.i, ptr %topo_order.i, align 8
   br label %for.body.i221
 
-for.body.i221:                                    ; preds = %commit_base_at.argprom.exit.i, %if.then951
-  %indvars.iv.i222 = phi i64 [ 0, %if.then951 ], [ %indvars.iv.next.i224, %commit_base_at.argprom.exit.i ]
-  %commit_base.sroa.20.093.i = phi ptr [ null, %if.then951 ], [ %commit_base.sroa.20.2.i, %commit_base_at.argprom.exit.i ]
-  %commit_base.sroa.10.092.i = phi i32 [ 0, %if.then951 ], [ %commit_base.sroa.10.2.i, %commit_base_at.argprom.exit.i ]
+for.body.i221:                                    ; preds = %commit_base_at.exit.i, %if.then951
+  %indvars.iv.i222 = phi i64 [ 0, %if.then951 ], [ %indvars.iv.next.i224, %commit_base_at.exit.i ]
+  %commit_base.sroa.20.093.i = phi ptr [ null, %if.then951 ], [ %commit_base.sroa.20.2.i, %commit_base_at.exit.i ]
+  %commit_base.sroa.10.092.i = phi i32 [ 0, %if.then951 ], [ %commit_base.sroa.10.2.i, %commit_base_at.exit.i ]
   %arrayidx.i223 = getelementptr inbounds ptr, ptr %list.0.ph332, i64 %indvars.iv.i222
   %165 = load ptr, ptr %arrayidx.i223, align 8
   %bf.load2.i = load i32, ptr %165, align 8
@@ -4253,14 +4253,14 @@ if.end12.i.i.i:                                   ; preds = %if.end.i.i.i, %for.
   %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %commit_base.sroa.20.2.i, i64 %idxprom14.i.i.i
   %175 = load ptr, ptr %arrayidx15.i.i.i, align 8
   %tobool16.not.i.i.i = icmp eq ptr %175, null
-  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %commit_base_at.argprom.exit.i
+  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %commit_base_at.exit.i
 
 if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
   %call24.i.i.i = call ptr @xcalloc(i64 noundef 131064, i64 noundef 4) #20
   store ptr %call24.i.i.i, ptr %arrayidx15.i.i.i, align 8
-  br label %commit_base_at.argprom.exit.i
+  br label %commit_base_at.exit.i
 
-commit_base_at.argprom.exit.i:                    ; preds = %if.end20.i.i.i, %if.end12.i.i.i
+commit_base_at.exit.i:                            ; preds = %if.end20.i.i.i, %if.end12.i.i.i
   %176 = phi ptr [ %175, %if.end12.i.i.i ], [ %call24.i.i.i, %if.end20.i.i.i ]
   %idxprom34.i.i.i = zext nneg i32 %rem.i.i.i to i64
   %arrayidx35.i.i.i = getelementptr inbounds i32, ptr %176, i64 %idxprom34.i.i.i
@@ -4269,7 +4269,7 @@ commit_base_at.argprom.exit.i:                    ; preds = %if.end20.i.i.i, %if
   %exitcond.not.i225 = icmp eq i64 %indvars.iv.next.i224, %wide.trip.count.i
   br i1 %exitcond.not.i225, label %for.end.i, label %for.body.i221, !llvm.loop !21
 
-for.end.i:                                        ; preds = %commit_base_at.argprom.exit.i
+for.end.i:                                        ; preds = %commit_base_at.exit.i
   %bf.load12.i = load i32, ptr %base.0.i, align 8
   %bf.set18.i = or i32 %bf.load12.i, 32
   store i32 %bf.set18.i, ptr %base.0.i, align 8
@@ -4328,14 +4328,14 @@ if.end12.i.i44.i:                                 ; preds = %if.end.i.i30.i, %wh
   %arrayidx15.i.i47.i = getelementptr inbounds ptr, ptr %commit_base.sroa.20.3.i, i64 %idxprom14.i.i46.i
   %184 = load ptr, ptr %arrayidx15.i.i47.i, align 8
   %tobool16.not.i.i48.i = icmp eq ptr %184, null
-  br i1 %tobool16.not.i.i48.i, label %if.end20.i.i54.i, label %commit_base_at.argprom.exit64.i
+  br i1 %tobool16.not.i.i48.i, label %if.end20.i.i54.i, label %commit_base_at.exit64.i
 
 if.end20.i.i54.i:                                 ; preds = %if.end12.i.i44.i
   %call24.i.i59.i = call ptr @xcalloc(i64 noundef 131064, i64 noundef 4) #20
   store ptr %call24.i.i59.i, ptr %arrayidx15.i.i47.i, align 8
-  br label %commit_base_at.argprom.exit64.i
+  br label %commit_base_at.exit64.i
 
-commit_base_at.argprom.exit64.i:                  ; preds = %if.end20.i.i54.i, %if.end12.i.i44.i
+commit_base_at.exit64.i:                          ; preds = %if.end20.i.i54.i, %if.end12.i.i44.i
   %185 = phi ptr [ %184, %if.end12.i.i44.i ], [ %call24.i.i59.i, %if.end20.i.i54.i ]
   %idxprom34.i.i52.i = zext nneg i32 %rem.i.i49.i to i64
   %arrayidx35.i.i53.i = getelementptr inbounds i32, ptr %185, i64 %idxprom34.i.i52.i
@@ -4343,7 +4343,7 @@ commit_base_at.argprom.exit64.i:                  ; preds = %if.end20.i.i54.i, %
   %tobool29.not.i = icmp eq i32 %186, 0
   br i1 %tobool29.not.i, label %if.end31.i, label %while.cond.backedge.i
 
-if.end31.i:                                       ; preds = %commit_base_at.argprom.exit64.i
+if.end31.i:                                       ; preds = %commit_base_at.exit64.i
   %call32.i210 = call i32 @commit_patch_id(ptr noundef nonnull %call25100.i, ptr noundef nonnull %diffopt.i, ptr noundef nonnull %oid27.i, i32 noundef 0) #20
   %tobool33.not.i = icmp eq i32 %call32.i210, 0
   br i1 %tobool33.not.i, label %do.body.i211, label %if.then34.i
@@ -4401,7 +4401,7 @@ do.end.i:                                         ; preds = %st_mult.exit.i, %do
   store i32 %inc63.i, ptr %nr_patch_id.i, align 4
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %do.end.i, %commit_base_at.argprom.exit64.i
+while.cond.backedge.i:                            ; preds = %do.end.i, %commit_base_at.exit64.i
   %call25.i209 = call ptr @get_revision(ptr noundef nonnull %revs.i) #20
   %cmp26.not.i = icmp eq ptr %call25.i209, null
   br i1 %cmp26.not.i, label %for.body.i.preheader.i, label %while.body.i, !llvm.loop !22
@@ -4801,7 +4801,7 @@ if.end22.i246:                                    ; preds = %find_branch_name.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subject_sb.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.print_commit.buf, i64 24, i1 false)
   %250 = load i32, ptr @cover_from_description_mode, align 4
   %cmp.i.i249 = icmp eq i32 %250, 0
-  br i1 %cmp.i.i249, label %prepare_cover_text.argprom.exit.i, label %if.end.i40.i
+  br i1 %cmp.i.i249, label %prepare_cover_text.exit.i, label %if.end.i40.i
 
 if.end.i40.i:                                     ; preds = %if.end22.i246
   %tobool.not.i41.i = icmp eq ptr %218, null
@@ -4839,7 +4839,7 @@ if.end9.i.i:                                      ; preds = %if.then7.i.i, %land
   %len.i.i252 = getelementptr inbounds i8, ptr %description_sb.i.i, i64 8
   %253 = load i64, ptr %len.i.i252, align 8
   %tobool10.not.i.i = icmp eq i64 %253, 0
-  br i1 %tobool10.not.i.i, label %prepare_cover_text.argprom.exit.i, label %if.end12.i.i
+  br i1 %tobool10.not.i.i, label %prepare_cover_text.exit.i, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.end9.i.i
   %254 = load i32, ptr @cover_from_description_mode, align 4
@@ -4876,9 +4876,9 @@ do_pp.sink.split.i.i:                             ; preds = %lor.lhs.false22.i.i
   %buf30.i.i = getelementptr inbounds i8, ptr %description_sb.sink.i.i, i64 16
   %259 = load ptr, ptr %buf30.i.i, align 8
   store ptr %259, ptr %body.sink.i.i, align 8
-  br label %prepare_cover_text.argprom.exit.i
+  br label %prepare_cover_text.exit.i
 
-prepare_cover_text.argprom.exit.i:                ; preds = %do_pp.sink.split.i.i, %if.end9.i.i, %if.end22.i246
+prepare_cover_text.exit.i:                        ; preds = %do_pp.sink.split.i.i, %if.end9.i.i, %if.end22.i246
   call void @pp_title_line(ptr noundef nonnull %pp.i, ptr noundef nonnull %subject.i.i, ptr noundef nonnull %sb.i, ptr noundef nonnull @.str.257, i32 noundef %249) #20
   call void @pp_remainder(ptr noundef nonnull %pp.i, ptr noundef nonnull %body.i.i, ptr noundef nonnull %sb.i, i32 noundef 0) #20
   call void @strbuf_release(ptr noundef nonnull %description_sb.i.i) #20
@@ -4911,7 +4911,7 @@ prepare_cover_text.argprom.exit.i:                ; preds = %do_pp.sink.split.i.
   call void @shortlog_finish_setup(ptr noundef nonnull %log.i) #20
   br i1 %cmp54.i, label %for.body34.preheader.i, label %for.end39.i
 
-for.body34.preheader.i:                           ; preds = %prepare_cover_text.argprom.exit.i
+for.body34.preheader.i:                           ; preds = %prepare_cover_text.exit.i
   %wide.trip.count.i255 = and i64 %indvars.iv383, 4294967295
   br label %for.body34.i
 
@@ -4924,7 +4924,7 @@ for.body34.i:                                     ; preds = %for.body34.i, %for.
   %exitcond.not.i256 = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count.i255
   br i1 %exitcond.not.i256, label %for.end39.i, label %for.body34.i, !llvm.loop !28
 
-for.end39.i:                                      ; preds = %for.body34.i, %prepare_cover_text.argprom.exit.i
+for.end39.i:                                      ; preds = %for.body34.i, %prepare_cover_text.exit.i
   call void @shortlog_output(ptr noundef nonnull %log.i) #20
   %tobool40.not.i = icmp eq ptr %origin.0.ph, null
   br i1 %tobool40.not.i, label %if.end42.i, label %if.then41.i

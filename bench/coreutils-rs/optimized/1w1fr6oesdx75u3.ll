@@ -363,13 +363,13 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN12clap_buil
   %12 = icmp ne i128 %11, 24503081927999166500772401431235275638
   %13 = icmp eq ptr %8, null
   %14 = or i1 %12, %13
-  br i1 %14, label %15, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17heb8318181ed23369E.argprom.exit
+  br i1 %14, label %15, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17heb8318181ed23369E.exit
 
 15:                                               ; preds = %1
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.663a23943bcf9c18b8232955ecc83592.1, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.663a23943bcf9c18b8232955ecc83592.3) #7
   unreachable
 
-_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17heb8318181ed23369E.argprom.exit: ; preds = %1
+_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17heb8318181ed23369E.exit: ; preds = %1
   ret ptr %8
 }
 
@@ -523,8 +523,8 @@ attributes #7 = { noreturn }
 !114 = distinct !{!114, !115, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13try_get_arg_t17hf0685820da016c44E: argument 0"}
 !115 = distinct !{!115, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13try_get_arg_t17hf0685820da016c44E"}
 !116 = !{!117, !114}
-!117 = distinct !{!117, !118, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17hccdcb76851d34fb4E.argprom: argument 0"}
-!118 = distinct !{!118, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17hccdcb76851d34fb4E.argprom"}
+!117 = distinct !{!117, !118, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17hccdcb76851d34fb4E: argument 0"}
+!118 = distinct !{!118, !"_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17hccdcb76851d34fb4E"}
 !119 = !{!120}
 !120 = distinct !{!120, !121, !"_ZN12clap_builder4util9any_value8AnyValue12downcast_ref17hdb2f50c59ca06faaE: argument 0"}
 !121 = distinct !{!121, !"_ZN12clap_builder4util9any_value8AnyValue12downcast_ref17hdb2f50c59ca06faaE"}

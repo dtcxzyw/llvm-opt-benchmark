@@ -55,7 +55,7 @@ define { i64, ptr } @load_module_meta(ptr noundef %0, i64 %1, ptr %2) local_unna
   %14 = tail call { i64, ptr } @jv_null() #11
   %15 = extractvalue { i64, ptr } %14, 0
   %16 = extractvalue { i64, ptr } %14, 1
-  %17 = tail call fastcc { i64, ptr } @find_lib.argprom(i64 %6, ptr %7, i64 %9, ptr %10, ptr noundef nonnull @.str, i64 %12, ptr %13, i64 %15, ptr %16)
+  %17 = tail call fastcc { i64, ptr } @find_lib(i64 %6, ptr %7, i64 %9, ptr %10, ptr noundef nonnull @.str, i64 %12, ptr %13, i64 %15, ptr %16)
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = tail call i32 @jv_get_kind(i64 %18, ptr %19) #11
@@ -154,7 +154,7 @@ define { i64, ptr } @load_module_meta(ptr noundef %0, i64 %1, ptr %2) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, ptr } @find_lib.argprom(i64 %0, ptr %1, i64 %2, ptr %3, ptr noundef %4, i64 %.0.val, ptr %.8.val, i64 %.0.val1, ptr %.8.val3) unnamed_addr #0 {
+define internal fastcc { i64, ptr } @find_lib(i64 %0, ptr %1, i64 %2, ptr %3, ptr noundef %4, i64 %.0.val, ptr %.8.val, i64 %.0.val1, ptr %.8.val3) unnamed_addr #0 {
   %6 = alloca %struct.stat, align 8
   %7 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #11
   %.not27 = icmp eq i32 %7, 0
@@ -214,7 +214,7 @@ define internal fastcc { i64, ptr } @find_lib.argprom(i64 %0, ptr %1, i64 %2, pt
   %36 = extractvalue { i64, ptr } %34, 1
   %37 = tail call i32 @jv_array_length(i64 %35, ptr %36) #11
   %.not727.i = icmp sgt i32 %37, 0
-  br i1 %.not727.i, label %.lr.ph.i, label %build_lib_search_chain.argprom.exit
+  br i1 %.not727.i, label %.lr.ph.i, label %build_lib_search_chain.exit
 
 .lr.ph.i:                                         ; preds = %27, %101
   %.sroa.4.112.i = phi ptr [ %.sroa.4.2.i, %101 ], [ %30, %27 ]
@@ -336,9 +336,9 @@ sub_1.i:                                          ; preds = %sub_0.i
   %.sroa.4.2.i = phi ptr [ %.sroa.4.112.i, %45 ], [ %100, %97 ], [ %.sroa.4.112.i, %51 ]
   %102 = add nuw nsw i32 %.18.i, 1
   %exitcond.not.i = icmp eq i32 %102, %37
-  br i1 %exitcond.not.i, label %build_lib_search_chain.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %build_lib_search_chain.exit, label %.lr.ph.i, !llvm.loop !4
 
-build_lib_search_chain.argprom.exit:              ; preds = %101, %27
+build_lib_search_chain.exit:                      ; preds = %101, %27
   %.sroa.053.0.lcssa.i = phi i64 [ %32, %27 ], [ %.sroa.053.2.i, %101 ]
   %.sroa.3.0.lcssa.i = phi ptr [ %33, %27 ], [ %.sroa.3.2.i, %101 ]
   %.sroa.055.0.lcssa.i = phi i64 [ %29, %27 ], [ %.sroa.055.2.i, %101 ]
@@ -372,16 +372,16 @@ build_lib_search_chain.argprom.exit:              ; preds = %101, %27
   %.not.i151 = icmp eq ptr %125, null
   br i1 %.not.i151, label %jv_basename.exit, label %126
 
-126:                                              ; preds = %build_lib_search_chain.argprom.exit
+126:                                              ; preds = %build_lib_search_chain.exit
   %127 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.18, ptr noundef nonnull %125) #11
   %128 = extractvalue { i64, ptr } %127, 0
   %129 = extractvalue { i64, ptr } %127, 1
   tail call void @jv_free(i64 %122, ptr %123) #11
   br label %jv_basename.exit
 
-jv_basename.exit:                                 ; preds = %build_lib_search_chain.argprom.exit, %126
-  %.sroa.05.0.i = phi i64 [ %128, %126 ], [ %122, %build_lib_search_chain.argprom.exit ]
-  %.sroa.3.0.i = phi ptr [ %129, %126 ], [ %123, %build_lib_search_chain.argprom.exit ]
+jv_basename.exit:                                 ; preds = %build_lib_search_chain.exit, %126
+  %.sroa.05.0.i = phi i64 [ %128, %126 ], [ %122, %build_lib_search_chain.exit ]
+  %.sroa.3.0.i = phi ptr [ %129, %126 ], [ %123, %build_lib_search_chain.exit ]
   %130 = tail call { i64, ptr } @jv_copy(i64 %119, ptr %120) #11
   %131 = extractvalue { i64, ptr } %130, 0
   %132 = extractvalue { i64, ptr } %130, 1
@@ -1066,7 +1066,7 @@ default_search.exit:                              ; preds = %94, %110, %112
   %123 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #11
   %124 = extractvalue { i64, ptr } %123, 0
   %125 = extractvalue { i64, ptr } %123, 1
-  %126 = tail call fastcc { i64, ptr } @find_lib.argprom(i64 %71, ptr %72, i64 %.sroa.016.0.i, ptr %.sroa.4.0.i, ptr noundef nonnull %119, i64 %121, ptr %122, i64 %124, ptr %125)
+  %126 = tail call fastcc { i64, ptr } @find_lib(i64 %71, ptr %72, i64 %.sroa.016.0.i, ptr %.sroa.4.0.i, ptr noundef nonnull %119, i64 %121, ptr %122, i64 %124, ptr %125)
   %127 = extractvalue { i64, ptr } %126, 0
   %128 = extractvalue { i64, ptr } %126, 1
   %129 = tail call i32 @jv_get_kind(i64 %127, ptr %128) #11

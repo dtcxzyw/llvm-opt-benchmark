@@ -2900,7 +2900,7 @@ sw.bb91:                                          ; preds = %if.end39, %if.end39
   br label %sw.epilog
 
 sw.bb92:                                          ; preds = %if.end39
-  %call94 = call fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_111ParseOffsetEPKcS5_Pi.argprom(ptr noundef %data.1329, i8 0, ptr noundef %offset)
+  %call94 = call fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_111ParseOffsetEPKcS5_Pi(ptr noundef %data.1329, i8 0, ptr noundef %offset)
   %cmp95.not = icmp ne ptr %call94, null
   %spec.select137 = select i1 %cmp95.not, i1 true, i1 %saw_offset.0325
   br label %while.cond3.backedge
@@ -3021,7 +3021,7 @@ land.lhs.true122:                                 ; preds = %land.lhs.true
   br i1 %cmp125, label %if.then126, label %sw.epilog
 
 if.then126:                                       ; preds = %land.lhs.true, %sw.bb109, %land.lhs.true122
-  %call128 = call fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_111ParseOffsetEPKcS5_Pi.argprom(ptr noundef %data.1329, i8 58, ptr noundef %offset)
+  %call128 = call fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_111ParseOffsetEPKcS5_Pi(ptr noundef %data.1329, i8 58, ptr noundef %offset)
   %cmp129.not = icmp ne ptr %call128, null
   %spec.select139 = select i1 %cmp129.not, i1 true, i1 %saw_offset.0325
   %25 = load i8, ptr %incdec.ptr40, align 1
@@ -3077,7 +3077,7 @@ land.lhs.true171:                                 ; preds = %sw.bb148
   ]
 
 if.then175:                                       ; preds = %land.lhs.true171, %sw.bb148
-  %call177 = call fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_111ParseOffsetEPKcS5_Pi.argprom(ptr noundef %data.1329, i8 58, ptr noundef %offset)
+  %call177 = call fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_111ParseOffsetEPKcS5_Pi(ptr noundef %data.1329, i8 58, ptr noundef %offset)
   %cmp178.not = icmp ne ptr %call177, null
   %spec.select140 = select i1 %cmp178.not, i1 true, i1 %saw_offset.0325
   %32 = load i8, ptr %incdec.ptr40, align 1
@@ -3851,7 +3851,7 @@ if.end54:                                         ; preds = %lor.lhs.false, %whi
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_111ParseOffsetEPKcS5_Pi.argprom(ptr noundef nonnull %dp, i8 %mode.0.val, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #7 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_111ParseOffsetEPKcS5_Pi(ptr noundef nonnull %dp, i8 %mode.0.val, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #7 {
 entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %dp, i64 1
   %0 = load i8, ptr %dp, align 1

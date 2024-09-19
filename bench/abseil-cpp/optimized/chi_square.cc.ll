@@ -169,17 +169,17 @@ if.end25:                                         ; preds = %if.end22
   %tobool.not = icmp eq i32 %and, 0
   %fneg27 = fneg double %mul26
   %cmp.i = fcmp ogt double %mul26, 2.000000e+01
-  br i1 %cmp.i, label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit", label %cond.false.i
+  br i1 %cmp.i, label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit", label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end25
   %call.i = tail call double @exp(double noundef %fneg27) #9
-  br label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit"
+  br label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit"
 
-"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit": ; preds = %if.end25, %cond.false.i
+"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit": ; preds = %if.end25, %cond.false.i
   %cond.i = phi double [ %call.i, %cond.false.i ], [ 0.000000e+00, %if.end25 ]
   br i1 %tobool.not, label %cond.end, label %cond.false
 
-cond.false:                                       ; preds = %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit"
+cond.false:                                       ; preds = %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit"
   %call30 = tail call double @sqrt(double noundef %chi_square) #9
   %cmp.i48 = fcmp oeq double %call30, 0.000000e+00
   br i1 %cmp.i48, label %cond.end, label %if.end.i
@@ -207,9 +207,9 @@ for.body.i.i51:                                   ; preds = %for.body.i.i51, %if
   %9 = tail call double @llvm.fma.f64(double %p.01.i.i53, double %mul5.i, double %8)
   %indvars.iv.next.i.i55 = add nuw nsw i64 %indvars.iv.i.i52, 1
   %exitcond.not.i.i56 = icmp eq i64 %indvars.iv.next.i.i55, 10
-  br i1 %exitcond.not.i.i56, label %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.argprom.exit.i, label %for.body.i.i51, !llvm.loop !8
+  br i1 %exitcond.not.i.i56, label %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i, label %for.body.i.i51, !llvm.loop !8
 
-_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.argprom.exit.i: ; preds = %for.body.i.i51
+_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i: ; preds = %for.body.i.i51
   %mul6.i = fmul double %mul.i49, %9
   %mul7.i = fmul double %mul6.i, 2.000000e+00
   br label %if.end11.i
@@ -229,8 +229,8 @@ for.body.i10.i:                                   ; preds = %for.body.i10.i, %if
   %exitcond.not.i15.i = icmp eq i64 %indvars.iv.next.i14.i, 16
   br i1 %exitcond.not.i15.i, label %if.end11.i, label %for.body.i10.i, !llvm.loop !9
 
-if.end11.i:                                       ; preds = %for.body.i10.i, %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.argprom.exit.i, %if.end.i
-  %x.0.i = phi double [ %mul7.i, %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.argprom.exit.i ], [ 1.000000e+00, %if.end.i ], [ %12, %for.body.i10.i ]
+if.end11.i:                                       ; preds = %for.body.i10.i, %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i, %if.end.i
+  %x.0.i = phi double [ %mul7.i, %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i ], [ 1.000000e+00, %if.end.i ], [ %12, %for.body.i10.i ]
   %cmp12.i = fcmp olt double %call30, 0.000000e+00
   %13 = fneg double %x.0.i
   %cond.in.p.i = select i1 %cmp12.i, double %x.0.i, double %13
@@ -239,8 +239,8 @@ if.end11.i:                                       ; preds = %for.body.i10.i, %_Z
   %14 = fmul double %cond.i50, 2.000000e+00
   br label %cond.end
 
-cond.end:                                         ; preds = %if.end11.i, %cond.false, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit"
-  %cond = phi double [ %cond.i, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit" ], [ %14, %if.end11.i ], [ 1.000000e+00, %cond.false ]
+cond.end:                                         ; preds = %if.end11.i, %cond.false, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit"
+  %cond = phi double [ %cond.i, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit" ], [ %14, %if.end11.i ], [ 1.000000e+00, %cond.false ]
   %cmp34 = icmp slt i32 %dof, 3
   br i1 %cmp34, label %return, label %if.end36
 
@@ -260,22 +260,22 @@ while.body.preheader:                             ; preds = %if.then44
   %cond46 = select i1 %tobool.not, double 0.000000e+00, double 0x3FE250D048E7A1BD
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit61"
-  %e.072 = phi double [ %add, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit61" ], [ %cond46, %while.body.preheader ]
-  %z40.071 = phi double [ %add54, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit61" ], [ %cond42, %while.body.preheader ]
-  %s.070 = phi double [ %add53, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit61" ], [ %cond, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61"
+  %e.072 = phi double [ %add, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61" ], [ %cond46, %while.body.preheader ]
+  %z40.071 = phi double [ %add54, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61" ], [ %cond42, %while.body.preheader ]
+  %s.070 = phi double [ %add53, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61" ], [ %cond, %while.body.preheader ]
   %call49 = tail call double @log(double noundef %z40.071) #9
   %add = fadd double %e.072, %call49
   %16 = tail call double @llvm.fmuladd.f64(double %call47, double %z40.071, double %fneg27)
   %sub51 = fsub double %16, %add
   %cmp.i57 = fcmp olt double %sub51, -2.000000e+01
-  br i1 %cmp.i57, label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit61", label %cond.false.i58
+  br i1 %cmp.i57, label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61", label %cond.false.i58
 
 cond.false.i58:                                   ; preds = %while.body
   %call.i59 = tail call double @exp(double noundef %sub51) #9
-  br label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit61"
+  br label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61"
 
-"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit61": ; preds = %while.body, %cond.false.i58
+"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61": ; preds = %while.body, %cond.false.i58
   %cond.i60 = phi double [ %call.i59, %cond.false.i58 ], [ 0.000000e+00, %while.body ]
   %add53 = fadd double %s.070, %cond.i60
   %add54 = fadd double %z40.071, 1.000000e+00
@@ -311,8 +311,8 @@ while.end72:                                      ; preds = %while.body67, %cond
   %17 = tail call double @llvm.fmuladd.f64(double %c64.0.lcssa, double %cond.i, double %cond)
   br label %return
 
-return:                                           ; preds = %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit61", %if.then44, %cond.end, %if.end22, %if.end19, %if.else, %while.end72, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit47, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit
-  %retval.0 = phi double [ %div.i, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit ], [ %sub17, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit47 ], [ %17, %while.end72 ], [ 5.000000e-01, %if.else ], [ 1.000000e+00, %if.end19 ], [ 0.000000e+00, %if.end22 ], [ %cond, %cond.end ], [ %cond, %if.then44 ], [ %add53, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.argprom.exit61" ]
+return:                                           ; preds = %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61", %if.then44, %cond.end, %if.end22, %if.end19, %if.else, %while.end72, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit47, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit
+  %retval.0 = phi double [ %div.i, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit ], [ %sub17, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit47 ], [ %17, %while.end72 ], [ 5.000000e-01, %if.else ], [ 1.000000e+00, %if.end19 ], [ 0.000000e+00, %if.end22 ], [ %cond, %cond.end ], [ %cond, %if.then44 ], [ %add53, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit61" ]
   ret double %retval.0
 }
 

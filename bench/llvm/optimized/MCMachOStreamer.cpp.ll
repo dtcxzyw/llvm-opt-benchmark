@@ -1930,44 +1930,44 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12Dense
   %.not22.i = icmp eq i64 %112, 0
   br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %110, %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.argprom.argprom.exit18.i
-  %.023.i = phi ptr [ %127, %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.argprom.argprom.exit18.i ], [ %111, %110 ]
+.lr.ph.i:                                         ; preds = %110, %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.exit18.i
+  %.023.i = phi ptr [ %127, %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.exit18.i ], [ %111, %110 ]
   %.val15.i = load ptr, ptr %4, align 8
   %.0.val.i = load ptr, ptr %.023.i, align 8
   %114 = getelementptr i8, ptr %.0.val.i, i64 16
   %.0.val.val.i = load ptr, ptr %114, align 8
   %115 = call noundef zeroext i1 @_ZN4llvm11MCAssembler14registerSymbolERKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(372) %.val15.i, ptr noundef nonnull align 8 dereferenceable(32) %.0.val.val.i) #17
-  br i1 %115, label %116, label %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.argprom.argprom.exit.i
+  br i1 %115, label %116, label %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.exit.i
 
 116:                                              ; preds = %.lr.ph.i
   %117 = getelementptr inbounds nuw i8, ptr %.0.val.val.i, i64 8
   %118 = load i64, ptr %117, align 8
   %119 = or i64 %118, 32
   store i64 %119, ptr %117, align 8
-  br label %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.argprom.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.exit.i
 
-_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.argprom.argprom.exit.i: ; preds = %116, %.lr.ph.i
+_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.exit.i: ; preds = %116, %.lr.ph.i
   %120 = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
   %.val16.i = load ptr, ptr %4, align 8
   %.val17.i = load ptr, ptr %120, align 8
   %121 = getelementptr i8, ptr %.val17.i, i64 16
   %.val17.val.i = load ptr, ptr %121, align 8
   %122 = call noundef zeroext i1 @_ZN4llvm11MCAssembler14registerSymbolERKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(372) %.val16.i, ptr noundef nonnull align 8 dereferenceable(32) %.val17.val.i) #17
-  br i1 %122, label %123, label %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.argprom.argprom.exit18.i
+  br i1 %122, label %123, label %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.exit18.i
 
-123:                                              ; preds = %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.argprom.argprom.exit.i
+123:                                              ; preds = %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.exit.i
   %124 = getelementptr inbounds nuw i8, ptr %.val17.val.i, i64 8
   %125 = load i64, ptr %124, align 8
   %126 = or i64 %125, 32
   store i64 %126, ptr %124, align 8
-  br label %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.argprom.argprom.exit18.i
+  br label %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.exit18.i
 
-_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.argprom.argprom.exit18.i: ; preds = %123, %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.argprom.argprom.exit.i
+_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.exit18.i: ; preds = %123, %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.exit.i
   %127 = getelementptr inbounds i8, ptr %.023.i, i64 24
   %.not.i29 = icmp eq ptr %127, %113
   br i1 %.not.i29, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.argprom.argprom.exit18.i, %110
+._crit_edge.i:                                    ; preds = %_ZN12_GLOBAL__N_115MCMachOStreamer22finalizeCGProfileEntryERPKN4llvm15MCSymbolRefExprE.exit18.i, %110
   %128 = load ptr, ptr %106, align 8
   %129 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %128, ptr nonnull @.str.4, i64 6, ptr nonnull @.str.5, i64 12, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #17
   %130 = load ptr, ptr %0, align 8

@@ -863,21 +863,21 @@ if.end34:                                         ; preds = %_ZN4cvc58internal8R
   %sum.val.i = load ptr, ptr %_M_left.i.i, align 8, !noalias !22
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %sum.val.i, i64 32
   %call2.i.i = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i), !noalias !22
-  br i1 %call2.i.i, label %if.then.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i
+  br i1 %call2.i.i, label %if.then.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
 if.then.i.i:                                      ; preds = %if.end34
   %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %sum.val.i) #14, !noalias !22
-  br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i
+  br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
-_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i: ; preds = %if.then.i.i, %if.end34
+_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i: ; preds = %if.then.i.i, %if.end34
   %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.then.i.i ], [ %sum.val.i, %if.end34 ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %sum, i64 8
   %cmp.i.not64.i = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not64.i, label %for.end.i, label %for.body.i170
 
-for.body.i170:                                    ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i, %for.inc.i
-  %minit.sroa.0.066.i = phi ptr [ %minit.sroa.0.1.i, %for.inc.i ], [ %retval.sroa.0.0.i.i, %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i ]
-  %it.sroa.0.065.i = phi ptr [ %call.i.i173, %for.inc.i ], [ %retval.sroa.0.0.i.i, %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i ]
+for.body.i170:                                    ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i, %for.inc.i
+  %minit.sroa.0.066.i = phi ptr [ %minit.sroa.0.1.i, %for.inc.i ], [ %retval.sroa.0.0.i.i, %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i ]
+  %it.sroa.0.065.i = phi ptr [ %call.i.i173, %for.inc.i ], [ %retval.sroa.0.0.i.i, %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.065.i, i64 32
   %call5.i = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i), !noalias !22
   br i1 %call5.i, label %for.inc.i, label %if.end.i171
@@ -956,8 +956,8 @@ for.inc.i:                                        ; preds = %_ZN4cvc58internal8R
   %cmp.i.not.i = icmp eq ptr %call.i.i173, %add.ptr.i.i.i
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i170, !llvm.loop !25
 
-for.end.i:                                        ; preds = %for.inc.i, %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i
-  %minit.sroa.0.0.lcssa.i = phi ptr [ %retval.sroa.0.0.i.i, %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i ], [ %minit.sroa.0.1.i, %for.inc.i ]
+for.end.i:                                        ; preds = %for.inc.i, %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
+  %minit.sroa.0.0.lcssa.i = phi ptr [ %retval.sroa.0.0.i.i, %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i ], [ %minit.sroa.0.1.i, %for.inc.i ]
   %cmp.i19.i = icmp eq ptr %minit.sroa.0.0.lcssa.i, %add.ptr.i.i.i
   br i1 %cmp.i19.i, label %if.then21.i, label %invoke.cont42.i
 
@@ -2384,19 +2384,19 @@ cond.end:
   %sum.val.i = load ptr, ptr %0, align 8, !noalias !32
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %sum.val.i, i64 32
   %call2.i.i = tail call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i), !noalias !32
-  br i1 %call2.i.i, label %if.then.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i
+  br i1 %call2.i.i, label %if.then.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
 if.then.i.i:                                      ; preds = %cond.end
   %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %sum.val.i) #14, !noalias !32
-  br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i
+  br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
-_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i: ; preds = %if.then.i.i, %cond.end
+_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i: ; preds = %if.then.i.i, %cond.end
   %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.then.i.i ], [ %sum.val.i, %cond.end ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %sum, i64 8
   %cmp.i.i55 = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i55, label %if.then.i56, label %invoke.cont19.i
 
-if.then.i56:                                      ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i
+if.then.i56:                                      ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
   call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp6.i, i64 noundef 1), !noalias !32
   invoke void @_ZN4cvc58internal6theory5arith8rewriter7mkConstERKNS0_7IntegerE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate.0") align 8 %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i)
           to label %invoke.cont9.i unwind label %lpad.i, !noalias !32
@@ -2616,7 +2616,7 @@ terminate.lpad.i.i23.i:                           ; preds = %ehcleanup15.i
   call void @__clang_call_terminate(ptr %27) #15
   unreachable
 
-invoke.cont19.i:                                  ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i
+invoke.cont19.i:                                  ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 32
   call void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEENS1_19RealAlgebraicNumberEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(40) %res.i, ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i), !noalias !32
   call void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_19RealAlgebraicNumberEESt10_Select1stIS7_ENS1_6theory5arith8rewriter14TermComparatorESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %sum, ptr %retval.sroa.0.0.i.i), !noalias !32
@@ -4091,13 +4091,13 @@ if.end13.i:                                       ; preds = %cond.end
   %sum.val.i = load ptr, ptr %12, align 8
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %sum.val.i, i64 32
   %call2.i.i.i = tail call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i)
-  br i1 %call2.i.i.i, label %if.then.i.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i
+  br i1 %call2.i.i.i, label %if.then.i.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end13.i
   %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %sum.val.i) #14
-  br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i
+  br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
-_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i: ; preds = %if.then.i.i.i, %if.end13.i
+_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i: ; preds = %if.then.i.i.i, %if.end13.i
   %retval.sroa.0.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i ], [ %sum.val.i, %if.end13.i ]
   %second15.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 40
   call void @__gmpz_init_set(ptr noundef nonnull %lcoeff.i, ptr noundef nonnull %second15.i)
@@ -4107,7 +4107,7 @@ _ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12Nod
   invoke void @__gmpq_canonicalize(ptr noundef nonnull %lcoeff.i)
           to label %_ZN4cvc58internal19RealAlgebraicNumberC2ERKS1_.exit.i unwind label %lpad.i.i.i
 
-lpad.i.i.i:                                       ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i
+lpad.i.i.i:                                       ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
   %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull %lcoeff.i)
@@ -4124,7 +4124,7 @@ common.resume:                                    ; preds = %ehcleanup18, %ehcle
   %common.resume.op = phi { ptr, i32 } [ %13, %lpad.i.i.i ], [ %.pn9.i, %ehcleanup.i ], [ %.pn.i, %ehcleanup47.i ], [ %.pn5.pn, %ehcleanup18 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN4cvc58internal19RealAlgebraicNumberC2ERKS1_.exit.i: ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.argprom.exit.i
+_ZN4cvc58internal19RealAlgebraicNumberC2ERKS1_.exit.i: ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
   %call18.i = invoke noundef i32 @_ZNK4cvc58internal19RealAlgebraicNumber3sgnEv(ptr noundef nonnull align 8 dereferenceable(32) %lcoeff.i)
           to label %invoke.cont17.i unwind label %lpad16.loopexit.split-lp.i
 

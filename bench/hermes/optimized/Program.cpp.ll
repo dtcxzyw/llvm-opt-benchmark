@@ -107,7 +107,7 @@ entry:
   store i32 0, ptr %PI, align 4
   %ReturnCode.i = getelementptr inbounds i8, ptr %PI, i64 8
   store i32 0, ptr %ReturnCode.i, align 4
-  %call = call fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvh3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EENS_8OptionalIS5_EENS4_INS6_IS3_EEEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr noundef nonnull align 4 dereferenceable(12) %PI, ptr %Program.coerce0, i64 %Program.coerce1, ptr %Args.coerce0, i64 %Args.coerce1, ptr noundef nonnull byval(%"class.llvh::Optional") align 8 %Env, ptr %Redirects.coerce0, i64 %Redirects.coerce1, i32 noundef %MemoryLimit, ptr noundef %ErrMsg)
+  %call = call fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvh3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EENS_8OptionalIS5_EENS4_INS6_IS3_EEEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(12) %PI, ptr %Program.coerce0, i64 %Program.coerce1, ptr %Args.coerce0, i64 %Args.coerce1, ptr noundef nonnull byval(%"class.llvh::Optional") align 8 %Env, ptr %Redirects.coerce0, i64 %Redirects.coerce1, i32 noundef %MemoryLimit, ptr noundef %ErrMsg)
   %tobool.not = icmp eq ptr %ExecutionFailed, null
   br i1 %call, label %if.then, label %if.end6
 
@@ -137,7 +137,7 @@ return:                                           ; preds = %if.end6, %if.then8,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvh3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EENS_8OptionalIS5_EENS4_INS6_IS3_EEEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %PI, ptr %Program.coerce0, i64 %Program.coerce1, ptr %Args.coerce0, i64 %Args.coerce1, ptr nocapture noundef readonly byval(%"class.llvh::Optional") align 8 %Env, ptr nocapture readonly %Redirects.0.val, i64 %Redirects.8.val, i32 noundef %MemoryLimit, ptr noundef %ErrMsg) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvh3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EENS_8OptionalIS5_EENS4_INS6_IS3_EEEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %PI, ptr %Program.coerce0, i64 %Program.coerce1, ptr %Args.coerce0, i64 %Args.coerce1, ptr nocapture noundef readonly byval(%"class.llvh::Optional") align 8 %Env, ptr nocapture readonly %Redirects.0.val, i64 %Redirects.8.val, i32 noundef %MemoryLimit, ptr noundef %ErrMsg) unnamed_addr #0 {
 entry:
   %ref.tmp.i90 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
@@ -425,7 +425,7 @@ if.else:                                          ; preds = %land.rhs.i173, %if.
 if.then66:                                        ; preds = %if.else
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68)
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, i32 noundef %call64)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, i32 noundef %call64)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #21
   br label %cleanup
@@ -473,7 +473,7 @@ if.then86:                                        ; preds = %if.end84
   %call.i96 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp87, ptr noundef %call.i96, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp88) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 18))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87, i32 noundef %call80)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87, i32 noundef %call80)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp88) #21
   br label %cleanup
@@ -508,7 +508,7 @@ sw.bb:                                            ; preds = %if.end94
   %call.i100 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp96, ptr noundef %call.i100, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp97) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 13))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp97) #21
   br label %cleanup155
@@ -566,7 +566,7 @@ if.then124:                                       ; preds = %land.rhs.i, %if.end
 if.then127:                                       ; preds = %if.then124
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp129) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128, ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp129)
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp129) #21
   br label %cleanup155
@@ -771,7 +771,7 @@ if.then35:                                        ; preds = %if.then28
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 32))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #21
   br label %return
@@ -781,7 +781,7 @@ if.else38:                                        ; preds = %if.then28
   %call.i22 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp39, ptr noundef %call.i22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 15))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, i32 noundef 0)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, i32 noundef 0)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #21
   br label %return
@@ -794,7 +794,7 @@ if.then46:                                        ; preds = %land.lhs.true25, %i
   %call.i25 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp47, ptr noundef %call.i25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 31))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #21
   br label %return
@@ -890,7 +890,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call = call fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvh3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EENS_8OptionalIS5_EENS4_INS6_IS3_EEEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr noundef nonnull align 4 dereferenceable(12) %retval, ptr %Program.coerce0, i64 %Program.coerce1, ptr %Args.coerce0, i64 %Args.coerce1, ptr noundef nonnull byval(%"class.llvh::Optional") align 8 %Env, ptr %Redirects.coerce0, i64 %Redirects.coerce1, i32 noundef %MemoryLimit, ptr noundef %ErrMsg)
+  %call = call fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvh3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EENS_8OptionalIS5_EENS4_INS6_IS3_EEEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(12) %retval, ptr %Program.coerce0, i64 %Program.coerce1, ptr %Args.coerce0, i64 %Args.coerce1, ptr noundef nonnull byval(%"class.llvh::Optional") align 8 %Env, ptr %Redirects.coerce0, i64 %Redirects.coerce1, i32 noundef %MemoryLimit, ptr noundef %ErrMsg)
   %or.cond.not = or i1 %tobool, %call
   br i1 %or.cond.not, label %if.end8, label %if.then6
 
@@ -1416,7 +1416,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @wait(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %prefix, i32 noundef %errnum) unnamed_addr #0 {
+define internal fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %prefix, i32 noundef %errnum) unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1818,7 +1818,7 @@ if.then6:                                         ; preds = %if.end3
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 11))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %call4)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %call4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #21
   br label %return
@@ -1921,7 +1921,7 @@ if.then11:                                        ; preds = %if.end7
   %cond16 = select i1 %cmp, ptr @.str.18, ptr @.str.19
   %call.i7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull %cond16) #21, !noalias !57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %call.i7) #21
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #21
@@ -1937,7 +1937,7 @@ if.then21:                                        ; preds = %if.end18
   %call.i8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22, ptr noundef %call.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 11))
-  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i.retelim(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, i32 noundef -1)
+  call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #21
   %call25 = call i32 @close(i32 noundef %call9) #21

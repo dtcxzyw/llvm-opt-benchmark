@@ -437,13 +437,13 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
   %4 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %4, 90
-  br i1 %cmp10.i, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit23, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
+  br i1 %cmp10.i, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit23, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
 _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; preds = %land.lhs.true.i, %if.end.i, %if.end
   store i32 %inc.i, ptr %recursion_depth.i, align 4
   br label %cleanup
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit23: ; preds = %land.lhs.true.i
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit23: ; preds = %land.lhs.true.i
   %add.i = add nsw i32 %state.val8.i, 2
   store i32 %add.i, ptr %2, align 4
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
@@ -452,7 +452,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.arg
   %cmp3.i22 = icmp sgt i32 %1, 131069
   br i1 %cmp3.i22, label %_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE.exit, label %if.end.i8
 
-if.end.i8:                                        ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit23
+if.end.i8:                                        ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit23
   %call1.i = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %state)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -475,8 +475,8 @@ if.end7.i:                                        ; preds = %invoke.cont.i
   %call9.i = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseSpecialNameEPNS0_5StateE(ptr noundef nonnull %state)
           to label %_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE.exit unwind label %lpad.i
 
-_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE.exit: ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit23, %land.lhs.true.i10, %if.end7.i
-  %retval.0.i9 = phi i1 [ false, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit23 ], [ true, %land.lhs.true.i10 ], [ %call9.i, %if.end7.i ]
+_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE.exit: ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit23, %land.lhs.true.i10, %if.end7.i
+  %retval.0.i9 = phi i1 [ false, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit23 ], [ true, %land.lhs.true.i10 ], [ %call9.i, %if.end7.i ]
   %7 = load i32, ptr %recursion_depth.i, align 4
   %dec.i15 = add nsw i32 %7, -1
   store i32 %dec.i15, ptr %recursion_depth.i, align 4
@@ -491,7 +491,7 @@ cleanup:                                          ; preds = %entry, %_ZN4absl18d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.retelim(ptr nocapture noundef %state, ptr nocapture noundef readonly %str) unnamed_addr #5 {
+define internal fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr nocapture noundef %state, ptr nocapture noundef readonly %str) unnamed_addr #5 {
 entry:
   %append = getelementptr inbounds i8, ptr %state, i64 40
   %bf.load = load i32, ptr %append, align 4
@@ -640,13 +640,13 @@ if.end:                                           ; preds = %entry
   %inc2.i88 = add nsw i32 %1, 2
   store i32 %inc2.i88, ptr %steps.i, align 8
   %cmp.i80 = icmp sgt i32 %0, 254
-  br i1 %cmp.i80, label %lor.lhs.false.thread, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit84
+  br i1 %cmp.i80, label %lor.lhs.false.thread, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit84
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit84: ; preds = %if.end
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit84: ; preds = %if.end
   %cmp3.i83 = icmp sgt i32 %1, 131070
   br i1 %cmp3.i83, label %lor.lhs.false.thread, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit84
+if.end.i:                                         ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit84
   %parse_state.i = getelementptr inbounds i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %copy.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %parse_state.i, i64 12, i1 false)
   %copy.sroa.2.0.parse_state.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 40
@@ -839,9 +839,9 @@ invoke.cont:                                      ; preds = %if.end.i33
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %copy.sroa.0.i)
   br label %cleanup
 
-lor.lhs.false.thread:                             ; preds = %if.end, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit84
-  %.ph = phi i32 [ 131073, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit84 ], [ %inc2.i88, %if.end ]
-  %.ph182 = phi i32 [ %inc.i86, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit84 ], [ 257, %if.end ]
+lor.lhs.false.thread:                             ; preds = %if.end, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit84
+  %.ph = phi i32 [ 131073, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit84 ], [ %inc2.i88, %if.end ]
+  %.ph182 = phi i32 [ %inc.i86, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit84 ], [ 257, %if.end ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %copy.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %copy.i)
   store i32 %.ph182, ptr %recursion_depth.i, align 4
@@ -882,9 +882,9 @@ if.end.i132:                                      ; preds = %if.end.i16
   %arrayidx.i.i136 = getelementptr inbounds i8, ptr %state.val.i133, i64 %idxprom.i.i135
   %12 = load i8, ptr %arrayidx.i.i136, align 1
   %cmp.i137 = icmp eq i8 %12, 90
-  br i1 %cmp.i137, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i, label %if.end11.i.sink.split
+  br i1 %cmp.i137, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i, label %if.end11.i.sink.split
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i: ; preds = %if.end.i132
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i: ; preds = %if.end.i132
   %inc.i140 = add nsw i32 %state.val4.i134, 1
   store i32 %inc.i140, ptr %parse_state.i, align 4
   store i32 %inc.i.i126, ptr %recursion_depth.i, align 4
@@ -893,7 +893,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.arg
   %cmp3.i.i117 = icmp sgt i32 %.pre.pre, 131069
   br i1 %cmp3.i.i117, label %if.end11.i.sink.split, label %if.end.i118
 
-if.end.i118:                                      ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i
+if.end.i118:                                      ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i
   %call1.i = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %state)
           to label %invoke.cont.i120 unwind label %lpad.i119
 
@@ -973,8 +973,8 @@ lpad.i22.body:                                    ; preds = %lpad.i119, %lpad.i2
   store i32 %dec.i92, ptr %recursion_depth.i, align 4
   br label %lpad.body
 
-if.end11.i.sink.split:                            ; preds = %land.lhs.true4.i, %if.end.i100, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i, %if.end.i16, %if.end.i132
-  %dec.i10.i159.sink = phi i32 [ %.pr.pre, %if.end.i132 ], [ %.pr.pre, %if.end.i16 ], [ %.pr.pre, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i ], [ %dec.i10.i159, %if.end.i100 ], [ %dec.i10.i159, %land.lhs.true4.i ]
+if.end11.i.sink.split:                            ; preds = %land.lhs.true4.i, %if.end.i100, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i, %if.end.i16, %if.end.i132
+  %dec.i10.i159.sink = phi i32 [ %.pr.pre, %if.end.i132 ], [ %.pr.pre, %if.end.i16 ], [ %.pr.pre, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i ], [ %dec.i10.i159, %if.end.i100 ], [ %dec.i10.i159, %land.lhs.true4.i ]
   store i32 %dec.i10.i159.sink, ptr %recursion_depth.i, align 4
   br label %if.end11.i
 
@@ -1764,13 +1764,13 @@ land.lhs.true.i286:                               ; preds = %if.end.i279
   %arrayidx6.i287 = getelementptr inbounds i8, ptr %arrayidx.i.i283, i64 1
   %55 = load i8, ptr %arrayidx6.i287, align 1
   %cmp10.i288 = icmp eq i8 %55, 65
-  br i1 %cmp10.i288, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i303, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit291.thread
+  br i1 %cmp10.i288, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i303, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit291.thread
 
 _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit291.thread: ; preds = %land.lhs.true.i286, %if.end.i279, %if.end80
   store i32 %53, ptr %recursion_depth.i, align 4
   br label %if.end88
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i303: ; preds = %land.lhs.true.i286
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i303: ; preds = %land.lhs.true.i286
   %add.i290 = add nsw i32 %state.val8.i281, 2
   store i32 %add.i290, ptr %parse_state, align 4
   store i32 %inc.i.i273.pre-phi, ptr %recursion_depth.i, align 4
@@ -1779,11 +1779,11 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.arg
   %cmp3.i.i302 = icmp sgt i32 %52, 131070
   br i1 %cmp3.i.i302, label %invoke.cont85.thread387, label %if.end.i304
 
-invoke.cont85.thread387:                          ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i303
+invoke.cont85.thread387:                          ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i303
   store i32 %53, ptr %recursion_depth.i, align 4
   br label %if.end88
 
-if.end.i304:                                      ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i303
+if.end.i304:                                      ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i303
   %call1.i305 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %state)
           to label %invoke.cont.i309 unwind label %lpad.i306
 
@@ -2435,7 +2435,7 @@ cleanup:                                          ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.retelim(ptr nocapture noundef %state) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
@@ -3350,10 +3350,10 @@ if.then46:                                        ; preds = %if.end.i177
   %inc.i185 = add nsw i32 %state.val4.i179, 1
   store i32 %inc.i185, ptr %parse_state, align 4
   store i32 %31, ptr %recursion_depth.i, align 4
-  tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.retelim(ptr noundef nonnull %state, ptr noundef nonnull @.str.9)
+  tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %state, ptr noundef nonnull @.str.9)
   %add49 = add nsw i32 %which.1206, 2
-  tail call fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.retelim(ptr noundef nonnull %state, i32 noundef %add49)
-  tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.retelim(ptr noundef nonnull %state, ptr noundef nonnull @.str.7)
+  tail call fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr noundef nonnull %state, i32 noundef %add49)
+  tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %state, ptr noundef nonnull @.str.7)
   br label %cleanup
 
 if.end54.sink.split:                              ; preds = %land.lhs.true43, %if.end.i177, %land.lhs.true28, %if.end.i114, %if.end18, %if.end.i87, %land.lhs.true.i94
@@ -3466,7 +3466,7 @@ cleanup:                                          ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.retelim(ptr nocapture noundef %state, i32 noundef range(i32 -2147483646, -2147483648) %val) unnamed_addr #9 {
+define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr nocapture noundef %state, i32 noundef range(i32 -2147483646, -2147483648) %val) unnamed_addr #9 {
 entry:
   %buf = alloca [20 x i8], align 16
   %append = getelementptr inbounds i8, ptr %state, i64 40
@@ -5749,7 +5749,7 @@ land.lhs.true58:                                  ; preds = %if.end.i255
   %inc.i263 = add nsw i32 %state.val4.i257, 1
   store i32 %inc.i263, ptr %parse_state, align 4
   store i32 %18, ptr %recursion_depth.i, align 4
-  tail call fastcc void @_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.retelim(ptr noundef nonnull %state)
+  tail call fastcc void @_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE(ptr noundef nonnull %state)
   %call65 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef nonnull %state, ptr noundef null)
   %call70 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %state, i8 noundef signext 95)
   br i1 %call70, label %cleanup, label %land.lhs.true58.if.end72_crit_edge
@@ -6510,9 +6510,9 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
   %3 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %3, 90
-  br i1 %cmp10.i, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i, label %if.end10
+  br i1 %cmp10.i, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i, label %if.end10
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i: ; preds = %land.lhs.true.i
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i: ; preds = %land.lhs.true.i
   %add.i = add nsw i32 %state.val8.i, 2
   store i32 %add.i, ptr %parse_state, align 4
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
@@ -6521,7 +6521,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.arg
   %cmp3.i.i24 = icmp sgt i32 %1, 131069
   br i1 %cmp3.i.i24, label %cleanup.sink.split.sink.split, label %if.end.i25
 
-if.end.i25:                                       ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i
+if.end.i25:                                       ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i
   %call1.i = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %state)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -6690,8 +6690,8 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit92: ; preds =
   store i32 %17, ptr %recursion_depth.i, align 4
   br label %cleanup
 
-cleanup.sink.split.sink.split:                    ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i, %land.lhs.true27, %if.end.i83, %if.end20, %if.end.i66, %land.lhs.true, %if.end.i35
-  %.sink = phi i32 [ %dec.i10.i98, %if.end.i35 ], [ %dec.i10.i98, %land.lhs.true ], [ %14, %if.end.i66 ], [ %14, %if.end20 ], [ %17, %if.end.i83 ], [ %17, %land.lhs.true27 ], [ %inc.i, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.argprom.exit.i ]
+cleanup.sink.split.sink.split:                    ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i, %land.lhs.true27, %if.end.i83, %if.end20, %if.end.i66, %land.lhs.true, %if.end.i35
+  %.sink = phi i32 [ %dec.i10.i98, %if.end.i35 ], [ %dec.i10.i98, %land.lhs.true ], [ %14, %if.end.i66 ], [ %14, %if.end20 ], [ %17, %if.end.i83 ], [ %17, %land.lhs.true27 ], [ %inc.i, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i ]
   store i32 %.sink, ptr %recursion_depth.i, align 4
   br label %cleanup.sink.split
 
@@ -6939,7 +6939,7 @@ if.then64:                                        ; preds = %if.then62
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then64, %if.then62
-  tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.retelim(ptr noundef nonnull %state, ptr noundef nonnull @.str.92)
+  tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %state, ptr noundef nonnull @.str.92)
   %real_name = getelementptr inbounds i8, ptr %p.045, i64 8
   %26 = load ptr, ptr %real_name, align 8
   %27 = load i8, ptr %26, align 1
@@ -6948,11 +6948,11 @@ if.end66:                                         ; preds = %if.then64, %if.then
   br i1 %29, label %if.then71, label %if.end74
 
 if.then71:                                        ; preds = %if.end66
-  tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.retelim(ptr noundef nonnull %state, ptr noundef nonnull @.str.14)
+  tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %state, ptr noundef nonnull @.str.14)
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then71, %if.end66
-  tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.retelim(ptr noundef nonnull %state, ptr noundef nonnull %26)
+  tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %state, ptr noundef nonnull %26)
   %30 = load i32, ptr %2, align 4
   %add = add nsw i32 %30, 2
   store i32 %add, ptr %2, align 4
@@ -7321,7 +7321,7 @@ invoke.cont2:                                     ; preds = %_ZN4absl18debugging
   br i1 %call3, label %land.lhs.true4, label %if.end10
 
 land.lhs.true4:                                   ; preds = %invoke.cont2
-  tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE.retelim(ptr noundef nonnull %state)
+  tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef nonnull %state)
   br label %cleanup
 
 lpad:                                             ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
@@ -7378,7 +7378,7 @@ land.rhs:                                         ; preds = %if.end.i
   %inc.i16 = add nsw i32 %state.val4.i, 1
   store i32 %inc.i16, ptr %10, align 4
   store i32 %8, ptr %recursion_depth.i, align 4
-  tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE.retelim(ptr noundef nonnull %state)
+  tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef nonnull %state)
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, %land.lhs.true4, %land.rhs
@@ -7390,7 +7390,7 @@ cleanup:                                          ; preds = %entry, %_ZN4absl18d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE.retelim(ptr nocapture noundef %state) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
@@ -7640,7 +7640,7 @@ if.end10.i:                                       ; preds = %land.lhs.true.i.if.
   br label %if.end27
 
 land.lhs.true12:                                  ; preds = %land.lhs.true.i
-  tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE.retelim(ptr noundef nonnull %state)
+  tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef nonnull %state)
   %10 = load i32, ptr %recursion_depth.i, align 4
   %dec.i14.i = add nsw i32 %10, -1
   store i32 %dec.i14.i, ptr %recursion_depth.i, align 4
@@ -8056,7 +8056,7 @@ if.end10.i:                                       ; preds = %land.lhs.true.i15.i
   br label %lor.lhs.false10
 
 _ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit: ; preds = %land.lhs.true.i15
-  tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE.retelim(ptr noundef nonnull %state)
+  tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef nonnull %state)
   %25 = load i32, ptr %recursion_depth.i, align 4
   %dec.i14.i = add nsw i32 %25, -1
   store i32 %dec.i14.i, ptr %recursion_depth.i, align 4

@@ -3753,14 +3753,14 @@ define internal i32 @xfrm_add_sa(ptr nocapture noundef readonly %0, ptr nocaptur
 187:                                              ; preds = %179, %138, %104, %.thread, %65
   %.val = phi ptr [ null, %179 ], [ null, %138 ], [ %.val58, %104 ], [ %.val58, %.thread ], [ null, %65 ]
   %188 = getelementptr i8, ptr %2, i64 144
-  %189 = tail call fastcc i32 @verify_aead.argprom(ptr %.val, ptr noundef %3)
+  %189 = tail call fastcc i32 @verify_aead(ptr %.val, ptr noundef %3)
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %191, label %.thread40
 
 191:                                              ; preds = %187
   %192 = getelementptr i8, ptr %2, i64 160
   %.val37 = load ptr, ptr %192, align 8
-  %193 = tail call fastcc i32 @verify_auth_trunc.argprom(ptr %.val37, ptr noundef %3)
+  %193 = tail call fastcc i32 @verify_auth_trunc(ptr %.val37, ptr noundef %3)
   %194 = icmp eq i32 %193, 0
   br i1 %194, label %195, label %.thread40
 
@@ -3782,14 +3782,14 @@ define internal i32 @xfrm_add_sa(ptr nocapture noundef readonly %0, ptr nocaptur
 204:                                              ; preds = %201
   %205 = getelementptr i8, ptr %2, i64 64
   %.val38 = load ptr, ptr %205, align 8
-  %206 = tail call fastcc i32 @verify_sec_ctx_len.argprom(ptr %.val38, ptr noundef %3)
+  %206 = tail call fastcc i32 @verify_sec_ctx_len(ptr %.val38, ptr noundef %3)
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %208, label %.thread40
 
 208:                                              ; preds = %204
   %209 = getelementptr i8, ptr %2, i64 184
   %.val39 = load ptr, ptr %209, align 8
-  %210 = tail call fastcc i32 @verify_replay.argprom(ptr noundef %10, ptr %.val39, ptr noundef %3)
+  %210 = tail call fastcc i32 @verify_replay(ptr noundef %10, ptr %.val39, ptr noundef %3)
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %212, label %.thread40
 
@@ -4236,7 +4236,7 @@ define internal i32 @xfrm_add_sa(ptr nocapture noundef readonly %0, ptr nocaptur
   br label %.thread40
 
 483:                                              ; preds = %460
-  tail call fastcc void @xfrm_update_ae_params.argelim(ptr noundef %230, ptr noundef %2)
+  tail call fastcc void @xfrm_update_ae_params(ptr noundef %230, ptr noundef %2)
   %484 = getelementptr inbounds i8, ptr %230, i64 72
   %485 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %484, i32 1, ptr elementtype(i32) %484) #16, !srcloc !36
   %486 = icmp eq i32 %485, 0
@@ -7064,7 +7064,7 @@ declare dso_local void @km_state_notify(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @llvm.bswap.i32(i32) #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @verify_aead.argprom(ptr %.144.val, ptr noundef writeonly %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @verify_aead(ptr %.144.val, ptr noundef writeonly %0) unnamed_addr #2 align 16 {
   %2 = icmp eq ptr %.144.val, null
   br i1 %2, label %18, label %3
 
@@ -7100,7 +7100,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_aead.argprom(ptr %.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @verify_auth_trunc.argprom(ptr %.160.val, ptr noundef writeonly %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @verify_auth_trunc(ptr %.160.val, ptr noundef writeonly %0) unnamed_addr #2 align 16 {
   %2 = icmp eq ptr %.160.val, null
   br i1 %2, label %18, label %3
 
@@ -7175,7 +7175,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_one_alg(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @verify_sec_ctx_len.argprom(ptr readonly %.64.val, ptr noundef writeonly %0) unnamed_addr #12 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @verify_sec_ctx_len(ptr readonly %.64.val, ptr noundef writeonly %0) unnamed_addr #12 align 16 {
   %2 = icmp eq ptr %.64.val, null
   br i1 %2, label %19, label %3
 
@@ -7211,7 +7211,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_sec_ctx_len.argprom
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @verify_replay.argprom(ptr nocapture noundef readonly %0, ptr readonly %.184.val, ptr noundef writeonly %1) unnamed_addr #12 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @verify_replay(ptr nocapture noundef readonly %0, ptr readonly %.184.val, ptr noundef writeonly %1) unnamed_addr #12 align 16 {
   %3 = icmp eq ptr %.184.val, null
   br i1 %3, label %4, label %10
 
@@ -7448,7 +7448,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @xfrm_alloc_replay_state_es
 declare dso_local i32 @xfrm_init_replay(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @xfrm_update_ae_params.argelim(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 16 {
+define internal fastcc void @xfrm_update_ae_params(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 16 {
   %3 = getelementptr i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 72

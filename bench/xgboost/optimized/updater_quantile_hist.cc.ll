@@ -3876,7 +3876,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11Tree
   %7 = getelementptr inbounds i8, ptr %4, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   invoke void @_ZN7xgboost6common7MonitorC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %"_ZSt10__invoke_rIPN7xgboost11TreeUpdaterERNS0_4tree3$_0EJPKNS0_7ContextEPKNS0_7ObjInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit" unwind label %.body.i.i.i
+          to label %"_ZSt10__invoke_rIPN7xgboost11TreeUpdaterERNS0_4tree3$_0EJPKNS0_7ContextEPKNS0_7ObjInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit" unwind label %.body.i.i.i
 
 .body.i.i.i:                                      ; preds = %3
   %8 = landingpad { ptr, i32 }
@@ -3889,7 +3889,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost11Tree
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #38
   resume { ptr, i32 } %8
 
-"_ZSt10__invoke_rIPN7xgboost11TreeUpdaterERNS0_4tree3$_0EJPKNS0_7ContextEPKNS0_7ObjInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %3
+"_ZSt10__invoke_rIPN7xgboost11TreeUpdaterERNS0_4tree3$_0EJPKNS0_7ContextEPKNS0_7ObjInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %3
   %11 = getelementptr inbounds i8, ptr %4, i64 144
   store ptr %.val3, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 152

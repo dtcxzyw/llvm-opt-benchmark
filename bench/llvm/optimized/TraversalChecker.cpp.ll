@@ -804,16 +804,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12.i:             ; preds = %50, %49, %47, %_ZN4
 
 58:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit12.i
   %59 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i11.i, ptr noundef nonnull @.str.2, i64 noundef 1) #17
-  br label %_ZNK12_GLOBAL__N_115TraversalDumper20checkBranchConditionEPKN5clang4StmtERNS1_4ento14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_115TraversalDumper20checkBranchConditionEPKN5clang4StmtERNS1_4ento14CheckerContextE.exit
 
 60:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit12.i
   store i8 10, ptr %56, align 1
   %61 = load ptr, ptr %55, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 1
   store ptr %62, ptr %55, align 8
-  br label %_ZNK12_GLOBAL__N_115TraversalDumper20checkBranchConditionEPKN5clang4StmtERNS1_4ento14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_115TraversalDumper20checkBranchConditionEPKN5clang4StmtERNS1_4ento14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_115TraversalDumper20checkBranchConditionEPKN5clang4StmtERNS1_4ento14CheckerContextE.argprom.exit: ; preds = %58, %60
+_ZNK12_GLOBAL__N_115TraversalDumper20checkBranchConditionEPKN5clang4StmtERNS1_4ento14CheckerContextE.exit: ; preds = %58, %60
   ret void
 }
 
@@ -854,16 +854,16 @@ define internal void @_ZN5clang4ento5check13BeginFunction19_checkBeginFunctionIN
 
 12:                                               ; preds = %2
   %13 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull @.str.3, i64 noundef 19) #17
-  br label %_ZNK12_GLOBAL__N_115TraversalDumper18checkBeginFunctionERN5clang4ento14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_115TraversalDumper18checkBeginFunctionERN5clang4ento14CheckerContextE.exit
 
 14:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %7, ptr noundef nonnull align 1 dereferenceable(19) @.str.3, i64 19, i1 false)
   %15 = load ptr, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 19
   store ptr %16, ptr %6, align 8
-  br label %_ZNK12_GLOBAL__N_115TraversalDumper18checkBeginFunctionERN5clang4ento14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_115TraversalDumper18checkBeginFunctionERN5clang4ento14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_115TraversalDumper18checkBeginFunctionERN5clang4ento14CheckerContextE.argprom.exit: ; preds = %12, %14
+_ZNK12_GLOBAL__N_115TraversalDumper18checkBeginFunctionERN5clang4ento14CheckerContextE.exit: ; preds = %12, %14
   ret void
 }
 
@@ -884,16 +884,16 @@ define internal void @_ZN5clang4ento5check11EndFunction17_checkEndFunctionIN12_G
 
 13:                                               ; preds = %3
   %14 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.4, i64 noundef 17) #17
-  br label %_ZNK12_GLOBAL__N_115TraversalDumper16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_115TraversalDumper16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit
 
 15:                                               ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %8, ptr noundef nonnull align 1 dereferenceable(17) @.str.4, i64 17, i1 false)
   %16 = load ptr, ptr %7, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 17
   store ptr %17, ptr %7, align 8
-  br label %_ZNK12_GLOBAL__N_115TraversalDumper16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_115TraversalDumper16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_115TraversalDumper16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit: ; preds = %13, %15
+_ZNK12_GLOBAL__N_115TraversalDumper16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit: ; preds = %13, %15
   ret void
 }
 
@@ -945,9 +945,9 @@ define internal void @_ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_110
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
   %9 = add i32 %.05.i, 1
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_110CallDumper12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.argprom.exit, label %8, !llvm.loop !17
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_110CallDumper12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %8, !llvm.loop !17
 
-_ZNK12_GLOBAL__N_110CallDumper12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.argprom.exit: ; preds = %8
+_ZNK12_GLOBAL__N_110CallDumper12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %8
   %10 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #17
   %11 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef %.05.i) #17
   %12 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #17
@@ -970,7 +970,7 @@ define internal void @_ZN5clang4ento5check8PostCall10_checkCallIN12_GLOBAL__N_11
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(72) %1) #17
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit, label %10
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1029,14 +1029,14 @@ _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %17
 
 44:                                               ; preds = %34
   %45 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull @.str.5, i64 noundef 15) #17
-  br label %_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 46:                                               ; preds = %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %39, ptr noundef nonnull align 1 dereferenceable(15) @.str.5, i64 15, i1 false)
   %47 = load ptr, ptr %38, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 15
   store ptr %48, ptr %38, align 8
-  br label %_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.thread.i:      ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.i, %17
   %49 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #17
@@ -1096,16 +1096,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17.i:             ; preds = %60, %58
 
 80:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit17.i
   %81 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i16.i, ptr noundef nonnull @.str.2, i64 noundef 1) #17
-  br label %_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 82:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit17.i
   store i8 10, ptr %78, align 1
   %83 = load ptr, ptr %77, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 1
   store ptr %84, ptr %77, align 8
-  br label %_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit: ; preds = %3, %44, %46, %80, %82
+_ZNK12_GLOBAL__N_110CallDumper13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %3, %44, %46, %80, %82
   ret void
 }
 

@@ -503,18 +503,18 @@ define internal void @"_ZNSt17_Function_handlerIFviE3$_0E9_M_invokeERKSt9_Any_da
   %3 = load i32, ptr %1, align 4
   %4 = load atomic i8, ptr @_ZGVZL14getOptBisectorvE11OptBisector acquire, align 8
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %"_ZSt10__invoke_rIvR3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit", !prof !4
+  br i1 %5, label %6, label %"_ZSt10__invoke_rIvR3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit", !prof !4
 
 6:                                                ; preds = %2
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL14getOptBisectorvE11OptBisector) #13
   %.not.i.i.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvR3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit", label %8
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvR3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit", label %8
 
 8:                                                ; preds = %6
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL14getOptBisectorvE11OptBisector) #13
-  br label %"_ZSt10__invoke_rIvR3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvR3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit"
 
-"_ZSt10__invoke_rIvR3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.argprom.exit": ; preds = %2, %6, %8
+"_ZSt10__invoke_rIvR3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit": ; preds = %2, %6, %8
   store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZZL14getOptBisectorvE11OptBisector, i64 8), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZL14getOptBisectorvE11OptBisector, i64 12), align 4
   ret void
@@ -522,20 +522,20 @@ define internal void @"_ZNSt17_Function_handlerIFviE3$_0E9_M_invokeERKSt9_Any_da
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerI3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 

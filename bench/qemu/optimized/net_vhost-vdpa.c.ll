@@ -253,7 +253,7 @@ for.body:                                         ; preds = %if.end57, %for.inc
   %tobool63 = trunc i8 %9 to i1
   %10 = load i64, ptr %features, align 8
   %11 = trunc nuw nsw i64 %indvars.iv to i32
-  %call64 = call fastcc ptr @net_vhost_vdpa_init.argprom(ptr noundef %peer, ptr noundef %name, i32 noundef %vdpa_device_fd.0, i32 noundef %11, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext %tobool63, ptr noundef nonnull byval(%struct.vhost_vdpa_iova_range) align 8 %iova_range, i64 noundef %10, ptr noundef %errp)
+  %call64 = call fastcc ptr @net_vhost_vdpa_init(ptr noundef %peer, ptr noundef %name, i32 noundef %vdpa_device_fd.0, i32 noundef %11, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext %tobool63, ptr noundef nonnull byval(%struct.vhost_vdpa_iova_range) align 8 %iova_range, i64 noundef %10, ptr noundef %errp)
   %arrayidx = getelementptr ptr, ptr %call59, i64 %indvars.iv
   store ptr %call64, ptr %arrayidx, align 8
   %tobool67.not = icmp eq ptr %call64, null
@@ -273,7 +273,7 @@ if.then71:                                        ; preds = %for.end
   %13 = load i8, ptr %x_svq, align 1
   %tobool73 = trunc i8 %13 to i1
   %14 = load i64, ptr %features, align 8
-  %call74 = call fastcc ptr @net_vhost_vdpa_init.argprom(ptr noundef %peer, ptr noundef %name, i32 noundef %vdpa_device_fd.0, i32 noundef %retval.0.i56, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext %tobool73, ptr noundef nonnull byval(%struct.vhost_vdpa_iova_range) align 8 %iova_range, i64 noundef %14, ptr noundef %errp)
+  %call74 = call fastcc ptr @net_vhost_vdpa_init(ptr noundef %peer, ptr noundef %name, i32 noundef %vdpa_device_fd.0, i32 noundef %retval.0.i56, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext %tobool73, ptr noundef nonnull byval(%struct.vhost_vdpa_iova_range) align 8 %iova_range, i64 noundef %14, ptr noundef %errp)
   %tobool75.not = icmp eq ptr %call74, null
   br i1 %tobool75.not, label %err, label %cleanup
 
@@ -331,7 +331,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @net_vhost_vdpa_init.argprom(ptr noundef %peer, ptr noundef %name, i32 noundef range(i32 0, -1) %vdpa_device_fd, i32 noundef %queue_pair_index, i32 noundef range(i32 1, 3) %nvqs, i1 noundef zeroext %is_datapath, i1 noundef zeroext %svq, ptr nocapture noundef readonly byval(%struct.vhost_vdpa_iova_range) align 8 %iova_range, i64 noundef %features, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef ptr @net_vhost_vdpa_init(ptr noundef %peer, ptr noundef %name, i32 noundef range(i32 0, -1) %vdpa_device_fd, i32 noundef %queue_pair_index, i32 noundef range(i32 1, 3) %nvqs, i1 noundef zeroext %is_datapath, i1 noundef zeroext %svq, ptr nocapture noundef readonly byval(%struct.vhost_vdpa_iova_range) align 8 %iova_range, i64 noundef %features, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %device_id.i.i = alloca i32, align 4
   %options.i = alloca %struct.VhostNetOptions, align 8
@@ -1210,9 +1210,9 @@ if.end27:                                         ; preds = %vhost_vdpa_get_vrin
   store i32 1, ptr %num.i39, align 4
   %call.i40 = call i32 (i32, i64, ...) @ioctl(i32 noundef %vhost_vdpa.val, i64 noundef 1074311036, ptr noundef nonnull %asid.i) #13
   %cmp.i41 = icmp slt i32 %call.i40, 0
-  br i1 %cmp.i41, label %vhost_vdpa_set_address_space_id.argprom.exit.thread, label %out.thread
+  br i1 %cmp.i41, label %vhost_vdpa_set_address_space_id.exit.thread, label %out.thread
 
-vhost_vdpa_set_address_space_id.argprom.exit.thread: ; preds = %if.end27
+vhost_vdpa_set_address_space_id.exit.thread:      ; preds = %if.end27
   %15 = load i32, ptr %asid.i, align 4
   %16 = load i32, ptr %num.i39, align 4
   %call4.i = tail call ptr @__errno_location() #14
@@ -1340,8 +1340,8 @@ if.then83:                                        ; preds = %vhost_vdpa_cvq_map_
   call fastcc void @vhost_vdpa_cvq_unmap_buf(ptr noundef nonnull %vhost_vdpa, ptr noundef %33)
   br label %return
 
-return:                                           ; preds = %vhost_vdpa_cvq_map_buf.exit75.thread88, %vhost_vdpa_cvq_map_buf.exit.thread, %vhost_vdpa_set_address_space_id.argprom.exit.thread, %vhost_vdpa_net_valid_svq_features.exit.thread, %vhost_vdpa_cvq_map_buf.exit75, %if.then83, %vhost_vdpa_cvq_map_buf.exit, %out, %if.end16, %vhost_vdpa_net_valid_svq_features.exit, %if.then25
-  %retval.0 = phi i32 [ %sub.i, %if.then25 ], [ 0, %vhost_vdpa_net_valid_svq_features.exit ], [ 0, %if.end16 ], [ 0, %out ], [ %call.i46, %vhost_vdpa_cvq_map_buf.exit ], [ %retval.0.i6487, %if.then83 ], [ %call.i61, %vhost_vdpa_cvq_map_buf.exit75 ], [ 0, %vhost_vdpa_net_valid_svq_features.exit.thread ], [ %call.i40, %vhost_vdpa_set_address_space_id.argprom.exit.thread ], [ %call8.i, %vhost_vdpa_cvq_map_buf.exit.thread ], [ 0, %vhost_vdpa_cvq_map_buf.exit75.thread88 ]
+return:                                           ; preds = %vhost_vdpa_cvq_map_buf.exit75.thread88, %vhost_vdpa_cvq_map_buf.exit.thread, %vhost_vdpa_set_address_space_id.exit.thread, %vhost_vdpa_net_valid_svq_features.exit.thread, %vhost_vdpa_cvq_map_buf.exit75, %if.then83, %vhost_vdpa_cvq_map_buf.exit, %out, %if.end16, %vhost_vdpa_net_valid_svq_features.exit, %if.then25
+  %retval.0 = phi i32 [ %sub.i, %if.then25 ], [ 0, %vhost_vdpa_net_valid_svq_features.exit ], [ 0, %if.end16 ], [ 0, %out ], [ %call.i46, %vhost_vdpa_cvq_map_buf.exit ], [ %retval.0.i6487, %if.then83 ], [ %call.i61, %vhost_vdpa_cvq_map_buf.exit75 ], [ 0, %vhost_vdpa_net_valid_svq_features.exit.thread ], [ %call.i40, %vhost_vdpa_set_address_space_id.exit.thread ], [ %call8.i, %vhost_vdpa_cvq_map_buf.exit.thread ], [ 0, %vhost_vdpa_cvq_map_buf.exit75.thread88 ]
   ret i32 %retval.0
 }
 
@@ -2295,7 +2295,7 @@ if.else.i20:                                      ; preds = %if.else.i, %if.then
   %s.val.val.val = load ptr, ptr %s.val.val, align 8
   %call.i28 = call i32 @vhost_svq_add(ptr noundef %s.val.val.val, ptr noundef nonnull %out, i64 noundef 1, ptr noundef nonnull %in, i64 noundef 1, ptr noundef null) #13
   %cond.i = icmp eq i32 %call.i28, -28
-  br i1 %cond.i, label %do.body.i, label %vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit
+  br i1 %cond.i, label %do.body.i, label %vhost_vdpa_net_cvq_add.exit
 
 do.body.i:                                        ; preds = %if.else.i20
   %13 = load i32, ptr @qemu_loglevel, align 4
@@ -2307,20 +2307,20 @@ if.then18.i:                                      ; preds = %do.body.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.vhost_vdpa_net_cvq_add) #13
   br label %return
 
-vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit: ; preds = %if.else.i20
+vhost_vdpa_net_cvq_add.exit:                      ; preds = %if.else.i20
   %conv21.i = sext i32 %call.i28 to i64
   %cmp28 = icmp slt i32 %call.i28, 0
   br i1 %cmp28, label %return, label %if.end37
 
-if.end37:                                         ; preds = %vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit
+if.end37:                                         ; preds = %vhost_vdpa_net_cvq_add.exit
   store i32 1, ptr %dummy_cursor_iov_cnt, align 4
   %call38 = call i64 @iov_discard_front(ptr noundef nonnull %out_cursor.addr, ptr noundef nonnull %dummy_cursor_iov_cnt, i64 noundef %add) #13
   store i32 1, ptr %dummy_cursor_iov_cnt, align 4
   %call39 = call i64 @iov_discard_front(ptr noundef nonnull %in_cursor.addr, ptr noundef nonnull %dummy_cursor_iov_cnt, i64 noundef 1) #13
   br label %return
 
-return:                                           ; preds = %for.body.i, %if.then18.i, %do.body.i, %if.then12, %vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit, %if.end37
-  %retval.0 = phi i64 [ 0, %if.end37 ], [ %conv21.i, %vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit ], [ -5, %if.then12 ], [ -28, %do.body.i ], [ -28, %if.then18.i ], [ -5, %for.body.i ]
+return:                                           ; preds = %for.body.i, %if.then18.i, %do.body.i, %if.then12, %vhost_vdpa_net_cvq_add.exit, %if.end37
+  %retval.0 = phi i64 [ 0, %if.end37 ], [ %conv21.i, %vhost_vdpa_net_cvq_add.exit ], [ -5, %if.then12 ], [ -28, %do.body.i ], [ -28, %if.then18.i ], [ -5, %for.body.i ]
   ret i64 %retval.0
 }
 
@@ -2545,7 +2545,7 @@ iov_from_buf.exit.i:                              ; preds = %if.else.i63.i, %if.
   %s.val.val.val.i = load ptr, ptr %s.val.val.i, align 8
   %call.i65.i = call i32 @vhost_svq_add(ptr noundef %s.val.val.val.i, ptr noundef nonnull %out, i64 noundef 1, ptr noundef nonnull %vdpa_in, i64 noundef 1, ptr noundef null) #13
   %cond.i.i = icmp eq i32 %call.i65.i, -28
-  br i1 %cond.i.i, label %do.body.i.i, label %vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit.i
+  br i1 %cond.i.i, label %do.body.i.i, label %vhost_vdpa_net_cvq_add.exit.i
 
 do.body.i.i:                                      ; preds = %iov_from_buf.exit.i
   %34 = load i32, ptr @qemu_loglevel, align 4
@@ -2557,11 +2557,11 @@ if.then18.i.i:                                    ; preds = %do.body.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.vhost_vdpa_net_cvq_add) #13
   br label %vhost_vdpa_net_excessive_mac_filter_cvq_add.exit
 
-vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit.i: ; preds = %iov_from_buf.exit.i
+vhost_vdpa_net_cvq_add.exit.i:                    ; preds = %iov_from_buf.exit.i
   %cmp37.i = icmp slt i32 %call.i65.i, 0
   br i1 %cmp37.i, label %vhost_vdpa_net_excessive_mac_filter_cvq_add.exit, label %if.end47.i
 
-if.end47.i:                                       ; preds = %vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit.i
+if.end47.i:                                       ; preds = %vhost_vdpa_net_cvq_add.exit.i
   %s.val40.i = load ptr, ptr %33, align 16
   %s.val40.val.i = load ptr, ptr %s.val40.i, align 8
   %s.val40.val.val.i = load ptr, ptr %s.val40.val.i, align 8
@@ -2603,7 +2603,7 @@ vhost_vdpa_net_excessive_mac_filter_cvq_add.exit.thread: ; preds = %if.then.i35,
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.i)
   br label %if.end53
 
-vhost_vdpa_net_excessive_mac_filter_cvq_add.exit: ; preds = %do.body.i.i, %if.then18.i.i, %vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit.i
+vhost_vdpa_net_excessive_mac_filter_cvq_add.exit: ; preds = %do.body.i.i, %if.then18.i.i, %vhost_vdpa_net_cvq_add.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mac_data.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.i)
   %conv29 = sext i32 %call.i65.i to i64
@@ -2616,7 +2616,7 @@ if.else39:                                        ; preds = %land.lhs.true, %ent
   %opaque.val.val.val = load ptr, ptr %opaque.val.val, align 8
   %call.i36 = call i32 @vhost_svq_add(ptr noundef %opaque.val.val.val, ptr noundef nonnull %out, i64 noundef 1, ptr noundef nonnull %vdpa_in, i64 noundef 1, ptr noundef null) #13
   %cond.i = icmp eq i32 %call.i36, -28
-  br i1 %cond.i, label %do.body.i, label %vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit
+  br i1 %cond.i, label %do.body.i, label %vhost_vdpa_net_cvq_add.exit
 
 do.body.i:                                        ; preds = %if.else39
   %41 = load i32, ptr @qemu_loglevel, align 4
@@ -2628,12 +2628,12 @@ if.then18.i:                                      ; preds = %do.body.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.vhost_vdpa_net_cvq_add) #13
   br label %out76
 
-vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit: ; preds = %if.else39
+vhost_vdpa_net_cvq_add.exit:                      ; preds = %if.else39
   %conv21.i = sext i32 %call.i36 to i64
   %cmp41 = icmp slt i32 %call.i36, 0
   br i1 %cmp41, label %out76, label %if.end50
 
-if.end50:                                         ; preds = %vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit
+if.end50:                                         ; preds = %vhost_vdpa_net_cvq_add.exit
   %opaque.val29 = load ptr, ptr %40, align 16
   %opaque.val29.val = load ptr, ptr %opaque.val29, align 8
   %opaque.val29.val.val = load ptr, ptr %opaque.val29.val, align 8
@@ -2669,8 +2669,8 @@ if.then74:                                        ; preds = %if.end69
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30) #13
   br label %out76
 
-out76:                                            ; preds = %if.then18.i, %do.body.i, %vhost_vdpa_net_excessive_mac_filter_cvq_add.exit, %vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit, %if.end69, %if.then74, %if.end63, %if.then62
-  %dev_written.1 = phi i64 [ 0, %if.then62 ], [ %dev_written.057, %if.end63 ], [ %dev_written.057, %if.then74 ], [ %dev_written.057, %if.end69 ], [ %conv29, %vhost_vdpa_net_excessive_mac_filter_cvq_add.exit ], [ %conv21.i, %vhost_vdpa_net_cvq_add.argprom.argprom.argprom.exit ], [ -28, %do.body.i ], [ -28, %if.then18.i ]
+out76:                                            ; preds = %if.then18.i, %do.body.i, %vhost_vdpa_net_excessive_mac_filter_cvq_add.exit, %vhost_vdpa_net_cvq_add.exit, %if.end69, %if.then74, %if.end63, %if.then62
+  %dev_written.1 = phi i64 [ 0, %if.then62 ], [ %dev_written.057, %if.end63 ], [ %dev_written.057, %if.then74 ], [ %dev_written.057, %if.end69 ], [ %conv29, %vhost_vdpa_net_excessive_mac_filter_cvq_add.exit ], [ %conv21.i, %vhost_vdpa_net_cvq_add.exit ], [ -28, %do.body.i ], [ -28, %if.then18.i ]
   %in_sg = getelementptr inbounds i8, ptr %elem, i64 40
   %46 = load ptr, ptr %in_sg, align 8
   %in_num = getelementptr inbounds i8, ptr %elem, i64 16

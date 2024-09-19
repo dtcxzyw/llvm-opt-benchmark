@@ -147,14 +147,14 @@ define hidden void @"_ZN140_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A
           to label %.noexc.i unwind label %85
 
 .noexc.i:                                         ; preds = %74
-  br i1 %75, label %.sink.split.i.i.i.i.i.i, label %"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE.argprom.exit.i.i.i.i.i.i"
+  br i1 %75, label %.sink.split.i.i.i.i.i.i, label %"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE.exit.i.i.i.i.i.i"
 
-"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE.argprom.exit.i.i.i.i.i.i": ; preds = %.noexc.i
+"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE.exit.i.i.i.i.i.i": ; preds = %.noexc.i
   %76 = getelementptr inbounds i8, ptr %11, i64 16
   %77 = invoke noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3393bc683e8ec10eE.llvm.6873407450725468253(ptr noalias noundef nonnull align 8 dereferenceable(16) %76, ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %.sink.split.i.i.i.i.i.i unwind label %85
 
-.sink.split.i.i.i.i.i.i:                          ; preds = %"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE.argprom.exit.i.i.i.i.i.i", %.noexc.i
+.sink.split.i.i.i.i.i.i:                          ; preds = %"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE.exit.i.i.i.i.i.i", %.noexc.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !49
   %.pre.i5 = load ptr, ptr %10, align 8, !noalias !33
   br label %78
@@ -226,7 +226,7 @@ define hidden void @"_ZN140_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !33
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$19write_iter_wrapping17hcac3a863df98313bE.exit"
 
-85:                                               ; preds = %.noexc24.i, %82, %.noexc12.i, %78, %"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE.argprom.exit.i.i.i.i.i.i", %74
+85:                                               ; preds = %.noexc24.i, %82, %.noexc12.i, %78, %"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE.exit.i.i.i.i.i.i", %74
   %86 = landingpad { ptr, i32 }
           cleanup
   %.val4.i = load ptr, ptr %10, align 8, !noalias !33, !nonnull !16, !align !92, !noundef !16
@@ -1015,8 +1015,8 @@ attributes #17 = { cold noreturn nounwind }
 !50 = distinct !{!50, !51, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heed4ed14fe85815aE: argument 0"}
 !51 = distinct !{!51, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heed4ed14fe85815aE"}
 !52 = distinct !{!52, !51, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heed4ed14fe85815aE: argument 1"}
-!53 = distinct !{!53, !54, !"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE.argprom: argument 0"}
-!54 = distinct !{!54, !"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE.argprom"}
+!53 = distinct !{!53, !54, !"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE: argument 0"}
+!54 = distinct !{!54, !"_ZN114_$LT$core..iter..adapters..by_ref_sized..ByRefSized$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h44badb4a6693883cE"}
 !55 = distinct !{!55, !56, !"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h334ac35a0d3753a2E: argument 0"}
 !56 = distinct !{!56, !"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h334ac35a0d3753a2E"}
 !57 = distinct !{!57, !56, !"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h334ac35a0d3753a2E: argument 1"}

@@ -1022,15 +1022,15 @@ define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr nou
   %52 = load i32, ptr @hf_wimaxmacphy_number_of_zone_descriptors, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %52, ptr noundef %0, i32 noundef 13, i32 noundef 3, i32 noundef 0) #3
   %.not.i.i = icmp eq i8 %49, 0
-  br i1 %.not.i.i, label %dissect_wimaxmacphy_dl_subframe_descriptor.argprom.exit.i, label %.lr.ph.preheader.i.i
+  br i1 %.not.i.i, label %dissect_wimaxmacphy_dl_subframe_descriptor.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %35
   %wide.trip.count.i.i = zext i8 %49 to i32
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %dissect_wimaxmacphy_dl_zone_descriptor.argprom.exit.i.i, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %dissect_wimaxmacphy_dl_zone_descriptor.argprom.exit.i.i ]
-  %.02.i.i = phi i32 [ 16, %.lr.ph.preheader.i.i ], [ %.1.lcssa.i.i.i, %dissect_wimaxmacphy_dl_zone_descriptor.argprom.exit.i.i ]
+.lr.ph.i.i:                                       ; preds = %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i ]
+  %.02.i.i = phi i32 [ 16, %.lr.ph.preheader.i.i ], [ %.1.lcssa.i.i.i, %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i ]
   %54 = load i32, ptr @ett_wimaxmacphy_dl_zone_descriptor, align 4
   %55 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %31, ptr noundef %0, i32 noundef %.02.i.i, i32 noundef 1, i32 noundef %54, ptr noundef nonnull %12, ptr noundef nonnull @.str.571, i32 noundef %indvars.iv.i.i) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -1111,15 +1111,15 @@ define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr nou
   %120 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %119, ptr noundef %0, i32 noundef %118, i32 noundef 3, i32 noundef 0) #3
   %121 = add i32 %.0.i.i.i, 4
   %.not.i.i.i = icmp eq i8 %115, 0
-  br i1 %.not.i.i.i, label %dissect_wimaxmacphy_dl_zone_descriptor.argprom.exit.i.i, label %.lr.ph.preheader.i.i.i
+  br i1 %.not.i.i.i, label %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %114
   %wide.trip.count.i.i.i = zext i8 %115 to i32
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %dissect_wimaxmacphy_dl_burst_descriptor.argprom.exit.i.i.i, %.lr.ph.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %dissect_wimaxmacphy_dl_burst_descriptor.argprom.exit.i.i.i ]
-  %.12.i.i.i = phi i32 [ %121, %.lr.ph.preheader.i.i.i ], [ %.1.lcssa.i.i.i.i, %dissect_wimaxmacphy_dl_burst_descriptor.argprom.exit.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i, %.lr.ph.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i ]
+  %.12.i.i.i = phi i32 [ %121, %.lr.ph.preheader.i.i.i ], [ %.1.lcssa.i.i.i.i, %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i ]
   %122 = load i32, ptr @ett_wimaxmacphy_dl_burst_descriptor, align 4
   %123 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %55, ptr noundef %0, i32 noundef %.12.i.i.i, i32 noundef 1, i32 noundef %122, ptr noundef nonnull %11, ptr noundef nonnull @.str.574, i32 noundef %indvars.iv.i.i.i) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -1233,15 +1233,15 @@ define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr nou
   %204 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %203, ptr noundef %0, i32 noundef %202, i32 noundef 3, i32 noundef 0) #3
   %205 = add i32 %.0.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i8 %199, 0
-  br i1 %.not.i.i.i.i, label %dissect_wimaxmacphy_dl_burst_descriptor.argprom.exit.i.i.i, label %.lr.ph.preheader.i.i.i.i
+  br i1 %.not.i.i.i.i, label %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %198
   %wide.trip.count.i.i.i.i = zext i8 %199 to i32
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %dissect_wimaxmacphy_dl_sub_burst_descriptor.argprom.exit.i.i.i.i, %.lr.ph.preheader.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %dissect_wimaxmacphy_dl_sub_burst_descriptor.argprom.exit.i.i.i.i ]
-  %.12.i.i.i.i = phi i32 [ %205, %.lr.ph.preheader.i.i.i.i ], [ %.0.i.i.i.i.i, %dissect_wimaxmacphy_dl_sub_burst_descriptor.argprom.exit.i.i.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %dissect_wimaxmacphy_dl_sub_burst_descriptor.exit.i.i.i.i, %.lr.ph.preheader.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %dissect_wimaxmacphy_dl_sub_burst_descriptor.exit.i.i.i.i ]
+  %.12.i.i.i.i = phi i32 [ %205, %.lr.ph.preheader.i.i.i.i ], [ %.0.i.i.i.i.i, %dissect_wimaxmacphy_dl_sub_burst_descriptor.exit.i.i.i.i ]
   %206 = load i32, ptr @ett_wimaxmacphy_dl_sub_burst_descriptor, align 4
   %207 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %123, ptr noundef %0, i32 noundef %.12.i.i.i.i, i32 noundef 1, i32 noundef %206, ptr noundef nonnull %10, ptr noundef nonnull @.str.580, i32 noundef %indvars.iv.i.i.i.i) #3
   %208 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.12.i.i.i.i) #3
@@ -1284,7 +1284,7 @@ define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr nou
   %245 = load i32, ptr @hf_wimaxmacphy_sub_burst_data_length, align 4
   %246 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %245, ptr noundef %0, i32 noundef %244, i32 noundef 4, i32 noundef 0) #3
   %247 = add i32 %.12.i.i.i.i, 20
-  switch i8 %208, label %dissect_wimaxmacphy_dl_sub_burst_descriptor.argprom.exit.i.i.i.i [
+  switch i8 %208, label %dissect_wimaxmacphy_dl_sub_burst_descriptor.exit.i.i.i.i [
     i8 97, label %.sink.split.i.i.i.i.i
     i8 100, label %248
   ]
@@ -1313,29 +1313,29 @@ define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr nou
   %260 = load i32, ptr %hf_wimaxmacphy_sub_burst_mimo_chase_layer_index.sink.i.i.i.i.i, align 4
   %261 = call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %260, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #3
   %262 = add i32 %.12.i.i.i.i, 24
-  br label %dissect_wimaxmacphy_dl_sub_burst_descriptor.argprom.exit.i.i.i.i
+  br label %dissect_wimaxmacphy_dl_sub_burst_descriptor.exit.i.i.i.i
 
-dissect_wimaxmacphy_dl_sub_burst_descriptor.argprom.exit.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i, %.lr.ph.i.i.i.i
+dissect_wimaxmacphy_dl_sub_burst_descriptor.exit.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i, %.lr.ph.i.i.i.i
   %.0.i.i.i.i.i = phi i32 [ %247, %.lr.ph.i.i.i.i ], [ %262, %.sink.split.i.i.i.i.i ]
   %263 = sub i32 %.0.i.i.i.i.i, %.12.i.i.i.i
   %264 = load ptr, ptr %10, align 8
   call void @proto_item_set_len(ptr noundef %264, i32 noundef %263) #3
   %indvars.iv.next.i.i.i.i = add nuw nsw i32 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %dissect_wimaxmacphy_dl_burst_descriptor.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i.i.i, label %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
-dissect_wimaxmacphy_dl_burst_descriptor.argprom.exit.i.i.i: ; preds = %dissect_wimaxmacphy_dl_sub_burst_descriptor.argprom.exit.i.i.i.i, %198
-  %.1.lcssa.i.i.i.i = phi i32 [ %205, %198 ], [ %.0.i.i.i.i.i, %dissect_wimaxmacphy_dl_sub_burst_descriptor.argprom.exit.i.i.i.i ]
+dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i: ; preds = %dissect_wimaxmacphy_dl_sub_burst_descriptor.exit.i.i.i.i, %198
+  %.1.lcssa.i.i.i.i = phi i32 [ %205, %198 ], [ %.0.i.i.i.i.i, %dissect_wimaxmacphy_dl_sub_burst_descriptor.exit.i.i.i.i ]
   %265 = sub i32 %.1.lcssa.i.i.i.i, %.12.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %266 = load ptr, ptr %11, align 8
   call void @proto_item_set_len(ptr noundef %266, i32 noundef %265) #3
   %indvars.iv.next.i.i.i = add nuw nsw i32 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %dissect_wimaxmacphy_dl_zone_descriptor.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i, label %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
-dissect_wimaxmacphy_dl_zone_descriptor.argprom.exit.i.i: ; preds = %dissect_wimaxmacphy_dl_burst_descriptor.argprom.exit.i.i.i, %114
-  %.1.lcssa.i.i.i = phi i32 [ %121, %114 ], [ %.1.lcssa.i.i.i.i, %dissect_wimaxmacphy_dl_burst_descriptor.argprom.exit.i.i.i ]
+dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i:  ; preds = %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i, %114
+  %.1.lcssa.i.i.i = phi i32 [ %121, %114 ], [ %.1.lcssa.i.i.i.i, %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i ]
   %267 = sub i32 %.1.lcssa.i.i.i, %.02.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %268 = load ptr, ptr %12, align 8
@@ -1344,27 +1344,27 @@ dissect_wimaxmacphy_dl_zone_descriptor.argprom.exit.i.i: ; preds = %dissect_wima
   %exitcond.not.i.i = icmp eq i32 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
-._crit_edge.loopexit.i.i:                         ; preds = %dissect_wimaxmacphy_dl_zone_descriptor.argprom.exit.i.i
+._crit_edge.loopexit.i.i:                         ; preds = %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i
   %269 = add i32 %.1.lcssa.i.i.i, -4
-  br label %dissect_wimaxmacphy_dl_subframe_descriptor.argprom.exit.i
+  br label %dissect_wimaxmacphy_dl_subframe_descriptor.exit.i
 
-dissect_wimaxmacphy_dl_subframe_descriptor.argprom.exit.i: ; preds = %._crit_edge.loopexit.i.i, %35
+dissect_wimaxmacphy_dl_subframe_descriptor.exit.i: ; preds = %._crit_edge.loopexit.i.i, %35
   %.0.lcssa.i.i = phi i32 [ 12, %35 ], [ %269, %._crit_edge.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %270 = zext i16 %36 to i32
   %271 = icmp ult i32 %.0.lcssa.i.i, %270
-  br i1 %271, label %272, label %dissect_wimaxmacphy_phy_txstart_request.argprom.exit
+  br i1 %271, label %272, label %dissect_wimaxmacphy_phy_txstart_request.exit
 
-272:                                              ; preds = %dissect_wimaxmacphy_dl_subframe_descriptor.argprom.exit.i
+272:                                              ; preds = %dissect_wimaxmacphy_dl_subframe_descriptor.exit.i
   %273 = add nuw nsw i32 %.0.lcssa.i.i, 4
   %274 = load i32, ptr @hf_wimaxmacphy_unknown, align 4
   %275 = sub nuw nsw i32 %270, %.0.lcssa.i.i
   %276 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %274, ptr noundef %0, i32 noundef %273, i32 noundef %275, i32 noundef 0) #3
-  br label %dissect_wimaxmacphy_phy_txstart_request.argprom.exit
+  br label %dissect_wimaxmacphy_phy_txstart_request.exit
 
-dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxmacphy_dl_subframe_descriptor.argprom.exit.i, %272
+dissect_wimaxmacphy_phy_txstart_request.exit:     ; preds = %dissect_wimaxmacphy_dl_subframe_descriptor.exit.i, %272
   %277 = add nuw nsw i32 %270, 4
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 278:                                              ; preds = %15
   %279 = load i32, ptr @hf_wimaxmacphy_prim_status, align 4
@@ -1373,7 +1373,7 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %282 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %281, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #3
   %283 = load i32, ptr @hf_wimaxmacphy_prim_next_frame_number, align 4
   %284 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %283, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #3
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 285:                                              ; preds = %15
   %286 = load i32, ptr @hf_wimaxmacphy_prim_txstart_indication_status, align 4
@@ -1386,7 +1386,7 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %293 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %292, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #3
   %294 = load i32, ptr @hf_wimaxmacphy_prim_initial_frame_number, align 4
   %295 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %294, ptr noundef %0, i32 noundef 5, i32 noundef 3, i32 noundef 0) #3
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 296:                                              ; preds = %15
   %297 = load i32, ptr @hf_wimaxmacphy_prim_dl_zone_number, align 4
@@ -1399,7 +1399,7 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %304 = load i32, ptr @hf_wimaxmacphy_prim_phy_sdu, align 4
   %305 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %304, ptr noundef %0, i32 noundef 4, i32 noundef %303, i32 noundef 0) #3
   %306 = add i32 %303, 4
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 307:                                              ; preds = %15
   %308 = load i32, ptr @hf_wimaxmacphy_prim_dl_zone_number, align 4
@@ -1416,7 +1416,7 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %319 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %318, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #3
   %320 = load i32, ptr @hf_wimaxmacphy_prim_next_frame_number, align 4
   %321 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %320, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #3
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 322:                                              ; preds = %15
   %323 = load i32, ptr @hf_wimaxmacphy_prim_status, align 4
@@ -1433,7 +1433,7 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %334 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %333, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #3
   %335 = load i32, ptr @hf_wimaxmacphy_prim_reserved5, align 4
   %336 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %335, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #3
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 337:                                              ; preds = %15
   %338 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #3
@@ -1456,15 +1456,15 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %354 = load i32, ptr @hf_wimaxmacphy_zone_padding, align 4
   %355 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %354, ptr noundef %0, i32 noundef 13, i32 noundef 3, i32 noundef 0) #3
   %.not.i.i102 = icmp eq i8 %351, 0
-  br i1 %.not.i.i102, label %dissect_wimaxmacphy_ul_subframe_descriptor.argprom.exit.i, label %.lr.ph.preheader.i.i103
+  br i1 %.not.i.i102, label %dissect_wimaxmacphy_ul_subframe_descriptor.exit.i, label %.lr.ph.preheader.i.i103
 
 .lr.ph.preheader.i.i103:                          ; preds = %337
   %wide.trip.count.i.i104 = zext i8 %351 to i32
   br label %.lr.ph.i.i105
 
-.lr.ph.i.i105:                                    ; preds = %dissect_wimaxmacphy_ul_zone_descriptor.argprom.exit.i.i, %.lr.ph.preheader.i.i103
-  %indvars.iv.i.i106 = phi i32 [ 0, %.lr.ph.preheader.i.i103 ], [ %indvars.iv.next.i.i129, %dissect_wimaxmacphy_ul_zone_descriptor.argprom.exit.i.i ]
-  %.02.i.i107 = phi i32 [ 16, %.lr.ph.preheader.i.i103 ], [ %.1.lcssa.i.i.i128, %dissect_wimaxmacphy_ul_zone_descriptor.argprom.exit.i.i ]
+.lr.ph.i.i105:                                    ; preds = %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i, %.lr.ph.preheader.i.i103
+  %indvars.iv.i.i106 = phi i32 [ 0, %.lr.ph.preheader.i.i103 ], [ %indvars.iv.next.i.i129, %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i ]
+  %.02.i.i107 = phi i32 [ 16, %.lr.ph.preheader.i.i103 ], [ %.1.lcssa.i.i.i128, %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i ]
   %356 = load i32, ptr @ett_wimaxmacphy_ul_zone_descriptor, align 4
   %357 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %31, ptr noundef %0, i32 noundef %.02.i.i107, i32 noundef 1, i32 noundef %356, ptr noundef nonnull %9, ptr noundef nonnull @.str.571, i32 noundef %indvars.iv.i.i106) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -1525,15 +1525,15 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %406 = call ptr @proto_tree_add_item(ptr noundef %357, i32 noundef %405, ptr noundef %0, i32 noundef %404, i32 noundef 3, i32 noundef 0) #3
   %407 = add i32 %.0.i.i.i108, 4
   %.not.i.i.i109 = icmp eq i8 %401, 0
-  br i1 %.not.i.i.i109, label %dissect_wimaxmacphy_ul_zone_descriptor.argprom.exit.i.i, label %.lr.ph.preheader.i.i.i110
+  br i1 %.not.i.i.i109, label %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i, label %.lr.ph.preheader.i.i.i110
 
 .lr.ph.preheader.i.i.i110:                        ; preds = %400
   %wide.trip.count.i.i.i111 = zext i8 %401 to i32
   br label %.lr.ph.i.i.i112
 
-.lr.ph.i.i.i112:                                  ; preds = %dissect_wimaxmacphy_ul_burst_descriptor.argprom.exit.i.i.i, %.lr.ph.preheader.i.i.i110
-  %indvars.iv.i.i.i113 = phi i32 [ 0, %.lr.ph.preheader.i.i.i110 ], [ %indvars.iv.next.i.i.i126, %dissect_wimaxmacphy_ul_burst_descriptor.argprom.exit.i.i.i ]
-  %.12.i.i.i114 = phi i32 [ %407, %.lr.ph.preheader.i.i.i110 ], [ %.1.lcssa.i.i.i.i125, %dissect_wimaxmacphy_ul_burst_descriptor.argprom.exit.i.i.i ]
+.lr.ph.i.i.i112:                                  ; preds = %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i, %.lr.ph.preheader.i.i.i110
+  %indvars.iv.i.i.i113 = phi i32 [ 0, %.lr.ph.preheader.i.i.i110 ], [ %indvars.iv.next.i.i.i126, %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i ]
+  %.12.i.i.i114 = phi i32 [ %407, %.lr.ph.preheader.i.i.i110 ], [ %.1.lcssa.i.i.i.i125, %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i ]
   %408 = load i32, ptr @ett_wimaxmacphy_ul_burst_descriptor, align 4
   %409 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %357, ptr noundef %0, i32 noundef %.12.i.i.i114, i32 noundef 1, i32 noundef %408, ptr noundef nonnull %8, ptr noundef nonnull @.str.574, i32 noundef %indvars.iv.i.i.i113) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -1784,15 +1784,15 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %619 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %618, ptr noundef %0, i32 noundef %617, i32 noundef 3, i32 noundef 0) #3
   %620 = add i32 %.0.i.i.i.i115, 4
   %.not.i.i.i.i116 = icmp eq i8 %614, 0
-  br i1 %.not.i.i.i.i116, label %dissect_wimaxmacphy_ul_burst_descriptor.argprom.exit.i.i.i, label %.lr.ph.preheader.i.i.i.i117
+  br i1 %.not.i.i.i.i116, label %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i, label %.lr.ph.preheader.i.i.i.i117
 
 .lr.ph.preheader.i.i.i.i117:                      ; preds = %613
   %wide.trip.count.i.i.i.i118 = zext i8 %614 to i32
   br label %.lr.ph.i.i.i.i119
 
-.lr.ph.i.i.i.i119:                                ; preds = %dissect_wimaxmacphy_ul_sub_burst_descriptor.argprom.exit.i.i.i.i, %.lr.ph.preheader.i.i.i.i117
-  %indvars.iv.i.i.i.i120 = phi i32 [ 0, %.lr.ph.preheader.i.i.i.i117 ], [ %indvars.iv.next.i.i.i.i123, %dissect_wimaxmacphy_ul_sub_burst_descriptor.argprom.exit.i.i.i.i ]
-  %.12.i.i.i.i121 = phi i32 [ %620, %.lr.ph.preheader.i.i.i.i117 ], [ %.0.i.i.i.i.i122, %dissect_wimaxmacphy_ul_sub_burst_descriptor.argprom.exit.i.i.i.i ]
+.lr.ph.i.i.i.i119:                                ; preds = %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i, %.lr.ph.preheader.i.i.i.i117
+  %indvars.iv.i.i.i.i120 = phi i32 [ 0, %.lr.ph.preheader.i.i.i.i117 ], [ %indvars.iv.next.i.i.i.i123, %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i ]
+  %.12.i.i.i.i121 = phi i32 [ %620, %.lr.ph.preheader.i.i.i.i117 ], [ %.0.i.i.i.i.i122, %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i ]
   %621 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_descriptor, align 4
   %622 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %409, ptr noundef %0, i32 noundef %.12.i.i.i.i121, i32 noundef 1, i32 noundef %621, ptr noundef nonnull %7, ptr noundef nonnull @.str.580, i32 noundef %indvars.iv.i.i.i.i120) #3
   %623 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.12.i.i.i.i121) #3
@@ -1830,7 +1830,7 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %648 = load i32, ptr @hf_wimaxmacphy_ul_sub_burst_mini_reserved, align 4
   %649 = call ptr @proto_tree_add_item(ptr noundef %641, i32 noundef %648, ptr noundef %0, i32 noundef %647, i32 noundef 2, i32 noundef 0) #3
   %650 = add i32 %.12.i.i.i.i121, 12
-  br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.argprom.exit.i.i.i.i
+  br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i
 
 651:                                              ; preds = %.lr.ph.i.i.i.i119
   %652 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_fast_feedback, align 4
@@ -1868,7 +1868,7 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %684 = load i32, ptr @hf_wimaxmacphy_ul_sub_burst_feedback_slot_offset, align 4
   %685 = call ptr @proto_tree_add_item(ptr noundef %653, i32 noundef %684, ptr noundef %0, i32 noundef %681, i32 noundef 1, i32 noundef 0) #3
   %686 = add i32 %.12.i.i.i.i121, 12
-  br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.argprom.exit.i.i.i.i
+  br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i
 
 687:                                              ; preds = %.lr.ph.i.i.i.i119
   %688 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_harq_ack, align 4
@@ -1878,7 +1878,7 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %692 = load i32, ptr @hf_wimaxmacphy_ul_sub_burst_harq_ack_reserved, align 4
   %693 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %692, ptr noundef %0, i32 noundef %638, i32 noundef 4, i32 noundef 0) #3
   %694 = add i32 %.12.i.i.i.i121, 12
-  br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.argprom.exit.i.i.i.i
+  br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i
 
 695:                                              ; preds = %.lr.ph.i.i.i.i119
   %696 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_sounding_signal, align 4
@@ -1913,7 +1913,7 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %725 = load i32, ptr @hf_wimaxmacphy_ul_sub_burst_sounding_reserved, align 4
   %726 = call ptr @proto_tree_add_item(ptr noundef %697, i32 noundef %725, ptr noundef %0, i32 noundef %724, i32 noundef 1, i32 noundef 0) #3
   %727 = add i32 %.12.i.i.i.i121, 19
-  br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.argprom.exit.i.i.i.i
+  br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i
 
 728:                                              ; preds = %.lr.ph.i.i.i.i119
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -1941,7 +1941,7 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %749 = load i32, ptr @hf_wimaxmacphy_sub_burst_reserved1, align 4
   %750 = call ptr @proto_tree_add_item(ptr noundef %730, i32 noundef %749, ptr noundef %0, i32 noundef %748, i32 noundef 2, i32 noundef 0) #3
   %751 = add i32 %.12.i.i.i.i121, 20
-  switch i8 %623, label %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.argprom.exit.i.i.i.i.i [
+  switch i8 %623, label %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.exit.i.i.i.i.i [
     i8 97, label %752
     i8 100, label %755
   ]
@@ -1974,38 +1974,38 @@ dissect_wimaxmacphy_phy_txstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %767 = load i32, ptr %hf_wimaxmacphy_ul_sub_burst_mimo_chase_matrix.sink.i.i.i.i.i.i, align 4
   %768 = call ptr @proto_tree_add_item(ptr noundef %.sink9.i.i.i.i.i.i, i32 noundef %767, ptr noundef %0, i32 noundef %766, i32 noundef 1, i32 noundef 0) #3
   %769 = add i32 %.12.i.i.i.i121, 24
-  br label %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.argprom.exit.i.i.i.i.i
+  br label %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.exit.i.i.i.i.i
 
-dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.argprom.exit.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i, %728
+dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.exit.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i, %728
   %.0.i.i.i.i.i.i = phi i32 [ %751, %728 ], [ %769, %.sink.split.i.i.i.i.i.i ]
   %770 = load ptr, ptr %5, align 8
   %771 = sub i32 %.0.i.i.i.i.i.i, %638
   call void @proto_item_set_len(ptr noundef %770, i32 noundef %771) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.argprom.exit.i.i.i.i
+  br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i
 
-dissect_wimaxmacphy_ul_sub_burst_descriptor.argprom.exit.i.i.i.i: ; preds = %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.argprom.exit.i.i.i.i.i, %695, %687, %651, %639
-  %.0.i.i.i.i.i122 = phi i32 [ %.0.i.i.i.i.i.i, %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.argprom.exit.i.i.i.i.i ], [ %727, %695 ], [ %694, %687 ], [ %686, %651 ], [ %650, %639 ]
+dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i: ; preds = %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.exit.i.i.i.i.i, %695, %687, %651, %639
+  %.0.i.i.i.i.i122 = phi i32 [ %.0.i.i.i.i.i.i, %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.exit.i.i.i.i.i ], [ %727, %695 ], [ %694, %687 ], [ %686, %651 ], [ %650, %639 ]
   %772 = sub i32 %.0.i.i.i.i.i122, %.12.i.i.i.i121
   %773 = load ptr, ptr %7, align 8
   call void @proto_item_set_len(ptr noundef %773, i32 noundef %772) #3
   %indvars.iv.next.i.i.i.i123 = add nuw nsw i32 %indvars.iv.i.i.i.i120, 1
   %exitcond.not.i.i.i.i124 = icmp eq i32 %indvars.iv.next.i.i.i.i123, %wide.trip.count.i.i.i.i118
-  br i1 %exitcond.not.i.i.i.i124, label %dissect_wimaxmacphy_ul_burst_descriptor.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i119, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i.i124, label %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i, label %.lr.ph.i.i.i.i119, !llvm.loop !8
 
-dissect_wimaxmacphy_ul_burst_descriptor.argprom.exit.i.i.i: ; preds = %dissect_wimaxmacphy_ul_sub_burst_descriptor.argprom.exit.i.i.i.i, %613
-  %.1.lcssa.i.i.i.i125 = phi i32 [ %620, %613 ], [ %.0.i.i.i.i.i122, %dissect_wimaxmacphy_ul_sub_burst_descriptor.argprom.exit.i.i.i.i ]
+dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i: ; preds = %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i, %613
+  %.1.lcssa.i.i.i.i125 = phi i32 [ %620, %613 ], [ %.0.i.i.i.i.i122, %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i ]
   %774 = sub i32 %.1.lcssa.i.i.i.i125, %.12.i.i.i114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %775 = load ptr, ptr %8, align 8
   call void @proto_item_set_len(ptr noundef %775, i32 noundef %774) #3
   %indvars.iv.next.i.i.i126 = add nuw nsw i32 %indvars.iv.i.i.i113, 1
   %exitcond.not.i.i.i127 = icmp eq i32 %indvars.iv.next.i.i.i126, %wide.trip.count.i.i.i111
-  br i1 %exitcond.not.i.i.i127, label %dissect_wimaxmacphy_ul_zone_descriptor.argprom.exit.i.i, label %.lr.ph.i.i.i112, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i127, label %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i, label %.lr.ph.i.i.i112, !llvm.loop !9
 
-dissect_wimaxmacphy_ul_zone_descriptor.argprom.exit.i.i: ; preds = %dissect_wimaxmacphy_ul_burst_descriptor.argprom.exit.i.i.i, %400
-  %.1.lcssa.i.i.i128 = phi i32 [ %407, %400 ], [ %.1.lcssa.i.i.i.i125, %dissect_wimaxmacphy_ul_burst_descriptor.argprom.exit.i.i.i ]
+dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i:  ; preds = %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i, %400
+  %.1.lcssa.i.i.i128 = phi i32 [ %407, %400 ], [ %.1.lcssa.i.i.i.i125, %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i ]
   %776 = sub i32 %.1.lcssa.i.i.i128, %.02.i.i107
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %777 = load ptr, ptr %9, align 8
@@ -2014,27 +2014,27 @@ dissect_wimaxmacphy_ul_zone_descriptor.argprom.exit.i.i: ; preds = %dissect_wima
   %exitcond.not.i.i130 = icmp eq i32 %indvars.iv.next.i.i129, %wide.trip.count.i.i104
   br i1 %exitcond.not.i.i130, label %._crit_edge.loopexit.i.i131, label %.lr.ph.i.i105, !llvm.loop !10
 
-._crit_edge.loopexit.i.i131:                      ; preds = %dissect_wimaxmacphy_ul_zone_descriptor.argprom.exit.i.i
+._crit_edge.loopexit.i.i131:                      ; preds = %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i
   %778 = add i32 %.1.lcssa.i.i.i128, -4
-  br label %dissect_wimaxmacphy_ul_subframe_descriptor.argprom.exit.i
+  br label %dissect_wimaxmacphy_ul_subframe_descriptor.exit.i
 
-dissect_wimaxmacphy_ul_subframe_descriptor.argprom.exit.i: ; preds = %._crit_edge.loopexit.i.i131, %337
+dissect_wimaxmacphy_ul_subframe_descriptor.exit.i: ; preds = %._crit_edge.loopexit.i.i131, %337
   %.0.lcssa.i.i132 = phi i32 [ 12, %337 ], [ %778, %._crit_edge.loopexit.i.i131 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %779 = zext i16 %338 to i32
   %780 = icmp ult i32 %.0.lcssa.i.i132, %779
-  br i1 %780, label %781, label %dissect_wimaxmacphy_phy_rxstart_request.argprom.exit
+  br i1 %780, label %781, label %dissect_wimaxmacphy_phy_rxstart_request.exit
 
-781:                                              ; preds = %dissect_wimaxmacphy_ul_subframe_descriptor.argprom.exit.i
+781:                                              ; preds = %dissect_wimaxmacphy_ul_subframe_descriptor.exit.i
   %782 = add nuw nsw i32 %.0.lcssa.i.i132, 4
   %783 = load i32, ptr @hf_wimaxmacphy_unknown, align 4
   %784 = sub nuw nsw i32 %779, %.0.lcssa.i.i132
   %785 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %783, ptr noundef %0, i32 noundef %782, i32 noundef %784, i32 noundef 0) #3
-  br label %dissect_wimaxmacphy_phy_rxstart_request.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxstart_request.exit
 
-dissect_wimaxmacphy_phy_rxstart_request.argprom.exit: ; preds = %dissect_wimaxmacphy_ul_subframe_descriptor.argprom.exit.i, %781
+dissect_wimaxmacphy_phy_rxstart_request.exit:     ; preds = %dissect_wimaxmacphy_ul_subframe_descriptor.exit.i, %781
   %786 = add nuw nsw i32 %779, 4
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 787:                                              ; preds = %15
   %788 = load i32, ptr @hf_wimaxmacphy_prim_status, align 4
@@ -2043,7 +2043,7 @@ dissect_wimaxmacphy_phy_rxstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %791 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %790, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #3
   %792 = load i32, ptr @hf_wimaxmacphy_prim_frame_number, align 4
   %793 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %792, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #3
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 794:                                              ; preds = %15
   %795 = load i32, ptr @hf_wimaxmacphy_prim_status, align 4
@@ -2052,7 +2052,7 @@ dissect_wimaxmacphy_phy_rxstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %798 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %797, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #3
   %799 = load i32, ptr @hf_wimaxmacphy_prim_current_frame_number_lsn, align 4
   %800 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %799, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #3
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 801:                                              ; preds = %15
   %802 = load i32, ptr @hf_wimaxmacphy_prim_issid, align 4
@@ -2087,7 +2087,7 @@ dissect_wimaxmacphy_phy_rxstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %831 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %830, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #3
   %832 = load i32, ptr @hf_wimaxmacphy_prim_frequency_deviation, align 4
   %833 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %832, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #3
-  switch i8 %821, label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit [
+  switch i8 %821, label %dissect_wimaxmacphy_phy_rxend_indication.exit [
     i8 0, label %834
     i8 1, label %839
     i8 2, label %854
@@ -2098,7 +2098,7 @@ dissect_wimaxmacphy_phy_rxstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %836 = load i32, ptr @hf_wimaxmacphy_prim_phy_sdu, align 4
   %837 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %836, ptr noundef %0, i32 noundef 24, i32 noundef %835, i32 noundef 0) #3
   %838 = add i32 %835, 24
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 839:                                              ; preds = %801
   %840 = load i32, ptr @ett_wimaxmacphy_prim_harq_ack, align 4
@@ -2115,7 +2115,7 @@ dissect_wimaxmacphy_phy_rxstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %851 = tail call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %850, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0) #3
   %852 = load i32, ptr @hf_wimaxmacphy_prim_harq_ack_reserved2, align 4
   %853 = tail call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %852, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0) #3
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 854:                                              ; preds = %801
   %855 = load i32, ptr @ett_wimaxmacphy_prim_harq_ack, align 4
@@ -2152,7 +2152,7 @@ dissect_wimaxmacphy_phy_rxstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %886 = tail call ptr @proto_tree_add_item(ptr noundef %856, i32 noundef %885, ptr noundef %0, i32 noundef 29, i32 noundef 2, i32 noundef 0) #3
   %887 = load i32, ptr @hf_wimaxmacphy_prim_fast_feedback_value, align 4
   %888 = tail call ptr @proto_tree_add_item(ptr noundef %856, i32 noundef %887, ptr noundef %0, i32 noundef 31, i32 noundef 1, i32 noundef 0) #3
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 889:                                              ; preds = %15
   %890 = load i32, ptr @hf_wimaxmacphy_prim_status, align 4
@@ -2174,7 +2174,7 @@ dissect_wimaxmacphy_phy_rxstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %903 = add i32 %.0.i133, 2
   %904 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %903) #3
   %.not.i = icmp eq i32 %904, 0
-  br i1 %.not.i, label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit, label %900, !llvm.loop !11
+  br i1 %.not.i, label %dissect_wimaxmacphy_phy_rxend_indication.exit, label %900, !llvm.loop !11
 
 905:                                              ; preds = %15
   %906 = load i32, ptr @hf_wimaxmacphy_prim_zonexid, align 4
@@ -2205,7 +2205,7 @@ dissect_wimaxmacphy_phy_rxstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %931 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %930, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #3
   %932 = load i32, ptr @hf_wimaxmacphy_prim_frequency_deviation, align 4
   %933 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %932, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #3
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 934:                                              ; preds = %15
   %935 = load i32, ptr @hf_wimaxmacphy_unknown, align 4
@@ -2213,22 +2213,22 @@ dissect_wimaxmacphy_phy_rxstart_request.argprom.exit: ; preds = %dissect_wimaxma
   %937 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %935, ptr noundef %0, i32 noundef 2, i32 noundef %936, i32 noundef 0) #3
   %938 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #3
   %939 = add i32 %938, 2
-  br label %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+  br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
-dissect_wimaxmacphy_phy_rxend_indication.argprom.exit: ; preds = %900, %854, %839, %834, %801, %934, %905, %794, %787, %dissect_wimaxmacphy_phy_rxstart_request.argprom.exit, %322, %307, %296, %285, %278, %dissect_wimaxmacphy_phy_txstart_request.argprom.exit
-  %.0101 = phi i32 [ %939, %934 ], [ 24, %905 ], [ 4, %794 ], [ 4, %787 ], [ %786, %dissect_wimaxmacphy_phy_rxstart_request.argprom.exit ], [ 8, %322 ], [ 8, %307 ], [ %306, %296 ], [ 8, %285 ], [ 4, %278 ], [ %277, %dissect_wimaxmacphy_phy_txstart_request.argprom.exit ], [ 24, %801 ], [ 32, %854 ], [ 28, %839 ], [ %838, %834 ], [ %903, %900 ]
+dissect_wimaxmacphy_phy_rxend_indication.exit:    ; preds = %900, %854, %839, %834, %801, %934, %905, %794, %787, %dissect_wimaxmacphy_phy_rxstart_request.exit, %322, %307, %296, %285, %278, %dissect_wimaxmacphy_phy_txstart_request.exit
+  %.0101 = phi i32 [ %939, %934 ], [ 24, %905 ], [ 4, %794 ], [ 4, %787 ], [ %786, %dissect_wimaxmacphy_phy_rxstart_request.exit ], [ 8, %322 ], [ 8, %307 ], [ %306, %296 ], [ 8, %285 ], [ 4, %278 ], [ %277, %dissect_wimaxmacphy_phy_txstart_request.exit ], [ 24, %801 ], [ 32, %854 ], [ 28, %839 ], [ %838, %834 ], [ %903, %900 ]
   %940 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0101) #3
   %941 = icmp sgt i32 %940, 0
   br i1 %941, label %942, label %947
 
-942:                                              ; preds = %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+942:                                              ; preds = %dissect_wimaxmacphy_phy_rxend_indication.exit
   %943 = load i32, ptr @hf_wimaxmacphy_unknown, align 4
   %944 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0101) #3
   %945 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %943, ptr noundef %0, i32 noundef %.0101, i32 noundef %944, i32 noundef 0) #3
   %946 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %945, ptr noundef nonnull @ei_wimaxmacphy_unknown) #3
   br label %947
 
-947:                                              ; preds = %942, %dissect_wimaxmacphy_phy_rxend_indication.argprom.exit
+947:                                              ; preds = %942, %dissect_wimaxmacphy_phy_rxend_indication.exit
   %948 = call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %949
 

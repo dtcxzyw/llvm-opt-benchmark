@@ -4879,7 +4879,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 0, 2048) i32 @_ZN12_GLOBAL__N_115DffLegalizePass13flip_initmaskEi.argprom(i32 noundef %0) unnamed_addr #13 align 2 {
+define internal fastcc noundef range(i32 0, 2048) i32 @_ZN12_GLOBAL__N_115DffLegalizePass13flip_initmaskEi(i32 noundef %0) unnamed_addr #13 align 2 {
   %2 = and i32 %0, 1
   %3 = shl i32 %0, 1
   %4 = and i32 %3, 4
@@ -6584,7 +6584,7 @@ _ZN5Yosys5RTLIL7SigSpecixEi.exit45:               ; preds = %_ZNK5Yosys5RTLIL7Si
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %0, i64 2224
   %90 = load i32, ptr %89, align 8
-  %91 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %90)
+  %91 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %90)
   br i1 %91, label %93, label %92
 
 92:                                               ; preds = %88
@@ -6592,7 +6592,7 @@ _ZN5Yosys5RTLIL7SigSpecixEi.exit45:               ; preds = %_ZNK5Yosys5RTLIL7Si
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
 93:                                               ; preds = %88
-  %94 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %94 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %95 = getelementptr inbounds i8, ptr %1, i64 674
   %96 = load i8, ptr %95, align 2
   %97 = trunc i8 %96 to i1
@@ -6643,7 +6643,7 @@ _ZN5Yosys5RTLIL7SigSpecixEi.exit45:               ; preds = %_ZNK5Yosys5RTLIL7Si
 117:                                              ; preds = %113
   %118 = getelementptr inbounds i8, ptr %0, i64 2228
   %119 = load i32, ptr %118, align 4
-  %120 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %119)
+  %120 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %119)
   br i1 %120, label %122, label %121
 
 121:                                              ; preds = %117
@@ -6652,7 +6652,7 @@ _ZN5Yosys5RTLIL7SigSpecixEi.exit45:               ; preds = %_ZNK5Yosys5RTLIL7Si
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
 122:                                              ; preds = %117
-  %123 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %123 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %124 = getelementptr inbounds i8, ptr %1, i64 674
   %125 = load i8, ptr %124, align 2
   %126 = trunc i8 %125 to i1
@@ -6780,7 +6780,7 @@ _ZN5Yosys5RTLIL7SigSpecixEi.exit45:               ; preds = %_ZNK5Yosys5RTLIL7Si
 184:                                              ; preds = %183
   %185 = getelementptr inbounds i8, ptr %0, i64 2212
   %186 = load i32, ptr %185, align 4
-  %187 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %186)
+  %187 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %186)
   br i1 %187, label %189, label %188
 
 188:                                              ; preds = %184
@@ -9286,7 +9286,7 @@ declare void @_ZN5Yosys6FfData10unmap_srstEv(ptr noundef nonnull align 8 derefer
 define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_adffERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2236
   %4 = load i32, ptr %3, align 4
-  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
+  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
   br i1 %5, label %67, label %6
 
 6:                                                ; preds = %2
@@ -9385,7 +9385,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_adffER
   br label %111
 
 67:                                               ; preds = %2
-  %68 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %68 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %69 = getelementptr inbounds i8, ptr %1, i64 674
   %70 = load i8, ptr %69, align 2
   %71 = trunc i8 %70 to i1
@@ -9493,7 +9493,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_sdffce
   %5 = getelementptr inbounds i8, ptr %0, i64 2188
   %6 = load i32, ptr %5, align 4
   %7 = or i32 %6, %4
-  %8 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %7)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %7)
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %2
@@ -9502,7 +9502,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_sdffce
   br label %19
 
 10:                                               ; preds = %2
-  %11 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %11 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %12 = load i32, ptr %3, align 8
   %13 = and i32 %12, %11
   %.not = icmp eq i32 %13, 0
@@ -9530,7 +9530,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_sdffce
 define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_sdffERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2244
   %4 = load i32, ptr %3, align 4
-  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
+  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -9539,7 +9539,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_sdffER
   br label %42
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %8 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %9 = getelementptr inbounds i8, ptr %1, i64 674
   %10 = load i8, ptr %9, align 2
   %11 = trunc i8 %10 to i1
@@ -9617,7 +9617,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_sdffER
 define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass12legalize_dffERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2216
   %4 = load i32, ptr %3, align 8
-  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
+  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
   br i1 %5, label %20, label %6
 
 6:                                                ; preds = %2
@@ -9644,7 +9644,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass12legalize_dffERN
   unreachable
 
 20:                                               ; preds = %2
-  %21 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %21 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %22 = getelementptr inbounds i8, ptr %1, i64 674
   %23 = load i8, ptr %22, align 2
   %24 = trunc i8 %23 to i1
@@ -9798,7 +9798,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass12legalize_dffERN
 define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass16legalize_adlatchERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2268
   %4 = load i32, ptr %3, align 4
-  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
+  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
   br i1 %5, label %45, label %6
 
 6:                                                ; preds = %2
@@ -9863,7 +9863,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass16legalize_adlatc
   br label %56
 
 45:                                               ; preds = %2
-  %46 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %46 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %47 = getelementptr inbounds i8, ptr %0, i64 2208
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, %46
@@ -9893,7 +9893,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass16legalize_adlatc
 define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_dlatchERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2256
   %4 = load i32, ptr %3, align 8
-  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
+  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
   br i1 %5, label %20, label %6
 
 6:                                                ; preds = %2
@@ -9920,7 +9920,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_dlatch
   unreachable
 
 20:                                               ; preds = %2
-  %21 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %21 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %22 = getelementptr inbounds i8, ptr %0, i64 2204
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, %21
@@ -10031,7 +10031,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass11legalize_srERN5
   %33 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 2248
   %35 = load i32, ptr %34, align 8
-  %36 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %35)
+  %36 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %35)
   br i1 %36, label %51, label %37
 
 37:                                               ; preds = %2
@@ -10058,7 +10058,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass11legalize_srERN5
   unreachable
 
 51:                                               ; preds = %2
-  %52 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %52 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %53 = getelementptr inbounds i8, ptr %0, i64 2200
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, %52
@@ -10164,7 +10164,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit:               ; preds = %76
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit97
 
 107:                                              ; preds = %71
-  %108 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass13flip_initmaskEi.argprom(i32 noundef %52)
+  %108 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass13flip_initmaskEi(i32 noundef %52)
   %109 = shl nuw nsw i32 %108, 8
   %110 = and i32 %109, %73
   %.not77 = icmp eq i32 %110, 0
@@ -10649,7 +10649,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit97:                 ; preds = %272, %269, %268, %2
 define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_rlatchERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2264
   %4 = load i32, ptr %3, align 8
-  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
+  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
   br i1 %5, label %21, label %6
 
 6:                                                ; preds = %2
@@ -10677,7 +10677,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_rlatch
   unreachable
 
 21:                                               ; preds = %2
-  %22 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %22 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %23 = getelementptr inbounds i8, ptr %0, i64 2260
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 7
@@ -10720,11 +10720,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_rlatch
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi.argprom(ptr noundef nonnull align 8 dereferenceable(856) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Yosys::hashlib::pool.205", align 8
   %4 = alloca %"class.std::initializer_list", align 8
   %5 = alloca [1 x i32], align 4
-  %6 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %0)
+  %6 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %0)
   %7 = and i32 %6, %1
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %_ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEED2Ev.exit
@@ -10859,7 +10859,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass21emulate_split_s
   %59 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %60 = alloca %"class.std::__cxx11::basic_string", align 8
   %61 = alloca %"class.std::allocator", align 1
-  %62 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %62 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %63 = and i32 %62, 1
   %64 = shl nuw nsw i32 %62, 1
   %65 = and i32 %64, 4
@@ -14964,7 +14964,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit313:                ; preds = %1523, %1520, %1508,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 1, 1025) i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) unnamed_addr #4 align 2 {
+define internal fastcc noundef range(i32 1, 1025) i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 768
   %3 = getelementptr inbounds i8, ptr %0, i64 776
   %4 = load ptr, ptr %3, align 8
@@ -15070,7 +15070,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finish
   %12 = load i8, ptr %11, align 2
   %13 = trunc i8 %12 to i1
   %14 = select i1 %13, i64 7, i64 6
-  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit
+  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %1, i64 677
@@ -15083,7 +15083,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finish
   %21 = load i8, ptr %20, align 2
   %22 = trunc i8 %21 to i1
   %23 = select i1 %22, i64 3, i64 2
-  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit
+  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds i8, ptr %1, i64 675
@@ -15096,7 +15096,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finish
   %30 = load i8, ptr %29, align 2
   %31 = trunc i8 %30 to i1
   %32 = select i1 %31, i64 5, i64 4
-  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit
+  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds i8, ptr %1, i64 676
@@ -15108,19 +15108,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finish
 
 39:                                               ; preds = %33
   %40 = trunc i8 %38 to i1
-  br i1 %40, label %41, label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit
+  br i1 %40, label %41, label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds i8, ptr %1, i64 679
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
   %45 = select i1 %44, i64 10, i64 9
-  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit
+  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit
 
 46:                                               ; preds = %33
   %47 = and i8 %38, 1
   %48 = zext nneg i8 %47 to i64
-  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit
+  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit
 
 49:                                               ; preds = %2
   %50 = getelementptr inbounds i8, ptr %1, i64 675
@@ -15132,34 +15132,34 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finish
   br i1 %52, label %56, label %61
 
 56:                                               ; preds = %49
-  br i1 %55, label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit, label %57
+  br i1 %55, label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit, label %57
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds i8, ptr %1, i64 677
   %59 = load i8, ptr %58, align 1
   %60 = trunc i8 %59 to i1
   %..i = select i1 %60, i64 14, i64 13
-  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit
+  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit
 
 61:                                               ; preds = %49
-  br i1 %55, label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit, label %62
+  br i1 %55, label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit, label %62
 
 62:                                               ; preds = %61
   %63 = getelementptr inbounds i8, ptr %1, i64 677
   %64 = load i8, ptr %63, align 1
   %65 = trunc i8 %64 to i1
   %.16.i = select i1 %65, i64 11, i64 0
-  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit
+  br label %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit
 
-_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit: ; preds = %10, %19, %28, %39, %41, %46, %56, %57, %61, %62
+_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit: ; preds = %10, %19, %28, %39, %41, %46, %56, %57, %61, %62
   %.0.i = phi i64 [ %14, %10 ], [ %23, %19 ], [ %32, %28 ], [ %45, %41 ], [ %48, %46 ], [ 8, %39 ], [ 15, %56 ], [ %..i, %57 ], [ 12, %61 ], [ %.16.i, %62 ]
-  %66 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1)
+  %66 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %67 = getelementptr inbounds i8, ptr %1, i64 678
   %68 = load i8, ptr %67, align 2
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %78
 
-70:                                               ; preds = %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit
+70:                                               ; preds = %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit
   %71 = getelementptr inbounds i8, ptr %1, i64 687
   %72 = load i8, ptr %71, align 1
   %73 = trunc i8 %72 to i1
@@ -15171,8 +15171,8 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit: 
   %spec.select85 = select i1 %76, i32 %spec.select, i32 %77
   br label %78
 
-78:                                               ; preds = %70, %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit
-  %.068 = phi i32 [ 0, %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit ], [ %spec.select85, %70 ]
+78:                                               ; preds = %70, %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit
+  %.068 = phi i32 [ 0, %_ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit ], [ %spec.select85, %70 ]
   %79 = getelementptr inbounds i8, ptr %1, i64 677
   %80 = load i8, ptr %79, align 1
   %81 = trunc i8 %80 to i1
@@ -15247,7 +15247,7 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit: 
 
 127:                                              ; preds = %125
   %128 = getelementptr inbounds i8, ptr %1, i64 288
-  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %128, ptr noundef nonnull align 1 dereferenceable(1) %108)
+  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %128, ptr noundef nonnull align 1 dereferenceable(1) %108)
   %.pre = load i8, ptr %67, align 2
   br label %.thread
 
@@ -15265,7 +15265,7 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit: 
 133:                                              ; preds = %132
   %134 = getelementptr inbounds i8, ptr %1, i64 544
   %135 = getelementptr inbounds i8, ptr %1, i64 687
-  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %134, ptr noundef nonnull align 1 dereferenceable(1) %135)
+  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %134, ptr noundef nonnull align 1 dereferenceable(1) %135)
   br label %136
 
 136:                                              ; preds = %133, %132
@@ -15276,7 +15276,7 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit: 
 138:                                              ; preds = %136
   %139 = getelementptr inbounds i8, ptr %1, i64 608
   %140 = getelementptr inbounds i8, ptr %1, i64 688
-  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %139, ptr noundef nonnull align 1 dereferenceable(1) %140)
+  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %139, ptr noundef nonnull align 1 dereferenceable(1) %140)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread, %136, %138
@@ -15289,7 +15289,7 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit: 
 
 143:                                              ; preds = %._crit_edge
   %144 = getelementptr inbounds i8, ptr %1, i64 416
-  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %144, ptr noundef nonnull align 1 dereferenceable(1) %82)
+  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %144, ptr noundef nonnull align 1 dereferenceable(1) %82)
   br label %145
 
 145:                                              ; preds = %143, %._crit_edge
@@ -15301,7 +15301,7 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit: 
 
 148:                                              ; preds = %145
   %149 = getelementptr inbounds i8, ptr %1, i64 480
-  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %149, ptr noundef nonnull align 1 dereferenceable(1) %89)
+  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %149, ptr noundef nonnull align 1 dereferenceable(1) %89)
   br label %150
 
 150:                                              ; preds = %148, %145
@@ -15311,7 +15311,7 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit: 
 
 152:                                              ; preds = %150
   %153 = getelementptr inbounds i8, ptr %1, i64 352
-  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %153, ptr noundef nonnull align 1 dereferenceable(1) %95)
+  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %153, ptr noundef nonnull align 1 dereferenceable(1) %95)
   br label %154
 
 154:                                              ; preds = %152, %150
@@ -15321,7 +15321,7 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit: 
 
 156:                                              ; preds = %154
   %157 = getelementptr inbounds i8, ptr %1, i64 224
-  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb.argprom(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %157, ptr noundef nonnull align 1 dereferenceable(1) %101)
+  tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(64) %157, ptr noundef nonnull align 1 dereferenceable(1) %101)
   br label %158
 
 158:                                              ; preds = %156, %154
@@ -15336,7 +15336,7 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.argprom.exit: 
   %164 = getelementptr inbounds i8, ptr %1, i64 792
   %165 = load i32, ptr %164, align 8
   %166 = icmp sgt i32 %165, 0
-  br i1 %166, label %.lr.ph.i, label %_ZN12_GLOBAL__N_115DffLegalizePass13fixup_reset_xERN5Yosys6FfDataEi.argprom.exit
+  br i1 %166, label %.lr.ph.i, label %_ZN12_GLOBAL__N_115DffLegalizePass13fixup_reset_xERN5Yosys6FfDataEi.exit
 
 .lr.ph.i:                                         ; preds = %160
   %167 = getelementptr inbounds i8, ptr %1, i64 768
@@ -15488,9 +15488,9 @@ _ZN5Yosys5RTLIL5ConstixEi.exit45.i:               ; preds = %229
   %238 = load i32, ptr %164, align 8
   %239 = sext i32 %238 to i64
   %240 = icmp slt i64 %indvars.iv.next.i, %239
-  br i1 %240, label %173, label %_ZN12_GLOBAL__N_115DffLegalizePass13fixup_reset_xERN5Yosys6FfDataEi.argprom.exit, !llvm.loop !71
+  br i1 %240, label %173, label %_ZN12_GLOBAL__N_115DffLegalizePass13fixup_reset_xERN5Yosys6FfDataEi.exit, !llvm.loop !71
 
-_ZN12_GLOBAL__N_115DffLegalizePass13fixup_reset_xERN5Yosys6FfDataEi.argprom.exit: ; preds = %237, %160
+_ZN12_GLOBAL__N_115DffLegalizePass13fixup_reset_xERN5Yosys6FfDataEi.exit: ; preds = %237, %160
   %241 = tail call noundef ptr @_ZN5Yosys6FfData4emitEv(ptr noundef nonnull align 8 dereferenceable(856) %1)
   ret void
 }
@@ -16859,7 +16859,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit: ; preds = %_ZSt8_DestroyIN5Y
 declare void @_ZNK5Yosys5RTLIL7SigSpec4packEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %6 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8

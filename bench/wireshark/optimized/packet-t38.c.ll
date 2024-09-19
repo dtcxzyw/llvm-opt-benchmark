@@ -1342,7 +1342,7 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   %.not.i = icmp ne i16 %60, 0
   %61 = icmp eq ptr %55, null
   %brmerge = select i1 %.not.i, i1 true, i1 %61
-  br i1 %brmerge, label %force_reassemble_seq.argprom.exit, label %.preheader1.i
+  br i1 %brmerge, label %force_reassemble_seq.exit, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %52
   %.0912.i = load ptr, ptr %55, align 8
@@ -1530,7 +1530,7 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   store i32 %.083.lcssa32.i, ptr %140, align 4
   %141 = getelementptr inbounds i8, ptr %139, i64 24
   store i32 %.082.lcssa33.i, ptr %141, align 8
-  br label %force_reassemble_seq.argprom.exit
+  br label %force_reassemble_seq.exit
 
 142:                                              ; preds = %50
   %143 = getelementptr inbounds i8, ptr %51, i64 8
@@ -1539,9 +1539,9 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   %145 = load ptr, ptr @t38_info, align 8
   %146 = getelementptr inbounds i8, ptr %145, i64 153
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %146, ptr noundef nonnull align 1 dereferenceable(15) @.str.162, i64 15, i1 false)
-  br label %force_reassemble_seq.argprom.exit
+  br label %force_reassemble_seq.exit
 
-force_reassemble_seq.argprom.exit:                ; preds = %52, %._crit_edge28.i, %142
+force_reassemble_seq.exit:                        ; preds = %52, %._crit_edge28.i, %142
   %147 = load ptr, ptr @p_t38_packet_conv_info, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 20
   %149 = load i32, ptr %148, align 4
@@ -1550,13 +1550,13 @@ force_reassemble_seq.argprom.exit:                ; preds = %52, %._crit_edge28.
   %151 = getelementptr inbounds i8, ptr %150, i64 153
   br i1 %.not60, label %156, label %152
 
-152:                                              ; preds = %force_reassemble_seq.argprom.exit
+152:                                              ; preds = %force_reassemble_seq.exit
   %153 = getelementptr inbounds i8, ptr %147, i64 24
   %154 = load i32, ptr %153, align 8
   %155 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %151, i64 noundef 128, ptr noundef nonnull @.str.163, i32 noundef %149, i32 noundef %154) #9
   br label %157
 
-156:                                              ; preds = %force_reassemble_seq.argprom.exit
+156:                                              ; preds = %force_reassemble_seq.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %151, ptr noundef nonnull align 1 dereferenceable(15) @.str.162, i64 15, i1 false)
   br label %157
 

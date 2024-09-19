@@ -5669,13 +5669,13 @@ _ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i:   ; preds = %if.then.i.i.i.i, %i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
   %cmp.not.i.i = icmp eq i64 %Key.coerce1, 0
-  br i1 %cmp.not.i.i, label %_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.argprom.exit.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i, ptr readonly align 1 %Key.coerce0, i64 %Key.coerce1, i1 false)
-  br label %_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.argprom.exit.i
+  br label %_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.exit.i
 
-_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.argprom.exit.i: ; preds = %if.then.i.i, %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i
+_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.exit.i: ; preds = %if.then.i.i, %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %Key.coerce1
   store i8 0, ptr %arrayidx.i.i, align 1
   store ptr %call.i.i.i.i, ptr %arrayidx.i, align 8
@@ -5689,8 +5689,8 @@ _ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTre
   %add.ptr16.i = getelementptr inbounds ptr, ptr %5, i64 %idx.ext15.i
   br label %while.cond.i.i.i9.i
 
-while.cond.i.i.i9.i:                              ; preds = %while.body.i.i.i12.i, %_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.argprom.exit.i
-  %storemerge.i.i10.i = phi ptr [ %add.ptr16.i, %_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.argprom.exit.i ], [ %incdec.ptr.i.i.i13.i, %while.body.i.i.i12.i ]
+while.cond.i.i.i9.i:                              ; preds = %while.body.i.i.i12.i, %_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.exit.i
+  %storemerge.i.i10.i = phi ptr [ %add.ptr16.i, %_ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueE6CreateINS_15MallocAllocatorEJEEEPS8_NS_9StringRefERT_DpOT0_.exit.i ], [ %incdec.ptr.i.i.i13.i, %while.body.i.i.i12.i ]
   %6 = load ptr, ptr %storemerge.i.i10.i, align 8
   %magicptr.i.i.i11.i = ptrtoint ptr %6 to i64
   switch i64 %magicptr.i.i.i11.i, label %_ZN4llvh9StringMapIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS7_EEbENS_9StringRefEDpOT_.exit [
@@ -6290,7 +6290,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp11.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp25.i.i.i)
   %cmp.i.i.i = icmp eq i32 %__args1.val, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZZN6hermes5irgen11ESTreeIRGen16genYieldStarExprEPNS0_6ESTree19YieldExpressionNodeEENK3$_0clEvEUlPNS3_4NodeENS1_17ControlFlowChangeEPNS0_10BasicBlockEE_JS8_S9_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZZN6hermes5irgen11ESTreeIRGen16genYieldStarExprEPNS0_6ESTree19YieldExpressionNodeEENK3$_0clEvEUlPNS3_4NodeENS1_17ControlFlowChangeEPNS0_10BasicBlockEE_JS8_S9_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   %0 = load ptr, ptr %__functor.val, align 8
@@ -6344,9 +6344,9 @@ if.then.i.i.i:                                    ; preds = %entry
   %15 = load ptr, ptr %14, align 8
   %call62.i.i.i = call noundef ptr @_ZN6hermes9IRBuilder22createSaveAndYieldInstEPNS_5ValueEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i.i, ptr noundef %cast.result36.i.i.i, ptr noundef %15) #16
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i.i, ptr noundef %call6.i.i.i) #16
-  br label %"_ZSt10__invoke_rIvRZZN6hermes5irgen11ESTreeIRGen16genYieldStarExprEPNS0_6ESTree19YieldExpressionNodeEENK3$_0clEvEUlPNS3_4NodeENS1_17ControlFlowChangeEPNS0_10BasicBlockEE_JS8_S9_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZZN6hermes5irgen11ESTreeIRGen16genYieldStarExprEPNS0_6ESTree19YieldExpressionNodeEENK3$_0clEvEUlPNS3_4NodeENS1_17ControlFlowChangeEPNS0_10BasicBlockEE_JS8_S9_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
-"_ZSt10__invoke_rIvRZZN6hermes5irgen11ESTreeIRGen16genYieldStarExprEPNS0_6ESTree19YieldExpressionNodeEENK3$_0clEvEUlPNS3_4NodeENS1_17ControlFlowChangeEPNS0_10BasicBlockEE_JS8_S9_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %entry, %if.then.i.i.i
+"_ZSt10__invoke_rIvRZZN6hermes5irgen11ESTreeIRGen16genYieldStarExprEPNS0_6ESTree19YieldExpressionNodeEENK3$_0clEvEUlPNS3_4NodeENS1_17ControlFlowChangeEPNS0_10BasicBlockEE_JS8_S9_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %entry, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp11.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp25.i.i.i)
   ret void

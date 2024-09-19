@@ -4304,37 +4304,37 @@ if.end:                                           ; preds = %lor.lhs.false.i, %f
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %formats.i)
   %call.i2 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 11) #21
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
-  br i1 %tobool.not.i3, label %ext_ec_point_add_extension.argprom.exit, label %lor.lhs.false.i4
+  br i1 %tobool.not.i3, label %ext_ec_point_add_extension.exit, label %lor.lhs.false.i4
 
 lor.lhs.false.i4:                                 ; preds = %if.end
   %call1.i5 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents.i) #21
   %tobool2.not.i = icmp eq i32 %call1.i5, 0
-  br i1 %tobool2.not.i, label %ext_ec_point_add_extension.argprom.exit, label %lor.lhs.false3.i
+  br i1 %tobool2.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i4
   %call4.i = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents.i, ptr noundef nonnull %formats.i) #21
   %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %ext_ec_point_add_extension.argprom.exit, label %lor.lhs.false6.i
+  br i1 %tobool5.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false3.i
   %call7.i = call i32 @CBB_add_u8(ptr noundef nonnull %formats.i, i8 noundef zeroext 0) #21
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %ext_ec_point_add_extension.argprom.exit, label %lor.lhs.false9.i
+  br i1 %tobool8.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %lor.lhs.false6.i
   %call10.i = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool11.not.i = icmp ne i32 %call10.i, 0
   %spec.select.i = zext i1 %tobool11.not.i to i32
-  br label %ext_ec_point_add_extension.argprom.exit
+  br label %ext_ec_point_add_extension.exit
 
-ext_ec_point_add_extension.argprom.exit:          ; preds = %if.end, %lor.lhs.false.i4, %lor.lhs.false3.i, %lor.lhs.false6.i, %lor.lhs.false9.i
+ext_ec_point_add_extension.exit:                  ; preds = %if.end, %lor.lhs.false.i4, %lor.lhs.false3.i, %lor.lhs.false6.i, %lor.lhs.false9.i
   %retval.0.i6 = phi i32 [ 0, %lor.lhs.false6.i ], [ 0, %lor.lhs.false3.i ], [ 0, %lor.lhs.false.i4 ], [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false9.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %contents.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %formats.i)
   br label %return
 
-return:                                           ; preds = %for.cond.i, %if.end.i, %land.lhs.true.i, %ext_ec_point_add_extension.argprom.exit
-  %retval.0 = phi i32 [ %retval.0.i6, %ext_ec_point_add_extension.argprom.exit ], [ 1, %land.lhs.true.i ], [ 1, %if.end.i ], [ 1, %for.cond.i ]
+return:                                           ; preds = %for.cond.i, %if.end.i, %land.lhs.true.i, %ext_ec_point_add_extension.exit
+  %retval.0 = phi i32 [ %retval.0.i6, %ext_ec_point_add_extension.exit ], [ 1, %land.lhs.true.i ], [ 1, %if.end.i ], [ 1, %for.cond.i ]
   ret i32 %retval.0
 }
 
@@ -4431,37 +4431,37 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %formats.i)
   %call.i = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 11) #21
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %ext_ec_point_add_extension.argprom.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
   %call1.i = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents.i) #21
   %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %ext_ec_point_add_extension.argprom.exit, label %lor.lhs.false3.i
+  br i1 %tobool2.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
   %call4.i = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents.i, ptr noundef nonnull %formats.i) #21
   %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %ext_ec_point_add_extension.argprom.exit, label %lor.lhs.false6.i
+  br i1 %tobool5.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false3.i
   %call7.i = call i32 @CBB_add_u8(ptr noundef nonnull %formats.i, i8 noundef zeroext 0) #21
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %ext_ec_point_add_extension.argprom.exit, label %lor.lhs.false9.i
+  br i1 %tobool8.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %lor.lhs.false6.i
   %call10.i = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool11.not.i = icmp ne i32 %call10.i, 0
   %spec.select.i = zext i1 %tobool11.not.i to i32
-  br label %ext_ec_point_add_extension.argprom.exit
+  br label %ext_ec_point_add_extension.exit
 
-ext_ec_point_add_extension.argprom.exit:          ; preds = %if.end, %lor.lhs.false.i, %lor.lhs.false3.i, %lor.lhs.false6.i, %lor.lhs.false9.i
+ext_ec_point_add_extension.exit:                  ; preds = %if.end, %lor.lhs.false.i, %lor.lhs.false3.i, %lor.lhs.false6.i, %lor.lhs.false9.i
   %retval.0.i = phi i32 [ 0, %lor.lhs.false6.i ], [ 0, %lor.lhs.false3.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false9.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %contents.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %formats.i)
   br label %return
 
-return:                                           ; preds = %entry, %ext_ec_point_add_extension.argprom.exit
-  %retval.0 = phi i32 [ %retval.0.i, %ext_ec_point_add_extension.argprom.exit ], [ 1, %entry ]
+return:                                           ; preds = %entry, %ext_ec_point_add_extension.exit
+  %retval.0 = phi i32 [ %retval.0.i, %ext_ec_point_add_extension.exit ], [ 1, %entry ]
   ret i32 %retval.0
 }
 

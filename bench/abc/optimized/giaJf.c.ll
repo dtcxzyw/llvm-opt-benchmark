@@ -8485,7 +8485,7 @@ Vec_IntPush.exit255:                              ; preds = %.Vec_IntGrow.exit10
   %247 = ashr i32 %236, 1
   %.val179 = load i32, ptr %43, align 4
   %248 = add nsw i32 %247, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %27, i32 noundef %248)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %27, i32 noundef %248)
   %.val.i = load ptr, ptr %122, align 8
   %249 = sext i32 %247 to i64
   %250 = getelementptr inbounds i32, ptr %.val.i, i64 %249
@@ -8901,7 +8901,7 @@ Vec_IntFree.exit288:                              ; preds = %Vec_IntFree.exit286
   br label %435
 
 434:                                              ; preds = %Vec_IntFree.exit288
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %27, i32 noundef %.val194)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %27, i32 noundef %.val194)
   %.val333.pre = load i32, ptr %29, align 4
   br label %435
 
@@ -9337,7 +9337,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

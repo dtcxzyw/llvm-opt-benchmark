@@ -7736,7 +7736,7 @@ define dso_local i64 @_ZN4llvm15MachineFunction18salvageCopySSAImplERNS_12Machin
   %36 = load i32, ptr %34, align 8
   %37 = lshr i32 %36, 8
   %38 = and i32 %37, 4095
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit"
 
 39:                                               ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -7745,7 +7745,7 @@ define dso_local i64 @_ZN4llvm15MachineFunction18salvageCopySSAImplERNS_12Machin
   %43 = getelementptr inbounds i8, ptr %41, i64 112
   %44 = load i64, ptr %43, align 8
   %45 = trunc i64 %44 to i32
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit"
 
 _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i: ; preds = %2
   %46 = load ptr, ptr %28, align 8, !noalias !74
@@ -7758,9 +7758,9 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i: ; preds = %
   %50 = load i32, ptr %.sroa.2.0.copyload.i, align 8
   %51 = lshr i32 %50, 8
   %52 = and i32 %51, 4095
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit"
 
-"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit": ; preds = %31, %39, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i
+"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit": ; preds = %31, %39, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i
   %.sroa.01.0.in.i = phi ptr [ %35, %31 ], [ %42, %39 ], [ %49, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i ]
   %.0.i = phi i32 [ %38, %31 ], [ %45, %39 ], [ %52, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i ]
   %.sroa.01.0.i202 = load i32, ptr %.sroa.01.0.in.i, align 4
@@ -7770,15 +7770,15 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i: ; preds = %
   %54 = icmp slt i32 %.sroa.01.0.i202, 0
   br i1 %54, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit"
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.2.0..sroa_idx.i60 = getelementptr inbounds i8, ptr %9, i64 8
   br label %57
 
-57:                                               ; preds = %.lr.ph, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit62"
-  %.sroa.10196.0213 = phi i32 [ %.0.i, %.lr.ph ], [ %.0.i53, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit62" ]
-  %.sroa.0193.0212 = phi i32 [ %.sroa.01.0.i202, %.lr.ph ], [ %.sroa.01.0.i54207, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit62" ]
+57:                                               ; preds = %.lr.ph, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit62"
+  %.sroa.10196.0213 = phi i32 [ %.0.i, %.lr.ph ], [ %.0.i53, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit62" ]
+  %.sroa.0193.0212 = phi i32 [ %.sroa.01.0.i202, %.lr.ph ], [ %.sroa.01.0.i54207, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit62" ]
   %.not = icmp eq i32 %.sroa.10196.0213, 0
   br i1 %.not, label %68, label %58
 
@@ -7863,7 +7863,7 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit: ; preds = %_Z
   %95 = load i32, ptr %93, align 8
   %96 = lshr i32 %95, 8
   %97 = and i32 %96, 4095
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit62"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit62"
 
 98:                                               ; preds = %.critedge
   %99 = getelementptr inbounds nuw i8, ptr %81, i64 32
@@ -7872,7 +7872,7 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit: ; preds = %_Z
   %102 = getelementptr inbounds i8, ptr %100, i64 112
   %103 = load i64, ptr %102, align 8
   %104 = trunc i64 %103 to i32
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit62"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit62"
 
 _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i59: ; preds = %.critedge
   %105 = load ptr, ptr %28, align 8, !noalias !81
@@ -7884,9 +7884,9 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i59: ; preds =
   %109 = load i32, ptr %.sroa.2.0.copyload.i61, align 8
   %110 = lshr i32 %109, 8
   %111 = and i32 %110, 4095
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit62"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit62"
 
-"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit62": ; preds = %90, %98, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i59
+"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit62": ; preds = %90, %98, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i59
   %.sroa.01.0.in.i52 = phi ptr [ %94, %90 ], [ %101, %98 ], [ %108, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i59 ]
   %.0.i53 = phi i32 [ %97, %90 ], [ %104, %98 ], [ %111, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i59 ]
   %.sroa.01.0.i54207 = load i32, ptr %.sroa.01.0.in.i52, align 4
@@ -7961,7 +7961,7 @@ _ZN4llvm12MachineInstr8all_defsEv.exit:           ; preds = %.lr.ph.i.i.i.i.i, %
 
 .._crit_edge_crit_edge.i:                         ; preds = %._crit_edge226
   %.sroa.0165.0.insert.ext = zext i32 %139 to i64
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit"
 
 .lr.ph.i:                                         ; preds = %._crit_edge226
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 832
@@ -7989,13 +7989,13 @@ _ZN4llvm12MachineInstr8all_defsEv.exit:           ; preds = %.lr.ph.i.i.i.i.i, %
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_15MachineFunction17DebugSubstitutionELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef nonnull align 4 dereferenceable(20) %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
   %.not.i = icmp eq ptr %150, %144
-  br i1 %.not.i, label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit", label %149
+  br i1 %.not.i, label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit", label %149
 
-"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit": ; preds = %149, %.._crit_edge_crit_edge.i
+"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit": ; preds = %149, %.._crit_edge_crit_edge.i
   %.sroa.012.0.insert.ext13.pre-phi.i = phi i64 [ %.sroa.0165.0.insert.ext, %.._crit_edge_crit_edge.i ], [ %.sroa.02.0.insert.ext.i72, %149 ]
   %.sroa.4.0.lcssa.i = phi i64 [ %.sroa.2166.0.insert.shift, %.._crit_edge_crit_edge.i ], [ 0, %149 ]
   %.sroa.012.0.insert.insert15.i = or disjoint i64 %.sroa.4.0.lcssa.i, %.sroa.012.0.insert.ext13.pre-phi.i
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit137"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit137"
 
 .lr.ph225:                                        ; preds = %_ZN4llvm12MachineInstr8all_defsEv.exit, %_ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_iterator_tagEppEv.exit
   %.sroa.0170.0224 = phi ptr [ %.sroa.0170.2, %_ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_iterator_tagEppEv.exit ], [ %.sroa.010.1.i.i, %_ZN4llvm12MachineInstr8all_defsEv.exit ]
@@ -8024,8 +8024,8 @@ _ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_i
   %.not206 = icmp eq i32 %162, %.sroa.0193.0212
   br i1 %.not206, label %._crit_edge226, label %.lr.ph225
 
-._crit_edge:                                      ; preds = %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit62", %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit"
-  %.sroa.0189.0.lcssa = phi ptr [ %1, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit" ], [ %81, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit62" ]
+._crit_edge:                                      ; preds = %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit62", %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit"
+  %.sroa.0189.0.lcssa = phi ptr [ %1, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit" ], [ %81, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit62" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0.lcssa, i64 68
   %164 = load i16, ptr %163, align 4
@@ -8036,11 +8036,11 @@ _ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_i
 
 165:                                              ; preds = %._crit_edge
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0.lcssa, i64 32
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit84"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit84"
 
 167:                                              ; preds = %._crit_edge
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0.lcssa, i64 32
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit84"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit84"
 
 _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i81: ; preds = %._crit_edge
   %169 = load ptr, ptr %28, align 8, !noalias !112
@@ -8048,9 +8048,9 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i81: ; preds =
   %171 = load ptr, ptr %170, align 8, !noalias !112
   call void %171(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.658") align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0189.0.lcssa) #25
   %.sroa.2.0..sroa_idx.i82 = getelementptr inbounds i8, ptr %7, i64 8
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit84"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit84"
 
-"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit84": ; preds = %165, %167, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i81
+"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit84": ; preds = %165, %167, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i81
   %.sink254 = phi ptr [ %166, %165 ], [ %168, %167 ], [ %.sroa.2.0..sroa_idx.i82, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i81 ]
   %.sink253 = phi i64 [ 36, %165 ], [ 68, %167 ], [ 4, %_ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i81 ]
   %172 = load ptr, ptr %.sink254, align 8
@@ -8064,7 +8064,7 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit.i81: ; preds =
   %.not204219 = icmp eq ptr %.sroa.0189.0.lcssa, %176
   br i1 %.not204219, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit, label %.lr.ph222
 
-.lr.ph222:                                        ; preds = %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit84"
+.lr.ph222:                                        ; preds = %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit84"
   %177 = add i32 %.sroa.01.0.i76203.fr, -1
   %178 = icmp ult i32 %177, 1073741823
   %179 = getelementptr inbounds i8, ptr %22, i64 8
@@ -8160,7 +8160,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread: ; preds
 
 .._crit_edge_crit_edge.i111:                      ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread
   %.sroa.0144.0.insert.ext = zext i32 %208 to i64
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit113"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit113"
 
 .lr.ph.i99:                                       ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 832
@@ -8188,13 +8188,13 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread: ; preds
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_15MachineFunction17DebugSubstitutionELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 4 dereferenceable(20) %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
   %.not.i107 = icmp eq ptr %219, %213
-  br i1 %.not.i107, label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit113", label %218
+  br i1 %.not.i107, label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit113", label %218
 
-"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit113": ; preds = %218, %.._crit_edge_crit_edge.i111
+"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit113": ; preds = %218, %.._crit_edge_crit_edge.i111
   %.sroa.012.0.insert.ext13.pre-phi.i108 = phi i64 [ %.sroa.0144.0.insert.ext, %.._crit_edge_crit_edge.i111 ], [ %.sroa.02.0.insert.ext.i106, %218 ]
   %.sroa.4.0.lcssa.i109 = phi i64 [ %.sroa.2145.0.insert.shift, %.._crit_edge_crit_edge.i111 ], [ 0, %218 ]
   %.sroa.012.0.insert.insert15.i110 = or disjoint i64 %.sroa.4.0.lcssa.i109, %.sroa.012.0.insert.ext13.pre-phi.i108
-  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit137"
+  br label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit137"
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread200: ; preds = %204, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit
   %223 = getelementptr inbounds i8, ptr %.sroa.0148.0215, i64 32
@@ -8228,8 +8228,8 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.loopexit: ; preds = %._
   %.pre = load ptr, ptr %174, align 8
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit
 
-_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.loopexit, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit84"
-  %231 = phi ptr [ %.pre, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.loopexit ], [ %175, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.argprom.exit84" ]
+_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.loopexit, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit84"
+  %231 = phi ptr [ %.pre, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.loopexit ], [ %175, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_0clERKS1_.exit84" ]
   %232 = call ptr @_ZN4llvm17MachineBasicBlock14getFirstNonPHIEv(ptr noundef nonnull align 8 dereferenceable(288) %231) #25
   %233 = getelementptr inbounds i8, ptr %28, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
@@ -8275,7 +8275,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %240, %_ZN4llvm10MIM
   %252 = getelementptr inbounds i32, ptr %250, i64 %251
   %253 = load ptr, ptr %11, align 8, !noalias !158
   %.not20.i122 = icmp eq ptr %252, %253
-  br i1 %.not20.i122, label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit137", label %.lr.ph.i123
+  br i1 %.not20.i122, label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit137", label %.lr.ph.i123
 
 .lr.ph.i123:                                      ; preds = %_ZN4llvm8DebugLocD2Ev.exit
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 840
@@ -8300,20 +8300,20 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %240, %_ZN4llvm10MIM
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_15MachineFunction17DebugSubstitutionELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %254, ptr noundef nonnull align 4 dereferenceable(20) %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
   %.not.i131 = icmp eq ptr %258, %253
-  br i1 %.not.i131, label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit137", label %257
+  br i1 %.not.i131, label %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit137", label %257
 
-"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit137": ; preds = %257, %_ZN4llvm8DebugLocD2Ev.exit, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit113", %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit"
-  %.sroa.040.0 = phi i64 [ %.sroa.012.0.insert.insert15.i, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit" ], [ %.sroa.012.0.insert.insert15.i110, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit113" ], [ %247, %_ZN4llvm8DebugLocD2Ev.exit ], [ %.sroa.02.0.insert.ext.i130, %257 ]
+"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit137": ; preds = %257, %_ZN4llvm8DebugLocD2Ev.exit, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit113", %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit"
+  %.sroa.040.0 = phi i64 [ %.sroa.012.0.insert.insert15.i, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit" ], [ %.sroa.012.0.insert.insert15.i110, %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit113" ], [ %247, %_ZN4llvm8DebugLocD2Ev.exit ], [ %.sroa.02.0.insert.ext.i130, %257 ]
   %262 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
   %263 = load ptr, ptr %11, align 8
   %264 = icmp eq ptr %263, %53
   br i1 %264, label %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit, label %265
 
-265:                                              ; preds = %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit137"
+265:                                              ; preds = %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit137"
   call void @free(ptr noundef %263) #25
   br label %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIjLj4EED2Ev.exit:            ; preds = %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.argprom.exit137", %265
+_ZN4llvm11SmallVectorIjLj4EED2Ev.exit:            ; preds = %"_ZZN4llvm15MachineFunction18salvageCopySSAImplERNS_12MachineInstrEENK3$_1clESt4pairIjjE.exit137", %265
   ret i64 %.sroa.040.0
 }
 
@@ -13824,7 +13824,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNS0_28p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNS0_28printJumpTableEntryReferenceEjE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #18 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm28printJumpTableEntryReferenceEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm28printJumpTableEntryReferenceEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -13832,18 +13832,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ost
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm28printJumpTableEntryReferenceEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm28printJumpTableEntryReferenceEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm28printJumpTableEntryReferenceEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm28printJumpTableEntryReferenceEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm28printJumpTableEntryReferenceEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm28printJumpTableEntryReferenceEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm28printJumpTableEntryReferenceEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm28printJumpTableEntryReferenceEjE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 

@@ -143,13 +143,13 @@ if.then10:                                        ; preds = %if.end
 if.end11:                                         ; preds = %if.end
   tail call void @memory_region_transaction_begin() #3
   %ctrl_vq = getelementptr inbounds i8, ptr %call.i55, i64 640
-  %call12 = tail call fastcc i32 @virtio_scsi_set_host_notifier.argprom(ptr noundef nonnull %call.i56, i32 noundef 0)
+  %call12 = tail call fastcc i32 @virtio_scsi_set_host_notifier(ptr noundef nonnull %call.i56, i32 noundef 0)
   %cmp13.not = icmp eq i32 %call12, 0
   br i1 %cmp13.not, label %if.end15, label %for.end60.thread
 
 if.end15:                                         ; preds = %if.end11
   %event_vq = getelementptr inbounds i8, ptr %call.i55, i64 648
-  %call16 = tail call fastcc i32 @virtio_scsi_set_host_notifier.argprom(ptr noundef nonnull %call.i56, i32 noundef 1)
+  %call16 = tail call fastcc i32 @virtio_scsi_set_host_notifier(ptr noundef nonnull %call.i56, i32 noundef 1)
   %cmp17.not = icmp eq i32 %call16, 0
   br i1 %cmp17.not, label %for.cond.preheader, label %for.body55.preheader
 
@@ -162,7 +162,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.062 = phi i32 [ %inc30, %if.end28 ], [ 0, %for.cond.preheader ]
   %vq_init_count.161 = phi i32 [ %inc29, %if.end28 ], [ 2, %for.cond.preheader ]
   %add24 = add i32 %i.062, 2
-  %call25 = tail call fastcc i32 @virtio_scsi_set_host_notifier.argprom(ptr noundef %call.i56, i32 noundef %add24)
+  %call25 = tail call fastcc i32 @virtio_scsi_set_host_notifier(ptr noundef %call.i56, i32 noundef %add24)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.end28, label %fail_host_notifiers
 
@@ -274,7 +274,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 declare void @memory_region_transaction_begin() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @virtio_scsi_set_host_notifier.argprom(ptr noundef %s, i32 noundef %n) unnamed_addr #0 {
+define internal fastcc i32 @virtio_scsi_set_host_notifier(ptr noundef %s, i32 noundef %n) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #3

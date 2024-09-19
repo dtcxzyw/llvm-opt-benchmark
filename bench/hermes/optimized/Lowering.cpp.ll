@@ -745,7 +745,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i
   %add.ptr21.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %pred_.val.val.i.i.i.i, i64 %idx.ext20.i.i.i.i.i.i.i
   %13 = load ptr, ptr %add.ptr21.i.i.i.i.i.i.i, align 8, !noalias !9
   %cmp.i22.i.i.i.i.i.i.i = icmp eq ptr %call2.i.i.i.i, %13
-  br i1 %cmp.i22.i.i.i.i.i.i.i, label %"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.argprom.argprom.exit.i.i.i.i", label %if.end9.i.i.i.i.i.i.i
+  br i1 %cmp.i22.i.i.i.i.i.i.i, label %"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.exit.i.i.i.i", label %if.end9.i.i.i.i.i.i.i
 
 if.end9.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i, %if.end13.i.i.i.i.i.i.i
   %14 = phi ptr [ %15, %if.end13.i.i.i.i.i.i.i ], [ %13, %if.end.i.i.i.i.i.i.i ]
@@ -762,21 +762,21 @@ if.end13.i.i.i.i.i.i.i:                           ; preds = %if.end9.i.i.i.i.i.i
   %add.ptr.i.i.i.i9.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %pred_.val.val.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i.i
   %15 = load ptr, ptr %add.ptr.i.i.i.i9.i.i.i, align 8, !noalias !9
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %call2.i.i.i.i, %15
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.argprom.argprom.exit.i.i.i.i", label %if.end9.i.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.exit.i.i.i.i", label %if.end9.i.i.i.i.i.i.i, !llvm.loop !12
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end9.i.i.i.i.i.i.i, %if.then.i.i.i
   %idx.ext.i.i.i.i.i.i.i.i = zext i32 %pred_.val.val1.i.i.i.i to i64
   %add.ptr.i.i.i.i.i12.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %pred_.val.val.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i.i.i
-  br label %"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.argprom.argprom.exit.i.i.i.i"
+  br label %"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.exit.i.i.i.i"
 
-"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.argprom.argprom.exit.i.i.i.i": ; preds = %if.end13.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.exit.i.i.i.i": ; preds = %if.end13.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %cond.sink.i.ph.pn.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i12.i.i.i, %if.end.i.i.i.i.i.i ], [ %add.ptr21.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i9.i.i.i, %if.end13.i.i.i.i.i.i.i ]
   %idx.ext.i.i2.i.i.i.i.i = zext i32 %pred_.val.val1.i.i.i.i to i64
   %add.ptr.i.i3.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %pred_.val.val.i.i.i.i, i64 %idx.ext.i.i2.i.i.i.i.i
   %cmp.i.i4.i.not.i.i.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i.i.i.i.i, %add.ptr.i.i3.i.i.i.i.i
-  br i1 %cmp.i.i4.i.not.i.i.i.i, label %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContext11processNodeEPNS0_10DomTreeDFS9StackNodeISR_EE.argprom.exit.i.i.i", label %while.cond.preheader.i.i.i.i
+  br i1 %cmp.i.i4.i.not.i.i.i.i, label %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContext11processNodeEPNS0_10DomTreeDFS9StackNodeISR_EE.exit.i.i.i", label %while.cond.preheader.i.i.i.i
 
-while.cond.preheader.i.i.i.i:                     ; preds = %"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.argprom.argprom.exit.i.i.i.i"
+while.cond.preheader.i.i.i.i:                     ; preds = %"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.exit.i.i.i.i"
   %16 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !9
   %tobool.not.i1.i.i.i.i = icmp eq i32 %16, 0
   br i1 %tobool.not.i1.i.i.i.i, label %while.end.i.i.i.i, label %land.rhs.i.i.i.i
@@ -803,7 +803,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %while.cond.preheader.i.i.i.i
   %22 = load i8, ptr %stopAddingBasicBlock_.i.i, align 8, !noalias !9
   %tobool.i11.i.i.i = trunc i8 %22 to i1
-  br i1 %tobool.i11.i.i.i, label %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContext11processNodeEPNS0_10DomTreeDFS9StackNodeISR_EE.argprom.exit.i.i.i", label %if.then10.i.i.i.i
+  br i1 %tobool.i11.i.i.i, label %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContext11processNodeEPNS0_10DomTreeDFS9StackNodeISR_EE.exit.i.i.i", label %if.then10.i.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %while.end.i.i.i.i
   %23 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !9
@@ -826,9 +826,9 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.ex
   %28 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !9
   %add.i.i.i.i.i = add i32 %28, 1
   store i32 %add.i.i.i.i.i, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !9
-  br label %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContext11processNodeEPNS0_10DomTreeDFS9StackNodeISR_EE.argprom.exit.i.i.i"
+  br label %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContext11processNodeEPNS0_10DomTreeDFS9StackNodeISR_EE.exit.i.i.i"
 
-"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContext11processNodeEPNS0_10DomTreeDFS9StackNodeISR_EE.argprom.exit.i.i.i": ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit.i.i.i.i, %while.end.i.i.i.i, %"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.argprom.argprom.exit.i.i.i.i"
+"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContext11processNodeEPNS0_10DomTreeDFS9StackNodeISR_EE.exit.i.i.i": ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit.i.i.i.i, %while.end.i.i.i.i, %"_ZZN6hermes16LowerAllocObject13collectStoresEPNS_15AllocObjectInstERKN4llvh8DenseMapIPNS_10BasicBlockENS3_11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEENS3_12DenseMapInfoIS6_EENS3_6detail12DenseMapPairIS6_SA_EEEERKNS_13DominanceInfoEENK3$_0clES6_.exit.i.i.i.i"
   store i8 1, ptr %10, align 8, !noalias !9
   br label %if.end16thread-pre-split.i.i.i
 
@@ -889,7 +889,7 @@ if.else14.i.i.i:                                  ; preds = %"_ZN6hermes10DomTre
   store ptr %38, ptr %ref.tmp.i, align 8, !noalias !9
   br label %if.end16thread-pre-split.i.i.i
 
-if.end16thread-pre-split.i.i.i:                   ; preds = %if.else14.i.i.i, %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContext11processNodeEPNS0_10DomTreeDFS9StackNodeISR_EE.argprom.exit.i.i.i"
+if.end16thread-pre-split.i.i.i:                   ; preds = %if.else14.i.i.i, %"_ZZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_EN18OrderBlocksContext11processNodeEPNS0_10DomTreeDFS9StackNodeISR_EE.exit.i.i.i"
   %.pr.pr.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !9
   br label %if.end16.i.i.i
 
@@ -1027,13 +1027,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN4llvh20BumpPtrAl
 _ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i.i
   %53 = load ptr, ptr %Slabs.i.i.i.i.i, align 8, !noalias !9
   %cmp.i.i.i5.i.i.i.i.i = icmp eq ptr %53, %add.ptr.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i5.i.i.i.i.i, label %"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.argprom.exit", label %if.then.i.i6.i.i.i.i.i
+  br i1 %cmp.i.i.i5.i.i.i.i.i, label %"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.exit", label %if.then.i.i6.i.i.i.i.i
 
 if.then.i.i6.i.i.i.i.i:                           ; preds = %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i.i.i
   call void @free(ptr noundef %53) #13
-  br label %"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.argprom.exit"
+  br label %"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.exit"
 
-"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.argprom.exit": ; preds = %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i.i.i, %if.then.i.i6.i.i.i.i.i
+"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.exit": ; preds = %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i.i.i, %if.then.i.i6.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %ref.tmp.i)
   %add.ptr.i.i.i.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i.i8, ptr %agg.result, align 8
@@ -1048,7 +1048,7 @@ if.then.i.i6.i.i.i.i.i:                           ; preds = %_ZN4llvh11SmallVect
   %cmp.not22 = icmp eq i32 %55, 0
   br i1 %cmp.not22, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.argprom.exit"
+for.body.lr.ph:                                   ; preds = %"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.exit"
   %NumBuckets.i.i.i.i = getelementptr inbounds i8, ptr %userBasicBlockMap, i64 16
   br label %for.body
 
@@ -1145,7 +1145,7 @@ for.inc12:                                        ; preds = %_ZN4llvh23SmallVect
   %cmp.not = icmp eq ptr %incdec.ptr13, %add.ptr.i
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 
-nrvo.skipdtor:                                    ; preds = %for.inc12, %for.body11, %"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.argprom.exit"
+nrvo.skipdtor:                                    ; preds = %for.inc12, %for.body11, %"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.exit"
   %74 = load ptr, ptr %sortedBlocks, align 8
   %cmp.i.i.i18 = icmp eq ptr %74, %add.ptr.i.i.i.i.i.i1.i
   br i1 %cmp.i.i.i18, label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj4EED2Ev.exit, label %if.then.i.i
@@ -5333,8 +5333,8 @@ attributes #15 = { nounwind allocsize(0) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.argprom: %agg.result"}
-!11 = distinct !{!11, !"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_.argprom"}
+!10 = distinct !{!10, !11, !"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_: %agg.result"}
+!11 = distinct !{!11, !"_ZL22orderBlocksByDominanceIZN6hermes16LowerAllocObject13collectStoresEPNS0_15AllocObjectInstERKN4llvh8DenseMapIPNS0_10BasicBlockENS4_11SmallVectorIPNS0_23StoreNewOwnPropertyInstELj4EEENS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_SB_EEEERKNS0_13DominanceInfoEE3$_0ENS8_IS7_Lj4EEESM_S7_OT_"}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}

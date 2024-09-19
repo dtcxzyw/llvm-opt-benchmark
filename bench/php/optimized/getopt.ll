@@ -290,7 +290,7 @@ define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nocapture nounde
   br i1 %150, label %152, label %166
 
 152:                                              ; preds = %151
-  tail call fastcc void @php_opt_error.argelim(ptr noundef nonnull %1, i32 noundef %133, i32 noundef %132, i32 noundef 3, i32 noundef %5)
+  tail call fastcc void @php_opt_error(ptr noundef nonnull %1, i32 noundef %133, i32 noundef %132, i32 noundef 3, i32 noundef %5)
   br label %php_opt_error.exit
 
 153:                                              ; preds = %143
@@ -386,7 +386,7 @@ php_opt_error.exit:                               ; preds = %119, %118, %88, %86
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @php_opt_error.argelim(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 4) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @php_opt_error(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 4) %3, i32 noundef %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %31, label %6
 

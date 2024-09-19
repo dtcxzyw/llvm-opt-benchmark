@@ -28,15 +28,15 @@ entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %ms.val, null
-  br i1 %tobool.not.i, label %cond.end, label %numa_enabled.argprom.exit
+  br i1 %tobool.not.i, label %cond.end, label %numa_enabled.exit
 
-numa_enabled.argprom.exit:                        ; preds = %entry
+numa_enabled.exit:                                ; preds = %entry
   %1 = load i32, ptr %ms.val, align 8
   %spec.select = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
   br label %cond.end
 
-cond.end:                                         ; preds = %numa_enabled.argprom.exit, %entry
-  %cond = phi i32 [ 1, %entry ], [ %spec.select, %numa_enabled.argprom.exit ]
+cond.end:                                         ; preds = %numa_enabled.exit, %entry
+  %cond = phi i32 [ 1, %entry ], [ %spec.select, %numa_enabled.exit ]
   ret i32 %cond
 }
 
@@ -48,14 +48,14 @@ entry:
   %1 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %1, align 8
   %tobool.not.i = icmp eq ptr %ms.val, null
-  br i1 %tobool.not.i, label %if.then, label %numa_enabled.argprom.exit
+  br i1 %tobool.not.i, label %if.then, label %numa_enabled.exit
 
-numa_enabled.argprom.exit:                        ; preds = %entry
+numa_enabled.exit:                                ; preds = %entry
   %2 = load i32, ptr %ms.val, align 8
   %tobool2.i.not = icmp eq i32 %2, 0
   br i1 %tobool2.i.not, label %if.then, label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %numa_enabled.argprom.exit
+for.cond.preheader:                               ; preds = %numa_enabled.exit
   %cmp12.not = icmp eq i32 %0, 0
   br i1 %cmp12.not, label %for.end, label %for.body.lr.ph
 
@@ -66,7 +66,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %conv = sext i32 %socket_id to i64
   br label %for.body
 
-if.then:                                          ; preds = %entry, %numa_enabled.argprom.exit
+if.then:                                          ; preds = %entry, %numa_enabled.exit
   %tobool.not = icmp ne i32 %socket_id, 0
   %cond = sext i1 %tobool.not to i32
   br label %return
@@ -101,14 +101,14 @@ entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %ms.val, null
-  br i1 %tobool.not.i, label %if.then, label %numa_enabled.argprom.exit
+  br i1 %tobool.not.i, label %if.then, label %numa_enabled.exit
 
-numa_enabled.argprom.exit:                        ; preds = %entry
+numa_enabled.exit:                                ; preds = %entry
   %1 = load i32, ptr %ms.val, align 8
   %tobool2.i.not = icmp eq i32 %1, 0
   br i1 %tobool2.i.not, label %if.then, label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %numa_enabled.argprom.exit
+for.cond.preheader:                               ; preds = %numa_enabled.exit
   %smp1 = getelementptr inbounds i8, ptr %ms, i64 288
   %2 = load i32, ptr %smp1, align 8
   %cmp12.not = icmp eq i32 %2, 0
@@ -121,7 +121,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %conv = sext i32 %socket_id to i64
   br label %for.body
 
-if.then:                                          ; preds = %entry, %numa_enabled.argprom.exit
+if.then:                                          ; preds = %entry, %numa_enabled.exit
   %tobool.not = icmp eq i32 %socket_id, 0
   br i1 %tobool.not, label %cond.true, label %return
 
@@ -161,14 +161,14 @@ entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %ms.val, null
-  br i1 %tobool.not.i, label %if.then, label %numa_enabled.argprom.exit
+  br i1 %tobool.not.i, label %if.then, label %numa_enabled.exit
 
-numa_enabled.argprom.exit:                        ; preds = %entry
+numa_enabled.exit:                                ; preds = %entry
   %1 = load i32, ptr %ms.val, align 8
   %tobool2.i.not = icmp eq i32 %1, 0
   br i1 %tobool2.i.not, label %if.then, label %for.cond.preheader.i
 
-if.then:                                          ; preds = %entry, %numa_enabled.argprom.exit
+if.then:                                          ; preds = %entry, %numa_enabled.exit
   %tobool.not = icmp eq i32 %socket_id, 0
   br i1 %tobool.not, label %cond.true, label %return
 
@@ -177,7 +177,7 @@ cond.true:                                        ; preds = %if.then
   %2 = load i32, ptr %smp, align 8
   br label %return
 
-for.cond.preheader.i:                             ; preds = %numa_enabled.argprom.exit
+for.cond.preheader.i:                             ; preds = %numa_enabled.exit
   %smp.i = getelementptr inbounds i8, ptr %ms, i64 288
   %3 = load i32, ptr %smp.i, align 8
   %cmp12.not.i = icmp eq i32 %3, 0
@@ -246,18 +246,18 @@ entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %ms.val, null
-  br i1 %tobool.not.i, label %if.then, label %numa_enabled.argprom.exit
+  br i1 %tobool.not.i, label %if.then, label %numa_enabled.exit
 
-numa_enabled.argprom.exit:                        ; preds = %entry
+numa_enabled.exit:                                ; preds = %entry
   %1 = load i32, ptr %ms.val, align 8
   %tobool2.i.not = icmp eq i32 %1, 0
   br i1 %tobool2.i.not, label %if.then, label %for.cond.preheader.i
 
-if.then:                                          ; preds = %entry, %numa_enabled.argprom.exit
+if.then:                                          ; preds = %entry, %numa_enabled.exit
   %tobool.not = icmp eq i32 %socket_id, 0
   br label %return
 
-for.cond.preheader.i:                             ; preds = %numa_enabled.argprom.exit
+for.cond.preheader.i:                             ; preds = %numa_enabled.exit
   %smp.i = getelementptr inbounds i8, ptr %ms, i64 288
   %2 = load i32, ptr %smp.i, align 8
   %cmp12.not.i = icmp eq i32 %2, 0
@@ -341,14 +341,14 @@ entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %ms.val, null
-  br i1 %tobool.not.i, label %return, label %numa_enabled.argprom.exit
+  br i1 %tobool.not.i, label %return, label %numa_enabled.exit
 
-numa_enabled.argprom.exit:                        ; preds = %entry
+numa_enabled.exit:                                ; preds = %entry
   %1 = load i32, ptr %ms.val, align 8
   %tobool2.i.not = icmp eq i32 %1, 0
   br i1 %tobool2.i.not, label %return, label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %numa_enabled.argprom.exit
+for.cond.preheader:                               ; preds = %numa_enabled.exit
   %cmp9 = icmp slt i32 %1, 1
   %cmp110 = icmp eq i32 %socket_id, 0
   %or.cond11 = or i1 %cmp110, %cmp9
@@ -379,8 +379,8 @@ for.end.loopexit:                                 ; preds = %if.end3
   %7 = select i1 %cmp1, i64 %add, i64 0
   br label %return
 
-return:                                           ; preds = %for.cond.preheader, %for.end.loopexit, %entry, %numa_enabled.argprom.exit
-  %retval.0 = phi i64 [ 0, %numa_enabled.argprom.exit ], [ 0, %entry ], [ 0, %for.cond.preheader ], [ %7, %for.end.loopexit ]
+return:                                           ; preds = %for.cond.preheader, %for.end.loopexit, %entry, %numa_enabled.exit
+  %retval.0 = phi i64 [ 0, %numa_enabled.exit ], [ 0, %entry ], [ 0, %for.cond.preheader ], [ %7, %for.end.loopexit ]
   ret i64 %retval.0
 }
 
@@ -390,14 +390,14 @@ entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %ms.val, null
-  br i1 %tobool.not.i, label %if.then, label %numa_enabled.argprom.exit
+  br i1 %tobool.not.i, label %if.then, label %numa_enabled.exit
 
-numa_enabled.argprom.exit:                        ; preds = %entry
+numa_enabled.exit:                                ; preds = %entry
   %1 = load i32, ptr %ms.val, align 8
   %tobool2.i.not = icmp eq i32 %1, 0
   br i1 %tobool2.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %entry, %numa_enabled.argprom.exit
+if.then:                                          ; preds = %entry, %numa_enabled.exit
   %tobool.not = icmp eq i32 %socket_id, 0
   br i1 %tobool.not, label %cond.true, label %return
 
@@ -405,7 +405,7 @@ cond.true:                                        ; preds = %if.then
   %ram_size = getelementptr inbounds i8, ptr %ms, i64 144
   br label %return.sink.split
 
-if.end:                                           ; preds = %numa_enabled.argprom.exit
+if.end:                                           ; preds = %numa_enabled.exit
   %cmp = icmp slt i32 %socket_id, %1
   br i1 %cmp, label %cond.true1, label %return
 
@@ -431,20 +431,20 @@ entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %ms.val, null
-  br i1 %tobool.not.i, label %if.end, label %numa_enabled.argprom.exit
+  br i1 %tobool.not.i, label %if.end, label %numa_enabled.exit
 
-numa_enabled.argprom.exit:                        ; preds = %entry
+numa_enabled.exit:                                ; preds = %entry
   %1 = load i32, ptr %ms.val, align 8
   %tobool2.i.not = icmp eq i32 %1, 0
   br i1 %tobool2.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %numa_enabled.argprom.exit
+if.then:                                          ; preds = %numa_enabled.exit
   %fdt = getelementptr inbounds i8, ptr %ms, i64 40
   %2 = load ptr, ptr %fdt, align 8
   %call1 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %2, ptr noundef %node_name, ptr noundef nonnull @.str, i32 noundef %socket_id) #10
   br label %if.end
 
-if.end:                                           ; preds = %entry, %if.then, %numa_enabled.argprom.exit
+if.end:                                           ; preds = %entry, %if.then, %numa_enabled.exit
   ret void
 }
 
@@ -456,14 +456,14 @@ entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %ms.val, null
-  br i1 %tobool.not.i, label %if.end, label %numa_enabled.argprom.exit
+  br i1 %tobool.not.i, label %if.end, label %numa_enabled.exit
 
-numa_enabled.argprom.exit:                        ; preds = %entry
+numa_enabled.exit:                                ; preds = %entry
   %1 = load i32, ptr %ms.val, align 8
   %tobool2.i.not = icmp eq i32 %1, 0
   br i1 %tobool2.i.not, label %if.end, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %numa_enabled.argprom.exit
+land.lhs.true:                                    ; preds = %numa_enabled.exit
   %have_numa_distance = getelementptr inbounds i8, ptr %ms.val, i64 4
   %2 = load i8, ptr %have_numa_distance, align 4
   %tobool = trunc i8 %2 to i1
@@ -505,15 +505,15 @@ for.cond9.preheader:                              ; preds = %riscv_socket_count.
   %8 = tail call i32 @llvm.bswap.i32(i32 %7)
   %spec.select.i4253 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   %cmp115254 = icmp sgt i32 %spec.select.i4253, 0
-  br i1 %cmp115254, label %numa_enabled.argprom.exit.i47, label %for.cond9.preheader.for.inc33.split_crit_edge
+  br i1 %cmp115254, label %numa_enabled.exit.i47, label %for.cond9.preheader.for.inc33.split_crit_edge
 
 for.cond9.preheader.for.inc33.split_crit_edge:    ; preds = %for.cond9.preheader
   %.pre = sext i32 %spec.select.i4253 to i64
   br label %for.inc33.split
 
-numa_enabled.argprom.exit.i47:                    ; preds = %for.cond9.preheader, %numa_enabled.argprom.exit.i47
-  %9 = phi i32 [ %14, %numa_enabled.argprom.exit.i47 ], [ %6, %for.cond9.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %numa_enabled.argprom.exit.i47 ], [ 0, %for.cond9.preheader ]
+numa_enabled.exit.i47:                            ; preds = %for.cond9.preheader, %numa_enabled.exit.i47
+  %9 = phi i32 [ %14, %numa_enabled.exit.i47 ], [ %6, %for.cond9.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %numa_enabled.exit.i47 ], [ 0, %for.cond9.preheader ]
   %spec.select.i48 = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
   %mul15 = mul i32 %spec.select.i48, %7
   %10 = trunc nuw nsw i64 %indvars.iv to i32
@@ -540,11 +540,11 @@ numa_enabled.argprom.exit.i47:                    ; preds = %for.cond9.preheader
   %spec.select.i42 = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
   %15 = sext i32 %spec.select.i42 to i64
   %cmp1152 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %cmp1152, label %numa_enabled.argprom.exit.i47, label %for.inc33.split, !llvm.loop !10
+  br i1 %cmp1152, label %numa_enabled.exit.i47, label %for.inc33.split, !llvm.loop !10
 
-for.inc33.split:                                  ; preds = %numa_enabled.argprom.exit.i47, %for.cond9.preheader.for.inc33.split_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %15, %numa_enabled.argprom.exit.i47 ]
-  %16 = phi i32 [ %6, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %14, %numa_enabled.argprom.exit.i47 ]
+for.inc33.split:                                  ; preds = %numa_enabled.exit.i47, %for.cond9.preheader.for.inc33.split_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %15, %numa_enabled.exit.i47 ]
+  %16 = phi i32 [ %6, %for.cond9.preheader.for.inc33.split_crit_edge ], [ %14, %numa_enabled.exit.i47 ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %cmp = icmp slt i64 %indvars.iv.next64, %.pre-phi
   br i1 %cmp, label %for.cond9.preheader, label %for.end35, !llvm.loop !11
@@ -560,7 +560,7 @@ for.end35:                                        ; preds = %for.inc33.split, %f
   tail call void @g_free(ptr noundef %call6) #10
   br label %if.end
 
-if.end:                                           ; preds = %entry, %for.end35, %land.lhs.true, %numa_enabled.argprom.exit
+if.end:                                           ; preds = %entry, %for.end35, %land.lhs.true, %numa_enabled.exit
   ret void
 }
 

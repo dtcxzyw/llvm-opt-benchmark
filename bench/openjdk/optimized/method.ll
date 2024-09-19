@@ -2451,20 +2451,20 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.i:    ; preds = %_ZN16SymbolHandleBa
 92:                                               ; preds = %91, %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.i
   %93 = load ptr, ptr %43, align 8
   %.not8.i.i.i.i.i = icmp eq ptr %93, %44
-  br i1 %.not8.i.i.i.i.i, label %_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.argprom.exit, label %94
+  br i1 %.not8.i.i.i.i.i, label %_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.exit, label %94
 
 94:                                               ; preds = %92
   store ptr %42, ptr %41, align 8
   store ptr %44, ptr %43, align 8
   store ptr %46, ptr %45, align 8
-  br label %_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.argprom.exit
+  br label %_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.exit
 
-_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.argprom.exit: ; preds = %92, %94
+_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.exit: ; preds = %92, %94
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %95 = icmp eq ptr %.2.i, null
   br i1 %95, label %96, label %115
 
-96:                                               ; preds = %_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.argprom.exit
+96:                                               ; preds = %_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.exit
   %97 = load ptr, ptr %40, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 24
   %99 = load ptr, ptr %98, align 8
@@ -2507,8 +2507,8 @@ _ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.argprom.exit: ; preds =
   store ptr %103, ptr %102, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-115:                                              ; preds = %_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.argprom.exit, %36
-  %.0 = phi ptr [ %14, %36 ], [ %.2.i, %_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.argprom.exit ]
+115:                                              ; preds = %_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.exit, %36
+  %.0 = phi ptr [ %14, %36 ], [ %.2.i, %_ZL20find_prefixed_nativeP5KlassP6SymbolS2_P10JavaThread.exit ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %130, label %116
 

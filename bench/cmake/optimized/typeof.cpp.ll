@@ -236,7 +236,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_7booleanEE4typeEv() loca
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19TypeInfos3getEv.exit, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev.argprom()
+  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -266,7 +266,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINSt7__cxx1112basic_stringIc
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19TypeInfos3getEv.exit, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev.argprom()
+  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -296,7 +296,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_7integerEE4typeEv() loca
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19TypeInfos3getEv.exit, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev.argprom()
+  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -326,7 +326,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_6numberEE4typeEv() local
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19TypeInfos3getEv.exit, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev.argprom()
+  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -356,7 +356,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfISt13unordered_mapINSt7__cxx
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19TypeInfos3getEv.exit, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev.argprom()
+  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -386,7 +386,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfINS_3anyEE4typeEv() local_un
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19TypeInfos3getEv.exit, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev.argprom()
+  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -416,7 +416,7 @@ define dso_local noundef nonnull ptr @_ZN3dap6TypeOfIDnE4typeEv() local_unnamed_
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19TypeInfos3getEv.exit, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev.argprom()
+  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -446,7 +446,7 @@ define dso_local void @_ZN3dap8TypeInfo12deleteOnExitEPS0_(ptr noundef %0) local
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19TypeInfos3getEv.exit, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev.argprom()
+  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev()
           to label %7 unwind label %9
 
 7:                                                ; preds = %6
@@ -577,7 +577,7 @@ define dso_local void @_ZN3dap10initializeEv() local_unnamed_addr #0 personality
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19TypeInfos3getEv.exit, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev.argprom()
+  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -608,7 +608,7 @@ define dso_local void @_ZN3dap9terminateEv() local_unnamed_addr #0 personality p
   br i1 %.not.i, label %_ZN12_GLOBAL__N_19TypeInfos3getEv.exit, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev.argprom()
+  invoke fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -623,12 +623,12 @@ define dso_local void @_ZN3dap9terminateEv() local_unnamed_addr #0 personality p
   resume { ptr, i32 } %9
 
 _ZN12_GLOBAL__N_19TypeInfos3getEv.exit:           ; preds = %0, %3, %6
-  tail call fastcc void @_ZN12_GLOBAL__N_19TypeInfos7releaseEv.argprom()
+  tail call fastcc void @_ZN12_GLOBAL__N_19TypeInfos7releaseEv()
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19TypeInfos7releaseEv.argprom() unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19TypeInfos7releaseEv() unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %1 = atomicrmw sub ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 272), i64 1 seq_cst, align 8
   %2 = icmp eq i64 %1, 1
   br i1 %2, label %3, label %13
@@ -665,13 +665,13 @@ _ZSt8_DestroyIPSt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EES5_EvT_S7_R
 _ZSt8_DestroyIPSt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %3
   %11 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %4, %3 ]
   %.not.i.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_19TypeInfosD2Ev.argprom.exit, label %12
+  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_19TypeInfosD2Ev.exit, label %12
 
 12:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %11) #20
-  br label %_ZN12_GLOBAL__N_19TypeInfosD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_19TypeInfosD2Ev.exit
 
-_ZN12_GLOBAL__N_19TypeInfosD2Ev.argprom.exit:     ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i, %12
+_ZN12_GLOBAL__N_19TypeInfosD2Ev.exit:             ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i, %12
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 240)) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_3anyEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 200), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 208)) #17
@@ -693,7 +693,7 @@ _ZN12_GLOBAL__N_19TypeInfosD2Ev.argprom.exit:     ; preds = %_ZSt8_DestroyIPSt10
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory) #17
   br label %13
 
-13:                                               ; preds = %_ZN12_GLOBAL__N_19TypeInfosD2Ev.argprom.exit, %0
+13:                                               ; preds = %_ZN12_GLOBAL__N_19TypeInfosD2Ev.exit, %0
   ret void
 }
 
@@ -701,7 +701,7 @@ _ZN12_GLOBAL__N_19TypeInfosD2Ev.argprom.exit:     ; preds = %_ZSt8_DestroyIPSt10
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev.argprom() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %struct._Guard, align 8
   %2 = alloca %struct._Guard, align 8
   %3 = alloca %struct._Guard, align 8
@@ -982,7 +982,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit32.i: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %70, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 3)) #17
   store ptr null, ptr %6, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 3)
-          to label %_ZN12_GLOBAL__N_19TypeInfosC2Ev.argprom.exit unwind label %.body
+          to label %_ZN12_GLOBAL__N_19TypeInfosC2Ev.exit unwind label %.body
 
 .body:                                            ; preds = %71, %69
   %72 = landingpad { ptr, i32 }
@@ -1086,7 +1086,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit32.i: 
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %88 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.i
 
-_ZN12_GLOBAL__N_19TypeInfosC2Ev.argprom.exit:     ; preds = %71
+_ZN12_GLOBAL__N_19TypeInfosC2Ev.exit:             ; preds = %71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_3anyEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 200), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 208), ptr noundef nonnull align 8 dereferenceable(32) %17) #17
@@ -1112,7 +1112,7 @@ _ZN12_GLOBAL__N_19TypeInfosC2Ev.argprom.exit:     ; preds = %71
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  tail call fastcc void @_ZN12_GLOBAL__N_19TypeInfos7releaseEv.argprom()
+  tail call fastcc void @_ZN12_GLOBAL__N_19TypeInfos7releaseEv()
   ret void
 }
 

@@ -852,13 +852,13 @@ entry:
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i, label %if.then.i.i, label %"_ZZN5arrow20jemalloc_stats_printESt8functionIFvPKcEES2_ENK3$_0clEPvS2_.argprom.exit"
+  br i1 %tobool.not.i.i.i, label %if.then.i.i, label %"_ZZN5arrow20jemalloc_stats_printESt8functionIFvPKcEES2_ENK3$_0clEPvS2_.exit"
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #23
   unreachable
 
-"_ZZN5arrow20jemalloc_stats_printESt8functionIFvPKcEES2_ENK3$_0clEPvS2_.argprom.exit": ; preds = %entry
+"_ZZN5arrow20jemalloc_stats_printESt8functionIFvPKcEES2_ENK3$_0clEPvS2_.exit": ; preds = %entry
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %opaque, i64 24
   %1 = load ptr, ptr %_M_invoker.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(16) %opaque, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)

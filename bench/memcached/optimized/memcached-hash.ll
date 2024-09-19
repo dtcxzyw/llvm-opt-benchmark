@@ -141,7 +141,7 @@ if.end.i.i:                                       ; preds = %entry
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %mul.i.i.i = mul i64 %length, -7046029288634856825
   %cmp.i18.i.i = icmp ugt i64 %length, 32
-  br i1 %cmp.i18.i.i, label %if.then.i20.i.i, label %XXH3_len_17to128_64b.argprom.exit.i.i
+  br i1 %cmp.i18.i.i, label %if.then.i20.i.i, label %XXH3_len_17to128_64b.exit.i.i
 
 if.then.i20.i.i:                                  ; preds = %if.then2.i.i
   %cmp1.i.i.i = icmp ugt i64 %length, 64
@@ -241,9 +241,9 @@ if.end20.i.i.i:                                   ; preds = %if.end.i21.i.i, %if
   %xor1.i.i97.i.i.i = xor i128 %shr.i.i.i96.i.i.i, %mul.i.i.i95.i.i.i
   %xor.i.i98.i.i.i = trunc i128 %xor1.i.i97.i.i.i to i64
   %add29.i.i.i = add i64 %add24.i.i.i, %xor.i.i98.i.i.i
-  br label %XXH3_len_17to128_64b.argprom.exit.i.i
+  br label %XXH3_len_17to128_64b.exit.i.i
 
-XXH3_len_17to128_64b.argprom.exit.i.i:            ; preds = %if.end20.i.i.i, %if.then2.i.i
+XXH3_len_17to128_64b.exit.i.i:                    ; preds = %if.end20.i.i.i, %if.then2.i.i
   %acc.0.i.i.i = phi i64 [ %add29.i.i.i, %if.end20.i.i.i ], [ %mul.i.i.i, %if.then2.i.i ]
   %input.val.i.i.i = load i64, ptr %key, align 1, !alias.scope !8
   %13 = getelementptr i8, ptr %key, i64 8
@@ -321,7 +321,7 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %shr.i4.i.i42.i.i = lshr i64 %mul.i.i41.i.i, 32
   %xor.i5.i.i43.i.i = xor i64 %shr.i4.i.i42.i.i, %mul.i.i41.i.i
   %cmp83.not.i.i.i = icmp eq i32 %div20.i.i.i, 8
-  br i1 %cmp83.not.i.i.i, label %XXH3_len_129to240_64b.argprom.exit.i.i, label %for.body10.preheader.i.i.i
+  br i1 %cmp83.not.i.i.i, label %XXH3_len_129to240_64b.exit.i.i, label %for.body10.preheader.i.i.i
 
 for.body10.preheader.i.i.i:                       ; preds = %for.end.i.i.i
   %wide.trip.count.i.i.i = zext nneg i32 %div20.i.i.i to i64
@@ -351,9 +351,9 @@ for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %
   %add19.i44.i.i = add i64 %acc.14.i.i.i, %xor.i.i35.i.i.i
   %indvars.iv.next9.i.i.i = add nuw nsw i64 %indvars.iv8.i.i.i, 1
   %exitcond12.not.i.i.i = icmp eq i64 %indvars.iv.next9.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond12.not.i.i.i, label %XXH3_len_129to240_64b.argprom.exit.i.i, label %for.body10.i.i.i, !llvm.loop !17
+  br i1 %exitcond12.not.i.i.i, label %XXH3_len_129to240_64b.exit.i.i, label %for.body10.i.i.i, !llvm.loop !17
 
-XXH3_len_129to240_64b.argprom.exit.i.i:           ; preds = %for.body10.i.i.i, %for.end.i.i.i
+XXH3_len_129to240_64b.exit.i.i:                   ; preds = %for.body10.i.i.i, %for.end.i.i.i
   %acc.1.lcssa.i.i.i = phi i64 [ %xor.i5.i.i43.i.i, %for.end.i.i.i ], [ %add19.i44.i.i, %for.body10.i.i.i ]
   %add.ptr23.i.i.i = getelementptr inbounds i8, ptr %key, i64 %length
   %add.ptr24.i.i.i = getelementptr inbounds i8, ptr %add.ptr23.i.i.i, i64 -16
@@ -438,15 +438,15 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 XXH3_accumulate_512_sse2.exit.i.i.i.i.i:          ; preds = %for.body.i.i.i.i.i.i
   %inc.i.i.i.i.i = add nuw nsw i64 %n.02.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i, 16
-  br i1 %exitcond.not.i.i.i.i.i, label %XXH3_accumulate.argprom.exit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !49
+  br i1 %exitcond.not.i.i.i.i.i, label %XXH3_accumulate.exit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !49
 
-XXH3_accumulate.argprom.exit.i.i.i.i:             ; preds = %XXH3_accumulate_512_sse2.exit.i.i.i.i.i
+XXH3_accumulate.exit.i.i.i.i:                     ; preds = %XXH3_accumulate_512_sse2.exit.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   br label %for.body.i25.i.i.i.i
 
-for.body.i25.i.i.i.i:                             ; preds = %for.body.i25.i.i.i.i, %XXH3_accumulate.argprom.exit.i.i.i.i
-  %i.012.i.i.i.i.i = phi i64 [ 0, %XXH3_accumulate.argprom.exit.i.i.i.i ], [ %inc.i27.i.i.i.i, %for.body.i25.i.i.i.i ]
+for.body.i25.i.i.i.i:                             ; preds = %for.body.i25.i.i.i.i, %XXH3_accumulate.exit.i.i.i.i
+  %i.012.i.i.i.i.i = phi i64 [ 0, %XXH3_accumulate.exit.i.i.i.i ], [ %inc.i27.i.i.i.i, %for.body.i25.i.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds <2 x i64>, ptr %acc.i.i.i, i64 %i.012.i.i.i.i.i
   %32 = load <2 x i64>, ptr %arrayidx.i.i.i.i.i, align 16, !alias.scope !55, !noalias !56
   %33 = lshr <2 x i64> %32, <i64 47, i64 47>
@@ -479,7 +479,7 @@ for.end.i.i.i.i:                                  ; preds = %XXH3_scrambleAcc_ss
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   %cmp1.not.i.i.i.i.i = icmp eq i64 %div924.i.i.i.i, 0
-  br i1 %cmp1.not.i.i.i.i.i, label %XXH3_accumulate.argprom.exit51.i.i.i.i, label %for.body.i29.i.i.i.i
+  br i1 %cmp1.not.i.i.i.i.i, label %XXH3_accumulate.exit51.i.i.i.i, label %for.body.i29.i.i.i.i
 
 for.body.i29.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %XXH3_accumulate_512_sse2.exit.i48.i.i.i.i
   %n.02.i30.i.i.i.i = phi i64 [ %inc.i49.i.i.i.i, %XXH3_accumulate_512_sse2.exit.i48.i.i.i.i ], [ 0, %for.end.i.i.i.i ]
@@ -520,9 +520,9 @@ for.body.i.i36.i.i.i.i:                           ; preds = %for.body.i.i36.i.i.
 XXH3_accumulate_512_sse2.exit.i48.i.i.i.i:        ; preds = %for.body.i.i36.i.i.i.i
   %inc.i49.i.i.i.i = add nuw nsw i64 %n.02.i30.i.i.i.i, 1
   %exitcond.not.i50.i.i.i.i = icmp eq i64 %inc.i49.i.i.i.i, %div924.i.i.i.i
-  br i1 %exitcond.not.i50.i.i.i.i, label %XXH3_accumulate.argprom.exit51.i.i.i.i, label %for.body.i29.i.i.i.i, !llvm.loop !49
+  br i1 %exitcond.not.i50.i.i.i.i, label %XXH3_accumulate.exit51.i.i.i.i, label %for.body.i29.i.i.i.i, !llvm.loop !49
 
-XXH3_accumulate.argprom.exit51.i.i.i.i:           ; preds = %XXH3_accumulate_512_sse2.exit.i48.i.i.i.i, %for.end.i.i.i.i
+XXH3_accumulate.exit51.i.i.i.i:                   ; preds = %XXH3_accumulate_512_sse2.exit.i48.i.i.i.i, %for.end.i.i.i.i
   %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %key, i64 %length
   %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
@@ -530,8 +530,8 @@ XXH3_accumulate.argprom.exit51.i.i.i.i:           ; preds = %XXH3_accumulate_512
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   br label %for.body.i52.i.i.i.i
 
-for.body.i52.i.i.i.i:                             ; preds = %for.body.i52.i.i.i.i, %XXH3_accumulate.argprom.exit51.i.i.i.i
-  %i.09.i.i.i.i.i = phi i64 [ 0, %XXH3_accumulate.argprom.exit51.i.i.i.i ], [ %inc.i59.i.i.i.i, %for.body.i52.i.i.i.i ]
+for.body.i52.i.i.i.i:                             ; preds = %for.body.i52.i.i.i.i, %XXH3_accumulate.exit51.i.i.i.i
+  %i.09.i.i.i.i.i = phi i64 [ 0, %XXH3_accumulate.exit51.i.i.i.i ], [ %inc.i59.i.i.i.i, %for.body.i52.i.i.i.i ]
   %add.ptr.i53.i.i.i.i = getelementptr inbounds <2 x i64>, ptr %add.ptr13.i.i.i.i, i64 %i.09.i.i.i.i.i
   %50 = load <2 x i64>, ptr %add.ptr.i53.i.i.i.i, align 1, !alias.scope !85, !noalias !86
   %add.ptr1.i54.i.i.i.i = getelementptr inbounds <2 x i64>, ptr getelementptr inbounds (i8, ptr @XXH3_kSecret, i64 121), i64 %i.09.i.i.i.i.i
@@ -551,16 +551,16 @@ for.body.i52.i.i.i.i:                             ; preds = %for.body.i52.i.i.i.
   store <2 x i64> %add.i.i58.i.i.i.i, ptr %arrayidx.i57.i.i.i.i, align 16, !alias.scope !88, !noalias !89
   %inc.i59.i.i.i.i = add nuw nsw i64 %i.09.i.i.i.i.i, 1
   %exitcond.not.i60.i.i.i.i = icmp eq i64 %inc.i59.i.i.i.i, 4
-  br i1 %exitcond.not.i60.i.i.i.i, label %XXH3_hashLong_internal_loop.argprom.exit.i.i.i, label %for.body.i52.i.i.i.i, !llvm.loop !48
+  br i1 %exitcond.not.i60.i.i.i.i, label %XXH3_hashLong_internal_loop.exit.i.i.i, label %for.body.i52.i.i.i.i, !llvm.loop !48
 
-XXH3_hashLong_internal_loop.argprom.exit.i.i.i:   ; preds = %for.body.i52.i.i.i.i
+XXH3_hashLong_internal_loop.exit.i.i.i:           ; preds = %for.body.i52.i.i.i.i
   %mul.i.i5.i = mul i64 %length, -7046029288634856825
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   br label %for.body.i3.i.i.i
 
-for.body.i3.i.i.i:                                ; preds = %for.body.i3.i.i.i, %XXH3_hashLong_internal_loop.argprom.exit.i.i.i
-  %i.02.i.i.i.i = phi i64 [ 0, %XXH3_hashLong_internal_loop.argprom.exit.i.i.i ], [ %inc.i6.i.i.i, %for.body.i3.i.i.i ]
-  %result64.01.i.i.i.i = phi i64 [ %mul.i.i5.i, %XXH3_hashLong_internal_loop.argprom.exit.i.i.i ], [ %add.i.i.i7.i, %for.body.i3.i.i.i ]
+for.body.i3.i.i.i:                                ; preds = %for.body.i3.i.i.i, %XXH3_hashLong_internal_loop.exit.i.i.i
+  %i.02.i.i.i.i = phi i64 [ 0, %XXH3_hashLong_internal_loop.exit.i.i.i ], [ %inc.i6.i.i.i, %for.body.i3.i.i.i ]
+  %result64.01.i.i.i.i = phi i64 [ %mul.i.i5.i, %XXH3_hashLong_internal_loop.exit.i.i.i ], [ %add.i.i.i7.i, %for.body.i3.i.i.i ]
   %add.ptr.idx.i.i.i.i = shl nuw nsw i64 %i.02.i.i.i.i, 4
   %add.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %acc.i.i.i, i64 %add.ptr.idx.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @XXH3_kSecret, i64 11), i64 %add.ptr.idx.i.i.i.i
@@ -592,8 +592,8 @@ XXH3_hashLong_64b_default.exit.i:                 ; preds = %for.body.i3.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i.i.i), !noalias !18
   br label %XXH_INLINE_XXH3_64bits.exit
 
-XXH_INLINE_XXH3_64bits.exit:                      ; preds = %if.then.i.i.i, %if.then6.i.i.i, %if.end8.i.i.i, %if.then10.i.i.i, %XXH3_len_17to128_64b.argprom.exit.i.i, %XXH3_len_129to240_64b.argprom.exit.i.i, %XXH3_hashLong_64b_default.exit.i
-  %retval.0.i.i = phi i64 [ %xor.i5.i.i.i.i, %XXH3_len_17to128_64b.argprom.exit.i.i ], [ %xor.i5.i48.i.i.i, %XXH3_len_129to240_64b.argprom.exit.i.i ], [ %xor.i5.i.i.i.i10.i, %XXH3_hashLong_64b_default.exit.i ], [ %xor.i5.i.i.i.i.i, %if.then.i.i.i ], [ %xor.i.i.i21.i.i.i, %if.then6.i.i.i ], [ %xor5.i.i.i.i.i, %if.then10.i.i.i ], [ 3244421341483603138, %if.end8.i.i.i ]
+XXH_INLINE_XXH3_64bits.exit:                      ; preds = %if.then.i.i.i, %if.then6.i.i.i, %if.end8.i.i.i, %if.then10.i.i.i, %XXH3_len_17to128_64b.exit.i.i, %XXH3_len_129to240_64b.exit.i.i, %XXH3_hashLong_64b_default.exit.i
+  %retval.0.i.i = phi i64 [ %xor.i5.i.i.i.i, %XXH3_len_17to128_64b.exit.i.i ], [ %xor.i5.i48.i.i.i, %XXH3_len_129to240_64b.exit.i.i ], [ %xor.i5.i.i.i.i10.i, %XXH3_hashLong_64b_default.exit.i ], [ %xor.i5.i.i.i.i.i, %if.then.i.i.i ], [ %xor.i.i.i21.i.i.i, %if.then6.i.i.i ], [ %xor5.i.i.i.i.i, %if.then10.i.i.i ], [ 3244421341483603138, %if.end8.i.i.i ]
   %conv = trunc i64 %retval.0.i.i to i32
   ret i32 %conv
 }
@@ -637,14 +637,14 @@ attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"XXH3_64bits_internal.argprom: %input"}
-!7 = distinct !{!7, !"XXH3_64bits_internal.argprom"}
+!6 = distinct !{!6, !7, !"XXH3_64bits_internal: %input"}
+!7 = distinct !{!7, !"XXH3_64bits_internal"}
 !8 = !{!9, !6}
-!9 = distinct !{!9, !10, !"XXH3_len_17to128_64b.argprom: %input"}
-!10 = distinct !{!10, !"XXH3_len_17to128_64b.argprom"}
+!9 = distinct !{!9, !10, !"XXH3_len_17to128_64b: %input"}
+!10 = distinct !{!10, !"XXH3_len_17to128_64b"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"XXH3_len_129to240_64b.argprom: %input"}
-!13 = distinct !{!13, !"XXH3_len_129to240_64b.argprom"}
+!12 = distinct !{!12, !13, !"XXH3_len_129to240_64b: %input"}
+!13 = distinct !{!13, !"XXH3_len_129to240_64b"}
 !14 = !{!12, !6}
 !15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
@@ -653,19 +653,19 @@ attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !19 = distinct !{!19, !20, !"XXH3_hashLong_64b_default: %input"}
 !20 = distinct !{!20, !"XXH3_hashLong_64b_default"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"XXH3_hashLong_64b_internal.argprom: %input"}
-!23 = distinct !{!23, !"XXH3_hashLong_64b_internal.argprom"}
+!22 = distinct !{!22, !23, !"XXH3_hashLong_64b_internal: %input"}
+!23 = distinct !{!23, !"XXH3_hashLong_64b_internal"}
 !24 = !{!22, !19}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"XXH3_hashLong_internal_loop.argprom: %acc"}
-!27 = distinct !{!27, !"XXH3_hashLong_internal_loop.argprom"}
+!26 = distinct !{!26, !27, !"XXH3_hashLong_internal_loop: %acc"}
+!27 = distinct !{!27, !"XXH3_hashLong_internal_loop"}
 !28 = !{!29}
-!29 = distinct !{!29, !27, !"XXH3_hashLong_internal_loop.argprom: %input"}
+!29 = distinct !{!29, !27, !"XXH3_hashLong_internal_loop: %input"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"XXH3_accumulate.argprom: %acc"}
-!32 = distinct !{!32, !"XXH3_accumulate.argprom"}
+!31 = distinct !{!31, !32, !"XXH3_accumulate: %acc"}
+!32 = distinct !{!32, !"XXH3_accumulate"}
 !33 = !{!34}
-!34 = distinct !{!34, !32, !"XXH3_accumulate.argprom: %input"}
+!34 = distinct !{!34, !32, !"XXH3_accumulate: %input"}
 !35 = !{!31, !26}
 !36 = !{!37}
 !37 = distinct !{!37, !38, !"XXH3_accumulate_512_sse2: %acc"}
@@ -692,10 +692,10 @@ attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !58 = distinct !{!58, !16}
 !59 = distinct !{!59, !16}
 !60 = !{!61}
-!61 = distinct !{!61, !62, !"XXH3_accumulate.argprom: %acc"}
-!62 = distinct !{!62, !"XXH3_accumulate.argprom"}
+!61 = distinct !{!61, !62, !"XXH3_accumulate: %acc"}
+!62 = distinct !{!62, !"XXH3_accumulate"}
 !63 = !{!64}
-!64 = distinct !{!64, !62, !"XXH3_accumulate.argprom: %input"}
+!64 = distinct !{!64, !62, !"XXH3_accumulate: %input"}
 !65 = !{!61, !26}
 !66 = !{!67}
 !67 = distinct !{!67, !68, !"XXH3_accumulate_512_sse2: %acc"}
@@ -722,7 +722,7 @@ attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !88 = !{!79, !26}
 !89 = !{!82, !84, !29, !22, !19}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"XXH3_mergeAccs.argprom: %acc"}
-!92 = distinct !{!92, !"XXH3_mergeAccs.argprom"}
+!91 = distinct !{!91, !92, !"XXH3_mergeAccs: %acc"}
+!92 = distinct !{!92, !"XXH3_mergeAccs"}
 !93 = !{!91, !22, !19}
 !94 = distinct !{!94, !16}

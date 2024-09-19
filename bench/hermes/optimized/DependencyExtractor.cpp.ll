@@ -309,7 +309,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN6hermes12_GLOBAL__N_119DependencyExtractorC2ERNS_7ContextE.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes12_GLOBAL__N_119DependencyExtractorC2ERNS_7ContextE.exit: ; preds = %for.body.i
-  call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %extract, ptr noundef %node)
+  call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %extract, ptr noundef %node)
   %7 = load ptr, ptr %extract, align 8
   store ptr %7, ptr %agg.result, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5369,7 +5369,7 @@ if.end90:                                         ; preds = %for.body.i.i.i.i.i4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %node, null
   br i1 %tobool.not, label %return, label %if.end
@@ -5778,7 +5778,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit859: ; preds = %if.end
   %1 = getelementptr i8, ptr %node, i64 48
   %call203.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_119DependencyExtractorENS0_20ImportExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr %call203.val)
+  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_119DependencyExtractorENS0_20ImportExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr %call203.val)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit863: ; preds = %if.end
@@ -6550,14 +6550,14 @@ return:                                           ; preds = %_ZNSt7variantIJN6he
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_119DependencyExtractorENS0_20ImportExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr readonly %node.48.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_119DependencyExtractorENS0_20ImportExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr readonly %node.48.val) unnamed_addr #0 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %node.48.val, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %0, 33
   %tobool.not1.i = icmp eq ptr %node.48.val, null
   %tobool.not.i = or i1 %tobool.not1.i, %cmp.i.i.i.i.i.i.i.i
-  br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree20ImportExpressionNodeE.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree20ImportExpressionNodeE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %_value.i = getelementptr inbounds i8, ptr %node.48.val, i64 48
@@ -6566,9 +6566,9 @@ if.then.i:                                        ; preds = %entry
   %agg.tmp.sroa.2.0.call2.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS_14DependencyKindE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i, i32 noundef 3)
-  br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree20ImportExpressionNodeE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree20ImportExpressionNodeE.exit
 
-_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree20ImportExpressionNodeE.argprom.exit: ; preds = %entry, %if.then.i
+_ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree20ImportExpressionNodeE.exit: ; preds = %entry, %if.then.i
   ret void
 }
 
@@ -6828,7 +6828,7 @@ sw.bb4:                                           ; preds = %if.end
 
 for.body.i:                                       ; preds = %sw.bb4, %for.body.i
   %__begin4.sroa.0.06.i = phi ptr [ %__begin4.sroa.0.0.i, %for.body.i ], [ %__begin4.sroa.0.04.i, %sw.bb4 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i)
   %__begin4.sroa.0.0.in.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i, i64 8
   %__begin4.sroa.0.0.i = load ptr, ptr %__begin4.sroa.0.0.in.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.sroa.0.0.i, %_body.i
@@ -6879,7 +6879,7 @@ sw.bb28:                                          ; preds = %if.end
 
 for.body.i537:                                    ; preds = %sw.bb28, %for.body.i537
   %__begin4.sroa.0.06.i538 = phi ptr [ %__begin4.sroa.0.0.i540, %for.body.i537 ], [ %__begin4.sroa.0.04.i535, %sw.bb28 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i538)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i538)
   %__begin4.sroa.0.0.in.i539 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i538, i64 8
   %__begin4.sroa.0.0.i540 = load ptr, ptr %__begin4.sroa.0.0.in.i539, align 8
   %cmp.i.not.i541 = icmp eq ptr %__begin4.sroa.0.0.i540, %_body.i465
@@ -6888,25 +6888,25 @@ for.body.i537:                                    ; preds = %sw.bb28, %for.body.
 sw.bb30:                                          ; preds = %if.end
   %_label.i = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_label.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   br label %return
 
 sw.bb32:                                          ; preds = %if.end
   %_label.i466 = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %_label.i466, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   br label %return
 
 sw.bb34:                                          ; preds = %if.end
   %_argument.i = getelementptr inbounds i8, ptr %node, i64 48
   %3 = load ptr, ptr %_argument.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   br label %return
 
 sw.bb36:                                          ; preds = %if.end
   %_argument.i469 = getelementptr inbounds i8, ptr %node, i64 48
   %4 = load ptr, ptr %_argument.i469, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   br label %return
 
 sw.bb38:                                          ; preds = %if.end
@@ -6924,7 +6924,7 @@ sw.bb42:                                          ; preds = %if.end
 sw.bb44:                                          ; preds = %if.end
   %_expression.i = getelementptr inbounds i8, ptr %node, i64 48
   %5 = load ptr, ptr %_expression.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %5)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %5)
   br label %return
 
 sw.bb46:                                          ; preds = %if.end
@@ -6944,7 +6944,7 @@ sw.bb66:                                          ; preds = %if.end
 
 for.body.i546:                                    ; preds = %sw.bb66, %for.body.i546
   %__begin4.sroa.0.06.i547 = phi ptr [ %__begin4.sroa.0.0.i549, %for.body.i546 ], [ %__begin4.sroa.0.04.i544, %sw.bb66 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i547)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i547)
   %__begin4.sroa.0.0.in.i548 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i547, i64 8
   %__begin4.sroa.0.0.i549 = load ptr, ptr %__begin4.sroa.0.0.in.i548, align 8
   %cmp.i.not.i550 = icmp eq ptr %__begin4.sroa.0.0.i549, %_expressions.i
@@ -6959,7 +6959,7 @@ sw.bb68:                                          ; preds = %if.end
 
 for.body.i555:                                    ; preds = %sw.bb68, %for.body.i555
   %__begin4.sroa.0.06.i556 = phi ptr [ %__begin4.sroa.0.0.i558, %for.body.i555 ], [ %__begin4.sroa.0.04.i553, %sw.bb68 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i556)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i556)
   %__begin4.sroa.0.0.in.i557 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i556, i64 8
   %__begin4.sroa.0.0.i558 = load ptr, ptr %__begin4.sroa.0.0.in.i557, align 8
   %cmp.i.not.i559 = icmp eq ptr %__begin4.sroa.0.0.i558, %_properties.i
@@ -6974,7 +6974,7 @@ sw.bb70:                                          ; preds = %if.end
 
 for.body.i.i:                                     ; preds = %sw.bb70, %for.body.i.i
   %__begin4.i.sroa.0.09.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.07.i, %sw.bb70 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i)
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i561 = icmp eq ptr %__begin4.i.sroa.0.0.i, %_elements.i
@@ -6983,7 +6983,7 @@ for.body.i.i:                                     ; preds = %sw.bb70, %for.body.
 sw.bb72:                                          ; preds = %if.end
   %_argument.i472 = getelementptr inbounds i8, ptr %node, i64 48
   %6 = load ptr, ptr %_argument.i472, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %6)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %6)
   br label %return
 
 sw.bb74:                                          ; preds = %if.end
@@ -6993,13 +6993,13 @@ sw.bb74:                                          ; preds = %if.end
 sw.bb76:                                          ; preds = %if.end
   %_argument.i562 = getelementptr inbounds i8, ptr %node, i64 48
   %7 = load ptr, ptr %_argument.i562, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %7)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %7)
   br label %return
 
 sw.bb78:                                          ; preds = %if.end
   %_argument.i474 = getelementptr inbounds i8, ptr %node, i64 48
   %8 = load ptr, ptr %_argument.i474, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %8)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %8)
   br label %return
 
 sw.bb80:                                          ; preds = %if.end
@@ -7021,13 +7021,13 @@ sw.bb86:                                          ; preds = %if.end
 sw.bb88:                                          ; preds = %if.end
   %_argument.i563 = getelementptr inbounds i8, ptr %node, i64 56
   %9 = load ptr, ptr %_argument.i563, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %9)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %9)
   br label %return
 
 sw.bb90:                                          ; preds = %if.end
   %_argument.i564 = getelementptr inbounds i8, ptr %node, i64 56
   %10 = load ptr, ptr %_argument.i564, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %10)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %10)
   br label %return
 
 sw.bb92:                                          ; preds = %if.end
@@ -7053,19 +7053,19 @@ sw.bb100:                                         ; preds = %if.end
 sw.bb102:                                         ; preds = %if.end
   %_value.i = getelementptr inbounds i8, ptr %node, i64 48
   %11 = load ptr, ptr %_value.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %11)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %11)
   br label %return
 
 sw.bb106:                                         ; preds = %if.end
   %_typeAnnotation.i565 = getelementptr inbounds i8, ptr %node, i64 56
   %12 = load ptr, ptr %_typeAnnotation.i565, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %12)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %12)
   br label %return
 
 sw.bb108:                                         ; preds = %if.end
   %_id.i = getelementptr inbounds i8, ptr %node, i64 48
   %13 = load ptr, ptr %_id.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %13)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %13)
   br label %return
 
 sw.bb110:                                         ; preds = %if.end
@@ -7093,7 +7093,7 @@ sw.bb118:                                         ; preds = %if.end
 
 for.body.i569:                                    ; preds = %sw.bb118, %for.body.i569
   %__begin4.sroa.0.06.i570 = phi ptr [ %__begin4.sroa.0.0.i572, %for.body.i569 ], [ %__begin4.sroa.0.04.i567, %sw.bb118 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i570)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i570)
   %__begin4.sroa.0.0.in.i571 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i570, i64 8
   %__begin4.sroa.0.0.i572 = load ptr, ptr %__begin4.sroa.0.0.in.i571, align 8
   %cmp.i.not.i573 = icmp eq ptr %__begin4.sroa.0.0.i572, %_declarations.i
@@ -7128,7 +7128,7 @@ sw.bb132:                                         ; preds = %if.end
 
 for.body.i578:                                    ; preds = %sw.bb132, %for.body.i578
   %__begin4.sroa.0.06.i579 = phi ptr [ %__begin4.sroa.0.0.i581, %for.body.i578 ], [ %__begin4.sroa.0.04.i576, %sw.bb132 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i579)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i579)
   %__begin4.sroa.0.0.in.i580 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i579, i64 8
   %__begin4.sroa.0.0.i581 = load ptr, ptr %__begin4.sroa.0.0.in.i580, align 8
   %cmp.i.not.i582 = icmp eq ptr %__begin4.sroa.0.0.i581, %_body.i478
@@ -7157,13 +7157,13 @@ sw.bb142:                                         ; preds = %if.end
 sw.bb144:                                         ; preds = %if.end
   %_local.i = getelementptr inbounds i8, ptr %node, i64 48
   %14 = load ptr, ptr %_local.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %14)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %14)
   br label %return
 
 sw.bb146:                                         ; preds = %if.end
   %_local.i480 = getelementptr inbounds i8, ptr %node, i64 48
   %15 = load ptr, ptr %_local.i480, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %15)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %15)
   br label %return
 
 sw.bb148:                                         ; preds = %if.end
@@ -7181,19 +7181,19 @@ sw.bb152:                                         ; preds = %if.end
 sw.bb154:                                         ; preds = %if.end
   %_exported.i = getelementptr inbounds i8, ptr %node, i64 48
   %16 = load ptr, ptr %_exported.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %16)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %16)
   br label %return
 
 sw.bb156:                                         ; preds = %if.end
   %_declaration.i = getelementptr inbounds i8, ptr %node, i64 48
   %17 = load ptr, ptr %_declaration.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %17)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %17)
   br label %return
 
 sw.bb158:                                         ; preds = %if.end
   %_source.i = getelementptr inbounds i8, ptr %node, i64 48
   %18 = load ptr, ptr %_source.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %18)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %18)
   br label %return
 
 sw.bb160:                                         ; preds = %if.end
@@ -7207,7 +7207,7 @@ sw.bb162:                                         ; preds = %if.end
 sw.bb164:                                         ; preds = %if.end
   %_argument.i485 = getelementptr inbounds i8, ptr %node, i64 48
   %19 = load ptr, ptr %_argument.i485, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %19)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %19)
   br label %return
 
 sw.bb166:                                         ; preds = %if.end
@@ -7225,13 +7225,13 @@ sw.bb172:                                         ; preds = %if.end
 sw.bb176:                                         ; preds = %if.end
   %_expression.i487 = getelementptr inbounds i8, ptr %node, i64 48
   %20 = load ptr, ptr %_expression.i487, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %20)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %20)
   br label %return
 
 sw.bb178:                                         ; preds = %if.end
   %_expression.i489 = getelementptr inbounds i8, ptr %node, i64 48
   %21 = load ptr, ptr %_expression.i489, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %21)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %21)
   br label %return
 
 sw.bb180:                                         ; preds = %if.end
@@ -7241,7 +7241,7 @@ sw.bb180:                                         ; preds = %if.end
 sw.bb182:                                         ; preds = %if.end
   %_name.i = getelementptr inbounds i8, ptr %node, i64 48
   %22 = load ptr, ptr %_name.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %22)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %22)
   br label %return
 
 sw.bb184:                                         ; preds = %if.end
@@ -7251,7 +7251,7 @@ sw.bb184:                                         ; preds = %if.end
 sw.bb186:                                         ; preds = %if.end
   %_argument.i492 = getelementptr inbounds i8, ptr %node, i64 48
   %23 = load ptr, ptr %_argument.i492, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %23)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %23)
   br label %return
 
 sw.bb192:                                         ; preds = %if.end
@@ -7281,7 +7281,7 @@ sw.bb236:                                         ; preds = %if.end
 sw.bb238:                                         ; preds = %if.end
   %_typeAnnotation.i = getelementptr inbounds i8, ptr %node, i64 48
   %24 = load ptr, ptr %_typeAnnotation.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %24)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %24)
   br label %return
 
 sw.bb240:                                         ; preds = %if.end
@@ -7291,19 +7291,19 @@ sw.bb240:                                         ; preds = %if.end
 sw.bb242:                                         ; preds = %if.end
   %_argument.i495 = getelementptr inbounds i8, ptr %node, i64 48
   %25 = load ptr, ptr %_argument.i495, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %25)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %25)
   br label %return
 
 sw.bb244:                                         ; preds = %if.end
   %_argument.i497 = getelementptr inbounds i8, ptr %node, i64 48
   %26 = load ptr, ptr %_argument.i497, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %26)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %26)
   br label %return
 
 sw.bb246:                                         ; preds = %if.end
   %_typeAnnotation.i499 = getelementptr inbounds i8, ptr %node, i64 56
   %27 = load ptr, ptr %_typeAnnotation.i499, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %27)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %27)
   br label %return
 
 sw.bb248:                                         ; preds = %if.end
@@ -7319,7 +7319,7 @@ sw.bb250:                                         ; preds = %if.end
 
 for.body.i587:                                    ; preds = %sw.bb250, %for.body.i587
   %__begin4.sroa.0.06.i588 = phi ptr [ %__begin4.sroa.0.0.i590, %for.body.i587 ], [ %__begin4.sroa.0.04.i585, %sw.bb250 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i588)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i588)
   %__begin4.sroa.0.0.in.i589 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i588, i64 8
   %__begin4.sroa.0.0.i590 = load ptr, ptr %__begin4.sroa.0.0.in.i589, align 8
   %cmp.i.not.i591 = icmp eq ptr %__begin4.sroa.0.0.i590, %_types.i
@@ -7336,13 +7336,13 @@ sw.bb254:                                         ; preds = %if.end
 sw.bb256:                                         ; preds = %if.end
   %_elementType.i = getelementptr inbounds i8, ptr %node, i64 48
   %28 = load ptr, ptr %_elementType.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %28)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %28)
   br label %return
 
 sw.bb258:                                         ; preds = %if.end
   %_typeParameter.i = getelementptr inbounds i8, ptr %node, i64 48
   %29 = load ptr, ptr %_typeParameter.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %29)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %29)
   br label %return
 
 sw.bb260:                                         ; preds = %if.end
@@ -7354,7 +7354,7 @@ sw.bb260:                                         ; preds = %if.end
 
 for.body.i596:                                    ; preds = %sw.bb260, %for.body.i596
   %__begin4.sroa.0.06.i597 = phi ptr [ %__begin4.sroa.0.0.i599, %for.body.i596 ], [ %__begin4.sroa.0.04.i594, %sw.bb260 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i597)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i597)
   %__begin4.sroa.0.0.in.i598 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i597, i64 8
   %__begin4.sroa.0.0.i599 = load ptr, ptr %__begin4.sroa.0.0.in.i598, align 8
   %cmp.i.not.i600 = icmp eq ptr %__begin4.sroa.0.0.i599, %_types.i503
@@ -7369,7 +7369,7 @@ sw.bb262:                                         ; preds = %if.end
 
 for.body.i605:                                    ; preds = %sw.bb262, %for.body.i605
   %__begin4.sroa.0.06.i606 = phi ptr [ %__begin4.sroa.0.0.i608, %for.body.i605 ], [ %__begin4.sroa.0.04.i603, %sw.bb262 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i606)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i606)
   %__begin4.sroa.0.0.in.i607 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i606, i64 8
   %__begin4.sroa.0.0.i608 = load ptr, ptr %__begin4.sroa.0.0.in.i607, align 8
   %cmp.i.not.i609 = icmp eq ptr %__begin4.sroa.0.0.i608, %_types.i504
@@ -7438,7 +7438,7 @@ sw.bb292:                                         ; preds = %if.end
 sw.bb294:                                         ; preds = %if.end
   %_id.i505 = getelementptr inbounds i8, ptr %node, i64 48
   %30 = load ptr, ptr %_id.i505, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %30)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %30)
   br label %return
 
 sw.bb296:                                         ; preds = %if.end
@@ -7452,7 +7452,7 @@ sw.bb298:                                         ; preds = %if.end
 sw.bb300:                                         ; preds = %if.end
   %_source.i507 = getelementptr inbounds i8, ptr %node, i64 48
   %31 = load ptr, ptr %_source.i507, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %31)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %31)
   br label %return
 
 sw.bb302:                                         ; preds = %if.end
@@ -7462,7 +7462,7 @@ sw.bb302:                                         ; preds = %if.end
 sw.bb304:                                         ; preds = %if.end
   %_typeAnnotation.i509 = getelementptr inbounds i8, ptr %node, i64 48
   %32 = load ptr, ptr %_typeAnnotation.i509, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %32)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %32)
   br label %return
 
 sw.bb306:                                         ; preds = %if.end
@@ -7476,7 +7476,7 @@ sw.bb308:                                         ; preds = %if.end
 sw.bb310:                                         ; preds = %if.end
   %_typeAnnotation.i511 = getelementptr inbounds i8, ptr %node, i64 48
   %33 = load ptr, ptr %_typeAnnotation.i511, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %33)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %33)
   br label %return
 
 sw.bb312:                                         ; preds = %if.end
@@ -7490,7 +7490,7 @@ sw.bb314:                                         ; preds = %if.end
 sw.bb316:                                         ; preds = %if.end
   %_argument.i513 = getelementptr inbounds i8, ptr %node, i64 48
   %34 = load ptr, ptr %_argument.i513, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %34)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %34)
   br label %return
 
 sw.bb318:                                         ; preds = %if.end
@@ -7500,7 +7500,7 @@ sw.bb318:                                         ; preds = %if.end
 sw.bb320:                                         ; preds = %if.end
   %_value.i611 = getelementptr inbounds i8, ptr %node, i64 48
   %35 = load ptr, ptr %_value.i611, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %35)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %35)
   br label %return
 
 sw.bb322:                                         ; preds = %if.end
@@ -7520,7 +7520,7 @@ sw.bb328:                                         ; preds = %if.end
 
 for.body.i615:                                    ; preds = %sw.bb328, %for.body.i615
   %__begin4.sroa.0.06.i616 = phi ptr [ %__begin4.sroa.0.0.i618, %for.body.i615 ], [ %__begin4.sroa.0.04.i613, %sw.bb328 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i616)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i616)
   %__begin4.sroa.0.0.in.i617 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i616, i64 8
   %__begin4.sroa.0.0.i618 = load ptr, ptr %__begin4.sroa.0.0.in.i617, align 8
   %cmp.i.not.i619 = icmp eq ptr %__begin4.sroa.0.0.i618, %_params.i
@@ -7539,7 +7539,7 @@ sw.bb332:                                         ; preds = %if.end
 
 for.body.i624:                                    ; preds = %sw.bb332, %for.body.i624
   %__begin4.sroa.0.06.i625 = phi ptr [ %__begin4.sroa.0.0.i627, %for.body.i624 ], [ %__begin4.sroa.0.04.i622, %sw.bb332 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i625)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i625)
   %__begin4.sroa.0.0.in.i626 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i625, i64 8
   %__begin4.sroa.0.0.i627 = load ptr, ptr %__begin4.sroa.0.0.in.i626, align 8
   %cmp.i.not.i628 = icmp eq ptr %__begin4.sroa.0.0.i627, %_params.i515
@@ -7556,7 +7556,7 @@ sw.bb336:                                         ; preds = %if.end
 sw.bb340:                                         ; preds = %if.end
   %_value.i516 = getelementptr inbounds i8, ptr %node, i64 48
   %36 = load ptr, ptr %_value.i516, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %36)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %36)
   br label %return
 
 sw.bb342:                                         ; preds = %if.end
@@ -7572,7 +7572,7 @@ sw.bb344:                                         ; preds = %if.end
 
 for.body.i.i632:                                  ; preds = %sw.bb344, %for.body.i.i632
   %__begin4.i.sroa.0.012.i = phi ptr [ %__begin4.i.sroa.0.0.i634, %for.body.i.i632 ], [ %__begin4.i.sroa.0.010.i, %sw.bb344 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i)
   %Next.i.i.i.i633 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i, i64 8
   %__begin4.i.sroa.0.0.i634 = load ptr, ptr %Next.i.i.i.i633, align 8
   %cmp.i.not.i635 = icmp eq ptr %__begin4.i.sroa.0.0.i634, %_members.i630
@@ -7587,7 +7587,7 @@ sw.bb346:                                         ; preds = %if.end
 
 for.body.i.i640:                                  ; preds = %sw.bb346, %for.body.i.i640
   %__begin4.i.sroa.0.012.i641 = phi ptr [ %__begin4.i.sroa.0.0.i643, %for.body.i.i640 ], [ %__begin4.i.sroa.0.010.i638, %sw.bb346 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i641)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i641)
   %Next.i.i.i.i642 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i641, i64 8
   %__begin4.i.sroa.0.0.i643 = load ptr, ptr %Next.i.i.i.i642, align 8
   %cmp.i.not.i644 = icmp eq ptr %__begin4.i.sroa.0.0.i643, %_members.i636
@@ -7602,7 +7602,7 @@ sw.bb348:                                         ; preds = %if.end
 
 for.body.i.i649:                                  ; preds = %sw.bb348, %for.body.i.i649
   %__begin4.i.sroa.0.012.i650 = phi ptr [ %__begin4.i.sroa.0.0.i652, %for.body.i.i649 ], [ %__begin4.i.sroa.0.010.i647, %sw.bb348 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i650)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i650)
   %Next.i.i.i.i651 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i650, i64 8
   %__begin4.i.sroa.0.0.i652 = load ptr, ptr %Next.i.i.i.i651, align 8
   %cmp.i.not.i653 = icmp eq ptr %__begin4.i.sroa.0.0.i652, %_members.i645
@@ -7617,7 +7617,7 @@ sw.bb350:                                         ; preds = %if.end
 
 for.body.i.i658:                                  ; preds = %sw.bb350, %for.body.i.i658
   %__begin4.i.sroa.0.09.i659 = phi ptr [ %__begin4.i.sroa.0.0.i661, %for.body.i.i658 ], [ %__begin4.i.sroa.0.07.i656, %sw.bb350 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i659)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i659)
   %Next.i.i.i.i660 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09.i659, i64 8
   %__begin4.i.sroa.0.0.i661 = load ptr, ptr %Next.i.i.i.i660, align 8
   %cmp.i.not.i662 = icmp eq ptr %__begin4.i.sroa.0.0.i661, %_members.i654
@@ -7626,7 +7626,7 @@ for.body.i.i658:                                  ; preds = %sw.bb350, %for.body
 sw.bb352:                                         ; preds = %if.end
   %_id.i518 = getelementptr inbounds i8, ptr %node, i64 48
   %37 = load ptr, ptr %_id.i518, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %37)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %37)
   br label %return
 
 sw.bb354:                                         ; preds = %if.end
@@ -7648,13 +7648,13 @@ sw.bb360:                                         ; preds = %if.end
 sw.bb362:                                         ; preds = %if.end
   %_typeAnnotation.i520 = getelementptr inbounds i8, ptr %node, i64 48
   %38 = load ptr, ptr %_typeAnnotation.i520, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %38)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %38)
   br label %return
 
 sw.bb386:                                         ; preds = %if.end
   %_literal.i = getelementptr inbounds i8, ptr %node, i64 48
   %39 = load ptr, ptr %_literal.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %39)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %39)
   br label %return
 
 sw.bb388:                                         ; preds = %if.end
@@ -7664,7 +7664,7 @@ sw.bb388:                                         ; preds = %if.end
 sw.bb390:                                         ; preds = %if.end
   %_elementType.i523 = getelementptr inbounds i8, ptr %node, i64 48
   %40 = load ptr, ptr %_elementType.i523, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %40)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %40)
   br label %return
 
 sw.bb392:                                         ; preds = %if.end
@@ -7696,7 +7696,7 @@ sw.bb402:                                         ; preds = %if.end
 
 for.body.i666:                                    ; preds = %sw.bb402, %for.body.i666
   %__begin4.sroa.0.06.i667 = phi ptr [ %__begin4.sroa.0.0.i669, %for.body.i666 ], [ %__begin4.sroa.0.04.i664, %sw.bb402 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i667)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i667)
   %__begin4.sroa.0.0.in.i668 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i667, i64 8
   %__begin4.sroa.0.0.i669 = load ptr, ptr %__begin4.sroa.0.0.in.i668, align 8
   %cmp.i.not.i670 = icmp eq ptr %__begin4.sroa.0.0.i669, %_elementTypes.i
@@ -7713,7 +7713,7 @@ sw.bb406:                                         ; preds = %if.end
 sw.bb408:                                         ; preds = %if.end
   %_parameter.i = getelementptr inbounds i8, ptr %node, i64 48
   %41 = load ptr, ptr %_parameter.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %41)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %41)
   br label %return
 
 sw.bb410:                                         ; preds = %if.end
@@ -7737,7 +7737,7 @@ sw.bb416:                                         ; preds = %if.end
 
 for.body.i675:                                    ; preds = %sw.bb416, %for.body.i675
   %__begin4.sroa.0.06.i676 = phi ptr [ %__begin4.sroa.0.0.i678, %for.body.i675 ], [ %__begin4.sroa.0.04.i673, %sw.bb416 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i676)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i676)
   %__begin4.sroa.0.0.in.i677 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i676, i64 8
   %__begin4.sroa.0.0.i678 = load ptr, ptr %__begin4.sroa.0.0.in.i677, align 8
   %cmp.i.not.i679 = icmp eq ptr %__begin4.sroa.0.0.i678, %_body.i525
@@ -7764,7 +7764,7 @@ sw.bb424:                                         ; preds = %if.end
 
 for.body.i684:                                    ; preds = %sw.bb424, %for.body.i684
   %__begin4.sroa.0.06.i685 = phi ptr [ %__begin4.sroa.0.0.i687, %for.body.i684 ], [ %__begin4.sroa.0.04.i682, %sw.bb424 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i685)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i685)
   %__begin4.sroa.0.0.in.i686 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i685, i64 8
   %__begin4.sroa.0.0.i687 = load ptr, ptr %__begin4.sroa.0.0.in.i686, align 8
   %cmp.i.not.i688 = icmp eq ptr %__begin4.sroa.0.0.i687, %_body.i526
@@ -7783,7 +7783,7 @@ sw.bb428:                                         ; preds = %if.end
 
 for.body.i693:                                    ; preds = %sw.bb428, %for.body.i693
   %__begin4.sroa.0.06.i694 = phi ptr [ %__begin4.sroa.0.0.i696, %for.body.i693 ], [ %__begin4.sroa.0.04.i691, %sw.bb428 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i694)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i694)
   %__begin4.sroa.0.0.in.i695 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i694, i64 8
   %__begin4.sroa.0.0.i696 = load ptr, ptr %__begin4.sroa.0.0.in.i695, align 8
   %cmp.i.not.i697 = icmp eq ptr %__begin4.sroa.0.0.i696, %_params.i527
@@ -7802,7 +7802,7 @@ sw.bb432:                                         ; preds = %if.end
 
 for.body.i702:                                    ; preds = %sw.bb432, %for.body.i702
   %__begin4.sroa.0.06.i703 = phi ptr [ %__begin4.sroa.0.0.i705, %for.body.i702 ], [ %__begin4.sroa.0.04.i700, %sw.bb432 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i703)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i703)
   %__begin4.sroa.0.0.in.i704 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i703, i64 8
   %__begin4.sroa.0.0.i705 = load ptr, ptr %__begin4.sroa.0.0.in.i704, align 8
   %cmp.i.not.i706 = icmp eq ptr %__begin4.sroa.0.0.i705, %_params.i528
@@ -7817,7 +7817,7 @@ sw.bb434:                                         ; preds = %if.end
 
 for.body.i711:                                    ; preds = %sw.bb434, %for.body.i711
   %__begin4.sroa.0.06.i712 = phi ptr [ %__begin4.sroa.0.0.i714, %for.body.i711 ], [ %__begin4.sroa.0.04.i709, %sw.bb434 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i712)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i712)
   %__begin4.sroa.0.0.in.i713 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i712, i64 8
   %__begin4.sroa.0.0.i714 = load ptr, ptr %__begin4.sroa.0.0.in.i713, align 8
   %cmp.i.not.i715 = icmp eq ptr %__begin4.sroa.0.0.i714, %_types.i529
@@ -7832,7 +7832,7 @@ sw.bb436:                                         ; preds = %if.end
 
 for.body.i720:                                    ; preds = %sw.bb436, %for.body.i720
   %__begin4.sroa.0.06.i721 = phi ptr [ %__begin4.sroa.0.0.i723, %for.body.i720 ], [ %__begin4.sroa.0.04.i718, %sw.bb436 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i721)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i721)
   %__begin4.sroa.0.0.in.i722 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i721, i64 8
   %__begin4.sroa.0.0.i723 = load ptr, ptr %__begin4.sroa.0.0.in.i722, align 8
   %cmp.i.not.i724 = icmp eq ptr %__begin4.sroa.0.0.i723, %_types.i530
@@ -7841,7 +7841,7 @@ for.body.i720:                                    ; preds = %sw.bb436, %for.body
 sw.bb438:                                         ; preds = %if.end
   %_exprName.i = getelementptr inbounds i8, ptr %node, i64 48
   %42 = load ptr, ptr %_exprName.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %42)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %42)
   br label %return
 
 sw.bb440:                                         ; preds = %if.end
@@ -7857,7 +7857,7 @@ sw.bb442:                                         ; preds = %if.end
 
 for.body.i729:                                    ; preds = %sw.bb442, %for.body.i729
   %__begin4.sroa.0.06.i730 = phi ptr [ %__begin4.sroa.0.0.i732, %for.body.i729 ], [ %__begin4.sroa.0.04.i727, %sw.bb442 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i730)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.sroa.0.06.i730)
   %__begin4.sroa.0.0.in.i731 = getelementptr inbounds i8, ptr %__begin4.sroa.0.06.i730, i64 8
   %__begin4.sroa.0.0.i732 = load ptr, ptr %__begin4.sroa.0.0.in.i731, align 8
   %cmp.i.not.i733 = icmp eq ptr %__begin4.sroa.0.0.i732, %_members.i
@@ -7882,13 +7882,13 @@ sw.bb450:                                         ; preds = %if.end
 sw.bb458:                                         ; preds = %if.end
   %_init.i = getelementptr inbounds i8, ptr %node, i64 48
   %43 = load ptr, ptr %_init.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %43)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %43)
   br label %return
 
 sw.bb460:                                         ; preds = %if.end
   %_rest.i = getelementptr inbounds i8, ptr %node, i64 48
   %44 = load ptr, ptr %_rest.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %44)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %44)
   br label %return
 
 sw.bb462:                                         ; preds = %if.end
@@ -7904,7 +7904,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_params = getelementptr inbounds i8, ptr %node, i64 80
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.025 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -7913,7 +7913,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.027 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.025, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.027)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.027)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.027, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -7922,16 +7922,16 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %3 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %4 = load ptr, ptr %_predicate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
 }
 
@@ -7940,7 +7940,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_params = getelementptr inbounds i8, ptr %node, i64 80
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.025 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -7949,7 +7949,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.027 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.025, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.027)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.027)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.027, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -7958,16 +7958,16 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %3 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %4 = load ptr, ptr %_predicate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
 }
 
@@ -7976,7 +7976,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_params = getelementptr inbounds i8, ptr %node, i64 80
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.025 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -7985,7 +7985,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.027 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.025, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.027)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.027)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.027, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -7994,16 +7994,16 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %3 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %4 = load ptr, ptr %_predicate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
 }
 
@@ -8012,7 +8012,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_params = getelementptr inbounds i8, ptr %node, i64 80
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.016 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8021,7 +8021,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.018 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.016, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.018)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.018)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.018, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -8030,13 +8030,13 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_rendersType = getelementptr inbounds i8, ptr %node, i64 112
   %3 = load ptr, ptr %_rendersType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
 }
 
@@ -8045,10 +8045,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_test = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8057,10 +8057,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_test = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8069,13 +8069,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_right = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_body = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -8084,13 +8084,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_right = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_body = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -8099,16 +8099,16 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_init = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_test = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_update = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_update, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_body = getelementptr inbounds i8, ptr %node, i64 80
   %3 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
 }
 
@@ -8117,10 +8117,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8129,7 +8129,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_discriminant = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_discriminant, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_cases = getelementptr inbounds i8, ptr %node, i64 64
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8138,7 +8138,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_cases
@@ -8153,10 +8153,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_label = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_body = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8165,13 +8165,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_block = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_block, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_handler = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_handler, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_finalizer = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_finalizer, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -8180,13 +8180,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_consequent = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_consequent, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_alternate = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_alternate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -8195,10 +8195,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeArguments, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_arguments = getelementptr inbounds i8, ptr %node, i64 64
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8207,7 +8207,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_arguments
@@ -8222,10 +8222,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_source = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_attributes = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_attributes, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8234,10 +8234,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeArguments, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_arguments = getelementptr inbounds i8, ptr %node, i64 64
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8246,7 +8246,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_arguments
@@ -8261,10 +8261,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeArguments, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_arguments = getelementptr inbounds i8, ptr %node, i64 64
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8273,7 +8273,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_arguments
@@ -8288,10 +8288,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_right = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8300,10 +8300,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_property = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_property, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8312,10 +8312,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_property = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_property, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8324,10 +8324,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8336,13 +8336,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_alternate = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_alternate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_consequent = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_consequent, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -8351,10 +8351,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8363,10 +8363,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_meta = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_meta, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_property = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_property, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8375,7 +8375,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_consequent = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8384,7 +8384,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_consequent
@@ -8399,10 +8399,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_param = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_param, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8411,10 +8411,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_init = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_id = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8429,7 +8429,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.025 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.023, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.025)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.025)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.025, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_quasis
@@ -8444,7 +8444,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 
 for.body.i11:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i11
   %__begin4.i5.sroa.0.028 = phi ptr [ %__begin4.i5.sroa.0.0, %for.body.i11 ], [ %__begin4.i5.sroa.0.026, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i5.sroa.0.028)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i5.sroa.0.028)
   %Next.i.i.i16 = getelementptr inbounds i8, ptr %__begin4.i5.sroa.0.028, i64 8
   %__begin4.i5.sroa.0.0 = load ptr, ptr %Next.i.i.i16, align 8
   %cmp.i17.not = icmp eq ptr %__begin4.i5.sroa.0.0, %_expressions
@@ -8459,10 +8459,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_tag = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_tag, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_quasi = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_quasi, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8471,10 +8471,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8483,16 +8483,16 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_superClass = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_superClass, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_superTypeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_superTypeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   %_implements = getelementptr inbounds i8, ptr %node, i64 80
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.038 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8501,7 +8501,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.040 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.038, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.040)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.040)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.040, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_implements
@@ -8516,7 +8516,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 
 for.body.i26:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i26
   %__begin4.i20.sroa.0.043 = phi ptr [ %__begin4.i20.sroa.0.0, %for.body.i26 ], [ %__begin4.i20.sroa.0.041, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i20.sroa.0.043)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i20.sroa.0.043)
   %Next.i.i.i31 = getelementptr inbounds i8, ptr %__begin4.i20.sroa.0.043, i64 8
   %__begin4.i20.sroa.0.0 = load ptr, ptr %Next.i.i.i31, align 8
   %cmp.i32.not = icmp eq ptr %__begin4.i20.sroa.0.0, %_decorators
@@ -8525,7 +8525,7 @@ for.body.i26:                                     ; preds = %_ZN6hermes6ESTree24
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit30: ; preds = %for.body.i26, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit
   %_body = getelementptr inbounds i8, ptr %node, i64 112
   %4 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
 }
 
@@ -8534,16 +8534,16 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_superClass = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_superClass, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_superTypeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_superTypeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   %_implements = getelementptr inbounds i8, ptr %node, i64 80
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin4.i.sroa.0.038 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8552,7 +8552,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.040 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.038, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.040)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.040)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.040, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_implements
@@ -8567,7 +8567,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 
 for.body.i26:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i26
   %__begin4.i20.sroa.0.043 = phi ptr [ %__begin4.i20.sroa.0.0, %for.body.i26 ], [ %__begin4.i20.sroa.0.041, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i20.sroa.0.043)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i20.sroa.0.043)
   %Next.i.i.i31 = getelementptr inbounds i8, ptr %__begin4.i20.sroa.0.043, i64 8
   %__begin4.i20.sroa.0.0 = load ptr, ptr %Next.i.i.i31, align 8
   %cmp.i32.not = icmp eq ptr %__begin4.i20.sroa.0.0, %_decorators
@@ -8576,7 +8576,7 @@ for.body.i26:                                     ; preds = %_ZN6hermes6ESTree24
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit30: ; preds = %for.body.i26, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit
   %_body = getelementptr inbounds i8, ptr %node, i64 112
   %4 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
 }
 
@@ -8585,19 +8585,19 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
   %3 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
   %4 = load ptr, ptr %_tsModifiers, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
 }
 
@@ -8606,19 +8606,19 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
   %3 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
   %4 = load ptr, ptr %_tsModifiers, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %4)
   ret void
 }
 
@@ -8627,10 +8627,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8645,7 +8645,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.031 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.029, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.031)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.031)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.031, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_specifiers
@@ -8654,7 +8654,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_source = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_assertions = getelementptr inbounds i8, ptr %node, i64 72
   %Next.i.i.i.i24 = getelementptr inbounds i8, ptr %node, i64 80
   %__begin4.i11.sroa.0.032 = load ptr, ptr %Next.i.i.i.i24, align 8
@@ -8663,7 +8663,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 
 for.body.i17:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i17
   %__begin4.i11.sroa.0.034 = phi ptr [ %__begin4.i11.sroa.0.0, %for.body.i17 ], [ %__begin4.i11.sroa.0.032, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i11.sroa.0.034)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i11.sroa.0.034)
   %Next.i.i.i22 = getelementptr inbounds i8, ptr %__begin4.i11.sroa.0.034, i64 8
   %__begin4.i11.sroa.0.0 = load ptr, ptr %Next.i.i.i22, align 8
   %cmp.i23.not = icmp eq ptr %__begin4.i11.sroa.0.0, %_assertions
@@ -8678,10 +8678,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_imported = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_imported, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_local = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_local, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8690,10 +8690,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8702,7 +8702,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_declaration = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_specifiers = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8711,7 +8711,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_specifiers
@@ -8720,7 +8720,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_source = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8729,10 +8729,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_exported = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_exported, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_local = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_local, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8747,7 +8747,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_properties
@@ -8756,7 +8756,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   ret void
 }
 
@@ -8771,7 +8771,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_elements
@@ -8780,7 +8780,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   ret void
 }
 
@@ -8789,10 +8789,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8801,10 +8801,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_property = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_property, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8813,10 +8813,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_namespace = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_namespace, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_name = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8825,7 +8825,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_attributes = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8834,7 +8834,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_attributes
@@ -8843,7 +8843,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_typeArguments = getelementptr inbounds i8, ptr %node, i64 80
   %1 = load ptr, ptr %_typeArguments, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8852,10 +8852,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8864,7 +8864,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_openingElement = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingElement, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_children = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8873,7 +8873,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_children
@@ -8882,7 +8882,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_closingElement = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_closingElement, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8891,7 +8891,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_openingFragment = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingFragment, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_children = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -8900,7 +8900,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_children
@@ -8909,7 +8909,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_closingFragment = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_closingFragment, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8924,7 +8924,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.018 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.016, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.018)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.018)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.018, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -8933,16 +8933,16 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_this = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_this, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_returnType = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_rest = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_rest, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 88
   %3 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
 }
 
@@ -8951,10 +8951,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -8969,7 +8969,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -8978,13 +8978,13 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_rest = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_rest, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_rendersType = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_rendersType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -8993,10 +8993,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9005,10 +9005,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_qualification = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_qualification, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_id = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9017,10 +9017,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_qualification = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_qualification, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_id = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9029,10 +9029,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_label = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_label, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9041,13 +9041,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_label = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_label, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_elementType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_elementType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9056,10 +9056,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9068,10 +9068,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_indexType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9080,10 +9080,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_indexType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9092,16 +9092,16 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_checkType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_checkType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_extendsType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_extendsType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_trueType = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_trueType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_falseType = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_falseType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
 }
 
@@ -9110,10 +9110,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_parameterName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9128,7 +9128,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
@@ -9137,7 +9137,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   ret void
 }
 
@@ -9146,13 +9146,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_right = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9161,16 +9161,16 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_impltype = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_impltype, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_supertype = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_supertype, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
 }
 
@@ -9179,10 +9179,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_extends = getelementptr inbounds i8, ptr %node, i64 64
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -9191,7 +9191,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
@@ -9200,7 +9200,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9209,13 +9209,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_right = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9224,16 +9224,16 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_impltype = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_impltype, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_supertype = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_supertype, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
 }
 
@@ -9242,10 +9242,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_extends = getelementptr inbounds i8, ptr %node, i64 64
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -9254,7 +9254,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
@@ -9263,7 +9263,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9272,10 +9272,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_extends = getelementptr inbounds i8, ptr %node, i64 64
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.051 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -9284,7 +9284,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.053 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.051, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.053)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.053)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.053, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
@@ -9299,7 +9299,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 
 for.body.i23:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i23
   %__begin4.i17.sroa.0.056 = phi ptr [ %__begin4.i17.sroa.0.0, %for.body.i23 ], [ %__begin4.i17.sroa.0.054, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i17.sroa.0.056)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i17.sroa.0.056)
   %Next.i.i.i39 = getelementptr inbounds i8, ptr %__begin4.i17.sroa.0.056, i64 8
   %__begin4.i17.sroa.0.0 = load ptr, ptr %Next.i.i.i39, align 8
   %cmp.i40.not = icmp eq ptr %__begin4.i17.sroa.0.0, %_implements
@@ -9314,7 +9314,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 
 for.body.i34:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27, %for.body.i34
   %__begin4.i28.sroa.0.059 = phi ptr [ %__begin4.i28.sroa.0.0, %for.body.i34 ], [ %__begin4.i28.sroa.0.057, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i28.sroa.0.059)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i28.sroa.0.059)
   %Next.i.i.i42 = getelementptr inbounds i8, ptr %__begin4.i28.sroa.0.059, i64 8
   %__begin4.i28.sroa.0.0 = load ptr, ptr %Next.i.i.i42, align 8
   %cmp.i43.not = icmp eq ptr %__begin4.i28.sroa.0.0, %_mixins
@@ -9323,7 +9323,7 @@ for.body.i34:                                     ; preds = %_ZN6hermes6ESTree24
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38: ; preds = %for.body.i34, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27
   %_body = getelementptr inbounds i8, ptr %node, i64 112
   %2 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9332,10 +9332,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_predicate = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_predicate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9344,7 +9344,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_params = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.016 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -9353,7 +9353,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.018 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.016, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.018)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.018)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.018, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -9362,13 +9362,13 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_rest = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_rest, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_rendersType = getelementptr inbounds i8, ptr %node, i64 88
   %3 = load ptr, ptr %_rendersType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
 }
 
@@ -9377,10 +9377,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9389,7 +9389,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_declaration = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_specifiers = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -9398,7 +9398,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_specifiers
@@ -9407,7 +9407,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_source = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9416,10 +9416,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9428,10 +9428,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9440,10 +9440,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9458,7 +9458,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.069 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.067, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.069)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.069)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.069, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_properties
@@ -9473,7 +9473,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 
 for.body.i23:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i23
   %__begin4.i17.sroa.0.072 = phi ptr [ %__begin4.i17.sroa.0.0, %for.body.i23 ], [ %__begin4.i17.sroa.0.070, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i17.sroa.0.072)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i17.sroa.0.072)
   %Next.i.i.i50 = getelementptr inbounds i8, ptr %__begin4.i17.sroa.0.072, i64 8
   %__begin4.i17.sroa.0.0 = load ptr, ptr %Next.i.i.i50, align 8
   %cmp.i51.not = icmp eq ptr %__begin4.i17.sroa.0.0, %_indexers
@@ -9488,7 +9488,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 
 for.body.i34:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27, %for.body.i34
   %__begin4.i28.sroa.0.075 = phi ptr [ %__begin4.i28.sroa.0.0, %for.body.i34 ], [ %__begin4.i28.sroa.0.073, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i28.sroa.0.075)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i28.sroa.0.075)
   %Next.i.i.i53 = getelementptr inbounds i8, ptr %__begin4.i28.sroa.0.075, i64 8
   %__begin4.i28.sroa.0.0 = load ptr, ptr %Next.i.i.i53, align 8
   %cmp.i54.not = icmp eq ptr %__begin4.i28.sroa.0.0, %_callProperties
@@ -9503,7 +9503,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 
 for.body.i45:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38, %for.body.i45
   %__begin4.i39.sroa.0.078 = phi ptr [ %__begin4.i39.sroa.0.0, %for.body.i45 ], [ %__begin4.i39.sroa.0.076, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i39.sroa.0.078)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i39.sroa.0.078)
   %Next.i.i.i56 = getelementptr inbounds i8, ptr %__begin4.i39.sroa.0.078, i64 8
   %__begin4.i39.sroa.0.0 = load ptr, ptr %Next.i.i.i56, align 8
   %cmp.i57.not = icmp eq ptr %__begin4.i39.sroa.0.0, %_internalSlots
@@ -9518,13 +9518,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9533,10 +9533,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9545,16 +9545,16 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_key = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_value = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_variance = getelementptr inbounds i8, ptr %node, i64 80
   %3 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
 }
 
@@ -9563,16 +9563,16 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_keyTparam = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_keyTparam, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_propType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_propType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_sourceType = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_sourceType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
 }
 
@@ -9581,13 +9581,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_bound = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_bound, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_variance = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_default = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_default, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9596,10 +9596,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9608,10 +9608,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9620,10 +9620,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9632,10 +9632,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_init = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9644,10 +9644,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_init = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9656,10 +9656,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_init = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9668,10 +9668,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_local = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_local, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9680,10 +9680,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_indexType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9692,10 +9692,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_typeName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeName, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9704,10 +9704,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9722,7 +9722,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -9731,10 +9731,10 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9749,7 +9749,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.012)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -9758,10 +9758,10 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9770,10 +9770,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_parameterName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9782,10 +9782,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_expression = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9794,10 +9794,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9806,13 +9806,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9821,10 +9821,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_extends = getelementptr inbounds i8, ptr %node, i64 64
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -9833,7 +9833,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
@@ -9842,7 +9842,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 80
   %2 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9851,10 +9851,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9863,7 +9863,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_members = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -9872,7 +9872,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_members
@@ -9887,10 +9887,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_initializer = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_initializer, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9899,10 +9899,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9911,10 +9911,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_initializer = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_initializer, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -9923,13 +9923,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_constraint = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_constraint, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_default = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_default, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9938,16 +9938,16 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_checkType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_checkType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_extendsType = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_extendsType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_trueType = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_trueType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   %_falseType = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %_falseType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %3)
   ret void
 }
 
@@ -9956,13 +9956,13 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   %_initializer = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_initializer, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %2)
   ret void
 }
 
@@ -9971,7 +9971,7 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_params = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -9980,7 +9980,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.015)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -9989,7 +9989,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -10004,7 +10004,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_parameters
@@ -10013,7 +10013,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   ret void
 }
 
@@ -10028,7 +10028,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef nonnull %__begin4.i.sroa.0.09)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -10037,7 +10037,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   ret void
 }
 
@@ -10046,10 +10046,10 @@ define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_G
 entry:
   %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %0)
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %1)
   ret void
 }
 
@@ -10597,12 +10597,12 @@ for.body.lr.ph:                                   ; preds = %if.then2
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.argprom.exit
-  %__begin4.sroa.0.011 = phi ptr [ %__begin4.sroa.0.09, %for.body.lr.ph ], [ %__begin4.sroa.0.0, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.argprom.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.exit
+  %__begin4.sroa.0.011 = phi ptr [ %__begin4.sroa.0.09, %for.body.lr.ph ], [ %__begin4.sroa.0.0, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.exit ]
   %6 = getelementptr i8, ptr %__begin4.sroa.0.011, i64 56
   %call9.val = load ptr, ptr %6, align 8
   %tobool.not.i = icmp eq ptr %call9.val, null
-  br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
   %string.sroa.0.0.copyload.i = load ptr, ptr %call9.val, align 8
@@ -10714,24 +10714,24 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS
 
 _ZN6hermes7graphql22getGraphQLDependenciesIZNS_12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeEEUlN4llvh9StringRefEE_EEvS8_RSt6vectorIhSaIhEET_.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %captures.i.i)
-  br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.exit
 
-_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.argprom.exit: ; preds = %for.body, %_ZN6hermes7graphql22getGraphQLDependenciesIZNS_12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeEEUlN4llvh9StringRefEE_EEvS8_RSt6vectorIhSaIhEET_.exit.i
+_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.exit: ; preds = %for.body, %_ZN6hermes7graphql22getGraphQLDependenciesIZNS_12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeEEUlN4llvh9StringRefEE_EEvS8_RSt6vectorIhSaIhEET_.exit.i
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.011, i64 8
   %__begin4.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.sroa.0.0, %_quasis
   br i1 %cmp.i.not, label %if.end11.loopexit, label %for.body
 
-if.end11.loopexit:                                ; preds = %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.argprom.exit
+if.end11.loopexit:                                ; preds = %_ZN6hermes12_GLOBAL__N_119DependencyExtractor27registerGraphQLDependenciesEPNS_6ESTree19TemplateElementNodeE.exit
   %.pre = load ptr, ptr %_tag, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end11.loopexit, %if.then2, %if.then, %entry
   %21 = phi ptr [ %.pre, %if.end11.loopexit ], [ %0, %if.then2 ], [ %0, %if.then ], [ %0, %entry ]
-  call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %21)
+  call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %21)
   %_quasi.i = getelementptr inbounds i8, ptr %node, i64 56
   %22 = load ptr, ptr %_quasi.i, align 8
-  call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %22)
+  call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %22)
   ret void
 }
 
@@ -10836,7 +10836,7 @@ if.end32:                                         ; preds = %if.then28, %if.end2
 
 for.body.i.i:                                     ; preds = %if.end32, %for.body.i.i
   %__begin4.i.sroa.0.031.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.029.i, %if.end32 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.031.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.031.i)
   %Next.i.i.i.i26 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.031.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i26, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_specifiers
@@ -10844,7 +10844,7 @@ for.body.i.i:                                     ; preds = %if.end32, %for.body
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i: ; preds = %for.body.i.i, %if.end32
   %8 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %8)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %8)
   %_assertions.i = getelementptr inbounds i8, ptr %node, i64 72
   %Next.i.i.i.i24.i = getelementptr inbounds i8, ptr %node, i64 80
   %__begin4.i11.sroa.0.032.i = load ptr, ptr %Next.i.i.i.i24.i, align 8
@@ -10853,7 +10853,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtract
 
 for.body.i17.i:                                   ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i, %for.body.i17.i
   %__begin4.i11.sroa.0.034.i = phi ptr [ %__begin4.i11.sroa.0.0.i, %for.body.i17.i ], [ %__begin4.i11.sroa.0.032.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i11.sroa.0.034.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i11.sroa.0.034.i)
   %Next.i.i.i22.i = getelementptr inbounds i8, ptr %__begin4.i11.sroa.0.034.i, i64 8
   %__begin4.i11.sroa.0.0.i = load ptr, ptr %Next.i.i.i22.i, align 8
   %cmp.i23.not.i = icmp eq ptr %__begin4.i11.sroa.0.0.i, %_assertions.i
@@ -10899,7 +10899,7 @@ _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %if.end.i, %if.then
 if.end:                                           ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit, %entry
   %_declaration.i = getelementptr inbounds i8, ptr %node, i64 48
   %5 = load ptr, ptr %_declaration.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %5)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %5)
   %_specifiers.i = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.013.i = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -10908,7 +10908,7 @@ if.end:                                           ; preds = %_ZNK4llvh9StringRef
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %__begin4.i.sroa.0.015.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.013.i, %if.end ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.015.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.015.i)
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.015.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_specifiers.i
@@ -10916,7 +10916,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_26ExportNamedDeclarationNodeE.exit: ; preds = %for.body.i.i, %if.end
   %6 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %6)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %6)
   ret void
 }
 
@@ -10948,7 +10948,7 @@ _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %if.end.i, %entry
   %agg.tmp5.sroa.2.0.copyload = load i64, ptr %agg.tmp5.sroa.2.0.call6.sroa_idx, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS_14DependencyKindE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr %agg.tmp5.sroa.0.0.copyload, i64 %agg.tmp5.sroa.2.0.copyload, i32 noundef %not.)
   %5 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %5)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %5)
   ret void
 }
 
@@ -10969,7 +10969,7 @@ if.end.i:                                         ; preds = %entry
 _ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit: ; preds = %entry, %if.end.i
   %_openingElement.i = getelementptr inbounds i8, ptr %node, i64 48
   %1 = load ptr, ptr %_openingElement.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %1)
   %_children.i = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.010.i = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -10978,7 +10978,7 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit: ;
 
 for.body.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit, %for.body.i.i
   %__begin4.i.sroa.0.012.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.010.i, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.012.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.012.i)
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_children.i
@@ -10987,7 +10987,7 @@ for.body.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_14JSXElementNodeE.exit: ; preds = %for.body.i.i, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit
   %_closingElement.i = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_closingElement.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %2)
   ret void
 }
 
@@ -11008,7 +11008,7 @@ if.end.i:                                         ; preds = %entry
 _ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit: ; preds = %entry, %if.end.i
   %_openingFragment.i = getelementptr inbounds i8, ptr %node, i64 48
   %1 = load ptr, ptr %_openingFragment.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %1)
   %_children.i = getelementptr inbounds i8, ptr %node, i64 56
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin4.i.sroa.0.010.i = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -11017,7 +11017,7 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit: ;
 
 for.body.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit, %for.body.i.i
   %__begin4.i.sroa.0.012.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.010.i, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.012.i)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull %__begin4.i.sroa.0.012.i)
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_children.i
@@ -11026,7 +11026,7 @@ for.body.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_15JSXFragmentNodeE.exit: ; preds = %for.body.i.i, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23registerJSXDependenciesEv.exit
   %_closingFragment.i = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_closingFragment.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %2)
   ret void
 }
 

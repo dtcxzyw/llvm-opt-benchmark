@@ -6268,7 +6268,7 @@ if.end63:                                         ; preds = %land.lhs.true46, %l
   br i1 %or.cond2, label %if.then72, label %if.else74
 
 if.then72:                                        ; preds = %if.end63
-  %call73 = call fastcc i32 @ProcessChainBuffer.argelim(ptr noundef %ctx, ptr noundef nonnull %myBuffer.0, i64 noundef %call10, i32 noundef %type.addr.0, ptr noundef %ssl, i32 noundef %verify)
+  %call73 = call fastcc i32 @ProcessChainBuffer(ptr noundef %ctx, ptr noundef nonnull %myBuffer.0, i64 noundef %call10, i32 noundef %type.addr.0, ptr noundef %ssl, i32 noundef %verify)
   br label %if.end77
 
 if.else74:                                        ; preds = %if.end63
@@ -6300,7 +6300,7 @@ declare i32 @wc_PemGetHeaderFooter(i32 noundef, ptr noundef, ptr noundef) local_
 declare ptr @mystrnstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ProcessChainBuffer.argelim(ptr noundef %ctx, ptr noundef %buff, i64 noundef %sz, i32 noundef range(i32 24, 23) %type, ptr noundef %ssl, i32 noundef %verify) unnamed_addr #0 {
+define internal fastcc i32 @ProcessChainBuffer(ptr noundef %ctx, ptr noundef %buff, i64 noundef %sz, i32 noundef range(i32 24, 23) %type, ptr noundef %ssl, i32 noundef %verify) unnamed_addr #0 {
 entry:
   %consumed = alloca i64, align 8
   %cmp9 = icmp sgt i64 %sz, 0
@@ -8694,7 +8694,7 @@ entry:
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   %cmp4.i = icmp eq ptr %call.i, %call1.i
   %or.cond9.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i
-  br i1 %or.cond9.i, label %wolfSSL_DupSessionEx.argprom.exit, label %if.end.i
+  br i1 %or.cond9.i, label %wolfSSL_DupSessionEx.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %call1.i, i64 104
@@ -8702,14 +8702,14 @@ if.end.i:                                         ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr5.i, i64 128, i1 false)
   %0 = load i32, ptr %call1.i, align 8
   %cmp6.not.i = icmp eq i32 %0, 2
-  br i1 %cmp6.not.i, label %wolfSSL_DupSessionEx.argprom.exit, label %if.then7.i
+  br i1 %cmp6.not.i, label %wolfSSL_DupSessionEx.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i
   %cacheRow.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   store i32 -1, ptr %cacheRow.i, align 4
-  br label %wolfSSL_DupSessionEx.argprom.exit
+  br label %wolfSSL_DupSessionEx.exit
 
-wolfSSL_DupSessionEx.argprom.exit:                ; preds = %entry, %if.end.i, %if.then7.i
+wolfSSL_DupSessionEx.exit:                        ; preds = %entry, %if.end.i, %if.then7.i
   %retval.0.i = phi i32 [ 0, %entry ], [ 1, %if.then7.i ], [ 1, %if.end.i ]
   ret i32 %retval.0.i
 }

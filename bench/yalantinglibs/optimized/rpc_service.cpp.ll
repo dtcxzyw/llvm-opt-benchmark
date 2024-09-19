@@ -4164,11 +4164,11 @@ _ZNSt8functionIFSt17basic_string_viewIcSt11char_traitsIcEEvEEC2EOS5_.exit.i.i: ;
   store ptr %26, ptr %_M_invoker.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt17basic_string_viewIcSt11char_traitsIcEEvEZ21echo_with_attachment2N8coro_rpc12context_baseIvNS5_8protocol17coro_rpc_protocolEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i.i.i, label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i12
+  br i1 %tobool.not.i.i.i.i, label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.exit", label %if.then.i.i.i.i12
 
 if.then.i.i.i.i12:                                ; preds = %_ZNSt8functionIFSt17basic_string_viewIcSt11char_traitsIcEEvEEC2EOS5_.exit.i.i
   %call.i.i.i.i = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
-          to label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.argprom.exit" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.exit" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i12
   %27 = landingpad { ptr, i32 }
@@ -4177,7 +4177,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i12
   call void @__clang_call_terminate(ptr %28) #37
   unreachable
 
-"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.argprom.exit": ; preds = %if.then.i.i.i.i12, %_ZNSt8functionIFSt17basic_string_viewIcSt11char_traitsIcEEvEEC2EOS5_.exit.i.i
+"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.exit": ; preds = %if.then.i.i.i.i12, %_ZNSt8functionIFSt17basic_string_viewIcSt11char_traitsIcEEvEEC2EOS5_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @_ZN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEE12response_msgIJEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %conn)
   ret void
@@ -4185,7 +4185,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i12
 lpad17:                                           ; preds = %_ZN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEC2ERKS3_.exit
   %29 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.argprom"(ptr %19) #33
+  call fastcc void @"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev"(ptr %19) #33
   br label %common.resume
 }
 
@@ -4193,7 +4193,7 @@ lpad17:                                           ; preds = %_ZN8coro_rpc12conte
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.argprom"(ptr %this.24.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev"(ptr %this.24.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i = icmp eq ptr %this.24.val, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEED2Ev.exit, label %if.then.i.i.i.i
@@ -48371,7 +48371,7 @@ delete.notnull.i.i:                               ; preds = %sw.bb6.i
   %7 = getelementptr i8, ptr %__dest.val.i, i64 24
   %.val.i.i = load ptr, ptr %7, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.argprom.exit.i.i", label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.exit.i.i", label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %delete.notnull.i.i
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -48407,7 +48407,7 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %9, %if.then.i.i.i.i.i.i.i.i.i ], [ %12, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.exit.i.i"
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.val.i.i, align 8
@@ -48432,20 +48432,20 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %15, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %16, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.exit.i.i"
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i6.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.val.i.i, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %17 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #33
-  br label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.exit.i.i"
 
-"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.argprom.exit.i.i": ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %delete.notnull.i.i
+"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.exit.i.i": ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %delete.notnull.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #36
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.argprom.exit.i.i", %sw.bb6.i, %"_ZNSt14_Function_base13_Base_managerIZ21echo_with_attachment2N8coro_rpc12context_baseIvNS1_8protocol17coro_rpc_protocolEEEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", %sw.bb1, %sw.bb
+sw.epilog:                                        ; preds = %entry, %"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEEN3$_0D2Ev.exit.i.i", %sw.bb6.i, %"_ZNSt14_Function_base13_Base_managerIZ21echo_with_attachment2N8coro_rpc12context_baseIvNS1_8protocol17coro_rpc_protocolEEEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", %sw.bb1, %sw.bb
   ret i1 false
 }
 
@@ -72768,15 +72768,15 @@ attributes #43 = { cold noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", i32 1, i32 1048575}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZZ11hello_worldB5cxx11vENK3$_0clEv.argprom: %agg.result"}
-!8 = distinct !{!8, !"_ZZ11hello_worldB5cxx11vENK3$_0clEv.argprom"}
+!7 = distinct !{!7, !8, !"_ZZ11hello_worldB5cxx11vENK3$_0clEv: %agg.result"}
+!8 = distinct !{!8, !"_ZZ11hello_worldB5cxx11vENK3$_0clEv"}
 !9 = !{!"branch_weights", i32 1, i32 1023}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZZ7A_add_BiiENK3$_0clEv.argprom: %agg.result"}
-!12 = distinct !{!12, !"_ZZ7A_add_BiiENK3$_0clEv.argprom"}
+!11 = distinct !{!11, !12, !"_ZZ7A_add_BiiENK3$_0clEv: %agg.result"}
+!12 = distinct !{!12, !"_ZZ7A_add_BiiENK3$_0clEv"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZZ20echo_with_attachmentN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_0clEv.argprom: %agg.result"}
-!15 = distinct !{!15, !"_ZZ20echo_with_attachmentN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_0clEv.argprom"}
+!14 = distinct !{!14, !15, !"_ZZ20echo_with_attachmentN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_0clEv: %agg.result"}
+!15 = distinct !{!15, !"_ZZ20echo_with_attachmentN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_0clEv"}
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"_ZN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEE26release_request_attachmentB5cxx11Ev: %agg.result"}
 !18 = distinct !{!18, !"_ZN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEE26release_request_attachmentB5cxx11Ev"}
@@ -72787,14 +72787,14 @@ attributes #43 = { cold noreturn nounwind }
 !23 = distinct !{!23, !24, !"_ZZN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEE12response_msgIJEEEvDpOT_ENKUlvE0_clEv: %agg.result"}
 !24 = distinct !{!24, !"_ZZN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEE12response_msgIJEEEvDpOT_ENKUlvE0_clEv"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_1clEv.argprom: %agg.result"}
-!27 = distinct !{!27, !"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_1clEv.argprom"}
+!26 = distinct !{!26, !27, !"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_1clEv: %agg.result"}
+!27 = distinct !{!27, !"_ZZ21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEEENK3$_1clEv"}
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"_ZN12async_simple4coro6detail11LazyPromiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17get_return_objectEv: %agg.result"}
 !30 = distinct !{!30, !"_ZN12async_simple4coro6detail11LazyPromiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17get_return_objectEv"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8protocol17coro_rpc_protocolEEES6_ENK3$_0clEv.argprom: %agg.result"}
-!33 = distinct !{!33, !"_ZZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8protocol17coro_rpc_protocolEEES6_ENK3$_0clEv.argprom"}
+!32 = distinct !{!32, !33, !"_ZZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8protocol17coro_rpc_protocolEEES6_ENK3$_0clEv: %agg.result"}
+!33 = distinct !{!33, !"_ZZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8protocol17coro_rpc_protocolEEES6_ENK3$_0clEv"}
 !34 = !{!35}
 !35 = distinct !{!35, !36, !"_ZN12async_simple4coro6detail11LazyPromiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17get_return_objectEv: %agg.result"}
 !36 = distinct !{!36, !"_ZN12async_simple4coro6detail11LazyPromiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17get_return_objectEv"}
@@ -72805,11 +72805,11 @@ attributes #43 = { cold noreturn nounwind }
 !41 = distinct !{!41, !42, !"_ZN12async_simple4coro6detail11LazyPromiseISt4errcE17get_return_objectEv: %agg.result"}
 !42 = distinct !{!42, !"_ZN12async_simple4coro6detail11LazyPromiseISt4errcE17get_return_objectEv"}
 !43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZZN12HelloService5helloB5cxx11EvENK3$_0clEv.argprom: %agg.result"}
-!45 = distinct !{!45, !"_ZZN12HelloService5helloB5cxx11EvENK3$_0clEv.argprom"}
+!44 = distinct !{!44, !45, !"_ZZN12HelloService5helloB5cxx11EvENK3$_0clEv: %agg.result"}
+!45 = distinct !{!45, !"_ZZN12HelloService5helloB5cxx11EvENK3$_0clEv"}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8protocol17coro_rpc_protocolEEES7_ENK3$_0clEv.argprom: %agg.result"}
-!48 = distinct !{!48, !"_ZZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8protocol17coro_rpc_protocolEEES7_ENK3$_0clEv.argprom"}
+!47 = distinct !{!47, !48, !"_ZZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8protocol17coro_rpc_protocolEEES7_ENK3$_0clEv: %agg.result"}
+!48 = distinct !{!48, !"_ZZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8protocol17coro_rpc_protocolEEES7_ENK3$_0clEv"}
 !49 = !{!50, !52, !54}
 !50 = distinct !{!50, !51, !"_ZNK4asio10io_context19basic_executor_typeISaIvELm0EE7requireIS2_EENS1_IT_Lm0EEENS_9execution11allocator_tIS5_EE: %agg.result"}
 !51 = distinct !{!51, !"_ZNK4asio10io_context19basic_executor_typeISaIvELm0EE7requireIS2_EENS1_IT_Lm0EEENS_9execution11allocator_tIS5_EE"}
@@ -73601,8 +73601,8 @@ attributes #43 = { cold noreturn nounwind }
 !837 = distinct !{!837, !"_ZN12async_simple4coro4LazyIvE7coAwaitEPNS_8ExecutorE"}
 !838 = !{!836, !833, !830}
 !839 = !{!840}
-!840 = distinct !{!840, !841, !"_ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom: %agg.result"}
-!841 = distinct !{!841, !"_ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom"}
+!840 = distinct !{!840, !841, !"_ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv: %agg.result"}
+!841 = distinct !{!841, !"_ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv"}
 !842 = !{!843}
 !843 = distinct !{!843, !844, !"_ZN12async_simple4coro6detail15LazyPromiseBase15await_transformINS0_4LazyIvEEEEDaOT_: %agg.result"}
 !844 = distinct !{!844, !"_ZN12async_simple4coro6detail15LazyPromiseBase15await_transformINS0_4LazyIvEEEEDaOT_"}
@@ -73614,8 +73614,8 @@ attributes #43 = { cold noreturn nounwind }
 !850 = distinct !{!850, !"_ZN12async_simple4coro4LazyIvE7coAwaitEPNS_8ExecutorE"}
 !851 = !{!849, !846, !843}
 !852 = !{!853}
-!853 = distinct !{!853, !854, !"_ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv.argprom: %agg.result"}
-!854 = distinct !{!854, !"_ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv.argprom"}
+!853 = distinct !{!853, !854, !"_ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv: %agg.result"}
+!854 = distinct !{!854, !"_ZZ9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv"}
 !855 = !{!856}
 !856 = distinct !{!856, !857, !"_ZN12async_simple4coro6detail15LazyPromiseBase15await_transformINS0_4LazyIbEEEEDaOT_: %agg.result"}
 !857 = distinct !{!857, !"_ZN12async_simple4coro6detail15LazyPromiseBase15await_transformINS0_4LazyIbEEEEDaOT_"}
@@ -73789,8 +73789,8 @@ attributes #43 = { cold noreturn nounwind }
 !1025 = distinct !{!1025, !1026, !"_ZN12async_simple4coro6detail12ViaCoroutine12promise_type17get_return_objectEv: %agg.result"}
 !1026 = distinct !{!1026, !"_ZN12async_simple4coro6detail12ViaCoroutine12promise_type17get_return_objectEv"}
 !1027 = !{!1028}
-!1028 = distinct !{!1028, !1029, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom: %agg.result"}
-!1029 = distinct !{!1029, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.argprom"}
+!1028 = distinct !{!1028, !1029, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv: %agg.result"}
+!1029 = distinct !{!1029, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv"}
 !1030 = !{!1031}
 !1031 = distinct !{!1031, !1032, !"_ZN12async_simple4coro6detail15LazyPromiseBase15await_transformINS0_4LazyIN4asio10io_context19basic_executor_typeISaIvELm0EEEEEEEDaOT_: %agg.result"}
 !1032 = distinct !{!1032, !"_ZN12async_simple4coro6detail15LazyPromiseBase15await_transformINS0_4LazyIN4asio10io_context19basic_executor_typeISaIvELm0EEEEEEEDaOT_"}
@@ -73815,8 +73815,8 @@ attributes #43 = { cold noreturn nounwind }
 !1051 = distinct !{!1051, !"_ZN12async_simple4coro4LazyISt4errcE7coAwaitEPNS_8ExecutorE"}
 !1052 = !{!1050, !1047, !1044}
 !1053 = !{!1054}
-!1054 = distinct !{!1054, !1055, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv.argprom: %agg.result"}
-!1055 = distinct !{!1055, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv.argprom"}
+!1054 = distinct !{!1054, !1055, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv: %agg.result"}
+!1055 = distinct !{!1055, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEv"}
 !1056 = !{!1057}
 !1057 = distinct !{!1057, !1058, !"_ZN8coro_rpc15coro_rpc_client4callITnDaXadL_Z4echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEEEJS5_EEEN12async_simple4coro4LazyIN2tl8expectedIDTcl15get_return_typeIXT_EEEENS_8protocol17coro_rpc_protocol9rpc_errorEEEEEDpT0_: %agg.result"}
 !1058 = distinct !{!1058, !"_ZN8coro_rpc15coro_rpc_client4callITnDaXadL_Z4echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEEEJS5_EEEN12async_simple4coro4LazyIN2tl8expectedIDTcl15get_return_typeIXT_EEEENS_8protocol17coro_rpc_protocol9rpc_errorEEEEEDpT0_"}
@@ -73831,5 +73831,5 @@ attributes #43 = { cold noreturn nounwind }
 !1067 = distinct !{!1067, !"_ZN12async_simple4coro4LazyIN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8coro_rpc8protocol17coro_rpc_protocol9rpc_errorEEEE7coAwaitEPNS_8ExecutorE"}
 !1068 = !{!1066, !1063, !1060}
 !1069 = !{!1070}
-!1070 = distinct !{!1070, !1071, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_2clEv.argprom: %agg.result"}
-!1071 = distinct !{!1071, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_2clEv.argprom"}
+!1070 = distinct !{!1070, !1071, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_2clEv: %agg.result"}
+!1071 = distinct !{!1071, !"_ZZ11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEEENK3$_2clEv"}

@@ -1273,7 +1273,7 @@ define internal i32 @dissect_gsm_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.512) #2
-  tail call fastcc void @dissect_cmd_apdu_tvb.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
+  tail call fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %7
 }
@@ -1283,7 +1283,7 @@ define internal i32 @dissect_gsm_sim_command(ptr noundef %0, ptr noundef %1, ptr
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.512) #2
-  tail call fastcc void @dissect_cmd_apdu_tvb.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
+  tail call fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %7
 }
@@ -1386,7 +1386,7 @@ define internal i32 @dissect_gsm_sim_part(ptr noundef %0, ptr noundef %1, ptr no
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.512) #2
-  tail call fastcc void @dissect_cmd_apdu_tvb.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0)
+  tail call fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0)
   br label %.sink.split
 
 10:                                               ; preds = %4
@@ -1426,7 +1426,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cmd_apdu_tvb.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2

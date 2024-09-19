@@ -882,13 +882,13 @@ for.end:                                          ; preds = %for.inc, %trace_put
   %12 = load i16, ptr @_TRACE_PUT_QTAILQ_END_DSTATE, align 2
   %tobool4.i.i12 = icmp ne i16 %12, 0
   %or.cond.i.i13 = select i1 %tobool.i.i11, i1 %tobool4.i.i12, i1 false
-  br i1 %or.cond.i.i13, label %land.lhs.true5.i.i14, label %trace_put_qtailq_end.argprom.exit
+  br i1 %or.cond.i.i13, label %land.lhs.true5.i.i14, label %trace_put_qtailq_end.exit
 
 land.lhs.true5.i.i14:                             ; preds = %for.end
   %13 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i15 = and i32 %13, 32768
   %cmp.i.not.i.i16 = icmp eq i32 %and.i.i.i15, 0
-  br i1 %cmp.i.not.i.i16, label %trace_put_qtailq_end.argprom.exit, label %if.then.i.i17
+  br i1 %cmp.i.not.i.i16, label %trace_put_qtailq_end.exit, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %land.lhs.true5.i.i14
   %14 = load i8, ptr @message_with_timestamp, align 1
@@ -902,18 +902,18 @@ if.then8.i.i20:                                   ; preds = %if.then.i.i17
   %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %16 = load i64, ptr %tv_usec.i.i23, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i22, i64 noundef %15, i64 noundef %16, ptr noundef %10, ptr noundef nonnull @.str.32) #6
-  br label %trace_put_qtailq_end.argprom.exit
+  br label %trace_put_qtailq_end.exit
 
 if.else.i.i19:                                    ; preds = %if.then.i.i17
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef %10, ptr noundef nonnull @.str.32) #6
-  br label %trace_put_qtailq_end.argprom.exit
+  br label %trace_put_qtailq_end.exit
 
-trace_put_qtailq_end.argprom.exit:                ; preds = %for.end, %land.lhs.true5.i.i14, %if.then8.i.i20, %if.else.i.i19
+trace_put_qtailq_end.exit:                        ; preds = %for.end, %land.lhs.true5.i.i14, %if.then8.i.i20, %if.else.i.i19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i10)
   br label %return
 
-return:                                           ; preds = %for.body, %trace_put_qtailq_end.argprom.exit
-  %retval.0 = phi i32 [ 0, %trace_put_qtailq_end.argprom.exit ], [ %call, %for.body ]
+return:                                           ; preds = %for.body, %trace_put_qtailq_end.exit
+  %retval.0 = phi i32 [ 0, %trace_put_qtailq_end.exit ], [ %call, %for.body ]
   ret i32 %retval.0
 }
 

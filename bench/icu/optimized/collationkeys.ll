@@ -990,16 +990,16 @@ lpad19:                                           ; preds = %lpad19.loopexit.spl
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad19.loopexit ], [ %lpad.loopexit1529, %lpad19.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit1529.us, %lpad19.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit1532, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1534, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1537, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1539, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1542, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1544, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1547, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1549, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1552, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1554, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1559, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp1560, %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   %quaternaries.val = load ptr, ptr %quaternaries, align 8
   %quaternaries.val209 = load i8, ptr %needToRelease.i.i250, align 4
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom(ptr %quaternaries.val, i8 %quaternaries.val209) #12
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev(ptr %quaternaries.val, i8 %quaternaries.val209) #12
   %tertiaries.val215 = load ptr, ptr %tertiaries, align 8
   %tertiaries.val216 = load i8, ptr %needToRelease.i.i245, align 4
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom(ptr %tertiaries.val215, i8 %tertiaries.val216) #12
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev(ptr %tertiaries.val215, i8 %tertiaries.val216) #12
   %secondaries.val217 = load ptr, ptr %secondaries, align 8
   %secondaries.val218 = load i8, ptr %needToRelease.i.i240, align 4
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom(ptr %secondaries.val217, i8 %secondaries.val218) #12
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev(ptr %secondaries.val217, i8 %secondaries.val218) #12
   %cases.val219 = load ptr, ptr %cases, align 8
   %cases.val220 = load i8, ptr %needToRelease.i.i, align 4
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom(ptr %cases.val219, i8 %cases.val220) #12
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev(ptr %cases.val219, i8 %cases.val220) #12
   resume { ptr, i32 } %lpad.phi
 
 while.end:                                        ; preds = %invoke.cont29, %if.then27
@@ -4102,12 +4102,12 @@ cleanup.sink.split:                               ; preds = %if.end568, %if.then
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end568, %invoke.cont555, %invoke.cont536, %invoke.cont491, %invoke.cont472, %for.end, %if.then123
   %quaternaries.val211 = load i8, ptr %needToRelease.i.i250, align 4
   %tobool.not.i.i.i = icmp eq i8 %quaternaries.val211, 0
-  br i1 %tobool.not.i.i.i, label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
   %quaternaries.val210 = load ptr, ptr %quaternaries, align 8
   invoke void @uprv_free_75(ptr noundef %quaternaries.val210)
-          to label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit unwind label %terminate.lpad.i.i
+          to label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %358 = landingpad { ptr, i32 }
@@ -4116,15 +4116,15 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %359) #14
   unreachable
 
-_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit: ; preds = %cleanup, %if.then.i.i.i
+_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit:  ; preds = %cleanup, %if.then.i.i.i
   %tertiaries.val212 = load i8, ptr %needToRelease.i.i245, align 4
   %tobool.not.i.i.i1509 = icmp eq i8 %tertiaries.val212, 0
-  br i1 %tobool.not.i.i.i1509, label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit1512, label %if.then.i.i.i1510
+  br i1 %tobool.not.i.i.i1509, label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit1512, label %if.then.i.i.i1510
 
-if.then.i.i.i1510:                                ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit
+if.then.i.i.i1510:                                ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit
   %tertiaries.val = load ptr, ptr %tertiaries, align 8
   invoke void @uprv_free_75(ptr noundef %tertiaries.val)
-          to label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit1512 unwind label %terminate.lpad.i.i1511
+          to label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit1512 unwind label %terminate.lpad.i.i1511
 
 terminate.lpad.i.i1511:                           ; preds = %if.then.i.i.i1510
   %360 = landingpad { ptr, i32 }
@@ -4133,15 +4133,15 @@ terminate.lpad.i.i1511:                           ; preds = %if.then.i.i.i1510
   call void @__clang_call_terminate(ptr %361) #14
   unreachable
 
-_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit1512: ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit, %if.then.i.i.i1510
+_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit1512: ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit, %if.then.i.i.i1510
   %secondaries.val213 = load i8, ptr %needToRelease.i.i240, align 4
   %tobool.not.i.i.i1513 = icmp eq i8 %secondaries.val213, 0
-  br i1 %tobool.not.i.i.i1513, label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit1516, label %if.then.i.i.i1514
+  br i1 %tobool.not.i.i.i1513, label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit1516, label %if.then.i.i.i1514
 
-if.then.i.i.i1514:                                ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit1512
+if.then.i.i.i1514:                                ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit1512
   %secondaries.val = load ptr, ptr %secondaries, align 8
   invoke void @uprv_free_75(ptr noundef %secondaries.val)
-          to label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit1516 unwind label %terminate.lpad.i.i1515
+          to label %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit1516 unwind label %terminate.lpad.i.i1515
 
 terminate.lpad.i.i1515:                           ; preds = %if.then.i.i.i1514
   %362 = landingpad { ptr, i32 }
@@ -4150,12 +4150,12 @@ terminate.lpad.i.i1515:                           ; preds = %if.then.i.i.i1514
   call void @__clang_call_terminate(ptr %363) #14
   unreachable
 
-_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit1516: ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit1512, %if.then.i.i.i1514
+_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit1516: ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit1512, %if.then.i.i.i1514
   %cases.val214 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i.i1517 = icmp eq i8 %cases.val214, 0
   br i1 %tobool.not.i.i.i1517, label %cleanup.cont, label %if.then.i.i.i1518
 
-if.then.i.i.i1518:                                ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit1516
+if.then.i.i.i1518:                                ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit1516
   %cases.val = load ptr, ptr %cases, align 8
   invoke void @uprv_free_75(ptr noundef %cases.val)
           to label %cleanup.cont unwind label %terminate.lpad.i.i1519
@@ -4167,7 +4167,7 @@ terminate.lpad.i.i1519:                           ; preds = %if.then.i.i.i1518
   call void @__clang_call_terminate(ptr %365) #14
   unreachable
 
-cleanup.cont:                                     ; preds = %if.then.i.i.i1518, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom.exit1516, %if.end, %entry
+cleanup.cont:                                     ; preds = %if.then.i.i.i1518, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.exit1516, %if.end, %entry
   ret void
 }
 
@@ -4456,7 +4456,7 @@ if.end8:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev.argprom(ptr %this.0.val, i8 %this.12.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_112SortKeyLevelD2Ev(ptr %this.0.val, i8 %this.12.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not.i.i = icmp eq i8 %this.12.val, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIhLi40EED2Ev.exit, label %if.then.i.i

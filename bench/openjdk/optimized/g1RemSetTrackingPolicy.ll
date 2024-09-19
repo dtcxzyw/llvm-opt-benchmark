@@ -419,7 +419,7 @@ _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %7, %17
   %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 5
-  br i1 %21, label %22, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.argprom.exit"
+  br i1 %21, label %22, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.exit"
 
 22:                                               ; preds = %_ZNK7oopDesc12is_typeArrayEv.exit
   %23 = getelementptr inbounds i8, ptr %1, i64 40
@@ -427,7 +427,7 @@ _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %7, %17
   %25 = getelementptr inbounds i8, ptr %24, i64 80
   %26 = load i32, ptr %25, align 8
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %27, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.argprom.exit"
+  br i1 %.not, label %27, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.exit"
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -436,8 +436,8 @@ _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %7, %17
   %31 = getelementptr inbounds i8, ptr %28, i64 496
   br label %32
 
-32:                                               ; preds = %"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i", %27
-  %.0.i = phi ptr [ %1, %27 ], [ %.0.i.i3, %"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i" ]
+32:                                               ; preds = %"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.exit.i", %27
+  %.0.i = phi ptr [ %1, %27 ], [ %.0.i.i3, %"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.exit.i" ]
   %33 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, 1
@@ -481,7 +481,7 @@ _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i: ; pr
   %60 = getelementptr inbounds i8, ptr %56, i64 80
   %61 = load i32, ptr %60, align 8
   %.not.i.i.i = icmp eq i32 %61, 0
-  br i1 %.not.i.i.i, label %"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i", label %62
+  br i1 %.not.i.i.i, label %"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.exit.i", label %62
 
 62:                                               ; preds = %59, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i
   %63 = load ptr, ptr @g_assert_poison, align 8
@@ -494,14 +494,14 @@ _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i: ; pr
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.11, i32 noundef 48, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef %68) #9
   unreachable
 
-"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i": ; preds = %59
+"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.exit.i": ; preds = %59
   tail call void @_ZN18G1HeapRegionRemSet9clear_fccEv(ptr noundef nonnull align 8 dereferenceable(84) %56) #10
   store i32 1, ptr %60, align 8
   %.not.i = icmp eq ptr %.0.i.i3, null
-  br i1 %.not.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.argprom.exit", label %32, !llvm.loop !7
+  br i1 %.not.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.exit", label %32, !llvm.loop !7
 
-"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.argprom.exit": ; preds = %"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i", %22, %_ZNK7oopDesc12is_typeArrayEv.exit
-  %.0 = phi i1 [ false, %22 ], [ false, %_ZNK7oopDesc12is_typeArrayEv.exit ], [ true, %"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.argprom.exit.i" ]
+"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.exit": ; preds = %"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.exit.i", %22, %_ZNK7oopDesc12is_typeArrayEv.exit
+  %.0 = phi i1 [ false, %22 ], [ false, %_ZNK7oopDesc12is_typeArrayEv.exit ], [ true, %"_ZZN22G1RemSetTrackingPolicy31update_humongous_before_rebuildEP12G1HeapRegionENK3$_0clES1_.exit.i" ]
   ret i1 %.0
 }
 
@@ -598,7 +598,7 @@ define hidden void @_ZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapR
   %26 = load i64, ptr %22, align 8
   %27 = trunc i64 %26 to i32
   %28 = icmp ult i32 %25, %27
-  br i1 %28, label %.lr.ph.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.argprom.exit"
+  br i1 %28, label %.lr.ph.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.exit"
 
 .lr.ph.i:                                         ; preds = %19, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i
   %29 = phi i32 [ %48, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i ], [ %25, %19 ]
@@ -613,7 +613,7 @@ define hidden void @_ZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapR
   %36 = shl nuw i64 1, %35
   %37 = and i64 %34, %36
   %.not.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.argprom.exit", label %38
+  br i1 %.not.i.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.exit", label %38
 
 38:                                               ; preds = %.lr.ph.i
   %39 = load ptr, ptr %21, align 8
@@ -622,7 +622,7 @@ define hidden void @_ZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapR
   %42 = getelementptr inbounds i8, ptr %41, i64 52
   %43 = load volatile i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 5
-  br i1 %44, label %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.argprom.exit"
+  br i1 %44, label %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.exit"
 
 _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i: ; preds = %38
   %45 = getelementptr i8, ptr %.04.i, i64 40
@@ -634,16 +634,16 @@ _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i: ; pr
   %49 = load i64, ptr %22, align 8
   %50 = trunc i64 %49 to i32
   %51 = icmp ult i32 %48, %50
-  br i1 %51, label %.lr.ph.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.argprom.exit", !llvm.loop !9
+  br i1 %51, label %.lr.ph.i, label %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.exit", !llvm.loop !9
 
-"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.argprom.exit": ; preds = %.lr.ph.i, %38, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i, %19
+"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.exit": ; preds = %.lr.ph.i, %38, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i, %19
   %.0.lcssa.i = phi ptr [ %1, %19 ], [ %.04.i, %38 ], [ %41, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i ], [ %.04.i, %.lr.ph.i ]
   %52 = getelementptr i8, ptr %.0.lcssa.i, i64 40
   %.0.val2.i = load ptr, ptr %52, align 8
   tail call void @_ZN18G1HeapRegionRemSet5clearEbb(ptr noundef nonnull align 8 dereferenceable(84) %.0.val2.i, i1 noundef zeroext true, i1 noundef zeroext false) #10
   br label %53
 
-53:                                               ; preds = %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.argprom.exit", %17, %13
+53:                                               ; preds = %"_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN22G1RemSetTrackingPolicy20update_after_rebuildEP12G1HeapRegionE3$_0EEvS3_RKT_.exit", %17, %13
   %54 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 1320
   %56 = load ptr, ptr %55, align 8

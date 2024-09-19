@@ -209,9 +209,9 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i: ; pre
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i, %arraydestroy.body.i.i
   store ptr null, ptr %arraydestroy.element.i.i, align 8
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %arg_convertibles.i.i
-  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit, label %arraydestroy.body.i.i
+  br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit, label %arraydestroy.body.i.i
 
-_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
+_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
   %data_.i = getelementptr inbounds i8, ptr %trace_event_unique_tracer34, i64 8
   store ptr %trace_event_unique_category_group_enabled34.0, ptr %data_.i, align 8
@@ -222,7 +222,7 @@ _ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit: ; preds = %_ZNSt10u
   store ptr %data_.i, ptr %trace_event_unique_tracer34, align 8
   br label %if.end5
 
-if.end5:                                          ; preds = %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argprom.exit, %if.end
+if.end5:                                          ; preds = %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit, %if.end
   %destroy_async_id_list_.i = getelementptr inbounds i8, ptr %env, i64 1416
   %9 = load ptr, ptr %destroy_async_id_list_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %env, i64 1424
@@ -2338,10 +2338,10 @@ attributes #15 = { builtin nounwind allocsize(0) }
 !9 = distinct !{!9, !"_ZSt11make_sharedIN4node20AsyncCleanupHookInfoEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_"}
 !10 = !{!8}
 !11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_16RequestInterruptES3_PFvPvES6_E3$_0EEJS9_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!13 = distinct !{!13, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_16RequestInterruptES3_PFvPvES6_E3$_0EEJS9_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!14 = distinct !{!14, !15, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_16RequestInterruptES2_PFvPvES5_E3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISA_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!15 = distinct !{!15, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_16RequestInterruptES2_PFvPvES5_E3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISA_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!12 = distinct !{!12, !13, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_16RequestInterruptES3_PFvPvES6_E3$_0EEJS9_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!13 = distinct !{!13, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_16RequestInterruptES3_PFvPvES6_E3$_0EEJS9_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!14 = distinct !{!14, !15, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_16RequestInterruptES2_PFvPvES5_E3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISA_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!15 = distinct !{!15, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_16RequestInterruptES2_PFvPvES5_E3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISA_EEOT_NS_13CallbackFlags5FlagsE"}
 !16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = distinct !{!18, !17}

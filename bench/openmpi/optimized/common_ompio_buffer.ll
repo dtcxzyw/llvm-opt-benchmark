@@ -59,21 +59,21 @@ define range(i32 -30, 1) i32 @mca_common_ompio_buffer_alloc_init() local_unnamed
 3:                                                ; preds = %0
   %4 = atomicrmw volatile add ptr @mca_common_ompio_buffer_init, i32 1 monotonic, align 4
   %5 = add i32 %4, 1
-  br label %opal_thread_add_fetch_32.argprom.exit
+  br label %opal_thread_add_fetch_32.exit
 
 6:                                                ; preds = %0
   %7 = load volatile i32, ptr @mca_common_ompio_buffer_init, align 4
   %8 = add nsw i32 %7, 1
   store volatile i32 %8, ptr @mca_common_ompio_buffer_init, align 4
   %9 = load volatile i32, ptr @mca_common_ompio_buffer_init, align 4
-  br label %opal_thread_add_fetch_32.argprom.exit
+  br label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.argprom.exit:            ; preds = %3, %6
+opal_thread_add_fetch_32.exit:                    ; preds = %3, %6
   %.0.i = phi i32 [ %5, %3 ], [ %9, %6 ]
   %10 = icmp sgt i32 %.0.i, 1
   br i1 %10, label %44, label %11
 
-11:                                               ; preds = %opal_thread_add_fetch_32.argprom.exit
+11:                                               ; preds = %opal_thread_add_fetch_32.exit
   %12 = load i32, ptr @opal_class_init_epoch, align 4
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %12, %13
@@ -89,7 +89,7 @@ opal_thread_add_fetch_32.argprom.exit:            ; preds = %3, %6
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %17 = load ptr, ptr %16, align 8
   %.not1.i = icmp eq ptr %17, null
-  br i1 %.not1.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
   %18 = phi ptr [ %20, %.lr.ph.i ], [ %17, %15 ]
@@ -98,18 +98,18 @@ opal_thread_add_fetch_32.argprom.exit:            ; preds = %3, %6
   %19 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
-opal_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %15
+opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
   %21 = load i8, ptr @opal_uses_threads, align 1
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %25
 
-23:                                               ; preds = %opal_obj_run_constructors.argprom.exit
+23:                                               ; preds = %opal_obj_run_constructors.exit
   %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_common_ompio_buffer_mutex, i64 16)) #5
   br label %25
 
-25:                                               ; preds = %opal_obj_run_constructors.argprom.exit, %23
+25:                                               ; preds = %opal_obj_run_constructors.exit, %23
   %26 = tail call ptr @mca_allocator_component_lookup(ptr noundef nonnull @.str) #5
   store ptr %26, ptr @mca_common_ompio_allocator_component, align 8
   %27 = icmp eq ptr %26, null
@@ -145,8 +145,8 @@ opal_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %15
   %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_common_ompio_buffer_mutex, i64 16)) #5
   br label %44
 
-44:                                               ; preds = %.sink.split, %39, %36, %28, %opal_thread_add_fetch_32.argprom.exit
-  %.0 = phi i32 [ 0, %opal_thread_add_fetch_32.argprom.exit ], [ -30, %28 ], [ -30, %36 ], [ 0, %39 ], [ %.0.ph, %.sink.split ]
+44:                                               ; preds = %.sink.split, %39, %36, %28, %opal_thread_add_fetch_32.exit
+  %.0 = phi i32 [ 0, %opal_thread_add_fetch_32.exit ], [ -30, %28 ], [ -30, %36 ], [ 0, %39 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -222,7 +222,7 @@ declare i32 @opal_getpagesize() local_unnamed_addr #1
 define noundef i32 @mca_common_ompio_buffer_alloc_fini() local_unnamed_addr #0 {
   %1 = load ptr, ptr @mca_common_ompio_allocator, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %opal_obj_run_destructors.argprom.exit, label %2
+  br i1 %.not, label %opal_obj_run_destructors.exit, label %2
 
 2:                                                ; preds = %0
   %3 = load i8, ptr @opal_uses_threads, align 1
@@ -254,7 +254,7 @@ define noundef i32 @mca_common_ompio_buffer_alloc_fini() local_unnamed_addr #0 {
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %.not1.i = icmp eq ptr %20, null
-  br i1 %.not1.i, label %opal_obj_run_destructors.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %21 = phi ptr [ %23, %.lr.ph.i ], [ %20, %16 ]
@@ -263,9 +263,9 @@ define noundef i32 @mca_common_ompio_buffer_alloc_fini() local_unnamed_addr #0 {
   %22 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %opal_obj_run_destructors.argprom.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
-opal_obj_run_destructors.argprom.exit:            ; preds = %.lr.ph.i, %16, %0
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %16, %0
   ret i32 0
 }
 

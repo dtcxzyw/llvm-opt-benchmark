@@ -626,9 +626,9 @@ tailrecurse:                                      ; preds = %171, %2
   br i1 %.not, label %75, label %73
 
 73:                                               ; preds = %.critedge2
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef nonnull %72, ptr noundef %67)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %72, ptr noundef %67)
   %74 = load ptr, ptr %5, align 8
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %74, ptr noundef %71)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %74, ptr noundef %71)
   %.val.i.i.pre = load ptr, ptr %.tr81, align 8
   %.val2.i.i.pre = load ptr, ptr %62, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.val.i.i.pre, i64 32
@@ -743,7 +743,7 @@ Abc_AigAndDelete.exit:                            ; preds = %.loopexit.i, %118
   %128 = getelementptr i8, ptr %127, i64 4
   %.val11.i = load i32, ptr %128, align 4
   %129 = icmp sgt i32 %.val11.i, 0
-  br i1 %129, label %.lr.ph.i69, label %Abc_AigRemoveFromLevelStructure.argprom.exit
+  br i1 %129, label %.lr.ph.i69, label %Abc_AigRemoveFromLevelStructure.exit
 
 .lr.ph.i69:                                       ; preds = %121
   %130 = getelementptr i8, ptr %127, i64 8
@@ -754,7 +754,7 @@ Abc_AigAndDelete.exit:                            ; preds = %.loopexit.i, %118
 131:                                              ; preds = %132
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_AigRemoveFromLevelStructure.argprom.exit, label %132, !llvm.loop !15
+  br i1 %exitcond.not.i, label %Abc_AigRemoveFromLevelStructure.exit, label %132, !llvm.loop !15
 
 132:                                              ; preds = %131, %.lr.ph.i69
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i69 ], [ %indvars.iv.next.i, %131 ]
@@ -767,16 +767,16 @@ Abc_AigAndDelete.exit:                            ; preds = %.loopexit.i, %118
   %136 = getelementptr inbounds ptr, ptr %.val12.i, i64 %indvars.iv.i
   store ptr null, ptr %136, align 8
   %.pre.i = load i32, ptr %78, align 4
-  br label %Abc_AigRemoveFromLevelStructure.argprom.exit
+  br label %Abc_AigRemoveFromLevelStructure.exit
 
-Abc_AigRemoveFromLevelStructure.argprom.exit:     ; preds = %131, %121, %135
+Abc_AigRemoveFromLevelStructure.exit:             ; preds = %131, %121, %135
   %137 = phi i32 [ %119, %121 ], [ %.pre.i, %135 ], [ %119, %131 ]
   %138 = and i32 %137, -17
   store i32 %138, ptr %78, align 4
   br label %139
 
-139:                                              ; preds = %Abc_AigRemoveFromLevelStructure.argprom.exit, %Abc_AigAndDelete.exit
-  %140 = phi i32 [ %138, %Abc_AigRemoveFromLevelStructure.argprom.exit ], [ %119, %Abc_AigAndDelete.exit ]
+139:                                              ; preds = %Abc_AigRemoveFromLevelStructure.exit, %Abc_AigAndDelete.exit
+  %140 = phi i32 [ %138, %Abc_AigRemoveFromLevelStructure.exit ], [ %119, %Abc_AigAndDelete.exit ]
   %141 = and i32 %140, 32
   %.not56 = icmp eq i32 %141, 0
   br i1 %.not56, label %160, label %142
@@ -2857,7 +2857,7 @@ Abc_AigAndLookup.exit.thread:                     ; preds = %276, %221, %217, %A
   %350 = getelementptr i8, ptr %349, i64 4
   %.val11.i109.i = load i32, ptr %350, align 4
   %351 = icmp sgt i32 %.val11.i109.i, 0
-  br i1 %351, label %.lr.ph.i110.i, label %Abc_AigRemoveFromLevelStructure.argprom.exit.i
+  br i1 %351, label %.lr.ph.i110.i, label %Abc_AigRemoveFromLevelStructure.exit.i
 
 .lr.ph.i110.i:                                    ; preds = %343
   %352 = getelementptr i8, ptr %349, i64 8
@@ -2868,7 +2868,7 @@ Abc_AigAndLookup.exit.thread:                     ; preds = %276, %221, %217, %A
 353:                                              ; preds = %354
   %indvars.iv.next.i115.i = add nuw nsw i64 %indvars.iv.i113.i, 1
   %exitcond.not.i116.i = icmp eq i64 %indvars.iv.next.i115.i, %wide.trip.count.i112.i
-  br i1 %exitcond.not.i116.i, label %Abc_AigRemoveFromLevelStructure.argprom.exit.i, label %354, !llvm.loop !15
+  br i1 %exitcond.not.i116.i, label %Abc_AigRemoveFromLevelStructure.exit.i, label %354, !llvm.loop !15
 
 354:                                              ; preds = %353, %.lr.ph.i110.i
   %indvars.iv.i113.i = phi i64 [ 0, %.lr.ph.i110.i ], [ %indvars.iv.next.i115.i, %353 ]
@@ -2881,16 +2881,16 @@ Abc_AigAndLookup.exit.thread:                     ; preds = %276, %221, %217, %A
   %358 = getelementptr inbounds ptr, ptr %.val12.i111.i, i64 %indvars.iv.i113.i
   store ptr null, ptr %358, align 8
   %.pre.i117.i = load i32, ptr %118, align 4
-  br label %Abc_AigRemoveFromLevelStructure.argprom.exit.i
+  br label %Abc_AigRemoveFromLevelStructure.exit.i
 
-Abc_AigRemoveFromLevelStructure.argprom.exit.i:   ; preds = %353, %357, %343
+Abc_AigRemoveFromLevelStructure.exit.i:           ; preds = %353, %357, %343
   %359 = phi i32 [ %.val89.i, %343 ], [ %.pre.i117.i, %357 ], [ %.val89.i, %353 ]
   %360 = and i32 %359, -17
   store i32 %360, ptr %118, align 4
   br label %361
 
-361:                                              ; preds = %Abc_AigRemoveFromLevelStructure.argprom.exit.i, %Abc_AigAndLookup.exit.thread
-  %362 = phi i32 [ %360, %Abc_AigRemoveFromLevelStructure.argprom.exit.i ], [ %.val89.i, %Abc_AigAndLookup.exit.thread ]
+361:                                              ; preds = %Abc_AigRemoveFromLevelStructure.exit.i, %Abc_AigAndLookup.exit.thread
+  %362 = phi i32 [ %360, %Abc_AigRemoveFromLevelStructure.exit.i ], [ %.val89.i, %Abc_AigAndLookup.exit.thread ]
   %363 = and i32 %362, 32
   %.not77.i = icmp eq i32 %363, 0
   br i1 %.not77.i, label %382, label %364
@@ -3300,7 +3300,7 @@ Abc_AigAndDelete.exit.i:                          ; preds = %431, %.loopexit.i.i
 588:                                              ; preds = %567
   %589 = and i32 %.val51.i, 16
   %.not40.i = icmp eq i32 %589, 0
-  br i1 %.not40.i, label %Abc_AigRemoveFromLevelStructure.argprom.exit.i34, label %590
+  br i1 %.not40.i, label %Abc_AigRemoveFromLevelStructure.exit.i34, label %590
 
 590:                                              ; preds = %588
   %591 = load ptr, ptr %533, align 8
@@ -3312,7 +3312,7 @@ Abc_AigAndDelete.exit.i:                          ; preds = %431, %.loopexit.i.i
   %596 = getelementptr i8, ptr %595, i64 4
   %.val11.i.i33 = load i32, ptr %596, align 4
   %597 = icmp sgt i32 %.val11.i.i33, 0
-  br i1 %597, label %.lr.ph.i.i38, label %Abc_AigRemoveFromLevelStructure.argprom.exit.i34
+  br i1 %597, label %.lr.ph.i.i38, label %Abc_AigRemoveFromLevelStructure.exit.i34
 
 .lr.ph.i.i38:                                     ; preds = %590
   %598 = getelementptr i8, ptr %595, i64 8
@@ -3323,7 +3323,7 @@ Abc_AigAndDelete.exit.i:                          ; preds = %431, %.loopexit.i.i
 599:                                              ; preds = %600
   %indvars.iv.next.i.i43 = add nuw nsw i64 %indvars.iv.i.i41, 1
   %exitcond.not.i.i44 = icmp eq i64 %indvars.iv.next.i.i43, %wide.trip.count.i.i40
-  br i1 %exitcond.not.i.i44, label %Abc_AigRemoveFromLevelStructure.argprom.exit.i34, label %600, !llvm.loop !15
+  br i1 %exitcond.not.i.i44, label %Abc_AigRemoveFromLevelStructure.exit.i34, label %600, !llvm.loop !15
 
 600:                                              ; preds = %599, %.lr.ph.i.i38
   %indvars.iv.i.i41 = phi i64 [ 0, %.lr.ph.i.i38 ], [ %indvars.iv.next.i.i43, %599 ]
@@ -3336,9 +3336,9 @@ Abc_AigAndDelete.exit.i:                          ; preds = %431, %.loopexit.i.i
   %604 = getelementptr inbounds ptr, ptr %.val12.i.i39, i64 %indvars.iv.i.i41
   store ptr null, ptr %604, align 8
   %.pre.i.i45 = load i32, ptr %564, align 4
-  br label %Abc_AigRemoveFromLevelStructure.argprom.exit.i34
+  br label %Abc_AigRemoveFromLevelStructure.exit.i34
 
-Abc_AigRemoveFromLevelStructure.argprom.exit.i34: ; preds = %599, %590, %603, %588
+Abc_AigRemoveFromLevelStructure.exit.i34:         ; preds = %599, %590, %603, %588
   %605 = phi i32 [ %.val51.i, %588 ], [ %.val51.i, %590 ], [ %.pre.i.i45, %603 ], [ %.val51.i, %599 ]
   %606 = shl i32 %585, 12
   %607 = and i32 %605, 4079
@@ -3353,7 +3353,7 @@ Abc_AigRemoveFromLevelStructure.argprom.exit.i34: ; preds = %599, %590, %603, %5
   %.not.i54.i = icmp sgt i32 %613, %611
   br i1 %.not.i54.i, label %634, label %615
 
-615:                                              ; preds = %Abc_AigRemoveFromLevelStructure.argprom.exit.i34
+615:                                              ; preds = %Abc_AigRemoveFromLevelStructure.exit.i34
   %616 = load i32, ptr %610, align 8
   %.not.i.not.i.i = icmp sgt i32 %616, %611
   br i1 %.not.i.not.i.i, label %Vec_PtrGrow.exit.i.i36, label %617
@@ -3407,7 +3407,7 @@ Vec_PtrGrow.exit.i.i36:                           ; preds = %626, %615
   store i32 %614, ptr %612, align 4
   br label %634
 
-634:                                              ; preds = %._crit_edge.i.i, %Abc_AigRemoveFromLevelStructure.argprom.exit.i34
+634:                                              ; preds = %._crit_edge.i.i, %Abc_AigRemoveFromLevelStructure.exit.i34
   %635 = getelementptr i8, ptr %610, i64 8
   %.val.i.i37 = load ptr, ptr %635, align 8
   %636 = zext nneg i32 %611 to i64
@@ -3856,7 +3856,7 @@ Abc_AigUpdateLevelR_int.exit:                     ; preds = %826, %683, %Abc_Aig
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0

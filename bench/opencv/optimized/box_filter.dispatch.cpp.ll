@@ -493,15 +493,15 @@ define hidden void @_ZN2cv12cpu_baseline15getRowSumFilterEiiii(ptr dead_on_unwin
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !4
   %37 = getelementptr inbounds i8, ptr %34, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %37)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhiEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, !noalias !4
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhiEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !4
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i: ; preds = %.noexc
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %.noexc
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %34) #25, !noalias !4
   br label %.body
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhiEEED2Ev.argprom.exit: ; preds = %.noexc
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhiEEED2Ev.exit: ; preds = %.noexc
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEE, i64 16), ptr %37, align 8, !noalias !4
   %39 = getelementptr inbounds i8, ptr %34, i64 24
   store i32 %3, ptr %39, align 8, !noalias !4
@@ -534,15 +534,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhiEEED2Ev.argprom.exit: ; pred
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %47, align 8, !noalias !9
   %50 = getelementptr inbounds i8, ptr %47, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %50)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhtEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, !noalias !9
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhtEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !9
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i: ; preds = %.noexc80
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %.noexc80
   %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %47) #25, !noalias !9
   br label %.body
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhtEEED2Ev.argprom.exit: ; preds = %.noexc80
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhtEEED2Ev.exit: ; preds = %.noexc80
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEE, i64 16), ptr %50, align 8, !noalias !9
   %52 = getelementptr inbounds i8, ptr %47, i64 24
   store i32 %3, ptr %52, align 8, !noalias !9
@@ -570,15 +570,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhtEEED2Ev.argprom.exit: ; pred
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %58, align 8, !noalias !14
   %61 = getelementptr inbounds i8, ptr %58, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %61)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhdEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, !noalias !14
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhdEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !14
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i: ; preds = %.noexc89
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %.noexc89
   %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %58) #25, !noalias !14
   br label %.body
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhdEEED2Ev.argprom.exit: ; preds = %.noexc89
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhdEEED2Ev.exit: ; preds = %.noexc89
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEE, i64 16), ptr %61, align 8, !noalias !14
   %63 = getelementptr inbounds i8, ptr %58, i64 24
   store i32 %3, ptr %63, align 8, !noalias !14
@@ -606,15 +606,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhdEEED2Ev.argprom.exit: ; pred
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %69, align 8, !noalias !19
   %72 = getelementptr inbounds i8, ptr %69, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %72)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItiEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, !noalias !19
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItiEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !19
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i: ; preds = %.noexc98
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %.noexc98
   %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %69) #25, !noalias !19
   br label %.body
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItiEEED2Ev.argprom.exit: ; preds = %.noexc98
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItiEEED2Ev.exit: ; preds = %.noexc98
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEE, i64 16), ptr %72, align 8, !noalias !19
   %74 = getelementptr inbounds i8, ptr %69, i64 24
   store i32 %3, ptr %74, align 8, !noalias !19
@@ -641,15 +641,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItiEEED2Ev.argprom.exit: ; pred
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %79, align 8, !noalias !24
   %82 = getelementptr inbounds i8, ptr %79, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %82)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, !noalias !24
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !24
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i: ; preds = %.noexc107
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %.noexc107
   %83 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %79) #25, !noalias !24
   br label %.body
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; preds = %.noexc107
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.exit: ; preds = %.noexc107
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEE, i64 16), ptr %82, align 8, !noalias !24
   %84 = getelementptr inbounds i8, ptr %79, i64 24
   store i32 %3, ptr %84, align 8, !noalias !24
@@ -666,7 +666,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
   br i1 %or.cond11, label %89, label %95
 
 89:                                               ; preds = %87
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsiEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %9, i32 %3, i32 %.0)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsiEEJiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %9, i32 %3, i32 %.0)
           to label %90 unwind label %42
 
 90:                                               ; preds = %89
@@ -678,7 +678,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
   store ptr null, ptr %93, align 8
   store ptr %94, ptr %92, align 8
   store ptr null, ptr %9, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev(ptr null) #22
   br label %131
 
 95:                                               ; preds = %87
@@ -687,7 +687,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
   br i1 %or.cond13, label %97, label %103
 
 97:                                               ; preds = %95
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIiiEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %10, i32 %3, i32 %.0)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIiiEEJiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %10, i32 %3, i32 %.0)
           to label %98 unwind label %42
 
 98:                                               ; preds = %97
@@ -699,7 +699,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
   store ptr null, ptr %101, align 8
   store ptr %102, ptr %100, align 8
   store ptr null, ptr %10, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev(ptr null) #22
   br label %131
 
 103:                                              ; preds = %95
@@ -707,7 +707,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
   br i1 %or.cond15, label %104, label %110
 
 104:                                              ; preds = %103
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %11, i32 %3, i32 %.0)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsdEEJiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %11, i32 %3, i32 %.0)
           to label %105 unwind label %42
 
 105:                                              ; preds = %104
@@ -719,7 +719,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
   store ptr null, ptr %108, align 8
   store ptr %109, ptr %107, align 8
   store ptr null, ptr %11, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev(ptr null) #22
   br label %131
 
 110:                                              ; preds = %103
@@ -728,7 +728,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
   br i1 %or.cond17, label %112, label %118
 
 112:                                              ; preds = %110
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIfdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %12, i32 %3, i32 %.0)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIfdEEJiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %12, i32 %3, i32 %.0)
           to label %113 unwind label %42
 
 113:                                              ; preds = %112
@@ -740,7 +740,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
   store ptr null, ptr %116, align 8
   store ptr %117, ptr %115, align 8
   store ptr null, ptr %12, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev(ptr null) #22
   br label %131
 
 118:                                              ; preds = %110
@@ -749,7 +749,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
   br i1 %or.cond19, label %120, label %126
 
 120:                                              ; preds = %118
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIddEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %13, i32 %3, i32 %.0)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIddEEJiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %13, i32 %3, i32 %.0)
           to label %121 unwind label %42
 
 121:                                              ; preds = %120
@@ -761,7 +761,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
   store ptr null, ptr %124, align 8
   store ptr %125, ptr %123, align 8
   store ptr null, ptr %13, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev(ptr null) #22
   br label %131
 
 126:                                              ; preds = %118
@@ -781,7 +781,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
   br label %.body
 
-131:                                              ; preds = %121, %113, %105, %98, %90, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItiEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhdEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhtEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhiEEED2Ev.argprom.exit
+131:                                              ; preds = %121, %113, %105, %98, %90, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItiEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhdEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhtEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhiEEED2Ev.exit
   %132 = getelementptr inbounds i8, ptr %6, i64 8
   %133 = load i32, ptr %132, align 8
   %.not.i = icmp eq i32 %133, 0
@@ -801,8 +801,8 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.argprom.exit: ; pred
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %131, %134
   ret void
 
-.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, %42, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, %129, %27
-  %.pn49 = phi { ptr, i32 } [ %130, %129 ], [ %.pn, %27 ], [ %38, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i ], [ %51, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i ], [ %62, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i ], [ %73, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i ], [ %43, %42 ], [ %83, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i ]
+.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %42, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %129, %27
+  %.pn49 = phi { ptr, i32 } [ %130, %129 ], [ %.pn, %27 ], [ %38, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %51, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %62, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %73, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %43, %42 ], [ %83, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #22
   resume { ptr, i32 } %.pn49
 }
@@ -826,7 +826,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsiEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsiEEJiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !29
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !29
@@ -835,15 +835,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16Row
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !29
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i, !noalias !29
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !29
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !29
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEE, i64 16), ptr %5, align 8, !noalias !29
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %.0.val, ptr %7, align 8, !noalias !29
@@ -856,9 +856,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.argprom.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -894,7 +894,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIs
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -919,21 +919,21 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIs
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIiiEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIiiEEJiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !32
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !32
@@ -942,15 +942,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16Row
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !32
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i, !noalias !32
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !32
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !32
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEE, i64 16), ptr %5, align 8, !noalias !32
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %.0.val, ptr %7, align 8, !noalias !32
@@ -963,9 +963,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.argprom.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -1001,7 +1001,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIi
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -1026,21 +1026,21 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIi
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsdEEJiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !35
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !35
@@ -1049,15 +1049,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16Row
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !35
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i, !noalias !35
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !35
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !35
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEE, i64 16), ptr %5, align 8, !noalias !35
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %.0.val, ptr %7, align 8, !noalias !35
@@ -1070,9 +1070,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.argprom.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -1108,7 +1108,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIs
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -1133,21 +1133,21 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIs
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIfdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIfdEEJiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !38
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !38
@@ -1156,15 +1156,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16Row
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !38
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i, !noalias !38
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !38
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !38
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEE, i64 16), ptr %5, align 8, !noalias !38
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %.0.val, ptr %7, align 8, !noalias !38
@@ -1177,9 +1177,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.argprom.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -1215,7 +1215,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIf
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -1240,21 +1240,21 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIf
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIddEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIddEEJiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !41
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !41
@@ -1263,15 +1263,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16Row
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !41
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i, !noalias !41
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !41
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !41
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEE, i64 16), ptr %5, align 8, !noalias !41
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %.0.val, ptr %7, align 8, !noalias !41
@@ -1284,9 +1284,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.argprom.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -1322,7 +1322,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumId
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -1347,16 +1347,16 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumId
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
@@ -1454,15 +1454,15 @@ define hidden void @_ZN2cv12cpu_baseline18getColumnSumFilterEiiiid(ptr dead_on_u
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %37, align 8, !noalias !44
   %40 = getelementptr inbounds i8, ptr %37, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i, !noalias !44
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !44
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i: ; preds = %.noexc
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i: ; preds = %.noexc
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %37) #25, !noalias !44
   br label %.body
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEED2Ev.argprom.exit: ; preds = %.noexc
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEED2Ev.exit: ; preds = %.noexc
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEE, i64 16), ptr %40, align 8, !noalias !44
   %42 = getelementptr inbounds i8, ptr %37, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false), !noalias !44
@@ -1501,7 +1501,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEED2Ev.argprom.exit: ; p
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %53, align 8, !noalias !49
   %56 = getelementptr inbounds i8, ptr %53, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %56)
-          to label %.noexc.i.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i, !noalias !49
+          to label %.noexc.i.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !49
 
 .noexc.i.i.i.i.i:                                 ; preds = %.noexc106
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEE, i64 16), ptr %56, align 8, !noalias !49
@@ -1520,7 +1520,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEED2Ev.argprom.exit: ; p
   %63 = getelementptr inbounds i8, ptr %53, i64 48
   store i32 1, ptr %63, align 8, !noalias !49
   %64 = fcmp une double %5, 1.000000e+00
-  br i1 %64, label %65, label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEED2Ev.argprom.exit
+  br i1 %64, label %65, label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEED2Ev.exit
 
 65:                                               ; preds = %.noexc.i.i.i.i.i
   %66 = fdiv double 1.000000e+00, %5
@@ -1541,20 +1541,20 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEED2Ev.argprom.exit: ; p
 77:                                               ; preds = %65
   %78 = add nsw i32 %75, 1
   store i32 %78, ptr %62, align 4, !noalias !49
-  br label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEED2Ev.argprom.exit
+  br label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEED2Ev.exit
 
 79:                                               ; preds = %65
   %80 = add nsw i32 %72, 1
   store i32 %80, ptr %63, align 8, !noalias !49
-  br label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEED2Ev.argprom.exit
+  br label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEED2Ev.exit
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i: ; preds = %.noexc106
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i: ; preds = %.noexc106
   %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %53) #25, !noalias !49
   br label %.body
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEED2Ev.argprom.exit: ; preds = %.noexc.i.i.i.i.i, %77, %79
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEED2Ev.exit: ; preds = %.noexc.i.i.i.i.i, %77, %79
   store ptr %56, ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %53, ptr %82, align 8
@@ -1577,15 +1577,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEED2Ev.argprom.exit: ; p
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %86, align 8, !noalias !54
   %89 = getelementptr inbounds i8, ptr %86, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %89)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i, !noalias !54
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !54
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i: ; preds = %.noexc115
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i: ; preds = %.noexc115
   %90 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %86) #25, !noalias !54
   br label %.body
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEED2Ev.argprom.exit: ; preds = %.noexc115
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEED2Ev.exit: ; preds = %.noexc115
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEE, i64 16), ptr %89, align 8, !noalias !54
   %91 = getelementptr inbounds i8, ptr %86, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, i8 0, i64 24, i1 false), !noalias !54
@@ -1619,15 +1619,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEED2Ev.argprom.exit: ; p
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %100, align 8, !noalias !59
   %103 = getelementptr inbounds i8, ptr %100, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %103)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i, !noalias !59
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !59
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i: ; preds = %.noexc124
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i: ; preds = %.noexc124
   %104 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %100) #25, !noalias !59
   br label %.body
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEED2Ev.argprom.exit: ; preds = %.noexc124
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEED2Ev.exit: ; preds = %.noexc124
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEE, i64 16), ptr %103, align 8, !noalias !59
   %105 = getelementptr inbounds i8, ptr %100, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, i8 0, i64 24, i1 false), !noalias !59
@@ -1660,15 +1660,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEED2Ev.argprom.exit: ; p
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %113, align 8, !noalias !64
   %116 = getelementptr inbounds i8, ptr %113, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %116)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i, !noalias !64
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !64
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i: ; preds = %.noexc133
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i: ; preds = %.noexc133
   %117 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %113) #25, !noalias !64
   br label %.body
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; preds = %.noexc133
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.exit: ; preds = %.noexc133
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEE, i64 16), ptr %116, align 8, !noalias !64
   %118 = getelementptr inbounds i8, ptr %113, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, i8 0, i64 24, i1 false), !noalias !64
@@ -1691,7 +1691,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   br i1 %or.cond11, label %126, label %132
 
 126:                                              ; preds = %124
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %10, i32 %3, i32 %.0, double %5)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %10, i32 %3, i32 %.0, double %5)
           to label %127 unwind label %48
 
 127:                                              ; preds = %126
@@ -1703,7 +1703,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   store ptr null, ptr %130, align 8
   store ptr %131, ptr %129, align 8
   store ptr null, ptr %10, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev(ptr null) #22
   br label %182
 
 132:                                              ; preds = %124
@@ -1711,7 +1711,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   br i1 %or.cond13, label %133, label %139
 
 133:                                              ; preds = %132
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %11, i32 %3, i32 %.0, double %5)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %11, i32 %3, i32 %.0, double %5)
           to label %134 unwind label %48
 
 134:                                              ; preds = %133
@@ -1723,7 +1723,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   store ptr null, ptr %137, align 8
   store ptr %138, ptr %136, align 8
   store ptr null, ptr %11, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev(ptr null) #22
   br label %182
 
 139:                                              ; preds = %132
@@ -1732,7 +1732,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   br i1 %or.cond15, label %141, label %147
 
 141:                                              ; preds = %139
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %12, i32 %3, i32 %.0, double %5)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %12, i32 %3, i32 %.0, double %5)
           to label %142 unwind label %48
 
 142:                                              ; preds = %141
@@ -1744,7 +1744,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   store ptr null, ptr %145, align 8
   store ptr %146, ptr %144, align 8
   store ptr null, ptr %12, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev(ptr null) #22
   br label %182
 
 147:                                              ; preds = %139
@@ -1753,7 +1753,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   br i1 %or.cond17, label %149, label %155
 
 149:                                              ; preds = %147
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %13, i32 %3, i32 %.0, double %5)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %13, i32 %3, i32 %.0, double %5)
           to label %150 unwind label %48
 
 150:                                              ; preds = %149
@@ -1765,7 +1765,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   store ptr null, ptr %153, align 8
   store ptr %154, ptr %152, align 8
   store ptr null, ptr %13, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev(ptr null) #22
   br label %182
 
 155:                                              ; preds = %147
@@ -1773,7 +1773,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   br i1 %or.cond19, label %156, label %162
 
 156:                                              ; preds = %155
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %14, i32 %3, i32 %.0, double %5)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %14, i32 %3, i32 %.0, double %5)
           to label %157 unwind label %48
 
 157:                                              ; preds = %156
@@ -1785,7 +1785,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   store ptr null, ptr %160, align 8
   store ptr %161, ptr %159, align 8
   store ptr null, ptr %14, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev(ptr null) #22
   br label %182
 
 162:                                              ; preds = %155
@@ -1794,7 +1794,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   br i1 %or.cond21, label %164, label %170
 
 164:                                              ; preds = %162
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %15, i32 %3, i32 %.0, double %5)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %15, i32 %3, i32 %.0, double %5)
           to label %165 unwind label %48
 
 165:                                              ; preds = %164
@@ -1806,7 +1806,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   store ptr null, ptr %168, align 8
   store ptr %169, ptr %167, align 8
   store ptr null, ptr %15, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev(ptr null) #22
   br label %182
 
 170:                                              ; preds = %162
@@ -1814,7 +1814,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   br i1 %or.cond23, label %171, label %177
 
 171:                                              ; preds = %170
-  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias writable align 8 %16, i32 %3, i32 %.0, double %5)
+  invoke fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %16, i32 %3, i32 %.0, double %5)
           to label %172 unwind label %48
 
 172:                                              ; preds = %171
@@ -1826,7 +1826,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   store ptr null, ptr %175, align 8
   store ptr %176, ptr %174, align 8
   store ptr null, ptr %16, align 8
-  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.argprom(ptr null) #22
+  call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev(ptr null) #22
   br label %182
 
 177:                                              ; preds = %170
@@ -1846,7 +1846,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #22
   br label %.body
 
-182:                                              ; preds = %172, %165, %157, %150, %142, %134, %127, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEED2Ev.argprom.exit
+182:                                              ; preds = %172, %165, %157, %150, %142, %134, %127, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEED2Ev.exit
   %183 = getelementptr inbounds i8, ptr %7, i64 8
   %184 = load i32, ptr %183, align 8
   %.not.i = icmp eq i32 %184, 0
@@ -1866,14 +1866,14 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.argprom.exit: ; p
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %182, %185
   ret void
 
-.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i, %48, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i, %180, %30
-  %.pn57 = phi { ptr, i32 } [ %181, %180 ], [ %.pn, %30 ], [ %41, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i ], [ %81, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i ], [ %90, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i ], [ %104, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i ], [ %49, %48 ], [ %117, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i.i ]
+.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, %48, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, %180, %30
+  %.pn57 = phi { ptr, i32 } [ %181, %180 ], [ %.pn, %30 ], [ %41, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i ], [ %81, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i ], [ %90, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i ], [ %104, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i ], [ %49, %48 ], [ %117, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #22
   resume { ptr, i32 } %.pn57
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24, !noalias !69
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !69
@@ -1882,15 +1882,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19Col
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !69
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, !noalias !69
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !69
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !69
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEE, i64 16), ptr %5, align 8, !noalias !69
   %7 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !69
@@ -1909,9 +1909,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.argprom.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -1947,7 +1947,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -1972,21 +1972,21 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24, !noalias !72
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !72
@@ -1995,15 +1995,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19Col
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !72
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, !noalias !72
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !72
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !72
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEE, i64 16), ptr %5, align 8, !noalias !72
   %7 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !72
@@ -2022,9 +2022,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.argprom.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -2060,7 +2060,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -2085,21 +2085,21 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24, !noalias !75
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !75
@@ -2108,15 +2108,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19Col
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !75
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, !noalias !75
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !75
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !75
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEE, i64 16), ptr %5, align 8, !noalias !75
   %7 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !75
@@ -2135,9 +2135,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.argprom.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -2173,7 +2173,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -2198,21 +2198,21 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24, !noalias !78
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !78
@@ -2221,15 +2221,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19Col
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !78
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, !noalias !78
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !78
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !78
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEE, i64 16), ptr %5, align 8, !noalias !78
   %7 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !78
@@ -2248,9 +2248,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.argprom.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -2286,7 +2286,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -2311,21 +2311,21 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24, !noalias !81
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !81
@@ -2334,15 +2334,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19Col
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !81
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, !noalias !81
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !81
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !81
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEE, i64 16), ptr %5, align 8, !noalias !81
   %7 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !81
@@ -2361,9 +2361,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.argprom.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -2399,7 +2399,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -2424,21 +2424,21 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24, !noalias !84
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !84
@@ -2447,15 +2447,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19Col
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !84
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, !noalias !84
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !84
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !84
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEE, i64 16), ptr %5, align 8, !noalias !84
   %7 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !84
@@ -2474,9 +2474,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.argprom.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -2512,7 +2512,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -2537,21 +2537,21 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEJiidEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, double %.0.val3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24, !noalias !87
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !87
@@ -2560,15 +2560,15 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19Col
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !87
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i, !noalias !87
+          to label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !87
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit14.i.i.i.i: ; preds = %1
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25, !noalias !87
   resume { ptr, i32 } %6
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.argprom.exit: ; preds = %1
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEE, i64 16), ptr %5, align 8, !noalias !87
   %7 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !87
@@ -2587,9 +2587,9 @@ _ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.argprom.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -2625,7 +2625,7 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -2650,16 +2650,16 @@ define internal fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSu
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #22
-  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.exit
 
-_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
@@ -3316,19 +3316,19 @@ define hidden void @_ZN2cv12cpu_baseline18getSqrRowSumFilterEiiii(ptr dead_on_un
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26, align 8, !noalias !96
   %29 = getelementptr inbounds i8, ptr %26, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, !noalias !96
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !96
 
-common.resume:                                    ; preds = %21, %73, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %30, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i ], [ %38, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i ], [ %46, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i ], [ %54, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i ], [ %62, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i ], [ %70, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i ], [ %74, %73 ], [ %.pn, %21 ]
+common.resume:                                    ; preds = %21, %73, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %30, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %38, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %46, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %54, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %62, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %70, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %74, %73 ], [ %.pn, %21 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i: ; preds = %25
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %25
   %30 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %26) #25, !noalias !96
   br label %common.resume
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEED2Ev.argprom.exit: ; preds = %25
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEED2Ev.exit: ; preds = %25
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEE, i64 16), ptr %29, align 8, !noalias !96
   br label %75
 
@@ -3346,15 +3346,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEED2Ev.argprom.exit: ; p
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !101
   %37 = getelementptr inbounds i8, ptr %34, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %37)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, !noalias !101
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !101
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i: ; preds = %33
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %33
   %38 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %34) #25, !noalias !101
   br label %common.resume
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEED2Ev.argprom.exit: ; preds = %33
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEED2Ev.exit: ; preds = %33
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEE, i64 16), ptr %37, align 8, !noalias !101
   br label %75
 
@@ -3372,15 +3372,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEED2Ev.argprom.exit: ; p
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %42, align 8, !noalias !106
   %45 = getelementptr inbounds i8, ptr %42, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, !noalias !106
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !106
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i: ; preds = %41
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %41
   %46 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %42) #25, !noalias !106
   br label %common.resume
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEED2Ev.argprom.exit: ; preds = %41
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEED2Ev.exit: ; preds = %41
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEE, i64 16), ptr %45, align 8, !noalias !106
   br label %75
 
@@ -3398,15 +3398,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEED2Ev.argprom.exit: ; p
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %50, align 8, !noalias !111
   %53 = getelementptr inbounds i8, ptr %50, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %53)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, !noalias !111
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !111
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i: ; preds = %49
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %49
   %54 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %50) #25, !noalias !111
   br label %common.resume
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEED2Ev.argprom.exit: ; preds = %49
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEED2Ev.exit: ; preds = %49
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEE, i64 16), ptr %53, align 8, !noalias !111
   br label %75
 
@@ -3424,15 +3424,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEED2Ev.argprom.exit: ; p
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %58, align 8, !noalias !116
   %61 = getelementptr inbounds i8, ptr %58, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %61)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, !noalias !116
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !116
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i: ; preds = %57
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %57
   %62 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %58) #25, !noalias !116
   br label %common.resume
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEED2Ev.argprom.exit: ; preds = %57
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEED2Ev.exit: ; preds = %57
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEE, i64 16), ptr %61, align 8, !noalias !116
   br label %75
 
@@ -3450,15 +3450,15 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEED2Ev.argprom.exit: ; p
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %66, align 8, !noalias !121
   %69 = getelementptr inbounds i8, ptr %66, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %69)
-          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEED2Ev.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i, !noalias !121
+          to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !121
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit13.i.i.i.i.i: ; preds = %65
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %65
   %70 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %66) #25, !noalias !121
   br label %common.resume
 
-_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEED2Ev.argprom.exit: ; preds = %65
+_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEED2Ev.exit: ; preds = %65
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEE, i64 16), ptr %69, align 8, !noalias !121
   br label %75
 
@@ -3476,9 +3476,9 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEED2Ev.argprom.exit: ; p
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   br label %common.resume
 
-75:                                               ; preds = %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEED2Ev.argprom.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEED2Ev.argprom.exit
-  %.sink109 = phi ptr [ %66, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEED2Ev.argprom.exit ], [ %58, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEED2Ev.argprom.exit ], [ %50, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEED2Ev.argprom.exit ], [ %42, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEED2Ev.argprom.exit ], [ %34, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEED2Ev.argprom.exit ], [ %26, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEED2Ev.argprom.exit ]
-  %.sink105 = phi ptr [ %69, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEED2Ev.argprom.exit ], [ %61, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEED2Ev.argprom.exit ], [ %53, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEED2Ev.argprom.exit ], [ %45, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEED2Ev.argprom.exit ], [ %37, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEED2Ev.argprom.exit ], [ %29, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEED2Ev.argprom.exit ]
+75:                                               ; preds = %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEED2Ev.exit, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEED2Ev.exit
+  %.sink109 = phi ptr [ %66, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEED2Ev.exit ], [ %58, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEED2Ev.exit ], [ %50, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEED2Ev.exit ], [ %42, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEED2Ev.exit ], [ %34, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEED2Ev.exit ], [ %26, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEED2Ev.exit ]
+  %.sink105 = phi ptr [ %69, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEED2Ev.exit ], [ %61, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEED2Ev.exit ], [ %53, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEED2Ev.exit ], [ %45, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEED2Ev.exit ], [ %37, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEED2Ev.exit ], [ %29, %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEED2Ev.exit ]
   %76 = icmp slt i32 %4, 0
   %77 = sdiv i32 %3, 2
   %.0 = select i1 %76, i32 %77, i32 %4
@@ -4722,7 +4722,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -5237,7 +5237,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -5741,7 +5741,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -6245,7 +6245,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -6749,7 +6749,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -7253,7 +7253,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -7757,7 +7757,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -8226,7 +8226,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -8730,7 +8730,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -9234,7 +9234,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -9703,7 +9703,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -10218,7 +10218,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -10725,7 +10725,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -11319,7 +11319,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -11719,7 +11719,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -12215,7 +12215,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -12615,7 +12615,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -13111,7 +13111,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -13505,7 +13505,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -13899,7 +13899,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -14371,7 +14371,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -14843,7 +14843,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -15369,7 +15369,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -15611,7 +15611,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -15854,7 +15854,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -16094,7 +16094,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -16334,7 +16334,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -16574,7 +16574,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -16848,127 +16848,127 @@ attributes #26 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5, !7}
-!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
-!7 = distinct !{!7, !8, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhiEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhiEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!7 = distinct !{!7, !8, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhiEEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!8 = distinct !{!8, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhiEEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!11 = distinct !{!11, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
-!12 = distinct !{!12, !13, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhtEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!13 = distinct !{!13, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhtEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!10 = distinct !{!10, !11, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!11 = distinct !{!11, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhtEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!12 = distinct !{!12, !13, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhtEEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!13 = distinct !{!13, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhtEEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!16 = distinct !{!16, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
-!17 = distinct !{!17, !18, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!18 = distinct !{!18, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!15 = distinct !{!15, !16, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!16 = distinct !{!16, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIhdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!17 = distinct !{!17, !18, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhdEEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!18 = distinct !{!18, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIhdEEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
-!22 = distinct !{!22, !23, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItiEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!23 = distinct !{!23, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItiEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!20 = distinct !{!20, !21, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!21 = distinct !{!21, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!22 = distinct !{!22, !23, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItiEEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!23 = distinct !{!23, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItiEEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!26 = distinct !{!26, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
-!27 = distinct !{!27, !28, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!28 = distinct !{!28, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!25 = distinct !{!25, !26, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!26 = distinct !{!26, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumItdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!27 = distinct !{!27, !28, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!28 = distinct !{!28, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!31 = distinct !{!31, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
+!30 = distinct !{!30, !31, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!31 = distinct !{!31, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
+!33 = distinct !{!33, !34, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!34 = distinct !{!34, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIiiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
+!36 = distinct !{!36, !37, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!37 = distinct !{!37, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIsdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!40 = distinct !{!40, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
+!39 = distinct !{!39, !40, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!40 = distinct !{!40, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIfdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
+!42 = distinct !{!42, !43, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!43 = distinct !{!43, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_16RowSumIddEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
 !44 = !{!45, !47}
-!45 = distinct !{!45, !46, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!46 = distinct !{!46, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
-!47 = distinct !{!47, !48, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!48 = distinct !{!48, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!45 = distinct !{!45, !46, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!46 = distinct !{!46, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
+!47 = distinct !{!47, !48, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEJiidEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!48 = distinct !{!48, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIihEEJiidEEENS_3PtrIT_EEDpRKT0_"}
 !49 = !{!50, !52}
-!50 = distinct !{!50, !51, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!51 = distinct !{!51, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
-!52 = distinct !{!52, !53, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!53 = distinct !{!53, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!50 = distinct !{!50, !51, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!51 = distinct !{!51, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
+!52 = distinct !{!52, !53, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEJiidEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!53 = distinct !{!53, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIthEEJiidEEENS_3PtrIT_EEDpRKT0_"}
 !54 = !{!55, !57}
-!55 = distinct !{!55, !56, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!56 = distinct !{!56, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
-!57 = distinct !{!57, !58, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!58 = distinct !{!58, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!55 = distinct !{!55, !56, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!56 = distinct !{!56, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
+!57 = distinct !{!57, !58, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEJiidEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!58 = distinct !{!58, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEEJiidEEENS_3PtrIT_EEDpRKT0_"}
 !59 = !{!60, !62}
-!60 = distinct !{!60, !61, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!61 = distinct !{!61, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
-!62 = distinct !{!62, !63, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!63 = distinct !{!63, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!60 = distinct !{!60, !61, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!61 = distinct !{!61, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
+!62 = distinct !{!62, !63, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEJiidEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!63 = distinct !{!63, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIitEEJiidEEENS_3PtrIT_EEDpRKT0_"}
 !64 = !{!65, !67}
-!65 = distinct !{!65, !66, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!66 = distinct !{!66, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
-!67 = distinct !{!67, !68, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!68 = distinct !{!68, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEJiidEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!65 = distinct !{!65, !66, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!66 = distinct !{!66, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
+!67 = distinct !{!67, !68, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEJiidEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!68 = distinct !{!68, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEJiidEEENS_3PtrIT_EEDpRKT0_"}
 !69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!71 = distinct !{!71, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
+!70 = distinct !{!70, !71, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!71 = distinct !{!71, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
 !72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!74 = distinct !{!74, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
+!73 = distinct !{!73, !74, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!74 = distinct !{!74, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!77 = distinct !{!77, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
+!76 = distinct !{!76, !77, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!77 = distinct !{!77, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
 !78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!80 = distinct !{!80, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
+!79 = distinct !{!79, !80, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!80 = distinct !{!80, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
 !81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!83 = distinct !{!83, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
+!82 = distinct !{!82, !83, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!83 = distinct !{!83, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
 !84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!86 = distinct !{!86, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
+!85 = distinct !{!85, !86, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!86 = distinct !{!86, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom: argument 0"}
-!89 = distinct !{!89, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.argprom"}
+!88 = distinct !{!88, !89, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_: argument 0"}
+!89 = distinct !{!89, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEJRKiS6_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_"}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN2cvL7makePtrINS_12FilterEngineEJNS_3PtrINS_10BaseFilterEEENS2_INS_13BaseRowFilterEEENS2_INS_16BaseColumnFilterEEEiiiiEEENS2_IT_EEDpRKT0_.argprom: argument 0"}
-!92 = distinct !{!92, !"_ZN2cvL7makePtrINS_12FilterEngineEJNS_3PtrINS_10BaseFilterEEENS2_INS_13BaseRowFilterEEENS2_INS_16BaseColumnFilterEEEiiiiEEENS2_IT_EEDpRKT0_.argprom"}
+!91 = distinct !{!91, !92, !"_ZN2cvL7makePtrINS_12FilterEngineEJNS_3PtrINS_10BaseFilterEEENS2_INS_13BaseRowFilterEEENS2_INS_16BaseColumnFilterEEEiiiiEEENS2_IT_EEDpRKT0_: argument 0"}
+!92 = distinct !{!92, !"_ZN2cvL7makePtrINS_12FilterEngineEJNS_3PtrINS_10BaseFilterEEENS2_INS_13BaseRowFilterEEENS2_INS_16BaseColumnFilterEEEiiiiEEENS2_IT_EEDpRKT0_"}
 !93 = !{!94, !91}
 !94 = distinct !{!94, !95, !"_ZSt11make_sharedIN2cv12FilterEngineEJRKNS0_3PtrINS0_10BaseFilterEEERKNS2_INS0_13BaseRowFilterEEERKNS2_INS0_16BaseColumnFilterEEERKiSG_SG_SG_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_: argument 0"}
 !95 = distinct !{!95, !"_ZSt11make_sharedIN2cv12FilterEngineEJRKNS0_3PtrINS0_10BaseFilterEEERKNS2_INS0_13BaseRowFilterEEERKNS2_INS0_16BaseColumnFilterEEERKiSG_SG_SG_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_"}
 !96 = !{!97, !99}
-!97 = distinct !{!97, !98, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!98 = distinct !{!98, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
-!99 = distinct !{!99, !100, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!100 = distinct !{!100, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!97 = distinct !{!97, !98, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!98 = distinct !{!98, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!99 = distinct !{!99, !100, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!100 = distinct !{!100, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhiEEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !101 = !{!102, !104}
-!102 = distinct !{!102, !103, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!103 = distinct !{!103, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
-!104 = distinct !{!104, !105, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!105 = distinct !{!105, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!102 = distinct !{!102, !103, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!103 = distinct !{!103, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!104 = distinct !{!104, !105, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!105 = distinct !{!105, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !106 = !{!107, !109}
-!107 = distinct !{!107, !108, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!108 = distinct !{!108, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
-!109 = distinct !{!109, !110, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!110 = distinct !{!110, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!107 = distinct !{!107, !108, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!108 = distinct !{!108, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!109 = distinct !{!109, !110, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!110 = distinct !{!110, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !111 = !{!112, !114}
-!112 = distinct !{!112, !113, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!113 = distinct !{!113, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
-!114 = distinct !{!114, !115, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!115 = distinct !{!115, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!112 = distinct !{!112, !113, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!113 = distinct !{!113, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!114 = distinct !{!114, !115, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!115 = distinct !{!115, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !116 = !{!117, !119}
-!117 = distinct !{!117, !118, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!118 = distinct !{!118, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
-!119 = distinct !{!119, !120, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!120 = distinct !{!120, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!117 = distinct !{!117, !118, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!118 = distinct !{!118, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!119 = distinct !{!119, !120, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!120 = distinct !{!120, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !121 = !{!122, !124}
-!122 = distinct !{!122, !123, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!123 = distinct !{!123, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
-!124 = distinct !{!124, !125, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!125 = distinct !{!125, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!122 = distinct !{!122, !123, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!123 = distinct !{!123, !"_ZSt11make_sharedIN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEJRKiS6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!124 = distinct !{!124, !125, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!125 = distinct !{!125, !"_ZN2cvL7makePtrINS_12cpu_baseline12_GLOBAL__N_19SqrRowSumIddEEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !126 = !{}
 !127 = !{!128}
 !128 = distinct !{!128, !129, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
@@ -16992,8 +16992,8 @@ attributes #26 = { noreturn nounwind }
 !146 = distinct !{!146, !147, !"_ZN2cv18getColumnSumFilterEiiiid: argument 0"}
 !147 = distinct !{!147, !"_ZN2cv18getColumnSumFilterEiiiid"}
 !148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZN2cvL7makePtrINS_12FilterEngineEJNS_3PtrINS_10BaseFilterEEENS2_INS_13BaseRowFilterEEENS2_INS_16BaseColumnFilterEEEiiiiEEENS2_IT_EEDpRKT0_.argprom: argument 0"}
-!150 = distinct !{!150, !"_ZN2cvL7makePtrINS_12FilterEngineEJNS_3PtrINS_10BaseFilterEEENS2_INS_13BaseRowFilterEEENS2_INS_16BaseColumnFilterEEEiiiiEEENS2_IT_EEDpRKT0_.argprom"}
+!149 = distinct !{!149, !150, !"_ZN2cvL7makePtrINS_12FilterEngineEJNS_3PtrINS_10BaseFilterEEENS2_INS_13BaseRowFilterEEENS2_INS_16BaseColumnFilterEEEiiiiEEENS2_IT_EEDpRKT0_: argument 0"}
+!150 = distinct !{!150, !"_ZN2cvL7makePtrINS_12FilterEngineEJNS_3PtrINS_10BaseFilterEEENS2_INS_13BaseRowFilterEEENS2_INS_16BaseColumnFilterEEEiiiiEEENS2_IT_EEDpRKT0_"}
 !151 = !{!152, !149}
 !152 = distinct !{!152, !153, !"_ZSt11make_sharedIN2cv12FilterEngineEJRKNS0_3PtrINS0_10BaseFilterEEERKNS2_INS0_13BaseRowFilterEEERKNS2_INS0_16BaseColumnFilterEEERKiSG_SG_SG_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_: argument 0"}
 !153 = distinct !{!153, !"_ZSt11make_sharedIN2cv12FilterEngineEJRKNS0_3PtrINS0_10BaseFilterEEERKNS2_INS0_13BaseRowFilterEEERKNS2_INS0_16BaseColumnFilterEEERKiSG_SG_SG_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_"}

@@ -1119,7 +1119,7 @@ if.end9:                                          ; preds = %if.then5, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @formatf.retelim(ptr noundef %userp, ptr nocapture noundef readonly %stream, ptr noundef %format, ptr nocapture noundef %ap_save) unnamed_addr #1 {
+define internal fastcc void @formatf(ptr noundef %userp, ptr nocapture noundef readonly %stream, ptr noundef %format, ptr nocapture noundef %ap_save) unnamed_addr #1 {
 entry:
   %ocount = alloca i32, align 4
   %icount = alloca i32, align 4
@@ -2111,7 +2111,7 @@ entry:
   store ptr %dyn, ptr %info, align 8
   %merr = getelementptr inbounds i8, ptr %info, i64 8
   store i8 0, ptr %merr, align 8
-  call fastcc void @formatf.retelim(ptr noundef nonnull %info, ptr noundef nonnull @alloc_addbyter, ptr noundef %format, ptr noundef %ap_save)
+  call fastcc void @formatf(ptr noundef nonnull %info, ptr noundef nonnull @alloc_addbyter, ptr noundef %format, ptr noundef %ap_save)
   %0 = load i8, ptr %merr, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.then
@@ -2161,7 +2161,7 @@ entry:
   call void @Curl_dyn_init(ptr noundef nonnull %dyn, i64 noundef 8000000) #12
   %merr = getelementptr inbounds i8, ptr %info, i64 8
   store i8 0, ptr %merr, align 8
-  call fastcc void @formatf.retelim(ptr noundef nonnull %info, ptr noundef nonnull @alloc_addbyter, ptr noundef %format, ptr noundef %ap_save)
+  call fastcc void @formatf(ptr noundef nonnull %info, ptr noundef nonnull @alloc_addbyter, ptr noundef %format, ptr noundef %ap_save)
   %0 = load i8, ptr %merr, align 8
   %tobool.not = icmp eq i8 %0, 0
   %1 = load ptr, ptr %info, align 8
@@ -2210,7 +2210,7 @@ entry:
   call void @Curl_dyn_init(ptr noundef nonnull %dyn.i, i64 noundef 8000000) #12
   %merr.i = getelementptr inbounds i8, ptr %info.i, i64 8
   store i8 0, ptr %merr.i, align 8
-  call fastcc void @formatf.retelim(ptr noundef nonnull %info.i, ptr noundef nonnull @alloc_addbyter, ptr noundef %format, ptr noundef nonnull %ap_save)
+  call fastcc void @formatf(ptr noundef nonnull %info.i, ptr noundef nonnull @alloc_addbyter, ptr noundef %format, ptr noundef nonnull %ap_save)
   %0 = load i8, ptr %merr.i, align 8
   %tobool.not.i = icmp eq i8 %0, 0
   %1 = load ptr, ptr %info.i, align 8
@@ -2250,7 +2250,7 @@ entry:
   %ap_save = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %buffer, ptr %buffer.addr, align 8
   call void @llvm.va_start.p0(ptr nonnull %ap_save)
-  %call = call fastcc i32 @formatf.specialized.3.argprom(ptr noundef nonnull %buffer.addr, ptr noundef %format, ptr noundef nonnull %ap_save)
+  %call = call fastcc i32 @formatf.specialized.3(ptr noundef nonnull %buffer.addr, ptr noundef %format, ptr noundef nonnull %ap_save)
   call void @llvm.va_end.p0(ptr nonnull %ap_save)
   %0 = load ptr, ptr %buffer.addr, align 8
   store i8 0, ptr %0, align 1
@@ -2263,7 +2263,7 @@ entry:
   %ap_save = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap_save)
   %0 = load ptr, ptr @stdout, align 8
-  %call = call fastcc i32 @formatf.specialized.1.argprom(ptr noundef %0, ptr noundef %format, ptr noundef nonnull %ap_save)
+  %call = call fastcc i32 @formatf.specialized.1(ptr noundef %0, ptr noundef %format, ptr noundef nonnull %ap_save)
   call void @llvm.va_end.p0(ptr nonnull %ap_save)
   ret i32 %call
 }
@@ -2273,7 +2273,7 @@ define i32 @curl_mfprintf(ptr nocapture noundef %whereto, ptr noundef %format, .
 entry:
   %ap_save = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap_save)
-  %call = call fastcc i32 @formatf.specialized.1.argprom(ptr noundef %whereto, ptr noundef %format, ptr noundef nonnull %ap_save)
+  %call = call fastcc i32 @formatf.specialized.1(ptr noundef %whereto, ptr noundef %format, ptr noundef nonnull %ap_save)
   call void @llvm.va_end.p0(ptr nonnull %ap_save)
   ret i32 %call
 }
@@ -2283,7 +2283,7 @@ define i32 @curl_mvsprintf(ptr noundef %buffer, ptr noundef %format, ptr nocaptu
 entry:
   %buffer.addr = alloca ptr, align 8
   store ptr %buffer, ptr %buffer.addr, align 8
-  %call = call fastcc i32 @formatf.specialized.3.argprom(ptr noundef nonnull %buffer.addr, ptr noundef %format, ptr noundef %ap_save)
+  %call = call fastcc i32 @formatf.specialized.3(ptr noundef nonnull %buffer.addr, ptr noundef %format, ptr noundef %ap_save)
   %0 = load ptr, ptr %buffer.addr, align 8
   store i8 0, ptr %0, align 1
   ret i32 %call
@@ -2293,14 +2293,14 @@ entry:
 define i32 @curl_mvprintf(ptr noundef %format, ptr nocapture noundef %ap_save) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @stdout, align 8
-  %call = tail call fastcc i32 @formatf.specialized.1.argprom(ptr noundef %0, ptr noundef %format, ptr noundef %ap_save)
+  %call = tail call fastcc i32 @formatf.specialized.1(ptr noundef %0, ptr noundef %format, ptr noundef %ap_save)
   ret i32 %call
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define i32 @curl_mvfprintf(ptr nocapture noundef %whereto, ptr noundef %format, ptr nocapture noundef %ap_save) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @formatf.specialized.1.argprom(ptr noundef %whereto, ptr noundef %format, ptr noundef %ap_save)
+  %call = tail call fastcc i32 @formatf.specialized.1(ptr noundef %whereto, ptr noundef %format, ptr noundef %ap_save)
   ret i32 %call
 }
 
@@ -3323,7 +3323,7 @@ declare void @llvm.va_start.p0(ptr) #8
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @formatf.specialized.1.argprom(ptr nocapture noundef %userp, ptr noundef %format, ptr nocapture noundef %ap_save) unnamed_addr #0 {
+define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %userp, ptr noundef %format, ptr nocapture noundef %ap_save) unnamed_addr #0 {
 entry:
   %ocount = alloca i32, align 4
   %icount = alloca i32, align 4
@@ -4336,7 +4336,7 @@ return:                                           ; preds = %do.body86, %do.body
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @formatf.specialized.3.argprom(ptr nocapture noundef %userp, ptr noundef %format, ptr nocapture noundef %ap_save) unnamed_addr #0 {
+define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %userp, ptr noundef %format, ptr nocapture noundef %ap_save) unnamed_addr #0 {
 entry:
   %ocount = alloca i32, align 4
   %icount = alloca i32, align 4

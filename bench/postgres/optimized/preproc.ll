@@ -5978,7 +5978,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 
 314:                                              ; preds = %98
   %315 = load ptr, ptr %.24599, align 8
-  call fastcc void @check_declared_list.retelim(ptr noundef %315)
+  call fastcc void @check_declared_list(ptr noundef %315)
   %316 = getelementptr inbounds i8, ptr %.24599, i64 8
   %317 = load ptr, ptr %316, align 8
   %318 = icmp eq ptr %317, null
@@ -6096,7 +6096,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 
 371:                                              ; preds = %98
   %372 = load ptr, ptr %.24599, align 8
-  call fastcc void @check_declared_list.retelim(ptr noundef %372)
+  call fastcc void @check_declared_list(ptr noundef %372)
   %373 = getelementptr inbounds i8, ptr %.24599, i64 16
   %374 = load ptr, ptr %373, align 8
   %375 = icmp eq ptr %374, null
@@ -6331,7 +6331,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 490:                                              ; preds = %98
   %491 = getelementptr inbounds i8, ptr %.24599, i64 8
   %492 = load ptr, ptr %491, align 8
-  call fastcc void @check_declared_list.retelim(ptr noundef %492)
+  call fastcc void @check_declared_list(ptr noundef %492)
   %493 = load ptr, ptr @base_yyout, align 8
   %494 = load i32, ptr @compat, align 4
   %495 = load i32, ptr %.24599, align 8
@@ -27269,7 +27269,7 @@ sub_04886:                                        ; preds = %14098, %14094
 
 14198:                                            ; preds = %14178, %14193
   %14199 = load ptr, ptr %.24599, align 8
-  call fastcc void @check_declared_list.retelim(ptr noundef %14199)
+  call fastcc void @check_declared_list(ptr noundef %14199)
   %14200 = load ptr, ptr @connection, align 8
   %.not4731 = icmp eq ptr %14200, null
   %14201 = select i1 %.not4731, ptr @.str.4, ptr %14200
@@ -30173,7 +30173,7 @@ sub_04898:                                        ; preds = %sub_04894, %15041, 
   %15906 = call ptr @find_variable(ptr noundef %15905) #17
   call void @add_variable_to_head(ptr noundef nonnull @argsinsert, ptr noundef %15904, ptr noundef %15906) #17
   %15907 = load ptr, ptr %15902, align 8
-  %15908 = call fastcc ptr @create_questionmarks.argelim(ptr noundef %15907)
+  %15908 = call fastcc ptr @create_questionmarks(ptr noundef %15907)
   br label %.loopexit4901
 
 15909:                                            ; preds = %98
@@ -30199,7 +30199,7 @@ sub_04898:                                        ; preds = %sub_04894, %15041, 
   %15919 = call ptr @find_variable(ptr noundef %15918) #17
   call void @add_variable_to_head(ptr noundef nonnull @argsinsert, ptr noundef %15919, ptr noundef nonnull @no_indicator) #17
   %15920 = load ptr, ptr %.24599, align 8
-  %15921 = call fastcc ptr @create_questionmarks.argelim(ptr noundef %15920)
+  %15921 = call fastcc ptr @create_questionmarks(ptr noundef %15920)
   br label %.loopexit4901
 
 15922:                                            ; preds = %98
@@ -30620,13 +30620,13 @@ sub_04898:                                        ; preds = %sub_04894, %15041, 
 
 16140:                                            ; preds = %98
   %16141 = load ptr, ptr %.24599, align 8
-  call fastcc void @check_declared_list.retelim(ptr noundef %16141)
+  call fastcc void @check_declared_list(ptr noundef %16141)
   %16142 = load ptr, ptr %.24599, align 8
   br label %.loopexit4901
 
 16143:                                            ; preds = %98
   %16144 = load ptr, ptr %.24599, align 8
-  call fastcc void @check_declared_list.retelim(ptr noundef %16144)
+  call fastcc void @check_declared_list(ptr noundef %16144)
   %16145 = load ptr, ptr %.24599, align 8
   br label %.loopexit4901
 
@@ -30964,7 +30964,7 @@ declare void @output_simple_statement(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_declared_list.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @check_declared_list(ptr noundef %0) unnamed_addr #0 {
   %.019 = load ptr, ptr @g_declared_list, align 8
   %.not20.not = icmp eq ptr %.019, null
   br i1 %.not20.not, label %.loopexit, label %.lr.ph
@@ -31967,7 +31967,7 @@ declare void @push_assignment(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @ECPGfree_type(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_questionmarks.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_questionmarks(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @find_variable(ptr noundef %0) #17
   %3 = tail call ptr @mm_strdup(ptr noundef nonnull @.str.36) #17
   %4 = getelementptr inbounds i8, ptr %2, i64 8

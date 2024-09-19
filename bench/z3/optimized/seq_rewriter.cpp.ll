@@ -53423,7 +53423,7 @@ invoke.cont76:                                    ; preds = %if.else73
   br i1 %call77, label %if.then78, label %invoke.cont86
 
 if.then78:                                        ; preds = %invoke.cont76
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %ref.tmp79, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp79, ptr nonnull %this, ptr %r)
           to label %invoke.cont80 unwind label %lpad56
 
 invoke.cont80:                                    ; preds = %if.then78
@@ -53448,7 +53448,7 @@ invoke.cont92:                                    ; preds = %invoke.cont86
 
 invoke.cont96:                                    ; preds = %invoke.cont92
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %s.addr.i304)
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %ref.tmp98, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp98, ptr nonnull %this, ptr %r)
           to label %invoke.cont99 unwind label %lpad56
 
 invoke.cont99:                                    ; preds = %invoke.cont96
@@ -53523,7 +53523,7 @@ invoke.cont134:                                   ; preds = %invoke.cont129
   br i1 %cmp.i321, label %if.then140, label %invoke.cont149
 
 if.then140:                                       ; preds = %invoke.cont134
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %ref.tmp141, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp141, ptr nonnull %this, ptr %r)
           to label %invoke.cont142 unwind label %lpad56
 
 invoke.cont142:                                   ; preds = %if.then140
@@ -53554,7 +53554,7 @@ invoke.cont152:                                   ; preds = %invoke.cont149
 
 invoke.cont156:                                   ; preds = %invoke.cont152
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %s.addr.i323)
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %ref.tmp158, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp158, ptr nonnull %this, ptr %r)
           to label %invoke.cont159 unwind label %lpad153
 
 invoke.cont159:                                   ; preds = %invoke.cont156
@@ -53672,7 +53672,7 @@ invoke.cont210:                                   ; preds = %invoke.cont204
   br i1 %cmp.i350, label %if.then216, label %invoke.cont228
 
 if.then216:                                       ; preds = %invoke.cont210
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %ref.tmp217, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp217, ptr nonnull %this, ptr %r)
           to label %invoke.cont218 unwind label %lpad9
 
 invoke.cont218:                                   ; preds = %if.then216
@@ -53709,7 +53709,7 @@ invoke.cont235:                                   ; preds = %invoke.cont231
           to label %invoke.cont237 unwind label %lpad232
 
 invoke.cont237:                                   ; preds = %invoke.cont235
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %ref.tmp239, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp239, ptr nonnull %this, ptr %r)
           to label %invoke.cont240 unwind label %lpad232
 
 invoke.cont240:                                   ; preds = %invoke.cont237
@@ -53861,7 +53861,7 @@ invoke.cont319:                                   ; preds = %invoke.cont305
 
 invoke.cont324:                                   ; preds = %invoke.cont319
   %138 = load ptr, ptr %ref.tmp323, align 8
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %ref.tmp328, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp328, ptr nonnull %this, ptr %r)
           to label %invoke.cont329 unwind label %lpad325
 
 invoke.cont329:                                   ; preds = %invoke.cont324
@@ -54904,7 +54904,7 @@ invoke.cont777:                                   ; preds = %invoke.cont777.sink
   br i1 %cmp.i671, label %if.then783, label %invoke.cont789
 
 if.then783:                                       ; preds = %invoke.cont777
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %ref.tmp784, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp784, ptr nonnull %this, ptr %r)
           to label %invoke.cont785 unwind label %lpad435
 
 invoke.cont785:                                   ; preds = %if.then783
@@ -54933,7 +54933,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i676:     ; preds = %call2.i.noexc679
   br label %invoke.cont794
 
 invoke.cont794:                                   ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i676, %call2.i.noexc679
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %ref.tmp798, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp798, ptr nonnull %this, ptr %r)
           to label %invoke.cont799 unwind label %lpad795
 
 invoke.cont799:                                   ; preds = %invoke.cont794
@@ -55174,7 +55174,7 @@ if.then913:                                       ; preds = %invoke.cont911
   br i1 %or.cond, label %if.then919, label %if.else923
 
 if.then919:                                       ; preds = %if.then913
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %ref.tmp920, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp920, ptr nonnull %this, ptr %r)
           to label %invoke.cont921 unwind label %lpad9
 
 invoke.cont921:                                   ; preds = %if.then919
@@ -55433,7 +55433,7 @@ ehcleanup1038:                                    ; preds = %ehcleanup995, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr nonnull %this.8.val.0.val) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr nonnull %this.8.val.0.val) unnamed_addr #3 align 2 {
 entry:
   %re.i = getelementptr inbounds i8, ptr %this.0.val, i64 56
   %call2 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %this.8.val.0.val)
@@ -66584,11 +66584,11 @@ if.end135:                                        ; preds = %invoke.cont117
   br i1 %91, label %land.lhs.true, label %if.end144
 
 land.lhs.true:                                    ; preds = %if.end135
-  %call139 = invoke fastcc noundef i32 @"_ZZN12seq_rewriter13mk_der_op_recEiP4exprS1_ENK3$_1clES1_.argprom"(ptr %this, ptr noundef %68)
+  %call139 = invoke fastcc noundef i32 @"_ZZN12seq_rewriter13mk_der_op_recEiP4exprS1_ENK3$_1clES1_"(ptr %this, ptr noundef %68)
           to label %invoke.cont138 unwind label %lpad121
 
 invoke.cont138:                                   ; preds = %land.lhs.true
-  %call141 = invoke fastcc noundef i32 @"_ZZN12seq_rewriter13mk_der_op_recEiP4exprS1_ENK3$_1clES1_.argprom"(ptr %this, ptr noundef %78)
+  %call141 = invoke fastcc noundef i32 @"_ZZN12seq_rewriter13mk_der_op_recEiP4exprS1_ENK3$_1clES1_"(ptr %this, ptr noundef %78)
           to label %invoke.cont140 unwind label %lpad121
 
 invoke.cont140:                                   ; preds = %invoke.cont138
@@ -67116,7 +67116,7 @@ ehcleanup274:                                     ; preds = %ehcleanup235, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @"_ZZN12seq_rewriter13mk_der_op_recEiP4exprS1_ENK3$_1clES1_.argprom"(ptr nonnull %this.0.val, ptr noundef %e) unnamed_addr #3 align 2 {
+define internal fastcc noundef i32 @"_ZZN12seq_rewriter13mk_der_op_recEiP4exprS1_ENK3$_1clES1_"(ptr nonnull %this.0.val, ptr noundef %e) unnamed_addr #3 align 2 {
 entry:
   %ch = alloca i32, align 4
   %call.i = tail call noundef zeroext i1 @_ZNK8seq_util10is_char_leEPK4expr(ptr noundef nonnull align 8 dereferenceable(136) %this.0.val, ptr noundef %e)
@@ -69447,7 +69447,7 @@ if.then236:                                       ; preds = %invoke.cont234
   br i1 %cmp237, label %if.then238, label %if.end240
 
 if.then238:                                       ; preds = %if.then236
-  invoke fastcc void @"_ZZN12seq_rewriter17mk_derivative_recEP4exprS1_ENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %agg.result, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter17mk_derivative_recEP4exprS1_ENK3$_0clEv"(ptr noalias align 8 %agg.result, ptr nonnull %this, ptr %r)
           to label %cleanup754 unwind label %lpad
 
 if.end240:                                        ; preds = %if.then236
@@ -69668,7 +69668,7 @@ invoke.cont332:                                   ; preds = %invoke.cont330
   br i1 %call333, label %if.then334, label %invoke.cont337
 
 if.then334:                                       ; preds = %invoke.cont332
-  invoke fastcc void @"_ZZN12seq_rewriter17mk_derivative_recEP4exprS1_ENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %agg.result, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter17mk_derivative_recEP4exprS1_ENK3$_0clEv"(ptr noalias align 8 %agg.result, ptr nonnull %this, ptr %r)
           to label %cleanup440 unwind label %lpad292
 
 invoke.cont337:                                   ; preds = %invoke.cont332
@@ -69958,7 +69958,7 @@ invoke.cont499:                                   ; preds = %invoke.cont497
   br i1 %call500, label %if.then501, label %if.else503
 
 if.then501:                                       ; preds = %invoke.cont499
-  invoke fastcc void @"_ZZN12seq_rewriter17mk_derivative_recEP4exprS1_ENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %agg.result, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter17mk_derivative_recEP4exprS1_ENK3$_0clEv"(ptr noalias align 8 %agg.result, ptr nonnull %this, ptr %r)
           to label %cleanup548 unwind label %lpad464
 
 if.else503:                                       ; preds = %invoke.cont499
@@ -70246,7 +70246,7 @@ ehcleanup639:                                     ; preds = %ehcleanup637, %lpad
   br label %ehcleanup694
 
 if.else640:                                       ; preds = %invoke.cont569
-  invoke fastcc void @"_ZZN12seq_rewriter17mk_derivative_recEP4exprS1_ENK3$_0clEv.argprom.argprom"(ptr noalias align 8 %agg.result, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter17mk_derivative_recEP4exprS1_ENK3$_0clEv"(ptr noalias align 8 %agg.result, ptr nonnull %this, ptr %r)
           to label %cleanup754.critedge unwind label %lpad559
 
 invoke.cont643:                                   ; preds = %invoke.cont562, %invoke.cont566
@@ -70523,7 +70523,7 @@ ehcleanup755:                                     ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12seq_rewriter17mk_derivative_recEP4exprS1_ENK3$_0clEv.argprom.argprom"(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val, ptr nonnull %this.8.val.0.val) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN12seq_rewriter17mk_derivative_recEP4exprS1_ENK3$_0clEv"(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val, ptr nonnull %this.8.val.0.val) unnamed_addr #3 align 2 {
 entry:
   %re.i = getelementptr inbounds i8, ptr %this.0.val, i64 56
   %call2 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %this.8.val.0.val)
@@ -74466,12 +74466,12 @@ invoke.cont45:                                    ; preds = %land.lhs.true.i126
   %48 = load ptr, ptr %arrayidx.i.i131, align 8
   store ptr %48, ptr %r2, align 8
   %49 = load ptr, ptr %this, align 8
-  %call48 = invoke fastcc noundef ptr @"_ZZN12seq_rewriter18reduce_re_is_emptyEP4exprR7obj_refIS0_11ast_managerEENK3$_0clES1_.argprom"(ptr nonnull %this, ptr noundef %47)
+  %call48 = invoke fastcc noundef ptr @"_ZZN12seq_rewriter18reduce_re_is_emptyEP4exprR7obj_refIS0_11ast_managerEENK3$_0clES1_"(ptr nonnull %this, ptr noundef %47)
           to label %invoke.cont47 unwind label %lpad
 
 invoke.cont47:                                    ; preds = %invoke.cont45
   %50 = load ptr, ptr %r2, align 8
-  %call50 = invoke fastcc noundef ptr @"_ZZN12seq_rewriter18reduce_re_is_emptyEP4exprR7obj_refIS0_11ast_managerEENK3$_0clES1_.argprom"(ptr nonnull %this, ptr noundef %50)
+  %call50 = invoke fastcc noundef ptr @"_ZZN12seq_rewriter18reduce_re_is_emptyEP4exprR7obj_refIS0_11ast_managerEENK3$_0clES1_"(ptr nonnull %this, ptr noundef %50)
           to label %invoke.cont49 unwind label %lpad
 
 invoke.cont49:                                    ; preds = %invoke.cont47
@@ -74626,7 +74626,7 @@ land.lhs.true158:                                 ; preds = %invoke.cont156
 
 if.then160:                                       ; preds = %land.lhs.true158, %invoke.cont151
   %71 = load ptr, ptr %r1, align 8
-  %call162 = invoke fastcc noundef ptr @"_ZZN12seq_rewriter18reduce_re_is_emptyEP4exprR7obj_refIS0_11ast_managerEENK3$_0clES1_.argprom"(ptr nonnull %this, ptr noundef %71)
+  %call162 = invoke fastcc noundef ptr @"_ZZN12seq_rewriter18reduce_re_is_emptyEP4exprR7obj_refIS0_11ast_managerEENK3$_0clES1_"(ptr nonnull %this, ptr noundef %71)
           to label %invoke.cont161 unwind label %lpad
 
 invoke.cont161:                                   ; preds = %if.then160
@@ -74707,7 +74707,7 @@ invoke.cont211.invoke:                            ; preds = %invoke.cont209, %in
           to label %invoke.cont213.invoke unwind label %lpad
 
 invoke.cont213.invoke:                            ; preds = %invoke.cont211.invoke
-  %95 = invoke fastcc noundef ptr @"_ZZN12seq_rewriter18reduce_re_is_emptyEP4exprR7obj_refIS0_11ast_managerEENK3$_0clES1_.argprom"(ptr nonnull %this, ptr noundef %94)
+  %95 = invoke fastcc noundef ptr @"_ZZN12seq_rewriter18reduce_re_is_emptyEP4exprR7obj_refIS0_11ast_managerEENK3$_0clES1_"(ptr nonnull %this, ptr noundef %94)
           to label %invoke.cont215.invoke unwind label %lpad
 
 invoke.cont215.invoke:                            ; preds = %invoke.cont213.invoke
@@ -74762,7 +74762,7 @@ _ZN7zstringD2Ev.exit189:                          ; preds = %_ZN7zstringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN12seq_rewriter18reduce_re_is_emptyEP4exprR7obj_refIS0_11ast_managerEENK3$_0clES1_.argprom"(ptr %this.0.val, ptr noundef nonnull %r) unnamed_addr #3 align 2 {
+define internal fastcc noundef ptr @"_ZZN12seq_rewriter18reduce_re_is_emptyEP4exprR7obj_refIS0_11ast_managerEENK3$_0clES1_"(ptr %this.0.val, ptr noundef nonnull %r) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this.0.val, align 8
   %re.i = getelementptr inbounds i8, ptr %this.0.val, i64 56
@@ -98378,7 +98378,7 @@ entry:
   %bf.load.i.i.i.i.i.i = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i, 65535
   %cmp.i.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter14mk_seq_extractEP4exprS2_S2_R7obj_refIS1_11ast_managerEE3$_0JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit"
+  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter14mk_seq_extractEP4exprS2_S2_R7obj_refIS1_11ast_managerEE3$_0JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 land.rhs.i.i.i.i.i:                               ; preds = %entry
   %m_decl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 16
@@ -98386,7 +98386,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %entry
   %m_info.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %m_info.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter14mk_seq_extractEP4exprS2_S2_R7obj_refIS1_11ast_managerEE3$_0JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit", label %land.rhs.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter14mk_seq_extractEP4exprS2_S2_R7obj_refIS1_11ast_managerEE3$_0JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %land.rhs.i.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i
   %3 = load i32, ptr %2, align 8
@@ -98395,9 +98395,9 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i
   %4 = load i32, ptr %m_kind.i.i.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i.i.i = icmp eq i32 %4, 0
   %5 = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i.i.i, i1 false
-  br label %"_ZSt10__invoke_rIbRZN12seq_rewriter14mk_seq_extractEP4exprS2_S2_R7obj_refIS1_11ast_managerEE3$_0JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN12seq_rewriter14mk_seq_extractEP4exprS2_S2_R7obj_refIS1_11ast_managerEE3$_0JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
-"_ZSt10__invoke_rIbRZN12seq_rewriter14mk_seq_extractEP4exprS2_S2_R7obj_refIS1_11ast_managerEE3$_0JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit": ; preds = %entry, %land.rhs.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIbRZN12seq_rewriter14mk_seq_extractEP4exprS2_S2_R7obj_refIS1_11ast_managerEE3$_0JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %entry, %land.rhs.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i
   %6 = phi i1 [ false, %entry ], [ false, %land.rhs.i.i.i.i.i ], [ %5, %land.rhs.i.i.i.i.i.i.i ]
   ret i1 %6
 }
@@ -98475,7 +98475,7 @@ entry:
   %bf.load.i.i.i.i.i.i = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i, 65535
   %cmp.i.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter15mk_seq_containsEP4exprS2_R7obj_refIS1_11ast_managerEE3$_1JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit"
+  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter15mk_seq_containsEP4exprS2_R7obj_refIS1_11ast_managerEE3$_1JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 land.rhs.i.i.i.i.i:                               ; preds = %entry
   %m_decl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 16
@@ -98483,7 +98483,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %entry
   %m_info.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %m_info.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter15mk_seq_containsEP4exprS2_R7obj_refIS1_11ast_managerEE3$_1JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit", label %land.rhs.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter15mk_seq_containsEP4exprS2_R7obj_refIS1_11ast_managerEE3$_1JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %land.rhs.i.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i
   %3 = load i32, ptr %2, align 8
@@ -98492,9 +98492,9 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i
   %4 = load i32, ptr %m_kind.i.i.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i.i.i = icmp eq i32 %4, 0
   %5 = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i.i.i, i1 false
-  br label %"_ZSt10__invoke_rIbRZN12seq_rewriter15mk_seq_containsEP4exprS2_R7obj_refIS1_11ast_managerEE3$_1JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN12seq_rewriter15mk_seq_containsEP4exprS2_R7obj_refIS1_11ast_managerEE3$_1JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
-"_ZSt10__invoke_rIbRZN12seq_rewriter15mk_seq_containsEP4exprS2_R7obj_refIS1_11ast_managerEE3$_1JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit": ; preds = %entry, %land.rhs.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIbRZN12seq_rewriter15mk_seq_containsEP4exprS2_R7obj_refIS1_11ast_managerEE3$_1JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %entry, %land.rhs.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i
   %6 = phi i1 [ false, %entry ], [ false, %land.rhs.i.i.i.i.i ], [ %5, %land.rhs.i.i.i.i.i.i.i ]
   ret i1 %6
 }
@@ -99464,7 +99464,7 @@ entry:
   %bf.load.i.i.i.i.i.i.i = load i32, ptr %m_kind.i.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i, 65535
   %cmp.i.i.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 land.rhs.i.i.i.i.i.i:                             ; preds = %entry
   %m_decl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 16
@@ -99472,7 +99472,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %entry
   %m_info.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %m_info.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit", label %_ZNK8seq_util3rex8is_unionEPK4expr.exit.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %_ZNK8seq_util3rex8is_unionEPK4expr.exit.i.i.i.i
 
 _ZNK8seq_util3rex8is_unionEPK4expr.exit.i.i.i.i:  ; preds = %land.rhs.i.i.i.i.i.i
   %3 = load i32, ptr %2, align 8
@@ -99481,13 +99481,13 @@ _ZNK8seq_util3rex8is_unionEPK4expr.exit.i.i.i.i:  ; preds = %land.rhs.i.i.i.i.i.
   %4 = load i32, ptr %m_kind.i.i.i.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i.i.i.i = icmp eq i32 %4, 29
   %5 = select i1 %cmp.i.i.i.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %5, label %land.lhs.true.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit"
+  br i1 %5, label %land.lhs.true.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZNK8seq_util3rex8is_unionEPK4expr.exit.i.i.i.i
   %m_num_args.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 24
   %6 = load i32, ptr %m_num_args.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i32 %6, 2
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit"
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
   %m_args.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 32
@@ -99496,9 +99496,9 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 40
   %8 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   store ptr %8, ptr %__args3, align 8
-  br label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit": ; preds = %entry, %land.rhs.i.i.i.i.i.i, %_ZNK8seq_util3rex8is_unionEPK4expr.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i.i
+"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_union_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %entry, %land.rhs.i.i.i.i.i.i, %_ZNK8seq_util3rex8is_unionEPK4expr.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi i1 [ true, %if.then.i.i.i.i ], [ false, %land.lhs.true.i.i.i.i ], [ false, %_ZNK8seq_util3rex8is_unionEPK4expr.exit.i.i.i.i ], [ false, %entry ], [ false, %land.rhs.i.i.i.i.i.i ]
   ret i1 %retval.0.i.i.i.i
 }
@@ -99536,11 +99536,11 @@ entry:
   %__args.val = load ptr, ptr %__args, align 8
   %__args1.val = load ptr, ptr %__args1, align 8
   %call.i.i.i = tail call noundef zeroext i1 @_ZNK12seq_rewriter9is_subsetEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(497) %call.val, ptr noundef %__args.val, ptr noundef %__args1.val)
-  br i1 %call.i.i.i, label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_union_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %cond.false.i.i.i
+  br i1 %call.i.i.i, label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_union_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %entry
   %call2.i.i.i = tail call noundef zeroext i1 @_ZNK12seq_rewriter9is_subsetEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(497) %call.val, ptr noundef %__args1.val, ptr noundef %__args.val)
-  br i1 %call2.i.i.i, label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_union_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %cond.false4.i.i.i
+  br i1 %call2.i.i.i, label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_union_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %cond.false4.i.i.i
 
 cond.false4.i.i.i:                                ; preds = %cond.false.i.i.i
   %m.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 64
@@ -99548,9 +99548,9 @@ cond.false4.i.i.i:                                ; preds = %cond.false.i.i.i
   %m_fid.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 72
   %1 = load i32, ptr %m_fid.i.i.i.i, align 8
   %call.i.i.i.i = tail call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %0, i32 noundef %1, i32 noundef 29, ptr noundef %__args.val, ptr noundef %__args1.val)
-  br label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_union_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_union_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_union_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %entry, %cond.false.i.i.i, %cond.false4.i.i.i
+"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_union_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %entry, %cond.false.i.i.i, %cond.false4.i.i.i
   %cond8.i.i.i = phi ptr [ %call.i.i.i.i, %cond.false4.i.i.i ], [ %__args1.val, %entry ], [ %__args.val, %cond.false.i.i.i ]
   ret ptr %cond8.i.i.i
 }
@@ -99592,7 +99592,7 @@ entry:
   %bf.load.i.i.i.i.i.i.i = load i32, ptr %m_kind.i.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i, 65535
   %cmp.i.i.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 land.rhs.i.i.i.i.i.i:                             ; preds = %entry
   %m_decl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 16
@@ -99600,7 +99600,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %entry
   %m_info.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %m_info.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit", label %_ZNK8seq_util3rex15is_intersectionEPK4expr.exit.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %_ZNK8seq_util3rex15is_intersectionEPK4expr.exit.i.i.i.i
 
 _ZNK8seq_util3rex15is_intersectionEPK4expr.exit.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i
   %3 = load i32, ptr %2, align 8
@@ -99609,13 +99609,13 @@ _ZNK8seq_util3rex15is_intersectionEPK4expr.exit.i.i.i.i: ; preds = %land.rhs.i.i
   %4 = load i32, ptr %m_kind.i.i.i.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i.i.i.i = icmp eq i32 %4, 31
   %5 = select i1 %cmp.i.i.i.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %5, label %land.lhs.true.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit"
+  br i1 %5, label %land.lhs.true.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZNK8seq_util3rex15is_intersectionEPK4expr.exit.i.i.i.i
   %m_num_args.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 24
   %6 = load i32, ptr %m_num_args.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i32 %6, 2
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit"
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
   %m_args.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 32
@@ -99624,9 +99624,9 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 40
   %8 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   store ptr %8, ptr %__args3, align 8
-  br label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.argprom.exit": ; preds = %entry, %land.rhs.i.i.i.i.i.i, %_ZNK8seq_util3rex15is_intersectionEPK4expr.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i.i
+"_ZSt10__invoke_rIbRZN12seq_rewriter24mk_regex_inter_normalizeEP4exprS2_E3$_0JS2_RS2_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %entry, %land.rhs.i.i.i.i.i.i, %_ZNK8seq_util3rex15is_intersectionEPK4expr.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi i1 [ true, %if.then.i.i.i.i ], [ false, %land.lhs.true.i.i.i.i ], [ false, %_ZNK8seq_util3rex15is_intersectionEPK4expr.exit.i.i.i.i ], [ false, %entry ], [ false, %land.rhs.i.i.i.i.i.i ]
   ret i1 %retval.0.i.i.i.i
 }
@@ -99664,11 +99664,11 @@ entry:
   %__args.val = load ptr, ptr %__args, align 8
   %__args1.val = load ptr, ptr %__args1, align 8
   %call.i.i.i = tail call noundef zeroext i1 @_ZNK12seq_rewriter9is_subsetEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(497) %call.val, ptr noundef %__args.val, ptr noundef %__args1.val)
-  br i1 %call.i.i.i, label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_inter_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %cond.false.i.i.i
+  br i1 %call.i.i.i, label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_inter_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %entry
   %call2.i.i.i = tail call noundef zeroext i1 @_ZNK12seq_rewriter9is_subsetEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(497) %call.val, ptr noundef %__args1.val, ptr noundef %__args.val)
-  br i1 %call2.i.i.i, label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_inter_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %cond.false4.i.i.i
+  br i1 %call2.i.i.i, label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_inter_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %cond.false4.i.i.i
 
 cond.false4.i.i.i:                                ; preds = %cond.false.i.i.i
   %m.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 64
@@ -99676,9 +99676,9 @@ cond.false4.i.i.i:                                ; preds = %cond.false.i.i.i
   %m_fid.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 72
   %1 = load i32, ptr %m_fid.i.i.i.i, align 8
   %call.i.i.i.i = tail call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %0, i32 noundef %1, i32 noundef 31, ptr noundef %__args.val, ptr noundef %__args1.val)
-  br label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_inter_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_inter_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_inter_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %entry, %cond.false.i.i.i, %cond.false4.i.i.i
+"_ZSt10__invoke_rIP4exprRZN12seq_rewriter24mk_regex_inter_normalizeES1_S1_E3$_1JS1_S1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %entry, %cond.false.i.i.i, %cond.false4.i.i.i
   %cond8.i.i.i = phi ptr [ %call.i.i.i.i, %cond.false4.i.i.i ], [ %__args.val, %entry ], [ %__args1.val, %cond.false.i.i.i ]
   ret ptr %cond8.i.i.i
 }
@@ -101035,17 +101035,17 @@ attributes #31 = { builtin nounwind }
 !273 = distinct !{!273, !5}
 !274 = distinct !{!274, !5}
 !275 = !{!276}
-!276 = distinct !{!276, !277, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom: %agg.result"}
-!277 = distinct !{!277, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv.argprom.argprom"}
+!276 = distinct !{!276, !277, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv: %agg.result"}
+!277 = distinct !{!277, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"}
 !278 = !{!279}
-!279 = distinct !{!279, !280, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_1clEv.argprom.argprom: %agg.result"}
-!280 = distinct !{!280, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_1clEv.argprom.argprom"}
+!279 = distinct !{!279, !280, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_1clEv: %agg.result"}
+!280 = distinct !{!280, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_1clEv"}
 !281 = !{!282}
-!282 = distinct !{!282, !283, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_2clEv.argprom.argprom: %agg.result"}
-!283 = distinct !{!283, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_2clEv.argprom.argprom"}
+!282 = distinct !{!282, !283, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_2clEv: %agg.result"}
+!283 = distinct !{!283, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_2clEv"}
 !284 = !{!285}
-!285 = distinct !{!285, !286, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_2clEv.argprom.argprom: %agg.result"}
-!286 = distinct !{!286, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_2clEv.argprom.argprom"}
+!285 = distinct !{!285, !286, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_2clEv: %agg.result"}
+!286 = distinct !{!286, !"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_2clEv"}
 !287 = !{!288}
 !288 = distinct !{!288, !289, !"_ZN12seq_rewriter13simplify_pathEP4exprS1_: %agg.result"}
 !289 = distinct !{!289, !"_ZN12seq_rewriter13simplify_pathEP4exprS1_"}
@@ -101053,17 +101053,17 @@ attributes #31 = { builtin nounwind }
 !291 = distinct !{!291, !292, !"_ZN12seq_rewriter13simplify_pathEP4exprS1_: %agg.result"}
 !292 = distinct !{!292, !"_ZN12seq_rewriter13simplify_pathEP4exprS1_"}
 !293 = !{!294}
-!294 = distinct !{!294, !295, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_0clEv.argprom.argprom: %agg.result"}
-!295 = distinct !{!295, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_0clEv.argprom.argprom"}
+!294 = distinct !{!294, !295, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_0clEv: %agg.result"}
+!295 = distinct !{!295, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_0clEv"}
 !296 = !{!297}
-!297 = distinct !{!297, !298, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_1clEv.argprom.argprom: %agg.result"}
-!298 = distinct !{!298, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_1clEv.argprom.argprom"}
+!297 = distinct !{!297, !298, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_1clEv: %agg.result"}
+!298 = distinct !{!298, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_1clEv"}
 !299 = !{!300}
-!300 = distinct !{!300, !301, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_2clEv.argprom.argprom: %agg.result"}
-!301 = distinct !{!301, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_2clEv.argprom.argprom"}
+!300 = distinct !{!300, !301, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_2clEv: %agg.result"}
+!301 = distinct !{!301, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_2clEv"}
 !302 = !{!303}
-!303 = distinct !{!303, !304, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_3clEv.argprom.argprom: %agg.result"}
-!304 = distinct !{!304, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_3clEv.argprom.argprom"}
+!303 = distinct !{!303, !304, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_3clEv: %agg.result"}
+!304 = distinct !{!304, !"_ZZN12seq_rewriter25mk_antimirov_deriv_negateEP4exprS1_ENK3$_3clEv"}
 !305 = !{!306}
 !306 = distinct !{!306, !307, !"_ZN12seq_rewriter13simplify_pathEP4exprS1_: %agg.result"}
 !307 = distinct !{!307, !"_ZN12seq_rewriter13simplify_pathEP4exprS1_"}

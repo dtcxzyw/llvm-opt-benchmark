@@ -23526,7 +23526,7 @@ delete.notnull.i206:                              ; preds = %_ZN4llvh5APIntD2Ev.
   br label %_ZN4llvh5APIntD2Ev.exit214
 
 _ZN4llvh5APIntD2Ev.exit214:                       ; preds = %delete.notnull.i206, %_ZN4llvh5APIntD2Ev.exit200
-  call fastcc void @"_ZZN4llvh8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_.argprom"(ptr noalias align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(12) %LowkR, ptr noundef nonnull align 8 dereferenceable(12) %R)
+  call fastcc void @"_ZZN4llvh8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_"(ptr noalias align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(12) %LowkR, ptr noundef nonnull align 8 dereferenceable(12) %R)
   %100 = load i32, ptr %BitWidth.i.i193, align 8
   %cmp.i.i216 = icmp ult i32 %100, 65
   br i1 %cmp.i.i216, label %_ZN4llvh5APIntD2Ev.exit229, label %if.then.i217
@@ -23687,7 +23687,7 @@ _ZN4llvh5APInt6negateEv.exit1607:                 ; preds = %if.end.thread.i.i15
   store i32 %104, ptr %BitWidth.i.i253, align 8, !alias.scope !476
   %agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.2171 = load i64, ptr %agg.tmp32.sroa.0, align 8
   store i64 %agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.agg.tmp32.sroa.0.0.2171, ptr %ref.tmp31, align 8, !alias.scope !476
-  call fastcc void @"_ZZN4llvh8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_.argprom"(ptr noalias align 8 %agg.tmp30, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(12) %R)
+  call fastcc void @"_ZZN4llvh8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_"(ptr noalias align 8 %agg.tmp30, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(12) %R)
   %BitWidth.i.i.i1608 = getelementptr inbounds i8, ptr %agg.tmp30, i64 8
   %119 = load i32, ptr %BitWidth.i.i.i1608, align 8, !noalias !479
   %cmp.i.i.i1609 = icmp ult i32 %119, 65
@@ -25391,7 +25391,7 @@ return:                                           ; preds = %delete.notnull.i141
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvh8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_.argprom"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %V, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %A) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvh8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %V, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %A) unnamed_addr #0 align 2 {
 entry:
   %T = alloca %"class.llvh::APInt", align 8
   %ref.tmp = alloca %"class.llvh::APInt", align 8

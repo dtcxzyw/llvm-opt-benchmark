@@ -545,11 +545,11 @@ Vec_PtrAlloc.exit.i.i.i:                          ; preds = %206, %.critedge2.i.
   %.not.i57.i.i.i = icmp eq ptr %214, null
   br label %.lr.ph104.split.preheader.i.i.i
 
-.lr.ph104.split.preheader.i.i.i:                  ; preds = %Extra_ProgressBarUpdate.argprom.exit.i.i.i, %.lr.ph104.lr.ph.i.i.i
-  %.043.ph111.i.i.i = phi ptr [ %212, %.lr.ph104.lr.ph.i.i.i ], [ %.1.i.i.i, %Extra_ProgressBarUpdate.argprom.exit.i.i.i ]
-  %.044.ph110.i.i.i = phi i32 [ 1, %.lr.ph104.lr.ph.i.i.i ], [ %.145.i.i.i, %Extra_ProgressBarUpdate.argprom.exit.i.i.i ]
-  %.046.ph109.i.i.i = phi i1 [ true, %.lr.ph104.lr.ph.i.i.i ], [ %.not50.i.i.i, %Extra_ProgressBarUpdate.argprom.exit.i.i.i ]
-  %.047.ph108.i.i.i = phi i32 [ 0, %.lr.ph104.lr.ph.i.i.i ], [ %.2.i.i.i, %Extra_ProgressBarUpdate.argprom.exit.i.i.i ]
+.lr.ph104.split.preheader.i.i.i:                  ; preds = %Extra_ProgressBarUpdate.exit.i.i.i, %.lr.ph104.lr.ph.i.i.i
+  %.043.ph111.i.i.i = phi ptr [ %212, %.lr.ph104.lr.ph.i.i.i ], [ %.1.i.i.i, %Extra_ProgressBarUpdate.exit.i.i.i ]
+  %.044.ph110.i.i.i = phi i32 [ 1, %.lr.ph104.lr.ph.i.i.i ], [ %.145.i.i.i, %Extra_ProgressBarUpdate.exit.i.i.i ]
+  %.046.ph109.i.i.i = phi i1 [ true, %.lr.ph104.lr.ph.i.i.i ], [ %.not50.i.i.i, %Extra_ProgressBarUpdate.exit.i.i.i ]
+  %.047.ph108.i.i.i = phi i32 [ 0, %.lr.ph104.lr.ph.i.i.i ], [ %.2.i.i.i, %Extra_ProgressBarUpdate.exit.i.i.i ]
   br label %.lr.ph104.split.i.i.i
 
 .lr.ph104.split.i.i.i:                            ; preds = %228, %.lr.ph104.split.preheader.i.i.i
@@ -1770,19 +1770,19 @@ Io_NtkBfsPads.exit.i.i.i:                         ; preds = %.backedge.i.i.i.i, 
 743:                                              ; preds = %742
   %744 = load i32, ptr %214, align 4
   %745 = icmp slt i32 %.2.i.i.i, %744
-  br i1 %745, label %Extra_ProgressBarUpdate.argprom.exit.i.i.i, label %746
+  br i1 %745, label %Extra_ProgressBarUpdate.exit.i.i.i, label %746
 
 746:                                              ; preds = %743, %742
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %214, i32 noundef %.2.i.i.i, ptr noundef null) #15
-  br label %Extra_ProgressBarUpdate.argprom.exit.i.i.i
+  br label %Extra_ProgressBarUpdate.exit.i.i.i
 
-Extra_ProgressBarUpdate.argprom.exit.i.i.i:       ; preds = %746, %743
+Extra_ProgressBarUpdate.exit.i.i.i:               ; preds = %746, %743
   %747 = icmp ult i32 %.2.i.i.i, %.val.i.i.i
   %748 = icmp ult i32 %.145.i.i.i, %.val.i.i.i
   %749 = select i1 %747, i1 %748, i1 false
   br i1 %749, label %.lr.ph104.split.preheader.i.i.i, label %Io_NtkOrderingPads.exit.i.i, !llvm.loop !9
 
-Io_NtkOrderingPads.exit.i.i:                      ; preds = %Extra_ProgressBarUpdate.argprom.exit.i.i.i, %228, %._crit_edge.i.i.i
+Io_NtkOrderingPads.exit.i.i:                      ; preds = %Extra_ProgressBarUpdate.exit.i.i.i, %228, %._crit_edge.i.i.i
   tail call void @Extra_ProgressBarStop(ptr noundef %214) #15
   %puts.i.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %750 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, i32 noundef %70)
@@ -2381,22 +2381,22 @@ Io_NtkWritePiPoNodes.exit:                        ; preds = %.critedge.i, %.crit
   %113 = load i32, ptr %97, align 4
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv68, %114
-  br i1 %115, label %Extra_ProgressBarUpdate.argprom.exit, label %116
+  br i1 %115, label %Extra_ProgressBarUpdate.exit, label %116
 
 116:                                              ; preds = %112, %111
   %117 = trunc nuw nsw i64 %indvars.iv68 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %97, i32 noundef %117, ptr noundef null) #15
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %112, %116
+Extra_ProgressBarUpdate.exit:                     ; preds = %112, %116
   %118 = tail call fastcc i32 @Io_NtkWriteIntNode(ptr noundef nonnull %0, ptr noundef %106, i32 noundef 0)
   %119 = add i32 %118, %.362
   %.pre71 = load ptr, ptr %98, align 8
   br label %120
 
-120:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit, %108, %102
-  %121 = phi ptr [ %103, %102 ], [ %.pre71, %Extra_ProgressBarUpdate.argprom.exit ], [ %103, %108 ]
-  %.4 = phi i32 [ %.362, %102 ], [ %119, %Extra_ProgressBarUpdate.argprom.exit ], [ %.362, %108 ]
+120:                                              ; preds = %Extra_ProgressBarUpdate.exit, %108, %102
+  %121 = phi ptr [ %103, %102 ], [ %.pre71, %Extra_ProgressBarUpdate.exit ], [ %103, %108 ]
+  %.4 = phi i32 [ %.362, %102 ], [ %119, %Extra_ProgressBarUpdate.exit ], [ %.362, %108 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %122 = getelementptr i8, ptr %121, i64 4
   %.val45 = load i32, ptr %122, align 4
@@ -2502,14 +2502,14 @@ define internal fastcc void @Io_NtkWriteNets(ptr nocapture noundef nonnull %0, p
   %43 = load i32, ptr %28, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv55, %44
-  br i1 %45, label %Extra_ProgressBarUpdate.argprom.exit, label %46
+  br i1 %45, label %Extra_ProgressBarUpdate.exit, label %46
 
 46:                                               ; preds = %42, %41
   %47 = trunc nuw nsw i64 %indvars.iv55 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %28, i32 noundef %47, ptr noundef null) #15
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %42, %46
+Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
   %48 = getelementptr i8, ptr %36, i64 28
   %.val130.i = load i32, ptr %48, align 4
   %49 = getelementptr i8, ptr %36, i64 44
@@ -2544,12 +2544,12 @@ Extra_ProgressBarUpdate.argprom.exit:             ; preds = %42, %46
   %.not.i46 = icmp eq i32 %65, 2
   br i1 %.not.i46, label %66, label %69
 
-66:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
+66:                                               ; preds = %Extra_ProgressBarUpdate.exit
   %67 = tail call ptr @Abc_ObjName(ptr noundef nonnull %36) #15
   %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.39, ptr noundef %67) #15
   br label %146
 
-69:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
+69:                                               ; preds = %Extra_ProgressBarUpdate.exit
   %70 = getelementptr i8, ptr %.val113.i, i64 128
   %.val118.i = load i32, ptr %70, align 8
   %.not144.i = icmp eq i32 %.val118.i, 0

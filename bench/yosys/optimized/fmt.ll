@@ -451,7 +451,7 @@ define void @_ZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellE(ptr noundef nonnull al
 21:                                               ; preds = %19, %15, %2
   %22 = load i32, ptr @"_ZZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEvE2id", align 4, !noalias !8
   %.not.i.i.i = icmp eq i32 %22, 0
-  br i1 %.not.i.i.i, label %"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.argprom.exit", label %23
+  br i1 %.not.i.i.i, label %"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.exit", label %23
 
 23:                                               ; preds = %21
   %24 = sext i32 %22 to i64
@@ -460,7 +460,7 @@ define void @_ZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellE(ptr noundef nonnull al
   %27 = load i32, ptr %26, align 4, !noalias !8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %26, align 4, !noalias !8
-  br label %"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.argprom.exit"
+  br label %"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.exit"
 
 common.resume:                                    ; preds = %158, %.body, %29
   %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %.pn.pn, %.body ], [ %159, %158 ]
@@ -472,12 +472,12 @@ common.resume:                                    ; preds = %158, %.body, %29
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEvE2id") #22, !noalias !8
   br label %common.resume
 
-"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.argprom.exit": ; preds = %21, %23
+"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.exit": ; preds = %21, %23
   store i32 %22, ptr %4, align 4, !alias.scope !8
   %31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Yosys5RTLIL4Cell8getParamERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %32 unwind label %158
 
-32:                                               ; preds = %"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.argprom.exit"
+32:                                               ; preds = %"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.exit"
   invoke void @_ZNK5Yosys5RTLIL5Const13decode_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %33 unwind label %158
 
@@ -735,7 +735,7 @@ _ZNSt6vectorIN5Yosys7FmtPartESaIS1_EE5clearEv.exit: ; preds = %_ZN5Yosys5RTLIL8I
   %157 = add nuw i64 %.054158, 1
   br label %415
 
-158:                                              ; preds = %32, %"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.argprom.exit"
+158:                                              ; preds = %32, %"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.exit"
   %159 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #22
@@ -11366,26 +11366,26 @@ attributes #27 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.argprom: argument 0"}
-!10 = distinct !{!10, !"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv.argprom"}
+!9 = distinct !{!9, !10, !"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv: argument 0"}
+!10 = distinct !{!10, !"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_0clEv"}
 !11 = !{!"branch_weights", i32 1, i32 1048575}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_1clEv.argprom: argument 0"}
-!14 = distinct !{!14, !"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_1clEv.argprom"}
+!13 = distinct !{!13, !14, !"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_1clEv: argument 0"}
+!14 = distinct !{!14, !"_ZZN5Yosys3Fmt11parse_rtlilEPKNS_5RTLIL4CellEENK3$_1clEv"}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_0clEv.argprom: argument 0"}
-!22 = distinct !{!22, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_0clEv.argprom"}
+!21 = distinct !{!21, !22, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_0clEv: argument 0"}
+!22 = distinct !{!22, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_0clEv"}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_1clEv.argprom: argument 0"}
-!25 = distinct !{!25, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_1clEv.argprom"}
+!24 = distinct !{!24, !25, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_1clEv: argument 0"}
+!25 = distinct !{!25, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_1clEv"}
 !26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_2clEv.argprom: argument 0"}
-!28 = distinct !{!28, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_2clEv.argprom"}
+!27 = distinct !{!27, !28, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_2clEv: argument 0"}
+!28 = distinct !{!28, !"_ZZNK5Yosys3Fmt10emit_rtlilEPNS_5RTLIL4CellEENK3$_2clEv"}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}

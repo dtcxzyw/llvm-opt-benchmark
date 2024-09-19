@@ -7132,11 +7132,11 @@ invoke.cont18:                                    ; preds = %invoke.cont
   store ptr %11, ptr %_M_invoker.i.i22, align 8, !tbaa !3
   store ptr @"_ZNSt17_Function_handlerIFddEZNK8QuantLib18NumericHaganPricer9integrateEddRKNS2_18ConundrumIntegrandEE3$_0E9_M_invokeERKSt9_Any_dataOd", ptr %_M_invoker4.i.i23, align 8, !tbaa !3
   %tobool.not.i.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i, label %"_ZNSt8functionIFddEEaSIZNK8QuantLib18NumericHaganPricer9integrateEddRKNS4_18ConundrumIntegrandEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.argprom.exit", label %if.then.i.i24
+  br i1 %tobool.not.i.i, label %"_ZNSt8functionIFddEEaSIZNK8QuantLib18NumericHaganPricer9integrateEddRKNS4_18ConundrumIntegrandEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit", label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %invoke.cont18
   %call.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFddEEaSIZNK8QuantLib18NumericHaganPricer9integrateEddRKNS4_18ConundrumIntegrandEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.argprom.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZNSt8functionIFddEEaSIZNK8QuantLib18NumericHaganPricer9integrateEddRKNS4_18ConundrumIntegrandEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i24
   %12 = landingpad { ptr, i32 }
@@ -7145,12 +7145,12 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i24
   call void @__clang_call_terminate(ptr %13) #36
   unreachable
 
-"_ZNSt8functionIFddEEaSIZNK8QuantLib18NumericHaganPricer9integrateEddRKNS4_18ConundrumIntegrandEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.argprom.exit": ; preds = %invoke.cont18, %if.then.i.i24
+"_ZNSt8functionIFddEEaSIZNK8QuantLib18NumericHaganPricer9integrateEddRKNS4_18ConundrumIntegrandEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit": ; preds = %invoke.cont18, %if.then.i.i24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #35
   %call23 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %gaussKronrodNonAdaptive, ptr noundef nonnull align 8 dereferenceable(32) %f, double noundef 0.000000e+00, double noundef 1.000000e+00)
           to label %invoke.cont22 unwind label %lpad21
 
-invoke.cont22:                                    ; preds = %"_ZNSt8functionIFddEEaSIZNK8QuantLib18NumericHaganPricer9integrateEddRKNS4_18ConundrumIntegrandEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.argprom.exit"
+invoke.cont22:                                    ; preds = %"_ZNSt8functionIFddEEaSIZNK8QuantLib18NumericHaganPricer9integrateEddRKNS4_18ConundrumIntegrandEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit"
   %14 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !162
   %tobool.not.i.i26 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i26, label %_ZN8QuantLib12_GLOBAL__N_114VariableChangeD2Ev.exit, label %if.then.i.i27
@@ -7197,7 +7197,7 @@ lpad8:                                            ; preds = %if.end33, %_ZNSt8fu
           cleanup
   br label %ehcleanup58
 
-lpad21:                                           ; preds = %"_ZNSt8functionIFddEEaSIZNK8QuantLib18NumericHaganPricer9integrateEddRKNS4_18ConundrumIntegrandEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.argprom.exit"
+lpad21:                                           ; preds = %"_ZNSt8functionIFddEEaSIZNK8QuantLib18NumericHaganPricer9integrateEddRKNS4_18ConundrumIntegrandEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit"
   %22 = landingpad { ptr, i32 }
           cleanup
   %23 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !162
@@ -19109,7 +19109,7 @@ for.cond.cleanup.i.i.i.i:                         ; preds = %for.body.i.i.i.i, %
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 32
   %4 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !162
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib18NumericHaganPricer9integrateEddRKNS1_18ConundrumIntegrandEE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib18NumericHaganPricer9integrateEddRKNS1_18ConundrumIntegrandEE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 if.then.i.i.i.i.i:                                ; preds = %for.cond.cleanup.i.i.i.i
   tail call void @_ZSt25__throw_bad_function_callv() #37
@@ -19123,7 +19123,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %exitcond.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, %1
   br i1 %exitcond.not.i.i.i.i, label %for.cond.cleanup.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !314
 
-"_ZSt10__invoke_rIdRZNK8QuantLib18NumericHaganPricer9integrateEddRKNS1_18ConundrumIntegrandEE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %for.cond.cleanup.i.i.i.i
+"_ZSt10__invoke_rIdRZNK8QuantLib18NumericHaganPricer9integrateEddRKNS1_18ConundrumIntegrandEE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %for.cond.cleanup.i.i.i.i
   %f_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 16
   %_M_invoker.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 40
   %5 = load ptr, ptr %_M_invoker.i.i.i.i.i, align 8, !tbaa !159

@@ -74,7 +74,7 @@ define i32 @OMPI_Affinity_str(i32 noundef %0, ptr noundef %1, ptr noundef %2, pt
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 320), align 8
   %16 = tail call i32 @hwloc_bitmap_list_sscanf(ptr noundef %14, ptr noundef %15) #14
   %17 = load ptr, ptr @opal_hwloc_topology, align 8
-  %18 = tail call fastcc i32 @cset2str.argelim(ptr noundef nonnull %1, ptr noundef %17, ptr noundef %14)
+  %18 = tail call fastcc i32 @cset2str(ptr noundef nonnull %1, ptr noundef %17, ptr noundef %14)
   %19 = icmp eq i32 %18, -45
   br i1 %19, label %20, label %21
 
@@ -158,7 +158,7 @@ is_single_cpu.exit25.i:                           ; preds = %46
 
 .critedge.i:                                      ; preds = %is_single_cpu.exit25.i, %is_single_cpu.exit.i, %30
   %49 = load ptr, ptr @opal_hwloc_topology, align 8
-  %50 = tail call fastcc i32 @cset2str.argelim(ptr noundef %2, ptr noundef %49, ptr noundef %26)
+  %50 = tail call fastcc i32 @cset2str(ptr noundef %2, ptr noundef %49, ptr noundef %26)
   %51 = icmp eq i32 %50, -45
   br i1 %51, label %55, label %get_rsrc_current_binding.exit
 
@@ -517,7 +517,7 @@ get_rsrc_exists.exit:                             ; preds = %hwloc_get_obj_insid
   %.pre15.i = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph.i22
 
-200:                                              ; preds = %opal_pointer_array_get_item.argprom.exit.i
+200:                                              ; preds = %opal_pointer_array_get_item.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %201 = load i32, ptr @ompi_errcode_intern_lastused, align 4
   %202 = sext i32 %201 to i64
@@ -545,21 +545,21 @@ get_rsrc_exists.exit:                             ; preds = %hwloc_get_obj_insid
   %213 = getelementptr inbounds ptr, ptr %212, i64 %indvars.iv.i
   %214 = load ptr, ptr %213, align 8
   %215 = trunc i8 %211 to i1
-  br i1 %215, label %216, label %opal_pointer_array_get_item.argprom.exit.i
+  br i1 %215, label %216, label %opal_pointer_array_get_item.exit.i
 
 216:                                              ; preds = %210
   %217 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #14
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_pointer_array_get_item.argprom.exit.i
+  br label %opal_pointer_array_get_item.exit.i
 
-opal_pointer_array_get_item.argprom.exit.i:       ; preds = %216, %210
+opal_pointer_array_get_item.exit.i:               ; preds = %216, %210
   %218 = phi i8 [ %211, %210 ], [ %.pre.i, %216 ]
   %219 = getelementptr inbounds i8, ptr %214, i64 16
   %220 = load i32, ptr %219, align 8
   %221 = icmp eq i32 %220, %50
   br i1 %221, label %222, label %200
 
-222:                                              ; preds = %opal_pointer_array_get_item.argprom.exit.i
+222:                                              ; preds = %opal_pointer_array_get_item.exit.i
   %223 = getelementptr inbounds i8, ptr %214, i64 20
   %224 = load i32, ptr %223, align 4
   br label %ompi_errcode_get_mpi_code.exit
@@ -583,7 +583,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %200, %196, %.prehea
   %232 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 320), align 8
   %233 = tail call i32 @hwloc_bitmap_list_sscanf(ptr noundef %231, ptr noundef %232) #14
   %234 = load ptr, ptr @opal_hwloc_topology, align 8
-  %235 = tail call fastcc i32 @cset2mapstr.argelim(ptr noundef nonnull %1, ptr noundef %234, ptr noundef %231)
+  %235 = tail call fastcc i32 @cset2mapstr(ptr noundef nonnull %1, ptr noundef %234, ptr noundef %231)
   %236 = icmp eq i32 %235, -45
   br i1 %236, label %237, label %238
 
@@ -667,7 +667,7 @@ is_single_cpu.exit25.i43:                         ; preds = %263
 
 .critedge.i25:                                    ; preds = %is_single_cpu.exit25.i43, %is_single_cpu.exit.i34, %247
   %266 = load ptr, ptr @opal_hwloc_topology, align 8
-  %267 = tail call fastcc i32 @cset2mapstr.argelim(ptr noundef %2, ptr noundef %266, ptr noundef %243)
+  %267 = tail call fastcc i32 @cset2mapstr(ptr noundef %2, ptr noundef %266, ptr noundef %243)
   %268 = icmp eq i32 %267, -45
   br i1 %268, label %272, label %get_layout_current_binding.exit
 
@@ -904,7 +904,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   %.pre15.i59 = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph.i60
 
-369:                                              ; preds = %opal_pointer_array_get_item.argprom.exit.i63
+369:                                              ; preds = %opal_pointer_array_get_item.exit.i63
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i61, 1
   %370 = load i32, ptr @ompi_errcode_intern_lastused, align 4
   %371 = sext i32 %370 to i64
@@ -932,21 +932,21 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   %382 = getelementptr inbounds ptr, ptr %381, i64 %indvars.iv.i61
   %383 = load ptr, ptr %382, align 8
   %384 = trunc i8 %380 to i1
-  br i1 %384, label %385, label %opal_pointer_array_get_item.argprom.exit.i63
+  br i1 %384, label %385, label %opal_pointer_array_get_item.exit.i63
 
 385:                                              ; preds = %379
   %386 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #14
   %.pre.i65 = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_pointer_array_get_item.argprom.exit.i63
+  br label %opal_pointer_array_get_item.exit.i63
 
-opal_pointer_array_get_item.argprom.exit.i63:     ; preds = %385, %379
+opal_pointer_array_get_item.exit.i63:             ; preds = %385, %379
   %387 = phi i8 [ %380, %379 ], [ %.pre.i65, %385 ]
   %388 = getelementptr inbounds i8, ptr %383, i64 16
   %389 = load i32, ptr %388, align 8
   %390 = icmp eq i32 %389, %267
   br i1 %390, label %391, label %369
 
-391:                                              ; preds = %opal_pointer_array_get_item.argprom.exit.i63
+391:                                              ; preds = %opal_pointer_array_get_item.exit.i63
   %392 = getelementptr inbounds i8, ptr %383, i64 20
   %393 = load i32, ptr %392, align 4
   br label %ompi_errcode_get_mpi_code.exit67
@@ -983,7 +983,7 @@ declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #2
 declare i32 @hwloc_bitmap_list_sscanf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -45, 40) i32 @cset2str.argelim(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -45, 40) i32 @cset2str(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [1023 x i8], align 16
   %5 = alloca [1023 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1023) %5, i8 0, i64 1023, i1 false)
@@ -1410,7 +1410,7 @@ declare i32 @hwloc_bitmap_last(ptr noundef) local_unnamed_addr #4
 declare i32 @hwloc_bitmap_isset(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -45, 1) i32 @cset2mapstr.argelim(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -45, 1) i32 @cset2mapstr(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   store i8 0, ptr %0, align 1
   %4 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %2) #15
   %.not = icmp eq i32 %4, 0

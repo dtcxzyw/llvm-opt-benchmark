@@ -1058,13 +1058,13 @@ transformTableLikeClause.exit:                    ; preds = %.loopexit.i, %._cri
   %.val = load ptr, ptr %57, align 8
   %486 = icmp eq ptr %.val, null
   %brmerge.not.i.not = or i1 %486, %485
-  br i1 %brmerge.not.i.not, label %transformCheckConstraints.argprom.exit, label %.preheader.i
+  br i1 %brmerge.not.i.not, label %transformCheckConstraints.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge
   %487 = getelementptr inbounds i8, ptr %.val, i64 4
   %488 = load i32, ptr %487, align 4
   %.not4.i = icmp sgt i32 %488, 0
-  br i1 %.not4.i, label %.lr.ph.i58, label %transformCheckConstraints.argprom.exit
+  br i1 %.not4.i, label %.lr.ph.i58, label %transformCheckConstraints.exit
 
 .lr.ph.i58:                                       ; preds = %.preheader.i
   %489 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -1083,9 +1083,9 @@ transformTableLikeClause.exit:                    ; preds = %.loopexit.i, %._cri
   %496 = load i32, ptr %487, align 4
   %497 = sext i32 %496 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i60, %497
-  br i1 %.not.i, label %490, label %transformCheckConstraints.argprom.exit, !llvm.loop !11
+  br i1 %.not.i, label %490, label %transformCheckConstraints.exit, !llvm.loop !11
 
-transformCheckConstraints.argprom.exit:           ; preds = %490, %._crit_edge, %.preheader.i
+transformCheckConstraints.exit:                   ; preds = %490, %._crit_edge, %.preheader.i
   %498 = load ptr, ptr %62, align 8
   %499 = load ptr, ptr %60, align 8
   %500 = call ptr @list_concat(ptr noundef %498, ptr noundef %499) #8
@@ -1102,8 +1102,8 @@ transformCheckConstraints.argprom.exit:           ; preds = %490, %._crit_edge, 
   %508 = call ptr @list_concat(ptr noundef %507, ptr noundef %480) #8
   br label %509
 
-509:                                              ; preds = %26, %22, %transformCheckConstraints.argprom.exit
-  %.0 = phi ptr [ %508, %transformCheckConstraints.argprom.exit ], [ null, %22 ], [ null, %26 ]
+509:                                              ; preds = %26, %22, %transformCheckConstraints.exit
+  %.0 = phi ptr [ %508, %transformCheckConstraints.exit ], [ null, %22 ], [ null, %26 ]
   ret ptr %.0
 }
 

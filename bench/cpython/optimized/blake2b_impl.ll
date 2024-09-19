@@ -242,7 +242,7 @@ if.end.i:                                         ; preds = %if.end.i.preheader,
   %10 = load i64, ptr %arrayidx5.i.i, align 1
   %add6.i.i = add i64 %10, %conv3.i.i
   store i64 %add6.i.i, ptr %arrayidx5.i.i, align 1
-  tail call fastcc void @PyBlake2_blake2b_compress.retelim(ptr noundef nonnull %S, ptr noundef nonnull %buf19.i)
+  tail call fastcc void @PyBlake2_blake2b_compress(ptr noundef nonnull %S, ptr noundef nonnull %buf19.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf19.i, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr12.i, i64 128, i1 false)
   %11 = load i32, ptr %buflen.i, align 1
   %sub14.i = add i32 %11, -128
@@ -309,7 +309,7 @@ if.end:                                           ; preds = %while.body
   %4 = load i64, ptr %arrayidx5.i, align 1
   %add6.i = add i64 %4, %conv3.i
   store i64 %add6.i, ptr %arrayidx5.i, align 1
-  tail call fastcc void @PyBlake2_blake2b_compress.retelim(ptr noundef nonnull %S, ptr noundef nonnull %buf19)
+  tail call fastcc void @PyBlake2_blake2b_compress(ptr noundef nonnull %S, ptr noundef nonnull %buf19)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf19, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr12, i64 128, i1 false)
   %5 = load i32, ptr %buflen, align 1
   %sub14 = add i32 %5, -128
@@ -324,7 +324,7 @@ while.end:                                        ; preds = %if.end, %if.end.thr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @PyBlake2_blake2b_compress.retelim(ptr nocapture noundef %S, ptr nocapture noundef readonly %block) unnamed_addr #0 {
+define internal fastcc void @PyBlake2_blake2b_compress(ptr nocapture noundef %S, ptr nocapture noundef readonly %block) unnamed_addr #0 {
 entry:
   %v = alloca [16 x i64], align 16
   %m.sroa.0.0.copyload = load i64, ptr %block, align 1
@@ -1944,7 +1944,7 @@ if.then5:                                         ; preds = %if.end
   %add6.i = add i64 %3, %conv3.i
   store i64 %add6.i, ptr %arrayidx5.i, align 1
   %buf = getelementptr inbounds i8, ptr %S, i64 96
-  tail call fastcc void @PyBlake2_blake2b_compress.retelim(ptr noundef nonnull %S, ptr noundef nonnull %buf)
+  tail call fastcc void @PyBlake2_blake2b_compress(ptr noundef nonnull %S, ptr noundef nonnull %buf)
   %4 = load i32, ptr %buflen, align 1
   %sub = add i32 %4, -128
   store i32 %sub, ptr %buflen, align 1
@@ -1985,7 +1985,7 @@ blake2b_set_lastblock.exit:                       ; preds = %if.end14, %if.then.
   %sub24 = sub i32 256, %5
   %conv25 = zext i32 %sub24 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr22, i8 0, i64 %conv25, i1 false)
-  tail call fastcc void @PyBlake2_blake2b_compress.retelim(ptr noundef nonnull %S, ptr noundef nonnull %buf19)
+  tail call fastcc void @PyBlake2_blake2b_compress(ptr noundef nonnull %S, ptr noundef nonnull %buf19)
   br label %for.body
 
 for.body:                                         ; preds = %blake2b_set_lastblock.exit, %for.body
@@ -2156,7 +2156,7 @@ if.end.i18:                                       ; preds = %while.body.lr.ph.i,
   %8 = load i64, ptr %arrayidx5.i.i, align 8
   %add6.i.i = add i64 %8, %conv3.i.i
   store i64 %add6.i.i, ptr %arrayidx5.i.i, align 8
-  call fastcc void @PyBlake2_blake2b_compress.retelim(ptr noundef nonnull %S, ptr noundef nonnull %buf19.i)
+  call fastcc void @PyBlake2_blake2b_compress(ptr noundef nonnull %S, ptr noundef nonnull %buf19.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %buf19.i, ptr noundef nonnull align 16 dereferenceable(128) %add.ptr12.i, i64 128, i1 false)
   %9 = load i32, ptr %buflen.i, align 16
   %sub14.i = add i32 %9, -128
@@ -3163,7 +3163,7 @@ if.end.i:                                         ; preds = %while.body.lr.ph.i,
   %17 = load i64, ptr %arrayidx5.i.i, align 1
   %add6.i.i = add i64 %17, %conv3.i.i
   store i64 %add6.i.i, ptr %arrayidx5.i.i, align 1
-  call fastcc void @PyBlake2_blake2b_compress.retelim(ptr noundef nonnull %state, ptr noundef nonnull %buf19.i)
+  call fastcc void @PyBlake2_blake2b_compress(ptr noundef nonnull %state, ptr noundef nonnull %buf19.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf19.i, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr12.i, i64 128, i1 false)
   %18 = load i32, ptr %buflen.i, align 1
   %sub14.i = add i32 %18, -128
@@ -3239,7 +3239,7 @@ if.end.i31:                                       ; preds = %while.body.lr.ph.i1
   %26 = load i64, ptr %arrayidx5.i.i17, align 1
   %add6.i.i38 = add i64 %26, %conv3.i.i37
   store i64 %add6.i.i38, ptr %arrayidx5.i.i17, align 1
-  call fastcc void @PyBlake2_blake2b_compress.retelim(ptr noundef nonnull %state25, ptr noundef nonnull %buf19.i15)
+  call fastcc void @PyBlake2_blake2b_compress(ptr noundef nonnull %state25, ptr noundef nonnull %buf19.i15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf19.i15, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr12.i18, i64 128, i1 false)
   %27 = load i32, ptr %buflen.i14, align 1
   %sub14.i40 = add i32 %27, -128

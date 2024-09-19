@@ -611,7 +611,7 @@ Curl_conn_ev_update_info.exit:                    ; preds = %Curl_conn_cf_cntrl.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %conn_report_connect_stats.argprom.exit, label %44
+  br i1 %.not.i, label %conn_report_connect_stats.exit, label %44
 
 44:                                               ; preds = %Curl_conn_ev_update_info.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -643,13 +643,13 @@ Curl_conn_ev_update_info.exit:                    ; preds = %Curl_conn_cf_cntrl.
   %63 = load i32, ptr %62, align 8
   %64 = icmp ne i32 %63, 0
   %or.cond5.i = select i1 %61, i1 true, i1 %64
-  br i1 %or.cond5.i, label %65, label %conn_report_connect_stats.argprom.exit
+  br i1 %or.cond5.i, label %65, label %conn_report_connect_stats.exit
 
 65:                                               ; preds = %55
   call void @Curl_pgrsTimeWas(ptr noundef nonnull %0, i32 noundef 6, i64 %60, i32 %63) #11
-  br label %conn_report_connect_stats.argprom.exit
+  br label %conn_report_connect_stats.exit
 
-conn_report_connect_stats.argprom.exit:           ; preds = %Curl_conn_ev_update_info.exit, %55, %65
+conn_report_connect_stats.exit:                   ; preds = %Curl_conn_ev_update_info.exit, %55, %65
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %66 = load ptr, ptr %9, align 8
@@ -669,7 +669,7 @@ conn_report_connect_stats.argprom.exit:           ; preds = %Curl_conn_ev_update
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %.not.i28 = icmp eq ptr %.val27, null
-  br i1 %.not.i28, label %conn_report_connect_stats.argprom.exit31, label %73
+  br i1 %.not.i28, label %conn_report_connect_stats.exit31, label %73
 
 73:                                               ; preds = %.critedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -701,19 +701,19 @@ conn_report_connect_stats.argprom.exit:           ; preds = %Curl_conn_ev_update
   %92 = load i32, ptr %91, align 8
   %93 = icmp ne i32 %92, 0
   %or.cond5.i30 = select i1 %90, i1 true, i1 %93
-  br i1 %or.cond5.i30, label %94, label %conn_report_connect_stats.argprom.exit31
+  br i1 %or.cond5.i30, label %94, label %conn_report_connect_stats.exit31
 
 94:                                               ; preds = %84
   call void @Curl_pgrsTimeWas(ptr noundef nonnull %0, i32 noundef 6, i64 %89, i32 %92) #11
-  br label %conn_report_connect_stats.argprom.exit31
+  br label %conn_report_connect_stats.exit31
 
-conn_report_connect_stats.argprom.exit31:         ; preds = %.critedge, %84, %94
+conn_report_connect_stats.exit31:                 ; preds = %.critedge, %84, %94
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %95
 
-95:                                               ; preds = %24, %15, %conn_report_connect_stats.argprom.exit31, %conn_report_connect_stats.argprom.exit, %4
-  %.0 = phi i32 [ 2, %4 ], [ 0, %15 ], [ %23, %conn_report_connect_stats.argprom.exit31 ], [ 0, %conn_report_connect_stats.argprom.exit ], [ 0, %24 ]
+95:                                               ; preds = %24, %15, %conn_report_connect_stats.exit31, %conn_report_connect_stats.exit, %4
+  %.0 = phi i32 [ 2, %4 ], [ 0, %15 ], [ %23, %conn_report_connect_stats.exit31 ], [ 0, %conn_report_connect_stats.exit ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -749,9 +749,9 @@ define dso_local void @Curl_conn_ev_update_info(ptr noundef %0, ptr nocapture no
   br i1 %.not15.us.i.us.i, label %Curl_conn_cf_cntrl.exit.thread.us.i, label %.lr.ph.split.us.i.us.i, !llvm.loop !11
 
 Curl_conn_cf_cntrl.exit.thread.us.i:              ; preds = %13, %.split.us.i
-  br i1 %4, label %.split.us.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !12
+  br i1 %4, label %.split.us.i, label %cf_cntrl_all.exit, !llvm.loop !12
 
-cf_cntrl_all.argprom.exit:                        ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i
+cf_cntrl_all.exit:                                ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i
   ret void
 }
 
@@ -1306,9 +1306,9 @@ define dso_local void @Curl_conn_ev_data_attach(ptr nocapture noundef readonly %
   br i1 %.not15.us.i.us.i, label %Curl_conn_cf_cntrl.exit.thread.us.i, label %.lr.ph.split.us.i.us.i, !llvm.loop !11
 
 Curl_conn_cf_cntrl.exit.thread.us.i:              ; preds = %13, %.split.us.i
-  br i1 %4, label %.split.us.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !12
+  br i1 %4, label %.split.us.i, label %cf_cntrl_all.exit, !llvm.loop !12
 
-cf_cntrl_all.argprom.exit:                        ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i
+cf_cntrl_all.exit:                                ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i
   ret void
 }
 
@@ -1344,9 +1344,9 @@ define dso_local void @Curl_conn_ev_data_detach(ptr nocapture noundef readonly %
   br i1 %.not15.us.i.us.i, label %Curl_conn_cf_cntrl.exit.thread.us.i, label %.lr.ph.split.us.i.us.i, !llvm.loop !11
 
 Curl_conn_cf_cntrl.exit.thread.us.i:              ; preds = %13, %.split.us.i
-  br i1 %4, label %.split.us.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !12
+  br i1 %4, label %.split.us.i, label %cf_cntrl_all.exit, !llvm.loop !12
 
-cf_cntrl_all.argprom.exit:                        ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i
+cf_cntrl_all.exit:                                ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i
   ret void
 }
 
@@ -1376,7 +1376,7 @@ define dso_local i32 @Curl_conn_ev_data_setup(ptr noundef %0) local_unnamed_addr
 12:                                               ; preds = %.lr.ph.split.i.i
   %13 = tail call i32 %10(ptr noundef nonnull %.01218.i.i, ptr noundef %0, i32 noundef 4, i32 noundef 0, ptr noundef null) #11
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %cf_cntrl_all.argprom.exit
+  br i1 %14, label %15, label %cf_cntrl_all.exit
 
 15:                                               ; preds = %12, %.lr.ph.split.i.i
   %16 = getelementptr inbounds i8, ptr %.01218.i.i, i64 8
@@ -1385,9 +1385,9 @@ define dso_local i32 @Curl_conn_ev_data_setup(ptr noundef %0) local_unnamed_addr
   br i1 %.not15.i.i, label %Curl_conn_cf_cntrl.exit.thread.i, label %.lr.ph.split.i.i, !llvm.loop !11
 
 Curl_conn_cf_cntrl.exit.thread.i:                 ; preds = %15, %.split.i
-  br i1 %5, label %.split.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !12
+  br i1 %5, label %.split.i, label %cf_cntrl_all.exit, !llvm.loop !12
 
-cf_cntrl_all.argprom.exit:                        ; preds = %Curl_conn_cf_cntrl.exit.thread.i, %12
+cf_cntrl_all.exit:                                ; preds = %Curl_conn_cf_cntrl.exit.thread.i, %12
   %.us-phi.i = phi i32 [ %13, %12 ], [ 0, %Curl_conn_cf_cntrl.exit.thread.i ]
   ret i32 %.us-phi.i
 }
@@ -1418,7 +1418,7 @@ define dso_local i32 @Curl_conn_ev_data_idle(ptr noundef %0) local_unnamed_addr 
 12:                                               ; preds = %.lr.ph.split.i.i
   %13 = tail call i32 %10(ptr noundef nonnull %.01218.i.i, ptr noundef %0, i32 noundef 5, i32 noundef 0, ptr noundef null) #11
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %cf_cntrl_all.argprom.exit
+  br i1 %14, label %15, label %cf_cntrl_all.exit
 
 15:                                               ; preds = %12, %.lr.ph.split.i.i
   %16 = getelementptr inbounds i8, ptr %.01218.i.i, i64 8
@@ -1427,9 +1427,9 @@ define dso_local i32 @Curl_conn_ev_data_idle(ptr noundef %0) local_unnamed_addr 
   br i1 %.not15.i.i, label %Curl_conn_cf_cntrl.exit.thread.i, label %.lr.ph.split.i.i, !llvm.loop !11
 
 Curl_conn_cf_cntrl.exit.thread.i:                 ; preds = %15, %.split.i
-  br i1 %5, label %.split.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !12
+  br i1 %5, label %.split.i, label %cf_cntrl_all.exit, !llvm.loop !12
 
-cf_cntrl_all.argprom.exit:                        ; preds = %Curl_conn_cf_cntrl.exit.thread.i, %12
+cf_cntrl_all.exit:                                ; preds = %Curl_conn_cf_cntrl.exit.thread.i, %12
   %.us-phi.i = phi i32 [ %13, %12 ], [ 0, %Curl_conn_cf_cntrl.exit.thread.i ]
   ret i32 %.us-phi.i
 }
@@ -1468,9 +1468,9 @@ define dso_local void @Curl_conn_ev_data_done_send(ptr noundef %0) local_unnamed
   br i1 %.not15.us.i.us.i, label %Curl_conn_cf_cntrl.exit.thread.us.i, label %.lr.ph.split.us.i.us.i, !llvm.loop !11
 
 Curl_conn_cf_cntrl.exit.thread.us.i:              ; preds = %14, %.split.us.i
-  br i1 %5, label %.split.us.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !12
+  br i1 %5, label %.split.us.i, label %cf_cntrl_all.exit, !llvm.loop !12
 
-cf_cntrl_all.argprom.exit:                        ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i
+cf_cntrl_all.exit:                                ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i
   ret void
 }
 
@@ -1509,9 +1509,9 @@ define dso_local void @Curl_conn_ev_data_done(ptr noundef %0, i1 noundef zeroext
   br i1 %.not15.us.i.us.i, label %Curl_conn_cf_cntrl.exit.thread.us.i, label %.lr.ph.split.us.i.us.i, !llvm.loop !11
 
 Curl_conn_cf_cntrl.exit.thread.us.i:              ; preds = %16, %.split.us.i
-  br i1 %7, label %.split.us.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !12
+  br i1 %7, label %.split.us.i, label %cf_cntrl_all.exit, !llvm.loop !12
 
-cf_cntrl_all.argprom.exit:                        ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i
+cf_cntrl_all.exit:                                ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i
   ret void
 }
 
@@ -1542,7 +1542,7 @@ define dso_local i32 @Curl_conn_ev_data_pause(ptr noundef %0, i1 noundef zeroext
 14:                                               ; preds = %.lr.ph.split.i.i
   %15 = tail call i32 %12(ptr noundef nonnull %.01218.i.i, ptr noundef %0, i32 noundef 6, i32 noundef %5, ptr noundef null) #11
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %cf_cntrl_all.argprom.exit
+  br i1 %16, label %17, label %cf_cntrl_all.exit
 
 17:                                               ; preds = %14, %.lr.ph.split.i.i
   %18 = getelementptr inbounds i8, ptr %.01218.i.i, i64 8
@@ -1551,9 +1551,9 @@ define dso_local i32 @Curl_conn_ev_data_pause(ptr noundef %0, i1 noundef zeroext
   br i1 %.not15.i.i, label %Curl_conn_cf_cntrl.exit.thread.i, label %.lr.ph.split.i.i, !llvm.loop !11
 
 Curl_conn_cf_cntrl.exit.thread.i:                 ; preds = %17, %.split.i
-  br i1 %7, label %.split.i, label %cf_cntrl_all.argprom.exit, !llvm.loop !12
+  br i1 %7, label %.split.i, label %cf_cntrl_all.exit, !llvm.loop !12
 
-cf_cntrl_all.argprom.exit:                        ; preds = %Curl_conn_cf_cntrl.exit.thread.i, %14
+cf_cntrl_all.exit:                                ; preds = %Curl_conn_cf_cntrl.exit.thread.i, %14
   %.us-phi.i = phi i32 [ %15, %14 ], [ 0, %Curl_conn_cf_cntrl.exit.thread.i ]
   ret i32 %.us-phi.i
 }
@@ -1848,7 +1848,7 @@ define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr nocapture noun
   %4 = alloca [5 x i32], align 16
   %5 = call i32 %2(ptr noundef %0, ptr noundef nonnull %4) #11
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %ps_add.argprom.exit, label %.preheader.i
+  br i1 %.not.i, label %ps_add.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 20
@@ -1863,13 +1863,13 @@ define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr nocapture noun
   %12 = shl nuw nsw i32 65537, %9
   %13 = and i32 %12, %5
   %.not25.i = icmp eq i32 %13, 0
-  br i1 %.not25.i, label %ps_add.argprom.exit, label %14
+  br i1 %.not25.i, label %ps_add.exit, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, -1
-  br i1 %17, label %18, label %ps_add.argprom.exit
+  br i1 %17, label %18, label %ps_add.exit
 
 18:                                               ; preds = %14
   %19 = and i32 %10, %5
@@ -2008,9 +2008,9 @@ define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr nocapture noun
 Curl_pollset_change.exit.i:                       ; preds = %._crit_edge.i46.thread.i, %._crit_edge.i46.i, %51, %._crit_edge.i36.thread.i, %._crit_edge.i36.i, %38, %._crit_edge.i.thread.i, %._crit_edge.i.i, %26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %ps_add.argprom.exit, label %8, !llvm.loop !21
+  br i1 %exitcond.not.i, label %ps_add.exit, label %8, !llvm.loop !21
 
-ps_add.argprom.exit:                              ; preds = %8, %14, %Curl_pollset_change.exit.i, %3
+ps_add.exit:                                      ; preds = %8, %14, %Curl_pollset_change.exit.i, %3
   ret void
 }
 

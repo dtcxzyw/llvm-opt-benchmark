@@ -101,7 +101,7 @@ declare ptr @RTreeNewNode() local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define noundef i32 @RTreeClose(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
-  tail call fastcc void @RTreeClose2.argprom.retelim(ptr noundef %2)
+  tail call fastcc void @RTreeClose2(ptr noundef %2)
   %3 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %3) #7
   tail call void @free(ptr noundef %0) #7
@@ -109,7 +109,7 @@ define noundef i32 @RTreeClose(ptr nocapture noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RTreeClose2.argprom.retelim(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -124,7 +124,7 @@ define internal fastcc void @RTreeClose2.argprom.retelim(ptr noundef %0) unnamed
   br i1 %.not19, label %11, label %8
 
 8:                                                ; preds = %.preheader
-  tail call fastcc void @RTreeClose2.argprom.retelim(ptr noundef nonnull %7)
+  tail call fastcc void @RTreeClose2(ptr noundef nonnull %7)
   %9 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %9) #7
   %10 = trunc nuw nsw i64 %indvars.iv7 to i32

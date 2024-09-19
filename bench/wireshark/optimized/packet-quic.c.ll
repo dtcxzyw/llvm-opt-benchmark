@@ -838,14 +838,14 @@ define hidden void @quic_stream_add_proto_data(ptr nocapture noundef readonly %0
   %.val = load ptr, ptr %9, align 8
   %10 = getelementptr i8, ptr %.val, i64 50
   %.val.val = load i16, ptr %10, align 2
-  %11 = tail call fastcc ptr @quic_get_stream_state.argprom.argprom(i16 %.val.val, ptr noundef %5, i32 noundef %7, i64 noundef %8)
+  %11 = tail call fastcc ptr @quic_get_stream_state(i16 %.val.val, ptr noundef %5, i32 noundef %7, i64 noundef %8)
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %2, ptr %12, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @quic_get_stream_state.argprom.argprom(i16 %.80.val.50.val, ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @quic_get_stream_state(i16 %.80.val.50.val, ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   store i64 %2, ptr %4, align 8
   %.not = icmp eq i32 %1, 0
@@ -916,7 +916,7 @@ define hidden ptr @quic_stream_get_proto_data(ptr nocapture noundef readonly %0,
   %.val = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val, i64 50
   %.val.val = load i16, ptr %9, align 2
-  %10 = tail call fastcc ptr @quic_get_stream_state.argprom.argprom(i16 %.val.val, ptr noundef %4, i32 noundef %6, i64 noundef %7)
+  %10 = tail call fastcc ptr @quic_get_stream_state(i16 %.val.val, ptr noundef %4, i32 noundef %6, i64 noundef %7)
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   ret ptr %12
@@ -1935,13 +1935,13 @@ proto_item_set_generated.exit.i:                  ; preds = %286, %283, %278
   %291 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %290, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #15
   %292 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #15
   %.not.i145 = icmp sgt i8 %292, -1
-  br i1 %.not.i145, label %dissect_quic_stateless_reset.argprom.exit, label %293
+  br i1 %.not.i145, label %dissect_quic_stateless_reset.exit, label %293
 
 293:                                              ; preds = %proto_item_set_generated.exit.i
   %294 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %291, ptr noundef nonnull @ei_quic_protocol_violation, ptr noundef nonnull @.str.478) #15
-  br label %dissect_quic_stateless_reset.argprom.exit
+  br label %dissect_quic_stateless_reset.exit
 
-dissect_quic_stateless_reset.argprom.exit:        ; preds = %proto_item_set_generated.exit.i, %293
+dissect_quic_stateless_reset.exit:                ; preds = %proto_item_set_generated.exit.i, %293
   %295 = load i32, ptr @hf_quic_fixed_bit, align 4
   %296 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %295, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #15
   %297 = load i32, ptr @hf_quic_unpredictable_bits, align 4
@@ -2286,7 +2286,7 @@ quic_get_long_packet_type.exit:                   ; preds = %434
   call void @col_set_str(ptr noundef %444, i32 noundef 25, ptr noundef nonnull @.str.479) #15
   %445 = load i32, ptr @hf_quic_vn_unused, align 4
   %446 = call ptr @proto_tree_add_item(ptr noundef %.1109, i32 noundef %445, ptr noundef %.0.i153, i32 noundef 0, i32 noundef 1, i32 noundef 0) #15
-  %447 = call fastcc i32 @dissect_quic_long_header_common.argprom.argelim(ptr noundef %.0.i153, ptr noundef readonly %1, ptr noundef %.1109, ptr noundef %34, ptr noundef %35)
+  %447 = call fastcc i32 @dissect_quic_long_header_common(ptr noundef %.0.i153, ptr noundef readonly %1, ptr noundef %.1109, ptr noundef %34, ptr noundef %35)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %35)
   %448 = add i32 %447, %.0111
@@ -2311,10 +2311,10 @@ quic_get_long_packet_type.exit:                   ; preds = %434
   call void @col_set_str(ptr noundef %455, i32 noundef 25, ptr noundef nonnull @.str) #15
   %456 = load i32, ptr @hf_quic_vn_unused, align 4
   %457 = call ptr @proto_tree_add_item(ptr noundef %.1109, i32 noundef %456, ptr noundef %.0.i153, i32 noundef 0, i32 noundef 1, i32 noundef 0) #15
-  %458 = call fastcc i32 @dissect_quic_long_header_common.argprom.argelim(ptr noundef %.0.i153, ptr noundef readonly %1, ptr noundef %.1109, ptr noundef %32, ptr noundef %33)
+  %458 = call fastcc i32 @dissect_quic_long_header_common(ptr noundef %.0.i153, ptr noundef readonly %1, ptr noundef %.1109, ptr noundef %32, ptr noundef %33)
   %459 = call i32 @tvb_reported_length_remaining(ptr noundef %.0.i153, i32 noundef %458) #15
   %460 = icmp sgt i32 %459, 0
-  br i1 %460, label %.lr.ph.i158, label %dissect_quic_version_negotiation.argprom.exit
+  br i1 %460, label %.lr.ph.i158, label %dissect_quic_version_negotiation.exit
 
 .lr.ph.i158:                                      ; preds = %454, %quic_proto_tree_add_version.exit.i
   %.01.i = phi i32 [ %467, %quic_proto_tree_add_version.exit.i ], [ %458, %454 ]
@@ -2335,9 +2335,9 @@ quic_proto_tree_add_version.exit.i:               ; preds = %466, %.lr.ph.i158
   %467 = add i32 %.01.i, 4
   %468 = call i32 @tvb_reported_length_remaining(ptr noundef %.0.i153, i32 noundef %467) #15
   %469 = icmp sgt i32 %468, 0
-  br i1 %469, label %.lr.ph.i158, label %dissect_quic_version_negotiation.argprom.exit, !llvm.loop !14
+  br i1 %469, label %.lr.ph.i158, label %dissect_quic_version_negotiation.exit, !llvm.loop !14
 
-dissect_quic_version_negotiation.argprom.exit:    ; preds = %quic_proto_tree_add_version.exit.i, %454
+dissect_quic_version_negotiation.exit:            ; preds = %quic_proto_tree_add_version.exit.i, %454
   %.0.lcssa.i = phi i32 [ %458, %454 ], [ %467, %quic_proto_tree_add_version.exit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %33)
@@ -2360,7 +2360,7 @@ dissect_quic_version_negotiation.argprom.exit:    ; preds = %quic_proto_tree_add
   %472 = call ptr @proto_tree_add_item(ptr noundef %.1109, i32 noundef %471, ptr noundef %.0.i153, i32 noundef 0, i32 noundef 1, i32 noundef 0) #15
   %473 = load ptr, ptr %46, align 8
   call void @col_set_str(ptr noundef %473, i32 noundef 25, ptr noundef nonnull @.str.402) #15
-  %474 = call fastcc i32 @dissect_quic_long_header_common.argprom.argelim(ptr noundef %.0.i153, ptr noundef %1, ptr noundef %.1109, ptr noundef %28, ptr noundef %29)
+  %474 = call fastcc i32 @dissect_quic_long_header_common(ptr noundef %.0.i153, ptr noundef %1, ptr noundef %.1109, ptr noundef %28, ptr noundef %29)
   %.mask.i.i.i = and i32 %437, -256
   %475 = icmp eq i32 %.mask.i.i.i, -16777216
   br i1 %475, label %476, label %478
@@ -2460,7 +2460,7 @@ is_quic_draft_max.exit69.i:                       ; preds = %.fold.split18.i.i62
 
 508:                                              ; preds = %is_quic_draft_max.exit69.i
   switch i32 %437, label %509 [
-    i32 -87117823, label %dissect_quic_retry_packet.argprom.exit
+    i32 -87117823, label %dissect_quic_retry_packet.exit
     i32 -87117810, label %is_quic_draft_max.exit78.thread.i
     i32 -87117822, label %is_quic_draft_max.exit78.thread.i
     i32 1412445489, label %is_quic_draft_max.exit78.thread.i
@@ -2478,7 +2478,7 @@ is_quic_draft_max.exit78.i:                       ; preds = %509, %506
   %.0.i.i72.i = phi i8 [ %507, %506 ], [ %switch.select20.i.i77.i, %509 ]
   %510 = add i8 %.0.i.i72.i, -25
   %511 = icmp ult i8 %510, -24
-  br i1 %511, label %is_quic_draft_max.exit78.thread.i, label %dissect_quic_retry_packet.argprom.exit
+  br i1 %511, label %is_quic_draft_max.exit78.thread.i, label %dissect_quic_retry_packet.exit
 
 is_quic_draft_max.exit78.thread.i:                ; preds = %is_quic_draft_max.exit78.i, %508, %508, %508, %508, %508
   %512 = load i32, ptr @hf_quic_retry_integrity_tag, align 4
@@ -2685,9 +2685,9 @@ quic_verify_retry_token.exit.i:                   ; preds = %565
 
 590:                                              ; preds = %589, %587, %583
   %591 = add i32 %505, 16
-  br label %dissect_quic_retry_packet.argprom.exit
+  br label %dissect_quic_retry_packet.exit
 
-dissect_quic_retry_packet.argprom.exit:           ; preds = %508, %is_quic_draft_max.exit78.i, %590
+dissect_quic_retry_packet.exit:                   ; preds = %508, %is_quic_draft_max.exit78.i, %590
   %.1.i = phi i32 [ %505, %is_quic_draft_max.exit78.i ], [ %591, %590 ], [ %505, %508 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %29)
@@ -2796,7 +2796,7 @@ quic_connection_equal.exit.i:                     ; preds = %628
   br i1 %.not.i.not.i, label %635, label %quic_connection_equal.exit.thread.i
 
 635:                                              ; preds = %quic_connection_equal.exit.i
-  call fastcc void @quic_create_initial_decoders.argelim(ptr noundef %16, ptr noundef %23, ptr noundef %592)
+  call fastcc void @quic_create_initial_decoders(ptr noundef %16, ptr noundef %23, ptr noundef %592)
   br label %quic_create_decoders.exit.i
 
 quic_connection_equal.exit.thread.i:              ; preds = %quic_connection_equal.exit.i, %628, %625
@@ -2821,7 +2821,7 @@ quic_connection_equal.exit.thread.i:              ; preds = %quic_connection_equ
   call void @gcry_cipher_close(ptr noundef %644) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %643, i8 0, i64 24, i1 false)
   %645 = getelementptr inbounds i8, ptr %592, i64 560
-  call fastcc void @quic_create_initial_decoders.argelim(ptr noundef %645, ptr noundef %23, ptr noundef %592)
+  call fastcc void @quic_create_initial_decoders(ptr noundef %645, ptr noundef %23, ptr noundef %592)
   br label %quic_create_decoders.exit.i
 
 646:                                              ; preds = %quic_connection_equal.exit.thread.i
@@ -2948,7 +2948,7 @@ quic_create_decoders.exit.i:                      ; preds = %quic_ciphers_prepar
 706:                                              ; preds = %701
   %707 = load i32, ptr %26, align 4
   %.0171.val.i = load ptr, ptr %.0171.i, align 8
-  %708 = call fastcc i32 @quic_decrypt_header.argprom(ptr noundef %.0.i153, i32 noundef %703, ptr %.0171.val.i, i32 noundef %707, ptr noundef %22, ptr noundef %25, i32 noundef 0)
+  %708 = call fastcc i32 @quic_decrypt_header(ptr noundef %.0.i153, i32 noundef %703, ptr %.0171.val.i, i32 noundef %707, ptr noundef %22, ptr noundef %25, i32 noundef 0)
   %.not194.i = icmp eq i32 %708, 0
   br i1 %.not194.i, label %.thread235.i, label %quic_create_decoders.exit.thread.sink.split.i
 
@@ -3001,7 +3001,7 @@ quic_is_hp_cipher_initialized.exit.i:             ; preds = %quic_ciphers_prepar
 
 727:                                              ; preds = %quic_is_hp_cipher_initialized.exit.i
   %728 = load i32, ptr %26, align 4
-  %729 = call fastcc i32 @quic_decrypt_header.argprom(ptr noundef %.0.i153, i32 noundef %703, ptr nonnull %726, i32 noundef %728, ptr noundef %22, ptr noundef %25, i32 noundef 0)
+  %729 = call fastcc i32 @quic_decrypt_header(ptr noundef %.0.i153, i32 noundef %703, ptr nonnull %726, i32 noundef %728, ptr noundef %22, ptr noundef %25, i32 noundef 0)
   %.not193.i = icmp eq i32 %729, 0
   br i1 %.not193.i, label %730, label %quic_create_decoders.exit.thread.sink.split.i
 
@@ -3150,7 +3150,7 @@ proto_item_set_generated.exit218.i:               ; preds = %797, %794, %proto_i
   %803 = zext i8 %802 to i32
   %804 = call ptr @val_to_str_const(i32 noundef %803, ptr noundef nonnull @quic_v1_long_packet_type_vals, ptr noundef nonnull @.str.400) #15
   call void @col_set_str(ptr noundef %801, i32 noundef 25, ptr noundef %804) #15
-  %805 = call fastcc i32 @dissect_quic_long_header_common.argprom.argelim(ptr noundef %.0.i153, ptr noundef %1, ptr noundef %.1109, ptr noundef %16, ptr noundef %17)
+  %805 = call fastcc i32 @dissect_quic_long_header_common(ptr noundef %.0.i153, ptr noundef %1, ptr noundef %.1109, ptr noundef %16, ptr noundef %17)
   %806 = icmp eq i8 %802, 0
   br i1 %806, label %807, label %828
 
@@ -3530,7 +3530,7 @@ quic_is_hp_cipher_initialized.exit.i185:          ; preds = %.sink.split.i.i, %9
   %1007 = add nuw nsw i32 %1006, 1
   %1008 = getelementptr inbounds i8, ptr %893, i64 40
   %1009 = load i32, ptr %1008, align 8
-  %1010 = call fastcc i32 @quic_decrypt_header.argprom(ptr noundef %.0.i153, i32 noundef %1007, ptr nonnull %1004, i32 noundef %1009, ptr noundef %8, ptr noundef %10, i32 noundef %.0.i.i)
+  %1010 = call fastcc i32 @quic_decrypt_header(ptr noundef %.0.i153, i32 noundef %1007, ptr nonnull %1004, i32 noundef %1009, ptr noundef %8, ptr noundef %10, i32 noundef %.0.i.i)
   %.not141.i = icmp eq i32 %1010, 0
   br i1 %.not141.i, label %quic_is_hp_cipher_initialized.exit.thread.i, label %1011
 
@@ -3909,8 +3909,8 @@ dissect_quic_short_header.exit:                   ; preds = %1170, %1172, %1173,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %1217
 
-1217:                                             ; preds = %dissect_quic_retry_packet.argprom.exit, %dissect_quic_long_header.exit, %dissect_quic_short_header.exit
-  %.0110 = phi i32 [ %.1.i, %dissect_quic_retry_packet.argprom.exit ], [ %.0.i169, %dissect_quic_long_header.exit ], [ %.0.i178, %dissect_quic_short_header.exit ]
+1217:                                             ; preds = %dissect_quic_retry_packet.exit, %dissect_quic_long_header.exit, %dissect_quic_short_header.exit
+  %.0110 = phi i32 [ %.1.i, %dissect_quic_retry_packet.exit ], [ %.0.i169, %dissect_quic_long_header.exit ], [ %.0.i178, %dissect_quic_short_header.exit ]
   %1218 = call i32 @tvb_reported_length_remaining(ptr noundef %.0.i153, i32 noundef %.0110) #15
   %.not135 = icmp eq i32 %1218, 0
   br i1 %.not135, label %1222, label %1219
@@ -3927,8 +3927,8 @@ dissect_quic_short_header.exit:                   ; preds = %1170, %1172, %1173,
   %.not136 = icmp eq i32 %1225, 0
   br i1 %.not136, label %.loopexit225, label %307, !llvm.loop !16
 
-.loopexit225:                                     ; preds = %1222, %.loopexit, %dissect_quic_version_negotiation.argprom.exit, %450, %443, %dissect_quic_stateless_reset.argprom.exit
-  %.0 = phi i32 [ %306, %dissect_quic_stateless_reset.argprom.exit ], [ %448, %450 ], [ %448, %443 ], [ %470, %dissect_quic_version_negotiation.argprom.exit ], [ %.0111, %.loopexit ], [ %1224, %1222 ]
+.loopexit225:                                     ; preds = %1222, %.loopexit, %dissect_quic_version_negotiation.exit, %450, %443, %dissect_quic_stateless_reset.exit
+  %.0 = phi i32 [ %306, %dissect_quic_stateless_reset.exit ], [ %448, %450 ], [ %448, %443 ], [ %470, %dissect_quic_version_negotiation.exit ], [ %.0111, %.loopexit ], [ %1224, %1222 ]
   ret i32 %.0
 }
 
@@ -5008,7 +5008,7 @@ declare i32 @tvb_find_tvb(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_quic_long_header_common.argprom.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_quic_long_header_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 1) #15
@@ -5146,7 +5146,7 @@ declare i32 @gcry_cipher_checktag(ptr noundef, ptr noundef, i64 noundef) local_u
 declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quic_create_initial_decoders.argelim(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @quic_create_initial_decoders(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct._StringInfo, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct._StringInfo, align 8
@@ -5366,7 +5366,7 @@ quic_ciphers_prepare.exit.thread:                 ; preds = %quic_ciphers_prepar
 declare i32 @tls13_get_quic_secret(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @quic_decrypt_header.argprom(ptr noundef %0, i32 noundef %1, ptr %.0.val, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @quic_decrypt_header(ptr noundef %0, i32 noundef %1, ptr %.0.val, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca [5 x i8], align 1
   %9 = alloca [4 x i8], align 1
@@ -6505,7 +6505,7 @@ proto_item_set_generated.exit:                    ; preds = %84, %92, %95
   %.val525 = load ptr, ptr %228, align 8
   %229 = getelementptr i8, ptr %.val525, i64 50
   %.val525.val = load i16, ptr %229, align 2
-  %230 = call fastcc ptr @quic_get_crypto_state.argprom.argprom(i16 %.val525.val, ptr noundef %4, i32 noundef %6, i8 noundef zeroext %227)
+  %230 = call fastcc ptr @quic_get_crypto_state(i16 %.val525.val, ptr noundef %4, i32 noundef %6, i8 noundef zeroext %227)
   %231 = getelementptr inbounds i8, ptr %5, i64 8
   %232 = load i64, ptr %231, align 8
   store i64 %232, ptr %25, align 8
@@ -6518,7 +6518,7 @@ proto_item_set_generated.exit:                    ; preds = %84, %92, %95
   store i32 %6, ptr %236, align 4
   %237 = load i64, ptr %23, align 8
   %238 = trunc i64 %237 to i32
-  call fastcc void @dissect_quic_crypto_payload.argprom(ptr noundef %0, i32 noundef %221, i32 noundef %238, ptr noundef %1, ptr noundef %75, ptr noundef %25, ptr noundef %230)
+  call fastcc void @dissect_quic_crypto_payload(ptr noundef %0, i32 noundef %221, i32 noundef %238, ptr noundef %1, ptr noundef %75, ptr noundef %25, ptr noundef %230)
   %239 = load i64, ptr %23, align 8
   %240 = trunc i64 %239 to i32
   %241 = add i32 %221, %240
@@ -6720,7 +6720,7 @@ quic_streams_add.exit:                            ; preds = %315, %308, %256
   %.val = load ptr, ptr %284, align 8
   %371 = getelementptr i8, ptr %.val, i64 50
   %.val.val = load i16, ptr %371, align 2
-  %372 = call fastcc ptr @quic_get_stream_state.argprom.argprom(i16 %.val.val, ptr noundef nonnull %4, i32 noundef %6, i64 noundef %370)
+  %372 = call fastcc ptr @quic_get_stream_state(i16 %.val.val, ptr noundef nonnull %4, i32 noundef %6, i64 noundef %370)
   %373 = load i64, ptr %28, align 8
   store i64 %373, ptr %32, align 8
   %374 = getelementptr inbounds i8, ptr %32, i64 8
@@ -6920,12 +6920,12 @@ quic_streams_add.exit:                            ; preds = %315, %308, %256
 479:                                              ; preds = %476
   %480 = load ptr, ptr %395, align 8
   %.not21.i.i.i = icmp eq ptr %480, null
-  br i1 %.not21.i.i.i, label %process_quic_stream.argprom.exit.i.i, label %.sink.split.i.i.i
+  br i1 %.not21.i.i.i, label %process_quic_stream.exit.i.i, label %.sink.split.i.i.i
 
 481:                                              ; preds = %476
   %482 = load ptr, ptr %396, align 8
   %.not22.i.i.i = icmp eq ptr %482, null
-  br i1 %.not22.i.i.i, label %process_quic_stream.argprom.exit.i.i, label %.sink.split.i.i.i
+  br i1 %.not22.i.i.i, label %process_quic_stream.exit.i.i, label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %481, %479
   %.sink3.i.i.i = phi ptr [ %395, %479 ], [ %396, %481 ]
@@ -6934,19 +6934,19 @@ quic_streams_add.exit:                            ; preds = %315, %308, %256
   %485 = call ptr @proto_tree_get_parent_tree(ptr noundef %484) #15
   %486 = load ptr, ptr %.sink3.i.i.i, align 8
   %487 = call i32 @call_dissector_with_data(ptr noundef %486, ptr noundef %483, ptr noundef nonnull %1, ptr noundef %485, ptr noundef nonnull %32) #15
-  br label %process_quic_stream.argprom.exit.i.i
+  br label %process_quic_stream.exit.i.i
 
-process_quic_stream.argprom.exit.i.i:             ; preds = %.sink.split.i.i.i, %481, %479
+process_quic_stream.exit.i.i:                     ; preds = %.sink.split.i.i.i, %481, %479
   %488 = load i32, ptr %390, align 8
   %.not232.i.i = icmp eq i32 %488, 0
   br i1 %.not232.i.i, label %proto_item_set_generated.exit.thread.i.i, label %489
 
-proto_item_set_generated.exit.thread.i.i:         ; preds = %process_quic_stream.argprom.exit.i.i
+proto_item_set_generated.exit.thread.i.i:         ; preds = %process_quic_stream.exit.i.i
   store i16 0, ptr %384, align 8
   store i32 0, ptr %389, align 4
   br label %desegment_quic_stream.exit.i
 
-489:                                              ; preds = %process_quic_stream.argprom.exit.i.i
+489:                                              ; preds = %process_quic_stream.exit.i.i
   %490 = load ptr, ptr %284, align 8
   %491 = getelementptr inbounds i8, ptr %490, i64 50
   %492 = load i16, ptr %491, align 2
@@ -6991,12 +6991,12 @@ proto_item_set_generated.exit.thread.i.i:         ; preds = %process_quic_stream
 511:                                              ; preds = %507
   %512 = load ptr, ptr %395, align 8
   %.not21.i254.i.i = icmp eq ptr %512, null
-  br i1 %.not21.i254.i.i, label %process_quic_stream.argprom.exit258.i.i, label %.sink.split.i255.i.i
+  br i1 %.not21.i254.i.i, label %process_quic_stream.exit258.i.i, label %.sink.split.i255.i.i
 
 513:                                              ; preds = %507
   %514 = load ptr, ptr %396, align 8
   %.not22.i257.i.i = icmp eq ptr %514, null
-  br i1 %.not22.i257.i.i, label %process_quic_stream.argprom.exit258.i.i, label %.sink.split.i255.i.i
+  br i1 %.not22.i257.i.i, label %process_quic_stream.exit258.i.i, label %.sink.split.i255.i.i
 
 .sink.split.i255.i.i:                             ; preds = %513, %511
   %.sink3.i256.i.i = phi ptr [ %395, %511 ], [ %396, %513 ]
@@ -7005,15 +7005,15 @@ proto_item_set_generated.exit.thread.i.i:         ; preds = %process_quic_stream
   %517 = call ptr @proto_tree_get_parent_tree(ptr noundef %516) #15
   %518 = load ptr, ptr %.sink3.i256.i.i, align 8
   %519 = call i32 @call_dissector_with_data(ptr noundef %518, ptr noundef %515, ptr noundef nonnull %1, ptr noundef %517, ptr noundef nonnull %32) #15
-  br label %process_quic_stream.argprom.exit258.i.i
+  br label %process_quic_stream.exit258.i.i
 
-process_quic_stream.argprom.exit258.i.i:          ; preds = %.sink.split.i255.i.i, %513, %511
+process_quic_stream.exit258.i.i:                  ; preds = %.sink.split.i255.i.i, %513, %511
   %520 = call i32 @tvb_reported_length(ptr noundef %510) #15
   %521 = load i32, ptr %390, align 8
   %.not239.i.i = icmp eq i32 %521, 0
   br i1 %.not239.i.i, label %552, label %522
 
-522:                                              ; preds = %process_quic_stream.argprom.exit258.i.i
+522:                                              ; preds = %process_quic_stream.exit258.i.i
   %523 = sub i32 %520, %.0202.i.i
   %524 = load i32, ptr %389, align 4
   %.not240.i.i = icmp sgt i32 %524, %523
@@ -7070,7 +7070,7 @@ process_quic_stream.argprom.exit258.i.i:          ; preds = %.sink.split.i255.i.
   %551 = icmp sgt i32 %550, 0
   br i1 %551, label %.backedge.i.i.backedge, label %.thread293.i.i
 
-552:                                              ; preds = %522, %process_quic_stream.argprom.exit258.i.i
+552:                                              ; preds = %522, %process_quic_stream.exit258.i.i
   %553 = call ptr @proto_tree_get_parent(ptr noundef %75) #15
   %554 = call i32 @show_fragment_tree(ptr noundef nonnull %455, ptr noundef nonnull @quic_stream_fragment_items, ptr noundef %553, ptr noundef nonnull %1, ptr noundef %510, ptr noundef nonnull %8) #15
   %555 = load i32, ptr %390, align 8
@@ -7813,7 +7813,7 @@ declare ptr @rval_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @tvb_skip_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @quic_get_crypto_state.argprom.argprom(i16 %.80.val.50.val, ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @quic_get_crypto_state(i16 %.80.val.50.val, ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1, i8 noundef zeroext %2) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %.v = select i1 %.not, i64 664, i64 672
   %4 = getelementptr inbounds i8, ptr %0, i64 %.v
@@ -7883,7 +7883,7 @@ define internal fastcc ptr @quic_get_crypto_state.argprom.argprom(i16 %.80.val.5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_quic_crypto_payload.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_quic_crypto_payload(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 328
   store i16 2, ptr %9, align 8
@@ -7936,7 +7936,7 @@ define internal fastcc void @dissect_quic_crypto_payload.argprom(ptr noundef %0,
   %41 = getelementptr inbounds i8, ptr %6, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @wmem_map_insert(ptr noundef %42, ptr noundef %40, ptr noundef nonnull %37) #15
-  br label %desegment_quic_crypto.argprom.exit
+  br label %desegment_quic_crypto.exit
 
 44:                                               ; preds = %29
   %45 = icmp ult i64 %30, %33
@@ -7980,7 +7980,7 @@ define internal fastcc void @dissect_quic_crypto_payload.argprom(ptr noundef %0,
 
 72:                                               ; preds = %67
   %73 = tail call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef nonnull %3, ptr noundef nonnull @ei_quic_retransmission, ptr noundef %0, i32 noundef %1, i32 noundef %2) #15
-  br label %desegment_quic_crypto.argprom.exit
+  br label %desegment_quic_crypto.exit
 
 74:                                               ; preds = %67
   %75 = icmp ult i64 %68, %71
@@ -8150,7 +8150,7 @@ define internal fastcc void @dissect_quic_crypto_payload.argprom(ptr noundef %0,
   %154 = zext i1 %153 to i32
   %155 = tail call ptr @fragment_add(ptr noundef nonnull @quic_crypto_reassembly_table, ptr noundef %0, i32 noundef %.0.i, ptr noundef nonnull %3, i32 noundef %104, ptr noundef nonnull %.0210.i, i32 noundef %151, i32 noundef %.0202.i, i32 noundef %154) #15
   %.not241.i = icmp eq ptr %155, null
-  br i1 %.not241.i, label %desegment_quic_crypto.argprom.exit, label %156
+  br i1 %.not241.i, label %desegment_quic_crypto.exit, label %156
 
 156:                                              ; preds = %148
   %157 = getelementptr inbounds i8, ptr %.0210.i, i64 36
@@ -8224,7 +8224,7 @@ define internal fastcc void @dissect_quic_crypto_payload.argprom(ptr noundef %0,
   %.0207.i = phi i32 [ 0, %.thread2.thread39.i ], [ 0, %167 ], [ 1, %.thread12.i ]
   %.2.i = phi ptr [ %.0203616.i, %.thread2.thread39.i ], [ %181, %167 ], [ %.0203615.i, %.thread12.i ]
   %.not41.i = icmp eq ptr %.2.i, null
-  br i1 %.not41.i, label %desegment_quic_crypto.argprom.exit, label %.thread18.i
+  br i1 %.not41.i, label %desegment_quic_crypto.exit, label %.thread18.i
 
 .thread18.i:                                      ; preds = %192, %161, %156
   %.224.i = phi ptr [ %.2.i, %192 ], [ %155, %161 ], [ %155, %156 ]
@@ -8240,7 +8240,7 @@ define internal fastcc void @dissect_quic_crypto_payload.argprom(ptr noundef %0,
   %198 = getelementptr inbounds i8, ptr %.121122.i, i64 32
   %199 = load i32, ptr %198, align 8
   %200 = icmp eq i32 %.0212.i, %199
-  br i1 %200, label %201, label %desegment_quic_crypto.argprom.exit
+  br i1 %200, label %201, label %desegment_quic_crypto.exit
 
 201:                                              ; preds = %197
   %202 = getelementptr inbounds i8, ptr %.224.i, i64 56
@@ -8262,34 +8262,34 @@ define internal fastcc void @dissect_quic_crypto_payload.argprom(ptr noundef %0,
   %215 = call i32 @call_dissector_with_data(ptr noundef %211, ptr noundef %208, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %214) #15
   %216 = load ptr, ptr %209, align 8
   call void @col_set_writable(ptr noundef %216, i32 noundef -1, i32 noundef 1) #15
-  br label %desegment_quic_crypto.argprom.exit
+  br label %desegment_quic_crypto.exit
 
 217:                                              ; preds = %.thread18.i
   %218 = icmp ne i32 %.020723.i, 0
   %.not243.i = icmp eq i32 %194, 0
   %or.cond.i = or i1 %218, %.not243.i
-  br i1 %or.cond.i, label %desegment_quic_crypto.argprom.exit, label %219
+  br i1 %or.cond.i, label %desegment_quic_crypto.exit, label %219
 
 219:                                              ; preds = %217
   %220 = load i32, ptr @hf_quic_reassembled_in, align 4
   %221 = tail call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %220, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %194) #15
   %.not.i.i = icmp eq ptr %221, null
-  br i1 %.not.i.i, label %desegment_quic_crypto.argprom.exit, label %222
+  br i1 %.not.i.i, label %desegment_quic_crypto.exit, label %222
 
 222:                                              ; preds = %219
   %223 = getelementptr inbounds i8, ptr %221, i64 32
   %224 = load ptr, ptr %223, align 8
   %.not5.i.i = icmp eq ptr %224, null
-  br i1 %.not5.i.i, label %desegment_quic_crypto.argprom.exit, label %225
+  br i1 %.not5.i.i, label %desegment_quic_crypto.exit, label %225
 
 225:                                              ; preds = %222
   %226 = getelementptr inbounds i8, ptr %224, i64 28
   %227 = load i32, ptr %226, align 4
   %228 = or i32 %227, 2
   store i32 %228, ptr %226, align 4
-  br label %desegment_quic_crypto.argprom.exit
+  br label %desegment_quic_crypto.exit
 
-desegment_quic_crypto.argprom.exit:               ; preds = %197, %34, %72, %148, %192, %201, %217, %219, %222, %225
+desegment_quic_crypto.exit:                       ; preds = %197, %34, %72, %148, %192, %201, %217, %219, %222, %225
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %243
 
@@ -8312,7 +8312,7 @@ desegment_quic_crypto.argprom.exit:               ; preds = %197, %34, %72, %148
   tail call void @col_set_writable(ptr noundef %242, i32 noundef -1, i32 noundef 1) #15
   br label %243
 
-243:                                              ; preds = %229, %desegment_quic_crypto.argprom.exit
+243:                                              ; preds = %229, %desegment_quic_crypto.exit
   ret void
 }
 

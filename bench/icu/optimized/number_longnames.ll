@@ -1558,7 +1558,7 @@ if.then:                                          ; preds = %entry
   call void @_ZN6icu_7511MeasureUnit8getMeterEv(ptr nonnull sret(%"class.icu_75::MeasureUnit") align 8 %ref.tmp)
   %1 = getelementptr inbounds i8, ptr %locale, i64 40
   %locale.val = load ptr, ptr %1, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_119getGenderForBuiltinERKN6icu_756LocaleERKNS0_11MeasureUnitER10UErrorCode.argprom(ptr noalias align 8 %meterGender, ptr %locale.val, ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_119getGenderForBuiltinERKN6icu_756LocaleERKNS0_11MeasureUnitER10UErrorCode(ptr noalias align 8 %meterGender, ptr %locale.val, ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -1643,7 +1643,7 @@ if.then7.i:                                       ; preds = %invoke.cont4.i
           to label %invoke.cont8.i unwind label %lpad.i
 
 invoke.cont8.i:                                   ; preds = %if.then7.i
-  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode.argprom(ptr noalias align 8 %perRule.i, ptr noundef %agg.tmp.i, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode(ptr noalias align 8 %perRule.i, ptr noundef %agg.tmp.i, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont12.i unwind label %lpad9.i
 
 invoke.cont12.i:                                  ; preds = %invoke.cont8.i
@@ -1753,7 +1753,7 @@ if.then44.i:                                      ; preds = %if.end42.i
           to label %invoke.cont46.i unwind label %lpad.i
 
 invoke.cont46.i:                                  ; preds = %if.then44.i
-  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode.argprom(ptr noalias align 8 %ref.tmp6, ptr noundef %agg.tmp45.i, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode(ptr noalias align 8 %ref.tmp6, ptr noundef %agg.tmp45.i, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont50.i unwind label %lpad47.i
 
 invoke.cont50.i:                                  ; preds = %invoke.cont46.i
@@ -1817,7 +1817,7 @@ if.then80.i:                                      ; preds = %invoke.cont76.i
           to label %invoke.cont83.i unwind label %lpad.i
 
 invoke.cont83.i:                                  ; preds = %if.then80.i
-  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode.argprom(ptr noalias align 8 %ref.tmp6, ptr noundef %agg.tmp82.i, ptr noundef nonnull @.str.6, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode(ptr noalias align 8 %ref.tmp6, ptr noundef %agg.tmp82.i, ptr noundef nonnull @.str.6, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont87.i unwind label %lpad84.i
 
 invoke.cont87.i:                                  ; preds = %invoke.cont83.i
@@ -1851,7 +1851,7 @@ if.then101.i:                                     ; preds = %if.end98.i
           to label %invoke.cont104.i unwind label %lpad.i
 
 invoke.cont104.i:                                 ; preds = %if.then101.i
-  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode.argprom(ptr noalias align 8 %ref.tmp6, ptr noundef %agg.tmp103.i, ptr noundef nonnull @.str.8, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode(ptr noalias align 8 %ref.tmp6, ptr noundef %agg.tmp103.i, ptr noundef nonnull @.str.8, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont108.i unwind label %lpad105.i
 
 invoke.cont108.i:                                 ; preds = %invoke.cont104.i
@@ -1892,7 +1892,7 @@ invoke.cont123.i:                                 ; preds = %invoke.cont121.i
 
 invoke.cont124.i:                                 ; preds = %invoke.cont123.i
   %locale.val.i = load ptr, ptr %1, align 8, !noalias !14
-  invoke fastcc void @_ZN12_GLOBAL__N_119getGenderForBuiltinERKN6icu_756LocaleERKNS0_11MeasureUnitER10UErrorCode.argprom(ptr noalias align 8 %ref.tmp6, ptr %locale.val.i, ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_119getGenderForBuiltinERKN6icu_756LocaleERKNS0_11MeasureUnitER10UErrorCode(ptr noalias align 8 %ref.tmp6, ptr %locale.val.i, ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont126.i unwind label %lpad125.i
 
 invoke.cont126.i:                                 ; preds = %invoke.cont124.i
@@ -2480,7 +2480,7 @@ invoke.cont69:                                    ; preds = %if.else67
   %38 = load i32, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %loc, i64 40
   %loc.val = load ptr, ptr %39, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116getCompoundValueEN6icu_7511StringPieceERKNS0_6LocaleERK16UNumberUnitWidthR10UErrorCode.argprom(ptr noalias align 8 %rawPerUnitFormat, ptr %36, i32 %38, ptr %loc.val, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_116getCompoundValueEN6icu_7511StringPieceERKNS0_6LocaleERK16UNumberUnitWidthR10UErrorCode(ptr noalias align 8 %rawPerUnitFormat, ptr %36, i32 %38, ptr %loc.val, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont70 unwind label %lpad59
 
 invoke.cont70:                                    ; preds = %invoke.cont69
@@ -3530,7 +3530,7 @@ invoke.cont31:                                    ; preds = %if.end29
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr i8, ptr %loc, i64 40
   %loc.val167 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116getCompoundValueEN6icu_7511StringPieceERKNS0_6LocaleERK16UNumberUnitWidthR10UErrorCode.argprom(ptr noalias align 8 %timesPattern, ptr %10, i32 %12, ptr %loc.val167, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_116getCompoundValueEN6icu_7511StringPieceERKNS0_6LocaleERK16UNumberUnitWidthR10UErrorCode(ptr noalias align 8 %timesPattern, ptr %10, i32 %12, ptr %loc.val167, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %invoke.cont31
@@ -3782,7 +3782,7 @@ lpad87:                                           ; preds = %if.end94, %invoke.c
 
 if.end94:                                         ; preds = %invoke.cont91
   %loc.val = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_119getGenderForBuiltinERKN6icu_756LocaleERKNS0_11MeasureUnitER10UErrorCode.argprom(ptr noalias align 8 %agg.tmp95, ptr %loc.val, ptr noundef nonnull align 8 dereferenceable(19) %simpleUnit, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_119getGenderForBuiltinERKN6icu_756LocaleERKNS0_11MeasureUnitER10UErrorCode(ptr noalias align 8 %agg.tmp95, ptr %loc.val, ptr noundef nonnull align 8 dereferenceable(19) %simpleUnit, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont96 unwind label %lpad87
 
 invoke.cont96:                                    ; preds = %if.end94
@@ -4165,7 +4165,7 @@ invoke.cont148:                                   ; preds = %invoke.cont142
   %87 = load ptr, ptr %prefixKey, align 8
   %88 = load i32, ptr %len.i220, align 8
   %loc.val168 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116getCompoundValueEN6icu_7511StringPieceERKNS0_6LocaleERK16UNumberUnitWidthR10UErrorCode.argprom(ptr noalias align 8 %ref.tmp146, ptr %87, i32 %88, ptr %loc.val168, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_116getCompoundValueEN6icu_7511StringPieceERKNS0_6LocaleERK16UNumberUnitWidthR10UErrorCode(ptr noalias align 8 %ref.tmp146, ptr %87, i32 %88, ptr %loc.val168, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont150 unwind label %lpad135
 
 invoke.cont150:                                   ; preds = %invoke.cont148
@@ -4290,7 +4290,7 @@ if.end208:                                        ; preds = %invoke.cont205, %if
           to label %invoke.cont210 unwind label %lpad190
 
 invoke.cont210:                                   ; preds = %if.end208
-  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode.argprom(ptr noalias align 8 %timesGenderRule, ptr noundef %agg.tmp209, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode(ptr noalias align 8 %timesGenderRule, ptr noundef %agg.tmp209, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont214 unwind label %lpad211
 
 invoke.cont214:                                   ; preds = %invoke.cont210
@@ -5211,7 +5211,7 @@ declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116getCompoundValueEN6icu_7511StringPieceERKNS0_6LocaleERK16UNumberUnitWidthR10UErrorCode.argprom(ptr noalias nonnull align 8 %agg.result, ptr %compoundKey.coerce0, i32 %compoundKey.coerce1, ptr %locale.40.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %width, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116getCompoundValueEN6icu_7511StringPieceERKNS0_6LocaleERK16UNumberUnitWidthR10UErrorCode(ptr noalias nonnull align 8 %agg.result, ptr %compoundKey.coerce0, i32 %compoundKey.coerce1, ptr %locale.40.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %width, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %unitsBundle = alloca %"class.icu_75::LocalUResourceBundlePointer", align 8
   %key = alloca %"class.icu_75::CharString", align 8
@@ -5784,7 +5784,7 @@ entry:
   %val = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::Locale", align 8
   call void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(217) %locale)
-  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode.argprom(ptr noalias align 8 %val, ptr noundef %agg.tmp, ptr noundef %structure, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode(ptr noalias align 8 %val, ptr noundef %agg.tmp, ptr noundef %structure, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
@@ -5868,7 +5868,7 @@ declare void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 
 declare noundef ptr @_ZNK6icu_7514SingleUnitImpl15getSimpleUnitIDEv(ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119getGenderForBuiltinERKN6icu_756LocaleERKNS0_11MeasureUnitER10UErrorCode.argprom(ptr noalias nonnull align 8 %agg.result, ptr %locale.40.val, ptr noundef nonnull align 8 dereferenceable(19) %builtinUnit, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119getGenderForBuiltinERKN6icu_756LocaleERKNS0_11MeasureUnitER10UErrorCode(ptr noalias nonnull align 8 %agg.result, ptr %locale.40.val, ptr noundef nonnull align 8 dereferenceable(19) %builtinUnit, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %unitsBundle = alloca %"class.icu_75::LocalUResourceBundlePointer", align 8
   %ref.tmp16 = alloca %"class.icu_75::StringPiece", align 8
@@ -6093,7 +6093,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @_ZNK6icu_7514SingleUnitImpl5buildER10UErrorCode(ptr sret(%"class.icu_75::MeasureUnit") align 8, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode.argprom(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %locale, ptr noundef %structure, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_121getDeriveCompoundRuleEN6icu_756LocaleEPKcS3_R10UErrorCode(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %locale, ptr noundef %structure, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %len.i = alloca i32, align 4
   %agg.tmp.i = alloca %"class.icu_75::ConstChar16Ptr", align 8

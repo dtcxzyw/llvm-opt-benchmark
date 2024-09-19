@@ -381,7 +381,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
 
 .preheader.i:                                     ; preds = %8
   %12 = icmp sgt i64 %.val.val, 0
-  br i1 %12, label %.lr.ph9.i, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %12, label %.lr.ph9.i, label %Vaxpy_Serial.exit
 
 .lr.ph9.i:                                        ; preds = %.preheader.i, %.lr.ph9.i
   %.08.i = phi i64 [ %18, %.lr.ph9.i ], [ 0, %.preheader.i ]
@@ -393,7 +393,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %17, ptr %15, align 8
   %18 = add nuw nsw i64 %.08.i, 1
   %exitcond13.not.i = icmp eq i64 %18, %.val.val
-  br i1 %exitcond13.not.i, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph9.i, !llvm.loop !4
+  br i1 %exitcond13.not.i, label %Vaxpy_Serial.exit, label %.lr.ph9.i, !llvm.loop !4
 
 19:                                               ; preds = %8
   %20 = fcmp oeq double %0, -1.000000e+00
@@ -401,10 +401,10 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   br i1 %20, label %.preheader1.i, label %.preheader3.i
 
 .preheader3.i:                                    ; preds = %19
-  br i1 %21, label %.lr.ph.i, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %21, label %.lr.ph.i, label %Vaxpy_Serial.exit
 
 .preheader1.i:                                    ; preds = %19
-  br i1 %21, label %.lr.ph7.i, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %21, label %.lr.ph7.i, label %Vaxpy_Serial.exit
 
 .lr.ph7.i:                                        ; preds = %.preheader1.i, %.lr.ph7.i
   %.16.i = phi i64 [ %27, %.lr.ph7.i ], [ 0, %.preheader1.i ]
@@ -416,7 +416,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %26, ptr %24, align 8
   %27 = add nuw nsw i64 %.16.i, 1
   %exitcond12.not.i = icmp eq i64 %27, %.val.val
-  br i1 %exitcond12.not.i, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph7.i, !llvm.loop !6
+  br i1 %exitcond12.not.i, label %Vaxpy_Serial.exit, label %.lr.ph7.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.preheader3.i, %.lr.ph.i
   %.25.i = phi i64 [ %33, %.lr.ph.i ], [ 0, %.preheader3.i ]
@@ -428,7 +428,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %32, ptr %30, align 8
   %33 = add nuw nsw i64 %.25.i, 1
   %exitcond.not.i = icmp eq i64 %33, %.val.val
-  br i1 %exitcond.not.i, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %Vaxpy_Serial.exit, label %.lr.ph.i, !llvm.loop !7
 
 34:                                               ; preds = %5
   %35 = fcmp oeq double %0, 1.000000e+00
@@ -448,7 +448,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
 
 .preheader.i136:                                  ; preds = %37
   %40 = icmp sgt i64 %.val100.val, 0
-  br i1 %40, label %.lr.ph9.i137, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %40, label %.lr.ph9.i137, label %Vaxpy_Serial.exit
 
 .lr.ph9.i137:                                     ; preds = %.preheader.i136, %.lr.ph9.i137
   %.08.i138 = phi i64 [ %46, %.lr.ph9.i137 ], [ 0, %.preheader.i136 ]
@@ -460,7 +460,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %45, ptr %43, align 8
   %46 = add nuw nsw i64 %.08.i138, 1
   %exitcond13.not.i139 = icmp eq i64 %46, %.val100.val
-  br i1 %exitcond13.not.i139, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph9.i137, !llvm.loop !4
+  br i1 %exitcond13.not.i139, label %Vaxpy_Serial.exit, label %.lr.ph9.i137, !llvm.loop !4
 
 47:                                               ; preds = %37
   %48 = fcmp oeq double %2, -1.000000e+00
@@ -468,10 +468,10 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   br i1 %48, label %.preheader1.i132, label %.preheader3.i128
 
 .preheader3.i128:                                 ; preds = %47
-  br i1 %49, label %.lr.ph.i129, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %49, label %.lr.ph.i129, label %Vaxpy_Serial.exit
 
 .preheader1.i132:                                 ; preds = %47
-  br i1 %49, label %.lr.ph7.i133, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %49, label %.lr.ph7.i133, label %Vaxpy_Serial.exit
 
 .lr.ph7.i133:                                     ; preds = %.preheader1.i132, %.lr.ph7.i133
   %.16.i134 = phi i64 [ %55, %.lr.ph7.i133 ], [ 0, %.preheader1.i132 ]
@@ -483,7 +483,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %54, ptr %52, align 8
   %55 = add nuw nsw i64 %.16.i134, 1
   %exitcond12.not.i135 = icmp eq i64 %55, %.val100.val
-  br i1 %exitcond12.not.i135, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph7.i133, !llvm.loop !6
+  br i1 %exitcond12.not.i135, label %Vaxpy_Serial.exit, label %.lr.ph7.i133, !llvm.loop !6
 
 .lr.ph.i129:                                      ; preds = %.preheader3.i128, %.lr.ph.i129
   %.25.i130 = phi i64 [ %61, %.lr.ph.i129 ], [ 0, %.preheader3.i128 ]
@@ -495,7 +495,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %60, ptr %58, align 8
   %61 = add nuw nsw i64 %.25.i130, 1
   %exitcond.not.i131 = icmp eq i64 %61, %.val100.val
-  br i1 %exitcond.not.i131, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph.i129, !llvm.loop !7
+  br i1 %exitcond.not.i131, label %Vaxpy_Serial.exit, label %.lr.ph.i129, !llvm.loop !7
 
 62:                                               ; preds = %34
   %or.cond = and i1 %35, %6
@@ -513,7 +513,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   %66 = getelementptr i8, ptr %.val106, i64 16
   %.val106.val = load ptr, ptr %66, align 8
   %67 = icmp sgt i64 %.val104.val, 0
-  br i1 %67, label %.lr.ph.i141, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %67, label %.lr.ph.i141, label %Vaxpy_Serial.exit
 
 .lr.ph.i141:                                      ; preds = %63, %.lr.ph.i141
   %.01.i = phi i64 [ %74, %.lr.ph.i141 ], [ 0, %63 ]
@@ -526,7 +526,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %72, ptr %73, align 8
   %74 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i142 = icmp eq i64 %74, %.val104.val
-  br i1 %exitcond.not.i142, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph.i141, !llvm.loop !8
+  br i1 %exitcond.not.i142, label %Vaxpy_Serial.exit, label %.lr.ph.i141, !llvm.loop !8
 
 75:                                               ; preds = %62
   %76 = fcmp oeq double %2, -1.000000e+00
@@ -552,7 +552,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   %85 = getelementptr i8, ptr %.val110, i64 16
   %.val110.val = load ptr, ptr %85, align 8
   %86 = icmp sgt i64 %.val108.val, 0
-  br i1 %86, label %.lr.ph.i143, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %86, label %.lr.ph.i143, label %Vaxpy_Serial.exit
 
 .lr.ph.i143:                                      ; preds = %80, %.lr.ph.i143
   %.01.i144 = phi i64 [ %93, %.lr.ph.i143 ], [ 0, %80 ]
@@ -565,7 +565,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %91, ptr %92, align 8
   %93 = add nuw nsw i64 %.01.i144, 1
   %exitcond.not.i145 = icmp eq i64 %93, %.val108.val
-  br i1 %exitcond.not.i145, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph.i143, !llvm.loop !9
+  br i1 %exitcond.not.i145, label %Vaxpy_Serial.exit, label %.lr.ph.i143, !llvm.loop !9
 
 94:                                               ; preds = %78
   %or.cond5 = or i1 %35, %6
@@ -586,7 +586,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   %101 = getelementptr i8, ptr %.val114, i64 16
   %.val114.val = load ptr, ptr %101, align 8
   %102 = icmp sgt i64 %.val112.val, 0
-  br i1 %102, label %.lr.ph.i146, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %102, label %.lr.ph.i146, label %Vaxpy_Serial.exit
 
 .lr.ph.i146:                                      ; preds = %95, %.lr.ph.i146
   %.01.i147 = phi i64 [ %109, %.lr.ph.i146 ], [ 0, %95 ]
@@ -599,7 +599,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %107, ptr %108, align 8
   %109 = add nuw nsw i64 %.01.i147, 1
   %exitcond.not.i148 = icmp eq i64 %109, %.val112.val
-  br i1 %exitcond.not.i148, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph.i146, !llvm.loop !10
+  br i1 %exitcond.not.i148, label %Vaxpy_Serial.exit, label %.lr.ph.i146, !llvm.loop !10
 
 110:                                              ; preds = %94
   %or.cond7 = or i1 %79, %76
@@ -620,7 +620,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   %117 = getelementptr i8, ptr %.val118, i64 16
   %.val118.val = load ptr, ptr %117, align 8
   %118 = icmp sgt i64 %.val116.val, 0
-  br i1 %118, label %.lr.ph.i149, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %118, label %.lr.ph.i149, label %Vaxpy_Serial.exit
 
 .lr.ph.i149:                                      ; preds = %111, %.lr.ph.i149
   %.01.i150 = phi i64 [ %126, %.lr.ph.i149 ], [ 0, %111 ]
@@ -634,7 +634,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %124, ptr %125, align 8
   %126 = add nuw nsw i64 %.01.i150, 1
   %exitcond.not.i151 = icmp eq i64 %126, %.val116.val
-  br i1 %exitcond.not.i151, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph.i149, !llvm.loop !11
+  br i1 %exitcond.not.i151, label %Vaxpy_Serial.exit, label %.lr.ph.i149, !llvm.loop !11
 
 127:                                              ; preds = %110
   %128 = fcmp oeq double %0, %2
@@ -652,7 +652,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   %132 = getelementptr i8, ptr %.val122, i64 16
   %.val122.val = load ptr, ptr %132, align 8
   %133 = icmp sgt i64 %.val120.val, 0
-  br i1 %133, label %.lr.ph.i152, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %133, label %.lr.ph.i152, label %Vaxpy_Serial.exit
 
 .lr.ph.i152:                                      ; preds = %129, %.lr.ph.i152
   %.01.i153 = phi i64 [ %141, %.lr.ph.i152 ], [ 0, %129 ]
@@ -666,7 +666,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %139, ptr %140, align 8
   %141 = add nuw nsw i64 %.01.i153, 1
   %exitcond.not.i154 = icmp eq i64 %141, %.val120.val
-  br i1 %exitcond.not.i154, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph.i152, !llvm.loop !12
+  br i1 %exitcond.not.i154, label %Vaxpy_Serial.exit, label %.lr.ph.i152, !llvm.loop !12
 
 142:                                              ; preds = %127
   %143 = fneg double %2
@@ -685,7 +685,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   %148 = getelementptr i8, ptr %.val126, i64 16
   %.val126.val = load ptr, ptr %148, align 8
   %149 = icmp sgt i64 %.val124.val, 0
-  br i1 %149, label %.lr.ph.i155, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %149, label %.lr.ph.i155, label %Vaxpy_Serial.exit
 
 .lr.ph.i155:                                      ; preds = %145, %.lr.ph.i155
   %.01.i156 = phi i64 [ %157, %.lr.ph.i155 ], [ 0, %145 ]
@@ -699,7 +699,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %155, ptr %156, align 8
   %157 = add nuw nsw i64 %.01.i156, 1
   %exitcond.not.i157 = icmp eq i64 %157, %.val124.val
-  br i1 %exitcond.not.i157, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph.i155, !llvm.loop !13
+  br i1 %exitcond.not.i157, label %Vaxpy_Serial.exit, label %.lr.ph.i155, !llvm.loop !13
 
 158:                                              ; preds = %142
   %159 = load i64, ptr %.val124, align 8
@@ -712,7 +712,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   %166 = getelementptr inbounds i8, ptr %165, i64 16
   %167 = load ptr, ptr %166, align 8
   %168 = icmp sgt i64 %159, 0
-  br i1 %168, label %.lr.ph, label %Vaxpy_Serial.argprom.argprom.exit
+  br i1 %168, label %.lr.ph, label %Vaxpy_Serial.exit
 
 .lr.ph:                                           ; preds = %158, %.lr.ph
   %.0170 = phi i64 [ %176, %.lr.ph ], [ 0, %158 ]
@@ -726,9 +726,9 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   store double %174, ptr %175, align 8
   %176 = add nuw nsw i64 %.0170, 1
   %exitcond.not = icmp eq i64 %176, %159
-  br i1 %exitcond.not, label %Vaxpy_Serial.argprom.argprom.exit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %Vaxpy_Serial.exit, label %.lr.ph, !llvm.loop !14
 
-Vaxpy_Serial.argprom.argprom.exit:                ; preds = %.lr.ph, %.lr.ph.i155, %.lr.ph.i152, %.lr.ph.i149, %.lr.ph.i146, %.lr.ph.i143, %.lr.ph.i141, %.lr.ph.i129, %.lr.ph7.i133, %.lr.ph9.i137, %.lr.ph.i, %.lr.ph7.i, %.lr.ph9.i, %158, %145, %129, %111, %95, %80, %63, %.preheader1.i132, %.preheader3.i128, %.preheader.i136, %.preheader1.i, %.preheader3.i, %.preheader.i
+Vaxpy_Serial.exit:                                ; preds = %.lr.ph, %.lr.ph.i155, %.lr.ph.i152, %.lr.ph.i149, %.lr.ph.i146, %.lr.ph.i143, %.lr.ph.i141, %.lr.ph.i129, %.lr.ph7.i133, %.lr.ph9.i137, %.lr.ph.i, %.lr.ph7.i, %.lr.ph9.i, %158, %145, %129, %111, %95, %80, %63, %.preheader1.i132, %.preheader3.i128, %.preheader.i136, %.preheader1.i, %.preheader3.i, %.preheader.i
   ret void
 }
 
@@ -828,7 +828,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   %6 = getelementptr i8, ptr %.val, i64 16
   %.val.val23 = load ptr, ptr %6, align 8
   %7 = icmp sgt i64 %.val.val, 0
-  br i1 %7, label %.lr.ph.i, label %VScaleBy_Serial.argprom.argprom.exit
+  br i1 %7, label %.lr.ph.i, label %VScaleBy_Serial.exit
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %.01.i = phi i64 [ %11, %.lr.ph.i ], [ 0, %5 ]
@@ -838,7 +838,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   store double %10, ptr %8, align 8
   %11 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %11, %.val.val
-  br i1 %exitcond.not.i, label %VScaleBy_Serial.argprom.argprom.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %VScaleBy_Serial.exit, label %.lr.ph.i, !llvm.loop !18
 
 12:                                               ; preds = %3
   %13 = fcmp oeq double %0, 1.000000e+00
@@ -853,7 +853,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   %16 = getelementptr i8, ptr %.val25, i64 16
   %.val25.val = load ptr, ptr %16, align 8
   %17 = icmp sgt i64 %.val24.val, 0
-  br i1 %17, label %.lr.ph.i30, label %VScaleBy_Serial.argprom.argprom.exit
+  br i1 %17, label %.lr.ph.i30, label %VScaleBy_Serial.exit
 
 .lr.ph.i30:                                       ; preds = %14, %.lr.ph.i30
   %.01.i31 = phi i64 [ %21, %.lr.ph.i30 ], [ 0, %14 ]
@@ -863,7 +863,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   store double %19, ptr %20, align 8
   %21 = add nuw nsw i64 %.01.i31, 1
   %exitcond.not.i32 = icmp eq i64 %21, %.val24.val
-  br i1 %exitcond.not.i32, label %VScaleBy_Serial.argprom.argprom.exit, label %.lr.ph.i30, !llvm.loop !19
+  br i1 %exitcond.not.i32, label %VScaleBy_Serial.exit, label %.lr.ph.i30, !llvm.loop !19
 
 22:                                               ; preds = %12
   %23 = fcmp oeq double %0, -1.000000e+00
@@ -878,7 +878,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   %26 = getelementptr i8, ptr %.val28, i64 16
   %.val28.val = load ptr, ptr %26, align 8
   %27 = icmp sgt i64 %.val27.val, 0
-  br i1 %27, label %.lr.ph.i33, label %VScaleBy_Serial.argprom.argprom.exit
+  br i1 %27, label %.lr.ph.i33, label %VScaleBy_Serial.exit
 
 .lr.ph.i33:                                       ; preds = %24, %.lr.ph.i33
   %.01.i34 = phi i64 [ %32, %.lr.ph.i33 ], [ 0, %24 ]
@@ -889,7 +889,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   store double %30, ptr %31, align 8
   %32 = add nuw nsw i64 %.01.i34, 1
   %exitcond.not.i35 = icmp eq i64 %32, %.val27.val
-  br i1 %exitcond.not.i35, label %VScaleBy_Serial.argprom.argprom.exit, label %.lr.ph.i33, !llvm.loop !20
+  br i1 %exitcond.not.i35, label %VScaleBy_Serial.exit, label %.lr.ph.i33, !llvm.loop !20
 
 33:                                               ; preds = %22
   %34 = load i64, ptr %.val27, align 8
@@ -899,7 +899,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = icmp sgt i64 %34, 0
-  br i1 %40, label %.lr.ph, label %VScaleBy_Serial.argprom.argprom.exit
+  br i1 %40, label %.lr.ph, label %VScaleBy_Serial.exit
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
   %.039 = phi i64 [ %45, %.lr.ph ], [ 0, %33 ]
@@ -910,9 +910,9 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   store double %43, ptr %44, align 8
   %45 = add nuw nsw i64 %.039, 1
   %exitcond.not = icmp eq i64 %45, %34
-  br i1 %exitcond.not, label %VScaleBy_Serial.argprom.argprom.exit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %VScaleBy_Serial.exit, label %.lr.ph, !llvm.loop !21
 
-VScaleBy_Serial.argprom.argprom.exit:             ; preds = %.lr.ph, %.lr.ph.i33, %.lr.ph.i30, %.lr.ph.i, %33, %24, %14, %5
+VScaleBy_Serial.exit:                             ; preds = %.lr.ph, %.lr.ph.i33, %.lr.ph.i30, %.lr.ph.i, %33, %24, %14, %5
   ret void
 }
 

@@ -2289,7 +2289,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostream
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #10 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -2297,18 +2297,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang8Rewriter21overwriteChangedFilesEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -2526,10 +2526,10 @@ attributes #18 = { builtin nounwind allocsize(0) }
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZSt10__invoke_rIN4llvm5ErrorERZN5clang8Rewriter21overwriteChangedFilesEvE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom: argument 0"}
-!40 = distinct !{!40, !"_ZSt10__invoke_rIN4llvm5ErrorERZN5clang8Rewriter21overwriteChangedFilesEvE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.argprom"}
+!39 = distinct !{!39, !40, !"_ZSt10__invoke_rIN4llvm5ErrorERZN5clang8Rewriter21overwriteChangedFilesEvE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_: argument 0"}
+!40 = distinct !{!40, !"_ZSt10__invoke_rIN4llvm5ErrorERZN5clang8Rewriter21overwriteChangedFilesEvE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_"}
 !41 = !{!42, !44, !39}
-!42 = distinct !{!42, !43, !"_ZZN5clang8Rewriter21overwriteChangedFilesEvENK3$_0clERN4llvm11raw_ostreamE.argprom.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZZN5clang8Rewriter21overwriteChangedFilesEvENK3$_0clERN4llvm11raw_ostreamE.argprom.argprom"}
-!44 = distinct !{!44, !45, !"_ZSt13__invoke_implIN4llvm12ErrorSuccessERZN5clang8Rewriter21overwriteChangedFilesEvE3$_0JRNS0_11raw_ostreamEEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom: argument 0"}
-!45 = distinct !{!45, !"_ZSt13__invoke_implIN4llvm12ErrorSuccessERZN5clang8Rewriter21overwriteChangedFilesEvE3$_0JRNS0_11raw_ostreamEEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom"}
+!42 = distinct !{!42, !43, !"_ZZN5clang8Rewriter21overwriteChangedFilesEvENK3$_0clERN4llvm11raw_ostreamE: argument 0"}
+!43 = distinct !{!43, !"_ZZN5clang8Rewriter21overwriteChangedFilesEvENK3$_0clERN4llvm11raw_ostreamE"}
+!44 = distinct !{!44, !45, !"_ZSt13__invoke_implIN4llvm12ErrorSuccessERZN5clang8Rewriter21overwriteChangedFilesEvE3$_0JRNS0_11raw_ostreamEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!45 = distinct !{!45, !"_ZSt13__invoke_implIN4llvm12ErrorSuccessERZN5clang8Rewriter21overwriteChangedFilesEvE3$_0JRNS0_11raw_ostreamEEET_St14__invoke_otherOT0_DpOT1_"}

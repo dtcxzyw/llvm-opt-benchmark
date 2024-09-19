@@ -1665,7 +1665,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss14IndexBinaryIVF23get_InvertedList
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %5, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 24
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
 
 10:                                               ; preds = %2
   %11 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
@@ -1673,7 +1673,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss14IndexBinaryIVF23get_InvertedList
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %5, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 24
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
 
 14:                                               ; preds = %2
   %15 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
@@ -1681,7 +1681,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss14IndexBinaryIVF23get_InvertedList
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   store i64 %5, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 32
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
 
 18:                                               ; preds = %2
   %19 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
@@ -1689,7 +1689,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss14IndexBinaryIVF23get_InvertedList
   %20 = getelementptr inbounds i8, ptr %19, i64 32
   store i64 %5, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 40
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
 
 22:                                               ; preds = %2
   %23 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
@@ -1697,7 +1697,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss14IndexBinaryIVF23get_InvertedList
   %24 = getelementptr inbounds i8, ptr %23, i64 40
   store i64 %5, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 48
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
 
 26:                                               ; preds = %2
   %27 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #30
@@ -1705,7 +1705,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss14IndexBinaryIVF23get_InvertedList
   %28 = getelementptr inbounds i8, ptr %27, i64 72
   store i64 %5, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %27, i64 80
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
 
 30:                                               ; preds = %2
   %31 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
@@ -1713,9 +1713,9 @@ define noalias noundef nonnull ptr @_ZNK5faiss14IndexBinaryIVF23get_InvertedList
   %32 = getelementptr inbounds i8, ptr %31, i64 24
   store i64 %5, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %31, i64 32
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
 
-_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.argprom.exit: ; preds = %6, %10, %14, %18, %22, %26, %30
+_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit: ; preds = %6, %10, %14, %18, %22, %26, %30
   %.sink.i = phi ptr [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %6 ]
   %.0.i = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   %34 = zext i1 %1 to i8
@@ -2476,8 +2476,8 @@ define void @_ZNK5faiss14IndexBinaryIVF18search_preassignedElPKhlPKlPKiPiPlbPKNS
 198:                                              ; preds = %10
   %199 = getelementptr inbounds i8, ptr %0, i64 12
   %200 = load i32, ptr %199, align 4
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_134Run_search_knn_hamming_per_invlistEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEENT_1TEiRSH_DpT0_.argprom(i32 noundef %200, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %9)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_134Run_search_knn_hamming_per_invlistEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEENT_1TEiRSH_DpT0_(i32 noundef %200, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %9)
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 201:                                              ; preds = %10
   %202 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2581,7 +2581,7 @@ _ZN5faiss12_GLOBAL__N_123search_knn_hamming_heapEPKNS_14IndexBinaryIVFEmPKhlPKlP
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %192)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %193)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %194)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 233:                                              ; preds = %201
   %234 = getelementptr inbounds i8, ptr %0, i64 12
@@ -2854,11 +2854,11 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %310, %3
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i.i: ; preds = %321, %._crit_edge.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %252) #29, !noalias !19
   %.not.i.i.i28.i.i.i = icmp eq ptr %.sroa.051.0.i.i.i, null
-  br i1 %.not.i.i.i28.i.i.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %322
+  br i1 %.not.i.i.i28.i.i.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %322
 
 322:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.051.0.i.i.i) #29, !noalias !19
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 323:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i, %307
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i ], [ %308, %307 ]
@@ -2875,7 +2875,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %common.resume.op = phi { ptr, i32 } [ %.pn.i.i.i, %323 ], [ %.pn.i.i68.i, %409 ], [ %.pn.i.i120.i, %497 ], [ %.pn.i.i173.i, %588 ], [ %.pn.i.i222.i, %680 ], [ %.pn.i.i276.i, %780 ], [ %.pn.i.i333.i, %868 ], [ %.pn.i.i.i360, %955 ], [ %.pn.i.i68.i302, %1041 ], [ %.pn.i.i120.i242, %1129 ], [ %.pn.i.i173.i180, %1220 ], [ %.pn.i.i222.i116, %1312 ], [ %.pn.i.i276.i39, %1412 ], [ %.pn.i.i333.i418, %1500 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %322, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i.i
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %322, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %167)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %168)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %169)
@@ -2888,7 +2888,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %176)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %177)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %178)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 324:                                              ; preds = %237
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
@@ -3145,18 +3145,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i96.i: ; preds = %396, 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i88.i: ; preds = %407, %._crit_edge.i.i86.i
   call void @_ZdaPv(ptr noundef nonnull %338) #29, !noalias !33
   %.not.i.i.i28.i.i89.i = icmp eq ptr %.sroa.049.0.i.i.i, null
-  br i1 %.not.i.i.i28.i.i89.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %408
+  br i1 %.not.i.i.i28.i.i89.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %408
 
 408:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i88.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.049.0.i.i.i) #29, !noalias !33
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 409:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i96.i, %393
   %.pn.i.i68.i = phi { ptr, i32 } [ %lpad.phi.i.i94.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i96.i ], [ %394, %393 ]
   %.not.i.i.i29.i.i69.i = icmp eq ptr %.sroa.049.0.i.i.i, null
   br i1 %.not.i.i.i29.i.i69.i, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %408, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i88.i
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %408, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i88.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %155)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %156)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157)
@@ -3169,7 +3169,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %164)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %165)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %166)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 410:                                              ; preds = %237
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
@@ -3432,18 +3432,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i150.i: ; preds = %484,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i142.i: ; preds = %495, %._crit_edge.i.i140.i
   call void @_ZdaPv(ptr noundef nonnull %424) #29, !noalias !47
   %.not.i.i.i28.i.i143.i = icmp eq ptr %.sroa.051.0.i.i118.i, null
-  br i1 %.not.i.i.i28.i.i143.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %496
+  br i1 %.not.i.i.i28.i.i143.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %496
 
 496:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i142.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.051.0.i.i118.i) #29, !noalias !47
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 497:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i150.i, %481
   %.pn.i.i120.i = phi { ptr, i32 } [ %lpad.phi.i.i148.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i150.i ], [ %482, %481 ]
   %.not.i.i.i29.i.i121.i = icmp eq ptr %.sroa.051.0.i.i118.i, null
   br i1 %.not.i.i.i29.i.i121.i, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %496, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i142.i
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %496, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i142.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %143)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %144)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %145)
@@ -3456,7 +3456,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %152)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %153)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %154)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 498:                                              ; preds = %237
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
@@ -3726,18 +3726,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i201.i: ; preds = %575,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i193.i: ; preds = %586, %._crit_edge.i.i191.i
   call void @_ZdaPv(ptr noundef nonnull %512) #29, !noalias !61
   %.not.i.i.i28.i.i194.i = icmp eq ptr %.sroa.056.0.i.i.i, null
-  br i1 %.not.i.i.i28.i.i194.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %587
+  br i1 %.not.i.i.i28.i.i194.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %587
 
 587:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i193.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.056.0.i.i.i) #29, !noalias !61
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 588:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i201.i, %572
   %.pn.i.i173.i = phi { ptr, i32 } [ %lpad.phi.i.i199.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i201.i ], [ %573, %572 ]
   %.not.i.i.i29.i.i174.i = icmp eq ptr %.sroa.056.0.i.i.i, null
   br i1 %.not.i.i.i29.i.i174.i, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %587, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i193.i
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %587, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i193.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %132)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %133)
@@ -3750,7 +3750,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %140)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %141)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %142)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 589:                                              ; preds = %237
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
@@ -4025,18 +4025,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i252.i: ; preds = %667,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i244.i: ; preds = %678, %._crit_edge.i.i242.i
   call void @_ZdaPv(ptr noundef nonnull %603) #29, !noalias !75
   %.not.i.i.i28.i.i245.i = icmp eq ptr %.sroa.055.0.i.i.i, null
-  br i1 %.not.i.i.i28.i.i245.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %679
+  br i1 %.not.i.i.i28.i.i245.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %679
 
 679:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i244.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.055.0.i.i.i) #29, !noalias !75
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 680:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i252.i, %664
   %.pn.i.i222.i = phi { ptr, i32 } [ %lpad.phi.i.i250.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i252.i ], [ %665, %664 ]
   %.not.i.i.i29.i.i223.i = icmp eq ptr %.sroa.055.0.i.i.i, null
   br i1 %.not.i.i.i29.i.i223.i, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %679, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i244.i
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %679, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i244.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %119)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %121)
@@ -4049,7 +4049,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %128)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %129)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %130)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 681:                                              ; preds = %237
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
@@ -4348,18 +4348,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i307.i: ; preds = %767,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i299.i: ; preds = %778, %._crit_edge.i.i297.i
   call void @_ZdaPv(ptr noundef nonnull %695) #29, !noalias !89
   %.not.i.i.i28.i.i300.i = icmp eq ptr %.sroa.063.0.i.i.i, null
-  br i1 %.not.i.i.i28.i.i300.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %779
+  br i1 %.not.i.i.i28.i.i300.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %779
 
 779:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i299.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.063.0.i.i.i) #29, !noalias !89
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 780:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i307.i, %764
   %.pn.i.i276.i = phi { ptr, i32 } [ %lpad.phi.i.i305.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i307.i ], [ %765, %764 ]
   %.not.i.i.i29.i.i277.i = icmp eq ptr %.sroa.063.0.i.i.i, null
   br i1 %.not.i.i.i29.i.i277.i, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %779, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i299.i
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %779, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i299.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109)
@@ -4372,7 +4372,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %116)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 781:                                              ; preds = %237
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95)
@@ -4638,18 +4638,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i363.i: ; preds = %855,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i355.i: ; preds = %866, %._crit_edge.i.i353.i
   call void @_ZdaPv(ptr noundef nonnull %795) #29
   %.not.i.i.i28.i.i356.i = icmp eq ptr %.sroa.053.0.i.i.i, null
-  br i1 %.not.i.i.i28.i.i356.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %867
+  br i1 %.not.i.i.i28.i.i356.i, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %867
 
 867:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i355.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.053.0.i.i.i) #29
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 868:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i363.i, %852
   %.pn.i.i333.i = phi { ptr, i32 } [ %lpad.phi.i.i361.i, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i363.i ], [ %853, %852 ]
   %.not.i.i.i29.i.i334.i = icmp eq ptr %.sroa.053.0.i.i.i, null
   br i1 %.not.i.i.i29.i.i334.i, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %867, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i355.i
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %867, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i355.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97)
@@ -4662,7 +4662,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_22HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %104)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 869:                                              ; preds = %233
   switch i32 %235, label %1413 [
@@ -4929,18 +4929,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i391: ; preds = %942,
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i.i382: ; preds = %953, %._crit_edge.i.i.i380
   call void @_ZdaPv(ptr noundef nonnull %884) #29, !noalias !116
   %.not.i.i.i28.i.i.i383 = icmp eq ptr %.sroa.051.0.i.i.i358, null
-  br i1 %.not.i.i.i28.i.i.i383, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %954
+  br i1 %.not.i.i.i28.i.i.i383, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %954
 
 954:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i.i382
   call void @_ZdlPv(ptr noundef nonnull %.sroa.051.0.i.i.i358) #29, !noalias !116
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 955:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i391, %939
   %.pn.i.i.i360 = phi { ptr, i32 } [ %lpad.phi.i.i.i389, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i391 ], [ %940, %939 ]
   %.not.i.i.i29.i.i.i361 = icmp eq ptr %.sroa.051.0.i.i.i358, null
   br i1 %.not.i.i.i29.i.i.i361, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %954, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i.i382
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %954, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i.i382
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85)
@@ -4953,7 +4953,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %92)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 956:                                              ; preds = %869
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
@@ -5210,18 +5210,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i96.i333: ; preds = %10
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i88.i324: ; preds = %1039, %._crit_edge.i.i86.i322
   call void @_ZdaPv(ptr noundef nonnull %970) #29, !noalias !129
   %.not.i.i.i28.i.i89.i325 = icmp eq ptr %.sroa.049.0.i.i.i300, null
-  br i1 %.not.i.i.i28.i.i89.i325, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %1040
+  br i1 %.not.i.i.i28.i.i89.i325, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %1040
 
 1040:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i88.i324
   call void @_ZdlPv(ptr noundef nonnull %.sroa.049.0.i.i.i300) #29, !noalias !129
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 1041:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i96.i333, %1025
   %.pn.i.i68.i302 = phi { ptr, i32 } [ %lpad.phi.i.i94.i331, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i96.i333 ], [ %1026, %1025 ]
   %.not.i.i.i29.i.i69.i303 = icmp eq ptr %.sroa.049.0.i.i.i300, null
   br i1 %.not.i.i.i29.i.i69.i303, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %1040, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i88.i324
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %1040, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i88.i324
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73)
@@ -5234,7 +5234,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 1042:                                             ; preds = %869
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
@@ -5497,18 +5497,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i150.i274: ; preds = %1
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i142.i265: ; preds = %1127, %._crit_edge.i.i140.i263
   call void @_ZdaPv(ptr noundef nonnull %1056) #29, !noalias !142
   %.not.i.i.i28.i.i143.i266 = icmp eq ptr %.sroa.051.0.i.i118.i240, null
-  br i1 %.not.i.i.i28.i.i143.i266, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %1128
+  br i1 %.not.i.i.i28.i.i143.i266, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %1128
 
 1128:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i142.i265
   call void @_ZdlPv(ptr noundef nonnull %.sroa.051.0.i.i118.i240) #29, !noalias !142
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 1129:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i150.i274, %1113
   %.pn.i.i120.i242 = phi { ptr, i32 } [ %lpad.phi.i.i148.i272, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i150.i274 ], [ %1114, %1113 ]
   %.not.i.i.i29.i.i121.i243 = icmp eq ptr %.sroa.051.0.i.i118.i240, null
   br i1 %.not.i.i.i29.i.i121.i243, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %1128, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i142.i265
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %1128, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i142.i265
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
@@ -5521,7 +5521,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 1130:                                             ; preds = %869
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
@@ -5791,18 +5791,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i201.i213: ; preds = %1
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i193.i204: ; preds = %1218, %._crit_edge.i.i191.i202
   call void @_ZdaPv(ptr noundef nonnull %1144) #29, !noalias !155
   %.not.i.i.i28.i.i194.i205 = icmp eq ptr %.sroa.056.0.i.i.i178, null
-  br i1 %.not.i.i.i28.i.i194.i205, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %1219
+  br i1 %.not.i.i.i28.i.i194.i205, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %1219
 
 1219:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i193.i204
   call void @_ZdlPv(ptr noundef nonnull %.sroa.056.0.i.i.i178) #29, !noalias !155
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 1220:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i201.i213, %1204
   %.pn.i.i173.i180 = phi { ptr, i32 } [ %lpad.phi.i.i199.i211, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i201.i213 ], [ %1205, %1204 ]
   %.not.i.i.i29.i.i174.i181 = icmp eq ptr %.sroa.056.0.i.i.i178, null
   br i1 %.not.i.i.i29.i.i174.i181, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %1219, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i193.i204
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %1219, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i193.i204
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
@@ -5815,7 +5815,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 1221:                                             ; preds = %869
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
@@ -6090,18 +6090,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i252.i150: ; preds = %1
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i244.i141: ; preds = %1310, %._crit_edge.i.i242.i139
   call void @_ZdaPv(ptr noundef nonnull %1235) #29, !noalias !168
   %.not.i.i.i28.i.i245.i142 = icmp eq ptr %.sroa.055.0.i.i.i114, null
-  br i1 %.not.i.i.i28.i.i245.i142, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %1311
+  br i1 %.not.i.i.i28.i.i245.i142, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %1311
 
 1311:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i244.i141
   call void @_ZdlPv(ptr noundef nonnull %.sroa.055.0.i.i.i114) #29, !noalias !168
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 1312:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i252.i150, %1296
   %.pn.i.i222.i116 = phi { ptr, i32 } [ %lpad.phi.i.i250.i148, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i252.i150 ], [ %1297, %1296 ]
   %.not.i.i.i29.i.i223.i117 = icmp eq ptr %.sroa.055.0.i.i.i114, null
   br i1 %.not.i.i.i29.i.i223.i117, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %1311, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i244.i141
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %1311, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i244.i141
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
@@ -6114,7 +6114,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 1313:                                             ; preds = %869
   tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
@@ -6413,18 +6413,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i307.i82: ; preds = %13
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i299.i73: ; preds = %1410, %._crit_edge.i.i297.i71
   call void @_ZdaPv(ptr noundef nonnull %1327) #29, !noalias !181
   %.not.i.i.i28.i.i300.i74 = icmp eq ptr %.sroa.063.0.i.i.i37, null
-  br i1 %.not.i.i.i28.i.i300.i74, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %1411
+  br i1 %.not.i.i.i28.i.i300.i74, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %1411
 
 1411:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i299.i73
   call void @_ZdlPv(ptr noundef nonnull %.sroa.063.0.i.i.i37) #29, !noalias !181
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 1412:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i307.i82, %1396
   %.pn.i.i276.i39 = phi { ptr, i32 } [ %lpad.phi.i.i305.i80, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i307.i82 ], [ %1397, %1396 ]
   %.not.i.i.i29.i.i277.i40 = icmp eq ptr %.sroa.063.0.i.i.i37, null
   br i1 %.not.i.i.i29.i.i277.i40, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %1411, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i299.i73
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %1411, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i299.i73
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
@@ -6437,7 +6437,7 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 1413:                                             ; preds = %869
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -6703,18 +6703,18 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i363.i451: ; preds = %1
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i355.i442: ; preds = %1498, %._crit_edge.i.i353.i440
   call void @_ZdaPv(ptr noundef nonnull %1427) #29
   %.not.i.i.i28.i.i356.i443 = icmp eq ptr %.sroa.053.0.i.i.i416, null
-  br i1 %.not.i.i.i28.i.i356.i443, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, label %1499
+  br i1 %.not.i.i.i28.i.i356.i443, label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, label %1499
 
 1499:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i355.i442
   call void @_ZdlPv(ptr noundef nonnull %.sroa.053.0.i.i.i416) #29
-  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i
+  br label %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i
 
 1500:                                             ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i363.i451, %1484
   %.pn.i.i333.i418 = phi { ptr, i32 } [ %lpad.phi.i.i361.i449, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i363.i451 ], [ %1485, %1484 ]
   %.not.i.i.i29.i.i334.i419 = icmp eq ptr %.sroa.053.0.i.i.i416, null
   br i1 %.not.i.i.i29.i.i334.i419, label %common.resume, label %common.resume.sink.split
 
-_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i: ; preds = %1499, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i355.i442
+_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i: ; preds = %1499, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i355.i442
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -6727,9 +6727,9 @@ _ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_22HammingComput
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
-_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.argprom.exit: ; preds = %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit.i, %_ZN5faiss12_GLOBAL__N_123search_knn_hamming_heapEPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.exit, %198
+_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb0EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_128Run_search_knn_hamming_countILb1EE1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEEvDpT0_.exit.i, %_ZN5faiss12_GLOBAL__N_123search_knn_hamming_heapEPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.exit, %198
   ret void
 }
 
@@ -9351,7 +9351,7 @@ default.unreachable92:                            ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_134Run_search_knn_hamming_per_invlistEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEENT_1TEiRSH_DpT0_.argprom(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef readonly %9) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_134Run_search_knn_hamming_per_invlistEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEENT_1TEiRSH_DpT0_(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef readonly %9) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"struct.faiss::(anonymous namespace)::BlockSearch.87", align 8
@@ -10490,11 +10490,11 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i:  ; preds = %218, %216
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i: ; preds = %556, %.preheader.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %109) #29, !noalias !232
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.015.0.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, label %558
+  br i1 %.not.i.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, label %558
 
 558:                                              ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.015.0.i.i) #29, !noalias !232
-  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit
+  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit250.i.i: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i
   %.pn201.pn.i.i = phi { ptr, i32 } [ %.pn201.i.i, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit42.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp43.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
@@ -10517,7 +10517,7 @@ common.resume:                                    ; preds = %3636, %3653, %4086,
 561:                                              ; preds = %91, %74
   unreachable
 
-_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i, %558
+_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i, %558
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %50)
@@ -11611,11 +11611,11 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i124: ; preds = %722, %720
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i119: ; preds = %1066, %.preheader.i.i112
   tail call void @_ZdaPv(ptr noundef nonnull %612) #29, !noalias !325
   %.not.i.i.i.i.i120 = icmp eq ptr %.sroa.015.0.i.i89, null
-  br i1 %.not.i.i.i.i.i120, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, label %1068
+  br i1 %.not.i.i.i.i.i120, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, label %1068
 
 1068:                                             ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i119
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.015.0.i.i89) #29, !noalias !325
-  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit
+  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit250.i.i100: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i124, %.loopexit.split-lp.loopexit.split-lp.i.i98, %.loopexit.split-lp.loopexit.i.i121, %.loopexit.i.i116
   %.pn201.pn.i.i101 = phi { ptr, i32 } [ %.pn201.i.i125, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i124 ], [ %lpad.loopexit.i.i117, %.loopexit.i.i116 ], [ %lpad.loopexit42.i.i122, %.loopexit.split-lp.loopexit.i.i121 ], [ %lpad.loopexit.split-lp43.i.i99, %.loopexit.split-lp.loopexit.split-lp.i.i98 ]
@@ -11634,7 +11634,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit250.i.i100: ; preds = %_ZN
 1071:                                             ; preds = %594, %577
   unreachable
 
-_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i119, %1068
+_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i119, %1068
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %44)
@@ -12717,11 +12717,11 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i301: ; preds = %1242, %1240
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i296: ; preds = %1594, %.preheader.i.i289
   tail call void @_ZdaPv(ptr noundef nonnull %1122) #29, !noalias !417
   %.not.i.i.i.i.i297 = icmp eq ptr %.sroa.015.0.i.i268, null
-  br i1 %.not.i.i.i.i.i297, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, label %1596
+  br i1 %.not.i.i.i.i.i297, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, label %1596
 
 1596:                                             ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i296
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.015.0.i.i268) #29, !noalias !417
-  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit
+  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit253.i.i: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i301, %.loopexit.split-lp.loopexit.split-lp.i.i276, %.loopexit.split-lp.loopexit.i.i298, %.loopexit.i.i293
   %.pn201.pn.i.i278 = phi { ptr, i32 } [ %.pn201.i.i302, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i301 ], [ %lpad.loopexit.i.i294, %.loopexit.i.i293 ], [ %lpad.loopexit42.i.i299, %.loopexit.split-lp.loopexit.i.i298 ], [ %lpad.loopexit.split-lp43.i.i277, %.loopexit.split-lp.loopexit.split-lp.i.i276 ]
@@ -12740,7 +12740,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit253.i.i: ; preds = %_ZN5fa
 1599:                                             ; preds = %1104, %1087
   unreachable
 
-_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i296, %1596
+_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i296, %1596
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %38)
@@ -13879,11 +13879,11 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i427: ; preds = %1780, %1778
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i422: ; preds = %2170, %.preheader.i.i415
   tail call void @_ZdaPv(ptr noundef nonnull %1650) #29, !noalias !509
   %.not.i.i.i.i.i423 = icmp eq ptr %.sroa.015.0.i.i394, null
-  br i1 %.not.i.i.i.i.i423, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, label %2172
+  br i1 %.not.i.i.i.i.i423, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, label %2172
 
 2172:                                             ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i422
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.015.0.i.i394) #29, !noalias !509
-  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit
+  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit256.i.i: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i427, %.loopexit.split-lp.loopexit.split-lp.i.i402, %.loopexit.split-lp.loopexit.i.i424, %.loopexit.i.i419
   %.pn201.pn.i.i404 = phi { ptr, i32 } [ %.pn201.i.i428, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i427 ], [ %lpad.loopexit.i.i420, %.loopexit.i.i419 ], [ %lpad.loopexit42.i.i425, %.loopexit.split-lp.loopexit.i.i424 ], [ %lpad.loopexit.split-lp43.i.i403, %.loopexit.split-lp.loopexit.split-lp.i.i402 ]
@@ -13902,7 +13902,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit256.i.i: ; preds = %_ZN5fa
 2175:                                             ; preds = %1632, %1615
   unreachable
 
-_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i422, %2172
+_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i422, %2172
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %32)
@@ -15097,11 +15097,11 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i559: ; preds = %2366, %2364
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i554: ; preds = %2794, %.preheader.i.i547
   tail call void @_ZdaPv(ptr noundef nonnull %2226) #29, !noalias !601
   %.not.i.i.i.i.i555 = icmp eq ptr %.sroa.015.0.i.i526, null
-  br i1 %.not.i.i.i.i.i555, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, label %2796
+  br i1 %.not.i.i.i.i.i555, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, label %2796
 
 2796:                                             ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i554
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.015.0.i.i526) #29, !noalias !601
-  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit
+  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit259.i.i: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i559, %.loopexit.split-lp.loopexit.split-lp.i.i534, %.loopexit.split-lp.loopexit.i.i556, %.loopexit.i.i551
   %.pn201.pn.i.i536 = phi { ptr, i32 } [ %.pn201.i.i560, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i559 ], [ %lpad.loopexit.i.i552, %.loopexit.i.i551 ], [ %lpad.loopexit42.i.i557, %.loopexit.split-lp.loopexit.i.i556 ], [ %lpad.loopexit.split-lp43.i.i535, %.loopexit.split-lp.loopexit.split-lp.i.i534 ]
@@ -15120,7 +15120,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit259.i.i: ; preds = %_ZN5fa
 2799:                                             ; preds = %2208, %2191
   unreachable
 
-_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i554, %2796
+_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i554, %2796
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %26)
@@ -16547,11 +16547,11 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i683: ; preds = %3030, %3028
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i679: ; preds = %3610, %.preheader.i.i676
   tail call void @_ZdaPv(ptr noundef nonnull %2850) #29, !noalias !693
   %.not.i.i.i.i.i680 = icmp eq ptr %.sroa.015.0.i.i660, null
-  br i1 %.not.i.i.i.i.i680, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, label %3612
+  br i1 %.not.i.i.i.i.i680, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, label %3612
 
 3612:                                             ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i679
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.015.0.i.i660) #29, !noalias !693
-  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit
+  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit271.i.i: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i683, %.loopexit.split-lp.loopexit.split-lp.i.i665, %.loopexit.split-lp.loopexit.i.i681, %.loopexit.i.i677
   %.pn201.pn.i.i666 = phi { ptr, i32 } [ %.pn201.i.i684, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i683 ], [ %lpad.loopexit.i.i678, %.loopexit.i.i677 ], [ %lpad.loopexit43.i.i, %.loopexit.split-lp.loopexit.i.i681 ], [ %lpad.loopexit.split-lp44.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i665 ]
@@ -16570,7 +16570,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit271.i.i: ; preds = %_ZN5fa
 3615:                                             ; preds = %2832, %2815
   unreachable
 
-_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i679, %3612
+_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i679, %3612
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %20)
@@ -17621,11 +17621,11 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i780: ; preds = %3775, %3773
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i776: ; preds = %4083, %.preheader.i.i771
   call void @_ZdaPv(ptr noundef nonnull %3666) #29, !noalias !775
   %.not.i.i.i.i.i777 = icmp eq ptr %.sroa.014.0.i.i, null
-  br i1 %.not.i.i.i.i.i777, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, label %4085
+  br i1 %.not.i.i.i.i.i777, label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, label %4085
 
 4085:                                             ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i776
   call void @_ZdlPv(ptr noundef nonnull %.sroa.014.0.i.i) #29, !noalias !775
-  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit
+  br label %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit256.i.i760: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i780, %.loopexit.split-lp.loopexit.split-lp.i.i759, %.loopexit.split-lp.loopexit.i.i778, %.loopexit.i.i773
   %.pn201.pn.i.i761 = phi { ptr, i32 } [ %.pn201.i.i781, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i780 ], [ %lpad.loopexit.i.i774, %.loopexit.i.i773 ], [ %lpad.loopexit41.i.i, %.loopexit.split-lp.loopexit.i.i778 ], [ %lpad.loopexit.split-lp42.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i759 ]
@@ -17644,7 +17644,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit256.i.i760: ; preds = %_ZN
 4088:                                             ; preds = %3648, %3631
   unreachable
 
-_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i776, %4085
+_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i776, %4085
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13)
@@ -17654,7 +17654,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_22HammingComput
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   br label %4089
 
-4089:                                             ; preds = %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.argprom.exit
+4089:                                             ; preds = %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_22HammingComputerDefaultEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer64EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer32EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer20EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComputer16EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer8EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit, %_ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComputer4EJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEEvDpT0_.exit
   ret void
 }
 
@@ -26110,14 +26110,14 @@ attributes #32 = { noreturn nounwind }
 !220 = distinct !{!220, !6}
 !221 = distinct !{!221, !6}
 !222 = !{!223}
-!223 = distinct !{!223, !224, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer4EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 0"}
-!224 = distinct !{!224, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer4EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom"}
+!223 = distinct !{!223, !224, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer4EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 0"}
+!224 = distinct !{!224, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer4EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE"}
 !225 = !{!226}
-!226 = distinct !{!226, !224, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer4EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 1"}
+!226 = distinct !{!226, !224, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer4EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 1"}
 !227 = !{!228}
-!228 = distinct !{!228, !224, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer4EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 2"}
+!228 = distinct !{!228, !224, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer4EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 2"}
 !229 = !{!230}
-!230 = distinct !{!230, !224, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer4EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 3"}
+!230 = distinct !{!230, !224, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer4EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 3"}
 !231 = !{!223, !226, !228, !230}
 !232 = !{!223, !226}
 !233 = !{!223, !228, !230}
@@ -26203,14 +26203,14 @@ attributes #32 = { noreturn nounwind }
 !313 = distinct !{!313, !6}
 !314 = distinct !{!314, !6}
 !315 = !{!316}
-!316 = distinct !{!316, !317, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer8EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 0"}
-!317 = distinct !{!317, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer8EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom"}
+!316 = distinct !{!316, !317, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer8EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 0"}
+!317 = distinct !{!317, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer8EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE"}
 !318 = !{!319}
-!319 = distinct !{!319, !317, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer8EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 1"}
+!319 = distinct !{!319, !317, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer8EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 1"}
 !320 = !{!321}
-!321 = distinct !{!321, !317, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer8EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 2"}
+!321 = distinct !{!321, !317, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer8EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 2"}
 !322 = !{!323}
-!323 = distinct !{!323, !317, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer8EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 3"}
+!323 = distinct !{!323, !317, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_16HammingComputer8EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 3"}
 !324 = !{!316, !319, !321, !323}
 !325 = !{!316, !319}
 !326 = !{!316, !321, !323}
@@ -26295,14 +26295,14 @@ attributes #32 = { noreturn nounwind }
 !405 = distinct !{!405, !6}
 !406 = distinct !{!406, !6}
 !407 = !{!408}
-!408 = distinct !{!408, !409, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer16EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 0"}
-!409 = distinct !{!409, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer16EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom"}
+!408 = distinct !{!408, !409, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer16EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 0"}
+!409 = distinct !{!409, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer16EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE"}
 !410 = !{!411}
-!411 = distinct !{!411, !409, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer16EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 1"}
+!411 = distinct !{!411, !409, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer16EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 1"}
 !412 = !{!413}
-!413 = distinct !{!413, !409, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer16EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 2"}
+!413 = distinct !{!413, !409, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer16EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 2"}
 !414 = !{!415}
-!415 = distinct !{!415, !409, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer16EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 3"}
+!415 = distinct !{!415, !409, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer16EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 3"}
 !416 = !{!408, !411, !413, !415}
 !417 = !{!408, !411}
 !418 = !{!408, !413, !415}
@@ -26387,14 +26387,14 @@ attributes #32 = { noreturn nounwind }
 !497 = distinct !{!497, !6}
 !498 = distinct !{!498, !6}
 !499 = !{!500}
-!500 = distinct !{!500, !501, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer20EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 0"}
-!501 = distinct !{!501, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer20EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom"}
+!500 = distinct !{!500, !501, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer20EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 0"}
+!501 = distinct !{!501, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer20EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE"}
 !502 = !{!503}
-!503 = distinct !{!503, !501, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer20EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 1"}
+!503 = distinct !{!503, !501, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer20EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 1"}
 !504 = !{!505}
-!505 = distinct !{!505, !501, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer20EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 2"}
+!505 = distinct !{!505, !501, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer20EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 2"}
 !506 = !{!507}
-!507 = distinct !{!507, !501, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer20EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 3"}
+!507 = distinct !{!507, !501, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer20EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 3"}
 !508 = !{!500, !503, !505, !507}
 !509 = !{!500, !503}
 !510 = !{!500, !505, !507}
@@ -26479,14 +26479,14 @@ attributes #32 = { noreturn nounwind }
 !589 = distinct !{!589, !6}
 !590 = distinct !{!590, !6}
 !591 = !{!592}
-!592 = distinct !{!592, !593, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer32EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 0"}
-!593 = distinct !{!593, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer32EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom"}
+!592 = distinct !{!592, !593, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer32EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 0"}
+!593 = distinct !{!593, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer32EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE"}
 !594 = !{!595}
-!595 = distinct !{!595, !593, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer32EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 1"}
+!595 = distinct !{!595, !593, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer32EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 1"}
 !596 = !{!597}
-!597 = distinct !{!597, !593, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer32EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 2"}
+!597 = distinct !{!597, !593, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer32EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 2"}
 !598 = !{!599}
-!599 = distinct !{!599, !593, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer32EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 3"}
+!599 = distinct !{!599, !593, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer32EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 3"}
 !600 = !{!592, !595, !597, !599}
 !601 = !{!592, !595}
 !602 = !{!592, !597, !599}
@@ -26571,14 +26571,14 @@ attributes #32 = { noreturn nounwind }
 !681 = distinct !{!681, !6}
 !682 = distinct !{!682, !6}
 !683 = !{!684}
-!684 = distinct !{!684, !685, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer64EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 0"}
-!685 = distinct !{!685, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer64EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom"}
+!684 = distinct !{!684, !685, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer64EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 0"}
+!685 = distinct !{!685, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer64EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE"}
 !686 = !{!687}
-!687 = distinct !{!687, !685, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer64EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 1"}
+!687 = distinct !{!687, !685, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer64EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 1"}
 !688 = !{!689}
-!689 = distinct !{!689, !685, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer64EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 2"}
+!689 = distinct !{!689, !685, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer64EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 2"}
 !690 = !{!691}
-!691 = distinct !{!691, !685, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer64EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 3"}
+!691 = distinct !{!691, !685, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_17HammingComputer64EEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 3"}
 !692 = !{!684, !687, !689, !691}
 !693 = !{!684, !687}
 !694 = !{!684, !689, !691}
@@ -26663,14 +26663,14 @@ attributes #32 = { noreturn nounwind }
 !773 = distinct !{!773, !6}
 !774 = distinct !{!774, !6}
 !775 = !{!776}
-!776 = distinct !{!776, !777, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_22HammingComputerDefaultEEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 1"}
-!777 = distinct !{!777, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_22HammingComputerDefaultEEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom"}
+!776 = distinct !{!776, !777, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_22HammingComputerDefaultEEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 1"}
+!777 = distinct !{!777, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_22HammingComputerDefaultEEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE"}
 !778 = !{!779}
-!779 = distinct !{!779, !777, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_22HammingComputerDefaultEEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 2"}
+!779 = distinct !{!779, !777, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_22HammingComputerDefaultEEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 2"}
 !780 = !{!781}
-!781 = distinct !{!781, !777, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_22HammingComputerDefaultEEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 3"}
+!781 = distinct !{!781, !777, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_22HammingComputerDefaultEEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 3"}
 !782 = !{!783, !776, !779, !781}
-!783 = distinct !{!783, !777, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_22HammingComputerDefaultEEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.argprom: argument 0"}
+!783 = distinct !{!783, !777, !"_ZN5faiss12_GLOBAL__N_130search_knn_hamming_per_invlistINS_22HammingComputerDefaultEEEvPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE: argument 0"}
 !784 = !{!783, !779, !781}
 !785 = distinct !{!785, !6}
 !786 = !{!783, !776, !779}

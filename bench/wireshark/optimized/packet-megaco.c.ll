@@ -1153,7 +1153,7 @@ megaco_tvb_find_token.exit:                       ; preds = %210, %.lr.ph.i.i, %
 
 242:                                              ; preds = %235
   %243 = load i32, ptr @hf_megaco_transaction, align 4
-  call fastcc void @megaco_tree_add_string.retelim(ptr noundef %241, i32 noundef %243, ptr noundef %0, i32 noundef %.0864, i32 noundef %186, ptr noundef nonnull @.str.291)
+  call fastcc void @megaco_tree_add_string(ptr noundef %241, i32 noundef %243, ptr noundef %0, i32 noundef %.0864, i32 noundef %186, ptr noundef nonnull @.str.291)
   call fastcc void @dissect_megaco_errordescriptor(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %92, i32 noundef %174, i32 noundef %.0864)
   br label %244
 
@@ -1165,7 +1165,7 @@ megaco_tvb_find_token.exit:                       ; preds = %210, %.lr.ph.i.i, %
   %247 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.1.lcssa, i32 noundef %.013.i, i8 noundef zeroext 123) #9
   %248 = sub i32 %208, %.0864
   %249 = load i32, ptr @hf_megaco_transaction, align 4
-  call fastcc void @megaco_tree_add_string.retelim(ptr noundef %92, i32 noundef %249, ptr noundef %0, i32 noundef %.0864, i32 noundef %248, ptr noundef nonnull @.str.292)
+  call fastcc void @megaco_tree_add_string(ptr noundef %92, i32 noundef %249, ptr noundef %0, i32 noundef %.0864, i32 noundef %248, ptr noundef nonnull @.str.292)
   %250 = add i32 %247, 1
   %251 = call fastcc i32 @megaco_tvb_skip_wsp(ptr noundef %0, i32 noundef %250)
   %252 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %250, i32 noundef %13, i8 noundef zeroext 125) #9
@@ -1179,7 +1179,7 @@ megaco_tvb_find_token.exit:                       ; preds = %210, %.lr.ph.i.i, %
   %260 = load ptr, ptr %72, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %260, i32 noundef 25, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.294, i32 noundef %259) #9
   %261 = load i32, ptr @hf_megaco_transid, align 4
-  call fastcc void @my_proto_tree_add_uint.retelim(ptr noundef %92, i32 noundef %261, ptr noundef %0, i32 noundef %.0864, i32 noundef %248, i32 noundef %259)
+  call fastcc void @my_proto_tree_add_uint(ptr noundef %92, i32 noundef %261, ptr noundef %0, i32 noundef %.0864, i32 noundef %248, i32 noundef %259)
   %262 = load i32, ptr @global_megaco_raw_text, align 4
   %.not954 = icmp eq i32 %262, 0
   br i1 %.not954, label %264, label %263
@@ -1199,7 +1199,7 @@ megaco_tvb_find_token.exit:                       ; preds = %210, %.lr.ph.i.i, %
   %270 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %269, i32 noundef %.013.i, i8 noundef zeroext 123) #9
   %271 = sub i32 %270, %.0864
   %272 = load i32, ptr @hf_megaco_transaction, align 4
-  call fastcc void @megaco_tree_add_string.retelim(ptr noundef %92, i32 noundef %272, ptr noundef %0, i32 noundef %.0864, i32 noundef %271, ptr noundef nonnull @.str.295)
+  call fastcc void @megaco_tree_add_string(ptr noundef %92, i32 noundef %272, ptr noundef %0, i32 noundef %.0864, i32 noundef %271, ptr noundef nonnull @.str.295)
   %273 = add i32 %270, -1
   %274 = call fastcc i32 @megaco_tvb_skip_wsp_return(ptr noundef %0, i32 noundef %273)
   %275 = sub i32 %274, %269
@@ -1210,7 +1210,7 @@ megaco_tvb_find_token.exit:                       ; preds = %210, %.lr.ph.i.i, %
   %280 = load ptr, ptr %72, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %280, i32 noundef 25, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.296, i32 noundef %279) #9
   %281 = load i32, ptr @hf_megaco_transid, align 4
-  call fastcc void @my_proto_tree_add_uint.retelim(ptr noundef %92, i32 noundef %281, ptr noundef %0, i32 noundef %.0864, i32 noundef %271, i32 noundef %279)
+  call fastcc void @my_proto_tree_add_uint(ptr noundef %92, i32 noundef %281, ptr noundef %0, i32 noundef %.0864, i32 noundef %271, i32 noundef %279)
   %282 = call i32 @tvb_captured_length(ptr noundef %0) #9
   br label %886
 
@@ -2899,7 +2899,7 @@ declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef z
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @megaco_tree_add_string.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @megaco_tree_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #9
   %8 = load i32, ptr @global_megaco_dissect_tree, align 4
   %.not = icmp ne i32 %8, 0
@@ -3098,7 +3098,7 @@ declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef)
 declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @my_proto_tree_add_uint.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @my_proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef %5) #9
   tail call void @proto_item_set_len(ptr noundef %7, i32 noundef %4) #9
   %8 = load i32, ptr @global_megaco_dissect_tree, align 4

@@ -1141,13 +1141,13 @@ RSTRING_PTR.exit:                                 ; preds = %2, %7
   %.not.i.i3 = icmp eq ptr %.sroa.2.0.i, null
   %.not.i.i.i = icmp eq i64 %9, 0
   %or.cond.i.i = or i1 %.not.i.i3, %.not.i.i.i
-  br i1 %or.cond.i.i, label %rb_parser_encoding_string_new.argprom.exit, label %18
+  br i1 %or.cond.i.i, label %rb_parser_encoding_string_new.exit, label %18
 
 18:                                               ; preds = %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %.sroa.2.0.i, i64 %9, i1 false)
-  br label %rb_parser_encoding_string_new.argprom.exit
+  br label %rb_parser_encoding_string_new.exit
 
-rb_parser_encoding_string_new.argprom.exit:       ; preds = %13, %18
+rb_parser_encoding_string_new.exit:               ; preds = %13, %18
   %19 = getelementptr inbounds i8, ptr %14, i64 16
   store i64 %9, ptr %19, align 8
   %20 = getelementptr i8, ptr %16, i64 %9
@@ -1159,7 +1159,7 @@ rb_parser_encoding_string_new.argprom.exit:       ; preds = %13, %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias noundef nonnull ptr @rb_parser_encoding_string_new.argprom(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noalias noundef nonnull ptr @rb_parser_encoding_string_new(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp slt i64 %1, 0
   br i1 %4, label %5, label %6
 
@@ -1176,13 +1176,13 @@ define internal fastcc noalias noundef nonnull ptr @rb_parser_encoding_string_ne
   %.not.i = icmp eq ptr %0, null
   %.not.i.i = icmp eq i64 %1, 0
   %or.cond.i = or i1 %.not.i, %.not.i.i
-  br i1 %or.cond.i, label %rb_parser_string_new.argprom.exit, label %11
+  br i1 %or.cond.i, label %rb_parser_string_new.exit, label %11
 
 11:                                               ; preds = %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %0, i64 %1, i1 false)
-  br label %rb_parser_string_new.argprom.exit
+  br label %rb_parser_string_new.exit
 
-rb_parser_string_new.argprom.exit:                ; preds = %6, %11
+rb_parser_string_new.exit:                        ; preds = %6, %11
   %12 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %1, ptr %12, align 8
   %13 = getelementptr i8, ptr %9, i64 %1
@@ -1623,7 +1623,7 @@ yylex.exit.thread:                                ; preds = %212, %yylex.exit
   %240 = load i32, ptr %41, align 4
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.87, i32 noundef %237, i32 noundef %238, i32 noundef %239, i32 noundef %240)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.88)
-  call fastcc void @yy_symbol_value_print.argprom(i32 noundef %228, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  call fastcc void @yy_symbol_value_print(i32 noundef %228, ptr noundef nonnull %2, ptr noundef nonnull %0)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.89)
   br label %.sink.split
 
@@ -1685,7 +1685,7 @@ yylex.exit.thread:                                ; preds = %212, %yylex.exit
   %269 = load i32, ptr %41, align 4
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.87, i32 noundef %266, i32 noundef %267, i32 noundef %268, i32 noundef %269)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.88)
-  call fastcc void @yy_symbol_value_print.argprom(i32 noundef %.02705, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  call fastcc void @yy_symbol_value_print(i32 noundef %.02705, ptr noundef nonnull %2, ptr noundef nonnull %0)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.89)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7)
   br label %270
@@ -1786,7 +1786,7 @@ yylex.exit.thread:                                ; preds = %212, %yylex.exit
   %328 = load i32, ptr %327, align 4
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.87, i32 noundef %322, i32 noundef %324, i32 noundef %326, i32 noundef %328)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.88)
-  call fastcc void @yy_symbol_value_print.argprom(i32 noundef %314, ptr noundef %315, ptr noundef %0)
+  call fastcc void @yy_symbol_value_print(i32 noundef %314, ptr noundef %315, ptr noundef %0)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.89)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.7)
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %306
@@ -2580,7 +2580,7 @@ newline_node.exit2954:                            ; preds = %377, %remove_begin.
   br i1 %.not2855, label %406, label %407
 
 406:                                              ; preds = %403
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.9)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.9)
   br label %407
 
 407:                                              ; preds = %406, %403
@@ -2718,7 +2718,7 @@ newline_node.exit2970:                            ; preds = %461, %remove_begin.
   br label %fixpos.exit
 
 474:                                              ; preds = %yy_reduce_print.exit
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.10)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.10)
   br label %fixpos.exit
 
 475:                                              ; preds = %yy_reduce_print.exit
@@ -2786,7 +2786,7 @@ parser_set_lex_state.exit2972:                    ; preds = %483, %486
   br label %fixpos.exit
 
 508:                                              ; preds = %yy_reduce_print.exit
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef @ruby_yyparse.mesg)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef @ruby_yyparse.mesg)
   %509 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
   store ptr %509, ptr %7, align 8
   br label %fixpos.exit
@@ -3092,7 +3092,7 @@ remove_begin.exit3004:                            ; preds = %630, %631, %634
 
 653:                                              ; preds = %yy_reduce_print.exit
   %654 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %654)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %654)
   %655 = getelementptr i8, ptr %.22687, i64 -24
   %656 = load ptr, ptr %655, align 8
   %657 = load ptr, ptr %.22687, align 8
@@ -3351,7 +3351,7 @@ remove_begin.exit3011:                            ; preds = %678, %679, %682
   %.val2910 = load i64, ptr %825, align 4
   %826 = getelementptr i8, ptr %.22697, i64 8
   %.22697.val2911 = load i64, ptr %826, align 4
-  %827 = call fastcc ptr @rescued_expr.argprom(ptr noundef %0, ptr noundef %822, ptr noundef %823, ptr noundef %824, i64 %.val2910, i64 %.22697.val2911)
+  %827 = call fastcc ptr @rescued_expr(ptr noundef %0, ptr noundef %822, ptr noundef %823, ptr noundef %824, i64 %.val2910, i64 %.22697.val2911)
   store ptr %827, ptr %7, align 8
   br label %fixpos.exit
 
@@ -3373,7 +3373,7 @@ method_cond.exit:                                 ; preds = %828, %831
 
 835:                                              ; preds = %yy_reduce_print.exit
   %836 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %836)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %836)
   %837 = load ptr, ptr %.22687, align 8
   store ptr %837, ptr %7, align 8
   br label %fixpos.exit
@@ -3394,7 +3394,7 @@ method_cond.exit:                                 ; preds = %828, %831
   store i64 %.22697.val2895, ptr %84, align 8
   %847 = getelementptr i8, ptr %.22687, i64 -24
   %848 = load ptr, ptr %847, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %848)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %848)
   %849 = load ptr, ptr %847, align 8
   %850 = load ptr, ptr %.22687, align 8
   br label %851
@@ -3475,7 +3475,7 @@ method_cond.exit3025:                             ; preds = %879, %882
 886:                                              ; preds = %yy_reduce_print.exit
   %887 = getelementptr i8, ptr %.22687, i64 -8
   %888 = load ptr, ptr %887, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %888)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %888)
   br label %fixpos.exit
 
 889:                                              ; preds = %yy_reduce_print.exit
@@ -3514,7 +3514,7 @@ pop_pktbl.exit:                                   ; preds = %889, %893
 908:                                              ; preds = %yy_reduce_print.exit
   %909 = getelementptr i8, ptr %.22687, i64 -8
   %910 = load ptr, ptr %909, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %910)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %910)
   br label %fixpos.exit
 
 911:                                              ; preds = %yy_reduce_print.exit
@@ -3593,7 +3593,7 @@ def_head_save.exit:                               ; preds = %938, %945
   %951 = load i64, ptr %.22687, align 8
   %952 = getelementptr inbounds i8, ptr %940, i64 40
   store i64 %951, ptr %952, align 8
-  %953 = call fastcc ptr @rb_node_defn_new.argprom(ptr noundef nonnull %0, i64 noundef %951, ptr noundef %8)
+  %953 = call fastcc ptr @rb_node_defn_new(ptr noundef nonnull %0, i64 noundef %951, ptr noundef %8)
   %954 = load ptr, ptr %7, align 8
   %955 = getelementptr inbounds i8, ptr %954, i64 32
   store ptr %953, ptr %955, align 8
@@ -3659,7 +3659,7 @@ def_head_save.exit3036:                           ; preds = %parser_set_lex_stat
   store i64 %982, ptr %983, align 8
   %984 = getelementptr i8, ptr %.22687, i64 -24
   %985 = load ptr, ptr %984, align 8
-  %986 = call fastcc ptr @rb_node_defs_new.argprom(ptr noundef nonnull %0, ptr noundef %985, i64 noundef %982, ptr noundef %8)
+  %986 = call fastcc ptr @rb_node_defs_new(ptr noundef nonnull %0, ptr noundef %985, i64 noundef %982, ptr noundef %8)
   %987 = load ptr, ptr %7, align 8
   %988 = getelementptr inbounds i8, ptr %987, i64 32
   store ptr %986, ptr %988, align 8
@@ -3667,7 +3667,7 @@ def_head_save.exit3036:                           ; preds = %parser_set_lex_stat
 
 989:                                              ; preds = %yy_reduce_print.exit
   %990 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %990)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %990)
   %991 = load ptr, ptr %.22687, align 8
   store ptr %991, ptr %7, align 8
   br label %fixpos.exit
@@ -4254,7 +4254,7 @@ fixpos.exit3041:                                  ; preds = %block_dup_check.exi
   br label %fixpos.exit
 
 1354:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef @ruby_yyparse.mesg.14)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef @ruby_yyparse.mesg.14)
   br label %fixpos.exit
 
 1355:                                             ; preds = %yy_reduce_print.exit
@@ -4577,9 +4577,9 @@ parser_set_lex_state.exit3051:                    ; preds = %1380, %1383
 1509:                                             ; preds = %yy_reduce_print.exit
   %1510 = getelementptr i8, ptr %.22687, i64 -16
   %1511 = load ptr, ptr %1510, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1511)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1511)
   %1512 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1512)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1512)
   %1513 = load ptr, ptr %1510, align 8
   %1514 = load ptr, ptr %.22687, align 8
   %1515 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %1513, ptr noundef %1514, ptr noundef %8)
@@ -4589,9 +4589,9 @@ parser_set_lex_state.exit3051:                    ; preds = %1380, %1383
 1516:                                             ; preds = %yy_reduce_print.exit
   %1517 = getelementptr i8, ptr %.22687, i64 -16
   %1518 = load ptr, ptr %1517, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1518)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1518)
   %1519 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1519)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1519)
   %1520 = load ptr, ptr %1517, align 8
   %1521 = load ptr, ptr %.22687, align 8
   %1522 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %1520, ptr noundef %1521, ptr noundef %8)
@@ -4601,11 +4601,11 @@ parser_set_lex_state.exit3051:                    ; preds = %1380, %1383
 1523:                                             ; preds = %yy_reduce_print.exit
   %1524 = getelementptr i8, ptr %.22687, i64 -8
   %1525 = load ptr, ptr %1524, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1525)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1525)
   %1526 = load ptr, ptr %1524, align 8
   %1527 = getelementptr inbounds i8, ptr %.22697, i64 8
   %.val2922 = load i64, ptr %1527, align 4
-  %1528 = call fastcc ptr @new_nil_at.argprom(ptr noundef %0, i64 %.val2922)
+  %1528 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val2922)
   %1529 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %1526, ptr noundef %1528, ptr noundef %8)
   store ptr %1529, ptr %7, align 8
   br label %fixpos.exit
@@ -4613,21 +4613,21 @@ parser_set_lex_state.exit3051:                    ; preds = %1380, %1383
 1530:                                             ; preds = %yy_reduce_print.exit
   %1531 = getelementptr i8, ptr %.22687, i64 -8
   %1532 = load ptr, ptr %1531, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1532)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1532)
   %1533 = load ptr, ptr %1531, align 8
   %1534 = getelementptr inbounds i8, ptr %.22697, i64 8
   %.val2923 = load i64, ptr %1534, align 4
-  %1535 = call fastcc ptr @new_nil_at.argprom(ptr noundef %0, i64 %.val2923)
+  %1535 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val2923)
   %1536 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %1533, ptr noundef %1535, ptr noundef %8)
   store ptr %1536, ptr %7, align 8
   br label %fixpos.exit
 
 1537:                                             ; preds = %yy_reduce_print.exit
   %1538 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1538)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1538)
   %1539 = getelementptr i8, ptr %.22697, i64 -16
   %.val2924 = load i64, ptr %1539, align 4
-  %1540 = call fastcc ptr @new_nil_at.argprom(ptr noundef %0, i64 %.val2924)
+  %1540 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val2924)
   %1541 = load ptr, ptr %.22687, align 8
   %1542 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %1540, ptr noundef %1541, ptr noundef %8)
   store ptr %1542, ptr %7, align 8
@@ -4635,10 +4635,10 @@ parser_set_lex_state.exit3051:                    ; preds = %1380, %1383
 
 1543:                                             ; preds = %yy_reduce_print.exit
   %1544 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1544)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1544)
   %1545 = getelementptr i8, ptr %.22697, i64 -16
   %.val2925 = load i64, ptr %1545, align 4
-  %1546 = call fastcc ptr @new_nil_at.argprom(ptr noundef %0, i64 %.val2925)
+  %1546 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val2925)
   %1547 = load ptr, ptr %.22687, align 8
   %1548 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %1546, ptr noundef %1547, ptr noundef %8)
   store ptr %1548, ptr %7, align 8
@@ -4792,7 +4792,7 @@ parser_set_lex_state.exit3051:                    ; preds = %1380, %1383
   %1646 = load ptr, ptr %.22687, align 8
   %1647 = getelementptr i8, ptr %.22697, i64 -16
   %.val2930 = load i32, ptr %1647, align 4
-  %1648 = call fastcc ptr @match_op.argprom(ptr noundef %0, ptr noundef %1645, ptr noundef %1646, i32 %.val2930, ptr noundef %8)
+  %1648 = call fastcc ptr @match_op(ptr noundef %0, ptr noundef %1645, ptr noundef %1646, i32 %.val2930, ptr noundef %8)
   store ptr %1648, ptr %7, align 8
   br label %fixpos.exit
 
@@ -4880,7 +4880,7 @@ method_cond.exit3057:                             ; preds = %1655, %1658
 1699:                                             ; preds = %yy_reduce_print.exit
   %1700 = getelementptr i8, ptr %.22687, i64 -40
   %1701 = load ptr, ptr %1700, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1701)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1701)
   %1702 = load ptr, ptr %1700, align 8
   %1703 = getelementptr i8, ptr %.22687, i64 -24
   %1704 = load ptr, ptr %1703, align 8
@@ -4977,7 +4977,7 @@ method_cond.exit3057:                             ; preds = %1655, %1658
   %.val2912 = load i64, ptr %1765, align 4
   %1766 = getelementptr i8, ptr %.22697, i64 8
   %.22697.val2913 = load i64, ptr %1766, align 4
-  %1767 = call fastcc ptr @rescued_expr.argprom(ptr noundef %0, ptr noundef %1762, ptr noundef %1763, ptr noundef %1764, i64 %.val2912, i64 %.22697.val2913)
+  %1767 = call fastcc ptr @rescued_expr(ptr noundef %0, ptr noundef %1762, ptr noundef %1763, ptr noundef %1764, i64 %.val2912, i64 %.22697.val2913)
   store ptr %1767, ptr %7, align 8
   br label %fixpos.exit
 
@@ -5064,7 +5064,7 @@ method_cond.exit3061:                             ; preds = %1768, %1771
 
 1810:                                             ; preds = %yy_reduce_print.exit
   %1811 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1811)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1811)
   %1812 = load ptr, ptr %.22687, align 8
   store ptr %1812, ptr %7, align 8
   br label %fixpos.exit
@@ -5113,7 +5113,7 @@ method_cond.exit3061:                             ; preds = %1768, %1771
 
 1836:                                             ; preds = %yy_reduce_print.exit
   %1837 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1837)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1837)
   %1838 = load ptr, ptr %.22687, align 8
   store ptr %1838, ptr %7, align 8
   br label %fixpos.exit
@@ -5128,7 +5128,7 @@ method_cond.exit3061:                             ; preds = %1768, %1771
   store i16 %1845, ptr %55, align 8
   %1846 = getelementptr i8, ptr %.22687, i64 -24
   %1847 = load ptr, ptr %1846, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1847)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1847)
   %1848 = load ptr, ptr %1846, align 8
   %1849 = load ptr, ptr %.22687, align 8
   %1850 = getelementptr i8, ptr %.22697, i64 -48
@@ -5136,7 +5136,7 @@ method_cond.exit3061:                             ; preds = %1768, %1771
   %.val2914 = load i64, ptr %1851, align 4
   %1852 = getelementptr i8, ptr %.22697, i64 8
   %.22697.val2915 = load i64, ptr %1852, align 4
-  %1853 = call fastcc ptr @rescued_expr.argprom(ptr noundef %0, ptr noundef %1848, ptr noundef %1849, ptr noundef %1850, i64 %.val2914, i64 %.22697.val2915)
+  %1853 = call fastcc ptr @rescued_expr(ptr noundef %0, ptr noundef %1848, ptr noundef %1849, ptr noundef %1850, i64 %.val2914, i64 %.22697.val2915)
   store ptr %1853, ptr %7, align 8
   br label %fixpos.exit
 
@@ -5222,7 +5222,7 @@ method_cond.exit3061:                             ; preds = %1768, %1771
 
 1894:                                             ; preds = %yy_reduce_print.exit
   %1895 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1895)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1895)
   %1896 = load ptr, ptr %.22687, align 8
   %1897 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %1896, ptr noundef nonnull %8)
   store ptr %1897, ptr %7, align 8
@@ -6030,7 +6030,7 @@ cond.exit3091:                                    ; preds = %2243, %2249
   %2313 = load ptr, ptr %2312, align 8
   store ptr %2313, ptr %71, align 8
   %2314 = call i64 @rb_parser_internal_id(ptr noundef %0)
-  %2315 = call fastcc ptr @rb_node_args_aux_new.argprom(ptr noundef %0, i64 noundef 0, i64 noundef 0)
+  %2315 = call fastcc ptr @rb_node_args_aux_new(ptr noundef %0, i64 noundef 0, i64 noundef 0)
   %2316 = getelementptr i8, ptr %.22697, i64 -64
   %2317 = call fastcc ptr @rb_node_dvar_new(ptr noundef %0, i64 noundef %2314, ptr noundef %2316)
   %2318 = load ptr, ptr %57, align 8
@@ -6119,7 +6119,7 @@ cond.exit3091:                                    ; preds = %2243, %2249
   %.val2901 = load i64, ptr %2366, align 4
   store i64 %.val2900, ptr %18, align 8
   store i64 %.val2901, ptr %80, align 8
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %18, ptr noundef @.str.21)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %18, ptr noundef @.str.21)
   br label %2367
 
 2367:                                             ; preds = %2360, %2364
@@ -6299,7 +6299,7 @@ fixpos.exit3105:                                  ; preds = %set_line_body.exit3
   %.22697.val2903 = load i64, ptr %2479, align 4
   store i64 %.val2902, ptr %19, align 8
   store i64 %.22697.val2903, ptr %79, align 8
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %19, ptr noundef @.str.25)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %19, ptr noundef @.str.25)
   br label %2480
 
 2480:                                             ; preds = %2473, %2477
@@ -6471,7 +6471,7 @@ default.unreachable3515:                          ; preds = %2570
 
 .sink.split3570:                                  ; preds = %2570, %2574, %2573
   %.str.26.sink = phi ptr [ @.str.27, %2573 ], [ @.str.28, %2574 ], [ @.str.26, %2570 ]
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef %.str.26.sink)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef %.str.26.sink)
   br label %2575
 
 2575:                                             ; preds = %.sink.split3570, %2570, %2567
@@ -6481,7 +6481,7 @@ default.unreachable3515:                          ; preds = %2570
 
 2577:                                             ; preds = %yy_reduce_print.exit
   %2578 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %2578)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %2578)
   %2579 = load ptr, ptr %.22687, align 8
   store ptr %2579, ptr %7, align 8
   br label %fixpos.exit
@@ -6766,16 +6766,16 @@ token_info_setup.exit.thread:                     ; preds = %2661, %token_info_s
   %2691 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %2691, align 8
   %switch.i = icmp ult ptr %.val.val, inttoptr (i64 2 to ptr)
-  br i1 %switch.i, label %dyna_in_block.argprom.argprom.exit.thread, label %dyna_in_block.argprom.argprom.exit
+  br i1 %switch.i, label %dyna_in_block.exit.thread, label %dyna_in_block.exit
 
-dyna_in_block.argprom.argprom.exit:               ; preds = %2690
+dyna_in_block.exit:                               ; preds = %2690
   %2692 = getelementptr inbounds i8, ptr %.val.val, i64 16
   %2693 = load ptr, ptr %2692, align 8
   %.not3367 = icmp eq ptr %2693, null
-  br i1 %.not3367, label %dyna_in_block.argprom.argprom.exit.thread, label %fixpos.exit
+  br i1 %.not3367, label %dyna_in_block.exit.thread, label %fixpos.exit
 
-dyna_in_block.argprom.argprom.exit.thread:        ; preds = %2690, %dyna_in_block.argprom.argprom.exit
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.47)
+dyna_in_block.exit.thread:                        ; preds = %2690, %dyna_in_block.exit
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.47)
   br label %fixpos.exit
 
 2694:                                             ; preds = %yy_reduce_print.exit
@@ -6790,7 +6790,7 @@ dyna_in_block.argprom.argprom.exit.thread:        ; preds = %2690, %dyna_in_bloc
   br i1 %.not2816, label %2699, label %fixpos.exit
 
 2699:                                             ; preds = %2697
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.48)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.48)
   br label %fixpos.exit
 
 2700:                                             ; preds = %yy_reduce_print.exit
@@ -7210,15 +7210,15 @@ new_args.exit3120:                                ; preds = %yy_reduce_print.exi
   %2946 = load ptr, ptr %2945, align 8
   %2947 = load ptr, ptr %2944, align 8
   %.not.i3121 = icmp eq ptr %2947, null
-  br i1 %.not.i3121, label %2948, label %numparam_push.argprom.exit
+  br i1 %.not.i3121, label %2948, label %numparam_push.exit
 
 2948:                                             ; preds = %2943
   %2949 = getelementptr inbounds i8, ptr %.val2916, i64 48
   %2950 = load ptr, ptr %2949, align 8
   store ptr %2950, ptr %2944, align 8
-  br label %numparam_push.argprom.exit
+  br label %numparam_push.exit
 
-numparam_push.argprom.exit:                       ; preds = %2943, %2948
+numparam_push.exit:                               ; preds = %2943, %2948
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2945, i8 0, i64 24, i1 false)
   store ptr %2946, ptr %7, align 8
   br label %fixpos.exit
@@ -7856,7 +7856,7 @@ numparam_pop.exit3150:                            ; preds = %3316, %3319
 
 3326:                                             ; preds = %yy_reduce_print.exit
   %3327 = load ptr, ptr %.22687, align 8
-  call fastcc void @check_literal_when.argprom(ptr noundef %0, ptr noundef %3327)
+  call fastcc void @check_literal_when(ptr noundef %0, ptr noundef %3327)
   %3328 = load ptr, ptr %.22687, align 8
   %3329 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %3328, ptr noundef nonnull %8)
   store ptr %3329, ptr %7, align 8
@@ -7870,7 +7870,7 @@ numparam_pop.exit3150:                            ; preds = %3316, %3319
 
 3333:                                             ; preds = %yy_reduce_print.exit
   %3334 = load ptr, ptr %.22687, align 8
-  call fastcc void @check_literal_when.argprom(ptr noundef %0, ptr noundef %3334)
+  call fastcc void @check_literal_when(ptr noundef %0, ptr noundef %3334)
   %3335 = getelementptr i8, ptr %.22687, i64 -16
   %3336 = load ptr, ptr %3335, align 8
   %3337 = load ptr, ptr %.22687, align 8
@@ -8533,7 +8533,7 @@ pop_pktbl.exit3176:                               ; preds = %3589, %3593
   br i1 %3699, label %3701, label %3700
 
 3700:                                             ; preds = %3695
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.52)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.52)
   %.pre3480 = load i64, ptr %.22687, align 8
   br label %3701
 
@@ -8576,7 +8576,7 @@ pop_pktbl.exit3176:                               ; preds = %3589, %3593
   br label %fixpos.exit
 
 3722:                                             ; preds = %3715
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %21, ptr noundef @.str.53)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %21, ptr noundef @.str.53)
   %3723 = load ptr, ptr %60, align 8
   %3724 = call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %3723) #33
   %3725 = call i64 @rb_intern_str(i64 noundef %3724) #33
@@ -8603,9 +8603,9 @@ pop_pktbl.exit3176:                               ; preds = %3589, %3593
 3731:                                             ; preds = %yy_reduce_print.exit
   %3732 = getelementptr i8, ptr %.22687, i64 -16
   %3733 = load ptr, ptr %3732, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %3733)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %3733)
   %3734 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %3734)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %3734)
   %3735 = load ptr, ptr %3732, align 8
   %3736 = load ptr, ptr %.22687, align 8
   %3737 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %3735, ptr noundef %3736, ptr noundef %8)
@@ -8615,9 +8615,9 @@ pop_pktbl.exit3176:                               ; preds = %3589, %3593
 3738:                                             ; preds = %yy_reduce_print.exit
   %3739 = getelementptr i8, ptr %.22687, i64 -16
   %3740 = load ptr, ptr %3739, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %3740)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %3740)
   %3741 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %3741)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %3741)
   %3742 = load ptr, ptr %3739, align 8
   %3743 = load ptr, ptr %.22687, align 8
   %3744 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %3742, ptr noundef %3743, ptr noundef %8)
@@ -8627,11 +8627,11 @@ pop_pktbl.exit3176:                               ; preds = %3589, %3593
 3745:                                             ; preds = %yy_reduce_print.exit
   %3746 = getelementptr i8, ptr %.22687, i64 -8
   %3747 = load ptr, ptr %3746, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %3747)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %3747)
   %3748 = load ptr, ptr %3746, align 8
   %3749 = getelementptr inbounds i8, ptr %.22697, i64 8
   %.val2926 = load i64, ptr %3749, align 4
-  %3750 = call fastcc ptr @new_nil_at.argprom(ptr noundef %0, i64 %.val2926)
+  %3750 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val2926)
   %3751 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %3748, ptr noundef %3750, ptr noundef %8)
   store ptr %3751, ptr %7, align 8
   br label %fixpos.exit
@@ -8639,21 +8639,21 @@ pop_pktbl.exit3176:                               ; preds = %3589, %3593
 3752:                                             ; preds = %yy_reduce_print.exit
   %3753 = getelementptr i8, ptr %.22687, i64 -8
   %3754 = load ptr, ptr %3753, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %3754)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %3754)
   %3755 = load ptr, ptr %3753, align 8
   %3756 = getelementptr inbounds i8, ptr %.22697, i64 8
   %.val2927 = load i64, ptr %3756, align 4
-  %3757 = call fastcc ptr @new_nil_at.argprom(ptr noundef %0, i64 %.val2927)
+  %3757 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val2927)
   %3758 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %3755, ptr noundef %3757, ptr noundef %8)
   store ptr %3758, ptr %7, align 8
   br label %fixpos.exit
 
 3759:                                             ; preds = %yy_reduce_print.exit
   %3760 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %3760)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %3760)
   %3761 = getelementptr i8, ptr %.22697, i64 -16
   %.val2928 = load i64, ptr %3761, align 4
-  %3762 = call fastcc ptr @new_nil_at.argprom(ptr noundef %0, i64 %.val2928)
+  %3762 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val2928)
   %3763 = load ptr, ptr %.22687, align 8
   %3764 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %3762, ptr noundef %3763, ptr noundef %8)
   store ptr %3764, ptr %7, align 8
@@ -8661,10 +8661,10 @@ pop_pktbl.exit3176:                               ; preds = %3589, %3593
 
 3765:                                             ; preds = %yy_reduce_print.exit
   %3766 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %3766)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %3766)
   %3767 = getelementptr i8, ptr %.22697, i64 -16
   %.val2929 = load i64, ptr %3767, align 4
-  %3768 = call fastcc ptr @new_nil_at.argprom(ptr noundef %0, i64 %.val2929)
+  %3768 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val2929)
   %3769 = load ptr, ptr %.22687, align 8
   %3770 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %3768, ptr noundef %3769, ptr noundef %8)
   store ptr %3770, ptr %7, align 8
@@ -8896,7 +8896,7 @@ splat_array.exit:                                 ; preds = %3864, %3868
 
 3885:                                             ; preds = %3883
   %3886 = load ptr, ptr %60, align 8
-  %3887 = call fastcc ptr @rb_parser_encoding_string_new.argprom(ptr noundef null, i64 noundef 0, ptr noundef %3886)
+  %3887 = call fastcc ptr @rb_parser_encoding_string_new(ptr noundef null, i64 noundef 0, ptr noundef %3886)
   %3888 = call fastcc ptr @rb_node_str_new(ptr noundef %0, ptr noundef nonnull %3887, ptr noundef %8)
   br label %3891
 
@@ -9186,7 +9186,7 @@ splat_array.exit:                                 ; preds = %3864, %3868
 
 4043:                                             ; preds = %4038
   %.val2931 = load ptr, ptr %57, align 8
-  %4044 = call fastcc ptr @str2dstr.argprom(ptr %.val2931, ptr noundef nonnull %4033)
+  %4044 = call fastcc ptr @str2dstr(ptr %.val2931, ptr noundef nonnull %4033)
   br label %4048
 
 4045:                                             ; preds = %4038
@@ -9919,22 +9919,22 @@ new_args.exit3224:                                ; preds = %yy_reduce_print.exi
   br label %fixpos.exit
 
 4425:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.877)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.877)
   store i64 0, ptr %7, align 8
   br label %fixpos.exit
 
 4426:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.878)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.878)
   store i64 0, ptr %7, align 8
   br label %fixpos.exit
 
 4427:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.879)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.879)
   store i64 0, ptr %7, align 8
   br label %fixpos.exit
 
 4428:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.880)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22697, ptr noundef @.str.880)
   store i64 0, ptr %7, align 8
   br label %fixpos.exit
 
@@ -9957,7 +9957,7 @@ new_args.exit3224:                                ; preds = %yy_reduce_print.exi
 4436:                                             ; preds = %yy_reduce_print.exit
   store i64 0, ptr %54, align 8
   %4437 = load i64, ptr %.22687, align 8
-  %4438 = call fastcc ptr @rb_node_args_aux_new.argprom(ptr noundef %0, i64 noundef %4437, i64 noundef 1)
+  %4438 = call fastcc ptr @rb_node_args_aux_new(ptr noundef %0, i64 noundef %4437, i64 noundef 1)
   store ptr %4438, ptr %7, align 8
   br label %fixpos.exit
 
@@ -9973,29 +9973,29 @@ new_args.exit3224:                                ; preds = %yy_reduce_print.exi
   %4444 = getelementptr i8, ptr %.val2874, i64 8
   %.val2874.val = load ptr, ptr %4444, align 8
   %switch.i3225 = icmp ult ptr %.val2874.val, inttoptr (i64 2 to ptr)
-  br i1 %switch.i3225, label %dyna_in_block.argprom.argprom.exit3226.thread, label %dyna_in_block.argprom.argprom.exit3226
+  br i1 %switch.i3225, label %dyna_in_block.exit3226.thread, label %dyna_in_block.exit3226
 
-dyna_in_block.argprom.argprom.exit3226:           ; preds = %4439
+dyna_in_block.exit3226:                           ; preds = %4439
   %4445 = getelementptr inbounds i8, ptr %.val2874.val, i64 16
   %4446 = load ptr, ptr %4445, align 8
   %.not3363 = icmp eq ptr %4446, null
-  br i1 %.not3363, label %dyna_in_block.argprom.argprom.exit3226.thread, label %4447
+  br i1 %.not3363, label %dyna_in_block.exit3226.thread, label %4447
 
-4447:                                             ; preds = %dyna_in_block.argprom.argprom.exit3226
+4447:                                             ; preds = %dyna_in_block.exit3226
   %4448 = call fastcc ptr @rb_node_dvar_new(ptr noundef nonnull %0, i64 noundef %4440, ptr noundef nonnull %22)
   br label %4450
 
-dyna_in_block.argprom.argprom.exit3226.thread:    ; preds = %4439, %dyna_in_block.argprom.argprom.exit3226
+dyna_in_block.exit3226.thread:                    ; preds = %4439, %dyna_in_block.exit3226
   %4449 = call fastcc ptr @rb_node_lvar_new(ptr noundef nonnull %0, i64 noundef %4440, ptr noundef nonnull %22)
   br label %4450
 
-4450:                                             ; preds = %dyna_in_block.argprom.argprom.exit3226.thread, %4447
-  %.sink3571 = phi ptr [ %4449, %dyna_in_block.argprom.argprom.exit3226.thread ], [ %4448, %4447 ]
+4450:                                             ; preds = %dyna_in_block.exit3226.thread, %4447
+  %.sink3571 = phi ptr [ %4449, %dyna_in_block.exit3226.thread ], [ %4448, %4447 ]
   %4451 = getelementptr i8, ptr %.22687, i64 -8
   %4452 = load ptr, ptr %4451, align 8
   %4453 = getelementptr inbounds i8, ptr %4452, i64 40
   store ptr %.sink3571, ptr %4453, align 8
-  %4454 = call fastcc ptr @rb_node_args_aux_new.argprom(ptr noundef nonnull %0, i64 noundef %4440, i64 noundef 1)
+  %4454 = call fastcc ptr @rb_node_args_aux_new(ptr noundef nonnull %0, i64 noundef %4440, i64 noundef 1)
   store ptr %4454, ptr %7, align 8
   %4455 = getelementptr i8, ptr %.22687, i64 -8
   %4456 = load ptr, ptr %4455, align 8
@@ -10311,7 +10311,7 @@ opt_arg_append.exit3242:                          ; preds = %.lr.ph.i3239, %4581
 
 4608:                                             ; preds = %yy_reduce_print.exit
   %4609 = load ptr, ptr %.22687, align 8
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %4609)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %4609)
   %4610 = load ptr, ptr %.22687, align 8
   store ptr %4610, ptr %7, align 8
   br label %fixpos.exit
@@ -10362,11 +10362,11 @@ parser_set_lex_state.exit3244:                    ; preds = %4611, %4614
 
 4625:                                             ; preds = %4617, %4617, %4617, %4617, %4617, %4617, %4617, %4617, %4617, %4617, %4617, %4617, %4617, %4617, %4617, %4617, %4617, %4617
   %4626 = getelementptr inbounds i8, ptr %4620, i64 8
-  call fastcc void @parser_yyerror.retelim(ptr noundef %0, ptr noundef %4626, ptr noundef @.str.59)
+  call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %4626, ptr noundef @.str.59)
   br label %4628
 
 4627:                                             ; preds = %4617
-  call fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %4619)
+  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %4619)
   br label %4628
 
 4628:                                             ; preds = %4627, %4625
@@ -10530,11 +10530,11 @@ parser_set_lex_state.exit3244:                    ; preds = %4611, %4614
   call fastcc void @token_info_warn(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %8)
   br label %fixpos.exit
 
-fixpos.exit:                                      ; preds = %.sink.split.i3200, %4156, %3853, %3849, %3841, %3840, %3830, %3829, %3424, %3416, %3408, %3400, %3354, %3344, %3211, %3202, %3081, %block_dup_check.exit3130, %2710, %2700, %2352, %2339, %2284, %2273, %2258, %cond.exit3091, %2235, %cond.exit3087, %2212, %2201, %2193, %2182, %1710, %1699, %1163, %1157, %1149, %1143, %550, %remove_begin.exit2982, %527, %remove_begin.exit2977, %.critedge2871, %358, %363, %367, %newline_node.exit, %newline_node.exit2954, %388, %390, %392, %394, %407, %415, %423, %432, %440, %447, %451, %newline_node.exit2962, %newline_node.exit2970, %472, %474, %475, %477, %479, %parser_set_lex_state.exit2972, %489, %494, %499, %508, %510, %remove_begin.exit3004, %644, %653, %661, %remove_begin.exit3011, %696, %703, %705, %712, %721, %731, %742, %753, %767, %776, %793, %810, %814, %method_cond.exit, %835, %remove_begin.exit3021, %860, %866, %method_cond.exit3023, %method_cond.exit3025, %886, %pop_pktbl.exit, %908, %pop_pktbl.exit3028, %932, %def_head_save.exit, %parser_set_lex_state.exit3031, %def_head_save.exit3036, %989, %992, %1007, %1010, %1020, %1035, %1038, %fixpos.exit3041, %1081, %1091, %1103, %1111, %1121, %1171, %1175, %1180, %1185, %1188, %1193, %1196, %1202, %1207, %1215, %1219, %1225, %1228, %1234, %1236, %1240, %1243, %1248, %1254, %1257, %1262, %1265, %1268, %1274, %1283, %1288, %1297, %1303, %1307, %1310, %1313, %1316, %1322, %1329, %1334, %1341, %1347, %1351, %1354, %1355, %1358, %1361, %parser_set_lex_state.exit3049, %1373, %1377, %parser_set_lex_state.exit3051, %1386, %1392, %1393, %1394, %1395, %1396, %1397, %1398, %1399, %1400, %1401, %1402, %1403, %1404, %1405, %1406, %1407, %1408, %1409, %1410, %1411, %1412, %1413, %1414, %1415, %1416, %1417, %1418, %1419, %1420, %1421, %1422, %1429, %1438, %1448, %1459, %1470, %1479, %1493, %1505, %1509, %1516, %1523, %1530, %1537, %1543, %1549, %1555, %1561, %1567, %1573, %1579, %1585, %1593, %1597, %1601, %1607, %1613, %1619, %1625, %1631, %1637, %1643, %1649, %method_cond.exit3057, %1662, %1666, %1672, %1678, %1684, %1690, %1718, %1735, %1752, %1754, %method_cond.exit3061, %1775, %1776, %1777, %1778, %1779, %1787, %1799, %1801, %1805, %1810, %1813, %1825, %1834, %1836, %1839, %1854, %1871, %1883, %1892, %1894, %arg_blk_pass.exit, %arg_blk_pass.exit3067, %arg_blk_pass.exit3071, %1988, %1990, %1993, %1996, %1998, %1999, %2002, %2005, %2010, %2015, %2017, %2019, %2024, %2029, %2032, %set_line_body.exit, %parser_set_lex_state.exit3074, %2083, %2092, %2095, %2100, %2117, %2119, %2124, %2126, %2130, %2132, %2134, %method_cond.exit3076, %method_cond.exit3078, %2161, %block_dup_check.exit3081, %2266, %2292, %2299, %2305, %2367, %set_line_body.exit3101, %2415, %fixpos.exit3105, %2480, %set_line_body.exit3109, %2526, %2528, %2542, %2544, %2558, %2561, %2564, %2575, %2577, %2580, %2617, %2618, %2619, %2622, %2625, %2626, %2629, %2633, %2637, %2641, %2642, %2643, %2649, %2652, %2683, %2685, %2686, %2718, %2720, %2723, %2726, %2729, %2734, %2737, %2742, %2750, %2753, %2759, %2762, %2763, %2764, %2767, %2775, %2781, %2787, %2790, %2792, %2794, %2795, %2804, %2815, %2822, %2831, %2838, %2844, %2853, %2858, %2865, %new_args.exit, %2891, %2898, %2903, %new_args.exit3120, %2925, %2928, %2931, %2936, %2937, %2938, %2940, %2941, %numparam_push.argprom.exit, %2951, %2953, %numparam_pop.exit, %3025, %3037, %3039, %3042, %3043, %3046, %3089, %3099, %3111, %3123, %3132, %3149, %3164, %3169, %3184, %3197, %3200, %3219, %3234, %3249, %numparam_pop.exit3144, %numparam_pop.exit3150, %3326, %3330, %3333, %3339, %3362, %3365, %parser_set_lex_state.exit3154, %pop_pktbl.exit3156, %3393, %3432, %3437, %3445, %3448, %3451, %3454, %3461, %3466, %3468, %pop_pktbl.exit3162, %pop_pktbl.exit3164, %pop_pktbl.exit3166, %3509, %pop_pktbl.exit3168, %pop_pktbl.exit3170, %pop_pktbl.exit3172, %3553, %3558, %3562, %3566, %3569, %pop_pktbl.exit3174, %3586, %pop_pktbl.exit3176, %3596, %3600, %3603, %3609, %3614, %3621, %3624, %3630, %3633, %3638, %3645, %3649, %3650, %3655, %3658, %3664, %3668, %3673, %3677, %3682, %3701, %3726, %3728, %3729, %3730, %3731, %3738, %3745, %3752, %3759, %3765, %3776, %3790, %3796, %3800, %3803, %3808, %3861, %3873, %3875, %3891, %3892, %3909, %3914, %3933, %3935, %3936, %3943, %3962, %3964, %3965, %3986, %4002, %4004, %4005, %4011, %4012, %4018, %4019, %4024, %4025, %4030, %parser_set_lex_state.exit3190, %4057, %parser_set_lex_state.exit3192, %4088, %4090, %4126, %4145, %parser_set_lex_state.exit3198, %4161, %4162, %4163, %4164, %4165, %4166, %4167, %4178, %4181, %parser_set_lex_state.exit3202, %4192, %4195, %new_args.exit3206, %parser_set_lex_state.exit3208, %parser_set_lex_state.exit3210, %parser_set_lex_state.exit3212, %4252, %4260, %4266, %4272, %4275, %4281, %4283, %4285, %4294, %4305, %4312, %4321, %4328, %4337, %4342, %4349, %new_args.exit3216, %4375, %4382, %4387, %new_args.exit3220, %new_args.exit3224, %4424, %4425, %4426, %4427, %4428, %4429, %4433, %4436, %4450, %4458, %4473, %4480, %4488, %4494, %4502, %4508, %kwd_append.exit, %4525, %kwd_append.exit3235, %4542, %4546, %4547, %4555, %4563, %opt_arg_append.exit, %4579, %opt_arg_append.exit3242, %4595, %4599, %4600, %4604, %4605, %4607, %4608, %parser_set_lex_state.exit3244, %4628, %4630, %4658, %4659, %4665, %4679, %4685, %4694, %4698, %4702, %4704, %4707, %4708, %337, %parser_set_lex_state.exit, %cond.exit2988, %cond.exit, %cond.exit2994, %cond.exit2992, %994, %1000, %1001, %1006, %1860, %1859, %1868, %1867, %1969, %1964, %1963, %2035, %2040, %token_info_setup.exit, %token_info_setup.exit.thread, %2656, %dyna_in_block.argprom.argprom.exit.thread, %dyna_in_block.argprom.argprom.exit, %2687, %2699, %2697, %2694, %2957, %2962, %3282, %3288, %3722, %3718, %3774, %3771, %3794, %3791, %3871, %splat_array.exit, %3901, %3897, %4037, %4048, %4035, %4132, %4129, %4171, %4168, %4176, %4173, %yy_reduce_print.exit
-  %.sroa.0105.3 = phi i16 [ %.sroa.0105.0, %yy_reduce_print.exit ], [ %.sroa.0105.0, %4704 ], [ %.sroa.0105.0, %4702 ], [ %.sroa.0105.0, %4698 ], [ %.sroa.0105.0, %4694 ], [ %.sroa.0105.0, %4685 ], [ %.sroa.0105.0, %4679 ], [ %.sroa.0105.0, %4665 ], [ %.sroa.0105.0, %4659 ], [ %.sroa.0105.0, %4658 ], [ %.sroa.0105.0, %4630 ], [ %.sroa.0105.0, %4628 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3244 ], [ %.sroa.0105.0, %4608 ], [ %.sroa.0105.0, %4607 ], [ %.sroa.0105.0, %4605 ], [ %.sroa.0105.0, %4604 ], [ %.sroa.0105.0, %4600 ], [ %.sroa.0105.0, %4599 ], [ %.sroa.0105.0, %4595 ], [ %.sroa.0105.0, %opt_arg_append.exit3242 ], [ %.sroa.0105.0, %4579 ], [ %.sroa.0105.0, %opt_arg_append.exit ], [ %.sroa.0105.0, %4563 ], [ %.sroa.0105.0, %4555 ], [ %.sroa.0105.0, %4547 ], [ %.sroa.0105.0, %4546 ], [ %.sroa.0105.0, %4542 ], [ %.sroa.0105.0, %4707 ], [ %.sroa.0105.0, %kwd_append.exit3235 ], [ %.sroa.0105.0, %4525 ], [ %.sroa.0105.0, %kwd_append.exit ], [ %.sroa.0105.0, %4508 ], [ %.sroa.0105.0, %4502 ], [ %.sroa.0105.0, %4494 ], [ %.sroa.0105.0, %4488 ], [ %.sroa.0105.0, %4480 ], [ %.sroa.0105.0, %4473 ], [ %.sroa.0105.0, %4458 ], [ %.sroa.0105.0, %4450 ], [ %.sroa.0105.0, %4436 ], [ %.sroa.0105.0, %4433 ], [ %.sroa.0105.0, %4429 ], [ %.sroa.0105.0, %4428 ], [ %.sroa.0105.0, %4427 ], [ %.sroa.0105.0, %4426 ], [ %.sroa.0105.0, %4425 ], [ %.sroa.0105.0, %4424 ], [ %.sroa.0105.0, %new_args.exit3224 ], [ %.sroa.0105.0, %new_args.exit3220 ], [ %.sroa.0105.0, %4387 ], [ %.sroa.0105.0, %4382 ], [ %.sroa.0105.0, %4375 ], [ %.sroa.0105.0, %new_args.exit3216 ], [ %.sroa.0105.0, %4349 ], [ %.sroa.0105.0, %4342 ], [ %.sroa.0105.0, %4337 ], [ %.sroa.0105.0, %4328 ], [ %.sroa.0105.0, %4321 ], [ %.sroa.0105.0, %4312 ], [ %.sroa.0105.0, %4305 ], [ %.sroa.0105.0, %4294 ], [ %.sroa.0105.0, %4285 ], [ %.sroa.0105.0, %4283 ], [ %.sroa.0105.0, %4281 ], [ %.sroa.0105.0, %4275 ], [ %.sroa.0105.0, %4272 ], [ %.sroa.0105.0, %4266 ], [ %.sroa.0105.0, %4260 ], [ %.sroa.0105.0, %4252 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3212 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3210 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3208 ], [ %.sroa.0105.0, %new_args.exit3206 ], [ %.sroa.0105.0, %4195 ], [ %.sroa.0105.0, %4192 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3202 ], [ %.sroa.0105.0, %4181 ], [ %.sroa.0105.0, %4178 ], [ %.sroa.0105.0, %4173 ], [ %.sroa.0105.0, %4176 ], [ %.sroa.0105.0, %4168 ], [ %.sroa.0105.0, %4171 ], [ %.sroa.0105.0, %4167 ], [ %.sroa.0105.0, %4166 ], [ %.sroa.0105.0, %4165 ], [ %.sroa.0105.0, %4164 ], [ %.sroa.0105.0, %4163 ], [ %.sroa.0105.0, %4162 ], [ %.sroa.0105.0, %4161 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3198 ], [ %.sroa.0105.0, %4145 ], [ %.sroa.0105.0, %4129 ], [ %.sroa.0105.0, %4132 ], [ %.sroa.0105.0, %4126 ], [ %.sroa.0105.0, %4090 ], [ %.sroa.0105.0, %4088 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3192 ], [ %.sroa.0105.0, %4057 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3190 ], [ %.sroa.0105.0, %4048 ], [ %.sroa.0105.0, %4037 ], [ %.sroa.0105.0, %4035 ], [ %.sroa.0105.0, %4030 ], [ %.sroa.0105.0, %4025 ], [ %.sroa.0105.0, %4024 ], [ %.sroa.0105.0, %4019 ], [ %.sroa.0105.0, %4018 ], [ %.sroa.0105.0, %4012 ], [ %.sroa.0105.0, %4011 ], [ %.sroa.0105.0, %4005 ], [ %.sroa.0105.0, %4004 ], [ %.sroa.0105.0, %4002 ], [ %.sroa.0105.0, %3986 ], [ %.sroa.0105.0, %3965 ], [ %.sroa.0105.0, %3964 ], [ %.sroa.0105.0, %3962 ], [ %.sroa.0105.0, %3943 ], [ %.sroa.0105.0, %3936 ], [ %.sroa.0105.0, %3935 ], [ %.sroa.0105.0, %3933 ], [ %.sroa.0105.0, %4708 ], [ %.sroa.0105.0, %3914 ], [ %.sroa.0105.0, %3909 ], [ %.sroa.0105.0, %3901 ], [ %.sroa.0105.0, %3897 ], [ %.sroa.0105.0, %3892 ], [ %.sroa.0105.0, %3891 ], [ %.sroa.0105.0, %3875 ], [ %.sroa.0105.0, %3873 ], [ %.sroa.0105.0, %splat_array.exit ], [ %.sroa.0105.0, %3871 ], [ %.sroa.0105.0, %3861 ], [ %.sroa.0105.0, %3808 ], [ %.sroa.0105.0, %3803 ], [ %.sroa.0105.0, %3800 ], [ %.sroa.0105.0, %3796 ], [ %.sroa.0105.0, %3791 ], [ %.sroa.0105.0, %3794 ], [ %.sroa.0105.0, %3790 ], [ %.sroa.0105.0, %3776 ], [ %.sroa.0105.0, %3771 ], [ %.sroa.0105.0, %3774 ], [ %.sroa.0105.0, %3765 ], [ %.sroa.0105.0, %3759 ], [ %.sroa.0105.0, %3752 ], [ %.sroa.0105.0, %3745 ], [ %.sroa.0105.0, %3738 ], [ %.sroa.0105.0, %3731 ], [ %.sroa.0105.0, %3730 ], [ %.sroa.0105.0, %3729 ], [ %.sroa.0105.0, %3728 ], [ %.sroa.0105.0, %3726 ], [ %.sroa.0105.0, %3718 ], [ %.sroa.0105.0, %3722 ], [ %.sroa.0105.0, %3701 ], [ %.sroa.0105.0, %3682 ], [ %.sroa.0105.0, %3677 ], [ %.sroa.0105.0, %3673 ], [ %.sroa.0105.0, %3668 ], [ %.sroa.0105.0, %3664 ], [ %.sroa.0105.0, %3658 ], [ %.sroa.0105.0, %3655 ], [ %.sroa.0105.0, %3650 ], [ %.sroa.0105.0, %3649 ], [ %.sroa.0105.0, %3645 ], [ %.sroa.0105.0, %3638 ], [ %.sroa.0105.0, %3633 ], [ %.sroa.0105.0, %3630 ], [ %.sroa.0105.0, %3624 ], [ %.sroa.0105.0, %3621 ], [ %.sroa.0105.0, %3614 ], [ %.sroa.0105.0, %3609 ], [ %.sroa.0105.0, %3603 ], [ %.sroa.0105.0, %3600 ], [ %.sroa.0105.0, %3596 ], [ %.sroa.0105.0, %pop_pktbl.exit3176 ], [ %.sroa.0105.0, %3586 ], [ %.sroa.0105.0, %pop_pktbl.exit3174 ], [ %.sroa.0105.0, %3569 ], [ %.sroa.0105.0, %3566 ], [ %.sroa.0105.0, %3562 ], [ %.sroa.0105.0, %3558 ], [ %.sroa.0105.0, %3553 ], [ %.sroa.0105.0, %pop_pktbl.exit3172 ], [ %.sroa.0105.0, %pop_pktbl.exit3170 ], [ %.sroa.0105.0, %pop_pktbl.exit3168 ], [ %.sroa.0105.0, %3509 ], [ %.sroa.0105.0, %pop_pktbl.exit3166 ], [ %.sroa.0105.0, %pop_pktbl.exit3164 ], [ %.sroa.0105.0, %pop_pktbl.exit3162 ], [ %.sroa.0105.0, %3468 ], [ %.sroa.0105.0, %3466 ], [ %.sroa.0105.0, %3461 ], [ %.sroa.0105.0, %3454 ], [ %.sroa.0105.0, %3451 ], [ %.sroa.0105.0, %3448 ], [ %.sroa.0105.0, %3445 ], [ %.sroa.0105.0, %3437 ], [ %.sroa.0105.0, %3432 ], [ %.sroa.0105.0, %3393 ], [ %.sroa.0105.0, %pop_pktbl.exit3156 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3154 ], [ %.sroa.0105.0, %3365 ], [ %.sroa.0105.0, %3362 ], [ %.sroa.0105.0, %3339 ], [ %.sroa.0105.0, %3333 ], [ %.sroa.0105.0, %3330 ], [ %.sroa.0105.0, %3326 ], [ %.sroa.0105.0, %numparam_pop.exit3150 ], [ %.sroa.0105.0, %3288 ], [ %.sroa.0105.0, %3282 ], [ %.sroa.0105.0, %numparam_pop.exit3144 ], [ %.sroa.0105.0, %3249 ], [ %.sroa.0105.0, %3234 ], [ %.sroa.0105.0, %3219 ], [ %.sroa.0105.0, %3200 ], [ %.sroa.0105.0, %3197 ], [ %.sroa.0105.0, %3184 ], [ %.sroa.0105.0, %3169 ], [ %.sroa.0105.0, %3164 ], [ %.sroa.0105.0, %3149 ], [ %.sroa.0105.0, %3132 ], [ %.sroa.0105.0, %3123 ], [ %.sroa.0105.0, %3111 ], [ %.sroa.0105.0, %3099 ], [ %.sroa.0105.0, %3089 ], [ %.sroa.0105.0, %3046 ], [ %.sroa.0105.0, %3043 ], [ %.sroa.0105.0, %3042 ], [ %.sroa.0105.0, %3039 ], [ %.sroa.0105.0, %3037 ], [ %.sroa.0105.0, %3025 ], [ %.sroa.0105.0, %numparam_pop.exit ], [ %.sroa.0105.0, %2962 ], [ %.sroa.0105.0, %2957 ], [ %.sroa.0105.0, %2953 ], [ %.sroa.0105.0, %2951 ], [ %.sroa.0105.0, %numparam_push.argprom.exit ], [ %.sroa.0105.0, %2941 ], [ %.sroa.0105.0, %2940 ], [ %.sroa.0105.0, %2938 ], [ %.sroa.0105.0, %2937 ], [ %.sroa.0105.0, %2936 ], [ %.sroa.0105.0, %2931 ], [ %.sroa.0105.0, %2928 ], [ %.sroa.0105.0, %2925 ], [ %.sroa.0105.0, %new_args.exit3120 ], [ %.sroa.0105.0, %2903 ], [ %.sroa.0105.0, %2898 ], [ %.sroa.0105.0, %2891 ], [ %.sroa.0105.0, %new_args.exit ], [ %.sroa.0105.0, %2865 ], [ %.sroa.0105.0, %2858 ], [ %.sroa.0105.0, %2853 ], [ %.sroa.0105.0, %2844 ], [ %.sroa.0105.0, %2838 ], [ %.sroa.0105.0, %2831 ], [ %.sroa.0105.0, %2822 ], [ %.sroa.0105.0, %2815 ], [ %.sroa.0105.0, %2804 ], [ %.sroa.0105.0, %2795 ], [ %.sroa.0105.0, %2794 ], [ %.sroa.0105.0, %2792 ], [ %.sroa.0105.0, %2790 ], [ %.sroa.0105.0, %2787 ], [ %.sroa.0105.0, %2781 ], [ %.sroa.0105.0, %2775 ], [ %.sroa.0105.0, %2767 ], [ %.sroa.0105.0, %2764 ], [ %.sroa.0105.0, %2763 ], [ %.sroa.0105.0, %2762 ], [ %.sroa.0105.0, %2759 ], [ %.sroa.0105.0, %2753 ], [ %.sroa.0105.0, %2750 ], [ %.sroa.0105.0, %2742 ], [ %.sroa.0105.0, %2737 ], [ %.sroa.0105.0, %2734 ], [ %.sroa.0105.0, %2729 ], [ %.sroa.0105.0, %2726 ], [ %.sroa.0105.0, %2723 ], [ %.sroa.0105.0, %2720 ], [ %.sroa.0105.0, %2718 ], [ %.sroa.0105.0, %2694 ], [ %.sroa.0105.0, %2697 ], [ %.sroa.0105.0, %2699 ], [ %.sroa.0105.0, %dyna_in_block.argprom.argprom.exit ], [ %.sroa.0105.0, %dyna_in_block.argprom.argprom.exit.thread ], [ %.sroa.0105.0, %2687 ], [ %.sroa.0105.0, %2686 ], [ %.sroa.0105.0, %2685 ], [ %.sroa.0105.0, %2683 ], [ %.sroa.0105.0, %token_info_setup.exit ], [ %.sroa.0105.0, %token_info_setup.exit.thread ], [ %.sroa.0105.0, %2656 ], [ %.sroa.0105.0, %2652 ], [ %.sroa.0105.0, %2649 ], [ %.sroa.0105.0, %2643 ], [ %.sroa.0105.0, %2642 ], [ %.sroa.0105.0, %2641 ], [ %.sroa.0105.0, %2637 ], [ %.sroa.0105.0, %2633 ], [ %.sroa.0105.0, %2629 ], [ %.sroa.0105.0, %2626 ], [ %.sroa.0105.0, %2625 ], [ %.sroa.0105.0, %2622 ], [ %.sroa.0105.0, %2619 ], [ %.sroa.0105.0, %2618 ], [ %.sroa.0105.0, %2617 ], [ %.sroa.0105.0, %2580 ], [ %.sroa.0105.0, %2577 ], [ %.sroa.0105.0, %2575 ], [ %.sroa.0105.0, %2564 ], [ %.sroa.0105.0, %2561 ], [ %.sroa.0105.0, %2558 ], [ %.sroa.0105.0, %2544 ], [ %.sroa.0105.0, %2542 ], [ %.sroa.0105.0, %2528 ], [ %.sroa.0105.0, %2526 ], [ %.sroa.0105.0, %set_line_body.exit3109 ], [ %.sroa.0105.0, %2480 ], [ %.sroa.0105.0, %fixpos.exit3105 ], [ %.sroa.0105.0, %2415 ], [ %.sroa.0105.0, %set_line_body.exit3101 ], [ %.sroa.0105.0, %2367 ], [ %.sroa.0105.0, %2305 ], [ %.sroa.0105.0, %2299 ], [ %.sroa.0105.0, %2292 ], [ %.sroa.0105.0, %2266 ], [ %.sroa.0105.0, %block_dup_check.exit3081 ], [ %.sroa.0105.0, %2161 ], [ %.sroa.0105.0, %method_cond.exit3078 ], [ %.sroa.0105.0, %method_cond.exit3076 ], [ %.sroa.0105.0, %2134 ], [ %.sroa.0105.0, %2132 ], [ %.sroa.0105.0, %2130 ], [ %.sroa.0105.0, %2126 ], [ %.sroa.0105.0, %2124 ], [ %.sroa.0105.0, %2119 ], [ %.sroa.0105.0, %2117 ], [ %.sroa.0105.0, %2100 ], [ %.sroa.0105.0, %2095 ], [ %.sroa.0105.0, %2092 ], [ %.sroa.0105.0, %2083 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3074 ], [ %.sroa.0105.0, %set_line_body.exit ], [ %.sroa.0105.0, %2040 ], [ %.sroa.0105.0, %2035 ], [ %.sroa.0105.0, %2032 ], [ %.sroa.0105.0, %2029 ], [ %.sroa.0105.0, %2024 ], [ %.sroa.0105.0, %2019 ], [ %.sroa.0105.0, %2017 ], [ %.sroa.0105.0, %2015 ], [ %.sroa.0105.0, %2010 ], [ %.sroa.0105.0, %2005 ], [ %.sroa.0105.0, %2002 ], [ %.sroa.0105.0, %1999 ], [ %.sroa.0105.0, %1998 ], [ %.sroa.0105.0, %1996 ], [ %.sroa.0105.0, %1993 ], [ %.sroa.0105.0, %1990 ], [ %.sroa.0105.0, %1988 ], [ %.sroa.0105.0, %1969 ], [ %.sroa.0105.0, %1964 ], [ %.sroa.0105.0, %1963 ], [ %.sroa.0105.0, %arg_blk_pass.exit3071 ], [ %.sroa.0105.0, %arg_blk_pass.exit3067 ], [ %.sroa.0105.0, %arg_blk_pass.exit ], [ %.sroa.0105.0, %1894 ], [ %.sroa.0105.0, %1892 ], [ %.sroa.0105.0, %1883 ], [ %.sroa.0105.0, %1871 ], [ %.sroa.0105.0, %1868 ], [ %.sroa.0105.0, %1867 ], [ %.sroa.0105.0, %1860 ], [ %.sroa.0105.0, %1859 ], [ %.sroa.0105.0, %1854 ], [ %.sroa.0105.0, %1839 ], [ %.sroa.0105.0, %1836 ], [ %.sroa.0105.0, %1834 ], [ %.sroa.0105.0, %1825 ], [ %.sroa.0105.0, %1813 ], [ %.sroa.0105.0, %1810 ], [ %.sroa.0105.0, %1805 ], [ %.sroa.0105.0, %1801 ], [ %.sroa.0105.0, %1799 ], [ %.sroa.0105.0, %1787 ], [ %.sroa.0105.0, %1779 ], [ %.sroa.0105.0, %1778 ], [ %.sroa.0105.0, %1777 ], [ %.sroa.0105.0, %1776 ], [ %.sroa.0105.0, %1775 ], [ %.sroa.0105.0, %method_cond.exit3061 ], [ %.sroa.0105.0, %1754 ], [ %.sroa.0105.0, %1752 ], [ %.sroa.0105.0, %1735 ], [ %.sroa.0105.0, %1718 ], [ %.sroa.0105.0, %1690 ], [ %.sroa.0105.0, %1684 ], [ %.sroa.0105.0, %1678 ], [ %.sroa.0105.0, %1672 ], [ %.sroa.0105.0, %1666 ], [ %.sroa.0105.0, %1662 ], [ %.sroa.0105.0, %method_cond.exit3057 ], [ %.sroa.0105.0, %1649 ], [ %.sroa.0105.0, %1643 ], [ %.sroa.0105.0, %1637 ], [ %.sroa.0105.0, %1631 ], [ %.sroa.0105.0, %1625 ], [ %.sroa.0105.0, %1619 ], [ %.sroa.0105.0, %1613 ], [ %.sroa.0105.0, %1607 ], [ %.sroa.0105.0, %1601 ], [ %.sroa.0105.0, %1597 ], [ %.sroa.0105.0, %1593 ], [ %.sroa.0105.0, %1585 ], [ %.sroa.0105.0, %1579 ], [ %.sroa.0105.0, %1573 ], [ %.sroa.0105.0, %1567 ], [ %.sroa.0105.0, %1561 ], [ %.sroa.0105.0, %1555 ], [ %.sroa.0105.0, %1549 ], [ %.sroa.0105.0, %1543 ], [ %.sroa.0105.0, %1537 ], [ %.sroa.0105.0, %1530 ], [ %.sroa.0105.0, %1523 ], [ %.sroa.0105.0, %1516 ], [ %.sroa.0105.0, %1509 ], [ %.sroa.0105.0, %1505 ], [ %.sroa.0105.0, %1493 ], [ %.sroa.0105.0, %1479 ], [ %.sroa.0105.0, %1470 ], [ %.sroa.0105.0, %1459 ], [ %.sroa.0105.0, %1448 ], [ %.sroa.0105.0, %1438 ], [ %.sroa.0105.0, %1429 ], [ %.sroa.0105.0, %1422 ], [ %.sroa.0105.0, %1421 ], [ %.sroa.0105.0, %1420 ], [ %.sroa.0105.0, %1419 ], [ %.sroa.0105.0, %1418 ], [ %.sroa.0105.0, %1417 ], [ %.sroa.0105.0, %1416 ], [ %.sroa.0105.0, %1415 ], [ %.sroa.0105.0, %1414 ], [ %.sroa.0105.0, %1413 ], [ %.sroa.0105.0, %1412 ], [ %.sroa.0105.0, %1411 ], [ %.sroa.0105.0, %1410 ], [ %.sroa.0105.0, %1409 ], [ %.sroa.0105.0, %1408 ], [ %.sroa.0105.0, %1407 ], [ %.sroa.0105.0, %1406 ], [ %.sroa.0105.0, %1405 ], [ %.sroa.0105.0, %1404 ], [ %.sroa.0105.0, %1403 ], [ %.sroa.0105.0, %1402 ], [ %.sroa.0105.0, %1401 ], [ %.sroa.0105.0, %1400 ], [ %.sroa.0105.0, %1399 ], [ %.sroa.0105.0, %1398 ], [ %.sroa.0105.0, %1397 ], [ %.sroa.0105.0, %1396 ], [ %.sroa.0105.0, %1395 ], [ %.sroa.0105.0, %1394 ], [ %.sroa.0105.0, %1393 ], [ %.sroa.0105.0, %1392 ], [ %.sroa.0105.0, %1386 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3051 ], [ %.sroa.0105.0, %1377 ], [ %.sroa.0105.0, %1373 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3049 ], [ %.sroa.0105.0, %1361 ], [ %.sroa.0105.0, %1358 ], [ %.sroa.0105.0, %1355 ], [ %.sroa.0105.0, %1354 ], [ %.sroa.0105.0, %1351 ], [ %.sroa.0105.0, %1347 ], [ %.sroa.0105.0, %1341 ], [ %.sroa.0105.0, %1334 ], [ %.sroa.0105.0, %1329 ], [ %.sroa.0105.0, %1322 ], [ %.sroa.0105.0, %1316 ], [ %.sroa.0105.0, %1313 ], [ %.sroa.0105.0, %1310 ], [ %.sroa.0105.0, %1307 ], [ %.sroa.0105.0, %1303 ], [ %.sroa.0105.0, %1297 ], [ %.sroa.0105.0, %1288 ], [ %.sroa.0105.0, %1283 ], [ %.sroa.0105.0, %1274 ], [ %.sroa.0105.0, %1268 ], [ %.sroa.0105.0, %1265 ], [ %.sroa.0105.0, %1262 ], [ %.sroa.0105.0, %1257 ], [ %.sroa.0105.0, %1254 ], [ %.sroa.0105.0, %1248 ], [ %.sroa.0105.0, %1243 ], [ %.sroa.0105.0, %1240 ], [ %.sroa.0105.0, %1236 ], [ %.sroa.0105.0, %1234 ], [ %.sroa.0105.0, %1228 ], [ %.sroa.0105.0, %1225 ], [ %.sroa.0105.0, %1219 ], [ %.sroa.0105.0, %1215 ], [ %.sroa.0105.0, %1207 ], [ %.sroa.0105.0, %1202 ], [ %.sroa.0105.0, %1196 ], [ %.sroa.0105.0, %1193 ], [ %.sroa.0105.0, %1188 ], [ %.sroa.0105.0, %1185 ], [ %.sroa.0105.0, %1180 ], [ %.sroa.0105.0, %1175 ], [ %.sroa.0105.0, %1171 ], [ %.sroa.0105.0, %1121 ], [ %.sroa.0105.0, %1111 ], [ %.sroa.0105.0, %1103 ], [ %.sroa.0105.0, %1091 ], [ %.sroa.0105.0, %1081 ], [ %.sroa.0105.0, %fixpos.exit3041 ], [ %.sroa.0105.0, %1038 ], [ %.sroa.0105.0, %1035 ], [ %.sroa.0105.0, %1020 ], [ %.sroa.0105.0, %1010 ], [ %.sroa.0105.0, %1007 ], [ %.sroa.0105.0, %1006 ], [ %.sroa.0105.0, %1001 ], [ %.sroa.0105.0, %1000 ], [ %.sroa.0105.0, %994 ], [ %.sroa.0105.0, %992 ], [ %.sroa.0105.0, %989 ], [ %.sroa.0105.0, %def_head_save.exit3036 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3031 ], [ %.sroa.0105.0, %def_head_save.exit ], [ %.sroa.0105.0, %932 ], [ %.sroa.0105.0, %pop_pktbl.exit3028 ], [ %.sroa.0105.0, %908 ], [ %.sroa.0105.0, %pop_pktbl.exit ], [ %.sroa.0105.0, %886 ], [ %.sroa.0105.0, %method_cond.exit3025 ], [ %.sroa.0105.0, %method_cond.exit3023 ], [ %.sroa.0105.0, %866 ], [ %.sroa.0105.0, %860 ], [ %.sroa.0105.0, %remove_begin.exit3021 ], [ %.sroa.0105.0, %835 ], [ %.sroa.0105.0, %method_cond.exit ], [ %.sroa.0105.0, %814 ], [ %.sroa.0105.0, %810 ], [ %.sroa.0105.0, %793 ], [ %.sroa.0105.0, %776 ], [ %.sroa.0105.0, %767 ], [ %.sroa.0105.0, %753 ], [ %.sroa.0105.0, %742 ], [ %.sroa.0105.0, %731 ], [ %.sroa.0105.0, %721 ], [ %.sroa.0105.0, %712 ], [ %.sroa.0105.0, %705 ], [ %.sroa.0105.0, %703 ], [ %.sroa.0105.0, %696 ], [ %.sroa.0105.0, %remove_begin.exit3011 ], [ %.sroa.0105.0, %661 ], [ %.sroa.0105.0, %653 ], [ %.sroa.0105.0, %644 ], [ %.sroa.0105.0, %remove_begin.exit3004 ], [ %.sroa.0105.0, %cond.exit2992 ], [ %.sroa.0105.0, %cond.exit2994 ], [ %.sroa.0105.0, %cond.exit ], [ %.sroa.0105.0, %cond.exit2988 ], [ %.sroa.0105.0, %510 ], [ %.sroa.0105.0, %508 ], [ %.sroa.0105.0, %499 ], [ %.sroa.0105.0, %494 ], [ %.sroa.0105.0, %489 ], [ %.sroa.0105.0, %parser_set_lex_state.exit2972 ], [ %.sroa.0105.0, %479 ], [ %.sroa.0105.0, %477 ], [ %.sroa.0105.0, %475 ], [ %.sroa.0105.0, %474 ], [ %.sroa.0105.0, %472 ], [ %.sroa.0105.0, %newline_node.exit2970 ], [ %.sroa.0105.0, %newline_node.exit2962 ], [ %.sroa.0105.0, %451 ], [ %.sroa.0105.0, %447 ], [ %.sroa.0105.0, %440 ], [ %.sroa.0105.0, %432 ], [ %.sroa.0105.0, %423 ], [ %.sroa.0105.0, %415 ], [ %.sroa.0105.0, %407 ], [ %.sroa.0105.0, %394 ], [ %.sroa.0105.0, %392 ], [ %.sroa.0105.0, %390 ], [ %.sroa.0105.0, %388 ], [ %.sroa.0105.0, %newline_node.exit2954 ], [ %.sroa.0105.0, %newline_node.exit ], [ %.sroa.0105.0, %367 ], [ %.sroa.0105.0, %363 ], [ %.sroa.0105.0, %358 ], [ %.sroa.0105.0, %337 ], [ %.sroa.0105.0, %parser_set_lex_state.exit ], [ %.sroa.0105.0, %.critedge2871 ], [ %.sroa.0105.0, %remove_begin.exit2977 ], [ %.sroa.0105.0, %527 ], [ %.sroa.0105.0, %remove_begin.exit2982 ], [ %.sroa.0105.0, %550 ], [ %.sroa.0105.0, %1143 ], [ %.sroa.0105.0, %1149 ], [ %.sroa.0105.0, %1157 ], [ %.sroa.0105.0, %1163 ], [ %.sroa.0105.0, %1699 ], [ %.sroa.0105.0, %1710 ], [ %.sroa.0105.0, %2182 ], [ %.sroa.0105.0, %2193 ], [ %.sroa.0105.0, %2201 ], [ %.sroa.0105.0, %2212 ], [ %.sroa.0105.0, %cond.exit3087 ], [ %.sroa.0105.0, %2235 ], [ %.sroa.0105.0, %cond.exit3091 ], [ %.sroa.0105.0, %2258 ], [ %.sroa.0105.0, %2273 ], [ %.sroa.0105.0, %2284 ], [ %.sroa.0105.2, %2339 ], [ %.sroa.0105.2, %2352 ], [ %.sroa.0105.0, %2700 ], [ %.sroa.0105.0, %2710 ], [ %.sroa.0105.0, %block_dup_check.exit3130 ], [ %.sroa.0105.0, %3081 ], [ %.sroa.0105.0, %3202 ], [ %.sroa.0105.0, %3211 ], [ %.sroa.0105.0, %3344 ], [ %.sroa.0105.0, %3354 ], [ %.sroa.0105.0, %3400 ], [ %.sroa.0105.0, %3408 ], [ %.sroa.0105.0, %3416 ], [ %.sroa.0105.0, %3424 ], [ %.sroa.0105.0, %3829 ], [ %.sroa.0105.0, %3830 ], [ %.sroa.0105.0, %3840 ], [ %.sroa.0105.0, %3841 ], [ %.sroa.0105.0, %3849 ], [ %.sroa.0105.0, %3853 ], [ %.sroa.0105.0, %4156 ], [ %.sroa.0105.0, %.sink.split.i3200 ]
-  %.sroa.096.3 = phi i16 [ %.sroa.096.0, %yy_reduce_print.exit ], [ %.sroa.096.0, %4704 ], [ %.sroa.096.0, %4702 ], [ %.sroa.096.0, %4698 ], [ %.sroa.096.0, %4694 ], [ %.sroa.096.0, %4685 ], [ %.sroa.096.0, %4679 ], [ %.sroa.096.0, %4665 ], [ %.sroa.096.0, %4659 ], [ %.sroa.096.0, %4658 ], [ %.sroa.096.0, %4630 ], [ %.sroa.096.0, %4628 ], [ %.sroa.096.0, %parser_set_lex_state.exit3244 ], [ %.sroa.096.0, %4608 ], [ %.sroa.096.0, %4607 ], [ %.sroa.096.0, %4605 ], [ %.sroa.096.0, %4604 ], [ %.sroa.096.0, %4600 ], [ %.sroa.096.0, %4599 ], [ %.sroa.096.0, %4595 ], [ %.sroa.096.0, %opt_arg_append.exit3242 ], [ %.sroa.096.0, %4579 ], [ %.sroa.096.0, %opt_arg_append.exit ], [ %.sroa.096.0, %4563 ], [ %.sroa.096.0, %4555 ], [ %.sroa.096.0, %4547 ], [ %.sroa.096.0, %4546 ], [ %.sroa.096.0, %4542 ], [ %.sroa.096.0, %4707 ], [ %.sroa.096.0, %kwd_append.exit3235 ], [ %.sroa.096.0, %4525 ], [ %.sroa.096.0, %kwd_append.exit ], [ %.sroa.096.0, %4508 ], [ %.sroa.096.0, %4502 ], [ %.sroa.096.0, %4494 ], [ %.sroa.096.0, %4488 ], [ %.sroa.096.0, %4480 ], [ %.sroa.096.0, %4473 ], [ %.sroa.096.0, %4458 ], [ %.sroa.096.0, %4450 ], [ %.sroa.096.0, %4436 ], [ %.sroa.096.0, %4433 ], [ %.sroa.096.0, %4429 ], [ %.sroa.096.0, %4428 ], [ %.sroa.096.0, %4427 ], [ %.sroa.096.0, %4426 ], [ %.sroa.096.0, %4425 ], [ %.sroa.096.0, %4424 ], [ %.sroa.096.0, %new_args.exit3224 ], [ %.sroa.096.0, %new_args.exit3220 ], [ %.sroa.096.0, %4387 ], [ %.sroa.096.0, %4382 ], [ %.sroa.096.0, %4375 ], [ %.sroa.096.0, %new_args.exit3216 ], [ %.sroa.096.0, %4349 ], [ %.sroa.096.0, %4342 ], [ %.sroa.096.0, %4337 ], [ %.sroa.096.0, %4328 ], [ %.sroa.096.0, %4321 ], [ %.sroa.096.0, %4312 ], [ %.sroa.096.0, %4305 ], [ %.sroa.096.0, %4294 ], [ %.sroa.096.0, %4285 ], [ %.sroa.096.0, %4283 ], [ %.sroa.096.0, %4281 ], [ %.sroa.096.0, %4275 ], [ %.sroa.096.0, %4272 ], [ %.sroa.096.0, %4266 ], [ %.sroa.096.0, %4260 ], [ %.sroa.096.0, %4252 ], [ %.sroa.096.0, %parser_set_lex_state.exit3212 ], [ %.sroa.096.0, %parser_set_lex_state.exit3210 ], [ %.sroa.096.0, %parser_set_lex_state.exit3208 ], [ %.sroa.096.0, %new_args.exit3206 ], [ %.sroa.096.0, %4195 ], [ %.sroa.096.0, %4192 ], [ %.sroa.096.0, %parser_set_lex_state.exit3202 ], [ %.sroa.096.0, %4181 ], [ %.sroa.096.0, %4178 ], [ %.sroa.096.0, %4173 ], [ %.sroa.096.0, %4176 ], [ %.sroa.096.0, %4168 ], [ %.sroa.096.0, %4171 ], [ %.sroa.096.0, %4167 ], [ %.sroa.096.0, %4166 ], [ %.sroa.096.0, %4165 ], [ %.sroa.096.0, %4164 ], [ %.sroa.096.0, %4163 ], [ %.sroa.096.0, %4162 ], [ %.sroa.096.0, %4161 ], [ %.sroa.096.0, %parser_set_lex_state.exit3198 ], [ %.sroa.096.0, %4145 ], [ %.sroa.096.0, %4129 ], [ %.sroa.096.0, %4132 ], [ %.sroa.096.0, %4126 ], [ %.sroa.096.0, %4090 ], [ %.sroa.096.0, %4088 ], [ %.sroa.096.0, %parser_set_lex_state.exit3192 ], [ %.sroa.096.0, %4057 ], [ %.sroa.096.0, %parser_set_lex_state.exit3190 ], [ %.sroa.096.0, %4048 ], [ %.sroa.096.0, %4037 ], [ %.sroa.096.0, %4035 ], [ %.sroa.096.0, %4030 ], [ %.sroa.096.0, %4025 ], [ %.sroa.096.0, %4024 ], [ %.sroa.096.0, %4019 ], [ %.sroa.096.0, %4018 ], [ %.sroa.096.0, %4012 ], [ %.sroa.096.0, %4011 ], [ %.sroa.096.0, %4005 ], [ %.sroa.096.0, %4004 ], [ %.sroa.096.0, %4002 ], [ %.sroa.096.0, %3986 ], [ %.sroa.096.0, %3965 ], [ %.sroa.096.0, %3964 ], [ %.sroa.096.0, %3962 ], [ %.sroa.096.0, %3943 ], [ %.sroa.096.0, %3936 ], [ %.sroa.096.0, %3935 ], [ %.sroa.096.0, %3933 ], [ %.sroa.096.0, %4708 ], [ %.sroa.096.0, %3914 ], [ %.sroa.096.0, %3909 ], [ %.sroa.096.0, %3901 ], [ %.sroa.096.0, %3897 ], [ %.sroa.096.0, %3892 ], [ %.sroa.096.0, %3891 ], [ %.sroa.096.0, %3875 ], [ %.sroa.096.0, %3873 ], [ %.sroa.096.0, %splat_array.exit ], [ %.sroa.096.0, %3871 ], [ %.sroa.096.0, %3861 ], [ %.sroa.096.0, %3808 ], [ %.sroa.096.0, %3803 ], [ %.sroa.096.0, %3800 ], [ %.sroa.096.0, %3796 ], [ %.sroa.096.0, %3791 ], [ %.sroa.096.0, %3794 ], [ %.sroa.096.0, %3790 ], [ %.sroa.096.0, %3776 ], [ %.sroa.096.0, %3771 ], [ %.sroa.096.0, %3774 ], [ %.sroa.096.0, %3765 ], [ %.sroa.096.0, %3759 ], [ %.sroa.096.0, %3752 ], [ %.sroa.096.0, %3745 ], [ %.sroa.096.0, %3738 ], [ %.sroa.096.0, %3731 ], [ %.sroa.096.0, %3730 ], [ %.sroa.096.0, %3729 ], [ %.sroa.096.0, %3728 ], [ %.sroa.096.0, %3726 ], [ %.sroa.096.0, %3718 ], [ %.sroa.096.0, %3722 ], [ %.sroa.096.0, %3701 ], [ %.sroa.096.0, %3682 ], [ %.sroa.096.0, %3677 ], [ %.sroa.096.0, %3673 ], [ %.sroa.096.0, %3668 ], [ %.sroa.096.0, %3664 ], [ %.sroa.096.0, %3658 ], [ %.sroa.096.0, %3655 ], [ %.sroa.096.0, %3650 ], [ %.sroa.096.0, %3649 ], [ %.sroa.096.0, %3645 ], [ %.sroa.096.0, %3638 ], [ %.sroa.096.0, %3633 ], [ %.sroa.096.0, %3630 ], [ %.sroa.096.0, %3624 ], [ %.sroa.096.0, %3621 ], [ %.sroa.096.0, %3614 ], [ %.sroa.096.0, %3609 ], [ %.sroa.096.0, %3603 ], [ %.sroa.096.0, %3600 ], [ %.sroa.096.0, %3596 ], [ %.sroa.096.0, %pop_pktbl.exit3176 ], [ %.sroa.096.0, %3586 ], [ %.sroa.096.0, %pop_pktbl.exit3174 ], [ %.sroa.096.0, %3569 ], [ %.sroa.096.0, %3566 ], [ %.sroa.096.0, %3562 ], [ %.sroa.096.0, %3558 ], [ %.sroa.096.0, %3553 ], [ %.sroa.096.0, %pop_pktbl.exit3172 ], [ %.sroa.096.0, %pop_pktbl.exit3170 ], [ %.sroa.096.0, %pop_pktbl.exit3168 ], [ %.sroa.096.0, %3509 ], [ %.sroa.096.0, %pop_pktbl.exit3166 ], [ %.sroa.096.0, %pop_pktbl.exit3164 ], [ %.sroa.096.0, %pop_pktbl.exit3162 ], [ %.sroa.096.0, %3468 ], [ %.sroa.096.0, %3466 ], [ %.sroa.096.0, %3461 ], [ %.sroa.096.0, %3454 ], [ %.sroa.096.0, %3451 ], [ %.sroa.096.0, %3448 ], [ %.sroa.096.0, %3445 ], [ %.sroa.096.0, %3437 ], [ %.sroa.096.0, %3432 ], [ %.sroa.096.0, %3393 ], [ %.sroa.096.0, %pop_pktbl.exit3156 ], [ %.sroa.096.0, %parser_set_lex_state.exit3154 ], [ %.sroa.096.0, %3365 ], [ %.sroa.096.0, %3362 ], [ %.sroa.096.0, %3339 ], [ %.sroa.096.0, %3333 ], [ %.sroa.096.0, %3330 ], [ %.sroa.096.0, %3326 ], [ %.sroa.096.0, %numparam_pop.exit3150 ], [ %.sroa.096.0, %3288 ], [ %.sroa.096.0, %3282 ], [ %.sroa.096.0, %numparam_pop.exit3144 ], [ %.sroa.096.0, %3249 ], [ %.sroa.096.0, %3234 ], [ %.sroa.096.0, %3219 ], [ %.sroa.096.0, %3200 ], [ %.sroa.096.0, %3197 ], [ %.sroa.096.0, %3184 ], [ %.sroa.096.0, %3169 ], [ %.sroa.096.0, %3164 ], [ %.sroa.096.0, %3149 ], [ %.sroa.096.0, %3132 ], [ %.sroa.096.0, %3123 ], [ %.sroa.096.0, %3111 ], [ %.sroa.096.0, %3099 ], [ %.sroa.096.0, %3089 ], [ %.sroa.096.0, %3046 ], [ %.sroa.096.0, %3043 ], [ %.sroa.096.0, %3042 ], [ %.sroa.096.0, %3039 ], [ %.sroa.096.0, %3037 ], [ %.sroa.096.0, %3025 ], [ %.sroa.096.0, %numparam_pop.exit ], [ %.sroa.096.0, %2962 ], [ %.sroa.096.0, %2957 ], [ %.sroa.096.0, %2953 ], [ %.sroa.096.0, %2951 ], [ %.sroa.096.0, %numparam_push.argprom.exit ], [ %.sroa.096.0, %2941 ], [ %.sroa.096.0, %2940 ], [ %.sroa.096.0, %2938 ], [ %.sroa.096.0, %2937 ], [ %.sroa.096.0, %2936 ], [ %.sroa.096.0, %2931 ], [ %.sroa.096.0, %2928 ], [ %.sroa.096.0, %2925 ], [ %.sroa.096.0, %new_args.exit3120 ], [ %.sroa.096.0, %2903 ], [ %.sroa.096.0, %2898 ], [ %.sroa.096.0, %2891 ], [ %.sroa.096.0, %new_args.exit ], [ %.sroa.096.0, %2865 ], [ %.sroa.096.0, %2858 ], [ %.sroa.096.0, %2853 ], [ %.sroa.096.0, %2844 ], [ %.sroa.096.0, %2838 ], [ %.sroa.096.0, %2831 ], [ %.sroa.096.0, %2822 ], [ %.sroa.096.0, %2815 ], [ %.sroa.096.0, %2804 ], [ %.sroa.096.0, %2795 ], [ %.sroa.096.0, %2794 ], [ %.sroa.096.0, %2792 ], [ %.sroa.096.0, %2790 ], [ %.sroa.096.0, %2787 ], [ %.sroa.096.0, %2781 ], [ %.sroa.096.0, %2775 ], [ %.sroa.096.0, %2767 ], [ %.sroa.096.0, %2764 ], [ %.sroa.096.0, %2763 ], [ %.sroa.096.0, %2762 ], [ %.sroa.096.0, %2759 ], [ %.sroa.096.0, %2753 ], [ %.sroa.096.0, %2750 ], [ %.sroa.096.0, %2742 ], [ %.sroa.096.0, %2737 ], [ %.sroa.096.0, %2734 ], [ %.sroa.096.0, %2729 ], [ %.sroa.096.0, %2726 ], [ %.sroa.096.0, %2723 ], [ %.sroa.096.0, %2720 ], [ %.sroa.096.0, %2718 ], [ %.sroa.096.0, %2694 ], [ %.sroa.096.0, %2697 ], [ %.sroa.096.0, %2699 ], [ %.sroa.096.0, %dyna_in_block.argprom.argprom.exit ], [ %.sroa.096.0, %dyna_in_block.argprom.argprom.exit.thread ], [ %.sroa.096.0, %2687 ], [ %.sroa.096.0, %2686 ], [ %.sroa.096.0, %2685 ], [ %.sroa.096.0, %2683 ], [ %.sroa.096.0, %token_info_setup.exit ], [ %.sroa.096.0, %token_info_setup.exit.thread ], [ %.sroa.096.0, %2656 ], [ %.sroa.096.0, %2652 ], [ %.sroa.096.0, %2649 ], [ %.sroa.096.0, %2643 ], [ %.sroa.096.0, %2642 ], [ %.sroa.096.0, %2641 ], [ %.sroa.096.0, %2637 ], [ %.sroa.096.0, %2633 ], [ %.sroa.096.0, %2629 ], [ %.sroa.096.0, %2626 ], [ %.sroa.096.0, %2625 ], [ %.sroa.096.0, %2622 ], [ %.sroa.096.0, %2619 ], [ %.sroa.096.0, %2618 ], [ %.sroa.096.0, %2617 ], [ %.sroa.096.0, %2580 ], [ %.sroa.096.0, %2577 ], [ %.sroa.096.0, %2575 ], [ %.sroa.096.0, %2564 ], [ %.sroa.096.0, %2561 ], [ %.sroa.096.0, %2558 ], [ %.sroa.096.0, %2544 ], [ %.sroa.096.0, %2542 ], [ %.sroa.096.0, %2528 ], [ %.sroa.096.0, %2526 ], [ %.sroa.096.0, %set_line_body.exit3109 ], [ %.sroa.096.0, %2480 ], [ %.sroa.096.0, %fixpos.exit3105 ], [ %.sroa.096.0, %2415 ], [ %.sroa.096.0, %set_line_body.exit3101 ], [ %.sroa.096.0, %2367 ], [ %.sroa.096.0, %2305 ], [ %.sroa.096.0, %2299 ], [ %.sroa.096.0, %2292 ], [ %.sroa.096.0, %2266 ], [ %.sroa.096.0, %block_dup_check.exit3081 ], [ %.sroa.096.0, %2161 ], [ %.sroa.096.0, %method_cond.exit3078 ], [ %.sroa.096.0, %method_cond.exit3076 ], [ %.sroa.096.0, %2134 ], [ %.sroa.096.0, %2132 ], [ %.sroa.096.0, %2130 ], [ %.sroa.096.0, %2126 ], [ %.sroa.096.0, %2124 ], [ %.sroa.096.0, %2119 ], [ %.sroa.096.0, %2117 ], [ %.sroa.096.0, %2100 ], [ %.sroa.096.0, %2095 ], [ %.sroa.096.0, %2092 ], [ %.sroa.096.0, %2083 ], [ %.sroa.096.0, %parser_set_lex_state.exit3074 ], [ %.sroa.096.0, %set_line_body.exit ], [ %.sroa.096.0, %2040 ], [ %.sroa.096.0, %2035 ], [ %.sroa.096.0, %2032 ], [ %.sroa.096.0, %2029 ], [ %.sroa.096.0, %2024 ], [ %.sroa.096.0, %2019 ], [ %.sroa.096.0, %2017 ], [ %.sroa.096.0, %2015 ], [ %.sroa.096.0, %2010 ], [ %.sroa.096.0, %2005 ], [ %.sroa.096.0, %2002 ], [ %.sroa.096.0, %1999 ], [ %.sroa.096.0, %1998 ], [ %.sroa.096.0, %1996 ], [ %.sroa.096.0, %1993 ], [ %.sroa.096.0, %1990 ], [ %.sroa.096.0, %1988 ], [ %.sroa.096.0, %1969 ], [ %.sroa.096.0, %1964 ], [ %.sroa.096.0, %1963 ], [ %.sroa.096.0, %arg_blk_pass.exit3071 ], [ %.sroa.096.0, %arg_blk_pass.exit3067 ], [ %.sroa.096.0, %arg_blk_pass.exit ], [ %.sroa.096.0, %1894 ], [ %.sroa.096.0, %1892 ], [ %.sroa.096.0, %1883 ], [ %.sroa.096.0, %1871 ], [ %.sroa.096.0, %1868 ], [ %.sroa.096.0, %1867 ], [ %.sroa.096.0, %1860 ], [ %.sroa.096.0, %1859 ], [ %.sroa.096.0, %1854 ], [ %.sroa.096.0, %1839 ], [ %.sroa.096.0, %1836 ], [ %.sroa.096.0, %1834 ], [ %.sroa.096.0, %1825 ], [ %.sroa.096.0, %1813 ], [ %.sroa.096.0, %1810 ], [ %.sroa.096.0, %1805 ], [ %.sroa.096.0, %1801 ], [ %.sroa.096.0, %1799 ], [ %.sroa.096.0, %1787 ], [ %.sroa.096.0, %1779 ], [ %.sroa.096.0, %1778 ], [ %.sroa.096.0, %1777 ], [ %.sroa.096.0, %1776 ], [ %.sroa.096.0, %1775 ], [ %.sroa.096.0, %method_cond.exit3061 ], [ %.sroa.096.0, %1754 ], [ %.sroa.096.0, %1752 ], [ %.sroa.096.0, %1735 ], [ %.sroa.096.0, %1718 ], [ %.sroa.096.0, %1690 ], [ %.sroa.096.0, %1684 ], [ %.sroa.096.0, %1678 ], [ %.sroa.096.0, %1672 ], [ %.sroa.096.0, %1666 ], [ %.sroa.096.0, %1662 ], [ %.sroa.096.0, %method_cond.exit3057 ], [ %.sroa.096.0, %1649 ], [ %.sroa.096.0, %1643 ], [ %.sroa.096.0, %1637 ], [ %.sroa.096.0, %1631 ], [ %.sroa.096.0, %1625 ], [ %.sroa.096.0, %1619 ], [ %.sroa.096.0, %1613 ], [ %.sroa.096.0, %1607 ], [ %.sroa.096.0, %1601 ], [ %.sroa.096.0, %1597 ], [ %.sroa.096.0, %1593 ], [ %.sroa.096.0, %1585 ], [ %.sroa.096.0, %1579 ], [ %.sroa.096.0, %1573 ], [ %.sroa.096.0, %1567 ], [ %.sroa.096.0, %1561 ], [ %.sroa.096.0, %1555 ], [ %.sroa.096.0, %1549 ], [ %.sroa.096.0, %1543 ], [ %.sroa.096.0, %1537 ], [ %.sroa.096.0, %1530 ], [ %.sroa.096.0, %1523 ], [ %.sroa.096.0, %1516 ], [ %.sroa.096.0, %1509 ], [ %.sroa.096.0, %1505 ], [ %.sroa.096.0, %1493 ], [ %.sroa.096.0, %1479 ], [ %.sroa.096.0, %1470 ], [ %.sroa.096.0, %1459 ], [ %.sroa.096.0, %1448 ], [ %.sroa.096.0, %1438 ], [ %.sroa.096.0, %1429 ], [ %.sroa.096.0, %1422 ], [ %.sroa.096.0, %1421 ], [ %.sroa.096.0, %1420 ], [ %.sroa.096.0, %1419 ], [ %.sroa.096.0, %1418 ], [ %.sroa.096.0, %1417 ], [ %.sroa.096.0, %1416 ], [ %.sroa.096.0, %1415 ], [ %.sroa.096.0, %1414 ], [ %.sroa.096.0, %1413 ], [ %.sroa.096.0, %1412 ], [ %.sroa.096.0, %1411 ], [ %.sroa.096.0, %1410 ], [ %.sroa.096.0, %1409 ], [ %.sroa.096.0, %1408 ], [ %.sroa.096.0, %1407 ], [ %.sroa.096.0, %1406 ], [ %.sroa.096.0, %1405 ], [ %.sroa.096.0, %1404 ], [ %.sroa.096.0, %1403 ], [ %.sroa.096.0, %1402 ], [ %.sroa.096.0, %1401 ], [ %.sroa.096.0, %1400 ], [ %.sroa.096.0, %1399 ], [ %.sroa.096.0, %1398 ], [ %.sroa.096.0, %1397 ], [ %.sroa.096.0, %1396 ], [ %.sroa.096.0, %1395 ], [ %.sroa.096.0, %1394 ], [ %.sroa.096.0, %1393 ], [ %.sroa.096.0, %1392 ], [ %.sroa.096.0, %1386 ], [ %.sroa.096.0, %parser_set_lex_state.exit3051 ], [ %.sroa.096.0, %1377 ], [ %.sroa.096.0, %1373 ], [ %.sroa.096.0, %parser_set_lex_state.exit3049 ], [ %.sroa.096.0, %1361 ], [ %.sroa.096.0, %1358 ], [ %.sroa.096.0, %1355 ], [ %.sroa.096.0, %1354 ], [ %.sroa.096.0, %1351 ], [ %.sroa.096.0, %1347 ], [ %.sroa.096.0, %1341 ], [ %.sroa.096.0, %1334 ], [ %.sroa.096.0, %1329 ], [ %.sroa.096.0, %1322 ], [ %.sroa.096.0, %1316 ], [ %.sroa.096.0, %1313 ], [ %.sroa.096.0, %1310 ], [ %.sroa.096.0, %1307 ], [ %.sroa.096.0, %1303 ], [ %.sroa.096.0, %1297 ], [ %.sroa.096.0, %1288 ], [ %.sroa.096.0, %1283 ], [ %.sroa.096.0, %1274 ], [ %.sroa.096.0, %1268 ], [ %.sroa.096.0, %1265 ], [ %.sroa.096.0, %1262 ], [ %.sroa.096.0, %1257 ], [ %.sroa.096.0, %1254 ], [ %.sroa.096.0, %1248 ], [ %.sroa.096.0, %1243 ], [ %.sroa.096.0, %1240 ], [ %.sroa.096.0, %1236 ], [ %.sroa.096.0, %1234 ], [ %.sroa.096.0, %1228 ], [ %.sroa.096.0, %1225 ], [ %.sroa.096.0, %1219 ], [ %.sroa.096.0, %1215 ], [ %.sroa.096.0, %1207 ], [ %.sroa.096.0, %1202 ], [ %.sroa.096.0, %1196 ], [ %.sroa.096.0, %1193 ], [ %.sroa.096.0, %1188 ], [ %.sroa.096.0, %1185 ], [ %.sroa.096.0, %1180 ], [ %.sroa.096.0, %1175 ], [ %.sroa.096.0, %1171 ], [ %.sroa.096.0, %1121 ], [ %.sroa.096.0, %1111 ], [ %.sroa.096.0, %1103 ], [ %.sroa.096.0, %1091 ], [ %.sroa.096.0, %1081 ], [ %.sroa.096.0, %fixpos.exit3041 ], [ %.sroa.096.0, %1038 ], [ %.sroa.096.0, %1035 ], [ %.sroa.096.0, %1020 ], [ %.sroa.096.0, %1010 ], [ %.sroa.096.0, %1007 ], [ %.sroa.096.0, %1006 ], [ %.sroa.096.0, %1001 ], [ %.sroa.096.0, %1000 ], [ %.sroa.096.0, %994 ], [ %.sroa.096.0, %992 ], [ %.sroa.096.0, %989 ], [ %.sroa.096.0, %def_head_save.exit3036 ], [ %.sroa.096.0, %parser_set_lex_state.exit3031 ], [ %.sroa.096.0, %def_head_save.exit ], [ %.sroa.096.0, %932 ], [ %.sroa.096.0, %pop_pktbl.exit3028 ], [ %.sroa.096.0, %908 ], [ %.sroa.096.0, %pop_pktbl.exit ], [ %.sroa.096.0, %886 ], [ %.sroa.096.0, %method_cond.exit3025 ], [ %.sroa.096.0, %method_cond.exit3023 ], [ %.sroa.096.0, %866 ], [ %.sroa.096.0, %860 ], [ %.sroa.096.0, %remove_begin.exit3021 ], [ %.sroa.096.0, %835 ], [ %.sroa.096.0, %method_cond.exit ], [ %.sroa.096.0, %814 ], [ %.sroa.096.0, %810 ], [ %.sroa.096.0, %793 ], [ %.sroa.096.0, %776 ], [ %.sroa.096.0, %767 ], [ %.sroa.096.0, %753 ], [ %.sroa.096.0, %742 ], [ %.sroa.096.0, %731 ], [ %.sroa.096.0, %721 ], [ %.sroa.096.0, %712 ], [ %.sroa.096.0, %705 ], [ %.sroa.096.0, %703 ], [ %.sroa.096.0, %696 ], [ %.sroa.096.0, %remove_begin.exit3011 ], [ %.sroa.096.0, %661 ], [ %.sroa.096.0, %653 ], [ %.sroa.096.0, %644 ], [ %.sroa.096.0, %remove_begin.exit3004 ], [ %.sroa.096.0, %cond.exit2992 ], [ %.sroa.096.0, %cond.exit2994 ], [ %.sroa.096.0, %cond.exit ], [ %.sroa.096.0, %cond.exit2988 ], [ %.sroa.096.0, %510 ], [ %.sroa.096.0, %508 ], [ %.sroa.096.0, %499 ], [ %.sroa.096.0, %494 ], [ %.sroa.096.0, %489 ], [ %.sroa.096.0, %parser_set_lex_state.exit2972 ], [ %.sroa.096.0, %479 ], [ %.sroa.096.0, %477 ], [ %.sroa.096.0, %475 ], [ %.sroa.096.0, %474 ], [ %.sroa.096.0, %472 ], [ %.sroa.096.0, %newline_node.exit2970 ], [ %.sroa.096.0, %newline_node.exit2962 ], [ %.sroa.096.0, %451 ], [ %.sroa.096.0, %447 ], [ %.sroa.096.0, %440 ], [ %.sroa.096.0, %432 ], [ %.sroa.096.0, %423 ], [ %.sroa.096.0, %415 ], [ %.sroa.096.0, %407 ], [ %.sroa.096.0, %394 ], [ %.sroa.096.0, %392 ], [ %.sroa.096.0, %390 ], [ %.sroa.096.0, %388 ], [ %.sroa.096.0, %newline_node.exit2954 ], [ %.sroa.096.0, %newline_node.exit ], [ %.sroa.096.0, %367 ], [ %.sroa.096.0, %363 ], [ %.sroa.096.0, %358 ], [ %.sroa.096.0, %337 ], [ %.sroa.096.0, %parser_set_lex_state.exit ], [ %.sroa.096.0, %.critedge2871 ], [ %.sroa.096.0, %remove_begin.exit2977 ], [ %.sroa.096.0, %527 ], [ %.sroa.096.0, %remove_begin.exit2982 ], [ %.sroa.096.0, %550 ], [ %.sroa.096.0, %1143 ], [ %.sroa.096.0, %1149 ], [ %.sroa.096.0, %1157 ], [ %.sroa.096.0, %1163 ], [ %.sroa.096.0, %1699 ], [ %.sroa.096.0, %1710 ], [ %.sroa.096.0, %2182 ], [ %.sroa.096.0, %2193 ], [ %.sroa.096.0, %2201 ], [ %.sroa.096.0, %2212 ], [ %.sroa.096.0, %cond.exit3087 ], [ %.sroa.096.0, %2235 ], [ %.sroa.096.0, %cond.exit3091 ], [ %.sroa.096.0, %2258 ], [ %.sroa.096.0, %2273 ], [ %.sroa.096.0, %2284 ], [ %.sroa.096.2, %2339 ], [ %.sroa.096.2, %2352 ], [ %.sroa.096.0, %2700 ], [ %.sroa.096.0, %2710 ], [ %.sroa.096.0, %block_dup_check.exit3130 ], [ %.sroa.096.0, %3081 ], [ %.sroa.096.0, %3202 ], [ %.sroa.096.0, %3211 ], [ %.sroa.096.0, %3344 ], [ %.sroa.096.0, %3354 ], [ %.sroa.096.0, %3400 ], [ %.sroa.096.0, %3408 ], [ %.sroa.096.0, %3416 ], [ %.sroa.096.0, %3424 ], [ %.sroa.096.0, %3829 ], [ %.sroa.096.0, %3830 ], [ %.sroa.096.0, %3840 ], [ %.sroa.096.0, %3841 ], [ %.sroa.096.0, %3849 ], [ %.sroa.096.0, %3853 ], [ %.sroa.096.0, %4156 ], [ %.sroa.096.0, %.sink.split.i3200 ]
-  %.sroa.0.3 = phi i16 [ %.sroa.0.0, %yy_reduce_print.exit ], [ %.sroa.0.0, %4704 ], [ %.sroa.0.0, %4702 ], [ %.sroa.0.0, %4698 ], [ %.sroa.0.0, %4694 ], [ %.sroa.0.0, %4685 ], [ %.sroa.0.0, %4679 ], [ %.sroa.0.0, %4665 ], [ %.sroa.0.0, %4659 ], [ %.sroa.0.0, %4658 ], [ %.sroa.0.0, %4630 ], [ %.sroa.0.0, %4628 ], [ %.sroa.0.0, %parser_set_lex_state.exit3244 ], [ %.sroa.0.0, %4608 ], [ %.sroa.0.0, %4607 ], [ %.sroa.0.0, %4605 ], [ %.sroa.0.0, %4604 ], [ %.sroa.0.0, %4600 ], [ %.sroa.0.0, %4599 ], [ %.sroa.0.0, %4595 ], [ %.sroa.0.0, %opt_arg_append.exit3242 ], [ %.sroa.0.0, %4579 ], [ %.sroa.0.0, %opt_arg_append.exit ], [ %.sroa.0.0, %4563 ], [ %.sroa.0.0, %4555 ], [ %.sroa.0.0, %4547 ], [ %.sroa.0.0, %4546 ], [ %.sroa.0.0, %4542 ], [ %.sroa.0.0, %4707 ], [ %.sroa.0.0, %kwd_append.exit3235 ], [ %.sroa.0.0, %4525 ], [ %.sroa.0.0, %kwd_append.exit ], [ %.sroa.0.0, %4508 ], [ %.sroa.0.0, %4502 ], [ %.sroa.0.0, %4494 ], [ %.sroa.0.0, %4488 ], [ %.sroa.0.0, %4480 ], [ %.sroa.0.0, %4473 ], [ %.sroa.0.0, %4458 ], [ %.sroa.0.0, %4450 ], [ %.sroa.0.0, %4436 ], [ %.sroa.0.0, %4433 ], [ %.sroa.0.0, %4429 ], [ %.sroa.0.0, %4428 ], [ %.sroa.0.0, %4427 ], [ %.sroa.0.0, %4426 ], [ %.sroa.0.0, %4425 ], [ %.sroa.0.0, %4424 ], [ %.sroa.0.0, %new_args.exit3224 ], [ %.sroa.0.0, %new_args.exit3220 ], [ %.sroa.0.0, %4387 ], [ %.sroa.0.0, %4382 ], [ %.sroa.0.0, %4375 ], [ %.sroa.0.0, %new_args.exit3216 ], [ %.sroa.0.0, %4349 ], [ %.sroa.0.0, %4342 ], [ %.sroa.0.0, %4337 ], [ %.sroa.0.0, %4328 ], [ %.sroa.0.0, %4321 ], [ %.sroa.0.0, %4312 ], [ %.sroa.0.0, %4305 ], [ %.sroa.0.0, %4294 ], [ %.sroa.0.0, %4285 ], [ %.sroa.0.0, %4283 ], [ %.sroa.0.0, %4281 ], [ %.sroa.0.0, %4275 ], [ %.sroa.0.0, %4272 ], [ %.sroa.0.0, %4266 ], [ %.sroa.0.0, %4260 ], [ %.sroa.0.0, %4252 ], [ %.sroa.0.0, %parser_set_lex_state.exit3212 ], [ %.sroa.0.0, %parser_set_lex_state.exit3210 ], [ %.sroa.0.0, %parser_set_lex_state.exit3208 ], [ %.sroa.0.0, %new_args.exit3206 ], [ %.sroa.0.0, %4195 ], [ %.sroa.0.0, %4192 ], [ %.sroa.0.0, %parser_set_lex_state.exit3202 ], [ %.sroa.0.0, %4181 ], [ %.sroa.0.0, %4178 ], [ %.sroa.0.0, %4173 ], [ %.sroa.0.0, %4176 ], [ %.sroa.0.0, %4168 ], [ %.sroa.0.0, %4171 ], [ %.sroa.0.0, %4167 ], [ %.sroa.0.0, %4166 ], [ %.sroa.0.0, %4165 ], [ %.sroa.0.0, %4164 ], [ %.sroa.0.0, %4163 ], [ %.sroa.0.0, %4162 ], [ %.sroa.0.0, %4161 ], [ %.sroa.0.0, %parser_set_lex_state.exit3198 ], [ %.sroa.0.0, %4145 ], [ %.sroa.0.0, %4129 ], [ %.sroa.0.0, %4132 ], [ %.sroa.0.0, %4126 ], [ %.sroa.0.0, %4090 ], [ %.sroa.0.0, %4088 ], [ %.sroa.0.0, %parser_set_lex_state.exit3192 ], [ %.sroa.0.0, %4057 ], [ %.sroa.0.0, %parser_set_lex_state.exit3190 ], [ %.sroa.0.0, %4048 ], [ %.sroa.0.0, %4037 ], [ %.sroa.0.0, %4035 ], [ %.sroa.0.0, %4030 ], [ %.sroa.0.0, %4025 ], [ %.sroa.0.0, %4024 ], [ %.sroa.0.0, %4019 ], [ %.sroa.0.0, %4018 ], [ %.sroa.0.0, %4012 ], [ %.sroa.0.0, %4011 ], [ %.sroa.0.0, %4005 ], [ %.sroa.0.0, %4004 ], [ %.sroa.0.0, %4002 ], [ %.sroa.0.0, %3986 ], [ %.sroa.0.0, %3965 ], [ %.sroa.0.0, %3964 ], [ %.sroa.0.0, %3962 ], [ %.sroa.0.0, %3943 ], [ %.sroa.0.0, %3936 ], [ %.sroa.0.0, %3935 ], [ %.sroa.0.0, %3933 ], [ %.sroa.0.0, %4708 ], [ %.sroa.0.0, %3914 ], [ %.sroa.0.0, %3909 ], [ %.sroa.0.0, %3901 ], [ %.sroa.0.0, %3897 ], [ %.sroa.0.0, %3892 ], [ %.sroa.0.0, %3891 ], [ %.sroa.0.0, %3875 ], [ %.sroa.0.0, %3873 ], [ %.sroa.0.0, %splat_array.exit ], [ %.sroa.0.0, %3871 ], [ %.sroa.0.0, %3861 ], [ %.sroa.0.0, %3808 ], [ %.sroa.0.0, %3803 ], [ %.sroa.0.0, %3800 ], [ %.sroa.0.0, %3796 ], [ %.sroa.0.0, %3791 ], [ %.sroa.0.0, %3794 ], [ %.sroa.0.0, %3790 ], [ %.sroa.0.0, %3776 ], [ %.sroa.0.0, %3771 ], [ %.sroa.0.0, %3774 ], [ %.sroa.0.0, %3765 ], [ %.sroa.0.0, %3759 ], [ %.sroa.0.0, %3752 ], [ %.sroa.0.0, %3745 ], [ %.sroa.0.0, %3738 ], [ %.sroa.0.0, %3731 ], [ %.sroa.0.0, %3730 ], [ %.sroa.0.0, %3729 ], [ %.sroa.0.0, %3728 ], [ %.sroa.0.0, %3726 ], [ %.sroa.0.0, %3718 ], [ %.sroa.0.0, %3722 ], [ %.sroa.0.0, %3701 ], [ %.sroa.0.0, %3682 ], [ %.sroa.0.0, %3677 ], [ %.sroa.0.0, %3673 ], [ %.sroa.0.0, %3668 ], [ %.sroa.0.0, %3664 ], [ %.sroa.0.0, %3658 ], [ %.sroa.0.0, %3655 ], [ %.sroa.0.0, %3650 ], [ %.sroa.0.0, %3649 ], [ %.sroa.0.0, %3645 ], [ %.sroa.0.0, %3638 ], [ %.sroa.0.0, %3633 ], [ %.sroa.0.0, %3630 ], [ %.sroa.0.0, %3624 ], [ %.sroa.0.0, %3621 ], [ %.sroa.0.0, %3614 ], [ %.sroa.0.0, %3609 ], [ %.sroa.0.0, %3603 ], [ %.sroa.0.0, %3600 ], [ %.sroa.0.0, %3596 ], [ %.sroa.0.0, %pop_pktbl.exit3176 ], [ %.sroa.0.0, %3586 ], [ %.sroa.0.0, %pop_pktbl.exit3174 ], [ %.sroa.0.0, %3569 ], [ %.sroa.0.0, %3566 ], [ %.sroa.0.0, %3562 ], [ %.sroa.0.0, %3558 ], [ %.sroa.0.0, %3553 ], [ %.sroa.0.0, %pop_pktbl.exit3172 ], [ %.sroa.0.0, %pop_pktbl.exit3170 ], [ %.sroa.0.0, %pop_pktbl.exit3168 ], [ %.sroa.0.0, %3509 ], [ %.sroa.0.0, %pop_pktbl.exit3166 ], [ %.sroa.0.0, %pop_pktbl.exit3164 ], [ %.sroa.0.0, %pop_pktbl.exit3162 ], [ %.sroa.0.0, %3468 ], [ %.sroa.0.0, %3466 ], [ %.sroa.0.0, %3461 ], [ %.sroa.0.0, %3454 ], [ %.sroa.0.0, %3451 ], [ %.sroa.0.0, %3448 ], [ %.sroa.0.0, %3445 ], [ %.sroa.0.0, %3437 ], [ %.sroa.0.0, %3432 ], [ %.sroa.0.0, %3393 ], [ %.sroa.0.0, %pop_pktbl.exit3156 ], [ %.sroa.0.0, %parser_set_lex_state.exit3154 ], [ %.sroa.0.0, %3365 ], [ %.sroa.0.0, %3362 ], [ %.sroa.0.0, %3339 ], [ %.sroa.0.0, %3333 ], [ %.sroa.0.0, %3330 ], [ %.sroa.0.0, %3326 ], [ %.sroa.0.0, %numparam_pop.exit3150 ], [ %.sroa.0.0, %3288 ], [ %.sroa.0.0, %3282 ], [ %.sroa.0.0, %numparam_pop.exit3144 ], [ %.sroa.0.0, %3249 ], [ %.sroa.0.0, %3234 ], [ %.sroa.0.0, %3219 ], [ %.sroa.0.0, %3200 ], [ %.sroa.0.0, %3197 ], [ %.sroa.0.0, %3184 ], [ %.sroa.0.0, %3169 ], [ %.sroa.0.0, %3164 ], [ %.sroa.0.0, %3149 ], [ %.sroa.0.0, %3132 ], [ %.sroa.0.0, %3123 ], [ %.sroa.0.0, %3111 ], [ %.sroa.0.0, %3099 ], [ %.sroa.0.0, %3089 ], [ %.sroa.0.0, %3046 ], [ %.sroa.0.0, %3043 ], [ %.sroa.0.0, %3042 ], [ %.sroa.0.0, %3039 ], [ %.sroa.0.0, %3037 ], [ %.sroa.0.0, %3025 ], [ %.sroa.0.0, %numparam_pop.exit ], [ %.sroa.0.0, %2962 ], [ %.sroa.0.0, %2957 ], [ %.sroa.0.0, %2953 ], [ %.sroa.0.0, %2951 ], [ %.sroa.0.0, %numparam_push.argprom.exit ], [ %.sroa.0.0, %2941 ], [ %.sroa.0.0, %2940 ], [ %.sroa.0.0, %2938 ], [ %.sroa.0.0, %2937 ], [ %.sroa.0.0, %2936 ], [ %.sroa.0.0, %2931 ], [ %.sroa.0.0, %2928 ], [ %.sroa.0.0, %2925 ], [ %.sroa.0.0, %new_args.exit3120 ], [ %.sroa.0.0, %2903 ], [ %.sroa.0.0, %2898 ], [ %.sroa.0.0, %2891 ], [ %.sroa.0.0, %new_args.exit ], [ %.sroa.0.0, %2865 ], [ %.sroa.0.0, %2858 ], [ %.sroa.0.0, %2853 ], [ %.sroa.0.0, %2844 ], [ %.sroa.0.0, %2838 ], [ %.sroa.0.0, %2831 ], [ %.sroa.0.0, %2822 ], [ %.sroa.0.0, %2815 ], [ %.sroa.0.0, %2804 ], [ %.sroa.0.0, %2795 ], [ %.sroa.0.0, %2794 ], [ %.sroa.0.0, %2792 ], [ %.sroa.0.0, %2790 ], [ %.sroa.0.0, %2787 ], [ %.sroa.0.0, %2781 ], [ %.sroa.0.0, %2775 ], [ %.sroa.0.0, %2767 ], [ %.sroa.0.0, %2764 ], [ %.sroa.0.0, %2763 ], [ %.sroa.0.0, %2762 ], [ %.sroa.0.0, %2759 ], [ %.sroa.0.0, %2753 ], [ %.sroa.0.0, %2750 ], [ %.sroa.0.0, %2742 ], [ %.sroa.0.0, %2737 ], [ %.sroa.0.0, %2734 ], [ %.sroa.0.0, %2729 ], [ %.sroa.0.0, %2726 ], [ %.sroa.0.0, %2723 ], [ %.sroa.0.0, %2720 ], [ %.sroa.0.0, %2718 ], [ %.sroa.0.0, %2694 ], [ %.sroa.0.0, %2697 ], [ %.sroa.0.0, %2699 ], [ %.sroa.0.0, %dyna_in_block.argprom.argprom.exit ], [ %.sroa.0.0, %dyna_in_block.argprom.argprom.exit.thread ], [ %.sroa.0.0, %2687 ], [ %.sroa.0.0, %2686 ], [ %.sroa.0.0, %2685 ], [ %.sroa.0.0, %2683 ], [ %.sroa.0.0, %token_info_setup.exit ], [ %.sroa.0.0, %token_info_setup.exit.thread ], [ %.sroa.0.0, %2656 ], [ %.sroa.0.0, %2652 ], [ %.sroa.0.0, %2649 ], [ %.sroa.0.0, %2643 ], [ %.sroa.0.0, %2642 ], [ %.sroa.0.0, %2641 ], [ %.sroa.0.0, %2637 ], [ %.sroa.0.0, %2633 ], [ %.sroa.0.0, %2629 ], [ %.sroa.0.0, %2626 ], [ %.sroa.0.0, %2625 ], [ %.sroa.0.0, %2622 ], [ %.sroa.0.0, %2619 ], [ %.sroa.0.0, %2618 ], [ %.sroa.0.0, %2617 ], [ %.sroa.0.0, %2580 ], [ %.sroa.0.0, %2577 ], [ %.sroa.0.0, %2575 ], [ %.sroa.0.0, %2564 ], [ %.sroa.0.0, %2561 ], [ %.sroa.0.0, %2558 ], [ %.sroa.0.0, %2544 ], [ %.sroa.0.0, %2542 ], [ %.sroa.0.0, %2528 ], [ %.sroa.0.0, %2526 ], [ %.sroa.0.0, %set_line_body.exit3109 ], [ %.sroa.0.0, %2480 ], [ %.sroa.0.0, %fixpos.exit3105 ], [ %.sroa.0.0, %2415 ], [ %.sroa.0.0, %set_line_body.exit3101 ], [ %.sroa.0.0, %2367 ], [ %.sroa.0.0, %2305 ], [ %.sroa.0.0, %2299 ], [ %.sroa.0.0, %2292 ], [ %.sroa.0.0, %2266 ], [ %.sroa.0.0, %block_dup_check.exit3081 ], [ %.sroa.0.0, %2161 ], [ %.sroa.0.0, %method_cond.exit3078 ], [ %.sroa.0.0, %method_cond.exit3076 ], [ %.sroa.0.0, %2134 ], [ %.sroa.0.0, %2132 ], [ %.sroa.0.0, %2130 ], [ %.sroa.0.0, %2126 ], [ %.sroa.0.0, %2124 ], [ %.sroa.0.0, %2119 ], [ %.sroa.0.0, %2117 ], [ %.sroa.0.0, %2100 ], [ %.sroa.0.0, %2095 ], [ %.sroa.0.0, %2092 ], [ %.sroa.0.0, %2083 ], [ %.sroa.0.0, %parser_set_lex_state.exit3074 ], [ %.sroa.0.0, %set_line_body.exit ], [ %.sroa.0.0, %2040 ], [ %.sroa.0.0, %2035 ], [ %.sroa.0.0, %2032 ], [ %.sroa.0.0, %2029 ], [ %.sroa.0.0, %2024 ], [ %.sroa.0.0, %2019 ], [ %.sroa.0.0, %2017 ], [ %.sroa.0.0, %2015 ], [ %.sroa.0.0, %2010 ], [ %.sroa.0.0, %2005 ], [ %.sroa.0.0, %2002 ], [ %.sroa.0.0, %1999 ], [ %.sroa.0.0, %1998 ], [ %.sroa.0.0, %1996 ], [ %.sroa.0.0, %1993 ], [ %.sroa.0.0, %1990 ], [ %.sroa.0.0, %1988 ], [ %.sroa.0.0, %1969 ], [ %.sroa.0.0, %1964 ], [ %.sroa.0.0, %1963 ], [ %.sroa.0.0, %arg_blk_pass.exit3071 ], [ %.sroa.0.0, %arg_blk_pass.exit3067 ], [ %.sroa.0.0, %arg_blk_pass.exit ], [ %.sroa.0.0, %1894 ], [ %.sroa.0.0, %1892 ], [ %.sroa.0.0, %1883 ], [ %.sroa.0.0, %1871 ], [ %.sroa.0.0, %1868 ], [ %.sroa.0.0, %1867 ], [ %.sroa.0.0, %1860 ], [ %.sroa.0.0, %1859 ], [ %.sroa.0.0, %1854 ], [ %.sroa.0.0, %1839 ], [ %.sroa.0.0, %1836 ], [ %.sroa.0.0, %1834 ], [ %.sroa.0.0, %1825 ], [ %.sroa.0.0, %1813 ], [ %.sroa.0.0, %1810 ], [ %.sroa.0.0, %1805 ], [ %.sroa.0.0, %1801 ], [ %.sroa.0.0, %1799 ], [ %.sroa.0.0, %1787 ], [ %.sroa.0.0, %1779 ], [ %.sroa.0.0, %1778 ], [ %.sroa.0.0, %1777 ], [ %.sroa.0.0, %1776 ], [ %.sroa.0.0, %1775 ], [ %.sroa.0.0, %method_cond.exit3061 ], [ %.sroa.0.0, %1754 ], [ %.sroa.0.0, %1752 ], [ %.sroa.0.0, %1735 ], [ %.sroa.0.0, %1718 ], [ %.sroa.0.0, %1690 ], [ %.sroa.0.0, %1684 ], [ %.sroa.0.0, %1678 ], [ %.sroa.0.0, %1672 ], [ %.sroa.0.0, %1666 ], [ %.sroa.0.0, %1662 ], [ %.sroa.0.0, %method_cond.exit3057 ], [ %.sroa.0.0, %1649 ], [ %.sroa.0.0, %1643 ], [ %.sroa.0.0, %1637 ], [ %.sroa.0.0, %1631 ], [ %.sroa.0.0, %1625 ], [ %.sroa.0.0, %1619 ], [ %.sroa.0.0, %1613 ], [ %.sroa.0.0, %1607 ], [ %.sroa.0.0, %1601 ], [ %.sroa.0.0, %1597 ], [ %.sroa.0.0, %1593 ], [ %.sroa.0.0, %1585 ], [ %.sroa.0.0, %1579 ], [ %.sroa.0.0, %1573 ], [ %.sroa.0.0, %1567 ], [ %.sroa.0.0, %1561 ], [ %.sroa.0.0, %1555 ], [ %.sroa.0.0, %1549 ], [ %.sroa.0.0, %1543 ], [ %.sroa.0.0, %1537 ], [ %.sroa.0.0, %1530 ], [ %.sroa.0.0, %1523 ], [ %.sroa.0.0, %1516 ], [ %.sroa.0.0, %1509 ], [ %.sroa.0.0, %1505 ], [ %.sroa.0.0, %1493 ], [ %.sroa.0.0, %1479 ], [ %.sroa.0.0, %1470 ], [ %.sroa.0.0, %1459 ], [ %.sroa.0.0, %1448 ], [ %.sroa.0.0, %1438 ], [ %.sroa.0.0, %1429 ], [ %.sroa.0.0, %1422 ], [ %.sroa.0.0, %1421 ], [ %.sroa.0.0, %1420 ], [ %.sroa.0.0, %1419 ], [ %.sroa.0.0, %1418 ], [ %.sroa.0.0, %1417 ], [ %.sroa.0.0, %1416 ], [ %.sroa.0.0, %1415 ], [ %.sroa.0.0, %1414 ], [ %.sroa.0.0, %1413 ], [ %.sroa.0.0, %1412 ], [ %.sroa.0.0, %1411 ], [ %.sroa.0.0, %1410 ], [ %.sroa.0.0, %1409 ], [ %.sroa.0.0, %1408 ], [ %.sroa.0.0, %1407 ], [ %.sroa.0.0, %1406 ], [ %.sroa.0.0, %1405 ], [ %.sroa.0.0, %1404 ], [ %.sroa.0.0, %1403 ], [ %.sroa.0.0, %1402 ], [ %.sroa.0.0, %1401 ], [ %.sroa.0.0, %1400 ], [ %.sroa.0.0, %1399 ], [ %.sroa.0.0, %1398 ], [ %.sroa.0.0, %1397 ], [ %.sroa.0.0, %1396 ], [ %.sroa.0.0, %1395 ], [ %.sroa.0.0, %1394 ], [ %.sroa.0.0, %1393 ], [ %.sroa.0.0, %1392 ], [ %.sroa.0.0, %1386 ], [ %.sroa.0.0, %parser_set_lex_state.exit3051 ], [ %.sroa.0.0, %1377 ], [ %.sroa.0.0, %1373 ], [ %.sroa.0.0, %parser_set_lex_state.exit3049 ], [ %.sroa.0.0, %1361 ], [ %.sroa.0.0, %1358 ], [ %.sroa.0.0, %1355 ], [ %.sroa.0.0, %1354 ], [ %.sroa.0.0, %1351 ], [ %.sroa.0.0, %1347 ], [ %.sroa.0.0, %1341 ], [ %.sroa.0.0, %1334 ], [ %.sroa.0.0, %1329 ], [ %.sroa.0.0, %1322 ], [ %.sroa.0.0, %1316 ], [ %.sroa.0.0, %1313 ], [ %.sroa.0.0, %1310 ], [ %.sroa.0.0, %1307 ], [ %.sroa.0.0, %1303 ], [ %.sroa.0.0, %1297 ], [ %.sroa.0.0, %1288 ], [ %.sroa.0.0, %1283 ], [ %.sroa.0.0, %1274 ], [ %.sroa.0.0, %1268 ], [ %.sroa.0.0, %1265 ], [ %.sroa.0.0, %1262 ], [ %.sroa.0.0, %1257 ], [ %.sroa.0.0, %1254 ], [ %.sroa.0.0, %1248 ], [ %.sroa.0.0, %1243 ], [ %.sroa.0.0, %1240 ], [ %.sroa.0.0, %1236 ], [ %.sroa.0.0, %1234 ], [ %.sroa.0.0, %1228 ], [ %.sroa.0.0, %1225 ], [ %.sroa.0.0, %1219 ], [ %.sroa.0.0, %1215 ], [ %.sroa.0.0, %1207 ], [ %.sroa.0.0, %1202 ], [ %.sroa.0.0, %1196 ], [ %.sroa.0.0, %1193 ], [ %.sroa.0.0, %1188 ], [ %.sroa.0.0, %1185 ], [ %.sroa.0.0, %1180 ], [ %.sroa.0.0, %1175 ], [ %.sroa.0.0, %1171 ], [ %.sroa.0.0, %1121 ], [ %.sroa.0.0, %1111 ], [ %.sroa.0.0, %1103 ], [ %.sroa.0.0, %1091 ], [ %.sroa.0.0, %1081 ], [ %.sroa.0.0, %fixpos.exit3041 ], [ %.sroa.0.0, %1038 ], [ %.sroa.0.0, %1035 ], [ %.sroa.0.0, %1020 ], [ %.sroa.0.0, %1010 ], [ %.sroa.0.0, %1007 ], [ %.sroa.0.0, %1006 ], [ %.sroa.0.0, %1001 ], [ %.sroa.0.0, %1000 ], [ %.sroa.0.0, %994 ], [ %.sroa.0.0, %992 ], [ %.sroa.0.0, %989 ], [ %.sroa.0.0, %def_head_save.exit3036 ], [ %.sroa.0.0, %parser_set_lex_state.exit3031 ], [ %.sroa.0.0, %def_head_save.exit ], [ %.sroa.0.0, %932 ], [ %.sroa.0.0, %pop_pktbl.exit3028 ], [ %.sroa.0.0, %908 ], [ %.sroa.0.0, %pop_pktbl.exit ], [ %.sroa.0.0, %886 ], [ %.sroa.0.0, %method_cond.exit3025 ], [ %.sroa.0.0, %method_cond.exit3023 ], [ %.sroa.0.0, %866 ], [ %.sroa.0.0, %860 ], [ %.sroa.0.0, %remove_begin.exit3021 ], [ %.sroa.0.0, %835 ], [ %.sroa.0.0, %method_cond.exit ], [ %.sroa.0.0, %814 ], [ %.sroa.0.0, %810 ], [ %.sroa.0.0, %793 ], [ %.sroa.0.0, %776 ], [ %.sroa.0.0, %767 ], [ %.sroa.0.0, %753 ], [ %.sroa.0.0, %742 ], [ %.sroa.0.0, %731 ], [ %.sroa.0.0, %721 ], [ %.sroa.0.0, %712 ], [ %.sroa.0.0, %705 ], [ %.sroa.0.0, %703 ], [ %.sroa.0.0, %696 ], [ %.sroa.0.0, %remove_begin.exit3011 ], [ %.sroa.0.0, %661 ], [ %.sroa.0.0, %653 ], [ %.sroa.0.0, %644 ], [ %.sroa.0.0, %remove_begin.exit3004 ], [ %.sroa.0.0, %cond.exit2992 ], [ %.sroa.0.0, %cond.exit2994 ], [ %.sroa.0.0, %cond.exit ], [ %.sroa.0.0, %cond.exit2988 ], [ %.sroa.0.0, %510 ], [ %.sroa.0.0, %508 ], [ %.sroa.0.0, %499 ], [ %.sroa.0.0, %494 ], [ %.sroa.0.0, %489 ], [ %.sroa.0.0, %parser_set_lex_state.exit2972 ], [ %.sroa.0.0, %479 ], [ %.sroa.0.0, %477 ], [ %.sroa.0.0, %475 ], [ %.sroa.0.0, %474 ], [ %.sroa.0.0, %472 ], [ %.sroa.0.0, %newline_node.exit2970 ], [ %.sroa.0.0, %newline_node.exit2962 ], [ %.sroa.0.0, %451 ], [ %.sroa.0.0, %447 ], [ %.sroa.0.0, %440 ], [ %.sroa.0.0, %432 ], [ %.sroa.0.0, %423 ], [ %.sroa.0.0, %415 ], [ %.sroa.0.0, %407 ], [ %.sroa.0.0, %394 ], [ %.sroa.0.0, %392 ], [ %.sroa.0.0, %390 ], [ %.sroa.0.0, %388 ], [ %.sroa.0.0, %newline_node.exit2954 ], [ %.sroa.0.0, %newline_node.exit ], [ %.sroa.0.0, %367 ], [ %.sroa.0.0, %363 ], [ %.sroa.0.0, %358 ], [ %.sroa.0.0, %337 ], [ %.sroa.0.0, %parser_set_lex_state.exit ], [ %.sroa.0.0, %.critedge2871 ], [ %.sroa.0.0, %remove_begin.exit2977 ], [ %.sroa.0.0, %527 ], [ %.sroa.0.0, %remove_begin.exit2982 ], [ %.sroa.0.0, %550 ], [ %.sroa.0.0, %1143 ], [ %.sroa.0.0, %1149 ], [ %.sroa.0.0, %1157 ], [ %.sroa.0.0, %1163 ], [ %.sroa.0.0, %1699 ], [ %.sroa.0.0, %1710 ], [ %.sroa.0.0, %2182 ], [ %.sroa.0.0, %2193 ], [ %.sroa.0.0, %2201 ], [ %.sroa.0.0, %2212 ], [ %.sroa.0.0, %cond.exit3087 ], [ %.sroa.0.0, %2235 ], [ %.sroa.0.0, %cond.exit3091 ], [ %.sroa.0.0, %2258 ], [ %.sroa.0.0, %2273 ], [ %.sroa.0.0, %2284 ], [ %.sroa.0.0, %2339 ], [ %.sroa.0.0, %2352 ], [ %.sroa.0.0, %2700 ], [ %.sroa.0.0, %2710 ], [ %.sroa.0.0, %block_dup_check.exit3130 ], [ %.sroa.0.0, %3081 ], [ %.sroa.0.0, %3202 ], [ %.sroa.0.0, %3211 ], [ %.sroa.0.0, %3344 ], [ %.sroa.0.0, %3354 ], [ %.sroa.0.0, %3400 ], [ %.sroa.0.0, %3408 ], [ %.sroa.0.0, %3416 ], [ %.sroa.0.0, %3424 ], [ %.sroa.0.2, %3829 ], [ %.sroa.0.2, %3830 ], [ %.sroa.0.2, %3840 ], [ %.sroa.0.2, %3841 ], [ %.sroa.0.2, %3849 ], [ %.sroa.0.2, %3853 ], [ %.sroa.0.0, %4156 ], [ %.sroa.0.0, %.sink.split.i3200 ]
-  %.32662 = phi i32 [ %.02659, %yy_reduce_print.exit ], [ %.02659, %4704 ], [ 0, %4702 ], [ %.02659, %4698 ], [ %.02659, %4694 ], [ %.02659, %4685 ], [ %.02659, %4679 ], [ %.02659, %4665 ], [ %.02659, %4659 ], [ %.02659, %4658 ], [ %.02659, %4630 ], [ %.02659, %4628 ], [ %.02659, %parser_set_lex_state.exit3244 ], [ %.02659, %4608 ], [ %.02659, %4607 ], [ %.02659, %4605 ], [ %.02659, %4604 ], [ %.02659, %4600 ], [ %.02659, %4599 ], [ %.02659, %4595 ], [ %.02659, %opt_arg_append.exit3242 ], [ %.02659, %4579 ], [ %.02659, %opt_arg_append.exit ], [ %.02659, %4563 ], [ %.02659, %4555 ], [ %.02659, %4547 ], [ %.02659, %4546 ], [ %.02659, %4542 ], [ 0, %4707 ], [ %.02659, %kwd_append.exit3235 ], [ %.02659, %4525 ], [ %.02659, %kwd_append.exit ], [ %.02659, %4508 ], [ %.02659, %4502 ], [ %.02659, %4494 ], [ %.02659, %4488 ], [ %.02659, %4480 ], [ %.02659, %4473 ], [ %.02659, %4458 ], [ %.02659, %4450 ], [ %.02659, %4436 ], [ %.02659, %4433 ], [ %.02659, %4429 ], [ %.02659, %4428 ], [ %.02659, %4427 ], [ %.02659, %4426 ], [ %.02659, %4425 ], [ %.02659, %4424 ], [ %.02659, %new_args.exit3224 ], [ %.02659, %new_args.exit3220 ], [ %.02659, %4387 ], [ %.02659, %4382 ], [ %.02659, %4375 ], [ %.02659, %new_args.exit3216 ], [ %.02659, %4349 ], [ %.02659, %4342 ], [ %.02659, %4337 ], [ %.02659, %4328 ], [ %.02659, %4321 ], [ %.02659, %4312 ], [ %.02659, %4305 ], [ %.02659, %4294 ], [ %.02659, %4285 ], [ %.02659, %4283 ], [ %.02659, %4281 ], [ %.02659, %4275 ], [ %.02659, %4272 ], [ %.02659, %4266 ], [ %.02659, %4260 ], [ %.02659, %4252 ], [ %.02659, %parser_set_lex_state.exit3212 ], [ %.02659, %parser_set_lex_state.exit3210 ], [ %.02659, %parser_set_lex_state.exit3208 ], [ %.02659, %new_args.exit3206 ], [ %.02659, %4195 ], [ %.02659, %4192 ], [ %.02659, %parser_set_lex_state.exit3202 ], [ %.02659, %4181 ], [ %.02659, %4178 ], [ %.02659, %4173 ], [ %.02659, %4176 ], [ %.02659, %4168 ], [ %.02659, %4171 ], [ %.02659, %4167 ], [ %.02659, %4166 ], [ %.02659, %4165 ], [ %.02659, %4164 ], [ %.02659, %4163 ], [ %.02659, %4162 ], [ %.02659, %4161 ], [ %.02659, %parser_set_lex_state.exit3198 ], [ %.02659, %4145 ], [ %.02659, %4129 ], [ %.02659, %4132 ], [ %.02659, %4126 ], [ %.02659, %4090 ], [ %.02659, %4088 ], [ %.02659, %parser_set_lex_state.exit3192 ], [ %.02659, %4057 ], [ %.02659, %parser_set_lex_state.exit3190 ], [ %.02659, %4048 ], [ %.02659, %4037 ], [ %.02659, %4035 ], [ %.02659, %4030 ], [ %.02659, %4025 ], [ %.02659, %4024 ], [ %.02659, %4019 ], [ %.02659, %4018 ], [ %.02659, %4012 ], [ %.02659, %4011 ], [ %.02659, %4005 ], [ %.02659, %4004 ], [ %.02659, %4002 ], [ %.02659, %3986 ], [ %.02659, %3965 ], [ %.02659, %3964 ], [ %.02659, %3962 ], [ %.02659, %3943 ], [ %.02659, %3936 ], [ %.02659, %3935 ], [ %.02659, %3933 ], [ %.02659, %4708 ], [ %.02659, %3914 ], [ %.02659, %3909 ], [ %.02659, %3901 ], [ %.02659, %3897 ], [ %.02659, %3892 ], [ %.02659, %3891 ], [ %.02659, %3875 ], [ %.02659, %3873 ], [ %.02659, %splat_array.exit ], [ %.02659, %3871 ], [ %.02659, %3861 ], [ %.02659, %3808 ], [ %.02659, %3803 ], [ %.02659, %3800 ], [ %.02659, %3796 ], [ %.02659, %3791 ], [ %.02659, %3794 ], [ %.02659, %3790 ], [ %.02659, %3776 ], [ %.02659, %3771 ], [ %.02659, %3774 ], [ %.02659, %3765 ], [ %.02659, %3759 ], [ %.02659, %3752 ], [ %.02659, %3745 ], [ %.02659, %3738 ], [ %.02659, %3731 ], [ %.02659, %3730 ], [ %.02659, %3729 ], [ %.02659, %3728 ], [ %.02659, %3726 ], [ %.02659, %3718 ], [ %.02659, %3722 ], [ %.02659, %3701 ], [ %.02659, %3682 ], [ %.02659, %3677 ], [ %.02659, %3673 ], [ %.02659, %3668 ], [ %.02659, %3664 ], [ %.02659, %3658 ], [ %.02659, %3655 ], [ %.02659, %3650 ], [ %.02659, %3649 ], [ %.02659, %3645 ], [ %.02659, %3638 ], [ %.02659, %3633 ], [ %.02659, %3630 ], [ %.02659, %3624 ], [ %.02659, %3621 ], [ %.02659, %3614 ], [ %.02659, %3609 ], [ %.02659, %3603 ], [ %.02659, %3600 ], [ %.02659, %3596 ], [ %.02659, %pop_pktbl.exit3176 ], [ %.02659, %3586 ], [ %.02659, %pop_pktbl.exit3174 ], [ %.02659, %3569 ], [ %.02659, %3566 ], [ %.02659, %3562 ], [ %.02659, %3558 ], [ %.02659, %3553 ], [ %.02659, %pop_pktbl.exit3172 ], [ %.02659, %pop_pktbl.exit3170 ], [ %.02659, %pop_pktbl.exit3168 ], [ %.02659, %3509 ], [ %.02659, %pop_pktbl.exit3166 ], [ %.02659, %pop_pktbl.exit3164 ], [ %.02659, %pop_pktbl.exit3162 ], [ %.02659, %3468 ], [ %.02659, %3466 ], [ %.02659, %3461 ], [ %.02659, %3454 ], [ %.02659, %3451 ], [ %.02659, %3448 ], [ %.02659, %3445 ], [ %.02659, %3437 ], [ %.02659, %3432 ], [ %.02659, %3393 ], [ %.02659, %pop_pktbl.exit3156 ], [ %.02659, %parser_set_lex_state.exit3154 ], [ %.02659, %3365 ], [ %.02659, %3362 ], [ %.02659, %3339 ], [ %.02659, %3333 ], [ %.02659, %3330 ], [ %.02659, %3326 ], [ %.02659, %numparam_pop.exit3150 ], [ %.02659, %3288 ], [ %.02659, %3282 ], [ %.02659, %numparam_pop.exit3144 ], [ %.02659, %3249 ], [ %.02659, %3234 ], [ %.02659, %3219 ], [ %.02659, %3200 ], [ %.02659, %3197 ], [ %.02659, %3184 ], [ %.02659, %3169 ], [ %.02659, %3164 ], [ %.02659, %3149 ], [ %.02659, %3132 ], [ %.02659, %3123 ], [ %.02659, %3111 ], [ %.02659, %3099 ], [ %.02659, %3089 ], [ %.02659, %3046 ], [ %.02659, %3043 ], [ %.02659, %3042 ], [ %.02659, %3039 ], [ %.02659, %3037 ], [ %.02659, %3025 ], [ %.02659, %numparam_pop.exit ], [ %.02659, %2962 ], [ %.02659, %2957 ], [ %.02659, %2953 ], [ %.02659, %2951 ], [ %.02659, %numparam_push.argprom.exit ], [ %.02659, %2941 ], [ %.02659, %2940 ], [ %.02659, %2938 ], [ %.02659, %2937 ], [ %.02659, %2936 ], [ %.02659, %2931 ], [ %.02659, %2928 ], [ %.02659, %2925 ], [ %.02659, %new_args.exit3120 ], [ %.02659, %2903 ], [ %.02659, %2898 ], [ %.02659, %2891 ], [ %.02659, %new_args.exit ], [ %.02659, %2865 ], [ %.02659, %2858 ], [ %.02659, %2853 ], [ %.02659, %2844 ], [ %.02659, %2838 ], [ %.02659, %2831 ], [ %.02659, %2822 ], [ %.02659, %2815 ], [ %.02659, %2804 ], [ %.02659, %2795 ], [ %.02659, %2794 ], [ %.02659, %2792 ], [ %.02659, %2790 ], [ %.02659, %2787 ], [ %.02659, %2781 ], [ %.02659, %2775 ], [ %.02659, %2767 ], [ %.02659, %2764 ], [ %.02659, %2763 ], [ %.02659, %2762 ], [ %.02659, %2759 ], [ %.02659, %2753 ], [ %.02659, %2750 ], [ %.02659, %2742 ], [ %.02659, %2737 ], [ %.02659, %2734 ], [ %.02659, %2729 ], [ %.02659, %2726 ], [ %.02659, %2723 ], [ %.02659, %2720 ], [ %.02659, %2718 ], [ %.02659, %2694 ], [ %.02659, %2697 ], [ %.02659, %2699 ], [ %.02659, %dyna_in_block.argprom.argprom.exit ], [ %.02659, %dyna_in_block.argprom.argprom.exit.thread ], [ %.02659, %2687 ], [ %.02659, %2686 ], [ %.02659, %2685 ], [ %.02659, %2683 ], [ %.02659, %token_info_setup.exit ], [ %.02659, %token_info_setup.exit.thread ], [ %.02659, %2656 ], [ %.02659, %2652 ], [ %.02659, %2649 ], [ %.02659, %2643 ], [ %.02659, %2642 ], [ %.02659, %2641 ], [ %.02659, %2637 ], [ %.02659, %2633 ], [ %.02659, %2629 ], [ %.02659, %2626 ], [ %.02659, %2625 ], [ %.02659, %2622 ], [ %.02659, %2619 ], [ %.02659, %2618 ], [ %.02659, %2617 ], [ %.02659, %2580 ], [ %.02659, %2577 ], [ %.02659, %2575 ], [ %.02659, %2564 ], [ %.02659, %2561 ], [ %.02659, %2558 ], [ %.02659, %2544 ], [ %.02659, %2542 ], [ %.02659, %2528 ], [ %.02659, %2526 ], [ %.02659, %set_line_body.exit3109 ], [ %.02659, %2480 ], [ %.02659, %fixpos.exit3105 ], [ %.02659, %2415 ], [ %.02659, %set_line_body.exit3101 ], [ %.02659, %2367 ], [ %.02659, %2305 ], [ %.02659, %2299 ], [ %.02659, %2292 ], [ %.02659, %2266 ], [ %.02659, %block_dup_check.exit3081 ], [ %.02659, %2161 ], [ %.02659, %method_cond.exit3078 ], [ %.02659, %method_cond.exit3076 ], [ %.02659, %2134 ], [ %.02659, %2132 ], [ %.02659, %2130 ], [ %.02659, %2126 ], [ %.02659, %2124 ], [ %.02659, %2119 ], [ %.02659, %2117 ], [ %.02659, %2100 ], [ %.02659, %2095 ], [ %.02659, %2092 ], [ %.02659, %2083 ], [ %.02659, %parser_set_lex_state.exit3074 ], [ %.02659, %set_line_body.exit ], [ %.02659, %2040 ], [ %.02659, %2035 ], [ %.02659, %2032 ], [ %.02659, %2029 ], [ %.02659, %2024 ], [ %.02659, %2019 ], [ %.02659, %2017 ], [ %.02659, %2015 ], [ %.02659, %2010 ], [ %.02659, %2005 ], [ %.02659, %2002 ], [ %.02659, %1999 ], [ %.02659, %1998 ], [ %.02659, %1996 ], [ %.02659, %1993 ], [ %.02659, %1990 ], [ %.02659, %1988 ], [ %.02659, %1969 ], [ %.02659, %1964 ], [ %.02659, %1963 ], [ %.02659, %arg_blk_pass.exit3071 ], [ %.02659, %arg_blk_pass.exit3067 ], [ %.02659, %arg_blk_pass.exit ], [ %.02659, %1894 ], [ %.02659, %1892 ], [ %.02659, %1883 ], [ %.02659, %1871 ], [ %.02659, %1868 ], [ %.02659, %1867 ], [ %.02659, %1860 ], [ %.02659, %1859 ], [ %.02659, %1854 ], [ %.02659, %1839 ], [ %.02659, %1836 ], [ %.02659, %1834 ], [ %.02659, %1825 ], [ %.02659, %1813 ], [ %.02659, %1810 ], [ %.02659, %1805 ], [ %.02659, %1801 ], [ %.02659, %1799 ], [ %.02659, %1787 ], [ %.02659, %1779 ], [ %.02659, %1778 ], [ %.02659, %1777 ], [ %.02659, %1776 ], [ %.02659, %1775 ], [ %.02659, %method_cond.exit3061 ], [ %.02659, %1754 ], [ %.02659, %1752 ], [ %.02659, %1735 ], [ %.02659, %1718 ], [ %.02659, %1690 ], [ %.02659, %1684 ], [ %.02659, %1678 ], [ %.02659, %1672 ], [ %.02659, %1666 ], [ %.02659, %1662 ], [ %.02659, %method_cond.exit3057 ], [ %.02659, %1649 ], [ %.02659, %1643 ], [ %.02659, %1637 ], [ %.02659, %1631 ], [ %.02659, %1625 ], [ %.02659, %1619 ], [ %.02659, %1613 ], [ %.02659, %1607 ], [ %.02659, %1601 ], [ %.02659, %1597 ], [ %.02659, %1593 ], [ %.02659, %1585 ], [ %.02659, %1579 ], [ %.02659, %1573 ], [ %.02659, %1567 ], [ %.02659, %1561 ], [ %.02659, %1555 ], [ %.02659, %1549 ], [ %.02659, %1543 ], [ %.02659, %1537 ], [ %.02659, %1530 ], [ %.02659, %1523 ], [ %.02659, %1516 ], [ %.02659, %1509 ], [ %.02659, %1505 ], [ %.02659, %1493 ], [ %.02659, %1479 ], [ %.02659, %1470 ], [ %.02659, %1459 ], [ %.02659, %1448 ], [ %.02659, %1438 ], [ %.02659, %1429 ], [ %.02659, %1422 ], [ %.02659, %1421 ], [ %.02659, %1420 ], [ %.02659, %1419 ], [ %.02659, %1418 ], [ %.02659, %1417 ], [ %.02659, %1416 ], [ %.02659, %1415 ], [ %.02659, %1414 ], [ %.02659, %1413 ], [ %.02659, %1412 ], [ %.02659, %1411 ], [ %.02659, %1410 ], [ %.02659, %1409 ], [ %.02659, %1408 ], [ %.02659, %1407 ], [ %.02659, %1406 ], [ %.02659, %1405 ], [ %.02659, %1404 ], [ %.02659, %1403 ], [ %.02659, %1402 ], [ %.02659, %1401 ], [ %.02659, %1400 ], [ %.02659, %1399 ], [ %.02659, %1398 ], [ %.02659, %1397 ], [ %.02659, %1396 ], [ %.02659, %1395 ], [ %.02659, %1394 ], [ %.02659, %1393 ], [ %.02659, %1392 ], [ %.02659, %1386 ], [ %.02659, %parser_set_lex_state.exit3051 ], [ %.02659, %1377 ], [ %.02659, %1373 ], [ %.02659, %parser_set_lex_state.exit3049 ], [ %.02659, %1361 ], [ %.02659, %1358 ], [ %.02659, %1355 ], [ %.02659, %1354 ], [ %.02659, %1351 ], [ %.02659, %1347 ], [ %.02659, %1341 ], [ %.02659, %1334 ], [ %.02659, %1329 ], [ %.02659, %1322 ], [ %.02659, %1316 ], [ %.02659, %1313 ], [ %.02659, %1310 ], [ %.02659, %1307 ], [ %.02659, %1303 ], [ %.02659, %1297 ], [ %.02659, %1288 ], [ %.02659, %1283 ], [ %.02659, %1274 ], [ %.02659, %1268 ], [ %.02659, %1265 ], [ %.02659, %1262 ], [ %.02659, %1257 ], [ %.02659, %1254 ], [ %.02659, %1248 ], [ %.02659, %1243 ], [ %.02659, %1240 ], [ %.02659, %1236 ], [ %.02659, %1234 ], [ %.02659, %1228 ], [ %.02659, %1225 ], [ %.02659, %1219 ], [ %.02659, %1215 ], [ %.02659, %1207 ], [ %.02659, %1202 ], [ %.02659, %1196 ], [ %.02659, %1193 ], [ %.02659, %1188 ], [ %.02659, %1185 ], [ %.02659, %1180 ], [ %.02659, %1175 ], [ %.02659, %1171 ], [ %.02659, %1121 ], [ %.02659, %1111 ], [ %.02659, %1103 ], [ %.02659, %1091 ], [ %.02659, %1081 ], [ %.02659, %fixpos.exit3041 ], [ %.02659, %1038 ], [ %.02659, %1035 ], [ %.02659, %1020 ], [ %.02659, %1010 ], [ %.02659, %1007 ], [ %.02659, %1006 ], [ %.02659, %1001 ], [ %.02659, %1000 ], [ %.02659, %994 ], [ %.02659, %992 ], [ %.02659, %989 ], [ %.02659, %def_head_save.exit3036 ], [ %.02659, %parser_set_lex_state.exit3031 ], [ %.02659, %def_head_save.exit ], [ %.02659, %932 ], [ %.02659, %pop_pktbl.exit3028 ], [ %.02659, %908 ], [ %.02659, %pop_pktbl.exit ], [ %.02659, %886 ], [ %.02659, %method_cond.exit3025 ], [ %.02659, %method_cond.exit3023 ], [ %.02659, %866 ], [ %.02659, %860 ], [ %.02659, %remove_begin.exit3021 ], [ %.02659, %835 ], [ %.02659, %method_cond.exit ], [ %.02659, %814 ], [ %.02659, %810 ], [ %.02659, %793 ], [ %.02659, %776 ], [ %.02659, %767 ], [ %.02659, %753 ], [ %.02659, %742 ], [ %.02659, %731 ], [ %.02659, %721 ], [ %.02659, %712 ], [ %.02659, %705 ], [ %.02659, %703 ], [ %.02659, %696 ], [ %.02659, %remove_begin.exit3011 ], [ %.02659, %661 ], [ %.02659, %653 ], [ %.02659, %644 ], [ %.02659, %remove_begin.exit3004 ], [ %.02659, %cond.exit2992 ], [ %.02659, %cond.exit2994 ], [ %.02659, %cond.exit ], [ %.02659, %cond.exit2988 ], [ %.02659, %510 ], [ %.02659, %508 ], [ %.02659, %499 ], [ %.02659, %494 ], [ %.02659, %489 ], [ %.02659, %parser_set_lex_state.exit2972 ], [ %.02659, %479 ], [ %.02659, %477 ], [ %.02659, %475 ], [ %.02659, %474 ], [ %.02659, %472 ], [ %.02659, %newline_node.exit2970 ], [ %.02659, %newline_node.exit2962 ], [ %.02659, %451 ], [ %.02659, %447 ], [ %.02659, %440 ], [ %.02659, %432 ], [ %.02659, %423 ], [ %.02659, %415 ], [ %.02659, %407 ], [ %.02659, %394 ], [ %.02659, %392 ], [ %.02659, %390 ], [ %.02659, %388 ], [ %.02659, %newline_node.exit2954 ], [ %.02659, %newline_node.exit ], [ %.02659, %367 ], [ %.02659, %363 ], [ %.02659, %358 ], [ %.02659, %337 ], [ %.02659, %parser_set_lex_state.exit ], [ %.02659, %.critedge2871 ], [ %.02659, %remove_begin.exit2977 ], [ %.02659, %527 ], [ %.02659, %remove_begin.exit2982 ], [ %.02659, %550 ], [ %.02659, %1143 ], [ %.02659, %1149 ], [ %.02659, %1157 ], [ %.02659, %1163 ], [ %.02659, %1699 ], [ %.02659, %1710 ], [ %.02659, %2182 ], [ %.02659, %2193 ], [ %.02659, %2201 ], [ %.02659, %2212 ], [ %.02659, %cond.exit3087 ], [ %.02659, %2235 ], [ %.02659, %cond.exit3091 ], [ %.02659, %2258 ], [ %.02659, %2273 ], [ %.02659, %2284 ], [ %.02659, %2339 ], [ %.02659, %2352 ], [ %.02659, %2700 ], [ %.02659, %2710 ], [ %.02659, %block_dup_check.exit3130 ], [ %.02659, %3081 ], [ %.02659, %3202 ], [ %.02659, %3211 ], [ %.02659, %3344 ], [ %.02659, %3354 ], [ %.02659, %3400 ], [ %.02659, %3408 ], [ %.02659, %3416 ], [ %.02659, %3424 ], [ %.02659, %3829 ], [ %.02659, %3830 ], [ %.02659, %3840 ], [ %.02659, %3841 ], [ %.02659, %3849 ], [ %.02659, %3853 ], [ %.02659, %4156 ], [ %.02659, %.sink.split.i3200 ]
+fixpos.exit:                                      ; preds = %.sink.split.i3200, %4156, %3853, %3849, %3841, %3840, %3830, %3829, %3424, %3416, %3408, %3400, %3354, %3344, %3211, %3202, %3081, %block_dup_check.exit3130, %2710, %2700, %2352, %2339, %2284, %2273, %2258, %cond.exit3091, %2235, %cond.exit3087, %2212, %2201, %2193, %2182, %1710, %1699, %1163, %1157, %1149, %1143, %550, %remove_begin.exit2982, %527, %remove_begin.exit2977, %.critedge2871, %358, %363, %367, %newline_node.exit, %newline_node.exit2954, %388, %390, %392, %394, %407, %415, %423, %432, %440, %447, %451, %newline_node.exit2962, %newline_node.exit2970, %472, %474, %475, %477, %479, %parser_set_lex_state.exit2972, %489, %494, %499, %508, %510, %remove_begin.exit3004, %644, %653, %661, %remove_begin.exit3011, %696, %703, %705, %712, %721, %731, %742, %753, %767, %776, %793, %810, %814, %method_cond.exit, %835, %remove_begin.exit3021, %860, %866, %method_cond.exit3023, %method_cond.exit3025, %886, %pop_pktbl.exit, %908, %pop_pktbl.exit3028, %932, %def_head_save.exit, %parser_set_lex_state.exit3031, %def_head_save.exit3036, %989, %992, %1007, %1010, %1020, %1035, %1038, %fixpos.exit3041, %1081, %1091, %1103, %1111, %1121, %1171, %1175, %1180, %1185, %1188, %1193, %1196, %1202, %1207, %1215, %1219, %1225, %1228, %1234, %1236, %1240, %1243, %1248, %1254, %1257, %1262, %1265, %1268, %1274, %1283, %1288, %1297, %1303, %1307, %1310, %1313, %1316, %1322, %1329, %1334, %1341, %1347, %1351, %1354, %1355, %1358, %1361, %parser_set_lex_state.exit3049, %1373, %1377, %parser_set_lex_state.exit3051, %1386, %1392, %1393, %1394, %1395, %1396, %1397, %1398, %1399, %1400, %1401, %1402, %1403, %1404, %1405, %1406, %1407, %1408, %1409, %1410, %1411, %1412, %1413, %1414, %1415, %1416, %1417, %1418, %1419, %1420, %1421, %1422, %1429, %1438, %1448, %1459, %1470, %1479, %1493, %1505, %1509, %1516, %1523, %1530, %1537, %1543, %1549, %1555, %1561, %1567, %1573, %1579, %1585, %1593, %1597, %1601, %1607, %1613, %1619, %1625, %1631, %1637, %1643, %1649, %method_cond.exit3057, %1662, %1666, %1672, %1678, %1684, %1690, %1718, %1735, %1752, %1754, %method_cond.exit3061, %1775, %1776, %1777, %1778, %1779, %1787, %1799, %1801, %1805, %1810, %1813, %1825, %1834, %1836, %1839, %1854, %1871, %1883, %1892, %1894, %arg_blk_pass.exit, %arg_blk_pass.exit3067, %arg_blk_pass.exit3071, %1988, %1990, %1993, %1996, %1998, %1999, %2002, %2005, %2010, %2015, %2017, %2019, %2024, %2029, %2032, %set_line_body.exit, %parser_set_lex_state.exit3074, %2083, %2092, %2095, %2100, %2117, %2119, %2124, %2126, %2130, %2132, %2134, %method_cond.exit3076, %method_cond.exit3078, %2161, %block_dup_check.exit3081, %2266, %2292, %2299, %2305, %2367, %set_line_body.exit3101, %2415, %fixpos.exit3105, %2480, %set_line_body.exit3109, %2526, %2528, %2542, %2544, %2558, %2561, %2564, %2575, %2577, %2580, %2617, %2618, %2619, %2622, %2625, %2626, %2629, %2633, %2637, %2641, %2642, %2643, %2649, %2652, %2683, %2685, %2686, %2718, %2720, %2723, %2726, %2729, %2734, %2737, %2742, %2750, %2753, %2759, %2762, %2763, %2764, %2767, %2775, %2781, %2787, %2790, %2792, %2794, %2795, %2804, %2815, %2822, %2831, %2838, %2844, %2853, %2858, %2865, %new_args.exit, %2891, %2898, %2903, %new_args.exit3120, %2925, %2928, %2931, %2936, %2937, %2938, %2940, %2941, %numparam_push.exit, %2951, %2953, %numparam_pop.exit, %3025, %3037, %3039, %3042, %3043, %3046, %3089, %3099, %3111, %3123, %3132, %3149, %3164, %3169, %3184, %3197, %3200, %3219, %3234, %3249, %numparam_pop.exit3144, %numparam_pop.exit3150, %3326, %3330, %3333, %3339, %3362, %3365, %parser_set_lex_state.exit3154, %pop_pktbl.exit3156, %3393, %3432, %3437, %3445, %3448, %3451, %3454, %3461, %3466, %3468, %pop_pktbl.exit3162, %pop_pktbl.exit3164, %pop_pktbl.exit3166, %3509, %pop_pktbl.exit3168, %pop_pktbl.exit3170, %pop_pktbl.exit3172, %3553, %3558, %3562, %3566, %3569, %pop_pktbl.exit3174, %3586, %pop_pktbl.exit3176, %3596, %3600, %3603, %3609, %3614, %3621, %3624, %3630, %3633, %3638, %3645, %3649, %3650, %3655, %3658, %3664, %3668, %3673, %3677, %3682, %3701, %3726, %3728, %3729, %3730, %3731, %3738, %3745, %3752, %3759, %3765, %3776, %3790, %3796, %3800, %3803, %3808, %3861, %3873, %3875, %3891, %3892, %3909, %3914, %3933, %3935, %3936, %3943, %3962, %3964, %3965, %3986, %4002, %4004, %4005, %4011, %4012, %4018, %4019, %4024, %4025, %4030, %parser_set_lex_state.exit3190, %4057, %parser_set_lex_state.exit3192, %4088, %4090, %4126, %4145, %parser_set_lex_state.exit3198, %4161, %4162, %4163, %4164, %4165, %4166, %4167, %4178, %4181, %parser_set_lex_state.exit3202, %4192, %4195, %new_args.exit3206, %parser_set_lex_state.exit3208, %parser_set_lex_state.exit3210, %parser_set_lex_state.exit3212, %4252, %4260, %4266, %4272, %4275, %4281, %4283, %4285, %4294, %4305, %4312, %4321, %4328, %4337, %4342, %4349, %new_args.exit3216, %4375, %4382, %4387, %new_args.exit3220, %new_args.exit3224, %4424, %4425, %4426, %4427, %4428, %4429, %4433, %4436, %4450, %4458, %4473, %4480, %4488, %4494, %4502, %4508, %kwd_append.exit, %4525, %kwd_append.exit3235, %4542, %4546, %4547, %4555, %4563, %opt_arg_append.exit, %4579, %opt_arg_append.exit3242, %4595, %4599, %4600, %4604, %4605, %4607, %4608, %parser_set_lex_state.exit3244, %4628, %4630, %4658, %4659, %4665, %4679, %4685, %4694, %4698, %4702, %4704, %4707, %4708, %337, %parser_set_lex_state.exit, %cond.exit2988, %cond.exit, %cond.exit2994, %cond.exit2992, %994, %1000, %1001, %1006, %1860, %1859, %1868, %1867, %1969, %1964, %1963, %2035, %2040, %token_info_setup.exit, %token_info_setup.exit.thread, %2656, %dyna_in_block.exit.thread, %dyna_in_block.exit, %2687, %2699, %2697, %2694, %2957, %2962, %3282, %3288, %3722, %3718, %3774, %3771, %3794, %3791, %3871, %splat_array.exit, %3901, %3897, %4037, %4048, %4035, %4132, %4129, %4171, %4168, %4176, %4173, %yy_reduce_print.exit
+  %.sroa.0105.3 = phi i16 [ %.sroa.0105.0, %yy_reduce_print.exit ], [ %.sroa.0105.0, %4704 ], [ %.sroa.0105.0, %4702 ], [ %.sroa.0105.0, %4698 ], [ %.sroa.0105.0, %4694 ], [ %.sroa.0105.0, %4685 ], [ %.sroa.0105.0, %4679 ], [ %.sroa.0105.0, %4665 ], [ %.sroa.0105.0, %4659 ], [ %.sroa.0105.0, %4658 ], [ %.sroa.0105.0, %4630 ], [ %.sroa.0105.0, %4628 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3244 ], [ %.sroa.0105.0, %4608 ], [ %.sroa.0105.0, %4607 ], [ %.sroa.0105.0, %4605 ], [ %.sroa.0105.0, %4604 ], [ %.sroa.0105.0, %4600 ], [ %.sroa.0105.0, %4599 ], [ %.sroa.0105.0, %4595 ], [ %.sroa.0105.0, %opt_arg_append.exit3242 ], [ %.sroa.0105.0, %4579 ], [ %.sroa.0105.0, %opt_arg_append.exit ], [ %.sroa.0105.0, %4563 ], [ %.sroa.0105.0, %4555 ], [ %.sroa.0105.0, %4547 ], [ %.sroa.0105.0, %4546 ], [ %.sroa.0105.0, %4542 ], [ %.sroa.0105.0, %4707 ], [ %.sroa.0105.0, %kwd_append.exit3235 ], [ %.sroa.0105.0, %4525 ], [ %.sroa.0105.0, %kwd_append.exit ], [ %.sroa.0105.0, %4508 ], [ %.sroa.0105.0, %4502 ], [ %.sroa.0105.0, %4494 ], [ %.sroa.0105.0, %4488 ], [ %.sroa.0105.0, %4480 ], [ %.sroa.0105.0, %4473 ], [ %.sroa.0105.0, %4458 ], [ %.sroa.0105.0, %4450 ], [ %.sroa.0105.0, %4436 ], [ %.sroa.0105.0, %4433 ], [ %.sroa.0105.0, %4429 ], [ %.sroa.0105.0, %4428 ], [ %.sroa.0105.0, %4427 ], [ %.sroa.0105.0, %4426 ], [ %.sroa.0105.0, %4425 ], [ %.sroa.0105.0, %4424 ], [ %.sroa.0105.0, %new_args.exit3224 ], [ %.sroa.0105.0, %new_args.exit3220 ], [ %.sroa.0105.0, %4387 ], [ %.sroa.0105.0, %4382 ], [ %.sroa.0105.0, %4375 ], [ %.sroa.0105.0, %new_args.exit3216 ], [ %.sroa.0105.0, %4349 ], [ %.sroa.0105.0, %4342 ], [ %.sroa.0105.0, %4337 ], [ %.sroa.0105.0, %4328 ], [ %.sroa.0105.0, %4321 ], [ %.sroa.0105.0, %4312 ], [ %.sroa.0105.0, %4305 ], [ %.sroa.0105.0, %4294 ], [ %.sroa.0105.0, %4285 ], [ %.sroa.0105.0, %4283 ], [ %.sroa.0105.0, %4281 ], [ %.sroa.0105.0, %4275 ], [ %.sroa.0105.0, %4272 ], [ %.sroa.0105.0, %4266 ], [ %.sroa.0105.0, %4260 ], [ %.sroa.0105.0, %4252 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3212 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3210 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3208 ], [ %.sroa.0105.0, %new_args.exit3206 ], [ %.sroa.0105.0, %4195 ], [ %.sroa.0105.0, %4192 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3202 ], [ %.sroa.0105.0, %4181 ], [ %.sroa.0105.0, %4178 ], [ %.sroa.0105.0, %4173 ], [ %.sroa.0105.0, %4176 ], [ %.sroa.0105.0, %4168 ], [ %.sroa.0105.0, %4171 ], [ %.sroa.0105.0, %4167 ], [ %.sroa.0105.0, %4166 ], [ %.sroa.0105.0, %4165 ], [ %.sroa.0105.0, %4164 ], [ %.sroa.0105.0, %4163 ], [ %.sroa.0105.0, %4162 ], [ %.sroa.0105.0, %4161 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3198 ], [ %.sroa.0105.0, %4145 ], [ %.sroa.0105.0, %4129 ], [ %.sroa.0105.0, %4132 ], [ %.sroa.0105.0, %4126 ], [ %.sroa.0105.0, %4090 ], [ %.sroa.0105.0, %4088 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3192 ], [ %.sroa.0105.0, %4057 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3190 ], [ %.sroa.0105.0, %4048 ], [ %.sroa.0105.0, %4037 ], [ %.sroa.0105.0, %4035 ], [ %.sroa.0105.0, %4030 ], [ %.sroa.0105.0, %4025 ], [ %.sroa.0105.0, %4024 ], [ %.sroa.0105.0, %4019 ], [ %.sroa.0105.0, %4018 ], [ %.sroa.0105.0, %4012 ], [ %.sroa.0105.0, %4011 ], [ %.sroa.0105.0, %4005 ], [ %.sroa.0105.0, %4004 ], [ %.sroa.0105.0, %4002 ], [ %.sroa.0105.0, %3986 ], [ %.sroa.0105.0, %3965 ], [ %.sroa.0105.0, %3964 ], [ %.sroa.0105.0, %3962 ], [ %.sroa.0105.0, %3943 ], [ %.sroa.0105.0, %3936 ], [ %.sroa.0105.0, %3935 ], [ %.sroa.0105.0, %3933 ], [ %.sroa.0105.0, %4708 ], [ %.sroa.0105.0, %3914 ], [ %.sroa.0105.0, %3909 ], [ %.sroa.0105.0, %3901 ], [ %.sroa.0105.0, %3897 ], [ %.sroa.0105.0, %3892 ], [ %.sroa.0105.0, %3891 ], [ %.sroa.0105.0, %3875 ], [ %.sroa.0105.0, %3873 ], [ %.sroa.0105.0, %splat_array.exit ], [ %.sroa.0105.0, %3871 ], [ %.sroa.0105.0, %3861 ], [ %.sroa.0105.0, %3808 ], [ %.sroa.0105.0, %3803 ], [ %.sroa.0105.0, %3800 ], [ %.sroa.0105.0, %3796 ], [ %.sroa.0105.0, %3791 ], [ %.sroa.0105.0, %3794 ], [ %.sroa.0105.0, %3790 ], [ %.sroa.0105.0, %3776 ], [ %.sroa.0105.0, %3771 ], [ %.sroa.0105.0, %3774 ], [ %.sroa.0105.0, %3765 ], [ %.sroa.0105.0, %3759 ], [ %.sroa.0105.0, %3752 ], [ %.sroa.0105.0, %3745 ], [ %.sroa.0105.0, %3738 ], [ %.sroa.0105.0, %3731 ], [ %.sroa.0105.0, %3730 ], [ %.sroa.0105.0, %3729 ], [ %.sroa.0105.0, %3728 ], [ %.sroa.0105.0, %3726 ], [ %.sroa.0105.0, %3718 ], [ %.sroa.0105.0, %3722 ], [ %.sroa.0105.0, %3701 ], [ %.sroa.0105.0, %3682 ], [ %.sroa.0105.0, %3677 ], [ %.sroa.0105.0, %3673 ], [ %.sroa.0105.0, %3668 ], [ %.sroa.0105.0, %3664 ], [ %.sroa.0105.0, %3658 ], [ %.sroa.0105.0, %3655 ], [ %.sroa.0105.0, %3650 ], [ %.sroa.0105.0, %3649 ], [ %.sroa.0105.0, %3645 ], [ %.sroa.0105.0, %3638 ], [ %.sroa.0105.0, %3633 ], [ %.sroa.0105.0, %3630 ], [ %.sroa.0105.0, %3624 ], [ %.sroa.0105.0, %3621 ], [ %.sroa.0105.0, %3614 ], [ %.sroa.0105.0, %3609 ], [ %.sroa.0105.0, %3603 ], [ %.sroa.0105.0, %3600 ], [ %.sroa.0105.0, %3596 ], [ %.sroa.0105.0, %pop_pktbl.exit3176 ], [ %.sroa.0105.0, %3586 ], [ %.sroa.0105.0, %pop_pktbl.exit3174 ], [ %.sroa.0105.0, %3569 ], [ %.sroa.0105.0, %3566 ], [ %.sroa.0105.0, %3562 ], [ %.sroa.0105.0, %3558 ], [ %.sroa.0105.0, %3553 ], [ %.sroa.0105.0, %pop_pktbl.exit3172 ], [ %.sroa.0105.0, %pop_pktbl.exit3170 ], [ %.sroa.0105.0, %pop_pktbl.exit3168 ], [ %.sroa.0105.0, %3509 ], [ %.sroa.0105.0, %pop_pktbl.exit3166 ], [ %.sroa.0105.0, %pop_pktbl.exit3164 ], [ %.sroa.0105.0, %pop_pktbl.exit3162 ], [ %.sroa.0105.0, %3468 ], [ %.sroa.0105.0, %3466 ], [ %.sroa.0105.0, %3461 ], [ %.sroa.0105.0, %3454 ], [ %.sroa.0105.0, %3451 ], [ %.sroa.0105.0, %3448 ], [ %.sroa.0105.0, %3445 ], [ %.sroa.0105.0, %3437 ], [ %.sroa.0105.0, %3432 ], [ %.sroa.0105.0, %3393 ], [ %.sroa.0105.0, %pop_pktbl.exit3156 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3154 ], [ %.sroa.0105.0, %3365 ], [ %.sroa.0105.0, %3362 ], [ %.sroa.0105.0, %3339 ], [ %.sroa.0105.0, %3333 ], [ %.sroa.0105.0, %3330 ], [ %.sroa.0105.0, %3326 ], [ %.sroa.0105.0, %numparam_pop.exit3150 ], [ %.sroa.0105.0, %3288 ], [ %.sroa.0105.0, %3282 ], [ %.sroa.0105.0, %numparam_pop.exit3144 ], [ %.sroa.0105.0, %3249 ], [ %.sroa.0105.0, %3234 ], [ %.sroa.0105.0, %3219 ], [ %.sroa.0105.0, %3200 ], [ %.sroa.0105.0, %3197 ], [ %.sroa.0105.0, %3184 ], [ %.sroa.0105.0, %3169 ], [ %.sroa.0105.0, %3164 ], [ %.sroa.0105.0, %3149 ], [ %.sroa.0105.0, %3132 ], [ %.sroa.0105.0, %3123 ], [ %.sroa.0105.0, %3111 ], [ %.sroa.0105.0, %3099 ], [ %.sroa.0105.0, %3089 ], [ %.sroa.0105.0, %3046 ], [ %.sroa.0105.0, %3043 ], [ %.sroa.0105.0, %3042 ], [ %.sroa.0105.0, %3039 ], [ %.sroa.0105.0, %3037 ], [ %.sroa.0105.0, %3025 ], [ %.sroa.0105.0, %numparam_pop.exit ], [ %.sroa.0105.0, %2962 ], [ %.sroa.0105.0, %2957 ], [ %.sroa.0105.0, %2953 ], [ %.sroa.0105.0, %2951 ], [ %.sroa.0105.0, %numparam_push.exit ], [ %.sroa.0105.0, %2941 ], [ %.sroa.0105.0, %2940 ], [ %.sroa.0105.0, %2938 ], [ %.sroa.0105.0, %2937 ], [ %.sroa.0105.0, %2936 ], [ %.sroa.0105.0, %2931 ], [ %.sroa.0105.0, %2928 ], [ %.sroa.0105.0, %2925 ], [ %.sroa.0105.0, %new_args.exit3120 ], [ %.sroa.0105.0, %2903 ], [ %.sroa.0105.0, %2898 ], [ %.sroa.0105.0, %2891 ], [ %.sroa.0105.0, %new_args.exit ], [ %.sroa.0105.0, %2865 ], [ %.sroa.0105.0, %2858 ], [ %.sroa.0105.0, %2853 ], [ %.sroa.0105.0, %2844 ], [ %.sroa.0105.0, %2838 ], [ %.sroa.0105.0, %2831 ], [ %.sroa.0105.0, %2822 ], [ %.sroa.0105.0, %2815 ], [ %.sroa.0105.0, %2804 ], [ %.sroa.0105.0, %2795 ], [ %.sroa.0105.0, %2794 ], [ %.sroa.0105.0, %2792 ], [ %.sroa.0105.0, %2790 ], [ %.sroa.0105.0, %2787 ], [ %.sroa.0105.0, %2781 ], [ %.sroa.0105.0, %2775 ], [ %.sroa.0105.0, %2767 ], [ %.sroa.0105.0, %2764 ], [ %.sroa.0105.0, %2763 ], [ %.sroa.0105.0, %2762 ], [ %.sroa.0105.0, %2759 ], [ %.sroa.0105.0, %2753 ], [ %.sroa.0105.0, %2750 ], [ %.sroa.0105.0, %2742 ], [ %.sroa.0105.0, %2737 ], [ %.sroa.0105.0, %2734 ], [ %.sroa.0105.0, %2729 ], [ %.sroa.0105.0, %2726 ], [ %.sroa.0105.0, %2723 ], [ %.sroa.0105.0, %2720 ], [ %.sroa.0105.0, %2718 ], [ %.sroa.0105.0, %2694 ], [ %.sroa.0105.0, %2697 ], [ %.sroa.0105.0, %2699 ], [ %.sroa.0105.0, %dyna_in_block.exit ], [ %.sroa.0105.0, %dyna_in_block.exit.thread ], [ %.sroa.0105.0, %2687 ], [ %.sroa.0105.0, %2686 ], [ %.sroa.0105.0, %2685 ], [ %.sroa.0105.0, %2683 ], [ %.sroa.0105.0, %token_info_setup.exit ], [ %.sroa.0105.0, %token_info_setup.exit.thread ], [ %.sroa.0105.0, %2656 ], [ %.sroa.0105.0, %2652 ], [ %.sroa.0105.0, %2649 ], [ %.sroa.0105.0, %2643 ], [ %.sroa.0105.0, %2642 ], [ %.sroa.0105.0, %2641 ], [ %.sroa.0105.0, %2637 ], [ %.sroa.0105.0, %2633 ], [ %.sroa.0105.0, %2629 ], [ %.sroa.0105.0, %2626 ], [ %.sroa.0105.0, %2625 ], [ %.sroa.0105.0, %2622 ], [ %.sroa.0105.0, %2619 ], [ %.sroa.0105.0, %2618 ], [ %.sroa.0105.0, %2617 ], [ %.sroa.0105.0, %2580 ], [ %.sroa.0105.0, %2577 ], [ %.sroa.0105.0, %2575 ], [ %.sroa.0105.0, %2564 ], [ %.sroa.0105.0, %2561 ], [ %.sroa.0105.0, %2558 ], [ %.sroa.0105.0, %2544 ], [ %.sroa.0105.0, %2542 ], [ %.sroa.0105.0, %2528 ], [ %.sroa.0105.0, %2526 ], [ %.sroa.0105.0, %set_line_body.exit3109 ], [ %.sroa.0105.0, %2480 ], [ %.sroa.0105.0, %fixpos.exit3105 ], [ %.sroa.0105.0, %2415 ], [ %.sroa.0105.0, %set_line_body.exit3101 ], [ %.sroa.0105.0, %2367 ], [ %.sroa.0105.0, %2305 ], [ %.sroa.0105.0, %2299 ], [ %.sroa.0105.0, %2292 ], [ %.sroa.0105.0, %2266 ], [ %.sroa.0105.0, %block_dup_check.exit3081 ], [ %.sroa.0105.0, %2161 ], [ %.sroa.0105.0, %method_cond.exit3078 ], [ %.sroa.0105.0, %method_cond.exit3076 ], [ %.sroa.0105.0, %2134 ], [ %.sroa.0105.0, %2132 ], [ %.sroa.0105.0, %2130 ], [ %.sroa.0105.0, %2126 ], [ %.sroa.0105.0, %2124 ], [ %.sroa.0105.0, %2119 ], [ %.sroa.0105.0, %2117 ], [ %.sroa.0105.0, %2100 ], [ %.sroa.0105.0, %2095 ], [ %.sroa.0105.0, %2092 ], [ %.sroa.0105.0, %2083 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3074 ], [ %.sroa.0105.0, %set_line_body.exit ], [ %.sroa.0105.0, %2040 ], [ %.sroa.0105.0, %2035 ], [ %.sroa.0105.0, %2032 ], [ %.sroa.0105.0, %2029 ], [ %.sroa.0105.0, %2024 ], [ %.sroa.0105.0, %2019 ], [ %.sroa.0105.0, %2017 ], [ %.sroa.0105.0, %2015 ], [ %.sroa.0105.0, %2010 ], [ %.sroa.0105.0, %2005 ], [ %.sroa.0105.0, %2002 ], [ %.sroa.0105.0, %1999 ], [ %.sroa.0105.0, %1998 ], [ %.sroa.0105.0, %1996 ], [ %.sroa.0105.0, %1993 ], [ %.sroa.0105.0, %1990 ], [ %.sroa.0105.0, %1988 ], [ %.sroa.0105.0, %1969 ], [ %.sroa.0105.0, %1964 ], [ %.sroa.0105.0, %1963 ], [ %.sroa.0105.0, %arg_blk_pass.exit3071 ], [ %.sroa.0105.0, %arg_blk_pass.exit3067 ], [ %.sroa.0105.0, %arg_blk_pass.exit ], [ %.sroa.0105.0, %1894 ], [ %.sroa.0105.0, %1892 ], [ %.sroa.0105.0, %1883 ], [ %.sroa.0105.0, %1871 ], [ %.sroa.0105.0, %1868 ], [ %.sroa.0105.0, %1867 ], [ %.sroa.0105.0, %1860 ], [ %.sroa.0105.0, %1859 ], [ %.sroa.0105.0, %1854 ], [ %.sroa.0105.0, %1839 ], [ %.sroa.0105.0, %1836 ], [ %.sroa.0105.0, %1834 ], [ %.sroa.0105.0, %1825 ], [ %.sroa.0105.0, %1813 ], [ %.sroa.0105.0, %1810 ], [ %.sroa.0105.0, %1805 ], [ %.sroa.0105.0, %1801 ], [ %.sroa.0105.0, %1799 ], [ %.sroa.0105.0, %1787 ], [ %.sroa.0105.0, %1779 ], [ %.sroa.0105.0, %1778 ], [ %.sroa.0105.0, %1777 ], [ %.sroa.0105.0, %1776 ], [ %.sroa.0105.0, %1775 ], [ %.sroa.0105.0, %method_cond.exit3061 ], [ %.sroa.0105.0, %1754 ], [ %.sroa.0105.0, %1752 ], [ %.sroa.0105.0, %1735 ], [ %.sroa.0105.0, %1718 ], [ %.sroa.0105.0, %1690 ], [ %.sroa.0105.0, %1684 ], [ %.sroa.0105.0, %1678 ], [ %.sroa.0105.0, %1672 ], [ %.sroa.0105.0, %1666 ], [ %.sroa.0105.0, %1662 ], [ %.sroa.0105.0, %method_cond.exit3057 ], [ %.sroa.0105.0, %1649 ], [ %.sroa.0105.0, %1643 ], [ %.sroa.0105.0, %1637 ], [ %.sroa.0105.0, %1631 ], [ %.sroa.0105.0, %1625 ], [ %.sroa.0105.0, %1619 ], [ %.sroa.0105.0, %1613 ], [ %.sroa.0105.0, %1607 ], [ %.sroa.0105.0, %1601 ], [ %.sroa.0105.0, %1597 ], [ %.sroa.0105.0, %1593 ], [ %.sroa.0105.0, %1585 ], [ %.sroa.0105.0, %1579 ], [ %.sroa.0105.0, %1573 ], [ %.sroa.0105.0, %1567 ], [ %.sroa.0105.0, %1561 ], [ %.sroa.0105.0, %1555 ], [ %.sroa.0105.0, %1549 ], [ %.sroa.0105.0, %1543 ], [ %.sroa.0105.0, %1537 ], [ %.sroa.0105.0, %1530 ], [ %.sroa.0105.0, %1523 ], [ %.sroa.0105.0, %1516 ], [ %.sroa.0105.0, %1509 ], [ %.sroa.0105.0, %1505 ], [ %.sroa.0105.0, %1493 ], [ %.sroa.0105.0, %1479 ], [ %.sroa.0105.0, %1470 ], [ %.sroa.0105.0, %1459 ], [ %.sroa.0105.0, %1448 ], [ %.sroa.0105.0, %1438 ], [ %.sroa.0105.0, %1429 ], [ %.sroa.0105.0, %1422 ], [ %.sroa.0105.0, %1421 ], [ %.sroa.0105.0, %1420 ], [ %.sroa.0105.0, %1419 ], [ %.sroa.0105.0, %1418 ], [ %.sroa.0105.0, %1417 ], [ %.sroa.0105.0, %1416 ], [ %.sroa.0105.0, %1415 ], [ %.sroa.0105.0, %1414 ], [ %.sroa.0105.0, %1413 ], [ %.sroa.0105.0, %1412 ], [ %.sroa.0105.0, %1411 ], [ %.sroa.0105.0, %1410 ], [ %.sroa.0105.0, %1409 ], [ %.sroa.0105.0, %1408 ], [ %.sroa.0105.0, %1407 ], [ %.sroa.0105.0, %1406 ], [ %.sroa.0105.0, %1405 ], [ %.sroa.0105.0, %1404 ], [ %.sroa.0105.0, %1403 ], [ %.sroa.0105.0, %1402 ], [ %.sroa.0105.0, %1401 ], [ %.sroa.0105.0, %1400 ], [ %.sroa.0105.0, %1399 ], [ %.sroa.0105.0, %1398 ], [ %.sroa.0105.0, %1397 ], [ %.sroa.0105.0, %1396 ], [ %.sroa.0105.0, %1395 ], [ %.sroa.0105.0, %1394 ], [ %.sroa.0105.0, %1393 ], [ %.sroa.0105.0, %1392 ], [ %.sroa.0105.0, %1386 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3051 ], [ %.sroa.0105.0, %1377 ], [ %.sroa.0105.0, %1373 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3049 ], [ %.sroa.0105.0, %1361 ], [ %.sroa.0105.0, %1358 ], [ %.sroa.0105.0, %1355 ], [ %.sroa.0105.0, %1354 ], [ %.sroa.0105.0, %1351 ], [ %.sroa.0105.0, %1347 ], [ %.sroa.0105.0, %1341 ], [ %.sroa.0105.0, %1334 ], [ %.sroa.0105.0, %1329 ], [ %.sroa.0105.0, %1322 ], [ %.sroa.0105.0, %1316 ], [ %.sroa.0105.0, %1313 ], [ %.sroa.0105.0, %1310 ], [ %.sroa.0105.0, %1307 ], [ %.sroa.0105.0, %1303 ], [ %.sroa.0105.0, %1297 ], [ %.sroa.0105.0, %1288 ], [ %.sroa.0105.0, %1283 ], [ %.sroa.0105.0, %1274 ], [ %.sroa.0105.0, %1268 ], [ %.sroa.0105.0, %1265 ], [ %.sroa.0105.0, %1262 ], [ %.sroa.0105.0, %1257 ], [ %.sroa.0105.0, %1254 ], [ %.sroa.0105.0, %1248 ], [ %.sroa.0105.0, %1243 ], [ %.sroa.0105.0, %1240 ], [ %.sroa.0105.0, %1236 ], [ %.sroa.0105.0, %1234 ], [ %.sroa.0105.0, %1228 ], [ %.sroa.0105.0, %1225 ], [ %.sroa.0105.0, %1219 ], [ %.sroa.0105.0, %1215 ], [ %.sroa.0105.0, %1207 ], [ %.sroa.0105.0, %1202 ], [ %.sroa.0105.0, %1196 ], [ %.sroa.0105.0, %1193 ], [ %.sroa.0105.0, %1188 ], [ %.sroa.0105.0, %1185 ], [ %.sroa.0105.0, %1180 ], [ %.sroa.0105.0, %1175 ], [ %.sroa.0105.0, %1171 ], [ %.sroa.0105.0, %1121 ], [ %.sroa.0105.0, %1111 ], [ %.sroa.0105.0, %1103 ], [ %.sroa.0105.0, %1091 ], [ %.sroa.0105.0, %1081 ], [ %.sroa.0105.0, %fixpos.exit3041 ], [ %.sroa.0105.0, %1038 ], [ %.sroa.0105.0, %1035 ], [ %.sroa.0105.0, %1020 ], [ %.sroa.0105.0, %1010 ], [ %.sroa.0105.0, %1007 ], [ %.sroa.0105.0, %1006 ], [ %.sroa.0105.0, %1001 ], [ %.sroa.0105.0, %1000 ], [ %.sroa.0105.0, %994 ], [ %.sroa.0105.0, %992 ], [ %.sroa.0105.0, %989 ], [ %.sroa.0105.0, %def_head_save.exit3036 ], [ %.sroa.0105.0, %parser_set_lex_state.exit3031 ], [ %.sroa.0105.0, %def_head_save.exit ], [ %.sroa.0105.0, %932 ], [ %.sroa.0105.0, %pop_pktbl.exit3028 ], [ %.sroa.0105.0, %908 ], [ %.sroa.0105.0, %pop_pktbl.exit ], [ %.sroa.0105.0, %886 ], [ %.sroa.0105.0, %method_cond.exit3025 ], [ %.sroa.0105.0, %method_cond.exit3023 ], [ %.sroa.0105.0, %866 ], [ %.sroa.0105.0, %860 ], [ %.sroa.0105.0, %remove_begin.exit3021 ], [ %.sroa.0105.0, %835 ], [ %.sroa.0105.0, %method_cond.exit ], [ %.sroa.0105.0, %814 ], [ %.sroa.0105.0, %810 ], [ %.sroa.0105.0, %793 ], [ %.sroa.0105.0, %776 ], [ %.sroa.0105.0, %767 ], [ %.sroa.0105.0, %753 ], [ %.sroa.0105.0, %742 ], [ %.sroa.0105.0, %731 ], [ %.sroa.0105.0, %721 ], [ %.sroa.0105.0, %712 ], [ %.sroa.0105.0, %705 ], [ %.sroa.0105.0, %703 ], [ %.sroa.0105.0, %696 ], [ %.sroa.0105.0, %remove_begin.exit3011 ], [ %.sroa.0105.0, %661 ], [ %.sroa.0105.0, %653 ], [ %.sroa.0105.0, %644 ], [ %.sroa.0105.0, %remove_begin.exit3004 ], [ %.sroa.0105.0, %cond.exit2992 ], [ %.sroa.0105.0, %cond.exit2994 ], [ %.sroa.0105.0, %cond.exit ], [ %.sroa.0105.0, %cond.exit2988 ], [ %.sroa.0105.0, %510 ], [ %.sroa.0105.0, %508 ], [ %.sroa.0105.0, %499 ], [ %.sroa.0105.0, %494 ], [ %.sroa.0105.0, %489 ], [ %.sroa.0105.0, %parser_set_lex_state.exit2972 ], [ %.sroa.0105.0, %479 ], [ %.sroa.0105.0, %477 ], [ %.sroa.0105.0, %475 ], [ %.sroa.0105.0, %474 ], [ %.sroa.0105.0, %472 ], [ %.sroa.0105.0, %newline_node.exit2970 ], [ %.sroa.0105.0, %newline_node.exit2962 ], [ %.sroa.0105.0, %451 ], [ %.sroa.0105.0, %447 ], [ %.sroa.0105.0, %440 ], [ %.sroa.0105.0, %432 ], [ %.sroa.0105.0, %423 ], [ %.sroa.0105.0, %415 ], [ %.sroa.0105.0, %407 ], [ %.sroa.0105.0, %394 ], [ %.sroa.0105.0, %392 ], [ %.sroa.0105.0, %390 ], [ %.sroa.0105.0, %388 ], [ %.sroa.0105.0, %newline_node.exit2954 ], [ %.sroa.0105.0, %newline_node.exit ], [ %.sroa.0105.0, %367 ], [ %.sroa.0105.0, %363 ], [ %.sroa.0105.0, %358 ], [ %.sroa.0105.0, %337 ], [ %.sroa.0105.0, %parser_set_lex_state.exit ], [ %.sroa.0105.0, %.critedge2871 ], [ %.sroa.0105.0, %remove_begin.exit2977 ], [ %.sroa.0105.0, %527 ], [ %.sroa.0105.0, %remove_begin.exit2982 ], [ %.sroa.0105.0, %550 ], [ %.sroa.0105.0, %1143 ], [ %.sroa.0105.0, %1149 ], [ %.sroa.0105.0, %1157 ], [ %.sroa.0105.0, %1163 ], [ %.sroa.0105.0, %1699 ], [ %.sroa.0105.0, %1710 ], [ %.sroa.0105.0, %2182 ], [ %.sroa.0105.0, %2193 ], [ %.sroa.0105.0, %2201 ], [ %.sroa.0105.0, %2212 ], [ %.sroa.0105.0, %cond.exit3087 ], [ %.sroa.0105.0, %2235 ], [ %.sroa.0105.0, %cond.exit3091 ], [ %.sroa.0105.0, %2258 ], [ %.sroa.0105.0, %2273 ], [ %.sroa.0105.0, %2284 ], [ %.sroa.0105.2, %2339 ], [ %.sroa.0105.2, %2352 ], [ %.sroa.0105.0, %2700 ], [ %.sroa.0105.0, %2710 ], [ %.sroa.0105.0, %block_dup_check.exit3130 ], [ %.sroa.0105.0, %3081 ], [ %.sroa.0105.0, %3202 ], [ %.sroa.0105.0, %3211 ], [ %.sroa.0105.0, %3344 ], [ %.sroa.0105.0, %3354 ], [ %.sroa.0105.0, %3400 ], [ %.sroa.0105.0, %3408 ], [ %.sroa.0105.0, %3416 ], [ %.sroa.0105.0, %3424 ], [ %.sroa.0105.0, %3829 ], [ %.sroa.0105.0, %3830 ], [ %.sroa.0105.0, %3840 ], [ %.sroa.0105.0, %3841 ], [ %.sroa.0105.0, %3849 ], [ %.sroa.0105.0, %3853 ], [ %.sroa.0105.0, %4156 ], [ %.sroa.0105.0, %.sink.split.i3200 ]
+  %.sroa.096.3 = phi i16 [ %.sroa.096.0, %yy_reduce_print.exit ], [ %.sroa.096.0, %4704 ], [ %.sroa.096.0, %4702 ], [ %.sroa.096.0, %4698 ], [ %.sroa.096.0, %4694 ], [ %.sroa.096.0, %4685 ], [ %.sroa.096.0, %4679 ], [ %.sroa.096.0, %4665 ], [ %.sroa.096.0, %4659 ], [ %.sroa.096.0, %4658 ], [ %.sroa.096.0, %4630 ], [ %.sroa.096.0, %4628 ], [ %.sroa.096.0, %parser_set_lex_state.exit3244 ], [ %.sroa.096.0, %4608 ], [ %.sroa.096.0, %4607 ], [ %.sroa.096.0, %4605 ], [ %.sroa.096.0, %4604 ], [ %.sroa.096.0, %4600 ], [ %.sroa.096.0, %4599 ], [ %.sroa.096.0, %4595 ], [ %.sroa.096.0, %opt_arg_append.exit3242 ], [ %.sroa.096.0, %4579 ], [ %.sroa.096.0, %opt_arg_append.exit ], [ %.sroa.096.0, %4563 ], [ %.sroa.096.0, %4555 ], [ %.sroa.096.0, %4547 ], [ %.sroa.096.0, %4546 ], [ %.sroa.096.0, %4542 ], [ %.sroa.096.0, %4707 ], [ %.sroa.096.0, %kwd_append.exit3235 ], [ %.sroa.096.0, %4525 ], [ %.sroa.096.0, %kwd_append.exit ], [ %.sroa.096.0, %4508 ], [ %.sroa.096.0, %4502 ], [ %.sroa.096.0, %4494 ], [ %.sroa.096.0, %4488 ], [ %.sroa.096.0, %4480 ], [ %.sroa.096.0, %4473 ], [ %.sroa.096.0, %4458 ], [ %.sroa.096.0, %4450 ], [ %.sroa.096.0, %4436 ], [ %.sroa.096.0, %4433 ], [ %.sroa.096.0, %4429 ], [ %.sroa.096.0, %4428 ], [ %.sroa.096.0, %4427 ], [ %.sroa.096.0, %4426 ], [ %.sroa.096.0, %4425 ], [ %.sroa.096.0, %4424 ], [ %.sroa.096.0, %new_args.exit3224 ], [ %.sroa.096.0, %new_args.exit3220 ], [ %.sroa.096.0, %4387 ], [ %.sroa.096.0, %4382 ], [ %.sroa.096.0, %4375 ], [ %.sroa.096.0, %new_args.exit3216 ], [ %.sroa.096.0, %4349 ], [ %.sroa.096.0, %4342 ], [ %.sroa.096.0, %4337 ], [ %.sroa.096.0, %4328 ], [ %.sroa.096.0, %4321 ], [ %.sroa.096.0, %4312 ], [ %.sroa.096.0, %4305 ], [ %.sroa.096.0, %4294 ], [ %.sroa.096.0, %4285 ], [ %.sroa.096.0, %4283 ], [ %.sroa.096.0, %4281 ], [ %.sroa.096.0, %4275 ], [ %.sroa.096.0, %4272 ], [ %.sroa.096.0, %4266 ], [ %.sroa.096.0, %4260 ], [ %.sroa.096.0, %4252 ], [ %.sroa.096.0, %parser_set_lex_state.exit3212 ], [ %.sroa.096.0, %parser_set_lex_state.exit3210 ], [ %.sroa.096.0, %parser_set_lex_state.exit3208 ], [ %.sroa.096.0, %new_args.exit3206 ], [ %.sroa.096.0, %4195 ], [ %.sroa.096.0, %4192 ], [ %.sroa.096.0, %parser_set_lex_state.exit3202 ], [ %.sroa.096.0, %4181 ], [ %.sroa.096.0, %4178 ], [ %.sroa.096.0, %4173 ], [ %.sroa.096.0, %4176 ], [ %.sroa.096.0, %4168 ], [ %.sroa.096.0, %4171 ], [ %.sroa.096.0, %4167 ], [ %.sroa.096.0, %4166 ], [ %.sroa.096.0, %4165 ], [ %.sroa.096.0, %4164 ], [ %.sroa.096.0, %4163 ], [ %.sroa.096.0, %4162 ], [ %.sroa.096.0, %4161 ], [ %.sroa.096.0, %parser_set_lex_state.exit3198 ], [ %.sroa.096.0, %4145 ], [ %.sroa.096.0, %4129 ], [ %.sroa.096.0, %4132 ], [ %.sroa.096.0, %4126 ], [ %.sroa.096.0, %4090 ], [ %.sroa.096.0, %4088 ], [ %.sroa.096.0, %parser_set_lex_state.exit3192 ], [ %.sroa.096.0, %4057 ], [ %.sroa.096.0, %parser_set_lex_state.exit3190 ], [ %.sroa.096.0, %4048 ], [ %.sroa.096.0, %4037 ], [ %.sroa.096.0, %4035 ], [ %.sroa.096.0, %4030 ], [ %.sroa.096.0, %4025 ], [ %.sroa.096.0, %4024 ], [ %.sroa.096.0, %4019 ], [ %.sroa.096.0, %4018 ], [ %.sroa.096.0, %4012 ], [ %.sroa.096.0, %4011 ], [ %.sroa.096.0, %4005 ], [ %.sroa.096.0, %4004 ], [ %.sroa.096.0, %4002 ], [ %.sroa.096.0, %3986 ], [ %.sroa.096.0, %3965 ], [ %.sroa.096.0, %3964 ], [ %.sroa.096.0, %3962 ], [ %.sroa.096.0, %3943 ], [ %.sroa.096.0, %3936 ], [ %.sroa.096.0, %3935 ], [ %.sroa.096.0, %3933 ], [ %.sroa.096.0, %4708 ], [ %.sroa.096.0, %3914 ], [ %.sroa.096.0, %3909 ], [ %.sroa.096.0, %3901 ], [ %.sroa.096.0, %3897 ], [ %.sroa.096.0, %3892 ], [ %.sroa.096.0, %3891 ], [ %.sroa.096.0, %3875 ], [ %.sroa.096.0, %3873 ], [ %.sroa.096.0, %splat_array.exit ], [ %.sroa.096.0, %3871 ], [ %.sroa.096.0, %3861 ], [ %.sroa.096.0, %3808 ], [ %.sroa.096.0, %3803 ], [ %.sroa.096.0, %3800 ], [ %.sroa.096.0, %3796 ], [ %.sroa.096.0, %3791 ], [ %.sroa.096.0, %3794 ], [ %.sroa.096.0, %3790 ], [ %.sroa.096.0, %3776 ], [ %.sroa.096.0, %3771 ], [ %.sroa.096.0, %3774 ], [ %.sroa.096.0, %3765 ], [ %.sroa.096.0, %3759 ], [ %.sroa.096.0, %3752 ], [ %.sroa.096.0, %3745 ], [ %.sroa.096.0, %3738 ], [ %.sroa.096.0, %3731 ], [ %.sroa.096.0, %3730 ], [ %.sroa.096.0, %3729 ], [ %.sroa.096.0, %3728 ], [ %.sroa.096.0, %3726 ], [ %.sroa.096.0, %3718 ], [ %.sroa.096.0, %3722 ], [ %.sroa.096.0, %3701 ], [ %.sroa.096.0, %3682 ], [ %.sroa.096.0, %3677 ], [ %.sroa.096.0, %3673 ], [ %.sroa.096.0, %3668 ], [ %.sroa.096.0, %3664 ], [ %.sroa.096.0, %3658 ], [ %.sroa.096.0, %3655 ], [ %.sroa.096.0, %3650 ], [ %.sroa.096.0, %3649 ], [ %.sroa.096.0, %3645 ], [ %.sroa.096.0, %3638 ], [ %.sroa.096.0, %3633 ], [ %.sroa.096.0, %3630 ], [ %.sroa.096.0, %3624 ], [ %.sroa.096.0, %3621 ], [ %.sroa.096.0, %3614 ], [ %.sroa.096.0, %3609 ], [ %.sroa.096.0, %3603 ], [ %.sroa.096.0, %3600 ], [ %.sroa.096.0, %3596 ], [ %.sroa.096.0, %pop_pktbl.exit3176 ], [ %.sroa.096.0, %3586 ], [ %.sroa.096.0, %pop_pktbl.exit3174 ], [ %.sroa.096.0, %3569 ], [ %.sroa.096.0, %3566 ], [ %.sroa.096.0, %3562 ], [ %.sroa.096.0, %3558 ], [ %.sroa.096.0, %3553 ], [ %.sroa.096.0, %pop_pktbl.exit3172 ], [ %.sroa.096.0, %pop_pktbl.exit3170 ], [ %.sroa.096.0, %pop_pktbl.exit3168 ], [ %.sroa.096.0, %3509 ], [ %.sroa.096.0, %pop_pktbl.exit3166 ], [ %.sroa.096.0, %pop_pktbl.exit3164 ], [ %.sroa.096.0, %pop_pktbl.exit3162 ], [ %.sroa.096.0, %3468 ], [ %.sroa.096.0, %3466 ], [ %.sroa.096.0, %3461 ], [ %.sroa.096.0, %3454 ], [ %.sroa.096.0, %3451 ], [ %.sroa.096.0, %3448 ], [ %.sroa.096.0, %3445 ], [ %.sroa.096.0, %3437 ], [ %.sroa.096.0, %3432 ], [ %.sroa.096.0, %3393 ], [ %.sroa.096.0, %pop_pktbl.exit3156 ], [ %.sroa.096.0, %parser_set_lex_state.exit3154 ], [ %.sroa.096.0, %3365 ], [ %.sroa.096.0, %3362 ], [ %.sroa.096.0, %3339 ], [ %.sroa.096.0, %3333 ], [ %.sroa.096.0, %3330 ], [ %.sroa.096.0, %3326 ], [ %.sroa.096.0, %numparam_pop.exit3150 ], [ %.sroa.096.0, %3288 ], [ %.sroa.096.0, %3282 ], [ %.sroa.096.0, %numparam_pop.exit3144 ], [ %.sroa.096.0, %3249 ], [ %.sroa.096.0, %3234 ], [ %.sroa.096.0, %3219 ], [ %.sroa.096.0, %3200 ], [ %.sroa.096.0, %3197 ], [ %.sroa.096.0, %3184 ], [ %.sroa.096.0, %3169 ], [ %.sroa.096.0, %3164 ], [ %.sroa.096.0, %3149 ], [ %.sroa.096.0, %3132 ], [ %.sroa.096.0, %3123 ], [ %.sroa.096.0, %3111 ], [ %.sroa.096.0, %3099 ], [ %.sroa.096.0, %3089 ], [ %.sroa.096.0, %3046 ], [ %.sroa.096.0, %3043 ], [ %.sroa.096.0, %3042 ], [ %.sroa.096.0, %3039 ], [ %.sroa.096.0, %3037 ], [ %.sroa.096.0, %3025 ], [ %.sroa.096.0, %numparam_pop.exit ], [ %.sroa.096.0, %2962 ], [ %.sroa.096.0, %2957 ], [ %.sroa.096.0, %2953 ], [ %.sroa.096.0, %2951 ], [ %.sroa.096.0, %numparam_push.exit ], [ %.sroa.096.0, %2941 ], [ %.sroa.096.0, %2940 ], [ %.sroa.096.0, %2938 ], [ %.sroa.096.0, %2937 ], [ %.sroa.096.0, %2936 ], [ %.sroa.096.0, %2931 ], [ %.sroa.096.0, %2928 ], [ %.sroa.096.0, %2925 ], [ %.sroa.096.0, %new_args.exit3120 ], [ %.sroa.096.0, %2903 ], [ %.sroa.096.0, %2898 ], [ %.sroa.096.0, %2891 ], [ %.sroa.096.0, %new_args.exit ], [ %.sroa.096.0, %2865 ], [ %.sroa.096.0, %2858 ], [ %.sroa.096.0, %2853 ], [ %.sroa.096.0, %2844 ], [ %.sroa.096.0, %2838 ], [ %.sroa.096.0, %2831 ], [ %.sroa.096.0, %2822 ], [ %.sroa.096.0, %2815 ], [ %.sroa.096.0, %2804 ], [ %.sroa.096.0, %2795 ], [ %.sroa.096.0, %2794 ], [ %.sroa.096.0, %2792 ], [ %.sroa.096.0, %2790 ], [ %.sroa.096.0, %2787 ], [ %.sroa.096.0, %2781 ], [ %.sroa.096.0, %2775 ], [ %.sroa.096.0, %2767 ], [ %.sroa.096.0, %2764 ], [ %.sroa.096.0, %2763 ], [ %.sroa.096.0, %2762 ], [ %.sroa.096.0, %2759 ], [ %.sroa.096.0, %2753 ], [ %.sroa.096.0, %2750 ], [ %.sroa.096.0, %2742 ], [ %.sroa.096.0, %2737 ], [ %.sroa.096.0, %2734 ], [ %.sroa.096.0, %2729 ], [ %.sroa.096.0, %2726 ], [ %.sroa.096.0, %2723 ], [ %.sroa.096.0, %2720 ], [ %.sroa.096.0, %2718 ], [ %.sroa.096.0, %2694 ], [ %.sroa.096.0, %2697 ], [ %.sroa.096.0, %2699 ], [ %.sroa.096.0, %dyna_in_block.exit ], [ %.sroa.096.0, %dyna_in_block.exit.thread ], [ %.sroa.096.0, %2687 ], [ %.sroa.096.0, %2686 ], [ %.sroa.096.0, %2685 ], [ %.sroa.096.0, %2683 ], [ %.sroa.096.0, %token_info_setup.exit ], [ %.sroa.096.0, %token_info_setup.exit.thread ], [ %.sroa.096.0, %2656 ], [ %.sroa.096.0, %2652 ], [ %.sroa.096.0, %2649 ], [ %.sroa.096.0, %2643 ], [ %.sroa.096.0, %2642 ], [ %.sroa.096.0, %2641 ], [ %.sroa.096.0, %2637 ], [ %.sroa.096.0, %2633 ], [ %.sroa.096.0, %2629 ], [ %.sroa.096.0, %2626 ], [ %.sroa.096.0, %2625 ], [ %.sroa.096.0, %2622 ], [ %.sroa.096.0, %2619 ], [ %.sroa.096.0, %2618 ], [ %.sroa.096.0, %2617 ], [ %.sroa.096.0, %2580 ], [ %.sroa.096.0, %2577 ], [ %.sroa.096.0, %2575 ], [ %.sroa.096.0, %2564 ], [ %.sroa.096.0, %2561 ], [ %.sroa.096.0, %2558 ], [ %.sroa.096.0, %2544 ], [ %.sroa.096.0, %2542 ], [ %.sroa.096.0, %2528 ], [ %.sroa.096.0, %2526 ], [ %.sroa.096.0, %set_line_body.exit3109 ], [ %.sroa.096.0, %2480 ], [ %.sroa.096.0, %fixpos.exit3105 ], [ %.sroa.096.0, %2415 ], [ %.sroa.096.0, %set_line_body.exit3101 ], [ %.sroa.096.0, %2367 ], [ %.sroa.096.0, %2305 ], [ %.sroa.096.0, %2299 ], [ %.sroa.096.0, %2292 ], [ %.sroa.096.0, %2266 ], [ %.sroa.096.0, %block_dup_check.exit3081 ], [ %.sroa.096.0, %2161 ], [ %.sroa.096.0, %method_cond.exit3078 ], [ %.sroa.096.0, %method_cond.exit3076 ], [ %.sroa.096.0, %2134 ], [ %.sroa.096.0, %2132 ], [ %.sroa.096.0, %2130 ], [ %.sroa.096.0, %2126 ], [ %.sroa.096.0, %2124 ], [ %.sroa.096.0, %2119 ], [ %.sroa.096.0, %2117 ], [ %.sroa.096.0, %2100 ], [ %.sroa.096.0, %2095 ], [ %.sroa.096.0, %2092 ], [ %.sroa.096.0, %2083 ], [ %.sroa.096.0, %parser_set_lex_state.exit3074 ], [ %.sroa.096.0, %set_line_body.exit ], [ %.sroa.096.0, %2040 ], [ %.sroa.096.0, %2035 ], [ %.sroa.096.0, %2032 ], [ %.sroa.096.0, %2029 ], [ %.sroa.096.0, %2024 ], [ %.sroa.096.0, %2019 ], [ %.sroa.096.0, %2017 ], [ %.sroa.096.0, %2015 ], [ %.sroa.096.0, %2010 ], [ %.sroa.096.0, %2005 ], [ %.sroa.096.0, %2002 ], [ %.sroa.096.0, %1999 ], [ %.sroa.096.0, %1998 ], [ %.sroa.096.0, %1996 ], [ %.sroa.096.0, %1993 ], [ %.sroa.096.0, %1990 ], [ %.sroa.096.0, %1988 ], [ %.sroa.096.0, %1969 ], [ %.sroa.096.0, %1964 ], [ %.sroa.096.0, %1963 ], [ %.sroa.096.0, %arg_blk_pass.exit3071 ], [ %.sroa.096.0, %arg_blk_pass.exit3067 ], [ %.sroa.096.0, %arg_blk_pass.exit ], [ %.sroa.096.0, %1894 ], [ %.sroa.096.0, %1892 ], [ %.sroa.096.0, %1883 ], [ %.sroa.096.0, %1871 ], [ %.sroa.096.0, %1868 ], [ %.sroa.096.0, %1867 ], [ %.sroa.096.0, %1860 ], [ %.sroa.096.0, %1859 ], [ %.sroa.096.0, %1854 ], [ %.sroa.096.0, %1839 ], [ %.sroa.096.0, %1836 ], [ %.sroa.096.0, %1834 ], [ %.sroa.096.0, %1825 ], [ %.sroa.096.0, %1813 ], [ %.sroa.096.0, %1810 ], [ %.sroa.096.0, %1805 ], [ %.sroa.096.0, %1801 ], [ %.sroa.096.0, %1799 ], [ %.sroa.096.0, %1787 ], [ %.sroa.096.0, %1779 ], [ %.sroa.096.0, %1778 ], [ %.sroa.096.0, %1777 ], [ %.sroa.096.0, %1776 ], [ %.sroa.096.0, %1775 ], [ %.sroa.096.0, %method_cond.exit3061 ], [ %.sroa.096.0, %1754 ], [ %.sroa.096.0, %1752 ], [ %.sroa.096.0, %1735 ], [ %.sroa.096.0, %1718 ], [ %.sroa.096.0, %1690 ], [ %.sroa.096.0, %1684 ], [ %.sroa.096.0, %1678 ], [ %.sroa.096.0, %1672 ], [ %.sroa.096.0, %1666 ], [ %.sroa.096.0, %1662 ], [ %.sroa.096.0, %method_cond.exit3057 ], [ %.sroa.096.0, %1649 ], [ %.sroa.096.0, %1643 ], [ %.sroa.096.0, %1637 ], [ %.sroa.096.0, %1631 ], [ %.sroa.096.0, %1625 ], [ %.sroa.096.0, %1619 ], [ %.sroa.096.0, %1613 ], [ %.sroa.096.0, %1607 ], [ %.sroa.096.0, %1601 ], [ %.sroa.096.0, %1597 ], [ %.sroa.096.0, %1593 ], [ %.sroa.096.0, %1585 ], [ %.sroa.096.0, %1579 ], [ %.sroa.096.0, %1573 ], [ %.sroa.096.0, %1567 ], [ %.sroa.096.0, %1561 ], [ %.sroa.096.0, %1555 ], [ %.sroa.096.0, %1549 ], [ %.sroa.096.0, %1543 ], [ %.sroa.096.0, %1537 ], [ %.sroa.096.0, %1530 ], [ %.sroa.096.0, %1523 ], [ %.sroa.096.0, %1516 ], [ %.sroa.096.0, %1509 ], [ %.sroa.096.0, %1505 ], [ %.sroa.096.0, %1493 ], [ %.sroa.096.0, %1479 ], [ %.sroa.096.0, %1470 ], [ %.sroa.096.0, %1459 ], [ %.sroa.096.0, %1448 ], [ %.sroa.096.0, %1438 ], [ %.sroa.096.0, %1429 ], [ %.sroa.096.0, %1422 ], [ %.sroa.096.0, %1421 ], [ %.sroa.096.0, %1420 ], [ %.sroa.096.0, %1419 ], [ %.sroa.096.0, %1418 ], [ %.sroa.096.0, %1417 ], [ %.sroa.096.0, %1416 ], [ %.sroa.096.0, %1415 ], [ %.sroa.096.0, %1414 ], [ %.sroa.096.0, %1413 ], [ %.sroa.096.0, %1412 ], [ %.sroa.096.0, %1411 ], [ %.sroa.096.0, %1410 ], [ %.sroa.096.0, %1409 ], [ %.sroa.096.0, %1408 ], [ %.sroa.096.0, %1407 ], [ %.sroa.096.0, %1406 ], [ %.sroa.096.0, %1405 ], [ %.sroa.096.0, %1404 ], [ %.sroa.096.0, %1403 ], [ %.sroa.096.0, %1402 ], [ %.sroa.096.0, %1401 ], [ %.sroa.096.0, %1400 ], [ %.sroa.096.0, %1399 ], [ %.sroa.096.0, %1398 ], [ %.sroa.096.0, %1397 ], [ %.sroa.096.0, %1396 ], [ %.sroa.096.0, %1395 ], [ %.sroa.096.0, %1394 ], [ %.sroa.096.0, %1393 ], [ %.sroa.096.0, %1392 ], [ %.sroa.096.0, %1386 ], [ %.sroa.096.0, %parser_set_lex_state.exit3051 ], [ %.sroa.096.0, %1377 ], [ %.sroa.096.0, %1373 ], [ %.sroa.096.0, %parser_set_lex_state.exit3049 ], [ %.sroa.096.0, %1361 ], [ %.sroa.096.0, %1358 ], [ %.sroa.096.0, %1355 ], [ %.sroa.096.0, %1354 ], [ %.sroa.096.0, %1351 ], [ %.sroa.096.0, %1347 ], [ %.sroa.096.0, %1341 ], [ %.sroa.096.0, %1334 ], [ %.sroa.096.0, %1329 ], [ %.sroa.096.0, %1322 ], [ %.sroa.096.0, %1316 ], [ %.sroa.096.0, %1313 ], [ %.sroa.096.0, %1310 ], [ %.sroa.096.0, %1307 ], [ %.sroa.096.0, %1303 ], [ %.sroa.096.0, %1297 ], [ %.sroa.096.0, %1288 ], [ %.sroa.096.0, %1283 ], [ %.sroa.096.0, %1274 ], [ %.sroa.096.0, %1268 ], [ %.sroa.096.0, %1265 ], [ %.sroa.096.0, %1262 ], [ %.sroa.096.0, %1257 ], [ %.sroa.096.0, %1254 ], [ %.sroa.096.0, %1248 ], [ %.sroa.096.0, %1243 ], [ %.sroa.096.0, %1240 ], [ %.sroa.096.0, %1236 ], [ %.sroa.096.0, %1234 ], [ %.sroa.096.0, %1228 ], [ %.sroa.096.0, %1225 ], [ %.sroa.096.0, %1219 ], [ %.sroa.096.0, %1215 ], [ %.sroa.096.0, %1207 ], [ %.sroa.096.0, %1202 ], [ %.sroa.096.0, %1196 ], [ %.sroa.096.0, %1193 ], [ %.sroa.096.0, %1188 ], [ %.sroa.096.0, %1185 ], [ %.sroa.096.0, %1180 ], [ %.sroa.096.0, %1175 ], [ %.sroa.096.0, %1171 ], [ %.sroa.096.0, %1121 ], [ %.sroa.096.0, %1111 ], [ %.sroa.096.0, %1103 ], [ %.sroa.096.0, %1091 ], [ %.sroa.096.0, %1081 ], [ %.sroa.096.0, %fixpos.exit3041 ], [ %.sroa.096.0, %1038 ], [ %.sroa.096.0, %1035 ], [ %.sroa.096.0, %1020 ], [ %.sroa.096.0, %1010 ], [ %.sroa.096.0, %1007 ], [ %.sroa.096.0, %1006 ], [ %.sroa.096.0, %1001 ], [ %.sroa.096.0, %1000 ], [ %.sroa.096.0, %994 ], [ %.sroa.096.0, %992 ], [ %.sroa.096.0, %989 ], [ %.sroa.096.0, %def_head_save.exit3036 ], [ %.sroa.096.0, %parser_set_lex_state.exit3031 ], [ %.sroa.096.0, %def_head_save.exit ], [ %.sroa.096.0, %932 ], [ %.sroa.096.0, %pop_pktbl.exit3028 ], [ %.sroa.096.0, %908 ], [ %.sroa.096.0, %pop_pktbl.exit ], [ %.sroa.096.0, %886 ], [ %.sroa.096.0, %method_cond.exit3025 ], [ %.sroa.096.0, %method_cond.exit3023 ], [ %.sroa.096.0, %866 ], [ %.sroa.096.0, %860 ], [ %.sroa.096.0, %remove_begin.exit3021 ], [ %.sroa.096.0, %835 ], [ %.sroa.096.0, %method_cond.exit ], [ %.sroa.096.0, %814 ], [ %.sroa.096.0, %810 ], [ %.sroa.096.0, %793 ], [ %.sroa.096.0, %776 ], [ %.sroa.096.0, %767 ], [ %.sroa.096.0, %753 ], [ %.sroa.096.0, %742 ], [ %.sroa.096.0, %731 ], [ %.sroa.096.0, %721 ], [ %.sroa.096.0, %712 ], [ %.sroa.096.0, %705 ], [ %.sroa.096.0, %703 ], [ %.sroa.096.0, %696 ], [ %.sroa.096.0, %remove_begin.exit3011 ], [ %.sroa.096.0, %661 ], [ %.sroa.096.0, %653 ], [ %.sroa.096.0, %644 ], [ %.sroa.096.0, %remove_begin.exit3004 ], [ %.sroa.096.0, %cond.exit2992 ], [ %.sroa.096.0, %cond.exit2994 ], [ %.sroa.096.0, %cond.exit ], [ %.sroa.096.0, %cond.exit2988 ], [ %.sroa.096.0, %510 ], [ %.sroa.096.0, %508 ], [ %.sroa.096.0, %499 ], [ %.sroa.096.0, %494 ], [ %.sroa.096.0, %489 ], [ %.sroa.096.0, %parser_set_lex_state.exit2972 ], [ %.sroa.096.0, %479 ], [ %.sroa.096.0, %477 ], [ %.sroa.096.0, %475 ], [ %.sroa.096.0, %474 ], [ %.sroa.096.0, %472 ], [ %.sroa.096.0, %newline_node.exit2970 ], [ %.sroa.096.0, %newline_node.exit2962 ], [ %.sroa.096.0, %451 ], [ %.sroa.096.0, %447 ], [ %.sroa.096.0, %440 ], [ %.sroa.096.0, %432 ], [ %.sroa.096.0, %423 ], [ %.sroa.096.0, %415 ], [ %.sroa.096.0, %407 ], [ %.sroa.096.0, %394 ], [ %.sroa.096.0, %392 ], [ %.sroa.096.0, %390 ], [ %.sroa.096.0, %388 ], [ %.sroa.096.0, %newline_node.exit2954 ], [ %.sroa.096.0, %newline_node.exit ], [ %.sroa.096.0, %367 ], [ %.sroa.096.0, %363 ], [ %.sroa.096.0, %358 ], [ %.sroa.096.0, %337 ], [ %.sroa.096.0, %parser_set_lex_state.exit ], [ %.sroa.096.0, %.critedge2871 ], [ %.sroa.096.0, %remove_begin.exit2977 ], [ %.sroa.096.0, %527 ], [ %.sroa.096.0, %remove_begin.exit2982 ], [ %.sroa.096.0, %550 ], [ %.sroa.096.0, %1143 ], [ %.sroa.096.0, %1149 ], [ %.sroa.096.0, %1157 ], [ %.sroa.096.0, %1163 ], [ %.sroa.096.0, %1699 ], [ %.sroa.096.0, %1710 ], [ %.sroa.096.0, %2182 ], [ %.sroa.096.0, %2193 ], [ %.sroa.096.0, %2201 ], [ %.sroa.096.0, %2212 ], [ %.sroa.096.0, %cond.exit3087 ], [ %.sroa.096.0, %2235 ], [ %.sroa.096.0, %cond.exit3091 ], [ %.sroa.096.0, %2258 ], [ %.sroa.096.0, %2273 ], [ %.sroa.096.0, %2284 ], [ %.sroa.096.2, %2339 ], [ %.sroa.096.2, %2352 ], [ %.sroa.096.0, %2700 ], [ %.sroa.096.0, %2710 ], [ %.sroa.096.0, %block_dup_check.exit3130 ], [ %.sroa.096.0, %3081 ], [ %.sroa.096.0, %3202 ], [ %.sroa.096.0, %3211 ], [ %.sroa.096.0, %3344 ], [ %.sroa.096.0, %3354 ], [ %.sroa.096.0, %3400 ], [ %.sroa.096.0, %3408 ], [ %.sroa.096.0, %3416 ], [ %.sroa.096.0, %3424 ], [ %.sroa.096.0, %3829 ], [ %.sroa.096.0, %3830 ], [ %.sroa.096.0, %3840 ], [ %.sroa.096.0, %3841 ], [ %.sroa.096.0, %3849 ], [ %.sroa.096.0, %3853 ], [ %.sroa.096.0, %4156 ], [ %.sroa.096.0, %.sink.split.i3200 ]
+  %.sroa.0.3 = phi i16 [ %.sroa.0.0, %yy_reduce_print.exit ], [ %.sroa.0.0, %4704 ], [ %.sroa.0.0, %4702 ], [ %.sroa.0.0, %4698 ], [ %.sroa.0.0, %4694 ], [ %.sroa.0.0, %4685 ], [ %.sroa.0.0, %4679 ], [ %.sroa.0.0, %4665 ], [ %.sroa.0.0, %4659 ], [ %.sroa.0.0, %4658 ], [ %.sroa.0.0, %4630 ], [ %.sroa.0.0, %4628 ], [ %.sroa.0.0, %parser_set_lex_state.exit3244 ], [ %.sroa.0.0, %4608 ], [ %.sroa.0.0, %4607 ], [ %.sroa.0.0, %4605 ], [ %.sroa.0.0, %4604 ], [ %.sroa.0.0, %4600 ], [ %.sroa.0.0, %4599 ], [ %.sroa.0.0, %4595 ], [ %.sroa.0.0, %opt_arg_append.exit3242 ], [ %.sroa.0.0, %4579 ], [ %.sroa.0.0, %opt_arg_append.exit ], [ %.sroa.0.0, %4563 ], [ %.sroa.0.0, %4555 ], [ %.sroa.0.0, %4547 ], [ %.sroa.0.0, %4546 ], [ %.sroa.0.0, %4542 ], [ %.sroa.0.0, %4707 ], [ %.sroa.0.0, %kwd_append.exit3235 ], [ %.sroa.0.0, %4525 ], [ %.sroa.0.0, %kwd_append.exit ], [ %.sroa.0.0, %4508 ], [ %.sroa.0.0, %4502 ], [ %.sroa.0.0, %4494 ], [ %.sroa.0.0, %4488 ], [ %.sroa.0.0, %4480 ], [ %.sroa.0.0, %4473 ], [ %.sroa.0.0, %4458 ], [ %.sroa.0.0, %4450 ], [ %.sroa.0.0, %4436 ], [ %.sroa.0.0, %4433 ], [ %.sroa.0.0, %4429 ], [ %.sroa.0.0, %4428 ], [ %.sroa.0.0, %4427 ], [ %.sroa.0.0, %4426 ], [ %.sroa.0.0, %4425 ], [ %.sroa.0.0, %4424 ], [ %.sroa.0.0, %new_args.exit3224 ], [ %.sroa.0.0, %new_args.exit3220 ], [ %.sroa.0.0, %4387 ], [ %.sroa.0.0, %4382 ], [ %.sroa.0.0, %4375 ], [ %.sroa.0.0, %new_args.exit3216 ], [ %.sroa.0.0, %4349 ], [ %.sroa.0.0, %4342 ], [ %.sroa.0.0, %4337 ], [ %.sroa.0.0, %4328 ], [ %.sroa.0.0, %4321 ], [ %.sroa.0.0, %4312 ], [ %.sroa.0.0, %4305 ], [ %.sroa.0.0, %4294 ], [ %.sroa.0.0, %4285 ], [ %.sroa.0.0, %4283 ], [ %.sroa.0.0, %4281 ], [ %.sroa.0.0, %4275 ], [ %.sroa.0.0, %4272 ], [ %.sroa.0.0, %4266 ], [ %.sroa.0.0, %4260 ], [ %.sroa.0.0, %4252 ], [ %.sroa.0.0, %parser_set_lex_state.exit3212 ], [ %.sroa.0.0, %parser_set_lex_state.exit3210 ], [ %.sroa.0.0, %parser_set_lex_state.exit3208 ], [ %.sroa.0.0, %new_args.exit3206 ], [ %.sroa.0.0, %4195 ], [ %.sroa.0.0, %4192 ], [ %.sroa.0.0, %parser_set_lex_state.exit3202 ], [ %.sroa.0.0, %4181 ], [ %.sroa.0.0, %4178 ], [ %.sroa.0.0, %4173 ], [ %.sroa.0.0, %4176 ], [ %.sroa.0.0, %4168 ], [ %.sroa.0.0, %4171 ], [ %.sroa.0.0, %4167 ], [ %.sroa.0.0, %4166 ], [ %.sroa.0.0, %4165 ], [ %.sroa.0.0, %4164 ], [ %.sroa.0.0, %4163 ], [ %.sroa.0.0, %4162 ], [ %.sroa.0.0, %4161 ], [ %.sroa.0.0, %parser_set_lex_state.exit3198 ], [ %.sroa.0.0, %4145 ], [ %.sroa.0.0, %4129 ], [ %.sroa.0.0, %4132 ], [ %.sroa.0.0, %4126 ], [ %.sroa.0.0, %4090 ], [ %.sroa.0.0, %4088 ], [ %.sroa.0.0, %parser_set_lex_state.exit3192 ], [ %.sroa.0.0, %4057 ], [ %.sroa.0.0, %parser_set_lex_state.exit3190 ], [ %.sroa.0.0, %4048 ], [ %.sroa.0.0, %4037 ], [ %.sroa.0.0, %4035 ], [ %.sroa.0.0, %4030 ], [ %.sroa.0.0, %4025 ], [ %.sroa.0.0, %4024 ], [ %.sroa.0.0, %4019 ], [ %.sroa.0.0, %4018 ], [ %.sroa.0.0, %4012 ], [ %.sroa.0.0, %4011 ], [ %.sroa.0.0, %4005 ], [ %.sroa.0.0, %4004 ], [ %.sroa.0.0, %4002 ], [ %.sroa.0.0, %3986 ], [ %.sroa.0.0, %3965 ], [ %.sroa.0.0, %3964 ], [ %.sroa.0.0, %3962 ], [ %.sroa.0.0, %3943 ], [ %.sroa.0.0, %3936 ], [ %.sroa.0.0, %3935 ], [ %.sroa.0.0, %3933 ], [ %.sroa.0.0, %4708 ], [ %.sroa.0.0, %3914 ], [ %.sroa.0.0, %3909 ], [ %.sroa.0.0, %3901 ], [ %.sroa.0.0, %3897 ], [ %.sroa.0.0, %3892 ], [ %.sroa.0.0, %3891 ], [ %.sroa.0.0, %3875 ], [ %.sroa.0.0, %3873 ], [ %.sroa.0.0, %splat_array.exit ], [ %.sroa.0.0, %3871 ], [ %.sroa.0.0, %3861 ], [ %.sroa.0.0, %3808 ], [ %.sroa.0.0, %3803 ], [ %.sroa.0.0, %3800 ], [ %.sroa.0.0, %3796 ], [ %.sroa.0.0, %3791 ], [ %.sroa.0.0, %3794 ], [ %.sroa.0.0, %3790 ], [ %.sroa.0.0, %3776 ], [ %.sroa.0.0, %3771 ], [ %.sroa.0.0, %3774 ], [ %.sroa.0.0, %3765 ], [ %.sroa.0.0, %3759 ], [ %.sroa.0.0, %3752 ], [ %.sroa.0.0, %3745 ], [ %.sroa.0.0, %3738 ], [ %.sroa.0.0, %3731 ], [ %.sroa.0.0, %3730 ], [ %.sroa.0.0, %3729 ], [ %.sroa.0.0, %3728 ], [ %.sroa.0.0, %3726 ], [ %.sroa.0.0, %3718 ], [ %.sroa.0.0, %3722 ], [ %.sroa.0.0, %3701 ], [ %.sroa.0.0, %3682 ], [ %.sroa.0.0, %3677 ], [ %.sroa.0.0, %3673 ], [ %.sroa.0.0, %3668 ], [ %.sroa.0.0, %3664 ], [ %.sroa.0.0, %3658 ], [ %.sroa.0.0, %3655 ], [ %.sroa.0.0, %3650 ], [ %.sroa.0.0, %3649 ], [ %.sroa.0.0, %3645 ], [ %.sroa.0.0, %3638 ], [ %.sroa.0.0, %3633 ], [ %.sroa.0.0, %3630 ], [ %.sroa.0.0, %3624 ], [ %.sroa.0.0, %3621 ], [ %.sroa.0.0, %3614 ], [ %.sroa.0.0, %3609 ], [ %.sroa.0.0, %3603 ], [ %.sroa.0.0, %3600 ], [ %.sroa.0.0, %3596 ], [ %.sroa.0.0, %pop_pktbl.exit3176 ], [ %.sroa.0.0, %3586 ], [ %.sroa.0.0, %pop_pktbl.exit3174 ], [ %.sroa.0.0, %3569 ], [ %.sroa.0.0, %3566 ], [ %.sroa.0.0, %3562 ], [ %.sroa.0.0, %3558 ], [ %.sroa.0.0, %3553 ], [ %.sroa.0.0, %pop_pktbl.exit3172 ], [ %.sroa.0.0, %pop_pktbl.exit3170 ], [ %.sroa.0.0, %pop_pktbl.exit3168 ], [ %.sroa.0.0, %3509 ], [ %.sroa.0.0, %pop_pktbl.exit3166 ], [ %.sroa.0.0, %pop_pktbl.exit3164 ], [ %.sroa.0.0, %pop_pktbl.exit3162 ], [ %.sroa.0.0, %3468 ], [ %.sroa.0.0, %3466 ], [ %.sroa.0.0, %3461 ], [ %.sroa.0.0, %3454 ], [ %.sroa.0.0, %3451 ], [ %.sroa.0.0, %3448 ], [ %.sroa.0.0, %3445 ], [ %.sroa.0.0, %3437 ], [ %.sroa.0.0, %3432 ], [ %.sroa.0.0, %3393 ], [ %.sroa.0.0, %pop_pktbl.exit3156 ], [ %.sroa.0.0, %parser_set_lex_state.exit3154 ], [ %.sroa.0.0, %3365 ], [ %.sroa.0.0, %3362 ], [ %.sroa.0.0, %3339 ], [ %.sroa.0.0, %3333 ], [ %.sroa.0.0, %3330 ], [ %.sroa.0.0, %3326 ], [ %.sroa.0.0, %numparam_pop.exit3150 ], [ %.sroa.0.0, %3288 ], [ %.sroa.0.0, %3282 ], [ %.sroa.0.0, %numparam_pop.exit3144 ], [ %.sroa.0.0, %3249 ], [ %.sroa.0.0, %3234 ], [ %.sroa.0.0, %3219 ], [ %.sroa.0.0, %3200 ], [ %.sroa.0.0, %3197 ], [ %.sroa.0.0, %3184 ], [ %.sroa.0.0, %3169 ], [ %.sroa.0.0, %3164 ], [ %.sroa.0.0, %3149 ], [ %.sroa.0.0, %3132 ], [ %.sroa.0.0, %3123 ], [ %.sroa.0.0, %3111 ], [ %.sroa.0.0, %3099 ], [ %.sroa.0.0, %3089 ], [ %.sroa.0.0, %3046 ], [ %.sroa.0.0, %3043 ], [ %.sroa.0.0, %3042 ], [ %.sroa.0.0, %3039 ], [ %.sroa.0.0, %3037 ], [ %.sroa.0.0, %3025 ], [ %.sroa.0.0, %numparam_pop.exit ], [ %.sroa.0.0, %2962 ], [ %.sroa.0.0, %2957 ], [ %.sroa.0.0, %2953 ], [ %.sroa.0.0, %2951 ], [ %.sroa.0.0, %numparam_push.exit ], [ %.sroa.0.0, %2941 ], [ %.sroa.0.0, %2940 ], [ %.sroa.0.0, %2938 ], [ %.sroa.0.0, %2937 ], [ %.sroa.0.0, %2936 ], [ %.sroa.0.0, %2931 ], [ %.sroa.0.0, %2928 ], [ %.sroa.0.0, %2925 ], [ %.sroa.0.0, %new_args.exit3120 ], [ %.sroa.0.0, %2903 ], [ %.sroa.0.0, %2898 ], [ %.sroa.0.0, %2891 ], [ %.sroa.0.0, %new_args.exit ], [ %.sroa.0.0, %2865 ], [ %.sroa.0.0, %2858 ], [ %.sroa.0.0, %2853 ], [ %.sroa.0.0, %2844 ], [ %.sroa.0.0, %2838 ], [ %.sroa.0.0, %2831 ], [ %.sroa.0.0, %2822 ], [ %.sroa.0.0, %2815 ], [ %.sroa.0.0, %2804 ], [ %.sroa.0.0, %2795 ], [ %.sroa.0.0, %2794 ], [ %.sroa.0.0, %2792 ], [ %.sroa.0.0, %2790 ], [ %.sroa.0.0, %2787 ], [ %.sroa.0.0, %2781 ], [ %.sroa.0.0, %2775 ], [ %.sroa.0.0, %2767 ], [ %.sroa.0.0, %2764 ], [ %.sroa.0.0, %2763 ], [ %.sroa.0.0, %2762 ], [ %.sroa.0.0, %2759 ], [ %.sroa.0.0, %2753 ], [ %.sroa.0.0, %2750 ], [ %.sroa.0.0, %2742 ], [ %.sroa.0.0, %2737 ], [ %.sroa.0.0, %2734 ], [ %.sroa.0.0, %2729 ], [ %.sroa.0.0, %2726 ], [ %.sroa.0.0, %2723 ], [ %.sroa.0.0, %2720 ], [ %.sroa.0.0, %2718 ], [ %.sroa.0.0, %2694 ], [ %.sroa.0.0, %2697 ], [ %.sroa.0.0, %2699 ], [ %.sroa.0.0, %dyna_in_block.exit ], [ %.sroa.0.0, %dyna_in_block.exit.thread ], [ %.sroa.0.0, %2687 ], [ %.sroa.0.0, %2686 ], [ %.sroa.0.0, %2685 ], [ %.sroa.0.0, %2683 ], [ %.sroa.0.0, %token_info_setup.exit ], [ %.sroa.0.0, %token_info_setup.exit.thread ], [ %.sroa.0.0, %2656 ], [ %.sroa.0.0, %2652 ], [ %.sroa.0.0, %2649 ], [ %.sroa.0.0, %2643 ], [ %.sroa.0.0, %2642 ], [ %.sroa.0.0, %2641 ], [ %.sroa.0.0, %2637 ], [ %.sroa.0.0, %2633 ], [ %.sroa.0.0, %2629 ], [ %.sroa.0.0, %2626 ], [ %.sroa.0.0, %2625 ], [ %.sroa.0.0, %2622 ], [ %.sroa.0.0, %2619 ], [ %.sroa.0.0, %2618 ], [ %.sroa.0.0, %2617 ], [ %.sroa.0.0, %2580 ], [ %.sroa.0.0, %2577 ], [ %.sroa.0.0, %2575 ], [ %.sroa.0.0, %2564 ], [ %.sroa.0.0, %2561 ], [ %.sroa.0.0, %2558 ], [ %.sroa.0.0, %2544 ], [ %.sroa.0.0, %2542 ], [ %.sroa.0.0, %2528 ], [ %.sroa.0.0, %2526 ], [ %.sroa.0.0, %set_line_body.exit3109 ], [ %.sroa.0.0, %2480 ], [ %.sroa.0.0, %fixpos.exit3105 ], [ %.sroa.0.0, %2415 ], [ %.sroa.0.0, %set_line_body.exit3101 ], [ %.sroa.0.0, %2367 ], [ %.sroa.0.0, %2305 ], [ %.sroa.0.0, %2299 ], [ %.sroa.0.0, %2292 ], [ %.sroa.0.0, %2266 ], [ %.sroa.0.0, %block_dup_check.exit3081 ], [ %.sroa.0.0, %2161 ], [ %.sroa.0.0, %method_cond.exit3078 ], [ %.sroa.0.0, %method_cond.exit3076 ], [ %.sroa.0.0, %2134 ], [ %.sroa.0.0, %2132 ], [ %.sroa.0.0, %2130 ], [ %.sroa.0.0, %2126 ], [ %.sroa.0.0, %2124 ], [ %.sroa.0.0, %2119 ], [ %.sroa.0.0, %2117 ], [ %.sroa.0.0, %2100 ], [ %.sroa.0.0, %2095 ], [ %.sroa.0.0, %2092 ], [ %.sroa.0.0, %2083 ], [ %.sroa.0.0, %parser_set_lex_state.exit3074 ], [ %.sroa.0.0, %set_line_body.exit ], [ %.sroa.0.0, %2040 ], [ %.sroa.0.0, %2035 ], [ %.sroa.0.0, %2032 ], [ %.sroa.0.0, %2029 ], [ %.sroa.0.0, %2024 ], [ %.sroa.0.0, %2019 ], [ %.sroa.0.0, %2017 ], [ %.sroa.0.0, %2015 ], [ %.sroa.0.0, %2010 ], [ %.sroa.0.0, %2005 ], [ %.sroa.0.0, %2002 ], [ %.sroa.0.0, %1999 ], [ %.sroa.0.0, %1998 ], [ %.sroa.0.0, %1996 ], [ %.sroa.0.0, %1993 ], [ %.sroa.0.0, %1990 ], [ %.sroa.0.0, %1988 ], [ %.sroa.0.0, %1969 ], [ %.sroa.0.0, %1964 ], [ %.sroa.0.0, %1963 ], [ %.sroa.0.0, %arg_blk_pass.exit3071 ], [ %.sroa.0.0, %arg_blk_pass.exit3067 ], [ %.sroa.0.0, %arg_blk_pass.exit ], [ %.sroa.0.0, %1894 ], [ %.sroa.0.0, %1892 ], [ %.sroa.0.0, %1883 ], [ %.sroa.0.0, %1871 ], [ %.sroa.0.0, %1868 ], [ %.sroa.0.0, %1867 ], [ %.sroa.0.0, %1860 ], [ %.sroa.0.0, %1859 ], [ %.sroa.0.0, %1854 ], [ %.sroa.0.0, %1839 ], [ %.sroa.0.0, %1836 ], [ %.sroa.0.0, %1834 ], [ %.sroa.0.0, %1825 ], [ %.sroa.0.0, %1813 ], [ %.sroa.0.0, %1810 ], [ %.sroa.0.0, %1805 ], [ %.sroa.0.0, %1801 ], [ %.sroa.0.0, %1799 ], [ %.sroa.0.0, %1787 ], [ %.sroa.0.0, %1779 ], [ %.sroa.0.0, %1778 ], [ %.sroa.0.0, %1777 ], [ %.sroa.0.0, %1776 ], [ %.sroa.0.0, %1775 ], [ %.sroa.0.0, %method_cond.exit3061 ], [ %.sroa.0.0, %1754 ], [ %.sroa.0.0, %1752 ], [ %.sroa.0.0, %1735 ], [ %.sroa.0.0, %1718 ], [ %.sroa.0.0, %1690 ], [ %.sroa.0.0, %1684 ], [ %.sroa.0.0, %1678 ], [ %.sroa.0.0, %1672 ], [ %.sroa.0.0, %1666 ], [ %.sroa.0.0, %1662 ], [ %.sroa.0.0, %method_cond.exit3057 ], [ %.sroa.0.0, %1649 ], [ %.sroa.0.0, %1643 ], [ %.sroa.0.0, %1637 ], [ %.sroa.0.0, %1631 ], [ %.sroa.0.0, %1625 ], [ %.sroa.0.0, %1619 ], [ %.sroa.0.0, %1613 ], [ %.sroa.0.0, %1607 ], [ %.sroa.0.0, %1601 ], [ %.sroa.0.0, %1597 ], [ %.sroa.0.0, %1593 ], [ %.sroa.0.0, %1585 ], [ %.sroa.0.0, %1579 ], [ %.sroa.0.0, %1573 ], [ %.sroa.0.0, %1567 ], [ %.sroa.0.0, %1561 ], [ %.sroa.0.0, %1555 ], [ %.sroa.0.0, %1549 ], [ %.sroa.0.0, %1543 ], [ %.sroa.0.0, %1537 ], [ %.sroa.0.0, %1530 ], [ %.sroa.0.0, %1523 ], [ %.sroa.0.0, %1516 ], [ %.sroa.0.0, %1509 ], [ %.sroa.0.0, %1505 ], [ %.sroa.0.0, %1493 ], [ %.sroa.0.0, %1479 ], [ %.sroa.0.0, %1470 ], [ %.sroa.0.0, %1459 ], [ %.sroa.0.0, %1448 ], [ %.sroa.0.0, %1438 ], [ %.sroa.0.0, %1429 ], [ %.sroa.0.0, %1422 ], [ %.sroa.0.0, %1421 ], [ %.sroa.0.0, %1420 ], [ %.sroa.0.0, %1419 ], [ %.sroa.0.0, %1418 ], [ %.sroa.0.0, %1417 ], [ %.sroa.0.0, %1416 ], [ %.sroa.0.0, %1415 ], [ %.sroa.0.0, %1414 ], [ %.sroa.0.0, %1413 ], [ %.sroa.0.0, %1412 ], [ %.sroa.0.0, %1411 ], [ %.sroa.0.0, %1410 ], [ %.sroa.0.0, %1409 ], [ %.sroa.0.0, %1408 ], [ %.sroa.0.0, %1407 ], [ %.sroa.0.0, %1406 ], [ %.sroa.0.0, %1405 ], [ %.sroa.0.0, %1404 ], [ %.sroa.0.0, %1403 ], [ %.sroa.0.0, %1402 ], [ %.sroa.0.0, %1401 ], [ %.sroa.0.0, %1400 ], [ %.sroa.0.0, %1399 ], [ %.sroa.0.0, %1398 ], [ %.sroa.0.0, %1397 ], [ %.sroa.0.0, %1396 ], [ %.sroa.0.0, %1395 ], [ %.sroa.0.0, %1394 ], [ %.sroa.0.0, %1393 ], [ %.sroa.0.0, %1392 ], [ %.sroa.0.0, %1386 ], [ %.sroa.0.0, %parser_set_lex_state.exit3051 ], [ %.sroa.0.0, %1377 ], [ %.sroa.0.0, %1373 ], [ %.sroa.0.0, %parser_set_lex_state.exit3049 ], [ %.sroa.0.0, %1361 ], [ %.sroa.0.0, %1358 ], [ %.sroa.0.0, %1355 ], [ %.sroa.0.0, %1354 ], [ %.sroa.0.0, %1351 ], [ %.sroa.0.0, %1347 ], [ %.sroa.0.0, %1341 ], [ %.sroa.0.0, %1334 ], [ %.sroa.0.0, %1329 ], [ %.sroa.0.0, %1322 ], [ %.sroa.0.0, %1316 ], [ %.sroa.0.0, %1313 ], [ %.sroa.0.0, %1310 ], [ %.sroa.0.0, %1307 ], [ %.sroa.0.0, %1303 ], [ %.sroa.0.0, %1297 ], [ %.sroa.0.0, %1288 ], [ %.sroa.0.0, %1283 ], [ %.sroa.0.0, %1274 ], [ %.sroa.0.0, %1268 ], [ %.sroa.0.0, %1265 ], [ %.sroa.0.0, %1262 ], [ %.sroa.0.0, %1257 ], [ %.sroa.0.0, %1254 ], [ %.sroa.0.0, %1248 ], [ %.sroa.0.0, %1243 ], [ %.sroa.0.0, %1240 ], [ %.sroa.0.0, %1236 ], [ %.sroa.0.0, %1234 ], [ %.sroa.0.0, %1228 ], [ %.sroa.0.0, %1225 ], [ %.sroa.0.0, %1219 ], [ %.sroa.0.0, %1215 ], [ %.sroa.0.0, %1207 ], [ %.sroa.0.0, %1202 ], [ %.sroa.0.0, %1196 ], [ %.sroa.0.0, %1193 ], [ %.sroa.0.0, %1188 ], [ %.sroa.0.0, %1185 ], [ %.sroa.0.0, %1180 ], [ %.sroa.0.0, %1175 ], [ %.sroa.0.0, %1171 ], [ %.sroa.0.0, %1121 ], [ %.sroa.0.0, %1111 ], [ %.sroa.0.0, %1103 ], [ %.sroa.0.0, %1091 ], [ %.sroa.0.0, %1081 ], [ %.sroa.0.0, %fixpos.exit3041 ], [ %.sroa.0.0, %1038 ], [ %.sroa.0.0, %1035 ], [ %.sroa.0.0, %1020 ], [ %.sroa.0.0, %1010 ], [ %.sroa.0.0, %1007 ], [ %.sroa.0.0, %1006 ], [ %.sroa.0.0, %1001 ], [ %.sroa.0.0, %1000 ], [ %.sroa.0.0, %994 ], [ %.sroa.0.0, %992 ], [ %.sroa.0.0, %989 ], [ %.sroa.0.0, %def_head_save.exit3036 ], [ %.sroa.0.0, %parser_set_lex_state.exit3031 ], [ %.sroa.0.0, %def_head_save.exit ], [ %.sroa.0.0, %932 ], [ %.sroa.0.0, %pop_pktbl.exit3028 ], [ %.sroa.0.0, %908 ], [ %.sroa.0.0, %pop_pktbl.exit ], [ %.sroa.0.0, %886 ], [ %.sroa.0.0, %method_cond.exit3025 ], [ %.sroa.0.0, %method_cond.exit3023 ], [ %.sroa.0.0, %866 ], [ %.sroa.0.0, %860 ], [ %.sroa.0.0, %remove_begin.exit3021 ], [ %.sroa.0.0, %835 ], [ %.sroa.0.0, %method_cond.exit ], [ %.sroa.0.0, %814 ], [ %.sroa.0.0, %810 ], [ %.sroa.0.0, %793 ], [ %.sroa.0.0, %776 ], [ %.sroa.0.0, %767 ], [ %.sroa.0.0, %753 ], [ %.sroa.0.0, %742 ], [ %.sroa.0.0, %731 ], [ %.sroa.0.0, %721 ], [ %.sroa.0.0, %712 ], [ %.sroa.0.0, %705 ], [ %.sroa.0.0, %703 ], [ %.sroa.0.0, %696 ], [ %.sroa.0.0, %remove_begin.exit3011 ], [ %.sroa.0.0, %661 ], [ %.sroa.0.0, %653 ], [ %.sroa.0.0, %644 ], [ %.sroa.0.0, %remove_begin.exit3004 ], [ %.sroa.0.0, %cond.exit2992 ], [ %.sroa.0.0, %cond.exit2994 ], [ %.sroa.0.0, %cond.exit ], [ %.sroa.0.0, %cond.exit2988 ], [ %.sroa.0.0, %510 ], [ %.sroa.0.0, %508 ], [ %.sroa.0.0, %499 ], [ %.sroa.0.0, %494 ], [ %.sroa.0.0, %489 ], [ %.sroa.0.0, %parser_set_lex_state.exit2972 ], [ %.sroa.0.0, %479 ], [ %.sroa.0.0, %477 ], [ %.sroa.0.0, %475 ], [ %.sroa.0.0, %474 ], [ %.sroa.0.0, %472 ], [ %.sroa.0.0, %newline_node.exit2970 ], [ %.sroa.0.0, %newline_node.exit2962 ], [ %.sroa.0.0, %451 ], [ %.sroa.0.0, %447 ], [ %.sroa.0.0, %440 ], [ %.sroa.0.0, %432 ], [ %.sroa.0.0, %423 ], [ %.sroa.0.0, %415 ], [ %.sroa.0.0, %407 ], [ %.sroa.0.0, %394 ], [ %.sroa.0.0, %392 ], [ %.sroa.0.0, %390 ], [ %.sroa.0.0, %388 ], [ %.sroa.0.0, %newline_node.exit2954 ], [ %.sroa.0.0, %newline_node.exit ], [ %.sroa.0.0, %367 ], [ %.sroa.0.0, %363 ], [ %.sroa.0.0, %358 ], [ %.sroa.0.0, %337 ], [ %.sroa.0.0, %parser_set_lex_state.exit ], [ %.sroa.0.0, %.critedge2871 ], [ %.sroa.0.0, %remove_begin.exit2977 ], [ %.sroa.0.0, %527 ], [ %.sroa.0.0, %remove_begin.exit2982 ], [ %.sroa.0.0, %550 ], [ %.sroa.0.0, %1143 ], [ %.sroa.0.0, %1149 ], [ %.sroa.0.0, %1157 ], [ %.sroa.0.0, %1163 ], [ %.sroa.0.0, %1699 ], [ %.sroa.0.0, %1710 ], [ %.sroa.0.0, %2182 ], [ %.sroa.0.0, %2193 ], [ %.sroa.0.0, %2201 ], [ %.sroa.0.0, %2212 ], [ %.sroa.0.0, %cond.exit3087 ], [ %.sroa.0.0, %2235 ], [ %.sroa.0.0, %cond.exit3091 ], [ %.sroa.0.0, %2258 ], [ %.sroa.0.0, %2273 ], [ %.sroa.0.0, %2284 ], [ %.sroa.0.0, %2339 ], [ %.sroa.0.0, %2352 ], [ %.sroa.0.0, %2700 ], [ %.sroa.0.0, %2710 ], [ %.sroa.0.0, %block_dup_check.exit3130 ], [ %.sroa.0.0, %3081 ], [ %.sroa.0.0, %3202 ], [ %.sroa.0.0, %3211 ], [ %.sroa.0.0, %3344 ], [ %.sroa.0.0, %3354 ], [ %.sroa.0.0, %3400 ], [ %.sroa.0.0, %3408 ], [ %.sroa.0.0, %3416 ], [ %.sroa.0.0, %3424 ], [ %.sroa.0.2, %3829 ], [ %.sroa.0.2, %3830 ], [ %.sroa.0.2, %3840 ], [ %.sroa.0.2, %3841 ], [ %.sroa.0.2, %3849 ], [ %.sroa.0.2, %3853 ], [ %.sroa.0.0, %4156 ], [ %.sroa.0.0, %.sink.split.i3200 ]
+  %.32662 = phi i32 [ %.02659, %yy_reduce_print.exit ], [ %.02659, %4704 ], [ 0, %4702 ], [ %.02659, %4698 ], [ %.02659, %4694 ], [ %.02659, %4685 ], [ %.02659, %4679 ], [ %.02659, %4665 ], [ %.02659, %4659 ], [ %.02659, %4658 ], [ %.02659, %4630 ], [ %.02659, %4628 ], [ %.02659, %parser_set_lex_state.exit3244 ], [ %.02659, %4608 ], [ %.02659, %4607 ], [ %.02659, %4605 ], [ %.02659, %4604 ], [ %.02659, %4600 ], [ %.02659, %4599 ], [ %.02659, %4595 ], [ %.02659, %opt_arg_append.exit3242 ], [ %.02659, %4579 ], [ %.02659, %opt_arg_append.exit ], [ %.02659, %4563 ], [ %.02659, %4555 ], [ %.02659, %4547 ], [ %.02659, %4546 ], [ %.02659, %4542 ], [ 0, %4707 ], [ %.02659, %kwd_append.exit3235 ], [ %.02659, %4525 ], [ %.02659, %kwd_append.exit ], [ %.02659, %4508 ], [ %.02659, %4502 ], [ %.02659, %4494 ], [ %.02659, %4488 ], [ %.02659, %4480 ], [ %.02659, %4473 ], [ %.02659, %4458 ], [ %.02659, %4450 ], [ %.02659, %4436 ], [ %.02659, %4433 ], [ %.02659, %4429 ], [ %.02659, %4428 ], [ %.02659, %4427 ], [ %.02659, %4426 ], [ %.02659, %4425 ], [ %.02659, %4424 ], [ %.02659, %new_args.exit3224 ], [ %.02659, %new_args.exit3220 ], [ %.02659, %4387 ], [ %.02659, %4382 ], [ %.02659, %4375 ], [ %.02659, %new_args.exit3216 ], [ %.02659, %4349 ], [ %.02659, %4342 ], [ %.02659, %4337 ], [ %.02659, %4328 ], [ %.02659, %4321 ], [ %.02659, %4312 ], [ %.02659, %4305 ], [ %.02659, %4294 ], [ %.02659, %4285 ], [ %.02659, %4283 ], [ %.02659, %4281 ], [ %.02659, %4275 ], [ %.02659, %4272 ], [ %.02659, %4266 ], [ %.02659, %4260 ], [ %.02659, %4252 ], [ %.02659, %parser_set_lex_state.exit3212 ], [ %.02659, %parser_set_lex_state.exit3210 ], [ %.02659, %parser_set_lex_state.exit3208 ], [ %.02659, %new_args.exit3206 ], [ %.02659, %4195 ], [ %.02659, %4192 ], [ %.02659, %parser_set_lex_state.exit3202 ], [ %.02659, %4181 ], [ %.02659, %4178 ], [ %.02659, %4173 ], [ %.02659, %4176 ], [ %.02659, %4168 ], [ %.02659, %4171 ], [ %.02659, %4167 ], [ %.02659, %4166 ], [ %.02659, %4165 ], [ %.02659, %4164 ], [ %.02659, %4163 ], [ %.02659, %4162 ], [ %.02659, %4161 ], [ %.02659, %parser_set_lex_state.exit3198 ], [ %.02659, %4145 ], [ %.02659, %4129 ], [ %.02659, %4132 ], [ %.02659, %4126 ], [ %.02659, %4090 ], [ %.02659, %4088 ], [ %.02659, %parser_set_lex_state.exit3192 ], [ %.02659, %4057 ], [ %.02659, %parser_set_lex_state.exit3190 ], [ %.02659, %4048 ], [ %.02659, %4037 ], [ %.02659, %4035 ], [ %.02659, %4030 ], [ %.02659, %4025 ], [ %.02659, %4024 ], [ %.02659, %4019 ], [ %.02659, %4018 ], [ %.02659, %4012 ], [ %.02659, %4011 ], [ %.02659, %4005 ], [ %.02659, %4004 ], [ %.02659, %4002 ], [ %.02659, %3986 ], [ %.02659, %3965 ], [ %.02659, %3964 ], [ %.02659, %3962 ], [ %.02659, %3943 ], [ %.02659, %3936 ], [ %.02659, %3935 ], [ %.02659, %3933 ], [ %.02659, %4708 ], [ %.02659, %3914 ], [ %.02659, %3909 ], [ %.02659, %3901 ], [ %.02659, %3897 ], [ %.02659, %3892 ], [ %.02659, %3891 ], [ %.02659, %3875 ], [ %.02659, %3873 ], [ %.02659, %splat_array.exit ], [ %.02659, %3871 ], [ %.02659, %3861 ], [ %.02659, %3808 ], [ %.02659, %3803 ], [ %.02659, %3800 ], [ %.02659, %3796 ], [ %.02659, %3791 ], [ %.02659, %3794 ], [ %.02659, %3790 ], [ %.02659, %3776 ], [ %.02659, %3771 ], [ %.02659, %3774 ], [ %.02659, %3765 ], [ %.02659, %3759 ], [ %.02659, %3752 ], [ %.02659, %3745 ], [ %.02659, %3738 ], [ %.02659, %3731 ], [ %.02659, %3730 ], [ %.02659, %3729 ], [ %.02659, %3728 ], [ %.02659, %3726 ], [ %.02659, %3718 ], [ %.02659, %3722 ], [ %.02659, %3701 ], [ %.02659, %3682 ], [ %.02659, %3677 ], [ %.02659, %3673 ], [ %.02659, %3668 ], [ %.02659, %3664 ], [ %.02659, %3658 ], [ %.02659, %3655 ], [ %.02659, %3650 ], [ %.02659, %3649 ], [ %.02659, %3645 ], [ %.02659, %3638 ], [ %.02659, %3633 ], [ %.02659, %3630 ], [ %.02659, %3624 ], [ %.02659, %3621 ], [ %.02659, %3614 ], [ %.02659, %3609 ], [ %.02659, %3603 ], [ %.02659, %3600 ], [ %.02659, %3596 ], [ %.02659, %pop_pktbl.exit3176 ], [ %.02659, %3586 ], [ %.02659, %pop_pktbl.exit3174 ], [ %.02659, %3569 ], [ %.02659, %3566 ], [ %.02659, %3562 ], [ %.02659, %3558 ], [ %.02659, %3553 ], [ %.02659, %pop_pktbl.exit3172 ], [ %.02659, %pop_pktbl.exit3170 ], [ %.02659, %pop_pktbl.exit3168 ], [ %.02659, %3509 ], [ %.02659, %pop_pktbl.exit3166 ], [ %.02659, %pop_pktbl.exit3164 ], [ %.02659, %pop_pktbl.exit3162 ], [ %.02659, %3468 ], [ %.02659, %3466 ], [ %.02659, %3461 ], [ %.02659, %3454 ], [ %.02659, %3451 ], [ %.02659, %3448 ], [ %.02659, %3445 ], [ %.02659, %3437 ], [ %.02659, %3432 ], [ %.02659, %3393 ], [ %.02659, %pop_pktbl.exit3156 ], [ %.02659, %parser_set_lex_state.exit3154 ], [ %.02659, %3365 ], [ %.02659, %3362 ], [ %.02659, %3339 ], [ %.02659, %3333 ], [ %.02659, %3330 ], [ %.02659, %3326 ], [ %.02659, %numparam_pop.exit3150 ], [ %.02659, %3288 ], [ %.02659, %3282 ], [ %.02659, %numparam_pop.exit3144 ], [ %.02659, %3249 ], [ %.02659, %3234 ], [ %.02659, %3219 ], [ %.02659, %3200 ], [ %.02659, %3197 ], [ %.02659, %3184 ], [ %.02659, %3169 ], [ %.02659, %3164 ], [ %.02659, %3149 ], [ %.02659, %3132 ], [ %.02659, %3123 ], [ %.02659, %3111 ], [ %.02659, %3099 ], [ %.02659, %3089 ], [ %.02659, %3046 ], [ %.02659, %3043 ], [ %.02659, %3042 ], [ %.02659, %3039 ], [ %.02659, %3037 ], [ %.02659, %3025 ], [ %.02659, %numparam_pop.exit ], [ %.02659, %2962 ], [ %.02659, %2957 ], [ %.02659, %2953 ], [ %.02659, %2951 ], [ %.02659, %numparam_push.exit ], [ %.02659, %2941 ], [ %.02659, %2940 ], [ %.02659, %2938 ], [ %.02659, %2937 ], [ %.02659, %2936 ], [ %.02659, %2931 ], [ %.02659, %2928 ], [ %.02659, %2925 ], [ %.02659, %new_args.exit3120 ], [ %.02659, %2903 ], [ %.02659, %2898 ], [ %.02659, %2891 ], [ %.02659, %new_args.exit ], [ %.02659, %2865 ], [ %.02659, %2858 ], [ %.02659, %2853 ], [ %.02659, %2844 ], [ %.02659, %2838 ], [ %.02659, %2831 ], [ %.02659, %2822 ], [ %.02659, %2815 ], [ %.02659, %2804 ], [ %.02659, %2795 ], [ %.02659, %2794 ], [ %.02659, %2792 ], [ %.02659, %2790 ], [ %.02659, %2787 ], [ %.02659, %2781 ], [ %.02659, %2775 ], [ %.02659, %2767 ], [ %.02659, %2764 ], [ %.02659, %2763 ], [ %.02659, %2762 ], [ %.02659, %2759 ], [ %.02659, %2753 ], [ %.02659, %2750 ], [ %.02659, %2742 ], [ %.02659, %2737 ], [ %.02659, %2734 ], [ %.02659, %2729 ], [ %.02659, %2726 ], [ %.02659, %2723 ], [ %.02659, %2720 ], [ %.02659, %2718 ], [ %.02659, %2694 ], [ %.02659, %2697 ], [ %.02659, %2699 ], [ %.02659, %dyna_in_block.exit ], [ %.02659, %dyna_in_block.exit.thread ], [ %.02659, %2687 ], [ %.02659, %2686 ], [ %.02659, %2685 ], [ %.02659, %2683 ], [ %.02659, %token_info_setup.exit ], [ %.02659, %token_info_setup.exit.thread ], [ %.02659, %2656 ], [ %.02659, %2652 ], [ %.02659, %2649 ], [ %.02659, %2643 ], [ %.02659, %2642 ], [ %.02659, %2641 ], [ %.02659, %2637 ], [ %.02659, %2633 ], [ %.02659, %2629 ], [ %.02659, %2626 ], [ %.02659, %2625 ], [ %.02659, %2622 ], [ %.02659, %2619 ], [ %.02659, %2618 ], [ %.02659, %2617 ], [ %.02659, %2580 ], [ %.02659, %2577 ], [ %.02659, %2575 ], [ %.02659, %2564 ], [ %.02659, %2561 ], [ %.02659, %2558 ], [ %.02659, %2544 ], [ %.02659, %2542 ], [ %.02659, %2528 ], [ %.02659, %2526 ], [ %.02659, %set_line_body.exit3109 ], [ %.02659, %2480 ], [ %.02659, %fixpos.exit3105 ], [ %.02659, %2415 ], [ %.02659, %set_line_body.exit3101 ], [ %.02659, %2367 ], [ %.02659, %2305 ], [ %.02659, %2299 ], [ %.02659, %2292 ], [ %.02659, %2266 ], [ %.02659, %block_dup_check.exit3081 ], [ %.02659, %2161 ], [ %.02659, %method_cond.exit3078 ], [ %.02659, %method_cond.exit3076 ], [ %.02659, %2134 ], [ %.02659, %2132 ], [ %.02659, %2130 ], [ %.02659, %2126 ], [ %.02659, %2124 ], [ %.02659, %2119 ], [ %.02659, %2117 ], [ %.02659, %2100 ], [ %.02659, %2095 ], [ %.02659, %2092 ], [ %.02659, %2083 ], [ %.02659, %parser_set_lex_state.exit3074 ], [ %.02659, %set_line_body.exit ], [ %.02659, %2040 ], [ %.02659, %2035 ], [ %.02659, %2032 ], [ %.02659, %2029 ], [ %.02659, %2024 ], [ %.02659, %2019 ], [ %.02659, %2017 ], [ %.02659, %2015 ], [ %.02659, %2010 ], [ %.02659, %2005 ], [ %.02659, %2002 ], [ %.02659, %1999 ], [ %.02659, %1998 ], [ %.02659, %1996 ], [ %.02659, %1993 ], [ %.02659, %1990 ], [ %.02659, %1988 ], [ %.02659, %1969 ], [ %.02659, %1964 ], [ %.02659, %1963 ], [ %.02659, %arg_blk_pass.exit3071 ], [ %.02659, %arg_blk_pass.exit3067 ], [ %.02659, %arg_blk_pass.exit ], [ %.02659, %1894 ], [ %.02659, %1892 ], [ %.02659, %1883 ], [ %.02659, %1871 ], [ %.02659, %1868 ], [ %.02659, %1867 ], [ %.02659, %1860 ], [ %.02659, %1859 ], [ %.02659, %1854 ], [ %.02659, %1839 ], [ %.02659, %1836 ], [ %.02659, %1834 ], [ %.02659, %1825 ], [ %.02659, %1813 ], [ %.02659, %1810 ], [ %.02659, %1805 ], [ %.02659, %1801 ], [ %.02659, %1799 ], [ %.02659, %1787 ], [ %.02659, %1779 ], [ %.02659, %1778 ], [ %.02659, %1777 ], [ %.02659, %1776 ], [ %.02659, %1775 ], [ %.02659, %method_cond.exit3061 ], [ %.02659, %1754 ], [ %.02659, %1752 ], [ %.02659, %1735 ], [ %.02659, %1718 ], [ %.02659, %1690 ], [ %.02659, %1684 ], [ %.02659, %1678 ], [ %.02659, %1672 ], [ %.02659, %1666 ], [ %.02659, %1662 ], [ %.02659, %method_cond.exit3057 ], [ %.02659, %1649 ], [ %.02659, %1643 ], [ %.02659, %1637 ], [ %.02659, %1631 ], [ %.02659, %1625 ], [ %.02659, %1619 ], [ %.02659, %1613 ], [ %.02659, %1607 ], [ %.02659, %1601 ], [ %.02659, %1597 ], [ %.02659, %1593 ], [ %.02659, %1585 ], [ %.02659, %1579 ], [ %.02659, %1573 ], [ %.02659, %1567 ], [ %.02659, %1561 ], [ %.02659, %1555 ], [ %.02659, %1549 ], [ %.02659, %1543 ], [ %.02659, %1537 ], [ %.02659, %1530 ], [ %.02659, %1523 ], [ %.02659, %1516 ], [ %.02659, %1509 ], [ %.02659, %1505 ], [ %.02659, %1493 ], [ %.02659, %1479 ], [ %.02659, %1470 ], [ %.02659, %1459 ], [ %.02659, %1448 ], [ %.02659, %1438 ], [ %.02659, %1429 ], [ %.02659, %1422 ], [ %.02659, %1421 ], [ %.02659, %1420 ], [ %.02659, %1419 ], [ %.02659, %1418 ], [ %.02659, %1417 ], [ %.02659, %1416 ], [ %.02659, %1415 ], [ %.02659, %1414 ], [ %.02659, %1413 ], [ %.02659, %1412 ], [ %.02659, %1411 ], [ %.02659, %1410 ], [ %.02659, %1409 ], [ %.02659, %1408 ], [ %.02659, %1407 ], [ %.02659, %1406 ], [ %.02659, %1405 ], [ %.02659, %1404 ], [ %.02659, %1403 ], [ %.02659, %1402 ], [ %.02659, %1401 ], [ %.02659, %1400 ], [ %.02659, %1399 ], [ %.02659, %1398 ], [ %.02659, %1397 ], [ %.02659, %1396 ], [ %.02659, %1395 ], [ %.02659, %1394 ], [ %.02659, %1393 ], [ %.02659, %1392 ], [ %.02659, %1386 ], [ %.02659, %parser_set_lex_state.exit3051 ], [ %.02659, %1377 ], [ %.02659, %1373 ], [ %.02659, %parser_set_lex_state.exit3049 ], [ %.02659, %1361 ], [ %.02659, %1358 ], [ %.02659, %1355 ], [ %.02659, %1354 ], [ %.02659, %1351 ], [ %.02659, %1347 ], [ %.02659, %1341 ], [ %.02659, %1334 ], [ %.02659, %1329 ], [ %.02659, %1322 ], [ %.02659, %1316 ], [ %.02659, %1313 ], [ %.02659, %1310 ], [ %.02659, %1307 ], [ %.02659, %1303 ], [ %.02659, %1297 ], [ %.02659, %1288 ], [ %.02659, %1283 ], [ %.02659, %1274 ], [ %.02659, %1268 ], [ %.02659, %1265 ], [ %.02659, %1262 ], [ %.02659, %1257 ], [ %.02659, %1254 ], [ %.02659, %1248 ], [ %.02659, %1243 ], [ %.02659, %1240 ], [ %.02659, %1236 ], [ %.02659, %1234 ], [ %.02659, %1228 ], [ %.02659, %1225 ], [ %.02659, %1219 ], [ %.02659, %1215 ], [ %.02659, %1207 ], [ %.02659, %1202 ], [ %.02659, %1196 ], [ %.02659, %1193 ], [ %.02659, %1188 ], [ %.02659, %1185 ], [ %.02659, %1180 ], [ %.02659, %1175 ], [ %.02659, %1171 ], [ %.02659, %1121 ], [ %.02659, %1111 ], [ %.02659, %1103 ], [ %.02659, %1091 ], [ %.02659, %1081 ], [ %.02659, %fixpos.exit3041 ], [ %.02659, %1038 ], [ %.02659, %1035 ], [ %.02659, %1020 ], [ %.02659, %1010 ], [ %.02659, %1007 ], [ %.02659, %1006 ], [ %.02659, %1001 ], [ %.02659, %1000 ], [ %.02659, %994 ], [ %.02659, %992 ], [ %.02659, %989 ], [ %.02659, %def_head_save.exit3036 ], [ %.02659, %parser_set_lex_state.exit3031 ], [ %.02659, %def_head_save.exit ], [ %.02659, %932 ], [ %.02659, %pop_pktbl.exit3028 ], [ %.02659, %908 ], [ %.02659, %pop_pktbl.exit ], [ %.02659, %886 ], [ %.02659, %method_cond.exit3025 ], [ %.02659, %method_cond.exit3023 ], [ %.02659, %866 ], [ %.02659, %860 ], [ %.02659, %remove_begin.exit3021 ], [ %.02659, %835 ], [ %.02659, %method_cond.exit ], [ %.02659, %814 ], [ %.02659, %810 ], [ %.02659, %793 ], [ %.02659, %776 ], [ %.02659, %767 ], [ %.02659, %753 ], [ %.02659, %742 ], [ %.02659, %731 ], [ %.02659, %721 ], [ %.02659, %712 ], [ %.02659, %705 ], [ %.02659, %703 ], [ %.02659, %696 ], [ %.02659, %remove_begin.exit3011 ], [ %.02659, %661 ], [ %.02659, %653 ], [ %.02659, %644 ], [ %.02659, %remove_begin.exit3004 ], [ %.02659, %cond.exit2992 ], [ %.02659, %cond.exit2994 ], [ %.02659, %cond.exit ], [ %.02659, %cond.exit2988 ], [ %.02659, %510 ], [ %.02659, %508 ], [ %.02659, %499 ], [ %.02659, %494 ], [ %.02659, %489 ], [ %.02659, %parser_set_lex_state.exit2972 ], [ %.02659, %479 ], [ %.02659, %477 ], [ %.02659, %475 ], [ %.02659, %474 ], [ %.02659, %472 ], [ %.02659, %newline_node.exit2970 ], [ %.02659, %newline_node.exit2962 ], [ %.02659, %451 ], [ %.02659, %447 ], [ %.02659, %440 ], [ %.02659, %432 ], [ %.02659, %423 ], [ %.02659, %415 ], [ %.02659, %407 ], [ %.02659, %394 ], [ %.02659, %392 ], [ %.02659, %390 ], [ %.02659, %388 ], [ %.02659, %newline_node.exit2954 ], [ %.02659, %newline_node.exit ], [ %.02659, %367 ], [ %.02659, %363 ], [ %.02659, %358 ], [ %.02659, %337 ], [ %.02659, %parser_set_lex_state.exit ], [ %.02659, %.critedge2871 ], [ %.02659, %remove_begin.exit2977 ], [ %.02659, %527 ], [ %.02659, %remove_begin.exit2982 ], [ %.02659, %550 ], [ %.02659, %1143 ], [ %.02659, %1149 ], [ %.02659, %1157 ], [ %.02659, %1163 ], [ %.02659, %1699 ], [ %.02659, %1710 ], [ %.02659, %2182 ], [ %.02659, %2193 ], [ %.02659, %2201 ], [ %.02659, %2212 ], [ %.02659, %cond.exit3087 ], [ %.02659, %2235 ], [ %.02659, %cond.exit3091 ], [ %.02659, %2258 ], [ %.02659, %2273 ], [ %.02659, %2284 ], [ %.02659, %2339 ], [ %.02659, %2352 ], [ %.02659, %2700 ], [ %.02659, %2710 ], [ %.02659, %block_dup_check.exit3130 ], [ %.02659, %3081 ], [ %.02659, %3202 ], [ %.02659, %3211 ], [ %.02659, %3344 ], [ %.02659, %3354 ], [ %.02659, %3400 ], [ %.02659, %3408 ], [ %.02659, %3416 ], [ %.02659, %3424 ], [ %.02659, %3829 ], [ %.02659, %3830 ], [ %.02659, %3840 ], [ %.02659, %3841 ], [ %.02659, %3849 ], [ %.02659, %3853 ], [ %.02659, %4156 ], [ %.02659, %.sink.split.i3200 ]
   %4709 = load i32, ptr %24, align 8
   %4710 = and i32 %4709, 32
   %.not2860 = icmp eq i32 %4710, 0
@@ -10564,7 +10564,7 @@ fixpos.exit._crit_edge:                           ; preds = %fixpos.exit
   %4724 = load i32, ptr %91, align 4
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.87, i32 noundef %4721, i32 noundef %4722, i32 noundef %4723, i32 noundef %4724)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.88)
-  call fastcc void @yy_symbol_value_print.argprom(i32 noundef %4714, ptr noundef nonnull %7, ptr noundef nonnull %0)
+  call fastcc void @yy_symbol_value_print(i32 noundef %4714, ptr noundef nonnull %7, ptr noundef nonnull %0)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.89)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7)
   br label %4725
@@ -10634,7 +10634,7 @@ fixpos.exit._crit_edge:                           ; preds = %fixpos.exit
   br i1 %.not2861, label %4760, label %4793
 
 4760:                                             ; preds = %4758
-  %4761 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %10, ptr %.03285, ptr %.22675, i32 %4759, ptr noundef %0)
+  %4761 = call fastcc i32 @yysyntax_error(ptr noundef %10, ptr %.03285, ptr %.22675, i32 %4759, ptr noundef %0)
   switch i32 %4761, label %4786 [
     i32 0, label %4762
     i32 -1, label %4763
@@ -10695,7 +10695,7 @@ rb_parser_free.exit3251:                          ; preds = %.lr.ph3416, %.lr.ph
   store ptr %4781, ptr %4782, align 8
   %4783 = getelementptr inbounds i8, ptr %4780, i64 32
   store i64 %4779, ptr %4783, align 8
-  %4784 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %10, ptr nonnull %4781, ptr %.22675, i32 %4759, ptr noundef nonnull %0)
+  %4784 = call fastcc i32 @yysyntax_error(ptr noundef %10, ptr nonnull %4781, ptr %.22675, i32 %4759, ptr noundef nonnull %0)
   %4785 = icmp eq i32 %4784, -2
   br label %4786
 
@@ -10847,7 +10847,7 @@ yy_stack_print.exit3256:                          ; preds = %.lr.ph.i3253, %4828
   %4856 = load i32, ptr %4855, align 4
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.87, i32 noundef %4851, i32 noundef %4853, i32 noundef %4854, i32 noundef %4856)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.88)
-  call fastcc void @yy_symbol_value_print.argprom(i32 noundef %4845, ptr noundef nonnull %4835, ptr noundef nonnull %0)
+  call fastcc void @yy_symbol_value_print(i32 noundef %4845, ptr noundef nonnull %4835, ptr noundef nonnull %0)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.89)
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7)
   br label %94
@@ -11070,35 +11070,35 @@ define dso_local void @rb_parser_printf(ptr nocapture noundef %0, ptr noundef %1
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %15, label %end_with_newline_p.argprom.exit.thread
+  br i1 %14, label %15, label %end_with_newline_p.exit.thread
 
 15:                                               ; preds = %9
   %16 = load i64, ptr %11, align 8, !noalias !20
   %17 = and i64 %16, 8192
   %.not.i.i.i = icmp eq i64 %17, 0
   %18 = getelementptr inbounds i8, ptr %11, i64 24
-  br i1 %.not.i.i.i, label %end_with_newline_p.argprom.exit, label %19
+  br i1 %.not.i.i.i, label %end_with_newline_p.exit, label %19
 
 19:                                               ; preds = %15
   %.sroa.3.0.copyload.i.i = load ptr, ptr %18, align 8
-  br label %end_with_newline_p.argprom.exit
+  br label %end_with_newline_p.exit
 
-end_with_newline_p.argprom.exit:                  ; preds = %15, %19
+end_with_newline_p.exit:                          ; preds = %15, %19
   %.sroa.3.0.i.i = phi ptr [ %.sroa.3.0.copyload.i.i, %19 ], [ %18, %15 ]
   %20 = getelementptr i8, ptr %.sroa.3.0.i.i, i64 %13
   %21 = getelementptr i8, ptr %20, i64 -1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 10
-  br i1 %23, label %24, label %end_with_newline_p.argprom.exit.thread
+  br i1 %23, label %24, label %end_with_newline_p.exit.thread
 
-24:                                               ; preds = %end_with_newline_p.argprom.exit
+24:                                               ; preds = %end_with_newline_p.exit
   %25 = getelementptr inbounds i8, ptr %0, i64 272
   %26 = load i64, ptr %25, align 8
   %27 = call i64 @rb_io_write(i64 noundef %26, i64 noundef %.0) #33
   store i64 4, ptr %4, align 8
-  br label %end_with_newline_p.argprom.exit.thread
+  br label %end_with_newline_p.exit.thread
 
-end_with_newline_p.argprom.exit.thread:           ; preds = %9, %24, %end_with_newline_p.argprom.exit
+end_with_newline_p.exit.thread:                   ; preds = %9, %24, %end_with_newline_p.exit
   ret void
 }
 
@@ -11255,13 +11255,13 @@ vtable_alloc_gen.exit38:                          ; preds = %vtable_alloc_gen.ex
   %.val = load ptr, ptr %38, align 8
   %39 = load i8, ptr %.val, align 1
   %.not.i39 = icmp eq i8 %39, 45
-  br i1 %.not.i39, label %sub_1.i, label %e_option_supplied.argprom.exit
+  br i1 %.not.i39, label %sub_1.i, label %e_option_supplied.exit
 
 sub_1.i:                                          ; preds = %35
   %40 = getelementptr inbounds i8, ptr %.val, i64 1
   %41 = load i8, ptr %40, align 1
   %.not1.i = icmp eq i8 %41, 101
-  br i1 %.not1.i, label %sub_2.i, label %e_option_supplied.argprom.exit
+  br i1 %.not1.i, label %sub_2.i, label %e_option_supplied.exit
 
 sub_2.i:                                          ; preds = %sub_1.i
   %42 = getelementptr inbounds i8, ptr %.val, i64 2
@@ -11272,7 +11272,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
   br i1 %45, label %50, label %vtable_alloc_gen.exit41
 
-e_option_supplied.argprom.exit:                   ; preds = %35, %sub_1.i
+e_option_supplied.exit:                           ; preds = %35, %sub_1.i
   %47 = getelementptr inbounds i8, ptr %13, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
   br i1 %spec.select, label %50, label %vtable_alloc_gen.exit41
@@ -11282,7 +11282,7 @@ e_option_supplied.argprom.exit:                   ; preds = %35, %sub_1.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
   br i1 %12, label %50, label %vtable_alloc_gen.exit41
 
-50:                                               ; preds = %sub_2.i, %e_option_supplied.argprom.exit, %48
+50:                                               ; preds = %sub_2.i, %e_option_supplied.exit, %48
   %51 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #36
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   store i32 0, ptr %52, align 8
@@ -11301,8 +11301,8 @@ e_option_supplied.argprom.exit:                   ; preds = %35, %sub_1.i
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1048, i32 noundef 15335, ptr noundef nonnull %51)
   br label %vtable_alloc_gen.exit41
 
-vtable_alloc_gen.exit41:                          ; preds = %sub_2.i, %58, %50, %e_option_supplied.argprom.exit, %48
-  %59 = phi ptr [ null, %48 ], [ null, %e_option_supplied.argprom.exit ], [ %51, %50 ], [ %51, %58 ], [ null, %sub_2.i ]
+vtable_alloc_gen.exit41:                          ; preds = %sub_2.i, %58, %50, %e_option_supplied.exit, %48
+  %59 = phi ptr [ null, %48 ], [ null, %e_option_supplied.exit ], [ %51, %50 ], [ %51, %58 ], [ null, %sub_2.i ]
   %60 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %59, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 144
@@ -12003,7 +12003,7 @@ parser_yyerror.exit23:                            ; preds = %parser_yyerror.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_yyerror.retelim(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parser_yyerror(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.534, ptr noundef nonnull %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 212
   %5 = load i32, ptr %4, align 4
@@ -12506,7 +12506,7 @@ define internal fastcc noundef ptr @rb_node_postexe_new(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @value_expr_gen.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %parser_yyerror.exit, label %4
@@ -13554,7 +13554,7 @@ parser_yyerror.exit:                              ; preds = %15, %10, %5
   %21 = getelementptr inbounds i8, ptr %0, i64 240
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %token_info_drop.argprom.exit, label %23
+  br i1 %.not.i, label %token_info_drop.exit, label %23
 
 23:                                               ; preds = %parser_yyerror.exit
   %24 = getelementptr inbounds i8, ptr %22, i64 24
@@ -13589,9 +13589,9 @@ parser_yyerror.exit:                              ; preds = %15, %10, %5
 
 36:                                               ; preds = %33, %31
   tail call void @ruby_xfree(ptr noundef nonnull %22) #33
-  br label %token_info_drop.argprom.exit
+  br label %token_info_drop.exit
 
-token_info_drop.argprom.exit:                     ; preds = %parser_yyerror.exit, %36
+token_info_drop.exit:                             ; preds = %parser_yyerror.exit, %36
   ret void
 }
 
@@ -13744,7 +13744,7 @@ define internal fastcc void @rb_backref_error(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rescued_expr.argprom(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @rescued_expr(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 %.0.val, i64 %.8.val) unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -14146,7 +14146,7 @@ define internal fastcc void @numparam_name(ptr nocapture noundef %0, i64 noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_defn_new.argprom(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_defn_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 81, i64 noundef 48, i64 noundef 8) #33
@@ -14174,7 +14174,7 @@ define internal fastcc noundef ptr @rb_node_defn_new.argprom(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_defs_new.argprom(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_defs_new(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 82, i64 noundef 56, i64 noundef 8) #33
@@ -14212,7 +14212,7 @@ define dso_local void @rb_parser_show_bitstack(ptr nocapture noundef %0, i64 nou
 
 8:                                                ; preds = %4
   %9 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.995, i64 noundef 1) #33
-  br label %append_bitstack_value.argprom.exit
+  br label %append_bitstack_value.exit
 
 .preheader.i:                                     ; preds = %4, %.preheader.i
   %.0.i = phi i64 [ %11, %.preheader.i ], [ -9223372036854775808, %4 ]
@@ -14225,7 +14225,7 @@ define dso_local void @rb_parser_show_bitstack(ptr nocapture noundef %0, i64 nou
 
 .critedge.preheader.i:                            ; preds = %.preheader.i
   %.not131.i = icmp eq i64 %.0.i, 0
-  br i1 %.not131.i, label %append_bitstack_value.argprom.exit, label %.critedge.i
+  br i1 %.not131.i, label %append_bitstack_value.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.preheader.i, %.critedge.i
   %.12.i = phi i64 [ %15, %.critedge.i ], [ %.0.i, %.critedge.preheader.i ]
@@ -14235,9 +14235,9 @@ define dso_local void @rb_parser_show_bitstack(ptr nocapture noundef %0, i64 nou
   %14 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull %13, i64 noundef 1) #33
   %15 = lshr i64 %.12.i, 1
   %.not13.i = icmp ult i64 %.12.i, 2
-  br i1 %.not13.i, label %append_bitstack_value.argprom.exit, label %.critedge.i, !llvm.loop !29
+  br i1 %.not13.i, label %append_bitstack_value.exit, label %.critedge.i, !llvm.loop !29
 
-append_bitstack_value.argprom.exit:               ; preds = %.critedge.i, %8, %.critedge.preheader.i
+append_bitstack_value.exit:                       ; preds = %.critedge.i, %8, %.critedge.preheader.i
   %16 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6, ptr noundef nonnull @.str.73, i32 noundef %3) #33
   %17 = getelementptr inbounds i8, ptr %0, i64 272
   %18 = load i64, ptr %17, align 8
@@ -14248,7 +14248,7 @@ append_bitstack_value.argprom.exit:               ; preds = %.critedge.i, %8, %.
   %21 = icmp eq i64 %20, 4
   br i1 %21, label %28, label %22
 
-22:                                               ; preds = %append_bitstack_value.argprom.exit
+22:                                               ; preds = %append_bitstack_value.exit
   %23 = inttoptr i64 %20 to ptr
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load i64, ptr %24, align 8
@@ -14260,7 +14260,7 @@ append_bitstack_value.argprom.exit:               ; preds = %.critedge.i, %8, %.
   %27 = call i64 @rb_io_puts(i32 noundef 1, ptr noundef nonnull %5, i64 noundef %18) #33
   br label %28
 
-28:                                               ; preds = %26, %22, %append_bitstack_value.argprom.exit
+28:                                               ; preds = %26, %22, %append_bitstack_value.exit
   %29 = icmp eq i64 %6, 4
   br i1 %29, label %flush_debug_buffer.exit, label %30
 
@@ -14531,20 +14531,20 @@ define internal fastcc ptr @ret_args(ptr nocapture noundef %0, ptr noundef reado
   %.val9 = load i64, ptr %1, align 8
   %4 = and i64 %.val9, 32512
   %5 = icmp eq i64 %4, 20480
-  br i1 %5, label %6, label %no_blockarg.argprom.exit
+  br i1 %5, label %6, label %no_blockarg.exit
 
 6:                                                ; preds = %3
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.1040)
   %.val.pre = load i64, ptr %1, align 8
-  br label %no_blockarg.argprom.exit
+  br label %no_blockarg.exit
 
-no_blockarg.argprom.exit:                         ; preds = %3, %6
+no_blockarg.exit:                                 ; preds = %3, %6
   %.val = phi i64 [ %.val9, %3 ], [ %.val.pre, %6 ]
   %7 = and i64 %.val, 32512
   %8 = icmp eq i64 %7, 11008
   br i1 %8, label %9, label %15
 
-9:                                                ; preds = %no_blockarg.argprom.exit
+9:                                                ; preds = %no_blockarg.exit
   %10 = getelementptr inbounds i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not8 = icmp eq ptr %11, null
@@ -14555,8 +14555,8 @@ no_blockarg.argprom.exit:                         ; preds = %3, %6
   %14 = load ptr, ptr %13, align 8
   br label %15
 
-15:                                               ; preds = %no_blockarg.argprom.exit, %9, %12, %2
-  %.0 = phi ptr [ %1, %9 ], [ %14, %12 ], [ %1, %no_blockarg.argprom.exit ], [ null, %2 ]
+15:                                               ; preds = %no_blockarg.exit, %9, %12, %2
+  %.0 = phi ptr [ %1, %9 ], [ %14, %12 ], [ %1, %no_blockarg.exit ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -14909,15 +14909,15 @@ define internal fastcc noundef ptr @assignable(ptr nocapture noundef %0, i64 nou
   %18 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %18, align 8
   %switch.i.i = icmp ult ptr %.val.val.i, inttoptr (i64 2 to ptr)
-  br i1 %switch.i.i, label %dyna_in_block.argprom.argprom.exit.thread.i, label %dyna_in_block.argprom.argprom.exit.i
+  br i1 %switch.i.i, label %dyna_in_block.exit.thread.i, label %dyna_in_block.exit.i
 
-dyna_in_block.argprom.argprom.exit.i:             ; preds = %16
+dyna_in_block.exit.i:                             ; preds = %16
   %19 = getelementptr inbounds i8, ptr %.val.val.i, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %dyna_in_block.argprom.argprom.exit.thread.i, label %21
+  br i1 %.not.i, label %dyna_in_block.exit.thread.i, label %21
 
-21:                                               ; preds = %dyna_in_block.argprom.argprom.exit.i
+21:                                               ; preds = %dyna_in_block.exit.i
   %22 = getelementptr inbounds i8, ptr %0, i64 324
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
@@ -14941,7 +14941,7 @@ dyna_in_block.argprom.argprom.exit.i:             ; preds = %16
   br label %parser_yyerror.exit
 
 35:                                               ; preds = %25, %21
-  %36 = tail call fastcc i32 @dvar_curr.argprom(ptr nonnull %.val.i, i64 noundef %1)
+  %36 = tail call fastcc i32 @dvar_curr(ptr nonnull %.val.i, i64 noundef %1)
   %.not37.i = icmp eq i32 %36, 0
   br i1 %.not37.i, label %37, label %50
 
@@ -14959,12 +14959,12 @@ dyna_in_block.argprom.argprom.exit.i:             ; preds = %16
   tail call fastcc void @local_var(ptr noundef nonnull %0, i64 noundef %1)
   br label %50
 
-dyna_in_block.argprom.argprom.exit.thread.i:      ; preds = %dyna_in_block.argprom.argprom.exit.i, %16
+dyna_in_block.exit.thread.i:                      ; preds = %dyna_in_block.exit.i, %16
   %42 = tail call fastcc i32 @local_id(ptr noundef nonnull %0, i64 noundef %1)
   %.not35.i = icmp eq i32 %42, 0
   br i1 %.not35.i, label %43, label %66
 
-43:                                               ; preds = %dyna_in_block.argprom.argprom.exit.thread.i
+43:                                               ; preds = %dyna_in_block.exit.thread.i
   tail call fastcc void @local_var(ptr noundef nonnull %0, i64 noundef %1)
   br label %66
 
@@ -15006,7 +15006,7 @@ dyna_in_block.argprom.argprom.exit.thread.i:      ; preds = %dyna_in_block.argpr
   store ptr %2, ptr %65, align 8
   br label %169
 
-66:                                               ; preds = %39, %43, %dyna_in_block.argprom.argprom.exit.thread.i
+66:                                               ; preds = %39, %43, %dyna_in_block.exit.thread.i
   %67 = getelementptr i8, ptr %0, i64 312
   %.val.i.i32 = load ptr, ptr %67, align 8
   %68 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i32, i32 noundef 25, i64 noundef 48, i64 noundef 8) #33
@@ -15510,7 +15510,7 @@ define internal fastcc noundef ptr @rb_node_dot3_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_nil_at.argprom(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_nil_at(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %2, align 8
   %3 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 96, i64 noundef 32, i64 noundef 8) #33
@@ -15640,7 +15640,7 @@ value_expr_gen.exit16:                            ; preds = %value_expr_gen.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @match_op.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @match_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.0.val, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.reg_named_capture_assign_t, align 8
   %6 = tail call fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef %1)
   %.not.i = icmp eq ptr %6, null
@@ -17262,7 +17262,7 @@ vtable_size.exit4:                                ; preds = %vtable_size.exit, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_args_aux_new.argprom(ptr nocapture noundef %0, i64 noundef %1, i64 noundef range(i64 0, 2) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_args_aux_new(ptr nocapture noundef %0, i64 noundef %1, i64 noundef range(i64 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 73, i64 noundef 56, i64 noundef 8) #33
@@ -17632,24 +17632,24 @@ rb_parser_internal_id.exit:                       ; preds = %vtable_size.exit.i,
 60:                                               ; preds = %56
   tail call void (ptr, ptr, ...) @rb_parser_fatal(ptr noundef nonnull %0, ptr noundef nonnull @.str.1044, i32 noundef %58, i32 noundef %52)
   %.pre = load i32, ptr %57, align 8
-  br label %vtable_pop_gen.argprom.exit
+  br label %vtable_pop_gen.exit
 
 61:                                               ; preds = %56
   %62 = sub nsw i32 %58, %52
   store i32 %62, ptr %57, align 8
-  br label %vtable_pop_gen.argprom.exit
+  br label %vtable_pop_gen.exit
 
-vtable_pop_gen.argprom.exit:                      ; preds = %60, %61
+vtable_pop_gen.exit:                              ; preds = %60, %61
   %63 = phi i32 [ %.pre, %60 ], [ %62, %61 ]
   %64 = load ptr, ptr %38, align 8
   %65 = sext i32 %63 to i64
   %66 = getelementptr i64, ptr %64, i64 %65
   br label %67
 
-67:                                               ; preds = %vtable_pop_gen.argprom.exit, %get_nd_value.exit
-  %.05886 = phi ptr [ %1, %vtable_pop_gen.argprom.exit ], [ %101, %get_nd_value.exit ]
-  %.06085 = phi ptr [ %66, %vtable_pop_gen.argprom.exit ], [ %spec.select, %get_nd_value.exit ]
-  %.06284 = phi ptr [ %66, %vtable_pop_gen.argprom.exit ], [ %99, %get_nd_value.exit ]
+67:                                               ; preds = %vtable_pop_gen.exit, %get_nd_value.exit
+  %.05886 = phi ptr [ %1, %vtable_pop_gen.exit ], [ %101, %get_nd_value.exit ]
+  %.06085 = phi ptr [ %66, %vtable_pop_gen.exit ], [ %spec.select, %get_nd_value.exit ]
+  %.06284 = phi ptr [ %66, %vtable_pop_gen.exit ], [ %99, %get_nd_value.exit ]
   %68 = getelementptr inbounds i8, ptr %.05886, i64 32
   %69 = load ptr, ptr %68, align 8
   %70 = load i64, ptr %69, align 8
@@ -19096,7 +19096,7 @@ define internal fastcc noundef ptr @rb_node_iter_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @check_literal_when.argprom(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @check_literal_when(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %37, label %3
 
@@ -19469,12 +19469,12 @@ define internal fastcc void @error_duplicate_pattern_variable(ptr nocapture noun
   %7 = and i64 %1, 14
   %8 = icmp eq i64 %7, 0
   %9 = and i1 %6, %8
-  br i1 %9, label %10, label %is_private_local_id.argprom.exit.thread
+  br i1 %9, label %10, label %is_private_local_id.exit.thread
 
 10:                                               ; preds = %5
   %11 = tail call i64 @rb_id2str(i64 noundef %1) #33
   %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %is_private_local_id.argprom.exit.thread, label %12
+  br i1 %.not.i, label %is_private_local_id.exit.thread, label %12
 
 12:                                               ; preds = %10
   %13 = inttoptr i64 %11 to ptr
@@ -19482,26 +19482,26 @@ define internal fastcc void @error_duplicate_pattern_variable(ptr nocapture noun
   %15 = and i64 %14, 8192
   %.not.i.i.i = icmp eq i64 %15, 0
   %16 = getelementptr inbounds i8, ptr %13, i64 24
-  br i1 %.not.i.i.i, label %is_private_local_id.argprom.exit, label %17
+  br i1 %.not.i.i.i, label %is_private_local_id.exit, label %17
 
 17:                                               ; preds = %12
   %.sroa.2.0.copyload.i.i = load ptr, ptr %16, align 8
-  br label %is_private_local_id.argprom.exit
+  br label %is_private_local_id.exit
 
-is_private_local_id.argprom.exit:                 ; preds = %12, %17
+is_private_local_id.exit:                         ; preds = %12, %17
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %17 ], [ %16, %12 ]
   %18 = load i8, ptr %.sroa.2.0.i.i, align 1
   %.not = icmp eq i8 %18, 95
-  br i1 %.not, label %parser_yyerror.exit, label %is_private_local_id.argprom.exit.thread
+  br i1 %.not, label %parser_yyerror.exit, label %is_private_local_id.exit.thread
 
-is_private_local_id.argprom.exit.thread:          ; preds = %10, %5, %is_private_local_id.argprom.exit
+is_private_local_id.exit.thread:                  ; preds = %10, %5, %is_private_local_id.exit
   %19 = getelementptr inbounds i8, ptr %0, i64 192
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @rb_st_lookup(ptr noundef %20, i64 noundef %1, ptr noundef null) #33
   %.not7 = icmp eq i32 %21, 0
   br i1 %.not7, label %32, label %22
 
-22:                                               ; preds = %is_private_local_id.argprom.exit.thread
+22:                                               ; preds = %is_private_local_id.exit.thread
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.534, ptr noundef nonnull @.str.1046)
   %23 = getelementptr inbounds i8, ptr %0, i64 212
   %24 = load i32, ptr %23, align 4
@@ -19517,12 +19517,12 @@ is_private_local_id.argprom.exit.thread:          ; preds = %10, %5, %is_private
   tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %31, ptr noundef nonnull %2, i32 noundef %24, ptr noundef %29)
   br label %parser_yyerror.exit
 
-32:                                               ; preds = %is_private_local_id.argprom.exit.thread
+32:                                               ; preds = %is_private_local_id.exit.thread
   %33 = load ptr, ptr %19, align 8
   %34 = tail call i32 @rb_st_insert(ptr noundef %33, i64 noundef %1, i64 noundef 0) #33
   br label %parser_yyerror.exit
 
-parser_yyerror.exit:                              ; preds = %3, %27, %22, %is_private_local_id.argprom.exit, %32
+parser_yyerror.exit:                              ; preds = %3, %27, %22, %is_private_local_id.exit, %32
   ret void
 }
 
@@ -19638,7 +19638,7 @@ define internal fastcc noundef ptr @dsym_node(ptr nocapture noundef %0, ptr noun
 23:                                               ; preds = %9
   %24 = getelementptr i8, ptr %1, i64 32
   %.val = load ptr, ptr %24, align 8
-  %25 = tail call fastcc ptr @str_to_sym_node.argprom(ptr noundef %0, ptr %.val, ptr noundef nonnull %2)
+  %25 = tail call fastcc ptr @str_to_sym_node(ptr noundef %0, ptr %.val, ptr noundef nonnull %2)
   br label %57
 
 26:                                               ; preds = %9
@@ -19958,18 +19958,18 @@ rb_node_file_new.exit:                            ; preds = %92, %97
   %140 = getelementptr i8, ptr %.val125, i64 8
   %.val125.val = load ptr, ptr %140, align 8
   %switch.i = icmp ult ptr %.val125.val, inttoptr (i64 2 to ptr)
-  br i1 %switch.i, label %dyna_in_block.argprom.argprom.exit.thread, label %dyna_in_block.argprom.argprom.exit
+  br i1 %switch.i, label %dyna_in_block.exit.thread, label %dyna_in_block.exit
 
-dyna_in_block.argprom.argprom.exit:               ; preds = %138
+dyna_in_block.exit:                               ; preds = %138
   %141 = getelementptr inbounds i8, ptr %.val125.val, i64 16
   %142 = load ptr, ptr %141, align 8
   %.not146 = icmp eq ptr %142, null
-  br i1 %.not146, label %dyna_in_block.argprom.argprom.exit.thread, label %143
+  br i1 %.not146, label %dyna_in_block.exit.thread, label %143
 
-143:                                              ; preds = %dyna_in_block.argprom.argprom.exit
+143:                                              ; preds = %dyna_in_block.exit
   %144 = call i32 @rb_parser_dvar_defined_ref(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %4)
   %.not106 = icmp eq i32 %144, 0
-  br i1 %.not106, label %dyna_in_block.argprom.argprom.exit.thread, label %145
+  br i1 %.not106, label %dyna_in_block.exit.thread, label %145
 
 145:                                              ; preds = %143
   %146 = and i64 %1, 14
@@ -20019,12 +20019,12 @@ dyna_in_block.argprom.argprom.exit:               ; preds = %138
   %169 = call fastcc ptr @rb_node_dvar_new(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2)
   br label %304
 
-dyna_in_block.argprom.argprom.exit.thread:        ; preds = %138, %143, %dyna_in_block.argprom.argprom.exit
+dyna_in_block.exit.thread:                        ; preds = %138, %143, %dyna_in_block.exit
   %170 = call fastcc i32 @local_id_ref(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %4)
   %.not107 = icmp eq i32 %170, 0
   br i1 %.not107, label %184, label %171
 
-171:                                              ; preds = %dyna_in_block.argprom.argprom.exit.thread
+171:                                              ; preds = %dyna_in_block.exit.thread
   %172 = getelementptr inbounds i8, ptr %0, i64 304
   %173 = load i64, ptr %172, align 8
   %174 = icmp eq i64 %1, %173
@@ -20050,20 +20050,20 @@ dyna_in_block.argprom.argprom.exit.thread:        ; preds = %138, %143, %dyna_in
   %183 = call fastcc ptr @rb_node_lvar_new(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2)
   br label %304
 
-184:                                              ; preds = %dyna_in_block.argprom.argprom.exit.thread
+184:                                              ; preds = %dyna_in_block.exit.thread
   %.val124 = load ptr, ptr %139, align 8
   %185 = getelementptr i8, ptr %.val124, i64 8
   %.val124.val = load ptr, ptr %185, align 8
   %switch.i133 = icmp ult ptr %.val124.val, inttoptr (i64 2 to ptr)
-  br i1 %switch.i133, label %dyna_in_block.argprom.argprom.exit134.thread, label %dyna_in_block.argprom.argprom.exit134
+  br i1 %switch.i133, label %dyna_in_block.exit134.thread, label %dyna_in_block.exit134
 
-dyna_in_block.argprom.argprom.exit134:            ; preds = %184
+dyna_in_block.exit134:                            ; preds = %184
   %186 = getelementptr inbounds i8, ptr %.val124.val, i64 16
   %187 = load ptr, ptr %186, align 8
   %.not = icmp eq ptr %187, null
-  br i1 %.not, label %dyna_in_block.argprom.argprom.exit134.thread, label %188
+  br i1 %.not, label %dyna_in_block.exit134.thread, label %188
 
-188:                                              ; preds = %dyna_in_block.argprom.argprom.exit134
+188:                                              ; preds = %dyna_in_block.exit134
   %189 = and i64 %1, 14
   %190 = icmp ne i64 %189, 0
   %191 = icmp ult i64 %1, 3664
@@ -20073,18 +20073,18 @@ dyna_in_block.argprom.argprom.exit134:            ; preds = %184
   %195 = icmp ult i32 %194, -9
   %.not154 = or i1 %190, %195
   %narrow.i135.not = or i1 %191, %.not154
-  br i1 %narrow.i135.not, label %dyna_in_block.argprom.argprom.exit134.thread, label %196
+  br i1 %narrow.i135.not, label %dyna_in_block.exit134.thread, label %196
 
 196:                                              ; preds = %188
   %197 = add nsw i32 %193, -228
   %198 = call fastcc zeroext i1 @parser_numbered_param(ptr noundef nonnull %0, i32 noundef %197)
-  br i1 %198, label %199, label %.dyna_in_block.argprom.argprom.exit134.thread_crit_edge
+  br i1 %198, label %199, label %.dyna_in_block.exit134.thread_crit_edge
 
-.dyna_in_block.argprom.argprom.exit134.thread_crit_edge: ; preds = %196
+.dyna_in_block.exit134.thread_crit_edge:          ; preds = %196
   %.val.pre = load ptr, ptr %139, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.val.pre, i64 8
   %.val.val.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %dyna_in_block.argprom.argprom.exit134.thread
+  br label %dyna_in_block.exit134.thread
 
 199:                                              ; preds = %196
   %200 = call fastcc i32 @numparam_nested_p(ptr noundef nonnull %0)
@@ -20108,33 +20108,33 @@ dyna_in_block.argprom.argprom.exit134:            ; preds = %184
   store ptr %204, ptr %206, align 8
   br label %304
 
-dyna_in_block.argprom.argprom.exit134.thread:     ; preds = %.dyna_in_block.argprom.argprom.exit134.thread_crit_edge, %184, %188, %dyna_in_block.argprom.argprom.exit134
-  %.val.val = phi ptr [ %.val.val.pre, %.dyna_in_block.argprom.argprom.exit134.thread_crit_edge ], [ %.val124.val, %184 ], [ %.val124.val, %188 ], [ %.val124.val, %dyna_in_block.argprom.argprom.exit134 ]
+dyna_in_block.exit134.thread:                     ; preds = %.dyna_in_block.exit134.thread_crit_edge, %184, %188, %dyna_in_block.exit134
+  %.val.val = phi ptr [ %.val.val.pre, %.dyna_in_block.exit134.thread_crit_edge ], [ %.val124.val, %184 ], [ %.val124.val, %188 ], [ %.val124.val, %dyna_in_block.exit134 ]
   %switch.i137 = icmp ult ptr %.val.val, inttoptr (i64 2 to ptr)
-  br i1 %switch.i137, label %dyna_in_block.argprom.argprom.exit138.thread, label %dyna_in_block.argprom.argprom.exit138
+  br i1 %switch.i137, label %dyna_in_block.exit138.thread, label %dyna_in_block.exit138
 
-dyna_in_block.argprom.argprom.exit138:            ; preds = %dyna_in_block.argprom.argprom.exit134.thread
+dyna_in_block.exit138:                            ; preds = %dyna_in_block.exit134.thread
   %209 = getelementptr inbounds i8, ptr %.val.val, i64 16
   %210 = load ptr, ptr %209, align 8
   %.not155 = icmp eq ptr %210, null
-  br i1 %.not155, label %dyna_in_block.argprom.argprom.exit138.thread, label %211
+  br i1 %.not155, label %dyna_in_block.exit138.thread, label %211
 
-211:                                              ; preds = %dyna_in_block.argprom.argprom.exit138
+211:                                              ; preds = %dyna_in_block.exit138
   %212 = call fastcc i64 @rbimpl_intern_const(ptr noundef @gettable.rbimpl_id, ptr noundef @.str.981) #39
   %213 = icmp eq i64 %1, %212
-  br i1 %213, label %214, label %dyna_in_block.argprom.argprom.exit138.thread
+  br i1 %213, label %214, label %dyna_in_block.exit138.thread
 
 214:                                              ; preds = %211
   %215 = load ptr, ptr %139, align 8
   %216 = load ptr, ptr %215, align 8
   %switch = icmp ult ptr %216, inttoptr (i64 2 to ptr)
-  br i1 %switch, label %dyna_in_block.argprom.argprom.exit138.thread, label %217
+  br i1 %switch, label %dyna_in_block.exit138.thread, label %217
 
 217:                                              ; preds = %214
   %218 = getelementptr inbounds i8, ptr %216, i64 16
   %219 = load ptr, ptr %218, align 8
   %switch123 = icmp ult ptr %219, inttoptr (i64 2 to ptr)
-  br i1 %switch123, label %dyna_in_block.argprom.argprom.exit138.thread, label %220
+  br i1 %switch123, label %dyna_in_block.exit138.thread, label %220
 
 220:                                              ; preds = %217
   %221 = call fastcc i32 @numparam_used_p(ptr noundef nonnull %0)
@@ -20179,7 +20179,7 @@ dyna_in_block.argprom.argprom.exit138:            ; preds = %dyna_in_block.argpr
   store ptr %236, ptr %238, align 8
   br label %304
 
-dyna_in_block.argprom.argprom.exit138.thread:     ; preds = %dyna_in_block.argprom.argprom.exit134.thread, %217, %214, %211, %dyna_in_block.argprom.argprom.exit138
+dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit134.thread, %217, %214, %211, %dyna_in_block.exit138
   %241 = call fastcc ptr @rb_node_vcall_new(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2)
   br label %304
 
@@ -20284,8 +20284,8 @@ dyna_in_block.argprom.argprom.exit138.thread:     ; preds = %dyna_in_block.argpr
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.984, i64 noundef %303)
   br label %304
 
-304:                                              ; preds = %234, %240, %220, %203, %208, %199, %201, %153, %155, %302, %287, %272, %257, %242, %dyna_in_block.argprom.argprom.exit138.thread, %226, %182, %175, %168, %161, %116, %102, %rb_node_file_new.exit, %48, %34, %20, %5
-  %.0 = phi ptr [ null, %302 ], [ %289, %287 ], [ %274, %272 ], [ %259, %257 ], [ %244, %242 ], [ null, %161 ], [ %169, %168 ], [ null, %175 ], [ %183, %182 ], [ %241, %dyna_in_block.argprom.argprom.exit138.thread ], [ null, %226 ], [ %118, %116 ], [ %104, %102 ], [ %70, %rb_node_file_new.exit ], [ %50, %48 ], [ %36, %34 ], [ %22, %20 ], [ %7, %5 ], [ null, %155 ], [ null, %153 ], [ null, %201 ], [ null, %199 ], [ %204, %208 ], [ %204, %203 ], [ null, %220 ], [ %236, %240 ], [ %236, %234 ]
+304:                                              ; preds = %234, %240, %220, %203, %208, %199, %201, %153, %155, %302, %287, %272, %257, %242, %dyna_in_block.exit138.thread, %226, %182, %175, %168, %161, %116, %102, %rb_node_file_new.exit, %48, %34, %20, %5
+  %.0 = phi ptr [ null, %302 ], [ %289, %287 ], [ %274, %272 ], [ %259, %257 ], [ %244, %242 ], [ null, %161 ], [ %169, %168 ], [ null, %175 ], [ %183, %182 ], [ %241, %dyna_in_block.exit138.thread ], [ null, %226 ], [ %118, %116 ], [ %104, %102 ], [ %70, %rb_node_file_new.exit ], [ %50, %48 ], [ %36, %34 ], [ %22, %20 ], [ %7, %5 ], [ null, %155 ], [ null, %153 ], [ null, %201 ], [ null, %199 ], [ %204, %208 ], [ %204, %203 ], [ null, %220 ], [ %236, %240 ], [ %236, %234 ]
   ret ptr %.0
 }
 
@@ -20529,15 +20529,15 @@ list_append.exit:                                 ; preds = %6
   %62 = and i64 %61, 128
   %.not.i.i = icmp eq i64 %62, 0
   %.pre.i.i = load i64, ptr %60, align 8
-  br i1 %.not.i.i, label %str2dstr.argprom.exit, label %63
+  br i1 %.not.i.i, label %str2dstr.exit, label %63
 
 63:                                               ; preds = %58
   %64 = or i64 %.pre.i.i, 128
   store i64 %64, ptr %60, align 8
   %.pre9.i.i = load i64, ptr %.087, align 8
-  br label %str2dstr.argprom.exit
+  br label %str2dstr.exit
 
-str2dstr.argprom.exit:                            ; preds = %58, %63
+str2dstr.exit:                                    ; preds = %58, %63
   %65 = phi i64 [ %.pre9.i.i, %63 ], [ %61, %58 ]
   %66 = phi i64 [ %64, %63 ], [ %.pre.i.i, %58 ]
   %67 = and i64 %66, 32767
@@ -20562,8 +20562,8 @@ str2dstr.argprom.exit:                            ; preds = %58, %63
   store ptr null, ptr %77, align 8
   br label %81
 
-81:                                               ; preds = %str2dstr.argprom.exit, %57
-  %.188 = phi ptr [ %.087, %57 ], [ %60, %str2dstr.argprom.exit ]
+81:                                               ; preds = %str2dstr.exit, %57
+  %.188 = phi ptr [ %.087, %57 ], [ %60, %str2dstr.exit ]
   %82 = tail call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef nonnull %.188, ptr noundef nonnull %2)
   br label %201
 
@@ -20647,7 +20647,7 @@ str2dstr.argprom.exit:                            ; preds = %58, %63
 
 116:                                              ; preds = %110
   %117 = load ptr, ptr %113, align 8
-  tail call fastcc void @rb_parser_string_free.argprom(ptr noundef %117)
+  tail call fastcc void @rb_parser_string_free(ptr noundef %117)
   %118 = load ptr, ptr %111, align 8
   store ptr %118, ptr %113, align 8
   store ptr null, ptr %111, align 8
@@ -20738,7 +20738,7 @@ str2dstr.argprom.exit:                            ; preds = %58, %63
 
 163:                                              ; preds = %159
   %164 = load ptr, ptr %121, align 8
-  tail call fastcc void @rb_parser_string_free.argprom(ptr noundef %164)
+  tail call fastcc void @rb_parser_string_free(ptr noundef %164)
   store ptr null, ptr %121, align 8
   br label %123
 
@@ -20766,15 +20766,15 @@ str2dstr.argprom.exit:                            ; preds = %58, %63
   %179 = and i64 %178, 128
   %.not.i.i118 = icmp eq i64 %179, 0
   %.pre.i.i119 = load i64, ptr %177, align 8
-  br i1 %.not.i.i118, label %str2dstr.argprom.exit121, label %180
+  br i1 %.not.i.i118, label %str2dstr.exit121, label %180
 
 180:                                              ; preds = %175
   %181 = or i64 %.pre.i.i119, 128
   store i64 %181, ptr %177, align 8
   %.pre9.i.i120 = load i64, ptr %.087, align 8
-  br label %str2dstr.argprom.exit121
+  br label %str2dstr.exit121
 
-str2dstr.argprom.exit121:                         ; preds = %175, %180
+str2dstr.exit121:                                 ; preds = %175, %180
   %182 = phi i64 [ %.pre9.i.i120, %180 ], [ %178, %175 ]
   %183 = phi i64 [ %181, %180 ], [ %.pre.i.i119, %175 ]
   %184 = and i64 %183, 32767
@@ -20801,8 +20801,8 @@ str2dstr.argprom.exit121:                         ; preds = %175, %180
   store i64 1, ptr %197, align 8
   br label %199
 
-199:                                              ; preds = %str2dstr.argprom.exit121, %173
-  %.3 = phi ptr [ %177, %str2dstr.argprom.exit121 ], [ %.087, %173 ]
+199:                                              ; preds = %str2dstr.exit121, %173
+  %.3 = phi ptr [ %177, %str2dstr.exit121 ], [ %.087, %173 ]
   %200 = tail call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef nonnull %.3, ptr noundef nonnull %2)
   br label %201
 
@@ -20849,7 +20849,7 @@ define internal fastcc noundef ptr @heredoc_dedent(ptr nocapture noundef %0, ptr
   %15 = load i64, ptr %.14072, align 8
   %16 = and i64 %15, 128
   %.not60 = icmp eq i64 %16, 0
-  br i1 %.not60, label %dedent_string.argprom.exit, label %17
+  br i1 %.not60, label %dedent_string.exit, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %14, i64 16
@@ -20857,7 +20857,7 @@ define internal fastcc noundef ptr @heredoc_dedent(ptr nocapture noundef %0, ptr
   %20 = getelementptr inbounds i8, ptr %14, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = icmp sgt i64 %19, 0
-  br i1 %22, label %.lr.ph.i.i, label %dedent_string.argprom.exit
+  br i1 %22, label %.lr.ph.i.i, label %dedent_string.exit
 
 .lr.ph.i.i:                                       ; preds = %17, %33
   %23 = phi i64 [ %35, %33 ], [ 0, %17 ]
@@ -20893,7 +20893,7 @@ define internal fastcc noundef ptr @heredoc_dedent(ptr nocapture noundef %0, ptr
 dedent_string_column.exit.i:                      ; preds = %33, %28, %.lr.ph.i.i
   %.0.lcssa.i.i = phi i32 [ %.020.i.i, %.lr.ph.i.i ], [ %.020.i.i, %28 ], [ %34, %33 ]
   %.not.i = icmp eq i32 %.0.lcssa.i.i, 0
-  br i1 %.not.i, label %dedent_string.argprom.exit, label %rbimpl_size_mul_or_raise.exit.i
+  br i1 %.not.i, label %dedent_string.exit, label %rbimpl_size_mul_or_raise.exit.i
 
 rbimpl_size_mul_or_raise.exit.i:                  ; preds = %dedent_string_column.exit.i
   store i32 0, ptr %14, align 8
@@ -20914,34 +20914,34 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %dedent_string_colum
 45:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
   %.val.i.i = load i32, ptr %14, align 8
   %46 = icmp eq i32 %.val.i.i, 0
-  br i1 %46, label %rb_parser_str_set_len.argprom.exit.i, label %47
+  br i1 %46, label %rb_parser_str_set_len.exit.i, label %47
 
 47:                                               ; preds = %45
   %48 = icmp slt i64 %40, %.val22.i.i
   %49 = icmp ne i32 %.val.i.i, 1
   %or.cond3.i.i = and i1 %48, %49
-  br i1 %or.cond3.i.i, label %50, label %rb_parser_str_set_len.argprom.exit.i
+  br i1 %or.cond3.i.i, label %50, label %rb_parser_str_set_len.exit.i
 
 50:                                               ; preds = %47
   store i32 0, ptr %14, align 8
-  br label %rb_parser_str_set_len.argprom.exit.i
+  br label %rb_parser_str_set_len.exit.i
 
-rb_parser_str_set_len.argprom.exit.i:             ; preds = %50, %47, %45
+rb_parser_str_set_len.exit.i:                     ; preds = %50, %47, %45
   store i64 %40, ptr %18, align 8
   %51 = load ptr, ptr %20, align 8
   %52 = getelementptr i8, ptr %51, i64 %40
   store i8 0, ptr %52, align 1
-  br label %dedent_string.argprom.exit
+  br label %dedent_string.exit
 
-dedent_string.argprom.exit:                       ; preds = %rb_parser_str_set_len.argprom.exit.i, %dedent_string_column.exit.i, %17, %.lr.ph
+dedent_string.exit:                               ; preds = %rb_parser_str_set_len.exit.i, %dedent_string_column.exit.i, %17, %.lr.ph
   %.not61 = icmp eq ptr %.04371, null
-  br i1 %.not61, label %dedent_string.argprom.exit._crit_edge, label %53
+  br i1 %.not61, label %dedent_string.exit._crit_edge, label %53
 
-dedent_string.argprom.exit._crit_edge:            ; preds = %dedent_string.argprom.exit
+dedent_string.exit._crit_edge:                    ; preds = %dedent_string.exit
   %.2.val66.pre = load i64, ptr %.03873, align 8
   br label %68
 
-53:                                               ; preds = %dedent_string.argprom.exit
+53:                                               ; preds = %dedent_string.exit
   %54 = tail call fastcc i32 @literal_concat0(ptr noundef %0, ptr noundef nonnull %.04371, ptr noundef %14)
   %.not62 = icmp eq i32 %54, 0
   br i1 %.not62, label %.loopexit, label %55
@@ -20971,10 +20971,10 @@ dedent_string.argprom.exit._crit_edge:            ; preds = %dedent_string.argpr
   store ptr %57, ptr %67, align 8
   br label %75
 
-68:                                               ; preds = %dedent_string.argprom.exit._crit_edge, %81, %78
-  %.2.val66 = phi i64 [ %.1.val, %78 ], [ %.2.val66.pre, %dedent_string.argprom.exit._crit_edge ], [ %.1.val, %81 ]
-  %.245 = phi ptr [ %.144, %78 ], [ %14, %dedent_string.argprom.exit._crit_edge ], [ null, %81 ]
-  %.2 = phi ptr [ %.1, %78 ], [ %.03873, %dedent_string.argprom.exit._crit_edge ], [ %.1, %81 ]
+68:                                               ; preds = %dedent_string.exit._crit_edge, %81, %78
+  %.2.val66 = phi i64 [ %.1.val, %78 ], [ %.2.val66.pre, %dedent_string.exit._crit_edge ], [ %.1.val, %81 ]
+  %.245 = phi ptr [ %.144, %78 ], [ %14, %dedent_string.exit._crit_edge ], [ null, %81 ]
+  %.2 = phi ptr [ %.1, %78 ], [ %.03873, %dedent_string.exit._crit_edge ], [ %.1, %81 ]
   %69 = trunc i64 %.2.val66 to i32
   %70 = lshr i32 %69, 8
   %71 = and i32 %70, 127
@@ -21172,7 +21172,7 @@ define internal fastcc noundef ptr @new_regexp(ptr nocapture noundef %0, ptr nou
   store i32 0, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %7, ptr %12, align 8
-  tail call fastcc void @reg_compile.argelim(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %2)
+  tail call fastcc void @reg_compile(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %2)
   %13 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %13, align 8
   %14 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 69, i64 noundef 48, i64 noundef 8) #33
@@ -21212,7 +21212,7 @@ define internal fastcc noundef ptr @new_regexp(ptr nocapture noundef %0, ptr nou
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %1, i64 32
   %36 = load ptr, ptr %35, align 8
-  tail call fastcc void @reg_compile.argelim(ptr noundef %0, ptr noundef %36, i32 noundef %2)
+  tail call fastcc void @reg_compile(ptr noundef %0, ptr noundef %36, i32 noundef %2)
   %37 = getelementptr i8, ptr %0, i64 312
   %.val94 = load ptr, ptr %37, align 8
   %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val94, i32 noundef 69, i64 noundef 48, i64 noundef 8) #33
@@ -21221,15 +21221,15 @@ define internal fastcc noundef ptr @new_regexp(ptr nocapture noundef %0, ptr nou
   %40 = and i64 %39, 128
   %.not.i.i = icmp eq i64 %40, 0
   %.pre.i.i = load i64, ptr %38, align 8
-  br i1 %.not.i.i, label %str2regx.argprom.exit, label %41
+  br i1 %.not.i.i, label %str2regx.exit, label %41
 
 41:                                               ; preds = %34
   %42 = or i64 %.pre.i.i, 128
   store i64 %42, ptr %38, align 8
   %.pre9.i.i = load i64, ptr %1, align 8
-  br label %str2regx.argprom.exit
+  br label %str2regx.exit
 
-str2regx.argprom.exit:                            ; preds = %34, %41
+str2regx.exit:                                    ; preds = %34, %41
   %43 = phi i64 [ %.pre9.i.i, %41 ], [ %39, %34 ]
   %44 = phi i64 [ %42, %41 ], [ %.pre.i.i, %34 ]
   %45 = and i64 %44, 32767
@@ -21480,7 +21480,7 @@ rb_parser_reg_fragment_check.exit105:             ; preds = %reg_fragment_setenc
 
 171:                                              ; preds = %165
   %172 = icmp slt i64 %167, 0
-  br i1 %172, label %173, label %rb_parser_str_resize.argprom.exit
+  br i1 %172, label %173, label %rb_parser_str_resize.exit
 
 173:                                              ; preds = %171
   %174 = getelementptr inbounds i8, ptr %133, i64 24
@@ -21494,9 +21494,9 @@ rb_parser_reg_fragment_check.exit105:             ; preds = %reg_fragment_setenc
   %178 = getelementptr inbounds i8, ptr %133, i64 24
   %179 = load ptr, ptr %178, align 8
   store i8 0, ptr %179, align 1
-  br label %rb_parser_str_resize.argprom.exit
+  br label %rb_parser_str_resize.exit
 
-rb_parser_str_resize.argprom.exit:                ; preds = %171, %177
+rb_parser_str_resize.exit:                        ; preds = %171, %177
   %180 = getelementptr inbounds i8, ptr %.078115, i64 48
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds i8, ptr %.080114, i64 48
@@ -21508,9 +21508,9 @@ rb_parser_str_resize.argprom.exit:                ; preds = %171, %177
   tail call void @rb_ast_delete_node(ptr noundef %.val93, ptr noundef nonnull %.078115) #33
   br label %184
 
-184:                                              ; preds = %rb_parser_reg_fragment_check.exit105.thread, %128, %121, %rb_parser_reg_fragment_check.exit105, %141, %rb_parser_str_resize.argprom.exit
-  %.181 = phi ptr [ %.080114, %rb_parser_str_resize.argprom.exit ], [ %.078115, %141 ], [ %.078115, %rb_parser_reg_fragment_check.exit105 ], [ null, %121 ], [ null, %128 ], [ %.078115, %rb_parser_reg_fragment_check.exit105.thread ]
-  %.179 = phi ptr [ %.080114, %rb_parser_str_resize.argprom.exit ], [ %.078115, %141 ], [ %.078115, %rb_parser_reg_fragment_check.exit105 ], [ %.078115, %121 ], [ %.078115, %128 ], [ %.078115, %rb_parser_reg_fragment_check.exit105.thread ]
+184:                                              ; preds = %rb_parser_reg_fragment_check.exit105.thread, %128, %121, %rb_parser_reg_fragment_check.exit105, %141, %rb_parser_str_resize.exit
+  %.181 = phi ptr [ %.080114, %rb_parser_str_resize.exit ], [ %.078115, %141 ], [ %.078115, %rb_parser_reg_fragment_check.exit105 ], [ null, %121 ], [ null, %128 ], [ %.078115, %rb_parser_reg_fragment_check.exit105.thread ]
+  %.179 = phi ptr [ %.080114, %rb_parser_str_resize.exit ], [ %.078115, %141 ], [ %.078115, %rb_parser_reg_fragment_check.exit105 ], [ %.078115, %121 ], [ %.078115, %128 ], [ %.078115, %rb_parser_reg_fragment_check.exit105.thread ]
   %185 = getelementptr inbounds i8, ptr %.179, i64 48
   %.078 = load ptr, ptr %185, align 8
   %.not87 = icmp eq ptr %.078, null
@@ -21523,7 +21523,7 @@ rb_parser_str_resize.argprom.exit:                ; preds = %171, %177
 
 ._crit_edge.thread:                               ; preds = %rb_parser_reg_fragment_check.exit, %._crit_edge
   %187 = load ptr, ptr %108, align 8
-  tail call fastcc void @reg_compile.argelim(ptr noundef %0, ptr noundef %187, i32 noundef %2)
+  tail call fastcc void @reg_compile(ptr noundef %0, ptr noundef %187, i32 noundef %2)
   br label %188
 
 188:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -21555,8 +21555,8 @@ rb_parser_str_resize.argprom.exit:                ; preds = %171, %177
   store ptr %.077, ptr %204, align 8
   br label %205
 
-205:                                              ; preds = %str2regx.argprom.exit, %190, %188, %152, %5
-  %.0 = phi ptr [ %153, %152 ], [ %14, %5 ], [ %192, %190 ], [ %.077, %188 ], [ %38, %str2regx.argprom.exit ]
+205:                                              ; preds = %str2regx.exit, %190, %188, %152, %5
+  %.0 = phi ptr [ %153, %152 ], [ %14, %5 ], [ %192, %190 ], [ %.077, %188 ], [ %38, %str2regx.exit ]
   ret ptr %.0
 }
 
@@ -21581,7 +21581,7 @@ define internal fastcc noundef ptr @symbol_append(ptr nocapture noundef %0, ptr 
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = getelementptr i8, ptr %2, i64 32
   %.val = load ptr, ptr %12, align 8
-  %13 = tail call fastcc ptr @str_to_sym_node.argprom(ptr noundef %0, ptr %.val, ptr noundef nonnull %11)
+  %13 = tail call fastcc ptr @str_to_sym_node(ptr noundef %0, ptr %.val, ptr noundef nonnull %11)
   br label %17
 
 14:                                               ; preds = %3
@@ -21603,7 +21603,7 @@ parser_node_name.exit:                            ; preds = %3, %14, %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @str2dstr.argprom(ptr %.312.val, ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @str2dstr(ptr %.312.val, ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @rb_ast_newnode(ptr noundef %.312.val, i32 noundef 65, i64 noundef 56, i64 noundef 8) #33
   tail call void @rb_node_init(ptr noundef %2, i32 noundef 65) #33
   %3 = load i64, ptr %0, align 8
@@ -21772,15 +21772,15 @@ define internal fastcc noundef ptr @new_evstr(ptr nocapture noundef %0, ptr noun
   %41 = and i64 %40, 128
   %.not.i.i = icmp eq i64 %41, 0
   %.pre.i.i = load i64, ptr %39, align 8
-  br i1 %.not.i.i, label %str2dstr.argprom.exit, label %42
+  br i1 %.not.i.i, label %str2dstr.exit, label %42
 
 42:                                               ; preds = %37
   %43 = or i64 %.pre.i.i, 128
   store i64 %43, ptr %39, align 8
   %.pre9.i.i = load i64, ptr %1, align 8
-  br label %str2dstr.argprom.exit
+  br label %str2dstr.exit
 
-str2dstr.argprom.exit:                            ; preds = %37, %42
+str2dstr.exit:                                    ; preds = %37, %42
   %44 = phi i64 [ %.pre9.i.i, %42 ], [ %40, %37 ]
   %45 = phi i64 [ %43, %42 ], [ %.pre.i.i, %37 ]
   %46 = and i64 %45, 32767
@@ -21805,8 +21805,8 @@ str2dstr.argprom.exit:                            ; preds = %37, %42
   store ptr null, ptr %56, align 8
   br label %60
 
-60:                                               ; preds = %.split, %.split10, %18, %str2dstr.argprom.exit
-  %.0 = phi ptr [ %39, %str2dstr.argprom.exit ], [ %1, %18 ], [ %5, %.split ], [ %24, %.split10 ]
+60:                                               ; preds = %.split, %.split10, %18, %str2dstr.exit
+  %.0 = phi ptr [ %39, %str2dstr.exit ], [ %1, %18 ], [ %5, %.split ], [ %24, %.split10 ]
   ret ptr %.0
 }
 
@@ -22230,7 +22230,7 @@ define internal fastcc noundef ptr @last_expr_node(ptr noundef readonly %0) unna
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @yysyntax_error.argprom(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val, ptr nocapture noundef readnone %1) unnamed_addr #9 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val, ptr nocapture noundef readnone %1) unnamed_addr #9 {
   %3 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread6, label %4
@@ -22550,7 +22550,7 @@ define internal fastcc void @yydestruct(ptr noundef %0, i32 noundef range(i32 -3
   %21 = load i32, ptr %20, align 4
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.87, i32 noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %21)
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.88)
-  tail call fastcc void @yy_symbol_value_print.argprom(i32 noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  tail call fastcc void @yy_symbol_value_print(i32 noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.89)
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.7)
   br label %22
@@ -22876,14 +22876,14 @@ define hidden ptr @rb_ruby_parser_compile_string_path(ptr noundef %0, i64 nounde
 rb_enc_asciicompat.exit.i:                        ; preds = %4
   %8 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %6) #37
   %.not3.i.i = icmp eq i32 %8, 0
-  br i1 %.not3.i.i, label %must_be_ascii_compatible.argprom.exit, label %rb_enc_asciicompat.exit.thread.i
+  br i1 %.not3.i.i, label %must_be_ascii_compatible.exit, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.thread.i:                 ; preds = %rb_enc_asciicompat.exit.i, %4
   %9 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.561) #38
   unreachable
 
-must_be_ascii_compatible.argprom.exit:            ; preds = %rb_enc_asciicompat.exit.i
+must_be_ascii_compatible.exit:                    ; preds = %rb_enc_asciicompat.exit.i
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @lex_get_str, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 112
@@ -22898,12 +22898,12 @@ must_be_ascii_compatible.argprom.exit:            ; preds = %rb_enc_asciicompat.
   %15 = icmp eq i64 %1, 4
   br i1 %15, label %16, label %18
 
-16:                                               ; preds = %must_be_ascii_compatible.argprom.exit
+16:                                               ; preds = %must_be_ascii_compatible.exit
   %17 = getelementptr inbounds i8, ptr %0, i64 224
   store i64 4, ptr %17, align 8
   br label %22
 
-18:                                               ; preds = %must_be_ascii_compatible.argprom.exit
+18:                                               ; preds = %must_be_ascii_compatible.exit
   %19 = tail call i64 @rb_str_to_interned_str(i64 noundef %1) #33
   %20 = getelementptr inbounds i8, ptr %0, i64 224
   store i64 %19, ptr %20, align 8
@@ -23125,23 +23125,23 @@ define dso_local noundef i32 @rb_parser_trace_lex_state(ptr nocapture noundef %0
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = shl i32 %.03.i, 1
   %exitcond.not7.i = icmp eq i64 %indvars.iv.next6.i, 13
-  br i1 %exitcond.not7.i, label %append_lex_state_name.argprom.exit, label %.outer.i, !llvm.loop !64
+  br i1 %exitcond.not7.i, label %append_lex_state_name.exit, label %.outer.i, !llvm.loop !64
 
 17:                                               ; preds = %12
-  br i1 %.not15.i, label %18, label %append_lex_state_name.argprom.exit
+  br i1 %.not15.i, label %18, label %append_lex_state_name.exit
 
 18:                                               ; preds = %17
   %19 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #33
-  br label %append_lex_state_name.argprom.exit
+  br label %append_lex_state_name.exit
 
-append_lex_state_name.argprom.exit:               ; preds = %.thread.i, %17, %18
+append_lex_state_name.exit:                       ; preds = %.thread.i, %17, %18
   %20 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.72, i64 noundef 4) #33
   br label %.outer.i12
 
-.outer.i12:                                       ; preds = %.thread.i19, %append_lex_state_name.argprom.exit
-  %indvars.iv.ph.i13 = phi i64 [ %indvars.iv.next6.i20, %.thread.i19 ], [ 0, %append_lex_state_name.argprom.exit ]
-  %.03.ph.i14 = phi i32 [ %30, %.thread.i19 ], [ 1, %append_lex_state_name.argprom.exit ]
-  %.not15.i15 = phi i1 [ false, %.thread.i19 ], [ true, %append_lex_state_name.argprom.exit ]
+.outer.i12:                                       ; preds = %.thread.i19, %append_lex_state_name.exit
+  %indvars.iv.ph.i13 = phi i64 [ %indvars.iv.next6.i20, %.thread.i19 ], [ 0, %append_lex_state_name.exit ]
+  %.03.ph.i14 = phi i32 [ %30, %.thread.i19 ], [ 1, %append_lex_state_name.exit ]
+  %.not15.i15 = phi i1 [ false, %.thread.i19 ], [ true, %append_lex_state_name.exit ]
   br label %21
 
 21:                                               ; preds = %26, %.outer.i12
@@ -23170,16 +23170,16 @@ append_lex_state_name.argprom.exit:               ; preds = %.thread.i, %17, %18
   %indvars.iv.next6.i20 = add nuw nsw i64 %indvars.iv.i16, 1
   %30 = shl i32 %.03.i17, 1
   %exitcond.not7.i21 = icmp eq i64 %indvars.iv.next6.i20, 13
-  br i1 %exitcond.not7.i21, label %append_lex_state_name.argprom.exit24, label %.outer.i12, !llvm.loop !64
+  br i1 %exitcond.not7.i21, label %append_lex_state_name.exit24, label %.outer.i12, !llvm.loop !64
 
 31:                                               ; preds = %26
-  br i1 %.not15.i15, label %32, label %append_lex_state_name.argprom.exit24
+  br i1 %.not15.i15, label %32, label %append_lex_state_name.exit24
 
 32:                                               ; preds = %31
   %33 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #33
-  br label %append_lex_state_name.argprom.exit24
+  br label %append_lex_state_name.exit24
 
-append_lex_state_name.argprom.exit24:             ; preds = %.thread.i19, %31, %32
+append_lex_state_name.exit24:                     ; preds = %.thread.i19, %31, %32
   %34 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6, ptr noundef nonnull @.str.73, i32 noundef %3) #33
   %35 = getelementptr inbounds i8, ptr %0, i64 272
   %36 = load i64, ptr %35, align 8
@@ -23190,7 +23190,7 @@ append_lex_state_name.argprom.exit24:             ; preds = %.thread.i19, %31, %
   %39 = icmp eq i64 %38, 4
   br i1 %39, label %46, label %40
 
-40:                                               ; preds = %append_lex_state_name.argprom.exit24
+40:                                               ; preds = %append_lex_state_name.exit24
   %41 = inttoptr i64 %38 to ptr
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load i64, ptr %42, align 8
@@ -23202,7 +23202,7 @@ append_lex_state_name.argprom.exit24:             ; preds = %.thread.i19, %31, %
   %45 = call i64 @rb_io_puts(i32 noundef 1, ptr noundef nonnull %5, i64 noundef %36) #33
   br label %46
 
-46:                                               ; preds = %44, %40, %append_lex_state_name.argprom.exit24
+46:                                               ; preds = %44, %40, %append_lex_state_name.exit24
   %47 = icmp eq i64 %6, 4
   br i1 %47, label %flush_debug_buffer.exit, label %48
 
@@ -23260,16 +23260,16 @@ define dso_local i64 @rb_parser_lex_state_name(ptr nocapture noundef readnone %0
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv.i, 1
   %13 = shl i32 %.03.i, 1
   %exitcond.not7.i = icmp eq i64 %indvars.iv.next6.i, 13
-  br i1 %exitcond.not7.i, label %append_lex_state_name.argprom.exit, label %.outer.i, !llvm.loop !64
+  br i1 %exitcond.not7.i, label %append_lex_state_name.exit, label %.outer.i, !llvm.loop !64
 
 14:                                               ; preds = %9
-  br i1 %.not15.i, label %15, label %append_lex_state_name.argprom.exit
+  br i1 %.not15.i, label %15, label %append_lex_state_name.exit
 
 15:                                               ; preds = %14
   %16 = tail call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #33
-  br label %append_lex_state_name.argprom.exit
+  br label %append_lex_state_name.exit
 
-append_lex_state_name.argprom.exit:               ; preds = %.thread.i, %14, %15
+append_lex_state_name.exit:                       ; preds = %.thread.i, %14, %15
   %17 = tail call i64 @rb_str_to_interned_str(i64 noundef %3) #33
   ret i64 %17
 }
@@ -23384,16 +23384,16 @@ parser_yyerror0.exit:                             ; preds = %RSTRING_PTR.exit, %
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = shl i32 %.03.i, 1
   %exitcond.not7.i = icmp eq i64 %indvars.iv.next6.i, 13
-  br i1 %exitcond.not7.i, label %append_lex_state_name.argprom.exit, label %.outer.i, !llvm.loop !64
+  br i1 %exitcond.not7.i, label %append_lex_state_name.exit, label %.outer.i, !llvm.loop !64
 
 54:                                               ; preds = %49
-  br i1 %.not15.i, label %55, label %append_lex_state_name.argprom.exit
+  br i1 %.not15.i, label %55, label %append_lex_state_name.exit
 
 55:                                               ; preds = %54
   %56 = call i64 @rb_str_cat(i64 noundef %41, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #33
-  br label %append_lex_state_name.argprom.exit
+  br label %append_lex_state_name.exit
 
-append_lex_state_name.argprom.exit:               ; preds = %.thread.i, %54, %55
+append_lex_state_name.exit:                       ; preds = %.thread.i, %54, %55
   %57 = load i64, ptr %5, align 8
   call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.76, i64 noundef %57)
   %58 = load i64, ptr %5, align 8
@@ -23404,12 +23404,12 @@ append_lex_state_name.argprom.exit:               ; preds = %.thread.i, %54, %55
   %63 = icmp eq i64 %61, 0
   br i1 %63, label %64, label %.preheader.i
 
-64:                                               ; preds = %append_lex_state_name.argprom.exit
+64:                                               ; preds = %append_lex_state_name.exit
   %65 = call i64 @rb_str_cat(i64 noundef %62, ptr noundef nonnull @.str.995, i64 noundef 1) #33
-  br label %append_bitstack_value.argprom.exit
+  br label %append_bitstack_value.exit
 
-.preheader.i:                                     ; preds = %append_lex_state_name.argprom.exit, %.preheader.i
-  %.0.i = phi i64 [ %67, %.preheader.i ], [ -9223372036854775808, %append_lex_state_name.argprom.exit ]
+.preheader.i:                                     ; preds = %append_lex_state_name.exit, %.preheader.i
+  %.0.i = phi i64 [ %67, %.preheader.i ], [ -9223372036854775808, %append_lex_state_name.exit ]
   %.not.i = icmp ne i64 %.0.i, 0
   %66 = and i64 %.0.i, %61
   %.not12.i = icmp eq i64 %66, 0
@@ -23419,7 +23419,7 @@ append_lex_state_name.argprom.exit:               ; preds = %.thread.i, %54, %55
 
 .critedge.preheader.i:                            ; preds = %.preheader.i
   %.not131.i = icmp eq i64 %.0.i, 0
-  br i1 %.not131.i, label %append_bitstack_value.argprom.exit, label %.critedge.i
+  br i1 %.not131.i, label %append_bitstack_value.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.preheader.i, %.critedge.i
   %.12.i = phi i64 [ %71, %.critedge.i ], [ %.0.i, %.critedge.preheader.i ]
@@ -23429,9 +23429,9 @@ append_lex_state_name.argprom.exit:               ; preds = %.thread.i, %54, %55
   %70 = call i64 @rb_str_cat(i64 noundef %62, ptr noundef nonnull %69, i64 noundef 1) #33
   %71 = lshr i64 %.12.i, 1
   %.not13.i = icmp ult i64 %.12.i, 2
-  br i1 %.not13.i, label %append_bitstack_value.argprom.exit, label %.critedge.i, !llvm.loop !29
+  br i1 %.not13.i, label %append_bitstack_value.exit, label %.critedge.i, !llvm.loop !29
 
-append_bitstack_value.argprom.exit:               ; preds = %.critedge.i, %64, %.critedge.preheader.i
+append_bitstack_value.exit:                       ; preds = %.critedge.i, %64, %.critedge.preheader.i
   %72 = load i64, ptr %5, align 8
   call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.77, i64 noundef %72)
   %73 = load i64, ptr %5, align 8
@@ -23442,12 +23442,12 @@ append_bitstack_value.argprom.exit:               ; preds = %.critedge.i, %64, %
   %78 = icmp eq i64 %76, 0
   br i1 %78, label %79, label %.preheader.i16
 
-79:                                               ; preds = %append_bitstack_value.argprom.exit
+79:                                               ; preds = %append_bitstack_value.exit
   %80 = call i64 @rb_str_cat(i64 noundef %77, ptr noundef nonnull @.str.995, i64 noundef 1) #33
-  br label %append_bitstack_value.argprom.exit27
+  br label %append_bitstack_value.exit27
 
-.preheader.i16:                                   ; preds = %append_bitstack_value.argprom.exit, %.preheader.i16
-  %.0.i17 = phi i64 [ %82, %.preheader.i16 ], [ -9223372036854775808, %append_bitstack_value.argprom.exit ]
+.preheader.i16:                                   ; preds = %append_bitstack_value.exit, %.preheader.i16
+  %.0.i17 = phi i64 [ %82, %.preheader.i16 ], [ -9223372036854775808, %append_bitstack_value.exit ]
   %.not.i18 = icmp ne i64 %.0.i17, 0
   %81 = and i64 %.0.i17, %76
   %.not12.i19 = icmp eq i64 %81, 0
@@ -23457,7 +23457,7 @@ append_bitstack_value.argprom.exit:               ; preds = %.critedge.i, %64, %
 
 .critedge.preheader.i21:                          ; preds = %.preheader.i16
   %.not131.i22 = icmp eq i64 %.0.i17, 0
-  br i1 %.not131.i22, label %append_bitstack_value.argprom.exit27, label %.critedge.i23
+  br i1 %.not131.i22, label %append_bitstack_value.exit27, label %.critedge.i23
 
 .critedge.i23:                                    ; preds = %.critedge.preheader.i21, %.critedge.i23
   %.12.i24 = phi i64 [ %86, %.critedge.i23 ], [ %.0.i17, %.critedge.preheader.i21 ]
@@ -23467,9 +23467,9 @@ append_bitstack_value.argprom.exit:               ; preds = %.critedge.i, %64, %
   %85 = call i64 @rb_str_cat(i64 noundef %77, ptr noundef nonnull %84, i64 noundef 1) #33
   %86 = lshr i64 %.12.i24, 1
   %.not13.i26 = icmp ult i64 %.12.i24, 2
-  br i1 %.not13.i26, label %append_bitstack_value.argprom.exit27, label %.critedge.i23, !llvm.loop !29
+  br i1 %.not13.i26, label %append_bitstack_value.exit27, label %.critedge.i23, !llvm.loop !29
 
-append_bitstack_value.argprom.exit27:             ; preds = %.critedge.i23, %79, %.critedge.preheader.i21
+append_bitstack_value.exit27:                     ; preds = %.critedge.i23, %79, %.critedge.preheader.i21
   %87 = load i64, ptr %5, align 8
   call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.78, i64 noundef %87)
   %88 = getelementptr inbounds i8, ptr %0, i64 272
@@ -23478,12 +23478,12 @@ append_bitstack_value.argprom.exit27:             ; preds = %.critedge.i23, %79,
   %91 = icmp eq i64 %89, %90
   br i1 %91, label %92, label %94
 
-92:                                               ; preds = %append_bitstack_value.argprom.exit27
+92:                                               ; preds = %append_bitstack_value.exit27
   %93 = call i64 @rb_ractor_stderr() #33
   store i64 %93, ptr %88, align 8
   br label %94
 
-94:                                               ; preds = %92, %append_bitstack_value.argprom.exit27
+94:                                               ; preds = %92, %append_bitstack_value.exit27
   %95 = getelementptr inbounds i8, ptr %0, i64 368
   %96 = load i32, ptr %95, align 8
   %97 = or i32 %96, 32
@@ -23494,7 +23494,7 @@ append_bitstack_value.argprom.exit27:             ; preds = %.critedge.i23, %79,
 declare i64 @rb_str_vcatf(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_yyerror0.retelim(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @parser_yyerror0(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.rb_code_location_struct, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 212
   %5 = load i32, ptr %4, align 4
@@ -23667,8 +23667,8 @@ define dso_local void @rb_parser_warn_duplicate_keys(ptr nocapture noundef reado
   %8 = getelementptr inbounds i8, ptr %0, i64 216
   br label %9
 
-9:                                                ; preds = %.lr.ph, %nd_type_st_key_enable_p.argprom.exit.thread
-  %.030 = phi ptr [ %1, %.lr.ph ], [ %16, %nd_type_st_key_enable_p.argprom.exit.thread ]
+9:                                                ; preds = %.lr.ph, %nd_type_st_key_enable_p.exit.thread
+  %.030 = phi ptr [ %1, %.lr.ph ], [ %16, %nd_type_st_key_enable_p.exit.thread ]
   %10 = getelementptr inbounds i8, ptr %.030, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not22 = icmp eq ptr %11, null
@@ -23685,27 +23685,27 @@ define dso_local void @rb_parser_warn_duplicate_keys(ptr nocapture noundef reado
   %17 = trunc i64 %spec.select.val to i32
   %18 = lshr i32 %17, 8
   %19 = and i32 %18, 127
-  switch i32 %19, label %nd_type_st_key_enable_p.argprom.exit.thread [
-    i32 60, label %nd_type_st_key_enable_p.argprom.exit
-    i32 61, label %nd_type_st_key_enable_p.argprom.exit
-    i32 62, label %nd_type_st_key_enable_p.argprom.exit
-    i32 63, label %nd_type_st_key_enable_p.argprom.exit
-    i32 64, label %nd_type_st_key_enable_p.argprom.exit
-    i32 102, label %nd_type_st_key_enable_p.argprom.exit
-    i32 69, label %nd_type_st_key_enable_p.argprom.exit
-    i32 110, label %nd_type_st_key_enable_p.argprom.exit
-    i32 111, label %nd_type_st_key_enable_p.argprom.exit
-    i32 112, label %nd_type_st_key_enable_p.argprom.exit
+  switch i32 %19, label %nd_type_st_key_enable_p.exit.thread [
+    i32 60, label %nd_type_st_key_enable_p.exit
+    i32 61, label %nd_type_st_key_enable_p.exit
+    i32 62, label %nd_type_st_key_enable_p.exit
+    i32 63, label %nd_type_st_key_enable_p.exit
+    i32 64, label %nd_type_st_key_enable_p.exit
+    i32 102, label %nd_type_st_key_enable_p.exit
+    i32 69, label %nd_type_st_key_enable_p.exit
+    i32 110, label %nd_type_st_key_enable_p.exit
+    i32 111, label %nd_type_st_key_enable_p.exit
+    i32 112, label %nd_type_st_key_enable_p.exit
   ]
 
-nd_type_st_key_enable_p.argprom.exit:             ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
+nd_type_st_key_enable_p.exit:                     ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
   %20 = ptrtoint ptr %spec.select to i64
   store i64 %20, ptr %2, align 8
   %21 = call i32 @rb_st_delete(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %3) #33
   %.not25 = icmp eq i32 %21, 0
   br i1 %.not25, label %58, label %22
 
-22:                                               ; preds = %nd_type_st_key_enable_p.argprom.exit
+22:                                               ; preds = %nd_type_st_key_enable_p.exit
   %23 = load ptr, ptr %8, align 8
   %24 = load i64, ptr %3, align 8
   %25 = inttoptr i64 %24 to ptr
@@ -23731,50 +23731,50 @@ nd_type_st_key_enable_p.argprom.exit:             ; preds = %12, %12, %12, %12, 
 
 33:                                               ; preds = %22
   %34 = call i64 @rb_node_str_string_val(ptr noundef nonnull %spec.select) #33
-  br label %nd_value.argprom.exit
+  br label %nd_value.exit
 
 35:                                               ; preds = %22
   %36 = call i64 @rb_node_integer_literal_val(ptr noundef nonnull %spec.select) #33
-  br label %nd_value.argprom.exit
+  br label %nd_value.exit
 
 37:                                               ; preds = %22
   %38 = call i64 @rb_node_float_literal_val(ptr noundef nonnull %spec.select) #33
-  br label %nd_value.argprom.exit
+  br label %nd_value.exit
 
 39:                                               ; preds = %22
   %40 = call i64 @rb_node_rational_literal_val(ptr noundef nonnull %spec.select) #33
-  br label %nd_value.argprom.exit
+  br label %nd_value.exit
 
 41:                                               ; preds = %22
   %42 = call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %spec.select) #33
-  br label %nd_value.argprom.exit
+  br label %nd_value.exit
 
 43:                                               ; preds = %22
   %44 = call i64 @rb_node_sym_string_val(ptr noundef nonnull %spec.select) #33
-  br label %nd_value.argprom.exit
+  br label %nd_value.exit
 
 45:                                               ; preds = %22
   %46 = call i64 @rb_node_regx_string_val(ptr noundef nonnull %spec.select) #33
-  br label %nd_value.argprom.exit
+  br label %nd_value.exit
 
 47:                                               ; preds = %22
   %48 = call i64 @rb_node_line_lineno_val(ptr noundef nonnull %spec.select) #33
-  br label %nd_value.argprom.exit
+  br label %nd_value.exit
 
 49:                                               ; preds = %22
   %50 = call i64 @rb_node_encoding_val(ptr noundef nonnull %spec.select) #33
-  br label %nd_value.argprom.exit
+  br label %nd_value.exit
 
 51:                                               ; preds = %22
   %52 = call i64 @rb_node_file_path_val(ptr noundef nonnull %spec.select) #33
-  br label %nd_value.argprom.exit
+  br label %nd_value.exit
 
 53:                                               ; preds = %22
   %54 = call ptr @ruby_node_name(i32 noundef %32) #33
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.546, ptr noundef %54) #34
   unreachable
 
-nd_value.argprom.exit:                            ; preds = %33, %35, %37, %39, %41, %43, %45, %47, %49, %51
+nd_value.exit:                                    ; preds = %33, %35, %37, %39, %41, %43, %45, %47, %49, %51
   %.0.i26 = phi i64 [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ]
   %55 = load i64, ptr %spec.select, align 8
   %56 = lshr i64 %55, 15
@@ -23782,17 +23782,17 @@ nd_value.argprom.exit:                            ; preds = %33, %35, %37, %39, 
   call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %23, i32 noundef %28, ptr noundef nonnull @.str.79, i64 noundef %.0.i26, i32 noundef %57) #33
   br label %58
 
-58:                                               ; preds = %nd_value.argprom.exit, %nd_type_st_key_enable_p.argprom.exit
+58:                                               ; preds = %nd_value.exit, %nd_type_st_key_enable_p.exit
   %59 = load i64, ptr %2, align 8
   %60 = ptrtoint ptr %.030 to i64
   %61 = call i32 @rb_st_insert(ptr noundef %7, i64 noundef %59, i64 noundef %60) #33
-  br label %nd_type_st_key_enable_p.argprom.exit.thread
+  br label %nd_type_st_key_enable_p.exit.thread
 
-nd_type_st_key_enable_p.argprom.exit.thread:      ; preds = %12, %58
+nd_type_st_key_enable_p.exit.thread:              ; preds = %12, %58
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.critedge, label %9, !llvm.loop !69
 
-.critedge:                                        ; preds = %9, %nd_type_st_key_enable_p.argprom.exit.thread
+.critedge:                                        ; preds = %9, %nd_type_st_key_enable_p.exit.thread
   call void @rb_st_free_table(ptr noundef %7) #33
   ret void
 }
@@ -24064,7 +24064,7 @@ define internal i64 @literal_hash(i64 noundef %0) #0 {
 12:                                               ; preds = %10, %7
   %.020 = phi i64 [ %8, %7 ], [ %11, %10 ]
   %13 = ashr i64 %.020, 1
-  br label %rb_parser_str_hash.argprom.exit
+  br label %rb_parser_str_hash.exit
 
 14:                                               ; preds = %1
   %15 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %2) #33
@@ -24094,17 +24094,17 @@ define internal i64 @literal_hash(i64 noundef %0) #0 {
 rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   %.0.i = phi double [ %28, %25 ], [ %24, %19 ], [ 0.000000e+00, %18 ]
   %29 = tail call i64 @rb_dbl_long_hash(double noundef %.0.i) #33
-  br label %rb_parser_str_hash.argprom.exit
+  br label %rb_parser_str_hash.exit
 
 30:                                               ; preds = %1
   %31 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %2) #33
   %32 = tail call i64 @rb_rational_hash(i64 noundef %31) #33
-  br label %rb_parser_str_hash.argprom.exit
+  br label %rb_parser_str_hash.exit
 
 33:                                               ; preds = %1
   %34 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %2) #33
   %35 = tail call i64 @rb_complex_hash(i64 noundef %34) #33
-  br label %rb_parser_str_hash.argprom.exit
+  br label %rb_parser_str_hash.exit
 
 36:                                               ; preds = %1
   %37 = getelementptr inbounds i8, ptr %2, i64 32
@@ -24114,7 +24114,7 @@ rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   %40 = getelementptr i8, ptr %38, i64 24
   %.val21 = load ptr, ptr %40, align 8
   %.not.i.i.i = icmp eq i64 %.val, 0
-  br i1 %.not.i.i.i, label %rb_parser_str_hash.argprom.exit, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %rb_parser_str_hash.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %36, %.lr.ph.i.i.i
   %.09.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i ], [ 0, %36 ]
@@ -24126,7 +24126,7 @@ rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   %45 = add i64 %41, %44
   %46 = add nuw i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %46, %.val
-  br i1 %exitcond.not.i.i.i, label %rb_parser_str_hash.argprom.exit, label %.lr.ph.i.i.i, !llvm.loop !70
+  br i1 %exitcond.not.i.i.i, label %rb_parser_str_hash.exit, label %.lr.ph.i.i.i, !llvm.loop !70
 
 47:                                               ; preds = %1
   %48 = getelementptr inbounds i8, ptr %2, i64 32
@@ -24136,7 +24136,7 @@ rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   %51 = getelementptr i8, ptr %49, i64 24
   %.val23 = load ptr, ptr %51, align 8
   %.not.i.i.i28 = icmp eq i64 %.val22, 0
-  br i1 %.not.i.i.i28, label %rb_parser_str_hash.argprom.exit, label %.lr.ph.i.i.i29
+  br i1 %.not.i.i.i28, label %rb_parser_str_hash.exit, label %.lr.ph.i.i.i29
 
 .lr.ph.i.i.i29:                                   ; preds = %47, %.lr.ph.i.i.i29
   %.09.i.i.i30 = phi i64 [ %57, %.lr.ph.i.i.i29 ], [ 0, %47 ]
@@ -24148,7 +24148,7 @@ rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   %56 = add i64 %52, %55
   %57 = add nuw i64 %.09.i.i.i30, 1
   %exitcond.not.i.i.i32 = icmp eq i64 %57, %.val22
-  br i1 %exitcond.not.i.i.i32, label %rb_parser_str_hash.argprom.exit, label %.lr.ph.i.i.i29, !llvm.loop !70
+  br i1 %exitcond.not.i.i.i32, label %rb_parser_str_hash.exit, label %.lr.ph.i.i.i29, !llvm.loop !70
 
 58:                                               ; preds = %1
   %59 = getelementptr inbounds i8, ptr %2, i64 32
@@ -24158,7 +24158,7 @@ rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   %62 = getelementptr i8, ptr %60, i64 24
   %.val25 = load ptr, ptr %62, align 8
   %.not.i.i.i35 = icmp eq i64 %.val24, 0
-  br i1 %.not.i.i.i35, label %rb_parser_str_hash.argprom.exit, label %.lr.ph.i.i.i36
+  br i1 %.not.i.i.i35, label %rb_parser_str_hash.exit, label %.lr.ph.i.i.i36
 
 .lr.ph.i.i.i36:                                   ; preds = %58, %.lr.ph.i.i.i36
   %.09.i.i.i37 = phi i64 [ %68, %.lr.ph.i.i.i36 ], [ 0, %58 ]
@@ -24170,13 +24170,13 @@ rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   %67 = add i64 %63, %66
   %68 = add nuw i64 %.09.i.i.i37, 1
   %exitcond.not.i.i.i39 = icmp eq i64 %68, %.val24
-  br i1 %exitcond.not.i.i.i39, label %rb_parser_str_hash.argprom.exit, label %.lr.ph.i.i.i36, !llvm.loop !70
+  br i1 %exitcond.not.i.i.i39, label %rb_parser_str_hash.exit, label %.lr.ph.i.i.i36, !llvm.loop !70
 
 69:                                               ; preds = %1
   %70 = getelementptr inbounds i8, ptr %2, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %71 to i64
-  br label %rb_parser_str_hash.argprom.exit
+  br label %rb_parser_str_hash.exit
 
 73:                                               ; preds = %1
   %74 = getelementptr inbounds i8, ptr %2, i64 32
@@ -24186,7 +24186,7 @@ rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   %77 = getelementptr i8, ptr %75, i64 24
   %.val27 = load ptr, ptr %77, align 8
   %.not.i.i.i42 = icmp eq i64 %.val26, 0
-  br i1 %.not.i.i.i42, label %rb_parser_str_hash.argprom.exit, label %.lr.ph.i.i.i43
+  br i1 %.not.i.i.i42, label %rb_parser_str_hash.exit, label %.lr.ph.i.i.i43
 
 .lr.ph.i.i.i43:                                   ; preds = %73, %.lr.ph.i.i.i43
   %.09.i.i.i44 = phi i64 [ %83, %.lr.ph.i.i.i43 ], [ 0, %73 ]
@@ -24198,20 +24198,20 @@ rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   %82 = add i64 %78, %81
   %83 = add nuw i64 %.09.i.i.i44, 1
   %exitcond.not.i.i.i46 = icmp eq i64 %83, %.val26
-  br i1 %exitcond.not.i.i.i46, label %rb_parser_str_hash.argprom.exit, label %.lr.ph.i.i.i43, !llvm.loop !70
+  br i1 %exitcond.not.i.i.i46, label %rb_parser_str_hash.exit, label %.lr.ph.i.i.i43, !llvm.loop !70
 
 84:                                               ; preds = %1
   %85 = getelementptr inbounds i8, ptr %2, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = ptrtoint ptr %86 to i64
-  br label %rb_parser_str_hash.argprom.exit
+  br label %rb_parser_str_hash.exit
 
 88:                                               ; preds = %1
   %89 = tail call ptr @ruby_node_name(i32 noundef %6) #33
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.546, ptr noundef %89) #34
   unreachable
 
-rb_parser_str_hash.argprom.exit:                  ; preds = %.lr.ph.i.i.i43, %.lr.ph.i.i.i36, %.lr.ph.i.i.i29, %.lr.ph.i.i.i, %73, %58, %47, %36, %84, %69, %33, %30, %rb_float_value_inline.exit, %12
+rb_parser_str_hash.exit:                          ; preds = %.lr.ph.i.i.i43, %.lr.ph.i.i.i36, %.lr.ph.i.i.i29, %.lr.ph.i.i.i, %73, %58, %47, %36, %84, %69, %33, %30, %rb_float_value_inline.exit, %12
   %.0 = phi i64 [ %87, %84 ], [ %72, %69 ], [ %35, %33 ], [ %32, %30 ], [ %29, %rb_float_value_inline.exit ], [ %13, %12 ], [ 5381, %36 ], [ 5381, %47 ], [ 5381, %58 ], [ 5381, %73 ], [ %45, %.lr.ph.i.i.i ], [ %56, %.lr.ph.i.i.i29 ], [ %67, %.lr.ph.i.i.i36 ], [ %82, %.lr.ph.i.i.i43 ]
   ret i64 %.0
 }
@@ -24441,7 +24441,7 @@ define dso_local range(i32 0, 256) i32 @rb_reg_fragment_setenc(ptr nocapture nou
   %4 = lshr i32 %2, 8
   %5 = and i32 %4, 255
   %trunc = trunc i32 %4 to i8
-  switch i8 %trunc, label %kcode_to_enc.argprom.exit [
+  switch i8 %trunc, label %kcode_to_enc.exit [
     i8 0, label %24
     i8 110, label %6
     i8 101, label %8
@@ -24451,53 +24451,53 @@ define dso_local range(i32 0, 256) i32 @rb_reg_fragment_setenc(ptr nocapture nou
 
 6:                                                ; preds = %3
   %7 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
-  br label %kcode_to_enc.argprom.exit
+  br label %kcode_to_enc.exit
 
 8:                                                ; preds = %3
   %9 = tail call i32 @rb_enc_find_index(ptr noundef nonnull @.str.1057) #33
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %find_enc.argprom.exit.i
+  br i1 %10, label %11, label %find_enc.exit.i
 
 11:                                               ; preds = %8
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.935, ptr noundef nonnull @.str.1057) #34
   unreachable
 
-find_enc.argprom.exit.i:                          ; preds = %8
+find_enc.exit.i:                                  ; preds = %8
   %12 = tail call ptr @rb_enc_from_index(i32 noundef %9) #33
-  br label %kcode_to_enc.argprom.exit
+  br label %kcode_to_enc.exit
 
 13:                                               ; preds = %3
   %14 = tail call i32 @rb_enc_find_index(ptr noundef nonnull @.str.1058) #33
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %find_enc.argprom.exit3.i
+  br i1 %15, label %16, label %find_enc.exit3.i
 
 16:                                               ; preds = %13
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.935, ptr noundef nonnull @.str.1058) #34
   unreachable
 
-find_enc.argprom.exit3.i:                         ; preds = %13
+find_enc.exit3.i:                                 ; preds = %13
   %17 = tail call ptr @rb_enc_from_index(i32 noundef %14) #33
-  br label %kcode_to_enc.argprom.exit
+  br label %kcode_to_enc.exit
 
 char_to_option_kcode.exit:                        ; preds = %3
   %18 = tail call nonnull ptr @rb_utf8_encoding() #33
-  br label %kcode_to_enc.argprom.exit
+  br label %kcode_to_enc.exit
 
-kcode_to_enc.argprom.exit:                        ; preds = %3, %6, %find_enc.argprom.exit.i, %find_enc.argprom.exit3.i, %char_to_option_kcode.exit
-  %.0.i30 = phi ptr [ %18, %char_to_option_kcode.exit ], [ %17, %find_enc.argprom.exit3.i ], [ %12, %find_enc.argprom.exit.i ], [ %7, %6 ], [ null, %3 ]
+kcode_to_enc.exit:                                ; preds = %3, %6, %find_enc.exit.i, %find_enc.exit3.i, %char_to_option_kcode.exit
+  %.0.i30 = phi ptr [ %18, %char_to_option_kcode.exit ], [ %17, %find_enc.exit3.i ], [ %12, %find_enc.exit.i ], [ %7, %6 ], [ null, %3 ]
   %19 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %19, align 8
   %.not28 = icmp eq ptr %.0.i30, %.val
   br i1 %.not28, label %23, label %20
 
-20:                                               ; preds = %kcode_to_enc.argprom.exit
-  %21 = tail call fastcc i32 @rb_parser_enc_str_coderange.argprom(ptr noundef nonnull %1)
+20:                                               ; preds = %kcode_to_enc.exit
+  %21 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef nonnull %1)
   %22 = icmp eq i32 %21, 1
-  br i1 %22, label %23, label %rb_parser_enc_associate.argprom.exit
+  br i1 %22, label %23, label %rb_parser_enc_associate.exit
 
-23:                                               ; preds = %20, %kcode_to_enc.argprom.exit
+23:                                               ; preds = %20, %kcode_to_enc.exit
   store ptr %.0.i30, ptr %19, align 8
-  br label %rb_parser_enc_associate.argprom.exit
+  br label %rb_parser_enc_associate.exit
 
 24:                                               ; preds = %3
   %25 = and i32 %2, 32
@@ -24512,15 +24512,15 @@ kcode_to_enc.argprom.exit:                        ; preds = %3, %6, %find_enc.ar
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %26
-  %31 = tail call fastcc i32 @rb_parser_enc_str_coderange.argprom(ptr noundef nonnull %1)
+  %31 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef nonnull %1)
   %32 = icmp eq i32 %31, 1
-  br i1 %32, label %33, label %rb_parser_enc_associate.argprom.exit
+  br i1 %32, label %33, label %rb_parser_enc_associate.exit
 
 33:                                               ; preds = %30, %26
   %34 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
   %.val.i = load ptr, ptr %27, align 8
   %35 = icmp eq ptr %.val.i, %34
-  br i1 %35, label %rb_parser_enc_associate.argprom.exit, label %36
+  br i1 %35, label %rb_parser_enc_associate.exit, label %36
 
 36:                                               ; preds = %33
   %.val10.i = load i32, ptr %1, align 8
@@ -24544,17 +24544,17 @@ rb_enc_asciicompat.exit.thread.i:                 ; preds = %rb_enc_asciicompat.
 
 41:                                               ; preds = %rb_enc_asciicompat.exit.thread.i, %rb_enc_asciicompat.exit.i
   store ptr %34, ptr %27, align 8
-  br label %rb_parser_enc_associate.argprom.exit
+  br label %rb_parser_enc_associate.exit
 
 42:                                               ; preds = %24
   %43 = getelementptr inbounds i8, ptr %0, i64 232
   %44 = load ptr, ptr %43, align 8
   %45 = tail call nonnull ptr @rb_usascii_encoding() #33
   %46 = icmp eq ptr %44, %45
-  br i1 %46, label %47, label %rb_parser_enc_associate.argprom.exit
+  br i1 %46, label %47, label %rb_parser_enc_associate.exit
 
 47:                                               ; preds = %42
-  %48 = tail call fastcc i32 @rb_parser_enc_str_coderange.argprom(ptr noundef %1)
+  %48 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef %1)
   %49 = icmp eq i32 %48, 1
   %50 = getelementptr i8, ptr %1, i64 8
   br i1 %49, label %60, label %51
@@ -24563,7 +24563,7 @@ rb_enc_asciicompat.exit.thread.i:                 ; preds = %rb_enc_asciicompat.
   %52 = tail call nonnull ptr @rb_usascii_encoding() #33
   %.val.i31 = load ptr, ptr %50, align 8
   %53 = icmp eq ptr %.val.i31, %52
-  br i1 %53, label %rb_parser_enc_associate.argprom.exit, label %54
+  br i1 %53, label %rb_parser_enc_associate.exit, label %54
 
 54:                                               ; preds = %51
   %.val10.i32 = load i32, ptr %1, align 8
@@ -24587,13 +24587,13 @@ rb_enc_asciicompat.exit.thread.i33:               ; preds = %rb_enc_asciicompat.
 
 59:                                               ; preds = %rb_enc_asciicompat.exit.thread.i33, %rb_enc_asciicompat.exit.i36
   store ptr %52, ptr %50, align 8
-  br label %rb_parser_enc_associate.argprom.exit
+  br label %rb_parser_enc_associate.exit
 
 60:                                               ; preds = %47
   %61 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
   %.val.i39 = load ptr, ptr %50, align 8
   %62 = icmp eq ptr %.val.i39, %61
-  br i1 %62, label %rb_parser_enc_associate.argprom.exit, label %63
+  br i1 %62, label %rb_parser_enc_associate.exit, label %63
 
 63:                                               ; preds = %60
   %.val10.i40 = load i32, ptr %1, align 8
@@ -24617,9 +24617,9 @@ rb_enc_asciicompat.exit.thread.i41:               ; preds = %rb_enc_asciicompat.
 
 68:                                               ; preds = %rb_enc_asciicompat.exit.thread.i41, %rb_enc_asciicompat.exit.i44
   store ptr %61, ptr %50, align 8
-  br label %rb_parser_enc_associate.argprom.exit
+  br label %rb_parser_enc_associate.exit
 
-rb_parser_enc_associate.argprom.exit:             ; preds = %68, %60, %59, %51, %41, %33, %20, %30, %23, %42
+rb_parser_enc_associate.exit:                     ; preds = %68, %60, %59, %51, %41, %33, %20, %30, %23, %42
   %.0 = phi i32 [ 0, %42 ], [ 0, %23 ], [ %5, %20 ], [ 110, %30 ], [ 0, %33 ], [ 0, %41 ], [ 0, %51 ], [ 0, %59 ], [ 0, %60 ], [ 0, %68 ]
   ret i32 %.0
 }
@@ -24798,22 +24798,22 @@ define internal fastcc range(i32 0, 2) i32 @lvar_defined(ptr nocapture noundef r
   %4 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %4, align 8
   %switch.i = icmp ult ptr %.val.val, inttoptr (i64 2 to ptr)
-  br i1 %switch.i, label %dyna_in_block.argprom.argprom.exit.thread, label %dyna_in_block.argprom.argprom.exit
+  br i1 %switch.i, label %dyna_in_block.exit.thread, label %dyna_in_block.exit
 
-dyna_in_block.argprom.argprom.exit:               ; preds = %2
+dyna_in_block.exit:                               ; preds = %2
   %5 = getelementptr inbounds i8, ptr %.val.val, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not13 = icmp eq ptr %6, null
   br i1 %.not13, label %.lr.ph.i.i.sink.split, label %.split.us.i.i
 
-.split.us.i.i:                                    ; preds = %dyna_in_block.argprom.argprom.exit, %vtable_included.exit43.thread.us.i.i
-  %.027.us.i.i = phi ptr [ %.027.us.i.i.pre, %vtable_included.exit43.thread.us.i.i ], [ %.val.val, %dyna_in_block.argprom.argprom.exit ]
-  %.026.us.i.in.i = phi ptr [ %28, %vtable_included.exit43.thread.us.i.i ], [ %.val, %dyna_in_block.argprom.argprom.exit ]
+.split.us.i.i:                                    ; preds = %dyna_in_block.exit, %vtable_included.exit43.thread.us.i.i
+  %.027.us.i.i = phi ptr [ %.027.us.i.i.pre, %vtable_included.exit43.thread.us.i.i ], [ %.val.val, %dyna_in_block.exit ]
+  %.026.us.i.in.i = phi ptr [ %28, %vtable_included.exit43.thread.us.i.i ], [ %.val, %dyna_in_block.exit ]
   %.026.us.i.i = load ptr, ptr %.026.us.i.in.i, align 8
   %magicptr36.us.i.i = ptrtoint ptr %.027.us.i.i to i64
   switch i64 %magicptr36.us.i.i, label %7 [
     i64 1, label %.split59.us.i.i
-    i64 0, label %dyna_in_block.argprom.argprom.exit.thread
+    i64 0, label %dyna_in_block.exit.thread
   ]
 
 7:                                                ; preds = %.split.us.i.i
@@ -24886,37 +24886,37 @@ vtable_included.exit43.thread.us.i.i:             ; preds = %27, %.preheader.i38
   %36 = icmp ult i32 %35, -9
   %.not51.i.i = or i1 %31, %36
   %narrow.i.not.i.i = or i1 %32, %.not51.i.i
-  br i1 %narrow.i.not.i.i, label %dvar_defined.exit, label %dyna_in_block.argprom.argprom.exit.thread
+  br i1 %narrow.i.not.i.i, label %dvar_defined.exit, label %dyna_in_block.exit.thread
 
 dvar_defined.exit:                                ; preds = %.split59.us.i.i
   %37 = getelementptr inbounds i8, ptr %0, i64 360
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @rb_dvar_defined(i64 noundef %1, ptr noundef %38) #33
   %.not4 = icmp eq i32 %39, 0
-  br i1 %.not4, label %dvar_defined.exit.dyna_in_block.argprom.argprom.exit.thread_crit_edge, label %dvar_defined.exit.thread10
+  br i1 %.not4, label %dvar_defined.exit.dyna_in_block.exit.thread_crit_edge, label %dvar_defined.exit.thread10
 
-dvar_defined.exit.dyna_in_block.argprom.argprom.exit.thread_crit_edge: ; preds = %dvar_defined.exit
+dvar_defined.exit.dyna_in_block.exit.thread_crit_edge: ; preds = %dvar_defined.exit
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
   %.pre25 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %dyna_in_block.argprom.argprom.exit.thread
+  br label %dyna_in_block.exit.thread
 
-dyna_in_block.argprom.argprom.exit.thread:        ; preds = %.split.us.i.i, %dvar_defined.exit.dyna_in_block.argprom.argprom.exit.thread_crit_edge, %.split59.us.i.i, %2
-  %40 = phi ptr [ %.pre25, %dvar_defined.exit.dyna_in_block.argprom.argprom.exit.thread_crit_edge ], [ %.val.val, %.split59.us.i.i ], [ %.val.val, %2 ], [ %.val.val, %.split.us.i.i ]
-  %41 = phi ptr [ %.pre, %dvar_defined.exit.dyna_in_block.argprom.argprom.exit.thread_crit_edge ], [ %.val, %.split59.us.i.i ], [ %.val, %2 ], [ %.val, %.split.us.i.i ]
+dyna_in_block.exit.thread:                        ; preds = %.split.us.i.i, %dvar_defined.exit.dyna_in_block.exit.thread_crit_edge, %.split59.us.i.i, %2
+  %40 = phi ptr [ %.pre25, %dvar_defined.exit.dyna_in_block.exit.thread_crit_edge ], [ %.val.val, %.split59.us.i.i ], [ %.val.val, %2 ], [ %.val.val, %.split.us.i.i ]
+  %41 = phi ptr [ %.pre, %dvar_defined.exit.dyna_in_block.exit.thread_crit_edge ], [ %.val, %.split59.us.i.i ], [ %.val, %2 ], [ %.val, %.split.us.i.i ]
   %42 = load ptr, ptr %41, align 8
   %.not56.i.i = icmp eq ptr %40, null
   br i1 %.not56.i.i, label %.critedge37.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i.sink.split:                            ; preds = %dyna_in_block.argprom.argprom.exit, %46
-  %.val.sink = phi ptr [ %47, %46 ], [ %.val, %dyna_in_block.argprom.argprom.exit ]
-  %.03157.i.i.ph = phi ptr [ %45, %46 ], [ %.val.val, %dyna_in_block.argprom.argprom.exit ]
+.lr.ph.i.i.sink.split:                            ; preds = %dyna_in_block.exit, %46
+  %.val.sink = phi ptr [ %47, %46 ], [ %.val, %dyna_in_block.exit ]
+  %.03157.i.i.ph = phi ptr [ %45, %46 ], [ %.val.val, %dyna_in_block.exit ]
   %43 = load ptr, ptr %.val.sink, align 8
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.sink.split, %dyna_in_block.argprom.argprom.exit.thread
-  %.03058.i.i = phi ptr [ %42, %dyna_in_block.argprom.argprom.exit.thread ], [ %43, %.lr.ph.i.i.sink.split ]
-  %.03157.i.i = phi ptr [ %40, %dyna_in_block.argprom.argprom.exit.thread ], [ %.03157.i.i.ph, %.lr.ph.i.i.sink.split ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.sink.split, %dyna_in_block.exit.thread
+  %.03058.i.i = phi ptr [ %42, %dyna_in_block.exit.thread ], [ %43, %.lr.ph.i.i.sink.split ]
+  %.03157.i.i = phi ptr [ %40, %dyna_in_block.exit.thread ], [ %.03157.i.i.ph, %.lr.ph.i.i.sink.split ]
   %44 = getelementptr inbounds i8, ptr %.03157.i.i, i64 16
   %45 = load ptr, ptr %44, align 8
   %magicptr50.i.i = ptrtoint ptr %45 to i64
@@ -24937,9 +24937,9 @@ dyna_in_block.argprom.argprom.exit.thread:        ; preds = %.split.us.i.i, %dva
   %53 = zext i1 %52 to i32
   br label %dvar_defined.exit.thread10
 
-.critedge37.i.i:                                  ; preds = %.lr.ph.i.i, %dyna_in_block.argprom.argprom.exit.thread
-  %.031.lcssa.i.i = phi ptr [ null, %dyna_in_block.argprom.argprom.exit.thread ], [ %.03157.i.i, %.lr.ph.i.i ]
-  %.030.lcssa.i.i = phi ptr [ %42, %dyna_in_block.argprom.argprom.exit.thread ], [ %.03058.i.i, %.lr.ph.i.i ]
+.critedge37.i.i:                                  ; preds = %.lr.ph.i.i, %dyna_in_block.exit.thread
+  %.031.lcssa.i.i = phi ptr [ null, %dyna_in_block.exit.thread ], [ %.03157.i.i, %.lr.ph.i.i ]
+  %.030.lcssa.i.i = phi ptr [ %42, %dyna_in_block.exit.thread ], [ %.03058.i.i, %.lr.ph.i.i ]
   %switch.i.i.i = icmp ult ptr %.030.lcssa.i.i, inttoptr (i64 2 to ptr)
   br i1 %switch.i.i.i, label %vtable_included.exit.thread.i.i, label %.preheader.i.i.i
 
@@ -25125,7 +25125,7 @@ define dso_local void @rb_ruby_parser_free(ptr noundef %0) #0 {
   %16 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %16, align 8
   %.not2.i = icmp eq ptr %.val, null
-  br i1 %.not2.i, label %string_buffer_free.argprom.exit, label %.lr.ph5.i
+  br i1 %.not2.i, label %string_buffer_free.exit, label %.lr.ph5.i
 
 .lr.ph5.i:                                        ; preds = %._crit_edge, %._crit_edge.i
   %.0103.i = phi ptr [ %17, %._crit_edge.i ], [ %.val, %._crit_edge ]
@@ -25139,13 +25139,13 @@ define dso_local void @rb_ruby_parser_free(ptr noundef %0) #0 {
   %21 = getelementptr inbounds i8, ptr %.0103.i, i64 24
   br label %22
 
-22:                                               ; preds = %rb_parser_string_free.argprom.exit.i, %.lr.ph.i
-  %23 = phi i64 [ %19, %.lr.ph.i ], [ %29, %rb_parser_string_free.argprom.exit.i ]
-  %.01.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %rb_parser_string_free.argprom.exit.i ]
+22:                                               ; preds = %rb_parser_string_free.exit.i, %.lr.ph.i
+  %23 = phi i64 [ %19, %.lr.ph.i ], [ %29, %rb_parser_string_free.exit.i ]
+  %.01.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %rb_parser_string_free.exit.i ]
   %24 = getelementptr [0 x ptr], ptr %21, i64 0, i64 %.01.i
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %rb_parser_string_free.argprom.exit.i, label %26
+  br i1 %.not.i.i, label %rb_parser_string_free.exit.i, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %25, i64 24
@@ -25153,30 +25153,30 @@ define dso_local void @rb_ruby_parser_free(ptr noundef %0) #0 {
   tail call void @ruby_xfree(ptr noundef %28) #33
   tail call void @ruby_xfree(ptr noundef nonnull %25) #33
   %.pre.i = load i64, ptr %18, align 8
-  br label %rb_parser_string_free.argprom.exit.i
+  br label %rb_parser_string_free.exit.i
 
-rb_parser_string_free.argprom.exit.i:             ; preds = %26, %22
+rb_parser_string_free.exit.i:                     ; preds = %26, %22
   %29 = phi i64 [ %23, %22 ], [ %.pre.i, %26 ]
   %30 = add nuw nsw i64 %.01.i, 1
   %31 = icmp slt i64 %30, %29
   br i1 %31, label %22, label %._crit_edge.i, !llvm.loop !74
 
-._crit_edge.i:                                    ; preds = %rb_parser_string_free.argprom.exit.i, %.lr.ph5.i
+._crit_edge.i:                                    ; preds = %rb_parser_string_free.exit.i, %.lr.ph5.i
   tail call void @ruby_xfree(ptr noundef nonnull %.0103.i) #33
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %string_buffer_free.argprom.exit, label %.lr.ph5.i, !llvm.loop !75
+  br i1 %.not.i, label %string_buffer_free.exit, label %.lr.ph5.i, !llvm.loop !75
 
-string_buffer_free.argprom.exit:                  ; preds = %._crit_edge.i, %._crit_edge
+string_buffer_free.exit:                          ; preds = %._crit_edge.i, %._crit_edge
   %32 = getelementptr inbounds i8, ptr %0, i64 192
   %33 = load ptr, ptr %32, align 8
   %.not23 = icmp eq ptr %33, null
   br i1 %.not23, label %35, label %34
 
-34:                                               ; preds = %string_buffer_free.argprom.exit
+34:                                               ; preds = %string_buffer_free.exit
   tail call void @rb_st_free_table(ptr noundef nonnull %33) #33
   br label %35
 
-35:                                               ; preds = %34, %string_buffer_free.argprom.exit
+35:                                               ; preds = %34, %string_buffer_free.exit
   tail call void @ruby_xfree(ptr noundef nonnull %0) #33
   ret void
 }
@@ -26132,7 +26132,7 @@ declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias nocapture noundef
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #19
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @yy_symbol_value_print.argprom(i32 noundef range(i32 -32768, 32768) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @yy_symbol_value_print(i32 noundef range(i32 -32768, 32768) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2190, label %4
 
@@ -33192,30 +33192,30 @@ define internal range(i64 0, 2) i64 @yycompile0(i64 noundef %0) #0 {
   %.val = load ptr, ptr %22, align 8
   %23 = load i8, ptr %.val, align 1
   %.not.i = icmp eq i8 %23, 45
-  br i1 %.not.i, label %sub_1.i, label %e_option_supplied.argprom.exit.thread
+  br i1 %.not.i, label %sub_1.i, label %e_option_supplied.exit.thread
 
 sub_1.i:                                          ; preds = %.loopexit
   %24 = getelementptr inbounds i8, ptr %.val, i64 1
   %25 = load i8, ptr %24, align 1
   %.not1.i = icmp eq i8 %25, 101
-  br i1 %.not1.i, label %e_option_supplied.argprom.exit, label %e_option_supplied.argprom.exit.thread
+  br i1 %.not1.i, label %e_option_supplied.exit, label %e_option_supplied.exit.thread
 
-e_option_supplied.argprom.exit:                   ; preds = %sub_1.i
+e_option_supplied.exit:                           ; preds = %sub_1.i
   %26 = getelementptr inbounds i8, ptr %.val, i64 2
   %27 = load i8, ptr %26, align 1
   %.fr = freeze i8 %27
   %.not91 = icmp eq i8 %.fr, 0
-  br i1 %.not91, label %28, label %e_option_supplied.argprom.exit.thread
+  br i1 %.not91, label %28, label %e_option_supplied.exit.thread
 
-e_option_supplied.argprom.exit.thread:            ; preds = %sub_1.i, %.loopexit, %e_option_supplied.argprom.exit
+e_option_supplied.exit.thread:                    ; preds = %sub_1.i, %.loopexit, %e_option_supplied.exit
   br label %28
 
-28:                                               ; preds = %e_option_supplied.argprom.exit.thread, %e_option_supplied.argprom.exit, %5, %1
-  %.059 = phi i8 [ 0, %1 ], [ 0, %5 ], [ 4, %e_option_supplied.argprom.exit.thread ], [ 0, %e_option_supplied.argprom.exit ]
+28:                                               ; preds = %e_option_supplied.exit.thread, %e_option_supplied.exit, %5, %1
+  %.059 = phi i8 [ 0, %1 ], [ 0, %5 ], [ 4, %e_option_supplied.exit.thread ], [ 0, %e_option_supplied.exit ]
   %29 = getelementptr inbounds i8, ptr %2, i64 384
   %30 = load i64, ptr %29, align 8
   %.not67 = icmp eq i64 %30, 0
-  br i1 %.not67, label %rb_obj_write.argprom.exit, label %31
+  br i1 %.not67, label %rb_obj_write.exit, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %2, i64 312
@@ -33224,20 +33224,20 @@ e_option_supplied.argprom.exit.thread:            ; preds = %sub_1.i, %.loopexit
   store i64 %30, ptr %34, align 8
   %35 = and i64 %30, 7
   %.not92 = icmp eq i64 %35, 0
-  br i1 %.not92, label %36, label %rb_obj_write.argprom.exit
+  br i1 %.not92, label %36, label %rb_obj_write.exit
 
 36:                                               ; preds = %31
   %37 = ptrtoint ptr %33 to i64
   tail call void @rb_gc_writebarrier(i64 noundef %37, i64 noundef %30) #33
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %36, %31, %28
+rb_obj_write.exit:                                ; preds = %36, %31, %28
   %38 = tail call fastcc i32 @nextc0(ptr noundef nonnull %2, i32 noundef 0)
   %39 = load ptr, ptr %3, align 8
   %.not.i77 = icmp eq ptr %39, null
   br i1 %.not.i77, label %40, label %45
 
-40:                                               ; preds = %rb_obj_write.argprom.exit
+40:                                               ; preds = %rb_obj_write.exit
   %41 = tail call ptr @rb_ruby_verbose_ptr() #33
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, -5
@@ -33245,8 +33245,8 @@ rb_obj_write.argprom.exit:                        ; preds = %36, %31, %28
   %44 = select i1 %.not27.i, i32 0, i32 256
   br label %45
 
-45:                                               ; preds = %40, %rb_obj_write.argprom.exit
-  %46 = phi i32 [ 0, %rb_obj_write.argprom.exit ], [ %44, %40 ]
+45:                                               ; preds = %40, %rb_obj_write.exit
+  %46 = phi i32 [ 0, %rb_obj_write.exit ], [ %44, %40 ]
   %47 = getelementptr inbounds i8, ptr %2, i64 368
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, -257
@@ -34080,14 +34080,14 @@ define internal fastcc range(i32 -1, 256) i32 @nextc0(ptr noundef %0, i32 nounde
 rb_enc_asciicompat.exit.i.i.i:                    ; preds = %35
   %38 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %36) #37
   %.not3.i.i.i.i = icmp eq i32 %38, 0
-  br i1 %.not3.i.i.i.i, label %must_be_ascii_compatible.argprom.exit.i.i, label %rb_enc_asciicompat.exit.thread.i.i.i
+  br i1 %.not3.i.i.i.i, label %must_be_ascii_compatible.exit.i.i, label %rb_enc_asciicompat.exit.thread.i.i.i
 
 rb_enc_asciicompat.exit.thread.i.i.i:             ; preds = %rb_enc_asciicompat.exit.i.i.i, %35
   %39 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.561) #38
   unreachable
 
-must_be_ascii_compatible.argprom.exit.i.i:        ; preds = %rb_enc_asciicompat.exit.i.i.i
+must_be_ascii_compatible.exit.i.i:                ; preds = %rb_enc_asciicompat.exit.i.i.i
   %40 = getelementptr inbounds i8, ptr %0, i64 208
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, 1
@@ -34099,12 +34099,12 @@ must_be_ascii_compatible.argprom.exit.i.i:        ; preds = %rb_enc_asciicompat.
   %46 = getelementptr inbounds i8, ptr %43, i64 24
   br i1 %.not.i.i.i.i.i, label %RSTRING_PTR.exit.i.i.i, label %47
 
-47:                                               ; preds = %must_be_ascii_compatible.argprom.exit.i.i
+47:                                               ; preds = %must_be_ascii_compatible.exit.i.i
   %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %46, align 8
   br label %RSTRING_PTR.exit.i.i.i
 
-RSTRING_PTR.exit.i.i.i:                           ; preds = %47, %must_be_ascii_compatible.argprom.exit.i.i
-  %.sroa.2.0.i.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i.i, %47 ], [ %46, %must_be_ascii_compatible.argprom.exit.i.i ]
+RSTRING_PTR.exit.i.i.i:                           ; preds = %47, %must_be_ascii_compatible.exit.i.i
+  %.sroa.2.0.i.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i.i, %47 ], [ %46, %must_be_ascii_compatible.exit.i.i ]
   %48 = getelementptr inbounds i8, ptr %43, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = tail call ptr @rb_enc_get(i64 noundef %33) #33
@@ -34376,9 +34376,9 @@ define internal fastcc void @add_delayed_token(ptr nocapture noundef %0, ptr nou
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load i64, ptr %34, align 8
   %36 = icmp sgt i64 %35, 0
-  br i1 %36, label %39, label %end_with_newline_p.argprom.exit.thread
+  br i1 %36, label %39, label %end_with_newline_p.exit.thread
 
-end_with_newline_p.argprom.exit.thread:           ; preds = %32
+end_with_newline_p.exit.thread:                   ; preds = %32
   %37 = getelementptr inbounds i8, ptr %0, i64 296
   %38 = load i32, ptr %37, align 8
   br label %52
@@ -34388,13 +34388,13 @@ end_with_newline_p.argprom.exit.thread:           ; preds = %32
   %41 = and i64 %40, 8192
   %.not.i.i.i = icmp eq i64 %41, 0
   %42 = getelementptr inbounds i8, ptr %33, i64 24
-  br i1 %.not.i.i.i, label %end_with_newline_p.argprom.exit, label %43
+  br i1 %.not.i.i.i, label %end_with_newline_p.exit, label %43
 
 43:                                               ; preds = %39
   %.sroa.3.0.copyload.i.i = load ptr, ptr %42, align 8
-  br label %end_with_newline_p.argprom.exit
+  br label %end_with_newline_p.exit
 
-end_with_newline_p.argprom.exit:                  ; preds = %39, %43
+end_with_newline_p.exit:                          ; preds = %39, %43
   %.sroa.3.0.i.i = phi ptr [ %.sroa.3.0.copyload.i.i, %43 ], [ %42, %39 ]
   %44 = getelementptr i8, ptr %.sroa.3.0.i.i, i64 %35
   %45 = getelementptr i8, ptr %44, i64 -1
@@ -34406,18 +34406,18 @@ end_with_newline_p.argprom.exit:                  ; preds = %39, %43
   %51 = add i32 %50, %48
   br i1 %47, label %58, label %52
 
-52:                                               ; preds = %end_with_newline_p.argprom.exit.thread, %end_with_newline_p.argprom.exit
-  %53 = phi i32 [ %38, %end_with_newline_p.argprom.exit.thread ], [ %51, %end_with_newline_p.argprom.exit ]
-  %54 = phi ptr [ %37, %end_with_newline_p.argprom.exit.thread ], [ %49, %end_with_newline_p.argprom.exit ]
+52:                                               ; preds = %end_with_newline_p.exit.thread, %end_with_newline_p.exit
+  %53 = phi i32 [ %38, %end_with_newline_p.exit.thread ], [ %51, %end_with_newline_p.exit ]
+  %54 = phi ptr [ %37, %end_with_newline_p.exit.thread ], [ %49, %end_with_newline_p.exit ]
   %55 = getelementptr inbounds i8, ptr %0, i64 300
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
   br label %58
 
-58:                                               ; preds = %end_with_newline_p.argprom.exit, %52
-  %59 = phi i32 [ %53, %52 ], [ %51, %end_with_newline_p.argprom.exit ]
-  %60 = phi ptr [ %54, %52 ], [ %49, %end_with_newline_p.argprom.exit ]
-  %61 = phi i64 [ %57, %52 ], [ 0, %end_with_newline_p.argprom.exit ]
+58:                                               ; preds = %end_with_newline_p.exit, %52
+  %59 = phi i32 [ %53, %52 ], [ %51, %end_with_newline_p.exit ]
+  %60 = phi ptr [ %54, %52 ], [ %49, %end_with_newline_p.exit ]
+  %61 = phi i64 [ %57, %52 ], [ 0, %end_with_newline_p.exit ]
   %62 = getelementptr inbounds i8, ptr %0, i64 212
   %63 = load i32, ptr %62, align 4
   %.not49 = icmp eq i32 %59, %63
@@ -34732,633 +34732,633 @@ define internal fastcc void @parser_append_tokens(ptr nocapture noundef %0, i64 
 
 12:                                               ; preds = %4
   %13 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id, ptr noundef @.str.448) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 14:                                               ; preds = %4
   %15 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.568, ptr noundef @.str.569) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 16:                                               ; preds = %4
   %17 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.570, ptr noundef @.str.571) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 18:                                               ; preds = %4
   %19 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.572, ptr noundef @.str.573) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 20:                                               ; preds = %4
   %21 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.574, ptr noundef @.str.575) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 22:                                               ; preds = %4
   %23 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.576, ptr noundef @.str.577) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 24:                                               ; preds = %4
   %25 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.578, ptr noundef @.str.579) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 26:                                               ; preds = %4
   %27 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.580, ptr noundef @.str.581) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 28:                                               ; preds = %4
   %29 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.582, ptr noundef @.str.583) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 30:                                               ; preds = %4
   %31 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.584, ptr noundef @.str.585) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 32:                                               ; preds = %4
   %33 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.586, ptr noundef @.str.587) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 34:                                               ; preds = %4
   %35 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.588, ptr noundef @.str.589) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 36:                                               ; preds = %4
   %37 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.590, ptr noundef @.str.591) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 38:                                               ; preds = %4
   %39 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.592, ptr noundef @.str.593) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 40:                                               ; preds = %4
   %41 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.594, ptr noundef @.str.595) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 42:                                               ; preds = %4
   %43 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.596, ptr noundef @.str.597) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 44:                                               ; preds = %4
   %45 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.598, ptr noundef @.str.599) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 46:                                               ; preds = %4
   %47 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.600, ptr noundef @.str.601) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 48:                                               ; preds = %4
   %49 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.602, ptr noundef @.str.603) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 50:                                               ; preds = %4
   %51 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.604, ptr noundef @.str.605) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 52:                                               ; preds = %4
   %53 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.606, ptr noundef @.str.607) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 54:                                               ; preds = %4
   %55 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.608, ptr noundef @.str.609) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 56:                                               ; preds = %4
   %57 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.610, ptr noundef @.str.50) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 58:                                               ; preds = %4
   %59 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.611, ptr noundef @.str.612) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 60:                                               ; preds = %4
   %61 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.613, ptr noundef @.str.614) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 62:                                               ; preds = %4
   %63 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.615, ptr noundef @.str.616) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 64:                                               ; preds = %4
   %65 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.617, ptr noundef @.str.89) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 66:                                               ; preds = %4
   %67 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.618, ptr noundef @.str.619) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 68:                                               ; preds = %4
   %69 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.620, ptr noundef @.str.621) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 70:                                               ; preds = %4
   %71 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.622, ptr noundef @.str.623) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 72:                                               ; preds = %4
   %73 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.624, ptr noundef @.str.625) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 74:                                               ; preds = %4
   %75 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.626, ptr noundef @.str.627) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 76:                                               ; preds = %4
   %77 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.628, ptr noundef @.str.629) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 78:                                               ; preds = %4
   %79 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.630, ptr noundef @.str.631) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 80:                                               ; preds = %4
   %81 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.632, ptr noundef @.str.633) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 82:                                               ; preds = %4
   %83 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.634, ptr noundef @.str.635) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 84:                                               ; preds = %4
   %85 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.636, ptr noundef @.str.637) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 86:                                               ; preds = %4
   %87 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.638, ptr noundef @.str.639) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 88:                                               ; preds = %4
   %89 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.640, ptr noundef @.str.641) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 90:                                               ; preds = %4
   %91 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.642, ptr noundef @.str.643) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 92:                                               ; preds = %4
   %93 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.644, ptr noundef @.str.645) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 94:                                               ; preds = %4
   %95 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.646, ptr noundef @.str.647) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 96:                                               ; preds = %4
   %97 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.648, ptr noundef @.str.649) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 98:                                               ; preds = %4
   %99 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.650, ptr noundef @.str.651) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 100:                                              ; preds = %4
   %101 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.652, ptr noundef @.str.653) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 102:                                              ; preds = %4
   %103 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.654, ptr noundef @.str.655) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 104:                                              ; preds = %4
   %105 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.656, ptr noundef @.str.657) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 106:                                              ; preds = %4
   %107 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.658, ptr noundef @.str.659) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 108:                                              ; preds = %4
   %109 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.660, ptr noundef @.str.661) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 110:                                              ; preds = %4
   %111 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.662, ptr noundef @.str.663) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 112:                                              ; preds = %4
   %113 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.664, ptr noundef @.str.665) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 114:                                              ; preds = %4
   %115 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.666, ptr noundef @.str.667) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 116:                                              ; preds = %4
   %117 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.668, ptr noundef @.str.669) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 118:                                              ; preds = %4
   %119 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.670, ptr noundef @.str.671) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 120:                                              ; preds = %4
   %121 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.672, ptr noundef @.str.673) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 122:                                              ; preds = %4
   %123 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.674, ptr noundef @.str.675) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 124:                                              ; preds = %4
   %125 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.676, ptr noundef @.str.677) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 126:                                              ; preds = %4
   %127 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.678, ptr noundef @.str.679) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 128:                                              ; preds = %4
   %129 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.680, ptr noundef @.str.681) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 130:                                              ; preds = %4
   %131 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.682, ptr noundef @.str.683) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 132:                                              ; preds = %4
   %133 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.684, ptr noundef @.str.685) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 134:                                              ; preds = %4
   %135 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.686, ptr noundef @.str.687) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 136:                                              ; preds = %4
   %137 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.688, ptr noundef @.str.689) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 138:                                              ; preds = %4
   %139 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.690, ptr noundef @.str.691) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 140:                                              ; preds = %4
   %141 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.692, ptr noundef @.str.693) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 142:                                              ; preds = %4
   %143 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.694, ptr noundef @.str.695) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 144:                                              ; preds = %4
   %145 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.696, ptr noundef @.str.697) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 146:                                              ; preds = %4
   %147 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.698, ptr noundef @.str.699) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 148:                                              ; preds = %4
   %149 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.700, ptr noundef @.str.701) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 150:                                              ; preds = %4
   %151 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.702, ptr noundef @.str.703) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 152:                                              ; preds = %4
   %153 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.704, ptr noundef @.str.705) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 154:                                              ; preds = %4
   %155 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.706, ptr noundef @.str.707) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 156:                                              ; preds = %4
   %157 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.708, ptr noundef @.str.709) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 158:                                              ; preds = %4
   %159 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.710, ptr noundef @.str.711) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 160:                                              ; preds = %4
   %161 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.712, ptr noundef @.str.713) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 162:                                              ; preds = %4
   %163 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.714, ptr noundef @.str.715) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 164:                                              ; preds = %4
   %165 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.716, ptr noundef @.str.717) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 166:                                              ; preds = %4
   %167 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.718, ptr noundef @.str.719) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 168:                                              ; preds = %4
   %169 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.720, ptr noundef @.str.721) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 170:                                              ; preds = %4
   %171 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.722, ptr noundef @.str.723) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 172:                                              ; preds = %4
   %173 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.724, ptr noundef @.str.725) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 174:                                              ; preds = %4
   %175 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.726, ptr noundef @.str.727) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 176:                                              ; preds = %4
   %177 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.728, ptr noundef @.str.729) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 178:                                              ; preds = %4
   %179 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.730, ptr noundef @.str.731) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 180:                                              ; preds = %4
   %181 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.732, ptr noundef @.str.733) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 182:                                              ; preds = %4
   %183 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.734, ptr noundef @.str.735) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 184:                                              ; preds = %4
   %185 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.736, ptr noundef @.str.737) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 186:                                              ; preds = %4
   %187 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.738, ptr noundef @.str.739) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 188:                                              ; preds = %4
   %189 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.740, ptr noundef @.str.741) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 190:                                              ; preds = %4
   %191 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.742, ptr noundef @.str.743) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 192:                                              ; preds = %4
   %193 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.744, ptr noundef @.str.745) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 194:                                              ; preds = %4
   %195 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.746, ptr noundef @.str.747) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 196:                                              ; preds = %4
   %197 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.748, ptr noundef @.str.157) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 198:                                              ; preds = %4
   %199 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.749, ptr noundef @.str.750) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 200:                                              ; preds = %4
   %201 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.751, ptr noundef @.str.752) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 202:                                              ; preds = %4
   %203 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.753, ptr noundef @.str.754) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 204:                                              ; preds = %4
   %205 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.755, ptr noundef @.str.756) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 206:                                              ; preds = %4
   %207 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.757, ptr noundef @.str.758) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 208:                                              ; preds = %4
   %209 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.759, ptr noundef @.str.760) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 210:                                              ; preds = %4
   %211 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.761, ptr noundef @.str.762) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 212:                                              ; preds = %4
   %213 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.763, ptr noundef @.str.764) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 214:                                              ; preds = %4
   %215 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.765, ptr noundef @.str.766) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 216:                                              ; preds = %4
   %217 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.767, ptr noundef @.str.768) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 218:                                              ; preds = %4
   %219 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.769, ptr noundef @.str.770) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 220:                                              ; preds = %4
   %221 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.771, ptr noundef @.str.772) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 222:                                              ; preds = %4
   %223 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.773, ptr noundef @.str.774) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 224:                                              ; preds = %4
   %225 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.775, ptr noundef @.str.776) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 226:                                              ; preds = %4
   %227 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.777, ptr noundef @.str.778) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 228:                                              ; preds = %4
   %229 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.779, ptr noundef @.str.780) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 230:                                              ; preds = %4
   %231 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.781, ptr noundef @.str.782) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 232:                                              ; preds = %4
   %233 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.783, ptr noundef @.str.784) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 234:                                              ; preds = %4
   %235 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.785, ptr noundef @.str.786) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 236:                                              ; preds = %4
   %237 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.787, ptr noundef @.str.788) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 238:                                              ; preds = %4
   %239 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.789, ptr noundef @.str.790) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 240:                                              ; preds = %4
   %241 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.791, ptr noundef @.str.792) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 242:                                              ; preds = %4
   %243 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.793, ptr noundef @.str.794) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 244:                                              ; preds = %4
   %245 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.795, ptr noundef @.str.796) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 246:                                              ; preds = %4
   %247 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.797, ptr noundef @.str.798) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 248:                                              ; preds = %4
   %249 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.799, ptr noundef @.str.800) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 250:                                              ; preds = %4
   %251 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.801, ptr noundef @.str.802) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 252:                                              ; preds = %4
   %253 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.803, ptr noundef @.str.804) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 254:                                              ; preds = %4
   %255 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.805, ptr noundef @.str.806) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 256:                                              ; preds = %4
   %257 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.807, ptr noundef @.str.808) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 258:                                              ; preds = %4
   %259 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.809, ptr noundef @.str.810) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 260:                                              ; preds = %4
   %261 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.811, ptr noundef @.str.812) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 262:                                              ; preds = %4
   %263 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.813, ptr noundef @.str.814) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 264:                                              ; preds = %4
   %265 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.815, ptr noundef @.str.816) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 266:                                              ; preds = %4
   %267 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.817, ptr noundef @.str.818) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 268:                                              ; preds = %4
   %269 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.819, ptr noundef @.str.820) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 270:                                              ; preds = %4
   %271 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.821, ptr noundef @.str.822) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 272:                                              ; preds = %4
   %273 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.823, ptr noundef @.str.824) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 274:                                              ; preds = %4
   %275 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.825, ptr noundef @.str.826) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 276:                                              ; preds = %4
   %277 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.827, ptr noundef @.str.828) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 278:                                              ; preds = %4
   %279 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.829, ptr noundef @.str.830) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 280:                                              ; preds = %4
   %281 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.831, ptr noundef @.str.832) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 282:                                              ; preds = %4
   %283 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.833, ptr noundef @.str.834) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 284:                                              ; preds = %4
   %285 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.835, ptr noundef @.str.836) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 286:                                              ; preds = %4
   %287 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.837, ptr noundef @.str.838) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 288:                                              ; preds = %4
   %289 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.839, ptr noundef @.str.840) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 290:                                              ; preds = %4
   %291 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.841, ptr noundef @.str.842) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 292:                                              ; preds = %4
   %293 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.843, ptr noundef @.str.844) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 294:                                              ; preds = %4
   %295 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.845, ptr noundef @.str.212) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 296:                                              ; preds = %4
   %297 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.846, ptr noundef @.str.213) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 298:                                              ; preds = %4
   %299 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.847, ptr noundef @.str.214) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 300:                                              ; preds = %4
   %301 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.848, ptr noundef @.str.215) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 302:                                              ; preds = %4
   %303 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.849, ptr noundef @.str.216) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 304:                                              ; preds = %4
   %305 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.850, ptr noundef @.str.217) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 306:                                              ; preds = %4
   %307 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.851, ptr noundef @.str.218) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 308:                                              ; preds = %4
   %309 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.852, ptr noundef @.str.219) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 310:                                              ; preds = %4
   %311 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.853, ptr noundef @.str.220) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 312:                                              ; preds = %4
   %313 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.854, ptr noundef @.str.221) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 314:                                              ; preds = %4
   %315 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.855, ptr noundef @.str.222) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 316:                                              ; preds = %4
   %317 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.856, ptr noundef @.str.223) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 318:                                              ; preds = %4
   %319 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.857, ptr noundef @.str.224) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 320:                                              ; preds = %4
   %321 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.858, ptr noundef @.str.238) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 322:                                              ; preds = %4
   %323 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.859, ptr noundef @.str.241) #39
-  br label %parser_token2id.argprom.exit
+  br label %parser_token2id.exit
 
 324:                                              ; preds = %4
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.860, i32 noundef %2) #34
   unreachable
 
-parser_token2id.argprom.exit:                     ; preds = %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %134, %136, %138, %140, %142, %144, %146, %148, %150, %152, %154, %156, %158, %160, %162, %164, %166, %168, %170, %172, %174, %176, %178, %180, %182, %184, %186, %188, %190, %192, %194, %196, %198, %200, %202, %204, %206, %208, %210, %212, %214, %216, %218, %220, %222, %224, %226, %228, %230, %232, %234, %236, %238, %240, %242, %244, %246, %248, %250, %252, %254, %256, %258, %260, %262, %264, %266, %268, %270, %272, %274, %276, %278, %280, %282, %284, %286, %288, %290, %292, %294, %296, %298, %300, %302, %304, %306, %308, %310, %312, %314, %316, %318, %320, %322
+parser_token2id.exit:                             ; preds = %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %134, %136, %138, %140, %142, %144, %146, %148, %150, %152, %154, %156, %158, %160, %162, %164, %166, %168, %170, %172, %174, %176, %178, %180, %182, %184, %186, %188, %190, %192, %194, %196, %198, %200, %202, %204, %206, %208, %210, %212, %214, %216, %218, %220, %222, %224, %226, %228, %230, %232, %234, %236, %238, %240, %242, %244, %246, %248, %250, %252, %254, %256, %258, %260, %262, %264, %266, %268, %270, %272, %274, %276, %278, %280, %282, %284, %286, %288, %290, %292, %294, %296, %298, %300, %302, %304, %306, %308, %310, %312, %314, %316, %318, %320, %322
   %.0.i = phi i64 [ %323, %322 ], [ %321, %320 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %259, %258 ], [ %257, %256 ], [ %255, %254 ], [ %253, %252 ], [ %251, %250 ], [ %249, %248 ], [ %247, %246 ], [ %245, %244 ], [ %243, %242 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %235, %234 ], [ %233, %232 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %223, %222 ], [ %221, %220 ], [ %219, %218 ], [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %199, %198 ], [ %197, %196 ], [ %195, %194 ], [ %193, %192 ], [ %191, %190 ], [ %189, %188 ], [ %187, %186 ], [ %185, %184 ], [ %183, %182 ], [ %181, %180 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %151, %150 ], [ %149, %148 ], [ %147, %146 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ]
   %325 = tail call i64 @rb_id2sym(i64 noundef %.0.i) #33
   %326 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %325) #33
@@ -35400,11 +35400,11 @@ parser_token2id.argprom.exit:                     ; preds = %12, %14, %16, %18, 
   %.not = icmp eq i32 %360, 0
   br i1 %.not, label %362, label %361
 
-361:                                              ; preds = %parser_token2id.argprom.exit
+361:                                              ; preds = %parser_token2id.exit
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.567, i32 noundef %3, i64 noundef %5)
   br label %362
 
-362:                                              ; preds = %361, %parser_token2id.argprom.exit
+362:                                              ; preds = %361, %parser_token2id.exit
   ret void
 }
 
@@ -35466,7 +35466,7 @@ define internal fastcc noundef ptr @rb_node_gvar_new(ptr nocapture noundef %0, i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @literal_concat0(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %rb_parser_str_resize.argprom.exit22, label %4
+  br i1 %.not, label %rb_parser_str_resize.exit22, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr i8, ptr %1, i64 8
@@ -35476,7 +35476,7 @@ define internal fastcc range(i32 0, 2) i32 @literal_concat0(ptr nocapture nounde
   %7 = icmp eq ptr %.val16.i, null
   %8 = icmp eq ptr %.val.i, null
   %or.cond.i = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond.i, label %rb_parser_enc_compatible.argprom.exit, label %9
+  br i1 %or.cond.i, label %rb_parser_enc_compatible.exit, label %9
 
 9:                                                ; preds = %4
   %10 = icmp eq ptr %.val16.i, %.val.i
@@ -35514,34 +35514,34 @@ rb_enc_asciicompat.exit.i.i:                      ; preds = %20
 rb_enc_asciicompat.exit.i.i.i:                    ; preds = %22
   %24 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val.i) #37
   %.not3.i.i.i.i = icmp eq i32 %24, 0
-  br i1 %.not3.i.i.i.i, label %rb_parser_enc_str_asciionly_p.argprom.exit.i.i, label %rb_enc_asciicompat.exit.thread.i.i
+  br i1 %.not3.i.i.i.i, label %rb_parser_enc_str_asciionly_p.exit.i.i, label %rb_enc_asciicompat.exit.thread.i.i
 
-rb_parser_enc_str_asciionly_p.argprom.exit.i.i:   ; preds = %rb_enc_asciicompat.exit.i.i.i
-  %25 = tail call fastcc i32 @rb_parser_enc_str_coderange.argprom(ptr noundef nonnull %2)
+rb_parser_enc_str_asciionly_p.exit.i.i:           ; preds = %rb_enc_asciicompat.exit.i.i.i
+  %25 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef nonnull %2)
   br label %rb_enc_asciicompat.exit.thread.i.i
 
 26:                                               ; preds = %15
-  br i1 %.not.i.i.i, label %rb_enc_asciicompat.exit33.i.i, label %rb_parser_enc_compatible.argprom.exit
+  br i1 %.not.i.i.i, label %rb_enc_asciicompat.exit33.i.i, label %rb_parser_enc_compatible.exit
 
 rb_enc_asciicompat.exit33.i.i:                    ; preds = %26
   %27 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val16.i) #37
   %.not3.i32.i.i = icmp eq i32 %27, 0
-  br i1 %.not3.i32.i.i, label %28, label %rb_parser_enc_compatible.argprom.exit
+  br i1 %.not3.i32.i.i, label %28, label %rb_parser_enc_compatible.exit
 
 28:                                               ; preds = %rb_enc_asciicompat.exit33.i.i
   %29 = getelementptr i8, ptr %.val.i, i64 20
   %.val.i34.i.i = load i32, ptr %29, align 4
   %.not.i35.i.i = icmp eq i32 %.val.i34.i.i, 1
-  br i1 %.not.i35.i.i, label %rb_enc_asciicompat.exit38.i.i, label %rb_parser_enc_compatible.argprom.exit
+  br i1 %.not.i35.i.i, label %rb_enc_asciicompat.exit38.i.i, label %rb_parser_enc_compatible.exit
 
 rb_enc_asciicompat.exit38.i.i:                    ; preds = %28
   %30 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val.i) #37
   %.not3.i37.i.i = icmp eq i32 %30, 0
-  br i1 %.not3.i37.i.i, label %31, label %rb_parser_enc_compatible.argprom.exit
+  br i1 %.not3.i37.i.i, label %31, label %rb_parser_enc_compatible.exit
 
 31:                                               ; preds = %rb_enc_asciicompat.exit38.i.i
-  %32 = tail call fastcc i32 @rb_parser_enc_str_coderange.argprom(ptr noundef nonnull %1)
-  %33 = tail call fastcc i32 @rb_parser_enc_str_coderange.argprom(ptr noundef nonnull %2)
+  %32 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef nonnull %1)
+  %33 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef nonnull %2)
   %.not.i.i = icmp eq i32 %32, %33
   %34 = icmp eq i32 %32, 1
   br i1 %.not.i.i, label %36, label %35
@@ -35549,12 +35549,12 @@ rb_enc_asciicompat.exit38.i.i:                    ; preds = %28
 35:                                               ; preds = %31
   %cond.i.i = icmp eq i32 %33, 1
   %or.cond = or i1 %34, %cond.i.i
-  br i1 %or.cond, label %rb_enc_asciicompat.exit.thread.i.i, label %rb_parser_enc_compatible.argprom.exit
+  br i1 %or.cond, label %rb_enc_asciicompat.exit.thread.i.i, label %rb_parser_enc_compatible.exit
 
 36:                                               ; preds = %31
-  br i1 %34, label %rb_enc_asciicompat.exit.thread.i.i, label %rb_parser_enc_compatible.argprom.exit
+  br i1 %34, label %rb_enc_asciicompat.exit.thread.i.i, label %rb_parser_enc_compatible.exit
 
-rb_parser_enc_compatible.argprom.exit:            ; preds = %35, %36, %rb_enc_asciicompat.exit38.i.i, %28, %rb_enc_asciicompat.exit33.i.i, %26, %4
+rb_parser_enc_compatible.exit:                    ; preds = %35, %36, %rb_enc_asciicompat.exit38.i.i, %28, %rb_enc_asciicompat.exit33.i.i, %26, %4
   %.val18 = load ptr, ptr %5, align 8
   %37 = getelementptr i8, ptr %.val18, i64 8
   %.val = load ptr, ptr %37, align 8
@@ -35567,7 +35567,7 @@ rb_parser_enc_compatible.argprom.exit:            ; preds = %35, %36, %rb_enc_as
   %41 = icmp sgt i64 %40, 0
   br i1 %41, label %42, label %44
 
-42:                                               ; preds = %rb_parser_enc_compatible.argprom.exit
+42:                                               ; preds = %rb_parser_enc_compatible.exit
   %.val.i19 = load i32, ptr %1, align 8
   %.not.i = icmp eq i32 %.val.i19, 1
   br i1 %.not.i, label %50, label %43
@@ -35576,9 +35576,9 @@ rb_parser_enc_compatible.argprom.exit:            ; preds = %35, %36, %rb_enc_as
   store i32 0, ptr %1, align 8
   br label %50
 
-44:                                               ; preds = %rb_parser_enc_compatible.argprom.exit
+44:                                               ; preds = %rb_parser_enc_compatible.exit
   %45 = icmp slt i64 %40, 0
-  br i1 %45, label %46, label %rb_parser_str_resize.argprom.exit
+  br i1 %45, label %46, label %rb_parser_str_resize.exit
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds i8, ptr %1, i64 24
@@ -35592,15 +35592,15 @@ rb_parser_enc_compatible.argprom.exit:            ; preds = %35, %36, %rb_enc_as
   %51 = getelementptr inbounds i8, ptr %1, i64 24
   %52 = load ptr, ptr %51, align 8
   store i8 0, ptr %52, align 1
-  br label %rb_parser_str_resize.argprom.exit
+  br label %rb_parser_str_resize.exit
 
-rb_parser_str_resize.argprom.exit:                ; preds = %44, %50
+rb_parser_str_resize.exit:                        ; preds = %44, %50
   %53 = getelementptr inbounds i8, ptr %2, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = icmp sgt i64 %54, 0
   br i1 %55, label %56, label %58
 
-56:                                               ; preds = %rb_parser_str_resize.argprom.exit
+56:                                               ; preds = %rb_parser_str_resize.exit
   %.val.i20 = load i32, ptr %2, align 8
   %.not.i21 = icmp eq i32 %.val.i20, 1
   br i1 %.not.i21, label %64, label %57
@@ -35609,9 +35609,9 @@ rb_parser_str_resize.argprom.exit:                ; preds = %44, %50
   store i32 0, ptr %2, align 8
   br label %64
 
-58:                                               ; preds = %rb_parser_str_resize.argprom.exit
+58:                                               ; preds = %rb_parser_str_resize.exit
   %59 = icmp slt i64 %54, 0
-  br i1 %59, label %60, label %rb_parser_str_resize.argprom.exit22
+  br i1 %59, label %60, label %rb_parser_str_resize.exit22
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds i8, ptr %2, i64 24
@@ -35625,10 +35625,10 @@ rb_parser_str_resize.argprom.exit:                ; preds = %44, %50
   %65 = getelementptr inbounds i8, ptr %2, i64 24
   %66 = load ptr, ptr %65, align 8
   store i8 0, ptr %66, align 1
-  br label %rb_parser_str_resize.argprom.exit22
+  br label %rb_parser_str_resize.exit22
 
-rb_enc_asciicompat.exit.thread.i.i:               ; preds = %rb_parser_enc_str_asciionly_p.argprom.exit.i.i, %20, %rb_enc_asciicompat.exit.i.i, %22, %rb_enc_asciicompat.exit.i.i.i, %9, %11, %35, %36
-  %67 = tail call fastcc i32 @rb_parser_enc_str_coderange.argprom(ptr noundef nonnull %2)
+rb_enc_asciicompat.exit.thread.i.i:               ; preds = %rb_parser_enc_str_asciionly_p.exit.i.i, %20, %rb_enc_asciicompat.exit.i.i, %22, %rb_enc_asciicompat.exit.i.i.i, %9, %11, %35, %36
+  %67 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef nonnull %2)
   %68 = getelementptr inbounds i8, ptr %2, i64 24
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %2, i64 16
@@ -35638,68 +35638,68 @@ rb_enc_asciicompat.exit.thread.i.i:               ; preds = %rb_parser_enc_str_a
   %72 = getelementptr inbounds i8, ptr %1, i64 16
   %73 = load i64, ptr %72, align 8
   %.not.i.i24 = icmp eq i64 %73, 0
-  br i1 %.not.i.i24, label %rb_parser_coderange_scan.argprom.exit.thread.i.thread19.i, label %74
+  br i1 %.not.i.i24, label %rb_parser_coderange_scan.exit.thread.i.thread19.i, label %74
 
 74:                                               ; preds = %rb_enc_asciicompat.exit.thread.i.i
   %.val77.i.i = load i32, ptr %1, align 8
   %75 = icmp ne ptr %.val76.i.i, %.val.i23
   %76 = icmp eq i32 %.val77.i.i, 0
   %or.cond.i25 = select i1 %75, i1 %76, i1 false
-  br i1 %or.cond.i25, label %77, label %rb_parser_coderange_scan.argprom.exit.i.i
+  br i1 %or.cond.i25, label %77, label %rb_parser_coderange_scan.exit.i.i
 
 77:                                               ; preds = %74
   %78 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
   %79 = icmp eq ptr %.val76.i.i, %78
   %80 = icmp ne i32 %67, 1
   %or.cond3.i.i = or i1 %80, %79
-  br i1 %or.cond3.i.i, label %81, label %rb_parser_coderange_scan.argprom.exit.thread.i.thread.i
+  br i1 %or.cond3.i.i, label %81, label %rb_parser_coderange_scan.exit.thread.i.thread.i
 
 81:                                               ; preds = %77
-  %82 = tail call fastcc i32 @rb_parser_enc_str_coderange.argprom(ptr noundef nonnull %1)
-  br label %rb_parser_coderange_scan.argprom.exit.i.i
+  %82 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef nonnull %1)
+  br label %rb_parser_coderange_scan.exit.i.i
 
-rb_parser_coderange_scan.argprom.exit.i.i:        ; preds = %81, %74
+rb_parser_coderange_scan.exit.i.i:                ; preds = %81, %74
   %.064.i.i = phi i32 [ %82, %81 ], [ %.val77.i.i, %74 ]
   %83 = icmp ne i32 %.064.i.i, 1
   %or.cond5.i.i = select i1 %75, i1 %83, i1 false
   %84 = icmp ne i32 %67, 1
   %or.cond7.i.i = and i1 %84, %or.cond5.i.i
-  br i1 %or.cond7.i.i, label %110, label %rb_parser_coderange_scan.argprom.exit.thread.i.i
+  br i1 %or.cond7.i.i, label %110, label %rb_parser_coderange_scan.exit.thread.i.i
 
-rb_parser_coderange_scan.argprom.exit.thread.i.i: ; preds = %rb_parser_coderange_scan.argprom.exit.i.i
+rb_parser_coderange_scan.exit.thread.i.i:         ; preds = %rb_parser_coderange_scan.exit.i.i
   switch i32 %.064.i.i, label %87 [
-    i32 0, label %rb_parser_coderange_scan.argprom.exit.thread.i.thread.i
-    i32 1, label %rb_parser_coderange_scan.argprom.exit.thread.i.thread19.i
+    i32 0, label %rb_parser_coderange_scan.exit.thread.i.thread.i
+    i32 1, label %rb_parser_coderange_scan.exit.thread.i.thread19.i
     i32 2, label %86
   ]
 
-rb_parser_coderange_scan.argprom.exit.thread.i.thread19.i: ; preds = %rb_parser_coderange_scan.argprom.exit.thread.i.i, %rb_enc_asciicompat.exit.thread.i.i
+rb_parser_coderange_scan.exit.thread.i.thread19.i: ; preds = %rb_parser_coderange_scan.exit.thread.i.i, %rb_enc_asciicompat.exit.thread.i.i
   %85 = icmp eq i32 %67, 1
   %..i.i = select i1 %85, ptr %.val76.i.i, ptr %.val.i23
-  br label %rb_parser_coderange_scan.argprom.exit.thread.i.thread.i
+  br label %rb_parser_coderange_scan.exit.thread.i.thread.i
 
-86:                                               ; preds = %rb_parser_coderange_scan.argprom.exit.thread.i.i
+86:                                               ; preds = %rb_parser_coderange_scan.exit.thread.i.i
   %..06274.i.i = tail call i32 @llvm.umax.i32(i32 %67, i32 2)
-  br label %rb_parser_coderange_scan.argprom.exit.thread.i.thread.i
+  br label %rb_parser_coderange_scan.exit.thread.i.thread.i
 
-87:                                               ; preds = %rb_parser_coderange_scan.argprom.exit.thread.i.i
+87:                                               ; preds = %rb_parser_coderange_scan.exit.thread.i.i
   %88 = icmp sgt i64 %71, 0
   %spec.store.select.i.i = select i1 %88, i32 0, i32 %.064.i.i
-  br label %rb_parser_coderange_scan.argprom.exit.thread.i.thread.i
+  br label %rb_parser_coderange_scan.exit.thread.i.thread.i
 
-rb_parser_coderange_scan.argprom.exit.thread.i.thread.i: ; preds = %87, %86, %rb_parser_coderange_scan.argprom.exit.thread.i.thread19.i, %rb_parser_coderange_scan.argprom.exit.thread.i.i, %77
-  %.013.i = phi i32 [ %67, %87 ], [ %67, %rb_parser_coderange_scan.argprom.exit.thread.i.i ], [ %67, %rb_parser_coderange_scan.argprom.exit.thread.i.thread19.i ], [ %67, %86 ], [ 1, %77 ]
-  %.063.i.i = phi i32 [ %spec.store.select.i.i, %87 ], [ %.064.i.i, %rb_parser_coderange_scan.argprom.exit.thread.i.i ], [ %67, %rb_parser_coderange_scan.argprom.exit.thread.i.thread19.i ], [ %..06274.i.i, %86 ], [ 0, %77 ]
-  %.0.i.i = phi ptr [ %.val76.i.i, %87 ], [ %.val76.i.i, %rb_parser_coderange_scan.argprom.exit.thread.i.i ], [ %..i.i, %rb_parser_coderange_scan.argprom.exit.thread.i.thread19.i ], [ %.val76.i.i, %86 ], [ %.val76.i.i, %77 ]
+rb_parser_coderange_scan.exit.thread.i.thread.i:  ; preds = %87, %86, %rb_parser_coderange_scan.exit.thread.i.thread19.i, %rb_parser_coderange_scan.exit.thread.i.i, %77
+  %.013.i = phi i32 [ %67, %87 ], [ %67, %rb_parser_coderange_scan.exit.thread.i.i ], [ %67, %rb_parser_coderange_scan.exit.thread.i.thread19.i ], [ %67, %86 ], [ 1, %77 ]
+  %.063.i.i = phi i32 [ %spec.store.select.i.i, %87 ], [ %.064.i.i, %rb_parser_coderange_scan.exit.thread.i.i ], [ %67, %rb_parser_coderange_scan.exit.thread.i.thread19.i ], [ %..06274.i.i, %86 ], [ 0, %77 ]
+  %.0.i.i = phi ptr [ %.val76.i.i, %87 ], [ %.val76.i.i, %rb_parser_coderange_scan.exit.thread.i.i ], [ %..i.i, %rb_parser_coderange_scan.exit.thread.i.thread19.i ], [ %.val76.i.i, %86 ], [ %.val76.i.i, %77 ]
   %89 = icmp slt i64 %71, 0
   br i1 %89, label %.thread.i.i, label %90
 
-.thread.i.i:                                      ; preds = %rb_parser_coderange_scan.argprom.exit.thread.i.thread.i
+.thread.i.i:                                      ; preds = %rb_parser_coderange_scan.exit.thread.i.thread.i
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.874)
   store i32 0, ptr %1, align 8
   br label %92
 
-90:                                               ; preds = %rb_parser_coderange_scan.argprom.exit.thread.i.thread.i
+90:                                               ; preds = %rb_parser_coderange_scan.exit.thread.i.thread.i
   store i32 0, ptr %1, align 8
   %91 = icmp eq i64 %71, 0
   br i1 %91, label %rb_parser_str_buf_append.exit, label %92
@@ -35741,7 +35741,7 @@ ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %92
   store i8 0, ptr %109, align 1
   br label %rb_parser_str_buf_append.exit
 
-110:                                              ; preds = %rb_parser_coderange_scan.argprom.exit.i.i
+110:                                              ; preds = %rb_parser_coderange_scan.exit.i.i
   %111 = getelementptr i8, ptr %.val76.i.i, i64 8
   %.val75.i.i = load ptr, ptr %111, align 8
   %112 = getelementptr i8, ptr %.val.i23, i64 8
@@ -35753,9 +35753,9 @@ rb_parser_str_buf_append.exit:                    ; preds = %90, %96, %ruby_none
   store ptr %.0.i.i, ptr %5, align 8
   store i32 %.063.i.i, ptr %1, align 8
   store i32 %.013.i, ptr %2, align 8
-  br label %rb_parser_str_resize.argprom.exit22
+  br label %rb_parser_str_resize.exit22
 
-rb_parser_str_resize.argprom.exit22:              ; preds = %64, %58, %3, %rb_parser_str_buf_append.exit
+rb_parser_str_resize.exit22:                      ; preds = %64, %58, %3, %rb_parser_str_buf_append.exit
   %.0 = phi i32 [ 1, %rb_parser_str_buf_append.exit ], [ 1, %3 ], [ 0, %58 ], [ 0, %64 ]
   ret i32 %.0
 }
@@ -35766,7 +35766,7 @@ declare i64 @rb_node_set_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 1, 0) i32 @rb_parser_enc_str_coderange.argprom(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @rb_parser_enc_str_coderange(ptr nocapture noundef %0) unnamed_addr #0 {
   %.val8 = load i32, ptr %0, align 8
   %2 = icmp eq i32 %.val8, 0
   br i1 %2, label %3, label %30
@@ -35785,21 +35785,21 @@ define internal fastcc range(i32 1, 0) i32 @rb_parser_enc_str_coderange.argprom(
   br i1 %9, label %11, label %15
 
 11:                                               ; preds = %3
-  br i1 %10, label %.lr.ph.i.i.i, label %rb_parser_enc_coderange_scan.argprom.exit
+  br i1 %10, label %.lr.ph.i.i.i, label %rb_parser_enc_coderange_scan.exit
 
 .lr.ph.i.i.i:                                     ; preds = %11, %13
   %.08.i.i.i = phi ptr [ %14, %13 ], [ %.val10, %11 ]
   %12 = load i8, ptr %.08.i.i.i, align 1
   %.not.i.i.i = icmp sgt i8 %12, -1
-  br i1 %.not.i.i.i, label %13, label %rb_parser_enc_coderange_scan.argprom.exit
+  br i1 %.not.i.i.i, label %13, label %rb_parser_enc_coderange_scan.exit
 
 13:                                               ; preds = %.lr.ph.i.i.i
   %14 = getelementptr i8, ptr %.08.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq ptr %14, %7
-  br i1 %exitcond.not.i.i.i, label %rb_parser_enc_coderange_scan.argprom.exit, label %.lr.ph.i.i.i, !llvm.loop !102
+  br i1 %exitcond.not.i.i.i, label %rb_parser_enc_coderange_scan.exit, label %.lr.ph.i.i.i, !llvm.loop !102
 
 15:                                               ; preds = %3
-  br i1 %10, label %.lr.ph.i30.i.i, label %rb_parser_enc_coderange_scan.argprom.exit
+  br i1 %10, label %.lr.ph.i30.i.i, label %rb_parser_enc_coderange_scan.exit
 
 .lr.ph.i30.i.i:                                   ; preds = %15, %19
   %.08.i31.i.i = phi ptr [ %20, %19 ], [ %.val10, %15 ]
@@ -35810,17 +35810,17 @@ define internal fastcc range(i32 1, 0) i32 @rb_parser_enc_str_coderange.argprom(
 rb_parser_search_nonascii.exit34.preheader.i.i:   ; preds = %.lr.ph.i30.i.i
   %17 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.08.i31.i.i, ptr noundef nonnull %7, ptr noundef %.val) #33
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph.i.i, label %rb_parser_enc_coderange_scan.argprom.exit
+  br i1 %18, label %.lr.ph.i.i, label %rb_parser_enc_coderange_scan.exit
 
 19:                                               ; preds = %.lr.ph.i30.i.i
   %20 = getelementptr i8, ptr %.08.i31.i.i, i64 1
   %exitcond.not.i33.i.i = icmp eq ptr %20, %7
-  br i1 %exitcond.not.i33.i.i, label %rb_parser_enc_coderange_scan.argprom.exit, label %.lr.ph.i30.i.i, !llvm.loop !102
+  br i1 %exitcond.not.i33.i.i, label %rb_parser_enc_coderange_scan.exit, label %.lr.ph.i30.i.i, !llvm.loop !102
 
 rb_parser_search_nonascii.exit34.loopexit.i.i:    ; preds = %.lr.ph.i36.i.i
   %21 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.08.i37.i.i, ptr noundef nonnull %7, ptr noundef %.val) #33
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph.i.i, label %rb_parser_enc_coderange_scan.argprom.exit
+  br i1 %22, label %.lr.ph.i.i, label %rb_parser_enc_coderange_scan.exit
 
 .lr.ph.i.i:                                       ; preds = %rb_parser_search_nonascii.exit34.preheader.i.i, %rb_parser_search_nonascii.exit34.loopexit.i.i
   %23 = phi i32 [ %21, %rb_parser_search_nonascii.exit34.loopexit.i.i ], [ %17, %rb_parser_search_nonascii.exit34.preheader.i.i ]
@@ -35828,7 +35828,7 @@ rb_parser_search_nonascii.exit34.loopexit.i.i:    ; preds = %.lr.ph.i36.i.i
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr i8, ptr %.02011.i.i, i64 %24
   %26 = icmp ult ptr %25, %7
-  br i1 %26, label %.lr.ph.i36.i.i, label %rb_parser_enc_coderange_scan.argprom.exit
+  br i1 %26, label %.lr.ph.i36.i.i, label %rb_parser_enc_coderange_scan.exit
 
 .lr.ph.i36.i.i:                                   ; preds = %.lr.ph.i.i, %28
   %.08.i37.i.i = phi ptr [ %29, %28 ], [ %25, %.lr.ph.i.i ]
@@ -35839,15 +35839,15 @@ rb_parser_search_nonascii.exit34.loopexit.i.i:    ; preds = %.lr.ph.i36.i.i
 28:                                               ; preds = %.lr.ph.i36.i.i
   %29 = getelementptr i8, ptr %.08.i37.i.i, i64 1
   %exitcond.not.i39.i.i = icmp eq ptr %29, %7
-  br i1 %exitcond.not.i39.i.i, label %rb_parser_enc_coderange_scan.argprom.exit, label %.lr.ph.i36.i.i, !llvm.loop !102
+  br i1 %exitcond.not.i39.i.i, label %rb_parser_enc_coderange_scan.exit, label %.lr.ph.i36.i.i, !llvm.loop !102
 
-rb_parser_enc_coderange_scan.argprom.exit:        ; preds = %19, %rb_parser_search_nonascii.exit34.loopexit.i.i, %.lr.ph.i.i, %28, %.lr.ph.i.i.i, %13, %11, %15, %rb_parser_search_nonascii.exit34.preheader.i.i
+rb_parser_enc_coderange_scan.exit:                ; preds = %19, %rb_parser_search_nonascii.exit34.loopexit.i.i, %.lr.ph.i.i, %28, %.lr.ph.i.i.i, %13, %11, %15, %rb_parser_search_nonascii.exit34.preheader.i.i
   %.0.i.i = phi i32 [ 1, %15 ], [ 1, %11 ], [ 3, %rb_parser_search_nonascii.exit34.preheader.i.i ], [ 2, %.lr.ph.i.i.i ], [ 1, %13 ], [ 2, %28 ], [ 3, %rb_parser_search_nonascii.exit34.loopexit.i.i ], [ 2, %.lr.ph.i.i ], [ 1, %19 ]
   store i32 %.0.i.i, ptr %0, align 8
   br label %30
 
-30:                                               ; preds = %rb_parser_enc_coderange_scan.argprom.exit, %1
-  %.0 = phi i32 [ %.0.i.i, %rb_parser_enc_coderange_scan.argprom.exit ], [ %.val8, %1 ]
+30:                                               ; preds = %rb_parser_enc_coderange_scan.exit, %1
+  %.0 = phi i32 [ %.0.i.i, %rb_parser_enc_coderange_scan.exit ], [ %.val8, %1 ]
   ret i32 %.0
 }
 
@@ -35986,7 +35986,7 @@ parser_set_lex_state.exit.i:                      ; preds = %76, %heredoc_restor
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr i8, ptr %84, i64 1
   %86 = icmp eq ptr %82, %85
-  br i1 %86, label %87, label %whole_match_p.argprom.exit.thread.i
+  br i1 %86, label %87, label %whole_match_p.exit.thread.i
 
 87:                                               ; preds = %81
   %88 = getelementptr inbounds i8, ptr %0, i64 168
@@ -35996,7 +35996,7 @@ parser_set_lex_state.exit.i:                      ; preds = %76, %heredoc_restor
 
 91:                                               ; preds = %87
   store i32 0, ptr %88, align 8
-  br label %whole_match_p.argprom.exit.thread.i
+  br label %whole_match_p.exit.thread.i
 
 92:                                               ; preds = %87
   %93 = getelementptr i8, ptr %0, i64 96
@@ -36005,7 +36005,7 @@ parser_set_lex_state.exit.i:                      ; preds = %76, %heredoc_restor
   %95 = ptrtoint ptr %84 to i64
   %96 = sub i64 %94, %95
   %97 = icmp slt i64 %96, %28
-  br i1 %97, label %whole_match_p.argprom.exit.thread.i, label %98
+  br i1 %97, label %whole_match_p.exit.thread.i, label %98
 
 98:                                               ; preds = %92
   %99 = icmp ugt ptr %.val170.i, %84
@@ -36033,7 +36033,7 @@ parser_set_lex_state.exit.i:                      ; preds = %76, %heredoc_restor
   %111 = ptrtoint ptr %.1.i.i to i64
   %112 = sub i64 %111, %95
   %113 = icmp slt i64 %112, %28
-  br i1 %113, label %whole_match_p.argprom.exit.thread.i, label %114
+  br i1 %113, label %whole_match_p.exit.thread.i, label %114
 
 114:                                              ; preds = %110, %100, %98
   %.0.i.i = phi ptr [ %.1.i.i, %110 ], [ %.val170.i, %100 ], [ %.val170.i, %98 ]
@@ -36041,13 +36041,13 @@ parser_set_lex_state.exit.i:                      ; preds = %76, %heredoc_restor
   %116 = getelementptr i8, ptr %.0.i.i, i64 %115
   %117 = tail call i32 @strncmp(ptr noundef readonly %25, ptr noundef %116, i64 noundef %28) #37
   %.not.i176.i = icmp eq i32 %117, 0
-  br i1 %.not.i176.i, label %118, label %whole_match_p.argprom.exit.thread.i
+  br i1 %.not.i176.i, label %118, label %whole_match_p.exit.thread.i
 
 118:                                              ; preds = %114
   %.not35.i.i = icmp ne i32 %32, 0
   %119 = icmp ult ptr %84, %116
   %or.cond.i.i = and i1 %.not35.i.i, %119
-  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %whole_match_p.argprom.exit.i
+  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %whole_match_p.exit.i
 
 .lr.ph.i.i:                                       ; preds = %118, %125
   %.1273.i.i = phi ptr [ %126, %125 ], [ %84, %118 ]
@@ -36057,19 +36057,19 @@ parser_set_lex_state.exit.i:                      ; preds = %76, %heredoc_restor
   %123 = add nsw i32 %121, -14
   %124 = icmp ult i32 %123, -5
   %narrow.i.not.i.i = and i1 %122, %124
-  br i1 %narrow.i.not.i.i, label %whole_match_p.argprom.exit.i, label %125
+  br i1 %narrow.i.not.i.i, label %whole_match_p.exit.i, label %125
 
 125:                                              ; preds = %.lr.ph.i.i
   %126 = getelementptr i8, ptr %.1273.i.i, i64 1
   %127 = icmp ult ptr %126, %116
-  br i1 %127, label %.lr.ph.i.i, label %whole_match_p.argprom.exit.i, !llvm.loop !103
+  br i1 %127, label %.lr.ph.i.i, label %whole_match_p.exit.i, !llvm.loop !103
 
-whole_match_p.argprom.exit.i:                     ; preds = %125, %.lr.ph.i.i, %118
+whole_match_p.exit.i:                             ; preds = %125, %.lr.ph.i.i, %118
   %.026.i.i = phi ptr [ %84, %118 ], [ %126, %125 ], [ %.1273.i.i, %.lr.ph.i.i ]
   %.not.i = icmp eq ptr %.026.i.i, %116
-  br i1 %.not.i, label %128, label %whole_match_p.argprom.exit.thread.i
+  br i1 %.not.i, label %128, label %whole_match_p.exit.thread.i
 
-128:                                              ; preds = %whole_match_p.argprom.exit.i
+128:                                              ; preds = %whole_match_p.exit.i
   tail call fastcc void @parser_dispatch_heredoc_end(ptr noundef %0, i32 noundef 9304)
   %.pre.i = load i32, ptr %8, align 8
   %.pre272.i = and i32 %.pre.i, 8
@@ -36148,12 +36148,12 @@ parser_set_lex_state.exit180.i:                   ; preds = %170, %heredoc_resto
   store i32 2, ptr %174, align 8
   br label %here_document.exit
 
-whole_match_p.argprom.exit.thread.i:              ; preds = %whole_match_p.argprom.exit.i, %114, %110, %92, %91, %81
+whole_match_p.exit.thread.i:                      ; preds = %whole_match_p.exit.i, %114, %110, %92, %91, %81
   %175 = and i32 %31, 2
   %.not159.i = icmp eq i32 %175, 0
   br i1 %.not159.i, label %.preheader243.i, label %270
 
-.preheader243.i:                                  ; preds = %whole_match_p.argprom.exit.thread.i
+.preheader243.i:                                  ; preds = %whole_match_p.exit.thread.i
   %176 = getelementptr inbounds i8, ptr %0, i64 64
   %177 = getelementptr inbounds i8, ptr %0, i64 96
   %178 = getelementptr inbounds i8, ptr %0, i64 164
@@ -36365,7 +36365,7 @@ whole_match_p.argprom.exit.thread.i:              ; preds = %whole_match_p.argpr
 .backedge.i.backedge:                             ; preds = %.critedge.i187.i, %257, %253, %236
   br label %.backedge.i, !llvm.loop !105
 
-270:                                              ; preds = %whole_match_p.argprom.exit.thread.i
+270:                                              ; preds = %whole_match_p.exit.thread.i
   %271 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %271, align 8
   %272 = getelementptr inbounds i8, ptr %0, i64 176
@@ -36604,7 +36604,7 @@ pushback.exit.i:                                  ; preds = %369, %365, %362, %3
   %379 = sext i32 %378 to i64
   %380 = load ptr, ptr %6, align 8
   %381 = load ptr, ptr %18, align 8
-  %382 = tail call fastcc i64 @parser_str_new.argprom(ptr noundef %377, i64 noundef %379, ptr noundef %380, i32 noundef %31, ptr noundef %381)
+  %382 = tail call fastcc i64 @parser_str_new(ptr noundef %377, i64 noundef %379, ptr noundef %380, i32 noundef %31, ptr noundef %381)
   %.pre271.i = load ptr, ptr %13, align 8
   br label %.loopexit.i
 
@@ -36836,7 +36836,7 @@ tokadd.exit203.i:                                 ; preds = %453, %443
   %502 = sext i32 %501 to i64
   %503 = load ptr, ptr %6, align 8
   %504 = load ptr, ptr %18, align 8
-  %505 = tail call fastcc i64 @parser_str_new.argprom(ptr noundef %500, i64 noundef %502, ptr noundef %503, i32 noundef %31, ptr noundef %504)
+  %505 = tail call fastcc i64 @parser_str_new(ptr noundef %500, i64 noundef %502, ptr noundef %503, i32 noundef %31, ptr noundef %504)
   br label %.loopexit245.i
 
 .loopexit245.i:                                   ; preds = %.critedge.i187.i, %499
@@ -37499,7 +37499,7 @@ pushback.exit108.i:                               ; preds = %824, %820, %817, %8
   br i1 %.not89.i, label %834, label %832
 
 832:                                              ; preds = %830
-  tail call fastcc void @parser_yyerror0.retelim(ptr noundef %0, ptr noundef @.str.920)
+  tail call fastcc void @parser_yyerror0(ptr noundef %0, ptr noundef @.str.920)
   %833 = load ptr, ptr %9, align 8
   tail call void @ruby_xfree(ptr noundef %833) #33
   store ptr null, ptr %9, align 8
@@ -37509,7 +37509,7 @@ pushback.exit108.i:                               ; preds = %824, %820, %817, %8
   %835 = and i32 %608, 4
   %.not96.i = icmp eq i32 %835, 0
   %.str.922..str.921.i = select i1 %.not96.i, ptr @.str.922, ptr @.str.921
-  tail call fastcc void @parser_yyerror0.retelim(ptr noundef %0, ptr noundef %.str.922..str.921.i)
+  tail call fastcc void @parser_yyerror0(ptr noundef %0, ptr noundef %.str.922..str.921.i)
   %836 = load i32, ptr %607, align 8
   %837 = or i32 %836, 32768
   store i32 %837, ptr %607, align 8
@@ -37526,7 +37526,7 @@ pushback.exit108.i:                               ; preds = %824, %820, %817, %8
   %845 = sext i32 %844 to i64
   %846 = load ptr, ptr %4, align 8
   %847 = load ptr, ptr %613, align 8
-  %848 = tail call fastcc i64 @parser_str_new.argprom(ptr noundef %843, i64 noundef %845, ptr noundef %846, i32 noundef %608, ptr noundef %847)
+  %848 = tail call fastcc i64 @parser_str_new(ptr noundef %843, i64 noundef %845, ptr noundef %846, i32 noundef %608, ptr noundef %847)
   %849 = getelementptr inbounds i8, ptr %0, i64 212
   %850 = load i32, ptr %849, align 4
   %851 = load ptr, ptr %15, align 8
@@ -39722,7 +39722,7 @@ parser_set_lex_state.exit967:                     ; preds = %1728, %1733
   br i1 %or.cond17, label %1741, label %1757
 
 1741:                                             ; preds = %1736
-  switch i32 %1702, label %is_identchar.argprom.exit.thread.sink.split [
+  switch i32 %1702, label %is_identchar.exit.thread.sink.split [
     i32 32, label %1757
     i32 13, label %1757
     i32 12, label %1757
@@ -39737,13 +39737,13 @@ parser_set_lex_state.exit967:                     ; preds = %1728, %1733
   %1744 = getelementptr i8, ptr %1743, i64 1
   %1745 = load ptr, ptr %924, align 8
   %.not775 = icmp ult ptr %1744, %1745
-  br i1 %.not775, label %1746, label %is_identchar.argprom.exit.thread.sink.split
+  br i1 %.not775, label %1746, label %is_identchar.exit.thread.sink.split
 
 1746:                                             ; preds = %1742
   %1747 = load i8, ptr %1744, align 1
   switch i8 %1747, label %1748 [
-    i8 34, label %is_identchar.argprom.exit.thread
-    i8 39, label %is_identchar.argprom.exit.thread
+    i8 34, label %is_identchar.exit.thread
+    i8 39, label %is_identchar.exit.thread
   ]
 
 1748:                                             ; preds = %1746
@@ -39753,14 +39753,14 @@ parser_set_lex_state.exit967:                     ; preds = %1728, %1733
   %1752 = load ptr, ptr %1751, align 8
   %1753 = call i32 %1752(i32 noundef %1750, i32 noundef 13, ptr noundef %1749) #33
   %.not.i969 = icmp eq i32 %1753, 0
-  br i1 %.not.i969, label %1754, label %is_identchar.argprom.exit.thread
+  br i1 %.not.i969, label %1754, label %is_identchar.exit.thread
 
 1754:                                             ; preds = %1748
   %1755 = load i8, ptr %1744, align 1
   %1756 = icmp ne i8 %1755, 95
   %.not776 = icmp sgt i8 %1755, -1
   %or.cond1132 = and i1 %1756, %.not776
-  br i1 %or.cond1132, label %is_identchar.argprom.exit.thread.sink.split, label %is_identchar.argprom.exit.thread
+  br i1 %or.cond1132, label %is_identchar.exit.thread.sink.split, label %is_identchar.exit.thread
 
 1757:                                             ; preds = %1741, %1741, %1741, %1741, %1741, %1741, %1736
   %1758 = and i32 %1737, 577
@@ -39768,40 +39768,40 @@ parser_set_lex_state.exit967:                     ; preds = %1728, %1733
   %1759 = and i32 %1737, 2064
   %1760 = icmp eq i32 %1759, 2064
   %or.cond823 = or i1 %.not777, %1760
-  br i1 %or.cond823, label %is_identchar.argprom.exit.thread, label %1761
+  br i1 %or.cond823, label %is_identchar.exit.thread, label %1761
 
 1761:                                             ; preds = %1757
   %1762 = and i32 %935, 904
   %1763 = icmp eq i32 %1762, 0
   %or.cond21 = select i1 %1763, i1 %1740, i1 false
-  br i1 %or.cond21, label %1764, label %is_identchar.argprom.exit.thread
+  br i1 %or.cond21, label %1764, label %is_identchar.exit.thread
 
 1764:                                             ; preds = %1761
   switch i32 %1702, label %1765 [
-    i32 32, label %is_identchar.argprom.exit.thread
-    i32 13, label %is_identchar.argprom.exit.thread
-    i32 12, label %is_identchar.argprom.exit.thread
-    i32 11, label %is_identchar.argprom.exit.thread
-    i32 10, label %is_identchar.argprom.exit.thread
-    i32 9, label %is_identchar.argprom.exit.thread
+    i32 32, label %is_identchar.exit.thread
+    i32 13, label %is_identchar.exit.thread
+    i32 12, label %is_identchar.exit.thread
+    i32 11, label %is_identchar.exit.thread
+    i32 10, label %is_identchar.exit.thread
+    i32 9, label %is_identchar.exit.thread
   ]
 
 1765:                                             ; preds = %1764
   %1766 = load ptr, ptr %934, align 8
   %1767 = load i32, ptr %915, align 4
   call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1766, i32 noundef %1767, ptr noundef nonnull @.str.891) #33
-  br label %is_identchar.argprom.exit.thread.sink.split
+  br label %is_identchar.exit.thread.sink.split
 
-is_identchar.argprom.exit.thread.sink.split:      ; preds = %1742, %1741, %1754, %1765
+is_identchar.exit.thread.sink.split:              ; preds = %1742, %1741, %1754, %1765
   %.str.884.sink1892 = phi ptr [ @.str.884, %1765 ], [ @.str.890, %1754 ], [ @.str.890, %1741 ], [ @.str.890, %1742 ]
   %.1.ph = phi i32 [ 38, %1765 ], [ 336, %1754 ], [ 336, %1741 ], [ 336, %1742 ]
   %1768 = load ptr, ptr %934, align 8
   %1769 = load i32, ptr %915, align 4
   call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1768, i32 noundef %1769, ptr noundef nonnull %.str.884.sink1892) #33
-  br label %is_identchar.argprom.exit.thread
+  br label %is_identchar.exit.thread
 
-is_identchar.argprom.exit.thread:                 ; preds = %is_identchar.argprom.exit.thread.sink.split, %1764, %1764, %1764, %1764, %1764, %1764, %1746, %1748, %1754, %1746, %1761, %1757
-  %.1 = phi i32 [ 336, %1757 ], [ 38, %1764 ], [ 38, %1761 ], [ 336, %1746 ], [ 336, %1746 ], [ 336, %1754 ], [ 336, %1748 ], [ 38, %1764 ], [ 38, %1764 ], [ 38, %1764 ], [ 38, %1764 ], [ 38, %1764 ], [ %.1.ph, %is_identchar.argprom.exit.thread.sink.split ]
+is_identchar.exit.thread:                         ; preds = %is_identchar.exit.thread.sink.split, %1764, %1764, %1764, %1764, %1764, %1764, %1746, %1748, %1754, %1746, %1761, %1757
+  %.1 = phi i32 [ 336, %1757 ], [ 38, %1764 ], [ 38, %1761 ], [ 336, %1746 ], [ 336, %1746 ], [ 336, %1754 ], [ 336, %1748 ], [ 38, %1764 ], [ 38, %1764 ], [ 38, %1764 ], [ 38, %1764 ], [ 38, %1764 ], [ %.1.ph, %is_identchar.exit.thread.sink.split ]
   %1770 = load i32, ptr %913, align 8
   %1771 = and i32 %1770, 384
   %.not779 = icmp eq i32 %1771, 0
@@ -39811,11 +39811,11 @@ is_identchar.argprom.exit.thread:                 ; preds = %is_identchar.argpro
   %.not.i971 = icmp eq i32 %1774, 0
   br i1 %.not.i971, label %parser_set_lex_state.exit972, label %1775
 
-1775:                                             ; preds = %is_identchar.argprom.exit.thread
+1775:                                             ; preds = %is_identchar.exit.thread
   %1776 = call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1770, i32 noundef %1772, i32 noundef 11084)
   br label %parser_set_lex_state.exit972
 
-parser_set_lex_state.exit972:                     ; preds = %is_identchar.argprom.exit.thread, %1775
+parser_set_lex_state.exit972:                     ; preds = %is_identchar.exit.thread, %1775
   store i32 %1772, ptr %913, align 8
   br label %pushback.exit977
 
@@ -41346,7 +41346,7 @@ parser_set_lex_state.exit1057:                    ; preds = %2416, %.thread1091,
 
 2449:                                             ; preds = %2444
   %.val842 = load ptr, ptr %924, align 8
-  %2450 = call fastcc i32 @whole_match_p.argprom(ptr %2446, ptr %.val842, ptr noundef nonnull @.str.903, i64 noundef 7, i32 noundef 0)
+  %2450 = call fastcc i32 @whole_match_p(ptr %2446, ptr %.val842, ptr noundef nonnull @.str.903, i64 noundef 7, i32 noundef 0)
   %.not713 = icmp eq i32 %2450, 0
   br i1 %.not713, label %parser_is_identchar.exit.thread, label %2451
 
@@ -41388,7 +41388,7 @@ parser_is_identchar.exit.thread1096:              ; preds = %2466, %2454
   br label %.backedge.backedge
 
 parser_is_identchar.exit.thread:                  ; preds = %2466, %2457, %2444, %2449
-  call fastcc void @newtok.retelim(ptr noundef nonnull %0)
+  call fastcc void @newtok(ptr noundef nonnull %0)
   %2470 = call fastcc i32 @parse_ident(ptr noundef nonnull %0, i32 noundef %936, i32 noundef %907)
   br label %pushback.exit977
 
@@ -41970,7 +41970,7 @@ parser_set_lex_state.exit:                        ; preds = %7, %11
   tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %34, i32 noundef %36, ptr noundef nonnull @.str.952, i32 noundef %.0.i.ph) #33
   br label %escaped_control_code.exit
 
-escaped_control_code.exit:                        ; preds = %32, %23, %.critedge, %is_identchar.argprom.exit.thread, %26
+escaped_control_code.exit:                        ; preds = %32, %23, %.critedge, %is_identchar.exit.thread, %26
   %37 = getelementptr inbounds i8, ptr %0, i64 368
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, -9
@@ -42079,20 +42079,20 @@ newtok.exit:                                      ; preds = %65, %70
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i32 %94(i32 noundef %92, i32 noundef 13, ptr noundef %90) #33
   %.not.i107 = icmp eq i32 %95, 0
-  br i1 %.not.i107, label %96, label %is_identchar.argprom.exit.thread
+  br i1 %.not.i107, label %96, label %is_identchar.exit.thread
 
 96:                                               ; preds = %89
   %97 = load i8, ptr %86, align 1
   %98 = icmp ne i8 %97, 95
   %.not95 = icmp sgt i8 %97, -1
   %or.cond124 = and i1 %98, %.not95
-  br i1 %or.cond124, label %134, label %is_identchar.argprom.exit.thread
+  br i1 %or.cond124, label %134, label %is_identchar.exit.thread
 
-is_identchar.argprom.exit.thread:                 ; preds = %89, %96
+is_identchar.exit.thread:                         ; preds = %89, %96
   %.not96 = icmp eq i32 %1, 0
   br i1 %.not96, label %escaped_control_code.exit, label %99
 
-99:                                               ; preds = %is_identchar.argprom.exit.thread
+99:                                               ; preds = %is_identchar.exit.thread
   %100 = load ptr, ptr %73, align 8
   %101 = getelementptr i8, ptr %100, i64 -1
   %102 = load ptr, ptr %87, align 8
@@ -42125,23 +42125,23 @@ parser_precise_mbclen.exit:                       ; preds = %99, %.critedge125.b
   %117 = load ptr, ptr %116, align 8
   %118 = tail call i32 %117(i32 noundef %115, i32 noundef 13, ptr noundef %113) #33
   %.not.i109 = icmp eq i32 %118, 0
-  br i1 %.not.i109, label %is_identchar.argprom.exit111, label %.critedge125.backedge
+  br i1 %.not.i109, label %is_identchar.exit111, label %.critedge125.backedge
 
-is_identchar.argprom.exit111:                     ; preds = %112
+is_identchar.exit111:                             ; preds = %112
   %119 = load i8, ptr %110, align 1
   %120 = icmp ne i8 %119, 95
   %121 = icmp sgt i8 %119, -1
   %spec.select = and i1 %120, %121
   br i1 %spec.select, label %.critedge, label %.critedge125.backedge
 
-.critedge125.backedge:                            ; preds = %is_identchar.argprom.exit111, %112
+.critedge125.backedge:                            ; preds = %is_identchar.exit111, %112
   %122 = load ptr, ptr %87, align 8
   %123 = load ptr, ptr %18, align 8
   %124 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %110, ptr noundef %122, ptr noundef %123) #33
   %125 = icmp sgt i32 %124, 0
   br i1 %125, label %parser_precise_mbclen.exit, label %parser_precise_mbclen.exit.thread, !llvm.loop !148
 
-.critedge:                                        ; preds = %parser_precise_mbclen.exit, %is_identchar.argprom.exit111
+.critedge:                                        ; preds = %parser_precise_mbclen.exit, %is_identchar.exit111
   %126 = getelementptr inbounds i8, ptr %0, i64 216
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %0, i64 212
@@ -42173,7 +42173,7 @@ is_identchar.argprom.exit111:                     ; preds = %112
   %144 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0, i32 noundef 1)
   %145 = tail call nonnull ptr @rb_utf8_encoding() #33
   store ptr %145, ptr %3, align 8
-  call fastcc void @tokadd_utf8.argelim(ptr noundef nonnull %0, ptr noundef %3, i32 noundef -1, i32 noundef 0)
+  call fastcc void @tokadd_utf8(ptr noundef nonnull %0, ptr noundef %3, i32 noundef -1, i32 noundef 0)
   %.pre = load ptr, ptr %3, align 8
   br label %tokadd.exit
 
@@ -42232,34 +42232,34 @@ tokadd.exit:                                      ; preds = %164, %155, %143, %.
   %179 = getelementptr i8, ptr %169, i64 20
   %.val.i.i = load i32, ptr %179, align 4
   %.not.i.i = icmp eq i32 %.val.i.i, 1
-  br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %parser_str_new.argprom.exit
+  br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %parser_str_new.exit
 
 rb_enc_asciicompat.exit.i:                        ; preds = %tokadd.exit
   %180 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %169) #37
   %.not3.i.i = icmp eq i32 %180, 0
-  br i1 %.not3.i.i, label %181, label %parser_str_new.argprom.exit
+  br i1 %.not3.i.i, label %181, label %parser_str_new.exit
 
 181:                                              ; preds = %rb_enc_asciicompat.exit.i
   %182 = tail call i32 @rb_enc_str_coderange(i64 noundef %178) #33
   %183 = icmp eq i32 %182, 1048576
-  br i1 %183, label %parser_str_new.argprom.exit, label %184
+  br i1 %183, label %parser_str_new.exit, label %184
 
 184:                                              ; preds = %181
   %185 = tail call nonnull ptr @rb_usascii_encoding() #33
   %186 = icmp eq ptr %177, %185
-  br i1 %186, label %187, label %parser_str_new.argprom.exit
+  br i1 %186, label %187, label %parser_str_new.exit
 
 187:                                              ; preds = %184
   %188 = tail call nonnull ptr @rb_utf8_encoding() #33
   %.not9.i = icmp eq ptr %169, %188
-  br i1 %.not9.i, label %parser_str_new.argprom.exit, label %189
+  br i1 %.not9.i, label %parser_str_new.exit, label %189
 
 189:                                              ; preds = %187
   %190 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
   %191 = tail call i64 @rb_enc_associate(i64 noundef %178, ptr noundef nonnull %190) #33
-  br label %parser_str_new.argprom.exit
+  br label %parser_str_new.exit
 
-parser_str_new.argprom.exit:                      ; preds = %tokadd.exit, %rb_enc_asciicompat.exit.i, %181, %184, %187, %189
+parser_str_new.exit:                              ; preds = %tokadd.exit, %rb_enc_asciicompat.exit.i, %181, %184, %187, %189
   %192 = getelementptr inbounds i8, ptr %0, i64 212
   %193 = load i32, ptr %192, align 4
   %194 = getelementptr inbounds i8, ptr %0, i64 104
@@ -42281,12 +42281,12 @@ parser_str_new.argprom.exit:                      ; preds = %tokadd.exit, %rb_en
   %209 = getelementptr inbounds i8, ptr %206, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %210
 
-210:                                              ; preds = %parser_str_new.argprom.exit
+210:                                              ; preds = %parser_str_new.exit
   %.sroa.2.0.copyload.i.i = load ptr, ptr %209, align 8
   br label %RSTRING_PTR.exit.i
 
-RSTRING_PTR.exit.i:                               ; preds = %210, %parser_str_new.argprom.exit
-  %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %210 ], [ %209, %parser_str_new.argprom.exit ]
+RSTRING_PTR.exit.i:                               ; preds = %210, %parser_str_new.exit
+  %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %210 ], [ %209, %parser_str_new.exit ]
   %211 = getelementptr inbounds i8, ptr %206, i64 16
   %212 = load i64, ptr %211, align 8
   %213 = tail call ptr @rb_enc_get(i64 noundef %178) #33
@@ -42970,7 +42970,7 @@ tokadd.exit322:                                   ; preds = %250, %241, %236
 .loopexit377:                                     ; preds = %239, %269
   %.15247 = phi i32 [ 0, %269 ], [ %.12244, %239 ]
   %.13 = phi i32 [ %.10, %269 ], [ %.11, %239 ]
-  tail call fastcc void @parser_yyerror0.retelim(ptr noundef %0, ptr noundef @.str.956)
+  tail call fastcc void @parser_yyerror0(ptr noundef %0, ptr noundef @.str.956)
   br label %.preheader520
 
 271:                                              ; preds = %269
@@ -43729,7 +43729,7 @@ parser_set_lex_state.exit:                        ; preds = %134, %142
   br label %201
 
 145:                                              ; preds = %91
-  tail call fastcc void @parser_yyerror0.retelim(ptr noundef %0, ptr noundef @.str.961)
+  tail call fastcc void @parser_yyerror0(ptr noundef %0, ptr noundef @.str.961)
   br label %201
 
 146:                                              ; preds = %3
@@ -44562,7 +44562,7 @@ parser_set_lex_state.exit136:                     ; preds = %359, %362
   br i1 %371, label %372, label %373
 
 372:                                              ; preds = %parser_set_lex_state.exit136
-  tail call fastcc void @tokenize_ident.argelim(ptr noundef nonnull %0)
+  tail call fastcc void @tokenize_ident(ptr noundef nonnull %0)
   br label %pushback.exit
 
 373:                                              ; preds = %parser_set_lex_state.exit136
@@ -44912,7 +44912,7 @@ tokenize_ident.exit:                              ; preds = %168, %166, %parser_
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @whole_match_p.argprom(ptr %.80.val, ptr %.96.val, ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef range(i32 0, 33) %2) unnamed_addr #25 {
+define internal fastcc range(i32 0, 2) i32 @whole_match_p(ptr %.80.val, ptr %.96.val, ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef range(i32 0, 33) %2) unnamed_addr #25 {
   %4 = ptrtoint ptr %.96.val to i64
   %5 = ptrtoint ptr %.80.val to i64
   %6 = sub i64 %4, %5
@@ -44988,7 +44988,7 @@ define internal fastcc range(i32 0, 2) i32 @whole_match_p.argprom(ptr %.80.val, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @newtok.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @newtok(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 176
@@ -46147,8 +46147,8 @@ parser_update_heredoc_indent.exit:                ; preds = %.sink.split.i, %49,
   %115 = icmp slt i32 %114, 0
   br i1 %115, label %.backedge, label %117
 
-.backedge:                                        ; preds = %465, %tokadd.exit.thread, %436, %parser_mixed_error.argprom.exit201, %403, %parser_mixed_error.argprom.exit, %352, %354, %358, %356, %112, %113, %159, %tokspace.exit, %227, %396, %424
-  %.0133.be = phi i8 [ %.0133223, %227 ], [ %.0133223, %tokspace.exit ], [ %.0133223, %396 ], [ %.0133223, %424 ], [ %.0133223, %159 ], [ %.0133223, %113 ], [ %.0133223, %112 ], [ %.0133223, %356 ], [ 1, %358 ], [ %.0133223, %354 ], [ %.0133223, %352 ], [ %.0133223, %403 ], [ 1, %parser_mixed_error.argprom.exit ], [ %.0133223, %436 ], [ 1, %parser_mixed_error.argprom.exit201 ], [ %.0133223, %tokadd.exit.thread ], [ %.0133223, %465 ]
+.backedge:                                        ; preds = %465, %tokadd.exit.thread, %436, %parser_mixed_error.exit201, %403, %parser_mixed_error.exit, %352, %354, %358, %356, %112, %113, %159, %tokspace.exit, %227, %396, %424
+  %.0133.be = phi i8 [ %.0133223, %227 ], [ %.0133223, %tokspace.exit ], [ %.0133223, %396 ], [ %.0133223, %424 ], [ %.0133223, %159 ], [ %.0133223, %113 ], [ %.0133223, %112 ], [ %.0133223, %356 ], [ 1, %358 ], [ %.0133223, %354 ], [ %.0133223, %352 ], [ %.0133223, %403 ], [ 1, %parser_mixed_error.exit ], [ %.0133223, %436 ], [ 1, %parser_mixed_error.exit201 ], [ %.0133223, %tokadd.exit.thread ], [ %.0133223, %465 ]
   %116 = call fastcc i32 @nextc0(ptr noundef nonnull %0, i32 noundef 1)
   %.not = icmp eq i32 %116, -1
   br i1 %.not, label %pushback.exit, label %40, !llvm.loop !158
@@ -46229,7 +46229,7 @@ parser_update_heredoc_indent.exit:                ; preds = %.sink.split.i, %49,
   br label %tokadd.exit.thread
 
 159:                                              ; preds = %145
-  call fastcc void @tokadd_utf8.argelim(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %2, i32 noundef %18)
+  call fastcc void @tokadd_utf8(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %2, i32 noundef %18)
   br label %.backedge
 
 160:                                              ; preds = %108
@@ -46774,15 +46774,15 @@ tokadd.exit191:                                   ; preds = %171, %163, %.thread
   call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.919, ptr noundef %.val, ptr noundef %.val181)
   %419 = load i32, ptr %31, align 4
   %420 = icmp eq i32 %408, %419
-  br i1 %420, label %421, label %parser_mixed_error.argprom.exit
+  br i1 %420, label %421, label %parser_mixed_error.exit
 
 421:                                              ; preds = %405
   %422 = load ptr, ptr %35, align 8
   %423 = load i64, ptr %36, align 8
   call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %423, ptr noundef nonnull %9, i32 noundef %408, ptr noundef %422)
-  br label %parser_mixed_error.argprom.exit
+  br label %parser_mixed_error.exit
 
-parser_mixed_error.argprom.exit:                  ; preds = %405, %421
+parser_mixed_error.exit:                          ; preds = %405, %421
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %.backedge
 
@@ -46856,15 +46856,15 @@ tokadd.exit:                                      ; preds = %428, %switch.early.
   call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.919, ptr noundef %.val182, ptr noundef %.val183)
   %452 = load i32, ptr %31, align 4
   %453 = icmp eq i32 %441, %452
-  br i1 %453, label %454, label %parser_mixed_error.argprom.exit201
+  br i1 %453, label %454, label %parser_mixed_error.exit201
 
 454:                                              ; preds = %438
   %455 = load ptr, ptr %35, align 8
   %456 = load i64, ptr %36, align 8
   call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %456, ptr noundef nonnull %8, i32 noundef %441, ptr noundef %455)
-  br label %parser_mixed_error.argprom.exit201
+  br label %parser_mixed_error.exit201
 
-parser_mixed_error.argprom.exit201:               ; preds = %438, %454
+parser_mixed_error.exit201:                       ; preds = %438, %454
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %.backedge
 
@@ -46908,7 +46908,7 @@ pushback.exit:                                    ; preds = %.backedge, %117, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @parser_str_new.argprom(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone %4) unnamed_addr #0 {
+define internal fastcc i64 @parser_str_new(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone %4) unnamed_addr #0 {
   %6 = tail call i64 @rb_enc_str_new(ptr noundef %0, i64 noundef %1, ptr noundef %2) #33
   %7 = and i32 %3, 4
   %.not = icmp eq i32 %7, 0
@@ -47067,7 +47067,7 @@ parser_dispatch_delayed_token.exit:               ; preds = %50, %71
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tokadd_utf8.argelim(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, 5) %3) unnamed_addr #0 {
+define internal fastcc void @tokadd_utf8(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, 5) %3) unnamed_addr #0 {
   %5 = alloca %struct.rb_code_location_struct, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %tokadd.exit109, label %6
@@ -47496,7 +47496,7 @@ parser_yyerror0.exit:                             ; preds = %.loopexit, %187
   %197 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %196, ptr %197, align 8
   store ptr %192, ptr %34, align 8
-  tail call fastcc void @parser_yyerror0.retelim(ptr noundef %0, ptr noundef @tokadd_utf8.multiple_codepoints)
+  tail call fastcc void @parser_yyerror0(ptr noundef %0, ptr noundef @tokadd_utf8.multiple_codepoints)
   %198 = load ptr, ptr %34, align 8
   store ptr %198, ptr %197, align 8
   br label %._crit_edge.thread
@@ -47740,7 +47740,7 @@ tailrecurse.backedge:                             ; preds = %45, %48
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %82
-  tail call fastcc void @tokskip_mbchar.argelim(ptr noundef %0)
+  tail call fastcc void @tokskip_mbchar(ptr noundef %0)
   br label %.loopexit103
 
 85:                                               ; preds = %82
@@ -47913,7 +47913,7 @@ define internal fastcc void @parser_mixed_escape(ptr nocapture noundef %0, ptr n
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.919, ptr noundef %.val, ptr noundef %.val8)
   %26 = load i32, ptr %10, align 4
   %27 = icmp eq i32 %11, %26
-  br i1 %27, label %28, label %parser_mixed_error.argprom.exit
+  br i1 %27, label %28, label %parser_mixed_error.exit
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds i8, ptr %0, i64 64
@@ -47921,9 +47921,9 @@ define internal fastcc void @parser_mixed_escape(ptr nocapture noundef %0, ptr n
   %31 = getelementptr inbounds i8, ptr %0, i64 376
   %32 = load i64, ptr %31, align 8
   call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %32, ptr noundef nonnull %5, i32 noundef %11, ptr noundef %30)
-  br label %parser_mixed_error.argprom.exit
+  br label %parser_mixed_error.exit
 
-parser_mixed_error.argprom.exit:                  ; preds = %4, %28
+parser_mixed_error.exit:                          ; preds = %4, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   store ptr %7, ptr %6, align 8
   ret void
@@ -48493,7 +48493,7 @@ define internal fastcc range(i32 0, 119) i32 @escaped_control_code(i32 noundef r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tokskip_mbchar.argelim(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @tokskip_mbchar(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -1
@@ -49698,7 +49698,7 @@ pushback.exit:                                    ; preds = %.critedge.backedge,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tokenize_ident.argelim(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @tokenize_ident(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
@@ -49722,7 +49722,7 @@ declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnam
 declare ptr @rb_ast_resize_latest_local_table(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_parser_string_free.argprom(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @rb_parser_string_free(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -50227,8 +50227,8 @@ define internal fastcc noundef ptr @rb_node_vcall_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @str_to_sym_node.argprom(ptr nocapture noundef %0, ptr %.32.val, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call fastcc i32 @rb_parser_enc_str_coderange.argprom(ptr noundef %.32.val)
+define internal fastcc noundef ptr @str_to_sym_node(ptr nocapture noundef %0, ptr %.32.val, ptr noundef %1) unnamed_addr #0 {
+  %3 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef %.32.val)
   %4 = icmp eq i32 %3, 3
   br i1 %4, label %5, label %18
 
@@ -50265,7 +50265,7 @@ parser_yyerror.exit:                              ; preds = %5, %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @reg_compile.argelim(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @reg_compile(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call i64 @rb_errinfo() #33
   %5 = tail call i32 @rb_reg_fragment_setenc(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %.not.i.i = icmp eq i32 %5, 0
@@ -50320,7 +50320,7 @@ declare i64 @rb_str_cat_cstr(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @rb_io_puts(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @dvar_curr.argprom(ptr nocapture readonly %.184.val, i64 noundef %0) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @dvar_curr(ptr nocapture readonly %.184.val, i64 noundef %0) unnamed_addr #5 {
   %2 = load ptr, ptr %.184.val, align 8
   %switch.i = icmp ult ptr %2, inttoptr (i64 2 to ptr)
   br i1 %switch.i, label %vtable_included.exit.thread, label %.preheader.i
@@ -50715,16 +50715,16 @@ define internal fastcc range(i32 0, 2) i32 @shadowing_lvar_0(ptr nocapture nound
   %6 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %6, align 8
   %switch.i = icmp ult ptr %.val.val, inttoptr (i64 2 to ptr)
-  br i1 %switch.i, label %dyna_in_block.argprom.argprom.exit.thread, label %dyna_in_block.argprom.argprom.exit
+  br i1 %switch.i, label %dyna_in_block.exit.thread, label %dyna_in_block.exit
 
-dyna_in_block.argprom.argprom.exit:               ; preds = %2
+dyna_in_block.exit:                               ; preds = %2
   %7 = getelementptr inbounds i8, ptr %.val.val, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not101 = icmp eq ptr %8, null
   %9 = load ptr, ptr %.val, align 8
   br i1 %.not101, label %.lr.ph.i.i41.preheader, label %10
 
-10:                                               ; preds = %dyna_in_block.argprom.argprom.exit
+10:                                               ; preds = %dyna_in_block.exit
   %switch.i.i = icmp ult ptr %9, inttoptr (i64 2 to ptr)
   br i1 %switch.i.i, label %.preheader.i4.i, label %.preheader.i.i
 
@@ -50744,7 +50744,7 @@ dyna_in_block.argprom.argprom.exit:               ; preds = %2
   %17 = getelementptr i64, ptr %14, i64 %indvars.iv.i
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %1
-  br i1 %19, label %dvar_curr.argprom.exit, label %20
+  br i1 %19, label %dvar_curr.exit, label %20
 
 20:                                               ; preds = %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -50770,28 +50770,28 @@ dyna_in_block.argprom.argprom.exit:               ; preds = %2
   %27 = getelementptr i64, ptr %24, i64 %indvars.iv6.i
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, %1
-  br i1 %29, label %dvar_curr.argprom.exit, label %30
+  br i1 %29, label %dvar_curr.exit, label %30
 
 30:                                               ; preds = %26
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %exitcond.not.i8.i = icmp eq i64 %indvars.iv.next7.i, %25
   br i1 %exitcond.not.i8.i, label %.split.us.i.i.preheader, label %26, !llvm.loop !23
 
-dvar_curr.argprom.exit:                           ; preds = %16, %26
+dvar_curr.exit:                                   ; preds = %16, %26
   %31 = icmp eq i64 %1, 3649
   br i1 %31, label %vtable_add_gen.exit39, label %32
 
-32:                                               ; preds = %dvar_curr.argprom.exit
+32:                                               ; preds = %dvar_curr.exit
   %33 = icmp ugt i64 %1, 169
   %34 = and i64 %1, 14
   %35 = icmp eq i64 %34, 0
   %36 = and i1 %33, %35
-  br i1 %36, label %37, label %is_private_local_id.argprom.exit.thread
+  br i1 %36, label %37, label %is_private_local_id.exit.thread
 
 37:                                               ; preds = %32
   %38 = tail call i64 @rb_id2str(i64 noundef %1) #33
   %.not.i = icmp eq i64 %38, 0
-  br i1 %.not.i, label %is_private_local_id.argprom.exit.thread, label %39
+  br i1 %.not.i, label %is_private_local_id.exit.thread, label %39
 
 39:                                               ; preds = %37
   %40 = inttoptr i64 %38 to ptr
@@ -50799,19 +50799,19 @@ dvar_curr.argprom.exit:                           ; preds = %16, %26
   %42 = and i64 %41, 8192
   %.not.i.i.i = icmp eq i64 %42, 0
   %43 = getelementptr inbounds i8, ptr %40, i64 24
-  br i1 %.not.i.i.i, label %is_private_local_id.argprom.exit, label %44
+  br i1 %.not.i.i.i, label %is_private_local_id.exit, label %44
 
 44:                                               ; preds = %39
   %.sroa.2.0.copyload.i.i = load ptr, ptr %43, align 8
-  br label %is_private_local_id.argprom.exit
+  br label %is_private_local_id.exit
 
-is_private_local_id.argprom.exit:                 ; preds = %39, %44
+is_private_local_id.exit:                         ; preds = %39, %44
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %44 ], [ %43, %39 ]
   %45 = load i8, ptr %.sroa.2.0.i.i, align 1
   %.not = icmp eq i8 %45, 95
-  br i1 %.not, label %vtable_add_gen.exit39, label %is_private_local_id.argprom.exit.thread
+  br i1 %.not, label %vtable_add_gen.exit39, label %is_private_local_id.exit.thread
 
-is_private_local_id.argprom.exit.thread:          ; preds = %37, %32, %is_private_local_id.argprom.exit
+is_private_local_id.exit.thread:                  ; preds = %37, %32, %is_private_local_id.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %46 = getelementptr inbounds i8, ptr %0, i64 212
   %47 = load i32, ptr %46, align 4
@@ -50840,7 +50840,7 @@ is_private_local_id.argprom.exit.thread:          ; preds = %37, %32, %is_privat
   %65 = icmp eq i32 %47, %64
   br i1 %65, label %66, label %parser_yyerror0.exit
 
-66:                                               ; preds = %is_private_local_id.argprom.exit.thread
+66:                                               ; preds = %is_private_local_id.exit.thread
   %67 = getelementptr inbounds i8, ptr %0, i64 64
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 376
@@ -50848,7 +50848,7 @@ is_private_local_id.argprom.exit.thread:          ; preds = %37, %32, %is_privat
   call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %70, ptr noundef nonnull %4, i32 noundef %47, ptr noundef %68)
   br label %parser_yyerror0.exit
 
-parser_yyerror0.exit:                             ; preds = %is_private_local_id.argprom.exit.thread, %66
+parser_yyerror0.exit:                             ; preds = %is_private_local_id.exit.thread, %66
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %vtable_add_gen.exit39
 
@@ -51147,13 +51147,13 @@ vtable_add_gen.exit:                              ; preds = %144, %155
   store i64 %168, ptr %190, align 8
   br label %vtable_add_gen.exit39
 
-dyna_in_block.argprom.argprom.exit.thread:        ; preds = %2
+dyna_in_block.exit.thread:                        ; preds = %2
   %191 = load ptr, ptr %.val, align 8
   %.not56.i.i40 = icmp eq ptr %.val.val, null
   br i1 %.not56.i.i40, label %.critedge37.i.i45, label %.lr.ph.i.i41.preheader
 
-.lr.ph.i.i41.preheader:                           ; preds = %dyna_in_block.argprom.argprom.exit, %dyna_in_block.argprom.argprom.exit.thread
-  %.03058.i.i42.ph = phi ptr [ %9, %dyna_in_block.argprom.argprom.exit ], [ %191, %dyna_in_block.argprom.argprom.exit.thread ]
+.lr.ph.i.i41.preheader:                           ; preds = %dyna_in_block.exit, %dyna_in_block.exit.thread
+  %.03058.i.i42.ph = phi ptr [ %9, %dyna_in_block.exit ], [ %191, %dyna_in_block.exit.thread ]
   br label %.lr.ph.i.i41
 
 .lr.ph.i.i41:                                     ; preds = %.lr.ph.i.i41.preheader, %194
@@ -51172,9 +51172,9 @@ dyna_in_block.argprom.argprom.exit.thread:        ; preds = %2
   %196 = load ptr, ptr %195, align 8
   br label %.lr.ph.i.i41
 
-.critedge37.i.i45:                                ; preds = %.lr.ph.i.i41, %dyna_in_block.argprom.argprom.exit.thread
-  %.031.lcssa.i.i46 = phi ptr [ null, %dyna_in_block.argprom.argprom.exit.thread ], [ %.03157.i.i43, %.lr.ph.i.i41 ]
-  %.030.lcssa.i.i47 = phi ptr [ %191, %dyna_in_block.argprom.argprom.exit.thread ], [ %.03058.i.i42, %.lr.ph.i.i41 ]
+.critedge37.i.i45:                                ; preds = %.lr.ph.i.i41, %dyna_in_block.exit.thread
+  %.031.lcssa.i.i46 = phi ptr [ null, %dyna_in_block.exit.thread ], [ %.03157.i.i43, %.lr.ph.i.i41 ]
+  %.030.lcssa.i.i47 = phi ptr [ %191, %dyna_in_block.exit.thread ], [ %.03058.i.i42, %.lr.ph.i.i41 ]
   %switch.i.i.i48 = icmp ult ptr %.030.lcssa.i.i47, inttoptr (i64 2 to ptr)
   br i1 %switch.i.i.i48, label %vtable_included.exit.thread.i.i50, label %.preheader.i.i.i49
 
@@ -51246,12 +51246,12 @@ local_id.exit62.thread93:                         ; preds = %202, %212
   %223 = and i64 %1, 14
   %224 = icmp eq i64 %223, 0
   %225 = and i1 %222, %224
-  br i1 %225, label %226, label %is_private_local_id.argprom.exit69.thread
+  br i1 %225, label %226, label %is_private_local_id.exit69.thread
 
 226:                                              ; preds = %221
   %227 = tail call i64 @rb_id2str(i64 noundef %1) #33
   %.not.i64 = icmp eq i64 %227, 0
-  br i1 %.not.i64, label %is_private_local_id.argprom.exit69.thread, label %228
+  br i1 %.not.i64, label %is_private_local_id.exit69.thread, label %228
 
 228:                                              ; preds = %226
   %229 = inttoptr i64 %227 to ptr
@@ -51259,19 +51259,19 @@ local_id.exit62.thread93:                         ; preds = %202, %212
   %231 = and i64 %230, 8192
   %.not.i.i.i65 = icmp eq i64 %231, 0
   %232 = getelementptr inbounds i8, ptr %229, i64 24
-  br i1 %.not.i.i.i65, label %is_private_local_id.argprom.exit69, label %233
+  br i1 %.not.i.i.i65, label %is_private_local_id.exit69, label %233
 
 233:                                              ; preds = %228
   %.sroa.2.0.copyload.i.i66 = load ptr, ptr %232, align 8
-  br label %is_private_local_id.argprom.exit69
+  br label %is_private_local_id.exit69
 
-is_private_local_id.argprom.exit69:               ; preds = %228, %233
+is_private_local_id.exit69:                       ; preds = %228, %233
   %.sroa.2.0.i.i68 = phi ptr [ %.sroa.2.0.copyload.i.i66, %233 ], [ %232, %228 ]
   %234 = load i8, ptr %.sroa.2.0.i.i68, align 1
   %.not102 = icmp eq i8 %234, 95
-  br i1 %.not102, label %vtable_add_gen.exit39, label %is_private_local_id.argprom.exit69.thread
+  br i1 %.not102, label %vtable_add_gen.exit39, label %is_private_local_id.exit69.thread
 
-is_private_local_id.argprom.exit69.thread:        ; preds = %226, %221, %is_private_local_id.argprom.exit69
+is_private_local_id.exit69.thread:                ; preds = %226, %221, %is_private_local_id.exit69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %235 = getelementptr inbounds i8, ptr %0, i64 212
   %236 = load i32, ptr %235, align 4
@@ -51300,7 +51300,7 @@ is_private_local_id.argprom.exit69.thread:        ; preds = %226, %221, %is_priv
   %254 = icmp eq i32 %236, %253
   br i1 %254, label %255, label %parser_yyerror0.exit70
 
-255:                                              ; preds = %is_private_local_id.argprom.exit69.thread
+255:                                              ; preds = %is_private_local_id.exit69.thread
   %256 = getelementptr inbounds i8, ptr %0, i64 64
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds i8, ptr %0, i64 376
@@ -51308,12 +51308,12 @@ is_private_local_id.argprom.exit69.thread:        ; preds = %226, %221, %is_priv
   call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %259, ptr noundef nonnull %3, i32 noundef %236, ptr noundef %257)
   br label %parser_yyerror0.exit70
 
-parser_yyerror0.exit70:                           ; preds = %is_private_local_id.argprom.exit69.thread, %255
+parser_yyerror0.exit70:                           ; preds = %is_private_local_id.exit69.thread, %255
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %vtable_add_gen.exit39
 
-vtable_add_gen.exit39:                            ; preds = %131, %216, %local_id.exit62.thread93, %.preheader.i39.i.i52, %vtable_included.exit.thread.i.i50, %.preheader.i39.i.i, %vtable_included.exit.thread.i.i, %dvar_curr.argprom.exit, %185, %174, %local_id.exit, %parser_yyerror0.exit, %parser_yyerror0.exit70, %local_id.exit62, %is_private_local_id.argprom.exit69, %vtable_add_gen.exit, %is_private_local_id.argprom.exit
-  %.0 = phi i32 [ 1, %is_private_local_id.argprom.exit ], [ 0, %vtable_add_gen.exit ], [ 1, %is_private_local_id.argprom.exit69 ], [ 1, %local_id.exit62 ], [ 1, %parser_yyerror0.exit70 ], [ 1, %parser_yyerror0.exit ], [ 1, %local_id.exit ], [ 0, %174 ], [ 0, %185 ], [ 1, %dvar_curr.argprom.exit ], [ 1, %vtable_included.exit.thread.i.i ], [ 1, %.preheader.i39.i.i ], [ 1, %vtable_included.exit.thread.i.i50 ], [ 1, %.preheader.i39.i.i52 ], [ 1, %local_id.exit62.thread93 ], [ 1, %216 ], [ 1, %131 ]
+vtable_add_gen.exit39:                            ; preds = %131, %216, %local_id.exit62.thread93, %.preheader.i39.i.i52, %vtable_included.exit.thread.i.i50, %.preheader.i39.i.i, %vtable_included.exit.thread.i.i, %dvar_curr.exit, %185, %174, %local_id.exit, %parser_yyerror0.exit, %parser_yyerror0.exit70, %local_id.exit62, %is_private_local_id.exit69, %vtable_add_gen.exit, %is_private_local_id.exit
+  %.0 = phi i32 [ 1, %is_private_local_id.exit ], [ 0, %vtable_add_gen.exit ], [ 1, %is_private_local_id.exit69 ], [ 1, %local_id.exit62 ], [ 1, %parser_yyerror0.exit70 ], [ 1, %parser_yyerror0.exit ], [ 1, %local_id.exit ], [ 0, %174 ], [ 0, %185 ], [ 1, %dvar_curr.exit ], [ 1, %vtable_included.exit.thread.i.i ], [ 1, %.preheader.i39.i.i ], [ 1, %vtable_included.exit.thread.i.i50 ], [ 1, %.preheader.i39.i.i52 ], [ 1, %local_id.exit62.thread93 ], [ 1, %216 ], [ 1, %131 ]
   ret i32 %.0
 }
 
@@ -51533,18 +51533,18 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %9 = lshr i32 %8, 8
   %10 = and i32 %9, 127
   switch i32 %10, label %175 [
-    i32 97, label %rb_obj_write.argprom.exit
-    i32 98, label %rb_obj_write.argprom.exit
-    i32 96, label %rb_obj_write.argprom.exit
-    i32 59, label %rb_obj_write.argprom.exit
-    i32 102, label %rb_obj_write.argprom.exit
-    i32 69, label %rb_obj_write.argprom.exit
-    i32 110, label %rb_obj_write.argprom.exit
-    i32 60, label %rb_obj_write.argprom.exit
-    i32 61, label %rb_obj_write.argprom.exit
-    i32 62, label %rb_obj_write.argprom.exit
-    i32 63, label %rb_obj_write.argprom.exit
-    i32 112, label %rb_obj_write.argprom.exit
+    i32 97, label %rb_obj_write.exit
+    i32 98, label %rb_obj_write.exit
+    i32 96, label %rb_obj_write.exit
+    i32 59, label %rb_obj_write.exit
+    i32 102, label %rb_obj_write.exit
+    i32 69, label %rb_obj_write.exit
+    i32 110, label %rb_obj_write.exit
+    i32 60, label %rb_obj_write.exit
+    i32 61, label %rb_obj_write.exit
+    i32 62, label %rb_obj_write.exit
+    i32 63, label %rb_obj_write.exit
+    i32 112, label %rb_obj_write.exit
     i32 65, label %11
     i32 64, label %30
     i32 111, label %54
@@ -51555,7 +51555,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
 
 11:                                               ; preds = %6
   %12 = icmp eq i32 %1, 1
-  br i1 %12, label %13, label %rb_obj_write.argprom.exit
+  br i1 %12, label %13, label %rb_obj_write.exit
 
 13:                                               ; preds = %11
   %14 = getelementptr i8, ptr %0, i64 312
@@ -51583,7 +51583,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   store i64 133, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %15, i64 48
   store ptr null, ptr %29, align 8
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
 30:                                               ; preds = %6
   %31 = tail call i64 @rb_node_str_string_val(ptr noundef nonnull %3) #33
@@ -51613,13 +51613,13 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %48 = icmp ne i64 %47, 0
   %49 = icmp eq i64 %32, 0
   %50 = or i1 %49, %48
-  br i1 %50, label %rb_obj_write.argprom.exit, label %51
+  br i1 %50, label %rb_obj_write.exit, label %51
 
 51:                                               ; preds = %30
   %52 = load ptr, ptr %33, align 8
   %53 = ptrtoint ptr %52 to i64
   tail call void @rb_gc_writebarrier(i64 noundef %53, i64 noundef %32) #33
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
 54:                                               ; preds = %6
   %55 = tail call i64 @rb_node_file_path_val(ptr noundef nonnull %3) #33
@@ -51649,13 +51649,13 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %72 = icmp ne i64 %71, 0
   %73 = icmp eq i64 %56, 0
   %74 = or i1 %73, %72
-  br i1 %74, label %rb_obj_write.argprom.exit, label %75
+  br i1 %74, label %rb_obj_write.exit, label %75
 
 75:                                               ; preds = %54
   %76 = load ptr, ptr %57, align 8
   %77 = ptrtoint ptr %76 to i64
   tail call void @rb_gc_writebarrier(i64 noundef %77, i64 noundef %56) #33
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
 78:                                               ; preds = %6
   %79 = tail call i64 @rb_ary_new() #33
@@ -51688,13 +51688,13 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %98 = icmp ne i64 %97, 0
   %99 = icmp eq i64 %79, 0
   %100 = or i1 %99, %98
-  br i1 %100, label %rb_obj_write.argprom.exit, label %101
+  br i1 %100, label %rb_obj_write.exit, label %101
 
 101:                                              ; preds = %78
   %102 = load ptr, ptr %83, align 8
   %103 = ptrtoint ptr %102 to i64
   tail call void @rb_gc_writebarrier(i64 noundef %103, i64 noundef %79) #33
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
 104:                                              ; preds = %6
   %105 = tail call i64 @rb_ary_new() #33
@@ -51735,7 +51735,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   br i1 %.not161, label %126, label %119
 
 119:                                              ; preds = %117
-  %120 = tail call fastcc i64 @shareable_literal_value.argprom(ptr noundef %.0117)
+  %120 = tail call fastcc i64 @shareable_literal_value(ptr noundef %.0117)
   %121 = icmp eq i64 %120, 36
   br i1 %121, label %124, label %122
 
@@ -51758,7 +51758,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %130 = getelementptr inbounds i8, ptr %3, i64 40
   %131 = load i64, ptr %130, align 8
   %.not = icmp eq i64 %131, 0
-  br i1 %.not, label %rb_obj_write.argprom.exit, label %132
+  br i1 %.not, label %rb_obj_write.exit, label %132
 
 132:                                              ; preds = %129
   %133 = tail call i64 @rb_hash_new() #33
@@ -51836,8 +51836,8 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   br i1 %.not159, label %172, label %163
 
 163:                                              ; preds = %161
-  %164 = tail call fastcc i64 @shareable_literal_value.argprom(ptr noundef %.0113)
-  %165 = tail call fastcc i64 @shareable_literal_value.argprom(ptr noundef %.0112)
+  %164 = tail call fastcc i64 @shareable_literal_value(ptr noundef %.0113)
+  %165 = tail call fastcc i64 @shareable_literal_value(ptr noundef %.0112)
   %166 = icmp eq i64 %164, 36
   %167 = icmp eq i64 %165, 36
   %or.cond = select i1 %166, i1 true, i1 %167
@@ -51861,7 +51861,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
 
 175:                                              ; preds = %6
   %176 = icmp eq i32 %1, 1
-  br i1 %176, label %177, label %rb_obj_write.argprom.exit
+  br i1 %176, label %177, label %rb_obj_write.exit
 
 177:                                              ; preds = %175
   %178 = load i64, ptr @rb_mRubyVMFrozenCore, align 8
@@ -52035,18 +52035,18 @@ ensure_shareable_node.exit:                       ; preds = %.lr.ph.i.i, %list_a
   store i64 %.lcssa.i.i, ptr %272, align 8
   %273 = getelementptr inbounds i8, ptr %260, i64 48
   store ptr %193, ptr %273, align 8
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
 .loopexit:                                        ; preds = %172, %126, %132
   %.3 = phi i64 [ %133, %132 ], [ %.2, %126 ], [ %.7, %172 ]
   switch i64 %.3, label %276 [
-    i64 0, label %rb_obj_write.argprom.exit
+    i64 0, label %rb_obj_write.exit
     i64 4, label %274
   ]
 
 274:                                              ; preds = %.loopexit
   %275 = tail call fastcc ptr @make_shareable_node(ptr noundef %0, ptr noundef %3, i1 noundef zeroext false, ptr noundef %4)
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
 276:                                              ; preds = %.loopexit
   %277 = tail call i64 @rb_ractor_make_shareable(i64 noundef %.3) #33
@@ -52075,15 +52075,15 @@ ensure_shareable_node.exit:                       ; preds = %.lr.ph.i.i, %list_a
   %293 = icmp ne i64 %292, 0
   %294 = icmp eq i64 %277, 0
   %295 = or i1 %294, %293
-  br i1 %295, label %rb_obj_write.argprom.exit, label %296
+  br i1 %295, label %rb_obj_write.exit, label %296
 
 296:                                              ; preds = %276
   %297 = load ptr, ptr %278, align 8
   %298 = ptrtoint ptr %297 to i64
   tail call void @rb_gc_writebarrier(i64 noundef %298, i64 noundef %277) #33
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %.loopexit, %296, %276, %101, %78, %75, %54, %51, %30, %274, %175, %129, %11, %13, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %ensure_shareable_node.exit
+rb_obj_write.exit:                                ; preds = %.loopexit, %296, %276, %101, %78, %75, %54, %51, %30, %274, %175, %129, %11, %13, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %ensure_shareable_node.exit
   %.0 = phi ptr [ %260, %ensure_shareable_node.exit ], [ %3, %6 ], [ %3, %6 ], [ %3, %6 ], [ %3, %6 ], [ %3, %6 ], [ %3, %6 ], [ %3, %6 ], [ %3, %6 ], [ %3, %6 ], [ %3, %6 ], [ %3, %6 ], [ %3, %6 ], [ %15, %13 ], [ %3, %11 ], [ null, %129 ], [ null, %175 ], [ null, %.loopexit ], [ %275, %274 ], [ %34, %30 ], [ %34, %51 ], [ %58, %54 ], [ %58, %75 ], [ %84, %78 ], [ %84, %101 ], [ %279, %276 ], [ %279, %296 ]
   ret ptr %.0
 }
@@ -52194,7 +52194,7 @@ declare i64 @rb_node_file_path_val(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_ary_clear(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @shareable_literal_value.argprom(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @shareable_literal_value(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %2
 
@@ -52589,37 +52589,37 @@ common.ret128:                                    ; preds = %80, %50, %29, %30, 
   %.val103 = load ptr, ptr %41, align 8
   %42 = load i8, ptr %.val103, align 1
   %.not.i107 = icmp eq i8 %42, 45
-  br i1 %.not.i107, label %sub_1.i, label %e_option_supplied.argprom.exit.thread
+  br i1 %.not.i107, label %sub_1.i, label %e_option_supplied.exit.thread
 
 sub_1.i:                                          ; preds = %40
   %43 = getelementptr inbounds i8, ptr %.val103, i64 1
   %44 = load i8, ptr %43, align 1
   %.not1.i = icmp eq i8 %44, 101
-  br i1 %.not1.i, label %e_option_supplied.argprom.exit, label %e_option_supplied.argprom.exit.thread
+  br i1 %.not1.i, label %e_option_supplied.exit, label %e_option_supplied.exit.thread
 
-e_option_supplied.argprom.exit:                   ; preds = %sub_1.i
+e_option_supplied.exit:                           ; preds = %sub_1.i
   %45 = getelementptr inbounds i8, ptr %.val103, i64 2
   %46 = load i8, ptr %45, align 1
   %.not119 = icmp eq i8 %46, 0
-  br i1 %.not119, label %50, label %e_option_supplied.argprom.exit.thread
+  br i1 %.not119, label %50, label %e_option_supplied.exit.thread
 
-e_option_supplied.argprom.exit.thread:            ; preds = %sub_1.i, %40, %e_option_supplied.argprom.exit
+e_option_supplied.exit.thread:                    ; preds = %sub_1.i, %40, %e_option_supplied.exit
   switch i32 %2, label %50 [
     i32 2, label %47
     i32 1, label %.sink.split
   ]
 
-47:                                               ; preds = %e_option_supplied.argprom.exit.thread
+47:                                               ; preds = %e_option_supplied.exit.thread
   br label %.sink.split
 
-.sink.split:                                      ; preds = %e_option_supplied.argprom.exit.thread, %47
-  %.str.1032.sink = phi ptr [ @.str.1032, %47 ], [ @.str.1031, %e_option_supplied.argprom.exit.thread ]
+.sink.split:                                      ; preds = %e_option_supplied.exit.thread, %47
+  %.str.1032.sink = phi ptr [ @.str.1032, %47 ], [ @.str.1031, %e_option_supplied.exit.thread ]
   %48 = getelementptr inbounds i8, ptr %0, i64 212
   %49 = load i32, ptr %48, align 4
   tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef nonnull %.val103, i32 noundef %49, ptr noundef nonnull %.str.1032.sink) #33
   br label %50
 
-50:                                               ; preds = %.sink.split, %e_option_supplied.argprom.exit.thread, %e_option_supplied.argprom.exit
+50:                                               ; preds = %.sink.split, %e_option_supplied.exit.thread, %e_option_supplied.exit
   %51 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 56) #33
   br label %common.ret128
 
@@ -52628,37 +52628,37 @@ e_option_supplied.argprom.exit.thread:            ; preds = %sub_1.i, %40, %e_op
   %.val = load ptr, ptr %53, align 8
   %54 = load i8, ptr %.val, align 1
   %.not.i108 = icmp eq i8 %54, 45
-  br i1 %.not.i108, label %sub_1.i109, label %e_option_supplied.argprom.exit112.thread
+  br i1 %.not.i108, label %sub_1.i109, label %e_option_supplied.exit112.thread
 
 sub_1.i109:                                       ; preds = %52
   %55 = getelementptr inbounds i8, ptr %.val, i64 1
   %56 = load i8, ptr %55, align 1
   %.not1.i110 = icmp eq i8 %56, 101
-  br i1 %.not1.i110, label %e_option_supplied.argprom.exit112, label %e_option_supplied.argprom.exit112.thread
+  br i1 %.not1.i110, label %e_option_supplied.exit112, label %e_option_supplied.exit112.thread
 
-e_option_supplied.argprom.exit112:                ; preds = %sub_1.i109
+e_option_supplied.exit112:                        ; preds = %sub_1.i109
   %57 = getelementptr inbounds i8, ptr %.val, i64 2
   %58 = load i8, ptr %57, align 1
   %.not118 = icmp eq i8 %58, 0
-  br i1 %.not118, label %62, label %e_option_supplied.argprom.exit112.thread
+  br i1 %.not118, label %62, label %e_option_supplied.exit112.thread
 
-e_option_supplied.argprom.exit112.thread:         ; preds = %sub_1.i109, %52, %e_option_supplied.argprom.exit112
+e_option_supplied.exit112.thread:                 ; preds = %sub_1.i109, %52, %e_option_supplied.exit112
   switch i32 %2, label %62 [
     i32 2, label %59
     i32 1, label %.sink.split125
   ]
 
-59:                                               ; preds = %e_option_supplied.argprom.exit112.thread
+59:                                               ; preds = %e_option_supplied.exit112.thread
   br label %.sink.split125
 
-.sink.split125:                                   ; preds = %e_option_supplied.argprom.exit112.thread, %59
-  %.str.1032.sink126 = phi ptr [ @.str.1032, %59 ], [ @.str.1031, %e_option_supplied.argprom.exit112.thread ]
+.sink.split125:                                   ; preds = %e_option_supplied.exit112.thread, %59
+  %.str.1032.sink126 = phi ptr [ @.str.1032, %59 ], [ @.str.1031, %e_option_supplied.exit112.thread ]
   %60 = getelementptr inbounds i8, ptr %0, i64 212
   %61 = load i32, ptr %60, align 4
   tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef nonnull %.val, i32 noundef %61, ptr noundef nonnull %.str.1032.sink126) #33
   br label %62
 
-62:                                               ; preds = %.sink.split125, %e_option_supplied.argprom.exit112.thread, %e_option_supplied.argprom.exit112
+62:                                               ; preds = %.sink.split125, %e_option_supplied.exit112.thread, %e_option_supplied.exit112
   %63 = tail call fastcc ptr @rb_node_gvar_new(ptr noundef nonnull %0, i64 noundef 3831, ptr noundef %3)
   %64 = tail call fastcc ptr @rb_node_match2_new(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef %63, ptr noundef %3)
   br label %common.ret128
@@ -52888,28 +52888,28 @@ value_expr_gen.exit:                              ; preds = %5, %8, %14
   %.val = load ptr, ptr %22, align 8
   %23 = load i8, ptr %.val, align 1
   %.not.i21 = icmp eq i8 %23, 45
-  br i1 %.not.i21, label %sub_1.i, label %e_option_supplied.argprom.exit.thread
+  br i1 %.not.i21, label %sub_1.i, label %e_option_supplied.exit.thread
 
 sub_1.i:                                          ; preds = %21
   %24 = getelementptr inbounds i8, ptr %.val, i64 1
   %25 = load i8, ptr %24, align 1
   %.not1.i = icmp eq i8 %25, 101
-  br i1 %.not1.i, label %e_option_supplied.argprom.exit, label %e_option_supplied.argprom.exit.thread
+  br i1 %.not1.i, label %e_option_supplied.exit, label %e_option_supplied.exit.thread
 
-e_option_supplied.argprom.exit:                   ; preds = %sub_1.i
+e_option_supplied.exit:                           ; preds = %sub_1.i
   %26 = getelementptr inbounds i8, ptr %.val, i64 2
   %27 = load i8, ptr %26, align 1
   %.not = icmp eq i8 %27, 0
-  br i1 %.not, label %31, label %e_option_supplied.argprom.exit.thread
+  br i1 %.not, label %31, label %e_option_supplied.exit.thread
 
-e_option_supplied.argprom.exit.thread:            ; preds = %sub_1.i, %21, %e_option_supplied.argprom.exit
+e_option_supplied.exit.thread:                    ; preds = %sub_1.i, %21, %e_option_supplied.exit
   %28 = load i64, ptr %1, align 8
   %29 = lshr i64 %28, 15
   %30 = trunc i64 %29 to i32
   tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef nonnull %.val, i32 noundef %30, ptr noundef nonnull @.str.1038) #33
   br label %31
 
-31:                                               ; preds = %e_option_supplied.argprom.exit.thread, %e_option_supplied.argprom.exit
+31:                                               ; preds = %e_option_supplied.exit.thread, %e_option_supplied.exit
   %.pr.i = load i64, ptr @range_op.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
@@ -53304,12 +53304,12 @@ define internal fastcc void @warn_unused_var(ptr nocapture noundef %0, ptr nocap
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %20
 
-20:                                               ; preds = %.lr.ph, %is_private_local_id.argprom.exit.thread29
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %is_private_local_id.argprom.exit.thread29 ]
+20:                                               ; preds = %.lr.ph, %is_private_local_id.exit.thread29
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %is_private_local_id.exit.thread29 ]
   %21 = getelementptr i64, ptr %16, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
   %.not24 = icmp eq i64 %22, 0
-  br i1 %.not24, label %is_private_local_id.argprom.exit.thread29, label %23
+  br i1 %.not24, label %is_private_local_id.exit.thread29, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr i64, ptr %17, i64 %indvars.iv
@@ -53317,19 +53317,19 @@ define internal fastcc void @warn_unused_var(ptr nocapture noundef %0, ptr nocap
   %.not25 = icmp slt i64 %25, 0
   %26 = icmp eq i64 %22, 3649
   %or.cond = or i1 %26, %.not25
-  br i1 %or.cond, label %is_private_local_id.argprom.exit.thread29, label %27
+  br i1 %or.cond, label %is_private_local_id.exit.thread29, label %27
 
 27:                                               ; preds = %23
   %28 = icmp ugt i64 %22, 169
   %29 = and i64 %22, 14
   %30 = icmp eq i64 %29, 0
   %31 = and i1 %28, %30
-  br i1 %31, label %32, label %is_private_local_id.argprom.exit.thread
+  br i1 %31, label %32, label %is_private_local_id.exit.thread
 
 32:                                               ; preds = %27
   %33 = tail call i64 @rb_id2str(i64 noundef %22) #33
   %.not.i = icmp eq i64 %33, 0
-  br i1 %.not.i, label %is_private_local_id.argprom.exit.thread, label %34
+  br i1 %.not.i, label %is_private_local_id.exit.thread, label %34
 
 34:                                               ; preds = %32
   %35 = inttoptr i64 %33 to ptr
@@ -53337,33 +53337,33 @@ define internal fastcc void @warn_unused_var(ptr nocapture noundef %0, ptr nocap
   %37 = and i64 %36, 8192
   %.not.i.i.i = icmp eq i64 %37, 0
   %38 = getelementptr inbounds i8, ptr %35, i64 24
-  br i1 %.not.i.i.i, label %is_private_local_id.argprom.exit, label %39
+  br i1 %.not.i.i.i, label %is_private_local_id.exit, label %39
 
 39:                                               ; preds = %34
   %.sroa.2.0.copyload.i.i = load ptr, ptr %38, align 8
-  br label %is_private_local_id.argprom.exit
+  br label %is_private_local_id.exit
 
-is_private_local_id.argprom.exit:                 ; preds = %34, %39
+is_private_local_id.exit:                         ; preds = %34, %39
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %39 ], [ %38, %34 ]
   %40 = load i8, ptr %.sroa.2.0.i.i, align 1
   %.not32 = icmp eq i8 %40, 95
-  br i1 %.not32, label %is_private_local_id.argprom.exit.thread29, label %is_private_local_id.argprom.exit.thread
+  br i1 %.not32, label %is_private_local_id.exit.thread29, label %is_private_local_id.exit.thread
 
-is_private_local_id.argprom.exit.thread:          ; preds = %32, %27, %is_private_local_id.argprom.exit
+is_private_local_id.exit.thread:                  ; preds = %32, %27, %is_private_local_id.exit
   %41 = load ptr, ptr %19, align 8
   %42 = load i64, ptr %24, align 8
   %43 = trunc i64 %42 to i32
   %44 = load i64, ptr %21, align 8
   %45 = tail call i64 @rb_id2str(i64 noundef %44) #33
   tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %41, i32 noundef %43, ptr noundef nonnull @.str.1050, i64 noundef %45) #33
-  br label %is_private_local_id.argprom.exit.thread29
+  br label %is_private_local_id.exit.thread29
 
-is_private_local_id.argprom.exit.thread29:        ; preds = %is_private_local_id.argprom.exit, %20, %23, %is_private_local_id.argprom.exit.thread
+is_private_local_id.exit.thread29:                ; preds = %is_private_local_id.exit, %20, %23, %is_private_local_id.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !185
 
-.loopexit:                                        ; preds = %is_private_local_id.argprom.exit.thread29, %13, %2
+.loopexit:                                        ; preds = %is_private_local_id.exit.thread29, %13, %2
   ret void
 }
 

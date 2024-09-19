@@ -21046,7 +21046,7 @@ if.end43:                                         ; preds = %entry
 if.then3.i.i:                                     ; preds = %if.end43
   %mul.i.i.i = mul i64 %length, -7046029288634856825
   %cmp3.i.i.i = icmp ugt i64 %length, 32
-  br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom.exit.i.i
+  br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3.i.i
   %cmp4.i.i.i = icmp ugt i64 %length, 64
@@ -21146,9 +21146,9 @@ if.end23.i.i.i:                                   ; preds = %if.end.i.i.i, %if.t
   %xor1.i.i99.i.i.i = xor i128 %shr.i.i.i98.i.i.i, %mul.i.i.i97.i.i.i
   %xor.i.i100.i.i.i = trunc i128 %xor1.i.i99.i.i.i to i64
   %add32.i.i.i = add i64 %add27.i.i.i, %xor.i.i100.i.i.i
-  br label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom.exit.i.i
+  br label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i
 
-_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom.exit.i.i: ; preds = %if.end23.i.i.i, %if.then3.i.i
+_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i:      ; preds = %if.end23.i.i.i, %if.then3.i.i
   %acc.0.i.i.i = phi i64 [ %add32.i.i.i, %if.end23.i.i.i ], [ %mul.i.i.i, %if.then3.i.i ]
   %input.val.i.i.i = load i64, ptr %data, align 1, !alias.scope !1484
   %14 = getelementptr i8, ptr %data, i64 8
@@ -21239,7 +21239,7 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %shr.i4.i.i33.i.i = lshr i64 %mul.i.i32.i.i, 32
   %xor.i5.i.i34.i.i = xor i64 %shr.i4.i.i33.i.i, %mul.i.i32.i.i
   %cmp203.not.i.i.i = icmp eq i32 %div25.i.i.i, 8
-  br i1 %cmp203.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom.exit.i.i, label %for.body21.preheader.i.i.i
+  br i1 %cmp203.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, label %for.body21.preheader.i.i.i
 
 for.body21.preheader.i.i.i:                       ; preds = %for.end.i.i.i
   %wide.trip.count.i.i.i = zext nneg i32 %div25.i.i.i to i64
@@ -21271,9 +21271,9 @@ for.body21.i.i.i:                                 ; preds = %for.body21.i.i.i, %
   %add30.i.i.i = add i64 %acc_end.04.i.i.i, %xor.i.i48.i.i.i
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
   %exitcond15.not.i.i.i = icmp eq i64 %indvars.iv.next11.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond15.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom.exit.i.i, label %for.body21.i.i.i, !llvm.loop !1493
+  br i1 %exitcond15.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, label %for.body21.i.i.i, !llvm.loop !1493
 
-_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom.exit.i.i: ; preds = %for.body21.i.i.i, %for.end.i.i.i
+_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i:     ; preds = %for.body21.i.i.i, %for.end.i.i.i
   %acc_end.0.lcssa.i.i.i = phi i64 [ %xor.i.i39.i.i.i, %for.end.i.i.i ], [ %add30.i.i.i, %for.body21.i.i.i ]
   %acc.1.lcssa.i.i.i = phi i64 [ %xor.i5.i.i34.i.i, %for.end.i.i.i ], [ %20, %for.body21.i.i.i ]
   %add34.i.i.i = add i64 %acc.1.lcssa.i.i.i, %acc_end.0.lcssa.i.i.i
@@ -21463,17 +21463,17 @@ for.body.i62.i.i.i.i:                             ; preds = %for.body.i62.i.i.i.
   store <2 x i64> %add.i.i67.i.i.i.i, ptr %arrayidx.i66.i.i.i.i, align 16, !alias.scope !1579, !noalias !1580
   %inc.i68.i.i.i.i = add nuw nsw i64 %i.010.i.i.i.i.i, 1
   %exitcond.not.i69.i.i.i.i = icmp eq i64 %inc.i68.i.i.i.i, 4
-  br i1 %exitcond.not.i69.i.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i.i, label %for.body.i62.i.i.i.i, !llvm.loop !1534
+  br i1 %exitcond.not.i69.i.i.i.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i.i, label %for.body.i62.i.i.i.i, !llvm.loop !1534
 
-_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i.i: ; preds = %for.body.i62.i.i.i.i
+_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i.i: ; preds = %for.body.i62.i.i.i.i
   %mul.i.i1.i = mul i64 %length, -7046029288634856825
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1581)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1584)
   br label %for.body.i4.i.i.i
 
-for.body.i4.i.i.i:                                ; preds = %for.body.i4.i.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i.i
-  %i.09.i.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i.i ], [ %inc.i7.i.i.i, %for.body.i4.i.i.i ]
-  %result64.08.i.i.i.i = phi i64 [ %mul.i.i1.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom.exit.i.i.i ], [ %add.i.i.i.i, %for.body.i4.i.i.i ]
+for.body.i4.i.i.i:                                ; preds = %for.body.i4.i.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i.i
+  %i.09.i.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i.i ], [ %inc.i7.i.i.i, %for.body.i4.i.i.i ]
+  %result64.08.i.i.i.i = phi i64 [ %mul.i.i1.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i.i.i ], [ %add.i.i.i.i, %for.body.i4.i.i.i ]
   %add.ptr.idx.i.i.i.i = shl nuw nsw i64 %i.09.i.i.i.i, 4
   %add.ptr.i5.i.i.i = getelementptr inbounds i8, ptr %acc.i.i.i, i64 %add.ptr.idx.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 11), i64 %add.ptr.idx.i.i.i.i
@@ -21505,8 +21505,8 @@ _ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit.i: ; preds = %for.body.i4.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i.i.i), !noalias !1504
   br label %return
 
-return:                                           ; preds = %_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit.i, %_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom.exit.i.i, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom.exit.i.i, %if.then5, %if.end28, %if.end18, %if.end
-  %retval.0 = phi i64 [ %3, %if.end ], [ %xor27, %if.end18 ], [ %xor42, %if.end28 ], [ 1, %if.then5 ], [ %xor.i5.i.i.i.i, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom.exit.i.i ], [ %xor.i5.i53.i.i.i, %_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom.exit.i.i ], [ %xor.i5.i.i.i.i.i, %_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit.i ]
+return:                                           ; preds = %_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit.i, %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i, %if.then5, %if.end28, %if.end18, %if.end
+  %retval.0 = phi i64 [ %3, %if.end ], [ %xor27, %if.end18 ], [ %xor42, %if.end28 ], [ 1, %if.then5 ], [ %xor.i5.i.i.i.i, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i ], [ %xor.i5.i53.i.i.i, %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i ], [ %xor.i5.i.i.i.i.i, %_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm.exit.i ]
   ret i64 %retval.0
 }
 
@@ -60945,14 +60945,14 @@ attributes #26 = { nounwind memory(none) }
 !1479 = distinct !{!1479, !1480, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !1480 = distinct !{!1480, !"_ZN5arrow6Status2OKEv"}
 !1481 = !{!1482}
-!1482 = distinct !{!1482, !1483, !"_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.argprom: %input"}
-!1483 = distinct !{!1483, !"_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.argprom"}
+!1482 = distinct !{!1482, !1483, !"_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE: %input"}
+!1483 = distinct !{!1483, !"_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE"}
 !1484 = !{!1485, !1482}
-!1485 = distinct !{!1485, !1486, !"_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom: %input"}
-!1486 = distinct !{!1486, !"_ZL20XXH3_len_17to128_64bPKhmS0_mm.argprom"}
+!1485 = distinct !{!1485, !1486, !"_ZL20XXH3_len_17to128_64bPKhmS0_mm: %input"}
+!1486 = distinct !{!1486, !"_ZL20XXH3_len_17to128_64bPKhmS0_mm"}
 !1487 = !{!1488}
-!1488 = distinct !{!1488, !1489, !"_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom: %input"}
-!1489 = distinct !{!1489, !"_ZL21XXH3_len_129to240_64bPKhmS0_mm.argprom"}
+!1488 = distinct !{!1488, !1489, !"_ZL21XXH3_len_129to240_64bPKhmS0_mm: %input"}
+!1489 = distinct !{!1489, !"_ZL21XXH3_len_129to240_64bPKhmS0_mm"}
 !1490 = !{!1488, !1482}
 !1491 = distinct !{!1491, !42}
 !1492 = !{i64 2154200804}
@@ -60963,19 +60963,19 @@ attributes #26 = { nounwind memory(none) }
 !1497 = !{!1498}
 !1498 = distinct !{!1498, !1496, !"_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm: %secret"}
 !1499 = !{!1500}
-!1500 = distinct !{!1500, !1501, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom: %input"}
-!1501 = distinct !{!1501, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom"}
+!1500 = distinct !{!1500, !1501, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E: %input"}
+!1501 = distinct !{!1501, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E"}
 !1502 = !{!1503}
-!1503 = distinct !{!1503, !1501, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.argprom: %secret"}
+!1503 = distinct !{!1503, !1501, !"_ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E: %secret"}
 !1504 = !{!1495, !1498}
 !1505 = !{!1500, !1503, !1495, !1498}
 !1506 = !{!1507}
-!1507 = distinct !{!1507, !1508, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom: %acc"}
-!1508 = distinct !{!1508, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom"}
+!1507 = distinct !{!1507, !1508, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE: %acc"}
+!1508 = distinct !{!1508, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE"}
 !1509 = !{!1510}
-!1510 = distinct !{!1510, !1508, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom: %input"}
+!1510 = distinct !{!1510, !1508, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE: %input"}
 !1511 = !{!1512}
-!1512 = distinct !{!1512, !1508, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.argprom: %secret"}
+!1512 = distinct !{!1512, !1508, !"_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE: %secret"}
 !1513 = !{!1514}
 !1514 = distinct !{!1514, !1515, !"_ZL20XXH3_accumulate_sse2PmPKhS1_m: %acc"}
 !1515 = distinct !{!1515, !"_ZL20XXH3_accumulate_sse2PmPKhS1_m"}

@@ -547,7 +547,7 @@ define i32 @agwrite(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %13, %9, %4, %2
-  tail call fastcc void @set_attrwf.argelim(ptr noundef %0, i1 noundef zeroext true)
+  tail call fastcc void @set_attrwf(ptr noundef %0, i1 noundef zeroext true)
   %16 = tail call fastcc i32 @write_hdr(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %write_trl.exit.thread, label %18
@@ -612,7 +612,7 @@ declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_attrwf.argelim(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @set_attrwf(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, -9
   store i32 %4, ptr %0, align 8
@@ -622,7 +622,7 @@ define internal fastcc void @set_attrwf.argelim(ptr noundef %0, i1 noundef zeroe
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.02125 = phi ptr [ %6, %.lr.ph ], [ %5, %2 ]
-  tail call fastcc void @set_attrwf.argelim(ptr noundef nonnull %.02125, i1 noundef zeroext false)
+  tail call fastcc void @set_attrwf(ptr noundef nonnull %.02125, i1 noundef zeroext false)
   %6 = tail call ptr @agnxtsubg(ptr noundef nonnull %.02125) #9
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1711,7 +1711,7 @@ define internal fastcc noundef zeroext i1 @write_node_test(ptr noundef %0, ptr n
 6:                                                ; preds = %.lr.ph.i
   %7 = tail call ptr @agsubnode(ptr noundef nonnull %.010.i, ptr noundef %1, i32 noundef 0) #9
   %.not8.i = icmp eq ptr %7, null
-  br i1 %.not8.i, label %8, label %not_default_attrs.argprom.exit
+  br i1 %.not8.i, label %8, label %not_default_attrs.exit
 
 8:                                                ; preds = %6, %.lr.ph.i
   %9 = tail call ptr @agnxtsubg(ptr noundef nonnull %.010.i) #9
@@ -1723,7 +1723,7 @@ define internal fastcc noundef zeroext i1 @write_node_test(ptr noundef %0, ptr n
   %11 = lshr i32 %10, 4
   %12 = zext nneg i32 %11 to i64
   %13 = icmp ugt i64 %2, %12
-  br i1 %13, label %not_default_attrs.argprom.exit, label %14
+  br i1 %13, label %not_default_attrs.exit, label %14
 
 14:                                               ; preds = %.loopexit17
   %15 = tail call ptr @agfstin(ptr noundef %0, ptr noundef nonnull %1) #9
@@ -1741,7 +1741,7 @@ define internal fastcc noundef zeroext i1 @write_node_test(ptr noundef %0, ptr n
   %19 = load i32, ptr %18, align 8
   %20 = lshr i32 %19, 4
   %.not15.i = icmp ult i32 %20, %16
-  br i1 %.not15.i, label %not_default_attrs.argprom.exit, label %21
+  br i1 %.not15.i, label %not_default_attrs.exit, label %21
 
 21:                                               ; preds = %.lr.ph.i9
   %22 = tail call ptr @agnxtin(ptr noundef %0, ptr noundef nonnull %.012.i) #9
@@ -1756,12 +1756,12 @@ define internal fastcc noundef zeroext i1 @write_node_test(ptr noundef %0, ptr n
 has_no_edges.exit:                                ; preds = %.loopexit
   %25 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %1) #9
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %not_default_attrs.argprom.exit, label %has_no_edges.exit.thread
+  br i1 %26, label %not_default_attrs.exit, label %has_no_edges.exit.thread
 
 has_no_edges.exit.thread:                         ; preds = %.loopexit, %has_no_edges.exit
   %27 = tail call ptr @agattrrec(ptr noundef nonnull %1) #9
   %.not.i10 = icmp eq ptr %27, null
-  br i1 %.not.i10, label %not_default_attrs.argprom.exit, label %28
+  br i1 %.not.i10, label %not_default_attrs.exit, label %28
 
 28:                                               ; preds = %has_no_edges.exit.thread
   %29 = getelementptr inbounds i8, ptr %27, i64 16
@@ -1770,7 +1770,7 @@ has_no_edges.exit.thread:                         ; preds = %.loopexit, %has_no_
   %32 = tail call ptr %31(ptr noundef nonnull %30, ptr noundef null, i32 noundef 128) #9
   %33 = getelementptr inbounds i8, ptr %27, i64 24
   %.not131.i = icmp eq ptr %32, null
-  br i1 %.not131.i, label %not_default_attrs.argprom.exit, label %.lr.ph.i11
+  br i1 %.not131.i, label %not_default_attrs.exit, label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %28, %42
   %.02.i = phi ptr [ %45, %42 ], [ %32, %28 ]
@@ -1783,16 +1783,16 @@ has_no_edges.exit.thread:                         ; preds = %.loopexit, %has_no_
   %40 = getelementptr inbounds i8, ptr %.02.i, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not14.not.i.not.not = icmp ne ptr %39, %41
-  br i1 %.not14.not.i.not.not, label %not_default_attrs.argprom.exit, label %42
+  br i1 %.not14.not.i.not.not, label %not_default_attrs.exit, label %42
 
 42:                                               ; preds = %.lr.ph.i11
   %43 = load ptr, ptr %29, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr %44(ptr noundef nonnull %43, ptr noundef nonnull %.02.i, i32 noundef 8) #9
   %.not13.i = icmp eq ptr %45, null
-  br i1 %.not13.i, label %not_default_attrs.argprom.exit, label %.lr.ph.i11
+  br i1 %.not13.i, label %not_default_attrs.exit, label %.lr.ph.i11
 
-not_default_attrs.argprom.exit:                   ; preds = %6, %.lr.ph.i9, %42, %.lr.ph.i11, %28, %has_no_edges.exit.thread, %.loopexit17, %has_no_edges.exit
+not_default_attrs.exit:                           ; preds = %6, %.lr.ph.i9, %42, %.lr.ph.i11, %28, %has_no_edges.exit.thread, %.loopexit17, %has_no_edges.exit
   %.0 = phi i1 [ true, %has_no_edges.exit ], [ false, %.loopexit17 ], [ false, %has_no_edges.exit.thread ], [ false, %28 ], [ %.not14.not.i.not.not, %.lr.ph.i11 ], [ %.not14.not.i.not.not, %42 ], [ false, %.lr.ph.i9 ], [ false, %6 ]
   ret i1 %.0
 }

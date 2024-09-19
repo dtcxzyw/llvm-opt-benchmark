@@ -1017,7 +1017,7 @@ do.end:                                           ; preds = %_ZN8QuantLib8Schedu
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp34) #28
   %paymentCalendar_.val = load ptr, ptr %paymentCalendar_, align 8, !tbaa !98
   %paymentCalendar_.val15 = load ptr, ptr %pn.i.i18, align 8, !tbaa !37
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_120createEquityCashFlowERKNS_8ScheduleERKN5boost10shared_ptrINS_11EquityIndexEEEdRKNS_8CalendarENS_21BusinessDayConventionEj.argprom(ptr dead_on_unwind noalias writable align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(136) %schedule_, ptr noundef nonnull align 8 dereferenceable(16) %equityIndex_, double noundef %21, ptr %paymentCalendar_.val, ptr %paymentCalendar_.val15, i32 noundef %paymentConvention, i32 noundef %paymentDelay)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_120createEquityCashFlowERKNS_8ScheduleERKN5boost10shared_ptrINS_11EquityIndexEEEdRKNS_8CalendarENS_21BusinessDayConventionEj(ptr dead_on_unwind noalias writable align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(136) %schedule_, ptr noundef nonnull align 8 dereferenceable(16) %equityIndex_, double noundef %21, ptr %paymentCalendar_.val, ptr %paymentCalendar_.val15, i32 noundef %paymentConvention, i32 noundef %paymentDelay)
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %do.end
@@ -1565,7 +1565,7 @@ unreachable:                                      ; preds = %invoke.cont98, %inv
 declare void @_ZN8QuantLib4SwapC2Em(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef, i64 noundef) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_120createEquityCashFlowERKNS_8ScheduleERKN5boost10shared_ptrINS_11EquityIndexEEEdRKNS_8CalendarENS_21BusinessDayConventionEj.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %schedule, ptr noundef nonnull align 8 dereferenceable(16) %equityIndex, double noundef %nominal, ptr %paymentCalendar.0.val, ptr %paymentCalendar.8.val, i32 noundef %paymentConvention, i32 noundef %paymentDelay) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_120createEquityCashFlowERKNS_8ScheduleERKN5boost10shared_ptrINS_11EquityIndexEEEdRKNS_8CalendarENS_21BusinessDayConventionEj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %schedule, ptr noundef nonnull align 8 dereferenceable(16) %equityIndex, double noundef %nominal, ptr %paymentCalendar.0.val, ptr %paymentCalendar.8.val, i32 noundef %paymentConvention, i32 noundef %paymentDelay) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %nominal.addr = alloca double, align 8
   %startDate = alloca %"class.QuantLib::Date", align 8
@@ -2742,7 +2742,7 @@ do.end:                                           ; preds = %_ZN8QuantLib8Schedu
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp32) #28
   %paymentCalendar_.val = load ptr, ptr %paymentCalendar_, align 8, !tbaa !98
   %paymentCalendar_.val16 = load ptr, ptr %pn.i.i23, align 8, !tbaa !37
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_120createEquityCashFlowERKNS_8ScheduleERKN5boost10shared_ptrINS_11EquityIndexEEEdRKNS_8CalendarENS_21BusinessDayConventionEj.argprom(ptr dead_on_unwind noalias writable align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(136) %schedule_, ptr noundef nonnull align 8 dereferenceable(16) %equityIndex_, double noundef %19, ptr %paymentCalendar_.val, ptr %paymentCalendar_.val16, i32 noundef %paymentConvention, i32 noundef %paymentDelay)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_120createEquityCashFlowERKNS_8ScheduleERKN5boost10shared_ptrINS_11EquityIndexEEEdRKNS_8CalendarENS_21BusinessDayConventionEj(ptr dead_on_unwind noalias writable align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(136) %schedule_, ptr noundef nonnull align 8 dereferenceable(16) %equityIndex_, double noundef %19, ptr %paymentCalendar_.val, ptr %paymentCalendar_.val16, i32 noundef %paymentConvention, i32 noundef %paymentDelay)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %do.end

@@ -1634,7 +1634,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2fecc8de6ecd2b36E(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !193
   %11 = getelementptr inbounds i8, ptr %.val.i, i64 40
   invoke void @"_ZN4core3ptr707drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7257e8461e634be9E.llvm.3320867604257097217"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
-          to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.argprom.exit.i" unwind label %.body.i.i.i.i.i, !noalias !199
+          to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.exit.i" unwind label %.body.i.i.i.i.i, !noalias !199
 
 .body.i.i.i.i.i:                                  ; preds = %7
   %12 = landingpad { ptr, i32 }
@@ -1657,13 +1657,13 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2fecc8de6ecd2b36E(ptr noalia
   invoke void @"_ZN4core3ptr707drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7257e8461e634be9E.llvm.3320867604257097217"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3) #34
           to label %.body unwind label %13, !noalias !193
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.argprom.exit.i": ; preds = %7
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.exit.i": ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i.i.i.i, i64 64, i1 false), !noalias !196
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.0.i.i.i.i.i)
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f5f763ded16fa97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %27 unwind label %17
 
-17:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.argprom.exit.i"
+17:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.exit.i"
   %18 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
@@ -1689,7 +1689,7 @@ __rust_try.llvm.862030130881490728.exit:          ; preds = %.body
   call void @llvm.assume(i1 %26)
   br label %28
 
-27:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.argprom.exit.i"
+27:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.exit.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !196
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !193
   br label %28
@@ -2400,7 +2400,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4c56f98fc38c4902E(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !295
   %11 = getelementptr inbounds i8, ptr %.val.i, i64 40
   invoke void @"_ZN4core3ptr541drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17ha5e54719ac1c0a56E.llvm.3320867604257097217"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
-          to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.argprom.exit.i" unwind label %.body.i.i.i.i.i, !noalias !301
+          to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.exit.i" unwind label %.body.i.i.i.i.i, !noalias !301
 
 .body.i.i.i.i.i:                                  ; preds = %7
   %12 = landingpad { ptr, i32 }
@@ -2423,13 +2423,13 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4c56f98fc38c4902E(ptr noalia
   invoke void @"_ZN4core3ptr541drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17ha5e54719ac1c0a56E.llvm.3320867604257097217"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #34
           to label %.body unwind label %13, !noalias !295
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.argprom.exit.i": ; preds = %7
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.exit.i": ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i.i.i.i.i, i64 40, i1 false), !noalias !298
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0.i.i.i.i.i)
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f5f763ded16fa97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %27 unwind label %17
 
-17:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.argprom.exit.i"
+17:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.exit.i"
   %18 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
@@ -2455,7 +2455,7 @@ __rust_try.llvm.862030130881490728.exit:          ; preds = %.body
   call void @llvm.assume(i1 %26)
   br label %28
 
-27:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.argprom.exit.i"
+27:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.exit.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !298
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !295
   br label %28
@@ -9928,21 +9928,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h00b2a826f55a18c0E.llvm.86203
   store i32 1000000005, ptr %10, align 8, !noalias !1137
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h6f2ee73489f2fd22E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %2), !noalias !1137
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2), !noalias !1137
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h7615b26633184bdcE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h7615b26633184bdcE.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h7615b26633184bdcE.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h7615b26633184bdcE.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 232
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !1137
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h7615b26633184bdcE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h7615b26633184bdcE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h7615b26633184bdcE.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h7615b26633184bdcE.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -10048,21 +10048,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h03b047cd843ccc71E.llvm.86203
   store i8 5, ptr %10, align 8, !noalias !1163
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hc772a85cc1555bf6E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(168) %2), !noalias !1163
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %2), !noalias !1163
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha9ec8f41f29f3a5dE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha9ec8f41f29f3a5dE.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha9ec8f41f29f3a5dE.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha9ec8f41f29f3a5dE.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 216
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !1163
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha9ec8f41f29f3a5dE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha9ec8f41f29f3a5dE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha9ec8f41f29f3a5dE.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha9ec8f41f29f3a5dE.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -10163,21 +10163,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h0cbd5a21397c918bE.llvm.86203
   store i64 -9223372036854775806, ptr %2, align 8, !noalias !1189
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hfa254ee3f0345179E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %2), !noalias !1189
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !1189
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha0b3362e2021feceE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha0b3362e2021feceE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha0b3362e2021feceE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha0b3362e2021feceE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 104
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1189
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha0b3362e2021feceE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha0b3362e2021feceE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha0b3362e2021feceE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha0b3362e2021feceE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -10281,7 +10281,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h126cf90bd73ef3d8E.llvm.86203
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !1214
   %12 = getelementptr inbounds i8, ptr %.val, i64 40
   invoke void @"_ZN4core3ptr541drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17ha5e54719ac1c0a56E.llvm.3320867604257097217"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
-          to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.argprom.exit" unwind label %.body.i.i.i.i, !noalias !1220
+          to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.exit" unwind label %.body.i.i.i.i, !noalias !1220
 
 .body.i.i.i.i:                                    ; preds = %8
   %13 = landingpad { ptr, i32 }
@@ -10306,7 +10306,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h126cf90bd73ef3d8E.llvm.86203
   invoke void @"_ZN4core3ptr541drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17ha5e54719ac1c0a56E.llvm.3320867604257097217"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #34
           to label %.thread.i.i.i.i unwind label %14, !noalias !1214
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.argprom.exit": ; preds = %8
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc24168c4de77a022E.exit": ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i.i.i.i, i64 40, i1 false), !noalias !1217
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0.i.i.i.i)
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f5f763ded16fa97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !1217
@@ -10361,21 +10361,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h15dd4605e8d71e35E.llvm.86203
   store i64 2, ptr %2, align 8, !noalias !1238
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h2c22773f47f5d958E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2), !noalias !1238
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !1238
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c4abdafc5afd1ddE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c4abdafc5afd1ddE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c4abdafc5afd1ddE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c4abdafc5afd1ddE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 80
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1238
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c4abdafc5afd1ddE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c4abdafc5afd1ddE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c4abdafc5afd1ddE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c4abdafc5afd1ddE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -10487,21 +10487,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h1a23f66f474de979E.llvm.86203
   store i64 4, ptr %2, align 8, !noalias !1278
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hf07cb42e064e49a2E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2), !noalias !1278
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !1278
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h2cd273f7d9895c1eE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h2cd273f7d9895c1eE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h2cd273f7d9895c1eE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h2cd273f7d9895c1eE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 72
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1278
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h2cd273f7d9895c1eE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h2cd273f7d9895c1eE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h2cd273f7d9895c1eE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h2cd273f7d9895c1eE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -10571,21 +10571,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h1a75e38134199b8eE.llvm.86203
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f5f763ded16fa97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !1291
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1291
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !1287
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h78921bd627560567E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h78921bd627560567E.exit"
 
 23:                                               ; preds = %1
   %24 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %24, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h78921bd627560567E.argprom.exit", label %25
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h78921bd627560567E.exit", label %25
 
 25:                                               ; preds = %23
   %26 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds i8, ptr %.val1, i64 80
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %27), !noalias !1287
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h78921bd627560567E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h78921bd627560567E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h78921bd627560567E.argprom.exit": ; preds = %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h9407955c65c61890E.exit.i.i.i", %23, %25
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h78921bd627560567E.exit": ; preds = %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h9407955c65c61890E.exit.i.i.i", %23, %25
   ret void
 }
 
@@ -10848,21 +10848,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h28c569bf7a340cbbE.llvm.86203
   store i64 2, ptr %2, align 8, !noalias !1368
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17he8c3b1bfa4ae84baE"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2), !noalias !1368
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !1368
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0fc3d5ead697fd04E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0fc3d5ead697fd04E.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0fc3d5ead697fd04E.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0fc3d5ead697fd04E.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 80
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1368
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0fc3d5ead697fd04E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0fc3d5ead697fd04E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0fc3d5ead697fd04E.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0fc3d5ead697fd04E.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -11096,21 +11096,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h3aae836ce4b64ebaE.llvm.86203
   store i32 1000000005, ptr %10, align 8, !noalias !1429
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h533dba69d2e8e3e7E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %2), !noalias !1429
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2), !noalias !1429
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h54e1e5398100fbf1E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h54e1e5398100fbf1E.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h54e1e5398100fbf1E.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h54e1e5398100fbf1E.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 232
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !1429
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h54e1e5398100fbf1E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h54e1e5398100fbf1E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h54e1e5398100fbf1E.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h54e1e5398100fbf1E.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -11170,21 +11170,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h3ffba2cc476170efE.llvm.86203
   store i64 -9223372036854775806, ptr %2, align 8, !noalias !1449
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h9219f5c0934bb05fE"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %2), !noalias !1449
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2), !noalias !1449
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4a071e1e1627cdacE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4a071e1e1627cdacE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4a071e1e1627cdacE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4a071e1e1627cdacE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 96
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1449
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4a071e1e1627cdacE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4a071e1e1627cdacE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4a071e1e1627cdacE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4a071e1e1627cdacE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -11472,21 +11472,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h4f3710f2c059d534E.llvm.86203
   store i32 1000000004, ptr %10, align 8, !noalias !1532
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h69e61b8656884c0bE"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2), !noalias !1532
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !1532
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hac6cb409b48f7cc1E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hac6cb409b48f7cc1E.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hac6cb409b48f7cc1E.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hac6cb409b48f7cc1E.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 80
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !1532
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hac6cb409b48f7cc1E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hac6cb409b48f7cc1E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hac6cb409b48f7cc1E.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hac6cb409b48f7cc1E.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -11543,21 +11543,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h5148b0f9fb36aec3E.llvm.86203
   store i32 1000000005, ptr %10, align 8, !noalias !1552
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hd28b209c6185c0fcE"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %2), !noalias !1552
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2), !noalias !1552
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hdb390c23649156aeE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hdb390c23649156aeE.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hdb390c23649156aeE.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hdb390c23649156aeE.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 232
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !1552
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hdb390c23649156aeE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hdb390c23649156aeE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hdb390c23649156aeE.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hdb390c23649156aeE.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -11851,21 +11851,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h6eac8e53972c9924E.llvm.86203
   store i32 1000000005, ptr %10, align 8, !noalias !1624
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h920663e1b2b90372E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %2), !noalias !1624
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2), !noalias !1624
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42f5135c010064f3E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42f5135c010064f3E.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42f5135c010064f3E.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42f5135c010064f3E.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 232
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !1624
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42f5135c010064f3E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42f5135c010064f3E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42f5135c010064f3E.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42f5135c010064f3E.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -11997,21 +11997,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h7385a0a3e8800aceE.llvm.86203
   store i64 -9223372036854775806, ptr %2, align 8, !noalias !1662
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h1155a259a393f8ffE"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %2), !noalias !1662
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !1662
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf01e30227bdf1d2fE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf01e30227bdf1d2fE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf01e30227bdf1d2fE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf01e30227bdf1d2fE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 104
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1662
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf01e30227bdf1d2fE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf01e30227bdf1d2fE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf01e30227bdf1d2fE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf01e30227bdf1d2fE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -12075,21 +12075,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h7510a6206a88e699E.llvm.86203
   store i32 1000000005, ptr %10, align 8, !noalias !1683
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hb0ccd49a28a26fdcE"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %2), !noalias !1683
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2), !noalias !1683
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he54bc1d4afba9206E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he54bc1d4afba9206E.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he54bc1d4afba9206E.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he54bc1d4afba9206E.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 232
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !1683
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he54bc1d4afba9206E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he54bc1d4afba9206E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he54bc1d4afba9206E.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he54bc1d4afba9206E.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -12308,21 +12308,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h8bfc47a31e83239eE.llvm.86203
   store i64 4, ptr %2, align 8, !noalias !1745
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h45e500ff8fff8768E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2), !noalias !1745
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !1745
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h84a0008c99285a2aE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h84a0008c99285a2aE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h84a0008c99285a2aE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h84a0008c99285a2aE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 72
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1745
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h84a0008c99285a2aE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h84a0008c99285a2aE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h84a0008c99285a2aE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h84a0008c99285a2aE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -12413,21 +12413,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h94744197a2909650E.llvm.86203
   store i64 4, ptr %2, align 8, !noalias !1776
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h58c7ab9a8a0dcc43E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2), !noalias !1776
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !1776
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hab6a1a7cc72e794dE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hab6a1a7cc72e794dE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hab6a1a7cc72e794dE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hab6a1a7cc72e794dE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 72
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1776
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hab6a1a7cc72e794dE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hab6a1a7cc72e794dE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hab6a1a7cc72e794dE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hab6a1a7cc72e794dE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -12451,21 +12451,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h94a59972360ac8d8E.llvm.86203
   store i64 4, ptr %2, align 8, !noalias !1785
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17ha012222c739f1a20E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2), !noalias !1785
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !1785
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h33a2bb62e6787c8cE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h33a2bb62e6787c8cE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h33a2bb62e6787c8cE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h33a2bb62e6787c8cE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 72
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1785
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h33a2bb62e6787c8cE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h33a2bb62e6787c8cE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h33a2bb62e6787c8cE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h33a2bb62e6787c8cE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -12542,21 +12542,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h95fba5b6fa3d3677E.llvm.86203
   store i32 1000000004, ptr %10, align 8, !noalias !1806
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h88b38b11960b1354E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2), !noalias !1806
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !1806
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h980c6e49b2559dceE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h980c6e49b2559dceE.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h980c6e49b2559dceE.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h980c6e49b2559dceE.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 80
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !1806
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h980c6e49b2559dceE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h980c6e49b2559dceE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h980c6e49b2559dceE.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h980c6e49b2559dceE.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -12580,21 +12580,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h97b5b0005e776265E.llvm.86203
   store i64 4, ptr %2, align 8, !noalias !1815
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hda4611f091873b75E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2), !noalias !1815
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !1815
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb3b2187c4c1425dfE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb3b2187c4c1425dfE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb3b2187c4c1425dfE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb3b2187c4c1425dfE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 72
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1815
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb3b2187c4c1425dfE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb3b2187c4c1425dfE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb3b2187c4c1425dfE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb3b2187c4c1425dfE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -12657,21 +12657,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h9ad7d58c1ffc3c9cE.llvm.86203
   store i64 -9223372036854775806, ptr %2, align 8, !noalias !1836
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h6f49fd6d16a6f6e6E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !1836
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !1836
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd2463cd5bac248f7E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd2463cd5bac248f7E.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd2463cd5bac248f7E.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd2463cd5bac248f7E.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 88
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1836
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd2463cd5bac248f7E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd2463cd5bac248f7E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd2463cd5bac248f7E.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd2463cd5bac248f7E.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -12707,21 +12707,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h9bb329c5e8001856E.llvm.86203
   store i64 4, ptr %2, align 8, !noalias !1850
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h78065195bc4866f8E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2), !noalias !1850
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !1850
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h73b80837079994c5E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h73b80837079994c5E.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h73b80837079994c5E.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h73b80837079994c5E.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 72
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1850
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h73b80837079994c5E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h73b80837079994c5E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h73b80837079994c5E.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h73b80837079994c5E.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -12746,21 +12746,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h9da2cf6b7a2d3d55E.llvm.86203
   store i8 5, ptr %10, align 8, !noalias !1859
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h403a85ef473b13ceE"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(168) %2), !noalias !1859
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %2), !noalias !1859
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h92f7c0c0027e66d4E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h92f7c0c0027e66d4E.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h92f7c0c0027e66d4E.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h92f7c0c0027e66d4E.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 216
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !1859
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h92f7c0c0027e66d4E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h92f7c0c0027e66d4E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h92f7c0c0027e66d4E.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h92f7c0c0027e66d4E.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -12784,21 +12784,21 @@ define hidden void @_ZN3std9panicking3try7do_call17h9f2c3bd4bdde6492E.llvm.86203
   store i64 4, ptr %2, align 8, !noalias !1868
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hf584ec41997feda6E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %2), !noalias !1868
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2), !noalias !1868
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1c9f88feaa7f9355E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1c9f88feaa7f9355E.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1c9f88feaa7f9355E.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1c9f88feaa7f9355E.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 96
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1868
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1c9f88feaa7f9355E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1c9f88feaa7f9355E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1c9f88feaa7f9355E.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1c9f88feaa7f9355E.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -12845,21 +12845,21 @@ define hidden void @_ZN3std9panicking3try7do_call17ha3fe68b93a8f654fE.llvm.86203
   store i64 5, ptr %2, align 8, !noalias !1882
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h2ddb137f1b6fc3f8E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !1882
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !1882
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8e554aa92126ba35E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8e554aa92126ba35E.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8e554aa92126ba35E.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8e554aa92126ba35E.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 88
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1882
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8e554aa92126ba35E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8e554aa92126ba35E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8e554aa92126ba35E.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8e554aa92126ba35E.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -12884,21 +12884,21 @@ define hidden void @_ZN3std9panicking3try7do_call17ha77871a6e4a0c8daE.llvm.86203
   store i32 1000000005, ptr %10, align 8, !noalias !1891
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hee26bcd295904742E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %2), !noalias !1891
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2), !noalias !1891
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he4c76e14327f9a1dE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he4c76e14327f9a1dE.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he4c76e14327f9a1dE.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he4c76e14327f9a1dE.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 232
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !1891
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he4c76e14327f9a1dE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he4c76e14327f9a1dE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he4c76e14327f9a1dE.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he4c76e14327f9a1dE.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -12992,21 +12992,21 @@ define hidden void @_ZN3std9panicking3try7do_call17had80a2bdeeb890aaE.llvm.86203
   store i64 -9223372036854775806, ptr %2, align 8, !noalias !1918
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h8e53a776df7a5b85E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %2), !noalias !1918
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !1918
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd3216a82a8e3aab7E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd3216a82a8e3aab7E.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd3216a82a8e3aab7E.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd3216a82a8e3aab7E.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 104
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1918
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd3216a82a8e3aab7E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd3216a82a8e3aab7E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd3216a82a8e3aab7E.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd3216a82a8e3aab7E.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -13165,21 +13165,21 @@ define hidden void @_ZN3std9panicking3try7do_call17hbad6a30b092e585dE.llvm.86203
   store i64 4, ptr %2, align 8, !noalias !1955
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hc528348ca50fb153E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2), !noalias !1955
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !1955
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he45d7801a0f50161E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he45d7801a0f50161E.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he45d7801a0f50161E.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he45d7801a0f50161E.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 72
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !1955
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he45d7801a0f50161E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he45d7801a0f50161E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he45d7801a0f50161E.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he45d7801a0f50161E.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -13272,21 +13272,21 @@ define hidden void @_ZN3std9panicking3try7do_call17hbfa63d66275c79a2E.llvm.86203
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f5f763ded16fa97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !1968
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1968
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1964
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc82006582f9cfe1fE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc82006582f9cfe1fE.exit"
 
 23:                                               ; preds = %1
   %24 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %24, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc82006582f9cfe1fE.argprom.exit", label %25
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc82006582f9cfe1fE.exit", label %25
 
 25:                                               ; preds = %23
   %26 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds i8, ptr %.val1, i64 104
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %27), !noalias !1964
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc82006582f9cfe1fE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc82006582f9cfe1fE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc82006582f9cfe1fE.argprom.exit": ; preds = %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17ha99e6df727b7e30bE.exit.i.i.i", %23, %25
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc82006582f9cfe1fE.exit": ; preds = %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17ha99e6df727b7e30bE.exit.i.i.i", %23, %25
   ret void
 }
 
@@ -13391,21 +13391,21 @@ define hidden void @_ZN3std9panicking3try7do_call17hc53faf6a5eebbc00E.llvm.86203
   store i32 1000000005, ptr %10, align 8, !noalias !2009
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h2836d4118bd35e65E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %2), !noalias !2009
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2), !noalias !2009
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1417d1cd19d52183E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1417d1cd19d52183E.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1417d1cd19d52183E.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1417d1cd19d52183E.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 232
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !2009
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1417d1cd19d52183E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1417d1cd19d52183E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1417d1cd19d52183E.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h1417d1cd19d52183E.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -13443,21 +13443,21 @@ define hidden void @_ZN3std9panicking3try7do_call17hc764c2b0a6a055e7E.llvm.86203
   store i64 2, ptr %2, align 8, !noalias !2023
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hdff557c82d5aeeccE"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2), !noalias !2023
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !2023
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h22661fc2263fca4fE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h22661fc2263fca4fE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h22661fc2263fca4fE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h22661fc2263fca4fE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 80
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !2023
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h22661fc2263fca4fE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h22661fc2263fca4fE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h22661fc2263fca4fE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h22661fc2263fca4fE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -13557,21 +13557,21 @@ define hidden void @_ZN3std9panicking3try7do_call17hce7c3925f2900599E.llvm.86203
   store i64 -9223372036854775806, ptr %2, align 8, !noalias !2054
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h943a7ec56f709376E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2), !noalias !2054
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !2054
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb4721f68fec112baE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb4721f68fec112baE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb4721f68fec112baE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb4721f68fec112baE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 80
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !2054
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb4721f68fec112baE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb4721f68fec112baE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb4721f68fec112baE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb4721f68fec112baE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -13614,7 +13614,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hd10fc58e67ca1020E.llvm.86203
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !2067
   %12 = getelementptr inbounds i8, ptr %.val, i64 40
   invoke void @"_ZN4core3ptr707drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7257e8461e634be9E.llvm.3320867604257097217"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
-          to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.argprom.exit" unwind label %.body.i.i.i.i, !noalias !2073
+          to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.exit" unwind label %.body.i.i.i.i, !noalias !2073
 
 .body.i.i.i.i:                                    ; preds = %8
   %13 = landingpad { ptr, i32 }
@@ -13639,7 +13639,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hd10fc58e67ca1020E.llvm.86203
   invoke void @"_ZN4core3ptr707drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7257e8461e634be9E.llvm.3320867604257097217"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3) #34
           to label %.thread.i.i.i.i unwind label %14, !noalias !2067
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.argprom.exit": ; preds = %8
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha45ed6b2e748395aE.exit": ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i.i.i, i64 64, i1 false), !noalias !2070
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.0.i.i.i.i)
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f5f763ded16fa97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !2070
@@ -13680,21 +13680,21 @@ define hidden void @_ZN3std9panicking3try7do_call17hd2f69508b96c326dE.llvm.86203
   store i32 1000000005, ptr %10, align 8, !noalias !2081
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h25b0c278873a8580E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %2), !noalias !2081
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2), !noalias !2081
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he6ff8b46efdc2f33E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he6ff8b46efdc2f33E.exit"
 
 11:                                               ; preds = %1
   %12 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he6ff8b46efdc2f33E.argprom.exit", label %13
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he6ff8b46efdc2f33E.exit", label %13
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %.val1, i64 232
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %15), !noalias !2081
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he6ff8b46efdc2f33E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he6ff8b46efdc2f33E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he6ff8b46efdc2f33E.argprom.exit": ; preds = %7, %11, %13
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17he6ff8b46efdc2f33E.exit": ; preds = %7, %11, %13
   ret void
 }
 
@@ -13788,21 +13788,21 @@ define hidden void @_ZN3std9panicking3try7do_call17hd61f4d694cf10877E.llvm.86203
   store i64 4, ptr %2, align 8, !noalias !2108
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h4db194b79cfcb3b4E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2), !noalias !2108
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !2108
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h560b6f8f975bf59dE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h560b6f8f975bf59dE.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h560b6f8f975bf59dE.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h560b6f8f975bf59dE.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 72
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !2108
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h560b6f8f975bf59dE.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h560b6f8f975bf59dE.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h560b6f8f975bf59dE.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h560b6f8f975bf59dE.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -13826,21 +13826,21 @@ define hidden void @_ZN3std9panicking3try7do_call17hd90001f89938a770E.llvm.86203
   store i64 -9223372036854775806, ptr %2, align 8, !noalias !2117
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h6b4f9e69c6c182c0E"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %2), !noalias !2117
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !2117
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h220b2fca1acf3cd8E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h220b2fca1acf3cd8E.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h220b2fca1acf3cd8E.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h220b2fca1acf3cd8E.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 104
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !2117
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h220b2fca1acf3cd8E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h220b2fca1acf3cd8E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h220b2fca1acf3cd8E.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h220b2fca1acf3cd8E.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -14253,21 +14253,21 @@ define hidden void @_ZN3std9panicking3try7do_call17heff95c2f2837ecc9E.llvm.86203
   store i64 2, ptr %2, align 8, !noalias !2235
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17ha5e8147d3043935aE"(ptr noundef nonnull align 8 %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2), !noalias !2235
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !2235
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h317a0c217b58efc4E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h317a0c217b58efc4E.exit"
 
 10:                                               ; preds = %1
   %11 = and i64 %.val, 16
   %.not1.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h317a0c217b58efc4E.argprom.exit", label %12
+  br i1 %.not1.i.i.i, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h317a0c217b58efc4E.exit", label %12
 
 12:                                               ; preds = %10
   %13 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %.val1, i64 80
   tail call void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h6d8743a160dbbeb4E(ptr noundef nonnull align 8 %14), !noalias !2235
-  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h317a0c217b58efc4E.argprom.exit"
+  br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h317a0c217b58efc4E.exit"
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h317a0c217b58efc4E.argprom.exit": ; preds = %7, %10, %12
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h317a0c217b58efc4E.exit": ; preds = %7, %10, %12
   ret void
 }
 
@@ -19393,7 +19393,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hc84be90a67
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h782a8b650e027c37E.argprom(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr nocapture readonly %.40.val, i64 noundef range(i64 4, 41) %2, ptr noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h782a8b650e027c37E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr nocapture readonly %.40.val, i64 noundef range(i64 4, 41) %2, ptr noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, { ptr, i64 } }, align 8
   %.val = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -19418,7 +19418,7 @@ define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   %15 = getelementptr inbounds i8, ptr %5, i64 16
-  br i1 %12, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.argprom.exit, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.argprom.exit.thread
+  br i1 %12, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit.thread
 
 16:                                               ; preds = %16, %.lr.ph.i
   %.sroa.01.06.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %16 ]
@@ -19434,7 +19434,7 @@ define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17
   %.not.not.i = icmp eq i64 %17, 0
   br i1 %.not.not.i, label %._crit_edge.i, label %16
 
-_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.argprom.exit.thread: ; preds = %._crit_edge.i
+_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit.thread: ; preds = %._crit_edge.i
   %23 = getelementptr inbounds i8, ptr %.val, i64 %7
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %23, ptr noundef nonnull align 1 dereferenceable(16) %.val, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -19443,7 +19443,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.ar
   store ptr %0, ptr %5, align 8
   br label %.lr.ph.preheader
 
-_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.argprom.exit: ; preds = %._crit_edge.i
+_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit: ; preds = %._crit_edge.i
   %24 = getelementptr inbounds i8, ptr %.val, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %.val, i64 %7, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -19453,7 +19453,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.ar
   %.not11 = icmp eq i64 %7, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.argprom.exit.thread, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.argprom.exit
+.lr.ph.preheader:                                 ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit.thread, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit
   br label %.lr.ph
 
 25:                                               ; preds = %_ZN4core3ptr19swap_nonoverlapping17h649c90f0b878eadcE.exit
@@ -19469,9 +19469,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.ar
   %28 = mul nuw i64 %27, 7
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.argprom.exit
-  %.pre-phi = phi i64 [ %28, %._crit_edge.loopexit ], [ 0, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.argprom.exit ]
-  %29 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ -1, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.argprom.exit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit
+  %.pre-phi = phi i64 [ %28, %._crit_edge.loopexit ], [ 0, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit ]
+  %29 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ -1, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit ]
   %30 = icmp ult i64 %29, 8
   %.0 = select i1 %30, i64 %29, i64 %.pre-phi
   %31 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19949,7 +19949,7 @@ define hidden noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h
   %18 = getelementptr inbounds i8, ptr %5, i64 %17
   %19 = load i8, ptr %18, align 1, !noundef !7
   %20 = icmp sgt i8 %19, -1
-  br i1 %20, label %21, label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.argprom.exit
+  br i1 %20, label %21, label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.exit
 
 21:                                               ; preds = %._crit_edge
   %22 = load <16 x i8>, ptr %5, align 16, !noalias !2454
@@ -19959,9 +19959,9 @@ define hidden noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h
   %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %24, i1 true)
   %27 = zext nneg i16 %26 to i64
   tail call void @llvm.assume(i1 %25)
-  br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.argprom.exit
+  br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.exit
 
-_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.argprom.exit: ; preds = %._crit_edge, %21
+_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.exit: ; preds = %._crit_edge, %21
   %.0.i = phi i64 [ %27, %21 ], [ %17, %._crit_edge ]
   ret i64 %.0.i
 }
@@ -20909,7 +20909,7 @@ _ZN4core3ptr19swap_nonoverlapping17he1cdf1b0eed54c3eE.exit: ; preds = %113
   br i1 %.not, label %.thread51.loopexit, label %.noexc.preheader
 
 190:                                              ; preds = %21
-  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h782a8b650e027c37E.argprom(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hafd47debb1031a92E", i64 noundef 4, ptr noundef null)
+  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h782a8b650e027c37E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hafd47debb1031a92E", i64 noundef 4, ptr noundef null)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h91c7a870b4e8f634E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h91c7a870b4e8f634E.exit: ; preds = %83, %"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h81a76b3cd48d6d7bE.exit", %17, %190
@@ -21326,7 +21326,7 @@ _ZN4core3ptr19swap_nonoverlapping17he1cdf1b0eed54c3eE.exit: ; preds = %112
   br i1 %.not, label %.thread51.loopexit, label %.noexc.preheader
 
 191:                                              ; preds = %21
-  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h782a8b650e027c37E.argprom(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h2ea79f479164008cE", i64 noundef 40, ptr noundef nonnull @"_ZN4core3ptr271drop_in_place$LT$$LP$u32$C$$LP$fn$LP$$RF$mut$u20$dyn$u20$core..any..Any$RP$$u20$.$GT$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$$C$alloc..vec..Vec$LT$u32$GT$$RP$$RP$$GT$17h32d62b334296803eE.llvm.862030130881490728")
+  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h782a8b650e027c37E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h2ea79f479164008cE", i64 noundef 40, ptr noundef nonnull @"_ZN4core3ptr271drop_in_place$LT$$LP$u32$C$$LP$fn$LP$$RF$mut$u20$dyn$u20$core..any..Any$RP$$u20$.$GT$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$$C$alloc..vec..Vec$LT$u32$GT$$RP$$RP$$GT$17h32d62b334296803eE.llvm.862030130881490728")
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h91c7a870b4e8f634E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h91c7a870b4e8f634E.exit: ; preds = %82, %"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h81a76b3cd48d6d7bE.exit", %17, %191
@@ -24191,8 +24191,8 @@ attributes #35 = { nounwind }
 !2259 = distinct !{!2259, !2260, !"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h75b13d615460f5cdE: argument 0"}
 !2260 = distinct !{!2260, !"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h75b13d615460f5cdE"}
 !2261 = !{!2262}
-!2262 = distinct !{!2262, !2263, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E.argprom: argument 0"}
-!2263 = distinct !{!2263, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E.argprom"}
+!2262 = distinct !{!2262, !2263, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E: argument 0"}
+!2263 = distinct !{!2263, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E"}
 !2264 = !{!2262, !2259}
 !2265 = !{!2266, !2262, !2259}
 !2266 = distinct !{!2266, !2267, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hd5b9b9129d6683afE.llvm.862030130881490728: argument 0"}
@@ -24487,9 +24487,9 @@ attributes #35 = { nounwind }
 !2555 = distinct !{!2555, !2556, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h31fe82f26ad3f8b0E: argument 0"}
 !2556 = distinct !{!2556, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h31fe82f26ad3f8b0E"}
 !2557 = distinct !{!2557, !2556, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h31fe82f26ad3f8b0E: argument 1"}
-!2558 = distinct !{!2558, !2559, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E.argprom: argument 0"}
-!2559 = distinct !{!2559, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E.argprom"}
-!2560 = distinct !{!2560, !2559, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E.argprom: argument 1"}
+!2558 = distinct !{!2558, !2559, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E: argument 0"}
+!2559 = distinct !{!2559, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E"}
+!2560 = distinct !{!2560, !2559, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E: argument 1"}
 !2561 = !{!2562, !2564, !2555, !2557, !2558, !2560}
 !2562 = distinct !{!2562, !2563, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hc38c1b7d89c0aa3bE: argument 0"}
 !2563 = distinct !{!2563, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hc38c1b7d89c0aa3bE"}
@@ -24569,8 +24569,8 @@ attributes #35 = { nounwind }
 !2637 = !{!2638, !2640, !2634, !2631, !2553, !2546}
 !2638 = distinct !{!2638, !2639, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hd5b9b9129d6683afE.llvm.862030130881490728: argument 0"}
 !2639 = distinct !{!2639, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hd5b9b9129d6683afE.llvm.862030130881490728"}
-!2640 = distinct !{!2640, !2641, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E.argprom: argument 0"}
-!2641 = distinct !{!2641, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E.argprom"}
+!2640 = distinct !{!2640, !2641, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E: argument 0"}
+!2641 = distinct !{!2641, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E"}
 !2642 = !{!2643, !2645, !2647, !2553, !2546}
 !2643 = distinct !{!2643, !2644, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E: argument 0"}
 !2644 = distinct !{!2644, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E"}
@@ -24599,9 +24599,9 @@ attributes #35 = { nounwind }
 !2667 = distinct !{!2667, !2668, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h31fe82f26ad3f8b0E: argument 0"}
 !2668 = distinct !{!2668, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h31fe82f26ad3f8b0E"}
 !2669 = distinct !{!2669, !2668, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h31fe82f26ad3f8b0E: argument 1"}
-!2670 = distinct !{!2670, !2671, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E.argprom: argument 0"}
-!2671 = distinct !{!2671, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E.argprom"}
-!2672 = distinct !{!2672, !2671, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E.argprom: argument 1"}
+!2670 = distinct !{!2670, !2671, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E: argument 0"}
+!2671 = distinct !{!2671, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E"}
+!2672 = distinct !{!2672, !2671, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h7aba025d90dbbd89E: argument 1"}
 !2673 = !{!2674, !2676, !2667, !2669, !2670, !2672}
 !2674 = distinct !{!2674, !2675, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hc38c1b7d89c0aa3bE: argument 0"}
 !2675 = distinct !{!2675, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hc38c1b7d89c0aa3bE"}
@@ -24681,8 +24681,8 @@ attributes #35 = { nounwind }
 !2749 = !{!2750, !2752, !2746, !2743, !2665, !2658}
 !2750 = distinct !{!2750, !2751, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hd5b9b9129d6683afE.llvm.862030130881490728: argument 0"}
 !2751 = distinct !{!2751, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hd5b9b9129d6683afE.llvm.862030130881490728"}
-!2752 = distinct !{!2752, !2753, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E.argprom: argument 0"}
-!2753 = distinct !{!2753, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E.argprom"}
+!2752 = distinct !{!2752, !2753, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E: argument 0"}
+!2753 = distinct !{!2753, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17h9691efbb22a0e8a8E"}
 !2754 = !{!2755, !2757, !2759, !2665, !2658}
 !2755 = distinct !{!2755, !2756, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E: argument 0"}
 !2756 = distinct !{!2756, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817he57214f8e5d8fcc8E"}

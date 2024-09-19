@@ -411,16 +411,16 @@ define range(i32 0, 2) i32 @EVP_default_properties_is_fips_enabled(ptr noundef %
 entry:
   %call.i = tail call ptr @ossl_ctx_global_properties(ptr noundef %libctx, i32 noundef 1) #4
   %cmp.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i, label %evp_default_property_is_enabled.argprom.exit, label %land.rhs.i
+  br i1 %cmp.not.i, label %evp_default_property_is_enabled.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
   %0 = load ptr, ptr %call.i, align 8
   %call1.i = tail call i32 @ossl_property_is_enabled(ptr noundef %libctx, ptr noundef nonnull @.str.1, ptr noundef %0) #4
   %tobool.i = icmp ne i32 %call1.i, 0
   %1 = zext i1 %tobool.i to i32
-  br label %evp_default_property_is_enabled.argprom.exit
+  br label %evp_default_property_is_enabled.exit
 
-evp_default_property_is_enabled.argprom.exit:     ; preds = %entry, %land.rhs.i
+evp_default_property_is_enabled.exit:             ; preds = %entry, %land.rhs.i
   %land.ext.i = phi i32 [ 0, %entry ], [ %1, %land.rhs.i ]
   ret i32 %land.ext.i
 }

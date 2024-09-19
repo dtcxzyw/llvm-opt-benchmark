@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Gia_StoMergeCuts(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-Gia_ObjIsXor.argprom.exit:
+Gia_ObjIsXor.exit:
   %2 = alloca i64, align 8
   %3 = alloca [4 x i64], align 16
   %4 = alloca [4 x i64], align 16
@@ -87,8 +87,8 @@ Gia_ObjIsXor.argprom.exit:
   %26 = getelementptr inbounds i8, ptr %0, i64 7336
   br label %27
 
-27:                                               ; preds = %27, %Gia_ObjIsXor.argprom.exit
-  %indvars.iv.i = phi i64 [ 0, %Gia_ObjIsXor.argprom.exit ], [ %indvars.iv.next.i, %27 ]
+27:                                               ; preds = %27, %Gia_ObjIsXor.exit
+  %indvars.iv.i = phi i64 [ 0, %Gia_ObjIsXor.exit ], [ %indvars.iv.next.i, %27 ]
   %28 = getelementptr inbounds [65 x %struct.Gia_Cut_t_], ptr %26, i64 0, i64 %indvars.iv.i
   %29 = getelementptr inbounds [65 x ptr], ptr %25, i64 0, i64 %indvars.iv.i
   store ptr %28, ptr %29, align 8
@@ -1863,8 +1863,8 @@ Gia_CutSetLastCutContains.exit.i.us:              ; preds = %._crit_edge56.loope
   %892 = icmp sgt i32 %.0.i.i136.us, 0
   br i1 %892, label %.lr.ph.i8.i.us, label %Gia_CutSetSortByCost.exit.i.us
 
-.lr.ph.i8.i.us:                                   ; preds = %Gia_CutSetLastCutContains.exit.i.us, %Gia_CutCompare.argprom.exit.i.i.us
-  %.017.i.i137.us = phi i32 [ %909, %Gia_CutCompare.argprom.exit.i.i.us ], [ %.0.i.i136.us, %Gia_CutSetLastCutContains.exit.i.us ]
+.lr.ph.i8.i.us:                                   ; preds = %Gia_CutSetLastCutContains.exit.i.us, %Gia_CutCompare.exit.i.i.us
+  %.017.i.i137.us = phi i32 [ %909, %Gia_CutCompare.exit.i.i.us ], [ %.0.i.i136.us, %Gia_CutSetLastCutContains.exit.i.us ]
   %893 = zext nneg i32 %.017.i.i137.us to i64
   %894 = getelementptr ptr, ptr %25, i64 %893
   %895 = getelementptr i8, ptr %894, i64 -8
@@ -1881,23 +1881,23 @@ Gia_CutSetLastCutContains.exit.i.us:              ; preds = %._crit_edge56.loope
 
 903:                                              ; preds = %.lr.ph.i8.i.us
   %904 = icmp ugt i32 %900, %901
-  br i1 %904, label %Gia_CutCompare.argprom.exit.i.i.us, label %905
+  br i1 %904, label %Gia_CutCompare.exit.i.i.us, label %905
 
 905:                                              ; preds = %903
   %906 = lshr i32 %.val.i.i138.us, 28
   %907 = lshr i32 %.val15.i.i.us, 28
   %908 = icmp ult i32 %906, %907
-  br i1 %908, label %Gia_CutSetSortByCost.exit.i.us, label %Gia_CutCompare.argprom.exit.i.i.us
+  br i1 %908, label %Gia_CutSetSortByCost.exit.i.us, label %Gia_CutCompare.exit.i.i.us
 
-Gia_CutCompare.argprom.exit.i.i.us:               ; preds = %905, %903
+Gia_CutCompare.exit.i.i.us:                       ; preds = %905, %903
   store ptr %897, ptr %895, align 8
   store ptr %896, ptr %894, align 8
   %909 = add nsw i32 %.017.i.i137.us, -1
   %910 = icmp sgt i32 %.017.i.i137.us, 1
   br i1 %910, label %.lr.ph.i8.i.us, label %Gia_CutSetSortByCost.exit.i.us, !llvm.loop !35
 
-Gia_CutSetSortByCost.exit.i.us:                   ; preds = %.lr.ph.i8.i.us, %905, %Gia_CutCompare.argprom.exit.i.i.us, %Gia_CutSetLastCutContains.exit.i.us, %827
-  %.0.i10.i.us = phi i32 [ %.0.i.i136.us, %Gia_CutSetLastCutContains.exit.i.us ], [ %.1259.us, %827 ], [ %.0.i.i136.us, %Gia_CutCompare.argprom.exit.i.i.us ], [ %.0.i.i136.us, %905 ], [ %.0.i.i136.us, %.lr.ph.i8.i.us ]
+Gia_CutSetSortByCost.exit.i.us:                   ; preds = %.lr.ph.i8.i.us, %905, %Gia_CutCompare.exit.i.i.us, %Gia_CutSetLastCutContains.exit.i.us, %827
+  %.0.i10.i.us = phi i32 [ %.0.i.i136.us, %Gia_CutSetLastCutContains.exit.i.us ], [ %.1259.us, %827 ], [ %.0.i.i136.us, %Gia_CutCompare.exit.i.i.us ], [ %.0.i.i136.us, %905 ], [ %.0.i.i136.us, %.lr.ph.i8.i.us ]
   %911 = add nsw i32 %.0.i10.i.us, 1
   %912 = call noundef i32 @llvm.smin.i32(i32 %911, i32 %47)
   br label %Gia_CutSetAddCut.exit.us
@@ -2004,7 +2004,7 @@ Vec_IntPush.exit.i:                               ; preds = %954, %Vec_IntGrow.e
   %960 = getelementptr inbounds i32, ptr %956, i64 %959
   store i32 %.084.lcssa, ptr %960, align 4
   %961 = icmp sgt i32 %.084.lcssa, 0
-  br i1 %961, label %.lr.ph3.i, label %Gia_StoStoreResult.argprom.argprom.exit.thread
+  br i1 %961, label %.lr.ph3.i, label %Gia_StoStoreResult.exit.thread
 
 .lr.ph3.i:                                        ; preds = %Vec_IntPush.exit.i
   %.phi.trans.insert.i22.i = getelementptr inbounds i8, ptr %929, i64 8
@@ -2231,27 +2231,27 @@ Vec_IntPush.exit41.i:                             ; preds = %1060, %Vec_IntGrow.
   store i32 %1038, ptr %1066, align 4
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond.not.i150 = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count.i145
-  br i1 %exitcond.not.i150, label %Gia_StoStoreResult.argprom.argprom.exit, label %962, !llvm.loop !39
+  br i1 %exitcond.not.i150, label %Gia_StoStoreResult.exit, label %962, !llvm.loop !39
 
-Gia_StoStoreResult.argprom.argprom.exit:          ; preds = %Vec_IntPush.exit41.i
+Gia_StoStoreResult.exit:                          ; preds = %Vec_IntPush.exit41.i
   %.not = icmp eq i32 %.084.lcssa, 1
-  br i1 %.not, label %Gia_StoStoreResult.argprom.argprom.exit.thread, label %1071
+  br i1 %.not, label %Gia_StoStoreResult.exit.thread, label %1071
 
-Gia_StoStoreResult.argprom.argprom.exit.thread:   ; preds = %Vec_IntPush.exit.i, %Gia_StoStoreResult.argprom.argprom.exit
+Gia_StoStoreResult.exit.thread:                   ; preds = %Vec_IntPush.exit.i, %Gia_StoStoreResult.exit
   %1067 = load ptr, ptr %25, align 8
   %1068 = getelementptr inbounds i8, ptr %1067, i64 20
   %1069 = load i32, ptr %1068, align 4
   %1070 = icmp ugt i32 %1069, 536870911
   br i1 %1070, label %1071, label %1073
 
-1071:                                             ; preds = %Gia_StoStoreResult.argprom.argprom.exit.thread, %Gia_StoStoreResult.argprom.argprom.exit
+1071:                                             ; preds = %Gia_StoStoreResult.exit.thread, %Gia_StoStoreResult.exit
   %.val96 = load ptr, ptr %927, align 8
   %1072 = getelementptr i8, ptr %.val96, i64 8
   %.val96.val = load ptr, ptr %1072, align 8
-  call fastcc void @Gia_CutAddUnit.argprom.argprom(ptr %.val96.val, i32 noundef %1)
+  call fastcc void @Gia_CutAddUnit(ptr %.val96.val, i32 noundef %1)
   br label %1073
 
-1073:                                             ; preds = %1071, %Gia_StoStoreResult.argprom.argprom.exit.thread
+1073:                                             ; preds = %1071, %Gia_StoStoreResult.exit.thread
   ret void
 }
 
@@ -2393,7 +2393,7 @@ Gia_CutTreeLeaves.exit:                           ; preds = %Gia_CutTreeLeaves.e
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Gia_CutAddUnit.argprom.argprom(ptr nocapture %.40.val.8.val, i32 noundef %0) unnamed_addr #2 {
+define internal fastcc void @Gia_CutAddUnit(ptr nocapture %.40.val.8.val, i32 noundef %0) unnamed_addr #2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.40.val.8.val, i64 %2
   %4 = getelementptr i8, ptr %3, i64 4
@@ -3163,7 +3163,7 @@ Vec_IntPush.exit10.i:                             ; preds = %61, %Vec_IntGrow.ex
 .Vec_IntGrow.exit10_crit_edge.i11.i:              ; preds = %Vec_IntPush.exit10.i
   %.phi.trans.insert.i12.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre.i13.i = load ptr, ptr %.phi.trans.insert.i12.i, align 8
-  br label %Gia_CutAddZero.argprom.argprom.exit
+  br label %Gia_CutAddZero.exit
 
 71:                                               ; preds = %Vec_IntPush.exit10.i
   %72 = icmp slt i32 %68, 16
@@ -3187,7 +3187,7 @@ Vec_IntGrow.exit.i16.i:                           ; preds = %78, %76
   %80 = phi ptr [ %77, %76 ], [ %79, %78 ]
   store ptr %80, ptr %74, align 8
   store i32 16, ptr %6, align 8
-  br label %Gia_CutAddZero.argprom.argprom.exit
+  br label %Gia_CutAddZero.exit
 
 81:                                               ; preds = %71
   %82 = shl nuw nsw i32 %68, 1
@@ -3210,9 +3210,9 @@ Vec_IntGrow.exit.i16.i:                           ; preds = %78, %76
   %92 = phi ptr [ %88, %87 ], [ %90, %89 ]
   store ptr %92, ptr %83, align 8
   store i32 %82, ptr %6, align 8
-  br label %Gia_CutAddZero.argprom.argprom.exit
+  br label %Gia_CutAddZero.exit
 
-Gia_CutAddZero.argprom.argprom.exit:              ; preds = %.Vec_IntGrow.exit10_crit_edge.i11.i, %Vec_IntGrow.exit.i16.i, %91
+Gia_CutAddZero.exit:                              ; preds = %.Vec_IntGrow.exit10_crit_edge.i11.i, %Vec_IntGrow.exit.i16.i, %91
   %93 = phi ptr [ %.pre.i13.i, %.Vec_IntGrow.exit10_crit_edge.i11.i ], [ %92, %91 ], [ %80, %Vec_IntGrow.exit.i16.i ]
   %94 = load i32, ptr %7, align 4
   %95 = add nsw i32 %94, 1
@@ -3229,7 +3229,7 @@ define void @Gia_StoComputeCutsCi(ptr nocapture noundef readonly %0, i32 noundef
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %4, align 8
-  tail call fastcc void @Gia_CutAddUnit.argprom.argprom(ptr %.val.val, i32 noundef %1)
+  tail call fastcc void @Gia_CutAddUnit(ptr %.val.val, i32 noundef %1)
   ret void
 }
 
@@ -3418,7 +3418,7 @@ define void @Gia_StoComputeCuts(ptr noundef %0) local_unnamed_addr #0 {
   %.val.i = load ptr, ptr %18, align 8
   %25 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %25, align 8
-  tail call fastcc void @Gia_CutAddUnit.argprom.argprom(ptr %.val.val.i, i32 noundef %23)
+  tail call fastcc void @Gia_CutAddUnit(ptr %.val.val.i, i32 noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load ptr, ptr %14, align 8
   %27 = getelementptr i8, ptr %26, i64 4
@@ -3932,7 +3932,7 @@ define noalias noundef ptr @Gia_ManExtractCuts(ptr noundef %0, i32 noundef %1, i
   %.val.i = load ptr, ptr %21, align 8
   %28 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %28, align 8
-  tail call fastcc void @Gia_CutAddUnit.argprom.argprom(ptr %.val.val.i, i32 noundef %26)
+  tail call fastcc void @Gia_CutAddUnit(ptr %.val.val.i, i32 noundef %26)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load ptr, ptr %17, align 8
   %30 = getelementptr i8, ptr %29, i64 4
@@ -4389,14 +4389,14 @@ Vec_IntPush.exit.i:                               ; preds = %123, %Vec_IntGrow.e
   %138 = icmp ult ptr %.1.i, %92
   %139 = icmp ult ptr %.123.i, %94
   %140 = select i1 %138, i1 %139, i1 false
-  br i1 %140, label %.lr.ph.i, label %Vec_IntTwoFindCommon.argprom.exit, !llvm.loop !58
+  br i1 %140, label %.lr.ph.i, label %Vec_IntTwoFindCommon.exit, !llvm.loop !58
 
-Vec_IntTwoFindCommon.argprom.exit:                ; preds = %137
+Vec_IntTwoFindCommon.exit:                        ; preds = %137
   %.val6394.pre = load i32, ptr %13, align 4
   %141 = icmp sgt i32 %.val6394.pre, 0
   br i1 %141, label %.lr.ph96, label %.critedge6
 
-.lr.ph96:                                         ; preds = %Vec_IntTwoFindCommon.argprom.exit
+.lr.ph96:                                         ; preds = %Vec_IntTwoFindCommon.exit
   %142 = getelementptr inbounds i8, ptr %76, i64 4
   %143 = getelementptr inbounds i8, ptr %76, i64 8
   br label %144
@@ -4587,7 +4587,7 @@ Vec_IntPush.exit80:                               ; preds = %.Vec_IntGrow.exit10
   %223 = icmp slt i64 %indvars.iv.next106, %222
   br i1 %223, label %144, label %.critedge6, !llvm.loop !61
 
-.critedge6:                                       ; preds = %Vec_IntPush.exit80, %75, %Vec_IntTwoFindCommon.argprom.exit, %70
+.critedge6:                                       ; preds = %Vec_IntPush.exit80, %75, %Vec_IntTwoFindCommon.exit, %70
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %224 = load i32, ptr %3, align 8
   %225 = sext i32 %224 to i64
@@ -7355,7 +7355,7 @@ define noalias noundef ptr @Gia_ManExploreCuts(ptr noundef %0, i32 noundef %1, i
   %.val.i = load ptr, ptr %21, align 8
   %28 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %28, align 8
-  tail call fastcc void @Gia_CutAddUnit.argprom.argprom(ptr %.val.val.i, i32 noundef %26)
+  tail call fastcc void @Gia_CutAddUnit(ptr %.val.val.i, i32 noundef %26)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load ptr, ptr %17, align 8
   %30 = getelementptr i8, ptr %29, i64 4

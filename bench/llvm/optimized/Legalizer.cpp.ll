@@ -657,48 +657,48 @@ _ZN4llvm13GISelWorkListILj128EEC2Ev.exit:         ; preds = %.lr.ph.i.i.i.i65, %
   br i1 %59, label %60, label %77
 
 60:                                               ; preds = %.lr.ph
-  switch i16 %56, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread92 [
-    i16 127, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 134, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 126, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 132, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 73, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 71, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 76, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 74, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 70, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 72, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit
+  switch i16 %56, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread92 [
+    i16 127, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread
+    i16 134, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread
+    i16 126, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread
+    i16 132, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread
+    i16 73, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread
+    i16 71, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread
+    i16 76, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread
+    i16 74, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread
+    i16 70, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread
+    i16 72, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit
   ]
 
-_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit: ; preds = %60
+_ZL10isArtifactRKN4llvm12MachineInstrE.exit:      ; preds = %60
   %61 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22AllowGInsertAsArtifact, i64 128), align 8
   %62 = trunc i8 %61 to i1
-  br i1 %62, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread, label %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread92
+  br i1 %62, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread, label %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread92
 
-_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread: ; preds = %60, %60, %60, %60, %60, %60, %60, %60, %60, %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit
+_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread: ; preds = %60, %60, %60, %60, %60, %60, %60, %60, %60, %_ZL10isArtifactRKN4llvm12MachineInstrE.exit
   %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
   %64 = add i64 %63, 1
   %65 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
   %.not.i.i.i.i68 = icmp ugt i64 %64, %65
   br i1 %.not.i.i.i.i68, label %66, label %.sink.split
 
-66:                                               ; preds = %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread
+66:                                               ; preds = %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %32, i64 noundef %64, i64 noundef 8) #25
   br label %.sink.split
 
-_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread92: ; preds = %60, %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit
+_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread92: ; preds = %60, %_ZL10isArtifactRKN4llvm12MachineInstrE.exit
   %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
   %68 = add i64 %67, 1
   %69 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
   %.not.i.i.i.i69 = icmp ugt i64 %68, %69
   br i1 %.not.i.i.i.i69, label %70, label %.sink.split
 
-70:                                               ; preds = %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread92
+70:                                               ; preds = %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread92
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %22, i64 noundef %68, i64 noundef 8) #25
   br label %.sink.split
 
-.sink.split:                                      ; preds = %70, %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread92, %66, %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread
-  %.sink171 = phi ptr [ %9, %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread ], [ %9, %66 ], [ %8, %_ZL10isArtifactRKN4llvm12MachineInstrE.argprom.exit.thread92 ], [ %8, %70 ]
+.sink.split:                                      ; preds = %70, %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread92, %66, %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread
+  %.sink171 = phi ptr [ %9, %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread ], [ %9, %66 ], [ %8, %_ZL10isArtifactRKN4llvm12MachineInstrE.exit.thread92 ], [ %8, %70 ]
   %71 = load ptr, ptr %.sink171, align 8
   %72 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink171) #25
   %73 = getelementptr inbounds ptr, ptr %71, i64 %72
@@ -925,7 +925,7 @@ _ZN4llvm13GISelWorkListILj256EE12pop_back_valEv.exit: ; preds = %.lr.ph.i.i.i, %
 170:                                              ; preds = %167
   %171 = getelementptr i8, ptr %132, i64 68
   %.val63 = load i16, ptr %171, align 4
-  %172 = call fastcc noundef zeroext i1 @_ZL10isArtifactRKN4llvm12MachineInstrE.argprom(i16 %.val63)
+  %172 = call fastcc noundef zeroext i1 @_ZL10isArtifactRKN4llvm12MachineInstrE(i16 %.val63)
   br i1 %172, label %173, label %184
 
 173:                                              ; preds = %170
@@ -1220,7 +1220,7 @@ _ZN4llvm13GISelWorkListILj256EED2Ev.exit:         ; preds = %_ZN4llvm13GISelWork
 declare void @_ZN4llvm16MachineIRBuilder5setMFERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(1041)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL10isArtifactRKN4llvm12MachineInstrE.argprom(i16 %.68.val) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZL10isArtifactRKN4llvm12MachineInstrE(i16 %.68.val) unnamed_addr #5 {
   switch i16 %.68.val, label %5 [
     i16 127, label %1
     i16 134, label %1
@@ -2901,21 +2901,21 @@ define internal void @_ZN12_GLOBAL__N_124LegalizerWorkListManager12createdInstrE
   %7 = zext i16 %6 to i32
   %8 = add nsw i32 %7, -52
   %9 = icmp ult i32 %8, 244
-  br i1 %9, label %10, label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.argprom.exit
+  br i1 %9, label %10, label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.exit
 
 10:                                               ; preds = %2
-  %11 = tail call fastcc noundef zeroext i1 @_ZL10isArtifactRKN4llvm12MachineInstrE.argprom(i16 %6)
+  %11 = tail call fastcc noundef zeroext i1 @_ZL10isArtifactRKN4llvm12MachineInstrE(i16 %6)
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %10
   tail call void @_ZN4llvm13GISelWorkListILj128EE6insertEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1064) %.val2, ptr noundef nonnull %1)
-  br label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.argprom.exit
+  br label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.exit
 
 13:                                               ; preds = %10
   tail call void @_ZN4llvm13GISelWorkListILj256EE6insertEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(2088) %.val, ptr noundef nonnull %1)
-  br label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.argprom.exit
+  br label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.exit
 
-_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.argprom.exit: ; preds = %2, %12, %13
+_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.exit: ; preds = %2, %12, %13
   ret void
 }
 
@@ -2935,21 +2935,21 @@ define internal void @_ZN12_GLOBAL__N_124LegalizerWorkListManager12changedInstrE
   %7 = zext i16 %6 to i32
   %8 = add nsw i32 %7, -52
   %9 = icmp ult i32 %8, 244
-  br i1 %9, label %10, label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.argprom.exit
+  br i1 %9, label %10, label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.exit
 
 10:                                               ; preds = %2
-  %11 = tail call fastcc noundef zeroext i1 @_ZL10isArtifactRKN4llvm12MachineInstrE.argprom(i16 %6)
+  %11 = tail call fastcc noundef zeroext i1 @_ZL10isArtifactRKN4llvm12MachineInstrE(i16 %6)
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %10
   tail call void @_ZN4llvm13GISelWorkListILj128EE6insertEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1064) %.val2, ptr noundef nonnull %1)
-  br label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.argprom.exit
+  br label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.exit
 
 13:                                               ; preds = %10
   tail call void @_ZN4llvm13GISelWorkListILj256EE6insertEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(2088) %.val, ptr noundef nonnull %1)
-  br label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.argprom.exit
+  br label %_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.exit
 
-_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.argprom.exit: ; preds = %2, %12, %13
+_ZN12_GLOBAL__N_124LegalizerWorkListManager21createdOrChangedInstrERN4llvm12MachineInstrE.exit: ; preds = %2, %12, %13
   ret void
 }
 

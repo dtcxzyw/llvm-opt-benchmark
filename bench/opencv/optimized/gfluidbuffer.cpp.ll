@@ -1237,7 +1237,7 @@ define hidden void @_ZNK2cv4gapi5fluid26BufferStorageWithoutBorder6copyToERNS1_2
   %20 = srem i32 %18, %19
   %21 = load i32, ptr %12, align 8
   %22 = srem i32 %.010, %21
-  tail call fastcc void @_ZN2cv4gapiL17copyWithoutBorderERKNS_3MatEiRS1_iiii.argelim(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef %16, i32 noundef %20, i32 noundef %22)
+  tail call fastcc void @_ZN2cv4gapiL17copyWithoutBorderERKNS_3MatEiRS1_iiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef %16, i32 noundef %20, i32 noundef %22)
   %23 = add nsw i32 %.010, 1
   %24 = icmp slt i32 %23, %5
   br i1 %24, label %13, label %._crit_edge, !llvm.loop !10
@@ -1247,7 +1247,7 @@ define hidden void @_ZNK2cv4gapi5fluid26BufferStorageWithoutBorder6copyToERNS1_2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapiL17copyWithoutBorderERKNS_3MatEiRS1_iiii.argelim(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapiL17copyWithoutBorderERKNS_3MatEiRS1_iiii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca %"class.cv::Rect_", align 4
   %9 = alloca %"class.cv::Mat", align 8
@@ -1356,7 +1356,7 @@ define hidden void @_ZNK2cv4gapi5fluid23BufferStorageWithBorder6copyToERS2_ii(pt
   %21 = srem i32 %.010, %20
   %22 = load i32, ptr %12, align 8
   %23 = srem i32 %.010, %22
-  tail call fastcc void @_ZN2cv4gapiL17copyWithoutBorderERKNS_3MatEiRS1_iiii.argelim(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef %19, i32 noundef %21, i32 noundef %23)
+  tail call fastcc void @_ZN2cv4gapiL17copyWithoutBorderERKNS_3MatEiRS1_iiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef %19, i32 noundef %21, i32 noundef %23)
   %24 = add nsw i32 %.010, 1
   %25 = icmp slt i32 %24, %5
   br i1 %25, label %13, label %._crit_edge, !llvm.loop !11

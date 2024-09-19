@@ -2888,7 +2888,7 @@ define internal fastcc i32 @snd_pcm_hw_params(ptr noundef %0, ptr noundef %1) un
 
 264:                                              ; preds = %255, %250, %245
   tail call void @snd_pcm_timer_resolution_change(ptr noundef nonnull %0) #18
-  tail call fastcc void @snd_pcm_set_state.argelim(ptr noundef %0)
+  tail call fastcc void @snd_pcm_set_state(ptr noundef %0)
   %265 = getelementptr inbounds i8, ptr %0, i64 64
   %266 = tail call zeroext i1 @cpu_latency_qos_request_active(ptr noundef %265) #18
   br i1 %266, label %267, label %268
@@ -6696,7 +6696,7 @@ declare dso_local i32 @snd_pcm_lib_malloc_pages(ptr noundef, i64 noundef) local_
 declare dso_local void @snd_pcm_timer_resolution_change(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @snd_pcm_set_state.argelim(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
+define internal fastcc void @snd_pcm_set_state(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 369
   %4 = load i8, ptr %3, align 1, !range !6, !noundef !7

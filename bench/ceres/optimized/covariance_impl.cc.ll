@@ -6440,13 +6440,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   %356 = load i32, ptr %355, align 8
   %357 = add nsw i32 %353, 1
   %358 = icmp slt i32 %357, %204
-  br i1 %358, label %359, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %358, label %359, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i.i"
 
 359:                                              ; preds = %354
   %360 = getelementptr inbounds i8, ptr %338, i64 36
   %361 = load atomic i32, ptr %360 seq_cst, align 4
   %362 = icmp slt i32 %361, %356
-  br i1 %362, label %363, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %362, label %363, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i.i"
 
 363:                                              ; preds = %359
   %364 = load i8, ptr @__libc_single_threaded, align 1
@@ -6490,11 +6490,11 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 378:                                              ; preds = %372
   %379 = load ptr, ptr %370, align 8
   %.not.i.i.i12.i.i = icmp eq ptr %379, null
-  br i1 %.not.i.i.i12.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i.i", label %380
+  br i1 %.not.i.i.i12.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i.i", label %380
 
 380:                                              ; preds = %378
   %381 = invoke noundef zeroext i1 %379(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
-          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i.i" unwind label %382
+          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i.i" unwind label %382
 
 382:                                              ; preds = %380
   %383 = landingpad { ptr, i32 }
@@ -6529,10 +6529,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %390, %387, %385
   %.sroa.5.0.i.i.i = phi ptr [ %338, %385 ], [ null, %387 ], [ null, %390 ]
   %.pn.i.i.i = phi { ptr, i32 } [ %386, %385 ], [ %388, %387 ], [ %388, %390 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom"(ptr %.sroa.5.0.i.i.i) #30
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev"(ptr %.sroa.5.0.i.i.i) #30
   br label %.body.i.i
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i.i": ; preds = %380, %378, %359, %354
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i.i": ; preds = %380, %378, %359, %354
   %395 = load i32, ptr %342, align 8
   %396 = getelementptr inbounds i8, ptr %338, i64 28
   %397 = load i32, ptr %396, align 4
@@ -6543,9 +6543,9 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %390, %387, %385
   %.not3688.i.i.i = icmp slt i32 %401, %356
   br i1 %.not3688.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i.i", %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i"
-  %402 = phi i32 [ %524, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ], [ %401, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
-  %.03489.i.i.i = phi i32 [ %403, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
+.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i.i", %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i"
+  %402 = phi i32 [ %524, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ %401, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i.i" ]
+  %.03489.i.i.i = phi i32 [ %403, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i.i" ]
   %403 = add nuw nsw i32 %.03489.i.i.i, 1
   %404 = mul nsw i32 %402, %397
   %405 = add nsw i32 %404, %395
@@ -6556,7 +6556,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %390, %387, %385
   %409 = add i32 %397, %408
   %410 = add i32 %409, %406
   %.not2.i.i.i.i = icmp eq i32 %409, 0
-  br i1 %.not2.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", label %.lr.ph.i.i.i.i
+  br i1 %.not2.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i, %"_ZZNK5ceres8internal14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS4_EEbPdENK3$_0clEii.exit.i.i.i"
   %storemerge3.i.i.i.i = phi i32 [ %523, %"_ZZNK5ceres8internal14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS4_EEbPdENK3$_0clEii.exit.i.i.i" ], [ %406, %.lr.ph.i.i.i ]
@@ -6785,15 +6785,15 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %523 = add nsw i32 %storemerge3.i.i.i.i, 1
   %.not.i.i.i.i55 = icmp eq i32 %523, %410
-  br i1 %.not.i.i.i.i55, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", label %.lr.ph.i.i.i.i, !llvm.loop !102
+  br i1 %.not.i.i.i.i55, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", label %.lr.ph.i.i.i.i, !llvm.loop !102
 
-"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i": ; preds = %"_ZZNK5ceres8internal14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS4_EEbPdENK3$_0clEii.exit.i.i.i", %.lr.ph.i.i.i
+"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i": ; preds = %"_ZZNK5ceres8internal14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS4_EEbPdENK3$_0clEii.exit.i.i.i", %.lr.ph.i.i.i
   %524 = atomicrmw add ptr %400, i32 1 seq_cst, align 4
   %.not36.i.i.i = icmp slt i32 %524, %356
   br i1 %.not36.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !103
 
-._crit_edge.i.i.i:                                ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i.i"
-  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i.i" ], [ %403, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ]
+._crit_edge.i.i.i:                                ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i.i"
+  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i.i" ], [ %403, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ]
   %525 = getelementptr inbounds i8, ptr %338, i64 48
   invoke void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %525, i32 noundef %.034.lcssa.i.i.i)
           to label %526 unwind label %.loopexit.split-lp.i.i
@@ -6837,7 +6837,7 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 543:                                              ; preds = %541, %539
   %.0.i.i.i.i.i.i.i = phi i32 [ %532, %539 ], [ %542, %541 ]
   %544 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %544, label %545, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit.i.i"
+  br i1 %544, label %545, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit.i.i"
 
 545:                                              ; preds = %543
   %546 = load ptr, ptr %338, align 8
@@ -6861,21 +6861,21 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 555:                                              ; preds = %553, %550
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %551, %550 ], [ %554, %553 ]
   %556 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %556, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit.i.i"
+  br i1 %556, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %555, %533
   %557 = load ptr, ptr %338, align 8
   %558 = getelementptr inbounds i8, ptr %557, i64 24
   %559 = load ptr, ptr %558, align 8
   call void %559(ptr noundef nonnull align 8 dereferenceable(16) %338) #30
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit.i.i"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit.i.i"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %555, %543
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %555, %543
   %560 = load ptr, ptr %345, align 8
   %.not.i.i.i17.i.i = icmp eq ptr %560, null
   br i1 %.not.i.i.i17.i.i, label %"_ZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_i.exit.i", label %561
 
-561:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit.i.i"
+561:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit.i.i"
   %562 = getelementptr inbounds i8, ptr %560, i64 8
   %563 = load atomic i64, ptr %562 acquire, align 8
   %564 = icmp eq i64 %563, 4294967297
@@ -6955,11 +6955,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .body.i.i:                                        ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
-  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom"(ptr nonnull %338) #30
+  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev"(ptr nonnull %338) #30
   call void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #30
   br label %.body
 
-"_ZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %590, %577, %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit.i.i"
+"_ZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %590, %577, %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   br label %.loopexit87
 
@@ -8514,8 +8514,8 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   %zext.i = zext nneg i32 %200 to i64
   br label %226
 
-226:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i", %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i" ]
+226:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i", %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i" ]
   %227 = load ptr, ptr %29, align 8
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds i32, ptr %228, i64 %indvars.iv.i.i
@@ -8523,7 +8523,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   %231 = getelementptr i8, ptr %229, i64 4
   %232 = load i32, ptr %231, align 4
   %.not.i.i.i.i = icmp eq i32 %232, %230
-  br i1 %.not.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i", label %233
+  br i1 %.not.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i", label %233
 
 233:                                              ; preds = %226
   %234 = load ptr, ptr %201, align 8
@@ -8546,7 +8546,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
 
 .noexc63:                                         ; preds = %233
   %249 = icmp slt i32 %230, %232
-  br i1 %249, label %.lr.ph.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i"
+  br i1 %249, label %.lr.ph.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i"
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc63
   %250 = sext i32 %230 to i64
@@ -8573,9 +8573,9 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   store double %263, ptr %266, align 8
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i", label %251, !llvm.loop !117
+  br i1 %exitcond.not.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i", label %251, !llvm.loop !117
 
-"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i": ; preds = %251, %.noexc63, %226
+"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i": ; preds = %251, %.noexc63, %226
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %267 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %267, label %.loopexit80, label %226, !llvm.loop !118
@@ -8660,13 +8660,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   %294 = load i32, ptr %293, align 8
   %295 = add nsw i32 %291, 1
   %296 = icmp slt i32 %295, %185
-  br i1 %296, label %297, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %296, label %297, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i.i"
 
 297:                                              ; preds = %292
   %298 = getelementptr inbounds i8, ptr %276, i64 36
   %299 = load atomic i32, ptr %298 seq_cst, align 4
   %300 = icmp slt i32 %299, %294
-  br i1 %300, label %301, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %300, label %301, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i.i"
 
 301:                                              ; preds = %297
   %302 = load i8, ptr @__libc_single_threaded, align 1
@@ -8710,11 +8710,11 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 316:                                              ; preds = %310
   %317 = load ptr, ptr %308, align 8
   %.not.i.i.i13.i.i = icmp eq ptr %317, null
-  br i1 %.not.i.i.i13.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i.i", label %318
+  br i1 %.not.i.i.i13.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i.i", label %318
 
 318:                                              ; preds = %316
   %319 = invoke noundef zeroext i1 %317(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
-          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i.i" unwind label %320
+          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i.i" unwind label %320
 
 320:                                              ; preds = %318
   %321 = landingpad { ptr, i32 }
@@ -8749,10 +8749,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %328, %325, %323
   %.sroa.5.0.i.i.i = phi ptr [ %276, %323 ], [ null, %325 ], [ null, %328 ]
   %.pn.i.i.i = phi { ptr, i32 } [ %324, %323 ], [ %326, %325 ], [ %326, %328 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom"(ptr %.sroa.5.0.i.i.i) #30
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev"(ptr %.sroa.5.0.i.i.i) #30
   br label %.body.i.i
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i.i": ; preds = %318, %316, %297, %292
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i.i": ; preds = %318, %316, %297, %292
   %333 = load i32, ptr %280, align 8
   %334 = getelementptr inbounds i8, ptr %276, i64 28
   %335 = load i32, ptr %334, align 4
@@ -8763,9 +8763,9 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %328, %325, %323
   %.not3656.i.i.i = icmp slt i32 %339, %294
   br i1 %.not3656.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i.i", %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i"
-  %340 = phi i32 [ %471, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ], [ %339, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
-  %.03457.i.i.i = phi i32 [ %341, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
+.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i.i", %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i"
+  %340 = phi i32 [ %471, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ %339, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i.i" ]
+  %.03457.i.i.i = phi i32 [ %341, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i.i" ]
   %341 = add nuw nsw i32 %.03457.i.i.i, 1
   %342 = mul nsw i32 %340, %335
   %343 = add nsw i32 %342, %333
@@ -8776,14 +8776,14 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %328, %325, %323
   %347 = add i32 %335, %346
   %348 = add i32 %347, %344
   %.not2.i.i.i.i = icmp eq i32 %347, 0
-  br i1 %.not2.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", label %.lr.ph.i.i.i18.i
+  br i1 %.not2.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", label %.lr.ph.i.i.i18.i
 
 .lr.ph.i.i.i18.i:                                 ; preds = %.lr.ph.i.i.i
   %349 = sext i32 %344 to i64
   br label %350
 
-350:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", %.lr.ph.i.i.i18.i
-  %indvars.iv.i.i.i19.i = phi i64 [ %349, %.lr.ph.i.i.i18.i ], [ %indvars.iv.next.i.i.i20.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i" ]
+350:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", %.lr.ph.i.i.i18.i
+  %indvars.iv.i.i.i19.i = phi i64 [ %349, %.lr.ph.i.i.i18.i ], [ %indvars.iv.next.i.i.i20.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i" ]
   %351 = load ptr, ptr %29, align 8
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds i32, ptr %352, i64 %indvars.iv.i.i.i19.i
@@ -8791,7 +8791,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %328, %325, %323
   %355 = getelementptr i8, ptr %353, i64 4
   %356 = load i32, ptr %355, align 4
   %.not.i.i.i.i12.i.i = icmp eq i32 %356, %354
-  br i1 %.not.i.i.i.i12.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", label %357
+  br i1 %.not.i.i.i.i12.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", label %357
 
 357:                                              ; preds = %350
   %358 = load ptr, ptr %201, align 8
@@ -8956,7 +8956,7 @@ _ZSt4fillIPddEvT_S1_RKT0_.exit.i.i.i.i:           ; preds = %.lr.ph.i.i.i.prehea
 
 _ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit.i.i.i: ; preds = %.loopexit.i.i.i.i.i, %._crit_edge49.i.i.i.i
   %452 = icmp slt i32 %354, %356
-  br i1 %452, label %.lr.ph.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i"
+  br i1 %452, label %.lr.ph.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i"
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit.i.i.i
   %453 = sext i32 %354 to i64
@@ -8983,21 +8983,21 @@ _ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit.i.i.i: ; pre
   store double %466, ptr %469, align 8
   %indvars.iv.next.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", label %454, !llvm.loop !117
+  br i1 %exitcond.not.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", label %454, !llvm.loop !117
 
-"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i": ; preds = %454, %_ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit.i.i.i, %350
+"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i": ; preds = %454, %_ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit.i.i.i, %350
   %indvars.iv.next.i.i.i20.i = add nsw i64 %indvars.iv.i.i.i19.i, 1
   %470 = trunc nsw i64 %indvars.iv.next.i.i.i20.i to i32
   %.not.i.i.i21.i = icmp eq i32 %348, %470
-  br i1 %.not.i.i.i21.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", label %350, !llvm.loop !126
+  br i1 %.not.i.i.i21.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", label %350, !llvm.loop !126
 
-"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", %.lr.ph.i.i.i
+"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", %.lr.ph.i.i.i
   %471 = atomicrmw add ptr %338, i32 1 seq_cst, align 4
   %.not36.i.i.i = icmp slt i32 %471, %294
   br i1 %.not36.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !127
 
-._crit_edge.i.i.i:                                ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i.i"
-  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i.i" ], [ %341, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ]
+._crit_edge.i.i.i:                                ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i.i"
+  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i.i" ], [ %341, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ]
   %472 = getelementptr inbounds i8, ptr %276, i64 48
   invoke void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %472, i32 noundef %.034.lcssa.i.i.i)
           to label %473 unwind label %542
@@ -9041,7 +9041,7 @@ _ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit.i.i.i: ; pre
 490:                                              ; preds = %488, %486
   %.0.i.i.i.i.i.i.i = phi i32 [ %479, %486 ], [ %489, %488 ]
   %491 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %491, label %492, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit.i.i"
+  br i1 %491, label %492, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit.i.i"
 
 492:                                              ; preds = %490
   %493 = load ptr, ptr %276, align 8
@@ -9065,21 +9065,21 @@ _ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit.i.i.i: ; pre
 502:                                              ; preds = %500, %497
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %498, %497 ], [ %501, %500 ]
   %503 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %503, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit.i.i"
+  br i1 %503, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %502, %480
   %504 = load ptr, ptr %276, align 8
   %505 = getelementptr inbounds i8, ptr %504, i64 24
   %506 = load ptr, ptr %505, align 8
   call void %506(ptr noundef nonnull align 8 dereferenceable(16) %276) #30
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit.i.i"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit.i.i"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %502, %490
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %502, %490
   %507 = load ptr, ptr %283, align 8
   %.not.i.i.i16.i.i = icmp eq ptr %507, null
   br i1 %.not.i.i.i16.i.i, label %"_ZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_i.exit.i", label %508
 
-508:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit.i.i"
+508:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit.i.i"
   %509 = getelementptr inbounds i8, ptr %507, i64 8
   %510 = load atomic i64, ptr %509 acquire, align 8
   %511 = icmp eq i64 %510, 4294967297
@@ -9154,15 +9154,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .body.i.i:                                        ; preds = %542, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %543, %542 ], [ %.pn.i.i.i, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i ]
-  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom"(ptr nonnull %276) #30
+  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev"(ptr nonnull %276) #30
   call void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %.body60
 
-"_ZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %537, %524, %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit.i.i"
+"_ZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %537, %524, %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %.loopexit80
 
-.loopexit80:                                      ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i", %"_ZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_i.exit.i", %222
+.loopexit80:                                      ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i.i", %"_ZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_i.exit.i", %222
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
@@ -21166,7 +21166,7 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 declare void @_ZN5ceres8internal18BlockUntilFinished5BlockEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.16.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %1
 
@@ -21388,9 +21388,9 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @_ZN5ceres8internal10ThreadPool7AddTaskERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -21426,7 +21426,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14Covar
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -21451,16 +21451,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14Covar
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #30
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -21482,16 +21482,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -21532,18 +21532,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -21579,7 +21579,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -21604,20 +21604,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #30
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #32
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E15_M_init_functorIRKSL_EEvRSt9_Any_dataSH_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clISH_EEDaSG_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clISJ_EEDaSI_EUlvE_E15_M_init_functorIRKSL_EEvRSt9_Any_dataSH_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -21642,13 +21642,13 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14Covari
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %9, 1
   %17 = icmp slt i32 %16, %11
-  br i1 %17, label %18, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit"
+  br i1 %17, label %18, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit"
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %13, i64 20
   %20 = load atomic i32, ptr %19 seq_cst, align 4
   %21 = icmp slt i32 %20, %15
-  br i1 %21, label %22, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit"
+  br i1 %21, label %22, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit"
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %0, align 8
@@ -21736,7 +21736,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14Covari
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %54, %56
-  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit", label %61
+  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit", label %61
 
 61:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %62 = getelementptr inbounds i8, ptr %28, i64 8
@@ -21772,7 +21772,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %54, %56
 77:                                               ; preds = %75, %73
   %.0.i.i.i.i.i.i = phi i32 [ %65, %73 ], [ %76, %75 ]
   %78 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %78, label %79, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit"
+  br i1 %78, label %79, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit"
 
 79:                                               ; preds = %77
   %80 = load ptr, ptr %28, align 8
@@ -21797,14 +21797,14 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %54, %56
 90:                                               ; preds = %88, %85
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %86, %85 ], [ %89, %88 ]
   %91 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %91, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit"
+  br i1 %91, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %90, %66
   %92 = load ptr, ptr %28, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 24
   %94 = load ptr, ptr %93, align 8
   call void %94(ptr noundef nonnull align 8 dereferenceable(16) %28) #30
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit"
 
 95:                                               ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_C2ERKSH_.exit"
   %96 = landingpad { ptr, i32 }
@@ -21831,10 +21831,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %100, %97, %95
   %.pn = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %98, %100 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom"(ptr %28) #30
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev"(ptr %28) #30
   resume { ptr, i32 } %.pn
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %90, %77, %_ZNSt8functionIFvvEED2Ev.exit, %18, %12
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %90, %77, %_ZNSt8functionIFvvEED2Ev.exit, %18, %12
   %105 = load ptr, ptr %6, align 8
   %106 = load i32, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %105, i64 12
@@ -21846,13 +21846,13 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %100, %97, %95
   %.not3689 = icmp slt i32 %112, %15
   br i1 %.not3689, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit"
   %113 = getelementptr inbounds i8, ptr %0, i64 32
   br label %114
 
-114:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit"
-  %115 = phi i32 [ %112, %.lr.ph ], [ %249, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
-  %.03490 = phi i32 [ 0, %.lr.ph ], [ %116, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
+114:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit"
+  %115 = phi i32 [ %112, %.lr.ph ], [ %249, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
+  %.03490 = phi i32 [ 0, %.lr.ph ], [ %116, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
   %116 = add nuw nsw i32 %.03490, 1
   %117 = mul nsw i32 %115, %108
   %118 = add nsw i32 %117, %106
@@ -21864,7 +21864,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %100, %97, %95
   %123 = add i32 %122, %119
   %124 = load ptr, ptr %113, align 8
   %.not2.i = icmp eq i32 %122, 0
-  br i1 %.not2.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", label %.lr.ph.i.preheader
+  br i1 %.not2.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit", label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %114
   %125 = getelementptr inbounds i8, ptr %124, i64 40
@@ -22099,17 +22099,17 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %246 = add nsw i32 %storemerge3.i, 1
   %.not.i = icmp eq i32 %246, %123
-  br i1 %.not.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", label %.lr.ph.i, !llvm.loop !102
+  br i1 %.not.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit", label %.lr.ph.i, !llvm.loop !102
 
-"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit": ; preds = %"_ZZNK5ceres8internal14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS4_EEbPdENK3$_0clEii.exit", %114
+"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit": ; preds = %"_ZZNK5ceres8internal14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS4_EEbPdENK3$_0clEii.exit", %114
   %247 = load ptr, ptr %6, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 20
   %249 = atomicrmw add ptr %248, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %249, %15
   br i1 %.not36, label %114, label %._crit_edge, !llvm.loop !510
 
-._crit_edge:                                      ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit"
-  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit" ], [ %116, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
+._crit_edge:                                      ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit"
+  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit" ], [ %116, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
   %250 = load ptr, ptr %6, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %251, i32 noundef %.034.lcssa)
@@ -22120,9 +22120,9 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -22158,7 +22158,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14Covar
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -22183,16 +22183,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14Covar
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #30
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSE_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -22212,16 +22212,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -22262,18 +22262,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -22309,7 +22309,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -22334,20 +22334,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #30
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #32
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E15_M_init_functorIRKSM_EEvRSt9_Any_dataSH_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS5_EEbPdE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSE_E_clIKSH_EEDaSG_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_14CovarianceImpl42GetCovarianceMatrixInTangentOrAmbientSpaceERKSt6vectorIPKdSaIS7_EEbPdE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSG_E_clIKSJ_EEDaSI_EUlvE_E15_M_init_functorIRKSM_EEvRSt9_Any_dataSH_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -69961,16 +69961,16 @@ _ZN5Eigen17PermutationMatrixILin1ELin1EiEC2IS1_EERKNS_11InverseImplIT_NS_18Permu
   %83 = ptrtoint ptr %68 to i64
   %84 = and i64 %83, 3
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %84, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %85, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i, label %85, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
 
 85:                                               ; preds = %82
   %86 = lshr exact i64 %83, 2
   %87 = sub nsw i64 0, %86
   %88 = and i64 %87, 3
   %89 = call i64 @llvm.smin.i64(i64 %88, i64 %80)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i: ; preds = %85, %82
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i: ; preds = %85, %82
   %.0.i.i.i.i.i.i.i.i = phi i64 [ %89, %85 ], [ %80, %82 ]
   %90 = sub nsw i64 %80, %.0.i.i.i.i.i.i.i.i
   %91 = sdiv i64 %90, 8
@@ -69983,7 +69983,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i = icmp ult i64 %.off.i.i.i.i, 7
   br i1 %.not.i.i.i.i, label %139, label %97
 
-97:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+97:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
   %98 = getelementptr i32, ptr %68, i64 %.0.i.i.i.i.i.i.i.i
   %99 = load <2 x i64>, ptr %98, align 1
   %100 = icmp sgt i64 %90, 7
@@ -70068,7 +70068,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %138 = icmp slt i64 %137, %80
   br i1 %138, label %.lr.ph89.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i, !llvm.loop !2340
 
-139:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+139:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
   %140 = load i32, ptr %68, align 4
   %141 = icmp sgt i64 %80, 1
   br i1 %141, label %.lr.ph94.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i
@@ -70130,16 +70130,16 @@ _ZN5Eigen12SparseMatrixIdLi0EiE7reserveEl.exit:   ; preds = %_ZNK5Eigen20SparseC
   %171 = ptrtoint ptr %156 to i64
   %172 = and i64 %171, 3
   %.not.i.i.i.i.i.i.i.i9 = icmp eq i64 %172, 0
-  br i1 %.not.i.i.i.i.i.i.i.i9, label %173, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i10
+  br i1 %.not.i.i.i.i.i.i.i.i9, label %173, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i10
 
 173:                                              ; preds = %170
   %174 = lshr exact i64 %171, 2
   %175 = sub nsw i64 0, %174
   %176 = and i64 %175, 3
   %177 = call i64 @llvm.smin.i64(i64 %176, i64 %168)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i10
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i10
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i10: ; preds = %173, %170
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i10: ; preds = %173, %170
   %.0.i.i.i.i.i.i.i.i11 = phi i64 [ %177, %173 ], [ %168, %170 ]
   %178 = sub nsw i64 %168, %.0.i.i.i.i.i.i.i.i11
   %179 = sdiv i64 %178, 8
@@ -70152,7 +70152,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i13 = icmp ult i64 %.off.i.i.i.i12, 7
   br i1 %.not.i.i.i.i13, label %227, label %185
 
-185:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i10
+185:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i10
   %186 = getelementptr i32, ptr %156, i64 %.0.i.i.i.i.i.i.i.i11
   %187 = load <2 x i64>, ptr %186, align 1
   %188 = icmp sgt i64 %178, 7
@@ -70237,7 +70237,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %226 = icmp slt i64 %225, %168
   br i1 %226, label %.lr.ph89.i.i.i.i22, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i19, !llvm.loop !2340
 
-227:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i10
+227:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i10
   %228 = load i32, ptr %156, align 4
   %229 = icmp sgt i64 %168, 1
   br i1 %229, label %.lr.ph94.i.i.i.i41, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i19
@@ -70987,9 +70987,9 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   %335 = getelementptr inbounds i32, ptr %.sroa.0365.0, i64 %.0161522
   %336 = load i32, ptr %335, align 4
   %337 = sext i32 %336 to i64
-  br i1 %329, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i.i, label %341
+  br i1 %329, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i, label %341
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i.i: ; preds = %334
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i: ; preds = %334
   %338 = getelementptr inbounds i32, ptr %330, i64 %337
   %339 = load i32, ptr %338, align 4
   %340 = sext i32 %339 to i64
@@ -71014,9 +71014,9 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %353 = add nsw i64 %352, %344
   br label %_ZN5Eigen20SparseCompressedBaseINS_5BlockINS_12SparseMatrixIdLi0EiEELin1ELi1ELb1EEEE13InnerIteratorC2ERKS5_l.exit.i
 
-_ZN5Eigen20SparseCompressedBaseINS_5BlockINS_12SparseMatrixIdLi0EiEELin1ELi1ELb1EEEE13InnerIteratorC2ERKS5_l.exit.i: ; preds = %349, %345, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i.i
-  %.sroa.4.1.i = phi i64 [ %344, %345 ], [ %344, %349 ], [ 0, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i.i ]
-  %.sink.i.i = phi i64 [ %348, %345 ], [ %353, %349 ], [ %340, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i.i ]
+_ZN5Eigen20SparseCompressedBaseINS_5BlockINS_12SparseMatrixIdLi0EiEELin1ELi1ELb1EEEE13InnerIteratorC2ERKS5_l.exit.i: ; preds = %349, %345, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i
+  %.sroa.4.1.i = phi i64 [ %344, %345 ], [ %344, %349 ], [ 0, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i ]
+  %.sink.i.i = phi i64 [ %348, %345 ], [ %353, %349 ], [ %340, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i ]
   %354 = icmp slt i64 %.sroa.4.1.i, %.sink.i.i
   br i1 %354, label %.lr.ph.i205, label %.loopexit466
 
@@ -71790,16 +71790,16 @@ define linkonce_odr hidden void @_ZN5Eigen14COLAMDOrderingIiEclINS_12SparseMatri
   %27 = ptrtoint ptr %15 to i64
   %28 = and i64 %27, 3
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %29, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i, label %29, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
 
 29:                                               ; preds = %26
   %30 = lshr exact i64 %27, 2
   %31 = sub nsw i64 0, %30
   %32 = and i64 %31, 3
   %33 = tail call i64 @llvm.smin.i64(i64 %32, i64 %12)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i: ; preds = %29, %26
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i: ; preds = %29, %26
   %.0.i.i.i.i.i.i.i.i = phi i64 [ %33, %29 ], [ %12, %26 ]
   %34 = sub nsw i64 %12, %.0.i.i.i.i.i.i.i.i
   %35 = sdiv i64 %34, 8
@@ -71812,7 +71812,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i = icmp ult i64 %.off.i.i.i.i, 7
   br i1 %.not.i.i.i.i, label %83, label %41
 
-41:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+41:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
   %42 = getelementptr i32, ptr %15, i64 %.0.i.i.i.i.i.i.i.i
   %43 = load <2 x i64>, ptr %42, align 1
   %44 = icmp sgt i64 %34, 7
@@ -71897,7 +71897,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %82 = icmp slt i64 %81, %12
   br i1 %82, label %.lr.ph89.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit, !llvm.loop !2340
 
-83:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+83:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
   %84 = load i32, ptr %15, align 4
   %85 = icmp sgt i64 %12, 1
   br i1 %85, label %.lr.ph94.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit
@@ -72141,10 +72141,10 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit37: ; preds = %_ZN5Eigen
   br i1 %.not99.i, label %186, label %183
 
 183:                                              ; preds = %174
-  call fastcc void @_ZN5Eigen8internal6ColamdL12init_scoringIiEEvT_S3_PNS1_12RowStructureIS3_EEPNS1_12ColStructureIS3_EEPS3_SA_PdSA_SA_SA_.argprom(i32 noundef %10, i32 noundef %13, ptr noundef %181, ptr noundef %178, ptr noundef %.sroa.0.0, ptr noundef %.sroa.052.0, double 5.000000e-01, double 5.000000e-01, ptr noundef %5, ptr noundef %4, ptr noundef %6)
+  call fastcc void @_ZN5Eigen8internal6ColamdL12init_scoringIiEEvT_S3_PNS1_12RowStructureIS3_EEPNS1_12ColStructureIS3_EEPS3_SA_PdSA_SA_SA_(i32 noundef %10, i32 noundef %13, ptr noundef %181, ptr noundef %178, ptr noundef %.sroa.0.0, ptr noundef %.sroa.052.0, double 5.000000e-01, double 5.000000e-01, ptr noundef %5, ptr noundef %4, ptr noundef %6)
   %184 = load i32, ptr %4, align 4
   %185 = load i32, ptr %6, align 4
-  tail call fastcc void @_ZN5Eigen8internal6ColamdL13find_orderingIiEET_S3_S3_S3_PNS1_12RowStructureIS3_EEPNS1_12ColStructureIS3_EEPS3_SA_S3_S3_S3_.retelim(i32 noundef %10, i32 noundef %13, i32 noundef %176, ptr noundef %181, ptr noundef %178, ptr noundef %.sroa.0.0, ptr noundef %.sroa.052.0, i32 noundef %184, i32 noundef %185, i32 noundef %168)
+  tail call fastcc void @_ZN5Eigen8internal6ColamdL13find_orderingIiEET_S3_S3_S3_PNS1_12RowStructureIS3_EEPNS1_12ColStructureIS3_EEPS3_SA_S3_S3_S3_(i32 noundef %10, i32 noundef %13, i32 noundef %176, ptr noundef %181, ptr noundef %178, ptr noundef %.sroa.0.0, ptr noundef %.sroa.052.0, i32 noundef %184, i32 noundef %185, i32 noundef %168)
   tail call fastcc void @_ZN5Eigen8internal6ColamdL14order_childrenIiEEvT_PNS1_12ColStructureIS3_EEPS3_(i32 noundef %13, ptr noundef %178, ptr noundef %.sroa.052.0)
   br label %186
 
@@ -72921,7 +72921,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN5Eigen8internal6ColamdL14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN5Eigen8internal6ColamdL12init_scoringIiEEvT_S3_PNS1_12RowStructureIS3_EEPNS1_12ColStructureIS3_EEPS3_SA_PdSA_SA_SA_.argprom(i32 noundef range(i32 0, -2147483648) %0, i32 noundef range(i32 0, -2147483648) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull %5, double %.0.val, double %.8.val, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #24 {
+define internal fastcc void @_ZN5Eigen8internal6ColamdL12init_scoringIiEEvT_S3_PNS1_12RowStructureIS3_EEPNS1_12ColStructureIS3_EEPS3_SA_PdSA_SA_SA_(i32 noundef range(i32 0, -2147483648) %0, i32 noundef range(i32 0, -2147483648) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull %5, double %.0.val, double %.8.val, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #24 {
   %10 = uitofp nneg i32 %1 to double
   %11 = fmul double %.0.val, %10
   %12 = fptosi double %11 to i32
@@ -73193,7 +73193,7 @@ define internal fastcc void @_ZN5Eigen8internal6ColamdL12init_scoringIiEEvT_S3_P
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5Eigen8internal6ColamdL13find_orderingIiEET_S3_S3_S3_PNS1_12RowStructureIS3_EEPNS1_12ColStructureIS3_EEPS3_SA_S3_S3_S3_.retelim(i32 noundef range(i32 0, -2147483648) %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 0, -2147483648) %9) unnamed_addr #23 {
+define internal fastcc void @_ZN5Eigen8internal6ColamdL13find_orderingIiEET_S3_S3_S3_PNS1_12RowStructureIS3_EEPNS1_12ColStructureIS3_EEPS3_SA_S3_S3_S3_(i32 noundef range(i32 0, -2147483648) %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 0, -2147483648) %9) unnamed_addr #23 {
   %11 = xor i32 %1, 2147483647
   %.not.i = icmp eq i32 %0, 0
   br i1 %.not.i, label %_ZN5Eigen8internal6ColamdL10clear_markIiEET_S3_PNS1_12RowStructureIS3_EE.exit, label %.lr.ph.preheader.i
@@ -75318,7 +75318,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiEC2Ell.exit:        ; preds = %3
   %39 = getelementptr inbounds i32, ptr %33, i64 %.02536
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
-  br i1 %35, label %42, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+  br i1 %35, label %42, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i32, ptr %36, i64 %41
@@ -75328,13 +75328,13 @@ _ZN5Eigen12SparseMatrixIdLi0EiEC2Ell.exit:        ; preds = %3
   %47 = sub nsw i32 %45, %46
   br label %50
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i: ; preds = %38
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i: ; preds = %38
   %48 = getelementptr inbounds i32, ptr %34, i64 %41
   %49 = load i32, ptr %48, align 4
   br label %50
 
-50:                                               ; preds = %42, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
-  %.0.in.i = phi i32 [ %47, %42 ], [ %49, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i ]
+50:                                               ; preds = %42, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
+  %.0.in.i = phi i32 [ %47, %42 ], [ %49, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i ]
   %51 = getelementptr inbounds i32, ptr %26, i64 %.02536
   store i32 %.0.in.i, ptr %51, align 4
   %52 = add nuw nsw i64 %.02536, 1
@@ -77079,7 +77079,7 @@ _ZN5ceres8internal27SolveUpperTriangularInPlaceIiEEvT_PKS2_S4_PKdPd.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.16.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %1
 
@@ -77156,9 +77156,9 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit: ; preds = %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -77194,7 +77194,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14Covari
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -77219,16 +77219,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14Covari
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #30
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -77248,16 +77248,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -77298,18 +77298,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -77345,7 +77345,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -77370,20 +77370,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #30
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #32
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E15_M_init_functorIRKSD_EEvRSt9_Any_dataS9_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIS9_EEDaS8_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E15_M_init_functorIRKSD_EEvRSt9_Any_dataS9_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -77406,13 +77406,13 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_14Covaria
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %7, 1
   %15 = icmp slt i32 %14, %9
-  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit"
+  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit"
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 20
   %18 = load atomic i32, ptr %17 seq_cst, align 4
   %19 = icmp slt i32 %18, %13
-  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit"
+  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit"
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
@@ -77500,7 +77500,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_14Covaria
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
-  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit", label %59
+  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit", label %59
 
 59:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %60 = getelementptr inbounds i8, ptr %26, i64 8
@@ -77536,7 +77536,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 75:                                               ; preds = %73, %71
   %.0.i.i.i.i.i.i = phi i32 [ %63, %71 ], [ %74, %73 ]
   %76 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit"
+  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit"
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %26, align 8
@@ -77561,14 +77561,14 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 88:                                               ; preds = %86, %83
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %84, %83 ], [ %87, %86 ]
   %89 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit"
+  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %88, %64
   %90 = load ptr, ptr %26, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %26) #30
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit"
 
 93:                                               ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_C2ERKS9_.exit"
   %94 = landingpad { ptr, i32 }
@@ -77595,10 +77595,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %96, %98 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom"(ptr %26) #30
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev"(ptr %26) #30
   resume { ptr, i32 } %.pn
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
   %103 = load ptr, ptr %4, align 8
   %104 = load i32, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %103, i64 12
@@ -77610,13 +77610,13 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.not3657 = icmp slt i32 %110, %13
   br i1 %.not3657, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit"
   %111 = getelementptr inbounds i8, ptr %0, i64 32
   br label %112
 
-112:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit"
-  %113 = phi i32 [ %110, %.lr.ph ], [ %253, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
-  %.03458 = phi i32 [ 0, %.lr.ph ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
+112:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit"
+  %113 = phi i32 [ %110, %.lr.ph ], [ %253, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
+  %.03458 = phi i32 [ 0, %.lr.ph ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
   %114 = add nuw nsw i32 %.03458, 1
   %115 = mul nsw i32 %113, %106
   %116 = add nsw i32 %115, %104
@@ -77628,7 +77628,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %121 = add i32 %120, %117
   %122 = load ptr, ptr %111, align 8
   %.not2.i = icmp eq i32 %120, 0
-  br i1 %.not2.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", label %.lr.ph.i
+  br i1 %.not2.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %112
   %123 = getelementptr inbounds i8, ptr %122, i64 8
@@ -77640,8 +77640,8 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %129 = sext i32 %117 to i64
   br label %130
 
-130:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %129, %.lr.ph.i ], [ %indvars.iv.next.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i" ]
+130:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i", %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %129, %.lr.ph.i ], [ %indvars.iv.next.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i" ]
   %131 = load ptr, ptr %122, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i32, ptr %132, i64 %indvars.iv.i
@@ -77649,7 +77649,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %135 = getelementptr i8, ptr %133, i64 4
   %136 = load i32, ptr %135, align 4
   %.not.i.i.i = icmp eq i32 %136, %134
-  br i1 %.not.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", label %137
+  br i1 %.not.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i", label %137
 
 137:                                              ; preds = %130
   %138 = load ptr, ptr %123, align 8
@@ -77814,7 +77814,7 @@ _ZSt4fillIPddEvT_S1_RKT0_.exit.i:                 ; preds = %.lr.ph.i.i.i.prehea
 
 _ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit: ; preds = %.loopexit.i.i, %._crit_edge49.i
   %232 = icmp slt i32 %134, %136
-  br i1 %232, label %.lr.ph.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i"
+  br i1 %232, label %.lr.ph.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i"
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit
   %233 = sext i32 %134 to i64
@@ -77841,23 +77841,23 @@ _ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit: ; preds = %
   store double %246, ptr %249, align 8
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", label %234, !llvm.loop !117
+  br i1 %exitcond.not.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i", label %234, !llvm.loop !117
 
-"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i": ; preds = %234, %_ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit, %130
+"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i": ; preds = %234, %_ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit, %130
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %250 = trunc nsw i64 %indvars.iv.next.i to i32
   %.not.i = icmp eq i32 %121, %250
-  br i1 %.not.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", label %130, !llvm.loop !126
+  br i1 %.not.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit", label %130, !llvm.loop !126
 
-"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", %112
+"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0JRiEEEviOT_DpOT0_.exit.i", %112
   %251 = load ptr, ptr %4, align 8
   %252 = getelementptr inbounds i8, ptr %251, i64 20
   %253 = atomicrmw add ptr %252, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %253, %13
   br i1 %.not36, label %112, label %._crit_edge, !llvm.loop !2466
 
-._crit_edge:                                      ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit"
-  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit" ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
+._crit_edge:                                      ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit", %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit"
+  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit" ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
   %254 = load ptr, ptr %4, align 8
   %255 = getelementptr inbounds i8, ptr %254, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %255, i32 noundef %.034.lcssa)
@@ -77868,9 +77868,9 @@ _ZN5ceres8internal21SolveRTRWithSparseRHSIiEEvT_PKS2_S4_PKdiPd.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -77906,7 +77906,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14Covari
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -77931,16 +77931,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14Covari
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #30
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRS6_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -77960,16 +77960,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -78010,18 +78010,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -78057,7 +78057,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -78082,20 +78082,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #30
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #32
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E15_M_init_functorIRKSE_EEvRSt9_Any_dataS9_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRS6_E_clIKS9_EEDaS8_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_14CovarianceImpl41ComputeCovarianceValuesUsingEigenSparseQREvE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E15_M_init_functorIRKSE_EEvRSt9_Any_dataS9_.exit.i", %6, %5, %4
   ret i1 false
 }
 

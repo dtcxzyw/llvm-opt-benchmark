@@ -1504,7 +1504,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
 191:                                              ; preds = %177
   %.val = load ptr, ptr %90, align 8
   %192 = icmp eq ptr %.val, null
-  br i1 %192, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread, label %193
+  br i1 %192, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread, label %193
 
 193:                                              ; preds = %191
   %194 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %.val) #9
@@ -1515,7 +1515,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %199 = load i8, ptr %198, align 8
   %.not.i.i.i = icmp ne i8 %199, 4
   %or.cond.not.i.i.i = select i1 %197, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %200, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %200, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 200:                                              ; preds = %193
   %201 = getelementptr inbounds i8, ptr %194, i64 16
@@ -1528,22 +1528,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %200
   %204 = getelementptr inbounds i8, ptr %203, i64 32
   %205 = load ptr, ptr %204, align 8
   %206 = tail call noundef zeroext i1 %205(ptr noundef nonnull align 8 dereferenceable(24) %194) #9
-  br i1 %206, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %206, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %200
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %194) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %198, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %193
-  %207 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %199, %193 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %193
+  %207 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %199, %193 ]
   %208 = icmp eq i8 %207, 4
-  br i1 %208, label %216, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread
+  br i1 %208, label %216, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread: ; preds = %191, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %209 = getelementptr inbounds i8, ptr %0, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 276
@@ -1551,12 +1551,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread: ; preds = %191, %_
   %213 = trunc i8 %212 to i1
   br i1 %213, label %214, label %661
 
-214:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread
+214:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread
   %215 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %215, ptr noundef nonnull @.str.8) #9
   br label %661
 
-216:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+216:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %217 = load ptr, ptr %3, align 8
   %218 = add nsw i32 %1, 5
   %219 = load ptr, ptr %5, align 8
@@ -1620,7 +1620,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread: ; preds = %191, %_
   br label %661
 
 268:                                              ; preds = %246
-  %269 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr.argprom(ptr nonnull %248)
+  %269 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr nonnull %248)
   br i1 %269, label %278, label %270
 
 270:                                              ; preds = %268
@@ -2175,15 +2175,15 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread: ; preds = %191, %_
   store i32 %660, ptr %654, align 4
   br label %661
 
-661:                                              ; preds = %590, %596, %557, %563, %505, %511, %460, %466, %415, %421, %388, %394, %369, %375, %353, %359, %343, %349, %333, %339, %314, %320, %299, %305, %283, %289, %270, %276, %250, %256, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread, %214, %182, %188, %103, %109, %645
-  %.0 = phi i1 [ true, %645 ], [ false, %109 ], [ false, %103 ], [ false, %188 ], [ false, %182 ], [ false, %214 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread ], [ false, %256 ], [ false, %250 ], [ false, %276 ], [ false, %270 ], [ false, %289 ], [ false, %283 ], [ false, %305 ], [ false, %299 ], [ false, %320 ], [ false, %314 ], [ false, %339 ], [ false, %333 ], [ false, %349 ], [ false, %343 ], [ false, %359 ], [ false, %353 ], [ false, %375 ], [ false, %369 ], [ false, %394 ], [ false, %388 ], [ false, %421 ], [ false, %415 ], [ false, %466 ], [ false, %460 ], [ false, %511 ], [ false, %505 ], [ false, %563 ], [ false, %557 ], [ false, %596 ], [ false, %590 ]
+661:                                              ; preds = %590, %596, %557, %563, %505, %511, %460, %466, %415, %421, %388, %394, %369, %375, %353, %359, %343, %349, %333, %339, %314, %320, %299, %305, %283, %289, %270, %276, %250, %256, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread, %214, %182, %188, %103, %109, %645
+  %.0 = phi i1 [ true, %645 ], [ false, %109 ], [ false, %103 ], [ false, %188 ], [ false, %182 ], [ false, %214 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread ], [ false, %256 ], [ false, %250 ], [ false, %276 ], [ false, %270 ], [ false, %289 ], [ false, %283 ], [ false, %305 ], [ false, %299 ], [ false, %320 ], [ false, %314 ], [ false, %339 ], [ false, %333 ], [ false, %349 ], [ false, %343 ], [ false, %359 ], [ false, %353 ], [ false, %375 ], [ false, %369 ], [ false, %394 ], [ false, %388 ], [ false, %421 ], [ false, %415 ], [ false, %466 ], [ false, %460 ], [ false, %511 ], [ false, %505 ], [ false, %563 ], [ false, %557 ], [ false, %596 ], [ false, %590 ]
   ret i1 %.0
 }
 
 declare noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr.argprom(ptr %.48.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr %.48.val) unnamed_addr #0 {
   %1 = icmp eq ptr %.48.val, null
   br i1 %1, label %18, label %2
 
@@ -2650,7 +2650,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26inline_vector_shuffle_iot
   %107 = load i8, ptr %106, align 8
   %.not.i.i.i = icmp ne i8 %107, 4
   %or.cond.not.i.i.i = select i1 %105, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %108, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %108, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 108:                                              ; preds = %101
   %109 = getelementptr inbounds i8, ptr %102, i64 16
@@ -2663,22 +2663,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %108
   %112 = getelementptr inbounds i8, ptr %111, i64 32
   %113 = load ptr, ptr %112, align 8
   %114 = tail call noundef zeroext i1 %113(ptr noundef nonnull align 8 dereferenceable(24) %102) #9
-  br i1 %114, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %114, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %108
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %102) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %106, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %101
-  %115 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %107, %101 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %101
+  %115 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %107, %101 ]
   %116 = icmp eq i8 %115, 4
   br i1 %116, label %125, label %117
 
-117:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+117:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %118 = getelementptr inbounds i8, ptr %0, i64 16
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 276
@@ -2691,7 +2691,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %124, ptr noundef nonnull @.str.8) #9
   br label %276
 
-125:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+125:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %126 = load i32, ptr %96, align 8
   %127 = load i32, ptr %87, align 8
   %128 = getelementptr inbounds i8, ptr %..i115, i64 24
@@ -3061,7 +3061,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_mask_operat
   %79 = getelementptr i8, ptr %..i47, i64 48
   %.val = load ptr, ptr %79, align 8
   %80 = icmp eq ptr %.val, null
-  br i1 %80, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread, label %81
+  br i1 %80, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread, label %81
 
 81:                                               ; preds = %78
   %82 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %.val) #9
@@ -3072,7 +3072,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_mask_operat
   %87 = load i8, ptr %86, align 8
   %.not.i.i.i = icmp ne i8 %87, 4
   %or.cond.not.i.i.i = select i1 %85, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %88, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %88, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 88:                                               ; preds = %81
   %89 = getelementptr inbounds i8, ptr %82, i64 16
@@ -3085,22 +3085,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %88
   %92 = getelementptr inbounds i8, ptr %91, i64 32
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(24) %82) #9
-  br i1 %94, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %94, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %88
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %82) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %86, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %81
-  %95 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %87, %81 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %81
+  %95 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %87, %81 ]
   %96 = icmp eq i8 %95, 4
-  br i1 %96, label %104, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread
+  br i1 %96, label %104, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread: ; preds = %78, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %78, %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %97 = getelementptr inbounds i8, ptr %0, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 276
@@ -3108,12 +3108,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread: ; preds = %78, %_Z
   %101 = trunc i8 %100 to i1
   br i1 %101, label %102, label %200
 
-102:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread
+102:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread
   %103 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %103, ptr noundef nonnull @.str.8) #9
   br label %200
 
-104:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+104:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %105 = getelementptr inbounds i8, ptr %..i49, i64 24
   %106 = load i32, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %..i48, i64 48
@@ -3240,8 +3240,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread: ; preds = %78, %_Z
   store i32 %199, ptr %194, align 4
   br label %200
 
-200:                                              ; preds = %134, %140, %116, %122, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread, %102, %1, %73, %190
-  %.041 = phi i1 [ true, %190 ], [ false, %73 ], [ false, %1 ], [ false, %102 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit.thread ], [ false, %122 ], [ false, %116 ], [ false, %140 ], [ false, %134 ]
+200:                                              ; preds = %134, %140, %116, %122, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread, %102, %1, %73, %190
+  %.041 = phi i1 [ true, %190 ], [ false, %73 ], [ false, %1 ], [ false, %102 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread ], [ false, %122 ], [ false, %116 ], [ false, %140 ], [ false, %134 ]
   ret i1 %.041
 }
 
@@ -3369,7 +3369,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit31inline_vector_shuffle_to_
   %98 = load i8, ptr %97, align 8
   %.not.i.i.i = icmp ne i8 %98, 4
   %or.cond.not.i.i.i = select i1 %96, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %99, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %99, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 99:                                               ; preds = %92
   %100 = getelementptr inbounds i8, ptr %93, i64 16
@@ -3382,25 +3382,25 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %99
   %103 = getelementptr inbounds i8, ptr %102, i64 32
   %104 = load ptr, ptr %103, align 8
   %105 = tail call noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(24) %93) #9
-  br i1 %105, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %105, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %99
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %93) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %97, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %92
-  %106 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %98, %92 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %92
+  %106 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %98, %92 ]
   %107 = icmp eq i8 %106, 4
-  br i1 %107, label %108, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60.thread
+  br i1 %107, label %108, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread
 
-108:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+108:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %.val = load ptr, ptr %85, align 8
   %109 = icmp eq ptr %.val, null
-  br i1 %109, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60.thread, label %110
+  br i1 %109, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread, label %110
 
 110:                                              ; preds = %108
   %111 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %.val) #9
@@ -3411,7 +3411,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   %116 = load i8, ptr %115, align 8
   %.not.i.i.i53 = icmp ne i8 %116, 4
   %or.cond.not.i.i.i54 = select i1 %114, i1 %.not.i.i.i53, i1 false
-  br i1 %or.cond.not.i.i.i54, label %117, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60
+  br i1 %or.cond.not.i.i.i54, label %117, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit60
 
 117:                                              ; preds = %110
   %118 = getelementptr inbounds i8, ptr %111, i64 16
@@ -3424,22 +3424,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i59:        ; preds = %117
   %121 = getelementptr inbounds i8, ptr %120, i64 32
   %122 = load ptr, ptr %121, align 8
   %123 = tail call noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(24) %111) #9
-  br i1 %123, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i58, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60thread-pre-split
+  br i1 %123, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i58, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit60thread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i58: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i59, %117
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %111) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60thread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit60thread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60thread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i58, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i59
+_ZL20is_klass_initializedPK11TypeInstPtr.exit60thread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i58, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i59
   %.pr62 = load i8, ptr %115, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit60
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60thread-pre-split, %110
-  %124 = phi i8 [ %.pr62, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60thread-pre-split ], [ %116, %110 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit60:  ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit60thread-pre-split, %110
+  %124 = phi i8 [ %.pr62, %_ZL20is_klass_initializedPK11TypeInstPtr.exit60thread-pre-split ], [ %116, %110 ]
   %125 = icmp eq i8 %124, 4
-  br i1 %125, label %133, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60.thread
+  br i1 %125, label %133, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60.thread: ; preds = %108, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+_ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread: ; preds = %108, %_ZL20is_klass_initializedPK11TypeInstPtr.exit60, %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %126 = getelementptr inbounds i8, ptr %0, i64 16
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 276
@@ -3447,12 +3447,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60.thread: ; preds = %108, 
   %130 = trunc i8 %129 to i1
   br i1 %130, label %131, label %177
 
-131:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60.thread
+131:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread
   %132 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %132, ptr noundef nonnull @.str.8) #9
   br label %177
 
-133:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60
+133:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit60
   %134 = load i32, ptr %79, align 8
   %135 = getelementptr inbounds i8, ptr %..i50, i64 48
   %136 = load ptr, ptr %135, align 8
@@ -3509,8 +3509,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60.thread: ; preds = %108, 
   store i32 %176, ptr %170, align 4
   br label %177
 
-177:                                              ; preds = %144, %150, %133, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60.thread, %131, %78, %84, %88, %1, %73, %153
-  %.0 = phi i1 [ true, %153 ], [ false, %73 ], [ false, %1 ], [ false, %88 ], [ false, %84 ], [ false, %78 ], [ false, %131 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit60.thread ], [ false, %133 ], [ false, %150 ], [ false, %144 ]
+177:                                              ; preds = %144, %150, %133, %_ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread, %131, %78, %84, %88, %1, %73, %153
+  %.0 = phi i1 [ true, %153 ], [ false, %73 ], [ false, %1 ], [ false, %88 ], [ false, %84 ], [ false, %78 ], [ false, %131 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread ], [ false, %133 ], [ false, %150 ], [ false, %144 ]
   ret i1 %.0
 }
 
@@ -3728,7 +3728,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_vector_frombits_co
   %184 = load i8, ptr %183, align 8
   %.not.i.i.i = icmp ne i8 %184, 4
   %or.cond.not.i.i.i = select i1 %182, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %185, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %185, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 185:                                              ; preds = %178
   %186 = getelementptr inbounds i8, ptr %179, i64 16
@@ -3741,22 +3741,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %185
   %189 = getelementptr inbounds i8, ptr %188, i64 32
   %190 = load ptr, ptr %189, align 8
   %191 = tail call noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(24) %179) #9
-  br i1 %191, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %191, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %185
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %179) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %183, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %178
-  %192 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %184, %178 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %178
+  %192 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %184, %178 ]
   %193 = icmp eq i8 %192, 4
   br i1 %193, label %202, label %194
 
-194:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+194:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %195 = getelementptr inbounds i8, ptr %0, i64 16
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 276
@@ -3769,7 +3769,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %201, ptr noundef nonnull @.str.8) #9
   br label %353
 
-202:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+202:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %203 = load ptr, ptr %89, align 8
   %204 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %203) #9
   %205 = getelementptr inbounds i8, ptr %204, i64 24
@@ -4363,7 +4363,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %171 = load i8, ptr %170, align 8
   %.not.i.i.i = icmp ne i8 %171, 4
   %or.cond.not.i.i.i = select i1 %169, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %172, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %172, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 172:                                              ; preds = %165
   %173 = getelementptr inbounds i8, ptr %166, i64 16
@@ -4376,22 +4376,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %172
   %176 = getelementptr inbounds i8, ptr %175, i64 32
   %177 = load ptr, ptr %176, align 8
   %178 = tail call noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(24) %166) #9
-  br i1 %178, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %178, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %172
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %166) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %170, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %165
-  %179 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %171, %165 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %165
+  %179 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %171, %165 ]
   %180 = icmp eq i8 %179, 4
   br i1 %180, label %189, label %181
 
-181:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+181:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %182 = getelementptr inbounds i8, ptr %0, i64 16
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 276
@@ -4404,7 +4404,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %188, ptr noundef nonnull @.str.8) #9
   br label %412
 
-189:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+189:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %190 = load ptr, ptr %82, align 8
   %191 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %190) #9
   %192 = getelementptr inbounds i8, ptr %191, i64 24
@@ -4537,7 +4537,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
 290:                                              ; preds = %277
   %.not = icmp eq ptr %..i168, null
   %brmerge = or i1 %223, %.not
-  br i1 %brmerge, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread, label %291
+  br i1 %brmerge, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %291
 
 291:                                              ; preds = %290
   %292 = getelementptr i8, ptr %..i168, i64 80
@@ -4546,21 +4546,21 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   %.val164.val = load ptr, ptr %293, align 8
   %294 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %.val164.val) #9
   %295 = icmp eq i8 %193, %294
-  br i1 %295, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread, label %296
+  br i1 %295, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %296
 
 296:                                              ; preds = %291
   %297 = icmp eq i8 %193, 9
   %298 = icmp eq i8 %294, 5
   %or.cond.i170 = and i1 %297, %298
-  br i1 %or.cond.i170, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit
+  br i1 %or.cond.i170, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
 
-_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit: ; preds = %296
+_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %296
   %299 = icmp eq i8 %193, 8
   %300 = icmp eq i8 %294, 4
   %or.cond5.i = and i1 %299, %300
-  br i1 %or.cond5.i, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread, label %301
+  br i1 %or.cond5.i, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %301
 
-301:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit
+301:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
   %302 = getelementptr inbounds i8, ptr %0, i64 16
   %303 = load ptr, ptr %302, align 8
   %304 = getelementptr inbounds i8, ptr %303, i64 276
@@ -4586,10 +4586,10 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit: ; p
   store i32 %243, ptr %242, align 8
   br label %412
 
-_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread: ; preds = %296, %291, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit, %290
+_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %296, %291, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit, %290
   br i1 %223, label %318, label %325
 
-318:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread
+318:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread
   br i1 %1, label %322, label %319
 
 319:                                              ; preds = %318
@@ -4610,7 +4610,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thre
   store i32 %243, ptr %242, align 8
   br label %412
 
-325:                                              ; preds = %319, %322, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread
+325:                                              ; preds = %319, %322, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread
   %326 = call noundef ptr @_ZN11TypeInstPtr10make_exactEN7TypePtr3PTREP7ciKlass(i32 noundef 4, ptr noundef nonnull %221)
   br i1 %279, label %327, label %329
 
@@ -5100,7 +5100,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_vector_mem_masked_
   %209 = load i8, ptr %208, align 8
   %.not.i.i.i = icmp ne i8 %209, 4
   %or.cond.not.i.i.i = select i1 %207, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %210, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %210, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 210:                                              ; preds = %203
   %211 = getelementptr inbounds i8, ptr %204, i64 16
@@ -5113,22 +5113,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %210
   %214 = getelementptr inbounds i8, ptr %213, i64 32
   %215 = load ptr, ptr %214, align 8
   %216 = tail call noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(24) %204) #9
-  br i1 %216, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %216, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %210
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %204) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %208, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %203
-  %217 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %209, %203 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %203
+  %217 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %209, %203 ]
   %218 = icmp eq i8 %217, 4
   br i1 %218, label %227, label %219
 
-219:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+219:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %220 = getelementptr inbounds i8, ptr %0, i64 16
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 276
@@ -5141,9 +5141,9 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %226, ptr noundef nonnull @.str.8) #9
   br label %728
 
-227:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+227:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %.val = load ptr, ptr %89, align 8
-  %228 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr.argprom(ptr %.val)
+  %228 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr %.val)
   br i1 %228, label %237, label %229
 
 229:                                              ; preds = %227
@@ -5252,25 +5252,25 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   %.val201.val = load ptr, ptr %306, align 8
   %307 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %.val201.val) #9
   %308 = icmp eq i8 %241, %307
-  br i1 %308, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread, label %309
+  br i1 %308, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %309
 
 309:                                              ; preds = %303
   %310 = icmp eq i8 %241, 9
   %311 = icmp eq i8 %307, 5
   %or.cond.i207 = and i1 %310, %311
-  br i1 %or.cond.i207, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit
+  br i1 %or.cond.i207, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
 
-_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread: ; preds = %303, %309
+_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %303, %309
   br i1 %304, label %332, label %.thread212
 
-_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit: ; preds = %309
+_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %309
   %312 = icmp eq i8 %241, 8
   %313 = icmp eq i8 %307, 4
   %or.cond5.i = and i1 %312, %313
   %..i208 = or i1 %304, %or.cond5.i
   br i1 %..i208, label %331, label %314
 
-314:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit
+314:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
   %315 = getelementptr inbounds i8, ptr %0, i64 16
   %316 = load ptr, ptr %315, align 8
   %317 = getelementptr inbounds i8, ptr %316, i64 276
@@ -5296,20 +5296,20 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit: ; p
   store i32 %273, ptr %272, align 8
   br label %728
 
-331:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit
+331:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
   br i1 %304, label %332, label %.thread212
 
-332:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread, %331
+332:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, %331
   %333 = zext i8 %241 to i64
   %334 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %333
   %335 = load i32, ptr %334, align 4
   %336 = mul nsw i32 %335, %253
   br label %.thread212
 
-.thread212:                                       ; preds = %302, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread, %331, %332
-  %337 = phi i1 [ true, %332 ], [ false, %331 ], [ false, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread ], [ false, %302 ]
-  %338 = phi i8 [ 8, %332 ], [ %241, %331 ], [ %241, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread ], [ %241, %302 ]
-  %339 = phi i32 [ %336, %332 ], [ %253, %331 ], [ %253, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread ], [ %253, %302 ]
+.thread212:                                       ; preds = %302, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, %331, %332
+  %337 = phi i1 [ true, %332 ], [ false, %331 ], [ false, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread ], [ false, %302 ]
+  %338 = phi i8 [ 8, %332 ], [ %241, %331 ], [ %241, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread ], [ %241, %302 ]
+  %339 = phi i32 [ %336, %332 ], [ %253, %331 ], [ %253, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread ], [ %253, %302 ]
   %340 = select i1 %1, i32 433, i32 432
   %341 = call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef %340, i32 noundef %339, i8 noundef zeroext %338, i32 noundef 1, i1 noundef zeroext false)
   br i1 %341, label %.critedge199, label %342
@@ -6133,7 +6133,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_gather_scat
   %182 = load i8, ptr %181, align 8
   %.not.i.i.i = icmp ne i8 %182, 4
   %or.cond.not.i.i.i = select i1 %180, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %183, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %183, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 183:                                              ; preds = %176
   %184 = getelementptr inbounds i8, ptr %177, i64 16
@@ -6146,25 +6146,25 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %183
   %187 = getelementptr inbounds i8, ptr %186, i64 32
   %188 = load ptr, ptr %187, align 8
   %189 = tail call noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(24) %177) #9
-  br i1 %189, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %189, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %183
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %177) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %181, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %176
-  %190 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %182, %176 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %176
+  %190 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %182, %176 ]
   %191 = icmp eq i8 %190, 4
-  br i1 %191, label %192, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187.thread
+  br i1 %191, label %192, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread
 
-192:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+192:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %.val173 = load ptr, ptr %93, align 8
   %193 = icmp eq ptr %.val173, null
-  br i1 %193, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187.thread, label %194
+  br i1 %193, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread, label %194
 
 194:                                              ; preds = %192
   %195 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %.val173) #9
@@ -6175,7 +6175,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   %200 = load i8, ptr %199, align 8
   %.not.i.i.i180 = icmp ne i8 %200, 4
   %or.cond.not.i.i.i181 = select i1 %198, i1 %.not.i.i.i180, i1 false
-  br i1 %or.cond.not.i.i.i181, label %201, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187
+  br i1 %or.cond.not.i.i.i181, label %201, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit187
 
 201:                                              ; preds = %194
   %202 = getelementptr inbounds i8, ptr %195, i64 16
@@ -6188,22 +6188,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i186:       ; preds = %201
   %205 = getelementptr inbounds i8, ptr %204, i64 32
   %206 = load ptr, ptr %205, align 8
   %207 = tail call noundef zeroext i1 %206(ptr noundef nonnull align 8 dereferenceable(24) %195) #9
-  br i1 %207, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i185, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187thread-pre-split
+  br i1 %207, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i185, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit187thread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i185: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i186, %201
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %195) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187thread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit187thread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187thread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i185, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i186
+_ZL20is_klass_initializedPK11TypeInstPtr.exit187thread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i185, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i186
   %.pr199 = load i8, ptr %199, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit187
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187thread-pre-split, %194
-  %208 = phi i8 [ %.pr199, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187thread-pre-split ], [ %200, %194 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit187: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit187thread-pre-split, %194
+  %208 = phi i8 [ %.pr199, %_ZL20is_klass_initializedPK11TypeInstPtr.exit187thread-pre-split ], [ %200, %194 ]
   %209 = icmp eq i8 %208, 4
-  br i1 %209, label %217, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187.thread
+  br i1 %209, label %217, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187.thread: ; preds = %192, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+_ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread: ; preds = %192, %_ZL20is_klass_initializedPK11TypeInstPtr.exit187, %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %210 = getelementptr inbounds i8, ptr %0, i64 16
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 276
@@ -6211,12 +6211,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187.thread: ; preds = %192,
   %214 = trunc i8 %213 to i1
   br i1 %214, label %215, label %627
 
-215:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187.thread
+215:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread
   %216 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %216, ptr noundef nonnull @.str.8) #9
   br label %627
 
-217:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187
+217:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit187
   %218 = load ptr, ptr %89, align 8
   %219 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %218) #9
   %220 = getelementptr inbounds i8, ptr %219, i64 24
@@ -6305,7 +6305,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187.thread: ; preds = %192,
   br label %627
 
 284:                                              ; preds = %261
-  %285 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr.argprom(ptr nonnull %263)
+  %285 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr nonnull %263)
   br i1 %285, label %294, label %286
 
 286:                                              ; preds = %284
@@ -6462,21 +6462,21 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187.thread: ; preds = %192,
   %.val175.val = load ptr, ptr %393, align 8
   %394 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %.val175.val) #9
   %395 = icmp eq i8 %221, %394
-  br i1 %395, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread, label %396
+  br i1 %395, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %396
 
 396:                                              ; preds = %391
   %397 = icmp eq i8 %221, 9
   %398 = icmp eq i8 %394, 5
   %or.cond.i189 = and i1 %397, %398
-  br i1 %or.cond.i189, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit
+  br i1 %or.cond.i189, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
 
-_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit: ; preds = %396
+_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %396
   %399 = icmp eq i8 %221, 8
   %400 = icmp eq i8 %394, 4
   %or.cond5.i = and i1 %399, %400
-  br i1 %or.cond5.i, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread, label %401
+  br i1 %or.cond5.i, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %401
 
-401:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit, %350
+401:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit, %350
   %402 = getelementptr inbounds i8, ptr %0, i64 16
   %403 = load ptr, ptr %402, align 8
   %404 = getelementptr inbounds i8, ptr %403, i64 276
@@ -6503,7 +6503,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit: ; p
   store i32 %370, ptr %369, align 8
   br label %627
 
-_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread: ; preds = %396, %391, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit
+_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %396, %391, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
   %419 = load ptr, ptr %85, align 8
   %420 = call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %419) #9
   %421 = call noundef ptr @_ZN11TypeInstPtr10make_exactEN7TypePtr3PTREP7ciKlass(i32 noundef 4, ptr noundef %420)
@@ -6512,12 +6512,12 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thre
   %424 = icmp eq ptr %423, null
   br i1 %424, label %425, label %426
 
-425:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread
+425:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread
   store ptr %371, ptr %6, align 8
   store i32 %370, ptr %369, align 8
   br label %627
 
-426:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thread
+426:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread
   %427 = call noundef ptr @_ZN11TypeInstPtr10make_exactEN7TypePtr3PTREP7ciKlass(i32 noundef 4, ptr noundef nonnull %423)
   br i1 %switch.selectcmp.i, label %446, label %428
 
@@ -6813,8 +6813,8 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.argprom.argprom.exit.thre
   store i32 %626, ptr %621, align 4
   br label %627
 
-627:                                              ; preds = %339, %345, %324, %330, %310, %316, %299, %305, %286, %292, %265, %271, %223, %229, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187.thread, %215, %102, %108, %618, %517, %494, %445, %425, %418
-  %.0 = phi i1 [ false, %418 ], [ false, %425 ], [ false, %494 ], [ false, %517 ], [ true, %618 ], [ false, %445 ], [ false, %108 ], [ false, %102 ], [ false, %215 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit187.thread ], [ false, %229 ], [ false, %223 ], [ false, %271 ], [ false, %265 ], [ false, %292 ], [ false, %286 ], [ false, %305 ], [ false, %299 ], [ false, %316 ], [ false, %310 ], [ false, %330 ], [ false, %324 ], [ false, %345 ], [ false, %339 ]
+627:                                              ; preds = %339, %345, %324, %330, %310, %316, %299, %305, %286, %292, %265, %271, %223, %229, %_ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread, %215, %102, %108, %618, %517, %494, %445, %425, %418
+  %.0 = phi i1 [ false, %418 ], [ false, %425 ], [ false, %494 ], [ false, %517 ], [ true, %618 ], [ false, %445 ], [ false, %108 ], [ false, %102 ], [ false, %215 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread ], [ false, %229 ], [ false, %223 ], [ false, %271 ], [ false, %265 ], [ false, %292 ], [ false, %286 ], [ false, %305 ], [ false, %299 ], [ false, %316 ], [ false, %310 ], [ false, %330 ], [ false, %324 ], [ false, %345 ], [ false, %339 ]
   ret i1 %.0
 }
 
@@ -7135,7 +7135,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %182 = load i8, ptr %181, align 8
   %.not.i.i.i = icmp ne i8 %182, 4
   %or.cond.not.i.i.i = select i1 %180, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %183, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %183, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 183:                                              ; preds = %176
   %184 = getelementptr inbounds i8, ptr %177, i64 16
@@ -7148,22 +7148,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %183
   %187 = getelementptr inbounds i8, ptr %186, i64 32
   %188 = load ptr, ptr %187, align 8
   %189 = tail call noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(24) %177) #9
-  br i1 %189, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %189, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %183
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %177) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %181, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %176
-  %190 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %182, %176 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %176
+  %190 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %182, %176 ]
   %191 = icmp eq i8 %190, 4
   br i1 %191, label %200, label %192
 
-192:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+192:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %193 = getelementptr inbounds i8, ptr %0, i64 16
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 276
@@ -7176,7 +7176,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %199, ptr noundef nonnull @.str.8) #9
   br label %478
 
-200:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+200:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %201 = load ptr, ptr %93, align 8
   %202 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %201) #9
   %203 = getelementptr inbounds i8, ptr %202, i64 24
@@ -7262,7 +7262,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   br label %478
 
 265:                                              ; preds = %243
-  %266 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr.argprom(ptr nonnull %245)
+  %266 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr nonnull %245)
   br i1 %266, label %275, label %267
 
 267:                                              ; preds = %265
@@ -7848,7 +7848,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit18inline_vector_testEv(ptr 
   %170 = load i8, ptr %169, align 8
   %.not.i.i.i = icmp ne i8 %170, 4
   %or.cond.not.i.i.i = select i1 %168, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %171, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %171, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 171:                                              ; preds = %164
   %172 = getelementptr inbounds i8, ptr %165, i64 16
@@ -7861,22 +7861,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %171
   %175 = getelementptr inbounds i8, ptr %174, i64 32
   %176 = load ptr, ptr %175, align 8
   %177 = tail call noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(24) %165) #9
-  br i1 %177, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %177, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %171
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %165) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %169, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %164
-  %178 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %170, %164 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %164
+  %178 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %170, %164 ]
   %179 = icmp eq i8 %178, 4
   br i1 %179, label %188, label %180
 
-180:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+180:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %181 = getelementptr inbounds i8, ptr %0, i64 16
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 276
@@ -7889,7 +7889,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %187, ptr noundef nonnull @.str.8) #9
   br label %327
 
-188:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+188:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %189 = load ptr, ptr %81, align 8
   %190 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %189) #9
   %191 = getelementptr inbounds i8, ptr %190, i64 24
@@ -8293,7 +8293,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_vector_blendEv(ptr
   %168 = load i8, ptr %167, align 8
   %.not.i.i.i = icmp ne i8 %168, 4
   %or.cond.not.i.i.i = select i1 %166, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %169, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %169, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 169:                                              ; preds = %162
   %170 = getelementptr inbounds i8, ptr %163, i64 16
@@ -8306,25 +8306,25 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %169
   %173 = getelementptr inbounds i8, ptr %172, i64 32
   %174 = load ptr, ptr %173, align 8
   %175 = tail call noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(24) %163) #9
-  br i1 %175, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %175, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %169
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %163) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %167, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %162
-  %176 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %168, %162 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %162
+  %176 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %168, %162 ]
   %177 = icmp eq i8 %176, 4
-  br i1 %177, label %178, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75.thread
+  br i1 %177, label %178, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread
 
-178:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+178:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %.val = load ptr, ptr %71, align 8
   %179 = icmp eq ptr %.val, null
-  br i1 %179, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75.thread, label %180
+  br i1 %179, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread, label %180
 
 180:                                              ; preds = %178
   %181 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %.val) #9
@@ -8335,7 +8335,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   %186 = load i8, ptr %185, align 8
   %.not.i.i.i68 = icmp ne i8 %186, 4
   %or.cond.not.i.i.i69 = select i1 %184, i1 %.not.i.i.i68, i1 false
-  br i1 %or.cond.not.i.i.i69, label %187, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75
+  br i1 %or.cond.not.i.i.i69, label %187, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit75
 
 187:                                              ; preds = %180
   %188 = getelementptr inbounds i8, ptr %181, i64 16
@@ -8348,22 +8348,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i74:        ; preds = %187
   %191 = getelementptr inbounds i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8
   %193 = tail call noundef zeroext i1 %192(ptr noundef nonnull align 8 dereferenceable(24) %181) #9
-  br i1 %193, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i73, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75thread-pre-split
+  br i1 %193, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i73, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit75thread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i73: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i74, %187
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %181) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75thread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit75thread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75thread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i73, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i74
+_ZL20is_klass_initializedPK11TypeInstPtr.exit75thread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i73, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i74
   %.pr77 = load i8, ptr %185, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit75
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75thread-pre-split, %180
-  %194 = phi i8 [ %.pr77, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75thread-pre-split ], [ %186, %180 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit75:  ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit75thread-pre-split, %180
+  %194 = phi i8 [ %.pr77, %_ZL20is_klass_initializedPK11TypeInstPtr.exit75thread-pre-split ], [ %186, %180 ]
   %195 = icmp eq i8 %194, 4
-  br i1 %195, label %203, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75.thread
+  br i1 %195, label %203, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75.thread: ; preds = %178, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+_ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread: ; preds = %178, %_ZL20is_klass_initializedPK11TypeInstPtr.exit75, %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %196 = getelementptr inbounds i8, ptr %0, i64 16
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 276
@@ -8371,12 +8371,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75.thread: ; preds = %178, 
   %200 = trunc i8 %199 to i1
   br i1 %200, label %201, label %309
 
-201:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75.thread
+201:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread
   %202 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %202, ptr noundef nonnull @.str.8) #9
   br label %309
 
-203:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75
+203:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit75
   %204 = load ptr, ptr %79, align 8
   %205 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %204) #9
   %206 = getelementptr inbounds i8, ptr %205, i64 24
@@ -8511,8 +8511,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75.thread: ; preds = %178, 
   store i32 %308, ptr %302, align 4
   br label %309
 
-309:                                              ; preds = %230, %221, %227, %209, %215, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75.thread, %201, %88, %94, %1, %294
-  %.0 = phi i1 [ true, %294 ], [ false, %1 ], [ false, %94 ], [ false, %88 ], [ false, %201 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit75.thread ], [ false, %215 ], [ false, %209 ], [ false, %227 ], [ false, %221 ], [ false, %230 ]
+309:                                              ; preds = %230, %221, %227, %209, %215, %_ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread, %201, %88, %94, %1, %294
+  %.0 = phi i1 [ true, %294 ], [ false, %1 ], [ false, %94 ], [ false, %88 ], [ false, %201 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread ], [ false, %215 ], [ false, %209 ], [ false, %227 ], [ false, %221 ], [ false, %230 ]
   ret i1 %.0
 }
 
@@ -8752,7 +8752,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %207 = load i8, ptr %206, align 8
   %.not.i.i.i = icmp ne i8 %207, 4
   %or.cond.not.i.i.i = select i1 %205, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %208, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %208, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 208:                                              ; preds = %201
   %209 = getelementptr inbounds i8, ptr %202, i64 16
@@ -8765,27 +8765,27 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %208
   %212 = getelementptr inbounds i8, ptr %211, i64 32
   %213 = load ptr, ptr %212, align 8
   %214 = tail call noundef zeroext i1 %213(ptr noundef nonnull align 8 dereferenceable(24) %202) #9
-  br i1 %214, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %214, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %208
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %202) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %206, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %201
-  %215 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %207, %201 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %201
+  %215 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %207, %201 ]
   %216 = icmp eq i8 %215, 4
   br i1 %216, label %217, label %219
 
-217:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+217:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %.val = load ptr, ptr %94, align 8
-  %218 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr.argprom(ptr %.val)
+  %218 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr %.val)
   br i1 %218, label %227, label %219
 
-219:                                              ; preds = %217, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+219:                                              ; preds = %217, %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %220 = getelementptr inbounds i8, ptr %0, i64 16
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 276
@@ -9239,7 +9239,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_rearrangeEv
   %180 = load i8, ptr %179, align 8
   %.not.i.i.i = icmp ne i8 %180, 4
   %or.cond.not.i.i.i = select i1 %178, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %181, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %181, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 181:                                              ; preds = %174
   %182 = getelementptr inbounds i8, ptr %175, i64 16
@@ -9252,25 +9252,25 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %181
   %185 = getelementptr inbounds i8, ptr %184, i64 32
   %186 = load ptr, ptr %185, align 8
   %187 = tail call noundef zeroext i1 %186(ptr noundef nonnull align 8 dereferenceable(24) %175) #9
-  br i1 %187, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %187, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %181
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %175) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %179, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %174
-  %188 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %180, %174 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %174
+  %188 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %180, %174 ]
   %189 = icmp eq i8 %188, 4
-  br i1 %189, label %190, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117.thread
+  br i1 %189, label %190, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread
 
-190:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+190:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %.val104 = load ptr, ptr %83, align 8
   %191 = icmp eq ptr %.val104, null
-  br i1 %191, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117.thread, label %192
+  br i1 %191, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread, label %192
 
 192:                                              ; preds = %190
   %193 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %.val104) #9
@@ -9281,7 +9281,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   %198 = load i8, ptr %197, align 8
   %.not.i.i.i110 = icmp ne i8 %198, 4
   %or.cond.not.i.i.i111 = select i1 %196, i1 %.not.i.i.i110, i1 false
-  br i1 %or.cond.not.i.i.i111, label %199, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117
+  br i1 %or.cond.not.i.i.i111, label %199, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit117
 
 199:                                              ; preds = %192
   %200 = getelementptr inbounds i8, ptr %193, i64 16
@@ -9294,22 +9294,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i116:       ; preds = %199
   %203 = getelementptr inbounds i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8
   %205 = tail call noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(24) %193) #9
-  br i1 %205, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i115, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117thread-pre-split
+  br i1 %205, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i115, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit117thread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i115: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i116, %199
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %193) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117thread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit117thread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117thread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i115, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i116
+_ZL20is_klass_initializedPK11TypeInstPtr.exit117thread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i115, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i116
   %.pr119 = load i8, ptr %197, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit117
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117thread-pre-split, %192
-  %206 = phi i8 [ %.pr119, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117thread-pre-split ], [ %198, %192 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit117: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit117thread-pre-split, %192
+  %206 = phi i8 [ %.pr119, %_ZL20is_klass_initializedPK11TypeInstPtr.exit117thread-pre-split ], [ %198, %192 ]
   %207 = icmp eq i8 %206, 4
-  br i1 %207, label %215, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117.thread
+  br i1 %207, label %215, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117.thread: ; preds = %190, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+_ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread: ; preds = %190, %_ZL20is_klass_initializedPK11TypeInstPtr.exit117, %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %208 = getelementptr inbounds i8, ptr %0, i64 16
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 276
@@ -9317,12 +9317,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117.thread: ; preds = %190,
   %212 = trunc i8 %211 to i1
   br i1 %212, label %213, label %419
 
-213:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117.thread
+213:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread
   %214 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %214, ptr noundef nonnull @.str.8) #9
   br label %419
 
-215:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117
+215:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit117
   %216 = load ptr, ptr %91, align 8
   %217 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %216) #9
   %218 = getelementptr inbounds i8, ptr %217, i64 24
@@ -9398,7 +9398,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117.thread: ; preds = %190,
   br i1 %267, label %270, label %268
 
 268:                                              ; preds = %264
-  %269 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr.argprom(ptr nonnull %266)
+  %269 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr nonnull %266)
   br i1 %269, label %278, label %270
 
 270:                                              ; preds = %268, %264, %262
@@ -9610,8 +9610,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117.thread: ; preds = %190,
   store i32 %418, ptr %412, align 4
   br label %419
 
-419:                                              ; preds = %356, %362, %295, %.thread120, %292, %233, %239, %221, %227, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117.thread, %213, %100, %106, %1, %403
-  %.0 = phi i1 [ true, %403 ], [ false, %1 ], [ false, %106 ], [ false, %100 ], [ false, %213 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit117.thread ], [ false, %227 ], [ false, %221 ], [ false, %239 ], [ false, %233 ], [ false, %292 ], [ false, %.thread120 ], [ false, %295 ], [ false, %362 ], [ false, %356 ]
+419:                                              ; preds = %356, %362, %295, %.thread120, %292, %233, %239, %221, %227, %_ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread, %213, %100, %106, %1, %403
+  %.0 = phi i1 [ true, %403 ], [ false, %1 ], [ false, %106 ], [ false, %100 ], [ false, %213 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread ], [ false, %227 ], [ false, %221 ], [ false, %239 ], [ false, %233 ], [ false, %292 ], [ false, %.thread120 ], [ false, %295 ], [ false, %362 ], [ false, %356 ]
   ret i1 %.0
 }
 
@@ -9917,7 +9917,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %182 = load i8, ptr %181, align 8
   %.not.i.i.i = icmp ne i8 %182, 4
   %or.cond.not.i.i.i = select i1 %180, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %183, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %183, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 183:                                              ; preds = %176
   %184 = getelementptr inbounds i8, ptr %177, i64 16
@@ -9930,22 +9930,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %183
   %187 = getelementptr inbounds i8, ptr %186, i64 32
   %188 = load ptr, ptr %187, align 8
   %189 = tail call noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(24) %177) #9
-  br i1 %189, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %189, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %183
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %177) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %181, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %176
-  %190 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %182, %176 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %176
+  %190 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %182, %176 ]
   %191 = icmp eq i8 %190, 4
   br i1 %191, label %200, label %192
 
-192:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+192:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %193 = getelementptr inbounds i8, ptr %0, i64 16
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 276
@@ -9958,7 +9958,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %199, ptr noundef nonnull @.str.8) #9
   br label %505
 
-200:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+200:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %201 = load ptr, ptr %2, align 8
   %202 = load ptr, ptr %4, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 56
@@ -10021,7 +10021,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   br label %505
 
 251:                                              ; preds = %229
-  %252 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr.argprom(ptr nonnull %231)
+  %252 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr nonnull %231)
   br i1 %252, label %261, label %253
 
 253:                                              ; preds = %251
@@ -10706,12 +10706,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   br label %.thread193
 
 277:                                              ; preds = %137
-  %278 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr.argprom(ptr nonnull %117)
+  %278 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr nonnull %117)
   br i1 %278, label %279, label %281
 
 279:                                              ; preds = %277
   %.val = load ptr, ptr %130, align 8
-  %280 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr.argprom(ptr %.val)
+  %280 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr %.val)
   br i1 %280, label %289, label %281
 
 281:                                              ; preds = %279, %277
@@ -11366,7 +11366,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20inline_vector_insertEv(pt
   %170 = load i8, ptr %169, align 8
   %.not.i.i.i = icmp ne i8 %170, 4
   %or.cond.not.i.i.i = select i1 %168, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %171, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %171, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 171:                                              ; preds = %164
   %172 = getelementptr inbounds i8, ptr %165, i64 16
@@ -11379,22 +11379,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %171
   %175 = getelementptr inbounds i8, ptr %174, i64 32
   %176 = load ptr, ptr %175, align 8
   %177 = tail call noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(24) %165) #9
-  br i1 %177, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %177, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %171
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %165) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %169, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %164
-  %178 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %170, %164 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %164
+  %178 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %170, %164 ]
   %179 = icmp eq i8 %178, 4
   br i1 %179, label %188, label %180
 
-180:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+180:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %181 = getelementptr inbounds i8, ptr %0, i64 16
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 276
@@ -11407,7 +11407,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %187, ptr noundef nonnull @.str.8) #9
   br label %348
 
-188:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+188:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %189 = load ptr, ptr %75, align 8
   %190 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %189) #9
   %191 = getelementptr inbounds i8, ptr %190, i64 24
@@ -11891,7 +11891,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_extractEv(p
   %145 = load i8, ptr %144, align 8
   %.not.i.i.i = icmp ne i8 %145, 4
   %or.cond.not.i.i.i = select i1 %143, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %146, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %146, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 146:                                              ; preds = %139
   %147 = getelementptr inbounds i8, ptr %140, i64 16
@@ -11904,22 +11904,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %146
   %150 = getelementptr inbounds i8, ptr %149, i64 32
   %151 = load ptr, ptr %150, align 8
   %152 = tail call noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(24) %140) #9
-  br i1 %152, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %152, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %146
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %140) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %144, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %139
-  %153 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %145, %139 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %139
+  %153 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %145, %139 ]
   %154 = icmp eq i8 %153, 4
   br i1 %154, label %163, label %155
 
-155:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+155:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %156 = getelementptr inbounds i8, ptr %0, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 276
@@ -11932,7 +11932,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %162, ptr noundef nonnull @.str.8) #9
   br label %432
 
-163:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+163:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %164 = load ptr, ptr %76, align 8
   %165 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %164) #9
   %166 = getelementptr inbounds i8, ptr %165, i64 24
@@ -12625,7 +12625,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit29inline_vector_compress_ex
   %206 = load i8, ptr %205, align 8
   %.not.i.i.i = icmp ne i8 %206, 4
   %or.cond.not.i.i.i = select i1 %204, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %207, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %207, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 207:                                              ; preds = %200
   %208 = getelementptr inbounds i8, ptr %201, i64 16
@@ -12638,27 +12638,27 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %207
   %211 = getelementptr inbounds i8, ptr %210, i64 32
   %212 = load ptr, ptr %211, align 8
   %213 = tail call noundef zeroext i1 %212(ptr noundef nonnull align 8 dereferenceable(24) %201) #9
-  br i1 %213, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %213, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %207
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %201) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %205, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %200
-  %214 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %206, %200 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %200
+  %214 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %206, %200 ]
   %215 = icmp eq i8 %214, 4
   br i1 %215, label %216, label %218
 
-216:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+216:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %.val = load ptr, ptr %87, align 8
-  %217 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr.argprom(ptr %.val)
+  %217 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr %.val)
   br i1 %217, label %226, label %218
 
-218:                                              ; preds = %216, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+218:                                              ; preds = %216, %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %219 = getelementptr inbounds i8, ptr %0, i64 16
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds i8, ptr %220, i64 276
@@ -13013,7 +13013,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_index_vectorEv(ptr
   %131 = load i8, ptr %130, align 8
   %.not.i.i.i = icmp ne i8 %131, 4
   %or.cond.not.i.i.i = select i1 %129, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %132, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %132, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 132:                                              ; preds = %125
   %133 = getelementptr inbounds i8, ptr %126, i64 16
@@ -13026,22 +13026,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %132
   %136 = getelementptr inbounds i8, ptr %135, i64 32
   %137 = load ptr, ptr %136, align 8
   %138 = tail call noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(24) %126) #9
-  br i1 %138, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %138, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %132
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %126) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %130, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %125
-  %139 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %131, %125 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %125
+  %139 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %131, %125 ]
   %140 = icmp eq i8 %139, 4
   br i1 %140, label %149, label %141
 
-141:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+141:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %142 = getelementptr inbounds i8, ptr %0, i64 16
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 276
@@ -13054,7 +13054,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %148, ptr noundef nonnull @.str.8) #9
   br label %383
 
-149:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+149:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %150 = load ptr, ptr %68, align 8
   %151 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %150) #9
   %152 = getelementptr inbounds i8, ptr %151, i64 24
@@ -13666,7 +13666,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit37inline_index_partially_in
   %131 = load i8, ptr %130, align 8
   %.not.i.i.i = icmp ne i8 %131, 4
   %or.cond.not.i.i.i = select i1 %129, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %132, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br i1 %or.cond.not.i.i.i, label %132, label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
 132:                                              ; preds = %125
   %133 = getelementptr inbounds i8, ptr %126, i64 16
@@ -13679,22 +13679,22 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %132
   %136 = getelementptr inbounds i8, ptr %135, i64 32
   %137 = load ptr, ptr %136, align 8
   %138 = tail call noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(24) %126) #9
-  br i1 %138, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br i1 %138, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %132
   tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %126) #9
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
+_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i
   %.pr = load i8, ptr %130, align 8
-  br label %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+  br label %_ZL20is_klass_initializedPK11TypeInstPtr.exit
 
-_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split, %125
-  %139 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exitthread-pre-split ], [ %131, %125 ]
+_ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split, %125
+  %139 = phi i8 [ %.pr, %_ZL20is_klass_initializedPK11TypeInstPtr.exitthread-pre-split ], [ %131, %125 ]
   %140 = icmp eq i8 %139, 4
   br i1 %140, label %149, label %141
 
-141:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+141:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %142 = getelementptr inbounds i8, ptr %0, i64 16
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 276
@@ -13707,7 +13707,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit: ; preds = %_ZL20is_klass_
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %148, ptr noundef nonnull @.str.8) #9
   br label %329
 
-149:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.argprom.exit
+149:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %150 = load ptr, ptr %62, align 8
   %151 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %150) #9
   %152 = getelementptr inbounds i8, ptr %151, i64 24

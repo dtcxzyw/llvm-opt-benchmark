@@ -1001,16 +1001,16 @@ _ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueEN
   %239 = load ptr, ptr %238, align 8
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 48
   %.not18.i.i.i.i = icmp eq ptr %239, %240
-  br i1 %.not18.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i54
+  br i1 %.not18.i.i.i.i, label %"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.i54
 
-.lr.ph.i.i.i.i54:                                 ; preds = %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.thread.i.i.i.i"
-  %.sroa.04.019.i.i.i.i = phi ptr [ %262, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.thread.i.i.i.i" ], [ %239, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ]
+.lr.ph.i.i.i.i54:                                 ; preds = %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.thread.i.i.i.i"
+  %.sroa.04.019.i.i.i.i = phi ptr [ %262, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.thread.i.i.i.i" ], [ %239, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ]
   %241 = icmp eq ptr %.sroa.04.019.i.i.i.i, null
   %242 = getelementptr inbounds i8, ptr %.sroa.04.019.i.i.i.i, i64 -24
   %243 = select i1 %241, ptr null, ptr %242
   %244 = load i8, ptr %243, align 8
   %245 = icmp eq i8 %244, 62
-  br i1 %245, label %246, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.thread.i.i.i.i"
+  br i1 %245, label %246, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.thread.i.i.i.i"
 
 246:                                              ; preds = %.lr.ph.i.i.i.i54
   %247 = getelementptr inbounds nuw i8, ptr %243, i64 4
@@ -1022,29 +1022,29 @@ _ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueEN
 250:                                              ; preds = %246
   %251 = getelementptr inbounds i8, ptr %243, i64 -8
   %252 = load ptr, ptr %251, align 8
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.i.i.i.i"
 
 253:                                              ; preds = %246
   %254 = and i32 %248, 134217727
   %255 = zext nneg i32 %254 to i64
   %256 = sub nsw i64 0, %255
   %257 = getelementptr inbounds %"class.llvm::Use", ptr %243, i64 %256
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.i.i.i.i": ; preds = %253, %250
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.i.i.i.i": ; preds = %253, %250
   %258 = phi ptr [ %252, %250 ], [ %257, %253 ]
   %259 = load ptr, ptr %258, align 8
   %260 = icmp eq ptr %259, %spec.select
-  br i1 %260, label %"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.thread.i.i.i.i"
+  br i1 %260, label %"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.i.i.i.i", %.lr.ph.i.i.i.i54
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.i.i.i.i", %.lr.ph.i.i.i.i54
   %261 = getelementptr inbounds nuw i8, ptr %.sroa.04.019.i.i.i.i, i64 8
   %262 = load ptr, ptr %261, align 8
   %.not.i.i.i.i55 = icmp eq ptr %262, %240
-  br i1 %.not.i.i.i.i55, label %"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i54, !llvm.loop !17
+  br i1 %.not.i.i.i.i55, label %"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.i54, !llvm.loop !17
 
-"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.thread.i.i.i.i", %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit
-  %.sroa.04.0.lcssa.i.i.i.i = phi ptr [ %239, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ %262, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.thread.i.i.i.i" ], [ %.sroa.04.019.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.argprom.exit.i.i.i.i" ]
+"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.thread.i.i.i.i", %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit
+  %.sroa.04.0.lcssa.i.i.i.i = phi ptr [ %239, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ %262, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.thread.i.i.i.i" ], [ %.sroa.04.019.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPN4llvm8FunctionERKNS3_14CGFunctionInfoENS2_10GlobalDeclERKNS2_9ThunkInfoEE3$_0EclINS5_21ilist_iterator_w_bitsINS5_12ilist_detail12node_optionsINS5_11InstructionELb0ELb0EvLb1ENS5_10BasicBlockEEELb0ELb0EEEEEbT_.exit.i.i.i.i" ]
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %264 = icmp eq ptr %.sroa.04.0.lcssa.i.i.i.i, null
   %265 = getelementptr inbounds i8, ptr %.sroa.04.0.lcssa.i.i.i.i, i64 -24
@@ -1077,12 +1077,12 @@ _ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueEN
   %.not.i.i56 = icmp eq i32 %279, 0
   br i1 %.not.i.i56, label %283, label %280
 
-280:                                              ; preds = %"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.argprom.exit"
+280:                                              ; preds = %"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.exit"
   %281 = getelementptr inbounds i8, ptr %266, i64 -8
   %282 = load ptr, ptr %281, align 8
   br label %_ZNK4llvm4User10getOperandEj.exit
 
-283:                                              ; preds = %"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.argprom.exit"
+283:                                              ; preds = %"_ZN4llvm7find_ifIRNS_10BasicBlockEZN5clang7CodeGen15CodeGenFunction20GenerateVarArgsThunkEPNS_8FunctionERKNS4_14CGFunctionInfoENS3_10GlobalDeclERKNS3_9ThunkInfoEE3$_0EEDaOT_T0_.exit"
   %284 = and i32 %278, 134217727
   %285 = zext nneg i32 %284 to i64
   %286 = sub nsw i64 0, %285
@@ -1229,7 +1229,7 @@ _ZNK4llvm4User10getOperandEj.exit64:              ; preds = %346, %349
   store ptr %332, ptr %358, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 344
   store i16 0, ptr %.sroa.22.0..sroa_idx.i, align 8
-  call fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE.argprom(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %.sroa.0.0.copyload.i47, ptr %355, ptr noundef nonnull align 8 dereferenceable(56) %5)
+  call fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %.sroa.0.0.copyload.i47, ptr %355, ptr noundef nonnull align 8 dereferenceable(56) %5)
   %.sroa.066.0.copyload = load ptr, ptr %13, align 8
   %359 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateRetEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(128) %263, ptr noundef %.sroa.066.0.copyload)
   br label %.loopexit
@@ -1347,7 +1347,7 @@ declare noundef ptr @_ZNK5clang4Type23getPointeeCXXRecordDeclEv(ptr noundef nonn
 declare { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -2422,7 +2422,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %139, %142
 
 159:                                              ; preds = %154
   %.sroa.0.0.copyload68 = load ptr, ptr %11, align 8
-  call fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE.argprom(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %.sroa.085.0, ptr %.sroa.0.0.copyload68, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  call fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %.sroa.085.0, ptr %.sroa.0.0.copyload68, ptr noundef nonnull align 8 dereferenceable(56) %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %11, ptr noundef nonnull align 8 dereferenceable(49) %13, i64 49, i1 false)
   br label %168
 
@@ -3063,9 +3063,9 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %62, %81
   %.val104.val = load i32, ptr %87, align 4
   %cond.i.i = icmp ne i32 %.val104.val, 10
   %brmerge.not.i = and i1 %4, %cond.i.i
-  br i1 %brmerge.not.i, label %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.argprom.argprom.exit, label %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.argprom.argprom.exit.thread
+  br i1 %brmerge.not.i, label %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.exit, label %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.exit.thread
 
-_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.argprom.argprom.exit: ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
+_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.exit: ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
   %88 = getelementptr i8, ptr %85, i64 184
   %.val = load ptr, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %.val, i64 32
@@ -3073,18 +3073,18 @@ _ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEb
   %91 = and i64 %90, 1536
   %92 = icmp ne i64 %91, 0
   %93 = and i1 %83, %92
-  br i1 %93, label %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.argprom.argprom.exit.thread, label %192
+  br i1 %93, label %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.exit.thread, label %192
 
-_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.argprom.argprom.exit.thread: ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit, %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.argprom.argprom.exit
+_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.exit.thread: ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit, %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.exit
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 296
   %95 = load ptr, ptr %94, align 8
   br i1 %83, label %98, label %96
 
-96:                                               ; preds = %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.argprom.argprom.exit.thread
+96:                                               ; preds = %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.exit.thread
   %97 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes32arrangeUnprototypedMustTailThunkEPKNS_13CXXMethodDeclE(ptr noundef nonnull align 8 dereferenceable(240) %95, ptr noundef nonnull %13) #17
   br label %100
 
-98:                                               ; preds = %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.argprom.argprom.exit.thread
+98:                                               ; preds = %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.exit.thread
   %99 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes24arrangeGlobalDeclarationENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(240) %95, i64 %1, i32 %2) #17
   br label %100
 
@@ -3283,8 +3283,8 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit: ; preds = %141, %134, %109, 
   call fastcc void @_ZL18setThunkPropertiesRN5clang7CodeGen13CodeGenModuleERKNS_9ThunkInfoEPN4llvm8FunctionEbNS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(3600) %191, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %.1, i1 noundef zeroext %4, i64 %1, i32 %2)
   br label %192
 
-192:                                              ; preds = %185, %162, %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.argprom.argprom.exit, %190, %163
-  %.0 = phi ptr [ %.1, %190 ], [ %.094, %163 ], [ %70, %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.argprom.argprom.exit ], [ %.094, %162 ], [ %.094, %185 ]
+192:                                              ; preds = %185, %162, %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.exit, %190, %163
+  %.0 = phi ptr [ %.1, %190 ], [ %.094, %163 ], [ %70, %_ZL21shouldEmitVTableThunkRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclEbb.exit ], [ %.094, %162 ], [ %.094, %185 ]
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
   %193 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   %194 = load ptr, ptr %6, align 8
@@ -3692,7 +3692,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen14CodeGenVTables17useRela
   %4 = getelementptr i8, ptr %.val, i64 340
   %.val.val = load i32, ptr %4, align 4
   %switch.i.i = icmp ult i32 %.val.val, 10
-  br i1 %switch.i.i, label %5, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit
+  br i1 %switch.i.i, label %5, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %2, i64 312
@@ -3700,9 +3700,9 @@ define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen14CodeGenVTables17useRela
   %7 = getelementptr inbounds nuw i8, ptr %.val1, i64 136
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 1
-  br label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit
+  br label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit
 
-_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit: ; preds = %1, %5
+_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit: ; preds = %1, %5
   %10 = phi i1 [ false, %1 ], [ %9, %5 ]
   ret i1 %10
 }
@@ -3714,9 +3714,9 @@ define dso_local noundef ptr @_ZNK5clang7CodeGen13CodeGenModule22getVTableCompon
   %3 = getelementptr i8, ptr %.val, i64 340
   %.val.val = load i32, ptr %3, align 4
   %switch.i.i = icmp ult i32 %.val.val, 10
-  br i1 %switch.i.i, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.thread
+  br i1 %switch.i.i, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.thread
 
-_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit: ; preds = %1
+_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit: ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 312
   %.val2 = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.val2, i64 136
@@ -3724,10 +3724,10 @@ _ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit: ; 
   %.fr = freeze i32 %6
   %7 = icmp eq i32 %.fr, 1
   %spec.select.v = select i1 %7, i64 24, i64 112
-  br label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.thread
+  br label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.thread
 
-_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.thread: ; preds = %1, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit
-  %spec.select.v.sink = phi i64 [ %spec.select.v, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit ], [ 112, %1 ]
+_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.thread: ; preds = %1, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit
+  %spec.select.v.sink = phi i64 [ %spec.select.v, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit ], [ 112, %1 ]
   %spec.select = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.v.sink
   %.0 = load ptr, ptr %spec.select, align 8
   ret ptr %.0
@@ -3741,9 +3741,9 @@ define dso_local noundef ptr @_ZNK5clang7CodeGen14CodeGenVTables22getVTableCompo
   %4 = getelementptr i8, ptr %.val.i, i64 340
   %.val.val.i = load i32, ptr %4, align 4
   %switch.i.i.i = icmp ult i32 %.val.val.i, 10
-  br i1 %switch.i.i.i, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i, label %_ZNK5clang7CodeGen13CodeGenModule22getVTableComponentTypeEv.exit
+  br i1 %switch.i.i.i, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i, label %_ZNK5clang7CodeGen13CodeGenModule22getVTableComponentTypeEv.exit
 
-_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i: ; preds = %1
+_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i: ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 312
   %.val2.i = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 136
@@ -3753,8 +3753,8 @@ _ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i: 
   %spec.select.v.i = select i1 %8, i64 24, i64 112
   br label %_ZNK5clang7CodeGen13CodeGenModule22getVTableComponentTypeEv.exit
 
-_ZNK5clang7CodeGen13CodeGenModule22getVTableComponentTypeEv.exit: ; preds = %1, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i
-  %spec.select.v.sink.i = phi i64 [ %spec.select.v.i, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i ], [ 112, %1 ]
+_ZNK5clang7CodeGen13CodeGenModule22getVTableComponentTypeEv.exit: ; preds = %1, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i
+  %spec.select.v.sink.i = phi i64 [ %spec.select.v.i, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i ], [ 112, %1 ]
   %spec.select.i = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select.v.sink.i
   %.0.i = load ptr, ptr %spec.select.i, align 8
   ret ptr %.0.i
@@ -4077,7 +4077,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit120: ;
   %154 = tail call { ptr, i64 } %153(ptr noundef nonnull align 8 dereferenceable(24) %150) #17
   %155 = extractvalue { ptr, i64 } %154, 0
   %156 = extractvalue { ptr, i64 } %154, 1
-  %157 = tail call fastcc noundef ptr @"_ZZN5clang7CodeGen14CodeGenVTables18addVTableComponentERNS0_20ConstantArrayBuilderERKNS_12VTableLayoutEjPN4llvm8ConstantERjjbENK3$_0clENS7_9StringRefE.argprom"(ptr nonnull %0, ptr %155, i64 %156)
+  %157 = tail call fastcc noundef ptr @"_ZZN5clang7CodeGen14CodeGenVTables18addVTableComponentERNS0_20ConstantArrayBuilderERKNS_12VTableLayoutEjPN4llvm8ConstantERjjbENK3$_0clENS7_9StringRefE"(ptr nonnull %0, ptr %155, i64 %156)
   store ptr %157, ptr %145, align 8
   br label %221
 
@@ -4108,7 +4108,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit120: ;
   %176 = tail call { ptr, i64 } %175(ptr noundef nonnull align 8 dereferenceable(24) %172) #17
   %177 = extractvalue { ptr, i64 } %176, 0
   %178 = extractvalue { ptr, i64 } %176, 1
-  %179 = tail call fastcc noundef ptr @"_ZZN5clang7CodeGen14CodeGenVTables18addVTableComponentERNS0_20ConstantArrayBuilderERKNS_12VTableLayoutEjPN4llvm8ConstantERjjbENK3$_0clENS7_9StringRefE.argprom"(ptr nonnull %0, ptr %177, i64 %178)
+  %179 = tail call fastcc noundef ptr @"_ZZN5clang7CodeGen14CodeGenVTables18addVTableComponentERNS0_20ConstantArrayBuilderERKNS_12VTableLayoutEjPN4llvm8ConstantERjjbENK3$_0clENS7_9StringRefE"(ptr nonnull %0, ptr %177, i64 %178)
   store ptr %179, ptr %167, align 8
   br label %221
 
@@ -4500,7 +4500,7 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit: ; preds = %28, %21, %30, %_Z
 declare noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN5clang7CodeGen14CodeGenVTables18addVTableComponentERNS0_20ConstantArrayBuilderERKNS_12VTableLayoutEjPN4llvm8ConstantERjjbENK3$_0clENS7_9StringRefE.argprom"(ptr nocapture readonly %.0.val, ptr %0, i64 %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN5clang7CodeGen14CodeGenVTables18addVTableComponentERNS0_20ConstantArrayBuilderERKNS_12VTableLayoutEjPN4llvm8ConstantERjjbENK3$_0clENS7_9StringRefE"(ptr nocapture readonly %.0.val, ptr %0, i64 %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %.0.val, align 8
   %4 = getelementptr i8, ptr %3, i64 216
   %.val.i = load ptr, ptr %4, align 8
@@ -4616,9 +4616,9 @@ define dso_local noundef ptr @_ZN5clang7CodeGen14CodeGenVTables13getVTableTypeER
   %7 = getelementptr i8, ptr %.val.i.i, i64 340
   %.val.val.i.i = load i32, ptr %7, align 4
   %switch.i.i.i.i = icmp ult i32 %.val.val.i.i, 10
-  br i1 %switch.i.i.i.i, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i.i, label %_ZNK5clang7CodeGen14CodeGenVTables22getVTableComponentTypeEv.exit
+  br i1 %switch.i.i.i.i, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i.i, label %_ZNK5clang7CodeGen14CodeGenVTables22getVTableComponentTypeEv.exit
 
-_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i.i: ; preds = %2
+_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i.i: ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 312
   %.val2.i.i = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 136
@@ -4628,8 +4628,8 @@ _ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i.i
   %spec.select.v.i.i = select i1 %11, i64 24, i64 112
   br label %_ZNK5clang7CodeGen14CodeGenVTables22getVTableComponentTypeEv.exit
 
-_ZNK5clang7CodeGen14CodeGenVTables22getVTableComponentTypeEv.exit: ; preds = %2, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i.i
-  %spec.select.v.sink.i.i = phi i64 [ %spec.select.v.i.i, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i.i ], [ 112, %2 ]
+_ZNK5clang7CodeGen14CodeGenVTables22getVTableComponentTypeEv.exit: ; preds = %2, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i.i
+  %spec.select.v.sink.i.i = phi i64 [ %spec.select.v.i.i, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i.i ], [ 112, %2 ]
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %spec.select.v.sink.i.i
   %.0.i.i = load ptr, ptr %spec.select.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4730,9 +4730,9 @@ define dso_local void @_ZN5clang7CodeGen14CodeGenVTables23createVTableInitialize
   %10 = getelementptr i8, ptr %.val.i.i, i64 340
   %.val.val.i.i = load i32, ptr %10, align 4
   %switch.i.i.i.i = icmp ult i32 %.val.val.i.i, 10
-  br i1 %switch.i.i.i.i, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i.i, label %_ZNK5clang7CodeGen14CodeGenVTables22getVTableComponentTypeEv.exit
+  br i1 %switch.i.i.i.i, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i.i, label %_ZNK5clang7CodeGen14CodeGenVTables22getVTableComponentTypeEv.exit
 
-_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i.i: ; preds = %5
+_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i.i: ; preds = %5
   %11 = getelementptr inbounds i8, ptr %8, i64 312
   %.val2.i.i = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 136
@@ -4742,8 +4742,8 @@ _ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i.i
   %spec.select.v.i.i = select i1 %14, i64 24, i64 112
   br label %_ZNK5clang7CodeGen14CodeGenVTables22getVTableComponentTypeEv.exit
 
-_ZNK5clang7CodeGen14CodeGenVTables22getVTableComponentTypeEv.exit: ; preds = %5, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i.i
-  %spec.select.v.sink.i.i = phi i64 [ %spec.select.v.i.i, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i.i ], [ 112, %5 ]
+_ZNK5clang7CodeGen14CodeGenVTables22getVTableComponentTypeEv.exit: ; preds = %5, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i.i
+  %spec.select.v.sink.i.i = phi i64 [ %spec.select.v.i.i, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i.i ], [ 112, %5 ]
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %spec.select.v.sink.i.i
   %.0.i.i = load ptr, ptr %spec.select.i.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -5217,9 +5217,9 @@ define dso_local void @_ZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataE
   %22 = getelementptr i8, ptr %.val.i, i64 340
   %.val.val.i = load i32, ptr %22, align 4
   %switch.i.i.i = icmp ult i32 %.val.val.i, 10
-  br i1 %switch.i.i.i, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i, label %_ZNK5clang7CodeGen13CodeGenModule22getVTableComponentTypeEv.exit
+  br i1 %switch.i.i.i, label %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i, label %_ZNK5clang7CodeGen13CodeGenModule22getVTableComponentTypeEv.exit
 
-_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i: ; preds = %20
+_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i: ; preds = %20
   %23 = getelementptr inbounds i8, ptr %0, i64 312
   %.val2.i = load ptr, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 136
@@ -5229,8 +5229,8 @@ _ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i: 
   %spec.select.v.i = select i1 %26, i64 24, i64 112
   br label %_ZNK5clang7CodeGen13CodeGenModule22getVTableComponentTypeEv.exit
 
-_ZNK5clang7CodeGen13CodeGenModule22getVTableComponentTypeEv.exit: ; preds = %20, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i
-  %spec.select.v.sink.i = phi i64 [ %spec.select.v.i, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.argprom.argprom.exit.i ], [ 112, %20 ]
+_ZNK5clang7CodeGen13CodeGenModule22getVTableComponentTypeEv.exit: ; preds = %20, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i
+  %spec.select.v.sink.i = phi i64 [ %spec.select.v.i, %_ZL17UseRelativeLayoutRKN5clang7CodeGen13CodeGenModuleE.exit.i ], [ 112, %20 ]
   %spec.select.i = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.v.sink.i
   %.0.i = load ptr, ptr %spec.select.i, align 8
   %27 = tail call i64 @_ZNK5clang7CodeGen13CodeGenModule22GetTargetTypeStoreSizeEPN4llvm4TypeE(ptr noundef nonnull align 8 dereferenceable(3600) %0, ptr noundef %.0.i) #17
@@ -5348,13 +5348,13 @@ _ZNK5clang12VTableLayout15getVTableOffsetEm.exit: ; preds = %58, %62
   %88 = ptrtoint ptr %.sroa.055.070 to i64
   %89 = sub i64 %87, %88
   %90 = icmp eq i64 %89, 9223372036854775776
-  br i1 %90, label %91, label %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  br i1 %90, label %91, label %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.exit.i.i.i
 
 91:                                               ; preds = %86
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #21
   unreachable
 
-_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %86
+_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %86
   %92 = sdiv exact i64 %89, 48
   %93 = icmp eq ptr %.sroa.7.069, %.sroa.055.070
   %.sroa.speculated.i.i.i.i = select i1 %93, i64 1, i64 %92
@@ -5370,11 +5370,11 @@ _ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CX
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %51) #17
-  br i1 %93, label %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE11_S_relocateEPSC_SF_SF_RSD_.argprom.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %93, label %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.argprom.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i.i.i.i ], [ %99, %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ]
-  %.092.i.i.i.i.i.i = phi ptr [ %104, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.055.070, %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i.i.i.i ], [ %99, %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.092.i.i.i.i.i.i = phi ptr [ %104, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.055.070, %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !55
   %102 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 16
   %103 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 16
@@ -5383,18 +5383,18 @@ _ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CX
   %104 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 48
   %105 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %104, %.sroa.7.069
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE11_S_relocateEPSC_SF_SF_RSD_.argprom.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !59
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit26.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !59
 
-_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE11_S_relocateEPSC_SF_SF_RSD_.argprom.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %99, %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %105, %.lr.ph.i.i.i.i.i.i ]
+_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.exit.i.i.i
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %99, %_ZNKSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %105, %.lr.ph.i.i.i.i.i.i ]
   %.not.i27.i.i.i = icmp eq ptr %.sroa.055.070, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i, label %106
 
-106:                                              ; preds = %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE11_S_relocateEPSC_SF_SF_RSD_.argprom.exit26.i.i.i
+106:                                              ; preds = %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit26.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.055.070, i64 noundef %89) #20
   br label %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i: ; preds = %106, %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE11_S_relocateEPSC_SF_SF_RSD_.argprom.exit26.i.i.i
+_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i: ; preds = %106, %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit26.i.i.i
   %107 = getelementptr inbounds %struct.AddressPoint, ptr %99, i64 %97
   br label %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EE9push_backEOSC_.exit
 
@@ -5471,32 +5471,32 @@ _ZN4llvm16DenseMapIteratorIN5clang13BaseSubobjectENS1_12VTableLayout20AddressPoi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %135) #17
   br label %136
 
-136:                                              ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i, %134
-  %.sroa.05.0.i.i.i.i.i.i.i = phi ptr [ %.sroa.0.05.i.i.i.i.i.i, %134 ], [ %.sroa.0.0.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i ]
+136:                                              ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.thread.i.i.i.i.i.i.i, %134
+  %.sroa.05.0.i.i.i.i.i.i.i = phi ptr [ %.sroa.0.05.i.i.i.i.i.i, %134 ], [ %.sroa.0.0.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.thread.i.i.i.i.i.i.i ]
   %.sroa.0.0.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.05.0.i.i.i.i.i.i.i, i64 -48
   %137 = getelementptr inbounds i8, ptr %.sroa.05.0.i.i.i.i.i.i.i, i64 -32
   %138 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %137) #17
   %139 = icmp slt i32 %138, 0
-  br i1 %139, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i, label %140
+  br i1 %139, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.thread.i.i.i.i.i.i.i, label %140
 
 140:                                              ; preds = %136
   %141 = icmp eq i32 %138, 0
-  br i1 %141, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i
+  br i1 %141, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i.i.i.i.i.i: ; preds = %140
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i.i.i.i.i.i: ; preds = %140
   %142 = load i64, ptr %133, align 8
   %143 = getelementptr inbounds i8, ptr %.sroa.05.0.i.i.i.i.i.i.i, i64 -40
   %144 = load i64, ptr %143, align 8
   %145 = icmp ult i64 %142, %144
-  br i1 %145, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i
+  br i1 %145, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.thread.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i.i.i.i.i.i, %136
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i.i.i.i.i.i, %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i.i.i.i.i.i, i64 16, i1 false)
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i.i.i.i.i, i64 16
   %147 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef nonnull align 8 dereferenceable(32) %137) #17
   br label %136, !llvm.loop !60
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i.i.i.i.i.i.i, %140
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i.i.i.i.i.i.i, %140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i.i.i.i.i, i64 16
   %149 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %148, ptr noundef nonnull align 8 dereferenceable(32) %132) #17
@@ -5618,7 +5618,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen
   br label %198
 
 198:                                              ; preds = %._crit_edge81, %192
-  br i1 %.not.i.i.i.i3892101, label %_ZSt8_DestroyIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_EvT_SE_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i3892101, label %_ZSt8_DestroyIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_EvT_SE_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %198, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %200, %.lr.ph.i.i.i.i ], [ %.sroa.055.0.lcssa91102, %198 ]
@@ -5626,19 +5626,19 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %199) #17
   %200 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 48
   %.not.i.i.i.i43 = icmp eq ptr %200, %.sroa.7.0.lcssa90103
-  br i1 %.not.i.i.i.i43, label %_ZSt8_DestroyIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_EvT_SE_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !63
+  br i1 %.not.i.i.i.i43, label %_ZSt8_DestroyIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_EvT_SE_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !63
 
-_ZSt8_DestroyIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_EvT_SE_RSaIT0_E.argprom.exit.i: ; preds = %.lr.ph.i.i.i.i, %198
+_ZSt8_DestroyIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_EvT_SE_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %198
   %.not.i.i.i = icmp eq ptr %.sroa.055.0.lcssa91102, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EED2Ev.exit, label %201
 
-201:                                              ; preds = %_ZSt8_DestroyIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_EvT_SE_RSaIT0_E.argprom.exit.i
+201:                                              ; preds = %_ZSt8_DestroyIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_EvT_SE_RSaIT0_E.exit.i
   %202 = ptrtoint ptr %.sroa.055.0.lcssa91102 to i64
   %203 = sub i64 %.sroa.14.0.lcssa89104, %202
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.055.0.lcssa91102, i64 noundef %203) #20
   br label %_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EED2Ev.exit
 
-_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EED2Ev.exit: ; preds = %201, %_ZSt8_DestroyIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_EvT_SE_RSaIT0_E.argprom.exit.i, %15
+_ZNSt6vectorIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSaISC_EED2Ev.exit: ; preds = %201, %_ZSt8_DestroyIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_EvT_SE_RSaIT0_E.exit.i, %15
   ret void
 }
 
@@ -5793,7 +5793,7 @@ define dso_local noundef range(i32 0, 8) i32 @_ZN5clang7CodeGen13CodeGenModule16
   %4 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #17
   %.off.i.i = add i8 %4, -4
   %switch.i.i = icmp ult i8 %.off.i.i, 3
-  br i1 %switch.i.i, label %5, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit
+  br i1 %switch.i.i, label %5, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -5901,18 +5901,18 @@ _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit: ; preds = %.lr.ph.i4.i.i.i
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 1536
   %.not35 = icmp eq i64 %52, 0
-  br i1 %.not35, label %53, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit
+  br i1 %.not35, label %53, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
 
 53:                                               ; preds = %47, %46
   %.not36 = icmp eq ptr %.0297781, null
-  br i1 %.not36, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit, label %54
+  br i1 %.not36, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit, label %54
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds i8, ptr %.0297781, i64 82
   %56 = load i32, ptr %55, align 2
   %57 = and i32 %56, 1
   %.not99 = icmp eq i32 %57, 0
-  br i1 %.not99, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit, label %58
+  br i1 %.not99, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit, label %58
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -5924,7 +5924,7 @@ _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit: ; preds = %.lr.ph.i4.i.i.i
   %65 = and i64 %64, 68719476736
   %.not37 = icmp eq i64 %65, 0
   %66 = select i1 %.not37, i32 3, i32 7
-  br label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit
+  br label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
 
 67:                                               ; preds = %43
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -5936,7 +5936,7 @@ _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit: ; preds = %.lr.ph.i4.i.i.i
   %74 = and i64 %73, 68719476736
   %.not34 = icmp eq i64 %74, 0
   %75 = select i1 %.not34, i32 3, i32 7
-  br label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit
+  br label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
 
 76:                                               ; preds = %43
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -5948,7 +5948,7 @@ _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit: ; preds = %.lr.ph.i4.i.i.i
   %83 = and i64 %82, 68719476736
   %.not33 = icmp eq i64 %83, 0
   %84 = select i1 %.not33, i32 5, i32 7
-  br label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit
+  br label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
 
 85:                                               ; preds = %43, %_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit, %.thread
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -5959,7 +5959,7 @@ _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit: ; preds = %.lr.ph.i4.i.i.i
   %91 = load i64, ptr %90, align 8
   %92 = and i64 %91, 68719476736
   %.not38 = icmp eq i64 %92, 0
-  br i1 %.not38, label %93, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit
+  br i1 %.not38, label %93, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
 
 93:                                               ; preds = %85
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6070,9 +6070,9 @@ _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit62: ; preds = %.lr.ph.i4.i.i
   %.0 = phi i32 [ 5, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit ], [ 5, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread ], [ 5, %130 ], [ %spec.select102, %_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit62 ], [ 5, %128 ], [ 5, %135 ]
   %138 = call noundef i32 @_ZNK5clang13CXXRecordDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(144) %1) #17
   switch i32 %138, label %154 [
-    i32 0, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit
-    i32 2, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit
-    i32 1, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit
+    i32 0, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
+    i32 2, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
+    i32 1, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
     i32 3, label %139
     i32 4, label %153
   ]
@@ -6082,7 +6082,7 @@ _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit62: ; preds = %.lr.ph.i4.i.i
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 340
   %.sroa.0.0.copyload.i63 = load i32, ptr %141, align 4
   %cond.i64 = icmp eq i32 %.sroa.0.0.copyload.i63, 10
-  br i1 %cond.i64, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit, label %142
+  br i1 %cond.i64, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit, label %142
 
 142:                                              ; preds = %139
   %143 = getelementptr inbounds i8, ptr %0, i64 184
@@ -6091,7 +6091,7 @@ _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit62: ; preds = %.lr.ph.i4.i.i
   %.val.val = load i64, ptr %144, align 8
   %145 = and i64 %.val.val, 1536
   %.not.i65 = icmp eq i64 %145, 0
-  br i1 %.not.i65, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit, label %146
+  br i1 %.not.i65, label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit, label %146
 
 146:                                              ; preds = %142
   %147 = getelementptr inbounds i8, ptr %0, i64 224
@@ -6101,15 +6101,15 @@ _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit62: ; preds = %.lr.ph.i4.i.i
   %150 = load ptr, ptr %149, align 8
   %151 = call noundef zeroext i1 %150(ptr noundef nonnull align 8 dereferenceable(24) %.val40, ptr noundef nonnull %1) #17
   %152 = zext i1 %151 to i32
-  br label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit
+  br label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
 
 153:                                              ; preds = %.thread92
-  br label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit
+  br label %_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
 
 154:                                              ; preds = %.thread92
   unreachable
 
-_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.argprom.argprom.exit: ; preds = %146, %142, %139, %.thread92, %.thread92, %.thread92, %85, %53, %54, %47, %2, %153, %76, %67, %58
+_ZL35shouldEmitAvailableExternallyVTableRKN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit: ; preds = %146, %142, %139, %.thread92, %.thread92, %.thread92, %85, %53, %54, %47, %2, %153, %76, %67, %58
   %.028 = phi i32 [ %.0, %153 ], [ %84, %76 ], [ %75, %67 ], [ %66, %58 ], [ 7, %2 ], [ 1, %47 ], [ 0, %54 ], [ 0, %53 ], [ 7, %85 ], [ %.027, %.thread92 ], [ %.027, %.thread92 ], [ %.027, %.thread92 ], [ %.027, %139 ], [ 0, %142 ], [ %152, %146 ]
   ret i32 %.028
 }
@@ -10865,17 +10865,17 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.not.i.i.i = icmp eq i64 %.07.i.i.i, 0
   %43 = add nsw i64 %.07.i.i.i, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
-  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_RT0_.argprom.exit.i.i, label %40
+  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_RT0_.exit.i.i, label %40
 
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_RT0_.argprom.exit.i.i: ; preds = %40
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_RT0_.exit.i.i: ; preds = %40
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %46
 
-46:                                               ; preds = %46, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_RT0_.argprom.exit.i.i
-  %.sroa.0.02.i.i = phi ptr [ %storemerge20, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_RT0_.argprom.exit.i.i ], [ %47, %46 ]
+46:                                               ; preds = %46, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_RT0_.exit.i.i
+  %.sroa.0.02.i.i = phi ptr [ %storemerge20, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_RT0_.exit.i.i ], [ %47, %46 ]
   %47 = getelementptr inbounds i8, ptr %.sroa.0.02.i.i, i64 -48
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
@@ -10905,38 +10905,38 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModul
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %60 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %59) #17
   %61 = icmp slt i32 %60, 0
-  br i1 %61, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread.i.i, label %62
+  br i1 %61, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread.i.i, label %62
 
 62:                                               ; preds = %54
   %63 = icmp eq i32 %60, 0
-  br i1 %63, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread30.i.i
+  br i1 %63, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread30.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i: ; preds = %62
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i: ; preds = %62
   %64 = load i64, ptr %21, align 8
   %65 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %66 = load i64, ptr %65, align 8
   %67 = icmp ult i64 %64, %66
-  br i1 %67, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread30.i.i
+  br i1 %67, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread30.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i, %54
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i, %54
   %68 = getelementptr inbounds i8, ptr %storemerge20, i64 -32
   %69 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %68) #17
   %70 = icmp slt i32 %69, 0
-  br i1 %70, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.thread.i.i, label %71
+  br i1 %70, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.thread.i.i, label %71
 
-71:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread.i.i
+71:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread.i.i
   %72 = icmp eq i32 %69, 0
-  br i1 %72, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.thread31.i.i
+  br i1 %72, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.thread31.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.i.i: ; preds = %71
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.i.i: ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %storemerge20, i64 -40
   %76 = load i64, ptr %75, align 8
   %77 = icmp ult i64 %74, %76
-  br i1 %77, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.thread31.i.i
+  br i1 %77, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.thread31.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %23) #17
@@ -10948,23 +10948,23 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i.preheader
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.i.i, %71
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.i.i, %71
   %80 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %68) #17
   %81 = icmp slt i32 %80, 0
-  br i1 %81, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.thread.i.i, label %82
+  br i1 %81, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.thread.i.i, label %82
 
-82:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.thread31.i.i
+82:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.thread31.i.i
   %83 = icmp eq i32 %80, 0
-  br i1 %83, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.thread32.i.i
+  br i1 %83, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.thread32.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.i.i: ; preds = %82
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.i.i: ; preds = %82
   %84 = load i64, ptr %21, align 8
   %85 = getelementptr inbounds i8, ptr %storemerge20, i64 -40
   %86 = load i64, ptr %85, align 8
   %87 = icmp ult i64 %84, %86
-  br i1 %87, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.thread32.i.i
+  br i1 %87, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.thread32.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.thread31.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.thread31.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %23) #17
@@ -10976,7 +10976,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i.preheader
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.thread32.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.i.i, %82
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.thread32.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.i.i, %82
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %23) #17
@@ -10988,24 +10988,24 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i.preheader
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread30.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i.i, %62
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread30.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i.i, %62
   %92 = getelementptr inbounds i8, ptr %storemerge20, i64 -32
   %93 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %92) #17
   %94 = icmp slt i32 %93, 0
-  br i1 %94, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.thread.i.i, label %95
+  br i1 %94, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.thread.i.i, label %95
 
-95:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread30.i.i
+95:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread30.i.i
   %96 = icmp eq i32 %93, 0
-  br i1 %96, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.thread33.i.i
+  br i1 %96, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.thread33.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.i.i: ; preds = %95
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.i.i: ; preds = %95
   %97 = load i64, ptr %21, align 8
   %98 = getelementptr inbounds i8, ptr %storemerge20, i64 -40
   %99 = load i64, ptr %98, align 8
   %100 = icmp ult i64 %97, %99
-  br i1 %100, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.thread33.i.i
+  br i1 %100, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.thread33.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread30.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread30.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %23) #17
@@ -11017,24 +11017,24 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i.preheader
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.thread33.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.i.i, %95
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.thread33.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.i.i, %95
   %103 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %92) #17
   %104 = icmp slt i32 %103, 0
-  br i1 %104, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.thread.i.i, label %105
+  br i1 %104, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.thread.i.i, label %105
 
-105:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.thread33.i.i
+105:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.thread33.i.i
   %106 = icmp eq i32 %103, 0
-  br i1 %106, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.thread34.i.i
+  br i1 %106, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.thread34.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.i.i: ; preds = %105
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.i.i: ; preds = %105
   %107 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %108 = load i64, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %storemerge20, i64 -40
   %110 = load i64, ptr %109, align 8
   %111 = icmp ult i64 %108, %110
-  br i1 %111, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.thread34.i.i
+  br i1 %111, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.thread34.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.thread33.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.thread33.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %23) #17
@@ -11046,7 +11046,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i.preheader
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.thread34.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.i.i, %105
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.thread34.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.i.i, %105
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23) #17
@@ -11058,7 +11058,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i.preheader: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.thread34.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit29.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit28.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.thread32.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit27.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit26.thread.i.i
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i.preheader: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.thread34.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit29.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit28.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.thread32.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit27.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit26.thread.i.i
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i.preheader, %137
@@ -11066,58 +11066,58 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13C
   %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %137 ], [ %storemerge20, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i.preheader ]
   br label %116
 
-116:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread.i15.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i
-  %.sroa.011.1.i.i = phi ptr [ %.sroa.011.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i ], [ %126, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread.i15.i ]
+116:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread.i15.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i
+  %.sroa.011.1.i.i = phi ptr [ %.sroa.011.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i ], [ %126, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread.i15.i ]
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.i.i, i64 16
   %118 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %23) #17
   %119 = icmp slt i32 %118, 0
-  br i1 %119, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread.i15.i, label %120
+  br i1 %119, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread.i15.i, label %120
 
 120:                                              ; preds = %116
   %121 = icmp eq i32 %118, 0
-  br i1 %121, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i14.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i.preheader
+  br i1 %121, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i14.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i.preheader
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i.preheader: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i14.i, %120
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i.preheader: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i14.i, %120
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i14.i: ; preds = %120
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i14.i: ; preds = %120
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.i.i, i64 8
   %123 = load i64, ptr %122, align 8
   %124 = load i64, ptr %29, align 8
   %125 = icmp ult i64 %123, %124
-  br i1 %125, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread.i15.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i.preheader
+  br i1 %125, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread.i15.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i.preheader
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread.i15.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.i14.i, %116
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread.i15.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.i14.i, %116
   %126 = getelementptr inbounds i8, ptr %.sroa.011.1.i.i, i64 48
   br label %116, !llvm.loop !116
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i.backedge, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i.preheader
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.0.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i.preheader ], [ %.sroa.0.1.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i.backedge ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i.backedge, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i.preheader
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.0.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i.preheader ], [ %.sroa.0.1.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i.backedge ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -48
   %127 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -32
   %128 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %127) #17
   %129 = icmp slt i32 %128, 0
-  br i1 %129, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i.backedge, label %130
+  br i1 %129, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i.backedge, label %130
 
-130:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i
+130:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i
   %131 = icmp eq i32 %128, 0
-  br i1 %131, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit9.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit9.thread14.i.i
+  br i1 %131, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit9.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit9.thread14.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit9.i.i: ; preds = %130
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit9.i.i: ; preds = %130
   %132 = load i64, ptr %29, align 8
   %133 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -40
   %134 = load i64, ptr %133, align 8
   %135 = icmp ult i64 %132, %134
-  br i1 %135, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i.backedge, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit9.thread14.i.i
+  br i1 %135, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i.backedge, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit9.thread14.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i.backedge: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit9.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread13.i.i, !llvm.loop !117
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i.backedge: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit9.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread13.i.i, !llvm.loop !117
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit9.thread14.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit9.i.i, %130
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit9.thread14.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit9.i.i, %130
   %136 = icmp ult ptr %.sroa.011.1.i.i, %.sroa.0.1.i.i
   br i1 %136, label %137, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEET_SM_SM_T0_.exit
 
-137:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit9.thread14.i.i
+137:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit9.thread14.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.011.1.i.i, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %117) #17
@@ -11130,7 +11130,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen
   %140 = getelementptr inbounds i8, ptr %.sroa.011.1.i.i, i64 48
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEEvT_SM_SM_SM_T0_.exit.i, !llvm.loop !118
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEET_SM_SM_T0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit9.thread14.i.i
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_less_iterEET_SM_SM_T0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit9.thread14.i.i
   call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElNS0_5__ops15_Iter_less_iterEEvT_SM_T0_T1_(ptr %.sroa.011.1.i.i, ptr %storemerge20, i64 noundef %55)
   %141 = ptrtoint ptr %.sroa.011.1.i.i to i64
   %142 = sub i64 %141, %15
@@ -11149,8 +11149,8 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread38
-  %.040 = phi i64 [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread38 ], [ %1, %4 ]
+.lr.ph:                                           ; preds = %4, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread38
+  %.040 = phi i64 [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread38 ], [ %1, %4 ]
   %9 = shl i64 %.040, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %struct.AddressPoint, ptr %0, i64 %10
@@ -11160,26 +11160,26 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #17
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread, label %18
+  br i1 %17, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = icmp eq i32 %16, 0
-  br i1 %19, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread38
+  br i1 %19, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread38
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit: ; preds = %18
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit: ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = icmp ult i64 %21, %23
   %cond.fr = freeze i1 %24
-  br i1 %cond.fr, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread38
+  br i1 %cond.fr, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread38
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread: ; preds = %.lr.ph, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread38
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread: ; preds = %.lr.ph, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread38
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread38: ; preds = %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread
-  %25 = phi i64 [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit ], [ %10, %18 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread38: ; preds = %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread
+  %25 = phi i64 [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit ], [ %10, %18 ]
   %26 = getelementptr inbounds %struct.AddressPoint, ptr %0, i64 %25
   %27 = getelementptr inbounds %struct.AddressPoint, ptr %0, i64 %.040
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
@@ -11189,8 +11189,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen
   %31 = icmp slt i64 %25, %7
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !120
 
-._crit_edge:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread38, %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread38 ]
+._crit_edge:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread38, %4
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread38 ]
   %32 = and i64 %2, 1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %34, label %46
@@ -11219,43 +11219,43 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %48) #17
   %49 = icmp sgt i64 %.1, %1
-  br i1 %49, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops14_Iter_less_valEEvT_T0_SN_T1_RT2_.argprom.exit
+  br i1 %49, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops14_Iter_less_valEEvT_T0_SN_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %51
 
-51:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.thread.i, %.lr.ph.i
-  %.07.i = phi i64 [ %.1, %.lr.ph.i ], [ %.098.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.thread.i ]
+51:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.thread.i, %.lr.ph.i
+  %.07.i = phi i64 [ %.1, %.lr.ph.i ], [ %.098.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.thread.i ]
   %.098.in.i = add nsw i64 %.07.i, -1
   %.098.i = sdiv i64 %.098.in.i, 2
   %52 = getelementptr inbounds %struct.AddressPoint, ptr %0, i64 %.098.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %47) #17
   %55 = icmp slt i32 %54, 0
-  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.thread.i, label %56
+  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.thread.i, label %56
 
 56:                                               ; preds = %51
   %57 = icmp eq i32 %54, 0
-  br i1 %57, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops14_Iter_less_valEEvT_T0_SN_T1_RT2_.argprom.exit
+  br i1 %57, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops14_Iter_less_valEEvT_T0_SN_T1_RT2_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i: ; preds = %56
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i: ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = load i64, ptr %50, align 8
   %61 = icmp ult i64 %59, %60
-  br i1 %61, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.thread.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops14_Iter_less_valEEvT_T0_SN_T1_RT2_.argprom.exit
+  br i1 %61, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops14_Iter_less_valEEvT_T0_SN_T1_RT2_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i, %51
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i, %51
   %62 = getelementptr inbounds %struct.AddressPoint, ptr %0, i64 %.07.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %53) #17
   %65 = icmp sgt i64 %.098.i, %1
-  br i1 %65, label %51, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops14_Iter_less_valEEvT_T0_SN_T1_RT2_.argprom.exit, !llvm.loop !121
+  br i1 %65, label %51, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops14_Iter_less_valEEvT_T0_SN_T1_RT2_.exit, !llvm.loop !121
 
-_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops14_Iter_less_valEEvT_T0_SN_T1_RT2_.argprom.exit: ; preds = %56, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.thread.i, %46
-  %.0.lcssa.i = phi i64 [ %.1, %46 ], [ %.07.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.i ], [ %.098.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.argprom.exit.thread.i ], [ %.07.i, %56 ]
+_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEElSE_NS0_5__ops14_Iter_less_valEEvT_T0_SN_T1_RT2_.exit: ; preds = %56, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.thread.i, %46
+  %.0.lcssa.i = phi i64 [ %.1, %46 ], [ %.07.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.i ], [ %.098.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESG_EEbT_RT0_.exit.thread.i ], [ %.07.i, %56 ]
   %66 = getelementptr inbounds %struct.AddressPoint, ptr %0, i64 %.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -11296,20 +11296,20 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
   %13 = getelementptr inbounds i8, ptr %.pn19, i64 64
   %14 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread, label %16
+  br i1 %15, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread, label %16
 
 16:                                               ; preds = %12
   %17 = icmp eq i32 %14, 0
-  br i1 %17, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread16
+  br i1 %17, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread16
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit: ; preds = %16
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit: ; preds = %16
   %18 = getelementptr inbounds i8, ptr %.pn19, i64 56
   %19 = load i64, ptr %18, align 8
   %20 = load i64, ptr %7, align 8
   %21 = icmp ult i64 %19, %20
-  br i1 %21, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread16
+  br i1 %21, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread16
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread: ; preds = %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread: ; preds = %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.020, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %13) #17
   %22 = ptrtoint ptr %.sroa.0.020 to i64
@@ -11317,7 +11317,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen
   %24 = icmp sgt i64 %23, 0
   br i1 %24, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEESJ_ET0_T_SL_SK_.exit
 
-.lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread
+.lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread
   %25 = getelementptr inbounds i8, ptr %.pn19, i64 96
   %26 = udiv exact i64 %23, 48
   br label %.lr.ph.i.i.i.i.i
@@ -11336,44 +11336,44 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen
   %33 = icmp ugt i64 %.010.i.i.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEESJ_ET0_T_SL_SK_.exit, !llvm.loop !122
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEESJ_ET0_T_SL_SK_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEESJ_ET0_T_SL_SK_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   br label %49
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread16: ; preds = %16, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread16: ; preds = %16, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.020, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %13) #17
   br label %35
 
-35:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread16
-  %.sroa.05.0.i = phi ptr [ %.sroa.0.020, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.argprom.exit.thread16 ], [ %.sroa.0.0.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.thread.i ]
+35:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread16
+  %.sroa.05.0.i = phi ptr [ %.sroa.0.020, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS4_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS4_12VTableLayoutEE12AddressPointSt6vectorISG_SaISG_EEEESL_EEbT_T0_.exit.thread16 ], [ %.sroa.0.0.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.thread.i ]
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 -48
   %36 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 -32
   %37 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %36) #17
   %38 = icmp slt i32 %37, 0
-  br i1 %38, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.thread.i, label %39
+  br i1 %38, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.thread.i, label %39
 
 39:                                               ; preds = %35
   %40 = icmp eq i32 %37, 0
-  br i1 %40, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
+  br i1 %40, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i: ; preds = %39
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i: ; preds = %39
   %41 = load i64, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 -40
   %43 = load i64, ptr %42, align 8
   %44 = icmp ult i64 %41, %43
-  br i1 %44, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.thread.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
+  br i1 %44, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.thread.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i, %35
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i, i64 16, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 16
   %46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %36) #17
   br label %35, !llvm.loop !60
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit: ; preds = %39, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.argprom.exit.i
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS2_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS2_12VTableLayoutEE12AddressPointSt6vectorISE_SaISE_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit: ; preds = %39, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS3_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS3_12VTableLayoutEE12AddressPointNS_17__normal_iteratorIPSF_St6vectorISF_SaISF_EEEEEEbRT_T0_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.0.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 16
   %48 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %8) #17
@@ -11453,8 +11453,8 @@ attributes #21 = { noreturn nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = !{!8, !10}
-!8 = distinct !{!8, !9, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_.argprom"}
+!8 = distinct !{!8, !9, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_: argument 0"}
+!9 = distinct !{!9, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_"}
 !10 = distinct !{!10, !11, !"_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE: argument 0"}
 !11 = distinct !{!11, !"_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE"}
 !12 = distinct !{!12, !5}
@@ -11501,9 +11501,9 @@ attributes #21 = { noreturn nounwind }
 !53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
 !55 = !{!56, !58}
-!56 = distinct !{!56, !57, !"_ZSt19__relocate_object_aIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_SaISC_EEvPT_PT0_RT1_.argprom: argument 0"}
-!57 = distinct !{!57, !"_ZSt19__relocate_object_aIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_SaISC_EEvPT_PT0_RT1_.argprom"}
-!58 = distinct !{!58, !57, !"_ZSt19__relocate_object_aIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_SaISC_EEvPT_PT0_RT1_.argprom: argument 1"}
+!56 = distinct !{!56, !57, !"_ZSt19__relocate_object_aIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_SaISC_EEvPT_PT0_RT1_: argument 0"}
+!57 = distinct !{!57, !"_ZSt19__relocate_object_aIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_SaISC_EEvPT_PT0_RT1_"}
+!58 = distinct !{!58, !57, !"_ZSt19__relocate_object_aIZN5clang7CodeGen13CodeGenModule22EmitVTableTypeMetadataEPKNS0_13CXXRecordDeclEPN4llvm14GlobalVariableERKNS0_12VTableLayoutEE12AddressPointSC_SaISC_EEvPT_PT0_RT1_: argument 1"}
 !59 = distinct !{!59, !5}
 !60 = distinct !{!60, !5}
 !61 = distinct !{!61, !5}

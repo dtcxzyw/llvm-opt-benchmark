@@ -232,22 +232,22 @@ _ZN6hermes11UTF16StreamD2Ev.exit:                 ; preds = %if.end.i.i.i.i.i.i.
   %call19 = call fastcc { i32, i64 } @_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser5parseEv(ptr noundef nonnull align 8 dereferenceable(140) %parser)
   %parser.val = load ptr, ptr %storage_.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %parser.val, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.argprom.exit, label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN6hermes11UTF16StreamD2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %parser.val) #13
-  br label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.argprom.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.exit
 
-_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.argprom.exit: ; preds = %_ZN6hermes11UTF16StreamD2Ev.exit, %if.then.i.i.i.i.i.i
+_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.exit: ; preds = %_ZN6hermes11UTF16StreamD2Ev.exit, %if.then.i.i.i.i.i.i
   %16 = load ptr, ptr %storage, align 8
   %cmp.i.i.i.i9 = icmp eq ptr %16, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i9, label %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit, label %if.then.i.i.i10
 
-if.then.i.i.i10:                                  ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.argprom.exit
+if.then.i.i.i10:                                  ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.exit
   call void @free(ptr noundef %16) #12
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit
 
-_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit:    ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.argprom.exit, %if.then.i.i.i10
+_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit:    ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.exit, %if.then.i.i.i10
   ret { i32, i64 } %call19
 }
 
@@ -519,13 +519,13 @@ _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserC2ERNS0_7RuntimeEONS_11UTF16Stream
   %call4 = call fastcc { i32, i64 } @_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser5parseEv(ptr noundef nonnull align 8 dereferenceable(140) %parser)
   %parser.val = load ptr, ptr %storage_.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %parser.val, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.argprom.exit, label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserC2ERNS0_7RuntimeEONS_11UTF16StreamENS0_6HandleINS0_8CallableEEE.exit
   call void @_ZdlPv(ptr noundef nonnull %parser.val) #13
-  br label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.argprom.exit
+  br label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.exit
 
-_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.argprom.exit: ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserC2ERNS0_7RuntimeEONS_11UTF16StreamENS0_6HandleINS0_8CallableEEE.exit, %if.then.i.i.i.i.i.i
+_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserD2Ev.exit: ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParserC2ERNS0_7RuntimeEONS_11UTF16StreamENS0_6HandleINS0_8CallableEEE.exit, %if.then.i.i.i.i.i.i
   ret { i32, i64 } %call4
 }
 

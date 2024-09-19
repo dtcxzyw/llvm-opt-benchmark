@@ -828,7 +828,7 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
 152:                                              ; preds = %150
   %153 = sub nsw i32 %11, %9
   %154 = sub nsw i32 %12, %10
-  call fastcc void @Transform_SafeHelper.argprom(ptr noundef %0, ptr noundef %21, ptr noundef %22, ptr noundef %34, ptr noundef %23, ptr noundef %.0191, ptr noundef %.0192.fr, ptr noundef %24, ptr noundef %25, ptr noundef %29, ptr noundef %.0193236, i32 noundef %18, i32 noundef %19, i32 noundef %153, i32 noundef %154)
+  call fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %21, ptr noundef %22, ptr noundef %34, ptr noundef %23, ptr noundef %.0191, ptr noundef %.0192.fr, ptr noundef %24, ptr noundef %25, ptr noundef %29, ptr noundef %.0193236, i32 noundef %18, i32 noundef %19, i32 noundef %153, i32 noundef %154)
   br label %301
 
 155:                                              ; preds = %150
@@ -1251,7 +1251,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Transform_SafeHelper.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14) unnamed_addr #2 {
+define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14) unnamed_addr #2 {
   %16 = alloca %struct.SurfaceDataBounds, align 4
   %17 = alloca double, align 8
   %18 = alloca double, align 8

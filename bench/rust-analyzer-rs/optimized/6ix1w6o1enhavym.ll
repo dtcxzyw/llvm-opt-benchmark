@@ -200,7 +200,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   store ptr %10, ptr %11, align 8, !noalias !47
   %12 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc9d23bda0922037E.llvm.17596014262530528876"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !50
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN73_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5831dad8de7446bE.argprom.exit", label %.lr.ph.i.i
+  br i1 %13, label %"_ZN73_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5831dad8de7446bE.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %14 = phi ptr [ %17, %.lr.ph.i.i ], [ %12, %2 ]
@@ -211,9 +211,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !47
   %17 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc9d23bda0922037E.llvm.17596014262530528876"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %"_ZN73_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5831dad8de7446bE.argprom.exit", label %.lr.ph.i.i
+  br i1 %18, label %"_ZN73_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5831dad8de7446bE.exit", label %.lr.ph.i.i
 
-"_ZN73_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5831dad8de7446bE.argprom.exit": ; preds = %.lr.ph.i.i, %2
+"_ZN73_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5831dad8de7446bE.exit": ; preds = %.lr.ph.i.i, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !47
   %19 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugSet6finish17h51f1ab47f857b7f4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !44
@@ -379,7 +379,7 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h01f3cfb6dada2721
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   invoke void @"_ZN4core3ptr70drop_in_place$LT$salsa..runtime..dependency_graph..DependencyGraph$GT$17h6fee3664b180be4cE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(96) %3)
-          to label %"_ZN4core3ptr104drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..runtime..SharedState$GT$$GT$$GT$17h3b005481cf0555f3E.argprom.exit" unwind label %4
+          to label %"_ZN4core3ptr104drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..runtime..SharedState$GT$$GT$$GT$17h3b005481cf0555f3E.exit" unwind label %4
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
@@ -387,7 +387,7 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h01f3cfb6dada2721
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 144, i64 noundef 8) #19
   resume { ptr, i32 } %5
 
-"_ZN4core3ptr104drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..runtime..SharedState$GT$$GT$$GT$17h3b005481cf0555f3E.argprom.exit": ; preds = %1
+"_ZN4core3ptr104drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..runtime..SharedState$GT$$GT$$GT$17h3b005481cf0555f3E.exit": ; preds = %1
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 144, i64 noundef 8) #19
   ret void
 }
@@ -405,7 +405,7 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h1332530d5bcbb41f
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !range !74, !noalias !65, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr123drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$alloc..vec..Vec$LT$salsa..DatabaseKeyIndex$GT$$GT$$GT$$GT$17he8e15fd9dcac12f0E.argprom.exit", label %7
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr123drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$alloc..vec..Vec$LT$salsa..DatabaseKeyIndex$GT$$GT$$GT$$GT$17he8e15fd9dcac12f0E.exit", label %7
 
 7:                                                ; preds = %.noexc.i
   %8 = load ptr, ptr %2, align 8, !noalias !65, !nonnull !4, !noundef !4
@@ -413,7 +413,7 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h1332530d5bcbb41f
   %10 = load i64, ptr %9, align 8, !noalias !65, !noundef !4
   %11 = getelementptr inbounds i8, ptr %3, i64 24
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12611796297594801985"(ptr noalias noundef nonnull readonly align 1 %11, ptr noundef nonnull %8, i64 noundef %6, i64 noundef %10)
-          to label %"_ZN4core3ptr123drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$alloc..vec..Vec$LT$salsa..DatabaseKeyIndex$GT$$GT$$GT$$GT$17he8e15fd9dcac12f0E.argprom.exit" unwind label %12
+          to label %"_ZN4core3ptr123drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$alloc..vec..Vec$LT$salsa..DatabaseKeyIndex$GT$$GT$$GT$$GT$17he8e15fd9dcac12f0E.exit" unwind label %12
 
 12:                                               ; preds = %7, %1
   %13 = landingpad { ptr, i32 }
@@ -421,7 +421,7 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h1332530d5bcbb41f
   tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 32, i64 noundef 8) #19
   resume { ptr, i32 } %13
 
-"_ZN4core3ptr123drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$alloc..vec..Vec$LT$salsa..DatabaseKeyIndex$GT$$GT$$GT$$GT$17he8e15fd9dcac12f0E.argprom.exit": ; preds = %.noexc.i, %7
+"_ZN4core3ptr123drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$alloc..vec..Vec$LT$salsa..DatabaseKeyIndex$GT$$GT$$GT$$GT$17he8e15fd9dcac12f0E.exit": ; preds = %.noexc.i, %7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !65
   tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 32, i64 noundef 8) #19
   ret void
@@ -437,14 +437,14 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h61fc90ac14b35aee
   %7 = add i64 %6, 15
   %8 = and i64 %7, -8
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr200drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$triomphe..header..HeaderSlice$LT$triomphe..header..HeaderWithLength$LT$$LP$$RP$$GT$$C$$u5b$salsa..DatabaseKeyIndex$u5d$$GT$$GT$$GT$$GT$17habdebe92190134ecE.argprom.exit", label %10
+  br i1 %9, label %"_ZN4core3ptr200drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$triomphe..header..HeaderSlice$LT$triomphe..header..HeaderWithLength$LT$$LP$$RP$$GT$$C$$u5b$salsa..DatabaseKeyIndex$u5d$$GT$$GT$$GT$$GT$17habdebe92190134ecE.exit", label %10
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %8, i64 noundef 8) #19
-  br label %"_ZN4core3ptr200drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$triomphe..header..HeaderSlice$LT$triomphe..header..HeaderWithLength$LT$$LP$$RP$$GT$$C$$u5b$salsa..DatabaseKeyIndex$u5d$$GT$$GT$$GT$$GT$17habdebe92190134ecE.argprom.exit"
+  br label %"_ZN4core3ptr200drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$triomphe..header..HeaderSlice$LT$triomphe..header..HeaderWithLength$LT$$LP$$RP$$GT$$C$$u5b$salsa..DatabaseKeyIndex$u5d$$GT$$GT$$GT$$GT$17habdebe92190134ecE.exit"
 
-"_ZN4core3ptr200drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$triomphe..header..HeaderSlice$LT$triomphe..header..HeaderWithLength$LT$$LP$$RP$$GT$$C$$u5b$salsa..DatabaseKeyIndex$u5d$$GT$$GT$$GT$$GT$17habdebe92190134ecE.argprom.exit": ; preds = %1, %10
+"_ZN4core3ptr200drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$triomphe..header..HeaderSlice$LT$triomphe..header..HeaderWithLength$LT$$LP$$RP$$GT$$C$$u5b$salsa..DatabaseKeyIndex$u5d$$GT$$GT$$GT$$GT$17habdebe92190134ecE.exit": ; preds = %1, %10
   ret void
 }
 
@@ -880,16 +880,16 @@ attributes #19 = { nounwind }
 !34 = distinct !{!34, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4aabf7027b77b2f1E"}
 !35 = !{!36, !37}
 !36 = distinct !{!36, !34, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4aabf7027b77b2f1E: argument 1"}
-!37 = distinct !{!37, !38, !"_ZN64_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9932c48b6d43f1ebE.argprom: argument 0"}
-!38 = distinct !{!38, !"_ZN64_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9932c48b6d43f1ebE.argprom"}
+!37 = distinct !{!37, !38, !"_ZN64_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9932c48b6d43f1ebE: argument 0"}
+!38 = distinct !{!38, !"_ZN64_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9932c48b6d43f1ebE"}
 !39 = !{!40, !42, !33, !36, !37}
 !40 = distinct !{!40, !41, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6da958b673331305E: argument 0"}
 !41 = distinct !{!41, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6da958b673331305E"}
 !42 = distinct !{!42, !41, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6da958b673331305E: argument 1"}
 !43 = !{!40, !33}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN73_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5831dad8de7446bE.argprom: argument 0"}
-!46 = distinct !{!46, !"_ZN73_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5831dad8de7446bE.argprom"}
+!45 = distinct !{!45, !46, !"_ZN73_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5831dad8de7446bE: argument 0"}
+!46 = distinct !{!46, !"_ZN73_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5831dad8de7446bE"}
 !47 = !{!48, !45}
 !48 = distinct !{!48, !49, !"_ZN4core3fmt8builders8DebugSet7entries17h1be042e1decfd378E: argument 0"}
 !49 = distinct !{!49, !"_ZN4core3fmt8builders8DebugSet7entries17h1be042e1decfd378E"}

@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [6 x i8] c"\\%03o\00", align 1
 @.str.39 = private unnamed_addr constant [2 x i8] c"C\00", align 1
 @str = private unnamed_addr constant [16 x i8] c"APP12 contains:\00", align 1
-@switch.table.scan_JPEG_header.retelim = private unnamed_addr constant [16 x ptr] [ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.30, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.30, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.30, ptr @.str.27, ptr @.str.28, ptr @.str.29], align 8
+@switch.table.scan_JPEG_header = private unnamed_addr constant [16 x ptr] [ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.30, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.30, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.30, ptr @.str.27, ptr @.str.28, ptr @.str.29], align 8
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
@@ -240,7 +240,7 @@ keymatch.exit37:                                  ; preds = %51, %keymatch.exit
 83:                                               ; preds = %71, %._crit_edge.thread
   %.020.lcssa7884 = phi i32 [ %.020.lcssa, %71 ], [ %.020.lcssa7885, %._crit_edge.thread ]
   %.0.lcssa7981 = phi i32 [ %.0.lcssa, %71 ], [ %.0.lcssa7982, %._crit_edge.thread ]
-  tail call fastcc void @scan_JPEG_header.retelim(i32 noundef %.020.lcssa7884, i32 noundef %.0.lcssa7981)
+  tail call fastcc void @scan_JPEG_header(i32 noundef %.020.lcssa7884, i32 noundef %.0.lcssa7981)
   tail call void @exit(i32 noundef 0) #15
   unreachable
 }
@@ -272,7 +272,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scan_JPEG_header.retelim(i32 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #4 {
+define internal fastcc void @scan_JPEG_header(i32 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #4 {
   %3 = load ptr, ptr @infile, align 8
   %4 = tail call i32 @getc(ptr noundef %3)
   %5 = load ptr, ptr @infile, align 8
@@ -590,7 +590,7 @@ read_1_byte.exit11.i:                             ; preds = %read_2_bytes.exit
 
 switch.lookup:                                    ; preds = %read_1_byte.exit11.i
   %126 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.scan_JPEG_header.retelim, i64 0, i64 %126
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.scan_JPEG_header, i64 0, i64 %126
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %127
 

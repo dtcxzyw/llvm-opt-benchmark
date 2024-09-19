@@ -297,7 +297,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %149 = getelementptr inbounds i8, ptr %147, i64 4
   %150 = load i32, ptr %149, align 4
   %.not.i.not = icmp slt i32 %1, %150
-  br i1 %.not.i.not, label %Vec_PtrFillExtra.argprom.exit, label %151
+  br i1 %.not.i.not, label %Vec_PtrFillExtra.exit, label %151
 
 151:                                              ; preds = %145
   %152 = load i32, ptr %147, align 8
@@ -382,16 +382,16 @@ Vec_PtrGrow.exit.i:                               ; preds = %Vec_PtrGrow.exit.si
 
 ._crit_edge.i:                                    ; preds = %181, %Vec_PtrGrow.exit.i
   store i32 %148, ptr %149, align 4
-  br label %Vec_PtrFillExtra.argprom.exit
+  br label %Vec_PtrFillExtra.exit
 
-Vec_PtrFillExtra.argprom.exit:                    ; preds = %145, %._crit_edge.i
+Vec_PtrFillExtra.exit:                            ; preds = %145, %._crit_edge.i
   call void @Cut_NodeWriteCutsNew(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %.0..0..0..0..0..0..i) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %184 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #10
   %185 = icmp slt i32 %184, 0
   br i1 %185, label %Abc_Clock.exit82, label %186
 
-186:                                              ; preds = %Vec_PtrFillExtra.argprom.exit
+186:                                              ; preds = %Vec_PtrFillExtra.exit
   %187 = load i64, ptr %10, align 8
   %.neg92 = mul i64 %187, -1000000
   %188 = getelementptr inbounds i8, ptr %10, i64 8
@@ -400,20 +400,20 @@ Vec_PtrFillExtra.argprom.exit:                    ; preds = %145, %._crit_edge.i
   %.neg93 = add i64 %.neg91, %.neg92
   br label %Abc_Clock.exit82
 
-Abc_Clock.exit82:                                 ; preds = %Vec_PtrFillExtra.argprom.exit, %186
-  %.0.i81.neg = phi i64 [ %.neg93, %186 ], [ 1, %Vec_PtrFillExtra.argprom.exit ]
+Abc_Clock.exit82:                                 ; preds = %Vec_PtrFillExtra.exit, %186
+  %.0.i81.neg = phi i64 [ %.neg93, %186 ], [ 1, %Vec_PtrFillExtra.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %190 = load ptr, ptr %0, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 64
   %192 = load i32, ptr %191, align 4
   %.not65 = icmp eq i32 %192, 0
-  br i1 %.not65, label %Cut_NodeMapping.argprom.exit, label %193
+  br i1 %.not65, label %Cut_NodeMapping.exit, label %193
 
 193:                                              ; preds = %Abc_Clock.exit82
   %194 = getelementptr inbounds i8, ptr %190, i64 28
   %195 = load i32, ptr %194, align 4
   %.not66 = icmp eq i32 %195, 0
-  br i1 %.not66, label %196, label %Cut_NodeMapping.argprom.exit
+  br i1 %.not66, label %196, label %Cut_NodeMapping.exit
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds i8, ptr %0, i64 216
@@ -523,19 +523,19 @@ Abc_Clock.exit82:                                 ; preds = %Vec_PtrFillExtra.ar
   %254 = getelementptr inbounds i8, ptr %0, i64 224
   %255 = load i32, ptr %254, align 8
   %256 = icmp slt i32 %255, %.1.i84
-  br i1 %256, label %257, label %Cut_NodeMapping.argprom.exit
+  br i1 %256, label %257, label %Cut_NodeMapping.exit
 
 257:                                              ; preds = %245
   store i32 %.1.i84, ptr %254, align 8
-  br label %Cut_NodeMapping.argprom.exit
+  br label %Cut_NodeMapping.exit
 
-Cut_NodeMapping.argprom.exit:                     ; preds = %257, %245, %193, %Abc_Clock.exit82
+Cut_NodeMapping.exit:                             ; preds = %257, %245, %193, %Abc_Clock.exit82
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %258 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #10
   %259 = icmp slt i32 %258, 0
   br i1 %259, label %Abc_Clock.exit86, label %260
 
-260:                                              ; preds = %Cut_NodeMapping.argprom.exit
+260:                                              ; preds = %Cut_NodeMapping.exit
   %261 = load i64, ptr %9, align 8
   %262 = mul nsw i64 %261, 1000000
   %263 = getelementptr inbounds i8, ptr %9, i64 8
@@ -544,8 +544,8 @@ Cut_NodeMapping.argprom.exit:                     ; preds = %257, %245, %193, %A
   %266 = add nsw i64 %265, %262
   br label %Abc_Clock.exit86
 
-Abc_Clock.exit86:                                 ; preds = %Cut_NodeMapping.argprom.exit, %260
-  %.0.i85 = phi i64 [ %266, %260 ], [ -1, %Cut_NodeMapping.argprom.exit ]
+Abc_Clock.exit86:                                 ; preds = %Cut_NodeMapping.exit, %260
+  %.0.i85 = phi i64 [ %266, %260 ], [ -1, %Cut_NodeMapping.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %267 = add i64 %.0.i85, %.0.i81.neg
   %268 = getelementptr inbounds i8, ptr %0, i64 312

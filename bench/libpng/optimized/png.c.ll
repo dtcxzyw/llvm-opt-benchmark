@@ -2797,7 +2797,7 @@ define range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %0, ptr 
 
 7:                                                ; preds = %6
   %8 = sext i32 %2 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef %8, ptr noundef nonnull @.str.26)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef %8, ptr noundef nonnull @.str.26)
   br label %51
 
 9:                                                ; preds = %6
@@ -2814,7 +2814,7 @@ define range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %0, ptr 
 
 15:                                               ; preds = %11
   %16 = zext nneg i32 %2 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef %16, ptr noundef nonnull @.str.27)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef %16, ptr noundef nonnull @.str.27)
   br label %51
 
 17:                                               ; preds = %11, %9
@@ -2897,7 +2897,7 @@ png_colorspace_check_gamma.exit:                  ; preds = %27, %41, %png_muldi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @png_icc_profile_error.retelim(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 4294967296) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @png_icc_profile_error(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 4294967296) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [196 x i8], align 16
   %7 = alloca [24 x i8], align 16
   %.not = icmp eq ptr %1, null
@@ -3140,7 +3140,7 @@ define range(i32 0, 2) i32 @png_icc_check_length(ptr noalias noundef %0, ptr noa
 
 icc_check_length.exit.thread:                     ; preds = %4
   %6 = zext nneg i32 %3 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %6, ptr noundef nonnull @.str.75)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %6, ptr noundef nonnull @.str.75)
   br label %13
 
 icc_check_length.exit:                            ; preds = %4
@@ -3155,7 +3155,7 @@ icc_check_length.exit:                            ; preds = %4
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %10, ptr noundef nonnull @.str.30)
+  tail call fastcc void @png_icc_profile_error(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %10, ptr noundef nonnull @.str.30)
   br label %13
 
 13:                                               ; preds = %icc_check_length.exit.thread, %9, %icc_check_length.exit, %12
@@ -3187,7 +3187,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
 
 24:                                               ; preds = %6
   %25 = zext i32 %23 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %25, ptr noundef nonnull @.str.31)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %25, ptr noundef nonnull @.str.31)
   br label %182
 
 26:                                               ; preds = %6
@@ -3201,7 +3201,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
 
 31:                                               ; preds = %26
   %32 = zext i32 %3 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %32, ptr noundef nonnull @.str.32)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %32, ptr noundef nonnull @.str.32)
   br label %182
 
 33:                                               ; preds = %26
@@ -3234,7 +3234,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
 
 57:                                               ; preds = %53, %33
   %58 = zext i32 %51 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %58, ptr noundef nonnull @.str.33)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %58, ptr noundef nonnull @.str.33)
   br label %182
 
 59:                                               ; preds = %53
@@ -3261,7 +3261,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
 
 79:                                               ; preds = %59
   %80 = zext i32 %77 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %80, ptr noundef nonnull @.str.34)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %80, ptr noundef nonnull @.str.34)
   br label %182
 
 81:                                               ; preds = %59
@@ -3270,7 +3270,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
 
 83:                                               ; preds = %81
   %84 = zext nneg i32 %77 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef %84, ptr noundef nonnull @.str.35)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef %84, ptr noundef nonnull @.str.35)
   br label %85
 
 85:                                               ; preds = %83, %81
@@ -3297,7 +3297,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
 
 104:                                              ; preds = %85
   %105 = zext i32 %103 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %105, ptr noundef nonnull @.str.36)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %105, ptr noundef nonnull @.str.36)
   br label %182
 
 106:                                              ; preds = %85
@@ -3307,7 +3307,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
   br i1 %.not111, label %109, label %108
 
 108:                                              ; preds = %106
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef 0, ptr noundef nonnull @.str.37)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef 0, ptr noundef nonnull @.str.37)
   br label %109
 
 109:                                              ; preds = %108, %106
@@ -3340,7 +3340,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
   br i1 %130, label %131, label %137
 
 131:                                              ; preds = %128
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1380401696, ptr noundef nonnull @.str.38)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1380401696, ptr noundef nonnull @.str.38)
   br label %182
 
 132:                                              ; preds = %109
@@ -3349,12 +3349,12 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
   br i1 %.not112, label %137, label %134
 
 134:                                              ; preds = %132
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1196573017, ptr noundef nonnull @.str.39)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1196573017, ptr noundef nonnull @.str.39)
   br label %182
 
 135:                                              ; preds = %109
   %136 = zext i32 %127 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %136, ptr noundef nonnull @.str.40)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %136, ptr noundef nonnull @.str.40)
   br label %182
 
 137:                                              ; preds = %132, %128
@@ -3387,20 +3387,20 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
   ]
 
 156:                                              ; preds = %137
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1633842036, ptr noundef nonnull @.str.41)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1633842036, ptr noundef nonnull @.str.41)
   br label %182
 
 157:                                              ; preds = %137
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1818848875, ptr noundef nonnull @.str.42)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1818848875, ptr noundef nonnull @.str.42)
   br label %182
 
 158:                                              ; preds = %137
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef 1852662636, ptr noundef nonnull @.str.43)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef 1852662636, ptr noundef nonnull @.str.43)
   br label %161
 
 159:                                              ; preds = %137
   %160 = zext i32 %155 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef %160, ptr noundef nonnull @.str.44)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef %160, ptr noundef nonnull @.str.44)
   br label %161
 
 161:                                              ; preds = %137, %137, %137, %137, %159, %158
@@ -3429,7 +3429,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
 
 180:                                              ; preds = %161
   %181 = zext i32 %179 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %181, ptr noundef nonnull @.str.45)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %181, ptr noundef nonnull @.str.45)
   br label %182
 
 182:                                              ; preds = %161, %161, %180, %157, %156, %135, %134, %131, %104, %79, %57, %31, %24
@@ -3530,7 +3530,7 @@ define range(i32 0, 2) i32 @png_icc_check_tag_table(ptr noalias noundef %0, ptr 
 
 82:                                               ; preds = %61, %.lr.ph
   %83 = zext i32 %41 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %83, ptr noundef nonnull @.str.46)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %83, ptr noundef nonnull @.str.46)
   br label %.loopexit
 
 84:                                               ; preds = %61
@@ -3540,7 +3540,7 @@ define range(i32 0, 2) i32 @png_icc_check_tag_table(ptr noalias noundef %0, ptr 
 
 86:                                               ; preds = %84
   %87 = zext i32 %41 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef %87, ptr noundef nonnull @.str.47)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef %87, ptr noundef nonnull @.str.47)
   br label %88
 
 88:                                               ; preds = %84, %86
@@ -3814,7 +3814,7 @@ define range(i32 0, 2) i32 @png_colorspace_set_ICC(ptr noalias noundef %0, ptr n
 
 icc_check_length.exit.thread:                     ; preds = %9
   %11 = zext nneg i32 %3 to i64
-  tail call fastcc void @png_icc_profile_error.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %11, ptr noundef nonnull @.str.75)
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %11, ptr noundef nonnull @.str.75)
   br label %16
 
 icc_check_length.exit:                            ; preds = %9

@@ -5360,7 +5360,7 @@ _load_cluster_job_prio.exit:                      ; preds = %9
   %27 = load ptr, ptr %26, align 8
   %.val = load ptr, ptr %17, align 8
   %.not.i11 = icmp eq ptr %.val, null
-  br i1 %.not.i11, label %_add_cluster_name.argprom.exit, label %28
+  br i1 %.not.i11, label %_add_cluster_name.exit, label %28
 
 28:                                               ; preds = %25
   %29 = call ptr @list_iterator_create(ptr noundef nonnull %.val) #19
@@ -5379,9 +5379,9 @@ _load_cluster_job_prio.exit:                      ; preds = %9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %28
   call void @list_iterator_destroy(ptr noundef %29) #19
-  br label %_add_cluster_name.argprom.exit
+  br label %_add_cluster_name.exit
 
-_add_cluster_name.argprom.exit:                   ; preds = %25, %._crit_edge.i
+_add_cluster_name.exit:                           ; preds = %25, %._crit_edge.i
   %35 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.141, i32 noundef 2155, ptr noundef nonnull @__func__._load_job_prio_thread) #19
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   %37 = load i8, ptr %36, align 8
@@ -5394,7 +5394,7 @@ _add_cluster_name.argprom.exit:                   ; preds = %25, %._crit_edge.i
   call void @list_append(ptr noundef %41, ptr noundef nonnull %35) #19
   br label %42
 
-42:                                               ; preds = %18, %21, %_add_cluster_name.argprom.exit
+42:                                               ; preds = %18, %21, %_add_cluster_name.exit
   call void @slurm_xfree(ptr noundef nonnull %3) #19
   ret ptr null
 }

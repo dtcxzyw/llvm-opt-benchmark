@@ -980,7 +980,7 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   br i1 %.not247, label %372, label %370
 
 370:                                              ; preds = %369
-  %371 = call fastcc i32 @findTypeAnalyzeFunction.argelim(ptr noundef nonnull %.0159)
+  %371 = call fastcc i32 @findTypeAnalyzeFunction(ptr noundef nonnull %.0159)
   br label %372
 
 372:                                              ; preds = %370, %369
@@ -989,7 +989,7 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   br i1 %.not248, label %375, label %373
 
 373:                                              ; preds = %372
-  %374 = call fastcc i32 @findTypeSubscriptingFunction.argelim(ptr noundef nonnull %.0160)
+  %374 = call fastcc i32 @findTypeSubscriptingFunction(ptr noundef nonnull %.0160)
   br label %387
 
 375:                                              ; preds = %372
@@ -1323,7 +1323,7 @@ define internal fastcc range(i32 1, 0) i32 @findTypeTypmodoutFunction(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 0) i32 @findTypeAnalyzeFunction.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @findTypeAnalyzeFunction(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x i32], align 4
   store i32 2281, ptr %2, align 4
   %3 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2, i1 noundef zeroext true) #8
@@ -1358,7 +1358,7 @@ define internal fastcc range(i32 1, 0) i32 @findTypeAnalyzeFunction.argelim(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 0) i32 @findTypeSubscriptingFunction.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @findTypeSubscriptingFunction(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1 x i32], align 4
   store i32 2281, ptr %2, align 4
   %3 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2, i1 noundef zeroext true) #8
@@ -2163,14 +2163,14 @@ define dso_local { i64, i32 } @AlterEnum(ptr nocapture noundef readonly %0) loca
   %26 = load i32, ptr %16, align 4
   %27 = tail call i32 @GetUserId() #8
   %28 = tail call zeroext i1 @object_ownercheck(i32 noundef 1247, i32 noundef %26, i32 noundef %27) #8
-  br i1 %28, label %checkEnumOwner.argprom.exit, label %29
+  br i1 %28, label %checkEnumOwner.exit, label %29
 
 29:                                               ; preds = %25
   %30 = load i32, ptr %16, align 4
   tail call void @aclcheck_error_type(i32 noundef 2, i32 noundef %30) #8
-  br label %checkEnumOwner.argprom.exit
+  br label %checkEnumOwner.exit
 
-checkEnumOwner.argprom.exit:                      ; preds = %25, %29
+checkEnumOwner.exit:                              ; preds = %25, %29
   tail call void @ReleaseSysCache(ptr noundef nonnull %7) #8
   %31 = getelementptr inbounds i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
@@ -2179,11 +2179,11 @@ checkEnumOwner.argprom.exit:                      ; preds = %25, %29
   %34 = load ptr, ptr %33, align 8
   br i1 %.not20, label %36, label %35
 
-35:                                               ; preds = %checkEnumOwner.argprom.exit
+35:                                               ; preds = %checkEnumOwner.exit
   tail call void @RenameEnumLabel(i32 noundef %5, ptr noundef nonnull %32, ptr noundef %34) #8
   br label %45
 
-36:                                               ; preds = %checkEnumOwner.argprom.exit
+36:                                               ; preds = %checkEnumOwner.exit
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3197,7 +3197,7 @@ define dso_local { i64, i32 } @AlterDomainNotNull(ptr noundef %0, i1 noundef zer
   br i1 %1, label %26, label %.thread
 
 26:                                               ; preds = %25
-  %27 = tail call fastcc ptr @get_rels_with_domain.argelim(i32 noundef %5)
+  %27 = tail call fastcc ptr @get_rels_with_domain(i32 noundef %5)
   %.not57 = icmp eq ptr %27, null
   br i1 %.not57, label %.thread, label %.lr.ph72
 
@@ -3365,7 +3365,7 @@ slot_attisnull.exit:                              ; preds = %.lr.ph, %slot_getso
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_rels_with_domain.argelim(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca [2 x %struct.ScanKeyData], align 16
   %3 = tail call ptr @format_type_be(i32 noundef %0) #8
   tail call void @check_stack_depth() #8
@@ -3410,7 +3410,7 @@ define internal fastcc ptr @get_rels_with_domain.argelim(i32 noundef %0) unnamed
   br i1 %25, label %27, label %30
 
 27:                                               ; preds = %21
-  %28 = call fastcc ptr @get_rels_with_domain.argelim(i32 noundef %26)
+  %28 = call fastcc ptr @get_rels_with_domain(i32 noundef %26)
   %29 = call ptr @list_concat(ptr noundef %.0.ph110, ptr noundef %28) #8
   br label %.outer.backedge
 
@@ -3845,7 +3845,7 @@ define internal fastcc void @validateDomainConstraint(i32 noundef %0, ptr nounde
 10:                                               ; preds = %2, %8
   %11 = phi ptr [ %9, %8 ], [ %7, %2 ]
   %12 = tail call ptr @ExecPrepareExpr(ptr noundef %4, ptr noundef nonnull %5) #8
-  %13 = tail call fastcc ptr @get_rels_with_domain.argelim(i32 noundef %0)
+  %13 = tail call fastcc ptr @get_rels_with_domain(i32 noundef %0)
   %.not47 = icmp eq ptr %13, null
   br i1 %.not47, label %._crit_edge63, label %.lr.ph62
 
@@ -5170,7 +5170,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 
 131:                                              ; preds = %128
   %132 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %51) #8
-  %133 = tail call fastcc i32 @findTypeAnalyzeFunction.argelim(ptr noundef %132)
+  %133 = tail call fastcc i32 @findTypeAnalyzeFunction(ptr noundef %132)
   br label %190
 
 134:                                              ; preds = %125
@@ -5186,7 +5186,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 
 140:                                              ; preds = %137
   %141 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %51) #8
-  %142 = tail call fastcc i32 @findTypeSubscriptingFunction.argelim(ptr noundef %141)
+  %142 = tail call fastcc i32 @findTypeSubscriptingFunction(ptr noundef %141)
   br label %190
 
 143:                                              ; preds = %134

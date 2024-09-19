@@ -1123,7 +1123,7 @@ define internal void @_ZN12_GLOBAL__N_18StatPass7executeESt6vectorINSt7__cxx1112
   %.val.i.i = load ptr, ptr %14, align 8
   %.val8.i.i = load ptr, ptr %68, align 8
   %150 = icmp eq ptr %.val.i.i, %.val8.i.i
-  br i1 %150, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i.i, label %151
+  br i1 %150, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i.i, label %151
 
 151:                                              ; preds = %149
   %152 = ptrtoint ptr %.val8.i.i to i64
@@ -1169,7 +1169,7 @@ define internal void @_ZN12_GLOBAL__N_18StatPass7executeESt6vectorINSt7__cxx1112
   %176 = getelementptr inbounds i32, ptr %174, i64 %175
   %177 = load i32, ptr %176, align 4
   %178 = icmp sgt i32 %177, -1
-  br i1 %178, label %.lr.ph.i.i.i, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i.i
+  br i1 %178, label %.lr.ph.i.i.i, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.i.i.i
   %.val19.i.i.i = load ptr, ptr %69, align 8
@@ -1187,22 +1187,22 @@ define internal void @_ZN12_GLOBAL__N_18StatPass7executeESt6vectorINSt7__cxx1112
   %185 = getelementptr inbounds i8, ptr %181, i64 24
   %186 = load i32, ptr %185, align 8
   %187 = icmp sgt i32 %186, -1
-  br i1 %187, label %179, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i.i, !llvm.loop !6
+  br i1 %187, label %179, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i.i, !llvm.loop !6
 
-_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i.i: ; preds = %184, %._crit_edge.i.i.i, %149
+_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i.i: ; preds = %184, %._crit_edge.i.i.i, %149
   %188 = phi ptr [ %.val.i.i, %149 ], [ %173, %._crit_edge.i.i.i ], [ %173, %184 ]
   %189 = phi ptr [ %.val.i.i, %149 ], [ %174, %._crit_edge.i.i.i ], [ %174, %184 ]
   %.1.ph.i.i = phi i64 [ 0, %149 ], [ %175, %._crit_edge.i.i.i ], [ %175, %184 ]
   %.not.i.i.i.i.i = icmp eq i32 %148, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.argprom.exit.i.i, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.argprom.exit.thread.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.i.i, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.thread.i.i
 
-_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.argprom.exit.i.i: ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i.i
+_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.i.i: ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.i.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %190 = icmp eq ptr %189, %188
   br i1 %190, label %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i, label %278
 
-_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.argprom.exit.thread.i.i: ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i.i
+_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.thread.i.i: ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i.i
   %191 = sext i32 %148 to i64
   %192 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %193 = getelementptr inbounds i32, ptr %192, i64 %191
@@ -1216,7 +1216,7 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt
   %198 = icmp eq ptr %196, %197
   br i1 %198, label %199, label %278
 
-199:                                              ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.argprom.exit.thread.i.i
+199:                                              ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.thread.i.i
   %200 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %201 = getelementptr inbounds i32, ptr %200, i64 %191
   %202 = load i32, ptr %201, align 4
@@ -1224,7 +1224,7 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt
   store i32 %203, ptr %201, align 4
   br label %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i
 
-_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i:      ; preds = %199, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.argprom.exit.i.i
+_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i:      ; preds = %199, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.i.i
   store i32 %148, ptr %4, align 4
   %204 = load ptr, ptr %70, align 8
   %205 = load ptr, ptr %71, align 8
@@ -1240,7 +1240,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i:      ; preds = %199, %_ZNSt4pairIN5
   %209 = load ptr, ptr %70, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 32
   store ptr %210, ptr %70, align 8
-  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.argprom.exit.i.i.i
+  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.exit.i.i.i
 
 211:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i
   %.val29.i.i.i.i.i = load ptr, ptr %69, align 8
@@ -1248,7 +1248,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i:      ; preds = %199, %_ZNSt4pairIN5
   %213 = ptrtoint ptr %.val29.i.i.i.i.i to i64
   %214 = sub i64 %212, %213
   %215 = icmp eq i64 %214, 9223372036854775776
-  br i1 %215, label %216, label %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i
+  br i1 %215, label %216, label %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
 
 216:                                              ; preds = %211
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.63) #28
@@ -1257,7 +1257,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i:      ; preds = %199, %_ZNSt4pairIN5
 .noexc.i.i.i:                                     ; preds = %216
   unreachable
 
-_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i: ; preds = %211
+_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %211
   %217 = ashr exact i64 %214, 5
   %218 = icmp eq ptr %204, %.val29.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i = select i1 %218, i64 1, i64 %217
@@ -1271,18 +1271,18 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_are
   %224 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %223) #30
           to label %.noexc16.i.i.i unwind label %.loopexit40.i
 
-.noexc16.i.i.i:                                   ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i
+.noexc16.i.i.i:                                   ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %225 = getelementptr inbounds i8, ptr %224, i64 %214
   store i32 %148, ptr %225, align 4
   %226 = getelementptr inbounds i8, ptr %225, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %226, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.i.i, i64 16, i1 false)
   %227 = getelementptr inbounds i8, ptr %225, i64 24
   store i32 -1, ptr %227, align 8
-  br i1 %218, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  br i1 %218, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.thread.i.i.i.i: ; preds = %.noexc16.i.i.i
+_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.thread.i.i.i.i: ; preds = %.noexc16.i.i.i
   %228 = getelementptr inbounds i8, ptr %224, i64 32
-  br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i.i.i.i
+  br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc16.i.i.i, %236
   %.015.i.i.i.i.i.i.i.i.i.i = phi ptr [ %243, %236 ], [ %224, %.noexc16.i.i.i ]
@@ -1312,20 +1312,20 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
   %242 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i.i.i.i, i64 32
   %243 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %242, %204
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !8
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.i.i.i.i: ; preds = %236
+_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.i.i.i.i: ; preds = %236
   %244 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i.i.i.i, i64 64
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i = phi ptr [ %259, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i.i.i.i ], [ %.val29.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.i.i.i.i
+  %.05.i.i.i.i.i.i.i.i = phi ptr [ %259, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i.i ], [ %.val29.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.i.i.i.i ]
   %.0.val.i.i.i.i.i.i.i.i = load i32, ptr %.05.i.i.i.i.i.i.i.i, align 4
   %245 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %246 = trunc i8 %245 to i1
   %247 = icmp ne i32 %.0.val.i.i.i.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i = and i1 %247, %246
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i, label %248, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i, label %248, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i.i
 
 248:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %249 = sext i32 %.0.val.i.i.i.i.i.i.i.i to i64
@@ -1335,11 +1335,11 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
   %253 = add nsw i32 %252, -1
   store i32 %253, ptr %251, align 4
   %254 = icmp sgt i32 %252, 1
-  br i1 %254, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i.i.i.i, label %255
+  br i1 %254, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i.i, label %255
 
 255:                                              ; preds = %248
   invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %.0.val.i.i.i.i.i.i.i.i)
-          to label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i.i.i.i unwind label %256
+          to label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i.i unwind label %256
 
 256:                                              ; preds = %255
   %257 = landingpad { ptr, i32 }
@@ -1348,39 +1348,39 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
   call void @__clang_call_terminate(ptr %258) #31
   unreachable
 
-_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %255, %248, %.lr.ph.i.i.i.i.i.i.i.i
+_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %255, %248, %.lr.ph.i.i.i.i.i.i.i.i
   %259 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %259, %204
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !9
 
-_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.thread.i.i.i.i
-  %260 = phi ptr [ %228, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.thread.i.i.i.i ], [ %244, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i.i.i.i ]
+_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.thread.i.i.i.i
+  %260 = phi ptr [ %228, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.thread.i.i.i.i ], [ %244, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i.i ]
   %.not.i43.i.i.i.i.i = icmp eq ptr %.val29.i.i.i.i.i, null
-  br i1 %.not.i43.i.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_EiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.argprom.exit.i.i.i.i, label %261
+  br i1 %.not.i43.i.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_EiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i, label %261
 
-261:                                              ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i.i.i.i
+261:                                              ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val29.i.i.i.i.i) #26
-  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_EiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.argprom.exit.i.i.i.i
+  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_EiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i
 
-_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_EiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.argprom.exit.i.i.i.i: ; preds = %261, %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i.i.i.i
+_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_EiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i: ; preds = %261, %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i.i.i.i
   store ptr %224, ptr %69, align 8
   store ptr %260, ptr %70, align 8
   %262 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, (anonymous namespace)::cell_area_t>::entry_t", ptr %224, i64 %222
   store ptr %262, ptr %71, align 8
-  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.argprom.exit.i.i.i
+  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.exit.i.i.i
 
-_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.argprom.exit.i.i.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_EiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.argprom.exit.i.i.i.i, %206
+_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.exit.i.i.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_EiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i, %206
   invoke fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %14)
-          to label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.i18.i.i unwind label %.loopexit40.i
+          to label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i18.i.i unwind label %.loopexit40.i
 
-_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.i18.i.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.argprom.exit.i.i.i
+_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i18.i.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.exit.i.i.i
   %263 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %264 = trunc i8 %263 to i1
   %265 = icmp ne i32 %148, 0
   %or.cond.i.i.i.i.i = and i1 %265, %264
-  br i1 %or.cond.i.i.i.i.i, label %266, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom.exit.i.i
+  br i1 %or.cond.i.i.i.i.i, label %266, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.exit.i.i
 
-266:                                              ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.i18.i.i
+266:                                              ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i18.i.i
   %267 = sext i32 %148 to i64
   %268 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %269 = getelementptr inbounds i32, ptr %268, i64 %267
@@ -1388,11 +1388,11 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8has
   %271 = add nsw i32 %270, -1
   store i32 %271, ptr %269, align 4
   %272 = icmp sgt i32 %270, 1
-  br i1 %272, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom.exit.i.i, label %273
+  br i1 %272, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.exit.i.i, label %273
 
 273:                                              ; preds = %266
   invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %148)
-          to label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom.exit.i.i unwind label %274
+          to label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.exit.i.i unwind label %274
 
 274:                                              ; preds = %273
   %275 = landingpad { ptr, i32 }
@@ -1401,8 +1401,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8has
   call void @__clang_call_terminate(ptr %276) #31
   unreachable
 
-.loopexit40.i:                                    ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.argprom.exit.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i
-  %.sroa.0.2.i.ph.i = phi i32 [ %148, %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i ], [ 0, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.argprom.exit.i.i.i ]
+.loopexit40.i:                                    ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.exit.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+  %.sroa.0.2.i.ph.i = phi i32 [ %148, %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ 0, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_EiEEEvDpOT_.exit.i.i.i ]
   %lpad.loopexit42.i = landingpad { ptr, i32 }
           cleanup
   br label %277
@@ -1418,8 +1418,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8has
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #25
   br label %.body.i.i
 
-278:                                              ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.argprom.exit.thread.i.i, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.argprom.exit.i.i
-  %279 = phi ptr [ %196, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.argprom.exit.thread.i.i ], [ %189, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.argprom.exit.i.i ]
+278:                                              ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.thread.i.i, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.i.i
+  %279 = phi ptr [ %196, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.thread.i.i ], [ %189, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEEC2IRKS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.i.i ]
   %280 = getelementptr inbounds i32, ptr %279, i64 %.1.ph.i.i
   %.val15.i14.i.i = load i32, ptr %280, align 4
   %281 = load ptr, ptr %70, align 8
@@ -1437,7 +1437,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8has
   %287 = getelementptr inbounds i8, ptr %286, i64 32
   store ptr %287, ptr %70, align 8
   %.val10.pre.i.i.i = load ptr, ptr %69, align 8
-  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_ERiEEEvDpOT_.argprom.exit.i.i.i
+  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_ERiEEEvDpOT_.exit.i.i.i
 
 288:                                              ; preds = %278
   %.val.i.i.i.i.i = load ptr, ptr %69, align 8
@@ -1445,7 +1445,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8has
   %290 = ptrtoint ptr %.val.i.i.i.i.i to i64
   %291 = sub i64 %289, %290
   %292 = icmp eq i64 %291, 9223372036854775776
-  br i1 %292, label %293, label %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.argprom.exit.i.i18.i.i.i
+  br i1 %292, label %293, label %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i.i.i
 
 293:                                              ; preds = %288
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.63) #28
@@ -1454,7 +1454,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8has
 .noexc.i.i:                                       ; preds = %293
   unreachable
 
-_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.argprom.exit.i.i18.i.i.i: ; preds = %288
+_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i.i.i: ; preds = %288
   %294 = ashr exact i64 %291, 5
   %295 = icmp eq ptr %281, %.val.i.i.i.i.i
   %.sroa.speculated.i.i.i19.i.i.i = select i1 %295, i64 1, i64 %294
@@ -1468,18 +1468,18 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_are
   %301 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %300) #30
           to label %.noexc20.i.i unwind label %.loopexit35.i
 
-.noexc20.i.i:                                     ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.argprom.exit.i.i18.i.i.i
+.noexc20.i.i:                                     ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i.i.i
   %302 = getelementptr inbounds i8, ptr %301, i64 %291
   store i32 %148, ptr %302, align 4
   %303 = getelementptr inbounds i8, ptr %302, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %303, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.i.i, i64 16, i1 false)
   %304 = getelementptr inbounds i8, ptr %302, i64 24
   store i32 %.val15.i14.i.i, ptr %304, align 8
-  br i1 %295, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.thread.i35.i.i.i, label %.lr.ph.i.i.i.i.i.i.i21.i.i.i
+  br i1 %295, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.thread.i35.i.i.i, label %.lr.ph.i.i.i.i.i.i.i21.i.i.i
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.thread.i35.i.i.i: ; preds = %.noexc20.i.i
+_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.thread.i35.i.i.i: ; preds = %.noexc20.i.i
   %305 = getelementptr inbounds i8, ptr %301, i64 32
-  br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i33.i.i.i
+  br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i33.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i21.i.i.i:                     ; preds = %.noexc20.i.i, %313
   %.015.i.i.i.i.i.i.i22.i.i.i = phi ptr [ %320, %313 ], [ %301, %.noexc20.i.i ]
@@ -1509,20 +1509,20 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
   %319 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i23.i.i.i, i64 32
   %320 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i22.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i25.i.i.i = icmp eq ptr %319, %281
-  br i1 %.not.i.i.i.i.i.i.i25.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.i26.i.i.i, label %.lr.ph.i.i.i.i.i.i.i21.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i.i.i25.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.i26.i.i.i, label %.lr.ph.i.i.i.i.i.i.i21.i.i.i, !llvm.loop !8
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.i26.i.i.i: ; preds = %313
+_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.i26.i.i.i: ; preds = %313
   %321 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i22.i.i.i, i64 64
   br label %.lr.ph.i.i.i.i.i27.i.i.i
 
-.lr.ph.i.i.i.i.i27.i.i.i:                         ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i31.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.i26.i.i.i
-  %.05.i.i.i.i.i28.i.i.i = phi ptr [ %336, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i31.i.i.i ], [ %.val.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.i26.i.i.i ]
+.lr.ph.i.i.i.i.i27.i.i.i:                         ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i31.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.i26.i.i.i
+  %.05.i.i.i.i.i28.i.i.i = phi ptr [ %336, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i31.i.i.i ], [ %.val.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.i26.i.i.i ]
   %.0.val.i.i.i.i.i29.i.i.i = load i32, ptr %.05.i.i.i.i.i28.i.i.i, align 4
   %322 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %323 = trunc i8 %322 to i1
   %324 = icmp ne i32 %.0.val.i.i.i.i.i29.i.i.i, 0
   %or.cond.i.i.i.i.i.i.i.i.i.i30.i.i.i = and i1 %324, %323
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i30.i.i.i, label %325, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i31.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i30.i.i.i, label %325, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i31.i.i.i
 
 325:                                              ; preds = %.lr.ph.i.i.i.i.i27.i.i.i
   %326 = sext i32 %.0.val.i.i.i.i.i29.i.i.i to i64
@@ -1532,11 +1532,11 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
   %330 = add nsw i32 %329, -1
   store i32 %330, ptr %328, align 4
   %331 = icmp sgt i32 %329, 1
-  br i1 %331, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i31.i.i.i, label %332
+  br i1 %331, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i31.i.i.i, label %332
 
 332:                                              ; preds = %325
   invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %.0.val.i.i.i.i.i29.i.i.i)
-          to label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i31.i.i.i unwind label %333
+          to label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i31.i.i.i unwind label %333
 
 333:                                              ; preds = %332
   %334 = landingpad { ptr, i32 }
@@ -1545,30 +1545,30 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
   call void @__clang_call_terminate(ptr %335) #31
   unreachable
 
-_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i31.i.i.i: ; preds = %332, %325, %.lr.ph.i.i.i.i.i27.i.i.i
+_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i31.i.i.i: ; preds = %332, %325, %.lr.ph.i.i.i.i.i27.i.i.i
   %336 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i28.i.i.i, i64 32
   %.not.i.i.i.i.i32.i.i.i = icmp eq ptr %336, %281
-  br i1 %.not.i.i.i.i.i32.i.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i33.i.i.i, label %.lr.ph.i.i.i.i.i27.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i32.i.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i33.i.i.i, label %.lr.ph.i.i.i.i.i27.i.i.i, !llvm.loop !9
 
-_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i33.i.i.i: ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i31.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.thread.i35.i.i.i
-  %337 = phi ptr [ %305, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.argprom.exit42.i.thread.i35.i.i.i ], [ %321, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i31.i.i.i ]
+_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i33.i.i.i: ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i31.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.thread.i35.i.i.i
+  %337 = phi ptr [ %305, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit42.i.thread.i35.i.i.i ], [ %321, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i31.i.i.i ]
   %.not.i43.i.i34.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i43.i.i34.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.argprom.exit.i.i.i.i, label %338
+  br i1 %.not.i43.i.i34.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i, label %338
 
-338:                                              ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i33.i.i.i
+338:                                              ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i33.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i.i.i) #26
-  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.argprom.exit.i.i.i.i
+  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i
 
-_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.argprom.exit.i.i.i.i: ; preds = %338, %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i33.i.i.i
+_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i: ; preds = %338, %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i33.i.i.i
   store ptr %301, ptr %69, align 8
   store ptr %337, ptr %70, align 8
   %339 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, (anonymous namespace)::cell_area_t>::entry_t", ptr %301, i64 %299
   store ptr %339, ptr %71, align 8
-  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_ERiEEEvDpOT_.argprom.exit.i.i.i
+  br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_ERiEEEvDpOT_.exit.i.i.i
 
-_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_ERiEEEvDpOT_.argprom.exit.i.i.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.argprom.exit.i.i.i.i, %283
-  %.val11.i.i.i = phi ptr [ %287, %283 ], [ %337, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.argprom.exit.i.i.i.i ]
-  %.val10.i.i.i = phi ptr [ %.val10.pre.i.i.i, %283 ], [ %301, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.argprom.exit.i.i.i.i ]
+_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_ERiEEEvDpOT_.exit.i.i.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i, %283
+  %.val11.i.i.i = phi ptr [ %287, %283 ], [ %337, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i ]
+  %.val10.i.i.i = phi ptr [ %.val10.pre.i.i.i, %283 ], [ %301, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS4_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i.i ]
   %340 = ptrtoint ptr %.val11.i.i.i to i64
   %341 = ptrtoint ptr %.val10.i.i.i to i64
   %342 = sub i64 %340, %341
@@ -1578,9 +1578,9 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area
   %346 = load ptr, ptr %14, align 8
   %347 = getelementptr inbounds i32, ptr %346, i64 %.1.ph.i.i
   store i32 %345, ptr %347, align 4
-  br label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom.exit.i.i
+  br label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.exit.i.i
 
-_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom.exit.i.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_ERiEEEvDpOT_.argprom.exit.i.i.i, %273, %266, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.i18.i.i
+_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.exit.i.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS4_S6_ERiEEEvDpOT_.exit.i.i.i, %273, %266, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i18.i.i
   %.val12.i.i.i = load ptr, ptr %69, align 8
   %.val13.i15.i.i = load ptr, ptr %70, align 8
   %348 = ptrtoint ptr %.val13.i15.i.i to i64
@@ -1592,7 +1592,7 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom.exi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %.loopexit.i
 
-.loopexit35.i:                                    ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.argprom.exit.i.i18.i.i.i
+.loopexit35.i:                                    ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i.i.i
   %lpad.loopexit37.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -1605,12 +1605,12 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom.exi
 .body.i.i:                                        ; preds = %.loopexit.split-lp36.i, %.loopexit35.i, %277
   %.sroa.0.3.i.i = phi i32 [ %.sroa.0.2.i.i, %277 ], [ %148, %.loopexit35.i ], [ %148, %.loopexit.split-lp36.i ]
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %lpad.phi44.i, %277 ], [ %lpad.loopexit37.i, %.loopexit35.i ], [ %lpad.loopexit.split-lp38.i, %.loopexit.split-lp36.i ]
-  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom(i32 %.sroa.0.3.i.i) #25
+  call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev(i32 %.sroa.0.3.i.i) #25
   br label %.body.i
 
-.loopexit.i:                                      ; preds = %179, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom.exit.i.i
-  %.val10.i.i = phi ptr [ %.val12.i.i.i, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom.exit.i.i ], [ %.val19.i.i.i, %179 ]
-  %.0.i.i = phi i32 [ %353, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom.exit.i.i ], [ %.021.i.i.i, %179 ]
+.loopexit.i:                                      ; preds = %179, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.exit.i.i
+  %.val10.i.i = phi ptr [ %.val12.i.i.i, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.exit.i.i ], [ %.val19.i.i.i, %179 ]
+  %.0.i.i = phi i32 [ %353, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.exit.i.i ], [ %.021.i.i.i, %179 ]
   %354 = sext i32 %.0.i.i to i64
   %355 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, (anonymous namespace)::cell_area_t>::entry_t", ptr %.val10.i.i, i64 %354, i32 0, i32 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.12.i.i)
@@ -2452,22 +2452,22 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge429,
   %.1.in.i.i.i.i = getelementptr i8, ptr %.04.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i175 = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i175, label %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.argprom.exit.i, label %.lr.ph.i.i.i.i174, !llvm.loop !19
+  br i1 %.not.i.i.i.i175, label %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i, label %.lr.ph.i.i.i.i174, !llvm.loop !19
 
-_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.argprom.exit.i: ; preds = %.lr.ph.i.i.i.i174
+_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i: ; preds = %.lr.ph.i.i.i.i174
   %671 = icmp eq ptr %.19.i.i.i.i, %54
   br i1 %671, label %.critedge.i, label %672
 
-672:                                              ; preds = %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.argprom.exit.i
+672:                                              ; preds = %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %670, ptr %.083.i.i.i.i, ptr %.04.i.i.i.i
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %673 = load i32, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %674 = icmp slt i32 %.val.i, %673
   br i1 %674, label %.critedge.i, label %791
 
-.critedge.i:                                      ; preds = %672, %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.argprom.exit.i, %666
-  %675 = phi i1 [ true, %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.argprom.exit.i ], [ false, %672 ], [ true, %666 ]
-  %.08.lcssa.i.i.i16.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.argprom.exit.i ], [ %.19.i.i.i.i, %672 ], [ %54, %666 ]
+.critedge.i:                                      ; preds = %672, %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i, %666
+  %675 = phi i1 [ true, %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i ], [ false, %672 ], [ true, %666 ]
+  %.08.lcssa.i.i.i16.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i ], [ %.19.i.i.i.i, %672 ], [ %54, %666 ]
   %676 = invoke noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #30
           to label %.noexc181 unwind label %.loopexit
 
@@ -2735,7 +2735,7 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4p
   %778 = trunc i8 %777 to i1
   %779 = icmp ne i32 %776, 0
   %or.cond.i.i.i.i.i.i.i.i.i.i = and i1 %779, %778
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %780, label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %780, label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i.i
 
 780:                                              ; preds = %.thread13.i.i
   %781 = sext i32 %776 to i64
@@ -2745,11 +2745,11 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4p
   %785 = add nsw i32 %784, -1
   store i32 %785, ptr %783, align 4
   %786 = icmp sgt i32 %784, 1
-  br i1 %786, label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit.i.i.i, label %787
+  br i1 %786, label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i.i, label %787
 
 787:                                              ; preds = %780
   invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %776)
-          to label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit.i.i.i unwind label %788
+          to label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i.i unwind label %788
 
 788:                                              ; preds = %787
   %789 = landingpad { ptr, i32 }
@@ -2758,12 +2758,12 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4p
   call void @__clang_call_terminate(ptr %790) #31
   unreachable
 
-_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit.i.i.i: ; preds = %787, %780, %.thread13.i.i
+_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i.i: ; preds = %787, %780, %.thread13.i.i
   call void @_ZdlPv(ptr noundef nonnull %676) #26
   br label %791
 
-791:                                              ; preds = %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit.i.i.i, %772, %672
-  %.sroa.014.0.i = phi ptr [ %.19.i.i.i.i, %672 ], [ %676, %772 ], [ %.sroa.01.0.ph.i.i, %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit.i.i.i ]
+791:                                              ; preds = %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i.i, %772, %672
+  %.sroa.014.0.i = phi ptr [ %.19.i.i.i.i, %672 ], [ %676, %772 ], [ %.sroa.01.0.ph.i.i, %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i.i ]
   %792 = getelementptr inbounds i8, ptr %.sroa.014.0.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %792, ptr noundef nonnull align 8 dereferenceable(48) %30, i64 48, i1 false)
   %793 = getelementptr inbounds i8, ptr %.sroa.014.0.i, i64 88
@@ -2986,7 +2986,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit190:             ; preds = %843, %836, %832, %8
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit194:         ; preds = %866, %869
   store i32 %868, ptr %34, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_116hierarchy_workerERSt3mapIN5Yosys5RTLIL8IdStringENS_10statdata_tESt4lessIS3_ESaISt4pairIKS3_S4_EEES3_ib.argprom(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(48) %13, i32 %868, i32 noundef 0, i1 noundef zeroext %.063.lcssa)
+  invoke fastcc void @_ZN12_GLOBAL__N_116hierarchy_workerERSt3mapIN5Yosys5RTLIL8IdStringENS_10statdata_tESt4lessIS3_ESaISt4pairIKS3_S4_EEES3_ib(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(48) %13, i32 %868, i32 noundef 0, i1 noundef zeroext %.063.lcssa)
           to label %875 unwind label %891
 
 875:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit194
@@ -3387,16 +3387,16 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit200:             ; preds = %918, %911, %907, %8
   %1010 = getelementptr inbounds i8, ptr %14, i64 32
   %1011 = load ptr, ptr %1010, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %1009, %1011
-  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i201
+  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i201
 
-.lr.ph.i.i.i.i.i201:                              ; preds = %1007, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %1026, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i ], [ %1009, %1007 ]
+.lr.ph.i.i.i.i.i201:                              ; preds = %1007, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %1026, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i ], [ %1009, %1007 ]
   %.0.val.i.i.i.i.i = load i32, ptr %.05.i.i.i.i.i, align 4
   %1012 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1013 = trunc i8 %1012 to i1
   %1014 = icmp ne i32 %.0.val.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i.i.i.i.i.i202 = and i1 %1014, %1013
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i202, label %1015, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i202, label %1015, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i
 
 1015:                                             ; preds = %.lr.ph.i.i.i.i.i201
   %1016 = sext i32 %.0.val.i.i.i.i.i to i64
@@ -3406,11 +3406,11 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit200:             ; preds = %918, %911, %907, %8
   %1020 = add nsw i32 %1019, -1
   store i32 %1020, ptr %1018, align 4
   %1021 = icmp sgt i32 %1019, 1
-  br i1 %1021, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i, label %1022
+  br i1 %1021, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i, label %1022
 
 1022:                                             ; preds = %1015
   invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %.0.val.i.i.i.i.i)
-          to label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i unwind label %1023
+          to label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i unwind label %1023
 
 1023:                                             ; preds = %1022
   %1024 = landingpad { ptr, i32 }
@@ -3419,25 +3419,25 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit200:             ; preds = %918, %911, %907, %8
   call void @__clang_call_terminate(ptr %1025) #31
   unreachable
 
-_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i: ; preds = %1022, %1015, %.lr.ph.i.i.i.i.i201
+_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i: ; preds = %1022, %1015, %.lr.ph.i.i.i.i.i201
   %1026 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i203 = icmp eq ptr %1026, %1011
-  br i1 %.not.i.i.i.i.i203, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i201, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i203, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i201, !llvm.loop !9
 
-_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i.i
+_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i
   %.val.pr.i.i = load ptr, ptr %1008, align 8
-  br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i
+  br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exitthread-pre-split.i.i, %1007
-  %.val.i.i204 = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exitthread-pre-split.i.i ], [ %1009, %1007 ]
+_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i, %1007
+  %.val.i.i204 = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i.i ], [ %1009, %1007 ]
   %.not.i.i.i.i205 = icmp eq ptr %.val.i.i204, null
   br i1 %.not.i.i.i.i205, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EED2Ev.exit.i, label %1027
 
-1027:                                             ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i
+1027:                                             ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i204) #26
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EED2Ev.exit.i
 
-_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EED2Ev.exit.i: ; preds = %1027, %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i.i
+_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EED2Ev.exit.i: ; preds = %1027, %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i.i
   %1028 = load ptr, ptr %14, align 8
   %.not.i.i.i1.i = icmp eq ptr %1028, null
   br i1 %.not.i.i.i1.i, label %_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEED2Ev.exit, label %1029
@@ -3448,7 +3448,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area
 
 _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EED2Ev.exit.i, %1029
   %.val137 = load ptr, ptr %55, align 8
-  call fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E.argprom(ptr noundef %.val137)
+  call fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.val137)
   ret void
 
 _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit192: ; preds = %.loopexit225, %.loopexit.split-lp226, %853, %851, %1004, %891, %638, %.body154, %521, %498, %463, %395
@@ -3456,7 +3456,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit192: ; preds = %.loopexit225
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #25
   call fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %14) #25
   %.val138 = load ptr, ptr %55, align 8
-  call fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E.argprom(ptr noundef %.val138)
+  call fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.val138)
   resume { ptr, i32 } %.pn131.pn
 }
 
@@ -7304,7 +7304,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
 1645:                                             ; preds = %1643, %1639, %1636
   %1646 = load i32, ptr @_ZZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEvE2id, align 4, !noalias !144
   %.not.i.i.i408 = icmp eq i32 %1646, 0
-  br i1 %.not.i.i.i408, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.argprom.exit, label %1647
+  br i1 %.not.i.i.i408, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.exit, label %1647
 
 1647:                                             ; preds = %1645
   %1648 = sext i32 %1646 to i64
@@ -7313,7 +7313,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %1651 = load i32, ptr %1650, align 4, !noalias !144
   %1652 = add nsw i32 %1651, 1
   store i32 %1652, ptr %1650, align 4, !noalias !144
-  br label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.argprom.exit
+  br label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.exit
 
 .body410:                                         ; preds = %1641
   %1653 = landingpad { ptr, i32 }
@@ -7322,7 +7322,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %50) #25
   br label %.body
 
-_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.argprom.exit: ; preds = %1647, %1645
+_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.exit: ; preds = %1647, %1645
   %1654 = load i32, ptr %9, align 4
   %1655 = load i32, ptr %50, align 4
   %1656 = icmp eq i32 %1654, %1655
@@ -7334,7 +7334,7 @@ _ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hash
   %or.cond.i.i412 = and i1 %1660, %1659
   br i1 %or.cond.i.i412, label %1661, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit413
 
-1661:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.argprom.exit
+1661:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.exit
   %1662 = sext i32 %1646 to i64
   %1663 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1664 = getelementptr inbounds i32, ptr %1663, i64 %1662
@@ -7355,7 +7355,7 @@ _ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hash
   call void @__clang_call_terminate(ptr %1671) #31
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit413:             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.argprom.exit, %1661, %1668
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit413:             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.exit, %1661, %1668
   %1672 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1673 = trunc i8 %1672 to i1
   %1674 = icmp ne i32 %1655, 0
@@ -7442,9 +7442,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit415:             ; preds = %_ZN5Yosys5RTLIL8IdS
 1713:                                             ; preds = %1711, %1707, %1704
   %1714 = load i32, ptr @_ZZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEvE2id, align 4, !noalias !147
   %.not.i.i.i419 = icmp eq i32 %1714, 0
-  br i1 %.not.i.i.i419, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.argprom.exit
+  br i1 %.not.i.i.i419, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.exit.thread, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.exit
 
-_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.argprom.exit.thread: ; preds = %1713
+_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.exit.thread: ; preds = %1713
   %1715 = load i32, ptr %9, align 4
   %1716 = icmp eq i32 %1715, 0
   br i1 %1716, label %1739, label %1759
@@ -7455,7 +7455,7 @@ _ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hash
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEvE2id) #25, !noalias !147
   br label %.body
 
-_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.argprom.exit: ; preds = %1713
+_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.exit: ; preds = %1713
   %1719 = sext i32 %1714 to i64
   %1720 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !147
   %1721 = getelementptr inbounds i32, ptr %1720, i64 %1719
@@ -7468,7 +7468,7 @@ _ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hash
   %1727 = trunc i8 %1726 to i1
   br i1 %1727, label %1728, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit424
 
-1728:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.argprom.exit
+1728:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.exit
   %1729 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1730 = getelementptr inbounds i32, ptr %1729, i64 %1719
   %1731 = load i32, ptr %1730, align 4
@@ -7488,7 +7488,7 @@ _ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hash
   call void @__clang_call_terminate(ptr %1737) #31
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit424:             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.argprom.exit, %1728, %1734
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit424:             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.exit, %1728, %1734
   br i1 %1725, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit424._crit_edge, label %1759
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit424._crit_edge:  ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit424
@@ -7496,8 +7496,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit424._crit_edge:  ; preds = %_ZN5Yosys5RTLIL8IdS
   %1738 = sext i32 %.pre794 to i64
   br label %1739
 
-1739:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit424._crit_edge, %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.argprom.exit.thread
-  %1740 = phi i64 [ %1738, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit424._crit_edge ], [ 0, %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.argprom.exit.thread ]
+1739:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit424._crit_edge, %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.exit.thread
+  %1740 = phi i64 [ %1738, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit424._crit_edge ], [ 0, %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.exit.thread ]
   %1741 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %1742 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %1743 = ptrtoint ptr %1741 to i64
@@ -7533,7 +7533,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit424._crit_edge:  ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #25
   br label %.body
 
-1759:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit424
+1759:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit424
   %1760 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEvE2id acquire, align 8, !noalias !150
   %1761 = icmp eq i8 %1760, 0
   br i1 %1761, label %1762, label %1768, !prof !25
@@ -7556,9 +7556,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit424._crit_edge:  ; preds = %_ZN5Yosys5RTLIL8IdS
 1768:                                             ; preds = %1766, %1762, %1759
   %1769 = load i32, ptr @_ZZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEvE2id, align 4, !noalias !150
   %.not.i.i.i428 = icmp eq i32 %1769, 0
-  br i1 %.not.i.i.i428, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.argprom.exit
+  br i1 %.not.i.i.i428, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.exit.thread, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.exit
 
-_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.argprom.exit.thread: ; preds = %1768
+_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.exit.thread: ; preds = %1768
   %1770 = load i32, ptr %9, align 4
   %1771 = icmp eq i32 %1770, 0
   br i1 %1771, label %1794, label %1814
@@ -7569,7 +7569,7 @@ _ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hash
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEvE2id) #25, !noalias !150
   br label %.body
 
-_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.argprom.exit: ; preds = %1768
+_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.exit: ; preds = %1768
   %1774 = sext i32 %1769 to i64
   %1775 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !150
   %1776 = getelementptr inbounds i32, ptr %1775, i64 %1774
@@ -7582,7 +7582,7 @@ _ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hash
   %1782 = trunc i8 %1781 to i1
   br i1 %1782, label %1783, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit433
 
-1783:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.argprom.exit
+1783:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.exit
   %1784 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1785 = getelementptr inbounds i32, ptr %1784, i64 %1774
   %1786 = load i32, ptr %1785, align 4
@@ -7602,7 +7602,7 @@ _ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hash
   call void @__clang_call_terminate(ptr %1792) #31
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit433:             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.argprom.exit, %1783, %1789
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit433:             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.exit, %1783, %1789
   br i1 %1780, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit433._crit_edge, label %1814
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit433._crit_edge:  ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit433
@@ -7610,8 +7610,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit433._crit_edge:  ; preds = %_ZN5Yosys5RTLIL8IdS
   %1793 = sext i32 %.pre to i64
   br label %1794
 
-1794:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit433._crit_edge, %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.argprom.exit.thread
-  %1795 = phi i64 [ %1793, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit433._crit_edge ], [ 0, %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.argprom.exit.thread ]
+1794:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit433._crit_edge, %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.exit.thread
+  %1795 = phi i64 [ %1793, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit433._crit_edge ], [ 0, %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.exit.thread ]
   %1796 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %1797 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
   %1798 = ptrtoint ptr %1796 to i64
@@ -7647,7 +7647,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit433._crit_edge:  ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #25
   br label %.body
 
-1814:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit433
+1814:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit433
   call void @llvm.experimental.noalias.scope.decl(metadata !153)
   %1815 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE42_clEvE2id acquire, align 8, !noalias !153
   %1816 = icmp eq i8 %1815, 0
@@ -8300,7 +8300,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit433._crit_edge:  ; preds = %_ZN5Yosys5RTLIL8IdS
 2108:                                             ; preds = %2106, %2102, %2099
   %2109 = load i32, ptr @_ZZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEvE2id, align 4, !noalias !198
   %.not.i.i.i497 = icmp eq i32 %2109, 0
-  br i1 %.not.i.i.i497, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.argprom.exit, label %2110
+  br i1 %.not.i.i.i497, label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.exit, label %2110
 
 2110:                                             ; preds = %2108
   %2111 = sext i32 %2109 to i64
@@ -8309,7 +8309,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit433._crit_edge:  ; preds = %_ZN5Yosys5RTLIL8IdS
   %2114 = load i32, ptr %2113, align 4, !noalias !198
   %2115 = add nsw i32 %2114, 1
   store i32 %2115, ptr %2113, align 4, !noalias !198
-  br label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.argprom.exit
+  br label %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.exit
 
 .body499:                                         ; preds = %2104
   %2116 = landingpad { ptr, i32 }
@@ -8318,7 +8318,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit433._crit_edge:  ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %68) #25
   br label %.body495
 
-_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.argprom.exit: ; preds = %2110, %2108
+_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.exit: ; preds = %2110, %2108
   %2117 = load i32, ptr %9, align 4
   %2118 = load i32, ptr %54, align 4
   %2119 = icmp eq i32 %2117, %2118
@@ -8372,7 +8372,7 @@ _ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hash
   %or.cond.i.i502 = and i1 %2152, %2151
   br i1 %or.cond.i.i502, label %2153, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit503
 
-2153:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.argprom.exit
+2153:                                             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.exit
   %2154 = sext i32 %2109 to i64
   %2155 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2156 = getelementptr inbounds i32, ptr %2155, i64 %2154
@@ -8393,7 +8393,7 @@ _ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hash
   call void @__clang_call_terminate(ptr %2163) #31
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit503:             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.argprom.exit, %2153, %2160
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit503:             ; preds = %_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.exit, %2153, %2160
   %2164 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %2165 = trunc i8 %2164 to i1
   %2166 = icmp ne i32 %2146, 0
@@ -9003,7 +9003,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit533:             ; preds = %_ZN5Yosys5RTLIL8IdS
 
 2433:                                             ; preds = %2424
   %2434 = icmp eq ptr %.val.i539, %.val6.i
-  br i1 %2434, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i, label %2435
+  br i1 %2434, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i, label %2435
 
 2435:                                             ; preds = %2433
   %2436 = ptrtoint ptr %.val6.i to i64
@@ -9048,7 +9048,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit533:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %2460 = getelementptr inbounds i32, ptr %2457, i64 %2459
   %2461 = load i32, ptr %2460, align 4
   %2462 = icmp sgt i32 %2461, -1
-  br i1 %2462, label %.lr.ph.i.i543, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i
+  br i1 %2462, label %.lr.ph.i.i543, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i
 
 .lr.ph.i.i543:                                    ; preds = %._crit_edge.i.i542
   %.val19.i.i544 = load ptr, ptr %171, align 8
@@ -9067,21 +9067,21 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit533:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %2470 = getelementptr inbounds i8, ptr %2466, i64 24
   %2471 = load i32, ptr %2470, align 8
   %2472 = icmp sgt i32 %2471, -1
-  br i1 %2472, label %2464, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i, !llvm.loop !6
+  br i1 %2472, label %2464, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i, !llvm.loop !6
 
-_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i: ; preds = %._crit_edge.i.i542, %2433, %2469
+_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i: ; preds = %._crit_edge.i.i542, %2433, %2469
   %2473 = call ptr @__cxa_allocate_exception(i64 16) #25
   invoke void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2473, ptr noundef nonnull @.str.130)
           to label %2474 unwind label %2475
 
-2474:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i
+2474:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i
   invoke void @__cxa_throw(ptr nonnull %2473, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #28
           to label %.noexc550 unwind label %.loopexit.split-lp710
 
 .noexc550:                                        ; preds = %2474
   unreachable
 
-2475:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit.thread.i
+2475:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i
   %2476 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %2473) #25
@@ -9897,7 +9897,7 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116hierarchy_workerERSt3mapIN5Yosys5RTLIL8IdStringENS_10statdata_tESt4lessIS3_ESaISt4pairIKS3_S4_EEES3_ib.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %.0.val, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116hierarchy_workerERSt3mapIN5Yosys5RTLIL8IdStringENS_10statdata_tESt4lessIS3_ESaISt4pairIKS3_S4_EEES3_ib(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %.0.val, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.354", align 8
   %6 = alloca %"class.std::tuple.357", align 1
   %7 = alloca %"class.std::map.124", align 8
@@ -9922,19 +9922,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_116hierarchy_workerERSt3mapIN5Yosys
   %.1.in.i.i.i.i = getelementptr i8, ptr %.04.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.argprom.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
-_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.argprom.exit.i: ; preds = %.lr.ph.i.i.i.i
+_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i: ; preds = %.lr.ph.i.i.i.i
   %17 = icmp eq ptr %.19.i.i.i.i, %13
   br i1 %17, label %.critedge.i, label %18
 
-18:                                               ; preds = %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.argprom.exit.i
+18:                                               ; preds = %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i
   %19 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %.0.val, %20
   br i1 %21, label %.critedge.i, label %22
 
-.critedge.i:                                      ; preds = %18, %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.argprom.exit.i, %4
+.critedge.i:                                      ; preds = %18, %_ZNSt3mapIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_110statdata_tESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i, %4
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.189) #28
   unreachable
 
@@ -10066,13 +10066,13 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringEjNS1_14sort_by_id_strESaISt4pairIKS2_jEEE4swapE
   %.1.in.i.i.i = getelementptr i8, ptr %.04.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !202
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !202
 
-_ZNKSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i
+_ZNKSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %109 = icmp eq ptr %.19.i.i.i, %13
   br i1 %109, label %.thread, label %110
 
-110:                                              ; preds = %_ZNKSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.argprom.exit.i.i
+110:                                              ; preds = %_ZNKSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i
   %111 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %112 = load i32, ptr %111, align 4
   %.not7 = icmp slt i32 %.val26, %112
@@ -10116,7 +10116,7 @@ _ZNKSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEE
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %121, %123
   store i32 %122, ptr %11, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_116hierarchy_workerERSt3mapIN5Yosys5RTLIL8IdStringENS_10statdata_tESt4lessIS3_ESaISt4pairIKS3_S4_EEES3_ib.argprom(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %122, i32 noundef %43, i1 noundef zeroext %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_116hierarchy_workerERSt3mapIN5Yosys5RTLIL8IdStringENS_10statdata_tESt4lessIS3_ESaISt4pairIKS3_S4_EEES3_ib(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %122, i32 noundef %43, i1 noundef zeroext %3)
           to label %129 unwind label %274
 
 129:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
@@ -10516,7 +10516,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN12_GLOBAL__N_110
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #25
   br label %294
 
-.thread:                                          ; preds = %104, %_ZNKSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.argprom.exit.i.i, %110
+.thread:                                          ; preds = %104, %_ZNKSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %110
   %282 = getelementptr inbounds i8, ptr %.sroa.01.027, i64 36
   %283 = load i32, ptr %282, align 4
   %284 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN5Yosys5RTLIL8IdStringEjNS1_14sort_by_id_strESaISt4pairIKS2_jEEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 4 dereferenceable(4) %105)
@@ -10564,16 +10564,16 @@ define internal fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBA
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %1, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %20, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i ], [ %3, %1 ]
+.lr.ph.i.i.i.i:                                   ; preds = %1, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %20, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i ], [ %3, %1 ]
   %.0.val.i.i.i.i = load i32, ptr %.05.i.i.i.i, align 4
   %6 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %7 = trunc i8 %6 to i1
   %8 = icmp ne i32 %.0.val.i.i.i.i, 0
   %or.cond.i.i.i.i.i.i.i.i.i = and i1 %8, %7
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %9, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %9, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i
 
 9:                                                ; preds = %.lr.ph.i.i.i.i
   %10 = sext i32 %.0.val.i.i.i.i to i64
@@ -10583,11 +10583,11 @@ define internal fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBA
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr %12, align 4
   %15 = icmp sgt i32 %13, 1
-  br i1 %15, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i, label %16
+  br i1 %15, label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i, label %16
 
 16:                                               ; preds = %9
   invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %.0.val.i.i.i.i)
-          to label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i unwind label %17
+          to label %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i unwind label %17
 
 17:                                               ; preds = %16
   %18 = landingpad { ptr, i32 }
@@ -10596,25 +10596,25 @@ define internal fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBA
   tail call void @__clang_call_terminate(ptr %19) #31
   unreachable
 
-_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i: ; preds = %16, %9, %.lr.ph.i.i.i.i
+_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i: ; preds = %16, %9, %.lr.ph.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %20, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
-_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.argprom.exit.i.i.i.i
+_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i
   %.val.pr.i = load ptr, ptr %2, align 8
-  br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i
+  br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exitthread-pre-split.i, %1
-  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exitthread-pre-split.i ], [ %3, %1 ]
+_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i, %1
+  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i ], [ %3, %1 ]
   %.not.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EED2Ev.exit, label %21
 
-21:                                               ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i
+21:                                               ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i) #26
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EED2Ev.exit
 
-_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.argprom.exit.i, %21
+_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESaISA_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit.i, %21
   %22 = load ptr, ptr %0, align 8
   %.not.i.i.i1 = icmp eq ptr %22, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %23
@@ -10887,7 +10887,7 @@ declare noundef ptr @_ZN5Yosys13LibertyParser5parseEv(ptr noundef nonnull align 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.argprom(i32 %.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev(i32 %.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %2 = trunc i8 %1 to i1
   %3 = icmp ne i32 %.0.val, 0
@@ -10985,15 +10985,15 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %24, %26, %28, %30
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ]
-  %.val1325 = phi ptr [ %.val13, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit ], [ %.val1322, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ]
+  %.val1325 = phi ptr [ %.val13, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit ], [ %.val1322, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ]
   %38 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, (anonymous namespace)::cell_area_t>::entry_t", ptr %.val1325, i64 %indvars.iv
   %39 = getelementptr inbounds i8, ptr %38, i64 24
   %.val = load ptr, ptr %0, align 8
   %.val9 = load ptr, ptr %4, align 8
   %40 = icmp eq ptr %.val, %.val9
-  br i1 %40, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit, label %41
+  br i1 %40, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit, label %41
 
 41:                                               ; preds = %.lr.ph
   %.val10 = load i32, ptr %38, align 4
@@ -11004,9 +11004,9 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %24, %26, %28, %30
   %46 = trunc i64 %45 to i32
   %47 = urem i32 %.val10, %46
   %48 = sext i32 %47 to i64
-  br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit
+  br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
 
-_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit: ; preds = %.lr.ph, %41
+_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit: ; preds = %.lr.ph, %41
   %.0.i = phi i64 [ 0, %.lr.ph ], [ %48, %41 ]
   %49 = getelementptr inbounds i32, ptr %.val, i64 %.0.i
   %50 = load i32, ptr %49, align 4
@@ -11026,7 +11026,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8has
   %58 = icmp slt i64 %indvars.iv.next, %57
   br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !211
 
-._crit_edge:                                      ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.argprom.exit, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
+._crit_edge:                                      ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
   ret void
 }
 
@@ -15144,7 +15144,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_110statdata_t18estimate_xili
 17:                                               ; preds = %15, %11, %1
   %18 = load i32, ptr @_ZZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEvE2id, align 4, !noalias !241
   %.not.i.i.i = icmp eq i32 %18, 0
-  br i1 %.not.i.i.i, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.argprom.exit, label %19
+  br i1 %.not.i.i.i, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.exit, label %19
 
 19:                                               ; preds = %17
   %20 = sext i32 %18 to i64
@@ -15153,7 +15153,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_110statdata_t18estimate_xili
   %23 = load i32, ptr %22, align 4, !noalias !241
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4, !noalias !241
-  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.argprom.exit
+  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.exit
 
 common.resume:                                    ; preds = %225, %227, %229, %231, %233, %235, %205, %169, %133, %97, %61, %25
   %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %62, %61 ], [ %98, %97 ], [ %134, %133 ], [ %170, %169 ], [ %206, %205 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ]
@@ -15165,12 +15165,12 @@ common.resume:                                    ; preds = %225, %227, %229, %2
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEvE2id) #25, !noalias !241
   br label %common.resume
 
-_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.argprom.exit: ; preds = %17, %19
+_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.exit: ; preds = %17, %19
   store i32 %18, ptr %2, align 4, !alias.scope !241
   %27 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN5Yosys5RTLIL8IdStringEjNS1_14sort_by_id_strESaISt4pairIKS2_jEEEixEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %28 unwind label %225
 
-28:                                               ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.argprom.exit
+28:                                               ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.exit
   %29 = load i32, ptr %27, align 4
   %30 = load i32, ptr %2, align 4
   %31 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -15224,7 +15224,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %28, %34, %41
 53:                                               ; preds = %51, %47, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %54 = load i32, ptr @_ZZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEvE2id, align 4, !noalias !244
   %.not.i.i.i28 = icmp eq i32 %54, 0
-  br i1 %.not.i.i.i28, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.argprom.exit, label %55
+  br i1 %.not.i.i.i28, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.exit, label %55
 
 55:                                               ; preds = %53
   %56 = sext i32 %54 to i64
@@ -15233,7 +15233,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %28, %34, %41
   %59 = load i32, ptr %58, align 4, !noalias !244
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 4, !noalias !244
-  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.argprom.exit
+  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.exit
 
 61:                                               ; preds = %49
   %62 = landingpad { ptr, i32 }
@@ -15241,12 +15241,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %28, %34, %41
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEvE2id) #25, !noalias !244
   br label %common.resume
 
-_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.argprom.exit: ; preds = %53, %55
+_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.exit: ; preds = %53, %55
   store i32 %54, ptr %3, align 4, !alias.scope !244
   %63 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN5Yosys5RTLIL8IdStringEjNS1_14sort_by_id_strESaISt4pairIKS2_jEEEixEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %64 unwind label %227
 
-64:                                               ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.argprom.exit
+64:                                               ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.exit
   %65 = load i32, ptr %63, align 4
   %66 = load i32, ptr %3, align 4
   %67 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -15300,7 +15300,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit31:              ; preds = %64, %70, %77
 89:                                               ; preds = %87, %83, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit31
   %90 = load i32, ptr @_ZZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEvE2id, align 4, !noalias !247
   %.not.i.i.i32 = icmp eq i32 %90, 0
-  br i1 %.not.i.i.i32, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.argprom.exit, label %91
+  br i1 %.not.i.i.i32, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.exit, label %91
 
 91:                                               ; preds = %89
   %92 = sext i32 %90 to i64
@@ -15309,7 +15309,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit31:              ; preds = %64, %70, %77
   %95 = load i32, ptr %94, align 4, !noalias !247
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %94, align 4, !noalias !247
-  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.argprom.exit
+  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.exit
 
 97:                                               ; preds = %85
   %98 = landingpad { ptr, i32 }
@@ -15317,12 +15317,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit31:              ; preds = %64, %70, %77
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEvE2id) #25, !noalias !247
   br label %common.resume
 
-_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.argprom.exit: ; preds = %89, %91
+_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.exit: ; preds = %89, %91
   store i32 %90, ptr %4, align 4, !alias.scope !247
   %99 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN5Yosys5RTLIL8IdStringEjNS1_14sort_by_id_strESaISt4pairIKS2_jEEEixEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %100 unwind label %229
 
-100:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.argprom.exit
+100:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.exit
   %101 = load i32, ptr %99, align 4
   %102 = load i32, ptr %4, align 4
   %103 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -15376,7 +15376,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit35:              ; preds = %100, %106, %113
 125:                                              ; preds = %123, %119, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit35
   %126 = load i32, ptr @_ZZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEvE2id, align 4, !noalias !250
   %.not.i.i.i36 = icmp eq i32 %126, 0
-  br i1 %.not.i.i.i36, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.argprom.exit, label %127
+  br i1 %.not.i.i.i36, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.exit, label %127
 
 127:                                              ; preds = %125
   %128 = sext i32 %126 to i64
@@ -15385,7 +15385,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit35:              ; preds = %100, %106, %113
   %131 = load i32, ptr %130, align 4, !noalias !250
   %132 = add nsw i32 %131, 1
   store i32 %132, ptr %130, align 4, !noalias !250
-  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.argprom.exit
+  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.exit
 
 133:                                              ; preds = %121
   %134 = landingpad { ptr, i32 }
@@ -15393,12 +15393,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit35:              ; preds = %100, %106, %113
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEvE2id) #25, !noalias !250
   br label %common.resume
 
-_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.argprom.exit: ; preds = %125, %127
+_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.exit: ; preds = %125, %127
   store i32 %126, ptr %5, align 4, !alias.scope !250
   %135 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN5Yosys5RTLIL8IdStringEjNS1_14sort_by_id_strESaISt4pairIKS2_jEEEixEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %136 unwind label %231
 
-136:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.argprom.exit
+136:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.exit
   %137 = load i32, ptr %135, align 4
   %138 = load i32, ptr %5, align 4
   %139 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -15452,7 +15452,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit39:              ; preds = %136, %142, %149
 161:                                              ; preds = %159, %155, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit39
   %162 = load i32, ptr @_ZZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEvE2id, align 4, !noalias !253
   %.not.i.i.i40 = icmp eq i32 %162, 0
-  br i1 %.not.i.i.i40, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.argprom.exit, label %163
+  br i1 %.not.i.i.i40, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.exit, label %163
 
 163:                                              ; preds = %161
   %164 = sext i32 %162 to i64
@@ -15461,7 +15461,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit39:              ; preds = %136, %142, %149
   %167 = load i32, ptr %166, align 4, !noalias !253
   %168 = add nsw i32 %167, 1
   store i32 %168, ptr %166, align 4, !noalias !253
-  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.argprom.exit
+  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.exit
 
 169:                                              ; preds = %157
   %170 = landingpad { ptr, i32 }
@@ -15469,12 +15469,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit39:              ; preds = %136, %142, %149
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEvE2id) #25, !noalias !253
   br label %common.resume
 
-_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.argprom.exit: ; preds = %161, %163
+_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.exit: ; preds = %161, %163
   store i32 %162, ptr %6, align 4, !alias.scope !253
   %171 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN5Yosys5RTLIL8IdStringEjNS1_14sort_by_id_strESaISt4pairIKS2_jEEEixEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %172 unwind label %233
 
-172:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.argprom.exit
+172:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.exit
   %173 = load i32, ptr %171, align 4
   %174 = load i32, ptr %6, align 4
   %175 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -15528,7 +15528,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit43:              ; preds = %172, %178, %185
 197:                                              ; preds = %195, %191, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit43
   %198 = load i32, ptr @_ZZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEvE2id, align 4, !noalias !256
   %.not.i.i.i44 = icmp eq i32 %198, 0
-  br i1 %.not.i.i.i44, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.argprom.exit, label %199
+  br i1 %.not.i.i.i44, label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.exit, label %199
 
 199:                                              ; preds = %197
   %200 = sext i32 %198 to i64
@@ -15537,7 +15537,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit43:              ; preds = %172, %178, %185
   %203 = load i32, ptr %202, align 4, !noalias !256
   %204 = add nsw i32 %203, 1
   store i32 %204, ptr %202, align 4, !noalias !256
-  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.argprom.exit
+  br label %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.exit
 
 205:                                              ; preds = %193
   %206 = landingpad { ptr, i32 }
@@ -15545,12 +15545,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit43:              ; preds = %172, %178, %185
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEvE2id) #25, !noalias !256
   br label %common.resume
 
-_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.argprom.exit: ; preds = %197, %199
+_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.exit: ; preds = %197, %199
   store i32 %198, ptr %7, align 4, !alias.scope !256
   %207 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN5Yosys5RTLIL8IdStringEjNS1_14sort_by_id_strESaISt4pairIKS2_jEEEixEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %208 unwind label %235
 
-208:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.argprom.exit
+208:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.exit
   %209 = load i32, ptr %207, align 4
   %210 = load i32, ptr %7, align 4
   %211 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -15586,37 +15586,37 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit47:              ; preds = %208, %214, %221
   %or.cond = select i1 %.not, i1 %.not23.not, i1 false
   br i1 %or.cond, label %237, label %.thread
 
-225:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.argprom.exit
+225:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.exit
   %226 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #25
   br label %common.resume
 
-227:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.argprom.exit
+227:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.exit
   %228 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #25
   br label %common.resume
 
-229:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.argprom.exit
+229:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.exit
   %230 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #25
   br label %common.resume
 
-231:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.argprom.exit
+231:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.exit
   %232 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #25
   br label %common.resume
 
-233:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.argprom.exit
+233:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.exit
   %234 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #25
   br label %common.resume
 
-235:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.argprom.exit
+235:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.exit
   %236 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #25
@@ -15860,7 +15860,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEiNS0_8hash_opsIS3_EEE5countERKS3_.exi
 115:                                              ; preds = %113, %109, %106
   %116 = load i32, ptr @_ZZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEvE2id, align 4, !noalias !263
   %.not.i.i.i16 = icmp eq i32 %116, 0
-  br i1 %.not.i.i.i16, label %_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.argprom.exit, label %117
+  br i1 %.not.i.i.i16, label %_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.exit, label %117
 
 117:                                              ; preds = %115
   %118 = sext i32 %116 to i64
@@ -15869,7 +15869,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEiNS0_8hash_opsIS3_EEE5countERKS3_.exi
   %121 = load i32, ptr %120, align 4, !noalias !263
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %120, align 4, !noalias !263
-  br label %_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.argprom.exit
+  br label %_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.exit
 
 .body18:                                          ; preds = %111
   %123 = landingpad { ptr, i32 }
@@ -15878,7 +15878,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEiNS0_8hash_opsIS3_EEE5countERKS3_.exi
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #25
   br label %.body
 
-_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.argprom.exit: ; preds = %117, %115
+_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.exit: ; preds = %117, %115
   %124 = load i32, ptr %4, align 4
   %125 = load i32, ptr %5, align 4
   %126 = icmp eq i32 %124, %125
@@ -15890,7 +15890,7 @@ _ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.argprom.ex
   %or.cond.i.i = and i1 %130, %129
   br i1 %or.cond.i.i, label %131, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-131:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.argprom.exit
+131:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.exit
   %132 = sext i32 %116 to i64
   %133 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %134 = getelementptr inbounds i32, ptr %133, i64 %132
@@ -15911,7 +15911,7 @@ _ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.argprom.ex
   call void @__clang_call_terminate(ptr %141) #31
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.argprom.exit, %131, %138
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.exit, %131, %138
   %142 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %143 = trunc i8 %142 to i1
   %144 = icmp ne i32 %125, 0
@@ -19097,15 +19097,15 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E.argprom(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit
-  %.02 = phi ptr [ %.0.val, %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit ], [ %0, %1 ]
+.lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit
+  %.02 = phi ptr [ %.0.val, %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val6 = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E.argprom(ptr noundef %.0.val6)
+  tail call fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.02, i64 32
@@ -19116,7 +19116,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N
   %8 = trunc i8 %7 to i1
   %9 = icmp ne i32 %6, 0
   %or.cond.i.i.i.i.i.i.i = and i1 %9, %8
-  br i1 %or.cond.i.i.i.i.i.i.i, label %10, label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit
+  br i1 %or.cond.i.i.i.i.i.i.i, label %10, label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit
 
 10:                                               ; preds = %.lr.ph
   %11 = sext i32 %6 to i64
@@ -19126,11 +19126,11 @@ define internal fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N
   %15 = add nsw i32 %14, -1
   store i32 %15, ptr %13, align 4
   %16 = icmp sgt i32 %14, 1
-  br i1 %16, label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit, label %17
+  br i1 %16, label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit, label %17
 
 17:                                               ; preds = %10
   invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %6)
-          to label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit unwind label %18
+          to label %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit unwind label %18
 
 18:                                               ; preds = %17
   %19 = landingpad { ptr, i32 }
@@ -19139,12 +19139,12 @@ define internal fastcc void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N
   tail call void @__clang_call_terminate(ptr %20) #31
   unreachable
 
-_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit: ; preds = %.lr.ph, %10, %17
+_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit: ; preds = %.lr.ph, %10, %17
   tail call void @_ZdlPv(ptr noundef nonnull %.02) #26
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !278
 
-._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.argprom.exit, %1
+._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_N12_GLOBAL__N_110statdata_tEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit, %1
   ret void
 }
 
@@ -19311,184 +19311,184 @@ attributes #31 = { noreturn nounwind }
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE_clEv.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE_clEv.argprom"}
+!23 = distinct !{!23, !24, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE_clEv: argument 0"}
+!24 = distinct !{!24, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE_clEv"}
 !25 = !{!"branch_weights", i32 1, i32 1048575}
 !26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE0_clEv.argprom: argument 0"}
-!28 = distinct !{!28, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE0_clEv.argprom"}
+!27 = distinct !{!27, !28, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE0_clEv: argument 0"}
+!28 = distinct !{!28, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE0_clEv"}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE1_clEv.argprom: argument 0"}
-!31 = distinct !{!31, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE1_clEv.argprom"}
+!30 = distinct !{!30, !31, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE1_clEv: argument 0"}
+!31 = distinct !{!31, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE1_clEv"}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE2_clEv.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE2_clEv.argprom"}
+!33 = distinct !{!33, !34, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE2_clEv: argument 0"}
+!34 = distinct !{!34, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE2_clEv"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE3_clEv.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE3_clEv.argprom"}
+!36 = distinct !{!36, !37, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE3_clEv: argument 0"}
+!37 = distinct !{!37, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE3_clEv"}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE4_clEv.argprom: argument 0"}
-!40 = distinct !{!40, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE4_clEv.argprom"}
+!39 = distinct !{!39, !40, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE4_clEv: argument 0"}
+!40 = distinct !{!40, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE4_clEv"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE5_clEv.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE5_clEv.argprom"}
+!42 = distinct !{!42, !43, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE5_clEv: argument 0"}
+!43 = distinct !{!43, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE5_clEv"}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE6_clEv.argprom: argument 0"}
-!46 = distinct !{!46, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE6_clEv.argprom"}
+!45 = distinct !{!45, !46, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE6_clEv: argument 0"}
+!46 = distinct !{!46, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE6_clEv"}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE7_clEv.argprom: argument 0"}
-!49 = distinct !{!49, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE7_clEv.argprom"}
+!48 = distinct !{!48, !49, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE7_clEv: argument 0"}
+!49 = distinct !{!49, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE7_clEv"}
 !50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE8_clEv.argprom: argument 0"}
-!52 = distinct !{!52, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE8_clEv.argprom"}
+!51 = distinct !{!51, !52, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE8_clEv: argument 0"}
+!52 = distinct !{!52, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE8_clEv"}
 !53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE9_clEv.argprom: argument 0"}
-!55 = distinct !{!55, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE9_clEv.argprom"}
+!54 = distinct !{!54, !55, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE9_clEv: argument 0"}
+!55 = distinct !{!55, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE9_clEv"}
 !56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE10_clEv.argprom: argument 0"}
-!58 = distinct !{!58, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE10_clEv.argprom"}
+!57 = distinct !{!57, !58, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE10_clEv: argument 0"}
+!58 = distinct !{!58, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE10_clEv"}
 !59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE11_clEv.argprom: argument 0"}
-!61 = distinct !{!61, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE11_clEv.argprom"}
+!60 = distinct !{!60, !61, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE11_clEv: argument 0"}
+!61 = distinct !{!61, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE11_clEv"}
 !62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE12_clEv.argprom: argument 0"}
-!64 = distinct !{!64, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE12_clEv.argprom"}
+!63 = distinct !{!63, !64, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE12_clEv: argument 0"}
+!64 = distinct !{!64, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE12_clEv"}
 !65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE13_clEv.argprom: argument 0"}
-!67 = distinct !{!67, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE13_clEv.argprom"}
+!66 = distinct !{!66, !67, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE13_clEv: argument 0"}
+!67 = distinct !{!67, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE13_clEv"}
 !68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE14_clEv.argprom: argument 0"}
-!70 = distinct !{!70, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE14_clEv.argprom"}
+!69 = distinct !{!69, !70, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE14_clEv: argument 0"}
+!70 = distinct !{!70, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE14_clEv"}
 !71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE15_clEv.argprom: argument 0"}
-!73 = distinct !{!73, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE15_clEv.argprom"}
+!72 = distinct !{!72, !73, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE15_clEv: argument 0"}
+!73 = distinct !{!73, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE15_clEv"}
 !74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE16_clEv.argprom: argument 0"}
-!76 = distinct !{!76, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE16_clEv.argprom"}
+!75 = distinct !{!75, !76, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE16_clEv: argument 0"}
+!76 = distinct !{!76, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE16_clEv"}
 !77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE17_clEv.argprom: argument 0"}
-!79 = distinct !{!79, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE17_clEv.argprom"}
+!78 = distinct !{!78, !79, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE17_clEv: argument 0"}
+!79 = distinct !{!79, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE17_clEv"}
 !80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE18_clEv.argprom: argument 0"}
-!82 = distinct !{!82, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE18_clEv.argprom"}
+!81 = distinct !{!81, !82, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE18_clEv: argument 0"}
+!82 = distinct !{!82, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE18_clEv"}
 !83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE19_clEv.argprom: argument 0"}
-!85 = distinct !{!85, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE19_clEv.argprom"}
+!84 = distinct !{!84, !85, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE19_clEv: argument 0"}
+!85 = distinct !{!85, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE19_clEv"}
 !86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE20_clEv.argprom: argument 0"}
-!88 = distinct !{!88, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE20_clEv.argprom"}
+!87 = distinct !{!87, !88, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE20_clEv: argument 0"}
+!88 = distinct !{!88, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE20_clEv"}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE21_clEv.argprom: argument 0"}
-!91 = distinct !{!91, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE21_clEv.argprom"}
+!90 = distinct !{!90, !91, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE21_clEv: argument 0"}
+!91 = distinct !{!91, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE21_clEv"}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE22_clEv.argprom: argument 0"}
-!94 = distinct !{!94, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE22_clEv.argprom"}
+!93 = distinct !{!93, !94, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE22_clEv: argument 0"}
+!94 = distinct !{!94, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE22_clEv"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE23_clEv.argprom: argument 0"}
-!97 = distinct !{!97, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE23_clEv.argprom"}
+!96 = distinct !{!96, !97, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE23_clEv: argument 0"}
+!97 = distinct !{!97, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE23_clEv"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE24_clEv.argprom: argument 0"}
-!100 = distinct !{!100, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE24_clEv.argprom"}
+!99 = distinct !{!99, !100, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE24_clEv: argument 0"}
+!100 = distinct !{!100, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE24_clEv"}
 !101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE25_clEv.argprom: argument 0"}
-!103 = distinct !{!103, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE25_clEv.argprom"}
+!102 = distinct !{!102, !103, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE25_clEv: argument 0"}
+!103 = distinct !{!103, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE25_clEv"}
 !104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE26_clEv.argprom: argument 0"}
-!106 = distinct !{!106, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE26_clEv.argprom"}
+!105 = distinct !{!105, !106, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE26_clEv: argument 0"}
+!106 = distinct !{!106, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE26_clEv"}
 !107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE27_clEv.argprom: argument 0"}
-!109 = distinct !{!109, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE27_clEv.argprom"}
+!108 = distinct !{!108, !109, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE27_clEv: argument 0"}
+!109 = distinct !{!109, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE27_clEv"}
 !110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE28_clEv.argprom: argument 0"}
-!112 = distinct !{!112, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE28_clEv.argprom"}
+!111 = distinct !{!111, !112, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE28_clEv: argument 0"}
+!112 = distinct !{!112, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE28_clEv"}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE29_clEv.argprom: argument 0"}
-!115 = distinct !{!115, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE29_clEv.argprom"}
+!114 = distinct !{!114, !115, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE29_clEv: argument 0"}
+!115 = distinct !{!115, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE29_clEv"}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE30_clEv.argprom: argument 0"}
-!118 = distinct !{!118, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE30_clEv.argprom"}
+!117 = distinct !{!117, !118, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE30_clEv: argument 0"}
+!118 = distinct !{!118, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE30_clEv"}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE31_clEv.argprom: argument 0"}
-!121 = distinct !{!121, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE31_clEv.argprom"}
+!120 = distinct !{!120, !121, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE31_clEv: argument 0"}
+!121 = distinct !{!121, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE31_clEv"}
 !122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE32_clEv.argprom: argument 0"}
-!124 = distinct !{!124, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE32_clEv.argprom"}
+!123 = distinct !{!123, !124, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE32_clEv: argument 0"}
+!124 = distinct !{!124, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE32_clEv"}
 !125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE33_clEv.argprom: argument 0"}
-!127 = distinct !{!127, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE33_clEv.argprom"}
+!126 = distinct !{!126, !127, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE33_clEv: argument 0"}
+!127 = distinct !{!127, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE33_clEv"}
 !128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE34_clEv.argprom: argument 0"}
-!130 = distinct !{!130, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE34_clEv.argprom"}
+!129 = distinct !{!129, !130, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE34_clEv: argument 0"}
+!130 = distinct !{!130, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE34_clEv"}
 !131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE35_clEv.argprom: argument 0"}
-!133 = distinct !{!133, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE35_clEv.argprom"}
+!132 = distinct !{!132, !133, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE35_clEv: argument 0"}
+!133 = distinct !{!133, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE35_clEv"}
 !134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE36_clEv.argprom: argument 0"}
-!136 = distinct !{!136, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE36_clEv.argprom"}
+!135 = distinct !{!135, !136, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE36_clEv: argument 0"}
+!136 = distinct !{!136, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE36_clEv"}
 !137 = !{!138}
-!138 = distinct !{!138, !139, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE37_clEv.argprom: argument 0"}
-!139 = distinct !{!139, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE37_clEv.argprom"}
+!138 = distinct !{!138, !139, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE37_clEv: argument 0"}
+!139 = distinct !{!139, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE37_clEv"}
 !140 = distinct !{!140, !7}
 !141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE38_clEv.argprom: argument 0"}
-!143 = distinct !{!143, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE38_clEv.argprom"}
+!142 = distinct !{!142, !143, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE38_clEv: argument 0"}
+!143 = distinct !{!143, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE38_clEv"}
 !144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.argprom: argument 0"}
-!146 = distinct !{!146, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv.argprom"}
+!145 = distinct !{!145, !146, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv: argument 0"}
+!146 = distinct !{!146, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE39_clEv"}
 !147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.argprom: argument 0"}
-!149 = distinct !{!149, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv.argprom"}
+!148 = distinct !{!148, !149, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv: argument 0"}
+!149 = distinct !{!149, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE40_clEv"}
 !150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.argprom: argument 0"}
-!152 = distinct !{!152, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv.argprom"}
+!151 = distinct !{!151, !152, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv: argument 0"}
+!152 = distinct !{!152, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE41_clEv"}
 !153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE42_clEv.argprom: argument 0"}
-!155 = distinct !{!155, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE42_clEv.argprom"}
+!154 = distinct !{!154, !155, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE42_clEv: argument 0"}
+!155 = distinct !{!155, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE42_clEv"}
 !156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE43_clEv.argprom: argument 0"}
-!158 = distinct !{!158, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE43_clEv.argprom"}
+!157 = distinct !{!157, !158, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE43_clEv: argument 0"}
+!158 = distinct !{!158, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE43_clEv"}
 !159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE44_clEv.argprom: argument 0"}
-!161 = distinct !{!161, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE44_clEv.argprom"}
+!160 = distinct !{!160, !161, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE44_clEv: argument 0"}
+!161 = distinct !{!161, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE44_clEv"}
 !162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE45_clEv.argprom: argument 0"}
-!164 = distinct !{!164, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE45_clEv.argprom"}
+!163 = distinct !{!163, !164, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE45_clEv: argument 0"}
+!164 = distinct !{!164, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE45_clEv"}
 !165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE46_clEv.argprom: argument 0"}
-!167 = distinct !{!167, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE46_clEv.argprom"}
+!166 = distinct !{!166, !167, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE46_clEv: argument 0"}
+!167 = distinct !{!167, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE46_clEv"}
 !168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE47_clEv.argprom: argument 0"}
-!170 = distinct !{!170, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE47_clEv.argprom"}
+!169 = distinct !{!169, !170, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE47_clEv: argument 0"}
+!170 = distinct !{!170, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE47_clEv"}
 !171 = !{!172}
-!172 = distinct !{!172, !173, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE48_clEv.argprom: argument 0"}
-!173 = distinct !{!173, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE48_clEv.argprom"}
+!172 = distinct !{!172, !173, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE48_clEv: argument 0"}
+!173 = distinct !{!173, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE48_clEv"}
 !174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE49_clEv.argprom: argument 0"}
-!176 = distinct !{!176, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE49_clEv.argprom"}
+!175 = distinct !{!175, !176, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE49_clEv: argument 0"}
+!176 = distinct !{!176, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE49_clEv"}
 !177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE50_clEv.argprom: argument 0"}
-!179 = distinct !{!179, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE50_clEv.argprom"}
+!178 = distinct !{!178, !179, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE50_clEv: argument 0"}
+!179 = distinct !{!179, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE50_clEv"}
 !180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE51_clEv.argprom: argument 0"}
-!182 = distinct !{!182, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE51_clEv.argprom"}
+!181 = distinct !{!181, !182, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE51_clEv: argument 0"}
+!182 = distinct !{!182, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE51_clEv"}
 !183 = !{!184}
-!184 = distinct !{!184, !185, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE52_clEv.argprom: argument 0"}
-!185 = distinct !{!185, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE52_clEv.argprom"}
+!184 = distinct !{!184, !185, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE52_clEv: argument 0"}
+!185 = distinct !{!185, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE52_clEv"}
 !186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE53_clEv.argprom: argument 0"}
-!188 = distinct !{!188, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE53_clEv.argprom"}
+!187 = distinct !{!187, !188, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE53_clEv: argument 0"}
+!188 = distinct !{!188, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE53_clEv"}
 !189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE54_clEv.argprom: argument 0"}
-!191 = distinct !{!191, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE54_clEv.argprom"}
+!190 = distinct !{!190, !191, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE54_clEv: argument 0"}
+!191 = distinct !{!191, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE54_clEv"}
 !192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE55_clEv.argprom: argument 0"}
-!194 = distinct !{!194, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE55_clEv.argprom"}
+!193 = distinct !{!193, !194, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE55_clEv: argument 0"}
+!194 = distinct !{!194, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE55_clEv"}
 !195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE56_clEv.argprom: argument 0"}
-!197 = distinct !{!197, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE56_clEv.argprom"}
+!196 = distinct !{!196, !197, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE56_clEv: argument 0"}
+!197 = distinct !{!197, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE56_clEv"}
 !198 = !{!199}
-!199 = distinct !{!199, !200, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.argprom: argument 0"}
-!200 = distinct !{!200, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv.argprom"}
+!199 = distinct !{!199, !200, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv: argument 0"}
+!200 = distinct !{!200, !"_ZZN12_GLOBAL__N_110statdata_tC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbRKNS1_7hashlib4dictINS2_8IdStringENS_11cell_area_tENS7_8hash_opsIS9_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlvE57_clEv"}
 !201 = distinct !{!201, !7}
 !202 = distinct !{!202, !7}
 !203 = !{!204}
@@ -19530,30 +19530,30 @@ attributes #31 = { noreturn nounwind }
 !239 = distinct !{!239, !7}
 !240 = distinct !{!240, !7}
 !241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.argprom: argument 0"}
-!243 = distinct !{!243, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.argprom"}
+!242 = distinct !{!242, !243, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv: argument 0"}
+!243 = distinct !{!243, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv"}
 !244 = !{!245}
-!245 = distinct !{!245, !246, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.argprom: argument 0"}
-!246 = distinct !{!246, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.argprom"}
+!245 = distinct !{!245, !246, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv: argument 0"}
+!246 = distinct !{!246, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv"}
 !247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.argprom: argument 0"}
-!249 = distinct !{!249, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.argprom"}
+!248 = distinct !{!248, !249, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv: argument 0"}
+!249 = distinct !{!249, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv"}
 !250 = !{!251}
-!251 = distinct !{!251, !252, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.argprom: argument 0"}
-!252 = distinct !{!252, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv.argprom"}
+!251 = distinct !{!251, !252, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv: argument 0"}
+!252 = distinct !{!252, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE2_clEv"}
 !253 = !{!254}
-!254 = distinct !{!254, !255, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.argprom: argument 0"}
-!255 = distinct !{!255, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv.argprom"}
+!254 = distinct !{!254, !255, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv: argument 0"}
+!255 = distinct !{!255, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE3_clEv"}
 !256 = !{!257}
-!257 = distinct !{!257, !258, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.argprom: argument 0"}
-!258 = distinct !{!258, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.argprom"}
+!257 = distinct !{!257, !258, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv: argument 0"}
+!258 = distinct !{!258, !"_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv"}
 !259 = distinct !{!259, !7}
 !260 = !{!261}
-!261 = distinct !{!261, !262, !"_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE_clEv.argprom: argument 0"}
-!262 = distinct !{!262, !"_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE_clEv.argprom"}
+!261 = distinct !{!261, !262, !"_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE_clEv: argument 0"}
+!262 = distinct !{!262, !"_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE_clEv"}
 !263 = !{!264}
-!264 = distinct !{!264, !265, !"_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.argprom: argument 0"}
-!265 = distinct !{!265, !"_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv.argprom"}
+!264 = distinct !{!264, !265, !"_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv: argument 0"}
+!265 = distinct !{!265, !"_ZZN12_GLOBAL__N_110statdata_t21cmos_transistor_countEPbENKUlvE0_clEv"}
 !266 = !{!267}
 !267 = distinct !{!267, !268, !"_ZSt16forward_as_tupleIJN5Yosys5RTLIL8IdStringEEESt5tupleIJDpOT_EES6_: argument 0"}
 !268 = distinct !{!268, !"_ZSt16forward_as_tupleIJN5Yosys5RTLIL8IdStringEEESt5tupleIJDpOT_EES6_"}

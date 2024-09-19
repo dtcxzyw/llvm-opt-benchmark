@@ -1269,7 +1269,7 @@ define dso_local range(i32 0, 28) i32 @Curl_http_auth_act(ptr noundef %0) local_
   br i1 %.not85, label %121, label %122
 
 121:                                              ; preds = %118
-  tail call fastcc void @http_perhapsrewind.retelim(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  tail call fastcc void @http_perhapsrewind(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %122
 
 122:                                              ; preds = %115, %115, %121, %118
@@ -1393,7 +1393,7 @@ http_should_fail.exit.thread109:                  ; preds = %161, %152, %http_sh
 declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @http_perhapsrewind.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @http_perhapsrewind(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   %4 = getelementptr inbounds i8, ptr %0, i64 384
   %5 = load ptr, ptr %4, align 8
@@ -5760,7 +5760,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br i1 %.not214, label %279, label %246
 
 246:                                              ; preds = %242
-  tail call fastcc void @http_perhapsrewind.retelim(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @http_perhapsrewind(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %247 = getelementptr inbounds i8, ptr %0, i64 4940
   %248 = load i32, ptr %247, align 4
   %249 = or i32 %248, 2
@@ -6134,7 +6134,7 @@ define dso_local i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i
   %52 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %14) #12
   %53 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %14) #12
   %.val.i = load ptr, ptr %16, align 8
-  %54 = tail call fastcc i32 @checkprotoprefix.argprom(ptr %.val.i, ptr noundef %52, i64 noundef %53)
+  %54 = tail call fastcc i32 @checkprotoprefix(ptr %.val.i, ptr noundef %52, i64 noundef %53)
   %55 = icmp eq i32 %54, 2
   br i1 %55, label %56, label %.loopexit.i
 
@@ -6169,7 +6169,7 @@ define dso_local i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i
   store i64 %72, ptr %3, align 8
   %73 = load i32, ptr %15, align 4
   %.not405.i = icmp eq i32 %73, 0
-  br i1 %.not405.i, label %74, label %checkprotoprefix.argprom.exit.thread.i
+  br i1 %.not405.i, label %74, label %checkprotoprefix.exit.thread.i
 
 74:                                               ; preds = %68
   %75 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %14) #12
@@ -6177,13 +6177,13 @@ define dso_local i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i
   %.val496.i = load ptr, ptr %16, align 8
   %77 = icmp ugt i64 %76, 4
   %.not21.i.i.i = icmp eq ptr %.val496.i, null
-  br i1 %.not21.i.i.i, label %checkprotoprefix.argprom.exit.i, label %.lr.ph.i.i.i
+  br i1 %.not21.i.i.i, label %checkprotoprefix.exit.i, label %.lr.ph.i.i.i
 
 78:                                               ; preds = %.lr.ph.i.i.i
   %79 = getelementptr inbounds i8, ptr %.022.i.i.i, i64 8
   %.0.i.i.i = load ptr, ptr %79, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i.i.i, label %checkprotoprefix.argprom.exit.i, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i, label %checkprotoprefix.exit.i, label %.lr.ph.i.i.i, !llvm.loop !29
 
 .lr.ph.i.i.i:                                     ; preds = %74, %78
   %.022.i.i.i = phi ptr [ %.0.i.i.i, %78 ], [ %.val496.i, %74 ]
@@ -6195,17 +6195,17 @@ define dso_local i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i
   br i1 %.not18.i.i.i, label %78, label %83
 
 83:                                               ; preds = %.lr.ph.i.i.i
-  br i1 %77, label %checkprotoprefix.argprom.exit.thread.i, label %checkprotoprefix.argprom.exit.i
+  br i1 %77, label %checkprotoprefix.exit.thread.i, label %checkprotoprefix.exit.i
 
-checkprotoprefix.argprom.exit.i:                  ; preds = %78, %83, %74
+checkprotoprefix.exit.i:                          ; preds = %78, %83, %74
   %84 = phi i1 [ false, %83 ], [ true, %74 ], [ true, %78 ]
   %..i14.i.i.i = tail call i64 @llvm.umin.i64(i64 %76, i64 5)
   %85 = tail call i32 @curl_strnequal(ptr noundef nonnull @.str.157, ptr noundef %75, i64 noundef %..i14.i.i.i) #12
   %.not19.i.i.i = icmp eq i32 %85, 0
   %86 = and i1 %84, %.not19.i.i.i
-  br i1 %86, label %87, label %checkprotoprefix.argprom.exit.thread.i
+  br i1 %86, label %87, label %checkprotoprefix.exit.thread.i
 
-87:                                               ; preds = %checkprotoprefix.argprom.exit.i
+87:                                               ; preds = %checkprotoprefix.exit.i
   tail call void @Curl_conncontrol(ptr noundef %12, i32 noundef 2) #12
   %88 = load i64, ptr %24, align 2
   %89 = and i64 %88, 9007199254740992
@@ -6222,7 +6222,7 @@ checkprotoprefix.argprom.exit.i:                  ; preds = %78, %83, %74
   store i16 %93, ptr %6, align 1
   br label %http_rw_headers.exit
 
-checkprotoprefix.argprom.exit.thread.i:           ; preds = %checkprotoprefix.argprom.exit.i, %83, %68
+checkprotoprefix.exit.thread.i:                   ; preds = %checkprotoprefix.exit.i, %83, %68
   %94 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %14) #12
   %95 = load i8, ptr %94, align 1
   switch i8 %95, label %334 [
@@ -6230,7 +6230,7 @@ checkprotoprefix.argprom.exit.thread.i:           ; preds = %checkprotoprefix.ar
     i8 13, label %96
   ]
 
-96:                                               ; preds = %checkprotoprefix.argprom.exit.thread.i, %checkprotoprefix.argprom.exit.thread.i
+96:                                               ; preds = %checkprotoprefix.exit.thread.i, %checkprotoprefix.exit.thread.i
   %97 = load i32, ptr %17, align 8
   %98 = add i32 %97, -100
   %or.cond472.i = icmp ult i32 %98, 100
@@ -6638,7 +6638,7 @@ http_should_fail.exit.thread.i:                   ; preds = %http_should_fail.ex
 
 270:                                              ; preds = %269, %266
   tail call void @Curl_conncontrol(ptr noundef nonnull %12, i32 noundef 2) #12
-  tail call fastcc void @http_perhapsrewind.retelim(ptr noundef nonnull %0, ptr noundef nonnull %12)
+  tail call fastcc void @http_perhapsrewind(ptr noundef nonnull %0, ptr noundef nonnull %12)
   br label %271
 
 271:                                              ; preds = %270, %265, %262
@@ -6784,7 +6784,7 @@ http_should_fail.exit.thread.i:                   ; preds = %http_should_fail.ex
   store i64 %333, ptr %3, align 8
   br label %.loopexit.i
 
-334:                                              ; preds = %checkprotoprefix.argprom.exit.thread.i
+334:                                              ; preds = %checkprotoprefix.exit.thread.i
   %335 = load i32, ptr %15, align 4
   %336 = add nsw i32 %335, 1
   store i32 %336, ptr %15, align 4
@@ -8042,7 +8042,7 @@ declare i32 @Curl_base64_encode(ptr noundef, i64 noundef, ptr noundef, ptr nound
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @checkprotoprefix.argprom(ptr readonly %.1696.val, ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @checkprotoprefix(ptr readonly %.1696.val, ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = icmp ugt i64 %1, 4
   %4 = zext i1 %3 to i32
   %.not21.i = icmp eq ptr %.1696.val, null

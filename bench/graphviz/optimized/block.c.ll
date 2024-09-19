@@ -21,7 +21,7 @@ define noalias noundef ptr @mkBlock(ptr noundef %0) local_unnamed_addr #1 {
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stderr, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.1, i64 noundef 80) #12
-  tail call fastcc void @graphviz_exit.argelim() #13
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 gv_alloc.exit:                                    ; preds = %1
@@ -91,7 +91,7 @@ define void @insertBlock(ptr nocapture noundef %0, ptr noundef %1) local_unnamed
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #7 {
+define internal fastcc void @graphviz_exit() unnamed_addr #7 {
   tail call void @exit(i32 noundef 1) #15
   unreachable
 }

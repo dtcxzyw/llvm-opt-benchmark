@@ -1178,7 +1178,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim12GetSpecifierEv.exit: ; preds = %
   br i1 %.not.i, label %90, label %87
 
 87:                                               ; preds = %85
-  invoke fastcc void @_ZZN32pxrInternal_v0_24__pxrReserved__L22_SpecifierToDataSourceENS_12SdfSpecifierEEN11DataSourcesC2Ev.argprom()
+  invoke fastcc void @_ZZN32pxrInternal_v0_24__pxrReserved__L22_SpecifierToDataSourceENS_12SdfSpecifierEEN11DataSourcesC2Ev()
           to label %88 unwind label %91, !noalias !7
 
 88:                                               ; preds = %87
@@ -1843,7 +1843,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsRo
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN32pxrInternal_v0_24__pxrReserved__L22_SpecifierToDataSourceENS_12SdfSpecifierEEN11DataSourcesC2Ev.argprom() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN32pxrInternal_v0_24__pxrReserved__L22_SpecifierToDataSourceENS_12SdfSpecifierEEN11DataSourcesC2Ev() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::shared_ptr.16", align 8
   %2 = alloca %"class.std::shared_ptr.16", align 8
   %3 = alloca %"class.std::shared_ptr.16", align 8

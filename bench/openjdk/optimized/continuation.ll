@@ -866,7 +866,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i: ; preds = %_ZNK19Contin
 34:                                               ; preds = %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread3.i
   %.0.i6.i = phi ptr [ %8, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread3.i ], [ %33, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i ]
   call void @_ZN17stackChunkOopDesc9top_frameEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %.0.i6.i, ptr noundef nonnull %2) #18
-  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom.exit
+  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit
 
 35:                                               ; preds = %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i
   %36 = getelementptr inbounds i8, ptr %4, i64 40
@@ -878,14 +878,14 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i: ; preds = %_ZNK19Contin
   store ptr null, ptr %38, align 8, !alias.scope !14
   %39 = getelementptr inbounds i8, ptr %4, i64 36
   store i8 0, ptr %39, align 4, !alias.scope !14
-  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom.exit
+  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit
 
-_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom.exit: ; preds = %34, %35
+_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit: ; preds = %34, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   br label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread
 
-_ZNK19ContinuationWrapper8is_emptyEv.exit.thread: ; preds = %3, %_ZNK19ContinuationWrapper8is_emptyEv.exit, %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom.exit
-  %.0 = phi i1 [ false, %_ZNK19ContinuationWrapper8is_emptyEv.exit ], [ true, %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom.exit ], [ false, %3 ]
+_ZNK19ContinuationWrapper8is_emptyEv.exit.thread: ; preds = %3, %_ZNK19ContinuationWrapper8is_emptyEv.exit, %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit
+  %.0 = phi i1 [ false, %_ZNK19ContinuationWrapper8is_emptyEv.exit ], [ true, %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -937,7 +937,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i: ; preds = %8
 25:                                               ; preds = %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread3.i
   %.0.i6.i = phi ptr [ %7, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread3.i ], [ %24, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i ]
   tail call void @_ZN17stackChunkOopDesc9top_frameEP11RegisterMap(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %.0.i6.i, ptr noundef nonnull %2) #18
-  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom.exit
+  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit
 
 26:                                               ; preds = %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread.i
   %27 = getelementptr inbounds i8, ptr %0, i64 40
@@ -949,9 +949,9 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i: ; preds = %8
   store ptr null, ptr %29, align 8, !alias.scope !17
   %30 = getelementptr inbounds i8, ptr %0, i64 36
   store i8 0, ptr %30, align 4, !alias.scope !17
-  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom.exit
+  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit
 
-_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom.exit: ; preds = %25, %26
+_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit: ; preds = %25, %26
   ret void
 }
 
@@ -1018,7 +1018,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i: ; preds = %17
 34:                                               ; preds = %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread3.i
   %.0.i6.i = phi ptr [ %16, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread3.i ], [ %33, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i ]
   tail call void @_ZN17stackChunkOopDesc9top_frameEP11RegisterMap(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %.0.i6.i, ptr noundef nonnull %2) #18
-  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom.exit
+  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit
 
 35:                                               ; preds = %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread.i
   %36 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1030,9 +1030,9 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.i: ; preds = %17
   store ptr null, ptr %38, align 8, !alias.scope !20
   %39 = getelementptr inbounds i8, ptr %0, i64 36
   store i8 0, ptr %39, align 4, !alias.scope !20
-  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom.exit
+  br label %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit
 
-_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom.exit: ; preds = %34, %35
+_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit: ; preds = %34, %35
   ret void
 }
 
@@ -2521,14 +2521,14 @@ attributes #19 = { noreturn nounwind }
 !12 = distinct !{!12, !"_ZNK17stackChunkOopDesc12derelativizeE5frame"}
 !13 = distinct !{!13, !9}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom: argument 0"}
-!16 = distinct !{!16, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom"}
+!15 = distinct !{!15, !16, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap: argument 0"}
+!16 = distinct !{!16, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap"}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom"}
+!18 = distinct !{!18, !19, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap: argument 0"}
+!19 = distinct !{!19, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap"}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom: argument 0"}
-!22 = distinct !{!22, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.argprom"}
+!21 = distinct !{!21, !22, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap: argument 0"}
+!22 = distinct !{!22, !"_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap"}
 !23 = distinct !{!23, !9}
 !24 = !{!"branch_weights", i32 1, i32 1048575}
 !25 = distinct !{!25, !9}

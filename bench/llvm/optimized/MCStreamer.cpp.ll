@@ -8266,8 +8266,8 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %91, %_ZL40targetVer
   %.val44 = load i32, ptr %16, align 4
   %.val45 = load i32, ptr %82, align 8
   switch i32 %.val44, label %122 [
-    i32 9, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit
-    i32 1, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit
+    i32 9, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit
+    i32 1, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit
     i32 5, label %107
     i32 26, label %112
     i32 27, label %115
@@ -8277,35 +8277,35 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %91, %_ZL40targetVer
 
 107:                                              ; preds = %106
   %108 = icmp eq i32 %.val45, 24
-  br i1 %108, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit, label %109
+  br i1 %108, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit, label %109
 
 109:                                              ; preds = %107
   %110 = icmp eq i32 %.val45, 23
   %111 = select i1 %110, i32 7, i32 2
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit
 
 112:                                              ; preds = %106
   %113 = icmp eq i32 %.val45, 23
   %114 = select i1 %113, i32 8, i32 3
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit
 
 115:                                              ; preds = %106
   %116 = icmp eq i32 %.val45, 23
   %117 = select i1 %116, i32 9, i32 4
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit
 
 118:                                              ; preds = %106
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit
 
 119:                                              ; preds = %106
   %120 = icmp eq i32 %.val45, 23
   %121 = select i1 %120, i32 12, i32 11
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit
 
 122:                                              ; preds = %106
   unreachable
 
-_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit: ; preds = %106, %106, %107, %109, %112, %115, %118, %119
+_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit: ; preds = %106, %106, %107, %109, %112, %115, %118, %119
   %.0.i = phi i32 [ %121, %119 ], [ 10, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ 1, %106 ], [ 1, %106 ], [ 6, %107 ]
   %123 = trunc i64 %.sroa.speculated.i to i32
   %124 = lshr i64 %.sroa.speculated.i, 32
@@ -8327,8 +8327,8 @@ _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit: ; preds = %1
 
 132:                                              ; preds = %102, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
   switch i32 %.val, label %147 [
-    i32 9, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61
-    i32 1, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61
+    i32 9, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
+    i32 1, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
     i32 5, label %133
     i32 26, label %137
     i32 27, label %140
@@ -8337,35 +8337,35 @@ _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit: ; preds = %1
   ]
 
 133:                                              ; preds = %132
-  br i1 %100, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61, label %134
+  br i1 %100, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61, label %134
 
 134:                                              ; preds = %133
   %135 = icmp eq i32 %.val43, 23
   %136 = select i1 %135, i32 7, i32 2
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
 
 137:                                              ; preds = %132
   %138 = icmp eq i32 %.val43, 23
   %139 = select i1 %138, i32 8, i32 3
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
 
 140:                                              ; preds = %132
   %141 = icmp eq i32 %.val43, 23
   %142 = select i1 %141, i32 9, i32 4
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
 
 143:                                              ; preds = %132
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
 
 144:                                              ; preds = %132
   %145 = icmp eq i32 %.val43, 23
   %146 = select i1 %145, i32 12, i32 11
-  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61
+  br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
 
 147:                                              ; preds = %132
   unreachable
 
-_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61: ; preds = %132, %132, %133, %134, %137, %140, %143, %144
+_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61: ; preds = %132, %132, %133, %134, %137, %140, %143, %144
   %.0.i60 = phi i32 [ %146, %144 ], [ 10, %143 ], [ %142, %140 ], [ %139, %137 ], [ %136, %134 ], [ 1, %132 ], [ 1, %132 ], [ 6, %133 ]
   %148 = trunc i64 %.sroa.speculated.i to i32
   %149 = lshr i64 %.sroa.speculated.i, 32
@@ -8385,8 +8385,8 @@ _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61: ; preds = 
   call void %156(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %.0.i60, i32 noundef %148, i32 noundef %.0.i68, i32 noundef %.0.i74, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %9) #23
   br label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
 
-_ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12VersionTuple5emptyEv.exit, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61
-  %.0 = phi i1 [ true, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit61 ], [ false, %_ZNK4llvm12VersionTuple5emptyEv.exit ], [ false, %91 ]
+_ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12VersionTuple5emptyEv.exit, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
+  %.0 = phi i1 [ true, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61 ], [ false, %_ZNK4llvm12VersionTuple5emptyEv.exit ], [ false, %91 ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %182, label %157
 
@@ -8412,7 +8412,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12Ver
   %171 = getelementptr i8, ptr %3, i64 44
   %.val48 = load i32, ptr %171, align 4
   %.val49 = load i32, ptr %161, align 8
-  %172 = call fastcc noundef i32 @_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom(i32 %.val48, i32 %.val49)
+  %172 = call fastcc noundef i32 @_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE(i32 %.val48, i32 %.val49)
   %173 = trunc i64 %169 to i32
   %174 = lshr i64 %169, 32
   %175 = trunc nuw i64 %174 to i32
@@ -8437,26 +8437,26 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12Ver
 183:                                              ; preds = %182
   %.val50 = load i32, ptr %16, align 4
   switch i32 %.val50, label %187 [
-    i32 9, label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.argprom.exit
-    i32 1, label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.argprom.exit
+    i32 9, label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit
+    i32 1, label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit
     i32 5, label %184
     i32 26, label %185
     i32 27, label %186
   ]
 
 184:                                              ; preds = %183
-  br label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.argprom.exit
+  br label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit
 
 185:                                              ; preds = %183
-  br label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.argprom.exit
+  br label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit
 
 186:                                              ; preds = %183
-  br label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.argprom.exit
+  br label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit
 
 187:                                              ; preds = %183
   unreachable
 
-_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.argprom.exit: ; preds = %183, %183, %184, %185, %186
+_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit: ; preds = %183, %183, %184, %185, %186
   %.0.i89 = phi i32 [ 3, %186 ], [ 2, %185 ], [ 0, %184 ], [ 1, %183 ], [ 1, %183 ]
   %188 = trunc i64 %.sroa.speculated.i to i32
   %189 = lshr i64 %.sroa.speculated.i, 32
@@ -8476,7 +8476,7 @@ _ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.argprom.exit: ; preds = %
   call void %196(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %.0.i89, i32 noundef %188, i32 noundef %.0.i96, i32 noundef %.0.i102, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %11) #23
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %19, %182, %20, %5, %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.argprom.exit, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom.exit
+_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %19, %182, %20, %5, %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit
   ret void
 }
 
@@ -8558,7 +8558,7 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread:   ; preds = %35, %31, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 1, 13) i32 @_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.argprom(i32 %.44.val, i32 %.48.val) unnamed_addr #1 {
+define internal fastcc noundef range(i32 1, 13) i32 @_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE(i32 %.44.val, i32 %.48.val) unnamed_addr #1 {
   switch i32 %.44.val, label %16 [
     i32 9, label %17
     i32 1, label %17

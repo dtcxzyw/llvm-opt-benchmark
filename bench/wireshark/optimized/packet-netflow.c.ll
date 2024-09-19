@@ -7011,11 +7011,11 @@ define internal noundef i32 @dissect_pdu(ptr noundef %0, ptr nocapture noundef r
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   %86 = icmp eq i8 %80, 0
-  br i1 %86, label %getprefix.argprom.exit, label %87
+  br i1 %86, label %getprefix.exit, label %87
 
 87:                                               ; preds = %62
   %88 = icmp ult i8 %80, 32
-  br i1 %88, label %89, label %getprefix.argprom.exit
+  br i1 %88, label %89, label %getprefix.exit
 
 89:                                               ; preds = %87
   %90 = sub nuw nsw i32 32, %83
@@ -7030,9 +7030,9 @@ define internal noundef i32 @dissect_pdu(ptr noundef %0, ptr nocapture noundef r
   %99 = lshr i32 %91, 24
   %100 = or disjoint i32 %98, %99
   %101 = and i32 %100, %11
-  br label %getprefix.argprom.exit
+  br label %getprefix.exit
 
-getprefix.argprom.exit:                           ; preds = %62, %87, %89
+getprefix.exit:                                   ; preds = %62, %87, %89
   %102 = phi i32 [ %83, %89 ], [ 32, %62 ], [ %83, %87 ]
   %.sink.i = phi i32 [ %101, %89 ], [ 0, %62 ], [ %11, %87 ]
   store i32 %.sink.i, ptr %9, align 4
@@ -7055,11 +7055,11 @@ getprefix.argprom.exit:                           ; preds = %62, %87, %89
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %113 = icmp eq i8 %108, 0
-  br i1 %113, label %getprefix.argprom.exit103, label %114
+  br i1 %113, label %getprefix.exit103, label %114
 
-114:                                              ; preds = %getprefix.argprom.exit
+114:                                              ; preds = %getprefix.exit
   %115 = icmp ult i8 %108, 32
-  br i1 %115, label %116, label %getprefix.argprom.exit103
+  br i1 %115, label %116, label %getprefix.exit103
 
 116:                                              ; preds = %114
   %117 = sub nuw nsw i32 32, %111
@@ -7074,11 +7074,11 @@ getprefix.argprom.exit:                           ; preds = %62, %87, %89
   %126 = lshr i32 %118, 24
   %127 = or disjoint i32 %125, %126
   %128 = and i32 %127, %15
-  br label %getprefix.argprom.exit103
+  br label %getprefix.exit103
 
-getprefix.argprom.exit103:                        ; preds = %getprefix.argprom.exit, %114, %116
-  %129 = phi i32 [ %111, %116 ], [ 32, %getprefix.argprom.exit ], [ %111, %114 ]
-  %.sink.i102 = phi i32 [ %128, %116 ], [ 0, %getprefix.argprom.exit ], [ %15, %114 ]
+getprefix.exit103:                                ; preds = %getprefix.exit, %114, %116
+  %129 = phi i32 [ %111, %116 ], [ 32, %getprefix.exit ], [ %111, %114 ]
+  %.sink.i102 = phi i32 [ %128, %116 ], [ 0, %getprefix.exit ], [ %15, %114 ]
   store i32 %.sink.i102, ptr %7, align 4
   store i32 2, ptr %8, align 8
   %130 = getelementptr inbounds i8, ptr %8, i64 4
@@ -7097,14 +7097,14 @@ getprefix.argprom.exit103:                        ; preds = %getprefix.argprom.e
   %138 = icmp eq i8 %41, 7
   br i1 %138, label %139, label %143
 
-139:                                              ; preds = %getprefix.argprom.exit103
+139:                                              ; preds = %getprefix.exit103
   %140 = load i32, ptr @hf_cflow_routersc, align 4
   %141 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %140, ptr noundef %0, i32 noundef %137, i32 noundef 4, i32 noundef 0) #11
   %142 = add i32 %34, 20
   br label %143
 
-143:                                              ; preds = %getprefix.argprom.exit103, %139, %42
-  %.0 = phi i32 [ %60, %42 ], [ %142, %139 ], [ %137, %getprefix.argprom.exit103 ]
+143:                                              ; preds = %getprefix.exit103, %139, %42
+  %.0 = phi i32 [ %60, %42 ], [ %142, %139 ], [ %137, %getprefix.exit103 ]
   %144 = sub i32 %.0, %3
   ret i32 %144
 }
@@ -7515,7 +7515,7 @@ define internal i32 @dissect_v9_v10_flowset(ptr noundef %0, ptr noundef %1, ptr 
 
 117:                                              ; preds = %112, %111, %108, %88
   %.val.i = load i8, ptr %4, align 8
-  %118 = call fastcc i32 @dissect_v9_v10_template_fields.argprom(ptr noundef %0, ptr noundef %78, i32 noundef %83, i8 %.val.i, ptr noundef %10, i32 noundef 1)
+  %118 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %78, i32 noundef %83, i8 %.val.i, ptr noundef %10, i32 noundef 1)
   %119 = icmp eq ptr %99, null
   %120 = load ptr, ptr %64, align 8
   %121 = icmp ne ptr %120, null
@@ -7808,9 +7808,9 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %168
 
 291:                                              ; preds = %282, %281, %278, %276, %258
   %.val.i57 = load i8, ptr %4, align 8
-  %292 = call fastcc i32 @dissect_v9_v10_template_fields.argprom(ptr noundef %0, ptr noundef %210, i32 noundef %.1.i, i8 %.val.i57, ptr noundef %8, i32 noundef 0)
+  %292 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %210, i32 noundef %.1.i, i8 %.val.i57, ptr noundef %8, i32 noundef 0)
   %.val133.i = load i8, ptr %4, align 8
-  %293 = call fastcc i32 @dissect_v9_v10_template_fields.argprom(ptr noundef %0, ptr noundef %210, i32 noundef %292, i8 %.val133.i, ptr noundef %8, i32 noundef 1)
+  %293 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %210, i32 noundef %292, i8 %.val133.i, ptr noundef %8, i32 noundef 1)
   %294 = icmp eq ptr %269, null
   br i1 %294, label %295, label %330
 
@@ -8393,7 +8393,7 @@ declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_v9_v10_template_fields.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 %.0.val, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 %.0.val, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp eq i32 %4, 0
   %8 = icmp eq i8 %.0.val, 9

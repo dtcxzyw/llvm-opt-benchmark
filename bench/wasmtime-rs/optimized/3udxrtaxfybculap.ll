@@ -70,7 +70,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 16:                                               ; preds = %15
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr nonnull align 8 %6, ptr nonnull align 8 %5)
-          to label %"_ZN15wiggle_generate5funcs12_define_func28_$u7b$$u7b$closure$u7d$$u7d$17h42530a12034a6cd7E.argprom.exit" unwind label %13, !noalias !5
+          to label %"_ZN15wiggle_generate5funcs12_define_func28_$u7b$$u7b$closure$u7d$$u7d$17h42530a12034a6cd7E.exit" unwind label %13, !noalias !5
 
 17:                                               ; preds = %13, %9
   %18 = landingpad { ptr, i32 }
@@ -81,7 +81,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 19:                                               ; preds = %9
   resume { ptr, i32 } %.pn.i
 
-"_ZN15wiggle_generate5funcs12_define_func28_$u7b$$u7b$closure$u7d$$u7d$17h42530a12034a6cd7E.argprom.exit": ; preds = %16
+"_ZN15wiggle_generate5funcs12_define_func28_$u7b$$u7b$closure$u7d$$u7d$17h42530a12034a6cd7E.exit": ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %6), !noalias !5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -970,8 +970,8 @@ attributes #9 = { noreturn }
 !3 = !{i8 0, i8 4}
 !4 = !{}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN15wiggle_generate5funcs12_define_func28_$u7b$$u7b$closure$u7d$$u7d$17h42530a12034a6cd7E.argprom: argument 0"}
-!7 = distinct !{!7, !"_ZN15wiggle_generate5funcs12_define_func28_$u7b$$u7b$closure$u7d$$u7d$17h42530a12034a6cd7E.argprom"}
+!6 = distinct !{!6, !7, !"_ZN15wiggle_generate5funcs12_define_func28_$u7b$$u7b$closure$u7d$$u7d$17h42530a12034a6cd7E: argument 0"}
+!7 = distinct !{!7, !"_ZN15wiggle_generate5funcs12_define_func28_$u7b$$u7b$closure$u7d$$u7d$17h42530a12034a6cd7E"}
 !8 = !{i64 8}
 !9 = !{i64 1}
 !10 = !{i64 0, i64 -9223372036854775806}

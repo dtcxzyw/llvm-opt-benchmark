@@ -854,7 +854,7 @@ type_flatten.exit.i.i.i:                          ; preds = %45
   br i1 %switch.i.i.i, label %64, label %110
 
 64:                                               ; preds = %type_flatten.exit.i.i.i
-  switch i32 %48, label %sema_find_type_of_element.argprom.exit.thread.i.i [
+  switch i32 %48, label %sema_find_type_of_element.exit.thread.i.i [
     i32 36, label %69
     i32 38, label %69
     i32 33, label %65
@@ -898,7 +898,7 @@ type_flatten.exit.i.i.i:                          ; preds = %45
   %85 = load i8, ptr %61, align 8
   %86 = and i8 %85, 15
   %87 = icmp eq i8 %86, 2
-  br i1 %87, label %88, label %sema_find_type_of_element.argprom.exit.i.i
+  br i1 %87, label %88, label %sema_find_type_of_element.exit.i.i
 
 88:                                               ; preds = %81
   %89 = getelementptr inbounds i8, ptr %61, i64 16
@@ -937,10 +937,10 @@ type_flatten.exit.i.i.i:                          ; preds = %45
   %109 = icmp slt i32 %84, %91
   %.4.i = select i1 %109, i32 %91, i32 %83
   %spec.select120.i = select i1 %.not29.i.i, i32 %.4.i, i32 %.1115.i
-  br label %sema_find_type_of_element.argprom.exit.i.i
+  br label %sema_find_type_of_element.exit.i.i
 
 110:                                              ; preds = %type_flatten.exit.i.i.i
-  switch i32 %48, label %sema_find_type_of_element.argprom.exit.thread.i.i [
+  switch i32 %48, label %sema_find_type_of_element.exit.thread.i.i [
     i32 29, label %111
     i32 27, label %111
     i32 26, label %111
@@ -953,34 +953,34 @@ type_flatten.exit.i.i.i:                          ; preds = %45
   %115 = load ptr, ptr %114, align 8
   %116 = call fastcc ptr @sema_resolve_element_for_name(ptr noundef %0, ptr noundef %115, ptr noundef %5, ptr noundef %6)
   %.not73.i.i.i = icmp eq ptr %116, null
-  br i1 %.not73.i.i.i, label %sema_find_type_of_element.argprom.exit.thread.i.i, label %117
+  br i1 %.not73.i.i.i, label %sema_find_type_of_element.exit.thread.i.i, label %117
 
 117:                                              ; preds = %111
   %118 = getelementptr inbounds i8, ptr %116, i64 72
   %119 = load ptr, ptr %118, align 8
-  br label %sema_find_type_of_element.argprom.exit.i.i
+  br label %sema_find_type_of_element.exit.i.i
 
-sema_find_type_of_element.argprom.exit.i.i:       ; preds = %117, %107, %81
+sema_find_type_of_element.exit.i.i:               ; preds = %117, %107, %81
   %.2.i = phi i32 [ %84, %81 ], [ %.1115.i, %117 ], [ %spec.select120.i, %107 ]
   %.1.i.i = phi ptr [ null, %81 ], [ %116, %117 ], [ null, %107 ]
   %.063.i.i.i = phi ptr [ %.065.i.i.i, %81 ], [ %119, %117 ], [ %.065.i.i.i, %107 ]
   %.not19.i.i = icmp eq ptr %.063.i.i.i, null
-  br i1 %.not19.i.i, label %sema_find_type_of_element.argprom.exit.thread.i.i, label %123
+  br i1 %.not19.i.i, label %sema_find_type_of_element.exit.thread.i.i, label %123
 
-sema_find_type_of_element.argprom.exit.thread.i.i: ; preds = %sema_find_type_of_element.argprom.exit.i.i, %111, %110, %64
+sema_find_type_of_element.exit.thread.i.i:        ; preds = %sema_find_type_of_element.exit.i.i, %111, %110, %64
   %120 = getelementptr inbounds i8, ptr %34, i64 8
   %121 = tail call ptr @type_to_error_string(ptr noundef nonnull %.016.i.i) #7
   %122 = load i64, ptr %120, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %122, ptr noundef nonnull @.str.7, ptr noundef %121) #7
   br label %sema_expr_analyse_designator.exit.thread.i
 
-123:                                              ; preds = %sema_find_type_of_element.argprom.exit.i.i
+123:                                              ; preds = %sema_find_type_of_element.exit.i.i
   %124 = load i32, ptr %6, align 4
   %125 = add i32 %124, 1
   %.pr.i.i = load ptr, ptr %5, align 8
   br label %37, !llvm.loop !11
 
-sema_expr_analyse_designator.exit.thread.i:       ; preds = %88, %69, %sema_find_type_of_element.argprom.exit.thread.i.i, %102, %95, %76
+sema_expr_analyse_designator.exit.thread.i:       ; preds = %88, %69, %sema_find_type_of_element.exit.thread.i.i, %102, %95, %76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %sema_expr_analyse_designated_initializer.exit

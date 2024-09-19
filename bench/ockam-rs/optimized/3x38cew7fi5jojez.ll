@@ -203,7 +203,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h78da7054f4534735E(ptr no
   %17 = and i64 %16, 3
   switch i64 %17, label %default.unreachable [
     i64 2, label %18
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.argprom.exit
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit
     i64 0, label %20
     i64 1, label %24
   ]
@@ -235,8 +235,8 @@ default.unreachable:                              ; preds = %15
   %31 = icmp ugt i64 %12, %.sroa.4.028
   br i1 %31, label %33, label %34
 
-32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.argprom.exit, %24, %20, %18, %11
-  %.1 = phi ptr [ @anon.3115df7d8b9b3faae353fce521fc1344.14, %11 ], [ %.val, %18 ], [ %.val, %20 ], [ %.val, %24 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.argprom.exit ]
+32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit, %24, %20, %18, %11
+  %.1 = phi ptr [ @anon.3115df7d8b9b3faae353fce521fc1344.14, %11 ], [ %.val, %18 ], [ %.val, %20 ], [ %.val, %24 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.loopexit
 
@@ -259,7 +259,7 @@ default.unreachable:                              ; preds = %15
 39:                                               ; preds = %33
   unreachable
 
-_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.argprom.exit: ; preds = %15
+_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit: ; preds = %15
   %.mask20.i = and i64 %16, -4294967296
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.thread, label %32
@@ -271,10 +271,10 @@ _ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.argprom.exit: ; preds
   %41 = icmp eq i64 %.sroa.4.121, 0
   br i1 %41, label %.loopexit, label %9
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.argprom.exit, %24, %20, %18, %34
-  %42 = phi ptr [ %14, %34 ], [ %.val, %18 ], [ %.val, %20 ], [ %.val, %24 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.argprom.exit ]
-  %.sroa.0.122 = phi ptr [ %36, %34 ], [ %.sroa.0.029, %18 ], [ %.sroa.0.029, %20 ], [ %.sroa.0.029, %24 ], [ %.sroa.0.029, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.argprom.exit ]
-  %.sroa.4.120 = phi i64 [ %35, %34 ], [ %.sroa.4.028, %18 ], [ %.sroa.4.028, %20 ], [ %.sroa.4.028, %24 ], [ %.sroa.4.028, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.argprom.exit ]
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit, %24, %20, %18, %34
+  %42 = phi ptr [ %14, %34 ], [ %.val, %18 ], [ %.val, %20 ], [ %.val, %24 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit ]
+  %.sroa.0.122 = phi ptr [ %36, %34 ], [ %.sroa.0.029, %18 ], [ %.sroa.0.029, %20 ], [ %.sroa.0.029, %24 ], [ %.sroa.0.029, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit ]
+  %.sroa.4.120 = phi i64 [ %35, %34 ], [ %.sroa.4.028, %18 ], [ %.sroa.4.028, %20 ], [ %.sroa.4.028, %24 ], [ %.sroa.4.028, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !7
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h31222e0eff1b91faE.llvm.14780125840797112574(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noundef nonnull %42), !noalias !7
   %43 = load i8, ptr %4, align 8, !range !14, !alias.scope !15, !noalias !7, !noundef !5
@@ -3126,7 +3126,7 @@ common.ret:                                       ; preds = %566, %39
   %116 = atomicrmw add ptr %115, i64 1 monotonic, align 8, !noalias !434
   %117 = atomicrmw add ptr %.val.i.i, i64 1 monotonic, align 8, !noalias !437
   %118 = icmp slt i64 %117, 0
-  br i1 %118, label %119, label %"_ZN82_$LT$tokio..sync..mpsc..bounded..Sender$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4dd049ab7333415E.argprom.exit.i.i"
+  br i1 %118, label %119, label %"_ZN82_$LT$tokio..sync..mpsc..bounded..Sender$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4dd049ab7333415E.exit.i.i"
 
 119:                                              ; preds = %.noexc.i.i
   tail call void @llvm.trap()
@@ -3137,7 +3137,7 @@ common.ret:                                       ; preds = %566, %39
           cleanup
   br label %122
 
-"_ZN82_$LT$tokio..sync..mpsc..bounded..Sender$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4dd049ab7333415E.argprom.exit.i.i": ; preds = %.noexc.i.i
+"_ZN82_$LT$tokio..sync..mpsc..bounded..Sender$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4dd049ab7333415E.exit.i.i": ; preds = %.noexc.i.i
   invoke void @_ZN10ockam_node10async_drop9AsyncDrop3new17h1ae289429b935201E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %26, ptr noundef nonnull %.val.i.i)
           to label %125 unwind label %123, !noalias !433
 
@@ -3146,12 +3146,12 @@ common.ret:                                       ; preds = %566, %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !426
   br label %216
 
-123:                                              ; preds = %"_ZN82_$LT$tokio..sync..mpsc..bounded..Sender$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4dd049ab7333415E.argprom.exit.i.i"
+123:                                              ; preds = %"_ZN82_$LT$tokio..sync..mpsc..bounded..Sender$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4dd049ab7333415E.exit.i.i"
   %124 = landingpad { ptr, i32 }
           cleanup
   br label %122
 
-125:                                              ; preds = %"_ZN82_$LT$tokio..sync..mpsc..bounded..Sender$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4dd049ab7333415E.argprom.exit.i.i"
+125:                                              ; preds = %"_ZN82_$LT$tokio..sync..mpsc..bounded..Sender$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4dd049ab7333415E.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !426
   %126 = load ptr, ptr %26, align 8, !noalias !426, !nonnull !5, !noundef !5
   %127 = getelementptr inbounds i8, ptr %26, i64 8
@@ -5699,14 +5699,14 @@ attributes #26 = { nounwind }
 !438 = distinct !{!438, !439, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd25c5597098836daE.llvm.1333392777243939226: argument 0"}
 !439 = distinct !{!439, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd25c5597098836daE.llvm.1333392777243939226"}
 !440 = !{!441}
-!441 = distinct !{!441, !442, !"_ZN5tokio7runtime6handle6Handle5spawn17h340da8d20722c573E.argprom: argument 0"}
-!442 = distinct !{!442, !"_ZN5tokio7runtime6handle6Handle5spawn17h340da8d20722c573E.argprom"}
+!441 = distinct !{!441, !442, !"_ZN5tokio7runtime6handle6Handle5spawn17h340da8d20722c573E: argument 0"}
+!442 = distinct !{!442, !"_ZN5tokio7runtime6handle6Handle5spawn17h340da8d20722c573E"}
 !443 = !{!444}
-!444 = distinct !{!444, !445, !"_ZN5tokio7runtime6handle6Handle11spawn_named17h9ded9b667895d972E.argprom: argument 0"}
-!445 = distinct !{!445, !"_ZN5tokio7runtime6handle6Handle11spawn_named17h9ded9b667895d972E.argprom"}
+!444 = distinct !{!444, !445, !"_ZN5tokio7runtime6handle6Handle11spawn_named17h9ded9b667895d972E: argument 0"}
+!445 = distinct !{!445, !"_ZN5tokio7runtime6handle6Handle11spawn_named17h9ded9b667895d972E"}
 !446 = !{!444, !447, !441, !448, !427, !400}
-!447 = distinct !{!447, !445, !"_ZN5tokio7runtime6handle6Handle11spawn_named17h9ded9b667895d972E.argprom: argument 1"}
-!448 = distinct !{!448, !442, !"_ZN5tokio7runtime6handle6Handle5spawn17h340da8d20722c573E.argprom: argument 1"}
+!447 = distinct !{!447, !445, !"_ZN5tokio7runtime6handle6Handle11spawn_named17h9ded9b667895d972E: argument 1"}
+!448 = distinct !{!448, !442, !"_ZN5tokio7runtime6handle6Handle5spawn17h340da8d20722c573E: argument 1"}
 !449 = !{!444, !447, !441, !448, !427, !429, !400, !402}
 !450 = !{!444, !441, !427, !429, !400, !402}
 !451 = !{!452, !444, !441}

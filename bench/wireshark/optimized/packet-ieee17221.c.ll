@@ -1840,14 +1840,14 @@ define internal fastcc void @dissect_17221_aecp(ptr noundef %0, ptr noundef %1, 
 
 57:                                               ; preds = %48
   %58 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 28) #2
-  tail call fastcc void @dissect_17221_aem.argprom(ptr noundef %58, ptr noundef %2)
+  tail call fastcc void @dissect_17221_aem(ptr noundef %58, ptr noundef %2)
   br label %.loopexit
 
 59:                                               ; preds = %20
   %60 = load i32, ptr @hf_aecp_configuration, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0) #2
   %62 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 28) #2
-  tail call fastcc void @dissect_17221_aem.argprom(ptr noundef %62, ptr noundef %2)
+  tail call fastcc void @dissect_17221_aem(ptr noundef %62, ptr noundef %2)
   br label %.loopexit
 
 63:                                               ; preds = %20, %20
@@ -2535,7 +2535,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_17221_aem.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_17221_aem(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #2
   %4 = load i32, ptr @hf_aecp_descriptor_type, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2

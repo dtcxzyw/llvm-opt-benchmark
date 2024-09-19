@@ -1527,7 +1527,7 @@ define void @_ZN2cv5gimpl9GCompilerC2ERKNS_12GComputationEOSt6vectorINS_4util7va
 
 189:                                              ; preds = %.noexc
   %190 = getelementptr inbounds i8, ptr %41, i64 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE.argprom"(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(80) %190)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE"(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(80) %190)
           to label %255 unwind label %.body.i
 
 .body.i:                                          ; preds = %205, %189
@@ -1599,7 +1599,7 @@ define void @_ZN2cv5gimpl9GCompilerC2ERKNS_12GComputationEOSt6vectorINS_4util7va
           to label %212 unwind label %240, !noalias !4
 
 212:                                              ; preds = %206
-  invoke fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE.argprom"(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(80) %49)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE"(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(80) %49)
           to label %213 unwind label %242, !noalias !4
 
 213:                                              ; preds = %212
@@ -2996,25 +2996,25 @@ _ZN2cv12GComputationD2Ev.exit39.i:                ; preds = %_ZNSt16_Sp_counted_
   %741 = load i64, ptr %709, align 8
   %742 = icmp eq i64 %741, 0
   %or.cond11.i.i = select i1 %or.cond7.i.i, i1 %742, i1 false
-  br i1 %or.cond11.i.i, label %743, label %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.argprom.exit.thread.i"
+  br i1 %or.cond11.i.i, label %743, label %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.exit.thread.i"
 
 743:                                              ; preds = %.noexc199
   %744 = load ptr, ptr %710, align 8
   %745 = load ptr, ptr %711, align 8
   %746 = icmp eq ptr %744, %745
-  br i1 %746, label %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.argprom.exit.i", label %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.argprom.exit.thread.i"
+  br i1 %746, label %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.exit.i", label %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.exit.thread.i"
 
-"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.argprom.exit.i": ; preds = %743
+"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.exit.i": ; preds = %743
   %747 = load ptr, ptr %712, align 8
   %748 = load ptr, ptr %713, align 8
   %749 = icmp eq ptr %747, %748
-  br i1 %749, label %773, label %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.argprom.exit.thread.i"
+  br i1 %749, label %773, label %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.exit.thread.i"
 
-"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.argprom.exit.thread.i": ; preds = %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.argprom.exit.i", %743, %.noexc199
+"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.exit.thread.i": ; preds = %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.exit.i", %743, %.noexc199
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %23)
           to label %750 unwind label %764
 
-750:                                              ; preds = %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.argprom.exit.thread.i"
+750:                                              ; preds = %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.exit.thread.i"
   %751 = getelementptr inbounds i8, ptr %23, i64 16
   %752 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %751, ptr noundef nonnull @.str.48)
           to label %753 unwind label %766
@@ -3048,7 +3048,7 @@ _ZN2cv12GComputationD2Ev.exit39.i:                ; preds = %_ZNSt16_Sp_counted_
   invoke void @__cxa_throw(ptr nonnull %760, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #26
           to label %776 unwind label %769
 
-764:                                              ; preds = %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.argprom.exit.thread.i"
+764:                                              ; preds = %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.exit.thread.i"
   %765 = landingpad { ptr, i32 }
           cleanup
   br label %775
@@ -3079,7 +3079,7 @@ _ZN2cv12GComputationD2Ev.exit39.i:                ; preds = %_ZNSt16_Sp_counted_
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %23) #23
   br label %775
 
-773:                                              ; preds = %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.argprom.exit.i"
+773:                                              ; preds = %"_ZZN12_GLOBAL__N_120checkTransformationsERKN2cv14GKernelPackageERKSt6vectorISt10unique_ptrIN3ade5GraphESt14default_deleteIS7_EESaISA_EESE_ENK3$_0clERKNS0_5gimpl13SubgraphMatchE.exit.i"
   call void @_ZN2cv5gimpl13SubgraphMatchD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %20) #23
   %774 = add nuw i64 %.02844.i, 1
   %exitcond.not.i = icmp eq i64 %774, %umax.i
@@ -9971,7 +9971,7 @@ _ZN2cv4util8optionalINS_4gapi8use_onlyEEC2ERKS3_.exit: ; preds = %.noexc.i, %._c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_116getKernelPackageERSt6vectorIN2cv11GCompileArgESaIS2_EEENK3$_0clERKNS1_14GKernelPackageE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::GKernelPackage", align 8
   %4 = alloca %"class.cv::GKernelPackage", align 8
   %5 = alloca %"class.cv::GKernelPackage", align 8
@@ -27303,8 +27303,8 @@ attributes #27 = { builtin allocsize(0) }
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = distinct !{!13, !12}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN12_GLOBAL__N_114auxKernelsFromISt13unordered_setIN2cv4gapi8GBackendESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEENS2_14GKernelPackageERKT_.argprom: argument 0"}
-!16 = distinct !{!16, !"_ZN12_GLOBAL__N_114auxKernelsFromISt13unordered_setIN2cv4gapi8GBackendESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEENS2_14GKernelPackageERKT_.argprom"}
+!15 = distinct !{!15, !16, !"_ZN12_GLOBAL__N_114auxKernelsFromISt13unordered_setIN2cv4gapi8GBackendESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEENS2_14GKernelPackageERKT_: argument 0"}
+!16 = distinct !{!16, !"_ZN12_GLOBAL__N_114auxKernelsFromISt13unordered_setIN2cv4gapi8GBackendESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEENS2_14GKernelPackageERKT_"}
 !17 = distinct !{!17, !12}
 !18 = distinct !{!18, !12}
 !19 = !{!20}

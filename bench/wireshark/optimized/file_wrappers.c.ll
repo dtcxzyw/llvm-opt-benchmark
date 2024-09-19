@@ -559,13 +559,13 @@ gz_skip.exit:                                     ; preds = %38, %32
   %101 = getelementptr i8, ptr %0, i64 264
   %.val196 = load ptr, ptr %101, align 8
   %.not.i197 = icmp eq ptr %.val196, null
-  br i1 %.not.i197, label %fast_seek_find.argprom.exit.thread, label %102
+  br i1 %.not.i197, label %fast_seek_find.exit.thread, label %102
 
 102:                                              ; preds = %97
   %103 = getelementptr inbounds i8, ptr %.val196, i64 8
   %104 = load i32, ptr %103, align 8
   %.not6.i = icmp eq i32 %104, 0
-  br i1 %.not6.i, label %fast_seek_find.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not6.i, label %fast_seek_find.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %102
   %105 = load ptr, ptr %.val196, align 8
@@ -586,7 +586,7 @@ gz_skip.exit:                                     ; preds = %38, %32
 
 114:                                              ; preds = %106
   %115 = icmp sgt i64 %100, %112
-  br i1 %115, label %116, label %fast_seek_find.argprom.exit.thread207
+  br i1 %115, label %116, label %fast_seek_find.exit.thread207
 
 116:                                              ; preds = %114
   %117 = add nuw i32 %108, 1
@@ -597,28 +597,28 @@ gz_skip.exit:                                     ; preds = %38, %32
   %.119.i = phi i32 [ %117, %116 ], [ %.0182.i, %106 ]
   %.1.i198 = phi i32 [ %.03.i, %116 ], [ %108, %106 ]
   %119 = icmp ult i32 %.119.i, %.1.i198
-  br i1 %119, label %106, label %fast_seek_find.argprom.exit, !llvm.loop !9
+  br i1 %119, label %106, label %fast_seek_find.exit, !llvm.loop !9
 
-fast_seek_find.argprom.exit:                      ; preds = %118
+fast_seek_find.exit:                              ; preds = %118
   %.not187 = icmp eq ptr %.121.i, null
-  br i1 %.not187, label %fast_seek_find.argprom.exit.thread, label %fast_seek_find.argprom.exit.thread207
+  br i1 %.not187, label %fast_seek_find.exit.thread, label %fast_seek_find.exit.thread207
 
-fast_seek_find.argprom.exit.thread207:            ; preds = %114, %fast_seek_find.argprom.exit
-  %.017.i210 = phi ptr [ %.121.i, %fast_seek_find.argprom.exit ], [ %111, %114 ]
+fast_seek_find.exit.thread207:                    ; preds = %114, %fast_seek_find.exit
+  %.017.i210 = phi ptr [ %.121.i, %fast_seek_find.exit ], [ %111, %114 ]
   %or.cond5 = icmp ugt i64 %.0171204, 1048576
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.017.i210, i64 16
   %.pre218 = load i32, ptr %.phi.trans.insert, align 8
   br i1 %or.cond5, label %123, label %120
 
-120:                                              ; preds = %fast_seek_find.argprom.exit.thread207
+120:                                              ; preds = %fast_seek_find.exit.thread207
   %121 = icmp eq i32 %.pre218, 1
-  br i1 %121, label %.thread221, label %fast_seek_find.argprom.exit.thread
+  br i1 %121, label %.thread221, label %fast_seek_find.exit.thread
 
 .thread221:                                       ; preds = %120
   %122 = getelementptr inbounds i8, ptr %.017.i210, i64 16
   br label %136
 
-123:                                              ; preds = %fast_seek_find.argprom.exit.thread207
+123:                                              ; preds = %fast_seek_find.exit.thread207
   %124 = getelementptr inbounds i8, ptr %.017.i210, i64 16
   switch i32 %.pre218, label %136 [
     i32 2, label %125
@@ -795,13 +795,13 @@ fast_seek_reset.exit:                             ; preds = %151, %155, %158
   store i64 %218, ptr %219, align 8
   br label %311
 
-fast_seek_find.argprom.exit.thread:               ; preds = %102, %97, %120, %fast_seek_find.argprom.exit
+fast_seek_find.exit.thread:                       ; preds = %102, %97, %120, %fast_seek_find.exit
   %220 = getelementptr inbounds i8, ptr %0, i64 104
   %221 = load i32, ptr %220, align 8
   %222 = icmp eq i32 %221, 1
   br i1 %222, label %223, label %262
 
-223:                                              ; preds = %fast_seek_find.argprom.exit.thread
+223:                                              ; preds = %fast_seek_find.exit.thread
   %224 = getelementptr inbounds i8, ptr %0, i64 96
   %225 = load i64, ptr %224, align 8
   %.not188 = icmp slt i64 %100, %225
@@ -867,7 +867,7 @@ fast_seek_find.argprom.exit.thread:               ; preds = %102, %97, %120, %fa
   store i64 %261, ptr %98, align 8
   br label %311
 
-262:                                              ; preds = %231, %223, %fast_seek_find.argprom.exit.thread
+262:                                              ; preds = %231, %223, %fast_seek_find.exit.thread
   br i1 %63, label %263, label %..thread213_crit_edge
 
 ..thread213_crit_edge:                            ; preds = %262

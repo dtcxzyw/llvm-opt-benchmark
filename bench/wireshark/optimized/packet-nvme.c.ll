@@ -3453,7 +3453,7 @@ define hidden void @dissect_nvme_data_response(ptr noundef %0, ptr nocapture nou
 
 42:                                               ; preds = %29
   %43 = call ptr @val_to_str_const(i32 noundef %41, ptr noundef nonnull @ioq_opc_tbl, ptr noundef nonnull @.str.7) #10
-  br label %dissect_nvme_identify_resp.argprom.exit
+  br label %dissect_nvme_identify_resp.exit
 
 44:                                               ; preds = %29
   %45 = call ptr @val_to_str_const(i32 noundef %41, ptr noundef nonnull @aq_opc_tbl, ptr noundef nonnull @.str.7) #10
@@ -3468,7 +3468,7 @@ define hidden void @dissect_nvme_data_response(ptr noundef %0, ptr nocapture nou
 47:                                               ; preds = %44
   %48 = getelementptr i8, ptr %4, i64 120
   %.val = load i16, ptr %48, align 8
-  switch i16 %.val, label %dissect_nvme_identify_resp.argprom.exit [
+  switch i16 %.val, label %dissect_nvme_identify_resp.exit [
     i16 0, label %49
     i16 1, label %101
     i16 2, label %687
@@ -3544,7 +3544,7 @@ dissect_nvme_identify_ns_resp.exit.i:             ; preds = %dissect_nvme_identi
   %99 = add i32 %30, -384
   %100 = select i1 %98, i32 0, i32 %99
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.1771, i32 noundef %100) #10
-  br label %dissect_nvme_identify_resp.argprom.exit
+  br label %dissect_nvme_identify_resp.exit
 
 101:                                              ; preds = %47
   %.not.i12.i = icmp eq i32 %30, 0
@@ -3552,7 +3552,7 @@ dissect_nvme_identify_ns_resp.exit.i:             ; preds = %dissect_nvme_identi
 
 102:                                              ; preds = %101
   %103 = icmp ult i32 %5, 2
-  br i1 %103, label %dissect_nvme_identify_resp.argprom.exit, label %.thread.i.i
+  br i1 %103, label %dissect_nvme_identify_resp.exit, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %102
   %104 = load i32, ptr @hf_nvme_identify_ctrl_vid, align 4
@@ -3566,7 +3566,7 @@ dissect_nvme_identify_ns_resp.exit.i:             ; preds = %dissect_nvme_identi
 108:                                              ; preds = %106, %.thread.i.i
   %109 = sub nuw nsw i32 4, %30
   %110 = icmp ugt i32 %109, %5
-  br i1 %110, label %dissect_nvme_identify_resp.argprom.exit, label %.thread490.i.i
+  br i1 %110, label %dissect_nvme_identify_resp.exit, label %.thread490.i.i
 
 .thread490.i.i:                                   ; preds = %108
   %111 = sub nuw nsw i32 2, %30
@@ -3581,7 +3581,7 @@ dissect_nvme_identify_ns_resp.exit.i:             ; preds = %dissect_nvme_identi
 116:                                              ; preds = %114, %.thread490.i.i
   %117 = sub nuw nsw i32 24, %30
   %118 = icmp ugt i32 %117, %5
-  br i1 %118, label %dissect_nvme_identify_resp.argprom.exit, label %.thread491.i.i
+  br i1 %118, label %dissect_nvme_identify_resp.exit, label %.thread491.i.i
 
 .thread491.i.i:                                   ; preds = %116
   %119 = sub nuw nsw i32 4, %30
@@ -3596,7 +3596,7 @@ dissect_nvme_identify_ns_resp.exit.i:             ; preds = %dissect_nvme_identi
 124:                                              ; preds = %122, %.thread491.i.i
   %125 = sub nuw nsw i32 64, %30
   %126 = icmp ugt i32 %125, %5
-  br i1 %126, label %dissect_nvme_identify_resp.argprom.exit, label %.thread492.i.i
+  br i1 %126, label %dissect_nvme_identify_resp.exit, label %.thread492.i.i
 
 .thread492.i.i:                                   ; preds = %124
   %127 = sub nuw nsw i32 24, %30
@@ -3611,7 +3611,7 @@ dissect_nvme_identify_ns_resp.exit.i:             ; preds = %dissect_nvme_identi
 132:                                              ; preds = %130, %.thread492.i.i
   %133 = sub nuw nsw i32 72, %30
   %134 = icmp ugt i32 %133, %5
-  br i1 %134, label %dissect_nvme_identify_resp.argprom.exit, label %.thread493.i.i
+  br i1 %134, label %dissect_nvme_identify_resp.exit, label %.thread493.i.i
 
 .thread493.i.i:                                   ; preds = %132
   %135 = sub nuw nsw i32 64, %30
@@ -3626,7 +3626,7 @@ dissect_nvme_identify_ns_resp.exit.i:             ; preds = %dissect_nvme_identi
 140:                                              ; preds = %138, %.thread493.i.i
   %141 = sub nuw nsw i32 73, %30
   %142 = icmp ugt i32 %141, %5
-  br i1 %142, label %dissect_nvme_identify_resp.argprom.exit, label %.thread494.i.i
+  br i1 %142, label %dissect_nvme_identify_resp.exit, label %.thread494.i.i
 
 .thread494.i.i:                                   ; preds = %140
   %143 = sub nuw nsw i32 72, %30
@@ -3641,7 +3641,7 @@ dissect_nvme_identify_ns_resp.exit.i:             ; preds = %dissect_nvme_identi
 148:                                              ; preds = %146, %.thread494.i.i
   %149 = sub nuw nsw i32 76, %30
   %150 = icmp ugt i32 %149, %5
-  br i1 %150, label %dissect_nvme_identify_resp.argprom.exit, label %.thread495.i.i
+  br i1 %150, label %dissect_nvme_identify_resp.exit, label %.thread495.i.i
 
 .thread495.i.i:                                   ; preds = %148
   %151 = sub nuw nsw i32 73, %30
@@ -3656,7 +3656,7 @@ dissect_nvme_identify_ns_resp.exit.i:             ; preds = %dissect_nvme_identi
 156:                                              ; preds = %154, %.thread495.i.i
   %157 = sub nuw nsw i32 77, %30
   %158 = icmp ugt i32 %157, %5
-  br i1 %158, label %dissect_nvme_identify_resp.argprom.exit, label %159
+  br i1 %158, label %dissect_nvme_identify_resp.exit, label %159
 
 159:                                              ; preds = %156
   %160 = sub nuw nsw i32 76, %30
@@ -3682,7 +3682,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 170:                                              ; preds = %add_group_mask_entry.exit.i.i
   %171 = sub nuw nsw i32 78, %30
   %172 = icmp ugt i32 %171, %5
-  br i1 %172, label %dissect_nvme_identify_resp.argprom.exit, label %.thread496.i.i
+  br i1 %172, label %dissect_nvme_identify_resp.exit, label %.thread496.i.i
 
 .thread496.i.i:                                   ; preds = %170
   %173 = sub nuw nsw i32 77, %30
@@ -3697,7 +3697,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 178:                                              ; preds = %176, %.thread496.i.i
   %179 = sub nuw nsw i32 80, %30
   %180 = icmp ugt i32 %179, %5
-  br i1 %180, label %dissect_nvme_identify_resp.argprom.exit, label %.thread497.i.i
+  br i1 %180, label %dissect_nvme_identify_resp.exit, label %.thread497.i.i
 
 .thread497.i.i:                                   ; preds = %178
   %181 = sub nuw nsw i32 78, %30
@@ -3712,7 +3712,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 186:                                              ; preds = %184, %.thread497.i.i
   %187 = sub nuw nsw i32 84, %30
   %188 = icmp ugt i32 %187, %5
-  br i1 %188, label %dissect_nvme_identify_resp.argprom.exit, label %.thread498.i.i
+  br i1 %188, label %dissect_nvme_identify_resp.exit, label %.thread498.i.i
 
 .thread498.i.i:                                   ; preds = %186
   call fastcc void @dissect_nvme_identify_ctrl_resp_ver(ptr noundef %0, ptr noundef %36, i32 noundef %30)
@@ -3725,7 +3725,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 191:                                              ; preds = %189, %.thread498.i.i
   %192 = sub nuw nsw i32 88, %30
   %193 = icmp ugt i32 %192, %5
-  br i1 %193, label %dissect_nvme_identify_resp.argprom.exit, label %.thread499.i.i
+  br i1 %193, label %dissect_nvme_identify_resp.exit, label %.thread499.i.i
 
 .thread499.i.i:                                   ; preds = %191
   %194 = sub nuw nsw i32 84, %30
@@ -3740,7 +3740,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 199:                                              ; preds = %197, %.thread499.i.i
   %200 = sub nuw nsw i32 92, %30
   %201 = icmp ugt i32 %200, %5
-  br i1 %201, label %dissect_nvme_identify_resp.argprom.exit, label %.thread500.i.i
+  br i1 %201, label %dissect_nvme_identify_resp.exit, label %.thread500.i.i
 
 .thread500.i.i:                                   ; preds = %199
   %202 = sub nuw nsw i32 88, %30
@@ -3755,7 +3755,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 207:                                              ; preds = %205, %.thread500.i.i
   %208 = sub nuw nsw i32 96, %30
   %209 = icmp ugt i32 %208, %5
-  br i1 %209, label %dissect_nvme_identify_resp.argprom.exit, label %.thread501.i.i
+  br i1 %209, label %dissect_nvme_identify_resp.exit, label %.thread501.i.i
 
 .thread501.i.i:                                   ; preds = %207
   %210 = sub nuw nsw i32 92, %30
@@ -3769,7 +3769,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 213:                                              ; preds = %211, %.thread501.i.i
   %214 = sub nuw nsw i32 100, %30
   %215 = icmp ugt i32 %214, %5
-  br i1 %215, label %dissect_nvme_identify_resp.argprom.exit, label %.thread502.i.i
+  br i1 %215, label %dissect_nvme_identify_resp.exit, label %.thread502.i.i
 
 .thread502.i.i:                                   ; preds = %213
   %216 = sub nuw nsw i32 96, %30
@@ -3783,7 +3783,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 219:                                              ; preds = %217, %.thread502.i.i
   %220 = sub nuw nsw i32 102, %30
   %221 = icmp ugt i32 %220, %5
-  br i1 %221, label %dissect_nvme_identify_resp.argprom.exit, label %.thread503.i.i
+  br i1 %221, label %dissect_nvme_identify_resp.exit, label %.thread503.i.i
 
 .thread503.i.i:                                   ; preds = %219
   %222 = sub nuw nsw i32 100, %30
@@ -3797,7 +3797,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 225:                                              ; preds = %223, %.thread503.i.i
   %226 = sub nuw nsw i32 111, %30
   %227 = icmp ugt i32 %226, %5
-  br i1 %227, label %dissect_nvme_identify_resp.argprom.exit, label %.thread504.i.i
+  br i1 %227, label %dissect_nvme_identify_resp.exit, label %.thread504.i.i
 
 .thread504.i.i:                                   ; preds = %225
   %228 = sub nuw nsw i32 102, %30
@@ -3812,7 +3812,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 233:                                              ; preds = %231, %.thread504.i.i
   %234 = sub nuw nsw i32 112, %30
   %235 = icmp ugt i32 %234, %5
-  br i1 %235, label %dissect_nvme_identify_resp.argprom.exit, label %.thread505.i.i
+  br i1 %235, label %dissect_nvme_identify_resp.exit, label %.thread505.i.i
 
 .thread505.i.i:                                   ; preds = %233
   %236 = sub nuw nsw i32 111, %30
@@ -3827,7 +3827,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 241:                                              ; preds = %239, %.thread505.i.i
   %242 = sub nuw nsw i32 128, %30
   %243 = icmp ugt i32 %242, %5
-  br i1 %243, label %dissect_nvme_identify_resp.argprom.exit, label %.thread506.i.i
+  br i1 %243, label %dissect_nvme_identify_resp.exit, label %.thread506.i.i
 
 .thread506.i.i:                                   ; preds = %241
   call fastcc void @dissect_nvme_identify_ctrl_resp_fguid(ptr noundef %0, ptr noundef %36, i32 noundef %30)
@@ -3840,7 +3840,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 246:                                              ; preds = %244, %.thread506.i.i
   %247 = sub nuw nsw i32 130, %30
   %248 = icmp ugt i32 %247, %5
-  br i1 %248, label %dissect_nvme_identify_resp.argprom.exit, label %.thread507.i.i
+  br i1 %248, label %dissect_nvme_identify_resp.exit, label %.thread507.i.i
 
 .thread507.i.i:                                   ; preds = %246
   %249 = sub nuw nsw i32 128, %30
@@ -3855,7 +3855,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 254:                                              ; preds = %252, %.thread507.i.i
   %255 = sub nuw nsw i32 132, %30
   %256 = icmp ugt i32 %255, %5
-  br i1 %256, label %dissect_nvme_identify_resp.argprom.exit, label %.thread508.i.i
+  br i1 %256, label %dissect_nvme_identify_resp.exit, label %.thread508.i.i
 
 .thread508.i.i:                                   ; preds = %254
   %257 = sub nuw nsw i32 130, %30
@@ -3870,7 +3870,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 262:                                              ; preds = %260, %.thread508.i.i
   %263 = sub nuw nsw i32 134, %30
   %264 = icmp ugt i32 %263, %5
-  br i1 %264, label %dissect_nvme_identify_resp.argprom.exit, label %265
+  br i1 %264, label %dissect_nvme_identify_resp.exit, label %265
 
 265:                                              ; preds = %262
   %266 = sub nuw nsw i32 132, %30
@@ -3878,7 +3878,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
   %268 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %267, ptr noundef %0, i32 noundef %266, i32 noundef 2, i32 noundef -2147483648) #10
   %269 = sub nuw nsw i32 136, %30
   %270 = icmp ugt i32 %269, %5
-  br i1 %270, label %dissect_nvme_identify_resp.argprom.exit, label %.critedge.thread.i.i
+  br i1 %270, label %dissect_nvme_identify_resp.exit, label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %265
   %271 = load i32, ptr @hf_nvme_identify_ctrl_rsvd1, align 4
@@ -3892,7 +3892,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 274:                                              ; preds = %.critedge.i.i, %.critedge.thread.i.i
   %275 = sub nuw nsw i32 256, %30
   %276 = icmp ugt i32 %275, %5
-  br i1 %276, label %dissect_nvme_identify_resp.argprom.exit, label %.thread509.i.i
+  br i1 %276, label %dissect_nvme_identify_resp.exit, label %.thread509.i.i
 
 .thread509.i.i:                                   ; preds = %274
   call fastcc void @dissect_nvme_identify_ctrl_resp_mi(ptr noundef %0, ptr noundef %36, i32 noundef %30)
@@ -3905,7 +3905,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 279:                                              ; preds = %277, %.thread509.i.i
   %280 = sub nuw nsw i32 258, %30
   %281 = icmp ugt i32 %280, %5
-  br i1 %281, label %dissect_nvme_identify_resp.argprom.exit, label %.thread510.i.i
+  br i1 %281, label %dissect_nvme_identify_resp.exit, label %.thread510.i.i
 
 .thread510.i.i:                                   ; preds = %279
   %282 = sub nuw nsw i32 256, %30
@@ -3919,7 +3919,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 285:                                              ; preds = %283, %.thread510.i.i
   %286 = sub nuw nsw i32 259, %30
   %287 = icmp ugt i32 %286, %5
-  br i1 %287, label %dissect_nvme_identify_resp.argprom.exit, label %.thread511.i.i
+  br i1 %287, label %dissect_nvme_identify_resp.exit, label %.thread511.i.i
 
 .thread511.i.i:                                   ; preds = %285
   %288 = sub nuw nsw i32 258, %30
@@ -3934,7 +3934,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 293:                                              ; preds = %291, %.thread511.i.i
   %294 = sub nuw nsw i32 260, %30
   %295 = icmp ugt i32 %294, %5
-  br i1 %295, label %dissect_nvme_identify_resp.argprom.exit, label %.thread512.i.i
+  br i1 %295, label %dissect_nvme_identify_resp.exit, label %.thread512.i.i
 
 .thread512.i.i:                                   ; preds = %293
   %296 = sub nuw nsw i32 259, %30
@@ -3949,7 +3949,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 301:                                              ; preds = %299, %.thread512.i.i
   %302 = sub nuw nsw i32 261, %30
   %303 = icmp ugt i32 %302, %5
-  br i1 %303, label %dissect_nvme_identify_resp.argprom.exit, label %.thread513.i.i
+  br i1 %303, label %dissect_nvme_identify_resp.exit, label %.thread513.i.i
 
 .thread513.i.i:                                   ; preds = %301
   call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef 260, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_frmw, i32 noundef 5)
@@ -3962,7 +3962,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 306:                                              ; preds = %304, %.thread513.i.i
   %307 = sub nuw nsw i32 262, %30
   %308 = icmp ugt i32 %307, %5
-  br i1 %308, label %dissect_nvme_identify_resp.argprom.exit, label %.thread514.i.i
+  br i1 %308, label %dissect_nvme_identify_resp.exit, label %.thread514.i.i
 
 .thread514.i.i:                                   ; preds = %306
   %309 = sub nuw nsw i32 261, %30
@@ -3976,7 +3976,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 312:                                              ; preds = %310, %.thread514.i.i
   %313 = sub nuw nsw i32 263, %30
   %314 = icmp ugt i32 %313, %5
-  br i1 %314, label %dissect_nvme_identify_resp.argprom.exit, label %.thread515.i.i
+  br i1 %314, label %dissect_nvme_identify_resp.exit, label %.thread515.i.i
 
 .thread515.i.i:                                   ; preds = %312
   %315 = sub nuw nsw i32 262, %30
@@ -3991,7 +3991,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 320:                                              ; preds = %318, %.thread515.i.i
   %321 = sub nuw nsw i32 264, %30
   %322 = icmp ugt i32 %321, %5
-  br i1 %322, label %dissect_nvme_identify_resp.argprom.exit, label %.thread516.i.i
+  br i1 %322, label %dissect_nvme_identify_resp.exit, label %.thread516.i.i
 
 .thread516.i.i:                                   ; preds = %320
   %323 = sub nuw nsw i32 263, %30
@@ -4006,7 +4006,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 328:                                              ; preds = %326, %.thread516.i.i
   %329 = sub nuw nsw i32 265, %30
   %330 = icmp ugt i32 %329, %5
-  br i1 %330, label %dissect_nvme_identify_resp.argprom.exit, label %.thread517.i.i
+  br i1 %330, label %dissect_nvme_identify_resp.exit, label %.thread517.i.i
 
 .thread517.i.i:                                   ; preds = %328
   %331 = sub nuw nsw i32 264, %30
@@ -4020,7 +4020,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 334:                                              ; preds = %332, %.thread517.i.i
   %335 = sub nuw nsw i32 266, %30
   %336 = icmp ugt i32 %335, %5
-  br i1 %336, label %dissect_nvme_identify_resp.argprom.exit, label %.thread518.i.i
+  br i1 %336, label %dissect_nvme_identify_resp.exit, label %.thread518.i.i
 
 .thread518.i.i:                                   ; preds = %334
   %337 = sub nuw nsw i32 265, %30
@@ -4034,7 +4034,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 340:                                              ; preds = %338, %.thread518.i.i
   %341 = sub nuw nsw i32 267, %30
   %342 = icmp ugt i32 %341, %5
-  br i1 %342, label %dissect_nvme_identify_resp.argprom.exit, label %.thread519.i.i
+  br i1 %342, label %dissect_nvme_identify_resp.exit, label %.thread519.i.i
 
 .thread519.i.i:                                   ; preds = %340
   %343 = sub nuw nsw i32 266, %30
@@ -4049,7 +4049,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 348:                                              ; preds = %346, %.thread519.i.i
   %349 = sub nuw nsw i32 270, %30
   %350 = icmp ugt i32 %349, %5
-  br i1 %350, label %dissect_nvme_identify_resp.argprom.exit, label %.thread520.i.i
+  br i1 %350, label %dissect_nvme_identify_resp.exit, label %.thread520.i.i
 
 .thread520.i.i:                                   ; preds = %348
   %351 = sub nuw nsw i32 268, %30
@@ -4064,7 +4064,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 356:                                              ; preds = %354, %.thread520.i.i
   %357 = sub nuw nsw i32 272, %30
   %358 = icmp ugt i32 %357, %5
-  br i1 %358, label %dissect_nvme_identify_resp.argprom.exit, label %.thread521.i.i
+  br i1 %358, label %dissect_nvme_identify_resp.exit, label %.thread521.i.i
 
 .thread521.i.i:                                   ; preds = %356
   %359 = sub nuw nsw i32 270, %30
@@ -4079,7 +4079,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 364:                                              ; preds = %362, %.thread521.i.i
   %365 = sub nuw nsw i32 276, %30
   %366 = icmp ugt i32 %365, %5
-  br i1 %366, label %dissect_nvme_identify_resp.argprom.exit, label %.thread522.i.i
+  br i1 %366, label %dissect_nvme_identify_resp.exit, label %.thread522.i.i
 
 .thread522.i.i:                                   ; preds = %364
   %367 = sub nuw nsw i32 272, %30
@@ -4094,7 +4094,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 372:                                              ; preds = %370, %.thread522.i.i
   %373 = sub nuw nsw i32 280, %30
   %374 = icmp ugt i32 %373, %5
-  br i1 %374, label %dissect_nvme_identify_resp.argprom.exit, label %.thread523.i.i
+  br i1 %374, label %dissect_nvme_identify_resp.exit, label %.thread523.i.i
 
 .thread523.i.i:                                   ; preds = %372
   %375 = sub nuw nsw i32 276, %30
@@ -4109,7 +4109,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 380:                                              ; preds = %378, %.thread523.i.i
   %381 = sub nuw nsw i32 296, %30
   %382 = icmp ugt i32 %381, %5
-  br i1 %382, label %dissect_nvme_identify_resp.argprom.exit, label %.thread524.i.i
+  br i1 %382, label %dissect_nvme_identify_resp.exit, label %.thread524.i.i
 
 .thread524.i.i:                                   ; preds = %380
   %383 = sub nuw nsw i32 280, %30
@@ -4125,7 +4125,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 388:                                              ; preds = %386, %.thread524.i.i
   %389 = sub nuw nsw i32 312, %30
   %390 = icmp ugt i32 %389, %5
-  br i1 %390, label %dissect_nvme_identify_resp.argprom.exit, label %.thread525.i.i
+  br i1 %390, label %dissect_nvme_identify_resp.exit, label %.thread525.i.i
 
 .thread525.i.i:                                   ; preds = %388
   %391 = sub nuw nsw i32 296, %30
@@ -4141,7 +4141,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 396:                                              ; preds = %394, %.thread525.i.i
   %397 = sub nuw nsw i32 316, %30
   %398 = icmp ugt i32 %397, %5
-  br i1 %398, label %dissect_nvme_identify_resp.argprom.exit, label %.thread526.i.i
+  br i1 %398, label %dissect_nvme_identify_resp.exit, label %.thread526.i.i
 
 .thread526.i.i:                                   ; preds = %396
   %399 = sub nuw nsw i32 312, %30
@@ -4155,7 +4155,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 402:                                              ; preds = %400, %.thread526.i.i
   %403 = sub nuw nsw i32 318, %30
   %404 = icmp ugt i32 %403, %5
-  br i1 %404, label %dissect_nvme_identify_resp.argprom.exit, label %.thread527.i.i
+  br i1 %404, label %dissect_nvme_identify_resp.exit, label %.thread527.i.i
 
 .thread527.i.i:                                   ; preds = %402
   %405 = sub nuw nsw i32 316, %30
@@ -4170,7 +4170,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 410:                                              ; preds = %408, %.thread527.i.i
   %411 = sub nuw nsw i32 319, %30
   %412 = icmp ugt i32 %411, %5
-  br i1 %412, label %dissect_nvme_identify_resp.argprom.exit, label %.thread528.i.i
+  br i1 %412, label %dissect_nvme_identify_resp.exit, label %.thread528.i.i
 
 .thread528.i.i:                                   ; preds = %410
   %413 = sub nuw nsw i32 318, %30
@@ -4184,7 +4184,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 416:                                              ; preds = %414, %.thread528.i.i
   %417 = sub nuw nsw i32 320, %30
   %418 = icmp ugt i32 %417, %5
-  br i1 %418, label %dissect_nvme_identify_resp.argprom.exit, label %.thread529.i.i
+  br i1 %418, label %dissect_nvme_identify_resp.exit, label %.thread529.i.i
 
 .thread529.i.i:                                   ; preds = %416
   %419 = sub nuw nsw i32 319, %30
@@ -4199,7 +4199,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 424:                                              ; preds = %422, %.thread529.i.i
   %425 = sub nuw nsw i32 322, %30
   %426 = icmp ugt i32 %425, %5
-  br i1 %426, label %dissect_nvme_identify_resp.argprom.exit, label %.thread530.i.i
+  br i1 %426, label %dissect_nvme_identify_resp.exit, label %.thread530.i.i
 
 .thread530.i.i:                                   ; preds = %424
   %427 = sub nuw nsw i32 320, %30
@@ -4214,7 +4214,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 432:                                              ; preds = %430, %.thread530.i.i
   %433 = sub nuw nsw i32 324, %30
   %434 = icmp ugt i32 %433, %5
-  br i1 %434, label %dissect_nvme_identify_resp.argprom.exit, label %.thread531.i.i
+  br i1 %434, label %dissect_nvme_identify_resp.exit, label %.thread531.i.i
 
 .thread531.i.i:                                   ; preds = %432
   %435 = sub nuw nsw i32 322, %30
@@ -4228,7 +4228,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 438:                                              ; preds = %436, %.thread531.i.i
   %439 = sub nuw nsw i32 326, %30
   %440 = icmp ugt i32 %439, %5
-  br i1 %440, label %dissect_nvme_identify_resp.argprom.exit, label %.thread532.i.i
+  br i1 %440, label %dissect_nvme_identify_resp.exit, label %.thread532.i.i
 
 .thread532.i.i:                                   ; preds = %438
   %441 = sub nuw nsw i32 324, %30
@@ -4243,7 +4243,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 446:                                              ; preds = %444, %.thread532.i.i
   %447 = sub nuw nsw i32 328, %30
   %448 = icmp ugt i32 %447, %5
-  br i1 %448, label %dissect_nvme_identify_resp.argprom.exit, label %.thread533.i.i
+  br i1 %448, label %dissect_nvme_identify_resp.exit, label %.thread533.i.i
 
 .thread533.i.i:                                   ; preds = %446
   %449 = sub nuw nsw i32 326, %30
@@ -4258,7 +4258,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 454:                                              ; preds = %452, %.thread533.i.i
   %455 = sub nuw nsw i32 330, %30
   %456 = icmp ugt i32 %455, %5
-  br i1 %456, label %dissect_nvme_identify_resp.argprom.exit, label %.thread534.i.i
+  br i1 %456, label %dissect_nvme_identify_resp.exit, label %.thread534.i.i
 
 .thread534.i.i:                                   ; preds = %454
   %457 = sub nuw nsw i32 328, %30
@@ -4272,7 +4272,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 460:                                              ; preds = %458, %.thread534.i.i
   %461 = sub nuw nsw i32 336, %30
   %462 = icmp ugt i32 %461, %5
-  br i1 %462, label %dissect_nvme_identify_resp.argprom.exit, label %.thread535.i.i
+  br i1 %462, label %dissect_nvme_identify_resp.exit, label %.thread535.i.i
 
 .thread535.i.i:                                   ; preds = %460
   %463 = sub nuw nsw i32 332, %30
@@ -4287,7 +4287,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 468:                                              ; preds = %466, %.thread535.i.i
   %469 = sub nuw nsw i32 338, %30
   %470 = icmp ugt i32 %469, %5
-  br i1 %470, label %dissect_nvme_identify_resp.argprom.exit, label %.thread536.i.i
+  br i1 %470, label %dissect_nvme_identify_resp.exit, label %.thread536.i.i
 
 .thread536.i.i:                                   ; preds = %468
   %471 = sub nuw nsw i32 336, %30
@@ -4302,7 +4302,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 476:                                              ; preds = %474, %.thread536.i.i
   %477 = sub nuw nsw i32 340, %30
   %478 = icmp ugt i32 %477, %5
-  br i1 %478, label %dissect_nvme_identify_resp.argprom.exit, label %.thread537.i.i
+  br i1 %478, label %dissect_nvme_identify_resp.exit, label %.thread537.i.i
 
 .thread537.i.i:                                   ; preds = %476
   %479 = sub nuw nsw i32 338, %30
@@ -4317,7 +4317,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 484:                                              ; preds = %482, %.thread537.i.i
   %485 = sub nuw nsw i32 342, %30
   %486 = icmp ugt i32 %485, %5
-  br i1 %486, label %dissect_nvme_identify_resp.argprom.exit, label %.thread538.i.i
+  br i1 %486, label %dissect_nvme_identify_resp.exit, label %.thread538.i.i
 
 .thread538.i.i:                                   ; preds = %484
   %487 = sub nuw nsw i32 340, %30
@@ -4332,7 +4332,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 492:                                              ; preds = %490, %.thread538.i.i
   %493 = sub nuw nsw i32 344, %30
   %494 = icmp ugt i32 %493, %5
-  br i1 %494, label %dissect_nvme_identify_resp.argprom.exit, label %.thread539.i.i
+  br i1 %494, label %dissect_nvme_identify_resp.exit, label %.thread539.i.i
 
 .thread539.i.i:                                   ; preds = %492
   %495 = sub nuw nsw i32 342, %30
@@ -4347,7 +4347,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 ._crit_edge.i.i:                                  ; preds = %498, %.thread539.i.i
   %.pre-phi.i.i = phi i32 [ %493, %.thread539.i.i ], [ 1, %498 ]
   %500 = icmp ugt i32 %.pre-phi.i.i, %5
-  br i1 %500, label %dissect_nvme_identify_resp.argprom.exit, label %.thread540.i.i
+  br i1 %500, label %dissect_nvme_identify_resp.exit, label %.thread540.i.i
 
 .thread540.i.i:                                   ; preds = %._crit_edge.i.i
   %501 = sub nuw nsw i32 343, %30
@@ -4361,7 +4361,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 504:                                              ; preds = %502, %.thread540.i.i
   %505 = sub nuw nsw i32 348, %30
   %506 = icmp ugt i32 %505, %5
-  br i1 %506, label %dissect_nvme_identify_resp.argprom.exit, label %.thread541.i.i
+  br i1 %506, label %dissect_nvme_identify_resp.exit, label %.thread541.i.i
 
 .thread541.i.i:                                   ; preds = %504
   %507 = sub nuw nsw i32 344, %30
@@ -4376,7 +4376,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 512:                                              ; preds = %510, %.thread541.i.i
   %513 = sub nuw nsw i32 352, %30
   %514 = icmp ugt i32 %513, %5
-  br i1 %514, label %dissect_nvme_identify_resp.argprom.exit, label %.thread542.i.i
+  br i1 %514, label %dissect_nvme_identify_resp.exit, label %.thread542.i.i
 
 .thread542.i.i:                                   ; preds = %512
   %515 = sub nuw nsw i32 348, %30
@@ -4391,7 +4391,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 520:                                              ; preds = %518, %.thread542.i.i
   %521 = sub nuw nsw i32 356, %30
   %522 = icmp ugt i32 %521, %5
-  br i1 %522, label %dissect_nvme_identify_resp.argprom.exit, label %.thread543.i.i
+  br i1 %522, label %dissect_nvme_identify_resp.exit, label %.thread543.i.i
 
 .thread543.i.i:                                   ; preds = %520
   %523 = sub nuw nsw i32 352, %30
@@ -4406,7 +4406,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 528:                                              ; preds = %526, %.thread543.i.i
   %529 = sub nuw nsw i32 512, %30
   %530 = icmp ugt i32 %529, %5
-  br i1 %530, label %dissect_nvme_identify_resp.argprom.exit, label %.thread544.i.i
+  br i1 %530, label %dissect_nvme_identify_resp.exit, label %.thread544.i.i
 
 .thread544.i.i:                                   ; preds = %528
   %531 = sub nuw nsw i32 356, %30
@@ -4421,7 +4421,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 536:                                              ; preds = %534, %.thread544.i.i
   %537 = sub nuw nsw i32 513, %30
   %538 = icmp ugt i32 %537, %5
-  br i1 %538, label %dissect_nvme_identify_resp.argprom.exit, label %.thread545.i.i
+  br i1 %538, label %dissect_nvme_identify_resp.exit, label %.thread545.i.i
 
 .thread545.i.i:                                   ; preds = %536
   %539 = sub nuw nsw i32 512, %30
@@ -4435,7 +4435,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 542:                                              ; preds = %540, %.thread545.i.i
   %543 = sub nuw nsw i32 514, %30
   %544 = icmp ugt i32 %543, %5
-  br i1 %544, label %dissect_nvme_identify_resp.argprom.exit, label %.thread546.i.i
+  br i1 %544, label %dissect_nvme_identify_resp.exit, label %.thread546.i.i
 
 .thread546.i.i:                                   ; preds = %542
   %545 = sub nuw nsw i32 513, %30
@@ -4449,7 +4449,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 548:                                              ; preds = %546, %.thread546.i.i
   %549 = sub nuw nsw i32 516, %30
   %550 = icmp ugt i32 %549, %5
-  br i1 %550, label %dissect_nvme_identify_resp.argprom.exit, label %.thread547.i.i
+  br i1 %550, label %dissect_nvme_identify_resp.exit, label %.thread547.i.i
 
 .thread547.i.i:                                   ; preds = %548
   %551 = sub nuw nsw i32 514, %30
@@ -4464,7 +4464,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 556:                                              ; preds = %554, %.thread547.i.i
   %557 = sub nuw nsw i32 520, %30
   %558 = icmp ugt i32 %557, %5
-  br i1 %558, label %dissect_nvme_identify_resp.argprom.exit, label %.thread548.i.i
+  br i1 %558, label %dissect_nvme_identify_resp.exit, label %.thread548.i.i
 
 .thread548.i.i:                                   ; preds = %556
   %559 = sub nuw nsw i32 516, %30
@@ -4479,7 +4479,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 564:                                              ; preds = %562, %.thread548.i.i
   %565 = sub nuw nsw i32 522, %30
   %566 = icmp ugt i32 %565, %5
-  br i1 %566, label %dissect_nvme_identify_resp.argprom.exit, label %.thread549.i.i
+  br i1 %566, label %dissect_nvme_identify_resp.exit, label %.thread549.i.i
 
 .thread549.i.i:                                   ; preds = %564
   %567 = sub nuw nsw i32 520, %30
@@ -4493,7 +4493,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 570:                                              ; preds = %568, %.thread549.i.i
   %571 = sub nuw nsw i32 524, %30
   %572 = icmp ugt i32 %571, %5
-  br i1 %572, label %dissect_nvme_identify_resp.argprom.exit, label %.thread550.i.i
+  br i1 %572, label %dissect_nvme_identify_resp.exit, label %.thread550.i.i
 
 .thread550.i.i:                                   ; preds = %570
   %573 = sub nuw nsw i32 522, %30
@@ -4507,7 +4507,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 576:                                              ; preds = %574, %.thread550.i.i
   %577 = sub nuw nsw i32 525, %30
   %578 = icmp ugt i32 %577, %5
-  br i1 %578, label %dissect_nvme_identify_resp.argprom.exit, label %.thread551.i.i
+  br i1 %578, label %dissect_nvme_identify_resp.exit, label %.thread551.i.i
 
 .thread551.i.i:                                   ; preds = %576
   %579 = sub nuw nsw i32 524, %30
@@ -4521,7 +4521,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 582:                                              ; preds = %580, %.thread551.i.i
   %583 = sub nuw nsw i32 526, %30
   %584 = icmp ugt i32 %583, %5
-  br i1 %584, label %dissect_nvme_identify_resp.argprom.exit, label %.thread552.i.i
+  br i1 %584, label %dissect_nvme_identify_resp.exit, label %.thread552.i.i
 
 .thread552.i.i:                                   ; preds = %582
   %585 = sub nuw nsw i32 525, %30
@@ -4535,7 +4535,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 588:                                              ; preds = %586, %.thread552.i.i
   %589 = sub nuw nsw i32 528, %30
   %590 = icmp ugt i32 %589, %5
-  br i1 %590, label %dissect_nvme_identify_resp.argprom.exit, label %.thread553.i.i
+  br i1 %590, label %dissect_nvme_identify_resp.exit, label %.thread553.i.i
 
 .thread553.i.i:                                   ; preds = %588
   %591 = sub nuw nsw i32 526, %30
@@ -4550,7 +4550,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 596:                                              ; preds = %594, %.thread553.i.i
   %597 = sub nuw nsw i32 530, %30
   %598 = icmp ugt i32 %597, %5
-  br i1 %598, label %dissect_nvme_identify_resp.argprom.exit, label %.thread554.i.i
+  br i1 %598, label %dissect_nvme_identify_resp.exit, label %.thread554.i.i
 
 .thread554.i.i:                                   ; preds = %596
   %599 = sub nuw nsw i32 528, %30
@@ -4565,7 +4565,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 604:                                              ; preds = %602, %.thread554.i.i
   %605 = sub nuw nsw i32 531, %30
   %606 = icmp ugt i32 %605, %5
-  br i1 %606, label %dissect_nvme_identify_resp.argprom.exit, label %.thread555.i.i
+  br i1 %606, label %dissect_nvme_identify_resp.exit, label %.thread555.i.i
 
 .thread555.i.i:                                   ; preds = %604
   %607 = sub nuw nsw i32 530, %30
@@ -4579,7 +4579,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 610:                                              ; preds = %608, %.thread555.i.i
   %611 = sub nuw nsw i32 532, %30
   %612 = icmp ugt i32 %611, %5
-  br i1 %612, label %dissect_nvme_identify_resp.argprom.exit, label %.thread556.i.i
+  br i1 %612, label %dissect_nvme_identify_resp.exit, label %.thread556.i.i
 
 .thread556.i.i:                                   ; preds = %610
   %613 = sub nuw nsw i32 531, %30
@@ -4593,7 +4593,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 616:                                              ; preds = %614, %.thread556.i.i
   %617 = sub nuw nsw i32 535, %30
   %618 = icmp ugt i32 %617, %5
-  br i1 %618, label %dissect_nvme_identify_resp.argprom.exit, label %.thread557.i.i
+  br i1 %618, label %dissect_nvme_identify_resp.exit, label %.thread557.i.i
 
 .thread557.i.i:                                   ; preds = %616
   %619 = sub nuw nsw i32 532, %30
@@ -4608,7 +4608,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 624:                                              ; preds = %622, %.thread557.i.i
   %625 = sub nuw nsw i32 536, %30
   %626 = icmp ugt i32 %625, %5
-  br i1 %626, label %dissect_nvme_identify_resp.argprom.exit, label %.thread558.i.i
+  br i1 %626, label %dissect_nvme_identify_resp.exit, label %.thread558.i.i
 
 .thread558.i.i:                                   ; preds = %624
   %627 = sub nuw nsw i32 534, %30
@@ -4623,7 +4623,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 632:                                              ; preds = %630, %.thread558.i.i
   %633 = sub nuw nsw i32 540, %30
   %634 = icmp ugt i32 %633, %5
-  br i1 %634, label %dissect_nvme_identify_resp.argprom.exit, label %.thread559.i.i
+  br i1 %634, label %dissect_nvme_identify_resp.exit, label %.thread559.i.i
 
 .thread559.i.i:                                   ; preds = %632
   %635 = sub nuw nsw i32 536, %30
@@ -4637,7 +4637,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 638:                                              ; preds = %636, %.thread559.i.i
   %639 = sub nuw nsw i32 544, %30
   %640 = icmp ugt i32 %639, %5
-  br i1 %640, label %dissect_nvme_identify_resp.argprom.exit, label %.thread560.i.i
+  br i1 %640, label %dissect_nvme_identify_resp.exit, label %.thread560.i.i
 
 .thread560.i.i:                                   ; preds = %638
   %641 = sub nuw nsw i32 540, %30
@@ -4652,7 +4652,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 646:                                              ; preds = %644, %.thread560.i.i
   %647 = sub nuw nsw i32 768, %30
   %648 = icmp ugt i32 %647, %5
-  br i1 %648, label %dissect_nvme_identify_resp.argprom.exit, label %.thread561.i.i
+  br i1 %648, label %dissect_nvme_identify_resp.exit, label %.thread561.i.i
 
 .thread561.i.i:                                   ; preds = %646
   %649 = sub nuw nsw i32 544, %30
@@ -4667,7 +4667,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 654:                                              ; preds = %652, %.thread561.i.i
   %655 = sub nuw nsw i32 1024, %30
   %656 = icmp ugt i32 %655, %5
-  br i1 %656, label %dissect_nvme_identify_resp.argprom.exit, label %.thread562.i.i
+  br i1 %656, label %dissect_nvme_identify_resp.exit, label %.thread562.i.i
 
 .thread562.i.i:                                   ; preds = %654
   %657 = sub nuw nsw i32 768, %30
@@ -4682,7 +4682,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 662:                                              ; preds = %660, %.thread562.i.i
   %663 = sub nuw nsw i32 1792, %30
   %664 = icmp ugt i32 %663, %5
-  br i1 %664, label %dissect_nvme_identify_resp.argprom.exit, label %.thread563.i.i
+  br i1 %664, label %dissect_nvme_identify_resp.exit, label %.thread563.i.i
 
 .thread563.i.i:                                   ; preds = %662
   %665 = sub nuw nsw i32 1024, %30
@@ -4697,7 +4697,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 670:                                              ; preds = %668, %.thread563.i.i
   %671 = sub nuw nsw i32 2048, %30
   %672 = icmp ugt i32 %671, %5
-  br i1 %672, label %dissect_nvme_identify_resp.argprom.exit, label %.thread564.i.i
+  br i1 %672, label %dissect_nvme_identify_resp.exit, label %.thread564.i.i
 
 .thread564.i.i:                                   ; preds = %670
   call fastcc void @dissect_nvme_identify_ctrl_resp_nvmeof(ptr noundef %0, ptr noundef %36, i32 noundef %30)
@@ -4710,7 +4710,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 675:                                              ; preds = %673, %.thread564.i.i
   %676 = sub nuw nsw i32 3072, %30
   %677 = icmp ugt i32 %676, %5
-  br i1 %677, label %dissect_nvme_identify_resp.argprom.exit, label %678
+  br i1 %677, label %dissect_nvme_identify_resp.exit, label %678
 
 678:                                              ; preds = %675
   call fastcc void @dissect_nvme_identify_ctrl_resp_power_state_descriptors(ptr noundef %0, ptr noundef %36, i32 noundef %30)
@@ -4721,19 +4721,19 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
   %681 = sub nuw nsw i32 4096, %30
   %682 = icmp ugt i32 %681, %5
   %or.cond.i.i = select i1 %680, i1 true, i1 %682
-  br i1 %or.cond.i.i, label %dissect_nvme_identify_resp.argprom.exit, label %683
+  br i1 %or.cond.i.i, label %dissect_nvme_identify_resp.exit, label %683
 
 683:                                              ; preds = %679
   %684 = sub nuw nsw i32 3072, %30
   %685 = load i32, ptr @hf_nvme_identify_ctrl_vs, align 4
   %686 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %685, ptr noundef %0, i32 noundef %684, i32 noundef 1024, i32 noundef 0) #10
-  br label %dissect_nvme_identify_resp.argprom.exit
+  br label %dissect_nvme_identify_resp.exit
 
 687:                                              ; preds = %47
   %688 = icmp ult i32 %30, 4096
   %689 = icmp ugt i32 %5, 3
   %690 = and i1 %689, %688
-  br i1 %690, label %.lr.ph.i.i, label %dissect_nvme_identify_resp.argprom.exit
+  br i1 %690, label %.lr.ph.i.i, label %dissect_nvme_identify_resp.exit
 
 .lr.ph.i.i:                                       ; preds = %687, %694
   %691 = phi i32 [ %700, %694 ], [ 4, %687 ]
@@ -4741,7 +4741,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
   %.01316.i.i = phi i32 [ %698, %694 ], [ %30, %687 ]
   %692 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.017.i.i, i32 noundef -2147483648) #10
   %693 = icmp eq i32 %692, 0
-  br i1 %693, label %dissect_nvme_identify_resp.argprom.exit, label %694
+  br i1 %693, label %dissect_nvme_identify_resp.exit, label %694
 
 694:                                              ; preds = %.lr.ph.i.i
   %695 = load i32, ptr @hf_nvme_identify_nslist_nsid, align 4
@@ -4753,11 +4753,11 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
   %700 = add nuw nsw i32 %691, 4
   %701 = icmp ule i32 %700, %5
   %702 = select i1 %699, i1 %701, i1 false
-  br i1 %702, label %.lr.ph.i.i, label %dissect_nvme_identify_resp.argprom.exit, !llvm.loop !7
+  br i1 %702, label %.lr.ph.i.i, label %dissect_nvme_identify_resp.exit, !llvm.loop !7
 
 703:                                              ; preds = %44
   call fastcc void @dissect_nvme_get_logpage_resp(ptr noundef %0, ptr noundef %36, ptr noundef nonnull %4, i32 noundef %30, i32 noundef %5)
-  br label %dissect_nvme_identify_resp.argprom.exit
+  br label %dissect_nvme_identify_resp.exit
 
 704:                                              ; preds = %44, %44
   %705 = getelementptr inbounds i8, ptr %4, i64 120
@@ -4772,7 +4772,7 @@ add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
 
 707:                                              ; preds = %704
   %708 = icmp ugt i32 %5, 63
-  br i1 %708, label %.lr.ph.i.i50, label %dissect_nvme_identify_resp.argprom.exit
+  br i1 %708, label %.lr.ph.i.i50, label %dissect_nvme_identify_resp.exit
 
 .lr.ph.i.i50:                                     ; preds = %707, %add_group_mask_entry.exit.i.i54
   %.030.i.i = phi i32 [ %742, %add_group_mask_entry.exit.i.i54 ], [ 0, %707 ]
@@ -4820,11 +4820,11 @@ add_group_mask_entry.exit.i.i54:                  ; preds = %722
   %741 = add i32 %.02829.i.i, -64
   %742 = add i32 %.030.i.i, 64
   %743 = icmp ugt i32 %741, 63
-  br i1 %743, label %.lr.ph.i.i50, label %dissect_nvme_identify_resp.argprom.exit, !llvm.loop !8
+  br i1 %743, label %.lr.ph.i.i50, label %dissect_nvme_identify_resp.exit, !llvm.loop !8
 
 744:                                              ; preds = %704
   %745 = icmp ugt i32 %5, 7
-  br i1 %745, label %.lr.ph.i19.i, label %dissect_nvme_identify_resp.argprom.exit
+  br i1 %745, label %.lr.ph.i19.i, label %dissect_nvme_identify_resp.exit
 
 .lr.ph.i19.i:                                     ; preds = %744, %add_group_mask_entry.exit.i23.i
   %.07.i.i = phi i32 [ %755, %add_group_mask_entry.exit.i23.i ], [ 0, %744 ]
@@ -4848,7 +4848,7 @@ add_group_mask_entry.exit.i23.i:                  ; preds = %750
   %754 = add i32 %.056.i.i, -8
   %755 = add i32 %.07.i.i, 8
   %756 = icmp ugt i32 %754, 7
-  br i1 %756, label %.lr.ph.i19.i, label %dissect_nvme_identify_resp.argprom.exit, !llvm.loop !9
+  br i1 %756, label %.lr.ph.i19.i, label %dissect_nvme_identify_resp.exit, !llvm.loop !9
 
 757:                                              ; preds = %704
   %758 = load i32, ptr @hf_nvme_set_features_tr_tst, align 4
@@ -4864,7 +4864,7 @@ add_group_mask_entry.exit.i23.i:                  ; preds = %750
   %765 = call ptr @proto_tree_add_item(ptr noundef %761, i32 noundef %764, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i25.i = add nuw nsw i64 %indvars.iv.i.i24.i, 1
   %exitcond.not.i.i26.i = icmp eq i64 %indvars.iv.next.i.i25.i, 3
-  br i1 %exitcond.not.i.i26.i, label %dissect_nvme_identify_resp.argprom.exit, label %762, !llvm.loop !6
+  br i1 %exitcond.not.i.i26.i, label %dissect_nvme_identify_resp.exit, label %762, !llvm.loop !6
 
 766:                                              ; preds = %704
   %767 = load i32, ptr @hf_nvme_set_features_tr_plmc, align 4
@@ -4898,7 +4898,7 @@ dissect_nvme_set_features_transfer_plmc.exit.i:   ; preds = %775
   %787 = load i32, ptr @hf_nvme_set_features_tr_plmc_rsvd1, align 4
   %788 = add i32 %5, -56
   %789 = call ptr @proto_tree_add_item(ptr noundef %770, i32 noundef %787, ptr noundef %0, i32 noundef 56, i32 noundef %788, i32 noundef 0) #10
-  br label %dissect_nvme_identify_resp.argprom.exit
+  br label %dissect_nvme_identify_resp.exit
 
 790:                                              ; preds = %704
   %791 = load i32, ptr @hf_nvme_set_features_tr_hbs, align 4
@@ -4910,26 +4910,26 @@ dissect_nvme_set_features_transfer_plmc.exit.i:   ; preds = %775
   %797 = load i32, ptr @hf_nvme_set_features_tr_hbs_rsvd, align 4
   %798 = add i32 %5, -1
   %799 = call ptr @proto_tree_add_item(ptr noundef %794, i32 noundef %797, ptr noundef %0, i32 noundef 1, i32 noundef %798, i32 noundef 0) #10
-  br label %dissect_nvme_identify_resp.argprom.exit
+  br label %dissect_nvme_identify_resp.exit
 
 800:                                              ; preds = %704
   %801 = load i32, ptr @hf_nvme_gen_data, align 4
   %802 = icmp eq i8 %46, 9
   %803 = select i1 %802, ptr @.str.1795, ptr @.str.1796
   %804 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %36, i32 noundef %801, ptr noundef %0, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull %803) #10
-  br label %dissect_nvme_identify_resp.argprom.exit
+  br label %dissect_nvme_identify_resp.exit
 
 805:                                              ; preds = %44
   %806 = load i32, ptr @hf_nvme_gen_data, align 4
   %807 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %36, i32 noundef %806, ptr noundef %0, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %45, i32 noundef %30) #10
-  br label %dissect_nvme_identify_resp.argprom.exit
+  br label %dissect_nvme_identify_resp.exit
 
-dissect_nvme_identify_resp.argprom.exit:          ; preds = %762, %add_group_mask_entry.exit.i23.i, %add_group_mask_entry.exit.i.i54, %694, %.lr.ph.i.i, %800, %790, %dissect_nvme_set_features_transfer_plmc.exit.i, %744, %707, %687, %683, %679, %675, %670, %662, %654, %646, %638, %632, %624, %616, %610, %604, %596, %588, %582, %576, %570, %564, %556, %548, %542, %536, %528, %520, %512, %504, %._crit_edge.i.i, %492, %484, %476, %468, %460, %454, %446, %438, %432, %424, %416, %410, %402, %396, %388, %380, %372, %364, %356, %348, %340, %334, %328, %320, %312, %306, %301, %293, %285, %279, %274, %265, %262, %254, %246, %241, %233, %225, %219, %213, %207, %199, %191, %186, %178, %170, %156, %148, %140, %132, %124, %116, %108, %102, %dissect_nvme_identify_ns_resp.exit.i, %47, %703, %805, %42
+dissect_nvme_identify_resp.exit:                  ; preds = %762, %add_group_mask_entry.exit.i23.i, %add_group_mask_entry.exit.i.i54, %694, %.lr.ph.i.i, %800, %790, %dissect_nvme_set_features_transfer_plmc.exit.i, %744, %707, %687, %683, %679, %675, %670, %662, %654, %646, %638, %632, %624, %616, %610, %604, %596, %588, %582, %576, %570, %564, %556, %548, %542, %536, %528, %520, %512, %504, %._crit_edge.i.i, %492, %484, %476, %468, %460, %454, %446, %438, %432, %424, %416, %410, %402, %396, %388, %380, %372, %364, %356, %348, %340, %334, %328, %320, %312, %306, %301, %293, %285, %279, %274, %265, %262, %254, %246, %241, %233, %225, %219, %213, %207, %199, %191, %186, %178, %170, %156, %148, %140, %132, %124, %116, %108, %102, %dissect_nvme_identify_ns_resp.exit.i, %47, %703, %805, %42
   %.0 = phi ptr [ %43, %42 ], [ %45, %805 ], [ %45, %703 ], [ %45, %47 ], [ %45, %dissect_nvme_identify_ns_resp.exit.i ], [ %45, %102 ], [ %45, %108 ], [ %45, %116 ], [ %45, %124 ], [ %45, %132 ], [ %45, %140 ], [ %45, %148 ], [ %45, %156 ], [ %45, %170 ], [ %45, %178 ], [ %45, %186 ], [ %45, %191 ], [ %45, %199 ], [ %45, %207 ], [ %45, %213 ], [ %45, %219 ], [ %45, %225 ], [ %45, %233 ], [ %45, %241 ], [ %45, %246 ], [ %45, %254 ], [ %45, %262 ], [ %45, %265 ], [ %45, %274 ], [ %45, %279 ], [ %45, %285 ], [ %45, %293 ], [ %45, %301 ], [ %45, %306 ], [ %45, %312 ], [ %45, %320 ], [ %45, %328 ], [ %45, %334 ], [ %45, %340 ], [ %45, %348 ], [ %45, %356 ], [ %45, %364 ], [ %45, %372 ], [ %45, %380 ], [ %45, %388 ], [ %45, %396 ], [ %45, %402 ], [ %45, %410 ], [ %45, %416 ], [ %45, %424 ], [ %45, %432 ], [ %45, %438 ], [ %45, %446 ], [ %45, %454 ], [ %45, %460 ], [ %45, %468 ], [ %45, %476 ], [ %45, %484 ], [ %45, %492 ], [ %45, %._crit_edge.i.i ], [ %45, %504 ], [ %45, %512 ], [ %45, %520 ], [ %45, %528 ], [ %45, %536 ], [ %45, %542 ], [ %45, %548 ], [ %45, %556 ], [ %45, %564 ], [ %45, %570 ], [ %45, %576 ], [ %45, %582 ], [ %45, %588 ], [ %45, %596 ], [ %45, %604 ], [ %45, %610 ], [ %45, %616 ], [ %45, %624 ], [ %45, %632 ], [ %45, %638 ], [ %45, %646 ], [ %45, %654 ], [ %45, %662 ], [ %45, %670 ], [ %45, %675 ], [ %45, %679 ], [ %45, %683 ], [ %45, %687 ], [ %45, %707 ], [ %45, %744 ], [ %45, %dissect_nvme_set_features_transfer_plmc.exit.i ], [ %45, %790 ], [ %45, %800 ], [ %45, %.lr.ph.i.i ], [ %45, %694 ], [ %45, %add_group_mask_entry.exit.i.i54 ], [ %45, %add_group_mask_entry.exit.i23.i ], [ %45, %762 ]
   %.not48 = icmp eq i32 %6, 0
   br i1 %.not48, label %808, label %834
 
-808:                                              ; preds = %dissect_nvme_identify_resp.argprom.exit
+808:                                              ; preds = %dissect_nvme_identify_resp.exit
   %809 = load ptr, ptr %31, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %809, i32 noundef 25, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.13, ptr noundef %.0) #10
   %810 = load i16, ptr %37, align 8
@@ -4985,7 +4985,7 @@ get_logpage_name.exit:                            ; preds = %820, %826, %828, %8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %833, i32 noundef 25, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef %30) #10
   br label %834
 
-834:                                              ; preds = %811, %814, %get_logpage_name.exit, %dissect_nvme_identify_resp.argprom.exit, %832
+834:                                              ; preds = %811, %814, %get_logpage_name.exit, %dissect_nvme_identify_resp.exit, %832
   ret void
 }
 

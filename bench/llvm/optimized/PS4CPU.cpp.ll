@@ -2386,7 +2386,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit68: ; preds = %140,
   store i8 1, ptr %157, align 1
   store ptr @.str.18, ptr %18, align 8
   store i8 3, ptr %156, align 8
-  call fastcc void @"_ZZNK5clang6driver5tools6PS5cpu6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKcENK3$_0clENSC_5TwineE.argprom"(ptr nonnull %15, ptr nonnull %5, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %18)
+  call fastcc void @"_ZZNK5clang6driver5tools6PS5cpu6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKcENK3$_0clENSC_5TwineE"(ptr nonnull %15, ptr nonnull %5, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %18)
   br label %158
 
 158:                                              ; preds = %155, %154
@@ -2399,7 +2399,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit68: ; preds = %140,
   store i8 1, ptr %162, align 1
   store ptr @.str.29, ptr %19, align 8
   store i8 3, ptr %161, align 8
-  call fastcc void @"_ZZNK5clang6driver5tools6PS5cpu6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKcENK3$_0clENSC_5TwineE.argprom"(ptr nonnull %15, ptr nonnull %5, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %19)
+  call fastcc void @"_ZZNK5clang6driver5tools6PS5cpu6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKcENK3$_0clENSC_5TwineE"(ptr nonnull %15, ptr nonnull %5, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %19)
   br label %163
 
 163:                                              ; preds = %160, %158
@@ -2427,7 +2427,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %165, %170
   store i8 3, ptr %.sroa.3137.0..sroa_idx, align 8
   %.sroa.5138.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 33
   store i8 %.sink, ptr %.sroa.5138.0..sroa_idx, align 1
-  call fastcc void @"_ZZNK5clang6driver5tools6PS5cpu6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKcENK3$_0clENSC_5TwineE.argprom"(ptr nonnull %15, ptr nonnull %5, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %20)
+  call fastcc void @"_ZZNK5clang6driver5tools6PS5cpu6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKcENK3$_0clENSC_5TwineE"(ptr nonnull %15, ptr nonnull %5, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %20)
   br label %172
 
 172:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %163
@@ -2447,7 +2447,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit84:                ; preds = %172
   store i8 3, ptr %178, align 8, !alias.scope !77
   %179 = getelementptr inbounds nuw i8, ptr %21, i64 33
   store i8 5, ptr %179, align 1, !alias.scope !77
-  call fastcc void @"_ZZNK5clang6driver5tools6PS5cpu6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKcENK3$_0clENSC_5TwineE.argprom"(ptr nonnull %15, ptr nonnull %5, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %21)
+  call fastcc void @"_ZZNK5clang6driver5tools6PS5cpu6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKcENK3$_0clENSC_5TwineE"(ptr nonnull %15, ptr nonnull %5, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %21)
   br label %180
 
 180:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit84, %172
@@ -2813,7 +2813,7 @@ _ZN4llvm11SmallVectorIPKcLj16EED2Ev.exit:         ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang6driver5tools6PS5cpu6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKcENK3$_0clENSC_5TwineE.argprom"(ptr %.0.val, ptr %.8.val, ptr noundef byval(%"class.llvm::Twine") align 8 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang6driver5tools6PS5cpu6Linker12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS9_Lj4EEERKNSC_3opt7ArgListEPKcENK3$_0clENSC_5TwineE"(ptr %.0.val, ptr %.8.val, ptr noundef byval(%"class.llvm::Twine") align 8 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::SmallString.228", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)

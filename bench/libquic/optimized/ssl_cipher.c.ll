@@ -2606,7 +2606,7 @@ ssl_cipher_apply_rule.exit1124:                   ; preds = %if.end139.i1111, %i
   br i1 %cmp9, label %if.end16, label %land.lhs.true
 
 if.end16:                                         ; preds = %ssl_cipher_apply_rule.exit1124
-  %call11 = call fastcc i32 @ssl_cipher_process_rulestr.argprom(ptr noundef nonnull @.str.2, ptr noundef %head, ptr noundef %tail)
+  %call11 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull @.str.2, ptr noundef %head, ptr noundef %tail)
   %add.ptr = getelementptr inbounds i8, ptr %rule_str, i64 7
   %156 = load i8, ptr %add.ptr, align 1
   %cmp12 = icmp eq i8 %156, 58
@@ -2622,7 +2622,7 @@ land.lhs.true:                                    ; preds = %ssl_cipher_apply_ru
   br i1 %cmp19.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true
-  %call22 = call fastcc i32 @ssl_cipher_process_rulestr.argprom(ptr noundef nonnull %rule_p.01128, ptr noundef %head, ptr noundef %tail)
+  %call22 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull %rule_p.01128, ptr noundef %head, ptr noundef %tail)
   %157 = icmp eq i32 %call22, 0
   br i1 %157, label %err, label %if.end26
 
@@ -3180,7 +3180,7 @@ declare i32 @EVP_has_aes_hardware() local_unnamed_addr #1
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr.argprom(ptr nocapture noundef readonly %rule_str, ptr nocapture noundef nonnull %head_p, ptr nocapture noundef nonnull %tail_p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nocapture noundef readonly %rule_str, ptr nocapture noundef nonnull %head_p, ptr nocapture noundef nonnull %tail_p) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %rule_str, align 1
   %cmp538087117 = icmp eq i8 %0, 0
@@ -4113,7 +4113,7 @@ SSL_CIPHER_get_kx_name.exit:                      ; preds = %sw.bb3.i, %switch.l
   %5 = getelementptr i8, ptr %cipher, i64 20
   %cipher.val = load i32, ptr %5, align 4
   switch i32 %cipher.val, label %sw.default.i [
-    i32 1, label %ssl_cipher_get_enc_name.argprom.exit
+    i32 1, label %ssl_cipher_get_enc_name.exit
     i32 2, label %sw.bb1.i30
     i32 4, label %sw.bb2.i
     i32 8, label %sw.bb3.i29
@@ -4124,27 +4124,27 @@ SSL_CIPHER_get_kx_name.exit:                      ; preds = %sw.bb3.i, %switch.l
   ]
 
 sw.bb1.i30:                                       ; preds = %SSL_CIPHER_get_kx_name.exit
-  br label %ssl_cipher_get_enc_name.argprom.exit
+  br label %ssl_cipher_get_enc_name.exit
 
 sw.bb2.i:                                         ; preds = %SSL_CIPHER_get_kx_name.exit
-  br label %ssl_cipher_get_enc_name.argprom.exit
+  br label %ssl_cipher_get_enc_name.exit
 
 sw.bb3.i29:                                       ; preds = %SSL_CIPHER_get_kx_name.exit
-  br label %ssl_cipher_get_enc_name.argprom.exit
+  br label %ssl_cipher_get_enc_name.exit
 
 sw.bb4.i:                                         ; preds = %SSL_CIPHER_get_kx_name.exit
-  br label %ssl_cipher_get_enc_name.argprom.exit
+  br label %ssl_cipher_get_enc_name.exit
 
 sw.bb5.i:                                         ; preds = %SSL_CIPHER_get_kx_name.exit
-  br label %ssl_cipher_get_enc_name.argprom.exit
+  br label %ssl_cipher_get_enc_name.exit
 
 sw.bb6.i27:                                       ; preds = %SSL_CIPHER_get_kx_name.exit, %SSL_CIPHER_get_kx_name.exit
-  br label %ssl_cipher_get_enc_name.argprom.exit
+  br label %ssl_cipher_get_enc_name.exit
 
 sw.default.i:                                     ; preds = %SSL_CIPHER_get_kx_name.exit
-  br label %ssl_cipher_get_enc_name.argprom.exit
+  br label %ssl_cipher_get_enc_name.exit
 
-ssl_cipher_get_enc_name.argprom.exit:             ; preds = %SSL_CIPHER_get_kx_name.exit, %sw.bb1.i30, %sw.bb2.i, %sw.bb3.i29, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i27, %sw.default.i
+ssl_cipher_get_enc_name.exit:                     ; preds = %SSL_CIPHER_get_kx_name.exit, %sw.bb1.i30, %sw.bb2.i, %sw.bb3.i29, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i27, %sw.default.i
   %retval.0.i28 = phi ptr [ @.str.7, %sw.default.i ], [ @.str.107, %sw.bb6.i27 ], [ @.str.106, %sw.bb5.i ], [ @.str.105, %sw.bb4.i ], [ @.str.104, %sw.bb3.i29 ], [ @.str.103, %sw.bb2.i ], [ @.str.89, %sw.bb1.i30 ], [ @.str.102, %SSL_CIPHER_get_kx_name.exit ]
   %algorithm_prf.i = getelementptr inbounds i8, ptr %cipher, i64 28
   %6 = load i32, ptr %algorithm_prf.i, align 4
@@ -4154,7 +4154,7 @@ ssl_cipher_get_enc_name.argprom.exit:             ; preds = %SSL_CIPHER_get_kx_n
     i32 4, label %sw.bb4.i31
   ]
 
-sw.bb.i:                                          ; preds = %ssl_cipher_get_enc_name.argprom.exit
+sw.bb.i:                                          ; preds = %ssl_cipher_get_enc_name.exit
   %algorithm_mac.i = getelementptr inbounds i8, ptr %cipher, i64 24
   %7 = load i32, ptr %algorithm_mac.i, align 8
   %switch.selectcmp.i = icmp eq i32 %7, 2
@@ -4163,14 +4163,14 @@ sw.bb.i:                                          ; preds = %ssl_cipher_get_enc_
   %switch.select3.i = select i1 %switch.selectcmp2.i, ptr @.str.28, ptr %switch.select.i
   br label %ssl_cipher_get_prf_name.exit
 
-sw.bb4.i31:                                       ; preds = %ssl_cipher_get_enc_name.argprom.exit
+sw.bb4.i31:                                       ; preds = %ssl_cipher_get_enc_name.exit
   br label %ssl_cipher_get_prf_name.exit
 
-sw.epilog5.i:                                     ; preds = %ssl_cipher_get_enc_name.argprom.exit
+sw.epilog5.i:                                     ; preds = %ssl_cipher_get_enc_name.exit
   br label %ssl_cipher_get_prf_name.exit
 
-ssl_cipher_get_prf_name.exit:                     ; preds = %ssl_cipher_get_enc_name.argprom.exit, %sw.bb.i, %sw.bb4.i31, %sw.epilog5.i
-  %retval.0.i32 = phi ptr [ @.str.7, %sw.epilog5.i ], [ @.str.31, %sw.bb4.i31 ], [ %switch.select3.i, %sw.bb.i ], [ @.str.30, %ssl_cipher_get_enc_name.argprom.exit ]
+ssl_cipher_get_prf_name.exit:                     ; preds = %ssl_cipher_get_enc_name.exit, %sw.bb.i, %sw.bb4.i31, %sw.epilog5.i
+  %retval.0.i32 = phi ptr [ @.str.7, %sw.epilog5.i ], [ @.str.31, %sw.bb4.i31 ], [ %switch.select3.i, %sw.bb.i ], [ @.str.30, %ssl_cipher_get_enc_name.exit ]
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #16
   %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i28) #16
   %call8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i32) #16

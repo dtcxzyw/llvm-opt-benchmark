@@ -11284,14 +11284,14 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i
   %call3.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name_.i.i.i.i.i) #29
   %call4.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.0115.i.i.i) #29
   %cmp.i.i.i.i.i.i.i96 = icmp eq i64 %call4.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i96, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i96, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i": ; preds = %land.rhs.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i": ; preds = %land.rhs.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %call2.i.i.i.i.i.i, ptr %call3.i.i.i.i.i.i, i64 %call4.i.i.i.i.i.i)
   %72 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %72, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i", %for.body.i.i.i
+if.end.i.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i", %for.body.i.i.i
   %incdec.ptr.i.i.i.i95 = getelementptr inbounds i8, ptr %__first.sroa.0.0115.i.i.i, i64 856
   %call.i.i.i16.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i95) #29
   %call1.i.i.i17.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name_.i.i.i.i.i) #29
@@ -11303,14 +11303,14 @@ land.rhs.i.i.i19.i.i.i:                           ; preds = %if.end.i.i.i
   %call3.i.i.i21.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name_.i.i.i.i.i) #29
   %call4.i.i.i22.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i95) #29
   %cmp.i.i.i.i23.i.i.i = icmp eq i64 %call4.i.i.i22.i.i.i, 0
-  br i1 %cmp.i.i.i.i23.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit26.i.i.i"
+  br i1 %cmp.i.i.i.i23.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit26.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit26.i.i.i": ; preds = %land.rhs.i.i.i19.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit26.i.i.i": ; preds = %land.rhs.i.i.i19.i.i.i
   %bcmp.i.i.i25.i.i.i = call i32 @bcmp(ptr %call2.i.i.i20.i.i.i, ptr %call3.i.i.i21.i.i.i, i64 %call4.i.i.i22.i.i.i)
   %73 = icmp eq i32 %bcmp.i.i.i25.i.i.i, 0
   br i1 %73, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %if.end11.i.i.i
 
-if.end11.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit26.i.i.i", %if.end.i.i.i
+if.end11.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit26.i.i.i", %if.end.i.i.i
   %incdec.ptr.i27.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0115.i.i.i, i64 1712
   %call.i.i.i29.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i27.i.i.i) #29
   %call1.i.i.i30.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name_.i.i.i.i.i) #29
@@ -11322,14 +11322,14 @@ land.rhs.i.i.i32.i.i.i:                           ; preds = %if.end11.i.i.i
   %call3.i.i.i34.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name_.i.i.i.i.i) #29
   %call4.i.i.i35.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i27.i.i.i) #29
   %cmp.i.i.i.i36.i.i.i = icmp eq i64 %call4.i.i.i35.i.i.i, 0
-  br i1 %cmp.i.i.i.i36.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit39.i.i.i"
+  br i1 %cmp.i.i.i.i36.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit39.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit39.i.i.i": ; preds = %land.rhs.i.i.i32.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit39.i.i.i": ; preds = %land.rhs.i.i.i32.i.i.i
   %bcmp.i.i.i38.i.i.i = call i32 @bcmp(ptr %call2.i.i.i33.i.i.i, ptr %call3.i.i.i34.i.i.i, i64 %call4.i.i.i35.i.i.i)
   %74 = icmp eq i32 %bcmp.i.i.i38.i.i.i, 0
   br i1 %74, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %if.end17.i.i.i
 
-if.end17.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit39.i.i.i", %if.end11.i.i.i
+if.end17.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit39.i.i.i", %if.end11.i.i.i
   %incdec.ptr.i40.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0115.i.i.i, i64 2568
   %call.i.i.i42.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i40.i.i.i) #29
   %call1.i.i.i43.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name_.i.i.i.i.i) #29
@@ -11341,14 +11341,14 @@ land.rhs.i.i.i45.i.i.i:                           ; preds = %if.end17.i.i.i
   %call3.i.i.i47.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name_.i.i.i.i.i) #29
   %call4.i.i.i48.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i40.i.i.i) #29
   %cmp.i.i.i.i49.i.i.i = icmp eq i64 %call4.i.i.i48.i.i.i, 0
-  br i1 %cmp.i.i.i.i49.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit52.i.i.i"
+  br i1 %cmp.i.i.i.i49.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit52.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit52.i.i.i": ; preds = %land.rhs.i.i.i45.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit52.i.i.i": ; preds = %land.rhs.i.i.i45.i.i.i
   %bcmp.i.i.i51.i.i.i = call i32 @bcmp(ptr %call2.i.i.i46.i.i.i, ptr %call3.i.i.i47.i.i.i, i64 %call4.i.i.i48.i.i.i)
   %75 = icmp eq i32 %bcmp.i.i.i51.i.i.i, 0
   br i1 %75, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %if.end23.i.i.i
 
-if.end23.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit52.i.i.i", %if.end17.i.i.i
+if.end23.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit52.i.i.i", %if.end17.i.i.i
   %incdec.ptr.i53.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0115.i.i.i, i64 3424
   %dec.i.i.i = add nsw i64 %__trip_count.0116.i.i.i, -1
   %cmp.i.i.i = icmp sgt i64 %__trip_count.0116.i.i.i, 1
@@ -11381,14 +11381,14 @@ land.rhs.i.i.i62.i.i.i:                           ; preds = %sw.bb.i.i.i
   %call3.i.i.i64.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name_.i.i58.i.i.i) #29
   %call4.i.i.i65.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.0.lcssa.i.i.i) #29
   %cmp.i.i.i.i66.i.i.i = icmp eq i64 %call4.i.i.i65.i.i.i, 0
-  br i1 %cmp.i.i.i.i66.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit69.i.i.i"
+  br i1 %cmp.i.i.i.i66.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit69.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit69.i.i.i": ; preds = %land.rhs.i.i.i62.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit69.i.i.i": ; preds = %land.rhs.i.i.i62.i.i.i
   %bcmp.i.i.i68.i.i.i = call i32 @bcmp(ptr %call2.i.i.i63.i.i.i, ptr %call3.i.i.i64.i.i.i, i64 %call4.i.i.i65.i.i.i)
   %76 = icmp eq i32 %bcmp.i.i.i68.i.i.i, 0
   br i1 %76, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %if.end30.i.i.i
 
-if.end30.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit69.i.i.i", %sw.bb.i.i.i
+if.end30.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit69.i.i.i", %sw.bb.i.i.i
   %incdec.ptr.i70.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 856
   br label %sw.bb32.i.i.i
 
@@ -11405,14 +11405,14 @@ land.rhs.i.i.i75.i.i.i:                           ; preds = %sw.bb32.i.i.i
   %call3.i.i.i77.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name_.i.i71.i.i.i) #29
   %call4.i.i.i78.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1.i.i.i) #29
   %cmp.i.i.i.i79.i.i.i = icmp eq i64 %call4.i.i.i78.i.i.i, 0
-  br i1 %cmp.i.i.i.i79.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit82.i.i.i"
+  br i1 %cmp.i.i.i.i79.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit82.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit82.i.i.i": ; preds = %land.rhs.i.i.i75.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit82.i.i.i": ; preds = %land.rhs.i.i.i75.i.i.i
   %bcmp.i.i.i81.i.i.i = call i32 @bcmp(ptr %call2.i.i.i76.i.i.i, ptr %call3.i.i.i77.i.i.i, i64 %call4.i.i.i78.i.i.i)
   %77 = icmp eq i32 %bcmp.i.i.i81.i.i.i, 0
   br i1 %77, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %if.end37.i.i.i
 
-if.end37.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit82.i.i.i", %sw.bb32.i.i.i
+if.end37.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit82.i.i.i", %sw.bb32.i.i.i
   %incdec.ptr.i83.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 856
   br label %sw.bb39.i.i.i
 
@@ -11429,18 +11429,18 @@ land.rhs.i.i.i88.i.i.i:                           ; preds = %sw.bb39.i.i.i
   %call3.i.i.i90.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name_.i.i84.i.i.i) #29
   %call4.i.i.i91.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.2.i.i.i) #29
   %cmp.i.i.i.i92.i.i.i = icmp eq i64 %call4.i.i.i91.i.i.i, 0
-  br i1 %cmp.i.i.i.i92.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit95.i.i.i"
+  br i1 %cmp.i.i.i.i92.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit95.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit95.i.i.i": ; preds = %land.rhs.i.i.i88.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit95.i.i.i": ; preds = %land.rhs.i.i.i88.i.i.i
   %bcmp.i.i.i94.i.i.i = call i32 @bcmp(ptr %call2.i.i.i89.i.i.i, ptr %call3.i.i.i90.i.i.i, i64 %call4.i.i.i91.i.i.i)
   %78 = icmp eq i32 %bcmp.i.i.i94.i.i.i, 0
   br i1 %78, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit", label %if.end44.i.i.i
 
-if.end44.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit95.i.i.i", %sw.bb39.i.i.i
+if.end44.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit95.i.i.i", %sw.bb39.i.i.i
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit": ; preds = %land.rhs.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i", %land.rhs.i.i.i19.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit26.i.i.i", %land.rhs.i.i.i32.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit39.i.i.i", %land.rhs.i.i.i45.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit52.i.i.i", %for.end.i.i.i, %land.rhs.i.i.i62.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit69.i.i.i", %land.rhs.i.i.i75.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit82.i.i.i", %land.rhs.i.i.i88.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit95.i.i.i", %if.end44.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit69.i.i.i" ], [ %__first.sroa.0.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit82.i.i.i" ], [ %__first.sroa.0.2.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit95.i.i.i" ], [ %57, %if.end44.i.i.i ], [ %57, %for.end.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %land.rhs.i.i.i62.i.i.i ], [ %__first.sroa.0.1.i.i.i, %land.rhs.i.i.i75.i.i.i ], [ %__first.sroa.0.2.i.i.i, %land.rhs.i.i.i88.i.i.i ], [ %__first.sroa.0.0115.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i" ], [ %incdec.ptr.i.i.i.i95, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit26.i.i.i" ], [ %incdec.ptr.i27.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit39.i.i.i" ], [ %incdec.ptr.i40.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit52.i.i.i" ], [ %__first.sroa.0.0115.i.i.i, %land.rhs.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i95, %land.rhs.i.i.i19.i.i.i ], [ %incdec.ptr.i27.i.i.i, %land.rhs.i.i.i32.i.i.i ], [ %incdec.ptr.i40.i.i.i, %land.rhs.i.i.i45.i.i.i ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_10LDBCommand14PrepareOptionsEvE3$_0ET_SB_SB_T0_.exit": ; preds = %land.rhs.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i", %land.rhs.i.i.i19.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit26.i.i.i", %land.rhs.i.i.i32.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit39.i.i.i", %land.rhs.i.i.i45.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit52.i.i.i", %for.end.i.i.i, %land.rhs.i.i.i62.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit69.i.i.i", %land.rhs.i.i.i75.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit82.i.i.i", %land.rhs.i.i.i88.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit95.i.i.i", %if.end44.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit69.i.i.i" ], [ %__first.sroa.0.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit82.i.i.i" ], [ %__first.sroa.0.2.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit95.i.i.i" ], [ %57, %if.end44.i.i.i ], [ %57, %for.end.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %land.rhs.i.i.i62.i.i.i ], [ %__first.sroa.0.1.i.i.i, %land.rhs.i.i.i75.i.i.i ], [ %__first.sroa.0.2.i.i.i, %land.rhs.i.i.i88.i.i.i ], [ %__first.sroa.0.0115.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i" ], [ %incdec.ptr.i.i.i.i95, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit26.i.i.i" ], [ %incdec.ptr.i27.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit39.i.i.i" ], [ %incdec.ptr.i40.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb10LDBCommand14PrepareOptionsEvE3$_0EclINS_17__normal_iteratorIPNS2_22ColumnFamilyDescriptorESt6vectorIS8_SaIS8_EEEEEEbT_.exit52.i.i.i" ], [ %__first.sroa.0.0115.i.i.i, %land.rhs.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i95, %land.rhs.i.i.i19.i.i.i ], [ %incdec.ptr.i27.i.i.i, %land.rhs.i.i.i32.i.i.i ], [ %incdec.ptr.i40.i.i.i, %land.rhs.i.i.i45.i.i.i ]
   %79 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i98 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %79
   br i1 %cmp.i98, label %if.then163, label %if.end171
@@ -22098,7 +22098,7 @@ invoke.cont41:                                    ; preds = %invoke.cont36
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont41
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_.argelim(ptr noundef %agg.tmp30, ptr noundef %agg.tmp33, i1 noundef zeroext %tobool37, i1 noundef zeroext %tobool38, ptr noundef %agg.tmp39, ptr noundef %agg.tmp42)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_(ptr noundef %agg.tmp30, ptr noundef %agg.tmp33, i1 noundef zeroext %tobool37, i1 noundef zeroext %tobool38, ptr noundef %agg.tmp39, ptr noundef %agg.tmp42)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont44
@@ -23204,7 +23204,7 @@ ehcleanup214:                                     ; preds = %_ZN7rocksdb6StatusD
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_.argelim(ptr noundef nonnull %options, ptr noundef nonnull %filename, i1 noundef zeroext %output_hex, i1 noundef zeroext %decode_blob_index, ptr noundef nonnull %from_key, ptr noundef nonnull %to_key) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_(ptr noundef nonnull %options, ptr noundef nonnull %filename, i1 noundef zeroext %output_hex, i1 noundef zeroext %decode_blob_index, ptr noundef nonnull %from_key, ptr noundef nonnull %to_key) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %dumper = alloca %"class.rocksdb::SstFileDumper", align 8
   %ref.tmp = alloca %"struct.rocksdb::EnvOptions", align 8
@@ -41806,7 +41806,7 @@ lpad.i61:                                         ; preds = %.noexc63
   br label %ehcleanup157
 
 invoke.cont153:                                   ; preds = %.noexc63
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_.argelim(ptr noundef %agg.tmp139, ptr noundef %agg.tmp142, i1 noundef zeroext false, i1 noundef zeroext %tobool145, ptr noundef %agg.tmp146, ptr noundef %agg.tmp150)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_(ptr noundef %agg.tmp139, ptr noundef %agg.tmp142, i1 noundef zeroext false, i1 noundef zeroext %tobool145, ptr noundef %agg.tmp146, ptr noundef %agg.tmp150)
           to label %invoke.cont155 unwind label %lpad154
 
 invoke.cont155:                                   ; preds = %invoke.cont153

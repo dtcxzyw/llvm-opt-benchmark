@@ -684,7 +684,7 @@ tailrecurse.us:                                   ; preds = %19, %18
 
 ._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph.split.split, %43, %46, %tailrecurse.us, %.lr.ph.split.split.us, %19, %.lr.ph.split.us, %10, %14, %5
   %.tr.lcssa = phi ptr [ %0, %5 ], [ %0, %14 ], [ %0, %10 ], [ %0, %.lr.ph.split.us ], [ %.tr32.us43, %19 ], [ %.tr32.us43, %.lr.ph.split.split.us ], [ %39, %tailrecurse.us ], [ %.tr32, %46 ], [ %.tr32, %43 ], [ %.tr32, %.lr.ph.split.split ], [ %66, %tailrecurse ]
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %1, ptr noundef %.tr.lcssa)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef %.tr.lcssa)
   br label %87
 
 tailrecurse:                                      ; preds = %46
@@ -722,7 +722,7 @@ tailrecurse:                                      ; preds = %46
   %74 = ptrtoint ptr %71 to i64
   %75 = or disjoint i64 %73, %74
   %76 = inttoptr i64 %75 to ptr
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %1, ptr noundef nonnull %76)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef nonnull %76)
   %77 = load i64, ptr %0, align 4
   %78 = lshr i64 %77, 32
   %79 = and i64 %78, 536870911
@@ -733,7 +733,7 @@ tailrecurse:                                      ; preds = %46
   %84 = ptrtoint ptr %81 to i64
   %85 = or disjoint i64 %83, %84
   %86 = inttoptr i64 %85 to ptr
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %1, ptr noundef nonnull %86)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef nonnull %86)
   br label %87
 
 87:                                               ; preds = %.split.us, %._crit_edge
@@ -743,7 +743,7 @@ tailrecurse:                                      ; preds = %46
 declare i32 @Gia_ObjIsMuxType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1194,7 +1194,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %81 = and i64 %80, 536870911
   %82 = sub nsw i64 0, %81
   %83 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %79, i64 %82
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %75, ptr noundef nonnull %83)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %75, ptr noundef nonnull %83)
   %84 = load ptr, ptr %68, align 8
   %85 = load i64, ptr %70, align 4
   %86 = lshr i64 %85, 32
@@ -1205,7 +1205,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %91 = and i64 %90, 536870911
   %92 = sub nsw i64 0, %91
   %93 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %89, i64 %92
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %84, ptr noundef nonnull %93)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %84, ptr noundef nonnull %93)
   %94 = load ptr, ptr %68, align 8
   %95 = load i64, ptr %70, align 4
   %96 = and i64 %95, 536870911
@@ -1216,7 +1216,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %101 = and i64 %100, 536870911
   %102 = sub nsw i64 0, %101
   %103 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %98, i64 %102
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %94, ptr noundef nonnull %103)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %94, ptr noundef nonnull %103)
   %104 = load ptr, ptr %68, align 8
   %105 = load i64, ptr %70, align 4
   %106 = lshr i64 %105, 32
@@ -1228,7 +1228,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %112 = and i64 %111, 536870911
   %113 = sub nsw i64 0, %112
   %114 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %109, i64 %113
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %104, ptr noundef nonnull %114)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %104, ptr noundef nonnull %114)
   %115 = load ptr, ptr %68, align 8
   %116 = getelementptr i8, ptr %115, i64 4
   %.val105122.us = load i32, ptr %116, align 4
@@ -1374,15 +1374,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %188 = icmp sgt i32 %.val106.lcssa, 0
   %or.cond = and i1 %.not92, %188
   %.pre = load ptr, ptr %66, align 8
-  br i1 %or.cond, label %Gia_ObjIsXor.argprom.exit.lr.ph, label %.critedge6
+  br i1 %or.cond, label %Gia_ObjIsXor.exit.lr.ph, label %.critedge6
 
-Gia_ObjIsXor.argprom.exit.lr.ph:                  ; preds = %.critedge
+Gia_ObjIsXor.exit.lr.ph:                          ; preds = %.critedge
   %189 = getelementptr inbounds i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %.val106.lcssa to i64
-  br label %Gia_ObjIsXor.argprom.exit
+  br label %Gia_ObjIsXor.exit
 
-Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsXor.argprom.exit.lr.ph, %Gia_ObjIsXor.argprom.exit
-  %indvars.iv149 = phi i64 [ 0, %Gia_ObjIsXor.argprom.exit.lr.ph ], [ %indvars.iv.next150, %Gia_ObjIsXor.argprom.exit ]
+Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.lr.ph, %Gia_ObjIsXor.exit
+  %indvars.iv149 = phi i64 [ 0, %Gia_ObjIsXor.exit.lr.ph ], [ %indvars.iv.next150, %Gia_ObjIsXor.exit ]
   %190 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv149
   %191 = load ptr, ptr %190, align 8
   %.val99 = load ptr, ptr %7, align 8
@@ -1446,15 +1446,15 @@ Gia_ObjIsXor.argprom.exit:                        ; preds = %Gia_ObjIsXor.argpro
   tail call void @bmcg2_sat_solver_set_var_fanin_lit(ptr noundef %237, i32 noundef %199, i32 noundef %spec.select, i32 noundef %spec.select95) #8
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge6.thread, label %Gia_ObjIsXor.argprom.exit, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge6.thread, label %Gia_ObjIsXor.exit, !llvm.loop !11
 
 .critedge6:                                       ; preds = %.critedge.thread, %.critedge
   %.pre156 = phi ptr [ %.pre155, %.critedge.thread ], [ %.pre, %.critedge ]
   %.not.i = icmp eq ptr %.pre156, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %.critedge6.thread
 
-.critedge6.thread:                                ; preds = %Gia_ObjIsXor.argprom.exit, %.critedge6
-  %.pre156159 = phi ptr [ %.pre156, %.critedge6 ], [ %.pre, %Gia_ObjIsXor.argprom.exit ]
+.critedge6.thread:                                ; preds = %Gia_ObjIsXor.exit, %.critedge6
+  %.pre156159 = phi ptr [ %.pre156, %.critedge6 ], [ %.pre, %Gia_ObjIsXor.exit ]
   tail call void @free(ptr noundef nonnull %.pre156159) #8
   br label %Vec_PtrFree.exit
 
@@ -2010,14 +2010,14 @@ Vec_PtrFreeP.exit:                                ; preds = %Abc_Clock.exit, %20
   %78 = load i32, ptr %44, align 4
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv, %79
-  br i1 %80, label %Bar_ProgressUpdate.argprom.exit, label %81
+  br i1 %80, label %Bar_ProgressUpdate.exit, label %81
 
 81:                                               ; preds = %77, %76
   %82 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Bar_ProgressUpdate_int(ptr noundef %44, i32 noundef %82, ptr noundef nonnull @.str) #8
-  br label %Bar_ProgressUpdate.argprom.exit
+  br label %Bar_ProgressUpdate.exit
 
-Bar_ProgressUpdate.argprom.exit:                  ; preds = %77, %81
+Bar_ProgressUpdate.exit:                          ; preds = %77, %81
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %83 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -2043,7 +2043,7 @@ Bar_ProgressUpdate.argprom.exit:                  ; preds = %77, %81
   %or.cond = select i1 %50, i1 %99, i1 false
   br i1 %or.cond, label %.thread, label %112
 
-.thread:                                          ; preds = %Bar_ProgressUpdate.argprom.exit
+.thread:                                          ; preds = %Bar_ProgressUpdate.exit
   %.val68 = load ptr, ptr %45, align 8
   %.val69 = load ptr, ptr %41, align 8
   %102 = getelementptr i8, ptr %.val69, i64 8
@@ -2060,7 +2060,7 @@ Bar_ProgressUpdate.argprom.exit:                  ; preds = %77, %81
   store i64 %111, ptr %106, align 4
   br label %115
 
-112:                                              ; preds = %Bar_ProgressUpdate.argprom.exit
+112:                                              ; preds = %Bar_ProgressUpdate.exit
   br i1 %94, label %113, label %115
 
 113:                                              ; preds = %112

@@ -27457,7 +27457,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.lr.p
   %.val20.val = load ptr, ptr %.val20, align 8
   %36 = getelementptr i8, ptr %.val20, i64 16
   %.val20.val21 = load ptr, ptr %36, align 8
-  %37 = tail call fastcc noundef zeroext i1 @_ZN5osgeo4proj3crsL47mustAxisOrderBeSwitchedForVisualizationInternalERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs20CoordinateSystemAxisEEEESaISA_EE.argprom.argprom(ptr %.val20.val, ptr %.val20.val21)
+  %37 = tail call fastcc noundef zeroext i1 @_ZN5osgeo4proj3crsL47mustAxisOrderBeSwitchedForVisualizationInternalERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs20CoordinateSystemAxisEEEESaISA_EE(ptr %.val20.val, ptr %.val20.val21)
   br label %38
 
 38:                                               ; preds = %.sink.split, %28
@@ -27466,7 +27466,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.lr.p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5osgeo4proj3crsL47mustAxisOrderBeSwitchedForVisualizationInternalERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs20CoordinateSystemAxisEEEESaISA_EE.argprom.argprom(ptr nonnull readonly %.0.val.0.val, ptr nonnull readonly %.0.val.16.val) unnamed_addr #18 {
+define internal fastcc noundef zeroext i1 @_ZN5osgeo4proj3crsL47mustAxisOrderBeSwitchedForVisualizationInternalERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs20CoordinateSystemAxisEEEESaISA_EE(ptr nonnull readonly %.0.val.0.val, ptr nonnull readonly %.0.val.16.val) unnamed_addr #18 {
   %1 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9directionEv(ptr noundef nonnull align 8 dereferenceable(56) %.0.val.0.val) #42
   %2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9directionEv(ptr noundef nonnull align 8 dereferenceable(56) %.0.val.16.val) #42
   %3 = icmp eq ptr %1, @_ZN5osgeo4proj2cs13AxisDirection5NORTHE
@@ -29797,7 +29797,7 @@ define void @_ZNK5osgeo4proj3crs3CRS25normalizeForVisualizationEv(ptr dead_on_un
   %.val31.val = load ptr, ptr %.val31, align 8
   %26 = getelementptr i8, ptr %.val31, i64 16
   %.val31.val32 = load ptr, ptr %26, align 8
-  %27 = tail call fastcc noundef zeroext i1 @_ZN5osgeo4proj3crsL47mustAxisOrderBeSwitchedForVisualizationInternalERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs20CoordinateSystemAxisEEEESaISA_EE.argprom.argprom(ptr %.val31.val, ptr %.val31.val32)
+  %27 = tail call fastcc noundef zeroext i1 @_ZN5osgeo4proj3crsL47mustAxisOrderBeSwitchedForVisualizationInternalERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs20CoordinateSystemAxisEEEESaISA_EE(ptr %.val31.val, ptr %.val31.val32)
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %21
@@ -29819,7 +29819,7 @@ define void @_ZNK5osgeo4proj3crs3CRS25normalizeForVisualizationEv(ptr dead_on_un
   %.val30.val = load ptr, ptr %.val30, align 8
   %37 = getelementptr i8, ptr %.val30, i64 16
   %.val30.val33 = load ptr, ptr %37, align 8
-  %38 = tail call fastcc noundef zeroext i1 @_ZN5osgeo4proj3crsL47mustAxisOrderBeSwitchedForVisualizationInternalERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs20CoordinateSystemAxisEEEESaISA_EE.argprom.argprom(ptr %.val30.val, ptr %.val30.val33)
+  %38 = tail call fastcc noundef zeroext i1 @_ZN5osgeo4proj3crsL47mustAxisOrderBeSwitchedForVisualizationInternalERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs20CoordinateSystemAxisEEEESaISA_EE(ptr %.val30.val, ptr %.val30.val33)
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %31
@@ -29841,7 +29841,7 @@ define void @_ZNK5osgeo4proj3crs3CRS25normalizeForVisualizationEv(ptr dead_on_un
   %.val.val = load ptr, ptr %.val, align 8
   %48 = getelementptr i8, ptr %.val, i64 16
   %.val.val34 = load ptr, ptr %48, align 8
-  %49 = tail call fastcc noundef zeroext i1 @_ZN5osgeo4proj3crsL47mustAxisOrderBeSwitchedForVisualizationInternalERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs20CoordinateSystemAxisEEEESaISA_EE.argprom.argprom(ptr %.val.val, ptr %.val.val34)
+  %49 = tail call fastcc noundef zeroext i1 @_ZN5osgeo4proj3crsL47mustAxisOrderBeSwitchedForVisualizationInternalERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs20CoordinateSystemAxisEEEESaISA_EE(ptr %.val.val, ptr %.val.val34)
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %42
@@ -39349,7 +39349,7 @@ define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC1ERKSt10shared_ptrINS0_5datu
 
 _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22GeodeticReferenceFrameEvEERKS_IT_E.exit: ; preds = %4, %15, %18
   %.val = load ptr, ptr %1, align 8
-  %20 = invoke fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE.argprom(ptr %.val, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %20 = invoke fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr %.val, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %21 unwind label %123
 
 21:                                               ; preds = %_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22GeodeticReferenceFrameEvEERKS_IT_E.exit
@@ -39602,7 +39602,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev.exit: ; preds = %_ZN7dropbox6ox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE.argprom(ptr readnone %.0.val, ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr readnone %.0.val, ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %.0.val, null
   %2 = load ptr, ptr %0, align 8
   %.not1 = icmp eq ptr %2, null
@@ -39757,7 +39757,7 @@ define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC1ERKSt10shared_ptrINS0_5datu
 
 _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22GeodeticReferenceFrameEvEERKS_IT_E.exit: ; preds = %4, %15, %18
   %.val = load ptr, ptr %1, align 8
-  %20 = invoke fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE.argprom(ptr %.val, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %20 = invoke fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr %.val, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %21 unwind label %123
 
 21:                                               ; preds = %_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22GeodeticReferenceFrameEvEERKS_IT_E.exit
@@ -40120,7 +40120,7 @@ define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC1ERKSt10shared_ptrINS0_5datu
 
 _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22GeodeticReferenceFrameEvEERKS_IT_E.exit: ; preds = %4, %15, %18
   %.val = load ptr, ptr %1, align 8
-  %20 = invoke fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE.argprom(ptr %.val, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %20 = invoke fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr %.val, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %21 unwind label %123
 
 21:                                               ; preds = %_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22GeodeticReferenceFrameEvEERKS_IT_E.exit
@@ -42331,7 +42331,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit151:                 ; preds = %322, %319, %323
 333:                                              ; preds = %331
   %334 = load ptr, ptr %46, align 8
   %335 = getelementptr inbounds i8, ptr %334, i64 32
-  invoke fastcc void @_ZN5osgeo4proj3crsL44exportAsWKT1CompoundCRSWithEllipsoidalHeightERKN7dropbox6oxygen2nnISt10shared_ptrINS1_3CRSEEEERKNS4_IS5_INS0_2cs20CoordinateSystemAxisEEEEPNS0_2io12WKTFormatterE.retelim(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %335, ptr noundef nonnull %1)
+  invoke fastcc void @_ZN5osgeo4proj3crsL44exportAsWKT1CompoundCRSWithEllipsoidalHeightERKN7dropbox6oxygen2nnISt10shared_ptrINS1_3CRSEEEERKNS4_IS5_INS0_2cs20CoordinateSystemAxisEEEEPNS0_2io12WKTFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %335, ptr noundef nonnull %1)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit149 unwind label %210
 
 336:                                              ; preds = %331
@@ -44975,7 +44975,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs13GeographicCRSEED2Ev.exit33: ; preds = %116, 
 declare noundef zeroext i1 @_ZNK5osgeo4proj2io12WKTFormatter39isAllowedEllipsoidalHeightAsVerticalCRSEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5osgeo4proj3crsL44exportAsWKT1CompoundCRSWithEllipsoidalHeightERKN7dropbox6oxygen2nnISt10shared_ptrINS1_3CRSEEEERKNS4_IS5_INS0_2cs20CoordinateSystemAxisEEEEPNS0_2io12WKTFormatterE.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5osgeo4proj3crsL44exportAsWKT1CompoundCRSWithEllipsoidalHeightERKN7dropbox6oxygen2nnISt10shared_ptrINS1_3CRSEEEERKNS4_IS5_INS0_2cs20CoordinateSystemAxisEEEEPNS0_2io12WKTFormatterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -49543,7 +49543,7 @@ define internal fastcc void @"_ZZNK5osgeo4proj3crs11GeodeticCRS8identifyB5cxx11E
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEC2IS2_INS4_5datum22GeodeticReferenceFrameEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISE_EE.exit: ; preds = %17, %25, %28
   %.val = phi ptr [ %11, %17 ], [ %11, %25 ], [ %.val.pre, %28 ]
-  %30 = invoke fastcc noundef zeroext i1 @"_ZZNK5osgeo4proj3crs11GeodeticCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_2clERKN7dropbox6oxygen2nnIS3_INS0_6common16IdentifiedObjectEEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr %.val)
+  %30 = invoke fastcc noundef zeroext i1 @"_ZZNK5osgeo4proj3crs11GeodeticCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_2clERKN7dropbox6oxygen2nnIS3_INS0_6common16IdentifiedObjectEEEE"(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr %.val)
           to label %31 unwind label %67
 
 31:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEC2IS2_INS4_5datum22GeodeticReferenceFrameEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISE_EE.exit
@@ -49663,7 +49663,7 @@ _ZNSt6vectorIN5osgeo4proj2io16AuthorityFactory10ObjectTypeESaIS4_EED2Ev.exit: ; 
   %.0840 = phi i1 [ false, %.lr.ph ], [ %spec.select, %84 ]
   %82 = getelementptr inbounds i8, ptr %.sroa.030.041, i64 16
   %.val13 = load ptr, ptr %82, align 8
-  %83 = invoke fastcc noundef zeroext i1 @"_ZZNK5osgeo4proj3crs11GeodeticCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_2clERKN7dropbox6oxygen2nnIS3_INS0_6common16IdentifiedObjectEEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr %.val13)
+  %83 = invoke fastcc noundef zeroext i1 @"_ZZNK5osgeo4proj3crs11GeodeticCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_2clERKN7dropbox6oxygen2nnIS3_INS0_6common16IdentifiedObjectEEEE"(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr %.val13)
           to label %84 unwind label %.loopexit
 
 84:                                               ; preds = %81
@@ -51175,7 +51175,7 @@ define hidden void @_ZTv0_n64_NK5osgeo4proj3crs11GeodeticCRS9_identifyB5cxx11ERK
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj3crs13GeographicCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs13EllipsoidalCSEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %2, align 8
-  %6 = tail call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE.argprom(ptr %.val, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %6 = tail call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr %.val, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i64 16), ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
@@ -51537,7 +51537,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev.exit: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEED2Ev.exit, %85, %98, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %.val = load ptr, ptr %1, align 8
-  %103 = invoke fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE.argprom(ptr %.val, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %103 = invoke fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr %.val, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %104 unwind label %141
 
 104:                                              ; preds = %_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev.exit
@@ -55162,7 +55162,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22VerticalReferenceFrameEvEER
   br i1 %.not.i, label %22, label %21
 
 21:                                               ; preds = %_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22VerticalReferenceFrameEvEERKS_IT_E.exit
-  br i1 %.not1.i, label %_ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS2_INS3_13DatumEnsembleEE.argprom.exit, label %.critedge.i
+  br i1 %.not1.i, label %_ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS2_INS3_13DatumEnsembleEE.exit, label %.critedge.i
 
 22:                                               ; preds = %_ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22VerticalReferenceFrameEvEERKS_IT_E.exit
   br i1 %.not1.i, label %.critedge.i, label %23
@@ -55180,7 +55180,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22VerticalReferenceFrameEvEER
 28:                                               ; preds = %.noexc
   %29 = tail call ptr @__dynamic_cast(ptr nonnull %26, ptr nonnull @_ZTIN5osgeo4proj5datum5DatumE, ptr nonnull @_ZTIN5osgeo4proj5datum22VerticalReferenceFrameE, i64 0) #39
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.critedge.i, label %_ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS2_INS3_13DatumEnsembleEE.argprom.exit
+  br i1 %30, label %.critedge.i, label %_ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS2_INS3_13DatumEnsembleEE.exit
 
 .critedge.i:                                      ; preds = %28, %.noexc, %22, %21
   %.011.i = phi ptr [ @.str.158, %22 ], [ @.str.159, %21 ], [ @.str.168, %.noexc ], [ @.str.168, %28 ]
@@ -55201,7 +55201,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEEC2INS2_22VerticalReferenceFrameEvEER
   tail call void @__cxa_free_exception(ptr %31) #39
   br label %.body
 
-_ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS2_INS3_13DatumEnsembleEE.argprom.exit: ; preds = %28, %21
+_ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS2_INS3_13DatumEnsembleEE.exit: ; preds = %28, %21
   %35 = load ptr, ptr %3, align 8
   store ptr %35, ptr %6, align 8
   %36 = getelementptr inbounds i8, ptr %6, i64 8
@@ -55211,7 +55211,7 @@ _ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22Ve
   %.not.i.i.i.i12 = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i12, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10VerticalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit, label %39
 
-39:                                               ; preds = %_ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS2_INS3_13DatumEnsembleEE.argprom.exit
+39:                                               ; preds = %_ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS2_INS3_13DatumEnsembleEE.exit
   %40 = getelementptr inbounds i8, ptr %38, i64 8
   %41 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %41, 0
@@ -55227,7 +55227,7 @@ _ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22Ve
   %46 = atomicrmw volatile add ptr %40, i32 1 acq_rel, align 4
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10VerticalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10VerticalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit: ; preds = %45, %42, %_ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS2_INS3_13DatumEnsembleEE.argprom.exit
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs16CoordinateSystemEEEC2IS2_INS5_10VerticalCSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit: ; preds = %45, %42, %_ZN5osgeo4proj3crsL27checkEnsembleForVerticalCRSERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS2_INS3_13DatumEnsembleEE.exit
   invoke void @_ZN5osgeo4proj3crs9SingleCRSC2ERKSt10shared_ptrINS0_5datum5DatumEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %47 unwind label %126
 
@@ -63309,7 +63309,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2IS2_INS5_12Project
   %418 = load ptr, ptr %76, align 8
   %419 = getelementptr inbounds i8, ptr %418, i64 32
   %420 = load ptr, ptr %3, align 8
-  invoke fastcc void @_ZN5osgeo4proj3crsL44exportAsWKT1CompoundCRSWithEllipsoidalHeightERKN7dropbox6oxygen2nnISt10shared_ptrINS1_3CRSEEEERKNS4_IS5_INS0_2cs20CoordinateSystemAxisEEEEPNS0_2io12WKTFormatterE.retelim(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %419, ptr noundef %420)
+  invoke fastcc void @_ZN5osgeo4proj3crsL44exportAsWKT1CompoundCRSWithEllipsoidalHeightERKN7dropbox6oxygen2nnISt10shared_ptrINS1_3CRSEEEERKNS4_IS5_INS0_2cs20CoordinateSystemAxisEEEEPNS0_2io12WKTFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %419, ptr noundef %420)
           to label %421 unwind label %457
 
 421:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2IS2_INS5_12ProjectedCRSEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit
@@ -66180,7 +66180,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit: ;
 438:                                              ; preds = %436
   %439 = load i8, ptr %18, align 1
   %440 = trunc i8 %439 to i1
-  invoke fastcc void @"_ZZNK5osgeo4proj3crs12ProjectedCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_0clB5cxx11EPKcib.argprom"(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.103, i32 noundef %437, i1 noundef zeroext %440)
+  invoke fastcc void @"_ZZNK5osgeo4proj3crs12ProjectedCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_0clB5cxx11EPKcib"(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.103, i32 noundef %437, i1 noundef zeroext %440)
           to label %441 unwind label %.loopexit.split-lp481
 
 441:                                              ; preds = %438
@@ -66595,7 +66595,7 @@ _ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12
 631:                                              ; preds = %630
   %632 = load i8, ptr %18, align 1
   %633 = trunc i8 %632 to i1
-  invoke fastcc void @"_ZZNK5osgeo4proj3crs12ProjectedCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_0clB5cxx11EPKcib.argprom"(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.104, i32 noundef %.pre534, i1 noundef zeroext %633)
+  invoke fastcc void @"_ZZNK5osgeo4proj3crs12ProjectedCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_0clB5cxx11EPKcib"(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.104, i32 noundef %.pre534, i1 noundef zeroext %633)
           to label %634 unwind label %.loopexit.split-lp481
 
 634:                                              ; preds = %631
@@ -66996,7 +66996,7 @@ _ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12
   %817 = load i32, ptr %17, align 4
   %818 = load i8, ptr %18, align 1
   %819 = trunc i8 %818 to i1
-  invoke fastcc void @"_ZZNK5osgeo4proj3crs12ProjectedCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_0clB5cxx11EPKcib.argprom"(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull @.str.105, i32 noundef %817, i1 noundef zeroext %819)
+  invoke fastcc void @"_ZZNK5osgeo4proj3crs12ProjectedCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_0clB5cxx11EPKcib"(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull @.str.105, i32 noundef %817, i1 noundef zeroext %819)
           to label %820 unwind label %.loopexit.split-lp481
 
 820:                                              ; preds = %816
@@ -70576,7 +70576,7 @@ declare hidden noundef zeroext i1 @_ZNK5osgeo4proj2cs16CoordinateSystem15_isEqui
 declare void @_ZN5osgeo4proj2cs11CartesianCS21createEastingNorthingERKNS0_6common13UnitOfMeasureE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.280") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK5osgeo4proj3crs12ProjectedCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_0clB5cxx11EPKcib.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK5osgeo4proj3crs12ProjectedCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_0clB5cxx11EPKcib"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN5osgeo4proj8internal8toStringB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %2)
@@ -101785,7 +101785,7 @@ declare void @_ZN5osgeo4proj22CPLJSonStreamingWriter8EndArrayEv(ptr noundef nonn
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj4util11PropertyMap3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK5osgeo4proj3crs11GeodeticCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_2clERKN7dropbox6oxygen2nnIS3_INS0_6common16IdentifiedObjectEEEE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nonnull readonly %.0.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZNK5osgeo4proj3crs11GeodeticCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_2clERKN7dropbox6oxygen2nnIS3_INS0_6common16IdentifiedObjectEEEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nonnull readonly %.0.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::list.896", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common16IdentifiedObject11identifiersEv(ptr noundef nonnull align 8 dereferenceable(40) %.0.val) #42
@@ -107782,8 +107782,8 @@ attributes #43 = { noreturn nounwind }
 !186 = distinct !{!186, !187, !"_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs12ProjectedCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE: argument 0"}
 !187 = distinct !{!187, !"_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs12ProjectedCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE"}
 !188 = !{!189}
-!189 = distinct !{!189, !190, !"_ZZNK5osgeo4proj3crs3CRS16alterGeodeticCRSERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEEENK3$_0clES6_INS1_12ProjectedCRSEE.argprom: argument 0"}
-!190 = distinct !{!190, !"_ZZNK5osgeo4proj3crs3CRS16alterGeodeticCRSERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEEENK3$_0clES6_INS1_12ProjectedCRSEE.argprom"}
+!189 = distinct !{!189, !190, !"_ZZNK5osgeo4proj3crs3CRS16alterGeodeticCRSERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEEENK3$_0clES6_INS1_12ProjectedCRSEE: argument 0"}
+!190 = distinct !{!190, !"_ZZNK5osgeo4proj3crs3CRS16alterGeodeticCRSERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEEENK3$_0clES6_INS1_12ProjectedCRSEE"}
 !191 = !{!192}
 !192 = distinct !{!192, !193, !"_ZNK5osgeo4proj3crs10DerivedCRS18derivingConversionEv: argument 0"}
 !193 = distinct !{!193, !"_ZNK5osgeo4proj3crs10DerivedCRS18derivingConversionEv"}
@@ -107970,8 +107970,8 @@ attributes #43 = { noreturn nounwind }
 !374 = distinct !{!374, !375, !"_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs11GeodeticCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE: argument 0"}
 !375 = distinct !{!375, !"_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs11GeodeticCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE"}
 !376 = !{!377}
-!377 = distinct !{!377, !378, !"_ZZNK5osgeo4proj3crs3CRS11promoteTo3DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEERKN7dropbox6oxygen2nnISB_INS0_2cs20CoordinateSystemAxisEEEEENK3$_1clESB_INS1_11GeodeticCRSEE.argprom: argument 0"}
-!378 = distinct !{!378, !"_ZZNK5osgeo4proj3crs3CRS11promoteTo3DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEERKN7dropbox6oxygen2nnISB_INS0_2cs20CoordinateSystemAxisEEEEENK3$_1clESB_INS1_11GeodeticCRSEE.argprom"}
+!377 = distinct !{!377, !378, !"_ZZNK5osgeo4proj3crs3CRS11promoteTo3DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEERKN7dropbox6oxygen2nnISB_INS0_2cs20CoordinateSystemAxisEEEEENK3$_1clESB_INS1_11GeodeticCRSEE: argument 0"}
+!378 = distinct !{!378, !"_ZZNK5osgeo4proj3crs3CRS11promoteTo3DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEERKN7dropbox6oxygen2nnISB_INS0_2cs20CoordinateSystemAxisEEEEENK3$_1clESB_INS1_11GeodeticCRSEE"}
 !379 = !{!380}
 !380 = distinct !{!380, !381, !"_ZNK5osgeo4proj3crs10DerivedCRS18derivingConversionEv: argument 0"}
 !381 = distinct !{!381, !"_ZNK5osgeo4proj3crs10DerivedCRS18derivingConversionEv"}
@@ -107988,8 +107988,8 @@ attributes #43 = { noreturn nounwind }
 !392 = distinct !{!392, !393, !"_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs12ProjectedCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE: argument 0"}
 !393 = distinct !{!393, !"_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs12ProjectedCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE"}
 !394 = !{!395}
-!395 = distinct !{!395, !396, !"_ZZNK5osgeo4proj3crs3CRS11promoteTo3DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEERKN7dropbox6oxygen2nnISB_INS0_2cs20CoordinateSystemAxisEEEEENK3$_2clESB_INS1_12ProjectedCRSEE.argprom: argument 0"}
-!396 = distinct !{!396, !"_ZZNK5osgeo4proj3crs3CRS11promoteTo3DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEERKN7dropbox6oxygen2nnISB_INS0_2cs20CoordinateSystemAxisEEEEENK3$_2clESB_INS1_12ProjectedCRSEE.argprom"}
+!395 = distinct !{!395, !396, !"_ZZNK5osgeo4proj3crs3CRS11promoteTo3DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEERKN7dropbox6oxygen2nnISB_INS0_2cs20CoordinateSystemAxisEEEEENK3$_2clESB_INS1_12ProjectedCRSEE: argument 0"}
+!396 = distinct !{!396, !"_ZZNK5osgeo4proj3crs3CRS11promoteTo3DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEERKN7dropbox6oxygen2nnISB_INS0_2cs20CoordinateSystemAxisEEEEENK3$_2clESB_INS1_12ProjectedCRSEE"}
 !397 = !{!398}
 !398 = distinct !{!398, !399, !"_ZNK5osgeo4proj3crs10DerivedCRS18derivingConversionEv: argument 0"}
 !399 = distinct !{!399, !"_ZNK5osgeo4proj3crs10DerivedCRS18derivingConversionEv"}
@@ -108025,8 +108025,8 @@ attributes #43 = { noreturn nounwind }
 !429 = distinct !{!429, !430, !"_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs11GeodeticCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE: argument 0"}
 !430 = distinct !{!430, !"_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs11GeodeticCRSENS4_3CRSEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE"}
 !431 = !{!432}
-!432 = distinct !{!432, !433, !"_ZZNK5osgeo4proj3crs20DerivedGeographicCRS10demoteTo2DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clESB_INS1_11GeodeticCRSEE.argprom: argument 0"}
-!433 = distinct !{!433, !"_ZZNK5osgeo4proj3crs20DerivedGeographicCRS10demoteTo2DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clESB_INS1_11GeodeticCRSEE.argprom"}
+!432 = distinct !{!432, !433, !"_ZZNK5osgeo4proj3crs20DerivedGeographicCRS10demoteTo2DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clESB_INS1_11GeodeticCRSEE: argument 0"}
+!433 = distinct !{!433, !"_ZZNK5osgeo4proj3crs20DerivedGeographicCRS10demoteTo2DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clESB_INS1_11GeodeticCRSEE"}
 !434 = !{!435}
 !435 = distinct !{!435, !436, !"_ZNK5osgeo4proj3crs10DerivedCRS18derivingConversionEv: argument 0"}
 !436 = distinct !{!436, !"_ZNK5osgeo4proj3crs10DerivedCRS18derivingConversionEv"}
@@ -108043,8 +108043,8 @@ attributes #43 = { noreturn nounwind }
 !447 = distinct !{!447, !448, !"_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs12ProjectedCRSES5_EESt10shared_ptrIT_ERKNS0_2nnIS6_IT0_EEE: argument 0"}
 !448 = distinct !{!448, !"_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs12ProjectedCRSES5_EESt10shared_ptrIT_ERKNS0_2nnIS6_IT0_EEE"}
 !449 = !{!450}
-!450 = distinct !{!450, !451, !"_ZZNK5osgeo4proj3crs19DerivedProjectedCRS10demoteTo2DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clESB_INS1_12ProjectedCRSEE.argprom: argument 0"}
-!451 = distinct !{!451, !"_ZZNK5osgeo4proj3crs19DerivedProjectedCRS10demoteTo2DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clESB_INS1_12ProjectedCRSEE.argprom"}
+!450 = distinct !{!450, !451, !"_ZZNK5osgeo4proj3crs19DerivedProjectedCRS10demoteTo2DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clESB_INS1_12ProjectedCRSEE: argument 0"}
+!451 = distinct !{!451, !"_ZZNK5osgeo4proj3crs19DerivedProjectedCRS10demoteTo2DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clESB_INS1_12ProjectedCRSEE"}
 !452 = !{!453}
 !453 = distinct !{!453, !454, !"_ZNK5osgeo4proj3crs10DerivedCRS18derivingConversionEv: argument 0"}
 !454 = distinct !{!454, !"_ZNK5osgeo4proj3crs10DerivedCRS18derivingConversionEv"}

@@ -328,14 +328,14 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit:    ; preds = %if.then.i, %if.else
   %9 = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   store ptr %this, ptr %9, align 8
   %cmp1.i.i.not = icmp eq ptr %0, %1
-  br i1 %cmp1.i.i.not, label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit.thread", label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i"
+  br i1 %cmp1.i.i.not, label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit.thread", label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i"
 
 "_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit.thread": ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit
   %10 = load i64, ptr %4, align 8
   store i64 %10, ptr %checksum, align 8
   br label %for.end
 
-"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i": ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit
+"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i": ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %context.i.i.i.i)
   %my_cancellation_requested.i.i.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i.i.i.i.i, align 8
@@ -401,11 +401,11 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit:    ; preds = %if.then.i, %if.else
   %cmp.i.i.i.i.i.i = icmp eq i8 %13, -1
   br i1 %cmp.i.i.i.i.i.i, label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit", label %if.then.i2.i.i.i.i
 
-if.then.i2.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i"
+if.then.i2.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i"
   call void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context.i.i.i.i) #17
   br label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit"
 
-"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit": ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i", %if.then.i2.i.i.i.i
+"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit": ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i", %if.then.i2.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %context.i.i.i.i)
   %.pre = load ptr, ptr %adlers, align 8
   %.pre42 = load ptr, ptr %_M_finish.i, align 8
@@ -733,7 +733,7 @@ for.end.thread:                                   ; preds = %if.then.i.i.i.i.i
   store ptr %offsets, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
   store ptr %this, ptr %4, align 8
-  br label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i"
+  br label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i"
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %5 = add nsw i64 %mul.i.i.i.i.i.i, -8
@@ -773,9 +773,9 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %12 = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
   store ptr %this, ptr %12, align 8
   %cmp1.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp1.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i", label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressor8write_toEPhE3$_0EEvT_S7_RKT0_.exit"
+  br i1 %cmp1.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i", label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressor8write_toEPhE3$_0EEvT_S7_RKT0_.exit"
 
-"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i": ; preds = %for.end.thread, %for.end
+"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i": ; preds = %for.end.thread, %for.end
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %context.i.i.i.i)
   %my_cancellation_requested.i.i.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i.i.i.i.i, align 8
@@ -839,19 +839,19 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %wn.i.i.i.i.i)
   %15 = load atomic i8, ptr %my_state.i.i.i.i.i.i monotonic, align 1
   %cmp.i.i.i.i.i.i = icmp eq i8 %15, -1
-  br i1 %cmp.i.i.i.i.i.i, label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i", label %if.then.i2.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i", label %if.then.i2.i.i.i.i
 
-if.then.i2.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i"
+if.then.i2.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i"
   call void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context.i.i.i.i) #17
-  br label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i"
+  br label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i"
 
-"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i": ; preds = %if.then.i2.i.i.i.i, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i"
+"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i": ; preds = %if.then.i2.i.i.i.i, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %context.i.i.i.i)
   %.pre = load ptr, ptr %buf.addr, align 8
   br label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressor8write_toEPhE3$_0EEvT_S7_RKT0_.exit"
 
-"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressor8write_toEPhE3$_0EEvT_S7_RKT0_.exit": ; preds = %for.end, %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i"
-  %16 = phi ptr [ %buf, %for.end ], [ %.pre, %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i" ]
+"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZlibCompressor8write_toEPhE3$_0EEvT_S7_RKT0_.exit": ; preds = %for.end, %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i"
+  %16 = phi ptr [ %buf, %for.end ], [ %.pre, %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i" ]
   %compressed_size = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load i64, ptr %compressed_size, align 8
   %add.ptr = getelementptr inbounds i8, ptr %16, i64 %17
@@ -946,9 +946,9 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit:    ; preds = %if.then.i, %if.else
   %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %inputs, ptr %5, align 8
   %cmp1.i.i = icmp sgt i64 %sub.ptr.div.i, 0
-  br i1 %cmp1.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i", label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZstdCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit"
+  br i1 %cmp1.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i", label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZstdCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit"
 
-"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i": ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit
+"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i": ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %context.i.i.i.i)
   %my_cancellation_requested.i.i.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i.i.i.i.i, align 8
@@ -1012,17 +1012,17 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit:    ; preds = %if.then.i, %if.else
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %wn.i.i.i.i.i)
   %8 = load atomic i8, ptr %my_state.i.i.i.i.i.i monotonic, align 1
   %cmp.i.i.i.i.i.i = icmp eq i8 %8, -1
-  br i1 %cmp.i.i.i.i.i.i, label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i", label %if.then.i2.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i", label %if.then.i2.i.i.i.i
 
-if.then.i2.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i"
+if.then.i2.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i"
   call void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context.i.i.i.i) #17
-  br label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i"
+  br label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i"
 
-"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i": ; preds = %if.then.i2.i.i.i.i, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i"
+"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i": ; preds = %if.then.i2.i.i.i.i, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %context.i.i.i.i)
   br label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZstdCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit"
 
-"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZstdCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit": ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit, %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i"
+"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZstdCompressorC1EPhlE3$_0EEvT_S7_RKT0_.exit": ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit, %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i"
   store i64 0, ptr %compressed_size.i, align 8
   %9 = load ptr, ptr %shards, align 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
@@ -1110,7 +1110,7 @@ for.end.thread:                                   ; preds = %if.then.i.i.i.i.i
   store ptr %offsets, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
   store ptr %this, ptr %4, align 8
-  br label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i"
+  br label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i"
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %5 = add nsw i64 %mul.i.i.i.i.i.i, -8
@@ -1153,9 +1153,9 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %12 = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
   store ptr %this, ptr %12, align 8
   %cmp1.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp1.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i", label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZstdCompressor8write_toEPhE3$_0EEvT_S7_RKT0_.exit"
+  br i1 %cmp1.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i", label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZstdCompressor8write_toEPhE3$_0EEvT_S7_RKT0_.exit"
 
-"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i": ; preds = %for.end.thread, %for.end
+"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i": ; preds = %for.end.thread, %for.end
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %context.i.i.i.i)
   %my_cancellation_requested.i.i.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i.i.i.i.i, align 8
@@ -1219,19 +1219,19 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %wn.i.i.i.i.i)
   %15 = load atomic i8, ptr %my_state.i.i.i.i.i.i monotonic, align 1
   %cmp.i.i.i.i.i.i = icmp eq i8 %15, -1
-  br i1 %cmp.i.i.i.i.i.i, label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i", label %if.then.i2.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i", label %if.then.i2.i.i.i.i
 
-if.then.i2.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i"
+if.then.i2.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i"
   call void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context.i.i.i.i) #17
-  br label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i"
+  br label %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i"
 
-"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i": ; preds = %if.then.i2.i.i.i.i, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.argprom.exit.i.i.i.i"
+"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i": ; preds = %if.then.i2.i.i.i.i, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE3runERKS4_RKSA_RSC_RNS1_18task_group_contextE.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %context.i.i.i.i)
   %.pre30 = load ptr, ptr %offsets, align 8
   br label %"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZstdCompressor8write_toEPhE3$_0EEvT_S7_RKT0_.exit"
 
-"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZstdCompressor8write_toEPhE3$_0EEvT_S7_RKT0_.exit": ; preds = %for.end, %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i"
-  %16 = phi ptr [ %6, %for.end ], [ %.pre30, %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.argprom.exit.i.i" ]
+"_ZN3tbb6detail2d112parallel_forIlZN4mold14ZstdCompressor8write_toEPhE3$_0EEvT_S7_RKT0_.exit": ; preds = %for.end, %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i"
+  %16 = phi ptr [ %6, %for.end ], [ %.pre30, %"_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEEEvRKT_RKT0_RKNS1_16auto_partitionerE.exit.i.i" ]
   %tobool.not.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %if.then.i.i.i
 
@@ -1736,7 +1736,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end9.i
   br i1 %tobool.not.i20.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.end9.i
-  call fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom"(ptr noundef nonnull align 64 dereferenceable(144) %this, i64 %27, i64 %26)
+  call fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_"(ptr noundef nonnull align 64 dereferenceable(144) %this, i64 %27, i64 %26)
   br label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit"
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
@@ -1921,7 +1921,7 @@ if.end18.i.i:                                     ; preds = %_ZN3tbb6detail2d112
   %call19.val.i.i = load i64, ptr %arrayidx.i29.i.i, align 8
   %57 = getelementptr i8, ptr %arrayidx.i29.i.i, i64 8
   %call19.val8.i.i = load i64, ptr %57, align 8
-  call fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom"(ptr noundef nonnull align 64 dereferenceable(144) %this, i64 %call19.val.i.i, i64 %call19.val8.i.i)
+  call fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_"(ptr noundef nonnull align 64 dereferenceable(144) %this, i64 %call19.val.i.i, i64 %call19.val8.i.i)
   %dec.i31.i.i = add i8 %my_size.promoted.i.pr65.i.i, -1
   store i8 %dec.i31.i.i, ptr %my_size.i.i.i, align 2
   %58 = add i8 %41, 7
@@ -2063,7 +2063,7 @@ declare noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRK
 declare void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom"(ptr nocapture noundef nonnull readonly align 64 dereferenceable(144) %this, i64 %r.0.val, i64 %r.8.val) unnamed_addr #4 align 2 {
+define internal fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_"(ptr nocapture noundef nonnull readonly align 64 dereferenceable(144) %this, i64 %r.0.val, i64 %r.8.val) unnamed_addr #4 align 2 {
 entry:
   %strm.i.i.i.i.i.i.i.i.i.i.i = alloca %struct.z_stream_s, align 8
   %nbits.i.i.i.i.i.i.i.i.i.i.i = alloca i32, align 4
@@ -2071,7 +2071,7 @@ entry:
   %my_step.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %my_step.i.i.i.i.i, align 8
   %cmp2.i.i.i.i.i = icmp slt i64 %r.8.val, %r.0.val
-  br i1 %cmp2.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.argprom.exit"
+  br i1 %cmp2.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit"
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %entry
   %my_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -2084,9 +2084,9 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %entry
   %next_out.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %strm.i.i.i.i.i.i.i.i.i.i.i, i64 24
   br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit.i.i.i.i.i", %for.body.lr.ph.i.i.i.i.i
-  %i.04.i.i.i.i.i = phi i64 [ %r.8.val, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit.i.i.i.i.i" ]
-  %storemerge3.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %add3.i.i.i.i.i, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit.i.i.i.i.i" ]
+for.body.i.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i", %for.body.lr.ph.i.i.i.i.i
+  %i.04.i.i.i.i.i = phi i64 [ %r.8.val, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i" ]
+  %storemerge3.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %add3.i.i.i.i.i, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i" ]
   %2 = load ptr, ptr %my_body, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -2217,19 +2217,19 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i
   store ptr %ref.tmp.sroa.7.0.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %ref.tmp.sroa.13.0.i.i.i.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i9.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %19, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit.i.i.i.i.i", label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i", label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %19) #18
-  br label %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit.i.i.i.i.i"
+  br label %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i"
 
-"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit.i.i.i.i.i": ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
+"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i": ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i = add i64 %i.04.i.i.i.i.i, 1
   %add3.i.i.i.i.i = add nsw i64 %storemerge3.i.i.i.i.i, %0
   %exitcond.not.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i, %r.0.val
-  br i1 %exitcond.not.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.argprom.exit", label %for.body.i.i.i.i.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit", label %for.body.i.i.i.i.i, !llvm.loop !32
 
-"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.argprom.exit": ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.exit.i.i.i.i.i", %entry
+"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit": ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i", %entry
   ret void
 }
 
@@ -2687,7 +2687,7 @@ if.end18.i.i:                                     ; preds = %_ZN3tbb6detail2d112
   %call19.val8.i.i = load i64, ptr %71, align 8
   %72 = load i64, ptr %my_step.i.i.i.i.i.i31.i.i, align 8
   %cmp2.i.i.i.i.i.i32.i.i = icmp slt i64 %call19.val8.i.i, %call19.val.i.i
-  br i1 %cmp2.i.i.i.i.i.i32.i.i, label %for.body.preheader.i.i.i.i.i.i33.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i"
+  br i1 %cmp2.i.i.i.i.i.i32.i.i, label %for.body.preheader.i.i.i.i.i.i33.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i"
 
 for.body.preheader.i.i.i.i.i.i33.i.i:             ; preds = %if.end18.i.i
   %73 = load i64, ptr %my_begin.i.i.i.i.i.i34.i.i, align 32
@@ -2722,9 +2722,9 @@ for.body.i.i.i.i.i.i37.i.i:                       ; preds = %for.body.i.i.i.i.i.
   %inc.i.i.i.i.i.i48.i.i = add nsw i64 %i.04.i.i.i.i.i.i38.i.i, 1
   %add3.i.i.i.i.i.i49.i.i = add nsw i64 %storemerge3.i.i.i.i.i.i39.i.i, %72
   %exitcond.not.i.i.i.i.i.i50.i.i = icmp eq i64 %inc.i.i.i.i.i.i48.i.i, %call19.val.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i50.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i", label %for.body.i.i.i.i.i.i37.i.i, !llvm.loop !34
+  br i1 %exitcond.not.i.i.i.i.i.i50.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i", label %for.body.i.i.i.i.i.i37.i.i, !llvm.loop !34
 
-"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i": ; preds = %for.body.i.i.i.i.i.i37.i.i, %if.end18.i.i
+"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i": ; preds = %for.body.i.i.i.i.i.i37.i.i, %if.end18.i.i
   %dec.i53.i.i = add i8 %my_size.promoted.i.pr89.i.i, -1
   store i8 %dec.i53.i.i, ptr %my_size.i.i.i, align 2
   %86 = add i8 %55, 7
@@ -2732,9 +2732,9 @@ for.body.i.i.i.i.i.i37.i.i:                       ; preds = %for.body.i.i.i.i.i.
   store i8 %87, ptr %range_pool.i.i, align 8
   br label %do.cond.i.i
 
-do.cond.i.i:                                      ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i", %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i
-  %my_size.promoted.i.pr88.i.i = phi i8 [ %dec.i53.i.i, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i" ], [ %my_size.promoted.i.pr89.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
-  %88 = phi i8 [ %87, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i" ], [ %55, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
+do.cond.i.i:                                      ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i", %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i
+  %my_size.promoted.i.pr88.i.i = phi i8 [ %dec.i53.i.i, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i" ], [ %my_size.promoted.i.pr89.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
+  %88 = phi i8 [ %87, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i" ], [ %55, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
   %cmp.i55.i.i = icmp eq i8 %my_size.promoted.i.pr88.i.i, 0
   br i1 %cmp.i55.i.i, label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZlibCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", label %land.rhs.i.i
 
@@ -3056,7 +3056,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end9.i
   br i1 %tobool.not.i20.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.end9.i
-  call fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom"(ptr noundef nonnull align 64 dereferenceable(144) %this, i64 %27, i64 %26)
+  call fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_"(ptr noundef nonnull align 64 dereferenceable(144) %this, i64 %27, i64 %26)
   br label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit"
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
@@ -3241,7 +3241,7 @@ if.end18.i.i:                                     ; preds = %_ZN3tbb6detail2d112
   %call19.val.i.i = load i64, ptr %arrayidx.i29.i.i, align 8
   %57 = getelementptr i8, ptr %arrayidx.i29.i.i, i64 8
   %call19.val8.i.i = load i64, ptr %57, align 8
-  call fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom"(ptr noundef nonnull align 64 dereferenceable(144) %this, i64 %call19.val.i.i, i64 %call19.val8.i.i)
+  call fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_"(ptr noundef nonnull align 64 dereferenceable(144) %this, i64 %call19.val.i.i, i64 %call19.val8.i.i)
   %dec.i31.i.i = add i8 %my_size.promoted.i.pr65.i.i, -1
   store i8 %dec.i31.i.i, ptr %my_size.i.i.i, align 2
   %58 = add i8 %41, 7
@@ -3372,13 +3372,13 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom"(ptr nocapture noundef nonnull readonly align 64 dereferenceable(144) %this, i64 %r.0.val, i64 %r.8.val) unnamed_addr #4 align 2 {
+define internal fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_"(ptr nocapture noundef nonnull readonly align 64 dereferenceable(144) %this, i64 %r.0.val, i64 %r.8.val) unnamed_addr #4 align 2 {
 entry:
   %my_body = getelementptr inbounds i8, ptr %this, i64 88
   %my_step.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %my_step.i.i.i.i.i, align 8
   %cmp2.i.i.i.i.i = icmp slt i64 %r.8.val, %r.0.val
-  br i1 %cmp2.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.argprom.exit"
+  br i1 %cmp2.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit"
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %entry
   %my_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -3387,9 +3387,9 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %entry
   %add.i.i.i.i.i = add nsw i64 %1, %mul.i.i.i.i.i
   br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.argprom.exit.i.i.i.i.i", %for.body.preheader.i.i.i.i.i
-  %i.04.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.argprom.exit.i.i.i.i.i" ], [ %r.8.val, %for.body.preheader.i.i.i.i.i ]
-  %storemerge3.i.i.i.i.i = phi i64 [ %add3.i.i.i.i.i, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.argprom.exit.i.i.i.i.i" ], [ %add.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
+for.body.i.i.i.i.i:                               ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i", %for.body.preheader.i.i.i.i.i
+  %i.04.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i" ], [ %r.8.val, %for.body.preheader.i.i.i.i.i ]
+  %storemerge3.i.i.i.i.i = phi i64 [ %add3.i.i.i.i.i, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i" ], [ %add.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %2 = load ptr, ptr %my_body, align 8
   %.val.i.i.i.i.i = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %2, i64 8
@@ -3534,19 +3534,19 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i
   store ptr %ref.tmp.sroa.8.0.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %ref.tmp.sroa.18.1.i.i.i.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i3.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.argprom.exit.i.i.i.i.i", label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i", label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %6) #18
-  br label %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.argprom.exit.i.i.i.i.i"
+  br label %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i"
 
-"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.argprom.exit.i.i.i.i.i": ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
+"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i": ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i = add i64 %i.04.i.i.i.i.i, 1
   %add3.i.i.i.i.i = add nsw i64 %storemerge3.i.i.i.i.i, %0
   %exitcond.not.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i, %r.0.val
-  br i1 %exitcond.not.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.argprom.exit", label %for.body.i.i.i.i.i, !llvm.loop !41
+  br i1 %exitcond.not.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit", label %for.body.i.i.i.i.i, !llvm.loop !41
 
-"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.argprom.exit": ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.argprom.argprom.exit.i.i.i.i.i", %entry
+"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZstdCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit": ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZstdCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i", %entry
   ret void
 }
 
@@ -3982,7 +3982,7 @@ if.end18.i.i:                                     ; preds = %_ZN3tbb6detail2d112
   %call19.val8.i.i = load i64, ptr %71, align 8
   %72 = load i64, ptr %my_step.i.i.i.i.i.i31.i.i, align 8
   %cmp2.i.i.i.i.i.i32.i.i = icmp slt i64 %call19.val8.i.i, %call19.val.i.i
-  br i1 %cmp2.i.i.i.i.i.i32.i.i, label %for.body.preheader.i.i.i.i.i.i33.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i"
+  br i1 %cmp2.i.i.i.i.i.i32.i.i, label %for.body.preheader.i.i.i.i.i.i33.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i"
 
 for.body.preheader.i.i.i.i.i.i33.i.i:             ; preds = %if.end18.i.i
   %73 = load i64, ptr %my_begin.i.i.i.i.i.i34.i.i, align 32
@@ -4017,9 +4017,9 @@ for.body.i.i.i.i.i.i37.i.i:                       ; preds = %for.body.i.i.i.i.i.
   %inc.i.i.i.i.i.i48.i.i = add nsw i64 %i.04.i.i.i.i.i.i38.i.i, 1
   %add3.i.i.i.i.i.i49.i.i = add nsw i64 %storemerge3.i.i.i.i.i.i39.i.i, %72
   %exitcond.not.i.i.i.i.i.i50.i.i = icmp eq i64 %inc.i.i.i.i.i.i48.i.i, %call19.val.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i50.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i", label %for.body.i.i.i.i.i.i37.i.i, !llvm.loop !43
+  br i1 %exitcond.not.i.i.i.i.i.i50.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i", label %for.body.i.i.i.i.i.i37.i.i, !llvm.loop !43
 
-"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i": ; preds = %for.body.i.i.i.i.i.i37.i.i, %if.end18.i.i
+"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i": ; preds = %for.body.i.i.i.i.i.i37.i.i, %if.end18.i.i
   %dec.i53.i.i = add i8 %my_size.promoted.i.pr89.i.i, -1
   store i8 %dec.i53.i.i, ptr %my_size.i.i.i, align 2
   %86 = add i8 %55, 7
@@ -4027,9 +4027,9 @@ for.body.i.i.i.i.i.i37.i.i:                       ; preds = %for.body.i.i.i.i.i.
   store i8 %87, ptr %range_pool.i.i, align 8
   br label %do.cond.i.i
 
-do.cond.i.i:                                      ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i", %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i
-  %my_size.promoted.i.pr88.i.i = phi i8 [ %dec.i53.i.i, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i" ], [ %my_size.promoted.i.pr89.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
-  %88 = phi i8 [ %87, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.argprom.exit51.i.i" ], [ %55, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
+do.cond.i.i:                                      ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i", %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i
+  %my_size.promoted.i.pr88.i.i = phi i8 [ %dec.i53.i.i, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i" ], [ %my_size.promoted.i.pr89.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
+  %88 = phi i8 [ %87, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit51.i.i" ], [ %55, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
   %cmp.i55.i.i = icmp eq i8 %my_size.promoted.i.pr88.i.i, 0
   br i1 %cmp.i55.i.i, label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold14ZstdCompressor8write_toEPhE3$_0lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", label %land.rhs.i.i
 

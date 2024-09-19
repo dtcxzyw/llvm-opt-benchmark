@@ -1187,7 +1187,7 @@ proto_item_set_hidden.exit627:                    ; preds = %kafka_check_support
   br i1 %.not618, label %100, label %98
 
 98:                                               ; preds = %96
-  %99 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.0615)
+  %99 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.0615)
   br label %100
 
 100:                                              ; preds = %98, %96
@@ -1325,7 +1325,7 @@ proto_item_set_hidden.exit627:                    ; preds = %kafka_check_support
   br i1 %149, label %150, label %dissect_kafka_list_groups_request.exit.thread
 
 150:                                              ; preds = %147
-  %151 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %151 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 152:                                              ; preds = %100
@@ -1349,7 +1349,7 @@ proto_item_set_hidden.exit627:                    ; preds = %kafka_check_support
   br label %dissect_kafka_list_groups_request.exit.thread
 
 164:                                              ; preds = %100
-  %165 = tail call fastcc i32 @dissect_kafka_delete_records_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %165 = tail call fastcc i32 @dissect_kafka_delete_records_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 166:                                              ; preds = %100
@@ -1363,19 +1363,19 @@ proto_item_set_hidden.exit627:                    ; preds = %kafka_check_support
   br label %dissect_kafka_list_groups_request.exit.thread
 
 172:                                              ; preds = %100
-  %173 = tail call fastcc i32 @dissect_kafka_add_partitions_to_txn_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %173 = tail call fastcc i32 @dissect_kafka_add_partitions_to_txn_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 174:                                              ; preds = %100
-  %175 = tail call fastcc i32 @dissect_kafka_add_offsets_to_txn_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %175 = tail call fastcc i32 @dissect_kafka_add_offsets_to_txn_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 176:                                              ; preds = %100
-  %177 = tail call fastcc i32 @dissect_kafka_end_txn_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %177 = tail call fastcc i32 @dissect_kafka_end_txn_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 178:                                              ; preds = %100
-  %179 = tail call fastcc i32 @dissect_kafka_write_txn_markers_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %179 = tail call fastcc i32 @dissect_kafka_write_txn_markers_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 180:                                              ; preds = %100
@@ -1404,15 +1404,15 @@ proto_item_set_hidden.exit627:                    ; preds = %kafka_check_support
   br label %dissect_kafka_list_groups_request.exit.thread
 
 195:                                              ; preds = %100
-  %196 = tail call fastcc i32 @dissect_kafka_alter_configs_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %196 = tail call fastcc i32 @dissect_kafka_alter_configs_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 197:                                              ; preds = %100
-  %198 = tail call fastcc i32 @dissect_kafka_alter_replica_log_dirs_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %198 = tail call fastcc i32 @dissect_kafka_alter_replica_log_dirs_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 199:                                              ; preds = %100
-  %200 = tail call fastcc i32 @dissect_kafka_describe_log_dirs_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %200 = tail call fastcc i32 @dissect_kafka_describe_log_dirs_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 201:                                              ; preds = %100
@@ -1461,15 +1461,15 @@ proto_item_set_hidden.exit627:                    ; preds = %kafka_check_support
   br label %dissect_kafka_list_groups_request.exit.thread
 
 228:                                              ; preds = %100
-  %229 = tail call fastcc i32 @dissect_kafka_alter_partition_reassignments_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %229 = tail call fastcc i32 @dissect_kafka_alter_partition_reassignments_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 230:                                              ; preds = %100
-  %231 = tail call fastcc i32 @dissect_kafka_list_partition_reassignments_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %231 = tail call fastcc i32 @dissect_kafka_list_partition_reassignments_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 232:                                              ; preds = %100
-  %233 = tail call fastcc i32 @dissect_kafka_offset_delete_request.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
+  %233 = tail call fastcc i32 @dissect_kafka_offset_delete_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.1616)
   br label %dissect_kafka_list_groups_request.exit.thread
 
 dissect_kafka_list_groups_request.exit:           ; preds = %100
@@ -1700,7 +1700,7 @@ proto_item_set_generated.exit647:                 ; preds = %kafka_check_support
   br i1 %.not, label %362, label %360
 
 360:                                              ; preds = %357
-  %361 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef 8)
+  %361 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef 8)
   %.pr.pre = load i16, ptr %278, align 4
   br label %362
 
@@ -1844,7 +1844,7 @@ proto_item_set_generated.exit647:                 ; preds = %kafka_check_support
   br label %494
 
 414:                                              ; preds = %362
-  %415 = tail call fastcc i32 @dissect_kafka_sasl_handshake_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %415 = tail call fastcc i32 @dissect_kafka_sasl_handshake_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 .thread:                                          ; preds = %proto_item_set_generated.exit647, %362
@@ -1864,7 +1864,7 @@ proto_item_set_generated.exit647:                 ; preds = %kafka_check_support
   br label %494
 
 424:                                              ; preds = %362
-  %425 = tail call fastcc i32 @dissect_kafka_delete_records_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %425 = tail call fastcc i32 @dissect_kafka_delete_records_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 426:                                              ; preds = %362
@@ -1878,19 +1878,19 @@ proto_item_set_generated.exit647:                 ; preds = %kafka_check_support
   br label %494
 
 432:                                              ; preds = %362
-  %433 = tail call fastcc i32 @dissect_kafka_add_partitions_to_txn_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %433 = tail call fastcc i32 @dissect_kafka_add_partitions_to_txn_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 434:                                              ; preds = %362
-  %435 = tail call fastcc i32 @dissect_kafka_add_offsets_to_txn_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %435 = tail call fastcc i32 @dissect_kafka_add_offsets_to_txn_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 436:                                              ; preds = %362
-  %437 = tail call fastcc i32 @dissect_kafka_end_txn_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %437 = tail call fastcc i32 @dissect_kafka_end_txn_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 438:                                              ; preds = %362
-  %439 = tail call fastcc i32 @dissect_kafka_write_txn_markers_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %439 = tail call fastcc i32 @dissect_kafka_write_txn_markers_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 440:                                              ; preds = %362
@@ -1919,15 +1919,15 @@ proto_item_set_generated.exit647:                 ; preds = %kafka_check_support
   br label %494
 
 455:                                              ; preds = %362
-  %456 = tail call fastcc i32 @dissect_kafka_alter_configs_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %456 = tail call fastcc i32 @dissect_kafka_alter_configs_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 457:                                              ; preds = %362
-  %458 = tail call fastcc i32 @dissect_kafka_alter_replica_log_dirs_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %458 = tail call fastcc i32 @dissect_kafka_alter_replica_log_dirs_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 459:                                              ; preds = %362
-  %460 = tail call fastcc i32 @dissect_kafka_describe_log_dirs_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %460 = tail call fastcc i32 @dissect_kafka_describe_log_dirs_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 461:                                              ; preds = %362
@@ -1976,15 +1976,15 @@ proto_item_set_generated.exit647:                 ; preds = %kafka_check_support
   br label %494
 
 488:                                              ; preds = %362
-  %489 = tail call fastcc i32 @dissect_kafka_alter_partition_reassignments_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %489 = tail call fastcc i32 @dissect_kafka_alter_partition_reassignments_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 490:                                              ; preds = %362
-  %491 = tail call fastcc i32 @dissect_kafka_list_partition_reassignments_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %491 = tail call fastcc i32 @dissect_kafka_list_partition_reassignments_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 492:                                              ; preds = %362
-  %493 = tail call fastcc i32 @dissect_kafka_offset_delete_response.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
+  %493 = tail call fastcc i32 @dissect_kafka_offset_delete_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, i32 noundef %.4.ph)
   br label %494
 
 494:                                              ; preds = %dissect_kafka_insert_match.exit, %362, %363, %366, %369, %372, %375, %378, %381, %384, %387, %390, %393, %396, %399, %402, %405, %408, %411, %414, %.thread, %418, %421, %424, %426, %429, %432, %434, %436, %438, %440, %443, %446, %449, %452, %455, %457, %459, %461, %464, %467, %470, %473, %476, %479, %482, %485, %488, %490, %492, %dissect_kafka_insert_match.exit.thread
@@ -2175,7 +2175,7 @@ dissect_kafka_regular_string.exit:                ; preds = %38, %21, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -2216,13 +2216,13 @@ define internal fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, 
 29:                                               ; preds = %.lr.ph.i
   %30 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %27, ptr noundef nonnull @ei_kafka_bad_varint) #6
   %31 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_kafka_varuint.argprom.exit.i
+  br label %dissect_kafka_varuint.exit.i
 
 32:                                               ; preds = %.lr.ph.i
   %33 = add i32 %25, %.0910.i
-  br label %dissect_kafka_varuint.argprom.exit.i
+  br label %dissect_kafka_varuint.exit.i
 
-dissect_kafka_varuint.argprom.exit.i:             ; preds = %32, %29
+dissect_kafka_varuint.exit.i:                     ; preds = %32, %29
   %.0.i.i = phi i32 [ %31, %29 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %34 = load i32, ptr @hf_kafka_tagged_field_data, align 4
@@ -2231,14 +2231,14 @@ dissect_kafka_varuint.argprom.exit.i:             ; preds = %32, %29
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %41
 
-37:                                               ; preds = %dissect_kafka_varuint.argprom.exit.i
+37:                                               ; preds = %dissect_kafka_varuint.exit.i
   store i64 0, ptr %5, align 8
   %38 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %34, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 0, i32 noundef 0) #6
   %39 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %38, ptr noundef nonnull @ei_kafka_bad_varint) #6
   %40 = call i32 @tvb_captured_length(ptr noundef %0) #6
   br label %dissect_kafka_tagged_field.exit
 
-41:                                               ; preds = %dissect_kafka_varuint.argprom.exit.i
+41:                                               ; preds = %dissect_kafka_varuint.exit.i
   %42 = add i32 %35, %.0.i.i
   %43 = load i64, ptr %5, align 8
   %44 = trunc i64 %43 to i32
@@ -2697,7 +2697,7 @@ define internal fastcc noundef i32 @dissect_kafka_offsets_request(ptr noundef %0
   %50 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.0.i14.i) #6
   %51 = load i32, ptr @hf_kafka_offset_time, align 4
   %52 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %51, ptr noundef %0, i32 noundef %.0.i14.i, i32 noundef 8, i32 noundef 0) #6
-  switch i64 %50, label %dissect_kafka_offset_time.argprom.exit.i.i [
+  switch i64 %50, label %dissect_kafka_offset_time.exit.i.i [
     i64 -1, label %.sink.split.i.i.i
     i64 -2, label %53
   ]
@@ -2708,20 +2708,20 @@ define internal fastcc noundef i32 @dissect_kafka_offsets_request(ptr noundef %0
 .sink.split.i.i.i:                                ; preds = %53, %49
   %.str.579.sink.i.i.i = phi ptr [ @.str.579, %53 ], [ @.str.578, %49 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull %.str.579.sink.i.i.i) #6
-  br label %dissect_kafka_offset_time.argprom.exit.i.i
+  br label %dissect_kafka_offset_time.exit.i.i
 
-dissect_kafka_offset_time.argprom.exit.i.i:       ; preds = %.sink.split.i.i.i, %49
+dissect_kafka_offset_time.exit.i.i:               ; preds = %.sink.split.i.i.i, %49
   %54 = add i32 %.0.i14.i, 8
   br i1 %26, label %55, label %dissect_kafka_offsets_request_partition.exit.i
 
-55:                                               ; preds = %dissect_kafka_offset_time.argprom.exit.i.i
+55:                                               ; preds = %dissect_kafka_offset_time.exit.i.i
   %56 = load i32, ptr @hf_kafka_max_offsets, align 4
   %57 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %56, ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #6
   %58 = add i32 %.0.i14.i, 12
   br label %dissect_kafka_offsets_request_partition.exit.i
 
-dissect_kafka_offsets_request_partition.exit.i:   ; preds = %55, %dissect_kafka_offset_time.argprom.exit.i.i
-  %.1.i.i = phi i32 [ %58, %55 ], [ %54, %dissect_kafka_offset_time.argprom.exit.i.i ]
+dissect_kafka_offsets_request_partition.exit.i:   ; preds = %55, %dissect_kafka_offset_time.exit.i.i
+  %.1.i.i = phi i32 [ %58, %55 ], [ %54, %dissect_kafka_offset_time.exit.i.i ]
   %59 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %59, ptr noundef %0, i32 noundef %.1.i.i) #6
   %60 = load ptr, ptr %6, align 8
@@ -2770,7 +2770,7 @@ define internal fastcc i32 @dissect_kafka_metadata_request(ptr noundef %0, ptr n
   br i1 %6, label %22, label %.thread26
 
 22:                                               ; preds = %15
-  %23 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21)
+  %23 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21)
   br label %.thread26
 
 .thread26:                                        ; preds = %5, %10, %22, %15
@@ -2834,7 +2834,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %25
   br i1 %33, label %36, label %38
 
 36:                                               ; preds = %dissect_kafka_array.exit
-  %37 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %35)
+  %37 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %35)
   br label %38
 
 38:                                               ; preds = %dissect_kafka_array.exit.thread, %36, %dissect_kafka_array.exit
@@ -2941,7 +2941,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %33
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %dissect_kafka_array.exit
-  %63 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink49)
+  %63 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink49)
   br label %64
 
 64:                                               ; preds = %62, %dissect_kafka_array.exit
@@ -3008,7 +3008,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %14
   br i1 %33, label %36, label %38
 
 36:                                               ; preds = %dissect_kafka_array.exit
-  %37 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %35)
+  %37 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %35)
   br label %38
 
 38:                                               ; preds = %dissect_kafka_array.exit.thread, %36, %dissect_kafka_array.exit
@@ -3033,7 +3033,7 @@ define internal fastcc i32 @dissect_kafka_controlled_shutdown_request(ptr nounde
   br i1 %.not, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
+  %16 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
   br label %.thread
 
 .thread:                                          ; preds = %5, %15, %11
@@ -3092,7 +3092,7 @@ define internal fastcc i32 @dissect_kafka_offset_commit_request(ptr noundef %0, 
   br i1 %9, label %32, label %34
 
 32:                                               ; preds = %28
-  %33 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %31)
+  %33 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %31)
   br label %34
 
 34:                                               ; preds = %.thread54, %.thread52, %32, %28
@@ -3154,7 +3154,7 @@ dissect_kafka_offset_fetch_request_topics.exit:   ; preds = %19, %20
 
 26:                                               ; preds = %.thread, %25
   %.021 = phi i32 [ %24, %.thread ], [ %14, %25 ]
-  %27 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.021)
+  %27 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.021)
   br label %28
 
 28:                                               ; preds = %26, %25
@@ -3193,7 +3193,7 @@ define internal fastcc i32 @dissect_kafka_find_coordinator_request(ptr noundef %
   br i1 %20, label %26, label %28
 
 26:                                               ; preds = %18
-  %27 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %25)
+  %27 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %25)
   br label %28
 
 28:                                               ; preds = %.thread, %26, %18
@@ -3277,7 +3277,7 @@ kafka_tvb_get_string.exit52:                      ; preds = %kafka_tvb_get_strin
   br i1 %12, label %53, label %55
 
 53:                                               ; preds = %kafka_tvb_get_string.exit52
-  %54 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %36)
+  %54 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %36)
   br label %55
 
 55:                                               ; preds = %53, %kafka_tvb_get_string.exit52
@@ -3325,7 +3325,7 @@ define internal fastcc i32 @dissect_kafka_heartbeat_request(ptr noundef %0, ptr 
   br i1 %11, label %35, label %37
 
 35:                                               ; preds = %23
-  %36 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0)
+  %36 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0)
   br label %37
 
 37:                                               ; preds = %35, %23
@@ -3385,7 +3385,7 @@ define internal fastcc i32 @dissect_kafka_leave_group_request(ptr noundef %0, pt
   br i1 %12, label %43, label %.thread
 
 43:                                               ; preds = %31
-  %44 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %34)
+  %44 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %34)
   br label %.thread
 
 .thread:                                          ; preds = %15, %29, %43, %31
@@ -3433,7 +3433,7 @@ define internal fastcc noundef i32 @dissect_kafka_sync_group_request(ptr noundef
   br i1 %12, label %33, label %35
 
 33:                                               ; preds = %.thread52
-  %34 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %32)
+  %34 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %32)
   br label %35
 
 35:                                               ; preds = %33, %.thread52
@@ -3542,7 +3542,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %38
   br i1 %7, label %48, label %.thread
 
 48:                                               ; preds = %44
-  %49 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %47)
+  %49 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %47)
   br label %.thread
 
 .thread:                                          ; preds = %dissect_kafka_array.exit, %48, %44
@@ -3560,7 +3560,7 @@ define internal fastcc i32 @dissect_kafka_api_versions_request(ptr noundef %0, p
   %9 = tail call fastcc i32 @dissect_kafka_compact_string(ptr noundef %2, i32 noundef %8, ptr noundef %0, ptr noundef %1, i32 noundef %3, ptr noundef null, ptr noundef null)
   %10 = load i32, ptr @hf_kafka_client_software_version, align 4
   %11 = tail call fastcc i32 @dissect_kafka_compact_string(ptr noundef %2, i32 noundef %10, ptr noundef %0, ptr noundef %1, i32 noundef %9, ptr noundef null, ptr noundef null)
-  %12 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11)
+  %12 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11)
   br label %13
 
 13:                                               ; preds = %7, %5
@@ -3591,7 +3591,7 @@ define internal fastcc i32 @dissect_kafka_create_topics_request(ptr noundef %0, 
   br i1 %9, label %21, label %.thread
 
 21:                                               ; preds = %17
-  %22 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20)
+  %22 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20)
   br label %.thread
 
 .thread:                                          ; preds = %5, %21, %17
@@ -3687,7 +3687,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %41
   br i1 %10, label %50, label %52
 
 50:                                               ; preds = %dissect_kafka_array.exit
-  %51 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %49)
+  %51 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %49)
   br label %52
 
 52:                                               ; preds = %50, %dissect_kafka_array.exit
@@ -3696,7 +3696,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_delete_records_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_delete_records_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3840,7 +3840,7 @@ define internal fastcc i32 @dissect_kafka_init_producer_id_request(ptr noundef %
 
 21:                                               ; preds = %.thread26, %20
   %.128 = phi i32 [ %19, %.thread26 ], [ %12, %20 ]
-  %22 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.128)
+  %22 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.128)
   br label %23
 
 23:                                               ; preds = %21, %20
@@ -4009,7 +4009,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_offse
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_add_partitions_to_txn_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_add_partitions_to_txn_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -4108,7 +4108,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_add_p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_kafka_add_offsets_to_txn_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_add_offsets_to_txn_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_kafka_transactional_id, align 4
   %6 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %5, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef null, ptr noundef null)
   %7 = load i32, ptr @hf_kafka_producer_id, align 4
@@ -4123,7 +4123,7 @@ define internal fastcc i32 @dissect_kafka_add_offsets_to_txn_request.argelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_end_txn_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_end_txn_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_kafka_transactional_id, align 4
   %6 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %5, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef null, ptr noundef null)
   %7 = load i32, ptr @hf_kafka_producer_id, align 4
@@ -4139,7 +4139,7 @@ define internal fastcc noundef i32 @dissect_kafka_end_txn_request.argelim(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_write_txn_markers_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_write_txn_markers_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -4318,7 +4318,7 @@ define internal fastcc i32 @dissect_kafka_txn_offset_commit_request(ptr noundef 
   br i1 %8, label %32, label %34
 
 32:                                               ; preds = %27
-  %33 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %30)
+  %33 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %30)
   br label %34
 
 34:                                               ; preds = %32, %27
@@ -4359,7 +4359,7 @@ define internal fastcc i32 @dissect_kafka_describe_acls_request(ptr noundef %0, 
   br i1 %10, label %29, label %31
 
 29:                                               ; preds = %18
-  %30 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %28)
+  %30 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %28)
   br label %31
 
 31:                                               ; preds = %29, %18
@@ -4380,7 +4380,7 @@ define internal fastcc i32 @dissect_kafka_create_acls_request(ptr noundef %0, pt
   br i1 %9, label %13, label %15
 
 13:                                               ; preds = %5
-  %14 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11)
+  %14 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11)
   br label %15
 
 15:                                               ; preds = %13, %5
@@ -4401,7 +4401,7 @@ define internal fastcc i32 @dissect_kafka_delete_acls_request(ptr noundef %0, pt
   br i1 %9, label %13, label %15
 
 13:                                               ; preds = %5
-  %14 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11)
+  %14 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11)
   br label %15
 
 15:                                               ; preds = %13, %5
@@ -4496,7 +4496,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_descr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_alter_configs_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_alter_configs_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4583,7 +4583,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_alter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_alter_replica_log_dirs_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_alter_replica_log_dirs_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -4709,7 +4709,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_alter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_describe_log_dirs_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_describe_log_dirs_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -4816,7 +4816,7 @@ define internal fastcc i32 @dissect_kafka_create_partitions_request(ptr noundef 
   br i1 %9, label %19, label %21
 
 19:                                               ; preds = %5
-  %20 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %18)
+  %20 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %18)
   br label %21
 
 21:                                               ; preds = %19, %5
@@ -4829,11 +4829,11 @@ define internal fastcc i32 @dissect_kafka_sasl_authenticate_request(ptr noundef 
   %6 = load i32, ptr @hf_kafka_sasl_auth_bytes, align 4
   %7 = icmp sgt i16 %4, 1
   %8 = zext i1 %7 to i32
-  %9 = tail call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %2, i32 noundef %6, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %8)
+  %9 = tail call fastcc i32 @dissect_kafka_bytes(ptr noundef %2, i32 noundef %6, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %8)
   br i1 %7, label %10, label %12
 
 10:                                               ; preds = %5
-  %11 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9)
+  %11 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9)
   br label %12
 
 12:                                               ; preds = %10, %5
@@ -4857,7 +4857,7 @@ define internal fastcc i32 @dissect_kafka_create_delegation_token_request(ptr no
   br i1 %9, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %15)
+  %17 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %15)
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -4870,14 +4870,14 @@ define internal fastcc i32 @dissect_kafka_renew_delegation_token_request(ptr nou
   %6 = load i32, ptr @hf_kafka_token_hmac, align 4
   %7 = icmp sgt i16 %4, 1
   %8 = zext i1 %7 to i32
-  %9 = tail call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %2, i32 noundef %6, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %8)
+  %9 = tail call fastcc i32 @dissect_kafka_bytes(ptr noundef %2, i32 noundef %6, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %8)
   %10 = load i32, ptr @hf_kafka_token_renew_time, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %9, i32 noundef 8, i32 noundef 0) #6
   %12 = add i32 %9, 8
   br i1 %7, label %13, label %15
 
 13:                                               ; preds = %5
-  %14 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12)
+  %14 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12)
   br label %15
 
 15:                                               ; preds = %13, %5
@@ -4890,14 +4890,14 @@ define internal fastcc i32 @dissect_kafka_expire_delegation_token_request(ptr no
   %6 = load i32, ptr @hf_kafka_token_hmac, align 4
   %7 = icmp sgt i16 %4, 1
   %8 = zext i1 %7 to i32
-  %9 = tail call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %2, i32 noundef %6, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %8)
+  %9 = tail call fastcc i32 @dissect_kafka_bytes(ptr noundef %2, i32 noundef %6, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %8)
   %10 = load i32, ptr @hf_kafka_token_expiry_time, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %9, i32 noundef 8, i32 noundef 0) #6
   %12 = add i32 %9, 8
   br i1 %7, label %13, label %15
 
 13:                                               ; preds = %5
-  %14 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12)
+  %14 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12)
   br label %15
 
 15:                                               ; preds = %13, %5
@@ -4918,7 +4918,7 @@ define internal fastcc i32 @dissect_kafka_describe_delegation_token_request(ptr 
   br i1 %9, label %13, label %15
 
 13:                                               ; preds = %5
-  %14 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11)
+  %14 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11)
   br label %15
 
 15:                                               ; preds = %13, %5
@@ -5009,7 +5009,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %di
   br i1 %10, label %46, label %dissect_kafka_array.exit.thread
 
 46:                                               ; preds = %dissect_kafka_array.exit
-  %47 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i)
+  %47 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i)
   br label %dissect_kafka_array.exit.thread
 
 dissect_kafka_array.exit.thread:                  ; preds = %38, %41, %46, %dissect_kafka_array.exit
@@ -5046,7 +5046,7 @@ define internal fastcc i32 @dissect_kafka_elect_leaders_request(ptr noundef %0, 
   br i1 %15, label %22, label %24
 
 22:                                               ; preds = %12
-  %23 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21)
+  %23 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21)
   br label %24
 
 24:                                               ; preds = %22, %12
@@ -5070,7 +5070,7 @@ define internal fastcc i32 @dissect_kafka_inc_alter_configs_request(ptr noundef 
   br i1 %9, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %15)
+  %17 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %15)
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -5079,7 +5079,7 @@ define internal fastcc i32 @dissect_kafka_inc_alter_configs_request(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_alter_partition_reassignments_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_alter_partition_reassignments_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5194,7 +5194,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_alter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_list_partition_reassignments_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_list_partition_reassignments_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5270,7 +5270,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_list_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_offset_delete_request.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_offset_delete_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5875,7 +5875,7 @@ dissect_kafka_error.exit.i.i:                     ; preds = %47, %.lr.ph.i.i19.i
   %67 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %51) #6
   %68 = load i32, ptr @hf_kafka_offset_time, align 4
   %69 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %68, ptr noundef %0, i32 noundef %51, i32 noundef 8, i32 noundef 0) #6
-  switch i64 %67, label %dissect_kafka_offset_time.argprom.exit.i.i [
+  switch i64 %67, label %dissect_kafka_offset_time.exit.i.i [
     i64 -1, label %.sink.split.i.i.i
     i64 -2, label %70
   ]
@@ -5886,17 +5886,17 @@ dissect_kafka_error.exit.i.i:                     ; preds = %47, %.lr.ph.i.i19.i
 .sink.split.i.i.i:                                ; preds = %70, %66
   %.str.579.sink.i.i.i = phi ptr [ @.str.579, %70 ], [ @.str.578, %66 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef nonnull %.str.579.sink.i.i.i) #6
-  br label %dissect_kafka_offset_time.argprom.exit.i.i
+  br label %dissect_kafka_offset_time.exit.i.i
 
-dissect_kafka_offset_time.argprom.exit.i.i:       ; preds = %.sink.split.i.i.i, %66
+dissect_kafka_offset_time.exit.i.i:               ; preds = %.sink.split.i.i.i, %66
   %71 = add i32 %.0910.i.i21.i.i, 14
   %72 = load i32, ptr @hf_kafka_offset, align 4
   %73 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %72, ptr noundef %0, i32 noundef %71, i32 noundef 8, i32 noundef 0) #6
   %74 = add i32 %.0910.i.i21.i.i, 22
   br label %dissect_kafka_array.exit.i.i
 
-dissect_kafka_array.exit.i.i:                     ; preds = %.lr.ph.i.i19.i.i.i, %dissect_kafka_offset_time.argprom.exit.i.i
-  %.0.i14.i = phi i32 [ %74, %dissect_kafka_offset_time.argprom.exit.i.i ], [ %63, %.lr.ph.i.i19.i.i.i ]
+dissect_kafka_array.exit.i.i:                     ; preds = %.lr.ph.i.i19.i.i.i, %dissect_kafka_offset_time.exit.i.i
+  %.0.i14.i = phi i32 [ %74, %dissect_kafka_offset_time.exit.i.i ], [ %63, %.lr.ph.i.i19.i.i.i ]
   br i1 %25, label %75, label %dissect_kafka_offsets_response_partition.exit.i
 
 75:                                               ; preds = %dissect_kafka_array.exit.i.i
@@ -5987,7 +5987,7 @@ define internal fastcc i32 @dissect_kafka_metadata_response(ptr noundef %0, ptr 
   br i1 %15, label %38, label %.thread50
 
 38:                                               ; preds = %34
-  %39 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %37)
+  %39 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %37)
   br label %.thread50
 
 .thread50:                                        ; preds = %28, %38, %34
@@ -6019,7 +6019,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
   br i1 %15, label %18, label %20
 
 18:                                               ; preds = %dissect_kafka_error.exit
-  %19 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
+  %19 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
   br label %20
 
 20:                                               ; preds = %18, %dissect_kafka_error.exit
@@ -6051,7 +6051,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
   br i1 %15, label %18, label %20
 
 18:                                               ; preds = %dissect_kafka_error.exit
-  %19 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
+  %19 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
   br label %20
 
 20:                                               ; preds = %18, %dissect_kafka_error.exit
@@ -6081,7 +6081,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %dissect_kafka_error.exit
-  %17 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
+  %17 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
   br label %18
 
 18:                                               ; preds = %16, %dissect_kafka_error.exit
@@ -6113,7 +6113,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
   br i1 %15, label %18, label %20
 
 18:                                               ; preds = %dissect_kafka_error.exit
-  %19 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
+  %19 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
   br label %20
 
 20:                                               ; preds = %18, %dissect_kafka_error.exit
@@ -6140,7 +6140,7 @@ define internal fastcc i32 @dissect_kafka_offset_commit_response(ptr noundef %0,
   br i1 %12, label %15, label %17
 
 15:                                               ; preds = %8
-  %16 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
+  %16 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
   br label %17
 
 17:                                               ; preds = %.thread, %15, %8
@@ -6197,7 +6197,7 @@ define internal fastcc i32 @dissect_kafka_offset_fetch_response(ptr noundef %0, 
   br i1 %16, label %34, label %.thread
 
 34:                                               ; preds = %32
-  %35 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %33)
+  %35 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %33)
   br label %.thread
 
 .thread:                                          ; preds = %13, %34, %32
@@ -6291,7 +6291,7 @@ dissect_kafka_find_coordinator_response_coordinator.exit: ; preds = %47, %53
   br i1 %37, label %54, label %56
 
 54:                                               ; preds = %dissect_kafka_find_coordinator_response_coordinator.exit
-  %55 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %43)
+  %55 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %43)
   br label %56
 
 56:                                               ; preds = %54, %dissect_kafka_find_coordinator_response_coordinator.exit
@@ -6369,7 +6369,7 @@ dissect_kafka_error.exit:                         ; preds = %14, %18
   br i1 %33, label %51, label %53
 
 51:                                               ; preds = %31
-  %52 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %42)
+  %52 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %42)
   br label %53
 
 53:                                               ; preds = %51, %31
@@ -6410,7 +6410,7 @@ dissect_kafka_error.exit:                         ; preds = %11, %15
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %dissect_kafka_error.exit
-  %23 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20)
+  %23 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20)
   br label %24
 
 24:                                               ; preds = %22, %dissect_kafka_error.exit
@@ -6463,7 +6463,7 @@ dissect_kafka_error.exit:                         ; preds = %12, %16
   br i1 %.not, label %.thread, label %30
 
 30:                                               ; preds = %23
-  %31 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %28)
+  %31 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %28)
   br label %.thread
 
 .thread:                                          ; preds = %dissect_kafka_error.exit, %30, %23
@@ -6515,11 +6515,11 @@ dissect_kafka_error.exit:                         ; preds = %11, %15
   %28 = load i32, ptr @hf_kafka_member_assignment, align 4
   %29 = icmp sgt i16 %4, 3
   %30 = zext i1 %29 to i32
-  %31 = tail call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %2, i32 noundef %28, ptr noundef %0, ptr noundef %1, i32 noundef %.2, i32 noundef %30)
+  %31 = tail call fastcc i32 @dissect_kafka_bytes(ptr noundef %2, i32 noundef %28, ptr noundef %0, ptr noundef %1, i32 noundef %.2, i32 noundef %30)
   br i1 %29, label %32, label %34
 
 32:                                               ; preds = %27
-  %33 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %31)
+  %33 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %31)
   br label %34
 
 34:                                               ; preds = %32, %27
@@ -6546,7 +6546,7 @@ define internal fastcc i32 @dissect_kafka_describe_groups_response(ptr noundef %
   br i1 %12, label %15, label %17
 
 15:                                               ; preds = %8
-  %16 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
+  %16 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
   br label %17
 
 17:                                               ; preds = %.thread, %15, %8
@@ -6594,7 +6594,7 @@ dissect_kafka_error.exit:                         ; preds = %12, %16
   br i1 %24, label %28, label %30
 
 28:                                               ; preds = %dissect_kafka_error.exit
-  %29 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26)
+  %29 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26)
   br label %30
 
 30:                                               ; preds = %28, %dissect_kafka_error.exit
@@ -6603,7 +6603,7 @@ dissect_kafka_error.exit:                         ; preds = %12, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_sasl_handshake_response.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_sasl_handshake_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #6
   %7 = load i32, ptr @hf_kafka_error, align 4
@@ -6684,7 +6684,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
   br i1 %15, label %23, label %.thread
 
 23:                                               ; preds = %19
-  %24 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %22)
+  %24 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %22)
   br label %.thread
 
 .thread:                                          ; preds = %dissect_kafka_error.exit, %23, %19
@@ -6716,7 +6716,7 @@ define internal fastcc i32 @dissect_kafka_create_topics_response(ptr noundef %0,
   br i1 %15, label %19, label %21
 
 19:                                               ; preds = %12
-  %20 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
+  %20 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
   br label %21
 
 21:                                               ; preds = %19, %12
@@ -6748,7 +6748,7 @@ define internal fastcc i32 @dissect_kafka_delete_topics_response(ptr noundef %0,
   br i1 %15, label %19, label %21
 
 19:                                               ; preds = %12
-  %20 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
+  %20 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
   br label %21
 
 21:                                               ; preds = %19, %12
@@ -6757,7 +6757,7 @@ define internal fastcc i32 @dissect_kafka_delete_topics_response(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_delete_records_response.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_delete_records_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6912,7 +6912,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %dissect_kafka_error.exit
-  %26 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %23)
+  %26 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %23)
   br label %27
 
 27:                                               ; preds = %25, %dissect_kafka_error.exit
@@ -7064,7 +7064,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_offse
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_add_partitions_to_txn_response.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_add_partitions_to_txn_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -7185,7 +7185,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_add_p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_add_offsets_to_txn_response.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_add_offsets_to_txn_response(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_kafka_throttle_time, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #6
   %7 = add i32 %3, 4
@@ -7209,7 +7209,7 @@ dissect_kafka_error.exit:                         ; preds = %4, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_end_txn_response.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_end_txn_response(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_kafka_throttle_time, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #6
   %7 = add i32 %3, 4
@@ -7233,7 +7233,7 @@ dissect_kafka_error.exit:                         ; preds = %4, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_write_txn_markers_response.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_write_txn_markers_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -7412,7 +7412,7 @@ define internal fastcc i32 @dissect_kafka_txn_offset_commit_response(ptr noundef
   br i1 %12, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
+  %17 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -7452,7 +7452,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %13
   br i1 %20, label %26, label %28
 
 26:                                               ; preds = %dissect_kafka_error.exit
-  %27 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %25)
+  %27 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %25)
   br label %28
 
 28:                                               ; preds = %26, %dissect_kafka_error.exit
@@ -7478,7 +7478,7 @@ define internal fastcc i32 @dissect_kafka_create_acls_response(ptr noundef %0, p
   br i1 %12, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
+  %17 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -7503,7 +7503,7 @@ define internal fastcc i32 @dissect_kafka_delete_acls_response(ptr noundef %0, p
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %5
-  %18 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
+  %18 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
   br label %19
 
 19:                                               ; preds = %17, %5
@@ -7771,7 +7771,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_descr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_alter_configs_response.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_alter_configs_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
@@ -7840,7 +7840,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_alter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_alter_replica_log_dirs_response.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_alter_replica_log_dirs_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -7958,7 +7958,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_alter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_describe_log_dirs_response.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_describe_log_dirs_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8149,7 +8149,7 @@ define internal fastcc i32 @dissect_kafka_create_partitions_response(ptr noundef
   br i1 %12, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
+  %17 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -8180,7 +8180,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
   %17 = zext i1 %16 to i32
   %18 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %15, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %17, ptr noundef null, ptr noundef null)
   %19 = load i32, ptr @hf_kafka_sasl_auth_bytes, align 4
-  %20 = tail call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %2, i32 noundef %19, ptr noundef %0, ptr noundef %1, i32 noundef %18, i32 noundef %17)
+  %20 = tail call fastcc i32 @dissect_kafka_bytes(ptr noundef %2, i32 noundef %19, ptr noundef %0, ptr noundef %1, i32 noundef %18, i32 noundef %17)
   %21 = icmp sgt i16 %4, 0
   br i1 %21, label %22, label %.thread
 
@@ -8191,7 +8191,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
   br i1 %16, label %26, label %.thread
 
 26:                                               ; preds = %22
-  %27 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %25)
+  %27 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %25)
   br label %.thread
 
 .thread:                                          ; preds = %dissect_kafka_error.exit, %26, %22
@@ -8235,14 +8235,14 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
   %30 = load i32, ptr @hf_kafka_token_id, align 4
   %31 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %30, ptr noundef %0, ptr noundef %1, i32 noundef %29, i32 noundef %17, ptr noundef null, ptr noundef null)
   %32 = load i32, ptr @hf_kafka_token_hmac, align 4
-  %33 = tail call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %2, i32 noundef %32, ptr noundef %0, ptr noundef %1, i32 noundef %31, i32 noundef %17)
+  %33 = tail call fastcc i32 @dissect_kafka_bytes(ptr noundef %2, i32 noundef %32, ptr noundef %0, ptr noundef %1, i32 noundef %31, i32 noundef %17)
   %34 = load i32, ptr @hf_kafka_throttle_time, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef 0) #6
   %36 = add i32 %33, 4
   br i1 %16, label %37, label %39
 
 37:                                               ; preds = %dissect_kafka_error.exit
-  %38 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %36)
+  %38 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %36)
   br label %39
 
 39:                                               ; preds = %37, %dissect_kafka_error.exit
@@ -8278,7 +8278,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %dissect_kafka_error.exit
-  %23 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20)
+  %23 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20)
   br label %24
 
 24:                                               ; preds = %22, %dissect_kafka_error.exit
@@ -8314,7 +8314,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %dissect_kafka_error.exit
-  %23 = tail call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20)
+  %23 = tail call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20)
   br label %24
 
 24:                                               ; preds = %22, %dissect_kafka_error.exit
@@ -8354,7 +8354,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %10
   br i1 %18, label %25, label %27
 
 25:                                               ; preds = %dissect_kafka_error.exit
-  %26 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %24)
+  %26 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %24)
   br label %27
 
 27:                                               ; preds = %25, %dissect_kafka_error.exit
@@ -8376,7 +8376,7 @@ define internal fastcc noundef i32 @dissect_kafka_delete_groups_response(ptr nou
   br i1 %12, label %15, label %17
 
 15:                                               ; preds = %5
-  %16 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
+  %16 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
   br label %17
 
 17:                                               ; preds = %15, %5
@@ -8426,7 +8426,7 @@ dissect_kafka_error.exit:                         ; preds = %11, %15
   br i1 %24, label %28, label %30
 
 28:                                               ; preds = %21
-  %29 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26)
+  %29 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26)
   br label %30
 
 30:                                               ; preds = %28, %21
@@ -8450,7 +8450,7 @@ define internal fastcc i32 @dissect_kafka_inc_alter_configs_response(ptr noundef
   br i1 %12, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
+  %17 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -8459,7 +8459,7 @@ define internal fastcc i32 @dissect_kafka_inc_alter_configs_response(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_alter_partition_reassignments_response.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_alter_partition_reassignments_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8582,7 +8582,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_alter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_list_partition_reassignments_response.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_list_partition_reassignments_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8798,7 +8798,7 @@ dissect_kafka_array.exit:                         ; preds = %dissect_kafka_list_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kafka_offset_delete_response.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_kafka_offset_delete_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9242,7 +9242,7 @@ define internal fastcc noundef i32 @dissect_kafka_message_set(ptr noundef %0, pt
 85:                                               ; preds = %81, %57
   %.069.i = phi i32 [ %84, %81 ], [ %79, %57 ]
   %86 = load i32, ptr @hf_kafka_message_key, align 4
-  %87 = call fastcc i32 @dissect_kafka_regular_bytes.argprom(ptr noundef %61, i32 noundef %86, ptr noundef %0, ptr noundef %1, i32 noundef %.069.i, ptr noundef null)
+  %87 = call fastcc i32 @dissect_kafka_regular_bytes(ptr noundef %61, i32 noundef %86, ptr noundef %0, ptr noundef %1, i32 noundef %.069.i, ptr noundef null)
   %88 = icmp sgt i32 %87, %.069.i
   br i1 %88, label %89, label %91
 
@@ -9257,7 +9257,7 @@ define internal fastcc noundef i32 @dissect_kafka_message_set(ptr noundef %0, pt
 
 94:                                               ; preds = %89
   %95 = load i32, ptr @hf_kafka_message_value, align 4
-  %96 = call fastcc i32 @dissect_kafka_regular_bytes.argprom(ptr noundef %61, i32 noundef %95, ptr noundef %0, ptr noundef %1, i32 noundef %87, ptr noundef nonnull %10)
+  %96 = call fastcc i32 @dissect_kafka_regular_bytes(ptr noundef %61, i32 noundef %95, ptr noundef %0, ptr noundef %1, i32 noundef %87, ptr noundef nonnull %10)
   %97 = icmp sgt i32 %96, %87
   br i1 %97, label %129, label %98
 
@@ -9535,14 +9535,14 @@ dissect_kafka_offset_delta.exit.i.i:              ; preds = %258, %255
   %.0.i54.i.i = phi i32 [ %257, %255 ], [ %259, %258 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   %260 = load i32, ptr @hf_kafka_message_key, align 4
-  %261 = call fastcc i32 @dissect_kafka_bytes_new.argprom(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %213, i32 noundef %260, i32 noundef %.0.i54.i.i, ptr noundef %22)
+  %261 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %213, i32 noundef %260, i32 noundef %.0.i54.i.i, ptr noundef %22)
   %262 = load i32, ptr %22, align 4
   %.not.i97.i = icmp eq i32 %262, 0
   br i1 %.not.i97.i, label %263, label %dissect_kafka_record.exit.i
 
 263:                                              ; preds = %dissect_kafka_offset_delta.exit.i.i
   %264 = load i32, ptr @hf_kafka_message_value, align 4
-  %265 = call fastcc i32 @dissect_kafka_bytes_new.argprom(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %213, i32 noundef %264, i32 noundef %261, ptr noundef %22)
+  %265 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %213, i32 noundef %264, i32 noundef %261, ptr noundef %22)
   %266 = load i32, ptr %22, align 4
   %.not52.i.i = icmp eq i32 %266, 0
   br i1 %.not52.i.i, label %267, label %dissect_kafka_record.exit.i
@@ -9645,7 +9645,7 @@ dissect_kafka_record_headers_header.exit.i.i.i:   ; preds = %311, %291
   %.0.i.i.i.i.i = phi i32 [ %294, %291 ], [ %314, %311 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %315 = load i32, ptr @hf_kafka_record_header_value, align 4
-  %316 = call fastcc i32 @dissect_kafka_bytes_new.argprom(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %287, i32 noundef %315, i32 noundef %.0.i.i.i.i.i, ptr noundef %16)
+  %316 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %287, i32 noundef %315, i32 noundef %.0.i.i.i.i.i, ptr noundef %16)
   %317 = load ptr, ptr %12, align 8
   %318 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %317, ptr noundef nonnull @.str.574, ptr noundef %318) #6
@@ -9740,7 +9740,7 @@ declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_kafka_regular_bytes.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_regular_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %4) #6
   %8 = sext i16 %7 to i32
   %9 = icmp slt i16 %7, -1
@@ -10314,7 +10314,7 @@ declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare signext i16 @tvb_get_gint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_kafka_bytes_new.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_bytes_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   store i32 0, ptr %5, align 4
   %8 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %4, i32 noundef 5, ptr noundef nonnull %7, i32 noundef 8) #6
@@ -10395,7 +10395,7 @@ define internal noundef i32 @dissect_kafka_metadata_request_topic(ptr noundef %0
   br i1 %10, label %13, label %15
 
 13:                                               ; preds = %5
-  %14 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %12)
+  %14 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %12)
   br label %15
 
 15:                                               ; preds = %13, %5
@@ -10788,7 +10788,7 @@ dissect_kafka_array.exit143:                      ; preds = %.lr.ph.i.i19.i139, 
   br i1 %36, label %208, label %.thread157
 
 .thread157:                                       ; preds = %202
-  %206 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %15, i32 noundef %205)
+  %206 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %15, i32 noundef %205)
   %207 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %207, ptr noundef %0, i32 noundef %206) #6
   br label %217
@@ -10835,7 +10835,7 @@ define internal i32 @dissect_kafka_leader_and_isr_request_topic_state(ptr nounde
   br i1 %12, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %15)
+  %17 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %15)
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -10872,7 +10872,7 @@ define internal noundef i32 @dissect_kafka_leader_and_isr_request_live_leader(pt
   br i1 %16, label %23, label %25
 
 23:                                               ; preds = %5
-  %24 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %22)
+  %24 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %22)
   br label %25
 
 25:                                               ; preds = %23, %5
@@ -10990,7 +10990,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %di
   br i1 %14, label %57, label %59
 
 57:                                               ; preds = %dissect_kafka_array.exit
-  %58 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %.0.i)
+  %58 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %.0.i)
   br label %59
 
 59:                                               ; preds = %dissect_kafka_array.exit.thread, %57, %dissect_kafka_array.exit
@@ -11022,7 +11022,7 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_topic(ptr nou
   br i1 %12, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %15)
+  %17 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %15)
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -11319,7 +11319,7 @@ dissect_kafka_array.exit104:                      ; preds = %.lr.ph.i.i19.i100, 
   br i1 %35, label %157, label %.thread
 
 .thread:                                          ; preds = %dissect_kafka_array.exit104
-  %155 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %.0.i93)
+  %155 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %.0.i93)
   %156 = load ptr, ptr %9, align 8
   call void @proto_item_set_end(ptr noundef %156, ptr noundef %0, i32 noundef %155) #6
   br label %160
@@ -11406,7 +11406,7 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_broker(ptr no
   br i1 %32, label %40, label %.thread
 
 40:                                               ; preds = %36
-  %41 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %38)
+  %41 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %38)
   br label %.thread
 
 .thread:                                          ; preds = %16, %29, %.thread42, %40, %36
@@ -11448,7 +11448,7 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_endpoint(ptr 
   br i1 %16, label %28, label %30
 
 28:                                               ; preds = %23
-  %29 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %27)
+  %29 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %27)
   br label %30
 
 30:                                               ; preds = %28, %23
@@ -11482,7 +11482,7 @@ define internal noundef i32 @dissect_kafka_offset_commit_request_topic(ptr nound
   br i1 %12, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %15)
+  %17 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %15)
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -11540,7 +11540,7 @@ define internal noundef i32 @dissect_kafka_offset_commit_request_partition(ptr n
   br i1 %29, label %32, label %34
 
 32:                                               ; preds = %27
-  %33 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %31)
+  %33 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %31)
   br label %34
 
 34:                                               ; preds = %32, %27
@@ -11649,7 +11649,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %di
   br i1 %13, label %52, label %dissect_kafka_array.exit.thread
 
 52:                                               ; preds = %dissect_kafka_array.exit
-  %53 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.0.i)
+  %53 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.0.i)
   br label %dissect_kafka_array.exit.thread
 
 dissect_kafka_array.exit.thread:                  ; preds = %43, %46, %52, %dissect_kafka_array.exit
@@ -11679,11 +11679,11 @@ define internal noundef i32 @dissect_kafka_join_group_request_group_protocols(pt
   %13 = zext i1 %12 to i32
   %14 = call fastcc i32 @dissect_kafka_string(ptr noundef %10, i32 noundef %11, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %13, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %15 = load i32, ptr @hf_kafka_protocol_metadata, align 4
-  %16 = call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %10, i32 noundef %15, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %13)
+  %16 = call fastcc i32 @dissect_kafka_bytes(ptr noundef %10, i32 noundef %15, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %13)
   br i1 %12, label %17, label %19
 
 17:                                               ; preds = %5
-  %18 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %16)
+  %18 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %16)
   br label %19
 
 19:                                               ; preds = %17, %5
@@ -11701,7 +11701,7 @@ define internal noundef i32 @dissect_kafka_join_group_request_group_protocols(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %35, label %8
@@ -11716,7 +11716,7 @@ define internal fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %0, i32 noun
   %12 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef 0, i32 noundef 0) #6
   %13 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %12, ptr noundef nonnull @ei_kafka_bad_varint) #6
   %14 = call i32 @tvb_captured_length(ptr noundef %2) #6
-  br label %dissect_kafka_compact_bytes.argprom.exit
+  br label %dissect_kafka_compact_bytes.exit
 
 15:                                               ; preds = %8
   %16 = load i64, ptr %7, align 8
@@ -11747,19 +11747,19 @@ define internal fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %0, i32 noun
   %34 = add i32 %.pre.i, %33
   %.pn.i = select i1 %32, i32 %9, i32 %34
   %.038.i = add i32 %.pn.i, %4
-  br label %dissect_kafka_compact_bytes.argprom.exit
+  br label %dissect_kafka_compact_bytes.exit
 
-dissect_kafka_compact_bytes.argprom.exit:         ; preds = %11, %30
+dissect_kafka_compact_bytes.exit:                 ; preds = %11, %30
   %.0.i = phi i32 [ %14, %11 ], [ %.038.i, %30 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %37
 
 35:                                               ; preds = %6
-  %36 = tail call fastcc i32 @dissect_kafka_regular_bytes.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef null)
+  %36 = tail call fastcc i32 @dissect_kafka_regular_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef null)
   br label %37
 
-37:                                               ; preds = %35, %dissect_kafka_compact_bytes.argprom.exit
-  %.0 = phi i32 [ %.0.i, %dissect_kafka_compact_bytes.argprom.exit ], [ %36, %35 ]
+37:                                               ; preds = %35, %dissect_kafka_compact_bytes.exit
+  %.0 = phi i32 [ %.0.i, %dissect_kafka_compact_bytes.exit ], [ %36, %35 ]
   ret i32 %.0
 }
 
@@ -11781,7 +11781,7 @@ define internal noundef i32 @dissect_kafka_leave_group_request_member(ptr nounde
   br i1 %14, label %19, label %21
 
 19:                                               ; preds = %5
-  %20 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %18)
+  %20 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %18)
   br label %21
 
 21:                                               ; preds = %19, %5
@@ -11826,11 +11826,11 @@ define internal noundef i32 @dissect_kafka_sync_group_request_group_assignment(p
   %13 = zext i1 %12 to i32
   %14 = call fastcc i32 @dissect_kafka_string(ptr noundef %10, i32 noundef %11, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %13, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %15 = load i32, ptr @hf_kafka_member_assignment, align 4
-  %16 = call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %10, i32 noundef %15, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %13)
+  %16 = call fastcc i32 @dissect_kafka_bytes(ptr noundef %10, i32 noundef %15, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %13)
   br i1 %12, label %17, label %19
 
 17:                                               ; preds = %5
-  %18 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %16)
+  %18 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %16)
   br label %19
 
 19:                                               ; preds = %17, %5
@@ -11878,7 +11878,7 @@ define internal noundef i32 @dissect_kafka_create_topics_request_create_topic_re
   br i1 %13, label %30, label %32
 
 30:                                               ; preds = %5
-  %31 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %28)
+  %31 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %28)
   br label %32
 
 32:                                               ; preds = %30, %5
@@ -11982,7 +11982,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %di
   br i1 %13, label %dissect_kafka_array.exit.thread, label %50
 
 50:                                               ; preds = %dissect_kafka_array.exit
-  %51 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i)
+  %51 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i)
   br label %dissect_kafka_array.exit.thread
 
 dissect_kafka_array.exit.thread:                  ; preds = %41, %44, %50, %dissect_kafka_array.exit
@@ -12012,7 +12012,7 @@ define internal noundef i32 @dissect_kafka_create_topics_request_config(ptr noun
   br i1 %14, label %19, label %21
 
 19:                                               ; preds = %5
-  %20 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %18)
+  %20 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %18)
   br label %21
 
 21:                                               ; preds = %19, %5
@@ -12055,7 +12055,7 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_request_topic(ptr n
   br i1 %13, label %20, label %22
 
 20:                                               ; preds = %5
-  %21 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %18)
+  %21 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %18)
   br label %22
 
 22:                                               ; preds = %20, %5
@@ -12103,7 +12103,7 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_request_partition(p
   br i1 %24, label %27, label %29
 
 27:                                               ; preds = %22
-  %28 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %26)
+  %28 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %26)
   br label %29
 
 29:                                               ; preds = %27, %22
@@ -12151,7 +12151,7 @@ define internal noundef i32 @dissect_kafka_create_acls_request_creation(ptr noun
   br i1 %13, label %32, label %34
 
 32:                                               ; preds = %21
-  %33 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %31)
+  %33 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %31)
   br label %34
 
 34:                                               ; preds = %32, %21
@@ -12197,7 +12197,7 @@ define internal noundef i32 @dissect_kafka_delete_acls_request_filter(ptr nounde
   br i1 %13, label %32, label %34
 
 32:                                               ; preds = %21
-  %33 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %31)
+  %33 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %31)
   br label %34
 
 34:                                               ; preds = %32, %21
@@ -12309,7 +12309,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %di
   br i1 %14, label %60, label %62
 
 60:                                               ; preds = %dissect_kafka_array.exit
-  %61 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %.0.i)
+  %61 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %.0.i)
   br label %62
 
 62:                                               ; preds = %dissect_kafka_array.exit.thread, %60, %dissect_kafka_array.exit
@@ -12340,7 +12340,7 @@ define internal noundef i32 @dissect_kafka_create_delegation_token_request_renew
   br i1 %10, label %15, label %17
 
 15:                                               ; preds = %5
-  %16 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %14)
+  %16 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %14)
   br label %17
 
 17:                                               ; preds = %15, %5
@@ -12364,7 +12364,7 @@ define internal noundef i32 @dissect_kafka_describe_delegation_token_request_own
   br i1 %10, label %15, label %17
 
 15:                                               ; preds = %5
-  %16 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %14)
+  %16 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %14)
   br label %17
 
 17:                                               ; preds = %15, %5
@@ -12468,7 +12468,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %di
   br i1 %13, label %54, label %52
 
 52:                                               ; preds = %dissect_kafka_array.exit
-  %53 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %.0.i)
+  %53 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %.0.i)
   br label %54
 
 54:                                               ; preds = %dissect_kafka_array.exit.thread, %52, %dissect_kafka_array.exit
@@ -12499,7 +12499,7 @@ define internal noundef i32 @dissect_kafka_inc_alter_config_request_resource(ptr
   br i1 %14, label %21, label %23
 
 21:                                               ; preds = %5
-  %22 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %19)
+  %22 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %19)
   br label %23
 
 23:                                               ; preds = %21, %5
@@ -12526,7 +12526,7 @@ define internal noundef i32 @dissect_kafka_inc_alter_config_request_entry(ptr no
   br i1 %10, label %18, label %20
 
 18:                                               ; preds = %5
-  %19 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %17)
+  %19 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %17)
   br label %20
 
 20:                                               ; preds = %18, %5
@@ -12584,7 +12584,7 @@ define internal i32 @dissect_kafka_metadata_broker(ptr noundef %0, ptr noundef %
   br i1 %16, label %27, label %.thread
 
 27:                                               ; preds = %24
-  %28 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %26)
+  %28 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %26)
   br label %.thread
 
 .thread:                                          ; preds = %5, %27, %24
@@ -12657,7 +12657,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %14
   br i1 %21, label %42, label %.thread38
 
 42:                                               ; preds = %38
-  %43 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %41)
+  %43 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef %41)
   br label %.thread38
 
 .thread38:                                        ; preds = %32, %.thread, %42, %38
@@ -12961,7 +12961,7 @@ dissect_kafka_compact_array.exit.i81:             ; preds = %.lr.ph.i.i.i84, %13
   br i1 %76, label %.thread, label %159
 
 159:                                              ; preds = %.loopexit
-  %160 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %.0.i83)
+  %160 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %.0.i83)
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit.thread, %dissect_kafka_array.exit77, %159, %.loopexit
@@ -13007,7 +13007,7 @@ dissect_kafka_error_ret.exit:                     ; preds = %5, %22
   br i1 %12, label %28, label %30
 
 28:                                               ; preds = %dissect_kafka_error_ret.exit
-  %29 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %27)
+  %29 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %27)
   br label %30
 
 30:                                               ; preds = %28, %dissect_kafka_error_ret.exit
@@ -13060,7 +13060,7 @@ dissect_kafka_error_ret.exit:                     ; preds = %5, %22
   br i1 %12, label %28, label %30
 
 28:                                               ; preds = %dissect_kafka_error_ret.exit
-  %29 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %27)
+  %29 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %27)
   br label %30
 
 30:                                               ; preds = %28, %dissect_kafka_error_ret.exit
@@ -13097,7 +13097,7 @@ define internal noundef i32 @dissect_kafka_controlled_shutdown_response_partitio
   br i1 %12, label %19, label %21
 
 19:                                               ; preds = %5
-  %20 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %18)
+  %20 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %18)
   br label %21
 
 21:                                               ; preds = %19, %5
@@ -13129,7 +13129,7 @@ define internal noundef i32 @dissect_kafka_offset_commit_response_response(ptr n
   br i1 %12, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %15)
+  %17 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %15)
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -13175,7 +13175,7 @@ dissect_kafka_error_ret.exit:                     ; preds = %5, %16
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %dissect_kafka_error_ret.exit
-  %24 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %21)
+  %24 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %21)
   br label %25
 
 25:                                               ; preds = %23, %dissect_kafka_error_ret.exit
@@ -13206,7 +13206,7 @@ define internal noundef i32 @dissect_kafka_offset_fetch_response_topic(ptr nound
   br i1 %13, label %17, label %19
 
 17:                                               ; preds = %5
-  %18 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16)
+  %18 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16)
   br label %19
 
 19:                                               ; preds = %17, %5
@@ -13284,7 +13284,7 @@ dissect_kafka_error.exit:                         ; preds = %22, %30
   br i1 %24, label %41, label %43
 
 41:                                               ; preds = %40
-  %42 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %35)
+  %42 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %35)
   br label %43
 
 43:                                               ; preds = %41, %40
@@ -13310,18 +13310,18 @@ define internal noundef i32 @dissect_kafka_join_group_response_member(ptr nounde
 
 .thread:                                          ; preds = %5
   %16 = load i32, ptr @hf_kafka_member_metadata, align 4
-  %17 = call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %10, i32 noundef %16, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %13)
+  %17 = call fastcc i32 @dissect_kafka_bytes(ptr noundef %10, i32 noundef %16, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %13)
   br label %25
 
 18:                                               ; preds = %5
   %19 = load i32, ptr @hf_kafka_consumer_group_instance, align 4
   %20 = call fastcc i32 @dissect_kafka_string(ptr noundef %10, i32 noundef %19, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %13, ptr noundef null, ptr noundef null)
   %21 = load i32, ptr @hf_kafka_member_metadata, align 4
-  %22 = call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %10, i32 noundef %21, ptr noundef %0, ptr noundef %1, i32 noundef %20, i32 noundef %13)
+  %22 = call fastcc i32 @dissect_kafka_bytes(ptr noundef %10, i32 noundef %21, ptr noundef %0, ptr noundef %1, i32 noundef %20, i32 noundef %13)
   br i1 %12, label %23, label %25
 
 23:                                               ; preds = %18
-  %24 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %22)
+  %24 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %22)
   br label %25
 
 25:                                               ; preds = %.thread, %23, %18
@@ -13372,7 +13372,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %22
   br i1 %14, label %28, label %30
 
 28:                                               ; preds = %dissect_kafka_error.exit
-  %29 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %27)
+  %29 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %27)
   br label %30
 
 30:                                               ; preds = %28, %dissect_kafka_error.exit
@@ -13454,7 +13454,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %15
   br i1 %22, label %40, label %.thread
 
 40:                                               ; preds = %36
-  %41 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %39)
+  %41 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %39)
   br label %.thread
 
 .thread:                                          ; preds = %dissect_kafka_error.exit, %40, %36
@@ -13509,13 +13509,13 @@ define internal i32 @dissect_kafka_describe_groups_response_member(ptr noundef %
   %24 = load i32, ptr @hf_kafka_client_host, align 4
   %25 = call fastcc i32 @dissect_kafka_string(ptr noundef %12, i32 noundef %24, ptr noundef %0, ptr noundef %1, i32 noundef %23, i32 noundef %15, ptr noundef null, ptr noundef null)
   %26 = load i32, ptr @hf_kafka_member_metadata, align 4
-  %27 = call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %12, i32 noundef %26, ptr noundef %0, ptr noundef %1, i32 noundef %25, i32 noundef %15)
+  %27 = call fastcc i32 @dissect_kafka_bytes(ptr noundef %12, i32 noundef %26, ptr noundef %0, ptr noundef %1, i32 noundef %25, i32 noundef %15)
   %28 = load i32, ptr @hf_kafka_member_assignment, align 4
-  %29 = call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %12, i32 noundef %28, ptr noundef %0, ptr noundef %1, i32 noundef %27, i32 noundef %15)
+  %29 = call fastcc i32 @dissect_kafka_bytes(ptr noundef %12, i32 noundef %28, ptr noundef %0, ptr noundef %1, i32 noundef %27, i32 noundef %15)
   br i1 %14, label %.thread, label %32
 
 .thread:                                          ; preds = %21
-  %30 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %29)
+  %30 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %29)
   %31 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %31, ptr noundef %0, i32 noundef %30) #6
   br label %43
@@ -13598,7 +13598,7 @@ define internal noundef i32 @dissect_kafka_list_groups_response_group(ptr nounde
   br i1 %14, label %19, label %21
 
 19:                                               ; preds = %5
-  %20 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %18)
+  %20 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %12, i32 noundef %18)
   br label %21
 
 21:                                               ; preds = %19, %5
@@ -13733,7 +13733,7 @@ kafka_is_api_version_supported.exit:              ; preds = %40
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69
-  %72 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %20)
+  %72 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %20)
   br label %73
 
 73:                                               ; preds = %71, %69
@@ -13789,7 +13789,7 @@ dissect_kafka_error_ret.exit:                     ; preds = %5, %19
   %38 = call fastcc i32 @dissect_kafka_array(ptr noundef %37, ptr noundef %0, ptr noundef %1, i32 noundef %35, i32 noundef 1, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_create_topics_response_topic_config, ptr noundef null)
   %39 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %39, ptr noundef %0, i32 noundef %38) #6
-  %40 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %38)
+  %40 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %38)
   br label %.thread56
 
 .thread56:                                        ; preds = %dissect_kafka_error_ret.exit, %26, %29
@@ -13836,7 +13836,7 @@ define internal noundef i32 @dissect_kafka_create_topics_response_topic_config(p
   %21 = load i32, ptr @hf_kafka_config_sensitive, align 4
   %22 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #6
   %23 = add i32 %14, 3
-  %24 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %23)
+  %24 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %23)
   %25 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %25, ptr noundef %0, i32 noundef %24) #6
   ret i32 %24
@@ -13872,7 +13872,7 @@ dissect_kafka_error_ret.exit:                     ; preds = %5, %18
   br i1 %12, label %24, label %26
 
 24:                                               ; preds = %dissect_kafka_error_ret.exit
-  %25 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %23)
+  %25 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %23)
   br label %26
 
 26:                                               ; preds = %24, %dissect_kafka_error_ret.exit
@@ -13911,7 +13911,7 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_response_topic(ptr 
   br i1 %13, label %20, label %22
 
 20:                                               ; preds = %5
-  %21 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %18)
+  %21 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %18)
   br label %22
 
 22:                                               ; preds = %20, %5
@@ -13945,7 +13945,7 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_response_partition(
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %5
-  %19 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %16)
+  %19 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %16)
   br label %20
 
 20:                                               ; preds = %18, %5
@@ -14002,7 +14002,7 @@ define internal noundef i32 @dissect_kafka_describe_acls_response_resource(ptr n
   br i1 %14, label %27, label %29
 
 27:                                               ; preds = %22
-  %28 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %25)
+  %28 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %25)
   br label %29
 
 29:                                               ; preds = %27, %22
@@ -14032,7 +14032,7 @@ define internal i32 @dissect_kafka_describe_acls_response_resource_acl(ptr nound
   br i1 %10, label %21, label %23
 
 21:                                               ; preds = %5
-  %22 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %20)
+  %22 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %20)
   br label %23
 
 23:                                               ; preds = %21, %5
@@ -14068,7 +14068,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
   br i1 %19, label %22, label %24
 
 22:                                               ; preds = %dissect_kafka_error.exit
-  %23 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %21)
+  %23 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %21)
   br label %24
 
 24:                                               ; preds = %22, %dissect_kafka_error.exit
@@ -14112,7 +14112,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %13
   br i1 %20, label %27, label %29
 
 27:                                               ; preds = %dissect_kafka_error.exit
-  %28 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %25)
+  %28 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %25)
   br label %29
 
 29:                                               ; preds = %27, %dissect_kafka_error.exit
@@ -14176,7 +14176,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
   br i1 %19, label %43, label %45
 
 43:                                               ; preds = %32
-  %44 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %42)
+  %44 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %42)
   br label %45
 
 45:                                               ; preds = %43, %32
@@ -14218,7 +14218,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %18
   br i1 %12, label %26, label %28
 
 26:                                               ; preds = %dissect_kafka_error.exit
-  %27 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %25)
+  %27 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %25)
   br label %28
 
 28:                                               ; preds = %26, %dissect_kafka_error.exit
@@ -14259,7 +14259,7 @@ define internal noundef i32 @dissect_kafka_describe_delegation_token_response_to
   %25 = load i32, ptr @hf_kafka_token_id, align 4
   %26 = call fastcc i32 @dissect_kafka_string(ptr noundef %9, i32 noundef %25, ptr noundef %0, ptr noundef %1, i32 noundef %24, i32 noundef %12, ptr noundef null, ptr noundef null)
   %27 = load i32, ptr @hf_kafka_token_hmac, align 4
-  %28 = call fastcc i32 @dissect_kafka_bytes.argprom(ptr noundef %9, i32 noundef %27, ptr noundef %0, ptr noundef %1, i32 noundef %26, i32 noundef %12)
+  %28 = call fastcc i32 @dissect_kafka_bytes(ptr noundef %9, i32 noundef %27, ptr noundef %0, ptr noundef %1, i32 noundef %26, i32 noundef %12)
   %29 = load i32, ptr @ett_kafka_renewers, align 4
   %30 = call ptr @proto_tree_add_subtree(ptr noundef %9, ptr noundef %0, i32 noundef %28, i32 noundef -1, i32 noundef %29, ptr noundef nonnull %7, ptr noundef nonnull @.str.639) #6
   %31 = call fastcc i32 @dissect_kafka_array(ptr noundef %30, ptr noundef %0, ptr noundef %1, i32 noundef %28, i32 noundef %12, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_describe_delegation_token_response_renewer, ptr noundef null)
@@ -14268,7 +14268,7 @@ define internal noundef i32 @dissect_kafka_describe_delegation_token_response_to
   br i1 %11, label %33, label %35
 
 33:                                               ; preds = %5
-  %34 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %31)
+  %34 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %31)
   br label %35
 
 35:                                               ; preds = %33, %5
@@ -14292,7 +14292,7 @@ define internal noundef i32 @dissect_kafka_describe_delegation_token_response_re
   br i1 %10, label %15, label %17
 
 15:                                               ; preds = %5
-  %16 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %14)
+  %16 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %14)
   br label %17
 
 17:                                               ; preds = %15, %5
@@ -14330,7 +14330,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
   br i1 %10, label %22, label %24
 
 22:                                               ; preds = %dissect_kafka_error.exit
-  %23 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %21)
+  %23 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %21)
   br label %24
 
 24:                                               ; preds = %22, %dissect_kafka_error.exit
@@ -14358,7 +14358,7 @@ define internal noundef i32 @dissect_kafka_elect_leaders_response_topic(ptr noun
   br i1 %11, label %18, label %20
 
 18:                                               ; preds = %5
-  %19 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %16)
+  %19 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %16)
   br label %20
 
 20:                                               ; preds = %18, %5
@@ -14399,7 +14399,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %15
   br i1 %22, label %25, label %27
 
 25:                                               ; preds = %dissect_kafka_error.exit
-  %26 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %24)
+  %26 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %24)
   br label %27
 
 27:                                               ; preds = %25, %dissect_kafka_error.exit
@@ -14442,7 +14442,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
   br i1 %19, label %27, label %29
 
 27:                                               ; preds = %dissect_kafka_error.exit
-  %28 = call fastcc i32 @dissect_kafka_tagged_fields.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %26)
+  %28 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %26)
   br label %29
 
 29:                                               ; preds = %27, %dissect_kafka_error.exit

@@ -477,9 +477,9 @@ _ZN4llvm12instructionsERNS_8FunctionE.exit.i:     ; preds = %.lr.ph.i.i.i, %.lr.
   %171 = icmp ne ptr %169, null
   %172 = icmp ne ptr %170, null
   %173 = select i1 %171, i1 %172, i1 false
-  br i1 %173, label %174, label %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.argprom.exit.thread
+  br i1 %173, label %174, label %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.exit.thread
 
-_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.argprom.exit.thread: ; preds = %165
+_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.exit.thread: ; preds = %165
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -1022,18 +1022,18 @@ _ZN4llvm13ConstantRangeD2Ev.exit75.i:             ; preds = %411, %408, %_ZN4llv
 _ZN4llvm5APIntD2Ev.exit.i76.i:                    ; preds = %417, %414, %_ZN4llvm13ConstantRangeD2Ev.exit75.i
   %418 = load i32, ptr %90, align 8
   %419 = icmp ugt i32 %418, 64
-  br i1 %419, label %420, label %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.argprom.exit
+  br i1 %419, label %420, label %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.exit
 
 420:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit.i76.i
   %421 = load ptr, ptr %8, align 8
   %422 = icmp eq ptr %421, null
-  br i1 %422, label %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.argprom.exit, label %423
+  br i1 %422, label %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.exit, label %423
 
 423:                                              ; preds = %420
   call void @_ZdaPv(ptr noundef nonnull %421) #15
-  br label %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.argprom.exit
+  br label %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.exit
 
-_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.argprom.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit.i76.i, %420, %423
+_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit.i76.i, %420, %423
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -1052,7 +1052,7 @@ _ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInf
   %.not69.i = icmp eq ptr %.048.i, null
   br i1 %.not69.i, label %.thread.i, label %424
 
-424:                                              ; preds = %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.argprom.exit
+424:                                              ; preds = %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.exit
   %425 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #13
   %426 = add i64 %425, 1
   %427 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #13
@@ -1075,7 +1075,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionEPNS_5ValueEELb1EE9pu
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %35, i64 noundef %433) #13
   br label %.thread.i
 
-.thread.i:                                        ; preds = %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.argprom.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionEPNS_5ValueEELb1EE9push_backES6_.exit.i, %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.argprom.exit, %157, %155, %147, %137, %129
+.thread.i:                                        ; preds = %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionEPNS_5ValueEELb1EE9push_backES6_.exit.i, %_ZL18getBoundsCheckCondPN4llvm5ValueES1_RKNS_10DataLayoutERNS_17TargetLibraryInfoERNS_25ObjectSizeOffsetEvaluatorERNS_9IRBuilderINS_12TargetFolderENS_24IRBuilderDefaultInserterEEERNS_15ScalarEvolutionE.exit, %157, %155, %147, %137, %129
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %77) #13
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %76) #13
   %434 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #13

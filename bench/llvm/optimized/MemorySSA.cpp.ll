@@ -940,13 +940,13 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i: ; preds =
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %34 = load i32, ptr %33, align 4
   switch i32 %34, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i [
-    i32 5, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
-    i32 6, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
-    i32 199, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
-    i32 198, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
-    i32 11, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
-    i32 151, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
-    i32 284, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
+    i32 5, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
+    i32 6, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
+    i32 199, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
+    i32 198, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
+    i32 11, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
+    i32 151, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
+    i32 284, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
   ]
 
 _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i, %22, %19, %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPNS0_9MemoryDefEPKNS0_14MemoryUseOrDefERKN12_GLOBAL__N_115MemoryLocOrCallERT_.exit
@@ -964,7 +964,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i: ; 
 _ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i: ; preds = %35, %35, %35
   %37 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %.val9.i, ptr noundef nonnull %15) #25
   %38 = icmp ne i8 %37, 0
-  br label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
+  br label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
 
 .thread.i:                                        ; preds = %35
   %.not.i = icmp eq i8 %17, 61
@@ -980,7 +980,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i: ; pre
   %42 = and i16 %.val.i, 1
   %43 = and i16 %42, %.val27.i
   %brmerge.not.not.i.i = icmp eq i16 %43, 0
-  br i1 %brmerge.not.not.i.i, label %44, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
+  br i1 %brmerge.not.not.i.i, label %44, label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
 
 44:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i
   %45 = and i16 %.val.i, 896
@@ -992,7 +992,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i: ; pre
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
   %53 = or i1 %46, %52
-  br label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
+  br label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
 
 _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i: ; preds = %.thread.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %.sink.i, i64 48, i1 false)
@@ -1001,9 +1001,9 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i
   %55 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %.val9.i, ptr noundef nonnull align 8 dereferenceable(56) %4)
   %56 = and i8 %55, 2
   %57 = icmp ne i8 %56, 0
-  br label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
+  br label %_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
 
-_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i, %44, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i
+_ZL24instructionClobbersQueryIN4llvm9AAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i, %44, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i
   %.0.i = phi i1 [ %38, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i ], [ %57, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i ], [ %53, %44 ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
@@ -4833,14 +4833,14 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_15DomTreeNodeBaseINS_10BasicBlockE
 180:                                              ; preds = %178, %.lr.ph.i.i
   %181 = getelementptr inbounds i8, ptr %.02.i.i, i64 104
   %.not.i.i = icmp eq ptr %181, %176
-  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.argprom.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !115
+  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !115
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.argprom.exit.loopexit.i: ; preds = %180
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i: ; preds = %180
   %182 = mul nuw nsw i64 %175, 104
   br label %_ZN4llvm8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEED2Ev.exit
 
-_ZN4llvm8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEED2Ev.exit: ; preds = %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_15DomTreeNodeBaseINS_10BasicBlockEEENS_23df_iterator_default_setIS5_Lj8EEELb0ENS_11GraphTraitsIS5_EEEEED2Ev.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.argprom.exit.loopexit.i
-  %183 = phi i64 [ %182, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.argprom.exit.loopexit.i ], [ 0, %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_15DomTreeNodeBaseINS_10BasicBlockEEENS_23df_iterator_default_setIS5_Lj8EEELb0ENS_11GraphTraitsIS5_EEEEED2Ev.exit ]
+_ZN4llvm8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEED2Ev.exit: ; preds = %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_15DomTreeNodeBaseINS_10BasicBlockEEENS_23df_iterator_default_setIS5_Lj8EEELb0ENS_11GraphTraitsIS5_EEEEED2Ev.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i
+  %183 = phi i64 [ %182, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i ], [ 0, %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_15DomTreeNodeBaseINS_10BasicBlockEEENS_23df_iterator_default_setIS5_Lj8EEELb0ENS_11GraphTraitsIS5_EEEEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.sroa.0.0, i64 noundef %183, i64 noundef 8) #25
@@ -5043,29 +5043,29 @@ _ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i: ; preds = %_ZNK4llvm9MemoryUse
     i8 85, label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i
     i8 34, label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i
     i8 40, label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i
-    i8 64, label %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.argprom.exit.i
+    i8 64, label %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i
   ]
 
 _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i: ; preds = %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i
   store i8 1, ptr %10, align 8
   store ptr %.val.i19, ptr %86, align 8
-  br label %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i
 
 289:                                              ; preds = %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @_ZN4llvm14MemoryLocation9getOrNoneEPKNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.299") align 8 %9, ptr noundef nonnull %.val.i19) #25, !noalias !118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
-  br label %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i
 
-_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.argprom.exit.i: ; preds = %289, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i
+_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i: ; preds = %289, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i
   %290 = phi i1 [ false, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i ], [ true, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i ], [ false, %289 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %291 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.argprom(ptr %.sroa.0.1, i32 %.sroa.20.1, ptr noundef nonnull readonly align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %291 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_(ptr %.sroa.0.1, i32 %.sroa.20.1, ptr noundef nonnull readonly align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %292 = load ptr, ptr %8, align 8
   br i1 %291, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit.i, label %293
 
-293:                                              ; preds = %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.argprom.exit.i
+293:                                              ; preds = %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   store ptr %292, ptr %6, align 8
@@ -5232,7 +5232,7 @@ _ZN4llvm12DenseMapInfoIN12_GLOBAL__N_115MemoryLocOrCallEvE7isEqualERKS2_S5_.exit
   br i1 %374, label %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_115MemoryLocOrCallEvE7isEqualERKS2_S5_.exit44.thread83, label %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_115MemoryLocOrCallEvE7isEqualERKS2_S5_.exit.thread
 
 _ZN4llvm12DenseMapInfoIN12_GLOBAL__N_115MemoryLocOrCallEvE7isEqualERKS2_S5_.exit.thread: ; preds = %.lr.ph.i7.i.i.i.i.i.i, %360, %364, %368, %352, %356, %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_115MemoryLocOrCallEvE7isEqualERKS2_S5_.exit
-  %375 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.argprom(ptr nonnull %318, i32 %.sroa.speculated.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.018.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %375 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_(ptr nonnull %318, i32 %.sroa.speculated.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.018.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %376 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %376, ptr noundef nonnull align 8 dereferenceable(56) %.018.i.i.i.i.i.i.i, i64 56, i1 false)
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 56
@@ -5256,7 +5256,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemoryS
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i24, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit.i.i.i.i.i.i
   %.sroa.8.5 = phi i32 [ %.sroa.8.4, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i24 ]
-  %382 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.argprom(ptr nonnull %318, i32 %.sroa.speculated.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %382 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_(ptr nonnull %318, i32 %.sroa.speculated.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.pre.i.i.i.i = load ptr, ptr %6, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i
 
@@ -5282,12 +5282,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemoryS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %387, i8 0, i64 48, i1 false)
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.argprom.exit.i
-  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.argprom.exit.i ], [ %.sroa.0.2, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i ]
-  %.sroa.8.6 = phi i32 [ %.sroa.8.1, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.argprom.exit.i ], [ %384, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i ]
-  %.sroa.15.5 = phi i32 [ %.sroa.15.1, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.argprom.exit.i ], [ %spec.select, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i ]
-  %.sroa.20.3 = phi i32 [ %.sroa.20.1, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.argprom.exit.i ], [ %.sroa.20.2, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i ]
-  %.0.i.i91.i = phi ptr [ %292, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.argprom.exit.i ], [ %383, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i ], [ %.sroa.0.2, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i ]
+  %.sroa.8.6 = phi i32 [ %.sroa.8.1, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i ], [ %384, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i ]
+  %.sroa.15.5 = phi i32 [ %.sroa.15.1, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i ], [ %spec.select, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i ]
+  %.sroa.20.3 = phi i32 [ %.sroa.20.1, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i ], [ %.sroa.20.2, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i ]
+  %.0.i.i91.i = phi ptr [ %292, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i ], [ %383, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %388 = getelementptr inbounds nuw i8, ptr %.0.i.i91.i, i64 56
   %389 = getelementptr inbounds nuw i8, ptr %.0.i.i91.i, i64 64
@@ -5447,13 +5447,13 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i: ; preds =
   %465 = getelementptr inbounds nuw i8, ptr %453, i64 36
   %466 = load i32, ptr %465, align 4
   switch i32 %466, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i [
-    i32 5, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread90
-    i32 6, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread90
-    i32 199, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread90
-    i32 198, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread90
-    i32 11, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread90
-    i32 151, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread90
-    i32 284, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread90
+    i32 5, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread90
+    i32 6, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread90
+    i32 199, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread90
+    i32 198, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread90
+    i32 11, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread90
+    i32 151, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread90
+    i32 284, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread90
   ]
 
 _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i, %454, %451, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPNS0_9MemoryDefEPKNS0_14MemoryUseOrDefERKN12_GLOBAL__N_115MemoryLocOrCallERT_.exit.i
@@ -5492,9 +5492,9 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i: ; pre
   %475 = and i16 %.val.i31, 1
   %476 = and i16 %475, %.val27.i
   %brmerge.not.not.i.i = icmp eq i16 %476, 0
-  br i1 %brmerge.not.not.i.i, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread
+  br i1 %brmerge.not.not.i.i, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread
 
-_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i
+_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
@@ -5513,13 +5513,13 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br i1 %.not92, label %490, label %.thread.loopexit138.i.loopexit
 
-_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread90: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i
+_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread90: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br label %490
 
-_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i
+_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i
   %481 = and i16 %.val.i31, 896
   %482 = icmp eq i16 %481, 896
   %483 = lshr i16 %.val27.i, 7
@@ -5534,7 +5534,7 @@ _ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br i1 %489, label %.thread.loopexit138.i.loopexit, label %490
 
-490:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread90, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit
+490:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread90, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit
   %491 = add i64 %.0130.i, -1
   %492 = load i64, ptr %418, align 8
   %493 = icmp ugt i64 %491, %492
@@ -5548,13 +5548,13 @@ _ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14
   %.pre142.i = load ptr, ptr %14, align 8
   br i1 %496, label %.thread.i, label %542
 
-.thread.loopexit138.i.loopexit:                   ; preds = %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i
+.thread.loopexit138.i.loopexit:                   ; preds = %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i
   %.pre.i23.pre = load ptr, ptr %14, align 8
   br label %.thread.i
 
-.thread.i:                                        ; preds = %439, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread, %.thread.loopexit138.i.loopexit, %.thread120.i
-  %497 = phi ptr [ %.pre142.i, %.thread120.i ], [ %.pre.i23.pre, %.thread.loopexit138.i.loopexit ], [ %427, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread ], [ %438, %439 ]
-  %.1119.i = phi i64 [ %.0.lcssa.i, %.thread120.i ], [ %.0130.i, %.thread.loopexit138.i.loopexit ], [ %.0130.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread ], [ %.2.i, %439 ]
+.thread.i:                                        ; preds = %439, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread, %.thread.loopexit138.i.loopexit, %.thread120.i
+  %497 = phi ptr [ %.pre142.i, %.thread120.i ], [ %.pre.i23.pre, %.thread.loopexit138.i.loopexit ], [ %427, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread ], [ %438, %439 ]
+  %.1119.i = phi i64 [ %.0.lcssa.i, %.thread120.i ], [ %.0130.i, %.thread.loopexit138.i.loopexit ], [ %.0130.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread ], [ %.2.i, %439 ]
   %498 = getelementptr inbounds ptr, ptr %497, i64 %.1119.i
   %499 = load ptr, ptr %498, align 8
   %500 = load i8, ptr %spec.select.i.i.i, align 8
@@ -9221,7 +9221,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %21
 26:                                               ; preds = %24
   %27 = zext i32 %.0.i.i8 to i64
   %28 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %27) #25
-  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit"
+  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit"
 
 29:                                               ; preds = %24, %_ZN4llvm11raw_ostreamlsEPKc.exit
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9236,16 +9236,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %21
 
 38:                                               ; preds = %29
   %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @_ZL14LiveOnEntryStr, i64 noundef 11) #25
-  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit"
+  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit"
 
 40:                                               ; preds = %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %33, ptr noundef nonnull align 1 dereferenceable(11) @_ZL14LiveOnEntryStr, i64 11, i1 false)
   %41 = load ptr, ptr %32, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 11
   store ptr %42, ptr %32, align 8
-  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit"
+  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit"
 
-"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit": ; preds = %26, %38, %40
+"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit": ; preds = %26, %38, %40
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -9253,11 +9253,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %21
   %47 = icmp eq ptr %44, %46
   br i1 %47, label %48, label %50
 
-48:                                               ; preds = %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit"
+48:                                               ; preds = %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit"
   %49 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.10, i64 noundef 1) #25
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit11
 
-50:                                               ; preds = %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit"
+50:                                               ; preds = %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit"
   store i8 41, ptr %46, align 1
   %51 = load ptr, ptr %45, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 1
@@ -9268,7 +9268,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %48, %50
   %53 = getelementptr inbounds i8, ptr %0, i64 -32
   %54 = load ptr, ptr %53, align 8
   %.not.i12 = icmp eq ptr %54, null
-  br i1 %.not.i12, label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit26", label %_ZNK4llvm9MemoryDef11isOptimizedEv.exit
+  br i1 %.not.i12, label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit26", label %_ZNK4llvm9MemoryDef11isOptimizedEv.exit
 
 _ZNK4llvm9MemoryDef11isOptimizedEv.exit:          ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -9279,7 +9279,7 @@ _ZNK4llvm9MemoryDef11isOptimizedEv.exit:          ; preds = %_ZN4llvm11raw_ostre
   %.0.in.i.i15 = getelementptr inbounds nuw i8, ptr %54, i64 %.0.in.v.i.i14
   %.0.i.i16 = load i32, ptr %.0.in.i.i15, align 8
   %58 = icmp eq i32 %56, %.0.i.i16
-  br i1 %58, label %59, label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit26"
+  br i1 %58, label %59, label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit26"
 
 59:                                               ; preds = %_ZNK4llvm9MemoryDef11isOptimizedEv.exit
   %60 = load ptr, ptr %43, align 8
@@ -9318,7 +9318,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %66, %68
 74:                                               ; preds = %72
   %75 = zext i32 %.0.i.i24 to i64
   %76 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %75) #25
-  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit26"
+  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit26"
 
 77:                                               ; preds = %72, %_ZN4llvm11raw_ostreamlsEPKc.exit19
   %78 = load ptr, ptr %43, align 8
@@ -9331,16 +9331,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %66, %68
 
 84:                                               ; preds = %77
   %85 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @_ZL14LiveOnEntryStr, i64 noundef 11) #25
-  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit26"
+  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit26"
 
 86:                                               ; preds = %77
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %79, ptr noundef nonnull align 1 dereferenceable(11) @_ZL14LiveOnEntryStr, i64 11, i1 false)
   %87 = load ptr, ptr %45, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 11
   store ptr %88, ptr %45, align 8
-  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit26"
+  br label %"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit26"
 
-"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.argprom.exit26": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11, %86, %84, %74, %_ZNK4llvm9MemoryDef11isOptimizedEv.exit
+"_ZZNK4llvm9MemoryDef5printERNS_11raw_ostreamEENK3$_0clEPNS_12MemoryAccessE.exit26": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11, %86, %84, %74, %_ZNK4llvm9MemoryDef11isOptimizedEv.exit
   ret void
 }
 
@@ -10910,7 +10910,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_113ClobberWalker11findClobbe
   %51 = load ptr, ptr %18, align 8
   %52 = getelementptr i8, ptr %.sroa.025.034.i, i64 72
   %.val.i = load ptr, ptr %52, align 8
-  %53 = call fastcc noundef zeroext i1 @_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom(ptr %.val.i, ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(656) %51)
+  %53 = call fastcc noundef zeroext i1 @_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_(ptr %.val.i, ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(656) %51)
   br i1 %53, label %_ZN12_GLOBAL__N_113ClobberWalker11OptznResultD2Ev.exit, label %._crit_edge36.i
 
 ._crit_edge36.i:                                  ; preds = %47
@@ -10966,7 +10966,7 @@ _ZN4llvm18def_chain_iteratorIPNS_12MemoryAccessELb0EEppEv.exit.i: ; preds = %54
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ClobberWalker7DefPathELb1EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %11)
   %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #25
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11), !noalias !214
-  br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.argprom.exit.i
+  br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.exit.i
 
 72:                                               ; preds = %63
   %.val.i.i.i = load ptr, ptr %64, align 8, !noalias !214
@@ -10983,9 +10983,9 @@ _ZN4llvm18def_chain_iteratorIPNS_12MemoryAccessELb0EEppEv.exit.i: ; preds = %54
   %79 = add i64 %78, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %64, i64 noundef %79) #25
   %80 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #25
-  br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.argprom.exit.i
+  br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.exit.i
 
-_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.argprom.exit.i: ; preds = %72, %67
+_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.exit.i: ; preds = %72, %67
   %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #25
   %82 = getelementptr inbounds i8, ptr %12, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %82, i64 noundef 16) #25
@@ -11014,9 +11014,9 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_back
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %102
 
-102:                                              ; preds = %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ClobberWalker14TerminatedPathELj4EED2Ev.exit.i, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.argprom.exit.i
-  %.0152.i = phi i64 [ %81, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.argprom.exit.i ], [ %.1153.i, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ClobberWalker14TerminatedPathELj4EED2Ev.exit.i ]
-  %.0.i = phi ptr [ %60, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.argprom.exit.i ], [ %.1.i, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ClobberWalker14TerminatedPathELj4EED2Ev.exit.i ]
+102:                                              ; preds = %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ClobberWalker14TerminatedPathELj4EED2Ev.exit.i, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.exit.i
+  %.0152.i = phi i64 [ %81, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.exit.i ], [ %.1153.i, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ClobberWalker14TerminatedPathELj4EED2Ev.exit.i ]
+  %.0.i = phi ptr [ %60, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_backIJRKNS_14MemoryLocationERPNS_12MemoryAccessERPNS_9MemoryPhiERKSt9nullopt_tEEERS3_DpOT_.exit.i ], [ %.1.i, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ClobberWalker14TerminatedPathELj4EED2Ev.exit.i ]
   %103 = getelementptr i8, ptr %.0.i, i64 64
   %.0.val.i = load ptr, ptr %103, align 8
   %104 = load ptr, ptr %0, align 8, !noalias !214
@@ -11030,7 +11030,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_113ClobberWalker7DefPathEE12emplace_back
   %.09.i.i = phi ptr [ %108, %102 ], [ %110, %_ZNK4llvm9MemorySSA12getBlockDefsEPKNS_10BasicBlockE.exit.i.i ]
   %110 = call noundef ptr @_ZNK4llvm15DomTreeNodeBaseINS_10BasicBlockEE7getIDomEv(ptr noundef nonnull align 8 dereferenceable(80) %.09.i.i) #25
   %.not.i73.i = icmp eq ptr %110, null
-  br i1 %.not.i73.i, label %_ZNK12_GLOBAL__N_113ClobberWalker13getWalkTargetEPKN4llvm9MemoryPhiE.argprom.exit.i, label %111
+  br i1 %.not.i73.i, label %_ZNK12_GLOBAL__N_113ClobberWalker13getWalkTargetEPKN4llvm9MemoryPhiE.exit.i, label %111
 
 111:                                              ; preds = %109
   %112 = load ptr, ptr %0, align 8, !noalias !214
@@ -11100,15 +11100,15 @@ _ZNK4llvm9MemorySSA12getBlockDefsEPKNS_10BasicBlockE.exit.i.i: ; preds = %144, %
   %150 = icmp eq ptr %149, null
   %151 = getelementptr inbounds i8, ptr %149, i64 -48
   %152 = select i1 %150, ptr null, ptr %151
-  br label %_ZNK12_GLOBAL__N_113ClobberWalker13getWalkTargetEPKN4llvm9MemoryPhiE.argprom.exit.i
+  br label %_ZNK12_GLOBAL__N_113ClobberWalker13getWalkTargetEPKN4llvm9MemoryPhiE.exit.i
 
-_ZNK12_GLOBAL__N_113ClobberWalker13getWalkTargetEPKN4llvm9MemoryPhiE.argprom.exit.i: ; preds = %109, %148
+_ZNK12_GLOBAL__N_113ClobberWalker13getWalkTargetEPKN4llvm9MemoryPhiE.exit.i: ; preds = %109, %148
   %.0.i74.i = phi ptr [ %152, %148 ], [ %106, %109 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10), !noalias !214
   %153 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #25, !noalias !218
   br i1 %153, label %.loopexit180.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZNK12_GLOBAL__N_113ClobberWalker13getWalkTargetEPKN4llvm9MemoryPhiE.argprom.exit.i
+.lr.ph.i.i:                                       ; preds = %_ZNK12_GLOBAL__N_113ClobberWalker13getWalkTargetEPKN4llvm9MemoryPhiE.exit.i
   %154 = getelementptr inbounds nuw i8, ptr %.0.i74.i, i64 64
   br label %155
 
@@ -11565,13 +11565,13 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i: ; preds
   %435 = getelementptr inbounds nuw i8, ptr %423, i64 36
   %436 = load i32, ptr %435, align 4, !noalias !218
   switch i32 %436, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i.i [
-    i32 5, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread158.i
-    i32 6, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread158.i
-    i32 199, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread158.i
-    i32 198, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread158.i
-    i32 11, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread158.i
-    i32 151, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread158.i
-    i32 284, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread158.i
+    i32 5, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread158.i
+    i32 6, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread158.i
+    i32 199, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread158.i
+    i32 198, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread158.i
+    i32 11, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread158.i
+    i32 151, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread158.i
+    i32 284, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread158.i
   ]
 
 _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i.i: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %424, %421, %413
@@ -11608,9 +11608,9 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i.i: ; p
   %445 = and i16 %.val.i109.i, 1
   %446 = and i16 %445, %.val27.i.i
   %brmerge.not.not.i.i.i = icmp eq i16 %446, 0
-  br i1 %brmerge.not.not.i.i.i, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.i, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread.i
+  br i1 %brmerge.not.not.i.i.i, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.i, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread.i
 
-_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i.i
+_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !214
   br label %.loopexit177.i
 
@@ -11625,11 +11625,11 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !214
   br i1 %.not172.i, label %._crit_edge36.i.i.i, label %.loopexit177.i
 
-_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread158.i: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i
+_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread158.i: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !214
   br label %._crit_edge36.i.i.i
 
-_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i.i
+_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i.i
   %451 = and i16 %.val.i109.i, 896
   %452 = icmp eq i16 %451, 896
   %453 = lshr i16 %.val27.i.i, 7
@@ -11642,7 +11642,7 @@ _ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !214
   br i1 %459, label %.loopexit177.i, label %._crit_edge36.i.i.i
 
-._crit_edge36.i.i.i:                              ; preds = %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread158.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i.i
+._crit_edge36.i.i.i:                              ; preds = %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread158.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i.i
   %.pre.i.i.i = load i8, ptr %.sroa.025.034.i.i.i, align 8, !noalias !218
   br label %460
 
@@ -11674,12 +11674,12 @@ _ZN4llvm18def_chain_iteratorIPNS_12MemoryAccessELb0EEppEv.exit.i.i.i: ; preds = 
   %469 = load ptr, ptr %165, align 8, !noalias !218
   br label %.loopexit.i.i
 
-.loopexit177.i:                                   ; preds = %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i.i, %409, %404, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit.thread.i
+.loopexit177.i:                                   ; preds = %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i.i, %409, %404, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit.thread.i
   %470 = load ptr, ptr %0, align 8, !noalias !221
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 104
   %472 = load ptr, ptr %471, align 8, !noalias !218
   %473 = icmp eq ptr %.0.i74.i, %472
-  br i1 %473, label %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.lr.ph.i.i.i.i.i, label %474
+  br i1 %473, label %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.lr.ph.i.i.i.i.i, label %474
 
 474:                                              ; preds = %.loopexit177.i
   %475 = getelementptr inbounds nuw i8, ptr %.sroa.025.034.i.i.i, i64 64
@@ -11692,11 +11692,11 @@ _ZN4llvm18def_chain_iteratorIPNS_12MemoryAccessELb0EEppEv.exit.i.i.i: ; preds = 
   %479 = getelementptr inbounds nuw i8, ptr %470, i64 8
   %480 = load ptr, ptr %479, align 8, !noalias !218
   %481 = call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %480, ptr noundef %476, ptr noundef %477) #25, !noalias !218
-  br i1 %481, label %_ZNK4llvm9MemorySSA9dominatesEPKNS_12MemoryAccessES3_.exit.thread.i.i, label %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.lr.ph.i.i.i.i.i
+  br i1 %481, label %_ZNK4llvm9MemorySSA9dominatesEPKNS_12MemoryAccessES3_.exit.thread.i.i, label %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.lr.ph.i.i.i.i.i
 
 _ZNK4llvm9MemorySSA9dominatesEPKNS_12MemoryAccessES3_.exit.i.i: ; preds = %474
   %482 = call noundef zeroext i1 @_ZNK4llvm9MemorySSA16locallyDominatesEPKNS_12MemoryAccessES3_(ptr noundef nonnull align 8 dereferenceable(325) %470, ptr noundef nonnull %.sroa.025.034.i.i.i, ptr noundef nonnull %.0.i74.i), !noalias !218
-  br i1 %482, label %_ZNK4llvm9MemorySSA9dominatesEPKNS_12MemoryAccessES3_.exit.thread.i.i, label %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.lr.ph.i.i.i.i.i
+  br i1 %482, label %_ZNK4llvm9MemorySSA9dominatesEPKNS_12MemoryAccessES3_.exit.thread.i.i, label %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.lr.ph.i.i.i.i.i
 
 _ZNK4llvm9MemorySSA9dominatesEPKNS_12MemoryAccessES3_.exit.thread.i.i: ; preds = %_ZNK4llvm9MemorySSA9dominatesEPKNS_12MemoryAccessES3_.exit.i.i, %478
   %483 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #25, !noalias !218
@@ -11760,31 +11760,31 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i.i: ; preds = %499, %
   call fastcc void @_ZN12_GLOBAL__N_113ClobberWalker11addSearchesEPN4llvm9MemoryPhiERNS1_15SmallVectorImplIjEEj(ptr noundef nonnull align 8 dereferenceable(2384) %0, ptr noundef %.sroa.0.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %160), !noalias !218
   br label %_ZN4llvm6detail12DenseSetImplISt4pairIPKNS_12MemoryAccessENS_14MemoryLocationEENS_8DenseMapIS7_NS0_13DenseSetEmptyENS_12DenseMapInfoIS7_vEENS0_12DenseSetPairIS7_EEEESB_E6insertEOS7_.exit.backedge.i.i
 
-_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.lr.ph.i.i.i.i.i: ; preds = %_ZNK4llvm9MemorySSA9dominatesEPKNS_12MemoryAccessES3_.exit.i.i, %478, %.loopexit177.i
+_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.lr.ph.i.i.i.i.i: ; preds = %_ZNK4llvm9MemorySSA9dominatesEPKNS_12MemoryAccessES3_.exit.i.i, %478, %.loopexit177.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !214
   %.val69.i = load ptr, ptr %64, align 8, !noalias !214
-  br label %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.i.i.i.i.i
+  br label %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.i.i.i.i.i
 
-_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.i.i.i.i.i: ; preds = %508, %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.lr.ph.i.i.i.i.i
-  %.sroa.4.0.in36.i.i.i.i.i = phi i64 [ %163, %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.lr.ph.i.i.i.i.i ], [ %510, %508 ]
+_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.i.i.i.i.i: ; preds = %508, %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.lr.ph.i.i.i.i.i
+  %.sroa.4.0.in36.i.i.i.i.i = phi i64 [ %163, %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.lr.ph.i.i.i.i.i ], [ %510, %508 ]
   %506 = and i64 %.sroa.4.0.in36.i.i.i.i.i, 4294967295
   %507 = icmp ugt i64 %.0152.i, %506
-  br i1 %507, label %_ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.argprom.exit.i, label %508
+  br i1 %507, label %_ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.exit.i, label %508
 
-508:                                              ; preds = %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.i.i.i.i.i
+508:                                              ; preds = %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.i.i.i.i.i
   %509 = getelementptr inbounds %"struct.(anonymous namespace)::ClobberWalker::DefPath", ptr %.val69.i, i64 %506, i32 3
   %510 = load i64, ptr %509, align 8
   %511 = and i64 %510, 4294967296
   %.not173.i = icmp eq i64 %511, 0
-  br i1 %.not173.i, label %._ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.argprom.exit_crit_edge.i, label %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.i.i.i.i.i, !llvm.loop !230
+  br i1 %.not173.i, label %._ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.exit_crit_edge.i, label %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.i.i.i.i.i, !llvm.loop !230
 
-._ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.argprom.exit_crit_edge.i: ; preds = %508
+._ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.exit_crit_edge.i: ; preds = %508
   %.pre.i31 = and i64 %510, 4294967295
-  br label %_ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.argprom.exit.i
+  br label %_ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.exit.i
 
-_ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.argprom.exit.i: ; preds = %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.i.i.i.i.i, %._ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.argprom.exit_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i31, %._ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.argprom.exit_crit_edge.i ], [ %506, %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.i.i.i.i.i ]
-  %.sroa.4.0.in.lcssa.i.i.i.i.i = phi i64 [ %510, %._ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.argprom.exit_crit_edge.i ], [ %.sroa.4.0.in36.i.i.i.i.i, %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.argprom.exit.thread.i.i.i.i.i ]
+_ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.exit.i: ; preds = %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.i.i.i.i.i, %._ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.exit_crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre.i31, %._ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.exit_crit_edge.i ], [ %506, %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.i.i.i.i.i ]
+  %.sroa.4.0.in.lcssa.i.i.i.i.i = phi i64 [ %510, %._ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.exit_crit_edge.i ], [ %.sroa.4.0.in36.i.i.i.i.i, %_ZNK4llvm20iterator_facade_baseIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS2_7DefPathES2_EESt20forward_iterator_tagPS4_lPS7_RS7_EneERKS5_.exit.thread.i.i.i.i.i ]
   %512 = getelementptr inbounds %"struct.(anonymous namespace)::ClobberWalker::DefPath", ptr %.val69.i, i64 %.pre-phi.i, i32 2
   %513 = load ptr, ptr %512, align 8
   %514 = trunc i64 %.sroa.4.0.in.lcssa.i.i.i.i.i to i32
@@ -11794,13 +11794,13 @@ _ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull %515, i64 noundef 4) #25
   br label %.loopexit181.i
 
-.loopexit180.i:                                   ; preds = %_ZN4llvm6detail12DenseSetImplISt4pairIPKNS_12MemoryAccessENS_14MemoryLocationEENS_8DenseMapIS7_NS0_13DenseSetEmptyENS_12DenseMapInfoIS7_vEENS0_12DenseSetPairIS7_EEEESB_E6insertEOS7_.exit.backedge.i.i, %_ZNK12_GLOBAL__N_113ClobberWalker13getWalkTargetEPKN4llvm9MemoryPhiE.argprom.exit.i
+.loopexit180.i:                                   ; preds = %_ZN4llvm6detail12DenseSetImplISt4pairIPKNS_12MemoryAccessENS_14MemoryLocationEENS_8DenseMapIS7_NS0_13DenseSetEmptyENS_12DenseMapInfoIS7_vEENS0_12DenseSetPairIS7_EEEESB_E6insertEOS7_.exit.backedge.i.i, %_ZNK12_GLOBAL__N_113ClobberWalker13getWalkTargetEPKN4llvm9MemoryPhiE.exit.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !214
   %516 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #25
   br i1 %516, label %517, label %523
 
 517:                                              ; preds = %.loopexit180.i
-  call fastcc void @_ZZN12_GLOBAL__N_113ClobberWalker14tryOptimizePhiEPN4llvm9MemoryPhiEPNS1_12MemoryAccessERKNS1_14MemoryLocationEENKUlRNS1_15SmallVectorImplINS0_14TerminatedPathEEEE_clESC_.argprom(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %14)
+  call fastcc void @_ZZN12_GLOBAL__N_113ClobberWalker14tryOptimizePhiEPN4llvm9MemoryPhiEPNS1_12MemoryAccessERKNS1_14MemoryLocationEENKUlRNS1_15SmallVectorImplINS0_14TerminatedPathEEEE_clESC_(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %14)
   %.val.i.i.i80.i = load ptr, ptr %14, align 8, !noalias !214
   %518 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
   %519 = getelementptr inbounds %"struct.(anonymous namespace)::ClobberWalker::TerminatedPath", ptr %.val.i.i.i80.i, i64 %518
@@ -11910,13 +11910,13 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i: ; pr
   %568 = getelementptr inbounds nuw i8, ptr %556, i64 36
   %569 = load i32, ptr %568, align 4
   switch i32 %569, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i119.i [
-    i32 5, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread164.i
-    i32 6, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread164.i
-    i32 199, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread164.i
-    i32 198, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread164.i
-    i32 11, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread164.i
-    i32 151, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread164.i
-    i32 284, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread164.i
+    i32 5, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread164.i
+    i32 6, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread164.i
+    i32 199, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread164.i
+    i32 198, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread164.i
+    i32 11, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread164.i
+    i32 151, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread164.i
+    i32 284, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread164.i
   ]
 
 _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i119.i: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i133.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i132.i, %557, %554, %546
@@ -11953,9 +11953,9 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i127.i: 
   %578 = and i16 %.val.i128.i, 1
   %579 = and i16 %578, %.val27.i129.i
   %brmerge.not.not.i.i130.i = icmp eq i16 %579, 0
-  br i1 %brmerge.not.not.i.i130.i, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.i, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread.i
+  br i1 %brmerge.not.not.i.i130.i, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.i, label %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread.i
 
-_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i127.i
+_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i127.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !214
   br label %.loopexit.i
 
@@ -11970,11 +11970,11 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !214
   br i1 %.not175.i, label %._crit_edge36.i.i, label %.loopexit.i
 
-_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread164.i: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i
+_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread164.i: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i135.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !214
   br label %._crit_edge36.i.i
 
-_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i127.i
+_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i127.i
   %584 = and i16 %.val.i128.i, 896
   %585 = icmp eq i16 %584, 896
   %586 = lshr i16 %.val27.i129.i, 7
@@ -11987,7 +11987,7 @@ _ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !214
   br i1 %592, label %.loopexit.i, label %._crit_edge36.i.i
 
-._crit_edge36.i.i:                                ; preds = %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread164.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i126.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i121.i
+._crit_edge36.i.i:                                ; preds = %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread164.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i126.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i121.i
   %.pre.i.i = load i8, ptr %.sroa.025.034.i.i, align 8
   br label %593
 
@@ -12019,7 +12019,7 @@ _ZNK12_GLOBAL__N_113ClobberWalker18walkToPhiOrClobberERNS0_7DefPathEPKN4llvm12Me
   %601 = load ptr, ptr %534, align 8
   br label %610
 
-.loopexit.i:                                      ; preds = %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i126.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i121.i, %542, %537, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom.exit136.thread.i
+.loopexit.i:                                      ; preds = %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i126.i, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit.i121.i, %542, %537, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit136.thread.i
   %602 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #25
   %603 = add i64 %602, 1
   %604 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #25
@@ -12138,7 +12138,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ClobberWalker14TerminatedPath
   br i1 %640, label %647, label %641
 
 641:                                              ; preds = %.loopexit178.i
-  call fastcc void @_ZZN12_GLOBAL__N_113ClobberWalker14tryOptimizePhiEPN4llvm9MemoryPhiEPNS1_12MemoryAccessERKNS1_14MemoryLocationEENKUlRNS1_15SmallVectorImplINS0_14TerminatedPathEEEE_clESC_.argprom(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  call fastcc void @_ZZN12_GLOBAL__N_113ClobberWalker14tryOptimizePhiEPN4llvm9MemoryPhiEPNS1_12MemoryAccessERKNS1_14MemoryLocationEENKUlRNS1_15SmallVectorImplINS0_14TerminatedPathEEEE_clESC_(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %15)
   %.val.i.i.i99.i = load ptr, ptr %15, align 8, !noalias !214
   %642 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #25
   %643 = getelementptr inbounds %"struct.(anonymous namespace)::ClobberWalker::TerminatedPath", ptr %.val.i.i.i99.i, i64 %642
@@ -12192,7 +12192,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ClobberWalker14TerminatedPath
 _ZN4llvm11SmallVectorIN12_GLOBAL__N_113ClobberWalker14TerminatedPathELj4EED2Ev.exit.i: ; preds = %660, %656
   br i1 %640, label %102, label %.loopexit181.i, !llvm.loop !231
 
-.loopexit181.i:                                   ; preds = %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ClobberWalker14TerminatedPathELj4EED2Ev.exit.i, %517, %_ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.argprom.exit.i
+.loopexit181.i:                                   ; preds = %_ZN4llvm11SmallVectorIN12_GLOBAL__N_113ClobberWalker14TerminatedPathELj4EED2Ev.exit.i, %517, %_ZN4llvm7find_ifINS_14iterator_rangeIN12_GLOBAL__N_113ClobberWalker25generic_def_path_iteratorINS3_7DefPathES3_EEEEZNS3_14tryOptimizePhiEPNS_9MemoryPhiEPNS_12MemoryAccessERKNS_14MemoryLocationEEUlRKS5_E_EEDaOT_T0_.exit.i
   %661 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
   %662 = load ptr, ptr %14, align 8, !noalias !214
   %663 = icmp eq ptr %662, %84
@@ -13555,7 +13555,7 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 declare void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.argprom(ptr %.0.val, i32 %.16.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_(ptr %.0.val, i32 %.16.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
   %.sroa.012.i.i = alloca [12 x i8], align 8
   %.sroa.08.i.i = alloca [5 x i8], align 8
   %.sroa.0.i.i = alloca [5 x i8], align 8
@@ -13564,7 +13564,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %5 = icmp eq i32 %.16.val, 0
-  br i1 %5, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPKSB_.argprom.exit, label %6
+  br i1 %5, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPKSB_.exit, label %6
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 8, !alias.scope !237
@@ -13738,7 +13738,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemoryS
   %113 = zext i32 %.0254.i to i64
   %114 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.325", ptr %.0.val, i64 %113
   %115 = tail call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_115MemoryLocOrCallEvE7isEqualERKS2_S5_(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %114)
-  br i1 %115, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPKSB_.argprom.exit, label %.lr.ph.i
+  br i1 %115, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPKSB_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E12getHashValueERKS3_.exit.i, %120
   %116 = phi ptr [ %126, %120 ], [ %114, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E12getHashValueERKS3_.exit.i ]
@@ -13751,7 +13751,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemoryS
 118:                                              ; preds = %.lr.ph.i
   %.not.i = icmp eq ptr %.0265.i, null
   %119 = select i1 %.not.i, ptr %116, ptr %.0265.i
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPKSB_.argprom.exit
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPKSB_.exit
 
 120:                                              ; preds = %.lr.ph.i
   %121 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_115MemoryLocOrCallEvE7isEqualERKS2_S5_(ptr noundef nonnull align 8 dereferenceable(56) %116, ptr noundef nonnull align 8 dereferenceable(56) %4)
@@ -13764,9 +13764,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemoryS
   %125 = zext i32 %.025.i to i64
   %126 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.325", ptr %.0.val, i64 %125
   %127 = tail call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_115MemoryLocOrCallEvE7isEqualERKS2_S5_(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %126)
-  br i1 %127, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPKSB_.argprom.exit, label %.lr.ph.i, !llvm.loop !247
+  br i1 %127, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPKSB_.exit, label %.lr.ph.i, !llvm.loop !247
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPKSB_.argprom.exit: ; preds = %120, %2, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E12getHashValueERKS3_.exit.i, %118
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPKSB_.exit: ; preds = %120, %2, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E12getHashValueERKS3_.exit.i, %118
   %.sink.i = phi ptr [ %119, %118 ], [ null, %2 ], [ %114, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E12getHashValueERKS3_.exit.i ], [ %126, %120 ]
   %.0.i = phi i1 [ false, %118 ], [ false, %2 ], [ true, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E12getHashValueERKS3_.exit.i ], [ true, %120 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -14005,7 +14005,7 @@ declare noundef i32 @_ZNK4llvm8CallBase34getNumSubclassExtraOperandsDynamicEv(pt
 declare { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.argprom(ptr %.72.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(656) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_(ptr %.72.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(656) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::optional.299", align 8
   %5 = load i8, ptr %.72.val, align 8
   %6 = icmp eq i8 %5, 85
@@ -14041,13 +14041,13 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit: ; preds = %
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %22 = load i32, ptr %21, align 4
   switch i32 %22, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread [
-    i32 5, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit
-    i32 6, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit
-    i32 199, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit
-    i32 198, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit
-    i32 11, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit
-    i32 151, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit
-    i32 284, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit
+    i32 5, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit
+    i32 6, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit
+    i32 199, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit
+    i32 198, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit
+    i32 11, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit
+    i32 151, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit
+    i32 284, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit
   ]
 
 _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %10, %7, %3, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit
@@ -14067,7 +14067,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit: ; preds
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = tail call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseERNS_11AAQueryInfoE(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull %.72.val, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(498) %26) #25
   %28 = icmp ne i8 %27, 0
-  br label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit
+  br label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit
 
 .thread:                                          ; preds = %23
   %.not = icmp eq i8 %5, 61
@@ -14083,7 +14083,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit: ; preds
   %32 = and i16 %.val, 1
   %33 = and i16 %32, %.val27
   %brmerge.not.not.i = icmp eq i16 %33, 0
-  br i1 %brmerge.not.not.i, label %34, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit
+  br i1 %brmerge.not.not.i, label %34, label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit
 
 34:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit
   %35 = and i16 %.val, 896
@@ -14095,7 +14095,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit: ; preds
   %41 = load i8, ptr %40, align 4
   %42 = trunc i8 %41 to i1
   %43 = or i1 %36, %42
-  br label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit
+  br label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit
 
 _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread, %.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
@@ -14106,9 +14106,9 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread: 
   %47 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEERNS_11AAQueryInfoE(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull %.72.val, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(498) %46) #25
   %48 = and i8 %47, 2
   %49 = icmp ne i8 %48, 0
-  br label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit
+  br label %_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit
 
-_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.argprom.exit: ; preds = %34, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit
+_ZL19areLoadsReorderablePKN4llvm8LoadInstES2_.exit: ; preds = %34, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit
   %.0 = phi i1 [ %28, %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_11InstructionEEEDaPT0_.exit ], [ %49, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit ], [ %43, %34 ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit ]
   ret i1 %.0
 }
@@ -14987,7 +14987,7 @@ _ZNK4llvm20iterator_facade_baseINS_20upward_defs_iteratorESt20forward_iterator_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_113ClobberWalker14tryOptimizePhiEPN4llvm9MemoryPhiEPNS1_12MemoryAccessERKNS1_14MemoryLocationEENKUlRNS1_15SmallVectorImplINS0_14TerminatedPathEEEE_clESC_.argprom(ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_113ClobberWalker14tryOptimizePhiEPN4llvm9MemoryPhiEPNS1_12MemoryAccessERKNS1_14MemoryLocationEENKUlRNS1_15SmallVectorImplINS0_14TerminatedPathEEEE_clESC_(ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.(anonymous namespace)::ClobberWalker::TerminatedPath", align 8
   %.val = load ptr, ptr %0, align 8
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25

@@ -226,24 +226,24 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread11.i.i: ; preds = %_ZNK4llvm9Str
   %54 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 486
   %55 = load i8, ptr %54, align 2
   %56 = trunc i8 %55 to i1
-  br i1 %56, label %_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.argprom.exit.i.i, label %57
+  br i1 %56, label %_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.i.i, label %57
 
 57:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.i.i
   %58 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 485
   %59 = load i8, ptr %58, align 1
   %60 = trunc i8 %59 to i1
-  br i1 %60, label %_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.argprom.exit.i.i, label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE3runERNS_17MachineModuleInfoERNS_15MachineFunctionE.exit.i
+  br i1 %60, label %_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.i.i, label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE3runERNS_17MachineModuleInfoERNS_15MachineFunctionE.exit.i
 
-_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.argprom.exit.i.i: ; preds = %57, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.i.i
+_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.i.i: ; preds = %57, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.i.i
   %61 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 484
   %62 = load i8, ptr %61, align 4
   %63 = trunc i8 %62 to i1
   br i1 %63, label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE3runERNS_17MachineModuleInfoERNS_15MachineFunctionE.exit.i, label %64
 
-64:                                               ; preds = %_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.argprom.exit.i.i
+64:                                               ; preds = %_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.i.i
   %65 = load i8, ptr %48, align 1
   %66 = trunc i8 %65 to i1
-  br i1 %66, label %_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.argprom.exit.i.i, label %67
+  br i1 %66, label %_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i, label %67
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %46, align 8
@@ -253,8 +253,8 @@ _ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunction
   br i1 %71, label %72, label %.preheader.i.i.i
 
 72:                                               ; preds = %67
-  tail call fastcc void @_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(2512) %46, ptr nonnull @_ZL16R11RetpolineName, i64 20, ptr nonnull @.str.1, i64 0)
-  br label %_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.argprom.exit.i.i
+  tail call fastcc void @_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_(ptr noundef nonnull align 8 dereferenceable(2512) %46, ptr nonnull @_ZL16R11RetpolineName, i64 20, ptr nonnull @.str.1, i64 0)
+  br label %_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i
 
 .preheader.i.i.i:                                 ; preds = %67, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i
   %.011.idx9.i.i.i = phi i64 [ %.011.add.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i ], [ 0, %67 ]
@@ -269,12 +269,12 @@ _ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunction
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i.i:              ; preds = %74, %.preheader.i.i.i
   %76 = phi i64 [ %75, %74 ], [ 0, %.preheader.i.i.i ]
-  tail call fastcc void @_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(2512) %46, ptr %73, i64 %76, ptr nonnull @.str.1, i64 0)
+  tail call fastcc void @_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_(ptr noundef nonnull align 8 dereferenceable(2512) %46, ptr %73, i64 %76, ptr nonnull @.str.1, i64 0)
   %.011.add.i.i.i = add nuw nsw i64 %.011.idx9.i.i.i, 8
   %.not.i7.i.i = icmp eq i64 %.011.add.i.i.i, 32
-  br i1 %.not.i7.i.i, label %_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.argprom.exit.i.i, label %.preheader.i.i.i
+  br i1 %.not.i7.i.i, label %_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i, label %.preheader.i.i.i
 
-_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.argprom.exit.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %72, %64
+_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %72, %64
   %77 = load i8, ptr %48, align 1
   %78 = and i8 %77, 1
   %.0.i.i.i = and i8 %65, 1
@@ -796,13 +796,13 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit133.i.i.i: ; preds = %_Z
   %269 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %125, ptr nonnull %239, ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(32) %268)
   %270 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i134.i.i.i = icmp eq ptr %270, null
-  br i1 %.not.i.i.i.i.i134.i.i.i, label %_ZN12_GLOBAL__N_122RetpolineThunkInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i, label %271
+  br i1 %.not.i.i.i.i.i134.i.i.i, label %_ZN12_GLOBAL__N_122RetpolineThunkInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i, label %271
 
 271:                                              ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit133.i.i.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %29, ptr noundef nonnull align 4 dereferenceable(8) %270) #17
-  br label %_ZN12_GLOBAL__N_122RetpolineThunkInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_122RetpolineThunkInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i
 
-_ZN12_GLOBAL__N_122RetpolineThunkInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i: ; preds = %271, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit133.i.i.i
+_ZN12_GLOBAL__N_122RetpolineThunkInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i: ; preds = %271, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit133.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
@@ -815,8 +815,8 @@ _ZN12_GLOBAL__N_122RetpolineThunkInserter13populateThunkERN4llvm15MachineFunctio
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   br label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE3runERNS_17MachineModuleInfoERNS_15MachineFunctionE.exit.i
 
-_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE3runERNS_17MachineModuleInfoERNS_15MachineFunctionE.exit.i: ; preds = %_ZN12_GLOBAL__N_122RetpolineThunkInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i, %_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.argprom.exit.i.i, %_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.argprom.exit.i.i, %57
-  %.0.i.i = phi i1 [ true, %_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.argprom.exit.i.i ], [ true, %_ZN12_GLOBAL__N_122RetpolineThunkInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i ], [ false, %_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.argprom.exit.i.i ], [ false, %57 ]
+_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE3runERNS_17MachineModuleInfoERNS_15MachineFunctionE.exit.i: ; preds = %_ZN12_GLOBAL__N_122RetpolineThunkInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i, %_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i, %_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.i.i, %57
+  %.0.i.i = phi i1 [ true, %_ZN12_GLOBAL__N_122RetpolineThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i ], [ true, %_ZN12_GLOBAL__N_122RetpolineThunkInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i ], [ false, %_ZN12_GLOBAL__N_122RetpolineThunkInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.i.i ], [ false, %57 ]
   %272 = call { ptr, i64 } @_ZNK4llvm15MachineFunction7getNameEv(ptr noundef nonnull align 8 dereferenceable(1041) %1) #17
   %273 = extractvalue { ptr, i64 } %272, 1
   %.not.i.i6.i = icmp ult i64 %273, 17
@@ -839,7 +839,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread9.i.i: ; preds = %_ZNK4llvm9Stri
 279:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread9.i.i
   %280 = load i8, ptr %47, align 8
   %281 = trunc i8 %280 to i1
-  br i1 %281, label %_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.argprom.exit.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread8.i.i.i.i
+  br i1 %281, label %_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread8.i.i.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread8.i.i.i.i: ; preds = %279
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
@@ -937,22 +937,22 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
   %328 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %296) #17
   %329 = load ptr, ptr %296, align 8
   %330 = icmp eq ptr %329, %297
-  br i1 %330, label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_116LVIThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.argprom.exit.i.i.i, label %331
+  br i1 %330, label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_116LVIThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.exit.i.i.i, label %331
 
 331:                                              ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i.i.i.i
   call void @free(ptr noundef %329) #17
-  br label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_116LVIThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.argprom.exit.i.i.i
+  br label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_116LVIThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.exit.i.i.i
 
-_ZN4llvm13ThunkInserterIN12_GLOBAL__N_116LVIThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.argprom.exit.i.i.i: ; preds = %331, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i.i.i.i
+_ZN4llvm13ThunkInserterIN12_GLOBAL__N_116LVIThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.exit.i.i.i: ; preds = %331, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11)
   %.pre.i12.i = load i8, ptr %47, align 8
-  br label %_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i
 
-_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.argprom.exit.i.i: ; preds = %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_116LVIThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.argprom.exit.i.i.i, %279
-  %332 = phi i8 [ %280, %279 ], [ %.pre.i12.i, %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_116LVIThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.argprom.exit.i.i.i ]
+_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i: ; preds = %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_116LVIThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.exit.i.i.i, %279
+  %332 = phi i8 [ %280, %279 ], [ %.pre.i12.i, %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_116LVIThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.exit.i.i.i ]
   %333 = and i8 %332, 1
   %.0.i.i13.i = and i8 %280, 1
   %334 = xor i8 %.0.i.i13.i, 1
@@ -1083,7 +1083,7 @@ _ZN4llvm8DebugLocD2Ev.exit15.i.i.i:               ; preds = %376, %_ZN4llvm10MIM
   %384 = load ptr, ptr %379, align 8
   %385 = getelementptr inbounds i8, ptr %384, i64 16
   store ptr %385, ptr %379, align 8
-  br label %_ZN12_GLOBAL__N_116LVIThunkInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_116LVIThunkInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i
 
 386:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit15.i.i.i
   %387 = load ptr, ptr %378, align 8
@@ -1145,17 +1145,17 @@ _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_in
   store ptr %405, ptr %379, align 8
   %407 = getelementptr inbounds %"struct.llvm::MachineBasicBlock::RegisterMaskPair", ptr %401, i64 %397
   store ptr %407, ptr %381, align 8
-  br label %_ZN12_GLOBAL__N_116LVIThunkInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_116LVIThunkInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i
 
-_ZN12_GLOBAL__N_116LVIThunkInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i: ; preds = %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i38.i, %383
+_ZN12_GLOBAL__N_116LVIThunkInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i: ; preds = %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i38.i, %383
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %_ZN4llvm17ThunkInserterPassIJN12_GLOBAL__N_122RetpolineThunkInserterENS1_16LVIThunkInserterEEE6runTIsIJS2_S3_EEEbRNS_17MachineModuleInfoERNS_15MachineFunctionERSt5tupleIJDpT_EE.exit
 
-_ZN4llvm17ThunkInserterPassIJN12_GLOBAL__N_122RetpolineThunkInserterENS1_16LVIThunkInserterEEE6runTIsIJS2_S3_EEEbRNS_17MachineModuleInfoERNS_15MachineFunctionERSt5tupleIJDpT_EE.exit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread9.i.i, %_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.argprom.exit.i.i, %_ZN12_GLOBAL__N_116LVIThunkInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i
-  %.0.i10.i = phi i1 [ true, %_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.argprom.exit.i.i ], [ true, %_ZN12_GLOBAL__N_116LVIThunkInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread9.i.i ]
+_ZN4llvm17ThunkInserterPassIJN12_GLOBAL__N_122RetpolineThunkInserterENS1_16LVIThunkInserterEEE6runTIsIJS2_S3_EEEbRNS_17MachineModuleInfoERNS_15MachineFunctionERSt5tupleIJDpT_EE.exit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread9.i.i, %_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i, %_ZN12_GLOBAL__N_116LVIThunkInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i
+  %.0.i10.i = phi i1 [ true, %_ZN12_GLOBAL__N_116LVIThunkInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionEb.exit.i.i ], [ true, %_ZN12_GLOBAL__N_116LVIThunkInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread9.i.i ]
   %408 = or i1 %.0.i.i, %.0.i10.i
   ret i1 %408
 }
@@ -1190,7 +1190,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 declare { ptr, i64 } @_ZNK4llvm15MachineFunction7getNameEv(ptr noundef nonnull align 8 dereferenceable(1041)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %1, i64 %2, ptr %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm13ThunkInserterIN12_GLOBAL__N_122RetpolineThunkInserterEbE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS6_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %1, i64 %2, ptr %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
 _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit:
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::AttrBuilder", align 8

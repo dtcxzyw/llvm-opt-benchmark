@@ -156,7 +156,7 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr nocaptur
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %10, i64 40
   %90 = load i32, ptr %89, align 8
-  %91 = call fastcc double @mcelem_array_contained_selec.argelim(ptr noundef %84, i32 noundef %86, ptr noundef %88, i32 noundef %90, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %82, i32 noundef %81, ptr noundef nonnull %42)
+  %91 = call fastcc double @mcelem_array_contained_selec(ptr noundef %84, i32 noundef %86, ptr noundef %88, i32 noundef %90, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %82, i32 noundef %81, ptr noundef nonnull %42)
   br label %92
 
 92:                                               ; preds = %.thread, %71
@@ -484,7 +484,7 @@ find_next_mcelem.exit.thread:                     ; preds = %106, %find_next_mce
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @mcelem_array_contained_selec.argelim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc double @mcelem_array_contained_selec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = icmp ne ptr %2, null
   %11 = add i32 %1, 3
   %.not = icmp eq i32 %3, %11
@@ -1377,7 +1377,7 @@ define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %11, align 8
-  %47 = call fastcc double @mcelem_array_contained_selec.argelim(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %46, i32 noundef %.038.lcssa51, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %1)
+  %47 = call fastcc double @mcelem_array_contained_selec(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %46, i32 noundef %.038.lcssa51, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %1)
   br label %51
 
 48:                                               ; preds = %43

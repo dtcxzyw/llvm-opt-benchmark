@@ -1108,7 +1108,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   store ptr %9, ptr %10, align 8, !noalias !406
   %11 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h369fed4e29a61331E.llvm.10078391086421553218"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !409
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a703b40d255d97bE.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %12, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a703b40d255d97bE.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %13 = phi ptr [ %15, %.lr.ph.i.i.i ], [ %11, %2 ]
@@ -1118,9 +1118,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !406
   %15 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h369fed4e29a61331E.llvm.10078391086421553218"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a703b40d255d97bE.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %16, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a703b40d255d97bE.exit", label %.lr.ph.i.i.i
 
-"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a703b40d255d97bE.argprom.exit": ; preds = %.lr.ph.i.i.i, %2
+"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a703b40d255d97bE.exit": ; preds = %.lr.ph.i.i.i, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !406
   %17 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !399
@@ -2628,8 +2628,8 @@ attributes #13 = { nounwind }
 !400 = distinct !{!400, !401, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5f90ce64aa3a2e83E: argument 0"}
 !401 = distinct !{!401, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5f90ce64aa3a2e83E"}
 !402 = distinct !{!402, !401, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5f90ce64aa3a2e83E: argument 1"}
-!403 = distinct !{!403, !404, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a703b40d255d97bE.argprom: argument 0"}
-!404 = distinct !{!404, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a703b40d255d97bE.argprom"}
+!403 = distinct !{!403, !404, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a703b40d255d97bE: argument 0"}
+!404 = distinct !{!404, !"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a703b40d255d97bE"}
 !405 = !{!400}
 !406 = !{!407, !400, !402, !403}
 !407 = distinct !{!407, !408, !"_ZN4core3fmt8builders9DebugList7entries17h5e6d86c646c73d19E: argument 0"}
@@ -2659,8 +2659,8 @@ attributes #13 = { nounwind }
 !431 = distinct !{!431, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h004d4b25d2adcc28E"}
 !432 = !{!433, !434, !426}
 !433 = distinct !{!433, !431, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h004d4b25d2adcc28E: argument 0"}
-!434 = distinct !{!434, !435, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h85632cef373cdc15E.argprom: argument 0"}
-!435 = distinct !{!435, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h85632cef373cdc15E.argprom"}
+!434 = distinct !{!434, !435, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h85632cef373cdc15E: argument 0"}
+!435 = distinct !{!435, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h85632cef373cdc15E"}
 !436 = !{i8 0, i8 2}
 !437 = !{!438}
 !438 = distinct !{!438, !439, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb89f94d9c3f6ac75E: argument 0"}

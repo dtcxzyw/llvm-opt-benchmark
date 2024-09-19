@@ -868,7 +868,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hbd0b7948de
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E.argprom.argelim(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr nocapture readonly %.40.val, ptr noundef %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr nocapture readonly %.40.val, ptr noundef %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, { ptr, i64 } }, align 8
   %.val = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -893,7 +893,7 @@ define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 16
-  br i1 %11, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.argprom.exit, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.argprom.exit.thread
+  br i1 %11, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.exit, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.exit.thread
 
 15:                                               ; preds = %15, %.lr.ph.i
   %.sroa.01.06.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %15 ]
@@ -909,7 +909,7 @@ define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17
   %.not.not.i = icmp eq i64 %16, 0
   br i1 %.not.not.i, label %._crit_edge.i, label %15
 
-_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.argprom.exit.thread: ; preds = %._crit_edge.i
+_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.exit.thread: ; preds = %._crit_edge.i
   %22 = getelementptr inbounds i8, ptr %.val, i64 %6
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %22, ptr noundef nonnull align 1 dereferenceable(16) %.val, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -918,7 +918,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.ar
   store ptr %0, ptr %4, align 8
   br label %.lr.ph.preheader
 
-_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.argprom.exit: ; preds = %._crit_edge.i
+_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.exit: ; preds = %._crit_edge.i
   %23 = getelementptr inbounds i8, ptr %.val, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %.val, i64 %6, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -928,7 +928,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.ar
   %.not11 = icmp eq i64 %6, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.argprom.exit.thread, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.argprom.exit
+.lr.ph.preheader:                                 ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.exit.thread, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.exit
   br label %.lr.ph
 
 24:                                               ; preds = %_ZN4core3ptr19swap_nonoverlapping17h0156eff63eb42ba7E.exit
@@ -944,9 +944,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.ar
   %27 = mul nuw i64 %26, 7
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.argprom.exit
-  %.pre-phi = phi i64 [ %27, %._crit_edge.loopexit ], [ 0, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.argprom.exit ]
-  %28 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ -1, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.argprom.exit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.exit
+  %.pre-phi = phi i64 [ %27, %._crit_edge.loopexit ], [ 0, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.exit ]
+  %28 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ -1, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17haaa55a53416d5b75E.exit ]
   %29 = icmp ult i64 %28, 8
   %.0 = select i1 %29, i64 %28, i64 %.pre-phi
   %30 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1618,7 +1618,7 @@ define hidden noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h
   %18 = getelementptr inbounds i8, ptr %5, i64 %17
   %19 = load i8, ptr %18, align 1, !noundef !7
   %20 = icmp sgt i8 %19, -1
-  br i1 %20, label %21, label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h581cbc37ee34292eE.argprom.exit
+  br i1 %20, label %21, label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h581cbc37ee34292eE.exit
 
 21:                                               ; preds = %._crit_edge
   %22 = load <16 x i8>, ptr %5, align 16, !noalias !228
@@ -1628,9 +1628,9 @@ define hidden noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h
   %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %24, i1 true)
   %27 = zext nneg i16 %26 to i64
   tail call void @llvm.assume(i1 %25)
-  br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h581cbc37ee34292eE.argprom.exit
+  br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h581cbc37ee34292eE.exit
 
-_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h581cbc37ee34292eE.argprom.exit: ; preds = %._crit_edge, %21
+_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h581cbc37ee34292eE.exit: ; preds = %._crit_edge, %21
   %.0.i = phi i64 [ %27, %21 ], [ %17, %._crit_edge ]
   ret i64 %.0.i
 }
@@ -3172,7 +3172,7 @@ _ZN4core3ptr19swap_nonoverlapping17h0a63e10af03d7cdfE.exit: ; preds = %110
   br i1 %.not, label %.thread51.loopexit, label %.noexc.preheader
 
 186:                                              ; preds = %21
-  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E.argprom.argelim(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h9ff0210f8c0c7851E", ptr noundef nonnull @"_ZN4core3ptr137drop_in_place$LT$$LP$u128$C$alloc..vec..Vec$LT$comemo..cache..CacheEntry$LT$$LP$$LP$$RP$$C$$RP$$C$ecow..string..EcoString$GT$$GT$$RP$$GT$17h9df3a4ac0f293fe0E.llvm.6382671939590809801")
+  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h9ff0210f8c0c7851E", ptr noundef nonnull @"_ZN4core3ptr137drop_in_place$LT$$LP$u128$C$alloc..vec..Vec$LT$comemo..cache..CacheEntry$LT$$LP$$LP$$RP$$C$$RP$$C$ecow..string..EcoString$GT$$GT$$RP$$GT$17h9df3a4ac0f293fe0E.llvm.6382671939590809801")
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h71cc1150040dd069E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h71cc1150040dd069E.exit: ; preds = %80, %"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4e05c1604463779aE.exit", %17, %186
@@ -3581,7 +3581,7 @@ _ZN4core3ptr19swap_nonoverlapping17h0a63e10af03d7cdfE.exit: ; preds = %110
   br i1 %.not, label %.thread51.loopexit, label %.noexc.preheader
 
 186:                                              ; preds = %21
-  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E.argprom.argelim(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h49903a1894ff1c5aE", ptr noundef null)
+  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h49903a1894ff1c5aE", ptr noundef null)
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h71cc1150040dd069E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h71cc1150040dd069E.exit: ; preds = %80, %"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4e05c1604463779aE.exit", %17, %186
@@ -3990,7 +3990,7 @@ _ZN4core3ptr19swap_nonoverlapping17h0a63e10af03d7cdfE.exit: ; preds = %110
   br i1 %.not, label %.thread51.loopexit, label %.noexc.preheader
 
 186:                                              ; preds = %21
-  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E.argprom.argelim(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h6975ac328fe71d82E", ptr noundef nonnull @"_ZN4core3ptr184drop_in_place$LT$$LP$u128$C$alloc..vec..Vec$LT$comemo..cache..CacheEntry$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$RP$$C$core..option..Option$LT$ecow..string..EcoString$GT$$GT$$GT$$RP$$GT$17hb022a9f69d618c07E.llvm.6382671939590809801")
+  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h6975ac328fe71d82E", ptr noundef nonnull @"_ZN4core3ptr184drop_in_place$LT$$LP$u128$C$alloc..vec..Vec$LT$comemo..cache..CacheEntry$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$RP$$C$core..option..Option$LT$ecow..string..EcoString$GT$$GT$$GT$$RP$$GT$17hb022a9f69d618c07E.llvm.6382671939590809801")
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h71cc1150040dd069E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h71cc1150040dd069E.exit: ; preds = %80, %"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4e05c1604463779aE.exit", %17, %186
@@ -4399,7 +4399,7 @@ _ZN4core3ptr19swap_nonoverlapping17h0a63e10af03d7cdfE.exit: ; preds = %110
   br i1 %.not, label %.thread51.loopexit, label %.noexc.preheader
 
 186:                                              ; preds = %21
-  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E.argprom.argelim(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h5a0995f437e5d150E", ptr noundef nonnull @"_ZN4core3ptr173drop_in_place$LT$$LP$u128$C$alloc..vec..Vec$LT$comemo..cache..CacheEntry$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$C$core..option..Option$LT$ecow..string..EcoString$GT$$GT$$GT$$RP$$GT$17ha86271b686a67382E.llvm.6382671939590809801")
+  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h5a0995f437e5d150E", ptr noundef nonnull @"_ZN4core3ptr173drop_in_place$LT$$LP$u128$C$alloc..vec..Vec$LT$comemo..cache..CacheEntry$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$C$core..option..Option$LT$ecow..string..EcoString$GT$$GT$$GT$$RP$$GT$17ha86271b686a67382E.llvm.6382671939590809801")
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h71cc1150040dd069E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h71cc1150040dd069E.exit: ; preds = %80, %"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4e05c1604463779aE.exit", %17, %186
@@ -4808,7 +4808,7 @@ _ZN4core3ptr19swap_nonoverlapping17h0a63e10af03d7cdfE.exit: ; preds = %110
   br i1 %.not, label %.thread51.loopexit, label %.noexc.preheader
 
 186:                                              ; preds = %21
-  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E.argprom.argelim(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h5e2885cfa73d6573E", ptr noundef nonnull @"_ZN4core3ptr200drop_in_place$LT$$LP$u128$C$alloc..vec..Vec$LT$comemo..cache..CacheEntry$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$C$core..option..Option$LT$$LP$typst..visualize..image..Image$C$f64$C$f64$RP$$GT$$GT$$GT$$RP$$GT$17hb1573d95d33fbb68E.llvm.6382671939590809801")
+  call fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %9, ptr nonnull @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h5e2885cfa73d6573E", ptr noundef nonnull @"_ZN4core3ptr200drop_in_place$LT$$LP$u128$C$alloc..vec..Vec$LT$comemo..cache..CacheEntry$LT$$LP$$LP$$RP$$C$$LP$$RP$$RP$$C$core..option..Option$LT$$LP$typst..visualize..image..Image$C$f64$C$f64$RP$$GT$$GT$$GT$$RP$$GT$17hb1573d95d33fbb68E.llvm.6382671939590809801")
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h71cc1150040dd069E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h71cc1150040dd069E.exit: ; preds = %80, %"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4e05c1604463779aE.exit", %17, %186
@@ -5604,8 +5604,8 @@ attributes #32 = { cold noreturn nounwind }
 !9 = distinct !{!9, !10, !"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h27e1097e77495bb4E: argument 0"}
 !10 = distinct !{!10, !"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h27e1097e77495bb4E"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom: argument 0"}
-!13 = distinct !{!13, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom"}
+!12 = distinct !{!12, !13, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E: argument 0"}
+!13 = distinct !{!13, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E"}
 !14 = !{!12, !9}
 !15 = !{!16, !12, !9}
 !16 = distinct !{!16, !17, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hf69c637ed8150d78E.llvm.6382671939590809801: argument 0"}
@@ -6002,9 +6002,9 @@ attributes #32 = { cold noreturn nounwind }
 !407 = distinct !{!407, !408, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E: argument 0"}
 !408 = distinct !{!408, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E"}
 !409 = distinct !{!409, !408, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E: argument 1"}
-!410 = distinct !{!410, !411, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom: argument 0"}
-!411 = distinct !{!411, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom"}
-!412 = distinct !{!412, !411, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom: argument 1"}
+!410 = distinct !{!410, !411, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E: argument 0"}
+!411 = distinct !{!411, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E"}
+!412 = distinct !{!412, !411, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E: argument 1"}
 !413 = !{!414, !416, !407, !409, !410, !412}
 !414 = distinct !{!414, !415, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hf894b3daa68729e2E: argument 0"}
 !415 = distinct !{!415, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hf894b3daa68729e2E"}
@@ -6085,8 +6085,8 @@ attributes #32 = { cold noreturn nounwind }
 !490 = !{!491, !493, !487, !484, !405, !398}
 !491 = distinct !{!491, !492, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hf69c637ed8150d78E.llvm.6382671939590809801: argument 0"}
 !492 = distinct !{!492, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hf69c637ed8150d78E.llvm.6382671939590809801"}
-!493 = distinct !{!493, !494, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom: argument 0"}
-!494 = distinct !{!494, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom"}
+!493 = distinct !{!493, !494, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E: argument 0"}
+!494 = distinct !{!494, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E"}
 !495 = !{!496, !498, !500, !405, !398}
 !496 = distinct !{!496, !497, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE: argument 0"}
 !497 = distinct !{!497, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE"}
@@ -6115,9 +6115,9 @@ attributes #32 = { cold noreturn nounwind }
 !520 = distinct !{!520, !521, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E: argument 0"}
 !521 = distinct !{!521, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E"}
 !522 = distinct !{!522, !521, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E: argument 1"}
-!523 = distinct !{!523, !524, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom: argument 0"}
-!524 = distinct !{!524, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom"}
-!525 = distinct !{!525, !524, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom: argument 1"}
+!523 = distinct !{!523, !524, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E: argument 0"}
+!524 = distinct !{!524, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E"}
+!525 = distinct !{!525, !524, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E: argument 1"}
 !526 = !{!527, !529, !520, !522, !523, !525}
 !527 = distinct !{!527, !528, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hf894b3daa68729e2E: argument 0"}
 !528 = distinct !{!528, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hf894b3daa68729e2E"}
@@ -6197,8 +6197,8 @@ attributes #32 = { cold noreturn nounwind }
 !602 = !{!603, !605, !599, !596, !518, !511}
 !603 = distinct !{!603, !604, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hf69c637ed8150d78E.llvm.6382671939590809801: argument 0"}
 !604 = distinct !{!604, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hf69c637ed8150d78E.llvm.6382671939590809801"}
-!605 = distinct !{!605, !606, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom: argument 0"}
-!606 = distinct !{!606, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom"}
+!605 = distinct !{!605, !606, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E: argument 0"}
+!606 = distinct !{!606, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E"}
 !607 = !{!608, !610, !612, !518, !511}
 !608 = distinct !{!608, !609, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE: argument 0"}
 !609 = distinct !{!609, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE"}
@@ -6227,9 +6227,9 @@ attributes #32 = { cold noreturn nounwind }
 !632 = distinct !{!632, !633, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E: argument 0"}
 !633 = distinct !{!633, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E"}
 !634 = distinct !{!634, !633, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E: argument 1"}
-!635 = distinct !{!635, !636, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom: argument 0"}
-!636 = distinct !{!636, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom"}
-!637 = distinct !{!637, !636, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom: argument 1"}
+!635 = distinct !{!635, !636, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E: argument 0"}
+!636 = distinct !{!636, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E"}
+!637 = distinct !{!637, !636, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E: argument 1"}
 !638 = !{!639, !641, !632, !634, !635, !637}
 !639 = distinct !{!639, !640, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hf894b3daa68729e2E: argument 0"}
 !640 = distinct !{!640, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hf894b3daa68729e2E"}
@@ -6309,8 +6309,8 @@ attributes #32 = { cold noreturn nounwind }
 !714 = !{!715, !717, !711, !708, !630, !623}
 !715 = distinct !{!715, !716, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hf69c637ed8150d78E.llvm.6382671939590809801: argument 0"}
 !716 = distinct !{!716, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hf69c637ed8150d78E.llvm.6382671939590809801"}
-!717 = distinct !{!717, !718, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom: argument 0"}
-!718 = distinct !{!718, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom"}
+!717 = distinct !{!717, !718, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E: argument 0"}
+!718 = distinct !{!718, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E"}
 !719 = !{!720, !722, !724, !630, !623}
 !720 = distinct !{!720, !721, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE: argument 0"}
 !721 = distinct !{!721, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE"}
@@ -6339,9 +6339,9 @@ attributes #32 = { cold noreturn nounwind }
 !744 = distinct !{!744, !745, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E: argument 0"}
 !745 = distinct !{!745, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E"}
 !746 = distinct !{!746, !745, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E: argument 1"}
-!747 = distinct !{!747, !748, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom: argument 0"}
-!748 = distinct !{!748, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom"}
-!749 = distinct !{!749, !748, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom: argument 1"}
+!747 = distinct !{!747, !748, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E: argument 0"}
+!748 = distinct !{!748, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E"}
+!749 = distinct !{!749, !748, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E: argument 1"}
 !750 = !{!751, !753, !744, !746, !747, !749}
 !751 = distinct !{!751, !752, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hf894b3daa68729e2E: argument 0"}
 !752 = distinct !{!752, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hf894b3daa68729e2E"}
@@ -6421,8 +6421,8 @@ attributes #32 = { cold noreturn nounwind }
 !826 = !{!827, !829, !823, !820, !742, !735}
 !827 = distinct !{!827, !828, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hf69c637ed8150d78E.llvm.6382671939590809801: argument 0"}
 !828 = distinct !{!828, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hf69c637ed8150d78E.llvm.6382671939590809801"}
-!829 = distinct !{!829, !830, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom: argument 0"}
-!830 = distinct !{!830, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom"}
+!829 = distinct !{!829, !830, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E: argument 0"}
+!830 = distinct !{!830, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E"}
 !831 = !{!832, !834, !836, !742, !735}
 !832 = distinct !{!832, !833, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE: argument 0"}
 !833 = distinct !{!833, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE"}
@@ -6451,9 +6451,9 @@ attributes #32 = { cold noreturn nounwind }
 !856 = distinct !{!856, !857, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E: argument 0"}
 !857 = distinct !{!857, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E"}
 !858 = distinct !{!858, !857, !"_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hc5b473fcdd16ee86E: argument 1"}
-!859 = distinct !{!859, !860, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom: argument 0"}
-!860 = distinct !{!860, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom"}
-!861 = distinct !{!861, !860, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E.argprom: argument 1"}
+!859 = distinct !{!859, !860, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E: argument 0"}
+!860 = distinct !{!860, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E"}
+!861 = distinct !{!861, !860, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize17h50babc6f7b065ea7E: argument 1"}
 !862 = !{!863, !865, !856, !858, !859, !861}
 !863 = distinct !{!863, !864, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hf894b3daa68729e2E: argument 0"}
 !864 = distinct !{!864, !"_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hf894b3daa68729e2E"}
@@ -6533,8 +6533,8 @@ attributes #32 = { cold noreturn nounwind }
 !938 = !{!939, !941, !935, !932, !854, !847}
 !939 = distinct !{!939, !940, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hf69c637ed8150d78E.llvm.6382671939590809801: argument 0"}
 !940 = distinct !{!940, !"_ZN9hashbrown3raw13RawTableInner12free_buckets17hf69c637ed8150d78E.llvm.6382671939590809801"}
-!941 = distinct !{!941, !942, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom: argument 0"}
-!942 = distinct !{!942, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E.argprom"}
+!941 = distinct !{!941, !942, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E: argument 0"}
+!942 = distinct !{!942, !"_ZN9hashbrown3raw13RawTableInner14prepare_resize28_$u7b$$u7b$closure$u7d$$u7d$17hb6326538bcd8f652E"}
 !943 = !{!944, !946, !948, !854, !847}
 !944 = distinct !{!944, !945, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE: argument 0"}
 !945 = distinct !{!945, !"_ZN4core9core_arch3x864sse215_mm_loadu_si12817h040a0ce1ecacb46bE"}

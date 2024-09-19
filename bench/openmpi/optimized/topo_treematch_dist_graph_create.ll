@@ -411,7 +411,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %162, %168
 183:                                              ; preds = %179
   %184 = load i32, ptr %13, align 4
   %.val965 = load i32, ptr %123, align 4
-  %185 = call fastcc i32 @check_oversubscribing.argprom.argelim(i32 noundef %184, i32 noundef %storemerge, i32 noundef %.0830.lcssa, i32 %.val965, ptr noundef %1)
+  %185 = call fastcc i32 @check_oversubscribing(i32 noundef %184, i32 noundef %storemerge, i32 noundef %.0830.lcssa, i32 %.val965, ptr noundef %1)
   %.not906 = icmp eq i32 %185, 0
   %186 = load ptr, ptr %159, align 8
   %187 = call i32 @hwloc_bitmap_isincluded(ptr noundef %186, ptr noundef %151) #12
@@ -423,7 +423,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %162, %168
   br i1 %.not907, label %196, label %190
 
 190:                                              ; preds = %188
-  %191 = call fastcc i32 @check_oversubscribing.argprom.argelim(i32 noundef %189, i32 noundef %.0.i, i32 noundef %.0830.lcssa, i32 %.val965, ptr noundef %1)
+  %191 = call fastcc i32 @check_oversubscribing(i32 noundef %189, i32 noundef %.0.i, i32 noundef %.0830.lcssa, i32 %.val965, ptr noundef %1)
   %.not905 = icmp eq i32 %191, 0
   br i1 %.not905, label %192, label %216
 
@@ -437,7 +437,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %162, %168
 
 196:                                              ; preds = %188
   %197 = load i32, ptr %12, align 4
-  %198 = call fastcc i32 @check_oversubscribing.argprom.argelim(i32 noundef %189, i32 noundef %197, i32 noundef %.0830.lcssa, i32 %.val965, ptr noundef %1)
+  %198 = call fastcc i32 @check_oversubscribing(i32 noundef %189, i32 noundef %197, i32 noundef %.0830.lcssa, i32 %.val965, ptr noundef %1)
   br label %216
 
 199:                                              ; preds = %183
@@ -2263,7 +2263,7 @@ declare i32 @hwloc_get_nbobjs_by_depth(ptr noundef, i32 noundef) local_unnamed_a
 define internal fastcc ptr @hwloc_get_obj_covering_cpuset(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #7 {
   %3 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %1) #12
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %hwloc_get_child_covering_cpuset.argprom.exit.thread
+  br i1 %.not, label %4, label %hwloc_get_child_covering_cpuset.exit.thread
 
 4:                                                ; preds = %2
   %5 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #12
@@ -2271,18 +2271,18 @@ define internal fastcc ptr @hwloc_get_obj_covering_cpuset(ptr noundef readonly %
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %1, ptr noundef %7) #12
   %.not13 = icmp eq i32 %8, 0
-  br i1 %.not13, label %hwloc_get_child_covering_cpuset.argprom.exit.thread, label %hwloc_get_child_covering_cpuset.argprom.exit.preheader
+  br i1 %.not13, label %hwloc_get_child_covering_cpuset.exit.thread, label %hwloc_get_child_covering_cpuset.exit.preheader
 
-hwloc_get_child_covering_cpuset.argprom.exit.preheader: ; preds = %4
+hwloc_get_child_covering_cpuset.exit.preheader:   ; preds = %4
   %9 = tail call i32 @hwloc_bitmap_iszero(ptr noundef readonly %1) #12
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %.lr.ph.split.us, label %hwloc_get_child_covering_cpuset.argprom.exit.thread
+  br i1 %.not.i, label %.lr.ph.split.us, label %hwloc_get_child_covering_cpuset.exit.thread
 
-.lr.ph.split.us:                                  ; preds = %hwloc_get_child_covering_cpuset.argprom.exit.preheader
+.lr.ph.split.us:                                  ; preds = %hwloc_get_child_covering_cpuset.exit.preheader
   %10 = getelementptr inbounds i8, ptr %5, i64 120
   %.01.i.us23 = load ptr, ptr %10, align 8
   %.not112.i.us24 = icmp eq ptr %.01.i.us23, null
-  br i1 %.not112.i.us24, label %hwloc_get_child_covering_cpuset.argprom.exit.thread, label %.lr.ph.i.preheader.us
+  br i1 %.not112.i.us24, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.preheader.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %15
   %.03.i.us = phi ptr [ %.0.i.us, %15 ], [ %.01.i.us26, %.lr.ph.i.preheader.us ]
@@ -2294,32 +2294,32 @@ hwloc_get_child_covering_cpuset.argprom.exit.preheader: ; preds = %4
 13:                                               ; preds = %.lr.ph.i.us
   %14 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %1, ptr noundef nonnull %12) #12
   %.not13.i.us = icmp eq i32 %14, 0
-  br i1 %.not13.i.us, label %15, label %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us
+  br i1 %.not13.i.us, label %15, label %hwloc_get_child_covering_cpuset.exit.loopexit.us
 
 15:                                               ; preds = %13, %.lr.ph.i.us
   %16 = getelementptr inbounds i8, ptr %.03.i.us, i64 88
   %.0.i.us = load ptr, ptr %16, align 8
   %.not11.i.us = icmp eq ptr %.0.i.us, null
-  br i1 %.not11.i.us, label %hwloc_get_child_covering_cpuset.argprom.exit.thread, label %.lr.ph.i.us, !llvm.loop !53
+  br i1 %.not11.i.us, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.us, !llvm.loop !53
 
-.lr.ph.i.preheader.us:                            ; preds = %.lr.ph.split.us, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us
-  %.01.i.us26 = phi ptr [ %.01.i.us, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us ], [ %.01.i.us23, %.lr.ph.split.us ]
-  %.01120.us25 = phi ptr [ %.03.i.us, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us ], [ %5, %.lr.ph.split.us ]
+.lr.ph.i.preheader.us:                            ; preds = %.lr.ph.split.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us
+  %.01.i.us26 = phi ptr [ %.01.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ], [ %.01.i.us23, %.lr.ph.split.us ]
+  %.01120.us25 = phi ptr [ %.03.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ], [ %5, %.lr.ph.split.us ]
   br label %.lr.ph.i.us
 
-hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us: ; preds = %13
+hwloc_get_child_covering_cpuset.exit.loopexit.us: ; preds = %13
   %17 = getelementptr inbounds i8, ptr %.03.i.us, i64 120
   %.01.i.us = load ptr, ptr %17, align 8
   %.not112.i.us = icmp eq ptr %.01.i.us, null
-  br i1 %.not112.i.us, label %hwloc_get_child_covering_cpuset.argprom.exit.thread, label %.lr.ph.i.preheader.us
+  br i1 %.not112.i.us, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.preheader.us
 
-hwloc_get_child_covering_cpuset.argprom.exit.thread: ; preds = %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us, %15, %hwloc_get_child_covering_cpuset.argprom.exit.preheader, %.lr.ph.split.us, %2, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %hwloc_get_child_covering_cpuset.argprom.exit.preheader ], [ %5, %.lr.ph.split.us ], [ %.01120.us25, %15 ], [ %.03.i.us, %hwloc_get_child_covering_cpuset.argprom.exit.loopexit.us ]
+hwloc_get_child_covering_cpuset.exit.thread:      ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.us, %15, %hwloc_get_child_covering_cpuset.exit.preheader, %.lr.ph.split.us, %2, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %hwloc_get_child_covering_cpuset.exit.preheader ], [ %5, %.lr.ph.split.us ], [ %.01120.us25, %15 ], [ %.03.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_oversubscribing.argprom.argelim(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 %.0.val, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @check_oversubscribing(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 %.0.val, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4

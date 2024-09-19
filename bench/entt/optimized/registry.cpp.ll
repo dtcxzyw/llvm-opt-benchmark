@@ -70653,7 +70653,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i: ; preds
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i
-  invoke fastcc void @"_ZSt5applyIRZN18Registry_View_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 8 dereferenceable(9) %func.i, i32 %301)
+  invoke fastcc void @"_ZSt5applyIRZN18Registry_View_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 8 dereferenceable(9) %func.i, i32 %301)
           to label %if.end.i.i.i unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i, %land.lhs.true.i.i.i.i.i, %for.body.i.i.i1366
@@ -70713,7 +70713,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i45.i.i: ; pre
   br i1 %cmp.i.i50.i.i, label %if.then.i51.i.i, label %if.end.i40.i.i
 
 if.then.i51.i.i:                                  ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i45.i.i
-  invoke fastcc void @"_ZSt5applyIRZN18Registry_View_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 8 dereferenceable(9) %func.i, i32 %310)
+  invoke fastcc void @"_ZSt5applyIRZN18Registry_View_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 8 dereferenceable(9) %func.i, i32 %310)
           to label %if.end.i40.i.i unwind label %lpad14.loopexit.split-lp.loopexit
 
 if.end.i40.i.i:                                   ; preds = %if.then.i51.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i45.i.i, %land.lhs.true.i.i.i42.i.i, %for.body.i22.i.i
@@ -214209,7 +214209,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN18Registry_View_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr nocapture noundef nonnull align 8 dereferenceable(9) %__f, i32 %__t.16.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN18Registry_View_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr nocapture noundef nonnull align 8 dereferenceable(9) %__f, i32 %__t.16.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %entt.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8

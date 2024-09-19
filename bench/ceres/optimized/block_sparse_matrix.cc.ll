@@ -1655,8 +1655,8 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   %zext.i = and i64 %40, 2147483647
   br label %64
 
-64:                                               ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i", %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i" ]
+64:                                               ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i", %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i" ]
   %65 = load ptr, ptr %42, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
@@ -1667,7 +1667,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   %72 = getelementptr inbounds i8, ptr %68, i64 16
   %73 = load ptr, ptr %72, align 8
   %.not17.i.i.i.i = icmp eq ptr %71, %73
-  br i1 %.not17.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i", label %.lr.ph.i.i.i.i
+  br i1 %.not17.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %64
   %74 = getelementptr inbounds i8, ptr %68, i64 4
@@ -1698,9 +1698,9 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   call void @_ZN5ceres8internal20MatrixVectorMultiplyILin1ELin1ELi1EEEvPKdiiS3_Pd(ptr noundef %90, i32 noundef %69, i32 noundef %83, ptr noundef %93, ptr noundef %95)
   %96 = getelementptr inbounds i8, ptr %.sroa.014.018.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %96, %73
-  br i1 %.not.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i", label %77
+  br i1 %.not.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i", label %77
 
-"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i": ; preds = %77, %64
+"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i": ; preds = %77, %64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %97 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %97, label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit", label %64, !llvm.loop !19
@@ -1779,13 +1779,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   %124 = load i32, ptr %123, align 8
   %125 = add nsw i32 %121, 1
   %126 = icmp slt i32 %125, %4
-  br i1 %126, label %127, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %126, label %127, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i"
 
 127:                                              ; preds = %122
   %128 = getelementptr inbounds i8, ptr %107, i64 36
   %129 = load atomic i32, ptr %128 seq_cst, align 4
   %130 = icmp slt i32 %129, %124
-  br i1 %130, label %131, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %130, label %131, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i"
 
 131:                                              ; preds = %127
   %132 = load i8, ptr @__libc_single_threaded, align 1
@@ -1829,11 +1829,11 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 146:                                              ; preds = %140
   %147 = load ptr, ptr %138, align 8
   %.not.i.i.i13.i.i = icmp eq ptr %147, null
-  br i1 %.not.i.i.i13.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i", label %148
+  br i1 %.not.i.i.i13.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i", label %148
 
 148:                                              ; preds = %146
   %149 = invoke noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i" unwind label %150
+          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i" unwind label %150
 
 150:                                              ; preds = %148
   %151 = landingpad { ptr, i32 }
@@ -1868,10 +1868,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %158, %155, %153
   %.sroa.5.0.i.i.i = phi ptr [ %107, %153 ], [ null, %155 ], [ null, %158 ]
   %.pn.i.i.i = phi { ptr, i32 } [ %154, %153 ], [ %156, %155 ], [ %156, %158 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom"(ptr %.sroa.5.0.i.i.i) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev"(ptr %.sroa.5.0.i.i.i) #28
   br label %.body.i.i
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i": ; preds = %148, %146, %127, %122
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i": ; preds = %148, %146, %127, %122
   %163 = load i32, ptr %110, align 8
   %164 = getelementptr inbounds i8, ptr %107, i64 28
   %165 = load i32, ptr %164, align 4
@@ -1882,9 +1882,9 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %158, %155, %153
   %.not3653.i.i.i = icmp slt i32 %169, %124
   br i1 %.not3653.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i", %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i"
-  %170 = phi i32 [ %214, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ], [ %169, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
-  %.03454.i.i.i = phi i32 [ %171, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
+.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i", %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i"
+  %170 = phi i32 [ %214, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ %169, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i" ]
+  %.03454.i.i.i = phi i32 [ %171, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i" ]
   %171 = add nuw nsw i32 %.03454.i.i.i, 1
   %172 = mul nsw i32 %170, %165
   %173 = add nsw i32 %172, %163
@@ -1895,14 +1895,14 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %158, %155, %153
   %177 = add i32 %165, %176
   %178 = add i32 %177, %174
   %.not2.i.i.i.i = icmp eq i32 %177, 0
-  br i1 %.not2.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", label %.lr.ph.i.i.i18.i
+  br i1 %.not2.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", label %.lr.ph.i.i.i18.i
 
 .lr.ph.i.i.i18.i:                                 ; preds = %.lr.ph.i.i.i
   %179 = sext i32 %174 to i64
   br label %180
 
-180:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", %.lr.ph.i.i.i18.i
-  %indvars.iv.i.i.i.i = phi i64 [ %179, %.lr.ph.i.i.i18.i ], [ %indvars.iv.next.i.i.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i" ]
+180:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", %.lr.ph.i.i.i18.i
+  %indvars.iv.i.i.i.i = phi i64 [ %179, %.lr.ph.i.i.i18.i ], [ %indvars.iv.next.i.i.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i" ]
   %181 = load ptr, ptr %42, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 24
   %183 = load ptr, ptr %182, align 8
@@ -1913,7 +1913,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %158, %155, %153
   %188 = getelementptr inbounds i8, ptr %184, i64 16
   %189 = load ptr, ptr %188, align 8
   %.not17.i.i.i.i.i.i = icmp eq ptr %187, %189
-  br i1 %.not17.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not17.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %180
   %190 = getelementptr inbounds i8, ptr %184, i64 4
@@ -1947,21 +1947,21 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %158, %155, %153
 .noexc.i.i:                                       ; preds = %193
   %212 = getelementptr inbounds i8, ptr %.sroa.014.018.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i12.i.i = icmp eq ptr %212, %189
-  br i1 %.not.i.i.i.i12.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", label %193
+  br i1 %.not.i.i.i.i12.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", label %193
 
-"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i": ; preds = %.noexc.i.i, %180
+"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i": ; preds = %.noexc.i.i, %180
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, 1
   %213 = trunc nsw i64 %indvars.iv.next.i.i.i.i to i32
   %.not.i.i.i19.i = icmp eq i32 %178, %213
-  br i1 %.not.i.i.i19.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", label %180, !llvm.loop !23
+  br i1 %.not.i.i.i19.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", label %180, !llvm.loop !23
 
-"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", %.lr.ph.i.i.i
+"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", %.lr.ph.i.i.i
   %214 = atomicrmw add ptr %168, i32 1 seq_cst, align 4
   %.not36.i.i.i = icmp slt i32 %214, %124
   br i1 %.not36.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !24
 
-._crit_edge.i.i.i:                                ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i"
-  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i" ], [ %171, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ]
+._crit_edge.i.i.i:                                ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i"
+  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i" ], [ %171, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ]
   %215 = getelementptr inbounds i8, ptr %107, i64 48
   invoke void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %215, i32 noundef %.034.lcssa.i.i.i)
           to label %216 unwind label %.loopexit.split-lp.i.i
@@ -2005,7 +2005,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %158, %155, %153
 233:                                              ; preds = %231, %229
   %.0.i.i.i.i.i.i.i = phi i32 [ %222, %229 ], [ %232, %231 ]
   %234 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %234, label %235, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i"
+  br i1 %234, label %235, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i"
 
 235:                                              ; preds = %233
   %236 = load ptr, ptr %107, align 8
@@ -2029,21 +2029,21 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %158, %155, %153
 245:                                              ; preds = %243, %240
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %241, %240 ], [ %244, %243 ]
   %246 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %246, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i"
+  br i1 %246, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %245, %223
   %247 = load ptr, ptr %107, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 24
   %249 = load ptr, ptr %248, align 8
   call void %249(ptr noundef nonnull align 8 dereferenceable(16) %107) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %245, %233
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %245, %233
   %250 = load ptr, ptr %113, align 8
   %.not.i.i.i17.i.i = icmp eq ptr %250, null
   br i1 %.not.i.i.i17.i.i, label %"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit.i", label %251
 
-251:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i"
+251:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i"
   %252 = getelementptr inbounds i8, ptr %250, i64 8
   %253 = load atomic i64, ptr %252 acquire, align 8
   %254 = icmp eq i64 %253, 4294967297
@@ -2123,15 +2123,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .body.i.i:                                        ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
-  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom"(ptr nonnull %107) #28
+  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev"(ptr nonnull %107) #28
   call void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   br label %common.resume.i
 
-"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %280, %267, %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i"
+"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %280, %267, %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit"
 
-"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i", %60, %"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit.i"
+"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i", %60, %"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11)
@@ -2388,7 +2388,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
 
 134:                                              ; preds = %_ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i, %_ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i
   %135 = icmp slt i32 %111, 1
-  br i1 %135, label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.argprom.exit", label %136
+  br i1 %135, label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.exit", label %136
 
 136:                                              ; preds = %134
   %.not.i32 = icmp slt i32 %4, %111
@@ -2516,13 +2516,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   %196 = load i32, ptr %195, align 8
   %197 = add nsw i32 %193, 1
   %198 = icmp slt i32 %197, %4
-  br i1 %198, label %199, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %198, label %199, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i"
 
 199:                                              ; preds = %194
   %200 = getelementptr inbounds i8, ptr %179, i64 36
   %201 = load atomic i32, ptr %200 seq_cst, align 4
   %202 = icmp slt i32 %201, %196
-  br i1 %202, label %203, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %202, label %203, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i"
 
 203:                                              ; preds = %199
   %204 = load i8, ptr @__libc_single_threaded, align 1
@@ -2566,11 +2566,11 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 218:                                              ; preds = %212
   %219 = load ptr, ptr %210, align 8
   %.not.i.i.i13.i.i = icmp eq ptr %219, null
-  br i1 %.not.i.i.i13.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i", label %220
+  br i1 %.not.i.i.i13.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i", label %220
 
 220:                                              ; preds = %218
   %221 = invoke noundef zeroext i1 %219(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i" unwind label %222
+          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i" unwind label %222
 
 222:                                              ; preds = %220
   %223 = landingpad { ptr, i32 }
@@ -2605,10 +2605,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %230, %227, %225
   %.sroa.5.0.i.i.i = phi ptr [ %179, %225 ], [ null, %227 ], [ null, %230 ]
   %.pn.i.i.i = phi { ptr, i32 } [ %226, %225 ], [ %228, %227 ], [ %228, %230 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom"(ptr %.sroa.5.0.i.i.i) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev"(ptr %.sroa.5.0.i.i.i) #28
   br label %.body.i.i36
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i": ; preds = %220, %218, %199, %194
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i": ; preds = %220, %218, %199, %194
   %235 = load i32, ptr %182, align 8
   %236 = getelementptr inbounds i8, ptr %179, i64 28
   %237 = load i32, ptr %236, align 4
@@ -2619,9 +2619,9 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %230, %227, %225
   %.not3653.i.i.i = icmp slt i32 %241, %196
   br i1 %.not3653.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i", %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i"
-  %242 = phi i32 [ %286, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ], [ %241, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
-  %.03454.i.i.i = phi i32 [ %243, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
+.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i", %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i"
+  %242 = phi i32 [ %286, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ %241, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i" ]
+  %.03454.i.i.i = phi i32 [ %243, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i" ]
   %243 = add nuw nsw i32 %.03454.i.i.i, 1
   %244 = mul nsw i32 %242, %237
   %245 = add nsw i32 %244, %235
@@ -2632,14 +2632,14 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %230, %227, %225
   %249 = add i32 %237, %248
   %250 = add i32 %249, %246
   %.not2.i.i.i.i = icmp eq i32 %249, 0
-  br i1 %.not2.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", label %.lr.ph.i.i.i17.i
+  br i1 %.not2.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", label %.lr.ph.i.i.i17.i
 
 .lr.ph.i.i.i17.i:                                 ; preds = %.lr.ph.i.i.i
   %251 = sext i32 %246 to i64
   br label %252
 
-252:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", %.lr.ph.i.i.i17.i
-  %indvars.iv.i.i.i.i = phi i64 [ %251, %.lr.ph.i.i.i17.i ], [ %indvars.iv.next.i.i.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i" ]
+252:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", %.lr.ph.i.i.i17.i
+  %indvars.iv.i.i.i.i = phi i64 [ %251, %.lr.ph.i.i.i17.i ], [ %indvars.iv.next.i.i.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i" ]
   %253 = load ptr, ptr %115, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 24
   %255 = load ptr, ptr %254, align 8
@@ -2650,7 +2650,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %230, %227, %225
   %260 = getelementptr inbounds i8, ptr %256, i64 16
   %261 = load ptr, ptr %260, align 8
   %.not17.i.i.i.i.i.i = icmp eq ptr %259, %261
-  br i1 %.not17.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not17.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %252
   %262 = getelementptr inbounds i8, ptr %256, i64 4
@@ -2684,21 +2684,21 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %230, %227, %225
 .noexc.i.i42:                                     ; preds = %265
   %284 = getelementptr inbounds i8, ptr %.sroa.014.018.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i12.i.i = icmp eq ptr %284, %261
-  br i1 %.not.i.i.i.i12.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", label %265
+  br i1 %.not.i.i.i.i12.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", label %265
 
-"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i": ; preds = %.noexc.i.i42, %252
+"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i": ; preds = %.noexc.i.i42, %252
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, 1
   %285 = trunc nsw i64 %indvars.iv.next.i.i.i.i to i32
   %.not.i.i.i18.i = icmp eq i32 %250, %285
-  br i1 %.not.i.i.i18.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", label %252, !llvm.loop !29
+  br i1 %.not.i.i.i18.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", label %252, !llvm.loop !29
 
-"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", %.lr.ph.i.i.i
+"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", %.lr.ph.i.i.i
   %286 = atomicrmw add ptr %240, i32 1 seq_cst, align 4
   %.not36.i.i.i = icmp slt i32 %286, %196
   br i1 %.not36.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !30
 
-._crit_edge.i.i.i:                                ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i"
-  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i.i" ], [ %243, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit.i.i.i" ]
+._crit_edge.i.i.i:                                ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i"
+  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i.i" ], [ %243, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ]
   %287 = getelementptr inbounds i8, ptr %179, i64 48
   invoke void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %287, i32 noundef %.034.lcssa.i.i.i)
           to label %288 unwind label %.loopexit.split-lp.i.i35
@@ -2742,7 +2742,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %230, %227, %225
 305:                                              ; preds = %303, %301
   %.0.i.i.i.i.i.i.i = phi i32 [ %294, %301 ], [ %304, %303 ]
   %306 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %306, label %307, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i"
+  br i1 %306, label %307, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i"
 
 307:                                              ; preds = %305
   %308 = load ptr, ptr %179, align 8
@@ -2766,21 +2766,21 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %230, %227, %225
 317:                                              ; preds = %315, %312
   %.0.i.i.i.i.i.i.i.i.i39 = phi i32 [ %313, %312 ], [ %316, %315 ]
   %318 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i39, 1
-  br i1 %318, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i"
+  br i1 %318, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %317, %295
   %319 = load ptr, ptr %179, align 8
   %320 = getelementptr inbounds i8, ptr %319, i64 24
   %321 = load ptr, ptr %320, align 8
   call void %321(ptr noundef nonnull align 8 dereferenceable(16) %179) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %317, %305
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %317, %305
   %322 = load ptr, ptr %185, align 8
   %.not.i.i.i17.i.i = icmp eq ptr %322, null
   br i1 %.not.i.i.i17.i.i, label %"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit.i", label %323
 
-323:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i"
+323:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i"
   %324 = getelementptr inbounds i8, ptr %322, i64 8
   %325 = load atomic i64, ptr %324 acquire, align 8
   %326 = icmp eq i64 %325, 4294967297
@@ -2860,17 +2860,17 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .body.i.i36:                                      ; preds = %.loopexit.split-lp.i.i35, %.loopexit.i.i40, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i ], [ %lpad.loopexit.i.i41, %.loopexit.i.i40 ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i35 ]
-  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom"(ptr nonnull %179) #28
+  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev"(ptr nonnull %179) #28
   call void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   br label %common.resume
 
-"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %352, %339, %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit.i.i"
+"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %352, %339, %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit"
 
 "_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit": ; preds = %149, %.lr.ph.i.i44, %"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit.i"
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
-  br label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.argprom.exit"
+  br label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.exit"
 
 357:                                              ; preds = %136
   %358 = shl nsw i32 %4, 2
@@ -2893,7 +2893,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %367 = add nsw i32 %366, -1
   %368 = sub nsw i32 %.val.i.i, %367
   %369 = icmp sgt i32 %368, 1
-  br i1 %369, label %.lr.ph.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+  br i1 %369, label %.lr.ph.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %357
   %370 = or disjoint i32 %358, 1
@@ -2904,16 +2904,16 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %375 = ptrtoint ptr %118 to i64
   br i1 %372, label %382, label %.lr.ph.i.split.i
 
-.lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i"
-  %.sroa.23.4.i.lcssa26.i = phi ptr [ %.sroa.23.4.i.lcssa25.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %363, %.lr.ph.i.i ]
-  %.sroa.11.5.i.lcssa23.i = phi ptr [ %.sroa.11.5.i.lcssa22.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %363, %.lr.ph.i.i ]
-  %.sroa.01.4.i.lcssa20.i = phi ptr [ %.sroa.01.4.i.lcssa19.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %362, %.lr.ph.i.i ]
-  %376 = phi i32 [ %444, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %368, %.lr.ph.i.i ]
-  %.044.i.i = phi i32 [ %.1.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %367, %.lr.ph.i.i ]
-  %.03243.i.i = phi i32 [ %.133.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %.val.i.i, %.lr.ph.i.i ]
-  %.sroa.01.042.i.i = phi ptr [ %.sroa.01.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
-  %.sroa.11.041.i.i = phi ptr [ %.sroa.11.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
-  %.sroa.23.040.i.i = phi ptr [ %.sroa.23.6.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
+.lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i"
+  %.sroa.23.4.i.lcssa26.i = phi ptr [ %.sroa.23.4.i.lcssa25.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %363, %.lr.ph.i.i ]
+  %.sroa.11.5.i.lcssa23.i = phi ptr [ %.sroa.11.5.i.lcssa22.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %363, %.lr.ph.i.i ]
+  %.sroa.01.4.i.lcssa20.i = phi ptr [ %.sroa.01.4.i.lcssa19.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %362, %.lr.ph.i.i ]
+  %376 = phi i32 [ %444, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %368, %.lr.ph.i.i ]
+  %.044.i.i = phi i32 [ %.1.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %367, %.lr.ph.i.i ]
+  %.03243.i.i = phi i32 [ %.133.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %.val.i.i, %.lr.ph.i.i ]
+  %.sroa.01.042.i.i = phi ptr [ %.sroa.01.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
+  %.sroa.11.041.i.i = phi ptr [ %.sroa.11.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
+  %.sroa.23.040.i.i = phi ptr [ %.sroa.23.6.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
   %377 = ptrtoint ptr %.sroa.23.040.i.i to i64
   %378 = ptrtoint ptr %.sroa.01.042.i.i to i64
   %379 = sub i64 %377, %378
@@ -3000,7 +3000,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i:    ; preds = %_ZNSt6vectorIiSaIiE
   %400 = sub i64 %398, %399
   %401 = ashr exact i64 %400, 2
   %402 = icmp ugt i64 %401, %374
-  br i1 %402, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i", label %403
+  br i1 %402, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i", label %403
 
 403:                                              ; preds = %396
   %404 = add nsw i32 %.02210.i.i.i, %391
@@ -3034,7 +3034,7 @@ _ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i.i.i.i: ; preds 
   %417 = sdiv exact i64 %416, 40
   %418 = trunc i64 %417 to i32
   %419 = icmp eq i32 %.021.in.sroa.speculated11.i.i.i, %418
-  br i1 %419, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i", label %420
+  br i1 %419, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i", label %420
 
 420:                                              ; preds = %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i"
   %421 = shl i64 %417, 32
@@ -3104,13 +3104,13 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.01.4.i.i = phi ptr [ %435, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33.i.i.i ], [ %.sroa.01.3.i.i, %424 ]
   %.sroa.11.5.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 4
   %.not.i.i.i = icmp sgt i32 %111, %418
-  br i1 %.not.i.i.i, label %396, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i", !llvm.loop !35
+  br i1 %.not.i.i.i, label %396, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i", !llvm.loop !35
 
-"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i": ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i
+"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i": ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i
   store ptr %.sroa.01.4.i.i, ptr %32, align 8, !alias.scope !31
   store ptr %.sroa.11.5.i.i, ptr %365, align 8, !alias.scope !31
   store ptr %.sroa.23.4.i.i, ptr %364, align 8, !alias.scope !31
-  br label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i"
+  br label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i"
 
 .loopexit.i.i:                                    ; preds = %432
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
@@ -3140,26 +3140,26 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZdlPv(ptr noundef nonnull %442) #30, !noalias !31
   br label %.body.i.i
 
-"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i": ; preds = %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i", %396, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i"
-  %.sroa.23.4.i.lcssa25.i = phi ptr [ %.sroa.23.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.23.4.i.lcssa26.i, %396 ], [ %.sroa.23.4.i.lcssa26.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
-  %.sroa.11.5.i.lcssa22.i = phi ptr [ %.sroa.11.5.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.11.5.i.lcssa23.i, %396 ], [ %.sroa.11.5.i.lcssa23.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
-  %.sroa.01.4.i.lcssa19.i = phi ptr [ %.sroa.01.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.01.4.i.lcssa20.i, %396 ], [ %.sroa.01.4.i.lcssa20.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
-  %.sroa.23.6.i.i = phi ptr [ %.sroa.23.4.i.lcssa26.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.23.3.i.i, %396 ], [ %.sroa.23.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
-  %.sroa.11.7.i.i = phi ptr [ %.sroa.11.5.i.lcssa23.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %397, %396 ], [ %397, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
-  %.sroa.01.7.i.i = phi ptr [ %.sroa.01.4.i.lcssa20.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.01.3.i.i, %396 ], [ %.sroa.01.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
-  %.133.i.i = phi i32 [ %391, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.03243.i.i, %396 ], [ %.03243.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
-  %.1.i.i = phi i32 [ %.044.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %391, %396 ], [ %391, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
+"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i": ; preds = %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i", %396, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i"
+  %.sroa.23.4.i.lcssa25.i = phi ptr [ %.sroa.23.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.23.4.i.lcssa26.i, %396 ], [ %.sroa.23.4.i.lcssa26.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
+  %.sroa.11.5.i.lcssa22.i = phi ptr [ %.sroa.11.5.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.11.5.i.lcssa23.i, %396 ], [ %.sroa.11.5.i.lcssa23.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
+  %.sroa.01.4.i.lcssa19.i = phi ptr [ %.sroa.01.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.01.4.i.lcssa20.i, %396 ], [ %.sroa.01.4.i.lcssa20.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
+  %.sroa.23.6.i.i = phi ptr [ %.sroa.23.4.i.lcssa26.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.23.3.i.i, %396 ], [ %.sroa.23.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
+  %.sroa.11.7.i.i = phi ptr [ %.sroa.11.5.i.lcssa23.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %397, %396 ], [ %397, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
+  %.sroa.01.7.i.i = phi ptr [ %.sroa.01.4.i.lcssa20.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.01.3.i.i, %396 ], [ %.sroa.01.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
+  %.133.i.i = phi i32 [ %391, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.03243.i.i, %396 ], [ %.03243.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
+  %.1.i.i = phi i32 [ %.044.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %391, %396 ], [ %391, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESD_SD_SD_SG_.exit.i.i.i" ]
   %444 = sub nsw i32 %.133.i.i, %.1.i.i
   %445 = icmp sgt i32 %444, 1
   br i1 %445, label %.lr.ph.i.split.i, label %._crit_edge.i.i, !llvm.loop !36
 
-._crit_edge.i.i:                                  ; preds = %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i"
+._crit_edge.i.i:                                  ; preds = %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i"
   %.not.i.i.i46.i.i = icmp eq ptr %.sroa.01.7.i.i, null
-  br i1 %.not.i.i.i46.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i", label %446
+  br i1 %.not.i.i.i46.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i", label %446
 
 446:                                              ; preds = %._crit_edge.i.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.01.7.i.i) #30, !noalias !31
-  br label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+  br label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
 
 .body.i.i:                                        ; preds = %443, %.loopexit.split-lp.i.i
   %.not.i.i.i49.i.i = icmp eq ptr %.sroa.01.6.i.i, null
@@ -3169,7 +3169,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZdlPv(ptr noundef nonnull %.sroa.01.6.i.i) #30, !noalias !31
   br label %common.resume
 
-"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i": ; preds = %446, %._crit_edge.i.i, %357
+"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i": ; preds = %446, %._crit_edge.i.i, %357
   %448 = load ptr, ptr %365, align 8
   %449 = load ptr, ptr %32, align 8
   %450 = ptrtoint ptr %448 to i64
@@ -3179,11 +3179,11 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   %454 = icmp ugt i64 %453, 1
   br i1 %454, label %_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i, label %455
 
-_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i: ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i: ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
   store ptr null, ptr %33, align 8
   br label %472
 
-455:                                              ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+455:                                              ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   invoke void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.48)
           to label %.noexc.i unwind label %.loopexit.split-lp.i
@@ -3626,8 +3626,8 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i.i.i: ; preds = %_ZN6google22MakeChe
   %575 = sext i32 %569 to i64
   br label %576
 
-576:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %575, %.lr.ph.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i" ]
+576:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %575, %.lr.ph.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i" ]
   %577 = load ptr, ptr %572, align 8
   %578 = getelementptr inbounds i8, ptr %577, i64 24
   %579 = load ptr, ptr %578, align 8
@@ -3638,7 +3638,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i.i.i: ; preds = %_ZN6google22MakeChe
   %584 = getelementptr inbounds i8, ptr %580, i64 16
   %585 = load ptr, ptr %584, align 8
   %.not17.i.i.i.i.i.i.i.i.i = icmp eq ptr %583, %585
-  br i1 %.not17.i.i.i.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %.not17.i.i.i.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %576
   %586 = getelementptr inbounds i8, ptr %580, i64 4
@@ -3672,9 +3672,9 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i.i.i: ; preds = %_ZN6google22MakeChe
 .noexc45.i:                                       ; preds = %589
   %608 = getelementptr inbounds i8, ptr %.sroa.014.018.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %608, %585
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i", label %589
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i", label %589
 
-"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i": ; preds = %.noexc45.i, %576
+"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i": ; preds = %.noexc45.i, %576
   %indvars.iv.next.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %609 = trunc nsw i64 %indvars.iv.next.i.i.i.i.i.i.i to i32
   %.not.i.i.i.i.i.i.i = icmp eq i32 %571, %609
@@ -3759,13 +3759,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
   %635 = load i32, ptr %634, align 8
   %636 = add nsw i32 %632, 1
   %637 = icmp slt i32 %636, %4
-  br i1 %637, label %638, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i"
+  br i1 %637, label %638, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i"
 
 638:                                              ; preds = %633
   %639 = getelementptr inbounds i8, ptr %618, i64 36
   %640 = load atomic i32, ptr %639 seq_cst, align 4
   %641 = icmp slt i32 %640, %635
-  br i1 %641, label %642, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i"
+  br i1 %641, label %642, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i"
 
 642:                                              ; preds = %638
   %643 = load i8, ptr @__libc_single_threaded, align 1
@@ -3809,11 +3809,11 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
 657:                                              ; preds = %651
   %658 = load ptr, ptr %649, align 8
   %.not.i.i.i12.i.i.i.i = icmp eq ptr %658, null
-  br i1 %.not.i.i.i12.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i", label %659
+  br i1 %.not.i.i.i12.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i", label %659
 
 659:                                              ; preds = %657
   %660 = invoke noundef zeroext i1 %658(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" unwind label %661
+          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i" unwind label %661
 
 661:                                              ; preds = %659
   %662 = landingpad { ptr, i32 }
@@ -3848,10 +3848,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
 _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %669, %666, %664
   %.sroa.5.0.i.i.i.i.i = phi ptr [ %618, %664 ], [ null, %666 ], [ null, %669 ]
   %.pn.i.i.i.i.i = phi { ptr, i32 } [ %665, %664 ], [ %667, %666 ], [ %667, %669 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom"(ptr %.sroa.5.0.i.i.i.i.i) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev"(ptr %.sroa.5.0.i.i.i.i.i) #28
   br label %.body.i.i.i.i
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i": ; preds = %659, %657, %638, %633
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i": ; preds = %659, %657, %638, %633
   %674 = load i32, ptr %621, align 8
   %675 = getelementptr inbounds i8, ptr %618, i64 28
   %676 = load i32, ptr %675, align 4
@@ -3862,9 +3862,9 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %669, %666, %664
   %.not3657.i.i.i.i.i = icmp slt i32 %680, %635
   br i1 %.not3657.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i", %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit.i.i.i.i.i"
-  %681 = phi i32 [ %734, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit.i.i.i.i.i" ], [ %680, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" ]
-  %.03458.i.i.i.i.i = phi i32 [ %682, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit.i.i.i.i.i" ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i", %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i"
+  %681 = phi i32 [ %734, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i" ], [ %680, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i" ]
+  %.03458.i.i.i.i.i = phi i32 [ %682, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i" ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i" ]
   %682 = add nuw nsw i32 %.03458.i.i.i.i.i, 1
   %683 = mul nsw i32 %681, %676
   %684 = add nsw i32 %683, %674
@@ -3886,7 +3886,7 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %669, %666, %664
   %694 = getelementptr inbounds i8, ptr %.val40.val.i.i.i.i.i, i64 %693
   %695 = load i32, ptr %694, align 4
   %.not2.i.i.i.i.i.i.i.i.i = icmp eq i32 %692, %695
-  br i1 %.not2.i.i.i.i.i.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i18.i.i.i
+  br i1 %.not2.i.i.i.i.i.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i18.i.i.i
 
 .lr.ph.i.i.i.i.i.i18.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i
   %696 = getelementptr inbounds i8, ptr %.val39.i.i.i.i.i, i64 8
@@ -3895,8 +3895,8 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %669, %666, %664
   %699 = sext i32 %692 to i64
   br label %700
 
-700:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i18.i.i.i
-  %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %699, %.lr.ph.i.i.i.i.i.i18.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i.i" ]
+700:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i18.i.i.i
+  %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %699, %.lr.ph.i.i.i.i.i.i18.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i.i.i" ]
   %701 = load ptr, ptr %696, align 8
   %702 = getelementptr inbounds i8, ptr %701, i64 24
   %703 = load ptr, ptr %702, align 8
@@ -3907,7 +3907,7 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %669, %666, %664
   %708 = getelementptr inbounds i8, ptr %704, i64 16
   %709 = load ptr, ptr %708, align 8
   %.not17.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %707, %709
-  br i1 %.not17.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not17.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %700
   %710 = getelementptr inbounds i8, ptr %704, i64 4
@@ -3941,21 +3941,21 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %669, %666, %664
 .noexc.i.i.i.i:                                   ; preds = %713
   %732 = getelementptr inbounds i8, ptr %.sroa.014.018.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i44.i.i.i.i.i = icmp eq ptr %732, %709
-  br i1 %.not.i.i.i.i.i.i44.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i.i", label %713
+  br i1 %.not.i.i.i.i.i.i44.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i.i.i", label %713
 
-"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i.i": ; preds = %.noexc.i.i.i.i, %700
+"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i.i.i": ; preds = %.noexc.i.i.i.i, %700
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %733 = trunc nsw i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i to i32
   %.not.i.i.i.i45.i.i.i.i.i = icmp eq i32 %695, %733
-  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit.i.i.i.i.i", label %700, !llvm.loop !29
+  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i", label %700, !llvm.loop !29
 
-"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit.i.i.i.i.i": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i
+"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i
   %734 = atomicrmw add ptr %679, i32 1 seq_cst, align 4
   %.not36.i.i.i.i.i = icmp slt i32 %734, %635
   br i1 %.not36.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !40
 
-._crit_edge.i.i.i.i.i:                            ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit.i.i.i.i.i", %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i"
-  %.034.lcssa.i.i.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" ], [ %682, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit.i.i.i.i.i" ]
+._crit_edge.i.i.i.i.i:                            ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i", %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i"
+  %.034.lcssa.i.i.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i.i.i.i" ], [ %682, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit.i.i.i.i.i" ]
   %735 = getelementptr inbounds i8, ptr %618, i64 48
   invoke void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %735, i32 noundef %.034.lcssa.i.i.i.i.i)
           to label %736 unwind label %.loopexit.split-lp.i.i.i.i
@@ -3999,7 +3999,7 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %669, %666, %664
 753:                                              ; preds = %751, %749
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %742, %749 ], [ %752, %751 ]
   %754 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %754, label %755, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit.i.i.i.i"
+  br i1 %754, label %755, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit.i.i.i.i"
 
 755:                                              ; preds = %753
   %756 = load ptr, ptr %618, align 8
@@ -4023,21 +4023,21 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %669, %666, %664
 765:                                              ; preds = %763, %760
   %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %761, %760 ], [ %764, %763 ]
   %766 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %766, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit.i.i.i.i"
+  br i1 %766, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit.i.i.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i: ; preds = %765, %743
   %767 = load ptr, ptr %618, align 8
   %768 = getelementptr inbounds i8, ptr %767, i64 24
   %769 = load ptr, ptr %768, align 8
   call void %769(ptr noundef nonnull align 8 dereferenceable(16) %618) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit.i.i.i.i"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit.i.i.i.i"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit.i.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %765, %753
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit.i.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %765, %753
   %770 = load ptr, ptr %624, align 8
   %.not.i.i.i16.i.i.i.i = icmp eq ptr %770, null
   br i1 %.not.i.i.i16.i.i.i.i, label %"_ZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_i.exit.i.i.i", label %771
 
-771:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit.i.i.i.i"
+771:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit.i.i.i.i"
   %772 = getelementptr inbounds i8, ptr %770, i64 8
   %773 = load atomic i64, ptr %772 acquire, align 8
   %774 = icmp eq i64 %773, 4294967297
@@ -4117,15 +4117,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .body.i.i.i.i:                                    ; preds = %.loopexit.split-lp.i.i.i.i, %.loopexit.i.i.i.i, %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i, %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
-  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom"(ptr nonnull %618) #28
+  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev"(ptr nonnull %618) #28
   call void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #28
   br label %.body.i
 
-"_ZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_i.exit.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %800, %787, %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit.i.i.i.i"
+"_ZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_i.exit.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %800, %787, %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %.loopexit8.i
 
-.loopexit8.i:                                     ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i.i.i.i", %"_ZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_i.exit.i.i.i", %568, %565
+.loopexit8.i:                                     ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i.i.i.i", %"_ZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_i.exit.i.i.i", %568, %565
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14)
@@ -4140,13 +4140,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   %805 = load ptr, ptr %32, align 8
   %.not.i.i.i48.i = icmp eq ptr %805, null
-  br i1 %.not.i.i.i48.i, label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.argprom.exit", label %806
+  br i1 %.not.i.i.i48.i, label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.exit", label %806
 
 806:                                              ; preds = %.loopexit8.i
   call void @_ZdlPv(ptr noundef nonnull %805) #30
-  br label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.argprom.exit"
+  br label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.exit"
 
-"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.argprom.exit": ; preds = %134, %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit", %.loopexit8.i, %806
+"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.exit": ; preds = %134, %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_i.exit", %.loopexit8.i, %806
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
@@ -4154,7 +4154,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %34)
   br label %_ZNK5ceres8internal17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPd.exit
 
-_ZNK5ceres8internal17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPd.exit: ; preds = %.critedge33.i, %.critedge33.preheader.i, %102, %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.argprom.exit"
+_ZNK5ceres8internal17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPd.exit: ; preds = %.critedge33.i, %.critedge33.preheader.i, %102, %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.exit"
   ret void
 }
 
@@ -5121,7 +5121,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
 
 79:                                               ; preds = %_ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i, %_ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i
   %80 = icmp slt i32 %61, 1
-  br i1 %80, label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.argprom.exit", label %81
+  br i1 %80, label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.exit", label %81
 
 81:                                               ; preds = %79
   %.not.i20 = icmp slt i32 %3, %61
@@ -5459,13 +5459,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   %240 = load i32, ptr %239, align 8
   %241 = add nsw i32 %237, 1
   %242 = icmp slt i32 %241, %3
-  br i1 %242, label %243, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %242, label %243, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i"
 
 243:                                              ; preds = %238
   %244 = getelementptr inbounds i8, ptr %223, i64 36
   %245 = load atomic i32, ptr %244 seq_cst, align 4
   %246 = icmp slt i32 %245, %240
-  br i1 %246, label %247, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %246, label %247, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i"
 
 247:                                              ; preds = %243
   %248 = load i8, ptr @__libc_single_threaded, align 1
@@ -5509,11 +5509,11 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 262:                                              ; preds = %256
   %263 = load ptr, ptr %254, align 8
   %.not.i.i.i12.i.i = icmp eq ptr %263, null
-  br i1 %.not.i.i.i12.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i.i", label %264
+  br i1 %.not.i.i.i12.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i", label %264
 
 264:                                              ; preds = %262
   %265 = invoke noundef zeroext i1 %263(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i.i" unwind label %266
+          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i" unwind label %266
 
 266:                                              ; preds = %264
   %267 = landingpad { ptr, i32 }
@@ -5548,10 +5548,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %274, %271, %269
   %.sroa.5.0.i.i.i = phi ptr [ %223, %269 ], [ null, %271 ], [ null, %274 ]
   %.pn.i.i.i = phi { ptr, i32 } [ %270, %269 ], [ %272, %271 ], [ %272, %274 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom"(ptr %.sroa.5.0.i.i.i) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev"(ptr %.sroa.5.0.i.i.i) #28
   br label %.body.i.i22
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i.i": ; preds = %264, %262, %243, %238
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i": ; preds = %264, %262, %243, %238
   %279 = load i32, ptr %226, align 8
   %280 = getelementptr inbounds i8, ptr %223, i64 28
   %281 = load i32, ptr %280, align 4
@@ -5562,9 +5562,9 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %274, %271, %269
   %.not3653.i.i.i = icmp slt i32 %285, %240
   br i1 %.not3653.i.i.i, label %.lr.ph.i.i18.i, label %._crit_edge.i.i17.i
 
-.lr.ph.i.i18.i:                                   ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i.i", %.lr.ph.i.i18.i
-  %286 = phi i32 [ %295, %.lr.ph.i.i18.i ], [ %285, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
-  %.03454.i.i.i = phi i32 [ %287, %.lr.ph.i.i18.i ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
+.lr.ph.i.i18.i:                                   ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i", %.lr.ph.i.i18.i
+  %286 = phi i32 [ %295, %.lr.ph.i.i18.i ], [ %285, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i" ]
+  %.03454.i.i.i = phi i32 [ %287, %.lr.ph.i.i18.i ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i" ]
   %287 = add nuw nsw i32 %.03454.i.i.i, 1
   %288 = mul nsw i32 %286, %281
   %289 = add nsw i32 %288, %279
@@ -5578,13 +5578,13 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %274, %271, %269
   %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
   %.sroa.042.0.insert.ext.i.i.i = zext i32 %294 to i64
   %.sroa.042.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.042.0.insert.ext.i.i.i
-  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.sroa.042.0.insert.insert.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %35)
+  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.sroa.042.0.insert.insert.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %35)
   %295 = atomicrmw add ptr %284, i32 1 seq_cst, align 4
   %.not36.i.i.i = icmp slt i32 %295, %240
   br i1 %.not36.i.i.i, label %.lr.ph.i.i18.i, label %._crit_edge.i.i17.i, !llvm.loop !55
 
-._crit_edge.i.i17.i:                              ; preds = %.lr.ph.i.i18.i, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i.i"
-  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i.i" ], [ %287, %.lr.ph.i.i18.i ]
+._crit_edge.i.i17.i:                              ; preds = %.lr.ph.i.i18.i, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i"
+  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i.i" ], [ %287, %.lr.ph.i.i18.i ]
   %296 = getelementptr inbounds i8, ptr %223, i64 48
   invoke void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %296, i32 noundef %.034.lcssa.i.i.i)
           to label %297 unwind label %366
@@ -5628,7 +5628,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %274, %271, %269
 314:                                              ; preds = %312, %310
   %.0.i.i.i.i.i.i.i = phi i32 [ %303, %310 ], [ %313, %312 ]
   %315 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %315, label %316, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit.i.i"
+  br i1 %315, label %316, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit.i.i"
 
 316:                                              ; preds = %314
   %317 = load ptr, ptr %223, align 8
@@ -5652,21 +5652,21 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %274, %271, %269
 326:                                              ; preds = %324, %321
   %.0.i.i.i.i.i.i.i.i.i24 = phi i32 [ %322, %321 ], [ %325, %324 ]
   %327 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i24, 1
-  br i1 %327, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit.i.i"
+  br i1 %327, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %326, %304
   %328 = load ptr, ptr %223, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 24
   %330 = load ptr, ptr %329, align 8
   call void %330(ptr noundef nonnull align 8 dereferenceable(16) %223) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit.i.i"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit.i.i"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %326, %314
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %326, %314
   %331 = load ptr, ptr %229, align 8
   %.not.i.i.i15.i.i = icmp eq ptr %331, null
   br i1 %.not.i.i.i15.i.i, label %"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_i.exit.i", label %332
 
-332:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit.i.i"
+332:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit.i.i"
   %333 = getelementptr inbounds i8, ptr %331, i64 8
   %334 = load atomic i64, ptr %333 acquire, align 8
   %335 = icmp eq i64 %334, 4294967297
@@ -5741,17 +5741,17 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .body.i.i22:                                      ; preds = %366, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %367, %366 ], [ %.pn.i.i.i, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i ]
-  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom"(ptr nonnull %223) #28
+  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev"(ptr nonnull %223) #28
   call void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #28
   br label %common.resume
 
-"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %361, %348, %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit.i.i"
+"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %361, %348, %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_i.exit"
 
 "_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_i.exit": ; preds = %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS3_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS5_INS6_IdLin1ELin1ELi1ELin1ELin1EEELi0ES9_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EEELi3ELi0EE3runERSS_.exit.i.i, %.lr.ph.i.i26, %"_ZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_i.exit.i"
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
-  br label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.argprom.exit"
+  br label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.exit"
 
 368:                                              ; preds = %81
   %369 = shl nsw i32 %3, 2
@@ -5774,7 +5774,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %378 = add nsw i32 %377, -1
   %379 = sub nsw i32 %.val.i.i, %378
   %380 = icmp sgt i32 %379, 1
-  br i1 %380, label %.lr.ph.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+  br i1 %380, label %.lr.ph.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %368
   %381 = or disjoint i32 %369, 1
@@ -5784,16 +5784,16 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %385 = sext i32 %369 to i64
   br i1 %383, label %392, label %.lr.ph.i.split.i
 
-.lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i"
-  %.sroa.23.4.i.lcssa25.i = phi ptr [ %.sroa.23.4.i.lcssa24.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %374, %.lr.ph.i.i ]
-  %.sroa.11.5.i.lcssa22.i = phi ptr [ %.sroa.11.5.i.lcssa21.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %374, %.lr.ph.i.i ]
-  %.sroa.01.4.i.lcssa19.i = phi ptr [ %.sroa.01.4.i.lcssa18.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %373, %.lr.ph.i.i ]
-  %386 = phi i32 [ %454, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %379, %.lr.ph.i.i ]
-  %.044.i.i = phi i32 [ %.1.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %378, %.lr.ph.i.i ]
-  %.03243.i.i = phi i32 [ %.133.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %.val.i.i, %.lr.ph.i.i ]
-  %.sroa.01.042.i.i = phi ptr [ %.sroa.01.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
-  %.sroa.11.041.i.i = phi ptr [ %.sroa.11.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
-  %.sroa.23.040.i.i = phi ptr [ %.sroa.23.6.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
+.lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i"
+  %.sroa.23.4.i.lcssa25.i = phi ptr [ %.sroa.23.4.i.lcssa24.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %374, %.lr.ph.i.i ]
+  %.sroa.11.5.i.lcssa22.i = phi ptr [ %.sroa.11.5.i.lcssa21.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %374, %.lr.ph.i.i ]
+  %.sroa.01.4.i.lcssa19.i = phi ptr [ %.sroa.01.4.i.lcssa18.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %373, %.lr.ph.i.i ]
+  %386 = phi i32 [ %454, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %379, %.lr.ph.i.i ]
+  %.044.i.i = phi i32 [ %.1.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %378, %.lr.ph.i.i ]
+  %.03243.i.i = phi i32 [ %.133.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %.val.i.i, %.lr.ph.i.i ]
+  %.sroa.01.042.i.i = phi ptr [ %.sroa.01.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
+  %.sroa.11.041.i.i = phi ptr [ %.sroa.11.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
+  %.sroa.23.040.i.i = phi ptr [ %.sroa.23.6.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
   %387 = ptrtoint ptr %.sroa.23.040.i.i to i64
   %388 = ptrtoint ptr %.sroa.01.042.i.i to i64
   %389 = sub i64 %387, %388
@@ -5880,7 +5880,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i:    ; preds = %_ZNSt6vectorIiSaIiE
   %410 = sub i64 %408, %409
   %411 = ashr exact i64 %410, 2
   %412 = icmp ugt i64 %411, %385
-  br i1 %412, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i", label %413
+  br i1 %412, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i", label %413
 
 413:                                              ; preds = %406
   %414 = add nsw i32 %.02210.i.i.i, %401
@@ -5914,7 +5914,7 @@ _ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i.i.i.i: ; preds 
   %427 = sdiv exact i64 %426, 40
   %428 = trunc i64 %427 to i32
   %429 = icmp eq i32 %.021.in.sroa.speculated11.i.i.i, %428
-  br i1 %429, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i", label %430
+  br i1 %429, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i", label %430
 
 430:                                              ; preds = %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i"
   %431 = shl i64 %427, 32
@@ -5984,13 +5984,13 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.01.4.i.i = phi ptr [ %445, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33.i.i.i ], [ %.sroa.01.3.i.i, %434 ]
   %.sroa.11.5.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 4
   %.not.i.i.i = icmp sgt i32 %61, %428
-  br i1 %.not.i.i.i, label %406, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i", !llvm.loop !60
+  br i1 %.not.i.i.i, label %406, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i", !llvm.loop !60
 
-"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i": ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i
+"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i": ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i
   store ptr %.sroa.01.4.i.i, ptr %31, align 8, !alias.scope !56
   store ptr %.sroa.11.5.i.i, ptr %376, align 8, !alias.scope !56
   store ptr %.sroa.23.4.i.i, ptr %375, align 8, !alias.scope !56
-  br label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i"
+  br label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i"
 
 .loopexit.i.i:                                    ; preds = %442
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
@@ -6020,26 +6020,26 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZdlPv(ptr noundef nonnull %452) #30, !noalias !56
   br label %.body.i.i
 
-"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i": ; preds = %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i", %406, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i"
-  %.sroa.23.4.i.lcssa24.i = phi ptr [ %.sroa.23.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.23.4.i.lcssa25.i, %406 ], [ %.sroa.23.4.i.lcssa25.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
-  %.sroa.11.5.i.lcssa21.i = phi ptr [ %.sroa.11.5.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.11.5.i.lcssa22.i, %406 ], [ %.sroa.11.5.i.lcssa22.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
-  %.sroa.01.4.i.lcssa18.i = phi ptr [ %.sroa.01.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.01.4.i.lcssa19.i, %406 ], [ %.sroa.01.4.i.lcssa19.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
-  %.sroa.23.6.i.i = phi ptr [ %.sroa.23.4.i.lcssa25.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.23.3.i.i, %406 ], [ %.sroa.23.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
-  %.sroa.11.7.i.i = phi ptr [ %.sroa.11.5.i.lcssa22.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %407, %406 ], [ %407, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
-  %.sroa.01.7.i.i = phi ptr [ %.sroa.01.4.i.lcssa19.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.01.3.i.i, %406 ], [ %.sroa.01.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
-  %.133.i.i = phi i32 [ %401, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.03243.i.i, %406 ], [ %.03243.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
-  %.1.i.i = phi i32 [ %.044.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %401, %406 ], [ %401, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
+"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i": ; preds = %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i", %406, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i"
+  %.sroa.23.4.i.lcssa24.i = phi ptr [ %.sroa.23.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.23.4.i.lcssa25.i, %406 ], [ %.sroa.23.4.i.lcssa25.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
+  %.sroa.11.5.i.lcssa21.i = phi ptr [ %.sroa.11.5.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.11.5.i.lcssa22.i, %406 ], [ %.sroa.11.5.i.lcssa22.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
+  %.sroa.01.4.i.lcssa18.i = phi ptr [ %.sroa.01.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.01.4.i.lcssa19.i, %406 ], [ %.sroa.01.4.i.lcssa19.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
+  %.sroa.23.6.i.i = phi ptr [ %.sroa.23.4.i.lcssa25.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.23.3.i.i, %406 ], [ %.sroa.23.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
+  %.sroa.11.7.i.i = phi ptr [ %.sroa.11.5.i.lcssa22.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %407, %406 ], [ %407, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
+  %.sroa.01.7.i.i = phi ptr [ %.sroa.01.4.i.lcssa19.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.01.3.i.i, %406 ], [ %.sroa.01.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
+  %.133.i.i = phi i32 [ %401, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.03243.i.i, %406 ], [ %.03243.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
+  %.1.i.i = phi i32 [ %.044.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %401, %406 ], [ %401, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNKS1_17BlockSparseMatrix17SquaredColumnNormEPdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESB_SB_SB_SE_.exit.i.i.i" ]
   %454 = sub nsw i32 %.133.i.i, %.1.i.i
   %455 = icmp sgt i32 %454, 1
   br i1 %455, label %.lr.ph.i.split.i, label %._crit_edge.i.i, !llvm.loop !61
 
-._crit_edge.i.i:                                  ; preds = %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i"
+._crit_edge.i.i:                                  ; preds = %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i"
   %.not.i.i.i46.i.i = icmp eq ptr %.sroa.01.7.i.i, null
-  br i1 %.not.i.i.i46.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i", label %456
+  br i1 %.not.i.i.i46.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i", label %456
 
 456:                                              ; preds = %._crit_edge.i.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.01.7.i.i) #30, !noalias !56
-  br label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+  br label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
 
 .body.i.i:                                        ; preds = %453, %.loopexit.split-lp.i.i
   %.not.i.i.i49.i.i = icmp eq ptr %.sroa.01.6.i.i, null
@@ -6049,7 +6049,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZdlPv(ptr noundef nonnull %.sroa.01.6.i.i) #30, !noalias !56
   br label %common.resume
 
-"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i": ; preds = %456, %._crit_edge.i.i, %368
+"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i": ; preds = %456, %._crit_edge.i.i, %368
   %458 = load ptr, ptr %376, align 8
   %459 = load ptr, ptr %31, align 8
   %460 = ptrtoint ptr %458 to i64
@@ -6059,11 +6059,11 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   %464 = icmp ugt i64 %463, 1
   br i1 %464, label %_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i, label %465
 
-_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i: ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i: ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
   store ptr null, ptr %32, align 8
   br label %484
 
-465:                                              ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+465:                                              ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   invoke void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.48)
           to label %.noexc.i unwind label %478
@@ -6495,7 +6495,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i.i.i: ; preds = %_ZN6google22MakeChe
   %.sroa.2.0.insert.shift.i.i.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i, 32
   %.sroa.01.0.insert.ext.i.i.i.i.i.i = zext i32 %583 to i64
   %.sroa.01.0.insert.insert.i.i.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i.i.i, %.sroa.01.0.insert.ext.i.i.i.i.i.i
-  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.sroa.01.0.insert.insert.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val16.i.i.i)
+  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.sroa.01.0.insert.insert.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val16.i.i.i)
   br label %743
 
 584:                                              ; preds = %578
@@ -6577,13 +6577,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
   %609 = load i32, ptr %608, align 8
   %610 = add nsw i32 %606, 1
   %611 = icmp slt i32 %610, %3
-  br i1 %611, label %612, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i"
+  br i1 %611, label %612, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i"
 
 612:                                              ; preds = %607
   %613 = getelementptr inbounds i8, ptr %592, i64 36
   %614 = load atomic i32, ptr %613 seq_cst, align 4
   %615 = icmp slt i32 %614, %609
-  br i1 %615, label %616, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i"
+  br i1 %615, label %616, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i"
 
 616:                                              ; preds = %612
   %617 = load i8, ptr @__libc_single_threaded, align 1
@@ -6627,11 +6627,11 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
 631:                                              ; preds = %625
   %632 = load ptr, ptr %623, align 8
   %.not.i.i.i12.i.i.i.i = icmp eq ptr %632, null
-  br i1 %.not.i.i.i12.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i", label %633
+  br i1 %.not.i.i.i12.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i", label %633
 
 633:                                              ; preds = %631
   %634 = invoke noundef zeroext i1 %632(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" unwind label %635
+          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i" unwind label %635
 
 635:                                              ; preds = %633
   %636 = landingpad { ptr, i32 }
@@ -6666,10 +6666,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
 _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %643, %640, %638
   %.sroa.5.0.i.i.i.i.i = phi ptr [ %592, %638 ], [ null, %640 ], [ null, %643 ]
   %.pn.i.i.i.i.i = phi { ptr, i32 } [ %639, %638 ], [ %641, %640 ], [ %641, %643 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom"(ptr %.sroa.5.0.i.i.i.i.i) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev"(ptr %.sroa.5.0.i.i.i.i.i) #28
   br label %.body.i.i.i.i
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i": ; preds = %633, %631, %612, %607
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i": ; preds = %633, %631, %612, %607
   %648 = load i32, ptr %595, align 8
   %649 = getelementptr inbounds i8, ptr %592, i64 28
   %650 = load i32, ptr %649, align 4
@@ -6680,9 +6680,9 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %643, %640, %638
   %.not3655.i.i.i.i.i = icmp slt i32 %654, %609
   br i1 %.not3655.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %655 = phi i32 [ %670, %.lr.ph.i.i.i.i.i ], [ %654, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" ]
-  %.03456.i.i.i.i.i = phi i32 [ %656, %.lr.ph.i.i.i.i.i ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
+  %655 = phi i32 [ %670, %.lr.ph.i.i.i.i.i ], [ %654, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i" ]
+  %.03456.i.i.i.i.i = phi i32 [ %656, %.lr.ph.i.i.i.i.i ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i" ]
   %656 = add nuw nsw i32 %.03456.i.i.i.i.i, 1
   %657 = mul nsw i32 %655, %650
   %658 = add nsw i32 %657, %648
@@ -6707,13 +6707,13 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %643, %640, %638
   %.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i, 32
   %.sroa.01.0.insert.ext.i.i.i.i.i.i.i.i = zext i32 %669 to i64
   %.sroa.01.0.insert.insert.i.i.i.i.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i, %.sroa.01.0.insert.ext.i.i.i.i.i.i.i.i
-  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.sroa.01.0.insert.insert.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val39.i.i.i.i.i)
+  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.sroa.01.0.insert.insert.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val39.i.i.i.i.i)
   %670 = atomicrmw add ptr %653, i32 1 seq_cst, align 4
   %.not36.i.i.i.i.i = icmp slt i32 %670, %609
   br i1 %.not36.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !65
 
-._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i"
-  %.034.lcssa.i.i.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" ], [ %656, %.lr.ph.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i"
+  %.034.lcssa.i.i.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i.i.i.i" ], [ %656, %.lr.ph.i.i.i.i.i ]
   %671 = getelementptr inbounds i8, ptr %592, i64 48
   invoke void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %671, i32 noundef %.034.lcssa.i.i.i.i.i)
           to label %672 unwind label %741
@@ -6757,7 +6757,7 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %643, %640, %638
 689:                                              ; preds = %687, %685
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %678, %685 ], [ %688, %687 ]
   %690 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %690, label %691, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit.i.i.i.i"
+  br i1 %690, label %691, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit.i.i.i.i"
 
 691:                                              ; preds = %689
   %692 = load ptr, ptr %592, align 8
@@ -6781,21 +6781,21 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %643, %640, %638
 701:                                              ; preds = %699, %696
   %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %697, %696 ], [ %700, %699 ]
   %702 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %702, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit.i.i.i.i"
+  br i1 %702, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit.i.i.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i: ; preds = %701, %679
   %703 = load ptr, ptr %592, align 8
   %704 = getelementptr inbounds i8, ptr %703, i64 24
   %705 = load ptr, ptr %704, align 8
   call void %705(ptr noundef nonnull align 8 dereferenceable(16) %592) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit.i.i.i.i"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit.i.i.i.i"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit.i.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %701, %689
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit.i.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %701, %689
   %706 = load ptr, ptr %598, align 8
   %.not.i.i.i15.i.i.i.i = icmp eq ptr %706, null
   br i1 %.not.i.i.i15.i.i.i.i, label %"_ZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_i.exit.i.i.i", label %707
 
-707:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit.i.i.i.i"
+707:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit.i.i.i.i"
   %708 = getelementptr inbounds i8, ptr %706, i64 8
   %709 = load atomic i64, ptr %708 acquire, align 8
   %710 = icmp eq i64 %709, 4294967297
@@ -6870,11 +6870,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .body.i.i.i.i:                                    ; preds = %741, %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %742, %741 ], [ %.pn.i.i.i.i.i, %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i ]
-  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom"(ptr nonnull %592) #28
+  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev"(ptr nonnull %592) #28
   call void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #28
   br label %.body.i
 
-"_ZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_i.exit.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %736, %723, %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit.i.i.i.i"
+"_ZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_i.exit.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %736, %723, %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %743
 
@@ -6893,13 +6893,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
   %744 = load ptr, ptr %31, align 8
   %.not.i.i.i47.i = icmp eq ptr %744, null
-  br i1 %.not.i.i.i47.i, label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.argprom.exit", label %745
+  br i1 %.not.i.i.i47.i, label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.exit", label %745
 
 745:                                              ; preds = %743
   call void @_ZdlPv(ptr noundef nonnull %744) #30
-  br label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.argprom.exit"
+  br label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.exit"
 
-"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.argprom.exit": ; preds = %79, %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_i.exit", %743, %745
+"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.exit": ; preds = %79, %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_i.exit", %743, %745
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
@@ -6907,7 +6907,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %33)
   br label %746
 
-746:                                              ; preds = %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.argprom.exit", %39
+746:                                              ; preds = %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.exit", %39
   ret void
 }
 
@@ -7270,7 +7270,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
 
 76:                                               ; preds = %_ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i, %_ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread.i
   %77 = icmp slt i32 %58, 1
-  br i1 %77, label %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.argprom.exit", label %78
+  br i1 %77, label %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.exit", label %78
 
 78:                                               ; preds = %76
   %.not.i17 = icmp slt i32 %3, %58
@@ -7508,13 +7508,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
   %181 = load i32, ptr %180, align 8
   %182 = add nsw i32 %178, 1
   %183 = icmp slt i32 %182, %3
-  br i1 %183, label %184, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %183, label %184, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i"
 
 184:                                              ; preds = %179
   %185 = getelementptr inbounds i8, ptr %164, i64 36
   %186 = load atomic i32, ptr %185 seq_cst, align 4
   %187 = icmp slt i32 %186, %181
-  br i1 %187, label %188, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i.i"
+  br i1 %187, label %188, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i"
 
 188:                                              ; preds = %184
   %189 = load i8, ptr @__libc_single_threaded, align 1
@@ -7558,11 +7558,11 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 203:                                              ; preds = %197
   %204 = load ptr, ptr %195, align 8
   %.not.i.i.i12.i.i = icmp eq ptr %204, null
-  br i1 %.not.i.i.i12.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i.i", label %205
+  br i1 %.not.i.i.i12.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i", label %205
 
 205:                                              ; preds = %203
   %206 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i.i" unwind label %207
+          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i" unwind label %207
 
 207:                                              ; preds = %205
   %208 = landingpad { ptr, i32 }
@@ -7597,10 +7597,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %215, %212, %210
   %.sroa.5.0.i.i.i = phi ptr [ %164, %210 ], [ null, %212 ], [ null, %215 ]
   %.pn.i.i.i = phi { ptr, i32 } [ %211, %210 ], [ %213, %212 ], [ %213, %215 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom"(ptr %.sroa.5.0.i.i.i) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev"(ptr %.sroa.5.0.i.i.i) #28
   br label %.body.i.i18
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i.i": ; preds = %205, %203, %184, %179
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i": ; preds = %205, %203, %184, %179
   %220 = load i32, ptr %167, align 8
   %221 = getelementptr inbounds i8, ptr %164, i64 28
   %222 = load i32, ptr %221, align 4
@@ -7611,9 +7611,9 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %215, %212, %210
   %.not3653.i.i.i = icmp slt i32 %226, %181
   br i1 %.not3653.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i18.i
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %227 = phi i32 [ %236, %.lr.ph.i.i.i ], [ %226, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
-  %.03454.i.i.i = phi i32 [ %228, %.lr.ph.i.i.i ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i.i" ]
+.lr.ph.i.i.i:                                     ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i", %.lr.ph.i.i.i
+  %227 = phi i32 [ %236, %.lr.ph.i.i.i ], [ %226, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i" ]
+  %.03454.i.i.i = phi i32 [ %228, %.lr.ph.i.i.i ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i" ]
   %228 = add nuw nsw i32 %.03454.i.i.i, 1
   %229 = mul nsw i32 %227, %222
   %230 = add nsw i32 %229, %220
@@ -7627,13 +7627,13 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %215, %212, %210
   %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
   %.sroa.042.0.insert.ext.i.i.i = zext i32 %235 to i64
   %.sroa.042.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.042.0.insert.ext.i.i.i
-  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.sroa.042.0.insert.insert.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %35)
+  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.sroa.042.0.insert.insert.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %35)
   %236 = atomicrmw add ptr %225, i32 1 seq_cst, align 4
   %.not36.i.i.i = icmp slt i32 %236, %181
   br i1 %.not36.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i18.i, !llvm.loop !76
 
-._crit_edge.i.i18.i:                              ; preds = %.lr.ph.i.i.i, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i.i"
-  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i.i" ], [ %228, %.lr.ph.i.i.i ]
+._crit_edge.i.i18.i:                              ; preds = %.lr.ph.i.i.i, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i"
+  %.034.lcssa.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i.i" ], [ %228, %.lr.ph.i.i.i ]
   %237 = getelementptr inbounds i8, ptr %164, i64 48
   invoke void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %237, i32 noundef %.034.lcssa.i.i.i)
           to label %238 unwind label %307
@@ -7677,7 +7677,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %215, %212, %210
 255:                                              ; preds = %253, %251
   %.0.i.i.i.i.i.i.i = phi i32 [ %244, %251 ], [ %254, %253 ]
   %256 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %256, label %257, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit.i.i"
+  br i1 %256, label %257, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit.i.i"
 
 257:                                              ; preds = %255
   %258 = load ptr, ptr %164, align 8
@@ -7701,21 +7701,21 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %215, %212, %210
 267:                                              ; preds = %265, %262
   %.0.i.i.i.i.i.i.i.i.i20 = phi i32 [ %263, %262 ], [ %266, %265 ]
   %268 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i20, 1
-  br i1 %268, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit.i.i"
+  br i1 %268, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %267, %245
   %269 = load ptr, ptr %164, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 24
   %271 = load ptr, ptr %270, align 8
   call void %271(ptr noundef nonnull align 8 dereferenceable(16) %164) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit.i.i"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit.i.i"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %267, %255
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %267, %255
   %272 = load ptr, ptr %170, align 8
   %.not.i.i.i15.i.i = icmp eq ptr %272, null
   br i1 %.not.i.i.i15.i.i, label %"_ZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_i.exit.i", label %273
 
-273:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit.i.i"
+273:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit.i.i"
   %274 = getelementptr inbounds i8, ptr %272, i64 8
   %275 = load atomic i64, ptr %274 acquire, align 8
   %276 = icmp eq i64 %275, 4294967297
@@ -7790,17 +7790,17 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .body.i.i18:                                      ; preds = %307, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %308, %307 ], [ %.pn.i.i.i, %_ZNSt8functionIFvvEED2Ev.exit41.i.i.i ]
-  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom"(ptr nonnull %164) #28
+  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev"(ptr nonnull %164) #28
   call void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #28
   br label %common.resume
 
-"_ZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %302, %289, %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit.i.i"
+"_ZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_i.exit.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %302, %289, %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_i.exit"
 
 "_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_i.exit": ; preds = %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS3_INS_7ProductIS9_NS_15DiagonalWrapperIKNS4_IKNS5_IdLin1ELi1ELi0ELin1ELi1EEELi0ES8_EEEELi1EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSM_.exit.i.i, %.lr.ph.i.i22, %"_ZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_i.exit.i"
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
-  br label %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.argprom.exit"
+  br label %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.exit"
 
 309:                                              ; preds = %78
   %310 = shl nsw i32 %3, 2
@@ -7823,7 +7823,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %319 = add nsw i32 %318, -1
   %320 = sub nsw i32 %.val.i.i, %319
   %321 = icmp sgt i32 %320, 1
-  br i1 %321, label %.lr.ph.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+  br i1 %321, label %.lr.ph.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %309
   %322 = or disjoint i32 %310, 1
@@ -7833,16 +7833,16 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %326 = sext i32 %310 to i64
   br i1 %324, label %333, label %.lr.ph.i.split.i
 
-.lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i"
-  %.sroa.23.4.i.lcssa25.i = phi ptr [ %.sroa.23.4.i.lcssa24.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %315, %.lr.ph.i.i ]
-  %.sroa.11.5.i.lcssa22.i = phi ptr [ %.sroa.11.5.i.lcssa21.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %315, %.lr.ph.i.i ]
-  %.sroa.01.4.i.lcssa19.i = phi ptr [ %.sroa.01.4.i.lcssa18.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %314, %.lr.ph.i.i ]
-  %327 = phi i32 [ %395, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %320, %.lr.ph.i.i ]
-  %.044.i.i = phi i32 [ %.1.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %319, %.lr.ph.i.i ]
-  %.03243.i.i = phi i32 [ %.133.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ %.val.i.i, %.lr.ph.i.i ]
-  %.sroa.01.042.i.i = phi ptr [ %.sroa.01.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
-  %.sroa.11.041.i.i = phi ptr [ %.sroa.11.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
-  %.sroa.23.040.i.i = phi ptr [ %.sroa.23.6.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
+.lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i"
+  %.sroa.23.4.i.lcssa25.i = phi ptr [ %.sroa.23.4.i.lcssa24.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %315, %.lr.ph.i.i ]
+  %.sroa.11.5.i.lcssa22.i = phi ptr [ %.sroa.11.5.i.lcssa21.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %315, %.lr.ph.i.i ]
+  %.sroa.01.4.i.lcssa19.i = phi ptr [ %.sroa.01.4.i.lcssa18.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %314, %.lr.ph.i.i ]
+  %327 = phi i32 [ %395, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %320, %.lr.ph.i.i ]
+  %.044.i.i = phi i32 [ %.1.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %319, %.lr.ph.i.i ]
+  %.03243.i.i = phi i32 [ %.133.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ %.val.i.i, %.lr.ph.i.i ]
+  %.sroa.01.042.i.i = phi ptr [ %.sroa.01.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
+  %.sroa.11.041.i.i = phi ptr [ %.sroa.11.7.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
+  %.sroa.23.040.i.i = phi ptr [ %.sroa.23.6.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i" ], [ null, %.lr.ph.i.i ]
   %328 = ptrtoint ptr %.sroa.23.040.i.i to i64
   %329 = ptrtoint ptr %.sroa.01.042.i.i to i64
   %330 = sub i64 %328, %329
@@ -7929,7 +7929,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i:    ; preds = %_ZNSt6vectorIiSaIiE
   %351 = sub i64 %349, %350
   %352 = ashr exact i64 %351, 2
   %353 = icmp ugt i64 %352, %326
-  br i1 %353, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i", label %354
+  br i1 %353, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i", label %354
 
 354:                                              ; preds = %347
   %355 = add nsw i32 %.02210.i.i.i, %342
@@ -7963,7 +7963,7 @@ _ZSt7advanceIPKN5ceres8internal14CompressedListElEvRT_T0_.exit.i.i.i.i: ; preds 
   %368 = sdiv exact i64 %367, 40
   %369 = trunc i64 %368 to i32
   %370 = icmp eq i32 %.021.in.sroa.speculated11.i.i.i, %369
-  br i1 %370, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i", label %371
+  br i1 %370, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i", label %371
 
 371:                                              ; preds = %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i"
   %372 = shl i64 %368, 32
@@ -8033,13 +8033,13 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.01.4.i.i = phi ptr [ %386, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33.i.i.i ], [ %.sroa.01.3.i.i, %375 ]
   %.sroa.11.5.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 4
   %.not.i.i.i = icmp sgt i32 %58, %369
-  br i1 %.not.i.i.i, label %347, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i", !llvm.loop !81
+  br i1 %.not.i.i.i, label %347, label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i", !llvm.loop !81
 
-"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i": ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i
+"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i": ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i
   store ptr %.sroa.01.4.i.i, ptr %31, align 8, !alias.scope !77
   store ptr %.sroa.11.5.i.i, ptr %317, align 8, !alias.scope !77
   store ptr %.sroa.23.4.i.i, ptr %316, align 8, !alias.scope !77
-  br label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i"
+  br label %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i"
 
 .loopexit.i.i:                                    ; preds = %383
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
@@ -8069,26 +8069,26 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZdlPv(ptr noundef nonnull %393) #30, !noalias !77
   br label %.body.i.i
 
-"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i": ; preds = %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i", %347, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i"
-  %.sroa.23.4.i.lcssa24.i = phi ptr [ %.sroa.23.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.23.4.i.lcssa25.i, %347 ], [ %.sroa.23.4.i.lcssa25.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
-  %.sroa.11.5.i.lcssa21.i = phi ptr [ %.sroa.11.5.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.11.5.i.lcssa22.i, %347 ], [ %.sroa.11.5.i.lcssa22.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
-  %.sroa.01.4.i.lcssa18.i = phi ptr [ %.sroa.01.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.01.4.i.lcssa19.i, %347 ], [ %.sroa.01.4.i.lcssa19.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
-  %.sroa.23.6.i.i = phi ptr [ %.sroa.23.4.i.lcssa25.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.23.3.i.i, %347 ], [ %.sroa.23.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
-  %.sroa.11.7.i.i = phi ptr [ %.sroa.11.5.i.lcssa22.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %348, %347 ], [ %348, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
-  %.sroa.01.7.i.i = phi ptr [ %.sroa.01.4.i.lcssa19.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.sroa.01.3.i.i, %347 ], [ %.sroa.01.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
-  %.133.i.i = phi i32 [ %342, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %.03243.i.i, %347 ], [ %.03243.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
-  %.1.i.i = phi i32 [ %.044.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.i.i" ], [ %342, %347 ], [ %342, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
+"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i": ; preds = %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i", %347, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i"
+  %.sroa.23.4.i.lcssa24.i = phi ptr [ %.sroa.23.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.23.4.i.lcssa25.i, %347 ], [ %.sroa.23.4.i.lcssa25.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
+  %.sroa.11.5.i.lcssa21.i = phi ptr [ %.sroa.11.5.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.11.5.i.lcssa22.i, %347 ], [ %.sroa.11.5.i.lcssa22.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
+  %.sroa.01.4.i.lcssa18.i = phi ptr [ %.sroa.01.4.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.01.4.i.lcssa19.i, %347 ], [ %.sroa.01.4.i.lcssa19.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
+  %.sroa.23.6.i.i = phi ptr [ %.sroa.23.4.i.lcssa25.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.23.3.i.i, %347 ], [ %.sroa.23.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
+  %.sroa.11.7.i.i = phi ptr [ %.sroa.11.5.i.lcssa22.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %348, %347 ], [ %348, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
+  %.sroa.01.7.i.i = phi ptr [ %.sroa.01.4.i.lcssa19.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.sroa.01.3.i.i, %347 ], [ %.sroa.01.3.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
+  %.133.i.i = phi i32 [ %342, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %.03243.i.i, %347 ], [ %.03243.i.i, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
+  %.1.i.i = phi i32 [ %.044.i.i, %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.i.i" ], [ %342, %347 ], [ %342, %"_ZSt15partition_pointIPKN5ceres8internal14CompressedListEZNS1_26MaxPartitionCostIsFeasibleIS2_ZNS1_17BlockSparseMatrix12ScaleColumnsEPKdPNS1_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEEEUlRS3_E_ESC_SC_SC_SF_.exit.i.i.i" ]
   %395 = sub nsw i32 %.133.i.i, %.1.i.i
   %396 = icmp sgt i32 %395, 1
   br i1 %396, label %.lr.ph.i.split.i, label %._crit_edge.i.i, !llvm.loop !82
 
-._crit_edge.i.i:                                  ; preds = %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.argprom.exit.thread.i.i"
+._crit_edge.i.i:                                  ; preds = %"_ZN5ceres8internal26MaxPartitionCostIsFeasibleINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EEbiiiiiPKT_OT0_PSt6vectorIiSaIiEE.exit.thread.i.i"
   %.not.i.i.i46.i.i = icmp eq ptr %.sroa.01.7.i.i, null
-  br i1 %.not.i.i.i46.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i", label %397
+  br i1 %.not.i.i.i46.i.i, label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i", label %397
 
 397:                                              ; preds = %._crit_edge.i.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.01.7.i.i) #30, !noalias !77
-  br label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+  br label %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
 
 .body.i.i:                                        ; preds = %394, %.loopexit.split-lp.i.i
   %.not.i.i.i49.i.i = icmp eq ptr %.sroa.01.6.i.i, null
@@ -8098,7 +8098,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZdlPv(ptr noundef nonnull %.sroa.01.6.i.i) #30, !noalias !77
   br label %common.resume
 
-"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i": ; preds = %397, %._crit_edge.i.i, %309
+"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i": ; preds = %397, %._crit_edge.i.i, %309
   %399 = load ptr, ptr %317, align 8
   %400 = load ptr, ptr %31, align 8
   %401 = ptrtoint ptr %399 to i64
@@ -8108,11 +8108,11 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   %405 = icmp ugt i64 %404, 1
   br i1 %405, label %_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i, label %406
 
-_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i: ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i: ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
   store ptr null, ptr %32, align 8
   br label %425
 
-406:                                              ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom.exit.i"
+406:                                              ; preds = %"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.exit.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   invoke void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.48)
           to label %.noexc.i unwind label %419
@@ -8544,7 +8544,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i.i.i: ; preds = %_ZN6google22MakeChe
   %.sroa.2.0.insert.shift.i.i.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i, 32
   %.sroa.01.0.insert.ext.i.i.i.i.i.i = zext i32 %524 to i64
   %.sroa.01.0.insert.insert.i.i.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i.i.i, %.sroa.01.0.insert.ext.i.i.i.i.i.i
-  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.sroa.01.0.insert.insert.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val16.i.i.i)
+  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.sroa.01.0.insert.insert.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val16.i.i.i)
   br label %684
 
 525:                                              ; preds = %519
@@ -8626,13 +8626,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
   %550 = load i32, ptr %549, align 8
   %551 = add nsw i32 %547, 1
   %552 = icmp slt i32 %551, %3
-  br i1 %552, label %553, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i"
+  br i1 %552, label %553, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i"
 
 553:                                              ; preds = %548
   %554 = getelementptr inbounds i8, ptr %533, i64 36
   %555 = load atomic i32, ptr %554 seq_cst, align 4
   %556 = icmp slt i32 %555, %550
-  br i1 %556, label %557, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i"
+  br i1 %556, label %557, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i"
 
 557:                                              ; preds = %553
   %558 = load i8, ptr @__libc_single_threaded, align 1
@@ -8676,11 +8676,11 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
 572:                                              ; preds = %566
   %573 = load ptr, ptr %564, align 8
   %.not.i.i.i12.i.i.i.i = icmp eq ptr %573, null
-  br i1 %.not.i.i.i12.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i", label %574
+  br i1 %.not.i.i.i12.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i", label %574
 
 574:                                              ; preds = %572
   %575 = invoke noundef zeroext i1 %573(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" unwind label %576
+          to label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i" unwind label %576
 
 576:                                              ; preds = %574
   %577 = landingpad { ptr, i32 }
@@ -8715,10 +8715,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i.i.i: 
 _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %584, %581, %579
   %.sroa.5.0.i.i.i.i.i = phi ptr [ %533, %579 ], [ null, %581 ], [ null, %584 ]
   %.pn.i.i.i.i.i = phi { ptr, i32 } [ %580, %579 ], [ %582, %581 ], [ %582, %584 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom"(ptr %.sroa.5.0.i.i.i.i.i) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev"(ptr %.sroa.5.0.i.i.i.i.i) #28
   br label %.body.i.i.i.i
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i": ; preds = %574, %572, %553, %548
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i": ; preds = %574, %572, %553, %548
   %589 = load i32, ptr %536, align 8
   %590 = getelementptr inbounds i8, ptr %533, i64 28
   %591 = load i32, ptr %590, align 4
@@ -8729,9 +8729,9 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %584, %581, %579
   %.not3655.i.i.i.i.i = icmp slt i32 %595, %550
   br i1 %.not3655.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %596 = phi i32 [ %611, %.lr.ph.i.i.i.i.i ], [ %595, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" ]
-  %.03456.i.i.i.i.i = phi i32 [ %597, %.lr.ph.i.i.i.i.i ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
+  %596 = phi i32 [ %611, %.lr.ph.i.i.i.i.i ], [ %595, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i" ]
+  %.03456.i.i.i.i.i = phi i32 [ %597, %.lr.ph.i.i.i.i.i ], [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i" ]
   %597 = add nuw nsw i32 %.03456.i.i.i.i.i, 1
   %598 = mul nsw i32 %596, %591
   %599 = add nsw i32 %598, %589
@@ -8756,13 +8756,13 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %584, %581, %579
   %.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i, 32
   %.sroa.01.0.insert.ext.i.i.i.i.i.i.i.i = zext i32 %610 to i64
   %.sroa.01.0.insert.insert.i.i.i.i.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i, %.sroa.01.0.insert.ext.i.i.i.i.i.i.i.i
-  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.sroa.01.0.insert.insert.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val39.i.i.i.i.i)
+  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.sroa.01.0.insert.insert.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val39.i.i.i.i.i)
   %611 = atomicrmw add ptr %594, i32 1 seq_cst, align 4
   %.not36.i.i.i.i.i = icmp slt i32 %611, %550
   br i1 %.not36.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !86
 
-._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i"
-  %.034.lcssa.i.i.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i.i.i.i" ], [ %597, %.lr.ph.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i"
+  %.034.lcssa.i.i.i.i.i = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i.i.i.i" ], [ %597, %.lr.ph.i.i.i.i.i ]
   %612 = getelementptr inbounds i8, ptr %533, i64 48
   invoke void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %612, i32 noundef %.034.lcssa.i.i.i.i.i)
           to label %613 unwind label %682
@@ -8806,7 +8806,7 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %584, %581, %579
 630:                                              ; preds = %628, %626
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %619, %626 ], [ %629, %628 ]
   %631 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %631, label %632, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit.i.i.i.i"
+  br i1 %631, label %632, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit.i.i.i.i"
 
 632:                                              ; preds = %630
   %633 = load ptr, ptr %533, align 8
@@ -8830,21 +8830,21 @@ _ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i:        ; preds = %584, %581, %579
 642:                                              ; preds = %640, %637
   %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %638, %637 ], [ %641, %640 ]
   %643 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %643, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit.i.i.i.i"
+  br i1 %643, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit.i.i.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i: ; preds = %642, %620
   %644 = load ptr, ptr %533, align 8
   %645 = getelementptr inbounds i8, ptr %644, i64 24
   %646 = load ptr, ptr %645, align 8
   call void %646(ptr noundef nonnull align 8 dereferenceable(16) %533) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit.i.i.i.i"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit.i.i.i.i"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit.i.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %642, %630
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit.i.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %642, %630
   %647 = load ptr, ptr %539, align 8
   %.not.i.i.i15.i.i.i.i = icmp eq ptr %647, null
   br i1 %.not.i.i.i15.i.i.i.i, label %"_ZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_i.exit.i.i.i", label %648
 
-648:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit.i.i.i.i"
+648:                                              ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit.i.i.i.i"
   %649 = getelementptr inbounds i8, ptr %647, i64 8
   %650 = load atomic i64, ptr %649 acquire, align 8
   %651 = icmp eq i64 %650, 4294967297
@@ -8919,11 +8919,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .body.i.i.i.i:                                    ; preds = %682, %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %683, %682 ], [ %.pn.i.i.i.i.i, %_ZNSt8functionIFvvEED2Ev.exit43.i.i.i.i.i ]
-  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom"(ptr nonnull %533) #28
+  call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev"(ptr nonnull %533) #28
   call void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #28
   br label %.body.i
 
-"_ZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_i.exit.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %677, %664, %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit.i.i.i.i"
+"_ZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_i.exit.i.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %677, %664, %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %684
 
@@ -8942,13 +8942,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
   %685 = load ptr, ptr %31, align 8
   %.not.i.i.i47.i = icmp eq ptr %685, null
-  br i1 %.not.i.i.i47.i, label %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.argprom.exit", label %686
+  br i1 %.not.i.i.i47.i, label %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.exit", label %686
 
 686:                                              ; preds = %684
   call void @_ZdlPv(ptr noundef nonnull %685) #30
-  br label %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.argprom.exit"
+  br label %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.exit"
 
-"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.argprom.exit": ; preds = %76, %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_i.exit", %684, %686
+"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.exit": ; preds = %76, %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_i.exit", %684, %686
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
@@ -8956,7 +8956,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %33)
   br label %687
 
-687:                                              ; preds = %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.argprom.exit", %39
+687:                                              ; preds = %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.exit", %39
   ret void
 }
 
@@ -9003,7 +9003,7 @@ _ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__d
   %26 = trunc i64 %25 to i32
   store i32 0, ptr %17, align 4, !noalias !87
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph27.preheader.i, label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit
+  br i1 %27, label %.lr.ph27.preheader.i, label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit
 
 .lr.ph27.preheader.i:                             ; preds = %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
   %28 = getelementptr inbounds i8, ptr %17, i64 4
@@ -9114,14 +9114,14 @@ _ZSt4iotaIPiiEvT_S1_T0_.exit.i:                   ; preds = %.lr.ph.i.i, %.lr.ph
   %.1.i = phi ptr [ %.026.i, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.026.i, %44 ], [ %.3.lcssa.i, %._crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit.loopexit, label %.lr.ph27.i, !llvm.loop !97
+  br i1 %exitcond.not.i, label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit.loopexit, label %.lr.ph27.i, !llvm.loop !97
 
-_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit.loopexit: ; preds = %.loopexit.i
+_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit.loopexit: ; preds = %.loopexit.i
   %.pre = load ptr, ptr %0, align 8
-  br label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit
+  br label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit
 
-_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit: ; preds = %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit.loopexit, %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
-  %69 = phi ptr [ %.pre, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit.loopexit ], [ %11, %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i ]
+_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit: ; preds = %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit.loopexit, %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
+  %69 = phi ptr [ %.pre, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit.loopexit ], [ %11, %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i ]
   %70 = load ptr, ptr %19, align 8
   %71 = load ptr, ptr %18, align 8
   %72 = ptrtoint ptr %70 to i64
@@ -9134,7 +9134,7 @@ _ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1
   invoke void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %76, i64 noundef %77)
           to label %.noexc unwind label %87
 
-.noexc:                                           ; preds = %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit
+.noexc:                                           ; preds = %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit
   %78 = trunc i64 %75 to i32
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %.lr.ph.preheader.i, label %._crit_edge.i5
@@ -9164,7 +9164,7 @@ _ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEP
   invoke void @_ZNK5ceres8internal17BlockSparseMatrix40UpdateCompressedRowSparseMatrixTransposeEPNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %69)
           to label %92 unwind label %87
 
-87:                                               ; preds = %._crit_edge.i5, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit, %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
+87:                                               ; preds = %._crit_edge.i5, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit, %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
   %88 = landingpad { ptr, i32 }
           cleanup
   %.not.i12 = icmp eq ptr %69, null
@@ -9413,7 +9413,7 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit19.thread: ; preds = %_ZN6google12Chec
   %92 = sdiv exact i64 %91, 40
   %93 = trunc i64 %92 to i32
   %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %.lr.ph24.preheader.i, label %_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb1EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.argprom.exit
+  br i1 %94, label %.lr.ph24.preheader.i, label %_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb1EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.exit
 
 .lr.ph24.preheader.i:                             ; preds = %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit19.thread
   %95 = getelementptr i8, ptr %1, i64 64
@@ -9507,9 +9507,9 @@ _ZN5Eigen5BlockINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0
   %.1.i = phi ptr [ %.021.i, %.lr.ph24.i ], [ %137, %._crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb1EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.argprom.exit, label %.lr.ph24.i, !llvm.loop !101
+  br i1 %exitcond30.not.i, label %_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb1EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.exit, label %.lr.ph24.i, !llvm.loop !101
 
-_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb1EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.argprom.exit: ; preds = %138, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit19.thread
+_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb1EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.exit: ; preds = %138, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit19.thread
   ret void
 }
 
@@ -9556,7 +9556,7 @@ _ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__d
   %26 = trunc i64 %25 to i32
   store i32 0, ptr %17, align 4, !noalias !102
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph34.preheader.i, label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit
+  br i1 %27, label %.lr.ph34.preheader.i, label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit
 
 .lr.ph34.preheader.i:                             ; preds = %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
   %28 = getelementptr inbounds i8, ptr %17, i64 4
@@ -9680,14 +9680,14 @@ _ZSt4iotaIPiiEvT_S1_T0_.exit.i:                   ; preds = %.lr.ph.i.i, %.lr.ph
   %.1.i = phi ptr [ %.033.i, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.033.i, %.preheader.i ], [ %.3.lcssa.i, %._crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit.loopexit, label %.lr.ph34.i, !llvm.loop !110
+  br i1 %exitcond.not.i, label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit.loopexit, label %.lr.ph34.i, !llvm.loop !110
 
-_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit.loopexit: ; preds = %.loopexit.i
+_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit.loopexit: ; preds = %.loopexit.i
   %.pre = load ptr, ptr %0, align 8
-  br label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit
+  br label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit
 
-_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit: ; preds = %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit.loopexit, %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
-  %73 = phi ptr [ %.pre, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit.loopexit ], [ %11, %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i ]
+_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit: ; preds = %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit.loopexit, %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
+  %73 = phi ptr [ %.pre, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit.loopexit ], [ %11, %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i ]
   %74 = load ptr, ptr %9, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 24
   %76 = getelementptr inbounds i8, ptr %74, i64 32
@@ -9703,7 +9703,7 @@ _ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0
   invoke void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %83, i64 noundef %84)
           to label %.noexc unwind label %94
 
-.noexc:                                           ; preds = %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit
+.noexc:                                           ; preds = %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit
   %85 = trunc i64 %82 to i32
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.lr.ph.preheader.i, label %._crit_edge.i3
@@ -9733,7 +9733,7 @@ _ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEP
   invoke void @_ZNK5ceres8internal17BlockSparseMatrix31UpdateCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %73)
           to label %99 unwind label %94
 
-94:                                               ; preds = %._crit_edge.i3, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom.exit, %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
+94:                                               ; preds = %._crit_edge.i3, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit, %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
   %95 = landingpad { ptr, i32 }
           cleanup
   %.not.i10 = icmp eq ptr %73, null
@@ -9975,7 +9975,7 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit19.thread: ; preds = %_ZN6google12Chec
   %92 = sdiv exact i64 %91, 40
   %93 = trunc i64 %92 to i32
   %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %.lr.ph61.i, label %_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb0EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.argprom.exit
+  br i1 %94, label %.lr.ph61.i, label %_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb0EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.exit
 
 .lr.ph61.i:                                       ; preds = %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit19.thread
   %95 = getelementptr i8, ptr %1, i64 64
@@ -10152,9 +10152,9 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
   %.1.i = phi ptr [ %.057.i, %96 ], [ %170, %._crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb0EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.argprom.exit, label %96, !llvm.loop !116
+  br i1 %exitcond.not.i, label %_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb0EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.exit, label %96, !llvm.loop !116
 
-_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb0EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.argprom.exit: ; preds = %171, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit19.thread
+_ZN5ceres8internal12_GLOBAL__N_135UpdateCompressedRowSparseMatrixImplILb0EEEvPNS0_25CompressedRowSparseMatrixEPKdPKNS0_27CompressedRowBlockStructureE.exit: ; preds = %171, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit19.thread
   ret void
 }
 
@@ -13976,7 +13976,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #16
 declare void @_ZN5ceres8internal18BlockUntilFinished5BlockEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.16.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %1
 
@@ -14198,9 +14198,9 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @_ZN5ceres8internal10ThreadPool7AddTaskERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -14236,7 +14236,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -14261,16 +14261,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -14292,16 +14292,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -14342,18 +14342,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -14389,7 +14389,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -14414,20 +14414,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E15_M_init_functorIRKSG_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E15_M_init_functorIRKSG_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -14450,13 +14450,13 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockS
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %7, 1
   %15 = icmp slt i32 %14, %9
-  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 20
   %18 = load atomic i32, ptr %17 seq_cst, align 4
   %19 = icmp slt i32 %18, %13
-  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
@@ -14544,7 +14544,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockS
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
-  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit", label %59
+  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit", label %59
 
 59:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %60 = getelementptr inbounds i8, ptr %26, i64 8
@@ -14580,7 +14580,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 75:                                               ; preds = %73, %71
   %.0.i.i.i.i.i.i = phi i32 [ %63, %71 ], [ %74, %73 ]
   %76 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %26, align 8
@@ -14605,14 +14605,14 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 88:                                               ; preds = %86, %83
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %84, %83 ], [ %87, %86 ]
   %89 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %88, %64
   %90 = load ptr, ptr %26, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
 
 93:                                               ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_C2ERKSC_.exit"
   %94 = landingpad { ptr, i32 }
@@ -14639,10 +14639,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %96, %98 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom"(ptr %26) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev"(ptr %26) #28
   resume { ptr, i32 } %.pn
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
   %103 = load ptr, ptr %4, align 8
   %104 = load i32, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %103, i64 12
@@ -14654,13 +14654,13 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.not3654 = icmp slt i32 %110, %13
   br i1 %.not3654, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
   %111 = getelementptr inbounds i8, ptr %0, i64 32
   br label %112
 
-112:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit"
-  %113 = phi i32 [ %110, %.lr.ph ], [ %163, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
-  %.03455 = phi i32 [ 0, %.lr.ph ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
+112:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit"
+  %113 = phi i32 [ %110, %.lr.ph ], [ %163, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
+  %.03455 = phi i32 [ 0, %.lr.ph ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
   %114 = add nuw nsw i32 %.03455, 1
   %115 = mul nsw i32 %113, %106
   %116 = add nsw i32 %115, %104
@@ -14672,7 +14672,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %121 = add i32 %120, %117
   %122 = load ptr, ptr %111, align 8
   %.not2.i = icmp eq i32 %120, 0
-  br i1 %.not2.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", label %.lr.ph.i
+  br i1 %.not2.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %112
   %123 = getelementptr inbounds i8, ptr %122, i64 8
@@ -14681,8 +14681,8 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %126 = sext i32 %117 to i64
   br label %127
 
-127:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %126, %.lr.ph.i ], [ %indvars.iv.next.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i" ]
+127:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i", %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %126, %.lr.ph.i ], [ %indvars.iv.next.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i" ]
   %128 = load ptr, ptr %123, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 24
   %130 = load ptr, ptr %129, align 8
@@ -14693,7 +14693,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %135 = getelementptr inbounds i8, ptr %131, i64 16
   %136 = load ptr, ptr %135, align 8
   %.not17.i.i.i = icmp eq ptr %134, %136
-  br i1 %.not17.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", label %.lr.ph.i.i.i
+  br i1 %.not17.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %127
   %137 = getelementptr inbounds i8, ptr %131, i64 4
@@ -14724,23 +14724,23 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   call void @_ZN5ceres8internal20MatrixVectorMultiplyILin1ELin1ELi1EEEvPKdiiS3_Pd(ptr noundef %153, i32 noundef %132, i32 noundef %146, ptr noundef %156, ptr noundef %158)
   %159 = getelementptr inbounds i8, ptr %.sroa.014.018.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %159, %136
-  br i1 %.not.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", label %140
+  br i1 %.not.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i", label %140
 
-"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i": ; preds = %140, %127
+"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i": ; preds = %140, %127
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %160 = trunc nsw i64 %indvars.iv.next.i to i32
   %.not.i = icmp eq i32 %121, %160
-  br i1 %.not.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", label %127, !llvm.loop !23
+  br i1 %.not.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit", label %127, !llvm.loop !23
 
-"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", %112
+"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i", %112
   %161 = load ptr, ptr %4, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 20
   %163 = atomicrmw add ptr %162, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %163, %13
   br i1 %.not36, label %112, label %._crit_edge, !llvm.loop !201
 
-._crit_edge:                                      ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
-  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit" ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
+._crit_edge:                                      ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
+  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit" ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
   %164 = load ptr, ptr %4, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %165, i32 noundef %.034.lcssa)
@@ -14751,9 +14751,9 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -14789,7 +14789,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -14814,16 +14814,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -14843,16 +14843,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -14893,18 +14893,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -14940,7 +14940,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -14965,25 +14965,25 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E15_M_init_functorIRKSH_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E15_M_init_functorIRKSH_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.16.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %1
 
@@ -15060,9 +15060,9 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit: ; preds = %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -15098,7 +15098,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -15123,16 +15123,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -15152,16 +15152,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -15202,18 +15202,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -15249,7 +15249,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -15274,20 +15274,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E15_M_init_functorIRKSG_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clISE_EEDaSD_EUlvE_E15_M_init_functorIRKSG_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -15310,13 +15310,13 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockS
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %7, 1
   %15 = icmp slt i32 %14, %9
-  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 20
   %18 = load atomic i32, ptr %17 seq_cst, align 4
   %19 = icmp slt i32 %18, %13
-  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
@@ -15404,7 +15404,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockS
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
-  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit", label %59
+  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit", label %59
 
 59:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %60 = getelementptr inbounds i8, ptr %26, i64 8
@@ -15440,7 +15440,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 75:                                               ; preds = %73, %71
   %.0.i.i.i.i.i.i = phi i32 [ %63, %71 ], [ %74, %73 ]
   %76 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %26, align 8
@@ -15465,14 +15465,14 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 88:                                               ; preds = %86, %83
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %84, %83 ], [ %87, %86 ]
   %89 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %88, %64
   %90 = load ptr, ptr %26, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
 
 93:                                               ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_C2ERKSC_.exit"
   %94 = landingpad { ptr, i32 }
@@ -15499,10 +15499,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %96, %98 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom"(ptr %26) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev"(ptr %26) #28
   resume { ptr, i32 } %.pn
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
   %103 = load ptr, ptr %4, align 8
   %104 = load i32, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %103, i64 12
@@ -15514,13 +15514,13 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.not3654 = icmp slt i32 %110, %13
   br i1 %.not3654, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
   %111 = getelementptr inbounds i8, ptr %0, i64 32
   br label %112
 
-112:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit"
-  %113 = phi i32 [ %110, %.lr.ph ], [ %163, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
-  %.03455 = phi i32 [ 0, %.lr.ph ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
+112:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit"
+  %113 = phi i32 [ %110, %.lr.ph ], [ %163, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
+  %.03455 = phi i32 [ 0, %.lr.ph ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
   %114 = add nuw nsw i32 %.03455, 1
   %115 = mul nsw i32 %113, %106
   %116 = add nsw i32 %115, %104
@@ -15532,7 +15532,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %121 = add i32 %120, %117
   %122 = load ptr, ptr %111, align 8
   %.not2.i = icmp eq i32 %120, 0
-  br i1 %.not2.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", label %.lr.ph.i
+  br i1 %.not2.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %112
   %123 = getelementptr inbounds i8, ptr %122, i64 8
@@ -15541,8 +15541,8 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %126 = sext i32 %117 to i64
   br label %127
 
-127:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %126, %.lr.ph.i ], [ %indvars.iv.next.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i" ]
+127:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i", %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %126, %.lr.ph.i ], [ %indvars.iv.next.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i" ]
   %128 = load ptr, ptr %123, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 24
   %130 = load ptr, ptr %129, align 8
@@ -15553,7 +15553,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %135 = getelementptr inbounds i8, ptr %131, i64 16
   %136 = load ptr, ptr %135, align 8
   %.not17.i.i.i = icmp eq ptr %134, %136
-  br i1 %.not17.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", label %.lr.ph.i.i.i
+  br i1 %.not17.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %127
   %137 = getelementptr inbounds i8, ptr %131, i64 4
@@ -15584,23 +15584,23 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   call void @_ZN5ceres8internal29MatrixTransposeVectorMultiplyILin1ELin1ELi1EEEvPKdiiS3_Pd(ptr noundef %153, i32 noundef %146, i32 noundef %132, ptr noundef %156, ptr noundef %158)
   %159 = getelementptr inbounds i8, ptr %.sroa.014.018.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %159, %136
-  br i1 %.not.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", label %140
+  br i1 %.not.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i", label %140
 
-"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i": ; preds = %140, %127
+"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i": ; preds = %140, %127
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %160 = trunc nsw i64 %indvars.iv.next.i to i32
   %.not.i = icmp eq i32 %121, %160
-  br i1 %.not.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", label %127, !llvm.loop !29
+  br i1 %.not.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit", label %127, !llvm.loop !29
 
-"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i", %112
+"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i", %112
   %161 = load ptr, ptr %4, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 20
   %163 = atomicrmw add ptr %162, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %163, %13
   br i1 %.not36, label %112, label %._crit_edge, !llvm.loop !202
 
-._crit_edge:                                      ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit"
-  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit" ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.exit" ]
+._crit_edge:                                      ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit", %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit"
+  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit" ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
   %164 = load ptr, ptr %4, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %165, i32 noundef %.034.lcssa)
@@ -15611,9 +15611,9 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -15649,7 +15649,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -15674,16 +15674,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENUlRS9_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -15703,16 +15703,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -15753,18 +15753,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -15800,7 +15800,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -15825,25 +15825,25 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E15_M_init_functorIRKSH_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_iENKUlRSB_E_clIKSE_EEDaSD_EUlvE_E15_M_init_functorIRKSH_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.16.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %1
 
@@ -15920,9 +15920,9 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit: ; preds = %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -15958,7 +15958,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -15983,16 +15983,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -16012,16 +16012,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -16062,18 +16062,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -16109,7 +16109,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -16134,20 +16134,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E15_M_init_functorIRKSP_EEvRSt9_Any_dataSD_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clISN_EEDaSM_EUlvE_E15_M_init_functorIRKSP_EEvRSt9_Any_dataSD_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -16170,13 +16170,13 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11Paralle
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %7, 1
   %15 = icmp slt i32 %14, %9
-  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit"
+  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit"
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 20
   %18 = load atomic i32, ptr %17 seq_cst, align 4
   %19 = icmp slt i32 %18, %13
-  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit"
+  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit"
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
@@ -16264,7 +16264,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11Paralle
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
-  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit", label %59
+  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit", label %59
 
 59:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %60 = getelementptr inbounds i8, ptr %26, i64 8
@@ -16300,7 +16300,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 75:                                               ; preds = %73, %71
   %.0.i.i.i.i.i.i = phi i32 [ %63, %71 ], [ %74, %73 ]
   %76 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit"
+  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit"
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %26, align 8
@@ -16325,14 +16325,14 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 88:                                               ; preds = %86, %83
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %84, %83 ], [ %87, %86 ]
   %89 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit"
+  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %88, %64
   %90 = load ptr, ptr %26, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit"
 
 93:                                               ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_C2ERKSL_.exit"
   %94 = landingpad { ptr, i32 }
@@ -16359,10 +16359,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   %.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %96, %98 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom"(ptr %26) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev"(ptr %26) #28
   resume { ptr, i32 } %.pn
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
   %103 = load ptr, ptr %4, align 8
   %104 = load i32, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %103, i64 12
@@ -16374,13 +16374,13 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   %.not3658 = icmp slt i32 %110, %13
   br i1 %.not3658, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit"
   %111 = getelementptr inbounds i8, ptr %0, i64 32
   br label %112
 
-112:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit"
-  %113 = phi i32 [ %110, %.lr.ph ], [ %170, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit" ]
-  %.03459 = phi i32 [ 0, %.lr.ph ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit" ]
+112:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit"
+  %113 = phi i32 [ %110, %.lr.ph ], [ %170, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit" ]
+  %.03459 = phi i32 [ 0, %.lr.ph ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit" ]
   %114 = add nuw nsw i32 %.03459, 1
   %115 = mul nsw i32 %113, %106
   %116 = add nsw i32 %115, %104
@@ -16404,7 +16404,7 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   %128 = getelementptr inbounds i8, ptr %.val40.val, i64 %127
   %129 = load i32, ptr %128, align 4
   %.not2.i.i.i.i = icmp eq i32 %126, %129
-  br i1 %.not2.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not2.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %112
   %130 = getelementptr inbounds i8, ptr %.val39, i64 8
@@ -16413,8 +16413,8 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   %133 = sext i32 %126 to i64
   br label %134
 
-134:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", %.lr.ph.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ %133, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i" ]
+134:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", %.lr.ph.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ %133, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i" ]
   %135 = load ptr, ptr %130, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 24
   %137 = load ptr, ptr %136, align 8
@@ -16425,7 +16425,7 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   %142 = getelementptr inbounds i8, ptr %138, i64 16
   %143 = load ptr, ptr %142, align 8
   %.not17.i.i.i.i.i.i = icmp eq ptr %141, %143
-  br i1 %.not17.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not17.i.i.i.i.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %134
   %144 = getelementptr inbounds i8, ptr %138, i64 4
@@ -16456,23 +16456,23 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   call void @_ZN5ceres8internal29MatrixTransposeVectorMultiplyILin1ELin1ELi1EEEvPKdiiS3_Pd(ptr noundef %160, i32 noundef %153, i32 noundef %139, ptr noundef %163, ptr noundef %165)
   %166 = getelementptr inbounds i8, ptr %.sroa.014.018.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i45 = icmp eq ptr %166, %143
-  br i1 %.not.i.i.i.i.i.i45, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", label %147
+  br i1 %.not.i.i.i.i.i.i45, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", label %147
 
-"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i": ; preds = %147, %134
+"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i": ; preds = %147, %134
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, 1
   %167 = trunc nsw i64 %indvars.iv.next.i.i.i.i to i32
   %.not.i.i.i.i46 = icmp eq i32 %129, %167
-  br i1 %.not.i.i.i.i46, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit", label %134, !llvm.loop !29
+  br i1 %.not.i.i.i.i46, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit", label %134, !llvm.loop !29
 
-"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit.i.i.i.i", %112
+"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit": ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i.i.i", %112
   %168 = load ptr, ptr %4, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 20
   %170 = atomicrmw add ptr %169, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %170, %13
   br i1 %.not36, label %112, label %._crit_edge, !llvm.loop !203
 
-._crit_edge:                                      ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit", %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit"
-  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit" ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.argprom.argprom.exit" ]
+._crit_edge:                                      ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit", %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit"
+  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit" ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit" ]
   %171 = load ptr, ptr %4, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %172, i32 noundef %.034.lcssa)
@@ -16483,9 +16483,9 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -16521,7 +16521,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -16546,16 +16546,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENUlRSA_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -16575,16 +16575,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -16625,18 +16625,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -16672,7 +16672,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -16697,25 +16697,25 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E15_M_init_functorIRKSQ_EEvRSt9_Any_dataSD_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS2_11ContextImplEiE3$_0EEvSA_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvSA_iiiSD_iENKUlRSC_E_clIKSN_EEDaSM_EUlvE_E15_M_init_functorIRKSQ_EEvRSt9_Any_dataSD_.exit.i", %6, %5, %4
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.16.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %1
 
@@ -16792,9 +16792,9 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit: ; preds = %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -16830,7 +16830,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -16855,21 +16855,21 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.extract.trunc = trunc i64 %.0.val to i32
   %.sroa.2.0.extract.shift = lshr i64 %.0.val, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -16882,8 +16882,8 @@ define internal fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17Block
   %4 = ashr i64 %.0.val, 32
   br label %5
 
-5:                                                ; preds = %.lr.ph, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit"
-  %indvars.iv = phi i64 [ %4, %.lr.ph ], [ %indvars.iv.next, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit" ]
+5:                                                ; preds = %.lr.ph, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit"
+  %indvars.iv = phi i64 [ %4, %.lr.ph ], [ %indvars.iv.next, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit" ]
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -16893,7 +16893,7 @@ define internal fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17Block
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not19.i.i = icmp eq ptr %11, %13
-  br i1 %.not19.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit", label %.lr.ph.i.i
+  br i1 %.not19.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %5
   %14 = getelementptr inbounds i8, ptr %9, i64 4
@@ -17135,15 +17135,15 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_9Transpose
 _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS3_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS5_INS6_IdLin1ELin1ELi1ELin1ELin1EEELi0ES9_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EEELi3ELi0EE3runERSS_.exit: ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS2_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS4_INS5_IdLin1ELin1ELi1ELin1ELin1EEELi0ES8_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EE11assignCoeffEl.exit.i23.i, %.lr.ph.i17.i.us, %._crit_edge.i
   %136 = getelementptr inbounds i8, ptr %.sroa.016.020.i.i, i64 8
   %.not.i.i = icmp eq ptr %136, %13
-  br i1 %.not.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit", label %15
+  br i1 %.not.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit", label %15
 
-"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit": ; preds = %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS3_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS5_INS6_IdLin1ELin1ELi1ELin1ELin1EEELi0ES9_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EEELi3ELi0EE3runERSS_.exit, %5
+"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit": ; preds = %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_9TransposeINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEENS3_INS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKNS5_INS6_IdLin1ELin1ELi1ELin1ELin1EEELi0ES9_EEEENS0_10member_sumIddEELi0EEEEENS0_13add_assign_opIddEELi0EEELi3ELi0EE3runERSS_.exit, %5
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %137 = trunc nsw i64 %indvars.iv.next to i32
   %.not = icmp eq i32 %137, %.sroa.0.0.extract.trunc
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !204
 
-._crit_edge:                                      ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit", %1
+._crit_edge:                                      ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit", %1
   ret void
 }
 
@@ -17163,16 +17163,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -17213,18 +17213,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -17260,7 +17260,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -17285,20 +17285,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E15_M_init_functorIRKSE_EEvRSt9_Any_dataSA_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clISA_EEDaS9_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clISC_EEDaSB_EUlvE_E15_M_init_functorIRKSE_EEvRSt9_Any_dataSA_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -17321,13 +17321,13 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockS
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %7, 1
   %15 = icmp slt i32 %14, %9
-  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit"
+  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit"
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 20
   %18 = load atomic i32, ptr %17 seq_cst, align 4
   %19 = icmp slt i32 %18, %13
-  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit"
+  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit"
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
@@ -17415,7 +17415,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockS
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
-  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit", label %59
+  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit", label %59
 
 59:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %60 = getelementptr inbounds i8, ptr %26, i64 8
@@ -17451,7 +17451,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 75:                                               ; preds = %73, %71
   %.0.i.i.i.i.i.i = phi i32 [ %63, %71 ], [ %74, %73 ]
   %76 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit"
+  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit"
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %26, align 8
@@ -17476,14 +17476,14 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 88:                                               ; preds = %86, %83
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %84, %83 ], [ %87, %86 ]
   %89 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit"
+  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %88, %64
   %90 = load ptr, ptr %26, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit"
 
 93:                                               ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_C2ERKSA_.exit"
   %94 = landingpad { ptr, i32 }
@@ -17510,10 +17510,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %96, %98 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom"(ptr %26) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev"(ptr %26) #28
   resume { ptr, i32 } %.pn
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
   %103 = load ptr, ptr %4, align 8
   %104 = load i32, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %103, i64 12
@@ -17525,7 +17525,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.not3654 = icmp slt i32 %110, %13
   br i1 %.not3654, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit"
   %111 = getelementptr inbounds i8, ptr %0, i64 32
   br label %112
 
@@ -17546,15 +17546,15 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.sroa.043.0.insert.ext = zext i32 %121 to i64
   %.sroa.043.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.043.0.insert.ext
   %122 = load ptr, ptr %111, align 8
-  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.sroa.043.0.insert.insert, ptr noundef nonnull align 8 dereferenceable(24) %122)
+  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.sroa.043.0.insert.insert, ptr noundef nonnull align 8 dereferenceable(24) %122)
   %123 = load ptr, ptr %4, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 20
   %125 = atomicrmw add ptr %124, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %125, %13
   br i1 %.not36, label %112, label %._crit_edge, !llvm.loop !205
 
-._crit_edge:                                      ; preds = %112, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit"
-  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit" ], [ %114, %112 ]
+._crit_edge:                                      ; preds = %112, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit"
+  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit" ], [ %114, %112 ]
   %126 = load ptr, ptr %4, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %127, i32 noundef %.034.lcssa)
@@ -17565,9 +17565,9 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -17603,7 +17603,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -17628,16 +17628,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17Block
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENUlRS7_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -17657,16 +17657,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -17707,18 +17707,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -17754,7 +17754,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -17779,25 +17779,25 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataSA_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS5_iiiOT_iENKUlRS7_E_clIKSA_EEDaS9_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS7_iiiOT_iENKUlRS9_E_clIKSC_EEDaSB_EUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataSA_.exit.i", %6, %5, %4
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.16.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %1
 
@@ -17874,9 +17874,9 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit: ; preds = %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -17912,7 +17912,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -17937,16 +17937,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -17966,16 +17966,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -18016,18 +18016,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -18063,7 +18063,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -18088,20 +18088,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E15_M_init_functorIRKSN_EEvRSt9_Any_dataSB_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clISJ_EEDaSI_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clISL_EEDaSK_EUlvE_E15_M_init_functorIRKSN_EEvRSt9_Any_dataSB_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -18124,13 +18124,13 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11Paralle
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %7, 1
   %15 = icmp slt i32 %14, %9
-  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit"
+  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit"
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 20
   %18 = load atomic i32, ptr %17 seq_cst, align 4
   %19 = icmp slt i32 %18, %13
-  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit"
+  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit"
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
@@ -18218,7 +18218,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11Paralle
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
-  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit", label %59
+  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit", label %59
 
 59:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %60 = getelementptr inbounds i8, ptr %26, i64 8
@@ -18254,7 +18254,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 75:                                               ; preds = %73, %71
   %.0.i.i.i.i.i.i = phi i32 [ %63, %71 ], [ %74, %73 ]
   %76 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit"
+  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit"
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %26, align 8
@@ -18279,14 +18279,14 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 88:                                               ; preds = %86, %83
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %84, %83 ], [ %87, %86 ]
   %89 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit"
+  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %88, %64
   %90 = load ptr, ptr %26, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit"
 
 93:                                               ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_C2ERKSJ_.exit"
   %94 = landingpad { ptr, i32 }
@@ -18313,10 +18313,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   %.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %96, %98 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom"(ptr %26) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev"(ptr %26) #28
   resume { ptr, i32 } %.pn
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
   %103 = load ptr, ptr %4, align 8
   %104 = load i32, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %103, i64 12
@@ -18328,7 +18328,7 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   %.not3656 = icmp slt i32 %110, %13
   br i1 %.not3656, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit"
   %111 = getelementptr inbounds i8, ptr %0, i64 32
   br label %112
 
@@ -18361,15 +18361,15 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
   %.sroa.01.0.insert.ext.i.i.i = zext i32 %129 to i64
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.01.0.insert.ext.i.i.i
-  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.sroa.01.0.insert.insert.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val39)
+  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.sroa.01.0.insert.insert.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val39)
   %130 = load ptr, ptr %4, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 20
   %132 = atomicrmw add ptr %131, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %132, %13
   br i1 %.not36, label %112, label %._crit_edge, !llvm.loop !206
 
-._crit_edge:                                      ; preds = %112, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit"
-  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit" ], [ %114, %112 ]
+._crit_edge:                                      ; preds = %112, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit"
+  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit" ], [ %114, %112 ]
   %133 = load ptr, ptr %4, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %134, i32 noundef %.034.lcssa)
@@ -18380,9 +18380,9 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -18418,7 +18418,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -18443,16 +18443,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENUlRS8_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -18472,16 +18472,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -18522,18 +18522,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -18569,7 +18569,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -18594,25 +18594,25 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E15_M_init_functorIRKSO_EEvRSt9_Any_dataSB_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS6_iiiS9_iENKUlRS8_E_clIKSJ_EEDaSI_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNKS2_17BlockSparseMatrix17SquaredColumnNormEPdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS8_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_EUlvE_E15_M_init_functorIRKSO_EEvRSt9_Any_dataSB_.exit.i", %6, %5, %4
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.16.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %1
 
@@ -18689,9 +18689,9 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit: ; preds = %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -18727,7 +18727,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockS
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -18752,21 +18752,21 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockS
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.extract.trunc = trunc i64 %.0.val to i32
   %.sroa.2.0.extract.shift = lshr i64 %.0.val, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -18779,8 +18779,8 @@ define internal fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockS
   %4 = ashr i64 %.0.val, 32
   br label %5
 
-5:                                                ; preds = %.lr.ph, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit"
-  %indvars.iv = phi i64 [ %4, %.lr.ph ], [ %indvars.iv.next, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit" ]
+5:                                                ; preds = %.lr.ph, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit"
+  %indvars.iv = phi i64 [ %4, %.lr.ph ], [ %indvars.iv.next, %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit" ]
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -18790,7 +18790,7 @@ define internal fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockS
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not16.i.i = icmp eq ptr %11, %13
-  br i1 %.not16.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit", label %.lr.ph.i.i
+  br i1 %.not16.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %5
   %14 = getelementptr inbounds i8, ptr %9, i64 4
@@ -18932,15 +18932,15 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i: ; preds = %15
 _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS3_INS_7ProductIS9_NS_15DiagonalWrapperIKNS4_IKNS5_IdLin1ELi1ELi0ELin1ELi1EEELi0ES8_EEEELi1EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSM_.exit: ; preds = %._crit_edge.i.i.loopexit.us, %._crit_edge.i, %36, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i
   %80 = getelementptr inbounds i8, ptr %.sroa.013.017.i.i, i64 8
   %.not.i.i = icmp eq ptr %80, %13
-  br i1 %.not.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit", label %15
+  br i1 %.not.i.i, label %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit", label %15
 
-"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit": ; preds = %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS3_INS_7ProductIS9_NS_15DiagonalWrapperIKNS4_IKNS5_IdLin1ELi1ELi0ELin1ELi1EEELi0ES8_EEEELi1EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSM_.exit, %5
+"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit": ; preds = %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEENS3_INS_7ProductIS9_NS_15DiagonalWrapperIKNS4_IKNS5_IdLin1ELi1ELi0ELin1ELi1EEELi0ES8_EEEELi1EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSM_.exit, %5
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %81 = trunc nsw i64 %indvars.iv.next to i32
   %.not = icmp eq i32 %81, %.sroa.0.0.extract.trunc
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !207
 
-._crit_edge:                                      ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.argprom.exit", %1
+._crit_edge:                                      ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit", %1
   ret void
 }
 
@@ -18960,16 +18960,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -19010,18 +19010,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -19057,7 +19057,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -19082,20 +19082,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataSB_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clISB_EEDaSA_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clISD_EEDaSC_EUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataSB_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -19118,13 +19118,13 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSp
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %7, 1
   %15 = icmp slt i32 %14, %9
-  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit"
+  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit"
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 20
   %18 = load atomic i32, ptr %17 seq_cst, align 4
   %19 = icmp slt i32 %18, %13
-  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit"
+  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit"
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
@@ -19212,7 +19212,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSp
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
-  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit", label %59
+  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit", label %59
 
 59:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %60 = getelementptr inbounds i8, ptr %26, i64 8
@@ -19248,7 +19248,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 75:                                               ; preds = %73, %71
   %.0.i.i.i.i.i.i = phi i32 [ %63, %71 ], [ %74, %73 ]
   %76 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit"
+  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit"
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %26, align 8
@@ -19273,14 +19273,14 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 88:                                               ; preds = %86, %83
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %84, %83 ], [ %87, %86 ]
   %89 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit"
+  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %88, %64
   %90 = load ptr, ptr %26, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit"
 
 93:                                               ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_C2ERKSB_.exit"
   %94 = landingpad { ptr, i32 }
@@ -19307,10 +19307,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %96, %98 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom"(ptr %26) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev"(ptr %26) #28
   resume { ptr, i32 } %.pn
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
   %103 = load ptr, ptr %4, align 8
   %104 = load i32, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %103, i64 12
@@ -19322,7 +19322,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.not3654 = icmp slt i32 %110, %13
   br i1 %.not3654, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit"
   %111 = getelementptr inbounds i8, ptr %0, i64 32
   br label %112
 
@@ -19343,15 +19343,15 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
   %.sroa.043.0.insert.ext = zext i32 %121 to i64
   %.sroa.043.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.043.0.insert.ext
   %122 = load ptr, ptr %111, align 8
-  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.sroa.043.0.insert.insert, ptr noundef nonnull align 8 dereferenceable(24) %122)
+  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.sroa.043.0.insert.insert, ptr noundef nonnull align 8 dereferenceable(24) %122)
   %123 = load ptr, ptr %4, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 20
   %125 = atomicrmw add ptr %124, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %125, %13
   br i1 %.not36, label %112, label %._crit_edge, !llvm.loop !208
 
-._crit_edge:                                      ; preds = %112, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit"
-  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit" ], [ %114, %112 ]
+._crit_edge:                                      ; preds = %112, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit"
+  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit" ], [ %114, %112 ]
   %126 = load ptr, ptr %4, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %127, i32 noundef %.034.lcssa)
@@ -19362,9 +19362,9 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %98, %95, %93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -19400,7 +19400,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockS
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -19425,16 +19425,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockS
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENUlRS8_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -19454,16 +19454,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -19504,18 +19504,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -19551,7 +19551,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -19576,25 +19576,25 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E15_M_init_functorIRKSG_EEvRSt9_Any_dataSB_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS6_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS8_iiiOT_iENKUlRSA_E_clIKSD_EEDaSC_EUlvE_E15_M_init_functorIRKSG_EEvRSt9_Any_dataSB_.exit.i", %6, %5, %4
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.16.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %1
 
@@ -19671,9 +19671,9 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit: ; preds = %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -19709,7 +19709,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -19734,16 +19734,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -19763,16 +19763,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -19813,18 +19813,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -19860,7 +19860,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -19885,20 +19885,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E15_M_init_functorIRKSO_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clISK_EEDaSJ_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clISM_EEDaSL_EUlvE_E15_M_init_functorIRKSO_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -19921,13 +19921,13 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11Paralle
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %7, 1
   %15 = icmp slt i32 %14, %9
-  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit"
+  br i1 %15, label %16, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit"
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 20
   %18 = load atomic i32, ptr %17 seq_cst, align 4
   %19 = icmp slt i32 %18, %13
-  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit"
+  br i1 %19, label %20, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit"
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
@@ -20015,7 +20015,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_11Paralle
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
-  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit", label %59
+  br i1 %.not.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit", label %59
 
 59:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %60 = getelementptr inbounds i8, ptr %26, i64 8
@@ -20051,7 +20051,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 75:                                               ; preds = %73, %71
   %.0.i.i.i.i.i.i = phi i32 [ %63, %71 ], [ %74, %73 ]
   %76 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit"
+  br i1 %76, label %77, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit"
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %26, align 8
@@ -20076,14 +20076,14 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %54
 88:                                               ; preds = %86, %83
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %84, %83 ], [ %87, %86 ]
   %89 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit"
+  br i1 %89, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %88, %64
   %90 = load ptr, ptr %26, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit"
 
 93:                                               ; preds = %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_C2ERKSK_.exit"
   %94 = landingpad { ptr, i32 }
@@ -20110,10 +20110,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   %.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %96, %98 ]
-  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom"(ptr %26) #28
+  call fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev"(ptr %26) #28
   resume { ptr, i32 } %.pn
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %88, %75, %_ZNSt8functionIFvvEED2Ev.exit, %16, %10
   %103 = load ptr, ptr %4, align 8
   %104 = load i32, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %103, i64 12
@@ -20125,7 +20125,7 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   %.not3656 = icmp slt i32 %110, %13
   br i1 %.not3656, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit"
   %111 = getelementptr inbounds i8, ptr %0, i64 32
   br label %112
 
@@ -20158,15 +20158,15 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
   %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
   %.sroa.01.0.insert.ext.i.i.i = zext i32 %129 to i64
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.01.0.insert.ext.i.i.i
-  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.argprom.argelim"(i64 %.sroa.01.0.insert.insert.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val39)
+  call fastcc void @"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_"(i64 %.sroa.01.0.insert.insert.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val39)
   %130 = load ptr, ptr %4, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 20
   %132 = atomicrmw add ptr %131, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %132, %13
   br i1 %.not36, label %112, label %._crit_edge, !llvm.loop !209
 
-._crit_edge:                                      ; preds = %112, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit"
-  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit" ], [ %114, %112 ]
+._crit_edge:                                      ; preds = %112, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit"
+  %.034.lcssa = phi i32 [ 0, %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit" ], [ %114, %112 ]
   %133 = load ptr, ptr %4, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %134, i32 noundef %.034.lcssa)
@@ -20177,9 +20177,9 @@ _ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %98, %95, %93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev"(ptr %.16.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i.i = icmp eq ptr %.16.val, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit", label %1
+  br i1 %.not.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit", label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.16.val, i64 8
@@ -20215,7 +20215,7 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %18, label %19, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit"
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.16.val, align 8
@@ -20240,16 +20240,16 @@ define internal fastcc void @"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11Parall
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit"
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.16.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.16.val) #28
-  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit"
+  br label %"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit"
 
-"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.argprom.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+"_ZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENUlRS9_E_D2Ev.exit": ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 }
 
@@ -20269,16 +20269,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_EUlvE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit" [
     i32 3, label %26
     i32 2, label %7
   ]
@@ -20319,18 +20319,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 26:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %27 = icmp eq ptr %.val7.i, null
-  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit", label %28
+  br i1 %27, label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %.val7.i, i64 16
   %.val.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i", label %30
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit.i.i", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -20366,7 +20366,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 46:                                               ; preds = %44, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %47, label %48, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit.i.i"
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %.val.i.i, align 8
@@ -20391,20 +20391,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 59:                                               ; preds = %57, %54
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
   %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i"
+  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %59, %35
   %61 = load ptr, ptr %.val.i.i, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #28
-  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i"
+  br label %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit.i.i"
 
-"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
+"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %59, %46, %28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #30
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.argprom.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.argprom.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E15_M_init_functorIRKSP_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit": ; preds = %"_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0EEvS7_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS7_iiiSA_iENKUlRS9_E_clIKSK_EEDaSJ_ENUlvE_D2Ev.exit.i.i", %26, %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_11ParallelForIZNS2_17BlockSparseMatrix12ScaleColumnsEPKdPNS2_11ContextImplEiE3$_0EEvS9_iiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSC_iENKUlRSB_E_clIKSM_EEDaSL_EUlvE_E15_M_init_functorIRKSP_EEvRSt9_Any_dataSC_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -21938,8 +21938,8 @@ attributes #32 = { nounwind allocsize(0) }
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom: argument 0"}
-!33 = distinct !{!33, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom"}
+!32 = distinct !{!32, !33, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_: argument 0"}
+!33 = distinct !{!33, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_"}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
@@ -21963,8 +21963,8 @@ attributes #32 = { nounwind allocsize(0) }
 !54 = distinct !{!54, !"_ZSt11make_sharedIN5ceres8internal19ParallelInvokeStateEJRiS3_RKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
 !55 = distinct !{!55, !5}
 !56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom: argument 0"}
-!58 = distinct !{!58, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom"}
+!57 = distinct !{!57, !58, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_: argument 0"}
+!58 = distinct !{!58, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_"}
 !59 = distinct !{!59, !5}
 !60 = distinct !{!60, !5}
 !61 = distinct !{!61, !5}
@@ -21984,8 +21984,8 @@ attributes #32 = { nounwind allocsize(0) }
 !75 = distinct !{!75, !"_ZSt11make_sharedIN5ceres8internal19ParallelInvokeStateEJRiS3_RKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
 !76 = distinct !{!76, !5}
 !77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom: argument 0"}
-!79 = distinct !{!79, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_.argprom"}
+!78 = distinct !{!78, !79, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_: argument 0"}
+!79 = distinct !{!79, !"_ZN5ceres8internal28PartitionRangeForParallelForINS0_14CompressedListEZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_1EESt6vectorIiSaIiEEiiiPKT_OT0_"}
 !80 = distinct !{!80, !5}
 !81 = distinct !{!81, !5}
 !82 = distinct !{!82, !5}
@@ -21994,8 +21994,8 @@ attributes #32 = { nounwind allocsize(0) }
 !85 = distinct !{!85, !"_ZSt11make_sharedIN5ceres8internal19ParallelInvokeStateEJRiS3_RKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
 !86 = distinct !{!86, !5}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom: argument 0"}
-!89 = distinct !{!89, !"_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom"}
+!88 = distinct !{!88, !89, !"_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE: argument 0"}
+!89 = distinct !{!89, !"_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE"}
 !90 = !{!91}
 !91 = distinct !{!91, !92, !"_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !92 = distinct !{!92, !"_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -22009,8 +22009,8 @@ attributes #32 = { nounwind allocsize(0) }
 !100 = distinct !{!100, !5, !71}
 !101 = distinct !{!101, !5}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom: argument 0"}
-!104 = distinct !{!104, !"_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.argprom"}
+!103 = distinct !{!103, !104, !"_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE: argument 0"}
+!104 = distinct !{!104, !"_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE"}
 !105 = !{!106}
 !106 = distinct !{!106, !107, !"_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !107 = distinct !{!107, !"_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

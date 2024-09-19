@@ -58,7 +58,7 @@ define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..Fn
 
 19:                                               ; preds = %3
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !3
-  br label %"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h07aeac17685b77d2E.argprom.exit"
+  br label %"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h07aeac17685b77d2E.exit"
 
 20:                                               ; preds = %22, %14
   %21 = landingpad { ptr, i32 }
@@ -236,7 +236,7 @@ define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..Fn
 
 66:                                               ; preds = %65
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %11), !noalias !3
-  br label %"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h07aeac17685b77d2E.argprom.exit"
+  br label %"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h07aeac17685b77d2E.exit"
 
 67:                                               ; preds = %43, %37, %33, %29, %24, %20
   %68 = landingpad { ptr, i32 }
@@ -248,7 +248,7 @@ define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..Fn
   %.pn6.pn.i = phi { ptr, i32 } [ %.pn6.i, %24 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn6.pn.i
 
-"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h07aeac17685b77d2E.argprom.exit": ; preds = %19, %66
+"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h07aeac17685b77d2E.exit": ; preds = %19, %66
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -280,7 +280,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 10:                                               ; preds = %3
   invoke void @_ZN15wiggle_generate5types15define_datatype17h8c5de3a4fed51b86E(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr nonnull align 8 %6, ptr align 8 %7)
-          to label %"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h41864b71a6a4163dE.argprom.exit" unwind label %8
+          to label %"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h41864b71a6a4163dE.exit" unwind label %8
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
@@ -291,7 +291,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 13:                                               ; preds = %8
   resume { ptr, i32 } %9
 
-"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h41864b71a6a4163dE.argprom.exit": ; preds = %10
+"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h41864b71a6a4163dE.exit": ; preds = %10
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..rc..Rc$LT$witx..ast..NamedType$GT$$GT$17h4f1146973eef8dcbE"(ptr nonnull align 8 %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
@@ -601,7 +601,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load ptr, ptr %.val1, align 8, !noalias !17, !nonnull !7, !align !8, !noundef !7
   invoke void @_ZN15wiggle_generate5funcs11define_func17h1d256a1b9dc21d5aE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr nonnull align 8 %8, ptr nonnull align 8 %9, ptr nonnull align 8 %10)
-          to label %"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he928947e72908e4bE.argprom.exit" unwind label %11
+          to label %"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he928947e72908e4bE.exit" unwind label %11
 
 11:                                               ; preds = %3
   %12 = landingpad { ptr, i32 }
@@ -618,7 +618,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 15:                                               ; preds = %11
   resume { ptr, i32 } %12
 
-"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he928947e72908e4bE.argprom.exit": ; preds = %3
+"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he928947e72908e4bE.exit": ; preds = %3
   call void @"_ZN4core3ptr66drop_in_place$LT$alloc..rc..Rc$LT$witx..ast..InterfaceFunc$GT$$GT$17h57e5145b8fcd01a0E"(ptr nonnull align 8 %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
@@ -817,7 +817,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 71:                                               ; preds = %70
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %6)
-          to label %"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h63734c18defe48f9E.argprom.exit" unwind label %47, !noalias !20
+          to label %"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h63734c18defe48f9E.exit" unwind label %47, !noalias !20
 
 72:                                               ; preds = %61, %57, %53, %46, %41, %32, %25
   %73 = landingpad { ptr, i32 }
@@ -829,7 +829,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %.pn25.pn.i = phi { ptr, i32 } [ %.pn25.i, %46 ], [ %.pn19.i, %25 ]
   resume { ptr, i32 } %.pn25.pn.i
 
-"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h63734c18defe48f9E.argprom.exit": ; preds = %71
+"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h63734c18defe48f9E.exit": ; preds = %71
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %15), !noalias !20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -1016,22 +1016,22 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{!4}
-!4 = distinct !{!4, !5, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h07aeac17685b77d2E.argprom: argument 0"}
-!5 = distinct !{!5, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h07aeac17685b77d2E.argprom"}
+!4 = distinct !{!4, !5, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h07aeac17685b77d2E: argument 0"}
+!5 = distinct !{!5, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h07aeac17685b77d2E"}
 !6 = !{i64 0, i64 -9223372036854775807}
 !7 = !{}
 !8 = !{i64 8}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h41864b71a6a4163dE.argprom: argument 0"}
-!11 = distinct !{!11, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h41864b71a6a4163dE.argprom"}
+!10 = distinct !{!10, !11, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h41864b71a6a4163dE: argument 0"}
+!11 = distinct !{!11, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h41864b71a6a4163dE"}
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17ha9b52276027e9764E: argument 0"}
 !14 = distinct !{!14, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17ha9b52276027e9764E"}
 !15 = !{i8 0, i8 2}
 !16 = !{i64 0, i64 -9223372036854775806}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he928947e72908e4bE.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he928947e72908e4bE.argprom"}
+!18 = distinct !{!18, !19, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he928947e72908e4bE: argument 0"}
+!19 = distinct !{!19, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he928947e72908e4bE"}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h63734c18defe48f9E.argprom: argument 0"}
-!22 = distinct !{!22, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h63734c18defe48f9E.argprom"}
+!21 = distinct !{!21, !22, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h63734c18defe48f9E: argument 0"}
+!22 = distinct !{!22, !"_ZN15wiggle_generate8generate28_$u7b$$u7b$closure$u7d$$u7d$17h63734c18defe48f9E"}

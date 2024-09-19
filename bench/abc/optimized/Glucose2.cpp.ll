@@ -4629,7 +4629,7 @@ define void @_ZN6Gluco26Solver12detachClauseEjb(ptr nocapture noundef nonnull al
 
 .critedge.thread.i:                               ; preds = %28
   %29 = add nsw i32 %22, -1
-  br label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit
+  br label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit
 
 .critedge.loopexit.i:                             ; preds = %25
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -4639,7 +4639,7 @@ define void @_ZN6Gluco26Solver12detachClauseEjb(ptr nocapture noundef nonnull al
   %.0.lcssa.i = phi i32 [ 0, %13 ], [ %30, %.critedge.loopexit.i ]
   %31 = add nsw i32 %22, -1
   %32 = icmp slt i32 %.0.lcssa.i, %31
-  br i1 %32, label %.lr.ph6.preheader.i, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit
+  br i1 %32, label %.lr.ph6.preheader.i, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit
 
 .lr.ph6.preheader.i:                              ; preds = %.critedge.i
   %33 = zext i32 %.0.lcssa.i to i64
@@ -4657,9 +4657,9 @@ define void @_ZN6Gluco26Solver12detachClauseEjb(ptr nocapture noundef nonnull al
   %39 = add nsw i32 %38, -1
   %40 = trunc nuw i64 %indvars.iv.next11.i to i32
   %41 = icmp sgt i32 %39, %40
-  br i1 %41, label %.lr.ph6.i, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit, !llvm.loop !26
+  br i1 %41, label %.lr.ph6.i, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit, !llvm.loop !26
 
-_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit: ; preds = %.lr.ph6.i, %.critedge.thread.i, %.critedge.i
+_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit: ; preds = %.lr.ph6.i, %.critedge.thread.i, %.critedge.i
   %.lcssa.i = phi i32 [ %31, %.critedge.i ], [ %29, %.critedge.thread.i ], [ %39, %.lr.ph6.i ]
   store i32 %.lcssa.i, ptr %21, align 8
   %.sroa.0.0.copyload.i39 = load i32, ptr %20, align 4
@@ -4672,7 +4672,7 @@ _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit: ; p
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph.i49, label %.critedge.i42
 
-.lr.ph.i49:                                       ; preds = %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit
+.lr.ph.i49:                                       ; preds = %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit
   %49 = load ptr, ptr %45, align 8
   %wide.trip.count.i50 = zext nneg i32 %47 to i64
   br label %50
@@ -4691,17 +4691,17 @@ _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit: ; p
 
 .critedge.thread.i55:                             ; preds = %53
   %54 = add nsw i32 %47, -1
-  br label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit57
+  br label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit57
 
 .critedge.loopexit.i56:                           ; preds = %50
   %55 = trunc nuw nsw i64 %indvars.iv.i51 to i32
   br label %.critedge.i42
 
-.critedge.i42:                                    ; preds = %.critedge.loopexit.i56, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit
-  %.0.lcssa.i43 = phi i32 [ 0, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit ], [ %55, %.critedge.loopexit.i56 ]
+.critedge.i42:                                    ; preds = %.critedge.loopexit.i56, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit
+  %.0.lcssa.i43 = phi i32 [ 0, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit ], [ %55, %.critedge.loopexit.i56 ]
   %56 = add nsw i32 %47, -1
   %57 = icmp slt i32 %.0.lcssa.i43, %56
-  br i1 %57, label %.lr.ph6.preheader.i45, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit57
+  br i1 %57, label %.lr.ph6.preheader.i45, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit57
 
 .lr.ph6.preheader.i45:                            ; preds = %.critedge.i42
   %58 = zext i32 %.0.lcssa.i43 to i64
@@ -4719,9 +4719,9 @@ _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit: ; p
   %64 = add nsw i32 %63, -1
   %65 = trunc nuw i64 %indvars.iv.next11.i48 to i32
   %66 = icmp sgt i32 %64, %65
-  br i1 %66, label %.lr.ph6.i46, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit57, !llvm.loop !26
+  br i1 %66, label %.lr.ph6.i46, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit57, !llvm.loop !26
 
-_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit57: ; preds = %.lr.ph6.i46, %.critedge.thread.i55, %.critedge.i42
+_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit57: ; preds = %.lr.ph6.i46, %.critedge.thread.i55, %.critedge.i42
   %.lcssa.i44 = phi i32 [ %56, %.critedge.i42 ], [ %54, %.critedge.thread.i55 ], [ %64, %.lr.ph6.i46 ]
   store i32 %.lcssa.i44, ptr %46, align 8
   br label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66
@@ -4906,7 +4906,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i63:     ; preds = %._ZN6Gluco23vecINS_
 
 .critedge.thread.i83:                             ; preds = %163
   %164 = add nsw i32 %157, -1
-  br label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit85
+  br label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85
 
 .critedge.loopexit.i84:                           ; preds = %160
   %165 = trunc nuw nsw i64 %indvars.iv.i79 to i32
@@ -4916,7 +4916,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i63:     ; preds = %._ZN6Gluco23vecINS_
   %.0.lcssa.i71 = phi i32 [ 0, %148 ], [ %165, %.critedge.loopexit.i84 ]
   %166 = add nsw i32 %157, -1
   %167 = icmp slt i32 %.0.lcssa.i71, %166
-  br i1 %167, label %.lr.ph6.preheader.i73, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit85
+  br i1 %167, label %.lr.ph6.preheader.i73, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85
 
 .lr.ph6.preheader.i73:                            ; preds = %.critedge.i70
   %168 = zext i32 %.0.lcssa.i71 to i64
@@ -4934,9 +4934,9 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i63:     ; preds = %._ZN6Gluco23vecINS_
   %174 = add nsw i32 %173, -1
   %175 = trunc nuw i64 %indvars.iv.next11.i76 to i32
   %176 = icmp sgt i32 %174, %175
-  br i1 %176, label %.lr.ph6.i74, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit85, !llvm.loop !26
+  br i1 %176, label %.lr.ph6.i74, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85, !llvm.loop !26
 
-_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit85: ; preds = %.lr.ph6.i74, %.critedge.thread.i83, %.critedge.i70
+_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85: ; preds = %.lr.ph6.i74, %.critedge.thread.i83, %.critedge.i70
   %.lcssa.i72 = phi i32 [ %166, %.critedge.i70 ], [ %164, %.critedge.thread.i83 ], [ %174, %.lr.ph6.i74 ]
   store i32 %.lcssa.i72, ptr %156, align 8
   %.sroa.0.0.copyload.i86 = load i32, ptr %155, align 4
@@ -4949,7 +4949,7 @@ _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit85: ;
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %.lr.ph.i96, label %.critedge.i89
 
-.lr.ph.i96:                                       ; preds = %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit85
+.lr.ph.i96:                                       ; preds = %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85
   %184 = load ptr, ptr %180, align 8
   %wide.trip.count.i97 = zext nneg i32 %182 to i64
   br label %185
@@ -4968,17 +4968,17 @@ _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit85: ;
 
 .critedge.thread.i102:                            ; preds = %188
   %189 = add nsw i32 %182, -1
-  br label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit104
+  br label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104
 
 .critedge.loopexit.i103:                          ; preds = %185
   %190 = trunc nuw nsw i64 %indvars.iv.i98 to i32
   br label %.critedge.i89
 
-.critedge.i89:                                    ; preds = %.critedge.loopexit.i103, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit85
-  %.0.lcssa.i90 = phi i32 [ 0, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit85 ], [ %190, %.critedge.loopexit.i103 ]
+.critedge.i89:                                    ; preds = %.critedge.loopexit.i103, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85
+  %.0.lcssa.i90 = phi i32 [ 0, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85 ], [ %190, %.critedge.loopexit.i103 ]
   %191 = add nsw i32 %182, -1
   %192 = icmp slt i32 %.0.lcssa.i90, %191
-  br i1 %192, label %.lr.ph6.preheader.i92, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit104
+  br i1 %192, label %.lr.ph6.preheader.i92, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104
 
 .lr.ph6.preheader.i92:                            ; preds = %.critedge.i89
   %193 = zext i32 %.0.lcssa.i90 to i64
@@ -4996,9 +4996,9 @@ _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit85: ;
   %199 = add nsw i32 %198, -1
   %200 = trunc nuw i64 %indvars.iv.next11.i95 to i32
   %201 = icmp sgt i32 %199, %200
-  br i1 %201, label %.lr.ph6.i93, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit104, !llvm.loop !26
+  br i1 %201, label %.lr.ph6.i93, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104, !llvm.loop !26
 
-_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit104: ; preds = %.lr.ph6.i93, %.critedge.thread.i102, %.critedge.i89
+_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104: ; preds = %.lr.ph6.i93, %.critedge.thread.i102, %.critedge.i89
   %.lcssa.i91 = phi i32 [ %191, %.critedge.i89 ], [ %189, %.critedge.thread.i102 ], [ %199, %.lr.ph6.i93 ]
   store i32 %.lcssa.i91, ptr %181, align 8
   br label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66
@@ -5147,7 +5147,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i117:    ; preds = %._ZN6Gluco23vecINS_
   store i32 %245, ptr %281, align 4
   br label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66
 
-_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66: ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i117, %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit112, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i63, %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit104, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.argprom.exit57
+_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66: ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i117, %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit112, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i63, %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit57
   %282 = load i96, ptr %7, align 4
   %283 = and i96 %282, 4
   %.not = icmp eq i96 %283, 0

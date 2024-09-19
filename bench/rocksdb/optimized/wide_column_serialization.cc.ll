@@ -882,7 +882,7 @@ entry:
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 5
   %cmp2.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
-  br i1 %cmp2.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.argprom.exit"
+  br i1 %cmp2.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.exit"
 
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
   %__len.04.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i.i, %entry ]
@@ -904,14 +904,14 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %__first.sroa.0.1.i.i = select i1 %cmp.i.i6.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.sroa.0.03.i.i
   %__len.1.i.i = select i1 %cmp.i.i6.i.i, i64 %sub9.i.i, i64 %shr.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
-  br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.argprom.exit", !llvm.loop !26
+  br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.exit", !llvm.loop !26
 
-"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.argprom.exit": ; preds = %while.body.i.i, %entry
+"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.exit": ; preds = %while.body.i.i, %entry
   %__first.sroa.0.0.lcssa.i.i = phi ptr [ %0, %entry ], [ %__first.sroa.0.1.i.i, %while.body.i.i ]
   %cmp.i = icmp eq ptr %__first.sroa.0.0.lcssa.i.i, %1
   br i1 %cmp.i, label %return, label %lor.rhs
 
-lor.rhs:                                          ; preds = %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.argprom.exit"
+lor.rhs:                                          ; preds = %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.exit"
   %size_.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 8
   %5 = load i64, ptr %size_.i.i.i, align 8
   %cmp.i.i7 = icmp eq i64 %5, %column_name.val5
@@ -924,8 +924,8 @@ _ZN7rocksdbneERKNS_5SliceES2_.exit:               ; preds = %lor.rhs
   %spec.select = select i1 %cmp6.i.i.not, ptr %__first.sroa.0.0.lcssa.i.i, ptr %1
   br label %return
 
-return:                                           ; preds = %_ZN7rocksdbneERKNS_5SliceES2_.exit, %lor.rhs, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.argprom.exit"
-  %retval.sroa.0.0 = phi ptr [ %1, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.argprom.exit" ], [ %1, %lor.rhs ], [ %spec.select, %_ZN7rocksdbneERKNS_5SliceES2_.exit ]
+return:                                           ; preds = %_ZN7rocksdbneERKNS_5SliceES2_.exit, %lor.rhs, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.exit"
+  %retval.sroa.0.0 = phi ptr [ %1, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS2_5SliceEZNS2_23WideColumnSerialization4FindERKS8_RKSA_E3$_0ET_SH_SH_RKT0_T1_.exit" ], [ %1, %lor.rhs ], [ %spec.select, %_ZN7rocksdbneERKNS_5SliceES2_.exit ]
   ret ptr %retval.sroa.0.0
 }
 

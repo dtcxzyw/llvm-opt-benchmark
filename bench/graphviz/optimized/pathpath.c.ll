@@ -39,12 +39,12 @@ define ptr @pathpath(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %6
   %12 = tail call noalias ptr @strdup(ptr noundef %0) #16
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 13:                                               ; preds = %6, %1
   %14 = load i8, ptr %0, align 1
   %15 = icmp eq i8 %14, 47
-  br i1 %15, label %agxbfree.argprom.exit83.thread, label %16
+  br i1 %15, label %agxbfree.exit83.thread, label %16
 
 16:                                               ; preds = %13
   %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #17
@@ -58,7 +58,7 @@ define ptr @pathpath(ptr noundef %0) local_unnamed_addr #0 {
 19:                                               ; preds = %16
   %20 = load i8, ptr %18, align 1
   %.not61 = icmp eq i8 %20, 0
-  br i1 %.not61, label %agxbfree.argprom.exit83, label %21
+  br i1 %.not61, label %agxbfree.exit83, label %21
 
 21:                                               ; preds = %19
   %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 47) #17
@@ -78,22 +78,22 @@ define ptr @pathpath(ptr noundef %0) local_unnamed_addr #0 {
 .thread:                                          ; preds = %16, %25, %23, %21
   %27 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #16
   %.not66 = icmp eq ptr %27, null
-  br i1 %.not66, label %agxbfree.argprom.exit83, label %28
+  br i1 %.not66, label %agxbfree.exit83, label %28
 
 28:                                               ; preds = %.thread
   %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 47) #17
   %.not67 = icmp eq ptr %29, null
-  br i1 %.not67, label %agxbfree.argprom.exit83, label %30
+  br i1 %.not67, label %agxbfree.exit83, label %30
 
 30:                                               ; preds = %28
   %31 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(6) @.str.3, i64 noundef 5) #17
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %agxbfree.argprom.exit83, label %33
+  br i1 %32, label %agxbfree.exit83, label %33
 
 33:                                               ; preds = %30
   %34 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(10) @.str.4, i64 noundef 9) #17
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %agxbfree.argprom.exit83, label %36
+  br i1 %35, label %agxbfree.exit83, label %36
 
 36:                                               ; preds = %33, %25
   %.046 = phi ptr [ %27, %33 ], [ %18, %25 ]
@@ -111,27 +111,27 @@ define ptr @pathpath(ptr noundef %0) local_unnamed_addr #0 {
   %42 = getelementptr inbounds i8, ptr %.046, i64 %41
   %43 = ptrtoint ptr %.046 to i64
   %44 = getelementptr inbounds i8, ptr %3, i64 31
-  br label %agxbfree.argprom.exit84
+  br label %agxbfree.exit84
 
-agxbfree.argprom.exit84:                          ; preds = %agxbfree.argprom.exit84.backedge, %40
-  %.1 = phi ptr [ %42, %40 ], [ %.1.be, %agxbfree.argprom.exit84.backedge ]
+agxbfree.exit84:                                  ; preds = %agxbfree.exit84.backedge, %40
+  %.1 = phi ptr [ %42, %40 ], [ %.1.be, %agxbfree.exit84.backedge ]
   %.not69 = icmp ugt ptr %.1, %.046
-  br i1 %.not69, label %45, label %agxbfree.argprom.exit83
+  br i1 %.not69, label %45, label %agxbfree.exit83
 
-45:                                               ; preds = %agxbfree.argprom.exit84
+45:                                               ; preds = %agxbfree.exit84
   %46 = getelementptr inbounds i8, ptr %.1, i64 -1
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 47
-  br i1 %48, label %agxbfree.argprom.exit84.backedge, label %.preheader
+  br i1 %48, label %agxbfree.exit84.backedge, label %.preheader
 
-agxbfree.argprom.exit84.backedge:                 ; preds = %45, %67, %69
+agxbfree.exit84.backedge:                         ; preds = %45, %67, %69
   %.1.be = phi ptr [ %46, %45 ], [ %50, %67 ], [ %50, %69 ]
-  br label %agxbfree.argprom.exit84
+  br label %agxbfree.exit84
 
 .preheader:                                       ; preds = %45, %49
   %.2 = phi ptr [ %50, %49 ], [ %46, %45 ]
   %.not70 = icmp ugt ptr %.2, %.046
-  br i1 %.not70, label %49, label %agxbfree.argprom.exit83
+  br i1 %.not70, label %49, label %agxbfree.exit83
 
 49:                                               ; preds = %.preheader
   %50 = getelementptr inbounds i8, ptr %.2, i64 -1
@@ -145,7 +145,7 @@ agxbfree.argprom.exit84.backedge:                 ; preds = %45, %67, %69
   %54 = sub i64 %53, %43
   %55 = trunc i64 %54 to i32
   %56 = add i32 %55, 1
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %3, ptr nonnull poison, i32 noundef %56, ptr noundef nonnull %.046)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr nonnull poison, i32 noundef %56, ptr noundef nonnull %.046)
   %57 = call fastcc ptr @agxbuse(ptr noundef %3)
   %58 = call i32 @access(ptr noundef %57, i32 noundef 1) #16
   %59 = icmp eq i32 %58, 0
@@ -159,70 +159,70 @@ agxbfree.argprom.exit84.backedge:                 ; preds = %45, %67, %69
   br i1 %.not72, label %65, label %63
 
 63:                                               ; preds = %60
-  br i1 %62, label %64, label %agxbfree.argprom.exit
+  br i1 %62, label %64, label %agxbfree.exit
 
 64:                                               ; preds = %63
   %.val = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val) #16
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 65:                                               ; preds = %60
-  br i1 %62, label %66, label %agxbfree.argprom.exit83
+  br i1 %62, label %66, label %agxbfree.exit83
 
 66:                                               ; preds = %65
   %.val79 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val79) #16
-  br label %agxbfree.argprom.exit83
+  br label %agxbfree.exit83
 
 67:                                               ; preds = %52
   %.val82 = load i8, ptr %44, align 1
   %68 = icmp eq i8 %.val82, -1
-  br i1 %68, label %69, label %agxbfree.argprom.exit84.backedge
+  br i1 %68, label %69, label %agxbfree.exit84.backedge
 
 69:                                               ; preds = %67
   %.val81 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val81) #16
-  br label %agxbfree.argprom.exit84.backedge
+  br label %agxbfree.exit84.backedge
 
-agxbfree.argprom.exit83:                          ; preds = %agxbfree.argprom.exit84, %.preheader, %66, %65, %.thread, %28, %30, %33, %19
-  br i1 %.not, label %agxbfree.argprom.exit83.thread, label %71
+agxbfree.exit83:                                  ; preds = %agxbfree.exit84, %.preheader, %66, %65, %.thread, %28, %30, %33, %19
+  br i1 %.not, label %agxbfree.exit83.thread, label %71
 
-agxbfree.argprom.exit83.thread:                   ; preds = %13, %agxbfree.argprom.exit83
+agxbfree.exit83.thread:                           ; preds = %13, %agxbfree.exit83
   %70 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #17
   %.not74 = icmp eq ptr %70, null
   br i1 %.not74, label %71, label %73
 
-71:                                               ; preds = %agxbfree.argprom.exit83.thread, %agxbfree.argprom.exit83
-  %.04892 = phi ptr [ null, %agxbfree.argprom.exit83.thread ], [ %0, %agxbfree.argprom.exit83 ]
-  %.05089 = phi ptr [ %0, %agxbfree.argprom.exit83.thread ], [ @.str.1, %agxbfree.argprom.exit83 ]
+71:                                               ; preds = %agxbfree.exit83.thread, %agxbfree.exit83
+  %.04892 = phi ptr [ null, %agxbfree.exit83.thread ], [ %0, %agxbfree.exit83 ]
+  %.05089 = phi ptr [ %0, %agxbfree.exit83.thread ], [ @.str.1, %agxbfree.exit83 ]
   %72 = call ptr @getenv(ptr noundef nonnull @.str.10) #16
   %.not.i = icmp eq ptr %72, null
   %.str..i = select i1 %.not.i, ptr @.str, ptr %72
   br label %73
 
-73:                                               ; preds = %agxbfree.argprom.exit83.thread, %71
-  %.04891 = phi ptr [ %.04892, %71 ], [ null, %agxbfree.argprom.exit83.thread ]
-  %.05088 = phi ptr [ %.05089, %71 ], [ %0, %agxbfree.argprom.exit83.thread ]
-  %74 = phi ptr [ %.str..i, %71 ], [ @.str, %agxbfree.argprom.exit83.thread ]
+73:                                               ; preds = %agxbfree.exit83.thread, %71
+  %.04891 = phi ptr [ %.04892, %71 ], [ null, %agxbfree.exit83.thread ]
+  %.05088 = phi ptr [ %.05089, %71 ], [ %0, %agxbfree.exit83.thread ]
+  %74 = phi ptr [ %.str..i, %71 ], [ @.str, %agxbfree.exit83.thread ]
   %75 = call ptr @pathaccess(ptr noundef nonnull %74, ptr noundef %.05088, ptr noundef %.04891) #16
   %.not75 = icmp eq ptr %75, null
-  br i1 %.not75, label %76, label %agxbfree.argprom.exit
+  br i1 %.not75, label %76, label %agxbfree.exit
 
 76:                                               ; preds = %73
   %77 = load i8, ptr %74, align 1
   %.not76 = icmp eq i8 %77, 0
-  br i1 %.not76, label %78, label %agxbfree.argprom.exit
+  br i1 %.not76, label %78, label %agxbfree.exit
 
 78:                                               ; preds = %76
   %79 = call ptr @getenv(ptr noundef nonnull @.str.7) #16
   %.not77 = icmp eq ptr %79, null
-  br i1 %.not77, label %agxbfree.argprom.exit, label %80
+  br i1 %.not77, label %agxbfree.exit, label %80
 
 80:                                               ; preds = %78
   %81 = call ptr @pathaccess(ptr noundef nonnull %79, ptr noundef %.05088, ptr noundef %.04891) #16
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %64, %63, %73, %76, %78, %80, %11
+agxbfree.exit:                                    ; preds = %64, %63, %73, %76, %78, %80, %11
   %.0 = phi ptr [ %12, %11 ], [ %75, %73 ], [ null, %76 ], [ %81, %80 ], [ null, %78 ], [ %61, %63 ], [ %61, %64 ]
   ret ptr %.0
 }
@@ -249,7 +249,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint.retelim(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -262,7 +262,7 @@ define internal void @agxbprint.retelim(ptr nocapture noundef nonnull %0, ptr no
 
 7:                                                ; preds = %2
   call void @llvm.va_end.p0(ptr nonnull %4)
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
 8:                                                ; preds = %2
   %narrow.i = add nuw i32 %5, 1
@@ -317,7 +317,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
   %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #16
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %vagxbprint.argprom.exit
+  br i1 %32, label %33, label %vagxbprint.exit
 
 33:                                               ; preds = %agxbnext.exit.i
   %.val.i = load i8, ptr %10, align 1
@@ -328,7 +328,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %35 = trunc i32 %31 to i8
   %36 = add i8 %.val.i, %35
   store i8 %36, ptr %10, align 1
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %31 to i64
@@ -336,9 +336,9 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
-vagxbprint.argprom.exit:                          ; preds = %7, %agxbnext.exit.i, %34, %37
+vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %34, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
@@ -459,7 +459,7 @@ agxbsizeof.exit:                                  ; preds = %2
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.9, i64 noundef %spec.select33) #19
-  tail call fastcc void @graphviz_exit.argelim() #20
+  tail call fastcc void @graphviz_exit() #20
   unreachable
 
 18:                                               ; preds = %12
@@ -482,7 +482,7 @@ agxbsizeof.exit:                                  ; preds = %2
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.9, i64 noundef %spec.select) #19
-  tail call fastcc void @graphviz_exit.argelim() #20
+  tail call fastcc void @graphviz_exit() #20
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23
@@ -509,7 +509,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit() unnamed_addr #8 {
   tail call void @exit(i32 noundef 1) #22
   unreachable
 }

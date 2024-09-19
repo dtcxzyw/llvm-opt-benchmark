@@ -2419,12 +2419,12 @@ if.then42.i:                                      ; preds = %land.rhs.i
   call void @hashmap_iter_init(ptr noundef nonnull %arrayidx.i82.i, ptr noundef nonnull %iter.i.i38) #18
   %call.i.i83.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i38) #18
   %tobool.not1.i.i = icmp eq ptr %call.i.i83.i, null
-  br i1 %tobool.not1.i.i, label %handle_directory_level_conflicts.argprom.exit.i, label %for.body.i.i61
+  br i1 %tobool.not1.i.i, label %handle_directory_level_conflicts.exit.i, label %for.body.i.i61
 
 for.cond12.preheader.i.i:                         ; preds = %for.inc.i.i63
   %.pre.i.i = load i64, ptr %nr.phi.trans.insert.i.i, align 8
   %110 = icmp eq i64 %.pre.i.i, 0
-  br i1 %110, label %handle_directory_level_conflicts.argprom.exit.i, label %for.body14.i.i
+  br i1 %110, label %handle_directory_level_conflicts.exit.i, label %for.body14.i.i
 
 for.body.i.i61:                                   ; preds = %if.then42.i, %for.inc.i.i63
   %entry1.02.i.i = phi ptr [ %call10.i.i, %for.inc.i.i63 ], [ %call.i.i83.i, %if.then42.i ]
@@ -2457,15 +2457,15 @@ for.body14.i.i:                                   ; preds = %for.cond12.preheade
   %indvars.iv.next.i.i65 = add nuw nsw i64 %indvars.iv.i.i64, 1
   %117 = load i64, ptr %nr.phi.trans.insert.i.i, align 8
   %cmp.i86.i = icmp ugt i64 %117, %indvars.iv.next.i.i65
-  br i1 %cmp.i86.i, label %for.body14.i.i, label %handle_directory_level_conflicts.argprom.exit.i, !llvm.loop !33
+  br i1 %cmp.i86.i, label %for.body14.i.i, label %handle_directory_level_conflicts.exit.i, !llvm.loop !33
 
-handle_directory_level_conflicts.argprom.exit.i:  ; preds = %for.body14.i.i, %for.cond12.preheader.i.i, %if.then42.i
+handle_directory_level_conflicts.exit.i:          ; preds = %for.body14.i.i, %for.cond12.preheader.i.i, %if.then42.i
   call void @string_list_clear(ptr noundef nonnull %duplicated.i.i, i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i.i38)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %duplicated.i.i)
   br label %do.body.i
 
-do.body.i:                                        ; preds = %handle_directory_level_conflicts.argprom.exit.i, %land.rhs.i, %if.end26.i
+do.body.i:                                        ; preds = %handle_directory_level_conflicts.exit.i, %land.rhs.i, %if.end26.i
   %118 = load i32, ptr %nr.i.i.i, align 4
   %nr49.i = getelementptr inbounds i8, ptr %75, i64 260
   %119 = load i32, ptr %nr49.i, align 4
@@ -5118,13 +5118,13 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then.i:                                        ; preds = %if.end
   %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid1, ptr noundef nonnull readonly dereferenceable(32) %oid2, i64 32)
-  br label %hasheq_algop.argprom.exit
+  br label %hasheq_algop.exit
 
 if.end.i:                                         ; preds = %if.end
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid1, ptr noundef nonnull readonly dereferenceable(20) %oid2, i64 20)
-  br label %hasheq_algop.argprom.exit
+  br label %hasheq_algop.exit
 
-hasheq_algop.argprom.exit:                        ; preds = %if.then.i, %if.end.i
+hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.i
   %retval.0.in.in.i = phi i32 [ %bcmp3.i, %if.then.i ], [ %bcmp.i, %if.end.i ]
   %retval.0.in.i = icmp eq i32 %retval.0.in.in.i, 0
   %retval.0.i = zext i1 %retval.0.in.i to i32
@@ -5431,13 +5431,13 @@ while.end:                                        ; preds = %while.cond
   %info.val = load i64, ptr %31, align 8
   %sub.i.i = xor i64 %info.val, -1
   %cmp.i.i193 = icmp ugt i64 %conv84, %sub.i.i
-  br i1 %cmp.i.i193, label %if.then.i.i194, label %traverse_path_len.argprom.exit
+  br i1 %cmp.i.i193, label %if.then.i.i194, label %traverse_path_len.exit
 
 if.then.i.i194:                                   ; preds = %while.end
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.55, i64 noundef %info.val, i64 noundef %conv84) #17
   unreachable
 
-traverse_path_len.argprom.exit:                   ; preds = %while.end
+traverse_path_len.exit:                           ; preds = %while.end
   %pool = getelementptr inbounds i8, ptr %1, i64 128
   %add.i.i = add nsw i64 %conv84, 1
   %add = add i64 %add.i.i, %info.val
@@ -5450,7 +5450,7 @@ traverse_path_len.argprom.exit:                   ; preds = %while.end
   %or.cond3 = select i1 %11, i1 %19, i1 false
   br i1 %or.cond3, label %if.then95, label %if.end100
 
-if.then95:                                        ; preds = %traverse_path_len.argprom.exit
+if.then95:                                        ; preds = %traverse_path_len.exit
   %34 = load i64, ptr %31, align 8
   %35 = load ptr, ptr %priv, align 8
   %pool.i = getelementptr inbounds i8, ptr %35, i64 128
@@ -5485,7 +5485,7 @@ if.then95:                                        ; preds = %traverse_path_len.a
   %call68.i = tail call ptr @strmap_put(ptr noundef %41, ptr noundef %call87, ptr noundef nonnull %call.i) #18
   br label %return
 
-if.end100:                                        ; preds = %traverse_path_len.argprom.exit
+if.end100:                                        ; preds = %traverse_path_len.exit
   %cmp103 = icmp eq i32 %conv, 7
   %or.cond4 = and i1 %cmp103, %27
   br i1 %or.cond4, label %if.then105, label %if.end111
@@ -5972,7 +5972,7 @@ if.then278:                                       ; preds = %for.end, %for.end
   br label %if.end284
 
 if.else281:                                       ; preds = %for.end
-  %call283 = call fastcc i32 @traverse_trees_wrapper.argprom.argelim(ptr noundef %t, ptr noundef %newinfo)
+  %call283 = call fastcc i32 @traverse_trees_wrapper(ptr noundef %t, ptr noundef %newinfo)
   br label %if.end284
 
 if.end284:                                        ; preds = %if.else281, %if.then278
@@ -6014,7 +6014,7 @@ declare ptr @make_traverse_path(ptr noundef, i64 noundef, ptr noundef, ptr nound
 declare ptr @fill_tree_descriptor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @traverse_trees_wrapper.argprom.argelim(ptr noundef nonnull %t, ptr noundef nonnull %info) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @traverse_trees_wrapper(ptr noundef nonnull %t, ptr noundef nonnull %info) unnamed_addr #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %info, i64 72
   %0 = load ptr, ptr %data, align 8
@@ -7086,14 +7086,14 @@ _.exit28.i.i:                                     ; preds = %if.end3.i25.i.i, %i
 
 if.end28.i.i:                                     ; preds = %if.else15.i.i
   call void @strbuf_release(ptr noundef nonnull %collision_paths.i.i) #18
-  br label %handle_path_level_conflicts.argprom.exit.i
+  br label %handle_path_level_conflicts.exit.i
 
 if.then31.critedge.i.i:                           ; preds = %_.exit28.i.i, %_.exit.i.i, %if.end4.i.i
   call void @strbuf_release(ptr noundef nonnull %collision_paths.i.i) #18
   call void @free(ptr noundef nonnull %call12.i.i.i) #18
-  br label %handle_path_level_conflicts.argprom.exit.i
+  br label %handle_path_level_conflicts.exit.i
 
-handle_path_level_conflicts.argprom.exit.i:       ; preds = %if.then31.critedge.i.i, %if.end28.i.i
+handle_path_level_conflicts.exit.i:               ; preds = %if.then31.critedge.i.i, %if.end28.i.i
   %retval.0.i22.i = phi ptr [ null, %if.then31.critedge.i.i ], [ %call12.i.i.i, %if.end28.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %collision_paths.i.i)
   %cmp.not.i = icmp eq ptr %retval.0.i22.i, null
@@ -7101,9 +7101,9 @@ handle_path_level_conflicts.argprom.exit.i:       ; preds = %if.then31.critedge.
   %and.i = select i1 %cmp.not.i, i32 0, i32 %23
   br label %check_for_directory_rename.exit
 
-check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i, %if.end.i, %check_dir_renamed.exit.thread.i, %_.exit.i, %handle_path_level_conflicts.argprom.exit.i
-  %clean.2 = phi i32 [ %clean.043, %strmap_empty.exit.i ], [ %clean.043, %check_dir_renamed.exit.thread.i ], [ %and.i, %handle_path_level_conflicts.argprom.exit.i ], [ %clean.043, %_.exit.i ], [ %clean.043, %if.end.i ]
-  %retval.0.i = phi ptr [ null, %strmap_empty.exit.i ], [ null, %check_dir_renamed.exit.thread.i ], [ %retval.0.i22.i, %handle_path_level_conflicts.argprom.exit.i ], [ null, %_.exit.i ], [ null, %if.end.i ]
+check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i, %if.end.i, %check_dir_renamed.exit.thread.i, %_.exit.i, %handle_path_level_conflicts.exit.i
+  %clean.2 = phi i32 [ %clean.043, %strmap_empty.exit.i ], [ %clean.043, %check_dir_renamed.exit.thread.i ], [ %and.i, %handle_path_level_conflicts.exit.i ], [ %clean.043, %_.exit.i ], [ %clean.043, %if.end.i ]
+  %retval.0.i = phi ptr [ null, %strmap_empty.exit.i ], [ null, %check_dir_renamed.exit.thread.i ], [ %retval.0.i22.i, %handle_path_level_conflicts.exit.i ], [ null, %_.exit.i ], [ null, %if.end.i ]
   call fastcc void @possibly_cache_new_pair(ptr noundef nonnull %renames1, ptr noundef %4, i32 noundef %side_index, ptr noundef %retval.0.i)
   %24 = load i8, ptr %status, align 2
   %cmp13 = icmp eq i8 %24, 82
@@ -8475,7 +8475,7 @@ sw.bb54:                                          ; preds = %if.end51
   %objects = getelementptr inbounds i8, ptr %merges, i64 8
   %26 = load ptr, ptr %objects, align 8
   %27 = load ptr, ptr %26, align 8
-  call fastcc void @format_commit.argelim(ptr noundef %sb, ptr noundef %subrepo, ptr noundef %27)
+  call fastcc void @format_commit(ptr noundef %sb, ptr noundef %subrepo, ptr noundef %27)
   %28 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i135 = icmp eq i32 %28, 0
   br i1 %tobool1.not.i135, label %_.exit139, label %if.end3.i136
@@ -8497,7 +8497,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %30 = load ptr, ptr %objects56, align 8
   %arrayidx57 = getelementptr inbounds %struct.object_array_entry, ptr %30, i64 %indvars.iv
   %31 = load ptr, ptr %arrayidx57, align 8
-  call fastcc void @format_commit.argelim(ptr noundef %sb, ptr noundef %subrepo, ptr noundef %31)
+  call fastcc void @format_commit(ptr noundef %sb, ptr noundef %subrepo, ptr noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %merges, align 8
   %33 = zext i32 %32 to i64
@@ -8882,7 +8882,7 @@ for.end44:                                        ; preds = %for.inc42, %while.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @format_commit.argelim(ptr noundef nonnull %sb, ptr noundef nonnull %repo, ptr noundef %commit) unnamed_addr #0 {
+define internal fastcc void @format_commit(ptr noundef nonnull %sb, ptr noundef nonnull %repo, ptr noundef %commit) unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.pretty_print_context, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %ctx, i8 0, i64 184, i1 false)

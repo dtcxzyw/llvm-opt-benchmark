@@ -129,30 +129,30 @@ define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %
   %9 = getelementptr i8, ptr %0, i64 664
   %.val = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %_job_preempt_mode.argprom.exit, label %10
+  br i1 %.not.i, label %_job_preempt_mode.exit, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %.val, i64 274
   %12 = load i16, ptr %11, align 2
   %.not8.i = icmp eq i16 %12, -2
-  br i1 %.not8.i, label %_job_preempt_mode.argprom.exit, label %13
+  br i1 %.not8.i, label %_job_preempt_mode.exit, label %13
 
 13:                                               ; preds = %10
   %.not9.i = icmp sgt i16 %12, -1
-  br i1 %.not9.i, label %_job_preempt_mode.argprom.exit, label %14
+  br i1 %.not9.i, label %_job_preempt_mode.exit, label %14
 
 14:                                               ; preds = %13
   %15 = tail call i32 @get_log_level() #5
   %16 = icmp sgt i32 %15, 3
-  br i1 %16, label %17, label %_job_preempt_mode.argprom.exit
+  br i1 %16, label %17, label %_job_preempt_mode.exit
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %.val, i64 224
   %19 = load ptr, ptr %18, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_preempt_mode, ptr noundef %19) #5
-  br label %_job_preempt_mode.argprom.exit
+  br label %_job_preempt_mode.exit
 
-_job_preempt_mode.argprom.exit:                   ; preds = %8, %10, %13, %14, %17
+_job_preempt_mode.exit:                           ; preds = %8, %10, %13, %14, %17
   %.0.in.in.i = phi ptr [ %11, %14 ], [ %11, %17 ], [ %11, %13 ], [ getelementptr inbounds (i8, ptr @slurm_conf, i64 796), %10 ], [ getelementptr inbounds (i8, ptr @slurm_conf, i64 796), %8 ]
   %.0.in.i = load i16, ptr %.0.in.in.i, align 2
   %.0.i = and i16 %.0.in.i, 32767
@@ -185,14 +185,14 @@ _gen_job_prio.exit:                               ; preds = %20, %23
   %31 = getelementptr i8, ptr %0, i64 664
   %.val9 = load ptr, ptr %31, align 8
   %.not.i12 = icmp eq ptr %.val9, null
-  br i1 %.not.i12, label %_get_grace_time.argprom.exit, label %32
+  br i1 %.not.i12, label %_get_grace_time.exit, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %.val9, i64 172
   %34 = load i32, ptr %33, align 4
-  br label %_get_grace_time.argprom.exit
+  br label %_get_grace_time.exit
 
-_get_grace_time.argprom.exit:                     ; preds = %30, %32
+_get_grace_time.exit:                             ; preds = %30, %32
   %.0.i13 = phi i32 [ %34, %32 ], [ 0, %30 ]
   store i32 %.0.i13, ptr %2, align 4
   br label %37
@@ -201,8 +201,8 @@ _get_grace_time.argprom.exit:                     ; preds = %30, %32
   %36 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.preempt_p_get_data, i32 noundef %1) #5
   br label %37
 
-37:                                               ; preds = %35, %_get_grace_time.argprom.exit, %_gen_job_prio.exit, %_job_preempt_mode.argprom.exit, %4
-  %.0 = phi i32 [ -1, %35 ], [ 0, %_get_grace_time.argprom.exit ], [ 0, %_gen_job_prio.exit ], [ 0, %_job_preempt_mode.argprom.exit ], [ 0, %4 ]
+37:                                               ; preds = %35, %_get_grace_time.exit, %_gen_job_prio.exit, %_job_preempt_mode.exit, %4
+  %.0 = phi i32 [ -1, %35 ], [ 0, %_get_grace_time.exit ], [ 0, %_gen_job_prio.exit ], [ 0, %_job_preempt_mode.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

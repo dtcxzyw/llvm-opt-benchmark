@@ -571,13 +571,13 @@ if.end223:                                        ; preds = %if.end191
   %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @names, i64 40), align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %hashmap_get_size.argprom.exit
+  br i1 %tobool.not.i, label %if.end.i, label %hashmap_get_size.exit
 
 if.end.i:                                         ; preds = %if.end223
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.59, i32 noundef 308, ptr noundef nonnull @.str.60) #16
   unreachable
 
-hashmap_get_size.argprom.exit:                    ; preds = %if.end223
+hashmap_get_size.exit:                            ; preds = %if.end223
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @names, i64 24), align 8
   %tobool226 = icmp ne i32 %22, 0
   %23 = load i32, ptr @always, align 4
@@ -585,12 +585,12 @@ hashmap_get_size.argprom.exit:                    ; preds = %if.end223
   %or.cond1 = select i1 %tobool226, i1 true, i1 %tobool228
   br i1 %or.cond1, label %if.end231, label %if.then229
 
-if.then229:                                       ; preds = %hashmap_get_size.argprom.exit
+if.then229:                                       ; preds = %hashmap_get_size.exit
   %call230 = call fastcc ptr @_(ptr noundef nonnull @.str.45)
   call void (ptr, ...) @die(ptr noundef %call230) #16
   unreachable
 
-if.end231:                                        ; preds = %hashmap_get_size.argprom.exit
+if.end231:                                        ; preds = %hashmap_get_size.exit
   %cmp232 = icmp eq i32 %call, 0
   br i1 %cmp232, label %if.then234, label %if.else275
 
@@ -1519,23 +1519,23 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %if.th
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %19, i64 %idxprom14.i.i
   %20 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %20, null
-  br i1 %tobool16.not.i.i, label %if.then17.i.i, label %commit_names_at.argprom.exit
+  br i1 %tobool16.not.i.i, label %if.then17.i.i, label %commit_names_at.exit
 
 if.then17.i.i:                                    ; preds = %if.end12.i.i
   %call24.i.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #15
   %21 = load ptr, ptr @commit_names.3, align 8
   %arrayidx27.i.i = getelementptr inbounds ptr, ptr %21, i64 %idxprom14.i.i
   store ptr %call24.i.i, ptr %arrayidx27.i.i, align 8
-  br label %commit_names_at.argprom.exit
+  br label %commit_names_at.exit
 
-commit_names_at.argprom.exit:                     ; preds = %if.end12.i.i, %if.then17.i.i
+commit_names_at.exit:                             ; preds = %if.end12.i.i, %if.then17.i.i
   %22 = phi ptr [ %call24.i.i, %if.then17.i.i ], [ %20, %if.end12.i.i ]
   %idxprom34.i.i = zext nneg i32 %rem.i.i to i64
   %arrayidx35.i.i = getelementptr inbounds ptr, ptr %22, i64 %idxprom34.i.i
   store ptr %n34.0155, ptr %arrayidx35.i.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %commit_names_at.argprom.exit
+for.inc:                                          ; preds = %for.body, %commit_names_at.exit
   %call43 = call ptr @hashmap_iter_next(ptr noundef nonnull %iter) #15
   %tobool37.not = icmp eq ptr %call43, null
   br i1 %tobool37.not, label %for.end, label %for.body, !llvm.loop !9
@@ -1801,7 +1801,7 @@ while.end188:                                     ; preds = %while.end, %if.else
   %gave_up_on.0 = phi ptr [ null, %_.exit114 ], [ null, %if.then150 ], [ null, %while.end ], [ %call52, %if.else ]
   switch i32 %match_cnt.1, label %if.then.i [
     i32 0, label %if.then190
-    i32 1, label %sane_qsort.argprom.exit
+    i32 1, label %sane_qsort.exit
   ]
 
 if.then190:                                       ; preds = %while.end188
@@ -1840,18 +1840,18 @@ if.else203:                                       ; preds = %if.then190.thread, 
 if.then.i:                                        ; preds = %while.end188
   %conv207 = zext i32 %match_cnt.1 to i64
   call void @qsort(ptr noundef nonnull %all_matches, i64 noundef %conv207, i64 noundef 24, ptr noundef nonnull @compare_pt) #15
-  br label %sane_qsort.argprom.exit
+  br label %sane_qsort.exit
 
-sane_qsort.argprom.exit:                          ; preds = %while.end188, %if.then.i
+sane_qsort.exit:                                  ; preds = %while.end188, %if.then.i
   %tobool208.not = icmp eq ptr %gave_up_on.0, null
   br i1 %tobool208.not, label %if.end211, label %if.then209
 
-if.then209:                                       ; preds = %sane_qsort.argprom.exit
+if.then209:                                       ; preds = %sane_qsort.exit
   %call210 = call ptr @commit_list_insert_by_date(ptr noundef nonnull %gave_up_on.0, ptr noundef nonnull %list) #15
   br label %if.end211
 
-if.end211:                                        ; preds = %if.then209, %sane_qsort.argprom.exit
-  %seen_commits.2 = phi i64 [ %seen_commits.0164, %if.then209 ], [ %inc, %sane_qsort.argprom.exit ]
+if.end211:                                        ; preds = %if.then209, %sane_qsort.exit
+  %seen_commits.2 = phi i64 [ %seen_commits.0164, %if.then209 ], [ %inc, %sane_qsort.exit ]
   %54 = load ptr, ptr %list, align 8
   %tobool.not26.i = icmp eq ptr %54, null
   br i1 %tobool.not26.i, label %finish_depth_computation.exit, label %while.body.lr.ph.i

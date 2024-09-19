@@ -357,15 +357,15 @@ define dso_local noundef i32 @_ZNK4llvm12StructLayout26getElementContainingOffse
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 2147483647
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %"_ZSt11upper_boundIPKN4llvm8TypeSizeES1_ZNKS0_12StructLayout26getElementContainingOffsetEmE3$_0ET_S6_S6_RKT0_T1_.argprom.exit", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.preheader"
+  br i1 %.not, label %"_ZSt11upper_boundIPKN4llvm8TypeSizeES1_ZNKS0_12StructLayout26getElementContainingOffsetEmE3$_0ET_S6_S6_RKT0_T1_.exit", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.preheader": ; preds = %2
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader": ; preds = %2
   %7 = zext nneg i32 %6 to i64
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.preheader", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i"
-  %.012.i.i = phi ptr [ %15, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i" ], [ %3, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.preheader" ]
-  %.01111.i.i = phi i64 [ %14, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i" ], [ %7, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.preheader" ]
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i"
+  %.012.i.i = phi ptr [ %15, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i" ], [ %3, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader" ]
+  %.01111.i.i = phi i64 [ %14, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i" ], [ %7, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader" ]
   %8 = lshr i64 %.01111.i.i, 1
   %9 = getelementptr inbounds %"class.llvm::TypeSize", ptr %.012.i.i, i64 %8
   %.val14.i.i = load i64, ptr %9, align 8
@@ -377,10 +377,10 @@ define dso_local noundef i32 @_ZNK4llvm12StructLayout26getElementContainingOffse
   %14 = select i1 %10, i64 %8, i64 %12
   %15 = select i1 %10, ptr %.012.i.i, ptr %13
   %16 = icmp sgt i64 %14, 0
-  br i1 %16, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i", label %"_ZSt11upper_boundIPKN4llvm8TypeSizeES1_ZNKS0_12StructLayout26getElementContainingOffsetEmE3$_0ET_S6_S6_RKT0_T1_.argprom.exit", !llvm.loop !6
+  br i1 %16, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i", label %"_ZSt11upper_boundIPKN4llvm8TypeSizeES1_ZNKS0_12StructLayout26getElementContainingOffsetEmE3$_0ET_S6_S6_RKT0_T1_.exit", !llvm.loop !6
 
-"_ZSt11upper_boundIPKN4llvm8TypeSizeES1_ZNKS0_12StructLayout26getElementContainingOffsetEmE3$_0ET_S6_S6_RKT0_T1_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i", %2
-  %.0.lcssa.i.i = phi ptr [ %3, %2 ], [ %15, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i" ]
+"_ZSt11upper_boundIPKN4llvm8TypeSizeES1_ZNKS0_12StructLayout26getElementContainingOffsetEmE3$_0ET_S6_S6_RKT0_T1_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i", %2
+  %.0.lcssa.i.i = phi ptr [ %3, %2 ], [ %15, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i" ]
   %17 = ptrtoint ptr %3 to i64
   %18 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 -16
   %19 = ptrtoint ptr %18 to i64
@@ -5103,15 +5103,15 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %4
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 2147483647
   %.not.i37 = icmp eq i32 %42, 0
-  br i1 %.not.i37, label %_ZN4llvm5APIntD2Ev.exit43, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.preheader.i"
+  br i1 %.not.i37, label %_ZN4llvm5APIntD2Ev.exit43, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.preheader.i": ; preds = %38
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i": ; preds = %38
   %43 = zext nneg i32 %42 to i64
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.preheader.i"
-  %.012.i.i.i = phi ptr [ %51, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.i" ], [ %39, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.preheader.i" ]
-  %.01111.i.i.i = phi i64 [ %50, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.i" ], [ %43, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.preheader.i" ]
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i"
+  %.012.i.i.i = phi ptr [ %51, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i" ], [ %39, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i" ]
+  %.01111.i.i.i = phi i64 [ %50, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i" ], [ %43, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i" ]
   %44 = lshr i64 %.01111.i.i.i, 1
   %45 = getelementptr inbounds %"class.llvm::TypeSize", ptr %.012.i.i.i, i64 %44
   %.val14.i.i.i = load i64, ptr %45, align 8
@@ -5123,10 +5123,10 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %4
   %50 = select i1 %46, i64 %44, i64 %48
   %51 = select i1 %46, ptr %.012.i.i.i, ptr %49
   %52 = icmp sgt i64 %50, 0
-  br i1 %52, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.i", label %_ZN4llvm5APIntD2Ev.exit43, !llvm.loop !6
+  br i1 %52, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i", label %_ZN4llvm5APIntD2Ev.exit43, !llvm.loop !6
 
-_ZN4llvm5APIntD2Ev.exit43:                        ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.i", %38
-  %.0.lcssa.i.i.i = phi ptr [ %39, %38 ], [ %51, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.argprom.exit.i.i.i" ]
+_ZN4llvm5APIntD2Ev.exit43:                        ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i", %38
+  %.0.lcssa.i.i.i = phi ptr [ %39, %38 ], [ %51, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i" ]
   %53 = ptrtoint ptr %39 to i64
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 -16
   %55 = ptrtoint ptr %54 to i64

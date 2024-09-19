@@ -1023,7 +1023,7 @@ ConstructTupleDescriptor.exit:                    ; preds = %372, %list_head.exi
   %409 = load i32, ptr %56, align 4
   %410 = getelementptr i8, ptr %394, i64 64
   %411 = icmp sgt i32 %409, 0
-  br i1 %411, label %.lr.ph.i, label %InitializeAttributeOids.argprom.exit
+  br i1 %411, label %.lr.ph.i, label %InitializeAttributeOids.exit
 
 .lr.ph.i:                                         ; preds = %393
   %.val = load ptr, ptr %410, align 8
@@ -1037,9 +1037,9 @@ ConstructTupleDescriptor.exit:                    ; preds = %372, %list_head.exi
   store i32 %.0210, ptr %414, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i251 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i250
-  br i1 %exitcond.not.i251, label %InitializeAttributeOids.argprom.exit, label %413, !llvm.loop !9
+  br i1 %exitcond.not.i251, label %InitializeAttributeOids.exit, label %413, !llvm.loop !9
 
-InitializeAttributeOids.argprom.exit:             ; preds = %413, %393
+InitializeAttributeOids.exit:                     ; preds = %413, %393
   %415 = call ptr @table_open(i32 noundef 1249, i32 noundef 3) #11
   %416 = call ptr @CatalogOpenIndexes(ptr noundef %415) #11
   %417 = load ptr, ptr %410, align 8
@@ -1059,7 +1059,7 @@ InitializeAttributeOids.argprom.exit:             ; preds = %413, %393
   %425 = icmp sgt i32 %424, 0
   br i1 %425, label %.lr.ph.i253, label %._crit_edge.i
 
-.lr.ph.i253:                                      ; preds = %InitializeAttributeOids.argprom.exit
+.lr.ph.i253:                                      ; preds = %InitializeAttributeOids.exit
   %426 = getelementptr inbounds i8, ptr %6, i64 12
   %427 = getelementptr inbounds i8, ptr %423, i64 24
   br label %428
@@ -1076,7 +1076,7 @@ InitializeAttributeOids.argprom.exit:             ; preds = %413, %393
   %434 = icmp slt i64 %indvars.iv.next.i255, %433
   br i1 %434, label %428, label %._crit_edge.i, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %428, %InitializeAttributeOids.argprom.exit
+._crit_edge.i:                                    ; preds = %428, %InitializeAttributeOids.exit
   %435 = load i32, ptr %72, align 8
   %436 = call ptr @buildoidvector(ptr noundef %10, i32 noundef %435) #11
   %437 = load i32, ptr %72, align 8

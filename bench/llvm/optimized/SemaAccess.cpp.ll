@@ -1341,7 +1341,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit19.i: ; preds = %
   %134 = load i64, ptr %133, align 8
   %135 = and i64 %134, 16777216
   %.not1.i.i.i = icmp eq i64 %135, 0
-  br i1 %.not1.i.i.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %.not1.i.i.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %132, %_ZNK5clang11DeclContext9getParentEv.exit.i.i.i
   %.02.i.i.i = phi ptr [ %146, %_ZNK5clang11DeclContext9getParentEv.exit.i.i.i ], [ %.val.i.i, %132 ]
@@ -1368,9 +1368,9 @@ _ZNK5clang11DeclContext9getParentEv.exit.i.i.i:   ; preds = %143, %.lr.ph.i.i.i
   %149 = load i64, ptr %148, align 8
   %150 = and i64 %149, 16777216
   %.not.i.i.i = icmp eq i64 %150, 0
-  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
-_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i.i: ; preds = %_ZNK5clang11DeclContext9getParentEv.exit.i.i.i, %132
+_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i.i: ; preds = %_ZNK5clang11DeclContext9getParentEv.exit.i.i.i, %132
   %.0.lcssa.i.i.i = phi ptr [ %.val.i.i, %132 ], [ %146, %_ZNK5clang11DeclContext9getParentEv.exit.i.i.i ]
   %151 = load ptr, ptr %.0.lcssa.i.i.i, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 32
@@ -1379,12 +1379,12 @@ _ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i.i: ; 
   %155 = icmp eq ptr %.val70.i.i, %154
   br i1 %155, label %156, label %157
 
-156:                                              ; preds = %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i.i, %130
+156:                                              ; preds = %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i.i, %130
   call fastcc void @_ZL23diagnoseBadDirectAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextERNS2_12AccessTargetE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(80) %3)
   br label %_ZL17DiagnoseBadAccessRN5clang4SemaENS_14SourceLocationERKN12_GLOBAL__N_116EffectiveContextERNS3_12AccessTargetE.exit
 
-157:                                              ; preds = %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i.i, %127, %120, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit19.i
-  %.0.i.i21 = phi i32 [ %125, %120 ], [ %125, %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i.i ], [ 0, %127 ], [ 0, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit19.i ]
+157:                                              ; preds = %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i.i, %127, %120, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit19.i
+  %.0.i.i21 = phi i32 [ %125, %120 ], [ %125, %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i.i ], [ 0, %127 ], [ 0, %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit19.i ]
   store ptr null, ptr %5, align 8
   %158 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %159 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5464,7 +5464,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL12IsAccessibleRN5clang4Se
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 16777216
   %.not1.i = icmp eq i64 %8, 0
-  br i1 %.not1.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %_ZNK5clang11DeclContext9getParentEv.exit.i
   %.02.i = phi ptr [ %19, %_ZNK5clang11DeclContext9getParentEv.exit.i ], [ %.val, %3 ]
@@ -5491,9 +5491,9 @@ _ZNK5clang11DeclContext9getParentEv.exit.i:       ; preds = %16, %.lr.ph.i
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 16777216
   %.not.i = icmp eq i64 %23, 0
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit, label %.lr.ph.i, !llvm.loop !12
 
-_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit: ; preds = %_ZNK5clang11DeclContext9getParentEv.exit.i, %3
+_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit: ; preds = %_ZNK5clang11DeclContext9getParentEv.exit.i, %3
   %.0.lcssa.i = phi ptr [ %.val, %3 ], [ %19, %_ZNK5clang11DeclContext9getParentEv.exit.i ]
   %24 = load ptr, ptr %.0.lcssa.i, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 32
@@ -5504,7 +5504,7 @@ _ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit: ; pred
   %.not = icmp eq i8 %29, 3
   br i1 %.not, label %33, label %30
 
-30:                                               ; preds = %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit
+30:                                               ; preds = %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit
   %31 = zext nneg i8 %29 to i32
   %32 = tail call fastcc noundef i32 @_ZL9HasAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclENS_15AccessSpecifierERKNS2_12AccessTargetE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef %27, i32 noundef %31, ptr noundef nonnull align 8 dereferenceable(80) %2)
   switch i32 %32, label %._crit_edge [
@@ -5516,8 +5516,8 @@ _ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit: ; pred
   %.pre = load i8, ptr %2, align 8
   br label %33
 
-33:                                               ; preds = %._crit_edge, %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit
-  %34 = phi i8 [ %.pre, %._crit_edge ], [ %28, %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit ]
+33:                                               ; preds = %._crit_edge, %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit
+  %34 = phi i8 [ %.pre, %._crit_edge ], [ %28, %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %36 = load i8, ptr %35, align 8, !noalias !23
   %37 = and i8 %36, 1
@@ -5537,7 +5537,7 @@ _ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit: ; pred
   %47 = tail call fastcc noundef i32 @_ZL9HasAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclENS_15AccessSpecifierERKNS2_12AccessTargetE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef %.val33, i32 noundef %46, ptr noundef nonnull align 8 dereferenceable(80) %2)
   switch i32 %47, label %51 [
     i32 0, label %48
-    i32 2, label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit
+    i32 2, label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit
   ]
 
 48:                                               ; preds = %39
@@ -5554,7 +5554,7 @@ _ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit: ; pred
 53:                                               ; preds = %51
   %54 = icmp ne i32 %.028, 0
   %55 = zext i1 %54 to i32
-  br label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit
 
 56:                                               ; preds = %33, %51
   %.129 = phi i32 [ %.028, %51 ], [ 0, %33 ]
@@ -5620,9 +5620,9 @@ _ZN5clang12CXXBasePathsC2Ebbb.exit:               ; preds = %.lr.ph.i.i.i.i
 81:                                               ; preds = %77, %_ZN5clang12CXXBasePathsC2Ebbb.exit
   %.2 = phi i32 [ 2, %_ZN5clang12CXXBasePathsC2Ebbb.exit ], [ %., %77 ]
   call void @_ZN5clang12CXXBasePathsD2Ev(ptr noundef nonnull align 8 dereferenceable(371) %4) #13
-  br label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit
 
-_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit: ; preds = %39, %81, %53
+_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit: ; preds = %39, %81, %53
   %.1 = phi i32 [ %55, %53 ], [ %.2, %81 ], [ %47, %39 ]
   %82 = load i8, ptr %35, align 8
   %83 = and i8 %82, -2
@@ -5630,8 +5630,8 @@ _ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit: ; preds 
   store i8 %84, ptr %35, align 8
   br label %85
 
-85:                                               ; preds = %30, %30, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit
-  %.0 = phi i32 [ %.1, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit ], [ %32, %30 ], [ %32, %30 ]
+85:                                               ; preds = %30, %30, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit
+  %.0 = phi i32 [ %.1, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit ], [ %32, %30 ], [ %32, %30 ]
   ret i32 %.0
 }
 
@@ -7143,7 +7143,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 define internal fastcc noundef range(i32 0, 3) i32 @_ZL9HasAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclENS_15AccessSpecifierERKNS2_12AccessTargetE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(80) %4) unnamed_addr #0 {
   %6 = alloca %"struct.(anonymous namespace)::ProtectedFriendContext", align 8
   %7 = icmp eq i32 %3, 0
-  br i1 %7, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.thread, label %8
+  br i1 %7, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.thread, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -7171,7 +7171,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL9HasAccessRN5clang4SemaER
   %.04686.us = phi ptr [ %55, %_ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread.us ], [ %10, %.lr.ph ]
   %23 = load ptr, ptr %.04686.us, align 8
   %24 = icmp eq ptr %23, %2
-  br i1 %24, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.thread, label %25
+  br i1 %24, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.thread, label %25
 
 25:                                               ; preds = %.lr.ph.split.us
   %.val.us = load i8, ptr %20, align 8
@@ -7268,14 +7268,14 @@ _ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread.us: ; preds = %_
   %.val59 = load i8, ptr %4, align 8
   %62 = and i8 %.val59, 4
   %.not.i63 = icmp eq i8 %62, 0
-  br i1 %.not.i63, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.thread, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit
+  br i1 %.not.i63, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.thread, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit
 
-_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit: ; preds = %61
+_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit: ; preds = %61
   %.val60 = load ptr, ptr %15, align 8
   %63 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19isCXXInstanceMemberEv(ptr noundef nonnull align 8 dereferenceable(48) %.val60) #13
-  br i1 %63, label %64, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.thread
+  br i1 %63, label %64, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.thread
 
-64:                                               ; preds = %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit
+64:                                               ; preds = %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit
   %65 = load ptr, ptr %16, align 8
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, 32
@@ -7301,11 +7301,11 @@ _ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit: ; preds = %61
   %78 = tail call noundef zeroext i1 @_ZNK5clang13CXXMethodDecl8isStaticEv(ptr noundef nonnull align 8 dereferenceable(168) %72) #13
   %79 = icmp eq ptr %2, %56
   %or.cond = or i1 %78, %79
-  br i1 %or.cond, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.thread, label %_ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread
+  br i1 %or.cond, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.thread, label %_ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread
 
 80:                                               ; preds = %70, %68, %64
   %.old = icmp eq ptr %2, %56
-  br i1 %.old, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.thread, label %_ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread
+  br i1 %.old, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.thread, label %_ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread
 
 81:                                               ; preds = %59
   %82 = and i8 %.val57, 2
@@ -7345,7 +7345,7 @@ _ZNK12_GLOBAL__N_112AccessTarget22resolveInstanceContextERN5clang4SemaE.exit: ; 
 96:                                               ; preds = %_ZNK12_GLOBAL__N_112AccessTarget22resolveInstanceContextERN5clang4SemaE.exit
   %97 = tail call fastcc noundef i32 @_ZL22IsDerivedFromInclusivePKN5clang13CXXRecordDeclES2_(ptr noundef nonnull %.0.i65, ptr noundef %56)
   switch i32 %97, label %_ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread [
-    i32 0, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.thread
+    i32 0, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.thread
     i32 2, label %98
   ]
 
@@ -7361,21 +7361,21 @@ _ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread: ; preds = %77, 
 ._crit_edge:                                      ; preds = %_ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread, %_ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread.us, %8
   %.045.lcssa = phi i32 [ 1, %8 ], [ %.1.us, %_ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread.us ], [ %.1, %_ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread ]
   %100 = icmp eq i32 %3, 1
-  br i1 %100, label %101, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit68.thread
+  br i1 %100, label %101, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit68.thread
 
 101:                                              ; preds = %._crit_edge
   %.val61 = load i8, ptr %4, align 8
   %102 = and i8 %.val61, 4
   %.not.i67 = icmp eq i8 %102, 0
-  br i1 %.not.i67, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit68.thread, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit68
+  br i1 %.not.i67, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit68.thread, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit68
 
-_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit68: ; preds = %101
+_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit68: ; preds = %101
   %103 = getelementptr inbounds i8, ptr %4, i64 8
   %.val62 = load ptr, ptr %103, align 8
   %104 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19isCXXInstanceMemberEv(ptr noundef nonnull align 8 dereferenceable(48) %.val62) #13
-  br i1 %104, label %105, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit68.thread
+  br i1 %104, label %105, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit68.thread
 
-105:                                              ; preds = %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit68
+105:                                              ; preds = %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit68
   %106 = getelementptr inbounds i8, ptr %4, i64 56
   %.val58 = load i8, ptr %106, align 8
   %107 = trunc i8 %.val58 to i1
@@ -7417,11 +7417,11 @@ _ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit68: ; preds = %
 _ZNK12_GLOBAL__N_112AccessTarget22resolveInstanceContextERN5clang4SemaE.exit73: ; preds = %110, %123
   %.0.i70 = phi ptr [ %112, %110 ], [ %124, %123 ]
   %.not53 = icmp eq ptr %.0.i70, null
-  br i1 %.not53, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.thread, label %128
+  br i1 %.not53, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.thread, label %128
 
 126:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6)
-  %127 = tail call fastcc noundef i32 @_ZL13GetFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE.argelim(ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef %2)
+  %127 = tail call fastcc noundef i32 @_ZL13GetFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef %2)
   br label %_ZL22GetProtectedFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclES8_.exit
 
 128:                                              ; preds = %_ZNK12_GLOBAL__N_112AccessTarget22resolveInstanceContextERN5clang4SemaE.exit73
@@ -7488,16 +7488,16 @@ _ZL22GetProtectedFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKN
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6)
   %switch = icmp eq i32 %.0.i75, 1
   %spec.select = select i1 %switch, i32 %.045.lcssa, i32 %.0.i75
-  br label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.thread
+  br label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.thread
 
-_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit68.thread: ; preds = %101, %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit68, %._crit_edge
-  %159 = tail call fastcc noundef i32 @_ZL13GetFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE.argelim(ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef %2)
+_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit68.thread: ; preds = %101, %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit68, %._crit_edge
+  %159 = tail call fastcc noundef i32 @_ZL13GetFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef %2)
   %switch95 = icmp eq i32 %159, 1
   %spec.select96 = select i1 %switch95, i32 %.045.lcssa, i32 %159
-  br label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.thread
+  br label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.thread
 
-_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.thread: ; preds = %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit, %77, %80, %96, %61, %.lr.ph.split.us, %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit68.thread, %_ZL22GetProtectedFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclES8_.exit, %_ZNK12_GLOBAL__N_112AccessTarget22resolveInstanceContextERN5clang4SemaE.exit73, %5
-  %.044 = phi i32 [ 0, %5 ], [ 2, %_ZNK12_GLOBAL__N_112AccessTarget22resolveInstanceContextERN5clang4SemaE.exit73 ], [ %spec.select, %_ZL22GetProtectedFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclES8_.exit ], [ %spec.select96, %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit68.thread ], [ 0, %.lr.ph.split.us ], [ 0, %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit ], [ 0, %77 ], [ 0, %80 ], [ %97, %96 ], [ 0, %61 ]
+_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.thread: ; preds = %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit, %77, %80, %96, %61, %.lr.ph.split.us, %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit68.thread, %_ZL22GetProtectedFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclES8_.exit, %_ZNK12_GLOBAL__N_112AccessTarget22resolveInstanceContextERN5clang4SemaE.exit73, %5
+  %.044 = phi i32 [ 0, %5 ], [ 2, %_ZNK12_GLOBAL__N_112AccessTarget22resolveInstanceContextERN5clang4SemaE.exit73 ], [ %spec.select, %_ZL22GetProtectedFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclES8_.exit ], [ %spec.select96, %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit68.thread ], [ 0, %.lr.ph.split.us ], [ 0, %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit ], [ 0, %77 ], [ 0, %80 ], [ %97, %96 ], [ 0, %61 ]
   ret i32 %.044
 }
 
@@ -7530,20 +7530,20 @@ define internal fastcc void @_ZL23diagnoseBadDirectAccessRN5clang4SemaERKN12_GLO
   %.val33.i = load i8, ptr %2, align 8
   %20 = and i8 %.val33.i, 4
   %.not.i.i = icmp eq i8 %20, 0
-  br i1 %.not.i.i, label %_ZL26TryDiagnoseProtectedAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextERNS2_12AccessTargetE.exit.thread, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.i
+  br i1 %.not.i.i, label %_ZL26TryDiagnoseProtectedAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextERNS2_12AccessTargetE.exit.thread, label %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.i
 
-_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.i: ; preds = %19
+_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.i: ; preds = %19
   %21 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19isCXXInstanceMemberEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #13
   br i1 %21, label %22, label %_ZL26TryDiagnoseProtectedAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextERNS2_12AccessTargetE.exit.thread
 
-22:                                               ; preds = %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.i
+22:                                               ; preds = %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.i
   %23 = getelementptr inbounds i8, ptr %2, i64 16
   %.val.i = load ptr, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %.val.i, i64 72
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 16777216
   %.not1.i.i = icmp eq i64 %26, 0
-  br i1 %.not1.i.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not1.i.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %_ZNK5clang11DeclContext9getParentEv.exit.i.i
   %.02.i.i = phi ptr [ %37, %_ZNK5clang11DeclContext9getParentEv.exit.i.i ], [ %.val.i, %22 ]
@@ -7570,9 +7570,9 @@ _ZNK5clang11DeclContext9getParentEv.exit.i.i:     ; preds = %34, %.lr.ph.i.i
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 16777216
   %.not.i35.i = icmp eq i64 %41, 0
-  br i1 %.not.i35.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i35.i, label %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
-_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i: ; preds = %_ZNK5clang11DeclContext9getParentEv.exit.i.i, %22
+_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i: ; preds = %_ZNK5clang11DeclContext9getParentEv.exit.i.i, %22
   %.0.lcssa.i.i = phi ptr [ %.val.i, %22 ], [ %37, %_ZNK5clang11DeclContext9getParentEv.exit.i.i ]
   %42 = load ptr, ptr %.0.lcssa.i.i, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 32
@@ -7585,7 +7585,7 @@ _ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i: ; pr
   %.not56.i = icmp eq i64 %48, 0
   br i1 %.not56.i, label %_ZL26TryDiagnoseProtectedAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextERNS2_12AccessTargetE.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i
+.lr.ph.i:                                         ; preds = %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i
   %50 = getelementptr inbounds i8, ptr %2, i64 56
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -7742,7 +7742,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit42.i: ; preds = %
   %.not.i = icmp eq ptr %117, %49
   br i1 %.not.i, label %_ZL26TryDiagnoseProtectedAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextERNS2_12AccessTargetE.exit.thread, label %53, !llvm.loop !35
 
-_ZL26TryDiagnoseProtectedAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextERNS2_12AccessTargetE.exit.thread: ; preds = %116, %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.argprom.exit.i, %19, %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.argprom.exit.i
+_ZL26TryDiagnoseProtectedAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextERNS2_12AccessTargetE.exit.thread: ; preds = %116, %_ZNK12_GLOBAL__N_112AccessTarget16isInstanceMemberEv.exit.i, %19, %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
@@ -7910,7 +7910,7 @@ _ZN5clang4Decl14getDeclContextEv.exit6.i:         ; preds = %190, %184, %_ZN5cla
   %196 = load i64, ptr %195, align 8
   %197 = and i64 %196, 16777216
   %.not4.i = icmp eq i64 %197, 0
-  br i1 %.not4.i, label %_ZL18FindDeclaringClassPN5clang9NamedDeclE.argprom.exit, label %.lr.ph.i54
+  br i1 %.not4.i, label %_ZL18FindDeclaringClassPN5clang9NamedDeclE.exit, label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %_ZN5clang4Decl14getDeclContextEv.exit6.i, %_ZN5clang4Decl14getDeclContextEv.exit9.i
   %198 = phi ptr [ %.0.i8.i, %_ZN5clang4Decl14getDeclContextEv.exit9.i ], [ %.03.i, %_ZN5clang4Decl14getDeclContextEv.exit6.i ]
@@ -7935,18 +7935,18 @@ _ZN5clang4Decl14getDeclContextEv.exit9.i:         ; preds = %204, %.lr.ph.i54
   %210 = load i64, ptr %209, align 8
   %211 = and i64 %210, 16777216
   %.not.i55 = icmp eq i64 %211, 0
-  br i1 %.not.i55, label %_ZL18FindDeclaringClassPN5clang9NamedDeclE.argprom.exit, label %.lr.ph.i54, !llvm.loop !7
+  br i1 %.not.i55, label %_ZL18FindDeclaringClassPN5clang9NamedDeclE.exit, label %.lr.ph.i54, !llvm.loop !7
 
-_ZL18FindDeclaringClassPN5clang9NamedDeclE.argprom.exit: ; preds = %_ZN5clang4Decl14getDeclContextEv.exit9.i, %_ZN5clang4Decl14getDeclContextEv.exit6.i
+_ZL18FindDeclaringClassPN5clang9NamedDeclE.exit:  ; preds = %_ZN5clang4Decl14getDeclContextEv.exit9.i, %_ZN5clang4Decl14getDeclContextEv.exit6.i
   %.0.lcssa.i = phi ptr [ %193, %_ZN5clang4Decl14getDeclContextEv.exit6.i ], [ %207, %_ZN5clang4Decl14getDeclContextEv.exit9.i ]
   br i1 %175, label %_ZN5clang4Decl14getDeclContextEv.exit, label %_ZN5clang4Decl14getDeclContextEv.exit.thread
 
-_ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %_ZL18FindDeclaringClassPN5clang9NamedDeclE.argprom.exit
+_ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %_ZL18FindDeclaringClassPN5clang9NamedDeclE.exit
   %212 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 64
   %213 = icmp eq ptr %212, %177
   br i1 %213, label %237, label %_ZN5clang4Decl14getDeclContextEv.exit60
 
-_ZN5clang4Decl14getDeclContextEv.exit.thread:     ; preds = %_ZL18FindDeclaringClassPN5clang9NamedDeclE.argprom.exit
+_ZN5clang4Decl14getDeclContextEv.exit.thread:     ; preds = %_ZL18FindDeclaringClassPN5clang9NamedDeclE.exit
   %214 = load ptr, ptr %177, align 8
   %215 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 64
   %216 = icmp eq ptr %214, %215
@@ -8107,7 +8107,7 @@ define internal fastcc noundef ptr @_ZL12FindBestPathRN5clang4SemaERKN12_GLOBAL_
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.05066, i32 %.0.i)
   %35 = tail call fastcc noundef i32 @_ZL9HasAccessRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclENS_15AccessSpecifierERKNS2_12AccessTargetE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef %27, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(80) %2)
   switch i32 %35, label %39 [
-    i32 2, label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit.thread
+    i32 2, label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit.thread
     i32 0, label %36
   ]
 
@@ -8125,15 +8125,15 @@ define internal fastcc noundef ptr @_ZL12FindBestPathRN5clang4SemaERKN12_GLOBAL_
 ._crit_edge:                                      ; preds = %39, %.lr.ph, %13
   %.151 = phi i32 [ %3, %13 ], [ 3, %.lr.ph ], [ %.252, %39 ]
   %40 = icmp eq ptr %.02873, null
-  br i1 %40, label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit, label %41
+  br i1 %40, label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit, label %41
 
 41:                                               ; preds = %._crit_edge
   %42 = getelementptr inbounds nuw i8, ptr %.02873, i64 112
   %43 = load i32, ptr %42, align 8
   %44 = icmp slt i32 %.151, %43
-  br i1 %44, label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit, label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit.thread
+  br i1 %44, label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit, label %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit.thread
 
-_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit.thread: ; preds = %21, %41
+_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit.thread: ; preds = %21, %41
   %.234.ph = phi i1 [ %.03272, %41 ], [ true, %21 ]
   %45 = load i8, ptr %11, align 8
   %46 = and i8 %45, -2
@@ -8141,7 +8141,7 @@ _ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit.thread: ;
   store i8 %47, ptr %11, align 8
   br label %52
 
-_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit: ; preds = %._crit_edge, %41
+_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit: ; preds = %._crit_edge, %41
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.045.074, i64 128
   store i32 %.151, ptr %48, align 8
   %.not62 = icmp eq i32 %.151, 0
@@ -8151,9 +8151,9 @@ _ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit: ; preds 
   store i8 %51, ptr %11, align 8
   br i1 %.not62, label %.loopexit, label %52
 
-52:                                               ; preds = %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit.thread, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit
-  %.23059 = phi ptr [ %.02873, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit.thread ], [ %14, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit ]
-  %.23458 = phi i1 [ %.234.ph, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit.thread ], [ %.03272, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit ]
+52:                                               ; preds = %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit.thread, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit
+  %.23059 = phi ptr [ %.02873, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit.thread ], [ %14, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit ]
+  %.23458 = phi i1 [ %.234.ph, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit.thread ], [ %.03272, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit ]
   %.sroa.045.0 = load ptr, ptr %.sroa.045.074, align 8
   %.not61 = icmp eq ptr %.sroa.045.0, %10
   br i1 %.not61, label %._crit_edge77.loopexit, label %13, !llvm.loop !42
@@ -8162,8 +8162,8 @@ _ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit: ; preds 
   %53 = select i1 %.23458, ptr null, ptr %.23059
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit, %5, %._crit_edge77.loopexit
-  %.2 = phi ptr [ null, %5 ], [ %53, %._crit_edge77.loopexit ], [ %14, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.argprom.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit, %5, %._crit_edge77.loopexit
+  %.2 = phi ptr [ null, %5 ], [ %53, %._crit_edge77.loopexit ], [ %14, %_ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit ]
   ret ptr %.2
 }
 
@@ -8705,7 +8705,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 declare noundef zeroext i1 @_ZNK5clang13CXXMethodDecl8isStaticEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZL13GetFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE.argelim(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL13GetFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl14getFirstFriendEv(ptr noundef nonnull align 8 dereferenceable(144) %1) #13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit.thread18, label %.lr.ph
@@ -8762,7 +8762,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL13GetFriendKindRN5clang4S
 
 _ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.i.i: ; preds = %20
   %31 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %27) #13
-  %32 = tail call fastcc noundef i32 @_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE.argprom(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %31)
+  %32 = tail call fastcc noundef i32 @_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %31)
   br label %_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit
 
 _ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i.i: ; preds = %20
@@ -8798,9 +8798,9 @@ _ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i.i: ; preds = %
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 16
   br label %50
 
-50:                                               ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i, %.lr.ph.i.i
-  %.01711.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %.1.i.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i ]
-  %.01910.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %93, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i ]
+50:                                               ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i, %.lr.ph.i.i
+  %.01711.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %.1.i.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i ]
+  %.01910.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %93, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i ]
   %51 = load ptr, ptr %.01910.i.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 28
   %53 = load i32, ptr %52, align 4
@@ -8816,7 +8816,7 @@ _ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i.i: ; preds = %
 59:                                               ; preds = %50
   %60 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl25getDescribedClassTemplateEv(ptr noundef nonnull align 8 dereferenceable(144) %51) #13
   %.not22.i.i = icmp eq ptr %60, null
-  br i1 %.not22.i.i, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i, label %61
+  br i1 %.not22.i.i, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i, label %61
 
 61:                                               ; preds = %59, %57
   %.018.i.i = phi ptr [ %58, %57 ], [ %60, %59 ]
@@ -8830,14 +8830,14 @@ _ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i.i: ; preds = %
 67:                                               ; preds = %61
   %.val.i.i = load i8, ptr %5, align 8
   %68 = trunc i8 %.val.i.i to i1
-  br i1 %68, label %69, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i
+  br i1 %68, label %69, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 40
   %.sroa.0.0.copyload.i.i21.i = load i64, ptr %70, align 8
   %.sroa.0.0.copyload.i23.i.i = load i64, ptr %48, align 8
   %.not8.i22.i = icmp eq i64 %.sroa.0.0.copyload.i.i21.i, %.sroa.0.0.copyload.i23.i.i
-  br i1 %.not8.i22.i, label %71, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i
+  br i1 %.not8.i22.i, label %71, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 16
@@ -8868,13 +8868,13 @@ _ZN5clang4Decl14getDeclContextEv.exit.i.i:        ; preds = %77, %71
 _ZN5clang4Decl14getDeclContextEv.exit26.i.i:      ; preds = %83, %_ZN5clang4Decl14getDeclContextEv.exit.i.i
   %.0.i25.i.i = phi ptr [ %84, %83 ], [ %82, %_ZN5clang4Decl14getDeclContextEv.exit.i.i ]
   %85 = icmp eq ptr %.0.i25.i.i, %.0.i.i.i
-  br i1 %85, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread.i.i, label %86
+  br i1 %85, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread.i.i, label %86
 
 86:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit26.i.i
   %87 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i) #13
-  br i1 %87, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.i.i, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i
+  br i1 %87, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.i.i, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i
 
-_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.i.i: ; preds = %86
+_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.i.i: ; preds = %86
   %88 = getelementptr inbounds nuw i8, ptr %.0.i25.i.i, i64 8
   %89 = load i16, ptr %88, align 8
   %90 = and i16 %89, 127
@@ -8882,13 +8882,13 @@ _ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.i.i: ; p
   %92 = icmp ne i16 %90, 21
   %spec.select.i.not.i.i.i = and i1 %91, %92
   %cond.fr.i.i = freeze i1 %spec.select.i.not.i.i.i
-  br i1 %cond.fr.i.i, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread.i.i, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i
+  br i1 %cond.fr.i.i, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread.i.i, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i
 
-_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread.i.i: ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.i.i, %_ZN5clang4Decl14getDeclContextEv.exit26.i.i
-  br label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i
+_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread.i.i: ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.i.i, %_ZN5clang4Decl14getDeclContextEv.exit26.i.i
+  br label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i
 
-_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i: ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread.i.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.i.i, %86, %69, %67, %59
-  %.1.i.i = phi i32 [ %.01711.i.i, %69 ], [ %.01711.i.i, %67 ], [ %.01711.i.i, %59 ], [ 2, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread.i.i ], [ %.01711.i.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.i.i ], [ %.01711.i.i, %86 ]
+_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i: ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread.i.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.i.i, %86, %69, %67, %59
+  %.1.i.i = phi i32 [ %.01711.i.i, %69 ], [ %.01711.i.i, %67 ], [ %.01711.i.i, %59 ], [ 2, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread.i.i ], [ %.01711.i.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.i.i ], [ %.01711.i.i, %86 ]
   %93 = getelementptr inbounds i8, ptr %.01910.i.i, i64 8
   %.not.i.i = icmp eq ptr %93, %47
   br i1 %.not.i.i, label %_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit, label %50, !llvm.loop !45
@@ -8940,7 +8940,7 @@ _ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.
   %115 = getelementptr i8, ptr %110, i64 48
   %.val26.i.i = load ptr, ptr %115, align 8
   %.val27.i.i = load ptr, ptr %100, align 8
-  %116 = tail call fastcc noundef zeroext i1 @_ZL18MightInstantiateToRN5clang4SemaEPNS_12FunctionDeclES3_.argelim(ptr noundef readonly %.val26.i.i, ptr noundef readonly %.val27.i.i)
+  %116 = tail call fastcc noundef zeroext i1 @_ZL18MightInstantiateToRN5clang4SemaEPNS_12FunctionDeclES3_(ptr noundef readonly %.val26.i.i, ptr noundef readonly %.val27.i.i)
   %spec.select.i.i = select i1 %116, i32 2, i32 %.02032.i.i
   br label %117
 
@@ -8956,7 +8956,7 @@ _ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %119
-  %123 = tail call fastcc noundef i32 @_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE.argprom(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull %40)
+  %123 = tail call fastcc noundef i32 @_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull %40)
   br label %_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit
 
 124:                                              ; preds = %119
@@ -8979,7 +8979,7 @@ _ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %130
-  %133 = tail call fastcc noundef zeroext i1 @_ZL18MightInstantiateToRN5clang4SemaEPNS_12FunctionDeclES3_.argelim(ptr noundef %128, ptr noundef readonly %40)
+  %133 = tail call fastcc noundef zeroext i1 @_ZL18MightInstantiateToRN5clang4SemaEPNS_12FunctionDeclES3_(ptr noundef %128, ptr noundef readonly %40)
   %spec.select.i = select i1 %133, i32 2, i32 %.01316.i
   br label %134
 
@@ -8989,8 +8989,8 @@ _ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.
   %.not.i10 = icmp eq ptr %135, %127
   br i1 %.not.i10, label %_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit, label %.lr.ph.i, !llvm.loop !47
 
-_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit: ; preds = %117, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i, %134, %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.i.i, %122
-  %.0.i = phi i32 [ %123, %122 ], [ %32, %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.i.i ], [ %.1.i, %134 ], [ %.1.i.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread5.i.i ], [ %.1.i25.i, %117 ]
+_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit: ; preds = %117, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i, %134, %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.i.i, %122
+  %.0.i = phi i32 [ %123, %122 ], [ %32, %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.i.i ], [ %.1.i, %134 ], [ %.1.i.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread5.i.i ], [ %.1.i25.i, %117 ]
   switch i32 %.0.i, label %_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit.thread [
     i32 0, label %_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit.thread18
     i32 2, label %_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit.thread20
@@ -9215,7 +9215,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122ProtectedFriendCon
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds ptr, ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call fastcc noundef i32 @_ZL13GetFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE.argelim(ptr noundef nonnull align 8 dereferenceable(105) %14, ptr noundef %18)
+  %19 = tail call fastcc noundef i32 @_ZL13GetFriendKindRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(105) %14, ptr noundef %18)
   switch i32 %19, label %21 [
     i32 0, label %_ZN12_GLOBAL__N_122ProtectedFriendContext24checkFriendshipAlongPathEj.exit
     i32 2, label %20
@@ -9480,7 +9480,7 @@ _ZN12_GLOBAL__N_122ProtectedFriendContext24checkFriendshipAlongPathEj.exit: ; pr
 declare noundef ptr @_ZNK5clang13CXXRecordDecl14getFirstFriendEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE.argprom(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -9688,13 +9688,13 @@ declare noundef ptr @_ZNK5clang12FunctionDecl18getPrimaryTemplateEv(ptr noundef 
 declare noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL18MightInstantiateToRN5clang4SemaEPNS_12FunctionDeclES3_.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL18MightInstantiateToRN5clang4SemaEPNS_12FunctionDeclES3_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i26 = load i64, ptr %4, align 8
   %.not98 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i26
-  br i1 %.not98, label %5, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.argprom.exit
+  br i1 %.not98, label %5, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9726,22 +9726,22 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %5, %11
 _ZN5clang4Decl14getDeclContextEv.exit29:          ; preds = %_ZN5clang4Decl14getDeclContextEv.exit, %18
   %.0.i28 = phi ptr [ %19, %18 ], [ %17, %_ZN5clang4Decl14getDeclContextEv.exit ]
   %20 = icmp eq ptr %.0.i28, %.0.i
-  br i1 %20, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread, label %21
+  br i1 %20, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread, label %21
 
 21:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit29
   %22 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i) #13
-  br i1 %22, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.argprom.exit
+  br i1 %22, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit
 
-_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit: ; preds = %21
+_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit: ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 8
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 127
-  switch i16 %25, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread [
-    i16 21, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.argprom.exit
-    i16 0, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.argprom.exit
+  switch i16 %25, label %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread [
+    i16 21, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit
+    i16 0, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit
   ]
 
-_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread: ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit, %_ZN5clang4Decl14getDeclContextEv.exit29
+_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread: ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit, %_ZN5clang4Decl14getDeclContextEv.exit29
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.0.0.copyload.i31 = load i64, ptr %26, align 8
   %27 = and i64 %.sroa.0.0.copyload.i31, -16
@@ -9751,7 +9751,7 @@ _ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread: 
   %.not.i.i.i.i = icmp ult i64 %30, 16
   br i1 %.not.i.i.i.i, label %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_17FunctionProtoTypeEEENS_8CanProxyIT_EEv.exit, label %31
 
-31:                                               ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread
+31:                                               ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread
   %32 = and i64 %.sroa.0.0.copyload.i31, 7
   %33 = or i64 %30, %32
   %34 = and i64 %30, -16
@@ -9763,8 +9763,8 @@ _ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread: 
   %spec.select.i.i = select i1 %39, i64 %33, i64 0
   br label %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_17FunctionProtoTypeEEENS_8CanProxyIT_EEv.exit
 
-_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_17FunctionProtoTypeEEENS_8CanProxyIT_EEv.exit: ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread, %31
-  %.sroa.0.0.i.i = phi i64 [ 0, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit.thread ], [ %spec.select.i.i, %31 ]
+_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_17FunctionProtoTypeEEENS_8CanProxyIT_EEv.exit: ; preds = %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread, %31
+  %.sroa.0.0.i.i = phi i64 [ 0, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit.thread ], [ %spec.select.i.i, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0.0.copyload.i34 = load i64, ptr %40, align 8
   %41 = and i64 %.sroa.0.0.copyload.i34, -16
@@ -9819,7 +9819,7 @@ _ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48: ; preds = %
   %66 = and i64 %.sroa.0.0.i.i39, 7
   %67 = or i64 %.sroa.0.0.i.i47, %66
   %.not99 = icmp eq i64 %60, %67
-  br i1 %.not99, label %68, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.argprom.exit
+  br i1 %.not99, label %68, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit
 
 68:                                               ; preds = %_ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48
   %69 = and i64 %.sroa.0.0.i.i, -16
@@ -9839,7 +9839,7 @@ _ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48: ; preds = %
   %83 = trunc nuw nsw i64 %82 to i32
   %84 = and i32 %83, 65535
   %.not = icmp eq i32 %76, %84
-  br i1 %.not, label %85, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.argprom.exit
+  br i1 %.not, label %85, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit
 
 85:                                               ; preds = %68
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 24
@@ -9869,11 +9869,11 @@ _ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48: ; preds = %
   %103 = load i16, ptr %102, align 1
   %104 = and i16 %103, 4
   %.not4.i = icmp eq i16 %104, 0
-  br i1 %.not4.i, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.argprom.exit, label %.critedge.i
+  br i1 %.not4.i, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %91, %98, %85
   %.not25100 = icmp eq i32 %76, 0
-  br i1 %.not25100, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.argprom.exit, label %.lr.ph
+  br i1 %.not25100, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge.i
   %105 = getelementptr inbounds i8, ptr %79, i64 48
@@ -9910,15 +9910,15 @@ _ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48: ; preds = %
   %126 = load i16, ptr %125, align 1
   %127 = and i16 %126, 4
   %.not4.i69 = icmp eq i16 %127, 0
-  br i1 %.not4.i69, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.argprom.exit, label %.critedge.i67
+  br i1 %.not4.i69, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit, label %.critedge.i67
 
 .critedge.i67:                                    ; preds = %114, %121, %108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not25 = icmp eq i64 %indvars.iv.next, %107
-  br i1 %.not25, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.argprom.exit, label %108, !llvm.loop !51
+  br i1 %.not25, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit, label %108, !llvm.loop !51
 
-_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.argprom.exit: ; preds = %.critedge.i67, %121, %.critedge.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit, %21, %98, %68, %_ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit ], [ false, %_ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48 ], [ false, %68 ], [ false, %98 ], [ false, %21 ], [ false, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.argprom.exit ], [ true, %.critedge.i ], [ true, %.critedge.i67 ], [ false, %121 ]
+_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit: ; preds = %.critedge.i67, %121, %.critedge.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit, %21, %98, %68, %_ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit ], [ false, %_ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48 ], [ false, %68 ], [ false, %98 ], [ false, %21 ], [ false, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit ], [ true, %.critedge.i ], [ true, %.critedge.i67 ], [ false, %121 ]
   ret i1 %.0
 }
 

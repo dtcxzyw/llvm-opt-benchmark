@@ -1507,7 +1507,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang18ExternalSemaSourceEED2Ev.exit: ; preds = %
 
 578:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang18ExternalSemaSourceEED2Ev.exit
   store ptr null, ptr %0, align 8
-  br label %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.argprom.exit
+  br label %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.exit
 
 579:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang18ExternalSemaSourceEED2Ev.exit
   %580 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14, !noalias !28
@@ -1533,26 +1533,26 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang18ExternalSemaSourceEED2Ev.exit: ; preds = %
   %591 = add i32 %590, -1
   store i32 %591, ptr %581, align 4
   %592 = icmp eq i32 %591, 0
-  br i1 %592, label %593, label %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.argprom.exit
+  br i1 %592, label %593, label %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.exit
 
 593:                                              ; preds = %579
   %594 = load ptr, ptr %580, align 8
   %595 = getelementptr inbounds i8, ptr %594, i64 8
   %596 = load ptr, ptr %595, align 8
   call void %596(ptr noundef nonnull align 8 dereferenceable(16) %580) #13
-  br label %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.argprom.exit
+  br label %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.exit
 
-_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.argprom.exit: ; preds = %593, %579, %578
+_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.exit: ; preds = %593, %579, %578
   %.sroa.14.2 = phi ptr [ %.sroa.14.0.lcssa, %578 ], [ null, %579 ], [ null, %593 ]
   %.sroa.7.2 = phi ptr [ %.sroa.7.0.lcssa, %578 ], [ null, %579 ], [ null, %593 ]
   %.sroa.0224.2 = phi ptr [ %.sroa.0224.0.lcssa, %578 ], [ null, %579 ], [ null, %593 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #13
   br label %597
 
-597:                                              ; preds = %_ZNSt10unique_ptrIN5clang18CompilerInvocationESt14default_deleteIS1_EED2Ev.exit141, %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.argprom.exit
-  %.sroa.14.1 = phi ptr [ %.sroa.14.2, %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.argprom.exit ], [ %.sroa.14.0265, %_ZNSt10unique_ptrIN5clang18CompilerInvocationESt14default_deleteIS1_EED2Ev.exit141 ]
-  %.sroa.7.1 = phi ptr [ %.sroa.7.2, %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.argprom.exit ], [ %.sroa.7.0266, %_ZNSt10unique_ptrIN5clang18CompilerInvocationESt14default_deleteIS1_EED2Ev.exit141 ]
-  %.sroa.0224.1 = phi ptr [ %.sroa.0224.2, %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.argprom.exit ], [ %.sroa.0224.0267, %_ZNSt10unique_ptrIN5clang18CompilerInvocationESt14default_deleteIS1_EED2Ev.exit141 ]
+597:                                              ; preds = %_ZNSt10unique_ptrIN5clang18CompilerInvocationESt14default_deleteIS1_EED2Ev.exit141, %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.exit
+  %.sroa.14.1 = phi ptr [ %.sroa.14.2, %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.exit ], [ %.sroa.14.0265, %_ZNSt10unique_ptrIN5clang18CompilerInvocationESt14default_deleteIS1_EED2Ev.exit141 ]
+  %.sroa.7.1 = phi ptr [ %.sroa.7.2, %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.exit ], [ %.sroa.7.0266, %_ZNSt10unique_ptrIN5clang18CompilerInvocationESt14default_deleteIS1_EED2Ev.exit141 ]
+  %.sroa.0224.1 = phi ptr [ %.sroa.0224.2, %_ZN4llvm18IntrusiveRefCntPtrIN12_GLOBAL__N_121ChainedIncludesSourceEED2Ev.exit ], [ %.sroa.0224.0267, %_ZNSt10unique_ptrIN5clang18CompilerInvocationESt14default_deleteIS1_EED2Ev.exit141 ]
   %598 = load ptr, ptr %6, align 8
   %599 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %.not4.i.i146 = icmp eq i64 %599, 0
@@ -4568,8 +4568,8 @@ attributes #16 = { noreturn nounwind }
 !29 = distinct !{!29, !30, !"_ZN4llvm19makeIntrusiveRefCntIN12_GLOBAL__N_121ChainedIncludesSourceEJSt6vectorISt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS6_EESaIS9_EEEEENS_18IntrusiveRefCntPtrIT_EEDpOT0_: argument 0"}
 !30 = distinct !{!30, !"_ZN4llvm19makeIntrusiveRefCntIN12_GLOBAL__N_121ChainedIncludesSourceEJSt6vectorISt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS6_EESaIS9_EEEEENS_18IntrusiveRefCntPtrIT_EEDpOT0_"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN4llvm19makeIntrusiveRefCntIN5clang27MultiplexExternalSemaSourceEJPN12_GLOBAL__N_121ChainedIncludesSourceEPNS1_18ExternalSemaSourceEEEENS_18IntrusiveRefCntPtrIT_EEDpOT0_.argprom: argument 0"}
-!33 = distinct !{!33, !"_ZN4llvm19makeIntrusiveRefCntIN5clang27MultiplexExternalSemaSourceEJPN12_GLOBAL__N_121ChainedIncludesSourceEPNS1_18ExternalSemaSourceEEEENS_18IntrusiveRefCntPtrIT_EEDpOT0_.argprom"}
+!32 = distinct !{!32, !33, !"_ZN4llvm19makeIntrusiveRefCntIN5clang27MultiplexExternalSemaSourceEJPN12_GLOBAL__N_121ChainedIncludesSourceEPNS1_18ExternalSemaSourceEEEENS_18IntrusiveRefCntPtrIT_EEDpOT0_: argument 0"}
+!33 = distinct !{!33, !"_ZN4llvm19makeIntrusiveRefCntIN5clang27MultiplexExternalSemaSourceEJPN12_GLOBAL__N_121ChainedIncludesSourceEPNS1_18ExternalSemaSourceEEEENS_18IntrusiveRefCntPtrIT_EEDpOT0_"}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}

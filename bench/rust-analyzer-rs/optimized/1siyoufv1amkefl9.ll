@@ -289,12 +289,12 @@ define void @_ZN5paths10AbsPathBuf6assert17h519df9bb217da459E(ptr noalias nocapt
 15:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call fastcc void @"_ZN5paths10AbsPathBuf6assert28_$u7b$$u7b$closure$u7d$$u7d$17h0118c53fdd4f486dE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %3)
+  call fastcc void @"_ZN5paths10AbsPathBuf6assert28_$u7b$$u7b$closure$u7d$$u7d$17h0118c53fdd4f486dE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %3)
   unreachable
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN5paths10AbsPathBuf6assert28_$u7b$$u7b$closure$u7d$$u7d$17h0118c53fdd4f486dE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5paths10AbsPathBuf6assert28_$u7b$$u7b$closure$u7d$$u7d$17h0118c53fdd4f486dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -362,7 +362,7 @@ define void @_ZN5paths10AbsPathBuf11assert_utf817h2ea6b6aeba9ff29aE(ptr noalias 
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call fastcc void @"_ZN5paths10AbsPathBuf11assert_utf828_$u7b$$u7b$closure$u7d$$u7d$17h363e79e6da133fffE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %4)
+  call fastcc void @"_ZN5paths10AbsPathBuf11assert_utf828_$u7b$$u7b$closure$u7d$$u7d$17h363e79e6da133fffE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %4)
   unreachable
 
 16:                                               ; preds = %9
@@ -386,7 +386,7 @@ define void @_ZN5paths10AbsPathBuf11assert_utf817h2ea6b6aeba9ff29aE(ptr noalias 
 21:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !39
-  call fastcc void @"_ZN5paths10AbsPathBuf6assert28_$u7b$$u7b$closure$u7d$$u7d$17h0118c53fdd4f486dE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(24) %3), !noalias !51
+  call fastcc void @"_ZN5paths10AbsPathBuf6assert28_$u7b$$u7b$closure$u7d$$u7d$17h0118c53fdd4f486dE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %3), !noalias !51
   unreachable
 
 _ZN5paths10AbsPathBuf6assert17h519df9bb217da459E.exit: ; preds = %18
@@ -395,7 +395,7 @@ _ZN5paths10AbsPathBuf6assert17h519df9bb217da459E.exit: ; preds = %18
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN5paths10AbsPathBuf11assert_utf828_$u7b$$u7b$closure$u7d$$u7d$17h363e79e6da133fffE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5paths10AbsPathBuf11assert_utf828_$u7b$$u7b$closure$u7d$$u7d$17h363e79e6da133fffE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 } }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

@@ -23,14 +23,14 @@ define internal ptr @aes_256_xts_newctx(ptr nocapture readnone %provctx) #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 728, ptr noundef nonnull @.str, i32 noundef 114) #4
   %cmp.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i, label %aes_xts_newctx.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %aes_xts_newctx.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call1.i = tail call ptr @ossl_prov_cipher_hw_aes_xts(i64 noundef 512) #4
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call.i, i64 noundef 512, i64 noundef 8, i64 noundef 128, i32 noundef 65537, i64 noundef 2, ptr noundef %call1.i, ptr noundef null) #4
-  br label %aes_xts_newctx.argprom.exit
+  br label %aes_xts_newctx.exit
 
-aes_xts_newctx.argprom.exit:                      ; preds = %entry, %if.then.i
+aes_xts_newctx.exit:                              ; preds = %entry, %if.then.i
   ret ptr %call.i
 }
 
@@ -271,14 +271,14 @@ define internal ptr @aes_128_xts_newctx(ptr nocapture readnone %provctx) #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 728, ptr noundef nonnull @.str, i32 noundef 114) #4
   %cmp.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i, label %aes_xts_newctx.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %aes_xts_newctx.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call1.i = tail call ptr @ossl_prov_cipher_hw_aes_xts(i64 noundef 256) #4
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call.i, i64 noundef 256, i64 noundef 8, i64 noundef 128, i32 noundef 65537, i64 noundef 2, ptr noundef %call1.i, ptr noundef null) #4
-  br label %aes_xts_newctx.argprom.exit
+  br label %aes_xts_newctx.exit
 
-aes_xts_newctx.argprom.exit:                      ; preds = %entry, %if.then.i
+aes_xts_newctx.exit:                              ; preds = %entry, %if.then.i
   ret ptr %call.i
 }
 

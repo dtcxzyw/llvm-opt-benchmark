@@ -8605,13 +8605,13 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then.i:                                        ; preds = %if.end
   %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid1, ptr noundef nonnull readonly dereferenceable(32) %oid2, i64 32)
-  br label %hasheq_algop.argprom.exit
+  br label %hasheq_algop.exit
 
 if.end.i:                                         ; preds = %if.end
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid1, ptr noundef nonnull readonly dereferenceable(20) %oid2, i64 20)
-  br label %hasheq_algop.argprom.exit
+  br label %hasheq_algop.exit
 
-hasheq_algop.argprom.exit:                        ; preds = %if.then.i, %if.end.i
+hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.i
   %retval.0.in.in.i = phi i32 [ %bcmp3.i, %if.then.i ], [ %bcmp.i, %if.end.i ]
   %retval.0.in.i = icmp eq i32 %retval.0.in.in.i, 0
   %retval.0.i = zext i1 %retval.0.in.i to i32
@@ -13515,9 +13515,9 @@ entry:
   %0 = getelementptr i8, ptr %o, i64 584
   %o.val13 = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %o.val13, null
-  br i1 %tobool.not.i, label %land.end, label %additional_headers.argprom.exit
+  br i1 %tobool.not.i, label %land.end, label %additional_headers.exit
 
-additional_headers.argprom.exit:                  ; preds = %entry
+additional_headers.exit:                          ; preds = %entry
   %1 = load ptr, ptr %p, align 8
   %path = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %path, align 8
@@ -13525,7 +13525,7 @@ additional_headers.argprom.exit:                  ; preds = %entry
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %additional_headers.argprom.exit
+land.lhs.true:                                    ; preds = %additional_headers.exit
   %pickaxe_opts = getelementptr inbounds i8, ptr %o, i64 32
   %3 = load i32, ptr %pickaxe_opts, align 8
   %tobool1.not = icmp eq i32 %3, 0
@@ -13543,8 +13543,8 @@ lor.rhs:                                          ; preds = %land.rhs
   %tobool4 = icmp ne i32 %and.i, 0
   br label %land.end
 
-land.end:                                         ; preds = %entry, %lor.rhs, %land.lhs.true, %additional_headers.argprom.exit
-  %6 = phi i1 [ false, %land.lhs.true ], [ false, %additional_headers.argprom.exit ], [ %tobool4, %lor.rhs ], [ false, %entry ]
+land.end:                                         ; preds = %entry, %lor.rhs, %land.lhs.true, %additional_headers.exit
+  %6 = phi i1 [ false, %land.lhs.true ], [ false, %additional_headers.exit ], [ %tobool4, %lor.rhs ], [ false, %entry ]
   %call5 = tail call i32 @diff_unmodified_pair(ptr noundef nonnull %p)
   %tobool6 = icmp eq i32 %call5, 0
   %or.cond = select i1 %tobool6, i1 true, i1 %6
@@ -17550,14 +17550,14 @@ sw.epilog.i:                                      ; preds = %diff_line_prefix.ex
   %17 = getelementptr i8, ptr %o, i64 584
   %o.val.i = load ptr, ptr %17, align 8
   %tobool.not.i92.i = icmp eq ptr %o.val.i, null
-  br i1 %tobool.not.i92.i, label %if.end15.i, label %additional_headers.argprom.exit.i
+  br i1 %tobool.not.i92.i, label %if.end15.i, label %additional_headers.exit.i
 
-additional_headers.argprom.exit.i:                ; preds = %sw.epilog.i
+additional_headers.exit.i:                        ; preds = %sw.epilog.i
   %call.i94.i = tail call ptr @strmap_get(ptr noundef nonnull %o.val.i, ptr noundef %name) #31
   %tobool13.not.i = icmp eq ptr %call.i94.i, null
   br i1 %tobool13.not.i, label %if.end15.i, label %if.then14.i
 
-if.then14.i:                                      ; preds = %additional_headers.argprom.exit.i
+if.then14.i:                                      ; preds = %additional_headers.exit.i
   %nr.i.i = getelementptr inbounds i8, ptr %call.i94.i, i64 8
   %18 = load i64, ptr %nr.i.i, align 8
   %cmp4.not.i.i = icmp eq i64 %18, 0
@@ -17599,8 +17599,8 @@ add_formatted_header.exit.i.i:                    ; preds = %add_formatted_heade
   %cmp.i.i = icmp ugt i64 %25, %indvars.iv.next.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %if.end15.i, !llvm.loop !64
 
-if.end15.i:                                       ; preds = %add_formatted_header.exit.i.i, %if.then14.i, %additional_headers.argprom.exit.i, %sw.epilog.i
-  %must_show_header.2 = phi i32 [ %must_show_header.1, %sw.epilog.i ], [ %must_show_header.1, %additional_headers.argprom.exit.i ], [ 1, %if.then14.i ], [ 1, %add_formatted_header.exit.i.i ]
+if.end15.i:                                       ; preds = %add_formatted_header.exit.i.i, %if.then14.i, %additional_headers.exit.i, %sw.epilog.i
+  %must_show_header.2 = phi i32 [ %must_show_header.1, %sw.epilog.i ], [ %must_show_header.1, %additional_headers.exit.i ], [ 1, %if.then14.i ], [ 1, %add_formatted_header.exit.i.i ]
   %tobool16.i = icmp ne ptr %one, null
   %tobool17.i = icmp ne ptr %two, null
   %or.cond.i = and i1 %tobool16.i, %tobool17.i
@@ -19147,7 +19147,7 @@ if.end314.i:                                      ; preds = %if.then4.i289.i, %i
   %driver.i.i291.i = getelementptr inbounds i8, ptr %one, i64 88
   %247 = load ptr, ptr %driver.i.i291.i, align 8
   %tobool.not.i.i292.i = icmp eq ptr %247, null
-  br i1 %tobool.not.i.i292.i, label %if.end.i.i295.i, label %diff_funcname_pattern.argprom.argprom.exit.i
+  br i1 %tobool.not.i.i292.i, label %if.end.i.i295.i, label %diff_funcname_pattern.exit.i
 
 if.end.i.i295.i:                                  ; preds = %if.end314.i
   %248 = load i16, ptr %mode79.i, align 8
@@ -19161,28 +19161,28 @@ if.end4.i.i299.i:                                 ; preds = %if.end.i.i295.i
   %call.i.i301.i = call ptr @userdiff_find_by_path(ptr noundef %o.val.val.i, ptr noundef %250) #31
   store ptr %call.i.i301.i, ptr %driver.i.i291.i, align 8
   %251 = icmp eq ptr %call.i.i301.i, null
-  br i1 %251, label %if.then7.i.i297.i, label %diff_funcname_pattern.argprom.argprom.exit.i
+  br i1 %251, label %if.then7.i.i297.i, label %diff_funcname_pattern.exit.i
 
 if.then7.i.i297.i:                                ; preds = %if.end4.i.i299.i, %if.end.i.i295.i
   %call8.i.i298.i = call ptr @userdiff_find_by_name(ptr noundef nonnull @.str.4) #31
   store ptr %call8.i.i298.i, ptr %driver.i.i291.i, align 8
-  br label %diff_funcname_pattern.argprom.argprom.exit.i
+  br label %diff_funcname_pattern.exit.i
 
-diff_funcname_pattern.argprom.argprom.exit.i:     ; preds = %if.then7.i.i297.i, %if.end4.i.i299.i, %if.end314.i
+diff_funcname_pattern.exit.i:                     ; preds = %if.then7.i.i297.i, %if.end4.i.i299.i, %if.end314.i
   %252 = phi ptr [ %247, %if.end314.i ], [ %call.i.i301.i, %if.end4.i.i299.i ], [ %call8.i.i298.i, %if.then7.i.i297.i ]
   %funcname.i.i = getelementptr inbounds i8, ptr %252, i64 32
   %253 = load ptr, ptr %funcname.i.i, align 8
   %tobool.not.i294.i = icmp eq ptr %253, null
   br i1 %tobool.not.i294.i, label %if.then325.i, label %if.end327.i
 
-if.then325.i:                                     ; preds = %diff_funcname_pattern.argprom.argprom.exit.i
+if.then325.i:                                     ; preds = %diff_funcname_pattern.exit.i
   %o.val184.i = load ptr, ptr %repo315.i, align 8
   %254 = getelementptr i8, ptr %o.val184.i, i64 240
   %o.val184.val.i = load ptr, ptr %254, align 8
   %driver.i.i302.i = getelementptr inbounds i8, ptr %two, i64 88
   %255 = load ptr, ptr %driver.i.i302.i, align 8
   %tobool.not.i.i303.i = icmp eq ptr %255, null
-  br i1 %tobool.not.i.i303.i, label %if.end.i.i308.i, label %diff_funcname_pattern.argprom.argprom.exit316.i
+  br i1 %tobool.not.i.i303.i, label %if.end.i.i308.i, label %diff_funcname_pattern.exit316.i
 
 if.end.i.i308.i:                                  ; preds = %if.then325.i
   %256 = load i16, ptr %mode87.i, align 8
@@ -19196,14 +19196,14 @@ if.end4.i.i313.i:                                 ; preds = %if.end.i.i308.i
   %call.i.i315.i = call ptr @userdiff_find_by_path(ptr noundef %o.val184.val.i, ptr noundef %258) #31
   store ptr %call.i.i315.i, ptr %driver.i.i302.i, align 8
   %259 = icmp eq ptr %call.i.i315.i, null
-  br i1 %259, label %if.then7.i.i311.i, label %diff_funcname_pattern.argprom.argprom.exit316.i
+  br i1 %259, label %if.then7.i.i311.i, label %diff_funcname_pattern.exit316.i
 
 if.then7.i.i311.i:                                ; preds = %if.end4.i.i313.i, %if.end.i.i308.i
   %call8.i.i312.i = call ptr @userdiff_find_by_name(ptr noundef nonnull @.str.4) #31
   store ptr %call8.i.i312.i, ptr %driver.i.i302.i, align 8
-  br label %diff_funcname_pattern.argprom.argprom.exit316.i
+  br label %diff_funcname_pattern.exit316.i
 
-diff_funcname_pattern.argprom.argprom.exit316.i:  ; preds = %if.then7.i.i311.i, %if.end4.i.i313.i, %if.then325.i
+diff_funcname_pattern.exit316.i:                  ; preds = %if.then7.i.i311.i, %if.end4.i.i313.i, %if.then325.i
   %260 = phi ptr [ %255, %if.then325.i ], [ %call.i.i315.i, %if.end4.i.i313.i ], [ %call8.i.i312.i, %if.then7.i.i311.i ]
   %funcname.i305.i = getelementptr inbounds i8, ptr %260, i64 32
   %261 = load ptr, ptr %funcname.i305.i, align 8
@@ -19211,8 +19211,8 @@ diff_funcname_pattern.argprom.argprom.exit316.i:  ; preds = %if.then7.i.i311.i, 
   %spec.select.i307.i = select i1 %tobool.not.i306.i, ptr null, ptr %funcname.i305.i
   br label %if.end327.i
 
-if.end327.i:                                      ; preds = %diff_funcname_pattern.argprom.argprom.exit316.i, %diff_funcname_pattern.argprom.argprom.exit.i
-  %pe.0.i = phi ptr [ %funcname.i.i, %diff_funcname_pattern.argprom.argprom.exit.i ], [ %spec.select.i307.i, %diff_funcname_pattern.argprom.argprom.exit316.i ]
+if.end327.i:                                      ; preds = %diff_funcname_pattern.exit316.i, %diff_funcname_pattern.exit.i
+  %pe.0.i = phi ptr [ %funcname.i.i, %diff_funcname_pattern.exit.i ], [ %spec.select.i307.i, %diff_funcname_pattern.exit316.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %xpp.i, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %xecfg.i, i8 0, i64 48, i1 false)
   %262 = getelementptr inbounds i8, ptr %ecbdata.i, i64 8
@@ -20938,7 +20938,7 @@ if.then.i:                                        ; preds = %diff_line_prefix.ex
   %11 = load ptr, ptr %newline.i, align 8
   %12 = load i64, ptr %size, align 8
   %13 = load ptr, ptr %0, align 8
-  tail call fastcc void @fn_out_diff_words_write_helper.retelim(ptr noundef %10, ptr noundef nonnull %old_word.i, ptr noundef %11, i64 noundef %12, ptr noundef %13)
+  tail call fastcc void @fn_out_diff_words_write_helper(ptr noundef %10, ptr noundef nonnull %old_word.i, ptr noundef %11, i64 noundef %12, ptr noundef %13)
   br label %diff_words_show.exit
 
 if.end.i:                                         ; preds = %diff_line_prefix.exit.i
@@ -21017,7 +21017,7 @@ if.end43.i:                                       ; preds = %if.then39.i, %land.
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr52.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call fastcc void @fn_out_diff_words_write_helper.retelim(ptr noundef %30, ptr noundef nonnull %ctx.i, ptr noundef %31, i64 noundef %sub.ptr.sub.i, ptr noundef %27)
+  call fastcc void @fn_out_diff_words_write_helper(ptr noundef %30, ptr noundef nonnull %ctx.i, ptr noundef %31, i64 noundef %sub.ptr.sub.i, ptr noundef %27)
   br label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.end43.i, %if.end25.i
@@ -21147,7 +21147,7 @@ if.end22:                                         ; preds = %for.end20, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fn_out_diff_words_write_helper.retelim(ptr noundef %o, ptr nocapture noundef readonly %st_el, ptr noundef %newline, i64 noundef %count, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc void @fn_out_diff_words_write_helper(ptr noundef %o, ptr nocapture noundef readonly %st_el, ptr noundef %newline, i64 noundef %count, ptr noundef %buf) unnamed_addr #0 {
 entry:
   %sb = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.run_textconv.buf, i64 24, i1 false)
@@ -21675,7 +21675,7 @@ if.then33:                                        ; preds = %if.end32
   %sub.ptr.lhs.cast = ptrtoint ptr %plus_begin.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %21 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  tail call fastcc void @fn_out_diff_words_write_helper.retelim(ptr noundef %22, ptr noundef nonnull %ctx, ptr noundef %23, i64 noundef %sub.ptr.sub, ptr noundef %21)
+  tail call fastcc void @fn_out_diff_words_write_helper(ptr noundef %22, ptr noundef nonnull %ctx, ptr noundef %23, i64 noundef %sub.ptr.sub, ptr noundef %21)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then33, %if.end32
@@ -21690,7 +21690,7 @@ if.then40:                                        ; preds = %if.end38
   %sub.ptr.lhs.cast43 = ptrtoint ptr %minus_end.0 to i64
   %sub.ptr.rhs.cast44 = ptrtoint ptr %minus_begin.0 to i64
   %sub.ptr.sub45 = sub i64 %sub.ptr.lhs.cast43, %sub.ptr.rhs.cast44
-  tail call fastcc void @fn_out_diff_words_write_helper.retelim(ptr noundef %24, ptr noundef nonnull %old_word, ptr noundef %25, i64 noundef %sub.ptr.sub45, ptr noundef %minus_begin.0)
+  tail call fastcc void @fn_out_diff_words_write_helper(ptr noundef %24, ptr noundef nonnull %old_word, ptr noundef %25, i64 noundef %sub.ptr.sub45, ptr noundef %minus_begin.0)
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then40, %if.end38
@@ -21705,7 +21705,7 @@ if.then49:                                        ; preds = %if.end47
   %sub.ptr.lhs.cast52 = ptrtoint ptr %plus_end.0 to i64
   %sub.ptr.rhs.cast53 = ptrtoint ptr %plus_begin.0 to i64
   %sub.ptr.sub54 = sub i64 %sub.ptr.lhs.cast52, %sub.ptr.rhs.cast53
-  tail call fastcc void @fn_out_diff_words_write_helper.retelim(ptr noundef %26, ptr noundef nonnull %new_word, ptr noundef %27, i64 noundef %sub.ptr.sub54, ptr noundef %plus_begin.0)
+  tail call fastcc void @fn_out_diff_words_write_helper(ptr noundef %26, ptr noundef nonnull %new_word, ptr noundef %27, i64 noundef %sub.ptr.sub54, ptr noundef %plus_begin.0)
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then49, %if.end47

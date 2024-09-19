@@ -322,7 +322,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_115AverageHa
 87:                                               ; preds = %85, %83
   %.0.i.i.i.i.i6 = phi i32 [ %76, %83 ], [ %86, %85 ]
   %88 = icmp eq i32 %.0.i.i.i.i.i6, 1
-  br i1 %88, label %89, label %_ZN2cv3PtrIN12_GLOBAL__N_115AverageHashImplEED2Ev.argprom.exit
+  br i1 %88, label %89, label %_ZN2cv3PtrIN12_GLOBAL__N_115AverageHashImplEED2Ev.exit
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %22, align 8
@@ -346,16 +346,16 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_115AverageHa
 99:                                               ; preds = %97, %94
   %.0.i.i.i.i.i.i.i8 = phi i32 [ %95, %94 ], [ %98, %97 ]
   %100 = icmp eq i32 %.0.i.i.i.i.i.i.i8, 1
-  br i1 %100, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9, label %_ZN2cv3PtrIN12_GLOBAL__N_115AverageHashImplEED2Ev.argprom.exit
+  br i1 %100, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9, label %_ZN2cv3PtrIN12_GLOBAL__N_115AverageHashImplEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9: ; preds = %99, %77
   %101 = load ptr, ptr %22, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 24
   %103 = load ptr, ptr %102, align 8
   tail call void %103(ptr noundef nonnull align 8 dereferenceable(16) %22) #19
-  br label %_ZN2cv3PtrIN12_GLOBAL__N_115AverageHashImplEED2Ev.argprom.exit
+  br label %_ZN2cv3PtrIN12_GLOBAL__N_115AverageHashImplEED2Ev.exit
 
-_ZN2cv3PtrIN12_GLOBAL__N_115AverageHashImplEED2Ev.argprom.exit: ; preds = %87, %99, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9
+_ZN2cv3PtrIN12_GLOBAL__N_115AverageHashImplEED2Ev.exit: ; preds = %87, %99, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9
   ret void
 
 104:                                              ; preds = %1
@@ -964,7 +964,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115AverageHas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115AverageHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115AverageHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115AverageHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

@@ -285,7 +285,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %86 = getelementptr inbounds i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %77, double noundef %78, ptr noundef %80, i32 noundef %81, ptr noundef %83, i32 noundef %84, i32 noundef %87, i32 noundef 0, i32 noundef %28, i32 noundef %30, i32 noundef %32, double noundef %.051)
-  %89 = call fastcc i32 @tree_traverse_pre_order.argprom(ptr noundef %.04970.us, ptr noundef %6)
+  %89 = call fastcc i32 @tree_traverse_pre_order(ptr noundef %.04970.us, ptr noundef %6)
   %putchar.us = call i32 @putchar(i32 10)
   br label %90
 
@@ -348,7 +348,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %122 = getelementptr inbounds i8, ptr %121, i64 4
   %123 = load i32, ptr %122, align 4
   %124 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %113, double noundef %114, ptr noundef %116, i32 noundef %117, ptr noundef %119, i32 noundef %120, i32 noundef %123, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %32, double noundef %.051)
-  %125 = call fastcc i32 @tree_traverse_pre_order.argprom(ptr noundef %.04970, ptr noundef %6)
+  %125 = call fastcc i32 @tree_traverse_pre_order(ptr noundef %.04970, ptr noundef %6)
   %putchar = call i32 @putchar(i32 10)
   br label %126
 
@@ -394,7 +394,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tree_traverse_pre_order.argprom(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tree_traverse_pre_order(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @diam_tree_to_csv(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.loopexit
@@ -411,7 +411,7 @@ define internal fastcc range(i32 0, 2) i32 @tree_traverse_pre_order.argprom(ptr 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds i8, ptr %.011, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc i32 @tree_traverse_pre_order.argprom(ptr noundef %.011, ptr noundef %1)
+  %10 = tail call fastcc i32 @tree_traverse_pre_order(ptr noundef %.011, ptr noundef %1)
   %.not13 = icmp eq i32 %10, 0
   br i1 %.not13, label %6, label %.loopexit, !llvm.loop !9
 

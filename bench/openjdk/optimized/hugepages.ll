@@ -494,20 +494,20 @@ define hidden void @_ZN10THPSupport7scan_osEv(ptr noundef nonnull align 8 derefe
   store i64 0, ptr %14, align 8
   %15 = call noalias ptr @fopen64(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10)
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %_ZL16read_number_filePKcPm.argprom.exit, label %16
+  br i1 %.not.i, label %_ZL16read_number_filePKcPm.exit, label %16
 
 16:                                               ; preds = %13
   %17 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %15, ptr noundef nonnull @.str.46, ptr noundef nonnull %14) #15
   %18 = call i32 @fclose(ptr noundef nonnull %15)
-  br label %_ZL16read_number_filePKcPm.argprom.exit
+  br label %_ZL16read_number_filePKcPm.exit
 
-_ZL16read_number_filePKcPm.argprom.exit:          ; preds = %13, %16
+_ZL16read_number_filePKcPm.exit:                  ; preds = %13, %16
   store i8 1, ptr %0, align 8
   %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not7 = icmp eq ptr %19, null
   br i1 %.not7, label %23, label %20
 
-20:                                               ; preds = %_ZL16read_number_filePKcPm.argprom.exit
+20:                                               ; preds = %_ZL16read_number_filePKcPm.exit
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 56
@@ -521,7 +521,7 @@ _ZL16read_number_filePKcPm.argprom.exit:          ; preds = %13, %16
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #15
   br label %23
 
-23:                                               ; preds = %20, %_ZL16read_number_filePKcPm.argprom.exit
+23:                                               ; preds = %20, %_ZL16read_number_filePKcPm.exit
   ret void
 }
 

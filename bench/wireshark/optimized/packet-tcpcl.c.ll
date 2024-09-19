@@ -1077,7 +1077,7 @@ get_clamped_length.exit:                          ; preds = %26
   ]
 
 41:                                               ; preds = %36
-  %42 = tail call fastcc i32 @get_v3_msg_len.argprom(ptr noundef %1, i32 noundef %2)
+  %42 = tail call fastcc i32 @get_v3_msg_len(ptr noundef %1, i32 noundef %2)
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.loopexit, label %44
 
@@ -1086,7 +1086,7 @@ get_clamped_length.exit:                          ; preds = %26
   br label %51
 
 46:                                               ; preds = %36
-  %47 = tail call fastcc i32 @get_v4_msg_len.argprom(ptr noundef %1, i32 noundef %2)
+  %47 = tail call fastcc i32 @get_v4_msg_len(ptr noundef %1, i32 noundef %2)
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.loopexit, label %49
 
@@ -1781,7 +1781,7 @@ proto_item_set_generated.exit178.i:               ; preds = %370, %367, %tcpcl_p
   %376 = load i64, ptr %.2151.i, align 8
   %377 = getelementptr i8, ptr %342, i64 104
   %.val.val.i = load ptr, ptr %377, align 8
-  tail call fastcc void @transfer_add_refuse.argprom.argprom(ptr %.val.val.i, i64 noundef %376, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175)
+  tail call fastcc void @transfer_add_refuse(ptr %.val.val.i, i64 noundef %376, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175)
   br label %dissect_v3_msg.exit
 
 378:                                              ; preds = %173
@@ -2072,7 +2072,7 @@ proto_item_set_generated.exit.i182:               ; preds = %534, %531, %527
 
 543:                                              ; preds = %proto_item_set_generated.exit.i182
   %544 = icmp ugt i32 %540, %541
-  br i1 %544, label %tcpcl_frame_loc_compare.argprom.exit.i, label %545
+  br i1 %544, label %tcpcl_frame_loc_compare.exit.i, label %545
 
 545:                                              ; preds = %543
   %546 = getelementptr inbounds i8, ptr %538, i64 8
@@ -2084,16 +2084,16 @@ proto_item_set_generated.exit.i182:               ; preds = %534, %531, %527
 
 551:                                              ; preds = %545
   %552 = icmp sgt i32 %547, %549
-  br label %tcpcl_frame_loc_compare.argprom.exit.i
+  br label %tcpcl_frame_loc_compare.exit.i
 
-tcpcl_frame_loc_compare.argprom.exit.i:           ; preds = %551, %543
+tcpcl_frame_loc_compare.exit.i:                   ; preds = %551, %543
   %.0.i.i183 = phi i1 [ true, %543 ], [ %552, %551 ]
   %553 = and i8 %492, 1
   %.not495.i = icmp eq i8 %553, 0
   %or.cond508.i = select i1 %.0.i.i183, i1 %.not495.i, i1 false
   br i1 %or.cond508.i, label %554, label %.thread.i
 
-554:                                              ; preds = %tcpcl_frame_loc_compare.argprom.exit.i
+554:                                              ; preds = %tcpcl_frame_loc_compare.exit.i
   %555 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %383, ptr noundef nonnull @ei_tcpclv4_sess_term_reply_flag) #10
   br label %.thread.i
 
@@ -2429,7 +2429,7 @@ get_clamped_length.exit.i178:                     ; preds = %670, %668, %665
   %.val.i175 = load ptr, ptr %725, align 8
   %726 = getelementptr i8, ptr %.val.i175, i64 104
   %.val.val.i176 = load ptr, ptr %726, align 8
-  tail call fastcc void @transfer_add_refuse.argprom.argprom(ptr %.val.val.i176, i64 noundef %720, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %385, ptr noundef %383)
+  tail call fastcc void @transfer_add_refuse(ptr %.val.val.i176, i64 noundef %720, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %385, ptr noundef %383)
   br label %.thread.i
 
 727:                                              ; preds = %381
@@ -2447,9 +2447,9 @@ get_clamped_length.exit.i178:                     ; preds = %670, %668, %665
   %737 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %383, ptr noundef nonnull @ei_tcpclv4_invalid_msg_type) #10
   br label %.thread.i
 
-.thread.i:                                        ; preds = %736, %727, %724, %715, %714, %712, %686, %684, %554, %tcpcl_frame_loc_compare.argprom.exit.i, %545, %proto_item_set_generated.exit.i182, %522, %521, %502, %483, %tcpcl_frame_loc_equal.exit.thread.i, %tcpcl_frame_loc_equal.exit.i, %470, %381
-  %.0455.i = phi i32 [ 0, %736 ], [ 0, %727 ], [ 0, %381 ], [ 0, %724 ], [ 0, %715 ], [ 0, %714 ], [ 0, %712 ], [ %.0.i513.i, %686 ], [ %.0.i513.i, %684 ], [ 0, %554 ], [ 0, %tcpcl_frame_loc_compare.argprom.exit.i ], [ 0, %522 ], [ 0, %521 ], [ 0, %tcpcl_frame_loc_equal.exit.i ], [ 0, %tcpcl_frame_loc_equal.exit.thread.i ], [ 0, %470 ], [ 0, %483 ], [ 0, %502 ], [ 0, %proto_item_set_generated.exit.i182 ], [ 0, %545 ]
-  %.0.i173 = phi i32 [ 1, %736 ], [ 3, %727 ], [ 1, %381 ], [ 10, %724 ], [ 10, %715 ], [ 18, %714 ], [ 18, %712 ], [ %674, %686 ], [ %674, %684 ], [ 3, %554 ], [ 3, %tcpcl_frame_loc_compare.argprom.exit.i ], [ 3, %522 ], [ 3, %521 ], [ %467, %tcpcl_frame_loc_equal.exit.i ], [ %467, %tcpcl_frame_loc_equal.exit.thread.i ], [ %467, %470 ], [ %467, %483 ], [ 3, %502 ], [ 3, %proto_item_set_generated.exit.i182 ], [ 3, %545 ]
+.thread.i:                                        ; preds = %736, %727, %724, %715, %714, %712, %686, %684, %554, %tcpcl_frame_loc_compare.exit.i, %545, %proto_item_set_generated.exit.i182, %522, %521, %502, %483, %tcpcl_frame_loc_equal.exit.thread.i, %tcpcl_frame_loc_equal.exit.i, %470, %381
+  %.0455.i = phi i32 [ 0, %736 ], [ 0, %727 ], [ 0, %381 ], [ 0, %724 ], [ 0, %715 ], [ 0, %714 ], [ 0, %712 ], [ %.0.i513.i, %686 ], [ %.0.i513.i, %684 ], [ 0, %554 ], [ 0, %tcpcl_frame_loc_compare.exit.i ], [ 0, %522 ], [ 0, %521 ], [ 0, %tcpcl_frame_loc_equal.exit.i ], [ 0, %tcpcl_frame_loc_equal.exit.thread.i ], [ 0, %470 ], [ 0, %483 ], [ 0, %502 ], [ 0, %proto_item_set_generated.exit.i182 ], [ 0, %545 ]
+  %.0.i173 = phi i32 [ 1, %736 ], [ 3, %727 ], [ 1, %381 ], [ 10, %724 ], [ 10, %715 ], [ 18, %714 ], [ 18, %712 ], [ %674, %686 ], [ %674, %684 ], [ 3, %554 ], [ 3, %tcpcl_frame_loc_compare.exit.i ], [ 3, %522 ], [ 3, %521 ], [ %467, %tcpcl_frame_loc_equal.exit.i ], [ %467, %tcpcl_frame_loc_equal.exit.thread.i ], [ %467, %470 ], [ %467, %483 ], [ 3, %502 ], [ 3, %proto_item_set_generated.exit.i182 ], [ 3, %545 ]
   %738 = sub i32 %.0.i173, %.0455.i
   call void @proto_item_set_len(ptr noundef %383, i32 noundef %738) #10
   %739 = call ptr @wmem_strbuf_get_str(ptr noundef %392) #10
@@ -2457,18 +2457,18 @@ get_clamped_length.exit.i178:                     ; preds = %670, %668, %665
   %740 = call ptr @wmem_strbuf_finalize(ptr noundef %392) #10
   %741 = load i32, ptr @tcpcl_analyze_sequence, align 4
   %.not502.i = icmp eq i32 %741, 0
-  br i1 %.not502.i, label %tcpcl_frame_loc_compare.argprom.exit516.thread.thread.i, label %742
+  br i1 %.not502.i, label %tcpcl_frame_loc_compare.exit516.thread.thread.i, label %742
 
 742:                                              ; preds = %.thread.i
   %743 = load i32, ptr %40, align 4
   %.not503.i = icmp eq i32 %743, 0
-  br i1 %.not503.i, label %744, label %tcpcl_frame_loc_compare.argprom.exit516.thread.thread.i
+  br i1 %.not503.i, label %744, label %tcpcl_frame_loc_compare.exit516.thread.thread.i
 
 744:                                              ; preds = %742
   %745 = getelementptr inbounds i8, ptr %39, i64 48
   %746 = load ptr, ptr %745, align 8
   %.not504.i = icmp eq ptr %746, null
-  br i1 %.not504.i, label %tcpcl_frame_loc_compare.argprom.exit516.thread.thread.sink.split.i, label %747
+  br i1 %.not504.i, label %tcpcl_frame_loc_compare.exit516.thread.thread.sink.split.i, label %747
 
 747:                                              ; preds = %744
   %748 = getelementptr inbounds i8, ptr %10, i64 8
@@ -2476,11 +2476,11 @@ get_clamped_length.exit.i178:                     ; preds = %670, %668, %665
   %750 = load i32, ptr %749, align 4
   %751 = load i32, ptr %746, align 4
   %752 = icmp ult i32 %750, %751
-  br i1 %752, label %tcpcl_frame_loc_compare.argprom.exit516.i, label %753
+  br i1 %752, label %tcpcl_frame_loc_compare.exit516.i, label %753
 
 753:                                              ; preds = %747
   %754 = icmp ugt i32 %750, %751
-  br i1 %754, label %tcpcl_frame_loc_compare.argprom.exit516.thread.thread.i, label %755
+  br i1 %754, label %tcpcl_frame_loc_compare.exit516.thread.thread.i, label %755
 
 755:                                              ; preds = %753
   %756 = getelementptr inbounds i8, ptr %749, i64 8
@@ -2488,36 +2488,36 @@ get_clamped_length.exit.i178:                     ; preds = %670, %668, %665
   %758 = getelementptr inbounds i8, ptr %746, i64 8
   %759 = load i32, ptr %758, align 4
   %760 = icmp slt i32 %757, %759
-  br i1 %760, label %tcpcl_frame_loc_compare.argprom.exit516.i, label %761
+  br i1 %760, label %tcpcl_frame_loc_compare.exit516.i, label %761
 
 761:                                              ; preds = %755
   %762 = icmp sle i32 %757, %759
-  br label %tcpcl_frame_loc_compare.argprom.exit516.thread.i
+  br label %tcpcl_frame_loc_compare.exit516.thread.i
 
-tcpcl_frame_loc_compare.argprom.exit516.i:        ; preds = %755, %747
+tcpcl_frame_loc_compare.exit516.i:                ; preds = %755, %747
   %763 = icmp eq i8 %386, 7
-  br i1 %763, label %tcpcl_frame_loc_compare.argprom.exit516.thread.thread.sink.split.i, label %tcpcl_frame_loc_compare.argprom.exit516.thread.i
+  br i1 %763, label %tcpcl_frame_loc_compare.exit516.thread.thread.sink.split.i, label %tcpcl_frame_loc_compare.exit516.thread.i
 
-tcpcl_frame_loc_compare.argprom.exit516.thread.i: ; preds = %tcpcl_frame_loc_compare.argprom.exit516.i, %761
-  %.0.i515537.i = phi i1 [ true, %tcpcl_frame_loc_compare.argprom.exit516.i ], [ %762, %761 ]
+tcpcl_frame_loc_compare.exit516.thread.i:         ; preds = %tcpcl_frame_loc_compare.exit516.i, %761
+  %.0.i515537.i = phi i1 [ true, %tcpcl_frame_loc_compare.exit516.i ], [ %762, %761 ]
   %764 = icmp ne i8 %386, 7
   %or.cond3.i = and i1 %764, %.0.i515537.i
-  br i1 %or.cond3.i, label %tcpcl_frame_loc_compare.argprom.exit516.thread.thread.sink.split.i, label %tcpcl_frame_loc_compare.argprom.exit516.thread.thread.i
+  br i1 %or.cond3.i, label %tcpcl_frame_loc_compare.exit516.thread.thread.sink.split.i, label %tcpcl_frame_loc_compare.exit516.thread.thread.i
 
-tcpcl_frame_loc_compare.argprom.exit516.thread.thread.sink.split.i: ; preds = %tcpcl_frame_loc_compare.argprom.exit516.thread.i, %tcpcl_frame_loc_compare.argprom.exit516.i, %744
+tcpcl_frame_loc_compare.exit516.thread.thread.sink.split.i: ; preds = %tcpcl_frame_loc_compare.exit516.thread.i, %tcpcl_frame_loc_compare.exit516.i, %744
   %765 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %383, ptr noundef nonnull @ei_tcpclv4_sess_init_missing) #10
-  br label %tcpcl_frame_loc_compare.argprom.exit516.thread.thread.i
+  br label %tcpcl_frame_loc_compare.exit516.thread.thread.i
 
-tcpcl_frame_loc_compare.argprom.exit516.thread.thread.i: ; preds = %tcpcl_frame_loc_compare.argprom.exit516.thread.thread.sink.split.i, %tcpcl_frame_loc_compare.argprom.exit516.thread.i, %753, %742, %.thread.i
+tcpcl_frame_loc_compare.exit516.thread.thread.i:  ; preds = %tcpcl_frame_loc_compare.exit516.thread.thread.sink.split.i, %tcpcl_frame_loc_compare.exit516.thread.i, %753, %742, %.thread.i
   %.not505.i = icmp eq ptr %390, null
   br i1 %.not505.i, label %768, label %766
 
-766:                                              ; preds = %tcpcl_frame_loc_compare.argprom.exit516.thread.thread.i
+766:                                              ; preds = %tcpcl_frame_loc_compare.exit516.thread.thread.i
   %767 = load ptr, ptr %12, align 8
   call void @col_append_sep_str(ptr noundef %767, i32 noundef 25, ptr noundef null, ptr noundef nonnull %390) #10
   br label %768
 
-768:                                              ; preds = %766, %tcpcl_frame_loc_compare.argprom.exit516.thread.thread.i
+768:                                              ; preds = %766, %tcpcl_frame_loc_compare.exit516.thread.thread.i
   call fastcc void @try_negotiate(ptr noundef %10, ptr noundef %1)
   %769 = icmp eq i8 %386, 7
   br i1 %769, label %770, label %dissect_v4_msg.exit
@@ -2653,7 +2653,7 @@ declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loca
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_v3_msg_len.argprom(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @get_v3_msg_len(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #10
   %5 = add i32 %1, 1
@@ -2721,7 +2721,7 @@ get_clamped_length.exit:                          ; preds = %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_v4_msg_len.argprom(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @get_v4_msg_len(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #10
   %4 = add i32 %1, 1
   switch i8 %3, label %48 [
@@ -2870,7 +2870,7 @@ define internal i32 @chdr_missing_tls(ptr noundef %0, ptr noundef %1, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @chdr_missing_v3(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = tail call fastcc i32 @get_v3_msg_len.argprom(ptr noundef %1, i32 noundef %2)
+  %5 = tail call fastcc i32 @get_v3_msg_len(ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %12, label %6
 
@@ -2891,7 +2891,7 @@ define internal i32 @chdr_missing_v3(ptr nocapture readnone %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @chdr_missing_v4(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = tail call fastcc i32 @get_v4_msg_len.argprom(ptr noundef %1, i32 noundef %2)
+  %5 = tail call fastcc i32 @get_v4_msg_len(ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %12, label %6
 
@@ -3676,7 +3676,7 @@ proto_item_set_generated.exit97:                  ; preds = %132, %129, %proto_i
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transfer_add_refuse.argprom.argprom(ptr %.32.val.104.val, i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @transfer_add_refuse(ptr %.32.val.104.val, i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   store i64 %0, ptr %6, align 8
   %7 = call ptr @wmem_map_lookup(ptr noundef %.32.val.104.val, ptr noundef nonnull %6) #10
@@ -3738,11 +3738,11 @@ define internal range(i32 -1, 2) i32 @tcpcl_seg_meta_compare_loc(ptr nocapture n
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4
-  br i1 %5, label %tcpcl_frame_loc_compare.argprom.exit, label %6
+  br i1 %5, label %tcpcl_frame_loc_compare.exit, label %6
 
 6:                                                ; preds = %2
   %7 = icmp ugt i32 %3, %4
-  br i1 %7, label %tcpcl_frame_loc_compare.argprom.exit, label %8
+  br i1 %7, label %tcpcl_frame_loc_compare.exit, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3750,14 +3750,14 @@ define internal range(i32 -1, 2) i32 @tcpcl_seg_meta_compare_loc(ptr nocapture n
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %10, %12
-  br i1 %13, label %tcpcl_frame_loc_compare.argprom.exit, label %14
+  br i1 %13, label %tcpcl_frame_loc_compare.exit, label %14
 
 14:                                               ; preds = %8
   %15 = icmp sgt i32 %10, %12
   %..i = zext i1 %15 to i32
-  br label %tcpcl_frame_loc_compare.argprom.exit
+  br label %tcpcl_frame_loc_compare.exit
 
-tcpcl_frame_loc_compare.argprom.exit:             ; preds = %2, %6, %8, %14
+tcpcl_frame_loc_compare.exit:                     ; preds = %2, %6, %8, %14
   %.0.i = phi i32 [ -1, %2 ], [ 1, %6 ], [ -1, %8 ], [ %..i, %14 ]
   ret i32 %.0.i
 }
@@ -3783,11 +3783,11 @@ define internal range(i32 -1, 2) i32 @tcpcl_ack_meta_compare_loc(ptr nocapture n
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4
-  br i1 %5, label %tcpcl_frame_loc_compare.argprom.exit, label %6
+  br i1 %5, label %tcpcl_frame_loc_compare.exit, label %6
 
 6:                                                ; preds = %2
   %7 = icmp ugt i32 %3, %4
-  br i1 %7, label %tcpcl_frame_loc_compare.argprom.exit, label %8
+  br i1 %7, label %tcpcl_frame_loc_compare.exit, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3795,14 +3795,14 @@ define internal range(i32 -1, 2) i32 @tcpcl_ack_meta_compare_loc(ptr nocapture n
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %10, %12
-  br i1 %13, label %tcpcl_frame_loc_compare.argprom.exit, label %14
+  br i1 %13, label %tcpcl_frame_loc_compare.exit, label %14
 
 14:                                               ; preds = %8
   %15 = icmp sgt i32 %10, %12
   %..i = zext i1 %15 to i32
-  br label %tcpcl_frame_loc_compare.argprom.exit
+  br label %tcpcl_frame_loc_compare.exit
 
-tcpcl_frame_loc_compare.argprom.exit:             ; preds = %2, %6, %8, %14
+tcpcl_frame_loc_compare.exit:                     ; preds = %2, %6, %8, %14
   %.0.i = phi i32 [ -1, %2 ], [ 1, %6 ], [ -1, %8 ], [ %..i, %14 ]
   ret i32 %.0.i
 }

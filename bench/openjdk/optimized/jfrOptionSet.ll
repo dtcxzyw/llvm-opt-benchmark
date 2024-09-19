@@ -533,13 +533,13 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet21adjust_memory_optionsEv() l
 13:                                               ; preds = %10, %7
   %14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.argprom.exit.i
+  br i1 %15, label %16, label %_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.exit.i
 
 16:                                               ; preds = %13
   %17 = load i64, ptr @MIN_BUFFER_COUNT, align 8
   %18 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   %.not.i = icmp slt i64 %18, %17
-  br i1 %.not.i, label %19, label %_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.argprom.exit.i
+  br i1 %.not.i, label %19, label %_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.exit.i
 
 19:                                               ; preds = %16
   %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
@@ -560,17 +560,17 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet21adjust_memory_optionsEv() l
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.84, i64 noundef %17)
   br label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
-_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.argprom.exit.i: ; preds = %16, %13
+_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.exit.i: ; preds = %16, %13
   %26 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %_ZL26ensure_valid_minimum_sizesv.exit
 
-28:                                               ; preds = %_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.argprom.exit.i
+28:                                               ; preds = %_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.exit.i
   %29 = load i64, ptr @MIN_THREAD_BUFFER_SIZE, align 8
   %30 = tail call fastcc noundef zeroext i1 @_ZL11ensure_gteqI12DCmdArgumentI18MemorySizeArgumentEEbRT_l(ptr noundef nonnull align 8 dereferenceable(80) @_ZL22_dcmd_threadbuffersize, i64 noundef %29)
   br i1 %30, label %_ZL26ensure_valid_minimum_sizesv.exit, label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
-_ZL26ensure_valid_minimum_sizesv.exit:            ; preds = %28, %_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.argprom.exit.i
+_ZL26ensure_valid_minimum_sizesv.exit:            ; preds = %28, %_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.exit.i
   %31 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %36
@@ -889,7 +889,7 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18: ; preds = %
   br label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
 181:                                              ; preds = %111
-  %182 = call fastcc noundef zeroext i1 @_ZL19check_for_ambiguityI12DCmdArgumentI18MemorySizeArgumentES0_IlEEbRT_S5_RT0_.argprom()
+  %182 = call fastcc noundef zeroext i1 @_ZL19check_for_ambiguityI12DCmdArgumentI18MemorySizeArgumentES0_IlEEbRT_S5_RT0_()
   br i1 %182, label %183, label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
 183:                                              ; preds = %181, %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit
@@ -1397,7 +1397,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19check_for_ambiguityI12DCmdArgumentI18MemorySizeArgumentES0_IlEEbRT_S5_RT0_.argprom() unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZL19check_for_ambiguityI12DCmdArgumentI18MemorySizeArgumentES0_IlEEbRT_S5_RT0_() unnamed_addr #3 {
   %.sroa.01.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   %2 = mul i64 %1, %.sroa.01.0.copyload

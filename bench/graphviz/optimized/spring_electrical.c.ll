@@ -66,7 +66,7 @@ define noalias noundef ptr @spring_electrical_control_new() local_unnamed_addr #
 3:                                                ; preds = %0
   %4 = load ptr, ptr @stderr, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.43, i64 noundef 136) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 gv_alloc.exit:                                    ; preds = %0
@@ -1265,7 +1265,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.42, i64 noundef %0, i64 noundef %1) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 8:                                                ; preds = %4
@@ -1277,7 +1277,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.43, i64 noundef %13) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -1328,7 +1328,7 @@ define internal fastcc void @beautify_leaves(i32 noundef range(i32 1, -214748364
 24:                                               ; preds = %21
   %25 = load ptr, ptr @stderr, align 8
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.43, i64 noundef %19) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 bitarray_new.exit:                                ; preds = %3, %.thread.i.i, %21
@@ -1480,7 +1480,7 @@ bitarray_set.exit65:                              ; preds = %.lr.ph
   %111 = load ptr, ptr @stderr, align 8
   %112 = tail call ptr @strerror(i32 noundef %.0.i.ph.i) #25
   %113 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef nonnull @.str.44, ptr noundef %112) #23
-  tail call fastcc void @graphviz_exit.argelim() #24
+  tail call fastcc void @graphviz_exit() #24
   unreachable
 
 ints_append.exit:                                 ; preds = %bitarray_set.exit65, %105
@@ -4857,7 +4857,7 @@ declare void @post_process_smoothing(i32 noundef, ptr noundef, ptr noundef, ptr 
 declare void @Multilevel_delete(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #15 {
+define internal fastcc void @graphviz_exit() unnamed_addr #15 {
   tail call void @exit(i32 noundef 1) #28
   unreachable
 }

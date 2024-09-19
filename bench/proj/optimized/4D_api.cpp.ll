@@ -1599,10 +1599,10 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   br i1 %24, label %102, label %103
 
 102:                                              ; preds = %101
-  br i1 %29, label %.sink.split.i, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit"
+  br i1 %29, label %.sink.split.i, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit"
 
 103:                                              ; preds = %101
-  br i1 %brmerge, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit", label %.sink.split.i
+  br i1 %brmerge, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit", label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %103, %102
   %.sink.i = phi double [ %28, %102 ], [ %26, %103 ]
@@ -1610,9 +1610,9 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   %105 = call double @fmod(double noundef %104, double noundef 3.600000e+02) #34
   %106 = fadd double %105, -1.800000e+02
   %.pre205 = load double, ptr %51, align 8
-  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit"
+  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit"
 
-"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit": ; preds = %103, %102, %.sink.split.i
+"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit": ; preds = %103, %102, %.sink.split.i
   %107 = phi double [ %52, %102 ], [ %52, %103 ], [ %.pre205, %.sink.split.i ]
   %.0.i = phi double [ %28, %102 ], [ %.mux, %103 ], [ %106, %.sink.split.i ]
   %108 = fcmp ult double %.0.i, %107
@@ -1639,19 +1639,19 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   br i1 %30, label %121, label %122
 
 121:                                              ; preds = %120
-  br i1 %35, label %.sink.split.i176, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit178"
+  br i1 %35, label %.sink.split.i176, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178"
 
 122:                                              ; preds = %120
-  br i1 %brmerge194, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit178", label %.sink.split.i176
+  br i1 %brmerge194, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178", label %.sink.split.i176
 
 .sink.split.i176:                                 ; preds = %122, %121
   %.sink.i177 = phi double [ %34, %121 ], [ %32, %122 ]
   %123 = fadd double %.sink.i177, 1.800000e+02
   %124 = call double @fmod(double noundef %123, double noundef 3.600000e+02) #34
   %125 = fadd double %124, -1.800000e+02
-  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit178"
+  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178"
 
-"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit178": ; preds = %122, %121, %.sink.split.i176
+"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178": ; preds = %122, %121, %.sink.split.i176
   %.0.i175 = phi double [ %34, %121 ], [ %.mux195, %122 ], [ %125, %.sink.split.i176 ]
   %126 = getelementptr inbounds i8, ptr %47, i64 16
   %127 = load double, ptr %126, align 8
@@ -1745,10 +1745,10 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   br i1 %24, label %186, label %187
 
 186:                                              ; preds = %185
-  br i1 %29, label %.sink.split.i180, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit182"
+  br i1 %29, label %.sink.split.i180, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182"
 
 187:                                              ; preds = %185
-  br i1 %brmerge198, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit182", label %.sink.split.i180
+  br i1 %brmerge198, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182", label %.sink.split.i180
 
 .sink.split.i180:                                 ; preds = %187, %186
   %.sink.i181 = phi double [ %28, %186 ], [ %26, %187 ]
@@ -1756,9 +1756,9 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   %189 = call double @fmod(double noundef %188, double noundef 3.600000e+02) #34
   %190 = fadd double %189, -1.800000e+02
   %.pre = load double, ptr %135, align 8
-  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit182"
+  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182"
 
-"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit182": ; preds = %187, %186, %.sink.split.i180
+"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182": ; preds = %187, %186, %.sink.split.i180
   %191 = phi double [ %136, %186 ], [ %136, %187 ], [ %.pre, %.sink.split.i180 ]
   %.0.i179 = phi double [ %28, %186 ], [ %.mux199, %187 ], [ %190, %.sink.split.i180 ]
   %192 = fcmp ult double %.0.i179, %191
@@ -1785,19 +1785,19 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   br i1 %30, label %205, label %206
 
 205:                                              ; preds = %204
-  br i1 %35, label %.sink.split.i184, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit186"
+  br i1 %35, label %.sink.split.i184, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186"
 
 206:                                              ; preds = %204
-  br i1 %brmerge202, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit186", label %.sink.split.i184
+  br i1 %brmerge202, label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186", label %.sink.split.i184
 
 .sink.split.i184:                                 ; preds = %206, %205
   %.sink.i185 = phi double [ %34, %205 ], [ %32, %206 ]
   %207 = fadd double %.sink.i185, 1.800000e+02
   %208 = call double @fmod(double noundef %207, double noundef 3.600000e+02) #34
   %209 = fadd double %208, -1.800000e+02
-  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit186"
+  br label %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186"
 
-"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit186": ; preds = %206, %205, %.sink.split.i184
+"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186": ; preds = %206, %205, %.sink.split.i184
   %.0.i183 = phi double [ %34, %205 ], [ %.mux203, %206 ], [ %209, %.sink.split.i184 ]
   %210 = getelementptr inbounds i8, ptr %47, i64 48
   %211 = load double, ptr %210, align 8
@@ -1808,7 +1808,7 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   %or.cond173 = select i1 %212, i1 true, i1 %215
   br i1 %or.cond173, label %265, label %.critedge
 
-.critedge:                                        ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit186", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit182", %154, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit178", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit", %70, %164, %137, %80, %53
+.critedge:                                        ; preds = %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182", %154, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit", %70, %164, %137, %80, %53
   %216 = icmp slt i32 %.0189, 0
   br i1 %216, label %249, label %217
 
@@ -1887,9 +1887,9 @@ _ZNK16PJCoordOperation14isInstantiableEv.exit:    ; preds = %250, %254
   %264 = trunc nuw nsw i64 %indvars.iv to i32
   br label %265
 
-265:                                              ; preds = %112, %116, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit178", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit", %70, %64, %196, %200, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit186", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit182", %154, %148, %261, %245, %241, %237, %224, %222, %_ZNK16PJCoordOperation14isInstantiableEv.exit, %37, %41
-  %.188 = phi double [ %.087188, %37 ], [ %.087188, %41 ], [ %263, %261 ], [ %.087188, %_ZNK16PJCoordOperation14isInstantiableEv.exit ], [ %.087188, %245 ], [ %.087188, %241 ], [ %.087188, %237 ], [ %.087188, %224 ], [ %.087188, %222 ], [ %.087188, %148 ], [ %.087188, %154 ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit182" ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit186" ], [ %.087188, %200 ], [ %.087188, %196 ], [ %.087188, %64 ], [ %.087188, %70 ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit" ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit178" ], [ %.087188, %116 ], [ %.087188, %112 ]
-  %.1 = phi i32 [ %.0189, %37 ], [ %.0189, %41 ], [ %264, %261 ], [ %.0189, %_ZNK16PJCoordOperation14isInstantiableEv.exit ], [ %.0189, %245 ], [ %.0189, %241 ], [ %.0189, %237 ], [ %.0189, %224 ], [ %.0189, %222 ], [ %.0189, %148 ], [ %.0189, %154 ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit182" ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit186" ], [ %.0189, %200 ], [ %.0189, %196 ], [ %.0189, %64 ], [ %.0189, %70 ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit" ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.argprom.exit178" ], [ %.0189, %116 ], [ %.0189, %112 ]
+265:                                              ; preds = %112, %116, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit", %70, %64, %196, %200, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186", %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182", %154, %148, %261, %245, %241, %237, %224, %222, %_ZNK16PJCoordOperation14isInstantiableEv.exit, %37, %41
+  %.188 = phi double [ %.087188, %37 ], [ %.087188, %41 ], [ %263, %261 ], [ %.087188, %_ZNK16PJCoordOperation14isInstantiableEv.exit ], [ %.087188, %245 ], [ %.087188, %241 ], [ %.087188, %237 ], [ %.087188, %224 ], [ %.087188, %222 ], [ %.087188, %148 ], [ %.087188, %154 ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182" ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186" ], [ %.087188, %200 ], [ %.087188, %196 ], [ %.087188, %64 ], [ %.087188, %70 ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit" ], [ %.087188, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178" ], [ %.087188, %116 ], [ %.087188, %112 ]
+  %.1 = phi i32 [ %.0189, %37 ], [ %.0189, %41 ], [ %264, %261 ], [ %.0189, %_ZNK16PJCoordOperation14isInstantiableEv.exit ], [ %.0189, %245 ], [ %.0189, %241 ], [ %.0189, %237 ], [ %.0189, %224 ], [ %.0189, %222 ], [ %.0189, %148 ], [ %.0189, %154 ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit182" ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit186" ], [ %.0189, %200 ], [ %.0189, %196 ], [ %.0189, %64 ], [ %.0189, %70 ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit" ], [ %.0189, %"_ZZ26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORDENK3$_0clEd.exit178" ], [ %.0189, %116 ], [ %.0189, %112 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !8
@@ -6281,7 +6281,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt14default_deleteIS1_EE5resetEP
 84:                                               ; preds = %83
   %.val.i.i = load ptr, ptr %15, align 8
   %85 = invoke ptr @proj_destroy(ptr noundef %.val.i.i)
-          to label %_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.argprom.exit.i unwind label %86
+          to label %_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.exit.i unwind label %86
 
 86:                                               ; preds = %84
   %87 = landingpad { ptr, i32 }
@@ -6290,11 +6290,11 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt14default_deleteIS1_EE5resetEP
   call void @__clang_call_terminate(ptr %88) #36
   unreachable
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.argprom.exit.i: ; preds = %84
+_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.exit.i: ; preds = %84
   call void @_ZdlPv(ptr noundef nonnull %15) #40
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt14default_deleteIS1_EED2Ev.exit: ; preds = %83, %_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.argprom.exit.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt14default_deleteIS1_EED2Ev.exit: ; preds = %83, %_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.exit.i
   ret ptr %.0
 }
 
@@ -7721,7 +7721,7 @@ _ZL34isSpecialCaseForNAD83_to_NAD83HARNRKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not36, label %88, label %81
 
 81:                                               ; preds = %80
-  invoke fastcc void @"_ZZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_ENK3$_0clESD_RbSF_.argprom"(ptr noundef %79, ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef nonnull align 1 dereferenceable(1) %61)
+  invoke fastcc void @"_ZZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_ENK3$_0clESD_RbSF_"(ptr noundef %79, ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef nonnull align 1 dereferenceable(1) %61)
           to label %82 unwind label %86
 
 82:                                               ; preds = %81
@@ -7751,7 +7751,7 @@ _ZL34isSpecialCaseForNAD83_to_NAD83HARNRKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not37, label %96, label %93
 
 93:                                               ; preds = %92
-  invoke fastcc void @"_ZZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_ENK3$_0clESD_RbSF_.argprom"(ptr noundef %91, ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %63)
+  invoke fastcc void @"_ZZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_ENK3$_0clESD_RbSF_"(ptr noundef %91, ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %63)
           to label %94 unwind label %86
 
 94:                                               ; preds = %93
@@ -7768,7 +7768,7 @@ _ZL34isSpecialCaseForNAD83_to_NAD83HARNRKNSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_ENK3$_0clESD_RbSF_.argprom"(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_ENK3$_0clESD_RbSF_"(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = tail call i32 @proj_get_type(ptr noundef nonnull %0)
@@ -7896,7 +7896,7 @@ define internal fastcc void @_ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt1
 3:                                                ; preds = %1
   %.val.i = load ptr, ptr %2, align 8
   %4 = invoke ptr @proj_destroy(ptr noundef %.val.i)
-          to label %_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.argprom.exit unwind label %5
+          to label %_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.exit unwind label %5
 
 5:                                                ; preds = %3
   %6 = landingpad { ptr, i32 }
@@ -7905,11 +7905,11 @@ define internal fastcc void @_ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt1
   tail call void @__clang_call_terminate(ptr %7) #36
   unreachable
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.argprom.exit: ; preds = %3
+_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.exit: ; preds = %3
   tail call void @_ZdlPv(ptr noundef nonnull %2) #40
   br label %8
 
-8:                                                ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.argprom.exit, %1
+8:                                                ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.exit, %1
   store ptr null, ptr %0, align 8
   ret void
 }

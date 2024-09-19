@@ -335,7 +335,7 @@ cond.end47.i.i.i.i.i.i.i:                         ; preds = %cond.true41.i.i.i.i
   %cond48.i.i.i.i.i.i.i = phi i32 [ %29, %cond.true41.i.i.i.i.i.i.i ], [ 4, %cond.end.i.i.i.i.i.i.i ]
   %conv51.i.i.i.i.i.i.i = zext i1 %23 to i32
   %cmp54.not.i.i.i.i.i.i.i = icmp eq i32 %conv53.i.i.i.i.i.i.i, %conv51.i.i.i.i.i.i.i
-  br i1 %cmp54.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.argprom.argprom.exit.i.i.i.i.i"
+  br i1 %cmp54.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.exit.i.i.i.i.i"
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %cond.end47.i.i.i.i.i.i.i
   br i1 %23, label %if.end59.i.i.i.i.i.i.i, label %if.then57.i.i.i.i.i.i.i
@@ -360,14 +360,14 @@ if.end63.i.i.i.i.i.i.i:                           ; preds = %if.end59.i.i.i.i.i.
   %spec.select.i.i.i.i.i.i.i = select i1 %cmp68.not.i.i.i.i.i.i.i, i1 %cmp72.i.i.i.i.i.i.i, i1 %tobool.i.i.i.i.i.i.i
   br i1 %spec.select.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.argprom.argprom.exit.i.i.i.i.i": ; preds = %cond.end47.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.exit.i.i.i.i.i": ; preds = %cond.end47.i.i.i.i.i.i.i
   br i1 %23, label %while.body.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_.exit.i.i.i.i"
 
-while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.argprom.argprom.exit.i.i.i.i.i", %if.end63.i.i.i.i.i.i.i, %if.then61.i.i.i.i.i.i.i, %if.then57.i.i.i.i.i.i.i
+while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.exit.i.i.i.i.i", %if.end63.i.i.i.i.i.i.i, %if.then61.i.i.i.i.i.i.i, %if.then57.i.i.i.i.i.i.i
   store i32 %19, ptr %__last.sroa.0.0.i.i.i.i.i, align 4
   br label %while.cond.i.i.i.i.i, !llvm.loop !8
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.argprom.argprom.exit.i.i.i.i.i", %if.end63.i.i.i.i.i.i.i, %if.then61.i.i.i.i.i.i.i, %if.then57.i.i.i.i.i.i.i
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.exit.i.i.i.i.i", %if.end63.i.i.i.i.i.i.i, %if.then61.i.i.i.i.i.i.i, %if.then57.i.i.i.i.i.i.i
   store i32 %18, ptr %__last.sroa.0.0.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 4
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %16
@@ -2854,7 +2854,7 @@ cond.end47.i.i.i.i:                               ; preds = %cond.true41.i.i.i.i
   %cond48.i.i.i.i = phi i32 [ %14, %cond.true41.i.i.i.i ], [ 4, %cond.end.i.i.i.i ]
   %conv51.i.i.i.i = zext i1 %8 to i32
   %cmp54.not.i.i.i.i = icmp eq i32 %conv53.i.i.i.i, %conv51.i.i.i.i
-  br i1 %cmp54.not.i.i.i.i, label %if.end.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit.i.i"
+  br i1 %cmp54.not.i.i.i.i, label %if.end.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit.i.i"
 
 if.end.i.i.i.i:                                   ; preds = %cond.end47.i.i.i.i
   br i1 %8, label %if.end59.i.i.i.i, label %if.then57.i.i.i.i
@@ -2879,10 +2879,10 @@ if.end63.i.i.i.i:                                 ; preds = %if.end59.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp68.not.i.i.i.i, i1 %cmp72.i.i.i.i, i1 %tobool.i.i.i.i
   br i1 %spec.select.i.i.i.i, label %if.then.i.i, label %if.else35.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit.i.i": ; preds = %cond.end47.i.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit.i.i": ; preds = %cond.end47.i.i.i.i
   br i1 %8, label %if.then.i.i, label %if.else35.i.i
 
-if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit.i.i", %if.end63.i.i.i.i, %if.then61.i.i.i.i, %if.then57.i.i.i.i
+if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit.i.i", %if.end63.i.i.i.i, %if.then61.i.i.i.i, %if.then57.i.i.i.i
   %17 = load i32, ptr %add.ptr.i2.i, align 4
   br i1 %tobool8.i.i.i.i, label %lor.rhs.i.i39.i.i, label %lor.end.i.i8.i.i
 
@@ -2931,7 +2931,7 @@ cond.end47.i.i16.i.i:                             ; preds = %cond.true41.i.i32.i
   %cond48.i.i17.i.i = phi i32 [ %26, %cond.true41.i.i32.i.i ], [ 4, %cond.end.i.i14.i.i ]
   %conv51.i.i18.i.i = zext i1 %20 to i32
   %cmp54.not.i.i19.i.i = icmp eq i32 %conv53.i.i13.i.i, %conv51.i.i18.i.i
-  br i1 %cmp54.not.i.i19.i.i, label %if.end.i.i21.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit42.i.i"
+  br i1 %cmp54.not.i.i19.i.i, label %if.end.i.i21.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit42.i.i"
 
 if.end.i.i21.i.i:                                 ; preds = %cond.end47.i.i16.i.i
   br i1 %20, label %if.end59.i.i24.i.i, label %if.then57.i.i22.i.i
@@ -2956,10 +2956,10 @@ if.end63.i.i28.i.i:                               ; preds = %if.end59.i.i24.i.i
   %spec.select.i.i31.i.i = select i1 %cmp68.not.i.i29.i.i, i1 %cmp72.i.i30.i.i, i1 %tobool8.i.i.i.i
   br i1 %spec.select.i.i31.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", label %if.else.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit42.i.i": ; preds = %cond.end47.i.i16.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit42.i.i": ; preds = %cond.end47.i.i16.i.i
   br i1 %20, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit42.i.i", %if.end63.i.i28.i.i, %if.then61.i.i26.i.i, %if.then57.i.i22.i.i
+if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit42.i.i", %if.end63.i.i28.i.i, %if.then61.i.i26.i.i, %if.then57.i.i22.i.i
   br i1 %tobool.i.i.i.i, label %lor.rhs.i.i77.i.i, label %lor.end.i.i46.i.i
 
 lor.rhs.i.i77.i.i:                                ; preds = %if.else.i.i
@@ -3003,7 +3003,7 @@ cond.end47.i.i54.i.i:                             ; preds = %cond.true41.i.i70.i
   %cond48.i.i55.i.i = phi i32 [ %36, %cond.true41.i.i70.i.i ], [ 4, %cond.end.i.i52.i.i ]
   %conv51.i.i56.i.i = zext i1 %31 to i32
   %cmp54.not.i.i57.i.i = icmp eq i32 %conv53.i.i51.i.i, %conv51.i.i56.i.i
-  br i1 %cmp54.not.i.i57.i.i, label %if.end.i.i59.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit80.i.i"
+  br i1 %cmp54.not.i.i57.i.i, label %if.end.i.i59.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit80.i.i"
 
 if.end.i.i59.i.i:                                 ; preds = %cond.end47.i.i54.i.i
   br i1 %31, label %if.end59.i.i62.i.i, label %if.then57.i.i60.i.i
@@ -3028,13 +3028,13 @@ if.end63.i.i66.i.i:                               ; preds = %if.end59.i.i62.i.i
   %spec.select.i.i69.i.i = select i1 %cmp68.not.i.i67.i.i, i1 %cmp72.i.i68.i.i, i1 %tobool.i.i.i.i
   br i1 %spec.select.i.i69.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", label %if.else29.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit80.i.i": ; preds = %cond.end47.i.i54.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit80.i.i": ; preds = %cond.end47.i.i54.i.i
   br i1 %31, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", label %if.else29.i.i
 
-if.else29.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit80.i.i", %if.end63.i.i66.i.i, %if.then61.i.i64.i.i, %if.then57.i.i60.i.i
+if.else29.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit80.i.i", %if.end63.i.i66.i.i, %if.then61.i.i64.i.i, %if.then57.i.i60.i.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i"
 
-if.else35.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit.i.i", %if.end63.i.i.i.i, %if.then61.i.i.i.i, %if.then57.i.i.i.i
+if.else35.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit.i.i", %if.end63.i.i.i.i, %if.then61.i.i.i.i, %if.then57.i.i.i.i
   %39 = load i32, ptr %add.ptr.i2.i, align 4
   br i1 %tobool.i.i.i.i, label %lor.rhs.i.i115.i.i, label %lor.end.i.i84.i.i
 
@@ -3083,7 +3083,7 @@ cond.end47.i.i92.i.i:                             ; preds = %cond.true41.i.i108.
   %cond48.i.i93.i.i = phi i32 [ %48, %cond.true41.i.i108.i.i ], [ 4, %cond.end.i.i90.i.i ]
   %conv51.i.i94.i.i = zext i1 %42 to i32
   %cmp54.not.i.i95.i.i = icmp eq i32 %conv53.i.i89.i.i, %conv51.i.i94.i.i
-  br i1 %cmp54.not.i.i95.i.i, label %if.end.i.i97.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit118.i.i"
+  br i1 %cmp54.not.i.i95.i.i, label %if.end.i.i97.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit118.i.i"
 
 if.end.i.i97.i.i:                                 ; preds = %cond.end47.i.i92.i.i
   br i1 %42, label %if.end59.i.i100.i.i, label %if.then57.i.i98.i.i
@@ -3108,10 +3108,10 @@ if.end63.i.i104.i.i:                              ; preds = %if.end59.i.i100.i.i
   %spec.select.i.i107.i.i = select i1 %cmp68.not.i.i105.i.i, i1 %cmp72.i.i106.i.i, i1 %tobool.i.i.i.i
   br i1 %spec.select.i.i107.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", label %if.else46.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit118.i.i": ; preds = %cond.end47.i.i92.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit118.i.i": ; preds = %cond.end47.i.i92.i.i
   br i1 %42, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", label %if.else46.i.i
 
-if.else46.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit118.i.i", %if.end63.i.i104.i.i, %if.then61.i.i102.i.i, %if.then57.i.i98.i.i
+if.else46.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit118.i.i", %if.end63.i.i104.i.i, %if.then61.i.i102.i.i, %if.then57.i.i98.i.i
   br i1 %tobool8.i.i.i.i, label %lor.rhs.i.i153.i.i, label %lor.end.i.i122.i.i
 
 lor.rhs.i.i153.i.i:                               ; preds = %if.else46.i.i
@@ -3155,7 +3155,7 @@ cond.end47.i.i130.i.i:                            ; preds = %cond.true41.i.i146.
   %cond48.i.i131.i.i = phi i32 [ %58, %cond.true41.i.i146.i.i ], [ 4, %cond.end.i.i128.i.i ]
   %conv51.i.i132.i.i = zext i1 %53 to i32
   %cmp54.not.i.i133.i.i = icmp eq i32 %conv53.i.i127.i.i, %conv51.i.i132.i.i
-  br i1 %cmp54.not.i.i133.i.i, label %if.end.i.i135.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit156.i.i"
+  br i1 %cmp54.not.i.i133.i.i, label %if.end.i.i135.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit156.i.i"
 
 if.end.i.i135.i.i:                                ; preds = %cond.end47.i.i130.i.i
   br i1 %53, label %if.end59.i.i138.i.i, label %if.then57.i.i136.i.i
@@ -3180,15 +3180,15 @@ if.end63.i.i142.i.i:                              ; preds = %if.end59.i.i138.i.i
   %spec.select.i.i145.i.i = select i1 %cmp68.not.i.i143.i.i, i1 %cmp72.i.i144.i.i, i1 %tobool8.i.i.i.i
   br i1 %spec.select.i.i145.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", label %if.else57.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit156.i.i": ; preds = %cond.end47.i.i130.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit156.i.i": ; preds = %cond.end47.i.i130.i.i
   br i1 %53, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", label %if.else57.i.i
 
-if.else57.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit156.i.i", %if.end63.i.i142.i.i, %if.then61.i.i140.i.i, %if.then57.i.i136.i.i
+if.else57.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit156.i.i", %if.end63.i.i142.i.i, %if.then61.i.i140.i.i, %if.then57.i.i136.i.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i": ; preds = %if.else57.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit156.i.i", %if.end63.i.i142.i.i, %if.then61.i.i140.i.i, %if.then57.i.i136.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit118.i.i", %if.end63.i.i104.i.i, %if.then61.i.i102.i.i, %if.then57.i.i98.i.i, %if.else29.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit80.i.i", %if.end63.i.i66.i.i, %if.then61.i.i64.i.i, %if.then57.i.i60.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit42.i.i", %if.end63.i.i28.i.i, %if.then61.i.i26.i.i, %if.then57.i.i22.i.i
-  %.sink157.i.i = phi i32 [ %4, %if.else57.i.i ], [ %3, %if.else29.i.i ], [ %4, %if.end63.i.i28.i.i ], [ %4, %if.then57.i.i22.i.i ], [ %4, %if.then61.i.i26.i.i ], [ %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit42.i.i" ], [ %17, %if.end63.i.i66.i.i ], [ %17, %if.then57.i.i60.i.i ], [ %17, %if.then61.i.i64.i.i ], [ %17, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit80.i.i" ], [ %3, %if.end63.i.i104.i.i ], [ %3, %if.then57.i.i98.i.i ], [ %3, %if.then61.i.i102.i.i ], [ %3, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit118.i.i" ], [ %39, %if.end63.i.i142.i.i ], [ %39, %if.then57.i.i136.i.i ], [ %39, %if.then61.i.i140.i.i ], [ %39, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit156.i.i" ]
-  %__a.coerce.sink.i.i = phi ptr [ %add.ptr.i.i, %if.else57.i.i ], [ %add.ptr.i1.i, %if.else29.i.i ], [ %add.ptr.i.i, %if.end63.i.i28.i.i ], [ %add.ptr.i.i, %if.then57.i.i22.i.i ], [ %add.ptr.i.i, %if.then61.i.i26.i.i ], [ %add.ptr.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit42.i.i" ], [ %add.ptr.i2.i, %if.end63.i.i66.i.i ], [ %add.ptr.i2.i, %if.then57.i.i60.i.i ], [ %add.ptr.i2.i, %if.then61.i.i64.i.i ], [ %add.ptr.i2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit80.i.i" ], [ %add.ptr.i1.i, %if.end63.i.i104.i.i ], [ %add.ptr.i1.i, %if.then57.i.i98.i.i ], [ %add.ptr.i1.i, %if.then61.i.i102.i.i ], [ %add.ptr.i1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit118.i.i" ], [ %add.ptr.i2.i, %if.end63.i.i142.i.i ], [ %add.ptr.i2.i, %if.then57.i.i136.i.i ], [ %add.ptr.i2.i, %if.then61.i.i140.i.i ], [ %add.ptr.i2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit156.i.i" ]
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i": ; preds = %if.else57.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit156.i.i", %if.end63.i.i142.i.i, %if.then61.i.i140.i.i, %if.then57.i.i136.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit118.i.i", %if.end63.i.i104.i.i, %if.then61.i.i102.i.i, %if.then57.i.i98.i.i, %if.else29.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit80.i.i", %if.end63.i.i66.i.i, %if.then61.i.i64.i.i, %if.then57.i.i60.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit42.i.i", %if.end63.i.i28.i.i, %if.then61.i.i26.i.i, %if.then57.i.i22.i.i
+  %.sink157.i.i = phi i32 [ %4, %if.else57.i.i ], [ %3, %if.else29.i.i ], [ %4, %if.end63.i.i28.i.i ], [ %4, %if.then57.i.i22.i.i ], [ %4, %if.then61.i.i26.i.i ], [ %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit42.i.i" ], [ %17, %if.end63.i.i66.i.i ], [ %17, %if.then57.i.i60.i.i ], [ %17, %if.then61.i.i64.i.i ], [ %17, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit80.i.i" ], [ %3, %if.end63.i.i104.i.i ], [ %3, %if.then57.i.i98.i.i ], [ %3, %if.then61.i.i102.i.i ], [ %3, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit118.i.i" ], [ %39, %if.end63.i.i142.i.i ], [ %39, %if.then57.i.i136.i.i ], [ %39, %if.then61.i.i140.i.i ], [ %39, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit156.i.i" ]
+  %__a.coerce.sink.i.i = phi ptr [ %add.ptr.i.i, %if.else57.i.i ], [ %add.ptr.i1.i, %if.else29.i.i ], [ %add.ptr.i.i, %if.end63.i.i28.i.i ], [ %add.ptr.i.i, %if.then57.i.i22.i.i ], [ %add.ptr.i.i, %if.then61.i.i26.i.i ], [ %add.ptr.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit42.i.i" ], [ %add.ptr.i2.i, %if.end63.i.i66.i.i ], [ %add.ptr.i2.i, %if.then57.i.i60.i.i ], [ %add.ptr.i2.i, %if.then61.i.i64.i.i ], [ %add.ptr.i2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit80.i.i" ], [ %add.ptr.i1.i, %if.end63.i.i104.i.i ], [ %add.ptr.i1.i, %if.then57.i.i98.i.i ], [ %add.ptr.i1.i, %if.then61.i.i102.i.i ], [ %add.ptr.i1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit118.i.i" ], [ %add.ptr.i2.i, %if.end63.i.i142.i.i ], [ %add.ptr.i2.i, %if.then57.i.i136.i.i ], [ %add.ptr.i2.i, %if.then61.i.i140.i.i ], [ %add.ptr.i2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit156.i.i" ]
   %61 = load i32, ptr %__first.coerce, align 4
   store i32 %.sink157.i.i, ptr %__first.coerce, align 4
   store i32 %61, ptr %__a.coerce.sink.i.i, align 4
@@ -3254,7 +3254,7 @@ cond.end47.i.i.i16.i:                             ; preds = %cond.true41.i.i.i33
   %cond48.i.i.i17.i = phi i32 [ %73, %cond.true41.i.i.i33.i ], [ 4, %cond.end.i.i.i14.i ]
   %conv51.i.i.i18.i = zext i1 %68 to i32
   %cmp54.not.i.i.i19.i = icmp eq i32 %conv53.i.i.i13.i, %conv51.i.i.i18.i
-  br i1 %cmp54.not.i.i.i19.i, label %if.end.i.i.i22.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit.i20.i"
+  br i1 %cmp54.not.i.i.i19.i, label %if.end.i.i.i22.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit.i20.i"
 
 if.end.i.i.i22.i:                                 ; preds = %cond.end47.i.i.i16.i
   br i1 %68, label %if.end59.i.i.i25.i, label %if.then57.i.i.i23.i
@@ -3263,7 +3263,7 @@ if.then57.i.i.i23.i:                              ; preds = %if.end.i.i.i22.i
   %cmp58.i.i.i24.i = icmp ult i32 %64, %62
   br i1 %cmp58.i.i.i24.i, label %while.body9.i.i, label %while.cond12.i.i.preheader
 
-while.cond12.i.i.preheader:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit.i20.i", %if.end63.i.i.i29.i, %if.then61.i.i.i27.i, %if.then57.i.i.i23.i
+while.cond12.i.i.preheader:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit.i20.i", %if.end63.i.i.i29.i, %if.then61.i.i.i27.i, %if.then57.i.i.i23.i
   br label %while.cond12.i.i
 
 if.end59.i.i.i25.i:                               ; preds = %if.end.i.i.i22.i
@@ -3282,10 +3282,10 @@ if.end63.i.i.i29.i:                               ; preds = %if.end59.i.i.i25.i
   %spec.select.i.i.i32.i = select i1 %cmp68.not.i.i.i30.i, i1 %cmp72.i.i.i31.i, i1 %tobool.i.i.i10.i
   br i1 %spec.select.i.i.i32.i, label %while.body9.i.i, label %while.cond12.i.i.preheader
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit.i20.i": ; preds = %cond.end47.i.i.i16.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit.i20.i": ; preds = %cond.end47.i.i.i16.i
   br i1 %68, label %while.body9.i.i, label %while.cond12.i.i.preheader
 
-while.body9.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit.i20.i", %if.end63.i.i.i29.i, %if.then61.i.i.i27.i, %if.then57.i.i.i23.i
+while.body9.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit.i20.i", %if.end63.i.i.i29.i, %if.then61.i.i.i27.i, %if.then57.i.i.i23.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 4
   br label %while.cond5.i.i, !llvm.loop !81
 
@@ -3338,7 +3338,7 @@ cond.end47.i.i14.i.i:                             ; preds = %cond.true41.i.i30.i
   %cond48.i.i15.i.i = phi i32 [ %85, %cond.true41.i.i30.i.i ], [ 4, %cond.end.i.i12.i.i ]
   %conv51.i.i16.i.i = zext i1 %79 to i32
   %cmp54.not.i.i17.i.i = icmp eq i32 %conv53.i.i11.i.i, %conv51.i.i16.i.i
-  br i1 %cmp54.not.i.i17.i.i, label %if.end.i.i19.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit40.i.i"
+  br i1 %cmp54.not.i.i17.i.i, label %if.end.i.i19.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit40.i.i"
 
 if.end.i.i19.i.i:                                 ; preds = %cond.end47.i.i14.i.i
   br i1 %79, label %if.end59.i.i22.i.i, label %if.then57.i.i20.i.i
@@ -3363,13 +3363,13 @@ if.end63.i.i26.i.i:                               ; preds = %if.end59.i.i22.i.i
   %spec.select.i.i29.i.i = select i1 %cmp68.not.i.i27.i.i, i1 %cmp72.i.i28.i.i, i1 %tobool8.i.i.i6.i
   br i1 %spec.select.i.i29.i.i, label %while.cond12.i.i.backedge, label %while.end20.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit40.i.i": ; preds = %cond.end47.i.i14.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit40.i.i": ; preds = %cond.end47.i.i14.i.i
   br i1 %79, label %while.cond12.i.i.backedge, label %while.end20.i.i
 
-while.cond12.i.i.backedge:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit40.i.i", %if.end63.i.i26.i.i, %if.then61.i.i24.i.i, %if.then57.i.i20.i.i
+while.cond12.i.i.backedge:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit40.i.i", %if.end63.i.i26.i.i, %if.then61.i.i24.i.i, %if.then57.i.i20.i.i
   br label %while.cond12.i.i, !llvm.loop !82
 
-while.end20.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit40.i.i", %if.end63.i.i26.i.i, %if.then61.i.i24.i.i, %if.then57.i.i20.i.i
+while.end20.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit40.i.i", %if.end63.i.i26.i.i, %if.then61.i.i24.i.i, %if.then57.i.i20.i.i
   %cmp.i.i.i4 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
   br i1 %cmp.i.i.i4, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEET_SJ_SJ_T0_.exit"
 
@@ -3399,8 +3399,8 @@ entry:
   %cmp28 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp28, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit"
-  %__holeIndex.addr.029 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit" ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit"
+  %__holeIndex.addr.029 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.029, 1
   %mul = add i64 %add, 2
   %add.ptr.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %mul
@@ -3460,14 +3460,14 @@ cond.end47.i.i:                                   ; preds = %cond.true41.i.i, %c
   %cond48.i.i = phi i32 [ %11, %cond.true41.i.i ], [ 4, %cond.end.i.i ]
   %conv51.i.i = zext i1 %5 to i32
   %cmp54.not.i.i = icmp eq i32 %conv53.i.i, %conv51.i.i
-  br i1 %cmp54.not.i.i, label %if.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit"
+  br i1 %cmp54.not.i.i, label %if.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit"
 
 if.end.i.i:                                       ; preds = %cond.end47.i.i
   br i1 %5, label %if.end59.i.i, label %if.then57.i.i
 
 if.then57.i.i:                                    ; preds = %if.end.i.i
   %cmp58.i.i = icmp ult i32 %0, %1
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit"
 
 if.end59.i.i:                                     ; preds = %if.end.i.i
   %cmp60.not.i.i = icmp eq i32 %cond.i.i, %cond48.i.i
@@ -3475,7 +3475,7 @@ if.end59.i.i:                                     ; preds = %if.end.i.i
 
 if.then61.i.i:                                    ; preds = %if.end59.i.i
   %cmp62.i.i = icmp ugt i32 %cond.i.i, %cond48.i.i
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit"
 
 if.end63.i.i:                                     ; preds = %if.end59.i.i
   %12 = xor i8 %6, %2
@@ -3483,9 +3483,9 @@ if.end63.i.i:                                     ; preds = %if.end59.i.i
   %cmp68.not.i.i = icmp eq i8 %13, 0
   %cmp72.i.i = icmp ult i32 %0, %1
   %spec.select.i.i = select i1 %cmp68.not.i.i, i1 %cmp72.i.i, i1 %tobool.i.i
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit": ; preds = %cond.end47.i.i, %if.then57.i.i, %if.then61.i.i, %if.end63.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit": ; preds = %cond.end47.i.i, %if.then57.i.i, %if.then61.i.i, %if.end63.i.i
   %retval.0.i.i = phi i1 [ %cmp62.i.i, %if.then61.i.i ], [ %cmp58.i.i, %if.then57.i.i ], [ %5, %cond.end47.i.i ], [ %spec.select.i.i, %if.end63.i.i ]
   %spec.select = select i1 %retval.0.i.i, i64 %sub5, i64 %mul
   %add.ptr.i19 = getelementptr inbounds i32, ptr %__first.coerce, i64 %spec.select
@@ -3495,8 +3495,8 @@ if.end63.i.i:                                     ; preds = %if.end59.i.i
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !84
 
-while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit", %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit" ]
+while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit", %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit" ]
   %and = and i64 %__len, 1
   %cmp18 = icmp eq i64 %and, 0
   br i1 %cmp18, label %land.lhs.true, label %if.end35
@@ -3582,7 +3582,7 @@ cond.end47.i.i.i:                                 ; preds = %cond.true41.i.i.i, 
   %cond48.i.i.i = phi i32 [ %26, %cond.true41.i.i.i ], [ 4, %cond.end.i.i.i ]
   %conv51.i.i.i = zext i1 %20 to i32
   %cmp54.not.i.i.i = icmp eq i32 %conv53.i.i.i, %conv51.i.i.i
-  br i1 %cmp54.not.i.i.i, label %if.end.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.argprom.argprom.exit.i"
+  br i1 %cmp54.not.i.i.i, label %if.end.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.exit.i"
 
 if.end.i.i.i:                                     ; preds = %cond.end47.i.i.i
   br i1 %20, label %if.end59.i.i.i, label %if.then57.i.i.i
@@ -3607,17 +3607,17 @@ if.end63.i.i.i:                                   ; preds = %if.end59.i.i.i
   %spec.select.i.i.i = select i1 %cmp68.not.i.i.i, i1 %cmp72.i.i.i, i1 %tobool.i.i.i
   br i1 %spec.select.i.i.i, label %while.body.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_RT2_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.argprom.argprom.exit.i": ; preds = %cond.end47.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.exit.i": ; preds = %cond.end47.i.i.i
   br i1 %20, label %while.body.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_RT2_.exit"
 
-while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.argprom.argprom.exit.i", %if.end63.i.i.i, %if.then61.i.i.i, %if.then57.i.i.i
+while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.exit.i", %if.end63.i.i.i, %if.then61.i.i.i, %if.then57.i.i.i
   %add.ptr.i8.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.017.i
   store i32 %16, ptr %add.ptr.i8.i, align 4
   %cmp.i = icmp sgt i64 %__parent.018.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_RT2_.exit", !llvm.loop !85
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_RT2_.exit": ; preds = %if.then57.i.i.i, %if.then61.i.i.i, %if.end63.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.argprom.argprom.exit.i", %while.body.i, %if.end35
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.017.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.argprom.argprom.exit.i" ], [ %__parent.018.i, %while.body.i ], [ %__holeIndex.addr.017.i, %if.then61.i.i.i ], [ %__holeIndex.addr.017.i, %if.then57.i.i.i ], [ %__holeIndex.addr.017.i, %if.end63.i.i.i ]
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_RT2_.exit": ; preds = %if.then57.i.i.i, %if.then61.i.i.i, %if.end63.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.exit.i", %while.body.i, %if.end35
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.017.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEEjEEbT_RT0_.exit.i" ], [ %__parent.018.i, %while.body.i ], [ %__holeIndex.addr.017.i, %if.then61.i.i.i ], [ %__holeIndex.addr.017.i, %if.then57.i.i.i ], [ %__holeIndex.addr.017.i, %if.end63.i.i.i ]
   %add.ptr.i9.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   store i32 %__value, ptr %add.ptr.i9.i, align 4
   ret void
@@ -3698,7 +3698,7 @@ cond.end47.i.i:                                   ; preds = %cond.true41.i.i, %c
   %cond48.i.i = phi i32 [ %11, %cond.true41.i.i ], [ 4, %cond.end.i.i ]
   %conv51.i.i = zext i1 %5 to i32
   %cmp54.not.i.i = icmp eq i32 %conv53.i.i, %conv51.i.i
-  br i1 %cmp54.not.i.i, label %if.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit"
+  br i1 %cmp54.not.i.i, label %if.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit"
 
 if.end.i.i:                                       ; preds = %cond.end47.i.i
   br i1 %5, label %if.end59.i.i, label %if.then57.i.i
@@ -3723,13 +3723,13 @@ if.end63.i.i:                                     ; preds = %if.end59.i.i
   %spec.select.i.i = select i1 %cmp68.not.i.i, i1 %cmp72.i.i, i1 %tobool.i.i
   br i1 %spec.select.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit, label %while.cond.i.preheader
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit": ; preds = %cond.end47.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit": ; preds = %cond.end47.i.i
   br i1 %5, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit, label %while.cond.i.preheader
 
-while.cond.i.preheader:                           ; preds = %if.end63.i.i, %if.then57.i.i, %if.then61.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit"
+while.cond.i.preheader:                           ; preds = %if.end63.i.i, %if.then57.i.i, %if.then61.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit"
   br label %while.cond.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit: ; preds = %if.end63.i.i, %if.then57.i.i, %if.then61.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.argprom.argprom.exit"
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit: ; preds = %if.end63.i.i, %if.then57.i.i, %if.then61.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit"
   %add.ptr.i2 = getelementptr inbounds i8, ptr %__first.coerce.pn11, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.012 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -3794,7 +3794,7 @@ cond.end47.i.i.i:                                 ; preds = %cond.true41.i.i.i, 
   %cond48.i.i.i = phi i32 [ %24, %cond.true41.i.i.i ], [ 4, %cond.end.i.i.i ]
   %conv51.i.i.i = zext i1 %18 to i32
   %cmp54.not.i.i.i = icmp eq i32 %conv53.i.i.i, %conv51.i.i.i
-  br i1 %cmp54.not.i.i.i, label %if.end.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.argprom.argprom.exit.i"
+  br i1 %cmp54.not.i.i.i, label %if.end.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.exit.i"
 
 if.end.i.i.i:                                     ; preds = %cond.end47.i.i.i
   br i1 %18, label %if.end59.i.i.i, label %if.then57.i.i.i
@@ -3819,18 +3819,18 @@ if.end63.i.i.i:                                   ; preds = %if.end59.i.i.i
   %spec.select.i.i.i = select i1 %cmp68.not.i.i.i, i1 %cmp72.i.i.i, i1 %tobool.i.i.i
   br i1 %spec.select.i.i.i, label %while.body.i, label %for.inc
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.argprom.argprom.exit.i": ; preds = %cond.end47.i.i.i
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.exit.i": ; preds = %cond.end47.i.i.i
   br i1 %18, label %while.body.i, label %for.inc
 
-while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.argprom.argprom.exit.i", %if.end63.i.i.i, %if.then61.i.i.i, %if.then57.i.i.i
+while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.exit.i", %if.end63.i.i.i, %if.then61.i.i.i, %if.then57.i.i.i
   store i32 %15, ptr %__last.sroa.0.0.i, align 4
   %__comp.val.val.i.pre = load ptr, ptr %__comp.coerce, align 8
   %add.ptr.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.arrow::compute::KeyColumnMetadata", ptr %__comp.val.val.i.pre, i64 %conv.i.i
   %.pre = load i8, ptr %add.ptr.i.i.i.i.phi.trans.insert, align 4
   br label %while.cond.i, !llvm.loop !8
 
-for.inc:                                          ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.argprom.argprom.exit.i", %if.end63.i.i.i, %if.then61.i.i.i, %if.then57.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit
-  %__first.coerce.sink = phi ptr [ %__first.coerce, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit ], [ %__last.sroa.0.0.i, %if.then57.i.i.i ], [ %__last.sroa.0.0.i, %if.then61.i.i.i ], [ %__last.sroa.0.0.i, %if.end63.i.i.i ], [ %__last.sroa.0.0.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.argprom.argprom.exit.i" ]
+for.inc:                                          ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.exit.i", %if.end63.i.i.i, %if.then61.i.i.i, %if.then57.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit
+  %__first.coerce.sink = phi ptr [ %__first.coerce, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit ], [ %__last.sroa.0.0.i, %if.then57.i.i.i ], [ %__last.sroa.0.0.i, %if.then61.i.i.i ], [ %__last.sroa.0.0.i, %if.end63.i.i.i ], [ %__last.sroa.0.0.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclIjNS_17__normal_iteratorIPjS5_IjSaIjEEEEEEbRT_T0_.exit.i" ]
   store i32 %0, ptr %__first.coerce.sink, align 4
   %__i.sroa.0.0 = getelementptr inbounds i8, ptr %__i.sroa.0.012, i64 4
   %cmp.i1.not = icmp eq ptr %__i.sroa.0.0, %__last.coerce

@@ -195,7 +195,7 @@ define i32 @opal_register_util_params() local_unnamed_addr #0 {
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr @opal_var_dump_color_string, align 8
-  %48 = call fastcc i32 @parse_color_string.argprom.argelim(ptr noundef %47)
+  %48 = call fastcc i32 @parse_color_string(ptr noundef %47)
   %.not49 = icmp eq i32 %48, 0
   br i1 %.not49, label %49, label %.loopexit
 
@@ -302,7 +302,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare noalias ptr @opal_argv_join_range(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @parse_color_string.argprom.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @parse_color_string(ptr noundef %0) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @opal_var_dump_color, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %2

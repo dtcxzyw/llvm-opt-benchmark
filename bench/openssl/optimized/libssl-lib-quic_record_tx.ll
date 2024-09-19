@@ -59,37 +59,37 @@ if.end:                                           ; preds = %entry
   %pending = getelementptr inbounds i8, ptr %qtx, i64 888
   %pending.val = load ptr, ptr %pending, align 8
   %cmp.not1.i = icmp eq ptr %pending.val, null
-  br i1 %cmp.not1.i, label %qtx_cleanup_txl.argprom.exit, label %for.body.i
+  br i1 %cmp.not1.i, label %qtx_cleanup_txl.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %for.body.i
   %e.02.i = phi ptr [ %e.0.val.i, %for.body.i ], [ %pending.val, %if.end ]
   %e.0.val.i = load ptr, ptr %e.02.i, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %e.02.i, ptr noundef nonnull @.str, i32 noundef 129) #11
   %cmp.not.i = icmp eq ptr %e.0.val.i, null
-  br i1 %cmp.not.i, label %qtx_cleanup_txl.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %cmp.not.i, label %qtx_cleanup_txl.exit, label %for.body.i, !llvm.loop !4
 
-qtx_cleanup_txl.argprom.exit:                     ; preds = %for.body.i, %if.end
+qtx_cleanup_txl.exit:                             ; preds = %for.body.i, %if.end
   %free = getelementptr inbounds i8, ptr %qtx, i64 864
   %free.val = load ptr, ptr %free, align 8
   %cmp.not1.i8 = icmp eq ptr %free.val, null
-  br i1 %cmp.not1.i8, label %qtx_cleanup_txl.argprom.exit13, label %for.body.i9
+  br i1 %cmp.not1.i8, label %qtx_cleanup_txl.exit13, label %for.body.i9
 
-for.body.i9:                                      ; preds = %qtx_cleanup_txl.argprom.exit, %for.body.i9
-  %e.02.i10 = phi ptr [ %e.0.val.i11, %for.body.i9 ], [ %free.val, %qtx_cleanup_txl.argprom.exit ]
+for.body.i9:                                      ; preds = %qtx_cleanup_txl.exit, %for.body.i9
+  %e.02.i10 = phi ptr [ %e.0.val.i11, %for.body.i9 ], [ %free.val, %qtx_cleanup_txl.exit ]
   %e.0.val.i11 = load ptr, ptr %e.02.i10, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %e.02.i10, ptr noundef nonnull @.str, i32 noundef 129) #11
   %cmp.not.i12 = icmp eq ptr %e.0.val.i11, null
-  br i1 %cmp.not.i12, label %qtx_cleanup_txl.argprom.exit13, label %for.body.i9, !llvm.loop !4
+  br i1 %cmp.not.i12, label %qtx_cleanup_txl.exit13, label %for.body.i9, !llvm.loop !4
 
-qtx_cleanup_txl.argprom.exit13:                   ; preds = %for.body.i9, %qtx_cleanup_txl.argprom.exit
+qtx_cleanup_txl.exit13:                           ; preds = %for.body.i9, %qtx_cleanup_txl.exit
   %cons = getelementptr inbounds i8, ptr %qtx, i64 928
   %0 = load ptr, ptr %cons, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 144) #11
   %el_set = getelementptr inbounds i8, ptr %qtx, i64 16
   br label %for.body
 
-for.body:                                         ; preds = %qtx_cleanup_txl.argprom.exit13, %for.body
-  %i.014 = phi i32 [ 0, %qtx_cleanup_txl.argprom.exit13 ], [ %inc, %for.body ]
+for.body:                                         ; preds = %qtx_cleanup_txl.exit13, %for.body
+  %i.014 = phi i32 [ 0, %qtx_cleanup_txl.exit13 ], [ %inc, %for.body ]
   tail call void @ossl_qrl_enc_level_set_discard(ptr noundef nonnull %el_set, i32 noundef %i.014) #11
   %inc = add nuw nsw i32 %i.014, 1
   %exitcond.not = icmp eq i32 %inc, 4

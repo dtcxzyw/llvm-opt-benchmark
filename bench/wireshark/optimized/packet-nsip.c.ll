@@ -345,16 +345,16 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
 62:                                               ; preds = %59, %51
   %63 = and i32 %57, 2
   %.not11.i.i.i = icmp eq i32 %63, 0
-  br i1 %.not11.i.i.i, label %decode_iei_control_bits.argprom.exit.i.i, label %64
+  br i1 %.not11.i.i.i, label %decode_iei_control_bits.exit.i.i, label %64
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
   tail call void @col_append_sep_str(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.112) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %42, ptr noundef nonnull @.str.113) #5
-  br label %decode_iei_control_bits.argprom.exit.i.i
+  br label %decode_iei_control_bits.exit.i.i
 
-decode_iei_control_bits.argprom.exit.i.i:         ; preds = %64, %62
+decode_iei_control_bits.exit.i.i:                 ; preds = %64, %62
   %67 = getelementptr inbounds i8, ptr %18, i64 12
   call fastcc void @decode_pdu_general(ptr noundef nonnull %67, i32 noundef 1, ptr noundef %19)
   %68 = load ptr, ptr %19, align 8
@@ -364,13 +364,13 @@ decode_iei_control_bits.argprom.exit.i.i:         ; preds = %64, %62
   %.not.i.i = icmp eq ptr %71, null
   br i1 %.not.i.i, label %76, label %72
 
-72:                                               ; preds = %decode_iei_control_bits.argprom.exit.i.i
+72:                                               ; preds = %decode_iei_control_bits.exit.i.i
   %73 = load ptr, ptr %21, align 8
   %74 = load ptr, ptr %22, align 8
   %75 = call i32 @call_dissector(ptr noundef nonnull %71, ptr noundef %70, ptr noundef %73, ptr noundef %74) #5
   br label %decode_pdu_ns_unitdata.exit.i
 
-76:                                               ; preds = %decode_iei_control_bits.argprom.exit.i.i
+76:                                               ; preds = %decode_iei_control_bits.exit.i.i
   %77 = load ptr, ptr %19, align 8
   %78 = load i32, ptr %29, align 8
   %79 = call i32 @tvb_captured_length_remaining(ptr noundef %77, i32 noundef %78) #5
@@ -895,7 +895,7 @@ decode_iei_ns_pdu.exit.i:                         ; preds = %123, %106
   %.val57.i = load i16, ptr %174, align 4
   %175 = getelementptr i8, ptr %10, i64 10
   %.val58.i = load i16, ptr %175, align 2
-  call fastcc void @decode_ip_elements.argprom.retelim(ptr noundef nonnull @ipv4_element, i16 %.val57.i, i16 %.val58.i, ptr noundef %2, i32 noundef %11)
+  call fastcc void @decode_ip_elements(ptr noundef nonnull @ipv4_element, i16 %.val57.i, i16 %.val58.i, ptr noundef %2, i32 noundef %11)
   br label %decode_ie.exit
 
 176:                                              ; preds = %60
@@ -903,7 +903,7 @@ decode_iei_ns_pdu.exit.i:                         ; preds = %123, %106
   %.val59.i = load i16, ptr %177, align 4
   %178 = getelementptr i8, ptr %10, i64 10
   %.val60.i = load i16, ptr %178, align 2
-  call fastcc void @decode_ip_elements.argprom.retelim(ptr noundef nonnull @ipv6_element, i16 %.val59.i, i16 %.val60.i, ptr noundef %2, i32 noundef %11)
+  call fastcc void @decode_ip_elements(ptr noundef nonnull @ipv6_element, i16 %.val59.i, i16 %.val60.i, ptr noundef %2, i32 noundef %11)
   br label %decode_ie.exit
 
 179:                                              ; preds = %60
@@ -996,16 +996,16 @@ decode_iei_num_ip6_endpoints.exit.i:              ; preds = %211, %209
   %233 = call ptr @proto_tree_add_bitmask(ptr noundef %228, ptr noundef %229, i32 noundef %230, i32 noundef %231, i32 noundef %232, ptr noundef nonnull @decode_iei_reset_flag.reset_flags, i32 noundef 0) #5
   %234 = and i8 %227, 1
   %.not.i65.i = icmp eq i8 %234, 0
-  br i1 %.not.i65.i, label %decode_iei_reset_flag.argprom.exit.i, label %235
+  br i1 %.not.i65.i, label %decode_iei_reset_flag.exit.i, label %235
 
 235:                                              ; preds = %224
   %236 = load ptr, ptr %7, align 8
   %237 = getelementptr inbounds i8, ptr %236, i64 8
   %238 = load ptr, ptr %237, align 8
   call void @col_append_sep_str(ptr noundef %238, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.128) #5
-  br label %decode_iei_reset_flag.argprom.exit.i
+  br label %decode_iei_reset_flag.exit.i
 
-decode_iei_reset_flag.argprom.exit.i:             ; preds = %235, %224
+decode_iei_reset_flag.exit.i:                     ; preds = %235, %224
   %239 = load i32, ptr %5, align 8
   %240 = add i32 %239, 1
   store i32 %240, ptr %5, align 8
@@ -1075,7 +1075,7 @@ decode_iei_ip_address.exit.i:                     ; preds = %279, %241
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %decode_ie.exit
 
-decode_ie.exit:                                   ; preds = %9, %18, %46, %60, %62, %85, %decode_iei_ns_pdu.exit.i, %131, %152, %173, %176, %decode_iei_max_num_ns_vc.exit.i, %decode_iei_num_ip4_endpoints.exit.i, %decode_iei_num_ip6_endpoints.exit.i, %decode_iei_reset_flag.argprom.exit.i, %decode_iei_ip_address.exit.i
+decode_ie.exit:                                   ; preds = %9, %18, %46, %60, %62, %85, %decode_iei_ns_pdu.exit.i, %131, %152, %173, %176, %decode_iei_max_num_ns_vc.exit.i, %decode_iei_num_ip4_endpoints.exit.i, %decode_iei_num_ip6_endpoints.exit.i, %decode_iei_reset_flag.exit.i, %decode_iei_ip_address.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %285, label %9, !llvm.loop !4
@@ -1095,7 +1095,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_ip_elements.argprom.retelim(ptr nocapture noundef readonly %0, i16 %.8.val, i16 %.10.val, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @decode_ip_elements(ptr nocapture noundef readonly %0, i16 %.8.val, i16 %.10.val, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = zext i16 %.8.val to i32

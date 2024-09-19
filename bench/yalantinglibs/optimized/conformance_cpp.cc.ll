@@ -1198,7 +1198,7 @@ while.cond:                                       ; preds = %if.end16, %_ZN6goog
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp83.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp90.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp97.i)
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_16ReadFdEiPcm.argelim(ptr noalias align 8 %ref.tmp.i6, ptr noundef %in_len.i, i64 noundef 4)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_16ReadFdEiPcm(ptr noalias align 8 %ref.tmp.i6, ptr noundef %in_len.i, i64 noundef 4)
           to label %.noexc unwind label %lpad.loopexit
 
 .noexc:                                           ; preds = %while.cond
@@ -1274,7 +1274,7 @@ if.end5.sink.split.i.i.i:                         ; preds = %if.else.i.i.i, %if.
 
 do.body.i:                                        ; preds = %if.end5.sink.split.i.i.i, %if.else.i.i.i
   %59 = load ptr, ptr %serialized_input.i, align 8, !noalias !8
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_16ReadFdEiPcm.argelim(ptr noalias align 8 %_status.i, ptr noundef %59, i64 noundef %conv.i)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_16ReadFdEiPcm(ptr noalias align 8 %_status.i, ptr noundef %59, i64 noundef %conv.i)
           to label %invoke.cont5.i unwind label %lpad.i10
 
 invoke.cont5.i:                                   ; preds = %do.body.i
@@ -2356,7 +2356,7 @@ invoke.cont45.i:                                  ; preds = %do.end41.i
   %179 = load i64, ptr %_M_string_length.i.i.i31.i, align 8, !noalias !8
   %conv48.i = trunc i64 %179 to i32
   store i32 %conv48.i, ptr %out_len.i, align 4, !noalias !8
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_17WriteFdEiPKvm.argelim(ptr noalias align 8 %_status50.i, ptr noundef nonnull %out_len.i, i64 noundef 4)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_17WriteFdEiPKvm(ptr noalias align 8 %_status50.i, ptr noundef nonnull %out_len.i, i64 noundef 4)
           to label %invoke.cont51.i unwind label %lpad42.i
 
 invoke.cont51.i:                                  ; preds = %invoke.cont45.i
@@ -2379,7 +2379,7 @@ lpad42.i:                                         ; preds = %invoke.cont45.i, %d
 do.body62.i:                                      ; preds = %invoke.cont51.i
   %182 = load ptr, ptr %serialized_output.i, align 8, !noalias !8
   %conv65.i = and i64 %179, 4294967295
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_17WriteFdEiPKvm.argelim(ptr noalias align 8 %_status63.i, ptr noundef %182, i64 noundef %conv65.i)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_17WriteFdEiPKvm(ptr noalias align 8 %_status63.i, ptr noundef %182, i64 noundef %conv65.i)
           to label %invoke.cont66.i unwind label %lpad42.i
 
 invoke.cont66.i:                                  ; preds = %do.body62.i
@@ -3357,7 +3357,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
 declare void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_16ReadFdEiPcm.argelim(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %buf, i64 noundef range(i64 0, 4294967296) %len) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_16ReadFdEiPcm(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %buf, i64 noundef range(i64 0, 4294967296) %len) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -3453,7 +3453,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf11MessageLite15ParseFromStringERK
 declare noundef zeroext i1 @_ZNK6google8protobuf11MessageLite17SerializeToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_17WriteFdEiPKvm.argelim(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef readonly %buf, i64 noundef range(i64 0, 4294967296) %len) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_17WriteFdEiPKvm(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef readonly %buf, i64 noundef range(i64 0, 4294967296) %len) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1

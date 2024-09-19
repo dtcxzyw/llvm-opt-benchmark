@@ -1166,19 +1166,19 @@ for.end.i:                                        ; preds = %for.cond.i176, %lan
   %sub.ptr.lhs.cast.i182 = ptrtoint ptr %pos.1.i181 to i64
   %sub.ptr.rhs.cast.i183 = ptrtoint ptr %call152 to i64
   %sub.ptr.sub.i184 = sub i64 %sub.ptr.lhs.cast.i182, %sub.ptr.rhs.cast.i183
-  br label %_pysqlite_build_column_name.argprom.argprom.exit
+  br label %_pysqlite_build_column_name.exit
 
 if.else.i186:                                     ; preds = %if.end157
   %call.i187 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call152) #8
-  br label %_pysqlite_build_column_name.argprom.argprom.exit
+  br label %_pysqlite_build_column_name.exit
 
-_pysqlite_build_column_name.argprom.argprom.exit: ; preds = %for.end.i, %if.else.i186
+_pysqlite_build_column_name.exit:                 ; preds = %for.end.i, %if.else.i186
   %len.0.i = phi i64 [ %sub.ptr.sub.i184, %for.end.i ], [ %call.i187, %if.else.i186 ]
   %call13.i = call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %call152, i64 noundef %len.0.i) #7
   %cmp159 = icmp eq ptr %call13.i, null
   br i1 %cmp159, label %if.then.i208, label %if.end162
 
-if.end162:                                        ; preds = %_pysqlite_build_column_name.argprom.argprom.exit
+if.end162:                                        ; preds = %_pysqlite_build_column_name.exit
   %call163 = call ptr (i64, ...) @PyTuple_Pack(i64 noundef 7, ptr noundef nonnull %call13.i, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct) #7
   %137 = load i64, ptr %call13.i, align 8
   %138 = and i64 %137, 2147483648
@@ -1295,7 +1295,7 @@ if.then1.i266:                                    ; preds = %if.end.i263
   call void @_Py_Dealloc(ptr noundef nonnull %152) #7
   br label %if.then.i217
 
-if.then.i208:                                     ; preds = %bind_parameters.exit, %do.end143, %_pysqlite_build_column_name.argprom.argprom.exit, %Py_DECREF.exit277, %if.end119, %if.then126, %if.then155
+if.then.i208:                                     ; preds = %bind_parameters.exit, %do.end143, %_pysqlite_build_column_name.exit, %Py_DECREF.exit277, %if.end119, %if.then126, %if.then155
   %155 = load i64, ptr %call96306, align 8
   %156 = and i64 %155, 2147483648
   %cmp.i2.not.i209 = icmp eq i64 %156, 0
@@ -1632,14 +1632,14 @@ if.else10:                                        ; preds = %if.else6
   %call11.val = load i64, ptr %2, align 8
   %3 = and i64 %call11.val, 16777216
   %tobool13.not = icmp eq i64 %3, 0
-  br i1 %tobool13.not, label %PyObject_TypeCheck.argprom.exit, label %sw.bb
+  br i1 %tobool13.not, label %PyObject_TypeCheck.exit, label %sw.bb
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %if.else10
+PyObject_TypeCheck.exit:                          ; preds = %if.else10
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %parameter.val30, ptr noundef nonnull @PyFloat_Type) #7
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else19, label %sw.bb45
 
-if.else19:                                        ; preds = %PyObject_TypeCheck.argprom.exit
+if.else19:                                        ; preds = %PyObject_TypeCheck.exit
   %parameter.val26 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %parameter.val26, i64 168
   %call20.val = load i64, ptr %4, align 8
@@ -1668,7 +1668,7 @@ if.else41:                                        ; preds = %land.lhs.true, %sw.
   %call43 = tail call i32 @sqlite3_bind_int64(ptr noundef %6, i32 noundef %pos, i64 noundef %call36) #7
   br label %return
 
-sw.bb45:                                          ; preds = %if.else, %PyObject_TypeCheck.argprom.exit
+sw.bb45:                                          ; preds = %if.else, %PyObject_TypeCheck.exit
   %call47 = tail call double @PyFloat_AsDouble(ptr noundef %parameter) #7
   %cmp48 = fcmp oeq double %call47, -1.000000e+00
   br i1 %cmp48, label %land.lhs.true49, label %if.else53
@@ -2481,14 +2481,14 @@ if.end19:                                         ; preds = %if.end, %lor.lhs.fa
   %7 = getelementptr i8, ptr %5, i64 8
   %.val = load ptr, ptr %7, align 8
   %cmp.i.not.i = icmp eq ptr %.val, %6
-  br i1 %cmp.i.not.i, label %if.end30, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.end30, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end19
+PyObject_TypeCheck.exit:                          ; preds = %if.end19
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef %6) #7
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then24, label %if.end30
 
-if.then24:                                        ; preds = %PyObject_TypeCheck.argprom.exit
+if.then24:                                        ; preds = %PyObject_TypeCheck.exit
   %self.val = load ptr, ptr %0, align 8
   %call.i21 = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_sqlite3module) #7
   %call.i.i22 = tail call ptr @PyModule_GetState(ptr noundef %call.i21) #7
@@ -2500,7 +2500,7 @@ if.then24:                                        ; preds = %PyObject_TypeCheck.
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.28, ptr noundef %9, ptr noundef %10) #7
   br label %exit
 
-if.end30:                                         ; preds = %if.end19, %PyObject_TypeCheck.argprom.exit
+if.end30:                                         ; preds = %if.end19, %PyObject_TypeCheck.exit
   %11 = load ptr, ptr %ob_item, align 8
   %locked.i.i = getelementptr inbounds i8, ptr %self, i64 84
   %12 = load i32, ptr %locked.i.i, align 4

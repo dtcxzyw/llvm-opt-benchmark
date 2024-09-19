@@ -1267,23 +1267,23 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %4
-  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
+  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
 
 7:                                                ; preds = %4
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit": ; preds = %6
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit": ; preds = %6
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %9 = tail call noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef 1) #28
   br label %11
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit": ; preds = %6
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit": ; preds = %6
   %10 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %0, i64 noundef 1) #28
   br label %11
 
-11:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
-  %.pn22 = phi ptr [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit" ], [ %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit" ]
+11:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
+  %.pn22 = phi ptr [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit" ], [ %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit" ]
   %12 = icmp eq ptr %.pn22, null
   br i1 %12, label %13, label %14
 
@@ -1308,23 +1308,23 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %4
-  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
+  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
 
 7:                                                ; preds = %4
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit": ; preds = %6
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit": ; preds = %6
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %9 = tail call noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef 1) #28
   br label %11
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit": ; preds = %6
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit": ; preds = %6
   %10 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %0, i64 noundef 1) #28
   br label %11
 
-11:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
-  %.pn22 = phi ptr [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit" ], [ %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit" ]
+11:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
+  %.pn22 = phi ptr [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit" ], [ %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit" ]
   %12 = icmp eq ptr %.pn22, null
   br i1 %12, label %13, label %14
 
@@ -1350,23 +1350,23 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
-  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
+  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
 
 8:                                                ; preds = %4
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit": ; preds = %7
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit": ; preds = %7
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %10 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %6, i64 noundef 8) #28
   br label %12
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit": ; preds = %7
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit": ; preds = %7
   %11 = tail call noundef align 8 ptr @__rust_alloc_zeroed(i64 noundef %6, i64 noundef 8) #28
   br label %12
 
-12:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
-  %.pn22 = phi ptr [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit" ]
+12:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
+  %.pn22 = phi ptr [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit" ]
   %13 = icmp eq ptr %.pn22, null
   br i1 %13, label %14, label %15
 
@@ -1392,23 +1392,23 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
-  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
+  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
 
 8:                                                ; preds = %4
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit": ; preds = %7
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit": ; preds = %7
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %10 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %6, i64 noundef 8) #28
   br label %12
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit": ; preds = %7
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit": ; preds = %7
   %11 = tail call noundef align 8 ptr @__rust_alloc_zeroed(i64 noundef %6, i64 noundef 8) #28
   br label %12
 
-12:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
-  %.pn22 = phi ptr [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit" ]
+12:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
+  %.pn22 = phi ptr [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit" ]
   %13 = icmp eq ptr %.pn22, null
   br i1 %13, label %14, label %15
 
@@ -1434,23 +1434,23 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
-  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
+  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
 
 8:                                                ; preds = %4
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit": ; preds = %7
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit": ; preds = %7
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %10 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %6, i64 noundef 8) #28
   br label %12
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit": ; preds = %7
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit": ; preds = %7
   %11 = tail call noundef align 8 ptr @__rust_alloc_zeroed(i64 noundef %6, i64 noundef 8) #28
   br label %12
 
-12:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
-  %.pn22 = phi ptr [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit" ]
+12:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
+  %.pn22 = phi ptr [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit" ]
   %13 = icmp eq ptr %.pn22, null
   br i1 %13, label %14, label %15
 
@@ -1475,23 +1475,23 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %4
-  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
+  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
 
 7:                                                ; preds = %4
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit": ; preds = %6
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit": ; preds = %6
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %9 = tail call noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef 1) #28
   br label %11
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit": ; preds = %6
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit": ; preds = %6
   %10 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %0, i64 noundef 1) #28
   br label %11
 
-11:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit"
-  %.pn22 = phi ptr [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.argprom.exit" ], [ %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.argprom.exit" ]
+11:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
+  %.pn22 = phi ptr [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit" ], [ %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit" ]
   %12 = icmp eq ptr %.pn22, null
   br i1 %12, label %13, label %14
 
@@ -1528,33 +1528,33 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !112
   %15 = icmp eq i64 %4, 0
-  br i1 %15, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i"
+  br i1 %15, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i": ; preds = %11
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i": ; preds = %11
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread", label %20
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i": ; preds = %11
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i": ; preds = %11
   %16 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %16)
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread", label %17
 
-17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i"
+17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i"
   %18 = icmp uge i64 %.0.sroa.speculated.i26.i, %4
   tail call void @llvm.assume(i1 %18)
   %19 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %4, i64 noundef 1, i64 noundef %.0.sroa.speculated.i26.i) #28, !noalias !115
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-20:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i"
+20:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i"
   %21 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !115
   %22 = tail call noundef ptr @__rust_alloc(i64 noundef %.0.sroa.speculated.i26.i, i64 noundef 1) #28, !noalias !115
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i: ; preds = %20, %17
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i: ; preds = %20, %17
   %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %17 ], [ %22, %20 ]
   %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread11"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread11": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread11": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !112
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !112
   %.pre = sub i64 %.0.sroa.speculated.i26.i, %1
@@ -1566,9 +1566,9 @@ _ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i: ; preds = %20
   tail call void @llvm.assume(i1 %24)
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i", %7, %23
-  %.sroa.3.0 = phi i64 [ undef, %23 ], [ %.0.sroa.speculated.i26.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i" ], [ %.0.sroa.speculated.i26.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i" ], [ %9, %7 ], [ %.0.sroa.speculated.i26.i, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %23 ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i" ], [ 0, %7 ], [ 1, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i ]
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i", %7, %23
+  %.sroa.3.0 = phi i64 [ undef, %23 ], [ %.0.sroa.speculated.i26.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i" ], [ %.0.sroa.speculated.i26.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i" ], [ %9, %7 ], [ %.0.sroa.speculated.i26.i, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %23 ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i" ], [ 0, %7 ], [ 1, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i ]
   %25 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %26 = insertvalue { i64, i64 } %25, i64 %.sroa.3.0, 1
   ret { i64, i64 } %26
@@ -1579,7 +1579,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %4 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
   %5 = extractvalue { i64, i1 } %4, 0
   %6 = extractvalue { i64, i1 } %4, 1
-  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %7
+  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %7
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %0, align 8, !noundef !67
@@ -1590,42 +1590,42 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %8, 0
-  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.thread"
+  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.thread"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit": ; preds = %7
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %17
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit": ; preds = %7
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %17
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.thread": ; preds = %7
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.thread": ; preds = %7
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %14
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %14
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.thread"
+14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.thread"
   %15 = icmp uge i64 %.0.sroa.speculated.i26, %8
   tail call void @llvm.assume(i1 %15)
   %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %.val25, i64 noundef %8, i64 noundef 1, i64 noundef %.0.sroa.speculated.i26) #28, !noalias !119
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit"
+17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit"
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !119
   %19 = tail call noundef ptr @__rust_alloc(i64 noundef %.0.sroa.speculated.i26, i64 noundef 1) #28, !noalias !119
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit: ; preds = %14, %17
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit: ; preds = %14, %17
   %.sroa.012.1.i.i.pn.i = phi ptr [ %16, %14 ], [ %19, %17 ]
   %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
   %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %20 = ptrtoint ptr %.sink1.i.i to i64
-  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %21
+  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %21
 
-21:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+21:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
   store ptr %.sroa.012.1.i.i.pn.i, ptr %11, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit, %3, %21
-  %.sroa.4.0 = phi i64 [ undef, %21 ], [ %5, %3 ], [ %.0.sroa.speculated.i26, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.thread" ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit" ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %21 ], [ 0, %3 ], [ %20, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit" ]
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit, %3, %21
+  %.sroa.4.0 = phi i64 [ undef, %21 ], [ %5, %3 ], [ %.0.sroa.speculated.i26, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.thread" ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit" ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %21 ], [ 0, %3 ], [ %20, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit" ]
   %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %23 = insertvalue { i64, i64 } %22, i64 %.sroa.4.0, 1
   ret { i64, i64 } %23
@@ -1636,7 +1636,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %4 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
   %5 = extractvalue { i64, i1 } %4, 0
   %6 = extractvalue { i64, i1 } %4, 1
-  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %7
+  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %7
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %0, align 8, !noundef !67
@@ -1647,42 +1647,42 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %8, 0
-  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.thread"
+  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.thread"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit": ; preds = %7
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %17
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit": ; preds = %7
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %17
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.thread": ; preds = %7
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.thread": ; preds = %7
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %14
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %14
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.thread"
+14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.thread"
   %15 = icmp uge i64 %.0.sroa.speculated.i26, %8
   tail call void @llvm.assume(i1 %15)
   %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %.val25, i64 noundef %8, i64 noundef 1, i64 noundef %.0.sroa.speculated.i26) #28, !noalias !123
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit"
+17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit"
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !123
   %19 = tail call noundef ptr @__rust_alloc(i64 noundef %.0.sroa.speculated.i26, i64 noundef 1) #28, !noalias !123
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit: ; preds = %14, %17
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit: ; preds = %14, %17
   %.sroa.012.1.i.i.pn.i = phi ptr [ %16, %14 ], [ %19, %17 ]
   %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
   %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %20 = ptrtoint ptr %.sink1.i.i to i64
-  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %21
+  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %21
 
-21:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+21:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
   store ptr %.sroa.012.1.i.i.pn.i, ptr %11, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit, %3, %21
-  %.sroa.4.0 = phi i64 [ undef, %21 ], [ %5, %3 ], [ %.0.sroa.speculated.i26, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.thread" ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit" ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %21 ], [ 0, %3 ], [ %20, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit" ]
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit, %3, %21
+  %.sroa.4.0 = phi i64 [ undef, %21 ], [ %5, %3 ], [ %.0.sroa.speculated.i26, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.thread" ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit" ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %21 ], [ 0, %3 ], [ %20, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit" ]
   %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %23 = insertvalue { i64, i64 } %22, i64 %.sroa.4.0, 1
   ret { i64, i64 } %23
@@ -1693,7 +1693,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %4 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
   %5 = extractvalue { i64, i1 } %4, 0
   %6 = extractvalue { i64, i1 } %4, 1
-  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %7
+  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %7
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %0, align 8, !noundef !67
@@ -1704,42 +1704,42 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %8, 0
-  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread"
+  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit": ; preds = %7
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %17
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit": ; preds = %7
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %17
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread": ; preds = %7
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread": ; preds = %7
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %14
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %14
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread"
+14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread"
   %15 = icmp uge i64 %.0.sroa.speculated.i26, %8
   tail call void @llvm.assume(i1 %15)
   %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %.val25, i64 noundef %8, i64 noundef 1, i64 noundef %.0.sroa.speculated.i26) #28, !noalias !127
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit"
+17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit"
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !127
   %19 = tail call noundef ptr @__rust_alloc(i64 noundef %.0.sroa.speculated.i26, i64 noundef 1) #28, !noalias !127
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit: ; preds = %14, %17
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit: ; preds = %14, %17
   %.sroa.012.1.i.i.pn.i = phi ptr [ %16, %14 ], [ %19, %17 ]
   %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
   %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %20 = ptrtoint ptr %.sink1.i.i to i64
-  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %21
+  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %21
 
-21:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+21:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
   store ptr %.sroa.012.1.i.i.pn.i, ptr %11, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit, %3, %21
-  %.sroa.4.0 = phi i64 [ undef, %21 ], [ %5, %3 ], [ %.0.sroa.speculated.i26, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread" ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit" ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %21 ], [ 0, %3 ], [ %20, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit" ]
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit, %3, %21
+  %.sroa.4.0 = phi i64 [ undef, %21 ], [ %5, %3 ], [ %.0.sroa.speculated.i26, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread" ], [ %.0.sroa.speculated.i26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit" ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %21 ], [ 0, %3 ], [ %20, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit" ]
   %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %23 = insertvalue { i64, i64 } %22, i64 %.sroa.4.0, 1
   ret { i64, i64 } %23
@@ -1750,7 +1750,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %4 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
   %5 = extractvalue { i64, i1 } %4, 0
   %6 = extractvalue { i64, i1 } %4, 1
-  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %7
+  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %7
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %0, align 8, !noundef !67
@@ -1762,43 +1762,43 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
-  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.thread"
+  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.thread"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit": ; preds = %7
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %19
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit": ; preds = %7
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %19
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.thread": ; preds = %7
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.thread": ; preds = %7
   %14 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %14)
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %15
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %15
 
-15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.thread"
+15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.thread"
   %16 = mul nuw i64 %8, 24
   %17 = icmp uge i64 %.0.sroa.speculated.i26, %8
   tail call void @llvm.assume(i1 %17)
   %18 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val25, i64 noundef %16, i64 noundef 8, i64 noundef %11) #28, !noalias !131
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit"
+19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit"
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !131
   %21 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #28, !noalias !131
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit: ; preds = %15, %19
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit: ; preds = %15, %19
   %.sroa.012.1.i.i.pn.i = phi ptr [ %18, %15 ], [ %21, %19 ]
   %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
   %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %22 = ptrtoint ptr %.sink1.i.i to i64
-  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %23
+  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %23
 
-23:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+23:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
   store ptr %.sroa.012.1.i.i.pn.i, ptr %12, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit, %3, %23
-  %.sroa.4.0 = phi i64 [ undef, %23 ], [ %5, %3 ], [ %11, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.thread" ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit" ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %23 ], [ 0, %3 ], [ %22, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit" ]
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit, %3, %23
+  %.sroa.4.0 = phi i64 [ undef, %23 ], [ %5, %3 ], [ %11, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.thread" ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit" ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %23 ], [ 0, %3 ], [ %22, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit" ]
   %24 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %25 = insertvalue { i64, i64 } %24, i64 %.sroa.4.0, 1
   ret { i64, i64 } %25
@@ -1809,7 +1809,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %4 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
   %5 = extractvalue { i64, i1 } %4, 0
   %6 = extractvalue { i64, i1 } %4, 1
-  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %7
+  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %7
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %0, align 8, !noundef !67
@@ -1821,43 +1821,43 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
-  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.thread"
+  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.thread"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit": ; preds = %7
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %19
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit": ; preds = %7
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %19
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.thread": ; preds = %7
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.thread": ; preds = %7
   %14 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %14)
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %15
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %15
 
-15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.thread"
+15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.thread"
   %16 = mul nuw i64 %8, 96
   %17 = icmp uge i64 %.0.sroa.speculated.i26, %8
   tail call void @llvm.assume(i1 %17)
   %18 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val25, i64 noundef %16, i64 noundef 8, i64 noundef %11) #28, !noalias !135
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit"
+19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit"
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !135
   %21 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #28, !noalias !135
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit: ; preds = %15, %19
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit: ; preds = %15, %19
   %.sroa.012.1.i.i.pn.i = phi ptr [ %18, %15 ], [ %21, %19 ]
   %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
   %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %22 = ptrtoint ptr %.sink1.i.i to i64
-  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %23
+  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %23
 
-23:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+23:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
   store ptr %.sroa.012.1.i.i.pn.i, ptr %12, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit, %3, %23
-  %.sroa.4.0 = phi i64 [ undef, %23 ], [ %5, %3 ], [ %11, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.thread" ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit" ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %23 ], [ 0, %3 ], [ %22, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit" ]
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit, %3, %23
+  %.sroa.4.0 = phi i64 [ undef, %23 ], [ %5, %3 ], [ %11, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.thread" ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit" ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %23 ], [ 0, %3 ], [ %22, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit" ]
   %24 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %25 = insertvalue { i64, i64 } %24, i64 %.sroa.4.0, 1
   ret { i64, i64 } %25
@@ -1868,7 +1868,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %4 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
   %5 = extractvalue { i64, i1 } %4, 0
   %6 = extractvalue { i64, i1 } %4, 1
-  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %7
+  br i1 %6, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %7
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %0, align 8, !noundef !67
@@ -1880,43 +1880,43 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
-  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.thread"
+  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.thread"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit": ; preds = %7
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %19
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit": ; preds = %7
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %19
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.thread": ; preds = %7
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.thread": ; preds = %7
   %14 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %14)
-  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %15
+  br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %15
 
-15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.thread"
+15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.thread"
   %16 = shl nuw i64 %8, 5
   %17 = icmp uge i64 %11, %16
   tail call void @llvm.assume(i1 %17)
   %18 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val25, i64 noundef %16, i64 noundef 8, i64 noundef %11) #28, !noalias !139
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit"
+19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit"
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !139
   %21 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #28, !noalias !139
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit: ; preds = %15, %19
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit: ; preds = %15, %19
   %.sroa.012.1.i.i.pn.i = phi ptr [ %18, %15 ], [ %21, %19 ]
   %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
   %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %22 = ptrtoint ptr %.sink1.i.i to i64
-  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread, label %23
+  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread, label %23
 
-23:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit
+23:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit
   store ptr %.sroa.012.1.i.i.pn.i, ptr %12, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit, %3, %23
-  %.sroa.4.0 = phi i64 [ undef, %23 ], [ %5, %3 ], [ %11, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.thread" ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit" ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %23 ], [ 0, %3 ], [ %22, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit" ]
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit, %3, %23
+  %.sroa.4.0 = phi i64 [ undef, %23 ], [ %5, %3 ], [ %11, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.thread" ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit" ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %23 ], [ 0, %3 ], [ %22, %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit" ]
   %24 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %25 = insertvalue { i64, i64 } %24, i64 %.sroa.4.0, 1
   ret { i64, i64 } %25
@@ -1940,43 +1940,43 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !143
   %12 = icmp eq i64 %7, 0
-  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.argprom.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.argprom.exit.thread.i"
+  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.exit.thread.i"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.argprom.exit.i": ; preds = %5
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.exit.i": ; preds = %5
   br i1 %9, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E.exit.thread", label %18
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.argprom.exit.thread.i": ; preds = %5
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.exit.thread.i": ; preds = %5
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
   br i1 %9, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E.exit.thread", label %14
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.argprom.exit.thread.i"
+14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.exit.thread.i"
   %15 = mul nuw i64 %7, 88
   %16 = icmp uge i64 %.0.sroa.speculated.i26.i, %7
   tail call void @llvm.assume(i1 %16)
   %17 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %15, i64 noundef 8, i64 noundef %10) #28, !noalias !146
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-18:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.argprom.exit.i"
+18:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.exit.i"
   %19 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !146
   %20 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %10, i64 noundef 8) #28, !noalias !146
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i: ; preds = %18, %14
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i: ; preds = %18, %14
   %.sroa.012.1.i.i.pn.i.i = phi ptr [ %17, %14 ], [ %20, %18 ]
   %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E.exit.thread3"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   store ptr %.sroa.012.1.i.i.pn.i.i, ptr %11, align 8, !alias.scope !143
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !143
   ret void
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.argprom.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.argprom.exit.thread.i", %2
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h66e8683898d5124fE.exit.thread.i", %2
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef %10) #31
   unreachable
 }
@@ -1998,46 +1998,46 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %10, align 8, !alias.scope !150
   %11 = icmp eq i64 %7, 0
-  br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i"
+  br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i": ; preds = %5
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i": ; preds = %5
   br i1 %9, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread", label %16
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i": ; preds = %5
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i": ; preds = %5
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
   br i1 %9, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread", label %13
 
-13:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i"
+13:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i"
   %14 = icmp uge i64 %.0.sroa.speculated.i26.i, %7
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %7, i64 noundef 1, i64 noundef %.0.sroa.speculated.i26.i) #28, !noalias !153
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-16:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i"
+16:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i"
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !153
   %18 = tail call noundef ptr @__rust_alloc(i64 noundef %.0.sroa.speculated.i26.i, i64 noundef 1) #28, !noalias !153
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i: ; preds = %16, %13
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i: ; preds = %16, %13
   %.sroa.012.1.i.i.pn.i.i = phi ptr [ %15, %13 ], [ %18, %16 ]
   %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i.i
   %19 = ptrtoint ptr %.sink1.i.i.i to i64
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread3"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   store ptr %.sroa.012.1.i.i.pn.i.i, ptr %10, align 8, !alias.scope !150
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !150
   br label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.1683228073582790202.exit
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   switch i64 %19, label %20 [
     i64 -9223372036854775807, label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.1683228073582790202.exit
     i64 0, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread"
   ]
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i", %2, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit"
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i", %2, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit"
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
@@ -2067,43 +2067,43 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !157
   %12 = icmp eq i64 %7, 0
-  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.argprom.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.argprom.exit.thread.i"
+  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.exit.thread.i"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.argprom.exit.i": ; preds = %5
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.exit.i": ; preds = %5
   br i1 %9, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E.exit.thread", label %18
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.argprom.exit.thread.i": ; preds = %5
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.exit.thread.i": ; preds = %5
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
   br i1 %9, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E.exit.thread", label %14
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.argprom.exit.thread.i"
+14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.exit.thread.i"
   %15 = mul nuw i64 %7, 88
   %16 = icmp uge i64 %.0.sroa.speculated.i26.i, %7
   tail call void @llvm.assume(i1 %16)
   %17 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %15, i64 noundef 8, i64 noundef %10) #28, !noalias !160
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-18:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.argprom.exit.i"
+18:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.exit.i"
   %19 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !160
   %20 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %10, i64 noundef 8) #28, !noalias !160
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i: ; preds = %18, %14
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i: ; preds = %18, %14
   %.sroa.012.1.i.i.pn.i.i = phi ptr [ %17, %14 ], [ %20, %18 ]
   %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E.exit.thread3"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   store ptr %.sroa.012.1.i.i.pn.i.i, ptr %11, align 8, !alias.scope !157
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !157
   ret void
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.argprom.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.argprom.exit.thread.i", %2
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb51063c3af6ff490E.exit.thread.i", %2
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef %10) #31
   unreachable
 }
@@ -2126,43 +2126,43 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !164
   %13 = icmp eq i64 %8, 0
-  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.thread.i"
+  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.thread.i"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.i": ; preds = %6
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202.exit.thread", label %19
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.thread.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.thread.i": ; preds = %6
   %14 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %14)
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202.exit.thread", label %15
 
-15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.thread.i"
+15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.thread.i"
   %16 = mul nuw i64 %8, 24
   %17 = icmp uge i64 %.0.sroa.speculated.i26.i, %8
   tail call void @llvm.assume(i1 %17)
   %18 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %16, i64 noundef 8, i64 noundef %11) #28, !noalias !167
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.i"
+19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.i"
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !167
   %21 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #28, !noalias !167
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i: ; preds = %19, %15
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i: ; preds = %19, %15
   %.sroa.012.1.i.i.pn.i.i = phi ptr [ %18, %15 ], [ %21, %19 ]
   %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202.exit.thread3"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   store ptr %.sroa.012.1.i.i.pn.i.i, ptr %12, align 8, !alias.scope !164
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !164
   ret void
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.argprom.exit.thread.i", %3
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3fa5ccead0ff3323E.exit.thread.i", %3
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef %11) #31
   unreachable
 }
@@ -2184,46 +2184,46 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !171
   %12 = icmp eq i64 %8, 0
-  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i"
+  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i": ; preds = %6
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread", label %17
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i": ; preds = %6
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread", label %14
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i"
+14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i"
   %15 = icmp uge i64 %.0.sroa.speculated.i26.i, %8
   tail call void @llvm.assume(i1 %15)
   %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %8, i64 noundef 1, i64 noundef %.0.sroa.speculated.i26.i) #28, !noalias !174
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i"
+17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i"
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !174
   %19 = tail call noundef ptr @__rust_alloc(i64 noundef %.0.sroa.speculated.i26.i, i64 noundef 1) #28, !noalias !174
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i: ; preds = %17, %14
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i: ; preds = %17, %14
   %.sroa.012.1.i.i.pn.i.i = phi ptr [ %16, %14 ], [ %19, %17 ]
   %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i.i
   %20 = ptrtoint ptr %.sink1.i.i.i to i64
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread3"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   store ptr %.sroa.012.1.i.i.pn.i.i, ptr %11, align 8, !alias.scope !171
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !171
   br label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.1683228073582790202.exit
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   switch i64 %20, label %21 [
     i64 -9223372036854775807, label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.1683228073582790202.exit
     i64 0, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread"
   ]
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.argprom.exit.thread.i", %3, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit"
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0390f0dbbcacdefcE.exit.thread.i", %3, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202.exit"
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
@@ -2253,43 +2253,43 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !178
   %13 = icmp eq i64 %8, 0
-  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.thread.i"
+  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.thread.i"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.i": ; preds = %6
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202.exit.thread", label %19
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.thread.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.thread.i": ; preds = %6
   %14 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %14)
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202.exit.thread", label %15
 
-15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.thread.i"
+15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.thread.i"
   %16 = mul nuw i64 %8, 96
   %17 = icmp uge i64 %.0.sroa.speculated.i26.i, %8
   tail call void @llvm.assume(i1 %17)
   %18 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %16, i64 noundef 8, i64 noundef %11) #28, !noalias !181
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.i"
+19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.i"
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !181
   %21 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #28, !noalias !181
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i: ; preds = %19, %15
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i: ; preds = %19, %15
   %.sroa.012.1.i.i.pn.i.i = phi ptr [ %18, %15 ], [ %21, %19 ]
   %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202.exit.thread3"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   store ptr %.sroa.012.1.i.i.pn.i.i, ptr %12, align 8, !alias.scope !178
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !178
   ret void
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.argprom.exit.thread.i", %3
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94e224601591aaeaE.exit.thread.i", %3
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef %11) #31
   unreachable
 }
@@ -2312,43 +2312,43 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !185
   %13 = icmp eq i64 %8, 0
-  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.thread.i"
+  br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.thread.i"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.i": ; preds = %6
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202.exit.thread", label %19
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.thread.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.thread.i": ; preds = %6
   %14 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %14)
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202.exit.thread", label %15
 
-15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.thread.i"
+15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.thread.i"
   %16 = shl nuw i64 %8, 5
   %17 = icmp uge i64 %11, %16
   tail call void @llvm.assume(i1 %17)
   %18 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %16, i64 noundef 8, i64 noundef %11) #28, !noalias !188
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.i"
+19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.i"
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !188
   %21 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #28, !noalias !188
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i: ; preds = %19, %15
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i: ; preds = %19, %15
   %.sroa.012.1.i.i.pn.i.i = phi ptr [ %18, %15 ], [ %21, %19 ]
   %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202.exit.thread3"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   store ptr %.sroa.012.1.i.i.pn.i.i, ptr %12, align 8, !alias.scope !185
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !185
   ret void
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.argprom.exit.thread.i", %3
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9bc9a8824da2a84E.exit.thread.i", %3
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef %11) #31
   unreachable
 }
@@ -2370,46 +2370,46 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !192
   %12 = icmp eq i64 %8, 0
-  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.thread.i"
+  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.thread.i"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.i": ; preds = %6
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit.thread", label %17
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.thread.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.thread.i": ; preds = %6
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit.thread", label %14
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.thread.i"
+14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.thread.i"
   %15 = icmp uge i64 %.0.sroa.speculated.i26.i, %8
   tail call void @llvm.assume(i1 %15)
   %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %8, i64 noundef 1, i64 noundef %.0.sroa.speculated.i26.i) #28, !noalias !195
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.i"
+17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.i"
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !195
   %19 = tail call noundef ptr @__rust_alloc(i64 noundef %.0.sroa.speculated.i26.i, i64 noundef 1) #28, !noalias !195
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i: ; preds = %17, %14
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i: ; preds = %17, %14
   %.sroa.012.1.i.i.pn.i.i = phi ptr [ %16, %14 ], [ %19, %17 ]
   %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i.i
   %20 = ptrtoint ptr %.sink1.i.i.i to i64
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit.thread3"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   store ptr %.sroa.012.1.i.i.pn.i.i, ptr %11, align 8, !alias.scope !192
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !192
   br label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.1683228073582790202.exit
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   switch i64 %20, label %21 [
     i64 -9223372036854775807, label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.1683228073582790202.exit
     i64 0, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit.thread"
   ]
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.argprom.exit.thread.i", %3, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit"
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.exit.thread.i", %3, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202.exit"
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
@@ -2438,46 +2438,46 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !199
   %12 = icmp eq i64 %8, 0
-  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.thread.i"
+  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.thread.i"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.i": ; preds = %6
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit.thread", label %17
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.thread.i": ; preds = %6
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.thread.i": ; preds = %6
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit.thread", label %14
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.thread.i"
+14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.thread.i"
   %15 = icmp uge i64 %.0.sroa.speculated.i26.i, %8
   tail call void @llvm.assume(i1 %15)
   %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %8, i64 noundef 1, i64 noundef %.0.sroa.speculated.i26.i) #28, !noalias !202
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.i"
+17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.i"
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !202
   %19 = tail call noundef ptr @__rust_alloc(i64 noundef %.0.sroa.speculated.i26.i, i64 noundef 1) #28, !noalias !202
-  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+  br label %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i: ; preds = %17, %14
+_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i: ; preds = %17, %14
   %.sroa.012.1.i.i.pn.i.i = phi ptr [ %16, %14 ], [ %19, %17 ]
   %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i.i
   %20 = ptrtoint ptr %.sink1.i.i.i to i64
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit.thread3"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   store ptr %.sroa.012.1.i.i.pn.i.i, ptr %11, align 8, !alias.scope !199
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !199
   br label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.1683228073582790202.exit
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom.exit.i
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.exit.i
   switch i64 %20, label %21 [
     i64 -9223372036854775807, label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.1683228073582790202.exit
     i64 0, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit.thread"
   ]
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.argprom.exit.thread.i", %3, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit"
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.exit.thread.i", %3, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202.exit"
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #31
   unreachable
 
@@ -2830,96 +2830,96 @@ attributes #31 = { noreturn }
 !113 = distinct !{!113, !114, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202: argument 0"}
 !114 = distinct !{!114, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202"}
 !115 = !{!116, !118, !113}
-!116 = distinct !{!116, !117, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!117 = distinct !{!117, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!118 = distinct !{!118, !117, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!116 = distinct !{!116, !117, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!117 = distinct !{!117, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!118 = distinct !{!118, !117, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !119 = !{!120, !122}
-!120 = distinct !{!120, !121, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!121 = distinct !{!121, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!122 = distinct !{!122, !121, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!120 = distinct !{!120, !121, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!121 = distinct !{!121, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!122 = distinct !{!122, !121, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !123 = !{!124, !126}
-!124 = distinct !{!124, !125, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!125 = distinct !{!125, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!126 = distinct !{!126, !125, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!124 = distinct !{!124, !125, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!125 = distinct !{!125, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!126 = distinct !{!126, !125, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !127 = !{!128, !130}
-!128 = distinct !{!128, !129, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!129 = distinct !{!129, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!130 = distinct !{!130, !129, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!128 = distinct !{!128, !129, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!129 = distinct !{!129, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!130 = distinct !{!130, !129, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !131 = !{!132, !134}
-!132 = distinct !{!132, !133, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!133 = distinct !{!133, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!134 = distinct !{!134, !133, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!132 = distinct !{!132, !133, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!133 = distinct !{!133, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!134 = distinct !{!134, !133, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !135 = !{!136, !138}
-!136 = distinct !{!136, !137, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!137 = distinct !{!137, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!138 = distinct !{!138, !137, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!136 = distinct !{!136, !137, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!137 = distinct !{!137, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!138 = distinct !{!138, !137, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !139 = !{!140, !142}
-!140 = distinct !{!140, !141, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!141 = distinct !{!141, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!142 = distinct !{!142, !141, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!140 = distinct !{!140, !141, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!141 = distinct !{!141, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!142 = distinct !{!142, !141, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !143 = !{!144}
 !144 = distinct !{!144, !145, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E: argument 0"}
 !145 = distinct !{!145, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he7387d5b9179ccb0E"}
 !146 = !{!147, !149, !144}
-!147 = distinct !{!147, !148, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!148 = distinct !{!148, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!149 = distinct !{!149, !148, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!147 = distinct !{!147, !148, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!148 = distinct !{!148, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!149 = distinct !{!149, !148, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !150 = !{!151}
 !151 = distinct !{!151, !152, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202: argument 0"}
 !152 = distinct !{!152, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202"}
 !153 = !{!154, !156, !151}
-!154 = distinct !{!154, !155, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!155 = distinct !{!155, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!156 = distinct !{!156, !155, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!154 = distinct !{!154, !155, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!155 = distinct !{!155, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!156 = distinct !{!156, !155, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !157 = !{!158}
 !158 = distinct !{!158, !159, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E: argument 0"}
 !159 = distinct !{!159, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68a0e19d62921581E"}
 !160 = !{!161, !163, !158}
-!161 = distinct !{!161, !162, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!162 = distinct !{!162, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!163 = distinct !{!163, !162, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!161 = distinct !{!161, !162, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!162 = distinct !{!162, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!163 = distinct !{!163, !162, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !164 = !{!165}
 !165 = distinct !{!165, !166, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202: argument 0"}
 !166 = distinct !{!166, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b0bf4d721bce09dE.llvm.1683228073582790202"}
 !167 = !{!168, !170, !165}
-!168 = distinct !{!168, !169, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!169 = distinct !{!169, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!170 = distinct !{!170, !169, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!168 = distinct !{!168, !169, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!169 = distinct !{!169, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!170 = distinct !{!170, !169, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !171 = !{!172}
 !172 = distinct !{!172, !173, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202: argument 0"}
 !173 = distinct !{!173, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h39183c989a777251E.llvm.1683228073582790202"}
 !174 = !{!175, !177, !172}
-!175 = distinct !{!175, !176, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!176 = distinct !{!176, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!177 = distinct !{!177, !176, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!175 = distinct !{!175, !176, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!176 = distinct !{!176, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!177 = distinct !{!177, !176, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !178 = !{!179}
 !179 = distinct !{!179, !180, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202: argument 0"}
 !180 = distinct !{!180, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf4fc94637ed1a826E.llvm.1683228073582790202"}
 !181 = !{!182, !184, !179}
-!182 = distinct !{!182, !183, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!183 = distinct !{!183, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!184 = distinct !{!184, !183, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!182 = distinct !{!182, !183, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!183 = distinct !{!183, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!184 = distinct !{!184, !183, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !185 = !{!186}
 !186 = distinct !{!186, !187, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202: argument 0"}
 !187 = distinct !{!187, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hff698d0ceee24b0dE.llvm.1683228073582790202"}
 !188 = !{!189, !191, !186}
-!189 = distinct !{!189, !190, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!190 = distinct !{!190, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!191 = distinct !{!191, !190, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!189 = distinct !{!189, !190, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!190 = distinct !{!190, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!191 = distinct !{!191, !190, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !192 = !{!193}
 !193 = distinct !{!193, !194, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202: argument 0"}
 !194 = distinct !{!194, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3583abb6bae3ac8aE.llvm.1683228073582790202"}
 !195 = !{!196, !198, !193}
-!196 = distinct !{!196, !197, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!197 = distinct !{!197, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!198 = distinct !{!198, !197, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!196 = distinct !{!196, !197, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!197 = distinct !{!197, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!198 = distinct !{!198, !197, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !199 = !{!200}
 !200 = distinct !{!200, !201, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202: argument 0"}
 !201 = distinct !{!201, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10703265ca27472dE.llvm.1683228073582790202"}
 !202 = !{!203, !205, !200}
-!203 = distinct !{!203, !204, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 0"}
-!204 = distinct !{!204, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom"}
-!205 = distinct !{!205, !204, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E.argprom: argument 1"}
+!203 = distinct !{!203, !204, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 0"}
+!204 = distinct !{!204, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E"}
+!205 = distinct !{!205, !204, !"_ZN5alloc7raw_vec11finish_grow17hcb83c73e8c1a1f84E: argument 1"}
 !206 = !{!207}
 !207 = distinct !{!207, !208, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17h325e1e9ef81c8ff9E: argument 1"}
 !208 = distinct !{!208, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17h325e1e9ef81c8ff9E"}

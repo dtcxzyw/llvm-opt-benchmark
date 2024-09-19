@@ -833,7 +833,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hcf292193297ae9d5E.exit181.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %61, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59)
   %.val = load i64, ptr %60, align 8, !range !4, !noundef !5
-  invoke fastcc void @_ZN5uu_od20format_error_message17h2073733bb8ec7e48E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(24) %59, i64 %.val, ptr noalias noundef nonnull readonly align 1 %149, i64 noundef %151, ptr noalias noundef nonnull readonly align 1 @anon.9b33a3cde8d4dd4818b9db5641171ef1.25, i64 noundef 10)
+  invoke fastcc void @_ZN5uu_od20format_error_message17h2073733bb8ec7e48E(ptr noalias nocapture noundef align 8 dereferenceable(24) %59, i64 %.val, ptr noalias noundef nonnull readonly align 1 %149, i64 noundef %151, ptr noalias noundef nonnull readonly align 1 @anon.9b33a3cde8d4dd4818b9db5641171ef1.25, i64 noundef 10)
           to label %466 unwind label %464
 
 186:                                              ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17hcf292193297ae9d5E.exit181.thread
@@ -1122,7 +1122,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hcf292193297ae9d5E.exit181.
   %270 = load ptr, ptr %262, align 8, !nonnull !5, !noundef !5
   %271 = load i64, ptr %264, align 8, !noundef !5
   %.val164 = load i64, ptr %50, align 8, !range !4, !noundef !5
-  invoke fastcc void @_ZN5uu_od20format_error_message17h2073733bb8ec7e48E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(24) %49, i64 %.val164, ptr noalias noundef nonnull readonly align 1 %270, i64 noundef %271, ptr noalias noundef nonnull readonly align 1 @anon.9b33a3cde8d4dd4818b9db5641171ef1.27, i64 noundef 5)
+  invoke fastcc void @_ZN5uu_od20format_error_message17h2073733bb8ec7e48E(ptr noalias nocapture noundef align 8 dereferenceable(24) %49, i64 %.val164, ptr noalias noundef nonnull readonly align 1 %270, i64 noundef %271, ptr noalias noundef nonnull readonly align 1 @anon.9b33a3cde8d4dd4818b9db5641171ef1.27, i64 noundef 5)
           to label %436 unwind label %434
 
 272:                                              ; preds = %266
@@ -1359,7 +1359,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hcf292193297ae9d5E.exit181.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40)
   %.val165 = load i64, ptr %41, align 8, !range !4, !noundef !5
-  invoke fastcc void @_ZN5uu_od20format_error_message17h2073733bb8ec7e48E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(24) %40, i64 %.val165, ptr noalias noundef nonnull readonly align 1 %329, i64 noundef %331, ptr noalias noundef nonnull readonly align 1 @anon.9b33a3cde8d4dd4818b9db5641171ef1.38, i64 noundef 10)
+  invoke fastcc void @_ZN5uu_od20format_error_message17h2073733bb8ec7e48E(ptr noalias nocapture noundef align 8 dereferenceable(24) %40, i64 %.val165, ptr noalias noundef nonnull readonly align 1 %329, i64 noundef %331, ptr noalias noundef nonnull readonly align 1 @anon.9b33a3cde8d4dd4818b9db5641171ef1.38, i64 noundef 10)
           to label %408 unwind label %406
 
 361:                                              ; preds = %.noexc229
@@ -7679,7 +7679,7 @@ _ZN5uu_od15multifilereader15MultifileReader3new17hc87768e382bbeb4cE.exit: ; pred
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_od20format_error_message17h2073733bb8ec7e48E.argprom(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %.0.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef range(i64 5, 11) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_od20format_error_message17h2073733bb8ec7e48E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %.0.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef range(i64 5, 11) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

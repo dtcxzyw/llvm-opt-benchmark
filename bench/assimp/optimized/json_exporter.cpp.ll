@@ -1007,7 +1007,7 @@ for.body:                                         ; preds = %invoke.cont25, %for
   %22 = load ptr, ptr %mMeshes.i, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %23 = load ptr, ptr %arrayidx, align 8
-  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiMeshb.argelim(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(1320) %23)
+  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiMeshb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(1320) %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %mNumMeshes.i, align 8
   %25 = zext i32 %24 to i64
@@ -4976,7 +4976,7 @@ invoke.cont60.i:                                  ; preds = %invoke.cont58.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56.i) #13
   %mColorDiffuse.i = getelementptr inbounds i8, ptr %381, i64 1080
-  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db.argelim(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mColorDiffuse.i)
+  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mColorDiffuse.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64.i) #13
   %call.i157161.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63.i)
           to label %call.i157.noexc.i unwind label %lpad65.i
@@ -5024,7 +5024,7 @@ invoke.cont68.i:                                  ; preds = %invoke.cont66.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64.i) #13
   %mColorSpecular.i = getelementptr inbounds i8, ptr %381, i64 1092
-  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db.argelim(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mColorSpecular.i)
+  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mColorSpecular.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72.i) #13
   %call.i165169.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71.i)
           to label %call.i165.noexc.i unwind label %lpad73.i
@@ -5072,7 +5072,7 @@ invoke.cont76.i:                                  ; preds = %invoke.cont74.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72.i) #13
   %mColorAmbient.i = getelementptr inbounds i8, ptr %381, i64 1104
-  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db.argelim(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mColorAmbient.i)
+  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mColorAmbient.i)
   %424 = load i32, ptr %mType.i325, align 4
   %cmp80.not.i = icmp eq i32 %424, 2
   br i1 %cmp80.not.i, label %if.then93.i, label %if.then81.i
@@ -7029,7 +7029,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #13
   %mTransformation = getelementptr inbounds i8, ptr %ai, i64 1028
-  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK12aiMatrix4x4tIfEb.argelim(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(64) %mTransformation)
+  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK12aiMatrix4x4tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(64) %mTransformation)
   %mNumMeshes = getelementptr inbounds i8, ptr %ai, i64 1120
   %5 = load i32, ptr %mNumMeshes, align 8
   %tobool12.not = icmp eq i32 %5, 0
@@ -7280,7 +7280,7 @@ eh.resume:                                        ; preds = %lpad28, %lpad.i89, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiMeshb.argelim(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(1320) %ai) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiMeshb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(1320) %ai) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i1027 = alloca %struct._Guard, align 8
   %__guard.i1017 = alloca %struct._Guard, align 8
@@ -8955,7 +8955,7 @@ invoke.cont9.i:                                   ; preds = %invoke.cont7.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i) #13
   %mOffsetMatrix.i = getelementptr inbounds i8, ptr %186, i64 1056
-  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK12aiMatrix4x4tIfEb.argelim(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(64) %mOffsetMatrix.i)
+  call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK12aiMatrix4x4tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(64) %mOffsetMatrix.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #13
   %call.i4145.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i)
           to label %call.i41.noexc.i unwind label %lpad14.i
@@ -9484,7 +9484,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK12aiMatrix4x4tIfEb.argelim(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ai) unnamed_addr #0 {
+define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK12aiMatrix4x4tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ai) unnamed_addr #0 {
 entry:
   %first5.i = getelementptr inbounds i8, ptr %out, i64 496
   store i8 1, ptr %first5.i, align 8
@@ -10009,7 +10009,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit:           ; preds = %_ZN6Assimp10JSONWri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db.argelim(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %ai) unnamed_addr #0 {
+define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %ai) unnamed_addr #0 {
 entry:
   %first5.i = getelementptr inbounds i8, ptr %out, i64 496
   store i8 1, ptr %first5.i, align 8

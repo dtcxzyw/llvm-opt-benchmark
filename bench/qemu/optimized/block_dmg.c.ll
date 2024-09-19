@@ -106,12 +106,12 @@ if.end7:                                          ; preds = %if.end3
   tail call void @bdrv_graph_rdlock_main_loop() #11
   %call9 = tail call i32 @module_load(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %errp) #11
   %cmp10 = icmp slt i32 %call9, 0
-  br i1 %cmp10, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end12
+  br i1 %cmp10, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end12
 
 if.end12:                                         ; preds = %if.end7
   %call13 = tail call i32 @module_load(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, ptr noundef %errp) #11
   %cmp14 = icmp slt i32 %call13, 0
-  br i1 %cmp14, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end16
+  br i1 %cmp14, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
   %n_chunks = getelementptr inbounds i8, ptr %0, i64 48
@@ -226,9 +226,9 @@ if.end20:                                         ; preds = %dmg_find_koly_offse
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i71)
   %call.i72 = call i32 @bdrv_pread(ptr noundef %bs.val, i64 noundef %add, i64 noundef 8, ptr noundef nonnull %buffer.i71, i32 noundef 0) #11
   %cmp.i73 = icmp slt i32 %call.i72, 0
-  br i1 %cmp.i73, label %read_uint64.argprom.exit.thread, label %if.else26
+  br i1 %cmp.i73, label %read_uint64.exit.thread, label %if.else26
 
-read_uint64.argprom.exit.thread:                  ; preds = %if.end20
+read_uint64.exit.thread:                          ; preds = %if.end20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i71)
   br label %fail
 
@@ -246,9 +246,9 @@ if.end32:                                         ; preds = %if.else26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i75)
   %call.i76 = call i32 @bdrv_pread(ptr noundef %bs.val66, i64 noundef %add33, i64 noundef 8, ptr noundef nonnull %buffer.i75, i32 noundef 0) #11
   %cmp.i77 = icmp slt i32 %call.i76, 0
-  br i1 %cmp.i77, label %read_uint64.argprom.exit80.thread, label %if.end38
+  br i1 %cmp.i77, label %read_uint64.exit80.thread, label %if.end38
 
-read_uint64.argprom.exit80.thread:                ; preds = %if.end32
+read_uint64.exit80.thread:                        ; preds = %if.end32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i75)
   br label %fail
 
@@ -261,9 +261,9 @@ if.end38:                                         ; preds = %if.end32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i81)
   %call.i82 = call i32 @bdrv_pread(ptr noundef %bs.val67, i64 noundef %add39, i64 noundef 8, ptr noundef nonnull %buffer.i81, i32 noundef 0) #11
   %cmp.i83 = icmp slt i32 %call.i82, 0
-  br i1 %cmp.i83, label %read_uint64.argprom.exit86.thread, label %if.end44
+  br i1 %cmp.i83, label %read_uint64.exit86.thread, label %if.end44
 
-read_uint64.argprom.exit86.thread:                ; preds = %if.end38
+read_uint64.exit86.thread:                        ; preds = %if.end38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i81)
   br label %fail
 
@@ -283,9 +283,9 @@ if.end50:                                         ; preds = %if.end44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i87)
   %call.i88 = call i32 @bdrv_pread(ptr noundef %bs.val68, i64 noundef %add51, i64 noundef 8, ptr noundef nonnull %buffer.i87, i32 noundef 0) #11
   %cmp.i89 = icmp slt i32 %call.i88, 0
-  br i1 %cmp.i89, label %read_uint64.argprom.exit92.thread, label %if.end56
+  br i1 %cmp.i89, label %read_uint64.exit92.thread, label %if.end56
 
-read_uint64.argprom.exit92.thread:                ; preds = %if.end50
+read_uint64.exit92.thread:                        ; preds = %if.end50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i87)
   br label %fail
 
@@ -298,9 +298,9 @@ if.end56:                                         ; preds = %if.end50
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i93)
   %call.i94 = call i32 @bdrv_pread(ptr noundef %bs.val69, i64 noundef %add57, i64 noundef 8, ptr noundef nonnull %buffer.i93, i32 noundef 0) #11
   %cmp.i95 = icmp slt i32 %call.i94, 0
-  br i1 %cmp.i95, label %read_uint64.argprom.exit98.thread, label %if.end62
+  br i1 %cmp.i95, label %read_uint64.exit98.thread, label %if.end62
 
-read_uint64.argprom.exit98.thread:                ; preds = %if.end56
+read_uint64.exit98.thread:                        ; preds = %if.end56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i93)
   br label %fail
 
@@ -320,9 +320,9 @@ if.end70:                                         ; preds = %if.end62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i99)
   %call.i100 = call i32 @bdrv_pread(ptr noundef %bs.val70, i64 noundef %add71, i64 noundef 8, ptr noundef nonnull %buffer.i99, i32 noundef 0) #11
   %cmp.i101 = icmp slt i32 %call.i100, 0
-  br i1 %cmp.i101, label %read_uint64.argprom.exit104.thread, label %if.end76
+  br i1 %cmp.i101, label %read_uint64.exit104.thread, label %if.end76
 
-read_uint64.argprom.exit104.thread:               ; preds = %if.end70
+read_uint64.exit104.thread:                       ; preds = %if.end70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i99)
   br label %fail
 
@@ -387,10 +387,10 @@ if.end126:                                        ; preds = %if.end121
   %current_chunk = getelementptr inbounds i8, ptr %0, i64 96
   store i32 %28, ptr %current_chunk, align 8
   call void @qemu_co_mutex_init(ptr noundef nonnull %0) #11
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-fail:                                             ; preds = %read_uint64.argprom.exit104.thread, %read_uint64.argprom.exit98.thread, %read_uint64.argprom.exit92.thread, %read_uint64.argprom.exit86.thread, %read_uint64.argprom.exit80.thread, %read_uint64.argprom.exit.thread, %if.end121, %if.end101, %if.else90, %if.end76, %if.end62, %if.end44, %if.else26, %if.then93, %if.then84, %if.then19
-  %ret.0 = phi i32 [ %conv, %if.then19 ], [ %call85, %if.then84 ], [ %call94, %if.then93 ], [ -22, %if.else26 ], [ -22, %if.end44 ], [ -22, %if.end62 ], [ -22, %if.end76 ], [ -22, %if.else90 ], [ -12, %if.end101 ], [ -22, %if.end121 ], [ %call.i72, %read_uint64.argprom.exit.thread ], [ %call.i76, %read_uint64.argprom.exit80.thread ], [ %call.i82, %read_uint64.argprom.exit86.thread ], [ %call.i88, %read_uint64.argprom.exit92.thread ], [ %call.i94, %read_uint64.argprom.exit98.thread ], [ %call.i100, %read_uint64.argprom.exit104.thread ]
+fail:                                             ; preds = %read_uint64.exit104.thread, %read_uint64.exit98.thread, %read_uint64.exit92.thread, %read_uint64.exit86.thread, %read_uint64.exit80.thread, %read_uint64.exit.thread, %if.end121, %if.end101, %if.else90, %if.end76, %if.end62, %if.end44, %if.else26, %if.then93, %if.then84, %if.then19
+  %ret.0 = phi i32 [ %conv, %if.then19 ], [ %call85, %if.then84 ], [ %call94, %if.then93 ], [ -22, %if.else26 ], [ -22, %if.end44 ], [ -22, %if.end62 ], [ -22, %if.end76 ], [ -22, %if.else90 ], [ -12, %if.end101 ], [ -22, %if.end121 ], [ %call.i72, %read_uint64.exit.thread ], [ %call.i76, %read_uint64.exit80.thread ], [ %call.i82, %read_uint64.exit86.thread ], [ %call.i88, %read_uint64.exit92.thread ], [ %call.i94, %read_uint64.exit98.thread ], [ %call.i100, %read_uint64.exit104.thread ]
   %types = getelementptr inbounds i8, ptr %0, i64 56
   %29 = load ptr, ptr %types, align 8
   call void @g_free(ptr noundef %29) #11
@@ -408,15 +408,15 @@ fail:                                             ; preds = %read_uint64.argprom
   %uncompressed_chunk133 = getelementptr inbounds i8, ptr %0, i64 112
   %35 = load ptr, ptr %uncompressed_chunk133, align 8
   call void @qemu_vfree(ptr noundef %35) #11
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end12, %if.end7, %fail, %if.end126
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end12, %if.end7, %fail, %if.end126
   %retval.1 = phi i32 [ %ret.0, %fail ], [ 0, %if.end126 ], [ -22, %if.end7 ], [ -22, %if.end12 ]
   call void @bdrv_graph_rdunlock_main_loop() #11
   br label %return
 
-return:                                           ; preds = %if.end3, %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
-  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %call1, %do.end ], [ %call4, %if.end3 ]
+return:                                           ; preds = %if.end3, %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call1, %do.end ], [ %call4, %if.end3 ]
   ret i32 %retval.0
 }
 
@@ -606,9 +606,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i)
   %call.i = call i32 @bdrv_pread(ptr noundef %bs.val, i64 noundef %info_begin, i64 noundef 4, ptr noundef nonnull %buffer.i, i32 noundef 0) #11
   %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %read_uint32.argprom.exit.thread, label %if.else
+  br i1 %cmp.i, label %read_uint32.exit.thread, label %if.else
 
-read_uint32.argprom.exit.thread:                  ; preds = %entry
+read_uint32.exit.thread:                          ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i)
   br label %fail
 
@@ -626,9 +626,9 @@ if.end4:                                          ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i26)
   %call.i27 = call i32 @bdrv_pread(ptr noundef %bs.val24, i64 noundef %add, i64 noundef 4, ptr noundef nonnull %buffer.i26, i32 noundef 0) #11
   %cmp.i28 = icmp slt i32 %call.i27, 0
-  br i1 %cmp.i28, label %read_uint32.argprom.exit31.thread, label %if.else9
+  br i1 %cmp.i28, label %read_uint32.exit31.thread, label %if.else9
 
-read_uint32.argprom.exit31.thread:                ; preds = %if.end4
+read_uint32.exit31.thread:                        ; preds = %if.end4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i26)
   br label %fail
 
@@ -662,9 +662,9 @@ while.body:                                       ; preds = %if.end18, %while.co
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i32)
   %call.i33 = call i32 @bdrv_pread(ptr noundef %bs.val25, i64 noundef %offset.055, i64 noundef 4, ptr noundef nonnull %buffer.i32, i32 noundef 0) #11
   %cmp.i34 = icmp slt i32 %call.i33, 0
-  br i1 %cmp.i34, label %read_uint32.argprom.exit37.thread, label %if.else29
+  br i1 %cmp.i34, label %read_uint32.exit37.thread, label %if.else29
 
-read_uint32.argprom.exit37.thread:                ; preds = %while.body
+read_uint32.exit37.thread:                        ; preds = %while.body
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i32)
   br label %fail
 
@@ -694,9 +694,9 @@ if.end47:                                         ; preds = %if.end38
   %cmp49 = icmp slt i32 %call48, 0
   br i1 %cmp49, label %fail, label %while.cond
 
-fail:                                             ; preds = %if.end38, %if.end47, %lor.lhs.false32, %if.else29, %while.cond, %if.end18, %read_uint32.argprom.exit37.thread, %read_uint32.argprom.exit31.thread, %read_uint32.argprom.exit.thread, %if.else9, %if.else
-  %buffer.0 = phi ptr [ null, %if.else ], [ null, %if.else9 ], [ null, %read_uint32.argprom.exit.thread ], [ null, %read_uint32.argprom.exit31.thread ], [ %buffer.154, %read_uint32.argprom.exit37.thread ], [ null, %if.end18 ], [ %call41, %if.end38 ], [ %call41, %if.end47 ], [ %buffer.154, %lor.lhs.false32 ], [ %buffer.154, %if.else29 ], [ %call41, %while.cond ]
-  %ret.0 = phi i32 [ -22, %if.else ], [ -22, %if.else9 ], [ %call.i, %read_uint32.argprom.exit.thread ], [ %call.i27, %read_uint32.argprom.exit31.thread ], [ %call.i33, %read_uint32.argprom.exit37.thread ], [ 0, %if.end18 ], [ %call43, %if.end38 ], [ %call48, %if.end47 ], [ -22, %lor.lhs.false32 ], [ -22, %if.else29 ], [ 0, %while.cond ]
+fail:                                             ; preds = %if.end38, %if.end47, %lor.lhs.false32, %if.else29, %while.cond, %if.end18, %read_uint32.exit37.thread, %read_uint32.exit31.thread, %read_uint32.exit.thread, %if.else9, %if.else
+  %buffer.0 = phi ptr [ null, %if.else ], [ null, %if.else9 ], [ null, %read_uint32.exit.thread ], [ null, %read_uint32.exit31.thread ], [ %buffer.154, %read_uint32.exit37.thread ], [ null, %if.end18 ], [ %call41, %if.end38 ], [ %call41, %if.end47 ], [ %buffer.154, %lor.lhs.false32 ], [ %buffer.154, %if.else29 ], [ %call41, %while.cond ]
+  %ret.0 = phi i32 [ -22, %if.else ], [ -22, %if.else9 ], [ %call.i, %read_uint32.exit.thread ], [ %call.i27, %read_uint32.exit31.thread ], [ %call.i33, %read_uint32.exit37.thread ], [ 0, %if.end18 ], [ %call43, %if.end38 ], [ %call48, %if.end47 ], [ -22, %lor.lhs.false32 ], [ -22, %if.else29 ], [ 0, %while.cond ]
   call void @g_free(ptr noundef %buffer.0) #11
   ret i32 %ret.0
 }

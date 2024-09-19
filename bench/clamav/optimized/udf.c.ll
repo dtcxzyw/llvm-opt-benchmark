@@ -1031,9 +1031,9 @@ findFileEntries.exit:                             ; preds = %411
   %456 = load i32, ptr %437, align 1
   %457 = and i8 %.val30.i, 2
   %.not1.i.i = icmp eq i8 %457, 0
-  br i1 %.not1.i.i, label %458, label %extractFile.argprom.exit.thread33.i
+  br i1 %.not1.i.i, label %458, label %extractFile.exit.thread33.i
 
-extractFile.argprom.exit.thread33.i:              ; preds = %449
+extractFile.exit.thread33.i:                      ; preds = %449
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31) #7
   br label %parseFileEntryDescriptor.exit
 
@@ -1045,12 +1045,12 @@ extractFile.argprom.exit.thread33.i:              ; preds = %449
     i16 0, label %462
     i16 1, label %468
     i16 2, label %479
-    i16 3, label %extractFile.argprom.exit.thread.sink.split.i
+    i16 3, label %extractFile.exit.thread.sink.split.i
   ]
 
 462:                                              ; preds = %458
   %.not52.i.i = icmp eq i32 %.val28.i, 8
-  br i1 %.not52.i.i, label %463, label %extractFile.argprom.exit.thread.sink.split.i
+  br i1 %.not52.i.i, label %463, label %extractFile.exit.thread.sink.split.i
 
 463:                                              ; preds = %462
   %464 = getelementptr inbounds i8, ptr %453, i64 180
@@ -1061,14 +1061,14 @@ extractFile.argprom.exit.thread33.i:              ; preds = %449
 
 468:                                              ; preds = %458
   %.not50.i.i = icmp eq i32 %.val28.i, 16
-  br i1 %.not50.i.i, label %469, label %extractFile.argprom.exit.thread.sink.split.i
+  br i1 %.not50.i.i, label %469, label %extractFile.exit.thread.sink.split.i
 
 469:                                              ; preds = %468
   %470 = getelementptr inbounds i8, ptr %453, i64 184
   %471 = load i16, ptr %470, align 1
   %472 = load i16, ptr %438, align 1
   %.not51.i.i = icmp eq i16 %471, %472
-  br i1 %.not51.i.i, label %473, label %extractFile.argprom.exit.thread.sink.split.i
+  br i1 %.not51.i.i, label %473, label %extractFile.exit.thread.sink.split.i
 
 473:                                              ; preds = %469
   %474 = getelementptr inbounds i8, ptr %453, i64 180
@@ -1080,14 +1080,14 @@ extractFile.argprom.exit.thread33.i:              ; preds = %449
 
 479:                                              ; preds = %458
   %.not.i.i305 = icmp eq i32 %.val28.i, 20
-  br i1 %.not.i.i305, label %480, label %extractFile.argprom.exit.thread.sink.split.i
+  br i1 %.not.i.i305, label %480, label %extractFile.exit.thread.sink.split.i
 
 480:                                              ; preds = %479
   %481 = getelementptr inbounds i8, ptr %453, i64 192
   %482 = load i16, ptr %481, align 1
   %483 = load i16, ptr %438, align 1
   %.not49.i.i = icmp eq i16 %482, %483
-  br i1 %.not49.i.i, label %484, label %extractFile.argprom.exit.thread.sink.split.i
+  br i1 %.not49.i.i, label %484, label %extractFile.exit.thread.sink.split.i
 
 484:                                              ; preds = %480
   %485 = getelementptr inbounds i8, ptr %453, i64 188
@@ -1112,7 +1112,7 @@ default.unreachable:                              ; preds = %458
   %496 = load ptr, ptr %495, align 8
   %497 = call ptr %496(ptr noundef %492, i64 noundef %493, i64 noundef %494, i32 noundef 1) #7
   %498 = icmp eq ptr %497, null
-  br i1 %498, label %extractFile.argprom.exit.thread.sink.split.i, label %499
+  br i1 %498, label %extractFile.exit.thread.sink.split.i, label %499
 
 499:                                              ; preds = %491
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -1188,13 +1188,13 @@ thread-pre-split.i.i.i:                           ; preds = %517
   %527 = phi ptr [ %.pr.i.i.i, %thread-pre-split.i.i.i ], [ %522, %517 ]
   %.1.i.i.i = phi i32 [ %.1.ph.i.i.i, %thread-pre-split.i.i.i ], [ %.05.i.i.i, %517 ]
   %.not22.i.i.i = icmp eq ptr %527, null
-  br i1 %.not22.i.i.i, label %extractFile.argprom.exit.i, label %528
+  br i1 %.not22.i.i.i, label %extractFile.exit.i, label %528
 
 528:                                              ; preds = %526
   call void @free(ptr noundef nonnull %527) #7
-  br label %extractFile.argprom.exit.i
+  br label %extractFile.exit.i
 
-extractFile.argprom.exit.i:                       ; preds = %528, %526
+extractFile.exit.i:                               ; preds = %528, %526
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %529 = load ptr, ptr %7, align 8
@@ -1202,22 +1202,22 @@ extractFile.argprom.exit.i:                       ; preds = %528, %526
   %531 = load ptr, ptr %530, align 8
   call void %531(ptr noundef %529, i64 noundef %493, i64 noundef %494) #7
   %.not25.i = icmp eq i32 %.1.i.i.i, 0
-  br i1 %.not25.i, label %parseFileEntryDescriptor.exit, label %extractFile.argprom.exit.thread.i
+  br i1 %.not25.i, label %parseFileEntryDescriptor.exit, label %extractFile.exit.thread.i
 
-extractFile.argprom.exit.thread.sink.split.i:     ; preds = %491, %480, %479, %469, %468, %462, %458
+extractFile.exit.thread.sink.split.i:             ; preds = %491, %480, %479, %469, %468, %462, %458
   %.str.32.sink.i = phi ptr [ @.str.32, %462 ], [ @.str.33, %468 ], [ @.str.34, %469 ], [ @.str.35, %479 ], [ @.str.34, %480 ], [ @.str.36, %458 ], [ @.str.37, %491 ]
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.32.sink.i) #7
-  br label %extractFile.argprom.exit.thread.i
+  br label %extractFile.exit.thread.i
 
-extractFile.argprom.exit.thread.i:                ; preds = %extractFile.argprom.exit.i, %extractFile.argprom.exit.thread.sink.split.i
+extractFile.exit.thread.i:                        ; preds = %extractFile.exit.i, %extractFile.exit.thread.sink.split.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30) #7
   br label %532
 
-532:                                              ; preds = %444, %447, %extractFile.argprom.exit.thread.i
+532:                                              ; preds = %444, %447, %extractFile.exit.thread.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, i64 noundef %.183817) #7
   br label %.thread462
 
-parseFileEntryDescriptor.exit:                    ; preds = %extractFile.argprom.exit.i, %extractFile.argprom.exit.thread33.i
+parseFileEntryDescriptor.exit:                    ; preds = %extractFile.exit.i, %extractFile.exit.thread33.i
   %533 = add nuw nsw i64 %.183817, 1
   %exitcond1092.not = icmp eq i64 %533, %.0
   br i1 %exitcond1092.not, label %._crit_edge, label %439

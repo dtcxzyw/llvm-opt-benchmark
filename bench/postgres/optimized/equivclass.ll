@@ -41,7 +41,7 @@ define dso_local noundef zeroext i1 @process_equivalence(ptr noundef %0, ptr noc
   %20 = getelementptr i8, ptr %8, i64 32
   %.val = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %get_rightop.argprom.exit, label %list_length.exit.i
+  br i1 %.not.i, label %get_rightop.exit, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %15
   %21 = getelementptr i8, ptr %.val, i64 16
@@ -50,14 +50,14 @@ list_length.exit.i:                               ; preds = %15
   %23 = getelementptr inbounds i8, ptr %.val, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %get_rightop.argprom.exit
+  br i1 %25, label %26, label %get_rightop.exit
 
 26:                                               ; preds = %list_length.exit.i
   %27 = getelementptr i8, ptr %.val.i, i64 8
   %28 = load ptr, ptr %27, align 8
-  br label %get_rightop.argprom.exit
+  br label %get_rightop.exit
 
-get_rightop.argprom.exit:                         ; preds = %15, %list_length.exit.i, %26
+get_rightop.exit:                                 ; preds = %15, %list_length.exit.i, %26
   %.0.i319 = phi ptr [ %22, %26 ], [ %22, %list_length.exit.i ], [ null, %15 ]
   %.0.i313 = phi ptr [ %28, %26 ], [ null, %list_length.exit.i ], [ null, %15 ]
   %29 = getelementptr inbounds i8, ptr %6, i64 72
@@ -71,7 +71,7 @@ get_rightop.argprom.exit:                         ; preds = %15, %list_length.ex
   %37 = tail call zeroext i1 @equal(ptr noundef %34, ptr noundef %36) #8
   br i1 %37, label %38, label %66
 
-38:                                               ; preds = %get_rightop.argprom.exit
+38:                                               ; preds = %get_rightop.exit
   tail call void @set_opfuncid(ptr noundef nonnull %8) #8
   %39 = getelementptr inbounds i8, ptr %8, i64 8
   %40 = load i32, ptr %39, align 8
@@ -110,7 +110,7 @@ get_rightop.argprom.exit:                         ; preds = %15, %list_length.ex
   store ptr %65, ptr %1, align 8
   br label %335
 
-66:                                               ; preds = %get_rightop.argprom.exit
+66:                                               ; preds = %get_rightop.exit
   call void @op_input_types(i32 noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %67 = getelementptr inbounds i8, ptr %6, i64 144
   %68 = load ptr, ptr %67, align 8
@@ -2120,7 +2120,7 @@ list_length.exit:                                 ; preds = %52
 67:                                               ; preds = %64
   %68 = getelementptr i8, ptr %46, i64 32
   %.val49 = load ptr, ptr %68, align 8
-  %69 = tail call fastcc ptr @generate_join_implied_equalities_broken.argprom(ptr noundef nonnull %0, ptr %.val49, ptr noundef %.043, ptr noundef %2, ptr noundef %.044, ptr noundef %3)
+  %69 = tail call fastcc ptr @generate_join_implied_equalities_broken(ptr noundef nonnull %0, ptr %.val49, ptr noundef %.043, ptr noundef %2, ptr noundef %.044, ptr noundef %3)
   br label %.critedge.outer
 
 .critedge.outer:                                  ; preds = %67, %64
@@ -2560,7 +2560,7 @@ select_equality_operator.exit159:                 ; preds = %146, %143
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_join_implied_equalities_broken.argprom(ptr noundef %0, ptr readonly %.32.val, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @generate_join_implied_equalities_broken(ptr noundef %0, ptr readonly %.32.val, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %.32.val, i64 4
   %.not = icmp eq ptr %.32.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2711,7 +2711,7 @@ list_length.exit:                                 ; preds = %25
 44:                                               ; preds = %41
   %45 = getelementptr i8, ptr %21, i64 32
   %.val = load ptr, ptr %45, align 8
-  %46 = tail call fastcc ptr @generate_join_implied_equalities_broken.argprom(ptr noundef %0, ptr %.val, ptr noundef %.039, ptr noundef %3, ptr noundef %.037, ptr noundef %4)
+  %46 = tail call fastcc ptr @generate_join_implied_equalities_broken(ptr noundef %0, ptr %.val, ptr noundef %.039, ptr noundef %3, ptr noundef %.037, ptr noundef %4)
   br label %47
 
 47:                                               ; preds = %44, %41
@@ -2770,7 +2770,7 @@ define dso_local void @reconsider_outer_join_clauses(ptr noundef %0) local_unnam
   %.val = load ptr, ptr %21, align 8
   %22 = getelementptr i8, ptr %20, i64 16
   %.val116 = load ptr, ptr %22, align 8
-  %23 = call fastcc zeroext i1 @reconsider_outer_join_clause.argprom(ptr noundef %0, ptr %.val, ptr %.val116, i1 noundef zeroext true)
+  %23 = call fastcc zeroext i1 @reconsider_outer_join_clause(ptr noundef %0, ptr %.val, ptr %.val116, i1 noundef zeroext true)
   br i1 %23, label %24, label %46
 
 24:                                               ; preds = %15
@@ -2832,7 +2832,7 @@ define dso_local void @reconsider_outer_join_clauses(ptr noundef %0) local_unnam
   %.val117 = load ptr, ptr %58, align 8
   %59 = getelementptr i8, ptr %57, i64 16
   %.val118 = load ptr, ptr %59, align 8
-  %60 = call fastcc zeroext i1 @reconsider_outer_join_clause.argprom(ptr noundef %0, ptr %.val117, ptr %.val118, i1 noundef zeroext false)
+  %60 = call fastcc zeroext i1 @reconsider_outer_join_clause(ptr noundef %0, ptr %.val117, ptr %.val118, i1 noundef zeroext false)
   br i1 %60, label %61, label %83
 
 61:                                               ; preds = %52
@@ -2911,7 +2911,7 @@ define dso_local void @reconsider_outer_join_clauses(ptr noundef %0) local_unnam
   %107 = getelementptr i8, ptr %106, i64 32
   %.val111.i = load ptr, ptr %107, align 8
   %.not.i.i = icmp eq ptr %.val111.i, null
-  br i1 %.not.i.i, label %get_rightop.argprom.exit.i, label %list_length.exit.i.i
+  br i1 %.not.i.i, label %get_rightop.exit.i, label %list_length.exit.i.i
 
 list_length.exit.i.i:                             ; preds = %89
   %108 = getelementptr i8, ptr %.val111.i, i64 16
@@ -2920,14 +2920,14 @@ list_length.exit.i.i:                             ; preds = %89
   %110 = getelementptr inbounds i8, ptr %.val111.i, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = icmp sgt i32 %111, 1
-  br i1 %112, label %113, label %get_rightop.argprom.exit.i
+  br i1 %112, label %113, label %get_rightop.exit.i
 
 113:                                              ; preds = %list_length.exit.i.i
   %114 = getelementptr i8, ptr %.val.i.i, i64 8
   %115 = load ptr, ptr %114, align 8
-  br label %get_rightop.argprom.exit.i
+  br label %get_rightop.exit.i
 
-get_rightop.argprom.exit.i:                       ; preds = %113, %list_length.exit.i.i, %89
+get_rightop.exit.i:                               ; preds = %113, %list_length.exit.i.i, %89
   %.0.i2.i = phi ptr [ %109, %113 ], [ %109, %list_length.exit.i.i ], [ null, %89 ]
   %.0.i115.i = phi ptr [ %115, %113 ], [ null, %list_length.exit.i.i ], [ null, %89 ]
   %116 = getelementptr inbounds i8, ptr %.val119, i64 72
@@ -2936,15 +2936,15 @@ get_rightop.argprom.exit.i:                       ; preds = %113, %list_length.e
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %120, null
-  br i1 %.not.i, label %reconsider_full_join_clause.argprom.exit.thread, label %.lr.ph62.i
+  br i1 %.not.i, label %reconsider_full_join_clause.exit.thread, label %.lr.ph62.i
 
-.lr.ph62.i:                                       ; preds = %get_rightop.argprom.exit.i
+.lr.ph62.i:                                       ; preds = %get_rightop.exit.i
   %121 = getelementptr inbounds i8, ptr %120, i64 4
   %122 = getelementptr inbounds i8, ptr %120, i64 16
   %123 = getelementptr inbounds i8, ptr %.val119, i64 144
   %124 = load i32, ptr %121, align 4
   %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %.lr.ph205, label %reconsider_full_join_clause.argprom.exit.thread
+  br i1 %125, label %.lr.ph205, label %reconsider_full_join_clause.exit.thread
 
 .lr.ph205:                                        ; preds = %.lr.ph62.i, %.thread11.i
   %indvars.iv84.i204 = phi i64 [ %indvars.iv.next85.i, %.thread11.i ], [ 0, %.lr.ph62.i ]
@@ -3040,7 +3040,7 @@ list_length.exit.thread.i:                        ; preds = %171, %163, %list_le
   %179 = trunc nuw nsw i64 %indvars.iv.i to i32
   %180 = load ptr, ptr %178, align 8
   %.not105.i = icmp eq ptr %180, null
-  br i1 %.not105.i, label %reconsider_full_join_clause.argprom.exit.thread, label %.lr.ph67.i
+  br i1 %.not105.i, label %reconsider_full_join_clause.exit.thread, label %.lr.ph67.i
 
 .lr.ph67.i:                                       ; preds = %.split.i
   %181 = getelementptr inbounds i8, ptr %180, i64 4
@@ -3051,7 +3051,7 @@ list_length.exit.thread.i:                        ; preds = %171, %163, %list_le
   %186 = getelementptr inbounds i8, ptr %.val120, i64 32
   %187 = load i32, ptr %181, align 4
   %188 = icmp sgt i32 %187, 0
-  br i1 %188, label %.lr.ph209, label %reconsider_full_join_clause.argprom.exit.thread
+  br i1 %188, label %.lr.ph209, label %reconsider_full_join_clause.exit.thread
 
 .lr.ph209:                                        ; preds = %.lr.ph67.i, %select_equality_operator.exit131.thread.i
   %.09364.i208 = phi i1 [ %.194.i, %select_equality_operator.exit131.thread.i ], [ false, %.lr.ph67.i ]
@@ -3141,7 +3141,7 @@ select_equality_operator.exit.i:                  ; preds = %211, %208
   %236 = getelementptr inbounds i8, ptr %235, i64 8
   %237 = load ptr, ptr %236, align 8
   %238 = call zeroext i1 @bms_is_subset(ptr noundef %237, ptr noundef %224) #8
-  br i1 %238, label %find_join_domain.argprom.exit.i, label %229
+  br i1 %238, label %find_join_domain.exit.i, label %229
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i121.i, %select_equality_operator.exit.i, %229
   %239 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3150,13 +3150,13 @@ select_equality_operator.exit.i:                  ; preds = %211, %208
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2432, ptr noundef nonnull @__func__.find_join_domain) #8
   unreachable
 
-find_join_domain.argprom.exit.i:                  ; preds = %.lr.ph6.i.i
+find_join_domain.exit.i:                          ; preds = %.lr.ph6.i.i
   %241 = call zeroext i1 @process_equivalence(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %235)
   %spec.select.i = select i1 %241, i1 true, i1 %.09364.i208
   br label %select_equality_operator.exit.thread.i
 
-select_equality_operator.exit.thread.i:           ; preds = %214, %find_join_domain.argprom.exit.i, %.lr.ph.i.i
-  %.2.ph.i = phi i1 [ %.09364.i208, %.lr.ph.i.i ], [ %spec.select.i, %find_join_domain.argprom.exit.i ], [ %.09364.i208, %214 ]
+select_equality_operator.exit.thread.i:           ; preds = %214, %find_join_domain.exit.i, %.lr.ph.i.i
+  %.2.ph.i = phi i1 [ %.09364.i208, %.lr.ph.i.i ], [ %spec.select.i, %find_join_domain.exit.i ], [ %.09364.i208, %214 ]
   %.pr.i = load ptr, ptr %177, align 8
   %242 = load i32, ptr %3, align 4
   %243 = load i32, ptr %197, align 4
@@ -3231,7 +3231,7 @@ select_equality_operator.exit131.i:               ; preds = %255, %252
   %280 = getelementptr inbounds i8, ptr %279, i64 8
   %281 = load ptr, ptr %280, align 8
   %282 = call zeroext i1 @bms_is_subset(ptr noundef %281, ptr noundef %268) #8
-  br i1 %282, label %find_join_domain.argprom.exit138.i, label %273
+  br i1 %282, label %find_join_domain.exit138.i, label %273
 
 ._crit_edge.i134.i:                               ; preds = %.lr.ph.i133.i, %select_equality_operator.exit131.i, %273
   %283 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3240,14 +3240,14 @@ select_equality_operator.exit131.i:               ; preds = %255, %252
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2432, ptr noundef nonnull @__func__.find_join_domain) #8
   unreachable
 
-find_join_domain.argprom.exit138.i:               ; preds = %.lr.ph6.i135.i
+find_join_domain.exit138.i:                       ; preds = %.lr.ph6.i135.i
   %285 = call zeroext i1 @process_equivalence(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %279)
   %spec.select109.i = select i1 %285, i1 true, i1 %.09165.i207
   br label %select_equality_operator.exit131.thread.i
 
-select_equality_operator.exit131.thread.i:        ; preds = %258, %find_join_domain.argprom.exit138.i, %.lr.ph.i125.i, %select_equality_operator.exit.thread.i, %195, %.lr.ph209
-  %.194.i = phi i1 [ %.09364.i208, %.lr.ph209 ], [ %.2.ph.i, %find_join_domain.argprom.exit138.i ], [ %.2.ph.i, %.lr.ph.i125.i ], [ %.2.ph.i, %select_equality_operator.exit.thread.i ], [ %.09364.i208, %195 ], [ %.2.ph.i, %258 ]
-  %.192.i = phi i1 [ %.09165.i207, %.lr.ph209 ], [ %spec.select109.i, %find_join_domain.argprom.exit138.i ], [ %.09165.i207, %.lr.ph.i125.i ], [ %.09165.i207, %select_equality_operator.exit.thread.i ], [ %.09165.i207, %195 ], [ %.09165.i207, %258 ]
+select_equality_operator.exit131.thread.i:        ; preds = %258, %find_join_domain.exit138.i, %.lr.ph.i125.i, %select_equality_operator.exit.thread.i, %195, %.lr.ph209
+  %.194.i = phi i1 [ %.09364.i208, %.lr.ph209 ], [ %.2.ph.i, %find_join_domain.exit138.i ], [ %.2.ph.i, %.lr.ph.i125.i ], [ %.2.ph.i, %select_equality_operator.exit.thread.i ], [ %.09364.i208, %195 ], [ %.2.ph.i, %258 ]
+  %.192.i = phi i1 [ %.09165.i207, %.lr.ph209 ], [ %spec.select109.i, %find_join_domain.exit138.i ], [ %.09165.i207, %.lr.ph.i125.i ], [ %.09165.i207, %select_equality_operator.exit.thread.i ], [ %.09165.i207, %195 ], [ %.09165.i207, %258 ]
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i206, 1
   %286 = load i32, ptr %181, align 4
   %287 = sext i32 %286 to i64
@@ -3256,16 +3256,16 @@ select_equality_operator.exit131.thread.i:        ; preds = %258, %find_join_dom
 
 ._crit_edge.i:                                    ; preds = %select_equality_operator.exit131.thread.i
   %289 = select i1 %.194.i, i1 %.192.i, i1 false
-  br i1 %289, label %294, label %reconsider_full_join_clause.argprom.exit.thread
+  br i1 %289, label %294, label %reconsider_full_join_clause.exit.thread
 
 .thread11.i:                                      ; preds = %list_length.exit.thread.i, %.lr.ph.i, %144, %139, %136, %132, %.lr.ph205
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i204, 1
   %290 = load i32, ptr %121, align 4
   %291 = sext i32 %290 to i64
   %292 = icmp slt i64 %indvars.iv.next85.i, %291
-  br i1 %292, label %.lr.ph205, label %reconsider_full_join_clause.argprom.exit.thread
+  br i1 %292, label %.lr.ph205, label %reconsider_full_join_clause.exit.thread
 
-reconsider_full_join_clause.argprom.exit.thread:  ; preds = %.thread11.i, %.lr.ph67.i, %.lr.ph62.i, %._crit_edge.i, %get_rightop.argprom.exit.i, %.split.i
+reconsider_full_join_clause.exit.thread:          ; preds = %.thread11.i, %.lr.ph67.i, %.lr.ph62.i, %._crit_edge.i, %get_rightop.exit.i, %.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -3303,10 +3303,10 @@ reconsider_full_join_clause.argprom.exit.thread:  ; preds = %.thread11.i, %.lr.p
   call void @distribute_restrictinfo_to_rels(ptr noundef %0, ptr noundef %316) #8
   br label %317
 
-317:                                              ; preds = %reconsider_full_join_clause.argprom.exit.thread, %294
-  %.sroa.028.1 = phi ptr [ %299, %294 ], [ %.sroa.028.0213, %reconsider_full_join_clause.argprom.exit.thread ]
-  %.sroa.5.1 = phi i32 [ %.sroa.5.0214, %294 ], [ %293, %reconsider_full_join_clause.argprom.exit.thread ]
-  %.5 = phi i1 [ true, %294 ], [ %.4216, %reconsider_full_join_clause.argprom.exit.thread ]
+317:                                              ; preds = %reconsider_full_join_clause.exit.thread, %294
+  %.sroa.028.1 = phi ptr [ %299, %294 ], [ %.sroa.028.0213, %reconsider_full_join_clause.exit.thread ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.0214, %294 ], [ %293, %reconsider_full_join_clause.exit.thread ]
+  %.5 = phi i1 [ true, %294 ], [ %.4216, %reconsider_full_join_clause.exit.thread ]
   %.not108 = icmp eq ptr %.sroa.028.1, null
   br i1 %.not108, label %._crit_edge219, label %.lr.ph218, !llvm.loop !17
 
@@ -3397,7 +3397,7 @@ reconsider_full_join_clause.argprom.exit.thread:  ; preds = %.thread11.i, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @reconsider_outer_join_clause.argprom(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture readonly %.16.val, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @reconsider_outer_join_clause(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture readonly %.16.val, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -3415,7 +3415,7 @@ define internal fastcc noundef zeroext i1 @reconsider_outer_join_clause.argprom(
   br i1 %1, label %14, label %22
 
 14:                                               ; preds = %2
-  br i1 %.not.i, label %get_rightop.argprom.exit, label %list_length.exit.i
+  br i1 %.not.i, label %get_rightop.exit, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %14
   %15 = getelementptr i8, ptr %.val79, i64 16
@@ -3424,14 +3424,14 @@ list_length.exit.i:                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %.val79, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 1
-  br i1 %19, label %20, label %get_rightop.argprom.exit
+  br i1 %19, label %20, label %get_rightop.exit
 
 20:                                               ; preds = %list_length.exit.i
   %21 = getelementptr i8, ptr %.val.i, i64 8
-  br label %get_rightop.argprom.exit.sink.split
+  br label %get_rightop.exit.sink.split
 
 22:                                               ; preds = %2
-  br i1 %.not.i, label %get_rightop.argprom.exit, label %list_length.exit.i86
+  br i1 %.not.i, label %get_rightop.exit, label %list_length.exit.i86
 
 list_length.exit.i86:                             ; preds = %22
   %23 = getelementptr inbounds i8, ptr %.val79, i64 4
@@ -3439,26 +3439,26 @@ list_length.exit.i86:                             ; preds = %22
   %25 = icmp sgt i32 %24, 1
   %26 = getelementptr i8, ptr %.val79, i64 16
   %.val.i88 = load ptr, ptr %26, align 8
-  br i1 %25, label %27, label %get_rightop.argprom.exit.sink.split
+  br i1 %25, label %27, label %get_rightop.exit.sink.split
 
 27:                                               ; preds = %list_length.exit.i86
   %28 = getelementptr i8, ptr %.val.i88, i64 8
   %29 = load ptr, ptr %28, align 8
-  br label %get_rightop.argprom.exit.sink.split
+  br label %get_rightop.exit.sink.split
 
-get_rightop.argprom.exit.sink.split:              ; preds = %27, %list_length.exit.i86, %20
+get_rightop.exit.sink.split:                      ; preds = %27, %list_length.exit.i86, %20
   %.val.i88.sink = phi ptr [ %21, %20 ], [ %.val.i88, %list_length.exit.i86 ], [ %.val.i88, %27 ]
   %.sink.ph = phi i64 [ 80, %20 ], [ 72, %list_length.exit.i86 ], [ 72, %27 ]
   %.062.in.ph = phi ptr [ %4, %20 ], [ %3, %list_length.exit.i86 ], [ %3, %27 ]
   %.060.ph = phi ptr [ %16, %20 ], [ null, %list_length.exit.i86 ], [ %29, %27 ]
   %30 = load ptr, ptr %.val.i88.sink, align 8
-  br label %get_rightop.argprom.exit
+  br label %get_rightop.exit
 
-get_rightop.argprom.exit:                         ; preds = %get_rightop.argprom.exit.sink.split, %22, %list_length.exit.i, %14
-  %.sink = phi i64 [ 80, %14 ], [ 80, %list_length.exit.i ], [ 72, %22 ], [ %.sink.ph, %get_rightop.argprom.exit.sink.split ]
-  %.062.in = phi ptr [ %4, %14 ], [ %4, %list_length.exit.i ], [ %3, %22 ], [ %.062.in.ph, %get_rightop.argprom.exit.sink.split ]
-  %.061 = phi ptr [ null, %14 ], [ null, %list_length.exit.i ], [ null, %22 ], [ %30, %get_rightop.argprom.exit.sink.split ]
-  %.060 = phi ptr [ null, %14 ], [ %16, %list_length.exit.i ], [ null, %22 ], [ %.060.ph, %get_rightop.argprom.exit.sink.split ]
+get_rightop.exit:                                 ; preds = %get_rightop.exit.sink.split, %22, %list_length.exit.i, %14
+  %.sink = phi i64 [ 80, %14 ], [ 80, %list_length.exit.i ], [ 72, %22 ], [ %.sink.ph, %get_rightop.exit.sink.split ]
+  %.062.in = phi ptr [ %4, %14 ], [ %4, %list_length.exit.i ], [ %3, %22 ], [ %.062.in.ph, %get_rightop.exit.sink.split ]
+  %.061 = phi ptr [ null, %14 ], [ null, %list_length.exit.i ], [ null, %22 ], [ %30, %get_rightop.exit.sink.split ]
+  %.060 = phi ptr [ null, %14 ], [ %16, %list_length.exit.i ], [ null, %22 ], [ %.060.ph, %get_rightop.exit.sink.split ]
   %31 = getelementptr inbounds i8, ptr %.8.val, i64 %.sink
   %.062 = load i32, ptr %.062.in, align 4
   %.063 = load ptr, ptr %31, align 8
@@ -3467,7 +3467,7 @@ get_rightop.argprom.exit:                         ; preds = %get_rightop.argprom
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %.thread, label %.lr.ph42
 
-.lr.ph42:                                         ; preds = %get_rightop.argprom.exit
+.lr.ph42:                                         ; preds = %get_rightop.exit
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = getelementptr inbounds i8, ptr %33, i64 16
   %36 = getelementptr inbounds i8, ptr %.8.val, i64 144
@@ -3639,7 +3639,7 @@ select_equality_operator.exit:                    ; preds = %107, %104
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = call zeroext i1 @bms_is_subset(ptr noundef %133, ptr noundef %120) #8
-  br i1 %134, label %find_join_domain.argprom.exit, label %125
+  br i1 %134, label %find_join_domain.exit, label %125
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i97, %select_equality_operator.exit, %125
   %135 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3648,13 +3648,13 @@ select_equality_operator.exit:                    ; preds = %107, %104
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2432, ptr noundef nonnull @__func__.find_join_domain) #8
   unreachable
 
-find_join_domain.argprom.exit:                    ; preds = %.lr.ph6.i
+find_join_domain.exit:                            ; preds = %.lr.ph6.i
   %137 = call zeroext i1 @process_equivalence(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %131)
   %spec.select = select i1 %137, i1 true, i1 %.1674486
   br label %select_equality_operator.exit.thread
 
-select_equality_operator.exit.thread:             ; preds = %110, %.lr.ph.i, %92, %find_join_domain.argprom.exit, %.lr.ph87
-  %.2 = phi i1 [ %.1674486, %.lr.ph87 ], [ %spec.select, %find_join_domain.argprom.exit ], [ %.1674486, %92 ], [ %.1674486, %.lr.ph.i ], [ %.1674486, %110 ]
+select_equality_operator.exit.thread:             ; preds = %110, %.lr.ph.i, %92, %find_join_domain.exit, %.lr.ph87
+  %.2 = phi i1 [ %.1674486, %.lr.ph87 ], [ %spec.select, %find_join_domain.exit ], [ %.1674486, %92 ], [ %.1674486, %.lr.ph.i ], [ %.1674486, %110 ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv6085, 1
   %138 = load i32, ptr %78, align 4
   %139 = sext i32 %138 to i64
@@ -3671,7 +3671,7 @@ select_equality_operator.exit.thread:             ; preds = %110, %.lr.ph.i, %92
   %143 = icmp slt i64 %indvars.iv.next58, %142
   br i1 %143, label %.lr.ph84, label %.thread
 
-.thread:                                          ; preds = %.critedge, %.lr.ph46, %.lr.ph42, %.split, %get_rightop.argprom.exit, %._crit_edge
+.thread:                                          ; preds = %.critedge, %.lr.ph46, %.lr.ph42, %.split, %get_rightop.exit, %._crit_edge
   br label %144
 
 144:                                              ; preds = %._crit_edge, %.thread

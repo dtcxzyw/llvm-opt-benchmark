@@ -277,13 +277,13 @@ dump_drift_info.exit:                             ; preds = %dump_exec_info.exit
 cleanup:                                          ; preds = %dump_drift_info.exit, %if.then
   %retval.0 = phi ptr [ %call1, %dump_drift_info.exit ], [ null, %if.then ]
   %tobool.not.i.i7 = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i7, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i7, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   %call.i.i.i = call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #6
-  br label %glib_autoptr_cleanup_GString.argprom.exit
+  br label %glib_autoptr_cleanup_GString.exit
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GString.exit:                ; preds = %cleanup, %if.then.i.i
   ret ptr %retval.0
 }
 
@@ -313,13 +313,13 @@ if.end:                                           ; preds = %entry
 cleanup:                                          ; preds = %if.end, %if.then
   %retval.0 = phi ptr [ %call1, %if.end ], [ null, %if.then ]
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #6
-  br label %glib_autoptr_cleanup_GString.argprom.exit
+  br label %glib_autoptr_cleanup_GString.exit
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GString.exit:                ; preds = %cleanup, %if.then.i.i
   ret ptr %retval.0
 }
 

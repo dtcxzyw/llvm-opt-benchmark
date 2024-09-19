@@ -79,7 +79,7 @@ define internal range(i32 0, 2) i32 @eri_enb_log_read(ptr nocapture noundef read
   %8 = tail call i64 @file_tell(ptr noundef %7) #3
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call fastcc i32 @eri_enb_log_get_packet.argprom(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %10 = tail call fastcc i32 @eri_enb_log_get_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %10
 }
 
@@ -93,7 +93,7 @@ define internal range(i32 0, 2) i32 @eri_enb_log_seek_read(ptr nocapture noundef
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @eri_enb_log_get_packet.argprom(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %13 = tail call fastcc i32 @eri_enb_log_get_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %14
 
 14:                                               ; preds = %6, %11
@@ -113,7 +113,7 @@ declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @eri_enb_log_get_packet.argprom(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @eri_enb_log_get_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = tail call i64 @file_tell(ptr noundef %0) #3
   %7 = tail call ptr @file_gets(ptr noundef nonnull @eri_enb_log_get_packet.line, i32 noundef 131072, ptr noundef %0) #3

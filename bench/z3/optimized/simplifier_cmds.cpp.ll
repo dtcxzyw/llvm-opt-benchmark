@@ -2660,7 +2660,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %_ZNSt16allocator_tr
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   %call.i.i.i8.i.i.i.i.i = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESt6vectorISD_SaISD_EEEEPSD_ET0_T_SM_SL_(ptr %call5.val.i, ptr %call5.val6.i, ptr noundef %cond.i.i.i.i.i.i.i.i)
-          to label %"_ZNSt14_Function_base13_Base_managerIZL11mk_and_thenR11cmd_contextP5sexprE3$_0E15_M_init_functorIRKS5_EEvRSt9_Any_dataOT_.argprom.exit.i" unwind label %lpad10.i.i.i.i.i
+          to label %"_ZNSt14_Function_base13_Base_managerIZL11mk_and_thenR11cmd_contextP5sexprE3$_0E15_M_init_functorIRKS5_EEvRSt9_Any_dataOT_.exit.i" unwind label %lpad10.i.i.i.i.i
 
 lpad10.i.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
@@ -2683,7 +2683,7 @@ lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %if.the
   tail call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #26
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
-"_ZNSt14_Function_base13_Base_managerIZL11mk_and_thenR11cmd_contextP5sexprE3$_0E15_M_init_functorIRKS5_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %invoke.cont.i.i.i.i.i
+"_ZNSt14_Function_base13_Base_managerIZL11mk_and_thenR11cmd_contextP5sexprE3$_0E15_M_init_functorIRKS5_EEvRSt9_Any_dataOT_.exit.i": ; preds = %invoke.cont.i.i.i.i.i
   store ptr %call.i.i.i8.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -2740,7 +2740,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #26
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %"_ZZL11mk_and_thenR11cmd_contextP5sexprEN3$_0D2Ev.exit.i.i", %sw.bb6.i, %"_ZNSt14_Function_base13_Base_managerIZL11mk_and_thenR11cmd_contextP5sexprE3$_0E15_M_init_functorIRKS5_EEvRSt9_Any_dataOT_.argprom.exit.i", %sw.bb1, %sw.bb
+sw.epilog:                                        ; preds = %entry, %"_ZZL11mk_and_thenR11cmd_contextP5sexprEN3$_0D2Ev.exit.i.i", %sw.bb6.i, %"_ZNSt14_Function_base13_Base_managerIZL11mk_and_thenR11cmd_contextP5sexprE3$_0E15_M_init_functorIRKS5_EEvRSt9_Any_dataOT_.exit.i", %sw.bb1, %sw.bb
   ret i1 false
 }
 

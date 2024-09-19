@@ -315,7 +315,7 @@ prepare_probe_slot.exit.i:                        ; preds = %74, %55
   %86 = load ptr, ptr %5, align 8
   %87 = getelementptr i8, ptr %86, i64 40
   %.val.i.i = load ptr, ptr %87, align 8
-  %88 = tail call fastcc i32 @MemoizeHash_hash.argprom(ptr %.val.i.i)
+  %88 = tail call fastcc i32 @MemoizeHash_hash(ptr %.val.i.i)
   %89 = getelementptr inbounds i8, ptr %86, i64 8
   %90 = getelementptr inbounds i8, ptr %86, i64 16
   %91 = getelementptr inbounds i8, ptr %86, i64 24
@@ -504,7 +504,7 @@ memoize_grow.exit.i.i.i:                          ; preds = %161, %memoize_updat
   %183 = load ptr, ptr %178, align 8
   %.val87.i.i.i = load ptr, ptr %87, align 8
   %.val88.i.i.i = load ptr, ptr %183, align 8
-  %184 = tail call fastcc zeroext i1 @MemoizeHash_equal.argprom(ptr %.val87.i.i.i, ptr %.val88.i.i.i)
+  %184 = tail call fastcc zeroext i1 @MemoizeHash_equal(ptr %.val87.i.i.i, ptr %.val88.i.i.i)
   br i1 %184, label %240, label %._crit_edge107.i.i.i
 
 ._crit_edge107.i.i.i:                             ; preds = %182
@@ -771,7 +771,7 @@ prepare_probe_slot.exit38.i:                      ; preds = %317, %300
   %329 = load ptr, ptr %5, align 8
   %330 = getelementptr i8, ptr %329, i64 40
   %.val.i39.i = load ptr, ptr %330, align 8
-  %331 = tail call fastcc i32 @MemoizeHash_hash.argprom(ptr %.val.i39.i)
+  %331 = tail call fastcc i32 @MemoizeHash_hash(ptr %.val.i39.i)
   %332 = getelementptr i8, ptr %329, i64 12
   %.val.i.i40.i = load i32, ptr %332, align 4
   %333 = and i32 %.val.i.i40.i, %331
@@ -798,7 +798,7 @@ prepare_probe_slot.exit38.i:                      ; preds = %317, %300
   %347 = load ptr, ptr %342, align 8
   %.val17.i.i.i = load ptr, ptr %330, align 8
   %.val18.i.i.i = load ptr, ptr %347, align 8
-  %348 = tail call fastcc zeroext i1 @MemoizeHash_equal.argprom(ptr %.val17.i.i.i, ptr %.val18.i.i.i)
+  %348 = tail call fastcc zeroext i1 @MemoizeHash_equal(ptr %.val17.i.i.i, ptr %.val18.i.i.i)
   br i1 %348, label %.loopexit, label %._crit_edge4.i.i.i
 
 ._crit_edge4.i.i.i:                               ; preds = %346
@@ -1466,7 +1466,7 @@ define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef %0, ptr
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr i8, ptr %44, i64 40
   %.val.i = load ptr, ptr %45, align 8
-  %46 = tail call fastcc i32 @MemoizeHash_hash.argprom(ptr %.val.i)
+  %46 = tail call fastcc i32 @MemoizeHash_hash(ptr %.val.i)
   %47 = getelementptr i8, ptr %44, i64 12
   %.val.i.i = load i32, ptr %47, align 4
   %48 = and i32 %.val.i.i, %46
@@ -1477,7 +1477,7 @@ define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef %0, ptr
   %53 = getelementptr inbounds i8, ptr %52, i64 20
   %54 = load i8, ptr %53, align 4
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %memoize_lookup.argprom.exit, label %.lr.ph.i.i
+  br i1 %55, label %memoize_lookup.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %42, %64
   %56 = phi ptr [ %65, %64 ], [ %50, %42 ]
@@ -1493,8 +1493,8 @@ define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef %0, ptr
   %62 = load ptr, ptr %57, align 8
   %.val17.i.i = load ptr, ptr %45, align 8
   %.val18.i.i = load ptr, ptr %62, align 8
-  %63 = tail call fastcc zeroext i1 @MemoizeHash_equal.argprom(ptr %.val17.i.i, ptr %.val18.i.i)
-  br i1 %63, label %memoize_lookup.argprom.exit, label %._crit_edge4.i.i
+  %63 = tail call fastcc zeroext i1 @MemoizeHash_equal(ptr %.val17.i.i, ptr %.val18.i.i)
+  br i1 %63, label %memoize_lookup.exit, label %._crit_edge4.i.i
 
 ._crit_edge4.i.i:                                 ; preds = %61
   %.val16.pre.i.i = load i32, ptr %47, align 4
@@ -1511,15 +1511,15 @@ define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef %0, ptr
   %70 = getelementptr inbounds i8, ptr %69, i64 20
   %71 = load i8, ptr %70, align 4
   %72 = icmp eq i8 %71, 0
-  br i1 %72, label %memoize_lookup.argprom.exit, label %.lr.ph.i.i
+  br i1 %72, label %memoize_lookup.exit, label %.lr.ph.i.i
 
-memoize_lookup.argprom.exit:                      ; preds = %61, %64, %42
+memoize_lookup.exit:                              ; preds = %61, %64, %42
   %.0.i.i = phi ptr [ null, %42 ], [ %57, %61 ], [ null, %64 ]
   store ptr %.0.i.i, ptr %3, align 8
   br label %73
 
-73:                                               ; preds = %28, %memoize_lookup.argprom.exit, %40, %34
-  %.0 = phi i1 [ false, %34 ], [ true, %40 ], [ true, %memoize_lookup.argprom.exit ], [ true, %28 ]
+73:                                               ; preds = %28, %memoize_lookup.exit, %40, %34
+  %.0 = phi i1 [ false, %34 ], [ true, %40 ], [ true, %memoize_lookup.exit ], [ true, %28 ]
   ret i1 %.0
 }
 
@@ -1659,7 +1659,7 @@ define internal fastcc zeroext i1 @cache_reduce_memory(ptr noundef %0, ptr nound
   %19 = load ptr, ptr %14, align 8
   %20 = getelementptr i8, ptr %19, i64 40
   %.val.i = load ptr, ptr %20, align 8
-  %21 = call fastcc i32 @MemoizeHash_hash.argprom(ptr %.val.i)
+  %21 = call fastcc i32 @MemoizeHash_hash(ptr %.val.i)
   %22 = getelementptr i8, ptr %19, i64 12
   %.val.i.i = load i32, ptr %22, align 4
   %23 = and i32 %.val.i.i, %21
@@ -1735,7 +1735,7 @@ slot_getallattrs.exit.i:                          ; preds = %61, %48
 slot_getallattrs.exit39.i:                        ; preds = %69, %slot_getallattrs.exit.i
   %70 = getelementptr inbounds i8, ptr %41, i64 32
   %71 = icmp slt i32 %50, 1
-  br i1 %71, label %memoize_lookup.argprom.exit, label %.lr.ph.i
+  br i1 %71, label %memoize_lookup.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %slot_getallattrs.exit39.i
   %72 = getelementptr inbounds i8, ptr %43, i64 32
@@ -1783,7 +1783,7 @@ slot_getallattrs.exit39.i:                        ; preds = %69, %slot_getallatt
 103:                                              ; preds = %86, %84
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %memoize_lookup.argprom.exit, label %75, !llvm.loop !12
+  br i1 %exitcond.not.i, label %memoize_lookup.exit, label %75, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %86, %75
   %104 = load ptr, ptr %51, align 8
@@ -1800,16 +1800,16 @@ slot_getallattrs.exit39.i:                        ; preds = %69, %slot_getallatt
   %109 = load ptr, ptr %108, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %MemoizeHash_equal.argprom.exit.thread, label %MemoizeHash_equal.argprom.exit
+  br i1 %110, label %MemoizeHash_equal.exit.thread, label %MemoizeHash_equal.exit
 
-MemoizeHash_equal.argprom.exit.thread:            ; preds = %105
+MemoizeHash_equal.exit.thread:                    ; preds = %105
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %111 = getelementptr inbounds i8, ptr %39, i64 40
   %112 = load ptr, ptr %111, align 8
   call void @MemoryContextReset(ptr noundef %112) #10
-  br label %memoize_lookup.argprom.exit.thread38
+  br label %memoize_lookup.exit.thread38
 
-MemoizeHash_equal.argprom.exit:                   ; preds = %105
+MemoizeHash_equal.exit:                           ; preds = %105
   %113 = getelementptr inbounds i8, ptr %39, i64 40
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1822,9 +1822,9 @@ MemoizeHash_equal.argprom.exit:                   ; preds = %105
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %119 = load ptr, ptr %113, align 8
   call void @MemoryContextReset(ptr noundef %119) #10
-  br i1 %.not42, label %._crit_edge4.i.i, label %memoize_lookup.argprom.exit.thread38
+  br i1 %.not42, label %._crit_edge4.i.i, label %memoize_lookup.exit.thread38
 
-._crit_edge4.i.i:                                 ; preds = %._crit_edge.i, %MemoizeHash_equal.argprom.exit
+._crit_edge4.i.i:                                 ; preds = %._crit_edge.i, %MemoizeHash_equal.exit
   %.val16.pre.i.i = load i32, ptr %22, align 4
   %.pre.i.i = load ptr, ptr %24, align 8
   br label %120
@@ -1841,25 +1841,25 @@ MemoizeHash_equal.argprom.exit:                   ; preds = %105
   %128 = icmp eq i8 %127, 0
   br i1 %128, label %.critedge, label %.lr.ph.i.i
 
-memoize_lookup.argprom.exit:                      ; preds = %slot_getallattrs.exit39.i, %103
+memoize_lookup.exit:                              ; preds = %slot_getallattrs.exit39.i, %103
   %129 = load ptr, ptr %51, align 8
   call void @MemoryContextReset(ptr noundef %129) #10
   store ptr %53, ptr @CurrentMemoryContext, align 8
-  br label %memoize_lookup.argprom.exit.thread38
+  br label %memoize_lookup.exit.thread38
 
-memoize_lookup.argprom.exit.thread38:             ; preds = %MemoizeHash_equal.argprom.exit, %memoize_lookup.argprom.exit, %MemoizeHash_equal.argprom.exit.thread
+memoize_lookup.exit.thread38:                     ; preds = %MemoizeHash_equal.exit, %memoize_lookup.exit, %MemoizeHash_equal.exit.thread
   %130 = load ptr, ptr %32, align 8
   %.not43 = icmp eq ptr %130, %18
   br i1 %.not43, label %133, label %.critedge
 
-.critedge:                                        ; preds = %17, %memoize_lookup.argprom.exit.thread38, %120
+.critedge:                                        ; preds = %17, %memoize_lookup.exit.thread38, %120
   %131 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %131)
   %132 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 486, ptr noundef nonnull @__func__.cache_reduce_memory) #10
   unreachable
 
-133:                                              ; preds = %memoize_lookup.argprom.exit.thread38
+133:                                              ; preds = %memoize_lookup.exit.thread38
   %134 = icmp ne ptr %18, %1
   %spec.select = select i1 %134, i1 %.0, i1 false
   %135 = getelementptr inbounds i8, ptr %130, i64 8
@@ -1980,7 +1980,7 @@ declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @MemoizeHash_hash.argprom(ptr nocapture readonly %.40.val) unnamed_addr #0 {
+define internal fastcc i32 @MemoizeHash_hash(ptr nocapture readonly %.40.val) unnamed_addr #0 {
   %1 = getelementptr inbounds i8, ptr %.40.val, i64 128
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %.40.val, i64 256
@@ -2105,7 +2105,7 @@ declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unna
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @MemoizeHash_equal.argprom(ptr nocapture readonly %.40.val, ptr %.0.val) unnamed_addr #0 {
+define internal fastcc zeroext i1 @MemoizeHash_equal(ptr nocapture readonly %.40.val, ptr %.0.val) unnamed_addr #0 {
   %1 = alloca i8, align 1
   %2 = getelementptr inbounds i8, ptr %.40.val, i64 128
   %3 = load ptr, ptr %2, align 8

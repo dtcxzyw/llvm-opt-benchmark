@@ -718,7 +718,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ._crit_edge.i.i:                                  ; preds = %_ZN10open_spiel13TabularPolicy14SetStatePolicyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt4pairIldESaISB_EE.exit.i.i, %109
   %.sroa.01.0.i169.i = load ptr, ptr %100, align 8
   %.not8.i170.i = icmp eq ptr %.sroa.01.0.i169.i, null
-  br i1 %.not8.i170.i, label %_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.argprom.exit.i, label %.lr.ph.i
+  br i1 %.not8.i170.i, label %_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i.i, %_ZNSt6vectorISt4pairIldESaIS1_EEaSERKS3_.exit.i
   %.sroa.01.0.i171.i = phi ptr [ %.sroa.01.0.i.i, %_ZNSt6vectorISt4pairIldESaIS1_EEaSERKS3_.exit.i ], [ %.sroa.01.0.i169.i, %._crit_edge.i.i ]
@@ -876,13 +876,13 @@ _ZSt22__uninitialized_copy_aIPSt4pairIldES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.i.i: ; 
 _ZNSt6vectorISt4pairIldESaIS1_EEaSERKS3_.exit.i:  ; preds = %_ZSt22__uninitialized_copy_aIPSt4pairIldES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.i.i, %.noexc13.i.i
   %.sroa.01.0.i.i = load ptr, ptr %.sroa.01.0.i171.i, align 8
   %.not8.i.i = icmp eq ptr %.sroa.01.0.i.i, null
-  br i1 %.not8.i.i, label %_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.argprom.exit.i, label %.lr.ph.i
+  br i1 %.not8.i.i, label %_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.exit.i, label %.lr.ph.i
 
-_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.argprom.exit.i: ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EEaSERKS3_.exit.i, %._crit_edge.i.i
+_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.exit.i: ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EEaSERKS3_.exit.i, %._crit_edge.i.i
   invoke void @_ZN10open_spiel10algorithms14CorrDevBuilder26AddDeterminsticJointPolicyERKNS_13TabularPolicyEd(ptr noundef nonnull align 8 dereferenceable(5088) %54, ptr noundef nonnull align 8 dereferenceable(64) %57, double noundef 1.000000e+00)
           to label %256 unwind label %345
 
-256:                                              ; preds = %_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.argprom.exit.i
+256:                                              ; preds = %_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.exit.i
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %57, align 8
   %257 = load ptr, ptr %97, align 8
   %.not5.i.i.i.i.i.i = icmp eq ptr %257, null
@@ -1128,7 +1128,7 @@ _ZN10open_spiel13TabularPolicyD2Ev.exit55.i:      ; preds = %311, %_ZNSt10_Hasht
           cleanup
   br label %_ZN10open_spiel13TabularPolicyD2Ev.exit93
 
-345:                                              ; preds = %_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.argprom.exit.i
+345:                                              ; preds = %_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.exit.i
   %346 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10open_spiel13TabularPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %57) #20
@@ -7027,8 +7027,8 @@ attributes #24 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.argprom: argument 0"}
-!7 = distinct !{!7, !"_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_.argprom"}
+!6 = distinct !{!6, !7, !"_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_: argument 0"}
+!7 = distinct !{!7, !"_ZN10open_spiel10algorithms12_GLOBAL__N_124MergeIndependentPoliciesERKNS_13TabularPolicyES4_"}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}

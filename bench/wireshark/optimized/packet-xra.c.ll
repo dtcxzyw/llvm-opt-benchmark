@@ -461,7 +461,7 @@ define internal i32 @dissect_xra(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %40 = load i32, ptr @ett_xra_tlv, align 4
   %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #4
   %.not.i = icmp eq i32 %38, 0
-  br i1 %.not.i, label %dissect_xra_tlv.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %dissect_xra_tlv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %206
   %.01.i = phi i32 [ %207, %206 ], [ 0, %4 ]
@@ -533,7 +533,7 @@ define internal i32 @dissect_xra(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %71 = load i32, ptr @ett_xra_tlv_cw_info, align 4
   %72 = call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %71) #4
   %.not.i.i = icmp eq i8 %44, 0
-  br i1 %.not.i.i, label %dissect_xra_tlv_cw_info.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %dissect_xra_tlv_cw_info.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %66, %80
   %.01.i.i = phi i32 [ %83, %80 ], [ 0, %66 ]
@@ -558,9 +558,9 @@ switch.lookup:                                    ; preds = %.lr.ph.i.i
   %82 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %81, ptr noundef %68, i32 noundef %76, i32 noundef %77, i32 noundef 0) #4
   %83 = add nuw nsw i32 %76, %77
   %84 = icmp ult i32 %83, %67
-  br i1 %84, label %.lr.ph.i.i, label %dissect_xra_tlv_cw_info.argprom.exit.i, !llvm.loop !4
+  br i1 %84, label %.lr.ph.i.i, label %dissect_xra_tlv_cw_info.exit.i, !llvm.loop !4
 
-dissect_xra_tlv_cw_info.argprom.exit.i:           ; preds = %80, %66
+dissect_xra_tlv_cw_info.exit.i:                   ; preds = %80, %66
   %85 = call i32 @tvb_captured_length(ptr noundef %68) #4
   br label %206
 
@@ -620,7 +620,7 @@ dissect_xra_tlv_cw_info.argprom.exit.i:           ; preds = %80, %66
   %124 = load i32, ptr @ett_xra_tlv_burst_info, align 4
   %125 = call ptr @proto_item_add_subtree(ptr noundef %123, i32 noundef %124) #4
   %.not.i132.i = icmp eq i8 %44, 0
-  br i1 %.not.i132.i, label %dissect_xra_tlv_burst_info.argprom.exit.i, label %.lr.ph.i133.i
+  br i1 %.not.i132.i, label %dissect_xra_tlv_burst_info.exit.i, label %.lr.ph.i133.i
 
 .lr.ph.i133.i:                                    ; preds = %119, %135
   %.01.i134.i = phi i32 [ %138, %135 ], [ 0, %119 ]
@@ -654,9 +654,9 @@ dissect_xra_tlv_cw_info.argprom.exit.i:           ; preds = %80, %66
   %137 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %136, ptr noundef %121, i32 noundef %129, i32 noundef %130, i32 noundef 0) #4
   %138 = add nuw nsw i32 %129, %130
   %139 = icmp ult i32 %138, %120
-  br i1 %139, label %.lr.ph.i133.i, label %dissect_xra_tlv_burst_info.argprom.exit.i, !llvm.loop !6
+  br i1 %139, label %.lr.ph.i133.i, label %dissect_xra_tlv_burst_info.exit.i, !llvm.loop !6
 
-dissect_xra_tlv_burst_info.argprom.exit.i:        ; preds = %135, %119
+dissect_xra_tlv_burst_info.exit.i:                ; preds = %135, %119
   %140 = call i32 @tvb_captured_length(ptr noundef %121) #4
   br label %206
 
@@ -668,7 +668,7 @@ dissect_xra_tlv_burst_info.argprom.exit.i:        ; preds = %135, %119
   %146 = load i32, ptr @ett_xra_tlv_ms_info, align 4
   %147 = call ptr @proto_item_add_subtree(ptr noundef %145, i32 noundef %146) #4
   %.not.i136.i = icmp eq i8 %44, 0
-  br i1 %.not.i136.i, label %dissect_xra_tlv_ms_info.argprom.exit.i, label %.lr.ph.i137.i
+  br i1 %.not.i136.i, label %dissect_xra_tlv_ms_info.exit.i, label %.lr.ph.i137.i
 
 .lr.ph.i137.i:                                    ; preds = %141, %155
   %.01.i138.i = phi i32 [ %158, %155 ], [ 0, %141 ]
@@ -693,9 +693,9 @@ switch.lookup77:                                  ; preds = %.lr.ph.i137.i
   %157 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %156, ptr noundef %143, i32 noundef %151, i32 noundef %152, i32 noundef 0) #4
   %158 = add nuw nsw i32 %151, %152
   %159 = icmp ult i32 %158, %142
-  br i1 %159, label %.lr.ph.i137.i, label %dissect_xra_tlv_ms_info.argprom.exit.i, !llvm.loop !7
+  br i1 %159, label %.lr.ph.i137.i, label %dissect_xra_tlv_ms_info.exit.i, !llvm.loop !7
 
-dissect_xra_tlv_ms_info.argprom.exit.i:           ; preds = %155, %141
+dissect_xra_tlv_ms_info.exit.i:                   ; preds = %155, %141
   %160 = call i32 @tvb_captured_length(ptr noundef %143) #4
   br label %206
 
@@ -762,20 +762,20 @@ dissect_xra_tlv_ms_info.argprom.exit.i:           ; preds = %155, %141
   %205 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %203, ptr noundef %35, i32 noundef %45, i32 noundef %204, i32 noundef 0) #4
   br label %206
 
-206:                                              ; preds = %202, %198, %194, %181, %177, %173, %169, %165, %161, %dissect_xra_tlv_ms_info.argprom.exit.i, %dissect_xra_tlv_burst_info.argprom.exit.i, %115, %111, %107, %103, %96, %90, %86, %dissect_xra_tlv_cw_info.argprom.exit.i, %62, %58, %54, %50, %46
-  %.pre-phi.i = phi i32 [ %204, %202 ], [ %200, %198 ], [ %196, %194 ], [ %192, %181 ], [ %179, %177 ], [ %175, %173 ], [ %171, %169 ], [ %167, %165 ], [ %163, %161 ], [ %142, %dissect_xra_tlv_ms_info.argprom.exit.i ], [ %120, %dissect_xra_tlv_burst_info.argprom.exit.i ], [ %117, %115 ], [ %113, %111 ], [ %109, %107 ], [ %105, %103 ], [ %101, %96 ], [ %92, %90 ], [ %88, %86 ], [ %67, %dissect_xra_tlv_cw_info.argprom.exit.i ], [ %64, %62 ], [ %60, %58 ], [ %56, %54 ], [ %52, %50 ], [ %48, %46 ]
+206:                                              ; preds = %202, %198, %194, %181, %177, %173, %169, %165, %161, %dissect_xra_tlv_ms_info.exit.i, %dissect_xra_tlv_burst_info.exit.i, %115, %111, %107, %103, %96, %90, %86, %dissect_xra_tlv_cw_info.exit.i, %62, %58, %54, %50, %46
+  %.pre-phi.i = phi i32 [ %204, %202 ], [ %200, %198 ], [ %196, %194 ], [ %192, %181 ], [ %179, %177 ], [ %175, %173 ], [ %171, %169 ], [ %167, %165 ], [ %163, %161 ], [ %142, %dissect_xra_tlv_ms_info.exit.i ], [ %120, %dissect_xra_tlv_burst_info.exit.i ], [ %117, %115 ], [ %113, %111 ], [ %109, %107 ], [ %105, %103 ], [ %101, %96 ], [ %92, %90 ], [ %88, %86 ], [ %67, %dissect_xra_tlv_cw_info.exit.i ], [ %64, %62 ], [ %60, %58 ], [ %56, %54 ], [ %52, %50 ], [ %48, %46 ]
   %207 = add nuw nsw i32 %.pre-phi.i, %45
   %208 = icmp ult i32 %207, %38
-  br i1 %208, label %.lr.ph.i, label %dissect_xra_tlv.argprom.exit, !llvm.loop !8
+  br i1 %208, label %.lr.ph.i, label %dissect_xra_tlv.exit, !llvm.loop !8
 
-dissect_xra_tlv.argprom.exit:                     ; preds = %206, %4
+dissect_xra_tlv.exit:                             ; preds = %206, %4
   %209 = call i32 @tvb_captured_length(ptr noundef %35) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %210 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %28) #4
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %437, label %212
 
-212:                                              ; preds = %dissect_xra_tlv.argprom.exit
+212:                                              ; preds = %dissect_xra_tlv.exit
   %213 = load i32, ptr %11, align 4
   switch i32 %213, label %433 [
     i32 1, label %214
@@ -1021,7 +1021,7 @@ dissect_message_block.exit.i:                     ; preds = %338, %dissect_messa
   %348 = call ptr @proto_item_add_subtree(ptr noundef %346, i32 noundef %347) #4
   %349 = call i32 @tvb_captured_length_remaining(ptr noundef %344, i32 noundef 0) #4
   %350 = icmp sgt i32 %349, 3
-  br i1 %350, label %.lr.ph.i75, label %dissect_ncp.argprom.exit
+  br i1 %350, label %.lr.ph.i75, label %dissect_ncp.exit
 
 .lr.ph.i75:                                       ; preds = %343, %.lr.ph.i75
   %.01.i76 = phi i32 [ %375, %.lr.ph.i75 ], [ 0, %343 ]
@@ -1052,9 +1052,9 @@ dissect_message_block.exit.i:                     ; preds = %338, %dissect_messa
   %375 = add i32 %.01.i76, 3
   %376 = call i32 @tvb_captured_length_remaining(ptr noundef %344, i32 noundef %375) #4
   %377 = icmp sgt i32 %376, 3
-  br i1 %377, label %.lr.ph.i75, label %dissect_ncp.argprom.exit, !llvm.loop !11
+  br i1 %377, label %.lr.ph.i75, label %dissect_ncp.exit, !llvm.loop !11
 
-dissect_ncp.argprom.exit:                         ; preds = %.lr.ph.i75, %343
+dissect_ncp.exit:                                 ; preds = %.lr.ph.i75, %343
   %.0.lcssa.i = phi i32 [ 0, %343 ], [ %375, %.lr.ph.i75 ]
   %378 = load i32, ptr @hf_ncp_crc, align 4
   %379 = call ptr @proto_tree_add_item(ptr noundef %348, i32 noundef %378, ptr noundef %344, i32 noundef %.0.lcssa.i, i32 noundef 3, i32 noundef 0) #4
@@ -1136,13 +1136,13 @@ dissect_ncp.argprom.exit:                         ; preds = %.lr.ph.i75, %343
   %435 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %434, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %dissect_message_block.exit.i, %228, %433, %217, %214, %380, %414, %411, %419, %416, %219, %dissect_ncp.argprom.exit, %382, %421
-  %.sink = phi ptr [ %422, %421 ], [ %384, %382 ], [ %344, %dissect_ncp.argprom.exit ], [ %220, %219 ], [ %0, %416 ], [ %0, %419 ], [ %0, %411 ], [ %0, %414 ], [ %0, %380 ], [ %0, %214 ], [ %0, %217 ], [ %0, %433 ], [ %220, %228 ], [ %220, %dissect_message_block.exit.i ]
+.sink.split:                                      ; preds = %dissect_message_block.exit.i, %228, %433, %217, %214, %380, %414, %411, %419, %416, %219, %dissect_ncp.exit, %382, %421
+  %.sink = phi ptr [ %422, %421 ], [ %384, %382 ], [ %344, %dissect_ncp.exit ], [ %220, %219 ], [ %0, %416 ], [ %0, %419 ], [ %0, %411 ], [ %0, %414 ], [ %0, %380 ], [ %0, %214 ], [ %0, %217 ], [ %0, %433 ], [ %220, %228 ], [ %220, %dissect_message_block.exit.i ]
   %436 = call i32 @tvb_captured_length(ptr noundef %.sink) #4
   br label %437
 
-437:                                              ; preds = %.sink.split, %dissect_xra_tlv.argprom.exit
-  %.0 = phi i32 [ %28, %dissect_xra_tlv.argprom.exit ], [ %436, %.sink.split ]
+437:                                              ; preds = %.sink.split, %dissect_xra_tlv.exit
+  %.0 = phi i32 [ %28, %dissect_xra_tlv.exit ], [ %436, %.sink.split ]
   ret i32 %.0
 }
 

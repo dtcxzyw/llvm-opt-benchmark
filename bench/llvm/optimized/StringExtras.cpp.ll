@@ -534,10 +534,10 @@ define dso_local void @_ZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRe
 10:                                               ; preds = %3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #7
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %2) #7
-  br label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit"
+  br label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit"
 
-"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit": ; preds = %10, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit18.thread"
-  %.044 = phi i64 [ 0, %10 ], [ %35, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit18.thread" ]
+"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit": ; preds = %10, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit18.thread"
+  %.044 = phi i64 [ 0, %10 ], [ %35, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit18.thread" ]
   %11 = getelementptr inbounds i8, ptr %1, i64 %.044
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
@@ -548,42 +548,42 @@ define dso_local void @_ZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRe
   %17 = sext i8 %16 to i32
   %18 = tail call noundef i32 @isupper(i32 noundef %17) #7
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit16", label %19
+  br i1 %.not, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit16", label %19
 
-19:                                               ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit"
+19:                                               ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit"
   %20 = add nuw i64 %.044, 1
   %21 = icmp ult i64 %20, %2
-  br i1 %21, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit14", label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit16"
+  br i1 %21, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit14", label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit16"
 
-"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit14": ; preds = %19
+"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit14": ; preds = %19
   %22 = getelementptr inbounds i8, ptr %1, i64 %20
   %23 = load i8, ptr %22, align 1
   %24 = sext i8 %23 to i32
   %25 = tail call noundef i32 @isupper(i32 noundef %24) #7
   %.not45 = icmp eq i32 %25, 0
-  br i1 %.not45, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit16", label %26
+  br i1 %.not45, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit16", label %26
 
-26:                                               ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit14"
+26:                                               ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit14"
   %27 = add nuw i64 %.044, 2
   %28 = icmp ult i64 %27, %2
-  br i1 %28, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit15", label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit16"
+  br i1 %28, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit15", label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit16"
 
-"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit15": ; preds = %26
+"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit15": ; preds = %26
   %29 = getelementptr inbounds i8, ptr %1, i64 %27
   %30 = load i8, ptr %29, align 1
   %31 = sext i8 %30 to i32
   %32 = tail call noundef i32 @islower(i32 noundef %31) #7
   %.not46 = icmp eq i32 %32, 0
-  br i1 %.not46, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit16", label %33
+  br i1 %.not46, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit16", label %33
 
-33:                                               ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit15"
+33:                                               ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit15"
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 95) #7
   %.pre49 = load i8, ptr %11, align 1
   %.pre50 = sext i8 %.pre49 to i32
-  br label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit16"
+  br label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit16"
 
-"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit16": ; preds = %26, %19, %33, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit15", %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit14", %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit"
-  %.pre-phi51 = phi i32 [ %17, %26 ], [ %17, %19 ], [ %.pre50, %33 ], [ %17, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit15" ], [ %17, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit14" ], [ %17, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit" ]
+"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit16": ; preds = %26, %19, %33, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit15", %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit14", %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit"
+  %.pre-phi51 = phi i32 [ %17, %26 ], [ %17, %19 ], [ %.pre50, %33 ], [ %17, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit15" ], [ %17, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit14" ], [ %17, %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit" ]
   %34 = tail call noundef i32 @islower(i32 noundef %.pre-phi51) #7
   %.not47 = icmp ne i32 %34, 0
   %isdigittmp = add nsw i32 %.pre-phi51, -48
@@ -592,25 +592,25 @@ define dso_local void @_ZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRe
   %35 = add nuw i64 %.044, 1
   %36 = icmp ult i64 %35, %2
   %or.cond52 = select i1 %or.cond, i1 %36, i1 false
-  br i1 %or.cond52, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit18", label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit18.thread"
+  br i1 %or.cond52, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit18", label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit18.thread"
 
-"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit18": ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit16"
+"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit18": ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit16"
   %37 = getelementptr inbounds i8, ptr %1, i64 %35
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
   %40 = tail call noundef i32 @isupper(i32 noundef %39) #7
   %.not48 = icmp eq i32 %40, 0
-  br i1 %.not48, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit18.thread", label %41
+  br i1 %.not48, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit18.thread", label %41
 
-41:                                               ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit18"
+41:                                               ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit18"
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 95) #7
-  br label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit18.thread"
+  br label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit18.thread"
 
-"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit18.thread": ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit16", %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit18", %41
+"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit18.thread": ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit16", %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit18", %41
   %exitcond.not = icmp eq i64 %35, %2
-  br i1 %exitcond.not, label %.loopexit, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit", !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit", !llvm.loop !13
 
-.loopexit:                                        ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.argprom.exit18.thread", %6
+.loopexit:                                        ; preds = %"_ZZN4llvm27convertToSnakeFromCamelCaseB5cxx11ENS_9StringRefEENK3$_0clEmNS_12function_refIFbiEEE.exit18.thread", %6
   ret void
 }
 

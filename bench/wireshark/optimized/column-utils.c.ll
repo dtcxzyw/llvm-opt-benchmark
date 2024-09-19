@@ -3118,7 +3118,7 @@ set_time_seconds.exit56:                          ; preds = %73, %78
   %.val = load i64, ptr %5, align 8
   %83 = getelementptr inbounds i8, ptr %5, i64 8
   %.val43 = load i32, ptr %83, align 8
-  call fastcc void @set_time_hour_min_sec.argprom(ptr noundef nonnull %1, i64 %.val, i32 %.val43, ptr noundef %2, ptr noundef %82)
+  call fastcc void @set_time_hour_min_sec(ptr noundef nonnull %1, i64 %.val, i32 %.val43, ptr noundef %2, ptr noundef %82)
   br label %set_abs_ymd_time.exit
 
 84:                                               ; preds = %66
@@ -3177,7 +3177,7 @@ set_time_seconds.exit60:                          ; preds = %97, %102
   %.val44 = load i64, ptr %6, align 8
   %107 = getelementptr inbounds i8, ptr %6, i64 8
   %.val45 = load i32, ptr %107, align 8
-  call fastcc void @set_time_hour_min_sec.argprom(ptr noundef nonnull %1, i64 %.val44, i32 %.val45, ptr noundef %2, ptr noundef %106)
+  call fastcc void @set_time_hour_min_sec(ptr noundef nonnull %1, i64 %.val44, i32 %.val45, ptr noundef %2, ptr noundef %106)
   br label %set_abs_ymd_time.exit
 
 108:                                              ; preds = %90
@@ -3483,7 +3483,7 @@ declare i32 @timestamp_get_seconds_type() local_unnamed_addr #3
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_time_hour_min_sec.argprom(ptr nocapture noundef readonly %0, i64 %.0.val, i32 %.8.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_time_hour_min_sec(ptr nocapture noundef readonly %0, i64 %.0.val, i32 %.8.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp sgt i64 %.0.val, -1
   %spec.select = tail call i64 @llvm.abs.i64(i64 %.0.val, i1 false)
   %5 = icmp sgt i32 %.8.val, -1
@@ -4814,22 +4814,22 @@ col_based_on_frame_data.exit:                     ; preds = %16, %16, %16, %16, 
 
 331:                                              ; preds = %16, %16
   %332 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @col_set_port.argelim(ptr noundef nonnull %0, i32 noundef %332, i32 noundef 1, i32 noundef 1)
+  tail call fastcc void @col_set_port(ptr noundef nonnull %0, i32 noundef %332, i32 noundef 1, i32 noundef 1)
   br label %col_set_addr.exit
 
 333:                                              ; preds = %16
   %334 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @col_set_port.argelim(ptr noundef nonnull %0, i32 noundef %334, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @col_set_port(ptr noundef nonnull %0, i32 noundef %334, i32 noundef 0, i32 noundef 1)
   br label %col_set_addr.exit
 
 335:                                              ; preds = %16, %16
   %336 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @col_set_port.argelim(ptr noundef nonnull %0, i32 noundef %336, i32 noundef 1, i32 noundef 0)
+  tail call fastcc void @col_set_port(ptr noundef nonnull %0, i32 noundef %336, i32 noundef 1, i32 noundef 0)
   br label %col_set_addr.exit
 
 337:                                              ; preds = %16
   %338 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @col_set_port.argelim(ptr noundef nonnull %0, i32 noundef %338, i32 noundef 0, i32 noundef 0)
+  tail call fastcc void @col_set_port(ptr noundef nonnull %0, i32 noundef %338, i32 noundef 0, i32 noundef 0)
   br label %col_set_addr.exit
 
 339:                                              ; preds = %16
@@ -4887,7 +4887,7 @@ col_set_addr.exit:                                ; preds = %16, %326, %315, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_set_port.argelim(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @col_set_port(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -5559,7 +5559,7 @@ set_time_seconds.exit:                            ; preds = %27, %32
   %.val = load i64, ptr %4, align 8
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %.val26 = load i32, ptr %53, align 8
-  call fastcc void @set_time_hour_min_sec.argprom(ptr noundef nonnull %0, i64 %.val, i32 %.val26, ptr noundef %51, ptr noundef %52)
+  call fastcc void @set_time_hour_min_sec(ptr noundef nonnull %0, i64 %.val, i32 %.val26, ptr noundef %51, ptr noundef %52)
   %54 = getelementptr inbounds i8, ptr %1, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr ptr, ptr %55, i64 %49
@@ -5694,7 +5694,7 @@ set_time_seconds.exit:                            ; preds = %27, %32
   %.val = load i64, ptr %4, align 8
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %.val26 = load i32, ptr %53, align 8
-  call fastcc void @set_time_hour_min_sec.argprom(ptr noundef nonnull %0, i64 %.val, i32 %.val26, ptr noundef %51, ptr noundef %52)
+  call fastcc void @set_time_hour_min_sec(ptr noundef nonnull %0, i64 %.val, i32 %.val26, ptr noundef %51, ptr noundef %52)
   %54 = getelementptr inbounds i8, ptr %1, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr ptr, ptr %55, i64 %49
@@ -5829,7 +5829,7 @@ set_time_seconds.exit:                            ; preds = %27, %32
   %.val = load i64, ptr %4, align 8
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %.val26 = load i32, ptr %53, align 8
-  call fastcc void @set_time_hour_min_sec.argprom(ptr noundef nonnull %0, i64 %.val, i32 %.val26, ptr noundef %51, ptr noundef %52)
+  call fastcc void @set_time_hour_min_sec(ptr noundef nonnull %0, i64 %.val, i32 %.val26, ptr noundef %51, ptr noundef %52)
   %54 = getelementptr inbounds i8, ptr %1, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr ptr, ptr %55, i64 %49

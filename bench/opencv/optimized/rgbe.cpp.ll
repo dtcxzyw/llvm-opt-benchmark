@@ -52,7 +52,7 @@ define hidden noundef i32 @_Z16RGBE_WriteHeaderP8_IO_FILEiiP16rgbe_header_info(p
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %.thread, %5
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 14:                                               ; preds = %.thread
@@ -74,7 +74,7 @@ define hidden noundef i32 @_Z16RGBE_WriteHeaderP8_IO_FILEiiP16rgbe_header_info(p
   br label %24
 
 23:                                               ; preds = %17
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 24:                                               ; preds = %._crit_edge, %14
@@ -92,7 +92,7 @@ define hidden noundef i32 @_Z16RGBE_WriteHeaderP8_IO_FILEiiP16rgbe_header_info(p
   br i1 %32, label %33, label %.critedge
 
 33:                                               ; preds = %27
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 .critedge:                                        ; preds = %5, %27, %24
@@ -101,7 +101,7 @@ define hidden noundef i32 @_Z16RGBE_WriteHeaderP8_IO_FILEiiP16rgbe_header_info(p
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %.critedge
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 37:                                               ; preds = %.critedge
@@ -110,7 +110,7 @@ define hidden noundef i32 @_Z16RGBE_WriteHeaderP8_IO_FILEiiP16rgbe_header_info(p
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %37
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 41:                                               ; preds = %37
@@ -121,7 +121,7 @@ define hidden noundef i32 @_Z16RGBE_WriteHeaderP8_IO_FILEiiP16rgbe_header_info(p
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef range(i32 0, 4) %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10rgbe_erroriPKc(i32 noundef range(i32 0, 4) %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -366,7 +366,7 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %12
-  call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 0, ptr noundef null)
+  call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
 16:                                               ; preds = %12
@@ -453,7 +453,7 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
   br i1 %48, label %.split50.us, label %49
 
 .split50.us:                                      ; preds = %43, %46
-  call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 0, ptr noundef null)
+  call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
 49:                                               ; preds = %46
@@ -502,14 +502,14 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
   br i1 %.not42, label %62, label %61
 
 61:                                               ; preds = %.split48.us
-  call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 2, ptr noundef nonnull @.str.10)
+  call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.10)
   unreachable
 
 62:                                               ; preds = %.split48.us
   br i1 %.us-phi, label %64, label %63
 
 63:                                               ; preds = %62
-  call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 2, ptr noundef nonnull @.str.11)
+  call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.11)
   unreachable
 
 64:                                               ; preds = %62
@@ -518,7 +518,7 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %64
-  call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 0, ptr noundef null)
+  call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
 68:                                               ; preds = %64
@@ -527,7 +527,7 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %68
-  call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 2, ptr noundef nonnull @.str.13)
+  call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.13)
   unreachable
 
 72:                                               ; preds = %68
@@ -605,7 +605,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %10, %21
   br i1 %39, label %40, label %8, !llvm.loop !13
 
 40:                                               ; preds = %_ZL10float2rgbePhfff.exit
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 41:                                               ; preds = %8
@@ -636,7 +636,7 @@ define hidden noundef i32 @_Z15RGBE_ReadPixelsP8_IO_FILEPfi(ptr nocapture nounde
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %9
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 0, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
 14:                                               ; preds = %9
@@ -752,7 +752,7 @@ _ZL10float2rgbePhfff.exit.i:                      ; preds = %28, %17
   br i1 %46, label %47, label %15, !llvm.loop !13
 
 47:                                               ; preds = %_ZL10float2rgbePhfff.exit.i
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 _Z16RGBE_WritePixelsP8_IO_FILEPfi.exit:           ; preds = %15
@@ -850,7 +850,7 @@ _ZL10float2rgbePhfff.exit.i56:                    ; preds = %84, %73
   br i1 %102, label %103, label %71, !llvm.loop !13
 
 103:                                              ; preds = %_ZL10float2rgbePhfff.exit.i56
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 _Z16RGBE_WritePixelsP8_IO_FILEPfi.exit61:         ; preds = %71
@@ -875,7 +875,7 @@ _Z16RGBE_WritePixelsP8_IO_FILEPfi.exit61:         ; preds = %71
 
 109:                                              ; preds = %105
   tail call void @free(ptr noundef %51) #14
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 .lr.ph:                                           ; preds = %105, %_ZL10float2rgbePhfff.exit
@@ -1009,7 +1009,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %119
   br i1 %171, label %172, label %._crit_edge.i
 
 172:                                              ; preds = %164
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 173:                                              ; preds = %160
@@ -1032,7 +1032,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %119
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %.lr.ph66.i
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 183:                                              ; preds = %.lr.ph66.i
@@ -1044,7 +1044,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %119
   br i1 %188, label %189, label %175
 
 189:                                              ; preds = %183
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 ._crit_edge.i:                                    ; preds = %175, %173, %164
@@ -1065,7 +1065,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %119
   br i1 %198, label %199, label %200
 
 199:                                              ; preds = %191
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 1, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 1, ptr noundef null)
   unreachable
 
 200:                                              ; preds = %191
@@ -1146,7 +1146,7 @@ define hidden noundef i32 @_Z19RGBE_ReadPixels_RLEP8_IO_FILEPfii(ptr nocapture n
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 0, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
 33:                                               ; preds = %28
@@ -1197,7 +1197,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit:            ; preds = %_ZL10rgbe2floatPfS_
 
 56:                                               ; preds = %53
   tail call void @free(ptr noundef %.082172) #14
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 0, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
 57:                                               ; preds = %53
@@ -1264,7 +1264,7 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %64, %68
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %85
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 0, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
 89:                                               ; preds = %85
@@ -1315,7 +1315,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
 
 114:                                              ; preds = %108
   tail call void @free(ptr noundef %.082172) #14
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 2, ptr noundef nonnull @.str.14)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.14)
   unreachable
 
 115:                                              ; preds = %108
@@ -1332,7 +1332,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
   br label %.preheader112
 
 120:                                              ; preds = %117
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 3, ptr noundef nonnull @.str.15)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 3, ptr noundef nonnull @.str.15)
   unreachable
 
 .loopexit110:                                     ; preds = %.loopexit, %.preheader112
@@ -1361,7 +1361,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
 
 128:                                              ; preds = %125
   tail call void @free(ptr noundef nonnull %.183233) #14
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 0, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
 129:                                              ; preds = %125
@@ -1384,7 +1384,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
 
 139:                                              ; preds = %135
   tail call void @free(ptr noundef nonnull %.183233) #14
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 2, ptr noundef nonnull @.str.16)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.16)
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1405,7 +1405,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
 
 147:                                              ; preds = %143
   tail call void @free(ptr noundef nonnull %.183233) #14
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 2, ptr noundef nonnull @.str.16)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.16)
   unreachable
 
 148:                                              ; preds = %143
@@ -1424,7 +1424,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
 
 156:                                              ; preds = %151
   tail call void @free(ptr noundef nonnull %.183233) #14
-  tail call fastcc void @_ZL10rgbe_erroriPKc.retelim(i32 noundef 0, ptr noundef null)
+  tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
 157:                                              ; preds = %151

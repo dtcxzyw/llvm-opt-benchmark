@@ -172,23 +172,23 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14CheckerContext18isCLibraryF
 19:                                               ; preds = %16
   %.sroa.236.8.copyload = load ptr, ptr %4, align 8
   %20 = icmp eq i64 %15, 0
-  br i1 %20, label %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.argprom.exit.thread", label %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.argprom.exit"
+  br i1 %20, label %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.exit.thread", label %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.exit"
 
-"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.argprom.exit": ; preds = %19
+"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.exit": ; preds = %19
   %21 = getelementptr i8, ptr %.sroa.236.8.copyload, i64 %15
   %22 = getelementptr i8, ptr %21, i64 -1
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, -33
   %25 = add i8 %24, -91
   %26 = icmp ult i8 %25, -26
-  br i1 %26, label %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.argprom.exit.thread", label %33
+  br i1 %26, label %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.exit.thread", label %33
 
-"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.argprom.exit.thread": ; preds = %19, %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.argprom.exit"
+"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.exit.thread": ; preds = %19, %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.exit"
   %27 = add i64 %15, %2
   %.not.i = icmp ult i64 %27, %17
   br i1 %.not.i, label %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit", label %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit.thread"
 
-"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit": ; preds = %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.argprom.exit.thread"
+"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit": ; preds = %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.exit.thread"
   %28 = getelementptr inbounds i8, ptr %.sroa.236.8.copyload, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, -33
@@ -196,7 +196,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14CheckerContext18isCLibraryF
   %32 = icmp ult i8 %31, -26
   br i1 %32, label %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit.thread", label %33
 
-33:                                               ; preds = %9, %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit", %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.argprom.exit", %3
+33:                                               ; preds = %9, %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit", %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.exit", %3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, 7
@@ -284,8 +284,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread46: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit
   br label %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit.thread"
 
-"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit.thread": ; preds = %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.argprom.exit.thread", %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit, %61, %59, %53, %33, %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit", %16, %7, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread46
-  %.0 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread46 ], [ true, %7 ], [ true, %16 ], [ true, %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit" ], [ false, %33 ], [ false, %53 ], [ false, %59 ], [ true, %61 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ true, %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.argprom.exit.thread" ]
+"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit.thread": ; preds = %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.exit.thread", %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit, %61, %59, %53, %33, %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit", %16, %7, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread46
+  %.0 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread46 ], [ true, %7 ], [ true, %16 ], [ true, %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_1clEv.exit" ], [ false, %33 ], [ false, %53 ], [ false, %59 ], [ true, %61 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ true, %"_ZZN5clang4ento14CheckerContext18isCLibraryFunctionEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clEv.exit.thread" ]
   ret i1 %.0
 }
 
@@ -307,7 +307,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14CheckerContext19isHardenedV
   %8 = and i64 %5, -8
   %.not15 = icmp eq i64 %8, 0
   %.not = or i1 %7, %.not15
-  br i1 %.not, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.argprom.argprom.exit", label %9
+  br i1 %.not, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %9
 
 9:                                                ; preds = %3
   %10 = inttoptr i64 %8 to ptr
@@ -316,19 +316,19 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14CheckerContext19isHardenedV
   %12 = load i64, ptr %.val.val, align 8
   %13 = and i64 %12, 4294967295
   %.not.i.i.i = icmp ult i64 %13, 2
-  br i1 %.not.i.i.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.argprom.argprom.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
+  br i1 %.not.i.i.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i.i:    ; preds = %9
   %14 = getelementptr inbounds i8, ptr %.val.val, i64 16
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %14, ptr noundef nonnull dereferenceable(2) @.str.4, i64 2)
   %15 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %15, label %16, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit.thread"
+  br i1 %15, label %16, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread"
 
 16:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.val.val, i64 18
   %18 = add nsw i64 %13, -2
   %.not.i.i5.i = icmp ult i64 %18, %2
-  br i1 %.not.i.i5.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit.thread", label %19
+  br i1 %.not.i.i5.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread", label %19
 
 19:                                               ; preds = %16
   %20 = icmp eq i64 %2, 0
@@ -337,44 +337,44 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i:    ; preds = %9
 _ZNK4llvm9StringRef11starts_withES0_.exit.i7.i:   ; preds = %19
   %bcmp.i.i8.i = tail call i32 @bcmp(ptr nonnull readonly %17, ptr readonly %1, i64 %2)
   %21 = icmp eq i32 %bcmp.i.i8.i, 0
-  br i1 %21, label %22, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit.thread"
+  br i1 %21, label %22, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread"
 
 22:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i7.i, %19
   %23 = sub nsw i64 %18, %2
   %.not.i.i11.i = icmp ult i64 %23, 4
-  br i1 %.not.i.i11.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit.thread", label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit"
+  br i1 %.not.i.i11.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread", label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit"
 
-"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit": ; preds = %22
+"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit": ; preds = %22
   %24 = getelementptr inbounds i8, ptr %17, i64 %2
   %bcmp.i.i14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %24, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %25 = icmp eq i32 %bcmp.i.i14.i, 0
   %26 = icmp eq i64 %23, 4
   %spec.select.i = and i1 %26, %25
-  br i1 %spec.select.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.argprom.argprom.exit", label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit.thread"
+  br i1 %spec.select.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread"
 
-"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit.thread": ; preds = %22, %16, %_ZNK4llvm9StringRef11starts_withES0_.exit.i7.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit"
+"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread": ; preds = %22, %16, %_ZNK4llvm9StringRef11starts_withES0_.exit.i7.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit"
   %.not.i.i.i10 = icmp ult i64 %13, 10
-  br i1 %.not.i.i.i10, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.argprom.argprom.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11
+  br i1 %.not.i.i.i10, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11:  ; preds = %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit.thread"
+_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11:  ; preds = %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread"
   %bcmp.i.i.i12 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %14, ptr noundef nonnull dereferenceable(10) @.str.6, i64 10)
   %27 = icmp ne i32 %bcmp.i.i.i12, 0
   %28 = and i64 %12, 4294967294
   %.not.i.i6.i = icmp eq i64 %28, 10
   %or.cond.i = or i1 %.not.i.i6.i, %27
-  br i1 %or.cond.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.argprom.argprom.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i8.i
+  br i1 %or.cond.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i8.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i8.i:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11
   %29 = getelementptr inbounds i8, ptr %.val.val, i64 26
   %bcmp.i.i9.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %29, ptr noundef nonnull dereferenceable(2) @.str.4, i64 2)
   %30 = icmp eq i32 %bcmp.i.i9.i, 0
-  br i1 %30, label %31, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.argprom.argprom.exit"
+  br i1 %30, label %31, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit"
 
 31:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i8.i
   %32 = getelementptr inbounds i8, ptr %.val.val, i64 28
   %33 = add nsw i64 %13, -12
   %.not.i.i12.i = icmp ult i64 %33, %2
-  br i1 %.not.i.i12.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.argprom.argprom.exit", label %34
+  br i1 %.not.i.i12.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %34
 
 34:                                               ; preds = %31
   %35 = icmp eq i64 %2, 0
@@ -383,12 +383,12 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i8.i:   ; preds = %_ZNK4llvm9StringRef
 _ZNK4llvm9StringRef11starts_withES0_.exit.i14.i:  ; preds = %34
   %bcmp.i.i15.i = tail call i32 @bcmp(ptr nonnull readonly %32, ptr readonly %1, i64 %2)
   %36 = icmp eq i32 %bcmp.i.i15.i, 0
-  br i1 %36, label %37, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.argprom.argprom.exit"
+  br i1 %36, label %37, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit"
 
 37:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i14.i, %34
   %38 = sub i64 %33, %2
   %.not.i.i18.i = icmp ult i64 %38, 4
-  br i1 %.not.i.i18.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.argprom.argprom.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i20.i
+  br i1 %.not.i.i18.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i20.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i20.i:  ; preds = %37
   %39 = getelementptr inbounds i8, ptr %32, i64 %2
@@ -396,10 +396,10 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i20.i:  ; preds = %37
   %40 = icmp eq i32 %bcmp.i.i21.i, 0
   %41 = icmp eq i64 %38, 4
   %spec.select.i13 = and i1 %41, %40
-  br label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.argprom.argprom.exit"
+  br label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit"
 
-"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.argprom.argprom.exit": ; preds = %9, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20.i, %37, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14.i, %31, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit.thread", %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit", %3
-  %.0 = phi i1 [ false, %3 ], [ true, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit" ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11 ], [ false, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.argprom.argprom.exit.thread" ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14.i ], [ false, %31 ], [ false, %37 ], [ %spec.select.i13, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20.i ], [ false, %9 ]
+"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit": ; preds = %9, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20.i, %37, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14.i, %31, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread", %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit", %3
+  %.0 = phi i1 [ false, %3 ], [ true, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit" ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11 ], [ false, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread" ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14.i ], [ false, %31 ], [ false, %37 ], [ %spec.select.i13, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20.i ], [ false, %9 ]
   ret i1 %.0
 }
 

@@ -3175,7 +3175,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %tmp.0 = phi i32 [ %not.i1.i, %if.then ], [ %crc1, %entry ]
   %tobool.not1.i = icmp ult i64 %crc2len, 4
-  br i1 %tobool.not1.i, label %_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.argprom.exit, label %while.body.i.preheader
+  br i1 %tobool.not1.i, label %_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %if.end
   %div4 = lshr i64 %crc2len, 2
@@ -3213,9 +3213,9 @@ _ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i:   ; preds = %cond.false.i.i.i
   %shr3.i = lshr i64 %shr.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %tobool.not.i = icmp ult i64 %shr.i, 2
-  br i1 %tobool.not.i, label %_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.argprom.exit, label %while.body.i, !llvm.loop !7
+  br i1 %tobool.not.i, label %_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit, label %while.body.i, !llvm.loop !7
 
-_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.argprom.exit: ; preds = %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i, %if.end
+_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit: ; preds = %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i, %if.end
   %crc.addr.0.lcssa.i = phi i32 [ %tmp.0, %if.end ], [ %xor.i.i.i, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ]
   %3 = xor i32 %crc.addr.0.lcssa.i, %crc2
   ret i32 %3

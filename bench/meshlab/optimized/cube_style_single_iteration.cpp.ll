@@ -5282,16 +5282,16 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEaSINS_7ProductINS_1
   %49 = ptrtoint ptr %33 to i64
   %50 = and i64 %49, 3
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %51, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i, label %51, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
 
 51:                                               ; preds = %48
   %52 = lshr exact i64 %49, 2
   %53 = sub nsw i64 0, %52
   %54 = and i64 %53, 3
   %55 = call i64 @llvm.smin.i64(i64 %54, i64 %46)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i: ; preds = %51, %48
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i: ; preds = %51, %48
   %.0.i.i.i.i.i.i.i.i = phi i64 [ %55, %51 ], [ %46, %48 ]
   %56 = sub nsw i64 %46, %.0.i.i.i.i.i.i.i.i
   %57 = sdiv i64 %56, 8
@@ -5304,7 +5304,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i = icmp ult i64 %.off.i.i.i.i, 7
   br i1 %.not.i.i.i.i, label %105, label %63
 
-63:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+63:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
   %64 = getelementptr i32, ptr %33, i64 %.0.i.i.i.i.i.i.i.i
   %65 = load <2 x i64>, ptr %64, align 1
   %66 = icmp sgt i64 %56, 7
@@ -5389,7 +5389,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %104 = icmp slt i64 %103, %46
   br i1 %104, label %.lr.ph89.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit, !llvm.loop !84
 
-105:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+105:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
   %106 = load i32, ptr %33, align 4
   %107 = icmp sgt i64 %46, 1
   br i1 %107, label %.lr.ph94.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit
@@ -5456,16 +5456,16 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit.thr
   %138 = ptrtoint ptr %122 to i64
   %139 = and i64 %138, 3
   %.not.i.i.i.i.i.i.i.i11 = icmp eq i64 %139, 0
-  br i1 %.not.i.i.i.i.i.i.i.i11, label %140, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i12
+  br i1 %.not.i.i.i.i.i.i.i.i11, label %140, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i12
 
 140:                                              ; preds = %137
   %141 = lshr exact i64 %138, 2
   %142 = sub nsw i64 0, %141
   %143 = and i64 %142, 3
   %144 = call i64 @llvm.smin.i64(i64 %143, i64 %135)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i12
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i12
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i12: ; preds = %140, %137
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i12: ; preds = %140, %137
   %.0.i.i.i.i.i.i.i.i13 = phi i64 [ %144, %140 ], [ %135, %137 ]
   %145 = sub nsw i64 %135, %.0.i.i.i.i.i.i.i.i13
   %146 = sdiv i64 %145, 8
@@ -5478,7 +5478,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i15 = icmp ult i64 %.off.i.i.i.i14, 7
   br i1 %.not.i.i.i.i15, label %194, label %152
 
-152:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i12
+152:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i12
   %153 = getelementptr i32, ptr %122, i64 %.0.i.i.i.i.i.i.i.i13
   %154 = load <2 x i64>, ptr %153, align 1
   %155 = icmp sgt i64 %145, 7
@@ -5563,7 +5563,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %193 = icmp slt i64 %192, %135
   br i1 %193, label %.lr.ph89.i.i.i.i24, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit47, !llvm.loop !84
 
-194:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i12
+194:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i12
   %195 = load i32, ptr %122, align 4
   %196 = icmp sgt i64 %135, 1
   br i1 %196, label %.lr.ph94.i.i.i.i43, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit47
@@ -6213,16 +6213,16 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEaSINS_7ProductINS_1
   %49 = ptrtoint ptr %33 to i64
   %50 = and i64 %49, 3
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %51, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i, label %51, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
 
 51:                                               ; preds = %48
   %52 = lshr exact i64 %49, 2
   %53 = sub nsw i64 0, %52
   %54 = and i64 %53, 3
   %55 = call i64 @llvm.smin.i64(i64 %54, i64 %46)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i: ; preds = %51, %48
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i: ; preds = %51, %48
   %.0.i.i.i.i.i.i.i.i = phi i64 [ %55, %51 ], [ %46, %48 ]
   %56 = sub nsw i64 %46, %.0.i.i.i.i.i.i.i.i
   %57 = sdiv i64 %56, 8
@@ -6235,7 +6235,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i = icmp ult i64 %.off.i.i.i.i, 7
   br i1 %.not.i.i.i.i, label %105, label %63
 
-63:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+63:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
   %64 = getelementptr i32, ptr %33, i64 %.0.i.i.i.i.i.i.i.i
   %65 = load <2 x i64>, ptr %64, align 1
   %66 = icmp sgt i64 %56, 7
@@ -6320,7 +6320,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %104 = icmp slt i64 %103, %46
   br i1 %104, label %.lr.ph89.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit, !llvm.loop !84
 
-105:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i
+105:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i
   %106 = load i32, ptr %33, align 4
   %107 = icmp sgt i64 %46, 1
   br i1 %107, label %.lr.ph94.i.i.i.i, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit
@@ -6387,16 +6387,16 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit.thr
   %138 = ptrtoint ptr %122 to i64
   %139 = and i64 %138, 3
   %.not.i.i.i.i.i.i.i.i11 = icmp eq i64 %139, 0
-  br i1 %.not.i.i.i.i.i.i.i.i11, label %140, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i12
+  br i1 %.not.i.i.i.i.i.i.i.i11, label %140, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i12
 
 140:                                              ; preds = %137
   %141 = lshr exact i64 %138, 2
   %142 = sub nsw i64 0, %141
   %143 = and i64 %142, 3
   %144 = call i64 @llvm.smin.i64(i64 %143, i64 %135)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i12
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i12
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i12: ; preds = %140, %137
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i12: ; preds = %140, %137
   %.0.i.i.i.i.i.i.i.i13 = phi i64 [ %144, %140 ], [ %135, %137 ]
   %145 = sub nsw i64 %135, %.0.i.i.i.i.i.i.i.i13
   %146 = sdiv i64 %145, 8
@@ -6409,7 +6409,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i15 = icmp ult i64 %.off.i.i.i.i14, 7
   br i1 %.not.i.i.i.i15, label %194, label %152
 
-152:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i12
+152:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i12
   %153 = getelementptr i32, ptr %122, i64 %.0.i.i.i.i.i.i.i.i13
   %154 = load <2 x i64>, ptr %153, align 1
   %155 = icmp sgt i64 %145, 7
@@ -6494,7 +6494,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %193 = icmp slt i64 %192, %135
   br i1 %193, label %.lr.ph89.i.i.i.i24, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit47, !llvm.loop !84
 
-194:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i12
+194:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i12
   %195 = load i32, ptr %122, align 4
   %196 = icmp sgt i64 %135, 1
   br i1 %196, label %.lr.ph94.i.i.i.i43, label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit47
@@ -18160,16 +18160,16 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit190.thread246: ; pre
   %65 = ptrtoint ptr %48 to i64
   %66 = and i64 %65, 3
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %66, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %67, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %67, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i
 
 67:                                               ; preds = %64
   %68 = lshr exact i64 %65, 2
   %69 = sub nsw i64 0, %68
   %70 = and i64 %69, 3
   %71 = tail call i64 @llvm.smin.i64(i64 %70, i64 %62)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i: ; preds = %67, %64
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i: ; preds = %67, %64
   %.0.i.i.i.i.i.i.i.i.i = phi i64 [ %71, %67 ], [ %62, %64 ]
   %72 = sub nsw i64 %62, %.0.i.i.i.i.i.i.i.i.i
   %73 = sdiv i64 %72, 8
@@ -18182,7 +18182,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i.i = icmp ult i64 %.off.i.i.i.i.i, 7
   br i1 %.not.i.i.i.i.i, label %121, label %79
 
-79:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i
+79:                                               ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i
   %80 = getelementptr i32, ptr %48, i64 %.0.i.i.i.i.i.i.i.i.i
   %81 = load <2 x i64>, ptr %80, align 1
   %82 = icmp sgt i64 %72, 7
@@ -18267,7 +18267,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %120 = icmp slt i64 %119, %62
   br i1 %120, label %.lr.ph89.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i, !llvm.loop !84
 
-121:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i
+121:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i
   %122 = load i32, ptr %48, align 4
   %123 = icmp sgt i64 %62, 1
   br i1 %123, label %.lr.ph94.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i
@@ -18312,16 +18312,16 @@ _ZNK5Eigen8internal9evaluatorINS_20SparseCompressedBaseINS_12SparseMatrixIdLi0Ei
   %143 = ptrtoint ptr %130 to i64
   %144 = and i64 %143, 3
   %.not.i.i.i.i.i.i.i.i.i136 = icmp eq i64 %144, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i136, label %145, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i137
+  br i1 %.not.i.i.i.i.i.i.i.i.i136, label %145, label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i137
 
 145:                                              ; preds = %142
   %146 = lshr exact i64 %143, 2
   %147 = sub nsw i64 0, %146
   %148 = and i64 %147, 3
   %149 = tail call i64 @llvm.smin.i64(i64 %148, i64 %8)
-  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i137
+  br label %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i137
 
-_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i137: ; preds = %145, %142
+_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i137: ; preds = %145, %142
   %.0.i.i.i.i.i.i.i.i.i138 = phi i64 [ %149, %145 ], [ %8, %142 ]
   %150 = sub nsw i64 %8, %.0.i.i.i.i.i.i.i.i.i138
   %151 = sdiv i64 %150, 8
@@ -18334,7 +18334,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %.not.i.i.i.i.i140 = icmp ult i64 %.off.i.i.i.i.i139, 7
   br i1 %.not.i.i.i.i.i140, label %199, label %157
 
-157:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i137
+157:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i137
   %158 = getelementptr i32, ptr %130, i64 %.0.i.i.i.i.i.i.i.i.i138
   %159 = load <2 x i64>, ptr %158, align 1
   %160 = icmp sgt i64 %150, 7
@@ -18419,7 +18419,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %198 = icmp slt i64 %197, %8
   br i1 %198, label %.lr.ph89.i.i.i.i.i149, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i146, !llvm.loop !84
 
-199:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.argprom.exit.i.i.i.i.i137
+199:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i137
   %200 = load i32, ptr %130, align 4
   %201 = icmp sgt i64 %8, 1
   br i1 %201, label %.lr.ph94.i.i.i.i.i168, label %_ZNK5Eigen9DenseBaseINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3sumEv.exit.i.i146

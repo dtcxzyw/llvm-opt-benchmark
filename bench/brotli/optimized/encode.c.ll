@@ -2659,12 +2659,12 @@ sw.bb22.i373:                                     ; preds = %for.end.i
 
 sw.bb25.i:                                        ; preds = %for.end.i
   %privat27.i = getelementptr inbounds i8, ptr %s, i64 1712
-  tail call fastcc void @InitializeH5.argprom(ptr noundef nonnull %hasher_, ptr noundef nonnull %privat27.i)
+  tail call fastcc void @InitializeH5(ptr noundef nonnull %hasher_, ptr noundef nonnull %privat27.i)
   br label %if.end57.i.thread
 
 sw.bb28.i:                                        ; preds = %for.end.i
   %privat30.i = getelementptr inbounds i8, ptr %s, i64 1712
-  tail call fastcc void @InitializeH6.argprom(ptr noundef nonnull %hasher_, ptr noundef nonnull %privat30.i)
+  tail call fastcc void @InitializeH6(ptr noundef nonnull %hasher_, ptr noundef nonnull %privat30.i)
   br label %if.end57.i.thread
 
 sw.bb31.i:                                        ; preds = %for.end.i
@@ -2894,7 +2894,7 @@ if.else.i1204:                                    ; preds = %sw.bb66.i
 sw.bb68.i:                                        ; preds = %if.then60.i
   %73 = getelementptr i8, ptr %s, i64 1720
   %privat69.i.val = load ptr, ptr %73, align 8
-  tail call fastcc void @PrepareH4.argprom(ptr %privat69.i.val, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
+  tail call fastcc void @PrepareH4(ptr %privat69.i.val, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb70.i:                                        ; preds = %if.then60.i
@@ -2925,7 +2925,7 @@ sw.bb78.i:                                        ; preds = %if.then60.i
 sw.bb80.i:                                        ; preds = %if.then60.i
   %74 = getelementptr i8, ptr %s, i64 1720
   %privat81.i.val = load ptr, ptr %74, align 8
-  tail call fastcc void @PrepareH54.argprom(ptr %privat81.i.val, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
+  tail call fastcc void @PrepareH54(ptr %privat81.i.val, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb82.i:                                        ; preds = %if.then60.i
@@ -4265,12 +4265,12 @@ land.lhs.true.i:                                  ; preds = %WrapPosition.exit13
   %conv148 = zext i32 %result.0.i1339 to i64
   %call.i1347 = tail call i32 @BrotliIsMostlyUTF8(ptr noundef %6, i64 noundef %conv148, i64 noundef %conv142, i64 noundef %sub, double noundef 7.500000e-01) #18
   %tobool.not.i = icmp eq i32 %call.i1347, 0
-  br i1 %tobool.not.i, label %ChooseContextMode.argprom.exit, label %if.end.i1346
+  br i1 %tobool.not.i, label %ChooseContextMode.exit, label %if.end.i1346
 
 if.end.i1346:                                     ; preds = %land.lhs.true.i, %WrapPosition.exit1344
-  br label %ChooseContextMode.argprom.exit
+  br label %ChooseContextMode.exit
 
-ChooseContextMode.argprom.exit:                   ; preds = %land.lhs.true.i, %if.end.i1346
+ChooseContextMode.exit:                           ; preds = %land.lhs.true.i, %if.end.i1346
   %retval.0.i = phi i32 [ 2, %if.end.i1346 ], [ 3, %land.lhs.true.i ]
   %shl152 = shl nuw nsw i32 %retval.0.i, 9
   %idxprom153 = zext nneg i32 %shl152 to i64
@@ -4279,7 +4279,7 @@ ChooseContextMode.argprom.exit:                   ; preds = %land.lhs.true.i, %i
   %tobool156.not = icmp eq i64 %256, 0
   br i1 %tobool156.not, label %if.end161, label %land.lhs.true157
 
-land.lhs.true157:                                 ; preds = %ChooseContextMode.argprom.exit
+land.lhs.true157:                                 ; preds = %ChooseContextMode.exit
   %last_insert_len_ = getelementptr inbounds i8, ptr %s, i64 1504
   %257 = load i64, ptr %last_insert_len_, align 8
   %cmp158 = icmp eq i64 %257, 0
@@ -4289,7 +4289,7 @@ if.then160:                                       ; preds = %land.lhs.true157
   call fastcc void @ExtendLastCommand(ptr noundef nonnull %s, ptr noundef %bytes, ptr noundef %wrapped_last_processed_pos)
   br label %if.end161
 
-if.end161:                                        ; preds = %if.then160, %land.lhs.true157, %ChooseContextMode.argprom.exit
+if.end161:                                        ; preds = %if.then160, %land.lhs.true157, %ChooseContextMode.exit
   %258 = load i32, ptr %quality, align 4
   %259 = load i32, ptr %bytes, align 4
   %conv198 = zext i32 %259 to i64
@@ -6118,7 +6118,7 @@ declare hidden void @BrotliCreateHqZopfliBackwardReferences(ptr noundef, i64 nou
 declare hidden void @BrotliCreateBackwardReferences(i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @InitializeH5.argprom(ptr noundef %common, ptr noalias nocapture noundef writeonly %self) unnamed_addr #0 {
+define internal fastcc void @InitializeH5(ptr noundef %common, ptr noalias nocapture noundef writeonly %self) unnamed_addr #0 {
 entry:
   %common_ = getelementptr inbounds i8, ptr %self, i64 32
   store ptr %common, ptr %common_, align 8
@@ -6157,7 +6157,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @InitializeH6.argprom(ptr noundef %common, ptr noalias nocapture noundef writeonly %self) unnamed_addr #0 {
+define internal fastcc void @InitializeH6(ptr noundef %common, ptr noalias nocapture noundef writeonly %self) unnamed_addr #0 {
 entry:
   %common_ = getelementptr inbounds i8, ptr %self, i64 40
   store ptr %common, ptr %common_, align 8
@@ -6195,7 +6195,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @PrepareH4.argprom(ptr nocapture writeonly %self.8.val, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #10 {
+define internal fastcc void @PrepareH4(ptr nocapture writeonly %self.8.val, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #10 {
 entry:
   %tobool.not = icmp ne i32 %one_shot, 0
   %cmp = icmp ult i64 %input_size, 4097
@@ -6452,7 +6452,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @PrepareH54.argprom(ptr nocapture writeonly %self.8.val, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #10 {
+define internal fastcc void @PrepareH54(ptr nocapture writeonly %self.8.val, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #10 {
 entry:
   %tobool.not = icmp ne i32 %one_shot, 0
   %cmp = icmp ult i64 %input_size, 32769
@@ -6576,20 +6576,20 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   store i32 0, ptr %arrayidx5.i.c, align 4, !noalias !94
   %inc7.i = add nuw nsw i64 %i.03.i, 1
   %exitcond.not.i = icmp eq i64 %inc7.i, %input_size
-  br i1 %exitcond.not.i, label %PrepareH3.argprom.exit, label %for.body.i, !llvm.loop !49
+  br i1 %exitcond.not.i, label %PrepareH3.exit, label %for.body.i, !llvm.loop !49
 
 if.else.i:                                        ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(262144) %self.val, i8 0, i64 262144, i1 false), !noalias !94
-  br label %PrepareH3.argprom.exit
+  br label %PrepareH3.exit
 
-PrepareH3.argprom.exit:                           ; preds = %for.body.i, %if.else.i
+PrepareH3.exit:                                   ; preds = %for.body.i, %if.else.i
   %hb37 = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %cmp.i25 = icmp ult i64 %input_size, 32
   br i1 %cmp.i25, label %PrepareHROLLING_FAST.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %PrepareH3.argprom.exit
+if.end.i:                                         ; preds = %PrepareH3.exit
   %factor.i26 = getelementptr inbounds i8, ptr %self, i64 44
   %6 = load i32, ptr %factor.i26, align 4, !alias.scope !97, !noalias !100
   br label %for.body.i27
@@ -6611,7 +6611,7 @@ return.loopexit.i:                                ; preds = %for.body.i27
   store i32 %add1.i.i, ptr %hb37, align 8, !alias.scope !97, !noalias !100
   br label %PrepareHROLLING_FAST.exit
 
-PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.i, %PrepareH3.argprom.exit, %return.loopexit.i
+PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.i, %PrepareH3.exit, %return.loopexit.i
   ret void
 }
 
@@ -6704,20 +6704,20 @@ for.body4.i:                                      ; preds = %for.body4.i, %for.b
 for.inc6.i:                                       ; preds = %for.body4.i
   %inc7.i = add nuw nsw i64 %i.03.i, 1
   %exitcond4.not.i = icmp eq i64 %inc7.i, %input_size
-  br i1 %exitcond4.not.i, label %PrepareH54.argprom.exit, label %for.body.i, !llvm.loop !87
+  br i1 %exitcond4.not.i, label %PrepareH54.exit, label %for.body.i, !llvm.loop !87
 
 if.else.i:                                        ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4194304) %self.val, i8 0, i64 4194304, i1 false), !noalias !108
-  br label %PrepareH54.argprom.exit
+  br label %PrepareH54.exit
 
-PrepareH54.argprom.exit:                          ; preds = %for.inc6.i, %if.else.i
+PrepareH54.exit:                                  ; preds = %for.inc6.i, %if.else.i
   %hb37 = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %cmp.i25 = icmp ult i64 %input_size, 32
   br i1 %cmp.i25, label %PrepareHROLLING_FAST.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %PrepareH54.argprom.exit
+if.end.i:                                         ; preds = %PrepareH54.exit
   %factor.i26 = getelementptr inbounds i8, ptr %self, i64 44
   %6 = load i32, ptr %factor.i26, align 4, !alias.scope !111, !noalias !114
   br label %for.body.i27
@@ -6739,7 +6739,7 @@ return.loopexit.i:                                ; preds = %for.body.i27
   store i32 %add1.i.i, ptr %hb37, align 8, !alias.scope !111, !noalias !114
   br label %PrepareHROLLING_FAST.exit
 
-PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.i, %PrepareH54.argprom.exit, %return.loopexit.i
+PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.i, %PrepareH54.exit, %return.loopexit.i
   ret void
 }
 
@@ -7712,26 +7712,26 @@ attributes #18 = { nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"InitializeH2.argprom: %self"}
-!11 = distinct !{!11, !"InitializeH2.argprom"}
+!10 = distinct !{!10, !11, !"InitializeH2: %self"}
+!11 = distinct !{!11, !"InitializeH2"}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"InitializeH3.argprom: %self"}
-!14 = distinct !{!14, !"InitializeH3.argprom"}
+!13 = distinct !{!13, !14, !"InitializeH3: %self"}
+!14 = distinct !{!14, !"InitializeH3"}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"InitializeH4.argprom: %self"}
-!17 = distinct !{!17, !"InitializeH4.argprom"}
+!16 = distinct !{!16, !17, !"InitializeH4: %self"}
+!17 = distinct !{!17, !"InitializeH4"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"InitializeH40.argprom: %self"}
-!20 = distinct !{!20, !"InitializeH40.argprom"}
+!19 = distinct !{!19, !20, !"InitializeH40: %self"}
+!20 = distinct !{!20, !"InitializeH40"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"InitializeH41.argprom: %self"}
-!23 = distinct !{!23, !"InitializeH41.argprom"}
+!22 = distinct !{!22, !23, !"InitializeH41: %self"}
+!23 = distinct !{!23, !"InitializeH41"}
 !24 = !{!25}
-!25 = distinct !{!25, !26, !"InitializeH42.argprom: %self"}
-!26 = distinct !{!26, !"InitializeH42.argprom"}
+!25 = distinct !{!25, !26, !"InitializeH42: %self"}
+!26 = distinct !{!26, !"InitializeH42"}
 !27 = !{!28}
-!28 = distinct !{!28, !29, !"InitializeH54.argprom: %self"}
-!29 = distinct !{!29, !"InitializeH54.argprom"}
+!28 = distinct !{!28, !29, !"InitializeH54: %self"}
+!29 = distinct !{!29, !"InitializeH54"}
 !30 = !{!31}
 !31 = distinct !{!31, !32, !"InitializeH35: %self"}
 !32 = distinct !{!32, !"InitializeH35"}
@@ -7742,15 +7742,15 @@ attributes #18 = { nounwind }
 !37 = distinct !{!37, !38, !"InitializeH65: %self"}
 !38 = distinct !{!38, !"InitializeH65"}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"InitializeH10.argprom: %self"}
-!41 = distinct !{!41, !"InitializeH10.argprom"}
+!40 = distinct !{!40, !41, !"InitializeH10: %self"}
+!41 = distinct !{!41, !"InitializeH10"}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"PrepareH2.argprom: %data"}
-!44 = distinct !{!44, !"PrepareH2.argprom"}
+!43 = distinct !{!43, !44, !"PrepareH2: %data"}
+!44 = distinct !{!44, !"PrepareH2"}
 !45 = distinct !{!45, !5}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"PrepareH3.argprom: %data"}
-!48 = distinct !{!48, !"PrepareH3.argprom"}
+!47 = distinct !{!47, !48, !"PrepareH3: %data"}
+!48 = distinct !{!48, !"PrepareH3"}
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
 !51 = !{!52}
@@ -7791,28 +7791,28 @@ attributes #18 = { nounwind }
 !86 = distinct !{!86, !5}
 !87 = distinct !{!87, !5}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"InitializeH3.argprom: %self"}
-!90 = distinct !{!90, !"InitializeH3.argprom"}
+!89 = distinct !{!89, !90, !"InitializeH3: %self"}
+!90 = distinct !{!90, !"InitializeH3"}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"InitializeHROLLING_FAST.argprom: %self"}
-!93 = distinct !{!93, !"InitializeHROLLING_FAST.argprom"}
+!92 = distinct !{!92, !93, !"InitializeHROLLING_FAST: %self"}
+!93 = distinct !{!93, !"InitializeHROLLING_FAST"}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"PrepareH3.argprom: %data"}
-!96 = distinct !{!96, !"PrepareH3.argprom"}
+!95 = distinct !{!95, !96, !"PrepareH3: %data"}
+!96 = distinct !{!96, !"PrepareH3"}
 !97 = !{!98}
 !98 = distinct !{!98, !99, !"PrepareHROLLING_FAST: %self"}
 !99 = distinct !{!99, !"PrepareHROLLING_FAST"}
 !100 = !{!101}
 !101 = distinct !{!101, !99, !"PrepareHROLLING_FAST: %data"}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"InitializeH54.argprom: %self"}
-!104 = distinct !{!104, !"InitializeH54.argprom"}
+!103 = distinct !{!103, !104, !"InitializeH54: %self"}
+!104 = distinct !{!104, !"InitializeH54"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"InitializeHROLLING_FAST.argprom: %self"}
-!107 = distinct !{!107, !"InitializeHROLLING_FAST.argprom"}
+!106 = distinct !{!106, !107, !"InitializeHROLLING_FAST: %self"}
+!107 = distinct !{!107, !"InitializeHROLLING_FAST"}
 !108 = !{!109}
-!109 = distinct !{!109, !110, !"PrepareH54.argprom: %data"}
-!110 = distinct !{!110, !"PrepareH54.argprom"}
+!109 = distinct !{!109, !110, !"PrepareH54: %data"}
+!110 = distinct !{!110, !"PrepareH54"}
 !111 = !{!112}
 !112 = distinct !{!112, !113, !"PrepareHROLLING_FAST: %self"}
 !113 = distinct !{!113, !"PrepareHROLLING_FAST"}
@@ -7824,11 +7824,11 @@ attributes #18 = { nounwind }
 !119 = !{!120}
 !120 = distinct !{!120, !118, !"PrepareH6: %data"}
 !121 = !{!122}
-!122 = distinct !{!122, !123, !"InitializeH6.argprom: %self"}
-!123 = distinct !{!123, !"InitializeH6.argprom"}
+!122 = distinct !{!122, !123, !"InitializeH6: %self"}
+!123 = distinct !{!123, !"InitializeH6"}
 !124 = !{!125}
-!125 = distinct !{!125, !126, !"InitializeHROLLING.argprom: %self"}
-!126 = distinct !{!126, !"InitializeHROLLING.argprom"}
+!125 = distinct !{!125, !126, !"InitializeHROLLING: %self"}
+!126 = distinct !{!126, !"InitializeHROLLING"}
 !127 = !{!117, !120}
 !128 = !{!129}
 !129 = distinct !{!129, !130, !"PrepareHROLLING: %self"}

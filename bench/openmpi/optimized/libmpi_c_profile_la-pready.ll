@@ -74,7 +74,7 @@ define noundef i32 @PMPI_Pready(i32 noundef %0, ptr noundef %1) #0 {
   %.pre15.i = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph.i
 
-22:                                               ; preds = %opal_pointer_array_get_item.argprom.exit.i
+22:                                               ; preds = %opal_pointer_array_get_item.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = load i32, ptr @ompi_errcode_intern_lastused, align 4
   %24 = sext i32 %23 to i64
@@ -102,21 +102,21 @@ define noundef i32 @PMPI_Pready(i32 noundef %0, ptr noundef %1) #0 {
   %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8
   %37 = trunc i8 %33 to i1
-  br i1 %37, label %38, label %opal_pointer_array_get_item.argprom.exit.i
+  br i1 %37, label %38, label %opal_pointer_array_get_item.exit.i
 
 38:                                               ; preds = %32
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #4
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_pointer_array_get_item.argprom.exit.i
+  br label %opal_pointer_array_get_item.exit.i
 
-opal_pointer_array_get_item.argprom.exit.i:       ; preds = %38, %32
+opal_pointer_array_get_item.exit.i:               ; preds = %38, %32
   %40 = phi i8 [ %33, %32 ], [ %.pre.i, %38 ]
   %41 = getelementptr inbounds i8, ptr %36, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, %17
   br i1 %43, label %44, label %22
 
-44:                                               ; preds = %opal_pointer_array_get_item.argprom.exit.i
+44:                                               ; preds = %opal_pointer_array_get_item.exit.i
   %45 = getelementptr inbounds i8, ptr %36, i64 20
   %46 = load i32, ptr %45, align 4
   br label %.sink.split

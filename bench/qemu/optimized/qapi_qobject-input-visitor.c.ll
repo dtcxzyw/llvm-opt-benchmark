@@ -154,21 +154,21 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %call.i, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 2
   br i1 %cmp.i, label %lor.lhs.false, label %if.then5
 
-lor.lhs.false:                                    ; preds = %qobject_type.argprom.exit.i
+lor.lhs.false:                                    ; preds = %qobject_type.exit.i
   %call4 = tail call zeroext i1 @qnum_get_try_int(ptr noundef nonnull %call.i, ptr noundef %obj) #8
   br i1 %call4, label %return, label %if.then5
 
-if.then5:                                         ; preds = %qobject_type.argprom.exit.i, %lor.lhs.false
+if.then5:                                         ; preds = %qobject_type.exit.i, %lor.lhs.false
   %call.i6 = tail call fastcc ptr @full_name_nth(ptr noundef %v, ptr noundef %name, i32 noundef 0)
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 409, ptr noundef nonnull @__func__.qobject_input_type_int64, ptr noundef nonnull @.str.3, ptr noundef %call.i6, ptr noundef nonnull @.str.29) #8
   br label %return
@@ -195,17 +195,17 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %call.i, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 2
   br i1 %cmp.i, label %if.end5, label %err
 
-if.end5:                                          ; preds = %qobject_type.argprom.exit.i
+if.end5:                                          ; preds = %qobject_type.exit.i
   %call6 = tail call zeroext i1 @qnum_get_try_uint(ptr noundef nonnull %call.i, ptr noundef %obj) #8
   br i1 %call6, label %return, label %if.end8
 
@@ -218,7 +218,7 @@ if.then10:                                        ; preds = %if.end8
   store i64 %1, ptr %obj, align 8
   br label %return
 
-err:                                              ; preds = %qobject_type.argprom.exit.i, %if.end8
+err:                                              ; preds = %qobject_type.exit.i, %if.end8
   %call.i8 = call fastcc ptr @full_name_nth(ptr noundef %v, ptr noundef %name, i32 noundef 0)
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 462, ptr noundef nonnull @__func__.qobject_input_type_uint64, ptr noundef nonnull @.str.30, ptr noundef %call.i8, ptr noundef nonnull @.str.31) #8
   br label %return
@@ -244,22 +244,22 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %call.i, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 6
   br i1 %cmp.i, label %if.end6, label %if.then4
 
-if.then4:                                         ; preds = %qobject_type.argprom.exit.i
+if.then4:                                         ; preds = %qobject_type.exit.i
   %call.i6 = tail call fastcc ptr @full_name_nth(ptr noundef %v, ptr noundef %name, i32 noundef 0)
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 498, ptr noundef nonnull @__func__.qobject_input_type_bool, ptr noundef nonnull @.str.3, ptr noundef %call.i6, ptr noundef nonnull @.str.32) #8
   br label %return
 
-if.end6:                                          ; preds = %qobject_type.argprom.exit.i
+if.end6:                                          ; preds = %qobject_type.exit.i
   %call7 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %call.i) #8
   %frombool = zext i1 %call7 to i8
   store i8 %frombool, ptr %obj, align 1
@@ -288,22 +288,22 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %call.i, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 3
   br i1 %cmp.i, label %if.end6, label %if.then4
 
-if.then4:                                         ; preds = %qobject_type.argprom.exit.i
+if.then4:                                         ; preds = %qobject_type.exit.i
   %call.i7 = tail call fastcc ptr @full_name_nth(ptr noundef %v, ptr noundef %name, i32 noundef 0)
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 538, ptr noundef nonnull @__func__.qobject_input_type_str, ptr noundef nonnull @.str.3, ptr noundef %call.i7, ptr noundef nonnull @.str.33) #8
   br label %return
 
-if.end6:                                          ; preds = %qobject_type.argprom.exit.i
+if.end6:                                          ; preds = %qobject_type.exit.i
   %call7 = tail call ptr @qstring_get_str(ptr noundef nonnull %call.i) #8
   %call8 = tail call noalias ptr @g_strdup(ptr noundef %call7) #8
   store ptr %call8, ptr %obj, align 8
@@ -330,22 +330,22 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %call.i, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 2
   br i1 %cmp.i, label %if.end6, label %if.then4
 
-if.then4:                                         ; preds = %qobject_type.argprom.exit.i
+if.then4:                                         ; preds = %qobject_type.exit.i
   %call.i6 = tail call fastcc ptr @full_name_nth(ptr noundef %v, ptr noundef %name, i32 noundef 0)
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 569, ptr noundef nonnull @__func__.qobject_input_type_number, ptr noundef nonnull @.str.3, ptr noundef %call.i6, ptr noundef nonnull @.str.34) #8
   br label %return
 
-if.end6:                                          ; preds = %qobject_type.argprom.exit.i
+if.end6:                                          ; preds = %qobject_type.exit.i
   %call7 = tail call double @qnum_get_double(ptr noundef nonnull %call.i) #8
   store double %call7, ptr %obj, align 8
   br label %return
@@ -398,22 +398,22 @@ if.end:                                           ; preds = %entry
   %call1.val = load i32, ptr %call.i, align 8
   %0 = add i32 %call1.val, -1
   %or.cond.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit:                        ; preds = %if.end
+qobject_type.exit:                                ; preds = %if.end
   %cmp.not = icmp eq i32 %call1.val, 1
   br i1 %cmp.not, label %if.end5, label %if.then3
 
-if.then3:                                         ; preds = %qobject_type.argprom.exit
+if.then3:                                         ; preds = %qobject_type.exit
   %call.i6 = tail call fastcc ptr @full_name_nth(ptr noundef %v, ptr noundef %name, i32 noundef 0)
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 627, ptr noundef nonnull @__func__.qobject_input_type_null, ptr noundef nonnull @.str.3, ptr noundef %call.i6, ptr noundef nonnull @.str.35) #8
   br label %return
 
-if.end5:                                          ; preds = %qobject_type.argprom.exit
+if.end5:                                          ; preds = %qobject_type.exit
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
   %inc.i.i = add i64 %1, 1
   store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
@@ -628,21 +628,21 @@ land.lhs.true.i:                                  ; preds = %if.then
   %obj.val.i = load i32, ptr %call, align 8
   %1 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %1, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
   br i1 %cmp.i, label %qobject_input_visitor_new.exit, label %if.else
 
-if.else:                                          ; preds = %qobject_type.argprom.exit.i
+if.else:                                          ; preds = %qobject_type.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 764, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_input_visitor_new_str) #7
   unreachable
 
-qobject_input_visitor_new.exit:                   ; preds = %qobject_type.argprom.exit.i
+qobject_input_visitor_new.exit:                   ; preds = %qobject_type.exit.i
   %call.i.i = tail call noalias dereferenceable_or_null(248) ptr @g_malloc0(i64 noundef 248) #6
   %type.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
   store i32 1, ptr %type.i.i, align 8
@@ -809,22 +809,22 @@ if.end4:                                          ; preds = %if.end
   %call1.val = load i32, ptr %call.i, align 8
   %0 = add i32 %call1.val, -1
   %or.cond.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end4
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit:                        ; preds = %if.end4
+qobject_type.exit:                                ; preds = %if.end4
   %cmp.not = icmp eq i32 %call1.val, 4
   br i1 %cmp.not, label %if.end8, label %if.then6
 
-if.then6:                                         ; preds = %qobject_type.argprom.exit
+if.then6:                                         ; preds = %qobject_type.exit
   %call.i12 = tail call fastcc ptr @full_name_nth(ptr noundef %v, ptr noundef %name, i32 noundef 0)
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 292, ptr noundef nonnull @__func__.qobject_input_start_struct, ptr noundef nonnull @.str.3, ptr noundef %call.i12, ptr noundef nonnull @.str.4) #8
   br label %return
 
-if.end8:                                          ; preds = %qobject_type.argprom.exit
+if.end8:                                          ; preds = %qobject_type.exit
   %call9 = tail call fastcc ptr @qobject_input_push(ptr noundef %v, ptr noundef %name, ptr noundef %call.i, ptr noundef %obj)
   br i1 %tobool.not, label %return, label %if.then11
 
@@ -886,23 +886,23 @@ entry:
   %.val = load i32, ptr %1, align 8
   %2 = add i32 %.val, -1
   %or.cond.i = icmp ult i32 %2, 6
-  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit:                        ; preds = %entry
+qobject_type.exit:                                ; preds = %entry
   %cmp = icmp eq i32 %.val, 4
   br i1 %cmp, label %land.lhs.true, label %if.else
 
-land.lhs.true:                                    ; preds = %qobject_type.argprom.exit
+land.lhs.true:                                    ; preds = %qobject_type.exit
   %h = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %h, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true.i
 
-if.else:                                          ; preds = %land.lhs.true, %qobject_type.argprom.exit
+if.else:                                          ; preds = %land.lhs.true, %qobject_type.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_input_end_struct) #7
   unreachable
 
@@ -961,22 +961,22 @@ if.end5:                                          ; preds = %if.end
   %call1.val = load i32, ptr %call.i, align 8
   %0 = add i32 %call1.val, -1
   %or.cond.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end5
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit:                        ; preds = %if.end5
+qobject_type.exit:                                ; preds = %if.end5
   %cmp.not = icmp eq i32 %call1.val, 5
   br i1 %cmp.not, label %if.end9, label %if.then7
 
-if.then7:                                         ; preds = %qobject_type.argprom.exit
+if.then7:                                         ; preds = %qobject_type.exit
   %call.i12 = tail call fastcc ptr @full_name_nth(ptr noundef %v, ptr noundef %name, i32 noundef 0)
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 330, ptr noundef nonnull @__func__.qobject_input_start_list, ptr noundef nonnull @.str.3, ptr noundef %call.i12, ptr noundef nonnull @.str.24) #8
   br label %return
 
-if.end9:                                          ; preds = %qobject_type.argprom.exit
+if.end9:                                          ; preds = %qobject_type.exit
   %call10 = tail call fastcc ptr @qobject_input_push(ptr noundef %v, ptr noundef %name, ptr noundef %call.i, ptr noundef %list)
   %tobool11 = icmp ne ptr %call10, null
   %or.cond = and i1 %tobool, %tobool11
@@ -1010,21 +1010,21 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true
   %obj.val.i = load i32, ptr %1, align 8
   %2 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %2, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 5
   br i1 %cmp.i, label %if.end, label %if.else
 
-if.else:                                          ; preds = %qobject_type.argprom.exit.i, %land.lhs.true, %entry
+if.else:                                          ; preds = %qobject_type.exit.i, %land.lhs.true, %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 347, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_input_next_list) #7
   unreachable
 
-if.end:                                           ; preds = %qobject_type.argprom.exit.i
+if.end:                                           ; preds = %qobject_type.exit.i
   %entry3 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %entry3, align 8
   %tobool4.not = icmp eq ptr %3, null
@@ -1058,21 +1058,21 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true
   %obj.val.i = load i32, ptr %1, align 8
   %2 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %2, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 5
   br i1 %cmp.i, label %if.end, label %if.else
 
-if.else:                                          ; preds = %qobject_type.argprom.exit.i, %land.lhs.true, %entry
+if.else:                                          ; preds = %qobject_type.exit.i, %land.lhs.true, %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 361, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_input_check_list) #7
   unreachable
 
-if.end:                                           ; preds = %qobject_type.argprom.exit.i
+if.end:                                           ; preds = %qobject_type.exit.i
   %entry3 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %entry3, align 8
   %tobool4.not = icmp eq ptr %3, null
@@ -1100,23 +1100,23 @@ entry:
   %.val = load i32, ptr %1, align 8
   %2 = add i32 %.val, -1
   %or.cond.i = icmp ult i32 %2, 6
-  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit:                        ; preds = %entry
+qobject_type.exit:                                ; preds = %entry
   %cmp = icmp eq i32 %.val, 5
   br i1 %cmp, label %land.lhs.true, label %if.else
 
-land.lhs.true:                                    ; preds = %qobject_type.argprom.exit
+land.lhs.true:                                    ; preds = %qobject_type.exit
   %h = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %h, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %land.lhs.true.i, label %if.else
 
-if.else:                                          ; preds = %land.lhs.true, %qobject_type.argprom.exit
+if.else:                                          ; preds = %land.lhs.true, %qobject_type.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 376, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_input_end_list) #7
   unreachable
 
@@ -1167,17 +1167,17 @@ if.end:                                           ; preds = %entry
   %call1.val = load i32, ptr %call.i, align 8
   %0 = add i32 %call1.val, -1
   %or.cond.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit:                        ; preds = %if.end
+qobject_type.exit:                                ; preds = %if.end
   store i32 %call1.val, ptr %call2, align 4
   br label %return
 
-return:                                           ; preds = %qobject_type.argprom.exit, %if.then
+return:                                           ; preds = %qobject_type.exit, %if.then
   ret i1 %tobool1.not.i
 }
 
@@ -1279,13 +1279,13 @@ entry:
   %obj.val.i = load i32, ptr %obj, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %entry
+qobject_type.exit.i:                              ; preds = %entry
   store ptr %name, ptr %call, align 8
   %obj53338 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %obj, ptr %obj53338, align 8
@@ -1296,7 +1296,7 @@ qobject_type.argprom.exit.i:                      ; preds = %entry
     i32 5, label %if.end20
   ]
 
-if.then8:                                         ; preds = %qobject_type.argprom.exit.i
+if.then8:                                         ; preds = %qobject_type.exit.i
   %call9 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #8
   %call10 = tail call ptr @qdict_first(ptr noundef nonnull %obj) #8
   %tobool11.not41 = icmp eq ptr %call10, null
@@ -1317,11 +1317,11 @@ for.end:                                          ; preds = %for.body, %if.then8
   %.pre = load ptr, ptr %entry26.phi.trans.insert, align 8
   br label %do.body
 
-if.else19:                                        ; preds = %qobject_type.argprom.exit.i
+if.else19:                                        ; preds = %qobject_type.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 231, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_input_push) #7
   unreachable
 
-if.end20:                                         ; preds = %qobject_type.argprom.exit.i
+if.end20:                                         ; preds = %qobject_type.exit.i
   %1 = getelementptr i8, ptr %obj, i64 16
   %call2.val = load ptr, ptr %1, align 8
   %entry22 = getelementptr inbounds i8, ptr %call, i64 32
@@ -1372,19 +1372,19 @@ if.end9:                                          ; preds = %if.end3
   %.val25 = load i32, ptr %2, align 8
   %3 = add i32 %.val25, -1
   %or.cond.i = icmp ult i32 %3, 6
-  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end9
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit:                        ; preds = %if.end9
+qobject_type.exit:                                ; preds = %if.end9
   switch i32 %.val25, label %if.else36 [
     i32 4, label %if.then11
     i32 5, label %if.end37
   ]
 
-if.then11:                                        ; preds = %qobject_type.argprom.exit
+if.then11:                                        ; preds = %qobject_type.exit
   %tobool12.not = icmp eq ptr %name, null
   br i1 %tobool12.not, label %if.else14, label %qobject_check_type.exit
 
@@ -1411,11 +1411,11 @@ if.else29:                                        ; preds = %if.then22
   tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 143, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_input_try_get_object) #7
   unreachable
 
-if.else36:                                        ; preds = %qobject_type.argprom.exit
+if.else36:                                        ; preds = %qobject_type.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_input_try_get_object) #7
   unreachable
 
-if.end37:                                         ; preds = %qobject_type.argprom.exit
+if.end37:                                         ; preds = %qobject_type.exit
   %tobool38.not = icmp eq ptr %name, null
   br i1 %tobool38.not, label %if.end41, label %if.else40
 
@@ -1500,17 +1500,17 @@ if.else7:                                         ; preds = %for.body
   %.val = load i32, ptr %2, align 8
   %3 = add i32 %.val, -1
   %or.cond.i = icmp ult i32 %3, 6
-  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else7
   call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit:                        ; preds = %if.else7
+qobject_type.exit:                                ; preds = %if.else7
   %cmp = icmp eq i32 %.val, 4
   br i1 %cmp, label %if.then9, label %if.else15
 
-if.then9:                                         ; preds = %qobject_type.argprom.exit
+if.then9:                                         ; preds = %qobject_type.exit
   %4 = load ptr, ptr %errname, align 8
   %tobool11.not = icmp eq ptr %name.addr.025, null
   %..str.15 = select i1 %tobool11.not, ptr @.str.15, ptr %name.addr.025
@@ -1519,7 +1519,7 @@ if.then9:                                         ; preds = %qobject_type.argpro
   %call14 = call ptr @g_string_prepend_c(ptr noundef %5, i8 noundef signext 46) #8
   br label %if.end23
 
-if.else15:                                        ; preds = %qobject_type.argprom.exit
+if.else15:                                        ; preds = %qobject_type.exit
   %6 = load i8, ptr %keyval, align 8
   %tobool16 = trunc i8 %6 to i1
   %cond17 = select i1 %tobool16, ptr @.str.16, ptr @.str.17
@@ -1646,31 +1646,31 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %call.i, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 3
-  br i1 %cmp.i, label %if.end7, label %qobject_type.argprom.exit
+  br i1 %cmp.i, label %if.end7, label %qobject_type.exit
 
-qobject_type.argprom.exit:                        ; preds = %qobject_type.argprom.exit.i
+qobject_type.exit:                                ; preds = %qobject_type.exit.i
   %1 = and i32 %obj.val.i, 6
   %switch = icmp eq i32 %1, 4
   %call.i11 = tail call fastcc ptr @full_name_nth(ptr noundef %qiv, ptr noundef %name, i32 noundef 0)
   br i1 %switch, label %sw.bb, label %sw.default
 
-sw.bb:                                            ; preds = %qobject_type.argprom.exit
+sw.bb:                                            ; preds = %qobject_type.exit
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__func__.qobject_input_get_keyval, ptr noundef nonnull @.str.36, ptr noundef %call.i11) #8
   br label %return
 
-sw.default:                                       ; preds = %qobject_type.argprom.exit
+sw.default:                                       ; preds = %qobject_type.exit
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @__func__.qobject_input_get_keyval, ptr noundef nonnull @.str.37, ptr noundef %call.i11) #8
   br label %return
 
-if.end7:                                          ; preds = %qobject_type.argprom.exit.i
+if.end7:                                          ; preds = %qobject_type.exit.i
   %call8 = tail call ptr @qstring_get_str(ptr noundef nonnull %call.i) #8
   br label %return
 

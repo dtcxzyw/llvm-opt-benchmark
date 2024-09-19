@@ -2325,12 +2325,12 @@ define hidden range(i32 0, 2) i32 @mbedtls_x509_crt_is_revoked(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_crt_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  %8 = tail call fastcc i32 @x509_crt_verify_restartable_ca_cb.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @mbedtls_x509_crt_profile_default, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %8 = tail call fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @mbedtls_x509_crt_profile_default, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_crt_verify_restartable_ca_cb.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5, ptr noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5, ptr noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca %struct.mbedtls_pk_context, align 8
   %11 = alloca [64 x i8], align 16
@@ -2355,7 +2355,7 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %16
   %20 = getelementptr inbounds i8, ptr %15, i64 160
   store i32 0, ptr %20, align 8
   %21 = icmp eq ptr %3, null
-  br i1 %21, label %x509_crt_verify_chain.argprom.exit.thread12, label %22
+  br i1 %21, label %x509_crt_verify_chain.exit.thread12, label %22
 
 22:                                               ; preds = %x509_crt_verify_chain_reset.exit
   %.not = icmp eq ptr %4, null
@@ -2639,7 +2639,7 @@ x509_crt_check_ee_locally_trusted.exit.thread.i:  ; preds = %149, %.preheader.i.
   %.not9.i.i.i.i = phi i1 [ false, %x509_crt_check_ee_locally_trusted.exit.thread.i ], [ true, %284 ]
   %161 = phi ptr [ %1, %x509_crt_check_ee_locally_trusted.exit.thread.i ], [ %285, %284 ]
   %cond4.i.i.i = icmp eq ptr %161, null
-  br i1 %cond4.i.i.i, label %x509_crt_find_parent_in.argprom.exit.i.thread.i, label %.lr.ph.i.i.i
+  br i1 %cond4.i.i.i, label %x509_crt_find_parent_in.exit.i.thread.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %160, %x509_crt_check_parent.exit.thread.i.i.i
   %.07.i.i.i = phi i32 [ %.1.i.i.i, %x509_crt_check_parent.exit.thread.i.i.i ], [ 0, %160 ]
@@ -2822,14 +2822,14 @@ x509_crt_check_parent.exit.i.i.i:                 ; preds = %245, %240, %234
   %259 = load i64, ptr %155, align 8
   %260 = call i32 @mbedtls_md(ptr noundef %255, ptr noundef %258, i64 noundef %259, ptr noundef nonnull %13) #16
   %.not.i38.i.i.i = icmp eq i32 %260, 0
-  br i1 %.not.i38.i.i.i, label %261, label %x509_crt_check_signature.argprom.exit.i.i.i
+  br i1 %.not.i38.i.i.i, label %261, label %x509_crt_check_signature.exit.i.i.i
 
 261:                                              ; preds = %253
   %262 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 360
   %263 = load i32, ptr %121, align 4
   %264 = call i32 @mbedtls_pk_can_do(ptr noundef nonnull %262, i32 noundef %263) #16
   %.not14.i.i.i.i = icmp eq i32 %264, 0
-  br i1 %.not14.i.i.i.i, label %x509_crt_check_signature.argprom.exit.i.i.i, label %265
+  br i1 %.not14.i.i.i.i, label %x509_crt_check_signature.exit.i.i.i, label %265
 
 265:                                              ; preds = %261
   %266 = load i32, ptr %121, align 4
@@ -2839,16 +2839,16 @@ x509_crt_check_parent.exit.i.i.i:                 ; preds = %245, %240, %234
   %270 = load i64, ptr %158, align 8
   %271 = call i32 @mbedtls_pk_verify_ext(i32 noundef %266, ptr noundef %267, ptr noundef nonnull %262, i32 noundef %268, ptr noundef nonnull %13, i64 noundef %257, ptr noundef %269, i64 noundef %270) #16
   %272 = icmp eq i32 %271, 0
-  br label %x509_crt_check_signature.argprom.exit.i.i.i
+  br label %x509_crt_check_signature.exit.i.i.i
 
-x509_crt_check_signature.argprom.exit.i.i.i:      ; preds = %265, %261, %253
+x509_crt_check_signature.exit.i.i.i:              ; preds = %265, %261, %253
   %.0.i.i.i.i = phi i1 [ %272, %265 ], [ false, %253 ], [ false, %261 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   %273 = zext i1 %.0.i.i.i.i to i32
   %or.cond.i.i.i = select i1 %.not9.i.i.i.i, i1 true, i1 %.0.i.i.i.i
   br i1 %or.cond.i.i.i, label %274, label %x509_crt_check_parent.exit.thread.i.i.i
 
-274:                                              ; preds = %x509_crt_check_signature.argprom.exit.i.i.i
+274:                                              ; preds = %x509_crt_check_signature.exit.i.i.i
   %275 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 312
   %276 = call i32 @mbedtls_x509_time_is_past(ptr noundef nonnull %275) #16
   %.not35.i.i.i = icmp eq i32 %276, 0
@@ -2858,7 +2858,7 @@ x509_crt_check_signature.argprom.exit.i.i.i:      ; preds = %265, %261, %253
   %278 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 288
   %279 = call i32 @mbedtls_x509_time_is_future(ptr noundef nonnull %278) #16
   %.not36.i.i.i = icmp eq i32 %279, 0
-  br i1 %.not36.i.i.i, label %x509_crt_find_parent_in.argprom.exit.i.thread22.i, label %280
+  br i1 %.not36.i.i.i, label %x509_crt_find_parent_in.exit.i.thread22.i, label %280
 
 280:                                              ; preds = %277, %274
   %281 = icmp eq ptr %.0306.i.i.i, null
@@ -2866,39 +2866,39 @@ x509_crt_check_signature.argprom.exit.i.i.i:      ; preds = %265, %261, %253
   %spec.select37.i.i.i = select i1 %281, i32 %273, i32 %.07.i.i.i
   br label %x509_crt_check_parent.exit.thread.i.i.i
 
-x509_crt_check_parent.exit.thread.i.i.i:          ; preds = %x509_string_cmp.exit.i.i.i, %198, %197, %196, %173, %168, %165, %.lr.ph.i18.i.i, %217, %214, %280, %x509_crt_check_signature.argprom.exit.i.i.i, %x509_crt_check_parent.exit.i.i.i, %245, %.thread.i.i.i.i
-  %.131.i.i.i = phi ptr [ %.0306.i.i.i, %x509_crt_check_signature.argprom.exit.i.i.i ], [ %spec.select.i.i.i, %280 ], [ %.0306.i.i.i, %.thread.i.i.i.i ], [ %.0306.i.i.i, %245 ], [ %.0306.i.i.i, %x509_crt_check_parent.exit.i.i.i ], [ %.0306.i.i.i, %214 ], [ %.0306.i.i.i, %217 ], [ %.0306.i.i.i, %.lr.ph.i18.i.i ], [ %.0306.i.i.i, %165 ], [ %.0306.i.i.i, %168 ], [ %.0306.i.i.i, %173 ], [ %.0306.i.i.i, %196 ], [ %.0306.i.i.i, %197 ], [ %.0306.i.i.i, %198 ], [ %.0306.i.i.i, %x509_string_cmp.exit.i.i.i ]
-  %.1.i.i.i = phi i32 [ %.07.i.i.i, %x509_crt_check_signature.argprom.exit.i.i.i ], [ %spec.select37.i.i.i, %280 ], [ %.07.i.i.i, %.thread.i.i.i.i ], [ %.07.i.i.i, %245 ], [ %.07.i.i.i, %x509_crt_check_parent.exit.i.i.i ], [ %.07.i.i.i, %214 ], [ %.07.i.i.i, %217 ], [ %.07.i.i.i, %.lr.ph.i18.i.i ], [ %.07.i.i.i, %165 ], [ %.07.i.i.i, %168 ], [ %.07.i.i.i, %173 ], [ %.07.i.i.i, %196 ], [ %.07.i.i.i, %197 ], [ %.07.i.i.i, %198 ], [ %.07.i.i.i, %x509_string_cmp.exit.i.i.i ]
+x509_crt_check_parent.exit.thread.i.i.i:          ; preds = %x509_string_cmp.exit.i.i.i, %198, %197, %196, %173, %168, %165, %.lr.ph.i18.i.i, %217, %214, %280, %x509_crt_check_signature.exit.i.i.i, %x509_crt_check_parent.exit.i.i.i, %245, %.thread.i.i.i.i
+  %.131.i.i.i = phi ptr [ %.0306.i.i.i, %x509_crt_check_signature.exit.i.i.i ], [ %spec.select.i.i.i, %280 ], [ %.0306.i.i.i, %.thread.i.i.i.i ], [ %.0306.i.i.i, %245 ], [ %.0306.i.i.i, %x509_crt_check_parent.exit.i.i.i ], [ %.0306.i.i.i, %214 ], [ %.0306.i.i.i, %217 ], [ %.0306.i.i.i, %.lr.ph.i18.i.i ], [ %.0306.i.i.i, %165 ], [ %.0306.i.i.i, %168 ], [ %.0306.i.i.i, %173 ], [ %.0306.i.i.i, %196 ], [ %.0306.i.i.i, %197 ], [ %.0306.i.i.i, %198 ], [ %.0306.i.i.i, %x509_string_cmp.exit.i.i.i ]
+  %.1.i.i.i = phi i32 [ %.07.i.i.i, %x509_crt_check_signature.exit.i.i.i ], [ %spec.select37.i.i.i, %280 ], [ %.07.i.i.i, %.thread.i.i.i.i ], [ %.07.i.i.i, %245 ], [ %.07.i.i.i, %x509_crt_check_parent.exit.i.i.i ], [ %.07.i.i.i, %214 ], [ %.07.i.i.i, %217 ], [ %.07.i.i.i, %.lr.ph.i18.i.i ], [ %.07.i.i.i, %165 ], [ %.07.i.i.i, %168 ], [ %.07.i.i.i, %173 ], [ %.07.i.i.i, %196 ], [ %.07.i.i.i, %197 ], [ %.07.i.i.i, %198 ], [ %.07.i.i.i, %x509_string_cmp.exit.i.i.i ]
   %282 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 608
   %283 = load ptr, ptr %282, align 8
   %cond.i.i.i = icmp eq ptr %283, null
-  br i1 %cond.i.i.i, label %x509_crt_find_parent_in.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !20
+  br i1 %cond.i.i.i, label %x509_crt_find_parent_in.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !20
 
-x509_crt_find_parent_in.argprom.exit.i.i:         ; preds = %x509_crt_check_parent.exit.thread.i.i.i
+x509_crt_find_parent_in.exit.i.i:                 ; preds = %x509_crt_check_parent.exit.thread.i.i.i
   %.not17.i.i = icmp eq ptr %.131.i.i.i, null
-  br i1 %.not17.i.i, label %x509_crt_find_parent_in.argprom.exit.i.thread.i, label %x509_crt_find_parent_in.argprom.exit.i.thread22.i
+  br i1 %.not17.i.i, label %x509_crt_find_parent_in.exit.i.thread.i, label %x509_crt_find_parent_in.exit.i.thread22.i
 
-x509_crt_find_parent_in.argprom.exit.i.thread.i:  ; preds = %x509_crt_find_parent_in.argprom.exit.i.i, %160
-  br i1 %.not9.i.i.i.i, label %x509_crt_find_parent.argprom.exit.i, label %284
+x509_crt_find_parent_in.exit.i.thread.i:          ; preds = %x509_crt_find_parent_in.exit.i.i, %160
+  br i1 %.not9.i.i.i.i, label %x509_crt_find_parent.exit.i, label %284
 
-284:                                              ; preds = %x509_crt_find_parent_in.argprom.exit.i.thread.i
+284:                                              ; preds = %x509_crt_find_parent_in.exit.i.thread.i
   %285 = load ptr, ptr %159, align 8
   br label %160
 
-x509_crt_find_parent.argprom.exit.i:              ; preds = %x509_crt_find_parent_in.argprom.exit.i.thread.i
+x509_crt_find_parent.exit.i:                      ; preds = %x509_crt_find_parent_in.exit.i.thread.i
   %286 = load i32, ptr %95, align 4
   %287 = or i32 %286, 8
   store i32 %287, ptr %95, align 4
   br label %.loopexit25
 
-x509_crt_find_parent_in.argprom.exit.i.thread22.i: ; preds = %x509_crt_find_parent_in.argprom.exit.i.i, %277
-  %storemerge3.i.i18.ph.i = phi ptr [ %.0325.i.i.i, %277 ], [ %.131.i.i.i, %x509_crt_find_parent_in.argprom.exit.i.i ]
-  %.08.ph.i = phi i32 [ %273, %277 ], [ %.1.i.i.i, %x509_crt_find_parent_in.argprom.exit.i.i ]
+x509_crt_find_parent_in.exit.i.thread22.i:        ; preds = %x509_crt_find_parent_in.exit.i.i, %277
+  %storemerge3.i.i18.ph.i = phi ptr [ %.0325.i.i.i, %277 ], [ %.131.i.i.i, %x509_crt_find_parent_in.exit.i.i ]
+  %.08.ph.i = phi i32 [ %273, %277 ], [ %.1.i.i.i, %x509_crt_find_parent_in.exit.i.i ]
   %288 = load i32, ptr %20, align 8
   %.not48.i = icmp eq i32 %288, 1
   br i1 %.not48.i, label %.thread35.i, label %289
 
-289:                                              ; preds = %x509_crt_find_parent_in.argprom.exit.i.thread22.i
+289:                                              ; preds = %x509_crt_find_parent_in.exit.i.thread22.i
   %290 = getelementptr inbounds i8, ptr %.042.i, i64 224
   %291 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %152, ptr noundef nonnull %290)
   %292 = icmp eq i32 %291, 0
@@ -2906,10 +2906,10 @@ x509_crt_find_parent_in.argprom.exit.i.thread22.i: ; preds = %x509_crt_find_pare
   %spec.select.i = add i32 %.0.i39, %293
   %294 = icmp ugt i32 %288, 8
   %or.cond.i = and i1 %.not9.i.i.i.i, %294
-  br i1 %or.cond.i, label %x509_crt_verify_chain.argprom.exit.thread12, label %.thread35.i
+  br i1 %or.cond.i, label %x509_crt_verify_chain.exit.thread12, label %.thread35.i
 
-.thread35.i:                                      ; preds = %289, %x509_crt_find_parent_in.argprom.exit.i.thread22.i
-  %.133.i = phi i32 [ %spec.select.i, %289 ], [ %.0.i39, %x509_crt_find_parent_in.argprom.exit.i.thread22.i ]
+.thread35.i:                                      ; preds = %289, %x509_crt_find_parent_in.exit.i.thread22.i
+  %.133.i = phi i32 [ %spec.select.i, %289 ], [ %.0.i39, %x509_crt_find_parent_in.exit.i.thread22.i ]
   %.not50.i = icmp eq i32 %.08.ph.i, 0
   br i1 %.not50.i, label %295, label %298
 
@@ -3333,7 +3333,7 @@ x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_n
   %.pre = load i32, ptr %20, align 8
   br label %91
 
-.loopexit25:                                      ; preds = %109, %144, %x509_crt_find_parent.argprom.exit.i
+.loopexit25:                                      ; preds = %109, %144, %x509_crt_find_parent.exit.i
   %508 = getelementptr inbounds i8, ptr %15, i64 8
   %509 = load i32, ptr %508, align 8
   %510 = or i32 %509, %.3
@@ -3383,7 +3383,7 @@ x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_n
   %524 = call i32 %6(ptr noundef %7, ptr noundef %523, i32 noundef %indvars.i, ptr noundef nonnull %9) #16
   %.fr = freeze i32 %524
   %.not17.i = icmp eq i32 %.fr, 0
-  br i1 %.not17.i, label %525, label %x509_crt_verify_chain.argprom.exit
+  br i1 %.not17.i, label %525, label %x509_crt_verify_chain.exit
 
 525:                                              ; preds = %.lr.ph.split.i
   %526 = load i32, ptr %9, align 4
@@ -3393,14 +3393,14 @@ x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_n
   %.not.i42 = icmp eq i32 %indvars.i, 0
   br i1 %.not.i42, label %.loopexit20, label %.lr.ph.split.i, !llvm.loop !22
 
-x509_crt_verify_chain.argprom.exit:               ; preds = %.lr.ph.split.i
+x509_crt_verify_chain.exit:                       ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %529 = icmp eq i32 %.fr, -9984
   %spec.select = select i1 %529, i32 -12288, i32 %.fr
-  br label %x509_crt_verify_chain.argprom.exit.thread12
+  br label %x509_crt_verify_chain.exit.thread12
 
-x509_crt_verify_chain.argprom.exit.thread12:      ; preds = %289, %x509_crt_verify_chain.argprom.exit, %x509_crt_verify_chain_reset.exit
-  %.ph = phi i32 [ -10240, %x509_crt_verify_chain_reset.exit ], [ %spec.select, %x509_crt_verify_chain.argprom.exit ], [ -12288, %289 ]
+x509_crt_verify_chain.exit.thread12:              ; preds = %289, %x509_crt_verify_chain.exit, %x509_crt_verify_chain_reset.exit
+  %.ph = phi i32 [ -10240, %x509_crt_verify_chain_reset.exit ], [ %spec.select, %x509_crt_verify_chain.exit ], [ -12288, %289 ]
   store i32 -1, ptr %5, align 4
   br label %531
 
@@ -3415,20 +3415,20 @@ x509_crt_verify_chain.argprom.exit.thread12:      ; preds = %289, %x509_crt_veri
   %. = select i1 %.not34, i32 0, i32 -9984
   br label %531
 
-531:                                              ; preds = %.loopexit20, %x509_crt_verify_chain.argprom.exit.thread12
-  %.0 = phi i32 [ %.ph, %x509_crt_verify_chain.argprom.exit.thread12 ], [ %., %.loopexit20 ]
+531:                                              ; preds = %.loopexit20, %x509_crt_verify_chain.exit.thread12
+  %.0 = phi i32 [ %.ph, %x509_crt_verify_chain.exit.thread12 ], [ %., %.loopexit20 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_crt_verify_with_profile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
-  %9 = tail call fastcc i32 @x509_crt_verify_restartable_ca_cb.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %9 = tail call fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_crt_verify_restartable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
-  %10 = tail call fastcc i32 @x509_crt_verify_restartable_ca_cb.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %10 = tail call fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret i32 %10
 }
 

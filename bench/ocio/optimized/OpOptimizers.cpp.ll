@@ -127,7 +127,7 @@ if.end:                                           ; preds = %entry
   tail call void @_ZNK19OpenColorIO_v2_4dev10OpRcPtrVec8validateEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   %this.val = load ptr, ptr %this, align 8
   %this.val1 = load ptr, ptr %_M_finish.i.i, align 8
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE.argprom(ptr %this.val, ptr %this.val1)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE(ptr %this.val, ptr %this.val1)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -137,7 +137,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @_ZNK19OpenColorIO_v2_4dev10OpRcPtrVec8validateEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE.argprom(ptr readonly %opVec.0.val, ptr readnone %opVec.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE(ptr readonly %opVec.0.val, ptr readnone %opVec.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %op = alloca %"class.std::shared_ptr", align 8
   %cmp.i.not3 = icmp eq ptr %opVec.0.val, %opVec.8.val
@@ -1269,7 +1269,7 @@ invoke.cont.i115:                                 ; preds = %_ZNSt10shared_ptrIK
   br i1 %cmp.i.i.i.i, label %if.end.i118, label %if.then.i116
 
 if.then.i116:                                     ; preds = %invoke.cont.i115
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE.argprom(ptr %120, ptr %121)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE(ptr %120, ptr %121)
           to label %invoke.cont5.i unwind label %lpad.i114
 
 invoke.cont5.i:                                   ; preds = %if.then.i116
@@ -3889,7 +3889,7 @@ _ZN19OpenColorIO_v2_4dev10OpRcPtrVec5clearEv.exit.i405: ; preds = %invoke.cont.i
 invoke.cont19.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev10OpRcPtrVec5clearEv.exit.i405
   %tmpops.val.i = load ptr, ptr %tmpops.i322, align 8
   %tmpops.val17.i = load ptr, ptr %_M_finish.i.i.i.i333, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE.argprom(ptr %tmpops.val.i, ptr %tmpops.val17.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE(ptr %tmpops.val.i, ptr %tmpops.val17.i)
           to label %invoke.cont20.i unwind label %lpad8.i
 
 invoke.cont20.i:                                  ; preds = %invoke.cont19.i
@@ -4264,7 +4264,7 @@ invoke.cont14.i504:                               ; preds = %invoke.cont12.i
 invoke.cont16.i:                                  ; preds = %invoke.cont14.i504
   %tmpops.val.i505 = load ptr, ptr %tmpops.i448, align 8
   %tmpops.val18.i = load ptr, ptr %91, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE.argprom(ptr %tmpops.val.i505, ptr %tmpops.val18.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE(ptr %tmpops.val.i505, ptr %tmpops.val18.i)
           to label %invoke.cont17.i unwind label %lpad15.i
 
 invoke.cont17.i:                                  ; preds = %invoke.cont16.i
@@ -4594,7 +4594,7 @@ invoke.cont35.i:                                  ; preds = %invoke.cont32.i
 invoke.cont37.i:                                  ; preds = %invoke.cont35.i
   %tmpops33.val.i = load ptr, ptr %tmpops33.i, align 8
   %tmpops33.val17.i = load ptr, ptr %90, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE.argprom(ptr %tmpops33.val.i, ptr %tmpops33.val17.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE(ptr %tmpops33.val.i, ptr %tmpops33.val17.i)
           to label %invoke.cont38.i unwind label %lpad36.i
 
 invoke.cont38.i:                                  ; preds = %invoke.cont37.i
@@ -6985,7 +6985,7 @@ invoke.cont33.i:                                  ; preds = %invoke.cont31.i
   %lutOps.val.i = load ptr, ptr %lutOps.i, align 8
   %242 = getelementptr inbounds i8, ptr %lutOps.i, i64 8
   %lutOps.val17.i = load ptr, ptr %242, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE.argprom(ptr %lutOps.val.i, ptr %lutOps.val17.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE(ptr %lutOps.val.i, ptr %lutOps.val17.i)
           to label %invoke.cont34.i unwind label %lpad32.i
 
 invoke.cont34.i:                                  ; preds = %invoke.cont33.i

@@ -85,7 +85,7 @@ define dso_local void @InitCatalogCache() local_unnamed_addr #0 {
   %31 = load i32, ptr @SysCacheRelationOidSize, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp ult i32 %31, 2
-  br i1 %33, label %qunique.argprom.exit, label %.preheader.i
+  br i1 %33, label %qunique.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %29, %45
   %.02.i = phi i64 [ %.1.i, %45 ], [ 0, %29 ]
@@ -119,9 +119,9 @@ define dso_local void @InitCatalogCache() local_unnamed_addr #0 {
 47:                                               ; preds = %45
   %48 = trunc i64 %.1.i to i32
   %49 = add i32 %48, 1
-  br label %qunique.argprom.exit
+  br label %qunique.exit
 
-qunique.argprom.exit:                             ; preds = %29, %47
+qunique.exit:                                     ; preds = %29, %47
   %.024.i = phi i32 [ %49, %47 ], [ %31, %29 ]
   store i32 %.024.i, ptr @SysCacheRelationOidSize, align 4
   %50 = load i32, ptr @SysCacheSupportingRelOidSize, align 4
@@ -130,11 +130,11 @@ qunique.argprom.exit:                             ; preds = %29, %47
   %52 = load i32, ptr @SysCacheSupportingRelOidSize, align 4
   %53 = sext i32 %52 to i64
   %54 = icmp ult i32 %52, 2
-  br i1 %54, label %qunique.argprom.exit23, label %.preheader.i15
+  br i1 %54, label %qunique.exit23, label %.preheader.i15
 
-.preheader.i15:                                   ; preds = %qunique.argprom.exit, %66
-  %.02.i16 = phi i64 [ %.1.i20, %66 ], [ 0, %qunique.argprom.exit ]
-  %.0231.i17 = phi i64 [ %67, %66 ], [ 1, %qunique.argprom.exit ]
+.preheader.i15:                                   ; preds = %qunique.exit, %66
+  %.02.i16 = phi i64 [ %.1.i20, %66 ], [ 0, %qunique.exit ]
+  %.0231.i17 = phi i64 [ %67, %66 ], [ 1, %qunique.exit ]
   %55 = shl i64 %.0231.i17, 2
   %56 = getelementptr i8, ptr @SysCacheSupportingRelOid, i64 %55
   %57 = shl i64 %.02.i16, 2
@@ -164,10 +164,10 @@ qunique.argprom.exit:                             ; preds = %29, %47
 68:                                               ; preds = %66
   %69 = trunc i64 %.1.i20 to i32
   %70 = add i32 %69, 1
-  br label %qunique.argprom.exit23
+  br label %qunique.exit23
 
-qunique.argprom.exit23:                           ; preds = %qunique.argprom.exit, %68
-  %.024.i22 = phi i32 [ %70, %68 ], [ %52, %qunique.argprom.exit ]
+qunique.exit23:                                   ; preds = %qunique.exit, %68
+  %.024.i22 = phi i32 [ %70, %68 ], [ %52, %qunique.exit ]
   store i32 %.024.i22, ptr @SysCacheSupportingRelOidSize, align 4
   ret void
 }

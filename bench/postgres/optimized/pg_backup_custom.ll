@@ -183,24 +183,24 @@ define dso_local void @InitArchiveFmt_Custom(ptr noundef %0) local_unnamed_addr 
   %.val = load ptr, ptr %64, align 8
   %68 = tail call i64 @ftello(ptr noundef %.val)
   %69 = icmp slt i64 %68, 0
-  br i1 %69, label %70, label %_getFilePos.argprom.exit
+  br i1 %69, label %70, label %_getFilePos.exit
 
 70:                                               ; preds = %62
   %71 = load i32, ptr %67, align 8
   %.not.i = icmp eq i32 %71, 0
-  br i1 %.not.i, label %_getFilePos.argprom.exit, label %72
+  br i1 %.not.i, label %_getFilePos.exit, label %72
 
 72:                                               ; preds = %70
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-_getFilePos.argprom.exit:                         ; preds = %62, %70
+_getFilePos.exit:                                 ; preds = %62, %70
   %73 = getelementptr inbounds i8, ptr %25, i64 16
   store i64 %68, ptr %73, align 8
   br label %74
 
-74:                                               ; preds = %_getFilePos.argprom.exit, %46
+74:                                               ; preds = %_getFilePos.exit, %46
   ret void
 }
 
@@ -233,14 +233,14 @@ define internal void @_StartData(ptr noundef %0, ptr nocapture noundef readonly 
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %_getFilePos.argprom.exit, label %13
+  br i1 %.not.i, label %_getFilePos.exit, label %13
 
 13:                                               ; preds = %10
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-_getFilePos.argprom.exit:                         ; preds = %10
+_getFilePos.exit:                                 ; preds = %10
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %8, ptr %14, align 8
   br label %17
@@ -251,7 +251,7 @@ _getFilePos.argprom.exit:                         ; preds = %10
   store i32 2, ptr %6, align 8
   br label %17
 
-17:                                               ; preds = %_getFilePos.argprom.exit, %15
+17:                                               ; preds = %_getFilePos.exit, %15
   %18 = load ptr, ptr %7, align 8
   %19 = tail call i32 @fputc(i32 noundef 1, ptr noundef %18)
   %20 = icmp eq i32 %19, -1
@@ -611,31 +611,31 @@ _skipLOs.exit:                                    ; preds = %_skipLOs.exit.backe
   %.val = load ptr, ptr %22, align 8
   %25 = tail call i64 @ftello(ptr noundef %.val)
   %26 = icmp slt i64 %25, 0
-  br i1 %26, label %27, label %_getFilePos.argprom.exit
+  br i1 %26, label %27, label %_getFilePos.exit
 
 27:                                               ; preds = %_skipLOs.exit
   %28 = load i32, ptr %10, align 8
   %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %_getFilePos.argprom.exit, label %29
+  br i1 %.not.i, label %_getFilePos.exit, label %29
 
 29:                                               ; preds = %27
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-_getFilePos.argprom.exit:                         ; preds = %_skipLOs.exit, %27
+_getFilePos.exit:                                 ; preds = %_skipLOs.exit, %27
   %30 = load i32, ptr %23, align 8
   %31 = icmp slt i32 %30, 66304
   br i1 %31, label %36, label %32
 
-32:                                               ; preds = %_getFilePos.argprom.exit
+32:                                               ; preds = %_getFilePos.exit
   %33 = load ptr, ptr %22, align 8
   %34 = tail call i32 @getc(ptr noundef %33)
   %35 = icmp eq i32 %34, -1
   br i1 %35, label %_readBlockHeader.exit.thread, label %36
 
-36:                                               ; preds = %_getFilePos.argprom.exit, %32
-  %.1 = phi i32 [ %34, %32 ], [ 1, %_getFilePos.argprom.exit ]
+36:                                               ; preds = %_getFilePos.exit, %32
+  %.1 = phi i32 [ %34, %32 ], [ 1, %_getFilePos.exit ]
   %37 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
   %38 = load i32, ptr %24, align 8
   %39 = icmp eq i32 %37, %38
@@ -829,29 +829,29 @@ _LoadLOs.exit:                                    ; preds = %95, %87
   %.val64 = load ptr, ptr %106, align 8
   %107 = tail call i64 @ftello(ptr noundef %.val64)
   %108 = icmp slt i64 %107, 0
-  br i1 %108, label %109, label %_getFilePos.argprom.exit71
+  br i1 %108, label %109, label %_getFilePos.exit71
 
 109:                                              ; preds = %105
   %110 = load i32, ptr %10, align 8
   %.not.i70 = icmp eq i32 %110, 0
-  br i1 %.not.i70, label %_getFilePos.argprom.exit71, label %111
+  br i1 %.not.i70, label %_getFilePos.exit71, label %111
 
 111:                                              ; preds = %109
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-_getFilePos.argprom.exit71:                       ; preds = %105, %109
+_getFilePos.exit71:                               ; preds = %105, %109
   %112 = getelementptr inbounds i8, ptr %4, i64 16
   %113 = load i64, ptr %112, align 8
   %114 = icmp sgt i64 %107, %113
   br i1 %114, label %115, label %116
 
-115:                                              ; preds = %_getFilePos.argprom.exit71
+115:                                              ; preds = %_getFilePos.exit71
   store i64 %107, ptr %112, align 8
   br label %116
 
-116:                                              ; preds = %_getFilePos.argprom.exit71, %115, %2, %102, %100
+116:                                              ; preds = %_getFilePos.exit71, %115, %2, %102, %100
   ret void
 }
 
@@ -931,14 +931,14 @@ define internal void @_StartLOs(ptr noundef %0, ptr nocapture noundef readonly %
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %_getFilePos.argprom.exit, label %13
+  br i1 %.not.i, label %_getFilePos.exit, label %13
 
 13:                                               ; preds = %10
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-_getFilePos.argprom.exit:                         ; preds = %10
+_getFilePos.exit:                                 ; preds = %10
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %8, ptr %14, align 8
   br label %17
@@ -949,7 +949,7 @@ _getFilePos.argprom.exit:                         ; preds = %10
   store i32 2, ptr %6, align 8
   br label %17
 
-17:                                               ; preds = %_getFilePos.argprom.exit, %15
+17:                                               ; preds = %_getFilePos.exit, %15
   %18 = load ptr, ptr %7, align 8
   %19 = tail call i32 @fputc(i32 noundef 3, ptr noundef %18)
   %20 = icmp eq i32 %19, -1

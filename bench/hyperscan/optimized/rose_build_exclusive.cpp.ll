@@ -1336,7 +1336,7 @@ invoke.cont17.i:                                  ; preds = %.noexc108.i, %if.el
   %__begin05.sroa.0.0273.i.val = load ptr, ptr %__begin05.sroa.0.0273.i, align 8
   %59 = getelementptr i8, ptr %__begin05.sroa.0.0273.i, i64 8
   %__begin05.sroa.0.0273.i.val56 = load ptr, ptr %59, align 8
-  %call24.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L17addPrefixLiteralsERNS_8NGHolderERSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEERKSt6vectorISA_INS_9CharReachESaISB_EESaISD_EE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %h.i, ptr noundef nonnull align 8 dereferenceable(56) %tailId.i, ptr %__begin05.sroa.0.0273.i.val, ptr %__begin05.sroa.0.0273.i.val56)
+  %call24.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L17addPrefixLiteralsERNS_8NGHolderERSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEERKSt6vectorISA_INS_9CharReachESaISB_EESaISD_EE(ptr noundef nonnull align 8 dereferenceable(136) %h.i, ptr noundef nonnull align 8 dereferenceable(56) %tailId.i, ptr %__begin05.sroa.0.0273.i.val, ptr %__begin05.sroa.0.0273.i.val56)
           to label %invoke.cont23.i unwind label %lpad22.i
 
 invoke.cont23.i:                                  ; preds = %invoke.cont17.i
@@ -4263,7 +4263,7 @@ invoke.cont17.i:                                  ; preds = %.noexc108.i, %if.el
   %__begin05.sroa.0.0273.i.val = load ptr, ptr %__begin05.sroa.0.0273.i, align 8
   %59 = getelementptr i8, ptr %__begin05.sroa.0.0273.i, i64 8
   %__begin05.sroa.0.0273.i.val56 = load ptr, ptr %59, align 8
-  %call24.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L17addPrefixLiteralsERNS_8NGHolderERSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEERKSt6vectorISA_INS_9CharReachESaISB_EESaISD_EE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %h.i, ptr noundef nonnull align 8 dereferenceable(56) %tailId.i, ptr %__begin05.sroa.0.0273.i.val, ptr %__begin05.sroa.0.0273.i.val56)
+  %call24.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L17addPrefixLiteralsERNS_8NGHolderERSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEERKSt6vectorISA_INS_9CharReachESaISB_EESaISD_EE(ptr noundef nonnull align 8 dereferenceable(136) %h.i, ptr noundef nonnull align 8 dereferenceable(56) %tailId.i, ptr %__begin05.sroa.0.0273.i.val, ptr %__begin05.sroa.0.0273.i.val56)
           to label %invoke.cont23.i unwind label %lpad22.i
 
 invoke.cont23.i:                                  ; preds = %invoke.cont17.i
@@ -6825,7 +6825,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L17addPrefixLiteralsERNS_8NGHolderERSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEERKSt6vectorISA_INS_9CharReachESaISB_EESaISD_EE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(56) %tailId, ptr readonly %triggers.0.val, ptr readnone %triggers.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L17addPrefixLiteralsERNS_8NGHolderERSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEERKSt6vectorISA_INS_9CharReachESaISB_EESaISD_EE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(56) %tailId, ptr readonly %triggers.0.val, ptr readnone %triggers.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %ref.tmp = alloca i32, align 4

@@ -7,14 +7,14 @@ target triple = "x86_64-pc-linux-gnu"
 define float @Map_SwitchCutGetDerefed(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 56
   %.val = load float, ptr %4, align 8
-  %5 = tail call fastcc float @Map_SwitchCutRefDeref.argprom(float %.val, ptr noundef %1, i32 noundef %2, i32 noundef 1)
+  %5 = tail call fastcc float @Map_SwitchCutRefDeref(float %.val, ptr noundef %1, i32 noundef %2, i32 noundef 1)
   %.val6 = load float, ptr %4, align 8
-  %6 = tail call fastcc float @Map_SwitchCutRefDeref.argprom(float %.val6, ptr noundef %1, i32 noundef %2, i32 noundef 0)
+  %6 = tail call fastcc float @Map_SwitchCutRefDeref(float %.val6, ptr noundef %1, i32 noundef %2, i32 noundef 0)
   ret float %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc float @Map_SwitchCutRefDeref.argprom(float %.56.val, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 76
   %5 = load i8, ptr %4, align 4
   %or.cond = icmp sgt i8 %5, 1
@@ -109,7 +109,7 @@ define internal fastcc float @Map_SwitchCutRefDeref.argprom(float %.56.val, ptr 
   %.0.us = phi i32 [ %51, %50 ], [ %10, %46 ]
   %56 = getelementptr i8, ptr %8, i64 56
   %.val.us = load float, ptr %56, align 8
-  %57 = tail call fastcc float @Map_SwitchCutRefDeref.argprom(float %.val.us, ptr noundef %.050.us, i32 noundef %.0.us, i32 noundef 0)
+  %57 = tail call fastcc float @Map_SwitchCutRefDeref(float %.val.us, ptr noundef %.050.us, i32 noundef %.0.us, i32 noundef 0)
   %58 = fadd float %.3.us, %57
   br label %59
 
@@ -205,7 +205,7 @@ define internal fastcc float @Map_SwitchCutRefDeref.argprom(float %.56.val, ptr 
   %.0 = phi i32 [ %107, %106 ], [ %66, %102 ]
   %112 = getelementptr i8, ptr %64, i64 56
   %.val = load float, ptr %112, align 8
-  %113 = tail call fastcc float @Map_SwitchCutRefDeref.argprom(float %.val, ptr noundef %.050, i32 noundef %.0, i32 noundef %2)
+  %113 = tail call fastcc float @Map_SwitchCutRefDeref(float %.val, ptr noundef %.050, i32 noundef %.0, i32 noundef %2)
   %114 = fadd float %.3, %113
   br label %115
 
@@ -226,7 +226,7 @@ define internal fastcc float @Map_SwitchCutRefDeref.argprom(float %.56.val, ptr 
 define float @Map_SwitchCutRef(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 56
   %.val = load float, ptr %4, align 8
-  %5 = tail call fastcc float @Map_SwitchCutRefDeref.argprom(float %.val, ptr noundef %1, i32 noundef %2, i32 noundef 1)
+  %5 = tail call fastcc float @Map_SwitchCutRefDeref(float %.val, ptr noundef %1, i32 noundef %2, i32 noundef 1)
   ret float %5
 }
 
@@ -234,7 +234,7 @@ define float @Map_SwitchCutRef(ptr nocapture noundef readonly %0, ptr noundef %1
 define float @Map_SwitchCutDeref(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 56
   %.val = load float, ptr %4, align 8
-  %5 = tail call fastcc float @Map_SwitchCutRefDeref.argprom(float %.val, ptr noundef %1, i32 noundef %2, i32 noundef 0)
+  %5 = tail call fastcc float @Map_SwitchCutRefDeref(float %.val, ptr noundef %1, i32 noundef %2, i32 noundef 0)
   ret float %5
 }
 

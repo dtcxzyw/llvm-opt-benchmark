@@ -123,13 +123,13 @@ for.cond3.us.i:                                   ; preds = %do.end10.us.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.cond3.for.end_crit_edge.us.i, label %do.end10.us.i, !llvm.loop !5
 
-_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.argprom.exit.us.i: ; preds = %for.cond3.for.end_crit_edge.us.i
+_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i: ; preds = %for.cond3.for.end_crit_edge.us.i
   %m_size.i.i2.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i.i.us.i, i64 72
   %6 = load i64, ptr %m_size.i.i2.i.us.i, align 8
   %tobool.not.i.i3.i.not.us.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i.i3.i.not.us.i, label %for.inc28.us.i, label %validate.i.loopexit24
 
-for.inc28.us.i:                                   ; preds = %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.argprom.exit.us.i
+for.inc28.us.i:                                   ; preds = %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i
   %cmp.us.i = icmp ule i64 %sub.ptr.div.i.i, %indvars.iv.next
   %cmp2.not.us.i = icmp eq i64 %indvars.iv.next, %4
   %or.cond.us.i = select i1 %cmp.us.i, i1 true, i1 %cmp2.not.us.i
@@ -150,7 +150,7 @@ for.cond3.for.end_crit_edge.us.i:                 ; preds = %for.cond3.us.i
   %m_size.i.i.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i.i.us.i, i64 40
   %10 = load i64, ptr %m_size.i.i.i.us.i, align 8
   %tobool.not.i.i.i.us.i = icmp eq i64 %10, 0
-  br i1 %tobool.not.i.i.i.us.i, label %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.argprom.exit.us.i, label %validate.i.loopexit24
+  br i1 %tobool.not.i.i.i.us.i, label %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i, label %validate.i.loopexit24
 
 for.cond3.preheader.i:                            ; preds = %for.cond3.preheader.lr.ph.i, %for.inc28.i
   %conv51.i = phi i64 [ %conv.i, %for.inc28.i ], [ 1, %for.cond3.preheader.lr.ph.i ]
@@ -163,15 +163,15 @@ for.cond3.preheader.i:                            ; preds = %for.cond3.preheader
   %m_size.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 40
   %13 = load i64, ptr %m_size.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %13, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.argprom.exit.i, label %validate.i
+  br i1 %tobool.not.i.i.i.i, label %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i, label %validate.i
 
-_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.argprom.exit.i: ; preds = %for.cond3.preheader.i
+_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i: ; preds = %for.cond3.preheader.i
   %m_size.i.i2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 72
   %14 = load i64, ptr %m_size.i.i2.i.i, align 8
   %tobool.not.i.i3.i.not.i = icmp eq i64 %14, 0
   br i1 %tobool.not.i.i3.i.not.i, label %for.inc28.i, label %validate.i
 
-for.inc28.i:                                      ; preds = %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.argprom.exit.i
+for.inc28.i:                                      ; preds = %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i
   %inc29.i = add i32 %i.049.i, 1
   %conv.i = zext i32 %inc29.i to i64
   %cmp.i = icmp ule i64 %sub.ptr.div.i.i, %conv.i
@@ -183,13 +183,13 @@ validate.i.loopexit23:                            ; preds = %do.end10.us.i
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %validate.i
 
-validate.i.loopexit24:                            ; preds = %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.argprom.exit.us.i, %for.inc28.us.i, %for.cond3.for.end_crit_edge.us.i
-  %i.043.i.ph25.in = phi i64 [ %indvars.iv, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.argprom.exit.us.i ], [ %indvars.iv.next, %for.inc28.us.i ], [ %indvars.iv, %for.cond3.for.end_crit_edge.us.i ]
+validate.i.loopexit24:                            ; preds = %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i, %for.inc28.us.i, %for.cond3.for.end_crit_edge.us.i
+  %i.043.i.ph25.in = phi i64 [ %indvars.iv, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i ], [ %indvars.iv.next, %for.inc28.us.i ], [ %indvars.iv, %for.cond3.for.end_crit_edge.us.i ]
   %i.043.i.ph25 = trunc i64 %i.043.i.ph25.in to i32
   br label %validate.i
 
-validate.i:                                       ; preds = %for.inc28.i, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.argprom.exit.i, %for.cond3.preheader.i, %validate.i.loopexit24, %validate.i.loopexit23, %entry
-  %i.043.i = phi i32 [ 1, %entry ], [ %15, %validate.i.loopexit23 ], [ %i.043.i.ph25, %validate.i.loopexit24 ], [ %i.049.i, %for.cond3.preheader.i ], [ %inc29.i, %for.inc28.i ], [ %i.049.i, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.argprom.exit.i ]
+validate.i:                                       ; preds = %for.inc28.i, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i, %for.cond3.preheader.i, %validate.i.loopexit24, %validate.i.loopexit23, %entry
+  %i.043.i = phi i32 [ 1, %entry ], [ %15, %validate.i.loopexit23 ], [ %i.043.i.ph25, %validate.i.loopexit24 ], [ %i.049.i, %for.cond3.preheader.i ], [ %inc29.i, %for.inc28.i ], [ %i.049.i, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i ]
   %sub.i = add i32 %i.043.i, -1
   %conv3273.i = zext i32 %i.043.i to i64
   %cmp3574.i = icmp ugt i64 %sub.ptr.div.i.i, %conv3273.i

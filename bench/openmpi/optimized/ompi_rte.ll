@@ -258,7 +258,7 @@ define internal fastcc ptr @get_print_name_buffer() unnamed_addr #0 {
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_tsd_tracked_key_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not1.i = icmp eq ptr %7, null
-  br i1 %.not1.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %8 = phi ptr [ %10, %.lr.ph.i ], [ %7, %5 ]
@@ -267,31 +267,31 @@ define internal fastcc ptr @get_print_name_buffer() unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %opal_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
-opal_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %5
+opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   tail call void @opal_tsd_tracked_key_set_destructor(ptr noundef nonnull @print_args_tsd_key, ptr noundef nonnull @buffer_cleanup) #19
   store i1 true, ptr @fns_init, align 1
   br label %11
 
-11:                                               ; preds = %opal_obj_run_constructors.argprom.exit, %0
+11:                                               ; preds = %opal_obj_run_constructors.exit, %0
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @print_args_tsd_key, i64 16), align 8
   %13 = tail call ptr @pthread_getspecific(i32 noundef %12) #19
   %.not.i6 = icmp eq ptr %13, null
-  br i1 %.not.i6, label %opal_tsd_tracked_key_get.argprom.exit.thread, label %opal_tsd_tracked_key_get.argprom.exit
+  br i1 %.not.i6, label %opal_tsd_tracked_key_get.exit.thread, label %opal_tsd_tracked_key_get.exit
 
-opal_tsd_tracked_key_get.argprom.exit:            ; preds = %11
+opal_tsd_tracked_key_get.exit:                    ; preds = %11
   %14 = getelementptr inbounds i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %opal_tsd_tracked_key_get.argprom.exit.thread, label %24
+  br i1 %16, label %opal_tsd_tracked_key_get.exit.thread, label %24
 
-opal_tsd_tracked_key_get.argprom.exit.thread:     ; preds = %11, %opal_tsd_tracked_key_get.argprom.exit
+opal_tsd_tracked_key_get.exit.thread:             ; preds = %11, %opal_tsd_tracked_key_get.exit
   %17 = tail call noalias dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #20
   br label %18
 
-18:                                               ; preds = %opal_tsd_tracked_key_get.argprom.exit.thread, %18
-  %indvars.iv = phi i64 [ 0, %opal_tsd_tracked_key_get.argprom.exit.thread ], [ %indvars.iv.next, %18 ]
+18:                                               ; preds = %opal_tsd_tracked_key_get.exit.thread, %18
+  %indvars.iv = phi i64 [ 0, %opal_tsd_tracked_key_get.exit.thread ], [ %indvars.iv.next, %18 ]
   %19 = tail call noalias dereferenceable_or_null(51) ptr @malloc(i64 noundef 51) #20
   %20 = getelementptr inbounds [16 x ptr], ptr %17, i64 0, i64 %indvars.iv
   store ptr %19, ptr %20, align 8
@@ -305,8 +305,8 @@ opal_tsd_tracked_key_get.argprom.exit.thread:     ; preds = %11, %opal_tsd_track
   %23 = tail call i32 @opal_tsd_tracked_key_set(ptr noundef nonnull @print_args_tsd_key, ptr noundef nonnull %17) #19
   br label %24
 
-24:                                               ; preds = %opal_tsd_tracked_key_get.argprom.exit, %21
-  %.010 = phi ptr [ %17, %21 ], [ %15, %opal_tsd_tracked_key_get.argprom.exit ]
+24:                                               ; preds = %opal_tsd_tracked_key_get.exit, %21
+  %.010 = phi ptr [ %17, %21 ], [ %15, %opal_tsd_tracked_key_get.exit ]
   ret ptr %.010
 }
 
@@ -1716,7 +1716,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %447
 
 .thread447:                                       ; preds = %.thread439, %443
-  call fastcc void @_setup_top_session_dir.argprom.retelim()
+  call fastcc void @_setup_top_session_dir()
   br label %447
 
 447:                                              ; preds = %.thread447, %446
@@ -1769,7 +1769,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %467
 
 .thread456:                                       ; preds = %447, %462
-  %466 = call fastcc i32 @_setup_job_session_dir.argprom()
+  %466 = call fastcc i32 @_setup_job_session_dir()
   %.not273 = icmp eq i32 %466, 0
   br i1 %.not273, label %467, label %652
 
@@ -1843,7 +1843,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %502
 
 .thread465:                                       ; preds = %485, %497
-  %501 = call fastcc i32 @_setup_proc_session_dir.argprom()
+  %501 = call fastcc i32 @_setup_proc_session_dir()
   %.not276 = icmp eq i32 %501, 0
   br i1 %.not276, label %502, label %652
 
@@ -2472,7 +2472,7 @@ declare i32 @opal_pmix_convert_status(i32 noundef) local_unnamed_addr #1
 declare noalias ptr @opal_argv_join(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @_setup_top_session_dir.argprom.retelim() unnamed_addr #11 {
+define internal fastcc void @_setup_top_session_dir() unnamed_addr #11 {
   %1 = tail call ptr @getenv(ptr noundef nonnull @.str.72) #19
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %9
@@ -2496,7 +2496,7 @@ define internal fastcc void @_setup_top_session_dir.argprom.retelim() unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @_setup_job_session_dir.argprom() unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @_setup_job_session_dir() unnamed_addr #0 {
   %1 = tail call i32 @geteuid() #19
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 280), align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
@@ -2520,7 +2520,7 @@ define internal fastcc range(i32 -2, 1) i32 @_setup_job_session_dir.argprom() un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @_setup_proc_session_dir.argprom() unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @_setup_proc_session_dir() unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
   %3 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_process_info, i64 296), ptr noundef nonnull @.str.77, ptr noundef %1, i32 noundef %2) #19
@@ -2653,7 +2653,7 @@ define noundef i32 @ompi_rte_finalize() local_unnamed_addr #0 {
 
 30:                                               ; preds = %29, %27
   %.b919 = load i1, ptr @fns_init, align 1
-  br i1 %.b919, label %31, label %opal_obj_run_destructors.argprom.exit
+  br i1 %.b919, label %31, label %opal_obj_run_destructors.exit
 
 31:                                               ; preds = %30
   %32 = load ptr, ptr @print_args_tsd_key, align 8
@@ -2661,7 +2661,7 @@ define noundef i32 @ompi_rte_finalize() local_unnamed_addr #0 {
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
   %.not1.i = icmp eq ptr %35, null
-  br i1 %.not1.i, label %opal_obj_run_destructors.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.i
   %36 = phi ptr [ %38, %.lr.ph.i ], [ %35, %31 ]
@@ -2670,9 +2670,9 @@ define noundef i32 @ompi_rte_finalize() local_unnamed_addr #0 {
   %37 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %opal_obj_run_destructors.argprom.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !9
 
-opal_obj_run_destructors.argprom.exit:            ; preds = %.lr.ph.i, %31, %30
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %31, %30
   tail call void @opal_pmix_finalize_nspace_tracker() #19
   %39 = tail call i32 @opal_finalize() #19
   %40 = tail call i32 @PMIx_Finalize(ptr noundef null, i64 noundef 0) #19

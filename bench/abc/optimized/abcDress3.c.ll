@@ -47,7 +47,7 @@ define void @Abc_ConvertHopToGia_rec1(ptr noundef %0, ptr nocapture noundef %1) 
   %14 = ptrtoint ptr %.val15 to i64
   %15 = and i64 %14, -2
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %Hop_ObjChild0CopyI.argprom.exit, label %16
+  br i1 %.not.i, label %Hop_ObjChild0CopyI.exit, label %16
 
 16:                                               ; preds = %5
   %17 = inttoptr i64 %15 to ptr
@@ -55,26 +55,26 @@ define void @Abc_ConvertHopToGia_rec1(ptr noundef %0, ptr nocapture noundef %1) 
   %19 = trunc i64 %14 to i32
   %20 = and i32 %19, 1
   %21 = xor i32 %18, %20
-  br label %Hop_ObjChild0CopyI.argprom.exit
+  br label %Hop_ObjChild0CopyI.exit
 
-Hop_ObjChild0CopyI.argprom.exit:                  ; preds = %5, %16
+Hop_ObjChild0CopyI.exit:                          ; preds = %5, %16
   %22 = phi i32 [ %21, %16 ], [ -1, %5 ]
   %.val16 = load ptr, ptr %10, align 8
   %23 = ptrtoint ptr %.val16 to i64
   %24 = and i64 %23, -2
   %.not.i17 = icmp eq i64 %24, 0
-  br i1 %.not.i17, label %Hop_ObjChild1CopyI.argprom.exit, label %25
+  br i1 %.not.i17, label %Hop_ObjChild1CopyI.exit, label %25
 
-25:                                               ; preds = %Hop_ObjChild0CopyI.argprom.exit
+25:                                               ; preds = %Hop_ObjChild0CopyI.exit
   %26 = inttoptr i64 %24 to ptr
   %27 = load i32, ptr %26, align 8
   %28 = trunc i64 %23 to i32
   %29 = and i32 %28, 1
   %30 = xor i32 %27, %29
-  br label %Hop_ObjChild1CopyI.argprom.exit
+  br label %Hop_ObjChild1CopyI.exit
 
-Hop_ObjChild1CopyI.argprom.exit:                  ; preds = %Hop_ObjChild0CopyI.argprom.exit, %25
-  %31 = phi i32 [ %30, %25 ], [ -1, %Hop_ObjChild0CopyI.argprom.exit ]
+Hop_ObjChild1CopyI.exit:                          ; preds = %Hop_ObjChild0CopyI.exit, %25
+  %31 = phi i32 [ %30, %25 ], [ -1, %Hop_ObjChild0CopyI.exit ]
   %32 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %22, i32 noundef %31) #13
   store i32 %32, ptr %1, align 8
   %33 = load i32, ptr %3, align 8
@@ -82,7 +82,7 @@ Hop_ObjChild1CopyI.argprom.exit:                  ; preds = %Hop_ObjChild0CopyI.
   store i32 %34, ptr %3, align 8
   br label %35
 
-35:                                               ; preds = %2, %Hop_ObjChild1CopyI.argprom.exit
+35:                                               ; preds = %2, %Hop_ObjChild1CopyI.exit
   ret void
 }
 
@@ -325,7 +325,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %86
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 64
   %100 = load i32, ptr %99, align 8
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %100)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %100)
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %.val58 = load ptr, ptr %87, align 8
   %101 = getelementptr i8, ptr %.val58, i64 4
@@ -345,7 +345,7 @@ declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @Hop_DagSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -1091,7 +1091,7 @@ Vec_IntFree.exit158:                              ; preds = %Vec_IntFree.exit, %
 258:                                              ; preds = %254
   %indvars.iv189.tr = trunc i64 %indvars.iv189 to i32
   %259 = shl i32 %indvars.iv189.tr, 1
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %170, i32 noundef %259)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %170, i32 noundef %259)
   %.pre205 = load i32, ptr %245, align 8
   br label %260
 

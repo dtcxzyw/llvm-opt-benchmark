@@ -307,7 +307,7 @@ define void @saucy_search(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   %31 = tail call noalias noundef ptr @calloc(i64 noundef %30, i64 noundef 4) #25
   %32 = tail call noalias noundef ptr @malloc(i64 noundef %.065.lcssa.i) #26
   %33 = icmp sgt i32 %20, 0
-  br i1 %33, label %.lr.ph14.preheader.i, label %buildDepGraph.argprom.argprom.exit
+  br i1 %33, label %.lr.ph14.preheader.i, label %buildDepGraph.exit
 
 .lr.ph14.preheader.i:                             ; preds = %._crit_edge.i
   %34 = sext i32 %.val190.val to i64
@@ -386,9 +386,9 @@ define void @saucy_search(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
 .loopexit.i:                                      ; preds = %65, %48, %54, %38
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
-  br i1 %exitcond36.not.i, label %buildDepGraph.argprom.argprom.exit, label %.lr.ph14.i, !llvm.loop !10
+  br i1 %exitcond36.not.i, label %buildDepGraph.exit, label %.lr.ph14.i, !llvm.loop !10
 
-buildDepGraph.argprom.argprom.exit:               ; preds = %.loopexit.i, %._crit_edge.i
+buildDepGraph.exit:                               ; preds = %.loopexit.i, %._crit_edge.i
   store i32 %20, ptr %1, align 8
   %70 = getelementptr inbounds i8, ptr %1, i64 528
   store ptr %31, ptr %70, align 8
@@ -422,7 +422,7 @@ buildDepGraph.argprom.argprom.exit:               ; preds = %.loopexit.i, %._cri
   store double 1.000000e+00, ptr %82, align 8
   br i1 %33, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %buildDepGraph.argprom.argprom.exit
+.lr.ph:                                           ; preds = %buildDepGraph.exit
   %83 = getelementptr inbounds i8, ptr %1, i64 264
   br label %86
 
@@ -501,7 +501,7 @@ buildDepGraph.argprom.argprom.exit:               ; preds = %.loopexit.i, %._cri
   %119 = icmp slt i64 %indvars.iv.next391, %118
   br i1 %119, label %111, label %._crit_edge, !llvm.loop !14
 
-._crit_edge.thread:                               ; preds = %.preheader296, %.preheader297, %.preheader298, %buildDepGraph.argprom.argprom.exit
+._crit_edge.thread:                               ; preds = %.preheader296, %.preheader297, %.preheader298, %buildDepGraph.exit
   %120 = getelementptr inbounds i8, ptr %1, i64 432
   store i32 0, ptr %120, align 8
   br label %._crit_edge333
@@ -723,16 +723,16 @@ buildDepGraph.argprom.argprom.exit:               ; preds = %.loopexit.i, %._cri
   %228 = load i32, ptr %149, align 4
   %229 = add nsw i32 %228, 1
   store i32 %229, ptr %149, align 4
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
 230:                                              ; preds = %222
   %231 = load ptr, ptr %213, align 8
   %232 = load i32, ptr %150, align 8
   %233 = add nsw i32 %232, 1
   store i32 %233, ptr %150, align 8
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
-add_induce.argprom.exit:                          ; preds = %226, %230
+add_induce.exit:                                  ; preds = %226, %230
   %.sink.i = phi i32 [ %232, %230 ], [ %228, %226 ]
   %.sink1.i = phi ptr [ %231, %230 ], [ %227, %226 ]
   %234 = sext i32 %.sink.i to i64
@@ -748,7 +748,7 @@ add_induce.argprom.exit:                          ; preds = %226, %230
   %.not10.i = icmp sgt i32 %.10347, %241
   br i1 %.not10.i, label %fix_fronts.exit, label %.lr.ph.i192
 
-.lr.ph.i192:                                      ; preds = %add_induce.argprom.exit
+.lr.ph.i192:                                      ; preds = %add_induce.exit
   %242 = add i32 %241, 1
   br label %243
 
@@ -772,9 +772,9 @@ fix_fronts.exit.loopexit:                         ; preds = %243
   %.pre415 = load i32, ptr %.phi.trans.insert, align 4
   br label %fix_fronts.exit
 
-fix_fronts.exit:                                  ; preds = %fix_fronts.exit.loopexit, %add_induce.argprom.exit
-  %250 = phi i32 [ %.pre415, %fix_fronts.exit.loopexit ], [ %240, %add_induce.argprom.exit ]
-  %251 = phi ptr [ %.pre414, %fix_fronts.exit.loopexit ], [ %238, %add_induce.argprom.exit ]
+fix_fronts.exit:                                  ; preds = %fix_fronts.exit.loopexit, %add_induce.exit
+  %250 = phi i32 [ %.pre415, %fix_fronts.exit.loopexit ], [ %240, %add_induce.exit ]
+  %251 = phi ptr [ %.pre414, %fix_fronts.exit.loopexit ], [ %238, %add_induce.exit ]
   %252 = add i32 %.10347, 1
   %253 = add i32 %252, %250
   %254 = load i32, ptr %1, align 8
@@ -3012,12 +3012,12 @@ Abc_NtkCecSat_saucy.exit:                         ; preds = %104, %._crit_edge60
   %120 = getelementptr inbounds i8, ptr %0, i64 652
   %121 = load i32, ptr %120, align 4
   %122 = tail call fastcc ptr @analyzeConflict(ptr noundef %118, ptr noundef %119, i32 noundef %121)
-  tail call fastcc void @add_conterexample.retelim(ptr noundef %0, ptr noundef %122)
+  tail call fastcc void @add_conterexample(ptr noundef %0, ptr noundef %122)
   %123 = load ptr, ptr %73, align 8
   %124 = load ptr, ptr %75, align 8
   %125 = load i32, ptr %120, align 4
   %126 = tail call fastcc ptr @analyzeConflict(ptr noundef %123, ptr noundef %124, i32 noundef %125)
-  tail call fastcc void @add_conterexample.retelim(ptr noundef %0, ptr noundef %126)
+  tail call fastcc void @add_conterexample(ptr noundef %0, ptr noundef %126)
   %127 = getelementptr inbounds i8, ptr %0, i64 640
   %128 = load double, ptr %127, align 8
   %129 = fmul double %128, 0x3FF1C71C71C71C72
@@ -3285,9 +3285,9 @@ define internal noundef i32 @refineBySim1_init(ptr noundef %0, ptr noundef %1) #
   %.val64.pre = load ptr, ptr %10, align 8
   br label %.lr.ph77
 
-.lr.ph77:                                         ; preds = %.lr.ph77.preheader, %add_induce.argprom.exit
-  %.val64 = phi ptr [ %60, %add_induce.argprom.exit ], [ %.val64.pre, %.lr.ph77.preheader ]
-  %.176 = phi i32 [ %64, %add_induce.argprom.exit ], [ 0, %.lr.ph77.preheader ]
+.lr.ph77:                                         ; preds = %.lr.ph77.preheader, %add_induce.exit
+  %.val64 = phi ptr [ %60, %add_induce.exit ], [ %.val64.pre, %.lr.ph77.preheader ]
+  %.176 = phi i32 [ %64, %add_induce.exit ], [ 0, %.lr.ph77.preheader ]
   %45 = sext i32 %.176 to i64
   %46 = getelementptr inbounds i32, ptr %.val64, i64 %45
   %47 = load i32, ptr %46, align 4
@@ -3299,16 +3299,16 @@ define internal noundef i32 @refineBySim1_init(ptr noundef %0, ptr noundef %1) #
   %50 = load i32, ptr %19, align 4
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %19, align 4
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
 52:                                               ; preds = %.lr.ph77
   %53 = load ptr, ptr %16, align 8
   %54 = load i32, ptr %17, align 8
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %17, align 8
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
-add_induce.argprom.exit:                          ; preds = %48, %52
+add_induce.exit:                                  ; preds = %48, %52
   %.sink.i = phi i32 [ %54, %52 ], [ %50, %48 ]
   %.sink1.i = phi ptr [ %53, %52 ], [ %49, %48 ]
   %56 = sext i32 %.sink.i to i64
@@ -3326,7 +3326,7 @@ add_induce.argprom.exit:                          ; preds = %48, %52
   %66 = icmp slt i32 %64, %65
   br i1 %66, label %.lr.ph77, label %._crit_edge, !llvm.loop !56
 
-._crit_edge:                                      ; preds = %add_induce.argprom.exit, %32
+._crit_edge:                                      ; preds = %add_induce.exit, %32
   %67 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %68 = load i32, ptr %15, align 8
   %69 = icmp sgt i32 %68, %42
@@ -3341,9 +3341,9 @@ add_induce.argprom.exit:                          ; preds = %48, %52
   %.val63.pre = load ptr, ptr %10, align 8
   br label %.lr.ph79
 
-.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %add_induce.argprom.exit68
-  %.val63 = phi ptr [ %87, %add_induce.argprom.exit68 ], [ %.val63.pre, %.lr.ph79.preheader ]
-  %.278 = phi i32 [ %91, %add_induce.argprom.exit68 ], [ 0, %.lr.ph79.preheader ]
+.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %add_induce.exit68
+  %.val63 = phi ptr [ %87, %add_induce.exit68 ], [ %.val63.pre, %.lr.ph79.preheader ]
+  %.278 = phi i32 [ %91, %add_induce.exit68 ], [ 0, %.lr.ph79.preheader ]
   %72 = sext i32 %.278 to i64
   %73 = getelementptr inbounds i32, ptr %.val63, i64 %72
   %74 = load i32, ptr %73, align 4
@@ -3355,16 +3355,16 @@ add_induce.argprom.exit:                          ; preds = %48, %52
   %77 = load i32, ptr %19, align 4
   %78 = add nsw i32 %77, 1
   store i32 %78, ptr %19, align 4
-  br label %add_induce.argprom.exit68
+  br label %add_induce.exit68
 
 79:                                               ; preds = %.lr.ph79
   %80 = load ptr, ptr %16, align 8
   %81 = load i32, ptr %17, align 8
   %82 = add nsw i32 %81, 1
   store i32 %82, ptr %17, align 8
-  br label %add_induce.argprom.exit68
+  br label %add_induce.exit68
 
-add_induce.argprom.exit68:                        ; preds = %75, %79
+add_induce.exit68:                                ; preds = %75, %79
   %.sink.i66 = phi i32 [ %81, %79 ], [ %77, %75 ]
   %.sink1.i67 = phi ptr [ %80, %79 ], [ %76, %75 ]
   %83 = sext i32 %.sink.i66 to i64
@@ -3382,7 +3382,7 @@ add_induce.argprom.exit68:                        ; preds = %75, %79
   %93 = icmp slt i32 %91, %92
   br i1 %93, label %.lr.ph79, label %._crit_edge80, !llvm.loop !57
 
-._crit_edge80:                                    ; preds = %add_induce.argprom.exit68, %.preheader
+._crit_edge80:                                    ; preds = %add_induce.exit68, %.preheader
   %94 = load ptr, ptr %21, align 8
   store ptr %94, ptr %13, align 8
   %95 = load ptr, ptr %22, align 8
@@ -3463,7 +3463,7 @@ define internal noundef i32 @refineBySim2_init(ptr noundef %0, ptr noundef %1) #
   %26 = load ptr, ptr %7, align 8
   %27 = load ptr, ptr %8, align 8
   %28 = load ptr, ptr %9, align 8
-  %29 = tail call fastcc ptr @buildSim2Graph.argprom(ptr noundef %24, ptr noundef %1, ptr noundef %23, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
+  %29 = tail call fastcc ptr @buildSim2Graph(ptr noundef %24, ptr noundef %1, ptr noundef %23, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %10, align 8
@@ -3479,9 +3479,9 @@ define internal noundef i32 @refineBySim2_init(ptr noundef %0, ptr noundef %1) #
   %.val54.pre = load ptr, ptr %13, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %add_induce.argprom.exit
-  %.val54 = phi ptr [ %52, %add_induce.argprom.exit ], [ %.val54.pre, %.lr.ph.preheader ]
-  %.060 = phi i32 [ %56, %add_induce.argprom.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %add_induce.exit
+  %.val54 = phi ptr [ %52, %add_induce.exit ], [ %.val54.pre, %.lr.ph.preheader ]
+  %.060 = phi i32 [ %56, %add_induce.exit ], [ 0, %.lr.ph.preheader ]
   %37 = sext i32 %.060 to i64
   %38 = getelementptr inbounds i32, ptr %.val54, i64 %37
   %39 = load i32, ptr %38, align 4
@@ -3493,16 +3493,16 @@ define internal noundef i32 @refineBySim2_init(ptr noundef %0, ptr noundef %1) #
   %42 = load i32, ptr %17, align 4
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %17, align 4
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
 44:                                               ; preds = %.lr.ph
   %45 = load ptr, ptr %14, align 8
   %46 = load i32, ptr %15, align 8
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %15, align 8
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
-add_induce.argprom.exit:                          ; preds = %40, %44
+add_induce.exit:                                  ; preds = %40, %44
   %.sink.i = phi i32 [ %46, %44 ], [ %42, %40 ]
   %.sink1.i = phi ptr [ %45, %44 ], [ %41, %40 ]
   %48 = sext i32 %.sink.i to i64
@@ -3520,7 +3520,7 @@ add_induce.argprom.exit:                          ; preds = %40, %44
   %58 = icmp slt i32 %56, %57
   br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
-._crit_edge:                                      ; preds = %add_induce.argprom.exit, %21
+._crit_edge:                                      ; preds = %add_induce.exit, %21
   %59 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
   %60 = load i32, ptr %12, align 8
   %61 = icmp sgt i32 %60, %34
@@ -3535,9 +3535,9 @@ add_induce.argprom.exit:                          ; preds = %40, %44
   %.val.pre = load ptr, ptr %13, align 8
   br label %.lr.ph62
 
-.lr.ph62:                                         ; preds = %.lr.ph62.preheader, %add_induce.argprom.exit58
-  %.val = phi ptr [ %79, %add_induce.argprom.exit58 ], [ %.val.pre, %.lr.ph62.preheader ]
-  %.161 = phi i32 [ %83, %add_induce.argprom.exit58 ], [ 0, %.lr.ph62.preheader ]
+.lr.ph62:                                         ; preds = %.lr.ph62.preheader, %add_induce.exit58
+  %.val = phi ptr [ %79, %add_induce.exit58 ], [ %.val.pre, %.lr.ph62.preheader ]
+  %.161 = phi i32 [ %83, %add_induce.exit58 ], [ 0, %.lr.ph62.preheader ]
   %64 = sext i32 %.161 to i64
   %65 = getelementptr inbounds i32, ptr %.val, i64 %64
   %66 = load i32, ptr %65, align 4
@@ -3549,16 +3549,16 @@ add_induce.argprom.exit:                          ; preds = %40, %44
   %69 = load i32, ptr %17, align 4
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %17, align 4
-  br label %add_induce.argprom.exit58
+  br label %add_induce.exit58
 
 71:                                               ; preds = %.lr.ph62
   %72 = load ptr, ptr %14, align 8
   %73 = load i32, ptr %15, align 8
   %74 = add nsw i32 %73, 1
   store i32 %74, ptr %15, align 8
-  br label %add_induce.argprom.exit58
+  br label %add_induce.exit58
 
-add_induce.argprom.exit58:                        ; preds = %67, %71
+add_induce.exit58:                                ; preds = %67, %71
   %.sink.i56 = phi i32 [ %73, %71 ], [ %69, %67 ]
   %.sink1.i57 = phi ptr [ %72, %71 ], [ %68, %67 ]
   %75 = sext i32 %.sink.i56 to i64
@@ -3576,7 +3576,7 @@ add_induce.argprom.exit58:                        ; preds = %67, %71
   %85 = icmp slt i32 %83, %84
   br i1 %85, label %.lr.ph62, label %._crit_edge63, !llvm.loop !60
 
-._crit_edge63:                                    ; preds = %add_induce.argprom.exit58, %.preheader
+._crit_edge63:                                    ; preds = %add_induce.exit58, %.preheader
   %86 = load ptr, ptr %19, align 8
   store ptr %86, ptr %10, align 8
   %87 = load ptr, ptr %20, align 8
@@ -3707,9 +3707,9 @@ define internal noundef i32 @refineBySim1_left(ptr noundef %0, ptr noundef %1) #
   %.val70.pre = load ptr, ptr %10, align 8
   br label %.lr.ph82
 
-.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %add_induce.argprom.exit
-  %.val70 = phi ptr [ %61, %add_induce.argprom.exit ], [ %.val70.pre, %.lr.ph82.preheader ]
-  %.181 = phi i32 [ %65, %add_induce.argprom.exit ], [ 0, %.lr.ph82.preheader ]
+.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %add_induce.exit
+  %.val70 = phi ptr [ %61, %add_induce.exit ], [ %.val70.pre, %.lr.ph82.preheader ]
+  %.181 = phi i32 [ %65, %add_induce.exit ], [ 0, %.lr.ph82.preheader ]
   %46 = sext i32 %.181 to i64
   %47 = getelementptr inbounds i32, ptr %.val70, i64 %46
   %48 = load i32, ptr %47, align 4
@@ -3721,16 +3721,16 @@ define internal noundef i32 @refineBySim1_left(ptr noundef %0, ptr noundef %1) #
   %51 = load i32, ptr %19, align 4
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %19, align 4
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
 53:                                               ; preds = %.lr.ph82
   %54 = load ptr, ptr %16, align 8
   %55 = load i32, ptr %17, align 8
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %17, align 8
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
-add_induce.argprom.exit:                          ; preds = %49, %53
+add_induce.exit:                                  ; preds = %49, %53
   %.sink.i = phi i32 [ %55, %53 ], [ %51, %49 ]
   %.sink1.i = phi ptr [ %54, %53 ], [ %50, %49 ]
   %57 = sext i32 %.sink.i to i64
@@ -3748,7 +3748,7 @@ add_induce.argprom.exit:                          ; preds = %49, %53
   %67 = icmp slt i32 %65, %66
   br i1 %67, label %.lr.ph82, label %._crit_edge, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %add_induce.argprom.exit, %33
+._crit_edge:                                      ; preds = %add_induce.exit, %33
   %68 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %69 = load i32, ptr %15, align 8
   %70 = icmp sgt i32 %69, %43
@@ -3830,9 +3830,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val69.pre = load ptr, ptr %10, align 8
   br label %.lr.ph84
 
-.lr.ph84:                                         ; preds = %.lr.ph84.preheader, %add_induce.argprom.exit74
-  %.val69 = phi ptr [ %121, %add_induce.argprom.exit74 ], [ %.val69.pre, %.lr.ph84.preheader ]
-  %.283 = phi i32 [ %125, %add_induce.argprom.exit74 ], [ 0, %.lr.ph84.preheader ]
+.lr.ph84:                                         ; preds = %.lr.ph84.preheader, %add_induce.exit74
+  %.val69 = phi ptr [ %121, %add_induce.exit74 ], [ %.val69.pre, %.lr.ph84.preheader ]
+  %.283 = phi i32 [ %125, %add_induce.exit74 ], [ 0, %.lr.ph84.preheader ]
   %106 = sext i32 %.283 to i64
   %107 = getelementptr inbounds i32, ptr %.val69, i64 %106
   %108 = load i32, ptr %107, align 4
@@ -3844,16 +3844,16 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %111 = load i32, ptr %19, align 4
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %19, align 4
-  br label %add_induce.argprom.exit74
+  br label %add_induce.exit74
 
 113:                                              ; preds = %.lr.ph84
   %114 = load ptr, ptr %16, align 8
   %115 = load i32, ptr %17, align 8
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %17, align 8
-  br label %add_induce.argprom.exit74
+  br label %add_induce.exit74
 
-add_induce.argprom.exit74:                        ; preds = %109, %113
+add_induce.exit74:                                ; preds = %109, %113
   %.sink.i72 = phi i32 [ %115, %113 ], [ %111, %109 ]
   %.sink1.i73 = phi ptr [ %114, %113 ], [ %110, %109 ]
   %117 = sext i32 %.sink.i72 to i64
@@ -3871,7 +3871,7 @@ add_induce.argprom.exit74:                        ; preds = %109, %113
   %127 = icmp slt i32 %125, %126
   br i1 %127, label %.lr.ph84, label %._crit_edge85, !llvm.loop !64
 
-._crit_edge85:                                    ; preds = %add_induce.argprom.exit74, %Vec_PtrPush.exit
+._crit_edge85:                                    ; preds = %add_induce.exit74, %Vec_PtrPush.exit
   %128 = load ptr, ptr %22, align 8
   store ptr %128, ptr %13, align 8
   %129 = load ptr, ptr %23, align 8
@@ -3973,7 +3973,7 @@ define internal noundef i32 @refineBySim2_left(ptr noundef %0, ptr noundef %1) #
   %27 = load ptr, ptr %7, align 8
   %28 = load ptr, ptr %8, align 8
   %29 = load ptr, ptr %9, align 8
-  %30 = tail call fastcc ptr @buildSim2Graph.argprom(ptr noundef %25, ptr noundef %1, ptr noundef %24, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29)
+  %30 = tail call fastcc ptr @buildSim2Graph(ptr noundef %25, ptr noundef %1, ptr noundef %24, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29)
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %10, align 8
@@ -3989,9 +3989,9 @@ define internal noundef i32 @refineBySim2_left(ptr noundef %0, ptr noundef %1) #
   %.val60.pre = load ptr, ptr %13, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %add_induce.argprom.exit
-  %.val60 = phi ptr [ %53, %add_induce.argprom.exit ], [ %.val60.pre, %.lr.ph.preheader ]
-  %.066 = phi i32 [ %57, %add_induce.argprom.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %add_induce.exit
+  %.val60 = phi ptr [ %53, %add_induce.exit ], [ %.val60.pre, %.lr.ph.preheader ]
+  %.066 = phi i32 [ %57, %add_induce.exit ], [ 0, %.lr.ph.preheader ]
   %38 = sext i32 %.066 to i64
   %39 = getelementptr inbounds i32, ptr %.val60, i64 %38
   %40 = load i32, ptr %39, align 4
@@ -4003,16 +4003,16 @@ define internal noundef i32 @refineBySim2_left(ptr noundef %0, ptr noundef %1) #
   %43 = load i32, ptr %17, align 4
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %17, align 4
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %14, align 8
   %47 = load i32, ptr %15, align 8
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %15, align 8
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
-add_induce.argprom.exit:                          ; preds = %41, %45
+add_induce.exit:                                  ; preds = %41, %45
   %.sink.i = phi i32 [ %47, %45 ], [ %43, %41 ]
   %.sink1.i = phi ptr [ %46, %45 ], [ %42, %41 ]
   %49 = sext i32 %.sink.i to i64
@@ -4030,7 +4030,7 @@ add_induce.argprom.exit:                          ; preds = %41, %45
   %59 = icmp slt i32 %57, %58
   br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !66
 
-._crit_edge:                                      ; preds = %add_induce.argprom.exit, %22
+._crit_edge:                                      ; preds = %add_induce.exit, %22
   %60 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
   %61 = load i32, ptr %12, align 8
   %62 = icmp sgt i32 %61, %35
@@ -4112,9 +4112,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val59.pre = load ptr, ptr %13, align 8
   br label %.lr.ph68
 
-.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %add_induce.argprom.exit64
-  %.val59 = phi ptr [ %113, %add_induce.argprom.exit64 ], [ %.val59.pre, %.lr.ph68.preheader ]
-  %.167 = phi i32 [ %117, %add_induce.argprom.exit64 ], [ 0, %.lr.ph68.preheader ]
+.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %add_induce.exit64
+  %.val59 = phi ptr [ %113, %add_induce.exit64 ], [ %.val59.pre, %.lr.ph68.preheader ]
+  %.167 = phi i32 [ %117, %add_induce.exit64 ], [ 0, %.lr.ph68.preheader ]
   %98 = sext i32 %.167 to i64
   %99 = getelementptr inbounds i32, ptr %.val59, i64 %98
   %100 = load i32, ptr %99, align 4
@@ -4126,16 +4126,16 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %103 = load i32, ptr %17, align 4
   %104 = add nsw i32 %103, 1
   store i32 %104, ptr %17, align 4
-  br label %add_induce.argprom.exit64
+  br label %add_induce.exit64
 
 105:                                              ; preds = %.lr.ph68
   %106 = load ptr, ptr %14, align 8
   %107 = load i32, ptr %15, align 8
   %108 = add nsw i32 %107, 1
   store i32 %108, ptr %15, align 8
-  br label %add_induce.argprom.exit64
+  br label %add_induce.exit64
 
-add_induce.argprom.exit64:                        ; preds = %101, %105
+add_induce.exit64:                                ; preds = %101, %105
   %.sink.i62 = phi i32 [ %107, %105 ], [ %103, %101 ]
   %.sink1.i63 = phi ptr [ %106, %105 ], [ %102, %101 ]
   %109 = sext i32 %.sink.i62 to i64
@@ -4153,7 +4153,7 @@ add_induce.argprom.exit64:                        ; preds = %101, %105
   %119 = icmp slt i32 %117, %118
   br i1 %119, label %.lr.ph68, label %._crit_edge69, !llvm.loop !67
 
-._crit_edge69:                                    ; preds = %add_induce.argprom.exit64, %Vec_PtrPush.exit
+._crit_edge69:                                    ; preds = %add_induce.exit64, %Vec_PtrPush.exit
   %120 = load ptr, ptr %20, align 8
   store ptr %120, ptr %10, align 8
   %121 = load ptr, ptr %21, align 8
@@ -4658,9 +4658,9 @@ define internal range(i32 0, 2) i32 @refineBySim1_other(ptr noundef %0, ptr noun
   %.val62.pre = load ptr, ptr %20, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %add_induce.argprom.exit
-  %.val62 = phi ptr [ %70, %add_induce.argprom.exit ], [ %.val62.pre, %.lr.ph.preheader ]
-  %.05267 = phi i32 [ %74, %add_induce.argprom.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %add_induce.exit
+  %.val62 = phi ptr [ %70, %add_induce.exit ], [ %.val62.pre, %.lr.ph.preheader ]
+  %.05267 = phi i32 [ %74, %add_induce.exit ], [ 0, %.lr.ph.preheader ]
   %55 = sext i32 %.05267 to i64
   %56 = getelementptr inbounds i32, ptr %.val62, i64 %55
   %57 = load i32, ptr %56, align 4
@@ -4672,16 +4672,16 @@ define internal range(i32 0, 2) i32 @refineBySim1_other(ptr noundef %0, ptr noun
   %60 = load i32, ptr %24, align 4
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %24, align 4
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
 62:                                               ; preds = %.lr.ph
   %63 = load ptr, ptr %21, align 8
   %64 = load i32, ptr %22, align 8
   %65 = add nsw i32 %64, 1
   store i32 %65, ptr %22, align 8
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
-add_induce.argprom.exit:                          ; preds = %58, %62
+add_induce.exit:                                  ; preds = %58, %62
   %.sink.i = phi i32 [ %64, %62 ], [ %60, %58 ]
   %.sink1.i = phi ptr [ %63, %62 ], [ %59, %58 ]
   %66 = sext i32 %.sink.i to i64
@@ -4699,7 +4699,7 @@ add_induce.argprom.exit:                          ; preds = %58, %62
   %76 = icmp slt i32 %74, %75
   br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !73
 
-._crit_edge:                                      ; preds = %add_induce.argprom.exit, %47
+._crit_edge:                                      ; preds = %add_induce.exit, %47
   %77 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
   %78 = load i32, ptr %19, align 8
   %79 = icmp eq i32 %78, %52
@@ -4716,9 +4716,9 @@ add_induce.argprom.exit:                          ; preds = %58, %62
   %.val61.pre = load ptr, ptr %20, align 8
   br label %.lr.ph69
 
-.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %add_induce.argprom.exit66
-  %.val61 = phi ptr [ %97, %add_induce.argprom.exit66 ], [ %.val61.pre, %.lr.ph69.preheader ]
-  %.168 = phi i32 [ %101, %add_induce.argprom.exit66 ], [ 0, %.lr.ph69.preheader ]
+.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %add_induce.exit66
+  %.val61 = phi ptr [ %97, %add_induce.exit66 ], [ %.val61.pre, %.lr.ph69.preheader ]
+  %.168 = phi i32 [ %101, %add_induce.exit66 ], [ 0, %.lr.ph69.preheader ]
   %82 = sext i32 %.168 to i64
   %83 = getelementptr inbounds i32, ptr %.val61, i64 %82
   %84 = load i32, ptr %83, align 4
@@ -4730,16 +4730,16 @@ add_induce.argprom.exit:                          ; preds = %58, %62
   %87 = load i32, ptr %24, align 4
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %24, align 4
-  br label %add_induce.argprom.exit66
+  br label %add_induce.exit66
 
 89:                                               ; preds = %.lr.ph69
   %90 = load ptr, ptr %21, align 8
   %91 = load i32, ptr %22, align 8
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %22, align 8
-  br label %add_induce.argprom.exit66
+  br label %add_induce.exit66
 
-add_induce.argprom.exit66:                        ; preds = %85, %89
+add_induce.exit66:                                ; preds = %85, %89
   %.sink.i64 = phi i32 [ %91, %89 ], [ %87, %85 ]
   %.sink1.i65 = phi ptr [ %90, %89 ], [ %86, %85 ]
   %93 = sext i32 %.sink.i64 to i64
@@ -4757,7 +4757,7 @@ add_induce.argprom.exit66:                        ; preds = %85, %89
   %103 = icmp slt i32 %101, %102
   br i1 %103, label %.lr.ph69, label %._crit_edge70, !llvm.loop !74
 
-._crit_edge70:                                    ; preds = %add_induce.argprom.exit66, %.preheader
+._crit_edge70:                                    ; preds = %add_induce.exit66, %.preheader
   %104 = load ptr, ptr %26, align 8
   store ptr %104, ptr %17, align 8
   %105 = load ptr, ptr %27, align 8
@@ -4850,7 +4850,7 @@ define internal range(i32 0, 2) i32 @refineBySim2_other(ptr noundef %0, ptr noun
   %46 = load ptr, ptr %16, align 8
   %47 = load ptr, ptr %17, align 8
   %48 = load ptr, ptr %18, align 8
-  %49 = tail call fastcc ptr @buildSim2Graph.argprom(ptr noundef %44, ptr noundef %1, ptr noundef %43, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  %49 = tail call fastcc ptr @buildSim2Graph(ptr noundef %44, ptr noundef %1, ptr noundef %43, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
   %50 = icmp eq ptr %49, null
   br i1 %50, label %._crit_edge77, label %51
 
@@ -4870,9 +4870,9 @@ define internal range(i32 0, 2) i32 @refineBySim2_other(ptr noundef %0, ptr noun
   %.val65.pre = load ptr, ptr %22, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %add_induce.argprom.exit
-  %.val65 = phi ptr [ %74, %add_induce.argprom.exit ], [ %.val65.pre, %.lr.ph.preheader ]
-  %.05570 = phi i32 [ %78, %add_induce.argprom.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %add_induce.exit
+  %.val65 = phi ptr [ %74, %add_induce.exit ], [ %.val65.pre, %.lr.ph.preheader ]
+  %.05570 = phi i32 [ %78, %add_induce.exit ], [ 0, %.lr.ph.preheader ]
   %59 = sext i32 %.05570 to i64
   %60 = getelementptr inbounds i32, ptr %.val65, i64 %59
   %61 = load i32, ptr %60, align 4
@@ -4884,16 +4884,16 @@ define internal range(i32 0, 2) i32 @refineBySim2_other(ptr noundef %0, ptr noun
   %64 = load i32, ptr %26, align 4
   %65 = add nsw i32 %64, 1
   store i32 %65, ptr %26, align 4
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
 66:                                               ; preds = %.lr.ph
   %67 = load ptr, ptr %23, align 8
   %68 = load i32, ptr %24, align 8
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %24, align 8
-  br label %add_induce.argprom.exit
+  br label %add_induce.exit
 
-add_induce.argprom.exit:                          ; preds = %62, %66
+add_induce.exit:                                  ; preds = %62, %66
   %.sink.i = phi i32 [ %68, %66 ], [ %64, %62 ]
   %.sink1.i = phi ptr [ %67, %66 ], [ %63, %62 ]
   %70 = sext i32 %.sink.i to i64
@@ -4911,7 +4911,7 @@ add_induce.argprom.exit:                          ; preds = %62, %66
   %80 = icmp slt i32 %78, %79
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !76
 
-._crit_edge:                                      ; preds = %add_induce.argprom.exit, %51
+._crit_edge:                                      ; preds = %add_induce.exit, %51
   %81 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
   %82 = load i32, ptr %21, align 8
   %83 = icmp eq i32 %82, %56
@@ -4928,9 +4928,9 @@ add_induce.argprom.exit:                          ; preds = %62, %66
   %.val64.pre = load ptr, ptr %22, align 8
   br label %.lr.ph72
 
-.lr.ph72:                                         ; preds = %.lr.ph72.preheader, %add_induce.argprom.exit69
-  %.val64 = phi ptr [ %101, %add_induce.argprom.exit69 ], [ %.val64.pre, %.lr.ph72.preheader ]
-  %.171 = phi i32 [ %105, %add_induce.argprom.exit69 ], [ 0, %.lr.ph72.preheader ]
+.lr.ph72:                                         ; preds = %.lr.ph72.preheader, %add_induce.exit69
+  %.val64 = phi ptr [ %101, %add_induce.exit69 ], [ %.val64.pre, %.lr.ph72.preheader ]
+  %.171 = phi i32 [ %105, %add_induce.exit69 ], [ 0, %.lr.ph72.preheader ]
   %86 = sext i32 %.171 to i64
   %87 = getelementptr inbounds i32, ptr %.val64, i64 %86
   %88 = load i32, ptr %87, align 4
@@ -4942,16 +4942,16 @@ add_induce.argprom.exit:                          ; preds = %62, %66
   %91 = load i32, ptr %26, align 4
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %26, align 4
-  br label %add_induce.argprom.exit69
+  br label %add_induce.exit69
 
 93:                                               ; preds = %.lr.ph72
   %94 = load ptr, ptr %23, align 8
   %95 = load i32, ptr %24, align 8
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %24, align 8
-  br label %add_induce.argprom.exit69
+  br label %add_induce.exit69
 
-add_induce.argprom.exit69:                        ; preds = %89, %93
+add_induce.exit69:                                ; preds = %89, %93
   %.sink.i67 = phi i32 [ %95, %93 ], [ %91, %89 ]
   %.sink1.i68 = phi ptr [ %94, %93 ], [ %90, %89 ]
   %97 = sext i32 %.sink.i67 to i64
@@ -4969,7 +4969,7 @@ add_induce.argprom.exit69:                        ; preds = %89, %93
   %107 = icmp slt i32 %105, %106
   br i1 %107, label %.lr.ph72, label %._crit_edge73, !llvm.loop !77
 
-._crit_edge73:                                    ; preds = %add_induce.argprom.exit69, %.preheader
+._crit_edge73:                                    ; preds = %add_induce.exit69, %.preheader
   %108 = load ptr, ptr %28, align 8
   store ptr %108, ptr %19, align 8
   %109 = load ptr, ptr %29, align 8
@@ -7617,7 +7617,7 @@ Abc_NtkIncrementTravId.exit.i:                    ; preds = %Vec_IntFill.exit.i.
   %534 = getelementptr inbounds i8, ptr %.val28.i, i64 228
   %535 = load i32, ptr %534, align 4
   %.not.i.not.i.i.i.i = icmp slt i32 %.val29.i, %535
-  br i1 %.not.i.not.i.i.i.i, label %Abc_NodeSetTravIdCurrent.argprom.exit.i, label %536
+  br i1 %.not.i.not.i.i.i.i, label %Abc_NodeSetTravIdCurrent.exit.i, label %536
 
 536:                                              ; preds = %Abc_NtkIncrementTravId.exit.i
   %537 = load i32, ptr %532, align 8
@@ -7702,9 +7702,9 @@ Vec_IntGrow.exit.i.i.i.i.i:                       ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %566, %Vec_IntGrow.exit.i.i.i.i.i
   store i32 %533, ptr %534, align 4
-  br label %Abc_NodeSetTravIdCurrent.argprom.exit.i
+  br label %Abc_NodeSetTravIdCurrent.exit.i
 
-Abc_NodeSetTravIdCurrent.argprom.exit.i:          ; preds = %._crit_edge.i.i.i.i.i, %Abc_NtkIncrementTravId.exit.i
+Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i.i, %Abc_NtkIncrementTravId.exit.i
   %569 = getelementptr i8, ptr %.val28.i, i64 232
   %.val.i.i.i.i = load ptr, ptr %569, align 8
   %570 = sext i32 %.val29.i to i64
@@ -7715,7 +7715,7 @@ Abc_NodeSetTravIdCurrent.argprom.exit.i:          ; preds = %._crit_edge.i.i.i.i
   %.not.i35.i = icmp eq i32 %.val.i34.i, 1
   br i1 %.not.i35.i, label %573, label %Abc_ObjFanout0Ntk.exit.i
 
-573:                                              ; preds = %Abc_NodeSetTravIdCurrent.argprom.exit.i
+573:                                              ; preds = %Abc_NodeSetTravIdCurrent.exit.i
   %574 = getelementptr i8, ptr %513, i64 48
   %.val4.i.i = load ptr, ptr %574, align 8
   %575 = getelementptr i8, ptr %572, i64 32
@@ -7728,8 +7728,8 @@ Abc_NodeSetTravIdCurrent.argprom.exit.i:          ; preds = %._crit_edge.i.i.i.i
   %579 = load ptr, ptr %578, align 8
   br label %Abc_ObjFanout0Ntk.exit.i
 
-Abc_ObjFanout0Ntk.exit.i:                         ; preds = %573, %Abc_NodeSetTravIdCurrent.argprom.exit.i
-  %580 = phi ptr [ %579, %573 ], [ %513, %Abc_NodeSetTravIdCurrent.argprom.exit.i ]
+Abc_ObjFanout0Ntk.exit.i:                         ; preds = %573, %Abc_NodeSetTravIdCurrent.exit.i
+  %580 = phi ptr [ %579, %573 ], [ %513, %Abc_NodeSetTravIdCurrent.exit.i ]
   %581 = getelementptr i8, ptr %580, i64 44
   %.val3038.i = load i32, ptr %581, align 4
   %582 = icmp sgt i32 %.val3038.i, 0
@@ -9228,7 +9228,7 @@ define internal fastcc noalias noundef ptr @analyzeConflict(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_conterexample.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @add_conterexample(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 512
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 40
@@ -9686,7 +9686,7 @@ define internal fastcc noalias noundef ptr @buildSim1Graph(ptr noundef %0, ptr n
   %12 = shl nsw i64 %11, 2
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #26
   %14 = icmp sgt i32 %.val104.val, 0
-  br i1 %14, label %.lr.ph6.i, label %generateProperInputVector.argprom.argprom.exit
+  br i1 %14, label %.lr.ph6.i, label %generateProperInputVector.exit
 
 .lr.ph6.i:                                        ; preds = %5
   %15 = getelementptr i8, ptr %2, i64 4
@@ -9738,17 +9738,17 @@ define internal fastcc noalias noundef ptr @buildSim1Graph(ptr noundef %0, ptr n
   %38 = add i32 %37, %27
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %39 = icmp slt i32 %38, %10
-  br i1 %39, label %19, label %generateProperInputVector.argprom.argprom.exit, !llvm.loop !133
+  br i1 %39, label %19, label %generateProperInputVector.exit, !llvm.loop !133
 
 40:                                               ; preds = %19
   %.not37.i = icmp eq ptr %13, null
-  br i1 %.not37.i, label %generateProperInputVector.argprom.argprom.exit.thread, label %generateProperInputVector.argprom.argprom.exit.thread.sink.split
+  br i1 %.not37.i, label %generateProperInputVector.exit.thread, label %generateProperInputVector.exit.thread.sink.split
 
-generateProperInputVector.argprom.argprom.exit:   ; preds = %._crit_edge.i, %5
+generateProperInputVector.exit:                   ; preds = %._crit_edge.i, %5
   %41 = icmp eq ptr %13, null
-  br i1 %41, label %generateProperInputVector.argprom.argprom.exit.thread, label %42
+  br i1 %41, label %generateProperInputVector.exit.thread, label %42
 
-42:                                               ; preds = %generateProperInputVector.argprom.argprom.exit
+42:                                               ; preds = %generateProperInputVector.exit
   %43 = tail call ptr @Abc_NtkVerifySimulatePattern(ptr noundef %0, ptr noundef nonnull %13) #24
   %44 = icmp sgt i32 %.val.val, 0
   br i1 %44, label %.lr.ph.preheader, label %._crit_edge
@@ -9912,16 +9912,16 @@ generateProperInputVector.argprom.argprom.exit:   ; preds = %._crit_edge.i, %5
 ._crit_edge130:                                   ; preds = %._crit_edge127, %.preheader
   tail call void @free(ptr noundef %13) #24
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %generateProperInputVector.argprom.argprom.exit.thread, label %generateProperInputVector.argprom.argprom.exit.thread.sink.split
+  br i1 %.not, label %generateProperInputVector.exit.thread, label %generateProperInputVector.exit.thread.sink.split
 
-generateProperInputVector.argprom.argprom.exit.thread.sink.split: ; preds = %._crit_edge130, %40
+generateProperInputVector.exit.thread.sink.split: ; preds = %._crit_edge130, %40
   %.sink = phi ptr [ %13, %40 ], [ %43, %._crit_edge130 ]
   %.0.ph = phi ptr [ null, %40 ], [ %48, %._crit_edge130 ]
   tail call void @free(ptr noundef nonnull %.sink) #24
-  br label %generateProperInputVector.argprom.argprom.exit.thread
+  br label %generateProperInputVector.exit.thread
 
-generateProperInputVector.argprom.argprom.exit.thread: ; preds = %generateProperInputVector.argprom.argprom.exit.thread.sink.split, %40, %._crit_edge130, %generateProperInputVector.argprom.argprom.exit
-  %.0 = phi ptr [ null, %generateProperInputVector.argprom.argprom.exit ], [ %48, %._crit_edge130 ], [ null, %40 ], [ %.0.ph, %generateProperInputVector.argprom.argprom.exit.thread.sink.split ]
+generateProperInputVector.exit.thread:            ; preds = %generateProperInputVector.exit.thread.sink.split, %40, %._crit_edge130, %generateProperInputVector.exit
+  %.0 = phi ptr [ null, %generateProperInputVector.exit ], [ %48, %._crit_edge130 ], [ null, %40 ], [ %.0.ph, %generateProperInputVector.exit.thread.sink.split ]
   ret ptr %.0
 }
 
@@ -10100,7 +10100,7 @@ define internal fastcc range(i32 0, 2) i32 @refine(ptr noundef %0, ptr noundef %
 declare i32 @rand() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @buildSim2Graph.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @buildSim2Graph(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
   %8 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val, i64 4
@@ -10114,7 +10114,7 @@ define internal fastcc noalias noundef ptr @buildSim2Graph.argprom(ptr noundef %
   %14 = shl nsw i64 %13, 2
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #26
   %16 = icmp sgt i32 %.val152.val, 0
-  br i1 %16, label %.lr.ph6.i, label %generateProperInputVector.argprom.argprom.exit.thread71
+  br i1 %16, label %.lr.ph6.i, label %generateProperInputVector.exit.thread71
 
 .lr.ph6.i:                                        ; preds = %7
   %17 = getelementptr i8, ptr %2, i64 4
@@ -10166,29 +10166,29 @@ define internal fastcc noalias noundef ptr @buildSim2Graph.argprom(ptr noundef %
   %40 = add i32 %39, %29
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %41 = icmp slt i32 %40, %12
-  br i1 %41, label %21, label %generateProperInputVector.argprom.argprom.exit, !llvm.loop !133
+  br i1 %41, label %21, label %generateProperInputVector.exit, !llvm.loop !133
 
 42:                                               ; preds = %21
   %.not37.i = icmp eq ptr %15, null
-  br i1 %.not37.i, label %generateProperInputVector.argprom.argprom.exit.thread, label %43
+  br i1 %.not37.i, label %generateProperInputVector.exit.thread, label %43
 
 43:                                               ; preds = %42
   tail call void @free(ptr noundef nonnull %15) #24
-  br label %generateProperInputVector.argprom.argprom.exit.thread
+  br label %generateProperInputVector.exit.thread
 
-generateProperInputVector.argprom.argprom.exit:   ; preds = %._crit_edge.i
+generateProperInputVector.exit:                   ; preds = %._crit_edge.i
   %44 = icmp eq ptr %15, null
-  br i1 %44, label %generateProperInputVector.argprom.argprom.exit.thread, label %.lr.ph10
+  br i1 %44, label %generateProperInputVector.exit.thread, label %.lr.ph10
 
-generateProperInputVector.argprom.argprom.exit.thread71: ; preds = %7
+generateProperInputVector.exit.thread71:          ; preds = %7
   %45 = icmp eq ptr %15, null
-  br i1 %45, label %generateProperInputVector.argprom.argprom.exit.thread, label %.thread
+  br i1 %45, label %generateProperInputVector.exit.thread, label %.thread
 
-.thread:                                          ; preds = %generateProperInputVector.argprom.argprom.exit.thread71
+.thread:                                          ; preds = %generateProperInputVector.exit.thread71
   %46 = tail call ptr @Abc_NtkVerifySimulatePattern(ptr noundef nonnull %0, ptr noundef nonnull %15) #24
   br label %._crit_edge11
 
-.lr.ph10:                                         ; preds = %generateProperInputVector.argprom.argprom.exit
+.lr.ph10:                                         ; preds = %generateProperInputVector.exit
   %47 = tail call ptr @Abc_NtkVerifySimulatePattern(ptr noundef %0, ptr noundef nonnull %15) #24
   %48 = getelementptr inbounds i8, ptr %1, i64 24
   %49 = getelementptr inbounds i8, ptr %1, i64 16
@@ -10556,7 +10556,7 @@ Vec_IntPush.exit170:                              ; preds = %.Vec_IntGrow.exit10
   br label %.lr.ph30
 
 .preheader:                                       ; preds = %.lr.ph30, %211
-  br i1 %177, label %.lr.ph32.preheader, label %generateProperInputVector.argprom.argprom.exit.thread
+  br i1 %177, label %.lr.ph32.preheader, label %generateProperInputVector.exit.thread
 
 .lr.ph32.preheader:                               ; preds = %.preheader
   %wide.trip.count69 = zext nneg i32 %.val.val to i64
@@ -10580,10 +10580,10 @@ Vec_IntPush.exit170:                              ; preds = %.Vec_IntGrow.exit10
   store i32 0, ptr %217, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %generateProperInputVector.argprom.argprom.exit.thread, label %.lr.ph32, !llvm.loop !146
+  br i1 %exitcond70.not, label %generateProperInputVector.exit.thread, label %.lr.ph32, !llvm.loop !146
 
-generateProperInputVector.argprom.argprom.exit.thread: ; preds = %.lr.ph32, %generateProperInputVector.argprom.argprom.exit.thread71, %.preheader, %43, %42, %generateProperInputVector.argprom.argprom.exit
-  %.0 = phi ptr [ null, %generateProperInputVector.argprom.argprom.exit ], [ null, %42 ], [ null, %43 ], [ %165, %.preheader ], [ null, %generateProperInputVector.argprom.argprom.exit.thread71 ], [ %165, %.lr.ph32 ]
+generateProperInputVector.exit.thread:            ; preds = %.lr.ph32, %generateProperInputVector.exit.thread71, %.preheader, %43, %42, %generateProperInputVector.exit
+  %.0 = phi ptr [ null, %generateProperInputVector.exit ], [ null, %42 ], [ null, %43 ], [ %165, %.preheader ], [ null, %generateProperInputVector.exit.thread71 ], [ %165, %.lr.ph32 ]
   ret ptr %.0
 }
 
@@ -12307,7 +12307,7 @@ clear_undiffnons.exit.i53.i:                      ; preds = %.lr.ph.i36.i.i, %pi
   %.idx.i.i.i.i.i = shl nsw i64 %371, 2
   %372 = getelementptr inbounds i8, ptr %367, i64 %.idx.i.i.i.i.i
   %.not12.i.i.i.i.i = icmp eq i32 %369, 0
-  br i1 %.not12.i.i.i.i.i, label %find_min.argprom.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i
+  br i1 %.not12.i.i.i.i.i, label %find_min.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %366
   %373 = getelementptr inbounds i8, ptr %367, i64 4
@@ -12324,9 +12324,9 @@ clear_undiffnons.exit.i53.i:                      ; preds = %.lr.ph.i36.i.i, %pi
   %spec.select.i.i.i.i.i = select i1 %377, ptr %375, ptr %.013.i.i.i.i.i
   %379 = getelementptr inbounds i8, ptr %375, i64 4
   %.not.i.i.i.i.i = icmp eq ptr %379, %372
-  br i1 %.not.i.i.i.i.i, label %find_min.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !172
+  br i1 %.not.i.i.i.i.i, label %find_min.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !172
 
-find_min.argprom.exit.i.i:                        ; preds = %.lr.ph.i.i.i.i.i, %366
+find_min.exit.i.i:                                ; preds = %.lr.ph.i.i.i.i.i, %366
   %.0.lcssa.i.i.i.i.i = phi ptr [ %367, %366 ], [ %spec.select.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %380 = ptrtoint ptr %.0.lcssa.i.i.i.i.i to i64
   %381 = ptrtoint ptr %367 to i64
@@ -12336,7 +12336,7 @@ find_min.argprom.exit.i.i:                        ; preds = %.lr.ph.i.i.i.i.i, %
   %385 = icmp eq i32 %334, %384
   br i1 %385, label %386, label %do_backtrack.exit
 
-386:                                              ; preds = %find_min.argprom.exit.i.i
+386:                                              ; preds = %find_min.exit.i.i
   %387 = load ptr, ptr %17, align 8
   %388 = load i32, ptr %2, align 8
   %389 = sext i32 %388 to i64
@@ -12510,8 +12510,8 @@ orbit_prune.exit53.i.i:                           ; preds = %436
   %exitcond.not.i63.i.i = icmp eq i64 %indvars.iv.next.i62.i.i, %wide.trip.count.i56.i.i
   br i1 %exitcond.not.i63.i.i, label %do_backtrack.exit, label %.lr.ph.i57.i.i, !llvm.loop !173
 
-do_backtrack.exit:                                ; preds = %477, %410, %theta_prune.exit.thread.i.i, %318, %find_min.argprom.exit.i.i, %386, %411, %orbit_prune.exit53.i.i, %443
-  %478 = phi i32 [ -1, %theta_prune.exit.thread.i.i ], [ -1, %318 ], [ -1, %orbit_prune.exit53.i.i ], [ -1, %386 ], [ %384, %find_min.argprom.exit.i.i ], [ -1, %443 ], [ -1, %411 ], [ %.1.i.i58.i, %410 ], [ %.1.i61.i.i, %477 ]
+do_backtrack.exit:                                ; preds = %477, %410, %theta_prune.exit.thread.i.i, %318, %find_min.exit.i.i, %386, %411, %orbit_prune.exit53.i.i, %443
+  %478 = phi i32 [ -1, %theta_prune.exit.thread.i.i ], [ -1, %318 ], [ -1, %orbit_prune.exit53.i.i ], [ -1, %386 ], [ %384, %find_min.exit.i.i ], [ -1, %443 ], [ -1, %411 ], [ %.1.i.i58.i, %410 ], [ %.1.i61.i.i, %477 ]
   %.not9 = icmp eq i32 %478, -1
   br i1 %.not9, label %38, label %do_backtrack.exit.thread, !llvm.loop !174
 

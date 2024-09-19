@@ -878,7 +878,7 @@ if.end24:                                         ; preds = %_ZNSt6vectorIPN7tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjyEEEEvESG_i.argprom(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture readonly %instantiation_name.0.val, i64 %instantiation_name.8.val, ptr noundef %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjyEEEEvESG_i(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture readonly %instantiation_name.0.val, i64 %instantiation_name.8.val, ptr noundef %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"struct.std::pair", align 8
@@ -1815,7 +1815,7 @@ if.end24:                                         ; preds = %_ZNSt6vectorIPN7tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjNS2_12TestPlatformEEEEEvESG_i.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture readonly %instantiation_name.0.val, i64 %instantiation_name.8.val, ptr noundef %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjNS2_12TestPlatformEEEEEvESG_i(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture readonly %instantiation_name.0.val, i64 %instantiation_name.8.val, ptr noundef %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"struct.std::pair.173", align 8
@@ -35307,7 +35307,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6vectorIN7test
   store i64 6, ptr %_M_string_length.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 22
   store i8 0, ptr %arrayidx.i.i.i.i, align 2
-  invoke fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjyEEEEvESG_i.argprom(ptr noundef nonnull align 8 dereferenceable(88) %call2.i, ptr nonnull %16, i64 6, ptr noundef nonnull @_ZN12_GLOBAL__N_147gtest_SingleHyperscanTestRuntime_EvalGenerator_Ev)
+  invoke fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjyEEEEvESG_i(ptr noundef nonnull align 8 dereferenceable(88) %call2.i, ptr nonnull %16, i64 6, ptr noundef nonnull @_ZN12_GLOBAL__N_147gtest_SingleHyperscanTestRuntime_EvalGenerator_Ev)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %__cxx_global_var_init.1.exit
@@ -35562,7 +35562,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt6vectorIN7test
   store i64 6, ptr %_M_string_length.i.i.i.i.i90, align 8
   %arrayidx.i.i.i.i91 = getelementptr inbounds i8, ptr %ref.tmp.i86, i64 22
   store i8 0, ptr %arrayidx.i.i.i.i91, align 2
-  invoke fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjNS2_12TestPlatformEEEEEvESG_i.argprom(ptr noundef nonnull align 8 dereferenceable(88) %call2.i89, ptr nonnull %38, i64 6, ptr noundef nonnull @_ZN12_GLOBAL__N_152gtest_SingleHyperscanTestCrossCompile_EvalGenerator_Ev)
+  invoke fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjNS2_12TestPlatformEEEEEvESG_i(ptr noundef nonnull align 8 dereferenceable(88) %call2.i89, ptr nonnull %38, i64 6, ptr noundef nonnull @_ZN12_GLOBAL__N_152gtest_SingleHyperscanTestCrossCompile_EvalGenerator_Ev)
           to label %invoke.cont5.i99 unwind label %lpad4.i93
 
 invoke.cont5.i99:                                 ; preds = %__cxx_global_var_init.5.exit
@@ -35614,7 +35614,7 @@ __cxx_global_var_init.7.exit:                     ; preds = %if.then.i.i12.i101,
   store i64 9, ptr %_M_string_length.i.i.i.i.i108, align 8
   %arrayidx.i.i.i.i109 = getelementptr inbounds i8, ptr %ref.tmp.i104, i64 25
   store i8 0, ptr %arrayidx.i.i.i.i109, align 1
-  invoke fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjyEEEEvESG_i.argprom(ptr noundef nonnull align 8 dereferenceable(88) %call2.i107, ptr nonnull %44, i64 9, ptr noundef nonnull @_ZN12_GLOBAL__N_150gtest_SingleSomHyperscanTestRuntime_EvalGenerator_Ev)
+  invoke fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjyEEEEvESG_i(ptr noundef nonnull align 8 dereferenceable(88) %call2.i107, ptr nonnull %44, i64 9, ptr noundef nonnull @_ZN12_GLOBAL__N_150gtest_SingleSomHyperscanTestRuntime_EvalGenerator_Ev)
           to label %invoke.cont5.i117 unwind label %lpad4.i111
 
 invoke.cont5.i117:                                ; preds = %__cxx_global_var_init.7.exit
@@ -35666,7 +35666,7 @@ __cxx_global_var_init.9.exit:                     ; preds = %if.then.i.i12.i119,
   store i64 9, ptr %_M_string_length.i.i.i.i.i126, align 8
   %arrayidx.i.i.i.i127 = getelementptr inbounds i8, ptr %ref.tmp.i122, i64 25
   store i8 0, ptr %arrayidx.i.i.i.i127, align 1
-  invoke fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjNS2_12TestPlatformEEEEEvESG_i.argprom(ptr noundef nonnull align 8 dereferenceable(88) %call2.i125, ptr nonnull %50, i64 9, ptr noundef nonnull @_ZN12_GLOBAL__N_155gtest_SingleSomHyperscanTestCrossCompile_EvalGenerator_Ev)
+  invoke fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE24AddTestCaseInstantiationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJPKcjjNS2_12TestPlatformEEEEEvESG_i(ptr noundef nonnull align 8 dereferenceable(88) %call2.i125, ptr nonnull %50, i64 9, ptr noundef nonnull @_ZN12_GLOBAL__N_155gtest_SingleSomHyperscanTestCrossCompile_EvalGenerator_Ev)
           to label %invoke.cont5.i135 unwind label %lpad4.i129
 
 invoke.cont5.i135:                                ; preds = %__cxx_global_var_init.9.exit

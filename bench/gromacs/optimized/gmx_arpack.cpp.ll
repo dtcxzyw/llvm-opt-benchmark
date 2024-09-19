@@ -427,10 +427,10 @@ sub_0197:                                         ; preds = %117
   %234 = getelementptr double, ptr %202, i64 %233
   %235 = getelementptr i8, ptr %234, i64 8
   %236 = getelementptr inbounds i8, ptr %13, i64 240
-  call fastcc void @_ZL7dgetv0_PiPKcS_S_S_S_PdS_S2_S2_S_S2_S_S_.argprom(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %230, ptr noundef nonnull %2, ptr noundef nonnull %46, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %235, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %236, ptr noundef %16)
+  call fastcc void @_ZL7dgetv0_PiPKcS_S_S_S_PdS_S2_S2_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %230, ptr noundef nonnull %2, ptr noundef nonnull %46, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %235, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %236, ptr noundef %16)
   %237 = load i32, ptr %0, align 4
   %.not369.i = icmp eq i32 %237, 99
-  br i1 %.not369.i, label %238, label %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
+  br i1 %.not369.i, label %238, label %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
 
 238:                                              ; preds = %229
   %239 = load i32, ptr %2, align 4
@@ -477,10 +477,10 @@ sub_0197:                                         ; preds = %117
   %265 = getelementptr i8, ptr %264, i64 8
   %266 = getelementptr inbounds i8, ptr %13, i64 160
   %.val.i = load i32, ptr %186, align 4
-  call fastcc void @_ZL7dsaitr_PiPKcS_S_S_S_PdS2_S2_S_S2_S_S_S2_S_S_.argprom(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %47, ptr noundef nonnull %260, ptr noundef nonnull readonly %179, ptr noundef %6, ptr noundef %265, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %185, i32 %.val.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %266, ptr noundef %16)
+  call fastcc void @_ZL7dsaitr_PiPKcS_S_S_S_PdS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %47, ptr noundef nonnull %260, ptr noundef nonnull readonly %179, ptr noundef %6, ptr noundef %265, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %185, i32 %.val.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %266, ptr noundef %16)
   %267 = load i32, ptr %0, align 4
   %.not370.i = icmp eq i32 %267, 99
-  br i1 %.not370.i, label %268, label %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
+  br i1 %.not370.i, label %268, label %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
 
 268:                                              ; preds = %259
   %269 = load i32, ptr %16, align 4
@@ -512,10 +512,10 @@ sub_0197:                                         ; preds = %117
   %283 = getelementptr i8, ptr %282, i64 8
   %284 = getelementptr inbounds i8, ptr %13, i64 160
   %.val383.i = load i32, ptr %186, align 4
-  call fastcc void @_ZL7dsaitr_PiPKcS_S_S_S_PdS2_S2_S_S2_S_S_S2_S_S_.argprom(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %177, ptr noundef nonnull %178, ptr noundef nonnull readonly %179, ptr noundef %6, ptr noundef %283, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %185, i32 %.val383.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %284, ptr noundef %16)
+  call fastcc void @_ZL7dsaitr_PiPKcS_S_S_S_PdS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %177, ptr noundef nonnull %178, ptr noundef nonnull readonly %179, ptr noundef %6, ptr noundef %283, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %185, i32 %.val383.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %284, ptr noundef %16)
   %285 = load i32, ptr %0, align 4
   %.not371.i = icmp eq i32 %285, 99
-  br i1 %.not371.i, label %286, label %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
+  br i1 %.not371.i, label %286, label %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
 
 286:                                              ; preds = %278
   %287 = load i32, ptr %16, align 4
@@ -1283,9 +1283,9 @@ _ZL7dstqrb_PiPdS0_S0_S0_S_.exit.i.i:              ; preds = %623, %645, %.outer4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
   %646 = load i32, ptr %49, align 4
   %.not.i.i = icmp eq i32 %646, 0
-  br i1 %.not.i.i, label %647, label %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.thread1.i
+  br i1 %.not.i.i, label %647, label %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.thread1.i
 
-_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.thread1.i: ; preds = %_ZL7dstqrb_PiPdS0_S0_S0_S_.exit.i.i
+_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.thread1.i:     ; preds = %_ZL7dstqrb_PiPdS0_S0_S0_S_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
   store i32 -8, ptr %16, align 4
@@ -1294,9 +1294,9 @@ _ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.thread1.i: ; preds = %_ZL7dstqrb_PiPd
 647:                                              ; preds = %_ZL7dstqrb_PiPdS0_S0_S0_S_.exit.i.i
   %648 = load i32, ptr %298, align 4
   %.not3033.i.i = icmp slt i32 %648, 1
-  br i1 %.not3033.i.i, label %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.thread.i, label %.lr.ph.preheader.i.i
+  br i1 %.not3033.i.i, label %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.thread.i, label %.lr.ph.preheader.i.i
 
-_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.thread.i: ; preds = %647
+_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.thread.i:      ; preds = %647
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
   br label %655
@@ -1316,16 +1316,16 @@ _ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.thread.i: ; preds = %647
   store double %654, ptr %651, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.i, label %.lr.ph.i.i, !llvm.loop !13
 
-_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.i:     ; preds = %.lr.ph.i.i
+_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.i:             ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
   %.pre.i = load i32, ptr %298, align 4
   br label %655
 
-655:                                              ; preds = %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.i, %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.thread.i
-  %656 = phi i32 [ %.pre.i, %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.i ], [ %648, %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.thread.i ]
+655:                                              ; preds = %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.i, %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.thread.i
+  %656 = phi i32 [ %.pre.i, %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.i ], [ %648, %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.thread.i ]
   %657 = sext i32 %656 to i64
   %658 = getelementptr double, ptr %203, i64 %657
   %659 = getelementptr i8, ptr %658, i64 8
@@ -1750,7 +1750,7 @@ thread-pre-split.i:                               ; preds = %803, %821
   call void @dlaset_(ptr noundef nonnull @.str.12, ptr noundef nonnull %28, ptr noundef nonnull %28, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %197, ptr noundef nonnull %198)
   %843 = load i32, ptr %178, align 4
   %844 = icmp eq i32 %843, 0
-  br i1 %844, label %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i, label %.preheader3.i.i
+  br i1 %844, label %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.exit.i, label %.preheader3.i.i
 
 .preheader3.i.i:                                  ; preds = %831
   %.not28.i.i = icmp slt i32 %843, 1
@@ -2205,7 +2205,7 @@ thread-pre-split.i:                               ; preds = %803, %821
   %1077 = getelementptr inbounds double, ptr %836, i64 %1076
   %1078 = load double, ptr %1077, align 8
   %1079 = fcmp ogt double %1078, 0.000000e+00
-  br i1 %1079, label %1080, label %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i
+  br i1 %1079, label %1080, label %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.exit.i
 
 1080:                                             ; preds = %1066
   %1081 = mul nsw i32 %1074, %832
@@ -2213,9 +2213,9 @@ thread-pre-split.i:                               ; preds = %803, %821
   %1083 = getelementptr double, ptr %834, i64 %1082
   %1084 = getelementptr i8, ptr %1083, i64 8
   call void @daxpy_(ptr noundef %2, ptr noundef nonnull %1077, ptr noundef %1084, ptr noundef nonnull %21, ptr noundef %6, ptr noundef nonnull %21)
-  br label %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i
+  br label %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.exit.i
 
-_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i: ; preds = %1080, %1066, %831
+_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.exit.i:  ; preds = %1080, %1066, %831
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
@@ -2234,7 +2234,7 @@ _ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i: ; preds = %1080, %1066,
     i8 73, label %1094
   ]
 
-1086:                                             ; preds = %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i
+1086:                                             ; preds = %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.exit.i
   %1087 = load i32, ptr %2, align 4
   %1088 = sext i32 %1087 to i64
   %1089 = getelementptr double, ptr %202, i64 %1088
@@ -2247,7 +2247,7 @@ _ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i: ; preds = %1080, %1066,
   store i32 1, ptr %1093, align 4
   br label %.sink.split222.i
 
-1094:                                             ; preds = %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i
+1094:                                             ; preds = %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.exit.i
   call void @dcopy_(ptr noundef %2, ptr noundef %6, ptr noundef nonnull %46, ptr noundef %12, ptr noundef nonnull %46)
   br label %thread-pre-split2.i
 
@@ -2255,8 +2255,8 @@ thread-pre-split2.i:                              ; preds = %1094, %256
   %.pr3.i = load i8, ptr %1, align 1
   br label %1095
 
-1095:                                             ; preds = %thread-pre-split2.i, %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i
-  %1096 = phi i8 [ %.pr3.i, %thread-pre-split2.i ], [ %1085, %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i ]
+1095:                                             ; preds = %thread-pre-split2.i, %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.exit.i
+  %1096 = phi i8 [ %.pr3.i, %thread-pre-split2.i ], [ %1085, %_ZL7dsapps_PiS_S_PdS0_S_S0_S_S0_S0_S_S0_.exit.i ]
   switch i8 %1096, label %1118 [
     i8 71, label %1097
     i8 73, label %1111
@@ -2295,12 +2295,12 @@ thread-pre-split2.i:                              ; preds = %1094, %256
   store i32 0, ptr %201, align 4
   br label %274
 
-.sink.split222.i:                                 ; preds = %1086, %824, %800, %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.thread1.i, %289, %271, %246
-  %.sink223.i = phi i32 [ 2, %1086 ], [ 3, %824 ], [ 99, %800 ], [ 99, %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.argprom.exit.thread1.i ], [ 99, %289 ], [ 99, %271 ], [ 99, %246 ]
+.sink.split222.i:                                 ; preds = %1086, %824, %800, %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.thread1.i, %289, %271, %246
+  %.sink223.i = phi i32 [ 2, %1086 ], [ 3, %824 ], [ 99, %800 ], [ 99, %_ZL7dseigt_PdPiS_S0_S_S_S_S0_.exit.thread1.i ], [ 99, %289 ], [ 99, %271 ], [ 99, %246 ]
   store i32 %.sink223.i, ptr %0, align 4
-  br label %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
+  br label %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
 
-_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit: ; preds = %229, %259, %278, %.sink.split222.i
+_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit: ; preds = %229, %259, %278, %.sink.split222.i
   %1119 = phi i32 [ %237, %229 ], [ %267, %259 ], [ %285, %278 ], [ %.sink223.i, %.sink.split222.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
@@ -2310,15 +2310,15 @@ _ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.
   %1120 = icmp eq i32 %1119, 3
   br i1 %1120, label %1121, label %1124
 
-1121:                                             ; preds = %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
+1121:                                             ; preds = %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
   %1122 = load i32, ptr %178, align 4
   %1123 = getelementptr inbounds i8, ptr %10, i64 28
   store i32 %1122, ptr %1123, align 4
   %.pre301 = load i32, ptr %0, align 4
   br label %1124
 
-1124:                                             ; preds = %1121, %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
-  %1125 = phi i32 [ %.pre301, %1121 ], [ %1119, %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit ]
+1124:                                             ; preds = %1121, %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
+  %1125 = phi i32 [ %.pre301, %1121 ], [ %1119, %_ZL7dsaup2_PiPKcS_S1_S_S_PdS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit ]
   %.not175 = icmp eq i32 %1125, 99
   br i1 %.not175, label %1126, label %1134
 
@@ -2931,12 +2931,12 @@ sub_0707:                                         ; preds = %sub_0707.lr.ph, %.t
   %292 = load i32, ptr %33, align 4
   %.2.in.off10.i = add i32 %292, 1
   %293 = icmp ult i32 %.2.in.off10.i, 3
-  br i1 %293, label %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.argprom.exit, label %.lr.ph13.i
+  br i1 %293, label %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit, label %.lr.ph13.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %.lr.ph13.i
   %.2.in.off.i = add nsw i32 %.211.i, 1
   %294 = icmp ult i32 %.2.in.off.i, 3
-  br i1 %294, label %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.argprom.exit, label %.lr.ph13.i
+  br i1 %294, label %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit, label %.lr.ph13.i
 
 .lr.ph13.i:                                       ; preds = %289, %.loopexit.i
   %.211.in.i = phi i32 [ %.211.i, %.loopexit.i ], [ %292, %289 ]
@@ -2989,7 +2989,7 @@ sub_0707:                                         ; preds = %sub_0707.lr.ph, %.t
   %exitcond.not.i = icmp eq i32 %312, %295
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.preheader.i, !llvm.loop !27
 
-_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.argprom.exit:      ; preds = %.loopexit.i, %289
+_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit:              ; preds = %.loopexit.i, %289
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   br label %380
 
@@ -3115,12 +3115,12 @@ _ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.argprom.exit:      ; preds = %.loopexit.i, %289
   %353 = load i32, ptr %33, align 4
   %.2.in.off10.i612 = add i32 %353, 1
   %354 = icmp ult i32 %.2.in.off10.i612, 3
-  br i1 %354, label %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.argprom.exit631, label %.lr.ph13.i613
+  br i1 %354, label %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit631, label %.lr.ph13.i613
 
 .loopexit.i617:                                   ; preds = %._crit_edge.i625, %.lr.ph13.i613
   %.2.in.off.i618 = add nsw i32 %.211.i615, 1
   %355 = icmp ult i32 %.2.in.off.i618, 3
-  br i1 %355, label %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.argprom.exit631, label %.lr.ph13.i613
+  br i1 %355, label %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit631, label %.lr.ph13.i613
 
 .lr.ph13.i613:                                    ; preds = %350, %.loopexit.i617
   %.211.in.i614 = phi i32 [ %.211.i615, %.loopexit.i617 ], [ %353, %350 ]
@@ -3173,7 +3173,7 @@ _ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.argprom.exit:      ; preds = %.loopexit.i, %289
   %exitcond.not.i626 = icmp eq i32 %373, %356
   br i1 %exitcond.not.i626, label %.loopexit.i617, label %.lr.ph.preheader.i619, !llvm.loop !27
 
-_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.argprom.exit631:   ; preds = %.loopexit.i617, %350
+_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit631:           ; preds = %.loopexit.i617, %350
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   br label %380
 
@@ -3189,7 +3189,7 @@ _ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.argprom.exit631:   ; preds = %.loopexit.i617, %35
   call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull @.str.2, ptr noundef %25, ptr noundef nonnull %33, ptr noundef %3, ptr noundef nonnull %378)
   br label %380
 
-380:                                              ; preds = %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.argprom.exit631, %374, %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.argprom.exit, %313
+380:                                              ; preds = %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit631, %374, %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit, %313
   %381 = load i32, ptr %0, align 4
   %.not574 = icmp eq i32 %381, 0
   br i1 %.not574, label %413, label %382
@@ -4201,10 +4201,10 @@ sub_0197:                                         ; preds = %117
   %234 = getelementptr float, ptr %202, i64 %233
   %235 = getelementptr i8, ptr %234, i64 4
   %236 = getelementptr inbounds i8, ptr %13, i64 240
-  call fastcc void @_ZL7sgetv0_PiPKcS_S_S_S_PfS_S2_S2_S_S2_S_S_.argprom(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %230, ptr noundef nonnull %2, ptr noundef nonnull %46, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %235, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %236, ptr noundef %16)
+  call fastcc void @_ZL7sgetv0_PiPKcS_S_S_S_PfS_S2_S2_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %230, ptr noundef nonnull %2, ptr noundef nonnull %46, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %235, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %236, ptr noundef %16)
   %237 = load i32, ptr %0, align 4
   %.not369.i = icmp eq i32 %237, 99
-  br i1 %.not369.i, label %238, label %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
+  br i1 %.not369.i, label %238, label %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
 
 238:                                              ; preds = %229
   %239 = load i32, ptr %2, align 4
@@ -4251,10 +4251,10 @@ sub_0197:                                         ; preds = %117
   %265 = getelementptr i8, ptr %264, i64 4
   %266 = getelementptr inbounds i8, ptr %13, i64 160
   %.val.i = load i32, ptr %186, align 4
-  call fastcc void @_ZL7ssaitr_PiPKcS_S_S_S_PfS2_S2_S_S2_S_S_S2_S_S_.argprom(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %47, ptr noundef nonnull %260, ptr noundef nonnull readonly %179, ptr noundef %6, ptr noundef %265, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %185, i32 %.val.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %266, ptr noundef %16)
+  call fastcc void @_ZL7ssaitr_PiPKcS_S_S_S_PfS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %47, ptr noundef nonnull %260, ptr noundef nonnull readonly %179, ptr noundef %6, ptr noundef %265, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %185, i32 %.val.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %266, ptr noundef %16)
   %267 = load i32, ptr %0, align 4
   %.not370.i = icmp eq i32 %267, 99
-  br i1 %.not370.i, label %268, label %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
+  br i1 %.not370.i, label %268, label %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
 
 268:                                              ; preds = %259
   %269 = load i32, ptr %16, align 4
@@ -4286,10 +4286,10 @@ sub_0197:                                         ; preds = %117
   %283 = getelementptr i8, ptr %282, i64 4
   %284 = getelementptr inbounds i8, ptr %13, i64 160
   %.val383.i = load i32, ptr %186, align 4
-  call fastcc void @_ZL7ssaitr_PiPKcS_S_S_S_PfS2_S2_S_S2_S_S_S2_S_S_.argprom(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %177, ptr noundef nonnull %178, ptr noundef nonnull readonly %179, ptr noundef %6, ptr noundef %283, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %185, i32 %.val383.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %284, ptr noundef %16)
+  call fastcc void @_ZL7ssaitr_PiPKcS_S_S_S_PfS2_S2_S_S2_S_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %177, ptr noundef nonnull %178, ptr noundef nonnull readonly %179, ptr noundef %6, ptr noundef %283, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %185, i32 %.val383.i, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %284, ptr noundef %16)
   %285 = load i32, ptr %0, align 4
   %.not371.i = icmp eq i32 %285, 99
-  br i1 %.not371.i, label %286, label %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
+  br i1 %.not371.i, label %286, label %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
 
 286:                                              ; preds = %278
   %287 = load i32, ptr %16, align 4
@@ -5071,9 +5071,9 @@ _ZL7sstqrb_PiPfS0_S0_S0_S_.exit.i.i:              ; preds = %637, %659, %.outer4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
   %660 = load i32, ptr %49, align 4
   %.not.i.i = icmp eq i32 %660, 0
-  br i1 %.not.i.i, label %661, label %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.thread1.i
+  br i1 %.not.i.i, label %661, label %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.thread1.i
 
-_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.thread1.i: ; preds = %_ZL7sstqrb_PiPfS0_S0_S0_S_.exit.i.i
+_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.thread1.i:     ; preds = %_ZL7sstqrb_PiPfS0_S0_S0_S_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
   store i32 -8, ptr %16, align 4
@@ -5082,9 +5082,9 @@ _ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.thread1.i: ; preds = %_ZL7sstqrb_PiPf
 661:                                              ; preds = %_ZL7sstqrb_PiPfS0_S0_S0_S_.exit.i.i
   %662 = load i32, ptr %298, align 4
   %.not3033.i.i = icmp slt i32 %662, 1
-  br i1 %.not3033.i.i, label %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.thread.i, label %.lr.ph.preheader.i.i
+  br i1 %.not3033.i.i, label %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.thread.i, label %.lr.ph.preheader.i.i
 
-_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.thread.i: ; preds = %661
+_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.thread.i:      ; preds = %661
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
   br label %669
@@ -5104,16 +5104,16 @@ _ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.thread.i: ; preds = %661
   store float %668, ptr %665, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !50
+  br i1 %exitcond.not.i.i, label %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.i, label %.lr.ph.i.i, !llvm.loop !50
 
-_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.i:     ; preds = %.lr.ph.i.i
+_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.i:             ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
   %.pre.i = load i32, ptr %298, align 4
   br label %669
 
-669:                                              ; preds = %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.i, %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.thread.i
-  %670 = phi i32 [ %.pre.i, %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.i ], [ %662, %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.thread.i ]
+669:                                              ; preds = %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.i, %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.thread.i
+  %670 = phi i32 [ %.pre.i, %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.i ], [ %662, %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.thread.i ]
   %671 = sext i32 %670 to i64
   %672 = getelementptr float, ptr %203, i64 %671
   %673 = getelementptr i8, ptr %672, i64 4
@@ -5538,7 +5538,7 @@ thread-pre-split.i:                               ; preds = %817, %835
   call void @slaset_(ptr noundef nonnull @.str.12, ptr noundef nonnull %28, ptr noundef nonnull %28, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %197, ptr noundef nonnull %198)
   %857 = load i32, ptr %178, align 4
   %858 = icmp eq i32 %857, 0
-  br i1 %858, label %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i, label %.preheader3.i.i
+  br i1 %858, label %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.exit.i, label %.preheader3.i.i
 
 .preheader3.i.i:                                  ; preds = %845
   %.not28.i.i = icmp slt i32 %857, 1
@@ -5993,7 +5993,7 @@ thread-pre-split.i:                               ; preds = %817, %835
   %1091 = getelementptr inbounds float, ptr %850, i64 %1090
   %1092 = load float, ptr %1091, align 4
   %1093 = fcmp ogt float %1092, 0.000000e+00
-  br i1 %1093, label %1094, label %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i
+  br i1 %1093, label %1094, label %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.exit.i
 
 1094:                                             ; preds = %1080
   %1095 = mul nsw i32 %1088, %846
@@ -6001,9 +6001,9 @@ thread-pre-split.i:                               ; preds = %817, %835
   %1097 = getelementptr float, ptr %848, i64 %1096
   %1098 = getelementptr i8, ptr %1097, i64 4
   call void @saxpy_(ptr noundef %2, ptr noundef nonnull %1091, ptr noundef %1098, ptr noundef nonnull %21, ptr noundef %6, ptr noundef nonnull %21)
-  br label %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i
+  br label %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.exit.i
 
-_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i: ; preds = %1094, %1080, %845
+_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.exit.i:  ; preds = %1094, %1080, %845
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
@@ -6022,7 +6022,7 @@ _ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i: ; preds = %1094, %1080,
     i8 73, label %1108
   ]
 
-1100:                                             ; preds = %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i
+1100:                                             ; preds = %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.exit.i
   %1101 = load i32, ptr %2, align 4
   %1102 = sext i32 %1101 to i64
   %1103 = getelementptr float, ptr %202, i64 %1102
@@ -6035,7 +6035,7 @@ _ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i: ; preds = %1094, %1080,
   store i32 1, ptr %1107, align 4
   br label %.sink.split222.i
 
-1108:                                             ; preds = %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i
+1108:                                             ; preds = %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.exit.i
   call void @scopy_(ptr noundef %2, ptr noundef %6, ptr noundef nonnull %46, ptr noundef %12, ptr noundef nonnull %46)
   br label %thread-pre-split2.i
 
@@ -6043,8 +6043,8 @@ thread-pre-split2.i:                              ; preds = %1108, %256
   %.pr3.i = load i8, ptr %1, align 1
   br label %1109
 
-1109:                                             ; preds = %thread-pre-split2.i, %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i
-  %1110 = phi i8 [ %.pr3.i, %thread-pre-split2.i ], [ %1099, %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.argprom.exit.i ]
+1109:                                             ; preds = %thread-pre-split2.i, %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.exit.i
+  %1110 = phi i8 [ %.pr3.i, %thread-pre-split2.i ], [ %1099, %_ZL7ssapps_PiS_S_PfS0_S_S0_S_S0_S0_S_S0_.exit.i ]
   switch i8 %1110, label %1132 [
     i8 71, label %1111
     i8 73, label %1125
@@ -6083,12 +6083,12 @@ thread-pre-split2.i:                              ; preds = %1108, %256
   store i32 0, ptr %201, align 4
   br label %274
 
-.sink.split222.i:                                 ; preds = %1100, %838, %814, %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.thread1.i, %289, %271, %246
-  %.sink223.i = phi i32 [ 2, %1100 ], [ 3, %838 ], [ 99, %814 ], [ 99, %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.argprom.exit.thread1.i ], [ 99, %289 ], [ 99, %271 ], [ 99, %246 ]
+.sink.split222.i:                                 ; preds = %1100, %838, %814, %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.thread1.i, %289, %271, %246
+  %.sink223.i = phi i32 [ 2, %1100 ], [ 3, %838 ], [ 99, %814 ], [ 99, %_ZL7sseigt_PfPiS_S0_S_S_S_S0_.exit.thread1.i ], [ 99, %289 ], [ 99, %271 ], [ 99, %246 ]
   store i32 %.sink223.i, ptr %0, align 4
-  br label %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
+  br label %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
 
-_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit: ; preds = %229, %259, %278, %.sink.split222.i
+_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit: ; preds = %229, %259, %278, %.sink.split222.i
   %1133 = phi i32 [ %237, %229 ], [ %267, %259 ], [ %285, %278 ], [ %.sink223.i, %.sink.split222.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
@@ -6098,15 +6098,15 @@ _ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.
   %1134 = icmp eq i32 %1133, 3
   br i1 %1134, label %1135, label %1138
 
-1135:                                             ; preds = %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
+1135:                                             ; preds = %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
   %1136 = load i32, ptr %178, align 4
   %1137 = getelementptr inbounds i8, ptr %10, i64 28
   store i32 %1136, ptr %1137, align 4
   %.pre301 = load i32, ptr %0, align 4
   br label %1138
 
-1138:                                             ; preds = %1135, %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit
-  %1139 = phi i32 [ %.pre301, %1135 ], [ %1133, %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.argprom.exit ]
+1138:                                             ; preds = %1135, %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit
+  %1139 = phi i32 [ %.pre301, %1135 ], [ %1133, %_ZL7ssaup2_PiPKcS_S1_S_S_PfS2_S_S_S_S_S2_S_S2_S_S2_S2_S2_S_S2_S_S2_S_S_.exit ]
   %.not175 = icmp eq i32 %1139, 99
   br i1 %.not175, label %1140, label %1148
 
@@ -6719,12 +6719,12 @@ sub_0705:                                         ; preds = %sub_0705.lr.ph, %.t
   %292 = load i32, ptr %33, align 4
   %.2.in.off10.i = add i32 %292, 1
   %293 = icmp ult i32 %.2.in.off10.i, 3
-  br i1 %293, label %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.argprom.exit, label %.lr.ph13.i
+  br i1 %293, label %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit, label %.lr.ph13.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %.lr.ph13.i
   %.2.in.off.i = add nsw i32 %.211.i, 1
   %294 = icmp ult i32 %.2.in.off.i, 3
-  br i1 %294, label %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.argprom.exit, label %.lr.ph13.i
+  br i1 %294, label %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit, label %.lr.ph13.i
 
 .lr.ph13.i:                                       ; preds = %289, %.loopexit.i
   %.211.in.i = phi i32 [ %.211.i, %.loopexit.i ], [ %292, %289 ]
@@ -6777,7 +6777,7 @@ sub_0705:                                         ; preds = %sub_0705.lr.ph, %.t
   %exitcond.not.i = icmp eq i32 %312, %295
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.preheader.i, !llvm.loop !64
 
-_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.argprom.exit:      ; preds = %.loopexit.i, %289
+_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit:              ; preds = %.loopexit.i, %289
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   br label %389
 
@@ -6912,12 +6912,12 @@ _ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.argprom.exit:      ; preds = %.loopexit.i, %289
   %362 = load i32, ptr %33, align 4
   %.2.in.off10.i612 = add i32 %362, 1
   %363 = icmp ult i32 %.2.in.off10.i612, 3
-  br i1 %363, label %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.argprom.exit631, label %.lr.ph13.i613
+  br i1 %363, label %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit631, label %.lr.ph13.i613
 
 .loopexit.i617:                                   ; preds = %._crit_edge.i625, %.lr.ph13.i613
   %.2.in.off.i618 = add nsw i32 %.211.i615, 1
   %364 = icmp ult i32 %.2.in.off.i618, 3
-  br i1 %364, label %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.argprom.exit631, label %.lr.ph13.i613
+  br i1 %364, label %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit631, label %.lr.ph13.i613
 
 .lr.ph13.i613:                                    ; preds = %359, %.loopexit.i617
   %.211.in.i614 = phi i32 [ %.211.i615, %.loopexit.i617 ], [ %362, %359 ]
@@ -6970,7 +6970,7 @@ _ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.argprom.exit:      ; preds = %.loopexit.i, %289
   %exitcond.not.i626 = icmp eq i32 %382, %365
   br i1 %exitcond.not.i626, label %.loopexit.i617, label %.lr.ph.preheader.i619, !llvm.loop !64
 
-_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.argprom.exit631:   ; preds = %.loopexit.i617, %359
+_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit631:           ; preds = %.loopexit.i617, %359
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   br label %389
 
@@ -6986,7 +6986,7 @@ _ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.argprom.exit631:   ; preds = %.loopexit.i617, %35
   call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull @.str.2, ptr noundef %25, ptr noundef nonnull %33, ptr noundef %3, ptr noundef nonnull %387)
   br label %389
 
-389:                                              ; preds = %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.argprom.exit631, %383, %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.argprom.exit, %313
+389:                                              ; preds = %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit631, %383, %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit, %313
   %390 = load i32, ptr %0, align 4
   %.not574 = icmp eq i32 %390, 0
   br i1 %.not574, label %422, label %391
@@ -7607,7 +7607,7 @@ declare void @slacpy_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @sger_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7dgetv0_PiPKcS_S_S_S_PdS_S2_S2_S_S2_S_S_.argprom(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly %9, ptr noundef %10, ptr noundef %11, ptr nocapture noundef writeonly %12) unnamed_addr #0 {
+define internal fastcc void @_ZL7dgetv0_PiPKcS_S_S_S_PdS_S2_S2_S_S2_S_S_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly %9, ptr noundef %10, ptr noundef %11, ptr nocapture noundef writeonly %12) unnamed_addr #0 {
   %14 = alloca i32, align 4
   %15 = alloca double, align 8
   %16 = alloca double, align 8
@@ -7865,7 +7865,7 @@ thread-pre-split:                                 ; preds = %40, %111
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7dsaitr_PiPKcS_S_S_S_PdS2_S2_S_S2_S_S_S2_S_S_.argprom(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef %10, i32 %.0.val, ptr nocapture noundef writeonly %11, ptr noundef %12, ptr noundef %13, ptr nocapture noundef writeonly %14) unnamed_addr #0 {
+define internal fastcc void @_ZL7dsaitr_PiPKcS_S_S_S_PdS2_S2_S_S2_S_S_S2_S_S_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef %10, i32 %.0.val, ptr nocapture noundef writeonly %11, ptr noundef %12, ptr noundef %13, ptr nocapture noundef writeonly %14) unnamed_addr #0 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca double, align 8
@@ -7968,7 +7968,7 @@ define internal fastcc void @_ZL7dsaitr_PiPKcS_S_S_S_PdS2_S2_S_S2_S_S_S2_S_S_.ar
   %76 = getelementptr inbounds i8, ptr %13, i64 44
   %77 = getelementptr inbounds i8, ptr %13, i64 80
   %78 = getelementptr inbounds i8, ptr %13, i64 24
-  call fastcc void @_ZL7dgetv0_PiPKcS_S_S_S_PdS_S2_S2_S_S2_S_S_.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %16, ptr noundef %2, ptr noundef nonnull %76, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %7, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %77, ptr noundef nonnull %78)
+  call fastcc void @_ZL7dgetv0_PiPKcS_S_S_S_PdS_S2_S2_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %16, ptr noundef %2, ptr noundef nonnull %76, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %7, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %77, ptr noundef nonnull %78)
   %79 = load i32, ptr %0, align 4
   %.not336 = icmp eq i32 %79, 99
   br i1 %.not336, label %80, label %423
@@ -8626,7 +8626,7 @@ declare void @daxpy_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7sgetv0_PiPKcS_S_S_S_PfS_S2_S2_S_S2_S_S_.argprom(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly %9, ptr noundef %10, ptr noundef %11, ptr nocapture noundef writeonly %12) unnamed_addr #0 {
+define internal fastcc void @_ZL7sgetv0_PiPKcS_S_S_S_PfS_S2_S2_S_S2_S_S_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly %9, ptr noundef %10, ptr noundef %11, ptr nocapture noundef writeonly %12) unnamed_addr #0 {
   %14 = alloca i32, align 4
   %15 = alloca float, align 4
   %16 = alloca float, align 4
@@ -8884,7 +8884,7 @@ thread-pre-split:                                 ; preds = %40, %111
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7ssaitr_PiPKcS_S_S_S_PfS2_S2_S_S2_S_S_S2_S_S_.argprom(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef %10, i32 %.0.val, ptr nocapture noundef writeonly %11, ptr noundef %12, ptr noundef %13, ptr nocapture noundef writeonly %14) unnamed_addr #0 {
+define internal fastcc void @_ZL7ssaitr_PiPKcS_S_S_S_PfS2_S2_S_S2_S_S_S2_S_S_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef %10, i32 %.0.val, ptr nocapture noundef writeonly %11, ptr noundef %12, ptr noundef %13, ptr nocapture noundef writeonly %14) unnamed_addr #0 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca float, align 4
@@ -8987,7 +8987,7 @@ define internal fastcc void @_ZL7ssaitr_PiPKcS_S_S_S_PfS2_S2_S_S2_S_S_S2_S_S_.ar
   %76 = getelementptr inbounds i8, ptr %13, i64 44
   %77 = getelementptr inbounds i8, ptr %13, i64 80
   %78 = getelementptr inbounds i8, ptr %13, i64 24
-  call fastcc void @_ZL7sgetv0_PiPKcS_S_S_S_PfS_S2_S2_S_S2_S_S_.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %16, ptr noundef %2, ptr noundef nonnull %76, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %7, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %77, ptr noundef nonnull %78)
+  call fastcc void @_ZL7sgetv0_PiPKcS_S_S_S_PfS_S2_S2_S_S2_S_S_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %16, ptr noundef %2, ptr noundef nonnull %76, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %7, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %77, ptr noundef nonnull %78)
   %79 = load i32, ptr %0, align 4
   %.not335 = icmp eq i32 %79, 99
   br i1 %.not335, label %80, label %423

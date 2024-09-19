@@ -5758,7 +5758,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit187: ; preds = %_ZN5Yosys5RTLI
           cleanup
   br label %.body
 
-.loopexit.split-lp831.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.loopexit913, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit, %797, %_ZNSt3setISt4pairIPN5Yosys5RTLIL4WireEiESt4lessIS5_ESaIS5_EED2Ev.exit, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit342.thread, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit377, %._crit_edge1366, %2951, %461, %795, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit357
+.loopexit.split-lp831.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.loopexit913, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %797, %_ZNSt3setISt4pairIPN5Yosys5RTLIL4WireEiESt4lessIS5_ESaIS5_EED2Ev.exit, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit342.thread, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit377, %._crit_edge1366, %2951, %461, %795, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit357
   %lpad.loopexit.split-lp911 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -6425,13 +6425,13 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit222: ; preds = %_ZN5Yosys5RTLI
 
 795:                                              ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit187
   %796 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %172)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit unwind label %.loopexit.split-lp831.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp831.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit: ; preds = %795
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %795
   invoke void (ptr, ...) @_ZN5Yosys11log_warningEPKcz(ptr noundef nonnull @.str.113, ptr noundef %796)
           to label %797 unwind label %.loopexit.split-lp831.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-797:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit187
+797:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit187
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %104, ptr noundef nonnull @.str.18)
           to label %798 unwind label %.loopexit.split-lp831.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9139,9 +9139,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 1891:                                             ; preds = %1889, %1885, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit421
   %1892 = load i32, ptr @"_ZZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEvE2id", align 4, !noalias !94
   %.not.i.i.i.i422 = icmp eq i32 %1892, 0
-  br i1 %.not.i.i.i.i422, label %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread.i", label %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.i"
+  br i1 %.not.i.i.i.i422, label %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread.i", label %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.i"
 
-"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread.i": ; preds = %1891
+"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread.i": ; preds = %1891
   %1893 = load i32, ptr %1882, align 4
   %1894 = icmp eq i32 %1893, 0
   br i1 %1894, label %2533, label %1916
@@ -9152,7 +9152,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEvE2id") #28, !noalias !94
   br label %.body462
 
-"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.i": ; preds = %1891
+"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.i": ; preds = %1891
   %1897 = sext i32 %1892 to i64
   %1898 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !94
   %1899 = getelementptr inbounds i32, ptr %1898, i64 %1897
@@ -9165,7 +9165,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %1905 = trunc i8 %1904 to i1
   br i1 %1905, label %1906, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i423
 
-1906:                                             ; preds = %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.i"
+1906:                                             ; preds = %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.i"
   %1907 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1908 = getelementptr inbounds i32, ptr %1907, i64 %1897
   %1909 = load i32, ptr %1908, align 4
@@ -9185,10 +9185,10 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @__clang_call_terminate(ptr %1915) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i423:           ; preds = %1912, %1906, %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.i"
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i423:           ; preds = %1912, %1906, %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.i"
   br i1 %1903, label %2533, label %1916
 
-1916:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i423, %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread.i"
+1916:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i423, %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread.i"
   %1917 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL4Cell11is_mem_cellEv(ptr noundef nonnull align 8 dereferenceable(192) %1878)
           to label %.noexc464 unwind label %.loopexit.split-lp872.loopexit
 
@@ -10675,7 +10675,7 @@ _ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EED2Ev.exit.i: ; preds = %.cr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #28
   br label %.body462
 
-2533:                                             ; preds = %_ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EED2Ev.exit.i, %1935, %.noexc464, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i423, %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread.i"
+2533:                                             ; preds = %_ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EED2Ev.exit.i, %1935, %.noexc464, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i423, %"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
@@ -11291,9 +11291,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vect
 2702:                                             ; preds = %2700, %2696, %2692
   %2703 = load i32, ptr @"_ZZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEvE2id", align 4, !noalias !112
   %.not.i.i.i60.i = icmp eq i32 %2703, 0
-  br i1 %.not.i.i.i60.i, label %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.argprom.exit.thread.i", label %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.argprom.exit.i"
+  br i1 %.not.i.i.i60.i, label %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.exit.thread.i", label %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.exit.i"
 
-"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.argprom.exit.thread.i": ; preds = %2702
+"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.exit.thread.i": ; preds = %2702
   %2704 = load i32, ptr %2693, align 4
   %2705 = icmp eq i32 %2704, 0
   br i1 %2705, label %2727, label %2737
@@ -11304,7 +11304,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vect
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEvE2id") #28, !noalias !112
   br label %.body543
 
-"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.argprom.exit.i": ; preds = %2702
+"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.exit.i": ; preds = %2702
   %2708 = sext i32 %2703 to i64
   %2709 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !112
   %2710 = getelementptr inbounds i32, ptr %2709, i64 %2708
@@ -11317,7 +11317,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vect
   %2716 = trunc i8 %2715 to i1
   br i1 %2716, label %2717, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i487
 
-2717:                                             ; preds = %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.argprom.exit.i"
+2717:                                             ; preds = %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.exit.i"
   %2718 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2719 = getelementptr inbounds i32, ptr %2718, i64 %2708
   %2720 = load i32, ptr %2719, align 4
@@ -11337,10 +11337,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vect
   call void @__clang_call_terminate(ptr %2726) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i487:           ; preds = %2723, %2717, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.argprom.exit.i"
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i487:           ; preds = %2723, %2717, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.exit.i"
   br i1 %2714, label %2727, label %2737
 
-2727:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i487, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.argprom.exit.thread.i"
+2727:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i487, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.exit.thread.i"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %138)
           to label %.noexc545 unwind label %.loopexit.split-lp839.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -11376,7 +11376,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #28
   br label %.body543
 
-2737:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i487, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.argprom.exit.thread.i"
+2737:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i487, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.exit.thread.i"
   %2738 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEvE2id" acquire, align 8, !noalias !115
   %2739 = icmp eq i8 %2738, 0
   br i1 %2739, label %2740, label %2746, !prof !24
@@ -11399,9 +11399,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 2746:                                             ; preds = %2744, %2740, %2737
   %2747 = load i32, ptr @"_ZZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEvE2id", align 4, !noalias !115
   %.not.i.i.i61.i = icmp eq i32 %2747, 0
-  br i1 %.not.i.i.i61.i, label %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.argprom.exit.thread.i", label %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.argprom.exit.i"
+  br i1 %.not.i.i.i61.i, label %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.exit.thread.i", label %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.exit.i"
 
-"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.argprom.exit.thread.i": ; preds = %2746
+"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.exit.thread.i": ; preds = %2746
   %2748 = load i32, ptr %2693, align 4
   %2749 = icmp eq i32 %2748, 0
   br i1 %2749, label %2771, label %2838
@@ -11412,7 +11412,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEvE2id") #28, !noalias !115
   br label %.body543
 
-"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.argprom.exit.i": ; preds = %2746
+"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.exit.i": ; preds = %2746
   %2752 = sext i32 %2747 to i64
   %2753 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !115
   %2754 = getelementptr inbounds i32, ptr %2753, i64 %2752
@@ -11425,7 +11425,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %2760 = trunc i8 %2759 to i1
   br i1 %2760, label %2761, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit64.i
 
-2761:                                             ; preds = %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.argprom.exit.i"
+2761:                                             ; preds = %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.exit.i"
   %2762 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2763 = getelementptr inbounds i32, ptr %2762, i64 %2752
   %2764 = load i32, ptr %2763, align 4
@@ -11445,10 +11445,10 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @__clang_call_terminate(ptr %2770) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit64.i:            ; preds = %2767, %2761, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.argprom.exit.i"
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit64.i:            ; preds = %2767, %2761, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.exit.i"
   br i1 %2758, label %2771, label %2838
 
-2771:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit64.i, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.argprom.exit.thread.i"
+2771:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit64.i, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.exit.thread.i"
   %2772 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Yosys5RTLIL4Cell8getParamERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %2686, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID6FLAVORE)
           to label %.noexc546 unwind label %.loopexit.split-lp839.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -11687,7 +11687,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i490) #28
   br label %2838
 
-2838:                                             ; preds = %.sink.split.i489, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit64.i, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.argprom.exit.thread.i"
+2838:                                             ; preds = %.sink.split.i489, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit64.i, %"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.exit.thread.i"
   %2839 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %138) #28
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %28, ptr noundef nonnull @.str.620, ptr noundef %2839)
           to label %.noexc548 unwind label %.loopexit.split-lp839.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -43878,9 +43878,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114dump_cell_exprERSo
 574:                                              ; preds = %572, %568, %3
   %575 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEvE2id", align 4, !noalias !363
   %.not.i.i.i = icmp eq i32 %575, 0
-  br i1 %.not.i.i.i, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit"
+  br i1 %.not.i.i.i, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread", label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit"
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread": ; preds = %574
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread": ; preds = %574
   %576 = load i32, ptr %565, align 4
   %577 = icmp eq i32 %576, 0
   br i1 %577, label %599, label %636
@@ -43895,7 +43895,7 @@ common.resume:                                    ; preds = %615, %617, %619, %6
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEvE2id") #28, !noalias !363
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit": ; preds = %574
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit": ; preds = %574
   %580 = sext i32 %575 to i64
   %581 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !363
   %582 = getelementptr inbounds i32, ptr %581, i64 %580
@@ -43908,7 +43908,7 @@ common.resume:                                    ; preds = %615, %617, %619, %6
   %588 = trunc i8 %587 to i1
   br i1 %588, label %589, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-589:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit"
+589:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit"
   %590 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %591 = getelementptr inbounds i32, ptr %590, i64 %580
   %592 = load i32, ptr %591, align 4
@@ -43928,10 +43928,10 @@ common.resume:                                    ; preds = %615, %617, %619, %6
   tail call void @__clang_call_terminate(ptr %598) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit", %589, %595
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit", %589, %595
   br i1 %586, label %599, label %636
 
-599:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+599:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %600 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #28
   call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.503, ptr noundef %600)
   %601 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -44057,7 +44057,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN12_GLOBAL__N_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #28
   br label %common.resume
 
-636:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+636:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %637 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEvE2id" acquire, align 8, !noalias !366
   %638 = icmp eq i8 %637, 0
   br i1 %638, label %639, label %645, !prof !24
@@ -44080,9 +44080,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN12_GLOBAL__N_1
 645:                                              ; preds = %643, %639, %636
   %646 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEvE2id", align 4, !noalias !366
   %.not.i.i.i1104 = icmp eq i32 %646, 0
-  br i1 %.not.i.i.i1104, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom.exit"
+  br i1 %.not.i.i.i1104, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.exit.thread", label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.exit"
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom.exit.thread": ; preds = %645
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.exit.thread": ; preds = %645
   %647 = load i32, ptr %565, align 4
   %648 = icmp eq i32 %647, 0
   br i1 %648, label %670, label %692
@@ -44093,7 +44093,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN12_GLOBAL__N_1
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEvE2id") #28, !noalias !366
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom.exit": ; preds = %645
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.exit": ; preds = %645
   %651 = sext i32 %646 to i64
   %652 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !366
   %653 = getelementptr inbounds i32, ptr %652, i64 %651
@@ -44106,7 +44106,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN12_GLOBAL__N_1
   %659 = trunc i8 %658 to i1
   br i1 %659, label %660, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1107
 
-660:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom.exit"
+660:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.exit"
   %661 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %662 = getelementptr inbounds i32, ptr %661, i64 %651
   %663 = load i32, ptr %662, align 4
@@ -44126,10 +44126,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN12_GLOBAL__N_1
   tail call void @__clang_call_terminate(ptr %669) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom.exit", %660, %666
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.exit", %660, %666
   br i1 %657, label %670, label %692
 
-670:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1107
+670:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1107
   %671 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #28
   call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.503, ptr noundef %671)
   %672 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %14)
@@ -44198,7 +44198,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #28
   br label %common.resume
 
-692:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1107
+692:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1107
   tail call void @llvm.experimental.noalias.scope.decl(metadata !369)
   %693 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEvE2id" acquire, align 8, !noalias !369
   %694 = icmp eq i8 %693, 0
@@ -44222,7 +44222,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_1
 701:                                              ; preds = %699, %695, %692
   %702 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEvE2id", align 4, !noalias !369
   %.not.i.i.i1108 = icmp eq i32 %702, 0
-  br i1 %.not.i.i.i1108, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.argprom.exit", label %703
+  br i1 %.not.i.i.i1108, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.exit", label %703
 
 703:                                              ; preds = %701
   %704 = sext i32 %702 to i64
@@ -44231,7 +44231,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_1
   %707 = load i32, ptr %706, align 4, !noalias !369
   %708 = add nsw i32 %707, 1
   store i32 %708, ptr %706, align 4, !noalias !369
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.exit"
 
 709:                                              ; preds = %697
   %710 = landingpad { ptr, i32 }
@@ -44239,14 +44239,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_1
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEvE2id") #28, !noalias !369
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.argprom.exit": ; preds = %701, %703
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.exit": ; preds = %701, %703
   store i32 %702, ptr %19, align 4, !alias.scope !369
   tail call void @llvm.experimental.noalias.scope.decl(metadata !372)
   %711 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_3clEvE2id" acquire, align 8, !noalias !372
   %712 = icmp eq i8 %711, 0
   br i1 %712, label %713, label %719, !prof !24
 
-713:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.argprom.exit"
+713:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.exit"
   %714 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_3clEvE2id") #28, !noalias !372
   %.not.i1111 = icmp eq i32 %714, 0
   br i1 %.not.i1111, label %719, label %715
@@ -44261,7 +44261,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_1
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_3clEvE2id") #28, !noalias !372
   br label %719
 
-719:                                              ; preds = %717, %713, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.argprom.exit"
+719:                                              ; preds = %717, %713, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.exit"
   %720 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_3clEvE2id", align 4, !noalias !372
   %.not.i.i.i1110 = icmp eq i32 %720, 0
   br i1 %.not.i.i.i1110, label %729, label %721
@@ -44515,7 +44515,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_1
 833:                                              ; preds = %831, %827, %824
   %834 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEvE2id", align 4, !noalias !390
   %.not.i.i.i1132 = icmp eq i32 %834, 0
-  br i1 %.not.i.i.i1132, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.argprom.exit", label %835
+  br i1 %.not.i.i.i1132, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.exit", label %835
 
 835:                                              ; preds = %833
   %836 = sext i32 %834 to i64
@@ -44524,7 +44524,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_1
   %839 = load i32, ptr %838, align 4, !noalias !390
   %840 = add nsw i32 %839, 1
   store i32 %840, ptr %838, align 4, !noalias !390
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.exit"
 
 .body1134:                                        ; preds = %829
   %841 = landingpad { ptr, i32 }
@@ -44533,7 +44533,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_1
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %25) #28
   br label %.body1130
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.argprom.exit": ; preds = %835, %833
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.exit": ; preds = %835, %833
   %842 = load i32, ptr %565, align 4
   %843 = load i32, ptr %19, align 4
   %844 = icmp eq i32 %842, %843
@@ -44563,7 +44563,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_1
   %or.cond.i.i1136 = and i1 %861, %860
   br i1 %or.cond.i.i1136, label %862, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1137
 
-862:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.argprom.exit"
+862:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.exit"
   %863 = sext i32 %834 to i64
   %864 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %865 = getelementptr inbounds i32, ptr %864, i64 %863
@@ -44584,7 +44584,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1107:            ; preds = %"_ZZN12_GLOBAL__N_1
   tail call void @__clang_call_terminate(ptr %872) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit1137:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.argprom.exit", %862, %869
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit1137:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.exit", %862, %869
   %873 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %874 = trunc i8 %873 to i1
   %875 = icmp ne i32 %855, 0
@@ -44822,7 +44822,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1151:            ; preds = %_ZN5Yosys5RTLIL8IdS
 986:                                              ; preds = %984, %980, %977
   %987 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEvE2id", align 4, !noalias !393
   %.not.i.i.i1152 = icmp eq i32 %987, 0
-  br i1 %.not.i.i.i1152, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.argprom.exit", label %988
+  br i1 %.not.i.i.i1152, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.exit", label %988
 
 988:                                              ; preds = %986
   %989 = sext i32 %987 to i64
@@ -44831,7 +44831,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1151:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %992 = load i32, ptr %991, align 4, !noalias !393
   %993 = add nsw i32 %992, 1
   store i32 %993, ptr %991, align 4, !noalias !393
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.exit"
 
 994:                                              ; preds = %982
   %995 = landingpad { ptr, i32 }
@@ -44839,14 +44839,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1151:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEvE2id") #28, !noalias !393
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.argprom.exit": ; preds = %986, %988
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.exit": ; preds = %986, %988
   store i32 %987, ptr %28, align 4, !alias.scope !393
   call void @llvm.experimental.noalias.scope.decl(metadata !396)
   %996 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_11clEvE2id" acquire, align 8, !noalias !396
   %997 = icmp eq i8 %996, 0
   br i1 %997, label %998, label %1004, !prof !24
 
-998:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.argprom.exit"
+998:                                              ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.exit"
   %999 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_11clEvE2id") #28, !noalias !396
   %.not.i1155 = icmp eq i32 %999, 0
   br i1 %.not.i1155, label %1004, label %1000
@@ -44861,7 +44861,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1151:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_11clEvE2id") #28, !noalias !396
   br label %1004
 
-1004:                                             ; preds = %1002, %998, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.argprom.exit"
+1004:                                             ; preds = %1002, %998, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.exit"
   %1005 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_11clEvE2id", align 4, !noalias !396
   %.not.i.i.i1154 = icmp eq i32 %1005, 0
   br i1 %.not.i.i.i1154, label %1014, label %1006
@@ -44905,7 +44905,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1151:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1023:                                             ; preds = %1021, %1017, %1014
   %1024 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEvE2id", align 4, !noalias !399
   %.not.i.i.i1158 = icmp eq i32 %1024, 0
-  br i1 %.not.i.i.i1158, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.argprom.exit", label %1025
+  br i1 %.not.i.i.i1158, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.exit", label %1025
 
 1025:                                             ; preds = %1023
   %1026 = sext i32 %1024 to i64
@@ -44914,7 +44914,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1151:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1029 = load i32, ptr %1028, align 4, !noalias !399
   %1030 = add nsw i32 %1029, 1
   store i32 %1030, ptr %1028, align 4, !noalias !399
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.exit"
 
 .body1160:                                        ; preds = %1019
   %1031 = landingpad { ptr, i32 }
@@ -44923,7 +44923,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1151:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %29) #28
   br label %.body1156
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.argprom.exit": ; preds = %1025, %1023
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.exit": ; preds = %1025, %1023
   %1032 = load i32, ptr %565, align 4
   %1033 = load i32, ptr %28, align 4
   %1034 = icmp eq i32 %1032, %1033
@@ -44938,7 +44938,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1151:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i1163 = and i1 %1040, %1039
   br i1 %or.cond.i.i1163, label %1041, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1164
 
-1041:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.argprom.exit"
+1041:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.exit"
   %1042 = sext i32 %1024 to i64
   %1043 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1044 = getelementptr inbounds i32, ptr %1043, i64 %1042
@@ -44959,7 +44959,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1151:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__clang_call_terminate(ptr %1051) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit1164:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.argprom.exit", %1041, %1048
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit1164:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.exit", %1041, %1048
   %1052 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1053 = trunc i8 %1052 to i1
   %1054 = icmp ne i32 %1035, 0
@@ -45121,7 +45121,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1168:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1102:                                             ; preds = %1100, %1096, %1093
   %1103 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEvE2id", align 4, !noalias !402
   %.not.i.i.i1169 = icmp eq i32 %1103, 0
-  br i1 %.not.i.i.i1169, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.argprom.exit", label %1104
+  br i1 %.not.i.i.i1169, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.exit", label %1104
 
 1104:                                             ; preds = %1102
   %1105 = sext i32 %1103 to i64
@@ -45130,7 +45130,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1168:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1108 = load i32, ptr %1107, align 4, !noalias !402
   %1109 = add nsw i32 %1108, 1
   store i32 %1109, ptr %1107, align 4, !noalias !402
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.exit"
 
 1110:                                             ; preds = %1098
   %1111 = landingpad { ptr, i32 }
@@ -45138,14 +45138,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1168:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEvE2id") #28, !noalias !402
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.argprom.exit": ; preds = %1102, %1104
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.exit": ; preds = %1102, %1104
   store i32 %1103, ptr %34, align 4, !alias.scope !402
   call void @llvm.experimental.noalias.scope.decl(metadata !405)
   %1112 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_14clEvE2id" acquire, align 8, !noalias !405
   %1113 = icmp eq i8 %1112, 0
   br i1 %1113, label %1114, label %1120, !prof !24
 
-1114:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.argprom.exit"
+1114:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.exit"
   %1115 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_14clEvE2id") #28, !noalias !405
   %.not.i1172 = icmp eq i32 %1115, 0
   br i1 %.not.i1172, label %1120, label %1116
@@ -45160,7 +45160,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1168:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_14clEvE2id") #28, !noalias !405
   br label %1120
 
-1120:                                             ; preds = %1118, %1114, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.argprom.exit"
+1120:                                             ; preds = %1118, %1114, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.exit"
   %1121 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_14clEvE2id", align 4, !noalias !405
   %.not.i.i.i1171 = icmp eq i32 %1121, 0
   br i1 %.not.i.i.i1171, label %1130, label %1122
@@ -45204,7 +45204,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1168:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1139:                                             ; preds = %1137, %1133, %1130
   %1140 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEvE2id", align 4, !noalias !408
   %.not.i.i.i1175 = icmp eq i32 %1140, 0
-  br i1 %.not.i.i.i1175, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.argprom.exit", label %1141
+  br i1 %.not.i.i.i1175, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.exit", label %1141
 
 1141:                                             ; preds = %1139
   %1142 = sext i32 %1140 to i64
@@ -45213,7 +45213,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1168:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1145 = load i32, ptr %1144, align 4, !noalias !408
   %1146 = add nsw i32 %1145, 1
   store i32 %1146, ptr %1144, align 4, !noalias !408
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.exit"
 
 .body1177:                                        ; preds = %1135
   %1147 = landingpad { ptr, i32 }
@@ -45222,7 +45222,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1168:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %35) #28
   br label %.body1173
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.argprom.exit": ; preds = %1141, %1139
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.exit": ; preds = %1141, %1139
   %1148 = load i32, ptr %565, align 4
   %1149 = load i32, ptr %34, align 4
   %1150 = icmp eq i32 %1148, %1149
@@ -45237,7 +45237,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1168:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i1181 = and i1 %1156, %1155
   br i1 %or.cond.i.i1181, label %1157, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1182
 
-1157:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.argprom.exit"
+1157:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.exit"
   %1158 = sext i32 %1140 to i64
   %1159 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1160 = getelementptr inbounds i32, ptr %1159, i64 %1158
@@ -45258,7 +45258,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1168:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__clang_call_terminate(ptr %1167) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit1182:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.argprom.exit", %1157, %1164
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit1182:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.exit", %1157, %1164
   %1168 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1169 = trunc i8 %1168 to i1
   %1170 = icmp ne i32 %1151, 0
@@ -45383,7 +45383,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1186:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1217:                                             ; preds = %1215, %1211, %1208
   %1218 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEvE2id", align 4, !noalias !411
   %.not.i.i.i1187 = icmp eq i32 %1218, 0
-  br i1 %.not.i.i.i1187, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.argprom.exit", label %1219
+  br i1 %.not.i.i.i1187, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.exit", label %1219
 
 1219:                                             ; preds = %1217
   %1220 = sext i32 %1218 to i64
@@ -45392,7 +45392,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1186:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1223 = load i32, ptr %1222, align 4, !noalias !411
   %1224 = add nsw i32 %1223, 1
   store i32 %1224, ptr %1222, align 4, !noalias !411
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.exit"
 
 1225:                                             ; preds = %1213
   %1226 = landingpad { ptr, i32 }
@@ -45400,14 +45400,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1186:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEvE2id") #28, !noalias !411
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.argprom.exit": ; preds = %1217, %1219
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.exit": ; preds = %1217, %1219
   store i32 %1218, ptr %37, align 4, !alias.scope !411
   call void @llvm.experimental.noalias.scope.decl(metadata !414)
   %1227 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_17clEvE2id" acquire, align 8, !noalias !414
   %1228 = icmp eq i8 %1227, 0
   br i1 %1228, label %1229, label %1235, !prof !24
 
-1229:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.argprom.exit"
+1229:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.exit"
   %1230 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_17clEvE2id") #28, !noalias !414
   %.not.i1190 = icmp eq i32 %1230, 0
   br i1 %.not.i1190, label %1235, label %1231
@@ -45422,7 +45422,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1186:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_17clEvE2id") #28, !noalias !414
   br label %1235
 
-1235:                                             ; preds = %1233, %1229, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.argprom.exit"
+1235:                                             ; preds = %1233, %1229, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.exit"
   %1236 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_17clEvE2id", align 4, !noalias !414
   %.not.i.i.i1189 = icmp eq i32 %1236, 0
   br i1 %.not.i.i.i1189, label %1245, label %1237
@@ -45466,7 +45466,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1186:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1254:                                             ; preds = %1252, %1248, %1245
   %1255 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEvE2id", align 4, !noalias !417
   %.not.i.i.i1193 = icmp eq i32 %1255, 0
-  br i1 %.not.i.i.i1193, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.argprom.exit", label %1256
+  br i1 %.not.i.i.i1193, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.exit", label %1256
 
 1256:                                             ; preds = %1254
   %1257 = sext i32 %1255 to i64
@@ -45475,7 +45475,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1186:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1260 = load i32, ptr %1259, align 4, !noalias !417
   %1261 = add nsw i32 %1260, 1
   store i32 %1261, ptr %1259, align 4, !noalias !417
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.exit"
 
 .body1195:                                        ; preds = %1250
   %1262 = landingpad { ptr, i32 }
@@ -45484,7 +45484,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1186:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %38) #28
   br label %.body1191
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.argprom.exit": ; preds = %1256, %1254
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.exit": ; preds = %1256, %1254
   %1263 = load i32, ptr %565, align 4
   %1264 = load i32, ptr %37, align 4
   %1265 = icmp eq i32 %1263, %1264
@@ -45499,7 +45499,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1186:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i1199 = and i1 %1271, %1270
   br i1 %or.cond.i.i1199, label %1272, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1200
 
-1272:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.argprom.exit"
+1272:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.exit"
   %1273 = sext i32 %1255 to i64
   %1274 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1275 = getelementptr inbounds i32, ptr %1274, i64 %1273
@@ -45520,7 +45520,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1186:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__clang_call_terminate(ptr %1282) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit1200:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.argprom.exit", %1272, %1279
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit1200:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.exit", %1272, %1279
   %1283 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1284 = trunc i8 %1283 to i1
   %1285 = icmp ne i32 %1266, 0
@@ -45623,7 +45623,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1204:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1325:                                             ; preds = %1323, %1319, %1316
   %1326 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEvE2id", align 4, !noalias !420
   %.not.i.i.i1205 = icmp eq i32 %1326, 0
-  br i1 %.not.i.i.i1205, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.argprom.exit", label %1327
+  br i1 %.not.i.i.i1205, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.exit", label %1327
 
 1327:                                             ; preds = %1325
   %1328 = sext i32 %1326 to i64
@@ -45632,7 +45632,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1204:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1331 = load i32, ptr %1330, align 4, !noalias !420
   %1332 = add nsw i32 %1331, 1
   store i32 %1332, ptr %1330, align 4, !noalias !420
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.exit"
 
 1333:                                             ; preds = %1321
   %1334 = landingpad { ptr, i32 }
@@ -45640,13 +45640,13 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1204:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEvE2id") #28, !noalias !420
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.argprom.exit": ; preds = %1325, %1327
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.exit": ; preds = %1325, %1327
   store i32 %1326, ptr %40, align 4, !alias.scope !420
   %1335 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_20clEvE2id" acquire, align 8, !noalias !423
   %1336 = icmp eq i8 %1335, 0
   br i1 %1336, label %1337, label %1343, !prof !24
 
-1337:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.argprom.exit"
+1337:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.exit"
   %1338 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_20clEvE2id") #28, !noalias !423
   %.not.i1208 = icmp eq i32 %1338, 0
   br i1 %.not.i1208, label %1343, label %1339
@@ -45661,7 +45661,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1204:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_20clEvE2id") #28, !noalias !423
   br label %1343
 
-1343:                                             ; preds = %1341, %1337, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.argprom.exit"
+1343:                                             ; preds = %1341, %1337, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.exit"
   %1344 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_20clEvE2id", align 4, !noalias !423
   %.not.i.i.i1207 = icmp eq i32 %1344, 0
   br i1 %.not.i.i.i1207, label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit, label %1345
@@ -45809,7 +45809,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1214:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1403:                                             ; preds = %1401, %1397, %1394
   %1404 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEvE2id", align 4, !noalias !426
   %.not.i.i.i1215 = icmp eq i32 %1404, 0
-  br i1 %.not.i.i.i1215, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.argprom.exit", label %1405
+  br i1 %.not.i.i.i1215, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.exit", label %1405
 
 1405:                                             ; preds = %1403
   %1406 = sext i32 %1404 to i64
@@ -45818,7 +45818,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1214:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1409 = load i32, ptr %1408, align 4, !noalias !426
   %1410 = add nsw i32 %1409, 1
   store i32 %1410, ptr %1408, align 4, !noalias !426
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.exit"
 
 1411:                                             ; preds = %1399
   %1412 = landingpad { ptr, i32 }
@@ -45826,13 +45826,13 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1214:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEvE2id") #28, !noalias !426
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.argprom.exit": ; preds = %1403, %1405
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.exit": ; preds = %1403, %1405
   store i32 %1404, ptr %47, align 4, !alias.scope !426
   %1413 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_22clEvE2id" acquire, align 8, !noalias !429
   %1414 = icmp eq i8 %1413, 0
   br i1 %1414, label %1415, label %1421, !prof !24
 
-1415:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.argprom.exit"
+1415:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.exit"
   %1416 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_22clEvE2id") #28, !noalias !429
   %.not.i1218 = icmp eq i32 %1416, 0
   br i1 %.not.i1218, label %1421, label %1417
@@ -45847,7 +45847,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1214:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_22clEvE2id") #28, !noalias !429
   br label %1421
 
-1421:                                             ; preds = %1419, %1415, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.argprom.exit"
+1421:                                             ; preds = %1419, %1415, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.exit"
   %1422 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_22clEvE2id", align 4, !noalias !429
   %.not.i.i.i1217 = icmp eq i32 %1422, 0
   br i1 %.not.i.i.i1217, label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1221, label %1423
@@ -46015,7 +46015,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1225:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1488:                                             ; preds = %1486, %1482, %1479
   %1489 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEvE2id", align 4, !noalias !432
   %.not.i.i.i1226 = icmp eq i32 %1489, 0
-  br i1 %.not.i.i.i1226, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.argprom.exit", label %1490
+  br i1 %.not.i.i.i1226, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.exit", label %1490
 
 1490:                                             ; preds = %1488
   %1491 = sext i32 %1489 to i64
@@ -46024,7 +46024,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1225:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1494 = load i32, ptr %1493, align 4, !noalias !432
   %1495 = add nsw i32 %1494, 1
   store i32 %1495, ptr %1493, align 4, !noalias !432
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.exit"
 
 1496:                                             ; preds = %1484
   %1497 = landingpad { ptr, i32 }
@@ -46032,14 +46032,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1225:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEvE2id") #28, !noalias !432
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.argprom.exit": ; preds = %1488, %1490
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.exit": ; preds = %1488, %1490
   store i32 %1489, ptr %51, align 4, !alias.scope !432
   call void @llvm.experimental.noalias.scope.decl(metadata !435)
   %1498 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_24clEvE2id" acquire, align 8, !noalias !435
   %1499 = icmp eq i8 %1498, 0
   br i1 %1499, label %1500, label %1506, !prof !24
 
-1500:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.argprom.exit"
+1500:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.exit"
   %1501 = call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_24clEvE2id") #28, !noalias !435
   %.not.i1229 = icmp eq i32 %1501, 0
   br i1 %.not.i1229, label %1506, label %1502
@@ -46054,7 +46054,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1225:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_24clEvE2id") #28, !noalias !435
   br label %1506
 
-1506:                                             ; preds = %1504, %1500, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.argprom.exit"
+1506:                                             ; preds = %1504, %1500, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.exit"
   %1507 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_24clEvE2id", align 4, !noalias !435
   %.not.i.i.i1228 = icmp eq i32 %1507, 0
   br i1 %.not.i.i.i1228, label %1516, label %1508
@@ -46182,7 +46182,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1225:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1563:                                             ; preds = %1561, %1557, %1554
   %1564 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEvE2id", align 4, !noalias !444
   %.not.i.i.i1240 = icmp eq i32 %1564, 0
-  br i1 %.not.i.i.i1240, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.argprom.exit", label %1565
+  br i1 %.not.i.i.i1240, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.exit", label %1565
 
 1565:                                             ; preds = %1563
   %1566 = sext i32 %1564 to i64
@@ -46191,7 +46191,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1225:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1569 = load i32, ptr %1568, align 4, !noalias !444
   %1570 = add nsw i32 %1569, 1
   store i32 %1570, ptr %1568, align 4, !noalias !444
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.exit"
 
 .body1242:                                        ; preds = %1559
   %1571 = landingpad { ptr, i32 }
@@ -46200,7 +46200,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1225:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %54) #28
   br label %.body1238
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.argprom.exit": ; preds = %1565, %1563
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.exit": ; preds = %1565, %1563
   %1572 = load i32, ptr %565, align 4
   %1573 = load i32, ptr %51, align 4
   %1574 = icmp eq i32 %1572, %1573
@@ -46221,7 +46221,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1225:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i1245 = and i1 %1585, %1584
   br i1 %or.cond.i.i1245, label %1586, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1246
 
-1586:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.argprom.exit"
+1586:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.exit"
   %1587 = sext i32 %1564 to i64
   %1588 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1589 = getelementptr inbounds i32, ptr %1588, i64 %1587
@@ -46242,7 +46242,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1225:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__clang_call_terminate(ptr %1596) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit1246:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.argprom.exit", %1586, %1593
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit1246:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.exit", %1586, %1593
   %1597 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1598 = trunc i8 %1597 to i1
   %1599 = icmp ne i32 %1579, 0
@@ -46441,9 +46441,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1254:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1677:                                             ; preds = %1675, %1671, %1668
   %1678 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEvE2id", align 4, !noalias !447
   %.not.i.i.i1255 = icmp eq i32 %1678, 0
-  br i1 %.not.i.i.i1255, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.argprom.exit"
+  br i1 %.not.i.i.i1255, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.exit.thread", label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.exit"
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.argprom.exit.thread": ; preds = %1677
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.exit.thread": ; preds = %1677
   %1679 = load i32, ptr %565, align 4
   %1680 = icmp eq i32 %1679, 0
   br i1 %1680, label %1702, label %1757
@@ -46454,7 +46454,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1254:            ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEvE2id") #28, !noalias !447
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.argprom.exit": ; preds = %1677
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.exit": ; preds = %1677
   %1683 = sext i32 %1678 to i64
   %1684 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !447
   %1685 = getelementptr inbounds i32, ptr %1684, i64 %1683
@@ -46467,7 +46467,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1254:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %1691 = trunc i8 %1690 to i1
   br i1 %1691, label %1692, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1258
 
-1692:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.argprom.exit"
+1692:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.exit"
   %1693 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1694 = getelementptr inbounds i32, ptr %1693, i64 %1683
   %1695 = load i32, ptr %1694, align 4
@@ -46487,10 +46487,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1254:            ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__clang_call_terminate(ptr %1701) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit1258:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.argprom.exit", %1692, %1698
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit1258:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.exit", %1692, %1698
   br i1 %1689, label %1702, label %1757
 
-1702:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1258
+1702:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1258
   %1703 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #28
   call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %57, ptr noundef nonnull @.str.503, ptr noundef %1703)
   %1704 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %57)
@@ -46682,7 +46682,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1258:            ; preds = %"_ZZN12_GLOBAL__N_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #28
   br label %common.resume
 
-1757:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1258
+1757:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1258
   %1758 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEvE2id" acquire, align 8, !noalias !450
   %1759 = icmp eq i8 %1758, 0
   br i1 %1759, label %1760, label %1766, !prof !24
@@ -46705,9 +46705,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1258:            ; preds = %"_ZZN12_GLOBAL__N_1
 1766:                                             ; preds = %1764, %1760, %1757
   %1767 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEvE2id", align 4, !noalias !450
   %.not.i.i.i1259 = icmp eq i32 %1767, 0
-  br i1 %.not.i.i.i1259, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.argprom.exit"
+  br i1 %.not.i.i.i1259, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.exit.thread", label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.exit"
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.argprom.exit.thread": ; preds = %1766
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.exit.thread": ; preds = %1766
   %1768 = load i32, ptr %565, align 4
   %1769 = icmp eq i32 %1768, 0
   br i1 %1769, label %1791, label %1846
@@ -46718,7 +46718,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1258:            ; preds = %"_ZZN12_GLOBAL__N_1
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEvE2id") #28, !noalias !450
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.argprom.exit": ; preds = %1766
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.exit": ; preds = %1766
   %1772 = sext i32 %1767 to i64
   %1773 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !450
   %1774 = getelementptr inbounds i32, ptr %1773, i64 %1772
@@ -46731,7 +46731,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1258:            ; preds = %"_ZZN12_GLOBAL__N_1
   %1780 = trunc i8 %1779 to i1
   br i1 %1780, label %1781, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1262
 
-1781:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.argprom.exit"
+1781:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.exit"
   %1782 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1783 = getelementptr inbounds i32, ptr %1782, i64 %1772
   %1784 = load i32, ptr %1783, align 4
@@ -46751,10 +46751,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1258:            ; preds = %"_ZZN12_GLOBAL__N_1
   tail call void @__clang_call_terminate(ptr %1790) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit1262:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.argprom.exit", %1781, %1787
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit1262:            ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.exit", %1781, %1787
   br i1 %1778, label %1791, label %1846
 
-1791:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1262
+1791:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1262
   %1792 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #28
   call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %72, ptr noundef nonnull @.str.503, ptr noundef %1792)
   %1793 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %72)
@@ -46946,7 +46946,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1262:            ; preds = %"_ZZN12_GLOBAL__N_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #28
   br label %common.resume
 
-1846:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1262
+1846:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1262
   tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
   %1847 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEvE2id" acquire, align 8, !noalias !453
   %1848 = icmp eq i8 %1847, 0
@@ -46970,7 +46970,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1262:            ; preds = %"_ZZN12_GLOBAL__N_1
 1855:                                             ; preds = %1853, %1849, %1846
   %1856 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEvE2id", align 4, !noalias !453
   %.not.i.i.i1263 = icmp eq i32 %1856, 0
-  br i1 %.not.i.i.i1263, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.argprom.exit", label %1857
+  br i1 %.not.i.i.i1263, label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.exit", label %1857
 
 1857:                                             ; preds = %1855
   %1858 = sext i32 %1856 to i64
@@ -46979,7 +46979,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1262:            ; preds = %"_ZZN12_GLOBAL__N_1
   %1861 = load i32, ptr %1860, align 4, !noalias !453
   %1862 = add nsw i32 %1861, 1
   store i32 %1862, ptr %1860, align 4, !noalias !453
-  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.exit"
 
 1863:                                             ; preds = %1851
   %1864 = landingpad { ptr, i32 }
@@ -46987,13 +46987,13 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1262:            ; preds = %"_ZZN12_GLOBAL__N_1
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEvE2id") #28, !noalias !453
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.argprom.exit": ; preds = %1855, %1857
+"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.exit": ; preds = %1855, %1857
   store i32 %1856, ptr %87, align 4, !alias.scope !453
   %1865 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_31clEvE2id" acquire, align 8, !noalias !456
   %1866 = icmp eq i8 %1865, 0
   br i1 %1866, label %1867, label %1873, !prof !24
 
-1867:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.argprom.exit"
+1867:                                             ; preds = %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.exit"
   %1868 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_31clEvE2id") #28, !noalias !456
   %.not.i1266 = icmp eq i32 %1868, 0
   br i1 %.not.i1266, label %1873, label %1869
@@ -47008,7 +47008,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1262:            ; preds = %"_ZZN12_GLOBAL__N_1
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_31clEvE2id") #28, !noalias !456
   br label %1873
 
-1873:                                             ; preds = %1871, %1867, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.argprom.exit"
+1873:                                             ; preds = %1871, %1867, %"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.exit"
   %1874 = load i32, ptr @"_ZZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_31clEvE2id", align 4, !noalias !456
   %.not.i.i.i1265 = icmp eq i32 %1874, 0
   br i1 %.not.i.i.i1265, label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1269, label %1875
@@ -47120,7 +47120,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1273:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1922:                                             ; preds = %1921
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #28
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_32clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %93)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_32clEv"(ptr dead_on_unwind noalias writable align 4 %93)
   %1923 = load i32, ptr %565, align 4
   %1924 = load i32, ptr %93, align 4
   %1925 = icmp eq i32 %1923, %1924
@@ -47146,7 +47146,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1273:            ; preds = %_ZN5Yosys5RTLIL8IdS
 1930:                                             ; preds = %1929
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #28
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_33clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %97)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_33clEv"(ptr dead_on_unwind noalias writable align 4 %97)
   %1931 = load i32, ptr %565, align 4
   %1932 = load i32, ptr %97, align 4
   %1933 = icmp eq i32 %1931, %1932
@@ -47336,8 +47336,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1273:            ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %common.resume
 
 1987:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1273
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_34clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %106)
-  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_35clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %107)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_34clEv"(ptr dead_on_unwind noalias writable align 4 %106)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_35clEv"(ptr dead_on_unwind noalias writable align 4 %107)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274 unwind label %2034
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
@@ -47378,7 +47378,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
 2002:                                             ; preds = %2001
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #28
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_36clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %113)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_36clEv"(ptr dead_on_unwind noalias writable align 4 %113)
   %2003 = load i32, ptr %565, align 4
   %2004 = load i32, ptr %113, align 4
   %2005 = icmp eq i32 %2003, %2004
@@ -47404,7 +47404,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
 2010:                                             ; preds = %2009
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #28
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_37clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %117)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_37clEv"(ptr dead_on_unwind noalias writable align 4 %117)
   %2011 = load i32, ptr %565, align 4
   %2012 = load i32, ptr %117, align 4
   %2013 = icmp eq i32 %2011, %2012
@@ -47454,7 +47454,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
 2023:                                             ; preds = %2022
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %124) #28
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_38clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %126)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_38clEv"(ptr dead_on_unwind noalias writable align 4 %126)
   %2024 = load i32, ptr %565, align 4
   %2025 = load i32, ptr %126, align 4
   %2026 = icmp eq i32 %2024, %2025
@@ -47658,7 +47658,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2087:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_39clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %130)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_39clEv"(ptr dead_on_unwind noalias writable align 4 %130)
   %2088 = load i32, ptr %565, align 4
   %2089 = load i32, ptr %130, align 4
   %2090 = icmp eq i32 %2088, %2089
@@ -47699,7 +47699,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2099:                                             ; preds = %2087
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_40clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %134)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_40clEv"(ptr dead_on_unwind noalias writable align 4 %134)
   %2100 = load i32, ptr %565, align 4
   %2101 = load i32, ptr %134, align 4
   %2102 = icmp eq i32 %2100, %2101
@@ -47740,7 +47740,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2111:                                             ; preds = %2099
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_41clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %138)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_41clEv"(ptr dead_on_unwind noalias writable align 4 %138)
   %2112 = load i32, ptr %565, align 4
   %2113 = load i32, ptr %138, align 4
   %2114 = icmp eq i32 %2112, %2113
@@ -47781,7 +47781,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2123:                                             ; preds = %2111
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_42clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %142)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_42clEv"(ptr dead_on_unwind noalias writable align 4 %142)
   %2124 = load i32, ptr %565, align 4
   %2125 = load i32, ptr %142, align 4
   %2126 = icmp eq i32 %2124, %2125
@@ -47822,7 +47822,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2135:                                             ; preds = %2123
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_43clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %146)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_43clEv"(ptr dead_on_unwind noalias writable align 4 %146)
   %2136 = load i32, ptr %565, align 4
   %2137 = load i32, ptr %146, align 4
   %2138 = icmp eq i32 %2136, %2137
@@ -47863,7 +47863,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2147:                                             ; preds = %2135
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_44clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %150)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_44clEv"(ptr dead_on_unwind noalias writable align 4 %150)
   %2148 = load i32, ptr %565, align 4
   %2149 = load i32, ptr %150, align 4
   %2150 = icmp eq i32 %2148, %2149
@@ -47904,7 +47904,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2159:                                             ; preds = %2147
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_45clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %154)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_45clEv"(ptr dead_on_unwind noalias writable align 4 %154)
   %2160 = load i32, ptr %565, align 4
   %2161 = load i32, ptr %154, align 4
   %2162 = icmp eq i32 %2160, %2161
@@ -47945,7 +47945,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2171:                                             ; preds = %2159
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_46clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %158)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_46clEv"(ptr dead_on_unwind noalias writable align 4 %158)
   %2172 = load i32, ptr %565, align 4
   %2173 = load i32, ptr %158, align 4
   %2174 = icmp eq i32 %2172, %2173
@@ -47986,7 +47986,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2183:                                             ; preds = %2171
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_47clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %162)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_47clEv"(ptr dead_on_unwind noalias writable align 4 %162)
   %2184 = load i32, ptr %565, align 4
   %2185 = load i32, ptr %162, align 4
   %2186 = icmp eq i32 %2184, %2185
@@ -48027,7 +48027,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2195:                                             ; preds = %2183
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_48clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %166)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_48clEv"(ptr dead_on_unwind noalias writable align 4 %166)
   %2196 = load i32, ptr %565, align 4
   %2197 = load i32, ptr %166, align 4
   %2198 = icmp eq i32 %2196, %2197
@@ -48068,7 +48068,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2207:                                             ; preds = %2195
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_49clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %170)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_49clEv"(ptr dead_on_unwind noalias writable align 4 %170)
   %2208 = load i32, ptr %565, align 4
   %2209 = load i32, ptr %170, align 4
   %2210 = icmp eq i32 %2208, %2209
@@ -48109,7 +48109,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2219:                                             ; preds = %2207
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_50clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %174)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_50clEv"(ptr dead_on_unwind noalias writable align 4 %174)
   %2220 = load i32, ptr %565, align 4
   %2221 = load i32, ptr %174, align 4
   %2222 = icmp eq i32 %2220, %2221
@@ -48150,7 +48150,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2231:                                             ; preds = %2219
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_51clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %178)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_51clEv"(ptr dead_on_unwind noalias writable align 4 %178)
   %2232 = load i32, ptr %565, align 4
   %2233 = load i32, ptr %178, align 4
   %2234 = icmp eq i32 %2232, %2233
@@ -48191,7 +48191,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2243:                                             ; preds = %2231
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_52clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %182)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_52clEv"(ptr dead_on_unwind noalias writable align 4 %182)
   %2244 = load i32, ptr %565, align 4
   %2245 = load i32, ptr %182, align 4
   %2246 = icmp eq i32 %2244, %2245
@@ -48232,7 +48232,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2255:                                             ; preds = %2243
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_53clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %186)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_53clEv"(ptr dead_on_unwind noalias writable align 4 %186)
   %2256 = load i32, ptr %565, align 4
   %2257 = load i32, ptr %186, align 4
   %2258 = icmp eq i32 %2256, %2257
@@ -48273,7 +48273,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2267:                                             ; preds = %2255
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_54clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %190)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_54clEv"(ptr dead_on_unwind noalias writable align 4 %190)
   %2268 = load i32, ptr %565, align 4
   %2269 = load i32, ptr %190, align 4
   %2270 = icmp eq i32 %2268, %2269
@@ -48314,7 +48314,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2279:                                             ; preds = %2267
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_55clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %194)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_55clEv"(ptr dead_on_unwind noalias writable align 4 %194)
   %2280 = load i32, ptr %565, align 4
   %2281 = load i32, ptr %194, align 4
   %2282 = icmp eq i32 %2280, %2281
@@ -48355,7 +48355,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2291:                                             ; preds = %2279
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_56clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %198)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_56clEv"(ptr dead_on_unwind noalias writable align 4 %198)
   %2292 = load i32, ptr %565, align 4
   %2293 = load i32, ptr %198, align 4
   %2294 = icmp eq i32 %2292, %2293
@@ -48396,7 +48396,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2303:                                             ; preds = %2291
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_57clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %202)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_57clEv"(ptr dead_on_unwind noalias writable align 4 %202)
   %2304 = load i32, ptr %565, align 4
   %2305 = load i32, ptr %202, align 4
   %2306 = icmp eq i32 %2304, %2305
@@ -48437,7 +48437,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2315:                                             ; preds = %2303
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_58clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %206)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_58clEv"(ptr dead_on_unwind noalias writable align 4 %206)
   %2316 = load i32, ptr %565, align 4
   %2317 = load i32, ptr %206, align 4
   %2318 = icmp eq i32 %2316, %2317
@@ -48478,7 +48478,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2327:                                             ; preds = %2315
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_59clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %210)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_59clEv"(ptr dead_on_unwind noalias writable align 4 %210)
   %2328 = load i32, ptr %565, align 4
   %2329 = load i32, ptr %210, align 4
   %2330 = icmp eq i32 %2328, %2329
@@ -48519,7 +48519,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2339:                                             ; preds = %2327
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_60clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %214)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_60clEv"(ptr dead_on_unwind noalias writable align 4 %214)
   %2340 = load i32, ptr %565, align 4
   %2341 = load i32, ptr %214, align 4
   %2342 = icmp eq i32 %2340, %2341
@@ -48560,7 +48560,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2351:                                             ; preds = %2339
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_61clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %218)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_61clEv"(ptr dead_on_unwind noalias writable align 4 %218)
   %2352 = load i32, ptr %565, align 4
   %2353 = load i32, ptr %218, align 4
   %2354 = icmp eq i32 %2352, %2353
@@ -48601,7 +48601,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2363:                                             ; preds = %2351
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_62clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %222)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_62clEv"(ptr dead_on_unwind noalias writable align 4 %222)
   %2364 = load i32, ptr %565, align 4
   %2365 = load i32, ptr %222, align 4
   %2366 = icmp eq i32 %2364, %2365
@@ -48642,7 +48642,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2375:                                             ; preds = %2363
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_63clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %226)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_63clEv"(ptr dead_on_unwind noalias writable align 4 %226)
   %2376 = load i32, ptr %565, align 4
   %2377 = load i32, ptr %226, align 4
   %2378 = icmp eq i32 %2376, %2377
@@ -48683,7 +48683,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2387:                                             ; preds = %2375
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_64clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %230)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_64clEv"(ptr dead_on_unwind noalias writable align 4 %230)
   %2388 = load i32, ptr %565, align 4
   %2389 = load i32, ptr %230, align 4
   %2390 = icmp eq i32 %2388, %2389
@@ -48724,7 +48724,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2399:                                             ; preds = %2387
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_65clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %234)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_65clEv"(ptr dead_on_unwind noalias writable align 4 %234)
   %2400 = load i32, ptr %565, align 4
   %2401 = load i32, ptr %234, align 4
   %2402 = icmp eq i32 %2400, %2401
@@ -48765,7 +48765,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2411:                                             ; preds = %2399
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_66clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %238)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_66clEv"(ptr dead_on_unwind noalias writable align 4 %238)
   %2412 = load i32, ptr %565, align 4
   %2413 = load i32, ptr %238, align 4
   %2414 = icmp eq i32 %2412, %2413
@@ -48806,7 +48806,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2423:                                             ; preds = %2411
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_67clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %242)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_67clEv"(ptr dead_on_unwind noalias writable align 4 %242)
   %2424 = load i32, ptr %565, align 4
   %2425 = load i32, ptr %242, align 4
   %2426 = icmp eq i32 %2424, %2425
@@ -48847,7 +48847,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2435:                                             ; preds = %2423
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_68clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %246)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_68clEv"(ptr dead_on_unwind noalias writable align 4 %246)
   %2436 = load i32, ptr %565, align 4
   %2437 = load i32, ptr %246, align 4
   %2438 = icmp eq i32 %2436, %2437
@@ -48888,7 +48888,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2447:                                             ; preds = %2435
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_69clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %250)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_69clEv"(ptr dead_on_unwind noalias writable align 4 %250)
   %2448 = load i32, ptr %565, align 4
   %2449 = load i32, ptr %250, align 4
   %2450 = icmp eq i32 %2448, %2449
@@ -48929,7 +48929,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2459:                                             ; preds = %2447
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_70clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %254)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_70clEv"(ptr dead_on_unwind noalias writable align 4 %254)
   %2460 = load i32, ptr %565, align 4
   %2461 = load i32, ptr %254, align 4
   %2462 = icmp eq i32 %2460, %2461
@@ -48970,7 +48970,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2471:                                             ; preds = %2459
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_71clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %258)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_71clEv"(ptr dead_on_unwind noalias writable align 4 %258)
   %2472 = load i32, ptr %565, align 4
   %2473 = load i32, ptr %258, align 4
   %2474 = icmp eq i32 %2472, %2473
@@ -49011,7 +49011,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2483:                                             ; preds = %2471
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_72clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %262)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_72clEv"(ptr dead_on_unwind noalias writable align 4 %262)
   %2484 = load i32, ptr %565, align 4
   %2485 = load i32, ptr %262, align 4
   %2486 = icmp eq i32 %2484, %2485
@@ -49555,7 +49555,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2669:                                             ; preds = %2483
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_73clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %297)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_73clEv"(ptr dead_on_unwind noalias writable align 4 %297)
   %2670 = load i32, ptr %565, align 4
   %2671 = load i32, ptr %297, align 4
   %2672 = icmp eq i32 %2670, %2671
@@ -49956,7 +49956,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2799:                                             ; preds = %2669
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_74clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %324)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_74clEv"(ptr dead_on_unwind noalias writable align 4 %324)
   %2800 = load i32, ptr %565, align 4
   %2801 = load i32, ptr %324, align 4
   %2802 = icmp eq i32 %2800, %2801
@@ -50183,7 +50183,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2871:                                             ; preds = %2799
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_75clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %341)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_75clEv"(ptr dead_on_unwind noalias writable align 4 %341)
   %2872 = load i32, ptr %565, align 4
   %2873 = load i32, ptr %341, align 4
   %2874 = icmp eq i32 %2872, %2873
@@ -50396,7 +50396,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2952:                                             ; preds = %2871
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_76clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %351)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_76clEv"(ptr dead_on_unwind noalias writable align 4 %351)
   %2953 = load i32, ptr %565, align 4
   %2954 = load i32, ptr %351, align 4
   %2955 = icmp eq i32 %2953, %2954
@@ -50521,7 +50521,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 2993:                                             ; preds = %2952
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_77clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %361)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_77clEv"(ptr dead_on_unwind noalias writable align 4 %361)
   %2994 = load i32, ptr %565, align 4
   %2995 = load i32, ptr %361, align 4
   %2996 = icmp eq i32 %2994, %2995
@@ -51092,7 +51092,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 3193:                                             ; preds = %2993
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_78clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %391)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_78clEv"(ptr dead_on_unwind noalias writable align 4 %391)
   %3194 = load i32, ptr %565, align 4
   %3195 = load i32, ptr %391, align 4
   %3196 = icmp eq i32 %3194, %3195
@@ -51161,7 +51161,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 3221:                                             ; preds = %3193
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_79clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %396)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_79clEv"(ptr dead_on_unwind noalias writable align 4 %396)
   %3222 = load i32, ptr %565, align 4
   %3223 = load i32, ptr %396, align 4
   %3224 = icmp eq i32 %3222, %3223
@@ -51216,7 +51216,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 3244:                                             ; preds = %3221
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_80clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %400)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_80clEv"(ptr dead_on_unwind noalias writable align 4 %400)
   %3245 = load i32, ptr %565, align 4
   %3246 = load i32, ptr %400, align 4
   %3247 = icmp eq i32 %3245, %3246
@@ -51282,7 +51282,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %common.resume
 
 3269:                                             ; preds = %3244
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_81clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %405)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_81clEv"(ptr dead_on_unwind noalias writable align 4 %405)
   %3270 = load i32, ptr %565, align 4
   %3271 = load i32, ptr %405, align 4
   %3272 = icmp eq i32 %3270, %3271
@@ -53629,12 +53629,12 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1312:               ; preds = %_ZN5Yosys5RTLIL5Con
   br label %common.resume
 
 4177:                                             ; preds = %3306
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_82clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %521)
-  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_83clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %522)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_82clEv"(ptr dead_on_unwind noalias writable align 4 %521)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_83clEv"(ptr dead_on_unwind noalias writable align 4 %522)
           to label %4178 unwind label %4200
 
 4178:                                             ; preds = %4177
-  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_84clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %523)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_84clEv"(ptr dead_on_unwind noalias writable align 4 %523)
           to label %4179 unwind label %4202
 
 4179:                                             ; preds = %4178
@@ -53725,8 +53725,8 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit1314: ; preds = %4179
   br label %common.resume
 
 4211:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit1314
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_85clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %527)
-  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_86clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %528)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_85clEv"(ptr dead_on_unwind noalias writable align 4 %527)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_86clEv"(ptr dead_on_unwind noalias writable align 4 %528)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1315 unwind label %4237
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1315: ; preds = %4211
@@ -53831,7 +53831,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1315: ; preds = %4211
           to label %4251 unwind label %4241
 
 4251:                                             ; preds = %4249
-  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_87clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %534)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_87clEv"(ptr dead_on_unwind noalias writable align 4 %534)
           to label %4252 unwind label %4241
 
 4252:                                             ; preds = %4251
@@ -53925,7 +53925,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1315: ; preds = %4211
           to label %4291 unwind label %4241
 
 4291:                                             ; preds = %4289
-  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_88clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %535)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_88clEv"(ptr dead_on_unwind noalias writable align 4 %535)
           to label %4292 unwind label %4241
 
 4292:                                             ; preds = %4291
@@ -54105,7 +54105,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1315: ; preds = %4211
   br label %common.resume
 
 4366:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1315
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_89clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %537)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_89clEv"(ptr dead_on_unwind noalias writable align 4 %537)
   %4367 = load i32, ptr %565, align 4
   %4368 = load i32, ptr %537, align 4
   %4369 = icmp eq i32 %4367, %4368
@@ -54341,15 +54341,15 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1315: ; preds = %4211
           to label %4464 unwind label %4398
 
 4464:                                             ; preds = %4463
-  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_90clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %544)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_90clEv"(ptr dead_on_unwind noalias writable align 4 %544)
           to label %4465 unwind label %4398
 
 4465:                                             ; preds = %4464
-  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_91clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %545)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_91clEv"(ptr dead_on_unwind noalias writable align 4 %545)
           to label %4466 unwind label %4490
 
 4466:                                             ; preds = %4465
-  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_92clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %546)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_92clEv"(ptr dead_on_unwind noalias writable align 4 %546)
           to label %4467 unwind label %4492
 
 4467:                                             ; preds = %4466
@@ -54458,7 +54458,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit1323: ; preds = %4467
   br label %common.resume
 
 4505:                                             ; preds = %4366
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_93clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %548)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_93clEv"(ptr dead_on_unwind noalias writable align 4 %548)
   %4506 = load i32, ptr %565, align 4
   %4507 = load i32, ptr %548, align 4
   %4508 = icmp eq i32 %4506, %4507
@@ -54526,7 +54526,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit1323: ; preds = %4467
   br label %common.resume
 
 4531:                                             ; preds = %4505
-  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_94clEv.argprom"(ptr dead_on_unwind noalias writable align 4 %553)
+  call fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_94clEv"(ptr dead_on_unwind noalias writable align 4 %553)
   %4532 = load i32, ptr %565, align 4
   %4533 = load i32, ptr %553, align 4
   %4534 = icmp eq i32 %4532, %4533
@@ -54886,7 +54886,7 @@ _ZNK5Yosys5RTLIL8IdStringixEm.exit:               ; preds = %18
 96:                                               ; preds = %94, %90, %87
   %97 = load i32, ptr @"_ZZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEvE2id", align 4, !noalias !463
   %.not.i.i.i = icmp eq i32 %97, 0
-  br i1 %.not.i.i.i, label %"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit", label %98
+  br i1 %.not.i.i.i, label %"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.exit", label %98
 
 98:                                               ; preds = %96
   %99 = sext i32 %97 to i64
@@ -54895,7 +54895,7 @@ _ZNK5Yosys5RTLIL8IdStringixEm.exit:               ; preds = %18
   %102 = load i32, ptr %101, align 4, !noalias !463
   %103 = add nsw i32 %102, 1
   store i32 %103, ptr %101, align 4, !noalias !463
-  br label %"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.exit"
 
 common.resume:                                    ; preds = %.body62, %343, %.body, %104
   %common.resume.op = phi { ptr, i32 } [ %105, %104 ], [ %.pn48, %343 ], [ %.pn45.pn, %.body62 ], [ %122, %.body ]
@@ -54907,13 +54907,13 @@ common.resume:                                    ; preds = %.body62, %343, %.bo
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEvE2id") #28, !noalias !463
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit": ; preds = %96, %98
+"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.exit": ; preds = %96, %98
   store i32 %97, ptr %4, align 4, !alias.scope !463
   %106 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_1clEvE2id" acquire, align 8, !noalias !466
   %107 = icmp eq i8 %106, 0
   br i1 %107, label %108, label %114, !prof !24
 
-108:                                              ; preds = %"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit"
+108:                                              ; preds = %"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.exit"
   %109 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_1clEvE2id") #28, !noalias !466
   %.not.i52 = icmp eq i32 %109, 0
   br i1 %.not.i52, label %114, label %110
@@ -54928,7 +54928,7 @@ common.resume:                                    ; preds = %.body62, %343, %.bo
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_1clEvE2id") #28, !noalias !466
   br label %114
 
-114:                                              ; preds = %112, %108, %"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit"
+114:                                              ; preds = %112, %108, %"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.exit"
   %115 = load i32, ptr @"_ZZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_1clEvE2id", align 4, !noalias !466
   %.not.i.i.i51 = icmp eq i32 %115, 0
   br i1 %.not.i.i.i51, label %123, label %116
@@ -56244,7 +56244,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit64:              ; preds = %179, %172, %167, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_32clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_32clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_32clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -56290,7 +56290,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_33clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_33clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_33clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -56336,7 +56336,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_34clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_34clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_34clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -56382,7 +56382,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_35clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_35clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_35clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -56428,7 +56428,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_36clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_36clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_36clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -56474,7 +56474,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_37clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_37clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_37clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -56520,7 +56520,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_38clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_38clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_38clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -56566,7 +56566,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_39clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_39clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_39clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -56742,7 +56742,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120dump_cell_expr_uniopERSoNSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_40clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_40clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_40clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -56788,7 +56788,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_41clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_41clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_41clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -56834,7 +56834,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_42clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_42clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_42clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57052,7 +57052,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120dump_cell_expr_binopERSoNSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_43clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_43clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_43clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57098,7 +57098,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_44clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_44clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_44clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57144,7 +57144,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_45clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_45clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_45clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57190,7 +57190,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_46clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_46clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_46clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57236,7 +57236,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_47clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_47clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_47clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57282,7 +57282,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_48clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_48clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_48clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57328,7 +57328,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_49clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_49clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_49clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57374,7 +57374,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_50clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_50clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_50clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57420,7 +57420,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_51clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_51clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_51clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57466,7 +57466,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_52clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_52clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_52clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57512,7 +57512,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_53clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_53clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_53clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57558,7 +57558,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_54clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_54clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_54clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57604,7 +57604,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_55clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_55clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_55clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57650,7 +57650,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_56clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_56clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_56clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57696,7 +57696,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_57clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_57clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_57clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57742,7 +57742,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_58clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_58clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_58clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57788,7 +57788,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_59clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_59clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_59clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57834,7 +57834,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_60clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_60clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_60clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57880,7 +57880,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_61clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_61clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_61clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57926,7 +57926,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_62clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_62clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_62clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -57972,7 +57972,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_63clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_63clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_63clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58018,7 +58018,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_64clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_64clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_64clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58064,7 +58064,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_65clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_65clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_65clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58110,7 +58110,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_66clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_66clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_66clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58156,7 +58156,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_67clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_67clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_67clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58202,7 +58202,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_68clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_68clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_68clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58248,7 +58248,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_69clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_69clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_69clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58294,7 +58294,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_70clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_70clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_70clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58340,7 +58340,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_71clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_71clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_71clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58386,7 +58386,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_72clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_72clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_72clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58432,7 +58432,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_73clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_73clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_73clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58478,7 +58478,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_74clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_74clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_74clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58524,7 +58524,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_75clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_75clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_75clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58570,7 +58570,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_76clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_76clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_76clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58616,7 +58616,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_77clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_77clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_77clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58825,7 +58825,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE9do_lo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_78clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_78clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_78clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58871,7 +58871,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_79clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_79clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_79clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58917,7 +58917,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_80clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_80clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_80clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -58963,7 +58963,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_81clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_81clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_81clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -59804,7 +59804,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL7Sig
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_82clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_82clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_82clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -59850,7 +59850,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_83clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_83clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_83clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -59896,7 +59896,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_84clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_84clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_84clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -59942,7 +59942,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_85clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_85clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_85clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -59988,7 +59988,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_86clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_86clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_86clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -60034,7 +60034,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_87clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_87clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_87clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -60080,7 +60080,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_88clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_88clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_88clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -60126,7 +60126,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_89clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_89clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_89clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -60172,7 +60172,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_90clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_90clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_90clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -60218,7 +60218,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_91clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_91clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_91clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -60264,7 +60264,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_92clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_92clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_92clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -60310,7 +60310,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_93clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_93clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_93clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -60601,7 +60601,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit26:                 ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_94clEv.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_94clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_94clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !24
@@ -60681,7 +60681,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cx
 20:                                               ; preds = %18, %14, %3
   %21 = load i32, ptr @"_ZZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEvE2id", align 4, !noalias !478
   %.not.i.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i.i, label %"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit", label %22
+  br i1 %.not.i.i.i, label %"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.exit", label %22
 
 22:                                               ; preds = %20
   %23 = sext i32 %21 to i64
@@ -60690,7 +60690,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cx
   %26 = load i32, ptr %25, align 4, !noalias !478
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 4, !noalias !478
-  br label %"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.exit"
 
 common.resume:                                    ; preds = %54, %105, %28
   %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %.pn, %105 ], [ %55, %54 ]
@@ -60702,12 +60702,12 @@ common.resume:                                    ; preds = %54, %105, %28
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEvE2id") #28, !noalias !478
   br label %common.resume
 
-"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit": ; preds = %20, %22
+"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.exit": ; preds = %20, %22
   store i32 %21, ptr %5, align 4, !alias.scope !478
   %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Yosys5RTLIL4Cell8getParamERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %31 unwind label %54
 
-31:                                               ; preds = %"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit"
+31:                                               ; preds = %"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.exit"
   invoke void @_ZNK5Yosys5RTLIL5Const13decode_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %30)
           to label %32 unwind label %54
 
@@ -60754,7 +60754,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %32, %37, %44
   %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.sink.split unwind label %58
 
-54:                                               ; preds = %31, %"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit"
+54:                                               ; preds = %31, %"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.exit"
   %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #28
@@ -62998,14 +62998,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_T0_SW_T1_T2_"(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %.lcssa43, ptr noundef %15)
   %16 = icmp eq i64 %.0.i.i.i, 0
   %17 = add nsw i64 %.0.i.i.i, -1
-  br i1 %16, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_RT0_.argprom.exit.i.i", label %.split9.i.i.i, !llvm.loop !489
+  br i1 %16, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_RT0_.exit.i.i", label %.split9.i.i.i, !llvm.loop !489
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_RT0_.argprom.exit.i.i": ; preds = %.split9.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_RT0_.exit.i.i": ; preds = %.split9.i.i.i
   %18 = icmp sgt i64 %.lcssa41, 8
   br i1 %18, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_SV_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_RT0_.argprom.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.03.i.i = phi ptr [ %19, %.lr.ph.i9.i ], [ %storemerge25.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_RT0_.argprom.exit.i.i" ]
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_RT0_.exit.i.i", %.lr.ph.i9.i
+  %.sroa.0.03.i.i = phi ptr [ %19, %.lr.ph.i9.i ], [ %storemerge25.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_RT0_.exit.i.i" ]
   %19 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %0, align 8
@@ -63164,7 +63164,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %109 = icmp sgt i64 %108, 16
   br i1 %109, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_SV_T0_.exit", !llvm.loop !488
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_SV_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEET_SV_SV_T0_.exit", %.lr.ph.i9.i, %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_RT0_.argprom.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_SV_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEET_SV_SV_T0_.exit", %.lr.ph.i9.i, %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_SV_RT0_.exit.i.i"
   ret void
 }
 
@@ -63221,7 +63221,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 36:                                               ; preds = %30, %26, %._crit_edge
   %.1 = phi i64 [ %32, %30 ], [ %.0.lcssa, %26 ], [ %.0.lcssa, %._crit_edge ]
   %37 = icmp sgt i64 %.1, %1
-  br i1 %37, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_T0_SW_T1_RT2_.argprom.exit"
+  br i1 %37, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_T0_SW_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %36, %45
   %.010.i = phi i64 [ %.0911.i, %45 ], [ %.1, %36 ]
@@ -63234,16 +63234,16 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %42 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Yosys5RTLIL4Cell8getParamERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %3, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID8PRIORITYE)
   %43 = tail call noundef i32 @_ZNK5Yosys5RTLIL5Const6as_intEb(ptr noundef nonnull align 8 dereferenceable(32) %42, i1 noundef zeroext false)
   %44 = icmp sgt i32 %41, %43
-  br i1 %44, label %45, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_T0_SW_T1_RT2_.argprom.exit"
+  br i1 %44, label %45, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_T0_SW_T1_RT2_.exit"
 
 45:                                               ; preds = %.lr.ph.i
   %46 = load ptr, ptr %38, align 8
   %47 = getelementptr inbounds ptr, ptr %0, i64 %.010.i
   store ptr %46, ptr %47, align 8
   %48 = icmp sgt i64 %.0911.i, %1
-  br i1 %48, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_T0_SW_T1_RT2_.argprom.exit", !llvm.loop !495
+  br i1 %48, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_T0_SW_T1_RT2_.exit", !llvm.loop !495
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_T0_SW_T1_RT2_.argprom.exit": ; preds = %.lr.ph.i, %45, %36
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN5Yosys5RTLIL4CellESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS3_7SigSpecERKNS3_5ConstERSA_E3$_0EEEvT_T0_SW_T1_RT2_.exit": ; preds = %.lr.ph.i, %45, %36
   %.0.lcssa.i = phi i64 [ %.1, %36 ], [ %.010.i, %.lr.ph.i ], [ %.0911.i, %45 ]
   %49 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %49, align 8
@@ -63496,21 +63496,21 @@ attributes #32 = { nounwind willreturn memory(none) }
 !58 = distinct !{!58, !59, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !59 = distinct !{!59, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_0clEv.argprom: argument 0"}
-!62 = distinct !{!62, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_0clEv.argprom"}
+!61 = distinct !{!61, !62, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_0clEv: argument 0"}
+!62 = distinct !{!62, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_0clEv"}
 !63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_1clEv.argprom: argument 0"}
-!65 = distinct !{!65, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_1clEv.argprom"}
+!64 = distinct !{!64, !65, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_1clEv: argument 0"}
+!65 = distinct !{!65, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_1clEv"}
 !66 = !{!67}
 !67 = distinct !{!67, !68, !"_ZSt9make_pairIRKN5Yosys5RTLIL7SigSpecERKNS1_5ConstEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_: argument 0"}
 !68 = distinct !{!68, !"_ZSt9make_pairIRKN5Yosys5RTLIL7SigSpecERKNS1_5ConstEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_"}
 !69 = distinct !{!69, !7}
 !70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_2clEv.argprom: argument 0"}
-!72 = distinct !{!72, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_2clEv.argprom"}
+!71 = distinct !{!71, !72, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_2clEv: argument 0"}
+!72 = distinct !{!72, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_2clEv"}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_3clEv.argprom: argument 0"}
-!75 = distinct !{!75, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_3clEv.argprom"}
+!74 = distinct !{!74, !75, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_3clEv: argument 0"}
+!75 = distinct !{!75, !"_ZZN12_GLOBAL__N_111dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL6ModuleEENK3$_3clEv"}
 !76 = distinct !{!76, !7}
 !77 = !{!78}
 !78 = distinct !{!78, !79, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4WireEE5beginEv: argument 0"}
@@ -63530,29 +63530,29 @@ attributes #32 = { nounwind willreturn memory(none) }
 !92 = distinct !{!92, !93, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !93 = distinct !{!93, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom: argument 0"}
-!96 = distinct !{!96, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom"}
+!95 = distinct !{!95, !96, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv: argument 0"}
+!96 = distinct !{!96, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv"}
 !97 = distinct !{!97, !7}
 !98 = distinct !{!98, !7}
 !99 = distinct !{!99, !7}
 !100 = distinct !{!100, !7}
 !101 = distinct !{!101, !7}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom: argument 0"}
-!104 = distinct !{!104, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom"}
+!103 = distinct !{!103, !104, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv: argument 0"}
+!104 = distinct !{!104, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.argprom: argument 0"}
-!107 = distinct !{!107, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.argprom"}
+!106 = distinct !{!106, !107, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv: argument 0"}
+!107 = distinct !{!107, !"_ZZN12_GLOBAL__N_19dump_cellERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv"}
 !108 = distinct !{!108, !7}
 !109 = distinct !{!109, !7}
 !110 = distinct !{!110, !7}
 !111 = distinct !{!111, !7}
 !112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.argprom: argument 0"}
-!114 = distinct !{!114, !"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv.argprom"}
+!113 = distinct !{!113, !114, !"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv: argument 0"}
+!114 = distinct !{!114, !"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_1clEv"}
 !115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.argprom: argument 0"}
-!117 = distinct !{!117, !"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv.argprom"}
+!116 = distinct !{!116, !117, !"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv: argument 0"}
+!117 = distinct !{!117, !"_ZZN12_GLOBAL__N_116dump_sync_effectERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN5Yosys5RTLIL7SigSpecERKNS8_5ConstERSt6vectorIPKNS8_4CellESaISI_EEENK3$_2clEv"}
 !118 = distinct !{!118, !7}
 !119 = distinct !{!119, !7}
 !120 = distinct !{!120, !7}
@@ -63799,111 +63799,111 @@ attributes #32 = { nounwind willreturn memory(none) }
 !361 = distinct !{!361, !7}
 !362 = distinct !{!362, !7}
 !363 = !{!364}
-!364 = distinct !{!364, !365, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom: argument 0"}
-!365 = distinct !{!365, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom"}
+!364 = distinct !{!364, !365, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv: argument 0"}
+!365 = distinct !{!365, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_0clEv"}
 !366 = !{!367}
-!367 = distinct !{!367, !368, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom: argument 0"}
-!368 = distinct !{!368, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom"}
+!367 = distinct !{!367, !368, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv: argument 0"}
+!368 = distinct !{!368, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_1clEv"}
 !369 = !{!370}
-!370 = distinct !{!370, !371, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.argprom: argument 0"}
-!371 = distinct !{!371, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv.argprom"}
+!370 = distinct !{!370, !371, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv: argument 0"}
+!371 = distinct !{!371, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_2clEv"}
 !372 = !{!373}
-!373 = distinct !{!373, !374, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_3clEv.argprom: argument 0"}
-!374 = distinct !{!374, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_3clEv.argprom"}
+!373 = distinct !{!373, !374, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_3clEv: argument 0"}
+!374 = distinct !{!374, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_3clEv"}
 !375 = !{!376}
-!376 = distinct !{!376, !377, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_4clEv.argprom: argument 0"}
-!377 = distinct !{!377, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_4clEv.argprom"}
+!376 = distinct !{!376, !377, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_4clEv: argument 0"}
+!377 = distinct !{!377, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_4clEv"}
 !378 = !{!379}
-!379 = distinct !{!379, !380, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_5clEv.argprom: argument 0"}
-!380 = distinct !{!380, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_5clEv.argprom"}
+!379 = distinct !{!379, !380, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_5clEv: argument 0"}
+!380 = distinct !{!380, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_5clEv"}
 !381 = !{!382}
-!382 = distinct !{!382, !383, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_6clEv.argprom: argument 0"}
-!383 = distinct !{!383, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_6clEv.argprom"}
+!382 = distinct !{!382, !383, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_6clEv: argument 0"}
+!383 = distinct !{!383, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_6clEv"}
 !384 = !{!385}
-!385 = distinct !{!385, !386, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_7clEv.argprom: argument 0"}
-!386 = distinct !{!386, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_7clEv.argprom"}
+!385 = distinct !{!385, !386, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_7clEv: argument 0"}
+!386 = distinct !{!386, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_7clEv"}
 !387 = !{!388}
-!388 = distinct !{!388, !389, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_8clEv.argprom: argument 0"}
-!389 = distinct !{!389, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_8clEv.argprom"}
+!388 = distinct !{!388, !389, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_8clEv: argument 0"}
+!389 = distinct !{!389, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_8clEv"}
 !390 = !{!391}
-!391 = distinct !{!391, !392, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.argprom: argument 0"}
-!392 = distinct !{!392, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv.argprom"}
+!391 = distinct !{!391, !392, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv: argument 0"}
+!392 = distinct !{!392, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK3$_9clEv"}
 !393 = !{!394}
-!394 = distinct !{!394, !395, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.argprom: argument 0"}
-!395 = distinct !{!395, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv.argprom"}
+!394 = distinct !{!394, !395, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv: argument 0"}
+!395 = distinct !{!395, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_10clEv"}
 !396 = !{!397}
-!397 = distinct !{!397, !398, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_11clEv.argprom: argument 0"}
-!398 = distinct !{!398, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_11clEv.argprom"}
+!397 = distinct !{!397, !398, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_11clEv: argument 0"}
+!398 = distinct !{!398, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_11clEv"}
 !399 = !{!400}
-!400 = distinct !{!400, !401, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.argprom: argument 0"}
-!401 = distinct !{!401, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv.argprom"}
+!400 = distinct !{!400, !401, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv: argument 0"}
+!401 = distinct !{!401, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_12clEv"}
 !402 = !{!403}
-!403 = distinct !{!403, !404, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.argprom: argument 0"}
-!404 = distinct !{!404, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv.argprom"}
+!403 = distinct !{!403, !404, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv: argument 0"}
+!404 = distinct !{!404, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_13clEv"}
 !405 = !{!406}
-!406 = distinct !{!406, !407, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_14clEv.argprom: argument 0"}
-!407 = distinct !{!407, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_14clEv.argprom"}
+!406 = distinct !{!406, !407, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_14clEv: argument 0"}
+!407 = distinct !{!407, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_14clEv"}
 !408 = !{!409}
-!409 = distinct !{!409, !410, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.argprom: argument 0"}
-!410 = distinct !{!410, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv.argprom"}
+!409 = distinct !{!409, !410, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv: argument 0"}
+!410 = distinct !{!410, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_15clEv"}
 !411 = !{!412}
-!412 = distinct !{!412, !413, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.argprom: argument 0"}
-!413 = distinct !{!413, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv.argprom"}
+!412 = distinct !{!412, !413, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv: argument 0"}
+!413 = distinct !{!413, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_16clEv"}
 !414 = !{!415}
-!415 = distinct !{!415, !416, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_17clEv.argprom: argument 0"}
-!416 = distinct !{!416, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_17clEv.argprom"}
+!415 = distinct !{!415, !416, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_17clEv: argument 0"}
+!416 = distinct !{!416, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_17clEv"}
 !417 = !{!418}
-!418 = distinct !{!418, !419, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.argprom: argument 0"}
-!419 = distinct !{!419, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv.argprom"}
+!418 = distinct !{!418, !419, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv: argument 0"}
+!419 = distinct !{!419, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_18clEv"}
 !420 = !{!421}
-!421 = distinct !{!421, !422, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.argprom: argument 0"}
-!422 = distinct !{!422, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv.argprom"}
+!421 = distinct !{!421, !422, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv: argument 0"}
+!422 = distinct !{!422, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_19clEv"}
 !423 = !{!424}
-!424 = distinct !{!424, !425, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_20clEv.argprom: argument 0"}
-!425 = distinct !{!425, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_20clEv.argprom"}
+!424 = distinct !{!424, !425, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_20clEv: argument 0"}
+!425 = distinct !{!425, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_20clEv"}
 !426 = !{!427}
-!427 = distinct !{!427, !428, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.argprom: argument 0"}
-!428 = distinct !{!428, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv.argprom"}
+!427 = distinct !{!427, !428, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv: argument 0"}
+!428 = distinct !{!428, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_21clEv"}
 !429 = !{!430}
-!430 = distinct !{!430, !431, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_22clEv.argprom: argument 0"}
-!431 = distinct !{!431, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_22clEv.argprom"}
+!430 = distinct !{!430, !431, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_22clEv: argument 0"}
+!431 = distinct !{!431, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_22clEv"}
 !432 = !{!433}
-!433 = distinct !{!433, !434, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.argprom: argument 0"}
-!434 = distinct !{!434, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv.argprom"}
+!433 = distinct !{!433, !434, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv: argument 0"}
+!434 = distinct !{!434, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_23clEv"}
 !435 = !{!436}
-!436 = distinct !{!436, !437, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_24clEv.argprom: argument 0"}
-!437 = distinct !{!437, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_24clEv.argprom"}
+!436 = distinct !{!436, !437, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_24clEv: argument 0"}
+!437 = distinct !{!437, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_24clEv"}
 !438 = !{!439}
-!439 = distinct !{!439, !440, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_25clEv.argprom: argument 0"}
-!440 = distinct !{!440, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_25clEv.argprom"}
+!439 = distinct !{!439, !440, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_25clEv: argument 0"}
+!440 = distinct !{!440, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_25clEv"}
 !441 = !{!442}
-!442 = distinct !{!442, !443, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_26clEv.argprom: argument 0"}
-!443 = distinct !{!443, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_26clEv.argprom"}
+!442 = distinct !{!442, !443, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_26clEv: argument 0"}
+!443 = distinct !{!443, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_26clEv"}
 !444 = !{!445}
-!445 = distinct !{!445, !446, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.argprom: argument 0"}
-!446 = distinct !{!446, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv.argprom"}
+!445 = distinct !{!445, !446, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv: argument 0"}
+!446 = distinct !{!446, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_27clEv"}
 !447 = !{!448}
-!448 = distinct !{!448, !449, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.argprom: argument 0"}
-!449 = distinct !{!449, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv.argprom"}
+!448 = distinct !{!448, !449, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv: argument 0"}
+!449 = distinct !{!449, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_28clEv"}
 !450 = !{!451}
-!451 = distinct !{!451, !452, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.argprom: argument 0"}
-!452 = distinct !{!452, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv.argprom"}
+!451 = distinct !{!451, !452, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv: argument 0"}
+!452 = distinct !{!452, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_29clEv"}
 !453 = !{!454}
-!454 = distinct !{!454, !455, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.argprom: argument 0"}
-!455 = distinct !{!455, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv.argprom"}
+!454 = distinct !{!454, !455, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv: argument 0"}
+!455 = distinct !{!455, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_30clEv"}
 !456 = !{!457}
-!457 = distinct !{!457, !458, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_31clEv.argprom: argument 0"}
-!458 = distinct !{!458, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_31clEv.argprom"}
+!457 = distinct !{!457, !458, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_31clEv: argument 0"}
+!458 = distinct !{!458, !"_ZZN12_GLOBAL__N_114dump_cell_exprERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys5RTLIL4CellEENK4$_31clEv"}
 !459 = distinct !{!459, !7}
 !460 = distinct !{!460, !7}
 !461 = distinct !{!461, !7}
 !462 = distinct !{!462, !7}
 !463 = !{!464}
-!464 = distinct !{!464, !465, !"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom: argument 0"}
-!465 = distinct !{!465, !"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom"}
+!464 = distinct !{!464, !465, !"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv: argument 0"}
+!465 = distinct !{!465, !"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_0clEv"}
 !466 = !{!467}
-!467 = distinct !{!467, !468, !"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom: argument 0"}
-!468 = distinct !{!468, !"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_1clEv.argprom"}
+!467 = distinct !{!467, !468, !"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_1clEv: argument 0"}
+!468 = distinct !{!468, !"_ZZN12_GLOBAL__N_18cellnameB5cxx11EPN5Yosys5RTLIL4CellEENK3$_1clEv"}
 !469 = !{!470}
 !470 = distinct !{!470, !471, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev: argument 0"}
 !471 = distinct !{!471, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev"}
@@ -63914,8 +63914,8 @@ attributes #32 = { nounwind willreturn memory(none) }
 !476 = distinct !{!476, !477, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !477 = distinct !{!477, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
 !478 = !{!479}
-!479 = distinct !{!479, !480, !"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.argprom: argument 0"}
-!480 = distinct !{!480, !"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv.argprom"}
+!479 = distinct !{!479, !480, !"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv: argument 0"}
+!480 = distinct !{!480, !"_ZZN12_GLOBAL__N_120dump_cell_expr_checkERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5Yosys5RTLIL4CellEENK3$_0clEv"}
 !481 = distinct !{!481, !7}
 !482 = distinct !{!482, !7}
 !483 = distinct !{!483, !7}

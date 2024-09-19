@@ -365,9 +365,9 @@ _set_resv_cond.exit.i:                            ; preds = %150, %147, %.loopex
   %161 = load ptr, ptr @db_conn, align 8
   %162 = call ptr @slurmdb_reservations_get(ptr noundef %161, ptr noundef nonnull %20) #10
   %.not.i = icmp eq ptr %162, null
-  br i1 %.not.i, label %_get_resv_list.argprom.exit.thread, label %165
+  br i1 %.not.i, label %_get_resv_list.exit.thread, label %165
 
-_get_resv_list.argprom.exit.thread:               ; preds = %_set_resv_cond.exit.i
+_get_resv_list.exit.thread:                       ; preds = %_set_resv_cond.exit.i
   store i32 1, ptr @exit_code, align 4
   %163 = load ptr, ptr @stderr, align 8
   %164 = call i64 @fwrite(ptr nonnull @.str.4, i64 33, i64 1, ptr %163) #13
@@ -1096,7 +1096,7 @@ _resv_tres_report.exit:                           ; preds = %370, %._crit_edge.i
   call void @list_destroy(ptr noundef nonnull %162) #10
   br label %.critedge
 
-.critedge:                                        ; preds = %_get_resv_list.argprom.exit.thread, %._crit_edge54
+.critedge:                                        ; preds = %_get_resv_list.exit.thread, %._crit_edge54
   %496 = load ptr, ptr @print_fields_list, align 8
   %.not39 = icmp eq ptr %496, null
   br i1 %.not39, label %498, label %497

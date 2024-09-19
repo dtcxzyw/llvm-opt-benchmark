@@ -234,7 +234,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.155 = private unnamed_addr constant [73 x i8] c"array_key_exists(): Argument #2 ($array) must be of type array, %s given\00", align 1
 @zend_flf_handlers = external local_unnamed_addr global ptr, align 8
 @zend_vm_get_opcode_handler_idx.zend_vm_decode = internal unnamed_addr constant [9 x i32] [i32 3, i32 0, i32 1, i32 3, i32 2, i32 3, i32 3, i32 3, i32 4], align 16
-@switch.table.zend_fetch_dimension_address_UNSET.argprom = private unnamed_addr constant [4 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29], align 8
+@switch.table.zend_fetch_dimension_address_UNSET = private unnamed_addr constant [4 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal void @zif_pass(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
@@ -1725,7 +1725,7 @@ switch.lookup:                                    ; preds = %4, %4, %4, %4
   %9 = load i32, ptr %8, align 4
   %switch.tableidx = add nsw i32 %9, -1
   %10 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_fetch_dimension_address_UNSET.argprom, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_fetch_dimension_address_UNSET, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %12
 
@@ -7242,7 +7242,7 @@ define internal noundef i32 @ZEND_ADD_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  tail call fastcc void @zend_add_helper_SPEC.retelim(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_add_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 0
 }
 
@@ -7343,7 +7343,7 @@ define internal noundef i32 @ZEND_ADD_SPEC_CONST_TMPVARCV_HANDLER(ptr noundef %0
   br label %41
 
 54:                                               ; preds = %35, %1, %13
-  tail call fastcc void @zend_add_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_add_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %55
 
 55:                                               ; preds = %54, %41, %28
@@ -7463,7 +7463,7 @@ define internal noundef i32 @ZEND_ADD_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0
   br label %41
 
 54:                                               ; preds = %35, %1, %13
-  tail call fastcc void @zend_add_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_add_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %55
 
 55:                                               ; preds = %54, %41, %28
@@ -7567,7 +7567,7 @@ define internal noundef i32 @ZEND_ADD_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef
   br label %41
 
 54:                                               ; preds = %35, %1, %13
-  tail call fastcc void @zend_add_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_add_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %55
 
 55:                                               ; preds = %54, %41, %28
@@ -7585,7 +7585,7 @@ define internal noundef i32 @ZEND_SUB_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  tail call fastcc void @zend_sub_helper_SPEC.retelim(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_sub_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 0
 }
 
@@ -7686,7 +7686,7 @@ define internal noundef i32 @ZEND_SUB_SPEC_CONST_TMPVARCV_HANDLER(ptr noundef %0
   br label %41
 
 54:                                               ; preds = %35, %1, %13
-  tail call fastcc void @zend_sub_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_sub_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %55
 
 55:                                               ; preds = %54, %41, %28
@@ -7790,7 +7790,7 @@ define internal noundef i32 @ZEND_SUB_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0
   br label %41
 
 54:                                               ; preds = %35, %1, %13
-  tail call fastcc void @zend_sub_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_sub_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %55
 
 55:                                               ; preds = %54, %41, %28
@@ -7894,7 +7894,7 @@ define internal noundef i32 @ZEND_SUB_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef
   br label %41
 
 54:                                               ; preds = %35, %1, %13
-  tail call fastcc void @zend_sub_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_sub_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %55
 
 55:                                               ; preds = %54, %41, %28
@@ -7912,7 +7912,7 @@ define internal noundef i32 @ZEND_MUL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  tail call fastcc void @zend_mul_helper_SPEC.retelim(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_mul_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 0
 }
 
@@ -8012,7 +8012,7 @@ define internal noundef i32 @ZEND_MUL_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0
   br label %44
 
 57:                                               ; preds = %38, %1, %13
-  tail call fastcc void @zend_mul_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_mul_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %58
 
 58:                                               ; preds = %57, %44, %16
@@ -8115,7 +8115,7 @@ define internal noundef i32 @ZEND_MUL_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef
   br label %44
 
 57:                                               ; preds = %38, %1, %13
-  tail call fastcc void @zend_mul_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_mul_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %58
 
 58:                                               ; preds = %57, %44, %16
@@ -8625,7 +8625,7 @@ define internal noundef i32 @ZEND_MOD_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  tail call fastcc void @zend_mod_helper_SPEC.retelim(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_mod_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 0
 }
 
@@ -8693,7 +8693,7 @@ define internal noundef i32 @ZEND_MOD_SPEC_CONST_TMPVARCV_HANDLER(ptr noundef %0
   br label %41
 
 40:                                               ; preds = %14, %1
-  tail call fastcc void @zend_mod_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_mod_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %41
 
 41:                                               ; preds = %40, %36, %24
@@ -8764,7 +8764,7 @@ define internal noundef i32 @ZEND_MOD_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0
   br label %41
 
 40:                                               ; preds = %14, %1
-  tail call fastcc void @zend_mod_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_mod_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %41
 
 41:                                               ; preds = %40, %36, %24
@@ -8835,7 +8835,7 @@ define internal noundef i32 @ZEND_MOD_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef
   br label %41
 
 40:                                               ; preds = %14, %1
-  tail call fastcc void @zend_mod_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_mod_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %41
 
 41:                                               ; preds = %40, %36, %24
@@ -8853,7 +8853,7 @@ define internal noundef i32 @ZEND_SL_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  tail call fastcc void @zend_shift_left_helper_SPEC.retelim(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_shift_left_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 0
 }
 
@@ -8902,7 +8902,7 @@ define internal noundef i32 @ZEND_SL_SPEC_CONST_TMPVARCV_HANDLER(ptr noundef %0)
   br label %32
 
 31:                                               ; preds = %18, %14, %1
-  tail call fastcc void @zend_shift_left_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_shift_left_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %32
 
 32:                                               ; preds = %31, %21
@@ -8954,7 +8954,7 @@ define internal noundef i32 @ZEND_SL_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0)
   br label %32
 
 31:                                               ; preds = %18, %14, %1
-  tail call fastcc void @zend_shift_left_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_shift_left_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %32
 
 32:                                               ; preds = %31, %21
@@ -9006,7 +9006,7 @@ define internal noundef i32 @ZEND_SL_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef 
   br label %32
 
 31:                                               ; preds = %18, %14, %1
-  tail call fastcc void @zend_shift_left_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_shift_left_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %32
 
 32:                                               ; preds = %31, %21
@@ -9024,7 +9024,7 @@ define internal noundef i32 @ZEND_SR_SPEC_CONST_CONST_HANDLER(ptr noundef %0) #1
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  tail call fastcc void @zend_shift_right_helper_SPEC.retelim(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_shift_right_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 0
 }
 
@@ -9073,7 +9073,7 @@ define internal noundef i32 @ZEND_SR_SPEC_CONST_TMPVARCV_HANDLER(ptr noundef %0)
   br label %32
 
 31:                                               ; preds = %18, %14, %1
-  tail call fastcc void @zend_shift_right_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_shift_right_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %32
 
 32:                                               ; preds = %31, %21
@@ -9125,7 +9125,7 @@ define internal noundef i32 @ZEND_SR_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0)
   br label %32
 
 31:                                               ; preds = %18, %14, %1
-  tail call fastcc void @zend_shift_right_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_shift_right_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %32
 
 32:                                               ; preds = %31, %21
@@ -9177,7 +9177,7 @@ define internal noundef i32 @ZEND_SR_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef 
   br label %32
 
 31:                                               ; preds = %18, %14, %1
-  tail call fastcc void @zend_shift_right_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_shift_right_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %32
 
 32:                                               ; preds = %31, %21
@@ -10786,7 +10786,7 @@ define internal noundef i32 @ZEND_BW_OR_SPEC_CONST_CONST_HANDLER(ptr noundef %0)
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  tail call fastcc void @zend_bw_or_helper_SPEC.retelim(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_bw_or_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 0
 }
 
@@ -10831,7 +10831,7 @@ define internal noundef i32 @ZEND_BW_OR_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef 
   br label %30
 
 29:                                               ; preds = %14, %1
-  tail call fastcc void @zend_bw_or_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_bw_or_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %30
 
 30:                                               ; preds = %29, %18
@@ -10879,7 +10879,7 @@ define internal noundef i32 @ZEND_BW_OR_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr nound
   br label %30
 
 29:                                               ; preds = %14, %1
-  tail call fastcc void @zend_bw_or_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_bw_or_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %30
 
 30:                                               ; preds = %29, %18
@@ -10897,7 +10897,7 @@ define internal noundef i32 @ZEND_BW_AND_SPEC_CONST_CONST_HANDLER(ptr noundef %0
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  tail call fastcc void @zend_bw_and_helper_SPEC.retelim(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_bw_and_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 0
 }
 
@@ -10942,7 +10942,7 @@ define internal noundef i32 @ZEND_BW_AND_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef
   br label %30
 
 29:                                               ; preds = %14, %1
-  tail call fastcc void @zend_bw_and_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_bw_and_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %30
 
 30:                                               ; preds = %29, %18
@@ -10990,7 +10990,7 @@ define internal noundef i32 @ZEND_BW_AND_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noun
   br label %30
 
 29:                                               ; preds = %14, %1
-  tail call fastcc void @zend_bw_and_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_bw_and_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %30
 
 30:                                               ; preds = %29, %18
@@ -11008,7 +11008,7 @@ define internal noundef i32 @ZEND_BW_XOR_SPEC_CONST_CONST_HANDLER(ptr noundef %0
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
-  tail call fastcc void @zend_bw_xor_helper_SPEC.retelim(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_bw_xor_helper_SPEC(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %0)
   ret i32 0
 }
 
@@ -11053,7 +11053,7 @@ define internal noundef i32 @ZEND_BW_XOR_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef
   br label %30
 
 29:                                               ; preds = %14, %1
-  tail call fastcc void @zend_bw_xor_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_bw_xor_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %30
 
 30:                                               ; preds = %29, %18
@@ -11101,7 +11101,7 @@ define internal noundef i32 @ZEND_BW_XOR_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noun
   br label %30
 
 29:                                               ; preds = %14, %1
-  tail call fastcc void @zend_bw_xor_helper_SPEC.retelim(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
+  tail call fastcc void @zend_bw_xor_helper_SPEC(ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %0)
   br label %30
 
 30:                                               ; preds = %29, %18
@@ -35534,7 +35534,7 @@ zend_assign_to_object_dim.exit:                   ; preds = %_zval_undefined_op2
   br i1 %235, label %236, label %237
 
 236:                                              ; preds = %228
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %230, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %230, ptr noundef nonnull %0)
   br label %237
 
 237:                                              ; preds = %228, %236
@@ -36017,7 +36017,7 @@ zend_assign_to_object_dim.exit:                   ; preds = %_zval_undefined_op2
   br i1 %214, label %215, label %216
 
 215:                                              ; preds = %207
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %209, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %209, ptr noundef nonnull %0)
   br label %216
 
 216:                                              ; preds = %207, %215
@@ -36603,7 +36603,7 @@ zend_assign_to_object_dim.exit:                   ; preds = %167, %174, %184
   br i1 %243, label %244, label %245
 
 244:                                              ; preds = %236
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %238, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %238, ptr noundef nonnull %0)
   br label %245
 
 245:                                              ; preds = %236, %244
@@ -37249,7 +37249,7 @@ zend_assign_to_object_dim.exit:                   ; preds = %zval_undefined_cv.e
   br i1 %273, label %274, label %275
 
 274:                                              ; preds = %266
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %268, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %268, ptr noundef nonnull %0)
   br label %275
 
 275:                                              ; preds = %266, %274
@@ -43262,7 +43262,7 @@ zend_assign_to_object_dim.exit:                   ; preds = %_zval_undefined_op2
   br i1 %230, label %231, label %232
 
 231:                                              ; preds = %223
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %225, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %225, ptr noundef nonnull %0)
   br label %232
 
 232:                                              ; preds = %223, %231
@@ -43709,7 +43709,7 @@ zend_assign_to_object_dim.exit:                   ; preds = %_zval_undefined_op2
   br i1 %209, label %210, label %211
 
 210:                                              ; preds = %202
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %204, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %204, ptr noundef nonnull %0)
   br label %211
 
 211:                                              ; preds = %202, %210
@@ -44259,7 +44259,7 @@ zend_assign_to_object_dim.exit:                   ; preds = %162, %169, %179
   br i1 %238, label %239, label %240
 
 239:                                              ; preds = %231
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %233, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %233, ptr noundef nonnull %0)
   br label %240
 
 240:                                              ; preds = %231, %239
@@ -44869,7 +44869,7 @@ zend_assign_to_object_dim.exit:                   ; preds = %zval_undefined_cv.e
   br i1 %268, label %269, label %270
 
 269:                                              ; preds = %261
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %263, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %263, ptr noundef nonnull %0)
   br label %270
 
 270:                                              ; preds = %261, %269
@@ -57350,7 +57350,7 @@ define internal noundef i32 @ZEND_ASSIGN_OP_SPEC_VAR_CONST_HANDLER(ptr noundef %
 
 32:                                               ; preds = %28
   %33 = tail call i32 @concat_function(ptr noundef nonnull %22, ptr noundef nonnull %22, ptr noundef nonnull %7) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 34:                                               ; preds = %28, %25
   %35 = zext i32 %.val to i64
@@ -57374,13 +57374,13 @@ define internal noundef i32 @ZEND_ASSIGN_OP_SPEC_VAR_CONST_HANDLER(ptr noundef %
   store ptr %47, ptr %22, align 8
   %50 = getelementptr inbounds i8, ptr %21, i64 16
   store i32 %49, ptr %50, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 51:                                               ; preds = %34
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %32, %46, %51
+zend_binary_assign_op_typed_ref.exit:             ; preds = %32, %46, %51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %60
 
@@ -57395,8 +57395,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %32, %46, %51
   %59 = tail call i32 %58(ptr noundef nonnull %.052, ptr noundef nonnull %.052, ptr noundef nonnull %7) #27
   br label %60
 
-60:                                               ; preds = %52, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %22, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.052, %52 ]
+60:                                               ; preds = %52, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %22, %zend_binary_assign_op_typed_ref.exit ], [ %.052, %52 ]
   %61 = getelementptr inbounds i8, ptr %3, i64 31
   %62 = load i8, ptr %61, align 1
   %.not53 = icmp eq i8 %62, 0
@@ -57506,7 +57506,7 @@ define internal noundef i32 @ZEND_ASSIGN_OP_SPEC_VAR_TMPVAR_HANDLER(ptr noundef 
 
 32:                                               ; preds = %28
   %33 = tail call i32 @concat_function(ptr noundef nonnull %22, ptr noundef nonnull %22, ptr noundef nonnull %7) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 34:                                               ; preds = %28, %25
   %35 = zext i32 %.val to i64
@@ -57530,13 +57530,13 @@ define internal noundef i32 @ZEND_ASSIGN_OP_SPEC_VAR_TMPVAR_HANDLER(ptr noundef 
   store ptr %47, ptr %22, align 8
   %50 = getelementptr inbounds i8, ptr %21, i64 16
   store i32 %49, ptr %50, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 51:                                               ; preds = %34
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %32, %46, %51
+zend_binary_assign_op_typed_ref.exit:             ; preds = %32, %46, %51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %60
 
@@ -57551,8 +57551,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %32, %46, %51
   %59 = tail call i32 %58(ptr noundef nonnull %.064, ptr noundef nonnull %.064, ptr noundef nonnull %7) #27
   br label %60
 
-60:                                               ; preds = %52, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %22, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.064, %52 ]
+60:                                               ; preds = %52, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %22, %zend_binary_assign_op_typed_ref.exit ], [ %.064, %52 ]
   %61 = getelementptr inbounds i8, ptr %3, i64 31
   %62 = load i8, ptr %61, align 1
   %.not65 = icmp eq i8 %62, 0
@@ -57711,7 +57711,7 @@ zval_undefined_cv.exit:                           ; preds = %14, %11, %1
 
 48:                                               ; preds = %44
   %49 = tail call i32 @concat_function(ptr noundef nonnull %38, ptr noundef nonnull %38, ptr noundef %.060) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 50:                                               ; preds = %44, %41
   %51 = zext i32 %.val to i64
@@ -57735,13 +57735,13 @@ zval_undefined_cv.exit:                           ; preds = %14, %11, %1
   store ptr %63, ptr %38, align 8
   %66 = getelementptr inbounds i8, ptr %37, i64 16
   store i32 %65, ptr %66, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 67:                                               ; preds = %50
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %48, %62, %67
+zend_binary_assign_op_typed_ref.exit:             ; preds = %48, %62, %67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %76
 
@@ -57756,8 +57756,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %48, %62, %67
   %75 = tail call i32 %74(ptr noundef nonnull %.061, ptr noundef nonnull %.061, ptr noundef %.060) #27
   br label %76
 
-76:                                               ; preds = %68, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %38, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.061, %68 ]
+76:                                               ; preds = %68, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %38, %zend_binary_assign_op_typed_ref.exit ], [ %.061, %68 ]
   %77 = getelementptr inbounds i8, ptr %3, i64 31
   %78 = load i8, ptr %77, align 1
   %.not62 = icmp eq i8 %78, 0
@@ -57879,7 +57879,7 @@ define internal noundef i32 @ZEND_ASSIGN_OP_SPEC_CV_CONST_HANDLER(ptr noundef %0
 
 39:                                               ; preds = %35
   %40 = tail call i32 @concat_function(ptr noundef nonnull %29, ptr noundef nonnull %29, ptr noundef nonnull %7) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 41:                                               ; preds = %35, %32
   %42 = zext i32 %.val to i64
@@ -57903,13 +57903,13 @@ define internal noundef i32 @ZEND_ASSIGN_OP_SPEC_CV_CONST_HANDLER(ptr noundef %0
   store ptr %54, ptr %29, align 8
   %57 = getelementptr inbounds i8, ptr %28, i64 16
   store i32 %56, ptr %57, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 58:                                               ; preds = %41
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %39, %53, %58
+zend_binary_assign_op_typed_ref.exit:             ; preds = %39, %53, %58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %67
 
@@ -57924,8 +57924,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %39, %53, %58
   %66 = tail call i32 %65(ptr noundef nonnull %.047, ptr noundef nonnull %.047, ptr noundef nonnull %7) #27
   br label %67
 
-67:                                               ; preds = %59, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %29, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.047, %59 ]
+67:                                               ; preds = %59, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %29, %zend_binary_assign_op_typed_ref.exit ], [ %.047, %59 ]
   %68 = getelementptr inbounds i8, ptr %3, i64 31
   %69 = load i8, ptr %68, align 1
   %.not48 = icmp eq i8 %69, 0
@@ -58023,7 +58023,7 @@ define internal noundef i32 @ZEND_ASSIGN_OP_SPEC_CV_TMPVAR_HANDLER(ptr noundef %
 
 39:                                               ; preds = %35
   %40 = tail call i32 @concat_function(ptr noundef nonnull %29, ptr noundef nonnull %29, ptr noundef nonnull %7) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 41:                                               ; preds = %35, %32
   %42 = zext i32 %.val to i64
@@ -58047,13 +58047,13 @@ define internal noundef i32 @ZEND_ASSIGN_OP_SPEC_CV_TMPVAR_HANDLER(ptr noundef %
   store ptr %54, ptr %29, align 8
   %57 = getelementptr inbounds i8, ptr %28, i64 16
   store i32 %56, ptr %57, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 58:                                               ; preds = %41
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %39, %53, %58
+zend_binary_assign_op_typed_ref.exit:             ; preds = %39, %53, %58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %67
 
@@ -58068,8 +58068,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %39, %53, %58
   %66 = tail call i32 %65(ptr noundef nonnull %.059, ptr noundef nonnull %.059, ptr noundef nonnull %7) #27
   br label %67
 
-67:                                               ; preds = %59, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %29, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.059, %59 ]
+67:                                               ; preds = %59, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %29, %zend_binary_assign_op_typed_ref.exit ], [ %.059, %59 ]
   %68 = getelementptr inbounds i8, ptr %3, i64 31
   %69 = load i8, ptr %68, align 1
   %.not60 = icmp eq i8 %69, 0
@@ -58216,7 +58216,7 @@ zval_undefined_cv.exit:                           ; preds = %14, %11, %1
 
 55:                                               ; preds = %51
   %56 = tail call i32 @concat_function(ptr noundef nonnull %45, ptr noundef nonnull %45, ptr noundef %.055) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 57:                                               ; preds = %51, %48
   %58 = zext i32 %.val to i64
@@ -58240,13 +58240,13 @@ zval_undefined_cv.exit:                           ; preds = %14, %11, %1
   store ptr %70, ptr %45, align 8
   %73 = getelementptr inbounds i8, ptr %44, i64 16
   store i32 %72, ptr %73, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 74:                                               ; preds = %57
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %55, %69, %74
+zend_binary_assign_op_typed_ref.exit:             ; preds = %55, %69, %74
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %83
 
@@ -58261,8 +58261,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %55, %69, %74
   %82 = tail call i32 %81(ptr noundef nonnull %.056, ptr noundef nonnull %.056, ptr noundef %.055) #27
   br label %83
 
-83:                                               ; preds = %75, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %45, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.056, %75 ]
+83:                                               ; preds = %75, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %45, %zend_binary_assign_op_typed_ref.exit ], [ %.056, %75 ]
   %84 = getelementptr inbounds i8, ptr %3, i64 31
   %85 = load i8, ptr %84, align 1
   %.not57 = icmp eq i8 %85, 0
@@ -58393,7 +58393,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_VAR_CONST_HANDLER(ptr nound
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %48
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %39, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %39, ptr noundef nonnull %0)
   br label %55
 
 55:                                               ; preds = %44, %54, %48, %45, %41
@@ -58426,7 +58426,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_VAR_CONST_HANDLER(ptr nound
 
 71:                                               ; preds = %67
   %72 = tail call i32 @concat_function(ptr noundef nonnull %61, ptr noundef nonnull %61, ptr noundef %.0156) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 73:                                               ; preds = %67, %64
   %74 = zext i32 %.val to i64
@@ -58450,13 +58450,13 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_VAR_CONST_HANDLER(ptr nound
   store ptr %86, ptr %61, align 8
   %89 = getelementptr inbounds i8, ptr %60, i64 16
   store i32 %88, ptr %89, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 90:                                               ; preds = %73
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %71, %85, %90
+zend_binary_assign_op_typed_ref.exit:             ; preds = %71, %85, %90
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %99
 
@@ -58471,8 +58471,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %71, %85, %90
   %98 = tail call i32 %97(ptr noundef nonnull %.0158, ptr noundef nonnull %.0158, ptr noundef %.0156) #27
   br label %99
 
-99:                                               ; preds = %91, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %61, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0158, %91 ]
+99:                                               ; preds = %91, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %61, %zend_binary_assign_op_typed_ref.exit ], [ %.0158, %91 ]
   %100 = getelementptr inbounds i8, ptr %3, i64 31
   %101 = load i8, ptr %100, align 1
   %.not169 = icmp eq i8 %101, 0
@@ -58592,7 +58592,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %71, %85, %90
   %165 = load i32, ptr %164, align 4
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i8, ptr %3, i64 %166
-  tail call fastcc void @zend_binary_assign_op_dim_slow.argprom(i8 %137, ptr noundef %167, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_dim_slow(i8 %137, ptr noundef %167, ptr noundef nonnull %3, ptr noundef nonnull %0)
   br label %168
 
 168:                                              ; preds = %28, %163, %162
@@ -58770,7 +58770,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_VAR_TMPVAR_HANDLER(ptr noun
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %48
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %39, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %39, ptr noundef nonnull %0)
   br label %55
 
 55:                                               ; preds = %44, %54, %48, %45, %41
@@ -58803,7 +58803,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_VAR_TMPVAR_HANDLER(ptr noun
 
 71:                                               ; preds = %67
   %72 = tail call i32 @concat_function(ptr noundef nonnull %61, ptr noundef nonnull %61, ptr noundef %.0172) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 73:                                               ; preds = %67, %64
   %74 = zext i32 %.val to i64
@@ -58827,13 +58827,13 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_VAR_TMPVAR_HANDLER(ptr noun
   store ptr %86, ptr %61, align 8
   %89 = getelementptr inbounds i8, ptr %60, i64 16
   store i32 %88, ptr %89, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 90:                                               ; preds = %73
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %71, %85, %90
+zend_binary_assign_op_typed_ref.exit:             ; preds = %71, %85, %90
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %99
 
@@ -58848,8 +58848,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %71, %85, %90
   %98 = tail call i32 %97(ptr noundef nonnull %.0174, ptr noundef nonnull %.0174, ptr noundef %.0172) #27
   br label %99
 
-99:                                               ; preds = %91, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %61, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0174, %91 ]
+99:                                               ; preds = %91, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %61, %zend_binary_assign_op_typed_ref.exit ], [ %.0174, %91 ]
   %100 = getelementptr inbounds i8, ptr %3, i64 31
   %101 = load i8, ptr %100, align 1
   %.not184 = icmp eq i8 %101, 0
@@ -58964,7 +58964,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %71, %85, %90
   %162 = load i32, ptr %161, align 4
   %163 = sext i32 %162 to i64
   %164 = getelementptr inbounds i8, ptr %0, i64 %163
-  tail call fastcc void @zend_binary_assign_op_dim_slow.argprom(i8 %137, ptr noundef nonnull %164, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_dim_slow(i8 %137, ptr noundef nonnull %164, ptr noundef nonnull %3, ptr noundef nonnull %0)
   br label %165
 
 165:                                              ; preds = %28, %160, %159
@@ -59166,7 +59166,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_VAR_UNUSED_HANDLER(ptr noun
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %44
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %35, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %35, ptr noundef nonnull %0)
   br label %51
 
 51:                                               ; preds = %40, %50, %44, %41, %37
@@ -59284,7 +59284,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_VAR_UNUSED_HANDLER(ptr noun
   br label %116
 
 115:                                              ; preds = %101
-  tail call fastcc void @zend_binary_assign_op_dim_slow.argprom(i8 %96, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_dim_slow(i8 %96, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %0)
   br label %116
 
 116:                                              ; preds = %115, %114, %29
@@ -59462,7 +59462,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_VAR_CV_HANDLER(ptr noundef 
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %48
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %39, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %39, ptr noundef nonnull %0)
   br label %55
 
 55:                                               ; preds = %44, %54, %48, %45, %41
@@ -59495,7 +59495,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_VAR_CV_HANDLER(ptr noundef 
 
 71:                                               ; preds = %67
   %72 = tail call i32 @concat_function(ptr noundef nonnull %61, ptr noundef nonnull %61, ptr noundef %.0162) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 73:                                               ; preds = %67, %64
   %74 = zext i32 %.val to i64
@@ -59519,13 +59519,13 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_VAR_CV_HANDLER(ptr noundef 
   store ptr %86, ptr %61, align 8
   %89 = getelementptr inbounds i8, ptr %60, i64 16
   store i32 %88, ptr %89, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 90:                                               ; preds = %73
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %71, %85, %90
+zend_binary_assign_op_typed_ref.exit:             ; preds = %71, %85, %90
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %99
 
@@ -59540,8 +59540,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %71, %85, %90
   %98 = tail call i32 %97(ptr noundef nonnull %.0165, ptr noundef nonnull %.0165, ptr noundef %.0162) #27
   br label %99
 
-99:                                               ; preds = %91, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %61, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0165, %91 ]
+99:                                               ; preds = %91, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %61, %zend_binary_assign_op_typed_ref.exit ], [ %.0165, %91 ]
   %100 = getelementptr inbounds i8, ptr %3, i64 31
   %101 = load i8, ptr %100, align 1
   %.not175 = icmp eq i8 %101, 0
@@ -59683,7 +59683,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %71, %85, %90
 zval_undefined_cv.exit:                           ; preds = %171, %168, %160
   %.1167.val = phi i8 [ %137, %160 ], [ %137, %168 ], [ %.1167.val.pre, %171 ]
   %.0164 = phi ptr [ %164, %160 ], [ @executor_globals, %168 ], [ @executor_globals, %171 ]
-  tail call fastcc void @zend_binary_assign_op_dim_slow.argprom(i8 %.1167.val, ptr noundef nonnull %.0164, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_dim_slow(i8 %.1167.val, ptr noundef nonnull %.0164, ptr noundef nonnull %3, ptr noundef nonnull %0)
   br label %181
 
 181:                                              ; preds = %28, %zval_undefined_cv.exit, %159
@@ -59849,7 +59849,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_CV_CONST_HANDLER(ptr nounde
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %43
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %34, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %34, ptr noundef nonnull %0)
   br label %50
 
 50:                                               ; preds = %39, %49, %43, %40, %36
@@ -59882,7 +59882,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_CV_CONST_HANDLER(ptr nounde
 
 66:                                               ; preds = %62
   %67 = tail call i32 @concat_function(ptr noundef nonnull %56, ptr noundef nonnull %56, ptr noundef %.0143) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 68:                                               ; preds = %62, %59
   %69 = zext i32 %.val to i64
@@ -59906,13 +59906,13 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_CV_CONST_HANDLER(ptr nounde
   store ptr %81, ptr %56, align 8
   %84 = getelementptr inbounds i8, ptr %55, i64 16
   store i32 %83, ptr %84, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 85:                                               ; preds = %68
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %66, %80, %85
+zend_binary_assign_op_typed_ref.exit:             ; preds = %66, %80, %85
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %94
 
@@ -59927,8 +59927,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %66, %80, %85
   %93 = tail call i32 %92(ptr noundef nonnull %.0144, ptr noundef nonnull %.0144, ptr noundef %.0143) #27
   br label %94
 
-94:                                               ; preds = %86, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %56, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0144, %86 ]
+94:                                               ; preds = %86, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %56, %zend_binary_assign_op_typed_ref.exit ], [ %.0144, %86 ]
   %95 = getelementptr inbounds i8, ptr %3, i64 31
   %96 = load i8, ptr %95, align 1
   %.not155 = icmp eq i8 %96, 0
@@ -60069,7 +60069,7 @@ _zval_undefined_op1.exit:                         ; preds = %151, %146
   %174 = load i32, ptr %173, align 4
   %175 = sext i32 %174 to i64
   %176 = getelementptr inbounds i8, ptr %3, i64 %175
-  tail call fastcc void @zend_binary_assign_op_dim_slow.argprom(i8 %132, ptr noundef %176, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_dim_slow(i8 %132, ptr noundef %176, ptr noundef nonnull %3, ptr noundef nonnull %0)
   br label %177
 
 177:                                              ; preds = %23, %172, %171
@@ -60211,7 +60211,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_CV_TMPVAR_HANDLER(ptr nound
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %43
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %34, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %34, ptr noundef nonnull %0)
   br label %50
 
 50:                                               ; preds = %39, %49, %43, %40, %36
@@ -60244,7 +60244,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_CV_TMPVAR_HANDLER(ptr nound
 
 66:                                               ; preds = %62
   %67 = tail call i32 @concat_function(ptr noundef nonnull %56, ptr noundef nonnull %56, ptr noundef %.0159) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 68:                                               ; preds = %62, %59
   %69 = zext i32 %.val to i64
@@ -60268,13 +60268,13 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_CV_TMPVAR_HANDLER(ptr nound
   store ptr %81, ptr %56, align 8
   %84 = getelementptr inbounds i8, ptr %55, i64 16
   store i32 %83, ptr %84, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 85:                                               ; preds = %68
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %66, %80, %85
+zend_binary_assign_op_typed_ref.exit:             ; preds = %66, %80, %85
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %94
 
@@ -60289,8 +60289,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %66, %80, %85
   %93 = tail call i32 %92(ptr noundef nonnull %.0160, ptr noundef nonnull %.0160, ptr noundef %.0159) #27
   br label %94
 
-94:                                               ; preds = %86, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %56, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0160, %86 ]
+94:                                               ; preds = %86, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %56, %zend_binary_assign_op_typed_ref.exit ], [ %.0160, %86 ]
   %95 = getelementptr inbounds i8, ptr %3, i64 31
   %96 = load i8, ptr %95, align 1
   %.not170 = icmp eq i8 %96, 0
@@ -60426,7 +60426,7 @@ _zval_undefined_op1.exit:                         ; preds = %148, %143
   %171 = load i32, ptr %170, align 4
   %172 = sext i32 %171 to i64
   %173 = getelementptr inbounds i8, ptr %0, i64 %172
-  tail call fastcc void @zend_binary_assign_op_dim_slow.argprom(i8 %132, ptr noundef nonnull %173, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_dim_slow(i8 %132, ptr noundef nonnull %173, ptr noundef nonnull %3, ptr noundef nonnull %0)
   br label %174
 
 174:                                              ; preds = %23, %169, %168
@@ -60592,7 +60592,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_CV_UNUSED_HANDLER(ptr nound
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %39
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %30, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %30, ptr noundef nonnull %0)
   br label %46
 
 46:                                               ; preds = %35, %45, %39, %36, %32
@@ -60731,7 +60731,7 @@ _zval_undefined_op1.exit:                         ; preds = %103, %98
   br label %125
 
 124:                                              ; preds = %96
-  tail call fastcc void @zend_binary_assign_op_dim_slow.argprom(i8 %91, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_dim_slow(i8 %91, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %0)
   br label %125
 
 125:                                              ; preds = %124, %123, %24
@@ -60873,7 +60873,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_CV_CV_HANDLER(ptr noundef %
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %43
-  tail call fastcc void @zval_undefined_cv.retelim(i32 noundef %34, ptr noundef nonnull %0)
+  tail call fastcc void @zval_undefined_cv(i32 noundef %34, ptr noundef nonnull %0)
   br label %50
 
 50:                                               ; preds = %39, %49, %43, %40, %36
@@ -60906,7 +60906,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_CV_CV_HANDLER(ptr noundef %
 
 66:                                               ; preds = %62
   %67 = tail call i32 @concat_function(ptr noundef nonnull %56, ptr noundef nonnull %56, ptr noundef %.0149) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 68:                                               ; preds = %62, %59
   %69 = zext i32 %.val to i64
@@ -60930,13 +60930,13 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_OP_SPEC_CV_CV_HANDLER(ptr noundef %
   store ptr %81, ptr %56, align 8
   %84 = getelementptr inbounds i8, ptr %55, i64 16
   store i32 %83, ptr %84, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 85:                                               ; preds = %68
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %66, %80, %85
+zend_binary_assign_op_typed_ref.exit:             ; preds = %66, %80, %85
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %94
 
@@ -60951,8 +60951,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %66, %80, %85
   %93 = tail call i32 %92(ptr noundef nonnull %.0151, ptr noundef nonnull %.0151, ptr noundef %.0149) #27
   br label %94
 
-94:                                               ; preds = %86, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %56, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0151, %86 ]
+94:                                               ; preds = %86, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %56, %zend_binary_assign_op_typed_ref.exit ], [ %.0151, %86 ]
   %95 = getelementptr inbounds i8, ptr %3, i64 31
   %96 = load i8, ptr %95, align 1
   %.not161 = icmp eq i8 %96, 0
@@ -61115,7 +61115,7 @@ _zval_undefined_op1.exit:                         ; preds = %148, %143
 zval_undefined_cv.exit:                           ; preds = %180, %177, %169
   %.1153.val = phi i8 [ %132, %169 ], [ %132, %177 ], [ %.1153.val.pre, %180 ]
   %.0150 = phi ptr [ %173, %169 ], [ @executor_globals, %177 ], [ @executor_globals, %180 ]
-  tail call fastcc void @zend_binary_assign_op_dim_slow.argprom(i8 %.1153.val, ptr noundef nonnull %.0150, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_dim_slow(i8 %.1153.val, ptr noundef nonnull %.0150, ptr noundef nonnull %3, ptr noundef nonnull %0)
   br label %190
 
 190:                                              ; preds = %23, %zval_undefined_cv.exit, %168
@@ -61334,7 +61334,7 @@ zval_undefined_cv.exit:                           ; preds = %40, %37, %27, %31, 
 
 98:                                               ; preds = %94
   %99 = tail call i32 @concat_function(ptr noundef nonnull %88, ptr noundef nonnull %88, ptr noundef %.0124) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 100:                                              ; preds = %94, %91
   %101 = zext i32 %.val to i64
@@ -61358,13 +61358,13 @@ zval_undefined_cv.exit:                           ; preds = %40, %37, %27, %31, 
   store ptr %113, ptr %88, align 8
   %116 = getelementptr inbounds i8, ptr %87, i64 16
   store i32 %115, ptr %116, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 117:                                              ; preds = %100
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %98, %112, %117
+zend_binary_assign_op_typed_ref.exit:             ; preds = %98, %112, %117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %130
 
@@ -61378,7 +61378,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %98, %112, %117
   br i1 %.not136, label %124, label %123
 
 123:                                              ; preds = %118
-  tail call fastcc void @zend_binary_assign_op_typed_prop.argprom(ptr noundef nonnull %120, ptr noundef nonnull %.0127, ptr noundef %.0124, i32 %122, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_typed_prop(ptr noundef nonnull %120, ptr noundef nonnull %.0127, ptr noundef %.0124, i32 %122, ptr noundef nonnull %0)
   br label %130
 
 124:                                              ; preds = %118
@@ -61389,8 +61389,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %98, %112, %117
   %129 = tail call i32 %128(ptr noundef nonnull %.0127, ptr noundef nonnull %.0127, ptr noundef %.0124) #27
   br label %130
 
-130:                                              ; preds = %123, %124, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %88, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0127, %123 ], [ %.0127, %124 ]
+130:                                              ; preds = %123, %124, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %88, %zend_binary_assign_op_typed_ref.exit ], [ %.0127, %123 ], [ %.0127, %124 ]
   %131 = getelementptr inbounds i8, ptr %3, i64 31
   %132 = load i8, ptr %131, align 1
   %.not137 = icmp eq i8 %132, 0
@@ -61670,7 +61670,7 @@ zval_undefined_cv.exit:                           ; preds = %40, %37, %27, %31, 
 
 108:                                              ; preds = %104
   %109 = tail call i32 @concat_function(ptr noundef nonnull %98, ptr noundef nonnull %98, ptr noundef %.0158) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 110:                                              ; preds = %104, %101
   %111 = zext i32 %.val to i64
@@ -61694,13 +61694,13 @@ zval_undefined_cv.exit:                           ; preds = %40, %37, %27, %31, 
   store ptr %123, ptr %98, align 8
   %126 = getelementptr inbounds i8, ptr %97, i64 16
   store i32 %125, ptr %126, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 127:                                              ; preds = %110
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %108, %122, %127
+zend_binary_assign_op_typed_ref.exit:             ; preds = %108, %122, %127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %167
 
@@ -61754,7 +61754,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %108, %122, %127
 zend_object_fetch_property_type_info.exit:        ; preds = %154
   %158 = getelementptr i8, ptr %3, i64 20
   %.val187 = load i32, ptr %158, align 4
-  tail call fastcc void @zend_binary_assign_op_typed_prop.argprom(ptr noundef nonnull %153, ptr noundef nonnull %.0162, ptr noundef %.0158, i32 %.val187, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_typed_prop(ptr noundef nonnull %153, ptr noundef nonnull %.0162, ptr noundef %.0158, i32 %.val187, ptr noundef nonnull %0)
   br label %167
 
 159:                                              ; preds = %143, %154, %128, %138, %135
@@ -61767,8 +61767,8 @@ zend_object_fetch_property_type_info.exit:        ; preds = %154
   %166 = tail call i32 %165(ptr noundef nonnull %.0162, ptr noundef nonnull %.0162, ptr noundef %.0158) #27
   br label %167
 
-167:                                              ; preds = %zend_object_fetch_property_type_info.exit, %159, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %98, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0162, %zend_object_fetch_property_type_info.exit ], [ %.0162, %159 ]
+167:                                              ; preds = %zend_object_fetch_property_type_info.exit, %159, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %98, %zend_binary_assign_op_typed_ref.exit ], [ %.0162, %zend_object_fetch_property_type_info.exit ], [ %.0162, %159 ]
   %168 = getelementptr inbounds i8, ptr %3, i64 31
   %169 = load i8, ptr %168, align 1
   %.not174 = icmp eq i8 %169, 0
@@ -62121,7 +62121,7 @@ zval_undefined_cv.exit183:                        ; preds = %56, %53, %43, %47, 
 
 124:                                              ; preds = %120
   %125 = tail call i32 @concat_function(ptr noundef nonnull %114, ptr noundef nonnull %114, ptr noundef %.0154) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 126:                                              ; preds = %120, %117
   %127 = zext i32 %.val to i64
@@ -62145,13 +62145,13 @@ zval_undefined_cv.exit183:                        ; preds = %56, %53, %43, %47, 
   store ptr %139, ptr %114, align 8
   %142 = getelementptr inbounds i8, ptr %113, i64 16
   store i32 %141, ptr %142, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 143:                                              ; preds = %126
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %124, %138, %143
+zend_binary_assign_op_typed_ref.exit:             ; preds = %124, %138, %143
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %183
 
@@ -62205,7 +62205,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %124, %138, %143
 zend_object_fetch_property_type_info.exit:        ; preds = %170
   %174 = getelementptr i8, ptr %3, i64 20
   %.val182 = load i32, ptr %174, align 4
-  tail call fastcc void @zend_binary_assign_op_typed_prop.argprom(ptr noundef nonnull %169, ptr noundef nonnull %.0159, ptr noundef %.0154, i32 %.val182, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_typed_prop(ptr noundef nonnull %169, ptr noundef nonnull %.0159, ptr noundef %.0154, i32 %.val182, ptr noundef nonnull %0)
   br label %183
 
 175:                                              ; preds = %159, %170, %144, %154, %151
@@ -62218,8 +62218,8 @@ zend_object_fetch_property_type_info.exit:        ; preds = %170
   %182 = tail call i32 %181(ptr noundef nonnull %.0159, ptr noundef nonnull %.0159, ptr noundef %.0154) #27
   br label %183
 
-183:                                              ; preds = %zend_object_fetch_property_type_info.exit, %175, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %114, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0159, %zend_object_fetch_property_type_info.exit ], [ %.0159, %175 ]
+183:                                              ; preds = %zend_object_fetch_property_type_info.exit, %175, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %114, %zend_binary_assign_op_typed_ref.exit ], [ %.0159, %zend_object_fetch_property_type_info.exit ], [ %.0159, %175 ]
   %184 = getelementptr inbounds i8, ptr %3, i64 31
   %185 = load i8, ptr %184, align 1
   %.not171 = icmp eq i8 %185, 0
@@ -62459,7 +62459,7 @@ zval_undefined_cv.exit:                           ; preds = %31, %28, %18, %22, 
 
 78:                                               ; preds = %74
   %79 = tail call i32 @concat_function(ptr noundef nonnull %68, ptr noundef nonnull %68, ptr noundef %.097) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 80:                                               ; preds = %74, %71
   %81 = zext i32 %.val to i64
@@ -62483,13 +62483,13 @@ zval_undefined_cv.exit:                           ; preds = %31, %28, %18, %22, 
   store ptr %93, ptr %68, align 8
   %96 = getelementptr inbounds i8, ptr %67, i64 16
   store i32 %95, ptr %96, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 97:                                               ; preds = %80
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %78, %92, %97
+zend_binary_assign_op_typed_ref.exit:             ; preds = %78, %92, %97
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %110
 
@@ -62503,7 +62503,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %78, %92, %97
   br i1 %.not105, label %104, label %103
 
 103:                                              ; preds = %98
-  tail call fastcc void @zend_binary_assign_op_typed_prop.argprom(ptr noundef nonnull %100, ptr noundef nonnull %.098, ptr noundef %.097, i32 %102, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_typed_prop(ptr noundef nonnull %100, ptr noundef nonnull %.098, ptr noundef %.097, i32 %102, ptr noundef nonnull %0)
   br label %110
 
 104:                                              ; preds = %98
@@ -62514,8 +62514,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %78, %92, %97
   %109 = tail call i32 %108(ptr noundef nonnull %.098, ptr noundef nonnull %.098, ptr noundef %.097) #27
   br label %110
 
-110:                                              ; preds = %103, %104, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %68, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.098, %103 ], [ %.098, %104 ]
+110:                                              ; preds = %103, %104, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %68, %zend_binary_assign_op_typed_ref.exit ], [ %.098, %103 ], [ %.098, %104 ]
   %111 = getelementptr inbounds i8, ptr %3, i64 31
   %112 = load i8, ptr %111, align 1
   %.not106 = icmp eq i8 %112, 0
@@ -62733,7 +62733,7 @@ zval_undefined_cv.exit:                           ; preds = %31, %28, %18, %22, 
 
 88:                                               ; preds = %84
   %89 = tail call i32 @concat_function(ptr noundef nonnull %78, ptr noundef nonnull %78, ptr noundef %.0131) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 90:                                               ; preds = %84, %81
   %91 = zext i32 %.val to i64
@@ -62757,13 +62757,13 @@ zval_undefined_cv.exit:                           ; preds = %31, %28, %18, %22, 
   store ptr %103, ptr %78, align 8
   %106 = getelementptr inbounds i8, ptr %77, i64 16
   store i32 %105, ptr %106, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 107:                                              ; preds = %90
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %88, %102, %107
+zend_binary_assign_op_typed_ref.exit:             ; preds = %88, %102, %107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %147
 
@@ -62817,7 +62817,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %88, %102, %107
 zend_object_fetch_property_type_info.exit:        ; preds = %134
   %138 = getelementptr i8, ptr %3, i64 20
   %.val154 = load i32, ptr %138, align 4
-  tail call fastcc void @zend_binary_assign_op_typed_prop.argprom(ptr noundef nonnull %133, ptr noundef nonnull %.0133, ptr noundef %.0131, i32 %.val154, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_typed_prop(ptr noundef nonnull %133, ptr noundef nonnull %.0133, ptr noundef %.0131, i32 %.val154, ptr noundef nonnull %0)
   br label %147
 
 139:                                              ; preds = %123, %134, %108, %118, %115
@@ -62830,8 +62830,8 @@ zend_object_fetch_property_type_info.exit:        ; preds = %134
   %146 = tail call i32 %145(ptr noundef nonnull %.0133, ptr noundef nonnull %.0133, ptr noundef %.0131) #27
   br label %147
 
-147:                                              ; preds = %zend_object_fetch_property_type_info.exit, %139, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %78, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0133, %zend_object_fetch_property_type_info.exit ], [ %.0133, %139 ]
+147:                                              ; preds = %zend_object_fetch_property_type_info.exit, %139, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %78, %zend_binary_assign_op_typed_ref.exit ], [ %.0133, %zend_object_fetch_property_type_info.exit ], [ %.0133, %139 ]
   %148 = getelementptr inbounds i8, ptr %3, i64 31
   %149 = load i8, ptr %148, align 1
   %.not143 = icmp eq i8 %149, 0
@@ -63122,7 +63122,7 @@ zval_undefined_cv.exit150:                        ; preds = %47, %44, %34, %38, 
 
 104:                                              ; preds = %100
   %105 = tail call i32 @concat_function(ptr noundef nonnull %94, ptr noundef nonnull %94, ptr noundef %.0127) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 106:                                              ; preds = %100, %97
   %107 = zext i32 %.val to i64
@@ -63146,13 +63146,13 @@ zval_undefined_cv.exit150:                        ; preds = %47, %44, %34, %38, 
   store ptr %119, ptr %94, align 8
   %122 = getelementptr inbounds i8, ptr %93, i64 16
   store i32 %121, ptr %122, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 123:                                              ; preds = %106
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %104, %118, %123
+zend_binary_assign_op_typed_ref.exit:             ; preds = %104, %118, %123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %163
 
@@ -63206,7 +63206,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %104, %118, %123
 zend_object_fetch_property_type_info.exit:        ; preds = %150
   %154 = getelementptr i8, ptr %3, i64 20
   %.val149 = load i32, ptr %154, align 4
-  tail call fastcc void @zend_binary_assign_op_typed_prop.argprom(ptr noundef nonnull %149, ptr noundef nonnull %.0130, ptr noundef %.0127, i32 %.val149, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_typed_prop(ptr noundef nonnull %149, ptr noundef nonnull %.0130, ptr noundef %.0127, i32 %.val149, ptr noundef nonnull %0)
   br label %163
 
 155:                                              ; preds = %139, %150, %124, %134, %131
@@ -63219,8 +63219,8 @@ zend_object_fetch_property_type_info.exit:        ; preds = %150
   %162 = tail call i32 %161(ptr noundef nonnull %.0130, ptr noundef nonnull %.0130, ptr noundef %.0127) #27
   br label %163
 
-163:                                              ; preds = %zend_object_fetch_property_type_info.exit, %155, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %94, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0130, %zend_object_fetch_property_type_info.exit ], [ %.0130, %155 ]
+163:                                              ; preds = %zend_object_fetch_property_type_info.exit, %155, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %94, %zend_binary_assign_op_typed_ref.exit ], [ %.0130, %zend_object_fetch_property_type_info.exit ], [ %.0130, %155 ]
   %164 = getelementptr inbounds i8, ptr %3, i64 31
   %165 = load i8, ptr %164, align 1
   %.not140 = icmp eq i8 %165, 0
@@ -63485,7 +63485,7 @@ _zval_undefined_op1.exit:                         ; preds = %zval_undefined_cv.e
 
 107:                                              ; preds = %103
   %108 = tail call i32 @concat_function(ptr noundef nonnull %97, ptr noundef nonnull %97, ptr noundef %.0112) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 109:                                              ; preds = %103, %100
   %110 = zext i32 %.val to i64
@@ -63509,13 +63509,13 @@ _zval_undefined_op1.exit:                         ; preds = %zval_undefined_cv.e
   store ptr %122, ptr %97, align 8
   %125 = getelementptr inbounds i8, ptr %96, i64 16
   store i32 %124, ptr %125, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 126:                                              ; preds = %109
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %107, %121, %126
+zend_binary_assign_op_typed_ref.exit:             ; preds = %107, %121, %126
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %139
 
@@ -63529,7 +63529,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %107, %121, %126
   br i1 %.not123, label %133, label %132
 
 132:                                              ; preds = %127
-  tail call fastcc void @zend_binary_assign_op_typed_prop.argprom(ptr noundef nonnull %129, ptr noundef nonnull %.0114, ptr noundef %.0112, i32 %131, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_typed_prop(ptr noundef nonnull %129, ptr noundef nonnull %.0114, ptr noundef %.0112, i32 %131, ptr noundef nonnull %0)
   br label %139
 
 133:                                              ; preds = %127
@@ -63540,8 +63540,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %107, %121, %126
   %138 = tail call i32 %137(ptr noundef nonnull %.0114, ptr noundef nonnull %.0114, ptr noundef %.0112) #27
   br label %139
 
-139:                                              ; preds = %132, %133, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %97, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0114, %132 ], [ %.0114, %133 ]
+139:                                              ; preds = %132, %133, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %97, %zend_binary_assign_op_typed_ref.exit ], [ %.0114, %132 ], [ %.0114, %133 ]
   %140 = getelementptr inbounds i8, ptr %3, i64 31
   %141 = load i8, ptr %140, align 1
   %.not124 = icmp eq i8 %141, 0
@@ -63808,7 +63808,7 @@ _zval_undefined_op1.exit:                         ; preds = %zval_undefined_cv.e
 
 117:                                              ; preds = %113
   %118 = tail call i32 @concat_function(ptr noundef nonnull %107, ptr noundef nonnull %107, ptr noundef %.0146) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 119:                                              ; preds = %113, %110
   %120 = zext i32 %.val to i64
@@ -63832,13 +63832,13 @@ _zval_undefined_op1.exit:                         ; preds = %zval_undefined_cv.e
   store ptr %132, ptr %107, align 8
   %135 = getelementptr inbounds i8, ptr %106, i64 16
   store i32 %134, ptr %135, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 136:                                              ; preds = %119
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %117, %131, %136
+zend_binary_assign_op_typed_ref.exit:             ; preds = %117, %131, %136
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %176
 
@@ -63892,7 +63892,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %117, %131, %136
 zend_object_fetch_property_type_info.exit:        ; preds = %163
   %167 = getelementptr i8, ptr %3, i64 20
   %.val172 = load i32, ptr %167, align 4
-  tail call fastcc void @zend_binary_assign_op_typed_prop.argprom(ptr noundef nonnull %162, ptr noundef nonnull %.0149, ptr noundef %.0146, i32 %.val172, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_typed_prop(ptr noundef nonnull %162, ptr noundef nonnull %.0149, ptr noundef %.0146, i32 %.val172, ptr noundef nonnull %0)
   br label %176
 
 168:                                              ; preds = %152, %163, %137, %147, %144
@@ -63905,8 +63905,8 @@ zend_object_fetch_property_type_info.exit:        ; preds = %163
   %175 = tail call i32 %174(ptr noundef nonnull %.0149, ptr noundef nonnull %.0149, ptr noundef %.0146) #27
   br label %176
 
-176:                                              ; preds = %zend_object_fetch_property_type_info.exit, %168, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %107, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0149, %zend_object_fetch_property_type_info.exit ], [ %.0149, %168 ]
+176:                                              ; preds = %zend_object_fetch_property_type_info.exit, %168, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %107, %zend_binary_assign_op_typed_ref.exit ], [ %.0149, %zend_object_fetch_property_type_info.exit ], [ %.0149, %168 ]
   %177 = getelementptr inbounds i8, ptr %3, i64 31
   %178 = load i8, ptr %177, align 1
   %.not161 = icmp eq i8 %178, 0
@@ -64246,7 +64246,7 @@ _zval_undefined_op1.exit:                         ; preds = %zval_undefined_cv.e
 
 133:                                              ; preds = %129
   %134 = tail call i32 @concat_function(ptr noundef nonnull %123, ptr noundef nonnull %123, ptr noundef %.0142) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 135:                                              ; preds = %129, %126
   %136 = zext i32 %.val to i64
@@ -64270,13 +64270,13 @@ _zval_undefined_op1.exit:                         ; preds = %zval_undefined_cv.e
   store ptr %148, ptr %123, align 8
   %151 = getelementptr inbounds i8, ptr %122, i64 16
   store i32 %150, ptr %151, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 152:                                              ; preds = %135
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %133, %147, %152
+zend_binary_assign_op_typed_ref.exit:             ; preds = %133, %147, %152
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %192
 
@@ -64330,7 +64330,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %133, %147, %152
 zend_object_fetch_property_type_info.exit:        ; preds = %179
   %183 = getelementptr i8, ptr %3, i64 20
   %.val167 = load i32, ptr %183, align 4
-  tail call fastcc void @zend_binary_assign_op_typed_prop.argprom(ptr noundef nonnull %178, ptr noundef nonnull %.0146, ptr noundef %.0142, i32 %.val167, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_typed_prop(ptr noundef nonnull %178, ptr noundef nonnull %.0146, ptr noundef %.0142, i32 %.val167, ptr noundef nonnull %0)
   br label %192
 
 184:                                              ; preds = %168, %179, %153, %163, %160
@@ -64343,8 +64343,8 @@ zend_object_fetch_property_type_info.exit:        ; preds = %179
   %191 = tail call i32 %190(ptr noundef nonnull %.0146, ptr noundef nonnull %.0146, ptr noundef %.0142) #27
   br label %192
 
-192:                                              ; preds = %zend_object_fetch_property_type_info.exit, %184, %zend_binary_assign_op_typed_ref.argprom.exit
-  %.1 = phi ptr [ %123, %zend_binary_assign_op_typed_ref.argprom.exit ], [ %.0146, %zend_object_fetch_property_type_info.exit ], [ %.0146, %184 ]
+192:                                              ; preds = %zend_object_fetch_property_type_info.exit, %184, %zend_binary_assign_op_typed_ref.exit
+  %.1 = phi ptr [ %123, %zend_binary_assign_op_typed_ref.exit ], [ %.0146, %zend_object_fetch_property_type_info.exit ], [ %.0146, %184 ]
   %193 = getelementptr inbounds i8, ptr %3, i64 31
   %194 = load i8, ptr %193, align 1
   %.not158 = icmp eq i8 %194, 0
@@ -64655,7 +64655,7 @@ zval_undefined_cv.exit:                           ; preds = %104, %101, %91, %95
 
 130:                                              ; preds = %126
   %131 = tail call i32 @concat_function(ptr noundef nonnull %120, ptr noundef nonnull %120, ptr noundef %.0112) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 132:                                              ; preds = %126, %123
   %133 = zext i32 %.val to i64
@@ -64679,13 +64679,13 @@ zval_undefined_cv.exit:                           ; preds = %104, %101, %91, %95
   store ptr %145, ptr %120, align 8
   %148 = getelementptr inbounds i8, ptr %119, i64 16
   store i32 %147, ptr %148, align 8
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
 149:                                              ; preds = %132
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #27
-  br label %zend_binary_assign_op_typed_ref.argprom.exit
+  br label %zend_binary_assign_op_typed_ref.exit
 
-zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %130, %144, %149
+zend_binary_assign_op_typed_ref.exit:             ; preds = %130, %144, %149
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %164
 
@@ -64700,7 +64700,7 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %130, %144, %149
   br i1 %.not124, label %158, label %157
 
 157:                                              ; preds = %150
-  tail call fastcc void @zend_binary_assign_op_typed_prop.argprom(ptr noundef nonnull %82, ptr noundef nonnull %151, ptr noundef %.0112, i32 %156, ptr noundef nonnull %0)
+  tail call fastcc void @zend_binary_assign_op_typed_prop(ptr noundef nonnull %82, ptr noundef nonnull %151, ptr noundef %.0112, i32 %156, ptr noundef nonnull %0)
   br label %164
 
 158:                                              ; preds = %150
@@ -64711,8 +64711,8 @@ zend_binary_assign_op_typed_ref.argprom.exit:     ; preds = %130, %144, %149
   %163 = tail call i32 %162(ptr noundef nonnull %151, ptr noundef nonnull %151, ptr noundef %.0112) #27
   br label %164
 
-164:                                              ; preds = %157, %158, %zend_binary_assign_op_typed_ref.argprom.exit
-  %165 = phi ptr [ %151, %157 ], [ %151, %158 ], [ %120, %zend_binary_assign_op_typed_ref.argprom.exit ]
+164:                                              ; preds = %157, %158, %zend_binary_assign_op_typed_ref.exit
+  %165 = phi ptr [ %151, %157 ], [ %151, %158 ], [ %120, %zend_binary_assign_op_typed_ref.exit ]
   %166 = getelementptr inbounds i8, ptr %7, i64 31
   %167 = load i8, ptr %166, align 1
   %.not125 = icmp eq i8 %167, 0
@@ -64810,7 +64810,7 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_VAR_VAR_HANDLER(ptr noundef %0
 
 21:                                               ; preds = %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.71) #27
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 22:                                               ; preds = %13
   %23 = load ptr, ptr %17, align 8
@@ -64829,7 +64829,7 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_VAR_VAR_HANDLER(ptr noundef %0
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.72) #27
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %32, label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br i1 %.not.i, label %32, label %zend_wrong_assign_to_variable_reference.exit
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %.0, i64 9
@@ -64870,7 +64870,7 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_VAR_VAR_HANDLER(ptr noundef %0
 
 55:                                               ; preds = %51
   %56 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %23, ptr noundef nonnull %.0, i8 noundef zeroext 2, i1 noundef zeroext %44, ptr noundef nonnull %2)
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds i8, ptr %52, i64 8
@@ -64892,7 +64892,7 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_VAR_VAR_HANDLER(ptr noundef %0
   store ptr %64, ptr %.1.i, align 8
   %66 = getelementptr inbounds i8, ptr %.1.i, i64 8
   store i32 %65, ptr %66, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 67:                                               ; preds = %22
   br i1 %.not76, label %.thread, label %68
@@ -64917,7 +64917,7 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_VAR_VAR_HANDLER(ptr noundef %0
 
 .thread:                                          ; preds = %29, %67
   %77 = icmp eq ptr %23, %.0
-  br i1 %77, label %zend_wrong_assign_to_variable_reference.argprom.exit, label %._crit_edge.i
+  br i1 %77, label %zend_wrong_assign_to_variable_reference.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.thread
   %.pre.i = load ptr, ptr %.0, align 8
@@ -64943,16 +64943,16 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_VAR_VAR_HANDLER(ptr noundef %0
 87:                                               ; preds = %85, %79
   store ptr %81, ptr %23, align 8
   store i32 266, ptr %82, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
-zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %87, %.thread, %63, %55, %30, %21
+zend_wrong_assign_to_variable_reference.exit:     ; preds = %87, %.thread, %63, %55, %30, %21
   %.074 = phi ptr [ @executor_globals, %21 ], [ @executor_globals, %30 ], [ %56, %55 ], [ %.1.i, %63 ], [ %23, %.thread ], [ %23, %87 ]
   %88 = getelementptr inbounds i8, ptr %3, i64 31
   %89 = load i8, ptr %88, align 1
   %.not77 = icmp eq i8 %89, 0
   br i1 %.not77, label %103, label %90
 
-90:                                               ; preds = %zend_wrong_assign_to_variable_reference.argprom.exit
+90:                                               ; preds = %zend_wrong_assign_to_variable_reference.exit
   %91 = getelementptr inbounds i8, ptr %3, i64 16
   %92 = load i32, ptr %91, align 8
   %93 = sext i32 %92 to i64
@@ -64973,7 +64973,7 @@ zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %87, %.thread, %
   store i32 %102, ptr %95, align 4
   br label %103
 
-103:                                              ; preds = %100, %90, %zend_wrong_assign_to_variable_reference.argprom.exit
+103:                                              ; preds = %100, %90, %zend_wrong_assign_to_variable_reference.exit
   %104 = load ptr, ptr %2, align 8
   %.not79 = icmp eq ptr %104, null
   br i1 %.not79, label %127, label %105
@@ -65323,7 +65323,7 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_CV_VAR_HANDLER(ptr noundef %0)
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.72) #27
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %26, label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br i1 %.not.i, label %26, label %zend_wrong_assign_to_variable_reference.exit
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %.0, i64 9
@@ -65364,7 +65364,7 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_CV_VAR_HANDLER(ptr noundef %0)
 
 49:                                               ; preds = %45
   %50 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %17, ptr noundef nonnull %.0, i8 noundef zeroext 2, i1 noundef zeroext %38, ptr noundef nonnull %2)
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds i8, ptr %46, i64 8
@@ -65386,7 +65386,7 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_CV_VAR_HANDLER(ptr noundef %0)
   store ptr %58, ptr %.1.i, align 8
   %60 = getelementptr inbounds i8, ptr %.1.i, i64 8
   store i32 %59, ptr %60, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 61:                                               ; preds = %13
   br i1 %.not, label %.thread, label %62
@@ -65411,7 +65411,7 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_CV_VAR_HANDLER(ptr noundef %0)
 
 .thread:                                          ; preds = %23, %61
   %71 = icmp eq ptr %17, %.0
-  br i1 %71, label %zend_wrong_assign_to_variable_reference.argprom.exit, label %._crit_edge.i
+  br i1 %71, label %zend_wrong_assign_to_variable_reference.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.thread
   %.pre.i = load ptr, ptr %.0, align 8
@@ -65437,16 +65437,16 @@ define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_CV_VAR_HANDLER(ptr noundef %0)
 81:                                               ; preds = %79, %73
   store ptr %75, ptr %17, align 8
   store i32 266, ptr %76, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
-zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %81, %.thread, %57, %49, %24
+zend_wrong_assign_to_variable_reference.exit:     ; preds = %81, %.thread, %57, %49, %24
   %.055 = phi ptr [ @executor_globals, %24 ], [ %50, %49 ], [ %.1.i, %57 ], [ %17, %.thread ], [ %17, %81 ]
   %82 = getelementptr inbounds i8, ptr %3, i64 31
   %83 = load i8, ptr %82, align 1
   %.not57 = icmp eq i8 %83, 0
   br i1 %.not57, label %97, label %84
 
-84:                                               ; preds = %zend_wrong_assign_to_variable_reference.argprom.exit
+84:                                               ; preds = %zend_wrong_assign_to_variable_reference.exit
   %85 = getelementptr inbounds i8, ptr %3, i64 16
   %86 = load i32, ptr %85, align 8
   %87 = sext i32 %86 to i64
@@ -65467,7 +65467,7 @@ zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %81, %.thread, %
   store i32 %96, ptr %89, align 4
   br label %97
 
-97:                                               ; preds = %94, %84, %zend_wrong_assign_to_variable_reference.argprom.exit
+97:                                               ; preds = %94, %84, %zend_wrong_assign_to_variable_reference.exit
   %98 = load ptr, ptr %2, align 8
   %.not59 = icmp eq ptr %98, null
   br i1 %.not59, label %121, label %99
@@ -66538,7 +66538,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_REF_SPEC_UNUSED_CONST_OP_DATA_VAR_H
 17:                                               ; preds = %15, %1
   %.0 = phi ptr [ %16, %15 ], [ %11, %1 ]
   %.val = load ptr, ptr %3, align 8
-  tail call fastcc void @zend_assign_to_property_reference_this_const.argprom(ptr %.val, ptr noundef nonnull %7, ptr noundef %.0, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  tail call fastcc void @zend_assign_to_property_reference_this_const(ptr %.val, ptr noundef nonnull %7, ptr noundef %.0, ptr noundef nonnull %2, ptr noundef nonnull %0)
   %18 = load i32, ptr %8, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
@@ -66592,7 +66592,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_REF_SPEC_UNUSED_CONST_OP_DATA_CV_HA
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %16, align 8
-  tail call fastcc void @zend_assign_to_property_reference_this_const.argprom(ptr %.val, ptr noundef %15, ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  tail call fastcc void @zend_assign_to_property_reference_this_const(ptr %.val, ptr noundef %15, ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %0)
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 64
   store ptr %18, ptr %0, align 8
@@ -67394,7 +67394,7 @@ _get_zval_ptr_ptr.exit.thread:                    ; preds = %75, %82, %_get_zval
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.72) #27
   %92 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %92, null
-  br i1 %.not.i, label %93, label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br i1 %.not.i, label %93, label %zend_wrong_assign_to_variable_reference.exit
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %.025.i127, i64 9
@@ -67435,7 +67435,7 @@ _get_zval_ptr_ptr.exit.thread:                    ; preds = %75, %82, %_get_zval
 
 116:                                              ; preds = %112
   %117 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %91, ptr noundef nonnull %.025.i127, i8 noundef zeroext 2, i1 noundef zeroext %105, ptr noundef nonnull %4)
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 118:                                              ; preds = %112
   %119 = getelementptr inbounds i8, ptr %113, i64 8
@@ -67457,7 +67457,7 @@ _get_zval_ptr_ptr.exit.thread:                    ; preds = %75, %82, %_get_zval
   store ptr %125, ptr %.1.i, align 8
   %127 = getelementptr inbounds i8, ptr %.1.i, i64 8
   store i32 %126, ptr %127, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 _get_zval_ptr_ptr.exit.thread128:                 ; preds = %69, %87, %_get_zval_ptr_ptr.exit.thread, %_get_zval_ptr_ptr.exit
   %.025.i126 = phi ptr [ %.025.i127, %87 ], [ %.025.i127, %_get_zval_ptr_ptr.exit.thread ], [ %71, %_get_zval_ptr_ptr.exit ], [ %71, %69 ]
@@ -67473,9 +67473,9 @@ _get_zval_ptr_ptr.exit.thread128:                 ; preds = %69, %87, %_get_zval
   %.val = load ptr, ptr %133, align 8
   %134 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %134, align 4
-  %135 = call fastcc ptr @zend_assign_to_typed_property_reference.argprom.argprom(ptr noundef nonnull %63, ptr noundef %131, ptr noundef %.025.i126, ptr noundef %4, i32 %.val.val)
+  %135 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %63, ptr noundef %131, ptr noundef %.025.i126, ptr noundef %4, i32 %.val.val)
   store ptr %135, ptr %3, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 136:                                              ; preds = %_get_zval_ptr_ptr.exit.thread128
   %137 = getelementptr inbounds i8, ptr %.025.i126, i64 8
@@ -67502,7 +67502,7 @@ _get_zval_ptr_ptr.exit.thread128:                 ; preds = %69, %87, %_get_zval
 
 147:                                              ; preds = %136
   %148 = icmp eq ptr %131, %.025.i126
-  br i1 %148, label %zend_wrong_assign_to_variable_reference.argprom.exit, label %._crit_edge.i
+  br i1 %148, label %zend_wrong_assign_to_variable_reference.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %147
   %.pre.i = load ptr, ptr %.025.i126, align 8
@@ -67528,15 +67528,15 @@ _get_zval_ptr_ptr.exit.thread128:                 ; preds = %69, %87, %_get_zval
 158:                                              ; preds = %156, %150
   store ptr %152, ptr %131, align 8
   store i32 266, ptr %153, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
-zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %158, %147, %124, %116, %90, %132
+zend_wrong_assign_to_variable_reference.exit:     ; preds = %158, %147, %124, %116, %90, %132
   %159 = getelementptr inbounds i8, ptr %5, i64 31
   %160 = load i8, ptr %159, align 1
   %.not108 = icmp eq i8 %160, 0
   br i1 %.not108, label %175, label %161
 
-161:                                              ; preds = %zend_wrong_assign_to_variable_reference.argprom.exit
+161:                                              ; preds = %zend_wrong_assign_to_variable_reference.exit
   %162 = getelementptr inbounds i8, ptr %5, i64 16
   %163 = load i32, ptr %162, align 8
   %164 = sext i32 %163 to i64
@@ -67558,7 +67558,7 @@ zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %158, %147, %124
   store i32 %174, ptr %167, align 4
   br label %175
 
-175:                                              ; preds = %172, %161, %zend_wrong_assign_to_variable_reference.argprom.exit
+175:                                              ; preds = %172, %161, %zend_wrong_assign_to_variable_reference.exit
   %176 = load ptr, ptr %4, align 8
   %.not110 = icmp eq ptr %176, null
   br i1 %.not110, label %199, label %177
@@ -67690,7 +67690,7 @@ define internal noundef i32 @ZEND_PRE_INC_SPEC_VAR_RETVAL_UNUSED_HANDLER(ptr nou
   br label %22
 
 21:                                               ; preds = %12
-  tail call fastcc void @zend_pre_inc_helper_SPEC_VAR.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_pre_inc_helper_SPEC_VAR(ptr noundef nonnull %0)
   br label %22
 
 22:                                               ; preds = %21, %18
@@ -67754,7 +67754,7 @@ define internal noundef i32 @ZEND_PRE_INC_SPEC_VAR_RETVAL_USED_HANDLER(ptr nound
   br label %29
 
 28:                                               ; preds = %12
-  tail call fastcc void @zend_pre_inc_helper_SPEC_VAR.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_pre_inc_helper_SPEC_VAR(ptr noundef nonnull %0)
   br label %29
 
 29:                                               ; preds = %28, %18
@@ -67791,7 +67791,7 @@ define internal noundef i32 @ZEND_PRE_INC_SPEC_CV_RETVAL_UNUSED_HANDLER(ptr noun
   br label %16
 
 15:                                               ; preds = %1
-  tail call fastcc void @zend_pre_inc_helper_SPEC_CV.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_pre_inc_helper_SPEC_CV(ptr noundef nonnull %0)
   br label %16
 
 16:                                               ; preds = %15, %12
@@ -67842,7 +67842,7 @@ define internal noundef i32 @ZEND_PRE_INC_SPEC_CV_RETVAL_USED_HANDLER(ptr nounde
   br label %23
 
 22:                                               ; preds = %1
-  tail call fastcc void @zend_pre_inc_helper_SPEC_CV.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_pre_inc_helper_SPEC_CV(ptr noundef nonnull %0)
   br label %23
 
 23:                                               ; preds = %22, %12
@@ -67892,7 +67892,7 @@ define internal noundef i32 @ZEND_PRE_DEC_SPEC_VAR_RETVAL_UNUSED_HANDLER(ptr nou
   br label %22
 
 21:                                               ; preds = %12
-  tail call fastcc void @zend_pre_dec_helper_SPEC_VAR.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_pre_dec_helper_SPEC_VAR(ptr noundef nonnull %0)
   br label %22
 
 22:                                               ; preds = %21, %18
@@ -67956,7 +67956,7 @@ define internal noundef i32 @ZEND_PRE_DEC_SPEC_VAR_RETVAL_USED_HANDLER(ptr nound
   br label %29
 
 28:                                               ; preds = %12
-  tail call fastcc void @zend_pre_dec_helper_SPEC_VAR.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_pre_dec_helper_SPEC_VAR(ptr noundef nonnull %0)
   br label %29
 
 29:                                               ; preds = %28, %18
@@ -67993,7 +67993,7 @@ define internal noundef i32 @ZEND_PRE_DEC_SPEC_CV_RETVAL_UNUSED_HANDLER(ptr noun
   br label %16
 
 15:                                               ; preds = %1
-  tail call fastcc void @zend_pre_dec_helper_SPEC_CV.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_pre_dec_helper_SPEC_CV(ptr noundef nonnull %0)
   br label %16
 
 16:                                               ; preds = %15, %12
@@ -68044,7 +68044,7 @@ define internal noundef i32 @ZEND_PRE_DEC_SPEC_CV_RETVAL_USED_HANDLER(ptr nounde
   br label %23
 
 22:                                               ; preds = %1
-  tail call fastcc void @zend_pre_dec_helper_SPEC_CV.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_pre_dec_helper_SPEC_CV(ptr noundef nonnull %0)
   br label %23
 
 23:                                               ; preds = %22, %12
@@ -89932,10 +89932,10 @@ define internal range(i32 0, 2) i32 @ZEND_INCLUDE_OR_EVAL_SPEC_OBSERVER_HANDLER(
 8:                                                ; preds = %1
   %9 = sext i32 %6 to i64
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 11:                                               ; preds = %1
-  switch i8 %4, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %4, label %_get_zval_cv_lookup.exit [
     i8 1, label %12
     i8 8, label %15
   ]
@@ -89943,7 +89943,7 @@ define internal range(i32 0, 2) i32 @ZEND_INCLUDE_OR_EVAL_SPEC_OBSERVER_HANDLER(
 12:                                               ; preds = %11
   %13 = sext i32 %6 to i64
   %14 = getelementptr inbounds i8, ptr %2, i64 %13
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 15:                                               ; preds = %11
   %16 = sext i32 %6 to i64
@@ -89951,12 +89951,12 @@ define internal range(i32 0, 2) i32 @ZEND_INCLUDE_OR_EVAL_SPEC_OBSERVER_HANDLER(
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %20, label %21, label %_get_zval_cv_lookup.exit
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %23, label %24, label %_get_zval_cv_lookup.exit
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %0, i64 24
@@ -89969,9 +89969,9 @@ define internal range(i32 0, 2) i32 @ZEND_INCLUDE_OR_EVAL_SPEC_OBSERVER_HANDLER(
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
   %33 = load ptr, ptr %32, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %33) #27
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %24, %21, %11, %15, %12, %8
+_get_zval_cv_lookup.exit:                         ; preds = %24, %21, %11, %15, %12, %8
   %.0263 = phi ptr [ %10, %8 ], [ %14, %12 ], [ %17, %15 ], [ null, %11 ], [ @executor_globals, %21 ], [ @executor_globals, %24 ]
   %34 = getelementptr inbounds i8, ptr %2, i64 20
   %35 = load i32, ptr %34, align 4
@@ -89980,7 +89980,7 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %24, %21, %11, %15, 
   %.not273 = icmp eq ptr %37, null
   br i1 %.not273, label %69, label %38
 
-38:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+38:                                               ; preds = %_get_zval_cv_lookup.exit
   %39 = load i8, ptr %3, align 1
   %40 = and i8 %39, 6
   %.not300 = icmp eq i8 %40, 0
@@ -90044,7 +90044,7 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %24, %21, %11, %15, 
   tail call void @llvm.assume(i1 %68)
   br label %328
 
-69:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+69:                                               ; preds = %_get_zval_cv_lookup.exit
   %magicptr304 = ptrtoint ptr %36 to i64
   switch i64 %magicptr304, label %88 [
     i64 -1, label %70
@@ -96831,7 +96831,7 @@ define internal noundef i32 @ZEND_EXIT_SPEC_HANDLER(ptr noundef %0) #1 {
 9:                                                ; preds = %5
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 12:                                               ; preds = %5
   %switch = icmp eq i8 %4, 1
@@ -96840,19 +96840,19 @@ define internal noundef i32 @ZEND_EXIT_SPEC_HANDLER(ptr noundef %0) #1 {
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %2, i64 %13
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 %13
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %20, label %21, label %_get_zval_cv_lookup.exit
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %23, label %24, label %_get_zval_cv_lookup.exit
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %0, i64 24
@@ -96865,22 +96865,22 @@ define internal noundef i32 @ZEND_EXIT_SPEC_HANDLER(ptr noundef %0) #1 {
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
   %33 = load ptr, ptr %32, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %33) #27
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %24, %21, %16, %14, %9
+_get_zval_cv_lookup.exit:                         ; preds = %24, %21, %16, %14, %9
   %.052 = phi ptr [ %11, %9 ], [ %15, %14 ], [ %17, %16 ], [ @executor_globals, %21 ], [ @executor_globals, %24 ]
   %34 = getelementptr inbounds i8, ptr %.052, i64 8
   %35 = load i8, ptr %34, align 8
   %36 = icmp eq i8 %35, 4
   br i1 %36, label %37, label %40
 
-37:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+37:                                               ; preds = %_get_zval_cv_lookup.exit
   %38 = load i64, ptr %.052, align 8
   %39 = trunc i64 %38 to i32
   store i32 %39, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
   br label %55
 
-40:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+40:                                               ; preds = %_get_zval_cv_lookup.exit
   %41 = load i8, ptr %3, align 1
   %42 = and i8 %41, 12
   %.not56 = icmp ne i8 %42, 0
@@ -96956,19 +96956,19 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %24, %21, %16, %14, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_R_SPEC_CONST_UNUSED_HANDLER(ptr nocapture noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED.retelim(i32 noundef 0, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED(i32 noundef 0, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_R_SPEC_TMPVAR_UNUSED_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED.retelim(i32 noundef 0, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED(i32 noundef 0, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_R_SPEC_CV_UNUSED_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED.retelim(i32 noundef 0, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED(i32 noundef 0, ptr noundef %0)
   ret i32 0
 }
 
@@ -96985,7 +96985,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CONST_CONST_HANDLER(ptr nound
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -97005,7 +97005,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CONST_TMPVAR_HANDLER(ptr noun
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %12 = load i32, ptr %7, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -97049,7 +97049,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CONST_CV_HANDLER(ptr noundef 
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -97213,7 +97213,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CONST_HANDLER(ptr noun
   %spec.select = getelementptr inbounds i8, ptr %11, i64 %spec.select.idx
   %83 = getelementptr i8, ptr %3, i64 16
   %.val = load i32, ptr %83, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef nonnull %.1, ptr noundef %spec.select, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef nonnull %.1, ptr noundef %spec.select, i32 %.val, ptr noundef nonnull %0)
   br label %84
 
 84:                                               ; preds = %79, %64
@@ -97441,7 +97441,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_TMPVAR_HANDLER(ptr nou
   %.1148 = phi ptr [ %98, %96 ], [ %8, %1 ]
   %103 = getelementptr i8, ptr %4, i64 16
   %.val = load i32, ptr %103, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef nonnull %.1148, ptr noundef nonnull %12, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef nonnull %.1148, ptr noundef nonnull %12, i32 %.val, ptr noundef nonnull %0)
   br label %104
 
 104:                                              ; preds = %102, %87
@@ -97693,7 +97693,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CV_HANDLER(ptr noundef
   %.1136 = phi ptr [ %98, %96 ], [ %8, %1 ]
   %103 = getelementptr i8, ptr %4, i64 16
   %.val = load i32, ptr %103, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef nonnull %.1136, ptr noundef nonnull %12, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef nonnull %.1136, ptr noundef nonnull %12, i32 %.val, ptr noundef nonnull %0)
   br label %104
 
 104:                                              ; preds = %102, %87
@@ -97884,7 +97884,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_CONST_HANDLER(ptr noundef 
   %spec.select = getelementptr inbounds i8, ptr %11, i64 %spec.select.idx
   %83 = getelementptr i8, ptr %3, i64 16
   %.val = load i32, ptr %83, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef nonnull %.1, ptr noundef %spec.select, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef nonnull %.1, ptr noundef %spec.select, i32 %.val, ptr noundef nonnull %0)
   br label %84
 
 84:                                               ; preds = %79, %64
@@ -98088,7 +98088,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_TMPVAR_HANDLER(ptr noundef
   %.1136 = phi ptr [ %98, %96 ], [ %8, %1 ]
   %103 = getelementptr i8, ptr %4, i64 16
   %.val = load i32, ptr %103, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef nonnull %.1136, ptr noundef nonnull %12, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef nonnull %.1136, ptr noundef nonnull %12, i32 %.val, ptr noundef nonnull %0)
   br label %104
 
 104:                                              ; preds = %102, %87
@@ -98316,7 +98316,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_CV_HANDLER(ptr noundef %0)
   %.1124 = phi ptr [ %98, %96 ], [ %8, %1 ]
   %103 = getelementptr i8, ptr %4, i64 16
   %.val = load i32, ptr %103, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef nonnull %.1124, ptr noundef nonnull %12, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef nonnull %.1124, ptr noundef nonnull %12, i32 %.val, ptr noundef nonnull %0)
   br label %104
 
 104:                                              ; preds = %102, %87
@@ -100843,19 +100843,19 @@ zval_undefined_cv.exit141:                        ; preds = %66, %63, %54
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_W_SPEC_CONST_UNUSED_HANDLER(ptr nocapture noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED.retelim(i32 noundef 1, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED(i32 noundef 1, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_W_SPEC_TMPVAR_UNUSED_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED.retelim(i32 noundef 1, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED(i32 noundef 1, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_W_SPEC_CV_UNUSED_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED.retelim(i32 noundef 1, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED(i32 noundef 1, ptr noundef %0)
   ret i32 0
 }
 
@@ -100883,7 +100883,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_W_SPEC_VAR_CONST_HANDLER(ptr noundef
   %16 = getelementptr inbounds i8, ptr %2, i64 %15
   %17 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %17, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef %.0, ptr noundef %16, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef %.0, ptr noundef %16, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %18 = load i32, ptr %3, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
@@ -100963,7 +100963,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_W_SPEC_VAR_TMPVAR_HANDLER(ptr nounde
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
   %17 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %17, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %18 = load i32, ptr %13, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
@@ -101063,7 +101063,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_W_SPEC_VAR_UNUSED_HANDLER(ptr nounde
   %.0 = phi ptr [ %11, %10 ], [ %6, %1 ]
   %13 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %13, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef %.0, ptr noundef null, i32 noundef 0, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef %.0, ptr noundef null, i32 noundef 0, i32 %.val, ptr noundef nonnull %0)
   %14 = load i32, ptr %3, align 8
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
@@ -101143,7 +101143,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_W_SPEC_VAR_CV_HANDLER(ptr noundef %0
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
   %17 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %17, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %18 = load i32, ptr %3, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
@@ -101212,7 +101212,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_W_SPEC_CV_CONST_HANDLER(ptr noundef 
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -101232,7 +101232,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_W_SPEC_CV_TMPVAR_HANDLER(ptr noundef
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %12 = load i32, ptr %7, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -101272,7 +101272,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_W_SPEC_CV_UNUSED_HANDLER(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %7, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef nonnull %6, ptr noundef null, i32 noundef 0, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef nonnull %6, ptr noundef null, i32 noundef 0, i32 %.val, ptr noundef nonnull %0)
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %9, ptr %0, align 8
@@ -101292,7 +101292,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_W_SPEC_CV_CV_HANDLER(ptr noundef %0)
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -101439,7 +101439,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_W_SPEC_VAR_CONST_HANDLER(ptr noundef
   br i1 %.not224, label %.critedge, label %80
 
 80:                                               ; preds = %78
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %21, ptr noundef nonnull %50, ptr noundef null, ptr noundef nonnull %56, i32 noundef %79)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %21, ptr noundef nonnull %50, ptr noundef null, ptr noundef nonnull %56, i32 noundef %79)
   br label %.critedge
 
 81:                                               ; preds = %44
@@ -101562,7 +101562,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_W_SPEC_VAR_CONST_HANDLER(ptr noundef
   br i1 %.not221, label %.critedge, label %145
 
 145:                                              ; preds = %142
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %21, ptr noundef %.0198, ptr noundef null, ptr noundef nonnull %144, i32 noundef %141)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %21, ptr noundef %.0198, ptr noundef null, ptr noundef nonnull %144, i32 noundef %141)
   br label %.critedge
 
 .critedge:                                        ; preds = %131, %137, %116, %124, %120, %142, %139, %145, %36, %100, %75, %77, %64, %68, %78, %80, %53
@@ -101763,7 +101763,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_W_SPEC_VAR_TMPVAR_HANDLER(ptr nounde
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %.0207, align 8
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %21, ptr noundef %.0208, ptr noundef %82, ptr noundef null, i32 noundef %80)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %21, ptr noundef %.0208, ptr noundef %82, ptr noundef null, i32 noundef %80)
   br label %.critedge
 
 .critedge:                                        ; preds = %70, %76, %55, %63, %59, %78, %81
@@ -102036,7 +102036,7 @@ zval_undefined_cv.exit:                           ; preds = %23, %20, %12
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr %.0203, align 8
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %36, ptr noundef %.0204, ptr noundef %99, ptr noundef null, i32 noundef %97)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %36, ptr noundef %.0204, ptr noundef %99, ptr noundef null, i32 noundef %97)
   br label %.critedge
 
 .critedge:                                        ; preds = %87, %93, %72, %80, %76, %95, %98
@@ -102218,7 +102218,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_W_SPEC_UNUSED_CONST_HANDLER(ptr noun
   br i1 %.not192, label %.critedge, label %60
 
 60:                                               ; preds = %58
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %10, ptr noundef nonnull %30, ptr noundef null, ptr noundef nonnull %36, i32 noundef %59)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %10, ptr noundef nonnull %30, ptr noundef null, ptr noundef nonnull %36, i32 noundef %59)
   br label %.critedge
 
 61:                                               ; preds = %24
@@ -102341,7 +102341,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_W_SPEC_UNUSED_CONST_HANDLER(ptr noun
   br i1 %.not189, label %.critedge, label %125
 
 125:                                              ; preds = %122
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %10, ptr noundef %.0168, ptr noundef null, ptr noundef nonnull %124, i32 noundef %121)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %10, ptr noundef %.0168, ptr noundef null, ptr noundef nonnull %124, i32 noundef %121)
   br label %.critedge
 
 .critedge:                                        ; preds = %111, %117, %96, %104, %100, %122, %119, %125, %33, %60, %58, %48, %44, %57, %55, %80
@@ -102452,7 +102452,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_W_SPEC_UNUSED_TMPVAR_HANDLER(ptr nou
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr %3, align 8
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %11, ptr noundef %.0178, ptr noundef %62, ptr noundef null, i32 noundef %60)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %11, ptr noundef %.0178, ptr noundef %62, ptr noundef null, i32 noundef %60)
   br label %.critedge
 
 .critedge:                                        ; preds = %50, %56, %35, %43, %39, %58, %61
@@ -102636,7 +102636,7 @@ zval_undefined_cv.exit:                           ; preds = %14, %11, %1
 
 77:                                               ; preds = %74
   %78 = load ptr, ptr %3, align 8
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %27, ptr noundef %.0174, ptr noundef %78, ptr noundef null, i32 noundef %76)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %27, ptr noundef %.0174, ptr noundef %78, ptr noundef null, i32 noundef %76)
   br label %.critedge
 
 .critedge:                                        ; preds = %66, %72, %51, %59, %55, %74, %77
@@ -102798,7 +102798,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_W_SPEC_CV_CONST_HANDLER(ptr noundef 
   br i1 %.not194, label %.critedge, label %75
 
 75:                                               ; preds = %73
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %14, ptr noundef nonnull %45, ptr noundef null, ptr noundef nonnull %51, i32 noundef %74)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %14, ptr noundef nonnull %45, ptr noundef null, ptr noundef nonnull %51, i32 noundef %74)
   br label %.critedge
 
 76:                                               ; preds = %39
@@ -102921,7 +102921,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_W_SPEC_CV_CONST_HANDLER(ptr noundef 
   br i1 %.not191, label %.critedge, label %140
 
 140:                                              ; preds = %137
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %14, ptr noundef %.0169, ptr noundef null, ptr noundef nonnull %139, i32 noundef %136)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %14, ptr noundef %.0169, ptr noundef null, ptr noundef nonnull %139, i32 noundef %136)
   br label %.critedge
 
 .critedge:                                        ; preds = %126, %132, %111, %119, %115, %137, %134, %140, %48, %75, %73, %63, %59, %72, %70, %95, %31
@@ -103061,7 +103061,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_W_SPEC_CV_TMPVAR_HANDLER(ptr noundef
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr %.0178, align 8
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %14, ptr noundef %.0179, ptr noundef %77, ptr noundef null, i32 noundef %75)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %14, ptr noundef %.0179, ptr noundef %77, ptr noundef null, i32 noundef %75)
   br label %.critedge
 
 .critedge:                                        ; preds = %65, %71, %50, %58, %54, %73, %76
@@ -103274,7 +103274,7 @@ zval_undefined_cv.exit:                           ; preds = %17, %14, %1
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %.0174, align 8
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef nonnull %30, ptr noundef %.0175, ptr noundef %93, ptr noundef null, i32 noundef %91)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef nonnull %30, ptr noundef %.0175, ptr noundef %93, ptr noundef null, i32 noundef %91)
   br label %.critedge
 
 .critedge:                                        ; preds = %81, %87, %66, %74, %70, %89, %92
@@ -103310,19 +103310,19 @@ zval_undefined_cv.exit:                           ; preds = %17, %14, %1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_RW_SPEC_CONST_UNUSED_HANDLER(ptr nocapture noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED.retelim(i32 noundef 2, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED(i32 noundef 2, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_RW_SPEC_TMPVAR_UNUSED_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED.retelim(i32 noundef 2, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED(i32 noundef 2, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_RW_SPEC_CV_UNUSED_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED.retelim(i32 noundef 2, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED(i32 noundef 2, ptr noundef %0)
   ret i32 0
 }
 
@@ -103350,7 +103350,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_RW_SPEC_VAR_CONST_HANDLER(ptr nounde
   %16 = getelementptr inbounds i8, ptr %2, i64 %15
   %17 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %17, align 8
-  tail call fastcc void @zend_fetch_dimension_address_RW.argprom(ptr noundef %.0, ptr noundef %16, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_RW(ptr noundef %.0, ptr noundef %16, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %18 = load i32, ptr %3, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
@@ -103430,7 +103430,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_RW_SPEC_VAR_TMPVAR_HANDLER(ptr nound
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
   %17 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %17, align 8
-  tail call fastcc void @zend_fetch_dimension_address_RW.argprom(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_RW(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %18 = load i32, ptr %13, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
@@ -103530,7 +103530,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_RW_SPEC_VAR_UNUSED_HANDLER(ptr nound
   %.0 = phi ptr [ %11, %10 ], [ %6, %1 ]
   %13 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %13, align 8
-  tail call fastcc void @zend_fetch_dimension_address_RW.argprom(ptr noundef %.0, ptr noundef null, i32 noundef 0, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_RW(ptr noundef %.0, ptr noundef null, i32 noundef 0, i32 %.val, ptr noundef nonnull %0)
   %14 = load i32, ptr %3, align 8
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
@@ -103610,7 +103610,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_RW_SPEC_VAR_CV_HANDLER(ptr noundef %
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
   %17 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %17, align 8
-  tail call fastcc void @zend_fetch_dimension_address_RW.argprom(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_RW(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %18 = load i32, ptr %3, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
@@ -103679,7 +103679,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_RW_SPEC_CV_CONST_HANDLER(ptr noundef
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_RW.argprom(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_RW(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -103699,7 +103699,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_RW_SPEC_CV_TMPVAR_HANDLER(ptr nounde
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_RW.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_RW(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %12 = load i32, ptr %7, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -103739,7 +103739,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_RW_SPEC_CV_UNUSED_HANDLER(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %7, align 8
-  tail call fastcc void @zend_fetch_dimension_address_RW.argprom(ptr noundef nonnull %6, ptr noundef null, i32 noundef 0, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_RW(ptr noundef nonnull %6, ptr noundef null, i32 noundef 0, i32 %.val, ptr noundef nonnull %0)
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %9, ptr %0, align 8
@@ -103759,7 +103759,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_RW_SPEC_CV_CV_HANDLER(ptr noundef %0
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_RW.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_RW(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -105717,19 +105717,19 @@ _zval_undefined_op1.exit:                         ; preds = %zval_undefined_cv.e
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_IS_SPEC_CONST_UNUSED_HANDLER(ptr nocapture noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED.retelim(i32 noundef 3, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED(i32 noundef 3, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_IS_SPEC_TMPVAR_UNUSED_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED.retelim(i32 noundef 3, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED(i32 noundef 3, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_IS_SPEC_CV_UNUSED_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED.retelim(i32 noundef 3, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED(i32 noundef 3, ptr noundef %0)
   ret i32 0
 }
 
@@ -105746,7 +105746,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_IS_SPEC_CONST_CONST_HANDLER(ptr noun
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_IS.argprom(ptr noundef %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_IS(ptr noundef %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -105766,7 +105766,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_IS_SPEC_CONST_TMPVAR_HANDLER(ptr nou
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_IS.argprom(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_IS(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %12 = load i32, ptr %7, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -105810,7 +105810,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_IS_SPEC_CONST_CV_HANDLER(ptr noundef
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_IS.argprom(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_IS(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -105830,7 +105830,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_IS_SPEC_TMPVAR_CONST_HANDLER(ptr nou
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_IS.argprom(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_IS(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %12 = load i32, ptr %3, align 8
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -105874,7 +105874,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_IS_SPEC_TMPVAR_TMPVAR_HANDLER(ptr no
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_IS.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_IS(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %12 = load i32, ptr %7, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -105942,7 +105942,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_IS_SPEC_TMPVAR_CV_HANDLER(ptr nounde
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_IS.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_IS(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %12 = load i32, ptr %3, align 8
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -105986,7 +105986,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_IS_SPEC_CV_CONST_HANDLER(ptr noundef
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_IS.argprom(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_IS(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -106006,7 +106006,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_IS_SPEC_CV_TMPVAR_HANDLER(ptr nounde
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_IS.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_IS(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %12 = load i32, ptr %7, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -106050,7 +106050,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_IS_SPEC_CV_CV_HANDLER(ptr noundef %0
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_IS.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_IS(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -108454,7 +108454,7 @@ define internal noundef i32 @ZEND_FETCH_FUNC_ARG_SPEC_CONST_UNUSED_HANDLER(ptr n
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
   %.lobit = lshr i32 %5, 31
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED.retelim(i32 noundef %.lobit, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED(i32 noundef %.lobit, ptr noundef %0)
   ret i32 0
 }
 
@@ -108465,7 +108465,7 @@ define internal noundef i32 @ZEND_FETCH_FUNC_ARG_SPEC_TMPVAR_UNUSED_HANDLER(ptr 
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
   %.lobit = lshr i32 %5, 31
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED.retelim(i32 noundef %.lobit, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED(i32 noundef %.lobit, ptr noundef %0)
   ret i32 0
 }
 
@@ -108476,7 +108476,7 @@ define internal noundef i32 @ZEND_FETCH_FUNC_ARG_SPEC_CV_UNUSED_HANDLER(ptr noun
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
   %.lobit = lshr i32 %5, 31
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED.retelim(i32 noundef %.lobit, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED(i32 noundef %.lobit, ptr noundef %0)
   ret i32 0
 }
 
@@ -108578,7 +108578,7 @@ zend_use_tmp_in_write_context_helper_SPEC.exit:   ; preds = %25, %29, %36, %41
   %58 = getelementptr inbounds i8, ptr %6, i64 %57
   %59 = getelementptr i8, ptr %6, i64 16
   %.val.i = load i32, ptr %59, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef %54, ptr noundef %58, i32 noundef 1, i32 %.val.i, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %54, ptr noundef %58, i32 noundef 1, i32 %.val.i, ptr noundef nonnull %0)
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 32
   store ptr %61, ptr %0, align 8
@@ -108686,7 +108686,7 @@ zend_use_tmp_in_write_context_helper_SPEC.exit:   ; preds = %25, %29, %36, %41
   %58 = getelementptr inbounds i8, ptr %0, i64 %57
   %59 = getelementptr i8, ptr %6, i64 16
   %.val.i = load i32, ptr %59, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef %54, ptr noundef nonnull %58, i32 noundef 6, i32 %.val.i, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %54, ptr noundef nonnull %58, i32 noundef 6, i32 %.val.i, ptr noundef nonnull %0)
   %60 = load i32, ptr %55, align 4
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i8, ptr %0, i64 %61
@@ -108966,7 +108966,7 @@ zend_use_tmp_in_write_context_helper_SPEC.exit:   ; preds = %25, %29, %36, %41
   %58 = getelementptr inbounds i8, ptr %0, i64 %57
   %59 = getelementptr i8, ptr %6, i64 16
   %.val.i = load i32, ptr %59, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef %54, ptr noundef nonnull %58, i32 noundef 8, i32 %.val.i, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %54, ptr noundef nonnull %58, i32 noundef 8, i32 %.val.i, ptr noundef nonnull %0)
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 32
   store ptr %61, ptr %0, align 8
@@ -109441,7 +109441,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_FUNC_ARG_SPEC_VAR_CONST_HANDLER(ptr 
   %21 = getelementptr inbounds i8, ptr %7, i64 %20
   %22 = getelementptr i8, ptr %7, i64 16
   %.val.i = load i32, ptr %22, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef %.0.i, ptr noundef %21, i32 noundef 1, i32 %.val.i, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef %.0.i, ptr noundef %21, i32 noundef 1, i32 %.val.i, ptr noundef nonnull %0)
   %23 = load i32, ptr %8, align 8
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
@@ -109553,7 +109553,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_FUNC_ARG_SPEC_VAR_UNUSED_HANDLER(ptr
   %.0.i = phi ptr [ %16, %15 ], [ %11, %7 ]
   %18 = getelementptr i8, ptr %6, i64 16
   %.val.i = load i32, ptr %18, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef %.0.i, ptr noundef null, i32 noundef 0, i32 %.val.i, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef %.0.i, ptr noundef null, i32 noundef 0, i32 %.val.i, ptr noundef nonnull %0)
   %19 = load i32, ptr %8, align 8
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
@@ -109721,7 +109721,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_FUNC_ARG_SPEC_VAR_CV_HANDLER(ptr nou
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
   %22 = getelementptr i8, ptr %7, i64 16
   %.val.i = load i32, ptr %22, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef %.0.i, ptr noundef nonnull %21, i32 noundef 8, i32 %.val.i, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef %.0.i, ptr noundef nonnull %21, i32 noundef 8, i32 %.val.i, ptr noundef nonnull %0)
   %23 = load i32, ptr %8, align 8
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
@@ -109805,7 +109805,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_FUNC_ARG_SPEC_CV_CONST_HANDLER(ptr n
   %15 = getelementptr inbounds i8, ptr %7, i64 %14
   %16 = getelementptr i8, ptr %7, i64 16
   %.val.i = load i32, ptr %16, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef nonnull %11, ptr noundef %15, i32 noundef 1, i32 %.val.i, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef nonnull %11, ptr noundef %15, i32 noundef 1, i32 %.val.i, ptr noundef nonnull %0)
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 32
   store ptr %18, ptr %0, align 8
@@ -109840,7 +109840,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_FUNC_ARG_SPEC_CV_TMPVAR_HANDLER(ptr 
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   %16 = getelementptr i8, ptr %7, i64 16
   %.val.i = load i32, ptr %16, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef nonnull %11, ptr noundef nonnull %15, i32 noundef 6, i32 %.val.i, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef nonnull %11, ptr noundef nonnull %15, i32 noundef 6, i32 %.val.i, ptr noundef nonnull %0)
   %17 = load i32, ptr %12, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
@@ -109895,7 +109895,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_FUNC_ARG_SPEC_CV_UNUSED_HANDLER(ptr 
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
   %12 = getelementptr i8, ptr %6, i64 16
   %.val.i = load i32, ptr %12, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, i32 %.val.i, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, i32 %.val.i, ptr noundef nonnull %0)
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   store ptr %14, ptr %0, align 8
@@ -110003,7 +110003,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_FUNC_ARG_SPEC_CV_CV_HANDLER(ptr noun
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   %16 = getelementptr i8, ptr %7, i64 16
   %.val.i = load i32, ptr %16, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef nonnull %11, ptr noundef nonnull %15, i32 noundef 8, i32 %.val.i, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef nonnull %11, ptr noundef nonnull %15, i32 noundef 8, i32 %.val.i, ptr noundef nonnull %0)
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 32
   store ptr %18, ptr %0, align 8
@@ -110878,19 +110878,19 @@ define internal noundef i32 @ZEND_FETCH_OBJ_FUNC_ARG_SPEC_CV_CV_HANDLER(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_UNSET_SPEC_CONST_UNUSED_HANDLER(ptr nocapture noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED.retelim(i32 noundef 5, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED(i32 noundef 5, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_UNSET_SPEC_TMPVAR_UNUSED_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED.retelim(i32 noundef 5, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED(i32 noundef 5, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_UNSET_SPEC_CV_UNUSED_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED.retelim(i32 noundef 5, ptr noundef %0)
+  tail call fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED(i32 noundef 5, ptr noundef %0)
   ret i32 0
 }
 
@@ -110918,7 +110918,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_UNSET_SPEC_VAR_CONST_HANDLER(ptr nou
   %16 = getelementptr inbounds i8, ptr %2, i64 %15
   %17 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %17, align 8
-  tail call fastcc void @zend_fetch_dimension_address_UNSET.argprom(ptr noundef %.0, ptr noundef %16, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_UNSET(ptr noundef %.0, ptr noundef %16, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %18 = load i32, ptr %3, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
@@ -110998,7 +110998,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_UNSET_SPEC_VAR_TMPVAR_HANDLER(ptr no
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
   %17 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %17, align 8
-  tail call fastcc void @zend_fetch_dimension_address_UNSET.argprom(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_UNSET(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %18 = load i32, ptr %13, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
@@ -111102,7 +111102,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_UNSET_SPEC_VAR_CV_HANDLER(ptr nounde
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
   %17 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %17, align 8
-  tail call fastcc void @zend_fetch_dimension_address_UNSET.argprom(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_UNSET(ptr noundef %.0, ptr noundef nonnull %16, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %18 = load i32, ptr %3, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
@@ -111171,7 +111171,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_UNSET_SPEC_CV_CONST_HANDLER(ptr noun
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_UNSET.argprom(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_UNSET(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -111191,7 +111191,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_UNSET_SPEC_CV_TMPVAR_HANDLER(ptr nou
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_UNSET.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_UNSET(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %12 = load i32, ptr %7, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -111235,7 +111235,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_UNSET_SPEC_CV_CV_HANDLER(ptr noundef
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_UNSET.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_UNSET(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -113198,7 +113198,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_R_SPEC_CONST_CONST_HANDLER(ptr noun
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_LIST_r.argprom(ptr noundef %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_LIST_r(ptr noundef %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -113218,7 +113218,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_R_SPEC_CONST_TMPVAR_HANDLER(ptr nou
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_LIST_r.argprom(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_LIST_r(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %12 = load i32, ptr %7, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -113262,7 +113262,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_R_SPEC_CONST_CV_HANDLER(ptr noundef
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_LIST_r.argprom(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_LIST_r(ptr noundef %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -113282,7 +113282,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_R_SPEC_TMPVARCV_CONST_HANDLER(ptr n
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_LIST_r.argprom(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_LIST_r(ptr noundef nonnull %6, ptr noundef %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -113302,7 +113302,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_R_SPEC_TMPVARCV_TMPVAR_HANDLER(ptr 
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_LIST_r.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_LIST_r(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   %12 = load i32, ptr %7, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
@@ -113346,7 +113346,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_R_SPEC_TMPVARCV_CV_HANDLER(ptr noun
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %11, align 8
-  tail call fastcc void @zend_fetch_dimension_address_LIST_r.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_LIST_r(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %13, ptr %0, align 8
@@ -115555,10 +115555,10 @@ define internal range(i32 -1, 3) i32 @ZEND_RETURN_BY_REF_SPEC_OBSERVER_HANDLER(p
 22:                                               ; preds = %17
   %23 = sext i32 %20 to i64
   %24 = getelementptr inbounds i8, ptr %0, i64 %23
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 25:                                               ; preds = %17
-  switch i8 %18, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %18, label %_get_zval_cv_lookup.exit [
     i8 1, label %26
     i8 8, label %29
   ]
@@ -115566,7 +115566,7 @@ define internal range(i32 -1, 3) i32 @ZEND_RETURN_BY_REF_SPEC_OBSERVER_HANDLER(p
 26:                                               ; preds = %25
   %27 = sext i32 %20 to i64
   %28 = getelementptr inbounds i8, ptr %3, i64 %27
-  br label %_get_zval_cv_lookup.argprom.exit.thread
+  br label %_get_zval_cv_lookup.exit.thread
 
 29:                                               ; preds = %25
   %30 = sext i32 %20 to i64
@@ -115574,12 +115574,12 @@ define internal range(i32 -1, 3) i32 @ZEND_RETURN_BY_REF_SPEC_OBSERVER_HANDLER(p
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load i8, ptr %32, align 8
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %35, label %_get_zval_cv_lookup.argprom.exit.thread
+  br i1 %34, label %35, label %_get_zval_cv_lookup.exit.thread
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %_get_zval_cv_lookup.argprom.exit.thread
+  br i1 %37, label %38, label %_get_zval_cv_lookup.exit.thread
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %0, i64 24
@@ -115593,19 +115593,19 @@ define internal range(i32 -1, 3) i32 @ZEND_RETURN_BY_REF_SPEC_OBSERVER_HANDLER(p
   %47 = load ptr, ptr %46, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %47) #27
   %.pre211 = load i8, ptr %6, align 1
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %38, %22, %25
+_get_zval_cv_lookup.exit:                         ; preds = %38, %22, %25
   %48 = phi i8 [ %18, %22 ], [ %18, %25 ], [ %.pre211, %38 ]
   %.0162 = phi ptr [ %24, %22 ], [ null, %25 ], [ @executor_globals, %38 ]
   %49 = icmp eq i8 %48, 4
-  br i1 %49, label %50, label %_get_zval_cv_lookup.argprom.exit.thread
+  br i1 %49, label %50, label %_get_zval_cv_lookup.exit.thread
 
-50:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+50:                                               ; preds = %_get_zval_cv_lookup.exit
   %51 = getelementptr inbounds i8, ptr %.0162, i64 8
   %52 = load i8, ptr %51, align 8
   %53 = icmp eq i8 %52, 10
-  br i1 %53, label %54, label %_get_zval_cv_lookup.argprom.exit.thread
+  br i1 %53, label %54, label %_get_zval_cv_lookup.exit.thread
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %.0162, align 8
@@ -115616,8 +115616,8 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %38, %22, %25
   store i32 %56, ptr %spec.store.select.sroa.sel166.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %148
 
-_get_zval_cv_lookup.argprom.exit.thread:          ; preds = %35, %29, %26, %_get_zval_cv_lookup.argprom.exit, %50
-  %.0162213 = phi ptr [ %.0162, %_get_zval_cv_lookup.argprom.exit ], [ %.0162, %50 ], [ @executor_globals, %35 ], [ %31, %29 ], [ %28, %26 ]
+_get_zval_cv_lookup.exit.thread:                  ; preds = %35, %29, %26, %_get_zval_cv_lookup.exit, %50
+  %.0162213 = phi ptr [ %.0162, %_get_zval_cv_lookup.exit ], [ %.0162, %50 ], [ @executor_globals, %35 ], [ %31, %29 ], [ %28, %26 ]
   %57 = tail call noalias ptr @_emalloc_32() #27
   store i32 1, ptr %57, align 4
   %58 = getelementptr inbounds i8, ptr %57, i64 4
@@ -115639,7 +115639,7 @@ _get_zval_cv_lookup.argprom.exit.thread:          ; preds = %35, %29, %26, %_get
   %66 = icmp eq i8 %65, 1
   br i1 %66, label %67, label %148
 
-67:                                               ; preds = %_get_zval_cv_lookup.argprom.exit.thread
+67:                                               ; preds = %_get_zval_cv_lookup.exit.thread
   %68 = getelementptr inbounds i8, ptr %.0162213, i64 9
   %69 = load i8, ptr %68, align 1
   %.not192 = icmp eq i8 %69, 0
@@ -115795,7 +115795,7 @@ _get_zval_ptr_ptr.exit.thread217:                 ; preds = %78, %_get_zval_ptr_
   tail call void @rc_dtor_func(ptr noundef %147) #27
   br label %148
 
-148:                                              ; preds = %131, %146, %141, %135, %104, %70, %67, %_get_zval_cv_lookup.argprom.exit.thread, %54
+148:                                              ; preds = %131, %146, %141, %135, %104, %70, %67, %_get_zval_cv_lookup.exit.thread, %54
   call void @zend_observer_fcall_end(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select) #27
   %149 = icmp ne ptr %spec.store.select, %2
   %150 = getelementptr inbounds i8, ptr %2, i64 9
@@ -132084,7 +132084,7 @@ define internal noundef i32 @ZEND_SEND_ARRAY_SPEC_HANDLER(ptr noundef %0) #1 {
 11:                                               ; preds = %1
   %12 = sext i32 %9 to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 14:                                               ; preds = %1
   %switch = icmp eq i8 %7, 1
@@ -132093,19 +132093,19 @@ define internal noundef i32 @ZEND_SEND_ARRAY_SPEC_HANDLER(ptr noundef %0) #1 {
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %5, i64 %15
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 %15
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i8, ptr %20, align 8
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %22, label %23, label %_get_zval_cv_lookup.exit
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %25, label %26, label %_get_zval_cv_lookup.exit
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %0, i64 24
@@ -132118,16 +132118,16 @@ define internal noundef i32 @ZEND_SEND_ARRAY_SPEC_HANDLER(ptr noundef %0) #1 {
   %34 = getelementptr inbounds ptr, ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %35) #27
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %26, %23, %18, %16, %11
+_get_zval_cv_lookup.exit:                         ; preds = %26, %23, %18, %16, %11
   %.0376 = phi ptr [ %13, %11 ], [ %17, %16 ], [ %19, %18 ], [ @executor_globals, %23 ], [ @executor_globals, %26 ]
   %36 = getelementptr inbounds i8, ptr %.0376, i64 8
   %37 = load i8, ptr %36, align 8
   %.not430 = icmp eq i8 %37, 7
   br i1 %.not430, label %86, label %38
 
-38:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+38:                                               ; preds = %_get_zval_cv_lookup.exit
   %39 = load i8, ptr %6, align 1
   %40 = and i8 %39, 12
   %.not431 = icmp ne i8 %40, 0
@@ -132214,8 +132214,8 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %26, %23, %18, %16, 
   tail call void @llvm.assume(i1 %85)
   br label %598
 
-86:                                               ; preds = %_get_zval_cv_lookup.argprom.exit, %42
-  %.1396 = phi ptr [ %44, %42 ], [ %.0376, %_get_zval_cv_lookup.argprom.exit ]
+86:                                               ; preds = %_get_zval_cv_lookup.exit, %42
+  %.1396 = phi ptr [ %44, %42 ], [ %.0376, %_get_zval_cv_lookup.exit ]
   %87 = load ptr, ptr %.1396, align 8
   %88 = getelementptr inbounds i8, ptr %5, i64 30
   %89 = load i8, ptr %88, align 2
@@ -132236,7 +132236,7 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %26, %23, %18, %16, 
 96:                                               ; preds = %94
   %97 = sext i32 %92 to i64
   %98 = getelementptr inbounds i8, ptr %0, i64 %97
-  br label %_get_zval_cv_lookup.argprom.exit488
+  br label %_get_zval_cv_lookup.exit488
 
 99:                                               ; preds = %94
   %100 = icmp eq i8 %89, 4
@@ -132246,12 +132246,12 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %26, %23, %18, %16, 
   %103 = getelementptr inbounds i8, ptr %102, i64 8
   %104 = load i8, ptr %103, align 8
   %105 = icmp eq i8 %104, 10
-  br i1 %105, label %106, label %_get_zval_cv_lookup.argprom.exit488
+  br i1 %105, label %106, label %_get_zval_cv_lookup.exit488
 
 106:                                              ; preds = %99
   %107 = load ptr, ptr %102, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit488
+  br label %_get_zval_cv_lookup.exit488
 
 109:                                              ; preds = %90
   %switch487 = icmp eq i8 %89, 1
@@ -132260,13 +132260,13 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %26, %23, %18, %16, 
 
 111:                                              ; preds = %109
   %112 = getelementptr inbounds i8, ptr %5, i64 %110
-  br label %_get_zval_cv_lookup.argprom.exit488
+  br label %_get_zval_cv_lookup.exit488
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds i8, ptr %0, i64 %110
   %115 = getelementptr inbounds i8, ptr %114, i64 8
   %116 = load i8, ptr %115, align 8
-  switch i8 %116, label %_get_zval_cv_lookup.argprom.exit488 [
+  switch i8 %116, label %_get_zval_cv_lookup.exit488 [
     i8 0, label %117
     i8 10, label %130
   ]
@@ -132274,7 +132274,7 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %26, %23, %18, %16, 
 117:                                              ; preds = %113
   %118 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %119 = icmp eq ptr %118, null
-  br i1 %119, label %120, label %_get_zval_cv_lookup.argprom.exit488
+  br i1 %119, label %120, label %_get_zval_cv_lookup.exit488
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds i8, ptr %0, i64 24
@@ -132287,14 +132287,14 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %26, %23, %18, %16, 
   %128 = getelementptr inbounds ptr, ptr %124, i64 %127
   %129 = load ptr, ptr %128, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %129) #27
-  br label %_get_zval_cv_lookup.argprom.exit488
+  br label %_get_zval_cv_lookup.exit488
 
 130:                                              ; preds = %113
   %131 = load ptr, ptr %114, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit488
+  br label %_get_zval_cv_lookup.exit488
 
-_get_zval_cv_lookup.argprom.exit488:              ; preds = %120, %117, %113, %130, %99, %106, %111, %96
+_get_zval_cv_lookup.exit488:                      ; preds = %120, %117, %113, %130, %99, %106, %111, %96
   %.0374 = phi ptr [ %98, %96 ], [ %112, %111 ], [ %108, %106 ], [ %102, %99 ], [ %132, %130 ], [ %114, %113 ], [ @executor_globals, %117 ], [ @executor_globals, %120 ]
   %133 = getelementptr inbounds i8, ptr %5, i64 20
   %134 = load i32, ptr %133, align 4
@@ -132307,17 +132307,17 @@ _get_zval_cv_lookup.argprom.exit488:              ; preds = %120, %117, %113, %1
     i8 1, label %.thread
   ]
 
-139:                                              ; preds = %_get_zval_cv_lookup.argprom.exit488
+139:                                              ; preds = %_get_zval_cv_lookup.exit488
   %140 = load i64, ptr %.0374, align 8
   store i64 %140, ptr %3, align 8
   br label %186
 
-.thread:                                          ; preds = %_get_zval_cv_lookup.argprom.exit488
+.thread:                                          ; preds = %_get_zval_cv_lookup.exit488
   %141 = sub i32 %136, %134
   %142 = zext i32 %141 to i64
   br label %.sink.split
 
-143:                                              ; preds = %_get_zval_cv_lookup.argprom.exit488
+143:                                              ; preds = %_get_zval_cv_lookup.exit488
   %144 = getelementptr inbounds i8, ptr %0, i64 24
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds i8, ptr %145, i64 4
@@ -134294,7 +134294,7 @@ define internal range(i32 0, 2) i32 @ZEND_DEFINED_SPEC_CONST_HANDLER(ptr noundef
   %.not43 = icmp eq i64 %12, 0
   br i1 %.not43, label %13, label %55
 
-13:                                               ; preds = %zend_quick_check_constant.argprom.exit, %10
+13:                                               ; preds = %zend_quick_check_constant.exit, %10
   %14 = getelementptr inbounds i8, ptr %2, i64 31
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %48 [
@@ -134497,9 +134497,9 @@ define internal range(i32 0, 2) i32 @ZEND_DEFINED_SPEC_CONST_HANDLER(ptr noundef
 111:                                              ; preds = %104
   %112 = load ptr, ptr %110, align 8
   %.not43.i = icmp eq ptr %112, null
-  br i1 %.not43.i, label %117, label %zend_quick_check_constant.argprom.exit
+  br i1 %.not43.i, label %117, label %zend_quick_check_constant.exit
 
-zend_quick_check_constant.argprom.exit:           ; preds = %111
+zend_quick_check_constant.exit:                   ; preds = %111
   %113 = load ptr, ptr %3, align 8
   %114 = load i32, ptr %5, align 4
   %115 = zext i32 %114 to i64
@@ -147862,10 +147862,10 @@ define internal noundef i32 @ZEND_ADD_ARRAY_UNPACK_SPEC_HANDLER(ptr noundef %0) 
 10:                                               ; preds = %1
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 13:                                               ; preds = %1
-  switch i8 %6, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %6, label %_get_zval_cv_lookup.exit [
     i8 1, label %14
     i8 8, label %17
   ]
@@ -147873,7 +147873,7 @@ define internal noundef i32 @ZEND_ADD_ARRAY_UNPACK_SPEC_HANDLER(ptr noundef %0) 
 14:                                               ; preds = %13
   %15 = sext i32 %8 to i64
   %16 = getelementptr inbounds i8, ptr %4, i64 %15
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 17:                                               ; preds = %13
   %18 = sext i32 %8 to i64
@@ -147881,12 +147881,12 @@ define internal noundef i32 @ZEND_ADD_ARRAY_UNPACK_SPEC_HANDLER(ptr noundef %0) 
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i8, ptr %20, align 8
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %22, label %23, label %_get_zval_cv_lookup.exit
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %25, label %26, label %_get_zval_cv_lookup.exit
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %0, i64 24
@@ -147899,9 +147899,9 @@ define internal noundef i32 @ZEND_ADD_ARRAY_UNPACK_SPEC_HANDLER(ptr noundef %0) 
   %34 = getelementptr inbounds ptr, ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %35) #27
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %26, %23, %13, %17, %14, %10
+_get_zval_cv_lookup.exit:                         ; preds = %26, %23, %13, %17, %14, %10
   %.0227 = phi ptr [ %12, %10 ], [ %16, %14 ], [ %19, %17 ], [ null, %13 ], [ @executor_globals, %23 ], [ @executor_globals, %26 ]
   %36 = getelementptr inbounds i8, ptr %4, i64 16
   %37 = load i32, ptr %36, align 8
@@ -147910,8 +147910,8 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %26, %23, %13, %17, 
   %40 = load ptr, ptr %39, align 8
   br label %41
 
-41:                                               ; preds = %281, %_get_zval_cv_lookup.argprom.exit
-  %.0232 = phi ptr [ %.0227, %_get_zval_cv_lookup.argprom.exit ], [ %283, %281 ]
+41:                                               ; preds = %281, %_get_zval_cv_lookup.exit
+  %.0232 = phi ptr [ %.0227, %_get_zval_cv_lookup.exit ], [ %283, %281 ]
   %42 = getelementptr inbounds i8, ptr %.0232, i64 8
   %43 = load i8, ptr %42, align 8
   switch i8 %43, label %284 [
@@ -153544,7 +153544,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_W_SPEC_VAR_CONST_HANDLER(ptr nounde
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.127) #27
   %21 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %21, align 8
-  tail call fastcc void @zend_fetch_dimension_address_LIST_r.argprom(ptr noundef nonnull %6, ptr noundef nonnull %19, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_LIST_r(ptr noundef nonnull %6, ptr noundef nonnull %19, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   br label %25
 
 22:                                               ; preds = %.thread, %15
@@ -153552,7 +153552,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_W_SPEC_VAR_CONST_HANDLER(ptr nounde
   %.028 = phi ptr [ %10, %.thread ], [ %6, %15 ]
   %24 = getelementptr i8, ptr %2, i64 16
   %.val26 = load i32, ptr %24, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef %.028, ptr noundef nonnull %23, i32 noundef 1, i32 %.val26, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef %.028, ptr noundef nonnull %23, i32 noundef 1, i32 %.val26, ptr noundef nonnull %0)
   br label %25
 
 25:                                               ; preds = %22, %20
@@ -153594,7 +153594,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_W_SPEC_VAR_TMPVAR_HANDLER(ptr nound
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.127) #27
   %21 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %21, align 8
-  tail call fastcc void @zend_fetch_dimension_address_LIST_r.argprom(ptr noundef nonnull %6, ptr noundef nonnull %19, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_LIST_r(ptr noundef nonnull %6, ptr noundef nonnull %19, i32 noundef 6, i32 %.val, ptr noundef nonnull %0)
   br label %26
 
 22:                                               ; preds = %.thread, %15
@@ -153603,7 +153603,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_W_SPEC_VAR_TMPVAR_HANDLER(ptr nound
   %.042 = phi ptr [ %10, %.thread ], [ %6, %15 ]
   %25 = getelementptr i8, ptr %2, i64 16
   %.val40 = load i32, ptr %25, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef %.042, ptr noundef nonnull %23, i32 noundef 6, i32 %.val40, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef %.042, ptr noundef nonnull %23, i32 noundef 6, i32 %.val40, ptr noundef nonnull %0)
   br label %26
 
 26:                                               ; preds = %22, %20
@@ -153670,7 +153670,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_W_SPEC_VAR_CV_HANDLER(ptr noundef %
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.127) #27
   %21 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %21, align 8
-  tail call fastcc void @zend_fetch_dimension_address_LIST_r.argprom(ptr noundef nonnull %6, ptr noundef nonnull %19, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_LIST_r(ptr noundef nonnull %6, ptr noundef nonnull %19, i32 noundef 8, i32 %.val, ptr noundef nonnull %0)
   br label %25
 
 22:                                               ; preds = %.thread, %15
@@ -153678,7 +153678,7 @@ define internal noundef i32 @ZEND_FETCH_LIST_W_SPEC_VAR_CV_HANDLER(ptr noundef %
   %.028 = phi ptr [ %10, %.thread ], [ %6, %15 ]
   %24 = getelementptr i8, ptr %2, i64 16
   %.val26 = load i32, ptr %24, align 8
-  tail call fastcc void @zend_fetch_dimension_address_W.argprom(ptr noundef %.028, ptr noundef nonnull %23, i32 noundef 8, i32 %.val26, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_W(ptr noundef %.028, ptr noundef nonnull %23, i32 noundef 8, i32 %.val26, ptr noundef nonnull %0)
   br label %25
 
 25:                                               ; preds = %22, %20
@@ -155376,7 +155376,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CONST_CONST_HANDLER(ptr no
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %79
 
 9:                                                ; preds = %1
@@ -155518,7 +155518,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CONST_TMPVAR_HANDLER(ptr n
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %98
 
 9:                                                ; preds = %1
@@ -155694,7 +155694,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CONST_UNUSED_HANDLER(ptr n
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %60
 
 9:                                                ; preds = %1
@@ -155804,7 +155804,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CONST_CV_HANDLER(ptr nound
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %101
 
 9:                                                ; preds = %1
@@ -155982,7 +155982,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_TMP_CONST_HANDLER(ptr noun
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %57
 
 9:                                                ; preds = %1
@@ -156096,7 +156096,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_TMP_TMPVAR_HANDLER(ptr nou
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %76
 
 9:                                                ; preds = %1
@@ -156244,7 +156244,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_TMP_UNUSED_HANDLER(ptr nou
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %38
 
 9:                                                ; preds = %1
@@ -156326,7 +156326,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_TMP_CV_HANDLER(ptr noundef
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %79
 
 9:                                                ; preds = %1
@@ -156476,7 +156476,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_VAR_CONST_HANDLER(ptr noun
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %143
 
 9:                                                ; preds = %1
@@ -156740,7 +156740,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_VAR_TMPVAR_HANDLER(ptr nou
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %162
 
 9:                                                ; preds = %1
@@ -157038,7 +157038,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_VAR_UNUSED_HANDLER(ptr nou
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %124
 
 9:                                                ; preds = %1
@@ -157270,7 +157270,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_VAR_CV_HANDLER(ptr noundef
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %165
 
 9:                                                ; preds = %1
@@ -157570,7 +157570,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_UNUSED_CONST_HANDLER(ptr n
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %50
 
 9:                                                ; preds = %1
@@ -157663,7 +157663,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_UNUSED_TMPVAR_HANDLER(ptr 
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %69
 
 9:                                                ; preds = %1
@@ -157790,7 +157790,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_UNUSED_UNUSED_HANDLER(ptr 
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %31
 
 9:                                                ; preds = %1
@@ -157851,7 +157851,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_UNUSED_CV_HANDLER(ptr noun
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %73
 
 9:                                                ; preds = %1
@@ -157981,7 +157981,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CV_CONST_HANDLER(ptr nound
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %118
 
 9:                                                ; preds = %1
@@ -158199,7 +158199,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CV_TMPVAR_HANDLER(ptr noun
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %137
 
 9:                                                ; preds = %1
@@ -158451,7 +158451,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CV_UNUSED_HANDLER(ptr noun
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %99
 
 9:                                                ; preds = %1
@@ -158637,7 +158637,7 @@ define internal range(i32 -1, 1) i32 @ZEND_YIELD_SPEC_CV_CV_HANDLER(ptr noundef 
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr noundef nonnull %0)
   br label %140
 
 9:                                                ; preds = %1
@@ -158932,15 +158932,15 @@ define internal noundef i32 @ZEND_GENERATOR_RETURN_SPEC_OBSERVER_HANDLER(ptr noc
 10:                                               ; preds = %1
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 13:                                               ; preds = %1
-  switch i8 %6, label %_get_zval_cv_lookup.argprom.exit [
-    i8 1, label %_get_zval_cv_lookup.argprom.exit.thread113
+  switch i8 %6, label %_get_zval_cv_lookup.exit [
+    i8 1, label %_get_zval_cv_lookup.exit.thread113
     i8 8, label %16
   ]
 
-_get_zval_cv_lookup.argprom.exit.thread113:       ; preds = %13
+_get_zval_cv_lookup.exit.thread113:               ; preds = %13
   %14 = sext i32 %8 to i64
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
   br label %37
@@ -158970,17 +158970,17 @@ _get_zval_cv_lookup.argprom.exit.thread113:       ; preds = %13
   %34 = load ptr, ptr %33, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %34) #27
   %.pre = load i8, ptr %5, align 1
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %25, %13, %10
+_get_zval_cv_lookup.exit:                         ; preds = %25, %13, %10
   %35 = phi i8 [ %6, %10 ], [ %6, %13 ], [ %.pre, %25 ]
   %.0102 = phi ptr [ %12, %10 ], [ null, %13 ], [ @executor_globals, %25 ]
   %36 = and i8 %35, 3
   %.not105 = icmp eq i8 %36, 0
   br i1 %.not105, label %51, label %37
 
-37:                                               ; preds = %_get_zval_cv_lookup.argprom.exit.thread113, %_get_zval_cv_lookup.argprom.exit
-  %.0102116 = phi ptr [ %15, %_get_zval_cv_lookup.argprom.exit.thread113 ], [ %.0102, %_get_zval_cv_lookup.argprom.exit ]
+37:                                               ; preds = %_get_zval_cv_lookup.exit.thread113, %_get_zval_cv_lookup.exit
+  %.0102116 = phi ptr [ %15, %_get_zval_cv_lookup.exit.thread113 ], [ %.0102, %_get_zval_cv_lookup.exit ]
   %38 = getelementptr inbounds i8, ptr %4, i64 104
   %39 = load ptr, ptr %.0102116, align 8
   %40 = getelementptr inbounds i8, ptr %.0102116, i64 8
@@ -159004,7 +159004,7 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %25, %13, %10
   store i32 %50, ptr %39, align 4
   br label %107
 
-51:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+51:                                               ; preds = %_get_zval_cv_lookup.exit
   %52 = icmp eq i8 %35, 8
   br i1 %52, label %.thread, label %76
 
@@ -164405,25 +164405,25 @@ define internal noundef i32 @ZEND_FUNC_GET_ARGS_SPEC_UNUSED_UNUSED_HANDLER(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_STATIC_PROP_R_SPEC_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_static_prop_helper_SPEC.retelim(i32 noundef 0, ptr noundef %0)
+  tail call fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef 0, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_STATIC_PROP_W_SPEC_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_static_prop_helper_SPEC.retelim(i32 noundef 1, ptr noundef %0)
+  tail call fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef 1, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_STATIC_PROP_RW_SPEC_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_static_prop_helper_SPEC.retelim(i32 noundef 2, ptr noundef %0)
+  tail call fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef 2, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_STATIC_PROP_IS_SPEC_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_static_prop_helper_SPEC.retelim(i32 noundef 3, ptr noundef %0)
+  tail call fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef 3, ptr noundef %0)
   ret i32 0
 }
 
@@ -164434,13 +164434,13 @@ define internal noundef i32 @ZEND_FETCH_STATIC_PROP_FUNC_ARG_SPEC_HANDLER(ptr no
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
   %.lobit = lshr i32 %5, 31
-  tail call fastcc void @zend_fetch_static_prop_helper_SPEC.retelim(i32 noundef %.lobit, ptr noundef %0)
+  tail call fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef %.lobit, ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ZEND_FETCH_STATIC_PROP_UNSET_SPEC_HANDLER(ptr noundef %0) #1 {
-  tail call fastcc void @zend_fetch_static_prop_helper_SPEC.retelim(i32 noundef 5, ptr noundef %0)
+  tail call fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef 5, ptr noundef %0)
   ret i32 0
 }
 
@@ -165512,7 +165512,7 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_CONST_TMPVARCV_HANDL
 59:                                               ; preds = %57
   %60 = sext i32 %55 to i64
   %61 = getelementptr inbounds i8, ptr %0, i64 %60
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 62:                                               ; preds = %57
   %63 = icmp eq i8 %53, 4
@@ -165522,12 +165522,12 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_CONST_TMPVARCV_HANDL
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load i8, ptr %66, align 8
   %68 = icmp eq i8 %67, 10
-  br i1 %68, label %69, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %68, label %69, label %_get_zval_cv_lookup.exit
 
 69:                                               ; preds = %62
   %70 = load ptr, ptr %65, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 72:                                               ; preds = %51
   %73 = icmp eq i8 %53, 8
@@ -165536,7 +165536,7 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_CONST_TMPVARCV_HANDL
   %75 = getelementptr inbounds i8, ptr %0, i64 %74
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   %77 = load i8, ptr %76, align 8
-  switch i8 %77, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %77, label %_get_zval_cv_lookup.exit [
     i8 0, label %78
     i8 10, label %91
   ]
@@ -165544,7 +165544,7 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_CONST_TMPVARCV_HANDL
 78:                                               ; preds = %72
   %79 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %80, label %81, label %_get_zval_cv_lookup.exit
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds i8, ptr %0, i64 24
@@ -165557,21 +165557,21 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_CONST_TMPVARCV_HANDL
   %89 = getelementptr inbounds ptr, ptr %85, i64 %88
   %90 = load ptr, ptr %89, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %90) #27
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 91:                                               ; preds = %72
   %92 = load ptr, ptr %75, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %81, %78, %72, %91, %62, %69, %59
+_get_zval_cv_lookup.exit:                         ; preds = %81, %78, %72, %91, %62, %69, %59
   %.0249 = phi ptr [ %61, %59 ], [ %71, %69 ], [ %65, %62 ], [ %93, %91 ], [ %75, %72 ], [ @executor_globals, %78 ], [ @executor_globals, %81 ]
   %94 = getelementptr inbounds i8, ptr %.0249, i64 8
   %95 = load i8, ptr %94, align 8
   %.not266 = icmp eq i8 %95, 6
   br i1 %.not266, label %122, label %96
 
-96:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+96:                                               ; preds = %_get_zval_cv_lookup.exit
   %97 = zext i8 %95 to i32
   %98 = tail call ptr @zend_get_type_by_const(i32 noundef %97) #27
   tail call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.14, ptr noundef %98) #27
@@ -165616,7 +165616,7 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %81, %78, %72, %91, 
   tail call void @llvm.assume(i1 %121)
   br label %422
 
-122:                                              ; preds = %_get_zval_cv_lookup.argprom.exit
+122:                                              ; preds = %_get_zval_cv_lookup.exit
   %123 = load ptr, ptr %.0249, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 16
   %125 = load i64, ptr %124, align 8
@@ -166489,7 +166489,7 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_VAR_TMPVARCV_HANDLER
 15:                                               ; preds = %13
   %16 = sext i32 %11 to i64
   %17 = getelementptr inbounds i8, ptr %0, i64 %16
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 18:                                               ; preds = %13
   %19 = icmp eq i8 %9, 4
@@ -166499,12 +166499,12 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_VAR_TMPVARCV_HANDLER
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8
   %24 = icmp eq i8 %23, 10
-  br i1 %24, label %25, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %24, label %25, label %_get_zval_cv_lookup.exit
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %21, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 28:                                               ; preds = %1
   %29 = icmp eq i8 %9, 8
@@ -166513,7 +166513,7 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_VAR_TMPVARCV_HANDLER
   %31 = getelementptr inbounds i8, ptr %0, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load i8, ptr %32, align 8
-  switch i8 %33, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %33, label %_get_zval_cv_lookup.exit [
     i8 0, label %34
     i8 10, label %47
   ]
@@ -166521,7 +166521,7 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_VAR_TMPVARCV_HANDLER
 34:                                               ; preds = %28
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %36, label %37, label %_get_zval_cv_lookup.exit
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %0, i64 24
@@ -166534,21 +166534,21 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_VAR_TMPVARCV_HANDLER
   %45 = getelementptr inbounds ptr, ptr %41, i64 %44
   %46 = load ptr, ptr %45, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %46) #27
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 47:                                               ; preds = %28
   %48 = load ptr, ptr %31, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %37, %34, %28, %47, %18, %25, %15
+_get_zval_cv_lookup.exit:                         ; preds = %37, %34, %28, %47, %18, %25, %15
   %.0227 = phi ptr [ %17, %15 ], [ %27, %25 ], [ %21, %18 ], [ %49, %47 ], [ %31, %28 ], [ @executor_globals, %34 ], [ @executor_globals, %37 ]
   %50 = getelementptr inbounds i8, ptr %.0227, i64 8
   %51 = load i8, ptr %50, align 8
   %.not237 = icmp eq i8 %51, 6
   br i1 %.not237, label %78, label %52
 
-52:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+52:                                               ; preds = %_get_zval_cv_lookup.exit
   %53 = zext i8 %51 to i32
   %54 = tail call ptr @zend_get_type_by_const(i32 noundef %53) #27
   tail call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.14, ptr noundef %54) #27
@@ -166593,7 +166593,7 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %37, %34, %28, %47, 
   tail call void @llvm.assume(i1 %77)
   br label %378
 
-78:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+78:                                               ; preds = %_get_zval_cv_lookup.exit
   %79 = load ptr, ptr %.0227, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 16
   %81 = load i64, ptr %80, align 8
@@ -167526,7 +167526,7 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_UNUSED_TMPVARCV_HAND
 41:                                               ; preds = %39
   %42 = sext i32 %37 to i64
   %43 = getelementptr inbounds i8, ptr %0, i64 %42
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 44:                                               ; preds = %39
   %45 = icmp eq i8 %35, 4
@@ -167536,12 +167536,12 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_UNUSED_TMPVARCV_HAND
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load i8, ptr %48, align 8
   %50 = icmp eq i8 %49, 10
-  br i1 %50, label %51, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %50, label %51, label %_get_zval_cv_lookup.exit
 
 51:                                               ; preds = %44
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 54:                                               ; preds = %33
   %55 = icmp eq i8 %35, 8
@@ -167550,7 +167550,7 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_UNUSED_TMPVARCV_HAND
   %57 = getelementptr inbounds i8, ptr %0, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load i8, ptr %58, align 8
-  switch i8 %59, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %59, label %_get_zval_cv_lookup.exit [
     i8 0, label %60
     i8 10, label %73
   ]
@@ -167558,7 +167558,7 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_UNUSED_TMPVARCV_HAND
 60:                                               ; preds = %54
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %62, label %63, label %_get_zval_cv_lookup.exit
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds i8, ptr %0, i64 24
@@ -167571,21 +167571,21 @@ define internal noundef i32 @ZEND_FETCH_CLASS_CONSTANT_SPEC_UNUSED_TMPVARCV_HAND
   %71 = getelementptr inbounds ptr, ptr %67, i64 %70
   %72 = load ptr, ptr %71, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %72) #27
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 73:                                               ; preds = %54
   %74 = load ptr, ptr %57, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %63, %60, %54, %73, %44, %51, %41
+_get_zval_cv_lookup.exit:                         ; preds = %63, %60, %54, %73, %44, %51, %41
   %.0239 = phi ptr [ %43, %41 ], [ %53, %51 ], [ %47, %44 ], [ %75, %73 ], [ %57, %54 ], [ @executor_globals, %60 ], [ @executor_globals, %63 ]
   %76 = getelementptr inbounds i8, ptr %.0239, i64 8
   %77 = load i8, ptr %76, align 8
   %.not250 = icmp eq i8 %77, 6
   br i1 %.not250, label %104, label %78
 
-78:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+78:                                               ; preds = %_get_zval_cv_lookup.exit
   %79 = zext i8 %77 to i32
   %80 = tail call ptr @zend_get_type_by_const(i32 noundef %79) #27
   tail call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.14, ptr noundef %80) #27
@@ -167630,7 +167630,7 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %63, %60, %54, %73, 
   tail call void @llvm.assume(i1 %103)
   br label %404
 
-104:                                              ; preds = %_get_zval_cv_lookup.argprom.exit
+104:                                              ; preds = %_get_zval_cv_lookup.exit
   %105 = load ptr, ptr %.0239, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 16
   %107 = load i64, ptr %106, align 8
@@ -168446,7 +168446,7 @@ define internal noundef i32 @ZEND_BIND_STATIC_SPEC_CV_HANDLER(ptr nocapture noun
 87:                                               ; preds = %85
   %88 = sext i32 %83 to i64
   %89 = getelementptr inbounds i8, ptr %0, i64 %88
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 90:                                               ; preds = %85
   %91 = icmp eq i8 %71, 4
@@ -168456,12 +168456,12 @@ define internal noundef i32 @ZEND_BIND_STATIC_SPEC_CV_HANDLER(ptr nocapture noun
   %94 = getelementptr inbounds i8, ptr %93, i64 8
   %95 = load i8, ptr %94, align 8
   %96 = icmp eq i8 %95, 10
-  br i1 %96, label %97, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %96, label %97, label %_get_zval_cv_lookup.exit
 
 97:                                               ; preds = %90
   %98 = load ptr, ptr %93, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 100:                                              ; preds = %78
   %switch = icmp eq i8 %71, 1
@@ -168470,13 +168470,13 @@ define internal noundef i32 @ZEND_BIND_STATIC_SPEC_CV_HANDLER(ptr nocapture noun
 
 102:                                              ; preds = %100
   %103 = getelementptr inbounds i8, ptr %2, i64 %101
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds i8, ptr %0, i64 %101
   %106 = getelementptr inbounds i8, ptr %105, i64 8
   %107 = load i8, ptr %106, align 8
-  switch i8 %107, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %107, label %_get_zval_cv_lookup.exit [
     i8 0, label %108
     i8 10, label %120
   ]
@@ -168484,7 +168484,7 @@ define internal noundef i32 @ZEND_BIND_STATIC_SPEC_CV_HANDLER(ptr nocapture noun
 108:                                              ; preds = %104
   %109 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %111, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %110, label %111, label %_get_zval_cv_lookup.exit
 
 111:                                              ; preds = %108
   %112 = load ptr, ptr %7, align 8
@@ -168496,14 +168496,14 @@ define internal noundef i32 @ZEND_BIND_STATIC_SPEC_CV_HANDLER(ptr nocapture noun
   %118 = getelementptr inbounds ptr, ptr %114, i64 %117
   %119 = load ptr, ptr %118, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %119) #27
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 120:                                              ; preds = %104
   %121 = load ptr, ptr %105, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %111, %108, %104, %120, %90, %97, %102, %87
+_get_zval_cv_lookup.exit:                         ; preds = %111, %108, %104, %120, %90, %97, %102, %87
   %.0165 = phi ptr [ %89, %87 ], [ %103, %102 ], [ %99, %97 ], [ %93, %90 ], [ %122, %120 ], [ %105, %104 ], [ @executor_globals, %108 ], [ @executor_globals, %111 ]
   %123 = load ptr, ptr %.0165, align 8
   %124 = getelementptr inbounds i8, ptr %.0165, i64 8
@@ -168515,13 +168515,13 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %111, %108, %104, %1
   %.not190 = icmp eq i32 %127, 0
   br i1 %.not190, label %131, label %128
 
-128:                                              ; preds = %_get_zval_cv_lookup.argprom.exit
+128:                                              ; preds = %_get_zval_cv_lookup.exit
   %129 = load i32, ptr %123, align 4
   %130 = add i32 %129, 1
   store i32 %130, ptr %123, align 4
   br label %131
 
-131:                                              ; preds = %_get_zval_cv_lookup.argprom.exit, %128
+131:                                              ; preds = %_get_zval_cv_lookup.exit, %128
   %132 = load i8, ptr %70, align 2
   %133 = and i8 %132, 6
   %.not191 = icmp eq i8 %133, 0
@@ -173637,13 +173637,13 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CONST_CONST_HAND
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %10, align 8
-  %16 = tail call fastcc zeroext i1 @zend_array_key_exists_fast.argprom(ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %16 = tail call fastcc zeroext i1 @zend_array_key_exists_fast(ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %0)
   br label %19
 
 17:                                               ; preds = %1
   %18 = getelementptr i8, ptr %6, i64 8
   %.val = load i8, ptr %18, align 8
-  tail call fastcc void @zend_array_key_exists_error.argprom(ptr noundef nonnull %10, i8 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_array_key_exists_error(ptr noundef nonnull %10, i8 %.val, ptr noundef nonnull %0)
   br label %19
 
 19:                                               ; preds = %14, %17
@@ -173846,7 +173846,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CONST_TMPVAR_HAN
 13:                                               ; preds = %1, %16
   %.059 = phi ptr [ %10, %1 ], [ %18, %16 ]
   %14 = load ptr, ptr %.059, align 8
-  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast.argprom(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
   br label %24
 
 16:                                               ; preds = %1
@@ -173861,7 +173861,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CONST_TMPVAR_HAN
   %.1 = phi ptr [ %18, %16 ], [ %10, %1 ]
   %23 = getelementptr i8, ptr %6, i64 8
   %.val = load i8, ptr %23, align 8
-  tail call fastcc void @zend_array_key_exists_error.argprom(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_array_key_exists_error(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
   br label %24
 
 24:                                               ; preds = %22, %13
@@ -174088,7 +174088,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CONST_CV_HANDLER
 13:                                               ; preds = %1, %16
   %.047 = phi ptr [ %10, %1 ], [ %18, %16 ]
   %14 = load ptr, ptr %.047, align 8
-  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast.argprom(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
   br label %24
 
 16:                                               ; preds = %1
@@ -174103,7 +174103,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CONST_CV_HANDLER
   %.1 = phi ptr [ %18, %16 ], [ %10, %1 ]
   %23 = getelementptr i8, ptr %6, i64 8
   %.val = load i8, ptr %23, align 8
-  tail call fastcc void @zend_array_key_exists_error.argprom(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_array_key_exists_error(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
   br label %24
 
 24:                                               ; preds = %13, %22
@@ -174303,13 +174303,13 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_TMPVAR_CONST_HAN
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %10, align 8
-  %16 = tail call fastcc zeroext i1 @zend_array_key_exists_fast.argprom(ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %16 = tail call fastcc zeroext i1 @zend_array_key_exists_fast(ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %0)
   br label %19
 
 17:                                               ; preds = %1
   %18 = getelementptr i8, ptr %6, i64 8
   %.val = load i8, ptr %18, align 8
-  tail call fastcc void @zend_array_key_exists_error.argprom(ptr noundef nonnull %10, i8 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_array_key_exists_error(ptr noundef nonnull %10, i8 %.val, ptr noundef nonnull %0)
   br label %19
 
 19:                                               ; preds = %17, %14
@@ -174536,7 +174536,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_TMPVAR_TMPVAR_HA
 13:                                               ; preds = %1, %16
   %.071 = phi ptr [ %10, %1 ], [ %18, %16 ]
   %14 = load ptr, ptr %.071, align 8
-  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast.argprom(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
   br label %24
 
 16:                                               ; preds = %1
@@ -174551,7 +174551,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_TMPVAR_TMPVAR_HA
   %.1 = phi ptr [ %18, %16 ], [ %10, %1 ]
   %23 = getelementptr i8, ptr %6, i64 8
   %.val = load i8, ptr %23, align 8
-  tail call fastcc void @zend_array_key_exists_error.argprom(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_array_key_exists_error(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
   br label %24
 
 24:                                               ; preds = %22, %13
@@ -174802,7 +174802,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_TMPVAR_CV_HANDLE
 13:                                               ; preds = %1, %16
   %.059 = phi ptr [ %10, %1 ], [ %18, %16 ]
   %14 = load ptr, ptr %.059, align 8
-  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast.argprom(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
   br label %24
 
 16:                                               ; preds = %1
@@ -174817,7 +174817,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_TMPVAR_CV_HANDLE
   %.1 = phi ptr [ %18, %16 ], [ %10, %1 ]
   %23 = getelementptr i8, ptr %6, i64 8
   %.val = load i8, ptr %23, align 8
-  tail call fastcc void @zend_array_key_exists_error.argprom(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_array_key_exists_error(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
   br label %24
 
 24:                                               ; preds = %22, %13
@@ -175041,13 +175041,13 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CV_CONST_HANDLER
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %10, align 8
-  %16 = tail call fastcc zeroext i1 @zend_array_key_exists_fast.argprom(ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %16 = tail call fastcc zeroext i1 @zend_array_key_exists_fast(ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %0)
   br label %19
 
 17:                                               ; preds = %1
   %18 = getelementptr i8, ptr %6, i64 8
   %.val = load i8, ptr %18, align 8
-  tail call fastcc void @zend_array_key_exists_error.argprom(ptr noundef nonnull %10, i8 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_array_key_exists_error(ptr noundef nonnull %10, i8 %.val, ptr noundef nonnull %0)
   br label %19
 
 19:                                               ; preds = %14, %17
@@ -175250,7 +175250,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CV_TMPVAR_HANDLE
 13:                                               ; preds = %1, %16
   %.059 = phi ptr [ %10, %1 ], [ %18, %16 ]
   %14 = load ptr, ptr %.059, align 8
-  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast.argprom(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
   br label %24
 
 16:                                               ; preds = %1
@@ -175265,7 +175265,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CV_TMPVAR_HANDLE
   %.1 = phi ptr [ %18, %16 ], [ %10, %1 ]
   %23 = getelementptr i8, ptr %6, i64 8
   %.val = load i8, ptr %23, align 8
-  tail call fastcc void @zend_array_key_exists_error.argprom(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_array_key_exists_error(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
   br label %24
 
 24:                                               ; preds = %22, %13
@@ -175492,7 +175492,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CV_CV_HANDLER(pt
 13:                                               ; preds = %1, %16
   %.047 = phi ptr [ %10, %1 ], [ %18, %16 ]
   %14 = load ptr, ptr %.047, align 8
-  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast.argprom(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = tail call fastcc zeroext i1 @zend_array_key_exists_fast(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %0)
   br label %24
 
 16:                                               ; preds = %1
@@ -175507,7 +175507,7 @@ define internal range(i32 0, 2) i32 @ZEND_ARRAY_KEY_EXISTS_SPEC_CV_CV_HANDLER(pt
   %.1 = phi ptr [ %18, %16 ], [ %10, %1 ]
   %23 = getelementptr i8, ptr %6, i64 8
   %.val = load i8, ptr %23, align 8
-  tail call fastcc void @zend_array_key_exists_error.argprom(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_array_key_exists_error(ptr noundef nonnull %.1, i8 %.val, ptr noundef nonnull %0)
   br label %24
 
 24:                                               ; preds = %13, %22
@@ -178874,7 +178874,7 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_1_SPEC_UNUSED_HANDLER(ptr noun
 21:                                               ; preds = %19
   %22 = sext i32 %17 to i64
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 24:                                               ; preds = %19
   %25 = icmp eq i8 %15, 4
@@ -178884,15 +178884,15 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_1_SPEC_UNUSED_HANDLER(ptr noun
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, 10
-  br i1 %30, label %31, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %30, label %31, label %_get_zval_cv_lookup.exit
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %27, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 34:                                               ; preds = %1
-  switch i8 %15, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %15, label %_get_zval_cv_lookup.exit [
     i8 1, label %35
     i8 8, label %38
   ]
@@ -178900,14 +178900,14 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_1_SPEC_UNUSED_HANDLER(ptr noun
 35:                                               ; preds = %34
   %36 = sext i32 %17 to i64
   %37 = getelementptr inbounds i8, ptr %2, i64 %36
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 38:                                               ; preds = %34
   %39 = sext i32 %17 to i64
   %40 = getelementptr inbounds i8, ptr %0, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load i8, ptr %41, align 8
-  switch i8 %42, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %42, label %_get_zval_cv_lookup.exit [
     i8 0, label %43
     i8 10, label %56
   ]
@@ -178915,7 +178915,7 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_1_SPEC_UNUSED_HANDLER(ptr noun
 43:                                               ; preds = %38
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %_get_zval_cv_lookup.argprom.exit.thread.thread
+  br i1 %45, label %46, label %_get_zval_cv_lookup.exit.thread.thread
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %0, i64 24
@@ -178928,33 +178928,33 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_1_SPEC_UNUSED_HANDLER(ptr noun
   %54 = getelementptr inbounds ptr, ptr %50, i64 %53
   %55 = load ptr, ptr %54, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %55) #27
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 56:                                               ; preds = %38
   %57 = load ptr, ptr %40, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %34, %38, %56, %24, %31, %35, %21
+_get_zval_cv_lookup.exit:                         ; preds = %46, %34, %38, %56, %24, %31, %35, %21
   %.075.ph = phi ptr [ @executor_globals, %46 ], [ null, %34 ], [ %40, %38 ], [ %58, %56 ], [ %27, %24 ], [ %33, %31 ], [ %37, %35 ], [ %23, %21 ]
   %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not79 = icmp eq ptr %.pr, null
-  br i1 %.not79, label %76, label %_get_zval_cv_lookup.argprom.exit.thread
+  br i1 %.not79, label %76, label %_get_zval_cv_lookup.exit.thread
 
-_get_zval_cv_lookup.argprom.exit.thread:          ; preds = %_get_zval_cv_lookup.argprom.exit
+_get_zval_cv_lookup.exit.thread:                  ; preds = %_get_zval_cv_lookup.exit
   %.pre = load i8, ptr %14, align 1
   %59 = and i8 %.pre, 6
   %60 = icmp eq i8 %59, 0
-  br i1 %60, label %_get_zval_cv_lookup.argprom.exit.thread.thread, label %61
+  br i1 %60, label %_get_zval_cv_lookup.exit.thread.thread, label %61
 
-61:                                               ; preds = %_get_zval_cv_lookup.argprom.exit.thread
+61:                                               ; preds = %_get_zval_cv_lookup.exit.thread
   %62 = load i32, ptr %16, align 8
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i8, ptr %0, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 9
   %66 = load i8, ptr %65, align 1
   %.not84 = icmp eq i8 %66, 0
-  br i1 %.not84, label %_get_zval_cv_lookup.argprom.exit.thread.thread, label %67
+  br i1 %.not84, label %_get_zval_cv_lookup.exit.thread.thread, label %67
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %64, align 8
@@ -178964,20 +178964,20 @@ _get_zval_cv_lookup.argprom.exit.thread:          ; preds = %_get_zval_cv_lookup
   %71 = add i32 %69, -1
   store i32 %71, ptr %68, align 4
   %.not85 = icmp eq i32 %71, 0
-  br i1 %.not85, label %72, label %_get_zval_cv_lookup.argprom.exit.thread.thread
+  br i1 %.not85, label %72, label %_get_zval_cv_lookup.exit.thread.thread
 
 72:                                               ; preds = %67
   %73 = load ptr, ptr %64, align 8
   tail call void @rc_dtor_func(ptr noundef %73) #27
-  br label %_get_zval_cv_lookup.argprom.exit.thread.thread
+  br label %_get_zval_cv_lookup.exit.thread.thread
 
-_get_zval_cv_lookup.argprom.exit.thread.thread:   ; preds = %43, %61, %67, %72, %_get_zval_cv_lookup.argprom.exit.thread
+_get_zval_cv_lookup.exit.thread.thread:           ; preds = %43, %61, %67, %72, %_get_zval_cv_lookup.exit.thread
   %74 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %75 = icmp ne ptr %74, null
   tail call void @llvm.assume(i1 %75)
   br label %98
 
-76:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+76:                                               ; preds = %_get_zval_cv_lookup.exit
   %77 = load i32, ptr %9, align 8
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %0, i64 %78
@@ -179017,7 +179017,7 @@ _get_zval_cv_lookup.argprom.exit.thread.thread:   ; preds = %43, %61, %67, %72, 
   store ptr %97, ptr %0, align 8
   br label %98
 
-98:                                               ; preds = %95, %_get_zval_cv_lookup.argprom.exit.thread.thread
+98:                                               ; preds = %95, %_get_zval_cv_lookup.exit.thread.thread
   ret i32 0
 }
 
@@ -179051,7 +179051,7 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_2_SPEC_HANDLER(ptr noundef %0)
 21:                                               ; preds = %19
   %22 = sext i32 %17 to i64
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 24:                                               ; preds = %19
   %25 = icmp eq i8 %15, 4
@@ -179061,15 +179061,15 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_2_SPEC_HANDLER(ptr noundef %0)
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, 10
-  br i1 %30, label %31, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %30, label %31, label %_get_zval_cv_lookup.exit
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %27, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 34:                                               ; preds = %1
-  switch i8 %15, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %15, label %_get_zval_cv_lookup.exit [
     i8 1, label %35
     i8 8, label %38
   ]
@@ -179077,14 +179077,14 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_2_SPEC_HANDLER(ptr noundef %0)
 35:                                               ; preds = %34
   %36 = sext i32 %17 to i64
   %37 = getelementptr inbounds i8, ptr %2, i64 %36
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 38:                                               ; preds = %34
   %39 = sext i32 %17 to i64
   %40 = getelementptr inbounds i8, ptr %0, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load i8, ptr %41, align 8
-  switch i8 %42, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %42, label %_get_zval_cv_lookup.exit [
     i8 0, label %43
     i8 10, label %56
   ]
@@ -179092,7 +179092,7 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_2_SPEC_HANDLER(ptr noundef %0)
 43:                                               ; preds = %38
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %45, label %46, label %_get_zval_cv_lookup.exit
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %0, i64 24
@@ -179105,14 +179105,14 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_2_SPEC_HANDLER(ptr noundef %0)
   %54 = getelementptr inbounds ptr, ptr %50, i64 %53
   %55 = load ptr, ptr %54, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %55) #27
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 56:                                               ; preds = %38
   %57 = load ptr, ptr %40, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, %56, %24, %31, %35, %21
+_get_zval_cv_lookup.exit:                         ; preds = %46, %43, %34, %38, %56, %24, %31, %35, %21
   %.0146 = phi ptr [ %23, %21 ], [ %37, %35 ], [ %33, %31 ], [ %27, %24 ], [ %58, %56 ], [ %40, %38 ], [ null, %34 ], [ @executor_globals, %43 ], [ @executor_globals, %46 ]
   %59 = getelementptr inbounds i8, ptr %2, i64 30
   %60 = load i8, ptr %59, align 2
@@ -179122,14 +179122,14 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, 
   %.not154 = icmp eq i8 %63, 0
   br i1 %.not154, label %79, label %64
 
-64:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+64:                                               ; preds = %_get_zval_cv_lookup.exit
   %65 = icmp eq i8 %60, 2
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %64
   %67 = sext i32 %62 to i64
   %68 = getelementptr inbounds i8, ptr %0, i64 %67
-  br label %_get_zval_cv_lookup.argprom.exit169
+  br label %_get_zval_cv_lookup.exit169
 
 69:                                               ; preds = %64
   %70 = icmp eq i8 %60, 4
@@ -179139,15 +179139,15 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, 
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load i8, ptr %73, align 8
   %75 = icmp eq i8 %74, 10
-  br i1 %75, label %76, label %_get_zval_cv_lookup.argprom.exit169
+  br i1 %75, label %76, label %_get_zval_cv_lookup.exit169
 
 76:                                               ; preds = %69
   %77 = load ptr, ptr %72, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit169
+  br label %_get_zval_cv_lookup.exit169
 
-79:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
-  switch i8 %60, label %_get_zval_cv_lookup.argprom.exit169 [
+79:                                               ; preds = %_get_zval_cv_lookup.exit
+  switch i8 %60, label %_get_zval_cv_lookup.exit169 [
     i8 1, label %80
     i8 8, label %83
   ]
@@ -179155,14 +179155,14 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, 
 80:                                               ; preds = %79
   %81 = sext i32 %62 to i64
   %82 = getelementptr inbounds i8, ptr %2, i64 %81
-  br label %_get_zval_cv_lookup.argprom.exit169
+  br label %_get_zval_cv_lookup.exit169
 
 83:                                               ; preds = %79
   %84 = sext i32 %62 to i64
   %85 = getelementptr inbounds i8, ptr %0, i64 %84
   %86 = getelementptr inbounds i8, ptr %85, i64 8
   %87 = load i8, ptr %86, align 8
-  switch i8 %87, label %_get_zval_cv_lookup.argprom.exit169 [
+  switch i8 %87, label %_get_zval_cv_lookup.exit169 [
     i8 0, label %88
     i8 10, label %101
   ]
@@ -179170,7 +179170,7 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, 
 88:                                               ; preds = %83
   %89 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %_get_zval_cv_lookup.argprom.exit169.thread
+  br i1 %90, label %91, label %_get_zval_cv_lookup.exit169.thread
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds i8, ptr %0, i64 24
@@ -179183,26 +179183,26 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, 
   %99 = getelementptr inbounds ptr, ptr %95, i64 %98
   %100 = load ptr, ptr %99, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %100) #27
-  br label %_get_zval_cv_lookup.argprom.exit169
+  br label %_get_zval_cv_lookup.exit169
 
 101:                                              ; preds = %83
   %102 = load ptr, ptr %85, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit169
+  br label %_get_zval_cv_lookup.exit169
 
-_get_zval_cv_lookup.argprom.exit169:              ; preds = %91, %79, %83, %101, %69, %76, %80, %66
+_get_zval_cv_lookup.exit169:                      ; preds = %91, %79, %83, %101, %69, %76, %80, %66
   %.0148.ph = phi ptr [ @executor_globals, %91 ], [ null, %79 ], [ %85, %83 ], [ %103, %101 ], [ %72, %69 ], [ %78, %76 ], [ %82, %80 ], [ %68, %66 ]
   %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not155 = icmp eq ptr %.pr, null
-  br i1 %.not155, label %138, label %_get_zval_cv_lookup.argprom.exit169.thread
+  br i1 %.not155, label %138, label %_get_zval_cv_lookup.exit169.thread
 
-_get_zval_cv_lookup.argprom.exit169.thread:       ; preds = %88, %_get_zval_cv_lookup.argprom.exit169
+_get_zval_cv_lookup.exit169.thread:               ; preds = %88, %_get_zval_cv_lookup.exit169
   %104 = load i8, ptr %14, align 1
   %105 = and i8 %104, 6
   %.not163 = icmp eq i8 %105, 0
   br i1 %.not163, label %119, label %106
 
-106:                                              ; preds = %_get_zval_cv_lookup.argprom.exit169.thread
+106:                                              ; preds = %_get_zval_cv_lookup.exit169.thread
   %107 = load i32, ptr %16, align 8
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i8, ptr %0, i64 %108
@@ -179226,7 +179226,7 @@ _get_zval_cv_lookup.argprom.exit169.thread:       ; preds = %88, %_get_zval_cv_l
   tail call void @rc_dtor_func(ptr noundef %118) #27
   br label %119
 
-119:                                              ; preds = %106, %112, %117, %_get_zval_cv_lookup.argprom.exit169.thread
+119:                                              ; preds = %106, %112, %117, %_get_zval_cv_lookup.exit169.thread
   %120 = load i8, ptr %59, align 2
   %121 = and i8 %120, 6
   %.not166 = icmp eq i8 %121, 0
@@ -179262,7 +179262,7 @@ _get_zval_cv_lookup.argprom.exit169.thread:       ; preds = %88, %_get_zval_cv_l
   tail call void @llvm.assume(i1 %137)
   br label %184
 
-138:                                              ; preds = %_get_zval_cv_lookup.argprom.exit169
+138:                                              ; preds = %_get_zval_cv_lookup.exit169
   %139 = load i32, ptr %9, align 8
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds i8, ptr %0, i64 %140
@@ -179380,7 +179380,7 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_3_SPEC_HANDLER(ptr noundef %0)
 21:                                               ; preds = %19
   %22 = sext i32 %17 to i64
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 24:                                               ; preds = %19
   %25 = icmp eq i8 %15, 4
@@ -179390,15 +179390,15 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_3_SPEC_HANDLER(ptr noundef %0)
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, 10
-  br i1 %30, label %31, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %30, label %31, label %_get_zval_cv_lookup.exit
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %27, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 34:                                               ; preds = %1
-  switch i8 %15, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %15, label %_get_zval_cv_lookup.exit [
     i8 1, label %35
     i8 8, label %38
   ]
@@ -179406,14 +179406,14 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_3_SPEC_HANDLER(ptr noundef %0)
 35:                                               ; preds = %34
   %36 = sext i32 %17 to i64
   %37 = getelementptr inbounds i8, ptr %2, i64 %36
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 38:                                               ; preds = %34
   %39 = sext i32 %17 to i64
   %40 = getelementptr inbounds i8, ptr %0, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load i8, ptr %41, align 8
-  switch i8 %42, label %_get_zval_cv_lookup.argprom.exit [
+  switch i8 %42, label %_get_zval_cv_lookup.exit [
     i8 0, label %43
     i8 10, label %56
   ]
@@ -179421,7 +179421,7 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_3_SPEC_HANDLER(ptr noundef %0)
 43:                                               ; preds = %38
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %_get_zval_cv_lookup.argprom.exit
+  br i1 %45, label %46, label %_get_zval_cv_lookup.exit
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %0, i64 24
@@ -179434,14 +179434,14 @@ define internal noundef i32 @ZEND_FRAMELESS_ICALL_3_SPEC_HANDLER(ptr noundef %0)
   %54 = getelementptr inbounds ptr, ptr %50, i64 %53
   %55 = load ptr, ptr %54, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %55) #27
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
 56:                                               ; preds = %38
   %57 = load ptr, ptr %40, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit
+  br label %_get_zval_cv_lookup.exit
 
-_get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, %56, %24, %31, %35, %21
+_get_zval_cv_lookup.exit:                         ; preds = %46, %43, %34, %38, %56, %24, %31, %35, %21
   %.0212 = phi ptr [ %23, %21 ], [ %37, %35 ], [ %33, %31 ], [ %27, %24 ], [ %58, %56 ], [ %40, %38 ], [ null, %34 ], [ @executor_globals, %43 ], [ @executor_globals, %46 ]
   %59 = getelementptr inbounds i8, ptr %2, i64 30
   %60 = load i8, ptr %59, align 2
@@ -179451,14 +179451,14 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, 
   %.not223 = icmp eq i8 %63, 0
   br i1 %.not223, label %79, label %64
 
-64:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
+64:                                               ; preds = %_get_zval_cv_lookup.exit
   %65 = icmp eq i8 %60, 2
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %64
   %67 = sext i32 %62 to i64
   %68 = getelementptr inbounds i8, ptr %0, i64 %67
-  br label %_get_zval_cv_lookup.argprom.exit246
+  br label %_get_zval_cv_lookup.exit246
 
 69:                                               ; preds = %64
   %70 = icmp eq i8 %60, 4
@@ -179468,15 +179468,15 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, 
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load i8, ptr %73, align 8
   %75 = icmp eq i8 %74, 10
-  br i1 %75, label %76, label %_get_zval_cv_lookup.argprom.exit246
+  br i1 %75, label %76, label %_get_zval_cv_lookup.exit246
 
 76:                                               ; preds = %69
   %77 = load ptr, ptr %72, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit246
+  br label %_get_zval_cv_lookup.exit246
 
-79:                                               ; preds = %_get_zval_cv_lookup.argprom.exit
-  switch i8 %60, label %_get_zval_cv_lookup.argprom.exit246 [
+79:                                               ; preds = %_get_zval_cv_lookup.exit
+  switch i8 %60, label %_get_zval_cv_lookup.exit246 [
     i8 1, label %80
     i8 8, label %83
   ]
@@ -179484,14 +179484,14 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, 
 80:                                               ; preds = %79
   %81 = sext i32 %62 to i64
   %82 = getelementptr inbounds i8, ptr %2, i64 %81
-  br label %_get_zval_cv_lookup.argprom.exit246
+  br label %_get_zval_cv_lookup.exit246
 
 83:                                               ; preds = %79
   %84 = sext i32 %62 to i64
   %85 = getelementptr inbounds i8, ptr %0, i64 %84
   %86 = getelementptr inbounds i8, ptr %85, i64 8
   %87 = load i8, ptr %86, align 8
-  switch i8 %87, label %_get_zval_cv_lookup.argprom.exit246 [
+  switch i8 %87, label %_get_zval_cv_lookup.exit246 [
     i8 0, label %88
     i8 10, label %101
   ]
@@ -179499,7 +179499,7 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, 
 88:                                               ; preds = %83
   %89 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %_get_zval_cv_lookup.argprom.exit246
+  br i1 %90, label %91, label %_get_zval_cv_lookup.exit246
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds i8, ptr %0, i64 24
@@ -179512,14 +179512,14 @@ _get_zval_cv_lookup.argprom.exit:                 ; preds = %46, %43, %34, %38, 
   %99 = getelementptr inbounds ptr, ptr %95, i64 %98
   %100 = load ptr, ptr %99, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef %100) #27
-  br label %_get_zval_cv_lookup.argprom.exit246
+  br label %_get_zval_cv_lookup.exit246
 
 101:                                              ; preds = %83
   %102 = load ptr, ptr %85, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 8
-  br label %_get_zval_cv_lookup.argprom.exit246
+  br label %_get_zval_cv_lookup.exit246
 
-_get_zval_cv_lookup.argprom.exit246:              ; preds = %91, %88, %79, %83, %101, %69, %76, %80, %66
+_get_zval_cv_lookup.exit246:                      ; preds = %91, %88, %79, %83, %101, %69, %76, %80, %66
   %.0214 = phi ptr [ %68, %66 ], [ %82, %80 ], [ %78, %76 ], [ %72, %69 ], [ %103, %101 ], [ %85, %83 ], [ null, %79 ], [ @executor_globals, %88 ], [ @executor_globals, %91 ]
   %104 = getelementptr inbounds i8, ptr %2, i64 32
   %105 = getelementptr inbounds i8, ptr %2, i64 61
@@ -179530,7 +179530,7 @@ _get_zval_cv_lookup.argprom.exit246:              ; preds = %91, %88, %79, %83, 
   %.not224 = icmp eq i8 %109, 0
   br i1 %.not224, label %125, label %110
 
-110:                                              ; preds = %_get_zval_cv_lookup.argprom.exit246
+110:                                              ; preds = %_get_zval_cv_lookup.exit246
   %111 = icmp eq i8 %106, 2
   br i1 %111, label %112, label %115
 
@@ -179554,7 +179554,7 @@ _get_zval_cv_lookup.argprom.exit246:              ; preds = %91, %88, %79, %83, 
   %124 = getelementptr inbounds i8, ptr %123, i64 8
   br label %zval_undefined_cv.exit
 
-125:                                              ; preds = %_get_zval_cv_lookup.argprom.exit246
+125:                                              ; preds = %_get_zval_cv_lookup.exit246
   switch i8 %106, label %zval_undefined_cv.exit [
     i8 1, label %126
     i8 8, label %129
@@ -186250,7 +186250,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CONST_TMPVARCV_HANDLER(
 24:                                               ; preds = %14
   %25 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %25, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 14, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 14, i32 %.val, ptr noundef nonnull %0)
   %26 = load ptr, ptr %0, align 8
   br label %80
 
@@ -186329,7 +186329,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CONST_TMPVARCV_HANDLER(
 70:                                               ; preds = %1
   %71 = getelementptr i8, ptr %2, i64 16
   %.val68 = load i32, ptr %71, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 %.val68, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 %.val68, ptr noundef nonnull %0)
   %72 = load ptr, ptr %0, align 8
   br label %80
 
@@ -186388,7 +186388,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_CONST_HANDLER(pt
 23:                                               ; preds = %13
   %24 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %24, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef nonnull %.0108, ptr noundef nonnull %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R(ptr noundef nonnull %.0108, ptr noundef nonnull %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %25 = load i32, ptr %3, align 8
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %0, i64 %26
@@ -186509,7 +186509,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_CONST_HANDLER(pt
   %spec.select = getelementptr inbounds i8, ptr %10, i64 %spec.select.idx
   %97 = getelementptr i8, ptr %2, i64 16
   %.val124 = load i32, ptr %97, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef nonnull %.1, ptr noundef %spec.select, i32 %.val124, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef nonnull %.1, ptr noundef %spec.select, i32 %.val124, ptr noundef nonnull %0)
   %98 = load i32, ptr %3, align 8
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds i8, ptr %0, i64 %99
@@ -186604,7 +186604,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_TMPVARCV_HANDLER
 23:                                               ; preds = %13
   %24 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %24, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef nonnull %.0106, ptr noundef nonnull %10, i32 noundef 14, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R(ptr noundef nonnull %.0106, ptr noundef nonnull %10, i32 noundef 14, i32 %.val, ptr noundef nonnull %0)
   %25 = load i32, ptr %3, align 8
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %0, i64 %26
@@ -186720,7 +186720,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_TMPVARCV_HANDLER
   %.1 = phi ptr [ %89, %87 ], [ %6, %1 ]
   %94 = getelementptr i8, ptr %2, i64 16
   %.val121 = load i32, ptr %94, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef nonnull %.1, ptr noundef nonnull %10, i32 %.val121, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef nonnull %.1, ptr noundef nonnull %10, i32 %.val121, ptr noundef nonnull %0)
   %95 = load i32, ptr %3, align 8
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds i8, ptr %0, i64 %96
@@ -186815,7 +186815,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CV_CONST_HANDLER(ptr no
 23:                                               ; preds = %13
   %24 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %24, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef nonnull %.069, ptr noundef nonnull %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R(ptr noundef nonnull %.069, ptr noundef nonnull %10, i32 noundef 1, i32 %.val, ptr noundef nonnull %0)
   %25 = load ptr, ptr %0, align 8
   br label %88
 
@@ -186908,7 +186908,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CV_CONST_HANDLER(ptr no
   %spec.select = getelementptr inbounds i8, ptr %10, i64 %spec.select.idx
   %79 = getelementptr i8, ptr %2, i64 16
   %.val78 = load i32, ptr %79, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef nonnull %.1, ptr noundef %spec.select, i32 %.val78, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef nonnull %.1, ptr noundef %spec.select, i32 %.val78, ptr noundef nonnull %0)
   %80 = load ptr, ptr %0, align 8
   br label %88
 
@@ -186967,7 +186967,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CV_TMPVARCV_HANDLER(ptr
 23:                                               ; preds = %13
   %24 = getelementptr i8, ptr %2, i64 16
   %.val = load i32, ptr %24, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef nonnull %.067, ptr noundef nonnull %10, i32 noundef 14, i32 %.val, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R(ptr noundef nonnull %.067, ptr noundef nonnull %10, i32 noundef 14, i32 %.val, ptr noundef nonnull %0)
   %25 = load ptr, ptr %0, align 8
   br label %85
 
@@ -187055,7 +187055,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CV_TMPVARCV_HANDLER(ptr
   %.1 = phi ptr [ %71, %69 ], [ %6, %1 ]
   %76 = getelementptr i8, ptr %2, i64 16
   %.val75 = load i32, ptr %76, align 8
-  tail call fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef nonnull %.1, ptr noundef nonnull %10, i32 %.val75, ptr noundef nonnull %0)
+  tail call fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef nonnull %.1, ptr noundef nonnull %10, i32 %.val75, ptr noundef nonnull %0)
   %77 = load ptr, ptr %0, align 8
   br label %85
 
@@ -190086,7 +190086,7 @@ resolve_single_class_type.exit.thread:            ; preds = %25, %resolve_single
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_zval_undefined_op2.retelim(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc void @_zval_undefined_op2(ptr nocapture noundef readonly %0) unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %zval_undefined_cv.exit
@@ -190572,7 +190572,7 @@ declare void @zend_illegal_container_offset(ptr noundef, ptr noundef, i32 nounde
 declare zeroext i8 @_is_numeric_string_ex(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zval_undefined_cv.retelim(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @zval_undefined_cv(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %15
@@ -190613,7 +190613,7 @@ declare void @zend_timeout() local_unnamed_addr #19
 declare ptr @llvm.frameaddress.p0(i32 immarg) #20
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_add_helper_SPEC.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @zend_add_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -190743,7 +190743,7 @@ declare i32 @add_function(ptr noundef, ptr noundef, ptr noundef) #3
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_sub_helper_SPEC.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @zend_sub_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -190873,7 +190873,7 @@ declare i32 @sub_function(ptr noundef, ptr noundef, ptr noundef) #3
 declare { i64, i1 } @llvm.smul.with.overflow.i64(i64, i64) #21
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_mul_helper_SPEC.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @zend_mul_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -191002,7 +191002,7 @@ declare i32 @mul_function(ptr noundef, ptr noundef, ptr noundef) #3
 declare i32 @div_function(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_mod_helper_SPEC.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @zend_mod_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -191129,7 +191129,7 @@ _zval_undefined_op2.exit:                         ; preds = %29, %26, %_zval_und
 declare i32 @mod_function(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_shift_left_helper_SPEC.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @zend_shift_left_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -191256,7 +191256,7 @@ _zval_undefined_op2.exit:                         ; preds = %29, %26, %_zval_und
 declare i32 @shift_left_function(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_shift_right_helper_SPEC.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @zend_shift_right_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -191385,7 +191385,7 @@ declare i32 @shift_right_function(ptr noundef, ptr noundef, ptr noundef) #3
 declare i32 @concat_function(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_bw_or_helper_SPEC.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @zend_bw_or_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -191512,7 +191512,7 @@ _zval_undefined_op2.exit:                         ; preds = %29, %26, %_zval_und
 declare i32 @bitwise_or_function(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_bw_and_helper_SPEC.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @zend_bw_and_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -191639,7 +191639,7 @@ _zval_undefined_op2.exit:                         ; preds = %29, %26, %_zval_und
 declare i32 @bitwise_and_function(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_bw_xor_helper_SPEC.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @zend_bw_xor_helper_SPEC(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -194218,7 +194218,7 @@ zval_undefined_cv.exit.thread:                    ; preds = %105, %zval_undefine
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 4) %4) unnamed_addr #1 {
+define internal fastcc void @zend_handle_fetch_obj_flags(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 4) %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -194825,7 +194825,7 @@ zval_undefined_cv.exit:                           ; preds = %51, %48, %38, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_binary_assign_op_dim_slow.argprom(i8 %.8.val, ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc void @zend_binary_assign_op_dim_slow(i8 %.8.val, ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
   %4 = icmp eq i8 %.8.val, 6
   br i1 %4, label %5, label %24
 
@@ -194867,7 +194867,7 @@ switch.lookup:                                    ; preds = %15, %15, %15, %15
   %20 = load i32, ptr %19, align 4
   %switch.tableidx = add nsw i32 %20, -1
   %21 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_fetch_dimension_address_UNSET.argprom, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_fetch_dimension_address_UNSET, i64 0, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %23
 
@@ -195047,7 +195047,7 @@ zend_undefined_offset_write.exit:                 ; preds = %48, %46, %45, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_binary_assign_op_typed_prop.argprom(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %.20.val, ptr nocapture noundef readonly %3) unnamed_addr #1 {
+define internal fastcc void @zend_binary_assign_op_typed_prop(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %.20.val, ptr nocapture noundef readonly %3) unnamed_addr #1 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = icmp eq i32 %.20.val, 8
   br i1 %6, label %7, label %13
@@ -195512,7 +195512,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_const(ptr nou
   %127 = load i8, ptr %126, align 8
   switch i8 %127, label %202 [
     i8 12, label %128
-    i8 15, label %zend_wrong_assign_to_variable_reference.argprom.exit
+    i8 15, label %zend_wrong_assign_to_variable_reference.exit
   ]
 
 128:                                              ; preds = %.critedge
@@ -195532,7 +195532,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_const(ptr nou
   call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.72) #27
   %136 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %136, null
-  br i1 %.not.i, label %137, label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br i1 %.not.i, label %137, label %zend_wrong_assign_to_variable_reference.exit
 
 137:                                              ; preds = %135
   %138 = getelementptr inbounds i8, ptr %2, i64 9
@@ -195573,7 +195573,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_const(ptr nou
 
 160:                                              ; preds = %156
   %161 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %129, ptr noundef nonnull %2, i8 noundef zeroext 2, i1 noundef zeroext %149, ptr noundef nonnull %7)
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 162:                                              ; preds = %156
   %163 = getelementptr inbounds i8, ptr %157, i64 8
@@ -195595,7 +195595,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_const(ptr nou
   store ptr %169, ptr %.1.i, align 8
   %171 = getelementptr inbounds i8, ptr %.1.i, i64 8
   store i32 %170, ptr %171, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 172:                                              ; preds = %128, %132
   %173 = getelementptr inbounds i8, ptr %14, i64 16
@@ -195608,8 +195608,8 @@ define internal fastcc void @zend_assign_to_property_reference_var_const(ptr nou
   %.val = load ptr, ptr %176, align 8
   %177 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %177, align 4
-  %178 = call fastcc ptr @zend_assign_to_typed_property_reference.argprom.argprom(ptr noundef nonnull %174, ptr noundef %129, ptr noundef %2, ptr noundef %7, i32 %.val.val)
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  %178 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %174, ptr noundef %129, ptr noundef %2, ptr noundef %7, i32 %.val.val)
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 179:                                              ; preds = %172
   %180 = getelementptr inbounds i8, ptr %2, i64 8
@@ -195636,7 +195636,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_const(ptr nou
 
 190:                                              ; preds = %179
   %191 = icmp eq ptr %129, %2
-  br i1 %191, label %zend_wrong_assign_to_variable_reference.argprom.exit, label %._crit_edge.i
+  br i1 %191, label %zend_wrong_assign_to_variable_reference.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %190
   %.pre.i = load ptr, ptr %2, align 8
@@ -195662,21 +195662,21 @@ define internal fastcc void @zend_assign_to_property_reference_var_const(ptr nou
 201:                                              ; preds = %199, %193
   store ptr %195, ptr %129, align 8
   store i32 266, ptr %196, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 202:                                              ; preds = %.critedge
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.73) #27
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #27
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
-zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %201, %190, %168, %160, %135, %.critedge, %202, %175
+zend_wrong_assign_to_variable_reference.exit:     ; preds = %201, %190, %168, %160, %135, %.critedge, %202, %175
   %.0222 = phi ptr [ %178, %175 ], [ @executor_globals, %202 ], [ @executor_globals, %.critedge ], [ @executor_globals, %135 ], [ %161, %160 ], [ %.1.i, %168 ], [ %129, %190 ], [ %129, %201 ]
   %203 = getelementptr inbounds i8, ptr %3, i64 31
   %204 = load i8, ptr %203, align 1
   %.not250 = icmp eq i8 %204, 0
   br i1 %.not250, label %218, label %205
 
-205:                                              ; preds = %zend_wrong_assign_to_variable_reference.argprom.exit
+205:                                              ; preds = %zend_wrong_assign_to_variable_reference.exit
   %206 = getelementptr inbounds i8, ptr %3, i64 16
   %207 = load i32, ptr %206, align 8
   %208 = sext i32 %207 to i64
@@ -195697,7 +195697,7 @@ zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %201, %190, %168
   store i32 %217, ptr %210, align 4
   br label %218
 
-218:                                              ; preds = %205, %215, %zend_wrong_assign_to_variable_reference.argprom.exit
+218:                                              ; preds = %205, %215, %zend_wrong_assign_to_variable_reference.exit
   %219 = load ptr, ptr %7, align 8
   %.not252 = icmp eq ptr %219, null
   br i1 %.not252, label %242, label %220
@@ -195751,7 +195751,7 @@ zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %201, %190, %168
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @zend_assign_to_typed_property_reference.argprom.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, i32 %.24.val.4.val) unnamed_addr #1 {
+define internal fastcc noundef ptr @zend_assign_to_typed_property_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, i32 %.24.val.4.val) unnamed_addr #1 {
   %5 = icmp slt i32 %.24.val.4.val, 0
   %6 = tail call noundef zeroext i1 @zend_verify_prop_assignable_by_ref_ex(ptr noundef readonly %0, ptr noundef %2, i1 noundef zeroext %5, i32 noundef 0)
   br i1 %6, label %7, label %109
@@ -196111,7 +196111,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_var(ptr nound
   %78 = load i8, ptr %77, align 8
   switch i8 %78, label %186 [
     i8 12, label %79
-    i8 15, label %zend_wrong_assign_to_variable_reference.argprom.exit
+    i8 15, label %zend_wrong_assign_to_variable_reference.exit
   ]
 
 79:                                               ; preds = %76
@@ -196132,7 +196132,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_var(ptr nound
   call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.72) #27
   %88 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %88, null
-  br i1 %.not.i, label %89, label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br i1 %.not.i, label %89, label %zend_wrong_assign_to_variable_reference.exit
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds i8, ptr %2, i64 9
@@ -196173,7 +196173,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_var(ptr nound
 
 112:                                              ; preds = %108
   %113 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %80, ptr noundef nonnull %2, i8 noundef zeroext 2, i1 noundef zeroext %101, ptr noundef nonnull %7)
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 114:                                              ; preds = %108
   %115 = getelementptr inbounds i8, ptr %109, i64 8
@@ -196195,7 +196195,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_var(ptr nound
   store ptr %121, ptr %.1.i, align 8
   %123 = getelementptr inbounds i8, ptr %.1.i, i64 8
   store i32 %122, ptr %123, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 124:                                              ; preds = %79, %84
   %125 = load i8, ptr %8, align 8
@@ -196259,8 +196259,8 @@ zend_object_fetch_property_type_info.exit:        ; preds = %156
   %.val = load ptr, ptr %160, align 8
   %161 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %161, align 4
-  %162 = call fastcc ptr @zend_assign_to_typed_property_reference.argprom.argprom(ptr noundef nonnull %155, ptr noundef %80, ptr noundef %2, ptr noundef %7, i32 %.val.val)
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  %162 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %155, ptr noundef %80, ptr noundef %2, ptr noundef %7, i32 %.val.val)
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 163:                                              ; preds = %145, %156, %130, %140, %137
   %164 = getelementptr inbounds i8, ptr %2, i64 8
@@ -196287,7 +196287,7 @@ zend_object_fetch_property_type_info.exit:        ; preds = %156
 
 174:                                              ; preds = %163
   %175 = icmp eq ptr %80, %2
-  br i1 %175, label %zend_wrong_assign_to_variable_reference.argprom.exit, label %._crit_edge.i
+  br i1 %175, label %zend_wrong_assign_to_variable_reference.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %174
   %.pre.i = load ptr, ptr %2, align 8
@@ -196313,21 +196313,21 @@ zend_object_fetch_property_type_info.exit:        ; preds = %156
 185:                                              ; preds = %183, %177
   store ptr %179, ptr %80, align 8
   store i32 266, ptr %180, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 186:                                              ; preds = %76
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.73) #27
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #27
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
-zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %185, %174, %120, %112, %87, %76, %186, %zend_object_fetch_property_type_info.exit
+zend_wrong_assign_to_variable_reference.exit:     ; preds = %185, %174, %120, %112, %87, %76, %186, %zend_object_fetch_property_type_info.exit
   %.0222 = phi ptr [ %162, %zend_object_fetch_property_type_info.exit ], [ @executor_globals, %186 ], [ @executor_globals, %76 ], [ @executor_globals, %87 ], [ %113, %112 ], [ %.1.i, %120 ], [ %80, %174 ], [ %80, %185 ]
   %187 = getelementptr inbounds i8, ptr %3, i64 31
   %188 = load i8, ptr %187, align 1
   %.not244 = icmp eq i8 %188, 0
   br i1 %.not244, label %202, label %189
 
-189:                                              ; preds = %zend_wrong_assign_to_variable_reference.argprom.exit
+189:                                              ; preds = %zend_wrong_assign_to_variable_reference.exit
   %190 = getelementptr inbounds i8, ptr %3, i64 16
   %191 = load i32, ptr %190, align 8
   %192 = sext i32 %191 to i64
@@ -196348,7 +196348,7 @@ zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %185, %174, %120
   store i32 %201, ptr %194, align 4
   br label %202
 
-202:                                              ; preds = %189, %199, %zend_wrong_assign_to_variable_reference.argprom.exit
+202:                                              ; preds = %189, %199, %zend_wrong_assign_to_variable_reference.exit
   %203 = load ptr, ptr %7, align 8
   %.not246 = icmp eq ptr %203, null
   br i1 %.not246, label %226, label %204
@@ -196402,7 +196402,7 @@ zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %185, %174, %120
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_assign_to_property_reference_this_const.argprom(ptr %.0.val, ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_assign_to_property_reference_this_const(ptr %.0.val, ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #1 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 64
@@ -196601,7 +196601,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_const.argpro
   %112 = load i8, ptr %111, align 8
   switch i8 %112, label %187 [
     i8 12, label %113
-    i8 15, label %zend_wrong_assign_to_variable_reference.argprom.exit
+    i8 15, label %zend_wrong_assign_to_variable_reference.exit
   ]
 
 113:                                              ; preds = %.critedge
@@ -196621,7 +196621,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_const.argpro
   call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.72) #27
   %121 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %121, null
-  br i1 %.not.i, label %122, label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br i1 %.not.i, label %122, label %zend_wrong_assign_to_variable_reference.exit
 
 122:                                              ; preds = %120
   %123 = getelementptr inbounds i8, ptr %1, i64 9
@@ -196662,7 +196662,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_const.argpro
 
 145:                                              ; preds = %141
   %146 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %114, ptr noundef nonnull %1, i8 noundef zeroext 2, i1 noundef zeroext %134, ptr noundef nonnull %6)
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 147:                                              ; preds = %141
   %148 = getelementptr inbounds i8, ptr %142, i64 8
@@ -196684,7 +196684,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_const.argpro
   store ptr %154, ptr %.1.i, align 8
   %156 = getelementptr inbounds i8, ptr %.1.i, i64 8
   store i32 %155, ptr %156, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 157:                                              ; preds = %113, %117
   %158 = getelementptr inbounds i8, ptr %13, i64 16
@@ -196697,8 +196697,8 @@ define internal fastcc void @zend_assign_to_property_reference_this_const.argpro
   %.val = load ptr, ptr %161, align 8
   %162 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %162, align 4
-  %163 = call fastcc ptr @zend_assign_to_typed_property_reference.argprom.argprom(ptr noundef nonnull %159, ptr noundef %114, ptr noundef %1, ptr noundef %6, i32 %.val.val)
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  %163 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %159, ptr noundef %114, ptr noundef %1, ptr noundef %6, i32 %.val.val)
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 164:                                              ; preds = %157
   %165 = getelementptr inbounds i8, ptr %1, i64 8
@@ -196725,7 +196725,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_const.argpro
 
 175:                                              ; preds = %164
   %176 = icmp eq ptr %114, %1
-  br i1 %176, label %zend_wrong_assign_to_variable_reference.argprom.exit, label %._crit_edge.i
+  br i1 %176, label %zend_wrong_assign_to_variable_reference.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %175
   %.pre.i = load ptr, ptr %1, align 8
@@ -196751,21 +196751,21 @@ define internal fastcc void @zend_assign_to_property_reference_this_const.argpro
 186:                                              ; preds = %184, %178
   store ptr %180, ptr %114, align 8
   store i32 266, ptr %181, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 187:                                              ; preds = %.critedge
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.73) #27
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #27
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
-zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %186, %175, %153, %145, %120, %.critedge, %187, %160
+zend_wrong_assign_to_variable_reference.exit:     ; preds = %186, %175, %153, %145, %120, %.critedge, %187, %160
   %.0222 = phi ptr [ %163, %160 ], [ @executor_globals, %187 ], [ @executor_globals, %.critedge ], [ @executor_globals, %120 ], [ %146, %145 ], [ %.1.i, %153 ], [ %114, %175 ], [ %114, %186 ]
   %188 = getelementptr inbounds i8, ptr %2, i64 31
   %189 = load i8, ptr %188, align 1
   %.not249 = icmp eq i8 %189, 0
   br i1 %.not249, label %203, label %190
 
-190:                                              ; preds = %zend_wrong_assign_to_variable_reference.argprom.exit
+190:                                              ; preds = %zend_wrong_assign_to_variable_reference.exit
   %191 = getelementptr inbounds i8, ptr %2, i64 16
   %192 = load i32, ptr %191, align 8
   %193 = sext i32 %192 to i64
@@ -196786,7 +196786,7 @@ zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %186, %175, %153
   store i32 %202, ptr %195, align 4
   br label %203
 
-203:                                              ; preds = %190, %200, %zend_wrong_assign_to_variable_reference.argprom.exit
+203:                                              ; preds = %190, %200, %zend_wrong_assign_to_variable_reference.exit
   %204 = load ptr, ptr %6, align 8
   %.not251 = icmp eq ptr %204, null
   br i1 %.not251, label %227, label %205
@@ -196956,7 +196956,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_var(ptr noca
   %66 = load i8, ptr %65, align 8
   switch i8 %66, label %175 [
     i8 12, label %67
-    i8 15, label %zend_wrong_assign_to_variable_reference.argprom.exit
+    i8 15, label %zend_wrong_assign_to_variable_reference.exit
   ]
 
 67:                                               ; preds = %64
@@ -196977,7 +196977,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_var(ptr noca
   call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.72) #27
   %76 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %76, null
-  br i1 %.not.i, label %77, label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br i1 %.not.i, label %77, label %zend_wrong_assign_to_variable_reference.exit
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds i8, ptr %2, i64 9
@@ -197018,7 +197018,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_var(ptr noca
 
 100:                                              ; preds = %96
   %101 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %68, ptr noundef nonnull %2, i8 noundef zeroext 2, i1 noundef zeroext %89, ptr noundef nonnull %7)
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 102:                                              ; preds = %96
   %103 = getelementptr inbounds i8, ptr %97, i64 8
@@ -197040,7 +197040,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_var(ptr noca
   store ptr %109, ptr %.1.i, align 8
   %111 = getelementptr inbounds i8, ptr %.1.i, i64 8
   store i32 %110, ptr %111, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 112:                                              ; preds = %67, %72
   %113 = getelementptr inbounds i8, ptr %0, i64 8
@@ -197105,8 +197105,8 @@ zend_object_fetch_property_type_info.exit:        ; preds = %145
   %.val = load ptr, ptr %149, align 8
   %150 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %150, align 4
-  %151 = call fastcc ptr @zend_assign_to_typed_property_reference.argprom.argprom(ptr noundef nonnull %144, ptr noundef %68, ptr noundef %2, ptr noundef %7, i32 %.val.val)
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  %151 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %144, ptr noundef %68, ptr noundef %2, ptr noundef %7, i32 %.val.val)
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 152:                                              ; preds = %134, %145, %119, %129, %126
   %153 = getelementptr inbounds i8, ptr %2, i64 8
@@ -197133,7 +197133,7 @@ zend_object_fetch_property_type_info.exit:        ; preds = %145
 
 163:                                              ; preds = %152
   %164 = icmp eq ptr %68, %2
-  br i1 %164, label %zend_wrong_assign_to_variable_reference.argprom.exit, label %._crit_edge.i
+  br i1 %164, label %zend_wrong_assign_to_variable_reference.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %163
   %.pre.i = load ptr, ptr %2, align 8
@@ -197159,21 +197159,21 @@ zend_object_fetch_property_type_info.exit:        ; preds = %145
 174:                                              ; preds = %172, %166
   store ptr %168, ptr %68, align 8
   store i32 266, ptr %169, align 8
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
 175:                                              ; preds = %64
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.73) #27
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #27
-  br label %zend_wrong_assign_to_variable_reference.argprom.exit
+  br label %zend_wrong_assign_to_variable_reference.exit
 
-zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %174, %163, %108, %100, %75, %64, %175, %zend_object_fetch_property_type_info.exit
+zend_wrong_assign_to_variable_reference.exit:     ; preds = %174, %163, %108, %100, %75, %64, %175, %zend_object_fetch_property_type_info.exit
   %.0222 = phi ptr [ %151, %zend_object_fetch_property_type_info.exit ], [ @executor_globals, %175 ], [ @executor_globals, %64 ], [ @executor_globals, %75 ], [ %101, %100 ], [ %.1.i, %108 ], [ %68, %163 ], [ %68, %174 ]
   %176 = getelementptr inbounds i8, ptr %3, i64 31
   %177 = load i8, ptr %176, align 1
   %.not243 = icmp eq i8 %177, 0
   br i1 %.not243, label %191, label %178
 
-178:                                              ; preds = %zend_wrong_assign_to_variable_reference.argprom.exit
+178:                                              ; preds = %zend_wrong_assign_to_variable_reference.exit
   %179 = getelementptr inbounds i8, ptr %3, i64 16
   %180 = load i32, ptr %179, align 8
   %181 = sext i32 %180 to i64
@@ -197194,7 +197194,7 @@ zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %174, %163, %108
   store i32 %190, ptr %183, align 4
   br label %191
 
-191:                                              ; preds = %178, %188, %zend_wrong_assign_to_variable_reference.argprom.exit
+191:                                              ; preds = %178, %188, %zend_wrong_assign_to_variable_reference.exit
   %192 = load ptr, ptr %7, align 8
   %.not245 = icmp eq ptr %192, null
   br i1 %.not245, label %215, label %193
@@ -197248,7 +197248,7 @@ zend_wrong_assign_to_variable_reference.argprom.exit: ; preds = %174, %163, %108
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_pre_inc_helper_SPEC_VAR.retelim(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc void @zend_pre_inc_helper_SPEC_VAR(ptr noundef %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -197474,7 +197474,7 @@ zend_get_prop_not_accepting_double.exit:          ; preds = %.lr.ph.i
   %71 = load i32, ptr %67, align 4
   %72 = and i32 %71, 64
   %.not31.i = icmp eq i32 %72, 0
-  br i1 %.not31.i, label %73, label %zend_throw_incdec_ref_error.argprom.exit
+  br i1 %.not31.i, label %73, label %zend_throw_incdec_ref_error.exit
 
 73:                                               ; preds = %68
   %74 = load i32, ptr %55, align 4
@@ -197483,7 +197483,7 @@ zend_get_prop_not_accepting_double.exit:          ; preds = %.lr.ph.i
   %76 = add i32 %74, -1
   store i32 %76, ptr %55, align 4
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %zend_throw_incdec_ref_error.argprom.exit
+  br i1 %77, label %78, label %zend_throw_incdec_ref_error.exit
 
 78:                                               ; preds = %73
   %79 = and i32 %71, 128
@@ -197492,11 +197492,11 @@ zend_get_prop_not_accepting_double.exit:          ; preds = %.lr.ph.i
 
 80:                                               ; preds = %78
   call void @free(ptr noundef nonnull %55) #27
-  br label %zend_throw_incdec_ref_error.argprom.exit
+  br label %zend_throw_incdec_ref_error.exit
 
 81:                                               ; preds = %78
   call void @_efree(ptr noundef nonnull %55) #27
-  br label %zend_throw_incdec_ref_error.argprom.exit
+  br label %zend_throw_incdec_ref_error.exit
 
 82:                                               ; preds = %zend_get_prop_not_accepting_double.exit
   %83 = call i32 @zend_unmangle_property_name_ex(ptr noundef %65, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #27
@@ -197505,7 +197505,7 @@ zend_get_prop_not_accepting_double.exit:          ; preds = %.lr.ph.i
   %85 = load i32, ptr %67, align 4
   %86 = and i32 %85, 64
   %.not.i45 = icmp eq i32 %86, 0
-  br i1 %.not.i45, label %87, label %zend_throw_incdec_ref_error.argprom.exit
+  br i1 %.not.i45, label %87, label %zend_throw_incdec_ref_error.exit
 
 87:                                               ; preds = %82
   %88 = load i32, ptr %55, align 4
@@ -197514,7 +197514,7 @@ zend_get_prop_not_accepting_double.exit:          ; preds = %.lr.ph.i
   %90 = add i32 %88, -1
   store i32 %90, ptr %55, align 4
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %zend_throw_incdec_ref_error.argprom.exit
+  br i1 %91, label %92, label %zend_throw_incdec_ref_error.exit
 
 92:                                               ; preds = %87
   %93 = and i32 %85, 128
@@ -197523,13 +197523,13 @@ zend_get_prop_not_accepting_double.exit:          ; preds = %.lr.ph.i
 
 94:                                               ; preds = %92
   call void @free(ptr noundef nonnull %55) #27
-  br label %zend_throw_incdec_ref_error.argprom.exit
+  br label %zend_throw_incdec_ref_error.exit
 
 95:                                               ; preds = %92
   call void @_efree(ptr noundef nonnull %55) #27
-  br label %zend_throw_incdec_ref_error.argprom.exit
+  br label %zend_throw_incdec_ref_error.exit
 
-zend_throw_incdec_ref_error.argprom.exit:         ; preds = %68, %73, %80, %81, %82, %87, %94, %95
+zend_throw_incdec_ref_error.exit:                 ; preds = %68, %73, %80, %81, %82, %87, %94, %95
   %.0.i46 = phi i64 [ 9223372036854775807, %73 ], [ 9223372036854775807, %81 ], [ 9223372036854775807, %80 ], [ 9223372036854775807, %68 ], [ -9223372036854775808, %87 ], [ -9223372036854775808, %95 ], [ -9223372036854775808, %94 ], [ -9223372036854775808, %82 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -197565,7 +197565,7 @@ zend_throw_incdec_ref_error.argprom.exit:         ; preds = %68, %73, %80, %81, 
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #27
   br label %zend_get_prop_not_accepting_double.exit.thread
 
-zend_get_prop_not_accepting_double.exit.thread:   ; preds = %46, %40, %33, %103, %108, %106, %zend_throw_incdec_ref_error.argprom.exit
+zend_get_prop_not_accepting_double.exit.thread:   ; preds = %46, %40, %33, %103, %108, %106, %zend_throw_incdec_ref_error.exit
   ret void
 }
 
@@ -197574,7 +197574,7 @@ declare i32 @increment_function(ptr noundef) local_unnamed_addr #3
 declare i32 @decrement_function(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_pre_inc_helper_SPEC_CV.retelim(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc void @zend_pre_inc_helper_SPEC_CV(ptr noundef %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -197662,7 +197662,7 @@ define internal fastcc void @zend_pre_inc_helper_SPEC_CV.retelim(ptr noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_pre_dec_helper_SPEC_VAR.retelim(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc void @zend_pre_dec_helper_SPEC_VAR(ptr noundef %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -197762,7 +197762,7 @@ define internal fastcc void @zend_pre_dec_helper_SPEC_VAR.retelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_pre_dec_helper_SPEC_CV.retelim(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc void @zend_pre_dec_helper_SPEC_CV(ptr noundef %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -200006,7 +200006,7 @@ declare i64 @zend_print_zval(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @zend_throw_unwind_exit() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED.retelim(i32 noundef range(i32 0, 6) %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED(i32 noundef range(i32 0, 6) %0, ptr nocapture noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -200091,13 +200091,13 @@ define internal fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED.ret
   %50 = load i32, ptr %48, align 4
   %51 = add i32 %50, 1
   store i32 %51, ptr %48, align 4
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 52:                                               ; preds = %42
   %53 = getelementptr inbounds i8, ptr %41, i64 8
   store i32 1, ptr %53, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.89) #27
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 54:                                               ; preds = %.critedge
   %55 = getelementptr inbounds i8, ptr %1, i64 40
@@ -200114,24 +200114,24 @@ define internal fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED.ret
   %62 = load i32, ptr %60, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %60, align 4
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 64:                                               ; preds = %54
   %65 = getelementptr inbounds i8, ptr %41, i64 8
   store i32 1, ptr %65, align 8
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 66:                                               ; preds = %.critedge, %.critedge
   %67 = getelementptr inbounds i8, ptr %41, i64 8
   store i32 0, ptr %67, align 8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.90) #27
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 68:                                               ; preds = %.critedge
   %69 = getelementptr inbounds i8, ptr %41, i64 8
   store i32 0, ptr %69, align 8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.91) #27
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 70:                                               ; preds = %.critedge
   unreachable
@@ -200280,7 +200280,7 @@ define internal fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED.ret
   store ptr %136, ptr %135, align 8
   %139 = getelementptr inbounds i8, ptr %135, i64 8
   store i32 %138, ptr %139, align 8
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 140:                                              ; preds = %.thread, %112
   %.0106127 = phi ptr [ %.0106.ph, %.thread ], [ %.0106, %112 ]
@@ -200294,9 +200294,9 @@ define internal fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED.ret
   %147 = getelementptr inbounds i8, ptr %1, i64 %146
   %148 = getelementptr inbounds i8, ptr %147, i64 8
   store i32 12, ptr %148, align 8
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
-zend_fetch_this_var.argprom.exit:                 ; preds = %68, %66, %64, %58, %52, %46, %131, %140
+zend_fetch_this_var.exit:                         ; preds = %68, %66, %64, %58, %52, %46, %131, %140
   %.pn = load ptr, ptr %1, align 8
   %storemerge = getelementptr inbounds i8, ptr %.pn, i64 32
   store ptr %storemerge, ptr %1, align 8
@@ -200304,7 +200304,7 @@ zend_fetch_this_var.argprom.exit:                 ; preds = %68, %66, %64, %58, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED.retelim(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -200448,13 +200448,13 @@ define internal fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED.re
   %82 = load i32, ptr %80, align 4
   %83 = add i32 %82, 1
   store i32 %83, ptr %80, align 4
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 84:                                               ; preds = %74
   %85 = getelementptr inbounds i8, ptr %73, i64 8
   store i32 1, ptr %85, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.89) #27
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 86:                                               ; preds = %.critedge
   %87 = getelementptr inbounds i8, ptr %1, i64 40
@@ -200471,33 +200471,33 @@ define internal fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED.re
   %94 = load i32, ptr %92, align 4
   %95 = add i32 %94, 1
   store i32 %95, ptr %92, align 4
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 96:                                               ; preds = %86
   %97 = getelementptr inbounds i8, ptr %73, i64 8
   store i32 1, ptr %97, align 8
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 98:                                               ; preds = %.critedge, %.critedge
   %99 = getelementptr inbounds i8, ptr %73, i64 8
   store i32 0, ptr %99, align 8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.90) #27
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 100:                                              ; preds = %.critedge
   %101 = getelementptr inbounds i8, ptr %73, i64 8
   store i32 0, ptr %101, align 8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.91) #27
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 102:                                              ; preds = %.critedge
   unreachable
 
-zend_fetch_this_var.argprom.exit:                 ; preds = %78, %84, %90, %96, %98, %100
+zend_fetch_this_var.exit:                         ; preds = %78, %84, %90, %96, %98, %100
   %.not188 = icmp eq ptr %.0168, null
   br i1 %.not188, label %113, label %103
 
-103:                                              ; preds = %zend_fetch_this_var.argprom.exit
+103:                                              ; preds = %zend_fetch_this_var.exit
   %104 = getelementptr inbounds i8, ptr %.0168, i64 4
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, 64
@@ -200517,7 +200517,7 @@ zend_fetch_this_var.argprom.exit:                 ; preds = %78, %84, %90, %96, 
   tail call void @_efree(ptr noundef nonnull %.0168) #27
   br label %113
 
-113:                                              ; preds = %103, %112, %107, %zend_fetch_this_var.argprom.exit
+113:                                              ; preds = %103, %112, %107, %zend_fetch_this_var.exit
   %114 = load ptr, ptr %1, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 32
   store ptr %115, ptr %1, align 8
@@ -200743,7 +200743,7 @@ zend_fetch_this_var.argprom.exit:                 ; preds = %78, %84, %90, %96, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED.retelim(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -200882,13 +200882,13 @@ _zval_undefined_op1.exit.thread:                  ; preds = %10, %_zval_undefine
   %77 = load i32, ptr %75, align 4
   %78 = add i32 %77, 1
   store i32 %78, ptr %75, align 4
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 79:                                               ; preds = %69
   %80 = getelementptr inbounds i8, ptr %68, i64 8
   store i32 1, ptr %80, align 8
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 2, ptr noundef nonnull @.str.89) #27
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 81:                                               ; preds = %.critedge
   %82 = getelementptr inbounds i8, ptr %1, i64 40
@@ -200905,33 +200905,33 @@ _zval_undefined_op1.exit.thread:                  ; preds = %10, %_zval_undefine
   %89 = load i32, ptr %87, align 4
   %90 = add i32 %89, 1
   store i32 %90, ptr %87, align 4
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 91:                                               ; preds = %81
   %92 = getelementptr inbounds i8, ptr %68, i64 8
   store i32 1, ptr %92, align 8
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 93:                                               ; preds = %.critedge, %.critedge
   %94 = getelementptr inbounds i8, ptr %68, i64 8
   store i32 0, ptr %94, align 8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.90) #27
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 95:                                               ; preds = %.critedge
   %96 = getelementptr inbounds i8, ptr %68, i64 8
   store i32 0, ptr %96, align 8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.91) #27
-  br label %zend_fetch_this_var.argprom.exit
+  br label %zend_fetch_this_var.exit
 
 97:                                               ; preds = %.critedge
   unreachable
 
-zend_fetch_this_var.argprom.exit:                 ; preds = %73, %79, %85, %91, %93, %95
+zend_fetch_this_var.exit:                         ; preds = %73, %79, %85, %91, %93, %95
   %.not184 = icmp eq ptr %.0165, null
   br i1 %.not184, label %108, label %98
 
-98:                                               ; preds = %zend_fetch_this_var.argprom.exit
+98:                                               ; preds = %zend_fetch_this_var.exit
   %99 = getelementptr inbounds i8, ptr %.0165, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, 64
@@ -200951,7 +200951,7 @@ zend_fetch_this_var.argprom.exit:                 ; preds = %73, %79, %85, %91, 
   tail call void @_efree(ptr noundef nonnull %.0165) #27
   br label %108
 
-108:                                              ; preds = %98, %107, %102, %zend_fetch_this_var.argprom.exit
+108:                                              ; preds = %98, %107, %102, %zend_fetch_this_var.exit
   %109 = load ptr, ptr %1, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 32
   store ptr %110, ptr %1, align 8
@@ -201189,7 +201189,7 @@ zend_fetch_this_var.argprom.exit:                 ; preds = %73, %79, %85, %91, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_read_R_slow.argprom(ptr noundef %0, ptr noundef %1, i32 %.16.val, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_read_R_slow(ptr noundef %0, ptr noundef %1, i32 %.16.val, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
   %6 = sext i32 %.16.val to i64
@@ -201625,7 +201625,7 @@ _zval_undefined_op2.exit332:                      ; preds = %228, %_zval_undefin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_read_R.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 15) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 15) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = alloca i64, align 8
@@ -202032,7 +202032,7 @@ _zval_undefined_op2.exit:                         ; preds = %129, %132
   br i1 %210, label %211, label %212
 
 211:                                              ; preds = %204
-  tail call fastcc void @_zval_undefined_op2.retelim(ptr noundef %3)
+  tail call fastcc void @_zval_undefined_op2(ptr noundef %3)
   br label %212
 
 212:                                              ; preds = %211, %204
@@ -202235,7 +202235,7 @@ _zval_undefined_op2.exit341:                      ; preds = %307, %_zval_undefin
 declare void @zend_wrong_property_read(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_W.argprom(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_W(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = sext i32 %.16.val to i64
@@ -202484,7 +202484,7 @@ switch.lookup:                                    ; preds = %109, %109, %109, %1
   %114 = load i32, ptr %113, align 4
   %switch.tableidx = add nsw i32 %114, -1
   %115 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_fetch_dimension_address_UNSET.argprom, i64 0, i64 %115
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_fetch_dimension_address_UNSET, i64 0, i64 %115
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %117
 
@@ -202703,7 +202703,7 @@ _zval_undefined_op2.exit:                         ; preds = %130, %127, %145, %1
   br i1 %222, label %223, label %224
 
 223:                                              ; preds = %219
-  tail call fastcc void @_zval_undefined_op2.retelim(ptr noundef %3)
+  tail call fastcc void @_zval_undefined_op2(ptr noundef %3)
   br label %224
 
 224:                                              ; preds = %223, %219, %218
@@ -202722,7 +202722,7 @@ _zval_undefined_op2.exit:                         ; preds = %130, %127, %145, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_RW.argprom(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_RW(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = sext i32 %.16.val to i64
@@ -203018,7 +203018,7 @@ switch.lookup:                                    ; preds = %130, %130, %130, %1
   %135 = load i32, ptr %134, align 4
   %switch.tableidx = add nsw i32 %135, -1
   %136 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_fetch_dimension_address_UNSET.argprom, i64 0, i64 %136
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_fetch_dimension_address_UNSET, i64 0, i64 %136
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %138
 
@@ -203260,7 +203260,7 @@ _zval_undefined_op1.exit:                         ; preds = %232, %228
   br i1 %259, label %260, label %261
 
 260:                                              ; preds = %256
-  tail call fastcc void @_zval_undefined_op2.retelim(ptr noundef %3)
+  tail call fastcc void @_zval_undefined_op2(ptr noundef %3)
   br label %261
 
 261:                                              ; preds = %260, %256, %255
@@ -203279,7 +203279,7 @@ _zval_undefined_op1.exit:                         ; preds = %232, %228
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_read_IS.argprom(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_read_IS(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = alloca i64, align 8
@@ -203823,7 +203823,7 @@ _zval_undefined_op2.exit341:                      ; preds = %282, %276
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_UNSET.argprom(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 1, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_UNSET(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 1, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = sext i32 %.16.val to i64
@@ -204039,7 +204039,7 @@ switch.lookup:                                    ; preds = %100, %100, %100, %1
   %105 = load i32, ptr %104, align 4
   %switch.tableidx = add nsw i32 %105, -1
   %106 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_fetch_dimension_address_UNSET.argprom, i64 0, i64 %106
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_fetch_dimension_address_UNSET, i64 0, i64 %106
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %108
 
@@ -204305,7 +204305,7 @@ _zval_undefined_op2.exit285:                      ; preds = %225, %219, %_zval_u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_LIST_r.argprom(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_LIST_r(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = sext i32 %.16.val to i64
@@ -206982,7 +206982,7 @@ declare void @zend_hash_copy(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @zval_add_ref(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_yield_in_closed_generator_helper_SPEC.retelim(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @zend_yield_in_closed_generator_helper_SPEC(ptr nocapture noundef %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.133) #27
   %3 = getelementptr inbounds i8, ptr %2, i64 30
@@ -207080,7 +207080,7 @@ declare ptr @zend_generator_update_current(ptr noundef) local_unnamed_addr #3
 declare i32 @compare_function(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_static_prop_helper_SPEC.retelim(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -207175,7 +207175,7 @@ define internal fastcc void @zend_fetch_static_prop_helper_SPEC.retelim(i32 noun
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr %6, align 8
-  tail call fastcc void @zend_handle_fetch_obj_flags.retelim(ptr noundef null, ptr noundef %60, ptr noundef null, ptr noundef nonnull %55, i32 noundef %53)
+  tail call fastcc void @zend_handle_fetch_obj_flags(ptr noundef null, ptr noundef %60, ptr noundef null, ptr noundef nonnull %55, i32 noundef %53)
   br label %65
 
 .critedge:                                        ; preds = %50, %40
@@ -207281,7 +207281,7 @@ declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, pt
 declare ptr @zend_zval_get_legacy_type(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @zend_array_key_exists_fast.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc zeroext i1 @zend_array_key_exists_fast(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   br label %5
 
@@ -207450,7 +207450,7 @@ _zval_undefined_op1.exit:                         ; preds = %66, %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_array_key_exists_error.argprom(ptr noundef %0, i8 %.8.val, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @zend_array_key_exists_error(ptr noundef %0, i8 %.8.val, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = icmp eq i8 %.8.val, 0
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %5 = icmp eq ptr %4, null

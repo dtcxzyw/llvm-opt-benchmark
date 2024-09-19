@@ -2059,7 +2059,7 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %154 = icmp eq i32 %153, %146
   br i1 %154, label %.backedge.i, label %157
 
-.backedge.i:                                      ; preds = %176, %.lr.ph144.i, %.lr.ph.i101.i, %get_leftop.argprom.exit56.i.i, %370, %list_length.exit.i, %202, %145
+.backedge.i:                                      ; preds = %176, %.lr.ph144.i, %.lr.ph.i101.i, %get_leftop.exit56.i.i, %370, %list_length.exit.i, %202, %145
   %155 = call i32 @bms_next_member(ptr noundef %.1, i32 noundef %146) #7
   %156 = icmp sgt i32 %155, 0
   br i1 %156, label %145, label %.loopexit120.i, !llvm.loop !17
@@ -2167,13 +2167,13 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %211 = getelementptr inbounds i8, ptr %150, i64 112
   %212 = getelementptr inbounds i8, ptr %210, i64 4
   %.not.i.i = icmp eq ptr %210, null
-  br i1 %.not.i.i, label %split_selfjoin_quals.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %split_selfjoin_quals.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread115.thread.i
   %213 = getelementptr inbounds i8, ptr %210, i64 16
   %214 = load i32, ptr %212, align 4
   %215 = icmp sgt i32 %214, 0
-  br i1 %215, label %.lr.ph169.i, label %split_selfjoin_quals.argprom.exit.i
+  br i1 %215, label %.lr.ph169.i, label %split_selfjoin_quals.exit.i
 
 .lr.ph169.i:                                      ; preds = %.lr.ph.i.i, %277
   %.0415.i168.i = phi ptr [ %.142.i.i, %277 ], [ null, %.lr.ph.i.i ]
@@ -2229,13 +2229,13 @@ list_length.exit.i.i:                             ; preds = %240
   %243 = getelementptr inbounds i8, ptr %242, i64 4
   %244 = load i32, ptr %243, align 4
   %.not53.i.i = icmp eq i32 %244, 2
-  br i1 %.not53.i.i, label %get_rightop.argprom.exit.i.i, label %list_length.exit.thread.i.i
+  br i1 %.not53.i.i, label %get_rightop.exit.i.i, label %list_length.exit.thread.i.i
 
 list_length.exit.thread.i.i:                      ; preds = %list_length.exit.i.i, %240, %235
   %245 = call ptr @lappend(ptr noundef %.0415.i168.i, ptr noundef nonnull %218) #7
   br label %277
 
-get_rightop.argprom.exit.i.i:                     ; preds = %list_length.exit.i.i
+get_rightop.exit.i.i:                             ; preds = %list_length.exit.i.i
   %246 = getelementptr i8, ptr %242, i64 16
   %.val.i.i.i = load ptr, ptr %246, align 8
   %247 = load ptr, ptr %.val.i.i.i, align 8
@@ -2245,7 +2245,7 @@ get_rightop.argprom.exit.i.i:                     ; preds = %list_length.exit.i.
   %.not54.i.i = icmp eq ptr %247, null
   br i1 %.not54.i.i, label %257, label %251
 
-251:                                              ; preds = %get_rightop.argprom.exit.i.i
+251:                                              ; preds = %get_rightop.exit.i.i
   %252 = load i32, ptr %247, align 4
   %253 = icmp eq i32 %252, 25
   br i1 %253, label %254, label %257
@@ -2255,8 +2255,8 @@ get_rightop.argprom.exit.i.i:                     ; preds = %list_length.exit.i.
   %256 = load ptr, ptr %255, align 8
   br label %257
 
-257:                                              ; preds = %254, %251, %get_rightop.argprom.exit.i.i
-  %.038.i.i = phi ptr [ %256, %254 ], [ %247, %251 ], [ null, %get_rightop.argprom.exit.i.i ]
+257:                                              ; preds = %254, %251, %get_rightop.exit.i.i
+  %.038.i.i = phi ptr [ %256, %254 ], [ %247, %251 ], [ null, %get_rightop.exit.i.i ]
   %.not55.i.i = icmp eq ptr %250, null
   br i1 %.not55.i.i, label %264, label %258
 
@@ -2307,9 +2307,9 @@ replace_varno.exit.i.i:                           ; preds = %270, %264
   %278 = load i32, ptr %212, align 4
   %279 = sext i32 %278 to i64
   %280 = icmp slt i64 %indvars.iv.next.i.i, %279
-  br i1 %280, label %.lr.ph169.i, label %split_selfjoin_quals.argprom.exit.i
+  br i1 %280, label %.lr.ph169.i, label %split_selfjoin_quals.exit.i
 
-split_selfjoin_quals.argprom.exit.i:              ; preds = %277, %.lr.ph.i.i, %.thread115.thread.i
+split_selfjoin_quals.exit.i:                      ; preds = %277, %.lr.ph.i.i, %.thread115.thread.i
   %.041.lcssa.i.i = phi ptr [ null, %.thread115.thread.i ], [ null, %.lr.ph.i.i ], [ %.142.i.i, %277 ]
   %.040.lcssa.i.i = phi ptr [ null, %.thread115.thread.i ], [ null, %.lr.ph.i.i ], [ %.1.i.i, %277 ]
   %281 = getelementptr inbounds i8, ptr %150, i64 296
@@ -2319,14 +2319,14 @@ split_selfjoin_quals.argprom.exit.i:              ; preds = %277, %.lr.ph.i.i, %
   %.not.i98.i = icmp eq ptr %.041.lcssa.i.i, null
   br i1 %.not.i98.i, label %list_length.exit.i, label %285
 
-285:                                              ; preds = %split_selfjoin_quals.argprom.exit.i
+285:                                              ; preds = %split_selfjoin_quals.exit.i
   %286 = getelementptr inbounds i8, ptr %.041.lcssa.i.i, i64 4
   %287 = load i32, ptr %286, align 4
   %288 = icmp eq i32 %287, 0
   br label %list_length.exit.i
 
-list_length.exit.i:                               ; preds = %285, %split_selfjoin_quals.argprom.exit.i
-  %289 = phi i1 [ %288, %285 ], [ true, %split_selfjoin_quals.argprom.exit.i ]
+list_length.exit.i:                               ; preds = %285, %split_selfjoin_quals.exit.i
+  %289 = phi i1 [ %288, %285 ], [ true, %split_selfjoin_quals.exit.i ]
   %290 = call zeroext i1 @innerrel_is_unique_ext(ptr noundef %0, ptr noundef %208, ptr noundef %284, ptr noundef nonnull %150, i32 noundef 0, ptr noundef %283, i1 noundef zeroext %289, ptr noundef nonnull %14)
   br i1 %290, label %291, label %.backedge.i
 
@@ -2374,7 +2374,7 @@ replace_varno.exit.i100.i:                        ; preds = %305, %.lr.ph176.i
   br i1 %309, label %311, label %319
 
 311:                                              ; preds = %replace_varno.exit.i100.i
-  br i1 %.not.i.i.i.i, label %get_leftop.argprom.exit56.i.i, label %list_length.exit.i.i.i
+  br i1 %.not.i.i.i.i, label %get_leftop.exit56.i.i, label %list_length.exit.i.i.i
 
 list_length.exit.i.i.i:                           ; preds = %311
   %312 = getelementptr inbounds i8, ptr %.val46.i.i, i64 4
@@ -2382,15 +2382,15 @@ list_length.exit.i.i.i:                           ; preds = %311
   %314 = icmp sgt i32 %313, 1
   %315 = getelementptr i8, ptr %.val46.i.i, i64 16
   %.val.i.i104.i = load ptr, ptr %315, align 8
-  br i1 %314, label %316, label %get_leftop.argprom.exit56.sink.split.i.i
+  br i1 %314, label %316, label %get_leftop.exit56.sink.split.i.i
 
 316:                                              ; preds = %list_length.exit.i.i.i
   %317 = getelementptr i8, ptr %.val.i.i104.i, i64 8
   %318 = load ptr, ptr %317, align 8
-  br label %get_leftop.argprom.exit56.sink.split.i.i
+  br label %get_leftop.exit56.sink.split.i.i
 
 319:                                              ; preds = %replace_varno.exit.i100.i
-  br i1 %.not.i.i.i.i, label %get_leftop.argprom.exit56.i.i, label %list_length.exit.i58.i.i
+  br i1 %.not.i.i.i.i, label %get_leftop.exit56.i.i, label %list_length.exit.i58.i.i
 
 list_length.exit.i58.i.i:                         ; preds = %319
   %320 = getelementptr i8, ptr %.val46.i.i, i64 16
@@ -2399,26 +2399,26 @@ list_length.exit.i58.i.i:                         ; preds = %319
   %322 = getelementptr inbounds i8, ptr %.val46.i.i, i64 4
   %323 = load i32, ptr %322, align 4
   %324 = icmp sgt i32 %323, 1
-  br i1 %324, label %325, label %get_leftop.argprom.exit56.i.i
+  br i1 %324, label %325, label %get_leftop.exit56.i.i
 
 325:                                              ; preds = %list_length.exit.i58.i.i
   %326 = getelementptr i8, ptr %.val.i51.i.i, i64 8
-  br label %get_leftop.argprom.exit56.sink.split.i.i
+  br label %get_leftop.exit56.sink.split.i.i
 
-get_leftop.argprom.exit56.sink.split.i.i:         ; preds = %325, %316, %list_length.exit.i.i.i
+get_leftop.exit56.sink.split.i.i:                 ; preds = %325, %316, %list_length.exit.i.i.i
   %.sink.i.i = phi ptr [ %326, %325 ], [ %.val.i.i104.i, %316 ], [ %.val.i.i104.i, %list_length.exit.i.i.i ]
   %.ph.i.i = phi ptr [ %321, %325 ], [ %318, %316 ], [ null, %list_length.exit.i.i.i ]
   %327 = load ptr, ptr %.sink.i.i, align 8
-  br label %get_leftop.argprom.exit56.i.i
+  br label %get_leftop.exit56.i.i
 
-get_leftop.argprom.exit56.i.i:                    ; preds = %get_leftop.argprom.exit56.sink.split.i.i, %list_length.exit.i58.i.i, %319, %311
-  %328 = phi ptr [ %321, %list_length.exit.i58.i.i ], [ null, %311 ], [ null, %319 ], [ %.ph.i.i, %get_leftop.argprom.exit56.sink.split.i.i ]
-  %329 = phi ptr [ null, %list_length.exit.i58.i.i ], [ null, %311 ], [ null, %319 ], [ %327, %get_leftop.argprom.exit56.sink.split.i.i ]
+get_leftop.exit56.i.i:                            ; preds = %get_leftop.exit56.sink.split.i.i, %list_length.exit.i58.i.i, %319, %311
+  %328 = phi ptr [ %321, %list_length.exit.i58.i.i ], [ null, %311 ], [ null, %319 ], [ %.ph.i.i, %get_leftop.exit56.sink.split.i.i ]
+  %329 = phi ptr [ null, %list_length.exit.i58.i.i ], [ null, %311 ], [ null, %319 ], [ %327, %get_leftop.exit56.sink.split.i.i ]
   %330 = load ptr, ptr %144, align 8
   %.not42.i.i = icmp eq ptr %330, null
   br i1 %.not42.i.i, label %.backedge.i, label %.lr.ph.i101.i
 
-.lr.ph.i101.i:                                    ; preds = %get_leftop.argprom.exit56.i.i
+.lr.ph.i101.i:                                    ; preds = %get_leftop.exit56.i.i
   %331 = getelementptr inbounds i8, ptr %330, i64 4
   %332 = getelementptr inbounds i8, ptr %330, i64 16
   %333 = load i32, ptr %331, align 4
@@ -2447,7 +2447,7 @@ get_leftop.argprom.exit56.i.i:                    ; preds = %get_leftop.argprom.
   br i1 %344, label %348, label %356
 
 348:                                              ; preds = %341
-  br i1 %.not.i.i62.i.i, label %get_leftop.argprom.exit74.i.i, label %list_length.exit.i63.i.i
+  br i1 %.not.i.i62.i.i, label %get_leftop.exit74.i.i, label %list_length.exit.i63.i.i
 
 list_length.exit.i63.i.i:                         ; preds = %348
   %349 = getelementptr inbounds i8, ptr %.val44.i.i, i64 4
@@ -2455,15 +2455,15 @@ list_length.exit.i63.i.i:                         ; preds = %348
   %351 = icmp sgt i32 %350, 1
   %352 = getelementptr i8, ptr %.val44.i.i, i64 16
   %.val.i65.i.i = load ptr, ptr %352, align 8
-  br i1 %351, label %353, label %get_leftop.argprom.exit74.sink.split.i.i
+  br i1 %351, label %353, label %get_leftop.exit74.sink.split.i.i
 
 353:                                              ; preds = %list_length.exit.i63.i.i
   %354 = getelementptr i8, ptr %.val.i65.i.i, i64 8
   %355 = load ptr, ptr %354, align 8
-  br label %get_leftop.argprom.exit74.sink.split.i.i
+  br label %get_leftop.exit74.sink.split.i.i
 
 356:                                              ; preds = %341
-  br i1 %.not.i.i62.i.i, label %get_leftop.argprom.exit74.i.i, label %list_length.exit.i76.i.i
+  br i1 %.not.i.i62.i.i, label %get_leftop.exit74.i.i, label %list_length.exit.i76.i.i
 
 list_length.exit.i76.i.i:                         ; preds = %356
   %357 = getelementptr i8, ptr %.val44.i.i, i64 16
@@ -2472,29 +2472,29 @@ list_length.exit.i76.i.i:                         ; preds = %356
   %359 = getelementptr inbounds i8, ptr %.val44.i.i, i64 4
   %360 = load i32, ptr %359, align 4
   %361 = icmp sgt i32 %360, 1
-  br i1 %361, label %362, label %get_leftop.argprom.exit74.i.i
+  br i1 %361, label %362, label %get_leftop.exit74.i.i
 
 362:                                              ; preds = %list_length.exit.i76.i.i
   %363 = getelementptr i8, ptr %.val.i68.i.i, i64 8
-  br label %get_leftop.argprom.exit74.sink.split.i.i
+  br label %get_leftop.exit74.sink.split.i.i
 
-get_leftop.argprom.exit74.sink.split.i.i:         ; preds = %362, %353, %list_length.exit.i63.i.i
+get_leftop.exit74.sink.split.i.i:                 ; preds = %362, %353, %list_length.exit.i63.i.i
   %.sink31.i.i = phi ptr [ %363, %362 ], [ %.val.i65.i.i, %353 ], [ %.val.i65.i.i, %list_length.exit.i63.i.i ]
   %.ph29.i.i = phi ptr [ %358, %362 ], [ %355, %353 ], [ null, %list_length.exit.i63.i.i ]
   %364 = load ptr, ptr %.sink31.i.i, align 8
-  br label %get_leftop.argprom.exit74.i.i
+  br label %get_leftop.exit74.i.i
 
-get_leftop.argprom.exit74.i.i:                    ; preds = %get_leftop.argprom.exit74.sink.split.i.i, %list_length.exit.i76.i.i, %356, %348
-  %365 = phi ptr [ %358, %list_length.exit.i76.i.i ], [ null, %348 ], [ null, %356 ], [ %.ph29.i.i, %get_leftop.argprom.exit74.sink.split.i.i ]
-  %366 = phi ptr [ null, %list_length.exit.i76.i.i ], [ null, %348 ], [ null, %356 ], [ %364, %get_leftop.argprom.exit74.sink.split.i.i ]
+get_leftop.exit74.i.i:                            ; preds = %get_leftop.exit74.sink.split.i.i, %list_length.exit.i76.i.i, %356, %348
+  %365 = phi ptr [ %358, %list_length.exit.i76.i.i ], [ null, %348 ], [ null, %356 ], [ %.ph29.i.i, %get_leftop.exit74.sink.split.i.i ]
+  %366 = phi ptr [ null, %list_length.exit.i76.i.i ], [ null, %348 ], [ null, %356 ], [ %364, %get_leftop.exit74.sink.split.i.i ]
   %367 = call zeroext i1 @equal(ptr noundef %328, ptr noundef %365) #7
   br i1 %367, label %368, label %370
 
-368:                                              ; preds = %get_leftop.argprom.exit74.i.i
+368:                                              ; preds = %get_leftop.exit74.i.i
   %369 = call zeroext i1 @equal(ptr noundef %329, ptr noundef %366) #7
   br i1 %369, label %374, label %370
 
-370:                                              ; preds = %368, %get_leftop.argprom.exit74.i.i, %.lr.ph173.i
+370:                                              ; preds = %368, %get_leftop.exit74.i.i, %.lr.ph173.i
   %indvars.iv.next.i103.i = add nuw nsw i64 %indvars.iv.i102172.i, 1
   %371 = load i32, ptr %331, align 4
   %372 = sext i32 %371 to i64
@@ -3504,7 +3504,7 @@ list_length.exit.i:                               ; preds = %37
   %42 = getelementptr i8, ptr %.val, i64 16
   %.val.i = load ptr, ptr %42, align 8
   %43 = getelementptr i8, ptr %.val.i, i64 8
-  br label %get_rightop.argprom.exit
+  br label %get_rightop.exit
 
 44:                                               ; preds = %.lr.ph75
   br i1 %.not.i.i, label %.thread57, label %45
@@ -3512,15 +3512,15 @@ list_length.exit.i:                               ; preds = %37
 45:                                               ; preds = %44
   %46 = getelementptr i8, ptr %.val, i64 16
   %.val.i50 = load ptr, ptr %46, align 8
-  br label %get_rightop.argprom.exit
+  br label %get_rightop.exit
 
-get_rightop.argprom.exit:                         ; preds = %45, %41
+get_rightop.exit:                                 ; preds = %45, %41
   %.0.in = phi ptr [ %43, %41 ], [ %.val.i50, %45 ]
   %.0 = load ptr, ptr %.0.in, align 8
   %.not45 = icmp eq ptr %.0, null
   br i1 %.not45, label %.thread57, label %47
 
-47:                                               ; preds = %get_rightop.argprom.exit
+47:                                               ; preds = %get_rightop.exit
   %48 = load i32, ptr %.0, align 4
   %49 = icmp eq i32 %48, 25
   br i1 %49, label %50, label %.thread60
@@ -3561,9 +3561,9 @@ thread-pre-split:                                 ; preds = %50
   %66 = tail call ptr @lappend_oid(ptr noundef %.0386574, i32 noundef %32) #7
   br label %.thread57
 
-.thread57:                                        ; preds = %44, %37, %list_length.exit.i, %get_rightop.argprom.exit, %50, %.thread60, %55, %58, %61
-  %.139 = phi ptr [ %.0386574, %55 ], [ %.0386574, %58 ], [ %66, %61 ], [ %.0386574, %.thread60 ], [ %.0386574, %50 ], [ %.0386574, %get_rightop.argprom.exit ], [ %.0386574, %list_length.exit.i ], [ %.0386574, %37 ], [ %.0386574, %44 ]
-  %.137 = phi ptr [ %.0366673, %55 ], [ %.0366673, %58 ], [ %65, %61 ], [ %.0366673, %.thread60 ], [ %.0366673, %50 ], [ %.0366673, %get_rightop.argprom.exit ], [ %.0366673, %list_length.exit.i ], [ %.0366673, %37 ], [ %.0366673, %44 ]
+.thread57:                                        ; preds = %44, %37, %list_length.exit.i, %get_rightop.exit, %50, %.thread60, %55, %58, %61
+  %.139 = phi ptr [ %.0386574, %55 ], [ %.0386574, %58 ], [ %66, %61 ], [ %.0386574, %.thread60 ], [ %.0386574, %50 ], [ %.0386574, %get_rightop.exit ], [ %.0386574, %list_length.exit.i ], [ %.0386574, %37 ], [ %.0386574, %44 ]
+  %.137 = phi ptr [ %.0366673, %55 ], [ %.0366673, %58 ], [ %65, %61 ], [ %.0366673, %.thread60 ], [ %.0366673, %50 ], [ %.0366673, %get_rightop.exit ], [ %.0366673, %list_length.exit.i ], [ %.0366673, %37 ], [ %.0366673, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv72, 1
   %67 = load i32, ptr %22, align 4
   %68 = sext i32 %67 to i64
@@ -4639,7 +4639,7 @@ define internal zeroext i1 @replace_varno_walker(ptr noundef %0, ptr noundef %1)
   %4 = alloca %struct.ReplaceVarnoContext, align 4
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %get_rightop.argprom.exit.thread, label %7
+  br i1 %6, label %get_rightop.exit.thread, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %0, align 4
@@ -4655,7 +4655,7 @@ define internal zeroext i1 @replace_varno_walker(ptr noundef %0, ptr noundef %1)
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %1, align 4
   %13 = icmp eq i32 %11, %12
-  br i1 %13, label %14, label %get_rightop.argprom.exit.thread
+  br i1 %13, label %14, label %get_rightop.exit.thread
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4663,7 +4663,7 @@ define internal zeroext i1 @replace_varno_walker(ptr noundef %0, ptr noundef %1)
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %16, %18
-  br i1 %19, label %20, label %get_rightop.argprom.exit.thread
+  br i1 %19, label %20, label %get_rightop.exit.thread
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds i8, ptr %1, i64 4
@@ -4671,7 +4671,7 @@ define internal zeroext i1 @replace_varno_walker(ptr noundef %0, ptr noundef %1)
   store i32 %22, ptr %10, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %22, ptr %23, align 4
-  br label %get_rightop.argprom.exit.thread
+  br label %get_rightop.exit.thread
 
 24:                                               ; preds = %7
   %25 = getelementptr inbounds i8, ptr %0, i64 36
@@ -4752,7 +4752,7 @@ replace_relid.exit93:                             ; preds = %replace_relid.exit,
   %69 = load i32, ptr %65, align 4
   %70 = add i32 %69, -1
   store i32 %70, ptr %65, align 4
-  br label %get_rightop.argprom.exit.thread
+  br label %get_rightop.exit.thread
 
 71:                                               ; preds = %7
   store i32 -1, ptr %5, align 4
@@ -4996,31 +4996,31 @@ replace_relid.exit106:                            ; preds = %replace_relid.exit1
   %197 = getelementptr inbounds i8, ptr %0, i64 144
   %198 = load ptr, ptr %197, align 8
   %.not = icmp eq ptr %198, null
-  br i1 %.not, label %get_rightop.argprom.exit.thread, label %199
+  br i1 %.not, label %get_rightop.exit.thread, label %199
 
 199:                                              ; preds = %replace_relid.exit106
   %200 = load ptr, ptr %74, align 8
   %201 = call zeroext i1 @bms_get_singleton_member(ptr noundef %200, ptr noundef nonnull %5) #7
-  br i1 %201, label %202, label %get_rightop.argprom.exit.thread
+  br i1 %201, label %202, label %get_rightop.exit.thread
 
 202:                                              ; preds = %199
   %203 = load i32, ptr %5, align 4
   %204 = load i32, ptr %167, align 4
   %205 = icmp eq i32 %203, %204
-  br i1 %205, label %206, label %get_rightop.argprom.exit.thread
+  br i1 %205, label %206, label %get_rightop.exit.thread
 
 206:                                              ; preds = %202
   %207 = getelementptr inbounds i8, ptr %0, i64 8
   %208 = load ptr, ptr %207, align 8
   %209 = load i32, ptr %208, align 4
   %210 = icmp eq i32 %209, 15
-  br i1 %210, label %211, label %get_rightop.argprom.exit.thread
+  br i1 %210, label %211, label %get_rightop.exit.thread
 
 211:                                              ; preds = %206
   %212 = getelementptr i8, ptr %208, i64 32
   %.val91 = load ptr, ptr %212, align 8
   %.not.i = icmp eq ptr %.val91, null
-  br i1 %.not.i, label %get_rightop.argprom.exit.thread, label %list_length.exit.i
+  br i1 %.not.i, label %get_rightop.exit.thread, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %211
   %213 = getelementptr i8, ptr %.val91, i64 16
@@ -5029,21 +5029,21 @@ list_length.exit.i:                               ; preds = %211
   %215 = getelementptr inbounds i8, ptr %.val91, i64 4
   %216 = load i32, ptr %215, align 4
   %217 = icmp sgt i32 %216, 1
-  br i1 %217, label %218, label %get_rightop.argprom.exit
+  br i1 %217, label %218, label %get_rightop.exit
 
 218:                                              ; preds = %list_length.exit.i
   %219 = getelementptr i8, ptr %.val.i, i64 8
   %220 = load ptr, ptr %219, align 8
-  br label %get_rightop.argprom.exit
+  br label %get_rightop.exit
 
-get_rightop.argprom.exit:                         ; preds = %list_length.exit.i, %218
+get_rightop.exit:                                 ; preds = %list_length.exit.i, %218
   %.0.i108 = phi ptr [ %220, %218 ], [ null, %list_length.exit.i ]
   %.not90 = icmp eq ptr %214, null
-  br i1 %.not90, label %get_rightop.argprom.exit.thread, label %221
+  br i1 %.not90, label %get_rightop.exit.thread, label %221
 
-221:                                              ; preds = %get_rightop.argprom.exit
+221:                                              ; preds = %get_rightop.exit
   %222 = call zeroext i1 @equal(ptr noundef nonnull %214, ptr noundef %.0.i108) #7
-  br i1 %222, label %223, label %get_rightop.argprom.exit.thread
+  br i1 %222, label %223, label %get_rightop.exit.thread
 
 223:                                              ; preds = %221
   %224 = call noundef ptr @palloc0(i64 noundef 32) #7
@@ -5058,14 +5058,14 @@ get_rightop.argprom.exit:                         ; preds = %list_length.exit.i,
   store i32 -1, ptr %228, align 8
   store ptr %224, ptr %207, align 8
   store ptr null, ptr %197, align 8
-  br label %get_rightop.argprom.exit.thread
+  br label %get_rightop.exit.thread
 
 229:                                              ; preds = %7, %replace_relid.exit93, %24
   %230 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @replace_varno_walker, ptr noundef %1) #7
-  br label %get_rightop.argprom.exit.thread
+  br label %get_rightop.exit.thread
 
-get_rightop.argprom.exit.thread:                  ; preds = %211, %replace_relid.exit106, %199, %202, %206, %223, %221, %get_rightop.argprom.exit, %9, %14, %20, %2, %229, %64
-  %.0 = phi i1 [ %230, %229 ], [ %68, %64 ], [ false, %2 ], [ false, %20 ], [ false, %14 ], [ false, %9 ], [ false, %get_rightop.argprom.exit ], [ false, %221 ], [ false, %223 ], [ false, %206 ], [ false, %202 ], [ false, %199 ], [ false, %replace_relid.exit106 ], [ false, %211 ]
+get_rightop.exit.thread:                          ; preds = %211, %replace_relid.exit106, %199, %202, %206, %223, %221, %get_rightop.exit, %9, %14, %20, %2, %229, %64
+  %.0 = phi i1 [ %230, %229 ], [ %68, %64 ], [ false, %2 ], [ false, %20 ], [ false, %14 ], [ false, %9 ], [ false, %get_rightop.exit ], [ false, %221 ], [ false, %223 ], [ false, %206 ], [ false, %202 ], [ false, %199 ], [ false, %replace_relid.exit106 ], [ false, %211 ]
   ret i1 %.0
 }
 

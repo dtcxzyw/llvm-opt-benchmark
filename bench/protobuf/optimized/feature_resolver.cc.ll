@@ -2324,7 +2324,7 @@ invoke.cont78:                                    ; preds = %if.then71
           to label %invoke.cont80 unwind label %lpad77
 
 invoke.cont80:                                    ; preds = %invoke.cont78
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_EEEN4absl12lts_202308026StatusEDpT_.argprom(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp72, ptr noundef %agg.tmp75)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_EEEN4absl12lts_202308026StatusEDpT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp72, ptr noundef %agg.tmp75)
           to label %invoke.cont82 unwind label %lpad81
 
 invoke.cont82:                                    ; preds = %invoke.cont80
@@ -2379,7 +2379,7 @@ invoke.cont101:                                   ; preds = %if.then98
           to label %invoke.cont104 unwind label %lpad103
 
 invoke.cont104:                                   ; preds = %invoke.cont101
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_EEEN4absl12lts_202308026StatusEDpT_.argprom(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp99, ptr noundef %agg.tmp102)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_EEEN4absl12lts_202308026StatusEDpT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp99, ptr noundef %agg.tmp102)
           to label %invoke.cont106 unwind label %lpad105
 
 invoke.cont106:                                   ; preds = %invoke.cont104
@@ -2765,7 +2765,7 @@ invoke.cont10.i:                                  ; preds = %invoke.cont9.i
   %24 = extractvalue { i64, ptr } %call.i, 0
   %25 = extractvalue { i64, ptr } %call.i, 1
   invoke void @_ZN4absl12lts_2023080223FailedPreconditionErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp19, i64 %24, ptr %25)
-          to label %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_.argprom.exit unwind label %lpad11.i
+          to label %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_.exit unwind label %lpad11.i
 
 lpad.i:                                           ; preds = %invoke.cont9.i, %call.i.i.i.noexc.i, %if.then18
   %26 = landingpad { ptr, i32 }
@@ -2787,7 +2787,7 @@ ehcleanup.i:                                      ; preds = %lpad11.i, %lpad.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i) #19
   br label %common.resume
 
-_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_.argprom.exit: ; preds = %invoke.cont10.i
+_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_.exit: ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -2801,7 +2801,7 @@ _ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_20230
   %cmp.i.i.i.i.i41 = icmp eq i64 %28, 0
   br i1 %cmp.i.i.i.i.i41, label %if.then.i.i.i42, label %return
 
-if.then.i.i.i42:                                  ; preds = %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_.argprom.exit
+if.then.i.i.i42:                                  ; preds = %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_.exit
   invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
           to label %invoke.cont22 unwind label %lpad.i.i43
 
@@ -2918,7 +2918,7 @@ invoke.cont20.i:                                  ; preds = %invoke.cont19.i
   %47 = extractvalue { i64, ptr } %call.i62, 0
   %48 = extractvalue { i64, ptr } %call.i62, 1
   invoke void @_ZN4absl12lts_2023080223FailedPreconditionErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp29, i64 %47, ptr %48)
-          to label %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_.argprom.exit unwind label %lpad21.i
+          to label %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_.exit unwind label %lpad21.i
 
 lpad.i56:                                         ; preds = %call.i.i.i.noexc.i57, %if.then28
   %49 = landingpad { ptr, i32 }
@@ -2946,7 +2946,7 @@ ehcleanup23.i:                                    ; preds = %ehcleanup.i60, %lpa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i) #19
   br label %common.resume
 
-_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_.argprom.exit: ; preds = %invoke.cont20.i
+_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_.exit: ; preds = %invoke.cont20.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i55) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i) #19
@@ -2959,7 +2959,7 @@ _ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts
   %cmp.i.i.i.i.i63 = icmp eq i64 %52, 0
   br i1 %cmp.i.i.i.i.i63, label %if.then.i.i.i64, label %return
 
-if.then.i.i.i64:                                  ; preds = %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_.argprom.exit
+if.then.i.i.i64:                                  ; preds = %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_.exit
   invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
           to label %invoke.cont32 unwind label %lpad.i.i65
 
@@ -3362,7 +3362,7 @@ ehcleanup82:                                      ; preds = %lpad44, %ehcleanup.
   call void @_ZN6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefaultD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %search) #19
   br label %common.resume
 
-return:                                           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit83, %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_.argprom.exit, %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_.argprom.exit, %if.then4, %if.then, %if.then.i.i70, %invoke.cont32, %if.then.i.i48, %invoke.cont22, %if.then.i.i32, %invoke.cont8, %if.then.i.i, %invoke.cont, %cleanup81
+return:                                           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit83, %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_.exit, %_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_.exit, %if.then4, %if.then, %if.then.i.i70, %invoke.cont32, %if.then.i.i48, %invoke.cont22, %if.then.i.i32, %invoke.cont8, %if.then.i.i, %invoke.cont, %cleanup81
   ret void
 }
 
@@ -4400,7 +4400,7 @@ declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noun
 declare noundef zeroext i1 @_ZN6google8protobuf10TextFormat15MergeFromStringESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7MessageE(i64, ptr, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_EEEN4absl12lts_202308026StatusEDpT_.argprom(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %args1, ptr noundef nonnull %args4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_EEEN4absl12lts_202308026StatusEDpT_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %args1, ptr noundef nonnull %args4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -4763,17 +4763,17 @@ _ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit33.i.i.i: ; preds = 
   %cmp9.not.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   call void @_ZN6google8protobuf27FieldOptions_EditionDefaultD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__value.i.i.i) #19
-  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_RT0_.argprom.exit.i.i", label %while.body.i.i.i
+  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_RT0_.exit.i.i", label %while.body.i.i.i
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_RT0_.argprom.exit.i.i": ; preds = %_ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit33.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_RT0_.exit.i.i": ; preds = %_ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit33.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__value.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp6.i.i.i)
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %__value.i, i64 8
   %_internal_metadata_.i.i.i.i6.i = getelementptr inbounds i8, ptr %agg.tmp7.i, i64 8
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.argprom.exit"
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.argprom.exit" ], [ %storemerge22, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_RT0_.argprom.exit.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.exit"
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.exit" ], [ %storemerge22, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_RT0_.exit.i.i" ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %__value.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp7.i)
@@ -4947,11 +4947,11 @@ invoke.cont2.i.i.i18.i:                           ; preds = %if.else.i.i10.i.i.i
 
 if.then5.i.i.i23.i:                               ; preds = %invoke.cont2.i.i.i18.i
   invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp7.i, ptr noundef nonnull %__value.i)
-          to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.argprom.exit" unwind label %terminate.lpad.i.i.i22.i
+          to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.exit" unwind label %terminate.lpad.i.i.i22.i
 
 if.else.i.i.i21.i:                                ; preds = %invoke.cont2.i.i.i18.i
   invoke void @_ZN6google8protobuf27FieldOptions_EditionDefault8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp7.i, ptr noundef nonnull align 8 dereferenceable(40) %__value.i)
-          to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.argprom.exit" unwind label %terminate.lpad.i.i.i22.i
+          to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.exit" unwind label %terminate.lpad.i.i.i22.i
 
 terminate.lpad.i.i.i22.i:                         ; preds = %if.else.i.i.i21.i, %if.then5.i.i.i23.i
   %56 = landingpad { ptr, i32 }
@@ -4967,7 +4967,7 @@ terminate.lpad.i.i2.i:                            ; preds = %_ZN6google8protobuf
   call void @__clang_call_terminate(ptr %59) #20
   unreachable
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.argprom.exit": ; preds = %if.then5.i.i.i23.i, %if.else.i.i.i21.i
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.exit": ; preds = %if.then5.i.i.i23.i, %if.else.i.i.i21.i
   %sub.ptr.lhs.cast.i.i11 = ptrtoint ptr %incdec.ptr.i.i1.i to i64
   %sub.ptr.sub.i.i13 = sub i64 %sub.ptr.lhs.cast.i.i11, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i13, 40
@@ -5383,7 +5383,7 @@ while.body.i.i5.backedge:                         ; preds = %if.else.i.i.i.i25.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 640
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !84
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEET_SI_SI_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.argprom.exit", %entry
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEET_SI_SI_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_SI_RT0_.exit", %entry
   ret void
 }
 
@@ -6707,14 +6707,14 @@ attributes #25 = { noreturn }
 !5 = distinct !{!5, !6, !"_ZN6google8protobuf12_GLOBAL__N_117ValidateExtensionERKNS0_10DescriptorEPKNS0_15FieldDescriptorE: %agg.result"}
 !6 = distinct !{!6, !"_ZN6google8protobuf12_GLOBAL__N_117ValidateExtensionERKNS0_10DescriptorEPKNS0_15FieldDescriptorE"}
 !7 = !{!8, !5}
-!8 = distinct !{!8, !9, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_S4_EEEN4absl12lts_202308026StatusEDpT_.argprom: %agg.result"}
-!9 = distinct !{!9, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_S4_EEEN4absl12lts_202308026StatusEDpT_.argprom"}
+!8 = distinct !{!8, !9, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_S4_EEEN4absl12lts_202308026StatusEDpT_: %agg.result"}
+!9 = distinct !{!9, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_S4_EEEN4absl12lts_202308026StatusEDpT_"}
 !10 = !{!11, !8, !5}
 !11 = distinct !{!11, !12, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
 !12 = distinct !{!12, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
 !13 = !{!14, !5}
-!14 = distinct !{!14, !15, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN4absl12lts_202308026StatusEDpT_.argprom: %agg.result"}
-!15 = distinct !{!15, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN4absl12lts_202308026StatusEDpT_.argprom"}
+!14 = distinct !{!14, !15, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN4absl12lts_202308026StatusEDpT_: %agg.result"}
+!15 = distinct !{!15, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN4absl12lts_202308026StatusEDpT_"}
 !16 = !{!17, !5}
 !17 = distinct !{!17, !18, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
 !18 = distinct !{!18, !"_ZN4absl12lts_202308028OkStatusEv"}
@@ -6748,8 +6748,8 @@ attributes #25 = { noreturn }
 !46 = distinct !{!46, !23}
 !47 = distinct !{!47, !23}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN4absl12lts_202308026StatusEDpT_.argprom: %agg.result"}
-!50 = distinct !{!50, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN4absl12lts_202308026StatusEDpT_.argprom"}
+!49 = distinct !{!49, !50, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN4absl12lts_202308026StatusEDpT_: %agg.result"}
+!50 = distinct !{!50, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN4absl12lts_202308026StatusEDpT_"}
 !51 = distinct !{!51, !23}
 !52 = distinct !{!52, !23}
 !53 = distinct !{!53, !23}
@@ -6757,18 +6757,18 @@ attributes #25 = { noreturn }
 !55 = distinct !{!55, !56, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
 !56 = distinct !{!56, !"_ZN4absl12lts_202308028OkStatusEv"}
 !57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_.argprom: %agg.result"}
-!59 = distinct !{!59, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_.argprom"}
+!58 = distinct !{!58, !59, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_: %agg.result"}
+!59 = distinct !{!59, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_EEEN4absl12lts_202308026StatusEDpT_"}
 !60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_.argprom: %agg.result"}
-!62 = distinct !{!62, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_.argprom"}
+!61 = distinct !{!61, !62, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_: %agg.result"}
+!62 = distinct !{!62, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionES4_S5_S4_EEEN4absl12lts_202308026StatusEDpT_"}
 !63 = !{!64, !61}
 !64 = distinct !{!64, !65, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
 !65 = distinct !{!65, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
 !66 = distinct !{!66, !23}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionEEEEN4absl12lts_202308026StatusEDpT_.argprom: %agg.result"}
-!69 = distinct !{!69, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionEEEEN4absl12lts_202308026StatusEDpT_.argprom"}
+!68 = distinct !{!68, !69, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionEEEEN4absl12lts_202308026StatusEDpT_: %agg.result"}
+!69 = distinct !{!69, !"_ZN6google8protobuf12_GLOBAL__N_15ErrorIJPKcNS0_7EditionEEEEN4absl12lts_202308026StatusEDpT_"}
 !70 = !{!71}
 !71 = distinct !{!71, !72, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
 !72 = distinct !{!72, !"_ZN4absl12lts_202308028OkStatusEv"}

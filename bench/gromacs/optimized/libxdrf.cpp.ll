@@ -410,7 +410,7 @@ _ZL9sizeofinti.exit468:                           ; preds = %.lr.ph.i465, %_ZL9s
   br i1 %213, label %.lr.ph.i470, label %_ZL9sizeofinti.exit473, !llvm.loop !7
 
 214:                                              ; preds = %181
-  %215 = call fastcc noundef i32 @_ZL10sizeofintsiPKj.argelim(ptr noundef %11)
+  %215 = call fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef %11)
   br label %_ZL9sizeofinti.exit473
 
 _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9sizeofinti.exit468, %214
@@ -802,7 +802,7 @@ _ZL8sendbitsP10DataBufferii.exit484:              ; preds = %385, %387
   br label %_ZL8sendbitsP10DataBufferii.exit493
 
 430:                                              ; preds = %308
-  call fastcc void @_ZL8sendintsP10DataBufferiiPjS1_.argelim(ptr noundef %16, i32 noundef %.0380, ptr noundef %11, ptr noundef %14)
+  call fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef %16, i32 noundef %.0380, ptr noundef %11, ptr noundef %14)
   br label %_ZL8sendbitsP10DataBufferii.exit493
 
 _ZL8sendbitsP10DataBufferii.exit493:              ; preds = %423, %421, %430
@@ -1044,7 +1044,7 @@ _ZL8sendbitsP10DataBufferii.exit505:              ; preds = %_ZL8sendbitsP10Data
   %indvars.iv671 = phi i64 [ 0, %.lr.ph621.preheader ], [ %indvars.iv.next672, %.lr.ph621 ]
   %563 = load i32, ptr %10, align 4
   %564 = getelementptr inbounds [30 x i32], ptr %14, i64 0, i64 %indvars.iv671
-  call fastcc void @_ZL8sendintsP10DataBufferiiPjS1_.argelim(ptr noundef %16, i32 noundef %563, ptr noundef %12, ptr noundef %564)
+  call fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef %16, i32 noundef %563, ptr noundef %12, ptr noundef %564)
   %indvars.iv.next672 = add nuw nsw i64 %indvars.iv671, 3
   %565 = icmp ult i64 %indvars.iv.next672, %562
   br i1 %565, label %.lr.ph621, label %._crit_edge622, !llvm.loop !11
@@ -1354,7 +1354,7 @@ _ZL9sizeofinti.exit524:                           ; preds = %.lr.ph.i521, %_ZL9s
   br i1 %725, label %.lr.ph.i527, label %_ZL9sizeofinti.exit530, !llvm.loop !7
 
 726:                                              ; preds = %689
-  %727 = call fastcc noundef i32 @_ZL10sizeofintsiPKj.argelim(ptr noundef %11)
+  %727 = call fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef %11)
   br label %_ZL9sizeofinti.exit530
 
 _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9sizeofinti.exit524, %726
@@ -1489,7 +1489,7 @@ _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9s
   br label %794
 
 793:                                              ; preds = %784
-  call fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi.argelim(ptr noundef %16, i32 noundef %.1381, ptr noundef %11, ptr noundef %787)
+  call fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi(ptr noundef %16, i32 noundef %.1381, ptr noundef %11, ptr noundef %787)
   %.pre687 = load i32, ptr %13, align 4
   %.phi.trans.insert688 = getelementptr inbounds i8, ptr %787, i64 8
   %.pre689 = load i32, ptr %.phi.trans.insert688, align 4
@@ -1593,7 +1593,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %824, %826
   %.2388633 = phi ptr [ %.1387640, %844 ], [ %884, %872 ]
   %.1416632 = phi i32 [ 0, %844 ], [ %885, %872 ]
   %849 = load i32, ptr %10, align 4
-  call fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi.argelim(ptr noundef %16, i32 noundef %849, ptr noundef %12, ptr noundef %845)
+  call fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi(ptr noundef %16, i32 noundef %849, ptr noundef %12, ptr noundef %845)
   %850 = load i32, ptr %13, align 4
   %851 = add nsw i32 %850, 1
   store i32 %851, ptr %13, align 4
@@ -1750,7 +1750,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZL10sizeofintsiPKj.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr nocapture noundef nonnull readonly %0) unnamed_addr #9 {
   %2 = alloca [32 x i32], align 16
   store i32 1, ptr %2, align 16
   br label %.preheader31
@@ -1827,7 +1827,7 @@ define internal fastcc noundef i32 @_ZL10sizeofintsiPKj.argelim(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_.argelim(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #10 {
+define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #10 {
   %5 = alloca [32 x i32], align 16
   %6 = load i32, ptr %3, align 4
   br label %7
@@ -2255,7 +2255,7 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL11receivebitsP1
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi.argelim(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #10 {
+define internal fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #10 {
   %5 = alloca [32 x i32], align 16
   %6 = icmp sgt i32 %1, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)

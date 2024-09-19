@@ -16874,13 +16874,13 @@ _ZN7testing15AssertionResultD2Ev.exit477:         ; preds = %if.end179, %_ZNKSt1
   store ptr null, ptr %message_.i474, align 8
   %m.val = load ptr, ptr %m, align 8
   %tobool.not.i.i.i.i478 = icmp eq ptr %m.val, null
-  br i1 %tobool.not.i.i.i.i478, label %_ZZN34ranges_test_container_adaptor_Test8TestBodyEvEN20my_container_adaptorD2Ev.argprom.exit, label %if.then.i.i.i.i479
+  br i1 %tobool.not.i.i.i.i478, label %_ZZN34ranges_test_container_adaptor_Test8TestBodyEvEN20my_container_adaptorD2Ev.exit, label %if.then.i.i.i.i479
 
 if.then.i.i.i.i479:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit477
   call void @_ZdlPv(ptr noundef nonnull %m.val) #27
-  br label %_ZZN34ranges_test_container_adaptor_Test8TestBodyEvEN20my_container_adaptorD2Ev.argprom.exit
+  br label %_ZZN34ranges_test_container_adaptor_Test8TestBodyEvEN20my_container_adaptorD2Ev.exit
 
-_ZZN34ranges_test_container_adaptor_Test8TestBodyEvEN20my_container_adaptorD2Ev.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit477, %if.then.i.i.i.i479
+_ZZN34ranges_test_container_adaptor_Test8TestBodyEvEN20my_container_adaptorD2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit477, %if.then.i.i.i.i479
   ret void
 
 ehcleanup180:                                     ; preds = %_ZN7testing7MessageD2Ev.exit473, %lpad163

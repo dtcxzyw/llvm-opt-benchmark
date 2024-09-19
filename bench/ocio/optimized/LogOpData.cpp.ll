@@ -1246,11 +1246,11 @@ entry:
   %oss32 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %m_redParams = getelementptr inbounds i8, ptr %this, i64 168
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ValidateParamsERKSt6vectorIdSaIdEENS_18TransformDirectionE.argelim(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ValidateParamsERKSt6vectorIdSaIdEENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams)
   %m_greenParams = getelementptr inbounds i8, ptr %this, i64 192
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ValidateParamsERKSt6vectorIdSaIdEENS_18TransformDirectionE.argelim(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ValidateParamsERKSt6vectorIdSaIdEENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams)
   %m_blueParams = getelementptr inbounds i8, ptr %this, i64 216
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ValidateParamsERKSt6vectorIdSaIdEENS_18TransformDirectionE.argelim(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ValidateParamsERKSt6vectorIdSaIdEENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams)
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_redParams, align 8
@@ -1433,7 +1433,7 @@ unreachable:                                      ; preds = %invoke.cont47, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ValidateParamsERKSt6vectorIdSaIdEENS_18TransformDirectionE.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ValidateParamsERKSt6vectorIdSaIdEENS_18TransformDirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

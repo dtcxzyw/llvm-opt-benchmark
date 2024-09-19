@@ -1013,7 +1013,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DeriveKey(ptr noundef %0,
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 64
   %51 = load ptr, ptr %50, align 8
-  call fastcc void @copyBackKeyMatParams.argprom(ptr noundef nonnull %0, ptr noundef nonnull readonly %13, ptr noundef %3, ptr noundef %51, ptr noundef nonnull @.str.11)
+  call fastcc void @copyBackKeyMatParams(ptr noundef nonnull %0, ptr noundef nonnull readonly %13, ptr noundef %3, ptr noundef %51, ptr noundef nonnull @.str.11)
   br label %ssl3CopyBackClientVersion.exit
 
 52:                                               ; preds = %26
@@ -1025,7 +1025,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DeriveKey(ptr noundef %0,
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %54, i64 64
   %57 = load ptr, ptr %56, align 8
-  call fastcc void @copyBackKeyMatParams.argprom(ptr noundef nonnull %0, ptr noundef nonnull readonly %13, ptr noundef %3, ptr noundef %57, ptr noundef nonnull @.str.12)
+  call fastcc void @copyBackKeyMatParams(ptr noundef nonnull %0, ptr noundef nonnull readonly %13, ptr noundef %3, ptr noundef %57, ptr noundef nonnull @.str.12)
   br label %ssl3CopyBackClientVersion.exit
 
 58:                                               ; preds = %26
@@ -1096,7 +1096,7 @@ define hidden void @ssl3CopyBackKeyMatParams(ptr noundef %0, ptr nocapture nound
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 64
   %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @copyBackKeyMatParams.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8, ptr noundef nonnull @.str.11)
+  tail call fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8, ptr noundef nonnull @.str.11)
   br label %9
 
 9:                                                ; preds = %6, %3
@@ -1113,7 +1113,7 @@ define hidden void @tls12CopyBackKeyMatParams(ptr noundef %0, ptr nocapture noun
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 64
   %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @copyBackKeyMatParams.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8, ptr noundef nonnull @.str.12)
+  tail call fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8, ptr noundef nonnull @.str.12)
   br label %9
 
 9:                                                ; preds = %6, %3
@@ -1223,7 +1223,7 @@ define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copyBackKeyMatParams.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8

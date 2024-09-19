@@ -3621,7 +3621,7 @@ sw.bb2.i:                                         ; preds = %if.else.i206
   %65 = load i8, ptr %incdec.ptr.i170, align 1
   %conv3.i = zext i8 %65 to i32
   %call.i212 = tail call fastcc i32 @match_class(i32 noundef %conv.i, i32 noundef %conv3.i)
-  br label %singlematch.argprom.exit
+  br label %singlematch.exit
 
 sw.bb4.i:                                         ; preds = %if.else.i206
   %add.ptr5.i = getelementptr inbounds i8, ptr %retval.0.i188, i64 -1
@@ -3679,19 +3679,19 @@ if.end39.i.i:                                     ; preds = %if.else32.i.i, %lan
 matchbracketclass.exit.i:                         ; preds = %if.end39.i.i, %if.else32.i.i, %land.lhs.true26.i.i, %if.then8.i.i, %sw.bb4.i
   %retval.0.in.i.i = phi i1 [ %cmp.i.i207, %sw.bb4.i ], [ %cmp.i.i207, %if.end39.i.i ], [ %not.cmp.i.i, %if.else32.i.i ], [ %not.cmp.i.i, %land.lhs.true26.i.i ], [ %not.cmp.i.i, %if.then8.i.i ]
   %retval.0.i.i208 = zext i1 %retval.0.in.i.i to i32
-  br label %singlematch.argprom.exit
+  br label %singlematch.exit
 
 sw.default.i:                                     ; preds = %if.else.i206
   %cmp8.i = icmp eq i8 %64, %63
   %conv9.i = zext i1 %cmp8.i to i32
-  br label %singlematch.argprom.exit
+  br label %singlematch.exit
 
-singlematch.argprom.exit:                         ; preds = %sw.bb2.i, %matchbracketclass.exit.i, %sw.default.i
+singlematch.exit:                                 ; preds = %sw.bb2.i, %matchbracketclass.exit.i, %sw.default.i
   %retval.0.i205 = phi i32 [ %conv9.i, %sw.default.i ], [ %retval.0.i.i208, %matchbracketclass.exit.i ], [ %call.i212, %sw.bb2.i ]
   %tobool86.not = icmp eq i32 %retval.0.i205, 0
   br i1 %tobool86.not, label %if.then87, label %if.else102
 
-if.then87:                                        ; preds = %classend.exit203, %singlematch.argprom.exit
+if.then87:                                        ; preds = %classend.exit203, %singlematch.exit
   %70 = load i8, ptr %retval.0.i188, align 1
   switch i8 %70, label %if.end124 [
     i8 42, label %if.then98
@@ -3709,7 +3709,7 @@ init.backedge:                                    ; preds = %if.then98, %matchbr
   %cmp4.not = icmp eq ptr %p.addr.0.be, %71
   br i1 %cmp4.not, label %if.end124, label %if.then6
 
-if.else102:                                       ; preds = %if.else.i206, %singlematch.argprom.exit
+if.else102:                                       ; preds = %if.else.i206, %singlematch.exit
   %72 = load i8, ptr %retval.0.i188, align 1
   switch i8 %72, label %init.outer.backedge [
     i8 63, label %sw.bb104
@@ -3758,7 +3758,7 @@ sw.bb2.i278:                                      ; preds = %if.else.i241
   %74 = load i8, ptr %incdec.ptr.i170, align 1
   %conv3.i280 = zext i8 %74 to i32
   %call.i281 = tail call fastcc i32 @match_class(i32 noundef %conv.i242, i32 noundef %conv3.i280)
-  br label %singlematch.argprom.exit285
+  br label %singlematch.exit285
 
 sw.bb4.i243:                                      ; preds = %if.else.i241
   %75 = load i8, ptr %incdec.ptr.i170, align 1
@@ -3815,24 +3815,24 @@ if.end39.i.i263:                                  ; preds = %if.else32.i.i261, %
 matchbracketclass.exit.i251:                      ; preds = %if.end39.i.i263, %if.else32.i.i261, %land.lhs.true26.i.i272, %if.then8.i.i274, %sw.bb4.i243
   %retval.0.in.i.i252 = phi i1 [ %cmp.i.i246, %sw.bb4.i243 ], [ %cmp.i.i246, %if.end39.i.i263 ], [ %not.cmp.i.i248, %if.else32.i.i261 ], [ %not.cmp.i.i248, %land.lhs.true26.i.i272 ], [ %not.cmp.i.i248, %if.then8.i.i274 ]
   %retval.0.i.i253 = zext i1 %retval.0.in.i.i252 to i32
-  br label %singlematch.argprom.exit285
+  br label %singlematch.exit285
 
 sw.default.i282:                                  ; preds = %if.else.i241
   %cmp8.i283 = icmp eq i8 %64, %73
   %conv9.i284 = zext i1 %cmp8.i283 to i32
-  br label %singlematch.argprom.exit285
+  br label %singlematch.exit285
 
-singlematch.argprom.exit285:                      ; preds = %sw.bb2.i278, %matchbracketclass.exit.i251, %sw.default.i282
+singlematch.exit285:                              ; preds = %sw.bb2.i278, %matchbracketclass.exit.i251, %sw.default.i282
   %retval.0.i240 = phi i32 [ %conv9.i284, %sw.default.i282 ], [ %retval.0.i.i253, %matchbracketclass.exit.i251 ], [ %call.i281, %sw.bb2.i278 ]
   %tobool.not.i215 = icmp eq i32 %retval.0.i240, 0
   br i1 %tobool.not.i215, label %while.body2.i.lr.ph, label %while.body.i216
 
-while.body2.i.lr.ph:                              ; preds = %singlematch.argprom.exit285, %while.body.i216, %sw.bb115
-  %i.0.i.lcssa = phi i64 [ 0, %sw.bb115 ], [ %i.0.i611, %singlematch.argprom.exit285 ], [ %inc.i217, %while.body.i216 ]
+while.body2.i.lr.ph:                              ; preds = %singlematch.exit285, %while.body.i216, %sw.bb115
+  %i.0.i.lcssa = phi i64 [ 0, %sw.bb115 ], [ %i.0.i611, %singlematch.exit285 ], [ %inc.i217, %while.body.i216 ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %retval.0.i188, i64 1
   br label %while.body2.i
 
-while.body.i216:                                  ; preds = %if.else.i241, %singlematch.argprom.exit285
+while.body.i216:                                  ; preds = %if.else.i241, %singlematch.exit285
   %inc.i217 = add nuw nsw i64 %i.0.i611, 1
   %add.ptr.i213 = getelementptr inbounds i8, ptr %s.addr.2, i64 %inc.i217
   %cmp.not.i239 = icmp ult ptr %add.ptr.i213, %ms.val
@@ -3870,7 +3870,7 @@ sw.bb2.i325:                                      ; preds = %if.else.i288
   %81 = load i8, ptr %incdec.ptr.i170, align 1
   %conv3.i327 = zext i8 %81 to i32
   %call.i328 = tail call fastcc i32 @match_class(i32 noundef %conv.i289, i32 noundef %conv3.i327)
-  br label %singlematch.argprom.exit332
+  br label %singlematch.exit332
 
 sw.bb4.i290:                                      ; preds = %if.else.i288
   %82 = load i8, ptr %incdec.ptr.i170, align 1
@@ -3927,19 +3927,19 @@ if.end39.i.i310:                                  ; preds = %if.else32.i.i308, %
 matchbracketclass.exit.i298:                      ; preds = %if.end39.i.i310, %if.else32.i.i308, %land.lhs.true26.i.i319, %if.then8.i.i321, %sw.bb4.i290
   %retval.0.in.i.i299 = phi i1 [ %cmp.i.i293, %sw.bb4.i290 ], [ %cmp.i.i293, %if.end39.i.i310 ], [ %not.cmp.i.i295, %if.else32.i.i308 ], [ %not.cmp.i.i295, %land.lhs.true26.i.i319 ], [ %not.cmp.i.i295, %if.then8.i.i321 ]
   %retval.0.i.i300 = zext i1 %retval.0.in.i.i299 to i32
-  br label %singlematch.argprom.exit332
+  br label %singlematch.exit332
 
 sw.default.i329:                                  ; preds = %if.else.i288
   %cmp8.i330 = icmp eq i8 %80, %79
   %conv9.i331 = zext i1 %cmp8.i330 to i32
-  br label %singlematch.argprom.exit332
+  br label %singlematch.exit332
 
-singlematch.argprom.exit332:                      ; preds = %sw.bb2.i325, %matchbracketclass.exit.i298, %sw.default.i329
+singlematch.exit332:                              ; preds = %sw.bb2.i325, %matchbracketclass.exit.i298, %sw.default.i329
   %retval.0.i287 = phi i32 [ %conv9.i331, %sw.default.i329 ], [ %retval.0.i.i300, %matchbracketclass.exit.i298 ], [ %call.i328, %sw.bb2.i325 ]
   %tobool.not.i228 = icmp eq i32 %retval.0.i287, 0
   br i1 %tobool.not.i228, label %if.end124, label %if.then2.i
 
-if.then2.i:                                       ; preds = %if.else.i288, %singlematch.argprom.exit332
+if.then2.i:                                       ; preds = %if.else.i288, %singlematch.exit332
   %incdec.ptr.i229 = getelementptr inbounds i8, ptr %s.addr.0.i428, i64 1
   %call.i223 = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i229, ptr noundef nonnull %add.ptr.i222)
   %cmp.not.i224 = icmp eq ptr %call.i223, null
@@ -3952,8 +3952,8 @@ init.outer.backedge:                              ; preds = %if.else102, %if.the
   %cmp4.not414 = icmp eq ptr %p.addr.0.ph.be, %86
   br i1 %cmp4.not414, label %if.end124, label %if.then6.lr.ph
 
-if.end124:                                        ; preds = %init.outer.backedge, %land.lhs.true.i165, %check_capture.exit.i, %if.else.i, %if.end.i96, %init.backedge, %matchbracketclass.exit156, %matchbracketclass.exit, %if.then87, %sw.bb104, %cond.end60, %if.end29.i, %if.then2.i, %singlematch.argprom.exit332, %if.else.i226, %while.cond1.i, %while.body2.i, %if.end, %for.cond.i.preheader, %if.then.i92, %capture_to_close.exit, %if.then12.i79, %if.end.i71, %if.then12.i, %if.end.i, %if.end26
-  %s.addr.1 = phi ptr [ %cond, %if.end26 ], [ %call9.i, %if.end.i ], [ null, %if.then12.i ], [ %call9.i77, %if.end.i71 ], [ null, %if.then12.i79 ], [ %call4.i, %capture_to_close.exit ], [ null, %if.then.i92 ], [ %call.i223426, %for.cond.i.preheader ], [ %s, %if.end ], [ null, %while.cond1.i ], [ %call5.i, %while.body2.i ], [ %call.i223, %if.then2.i ], [ null, %singlematch.argprom.exit332 ], [ null, %if.else.i226 ], [ null, %if.end29.i ], [ null, %cond.end60 ], [ %call107, %sw.bb104 ], [ null, %if.then87 ], [ null, %matchbracketclass.exit ], [ null, %matchbracketclass.exit156 ], [ %s.addr.0.ph424, %init.backedge ], [ %s.addr.0.ph.be, %init.outer.backedge ], [ null, %land.lhs.true.i165 ], [ null, %check_capture.exit.i ], [ null, %if.else.i ], [ null, %if.end.i96 ]
+if.end124:                                        ; preds = %init.outer.backedge, %land.lhs.true.i165, %check_capture.exit.i, %if.else.i, %if.end.i96, %init.backedge, %matchbracketclass.exit156, %matchbracketclass.exit, %if.then87, %sw.bb104, %cond.end60, %if.end29.i, %if.then2.i, %singlematch.exit332, %if.else.i226, %while.cond1.i, %while.body2.i, %if.end, %for.cond.i.preheader, %if.then.i92, %capture_to_close.exit, %if.then12.i79, %if.end.i71, %if.then12.i, %if.end.i, %if.end26
+  %s.addr.1 = phi ptr [ %cond, %if.end26 ], [ %call9.i, %if.end.i ], [ null, %if.then12.i ], [ %call9.i77, %if.end.i71 ], [ null, %if.then12.i79 ], [ %call4.i, %capture_to_close.exit ], [ null, %if.then.i92 ], [ %call.i223426, %for.cond.i.preheader ], [ %s, %if.end ], [ null, %while.cond1.i ], [ %call5.i, %while.body2.i ], [ %call.i223, %if.then2.i ], [ null, %singlematch.exit332 ], [ null, %if.else.i226 ], [ null, %if.end29.i ], [ null, %cond.end60 ], [ %call107, %sw.bb104 ], [ null, %if.then87 ], [ null, %matchbracketclass.exit ], [ null, %matchbracketclass.exit156 ], [ %s.addr.0.ph424, %init.backedge ], [ %s.addr.0.ph.be, %init.outer.backedge ], [ null, %land.lhs.true.i165 ], [ null, %check_capture.exit.i ], [ null, %if.else.i ], [ null, %if.end.i96 ]
   %87 = load i32, ptr %matchdepth, align 8
   %inc = add nsw i32 %87, 1
   store i32 %inc, ptr %matchdepth, align 8
@@ -4893,61 +4893,61 @@ declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arith_add(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @arith.retelim(ptr noundef %L, i32 noundef 0, ptr noundef nonnull @.str.76)
+  tail call fastcc void @arith(ptr noundef %L, i32 noundef 0, ptr noundef nonnull @.str.76)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arith_sub(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @arith.retelim(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.77)
+  tail call fastcc void @arith(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.77)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arith_mul(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @arith.retelim(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.78)
+  tail call fastcc void @arith(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.78)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arith_mod(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @arith.retelim(ptr noundef %L, i32 noundef 3, ptr noundef nonnull @.str.79)
+  tail call fastcc void @arith(ptr noundef %L, i32 noundef 3, ptr noundef nonnull @.str.79)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arith_pow(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @arith.retelim(ptr noundef %L, i32 noundef 4, ptr noundef nonnull @.str.80)
+  tail call fastcc void @arith(ptr noundef %L, i32 noundef 4, ptr noundef nonnull @.str.80)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arith_div(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @arith.retelim(ptr noundef %L, i32 noundef 5, ptr noundef nonnull @.str.81)
+  tail call fastcc void @arith(ptr noundef %L, i32 noundef 5, ptr noundef nonnull @.str.81)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arith_idiv(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @arith.retelim(ptr noundef %L, i32 noundef 6, ptr noundef nonnull @.str.82)
+  tail call fastcc void @arith(ptr noundef %L, i32 noundef 6, ptr noundef nonnull @.str.82)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @arith_unm(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @arith.retelim(ptr noundef %L, i32 noundef 12, ptr noundef nonnull @.str.83)
+  tail call fastcc void @arith(ptr noundef %L, i32 noundef 12, ptr noundef nonnull @.str.83)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @arith.retelim(ptr noundef %L, i32 noundef range(i32 0, 13) %op, ptr noundef %mtname) unnamed_addr #0 {
+define internal fastcc void @arith(ptr noundef %L, i32 noundef range(i32 0, 13) %op, ptr noundef %mtname) unnamed_addr #0 {
 entry:
   %len.i4 = alloca i64, align 8
   %len.i = alloca i64, align 8

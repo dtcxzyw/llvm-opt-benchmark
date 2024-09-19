@@ -421,7 +421,7 @@ invoke.cont165.i:                                 ; preds = %if.end158.i
 
 lor.lhs.false168.i:                               ; preds = %invoke.cont165.i
   %25 = load ptr, ptr %eckey.i, align 8
-  %call174.i = invoke fastcc noundef zeroext i1 @_ZL15TestTamperedSigP8_IO_FILE3ApiPKhmP12ecdsa_sig_stP9ec_key_stPK9bignum_st.argprom.argelim(i32 noundef 0, ptr noundef %digest.i, ptr noundef nonnull %call166.i, ptr noundef %25, ptr noundef %call18.i)
+  %call174.i = invoke fastcc noundef zeroext i1 @_ZL15TestTamperedSigP8_IO_FILE3ApiPKhmP12ecdsa_sig_stP9ec_key_stPK9bignum_st(i32 noundef 0, ptr noundef %digest.i, ptr noundef nonnull %call166.i, ptr noundef %25, ptr noundef %call18.i)
           to label %invoke.cont173.i unwind label %lpad172.i
 
 invoke.cont173.i:                                 ; preds = %lor.lhs.false168.i
@@ -483,7 +483,7 @@ if.end233.i:                                      ; preds = %invoke.cont227.i
   %fputc63.i = call i32 @fputc(i32 46, ptr %0)
   %call237.i = call i32 @fflush(ptr noundef %0)
   %32 = load ptr, ptr %ecdsa_sig.i, align 8
-  %call242.i = invoke fastcc noundef zeroext i1 @_ZL15TestTamperedSigP8_IO_FILE3ApiPKhmP12ecdsa_sig_stP9ec_key_stPK9bignum_st.argprom.argelim(i32 noundef 1, ptr noundef %digest.i, ptr noundef %32, ptr noundef %25, ptr noundef %call18.i)
+  %call242.i = invoke fastcc noundef zeroext i1 @_ZL15TestTamperedSigP8_IO_FILE3ApiPKhmP12ecdsa_sig_stP9ec_key_stPK9bignum_st(i32 noundef 1, ptr noundef %digest.i, ptr noundef %32, ptr noundef %25, ptr noundef %call18.i)
           to label %invoke.cont241.i unwind label %lpad172.i
 
 invoke.cont241.i:                                 ; preds = %if.end233.i
@@ -816,7 +816,7 @@ declare void @ECDSA_SIG_free(ptr noundef) local_unnamed_addr #1
 declare ptr @ECDSA_SIG_from_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL15TestTamperedSigP8_IO_FILE3ApiPKhmP12ecdsa_sig_stP9ec_key_stPK9bignum_st.argprom.argelim(i32 noundef range(i32 0, 2) %api, ptr noundef nonnull %digest, ptr noundef %ecdsa_sig, ptr noundef %eckey, ptr noundef %order) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL15TestTamperedSigP8_IO_FILE3ApiPKhmP12ecdsa_sig_stP9ec_key_stPK9bignum_st(i32 noundef range(i32 0, 2) %api, ptr noundef nonnull %digest, ptr noundef %ecdsa_sig, ptr noundef %eckey, ptr noundef %order) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %der.i = alloca ptr, align 8
   %der_len.i = alloca i64, align 8
@@ -986,7 +986,7 @@ invoke.cont61:                                    ; preds = %lor.lhs.false57
   br i1 %cmp63, label %if.then.i.i.i38, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %invoke.cont61
-  %call66 = invoke fastcc noundef zeroext i1 @_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.argelim(i32 noundef %api, ptr noundef %digest, ptr noundef nonnull %ecdsa_sig, ptr noundef %eckey, i32 noundef 1)
+  %call66 = invoke fastcc noundef zeroext i1 @_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti(i32 noundef %api, ptr noundef %digest, ptr noundef nonnull %ecdsa_sig, ptr noundef %eckey, i32 noundef 1)
           to label %if.then.i.i.i38 unwind label %lpad8.body.thread20
 
 cleanup:                                          ; preds = %invoke.cont9, %invoke.cont14
@@ -1133,7 +1133,7 @@ declare i32 @BN_bn2bin_padded(ptr noundef, i64 noundef, ptr noundef) local_unnam
 declare ptr @BN_bin2bn(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.argelim(i32 noundef range(i32 0, 2) %api, ptr noundef nonnull %digest, ptr noundef %ecdsa_sig, ptr noundef %eckey, i32 noundef range(i32 0, 2) %expected_result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti(i32 noundef range(i32 0, 2) %api, ptr noundef nonnull %digest, ptr noundef %ecdsa_sig, ptr noundef %eckey, i32 noundef range(i32 0, 2) %expected_result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %der = alloca ptr, align 8
   %der_len = alloca i64, align 8

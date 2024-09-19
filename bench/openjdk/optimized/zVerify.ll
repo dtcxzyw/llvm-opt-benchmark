@@ -1119,8 +1119,8 @@ define hidden void @_ZN7ZVerify17before_relocationEP11ZForwarding(ptr noundef %0
   %53 = lshr i64 %52, 6
   br label %54
 
-54:                                               ; preds = %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.argprom.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %.0916.i.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i.i ], [ %112, %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.argprom.exit.i.i.i.i.i" ]
+54:                                               ; preds = %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
+  %.0916.i.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i.i ], [ %112, %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.exit.i.i.i.i.i" ]
   %55 = lshr i64 %.0916.i.i.i.i.i, 6
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i64, ptr %56, i64 %55
@@ -1167,7 +1167,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %71, %54
 75:                                               ; preds = %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i
   %76 = and i64 %.0.i.i.i.i.i.i.i, 1
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %78, label %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.argprom.exit.i.i.i.i.i"
+  br i1 %77, label %78, label %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.exit.i.i.i.i.i"
 
 78:                                               ; preds = %75
   %79 = load i8, ptr %26, align 8
@@ -1217,13 +1217,13 @@ _ZNK5ZPage21object_from_bit_indexEm.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK5ZPage2
   %102 = shl i64 %100, %101
   %103 = add i64 %102, %99
   %104 = inttoptr i64 %103 to ptr
-  br label %"_ZZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_ENKUlmE_clEm.argprom.exit.i.i.i.i.i.i.i"
+  br label %"_ZZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_ENKUlmE_clEm.exit.i.i.i.i.i.i.i"
 
 105:                                              ; preds = %_ZNK5ZPage21object_from_bit_indexEm.exit.i.i.i.i.i.i.i.i
   %106 = load ptr, ptr %94, align 8
-  br label %"_ZZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_ENKUlmE_clEm.argprom.exit.i.i.i.i.i.i.i"
+  br label %"_ZZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_ENKUlmE_clEm.exit.i.i.i.i.i.i.i"
 
-"_ZZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_ENKUlmE_clEm.argprom.exit.i.i.i.i.i.i.i": ; preds = %105, %95
+"_ZZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_ENKUlmE_clEm.exit.i.i.i.i.i.i.i": ; preds = %105, %95
   %.0.i.i.i2.i.i.i.i.i.i.i.i = phi ptr [ %104, %95 ], [ %106, %105 ]
   %107 = getelementptr inbounds i8, ptr %.0.i.i.i2.i.i.i.i.i.i.i.i, i64 12
   %108 = load i32, ptr %107, align 4
@@ -1231,14 +1231,14 @@ _ZNK5ZPage21object_from_bit_indexEm.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK5ZPage2
   %110 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI29ZVerifyRemsetBeforeOopClosureE6_tableE, i64 0, i64 %109
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull %2, ptr noundef nonnull %91, ptr noundef %.0.i.i.i2.i.i.i.i.i.i.i.i) #10
-  br label %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.argprom.exit.i.i.i.i.i"
+  br label %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.exit.i.i.i.i.i"
 
-"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.argprom.exit.i.i.i.i.i": ; preds = %"_ZZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_ENKUlmE_clEm.argprom.exit.i.i.i.i.i.i.i", %75
+"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.exit.i.i.i.i.i": ; preds = %"_ZZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_ENKUlmE_clEm.exit.i.i.i.i.i.i.i", %75
   %112 = add nuw i64 %.0.i.i.i.i.i.i.i, 1
   %113 = icmp ult i64 %112, %50
   br i1 %113, label %54, label %"_ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdS8_EUlmE_EEvmS8_.exit.i.i.i", !llvm.loop !14
 
-"_ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdS8_EUlmE_EEvmS8_.exit.i.i.i": ; preds = %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.argprom.exit.i.i.i.i.i", %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i, %71, %.preheader.i.i.i.i.i, %45
+"_ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdS8_EUlmE_EEvmS8_.exit.i.i.i": ; preds = %"_ZNK6BitMap14IterateInvokerIbEclIZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN7ZVerify17before_relocationEP11ZForwardingE3$_0EEvT_EUlmE_EEv13ZGenerationIdSB_EUlmE_EEbSB_m.exit.i.i.i.i.i", %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i, %71, %.preheader.i.i.i.i.i, %45
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 63
   br i1 %.not.i.i.i, label %"_ZN11ZForwarding14object_iterateIZN7ZVerify17before_relocationEPS_E3$_0EEvT_.exit", label %114
 

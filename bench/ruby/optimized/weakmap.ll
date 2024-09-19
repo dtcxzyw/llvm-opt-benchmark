@@ -132,24 +132,24 @@ define internal noundef range(i64 1, 0) i64 @wmap_aset(i64 noundef %0, i64 nound
   %11 = icmp ne i64 %10, 0
   %12 = icmp eq i64 %1, 0
   %13 = or i1 %12, %11
-  br i1 %13, label %rb_obj_written.argprom.exit, label %14
+  br i1 %13, label %rb_obj_written.exit, label %14
 
 14:                                               ; preds = %3
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %1) #9
-  br label %rb_obj_written.argprom.exit
+  br label %rb_obj_written.exit
 
-rb_obj_written.argprom.exit:                      ; preds = %3, %14
+rb_obj_written.exit:                              ; preds = %3, %14
   %15 = and i64 %2, 7
   %16 = icmp ne i64 %15, 0
   %17 = icmp eq i64 %2, 0
   %18 = or i1 %17, %16
-  br i1 %18, label %rb_obj_written.argprom.exit8, label %19
+  br i1 %18, label %rb_obj_written.exit8, label %19
 
-19:                                               ; preds = %rb_obj_written.argprom.exit
+19:                                               ; preds = %rb_obj_written.exit
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %2) #9
-  br label %rb_obj_written.argprom.exit8
+  br label %rb_obj_written.exit8
 
-rb_obj_written.argprom.exit8:                     ; preds = %rb_obj_written.argprom.exit, %19
+rb_obj_written.exit8:                             ; preds = %rb_obj_written.exit, %19
   %20 = or i64 %2, 1
   ret i64 %20
 }
@@ -523,24 +523,24 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %3, %11
   %30 = icmp ne i64 %29, 0
   %31 = icmp eq i64 %28, 0
   %32 = or i1 %31, %30
-  br i1 %32, label %rb_obj_written.argprom.exit, label %33
+  br i1 %32, label %rb_obj_written.exit, label %33
 
 33:                                               ; preds = %22
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %28) #9
-  br label %rb_obj_written.argprom.exit
+  br label %rb_obj_written.exit
 
-rb_obj_written.argprom.exit:                      ; preds = %22, %33
+rb_obj_written.exit:                              ; preds = %22, %33
   %34 = and i64 %2, 7
   %35 = icmp ne i64 %34, 0
   %36 = icmp eq i64 %2, 0
   %37 = or i1 %36, %35
-  br i1 %37, label %rb_obj_written.argprom.exit69, label %38
+  br i1 %37, label %rb_obj_written.exit69, label %38
 
-38:                                               ; preds = %rb_obj_written.argprom.exit
+38:                                               ; preds = %rb_obj_written.exit
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %2) #9
-  br label %rb_obj_written.argprom.exit69
+  br label %rb_obj_written.exit69
 
-rb_obj_written.argprom.exit69:                    ; preds = %rb_obj_written.argprom.exit, %38
+rb_obj_written.exit69:                            ; preds = %rb_obj_written.exit, %38
   ret i64 %2
 }
 

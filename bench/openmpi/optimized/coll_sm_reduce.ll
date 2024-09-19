@@ -98,30 +98,30 @@ define i32 @mca_coll_sm_reduce_intra(ptr noundef %0, ptr noundef %1, i32 noundef
   %49 = zext i16 %.val235.i to i32
   %50 = and i32 %49, 16
   %.not.i.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i.i, label %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread.i, label %ompi_datatype_is_contiguous_memory_layout.argprom.exit.i
+  br i1 %.not.i.i.i, label %ompi_datatype_is_contiguous_memory_layout.exit.thread.i, label %ompi_datatype_is_contiguous_memory_layout.exit.i
 
-ompi_datatype_is_contiguous_memory_layout.argprom.exit.i: ; preds = %47
+ompi_datatype_is_contiguous_memory_layout.exit.i: ; preds = %47
   %51 = icmp ne i32 %2, 1
   %52 = and i32 %49, 32
   %.not3.i.i.i = icmp eq i32 %52, 0
   %or.cond.not.i.i.not.i = and i1 %51, %.not3.i.i.i
-  br i1 %or.cond.not.i.i.not.i, label %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread.i, label %ompi_datatype_is_contiguous_memory_layout.argprom.exit._crit_edge.i
+  br i1 %or.cond.not.i.i.not.i, label %ompi_datatype_is_contiguous_memory_layout.exit.thread.i, label %ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i
 
-ompi_datatype_is_contiguous_memory_layout.argprom.exit._crit_edge.i: ; preds = %ompi_datatype_is_contiguous_memory_layout.argprom.exit.i
+ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i: ; preds = %ompi_datatype_is_contiguous_memory_layout.exit.i
   %.pre.i = add nsw i32 %.val25.val, -1
   br label %118
 
-ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread.i: ; preds = %ompi_datatype_is_contiguous_memory_layout.argprom.exit.i, %47
+ompi_datatype_is_contiguous_memory_layout.exit.thread.i: ; preds = %ompi_datatype_is_contiguous_memory_layout.exit.i, %47
   %53 = load i32, ptr @opal_class_init_epoch, align 4
   %54 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not217.i = icmp eq i32 %53, %54
   br i1 %.not217.i, label %56, label %55
 
-55:                                               ; preds = %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread.i
+55:                                               ; preds = %ompi_datatype_is_contiguous_memory_layout.exit.thread.i
   tail call void @opal_class_initialize(ptr noundef nonnull @opal_convertor_t_class) #7
   br label %56
 
-56:                                               ; preds = %55, %ompi_datatype_is_contiguous_memory_layout.argprom.exit.thread.i
+56:                                               ; preds = %55, %ompi_datatype_is_contiguous_memory_layout.exit.thread.i
   store ptr @opal_convertor_t_class, ptr %12, align 8
   %57 = getelementptr inbounds i8, ptr %12, i64 8
   store volatile i32 1, ptr %57, align 8
@@ -193,7 +193,7 @@ opal_datatype_span.exit.i:                        ; preds = %76, %opal_obj_run_c
   %.0.i.i = phi i64 [ %87, %76 ], [ 0, %opal_obj_run_constructors.exit240.i ]
   %88 = call noalias ptr @malloc(i64 noundef %.0.i.i) #8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %reduce_inorder.argprom.argprom.exit, label %90
+  br i1 %89, label %reduce_inorder.exit, label %90
 
 90:                                               ; preds = %opal_datatype_span.exit.i
   %91 = sub i64 0, %.06.i
@@ -238,10 +238,10 @@ opal_datatype_span.exit.i:                        ; preds = %76, %opal_obj_run_c
   %.not221.i = icmp eq i32 %117, 0
   br i1 %.not221.i, label %118, label %opal_obj_run_destructors.exit281.sink.split.i
 
-118:                                              ; preds = %106, %ompi_datatype_is_contiguous_memory_layout.argprom.exit._crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre.i, %ompi_datatype_is_contiguous_memory_layout.argprom.exit._crit_edge.i ], [ %105, %106 ]
-  %.0198.i = phi ptr [ null, %ompi_datatype_is_contiguous_memory_layout.argprom.exit._crit_edge.i ], [ %92, %106 ]
-  %.0197.i = phi ptr [ null, %ompi_datatype_is_contiguous_memory_layout.argprom.exit._crit_edge.i ], [ %88, %106 ]
+118:                                              ; preds = %106, %ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre.i, %ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i ], [ %105, %106 ]
+  %.0198.i = phi ptr [ null, %ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i ], [ %92, %106 ]
+  %.0197.i = phi ptr [ null, %ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i ], [ %88, %106 ]
   %119 = icmp ne ptr %0, inttoptr (i64 1 to ptr)
   %.not222.i = icmp eq i32 %.pre-phi.i, %5
   %or.cond.i = select i1 %119, i1 true, i1 %.not222.i
@@ -277,7 +277,7 @@ opal_datatype_span.exit243.i:                     ; preds = %124, %120
 
 138:                                              ; preds = %opal_datatype_span.exit243.i
   %.not230.i = icmp eq ptr %.0197.i, null
-  br i1 %.not230.i, label %reduce_inorder.argprom.argprom.exit, label %opal_obj_run_destructors.exit281.sink.split.i
+  br i1 %.not230.i, label %reduce_inorder.exit, label %opal_obj_run_destructors.exit281.sink.split.i
 
 139:                                              ; preds = %opal_datatype_span.exit243.i
   %140 = sub i64 0, %.17.i
@@ -670,7 +670,7 @@ opal_obj_run_destructors.exit271.i:               ; preds = %.lr.ph.i268.i, %opa
 
 320:                                              ; preds = %opal_obj_run_destructors.exit271.i, %304
   %.not227.i = icmp eq ptr %.0195.i, null
-  br i1 %.not227.i, label %reduce_inorder.argprom.argprom.exit, label %opal_obj_run_destructors.exit281.sink.split.i
+  br i1 %.not227.i, label %reduce_inorder.exit, label %opal_obj_run_destructors.exit281.sink.split.i
 
 321:                                              ; preds = %31
   %322 = load i32, ptr @opal_class_init_epoch, align 4
@@ -716,7 +716,7 @@ opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %325
   store ptr %340, ptr %341, align 8
   %342 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %14, ptr noundef %3, i64 noundef %44, ptr noundef %0) #7
   %.not215.i = icmp eq i32 %342, 0
-  br i1 %.not215.i, label %.preheader22.i, label %reduce_inorder.argprom.argprom.exit
+  br i1 %.not215.i, label %.preheader22.i, label %reduce_inorder.exit
 
 .preheader22.i:                                   ; preds = %opal_obj_run_constructors.exit276.i
   %343 = getelementptr inbounds i8, ptr %.val26, i64 64
@@ -815,7 +815,7 @@ opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %325
   %404 = load ptr, ptr %403, align 8
   %405 = load ptr, ptr %404, align 8
   %.not6.i277.i = icmp eq ptr %405, null
-  br i1 %.not6.i277.i, label %reduce_inorder.argprom.argprom.exit, label %.lr.ph.i278.i
+  br i1 %.not6.i277.i, label %reduce_inorder.exit, label %.lr.ph.i278.i
 
 .lr.ph.i278.i:                                    ; preds = %401, %.lr.ph.i278.i
   %406 = phi ptr [ %408, %.lr.ph.i278.i ], [ %405, %401 ]
@@ -824,15 +824,15 @@ opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %325
   %407 = getelementptr inbounds i8, ptr %.07.i279.i, i64 8
   %408 = load ptr, ptr %407, align 8
   %.not.i280.i = icmp eq ptr %408, null
-  br i1 %.not.i280.i, label %reduce_inorder.argprom.argprom.exit, label %.lr.ph.i278.i, !llvm.loop !13
+  br i1 %.not.i280.i, label %reduce_inorder.exit, label %.lr.ph.i278.i, !llvm.loop !13
 
 opal_obj_run_destructors.exit281.sink.split.i:    ; preds = %320, %138, %106, %90
   %.0195.sink.i = phi ptr [ %88, %90 ], [ %88, %106 ], [ %.0197.i, %138 ], [ %.0195.i, %320 ]
   %.0.ph.i = phi i32 [ %103, %90 ], [ %117, %106 ], [ -2, %138 ], [ 0, %320 ]
   call void @free(ptr noundef nonnull %.0195.sink.i) #7
-  br label %reduce_inorder.argprom.argprom.exit
+  br label %reduce_inorder.exit
 
-reduce_inorder.argprom.argprom.exit:              ; preds = %.lr.ph.i278.i, %opal_datatype_span.exit.i, %138, %320, %opal_obj_run_constructors.exit276.i, %401, %opal_obj_run_destructors.exit281.sink.split.i
+reduce_inorder.exit:                              ; preds = %.lr.ph.i278.i, %opal_datatype_span.exit.i, %138, %320, %opal_obj_run_constructors.exit276.i, %401, %opal_obj_run_destructors.exit281.sink.split.i
   %.0.i = phi i32 [ -2, %opal_datatype_span.exit.i ], [ -2, %138 ], [ %342, %opal_obj_run_constructors.exit276.i ], [ 0, %320 ], [ 0, %401 ], [ %.0.ph.i, %opal_obj_run_destructors.exit281.sink.split.i ], [ 0, %.lr.ph.i278.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -842,8 +842,8 @@ reduce_inorder.argprom.argprom.exit:              ; preds = %.lr.ph.i278.i, %opa
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %14)
   br label %409
 
-409:                                              ; preds = %29, %reduce_inorder.argprom.argprom.exit, %19
-  %.0 = phi i32 [ %24, %19 ], [ %.0.i, %reduce_inorder.argprom.argprom.exit ], [ %30, %29 ]
+409:                                              ; preds = %29, %reduce_inorder.exit, %19
+  %.0 = phi i32 [ %24, %19 ], [ %.0.i, %reduce_inorder.exit ], [ %30, %29 ]
   ret i32 %.0
 }
 

@@ -382,7 +382,7 @@ default.unreachable61:                            ; preds = %44
   %51 = tail call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50) #11
   %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #11
   %.not2.i = icmp eq i32 %52, 0
-  br i1 %.not2.i, label %dissect_http3_client_bidi_stream.argprom.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %dissect_http3_client_bidi_stream.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %47, %56
   %.0173.i = phi i32 [ %57, %56 ], [ 0, %47 ]
@@ -392,13 +392,13 @@ default.unreachable61:                            ; preds = %44
 
 54:                                               ; preds = %.lr.ph.i
   %55 = tail call i32 @tvb_captured_length(ptr noundef %0) #11
-  br label %dissect_http3_client_bidi_stream.argprom.exit
+  br label %dissect_http3_client_bidi_stream.exit
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = tail call fastcc i32 @dissect_http3_frame.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %51, i32 noundef %.0173.i, ptr noundef nonnull readonly %.0)
+  %57 = tail call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %51, i32 noundef %.0173.i, ptr noundef nonnull readonly %.0)
   %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %57) #11
   %.not.i = icmp eq i32 %58, 0
-  br i1 %.not.i, label %dissect_http3_client_bidi_stream.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %dissect_http3_client_bidi_stream.exit, label %.lr.ph.i, !llvm.loop !4
 
 59:                                               ; preds = %44
   %60 = tail call i32 @tvb_captured_length(ptr noundef %0) #11
@@ -477,7 +477,7 @@ default.unreachable61:                            ; preds = %44
   br label %dissect_http3_uni_stream.exit
 
 92:                                               ; preds = %.lr.ph.i57
-  %93 = call fastcc i32 @dissect_http3_frame.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %65, i32 noundef %.162.i, ptr noundef nonnull %.0)
+  %93 = call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %65, i32 noundef %.162.i, ptr noundef nonnull %.0)
   %94 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %93) #11
   %.not54.i = icmp eq i32 %94, 0
   br i1 %.not54.i, label %dissect_http3_uni_stream.exit, label %.lr.ph.i57, !llvm.loop !6
@@ -595,7 +595,7 @@ http3_session_lookup_or_create.exit.i.i:          ; preds = %146, %http3_get_fil
   %153 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %152, ptr noundef %0, i32 noundef %.053.i, i32 noundef %102, i32 noundef 0) #11
   %154 = load i32, ptr @ett_http3_qpack_update, align 4
   %155 = call ptr @proto_item_add_subtree(ptr noundef %153, i32 noundef %154) #11
-  %156 = call fastcc i32 @dissect_http3_qpack_encoder_stream.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %155, i32 noundef %.053.i)
+  %156 = call fastcc i32 @dissect_http3_qpack_encoder_stream(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %155, i32 noundef %.053.i)
   %157 = icmp slt i32 %156, %102
   br i1 %157, label %158, label %dissect_http3_uni_stream.exit
 
@@ -651,14 +651,14 @@ http3_session_lookup_or_create.exit.i.i:          ; preds = %146, %http3_get_fil
 dissect_http3_uni_stream.exit:                    ; preds = %92, %.preheader.i, %90, %95, %98, %151, %158, %162, %164, %182
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %dissect_http3_client_bidi_stream.argprom.exit
+  br label %dissect_http3_client_bidi_stream.exit
 
-dissect_http3_client_bidi_stream.argprom.exit:    ; preds = %56, %54, %47, %dissect_http3_uni_stream.exit
+dissect_http3_client_bidi_stream.exit:            ; preds = %56, %54, %47, %dissect_http3_uni_stream.exit
   %184 = call i32 @tvb_captured_length(ptr noundef %0) #11
   br label %185
 
-185:                                              ; preds = %4, %dissect_http3_client_bidi_stream.argprom.exit, %59, %40, %13
-  %.048 = phi i32 [ %43, %40 ], [ %184, %dissect_http3_client_bidi_stream.argprom.exit ], [ %60, %59 ], [ %14, %13 ], [ 0, %4 ]
+185:                                              ; preds = %4, %dissect_http3_client_bidi_stream.exit, %59, %40, %13
+  %.048 = phi i32 [ %43, %40 ], [ %184, %dissect_http3_client_bidi_stream.exit ], [ %60, %59 ], [ %14, %13 ], [ 0, %4 ]
   ret i32 %.048
 }
 
@@ -779,7 +779,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_http3_frame.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -891,7 +891,7 @@ define internal fastcc i32 @dissect_http3_frame.argprom(ptr noundef %0, ptr noun
   store ptr %71, ptr %54, align 8
   %72 = call ptr @find_conversation_pinfo(ptr noundef nonnull %1, i32 noundef 0) #11
   %.not.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i, label %73, label %http3_find_inner_conversation.argprom.exit.i
+  br i1 %.not.i.i, label %73, label %http3_find_inner_conversation.exit.i
 
 73:                                               ; preds = %51
   %74 = getelementptr inbounds i8, ptr %1, i64 80
@@ -899,9 +899,9 @@ define internal fastcc i32 @dissect_http3_frame.argprom(ptr noundef %0, ptr noun
   %76 = load i32, ptr %75, align 8
   %77 = load ptr, ptr %54, align 8
   %78 = call nonnull ptr @conversation_new_full(i32 noundef %76, ptr noundef %77) #11
-  br label %http3_find_inner_conversation.argprom.exit.i
+  br label %http3_find_inner_conversation.exit.i
 
-http3_find_inner_conversation.argprom.exit.i:     ; preds = %73, %51
+http3_find_inner_conversation.exit.i:             ; preds = %73, %51
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
@@ -909,13 +909,13 @@ http3_find_inner_conversation.argprom.exit.i:     ; preds = %73, %51
   %79 = load i32, ptr @hf_http3_data, align 4
   %80 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %79, ptr noundef %52, i32 noundef 0, i32 noundef %53, i32 noundef 0) #11
   %.not.i9.i = icmp eq ptr %55, null
-  br i1 %.not.i9.i, label %dissect_http3_data.argprom.exit, label %81
+  br i1 %.not.i9.i, label %dissect_http3_data.exit, label %81
 
-81:                                               ; preds = %http3_find_inner_conversation.argprom.exit.i
+81:                                               ; preds = %http3_find_inner_conversation.exit.i
   store ptr %55, ptr %54, align 8
-  br label %dissect_http3_data.argprom.exit
+  br label %dissect_http3_data.exit
 
-dissect_http3_data.argprom.exit:                  ; preds = %http3_find_inner_conversation.argprom.exit.i, %81
+dissect_http3_data.exit:                          ; preds = %http3_find_inner_conversation.exit.i, %81
   %82 = call i32 @tvb_reported_length(ptr noundef %52) #11
   br label %129
 
@@ -926,7 +926,7 @@ dissect_http3_data.argprom.exit:                  ; preds = %http3_find_inner_co
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %85 = call i32 @tvb_reported_length_remaining(ptr noundef %84, i32 noundef 0) #11
   %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph.i, label %dissect_http3_settings.argprom.exit
+  br i1 %86, label %.lr.ph.i, label %dissect_http3_settings.exit
 
 .lr.ph.i:                                         ; preds = %83, %114
   %.01.i = phi i32 [ %116, %114 ], [ 0, %83 ]
@@ -999,9 +999,9 @@ dissect_http3_data.argprom.exit:                  ; preds = %http3_find_inner_co
   %116 = add i32 %115, %101
   %117 = call i32 @tvb_reported_length_remaining(ptr noundef %84, i32 noundef %116) #11
   %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.lr.ph.i, label %dissect_http3_settings.argprom.exit, !llvm.loop !7
+  br i1 %118, label %.lr.ph.i, label %dissect_http3_settings.exit, !llvm.loop !7
 
-dissect_http3_settings.argprom.exit:              ; preds = %114, %83
+dissect_http3_settings.exit:                      ; preds = %114, %83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -1021,7 +1021,7 @@ dissect_http3_settings.argprom.exit:              ; preds = %114, %83
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %129
 
-129:                                              ; preds = %47, %119, %dissect_http3_settings.argprom.exit, %dissect_http3_data.argprom.exit
+129:                                              ; preds = %47, %119, %dissect_http3_settings.exit, %dissect_http3_data.exit
   %130 = add i32 %38, %44
   br label %131
 
@@ -1065,7 +1065,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_http3_qpack_encoder_stream.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_http3_qpack_encoder_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

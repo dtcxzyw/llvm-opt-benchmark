@@ -1334,11 +1334,11 @@ php_handle_bmp.exit.i:                            ; preds = %.sink.split.i.i, %3
   br label %604
 
 345:                                              ; preds = %76
-  %346 = call fastcc ptr @php_handle_tiff.argprom(ptr noundef %.0107, i32 noundef 0)
+  %346 = call fastcc ptr @php_handle_tiff(ptr noundef %.0107, i32 noundef 0)
   br label %604
 
 347:                                              ; preds = %76
-  %348 = call fastcc ptr @php_handle_tiff.argprom(ptr noundef %.0107, i32 noundef 1)
+  %348 = call fastcc ptr @php_handle_tiff(ptr noundef %.0107, i32 noundef 1)
   br label %604
 
 349:                                              ; preds = %76
@@ -1866,19 +1866,19 @@ php_image_type_to_mime_type.exit.i:               ; preds = %626, %switch.lookup
   %.0.i91.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.9, %626 ]
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.42, i64 noundef 4, ptr noundef nonnull %.0.i91.i) #13
   call void @_efree(ptr noundef nonnull %.0.i) #13
-  br label %php_getimagesize_from_stream.argprom.exit
+  br label %php_getimagesize_from_stream.exit
 
 .thread.i:                                        ; preds = %604, %254, %76
   %629 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %629, align 8
-  br label %php_getimagesize_from_stream.argprom.exit
+  br label %php_getimagesize_from_stream.exit
 
-php_getimagesize_from_stream.argprom.exit:        ; preds = %php_image_type_to_mime_type.exit.i, %.thread.i
+php_getimagesize_from_stream.exit:                ; preds = %php_image_type_to_mime_type.exit.i, %.thread.i
   call void @llvm.lifetime.end.p0(i64 59, ptr nonnull %18)
   %630 = call i32 @_php_stream_free(ptr noundef nonnull %.0107, i32 noundef 3) #13
   br label %631
 
-631:                                              ; preds = %php_getimagesize_from_stream.argprom.exit, %74, %64, %42, %32
+631:                                              ; preds = %php_getimagesize_from_stream.exit, %74, %64, %42, %32
   ret void
 }
 
@@ -2227,7 +2227,7 @@ php_next_marker.exit.thread:                      ; preds = %125, %112, %67, %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @php_handle_tiff.argprom(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @php_handle_tiff(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
   %4 = call i64 @_php_stream_read(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 4) #13
   %.not = icmp eq i64 %4, 4

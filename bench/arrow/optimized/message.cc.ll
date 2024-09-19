@@ -9767,7 +9767,7 @@ common.resume.i:                                  ; preds = %ehcleanup.i4.i, %_Z
   %agg.tmp27.sroa.5.0 = phi ptr [ null, %ehcleanup.i4.i ], [ %call5.i.i.i3.i.i.i.i, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i ], [ %call5.i.i.i3.i.i.i.i, %lpad.i.i ]
   %common.resume.op.i = phi { ptr, i32 } [ %.pn.i5.i, %ehcleanup.i4.i ], [ %38, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i ], [ %37, %lpad.i.i ]
   call void @_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #25
-  call fastcc void @"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom"(ptr %agg.tmp27.sroa.5.0) #25
+  call fastcc void @"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev"(ptr %agg.tmp27.sroa.5.0) #25
   call void @_ZN5arrow6FutureISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24) #25
   br label %ehcleanup
 
@@ -9874,14 +9874,14 @@ invoke.cont.i6.i:                                 ; preds = %_ZN5arrow6FutureISt
 invoke.cont6.i.i:                                 ; preds = %invoke.cont.i6.i
   %57 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !279
   %cmp.not.i.i.i.i125 = icmp eq ptr %57, null
-  br i1 %cmp.not.i.i.i.i125, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i125, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i: ; preds = %invoke.cont6.i.i
   %vtable.i.i.i.i.i126 = load ptr, ptr %57, align 8, !noalias !279
   %vfn.i.i.i.i.i127 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i126, i64 8
   %58 = load ptr, ptr %vfn.i.i.i.i.i127, align 8, !noalias !279
   call void %58(ptr noundef nonnull align 8 dereferenceable(8) %57) #25, !noalias !279
-  br label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit"
 
 lpad.i3.i:                                        ; preds = %_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEEC2ERKS5_.exit.i
   %59 = landingpad { ptr, i32 }
@@ -9912,7 +9912,7 @@ ehcleanup.i4.i:                                   ; preds = %_ZN5arrow8internal6
   call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_6BufferEEE14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS7_9IOContextEE3$_0NS4_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i116) #25, !noalias !279
   br label %common.resume.i
 
-"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit": ; preds = %invoke.cont6.i.i, %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i
+"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit": ; preds = %invoke.cont6.i.i, %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i, align 8, !noalias !279
   call fastcc void @"_ZN5arrow6FutureISt10shared_ptrINS_6BufferEEE14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS7_9IOContextEE3$_0NS4_17PassthruOnFailureISD_EEED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(64) %agg.tmp2.i.i) #25, !noalias !279
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !279
@@ -9924,7 +9924,7 @@ ehcleanup.i4.i:                                   ; preds = %_ZN5arrow8internal6
   %cmp.not.i.i.i.i161 = icmp eq ptr %63, null
   br i1 %cmp.not.i.i.i.i161, label %if.then.i.i.i192, label %if.then.i.i.i.i162
 
-if.then.i.i.i.i162:                               ; preds = %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit"
+if.then.i.i.i.i162:                               ; preds = %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit"
   %_M_use_count.i.i.i.i.i163 = getelementptr inbounds i8, ptr %63, i64 8
   %64 = load atomic i64, ptr %_M_use_count.i.i.i.i.i163 acquire, align 8
   %cmp.i.i.i.i.i164 = icmp eq i64 %64, 4294967297
@@ -9992,7 +9992,7 @@ if.end8.sink.split.i.i.i.i.i182:                  ; preds = %_ZN9__gnu_cxx27__ex
   call void %73(ptr noundef nonnull align 8 dereferenceable(16) %63) #25
   br label %if.then.i.i.i192
 
-if.then.i.i.i192:                                 ; preds = %invoke.cont23, %_ZN5arrow6Status11DeleteStateEv.exit.i, %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit", %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i169, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i179, %if.end8.sink.split.i.i.i.i.i182
+if.then.i.i.i192:                                 ; preds = %invoke.cont23, %_ZN5arrow6Status11DeleteStateEv.exit.i, %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit", %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i169, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i179, %if.end8.sink.split.i.i.i.i.i182
   %74 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i194 = icmp eq i64 %74, 4294967297
   %75 = trunc i64 %74 to i32
@@ -10024,7 +10024,7 @@ if.else.i.i.i.i.i216:                             ; preds = %if.end.i.i.i.i195
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i199: ; preds = %if.else.i.i.i.i.i216, %if.then.i.i.i.i.i197
   %retval.i.0.i.i.i.i200 = phi i32 [ %75, %if.then.i.i.i.i.i197 ], [ %78, %if.else.i.i.i.i.i216 ]
   %cmp6.i.i.i.i201 = icmp eq i32 %retval.i.0.i.i.i.i200, 1
-  br i1 %cmp6.i.i.i.i201, label %if.then7.i.i.i.i202, label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i201, label %if.then7.i.i.i.i202, label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.exit
 
 if.then7.i.i.i.i202:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i199
   %vtable.i.i.i.i.i.i203 = load ptr, ptr %call5.i.i.i3.i.i.i.i, align 8
@@ -10048,29 +10048,29 @@ if.else.i.i.i.i.i.i.i215:                         ; preds = %if.then7.i.i.i.i202
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i209: ; preds = %if.else.i.i.i.i.i.i.i215, %if.then.i.i.i.i.i.i.i207
   %retval.i.0.i.i.i.i.i.i210 = phi i32 [ %81, %if.then.i.i.i.i.i.i.i207 ], [ %82, %if.else.i.i.i.i.i.i.i215 ]
   %cmp.i.i.i.i.i.i211 = icmp eq i32 %retval.i.0.i.i.i.i.i.i210, 1
-  br i1 %cmp.i.i.i.i.i.i211, label %if.end8.sink.split.i.i.i.i212, label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i211, label %if.end8.sink.split.i.i.i.i212, label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.exit
 
 if.end8.sink.split.i.i.i.i212:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i209, %if.then.i.i.i.i217
   %vtable2.i.i.i.i.i.i213 = load ptr, ptr %call5.i.i.i3.i.i.i.i, align 8
   %vfn3.i.i.i.i.i.i214 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i213, i64 24
   %83 = load ptr, ptr %vfn3.i.i.i.i.i.i214, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i3.i.i.i.i) #25
-  br label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.exit
 
-_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.argprom.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i199, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i209, %if.end8.sink.split.i.i.i.i212
+_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i199, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i209, %if.end8.sink.split.i.i.i.i212
   ret void
 
 ehcleanup:                                        ; preds = %lpad, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow3ipc14MessageDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %common.resume.i, %lpad.i
   %.pn = phi { ptr, i32 } [ %16, %lpad.i ], [ %common.resume.op.i, %common.resume.i ], [ %29, %lpad ], [ %0, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow3ipc14MessageDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
-  call fastcc void @_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.argprom(ptr nonnull %call5.i.i.i3.i.i.i.i) #25
+  call fastcc void @_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev(ptr nonnull %call5.i.i.i3.i.i.i.i) #25
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom"(ptr %this.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev"(ptr %this.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.16.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.argprom.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %this.16.val, i64 8
@@ -10106,7 +10106,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
@@ -10131,16 +10131,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %this.16.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.16.val) #25
-  br label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.exit
 
-_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
@@ -10225,10 +10225,10 @@ _ZNSt10shared_ptrIN5arrow10FutureImplEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev.argprom(ptr %this.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateED2Ev(ptr %this.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateLN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -10264,7 +10264,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateLN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -10289,16 +10289,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateLN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #25
-  br label %_ZNSt12__shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateLN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateLN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -29591,21 +29591,21 @@ if.end8.sink.split.i.i.i.i23.i.i.i:               ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN5arrow3ipc22MessageDecoderListenerEED2Ev.exit.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i23.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10.i.i.i, %_ZNSt10shared_ptrIN5arrow3ipc14MessageDecoderEED2Ev.exit.i.i.i
   %22 = load ptr, ptr %_M_impl.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %22, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIZN5arrow3ipc16ReadMessageAsyncElilPNS3_2io16RandomAccessFileERKNS5_9IOContextEE5StateEEvRS0_PT_.argprom.exit, label %_ZNKSt14default_deleteIN5arrow3ipc7MessageEEclEPS2_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIZN5arrow3ipc16ReadMessageAsyncElilPNS3_2io16RandomAccessFileERKNS5_9IOContextEE5StateEEvRS0_PT_.exit, label %_ZNKSt14default_deleteIN5arrow3ipc7MessageEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow3ipc7MessageEEclEPS2_.exit.i.i.i.i: ; preds = %_ZNSt10shared_ptrIN5arrow3ipc22MessageDecoderListenerEED2Ev.exit.i.i.i
   tail call void @_ZN5arrow3ipc7MessageD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
   tail call void @_ZdlPv(ptr noundef nonnull %22) #26
-  br label %_ZNSt16allocator_traitsISaIvEE7destroyIZN5arrow3ipc16ReadMessageAsyncElilPNS3_2io16RandomAccessFileERKNS5_9IOContextEE5StateEEvRS0_PT_.argprom.exit
+  br label %_ZNSt16allocator_traitsISaIvEE7destroyIZN5arrow3ipc16ReadMessageAsyncElilPNS3_2io16RandomAccessFileERKNS5_9IOContextEE5StateEEvRS0_PT_.exit
 
-_ZNSt16allocator_traitsISaIvEE7destroyIZN5arrow3ipc16ReadMessageAsyncElilPNS3_2io16RandomAccessFileERKNS5_9IOContextEE5StateEEvRS0_PT_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5arrow3ipc22MessageDecoderListenerEED2Ev.exit.i.i.i, %_ZNKSt14default_deleteIN5arrow3ipc7MessageEEclEPS2_.exit.i.i.i.i
+_ZNSt16allocator_traitsISaIvEE7destroyIZN5arrow3ipc16ReadMessageAsyncElilPNS3_2io16RandomAccessFileERKNS5_9IOContextEE5StateEEvRS0_PT_.exit: ; preds = %_ZNSt10shared_ptrIN5arrow3ipc22MessageDecoderListenerEED2Ev.exit.i.i.i, %_ZNKSt14default_deleteIN5arrow3ipc7MessageEEclEPS2_.exit.i.i.i.i
   store ptr null, ptr %_M_impl.i, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIZN5arrow3ipc16ReadMessageAsyncElilPNS0_2io16RandomAccessFileERKNS2_9IOContextEE5StateSaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIZN5arrow3ipc16ReadMessageAsyncElilPNS1_2io16RandomAccessFileERKNS3_9IOContextEE5StateSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIZN5arrow3ipc16ReadMessageAsyncElilPNS1_2io16RandomAccessFileERKNS3_9IOContextEE5StateSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -30925,7 +30925,7 @@ _ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEED2Ev.exit: ; preds = %entry, %
   %11 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val = load ptr, ptr %11, align 8
   %cmp.not.i.i.i.i1 = icmp eq ptr %this.val, null
-  br i1 %cmp.not.i.i.i.i1, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i2
+  br i1 %cmp.not.i.i.i.i1, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit", label %if.then.i.i.i.i2
 
 if.then.i.i.i.i2:                                 ; preds = %_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEED2Ev.exit
   %_M_use_count.i.i.i.i.i3 = getelementptr inbounds i8, ptr %this.val, i64 8
@@ -30961,7 +30961,7 @@ if.else.i.i.i.i.i.i26:                            ; preds = %if.end.i.i.i.i.i5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9: ; preds = %if.else.i.i.i.i.i.i26, %if.then.i.i.i.i.i.i7
   %retval.i.0.i.i.i.i.i10 = phi i32 [ %13, %if.then.i.i.i.i.i.i7 ], [ %16, %if.else.i.i.i.i.i.i26 ]
   %cmp6.i.i.i.i.i11 = icmp eq i32 %retval.i.0.i.i.i.i.i10, 1
-  br i1 %cmp6.i.i.i.i.i11, label %if.then7.i.i.i.i.i12, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit"
+  br i1 %cmp6.i.i.i.i.i11, label %if.then7.i.i.i.i.i12, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit"
 
 if.then7.i.i.i.i.i12:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9
   %vtable.i.i.i.i.i.i.i13 = load ptr, ptr %this.val, align 8
@@ -30986,16 +30986,16 @@ if.else.i.i.i.i.i.i.i.i25:                        ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19: ; preds = %if.else.i.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i.i.i.i17
   %retval.i.0.i.i.i.i.i.i.i20 = phi i32 [ %19, %if.then.i.i.i.i.i.i.i.i17 ], [ %20, %if.else.i.i.i.i.i.i.i.i25 ]
   %cmp.i.i.i.i.i.i.i21 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i20, 1
-  br i1 %cmp.i.i.i.i.i.i.i21, label %if.end8.sink.split.i.i.i.i.i22, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i.i21, label %if.end8.sink.split.i.i.i.i.i22, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit"
 
 if.end8.sink.split.i.i.i.i.i22:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.then.i.i.i.i.i27
   %vtable2.i.i.i.i.i.i.i23 = load ptr, ptr %this.val, align 8
   %vfn3.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i23, i64 24
   %21 = load ptr, ptr %vfn3.i.i.i.i.i.i.i24, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %this.val) #25
-  br label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit"
 
-"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit": ; preds = %_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.end8.sink.split.i.i.i.i.i22
+"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit": ; preds = %_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i19, %if.end8.sink.split.i.i.i.i.i22
   ret void
 }
 
@@ -32452,7 +32452,7 @@ invoke.cont.i.i.i:                                ; preds = %if.end8.sink.split.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i.i.i.i)
   %178 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i4.i.i.i = icmp eq ptr %178, null
-  br i1 %cmp.not.i.i.i.i4.i.i.i, label %"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.argprom.exit.i.i", label %if.then.i.i.i.i5.i.i.i
+  br i1 %cmp.not.i.i.i.i4.i.i.i, label %"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.exit.i.i", label %if.then.i.i.i.i5.i.i.i
 
 if.then.i.i.i.i5.i.i.i:                           ; preds = %invoke.cont.i.i.i
   %_M_use_count.i.i.i.i.i6.i.i.i = getelementptr inbounds i8, ptr %178, i64 8
@@ -32488,7 +32488,7 @@ if.else.i.i.i.i.i.i29.i.i.i:                      ; preds = %if.end.i.i.i.i.i8.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i12.i.i.i: ; preds = %if.else.i.i.i.i.i.i29.i.i.i, %if.then.i.i.i.i.i.i10.i.i.i
   %retval.i.0.i.i.i.i.i13.i.i.i = phi i32 [ %180, %if.then.i.i.i.i.i.i10.i.i.i ], [ %183, %if.else.i.i.i.i.i.i29.i.i.i ]
   %cmp6.i.i.i.i.i14.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i13.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i14.i.i.i, label %if.then7.i.i.i.i.i15.i.i.i, label %"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.argprom.exit.i.i"
+  br i1 %cmp6.i.i.i.i.i14.i.i.i, label %if.then7.i.i.i.i.i15.i.i.i, label %"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.exit.i.i"
 
 if.then7.i.i.i.i.i15.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i12.i.i.i
   %vtable.i.i.i.i.i.i.i16.i.i.i = load ptr, ptr %178, align 8
@@ -32513,18 +32513,18 @@ if.else.i.i.i.i.i.i.i.i28.i.i.i:                  ; preds = %if.then7.i.i.i.i.i1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i22.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i28.i.i.i, %if.then.i.i.i.i.i.i.i.i20.i.i.i
   %retval.i.0.i.i.i.i.i.i.i23.i.i.i = phi i32 [ %186, %if.then.i.i.i.i.i.i.i.i20.i.i.i ], [ %187, %if.else.i.i.i.i.i.i.i.i28.i.i.i ]
   %cmp.i.i.i.i.i.i.i24.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i23.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i24.i.i.i, label %if.end8.sink.split.i.i.i.i.i25.i.i.i, label %"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.argprom.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i24.i.i.i, label %if.end8.sink.split.i.i.i.i.i25.i.i.i, label %"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.exit.i.i"
 
 if.end8.sink.split.i.i.i.i.i25.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i22.i.i.i, %if.then.i.i.i.i.i30.i.i.i
   %vtable2.i.i.i.i.i.i.i26.i.i.i = load ptr, ptr %178, align 8
   %vfn3.i.i.i.i.i.i.i27.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i26.i.i.i, i64 24
   %188 = load ptr, ptr %vfn3.i.i.i.i.i.i.i27.i.i.i, align 8
   call void %188(ptr noundef nonnull align 8 dereferenceable(16) %178) #25
-  br label %"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.argprom.exit.i.i"
+  br label %"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.exit.i.i"
 
-"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.argprom.exit.i.i": ; preds = %if.end8.sink.split.i.i.i.i.i25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i22.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i12.i.i.i, %invoke.cont.i.i.i
+"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.exit.i.i": ; preds = %if.end8.sink.split.i.i.i.i.i25.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i22.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i12.i.i.i, %invoke.cont.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
-  br label %"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.argprom.exit"
+  br label %"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.exit"
 
 if.else.i.i:                                      ; preds = %entry
   %189 = getelementptr inbounds i8, ptr %this, i64 16
@@ -32532,7 +32532,7 @@ if.else.i.i:                                      ; preds = %entry
   %190 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i4.i.i = icmp eq ptr %190, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, i8 0, i64 16, i1 false)
-  br i1 %cmp.not.i.i.i.i4.i.i, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit.i.i", label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i4.i.i, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit.i.i", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %190, i64 8
@@ -32568,7 +32568,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i6.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %192, %if.then.i.i.i.i.i.i6.i.i ], [ %195, %if.else.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit.i.i"
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i7.i.i = load ptr, ptr %190, align 8
@@ -32593,16 +32593,16 @@ if.else.i.i.i.i.i.i.i.i15.i.i:                    ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i12.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i15.i.i, %if.then.i.i.i.i.i.i.i.i10.i.i
   %retval.i.0.i.i.i.i.i.i.i13.i.i = phi i32 [ %198, %if.then.i.i.i.i.i.i.i.i10.i.i ], [ %199, %if.else.i.i.i.i.i.i.i.i15.i.i ]
   %cmp.i.i.i.i.i.i.i14.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i13.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i14.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i14.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit.i.i"
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i12.i.i, %if.then.i.i.i.i.i16.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %190, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %200 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   tail call void %200(ptr noundef nonnull align 8 dereferenceable(16) %190) #25
-  br label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit.i.i"
 
-"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit.i.i": ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i12.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.else.i.i
+"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit.i.i": ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i12.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.else.i.i
   %next7.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %201 = load ptr, ptr %next7.i.i, align 8
   store ptr %201, ptr %agg.tmp6.i.i, align 8
@@ -32620,7 +32620,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   %cmp.i.i.i.i21.i.i = icmp eq ptr %203, null
   br i1 %cmp.i.i.i.i21.i.i, label %_ZNSt10shared_ptrIN5arrow3ipc7MessageEED2Ev.exit.i.i.i.i.i, label %if.then.i.i.i.i22.i.i
 
-_ZNSt10shared_ptrIN5arrow3ipc7MessageEED2Ev.exit.i.i.i.i.i: ; preds = %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit.i.i"
+_ZNSt10shared_ptrIN5arrow3ipc7MessageEED2Ev.exit.i.i.i.i.i: ; preds = %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit.i.i"
   %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i20.i.i, i64 8
   %204 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8, !noalias !714
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i20.i.i, i64 16
@@ -32632,7 +32632,7 @@ _ZNSt10shared_ptrIN5arrow3ipc7MessageEED2Ev.exit.i.i.i.i.i: ; preds = %"_ZZN5arr
   store ptr %205, ptr %_M_refcount.i.i.i.i.i.i.i25.i.i, align 8
   br label %_ZN5arrow6ResultISt10shared_ptrINS_3ipc7MessageEEEC2IS4_vEEONS0_IT_EE.exit.i.i.i.i
 
-if.then.i.i.i.i22.i.i:                            ; preds = %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.argprom.exit.i.i"
+if.then.i.i.i.i22.i.i:                            ; preds = %"_ZZN5arrow3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS1_9IOContextEEN3$_0D2Ev.exit.i.i"
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i19.i.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i20.i.i)
           to label %_ZN5arrow6ResultISt10shared_ptrINS_3ipc7MessageEEEC2IS4_vEEONS0_IT_EE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -32661,7 +32661,7 @@ invoke.cont.i.i:                                  ; preds = %_ZN5arrow6ResultISt
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i20.i.i)
   %209 = load ptr, ptr %_M_refcount.i.i.i17.i.i, align 8
   %cmp.not.i.i.i.i27.i.i = icmp eq ptr %209, null
-  br i1 %cmp.not.i.i.i.i27.i.i, label %"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.argprom.exit", label %if.then.i.i.i.i28.i.i
+  br i1 %cmp.not.i.i.i.i27.i.i, label %"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.exit", label %if.then.i.i.i.i28.i.i
 
 if.then.i.i.i.i28.i.i:                            ; preds = %invoke.cont.i.i
   %_M_use_count.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %209, i64 8
@@ -32697,7 +32697,7 @@ if.else.i.i.i.i.i.i52.i.i:                        ; preds = %if.end.i.i.i.i.i31.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i35.i.i: ; preds = %if.else.i.i.i.i.i.i52.i.i, %if.then.i.i.i.i.i.i33.i.i
   %retval.i.0.i.i.i.i.i36.i.i = phi i32 [ %211, %if.then.i.i.i.i.i.i33.i.i ], [ %214, %if.else.i.i.i.i.i.i52.i.i ]
   %cmp6.i.i.i.i.i37.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i36.i.i, 1
-  br i1 %cmp6.i.i.i.i.i37.i.i, label %if.then7.i.i.i.i.i38.i.i, label %"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.argprom.exit"
+  br i1 %cmp6.i.i.i.i.i37.i.i, label %if.then7.i.i.i.i.i38.i.i, label %"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.exit"
 
 if.then7.i.i.i.i.i38.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i35.i.i
   %vtable.i.i.i.i.i.i.i39.i.i = load ptr, ptr %209, align 8
@@ -32722,16 +32722,16 @@ if.else.i.i.i.i.i.i.i.i51.i.i:                    ; preds = %if.then7.i.i.i.i.i3
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i45.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i51.i.i, %if.then.i.i.i.i.i.i.i.i43.i.i
   %retval.i.0.i.i.i.i.i.i.i46.i.i = phi i32 [ %217, %if.then.i.i.i.i.i.i.i.i43.i.i ], [ %218, %if.else.i.i.i.i.i.i.i.i51.i.i ]
   %cmp.i.i.i.i.i.i.i47.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i46.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i47.i.i, label %if.end8.sink.split.i.i.i.i.i48.i.i, label %"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i.i47.i.i, label %if.end8.sink.split.i.i.i.i.i48.i.i, label %"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.exit"
 
 if.end8.sink.split.i.i.i.i.i48.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i53.i.i
   %vtable2.i.i.i.i.i.i.i49.i.i = load ptr, ptr %209, align 8
   %vfn3.i.i.i.i.i.i.i50.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i49.i.i, i64 24
   %219 = load ptr, ptr %vfn3.i.i.i.i.i.i.i50.i.i, align 8
   call void %219(ptr noundef nonnull align 8 dereferenceable(16) %209) #25
-  br label %"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.argprom.exit"
+  br label %"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.exit"
 
-"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.argprom.exit": ; preds = %"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.argprom.exit.i.i", %invoke.cont.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i35.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i45.i.i, %if.end8.sink.split.i.i.i.i.i48.i.i
+"_ZNO5arrow6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINS4_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS9_9IOContextEE3$_0NS4_17PassthruOnFailureISF_EEEEEclERKNS_10FutureImplE.exit": ; preds = %"_ZNK5arrow6detail14ContinueFuture14IgnoringArgsIfIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNS4_9IOContextEE3$_0NS_6FutureISt10shared_ptrINS3_7MessageEEEEJRKSC_INS_6BufferEEEEEvSt17integral_constantIbLb0EEOT0_OT_DpOT1_.exit.i.i", %invoke.cont.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i35.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i45.i.i, %if.end8.sink.split.i.i.i.i.i48.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp6.i.i)
   ret void
 }

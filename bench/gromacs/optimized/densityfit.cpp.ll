@@ -2083,7 +2083,7 @@ _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i: ; preds = %_ZNK3gmx7ext
 _ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
   %53 = getelementptr inbounds float, ptr %.sroa.530.0.copyload, i64 %51
   %.not1.i = icmp eq i64 %51, 0
-  br i1 %.not1.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i, %.lr.ph.i
   %54 = phi float [ %77, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
@@ -2120,9 +2120,9 @@ _ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_right
   %82 = getelementptr inbounds i8, ptr %.0233.i, i64 4
   %83 = getelementptr inbounds i8, ptr %.0242.i, i64 4
   %.not.i = icmp eq ptr %83, %53
-  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit, label %.lr.ph.i
 
-_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit: ; preds = %.lr.ph.i, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i
+_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit: ; preds = %.lr.ph.i, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i
   %.sroa.318.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %81, %.lr.ph.i ]
   %.sroa.5.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %69, %.lr.ph.i ]
   %.sroa.7.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %73, %.lr.ph.i ]
@@ -2130,9 +2130,9 @@ _ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln
   %.sroa.017.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %79, %.lr.ph.i ]
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
 
-_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit
-  %.07.i.i = phi i64 [ 0, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit ], [ %91, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
-  %.056.i.i = phi i64 [ 1, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit ], [ %90, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
+_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit
+  %.07.i.i = phi i64 [ 0, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit ], [ %91, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
+  %.056.i.i = phi i64 [ 1, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit ], [ %90, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
   %84 = icmp eq i64 %.07.i.i, 0
   %85 = icmp eq i64 %.07.i.i, 1
   %86 = icmp eq i64 %.07.i.i, 2
@@ -2327,7 +2327,7 @@ _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i: ; preds = %_ZNK3gmx7ext
 _ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
   %52 = getelementptr inbounds float, ptr %.sroa.531.0.copyload, i64 %50
   %.not1.i = icmp eq i64 %50, 0
-  br i1 %.not1.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not1.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i, %.lr.ph.i
   %53 = phi float [ %76, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
@@ -2364,15 +2364,15 @@ _ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_right
   %81 = getelementptr inbounds i8, ptr %.0233.i, i64 4
   %82 = getelementptr inbounds i8, ptr %.0242.i, i64 4
   %.not.i = icmp eq ptr %82, %52
-  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit, label %.lr.ph.i
 
-_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit: ; preds = %.lr.ph.i
+_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit: ; preds = %.lr.ph.i
   %83 = fcmp oeq float %68, 0.000000e+00
   %84 = fcmp oeq float %72, 0.000000e+00
   %or.cond = select i1 %83, i1 true, i1 %84
-  br i1 %or.cond, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit.thread, label %85
+  br i1 %or.cond, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit.thread, label %85
 
-85:                                               ; preds = %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit
+85:                                               ; preds = %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit
   %86 = tail call noundef float @llvm.fabs.f32(float %76)
   %sqrt = tail call float @llvm.sqrt.f32(float %86)
   %87 = fcmp ogt float %76, 0.000000e+00
@@ -2383,10 +2383,10 @@ _ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln
   %92 = tail call noundef float @sqrtf(float noundef %72) #28
   %93 = fdiv float %sqrt, %92
   %94 = fmul float %91, %93
-  br label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit.thread
+  br label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit.thread
 
-_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit.thread: ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit, %85
-  %.0 = phi float [ %94, %85 ], [ 0.000000e+00, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom.exit ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
+_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit.thread: ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit, %85
+  %.0 = phi float [ %94, %85 ], [ 0.000000e+00, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
   ret float %.0
 
 95:                                               ; preds = %40, %42
@@ -2847,15 +2847,15 @@ attributes #29 = { noreturn }
 !32 = distinct !{!32, !33, !"_ZSt11make_uniqueIN3gmx12_GLOBAL__N_132DensitySimilarityRelativeEntropyEJRKNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !33 = distinct !{!33, !"_ZSt11make_uniqueIN3gmx12_GLOBAL__N_132DensitySimilarityRelativeEntropyEJRKNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom: argument 0"}
-!36 = distinct !{!36, !"_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom"}
+!35 = distinct !{!35, !36, !"_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_: argument 0"}
+!36 = distinct !{!36, !"_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_"}
 !37 = distinct !{!37, !12}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZNK3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightEE11asConstViewEv: argument 0"}
 !40 = distinct !{!40, !"_ZNK3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightEE11asConstViewEv"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.argprom"}
+!42 = distinct !{!42, !43, !"_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_: argument 0"}
+!43 = distinct !{!43, !"_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_"}
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZSt11make_uniqueIN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorrelationEJRKNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !46 = distinct !{!46, !"_ZSt11make_uniqueIN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorrelationEJRKNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

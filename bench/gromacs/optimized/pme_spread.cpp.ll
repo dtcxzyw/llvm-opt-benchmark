@@ -354,7 +354,7 @@ define void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGridsbbb(pt
   %177 = getelementptr inbounds i8, ptr %38, i64 20
   %178 = load i32, ptr %177, align 4
   %179 = icmp sgt i32 %178, 1
-  br i1 %179, label %180, label %_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.argprom.exit
+  br i1 %179, label %180, label %_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.exit
 
 180:                                              ; preds = %.loopexit4.i
   %181 = getelementptr inbounds i8, ptr %38, i64 624
@@ -397,7 +397,7 @@ define void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGridsbbb(pt
   %212 = load ptr, ptr %181, align 8
   %213 = call noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm_P12tmpi_status_(ptr noundef %206, i32 noundef %209, ptr noundef %210, i32 noundef %202, i32 noundef 0, ptr noundef %208, i32 noundef %211, ptr noundef %210, i32 noundef %204, i32 noundef 0, ptr noundef %212, ptr noundef nonnull %10)
   %214 = icmp sgt i32 %187, 0
-  br i1 %214, label %.preheader.lr.ph.i, label %_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.argprom.exit
+  br i1 %214, label %.preheader.lr.ph.i, label %_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.exit
 
 .preheader.lr.ph.i:                               ; preds = %195
   %215 = load i32, ptr %197, align 4
@@ -405,7 +405,7 @@ define void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGridsbbb(pt
   %217 = load i32, ptr %199, align 4
   %218 = icmp sgt i32 %217, 0
   %or.cond87.i = select i1 %216, i1 %218, i1 false
-  br i1 %or.cond87.i, label %.preheader.us.us.preheader.i, label %_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.argprom.exit
+  br i1 %or.cond87.i, label %.preheader.us.us.preheader.i, label %_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.exit
 
 .preheader.us.us.preheader.i:                     ; preds = %.preheader.lr.ph.i
   %219 = getelementptr inbounds i8, ptr %9, i64 8
@@ -456,16 +456,16 @@ define void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGridsbbb(pt
 ._crit_edge32.split.us.us.us.i:                   ; preds = %._crit_edge29.us.us.us.i
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count73.i
-  br i1 %exitcond74.not.i, label %_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.argprom.exit, label %.preheader.us.us.i, !llvm.loop !16
+  br i1 %exitcond74.not.i, label %_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.exit, label %.preheader.us.us.i, !llvm.loop !16
 
-_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.argprom.exit: ; preds = %._crit_edge32.split.us.us.us.i, %.loopexit4.i, %195, %.preheader.lr.ph.i
+_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.exit: ; preds = %._crit_edge32.split.us.us.us.i, %.loopexit4.i, %195, %.preheader.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %240
 
-240:                                              ; preds = %34, %_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.argprom.exit, %29, %25
+240:                                              ; preds = %34, %_ZL14sum_fftgrid_ddPK9gmx_pme_tP14PmeAndFftGrids.exit, %29, %25
   ret void
 }
 

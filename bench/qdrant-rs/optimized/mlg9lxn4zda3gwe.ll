@@ -377,20 +377,20 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17hd560b5c1f76ddff5E(ptr noali
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %19 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %20 = icmp slt i64 %19, 0
-  br i1 %20, label %21, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7c960964376e26faE.argprom.exit"
+  br i1 %20, label %21, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7c960964376e26faE.exit"
 
 21:                                               ; preds = %18
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7c960964376e26faE.argprom.exit": ; preds = %18
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7c960964376e26faE.exit": ; preds = %18
   call void @_ZN5tokio4sync9semaphore9Semaphore22try_acquire_many_owned17h336c146ad1590310E(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noundef nonnull %11, i32 noundef %14)
   %22 = load ptr, ptr %6, align 8, !noundef !5
   %23 = icmp eq ptr %22, null
   %24 = getelementptr inbounds i8, ptr %6, i64 8
   br i1 %23, label %28, label %25
 
-25:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7c960964376e26faE.argprom.exit"
+25:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7c960964376e26faE.exit"
   %26 = load i32, ptr %24, align 8, !noundef !5
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %22, ptr %27, align 8
@@ -402,7 +402,7 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17hd560b5c1f76ddff5E(ptr noali
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %30
 
-28:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7c960964376e26faE.argprom.exit"
+28:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7c960964376e26faE.exit"
   %29 = load i8, ptr %24, align 8, !range !40, !noundef !5
   %trunc = trunc nuw i8 %29 to i1
   br i1 %trunc, label %36, label %31

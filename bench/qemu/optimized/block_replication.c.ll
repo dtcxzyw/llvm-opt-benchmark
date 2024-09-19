@@ -977,7 +977,7 @@ if.then23:                                        ; preds = %if.end20
 if.end30:                                         ; preds = %if.then23, %if.end20
   %reopen_queue.1 = phi ptr [ %call29, %if.then23 ], [ %reopen_queue.0, %if.end20 ]
   %tobool31.not = icmp eq ptr %reopen_queue.1, null
-  br i1 %tobool31.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then32
+  br i1 %tobool31.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
   %call33 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #8
@@ -993,13 +993,13 @@ if.end36:                                         ; preds = %if.then35, %if.then
   %call37 = tail call i32 @bdrv_reopen_multiple(ptr noundef nonnull %reopen_queue.1, ptr noundef %errp) #8
   %call38 = tail call ptr @qemu_get_aio_context() #8
   %cmp39.not = icmp eq ptr %call33, %call38
-  br i1 %cmp39.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then40
+  br i1 %cmp39.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then40
 
 if.then40:                                        ; preds = %if.end36
   tail call void @aio_context_acquire(ptr noundef %call33) #8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end36, %if.then40, %if.end30
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end36, %if.then40, %if.end30
   tail call void @bdrv_graph_rdunlock_main_loop() #8
   ret void
 }
@@ -1142,7 +1142,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 321, ptr noundef nonnull @__func__.secondary_do_checkpoint, ptr noundef nonnull @.str.26) #8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end:                                           ; preds = %entry
   call void @backup_do_checkpoint(ptr noundef nonnull %1, ptr noundef nonnull %local_err) #8
@@ -1152,7 +1152,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %2) #8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end4:                                          ; preds = %if.end
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
@@ -1166,12 +1166,12 @@ if.end4:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end4
   %node_name = getelementptr inbounds i8, ptr %4, i64 16600
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 334, ptr noundef nonnull @__func__.secondary_do_checkpoint, ptr noundef nonnull @.str.27, ptr noundef nonnull %node_name) #8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end9:                                          ; preds = %if.end4
   %call10 = call i32 @bdrv_make_empty(ptr noundef nonnull %3, ptr noundef %errp) #8
   %cmp = icmp slt i32 %call10, 0
-  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end12
+  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end12
 
 if.end12:                                         ; preds = %if.end9
   %hidden_disk = getelementptr inbounds i8, ptr %0, i64 16
@@ -1185,13 +1185,13 @@ if.end12:                                         ; preds = %if.end9
 if.then16:                                        ; preds = %if.end12
   %node_name19 = getelementptr inbounds i8, ptr %7, i64 16600
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 345, ptr noundef nonnull @__func__.secondary_do_checkpoint, ptr noundef nonnull @.str.28, ptr noundef nonnull %node_name19) #8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end21:                                         ; preds = %if.end12
   %call23 = call i32 @bdrv_make_empty(ptr noundef nonnull %6, ptr noundef %errp) #8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end21, %if.end9, %if.then16, %if.then7, %if.then3, %if.then
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end21, %if.end9, %if.then16, %if.then7, %if.then3, %if.then
   call void @bdrv_graph_rdunlock_main_loop() #8
   ret void
 }

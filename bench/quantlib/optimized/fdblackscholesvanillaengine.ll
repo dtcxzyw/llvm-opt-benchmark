@@ -12414,14 +12414,14 @@ entry:
   %process_.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 336
   %0 = load ptr, ptr %process_.i.i.i, align 8, !tbaa !44
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i.i, label %cond.false.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib27FdBlackScholesVanillaEngine9calculateEvE3$_0JNS0_4DateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", !prof !99
+  br i1 %cmp.not.i.i.i.i, label %cond.false.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib27FdBlackScholesVanillaEngine9calculateEvE3$_0JNS0_4DateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !prof !99
 
 cond.false.i.i.i.i:                               ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv, ptr noundef nonnull @.str.17, i64 noundef 784)
   %.pre.i.i.i.i = load ptr, ptr %process_.i.i.i, align 8, !tbaa !44
-  br label %"_ZSt10__invoke_rIdRZNK8QuantLib27FdBlackScholesVanillaEngine9calculateEvE3$_0JNS0_4DateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIdRZNK8QuantLib27FdBlackScholesVanillaEngine9calculateEvE3$_0JNS0_4DateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIdRZNK8QuantLib27FdBlackScholesVanillaEngine9calculateEvE3$_0JNS0_4DateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %entry, %cond.false.i.i.i.i
+"_ZSt10__invoke_rIdRZNK8QuantLib27FdBlackScholesVanillaEngine9calculateEvE3$_0JNS0_4DateEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %entry, %cond.false.i.i.i.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i.i.i, %cond.false.i.i.i.i ]
   %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !33
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 112
@@ -14935,8 +14935,8 @@ attributes #33 = { builtin nounwind }
 !111 = !{!112, !4, i64 0}
 !112 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib13FixedDividendEEE", !4, i64 0, !43, i64 8}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN5boost11make_sharedIN8QuantLib26EscrowedDividendAdjustmentEJRKSt6vectorINS_10shared_ptrINS1_8DividendEEESaIS6_EERKNS1_6HandleINS1_18YieldTermStructureEEESF_ZNKS1_27FdBlackScholesVanillaEngine9calculateEvE3$_0RKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.argprom: %agg.result"}
-!115 = distinct !{!115, !"_ZN5boost11make_sharedIN8QuantLib26EscrowedDividendAdjustmentEJRKSt6vectorINS_10shared_ptrINS1_8DividendEEESaIS6_EERKNS1_6HandleINS1_18YieldTermStructureEEESF_ZNKS1_27FdBlackScholesVanillaEngine9calculateEvE3$_0RKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_.argprom"}
+!114 = distinct !{!114, !115, !"_ZN5boost11make_sharedIN8QuantLib26EscrowedDividendAdjustmentEJRKSt6vectorINS_10shared_ptrINS1_8DividendEEESaIS6_EERKNS1_6HandleINS1_18YieldTermStructureEEESF_ZNKS1_27FdBlackScholesVanillaEngine9calculateEvE3$_0RKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_: %agg.result"}
+!115 = distinct !{!115, !"_ZN5boost11make_sharedIN8QuantLib26EscrowedDividendAdjustmentEJRKSt6vectorINS_10shared_ptrINS1_8DividendEEESaIS6_EERKNS1_6HandleINS1_18YieldTermStructureEEESF_ZNKS1_27FdBlackScholesVanillaEngine9calculateEvE3$_0RKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_"}
 !116 = !{!117, !118, i64 8}
 !117 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !118, i64 8, !118, i64 12}
 !118 = !{!"int", !5, i64 0}

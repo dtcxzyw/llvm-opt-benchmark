@@ -757,24 +757,24 @@ _ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit: ; preds = %.lr.ph
 76:                                               ; preds = %_ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit
   %77 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL21EnablePostRAScheduler, i64 128), align 8
   %78 = trunc i8 %77 to i1
-  br i1 %78, label %88, label %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit.thread
+  br i1 %78, label %88, label %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit.thread
 
 79:                                               ; preds = %_ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit
   %80 = load ptr, ptr %66, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 296
   %82 = load ptr, ptr %81, align 8
   %83 = call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(288) %66) #20
-  br i1 %83, label %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit, label %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit.thread
+  br i1 %83, label %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit, label %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit.thread
 
-_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit: ; preds = %79
+_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit: ; preds = %79
   %84 = load ptr, ptr %66, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 384
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef i32 %86(ptr noundef nonnull align 8 dereferenceable(288) %66) #20
   %.not80 = icmp slt i32 %67, %87
-  br i1 %.not80, label %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit.thread, label %88
+  br i1 %.not80, label %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit.thread, label %88
 
-88:                                               ; preds = %76, %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit
+88:                                               ; preds = %76, %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit
   %89 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL21EnableAntiDepBreakingB5cxx11, i64 12), align 4
   %.not = icmp eq i16 %89, 0
   br i1 %.not, label %97, label %90
@@ -956,7 +956,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %_ZN4llvm26Machin
   %179 = getelementptr inbounds i8, ptr %178, i64 920
   %180 = load ptr, ptr %179, align 8
   %181 = call noundef zeroext i1 %180(ptr noundef nonnull align 8 dereferenceable(80) %177, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i10.i.i.i, ptr noundef nonnull %.sroa.073.098, ptr noundef nonnull align 8 dereferenceable(1041) %1) #20
-  br i1 %181, label %182, label %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.argprom.exit
+  br i1 %181, label %182, label %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.exit
 
 182:                                              ; preds = %169, %176, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit
   %183 = sub i32 %.04791, %164
@@ -977,7 +977,7 @@ _ZN12_GLOBAL__N_120SchedulePostRATDList11enterRegionEPN4llvm17MachineBasicBlockE
   call fastcc void @_ZN12_GLOBAL__N_120SchedulePostRATDList12EmitScheduleEv(ptr noundef nonnull align 8 dereferenceable(2804) %4)
   %.val = load ptr, ptr %131, align 8
   %.not.i64 = icmp eq ptr %.val, null
-  br i1 %.not.i64, label %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.argprom.exit, label %187
+  br i1 %.not.i64, label %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.exit, label %187
 
 187:                                              ; preds = %_ZN12_GLOBAL__N_120SchedulePostRATDList11enterRegionEPN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES6_j.exit
   %.val49 = load i32, ptr %135, align 8
@@ -985,9 +985,9 @@ _ZN12_GLOBAL__N_120SchedulePostRATDList11enterRegionEPN4llvm17MachineBasicBlockE
   %189 = getelementptr inbounds i8, ptr %188, i64 32
   %190 = load ptr, ptr %189, align 8
   call void %190(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i10.i.i.i, i32 noundef %164, i32 noundef %.val49) #20
-  br label %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.argprom.exit
+  br label %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.exit
 
-_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.argprom.exit: ; preds = %187, %_ZN12_GLOBAL__N_120SchedulePostRATDList11enterRegionEPN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES6_j.exit, %176
+_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.exit: ; preds = %187, %_ZN12_GLOBAL__N_120SchedulePostRATDList11enterRegionEPN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES6_j.exit, %176
   %.148 = phi i32 [ %.04791, %176 ], [ %164, %_ZN12_GLOBAL__N_120SchedulePostRATDList11enterRegionEPN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES6_j.exit ], [ %164, %187 ]
   %.sroa.020.1 = phi ptr [ %.sroa.020.093, %176 ], [ %.sroa.0.0.i.i.i10.i.i.i, %_ZN12_GLOBAL__N_120SchedulePostRATDList11enterRegionEPN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES6_j.exit ], [ %.sroa.0.0.i.i.i10.i.i.i, %187 ]
   %191 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i10.i.i.i, i64 68
@@ -995,13 +995,13 @@ _ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.argprom.
   %193 = icmp eq i16 %192, 20
   br i1 %193, label %194, label %197
 
-194:                                              ; preds = %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.argprom.exit
+194:                                              ; preds = %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.exit
   %195 = call noundef i32 @_ZNK4llvm12MachineInstr13getBundleSizeEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i10.i.i.i) #20
   %196 = sub i32 %164, %195
   br label %197
 
-197:                                              ; preds = %194, %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.argprom.exit
-  %.146 = phi i32 [ %196, %194 ], [ %164, %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.argprom.exit ]
+197:                                              ; preds = %194, %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.exit
+  %.146 = phi i32 [ %196, %194 ], [ %164, %_ZN12_GLOBAL__N_120SchedulePostRATDList7ObserveERN4llvm12MachineInstrEj.exit ]
   %198 = load ptr, ptr %147, align 8
   %.not82 = icmp eq ptr %.sroa.0.0.i.i.i10.i.i.i, %198
   br i1 %.not82, label %._crit_edge, label %.lr.ph.i.i.i61.preheader, !llvm.loop !7
@@ -1046,21 +1046,21 @@ _ZN12_GLOBAL__N_120SchedulePostRATDList11finishBlockEv.exit: ; preds = %_ZN12_GL
 
 ._crit_edge99:                                    ; preds = %_ZN12_GLOBAL__N_120SchedulePostRATDList11finishBlockEv.exit, %_ZN12_GLOBAL__N_120SchedulePostRATDListC2ERN4llvm15MachineFunctionERNS1_15MachineLoopInfoEPNS1_9AAResultsERKNS1_17RegisterClassInfoENS1_19TargetSubtargetInfo16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit
   call void @_ZN12_GLOBAL__N_120SchedulePostRATDListD2Ev(ptr noundef nonnull align 8 dereferenceable(2804) %4) #20
-  br label %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit.thread
+  br label %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit.thread
 
-_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit.thread: ; preds = %79, %76, %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit, %._crit_edge99
-  %.0.i78 = phi i1 [ false, %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit ], [ true, %._crit_edge99 ], [ false, %76 ], [ false, %79 ]
+_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit.thread: ; preds = %79, %76, %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit, %._crit_edge99
+  %.0.i78 = phi i1 [ false, %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit ], [ true, %._crit_edge99 ], [ false, %76 ], [ false, %79 ]
   %208 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %209 = load ptr, ptr %3, align 8
   %210 = icmp eq ptr %209, %65
   br i1 %210, label %_ZN4llvm11SmallVectorIPKNS_19TargetRegisterClassELj4EED2Ev.exit, label %211
 
-211:                                              ; preds = %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit.thread
+211:                                              ; preds = %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit.thread
   call void @free(ptr noundef %209) #20
   br label %_ZN4llvm11SmallVectorIPKNS_19TargetRegisterClassELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPKNS_19TargetRegisterClassELj4EED2Ev.exit: ; preds = %211, %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit.thread, %2
-  %.0 = phi i1 [ false, %2 ], [ %.0.i78, %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.argprom.exit.thread ], [ %.0.i78, %211 ]
+_ZN4llvm11SmallVectorIPKNS_19TargetRegisterClassELj4EED2Ev.exit: ; preds = %211, %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit.thread, %2
+  %.0 = phi i1 [ false, %2 ], [ %.0.i78, %_ZNK12_GLOBAL__N_115PostRAScheduler21enablePostRASchedulerERKN4llvm19TargetSubtargetInfoENS1_15CodeGenOptLevelERNS2_16AntiDepBreakModeERNS1_15SmallVectorImplIPKNS1_19TargetRegisterClassEEE.exit.thread ], [ %.0.i78, %211 ]
   ret i1 %.0
 }
 
@@ -2960,8 +2960,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_120SchedulePostRATDList17ReleaseSuc
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2720
   br label %11
 
-11:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit
-  %.010 = phi ptr [ %4, %.lr.ph ], [ %58, %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit ]
+11:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.exit
+  %.010 = phi ptr [ %4, %.lr.ph ], [ %58, %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.exit ]
   %.0.val = load i64, ptr %.010, align 8
   %12 = getelementptr i8, ptr %.010, i64 8
   %.0.val8 = load i32, ptr %12, align 8
@@ -2978,7 +2978,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120SchedulePostRATDList17ReleaseSuc
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, -1
   store i32 %22, ptr %20, align 8
-  br label %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit
+  br label %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.exit
 
 23:                                               ; preds = %11
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 216
@@ -2988,7 +2988,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120SchedulePostRATDList17ReleaseSuc
   %27 = icmp eq i32 %26, 0
   %28 = icmp ne ptr %7, %14
   %or.cond.i = select i1 %27, i1 %28, i1 false
-  br i1 %or.cond.i, label %29, label %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit
+  br i1 %or.cond.i, label %29, label %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.exit
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %9, align 8
@@ -3001,7 +3001,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120SchedulePostRATDList17ReleaseSuc
   %33 = load ptr, ptr %9, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %34, ptr %9, align 8
-  br label %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit
+  br label %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.exit
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %8, align 8
@@ -3056,14 +3056,14 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__
   store ptr %55, ptr %9, align 8
   %57 = getelementptr inbounds ptr, ptr %50, i64 %46
   store ptr %57, ptr %10, align 8
-  br label %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit
+  br label %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.exit
 
-_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit: ; preds = %19, %23, %32, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.exit: ; preds = %19, %23, %32, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
   %58 = getelementptr inbounds i8, ptr %.010, i64 16
   %.not = icmp eq ptr %58, %6
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit, %2
+._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_120SchedulePostRATDList11ReleaseSuccEPN4llvm5SUnitEPNS1_4SDepE.exit, %2
   ret void
 }
 

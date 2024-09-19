@@ -3630,7 +3630,7 @@ define internal fastcc i32 @snd_ctl_tlv_ioctl(ptr noundef readonly %0, ptr nound
   br i1 %108, label %109, label %.thread
 
 109:                                              ; preds = %107
-  %110 = call fastcc i32 @read_tlv_buf.argprom(ptr noundef nonnull %22, i32 %26, i32 %28, ptr noundef %16, i32 noundef %13)
+  %110 = call fastcc i32 @read_tlv_buf(ptr noundef nonnull %22, i32 %26, i32 %28, ptr noundef %16, i32 noundef %13)
   br label %.thread
 
 .thread:                                          ; preds = %76, %15, %109, %107, %104, %97, %85, %79, %19, %11, %8, %3
@@ -4971,7 +4971,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -14, 1) i32 @read_tlv_buf.argprom(ptr nocapture noundef nonnull readonly %0, i32 %.0.val, i32 %.60.val, ptr noundef %1, i32 noundef range(i32 8, 0) %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -14, 1) i32 @read_tlv_buf(ptr nocapture noundef nonnull readonly %0, i32 %.0.val, i32 %.60.val, ptr noundef %1, i32 noundef range(i32 8, 0) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = icmp eq i32 %.0.val, 0
   %6 = getelementptr inbounds i8, ptr %0, i64 80

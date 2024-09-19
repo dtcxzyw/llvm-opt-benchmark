@@ -675,7 +675,7 @@ while.body.lr.ph.i:                               ; preds = %while.cond.preheade
   %nr.i.i = getelementptr inbounds i8, ptr %argv.i.i, i64 8
   br label %while.body.i
 
-while.body.i:                                     ; preds = %process_replay_line.argprom.exit.i, %while.body.lr.ph.i
+while.body.i:                                     ; preds = %process_replay_line.exit.i, %while.body.lr.ph.i
   %line.val.i = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %argv.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %argv30.i.i)
@@ -712,7 +712,7 @@ do.cond.i16.i.i:                                  ; preds = %do.body.i12.i.i
   %7 = load i8, ptr %str.addr.0.i13.i.i, align 1
   %prefix.addr.0.i14.add.i.i = add nuw nsw i64 %prefix.addr.0.i14.idx.i.i, 1
   %cmp.i19.i.i = icmp eq i8 %7, %6
-  br i1 %cmp.i19.i.i, label %do.body.i12.i.i, label %process_replay_line.argprom.exit.i, !llvm.loop !5
+  br i1 %cmp.i19.i.i, label %do.body.i12.i.i, label %process_replay_line.exit.i, !llvm.loop !5
 
 lor.lhs.false.i.i:                                ; preds = %do.body.i.i.i, %do.body.i12.i.i
   %8 = load i8, ptr %scevgep.i.i, align 1
@@ -721,7 +721,7 @@ lor.lhs.false.i.i:                                ; preds = %do.body.i.i.i, %do.
   %9 = load i8, ptr %arrayidx.i.i, align 1
   %10 = and i8 %9, 1
   %cmp.not.i.i = icmp eq i8 %10, 0
-  br i1 %cmp.not.i.i, label %process_replay_line.argprom.exit.i, label %if.end.i.i
+  br i1 %cmp.not.i.i, label %process_replay_line.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %call5.i.i = call i64 @strspn(ptr noundef nonnull %scevgep.i.i, ptr noundef nonnull @.str.106) #19
@@ -734,7 +734,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %call11.i.i = call fastcc i32 @get_terms(ptr noundef %terms)
   %call12.i.i = call fastcc i32 @check_and_set_terms(ptr noundef %terms, ptr noundef nonnull %add.ptr6.i.i)
   %tobool.not.i.i = icmp eq i32 %call12.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end14.i.i, label %process_replay_line.argprom.exit.i
+  br i1 %tobool.not.i.i, label %if.end14.i.i, label %process_replay_line.exit.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
   %call15.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr6.i.i, ptr noundef nonnull dereferenceable(6) @.str.2) #19
@@ -749,7 +749,7 @@ if.then17.i.i:                                    ; preds = %if.end14.i.i
   %12 = load ptr, ptr %argv.i.i, align 8
   %call20.i.i = call fastcc i32 @bisect_start(ptr noundef %terms, i32 noundef %conv19.i.i, ptr noundef %12)
   call void @strvec_clear(ptr noundef nonnull %argv.i.i) #17
-  br label %process_replay_line.argprom.exit.i
+  br label %process_replay_line.exit.i
 
 if.end21.i.i:                                     ; preds = %if.end14.i.i
   %13 = load ptr, ptr %terms, align 8
@@ -760,7 +760,7 @@ if.end21.i.i:                                     ; preds = %if.end14.i.i
 
 if.then24.i.i:                                    ; preds = %if.end21.i.i
   %call25.i.i = call fastcc i32 @bisect_write(ptr noundef nonnull %add.ptr6.i.i, ptr noundef nonnull %add.ptr10.i.i, ptr noundef %terms, i32 noundef 0)
-  br label %process_replay_line.argprom.exit.i
+  br label %process_replay_line.exit.i
 
 if.end26.i.i:                                     ; preds = %if.end21.i.i
   %call27.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr6.i.i, ptr noundef nonnull dereferenceable(6) @.str.1) #19
@@ -783,7 +783,7 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %if.
   %cond.i.i = phi ptr [ %17, %cond.true.i.i ], [ null, %if.then29.i.i ]
   %call38.i.i = call fastcc i32 @bisect_terms(ptr noundef %terms, ptr noundef %cond.i.i)
   call void @strvec_clear(ptr noundef nonnull %argv30.i.i) #17
-  br label %process_replay_line.argprom.exit.i
+  br label %process_replay_line.exit.i
 
 if.end39.i.i:                                     ; preds = %if.end26.i.i
   %18 = load i32, ptr @git_gettext_enabled, align 4
@@ -797,9 +797,9 @@ if.end3.i.i.i:                                    ; preds = %if.end39.i.i
 _.exit.i.i:                                       ; preds = %if.end3.i.i.i, %if.end39.i.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.end3.i.i.i ], [ @.str.110, %if.end39.i.i ]
   %call41.i.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i.i, ptr noundef nonnull %add.ptr6.i.i) #17
-  br label %process_replay_line.argprom.exit.i
+  br label %process_replay_line.exit.i
 
-process_replay_line.argprom.exit.i:               ; preds = %do.cond.i16.i.i, %_.exit.i.i, %cond.end.i.i, %if.then24.i.i, %if.then17.i.i, %if.end.i.i, %lor.lhs.false.i.i
+process_replay_line.exit.i:                       ; preds = %do.cond.i16.i.i, %_.exit.i.i, %cond.end.i.i, %if.then24.i.i, %if.then17.i.i, %if.end.i.i, %lor.lhs.false.i.i
   %retval.0.i8.i = phi i32 [ %call25.i.i, %if.then24.i.i ], [ -1, %_.exit.i.i ], [ %call38.i.i, %cond.end.i.i ], [ %call20.i.i, %if.then17.i.i ], [ 0, %lor.lhs.false.i.i ], [ -1, %if.end.i.i ], [ 0, %do.cond.i16.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %argv.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %argv30.i.i)
@@ -809,7 +809,7 @@ process_replay_line.argprom.exit.i:               ; preds = %do.cond.i16.i.i, %_
   %19 = select i1 %cmp.i, i1 %tobool13.not.i, i1 false
   br i1 %19, label %while.body.i, label %while.end.i, !llvm.loop !7
 
-while.end.i:                                      ; preds = %process_replay_line.argprom.exit.i
+while.end.i:                                      ; preds = %process_replay_line.exit.i
   call void @strbuf_release(ptr noundef nonnull %line.i) #17
   %call15.i = call i32 @fclose(ptr noundef nonnull %call8.i)
   br i1 %tobool13.not.i, label %if.end18.i, label %bisect_replay.exit
@@ -1144,12 +1144,12 @@ if.then10.i:                                      ; preds = %land.lhs.true.i
   %cond.i.i = select i1 %tobool.not.i.i, ptr @.str.44, ptr @.str.18
   %call3.i28.i = call i32 @read_ref(ptr noundef nonnull %cond.i.i, ptr noundef nonnull %current_rev.i.i) #17
   %tobool4.not.i.i = icmp eq i32 %call3.i28.i, 0
-  br i1 %tobool4.not.i.i, label %if.end.i.i, label %verify_good.argprom.exit.thread.i
+  br i1 %tobool4.not.i.i, label %if.end.i.i, label %verify_good.exit.thread.i
 
 if.end.i.i:                                       ; preds = %if.then10.i
   %call5.i.i = call i32 @bisect_checkout(ptr noundef nonnull %good_rev.i.i, i32 noundef %call1.i26.i) #17
   %cmp.not.i.i = icmp eq i32 %call5.i.i, 0
-  br i1 %cmp.not.i.i, label %if.end7.i.i, label %verify_good.argprom.exit.thread.i
+  br i1 %cmp.not.i.i, label %if.end7.i.i, label %verify_good.exit.thread.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cmd.i.i.i)
@@ -1171,20 +1171,20 @@ do_bisect_run.exit.i.i:                           ; preds = %if.end3.i.i.i.i, %i
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cmd.i.i.i)
   %call9.i.i = call i32 @bisect_checkout(ptr noundef nonnull %current_rev.i.i, i32 noundef %call1.i26.i) #17
   %cmp10.not.i.i = icmp eq i32 %call9.i.i, 0
-  br i1 %cmp10.not.i.i, label %verify_good.argprom.exit.i, label %verify_good.argprom.exit.thread.i
+  br i1 %cmp10.not.i.i, label %verify_good.exit.i, label %verify_good.exit.thread.i
 
-verify_good.argprom.exit.thread.i:                ; preds = %do_bisect_run.exit.i.i, %if.end.i.i, %if.then10.i
+verify_good.exit.thread.i:                        ; preds = %do_bisect_run.exit.i.i, %if.end.i.i, %if.then10.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %good_rev.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %current_rev.i.i)
   br label %if.then16.i
 
-verify_good.argprom.exit.i:                       ; preds = %do_bisect_run.exit.i.i
+verify_good.exit.i:                               ; preds = %do_bisect_run.exit.i.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %good_rev.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %current_rev.i.i)
   %or.cond1.i = icmp ugt i32 %call3.i.i.i, 127
   br i1 %or.cond1.i, label %if.then16.i, label %if.end21.i
 
-if.then16.i:                                      ; preds = %verify_good.argprom.exit.i, %verify_good.argprom.exit.thread.i
+if.then16.i:                                      ; preds = %verify_good.exit.i, %verify_good.exit.thread.i
   %6 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i = icmp eq i32 %6, 0
   br i1 %tobool1.not.i.i, label %_.exit.i, label %if.end3.i.i
@@ -1199,7 +1199,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
   %call19.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i31.i, ptr noundef %7) #17
   br label %while.end.i
 
-if.end21.i:                                       ; preds = %verify_good.argprom.exit.i
+if.end21.i:                                       ; preds = %verify_good.exit.i
   %cmp22.i = icmp eq i32 %call3.i.i.i, %call3.i.i
   br i1 %cmp22.i, label %if.then23.i, label %if.end37.i
 
@@ -1866,7 +1866,7 @@ for.inc79:                                        ; preds = %if.end66, %oideq.ex
 
 for.end80:                                        ; preds = %for.inc79, %for.end
   call void @oid_array_clear(ptr noundef nonnull %revs) #17
-  %call81 = call fastcc i32 @bisect_auto_next.argprom(ptr noundef %terms)
+  %call81 = call fastcc i32 @bisect_auto_next(ptr noundef %terms)
   br label %return
 
 return:                                           ; preds = %if.end6, %lor.lhs.false, %if.end, %for.end80, %if.then65, %_.exit42, %_.exit32, %_.exit
@@ -3079,7 +3079,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bisect_auto_next.argprom(ptr nocapture noundef nonnull %terms) unnamed_addr #0 {
+define internal fastcc noundef i32 @bisect_auto_next(ptr nocapture noundef nonnull %terms) unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @bisect_next_check(ptr noundef %terms, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
@@ -3467,15 +3467,15 @@ if.then10:                                        ; preds = %if.else
 if.then.i6:                                       ; preds = %if.then10
   %cmp.i = icmp eq i32 %2, 1
   %cond.i = select i1 %cmp.i, ptr @.str.87, ptr @.str.88
-  br label %Q_.argprom.exit
+  br label %Q_.exit
 
 if.end.i:                                         ; preds = %if.then10
   %conv = zext i32 %2 to i64
   %call.i4 = call ptr @ngettext(ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, i64 noundef %conv) #17
   %.pre = load i32, ptr %state, align 8
-  br label %Q_.argprom.exit
+  br label %Q_.exit
 
-Q_.argprom.exit:                                  ; preds = %if.then.i6, %if.end.i
+Q_.exit:                                          ; preds = %if.then.i6, %if.end.i
   %5 = phi i32 [ %.pre, %if.end.i ], [ %2, %if.then.i6 ]
   %retval.0.i5 = phi ptr [ %call.i4, %if.end.i ], [ %cond.i, %if.then.i6 ]
   call void (ptr, ...) @bisect_log_printf(ptr noundef %retval.0.i5, i32 noundef %5)
@@ -3493,7 +3493,7 @@ _.exit12:                                         ; preds = %if.else14, %if.end3
   call void (ptr, ...) @bisect_log_printf(ptr noundef %retval.0.i11)
   br label %if.end17
 
-if.end17:                                         ; preds = %Q_.argprom.exit, %_.exit12, %bisect_status.exit, %_.exit
+if.end17:                                         ; preds = %Q_.exit, %_.exit12, %bisect_status.exit, %_.exit
   ret void
 }
 

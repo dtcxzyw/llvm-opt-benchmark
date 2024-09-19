@@ -4508,14 +4508,14 @@ define internal void @"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load i64, ptr %2, align 8, !noundef !4
   %3 = icmp eq i64 %.val1, 0
-  br i1 %3, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0c563670572d320cE.argprom.exit", label %4
+  br i1 %3, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0c563670572d320cE.exit", label %4
 
 4:                                                ; preds = %1
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %.val1, i64 noundef 1) #22
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0c563670572d320cE.argprom.exit"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0c563670572d320cE.exit"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0c563670572d320cE.argprom.exit": ; preds = %1, %4
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0c563670572d320cE.exit": ; preds = %1, %4
   ret void
 }
 
@@ -8583,7 +8583,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %5 = load i32, ptr %3, align 8, !range !362, !alias.scope !2237, !noalias !2240, !noundef !4
   %6 = load i32, ptr %4, align 8, !range !362, !alias.scope !2240, !noalias !2237, !noundef !4
   %7 = icmp eq i32 %5, %6
-  br i1 %7, label %8, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 8:                                                ; preds = %2
   switch i32 %5, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28" [
@@ -8613,7 +8613,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %18 = icmp ult i64 %17, 4
   %19 = select i1 %18, i64 %17, i64 1
   %20 = icmp eq i64 %15, %19
-  br i1 %20, label %21, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %20, label %21, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 21:                                               ; preds = %9
   switch i64 %15, label %22 [
@@ -8638,7 +8638,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %28 = icmp eq i32 %.val3.i23, %.val5.i25
   %29 = icmp eq ptr %.val.i22, %.val4.i24
   %spec.select.i.i26 = select i1 %28, i1 %29, i1 false
-  br i1 %spec.select.i.i26, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %spec.select.i.i26, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 30:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2247)
@@ -8646,7 +8646,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2252)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2255)
   %31 = icmp eq i64 %12, %16
-  br i1 %31, label %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i14", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %31, label %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i14", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 "_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i14": ; preds = %30
   %trunc.i.i.i15 = trunc nuw i64 %12 to i1
@@ -8664,7 +8664,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %37 = icmp eq i32 %.val7.i.i.i18, %.val9.i.i.i20
   %38 = icmp eq ptr %.val6.i.i.i17, %.val8.i.i.i19
   %spec.select.i10.i.i.i21 = select i1 %37, i1 %38, i1 false
-  br i1 %spec.select.i10.i.i.i21, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %spec.select.i10.i.i.i21, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 39:                                               ; preds = %21
   %40 = getelementptr inbounds i8, ptr %0, i64 64
@@ -8678,7 +8678,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %44 = icmp eq ptr %.val6.i12, %.val8.i
   %45 = icmp eq ptr %.val7.i13, %.val9.i
   %spec.select.i14.i = select i1 %44, i1 %45, i1 false
-  br i1 %spec.select.i14.i, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %spec.select.i14.i, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 46:                                               ; preds = %21
   %47 = getelementptr inbounds i8, ptr %0, i64 64
@@ -8692,7 +8692,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %51 = icmp eq ptr %.val10.i, %.val12.i
   %52 = icmp eq ptr %.val11.i, %.val13.i
   %spec.select.i15.i = select i1 %51, i1 %52, i1 false
-  br i1 %spec.select.i15.i, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %spec.select.i15.i, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 53:                                               ; preds = %8
   %54 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8704,7 +8704,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %58 = load ptr, ptr %55, align 8, !alias.scope !2270, !noalias !2269, !noundef !4
   %59 = icmp eq ptr %58, null
   %60 = xor i1 %57, %59
-  br i1 %60, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit", label %61
+  br i1 %60, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit", label %61
 
 61:                                               ; preds = %53
   br i1 %57, label %68, label %62
@@ -8719,7 +8719,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %66 = icmp eq i32 %.val2.i.i, %.val4.i.i
   %67 = icmp eq ptr %56, %58
   %spec.select.i.i.i = and i1 %67, %66
-  br i1 %spec.select.i.i.i, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %spec.select.i.i.i, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 68:                                               ; preds = %61
   tail call void @llvm.assume(i1 %59)
@@ -8730,7 +8730,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %71 = load ptr, ptr %69, align 8, !alias.scope !2276, !noalias !2277, !nonnull !4, !noundef !4
   %72 = load ptr, ptr %70, align 8, !alias.scope !2277, !noalias !2276, !nonnull !4, !noundef !4
   %73 = icmp eq ptr %71, %72
-  br i1 %73, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %73, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 74:                                               ; preds = %8
   %75 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8742,7 +8742,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %79 = load ptr, ptr %76, align 8, !alias.scope !2284, !noalias !2283, !noundef !4
   %80 = icmp eq ptr %79, null
   %81 = xor i1 %78, %80
-  br i1 %81, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit", label %82
+  br i1 %81, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit", label %82
 
 82:                                               ; preds = %74
   br i1 %78, label %89, label %83
@@ -8757,7 +8757,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %87 = icmp eq i32 %.val2.i8.i, %.val4.i9.i
   %88 = icmp eq ptr %77, %79
   %spec.select.i.i10.i = and i1 %88, %87
-  br i1 %spec.select.i.i10.i, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %spec.select.i.i10.i, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 89:                                               ; preds = %82
   tail call void @llvm.assume(i1 %80)
@@ -8768,7 +8768,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %92 = load ptr, ptr %90, align 8, !alias.scope !2290, !noalias !2291, !nonnull !4, !noundef !4
   %93 = load ptr, ptr %91, align 8, !alias.scope !2291, !noalias !2290, !nonnull !4, !noundef !4
   %94 = icmp eq ptr %92, %93
-  br i1 %94, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %94, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 95:                                               ; preds = %8
   %96 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8780,7 +8780,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %98 = load i64, ptr %96, align 8, !range !1017, !alias.scope !2302, !noalias !2303, !noundef !4
   %99 = load i64, ptr %97, align 8, !range !1017, !alias.scope !2303, !noalias !2302, !noundef !4
   %100 = icmp eq i64 %98, %99
-  br i1 %100, label %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %100, label %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 "_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i": ; preds = %95
   %trunc.i.i.i = trunc nuw i64 %98 to i1
@@ -8798,7 +8798,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %106 = icmp eq i32 %.val7.i.i.i, %.val9.i.i.i
   %107 = icmp eq ptr %.val6.i.i.i, %.val8.i.i.i
   %spec.select.i10.i.i.i = select i1 %106, i1 %107, i1 false
-  br i1 %spec.select.i10.i.i.i, label %108, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %spec.select.i10.i.i.i, label %108, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 108:                                              ; preds = %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i"
   %109 = getelementptr inbounds i8, ptr %0, i64 80
@@ -8808,7 +8808,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %111 = load ptr, ptr %109, align 8, !alias.scope !2309, !noalias !2310, !nonnull !4, !noundef !4
   %112 = load ptr, ptr %110, align 8, !alias.scope !2310, !noalias !2309, !nonnull !4, !noundef !4
   %113 = icmp eq ptr %111, %112
-  br i1 %113, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %113, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 114:                                              ; preds = %8
   %115 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8818,7 +8818,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %117 = load ptr, ptr %115, align 8, !alias.scope !2316, !noalias !2317, !nonnull !4, !noundef !4
   %118 = load ptr, ptr %116, align 8, !alias.scope !2317, !noalias !2316, !nonnull !4, !noundef !4
   %119 = icmp eq ptr %117, %118
-  br i1 %119, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %119, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 120:                                              ; preds = %8
   %121 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8828,7 +8828,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %123 = load ptr, ptr %121, align 8, !alias.scope !2323, !noalias !2324, !nonnull !4, !noundef !4
   %124 = load ptr, ptr %122, align 8, !alias.scope !2324, !noalias !2323, !nonnull !4, !noundef !4
   %125 = icmp eq ptr %123, %124
-  br i1 %125, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %125, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 126:                                              ; preds = %8
   %127 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8838,7 +8838,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %129 = load ptr, ptr %127, align 8, !alias.scope !2330, !noalias !2331, !nonnull !4, !noundef !4
   %130 = load ptr, ptr %128, align 8, !alias.scope !2331, !noalias !2330, !nonnull !4, !noundef !4
   %131 = icmp eq ptr %129, %130
-  br i1 %131, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %131, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 132:                                              ; preds = %8
   %133 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8852,7 +8852,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %137 = icmp eq i32 %.val5.i, %.val7.i
   %138 = icmp eq ptr %.val4.i, %.val6.i
   %spec.select.i.i = select i1 %137, i1 %138, i1 false
-  br i1 %spec.select.i.i, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %spec.select.i.i, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 139:                                              ; preds = %8
   %140 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8862,7 +8862,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %142 = load ptr, ptr %140, align 8, !alias.scope !2337, !noalias !2338, !nonnull !4, !noundef !4
   %143 = load ptr, ptr %141, align 8, !alias.scope !2338, !noalias !2337, !nonnull !4, !noundef !4
   %144 = icmp eq ptr %142, %143
-  br i1 %144, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %144, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 145:                                              ; preds = %8
   %146 = getelementptr inbounds i8, ptr %0, i64 52
@@ -8870,7 +8870,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %.val.i = load i32, ptr %146, align 4, !alias.scope !2237, !noalias !2240, !noundef !4
   %.val3.i = load i32, ptr %147, align 4, !alias.scope !2240, !noalias !2237, !noundef !4
   %148 = icmp eq i32 %.val.i, %.val3.i
-  br i1 %148, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %148, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 "_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit": ; preds = %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i14"
   %149 = getelementptr inbounds i8, ptr %0, i64 80
@@ -8880,7 +8880,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   %151 = load ptr, ptr %149, align 8, !alias.scope !2344, !noalias !2345, !nonnull !4, !noundef !4
   %152 = load ptr, ptr %150, align 8, !alias.scope !2345, !noalias !2344, !nonnull !4, !noundef !4
   %153 = icmp eq ptr %151, %152
-  br i1 %153, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %153, label %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 "_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28": ; preds = %8, %23, %39, %46, %108, %83, %89, %62, %68, %114, %120, %126, %132, %139, %145, %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit"
   %154 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8894,7 +8894,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2346)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2349)
   %.not.i.i = icmp eq i64 %.val1, %.val3
-  br i1 %.not.i.i, label %_ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %.not.i.i, label %_ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 _ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.preheader.split.i.i: ; preds = %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28"
   %.not12.i.i = icmp eq i64 %.val1, 0
@@ -8920,7 +8920,7 @@ _ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.preh
   %165 = getelementptr inbounds i8, ptr %161, i64 8
   %166 = getelementptr inbounds i8, ptr %162, i64 8
   %167 = tail call noundef zeroext i1 @"_ZN68_$LT$chalk_ir..GoalData$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd20d57d88136316eE.llvm.15174346656936477453"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %165, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %166), !noalias !2368
-  br i1 %167, label %_ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.backedge.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %167, label %_ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.backedge.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 _ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.backedge.i.i: ; preds = %164, %.lr.ph.i.i
   %exitcond.not.i.i = icmp eq i64 %158, %.val1
@@ -8938,11 +8938,11 @@ _ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.back
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2369)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2372)
   %.not.i.i8 = icmp eq i64 %.val5, %.val7
-  br i1 %.not.i.i8, label %.preheader.split.i.preheader.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %.not.i.i8, label %.preheader.split.i.preheader.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 .preheader.split.i.preheader.i:                   ; preds = %.loopexit
   %exitcond.not.i5.i = icmp eq i64 %.val5, 0
-  br i1 %exitcond.not.i5.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd76a11ab7a9bab89E.argprom.exit", label %.lr.ph.i
+  br i1 %exitcond.not.i5.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd76a11ab7a9bab89E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.split.i.preheader.i, %.preheader.split.backedge.i.i
   %.sroa.01.0.i6.i = phi i64 [ %172, %.preheader.split.backedge.i.i ], [ 0, %.preheader.split.i.preheader.i ]
@@ -8958,7 +8958,7 @@ _ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.back
   %.val.i.i.i.i = load ptr, ptr %175, align 8, !alias.scope !2384, !noalias !2385, !nonnull !4, !noundef !4
   %.val1.i.i.i.i = load ptr, ptr %176, align 8, !alias.scope !2385, !noalias !2384, !nonnull !4, !noundef !4
   %177 = icmp eq ptr %.val.i.i.i.i, %.val1.i.i.i.i
-  br i1 %177, label %178, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %177, label %178, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 178:                                              ; preds = %.lr.ph.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2386)
@@ -8966,7 +8966,7 @@ _ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.back
   %179 = load i64, ptr %173, align 8, !range !1017, !alias.scope !2391, !noalias !2392, !noundef !4
   %180 = load i64, ptr %174, align 8, !range !1017, !alias.scope !2392, !noalias !2391, !noundef !4
   %181 = icmp eq i64 %179, %180
-  br i1 %181, label %182, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %181, label %182, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 182:                                              ; preds = %178
   %trunc.i.i.i.i.i = trunc nuw i64 %179 to i1
@@ -8980,7 +8980,7 @@ _ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.back
   %.val6.i.i.i.i.i = load ptr, ptr %183, align 8, !alias.scope !2391, !noalias !2392, !nonnull !4, !noundef !4
   %.val7.i.i.i.i.i = load ptr, ptr %184, align 8, !alias.scope !2392, !noalias !2391, !nonnull !4, !noundef !4
   %187 = icmp eq ptr %.val6.i.i.i.i.i, %.val7.i.i.i.i.i
-  br i1 %187, label %_ZN4core3cmp9PartialEq2ne17h99faba26a985644aE.exit.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %187, label %_ZN4core3cmp9PartialEq2ne17h99faba26a985644aE.exit.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 188:                                              ; preds = %182
   %189 = icmp ne i64 %179, 0
@@ -8990,7 +8990,7 @@ _ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.back
   %190 = load ptr, ptr %183, align 8, !alias.scope !2398, !noalias !2399, !nonnull !4, !noundef !4
   %191 = load ptr, ptr %184, align 8, !alias.scope !2399, !noalias !2398, !nonnull !4, !noundef !4
   %192 = icmp eq ptr %190, %191
-  br i1 %192, label %193, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %192, label %193, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 193:                                              ; preds = %188
   %194 = getelementptr inbounds i8, ptr %173, i64 16
@@ -8998,7 +8998,7 @@ _ZN4core3cmp9PartialEq2ne17h2ee2f11838e8da9eE.llvm.1217409769501805781.exit.back
   %.val.i.i.i.i.i = load ptr, ptr %194, align 8, !alias.scope !2391, !noalias !2392, !nonnull !4, !noundef !4
   %.val3.i.i.i.i.i = load ptr, ptr %195, align 8, !alias.scope !2392, !noalias !2391, !nonnull !4, !noundef !4
   %196 = icmp eq ptr %.val.i.i.i.i.i, %.val3.i.i.i.i.i
-  br i1 %196, label %.preheader.split.backedge.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %196, label %.preheader.split.backedge.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 _ZN4core3cmp9PartialEq2ne17h99faba26a985644aE.exit.i.i: ; preds = %185
   %197 = getelementptr inbounds i8, ptr %173, i64 16
@@ -9006,22 +9006,22 @@ _ZN4core3cmp9PartialEq2ne17h99faba26a985644aE.exit.i.i: ; preds = %185
   %.val4.i.i.i.i.i = load ptr, ptr %197, align 8, !alias.scope !2391, !noalias !2392, !nonnull !4, !noundef !4
   %.val5.i.i.i.i.i = load ptr, ptr %198, align 8, !alias.scope !2392, !noalias !2391, !nonnull !4, !noundef !4
   %199 = icmp eq ptr %.val4.i.i.i.i.i, %.val5.i.i.i.i.i
-  br i1 %199, label %.preheader.split.backedge.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br i1 %199, label %.preheader.split.backedge.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
 .preheader.split.backedge.i.i:                    ; preds = %_ZN4core3cmp9PartialEq2ne17h99faba26a985644aE.exit.i.i, %193
   %exitcond.not.i.i10 = icmp eq i64 %172, %.val5
-  br i1 %exitcond.not.i.i10, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd76a11ab7a9bab89E.argprom.exit", label %.lr.ph.i
+  br i1 %exitcond.not.i.i10, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd76a11ab7a9bab89E.exit", label %.lr.ph.i
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd76a11ab7a9bab89E.argprom.exit": ; preds = %.preheader.split.backedge.i.i, %.preheader.split.i.preheader.i
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd76a11ab7a9bab89E.exit": ; preds = %.preheader.split.backedge.i.i, %.preheader.split.i.preheader.i
   %200 = getelementptr inbounds i8, ptr %0, i64 88
   %201 = load i8, ptr %200, align 8, !range !52, !noundef !4
   %202 = getelementptr inbounds i8, ptr %1, i64 88
   %203 = load i8, ptr %202, align 8, !range !52, !noundef !4
   %204 = icmp eq i8 %201, %203
-  br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit"
+  br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.argprom.exit": ; preds = %164, %.lr.ph.i, %178, %185, %188, %193, %_ZN4core3cmp9PartialEq2ne17h99faba26a985644aE.exit.i.i, %.loopexit, %30, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i14", %9, %95, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i", %74, %53, %2, %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", %23, %39, %46, %108, %83, %89, %62, %68, %114, %120, %126, %132, %139, %145, %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd76a11ab7a9bab89E.argprom.exit"
-  %.0 = phi i1 [ %204, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd76a11ab7a9bab89E.argprom.exit" ], [ false, %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit" ], [ false, %145 ], [ false, %139 ], [ false, %132 ], [ false, %126 ], [ false, %120 ], [ false, %114 ], [ false, %68 ], [ false, %62 ], [ false, %89 ], [ false, %83 ], [ false, %108 ], [ false, %46 ], [ false, %39 ], [ false, %23 ], [ false, %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28" ], [ false, %2 ], [ false, %53 ], [ false, %74 ], [ false, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i" ], [ false, %95 ], [ false, %9 ], [ false, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i14" ], [ false, %30 ], [ false, %.loopexit ], [ false, %_ZN4core3cmp9PartialEq2ne17h99faba26a985644aE.exit.i.i ], [ false, %193 ], [ false, %188 ], [ false, %185 ], [ false, %178 ], [ false, %.lr.ph.i ], [ false, %164 ]
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hba2101afa6815e38E.exit": ; preds = %164, %.lr.ph.i, %178, %185, %188, %193, %_ZN4core3cmp9PartialEq2ne17h99faba26a985644aE.exit.i.i, %.loopexit, %30, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i14", %9, %95, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i", %74, %53, %2, %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28", %23, %39, %46, %108, %83, %89, %62, %68, %114, %120, %126, %132, %139, %145, %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd76a11ab7a9bab89E.exit"
+  %.0 = phi i1 [ %204, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd76a11ab7a9bab89E.exit" ], [ false, %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit" ], [ false, %145 ], [ false, %139 ], [ false, %132 ], [ false, %126 ], [ false, %120 ], [ false, %114 ], [ false, %68 ], [ false, %62 ], [ false, %89 ], [ false, %83 ], [ false, %108 ], [ false, %46 ], [ false, %39 ], [ false, %23 ], [ false, %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff50505eff5c7fdfE.exit.thread28" ], [ false, %2 ], [ false, %53 ], [ false, %74 ], [ false, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i" ], [ false, %95 ], [ false, %9 ], [ false, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6fbde0ef3fde8c5cE.exit.i.i14" ], [ false, %30 ], [ false, %.loopexit ], [ false, %_ZN4core3cmp9PartialEq2ne17h99faba26a985644aE.exit.i.i ], [ false, %193 ], [ false, %188 ], [ false, %185 ], [ false, %178 ], [ false, %.lr.ph.i ], [ false, %164 ]
   ret i1 %.0
 }
 

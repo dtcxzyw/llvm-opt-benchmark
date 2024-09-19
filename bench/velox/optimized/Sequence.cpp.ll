@@ -3016,7 +3016,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp ugt i64 %sub.ptr.sub.i, 64
-  br i1 %cmp, label %land.lhs.true, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.argprom.exit
+  br i1 %cmp, label %land.lhs.true, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.exit
 
 land.lhs.true:                                    ; preds = %if.then
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 64
@@ -3024,9 +3024,9 @@ land.lhs.true:                                    ; preds = %if.then
   %call.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN8facebook5velox21IntervalYearMonthType3getEv()
   %8 = load ptr, ptr %call.i, align 8
   %cmp.i38 = icmp eq ptr %7, %8
-  br i1 %cmp.i38, label %return, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.argprom.exit
+  br i1 %cmp.i38, label %return, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.exit
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.argprom.exit: ; preds = %if.then, %land.lhs.true
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.exit: ; preds = %if.then, %land.lhs.true
   br label %return
 
 if.end11:                                         ; preds = %entry
@@ -3046,7 +3046,7 @@ sw.bb17:                                          ; preds = %if.end11
   %sub.ptr.rhs.cast.i84 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i85 = sub i64 %sub.ptr.lhs.cast.i83, %sub.ptr.rhs.cast.i84
   %cmp19 = icmp ugt i64 %sub.ptr.sub.i85, 64
-  br i1 %cmp19, label %land.lhs.true20, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.argprom.exit
+  br i1 %cmp19, label %land.lhs.true20, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.exit
 
 land.lhs.true20:                                  ; preds = %sw.bb17
   %add.ptr.i87 = getelementptr inbounds i8, ptr %9, i64 64
@@ -3054,18 +3054,18 @@ land.lhs.true20:                                  ; preds = %sw.bb17
   %call.i40 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN8facebook5velox21IntervalYearMonthType3getEv()
   %14 = load ptr, ptr %call.i40, align 8
   %cmp.i33 = icmp eq ptr %13, %14
-  br i1 %cmp.i33, label %return, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.argprom.exit
+  br i1 %cmp.i33, label %return, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.exit
 
-_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.argprom.exit: ; preds = %sw.bb17, %land.lhs.true20
+_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.exit: ; preds = %sw.bb17, %land.lhs.true20
   br label %return
 
 sw.default:                                       ; preds = %if.end11
   tail call void @llvm.trap()
   unreachable
 
-return:                                           ; preds = %land.lhs.true20, %if.end11, %land.lhs.true, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.argprom.exit
-  %.sink164 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %land.lhs.true ], [ getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %if.end11 ], [ getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampEiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %land.lhs.true20 ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.argprom.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiEE, i64 16), %land.lhs.true ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllEE, i64 16), %if.end11 ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiEE, i64 16), %land.lhs.true20 ]
+return:                                           ; preds = %land.lhs.true20, %if.end11, %land.lhs.true, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.exit
+  %.sink164 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %land.lhs.true ], [ getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %if.end11 ], [ getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampEiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %land.lhs.true20 ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiEE, i64 16), %land.lhs.true ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllEE, i64 16), %if.end11 ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiEE, i64 16), %land.lhs.true20 ]
   %call5.i.i.i3.i.i.i.i126 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33, !noalias !9
   %_M_use_count.i.i.i.i.i.i127 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i126, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i127, align 8, !noalias !9
@@ -6424,7 +6424,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
@@ -13954,7 +13954,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
@@ -16395,7 +16395,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
@@ -19034,7 +19034,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampEiEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS2_9TimestampEiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS2_9TimestampEiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
@@ -22078,7 +22078,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS2_9TimestampElEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS2_9TimestampElEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }

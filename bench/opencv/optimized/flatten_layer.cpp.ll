@@ -586,7 +586,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn16FlattenLayerImpl7forwardERKNS_11_In
   %29 = sext i32 %.val to i64
   %.idx = shl nsw i64 %29, 2
   %.not42 = icmp eq i32 %.val, 0
-  br i1 %.not42, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit, label %30
+  br i1 %.not42, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %30
 
 30:                                               ; preds = %23
   %31 = icmp slt i32 %.val, 0
@@ -607,7 +607,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %33, ptr align 4 %.val20, i64 %.idx, i1 false)
   %34 = getelementptr inbounds i8, ptr %33, i64 %.idx
   %35 = ptrtoint ptr %34 to i64
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.loopexit:       ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -619,7 +619,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.loopexit.split-lp: ; preds = %32
           cleanup
   br label %.body
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %23, %.noexc34
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %23, %.noexc34
   %.sroa.0.1 = phi ptr [ %33, %.noexc34 ], [ null, %23 ]
   %.sroa.15.1 = phi i64 [ %35, %.noexc34 ], [ 0, %23 ]
   %36 = getelementptr inbounds %"class.cv::Mat", ptr %24, i64 %.051
@@ -630,7 +630,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %23, %.noex
   %.not = icmp eq ptr %38, %40
   br i1 %.not, label %56, label %41
 
-41:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+41:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
   %42 = ptrtoint ptr %.sroa.0.1 to i64
   %43 = sub i64 %.sroa.15.1, %42
   %44 = lshr exact i64 %43, 2
@@ -667,7 +667,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %23, %.noex
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #21
   br label %66
 
-56:                                               ; preds = %49, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+56:                                               ; preds = %49, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
   %.not.i.i.i = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %57
 
@@ -1043,7 +1043,7 @@ _ZN2cv3dnn14dnn4_v20240521L14normalize_axisEii.exit57: ; preds = %_ZN2cv3dnn14dn
 90:                                               ; preds = %80
   %91 = add nuw nsw i32 %70, 1
   %92 = icmp eq ptr %25, %24
-  br i1 %92, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit, label %93
+  br i1 %92, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %93
 
 93:                                               ; preds = %90
   %94 = lshr exact i64 %28, 2
@@ -1061,9 +1061,9 @@ _ZN2cv3dnn14dnn4_v20240521L14normalize_axisEii.exit57: ; preds = %_ZN2cv3dnn14dn
 
 .preheader.i:                                     ; preds = %97
   %.not82 = icmp ugt i32 %63, %70
-  br i1 %.not82, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread, label %.lr.ph.preheader.i
+  br i1 %.not82, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread, label %.lr.ph.preheader.i
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread: ; preds = %.preheader.i
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread: ; preds = %.preheader.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   br label %.lr.ph88
 
@@ -1084,21 +1084,21 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread: ; p
   %102 = mul nsw i32 %101, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i, !llvm.loop !9
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit: ; preds = %.lr.ph.i, %90
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.i, %90
   %.024.i = phi i32 [ 0, %90 ], [ %102, %.lr.ph.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %.not93 = icmp eq i32 %63, 0
   br i1 %.not93, label %._crit_edge89.thread, label %.lr.ph88
 
-._crit_edge89.thread:                             ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit
+._crit_edge89.thread:                             ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit
   %103 = getelementptr inbounds i8, ptr %14, i64 8
   %104 = getelementptr inbounds i8, ptr %14, i64 16
   br label %149
 
-.lr.ph88:                                         ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit
-  %.024.i108 = phi i32 [ 1, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit.thread ], [ %.024.i, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.argprom.exit ]
+.lr.ph88:                                         ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit
+  %.024.i108 = phi i32 [ 1, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread ], [ %.024.i, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit ]
   %105 = getelementptr inbounds i8, ptr %14, i64 8
   %106 = getelementptr inbounds i8, ptr %14, i64 16
   %smax = tail call i32 @llvm.smax.i32(i32 %63, i32 1)

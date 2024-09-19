@@ -159,7 +159,7 @@ define i32 @Ssw_ManCountEquivs(ptr nocapture noundef readonly %0) local_unnamed_
 14:                                               ; preds = %10
   %.val12 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %.val12, null
-  br i1 %.not.i, label %Aig_ObjRepr.argprom.exit, label %15
+  br i1 %.not.i, label %Aig_ObjRepr.exit, label %15
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds i8, ptr %12, i64 36
@@ -169,15 +169,15 @@ define i32 @Ssw_ManCountEquivs(ptr nocapture noundef readonly %0) local_unnamed_
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ne ptr %20, null
   %22 = zext i1 %21 to i32
-  br label %Aig_ObjRepr.argprom.exit
+  br label %Aig_ObjRepr.exit
 
-Aig_ObjRepr.argprom.exit:                         ; preds = %14, %15
+Aig_ObjRepr.exit:                                 ; preds = %14, %15
   %23 = phi i32 [ %22, %15 ], [ 0, %14 ]
   %24 = add nsw i32 %23, %.014
   br label %25
 
-25:                                               ; preds = %Aig_ObjRepr.argprom.exit, %10
-  %.1 = phi i32 [ %.014, %10 ], [ %24, %Aig_ObjRepr.argprom.exit ]
+25:                                               ; preds = %Aig_ObjRepr.exit, %10
+  %.1 = phi i32 [ %.014, %10 ], [ %24, %Aig_ObjRepr.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !4
@@ -259,7 +259,7 @@ define void @Ssw_ManPrintStats(ptr nocapture noundef %0) local_unnamed_addr #0 {
 47:                                               ; preds = %43
   %.val12.i = load ptr, ptr %42, align 8
   %.not.i.i = icmp eq ptr %.val12.i, null
-  br i1 %.not.i.i, label %Aig_ObjRepr.argprom.exit.i, label %48
+  br i1 %.not.i.i, label %Aig_ObjRepr.exit.i, label %48
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds i8, ptr %45, i64 36
@@ -269,15 +269,15 @@ define void @Ssw_ManPrintStats(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %53 = load ptr, ptr %52, align 8
   %54 = icmp ne ptr %53, null
   %55 = zext i1 %54 to i32
-  br label %Aig_ObjRepr.argprom.exit.i
+  br label %Aig_ObjRepr.exit.i
 
-Aig_ObjRepr.argprom.exit.i:                       ; preds = %48, %47
+Aig_ObjRepr.exit.i:                               ; preds = %48, %47
   %56 = phi i32 [ %55, %48 ], [ 0, %47 ]
   %57 = add nsw i32 %56, %.014.i
   br label %58
 
-58:                                               ; preds = %Aig_ObjRepr.argprom.exit.i, %43
-  %.1.i = phi i32 [ %.014.i, %43 ], [ %57, %Aig_ObjRepr.argprom.exit.i ]
+58:                                               ; preds = %Aig_ObjRepr.exit.i, %43
+  %.1.i = phi i32 [ %.014.i, %43 ], [ %57, %Aig_ObjRepr.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Ssw_ManCountEquivs.exit, label %43, !llvm.loop !4

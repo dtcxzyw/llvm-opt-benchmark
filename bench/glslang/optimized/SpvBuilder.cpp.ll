@@ -9803,15 +9803,15 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209: ; preds = %_ZNSt8_Rb_tr
 416:                                              ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %417 = icmp ult i32 %2, 4
-  br i1 %417, label %switch.lookup, label %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.argprom.argprom.exit"
+  br i1 %417, label %switch.lookup, label %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.exit"
 
 switch.lookup:                                    ; preds = %416
   %418 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatE, i64 0, i64 %418
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.argprom.argprom.exit"
+  br label %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.exit"
 
-"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.argprom.argprom.exit": ; preds = %416, %switch.lookup
+"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.exit": ; preds = %416, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.34, %416 ]
   %419 = call noundef i32 @_ZN3spv7Builder22makeCompositeDebugTypeERKSt6vectorIjSaIjEEPKcNS_47NonSemanticShaderDebugInfo100DebugCompositeTypeEb(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull %.0.i, i32 noundef 0, i1 noundef zeroext true)
   %420 = getelementptr inbounds i8, ptr %0, i64 1304
@@ -9821,8 +9821,8 @@ switch.lookup:                                    ; preds = %416
   store i32 %419, ptr %422, align 4
   br label %423
 
-423:                                              ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209, %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.argprom.argprom.exit", %62
-  %.0.in = phi ptr [ %63, %62 ], [ %78, %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.argprom.argprom.exit" ], [ %78, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209 ]
+423:                                              ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209, %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.exit", %62
+  %.0.in = phi ptr [ %63, %62 ], [ %78, %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.exit" ], [ %78, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209 ]
   %.0 = load i32, ptr %.0.in, align 8
   ret i32 %.0
 }
@@ -26668,25 +26668,25 @@ define noundef i32 @_ZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIj
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %11, i64 %20
   br label %21
 
-21:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit27.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %.064.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i ], [ %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit27.i.i.i.i.i" ]
-  %.sroa.037.063.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i ], [ %49, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit27.i.i.i.i.i" ]
+21:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit27.i.i.i.i.i", %.lr.ph.i.i.i.i.i
+  %.064.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i ], [ %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit27.i.i.i.i.i" ]
+  %.sroa.037.063.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i ], [ %49, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit27.i.i.i.i.i" ]
   %22 = load i32, ptr %.sroa.037.063.i.i.i.i.i, align 4
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds ptr, ptr %.val, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8
-  switch i32 %27, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit.i.i.i.i.i" [
-    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
+  switch i32 %27, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit.i.i.i.i.i" [
+    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit.i.i.i.i.i": ; preds = %21
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit.i.i.i.i.i": ; preds = %21
   %28 = getelementptr inbounds i8, ptr %.sroa.037.063.i.i.i.i.i, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
@@ -26694,16 +26694,16 @@ define noundef i32 @_ZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIj
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8
-  switch i32 %34, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit23.i.i.i.i.i" [
-    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit"
-    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit"
-    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit"
-    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit"
-    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit"
-    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit"
+  switch i32 %34, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit23.i.i.i.i.i" [
+    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit"
+    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit"
+    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit"
+    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit"
+    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit"
+    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit"
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit23.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit23.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit.i.i.i.i.i"
   %35 = getelementptr inbounds i8, ptr %.sroa.037.063.i.i.i.i.i, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
@@ -26711,16 +26711,16 @@ define noundef i32 @_ZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIj
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
-  switch i32 %41, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit25.i.i.i.i.i" [
-    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit54"
-    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit54"
-    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit54"
-    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit54"
-    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit54"
-    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit54"
+  switch i32 %41, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit25.i.i.i.i.i" [
+    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit54"
+    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit54"
+    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit54"
+    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit54"
+    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit54"
+    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit54"
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit25.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit23.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit25.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit23.i.i.i.i.i"
   %42 = getelementptr inbounds i8, ptr %.sroa.037.063.i.i.i.i.i, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
@@ -26728,22 +26728,22 @@ define noundef i32 @_ZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIj
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load i32, ptr %47, align 8
-  switch i32 %48, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit27.i.i.i.i.i" [
-    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit56"
-    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit56"
-    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit56"
-    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit56"
-    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit56"
-    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit56"
+  switch i32 %48, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit27.i.i.i.i.i" [
+    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit56"
+    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit56"
+    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit56"
+    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit56"
+    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit56"
+    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit56"
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit27.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit25.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit27.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit25.i.i.i.i.i"
   %49 = getelementptr inbounds i8, ptr %.sroa.037.063.i.i.i.i.i, i64 16
   %50 = add nsw i64 %.064.i.i.i.i.i, -1
   %51 = icmp sgt i64 %.064.i.i.i.i.i, 1
   br i1 %51, label %21, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !114
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit27.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit27.i.i.i.i.i"
   %.pre.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   %.pre73.i.i.i.i.i = sub i64 %15, %.pre.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i
@@ -26752,7 +26752,7 @@ define noundef i32 @_ZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIj
   %.pre-phi74.i.i.i.i.i = phi i64 [ %.pre73.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %17, %10 ]
   %.sroa.037.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %11, %10 ]
   %52 = ashr exact i64 %.pre-phi74.i.i.i.i.i, 2
-  switch i64 %52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit" [
+  switch i64 %52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit" [
     i64 3, label %53
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge70.i.i.i.i.i
@@ -26765,74 +26765,74 @@ define noundef i32 @_ZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIj
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8
-  switch i32 %59, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit29.i.i.i.i.i" [
-    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
+  switch i32 %59, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit29.i.i.i.i.i" [
+    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit29.i.i.i.i.i": ; preds = %53
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit29.i.i.i.i.i": ; preds = %53
   %60 = getelementptr inbounds i8, ptr %.sroa.037.0.lcssa.i.i.i.i.i, i64 4
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit29.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.037.1.i.i.i.i.i = phi ptr [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit29.i.i.i.i.i" ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit29.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.sroa.037.1.i.i.i.i.i = phi ptr [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit29.i.i.i.i.i" ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %61 = load i32, ptr %.sroa.037.1.i.i.i.i.i, align 4
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds ptr, ptr %.val, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load i32, ptr %65, align 8
-  switch i32 %66, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit31.i.i.i.i.i" [
-    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
+  switch i32 %66, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit31.i.i.i.i.i" [
+    i32 48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 49, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 52, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+    i32 4462, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit31.i.i.i.i.i": ; preds = %._crit_edge._crit_edge.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit31.i.i.i.i.i": ; preds = %._crit_edge._crit_edge.i.i.i.i.i
   %67 = getelementptr inbounds i8, ptr %.sroa.037.1.i.i.i.i.i, i64 4
   br label %._crit_edge._crit_edge70.i.i.i.i.i
 
-._crit_edge._crit_edge70.i.i.i.i.i:               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit31.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.037.2.i.i.i.i.i = phi ptr [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit31.i.i.i.i.i" ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+._crit_edge._crit_edge70.i.i.i.i.i:               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit31.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.sroa.037.2.i.i.i.i.i = phi ptr [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit31.i.i.i.i.i" ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %68 = load i32, ptr %.sroa.037.2.i.i.i.i.i, align 4
   %69 = zext i32 %68 to i64
   %70 = getelementptr inbounds ptr, ptr %.val, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load i32, ptr %72, align 8
-  switch i32 %73, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit" [
-    i32 48, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit33.thread.i.i.i.i.i"
-    i32 49, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit33.thread.i.i.i.i.i"
-    i32 50, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit33.thread.i.i.i.i.i"
-    i32 51, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit33.thread.i.i.i.i.i"
-    i32 52, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit33.thread.i.i.i.i.i"
-    i32 4462, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit33.thread.i.i.i.i.i"
+  switch i32 %73, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit" [
+    i32 48, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit33.thread.i.i.i.i.i"
+    i32 49, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit33.thread.i.i.i.i.i"
+    i32 50, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit33.thread.i.i.i.i.i"
+    i32 51, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit33.thread.i.i.i.i.i"
+    i32 52, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit33.thread.i.i.i.i.i"
+    i32 4462, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit33.thread.i.i.i.i.i"
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit33.thread.i.i.i.i.i": ; preds = %._crit_edge._crit_edge70.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i
-  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit33.thread.i.i.i.i.i": ; preds = %._crit_edge._crit_edge70.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i
+  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit.i.i.i.i.i"
   %74 = getelementptr inbounds i8, ptr %.sroa.037.063.i.i.i.i.i, i64 4
-  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
+  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit54": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit23.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit54": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit23.i.i.i.i.i"
   %75 = getelementptr inbounds i8, ptr %.sroa.037.063.i.i.i.i.i, i64 8
-  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
+  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit56": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit25.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit56": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit25.i.i.i.i.i"
   %76 = getelementptr inbounds i8, ptr %.sroa.037.063.i.i.i.i.i, i64 12
-  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
+  br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit": ; preds = %21, %21, %21, %21, %21, %21, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit54", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit56", %._crit_edge.i.i.i.i.i, %53, %53, %53, %53, %53, %53, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit33.thread.i.i.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %13, %._crit_edge.i.i.i.i.i ], [ %.sroa.037.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.argprom.argprom.exit33.thread.i.i.i.i.i" ], [ %13, %._crit_edge._crit_edge70.i.i.i.i.i ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %74, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %75, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit54" ], [ %76, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit.loopexit.split.loop.exit56" ], [ %.sroa.037.063.i.i.i.i.i, %21 ], [ %.sroa.037.063.i.i.i.i.i, %21 ], [ %.sroa.037.063.i.i.i.i.i, %21 ], [ %.sroa.037.063.i.i.i.i.i, %21 ], [ %.sroa.037.063.i.i.i.i.i, %21 ], [ %.sroa.037.063.i.i.i.i.i, %21 ]
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit": ; preds = %21, %21, %21, %21, %21, %21, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit54", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit56", %._crit_edge.i.i.i.i.i, %53, %53, %53, %53, %53, %53, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit33.thread.i.i.i.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %13, %._crit_edge.i.i.i.i.i ], [ %.sroa.037.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEEE3$_0EclINS_17__normal_iteratorIPKjS6_EEEEbT_.exit33.thread.i.i.i.i.i" ], [ %13, %._crit_edge._crit_edge70.i.i.i.i.i ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %53 ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %74, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit" ], [ %75, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit54" ], [ %76, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit56" ], [ %.sroa.037.063.i.i.i.i.i, %21 ], [ %.sroa.037.063.i.i.i.i.i, %21 ], [ %.sroa.037.063.i.i.i.i.i, %21 ], [ %.sroa.037.063.i.i.i.i.i, %21 ], [ %.sroa.037.063.i.i.i.i.i, %21 ], [ %.sroa.037.063.i.i.i.i.i, %21 ]
   %77 = icmp ne ptr %13, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   %78 = tail call noundef i32 @_ZN3spv7Builder21makeCompositeConstantEjRKSt6vectorIjSaIjEEb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %77)
   br label %158
@@ -27033,8 +27033,8 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   %157 = load i32, ptr %126, align 8
   br label %158
 
-158:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit"
-  %.029 = phi i32 [ %78, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.argprom.exit" ], [ %157, %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit ]
+158:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit"
+  %.029 = phi i32 [ %78, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEZN3spv7Builder24createCompositeConstructEjRKS6_E3$_0EbT_SD_T0_.exit" ], [ %157, %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit ]
   ret i32 %.029
 }
 

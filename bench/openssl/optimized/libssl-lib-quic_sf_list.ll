@@ -26,19 +26,19 @@ for.body.lr.ph:                                   ; preds = %entry
   %1 = getelementptr i8, ptr %fl, i64 44
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %stream_frame_free.argprom.exit
-  %sf.05 = phi ptr [ %0, %for.body.lr.ph ], [ %2, %stream_frame_free.argprom.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %stream_frame_free.exit
+  %sf.05 = phi ptr [ %0, %for.body.lr.ph ], [ %2, %stream_frame_free.exit ]
   %next = getelementptr inbounds i8, ptr %sf.05, i64 8
   %2 = load ptr, ptr %next, align 8
   %fl.val = load i32, ptr %1, align 4
   %tobool.not.i = icmp eq i32 %fl.val, 0
-  br i1 %tobool.not.i, label %stream_frame_free.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %stream_frame_free.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
   %data.i = getelementptr inbounds i8, ptr %sf.05, i64 40
   %3 = load ptr, ptr %data.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %stream_frame_free.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %stream_frame_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %range.i = getelementptr inbounds i8, ptr %sf.05, i64 16
@@ -47,9 +47,9 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %5 = load i64, ptr %range.i, align 8
   %sub.i = sub i64 %4, %5
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %3, i64 noundef %sub.i) #8
-  br label %stream_frame_free.argprom.exit
+  br label %stream_frame_free.exit
 
-stream_frame_free.argprom.exit:                   ; preds = %for.body, %land.lhs.true.i, %if.then.i
+stream_frame_free.exit:                           ; preds = %for.body, %land.lhs.true.i, %if.then.i
   %pkt.i = getelementptr inbounds i8, ptr %sf.05, i64 32
   %6 = load ptr, ptr %pkt.i, align 8
   tail call void @ossl_qrx_pkt_release(ptr noundef %6) #8
@@ -57,12 +57,12 @@ stream_frame_free.argprom.exit:                   ; preds = %for.body, %land.lhs
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !4
 
-for.end:                                          ; preds = %stream_frame_free.argprom.exit, %entry
+for.end:                                          ; preds = %stream_frame_free.exit, %entry
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stream_frame_free.argprom(i32 %fl.44.val, ptr noundef nonnull %sf) unnamed_addr #2 {
+define internal fastcc void @stream_frame_free(i32 %fl.44.val, ptr noundef nonnull %sf) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %fl.44.val, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -250,8 +250,8 @@ stream_frame_new.exit82:                          ; preds = %if.end.i75, %if.the
   %12 = getelementptr i8, ptr %fl, i64 44
   br i1 %cmp39.not, label %land.rhs56.us, label %land.rhs56
 
-land.rhs56.us:                                    ; preds = %stream_frame_new.exit82, %stream_frame_free.argprom.exit.us
-  %next_frame.094.us = phi ptr [ %15, %stream_frame_free.argprom.exit.us ], [ %sf.093.lcssa, %stream_frame_new.exit82 ]
+land.rhs56.us:                                    ; preds = %stream_frame_new.exit82, %stream_frame_free.exit.us
+  %next_frame.094.us = phi ptr [ %15, %stream_frame_free.exit.us ], [ %sf.093.lcssa, %stream_frame_new.exit82 ]
   %end58.us = getelementptr inbounds i8, ptr %next_frame.094.us, i64 24
   %13 = load i64, ptr %end58.us, align 8
   %14 = load i64, ptr %end, align 8
@@ -293,13 +293,13 @@ if.end87.us:                                      ; preds = %if.then85.us, %if.e
   store i64 %dec.us, ptr %num_frames88, align 8
   %fl.val71.us = load i32, ptr %12, align 4
   %tobool.not.i.us = icmp eq i32 %fl.val71.us, 0
-  br i1 %tobool.not.i.us, label %stream_frame_free.argprom.exit.us, label %land.lhs.true.i.us
+  br i1 %tobool.not.i.us, label %stream_frame_free.exit.us, label %land.lhs.true.i.us
 
 land.lhs.true.i.us:                               ; preds = %if.end87.us
   %data.i.us = getelementptr inbounds i8, ptr %next_frame.094.us, i64 40
   %20 = load ptr, ptr %data.i.us, align 8
   %cmp.not.i.us = icmp eq ptr %20, null
-  br i1 %cmp.not.i.us, label %stream_frame_free.argprom.exit.us, label %if.then.i.us
+  br i1 %cmp.not.i.us, label %stream_frame_free.exit.us, label %if.then.i.us
 
 if.then.i.us:                                     ; preds = %land.lhs.true.i.us
   %range.i.us = getelementptr inbounds i8, ptr %next_frame.094.us, i64 16
@@ -307,17 +307,17 @@ if.then.i.us:                                     ; preds = %land.lhs.true.i.us
   %22 = load i64, ptr %range.i.us, align 8
   %sub.i.us = sub i64 %21, %22
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %20, i64 noundef %sub.i.us) #8
-  br label %stream_frame_free.argprom.exit.us
+  br label %stream_frame_free.exit.us
 
-stream_frame_free.argprom.exit.us:                ; preds = %if.then.i.us, %land.lhs.true.i.us, %if.end87.us
+stream_frame_free.exit.us:                        ; preds = %if.then.i.us, %land.lhs.true.i.us, %if.end87.us
   %pkt.i.us = getelementptr inbounds i8, ptr %next_frame.094.us, i64 32
   %23 = load ptr, ptr %pkt.i.us, align 8
   tail call void @ossl_qrx_pkt_release(ptr noundef %23) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %next_frame.094.us, ptr noundef nonnull @.str, i32 noundef 27) #8
   br i1 %cmp65.not.us, label %if.end106, label %land.rhs56.us, !llvm.loop !7
 
-land.rhs56:                                       ; preds = %stream_frame_new.exit82, %stream_frame_free.argprom.exit
-  %next_frame.094 = phi ptr [ %26, %stream_frame_free.argprom.exit ], [ %sf.093.lcssa, %stream_frame_new.exit82 ]
+land.rhs56:                                       ; preds = %stream_frame_new.exit82, %stream_frame_free.exit
+  %next_frame.094 = phi ptr [ %26, %stream_frame_free.exit ], [ %sf.093.lcssa, %stream_frame_new.exit82 ]
   %end58 = getelementptr inbounds i8, ptr %next_frame.094, i64 24
   %24 = load i64, ptr %end58, align 8
   %25 = load i64, ptr %end, align 8
@@ -362,13 +362,13 @@ if.end87:                                         ; preds = %if.then85, %if.end8
   store i64 %dec, ptr %num_frames88, align 8
   %fl.val71 = load i32, ptr %12, align 4
   %tobool.not.i = icmp eq i32 %fl.val71, 0
-  br i1 %tobool.not.i, label %stream_frame_free.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %stream_frame_free.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end87
   %data.i = getelementptr inbounds i8, ptr %next_frame.094, i64 40
   %32 = load ptr, ptr %data.i, align 8
   %cmp.not.i = icmp eq ptr %32, null
-  br i1 %cmp.not.i, label %stream_frame_free.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %stream_frame_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %range.i = getelementptr inbounds i8, ptr %next_frame.094, i64 16
@@ -376,9 +376,9 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %34 = load i64, ptr %range.i, align 8
   %sub.i = sub i64 %33, %34
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %32, i64 noundef %sub.i) #8
-  br label %stream_frame_free.argprom.exit
+  br label %stream_frame_free.exit
 
-stream_frame_free.argprom.exit:                   ; preds = %if.end87, %land.lhs.true.i, %if.then.i
+stream_frame_free.exit:                           ; preds = %if.end87, %land.lhs.true.i, %if.then.i
   %pkt.i = getelementptr inbounds i8, ptr %next_frame.094, i64 32
   %35 = load ptr, ptr %pkt.i, align 8
   tail call void @ossl_qrx_pkt_release(ptr noundef %35) #8
@@ -395,13 +395,13 @@ land.lhs.true95:                                  ; preds = %land.rhs56
 
 if.then102:                                       ; preds = %land.lhs.true95
   %fl.val = load i32, ptr %12, align 4
-  tail call fastcc void @stream_frame_free.argprom(i32 %fl.val, ptr noundef %call.i73)
+  tail call fastcc void @stream_frame_free(i32 %fl.val, ptr noundef %call.i73)
   br label %end118
 
-if.end106:                                        ; preds = %stream_frame_free.argprom.exit, %stream_frame_free.argprom.exit.us, %land.rhs56.us, %land.lhs.true95
-  %fl.next74 = phi ptr [ %next74, %land.lhs.true95 ], [ %fl, %land.rhs56.us ], [ %fl, %stream_frame_free.argprom.exit.us ], [ %next74, %stream_frame_free.argprom.exit ]
-  %tail.sink = phi ptr [ %next_frame.094, %land.lhs.true95 ], [ %tail, %stream_frame_free.argprom.exit.us ], [ %next_frame.094.us, %land.rhs56.us ], [ %tail, %stream_frame_free.argprom.exit ]
-  %next_frame.087 = phi ptr [ %next_frame.094, %land.lhs.true95 ], [ null, %stream_frame_free.argprom.exit.us ], [ %next_frame.094.us, %land.rhs56.us ], [ null, %stream_frame_free.argprom.exit ]
+if.end106:                                        ; preds = %stream_frame_free.exit, %stream_frame_free.exit.us, %land.rhs56.us, %land.lhs.true95
+  %fl.next74 = phi ptr [ %next74, %land.lhs.true95 ], [ %fl, %land.rhs56.us ], [ %fl, %stream_frame_free.exit.us ], [ %next74, %stream_frame_free.exit ]
+  %tail.sink = phi ptr [ %next_frame.094, %land.lhs.true95 ], [ %tail, %stream_frame_free.exit.us ], [ %next_frame.094.us, %land.rhs56.us ], [ %tail, %stream_frame_free.exit ]
+  %next_frame.087 = phi ptr [ %next_frame.094, %land.lhs.true95 ], [ null, %stream_frame_free.exit.us ], [ %next_frame.094.us, %land.rhs56.us ], [ null, %stream_frame_free.exit ]
   store ptr %call.i73, ptr %tail.sink, align 8
   %next107 = getelementptr inbounds i8, ptr %call.i73, i64 8
   store ptr %next_frame.087, ptr %next107, align 8
@@ -556,8 +556,8 @@ land.rhs.lr.ph:                                   ; preds = %if.end
   %4 = getelementptr i8, ptr %fl, i64 44
   br label %land.rhs
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %stream_frame_free.argprom.exit
-  %sf.024 = phi ptr [ %3, %land.rhs.lr.ph ], [ %6, %stream_frame_free.argprom.exit ]
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %stream_frame_free.exit
+  %sf.024 = phi ptr [ %3, %land.rhs.lr.ph ], [ %6, %stream_frame_free.exit ]
   %end40 = getelementptr inbounds i8, ptr %sf.024, i64 24
   %5 = load i64, ptr %end40, align 8
   %cmp41.not = icmp ugt i64 %5, %limit
@@ -571,13 +571,13 @@ for.body:                                         ; preds = %land.rhs
   store i64 %dec, ptr %num_frames, align 8
   %fl.val = load i32, ptr %4, align 4
   %tobool.not.i = icmp eq i32 %fl.val, 0
-  br i1 %tobool.not.i, label %stream_frame_free.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %stream_frame_free.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
   %data.i = getelementptr inbounds i8, ptr %sf.024, i64 40
   %8 = load ptr, ptr %data.i, align 8
   %cmp.not.i = icmp eq ptr %8, null
-  br i1 %cmp.not.i, label %stream_frame_free.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %stream_frame_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %range.i = getelementptr inbounds i8, ptr %sf.024, i64 16
@@ -585,9 +585,9 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %10 = load i64, ptr %range.i, align 8
   %sub.i = sub i64 %9, %10
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef %sub.i) #8
-  br label %stream_frame_free.argprom.exit
+  br label %stream_frame_free.exit
 
-stream_frame_free.argprom.exit:                   ; preds = %for.body, %land.lhs.true.i, %if.then.i
+stream_frame_free.exit:                           ; preds = %for.body, %land.lhs.true.i, %if.then.i
   %pkt.i = getelementptr inbounds i8, ptr %sf.024, i64 32
   %11 = load ptr, ptr %pkt.i, align 8
   tail call void @ossl_qrx_pkt_release(ptr noundef %11) #8
@@ -600,7 +600,7 @@ if.then46:                                        ; preds = %land.rhs
   store ptr null, ptr %sf.024, align 8
   br label %if.end48
 
-if.else:                                          ; preds = %stream_frame_free.argprom.exit, %if.end
+if.else:                                          ; preds = %stream_frame_free.exit, %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fl, i8 0, i64 16, i1 false)
   br label %if.end48
 
@@ -807,29 +807,29 @@ if.then44:                                        ; preds = %land.lhs.true
   store i64 %dec, ptr %num_frames, align 8
   %fl.val = load i32, ptr %cleanse, align 4
   %tobool.not.i = icmp eq i32 %fl.val, 0
-  br i1 %tobool.not.i, label %stream_frame_free.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %stream_frame_free.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then44
   %17 = load ptr, ptr %data4, align 8
   %cmp.not.i = icmp eq ptr %17, null
-  br i1 %cmp.not.i, label %stream_frame_free.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %stream_frame_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %18 = load i64, ptr %end37, align 8
   %19 = load i64, ptr %range, align 8
   %sub.i = sub i64 %18, %19
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %17, i64 noundef %sub.i) #8
-  br label %stream_frame_free.argprom.exit
+  br label %stream_frame_free.exit
 
-stream_frame_free.argprom.exit:                   ; preds = %if.then44, %land.lhs.true.i, %if.then.i
+stream_frame_free.exit:                           ; preds = %if.then44, %land.lhs.true.i, %if.then.i
   %pkt.i = getelementptr inbounds i8, ptr %sf.147, i64 32
   %20 = load ptr, ptr %pkt.i, align 8
   tail call void @ossl_qrx_pkt_release(ptr noundef %20) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %sf.147, ptr noundef nonnull @.str, i32 noundef 27) #8
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end35, %land.lhs.true, %stream_frame_free.argprom.exit
-  %prev_frame.1 = phi ptr [ %prev_frame.048, %stream_frame_free.argprom.exit ], [ %sf.147, %land.lhs.true ], [ %sf.147, %if.end35 ]
+for.inc:                                          ; preds = %if.end35, %land.lhs.true, %stream_frame_free.exit
+  %prev_frame.1 = phi ptr [ %prev_frame.048, %stream_frame_free.exit ], [ %sf.147, %land.lhs.true ], [ %sf.147, %if.end35 ]
   %next57 = getelementptr inbounds i8, ptr %prev_frame.1, i64 8
   %21 = load ptr, ptr %next57, align 8
   %cmp3.not = icmp eq ptr %21, null

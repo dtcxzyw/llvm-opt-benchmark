@@ -87,11 +87,11 @@ _ZN4absl16raw_log_internal12_GLOBAL__N_110VADoRawLogEPPcPiPKcP13__va_list_tag.ex
   br i1 %or.cond.not.i.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %_ZN4absl16raw_log_internal12_GLOBAL__N_110VADoRawLogEPPcPiPKcP13__va_list_tag.exit.i
-  call void (ptr, ptr, ptr, ...) @_ZN4absl16raw_log_internal12_GLOBAL__N_18DoRawLogEPPcPiPKcz.retelim(ptr noundef nonnull %buf.i, ptr noundef nonnull %size.i, ptr noundef nonnull @.str)
+  call void (ptr, ptr, ptr, ...) @_ZN4absl16raw_log_internal12_GLOBAL__N_18DoRawLogEPPcPiPKcz(ptr noundef nonnull %buf.i, ptr noundef nonnull %size.i, ptr noundef nonnull @.str)
   br label %if.end.i
 
 if.else.i:                                        ; preds = %_ZN4absl16raw_log_internal12_GLOBAL__N_110VADoRawLogEPPcPiPKcP13__va_list_tag.exit.i, %if.then.i
-  call void (ptr, ptr, ptr, ...) @_ZN4absl16raw_log_internal12_GLOBAL__N_18DoRawLogEPPcPiPKcz.retelim(ptr noundef nonnull %buf.i, ptr noundef nonnull %size.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @_ZN4absl16raw_log_internal12_GLOBAL__N_110kTruncatedE)
+  call void (ptr, ptr, ptr, ...) @_ZN4absl16raw_log_internal12_GLOBAL__N_18DoRawLogEPPcPiPKcz(ptr noundef nonnull %buf.i, ptr noundef nonnull %size.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @_ZN4absl16raw_log_internal12_GLOBAL__N_110kTruncatedE)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then5.i
@@ -176,7 +176,7 @@ entry:
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZN4absl16raw_log_internal12_GLOBAL__N_18DoRawLogEPPcPiPKcz.retelim(ptr nocapture noundef %buf, ptr nocapture noundef %size, ptr nocapture noundef readonly %format, ...) unnamed_addr #6 {
+define internal void @_ZN4absl16raw_log_internal12_GLOBAL__N_18DoRawLogEPPcPiPKcz(ptr nocapture noundef %buf, ptr nocapture noundef %size, ptr nocapture noundef readonly %format, ...) unnamed_addr #6 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i32, ptr %size, align 4
@@ -231,7 +231,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal noundef zeroext i1 @_ZN4absl16raw_log_internal12_GLOBAL__N_125DefaultLogFilterAndPrefixENS_11LogSeverityEPKciPPcPi(i32 %0, ptr noundef %file, i32 noundef %line, ptr nocapture noundef %buf, ptr nocapture noundef %buf_size) #6 {
 entry:
-  tail call void (ptr, ptr, ptr, ...) @_ZN4absl16raw_log_internal12_GLOBAL__N_18DoRawLogEPPcPiPKcz.retelim(ptr noundef %buf, ptr noundef %buf_size, ptr noundef nonnull @.str.3, ptr noundef %file, i32 noundef %line)
+  tail call void (ptr, ptr, ptr, ...) @_ZN4absl16raw_log_internal12_GLOBAL__N_18DoRawLogEPPcPiPKcz(ptr noundef %buf, ptr noundef %buf_size, ptr noundef nonnull @.str.3, ptr noundef %file, i32 noundef %line)
   ret i1 true
 }
 

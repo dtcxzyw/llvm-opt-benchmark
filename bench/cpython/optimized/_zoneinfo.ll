@@ -3570,19 +3570,19 @@ entry:
   %2 = getelementptr i8, ptr %dt, i64 8
   %dt.val = load ptr, ptr %2, align 8
   %cmp.i.not.i = icmp eq ptr %dt.val, %1
-  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
+PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %dt.val, ptr noundef %1) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %PyObject_TypeCheck.argprom.exit
+if.then:                                          ; preds = %PyObject_TypeCheck.exit
   %3 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.56) #9
   br label %return
 
-if.end:                                           ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
   %hastzinfo = getelementptr inbounds i8, ptr %dt, i64 24
   %4 = load i8, ptr %hastzinfo, align 8
   %tobool1.not = icmp eq i8 %4, 0
@@ -4732,7 +4732,7 @@ if.end247:                                        ; preds = %if.else243, %if.the
   %utcoff_seconds = getelementptr inbounds i8, ptr %arrayidx249, i64 24
   %44 = load i64, ptr %utcoff_seconds, align 8
   %tzrule_after251 = getelementptr inbounds i8, ptr %self, i64 96
-  tail call fastcc void @build_tzrule.retelim(ptr noundef %state, ptr noundef %43, ptr noundef null, i64 noundef %44, i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %tzrule_after251)
+  tail call fastcc void @build_tzrule(ptr noundef %state, ptr noundef %43, ptr noundef null, i64 noundef %44, i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %tzrule_after251)
   %dstoff253 = getelementptr inbounds i8, ptr %arrayidx249, i64 8
   %45 = load ptr, ptr %dstoff253, align 8
   %call254 = tail call i32 @PyObject_IsTrue(ptr noundef %45) #9
@@ -6043,7 +6043,7 @@ complete:                                         ; preds = %for.end.complete_cr
   %97 = phi ptr [ null, %if.end13 ], [ %.pre195, %for.end.complete_crit_edge ]
   %98 = phi i64 [ 1048576, %if.end13 ], [ %.pre, %for.end.complete_crit_edge ]
   %dst_abbr.1 = phi ptr [ null, %if.end13 ], [ %call.i40, %for.end.complete_crit_edge ]
-  call fastcc void @build_tzrule.retelim(ptr noundef %state, ptr noundef nonnull %call.i, ptr noundef %dst_abbr.1, i64 noundef %add7.neg.i, i64 noundef %98, ptr noundef %97, ptr noundef %96, ptr noundef %out)
+  call fastcc void @build_tzrule(ptr noundef %state, ptr noundef nonnull %call.i, ptr noundef %dst_abbr.1, i64 noundef %add7.neg.i, i64 noundef %98, ptr noundef %97, ptr noundef %96, ptr noundef %out)
   %99 = load i64, ptr %call.i, align 8
   %100 = and i64 %99, 2147483648
   %cmp.i81.not = icmp eq i64 %100, 0
@@ -6142,7 +6142,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_tzrule.retelim(ptr nocapture noundef readonly %state, ptr noundef %std_abbr, ptr noundef %dst_abbr, i64 noundef %std_offset, i64 noundef %dst_offset, ptr noundef %start, ptr noundef %end, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #1 {
+define internal fastcc void @build_tzrule(ptr nocapture noundef readonly %state, ptr noundef %std_abbr, ptr noundef %dst_abbr, i64 noundef %std_offset, i64 noundef %dst_offset, ptr noundef %start, ptr noundef %end, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #1 {
 entry:
   %call.i = tail call fastcc ptr @load_timedelta(ptr noundef readonly %state, i64 noundef %std_offset)
   %cmp.i = icmp eq ptr %call.i, null

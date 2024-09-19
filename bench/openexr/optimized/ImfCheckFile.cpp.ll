@@ -289,7 +289,7 @@ invoke.cont41.i:                                  ; preds = %if.then38.i
           to label %invoke.cont43.i unwind label %lpad40.i
 
 invoke.cont43.i:                                  ; preds = %invoke.cont41.i
-  %call48.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_18readRgbaERNS_13RgbaInputFileEbb.argelim(ptr noundef nonnull align 8 dereferenceable(64) %rgba.i, i1 noundef zeroext %reduceTime)
+  %call48.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_18readRgbaERNS_13RgbaInputFileEbb(ptr noundef nonnull align 8 dereferenceable(64) %rgba.i, i1 noundef zeroext %reduceTime)
           to label %invoke.cont47.i unwind label %lpad46.i
 
 invoke.cont47.i:                                  ; preds = %invoke.cont43.i
@@ -361,7 +361,7 @@ invoke.cont62.i:                                  ; preds = %if.end57.i
           to label %invoke.cont64.i unwind label %lpad61.i
 
 invoke.cont64.i:                                  ; preds = %invoke.cont62.i
-  %call69.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_112readScanlineINS_9InputFileEEEbRT_bb.argelim(ptr noundef nonnull align 8 dereferenceable(16) %rgba60.i, i1 noundef zeroext %reduceTime)
+  %call69.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_112readScanlineINS_9InputFileEEEbRT_bb(ptr noundef nonnull align 8 dereferenceable(16) %rgba60.i, i1 noundef zeroext %reduceTime)
           to label %invoke.cont68.i unwind label %lpad67.i
 
 invoke.cont68.i:                                  ; preds = %invoke.cont64.i
@@ -482,7 +482,7 @@ invoke.cont114.i:                                 ; preds = %if.then109.i
           to label %invoke.cont116.i unwind label %lpad113.i
 
 invoke.cont116.i:                                 ; preds = %invoke.cont114.i
-  %call121.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_116readDeepScanLineINS_21DeepScanLineInputFileEEEbRT_bb.argelim(ptr noundef nonnull align 8 dereferenceable(16) %rgba112.i, i1 noundef zeroext %reduceTime)
+  %call121.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_116readDeepScanLineINS_21DeepScanLineInputFileEEEbRT_bb(ptr noundef nonnull align 8 dereferenceable(16) %rgba112.i, i1 noundef zeroext %reduceTime)
           to label %invoke.cont120.i unwind label %lpad119.i
 
 invoke.cont120.i:                                 ; preds = %invoke.cont116.i
@@ -833,7 +833,7 @@ invoke.cont41.i:                                  ; preds = %invoke.cont39.i
           to label %invoke.cont43.i unwind label %lpad40.i
 
 invoke.cont43.i:                                  ; preds = %invoke.cont41.i
-  %call48.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_18readRgbaERNS_13RgbaInputFileEbb.argelim(ptr noundef nonnull align 8 dereferenceable(64) %rgba.i, i1 noundef zeroext %reduceTime)
+  %call48.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_18readRgbaERNS_13RgbaInputFileEbb(ptr noundef nonnull align 8 dereferenceable(64) %rgba.i, i1 noundef zeroext %reduceTime)
           to label %invoke.cont47.i unwind label %lpad46.i
 
 invoke.cont47.i:                                  ; preds = %invoke.cont43.i
@@ -912,7 +912,7 @@ invoke.cont62.i:                                  ; preds = %invoke.cont59.i
           to label %invoke.cont64.i unwind label %lpad61.i
 
 invoke.cont64.i:                                  ; preds = %invoke.cont62.i
-  %call69.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_112readScanlineINS_9InputFileEEEbRT_bb.argelim(ptr noundef nonnull align 8 dereferenceable(16) %rgba60.i, i1 noundef zeroext %reduceTime)
+  %call69.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_112readScanlineINS_9InputFileEEEbRT_bb(ptr noundef nonnull align 8 dereferenceable(16) %rgba60.i, i1 noundef zeroext %reduceTime)
           to label %invoke.cont68.i unwind label %lpad67.i
 
 invoke.cont68.i:                                  ; preds = %invoke.cont64.i
@@ -1047,7 +1047,7 @@ invoke.cont114.i:                                 ; preds = %invoke.cont111.i
           to label %invoke.cont116.i unwind label %lpad113.i
 
 invoke.cont116.i:                                 ; preds = %invoke.cont114.i
-  %call121.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_116readDeepScanLineINS_21DeepScanLineInputFileEEEbRT_bb.argelim(ptr noundef nonnull align 8 dereferenceable(16) %rgba112.i, i1 noundef zeroext %reduceTime)
+  %call121.i = invoke fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_116readDeepScanLineINS_21DeepScanLineInputFileEEEbRT_bb(ptr noundef nonnull align 8 dereferenceable(16) %rgba112.i, i1 noundef zeroext %reduceTime)
           to label %invoke.cont120.i unwind label %lpad119.i
 
 invoke.cont120.i:                                 ; preds = %invoke.cont116.i
@@ -5569,7 +5569,7 @@ declare void @_ZN7Imf_3_218MultiPartInputFileD1Ev(ptr noundef nonnull align 8 de
 declare void @_ZN7Imf_3_213RgbaInputFileC1EPKci(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_18readRgbaERNS_13RgbaInputFileEbb.argelim(ptr noundef nonnull align 8 dereferenceable(64) %in, i1 noundef zeroext %reduceTime) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_18readRgbaERNS_13RgbaInputFileEbb(ptr noundef nonnull align 8 dereferenceable(64) %in, i1 noundef zeroext %reduceTime) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call39 = tail call noundef i32 @_ZNK7Imf_3_213RgbaInputFile5partsEv(ptr noundef nonnull align 8 dereferenceable(64) %in)
   %cmp40 = icmp sgt i32 %call39, 0
@@ -5759,7 +5759,7 @@ declare void @_ZN7Imf_3_213RgbaInputFileD1Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZN7Imf_3_29InputFileC1EPKci(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_112readScanlineINS_9InputFileEEEbRT_bb.argelim(ptr noundef nonnull align 8 dereferenceable(16) %in, i1 noundef zeroext %reduceTime) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_112readScanlineINS_9InputFileEEEbRT_bb(ptr noundef nonnull align 8 dereferenceable(16) %in, i1 noundef zeroext %reduceTime) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %i = alloca %"class.Imf_3_2::FrameBuffer", align 8
   %ref.tmp48 = alloca %"struct.Imf_3_2::Slice", align 8
@@ -6630,7 +6630,7 @@ declare void @_ZN7Imf_3_214TiledInputFileD1Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZN7Imf_3_221DeepScanLineInputFileC1EPKci(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_116readDeepScanLineINS_21DeepScanLineInputFileEEEbRT_bb.argelim(ptr noundef nonnull align 8 dereferenceable(16) %in, i1 noundef zeroext %reduceTime) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_116readDeepScanLineINS_21DeepScanLineInputFileEEEbRT_bb(ptr noundef nonnull align 8 dereferenceable(16) %in, i1 noundef zeroext %reduceTime) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %data = alloca %"class.Imf_3_2::Array.37", align 8
   %frameBuffer = alloca %"class.Imf_3_2::DeepFrameBuffer", align 8

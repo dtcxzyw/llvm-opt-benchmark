@@ -53,7 +53,7 @@ define { double, double } @_Z6pj_fwd5PJ_LPP8PJconsts(double %0, double %1, ptr n
 
 22:                                               ; preds = %17
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5)
-  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit
+  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %2, i64 104
@@ -93,7 +93,7 @@ define { double, double } @_Z6pj_fwd5PJ_LPP8PJconsts(double %0, double %1, ptr n
 38:                                               ; preds = %34
   %39 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 4098)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7)
-  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit
+  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 thread-pre-split:                                 ; preds = %37, %33
   %.pr = load double, ptr %4, align 8
@@ -106,7 +106,7 @@ thread-pre-split:                                 ; preds = %37, %33
 
 43:                                               ; preds = %40
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %8)
-  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit
+  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %2, i64 368
@@ -127,14 +127,14 @@ thread-pre-split:                                 ; preds = %37, %33
 
 51:                                               ; preds = %48
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %9)
-  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit
+  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 52:                                               ; preds = %48
   store i32 %13, ptr %49, align 8, !noalias !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit
+  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
-_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit: ; preds = %52, %51, %43, %38, %22
+_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit:     ; preds = %52, %51, %43, %38, %22
   %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %43 ], [ %.sink.sroa.gep43, %38 ], [ %.sink.sroa.gep44, %22 ], [ %.sink.sroa.gep45, %51 ], [ %.sink.sroa.gep46, %52 ]
   %.sink = phi ptr [ %8, %43 ], [ %7, %38 ], [ %5, %22 ], [ %9, %51 ], [ %9, %52 ]
   %.sroa.5.0.copyload32 = load double, ptr %.sink.sroa.phi, align 8
@@ -539,7 +539,7 @@ define hidden void @_Z8pj_fwd3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias noca
 
 20:                                               ; preds = %17
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5)
-  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit
+  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %2, i64 120
@@ -581,7 +581,7 @@ define hidden void @_Z8pj_fwd3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias noca
 36:                                               ; preds = %29
   %37 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 4098)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7)
-  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit
+  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 thread-pre-split:                                 ; preds = %24, %28
   %.pr = load double, ptr %4, align 8
@@ -594,7 +594,7 @@ thread-pre-split:                                 ; preds = %24, %28
 
 41:                                               ; preds = %38
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %8)
-  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit
+  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %2, i64 368
@@ -615,14 +615,14 @@ thread-pre-split:                                 ; preds = %24, %28
 
 49:                                               ; preds = %46
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %9)
-  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit
+  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 50:                                               ; preds = %46
   store i32 %13, ptr %47, align 8, !noalias !7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit
+  br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
-_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom.exit: ; preds = %50, %49, %41, %36, %20
+_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit:     ; preds = %50, %49, %41, %36, %20
   %.sink = phi ptr [ %8, %41 ], [ %7, %36 ], [ %5, %20 ], [ %9, %49 ], [ %9, %50 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
   ret void
@@ -770,8 +770,8 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom"}
+!5 = distinct !{!5, !6, !"_ZL14error_or_coordP8PJconsts8PJ_COORDi: argument 0"}
+!6 = distinct !{!6, !"_ZL14error_or_coordP8PJconsts8PJ_COORDi"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZL14error_or_coordP8PJconsts8PJ_COORDi.argprom"}
+!8 = distinct !{!8, !9, !"_ZL14error_or_coordP8PJconsts8PJ_COORDi: argument 0"}
+!9 = distinct !{!9, !"_ZL14error_or_coordP8PJconsts8PJ_COORDi"}

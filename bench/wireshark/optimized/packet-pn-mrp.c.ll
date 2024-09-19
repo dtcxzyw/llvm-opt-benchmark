@@ -289,7 +289,7 @@ define internal i32 @dissect_PNMRP(ptr noundef %0, ptr noundef %1, ptr noundef %
   %76 = load i32, ptr @hf_pn_mrp_prio, align 4
   %77 = call i32 @dissect_pn_uint16_ret_item(ptr noundef %48, i32 noundef %58, ptr noundef nonnull %1, ptr noundef %54, i32 noundef %76, ptr noundef nonnull %25, ptr noundef nonnull %31) #3
   %.not.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i, label %dissect_PNMRP_Test.argprom.exit.i, label %78
+  br i1 %.not.i.i, label %dissect_PNMRP_Test.exit.i, label %78
 
 78:                                               ; preds = %75
   %79 = load ptr, ptr %31, align 8
@@ -333,9 +333,9 @@ define internal i32 @dissect_PNMRP(ptr noundef %0, ptr noundef %1, ptr noundef %
 mrp_Prio2msg.exit.i.i:                            ; preds = %94, %92, %90, %88, %86, %84, %82, %78
   %.0.i.i.i = phi ptr [ @.str.78, %78 ], [ @.str.79, %82 ], [ @.str.80, %84 ], [ @.str.81, %86 ], [ @.str.82, %88 ], [ @.str.83, %90 ], [ @.str.84, %92 ], [ %.str.85..str.86.i.i.i, %94 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %79, ptr noundef nonnull @.str.77, ptr noundef nonnull %.0.i.i.i) #3
-  br label %dissect_PNMRP_Test.argprom.exit.i
+  br label %dissect_PNMRP_Test.exit.i
 
-dissect_PNMRP_Test.argprom.exit.i:                ; preds = %mrp_Prio2msg.exit.i.i, %75
+dissect_PNMRP_Test.exit.i:                        ; preds = %mrp_Prio2msg.exit.i.i, %75
   %96 = load i32, ptr @hf_pn_mrp_sa, align 4
   %97 = call i32 @dissect_pn_mac(ptr noundef %48, i32 noundef %77, ptr noundef nonnull %1, ptr noundef %54, i32 noundef %96, ptr noundef nonnull %26) #3
   %98 = load i32, ptr @hf_pn_mrp_port_role, align 4
@@ -416,7 +416,7 @@ mrp_Prio2msg.exit.i66.i:                          ; preds = %127, %125, %123, %1
   %131 = call i32 @dissect_pn_mac(ptr noundef %48, i32 noundef %110, ptr noundef nonnull %1, ptr noundef %54, i32 noundef %130, ptr noundef nonnull %22) #3
   %132 = load i32, ptr @hf_pn_mrp_interval, align 4
   %133 = call i32 @dissect_pn_uint16_ret_item(ptr noundef %48, i32 noundef %131, ptr noundef nonnull %1, ptr noundef %54, i32 noundef %132, ptr noundef nonnull %23, ptr noundef nonnull %24) #3
-  br i1 %.not.i60.i, label %dissect_PNMRP_TopologyChange.argprom.exit.i, label %.sink.split.i.i
+  br i1 %.not.i60.i, label %dissect_PNMRP_TopologyChange.exit.i, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %129
   %134 = load ptr, ptr %24, align 8
@@ -426,9 +426,9 @@ mrp_Prio2msg.exit.i66.i:                          ; preds = %127, %125, %123, %1
   %137 = load ptr, ptr %24, align 8
   %.str.88..str.89.i.i = select i1 %136, ptr @.str.88, ptr @.str.89
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %137, ptr noundef nonnull %.str.88..str.89.i.i) #3
-  br label %dissect_PNMRP_TopologyChange.argprom.exit.i
+  br label %dissect_PNMRP_TopologyChange.exit.i
 
-dissect_PNMRP_TopologyChange.argprom.exit.i:      ; preds = %.sink.split.i.i, %129
+dissect_PNMRP_TopologyChange.exit.i:              ; preds = %.sink.split.i.i, %129
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23)
@@ -470,21 +470,21 @@ dissect_PNMRP_TopologyChange.argprom.exit.i:      ; preds = %.sink.split.i.i, %1
 154:                                              ; preds = %138
   %155 = load i32, ptr @hf_pn_mrp_blocked, align 4
   %156 = call i32 @dissect_pn_uint16_ret_item(ptr noundef %48, i32 noundef %144, ptr noundef nonnull %1, ptr noundef null, i32 noundef %155, ptr noundef nonnull %19, ptr noundef nonnull %20) #3
-  br label %dissect_PNMRP_Link.argprom.exit.i
+  br label %dissect_PNMRP_Link.exit.i
 
 157:                                              ; preds = %145
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %153, ptr noundef nonnull @.str.93) #3
-  br label %dissect_PNMRP_Link.argprom.exit.i
+  br label %dissect_PNMRP_Link.exit.i
 
 158:                                              ; preds = %145
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %153, ptr noundef nonnull @.str.94) #3
-  br label %dissect_PNMRP_Link.argprom.exit.i
+  br label %dissect_PNMRP_Link.exit.i
 
 159:                                              ; preds = %145
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %153, ptr noundef nonnull @.str.86) #3
-  br label %dissect_PNMRP_Link.argprom.exit.i
+  br label %dissect_PNMRP_Link.exit.i
 
-dissect_PNMRP_Link.argprom.exit.i:                ; preds = %159, %158, %157, %154
+dissect_PNMRP_Link.exit.i:                        ; preds = %159, %158, %157, %154
   %160 = phi i32 [ %151, %157 ], [ %151, %159 ], [ %151, %158 ], [ %156, %154 ]
   %161 = call i32 @dissect_pn_align4(ptr noundef %48, i32 noundef %160, ptr noundef nonnull %1, ptr noundef %54) #3
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %16)
@@ -706,8 +706,8 @@ dissect_PNMRP_Option.exit.i:                      ; preds = %249, %247
   %256 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %58, ptr noundef nonnull %1, ptr noundef %54, i32 noundef %255) #3
   br label %257
 
-257:                                              ; preds = %253, %dissect_PNMRP_Option.exit.i, %dissect_PNMRP_Link.argprom.exit.i, %dissect_PNMRP_TopologyChange.argprom.exit.i, %dissect_PNMRP_Test.argprom.exit.i, %70
-  %.1.i = phi i32 [ %256, %253 ], [ %252, %dissect_PNMRP_Option.exit.i ], [ %161, %dissect_PNMRP_Link.argprom.exit.i ], [ %133, %dissect_PNMRP_TopologyChange.argprom.exit.i ], [ %107, %dissect_PNMRP_Test.argprom.exit.i ], [ %74, %70 ]
+257:                                              ; preds = %253, %dissect_PNMRP_Option.exit.i, %dissect_PNMRP_Link.exit.i, %dissect_PNMRP_TopologyChange.exit.i, %dissect_PNMRP_Test.exit.i, %70
+  %.1.i = phi i32 [ %256, %253 ], [ %252, %dissect_PNMRP_Option.exit.i ], [ %161, %dissect_PNMRP_Link.exit.i ], [ %133, %dissect_PNMRP_TopologyChange.exit.i ], [ %107, %dissect_PNMRP_Test.exit.i ], [ %74, %70 ]
   %258 = add i32 %.05972.i, 1
   %259 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #3
   %260 = icmp sgt i32 %259, 0

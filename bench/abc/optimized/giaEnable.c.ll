@@ -53,7 +53,7 @@ define void @Gia_CollectSuper_rec(ptr nocapture noundef readonly %0, ptr noundef
   %12 = sub i64 %9, %11
   %13 = sdiv exact i64 %12, 12
   %14 = trunc i64 %13 to i32
-  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %2, i32 noundef %14)
+  tail call fastcc void @Vec_IntPushUnique(ptr noundef %2, i32 noundef %14)
   ret void
 
 tailrecurse:                                      ; preds = %.lr.ph.preheader, %.lr.ph
@@ -83,7 +83,7 @@ tailrecurse:                                      ; preds = %.lr.ph.preheader, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -200,7 +200,7 @@ define void @Gia_CollectSuper(ptr nocapture noundef readonly %0, ptr noundef %1,
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 12
   %16 = trunc i64 %15 to i32
-  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %2, i32 noundef %16)
+  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %2, i32 noundef %16)
   %17 = load i64, ptr %1, align 4
   %18 = lshr i64 %17, 32
   %19 = and i64 %18, 536870911
@@ -222,7 +222,7 @@ define void @Gia_CollectSuper(ptr nocapture noundef readonly %0, ptr noundef %1,
   %28 = sub i64 %.sink16, %27
   %29 = sdiv exact i64 %28, 12
   %30 = trunc i64 %29 to i32
-  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %2, i32 noundef %30)
+  tail call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %2, i32 noundef %30)
   ret void
 }
 
@@ -450,7 +450,7 @@ Gia_CollectSuper.exit:                            ; preds = %30
   %42 = sub i64 %40, %41
   %43 = sdiv exact i64 %42, 12
   %44 = trunc i64 %43 to i32
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %11, i32 noundef %44)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %11, i32 noundef %44)
   %45 = load i64, ptr %34, align 4
   %46 = lshr i64 %45, 32
   %47 = and i64 %46, 536870911
@@ -462,7 +462,7 @@ Gia_CollectSuper.exit:                            ; preds = %30
   %52 = sub i64 %50, %51
   %53 = sdiv exact i64 %52, 12
   %54 = trunc i64 %53 to i32
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %11, i32 noundef %54)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %11, i32 noundef %54)
   %.val126 = load i64, ptr %29, align 4
   %55 = and i64 %.val126, 536870912
   %.not120 = icmp eq i64 %55, 0
@@ -654,7 +654,7 @@ Gia_CollectSuper.exit160:                         ; preds = %126
   %147 = sub i64 %145, %146
   %148 = sdiv exact i64 %147, 12
   %149 = trunc i64 %148 to i32
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %11, i32 noundef %149)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %11, i32 noundef %149)
   %150 = load i64, ptr %139, align 4
   %151 = lshr i64 %150, 32
   %152 = and i64 %151, 536870911
@@ -666,7 +666,7 @@ Gia_CollectSuper.exit160:                         ; preds = %126
   %157 = sub i64 %155, %156
   %158 = sdiv exact i64 %157, 12
   %159 = trunc i64 %158 to i32
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %11, i32 noundef %159)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %11, i32 noundef %159)
   %.val137 = load i32, ptr %12, align 4
   %160 = icmp sgt i32 %.val137, 0
   br i1 %160, label %.lr.ph177, label %.critedge8
@@ -873,7 +873,7 @@ Gia_CollectSuper.exit:                            ; preds = %30
   %42 = sub i64 %40, %41
   %43 = sdiv exact i64 %42, 12
   %44 = trunc i64 %43 to i32
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %11, i32 noundef %44)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %11, i32 noundef %44)
   %45 = load i64, ptr %34, align 4
   %46 = lshr i64 %45, 32
   %47 = and i64 %46, 536870911
@@ -885,7 +885,7 @@ Gia_CollectSuper.exit:                            ; preds = %30
   %52 = sub i64 %50, %51
   %53 = sdiv exact i64 %52, 12
   %54 = trunc i64 %53 to i32
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %11, i32 noundef %54)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %11, i32 noundef %54)
   %.val148 = load i64, ptr %29, align 4
   %55 = and i64 %.val148, 536870912
   %.not141 = icmp eq i64 %55, 0
@@ -1073,7 +1073,7 @@ Gia_CollectSuper.exit184:                         ; preds = %125
   %146 = sub i64 %144, %145
   %147 = sdiv exact i64 %146, 12
   %148 = trunc i64 %147 to i32
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %11, i32 noundef %148)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %11, i32 noundef %148)
   %149 = load i64, ptr %138, align 4
   %150 = lshr i64 %149, 32
   %151 = and i64 %150, 536870911
@@ -1085,7 +1085,7 @@ Gia_CollectSuper.exit184:                         ; preds = %125
   %156 = sub i64 %154, %155
   %157 = sdiv exact i64 %156, 12
   %158 = trunc i64 %157 to i32
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %11, i32 noundef %158)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %11, i32 noundef %158)
   br label %.critedge8
 
 .critedge8:                                       ; preds = %Gia_CollectSuper.exit184, %125
@@ -1134,7 +1134,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %162
 
 171:                                              ; preds = %.lr.ph211.split.us
   %172 = trunc nuw nsw i64 %indvars.iv236 to i32
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %163, i32 noundef %172)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %163, i32 noundef %172)
   %.val153.us.pre = load i32, ptr %6, align 8
   br label %173
 
@@ -1164,7 +1164,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %162
 
 180:                                              ; preds = %.lr.ph214.split.us
   %181 = trunc nuw nsw i64 %indvars.iv242 to i32
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %163, i32 noundef %181)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %163, i32 noundef %181)
   %.val152.us.pre = load i32, ptr %6, align 8
   br label %182
 
@@ -1186,7 +1186,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %162
 188:                                              ; preds = %.lr.ph211.split
   %189 = trunc nuw nsw i64 %indvars.iv233 to i32
   %190 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %189, i32 noundef %186)
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %163, i32 noundef %189)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %163, i32 noundef %189)
   %.val153.pre = load i32, ptr %6, align 8
   br label %191
 
@@ -1216,7 +1216,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %162
 
 198:                                              ; preds = %.lr.ph217.split.us
   %199 = trunc nuw nsw i64 %indvars.iv248 to i32
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %163, i32 noundef %199)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %163, i32 noundef %199)
   %.val151.us.pre = load i32, ptr %6, align 8
   br label %200
 
@@ -1238,7 +1238,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %162
 206:                                              ; preds = %.lr.ph214.split
   %207 = trunc nuw nsw i64 %indvars.iv239 to i32
   %208 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %207, i32 noundef %204)
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %163, i32 noundef %207)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %163, i32 noundef %207)
   %.val152.pre = load i32, ptr %6, align 8
   br label %209
 
@@ -1260,7 +1260,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %162
 215:                                              ; preds = %.lr.ph217.split
   %216 = trunc nuw nsw i64 %indvars.iv245 to i32
   %217 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %216, i32 noundef %213)
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef nonnull %163, i32 noundef %216)
+  call fastcc void @Vec_IntPushUnique(ptr noundef nonnull %163, i32 noundef %216)
   %.val151.pre = load i32, ptr %6, align 8
   br label %218
 
@@ -3896,13 +3896,13 @@ Abc_UtilStrsav.exit285:                           ; preds = %Abc_UtilStrsav.exit
   %559 = getelementptr inbounds i8, ptr %534, i64 984
   br label %561
 
-.critedge2.preheader:                             ; preds = %Gia_ObjIsPo.argprom.exit.thread, %Abc_UtilStrsav.exit285
+.critedge2.preheader:                             ; preds = %Gia_ObjIsPo.exit.thread, %Abc_UtilStrsav.exit285
   %.val176313 = load i32, ptr %5, align 8
   %560 = icmp sgt i32 %.val176313, 0
   br i1 %560, label %.lr.ph316, label %.critedge4
 
-561:                                              ; preds = %.lr.ph312, %Gia_ObjIsPo.argprom.exit.thread
-  %indvars.iv = phi i64 [ 1, %.lr.ph312 ], [ %indvars.iv.next, %Gia_ObjIsPo.argprom.exit.thread ]
+561:                                              ; preds = %.lr.ph312, %Gia_ObjIsPo.exit.thread
+  %indvars.iv = phi i64 [ 1, %.lr.ph312 ], [ %indvars.iv.next, %Gia_ObjIsPo.exit.thread ]
   %.val174 = load ptr, ptr %551, align 8
   %562 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val174, i64 %indvars.iv
   %.val169 = load i64, ptr %562, align 4
@@ -4111,7 +4111,7 @@ Gia_ManAppendAnd.exit:                            ; preds = %702, %704
   %707 = sdiv exact i64 %706, 12
   %708 = trunc i64 %707 to i32
   %709 = shl i32 %708, 1
-  br label %Gia_ObjIsPo.argprom.exit.thread.sink.split
+  br label %Gia_ObjIsPo.exit.thread.sink.split
 
 710:                                              ; preds = %561
   %711 = and i64 %.val169, 2684354559
@@ -4120,14 +4120,14 @@ Gia_ManAppendAnd.exit:                            ; preds = %702, %704
 
 712:                                              ; preds = %710
   %713 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %534)
-  br label %Gia_ObjIsPo.argprom.exit.thread.sink.split
+  br label %Gia_ObjIsPo.exit.thread.sink.split
 
 714:                                              ; preds = %710
   %715 = icmp eq i64 %564, 536870911
   %narrow.i.not.i = or i1 %.not.i286, %715
-  br i1 %narrow.i.not.i, label %Gia_ObjIsPo.argprom.exit.thread, label %Gia_ObjIsPo.argprom.exit
+  br i1 %narrow.i.not.i, label %Gia_ObjIsPo.exit.thread, label %Gia_ObjIsPo.exit
 
-Gia_ObjIsPo.argprom.exit:                         ; preds = %714
+Gia_ObjIsPo.exit:                                 ; preds = %714
   %716 = lshr i64 %.val169, 32
   %717 = trunc nuw i64 %716 to i32
   %718 = and i32 %717, 536870911
@@ -4137,9 +4137,9 @@ Gia_ObjIsPo.argprom.exit:                         ; preds = %714
   %.val3.val.i = load i32, ptr %719, align 4
   %720 = sub nsw i32 %.val3.val.i, %.val.i291
   %.not300 = icmp slt i32 %718, %720
-  br i1 %.not300, label %721, label %Gia_ObjIsPo.argprom.exit.thread
+  br i1 %.not300, label %721, label %Gia_ObjIsPo.exit.thread
 
-721:                                              ; preds = %Gia_ObjIsPo.argprom.exit
+721:                                              ; preds = %Gia_ObjIsPo.exit
   %722 = sub nsw i64 0, %564
   %723 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %562, i64 %722, i32 1
   %724 = load i32, ptr %723, align 4
@@ -4148,15 +4148,15 @@ Gia_ObjIsPo.argprom.exit:                         ; preds = %714
   %727 = and i32 %726, 1
   %728 = xor i32 %724, %727
   %729 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %534, i32 noundef %728)
-  br label %Gia_ObjIsPo.argprom.exit.thread.sink.split
+  br label %Gia_ObjIsPo.exit.thread.sink.split
 
-Gia_ObjIsPo.argprom.exit.thread.sink.split:       ; preds = %712, %721, %Gia_ManAppendAnd.exit
+Gia_ObjIsPo.exit.thread.sink.split:               ; preds = %712, %721, %Gia_ManAppendAnd.exit
   %.sink326 = phi i32 [ %709, %Gia_ManAppendAnd.exit ], [ %729, %721 ], [ %713, %712 ]
   %730 = getelementptr inbounds i8, ptr %562, i64 8
   store i32 %.sink326, ptr %730, align 4
-  br label %Gia_ObjIsPo.argprom.exit.thread
+  br label %Gia_ObjIsPo.exit.thread
 
-Gia_ObjIsPo.argprom.exit.thread:                  ; preds = %Gia_ObjIsPo.argprom.exit.thread.sink.split, %714, %Gia_ObjIsPo.argprom.exit
+Gia_ObjIsPo.exit.thread:                          ; preds = %Gia_ObjIsPo.exit.thread.sink.split, %714, %Gia_ObjIsPo.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %731 = load i32, ptr %533, align 8
   %732 = sext i32 %731 to i64

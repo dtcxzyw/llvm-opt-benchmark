@@ -2480,7 +2480,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i16.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i14.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit9.i.i
   %33 = phi ptr [ %.pr.i15.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i14.i.i ], [ %29, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit9.i.i ]
   %.not.i.i.i17.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i17.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_113JliLaunchDataEEclEPS1_.argprom.exit, label %34
+  br i1 %.not.i.i.i17.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_113JliLaunchDataEEclEPS1_.exit, label %34
 
 34:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i16.i.i
   %35 = getelementptr inbounds i8, ptr %2, i64 48
@@ -2489,14 +2489,14 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
   tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %39) #22
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_113JliLaunchDataEEclEPS1_.argprom.exit
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_113JliLaunchDataEEclEPS1_.exit
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_113JliLaunchDataEEclEPS1_.argprom.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i16.i.i, %34
+_ZNKSt14default_deleteIN12_GLOBAL__N_113JliLaunchDataEEclEPS1_.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i16.i.i, %34
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 104) #22
   br label %40
 
-40:                                               ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_113JliLaunchDataEEclEPS1_.argprom.exit, %1
+40:                                               ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_113JliLaunchDataEEclEPS1_.exit, %1
   store ptr null, ptr %0, align 8
   ret void
 }

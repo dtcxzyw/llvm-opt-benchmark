@@ -94,7 +94,7 @@ SetExecname.exit:                                 ; preds = %21, %.thread.i
   %.1.i = phi ptr [ %27, %.thread.i ], [ %24, %21 ]
   store ptr %.1.i, ptr @execname, align 8
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %16)
-  %28 = call fastcc zeroext i8 @GetJREPath.argelim(ptr noundef %2, i32 noundef %3)
+  %28 = call fastcc zeroext i8 @GetJREPath(ptr noundef %2, i32 noundef %3)
   %.not = icmp eq i8 %28, 0
   br i1 %.not, label %29, label %30
 
@@ -437,7 +437,7 @@ define hidden ptr @SetExecname(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @GetJREPath.argelim(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 0, 2) i8 @GetJREPath(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca %struct.stat, align 8
   tail call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.33) #12
@@ -593,7 +593,7 @@ define hidden ptr @SplashProcAddress(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %5, label %.thread
 
 5:                                                ; preds = %1
-  %6 = call fastcc zeroext i8 @GetJREPath.argelim(ptr noundef nonnull %2, i32 noundef 4096)
+  %6 = call fastcc zeroext i8 @GetJREPath(ptr noundef nonnull %2, i32 noundef 4096)
   %.not6 = icmp eq i8 %6, 0
   br i1 %.not6, label %7, label %8
 

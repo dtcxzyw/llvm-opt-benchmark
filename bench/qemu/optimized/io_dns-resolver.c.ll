@@ -108,7 +108,7 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
 
 if.then4.i:                                       ; preds = %if.end.i
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #7
-  br label %qio_dns_resolver_lookup_sync_inet.argprom.exit
+  br label %qio_dns_resolver_lookup_sync_inet.exit
 
 if.end5.i:                                        ; preds = %if.end.i
   %5 = load ptr, ptr %u.i, align 8
@@ -117,7 +117,7 @@ if.end5.i:                                        ; preds = %if.end.i
 
 if.then6.i:                                       ; preds = %if.end5.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 81, ptr noundef nonnull @__func__.qio_dns_resolver_lookup_sync_inet, ptr noundef nonnull @.str.3) #7
-  br label %qio_dns_resolver_lookup_sync_inet.argprom.exit
+  br label %qio_dns_resolver_lookup_sync_inet.exit
 
 if.end7.i:                                        ; preds = %if.end5.i
   %port8.i = getelementptr inbounds i8, ptr %addr, i64 16
@@ -157,7 +157,7 @@ if.then27.i:                                      ; preds = %if.end12.i
   %10 = load ptr, ptr %u.i, align 8
   %call30.i = call ptr @gai_strerror(i32 noundef %call25.i) #7
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 94, ptr noundef nonnull @__func__.qio_dns_resolver_lookup_sync_inet, ptr noundef nonnull @.str.4, ptr noundef %10, ptr noundef nonnull %port.i, ptr noundef %call30.i) #7
-  br label %qio_dns_resolver_lookup_sync_inet.argprom.exit
+  br label %qio_dns_resolver_lookup_sync_inet.exit
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %11 = phi i64 [ %inc.i, %for.body.i ], [ %.pre9.i, %for.cond.preheader.i ]
@@ -259,9 +259,9 @@ for.end75.loopexit.i:                             ; preds = %for.body36.i
 for.end75.i:                                      ; preds = %for.end75.loopexit.i, %for.end.i
   %24 = phi ptr [ %.pre10.i, %for.end75.loopexit.i ], [ null, %for.end.i ]
   call void @freeaddrinfo(ptr noundef %24) #7
-  br label %qio_dns_resolver_lookup_sync_inet.argprom.exit
+  br label %qio_dns_resolver_lookup_sync_inet.exit
 
-qio_dns_resolver_lookup_sync_inet.argprom.exit:   ; preds = %if.then4.i, %if.then6.i, %if.then27.i, %for.end75.i
+qio_dns_resolver_lookup_sync_inet.exit:           ; preds = %if.then4.i, %if.then6.i, %if.then27.i, %for.end75.i
   %retval.0.i = phi i32 [ -1, %if.then4.i ], [ -1, %if.then6.i ], [ -1, %if.then27.i ], [ 0, %for.end75.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ai.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %res.i)
@@ -284,8 +284,8 @@ sw.default:                                       ; preds = %entry
   tail call void @abort() #9
   unreachable
 
-return:                                           ; preds = %sw.bb1, %qio_dns_resolver_lookup_sync_inet.argprom.exit
-  %retval.0 = phi i32 [ 0, %sw.bb1 ], [ %retval.0.i, %qio_dns_resolver_lookup_sync_inet.argprom.exit ]
+return:                                           ; preds = %sw.bb1, %qio_dns_resolver_lookup_sync_inet.exit
+  %retval.0 = phi i32 [ 0, %sw.bb1 ], [ %retval.0.i, %qio_dns_resolver_lookup_sync_inet.exit ]
   ret i32 %retval.0
 }
 

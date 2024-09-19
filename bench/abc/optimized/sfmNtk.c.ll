@@ -2248,7 +2248,7 @@ define void @Sfm_NtkUpdateLevel_rec(ptr nocapture noundef readonly %0, i32 nound
   %6 = getelementptr i8, ptr %0, i64 40
   %.val21 = load ptr, ptr %6, align 8
   %7 = icmp eq ptr %.val21, null
-  br i1 %7, label %Sfm_ObjAddsLevel.argprom.exit, label %8
+  br i1 %7, label %Sfm_ObjAddsLevel.exit, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %.val21, i64 8
@@ -2257,21 +2257,21 @@ define void @Sfm_NtkUpdateLevel_rec(ptr nocapture noundef readonly %0, i32 nound
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   %13 = zext i1 %12 to i32
-  br label %Sfm_ObjAddsLevel.argprom.exit
+  br label %Sfm_ObjAddsLevel.exit
 
-Sfm_ObjAddsLevel.argprom.exit:                    ; preds = %2, %8
+Sfm_ObjAddsLevel.exit:                            ; preds = %2, %8
   %14 = phi i32 [ 1, %2 ], [ %13, %8 ]
   %15 = getelementptr i8, ptr %5, i64 4
   %.val.i = load i32, ptr %15, align 4
   %16 = icmp sgt i32 %.val.i, 0
-  br i1 %16, label %.lr.ph.i, label %Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNew.exit_crit_edge
+  br i1 %16, label %.lr.ph.i, label %Sfm_ObjAddsLevel.exit.Sfm_ObjLevelNew.exit_crit_edge
 
-Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNew.exit_crit_edge: ; preds = %Sfm_ObjAddsLevel.argprom.exit
+Sfm_ObjAddsLevel.exit.Sfm_ObjLevelNew.exit_crit_edge: ; preds = %Sfm_ObjAddsLevel.exit
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 112
   %.val22.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %Sfm_ObjLevelNew.exit
 
-.lr.ph.i:                                         ; preds = %Sfm_ObjAddsLevel.argprom.exit
+.lr.ph.i:                                         ; preds = %Sfm_ObjAddsLevel.exit
   %17 = getelementptr i8, ptr %5, i64 8
   %.val11.i = load ptr, ptr %17, align 8
   %18 = getelementptr i8, ptr %0, i64 112
@@ -2292,9 +2292,9 @@ Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNew.exit_crit_edge: ; preds = %Sfm_Obj
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Sfm_ObjLevelNew.exit, label %19, !llvm.loop !11
 
-Sfm_ObjLevelNew.exit:                             ; preds = %19, %Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNew.exit_crit_edge
-  %.val22 = phi ptr [ %.val22.pre, %Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNew.exit_crit_edge ], [ %.val10.i, %19 ]
-  %.0.lcssa.i = phi i32 [ 0, %Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNew.exit_crit_edge ], [ %25, %19 ]
+Sfm_ObjLevelNew.exit:                             ; preds = %19, %Sfm_ObjAddsLevel.exit.Sfm_ObjLevelNew.exit_crit_edge
+  %.val22 = phi ptr [ %.val22.pre, %Sfm_ObjAddsLevel.exit.Sfm_ObjLevelNew.exit_crit_edge ], [ %.val10.i, %19 ]
+  %.0.lcssa.i = phi i32 [ 0, %Sfm_ObjAddsLevel.exit.Sfm_ObjLevelNew.exit_crit_edge ], [ %25, %19 ]
   %26 = add nuw nsw i32 %.0.lcssa.i, %14
   %27 = getelementptr inbounds i32, ptr %.val22, i64 %4
   %28 = load i32, ptr %27, align 4
@@ -2339,7 +2339,7 @@ define void @Sfm_NtkUpdateLevelR_rec(ptr nocapture noundef readonly %0, i32 noun
   %6 = getelementptr i8, ptr %0, i64 40
   %.val22 = load ptr, ptr %6, align 8
   %7 = icmp eq ptr %.val22, null
-  br i1 %7, label %Sfm_ObjAddsLevel.argprom.exit, label %8
+  br i1 %7, label %Sfm_ObjAddsLevel.exit, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %.val22, i64 8
@@ -2348,21 +2348,21 @@ define void @Sfm_NtkUpdateLevelR_rec(ptr nocapture noundef readonly %0, i32 noun
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   %13 = zext i1 %12 to i32
-  br label %Sfm_ObjAddsLevel.argprom.exit
+  br label %Sfm_ObjAddsLevel.exit
 
-Sfm_ObjAddsLevel.argprom.exit:                    ; preds = %2, %8
+Sfm_ObjAddsLevel.exit:                            ; preds = %2, %8
   %14 = phi i32 [ 1, %2 ], [ %13, %8 ]
   %15 = getelementptr i8, ptr %5, i64 4
   %.val.i = load i32, ptr %15, align 4
   %16 = icmp sgt i32 %.val.i, 0
-  br i1 %16, label %.lr.ph.i, label %Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNewR.exit_crit_edge
+  br i1 %16, label %.lr.ph.i, label %Sfm_ObjAddsLevel.exit.Sfm_ObjLevelNewR.exit_crit_edge
 
-Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNewR.exit_crit_edge: ; preds = %Sfm_ObjAddsLevel.argprom.exit
+Sfm_ObjAddsLevel.exit.Sfm_ObjLevelNewR.exit_crit_edge: ; preds = %Sfm_ObjAddsLevel.exit
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 128
   %.val23.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %Sfm_ObjLevelNewR.exit
 
-.lr.ph.i:                                         ; preds = %Sfm_ObjAddsLevel.argprom.exit
+.lr.ph.i:                                         ; preds = %Sfm_ObjAddsLevel.exit
   %17 = getelementptr i8, ptr %5, i64 8
   %.val11.i = load ptr, ptr %17, align 8
   %18 = getelementptr i8, ptr %0, i64 128
@@ -2383,9 +2383,9 @@ Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNewR.exit_crit_edge: ; preds = %Sfm_Ob
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Sfm_ObjLevelNewR.exit, label %19, !llvm.loop !13
 
-Sfm_ObjLevelNewR.exit:                            ; preds = %19, %Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNewR.exit_crit_edge
-  %.val23 = phi ptr [ %.val23.pre, %Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNewR.exit_crit_edge ], [ %.val10.i, %19 ]
-  %.0.lcssa.i = phi i32 [ 0, %Sfm_ObjAddsLevel.argprom.exit.Sfm_ObjLevelNewR.exit_crit_edge ], [ %25, %19 ]
+Sfm_ObjLevelNewR.exit:                            ; preds = %19, %Sfm_ObjAddsLevel.exit.Sfm_ObjLevelNewR.exit_crit_edge
+  %.val23 = phi ptr [ %.val23.pre, %Sfm_ObjAddsLevel.exit.Sfm_ObjLevelNewR.exit_crit_edge ], [ %.val10.i, %19 ]
+  %.0.lcssa.i = phi i32 [ 0, %Sfm_ObjAddsLevel.exit.Sfm_ObjLevelNewR.exit_crit_edge ], [ %25, %19 ]
   %26 = add nuw nsw i32 %.0.lcssa.i, %14
   %27 = getelementptr inbounds i32, ptr %.val23, i64 %4
   %28 = load i32, ptr %27, align 4

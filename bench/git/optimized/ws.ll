@@ -96,21 +96,21 @@ do.body.i:                                        ; preds = %do.cond.i, %for.end
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.1, i64 %prefix.addr.0.idx.i
   %3 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 9
-  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %4 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %4, %3
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !7
+  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !7
 
-skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
+skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
   %arg.1 = phi ptr [ %arg.028, %do.cond.i ], [ %scevgep.i, %do.body.i ]
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.then22, label %if.end37
 
-if.then22:                                        ; preds = %skip_prefix.argprom.exit
+if.then22:                                        ; preds = %skip_prefix.exit
   %call23 = tail call i32 @atoi(ptr nocapture noundef %arg.1) #10
   %5 = add i32 %call23, -1
   %or.cond = icmp ult i32 %5, 63
@@ -128,8 +128,8 @@ if.else31:                                        ; preds = %if.then22
   tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.2, i32 noundef %conv35, ptr noundef %arg.1) #11
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then28, %if.else31, %skip_prefix.argprom.exit
-  %rule.2 = phi i32 [ %or30, %if.then28 ], [ %rule.1, %if.else31 ], [ %rule.1, %skip_prefix.argprom.exit ]
+if.end37:                                         ; preds = %if.then28, %if.else31, %skip_prefix.exit
+  %rule.2 = phi i32 [ %or30, %if.then28 ], [ %rule.1, %if.else31 ], [ %rule.1, %skip_prefix.exit ]
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
 

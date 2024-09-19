@@ -369,11 +369,11 @@ define dso_local ptr @project_select_target(ptr nocapture noundef readonly %0, p
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %project_select_default_target.argprom.exit, label %9
+  br i1 %13, label %project_select_default_target.exit, label %9
 
 ._crit_edge.i:                                    ; preds = %9
   %14 = load ptr, ptr %3, align 8
-  br label %project_select_default_target.argprom.exit
+  br label %project_select_default_target.exit
 
 15:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -388,13 +388,13 @@ define dso_local ptr @project_select_target(ptr nocapture noundef readonly %0, p
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @str_eq(ptr noundef %20, ptr noundef nonnull %1) #8
-  br i1 %21, label %project_select_default_target.argprom.exit, label %15
+  br i1 %21, label %project_select_default_target.exit, label %15
 
 22:                                               ; preds = %15
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.136, ptr noundef nonnull %1, ptr noundef nonnull @.str.135) #9
   unreachable
 
-project_select_default_target.argprom.exit:       ; preds = %.preheader, %.lr.ph.i, %._crit_edge.i
+project_select_default_target.exit:               ; preds = %.preheader, %.lr.ph.i, %._crit_edge.i
   %.023 = phi ptr [ %14, %._crit_edge.i ], [ %11, %.lr.ph.i ], [ %18, %.preheader ]
   ret ptr %.023
 }
@@ -801,7 +801,7 @@ get_string.exit:                                  ; preds = %check_json_keys.exi
 get_string.exit383:                               ; preds = %get_string.exit, %57
   %.0.i382 = phi ptr [ %59, %57 ], [ %52, %get_string.exit ]
   store ptr %.0.i382, ptr %51, align 8
-  %60 = tail call fastcc ptr @get_valid_array.argelim(ptr noundef %0, ptr noundef nonnull %41, ptr noundef %1)
+  %60 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef nonnull %41, ptr noundef %1)
   br i1 %3, label %.thread542, label %61
 
 .thread542:                                       ; preds = %get_string.exit383
@@ -809,7 +809,7 @@ get_string.exit383:                               ; preds = %get_string.exit, %5
   br i1 %.not574, label %.thread545, label %72
 
 61:                                               ; preds = %get_string.exit383
-  %62 = tail call fastcc ptr @get_valid_array.argelim(ptr noundef %0, ptr noundef nonnull @.str.109, ptr noundef %1)
+  %62 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef nonnull @.str.109, ptr noundef %1)
   %63 = icmp ne ptr %60, null
   %64 = icmp ne ptr %62, null
   %or.cond = select i1 %63, i1 %64, i1 false
@@ -1443,7 +1443,7 @@ get_valid_string_setting.exit433:                 ; preds = %get_string.exit430,
   br label %get_valid_string_setting.exit436
 
 get_valid_string_setting.exit436:                 ; preds = %get_valid_string_setting.exit433, %326
-  %328 = tail call fastcc ptr @get_valid_array.argelim(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef %1)
+  %328 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef %1)
   %.not358 = icmp eq ptr %328, null
   br i1 %.not358, label %.loopexit, label %329
 
@@ -2185,7 +2185,7 @@ get_valid_bool.exit540:                           ; preds = %get_valid_bool.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_valid_array.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef %1) #8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
@@ -2294,7 +2294,7 @@ declare ptr @str_printf(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = select i1 %6, ptr %3, ptr %4
-  %9 = tail call fastcc ptr @get_valid_array.argelim(ptr noundef %0, ptr noundef %8, ptr noundef %1)
+  %9 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef %8, ptr noundef %1)
   br i1 %6, label %.thread, label %10
 
 .thread:                                          ; preds = %7
@@ -2302,7 +2302,7 @@ define internal fastcc void @target_append_strings(ptr noundef %0, ptr noundef %
   br i1 %.not55, label %.thread53, label %.thread53.sink.split
 
 10:                                               ; preds = %7
-  %11 = tail call fastcc ptr @get_valid_array.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %1)
+  %11 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef %5, ptr noundef %1)
   %12 = icmp ne ptr %9, null
   %13 = icmp ne ptr %11, null
   %or.cond = select i1 %12, i1 %13, i1 false

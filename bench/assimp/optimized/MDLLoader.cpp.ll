@@ -730,14 +730,14 @@ catch:                                            ; preds = %ehcleanup283, %clea
   %mBuffer.i = getelementptr inbounds i8, ptr %this, i64 112
   %18 = load ptr, ptr %mBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i, label %"_ZZN6Assimp11MDLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemEENK3$_0clEv.argprom.exit", label %delete.notnull.i
+  br i1 %tobool.not.i, label %"_ZZN6Assimp11MDLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemEENK3$_0clEv.exit", label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %catch
   call void @_ZdaPv(ptr noundef nonnull %18) #29
   store ptr null, ptr %mBuffer.i, align 8
-  br label %"_ZZN6Assimp11MDLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemEENK3$_0clEv.argprom.exit"
+  br label %"_ZZN6Assimp11MDLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemEENK3$_0clEv.exit"
 
-"_ZZN6Assimp11MDLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemEENK3$_0clEv.argprom.exit": ; preds = %catch, %delete.notnull.i
+"_ZZN6Assimp11MDLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemEENK3$_0clEv.exit": ; preds = %catch, %delete.notnull.i
   invoke void @__cxa_rethrow() #27
           to label %unreachable unwind label %lpad303
 
@@ -801,7 +801,7 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %call3.i13) #26
   ret void
 
-lpad303:                                          ; preds = %"_ZZN6Assimp11MDLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemEENK3$_0clEv.argprom.exit"
+lpad303:                                          ; preds = %"_ZZN6Assimp11MDLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemEENK3$_0clEv.exit"
   %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -831,7 +831,7 @@ terminate.lpad:                                   ; preds = %lpad303
   call void @__clang_call_terminate(ptr %28) #30
   unreachable
 
-unreachable:                                      ; preds = %"_ZZN6Assimp11MDLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemEENK3$_0clEv.argprom.exit", %invoke.cont281, %invoke.cont18
+unreachable:                                      ; preds = %"_ZZN6Assimp11MDLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemEENK3$_0clEv.exit", %invoke.cont281, %invoke.cont18
   unreachable
 }
 

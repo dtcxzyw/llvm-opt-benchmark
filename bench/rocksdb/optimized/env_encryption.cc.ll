@@ -9449,7 +9449,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %lpad2, %_ZNKSt14def
 if.end5:                                          ; preds = %invoke.cont3
   %14 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val = load ptr, ptr %14, align 8, !noalias !125
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE.argprom(ptr noalias align 8 %agg.result, ptr %this.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %result, ptr noundef %dbg)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE(ptr noalias align 8 %agg.result, ptr %this.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %result, ptr noundef %dbg)
           to label %cleanup unwind label %lpad2
 
 cleanup:                                          ; preds = %if.then4, %if.then.i.i, %if.end5
@@ -9606,7 +9606,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %lpad2, %_ZNKSt14def
 if.end5:                                          ; preds = %invoke.cont3
   %14 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val = load ptr, ptr %14, align 8, !noalias !125
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE.argprom(ptr noalias align 8 %agg.result, ptr %this.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %result, ptr noundef %dbg)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE(ptr noalias align 8 %agg.result, ptr %this.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %result, ptr noundef %dbg)
           to label %cleanup unwind label %lpad2
 
 cleanup:                                          ; preds = %if.then4, %if.then.i.i, %if.end5
@@ -9763,7 +9763,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %lpad2, %_ZNKSt14def
 if.end5:                                          ; preds = %invoke.cont3
   %14 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val = load ptr, ptr %14, align 8, !noalias !125
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE.argprom(ptr noalias align 8 %agg.result, ptr %this.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %result, ptr noundef %dbg)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE(ptr noalias align 8 %agg.result, ptr %this.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %result, ptr noundef %dbg)
           to label %cleanup unwind label %lpad2
 
 cleanup:                                          ; preds = %if.then4, %if.then.i.i, %if.end5
@@ -11286,7 +11286,7 @@ declare void @llvm.trap() #14
 declare void @_ZN7rocksdb10FileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE.argprom(ptr noalias align 8 %agg.result, ptr %this.48.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr nocapture noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr nocapture noundef %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE(ptr noalias align 8 %agg.result, ptr %this.48.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr nocapture noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr nocapture noundef %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prefix.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp16.i = alloca %"class.rocksdb::Status", align 8
@@ -12931,7 +12931,7 @@ _ZN7rocksdb13ObjectLibrary12PatternEntryD2Ev.exit132.i.i.i.i.i: ; preds = %if.th
   %_M_refcount.i.i133.i.i.i.i.i = getelementptr inbounds i8, ptr %lib.i.i.i.i.i, i64 8
   %62 = load ptr, ptr %_M_refcount.i.i133.i.i.i.i.i, align 8
   %cmp.not.i.i.i134.i.i.i.i.i = icmp eq ptr %62, null
-  br i1 %cmp.not.i.i.i134.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12_GLOBAL__N_126RegisterEncryptionBuiltinsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit", label %if.then.i.i.i135.i.i.i.i.i
+  br i1 %cmp.not.i.i.i134.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12_GLOBAL__N_126RegisterEncryptionBuiltinsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit", label %if.then.i.i.i135.i.i.i.i.i
 
 if.then.i.i.i135.i.i.i.i.i:                       ; preds = %_ZN7rocksdb13ObjectLibrary12PatternEntryD2Ev.exit132.i.i.i.i.i
   %_M_use_count.i.i.i.i136.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 8
@@ -12967,7 +12967,7 @@ if.else.i.i.i.i.i159.i.i.i.i.i:                   ; preds = %if.end.i.i.i.i138.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i142.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i159.i.i.i.i.i, %if.then.i.i.i.i.i140.i.i.i.i.i
   %retval.i.0.i.i.i.i143.i.i.i.i.i = phi i32 [ %64, %if.then.i.i.i.i.i140.i.i.i.i.i ], [ %67, %if.else.i.i.i.i.i159.i.i.i.i.i ]
   %cmp6.i.i.i.i144.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i143.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i144.i.i.i.i.i, label %if.then7.i.i.i.i145.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12_GLOBAL__N_126RegisterEncryptionBuiltinsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br i1 %cmp6.i.i.i.i144.i.i.i.i.i, label %if.then7.i.i.i.i145.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12_GLOBAL__N_126RegisterEncryptionBuiltinsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
 if.then7.i.i.i.i145.i.i.i.i.i:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i142.i.i.i.i.i
   %vtable.i.i.i.i.i.i146.i.i.i.i.i = load ptr, ptr %62, align 8
@@ -12992,14 +12992,14 @@ if.else.i.i.i.i.i.i.i158.i.i.i.i.i:               ; preds = %if.then7.i.i.i.i145
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i152.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i158.i.i.i.i.i, %if.then.i.i.i.i.i.i.i150.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i153.i.i.i.i.i = phi i32 [ %70, %if.then.i.i.i.i.i.i.i150.i.i.i.i.i ], [ %71, %if.else.i.i.i.i.i.i.i158.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i154.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i153.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i154.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i155.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12_GLOBAL__N_126RegisterEncryptionBuiltinsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i154.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i155.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12_GLOBAL__N_126RegisterEncryptionBuiltinsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
 if.end8.sink.split.i.i.i.i155.i.i.i.i.i:          ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i152.i.i.i.i.i, %if.then.i.i.i.i160.i.i.i.i.i
   %vtable2.i.i.i.i.i.i156.i.i.i.i.i = load ptr, ptr %62, align 8
   %vfn3.i.i.i.i.i.i157.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i156.i.i.i.i.i, i64 24
   %72 = load ptr, ptr %vfn3.i.i.i.i.i.i157.i.i.i.i.i, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(16) %62) #28
-  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12_GLOBAL__N_126RegisterEncryptionBuiltinsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12_GLOBAL__N_126RegisterEncryptionBuiltinsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
 lpad.i.i.i.i.i:                                   ; preds = %call.i.noexc.i.i.i.i.i, %entry
   %73 = landingpad { ptr, i32 }
@@ -13164,7 +13164,7 @@ eh.resume.i.i.i.i.i:                              ; preds = %ehcleanup76.i.i.i.i
   %.pn9.pn.pn.pn.pn.pn.i.i.i.i.i = phi { ptr, i32 } [ %.pn9.pn.pn.pn.pn.i.i.i.i.i, %ehcleanup76.i.i.i.i.i ], [ %.pn.i.i.i.i.i, %ehcleanup.i.i.i.i.i ]
   resume { ptr, i32 } %.pn9.pn.pn.pn.pn.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12_GLOBAL__N_126RegisterEncryptionBuiltinsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit": ; preds = %_ZN7rocksdb13ObjectLibrary12PatternEntryD2Ev.exit132.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i142.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i152.i.i.i.i.i, %if.end8.sink.split.i.i.i.i155.i.i.i.i.i
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12_GLOBAL__N_126RegisterEncryptionBuiltinsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit": ; preds = %_ZN7rocksdb13ObjectLibrary12PatternEntryD2Ev.exit132.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i142.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i152.i.i.i.i.i, %if.end8.sink.split.i.i.i.i155.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lib.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i.i)
@@ -15360,26 +15360,26 @@ if.then.i.i.i:                                    ; preds = %invoke.cont4.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i.i.i, align 8, !noalias !251
   %_M_impl.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i.i.i.i, i64 16
   invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116ROT13BlockCipherC2Em(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i.i.i, i64 noundef 32)
-          to label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.argprom.exit.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit8.i.i.i.i.i.i.i, !noalias !251
+          to label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.exit.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.i.i.i, !noalias !251
 
-common.resume.i.i.i:                              ; preds = %lpad16.i.i.i, %ehcleanup13.i.i.i, %ehcleanup.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit8.i.i.i.i.i.i.i
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %3, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit8.i.i.i.i.i.i.i ], [ %.pn4.i.i.i, %ehcleanup13.i.i.i ], [ %30, %lpad16.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ]
+common.resume.i.i.i:                              ; preds = %lpad16.i.i.i, %ehcleanup13.i.i.i, %ehcleanup.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.i.i.i
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %3, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.i.i.i ], [ %.pn4.i.i.i, %ehcleanup13.i.i.i ], [ %30, %lpad16.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit8.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i5.i.i.i.i.i.i.i) #26, !noalias !251
   br label %common.resume.i.i.i
 
-_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.argprom.exit.i.i.i: ; preds = %if.then.i.i.i
+_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %_M_impl.i.i.i.i.i.i.i.i.i, ptr %cipher.i.i.i, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %cipher.i.i.i, i64 8
   store ptr %call5.i.i.i5.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8
   %call9.i.i.i = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
           to label %invoke.cont8.i.i.i unwind label %lpad7.i.i.i
 
-invoke.cont8.i.i.i:                               ; preds = %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.argprom.exit.i.i.i
+invoke.cont8.i.i.i:                               ; preds = %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.exit.i.i.i
   invoke void @_ZN7rocksdb21CTREncryptionProviderC1ERKSt10shared_ptrINS_11BlockCipherEE(ptr noundef nonnull align 8 dereferenceable(48) %call9.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %cipher.i.i.i)
           to label %invoke.cont11.i.i.i unwind label %lpad10.i.i.i
 
@@ -15399,7 +15399,7 @@ _ZNKSt14default_deleteIN7rocksdb18EncryptionProviderEEclEPS1_.exit.i.i.i.i.i: ; 
 _ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb18EncryptionProviderEEclEPS1_.exit.i.i.i.i.i, %invoke.cont11.i.i.i
   %6 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i10.i.i.i = icmp eq ptr %6, null
-  br i1 %cmp.not.i.i.i10.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %if.then.i.i.i11.i.i.i
+  br i1 %cmp.not.i.i.i10.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %if.then.i.i.i11.i.i.i
 
 if.then.i.i.i11.i.i.i:                            ; preds = %_ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i.i
   %_M_use_count.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
@@ -15425,7 +15425,7 @@ if.else.i.i.i.i.i35.i.i.i:                        ; preds = %if.end.i.i.i.i14.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18.i.i.i: ; preds = %if.else.i.i.i.i.i35.i.i.i, %if.then.i.i.i.i.i16.i.i.i
   %retval.i.0.i.i.i.i19.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i16.i.i.i ], [ %10, %if.else.i.i.i.i.i35.i.i.i ]
   %cmp6.i.i.i.i20.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i19.i.i.i, 1
-  br i1 %cmp6.i.i.i.i20.i.i.i, label %if.then7.i.i.i.i21.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br i1 %cmp6.i.i.i.i20.i.i.i, label %if.then7.i.i.i.i21.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 if.then7.i.i.i.i21.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18.i.i.i
   %vtable.i.i.i.i.i.i22.i.i.i = load ptr, ptr %6, align 8
@@ -15450,7 +15450,7 @@ if.else.i.i.i.i.i.i.i34.i.i.i:                    ; preds = %if.then7.i.i.i.i21.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i34.i.i.i, %if.then.i.i.i.i.i.i.i26.i.i.i
   %retval.i.0.i.i.i.i.i.i29.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i.i26.i.i.i ], [ %14, %if.else.i.i.i.i.i.i.i34.i.i.i ]
   %cmp.i.i.i.i.i.i30.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i29.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i30.i.i.i, label %if.end.sink.split.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i30.i.i.i, label %if.end.sink.split.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 lpad.i.i.i:                                       ; preds = %call.i.noexc.i.i.i, %entry
   %15 = landingpad { ptr, i32 }
@@ -15468,7 +15468,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad3.i.i.i, %lpad.
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i.i) #28
   br label %common.resume.i.i.i
 
-lpad7.i.i.i:                                      ; preds = %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.argprom.exit.i.i.i
+lpad7.i.i.i:                                      ; preds = %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.exit.i.i.i
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup13.i.i.i
@@ -15507,7 +15507,7 @@ _ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEP
   %_M_refcount.i.i45.i.i.i = getelementptr inbounds i8, ptr %ref.tmp15.i.i.i, i64 8
   %21 = load ptr, ptr %_M_refcount.i.i45.i.i.i, align 8
   %cmp.not.i.i.i46.i.i.i = icmp eq ptr %21, null
-  br i1 %cmp.not.i.i.i46.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %if.then.i.i.i47.i.i.i
+  br i1 %cmp.not.i.i.i46.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %if.then.i.i.i47.i.i.i
 
 if.then.i.i.i47.i.i.i:                            ; preds = %_ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEPS1_.exit44.i.i.i
   %_M_use_count.i.i.i.i48.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
@@ -15533,7 +15533,7 @@ if.else.i.i.i.i.i71.i.i.i:                        ; preds = %if.end.i.i.i.i50.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i54.i.i.i: ; preds = %if.else.i.i.i.i.i71.i.i.i, %if.then.i.i.i.i.i52.i.i.i
   %retval.i.0.i.i.i.i55.i.i.i = phi i32 [ %23, %if.then.i.i.i.i.i52.i.i.i ], [ %25, %if.else.i.i.i.i.i71.i.i.i ]
   %cmp6.i.i.i.i56.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i55.i.i.i, 1
-  br i1 %cmp6.i.i.i.i56.i.i.i, label %if.then7.i.i.i.i57.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br i1 %cmp6.i.i.i.i56.i.i.i, label %if.then7.i.i.i.i57.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 if.then7.i.i.i.i57.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i54.i.i.i
   %vtable.i.i.i.i.i.i58.i.i.i = load ptr, ptr %21, align 8
@@ -15558,7 +15558,7 @@ if.else.i.i.i.i.i.i.i70.i.i.i:                    ; preds = %if.then7.i.i.i.i57.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i64.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i70.i.i.i, %if.then.i.i.i.i.i.i.i62.i.i.i
   %retval.i.0.i.i.i.i.i.i65.i.i.i = phi i32 [ %28, %if.then.i.i.i.i.i.i.i62.i.i.i ], [ %29, %if.else.i.i.i.i.i.i.i70.i.i.i ]
   %cmp.i.i.i.i.i.i66.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i65.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i66.i.i.i, label %if.end.sink.split.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i66.i.i.i, label %if.end.sink.split.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 lpad16.i.i.i:                                     ; preds = %if.else.i.i.i
   %30 = landingpad { ptr, i32 }
@@ -15585,9 +15585,9 @@ if.end.sink.split.i.i.i:                          ; preds = %if.end.sink.split.s
   %vfn3.i.i.i.i.i.i69.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i68.i.i.i, i64 24
   %32 = load ptr, ptr %vfn3.i.i.i.i.i.i69.i.i.i, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(16) %.sink2.i.i.i) #28
-  br label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
-"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %_ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28.i.i.i, %_ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEPS1_.exit44.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i54.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i64.i.i.i, %if.end.sink.split.i.i.i
+"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %_ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28.i.i.i, %_ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEPS1_.exit44.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i54.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i64.i.i.i, %if.end.sink.split.i.i.i
   %33 = load ptr, ptr %__args1.val, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i.i)
@@ -15643,7 +15643,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
@@ -15679,26 +15679,26 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i.i.i, align 8, !noalias !254
   %_M_impl.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i.i.i.i, i64 16
   invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116ROT13BlockCipherC2Em(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i.i.i, i64 noundef 32)
-          to label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.argprom.exit.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit8.i.i.i.i.i.i.i, !noalias !254
+          to label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.exit.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.i.i.i, !noalias !254
 
-common.resume.i.i.i:                              ; preds = %ehcleanup.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit8.i.i.i.i.i.i.i
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %0, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit8.i.i.i.i.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ]
+common.resume.i.i.i:                              ; preds = %ehcleanup.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.i.i.i
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %0, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit8.i.i.i.i.i.i.i: ; preds = %entry
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.i.i.i: ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i5.i.i.i.i.i.i.i) #26, !noalias !254
   br label %common.resume.i.i.i
 
-_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.argprom.exit.i.i.i: ; preds = %entry
+_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.exit.i.i.i: ; preds = %entry
   store ptr %_M_impl.i.i.i.i.i.i.i.i.i, ptr %cipher.i.i.i, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %cipher.i.i.i, i64 8
   store ptr %call5.i.i.i5.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8
   %call.i.i.i = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
-invoke.cont.i.i.i:                                ; preds = %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.argprom.exit.i.i.i
+invoke.cont.i.i.i:                                ; preds = %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.exit.i.i.i
   invoke void @_ZN7rocksdb21CTREncryptionProviderC1ERKSt10shared_ptrINS_11BlockCipherEE(ptr noundef nonnull align 8 dereferenceable(48) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %cipher.i.i.i)
           to label %invoke.cont5.i.i.i unwind label %lpad4.i.i.i
 
@@ -15720,7 +15720,7 @@ _ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEP
   %3 = phi ptr [ %call.i.i.i, %invoke.cont5.i.i.i ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIN7rocksdb18EncryptionProviderEEclEPS1_.exit.i.i.i.i.i ]
   %4 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i5.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i5.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E0_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %if.then.i.i.i6.i.i.i
+  br i1 %cmp.not.i.i.i5.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E0_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %if.then.i.i.i6.i.i.i
 
 if.then.i.i.i6.i.i.i:                             ; preds = %_ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i.i
   %_M_use_count.i.i.i.i7.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -15756,7 +15756,7 @@ if.else.i.i.i.i.i30.i.i.i:                        ; preds = %if.end.i.i.i.i9.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13.i.i.i: ; preds = %if.else.i.i.i.i.i30.i.i.i, %if.then.i.i.i.i.i11.i.i.i
   %retval.i.0.i.i.i.i14.i.i.i = phi i32 [ %6, %if.then.i.i.i.i.i11.i.i.i ], [ %9, %if.else.i.i.i.i.i30.i.i.i ]
   %cmp6.i.i.i.i15.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i14.i.i.i, 1
-  br i1 %cmp6.i.i.i.i15.i.i.i, label %if.then7.i.i.i.i16.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E0_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br i1 %cmp6.i.i.i.i15.i.i.i, label %if.then7.i.i.i.i16.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E0_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 if.then7.i.i.i.i16.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13.i.i.i
   %vtable.i.i.i.i.i.i17.i.i.i = load ptr, ptr %4, align 8
@@ -15781,16 +15781,16 @@ if.else.i.i.i.i.i.i.i29.i.i.i:                    ; preds = %if.then7.i.i.i.i16.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i29.i.i.i, %if.then.i.i.i.i.i.i.i21.i.i.i
   %retval.i.0.i.i.i.i.i.i24.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i.i21.i.i.i ], [ %13, %if.else.i.i.i.i.i.i.i29.i.i.i ]
   %cmp.i.i.i.i.i.i25.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i24.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i25.i.i.i, label %if.end8.sink.split.i.i.i.i26.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E0_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i25.i.i.i, label %if.end8.sink.split.i.i.i.i26.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E0_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 if.end8.sink.split.i.i.i.i26.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23.i.i.i, %if.then.i.i.i.i31.i.i.i
   %vtable2.i.i.i.i.i.i27.i.i.i = load ptr, ptr %4, align 8
   %vfn3.i.i.i.i.i.i28.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i27.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i28.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #28
-  br label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E0_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E0_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
-lpad.i.i.i:                                       ; preds = %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.argprom.exit.i.i.i
+lpad.i.i.i:                                       ; preds = %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEED2Ev.exit.i.i.i
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i.i
@@ -15806,7 +15806,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.
   call void @_ZNSt10shared_ptrIN7rocksdb11BlockCipherEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cipher.i.i.i) #28
   br label %common.resume.i.i.i
 
-"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E0_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %_ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23.i.i.i, %if.end8.sink.split.i.i.i.i26.i.i.i
+"_ZSt10__invoke_rIPN7rocksdb18EncryptionProviderERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E0_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %_ZNSt10unique_ptrIN7rocksdb18EncryptionProviderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23.i.i.i, %if.end8.sink.split.i.i.i.i26.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cipher.i.i.i)
   ret ptr %3
 }
@@ -15959,14 +15959,14 @@ invoke.cont5.i.i.i:                               ; preds = %invoke.cont.i.i.i
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call3.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb11BlockCipherERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %_ZNKSt14default_deleteIN7rocksdb11BlockCipherEEclEPS1_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb11BlockCipherERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %_ZNKSt14default_deleteIN7rocksdb11BlockCipherEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb11BlockCipherEEclEPS1_.exit.i.i.i.i.i: ; preds = %invoke.cont5.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
-  br label %"_ZSt10__invoke_rIPN7rocksdb11BlockCipherERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPN7rocksdb11BlockCipherERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %2 = landingpad { ptr, i32 }
@@ -15989,14 +15989,14 @@ invoke.cont8.i.i.i:                               ; preds = %if.else.i.i.i
   %4 = load ptr, ptr %__args1.val, align 8
   store ptr %call6.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i6.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i6.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb11BlockCipherERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %_ZNKSt14default_deleteIN7rocksdb11BlockCipherEEclEPS1_.exit.i.i7.i.i.i
+  br i1 %tobool.not.i.i6.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb11BlockCipherERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %_ZNKSt14default_deleteIN7rocksdb11BlockCipherEEclEPS1_.exit.i.i7.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb11BlockCipherEEclEPS1_.exit.i.i7.i.i.i: ; preds = %invoke.cont8.i.i.i
   %vtable.i.i.i8.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i9.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i8.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i9.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
-  br label %"_ZSt10__invoke_rIPN7rocksdb11BlockCipherERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPN7rocksdb11BlockCipherERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 lpad7.i.i.i:                                      ; preds = %if.else.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -16008,7 +16008,7 @@ eh.resume.i.i.i:                                  ; preds = %lpad7.i.i.i, %lpad4
   %.pn.i.i.i = phi { ptr, i32 } [ %3, %lpad4.i.i.i ], [ %2, %lpad.i.i.i ], [ %6, %lpad7.i.i.i ]
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIPN7rocksdb11BlockCipherERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %invoke.cont5.i.i.i, %_ZNKSt14default_deleteIN7rocksdb11BlockCipherEEclEPS1_.exit.i.i.i.i.i, %invoke.cont8.i.i.i, %_ZNKSt14default_deleteIN7rocksdb11BlockCipherEEclEPS1_.exit.i.i7.i.i.i
+"_ZSt10__invoke_rIPN7rocksdb11BlockCipherERZZNS0_12_GLOBAL__N_126RegisterEncryptionBuiltinsEvENK3$_0clEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPSA_E_JSC_SH_SI_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %invoke.cont5.i.i.i, %_ZNKSt14default_deleteIN7rocksdb11BlockCipherEEclEPS1_.exit.i.i.i.i.i, %invoke.cont8.i.i.i, %_ZNKSt14default_deleteIN7rocksdb11BlockCipherEEclEPS1_.exit.i.i7.i.i.i
   %7 = load ptr, ptr %__args1.val, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   ret ptr %7
@@ -19524,8 +19524,8 @@ attributes #30 = { nounwind willreturn memory(read) }
 !156 = !{!157, !159, !154}
 !157 = distinct !{!157, !158, !"_ZN7rocksdb8IOStatus8NotFoundERKNS_5SliceES3_: %agg.result"}
 !158 = distinct !{!158, !"_ZN7rocksdb8IOStatus8NotFoundERKNS_5SliceES3_"}
-!159 = distinct !{!159, !160, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetWritableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE.argprom: %agg.result"}
-!160 = distinct !{!160, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetWritableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE.argprom"}
+!159 = distinct !{!159, !160, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetWritableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE: %agg.result"}
+!160 = distinct !{!160, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetWritableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE"}
 !161 = !{!162, !154}
 !162 = distinct !{!162, !163, !"_ZN7rocksdb19status_to_io_statusEONS_6StatusE: %agg.result"}
 !163 = distinct !{!163, !"_ZN7rocksdb19status_to_io_statusEONS_6StatusE"}
@@ -19538,8 +19538,8 @@ attributes #30 = { nounwind willreturn memory(read) }
 !170 = !{!171, !173}
 !171 = distinct !{!171, !172, !"_ZN7rocksdb8IOStatus8NotFoundERKNS_5SliceES3_: %agg.result"}
 !172 = distinct !{!172, !"_ZN7rocksdb8IOStatus8NotFoundERKNS_5SliceES3_"}
-!173 = distinct !{!173, !174, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetReadableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE.argprom: %agg.result"}
-!174 = distinct !{!174, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetReadableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE.argprom"}
+!173 = distinct !{!173, !174, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetReadableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE: %agg.result"}
+!174 = distinct !{!174, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetReadableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE"}
 !175 = distinct !{!175, !29}
 !176 = !{!177}
 !177 = distinct !{!177, !178, !"_ZN7rocksdb8IOStatus2OKEv: %agg.result"}
@@ -19550,11 +19550,11 @@ attributes #30 = { nounwind willreturn memory(read) }
 !182 = !{!183, !185}
 !183 = distinct !{!183, !184, !"_ZN7rocksdb8IOStatus8NotFoundERKNS_5SliceES3_: %agg.result"}
 !184 = distinct !{!184, !"_ZN7rocksdb8IOStatus8NotFoundERKNS_5SliceES3_"}
-!185 = distinct !{!185, !186, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetReadableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE.argprom: %agg.result"}
-!186 = distinct !{!186, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetReadableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE.argprom"}
+!185 = distinct !{!185, !186, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetReadableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE: %agg.result"}
+!186 = distinct !{!186, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetReadableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE"}
 !187 = !{!188}
-!188 = distinct !{!188, !189, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetWritableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE.argprom: %agg.result"}
-!189 = distinct !{!189, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetWritableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE.argprom"}
+!188 = distinct !{!188, !189, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetWritableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE: %agg.result"}
+!189 = distinct !{!189, !"_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl19GetWritableProviderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS_18EncryptionProviderE"}
 !190 = !{!191}
 !191 = distinct !{!191, !192, !"_ZN7rocksdb8IOStatus8NotFoundERKNS_5SliceES3_: %agg.result"}
 !192 = distinct !{!192, !"_ZN7rocksdb8IOStatus8NotFoundERKNS_5SliceES3_"}
@@ -19617,11 +19617,11 @@ attributes #30 = { nounwind willreturn memory(read) }
 !249 = !{!250}
 !250 = distinct !{!250, !248, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13ObjectLibrary12PatternEntry10QuantifierEESB_SaISB_EEvPT_PT0_RT1_: %__orig"}
 !251 = !{!252}
-!252 = distinct !{!252, !253, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.argprom: %agg.result"}
-!253 = distinct !{!253, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.argprom"}
+!252 = distinct !{!252, !253, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: %agg.result"}
+!253 = distinct !{!253, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}
 !254 = !{!255}
-!255 = distinct !{!255, !256, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.argprom: %agg.result"}
-!256 = distinct !{!256, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.argprom"}
+!255 = distinct !{!255, !256, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: %agg.result"}
+!256 = distinct !{!256, !"_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherEJiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}
 !257 = !{!258, !260}
 !258 = distinct !{!258, !259, !"_ZSt13__invoke_implIN7rocksdb6StatusERZNS0_14OptionTypeInfo17AsCustomSharedPtrINS0_18EncryptionProviderEEES2_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_PvE_JS9_SH_SH_SI_EET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
 !259 = distinct !{!259, !"_ZSt13__invoke_implIN7rocksdb6StatusERZNS0_14OptionTypeInfo17AsCustomSharedPtrINS0_18EncryptionProviderEEES2_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_PvE_JS9_SH_SH_SI_EET_St14__invoke_otherOT0_DpOT1_"}

@@ -1108,7 +1108,7 @@ fmap_need_off_once_len.exit.i227.i:               ; preds = %138
 
 fill_buf.exit234.i:                               ; preds = %._crit_edge.i212.i, %.loopexit.i226.i
   store i16 %.pre497.i, ptr %41, align 8
-  call fastcc void @read_pt_len.argelim(ptr noundef %3, i32 noundef 3)
+  call fastcc void @read_pt_len(ptr noundef %3, i32 noundef 3)
   %165 = load i16, ptr %44, align 2
   %166 = lshr i16 %165, 7
   %167 = load i32, ptr %43, align 8
@@ -1813,7 +1813,7 @@ fill_buf.exit134.thread.i:                        ; preds = %fmap_need_off_once_
   br label %read_c_len.exit.i.i
 
 read_c_len.exit.i.i:                              ; preds = %fill_buf.exit159.i, %.loopexit85.i.i.i, %288, %._crit_edge.i.i.i, %466, %459, %fill_buf.exit134.thread.i, %.loopexit.i151.i, %304, %fill_buf.exit184.thread.i, %._crit_edge.i187.i, %.loopexit.i201.i, %fill_buf.exit234.i
-  call fastcc void @read_pt_len.argelim(ptr noundef %3, i32 noundef -1)
+  call fastcc void @read_pt_len(ptr noundef %3, i32 noundef -1)
   %.pre.i.i = load i16, ptr %41, align 8
   %.pre.i = load i16, ptr %44, align 2
   br label %476
@@ -3692,7 +3692,7 @@ declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_buf.retelim(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -32771, 65536) %1) unnamed_addr #0 {
+define internal fastcc void @fill_buf(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -32771, 65536) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 13368
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 26
@@ -3856,10 +3856,10 @@ fmap_need_off_once_len.exit:                      ; preds = %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_pt_len.argelim(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -1, 4) %1) unnamed_addr #0 {
+define internal fastcc void @read_pt_len(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -1, 4) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 42
   %4 = load i16, ptr %3, align 2
-  tail call fastcc void @fill_buf.retelim(ptr noundef %0, i32 noundef 5)
+  tail call fastcc void @fill_buf(ptr noundef %0, i32 noundef 5)
   %5 = icmp ult i16 %4, 2048
   br i1 %5, label %.preheader, label %.lr.ph81
 
@@ -3874,7 +3874,7 @@ define internal fastcc void @read_pt_len.argelim(ptr nocapture noundef nonnull %
 
 .preheader:                                       ; preds = %2
   %11 = load i16, ptr %3, align 2
-  tail call fastcc void @fill_buf.retelim(ptr noundef %0, i32 noundef 5)
+  tail call fastcc void @fill_buf(ptr noundef %0, i32 noundef 5)
   %12 = getelementptr inbounds i8, ptr %0, i64 12834
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %12, i8 0, i64 19, i1 false)
   %13 = lshr i16 %11, 11
@@ -3935,7 +3935,7 @@ define internal fastcc void @read_pt_len.argelim(ptr nocapture noundef nonnull %
 .loopexit70.thread:                               ; preds = %.loopexit70, %.preheader69, %23
   %.052102 = phi i16 [ %25, %23 ], [ 7, %.preheader69 ], [ %30, %.loopexit70 ]
   %35 = phi i32 [ 3, %23 ], [ 4, %.preheader69 ], [ %spec.select, %.loopexit70 ]
-  tail call fastcc void @fill_buf.retelim(ptr noundef %0, i32 noundef %35)
+  tail call fastcc void @fill_buf(ptr noundef %0, i32 noundef %35)
   %36 = load i32, ptr %9, align 8
   %.not64 = icmp eq i32 %36, 0
   br i1 %.not64, label %37, label %.loopexit72
@@ -3951,7 +3951,7 @@ define internal fastcc void @read_pt_len.argelim(ptr nocapture noundef nonnull %
 
 43:                                               ; preds = %37
   %44 = load i16, ptr %3, align 2
-  tail call fastcc void @fill_buf.retelim(ptr noundef %0, i32 noundef 2)
+  tail call fastcc void @fill_buf(ptr noundef %0, i32 noundef 2)
   %45 = load i32, ptr %9, align 8
   %.not65 = icmp eq i32 %45, 0
   br i1 %.not65, label %.preheader67, label %.loopexit72

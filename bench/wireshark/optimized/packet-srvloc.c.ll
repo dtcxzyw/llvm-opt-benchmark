@@ -1867,7 +1867,7 @@ attr_list.exit:                                   ; preds = %unicode_to_bytes.ex
 
 809:                                              ; preds = %802
   %810 = load i32, ptr @hf_srvloc_srvreg_attrlist, align 4
-  call fastcc void @attr_list2.argelim(ptr noundef %18, i32 noundef %810, ptr noundef %0, i32 noundef %807, i32 noundef %808)
+  call fastcc void @attr_list2(ptr noundef %18, i32 noundef %810, ptr noundef %0, i32 noundef %807, i32 noundef %808)
   %811 = load i32, ptr %5, align 4
   %812 = add i32 %811, %807
   br label %.loopexit.loopexit923
@@ -2057,7 +2057,7 @@ attr_list.exit:                                   ; preds = %unicode_to_bytes.ex
 
 929:                                              ; preds = %921
   %930 = load i32, ptr @hf_srvloc_attrrply_attrlist, align 4
-  call fastcc void @attr_list2.argelim(ptr noundef %18, i32 noundef %930, ptr noundef %0, i32 noundef %927, i32 noundef %928)
+  call fastcc void @attr_list2(ptr noundef %18, i32 noundef %930, ptr noundef %0, i32 noundef %927, i32 noundef %928)
   %931 = load i32, ptr %5, align 4
   %932 = add i32 %931, %927
   br label %.loopexit.loopexit924
@@ -2568,7 +2568,7 @@ define internal fastcc noundef i32 @dissect_url_entry_v2(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @attr_list2.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
+define internal fastcc void @attr_list2(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 0) #4
   %7 = load i32, ptr @ett_srvloc_attr, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #4

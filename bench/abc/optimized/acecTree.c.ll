@@ -1941,7 +1941,7 @@ Vec_IntCountLarger.exit88.thread:                 ; preds = %Vec_IntCountLarger.
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
   %.not.i.not.i.i = icmp slt i64 %indvars.iv133, %96
-  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.argprom.exit, label %97
+  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.exit, label %97
 
 97:                                               ; preds = %92
   %98 = load i32, ptr %.val80, align 8
@@ -2027,9 +2027,9 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
 ._crit_edge.i.i.i:                                ; preds = %126, %Vec_IntGrow.exit.i.i.i
   %129 = trunc nuw nsw i64 %93 to i32
   store i32 %129, ptr %94, align 4
-  br label %Gia_ObjLevelId.argprom.exit
+  br label %Gia_ObjLevelId.exit
 
-Gia_ObjLevelId.argprom.exit:                      ; preds = %92, %._crit_edge.i.i.i
+Gia_ObjLevelId.exit:                              ; preds = %92, %._crit_edge.i.i.i
   %130 = getelementptr i8, ptr %.val80, i64 8
   %.val.i.i = load ptr, ptr %130, align 8
   %131 = getelementptr inbounds i32, ptr %.val.i.i, i64 %indvars.iv133
@@ -2038,8 +2038,8 @@ Gia_ObjLevelId.argprom.exit:                      ; preds = %92, %._crit_edge.i.
   %134 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %133, i32 noundef %132, i32 noundef %90)
   br label %135
 
-135:                                              ; preds = %._crit_edge, %Gia_ObjLevelId.argprom.exit
-  %indvars.iv.next134.pre-phi = phi i64 [ %.pre139, %._crit_edge ], [ %93, %Gia_ObjLevelId.argprom.exit ]
+135:                                              ; preds = %._crit_edge, %Gia_ObjLevelId.exit
+  %indvars.iv.next134.pre-phi = phi i64 [ %.pre139, %._crit_edge ], [ %93, %Gia_ObjLevelId.exit ]
   %exitcond136.not = icmp eq i64 %indvars.iv.next134.pre-phi, %wide.trip.count.i
   br i1 %exitcond136.not, label %.critedge8, label %88, !llvm.loop !33
 

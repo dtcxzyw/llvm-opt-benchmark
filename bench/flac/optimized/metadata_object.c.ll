@@ -909,19 +909,19 @@ if.then.i:                                        ; preds = %sw.default
   %conv.i = zext i32 %4 to i64
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %data34.val, ptr nonnull %.pre.i, i64 %conv.i)
   %cmp5.i = icmp eq i32 %bcmp.i, 0
-  br label %compare_block_data_unknown_.argprom.exit
+  br label %compare_block_data_unknown_.exit
 
 if.else.i:                                        ; preds = %sw.default
   %cmp9.i = icmp eq ptr %data34.val, %.pre.i
-  br label %compare_block_data_unknown_.argprom.exit
+  br label %compare_block_data_unknown_.exit
 
-compare_block_data_unknown_.argprom.exit:         ; preds = %if.then.i, %if.else.i
+compare_block_data_unknown_.exit:                 ; preds = %if.then.i, %if.else.i
   %retval.0.in.i = phi i1 [ %cmp5.i, %if.then.i ], [ %cmp9.i, %if.else.i ]
   %retval.0.i = zext i1 %retval.0.in.i to i32
   br label %return
 
-return:                                           ; preds = %if.end9, %if.end5, %if.end, %entry, %compare_block_data_unknown_.argprom.exit, %sw.bb30, %sw.bb26, %sw.bb22, %sw.bb18, %sw.bb13, %sw.bb
-  %retval.0 = phi i32 [ %retval.0.i, %compare_block_data_unknown_.argprom.exit ], [ %call33, %sw.bb30 ], [ %call29, %sw.bb26 ], [ %call25, %sw.bb22 ], [ %call21, %sw.bb18 ], [ %call17, %sw.bb13 ], [ %call, %sw.bb ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end5 ], [ %0, %if.end9 ]
+return:                                           ; preds = %if.end9, %if.end5, %if.end, %entry, %compare_block_data_unknown_.exit, %sw.bb30, %sw.bb26, %sw.bb22, %sw.bb18, %sw.bb13, %sw.bb
+  %retval.0 = phi i32 [ %retval.0.i, %compare_block_data_unknown_.exit ], [ %call33, %sw.bb30 ], [ %call29, %sw.bb26 ], [ %call25, %sw.bb22 ], [ %call21, %sw.bb18 ], [ %call17, %sw.bb13 ], [ %call, %sw.bb ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end5 ], [ %0, %if.end9 ]
   ret i32 %retval.0
 }
 

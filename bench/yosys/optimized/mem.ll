@@ -13049,7 +13049,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1661:               ; preds = %4863, %4860, %4858
 4934:                                             ; preds = %4932, %4928, %4925
   %4935 = load i32, ptr @"_ZZZN5Yosys3Mem4emitEvENK3$_6clEvE2id", align 4, !noalias !72
   %.not.i.i.i1674 = icmp eq i32 %4935, 0
-  br i1 %.not.i.i.i1674, label %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom.exit", label %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom.exit.sink.split"
+  br i1 %.not.i.i.i1674, label %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.exit", label %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.exit.sink.split"
 
 4936:                                             ; preds = %4930
   %4937 = landingpad { ptr, i32 }
@@ -13080,7 +13080,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1661:               ; preds = %4863, %4860, %4858
 4947:                                             ; preds = %4945, %4941, %4938
   %4948 = load i32, ptr @"_ZZZN5Yosys3Mem4emitEvENK3$_7clEvE2id", align 4, !noalias !75
   %.not.i.i.i1679 = icmp eq i32 %4948, 0
-  br i1 %.not.i.i.i1679, label %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom.exit", label %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom.exit.sink.split"
+  br i1 %.not.i.i.i1679, label %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.exit", label %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.exit.sink.split"
 
 4949:                                             ; preds = %4943
   %4950 = landingpad { ptr, i32 }
@@ -13088,7 +13088,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1661:               ; preds = %4863, %4860, %4858
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys3Mem4emitEvENK3$_7clEvE2id") #29, !noalias !75
   br label %.body1677
 
-"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom.exit.sink.split": ; preds = %4947, %4934
+"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.exit.sink.split": ; preds = %4947, %4934
   %.sink = phi i32 [ %4935, %4934 ], [ %4948, %4947 ]
   %4951 = sext i32 %.sink to i64
   %4952 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !78
@@ -13096,15 +13096,15 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1661:               ; preds = %4863, %4860, %4858
   %4954 = load i32, ptr %4953, align 4, !noalias !78
   %4955 = add nsw i32 %4954, 1
   store i32 %4955, ptr %4953, align 4, !noalias !78
-  br label %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom.exit"
+  br label %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.exit"
 
-"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom.exit":  ; preds = %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom.exit.sink.split", %4947, %4934
-  %storemerge2468 = phi i32 [ 0, %4934 ], [ 0, %4947 ], [ %.sink, %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom.exit.sink.split" ]
+"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.exit":          ; preds = %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.exit.sink.split", %4947, %4934
+  %storemerge2468 = phi i32 [ 0, %4934 ], [ 0, %4947 ], [ %.sink, %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.exit.sink.split" ]
   store i32 %storemerge2468, ptr %137, align 4
   %4956 = invoke noundef ptr @_ZN5Yosys5RTLIL6Module7addCellENS0_8IdStringES2_(ptr noundef nonnull align 8 dereferenceable(560) %4921, ptr noundef nonnull %132, ptr noundef nonnull %137)
           to label %4957 unwind label %4994
 
-4957:                                             ; preds = %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom.exit"
+4957:                                             ; preds = %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.exit"
   store ptr %4956, ptr %4918, align 8
   %4958 = load i32, ptr %137, align 4
   %4959 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -13185,7 +13185,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1689:            ; preds = %_ZN5Yosys5RTLIL8IdS
           cleanup
   br label %4996
 
-4994:                                             ; preds = %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom.exit"
+4994:                                             ; preds = %"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.exit"
   %4995 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %137) #29
@@ -13238,7 +13238,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1689:            ; preds = %_ZN5Yosys5RTLIL8IdS
 5009:                                             ; preds = %5007, %5003, %5000
   %5010 = load i32, ptr @"_ZZZN5Yosys3Mem4emitEvENK3$_8clEvE2id", align 4, !noalias !79
   %.not.i.i.i1690 = icmp eq i32 %5010, 0
-  br i1 %.not.i.i.i1690, label %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom.exit", label %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom.exit.sink.split"
+  br i1 %.not.i.i.i1690, label %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.exit", label %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.exit.sink.split"
 
 5011:                                             ; preds = %5005
   %5012 = landingpad { ptr, i32 }
@@ -13269,7 +13269,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1689:            ; preds = %_ZN5Yosys5RTLIL8IdS
 5022:                                             ; preds = %5020, %5016, %5013
   %5023 = load i32, ptr @"_ZZZN5Yosys3Mem4emitEvENK3$_9clEvE2id", align 4, !noalias !82
   %.not.i.i.i1695 = icmp eq i32 %5023, 0
-  br i1 %.not.i.i.i1695, label %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom.exit", label %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom.exit.sink.split"
+  br i1 %.not.i.i.i1695, label %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.exit", label %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.exit.sink.split"
 
 5024:                                             ; preds = %5018
   %5025 = landingpad { ptr, i32 }
@@ -13277,7 +13277,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1689:            ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys3Mem4emitEvENK3$_9clEvE2id") #29, !noalias !82
   br label %.body
 
-"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom.exit.sink.split": ; preds = %5022, %5009
+"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.exit.sink.split": ; preds = %5022, %5009
   %.sink3556 = phi i32 [ %5010, %5009 ], [ %5023, %5022 ]
   %5026 = sext i32 %.sink3556 to i64
   %5027 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !78
@@ -13285,10 +13285,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1689:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %5029 = load i32, ptr %5028, align 4, !noalias !78
   %5030 = add nsw i32 %5029, 1
   store i32 %5030, ptr %5028, align 4, !noalias !78
-  br label %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom.exit"
+  br label %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.exit"
 
-"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom.exit":  ; preds = %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom.exit.sink.split", %5022, %5009
-  %5031 = phi i32 [ 0, %5009 ], [ 0, %5022 ], [ %.sink3556, %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom.exit.sink.split" ]
+"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.exit":          ; preds = %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.exit.sink.split", %5022, %5009
+  %5031 = phi i32 [ 0, %5009 ], [ 0, %5022 ], [ %.sink3556, %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.exit.sink.split" ]
   store i32 %5031, ptr %138, align 4
   %5032 = load ptr, ptr %4918, align 8
   %5033 = getelementptr inbounds i8, ptr %5032, i64 76
@@ -13299,7 +13299,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1689:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i1700 = and i1 %5037, %5036
   br i1 %or.cond.i.i1700, label %5038, label %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i1701
 
-5038:                                             ; preds = %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom.exit"
+5038:                                             ; preds = %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.exit"
   %5039 = sext i32 %5034 to i64
   %5040 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %5041 = getelementptr inbounds i32, ptr %5040, i64 %5039
@@ -13313,7 +13313,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1689:            ; preds = %_ZN5Yosys5RTLIL8IdS
   invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %5034)
           to label %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i1701 unwind label %5065
 
-_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i1701: ; preds = %5045, %5038, %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom.exit"
+_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i1701: ; preds = %5045, %5038, %"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.exit"
   %.not.i.i1702 = icmp eq i32 %5031, 0
   br i1 %.not.i.i1702, label %.thread3379, label %5046
 
@@ -17992,9 +17992,9 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEEaSERKS7
 242:                                              ; preds = %240, %236, %233
   %243 = load i32, ptr @"_ZZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEvE2id", align 4, !noalias !130
   %.not.i.i.i186 = icmp eq i32 %243, 0
-  br i1 %.not.i.i.i186, label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.argprom.exit"
+  br i1 %.not.i.i.i186, label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.exit.thread", label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.exit"
 
-"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.argprom.exit.thread": ; preds = %242
+"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.exit.thread": ; preds = %242
   %244 = getelementptr inbounds i8, ptr %232, i64 76
   %245 = load i32, ptr %244, align 4
   br label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit188
@@ -18005,7 +18005,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEEaSERKS7
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEvE2id") #29, !noalias !130
   br label %.body493.thread
 
-"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.argprom.exit": ; preds = %242
+"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.exit": ; preds = %242
   %248 = sext i32 %243 to i64
   %249 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !130
   %250 = getelementptr inbounds i32, ptr %249, i64 %248
@@ -18018,7 +18018,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEEaSERKS7
   %256 = trunc i8 %255 to i1
   br i1 %256, label %257, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit188
 
-257:                                              ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.argprom.exit"
+257:                                              ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.exit"
   %258 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %259 = getelementptr inbounds i32, ptr %258, i64 %248
   %260 = load i32, ptr %259, align 4
@@ -18038,8 +18038,8 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEEaSERKS7
   call void @__clang_call_terminate(ptr %266) #28
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit188:             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.argprom.exit.thread", %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.argprom.exit", %257, %263
-  %.pn888 = phi i32 [ %245, %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.argprom.exit.thread" ], [ %254, %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.argprom.exit" ], [ %254, %257 ], [ %254, %263 ]
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit188:             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.exit.thread", %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.exit", %257, %263
+  %.pn888 = phi i32 [ %245, %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.exit.thread" ], [ %254, %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.exit" ], [ %254, %257 ], [ %254, %263 ]
   %267 = icmp eq i32 %.pn888, %243
   store ptr %232, ptr %150, align 8
   %268 = getelementptr inbounds i8, ptr %232, i64 24
@@ -19619,9 +19619,9 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS0_4poolIPNS2_4CellENS0_8hash_opsIS6
 855:                                              ; preds = %853, %849, %843
   %856 = load i32, ptr @"_ZZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEvE2id", align 4, !noalias !133
   %.not.i.i.i309 = icmp eq i32 %856, 0
-  br i1 %.not.i.i.i309, label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.argprom.exit"
+  br i1 %.not.i.i.i309, label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.exit.thread", label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.exit"
 
-"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.argprom.exit.thread": ; preds = %855
+"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.exit.thread": ; preds = %855
   %857 = getelementptr inbounds i8, ptr %846, i64 76
   %858 = load i32, ptr %857, align 4
   br label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit314
@@ -19632,7 +19632,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS0_4poolIPNS2_4CellENS0_8hash_opsIS6
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEvE2id") #29, !noalias !133
   br label %.body311
 
-"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.argprom.exit": ; preds = %855
+"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.exit": ; preds = %855
   %861 = sext i32 %856 to i64
   %862 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !133
   %863 = getelementptr inbounds i32, ptr %862, i64 %861
@@ -19645,7 +19645,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS0_4poolIPNS2_4CellENS0_8hash_opsIS6
   %869 = trunc i8 %868 to i1
   br i1 %869, label %870, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit314
 
-870:                                              ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.argprom.exit"
+870:                                              ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.exit"
   %871 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %872 = getelementptr inbounds i32, ptr %871, i64 %861
   %873 = load i32, ptr %872, align 4
@@ -19665,8 +19665,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS0_4poolIPNS2_4CellENS0_8hash_opsIS6
   call void @__clang_call_terminate(ptr %879) #28
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit314:             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.argprom.exit.thread", %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.argprom.exit", %870, %876
-  %.pn893 = phi i32 [ %858, %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.argprom.exit.thread" ], [ %867, %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.argprom.exit" ], [ %867, %870 ], [ %867, %876 ]
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit314:             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.exit.thread", %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.exit", %870, %876
+  %.pn893 = phi i32 [ %858, %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.exit.thread" ], [ %867, %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.exit" ], [ %867, %870 ], [ %867, %876 ]
   %880 = icmp eq i32 %.pn893, %856
   store ptr %846, ptr %778, align 8
   %881 = getelementptr inbounds i8, ptr %846, i64 24
@@ -20162,9 +20162,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 1080:                                             ; preds = %1078, %1074, %1067
   %1081 = load i32, ptr @"_ZZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEvE2id", align 4, !noalias !140
   %.not.i.i.i350 = icmp eq i32 %1081, 0
-  br i1 %.not.i.i.i350, label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.argprom.exit"
+  br i1 %.not.i.i.i350, label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.exit.thread", label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.exit"
 
-"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.argprom.exit.thread": ; preds = %1080
+"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.exit.thread": ; preds = %1080
   %1082 = getelementptr inbounds i8, ptr %1071, i64 76
   %1083 = load i32, ptr %1082, align 4
   %1084 = icmp eq i32 %1083, 0
@@ -20176,7 +20176,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEvE2id") #29, !noalias !140
   br label %.body352
 
-"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.argprom.exit": ; preds = %1080
+"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.exit": ; preds = %1080
   %1087 = sext i32 %1081 to i64
   %1088 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !140
   %1089 = getelementptr inbounds i32, ptr %1088, i64 %1087
@@ -20190,7 +20190,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %1096 = trunc i8 %1095 to i1
   br i1 %1096, label %1097, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit355
 
-1097:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.argprom.exit"
+1097:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.exit"
   %1098 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1099 = getelementptr inbounds i32, ptr %1098, i64 %1087
   %1100 = load i32, ptr %1099, align 4
@@ -20210,10 +20210,10 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   call void @__clang_call_terminate(ptr %1106) #28
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit355:             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.argprom.exit", %1097, %1103
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit355:             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.exit", %1097, %1103
   br i1 %1094, label %1107, label %1172
 
-1107:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit355
+1107:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit355
   %1108 = getelementptr inbounds i8, ptr %1069, i64 80
   %1109 = load ptr, ptr %1025, align 8
   %1110 = load ptr, ptr %1024, align 8
@@ -20325,7 +20325,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %1135, %1128
   %exitcond.not = icmp eq i64 %indvars.iv.next1191, %indvars.iv1193
   br i1 %exitcond.not, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit373, label %1140, !llvm.loop !143
 
-1172:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit355
+1172:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit355
   %1173 = load ptr, ptr %1070, align 8
   %1174 = getelementptr inbounds i8, ptr %1173, i64 136
   %1175 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %1174, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID13PRIORITY_MASKE)
@@ -20725,16 +20725,16 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEEaSERKS7
 1362:                                             ; preds = %1360
   %1363 = getelementptr inbounds i8, ptr %1349, i64 72
   %1364 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %1363)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.invoke unwind label %.loopexit.split-lp921
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.invoke unwind label %.loopexit.split-lp921
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.invoke: ; preds = %1362, %1377
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.invoke: ; preds = %1362, %1377
   %1365 = phi ptr [ @.str.29, %1377 ], [ @.str.28, %1362 ]
   %1366 = phi ptr [ %1376, %1377 ], [ %1361, %1362 ]
   %1367 = phi ptr [ %1379, %1377 ], [ %1364, %1362 ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull %1365, ptr noundef %1366, ptr noundef %1367) #31
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.cont unwind label %.loopexit.split-lp921
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.cont unwind label %.loopexit.split-lp921
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.cont: ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.invoke
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.cont: ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.invoke
   unreachable
 
 .loopexit912:                                     ; preds = %1688, %1691
@@ -20767,7 +20767,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.cont: ; preds = %_ZN5Y
           cleanup
   br label %.body403
 
-.loopexit.split-lp921:                            ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.invoke, %1360, %1375, %1362, %1377
+.loopexit.split-lp921:                            ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.invoke, %1360, %1375, %1362, %1377
   %lpad.loopexit.split-lp923 = landingpad { ptr, i32 }
           cleanup
   br label %.body403
@@ -20786,7 +20786,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.cont: ; preds = %_ZN5Y
 1377:                                             ; preds = %1375
   %1378 = getelementptr inbounds i8, ptr %1349, i64 72
   %1379 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %1378)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.invoke unwind label %.loopexit.split-lp921
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.invoke unwind label %.loopexit.split-lp921
 
 1380:                                             ; preds = %1374
   invoke void @_ZNK5Yosys5RTLIL7SigSpec8as_constEv(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::Const") align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %19)
@@ -21041,9 +21041,9 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit400:                ; preds = %1458, %1462
 1471:                                             ; preds = %1469, %1465, %_ZN5Yosys5RTLIL5ConstD2Ev.exit400
   %1472 = load i32, ptr @"_ZZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEvE2id", align 4, !noalias !146
   %.not.i.i.i401 = icmp eq i32 %1472, 0
-  br i1 %.not.i.i.i401, label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.argprom.exit"
+  br i1 %.not.i.i.i401, label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.exit.thread", label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.exit"
 
-"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.argprom.exit.thread": ; preds = %1471
+"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.exit.thread": ; preds = %1471
   %1473 = getelementptr inbounds i8, ptr %1349, i64 76
   %1474 = load i32, ptr %1473, align 4
   %1475 = icmp eq i32 %1474, 0
@@ -21055,7 +21055,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit400:                ; preds = %1458, %1462
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEvE2id") #29, !noalias !146
   br label %.body403
 
-"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.argprom.exit": ; preds = %1471
+"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.exit": ; preds = %1471
   %1478 = sext i32 %1472 to i64
   %1479 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !146
   %1480 = getelementptr inbounds i32, ptr %1479, i64 %1478
@@ -21069,7 +21069,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit400:                ; preds = %1458, %1462
   %1487 = trunc i8 %1486 to i1
   br i1 %1487, label %1488, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit406
 
-1488:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.argprom.exit"
+1488:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.exit"
   %1489 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1490 = getelementptr inbounds i32, ptr %1489, i64 %1478
   %1491 = load i32, ptr %1490, align 4
@@ -21089,10 +21089,10 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit400:                ; preds = %1458, %1462
   call void @__clang_call_terminate(ptr %1497) #28
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit406:             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.argprom.exit", %1488, %1494
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit406:             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.exit", %1488, %1494
   br i1 %1485, label %1498, label %1570
 
-1498:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit406
+1498:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit406
   %1499 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %1349, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID2ENE)
           to label %1500 unwind label %.loopexit920
 
@@ -21114,13 +21114,13 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit406:             ; preds = %"_ZZN12_GLOBAL__N_1
 1506:                                             ; preds = %1504
   %1507 = getelementptr inbounds i8, ptr %1349, i64 72
   %1508 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %1507)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit408 unwind label %.loopexit.split-lp941
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit408 unwind label %.loopexit.split-lp941
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit408: ; preds = %1506
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit408: ; preds = %1506
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.30, ptr noundef %1505, ptr noundef %1508) #31
           to label %1509 unwind label %.loopexit.split-lp941
 
-1509:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit408
+1509:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit408
   unreachable
 
 .loopexit925:                                     ; preds = %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i698
@@ -21170,7 +21170,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit408: ; preds = %1506
           cleanup
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit431
 
-.loopexit.split-lp941:                            ; preds = %1504, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit408, %1506
+.loopexit.split-lp941:                            ; preds = %1504, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit408, %1506
   %lpad.loopexit.split-lp943 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit431
@@ -21356,7 +21356,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit431:                ; preds = %.loopexit940, %.loo
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %23) #29
   br label %.body403
 
-1570:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit406
+1570:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit406
   %1571 = load i32, ptr %58, align 8
   invoke void @_ZN5Yosys5RTLIL5ConstC1ENS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 noundef zeroext 1, i32 noundef %1571)
           to label %1572 unwind label %.loopexit920
@@ -21892,9 +21892,9 @@ _ZNSt6vectorISt4pairIiN5Yosys7MemInitEESaIS3_EED2Ev.exit: ; preds = %1292, %_ZNS
 1731:                                             ; preds = %1729, %1725, %1718
   %1732 = load i32, ptr @"_ZZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEvE2id", align 4, !noalias !154
   %.not.i.i.i491 = icmp eq i32 %1732, 0
-  br i1 %.not.i.i.i491, label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.argprom.exit"
+  br i1 %.not.i.i.i491, label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.exit.thread", label %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.exit"
 
-"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.argprom.exit.thread": ; preds = %1731
+"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.exit.thread": ; preds = %1731
   %1733 = getelementptr inbounds i8, ptr %1722, i64 76
   %1734 = load i32, ptr %1733, align 4
   %1735 = icmp eq i32 %1734, 0
@@ -21906,7 +21906,7 @@ _ZNSt6vectorISt4pairIiN5Yosys7MemInitEESaIS3_EED2Ev.exit: ; preds = %1292, %_ZNS
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEvE2id") #29, !noalias !154
   br label %.body493
 
-"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.argprom.exit": ; preds = %1731
+"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.exit": ; preds = %1731
   %1738 = sext i32 %1732 to i64
   %1739 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !154
   %1740 = getelementptr inbounds i32, ptr %1739, i64 %1738
@@ -21920,7 +21920,7 @@ _ZNSt6vectorISt4pairIiN5Yosys7MemInitEESaIS3_EED2Ev.exit: ; preds = %1292, %_ZNS
   %1747 = trunc i8 %1746 to i1
   br i1 %1747, label %1748, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit496
 
-1748:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.argprom.exit"
+1748:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.exit"
   %1749 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1750 = getelementptr inbounds i32, ptr %1749, i64 %1738
   %1751 = load i32, ptr %1750, align 4
@@ -21940,10 +21940,10 @@ _ZNSt6vectorISt4pairIiN5Yosys7MemInitEESaIS3_EED2Ev.exit: ; preds = %1292, %_ZNS
   call void @__clang_call_terminate(ptr %1757) #28
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit496:             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.argprom.exit", %1748, %1754
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit496:             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.exit", %1748, %1754
   br i1 %1745, label %1758, label %1872
 
-1758:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit496
+1758:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit496
   %1759 = getelementptr inbounds i8, ptr %1720, i64 176
   %1760 = load ptr, ptr %1717, align 8
   %1761 = load ptr, ptr %1716, align 8
@@ -22114,7 +22114,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit500:           ; preds = %1779, %1786
   %1871 = icmp slt i64 %indvars.iv.next1200, %1870
   br i1 %1871, label %1839, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit552, !llvm.loop !157
 
-1872:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit496
+1872:                                             ; preds = %"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit496
   %1873 = load ptr, ptr %1721, align 8
   %1874 = getelementptr inbounds i8, ptr %1873, i64 136
   %1875 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %1874, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID17TRANSPARENCY_MASKE)
@@ -22843,9 +22843,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %68, %79, %86
 98:                                               ; preds = %96, %92, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %99 = load i32, ptr @"_ZZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEvE2id", align 4, !noalias !159
   %.not.i.i.i218 = icmp eq i32 %99, 0
-  br i1 %.not.i.i.i218, label %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit"
+  br i1 %.not.i.i.i218, label %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread", label %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit"
 
-"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread": ; preds = %98
+"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread": ; preds = %98
   %100 = getelementptr inbounds i8, ptr %1, i64 76
   %101 = load i32, ptr %100, align 4
   br label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit220
@@ -22856,7 +22856,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %68, %79, %86
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEvE2id") #29, !noalias !159
   br label %.body
 
-"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit": ; preds = %98
+"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit": ; preds = %98
   %104 = sext i32 %99 to i64
   %105 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !159
   %106 = getelementptr inbounds i32, ptr %105, i64 %104
@@ -22869,7 +22869,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %68, %79, %86
   %112 = trunc i8 %111 to i1
   br i1 %112, label %113, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit220
 
-113:                                              ; preds = %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit"
+113:                                              ; preds = %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit"
   %114 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %115 = getelementptr inbounds i32, ptr %114, i64 %104
   %116 = load i32, ptr %115, align 4
@@ -22889,8 +22889,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %68, %79, %86
   call void @__clang_call_terminate(ptr %122) #28
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit220:             ; preds = %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread", %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit", %113, %119
-  %.pn874 = phi i32 [ %101, %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit.thread" ], [ %110, %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom.exit" ], [ %110, %113 ], [ %110, %119 ]
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit220:             ; preds = %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread", %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit", %113, %119
+  %.pn874 = phi i32 [ %101, %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit.thread" ], [ %110, %"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.exit" ], [ %110, %113 ], [ %110, %119 ]
   %123 = icmp eq i32 %.pn874, %99
   %124 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %44, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID5ABITSE)
           to label %125 unwind label %.loopexit.split-lp944
@@ -63720,7 +63720,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %142 = add nsw i64 %.010.i.i.i, -1
   call void @_ZN5Yosys5MemWrD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %20) #29
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_RT0_.argprom.exit.i.i", label %72
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_RT0_.exit.i.i", label %72
 
 common.resume:                                    ; preds = %322, %324, %143
   %.sink = phi ptr [ %20, %143 ], [ %145, %324 ], [ %145, %322 ]
@@ -63734,7 +63734,7 @@ common.resume:                                    ; preds = %322, %324, %143
   call void @_ZN5Yosys5MemWrD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %36) #29
   br label %common.resume
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_RT0_.argprom.exit.i.i": ; preds = %141
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_RT0_.exit.i.i": ; preds = %141
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7)
   %145 = getelementptr inbounds i8, ptr %4, i64 8
@@ -63815,8 +63815,8 @@ common.resume:                                    ; preds = %322, %324, %143
   %216 = getelementptr inbounds i8, ptr %5, i64 376
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_RT0_.argprom.exit"
-  %.sroa.0.03.i.i = phi ptr [ %217, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_RT0_.argprom.exit" ], [ %storemerge29, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_RT0_.argprom.exit.i.i" ]
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_RT0_.exit"
+  %.sroa.0.03.i.i = phi ptr [ %217, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_RT0_.exit" ], [ %storemerge29, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_RT0_.exit.i.i" ]
   %217 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -384
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5)
@@ -64036,7 +64036,7 @@ common.resume:                                    ; preds = %322, %324, %143
   store ptr %321, ptr %216, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, i8 0, i64 24, i1 false)
   invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %290, ptr noundef %5)
-          to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_RT0_.argprom.exit" unwind label %324
+          to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_RT0_.exit" unwind label %324
 
 322:                                              ; preds = %.lr.ph.i9.i
   %323 = landingpad { ptr, i32 }
@@ -64049,7 +64049,7 @@ common.resume:                                    ; preds = %322, %324, %143
   call void @_ZN5Yosys5MemWrD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %181) #29
   br label %common.resume
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_RT0_.argprom.exit": ; preds = %287
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_RT0_.exit": ; preds = %287
   call void @_ZN5Yosys5MemWrD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %181) #29
   call void @_ZN5Yosys5MemWrD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %145) #29
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4)
@@ -64163,7 +64163,7 @@ common.resume:                                    ; preds = %322, %324, %143
   %364 = icmp sgt i64 %363, 6144
   br i1 %364, label %13, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_T0_.exit", !llvm.loop !295
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEET_SO_SO_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_RT0_.argprom.exit", %3
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEET_SO_SO_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_SO_SO_RT0_.exit", %3
   ret void
 }
 
@@ -64413,9 +64413,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   store i32 %151, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %150, i64 8
   %153 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN5Yosys5MemWraSEOS0_(ptr noundef nonnull align 8 dereferenceable(376) %152, ptr noundef nonnull align 8 dereferenceable(376) %39)
-          to label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_T0_SP_T1_RT2_.argprom.exit" unwind label %.loopexit.split-lp
+          to label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_T0_SP_T1_RT2_.exit" unwind label %.loopexit.split-lp
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_T0_SP_T1_RT2_.argprom.exit": ; preds = %.critedge.i
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys5MemWrEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_0EEEvT_T0_SP_T1_RT2_.exit": ; preds = %.critedge.i
   call void @_ZN5Yosys5MemWrD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %39) #29
   ret void
 
@@ -66943,7 +66943,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit2.i.i17.i.i.i:      ; preds = %44, %_ZN5Yosys5RTLI
 
 _ZNSt4pairIiN5Yosys7MemInitEED2Ev.exit19.i.i.i:   ; preds = %46, %_ZN5Yosys5RTLIL5ConstD2Ev.exit2.i.i17.i.i.i
   call void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %20) #29
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_RT0_.argprom.exit.i.i", label %28
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_RT0_.exit.i.i", label %28
 
 47:                                               ; preds = %28
   %48 = landingpad { ptr, i32 }
@@ -66962,7 +66962,7 @@ common.resume:                                    ; preds = %101, %103, %47, %49
   call void @_ZNSt4pairIiN5Yosys7MemInitEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %.sink) #29
   resume { ptr, i32 } %common.resume.op
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_RT0_.argprom.exit.i.i": ; preds = %_ZNSt4pairIiN5Yosys7MemInitEED2Ev.exit19.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_RT0_.exit.i.i": ; preds = %_ZNSt4pairIiN5Yosys7MemInitEED2Ev.exit19.i.i.i
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %7)
   %51 = getelementptr inbounds i8, ptr %4, i64 8
@@ -66982,8 +66982,8 @@ common.resume:                                    ; preds = %101, %103, %47, %49
   %65 = getelementptr inbounds i8, ptr %4, i64 88
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.argprom.exit"
-  %.sroa.0.03.i.i = phi ptr [ %66, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.argprom.exit" ], [ %storemerge24, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_RT0_.argprom.exit.i.i" ]
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.exit"
+  %.sroa.0.03.i.i = phi ptr [ %66, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.exit" ], [ %storemerge24, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_RT0_.exit.i.i" ]
   %66 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -176
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5)
@@ -67084,11 +67084,11 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i10.i:           ; preds = %96, %_ZNSt4pairIiN5
 _ZN5Yosys5RTLIL5ConstD2Ev.exit2.i.i12.i:          ; preds = %98, %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i10.i
   %99 = load ptr, ptr %65, align 8
   %.not.i.i.i.i3.i.i13.i = icmp eq ptr %99, null
-  br i1 %.not.i.i.i.i3.i.i13.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.argprom.exit", label %100
+  br i1 %.not.i.i.i.i3.i.i13.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.exit", label %100
 
 100:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit2.i.i12.i
   call void @_ZdlPv(ptr noundef nonnull %99) #30
-  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.argprom.exit"
+  br label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.exit"
 
 101:                                              ; preds = %_ZNSt4pairIiN5Yosys7MemInitEEaSEOS2_.exit.i, %.noexc6.i, %.noexc5.i, %.noexc.i, %.lr.ph.i9.i
   %102 = landingpad { ptr, i32 }
@@ -67101,7 +67101,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit2.i.i12.i:          ; preds = %98, %_ZN5Yosys5RTLI
   call void @_ZNSt4pairIiN5Yosys7MemInitEED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %5) #29
   br label %common.resume
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.argprom.exit": ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit2.i.i12.i, %100
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.exit": ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit2.i.i12.i, %100
   call void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %51) #29
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5)
@@ -67214,7 +67214,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit2.i.i12.i:          ; preds = %98, %_ZN5Yosys5RTLI
   %143 = icmp sgt i64 %142, 2816
   br i1 %143, label %13, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_T0_.exit", !llvm.loop !311
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEET_SO_SO_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.argprom.exit", %3
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEET_SO_SO_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_SO_SO_RT0_.exit", %3
   ret void
 }
 
@@ -67424,18 +67424,18 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %131 = getelementptr inbounds i8, ptr %110, i64 152
   %132 = getelementptr inbounds i8, ptr %5, i64 152
   %133 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull align 8 dereferenceable(24) %132)
-          to label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_RT2_.argprom.exit" unwind label %.loopexit.split-lp
+          to label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_RT2_.exit" unwind label %.loopexit.split-lp
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_RT2_.argprom.exit": ; preds = %.noexc31
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_RT2_.exit": ; preds = %.noexc31
   %134 = load ptr, ptr %132, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %134, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i, label %135
 
-135:                                              ; preds = %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_RT2_.argprom.exit"
+135:                                              ; preds = %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_RT2_.exit"
   call void @_ZdlPv(ptr noundef nonnull %134) #30
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i
 
-_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i:               ; preds = %135, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_RT2_.argprom.exit"
+_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i:               ; preds = %135, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN5Yosys7MemInitEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115mem_from_memoryEPNS3_5RTLIL6ModuleEPNSE_6MemoryERKNSD_8MemIndexEE3$_1EEEvT_T0_SP_T1_RT2_.exit"
   %136 = load ptr, ptr %126, align 8
   %.not.i.i.i.i1.i.i = icmp eq ptr %136, null
   br i1 %.not.i.i.i.i1.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit2.i.i, label %137
@@ -76628,12 +76628,12 @@ attributes #34 = { nounwind willreturn memory(none) }
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZZN5Yosys3Mem4emitEvENK3$_0clEv.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZZN5Yosys3Mem4emitEvENK3$_0clEv.argprom"}
+!19 = distinct !{!19, !20, !"_ZZN5Yosys3Mem4emitEvENK3$_0clEv: argument 0"}
+!20 = distinct !{!20, !"_ZZN5Yosys3Mem4emitEvENK3$_0clEv"}
 !21 = !{!"branch_weights", i32 1, i32 1048575}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZZN5Yosys3Mem4emitEvENK3$_1clEv.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZZN5Yosys3Mem4emitEvENK3$_1clEv.argprom"}
+!23 = distinct !{!23, !24, !"_ZZN5Yosys3Mem4emitEvENK3$_1clEv: argument 0"}
+!24 = distinct !{!24, !"_ZZN5Yosys3Mem4emitEvENK3$_1clEv"}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev: argument 0"}
 !27 = distinct !{!27, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev"}
@@ -76664,36 +76664,36 @@ attributes #34 = { nounwind willreturn memory(none) }
 !52 = distinct !{!52, !53, !"_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE6insertERKSt4pairIS3_S4_E: argument 0"}
 !53 = distinct !{!53, !"_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE6insertERKSt4pairIS3_S4_E"}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZZN5Yosys3Mem4emitEvENK3$_2clEv.argprom: argument 0"}
-!56 = distinct !{!56, !"_ZZN5Yosys3Mem4emitEvENK3$_2clEv.argprom"}
+!55 = distinct !{!55, !56, !"_ZZN5Yosys3Mem4emitEvENK3$_2clEv: argument 0"}
+!56 = distinct !{!56, !"_ZZN5Yosys3Mem4emitEvENK3$_2clEv"}
 !57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZZN5Yosys3Mem4emitEvENK3$_3clEv.argprom: argument 0"}
-!59 = distinct !{!59, !"_ZZN5Yosys3Mem4emitEvENK3$_3clEv.argprom"}
+!58 = distinct !{!58, !59, !"_ZZN5Yosys3Mem4emitEvENK3$_3clEv: argument 0"}
+!59 = distinct !{!59, !"_ZZN5Yosys3Mem4emitEvENK3$_3clEv"}
 !60 = !{!61}
 !61 = distinct !{!61, !62, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev: argument 0"}
 !62 = distinct !{!62, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev"}
 !63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZZN5Yosys3Mem4emitEvENK3$_4clEv.argprom: argument 0"}
-!65 = distinct !{!65, !"_ZZN5Yosys3Mem4emitEvENK3$_4clEv.argprom"}
+!64 = distinct !{!64, !65, !"_ZZN5Yosys3Mem4emitEvENK3$_4clEv: argument 0"}
+!65 = distinct !{!65, !"_ZZN5Yosys3Mem4emitEvENK3$_4clEv"}
 !66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZZN5Yosys3Mem4emitEvENK3$_5clEv.argprom: argument 0"}
-!68 = distinct !{!68, !"_ZZN5Yosys3Mem4emitEvENK3$_5clEv.argprom"}
+!67 = distinct !{!67, !68, !"_ZZN5Yosys3Mem4emitEvENK3$_5clEv: argument 0"}
+!68 = distinct !{!68, !"_ZZN5Yosys3Mem4emitEvENK3$_5clEv"}
 !69 = !{!70}
 !70 = distinct !{!70, !71, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev: argument 0"}
 !71 = distinct !{!71, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev"}
 !72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom: argument 0"}
-!74 = distinct !{!74, !"_ZZN5Yosys3Mem4emitEvENK3$_6clEv.argprom"}
+!73 = distinct !{!73, !74, !"_ZZN5Yosys3Mem4emitEvENK3$_6clEv: argument 0"}
+!74 = distinct !{!74, !"_ZZN5Yosys3Mem4emitEvENK3$_6clEv"}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZZN5Yosys3Mem4emitEvENK3$_7clEv.argprom: argument 0"}
-!77 = distinct !{!77, !"_ZZN5Yosys3Mem4emitEvENK3$_7clEv.argprom"}
+!76 = distinct !{!76, !77, !"_ZZN5Yosys3Mem4emitEvENK3$_7clEv: argument 0"}
+!77 = distinct !{!77, !"_ZZN5Yosys3Mem4emitEvENK3$_7clEv"}
 !78 = !{}
 !79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom: argument 0"}
-!81 = distinct !{!81, !"_ZZN5Yosys3Mem4emitEvENK3$_8clEv.argprom"}
+!80 = distinct !{!80, !81, !"_ZZN5Yosys3Mem4emitEvENK3$_8clEv: argument 0"}
+!81 = distinct !{!81, !"_ZZN5Yosys3Mem4emitEvENK3$_8clEv"}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZZN5Yosys3Mem4emitEvENK3$_9clEv.argprom: argument 0"}
-!84 = distinct !{!84, !"_ZZN5Yosys3Mem4emitEvENK3$_9clEv.argprom"}
+!83 = distinct !{!83, !84, !"_ZZN5Yosys3Mem4emitEvENK3$_9clEv: argument 0"}
+!84 = distinct !{!84, !"_ZZN5Yosys3Mem4emitEvENK3$_9clEv"}
 !85 = !{!86}
 !86 = distinct !{!86, !87, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev: argument 0"}
 !87 = distinct !{!87, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev"}
@@ -76712,65 +76712,65 @@ attributes #34 = { nounwind willreturn memory(none) }
 !100 = distinct !{!100, !101, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !101 = distinct !{!101, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZZN5Yosys3Mem16get_all_memoriesEPNS_5RTLIL6ModuleEENK3$_0clEv.argprom: argument 0"}
-!104 = distinct !{!104, !"_ZZN5Yosys3Mem16get_all_memoriesEPNS_5RTLIL6ModuleEENK3$_0clEv.argprom"}
+!103 = distinct !{!103, !104, !"_ZZN5Yosys3Mem16get_all_memoriesEPNS_5RTLIL6ModuleEENK3$_0clEv: argument 0"}
+!104 = distinct !{!104, !"_ZZN5Yosys3Mem16get_all_memoriesEPNS_5RTLIL6ModuleEENK3$_0clEv"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZZN5Yosys3Mem16get_all_memoriesEPNS_5RTLIL6ModuleEENK3$_1clEv.argprom: argument 0"}
-!107 = distinct !{!107, !"_ZZN5Yosys3Mem16get_all_memoriesEPNS_5RTLIL6ModuleEENK3$_1clEv.argprom"}
+!106 = distinct !{!106, !107, !"_ZZN5Yosys3Mem16get_all_memoriesEPNS_5RTLIL6ModuleEENK3$_1clEv: argument 0"}
+!107 = distinct !{!107, !"_ZZN5Yosys3Mem16get_all_memoriesEPNS_5RTLIL6ModuleEENK3$_1clEv"}
 !108 = !{!109}
 !109 = distinct !{!109, !110, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !110 = distinct !{!110, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom: argument 0"}
-!113 = distinct !{!113, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv.argprom"}
+!112 = distinct !{!112, !113, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv: argument 0"}
+!113 = distinct !{!113, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE_clEv"}
 !114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE0_clEv.argprom: argument 0"}
-!116 = distinct !{!116, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE0_clEv.argprom"}
+!115 = distinct !{!115, !116, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE0_clEv: argument 0"}
+!116 = distinct !{!116, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE0_clEv"}
 !117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE1_clEv.argprom: argument 0"}
-!119 = distinct !{!119, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE1_clEv.argprom"}
+!118 = distinct !{!118, !119, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE1_clEv: argument 0"}
+!119 = distinct !{!119, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE1_clEv"}
 !120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE2_clEv.argprom: argument 0"}
-!122 = distinct !{!122, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE2_clEv.argprom"}
+!121 = distinct !{!121, !122, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE2_clEv: argument 0"}
+!122 = distinct !{!122, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE2_clEv"}
 !123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE3_clEv.argprom: argument 0"}
-!125 = distinct !{!125, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE3_clEv.argprom"}
+!124 = distinct !{!124, !125, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE3_clEv: argument 0"}
+!125 = distinct !{!125, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE3_clEv"}
 !126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE4_clEv.argprom: argument 0"}
-!128 = distinct !{!128, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE4_clEv.argprom"}
+!127 = distinct !{!127, !128, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE4_clEv: argument 0"}
+!128 = distinct !{!128, !"_ZZN12_GLOBAL__N_18MemIndexC1EPN5Yosys5RTLIL6ModuleEENKUlvE4_clEv"}
 !129 = distinct !{!129, !7}
 !130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.argprom: argument 0"}
-!132 = distinct !{!132, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv.argprom"}
+!131 = distinct !{!131, !132, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv: argument 0"}
+!132 = distinct !{!132, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_2clEv"}
 !133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.argprom: argument 0"}
-!135 = distinct !{!135, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv.argprom"}
+!134 = distinct !{!134, !135, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv: argument 0"}
+!135 = distinct !{!135, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_3clEv"}
 !136 = !{!137}
 !137 = distinct !{!137, !138, !"_ZSt9make_pairIiRN5Yosys5MemWrEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_: argument 0"}
 !138 = distinct !{!138, !"_ZSt9make_pairIiRN5Yosys5MemWrEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_"}
 !139 = distinct !{!139, !7}
 !140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.argprom: argument 0"}
-!142 = distinct !{!142, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv.argprom"}
+!141 = distinct !{!141, !142, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv: argument 0"}
+!142 = distinct !{!142, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_4clEv"}
 !143 = distinct !{!143, !7}
 !144 = distinct !{!144, !7}
 !145 = distinct !{!145, !7}
 !146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.argprom: argument 0"}
-!148 = distinct !{!148, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv.argprom"}
+!147 = distinct !{!147, !148, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv: argument 0"}
+!148 = distinct !{!148, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_5clEv"}
 !149 = !{!150}
 !150 = distinct !{!150, !151, !"_ZSt9make_pairIiRN5Yosys7MemInitEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_: argument 0"}
 !151 = distinct !{!151, !"_ZSt9make_pairIiRN5Yosys7MemInitEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_"}
 !152 = distinct !{!152, !7}
 !153 = distinct !{!153, !7}
 !154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.argprom: argument 0"}
-!156 = distinct !{!156, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv.argprom"}
+!155 = distinct !{!155, !156, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv: argument 0"}
+!156 = distinct !{!156, !"_ZZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexEENK3$_6clEv"}
 !157 = distinct !{!157, !7}
 !158 = distinct !{!158, !7}
 !159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom: argument 0"}
-!161 = distinct !{!161, !"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv.argprom"}
+!160 = distinct !{!160, !161, !"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv: argument 0"}
+!161 = distinct !{!161, !"_ZZN12_GLOBAL__N_113mem_from_cellEPN5Yosys5RTLIL4CellEENK3$_0clEv"}
 !162 = !{!163}
 !163 = distinct !{!163, !164, !"_ZNK5Yosys5RTLIL5Const7extractEiiNS0_5StateE: argument 0"}
 !164 = distinct !{!164, !"_ZNK5Yosys5RTLIL5Const7extractEiiNS0_5StateE"}
@@ -76789,11 +76789,11 @@ attributes #34 = { nounwind willreturn memory(none) }
 !177 = distinct !{!177, !7}
 !178 = distinct !{!178, !7}
 !179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleEENK3$_0clEv.argprom: argument 0"}
-!181 = distinct !{!181, !"_ZZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleEENK3$_0clEv.argprom"}
+!180 = distinct !{!180, !181, !"_ZZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleEENK3$_0clEv: argument 0"}
+!181 = distinct !{!181, !"_ZZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleEENK3$_0clEv"}
 !182 = !{!183}
-!183 = distinct !{!183, !184, !"_ZZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleEENK3$_1clEv.argprom: argument 0"}
-!184 = distinct !{!184, !"_ZZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleEENK3$_1clEv.argprom"}
+!183 = distinct !{!183, !184, !"_ZZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleEENK3$_1clEv: argument 0"}
+!184 = distinct !{!184, !"_ZZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleEENK3$_1clEv"}
 !185 = distinct !{!185, !7}
 !186 = distinct !{!186, !7}
 !187 = distinct !{!187, !7}

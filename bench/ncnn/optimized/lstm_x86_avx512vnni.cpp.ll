@@ -32,7 +32,7 @@ define hidden void @_ZN4ncnn37lstm_transform_weight_int8_avx512vnniERKNS_3MatES2
   tail call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef 32, i32 noundef %18, i32 noundef %10, i64 noundef 4, ptr noundef null)
   tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %7, i32 noundef %11, i32 noundef 1, i32 noundef %10, i64 noundef 16, i32 noundef 4, ptr noundef null)
   %19 = icmp sgt i32 %10, 0
-  br i1 %19, label %.lr.ph292.i, label %_ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE.argprom.exit
+  br i1 %19, label %.lr.ph292.i, label %_ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE.exit
 
 .lr.ph292.i:                                      ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3496,9 +3496,9 @@ define hidden void @_ZN4ncnn37lstm_transform_weight_int8_avx512vnniERKNS_3MatES2
 ._crit_edge289.i:                                 ; preds = %._crit_edge285.i, %.preheader9.i
   %indvars.iv.next493.i = add nuw nsw i64 %indvars.iv492.i, 1
   %exitcond496.not.i = icmp eq i64 %indvars.iv.next493.i, %wide.trip.count495.i
-  br i1 %exitcond496.not.i, label %_ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE.argprom.exit, label %54, !llvm.loop !38
+  br i1 %exitcond496.not.i, label %_ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE.exit, label %54, !llvm.loop !38
 
-_ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE.argprom.exit: ; preds = %._crit_edge289.i, %13
+_ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE.exit: ; preds = %._crit_edge289.i, %13
   ret void
 }
 

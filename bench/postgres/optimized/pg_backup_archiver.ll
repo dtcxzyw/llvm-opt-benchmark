@@ -1055,14 +1055,14 @@ define internal fastcc range(i32 0, 5) i32 @_tocEntryRequired(ptr nocapture noun
 30:                                               ; preds = %27
   %31 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(13) @.str.86) #24
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.critedge, label %_tocEntryIsACL.argprom.exit
+  br i1 %32, label %.critedge, label %_tocEntryIsACL.exit
 
-_tocEntryIsACL.argprom.exit:                      ; preds = %30
+_tocEntryIsACL.exit:                              ; preds = %30
   %33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(12) @.str.167) #24
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.critedge, label %35
 
-35:                                               ; preds = %_tocEntryIsACL.argprom.exit, %24
+35:                                               ; preds = %_tocEntryIsACL.exit, %24
   %36 = getelementptr inbounds i8, ptr %5, i64 60
   %37 = load i32, ptr %36, align 4
   %.not122 = icmp eq i32 %37, 0
@@ -1659,8 +1659,8 @@ getTocEntryByDumpId.exit.thread:                  ; preds = %150, %152, %163, %1
   %spec.select = select i1 %.not153, i32 %.2, i32 %367
   br label %.critedge
 
-.critedge:                                        ; preds = %getTocEntryByDumpId.exit.thread.us, %getTocEntryByDumpId.exit.thread, %114, %27, %30, %318, %256, %265, %259, %252, %246, %233, %227, %220, %214, %184, %176, %173, %103, %81, %65, %74, %70, %66, %62, %56, %44, %47, %50, %38, %_tocEntryIsACL.argprom.exit, %22, %3, %10, %13, %364
-  %.0 = phi i32 [ %spec.select, %364 ], [ 4, %13 ], [ 4, %10 ], [ 4, %3 ], [ %., %22 ], [ 0, %_tocEntryIsACL.argprom.exit ], [ 0, %38 ], [ 0, %50 ], [ 0, %47 ], [ 0, %44 ], [ 0, %56 ], [ 0, %62 ], [ 0, %66 ], [ 0, %70 ], [ 0, %74 ], [ 0, %65 ], [ 0, %81 ], [ 0, %103 ], [ 0, %173 ], [ 0, %176 ], [ 0, %184 ], [ 0, %214 ], [ 0, %220 ], [ 0, %227 ], [ 0, %233 ], [ 0, %246 ], [ 0, %252 ], [ 0, %259 ], [ 0, %265 ], [ 0, %256 ], [ 0, %318 ], [ 0, %30 ], [ 0, %27 ], [ 0, %114 ], [ 0, %getTocEntryByDumpId.exit.thread ], [ 0, %getTocEntryByDumpId.exit.thread.us ]
+.critedge:                                        ; preds = %getTocEntryByDumpId.exit.thread.us, %getTocEntryByDumpId.exit.thread, %114, %27, %30, %318, %256, %265, %259, %252, %246, %233, %227, %220, %214, %184, %176, %173, %103, %81, %65, %74, %70, %66, %62, %56, %44, %47, %50, %38, %_tocEntryIsACL.exit, %22, %3, %10, %13, %364
+  %.0 = phi i32 [ %spec.select, %364 ], [ 4, %13 ], [ 4, %10 ], [ 4, %3 ], [ %., %22 ], [ 0, %_tocEntryIsACL.exit ], [ 0, %38 ], [ 0, %50 ], [ 0, %47 ], [ 0, %44 ], [ 0, %56 ], [ 0, %62 ], [ 0, %66 ], [ 0, %70 ], [ 0, %74 ], [ 0, %65 ], [ 0, %81 ], [ 0, %103 ], [ 0, %173 ], [ 0, %176 ], [ 0, %184 ], [ 0, %214 ], [ 0, %220 ], [ 0, %227 ], [ 0, %233 ], [ 0, %246 ], [ 0, %252 ], [ 0, %259 ], [ 0, %265 ], [ 0, %256 ], [ 0, %318 ], [ 0, %30 ], [ 0, %27 ], [ 0, %114 ], [ 0, %getTocEntryByDumpId.exit.thread ], [ 0, %getTocEntryByDumpId.exit.thread.us ]
   ret i32 %.0
 }
 
@@ -7952,19 +7952,19 @@ processEncodingEntry.exit:                        ; preds = %557
 567:                                              ; preds = %565
   %568 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %566, ptr noundef nonnull dereferenceable(5) @.str.214, i64 noundef 4) #24
   %569 = icmp eq i32 %568, 0
-  br i1 %569, label %processStdStringsEntry.argprom.exit, label %570
+  br i1 %569, label %processStdStringsEntry.exit, label %570
 
 570:                                              ; preds = %567
   %571 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %566, ptr noundef nonnull dereferenceable(6) @.str.215, i64 noundef 5) #24
   %572 = icmp eq i32 %571, 0
-  br i1 %572, label %processStdStringsEntry.argprom.exit, label %.critedge.i
+  br i1 %572, label %processStdStringsEntry.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %570, %565
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.216, ptr noundef %.val) #22
   tail call void @exit_nicely(i32 noundef 1) #23
   unreachable
 
-processStdStringsEntry.argprom.exit:              ; preds = %567, %570
+processStdStringsEntry.exit:                      ; preds = %567, %570
   %.sink.i = phi i8 [ 1, %567 ], [ 0, %570 ]
   store i8 %.sink.i, ptr %34, align 4
   br label %578
@@ -7980,7 +7980,7 @@ processStdStringsEntry.argprom.exit:              ; preds = %567, %570
   store ptr %577, ptr %33, align 8
   br label %578
 
-578:                                              ; preds = %processEncodingEntry.exit, %573, %576, %processStdStringsEntry.argprom.exit
+578:                                              ; preds = %processEncodingEntry.exit, %573, %576, %processStdStringsEntry.exit
   %579 = add nuw nsw i32 %.0123343, 1
   %580 = load i32, ptr %26, align 8
   %581 = icmp slt i32 %579, %580
@@ -9893,26 +9893,26 @@ _getObjectDescription.exit:                       ; preds = %298, %305, %.crited
   %.val = load ptr, ptr %377, align 8
   %378 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(4) @.str.85) #24
   %379 = icmp eq i32 %378, 0
-  br i1 %379, label %_tocEntryIsACL.argprom.exit.thread, label %380
+  br i1 %379, label %_tocEntryIsACL.exit.thread, label %380
 
 380:                                              ; preds = %.tail127.thread
   %381 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(13) @.str.86) #24
   %382 = icmp eq i32 %381, 0
-  br i1 %382, label %_tocEntryIsACL.argprom.exit.thread, label %_tocEntryIsACL.argprom.exit
+  br i1 %382, label %_tocEntryIsACL.exit.thread, label %_tocEntryIsACL.exit
 
-_tocEntryIsACL.argprom.exit:                      ; preds = %380
+_tocEntryIsACL.exit:                              ; preds = %380
   %383 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(12) @.str.167) #24
   %384 = icmp eq i32 %383, 0
-  br i1 %384, label %_tocEntryIsACL.argprom.exit.thread, label %387
+  br i1 %384, label %_tocEntryIsACL.exit.thread, label %387
 
-_tocEntryIsACL.argprom.exit.thread:               ; preds = %.tail127.thread, %380, %_tocEntryIsACL.argprom.exit
+_tocEntryIsACL.exit.thread:                       ; preds = %.tail127.thread, %380, %_tocEntryIsACL.exit
   %385 = getelementptr inbounds i8, ptr %0, i64 600
   %386 = load ptr, ptr %385, align 8
   call void @free(ptr noundef %386) #22
   store ptr null, ptr %385, align 8
   br label %387
 
-387:                                              ; preds = %_tocEntryIsACL.argprom.exit.thread, %_tocEntryIsACL.argprom.exit
+387:                                              ; preds = %_tocEntryIsACL.exit.thread, %_tocEntryIsACL.exit
   ret void
 }
 
@@ -10259,7 +10259,7 @@ define internal void @mark_restore_job_done(ptr nocapture noundef %0, ptr nocapt
     i32 10, label %11
     i32 11, label %24
     i32 12, label %42
-    i32 0, label %mark_create_done.argprom.exit
+    i32 0, label %mark_create_done.exit
   ]
 
 11:                                               ; preds = %4
@@ -10270,7 +10270,7 @@ define internal void @mark_restore_job_done(ptr nocapture noundef %0, ptr nocapt
   %15 = getelementptr i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
   %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %mark_create_done.argprom.exit, label %17
+  br i1 %.not.i, label %mark_create_done.exit, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %0, i64 520
@@ -10280,7 +10280,7 @@ define internal void @mark_restore_job_done(ptr nocapture noundef %0, ptr nocapt
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 164
   store i8 1, ptr %23, align 4
-  br label %mark_create_done.argprom.exit
+  br label %mark_create_done.exit
 
 24:                                               ; preds = %4
   %25 = load ptr, ptr %9, align 8
@@ -10309,21 +10309,21 @@ inhibit_data_for_failed_table.exit:               ; preds = %24, %32
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4
-  br label %mark_create_done.argprom.exit
+  br label %mark_create_done.exit
 
 42:                                               ; preds = %4
   %43 = getelementptr inbounds i8, ptr %0, i64 92
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, 1
   store i32 %45, ptr %43, align 4
-  br label %mark_create_done.argprom.exit
+  br label %mark_create_done.exit
 
 46:                                               ; preds = %4
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.211, i32 noundef %2) #22
   tail call void @exit_nicely(i32 noundef 1) #23
   unreachable
 
-mark_create_done.argprom.exit:                    ; preds = %17, %11, %4, %inhibit_data_for_failed_table.exit, %42
+mark_create_done.exit:                            ; preds = %17, %11, %4, %inhibit_data_for_failed_table.exit, %42
   tail call fastcc void @reduce_dependencies(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3)
   ret void
 }

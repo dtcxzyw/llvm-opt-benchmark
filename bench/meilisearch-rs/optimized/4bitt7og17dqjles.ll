@@ -157,7 +157,7 @@ define hidden noundef nonnull align 8 ptr @_ZN4core3ops8function6FnOnce9call_onc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$time..offset_date_time..OffsetDateTime$C$serde_json..error..Error$GT$$GT$17hd4cd05740fc46dd7E.argprom"(ptr %.0.val, i8 %.11.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$time..offset_date_time..OffsetDateTime$C$serde_json..error..Error$GT$$GT$17hd4cd05740fc46dd7E"(ptr %.0.val, i8 %.11.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = alloca [16 x i8], align 8
   %2 = icmp eq i8 %.11.val, 0
   br i1 %2, label %3, label %4
@@ -2365,7 +2365,7 @@ default.unreachable1.i:                           ; preds = %138
 187:                                              ; preds = %185
   %188 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$time..offset_date_time..OffsetDateTime$C$serde_json..error..Error$GT$$GT$17hd4cd05740fc46dd7E.argprom"(ptr %.sroa.0122.0.copyload, i8 %.sroa.5126.0.copyload) #27
+  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$time..offset_date_time..OffsetDateTime$C$serde_json..error..Error$GT$$GT$17hd4cd05740fc46dd7E"(ptr %.sroa.0122.0.copyload, i8 %.sroa.5126.0.copyload) #27
           to label %253 unwind label %200
 
 189:                                              ; preds = %185
@@ -2469,7 +2469,7 @@ default.unreachable1.i:                           ; preds = %138
 223:                                              ; preds = %221
   %224 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$time..offset_date_time..OffsetDateTime$C$serde_json..error..Error$GT$$GT$17hd4cd05740fc46dd7E.argprom"(ptr nonnull %211, i8 1) #27
+  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$time..offset_date_time..OffsetDateTime$C$serde_json..error..Error$GT$$GT$17hd4cd05740fc46dd7E"(ptr nonnull %211, i8 1) #27
           to label %253 unwind label %200
 
 225:                                              ; preds = %221

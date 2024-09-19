@@ -1295,17 +1295,17 @@ if.end.i39.us:                                    ; preds = %for.body.us
 if.end3.i42.us:                                   ; preds = %if.end.i39.us
   %25 = load i32, ptr %desc, align 4
   switch i32 %25, label %free_and_exit [
-    i32 1869768058, label %vhdx_log_desc_is_valid.argprom.exit.us
+    i32 1869768058, label %vhdx_log_desc_is_valid.exit.us
     i32 1668506980, label %for.inc.us
   ]
 
-vhdx_log_desc_is_valid.argprom.exit.us:           ; preds = %if.end3.i42.us
+vhdx_log_desc_is_valid.exit.us:                   ; preds = %if.end3.i42.us
   %26 = load i64, ptr %22, align 4
   %rem6.i.us = and i64 %26, 4095
   %cmp7.i.us = icmp eq i64 %rem6.i.us, 0
   br i1 %cmp7.i.us, label %for.inc.us, label %free_and_exit
 
-for.inc.us:                                       ; preds = %vhdx_log_desc_is_valid.argprom.exit.us, %if.end3.i42.us
+for.inc.us:                                       ; preds = %vhdx_log_desc_is_valid.exit.us, %if.end3.i42.us
   %inc.us = add nuw i32 %i.068.us, 1
   %27 = load i32, ptr %descriptor_count.i, align 4
   %cmp27.us = icmp ult i32 %inc.us, %27
@@ -1331,17 +1331,17 @@ if.end.i39:                                       ; preds = %for.body
 if.end3.i42:                                      ; preds = %if.end.i39
   %30 = load i32, ptr %desc, align 4
   switch i32 %30, label %free_and_exit [
-    i32 1869768058, label %vhdx_log_desc_is_valid.argprom.exit
+    i32 1869768058, label %vhdx_log_desc_is_valid.exit
     i32 1668506980, label %for.inc
   ]
 
-vhdx_log_desc_is_valid.argprom.exit:              ; preds = %if.end3.i42
+vhdx_log_desc_is_valid.exit:                      ; preds = %if.end3.i42
   %31 = load i64, ptr %22, align 4
   %rem6.i = and i64 %31, 4095
   %cmp7.i = icmp eq i64 %rem6.i, 0
   br i1 %cmp7.i, label %for.inc, label %free_and_exit
 
-for.inc:                                          ; preds = %if.end3.i42, %vhdx_log_desc_is_valid.argprom.exit
+for.inc:                                          ; preds = %if.end3.i42, %vhdx_log_desc_is_valid.exit
   %inc = add nuw i32 %i.068, 1
   %32 = load i32, ptr %descriptor_count.i, align 4
   %cmp27 = icmp ult i32 %inc, %32
@@ -1358,8 +1358,8 @@ if.end44:                                         ; preds = %if.then42, %for.end
   store ptr %call12, ptr %buffer, align 8
   br label %exit
 
-free_and_exit:                                    ; preds = %vhdx_log_desc_is_valid.argprom.exit, %for.body, %if.end.i39, %if.end3.i42, %vhdx_log_desc_is_valid.argprom.exit.us, %if.end3.i42.us, %if.end.i39.us, %for.body.us, %vhdx_log_read_sectors.exit, %if.end21
-  %ret.1 = phi i32 [ %call.i34, %vhdx_log_read_sectors.exit ], [ -22, %if.end21 ], [ -22, %for.body.us ], [ -22, %if.end.i39.us ], [ -22, %if.end3.i42.us ], [ -22, %vhdx_log_desc_is_valid.argprom.exit.us ], [ -22, %if.end3.i42 ], [ -22, %if.end.i39 ], [ -22, %for.body ], [ -22, %vhdx_log_desc_is_valid.argprom.exit ]
+free_and_exit:                                    ; preds = %vhdx_log_desc_is_valid.exit, %for.body, %if.end.i39, %if.end3.i42, %vhdx_log_desc_is_valid.exit.us, %if.end3.i42.us, %if.end.i39.us, %for.body.us, %vhdx_log_read_sectors.exit, %if.end21
+  %ret.1 = phi i32 [ %call.i34, %vhdx_log_read_sectors.exit ], [ -22, %if.end21 ], [ -22, %for.body.us ], [ -22, %if.end.i39.us ], [ -22, %if.end3.i42.us ], [ -22, %vhdx_log_desc_is_valid.exit.us ], [ -22, %if.end3.i42 ], [ -22, %if.end.i39 ], [ -22, %for.body ], [ -22, %vhdx_log_desc_is_valid.exit ]
   call void @qemu_vfree(ptr noundef nonnull %call12) #8
   br label %exit
 

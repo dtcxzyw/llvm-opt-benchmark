@@ -2459,7 +2459,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %3, align 8
   %.not11.i.i.i.i = icmp eq ptr %.val, %.val2
-  br i1 %.not11.i.i.i.i, label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolver20SetDefaultSearchPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0JRKNS0_17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not11.i.i.i.i, label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolver20SetDefaultSearchPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0JRKNS0_17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %17
   %.sroa.06.012.i.i.i.i = phi ptr [ %18, %17 ], [ %.val, %2 ]
@@ -2471,7 +2471,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, @_ZTSN32pxrInternal_v0_24__pxrReserved__24ArDefaultResolverContextE
-  br i1 %11, label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolver20SetDefaultSearchPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0JRKNS0_17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i.i.i
+  br i1 %11, label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolver20SetDefaultSearchPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0JRKNS0_17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %12 = load i8, ptr %10, align 1
@@ -2480,14 +2480,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKS
   %14 = getelementptr inbounds i8, ptr %10, i64 %.idx.i.i.i.i.i.i.i.i
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(63) @_ZTSN32pxrInternal_v0_24__pxrReserved__24ArDefaultResolverContextE, ptr noundef nonnull dereferenceable(1) %14) #17
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolver20SetDefaultSearchPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0JRKNS0_17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %17
+  br i1 %16, label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolver20SetDefaultSearchPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0JRKNS0_17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %17
 
 17:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %.sroa.06.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %18, %.val2
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolver20SetDefaultSearchPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0JRKNS0_17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit", label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolver20SetDefaultSearchPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0JRKNS0_17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %.lr.ph.i.i.i.i
 
-"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolver20SetDefaultSearchPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0JRKNS0_17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i.i.i, %17, %2
+"_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolver20SetDefaultSearchPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0JRKNS0_17ArResolverContextEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i.i.i, %17, %2
   %.0.i.i.i.i = phi i1 [ false, %2 ], [ false, %17 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i.i.i ], [ true, %.lr.ph.i.i.i.i ]
   ret i1 %.0.i.i.i.i
 }

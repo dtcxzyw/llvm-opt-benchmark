@@ -6461,9 +6461,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .noexc.i:                                         ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit37.i
   %128 = icmp eq ptr %127, null
-  br i1 %128, label %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.thread.i, label %130
+  br i1 %128, label %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i, label %130
 
-_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.thread.i: ; preds = %.noexc.i
+_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i: ; preds = %.noexc.i
   store i8 1, ptr %123, align 2
   %129 = getelementptr inbounds i8, ptr %78, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, i8 0, i64 24, i1 false)
@@ -6475,9 +6475,9 @@ _ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIc
 
 .noexc38.i:                                       ; preds = %130
   %132 = invoke ptr @proj_destroy(ptr noundef nonnull %127)
-          to label %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.i unwind label %144
+          to label %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i unwind label %144
 
-_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.i: ; preds = %.noexc38.i
+_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %.noexc38.i
   %133 = and i32 %131, -2
   %134 = icmp eq i32 %133, 12
   %135 = zext i1 %134 to i8
@@ -6486,7 +6486,7 @@ _ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %136, i8 0, i64 24, i1 false)
   br i1 %134, label %.thread54.i, label %137
 
-137:                                              ; preds = %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.i
+137:                                              ; preds = %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %138 = load i8, ptr %93, align 8
   %139 = trunc i8 %138 to i1
   br i1 %139, label %140, label %150
@@ -6572,8 +6572,8 @@ _ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIc
   call void @__cxa_free_exception(ptr %154) #32
   br label %278
 
-.thread54.i:                                      ; preds = %150, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.i, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.thread.i
-  %161 = phi ptr [ %136, %150 ], [ %136, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.i ], [ %129, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit.thread.i ]
+.thread54.i:                                      ; preds = %150, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i
+  %161 = phi ptr [ %136, %150 ], [ %136, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ %129, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i ]
   %162 = load ptr, ptr %78, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 904
   %164 = getelementptr inbounds i8, ptr %162, i64 912
@@ -6596,14 +6596,14 @@ _ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIc
 173:                                              ; preds = %.thread54.i
   %174 = getelementptr inbounds i8, ptr %78, i64 56
   %.not74.i = icmp eq ptr %165, %166
-  br i1 %.not74.i, label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE7reserveEm.exit.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.argprom.exit.i.i
+  br i1 %.not74.i, label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE7reserveEm.exit.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %173
+_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.exit.i.i: ; preds = %173
   %175 = shl nuw nsw i64 %170, 3
   %176 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %175) #35
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.argprom.exit.i.i unwind label %.loopexit.split-lp.i
+          to label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit.i.i unwind label %.loopexit.split-lp.i
 
-_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.argprom.exit.i.i: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.argprom.exit.i.i
+_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit.i.i: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.exit.i.i
   %177 = getelementptr inbounds i8, ptr %78, i64 48
   store ptr %176, ptr %161, align 8
   store ptr %176, ptr %177, align 8
@@ -6613,9 +6613,9 @@ _ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__
   %.pre72.i = load ptr, ptr %164, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE7reserveEm.exit.i
 
-_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.argprom.exit.i.i, %173
-  %179 = phi ptr [ %.pre72.i, %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.argprom.exit.i.i ], [ %165, %173 ]
-  %180 = phi ptr [ %.pre.i, %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.argprom.exit.i.i ], [ %166, %173 ]
+_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit.i.i, %173
+  %179 = phi ptr [ %.pre72.i, %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit.i.i ], [ %165, %173 ]
+  %180 = phi ptr [ %.pre.i, %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit.i.i ], [ %166, %173 ]
   %.not70.i = icmp eq ptr %180, %179
   br i1 %.not70.i, label %.loopexit, label %.lr.ph.i
 
@@ -6745,7 +6745,7 @@ _ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14Gri
   %242 = ptrtoint ptr %.val.i.i.i to i64
   %243 = sub i64 %241, %242
   %244 = icmp eq i64 %243, 9223372036854775800
-  br i1 %244, label %245, label %_ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  br i1 %244, label %245, label %_ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i
 
 245:                                              ; preds = %240
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.146) #34
@@ -6754,7 +6754,7 @@ _ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14Gri
 .noexc42.i:                                       ; preds = %245
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %240
+_ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %240
   %246 = ashr exact i64 %243, 3
   %247 = icmp eq ptr %235, %.val.i.i.i
   %.sroa.speculated.i.i.i.i = select i1 %247, i64 1, i64 %246
@@ -6768,10 +6768,10 @@ _ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14Gr
   %253 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %252) #35
           to label %.noexc43.i unwind label %.loopexit65.i
 
-.noexc43.i:                                       ; preds = %_ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+.noexc43.i:                                       ; preds = %_ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i
   %254 = getelementptr inbounds i8, ptr %253, i64 %243
   store i64 %237, ptr %254, align 8
-  br i1 %247, label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit27.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %247, label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit27.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc43.i, %.lr.ph.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i = phi ptr [ %256, %.lr.ph.i.i.i.i.i.i.i ], [ %253, %.noexc43.i ]
@@ -6784,19 +6784,19 @@ _ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14Gr
   %255 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 8
   %256 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %255, %235
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit27.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !80
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit27.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !80
 
-_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit27.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc43.i
+_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit27.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc43.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %253, %.noexc43.i ], [ %256, %.lr.ph.i.i.i.i.i.i.i ]
   %257 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 8
   %.not.i28.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i28.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12emplace_backIJS9_EEEvDpOT_.exit.i, label %258
 
-258:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit27.i.i.i
+258:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit27.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i) #37
   br label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12emplace_backIJS9_EEEvDpOT_.exit.i
 
-_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12emplace_backIJS9_EEEvDpOT_.exit.i: ; preds = %258, %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit27.i.i.i
+_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12emplace_backIJS9_EEEvDpOT_.exit.i: ; preds = %258, %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit27.i.i.i
   store ptr %253, ptr %161, align 8
   store ptr %257, ptr %181, align 8
   %259 = getelementptr inbounds %"class.std::unique_ptr.112", ptr %253, i64 %251
@@ -6837,13 +6837,13 @@ _ZNSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7Gri
           catch ptr @_ZTISt9exception
   br label %278
 
-.loopexit.split-lp.i:                             ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.argprom.exit.i.i, %172
+.loopexit.split-lp.i:                             ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.exit.i.i, %172
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   br label %278
 
-.loopexit65.i:                                    ; preds = %_ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+.loopexit65.i:                                    ; preds = %_ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit67.i = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -6919,18 +6919,18 @@ _ZNSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7Gri
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %283) #32
   %284 = load ptr, ptr %281, align 8
   %.not.i.i.i.i.i = icmp eq ptr %284, null
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.argprom.exit.i.i, label %_ZNKSt14default_deleteIN16DeformationModel10MasterFileEEclEPS1_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.exit.i.i, label %_ZNKSt14default_deleteIN16DeformationModel10MasterFileEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN16DeformationModel10MasterFileEEclEPS1_.exit.i.i.i.i.i: ; preds = %282
   call void @_ZN16DeformationModel10MasterFileD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %284) #32
   call void @_ZdlPv(ptr noundef nonnull %284) #37
-  br label %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.argprom.exit.i.i
+  br label %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.exit.i.i
 
-_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.argprom.exit.i.i: ; preds = %_ZNKSt14default_deleteIN16DeformationModel10MasterFileEEclEPS1_.exit.i.i.i.i.i, %282
+_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN16DeformationModel10MasterFileEEclEPS1_.exit.i.i.i.i.i, %282
   call void @_ZdlPv(ptr noundef nonnull %281) #37
   br label %_ZNSt10unique_ptrIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
-_ZNSt10unique_ptrIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %.loopexit, %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.argprom.exit.i.i
+_ZNSt10unique_ptrIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %.loopexit, %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.exit.i.i
   %285 = load ptr, ptr %11, align 8
   %.not.i65 = icmp eq ptr %285, null
   br i1 %.not.i65, label %_ZNSt10unique_ptrIN16DeformationModel10MasterFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN16DeformationModel10MasterFileEEclEPS1_.exit.i
@@ -7081,13 +7081,13 @@ define internal noundef ptr @_ZL10destructorP8PJconstsi(ptr noundef %0, i32 noun
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   %.val.i = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_114EvaluatorIfaceD2Ev.argprom.exit.i, label %10
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_114EvaluatorIfaceD2Ev.exit.i, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %.val.i, i64 152
   %12 = load ptr, ptr %11, align 8
   %13 = invoke noundef ptr %12(ptr noundef nonnull %.val.i, i32 noundef 0)
-          to label %_ZN12_GLOBAL__N_114EvaluatorIfaceD2Ev.argprom.exit.i unwind label %14
+          to label %_ZN12_GLOBAL__N_114EvaluatorIfaceD2Ev.exit.i unwind label %14
 
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
@@ -7096,28 +7096,28 @@ define internal noundef ptr @_ZL10destructorP8PJconstsi(ptr noundef %0, i32 noun
   tail call void @__clang_call_terminate(ptr %16) #33
   unreachable
 
-_ZN12_GLOBAL__N_114EvaluatorIfaceD2Ev.argprom.exit.i: ; preds = %10, %8
+_ZN12_GLOBAL__N_114EvaluatorIfaceD2Ev.exit.i:     ; preds = %10, %8
   %17 = load ptr, ptr %6, align 8
   %.not.i1.i = icmp eq ptr %17, null
   br i1 %.not.i1.i, label %_ZN12_GLOBAL__N_112defmodelDataD2Ev.exit, label %18
 
-18:                                               ; preds = %_ZN12_GLOBAL__N_114EvaluatorIfaceD2Ev.argprom.exit.i
+18:                                               ; preds = %_ZN12_GLOBAL__N_114EvaluatorIfaceD2Ev.exit.i
   %19 = getelementptr inbounds i8, ptr %17, i64 40
   tail call fastcc void @_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #32
   %20 = load ptr, ptr %17, align 8
   %.not.i.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.argprom.exit.i.i, label %_ZNKSt14default_deleteIN16DeformationModel10MasterFileEEclEPS1_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.exit.i.i, label %_ZNKSt14default_deleteIN16DeformationModel10MasterFileEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN16DeformationModel10MasterFileEEclEPS1_.exit.i.i.i.i.i: ; preds = %18
   tail call void @_ZN16DeformationModel10MasterFileD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %20) #32
   tail call void @_ZdlPv(ptr noundef nonnull %20) #37
-  br label %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.argprom.exit.i.i
+  br label %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.exit.i.i
 
-_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.argprom.exit.i.i: ; preds = %_ZNKSt14default_deleteIN16DeformationModel10MasterFileEEclEPS1_.exit.i.i.i.i.i, %18
+_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN16DeformationModel10MasterFileEEclEPS1_.exit.i.i.i.i.i, %18
   tail call void @_ZdlPv(ptr noundef nonnull %17) #37
   br label %_ZN12_GLOBAL__N_112defmodelDataD2Ev.exit
 
-_ZN12_GLOBAL__N_112defmodelDataD2Ev.exit:         ; preds = %_ZN12_GLOBAL__N_114EvaluatorIfaceD2Ev.argprom.exit.i, %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.argprom.exit.i.i
+_ZN12_GLOBAL__N_112defmodelDataD2Ev.exit:         ; preds = %_ZN12_GLOBAL__N_114EvaluatorIfaceD2Ev.exit.i, %_ZNKSt14default_deleteIN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS2_7GridSetENS2_14EvaluatorIfaceEEEEclEPS6_.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %6) #37
   br label %21
 
@@ -7149,7 +7149,7 @@ define internal void @_ZL16reassign_contextP8PJconstsP6pj_ctx(ptr nocapture noun
   %9 = getelementptr i8, ptr %.val, i64 48
   %.val7 = load ptr, ptr %9, align 8
   %.not2.i = icmp eq ptr %.val6, %.val7
-  br i1 %.not2.i, label %_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE14clearGridCacheEv.argprom.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE14clearGridCacheEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %_ZN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE14clearGridCacheEv.exit.i
   %.sroa.01.03.i = phi ptr [ %24, %_ZN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE14clearGridCacheEv.exit.i ], [ %.val6, %7 ]
@@ -7163,27 +7163,27 @@ define internal void @_ZL16reassign_contextP8PJconstsP6pj_ctx(ptr nocapture noun
 12:                                               ; preds = %.lr.ph.i
   %13 = getelementptr inbounds i8, ptr %11, i64 32
   %.val.i.i.i.i.i.i = load ptr, ptr %13, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E.argprom(ptr noundef %.val.i.i.i.i.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i.i)
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %12
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(96) %15) #32
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i, %12
+_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i, %12
   tail call void @_ZdlPv(ptr noundef nonnull %11) #37
   br label %_ZN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE14clearGridCacheEv.exit.i
 
-_ZN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE14clearGridCacheEv.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i, %.lr.ph.i
+_ZN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE14clearGridCacheEv.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i, %.lr.ph.i
   %19 = getelementptr inbounds i8, ptr %.val6.i, i64 40
   %.val.i.i.i.i = load ptr, ptr %19, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E.argprom(ptr noundef %.val.i.i.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %.val.i.i.i.i)
   %20 = getelementptr inbounds i8, ptr %.val6.i, i64 32
   store ptr null, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %.val6.i, i64 48
@@ -7194,13 +7194,13 @@ _ZN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE14clearGri
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %.sroa.01.03.i, i64 8
   %.not.i = icmp eq ptr %24, %.val7
-  br i1 %.not.i, label %_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE14clearGridCacheEv.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE14clearGridCacheEv.exit, label %.lr.ph.i
 
-_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE14clearGridCacheEv.argprom.exit: ; preds = %_ZN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE14clearGridCacheEv.exit.i, %7
+_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE14clearGridCacheEv.exit: ; preds = %_ZN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE14clearGridCacheEv.exit.i, %7
   store ptr %1, ptr %5, align 8
   br label %25
 
-25:                                               ; preds = %_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE14clearGridCacheEv.argprom.exit, %2
+25:                                               ; preds = %_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE14clearGridCacheEv.exit, %2
   ret void
 }
 
@@ -8804,7 +8804,7 @@ define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN16DeformationModel11Co
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
-  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.argprom.exit, label %.lr.ph.i.i.i
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %17, %_ZSt8_DestroyISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i ], [ %2, %1 ]
@@ -8815,56 +8815,56 @@ define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN16DeformationModel11Co
 6:                                                ; preds = %.lr.ph.i.i.i
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   %.val.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E.argprom(ptr noundef %.val.i.i.i.i.i.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %.val.i.i.i.i.i.i.i)
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.argprom.exit.i.i.i.i.i, label %10
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.exit.i.i.i.i.i, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %9, i64 32
   %.val.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E.argprom(ptr noundef %.val.i.i.i.i.i.i.i.i.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i.i.i.i.i.i)
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %10
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(96) %13) #32
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i, %10
+_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i, %10
   tail call void @_ZdlPv(ptr noundef nonnull %9) #37
-  br label %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.argprom.exit.i.i.i.i.i
+  br label %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.exit.i.i.i.i.i
 
-_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.argprom.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i.i.i.i.i, %6
+_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i.i.i.i.i, %6
   tail call void @_ZdlPv(ptr noundef nonnull %5) #37
   br label %_ZSt8_DestroyISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.argprom.exit.i.i.i.i.i, %.lr.ph.i.i.i
+_ZSt8_DestroyISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.exit.i.i.i.i.i, %.lr.ph.i.i.i
   store ptr null, ptr %.05.i.i.i, align 8
   %17 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %17, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.argprom.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !95
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !95
 
-_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.argprom.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i
+_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i
   %.val.pr = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.argprom.exit
+  br label %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit
 
-_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.argprom.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.argprom.exitthread-pre-split, %1
-  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.argprom.exitthread-pre-split ], [ %2, %1 ]
+_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split, %1
+  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EED2Ev.argprom.exit, label %18
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EED2Ev.exit, label %18
 
-18:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.argprom.exit
+18:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #37
-  br label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EED2Ev.exit
 
-_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EED2Ev.argprom.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.argprom.exit, %18
+_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit, %18
   ret void
 }
 
@@ -8877,43 +8877,43 @@ define internal fastcc void @_ZNSt10unique_ptrIN16DeformationModel11ComponentExI
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   %.val.i.i = load ptr, ptr %4, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E.argprom(ptr noundef %.val.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %.val.i.i)
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.argprom.exit, label %7
+  br i1 %.not.i.i.i, label %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.exit, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %6, i64 32
   %.val.i.i.i.i.i = load ptr, ptr %8, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E.argprom(ptr noundef %.val.i.i.i.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i)
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %7
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(96) %10) #32
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i, %7
+_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i, %7
   tail call void @_ZdlPv(ptr noundef nonnull %6) #37
-  br label %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.argprom.exit
+  br label %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.exit
 
-_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.argprom.exit: ; preds = %3, %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i
+_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.exit: ; preds = %3, %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %2) #37
   br label %14
 
-14:                                               ; preds = %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.argprom.exit, %1
+14:                                               ; preds = %_ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEEEclEPS5_.exit, %1
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E.argprom(ptr noundef %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -8921,7 +8921,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N
   %.02 = phi ptr [ %.0.val6, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E.argprom(ptr noundef %.0.val)
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %.0.val)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val6 = load ptr, ptr %3, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.02) #37
@@ -8933,32 +8933,32 @@ define internal fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E.argprom(ptr noundef %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.argprom.exit
-  %.02 = phi ptr [ %.0.val6, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.argprom.exit ], [ %0, %1 ]
+.lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit
+  %.02 = phi ptr [ %.0.val6, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E.argprom(ptr noundef %.0.val)
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.0.val)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val6 = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.02, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.argprom.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_14GridEEclEPS1_.argprom.exit.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_14GridEEclEPS1_.exit.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_14GridEEclEPS1_.argprom.exit.i.i.i.i.i.i: ; preds = %.lr.ph
+_ZNKSt14default_deleteIN12_GLOBAL__N_14GridEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %.lr.ph
   tail call void @_ZdlPv(ptr noundef nonnull %5) #37
-  br label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.argprom.exit
+  br label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit
 
-_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.argprom.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN12_GLOBAL__N_14GridEEclEPS1_.argprom.exit.i.i.i.i.i.i
+_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN12_GLOBAL__N_14GridEEclEPS1_.exit.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.02) #37
   %.not = icmp eq ptr %.0.val6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
-._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.argprom.exit, %1
+._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit, %1
   ret void
 }
 
@@ -9362,24 +9362,24 @@ _ZN12_GLOBAL__N_114EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_tra
 192:                                              ; preds = %_ZN12_GLOBAL__N_114EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %193 = getelementptr inbounds i8, ptr %191, i64 32
   %.val.i.i.i.i.i.i = load ptr, ptr %193, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E.argprom(ptr noundef %.val.i.i.i.i.i.i)
+  call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i.i)
   %194 = getelementptr inbounds i8, ptr %191, i64 8
   %195 = load ptr, ptr %194, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %195, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %192
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 8
   %198 = load ptr, ptr %197, align 8
   call void %198(ptr noundef nonnull align 8 dereferenceable(96) %195) #32
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i, %192
+_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i.i, %192
   call void @_ZdlPv(ptr noundef nonnull %191) #37
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.argprom.exit.i.i.i.i, %_ZN12_GLOBAL__N_114EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i, %_ZN12_GLOBAL__N_114EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.val264 = load ptr, ptr %.sroa.0402.0495, align 8
   %199 = getelementptr inbounds i8, ptr %.val264, i64 16
   %.val273 = load ptr, ptr %199, align 8
@@ -9399,7 +9399,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit: ; p
   %.val.i.i.i323 = load ptr, ptr %205, align 8
   %206 = getelementptr inbounds i8, ptr %.val274, i64 24
   %.not2.i.i.i.i = icmp eq ptr %.val.i.i.i323, null
-  br i1 %.not2.i.i.i.i, label %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.argprom.exit.thread.i, label %.lr.ph.i.i.i.i
+  br i1 %.not2.i.i.i.i, label %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.thread.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %204, %.lr.ph.i.i.i.i
   %.04.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.val.i.i.i323, %204 ]
@@ -9412,19 +9412,19 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit: ; p
   %.1.in.i.i.i.i = getelementptr i8, ptr %.04.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i324 = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i324, label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS6_.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !103
+  br i1 %.not.i.i.i.i324, label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS6_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !103
 
-_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS6_.argprom.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS6_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %210 = icmp eq ptr %.19.i.i.i.i, %206
-  br i1 %210, label %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.argprom.exit.thread.i, label %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.argprom.exit.i
+  br i1 %210, label %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.thread.i, label %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.i
 
-_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.argprom.exit.i: ; preds = %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS6_.argprom.exit.i.i.i
+_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.i: ; preds = %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS6_.exit.i.i.i
   %211 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %212 = load ptr, ptr %211, align 8
   %213 = icmp ult ptr %203, %212
-  br i1 %213, label %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.argprom.exit.thread.i, label %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit
+  br i1 %213, label %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.thread.i, label %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit
 
-_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.argprom.exit.thread.i: ; preds = %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.argprom.exit.i, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS6_.argprom.exit.i.i.i, %204
+_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.thread.i: ; preds = %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.i, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS6_.exit.i.i.i, %204
   %214 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #35
   %215 = load ptr, ptr %.val274, align 8
   %216 = getelementptr inbounds i8, ptr %214, i64 40
@@ -9467,7 +9467,7 @@ _ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridES
   %240 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #35
           to label %.noexc.i unwind label %_ZNSt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS1_EED2Ev.exit20.i
 
-.noexc.i:                                         ; preds = %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.argprom.exit.thread.i
+.noexc.i:                                         ; preds = %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.thread.i
   %241 = ptrtoint ptr %214 to i64
   %242 = getelementptr inbounds i8, ptr %240, i64 32
   store ptr %203, ptr %242, align 8
@@ -9507,7 +9507,7 @@ _ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridES
   %.012.lcssa22.i.i.i.i = phi ptr [ %.012.lcssa21.i.i.i.i, %249 ], [ %.01317.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.01.0.i.i.i.i = phi ptr [ %250, %249 ], [ %.01317.i.i.i.i, %._crit_edge.i.i.i.i ]
   %253 = icmp ult ptr %252, %203
-  br i1 %253, label %select.unfold.i.i.i, label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.argprom.exit.i.i.i.i
+  br i1 %253, label %select.unfold.i.i.i, label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i.i
 
 select.unfold.i.i.i:                              ; preds = %251, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.012.lcssa21.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.012.lcssa22.i.i.i.i, %251 ]
@@ -9529,19 +9529,19 @@ select.unfold.i.i.i:                              ; preds = %251, %._crit_edge.t
   store i64 %262, ptr %260, align 8
   br label %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit
 
-_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.argprom.exit.i.i.i.i: ; preds = %251
+_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i.i: ; preds = %251
   call void @_ZdlPv(ptr noundef nonnull %214) #37
   call void @_ZdlPv(ptr noundef nonnull %240) #37
   br label %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS1_EED2Ev.exit20.i: ; preds = %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.argprom.exit.thread.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS1_EED2Ev.exit20.i: ; preds = %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.thread.i
   %263 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %214) #37
   br label %common.resume
 
-_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.argprom.exit.i, %.thread21.i.i.i, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.argprom.exit.i.i.i.i
-  %.sroa.025.0.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.argprom.exit.i ], [ %240, %.thread21.i.i.i ], [ %.sroa.01.0.i.i.i.i, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.argprom.exit.i.i.i.i ]
+_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.i, %.thread21.i.i.i, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i.i
+  %.sroa.025.0.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.i ], [ %240, %.thread21.i.i.i ], [ %.sroa.01.0.i.i.i.i, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i.i.i.i ]
   %264 = getelementptr inbounds i8, ptr %.sroa.025.0.i, i64 40
   %.val12.i = load ptr, ptr %264, align 8
   %265 = icmp eq ptr %.val12.i, null
@@ -9827,7 +9827,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   %.val.i.i = load ptr, ptr %437, align 8
   %438 = getelementptr inbounds i8, ptr %.val259, i64 32
   %.not2.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not2.i.i.i, label %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.argprom.exit.thread, label %.lr.ph.i.i.i
+  br i1 %.not2.i.i.i, label %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %436, %.lr.ph.i.i.i
   %.04.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i, %436 ]
@@ -9840,19 +9840,19 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   %.1.in.i.i.i = getelementptr i8, ptr %.04.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !105
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !105
 
-_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i
+_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %442 = icmp eq ptr %.19.i.i.i, %438
-  br i1 %442, label %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.argprom.exit.thread, label %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.argprom.exit
+  br i1 %442, label %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, label %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit
 
-_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.argprom.exit: ; preds = %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.argprom.exit.i.i
+_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit: ; preds = %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i
   %443 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %444 = load ptr, ptr %443, align 8
   %445 = icmp ult ptr %.val12.i, %444
-  br i1 %445, label %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.argprom.exit.thread, label %460
+  br i1 %445, label %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, label %460
 
-_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.argprom.exit.thread: ; preds = %436, %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.argprom.exit.i.i, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.argprom.exit
+_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread: ; preds = %436, %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit
   %446 = load double, ptr %277, align 8
   %447 = fcmp olt double %446, 0x3F91DF46A2529D39
   %448 = zext i1 %447 to i8
@@ -9877,11 +9877,11 @@ _ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaI
   store double %457, ptr %.sroa.9.0..sroa_idx, align 8
   store i32 -1, ptr %.sroa.10.0..sroa_idx, align 8
   store i32 -1, ptr %.sroa.11.0..sroa_idx, align 4
-  %459 = call fastcc ptr @_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE6insertIS9_IS3_S6_EEENSt9enable_ifIXsr16is_constructibleISB_T_EE5valueES9_ISt17_Rb_tree_iteratorISB_EbEE4typeEOSH_.argelim(ptr noundef nonnull align 8 dereferenceable(48) %458, ptr noundef nonnull align 8 dereferenceable(192) %47)
+  %459 = call fastcc ptr @_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE6insertIS9_IS3_S6_EEENSt9enable_ifIXsr16is_constructibleISB_T_EE5valueES9_ISt17_Rb_tree_iteratorISB_EbEE4typeEOSH_(ptr noundef nonnull align 8 dereferenceable(48) %458, ptr noundef nonnull align 8 dereferenceable(192) %47)
   br label %460
 
-460:                                              ; preds = %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.argprom.exit.thread, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.argprom.exit
-  %.sroa.0336.0 = phi ptr [ %459, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.argprom.exit.thread ], [ %.19.i.i.i, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.argprom.exit ]
+460:                                              ; preds = %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit
+  %.sroa.0336.0 = phi ptr [ %459, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread ], [ %.19.i.i.i, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit ]
   %461 = getelementptr inbounds i8, ptr %.sroa.0336.0, i64 40
   %462 = load double, ptr %32, align 8
   %463 = load double, ptr %33, align 8
@@ -10490,7 +10490,7 @@ _ZNK12_GLOBAL__N_14Grid24getEastingNorthingOffsetEiiRdS1_.exit: ; preds = %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE6insertIS9_IS3_S6_EEENSt9enable_ifIXsr16is_constructibleISB_T_EE5valueES9_ISt17_Rb_tree_iteratorISB_EbEE4typeEOSH_.argelim(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc ptr @_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE6insertIS9_IS3_S6_EEENSt9enable_ifIXsr16is_constructibleISB_T_EE5valueES9_ISt17_Rb_tree_iteratorISB_EbEE4typeEOSH_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #35
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %1, align 8
@@ -26590,10 +26590,10 @@ attributes #39 = { nounwind willreturn memory(none) }
 !73 = distinct !{!73, !62, !"_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE3endEv: argument 0:thread"}
 !74 = distinct !{!74, !5}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZSt19__relocate_object_aISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_SaIS9_EEvPT_PT0_RT1_.argprom: argument 0"}
-!77 = distinct !{!77, !"_ZSt19__relocate_object_aISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_SaIS9_EEvPT_PT0_RT1_.argprom"}
+!76 = distinct !{!76, !77, !"_ZSt19__relocate_object_aISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_SaIS9_EEvPT_PT0_RT1_: argument 0"}
+!77 = distinct !{!77, !"_ZSt19__relocate_object_aISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_SaIS9_EEvPT_PT0_RT1_"}
 !78 = !{!79}
-!79 = distinct !{!79, !77, !"_ZSt19__relocate_object_aISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_SaIS9_EEvPT_PT0_RT1_.argprom: argument 1"}
+!79 = distinct !{!79, !77, !"_ZSt19__relocate_object_aISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EES9_SaIS9_EEvPT_PT0_RT1_: argument 1"}
 !80 = distinct !{!80, !5}
 !81 = distinct !{!81, !5}
 !82 = distinct !{!82, !5}

@@ -701,7 +701,7 @@ _ZN12_GLOBAL__N_117addDxilValVersionEN4llvm9StringRefERNS0_6ModuleE.exit: ; pred
   %114 = getelementptr inbounds nuw i8, ptr %.030, i64 40
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %113, %115
-  br i1 %116, label %_ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm10DataLayoutE.argprom.exit, label %.preheader.i
+  br i1 %116, label %_ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm10DataLayoutE.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %111, %_ZNSt6vectorIPN4llvm4TypeESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit.i
   %.sroa.06.021.i = phi ptr [ %.sroa.06.1.i, %_ZNSt6vectorIPN4llvm4TypeESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit.i ], [ null, %111 ]
@@ -793,9 +793,9 @@ _ZNSt6vectorIPN4llvm4TypeESaIS2_EED2Ev.exit.i:    ; preds = %_ZNSt6vectorIPN4llv
   %153 = ptrtoint ptr %.sroa.13.1.i to i64
   %154 = sub i64 %153, %148
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.06.1.i, i64 noundef %154) #19
-  br label %_ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm10DataLayoutE.argprom.exit
+  br label %_ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm10DataLayoutE.exit
 
-_ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm10DataLayoutE.argprom.exit: ; preds = %111, %_ZNSt6vectorIPN4llvm4TypeESaIS2_EED2Ev.exit.i
+_ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm10DataLayoutE.exit: ; preds = %111, %_ZNSt6vectorIPN4llvm4TypeESaIS2_EED2Ev.exit.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
@@ -844,7 +844,7 @@ _ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm1
   %.not27.i = icmp eq ptr %164, %165
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm10DataLayoutE.argprom.exit
+.lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm10DataLayoutE.exit
   %166 = getelementptr inbounds nuw i8, ptr %155, i64 8
   br label %167
 
@@ -960,7 +960,7 @@ _ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5T
   %.not.i22 = icmp eq ptr %218, %165
   br i1 %.not.i22, label %._crit_edge.i, label %167
 
-._crit_edge.i:                                    ; preds = %_ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE.exit, %_ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm10DataLayoutE.argprom.exit
+._crit_edge.i:                                    ; preds = %_ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE.exit, %_ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm10DataLayoutE.exit
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %94) #16
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %93) #16
   %219 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16

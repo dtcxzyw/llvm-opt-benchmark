@@ -621,19 +621,19 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 217:                                              ; preds = %206
-  call fastcc void @dissect_lwm_cmd_frame_ack.retelim(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %214)
+  call fastcc void @dissect_lwm_cmd_frame_ack(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %214)
   br label %225
 
 218:                                              ; preds = %206
-  call fastcc void @dissect_lwm_cmd_frame_route_err.argprom.retelim(ptr noundef %113, ptr noundef %214)
+  call fastcc void @dissect_lwm_cmd_frame_route_err(ptr noundef %113, ptr noundef %214)
   br label %225
 
 219:                                              ; preds = %206
-  call fastcc void @dissect_lwm_cmd_frame_route_req.argprom.retelim(ptr noundef %113, ptr noundef %214)
+  call fastcc void @dissect_lwm_cmd_frame_route_req(ptr noundef %113, ptr noundef %214)
   br label %225
 
 220:                                              ; preds = %206
-  call fastcc void @dissect_lwm_cmd_frame_route_reply.argprom.retelim(ptr noundef %113, ptr noundef %214)
+  call fastcc void @dissect_lwm_cmd_frame_route_reply(ptr noundef %113, ptr noundef %214)
   br label %225
 
 221:                                              ; preds = %206
@@ -776,7 +776,7 @@ declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lwm_cmd_frame_ack.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_lwm_cmd_frame_ack(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -799,7 +799,7 @@ define internal fastcc void @dissect_lwm_cmd_frame_ack.retelim(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lwm_cmd_frame_route_err.argprom.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_lwm_cmd_frame_route_err(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %3
 
@@ -821,7 +821,7 @@ define internal fastcc void @dissect_lwm_cmd_frame_route_err.argprom.retelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lwm_cmd_frame_route_req.argprom.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_lwm_cmd_frame_route_req(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %18, label %3
 
@@ -852,7 +852,7 @@ define internal fastcc void @dissect_lwm_cmd_frame_route_req.argprom.retelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lwm_cmd_frame_route_reply.argprom.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_lwm_cmd_frame_route_reply(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %3
 

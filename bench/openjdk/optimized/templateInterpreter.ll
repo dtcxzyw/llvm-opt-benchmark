@@ -741,7 +741,7 @@ define hidden void @_ZN19TemplateInterpreter17notice_safepointsEv() local_unname
 
 9:                                                ; preds = %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20480) @_ZN19TemplateInterpreter13_active_tableE, ptr noundef nonnull align 8 dereferenceable(20480) @_ZN19TemplateInterpreter13_safept_tableE, i64 20480, i1 false)
-  br label %_ZL10copy_tablePPhS0_i.argprom.exit
+  br label %_ZL10copy_tablePPhS0_i.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %6, %.lr.ph.i.i.i.i
   %.024.i.i.i.i = phi i64 [ %10, %.lr.ph.i.i.i.i ], [ 2560, %6 ]
@@ -753,16 +753,16 @@ define hidden void @_ZN19TemplateInterpreter17notice_safepointsEv() local_unname
   %13 = load volatile ptr, ptr %.02022.i.i.i.i, align 8
   store volatile ptr %13, ptr %.01923.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i.i, label %_ZL10copy_tablePPhS0_i.argprom.exit, label %.lr.ph.i.i.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i.i, label %_ZL10copy_tablePPhS0_i.exit, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 14:                                               ; preds = %0
-  br i1 %.not1, label %_ZL10copy_tablePPhS0_i.argprom.exit, label %15
+  br i1 %.not1, label %_ZL10copy_tablePPhS0_i.exit, label %15
 
 15:                                               ; preds = %14
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE62ELS1_132ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.19)
-  br label %_ZL10copy_tablePPhS0_i.argprom.exit
+  br label %_ZL10copy_tablePPhS0_i.exit
 
-_ZL10copy_tablePPhS0_i.argprom.exit:              ; preds = %.lr.ph.i.i.i.i, %9, %15, %14
+_ZL10copy_tablePPhS0_i.exit:                      ; preds = %.lr.ph.i.i.i.i, %9, %15, %14
   ret void
 }
 
@@ -803,7 +803,7 @@ define hidden void @_ZN19TemplateInterpreter17ignore_safepointsEv() local_unname
 
 12:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20480) @_ZN19TemplateInterpreter13_active_tableE, ptr noundef nonnull align 8 dereferenceable(20480) @_ZN19TemplateInterpreter13_normal_tableE, i64 20480, i1 false)
-  br label %_ZL10copy_tablePPhS0_i.argprom.exit
+  br label %_ZL10copy_tablePPhS0_i.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %9, %.lr.ph.i.i.i.i
   %.024.i.i.i.i = phi i64 [ %13, %.lr.ph.i.i.i.i ], [ 2560, %9 ]
@@ -815,25 +815,25 @@ define hidden void @_ZN19TemplateInterpreter17ignore_safepointsEv() local_unname
   %16 = load volatile ptr, ptr %.02022.i.i.i.i, align 8
   store volatile ptr %16, ptr %.01923.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i.i, label %_ZL10copy_tablePPhS0_i.argprom.exit, label %.lr.ph.i.i.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i.i, label %_ZL10copy_tablePPhS0_i.exit, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 17:                                               ; preds = %3
-  br i1 %.not2, label %_ZL10copy_tablePPhS0_i.argprom.exit, label %18
+  br i1 %.not2, label %_ZL10copy_tablePPhS0_i.exit, label %18
 
 18:                                               ; preds = %17
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE62ELS1_132ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.21)
-  br label %_ZL10copy_tablePPhS0_i.argprom.exit
+  br label %_ZL10copy_tablePPhS0_i.exit
 
 19:                                               ; preds = %0
   %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_132ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %_ZL10copy_tablePPhS0_i.argprom.exit, label %21
+  br i1 %.not, label %_ZL10copy_tablePPhS0_i.exit, label %21
 
 21:                                               ; preds = %19
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE62ELS1_132ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.22)
-  br label %_ZL10copy_tablePPhS0_i.argprom.exit
+  br label %_ZL10copy_tablePPhS0_i.exit
 
-_ZL10copy_tablePPhS0_i.argprom.exit:              ; preds = %.lr.ph.i.i.i.i, %12, %21, %19, %17, %18
+_ZL10copy_tablePPhS0_i.exit:                      ; preds = %.lr.ph.i.i.i.i, %12, %21, %19, %17, %18
   ret void
 }
 

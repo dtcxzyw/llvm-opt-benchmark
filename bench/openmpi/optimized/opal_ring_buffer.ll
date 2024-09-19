@@ -190,7 +190,7 @@ define ptr @opal_ring_buffer_push(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
-  tail call fastcc void @opal_condition_wait.retelim(ptr noundef nonnull %12, ptr noundef nonnull %13)
+  tail call fastcc void @opal_condition_wait(ptr noundef nonnull %12, ptr noundef nonnull %13)
   %15 = load i8, ptr %9, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %14, label %._crit_edge, !llvm.loop !7
@@ -258,7 +258,7 @@ define ptr @opal_ring_buffer_push(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @opal_condition_wait.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @opal_condition_wait(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load volatile i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -346,7 +346,7 @@ define ptr @opal_ring_buffer_pop(ptr noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
-  tail call fastcc void @opal_condition_wait.retelim(ptr noundef nonnull %11, ptr noundef nonnull %12)
+  tail call fastcc void @opal_condition_wait(ptr noundef nonnull %11, ptr noundef nonnull %12)
   %14 = load i8, ptr %8, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %13, label %._crit_edge, !llvm.loop !10
@@ -422,7 +422,7 @@ define ptr @opal_ring_buffer_poke(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
-  tail call fastcc void @opal_condition_wait.retelim(ptr noundef nonnull %12, ptr noundef nonnull %13)
+  tail call fastcc void @opal_condition_wait(ptr noundef nonnull %12, ptr noundef nonnull %13)
   %15 = load i8, ptr %9, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %14, label %._crit_edge, !llvm.loop !11

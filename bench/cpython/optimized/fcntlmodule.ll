@@ -163,7 +163,7 @@ skip_optional:                                    ; preds = %if.end13, %if.end16
   %cond.i = select i1 %tobool.not.i, ptr @_Py_NoneStruct, ptr %arg.0
   %call.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %4, i32 noundef %call7, ptr noundef nonnull %cond.i) #7
   %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %fcntl_fcntl_impl.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %fcntl_fcntl_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional
   br i1 %tobool.not.i, label %do.body34.i.preheader, label %if.then2.i
@@ -181,7 +181,7 @@ if.then5.i:                                       ; preds = %if.then2.i
 if.then7.i:                                       ; preds = %if.then5.i
   %6 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.7) #7
-  br label %fcntl_fcntl_impl.argprom.exit
+  br label %fcntl_fcntl_impl.exit
 
 if.end8.i:                                        ; preds = %if.then5.i
   %7 = load ptr, ptr %str.i, align 8
@@ -204,7 +204,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call15.i = call i32 @PyErr_CheckSignals() #7
   %tobool16.not.i = icmp eq i32 %call15.i, 0
-  br i1 %tobool16.not.i, label %do.body.i, label %fcntl_fcntl_impl.argprom.exit, !llvm.loop !4
+  br i1 %tobool16.not.i, label %do.body.i, label %fcntl_fcntl_impl.exit, !llvm.loop !4
 
 do.end.i:                                         ; preds = %do.body.i
   %cmp17.i = icmp slt i32 %call11.i, 0
@@ -213,18 +213,18 @@ do.end.i:                                         ; preds = %do.body.i
 cond.true20.i:                                    ; preds = %land.lhs.true.i, %do.end.i
   %9 = load ptr, ptr @PyExc_OSError, align 8
   %call21.i = call ptr @PyErr_SetFromErrno(ptr noundef %9) #7
-  br label %fcntl_fcntl_impl.argprom.exit
+  br label %fcntl_fcntl_impl.exit
 
 if.end25.i:                                       ; preds = %do.end.i
   %10 = load i64, ptr %len.i, align 8
   %call27.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %buf.i, i64 noundef %10) #7
-  br label %fcntl_fcntl_impl.argprom.exit
+  br label %fcntl_fcntl_impl.exit
 
 if.end28.i:                                       ; preds = %if.then2.i
   call void @PyErr_Clear() #7
   %call29.i = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef nonnull %arg.0, ptr noundef nonnull @.str.8, ptr noundef nonnull %int_arg.i) #7
   %tobool30.not.i = icmp eq i32 %call29.i, 0
-  br i1 %tobool30.not.i, label %fcntl_fcntl_impl.argprom.exit, label %do.body34.i.preheader
+  br i1 %tobool30.not.i, label %fcntl_fcntl_impl.exit, label %do.body34.i.preheader
 
 do.body34.i.preheader:                            ; preds = %if.end28.i, %if.end.i
   br label %do.body34.i
@@ -246,7 +246,7 @@ land.lhs.true40.i:                                ; preds = %do.body34.i
 land.rhs43.i:                                     ; preds = %land.lhs.true40.i
   %call44.i = call i32 @PyErr_CheckSignals() #7
   %tobool45.not.i = icmp eq i32 %call44.i, 0
-  br i1 %tobool45.not.i, label %do.body34.i, label %fcntl_fcntl_impl.argprom.exit, !llvm.loop !6
+  br i1 %tobool45.not.i, label %do.body34.i, label %fcntl_fcntl_impl.exit, !llvm.loop !6
 
 do.end48.i:                                       ; preds = %do.body34.i
   %cmp49.i = icmp slt i32 %call37.i, 0
@@ -255,14 +255,14 @@ do.end48.i:                                       ; preds = %do.body34.i
 cond.true52.i:                                    ; preds = %land.lhs.true40.i, %do.end48.i
   %13 = load ptr, ptr @PyExc_OSError, align 8
   %call53.i = call ptr @PyErr_SetFromErrno(ptr noundef %13) #7
-  br label %fcntl_fcntl_impl.argprom.exit
+  br label %fcntl_fcntl_impl.exit
 
 if.end57.i:                                       ; preds = %do.end48.i
   %conv.i = zext nneg i32 %call37.i to i64
   %call58.i = call ptr @PyLong_FromLong(i64 noundef %conv.i) #7
-  br label %fcntl_fcntl_impl.argprom.exit
+  br label %fcntl_fcntl_impl.exit
 
-fcntl_fcntl_impl.argprom.exit:                    ; preds = %land.rhs.i, %land.rhs43.i, %skip_optional, %if.then7.i, %cond.true20.i, %if.end25.i, %if.end28.i, %cond.true52.i, %if.end57.i
+fcntl_fcntl_impl.exit:                            ; preds = %land.rhs.i, %land.rhs43.i, %skip_optional, %if.then7.i, %cond.true20.i, %if.end25.i, %if.end28.i, %cond.true52.i, %if.end57.i
   %retval.0.i = phi ptr [ null, %if.then7.i ], [ %call27.i, %if.end25.i ], [ %call58.i, %if.end57.i ], [ null, %skip_optional ], [ %call21.i, %cond.true20.i ], [ null, %if.end28.i ], [ %call53.i, %cond.true52.i ], [ null, %land.rhs43.i ], [ null, %land.rhs.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %int_arg.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %str.i)
@@ -270,8 +270,8 @@ fcntl_fcntl_impl.argprom.exit:                    ; preds = %land.rhs.i, %land.r
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true9, %if.end, %lor.lhs.false, %fcntl_fcntl_impl.argprom.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true9 ], [ %retval.0.i, %fcntl_fcntl_impl.argprom.exit ], [ null, %if.end ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %land.lhs.true9, %if.end, %lor.lhs.false, %fcntl_fcntl_impl.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true9 ], [ %retval.0.i, %fcntl_fcntl_impl.exit ], [ null, %if.end ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -339,7 +339,7 @@ skip_optional:                                    ; preds = %if.end23, %if.end18
   %cond.i = select i1 %tobool.not.i, ptr @_Py_NoneStruct, ptr %ob_arg.0
   %call.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef %5, i32 noundef %conv, ptr noundef nonnull %cond.i) #7
   %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %fcntl_ioctl_impl.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %fcntl_ioctl_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional
   br i1 %tobool.not.i, label %if.end80.i, label %if.then2.i
@@ -368,7 +368,7 @@ if.then17.i:                                      ; preds = %if.else15.i
   call void @PyBuffer_Release(ptr noundef nonnull %pstr.i) #7
   %8 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.12) #7
-  br label %fcntl_ioctl_impl.argprom.exit
+  br label %fcntl_ioctl_impl.exit
 
 if.end23.i:                                       ; preds = %if.then10.i
   %cmp25.i = icmp eq ptr %buf.i, %6
@@ -412,7 +412,7 @@ if.then41.i:                                      ; preds = %if.end38.thread.i, 
   %9 = load ptr, ptr @PyExc_OSError, align 8
   %call42.i = call ptr @PyErr_SetFromErrno(ptr noundef %9) #7
   call void @PyBuffer_Release(ptr noundef nonnull %pstr.i) #7
-  br label %fcntl_ioctl_impl.argprom.exit
+  br label %fcntl_ioctl_impl.exit
 
 if.end43.i:                                       ; preds = %if.end38.i
   call void @PyBuffer_Release(ptr noundef nonnull %pstr.i) #7
@@ -422,11 +422,11 @@ if.then45.i:                                      ; preds = %if.end43.i, %if.end
   %ret.071012.i = phi i32 [ %call31.i, %if.end43.thread.i ], [ %call28.i, %if.end43.i ]
   %conv46.i = zext nneg i32 %ret.071012.i to i64
   %call47.i = call ptr @PyLong_FromLong(i64 noundef %conv46.i) #7
-  br label %fcntl_ioctl_impl.argprom.exit
+  br label %fcntl_ioctl_impl.exit
 
 if.else48.i:                                      ; preds = %if.end43.i
   %call50.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %buf.i, i64 noundef %7) #7
-  br label %fcntl_ioctl_impl.argprom.exit
+  br label %fcntl_ioctl_impl.exit
 
 if.end51.i:                                       ; preds = %if.then2.i
   call void @PyErr_Clear() #7
@@ -444,7 +444,7 @@ if.then59.i:                                      ; preds = %if.then54.i
   call void @PyBuffer_Release(ptr noundef nonnull %pstr.i) #7
   %11 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.12) #7
-  br label %fcntl_ioctl_impl.argprom.exit
+  br label %fcntl_ioctl_impl.exit
 
 if.end60.i:                                       ; preds = %if.then54.i
   %12 = load ptr, ptr %pstr.i, align 8
@@ -462,18 +462,18 @@ if.then70.i:                                      ; preds = %if.end60.i
   %13 = load ptr, ptr @PyExc_OSError, align 8
   %call71.i = call ptr @PyErr_SetFromErrno(ptr noundef %13) #7
   call void @PyBuffer_Release(ptr noundef nonnull %pstr.i) #7
-  br label %fcntl_ioctl_impl.argprom.exit
+  br label %fcntl_ioctl_impl.exit
 
 if.end72.i:                                       ; preds = %if.end60.i
   call void @PyBuffer_Release(ptr noundef nonnull %pstr.i) #7
   %call74.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %buf.i, i64 noundef %10) #7
-  br label %fcntl_ioctl_impl.argprom.exit
+  br label %fcntl_ioctl_impl.exit
 
 if.end75.i:                                       ; preds = %if.end51.i
   call void @PyErr_Clear() #7
   %call76.i = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef nonnull %ob_arg.0, ptr noundef nonnull @.str.14, ptr noundef nonnull %arg.i) #7
   %tobool77.not.i = icmp eq i32 %call76.i, 0
-  br i1 %tobool77.not.i, label %fcntl_ioctl_impl.argprom.exit, label %if.end80.i
+  br i1 %tobool77.not.i, label %fcntl_ioctl_impl.exit, label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.end75.i, %if.end.i
   %call82.i = call ptr @PyEval_SaveThread() #7
@@ -487,22 +487,22 @@ if.end80.i:                                       ; preds = %if.end75.i, %if.end
 if.then87.i:                                      ; preds = %if.end80.i
   %15 = load ptr, ptr @PyExc_OSError, align 8
   %call88.i = call ptr @PyErr_SetFromErrno(ptr noundef %15) #7
-  br label %fcntl_ioctl_impl.argprom.exit
+  br label %fcntl_ioctl_impl.exit
 
 if.end89.i:                                       ; preds = %if.end80.i
   %conv90.i = zext nneg i32 %call84.i to i64
   %call91.i = call ptr @PyLong_FromLong(i64 noundef %conv90.i) #7
-  br label %fcntl_ioctl_impl.argprom.exit
+  br label %fcntl_ioctl_impl.exit
 
-fcntl_ioctl_impl.argprom.exit:                    ; preds = %skip_optional, %if.then17.i, %if.then41.i, %if.then45.i, %if.else48.i, %if.then59.i, %if.then70.i, %if.end72.i, %if.end75.i, %if.then87.i, %if.end89.i
+fcntl_ioctl_impl.exit:                            ; preds = %skip_optional, %if.then17.i, %if.then41.i, %if.then45.i, %if.else48.i, %if.then59.i, %if.then70.i, %if.end72.i, %if.end75.i, %if.then87.i, %if.end89.i
   %retval.0.i = phi ptr [ null, %if.then41.i ], [ %call47.i, %if.then45.i ], [ %call50.i, %if.else48.i ], [ null, %if.then17.i ], [ null, %if.then59.i ], [ null, %if.then70.i ], [ %call74.i, %if.end72.i ], [ null, %if.then87.i ], [ %call91.i, %if.end89.i ], [ null, %skip_optional ], [ null, %if.end75.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %arg.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %pstr.i)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %buf.i)
   br label %exit
 
-exit:                                             ; preds = %if.end23, %land.lhs.true10, %if.end, %lor.lhs.false, %fcntl_ioctl_impl.argprom.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true10 ], [ %retval.0.i, %fcntl_ioctl_impl.argprom.exit ], [ null, %if.end23 ], [ null, %if.end ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %if.end23, %land.lhs.true10, %if.end, %lor.lhs.false, %fcntl_ioctl_impl.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true10 ], [ %retval.0.i, %fcntl_ioctl_impl.exit ], [ null, %if.end23 ], [ null, %if.end ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -539,7 +539,7 @@ land.lhs.true9:                                   ; preds = %if.end5
 exit.sink.split:                                  ; preds = %land.lhs.true9, %if.end5
   %call7.sink = phi i32 [ %call7, %if.end5 ], [ -1, %land.lhs.true9 ]
   %2 = load i32, ptr %fd, align 4
-  %call145 = call fastcc ptr @fcntl_flock_impl.argprom(i32 noundef %2, i32 noundef %call7.sink)
+  %call145 = call fastcc ptr @fcntl_flock_impl(i32 noundef %2, i32 noundef %call7.sink)
   br label %exit
 
 exit:                                             ; preds = %exit.sink.split, %land.lhs.true9, %if.end, %lor.lhs.false
@@ -619,7 +619,7 @@ skip_optional:                                    ; preds = %if.end24, %land.lhs
   %cond5.i = select i1 %tobool1.not.i, ptr @_Py_NoneStruct, ptr %startobj.0
   %call.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef %6, i32 noundef %call7, ptr noundef nonnull %cond.i, ptr noundef nonnull %cond5.i, i32 noundef %whence.0) #7
   %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %fcntl_lockf_impl.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %fcntl_lockf_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional
   %cmp6.i = icmp eq i32 %call7, 8
@@ -638,7 +638,7 @@ if.else11.i:                                      ; preds = %if.else.i
 if.else16.i:                                      ; preds = %if.else11.i
   %7 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.19) #7
-  br label %fcntl_lockf_impl.argprom.exit
+  br label %fcntl_lockf_impl.exit
 
 if.end19.i:                                       ; preds = %if.else11.i, %if.else.i, %if.end.i
   %.sink.i = phi i16 [ 2, %if.end.i ], [ 0, %if.else.i ], [ 1, %if.else11.i ]
@@ -653,7 +653,7 @@ if.then21.i:                                      ; preds = %if.end19.i
   store i64 %call22.i, ptr %l_start.i, align 8
   %call24.i = call ptr @PyErr_Occurred() #7
   %tobool25.not.i = icmp eq ptr %call24.i, null
-  br i1 %tobool25.not.i, label %if.end28.i, label %fcntl_lockf_impl.argprom.exit
+  br i1 %tobool25.not.i, label %if.end28.i, label %fcntl_lockf_impl.exit
 
 if.end28.i:                                       ; preds = %if.then21.i, %if.end19.i
   br i1 %tobool.not.i, label %if.end37.i, label %if.then30.i
@@ -663,7 +663,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   store i64 %call31.i, ptr %l_len.i, align 8
   %call33.i = call ptr @PyErr_Occurred() #7
   %tobool34.not.i = icmp eq ptr %call33.i, null
-  br i1 %tobool34.not.i, label %if.end37.i, label %fcntl_lockf_impl.argprom.exit
+  br i1 %tobool34.not.i, label %if.end37.i, label %fcntl_lockf_impl.exit
 
 if.end37.i:                                       ; preds = %if.then30.i, %if.end28.i
   %conv.i = trunc i32 %whence.0 to i16
@@ -690,24 +690,24 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call48.i = call i32 @PyErr_CheckSignals() #7
   %tobool49.not.i = icmp eq i32 %call48.i, 0
-  br i1 %tobool49.not.i, label %do.body.i, label %fcntl_lockf_impl.argprom.exit, !llvm.loop !7
+  br i1 %tobool49.not.i, label %do.body.i, label %fcntl_lockf_impl.exit, !llvm.loop !7
 
 do.end.i:                                         ; preds = %do.body.i
   %cmp50.i = icmp slt i32 %call42.i, 0
-  br i1 %cmp50.i, label %cond.true54.i, label %fcntl_lockf_impl.argprom.exit
+  br i1 %cmp50.i, label %cond.true54.i, label %fcntl_lockf_impl.exit
 
 cond.true54.i:                                    ; preds = %land.lhs.true.i, %do.end.i
   %9 = load ptr, ptr @PyExc_OSError, align 8
   %call55.i = call ptr @PyErr_SetFromErrno(ptr noundef %9) #7
-  br label %fcntl_lockf_impl.argprom.exit
+  br label %fcntl_lockf_impl.exit
 
-fcntl_lockf_impl.argprom.exit:                    ; preds = %land.rhs.i, %skip_optional, %if.else16.i, %if.then21.i, %if.then30.i, %do.end.i, %cond.true54.i
+fcntl_lockf_impl.exit:                            ; preds = %land.rhs.i, %skip_optional, %if.else16.i, %if.then21.i, %if.then30.i, %do.end.i, %cond.true54.i
   %retval.0.i = phi ptr [ null, %if.else16.i ], [ null, %skip_optional ], [ null, %if.then21.i ], [ null, %if.then30.i ], [ %call55.i, %cond.true54.i ], [ @_Py_NoneStruct, %do.end.i ], [ null, %land.rhs.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %l.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true28, %land.lhs.true9, %if.end, %lor.lhs.false, %fcntl_lockf_impl.argprom.exit
-  %return_value.0 = phi ptr [ null, %land.lhs.true9 ], [ %retval.0.i, %fcntl_lockf_impl.argprom.exit ], [ null, %land.lhs.true28 ], [ null, %if.end ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %land.lhs.true28, %land.lhs.true9, %if.end, %lor.lhs.false, %fcntl_lockf_impl.exit
+  %return_value.0 = phi ptr [ null, %land.lhs.true9 ], [ %retval.0.i, %fcntl_lockf_impl.exit ], [ null, %land.lhs.true28 ], [ null, %if.end ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -757,7 +757,7 @@ declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fcntl_flock_impl.argprom(i32 noundef %fd, i32 noundef %code) unnamed_addr #0 {
+define internal fastcc ptr @fcntl_flock_impl(i32 noundef %fd, i32 noundef %code) unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %fd, i32 noundef %code) #7
   %cmp = icmp slt i32 %call, 0

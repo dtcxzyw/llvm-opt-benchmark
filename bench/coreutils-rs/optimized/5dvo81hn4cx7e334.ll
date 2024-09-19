@@ -2107,7 +2107,7 @@ define { ptr, ptr } @_ZN6uu_cat9cat_files17haf5123c846a83d69E(ptr noalias nounde
   store i64 1, ptr %41, align 8
   br label %46
 
-46:                                               ; preds = %.thread, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$GT$17h594e79de3a7fb4d2E.argprom.exit"
+46:                                               ; preds = %.thread, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$GT$17h594e79de3a7fb4d2E.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40)
   store i64 1, ptr %40, align 8
   %47 = getelementptr inbounds i8, ptr %40, i64 8
@@ -2211,14 +2211,14 @@ define { ptr, ptr } @_ZN6uu_cat9cat_files17haf5123c846a83d69E(ptr noalias nounde
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h8bf4854a7c1f76abE.llvm.3018021489680270906(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %26, ptr noundef nonnull %100), !noalias !635
   %101 = load i8, ptr %26, align 8, !range !16, !alias.scope !642, !noalias !635, !noundef !5
   %switch.not.i.i.i.i.i = icmp eq i8 %101, 3
-  br i1 %switch.not.i.i.i.i.i, label %102, label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$GT$17h594e79de3a7fb4d2E.argprom.exit"
+  br i1 %switch.not.i.i.i.i.i, label %102, label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$GT$17h594e79de3a7fb4d2E.exit"
 
 102:                                              ; preds = %94
   %103 = getelementptr inbounds i8, ptr %26, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h3427e38c582c11ffE.llvm.3018021489680270906"(ptr noalias noundef nonnull align 8 dereferenceable(8) %103), !noalias !635
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$GT$17h594e79de3a7fb4d2E.argprom.exit"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$GT$17h594e79de3a7fb4d2E.exit"
 
-"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$GT$17h594e79de3a7fb4d2E.argprom.exit": ; preds = %94, %102
+"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$GT$17h594e79de3a7fb4d2E.exit": ; preds = %94, %102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !635
   br label %46
 

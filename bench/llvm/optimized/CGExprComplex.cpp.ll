@@ -1212,12 +1212,12 @@ _ZL12getComplexOpN5clang18BinaryOperatorKindE.exit: ; preds = %3, %9, %10, %11
   store i8 0, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 18
   store i8 0, ptr %17, align 2
-  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(19) %5, ptr noundef nonnull %2, i64 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(49) %4)
+  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(19) %5, ptr noundef nonnull %2, i64 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(49) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(19) %1, ptr nocapture noundef readonly %2, i64 %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(19) %1, ptr nocapture noundef readonly %2, i64 %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %7 = alloca %"struct.(anonymous namespace)::ComplexExprEmitter::BinOpInfo", align 8
   %8 = alloca %"class.clang::CodeGen::CodeGenFunction::CGFPOptionsRAII", align 8
@@ -1826,7 +1826,7 @@ _ZL12getComplexOpN5clang18BinaryOperatorKindE.exit: ; preds = %4, %10, %11, %12
   store i8 0, ptr %17, align 1
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i8 0, ptr %18, align 2
-  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(19) %6, ptr noundef nonnull %2, i64 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(49) %5)
+  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(19) %6, ptr noundef nonnull %2, i64 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(49) %5)
   %19 = load ptr, ptr %5, align 8
   store ptr %19, ptr %3, align 8
   ret void
@@ -6980,13 +6980,13 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
   br label %860
 
 98:                                               ; preds = %6
-  %99 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE.argelim(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE to i64))
+  %99 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE to i64))
   %100 = extractvalue { ptr, ptr } %99, 0
   %101 = extractvalue { ptr, ptr } %99, 1
   br label %860
 
 102:                                              ; preds = %6
-  %103 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE.argelim(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinDivERKNS0_9BinOpInfoE to i64))
+  %103 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinDivERKNS0_9BinOpInfoE to i64))
   %104 = extractvalue { ptr, ptr } %103, 0
   %105 = extractvalue { ptr, ptr } %103, 1
   br label %860
@@ -6998,13 +6998,13 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
   br label %860
 
 110:                                              ; preds = %6
-  %111 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE.argelim(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinAddERKNS0_9BinOpInfoE to i64))
+  %111 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinAddERKNS0_9BinOpInfoE to i64))
   %112 = extractvalue { ptr, ptr } %111, 0
   %113 = extractvalue { ptr, ptr } %111, 1
   br label %860
 
 114:                                              ; preds = %6
-  %115 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE.argelim(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinSubERKNS0_9BinOpInfoE to i64))
+  %115 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %1, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinSubERKNS0_9BinOpInfoE to i64))
   %116 = extractvalue { ptr, ptr } %115, 0
   %117 = extractvalue { ptr, ptr } %115, 1
   br label %860
@@ -7409,11 +7409,11 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
   unreachable
 
 210:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitWhileStmtEPNS_9WhileStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitWhileStmtEPNS_9WhileStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 211:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitLabelStmtEPNS_9LabelStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitLabelStmtEPNS_9LabelStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 212:                                              ; preds = %208
@@ -7510,7 +7510,7 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
 
 273:                                              ; preds = %208
   %.val = load ptr, ptr %0, align 8
-  %274 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE.argprom(ptr %.val, ptr noundef nonnull %1)
+  %274 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE(ptr %.val, ptr noundef nonnull %1)
   %275 = extractvalue { ptr, ptr } %274, 0
   %276 = extractvalue { ptr, ptr } %274, 1
   br label %860
@@ -7604,7 +7604,7 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
 
 336:                                              ; preds = %208
   %.val299 = load ptr, ptr %0, align 8
-  %337 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter20VisitObjCMessageExprEPN5clang15ObjCMessageExprE.argprom(ptr %.val299, ptr noundef nonnull %1)
+  %337 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter20VisitObjCMessageExprEPN5clang15ObjCMessageExprE(ptr %.val299, ptr noundef nonnull %1)
   %338 = extractvalue { ptr, ptr } %337, 0
   %339 = extractvalue { ptr, ptr } %337, 1
   br label %860
@@ -7732,7 +7732,7 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
 420:                                              ; preds = %208
   %421 = getelementptr i8, ptr %1, i64 8
   %.val300 = load i64, ptr %421, align 8
-  %422 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter26VisitImplicitValueInitExprEPN5clang21ImplicitValueInitExprE.argprom(ptr noundef nonnull align 8 dereferenceable(19) %0, i64 %.val300)
+  %422 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter26VisitImplicitValueInitExprEPN5clang21ImplicitValueInitExprE(ptr noundef nonnull align 8 dereferenceable(19) %0, i64 %.val300)
   %423 = extractvalue { ptr, ptr } %422, 0
   %424 = extractvalue { ptr, ptr } %422, 1
   br label %860
@@ -7741,7 +7741,7 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
   %.val301 = load ptr, ptr %0, align 8
   %426 = getelementptr i8, ptr %1, i64 16
   %.val302 = load ptr, ptr %426, align 8
-  %427 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter21VisitImaginaryLiteralEPKN5clang16ImaginaryLiteralE.argprom(ptr %.val301, ptr %.val302)
+  %427 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter21VisitImaginaryLiteralEPKN5clang16ImaginaryLiteralE(ptr %.val301, ptr %.val302)
   %428 = extractvalue { ptr, ptr } %427, 0
   %429 = extractvalue { ptr, ptr } %427, 1
   br label %860
@@ -7855,14 +7855,14 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
 
 504:                                              ; preds = %208
   %.val303 = load ptr, ptr %0, align 8
-  %505 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16VisitCoyieldExprEPN5clang11CoyieldExprE.argprom(ptr %.val303, ptr noundef %1)
+  %505 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16VisitCoyieldExprEPN5clang11CoyieldExprE(ptr %.val303, ptr noundef %1)
   %506 = extractvalue { ptr, ptr } %505, 0
   %507 = extractvalue { ptr, ptr } %505, 1
   br label %860
 
 508:                                              ; preds = %208
   %.val304 = load ptr, ptr %0, align 8
-  %509 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16VisitCoawaitExprEPN5clang11CoawaitExprE.argprom(ptr %.val304, ptr noundef %1)
+  %509 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16VisitCoawaitExprEPN5clang11CoawaitExprE(ptr %.val304, ptr noundef %1)
   %510 = extractvalue { ptr, ptr } %509, 0
   %511 = extractvalue { ptr, ptr } %509, 1
   br label %860
@@ -8034,7 +8034,7 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
 624:                                              ; preds = %208
   %625 = getelementptr i8, ptr %1, i64 8
   %.val305 = load i64, ptr %625, align 8
-  %626 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter27VisitCXXScalarValueInitExprEPN5clang22CXXScalarValueInitExprE.argprom(ptr noundef nonnull align 8 dereferenceable(19) %0, i64 %.val305)
+  %626 = tail call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter27VisitCXXScalarValueInitExprEPN5clang22CXXScalarValueInitExprE(ptr noundef nonnull align 8 dereferenceable(19) %0, i64 %.val305)
   %627 = extractvalue { ptr, ptr } %626, 0
   %628 = extractvalue { ptr, ptr } %626, 1
   br label %860
@@ -8220,455 +8220,455 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
   br label %860
 
 747:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE19VisitAttributedStmtEPNS_14AttributedStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE19VisitAttributedStmtEPNS_14AttributedStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 748:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitSwitchStmtEPNS_10SwitchStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitSwitchStmtEPNS_10SwitchStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 749:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE16VisitDefaultStmtEPNS_11DefaultStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE16VisitDefaultStmtEPNS_11DefaultStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 750:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitCaseStmtEPNS_8CaseStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitCaseStmtEPNS_8CaseStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 751:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitSEHTryStmtEPNS_10SEHTryStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitSEHTryStmtEPNS_10SEHTryStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 752:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitSEHLeaveStmtEPNS_12SEHLeaveStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitSEHLeaveStmtEPNS_12SEHLeaveStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 753:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE19VisitSEHFinallyStmtEPNS_14SEHFinallyStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE19VisitSEHFinallyStmtEPNS_14SEHFinallyStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 754:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE18VisitSEHExceptStmtEPNS_13SEHExceptStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE18VisitSEHExceptStmtEPNS_13SEHExceptStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 755:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitReturnStmtEPNS_10ReturnStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitReturnStmtEPNS_10ReturnStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 756:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOpenACCLoopConstructEPNS_20OpenACCLoopConstructE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOpenACCLoopConstructEPNS_20OpenACCLoopConstructE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 757:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOpenACCComputeConstructEPNS_23OpenACCComputeConstructE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOpenACCComputeConstructEPNS_23OpenACCComputeConstructE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 758:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitObjCForCollectionStmtEPNS_21ObjCForCollectionStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitObjCForCollectionStmtEPNS_21ObjCForCollectionStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 759:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitObjCAutoreleasePoolStmtEPNS_23ObjCAutoreleasePoolStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitObjCAutoreleasePoolStmtEPNS_23ObjCAutoreleasePoolStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 760:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE18VisitObjCAtTryStmtEPNS_13ObjCAtTryStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE18VisitObjCAtTryStmtEPNS_13ObjCAtTryStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 761:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitObjCAtThrowStmtEPNS_15ObjCAtThrowStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitObjCAtThrowStmtEPNS_15ObjCAtThrowStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 762:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitObjCAtSynchronizedStmtEPNS_22ObjCAtSynchronizedStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitObjCAtSynchronizedStmtEPNS_22ObjCAtSynchronizedStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 763:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitObjCAtFinallyStmtEPNS_17ObjCAtFinallyStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitObjCAtFinallyStmtEPNS_17ObjCAtFinallyStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 764:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitObjCAtCatchStmtEPNS_15ObjCAtCatchStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitObjCAtCatchStmtEPNS_15ObjCAtCatchStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 765:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPTeamsDirectiveEPNS_17OMPTeamsDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPTeamsDirectiveEPNS_17OMPTeamsDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 766:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitOMPTaskyieldDirectiveEPNS_21OMPTaskyieldDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitOMPTaskyieldDirectiveEPNS_21OMPTaskyieldDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 767:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPTaskwaitDirectiveEPNS_20OMPTaskwaitDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPTaskwaitDirectiveEPNS_20OMPTaskwaitDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 768:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitOMPTaskgroupDirectiveEPNS_21OMPTaskgroupDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitOMPTaskgroupDirectiveEPNS_21OMPTaskgroupDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 769:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPTaskDirectiveEPNS_16OMPTaskDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPTaskDirectiveEPNS_16OMPTaskDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 770:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE29VisitOMPTargetUpdateDirectiveEPNS_24OMPTargetUpdateDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE29VisitOMPTargetUpdateDirectiveEPNS_24OMPTargetUpdateDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 771:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPTargetTeamsDirectiveEPNS_23OMPTargetTeamsDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPTargetTeamsDirectiveEPNS_23OMPTargetTeamsDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 772:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE34VisitOMPTargetParallelForDirectiveEPNS_29OMPTargetParallelForDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE34VisitOMPTargetParallelForDirectiveEPNS_29OMPTargetParallelForDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 773:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPTargetParallelDirectiveEPNS_26OMPTargetParallelDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPTargetParallelDirectiveEPNS_26OMPTargetParallelDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 774:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPTargetExitDataDirectiveEPNS_26OMPTargetExitDataDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPTargetExitDataDirectiveEPNS_26OMPTargetExitDataDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 775:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPTargetEnterDataDirectiveEPNS_27OMPTargetEnterDataDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPTargetEnterDataDirectiveEPNS_27OMPTargetEnterDataDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 776:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPTargetDirectiveEPNS_18OMPTargetDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPTargetDirectiveEPNS_18OMPTargetDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 777:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPTargetDataDirectiveEPNS_22OMPTargetDataDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPTargetDataDirectiveEPNS_22OMPTargetDataDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 778:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPSingleDirectiveEPNS_18OMPSingleDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPSingleDirectiveEPNS_18OMPSingleDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 779:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPSectionsDirectiveEPNS_20OMPSectionsDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPSectionsDirectiveEPNS_20OMPSectionsDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 780:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPSectionDirectiveEPNS_19OMPSectionDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPSectionDirectiveEPNS_19OMPSectionDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 781:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPScopeDirectiveEPNS_17OMPScopeDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPScopeDirectiveEPNS_17OMPScopeDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 782:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPScanDirectiveEPNS_16OMPScanDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPScanDirectiveEPNS_16OMPScanDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 783:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE33VisitOMPParallelSectionsDirectiveEPNS_28OMPParallelSectionsDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE33VisitOMPParallelSectionsDirectiveEPNS_28OMPParallelSectionsDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 784:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPParallelMasterDirectiveEPNS_26OMPParallelMasterDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPParallelMasterDirectiveEPNS_26OMPParallelMasterDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 785:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPParallelMaskedDirectiveEPNS_26OMPParallelMaskedDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPParallelMaskedDirectiveEPNS_26OMPParallelMaskedDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 786:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPParallelDirectiveEPNS_20OMPParallelDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPParallelDirectiveEPNS_20OMPParallelDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 787:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPOrderedDirectiveEPNS_19OMPOrderedDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPOrderedDirectiveEPNS_19OMPOrderedDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 788:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPMetaDirectiveEPNS_16OMPMetaDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPMetaDirectiveEPNS_16OMPMetaDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 789:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPMasterDirectiveEPNS_18OMPMasterDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPMasterDirectiveEPNS_18OMPMasterDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 790:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPMaskedDirectiveEPNS_18OMPMaskedDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPMaskedDirectiveEPNS_18OMPMaskedDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 791:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPUnrollDirectiveEPNS_18OMPUnrollDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPUnrollDirectiveEPNS_18OMPUnrollDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 792:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPTileDirectiveEPNS_16OMPTileDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPTileDirectiveEPNS_16OMPTileDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 793:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPReverseDirectiveEPNS_19OMPReverseDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPReverseDirectiveEPNS_19OMPReverseDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 794:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPInterchangeDirectiveEPNS_23OMPInterchangeDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPInterchangeDirectiveEPNS_23OMPInterchangeDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 795:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE33VisitOMPTeamsGenericLoopDirectiveEPNS_28OMPTeamsGenericLoopDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE33VisitOMPTeamsGenericLoopDirectiveEPNS_28OMPTeamsGenericLoopDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 796:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE36VisitOMPTeamsDistributeSimdDirectiveEPNS_31OMPTeamsDistributeSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE36VisitOMPTeamsDistributeSimdDirectiveEPNS_31OMPTeamsDistributeSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 797:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE47VisitOMPTeamsDistributeParallelForSimdDirectiveEPNS_42OMPTeamsDistributeParallelForSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE47VisitOMPTeamsDistributeParallelForSimdDirectiveEPNS_42OMPTeamsDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 798:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPTeamsDistributeParallelForDirectiveEPNS_38OMPTeamsDistributeParallelForDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPTeamsDistributeParallelForDirectiveEPNS_38OMPTeamsDistributeParallelForDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 799:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPTeamsDistributeDirectiveEPNS_27OMPTeamsDistributeDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPTeamsDistributeDirectiveEPNS_27OMPTeamsDistributeDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 800:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE29VisitOMPTaskLoopSimdDirectiveEPNS_24OMPTaskLoopSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE29VisitOMPTaskLoopSimdDirectiveEPNS_24OMPTaskLoopSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 801:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPTaskLoopDirectiveEPNS_20OMPTaskLoopDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPTaskLoopDirectiveEPNS_20OMPTaskLoopDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 802:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPTargetTeamsGenericLoopDirectiveEPNS_34OMPTargetTeamsGenericLoopDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPTargetTeamsGenericLoopDirectiveEPNS_34OMPTargetTeamsGenericLoopDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 803:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPTargetTeamsDistributeSimdDirectiveEPNS_37OMPTargetTeamsDistributeSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPTargetTeamsDistributeSimdDirectiveEPNS_37OMPTargetTeamsDistributeSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 804:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE53VisitOMPTargetTeamsDistributeParallelForSimdDirectiveEPNS_48OMPTargetTeamsDistributeParallelForSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE53VisitOMPTargetTeamsDistributeParallelForSimdDirectiveEPNS_48OMPTargetTeamsDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 805:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE49VisitOMPTargetTeamsDistributeParallelForDirectiveEPNS_44OMPTargetTeamsDistributeParallelForDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE49VisitOMPTargetTeamsDistributeParallelForDirectiveEPNS_44OMPTargetTeamsDistributeParallelForDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 806:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPTargetTeamsDistributeDirectiveEPNS_33OMPTargetTeamsDistributeDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPTargetTeamsDistributeDirectiveEPNS_33OMPTargetTeamsDistributeDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 807:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPTargetSimdDirectiveEPNS_22OMPTargetSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPTargetSimdDirectiveEPNS_22OMPTargetSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 808:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPTargetParallelGenericLoopDirectiveEPNS_37OMPTargetParallelGenericLoopDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPTargetParallelGenericLoopDirectiveEPNS_37OMPTargetParallelGenericLoopDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 809:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPTargetParallelForSimdDirectiveEPNS_33OMPTargetParallelForSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPTargetParallelForSimdDirectiveEPNS_33OMPTargetParallelForSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 810:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPSimdDirectiveEPNS_16OMPSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPSimdDirectiveEPNS_16OMPSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 811:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPParallelMasterTaskLoopSimdDirectiveEPNS_38OMPParallelMasterTaskLoopSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPParallelMasterTaskLoopSimdDirectiveEPNS_38OMPParallelMasterTaskLoopSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 812:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPParallelMasterTaskLoopDirectiveEPNS_34OMPParallelMasterTaskLoopDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPParallelMasterTaskLoopDirectiveEPNS_34OMPParallelMasterTaskLoopDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 813:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPParallelMaskedTaskLoopSimdDirectiveEPNS_38OMPParallelMaskedTaskLoopSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPParallelMaskedTaskLoopSimdDirectiveEPNS_38OMPParallelMaskedTaskLoopSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 814:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPParallelMaskedTaskLoopDirectiveEPNS_34OMPParallelMaskedTaskLoopDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPParallelMaskedTaskLoopDirectiveEPNS_34OMPParallelMaskedTaskLoopDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 815:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE36VisitOMPParallelGenericLoopDirectiveEPNS_31OMPParallelGenericLoopDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE36VisitOMPParallelGenericLoopDirectiveEPNS_31OMPParallelGenericLoopDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 816:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPParallelForSimdDirectiveEPNS_27OMPParallelForSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPParallelForSimdDirectiveEPNS_27OMPParallelForSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 817:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPParallelForDirectiveEPNS_23OMPParallelForDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPParallelForDirectiveEPNS_23OMPParallelForDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 818:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE35VisitOMPMasterTaskLoopSimdDirectiveEPNS_30OMPMasterTaskLoopSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE35VisitOMPMasterTaskLoopSimdDirectiveEPNS_30OMPMasterTaskLoopSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 819:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPMasterTaskLoopDirectiveEPNS_26OMPMasterTaskLoopDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPMasterTaskLoopDirectiveEPNS_26OMPMasterTaskLoopDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 820:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE35VisitOMPMaskedTaskLoopSimdDirectiveEPNS_30OMPMaskedTaskLoopSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE35VisitOMPMaskedTaskLoopSimdDirectiveEPNS_30OMPMaskedTaskLoopSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 821:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPMaskedTaskLoopDirectiveEPNS_26OMPMaskedTaskLoopDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPMaskedTaskLoopDirectiveEPNS_26OMPMaskedTaskLoopDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 822:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPGenericLoopDirectiveEPNS_23OMPGenericLoopDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPGenericLoopDirectiveEPNS_23OMPGenericLoopDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 823:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPForSimdDirectiveEPNS_19OMPForSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPForSimdDirectiveEPNS_19OMPForSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 824:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitOMPForDirectiveEPNS_15OMPForDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitOMPForDirectiveEPNS_15OMPForDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 825:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPDistributeSimdDirectiveEPNS_26OMPDistributeSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPDistributeSimdDirectiveEPNS_26OMPDistributeSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 826:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPDistributeParallelForSimdDirectiveEPNS_37OMPDistributeParallelForSimdDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPDistributeParallelForSimdDirectiveEPNS_37OMPDistributeParallelForSimdDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 827:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPDistributeParallelForDirectiveEPNS_33OMPDistributeParallelForDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPDistributeParallelForDirectiveEPNS_33OMPDistributeParallelForDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 828:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPDistributeDirectiveEPNS_22OMPDistributeDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPDistributeDirectiveEPNS_22OMPDistributeDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 829:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPInteropDirectiveEPNS_19OMPInteropDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPInteropDirectiveEPNS_19OMPInteropDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 830:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPFlushDirectiveEPNS_17OMPFlushDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPFlushDirectiveEPNS_17OMPFlushDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 831:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPErrorDirectiveEPNS_17OMPErrorDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPErrorDirectiveEPNS_17OMPErrorDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 832:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPDispatchDirectiveEPNS_20OMPDispatchDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPDispatchDirectiveEPNS_20OMPDispatchDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 833:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPDepobjDirectiveEPNS_18OMPDepobjDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPDepobjDirectiveEPNS_18OMPDepobjDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 834:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPCriticalDirectiveEPNS_20OMPCriticalDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPCriticalDirectiveEPNS_20OMPCriticalDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 835:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE34VisitOMPCancellationPointDirectiveEPNS_29OMPCancellationPointDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE34VisitOMPCancellationPointDirectiveEPNS_29OMPCancellationPointDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 836:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPCancelDirectiveEPNS_18OMPCancelDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPCancelDirectiveEPNS_18OMPCancelDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 837:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPBarrierDirectiveEPNS_19OMPBarrierDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPBarrierDirectiveEPNS_19OMPBarrierDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 838:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPAtomicDirectiveEPNS_18OMPAtomicDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPAtomicDirectiveEPNS_18OMPAtomicDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 839:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPAssumeDirectiveEPNS_18OMPAssumeDirectiveE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPAssumeDirectiveEPNS_18OMPAssumeDirectiveE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 840:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPCanonicalLoopEPNS_16OMPCanonicalLoopE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPCanonicalLoopEPNS_16OMPCanonicalLoopE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 841:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitNullStmtEPNS_8NullStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitNullStmtEPNS_8NullStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 842:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitMSDependentExistsStmtEPNS_21MSDependentExistsStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitMSDependentExistsStmtEPNS_21MSDependentExistsStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 843:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitIndirectGotoStmtEPNS_16IndirectGotoStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitIndirectGotoStmtEPNS_16IndirectGotoStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 844:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE11VisitIfStmtEPNS_6IfStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE11VisitIfStmtEPNS_6IfStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 845:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitGotoStmtEPNS_8GotoStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitGotoStmtEPNS_8GotoStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 846:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE12VisitForStmtEPNS_7ForStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE12VisitForStmtEPNS_7ForStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 847:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE11VisitDoStmtEPNS_6DoStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE11VisitDoStmtEPNS_6DoStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 848:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitDeclStmtEPNS_8DeclStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitDeclStmtEPNS_8DeclStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 849:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitCoroutineBodyStmtEPNS_17CoroutineBodyStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitCoroutineBodyStmtEPNS_17CoroutineBodyStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 850:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCoreturnStmtEPNS_12CoreturnStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCoreturnStmtEPNS_12CoreturnStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 851:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitContinueStmtEPNS_12ContinueStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitContinueStmtEPNS_12ContinueStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 852:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCompoundStmtEPNS_12CompoundStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCompoundStmtEPNS_12CompoundStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 853:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCapturedStmtEPNS_12CapturedStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCapturedStmtEPNS_12CapturedStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 854:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitCXXTryStmtEPNS_10CXXTryStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitCXXTryStmtEPNS_10CXXTryStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 855:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitCXXForRangeStmtEPNS_15CXXForRangeStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitCXXForRangeStmtEPNS_15CXXForRangeStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 856:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCXXCatchStmtEPNS_12CXXCatchStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCXXCatchStmtEPNS_12CXXCatchStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 857:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitBreakStmtEPNS_9BreakStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitBreakStmtEPNS_9BreakStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 858:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitMSAsmStmtEPNS_9MSAsmStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitMSAsmStmtEPNS_9MSAsmStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 859:                                              ; preds = %208
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitGCCAsmStmtEPNS_10GCCAsmStmtE.argelim(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitGCCAsmStmtEPNS_10GCCAsmStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
 860:                                              ; preds = %743, %739, %735, %731, %727, %723, %719, %715, %711, %707, %703, %699, %695, %691, %687, %683, %679, %675, %671, %667, %663, %659, %655, %651, %647, %643, %639, %635, %629, %624, %620, %616, %612, %608, %604, %600, %596, %592, %588, %584, %580, %576, %572, %568, %564, %560, %556, %552, %548, %544, %540, %536, %524, %520, %516, %512, %508, %504, %500, %496, %492, %488, %484, %480, %476, %472, %468, %464, %460, %456, %452, %448, %434, %430, %425, %420, %416, %412, %408, %404, %400, %396, %392, %388, %384, %380, %376, %372, %368, %364, %360, %356, %352, %348, %344, %340, %336, %332, %328, %324, %320, %316, %312, %308, %304, %300, %296, %291, %285, %281, %277, %273, %269, %265, %261, %257, %253, %249, %245, %241, %235, %231, %227, %223, %219, %.thread, %212, %202, %196, %192, %188, %184, %180, %176, %172, %168, %164, %160, %156, %152, %148, %138, %134, %130, %126, %122, %118, %114, %110, %106, %102, %98, %94, %90, %86, %82, %78, %74, %70, %66, %62, %58, %54, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14, %10
@@ -10244,7 +10244,7 @@ _ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitWhileStmtEPNS_9WhileStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitWhileStmtEPNS_9WhileStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -10256,7 +10256,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitLabelStmtEPNS_9LabelStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitLabelStmtEPNS_9LabelStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -10939,7 +10939,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter9VisitExprEPN5clang4ExprE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE.argprom(ptr nonnull %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE(ptr nonnull %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %.sroa.4.i = alloca [23 x i8], align 1
   %2 = alloca %"class.clang::CodeGen::RValue", align 8
   %3 = alloca %"class.clang::CodeGen::AggValueSlot", align 8
@@ -11455,7 +11455,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter9VisitExprEPN5clang4ExprE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter20VisitObjCMessageExprEPN5clang15ObjCMessageExprE.argprom(ptr nonnull %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter20VisitObjCMessageExprEPN5clang15ObjCMessageExprE(ptr nonnull %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CodeGen::RValue", align 8
   %3 = alloca %"class.clang::CodeGen::ReturnValueSlot", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -11952,16 +11952,16 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter15Visi
   %18 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16EmitLoadOfLValueEN5clang7CodeGen6LValueENS1_14SourceLocationE(ptr noundef nonnull readonly align 8 dereferenceable(19) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %4, i32 %17)
   %19 = extractvalue { ptr, ptr } %18, 0
   %20 = extractvalue { ptr, ptr } %18, 1
-  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.argprom.exit
+  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
 
 21:                                               ; preds = %7
   %22 = and i64 %6, -8
   %23 = inttoptr i64 %22 to ptr
   %24 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 0) #15
   %25 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 1) #15
-  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.argprom.exit
+  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
 
-_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.argprom.exit: ; preds = %12, %21
+_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit: ; preds = %12, %21
   %.sroa.0.0.i = phi ptr [ %19, %12 ], [ %24, %21 ]
   %.sroa.3.0.i = phi ptr [ %20, %12 ], [ %25, %21 ]
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
@@ -11978,8 +11978,8 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFu
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
   br label %30
 
-30:                                               ; preds = %26, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.argprom.exit
-  %.pn = phi { ptr, ptr } [ %.fca.1.insert.i, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.argprom.exit ], [ %29, %26 ]
+30:                                               ; preds = %26, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
+  %.pn = phi { ptr, ptr } [ %.fca.1.insert.i, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit ], [ %29, %26 ]
   ret { ptr, ptr } %.pn
 }
 
@@ -12300,7 +12300,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %30, %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter26VisitImplicitValueInitExprEPN5clang21ImplicitValueInitExprE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %0, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter26VisitImplicitValueInitExprEPN5clang21ImplicitValueInitExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %0, i64 %.8.val) unnamed_addr #0 align 2 {
   %2 = and i64 %.8.val, -16
   %3 = inttoptr i64 %2 to ptr
   %4 = load ptr, ptr %3, align 16
@@ -12326,7 +12326,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter21VisitImaginaryLiteralEPKN5clang16ImaginaryLiteralE.argprom(ptr nonnull %.0.val, ptr %.16.val) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter21VisitImaginaryLiteralEPKN5clang16ImaginaryLiteralE(ptr nonnull %.0.val, ptr %.16.val) unnamed_addr #0 align 2 {
   %1 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488) %.0.val, ptr noundef %.16.val, i1 noundef zeroext false) #15
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -12983,16 +12983,16 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16Visi
   %15 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16EmitLoadOfLValueEN5clang7CodeGen6LValueENS1_14SourceLocationE(ptr noundef nonnull readonly align 8 dereferenceable(19) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %4, i32 %14)
   %16 = extractvalue { ptr, ptr } %15, 0
   %17 = extractvalue { ptr, ptr } %15, 1
-  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.argprom.exit
+  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
 
 18:                                               ; preds = %7
   %19 = and i64 %6, -8
   %20 = inttoptr i64 %19 to ptr
   %21 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 0) #15
   %22 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 1) #15
-  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.argprom.exit
+  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
 
-_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.argprom.exit: ; preds = %9, %18
+_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit: ; preds = %9, %18
   %.sroa.0.0.i = phi ptr [ %16, %9 ], [ %21, %18 ]
   %.sroa.3.0.i = phi ptr [ %17, %9 ], [ %22, %18 ]
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
@@ -13009,13 +13009,13 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFu
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
   br label %27
 
-27:                                               ; preds = %23, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.argprom.exit
-  %.pn = phi { ptr, ptr } [ %.fca.1.insert.i, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.argprom.exit ], [ %26, %23 ]
+27:                                               ; preds = %23, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit
+  %.pn = phi { ptr, ptr } [ %.fca.1.insert.i, %_ZN12_GLOBAL__N_118ComplexExprEmitter12emitConstantERKN5clang7CodeGen15CodeGenFunction16ConstantEmissionEPNS1_4ExprE.exit ], [ %26, %23 ]
   ret { ptr, ptr } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16VisitCoyieldExprEPN5clang11CoyieldExprE.argprom(ptr nonnull %.0.val, ptr noundef nonnull %0) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16VisitCoyieldExprEPN5clang11CoyieldExprE(ptr nonnull %.0.val, ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %.sroa.4.i = alloca [23 x i8], align 1
   %2 = alloca %"class.clang::CodeGen::RValue", align 8
   %3 = alloca %"class.clang::CodeGen::AggValueSlot", align 8
@@ -13045,7 +13045,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16Visi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16VisitCoawaitExprEPN5clang11CoawaitExprE.argprom(ptr nonnull %.0.val, ptr noundef nonnull %0) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16VisitCoawaitExprEPN5clang11CoawaitExprE(ptr nonnull %.0.val, ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %.sroa.4.i = alloca [23 x i8], align 1
   %2 = alloca %"class.clang::CodeGen::RValue", align 8
   %3 = alloca %"class.clang::CodeGen::AggValueSlot", align 8
@@ -13591,7 +13591,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter9VisitExprEPN5clang4ExprE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter27VisitCXXScalarValueInitExprEPN5clang22CXXScalarValueInitExprE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %0, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter27VisitCXXScalarValueInitExprEPN5clang22CXXScalarValueInitExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %0, i64 %.8.val) unnamed_addr #0 align 2 {
   %2 = and i64 %.8.val, -16
   %3 = inttoptr i64 %2 to ptr
   %4 = load ptr, ptr %3, align 16
@@ -14587,7 +14587,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter9VisitExprEPN5clang4ExprE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE19VisitAttributedStmtEPNS_14AttributedStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE19VisitAttributedStmtEPNS_14AttributedStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14599,7 +14599,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitSwitchStmtEPNS_10SwitchStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitSwitchStmtEPNS_10SwitchStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14611,7 +14611,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE16VisitDefaultStmtEPNS_11DefaultStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE16VisitDefaultStmtEPNS_11DefaultStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14623,7 +14623,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitCaseStmtEPNS_8CaseStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitCaseStmtEPNS_8CaseStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14635,7 +14635,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitSEHTryStmtEPNS_10SEHTryStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitSEHTryStmtEPNS_10SEHTryStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14647,7 +14647,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitSEHLeaveStmtEPNS_12SEHLeaveStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitSEHLeaveStmtEPNS_12SEHLeaveStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14659,7 +14659,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE19VisitSEHFinallyStmtEPNS_14SEHFinallyStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE19VisitSEHFinallyStmtEPNS_14SEHFinallyStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14671,7 +14671,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE18VisitSEHExceptStmtEPNS_13SEHExceptStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE18VisitSEHExceptStmtEPNS_13SEHExceptStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14683,7 +14683,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitReturnStmtEPNS_10ReturnStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitReturnStmtEPNS_10ReturnStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14695,7 +14695,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOpenACCLoopConstructEPNS_20OpenACCLoopConstructE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOpenACCLoopConstructEPNS_20OpenACCLoopConstructE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14707,7 +14707,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOpenACCComputeConstructEPNS_23OpenACCComputeConstructE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOpenACCComputeConstructEPNS_23OpenACCComputeConstructE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14719,7 +14719,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitObjCForCollectionStmtEPNS_21ObjCForCollectionStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitObjCForCollectionStmtEPNS_21ObjCForCollectionStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14731,7 +14731,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitObjCAutoreleasePoolStmtEPNS_23ObjCAutoreleasePoolStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitObjCAutoreleasePoolStmtEPNS_23ObjCAutoreleasePoolStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14743,7 +14743,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE18VisitObjCAtTryStmtEPNS_13ObjCAtTryStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE18VisitObjCAtTryStmtEPNS_13ObjCAtTryStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14755,7 +14755,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitObjCAtThrowStmtEPNS_15ObjCAtThrowStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitObjCAtThrowStmtEPNS_15ObjCAtThrowStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14767,7 +14767,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitObjCAtSynchronizedStmtEPNS_22ObjCAtSynchronizedStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitObjCAtSynchronizedStmtEPNS_22ObjCAtSynchronizedStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14779,7 +14779,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitObjCAtFinallyStmtEPNS_17ObjCAtFinallyStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitObjCAtFinallyStmtEPNS_17ObjCAtFinallyStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14791,7 +14791,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitObjCAtCatchStmtEPNS_15ObjCAtCatchStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitObjCAtCatchStmtEPNS_15ObjCAtCatchStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14803,7 +14803,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPTeamsDirectiveEPNS_17OMPTeamsDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPTeamsDirectiveEPNS_17OMPTeamsDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14815,7 +14815,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitOMPTaskyieldDirectiveEPNS_21OMPTaskyieldDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitOMPTaskyieldDirectiveEPNS_21OMPTaskyieldDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14827,7 +14827,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPTaskwaitDirectiveEPNS_20OMPTaskwaitDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPTaskwaitDirectiveEPNS_20OMPTaskwaitDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14839,7 +14839,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitOMPTaskgroupDirectiveEPNS_21OMPTaskgroupDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitOMPTaskgroupDirectiveEPNS_21OMPTaskgroupDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14851,7 +14851,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPTaskDirectiveEPNS_16OMPTaskDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPTaskDirectiveEPNS_16OMPTaskDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14863,7 +14863,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE29VisitOMPTargetUpdateDirectiveEPNS_24OMPTargetUpdateDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE29VisitOMPTargetUpdateDirectiveEPNS_24OMPTargetUpdateDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14875,7 +14875,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPTargetTeamsDirectiveEPNS_23OMPTargetTeamsDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPTargetTeamsDirectiveEPNS_23OMPTargetTeamsDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14887,7 +14887,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE34VisitOMPTargetParallelForDirectiveEPNS_29OMPTargetParallelForDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE34VisitOMPTargetParallelForDirectiveEPNS_29OMPTargetParallelForDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14899,7 +14899,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPTargetParallelDirectiveEPNS_26OMPTargetParallelDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPTargetParallelDirectiveEPNS_26OMPTargetParallelDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14911,7 +14911,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPTargetExitDataDirectiveEPNS_26OMPTargetExitDataDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPTargetExitDataDirectiveEPNS_26OMPTargetExitDataDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14923,7 +14923,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPTargetEnterDataDirectiveEPNS_27OMPTargetEnterDataDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPTargetEnterDataDirectiveEPNS_27OMPTargetEnterDataDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14935,7 +14935,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPTargetDirectiveEPNS_18OMPTargetDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPTargetDirectiveEPNS_18OMPTargetDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14947,7 +14947,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPTargetDataDirectiveEPNS_22OMPTargetDataDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPTargetDataDirectiveEPNS_22OMPTargetDataDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14959,7 +14959,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPSingleDirectiveEPNS_18OMPSingleDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPSingleDirectiveEPNS_18OMPSingleDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14971,7 +14971,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPSectionsDirectiveEPNS_20OMPSectionsDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPSectionsDirectiveEPNS_20OMPSectionsDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14983,7 +14983,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPSectionDirectiveEPNS_19OMPSectionDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPSectionDirectiveEPNS_19OMPSectionDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -14995,7 +14995,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPScopeDirectiveEPNS_17OMPScopeDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPScopeDirectiveEPNS_17OMPScopeDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15007,7 +15007,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPScanDirectiveEPNS_16OMPScanDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPScanDirectiveEPNS_16OMPScanDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15019,7 +15019,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE33VisitOMPParallelSectionsDirectiveEPNS_28OMPParallelSectionsDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE33VisitOMPParallelSectionsDirectiveEPNS_28OMPParallelSectionsDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15031,7 +15031,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPParallelMasterDirectiveEPNS_26OMPParallelMasterDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPParallelMasterDirectiveEPNS_26OMPParallelMasterDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15043,7 +15043,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPParallelMaskedDirectiveEPNS_26OMPParallelMaskedDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPParallelMaskedDirectiveEPNS_26OMPParallelMaskedDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15055,7 +15055,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPParallelDirectiveEPNS_20OMPParallelDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPParallelDirectiveEPNS_20OMPParallelDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15067,7 +15067,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPOrderedDirectiveEPNS_19OMPOrderedDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPOrderedDirectiveEPNS_19OMPOrderedDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15079,7 +15079,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPMetaDirectiveEPNS_16OMPMetaDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPMetaDirectiveEPNS_16OMPMetaDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15091,7 +15091,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPMasterDirectiveEPNS_18OMPMasterDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPMasterDirectiveEPNS_18OMPMasterDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15103,7 +15103,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPMaskedDirectiveEPNS_18OMPMaskedDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPMaskedDirectiveEPNS_18OMPMaskedDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15115,7 +15115,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPUnrollDirectiveEPNS_18OMPUnrollDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPUnrollDirectiveEPNS_18OMPUnrollDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15127,7 +15127,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPTileDirectiveEPNS_16OMPTileDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPTileDirectiveEPNS_16OMPTileDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15139,7 +15139,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPReverseDirectiveEPNS_19OMPReverseDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPReverseDirectiveEPNS_19OMPReverseDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15151,7 +15151,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPInterchangeDirectiveEPNS_23OMPInterchangeDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPInterchangeDirectiveEPNS_23OMPInterchangeDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15163,7 +15163,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE33VisitOMPTeamsGenericLoopDirectiveEPNS_28OMPTeamsGenericLoopDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE33VisitOMPTeamsGenericLoopDirectiveEPNS_28OMPTeamsGenericLoopDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15175,7 +15175,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE36VisitOMPTeamsDistributeSimdDirectiveEPNS_31OMPTeamsDistributeSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE36VisitOMPTeamsDistributeSimdDirectiveEPNS_31OMPTeamsDistributeSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15187,7 +15187,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE47VisitOMPTeamsDistributeParallelForSimdDirectiveEPNS_42OMPTeamsDistributeParallelForSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE47VisitOMPTeamsDistributeParallelForSimdDirectiveEPNS_42OMPTeamsDistributeParallelForSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15199,7 +15199,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPTeamsDistributeParallelForDirectiveEPNS_38OMPTeamsDistributeParallelForDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPTeamsDistributeParallelForDirectiveEPNS_38OMPTeamsDistributeParallelForDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15211,7 +15211,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPTeamsDistributeDirectiveEPNS_27OMPTeamsDistributeDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPTeamsDistributeDirectiveEPNS_27OMPTeamsDistributeDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15223,7 +15223,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE29VisitOMPTaskLoopSimdDirectiveEPNS_24OMPTaskLoopSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE29VisitOMPTaskLoopSimdDirectiveEPNS_24OMPTaskLoopSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15235,7 +15235,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPTaskLoopDirectiveEPNS_20OMPTaskLoopDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPTaskLoopDirectiveEPNS_20OMPTaskLoopDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15247,7 +15247,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPTargetTeamsGenericLoopDirectiveEPNS_34OMPTargetTeamsGenericLoopDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPTargetTeamsGenericLoopDirectiveEPNS_34OMPTargetTeamsGenericLoopDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15259,7 +15259,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPTargetTeamsDistributeSimdDirectiveEPNS_37OMPTargetTeamsDistributeSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPTargetTeamsDistributeSimdDirectiveEPNS_37OMPTargetTeamsDistributeSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15271,7 +15271,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE53VisitOMPTargetTeamsDistributeParallelForSimdDirectiveEPNS_48OMPTargetTeamsDistributeParallelForSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE53VisitOMPTargetTeamsDistributeParallelForSimdDirectiveEPNS_48OMPTargetTeamsDistributeParallelForSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15283,7 +15283,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE49VisitOMPTargetTeamsDistributeParallelForDirectiveEPNS_44OMPTargetTeamsDistributeParallelForDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE49VisitOMPTargetTeamsDistributeParallelForDirectiveEPNS_44OMPTargetTeamsDistributeParallelForDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15295,7 +15295,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPTargetTeamsDistributeDirectiveEPNS_33OMPTargetTeamsDistributeDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPTargetTeamsDistributeDirectiveEPNS_33OMPTargetTeamsDistributeDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15307,7 +15307,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPTargetSimdDirectiveEPNS_22OMPTargetSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPTargetSimdDirectiveEPNS_22OMPTargetSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15319,7 +15319,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPTargetParallelGenericLoopDirectiveEPNS_37OMPTargetParallelGenericLoopDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPTargetParallelGenericLoopDirectiveEPNS_37OMPTargetParallelGenericLoopDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15331,7 +15331,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPTargetParallelForSimdDirectiveEPNS_33OMPTargetParallelForSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPTargetParallelForSimdDirectiveEPNS_33OMPTargetParallelForSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15343,7 +15343,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPSimdDirectiveEPNS_16OMPSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPSimdDirectiveEPNS_16OMPSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15355,7 +15355,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPParallelMasterTaskLoopSimdDirectiveEPNS_38OMPParallelMasterTaskLoopSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPParallelMasterTaskLoopSimdDirectiveEPNS_38OMPParallelMasterTaskLoopSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15367,7 +15367,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPParallelMasterTaskLoopDirectiveEPNS_34OMPParallelMasterTaskLoopDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPParallelMasterTaskLoopDirectiveEPNS_34OMPParallelMasterTaskLoopDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15379,7 +15379,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPParallelMaskedTaskLoopSimdDirectiveEPNS_38OMPParallelMaskedTaskLoopSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE43VisitOMPParallelMaskedTaskLoopSimdDirectiveEPNS_38OMPParallelMaskedTaskLoopSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15391,7 +15391,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPParallelMaskedTaskLoopDirectiveEPNS_34OMPParallelMaskedTaskLoopDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE39VisitOMPParallelMaskedTaskLoopDirectiveEPNS_34OMPParallelMaskedTaskLoopDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15403,7 +15403,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE36VisitOMPParallelGenericLoopDirectiveEPNS_31OMPParallelGenericLoopDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE36VisitOMPParallelGenericLoopDirectiveEPNS_31OMPParallelGenericLoopDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15415,7 +15415,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPParallelForSimdDirectiveEPNS_27OMPParallelForSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE32VisitOMPParallelForSimdDirectiveEPNS_27OMPParallelForSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15427,7 +15427,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPParallelForDirectiveEPNS_23OMPParallelForDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPParallelForDirectiveEPNS_23OMPParallelForDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15439,7 +15439,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE35VisitOMPMasterTaskLoopSimdDirectiveEPNS_30OMPMasterTaskLoopSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE35VisitOMPMasterTaskLoopSimdDirectiveEPNS_30OMPMasterTaskLoopSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15451,7 +15451,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPMasterTaskLoopDirectiveEPNS_26OMPMasterTaskLoopDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPMasterTaskLoopDirectiveEPNS_26OMPMasterTaskLoopDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15463,7 +15463,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE35VisitOMPMaskedTaskLoopSimdDirectiveEPNS_30OMPMaskedTaskLoopSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE35VisitOMPMaskedTaskLoopSimdDirectiveEPNS_30OMPMaskedTaskLoopSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15475,7 +15475,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPMaskedTaskLoopDirectiveEPNS_26OMPMaskedTaskLoopDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPMaskedTaskLoopDirectiveEPNS_26OMPMaskedTaskLoopDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15487,7 +15487,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPGenericLoopDirectiveEPNS_23OMPGenericLoopDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE28VisitOMPGenericLoopDirectiveEPNS_23OMPGenericLoopDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15499,7 +15499,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPForSimdDirectiveEPNS_19OMPForSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPForSimdDirectiveEPNS_19OMPForSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15511,7 +15511,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitOMPForDirectiveEPNS_15OMPForDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitOMPForDirectiveEPNS_15OMPForDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15523,7 +15523,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPDistributeSimdDirectiveEPNS_26OMPDistributeSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE31VisitOMPDistributeSimdDirectiveEPNS_26OMPDistributeSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15535,7 +15535,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPDistributeParallelForSimdDirectiveEPNS_37OMPDistributeParallelForSimdDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE42VisitOMPDistributeParallelForSimdDirectiveEPNS_37OMPDistributeParallelForSimdDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15547,7 +15547,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPDistributeParallelForDirectiveEPNS_33OMPDistributeParallelForDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE38VisitOMPDistributeParallelForDirectiveEPNS_33OMPDistributeParallelForDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15559,7 +15559,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPDistributeDirectiveEPNS_22OMPDistributeDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE27VisitOMPDistributeDirectiveEPNS_22OMPDistributeDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15571,7 +15571,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPInteropDirectiveEPNS_19OMPInteropDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPInteropDirectiveEPNS_19OMPInteropDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15583,7 +15583,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPFlushDirectiveEPNS_17OMPFlushDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPFlushDirectiveEPNS_17OMPFlushDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15595,7 +15595,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPErrorDirectiveEPNS_17OMPErrorDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitOMPErrorDirectiveEPNS_17OMPErrorDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15607,7 +15607,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPDispatchDirectiveEPNS_20OMPDispatchDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPDispatchDirectiveEPNS_20OMPDispatchDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15619,7 +15619,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPDepobjDirectiveEPNS_18OMPDepobjDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPDepobjDirectiveEPNS_18OMPDepobjDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15631,7 +15631,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPCriticalDirectiveEPNS_20OMPCriticalDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE25VisitOMPCriticalDirectiveEPNS_20OMPCriticalDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15643,7 +15643,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE34VisitOMPCancellationPointDirectiveEPNS_29OMPCancellationPointDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE34VisitOMPCancellationPointDirectiveEPNS_29OMPCancellationPointDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15655,7 +15655,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPCancelDirectiveEPNS_18OMPCancelDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPCancelDirectiveEPNS_18OMPCancelDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15667,7 +15667,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPBarrierDirectiveEPNS_19OMPBarrierDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE24VisitOMPBarrierDirectiveEPNS_19OMPBarrierDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15679,7 +15679,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPAtomicDirectiveEPNS_18OMPAtomicDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPAtomicDirectiveEPNS_18OMPAtomicDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15691,7 +15691,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPAssumeDirectiveEPNS_18OMPAssumeDirectiveE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE23VisitOMPAssumeDirectiveEPNS_18OMPAssumeDirectiveE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15703,7 +15703,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPCanonicalLoopEPNS_16OMPCanonicalLoopE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitOMPCanonicalLoopEPNS_16OMPCanonicalLoopE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15715,7 +15715,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitNullStmtEPNS_8NullStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitNullStmtEPNS_8NullStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15727,7 +15727,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitMSDependentExistsStmtEPNS_21MSDependentExistsStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE26VisitMSDependentExistsStmtEPNS_21MSDependentExistsStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15739,7 +15739,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitIndirectGotoStmtEPNS_16IndirectGotoStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE21VisitIndirectGotoStmtEPNS_16IndirectGotoStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15751,7 +15751,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE11VisitIfStmtEPNS_6IfStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE11VisitIfStmtEPNS_6IfStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15763,7 +15763,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitGotoStmtEPNS_8GotoStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitGotoStmtEPNS_8GotoStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15775,7 +15775,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE12VisitForStmtEPNS_7ForStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE12VisitForStmtEPNS_7ForStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15787,7 +15787,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE11VisitDoStmtEPNS_6DoStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE11VisitDoStmtEPNS_6DoStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15799,7 +15799,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitDeclStmtEPNS_8DeclStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE13VisitDeclStmtEPNS_8DeclStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15811,7 +15811,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitCoroutineBodyStmtEPNS_17CoroutineBodyStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE22VisitCoroutineBodyStmtEPNS_17CoroutineBodyStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15823,7 +15823,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCoreturnStmtEPNS_12CoreturnStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCoreturnStmtEPNS_12CoreturnStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15835,7 +15835,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitContinueStmtEPNS_12ContinueStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitContinueStmtEPNS_12ContinueStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15847,7 +15847,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCompoundStmtEPNS_12CompoundStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCompoundStmtEPNS_12CompoundStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15859,7 +15859,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCapturedStmtEPNS_12CapturedStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCapturedStmtEPNS_12CapturedStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15871,7 +15871,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitCXXTryStmtEPNS_10CXXTryStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitCXXTryStmtEPNS_10CXXTryStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15883,7 +15883,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitCXXForRangeStmtEPNS_15CXXForRangeStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE20VisitCXXForRangeStmtEPNS_15CXXForRangeStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15895,7 +15895,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCXXCatchStmtEPNS_12CXXCatchStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE17VisitCXXCatchStmtEPNS_12CXXCatchStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15907,7 +15907,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitBreakStmtEPNS_9BreakStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitBreakStmtEPNS_9BreakStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15919,7 +15919,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitMSAsmStmtEPNS_9MSAsmStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE14VisitMSAsmStmtEPNS_9MSAsmStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -15931,7 +15931,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitGCCAsmStmtEPNS_10GCCAsmStmtE.argelim(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitGCCAsmStmtEPNS_10GCCAsmStmtE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -16011,18 +16011,18 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread24: ; preds = %4, %_ZN
   %46 = and i32 %45, 511
   %switch.tableidx = add nsw i32 %46, -474
   %47 = icmp ult i32 %switch.tableidx, 5
-  br i1 %47, label %switch.hole_check, label %._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.argprom.exit_crit_edge.i
+  br i1 %47, label %switch.hole_check, label %._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.exit_crit_edge.i
 
-._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.argprom.exit_crit_edge.i: ; preds = %switch.hole_check, %41
+._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.exit_crit_edge.i: ; preds = %switch.hole_check, %41
   %.phi.trans.insert12.i = getelementptr inbounds nuw i8, ptr %28, i64 144
   %.pre13.i = load ptr, ptr %.phi.trans.insert12.i, align 8
-  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.exit.i
 
 switch.hole_check:                                ; preds = %41
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 27, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.argprom.exit_crit_edge.i
+  br i1 %switch.lobit, label %switch.lookup, label %._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.exit_crit_edge.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %48 = zext nneg i32 %switch.tableidx to i64
@@ -16032,11 +16032,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %switch.load
   %.sroa.0.0.copyload.i3.i.i = load i64, ptr %51, align 8
-  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.exit.i
 
-_ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.argprom.exit.i: ; preds = %switch.lookup, %._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.argprom.exit_crit_edge.i
-  %52 = phi ptr [ %.pre13.i, %._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.argprom.exit_crit_edge.i ], [ %50, %switch.lookup ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i, %._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.argprom.exit_crit_edge.i ], [ %.sroa.0.0.copyload.i3.i.i, %switch.lookup ]
+_ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.exit.i: ; preds = %switch.lookup, %._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.exit_crit_edge.i
+  %52 = phi ptr [ %.pre13.i, %._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.exit_crit_edge.i ], [ %50, %switch.lookup ]
+  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i, %._ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.exit_crit_edge.i ], [ %.sroa.0.0.copyload.i3.i.i, %switch.lookup ]
   %53 = tail call noundef nonnull align 1 ptr @_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %52, i64 %.sroa.0.0.copyload.i) #15
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 144
@@ -16050,7 +16050,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualType
   %.not.not.i = icmp slt i32 %61, %62
   br i1 %.not.not.i, label %63, label %71
 
-63:                                               ; preds = %_ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.argprom.exit.i
+63:                                               ; preds = %_ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.exit.i
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 1, ptr %64, align 2
   %65 = load ptr, ptr %0, align 8
@@ -16061,7 +16061,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualType
   %70 = tail call i64 @_ZNK5clang10ASTContext14getComplexTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %69, i64 %.sroa.0.0.i.i) #15
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter39HigherPrecisionTypeForComplexArithmeticEN5clang8QualTypeEb.exit
 
-71:                                               ; preds = %_ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.argprom.exit.i
+71:                                               ; preds = %_ZN12_GLOBAL__N_118ComplexExprEmitter24GetHigherPrecisionFPTypeEN5clang8QualTypeE.exit.i
   %72 = load ptr, ptr %0, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 144
   %74 = load ptr, ptr %73, align 8
@@ -16163,11 +16163,11 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticEb(ptr noundef nonnull align 8 dereferenceable(1304), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE.argelim(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr nocapture noundef readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr nocapture noundef readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CodeGen::RValue", align 8
   %5 = alloca %"class.clang::CodeGen::LValue", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE.argelim(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(49) %4)
+  call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(49) %4)
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %8 = load ptr, ptr %7, align 8

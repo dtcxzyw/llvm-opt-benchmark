@@ -87,7 +87,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %18 = load ptr, ptr @optarg, align 8
   %19 = tail call noalias ptr @fopen(ptr noundef %18, ptr noundef nonnull @.str.2)
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %openFile.argprom.exit.i
+  br i1 %20, label %21, label %openFile.exit.i
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr @stderr, align 8
@@ -96,7 +96,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call fastcc void @graphviz_exit(i32 noundef 1) #16
   unreachable
 
-openFile.argprom.exit.i:                          ; preds = %16
+openFile.exit.i:                                  ; preds = %16
   store ptr %19, ptr @outfp, align 8
   br label %.backedge
 
@@ -117,7 +117,7 @@ openFile.argprom.exit.i:                          ; preds = %16
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.3, ptr noundef %28, i32 noundef %29) #14
   br label %.backedge
 
-.backedge:                                        ; preds = %26, %25, %24, %openFile.argprom.exit.i, %11, %10
+.backedge:                                        ; preds = %26, %25, %24, %openFile.exit.i, %11, %10
   br label %8
 
 31:                                               ; preds = %8

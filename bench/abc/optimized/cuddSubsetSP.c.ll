@@ -276,7 +276,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %80
 
 80:                                               ; preds = %79, %78
-  tail call fastcc void @CreateTopDist.argprom.argelim(ptr noundef %39, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @CreateTopDist(ptr noundef %39, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %.b.i = load i1, ptr @memOut, align 4
   br i1 %.b.i, label %81, label %83
 
@@ -1378,7 +1378,7 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
 declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CreateTopDist.argprom.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
+define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = add i32 %3, 1
   br label %8
@@ -1783,7 +1783,7 @@ define internal fastcc void @CreateTopDist.argprom.argelim(ptr noundef %0, i32 n
   br i1 %.not97, label %145, label %144
 
 144:                                              ; preds = %143
-  call fastcc void @CreateTopDist.argprom.argelim(ptr noundef %0, i32 noundef %spec.select117, i32 noundef %19, i32 noundef %7, i32 noundef %.1)
+  call fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %spec.select117, i32 noundef %19, i32 noundef %7, i32 noundef %.1)
   br label %145
 
 145:                                              ; preds = %143, %144, %128, %99, %86, %49

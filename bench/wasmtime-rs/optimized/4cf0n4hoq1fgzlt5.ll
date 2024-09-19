@@ -190,7 +190,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 60:                                               ; preds = %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %14)
-          to label %"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17hff3e38eef7f09b37E.argprom.exit" unwind label %22, !noalias !3
+          to label %"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17hff3e38eef7f09b37E.exit" unwind label %22, !noalias !3
 
 61:                                               ; preds = %57, %45, %41, %37, %21
   %62 = landingpad { ptr, i32 }
@@ -201,7 +201,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 63:                                               ; preds = %21
   resume { ptr, i32 } %.pn12.i
 
-"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17hff3e38eef7f09b37E.argprom.exit": ; preds = %60
+"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17hff3e38eef7f09b37E.exit": ; preds = %60
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %16), !noalias !3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -524,7 +524,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 101:                                              ; preds = %.invoke.i, %100
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %26)
-          to label %"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h334dc7abe900f1bbE.argprom.exit" unwind label %33, !noalias !10
+          to label %"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h334dc7abe900f1bbE.exit" unwind label %33, !noalias !10
 
 102:                                              ; preds = %167, %151, %147, %140, %118, %114, %94, %78, %74, %70, %51, %36, %32
   %103 = landingpad { ptr, i32 }
@@ -803,7 +803,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 176:                                              ; preds = %32
   resume { ptr, i32 } %.pn14.i
 
-"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h334dc7abe900f1bbE.argprom.exit": ; preds = %101
+"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h334dc7abe900f1bbE.exit": ; preds = %101
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %28), !noalias !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
@@ -1033,7 +1033,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 61:                                               ; preds = %60
   invoke void @_ZN5quote9__private9push_semi17hc919911d2338ce8eE(ptr nonnull align 8 %11)
-          to label %"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h10b4d9033a418a71E.argprom.exit" unwind label %22, !noalias !16
+          to label %"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h10b4d9033a418a71E.exit" unwind label %22, !noalias !16
 
 62:                                               ; preds = %46, %30, %21, %17
   %63 = landingpad { ptr, i32 }
@@ -1044,7 +1044,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 64:                                               ; preds = %17
   resume { ptr, i32 } %.pn2.pn.i
 
-"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h10b4d9033a418a71E.argprom.exit": ; preds = %61
+"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h10b4d9033a418a71E.exit": ; preds = %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %13), !noalias !16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -1328,7 +1328,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 87:                                               ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %14)
-          to label %"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h747985aa6a3f1fc8E.argprom.exit" unwind label %28, !noalias !19
+          to label %"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h747985aa6a3f1fc8E.exit" unwind label %28, !noalias !19
 
 88:                                               ; preds = %51
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.c09250ef17efc04c77eb14c314286b3e.7) #9
@@ -1340,7 +1340,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 90:                                               ; preds = %27
   resume { ptr, i32 } %.pn7.i
 
-"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h747985aa6a3f1fc8E.argprom.exit": ; preds = %87
+"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h747985aa6a3f1fc8E.exit": ; preds = %87
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %15), !noalias !19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -1495,21 +1495,21 @@ attributes #9 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{!4}
-!4 = distinct !{!4, !5, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17hff3e38eef7f09b37E.argprom: argument 0"}
-!5 = distinct !{!5, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17hff3e38eef7f09b37E.argprom"}
+!4 = distinct !{!4, !5, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17hff3e38eef7f09b37E: argument 0"}
+!5 = distinct !{!5, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17hff3e38eef7f09b37E"}
 !6 = !{}
 !7 = !{i64 8}
 !8 = !{i64 0, i64 -9223372036854775807}
 !9 = !{i32 1, i32 0}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h334dc7abe900f1bbE.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h334dc7abe900f1bbE.argprom"}
+!11 = distinct !{!11, !12, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h334dc7abe900f1bbE: argument 0"}
+!12 = distinct !{!12, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h334dc7abe900f1bbE"}
 !13 = !{i64 0, i64 2}
 !14 = !{i8 0, i8 7}
 !15 = !{i8 0, i8 11}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h10b4d9033a418a71E.argprom: argument 0"}
-!18 = distinct !{!18, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h10b4d9033a418a71E.argprom"}
+!17 = distinct !{!17, !18, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h10b4d9033a418a71E: argument 0"}
+!18 = distinct !{!18, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h10b4d9033a418a71E"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h747985aa6a3f1fc8E.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h747985aa6a3f1fc8E.argprom"}
+!20 = distinct !{!20, !21, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h747985aa6a3f1fc8E: argument 0"}
+!21 = distinct !{!21, !"_ZN15wiggle_generate5types6record13define_struct28_$u7b$$u7b$closure$u7d$$u7d$17h747985aa6a3f1fc8E"}

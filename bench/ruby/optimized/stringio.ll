@@ -342,13 +342,13 @@ strio_free.exit:                                  ; preds = %16, %11, %get_strio
   %21 = icmp ne i64 %20, 0
   %22 = icmp eq i64 %19, 0
   %23 = or i1 %22, %21
-  br i1 %23, label %rb_obj_written.argprom.exit, label %24
+  br i1 %23, label %rb_obj_written.exit, label %24
 
 24:                                               ; preds = %strio_free.exit
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %19) #14
-  br label %rb_obj_written.argprom.exit
+  br label %rb_obj_written.exit
 
-rb_obj_written.argprom.exit:                      ; preds = %strio_free.exit, %24
+rb_obj_written.exit:                              ; preds = %strio_free.exit, %24
   %25 = load i64, ptr %17, align 8
   %26 = and i64 %25, -196609
   store i64 %26, ptr %17, align 8
@@ -363,7 +363,7 @@ rb_obj_written.argprom.exit:                      ; preds = %strio_free.exit, %2
   store i32 %33, ptr %31, align 4
   br label %34
 
-34:                                               ; preds = %2, %rb_obj_written.argprom.exit
+34:                                               ; preds = %2, %rb_obj_written.exit
   ret i64 %0
 }
 
@@ -476,7 +476,7 @@ get_strio.exit:                                   ; preds = %2
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store i64 %13, ptr %5, align 8
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
 19:                                               ; preds = %get_strio.exit
   %20 = inttoptr i64 %13 to ptr
@@ -494,9 +494,9 @@ get_strio.exit:                                   ; preds = %2
   store i64 %13, ptr %5, align 8
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %13) #14
   %.pre = load i64, ptr %3, align 8
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %.thread10, %19
+rb_obj_write.exit:                                ; preds = %.thread10, %19
   %25 = phi i64 [ %13, %.thread10 ], [ %.pre, %19 ]
   ret i64 %25
 }
@@ -845,7 +845,7 @@ strio_to_read.exit:                               ; preds = %9
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal noundef i64 @strio_unimpl(i32 %0, ptr nocapture readnone %1, i64 noundef %2) #2 {
-  tail call fastcc void @get_strio.retelim(i64 noundef %2)
+  tail call fastcc void @get_strio(i64 noundef %2)
   tail call void @rb_notimplement() #17
   unreachable
 }
@@ -1579,18 +1579,18 @@ readable.exit:                                    ; preds = %13
   %30 = and i64 %27, 2048
   %31 = icmp ne i64 %30, 0
   %or.cond.i = or i1 %29, %31
-  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %check_modifiable.argprom.exit
+  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %check_modifiable.exit
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %25, %readable.exit
   %32 = load i64, ptr @rb_eIOError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str.93) #17
   unreachable
 
-check_modifiable.argprom.exit:                    ; preds = %25
+check_modifiable.exit:                            ; preds = %25
   %33 = icmp eq i64 %1, 4
   br i1 %33, label %81, label %34
 
-34:                                               ; preds = %check_modifiable.argprom.exit
+34:                                               ; preds = %check_modifiable.exit
   %35 = and i64 %1, 1
   %.not.i23 = icmp eq i64 %35, 0
   br i1 %.not.i23, label %36, label %45
@@ -1635,7 +1635,7 @@ rb_num2int_inline.exit:                           ; preds = %45, %47
   %58 = load ptr, ptr %57, align 8
   %59 = call i32 %58(i32 noundef %49, ptr noundef nonnull %4, ptr noundef %51) #14
   %60 = sext i32 %52 to i64
-  call fastcc void @strio_unget_bytes.retelim(ptr noundef %7, ptr noundef nonnull %4, i64 noundef %60)
+  call fastcc void @strio_unget_bytes(ptr noundef %7, ptr noundef nonnull %4, i64 noundef %60)
   br label %81
 
 rb_integer_type_p.exit.thread28:                  ; preds = %36, %rb_integer_type_p.exit
@@ -1679,14 +1679,14 @@ RSTRING_PTR.exit:                                 ; preds = %70, %76
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %76 ], [ %75, %70 ]
   %77 = getelementptr inbounds i8, ptr %72, i64 16
   %78 = load i64, ptr %77, align 8
-  call fastcc void @strio_unget_bytes.retelim(ptr noundef %7, ptr noundef %.sroa.2.0.i, i64 noundef %78)
+  call fastcc void @strio_unget_bytes(ptr noundef %7, ptr noundef %.sroa.2.0.i, i64 noundef %78)
   store ptr %3, ptr %5, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #14, !srcloc !18
   %79 = load ptr, ptr %5, align 8
   %80 = load volatile i64, ptr %79, align 8
   br label %81
 
-81:                                               ; preds = %check_modifiable.argprom.exit, %RSTRING_PTR.exit, %56
+81:                                               ; preds = %check_modifiable.exit, %RSTRING_PTR.exit, %56
   ret i64 4
 }
 
@@ -1743,18 +1743,18 @@ readable.exit:                                    ; preds = %13
   %30 = and i64 %27, 2048
   %31 = icmp ne i64 %30, 0
   %or.cond.i = or i1 %29, %31
-  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %check_modifiable.argprom.exit
+  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %check_modifiable.exit
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %25, %readable.exit
   %32 = load i64, ptr @rb_eIOError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str.93) #17
   unreachable
 
-check_modifiable.argprom.exit:                    ; preds = %25
+check_modifiable.exit:                            ; preds = %25
   %33 = icmp eq i64 %1, 4
   br i1 %33, label %65, label %34
 
-34:                                               ; preds = %check_modifiable.argprom.exit
+34:                                               ; preds = %check_modifiable.exit
   %35 = and i64 %1, 1
   %.not.i8 = icmp eq i64 %35, 0
   br i1 %.not.i8, label %36, label %rb_integer_type_p.exit.thread
@@ -1791,7 +1791,7 @@ rb_num2int_inline.exit:                           ; preds = %47, %49
   %.0.i10 = phi i64 [ %48, %47 ], [ %50, %49 ]
   %51 = trunc i64 %.0.i10 to i8
   store i8 %51, ptr %4, align 1
-  call fastcc void @strio_unget_bytes.retelim(ptr noundef %7, ptr noundef nonnull %4, i64 noundef 1)
+  call fastcc void @strio_unget_bytes(ptr noundef %7, ptr noundef nonnull %4, i64 noundef 1)
   br label %65
 
 rb_integer_type_p.exit.thread13:                  ; preds = %36, %rb_integer_type_p.exit
@@ -1816,14 +1816,14 @@ rb_integer_type_p.exit.thread13:                  ; preds = %36, %rb_integer_typ
 
 RSTRING_PTR.exit:                                 ; preds = %58, %62
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %62 ], [ %61, %58 ]
-  call fastcc void @strio_unget_bytes.retelim(ptr noundef %7, ptr noundef %.sroa.2.0.i, i64 noundef %56)
+  call fastcc void @strio_unget_bytes(ptr noundef %7, ptr noundef %.sroa.2.0.i, i64 noundef %56)
   store ptr %3, ptr %5, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #14, !srcloc !22
   %63 = load ptr, ptr %5, align 8
   %64 = load volatile i64, ptr %63, align 8
   br label %65
 
-65:                                               ; preds = %rb_num2int_inline.exit, %RSTRING_PTR.exit, %rb_integer_type_p.exit.thread13, %check_modifiable.argprom.exit
+65:                                               ; preds = %rb_num2int_inline.exit, %RSTRING_PTR.exit, %rb_integer_type_p.exit.thread13, %check_modifiable.exit
   ret i64 4
 }
 
@@ -2234,14 +2234,14 @@ rb_num2long_inline.exit:                          ; preds = %32, %34
 
 98:                                               ; preds = %89
   %99 = call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %90) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
 100:                                              ; preds = %89
   %101 = call i64 @rb_str_subseq(i64 noundef %.val, i64 noundef %92, i64 noundef %spec.select.i) #14
   %102 = call i64 @rb_enc_associate(i64 noundef %101, ptr noundef %90) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
-strio_substr.argprom.exit:                        ; preds = %98, %100
+strio_substr.exit:                                ; preds = %98, %100
   %.0.i56 = phi i64 [ %99, %98 ], [ %101, %100 ]
   store i64 %.0.i56, ptr %4, align 8
   br label %128
@@ -2305,7 +2305,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit61,
   call void @rb_enc_copy(i64 noundef %122, i64 noundef %127) #14
   br label %128
 
-128:                                              ; preds = %123, %126, %strio_substr.argprom.exit
+128:                                              ; preds = %123, %126, %strio_substr.exit
   %129 = load i64, ptr %4, align 8
   %130 = inttoptr i64 %129 to ptr
   %131 = getelementptr inbounds i8, ptr %130, i64 16
@@ -2373,11 +2373,11 @@ rb_num2long_inline.exit27:                        ; preds = %16, %18
 26:                                               ; preds = %24
   %27 = load i64, ptr %6, align 8
   %28 = icmp eq i64 %27, 4
-  br i1 %28, label %29, label %strio_substr.argprom.exit
+  br i1 %28, label %29, label %strio_substr.exit
 
 29:                                               ; preds = %26
   %30 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.77, i64 noundef 0) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
 31:                                               ; preds = %24
   %32 = icmp slt i64 %.0.i26, 0
@@ -2451,12 +2451,12 @@ readable.exit:                                    ; preds = %44
 
 67:                                               ; preds = %60
   %68 = call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef nonnull %61) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
 69:                                               ; preds = %60
   %70 = call i64 @rb_str_subseq(i64 noundef %.val, i64 noundef %.0.i26, i64 noundef %spec.select.i) #14
   %71 = call i64 @rb_enc_associate(i64 noundef %70, ptr noundef nonnull %61) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
 72:                                               ; preds = %57
   %73 = sub nsw i64 %55, %.0.i26
@@ -2496,9 +2496,9 @@ RSTRING_PTR.exit34:                               ; preds = %89, %RSTRING_PTR.ex
   %90 = getelementptr inbounds i8, ptr %.sroa.2.0.i33, i64 %.0.i26
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i, ptr readonly align 1 %90, i64 %spec.select, i1 false)
   %91 = load i64, ptr %6, align 8
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
-strio_substr.argprom.exit:                        ; preds = %69, %67, %26, %RSTRING_PTR.exit34, %29
+strio_substr.exit:                                ; preds = %69, %67, %26, %RSTRING_PTR.exit34, %29
   %.0 = phi i64 [ %30, %29 ], [ %91, %RSTRING_PTR.exit34 ], [ %27, %26 ], [ %68, %67 ], [ %70, %69 ]
   ret i64 %.0
 }
@@ -2590,21 +2590,21 @@ writable.exit:                                    ; preds = %11
   %28 = and i64 %25, 2048
   %29 = icmp ne i64 %28, 0
   %or.cond.i = or i1 %27, %29
-  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %check_modifiable.argprom.exit
+  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %check_modifiable.exit
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %23, %writable.exit
   %30 = load i64, ptr @rb_eIOError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.93) #17
   unreachable
 
-check_modifiable.argprom.exit:                    ; preds = %23
+check_modifiable.exit:                            ; preds = %23
   %31 = and i64 %1, 7
   %32 = icmp ne i64 %31, 0
   %33 = icmp eq i64 %1, 0
   %34 = or i1 %33, %32
   br i1 %34, label %.critedge.i, label %35
 
-35:                                               ; preds = %check_modifiable.argprom.exit
+35:                                               ; preds = %check_modifiable.exit
   %36 = inttoptr i64 %1 to ptr
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, 31
@@ -2615,7 +2615,7 @@ check_modifiable.argprom.exit:                    ; preds = %23
   %41 = tail call i64 @rb_str_substr(i64 noundef %1, i64 noundef 0, i64 noundef 1) #14
   br label %49
 
-.critedge.i:                                      ; preds = %35, %check_modifiable.argprom.exit
+.critedge.i:                                      ; preds = %35, %check_modifiable.exit
   %42 = and i64 %1, 1
   %.not.i.i26 = icmp eq i64 %42, 0
   br i1 %.not.i.i26, label %45, label %43
@@ -3173,7 +3173,7 @@ get_strio.exit:                                   ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_strio.retelim(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc void @get_strio(i64 noundef %0) unnamed_addr #0 {
   %2 = tail call i64 @rb_io_taint_check(i64 noundef %0) #14
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @strio_data_type) #14
   %.not = icmp eq ptr %3, null
@@ -3271,22 +3271,22 @@ define internal fastcc noundef i64 @strio_init(i32 noundef %0, ptr noundef %1, p
   %40 = icmp ne i64 %39, 0
   %41 = icmp eq i64 %38, 0
   %42 = or i1 %41, %40
-  br i1 %42, label %rb_obj_write.argprom.exit, label %43
+  br i1 %42, label %rb_obj_write.exit, label %43
 
 43:                                               ; preds = %37
   call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %38) #14
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %37, %43
+rb_obj_write.exit:                                ; preds = %37, %43
   %44 = icmp eq i32 %10, 1
   br i1 %44, label %45, label %48
 
-45:                                               ; preds = %rb_obj_write.argprom.exit
+45:                                               ; preds = %rb_obj_write.exit
   %46 = load i64, ptr %5, align 8
   %47 = call ptr @rb_enc_get(i64 noundef %46) #14
   br label %50
 
-48:                                               ; preds = %rb_obj_write.argprom.exit
+48:                                               ; preds = %rb_obj_write.exit
   %49 = load ptr, ptr %9, align 8
   br label %50
 
@@ -3857,12 +3857,12 @@ chomp_newline_width.exit:                         ; preds = %54, %50, %44, %39
 
 64:                                               ; preds = %chomp_newline_width.exit
   %65 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %13) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
 66:                                               ; preds = %chomp_newline_width.exit
   %67 = tail call i64 @rb_str_subseq(i64 noundef %.val, i64 noundef %55, i64 noundef %spec.select.i) #14
   %68 = tail call i64 @rb_enc_associate(i64 noundef %67, ptr noundef %13) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
 69:                                               ; preds = %37
   %70 = inttoptr i64 %6 to ptr
@@ -4011,12 +4011,12 @@ RSTRING_PTR.exit187:                              ; preds = %.critedge2, %139
 
 148:                                              ; preds = %RSTRING_PTR.exit187
   %149 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %13) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
 150:                                              ; preds = %RSTRING_PTR.exit187
   %151 = tail call i64 @rb_str_subseq(i64 noundef %134, i64 noundef %141, i64 noundef %spec.select.i188) #14
   %152 = tail call i64 @rb_enc_associate(i64 noundef %151, ptr noundef %13) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
 153:                                              ; preds = %69
   %154 = load i64, ptr %70, align 8, !noalias !56
@@ -4077,12 +4077,12 @@ RSTRING_PTR.exit194:                              ; preds = %153, %157
 
 185:                                              ; preds = %175
   %186 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %13) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
 187:                                              ; preds = %175
   %188 = tail call i64 @rb_str_subseq(i64 noundef %.val181, i64 noundef %176, i64 noundef %spec.select.i195) #14
   %189 = tail call i64 @rb_enc_associate(i64 noundef %188, ptr noundef %13) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
 190:                                              ; preds = %69
   %191 = ptrtoint ptr %.0145 to i64
@@ -4267,14 +4267,14 @@ bm_search.exit.thread:                            ; preds = %.critedge.us.i, %.l
 
 263:                                              ; preds = %bm_search.exit.thread
   %264 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %13) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
 265:                                              ; preds = %bm_search.exit.thread
   %266 = tail call i64 @rb_str_subseq(i64 noundef %.val182, i64 noundef %254, i64 noundef %spec.select.i207) #14
   %267 = tail call i64 @rb_enc_associate(i64 noundef %266, ptr noundef %13) #14
-  br label %strio_substr.argprom.exit
+  br label %strio_substr.exit
 
-strio_substr.argprom.exit:                        ; preds = %265, %263, %187, %185, %150, %148, %66, %64
+strio_substr.exit:                                ; preds = %265, %263, %187, %185, %150, %148, %66, %64
   %.1146 = phi ptr [ %.0145, %64 ], [ %.0145, %66 ], [ %.2147, %148 ], [ %.2147, %150 ], [ %.3148, %185 ], [ %.3148, %187 ], [ %.4, %263 ], [ %.4, %265 ]
   %.0144 = phi i64 [ %65, %64 ], [ %67, %66 ], [ %149, %148 ], [ %151, %150 ], [ %186, %185 ], [ %188, %187 ], [ %264, %263 ], [ %266, %265 ]
   %268 = load i64, ptr %1, align 8
@@ -4285,12 +4285,12 @@ strio_substr.argprom.exit:                        ; preds = %265, %263, %187, %1
   %272 = getelementptr inbounds i8, ptr %269, i64 24
   br i1 %.not.i.i210, label %RSTRING_PTR.exit213, label %273
 
-273:                                              ; preds = %strio_substr.argprom.exit
+273:                                              ; preds = %strio_substr.exit
   %.sroa.2.0.copyload.i211 = load ptr, ptr %272, align 8
   br label %RSTRING_PTR.exit213
 
-RSTRING_PTR.exit213:                              ; preds = %strio_substr.argprom.exit, %273
-  %.sroa.2.0.i212 = phi ptr [ %.sroa.2.0.copyload.i211, %273 ], [ %272, %strio_substr.argprom.exit ]
+RSTRING_PTR.exit213:                              ; preds = %strio_substr.exit, %273
+  %.sroa.2.0.i212 = phi ptr [ %.sroa.2.0.copyload.i211, %273 ], [ %272, %strio_substr.exit ]
   %274 = ptrtoint ptr %.1146 to i64
   %275 = ptrtoint ptr %.sroa.2.0.i212 to i64
   %276 = sub i64 %274, %275
@@ -4340,7 +4340,7 @@ declare i32 @rb_enc_codelen(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @rb_enc_uint_chr(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @strio_unget_bytes.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @strio_unget_bytes(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
@@ -4582,14 +4582,14 @@ writable.exit:                                    ; preds = %12
   %66 = and i64 %63, 2048
   %67 = icmp ne i64 %66, 0
   %or.cond.i = or i1 %65, %67
-  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %check_modifiable.argprom.exit
+  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %check_modifiable.exit
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %61, %56
   %68 = load i64, ptr @rb_eIOError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %68, ptr noundef nonnull @.str.93) #17
   unreachable
 
-check_modifiable.argprom.exit:                    ; preds = %61
+check_modifiable.exit:                            ; preds = %61
   %69 = getelementptr inbounds i8, ptr %62, i64 16
   %70 = load i64, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %6, i64 32
@@ -4600,11 +4600,11 @@ check_modifiable.argprom.exit:                    ; preds = %61
   %74 = getelementptr inbounds i8, ptr %6, i64 16
   br i1 %.not76, label %75, label %.thread
 
-.thread:                                          ; preds = %check_modifiable.argprom.exit
+.thread:                                          ; preds = %check_modifiable.exit
   store i64 %70, ptr %.phi.trans.insert, align 8
   br label %77
 
-75:                                               ; preds = %check_modifiable.argprom.exit
+75:                                               ; preds = %check_modifiable.exit
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %76 = icmp eq i64 %.pre, %70
   br i1 %76, label %77, label %87
@@ -4651,20 +4651,20 @@ RSTRING_PTR.exit:                                 ; preds = %79, %83
   %96 = and i64 %93, 2048
   %97 = icmp ne i64 %96, 0
   %or.cond.i.i = or i1 %95, %97
-  br i1 %or.cond.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i, label %check_modifiable.argprom.exit.i
+  br i1 %or.cond.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i, label %check_modifiable.exit.i
 
 RB_OBJ_FROZEN.exit.thread.i.i:                    ; preds = %92
   %98 = load i64, ptr @rb_eIOError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %98, ptr noundef nonnull @.str.93) #17
   unreachable
 
-check_modifiable.argprom.exit.i:                  ; preds = %92
+check_modifiable.exit.i:                          ; preds = %92
   %99 = load i64, ptr %69, align 8
   %100 = add nsw i64 %.pre, %54
   %101 = icmp sgt i64 %100, %99
   br i1 %101, label %102, label %strio_extend.exit
 
-102:                                              ; preds = %check_modifiable.argprom.exit.i
+102:                                              ; preds = %check_modifiable.exit.i
   %103 = tail call i64 @rb_str_resize(i64 noundef %.val, i64 noundef %100) #14
   %104 = icmp sgt i64 %.pre, %99
   %.pre90 = load i64, ptr %6, align 8
@@ -4690,8 +4690,8 @@ RSTRING_PTR.exit.i:                               ; preds = %110, %105
   %.pre89 = load i64, ptr %6, align 8
   br label %strio_extend.exit
 
-strio_extend.exit:                                ; preds = %check_modifiable.argprom.exit.i, %102, %RSTRING_PTR.exit.i
-  %113 = phi i64 [ %.val, %check_modifiable.argprom.exit.i ], [ %.pre90, %102 ], [ %.pre89, %RSTRING_PTR.exit.i ]
+strio_extend.exit:                                ; preds = %check_modifiable.exit.i, %102, %RSTRING_PTR.exit.i
+  %113 = phi i64 [ %.val, %check_modifiable.exit.i ], [ %.pre90, %102 ], [ %.pre89, %RSTRING_PTR.exit.i ]
   tail call void @rb_str_modify(i64 noundef %113) #14
   %114 = load i64, ptr %6, align 8
   %115 = inttoptr i64 %114 to ptr

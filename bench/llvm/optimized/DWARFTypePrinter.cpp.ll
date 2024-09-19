@@ -3978,20 +3978,20 @@ _ZNK4llvm8DWARFDie6getTagEv.exit34:               ; preds = %_ZN4llvm11raw_ostre
   %92 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %93 = load i8, ptr %92, align 8
   %94 = trunc i8 %93 to i1
-  br i1 %94, label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit", label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit.thread"
+  br i1 %94, label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit", label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit.thread"
 
-"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit.thread": ; preds = %90
+"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit.thread": ; preds = %90
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
   br label %107
 
-"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit": ; preds = %90
+"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit": ; preds = %90
   %95 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %15) #16
   %96 = extractvalue { i64, i8 } %95, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
   %.not = icmp eq i64 %96, 0
   br i1 %.not, label %107, label %97
 
-97:                                               ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit"
+97:                                               ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit"
   %98 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #16
   %99 = add i64 %98, 1
   %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #16
@@ -4012,26 +4012,26 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %97, %1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %106) #16
   br label %107
 
-107:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit.thread", %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit"
+107:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit.thread", %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
   call void @_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.8") align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %20, i16 noundef zeroext 15881) #16
   %108 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %109 = load i8, ptr %108, align 8
   %110 = trunc i8 %109 to i1
-  br i1 %110, label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit38", label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit38.thread"
+  br i1 %110, label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit38", label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit38.thread"
 
-"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit38.thread": ; preds = %107
+"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit38.thread": ; preds = %107
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
   br label %123
 
-"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit38": ; preds = %107
+"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit38": ; preds = %107
   %111 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #16
   %112 = extractvalue { i64, i8 } %111, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
   %.not21 = icmp eq i64 %112, 0
   br i1 %.not21, label %123, label %113
 
-113:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit38"
+113:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit38"
   %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #16
   %115 = add i64 %114, 1
   %116 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #16
@@ -4052,7 +4052,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit40: ; preds = %113,
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %122) #16
   br label %123
 
-123:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit38.thread", %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit40, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit38"
+123:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit38.thread", %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit40, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit38"
   call void @_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.8") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %20, i16 noundef zeroext 15882) #16
   %124 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %125 = load i8, ptr %124, align 8
@@ -4165,14 +4165,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %164, %166
   %169 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %170 = load i8, ptr %169, align 8
   %171 = trunc i8 %170 to i1
-  br i1 %171, label %172, label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit42"
+  br i1 %171, label %172, label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit42"
 
 172:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %173 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #16
   %174 = extractvalue { i64, i8 } %173, 0
-  br label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit42"
+  br label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit42"
 
-"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit42": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %172
+"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit42": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %172
   %.0.i41 = phi i64 [ %174, %172 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
   %175 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, i64 noundef %.0.i41) #16
@@ -4186,11 +4186,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %164, %166
   %183 = icmp ult i64 %182, 2
   br i1 %183, label %184, label %186
 
-184:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit42"
+184:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit42"
   %185 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %175, ptr noundef nonnull @.str.5, i64 noundef 2) #16
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit45
 
-186:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit42"
+186:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit42"
   store i16 8236, ptr %179, align 1
   %187 = load ptr, ptr %178, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 2
@@ -4204,14 +4204,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit45:               ; preds = %184, %186
   %189 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %190 = load i8, ptr %189, align 8
   %191 = trunc i8 %190 to i1
-  br i1 %191, label %192, label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit47"
+  br i1 %191, label %192, label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit47"
 
 192:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit45
   %193 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %10) #16
   %194 = extractvalue { i64, i8 } %193, 0
-  br label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit47"
+  br label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit47"
 
-"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit47": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit45, %192
+"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit47": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit45, %192
   %.0.i46 = phi i64 [ %194, %192 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit45 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   %195 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i44, i64 noundef %.0.i46) #16
@@ -4225,11 +4225,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit45:               ; preds = %184, %186
   %203 = icmp ult i64 %202, 5
   br i1 %203, label %204, label %206
 
-204:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit47"
+204:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit47"
   %205 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %195, ptr noundef nonnull @.str.26, i64 noundef 5) #16
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit50
 
-206:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit47"
+206:                                              ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit47"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %199, ptr noundef nonnull align 1 dereferenceable(5) @.str.26, i64 5, i1 false)
   %207 = load ptr, ptr %198, align 8
   %208 = getelementptr inbounds i8, ptr %207, i64 5
@@ -4243,16 +4243,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %204, %206
   %209 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %210 = load i8, ptr %209, align 8
   %211 = trunc i8 %210 to i1
-  br i1 %211, label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit52", label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit52.thread"
+  br i1 %211, label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit52", label %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit52.thread"
 
-"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit52.thread": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit50
+"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit52.thread": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit50
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %212 = getelementptr inbounds i8, ptr %7, i64 17
   br label %.thread
 
-"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit52": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit50
+"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit52": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit50
   %213 = call { i64, i8 } @_ZNK4llvm14DWARFFormValue21getAsUnsignedConstantEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #16
   %214 = extractvalue { i64, i8 } %213, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
@@ -4263,15 +4263,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %204, %206
   %216 = icmp eq i64 %214, 0
   br i1 %216, label %.thread, label %.lr.ph.split.us.i
 
-.thread:                                          ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit52", %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit52.thread"
-  %217 = phi ptr [ %212, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit52.thread" ], [ %215, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit52" ]
+.thread:                                          ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit52", %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit52.thread"
+  %217 = phi ptr [ %212, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit52.thread" ], [ %215, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit52" ]
   %218 = getelementptr inbounds i8, ptr %7, i64 16
   store i8 48, ptr %218, align 16, !noalias !40
   br label %_ZN4llvm9utohexstrB5cxx11Embj.exit
 
-.lr.ph.split.us.i:                                ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit52", %.lr.ph.split.us.i
-  %.019.us.i = phi i64 [ %224, %.lr.ph.split.us.i ], [ %214, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit52" ]
-  %.117.us.i = phi ptr [ %223, %.lr.ph.split.us.i ], [ %215, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.argprom.exit52" ]
+.lr.ph.split.us.i:                                ; preds = %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit52", %.lr.ph.split.us.i
+  %.019.us.i = phi i64 [ %224, %.lr.ph.split.us.i ], [ %214, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit52" ]
+  %.117.us.i = phi ptr [ %223, %.lr.ph.split.us.i ], [ %215, %"_ZZN4llvm16DWARFTypePrinter26appendUnqualifiedNameAfterENS_8DWARFDieES1_bENK3$_0clENS_5dwarf9AttributeE.exit52" ]
   %219 = and i64 %.019.us.i, 15
   %220 = getelementptr inbounds [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %219
   %221 = load i8, ptr %220, align 1, !noalias !40

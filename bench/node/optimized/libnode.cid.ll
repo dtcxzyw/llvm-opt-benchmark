@@ -384,7 +384,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  tail call fastcc void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryC2Ev.argprom()
+  tail call fastcc void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryC2Ev()
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryD2Ev, ptr nonnull @_ZZN4node4quic3CID7Factory6randomEvE8instance, ptr nonnull @__dso_handle) #12
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4node4quic3CID7Factory6randomEvE8instance) #12
   br label %init.end
@@ -397,7 +397,7 @@ init.end:                                         ; preds = %init, %init.check, 
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryC2Ev.argprom() unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryC2Ev() unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 16), ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, align 8
   store i32 4096, ptr getelementptr inbounds (i8, ptr @_ZZN4node4quic3CID7Factory6randomEvE8instance, i64 8), align 8

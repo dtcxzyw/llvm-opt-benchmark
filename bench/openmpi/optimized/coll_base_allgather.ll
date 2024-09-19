@@ -77,7 +77,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %26, %19, %ompi_data
   %36 = lshr i32 %.val.val, 1
   br label %40
 
-37:                                               ; preds = %ompi_coll_base_sendrecv.argprom.exit
+37:                                               ; preds = %ompi_coll_base_sendrecv.exit
   %38 = shl i32 %.097174, 1
   %39 = icmp slt i32 %38, %.val.val
   br i1 %39, label %40, label %._crit_edge, !llvm.loop !6
@@ -102,14 +102,14 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %26, %19, %ompi_data
 
 52:                                               ; preds = %40
   %53 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %3, i32 noundef %49, ptr noundef %5, ptr noundef %47, i32 noundef %49, ptr noundef %5) #8
-  br label %ompi_coll_base_sendrecv.argprom.exit
+  br label %ompi_coll_base_sendrecv.exit
 
 54:                                               ; preds = %40
   %55 = sext i32 %49 to i64
   %56 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %3, i64 noundef %55, ptr noundef %5, i32 noundef %44, i32 noundef -10, ptr noundef %47, i64 noundef %55, ptr noundef %5, i32 noundef %42, i32 noundef -10, ptr noundef %6, ptr noundef null) #8
-  br label %ompi_coll_base_sendrecv.argprom.exit
+  br label %ompi_coll_base_sendrecv.exit
 
-ompi_coll_base_sendrecv.argprom.exit:             ; preds = %52, %54
+ompi_coll_base_sendrecv.exit:                     ; preds = %52, %54
   %.0.i116 = phi i32 [ %53, %52 ], [ %56, %54 ]
   %.not114 = icmp eq i32 %.0.i116, 0
   br i1 %.not114, label %37, label %.loopexit
@@ -258,8 +258,8 @@ ompi_datatype_copy_content_same_ddt.exit157.thread: ; preds = %107, %ompi_dataty
   tail call void @free(ptr noundef %78) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %ompi_coll_base_sendrecv.argprom.exit, %.loopexit.sink.split, %17, %ompi_datatype_copy_content_same_ddt.exit, %opal_datatype_span.exit, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %18, %17 ], [ %25, %ompi_datatype_copy_content_same_ddt.exit ], [ -2, %opal_datatype_span.exit ], [ %.0.ph, %.loopexit.sink.split ], [ %.0.i116, %ompi_coll_base_sendrecv.argprom.exit ]
+.loopexit:                                        ; preds = %ompi_coll_base_sendrecv.exit, %.loopexit.sink.split, %17, %ompi_datatype_copy_content_same_ddt.exit, %opal_datatype_span.exit, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ %18, %17 ], [ %25, %ompi_datatype_copy_content_same_ddt.exit ], [ -2, %opal_datatype_span.exit ], [ %.0.ph, %.loopexit.sink.split ], [ %.0.i116, %ompi_coll_base_sendrecv.exit ]
   ret i32 %.0
 }
 
@@ -321,7 +321,7 @@ define i32 @ompi_coll_base_allgather_intra_recursivedoubling(ptr noundef %0, i32
   %factor.op.mul92 = mul i64 %23, %33
   br label %37
 
-34:                                               ; preds = %ompi_coll_base_sendrecv.argprom.exit
+34:                                               ; preds = %ompi_coll_base_sendrecv.exit
   %35 = shl i32 %.06887, 1
   %36 = icmp slt i32 %35, %.val.val
   br i1 %36, label %37, label %.loopexit, !llvm.loop !7
@@ -346,21 +346,21 @@ define i32 @ompi_coll_base_allgather_intra_recursivedoubling(ptr noundef %0, i32
 
 43:                                               ; preds = %37
   %44 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %.066, i32 noundef 0, ptr noundef %5, ptr noundef %.0, i32 noundef 0, ptr noundef %5) #8
-  br label %ompi_coll_base_sendrecv.argprom.exit
+  br label %ompi_coll_base_sendrecv.exit
 
 45:                                               ; preds = %37
   %46 = sext i32 %.06887 to i64
   %47 = mul nsw i64 %46, %33
   %48 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %.066, i64 noundef %47, ptr noundef %5, i32 noundef %38, i32 noundef -10, ptr noundef %.0, i64 noundef %47, ptr noundef %5, i32 noundef %38, i32 noundef -10, ptr noundef %6, ptr noundef null) #8
-  br label %ompi_coll_base_sendrecv.argprom.exit
+  br label %ompi_coll_base_sendrecv.exit
 
-ompi_coll_base_sendrecv.argprom.exit:             ; preds = %43, %45
+ompi_coll_base_sendrecv.exit:                     ; preds = %43, %45
   %.0.i81 = phi i32 [ %44, %43 ], [ %48, %45 ]
   %.not79 = icmp eq i32 %.0.i81, 0
   br i1 %.not79, label %34, label %.loopexit
 
-.loopexit:                                        ; preds = %34, %ompi_coll_base_sendrecv.argprom.exit, %31, %24, %16
-  %.069 = phi i32 [ %17, %16 ], [ %30, %24 ], [ 0, %31 ], [ 0, %34 ], [ %.0.i81, %ompi_coll_base_sendrecv.argprom.exit ]
+.loopexit:                                        ; preds = %34, %ompi_coll_base_sendrecv.exit, %31, %24, %16
+  %.069 = phi i32 [ %17, %16 ], [ %30, %24 ], [ 0, %31 ], [ 0, %34 ], [ %.0.i81, %ompi_coll_base_sendrecv.exit ]
   ret i32 %.069
 }
 
@@ -546,9 +546,9 @@ define i32 @ompi_coll_base_allgather_intra_ring(ptr noundef %0, i32 noundef %1, 
   %32 = icmp eq i32 %26, %29
   %33 = icmp eq i32 %29, %.val58
   %or.cond.i = and i1 %32, %33
-  br i1 %or.cond.i, label %ompi_coll_base_sendrecv.argprom.exit.us, label %ompi_coll_base_sendrecv.argprom.exit
+  br i1 %or.cond.i, label %ompi_coll_base_sendrecv.exit.us, label %ompi_coll_base_sendrecv.exit
 
-ompi_coll_base_sendrecv.argprom.exit.us:          ; preds = %.lr.ph, %46
+ompi_coll_base_sendrecv.exit.us:                  ; preds = %.lr.ph, %46
   %.05060.us = phi i32 [ %47, %46 ], [ 0, %.lr.ph ]
   %34 = sub nsw i32 %.val58, %.05060.us
   %35 = add i32 %27, %34
@@ -565,17 +565,17 @@ ompi_coll_base_sendrecv.argprom.exit.us:          ; preds = %.lr.ph, %46
   %.not57.us = icmp eq i32 %45, 0
   br i1 %.not57.us, label %46, label %.loopexit
 
-46:                                               ; preds = %ompi_coll_base_sendrecv.argprom.exit.us
+46:                                               ; preds = %ompi_coll_base_sendrecv.exit.us
   %47 = add nuw nsw i32 %.05060.us, 1
   %exitcond65.not = icmp eq i32 %47, %27
-  br i1 %exitcond65.not, label %.loopexit, label %ompi_coll_base_sendrecv.argprom.exit.us, !llvm.loop !10
+  br i1 %exitcond65.not, label %.loopexit, label %ompi_coll_base_sendrecv.exit.us, !llvm.loop !10
 
-48:                                               ; preds = %ompi_coll_base_sendrecv.argprom.exit
+48:                                               ; preds = %ompi_coll_base_sendrecv.exit
   %49 = add nuw nsw i32 %.05060, 1
   %exitcond.not = icmp eq i32 %49, %27
-  br i1 %exitcond.not, label %.loopexit, label %ompi_coll_base_sendrecv.argprom.exit, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %ompi_coll_base_sendrecv.exit, !llvm.loop !10
 
-ompi_coll_base_sendrecv.argprom.exit:             ; preds = %.lr.ph, %48
+ompi_coll_base_sendrecv.exit:                     ; preds = %.lr.ph, %48
   %.05060 = phi i32 [ %49, %48 ], [ 0, %.lr.ph ]
   %50 = sub nsw i32 %.val58, %.05060
   %51 = add i32 %27, %50
@@ -592,8 +592,8 @@ ompi_coll_base_sendrecv.argprom.exit:             ; preds = %.lr.ph, %48
   %.not57 = icmp eq i32 %61, 0
   br i1 %.not57, label %48, label %.loopexit
 
-.loopexit:                                        ; preds = %48, %ompi_coll_base_sendrecv.argprom.exit, %46, %ompi_coll_base_sendrecv.argprom.exit.us, %24, %18
-  %.0 = phi i32 [ %23, %18 ], [ 0, %24 ], [ 0, %46 ], [ %45, %ompi_coll_base_sendrecv.argprom.exit.us ], [ 0, %48 ], [ %61, %ompi_coll_base_sendrecv.argprom.exit ]
+.loopexit:                                        ; preds = %48, %ompi_coll_base_sendrecv.exit, %46, %ompi_coll_base_sendrecv.exit.us, %24, %18
+  %.0 = phi i32 [ %23, %18 ], [ 0, %24 ], [ 0, %46 ], [ %45, %ompi_coll_base_sendrecv.exit.us ], [ 0, %48 ], [ %61, %ompi_coll_base_sendrecv.exit ]
   ret i32 %.0
 }
 
@@ -681,18 +681,18 @@ define i32 @ompi_coll_base_allgather_intra_neighborexchange(ptr noundef %0, i32 
 
 55:                                               ; preds = %43
   %56 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %53, i32 noundef %4, ptr noundef nonnull %5, ptr noundef %51, i32 noundef %4, ptr noundef nonnull %5) #8
-  br label %ompi_coll_base_sendrecv.argprom.exit
+  br label %ompi_coll_base_sendrecv.exit
 
 57:                                               ; preds = %43
   %58 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %53, i64 noundef %25, ptr noundef nonnull %5, i32 noundef %.sink108, i32 noundef -10, ptr noundef %51, i64 noundef %25, ptr noundef nonnull %5, i32 noundef %.sink108, i32 noundef -10, ptr noundef nonnull %6, ptr noundef null) #8
-  br label %ompi_coll_base_sendrecv.argprom.exit
+  br label %ompi_coll_base_sendrecv.exit
 
-ompi_coll_base_sendrecv.argprom.exit:             ; preds = %55, %57
+ompi_coll_base_sendrecv.exit:                     ; preds = %55, %57
   %.0.i = phi i32 [ %56, %55 ], [ %58, %57 ]
   %.not94 = icmp eq i32 %.0.i, 0
   br i1 %.not94, label %59, label %.loopexit
 
-59:                                               ; preds = %ompi_coll_base_sendrecv.argprom.exit
+59:                                               ; preds = %ompi_coll_base_sendrecv.exit
   %60 = ashr exact i32 %.val.val, 1
   %61 = icmp sgt i32 %60, 1
   br i1 %61, label %.lr.ph, label %.loopexit
@@ -702,7 +702,7 @@ ompi_coll_base_sendrecv.argprom.exit:             ; preds = %55, %57
   %63 = trunc i64 %62 to i32
   br label %66
 
-64:                                               ; preds = %ompi_coll_base_sendrecv.argprom.exit98
+64:                                               ; preds = %ompi_coll_base_sendrecv.exit98
   %65 = add nuw nsw i32 %.085101, 1
   %exitcond.not = icmp eq i32 %65, %60
   br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !11
@@ -733,19 +733,19 @@ ompi_coll_base_sendrecv.argprom.exit:             ; preds = %55, %57
 
 85:                                               ; preds = %66
   %86 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %81, i32 noundef %63, ptr noundef %5, ptr noundef %78, i32 noundef %63, ptr noundef %5) #8
-  br label %ompi_coll_base_sendrecv.argprom.exit98
+  br label %ompi_coll_base_sendrecv.exit98
 
 87:                                               ; preds = %66
   %88 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %81, i64 noundef %62, ptr noundef %5, i32 noundef %83, i32 noundef -10, ptr noundef %78, i64 noundef %62, ptr noundef %5, i32 noundef %83, i32 noundef -10, ptr noundef %6, ptr noundef null) #8
-  br label %ompi_coll_base_sendrecv.argprom.exit98
+  br label %ompi_coll_base_sendrecv.exit98
 
-ompi_coll_base_sendrecv.argprom.exit98:           ; preds = %85, %87
+ompi_coll_base_sendrecv.exit98:                   ; preds = %85, %87
   %.0.i97 = phi i32 [ %86, %85 ], [ %88, %87 ]
   %.not95 = icmp eq i32 %.0.i97, 0
   br i1 %.not95, label %64, label %.loopexit
 
-.loopexit:                                        ; preds = %64, %ompi_coll_base_sendrecv.argprom.exit98, %59, %27, %ompi_coll_base_sendrecv.argprom.exit, %16
-  %.0 = phi i32 [ %17, %16 ], [ %30, %27 ], [ %.0.i, %ompi_coll_base_sendrecv.argprom.exit ], [ 0, %59 ], [ 0, %64 ], [ %.0.i97, %ompi_coll_base_sendrecv.argprom.exit98 ]
+.loopexit:                                        ; preds = %64, %ompi_coll_base_sendrecv.exit98, %59, %27, %ompi_coll_base_sendrecv.exit, %16
+  %.0 = phi i32 [ %17, %16 ], [ %30, %27 ], [ %.0.i, %ompi_coll_base_sendrecv.exit ], [ 0, %59 ], [ 0, %64 ], [ %.0.i97, %ompi_coll_base_sendrecv.exit98 ]
   ret i32 %.0
 }
 

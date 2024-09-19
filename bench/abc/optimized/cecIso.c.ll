@@ -294,9 +294,9 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %28
   %106 = icmp sgt i64 %indvars.iv168, %105
   %.idx183 = shl nsw i64 %indvars.iv168, 3
   %107 = getelementptr inbounds i8, ptr %23, i64 %.idx183
-  br i1 %106, label %Gia_ManIsoSimulate.argprom.exit.critedge142, label %Gia_ManIsoSimulate.argprom.exit.critedge144
+  br i1 %106, label %Gia_ManIsoSimulate.exit.critedge142, label %Gia_ManIsoSimulate.exit.critedge144
 
-Gia_ManIsoSimulate.argprom.exit.critedge142:      ; preds = %104
+Gia_ManIsoSimulate.exit.critedge142:              ; preds = %104
   %108 = shl nsw i32 %46, 1
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i32, ptr %23, i64 %109
@@ -308,7 +308,7 @@ Gia_ManIsoSimulate.argprom.exit.critedge142:      ; preds = %104
   store i32 %113, ptr %114, align 4
   br label %Gia_ManIsoTableAdd.exit
 
-Gia_ManIsoSimulate.argprom.exit.critedge144:      ; preds = %104
+Gia_ManIsoSimulate.exit.critedge144:              ; preds = %104
   %115 = tail call i32 @Gia_ManRandom(i32 noundef 0) #13
   store i32 %115, ptr %107, align 4
   %116 = tail call i32 @Gia_ManRandom(i32 noundef 0) #13
@@ -393,7 +393,7 @@ Gia_ManIsoEqual.exit.thread.i:                    ; preds = %141, %.preheader194
   store i32 %152, ptr %132, align 4
   br label %Gia_ManIsoTableAdd.exit
 
-Gia_ManIsoTableAdd.exit:                          ; preds = %Gia_ManIsoSimulate.argprom.exit.critedge142, %Gia_ManIsoSimulate.argprom.exit.critedge144, %._crit_edge.i, %Gia_ManIsoEqual.exit.i, %39
+Gia_ManIsoTableAdd.exit:                          ; preds = %Gia_ManIsoSimulate.exit.critedge142, %Gia_ManIsoSimulate.exit.critedge144, %._crit_edge.i, %Gia_ManIsoEqual.exit.i, %39
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %153 = load i32, ptr %2, align 8
   %154 = sext i32 %153 to i64
@@ -592,14 +592,14 @@ Vec_IntPush.exit36.i:                             ; preds = %231, %Vec_IntGrow.e
 ._crit_edge.i122:                                 ; preds = %237
   %.val28.i.pr = load i32, ptr %157, align 4
   %240 = icmp sgt i32 %.val28.i.pr, 0
-  br i1 %240, label %Gia_ManIsoExtractClasses.argprom.exit, label %Gia_ManIsoMatchNodes.exit
+  br i1 %240, label %Gia_ManIsoExtractClasses.exit, label %Gia_ManIsoMatchNodes.exit
 
-Gia_ManIsoExtractClasses.argprom.exit:            ; preds = %._crit_edge.i122
+Gia_ManIsoExtractClasses.exit:                    ; preds = %._crit_edge.i122
   %.val29.i = load i32, ptr %161, align 4
   %241 = icmp slt i32 %.val29.i, 1
   br i1 %241, label %Gia_ManIsoMatchNodes.exit, label %.lr.ph31.split.i.preheader
 
-.lr.ph31.split.i.preheader:                       ; preds = %Gia_ManIsoExtractClasses.argprom.exit
+.lr.ph31.split.i.preheader:                       ; preds = %Gia_ManIsoExtractClasses.exit
   %.val23.i = load ptr, ptr %159, align 8
   %.val24.i = load ptr, ptr %163, align 8
   %242 = zext nneg i32 %.val29.i to i64
@@ -656,7 +656,7 @@ Gia_ManIsoEqual.exit.thread.i129:                 ; preds = %258, %Gia_ManIsoEqu
   %exitcond172.not = icmp eq i64 %indvars.iv.next35.i, %243
   br i1 %exitcond172.not, label %Gia_ManIsoMatchNodes.exit, label %.lr.ph31.split.i, !llvm.loop !13
 
-Gia_ManIsoMatchNodes.exit:                        ; preds = %.critedge2.i, %167, %._crit_edge.i122, %Gia_ManIsoExtractClasses.argprom.exit
+Gia_ManIsoMatchNodes.exit:                        ; preds = %.critedge2.i, %167, %._crit_edge.i122, %Gia_ManIsoExtractClasses.exit
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
   br i1 %exitcond177.not, label %._crit_edge.loopexit, label %167, !llvm.loop !15

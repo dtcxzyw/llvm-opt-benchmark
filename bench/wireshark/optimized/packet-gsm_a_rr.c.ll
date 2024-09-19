@@ -4636,7 +4636,7 @@ define internal noundef zeroext i16 @de_rr_cell_ch_dsc(ptr noundef %0, ptr nound
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -5927,7 +5927,7 @@ define internal noundef zeroext i16 @de_rr_freq_list(ptr noundef %0, ptr noundef
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -5936,7 +5936,7 @@ define internal noundef zeroext i16 @de_rr_freq_short_list(ptr noundef %0, ptr n
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 9, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 9, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -5945,7 +5945,7 @@ define internal noundef zeroext i16 @de_rr_freq_short_list2(ptr noundef %0, ptr 
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 8, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 8, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -6262,7 +6262,7 @@ define internal zeroext i16 @de_rr_ia_rest_oct(ptr noundef %0, ptr noundef %1, p
   br i1 %.not257.i, label %233, label %231
 
 231:                                              ; preds = %221
-  call fastcc void @de_tbf_starting_time.argelim(ptr noundef %0, ptr noundef %66, i32 noundef %222)
+  call fastcc void @de_tbf_starting_time(ptr noundef %0, ptr noundef %66, i32 noundef %222)
   %232 = add i32 %.4.i, 17
   br label %233
 
@@ -6418,7 +6418,7 @@ define internal zeroext i16 @de_rr_ia_rest_oct(ptr noundef %0, ptr noundef %1, p
   %341 = load i32, ptr @hf_gsm_a_rr_gamma, align 4
   %342 = call ptr @proto_tree_add_bits_item(ptr noundef %66, i32 noundef %341, ptr noundef %0, i32 noundef %.9.i, i32 noundef 5, i32 noundef 0) #10
   %343 = add i32 %.9.i, 5
-  call fastcc void @de_tbf_starting_time.argelim(ptr noundef %0, ptr noundef %66, i32 noundef %343)
+  call fastcc void @de_tbf_starting_time(ptr noundef %0, ptr noundef %66, i32 noundef %343)
   %344 = add i32 %.9.i, 21
   %345 = load i32, ptr @hf_gsm_a_rr_num_of_radio_block_allocated, align 4
   %346 = call ptr @proto_tree_add_bits_item(ptr noundef %66, i32 noundef %345, ptr noundef %0, i32 noundef %344, i32 noundef 2, i32 noundef 0) #10
@@ -6493,7 +6493,7 @@ de_rr_ia_rest_oct_egprs_packet_uplink_assignment.exit: ; preds = %233, %235, %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   %392 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 204), align 4
   %393 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %51, i32 noundef -1, i32 noundef %392, ptr noundef nonnull %15, ptr noundef nonnull @.str.1802) #10
-  call fastcc void @de_tbf_starting_time.argelim(ptr noundef %0, ptr noundef %393, i32 noundef %57)
+  call fastcc void @de_tbf_starting_time(ptr noundef %0, ptr noundef %393, i32 noundef %57)
   %394 = add i32 %22, 20
   %395 = load i32, ptr @hf_gsm_a_rr_num_of_radio_block_allocated, align 4
   %396 = call ptr @proto_tree_add_bits_item(ptr noundef %393, i32 noundef %395, ptr noundef %0, i32 noundef %394, i32 noundef 4, i32 noundef 0) #10
@@ -6974,7 +6974,7 @@ de_rr_ia_rest_oct_multiple_blocks_packet_downlink_assignment.exit: ; preds = %39
   br i1 %.not181.i, label %775, label %739
 
 739:                                              ; preds = %729
-  call fastcc void @de_tbf_starting_time.argelim(ptr noundef %0, ptr noundef %622, i32 noundef %730)
+  call fastcc void @de_tbf_starting_time(ptr noundef %0, ptr noundef %622, i32 noundef %730)
   %740 = add i32 %.2.i186, 17
   br label %775
 
@@ -7004,7 +7004,7 @@ de_rr_ia_rest_oct_multiple_blocks_packet_downlink_assignment.exit: ; preds = %39
   %758 = load i32, ptr @hf_gsm_a_rr_later_r97_version_reserved_bit, align 4
   %759 = add i32 %.4.i190, 7
   %760 = call ptr @proto_tree_add_bits_item(ptr noundef %622, i32 noundef %758, ptr noundef %0, i32 noundef %756, i32 noundef 1, i32 noundef 0) #10
-  call fastcc void @de_tbf_starting_time.argelim(ptr noundef %0, ptr noundef %622, i32 noundef %759)
+  call fastcc void @de_tbf_starting_time(ptr noundef %0, ptr noundef %622, i32 noundef %759)
   %761 = add i32 %.4.i190, 23
   %762 = add i32 %.4.i190, 24
   %763 = load i32, ptr @hf_gsm_a_rr_p0_present, align 4
@@ -7183,7 +7183,7 @@ de_rr_ia_rest_oct_packet_uplink_assignment.exit:  ; preds = %795, %797, %801, %8
   br i1 %.not149.i, label %884, label %882
 
 882:                                              ; preds = %872
-  call fastcc void @de_tbf_starting_time.argelim(ptr noundef %0, ptr noundef %821, i32 noundef %873)
+  call fastcc void @de_tbf_starting_time(ptr noundef %0, ptr noundef %821, i32 noundef %873)
   %883 = add i32 %.2.i194, 17
   br label %884
 
@@ -7656,7 +7656,7 @@ define internal noundef zeroext i16 @de_rr_neigh_cell_desc(ptr noundef %0, ptr n
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %15 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %17 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %14)
+  %17 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %14)
   ret i16 %17
 }
 
@@ -7673,7 +7673,7 @@ define internal noundef zeroext i16 @de_rr_neigh_cell_desc2(ptr noundef %0, ptr 
   %16 = and i8 %15, -65
   %17 = load i32, ptr @hf_gsm_a_rr_format_id2, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %19 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %16)
+  %19 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %16)
   ret i16 %19
 }
 
@@ -10375,7 +10375,7 @@ define internal noundef zeroext i16 @de_rr_ext_meas_freq_list(ptr noundef %0, pt
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %13 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %15 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %12)
+  %15 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %12)
   ret i16 %15
 }
 
@@ -11616,7 +11616,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #0
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i16 @dissect_arfcn_list_core.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5) unnamed_addr #2 {
+define internal fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5) unnamed_addr #2 {
   %7 = zext i8 %5 to i32
   %8 = icmp ult i8 %5, 64
   br i1 %8, label %9, label %26
@@ -12543,7 +12543,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #0
 declare i32 @tvb_get_bits32(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @de_tbf_starting_time.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @de_tbf_starting_time(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -20250,7 +20250,7 @@ define internal void @dtap_rr_ec_imm_ass_type_2(ptr noundef %0, ptr noundef %1, 
   %29 = load i32, ptr @hf_gsm_a_rr_ec_echoed_random_bits, align 4
   %30 = tail call ptr @proto_tree_add_bits_item(ptr noundef %25, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 3, i32 noundef 0) #10
   %31 = add i32 %.0, 13
-  %32 = tail call fastcc zeroext i16 @de_rr_ec_pkt_ch_dsc2.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %31)
+  %32 = tail call fastcc zeroext i16 @de_rr_ec_pkt_ch_dsc2(ptr noundef %0, ptr noundef %1, i32 noundef %31)
   %33 = zext i16 %32 to i32
   %34 = add i32 %31, %33
   %35 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_elem, i64 352), align 16
@@ -20525,7 +20525,7 @@ define internal void @dtap_rr_ec_dl_ass(ptr noundef %0, ptr noundef %1, ptr noca
   %22 = load i32, ptr @hf_gsm_a_rr_tlli, align 4
   %23 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %.0, i32 noundef 32, i32 noundef 0) #10
   %24 = add i32 %.0, 32
-  %25 = tail call fastcc zeroext i16 @de_rr_ec_pkt_ch_dsc2.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %24)
+  %25 = tail call fastcc zeroext i16 @de_rr_ec_pkt_ch_dsc2(ptr noundef %0, ptr noundef %1, i32 noundef %24)
   %26 = zext i16 %25 to i32
   %27 = add i32 %24, %26
   %28 = load i32, ptr @hf_gsm_a_rr_timing_adv, align 4
@@ -20660,7 +20660,7 @@ define internal void @dtap_rr_ec_paging_req(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i16 @de_rr_ec_pkt_ch_dsc2.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i16 @de_rr_ec_pkt_ch_dsc2(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = lshr i32 %2, 3
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_elem, i64 348), align 4
   %6 = tail call ptr @val_to_str_ext_const(i32 noundef 87, ptr noundef nonnull @gsm_rr_elem_strings_ext, ptr noundef nonnull @.str.84) #10

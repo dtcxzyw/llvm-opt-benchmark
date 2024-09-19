@@ -74,16 +74,16 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @hooks_mu, i64 56), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @hooks_mu, i64 48), align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsdn
-  br i1 %cmp.not.i.i, label %malloc_mutex_lock.argprom.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr getelementptr inbounds (i8, ptr @hooks_mu, i64 48), align 8
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @hooks_mu, i64 40), align 8
   %inc2.i.i = add i64 %2, 1
   store i64 %inc2.i.i, ptr getelementptr inbounds (i8, ptr @hooks_mu, i64 40), align 8
-  br label %malloc_mutex_lock.argprom.exit
+  br label %malloc_mutex_lock.exit
 
-malloc_mutex_lock.argprom.exit:                   ; preds = %if.end.i, %if.then.i.i
+malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hooks_internal.sroa.5.i)
   %hooks_internal.sroa.3.0.buf.i.sroa_idx.i = getelementptr inbounds i8, ptr %buf.i.i, i64 32
   %hooks_internal.sroa.5.0.buf.i.sroa_idx.i = getelementptr inbounds i8, ptr %buf.i.i, i64 33
@@ -98,9 +98,9 @@ hook_install_locked.exit.thread:                  ; preds = %for.cond.i
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hooks_internal.sroa.5.i)
   br label %if.end
 
-for.body.i:                                       ; preds = %for.cond.i, %malloc_mutex_lock.argprom.exit
-  %indvars.iv.i = phi i64 [ 0, %malloc_mutex_lock.argprom.exit ], [ %indvars.iv.next.i, %for.cond.i ]
-  %hooks_internal.sroa.3.014.i = phi i8 [ undef, %malloc_mutex_lock.argprom.exit ], [ %hooks_internal.sroa.3.1.i, %for.cond.i ]
+for.body.i:                                       ; preds = %for.cond.i, %malloc_mutex_lock.exit
+  %indvars.iv.i = phi i64 [ 0, %malloc_mutex_lock.exit ], [ %indvars.iv.next.i, %for.cond.i ]
+  %hooks_internal.sroa.3.014.i = phi i8 [ undef, %malloc_mutex_lock.exit ], [ %hooks_internal.sroa.3.1.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i.i)
   %3 = load atomic i64, ptr %arrayidx.i acquire, align 16
@@ -205,16 +205,16 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @hooks_mu, i64 56), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @hooks_mu, i64 48), align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsdn
-  br i1 %cmp.not.i.i, label %malloc_mutex_lock.argprom.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr getelementptr inbounds (i8, ptr @hooks_mu, i64 48), align 8
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @hooks_mu, i64 40), align 8
   %inc2.i.i = add i64 %2, 1
   store i64 %inc2.i.i, ptr getelementptr inbounds (i8, ptr @hooks_mu, i64 40), align 8
-  br label %malloc_mutex_lock.argprom.exit
+  br label %malloc_mutex_lock.exit
 
-malloc_mutex_lock.argprom.exit:                   ; preds = %if.end.i, %if.then.i.i
+malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %hooks_internal.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hooks_internal.sroa.3.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i.i)
@@ -223,7 +223,7 @@ malloc_mutex_lock.argprom.exit:                   ; preds = %if.end.i, %if.then.
   %cmp.not.i.i3 = icmp eq i64 %rem.i.i, 0
   br i1 %cmp.not.i.i3, label %for.cond.preheader.i.i, label %seq_try_load_hooks.exit.i
 
-for.cond.preheader.i.i:                           ; preds = %malloc_mutex_lock.argprom.exit
+for.cond.preheader.i.i:                           ; preds = %malloc_mutex_lock.exit
   %data.i.i = getelementptr inbounds i8, ptr %opaque, i64 8
   br label %for.body.i.i
 
@@ -249,7 +249,7 @@ if.end8.i.i:                                      ; preds = %acquire.i47.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.3.i, ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.3.0.buf.i.sroa_idx.i, i64 7, i1 false)
   br label %seq_try_load_hooks.exit.i
 
-seq_try_load_hooks.exit.i:                        ; preds = %if.end8.i.i, %acquire.i47.i.i, %malloc_mutex_lock.argprom.exit
+seq_try_load_hooks.exit.i:                        ; preds = %if.end8.i.i, %acquire.i47.i.i, %malloc_mutex_lock.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i4.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %buf.i4.i, ptr noundef nonnull align 8 dereferenceable(32) %hooks_internal.sroa.0.i, i64 32, i1 false)

@@ -232,9 +232,9 @@ _setup_job_session_dir.exit.thread38:             ; preds = %64, %_setup_job_ses
   %85 = tail call ptr @pmix_util_print_rank(i32 noundef %82) #8
   %86 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.11, ptr noundef %.val, ptr noundef %85) #8
   %87 = icmp slt i32 %86, 0
-  br i1 %87, label %_setup_proc_session_dir.argprom.exit.thread, label %88
+  br i1 %87, label %_setup_proc_session_dir.exit.thread, label %88
 
-_setup_proc_session_dir.argprom.exit.thread:      ; preds = %84
+_setup_proc_session_dir.exit.thread:              ; preds = %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %95
 
@@ -242,16 +242,16 @@ _setup_proc_session_dir.argprom.exit.thread:      ; preds = %84
   %89 = load ptr, ptr %2, align 8
   %90 = call i32 @pmix_os_dirpath_create(ptr noundef %89, i32 noundef 448) #8
   switch i32 %90, label %91 [
-    i32 -2, label %_setup_proc_session_dir.argprom.exit
-    i32 0, label %_setup_proc_session_dir.argprom.exit
+    i32 -2, label %_setup_proc_session_dir.exit
+    i32 0, label %_setup_proc_session_dir.exit
   ]
 
 91:                                               ; preds = %88
   %92 = call ptr @PMIx_Error_string(i32 noundef %90) #8
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %92, ptr noundef nonnull @.str.1, i32 noundef 95) #8
-  br label %_setup_proc_session_dir.argprom.exit
+  br label %_setup_proc_session_dir.exit
 
-_setup_proc_session_dir.argprom.exit:             ; preds = %88, %88, %91
+_setup_proc_session_dir.exit:                     ; preds = %88, %88, %91
   %93 = call i32 @prte_pmix_convert_status(i32 noundef %90) #8
   %94 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %94) #8
@@ -261,13 +261,13 @@ _setup_proc_session_dir.argprom.exit:             ; preds = %88, %88, %91
     i32 -43, label %setup_base.exit.thread.thread
   ]
 
-95:                                               ; preds = %_setup_proc_session_dir.argprom.exit.thread, %_setup_proc_session_dir.argprom.exit
-  %.0.i2941 = phi i32 [ -2, %_setup_proc_session_dir.argprom.exit.thread ], [ %93, %_setup_proc_session_dir.argprom.exit ]
+95:                                               ; preds = %_setup_proc_session_dir.exit.thread, %_setup_proc_session_dir.exit
+  %.0.i2941 = phi i32 [ -2, %_setup_proc_session_dir.exit.thread ], [ %93, %_setup_proc_session_dir.exit ]
   %96 = call ptr @prte_strerror(i32 noundef %.0.i2941) #8
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %96, ptr noundef nonnull @.str.1, i32 noundef 290) #8
   br label %setup_base.exit.thread.thread
 
-97:                                               ; preds = %_setup_proc_session_dir.argprom.exit, %_setup_job_session_dir.exit.thread38
+97:                                               ; preds = %_setup_proc_session_dir.exit, %_setup_job_session_dir.exit.thread38
   %98 = load i8, ptr @prte_debug_flag, align 1
   %99 = trunc i8 %98 to i1
   br i1 %99, label %100, label %setup_base.exit.thread.thread
@@ -287,8 +287,8 @@ _setup_proc_session_dir.argprom.exit:             ; preds = %88, %88, %91
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %108) #8
   br label %setup_base.exit.thread.thread
 
-setup_base.exit.thread.thread:                    ; preds = %55, %10, %35, %59, %setup_base.exit.thread, %100, %97, %95, %_setup_proc_session_dir.argprom.exit, %_setup_job_session_dir.exit.thread, %_setup_job_session_dir.exit, %62
-  %.0 = phi i32 [ -13, %62 ], [ %79, %_setup_job_session_dir.exit ], [ %.05.i37, %_setup_job_session_dir.exit.thread ], [ %93, %_setup_proc_session_dir.argprom.exit ], [ %.0.i2941, %95 ], [ 0, %100 ], [ 0, %97 ], [ -43, %59 ], [ %.0914.i.i, %setup_base.exit.thread ], [ %9, %10 ], [ %36, %35 ], [ %56, %55 ]
+setup_base.exit.thread.thread:                    ; preds = %55, %10, %35, %59, %setup_base.exit.thread, %100, %97, %95, %_setup_proc_session_dir.exit, %_setup_job_session_dir.exit.thread, %_setup_job_session_dir.exit, %62
+  %.0 = phi i32 [ -13, %62 ], [ %79, %_setup_job_session_dir.exit ], [ %.05.i37, %_setup_job_session_dir.exit.thread ], [ %93, %_setup_proc_session_dir.exit ], [ %.0.i2941, %95 ], [ 0, %100 ], [ 0, %97 ], [ -43, %59 ], [ %.0914.i.i, %setup_base.exit.thread ], [ %9, %10 ], [ %36, %35 ], [ %56, %55 ]
   ret i32 %.0
 }
 

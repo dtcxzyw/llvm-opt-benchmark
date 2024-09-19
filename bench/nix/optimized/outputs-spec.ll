@@ -1423,16 +1423,16 @@ _ZN2rc3GenIN3nix13StorePathNameEEC2EOS3_.exit.i:  ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.assume(i1 %77)
   %78 = add nuw nsw i64 %76, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %72, ptr noundef nonnull align 8 dereferenceable(1) %56, i64 %78, i1 false), !noalias !7
-  br label %"_ZN2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EC2IS8_EENS_3GenIS4_EEOT_.argprom.exit.i"
+  br label %"_ZN2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EC2IS8_EENS_3GenIS4_EEOT_.exit.i"
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZN2rc3GenIN3nix13StorePathNameEEC2EOS3_.exit.i
   store ptr %73, ptr %71, align 8, !noalias !7
   %79 = load i64, ptr %56, align 8, !noalias !7
   store i64 %79, ptr %72, align 8, !noalias !7
   %.pre1.i = load i64, ptr %68, align 8, !noalias !7
-  br label %"_ZN2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EC2IS8_EENS_3GenIS4_EEOT_.argprom.exit.i"
+  br label %"_ZN2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EC2IS8_EENS_3GenIS4_EEOT_.exit.i"
 
-"_ZN2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EC2IS8_EENS_3GenIS4_EEOT_.argprom.exit.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %75
+"_ZN2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EC2IS8_EENS_3GenIS4_EEOT_.exit.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %75
   %80 = phi i64 [ %76, %75 ], [ %.pre1.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ]
   %81 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %80, ptr %81, align 8, !noalias !7
@@ -1443,7 +1443,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %82 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
           to label %.noexc.i unwind label %128, !noalias !7
 
-.noexc.i:                                         ; preds = %"_ZN2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EC2IS8_EENS_3GenIS4_EEOT_.argprom.exit.i"
+.noexc.i:                                         ; preds = %"_ZN2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EC2IS8_EENS_3GenIS4_EEOT_.exit.i"
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINSC_11OutputsSpecEvE9arbitraryEvE3$_0EEEE", i64 16), ptr %82, align 8, !noalias !7
   %83 = getelementptr inbounds i8, ptr %82, i64 16
   %84 = load ptr, ptr %69, align 8, !noalias !7
@@ -1562,7 +1562,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @__clang_call_terminate(ptr %127) #26
   unreachable
 
-128:                                              ; preds = %"_ZN2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EC2IS8_EENS_3GenIS4_EEOT_.argprom.exit.i"
+128:                                              ; preds = %"_ZN2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EC2IS8_EENS_3GenIS4_EEOT_.exit.i"
   %129 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZN2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %4) #24, !noalias !7
@@ -7396,24 +7396,24 @@ define internal void @"_ZNK2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_t
   %6 = load ptr, ptr %5, align 8, !noalias !224
   call void %6(ptr dead_on_unwind nonnull writable sret(%"struct.nix::StorePathName") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.val), !noalias !229
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %"_ZZN2rc9ArbitraryIN3nix11OutputsSpecEvE9arbitraryEvENK3$_0clB5cxx11ENS1_13StorePathNameE.argprom.exit.i" unwind label %13
+          to label %"_ZZN2rc9ArbitraryIN3nix11OutputsSpecEvE9arbitraryEvENK3$_0clB5cxx11ENS1_13StorePathNameE.exit.i" unwind label %13
 
-"_ZZN2rc9ArbitraryIN3nix11OutputsSpecEvE9arbitraryEvENK3$_0clB5cxx11ENS1_13StorePathNameE.argprom.exit.i": ; preds = %2
+"_ZZN2rc9ArbitraryIN3nix11OutputsSpecEvE9arbitraryEvENK3$_0clB5cxx11ENS1_13StorePathNameE.exit.i": ; preds = %2
   %7 = load ptr, ptr %3, align 8, !noalias !229
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %"_ZZN2rc9ArbitraryIN3nix11OutputsSpecEvE9arbitraryEvENK3$_0clB5cxx11ENS1_13StorePathNameE.argprom.exit.i"
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %"_ZZN2rc9ArbitraryIN3nix11OutputsSpecEvE9arbitraryEvENK3$_0clB5cxx11ENS1_13StorePathNameE.exit.i"
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !229
   %12 = icmp ult i64 %11, 16
   call void @llvm.assume(i1 %12)
-  br label %"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E5valueB5cxx11Ev.argprom.exit"
+  br label %"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E5valueB5cxx11Ev.exit"
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %"_ZZN2rc9ArbitraryIN3nix11OutputsSpecEvE9arbitraryEvENK3$_0clB5cxx11ENS1_13StorePathNameE.argprom.exit.i"
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %"_ZZN2rc9ArbitraryIN3nix11OutputsSpecEvE9arbitraryEvENK3$_0clB5cxx11ENS1_13StorePathNameE.exit.i"
   call void @_ZdlPv(ptr noundef %7) #25
-  br label %"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E5valueB5cxx11Ev.argprom.exit"
+  br label %"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E5valueB5cxx11Ev.exit"
 
 13:                                               ; preds = %2
   %14 = landingpad { ptr, i32 }
@@ -7421,7 +7421,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZN3nix13StorePathNameD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   resume { ptr, i32 } %14
 
-"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E5valueB5cxx11Ev.argprom.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E5valueB5cxx11Ev.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -7461,7 +7461,7 @@ _ZNK2rc10ShrinkableIN3nix13StorePathNameEE7shrinksEv.exit.i: ; preds = %8, %2
   call void @llvm.experimental.noalias.scope.decl(metadata !240)
   call void @llvm.experimental.noalias.scope.decl(metadata !243)
   %15 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-          to label %"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11Ev.argprom.exit" unwind label %_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i.i.i, !noalias !246
+          to label %"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11Ev.exit" unwind label %_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i.i.i, !noalias !246
 
 _ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i.i.i: ; preds = %_ZNK2rc10ShrinkableIN3nix13StorePathNameEE7shrinksEv.exit.i
   %16 = landingpad { ptr, i32 }
@@ -7481,7 +7481,7 @@ _ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix13StorePathNameEEEE8ISeqIm
 _ZN2rc3SeqINS_10ShrinkableIN3nix13StorePathNameEEEED2Ev.exit4.i: ; preds = %_ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix13StorePathNameEEEE8ISeqImplEEclEPS7_.exit.i.i3.i, %_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i.i.i
   resume { ptr, i32 } %16
 
-"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11Ev.argprom.exit": ; preds = %_ZNK2rc10ShrinkableIN3nix13StorePathNameEE7shrinksEv.exit.i
+"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11Ev.exit": ; preds = %_ZNK2rc10ShrinkableIN3nix13StorePathNameEE7shrinksEv.exit.i
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINSH_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksEvEUlONS1_ISI_EEE_SO_EEEE", i64 16), ptr %15, align 8, !noalias !246
   %21 = load i64, ptr %3, align 8, !noalias !246
   %22 = getelementptr inbounds i8, ptr %15, i64 16
@@ -7522,14 +7522,14 @@ define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_tr
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %"_ZN2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0ED2Ev.argprom.exit", label %3
+  br i1 %.not.i.i, label %"_ZN2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0ED2Ev.exit", label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %.val, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %.val)
-          to label %"_ZN2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0ED2Ev.argprom.exit" unwind label %7
+          to label %"_ZN2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0ED2Ev.exit" unwind label %7
 
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
@@ -7538,7 +7538,7 @@ define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_tr
   tail call void @__clang_call_terminate(ptr %9) #26
   unreachable
 
-"_ZN2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0ED2Ev.argprom.exit": ; preds = %1, %3
+"_ZN2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0ED2Ev.exit": ; preds = %1, %3
   ret void
 }
 
@@ -16916,8 +16916,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6, !"_ZN2rc3gen7inRangeIhEENS_3GenIT_EES3_S3_: argument 0"}
 !6 = distinct !{!6, !"_ZN2rc3gen7inRangeIhEENS_3GenIT_EES3_S3_"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN2rc3gen3mapIN3nix13StorePathNameEZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_3GenINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENS8_ISC_EEOSB_.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZN2rc3gen3mapIN3nix13StorePathNameEZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_3GenINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENS8_ISC_EEOSB_.argprom"}
+!8 = distinct !{!8, !9, !"_ZN2rc3gen3mapIN3nix13StorePathNameEZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_3GenINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENS8_ISC_EEOSB_: argument 0"}
+!9 = distinct !{!9, !"_ZN2rc3gen3mapIN3nix13StorePathNameEZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_3GenINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENS8_ISC_EEOSB_"}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = distinct !{!12, !11}
@@ -17113,11 +17113,11 @@ attributes #28 = { nounwind willreturn memory(read) }
 !202 = distinct !{!202, !203, !"_ZNK2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EclB5cxx11ERKNS_6RandomEi: argument 0"}
 !203 = distinct !{!203, !"_ZNK2rc3gen6detail6MapGenIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0EclB5cxx11ERKNS_6RandomEi"}
 !204 = !{!205}
-!205 = distinct !{!205, !206, !"_ZN2rc10shrinkable3mapIN3nix13StorePathNameERKZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_10ShrinkableINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENSA_ISE_EEOSD_.argprom: argument 0"}
-!206 = distinct !{!206, !"_ZN2rc10shrinkable3mapIN3nix13StorePathNameERKZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_10ShrinkableINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENSA_ISE_EEOSD_.argprom"}
+!205 = distinct !{!205, !206, !"_ZN2rc10shrinkable3mapIN3nix13StorePathNameERKZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_10ShrinkableINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENSA_ISE_EEOSD_: argument 0"}
+!206 = distinct !{!206, !"_ZN2rc10shrinkable3mapIN3nix13StorePathNameERKZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_10ShrinkableINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENSA_ISE_EEOSD_"}
 !207 = !{!208}
-!208 = distinct !{!208, !209, !"_ZN2rc14makeShrinkableINS_10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS4_11OutputsSpecEvE9arbitraryEvE3$_0EEJNS_10ShrinkableIS5_EERKS9_EEENSB_INSt5decayIDTcldtclsr3stdE7declvalIT_EE5valueEEE4typeEEEDpOT0_.argprom: argument 0"}
-!209 = distinct !{!209, !"_ZN2rc14makeShrinkableINS_10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS4_11OutputsSpecEvE9arbitraryEvE3$_0EEJNS_10ShrinkableIS5_EERKS9_EEENSB_INSt5decayIDTcldtclsr3stdE7declvalIT_EE5valueEEE4typeEEEDpOT0_.argprom"}
+!208 = distinct !{!208, !209, !"_ZN2rc14makeShrinkableINS_10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS4_11OutputsSpecEvE9arbitraryEvE3$_0EEJNS_10ShrinkableIS5_EERKS9_EEENSB_INSt5decayIDTcldtclsr3stdE7declvalIT_EE5valueEEE4typeEEEDpOT0_: argument 0"}
+!209 = distinct !{!209, !"_ZN2rc14makeShrinkableINS_10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS4_11OutputsSpecEvE9arbitraryEvE3$_0EEJNS_10ShrinkableIS5_EERKS9_EEENSB_INSt5decayIDTcldtclsr3stdE7declvalIT_EE5valueEEE4typeEEEDpOT0_"}
 !210 = !{!208, !205, !202}
 !211 = !{!212}
 !212 = distinct !{!212, !213, !"_ZN2rc10shrinkable6lambdaIZNKS_3GenIN3nix13StorePathNameEEclERKNS_6RandomEiEUlvE_EENS_10ShrinkableINSt13invoke_resultIT_JEE4typeEEEOSC_: argument 0"}
@@ -17135,15 +17135,15 @@ attributes #28 = { nounwind willreturn memory(read) }
 !224 = !{!225, !227}
 !225 = distinct !{!225, !226, !"_ZNK2rc10ShrinkableIN3nix13StorePathNameEE5valueEv: argument 0"}
 !226 = distinct !{!226, !"_ZNK2rc10ShrinkableIN3nix13StorePathNameEE5valueEv"}
-!227 = distinct !{!227, !228, !"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E5valueB5cxx11Ev.argprom: argument 0"}
-!228 = distinct !{!228, !"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E5valueB5cxx11Ev.argprom"}
+!227 = distinct !{!227, !228, !"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E5valueB5cxx11Ev: argument 0"}
+!228 = distinct !{!228, !"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E5valueB5cxx11Ev"}
 !229 = !{!227}
 !230 = !{!231}
 !231 = distinct !{!231, !232, !"_ZNK2rc10ShrinkableIN3nix13StorePathNameEE7shrinksEv: argument 0"}
 !232 = distinct !{!232, !"_ZNK2rc10ShrinkableIN3nix13StorePathNameEE7shrinksEv"}
 !233 = !{!234}
-!234 = distinct !{!234, !235, !"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11Ev.argprom: argument 0"}
-!235 = distinct !{!235, !"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11Ev.argprom"}
+!234 = distinct !{!234, !235, !"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11Ev: argument 0"}
+!235 = distinct !{!235, !"_ZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11Ev"}
 !236 = !{!237}
 !237 = distinct !{!237, !238, !"_ZNK2rc10ShrinkableIN3nix13StorePathNameEE7shrinksEv: argument 0"}
 !238 = distinct !{!238, !"_ZNK2rc10ShrinkableIN3nix13StorePathNameEE7shrinksEv"}
@@ -17163,13 +17163,13 @@ attributes #28 = { nounwind willreturn memory(read) }
 !252 = distinct !{!252, !"_ZN2rc3SeqINS_10ShrinkableIN3nix13StorePathNameEEEE4nextEv"}
 !253 = !{!251, !248}
 !254 = !{!255, !248}
-!255 = distinct !{!255, !256, !"_ZZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11EvENKUlONS_10ShrinkableIS4_EEE_clB5cxx11ESC_.argprom: argument 0"}
-!256 = distinct !{!256, !"_ZZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11EvENKUlONS_10ShrinkableIS4_EEE_clB5cxx11ESC_.argprom"}
+!255 = distinct !{!255, !256, !"_ZZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11EvENKUlONS_10ShrinkableIS4_EEE_clB5cxx11ESC_: argument 0"}
+!256 = distinct !{!256, !"_ZZNK2rc10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS3_11OutputsSpecEvE9arbitraryEvE3$_0E7shrinksB5cxx11EvENKUlONS_10ShrinkableIS4_EEE_clB5cxx11ESC_"}
 !257 = !{!258, !260, !255, !248}
-!258 = distinct !{!258, !259, !"_ZN2rc14makeShrinkableINS_10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS4_11OutputsSpecEvE9arbitraryEvE3$_0EEJNS_10ShrinkableIS5_EERKS9_EEENSB_INSt5decayIDTcldtclsr3stdE7declvalIT_EE5valueEEE4typeEEEDpOT0_.argprom: argument 0"}
-!259 = distinct !{!259, !"_ZN2rc14makeShrinkableINS_10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS4_11OutputsSpecEvE9arbitraryEvE3$_0EEJNS_10ShrinkableIS5_EERKS9_EEENSB_INSt5decayIDTcldtclsr3stdE7declvalIT_EE5valueEEE4typeEEEDpOT0_.argprom"}
-!260 = distinct !{!260, !261, !"_ZN2rc10shrinkable3mapIN3nix13StorePathNameERKZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_10ShrinkableINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENSA_ISE_EEOSD_.argprom: argument 0"}
-!261 = distinct !{!261, !"_ZN2rc10shrinkable3mapIN3nix13StorePathNameERKZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_10ShrinkableINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENSA_ISE_EEOSD_.argprom"}
+!258 = distinct !{!258, !259, !"_ZN2rc14makeShrinkableINS_10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS4_11OutputsSpecEvE9arbitraryEvE3$_0EEJNS_10ShrinkableIS5_EERKS9_EEENSB_INSt5decayIDTcldtclsr3stdE7declvalIT_EE5valueEEE4typeEEEDpOT0_: argument 0"}
+!259 = distinct !{!259, !"_ZN2rc14makeShrinkableINS_10shrinkable6detail13MapShrinkableIN3nix13StorePathNameEZNS_9ArbitraryINS4_11OutputsSpecEvE9arbitraryEvE3$_0EEJNS_10ShrinkableIS5_EERKS9_EEENSB_INSt5decayIDTcldtclsr3stdE7declvalIT_EE5valueEEE4typeEEEDpOT0_"}
+!260 = distinct !{!260, !261, !"_ZN2rc10shrinkable3mapIN3nix13StorePathNameERKZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_10ShrinkableINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENSA_ISE_EEOSD_: argument 0"}
+!261 = distinct !{!261, !"_ZN2rc10shrinkable3mapIN3nix13StorePathNameERKZNS_9ArbitraryINS2_11OutputsSpecEvE9arbitraryEvE3$_0EENS_10ShrinkableINSt5decayINSt13invoke_resultIT0_JT_EE4typeEE4typeEEENSA_ISE_EEOSD_"}
 !262 = !{!263}
 !263 = distinct !{!263, !264, !"_ZNK2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix13StorePathNameEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEE7shrinksEv: argument 0"}
 !264 = distinct !{!264, !"_ZNK2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix13StorePathNameEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEE7shrinksEv"}

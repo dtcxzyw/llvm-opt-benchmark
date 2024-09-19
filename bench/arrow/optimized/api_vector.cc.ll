@@ -14086,7 +14086,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !150
   store ptr null, ptr %storage_.i, align 8, !noalias !150
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %ref.tmp.i, ptr readonly %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %ref.tmp.i, ptr readonly %30)
           to label %.noexc unwind label %lpad24
 
 .noexc:                                           ; preds = %if.end23
@@ -14901,7 +14901,7 @@ lpad:                                             ; preds = %call.i.i.i.i.i.i.no
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -17482,7 +17482,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !201
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !201
   store ptr null, ptr %storage_.i, align 8, !noalias !201
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -18049,7 +18049,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -19479,7 +19479,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !235
   store ptr null, ptr %storage_.i, align 8, !noalias !235
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %ref.tmp.i, ptr readonly %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %ref.tmp.i, ptr readonly %30)
           to label %.noexc unwind label %lpad24
 
 .noexc:                                           ; preds = %if.end23
@@ -21415,7 +21415,7 @@ if.then.i:                                        ; preds = %if.end
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #21
   %5 = load ptr, ptr %ref.tmp.i, align 8, !noalias !259
   %cmp.not.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom.exit, label %delete.notnull.i.i.i
+  br i1 %cmp.not.i.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 48
@@ -21495,7 +21495,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
   %msg.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i) #21
   call void @_ZdlPv(ptr noundef nonnull %5) #23
-  br label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom.exit
+  br label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.exit
 
 if.end.i:                                         ; preds = %if.end
   store ptr %call2.val, ptr %agg.tmp.i, align 8, !noalias !259
@@ -21537,7 +21537,7 @@ _ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i:    ; preds = %_ZNSt10shared_ptrIN
   store ptr null, ptr %ref.tmp1.i, align 8, !noalias !259
   %22 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !259
   %cmp.not.i.i.i12.i = icmp eq ptr %22, null
-  br i1 %cmp.not.i.i.i12.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom.exit, label %if.then.i.i.i13.i
+  br i1 %cmp.not.i.i.i12.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.exit, label %if.then.i.i.i13.i
 
 if.then.i.i.i13.i:                                ; preds = %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i
   %_M_use_count.i.i.i.i14.i = getelementptr inbounds i8, ptr %22, i64 8
@@ -21573,7 +21573,7 @@ if.else.i.i.i.i.i37.i:                            ; preds = %if.end.i.i.i.i16.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i20.i: ; preds = %if.else.i.i.i.i.i37.i, %if.then.i.i.i.i.i18.i
   %retval.i.0.i.i.i.i21.i = phi i32 [ %24, %if.then.i.i.i.i.i18.i ], [ %27, %if.else.i.i.i.i.i37.i ]
   %cmp6.i.i.i.i22.i = icmp eq i32 %retval.i.0.i.i.i.i21.i, 1
-  br i1 %cmp6.i.i.i.i22.i, label %if.then7.i.i.i.i23.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom.exit
+  br i1 %cmp6.i.i.i.i22.i, label %if.then7.i.i.i.i23.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.exit
 
 if.then7.i.i.i.i23.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i20.i
   %vtable.i.i.i.i.i.i24.i = load ptr, ptr %22, align 8, !noalias !259
@@ -21598,14 +21598,14 @@ if.else.i.i.i.i.i.i.i36.i:                        ; preds = %if.then7.i.i.i.i23.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i30.i: ; preds = %if.else.i.i.i.i.i.i.i36.i, %if.then.i.i.i.i.i.i.i28.i
   %retval.i.0.i.i.i.i.i.i31.i = phi i32 [ %30, %if.then.i.i.i.i.i.i.i28.i ], [ %31, %if.else.i.i.i.i.i.i.i36.i ]
   %cmp.i.i.i.i.i.i32.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i31.i, 1
-  br i1 %cmp.i.i.i.i.i.i32.i, label %if.end8.sink.split.i.i.i.i33.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i32.i, label %if.end8.sink.split.i.i.i.i33.i, label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.exit
 
 if.end8.sink.split.i.i.i.i33.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i30.i, %if.then.i.i.i.i38.i
   %vtable2.i.i.i.i.i.i34.i = load ptr, ptr %22, align 8, !noalias !259
   %vfn3.i.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i34.i, i64 24
   %32 = load ptr, ptr %vfn3.i.i.i.i.i.i35.i, align 8, !noalias !259
   call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #21, !noalias !259
-  br label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom.exit
+  br label %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.exit
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %33, %lpad.i ], [ %.pn, %ehcleanup ]
@@ -21617,7 +21617,7 @@ lpad.i:                                           ; preds = %_ZNSt10shared_ptrIN
   call void @_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i) #21, !noalias !259
   br label %common.resume
 
-_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom.exit: ; preds = %if.then.i, %_ZN5arrow6Status11DeleteStateEv.exit.i.i, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i20.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i30.i, %if.end8.sink.split.i.i.i.i33.i
+_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.exit: ; preds = %if.then.i, %_ZN5arrow6Status11DeleteStateEv.exit.i.i, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i20.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i30.i, %if.end8.sink.split.i.i.i.i33.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp1.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -21625,7 +21625,7 @@ _ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.arg
   %cmp.i.i = icmp eq ptr %34, null
   br i1 %cmp.i.i, label %if.end13, label %if.then4
 
-if.then4:                                         ; preds = %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom.exit
+if.then4:                                         ; preds = %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.exit
   %retval.sroa.0.0.copyload.i = load i64, ptr %prop, align 8
   %retval.sroa.2.0.name_.sroa_idx.i = getelementptr inbounds i8, ptr %prop, i64 8
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.name_.sroa_idx.i, align 8
@@ -21735,7 +21735,7 @@ lpad:                                             ; preds = %if.end13, %invoke.c
           cleanup
   br label %ehcleanup
 
-if.end13:                                         ; preds = %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom.exit
+if.end13:                                         ; preds = %_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.exit
   %field_names_ = getelementptr inbounds i8, ptr %this, i64 16
   %50 = load ptr, ptr %field_names_, align 8
   %retval.sroa.0.0.copyload.i42 = load i64, ptr %prop, align 8
@@ -22581,7 +22581,7 @@ if.then.i.i.i.i.i.i.i49:                          ; preds = %if.end23
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %holder.val.val8, i64 8
   %34 = load i8, ptr @__libc_single_threaded, align 1, !noalias !277
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %34, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE.argprom.argprom.exit, label %if.then.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i49
   %35 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !noalias !277
@@ -22589,13 +22589,13 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
   store i32 %add.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !noalias !277
   br label %if.end42
 
-_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE.argprom.argprom.exit: ; preds = %if.then.i.i.i.i.i.i.i49
+_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE.exit: ; preds = %if.then.i.i.i.i.i.i.i49
   %36 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !277
   %.pre = load ptr, ptr %result, align 8
   %37 = icmp eq ptr %.pre, null
   br i1 %37, label %if.end42, label %if.then29
 
-if.then29:                                        ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE.argprom.argprom.exit
+if.then29:                                        ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE.exit
   %retval.sroa.0.0.copyload.i51 = load i64, ptr %prop, align 8
   %retval.sroa.2.0.copyload.i53 = load ptr, ptr %retval.sroa.2.0.name_.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i51, ptr %ref.tmp33, align 8
@@ -22706,7 +22706,7 @@ lpad26:                                           ; preds = %invoke.cont37, %if.
   call void @_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %holder) #21
   br label %ehcleanup49
 
-if.end42:                                         ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.end23, %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE.argprom.argprom.exit
+if.end42:                                         ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.end23, %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE.exit
   %53 = load ptr, ptr %this, align 8
   %54 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !280
   %55 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8, !noalias !280
@@ -25177,7 +25177,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !328
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !328
   store ptr null, ptr %storage_.i, align 8, !noalias !328
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_9SortOrderEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_9SortOrderEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -25701,7 +25701,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !331
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !331
   store ptr null, ptr %storage_.i, align 8, !noalias !331
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_13NullPlacementEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_13NullPlacementEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -26267,10 +26267,10 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_9SortOrderEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_9SortOrderEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.381", align 8
-  call fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIiEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %ref.tmp, ptr %value.0.val)
+  call fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIiEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %ref.tmp, ptr %value.0.val)
   %0 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %invoke.cont5, label %if.then
@@ -26521,7 +26521,7 @@ lpad:                                             ; preds = %call.i.i.i.i.i.i.no
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIiEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIiEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -27354,10 +27354,10 @@ lpad:                                             ; preds = %call.i.i.i.i.noexc,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_13NullPlacementEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_13NullPlacementEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.381", align 8
-  call fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIiEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %ref.tmp, ptr %value.0.val)
+  call fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIiEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %ref.tmp, ptr %value.0.val)
   %0 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %invoke.cont, label %if.then
@@ -33261,7 +33261,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !464
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !464
   store ptr null, ptr %storage_.i, align 8, !noalias !464
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorINS0_7SortKeyESaIS4_EEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS9_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorINS0_7SortKeyESaIS4_EEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS9_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -33739,7 +33739,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !470
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !470
   store ptr null, ptr %storage_.i, align 8, !noalias !470
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_13NullPlacementEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_13NullPlacementEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -34054,7 +34054,7 @@ eh.resume:                                        ; preds = %ehcleanup45, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorINS0_7SortKeyESaIS4_EEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS9_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorINS0_7SortKeyESaIS4_EEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS9_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp4.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -34802,7 +34802,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i.i.i:     ; preds = %if.end8.sink.split.
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i.i.i.i, %invoke.cont.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i) #21, !noalias !507
-  br label %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.exit.i.i
+  br label %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.i.i
 
 lpad.i.i.i:                                       ; preds = %.noexc.i
   %99 = landingpad { ptr, i32 }
@@ -34824,7 +34824,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
   call void @_ZN5arrow6ResultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11.i.i.i) #21, !noalias !507
   %101 = load ptr, ptr %ref.tmp11.i.i.i, align 8, !noalias !508
   %cmp.not.i4.i.i.i = icmp eq ptr %101, null
-  br i1 %cmp.not.i4.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.exit.i.i, label %delete.notnull.i.i5.i.i.i
+  br i1 %cmp.not.i4.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.i.i, label %delete.notnull.i.i5.i.i.i
 
 delete.notnull.i.i5.i.i.i:                        ; preds = %.noexc75.i
   %_M_refcount.i.i.i.i.i6.i.i.i = getelementptr inbounds i8, ptr %101, i64 48
@@ -34904,7 +34904,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i18.i.i.i:   ; preds = %if.end8.sink.split.
   %msg.i.i.i19.i.i.i = getelementptr inbounds i8, ptr %101, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i19.i.i.i) #21, !noalias !507
   call void @_ZdlPv(ptr noundef nonnull %101) #23, !noalias !507
-  br label %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.exit.i.i
+  br label %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end.i.i.i
   %value14.i.i.i = getelementptr inbounds i8, ptr %73, i64 64
@@ -34916,9 +34916,9 @@ if.end12.i.i.i:                                   ; preds = %if.end.i.i.i
   store ptr null, ptr %ref.tmp.i.i, align 8, !alias.scope !500, !noalias !503
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %storage_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i.i.i) #21, !noalias !507
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i.i.i) #21, !noalias !507
-  br label %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.exit.i.i
+  br label %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.i.i
 
-_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.exit.i.i: ; preds = %.noexc76.i, %_ZN5arrow6Status11DeleteStateEv.exit.i18.i.i.i, %.noexc75.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i
+_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.i.i: ; preds = %.noexc76.i, %_ZN5arrow6Status11DeleteStateEv.exit.i18.i.i.i, %.noexc75.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !503
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i), !noalias !503
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i), !noalias !503
@@ -34927,11 +34927,11 @@ _ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11ch
   %cmp.i.i.i.i = icmp eq ptr %114, null
   br i1 %cmp.i.i.i.i, label %invoke.cont5.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.exit.i.i
+if.then.i.i:                                      ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.i.i
   call void @_ZN5arrow6ResultINS_8FieldRefEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp37.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #21
   br label %invoke.cont39.i
 
-invoke.cont5.i.i:                                 ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom.exit.i.i
+invoke.cont5.i.i:                                 ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %path.i.i, ptr noundef nonnull align 8 dereferenceable(32) %storage_.i.i.i.i.i) #21, !noalias !507
   invoke void @_ZN5arrow8FieldRef11FromDotPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.arrow::Result.515") align 8 %ref.tmp37.i, ptr noundef nonnull align 8 dereferenceable(32) %path.i.i)
           to label %invoke.cont7.i.i unwind label %lpad6.i.i
@@ -35008,7 +35008,7 @@ invoke.cont53.i:                                  ; preds = %sw.bb3.i.i.i.i.i.i.
   %125 = phi i8 [ %118, %do.end52.i ], [ 0, %sw.bb.i.i.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i ], [ 2, %sw.bb3.i.i.i.i.i.i.i.i.i.i.i ]
   store i8 %125, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !515, !noalias !481
   %order_holder.val.i = load ptr, ptr %order_holder.i, align 8, !noalias !481
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_9SortOrderEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %ref.tmp54.i, ptr %order_holder.val.i)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_9SortOrderEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %ref.tmp54.i, ptr %order_holder.val.i)
           to label %invoke.cont56.i unwind label %lpad55.i
 
 invoke.cont56.i:                                  ; preds = %invoke.cont53.i
@@ -38722,7 +38722,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !593
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !593
   store ptr null, ptr %storage_.i, align 8, !noalias !593
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIlEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIlEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -39246,7 +39246,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !596
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !596
   store ptr null, ptr %storage_.i, align 8, !noalias !596
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_13NullPlacementEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_13NullPlacementEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -39561,7 +39561,7 @@ eh.resume:                                        ; preds = %ehcleanup45, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIlEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIlEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -41740,7 +41740,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !626
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !626
   store ptr null, ptr %storage_.i, align 8, !noalias !626
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIlEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIlEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -42264,7 +42264,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !629
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !629
   store ptr null, ptr %storage_.i, align 8, !noalias !629
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorINS0_7SortKeyESaIS4_EEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS9_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorINS0_7SortKeyESaIS4_EEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS9_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -44831,32 +44831,32 @@ if.end.i:                                         ; preds = %if.end23
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr %31, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !alias.scope !680, !noalias !674
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.argprom.exit.thread.i, label %if.then.i.i.i.i.i.i.i.i51
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.exit.thread.i, label %if.then.i.i.i.i.i.i.i.i51
 
 if.then.i.i.i.i.i.i.i.i51:                        ; preds = %if.end.i
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1, !noalias !683
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %35, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.argprom.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i52
+  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i52
 
 if.then.i.i.i.i.i.i.i.i.i.i52:                    ; preds = %if.then.i.i.i.i.i.i.i.i51
   %36 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 4, !noalias !683
   %add.i.i.i.i.i.i.i.i.i.i53 = add nsw i32 %36, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i53, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 4, !noalias !683
-  br label %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.argprom.exit.thread.i
+  br label %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.exit.thread.i
 
-_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.argprom.exit.thread.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i52, %if.end.i
+_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.exit.thread.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i52, %if.end.i
   store ptr null, ptr %result, align 8, !alias.scope !674
   br label %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i.i
 
-_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.argprom.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i51
+_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i51
   %37 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !683
   %.pre.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !674
   %38 = icmp eq ptr %.pre.i, null
   store ptr null, ptr %result, align 8, !alias.scope !674
   br i1 %38, label %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i.i, label %if.then.i.i.i
 
-_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i.i:  ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.argprom.exit.i, %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.argprom.exit.thread.i
+_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i.i:  ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.exit.i, %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.exit.thread.i
   store ptr null, ptr %ref.tmp.i, align 8, !noalias !674
   %39 = load ptr, ptr %storage_.i.i.i.i, align 8, !noalias !684
   %40 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !noalias !684
@@ -44869,7 +44869,7 @@ _ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i.i:  ; preds = %_ZN5arrow7compute8i
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i3.i, align 8, !alias.scope !674
   br label %invoke.cont25
 
-if.then.i.i.i:                                    ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.argprom.exit.i
+if.then.i.i.i:                                    ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.exit.i
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont25 unwind label %terminate.lpad.i.i
 
@@ -45408,7 +45408,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !689
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !689
   store ptr null, ptr %storage_.i, align 8, !noalias !689
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -48014,7 +48014,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !724
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !724
   store ptr null, ptr %storage_.i, align 8, !noalias !724
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorINS0_7SortKeyESaIS4_EEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS9_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorINS0_7SortKeyESaIS4_EEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS9_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -48492,7 +48492,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !730
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !730
   store ptr null, ptr %storage_.i, align 8, !noalias !730
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_13NullPlacementEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarINS0_13NullPlacementEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS7_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -49018,7 +49018,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !733
   store ptr null, ptr %storage_.i, align 8, !noalias !733
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %ref.tmp.i, ptr readonly %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %ref.tmp.i, ptr readonly %30)
           to label %.noexc unwind label %lpad24
 
 .noexc:                                           ; preds = %if.end23
@@ -50693,7 +50693,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !766
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !766
   store ptr null, ptr %storage_.i, align 8, !noalias !766
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIlEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom(ptr noalias align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIlEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end23
@@ -52198,8 +52198,8 @@ attributes #23 = { builtin nounwind }
 !119 = distinct !{!119, !120, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_13FilterOptions21NullSelectionBehaviorEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_: %agg.result"}
 !120 = distinct !{!120, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_13FilterOptions21NullSelectionBehaviorEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_"}
 !121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!123 = distinct !{!123, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!122 = distinct !{!122, !123, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!123 = distinct !{!123, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !124 = !{!122, !119}
 !125 = !{!126}
 !126 = distinct !{!126, !127, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
@@ -52230,8 +52230,8 @@ attributes #23 = { builtin nounwind }
 !151 = distinct !{!151, !152, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
 !152 = distinct !{!152, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}
 !153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_13FilterOptions21NullSelectionBehaviorEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom: %agg.result"}
-!155 = distinct !{!155, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_13FilterOptions21NullSelectionBehaviorEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom"}
+!154 = distinct !{!154, !155, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_13FilterOptions21NullSelectionBehaviorEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE: %agg.result"}
+!155 = distinct !{!155, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_13FilterOptions21NullSelectionBehaviorEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE"}
 !156 = !{!157}
 !157 = distinct !{!157, !158, !"_ZN5arrow6Status8FromArgsIJRA26_KcSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RA14_S2_RA3_S2_RKNSt7__cxx1112basic_stringIcS7_SaIcEEEEEES0_NS_10StatusCodeEDpOT_: %agg.result"}
 !158 = distinct !{!158, !"_ZN5arrow6Status8FromArgsIJRA26_KcSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RA14_S2_RA3_S2_RKNSt7__cxx1112basic_stringIcS7_SaIcEEEEEES0_NS_10StatusCodeEDpOT_"}
@@ -52305,8 +52305,8 @@ attributes #23 = { builtin nounwind }
 !226 = distinct !{!226, !227, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_23DictionaryEncodeOptions20NullEncodingBehaviorEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_: %agg.result"}
 !227 = distinct !{!227, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_23DictionaryEncodeOptions20NullEncodingBehaviorEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_"}
 !228 = !{!229}
-!229 = distinct !{!229, !230, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!230 = distinct !{!230, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!229 = distinct !{!229, !230, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!230 = distinct !{!230, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !231 = !{!229, !226}
 !232 = !{!233}
 !233 = distinct !{!233, !234, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
@@ -52315,8 +52315,8 @@ attributes #23 = { builtin nounwind }
 !236 = distinct !{!236, !237, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
 !237 = distinct !{!237, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}
 !238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_23DictionaryEncodeOptions20NullEncodingBehaviorEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom: %agg.result"}
-!240 = distinct !{!240, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_23DictionaryEncodeOptions20NullEncodingBehaviorEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom"}
+!239 = distinct !{!239, !240, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_23DictionaryEncodeOptions20NullEncodingBehaviorEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE: %agg.result"}
+!240 = distinct !{!240, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_23DictionaryEncodeOptions20NullEncodingBehaviorEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE"}
 !241 = !{!242}
 !242 = distinct !{!242, !243, !"_ZN5arrow6Status8FromArgsIJRA26_KcSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RA24_S2_RA3_S2_RKNSt7__cxx1112basic_stringIcS7_SaIcEEEEEES0_NS_10StatusCodeEDpOT_: %agg.result"}
 !243 = distinct !{!243, !"_ZN5arrow6Status8FromArgsIJRA26_KcSt17basic_string_viewIcSt11char_traitsIcEERA18_S2_RA24_S2_RA3_S2_RKNSt7__cxx1112basic_stringIcS7_SaIcEEEEEES0_NS_10StatusCodeEDpOT_"}
@@ -52336,8 +52336,8 @@ attributes #23 = { builtin nounwind }
 !257 = distinct !{!257, !258, !"_ZN5arrow7compute8internalL15GenericToStringINS_8DataTypeEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIT_E: %agg.result"}
 !258 = distinct !{!258, !"_ZN5arrow7compute8internalL15GenericToStringINS_8DataTypeEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIT_E"}
 !259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom: %agg.result"}
-!261 = distinct !{!261, !"_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE.argprom"}
+!260 = distinct !{!260, !261, !"_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE: %agg.result"}
+!261 = distinct !{!261, !"_ZN5arrow7compute8internalL15GenericToScalarERKSt10shared_ptrINS_8DataTypeEE"}
 !262 = !{!263}
 !263 = distinct !{!263, !264, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
 !264 = distinct !{!264, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}
@@ -52354,8 +52354,8 @@ attributes #23 = { builtin nounwind }
 !275 = distinct !{!275, !276, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
 !276 = distinct !{!276, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}
 !277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE.argprom.argprom: %agg.result"}
-!279 = distinct !{!279, !"_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE.argprom.argprom"}
+!278 = distinct !{!278, !279, !"_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE: %agg.result"}
+!279 = distinct !{!279, !"_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_8DataTypeEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS3_INS_6ScalarEE"}
 !280 = !{!281}
 !281 = distinct !{!281, !282, !"_ZN5arrow6ResultISt10shared_ptrINS_8DataTypeEEE15MoveValueUnsafeEv: %agg.result"}
 !282 = distinct !{!282, !"_ZN5arrow6ResultISt10shared_ptrINS_8DataTypeEEE15MoveValueUnsafeEv"}
@@ -52382,8 +52382,8 @@ attributes #23 = { builtin nounwind }
 !303 = distinct !{!303, !304, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_9SortOrderEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_: %agg.result"}
 !304 = distinct !{!304, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_9SortOrderEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_"}
 !305 = !{!306}
-!306 = distinct !{!306, !307, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!307 = distinct !{!307, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!306 = distinct !{!306, !307, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!307 = distinct !{!307, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !308 = !{!306, !303}
 !309 = !{!310}
 !310 = distinct !{!310, !311, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
@@ -52392,8 +52392,8 @@ attributes #23 = { builtin nounwind }
 !313 = distinct !{!313, !314, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_13NullPlacementEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_: %agg.result"}
 !314 = distinct !{!314, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_13NullPlacementEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_"}
 !315 = !{!316}
-!316 = distinct !{!316, !317, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!317 = distinct !{!317, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!316 = distinct !{!316, !317, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!317 = distinct !{!317, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !318 = !{!316, !313}
 !319 = !{!320}
 !320 = distinct !{!320, !321, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
@@ -52445,8 +52445,8 @@ attributes #23 = { builtin nounwind }
 !366 = distinct !{!366, !367, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_13NullPlacementEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_: %agg.result"}
 !367 = distinct !{!367, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_13NullPlacementEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_"}
 !368 = !{!369}
-!369 = distinct !{!369, !370, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!370 = distinct !{!370, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!369 = distinct !{!369, !370, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!370 = distinct !{!370, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !371 = !{!369, !366}
 !372 = !{!373}
 !373 = distinct !{!373, !374, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
@@ -52493,8 +52493,8 @@ attributes #23 = { builtin nounwind }
 !414 = distinct !{!414, !415, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_9SortOrderEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_: %agg.result"}
 !415 = distinct !{!415, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_9SortOrderEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_"}
 !416 = !{!417}
-!417 = distinct !{!417, !418, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!418 = distinct !{!418, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!417 = distinct !{!417, !418, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!418 = distinct !{!418, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !419 = !{!414, !396}
 !420 = !{!417, !414}
 !421 = !{!417, !414, !396}
@@ -52558,8 +52558,8 @@ attributes #23 = { builtin nounwind }
 !479 = distinct !{!479, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}
 !480 = !{!478, !475}
 !481 = !{!482}
-!482 = distinct !{!482, !483, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_7SortKeyEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom: %agg.result"}
-!483 = distinct !{!483, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_7SortKeyEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom"}
+!482 = distinct !{!482, !483, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_7SortKeyEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE: %agg.result"}
+!483 = distinct !{!483, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_7SortKeyEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE"}
 !484 = !{!485}
 !485 = distinct !{!485, !486, !"_ZNO5arrow6ResultISt10shared_ptrINS_6ScalarEEE11ValueUnsafeEv: %agg.result"}
 !486 = distinct !{!486, !"_ZNO5arrow6ResultISt10shared_ptrINS_6ScalarEEE11ValueUnsafeEv"}
@@ -52577,11 +52577,11 @@ attributes #23 = { builtin nounwind }
 !498 = !{!496, !493, !482}
 !499 = !{!496, !493}
 !500 = !{!501}
-!501 = distinct !{!501, !502, !"_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom: %agg.result"}
-!502 = distinct !{!502, !"_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom"}
+!501 = distinct !{!501, !502, !"_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE: %agg.result"}
+!502 = distinct !{!502, !"_ZN5arrow7compute8internalL17GenericFromScalarINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr3std7is_sameIT_S8_EE5valueENS_6ResultISA_EEE4typeERKSt10shared_ptrINS_6ScalarEE"}
 !503 = !{!504, !482}
-!504 = distinct !{!504, !505, !"_ZN5arrow7compute8internalL17GenericFromScalarINS_8FieldRefEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom: %agg.result"}
-!505 = distinct !{!505, !"_ZN5arrow7compute8internalL17GenericFromScalarINS_8FieldRefEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom"}
+!504 = distinct !{!504, !505, !"_ZN5arrow7compute8internalL17GenericFromScalarINS_8FieldRefEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE: %agg.result"}
+!505 = distinct !{!505, !"_ZN5arrow7compute8internalL17GenericFromScalarINS_8FieldRefEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE"}
 !506 = !{!501, !504}
 !507 = !{!504}
 !508 = !{!501, !504, !482}
@@ -52648,8 +52648,8 @@ attributes #23 = { builtin nounwind }
 !569 = distinct !{!569, !570, !"_ZN5arrow7compute8internalL15GenericToStringIlEENSt9enable_ifIXntsr15has_enum_traitsIT_EE5valueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4typeERKS4_: %agg.result"}
 !570 = distinct !{!570, !"_ZN5arrow7compute8internalL15GenericToStringIlEENSt9enable_ifIXntsr15has_enum_traitsIT_EE5valueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4typeERKS4_"}
 !571 = !{!572}
-!572 = distinct !{!572, !573, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!573 = distinct !{!573, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!572 = distinct !{!572, !573, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!573 = distinct !{!573, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !574 = !{!575}
 !575 = distinct !{!575, !576, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
 !576 = distinct !{!576, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}
@@ -52657,8 +52657,8 @@ attributes #23 = { builtin nounwind }
 !578 = distinct !{!578, !579, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_13NullPlacementEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_: %agg.result"}
 !579 = distinct !{!579, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_13NullPlacementEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_"}
 !580 = !{!581}
-!581 = distinct !{!581, !582, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!582 = distinct !{!582, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!581 = distinct !{!581, !582, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!582 = distinct !{!582, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !583 = !{!581, !578}
 !584 = !{!585}
 !585 = distinct !{!585, !586, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
@@ -52691,8 +52691,8 @@ attributes #23 = { builtin nounwind }
 !612 = distinct !{!612, !613, !"_ZN5arrow7compute8internalL15GenericToStringIlEENSt9enable_ifIXntsr15has_enum_traitsIT_EE5valueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4typeERKS4_: %agg.result"}
 !613 = distinct !{!613, !"_ZN5arrow7compute8internalL15GenericToStringIlEENSt9enable_ifIXntsr15has_enum_traitsIT_EE5valueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4typeERKS4_"}
 !614 = !{!615}
-!615 = distinct !{!615, !616, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!616 = distinct !{!616, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!615 = distinct !{!615, !616, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!616 = distinct !{!616, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !617 = !{!618}
 !618 = distinct !{!618, !619, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
 !619 = distinct !{!619, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}
@@ -52751,14 +52751,14 @@ attributes #23 = { builtin nounwind }
 !672 = distinct !{!672, !673, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
 !673 = distinct !{!673, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}
 !674 = !{!675}
-!675 = distinct !{!675, !676, !"_ZN5arrow7compute8internalL17GenericFromScalarISt8optionalISt10shared_ptrINS_6ScalarEEEEENSt9enable_ifIX13is_optional_vIT_EENS_6ResultIS9_EEE4typeERKS6_.argprom: %agg.result"}
-!676 = distinct !{!676, !"_ZN5arrow7compute8internalL17GenericFromScalarISt8optionalISt10shared_ptrINS_6ScalarEEEEENSt9enable_ifIX13is_optional_vIT_EENS_6ResultIS9_EEE4typeERKS6_.argprom"}
+!675 = distinct !{!675, !676, !"_ZN5arrow7compute8internalL17GenericFromScalarISt8optionalISt10shared_ptrINS_6ScalarEEEEENSt9enable_ifIX13is_optional_vIT_EENS_6ResultIS9_EEE4typeERKS6_: %agg.result"}
+!676 = distinct !{!676, !"_ZN5arrow7compute8internalL17GenericFromScalarISt8optionalISt10shared_ptrINS_6ScalarEEEEENSt9enable_ifIX13is_optional_vIT_EENS_6ResultIS9_EEE4typeERKS6_"}
 !677 = !{!678}
 !678 = distinct !{!678, !679, !"_ZN5arrow6ResultISt8optionalISt10shared_ptrINS_6ScalarEEEE15MoveValueUnsafeEv: %agg.result:thread"}
 !679 = distinct !{!679, !"_ZN5arrow6ResultISt8optionalISt10shared_ptrINS_6ScalarEEEE15MoveValueUnsafeEv"}
 !680 = !{!681}
-!681 = distinct !{!681, !682, !"_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.argprom: %agg.result"}
-!682 = distinct !{!682, !"_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_.argprom"}
+!681 = distinct !{!681, !682, !"_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_: %agg.result"}
+!682 = distinct !{!682, !"_ZN5arrow7compute8internalL17GenericFromScalarISt10shared_ptrINS_6ScalarEEEENSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueENS_6ResultIS7_EEE4typeERKS5_"}
 !683 = !{!681, !675}
 !684 = !{!685, !675}
 !685 = distinct !{!685, !686, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
@@ -52784,8 +52784,8 @@ attributes #23 = { builtin nounwind }
 !705 = distinct !{!705, !706, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_13NullPlacementEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_: %agg.result"}
 !706 = distinct !{!706, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_13NullPlacementEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_"}
 !707 = !{!708}
-!708 = distinct !{!708, !709, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!709 = distinct !{!709, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!708 = distinct !{!708, !709, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!709 = distinct !{!709, !"_ZN5arrow7compute8internalL15GenericToScalarIiEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !710 = !{!708, !705}
 !711 = !{!712}
 !712 = distinct !{!712, !713, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
@@ -52794,8 +52794,8 @@ attributes #23 = { builtin nounwind }
 !715 = distinct !{!715, !716, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_11RankOptions10TiebreakerEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_: %agg.result"}
 !716 = distinct !{!716, !"_ZN5arrow7compute8internalL15GenericToScalarINS0_11RankOptions10TiebreakerEvEENS_6ResultISt10shared_ptrINS_6ScalarEEEET_"}
 !717 = !{!718}
-!718 = distinct !{!718, !719, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!719 = distinct !{!719, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!718 = distinct !{!718, !719, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!719 = distinct !{!719, !"_ZN5arrow7compute8internalL15GenericToScalarIjEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !720 = !{!718, !715}
 !721 = !{!722}
 !722 = distinct !{!722, !723, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
@@ -52813,8 +52813,8 @@ attributes #23 = { builtin nounwind }
 !734 = distinct !{!734, !735, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
 !735 = distinct !{!735, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}
 !736 = !{!737}
-!737 = distinct !{!737, !738, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_11RankOptions10TiebreakerEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom: %agg.result"}
-!738 = distinct !{!738, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_11RankOptions10TiebreakerEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE.argprom"}
+!737 = distinct !{!737, !738, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_11RankOptions10TiebreakerEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE: %agg.result"}
+!738 = distinct !{!738, !"_ZN5arrow7compute8internalL17GenericFromScalarINS0_11RankOptions10TiebreakerEEENSt9enable_ifIXsr18is_primitive_ctypeINS_8internal10EnumTraitsIT_E4TypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE"}
 !739 = !{!740}
 !740 = distinct !{!740, !741, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
 !741 = distinct !{!741, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
@@ -52837,8 +52837,8 @@ attributes #23 = { builtin nounwind }
 !758 = distinct !{!758, !759, !"_ZN5arrow7compute8internalL15GenericToStringIlEENSt9enable_ifIXntsr15has_enum_traitsIT_EE5valueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4typeERKS4_: %agg.result"}
 !759 = distinct !{!759, !"_ZN5arrow7compute8internalL15GenericToStringIlEENSt9enable_ifIXntsr15has_enum_traitsIT_EE5valueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4typeERKS4_"}
 !760 = !{!761}
-!761 = distinct !{!761, !762, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom: %agg.result"}
-!762 = distinct !{!762, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_.argprom"}
+!761 = distinct !{!761, !762, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_: %agg.result"}
+!762 = distinct !{!762, !"_ZN5arrow7compute8internalL15GenericToScalarIlEENS_6ResultIDTcl10MakeScalarclsr3stdE7declvalIT_EEEEEERKS4_"}
 !763 = !{!764}
 !764 = distinct !{!764, !765, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv: %agg.result"}
 !765 = distinct !{!765, !"_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEE15MoveValueUnsafeEv"}

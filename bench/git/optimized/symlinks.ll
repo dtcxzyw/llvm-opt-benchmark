@@ -50,19 +50,19 @@ entry:
   %1 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %1, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %if.else.i, label %threaded_check_leading_path.argprom.exit
+  br i1 %tobool.not.i, label %if.else.i, label %threaded_check_leading_path.exit
 
 if.else.i:                                        ; preds = %entry
   %and2.i = and i32 %1, 1
   %tobool3.not.i = icmp eq i32 %and2.i, 0
-  br i1 %tobool3.not.i, label %if.end5.i, label %threaded_check_leading_path.argprom.exit
+  br i1 %tobool3.not.i, label %if.end5.i, label %threaded_check_leading_path.exit
 
 if.end5.i:                                        ; preds = %if.else.i
   %tobool6.not.i = icmp eq i32 %warn_on_lstat_err, 0
   %and7.i = and i32 %1, 8
   %tobool8.not.i = icmp eq i32 %and7.i, 0
   %or.cond.i = or i1 %tobool6.not.i, %tobool8.not.i
-  br i1 %or.cond.i, label %threaded_check_leading_path.argprom.exit, label %if.then9.i
+  br i1 %or.cond.i, label %threaded_check_leading_path.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
   %conv.i = sext i32 %call.i to i64
@@ -70,20 +70,20 @@ if.then9.i:                                       ; preds = %if.end5.i
   store i32 %0, ptr %call1.i, align 4
   %2 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i = icmp eq i32 %2, 0
-  br i1 %tobool1.not.i.i, label %_.argprom.exit.i, label %if.end3.i.i
+  br i1 %tobool1.not.i.i, label %_.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then9.i
   %call.i.i = tail call ptr @gettext(ptr noundef nonnull @.str) #12
-  br label %_.argprom.exit.i
+  br label %_.exit.i
 
-_.argprom.exit.i:                                 ; preds = %if.end3.i.i, %if.then9.i
+_.exit.i:                                         ; preds = %if.end3.i.i, %if.then9.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str, %if.then9.i ]
   tail call void (ptr, ...) @warning_errno(ptr noundef %retval.0.i.i, ptr noundef %call10.i) #12
   tail call void @free(ptr noundef %call10.i) #12
-  br label %threaded_check_leading_path.argprom.exit
+  br label %threaded_check_leading_path.exit
 
-threaded_check_leading_path.argprom.exit:         ; preds = %entry, %if.else.i, %if.end5.i, %_.argprom.exit.i
-  %retval.0.i = phi i32 [ 0, %entry ], [ -1, %if.else.i ], [ %call.i, %_.argprom.exit.i ], [ %call.i, %if.end5.i ]
+threaded_check_leading_path.exit:                 ; preds = %entry, %if.else.i, %if.end5.i, %_.exit.i
+  %retval.0.i = phi i32 [ 0, %entry ], [ -1, %if.else.i ], [ %call.i, %_.exit.i ], [ %call.i, %if.end5.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i)
   ret i32 %retval.0.i
 }

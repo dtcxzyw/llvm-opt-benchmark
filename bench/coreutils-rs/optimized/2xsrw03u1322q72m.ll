@@ -30,8 +30,8 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17hac321c15bf7118eeE(p
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
 
-.loopexit:                                        ; preds = %.backedge, %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit, %3, %32
-  %.09 = phi ptr [ %33, %32 ], [ null, %3 ], [ null, %.backedge ], [ %12, %20 ], [ %12, %22 ], [ %12, %26 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit ]
+.loopexit:                                        ; preds = %.backedge, %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %3, %32
+  %.09 = phi ptr [ %33, %32 ], [ null, %3 ], [ null, %.backedge ], [ %12, %20 ], [ %12, %22 ], [ %12, %26 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
   ret ptr %.09
 
 14:                                               ; preds = %10
@@ -44,7 +44,7 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17hac321c15bf7118eeE(p
   %19 = and i64 %18, 3
   switch i64 %19, label %default.unreachable [
     i64 2, label %20
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
     i64 0, label %22
     i64 1, label %26
   ]
@@ -76,12 +76,12 @@ default.unreachable:                              ; preds = %17
   %33 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17h6d468b6687f1f0bbE(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.38d39bb0d149597147c0111e6a71ea58.1, i64 noundef 21)
   br label %.loopexit
 
-_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit: ; preds = %17
+_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %17
   %.mask20.i = and i64 %18, -4294967296
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.noexc, label %.loopexit
 
-.noexc:                                           ; preds = %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit
+.noexc:                                           ; preds = %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !6
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hf1c53310a377228fE.llvm.17785794609419294129(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noundef nonnull %12)
   %34 = load i8, ptr %4, align 8, !range !13, !alias.scope !14, !noalias !6, !noundef !4
@@ -124,8 +124,8 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17hb9a46d178da8f9b2E(p
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
 
-.loopexit:                                        ; preds = %.backedge, %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit, %3, %32
-  %.09 = phi ptr [ %33, %32 ], [ null, %3 ], [ null, %.backedge ], [ %12, %20 ], [ %12, %22 ], [ %12, %26 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit ]
+.loopexit:                                        ; preds = %.backedge, %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %3, %32
+  %.09 = phi ptr [ %33, %32 ], [ null, %3 ], [ null, %.backedge ], [ %12, %20 ], [ %12, %22 ], [ %12, %26 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
   ret ptr %.09
 
 14:                                               ; preds = %10
@@ -138,7 +138,7 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17hb9a46d178da8f9b2E(p
   %19 = and i64 %18, 3
   switch i64 %19, label %default.unreachable [
     i64 2, label %20
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
     i64 0, label %22
     i64 1, label %26
   ]
@@ -170,12 +170,12 @@ default.unreachable:                              ; preds = %17
   %33 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17h6d468b6687f1f0bbE(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.38d39bb0d149597147c0111e6a71ea58.1, i64 noundef 21)
   br label %.loopexit
 
-_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit: ; preds = %17
+_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %17
   %.mask20.i = and i64 %18, -4294967296
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.noexc, label %.loopexit
 
-.noexc:                                           ; preds = %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit
+.noexc:                                           ; preds = %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !17
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hf1c53310a377228fE.llvm.17785794609419294129(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noundef nonnull %12)
   %34 = load i8, ptr %4, align 8, !range !13, !alias.scope !24, !noalias !17, !noundef !4
@@ -2459,8 +2459,8 @@ attributes #20 = { noreturn }
 !282 = !{!283}
 !283 = distinct !{!283, !281, !"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$8read_buf17h0b46225ab14c1095E: argument 0"}
 !284 = !{!285, !283, !280}
-!285 = distinct !{!285, !286, !"_ZN4core2io12borrowed_buf14BorrowedCursor6append17h84044dc75767ccdcE.argprom: argument 0"}
-!286 = distinct !{!286, !"_ZN4core2io12borrowed_buf14BorrowedCursor6append17h84044dc75767ccdcE.argprom"}
+!285 = distinct !{!285, !286, !"_ZN4core2io12borrowed_buf14BorrowedCursor6append17h84044dc75767ccdcE: argument 0"}
+!286 = distinct !{!286, !"_ZN4core2io12borrowed_buf14BorrowedCursor6append17h84044dc75767ccdcE"}
 !287 = !{!285, !283}
 !288 = !{!289, !291}
 !289 = distinct !{!289, !290, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0e0885746053d154E: argument 0"}
@@ -2482,8 +2482,8 @@ attributes #20 = { noreturn }
 !305 = !{!306}
 !306 = distinct !{!306, !304, !"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$8read_buf17h0b46225ab14c1095E: argument 0"}
 !307 = !{!308, !306, !303}
-!308 = distinct !{!308, !309, !"_ZN4core2io12borrowed_buf14BorrowedCursor6append17h84044dc75767ccdcE.argprom: argument 0"}
-!309 = distinct !{!309, !"_ZN4core2io12borrowed_buf14BorrowedCursor6append17h84044dc75767ccdcE.argprom"}
+!308 = distinct !{!308, !309, !"_ZN4core2io12borrowed_buf14BorrowedCursor6append17h84044dc75767ccdcE: argument 0"}
+!309 = distinct !{!309, !"_ZN4core2io12borrowed_buf14BorrowedCursor6append17h84044dc75767ccdcE"}
 !310 = !{!308, !306}
 !311 = !{!312, !314}
 !312 = distinct !{!312, !313, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0e0885746053d154E: argument 0"}

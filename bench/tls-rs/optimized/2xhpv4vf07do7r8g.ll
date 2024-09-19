@@ -1300,7 +1300,7 @@ define internal void @"_ZN4core3ptr80drop_in_place$LT$$RF$alloc..vec..Vec$LT$rus
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E.argprom"(ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E"(ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca { ptr, ptr }, align 8
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 72
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1), !noalias !369
@@ -1352,7 +1352,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !14, !nonnull !14
@@ -1371,11 +1371,11 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$L
   %10 = icmp ult i64 %9, -9223372036854775807
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i64 %7, 0
-  br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.argprom.exit", label %12
+  br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.exit", label %12
 
 12:                                               ; preds = %3
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %7, i64 noundef %9) #32
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.argprom.exit"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.exit"
 
 13:                                               ; preds = %0
   %14 = icmp ne ptr %.0.val, null
@@ -1387,21 +1387,21 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$L
   %19 = icmp ult i64 %18, -9223372036854775807
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i64 %16, 0
-  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.argprom.exit4", label %21
+  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.exit4", label %21
 
 21:                                               ; preds = %13
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %16, i64 noundef %18) #32
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.argprom.exit4"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.argprom.exit4": ; preds = %13, %21
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.exit4": ; preds = %13, %21
   ret void
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.argprom.exit": ; preds = %12, %3
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h115aeec455287372E.exit": ; preds = %12, %3
   resume { ptr, i32 } %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !14, !nonnull !14
@@ -1420,11 +1420,11 @@ define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$L
   %10 = icmp ult i64 %9, -9223372036854775807
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i64 %7, 0
-  br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.argprom.exit", label %12
+  br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit", label %12
 
 12:                                               ; preds = %3
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %7, i64 noundef %9) #32
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.argprom.exit"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit"
 
 13:                                               ; preds = %0
   %14 = icmp ne ptr %.0.val, null
@@ -1436,16 +1436,16 @@ define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$L
   %19 = icmp ult i64 %18, -9223372036854775807
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i64 %16, 0
-  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.argprom.exit4", label %21
+  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit4", label %21
 
 21:                                               ; preds = %13
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %16, i64 noundef %18) #32
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.argprom.exit4"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.argprom.exit4": ; preds = %13, %21
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit4": ; preds = %13, %21
   ret void
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.argprom.exit": ; preds = %12, %3
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit": ; preds = %12, %3
   resume { ptr, i32 } %4
 }
 
@@ -1921,13 +1921,13 @@ switch.lookup:
 20:                                               ; preds = %17
   %21 = tail call noundef ptr @"\01aws_lc_0_13_2_EVP_PKEY_CTX_new"(ptr noundef %.val30, ptr noundef null), !noalias !478
   %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread, label %22
+  br i1 %.not.not.i, label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread, label %22
 
 22:                                               ; preds = %20
   %23 = invoke noundef i32 @"\01aws_lc_0_13_2_EVP_PKEY_derive_init"(ptr noundef nonnull %21)
           to label %26 unwind label %24, !noalias !478
 
-"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i": ; preds = %33, %24
+"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i": ; preds = %33, %24
   %.pn.i = phi { ptr, i32 } [ %25, %24 ], [ %34, %33 ]
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_CTX_free"(ptr noundef nonnull %21)
           to label %common.resume unwind label %43
@@ -1935,11 +1935,11 @@ switch.lookup:
 24:                                               ; preds = %42, %41, %28, %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i"
+  br label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i"
 
 26:                                               ; preds = %22
   %27 = icmp eq i32 %23, 1
-  br i1 %27, label %28, label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread49
+  br i1 %27, label %28, label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread49
 
 28:                                               ; preds = %26
   %29 = invoke noundef ptr @"\01aws_lc_0_13_2_EVP_PKEY_new_raw_public_key"(i32 noundef 948, ptr noundef null, ptr noundef nonnull readonly %.val, i64 noundef %switch.load55)
@@ -1947,7 +1947,7 @@ switch.lookup:
 
 30:                                               ; preds = %28
   %.not14.not.i = icmp eq ptr %29, null
-  br i1 %.not14.not.i, label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread49, label %31
+  br i1 %.not14.not.i, label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread49, label %31
 
 31:                                               ; preds = %30
   %32 = invoke noundef i32 @"\01aws_lc_0_13_2_EVP_PKEY_derive_set_peer"(ptr noundef nonnull %21, ptr noundef nonnull %29)
@@ -1957,7 +1957,7 @@ switch.lookup:
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_free"(ptr noundef nonnull %29)
-          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i" unwind label %43
+          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i" unwind label %43
 
 35:                                               ; preds = %31
   %36 = icmp eq i32 %32, 1
@@ -1976,34 +1976,34 @@ switch.lookup:
 
 41:                                               ; preds = %39
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_free"(ptr noundef nonnull %29)
-          to label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit unwind label %24
+          to label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit unwind label %24
 
 42:                                               ; preds = %39, %35
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_free"(ptr noundef nonnull %29)
-          to label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread49 unwind label %24
+          to label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread49 unwind label %24
 
-43:                                               ; preds = %33, %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i"
+43:                                               ; preds = %33, %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i"
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31
   unreachable
 
-common.resume:                                    ; preds = %.body.i, %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i" ], [ %.pn27.i, %.body.i ]
+common.resume:                                    ; preds = %.body.i, %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i"
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i" ], [ %.pn27.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread49: ; preds = %30, %42, %26
+_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread49: ; preds = %30, %42, %26
   call void @"\01aws_lc_0_13_2_EVP_PKEY_CTX_free"(ptr noundef nonnull %21)
-  br label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread
+  br label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread
 
-_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit: ; preds = %41
+_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit: ; preds = %41
   call void @"\01aws_lc_0_13_2_EVP_PKEY_CTX_free"(ptr noundef nonnull %21)
   br label %129
 
 45:                                               ; preds = %17
   %46 = tail call noundef ptr @"\01aws_lc_0_13_2_EC_GROUP_new_by_curve_name"(i32 noundef %switch.load57), !noalias !483
   %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread, label %47
+  br i1 %.not.i.i, label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread, label %47
 
 47:                                               ; preds = %45
   %48 = invoke noundef ptr @"\01aws_lc_0_13_2_EC_POINT_new"(ptr noundef nonnull %46)
@@ -2011,7 +2011,7 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
 
 .noexc.i:                                         ; preds = %47
   %.not.not.i.i = icmp eq ptr %48, null
-  br i1 %.not.not.i.i, label %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom.exit.thread, label %49
+  br i1 %.not.not.i.i, label %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.exit.thread, label %49
 
 49:                                               ; preds = %.noexc.i
   %50 = invoke noundef i32 @"\01aws_lc_0_13_2_EC_POINT_oct2point"(ptr noundef nonnull %46, ptr noundef nonnull %48, ptr noundef nonnull readonly %.val, i64 noundef %switch.load55, ptr noundef null)
@@ -2025,7 +2025,7 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
 
 53:                                               ; preds = %49
   %54 = icmp eq i32 %50, 1
-  br i1 %54, label %59, label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit73.invoke.i"
+  br i1 %54, label %59, label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit73.invoke.i"
 
 55:                                               ; preds = %51
   %56 = landingpad { ptr, i32 }
@@ -2038,7 +2038,7 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
   invoke void @"\01aws_lc_0_13_2_EC_GROUP_free"(ptr noundef nonnull %46)
           to label %common.resume unwind label %126
 
-57:                                               ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit73.invoke.i", %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit67.i", %47
+57:                                               ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit73.invoke.i", %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit67.i", %47
   %58 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -2053,13 +2053,13 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
 
 .noexc57.i:                                       ; preds = %.noexc56.i
   %.not.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i, label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit73.invoke.i", label %62
+  br i1 %.not.i.i.i, label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit73.invoke.i", label %62
 
 62:                                               ; preds = %.noexc57.i
   %63 = invoke noundef i32 @"\01aws_lc_0_13_2_EC_KEY_set_group"(ptr noundef nonnull %61, ptr noundef nonnull %46)
           to label %67 unwind label %65, !noalias !487
 
-"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i.i": ; preds = %78, %65
+"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i.i": ; preds = %78, %65
   %.1.i.i = phi i8 [ %.0.i.i, %65 ], [ %.4.i.i, %78 ]
   %.pn.i.i = phi { ptr, i32 } [ %66, %65 ], [ %79, %78 ]
   %64 = trunc nuw i8 %.1.i.i to i1
@@ -2069,7 +2069,7 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
   %.0.i.i = phi i8 [ 1, %73 ], [ 1, %69 ], [ 1, %62 ], [ %.5.i.i, %90 ]
   %66 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i.i"
+  br label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i.i"
 
 67:                                               ; preds = %62
   %68 = icmp eq i32 %63, 1
@@ -2100,7 +2100,7 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
   %79 = landingpad { ptr, i32 }
           cleanup
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_free"(ptr noundef nonnull %74)
-          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i.i" unwind label %92, !noalias !487
+          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i.i" unwind label %92, !noalias !487
 
 80:                                               ; preds = %76
   %81 = icmp eq i32 %77, 1
@@ -2140,11 +2140,11 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
 90:                                               ; preds = %89, %80
   %.5.i.i = phi i8 [ 0, %89 ], [ 1, %80 ]
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_free"(ptr noundef nonnull %74)
-          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit39.i.i" unwind label %65, !noalias !487
+          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit39.i.i" unwind label %65, !noalias !487
 
-"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit39.i.i": ; preds = %90
+"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit39.i.i": ; preds = %90
   %91 = trunc nuw i8 %.5.i.i to i1
-  br i1 %91, label %"_ZN4core3ptr116drop_in_place$LT$aws_lc_rs..ptr..DetachablePointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..ec_key_st$GT$$GT$17h936525d9cc7d6dbfE.exit.i.i", label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit73.invoke.i"
+  br i1 %91, label %"_ZN4core3ptr116drop_in_place$LT$aws_lc_rs..ptr..DetachablePointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..ec_key_st$GT$$GT$17h936525d9cc7d6dbfE.exit.i.i", label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit73.invoke.i"
 
 92:                                               ; preds = %94, %78
   %93 = landingpad { ptr, i32 }
@@ -2152,20 +2152,20 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31, !noalias !487
   unreachable
 
-"_ZN4core3ptr116drop_in_place$LT$aws_lc_rs..ptr..DetachablePointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..ec_key_st$GT$$GT$17h936525d9cc7d6dbfE.exit.i.i": ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit39.i.i", %75, %71, %67
+"_ZN4core3ptr116drop_in_place$LT$aws_lc_rs..ptr..DetachablePointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..ec_key_st$GT$$GT$17h936525d9cc7d6dbfE.exit.i.i": ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit39.i.i", %75, %71, %67
   invoke void @"\01aws_lc_0_13_2_EC_KEY_free"(ptr noundef nonnull %61)
-          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit73.invoke.i" unwind label %95, !noalias !487
+          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit73.invoke.i" unwind label %95, !noalias !487
 
-94:                                               ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i.i"
+94:                                               ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i.i"
   invoke void @"\01aws_lc_0_13_2_EC_KEY_free"(ptr noundef nonnull %61)
           to label %.body59.i unwind label %92, !noalias !487
 
-.body59.i:                                        ; preds = %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit.i32", %95, %94, %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i.i"
-  %.pn25.i = phi { ptr, i32 } [ %96, %95 ], [ %.pn.i.i, %94 ], [ %.pn.i.i, %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit.i.i" ], [ %.pn.i33, %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit.i32" ]
+.body59.i:                                        ; preds = %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit.i32", %95, %94, %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i.i"
+  %.pn25.i = phi { ptr, i32 } [ %96, %95 ], [ %.pn.i.i, %94 ], [ %.pn.i.i, %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit.i.i" ], [ %.pn.i33, %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit.i32" ]
   invoke void @"\01aws_lc_0_13_2_EC_POINT_free"(ptr noundef nonnull %48)
           to label %.body.i unwind label %126
 
-95:                                               ; preds = %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit71.i", %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit65.i", %"_ZN4core3ptr116drop_in_place$LT$aws_lc_rs..ptr..DetachablePointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..ec_key_st$GT$$GT$17h936525d9cc7d6dbfE.exit.i.i", %.noexc56.i, %59
+95:                                               ; preds = %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit71.i", %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit65.i", %"_ZN4core3ptr116drop_in_place$LT$aws_lc_rs..ptr..DetachablePointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..ec_key_st$GT$$GT$17h936525d9cc7d6dbfE.exit.i.i", %.noexc56.i, %59
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %.body59.i
@@ -2175,7 +2175,7 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
   %98 = invoke noundef ptr @"\01aws_lc_0_13_2_EVP_PKEY_CTX_new"(ptr noundef %.val30, ptr noundef null)
           to label %101 unwind label %99, !noalias !487
 
-"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit.i32": ; preds = %104, %99
+"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit.i32": ; preds = %104, %99
   %.pn.i33 = phi { ptr, i32 } [ %100, %99 ], [ %105, %104 ]
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_free"(ptr noundef nonnull %74)
           to label %.body59.i unwind label %126
@@ -2183,11 +2183,11 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
 99:                                               ; preds = %125, %122, %97
   %100 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit.i32"
+  br label %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit.i32"
 
 101:                                              ; preds = %97
   %.not.not.i34 = icmp eq ptr %98, null
-  br i1 %.not.not.i34, label %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit71.i", label %102
+  br i1 %.not.not.i34, label %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit71.i", label %102
 
 102:                                              ; preds = %101
   %103 = invoke noundef i32 @"\01aws_lc_0_13_2_EVP_PKEY_derive_init"(ptr noundef nonnull %98)
@@ -2197,7 +2197,7 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
   %105 = landingpad { ptr, i32 }
           cleanup
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_CTX_free"(ptr noundef nonnull %98)
-          to label %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit.i32" unwind label %126
+          to label %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit.i32" unwind label %126
 
 106:                                              ; preds = %102
   %107 = icmp eq i32 %103, 1
@@ -2239,46 +2239,46 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit:
   %124 = extractvalue { ptr, i64 } %120, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !483
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_CTX_free"(ptr noundef nonnull %98)
-          to label %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit65.i" unwind label %99
+          to label %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit65.i" unwind label %99
 
-"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit65.i": ; preds = %122
+"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit65.i": ; preds = %122
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_free"(ptr noundef nonnull %74)
-          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit67.i" unwind label %95
+          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit67.i" unwind label %95
 
-"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit67.i": ; preds = %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit65.i"
+"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit67.i": ; preds = %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit65.i"
   invoke void @"\01aws_lc_0_13_2_EC_POINT_free"(ptr noundef nonnull %48)
-          to label %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom.exit unwind label %57
+          to label %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.exit unwind label %57
 
 125:                                              ; preds = %121, %110, %106
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_CTX_free"(ptr noundef nonnull %98)
-          to label %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit71.i" unwind label %99
+          to label %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit71.i" unwind label %99
 
-"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit71.i": ; preds = %125, %101
+"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit71.i": ; preds = %125, %101
   invoke void @"\01aws_lc_0_13_2_EVP_PKEY_free"(ptr noundef nonnull %74)
-          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit73.invoke.i" unwind label %95
+          to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit73.invoke.i" unwind label %95
 
-126:                                              ; preds = %104, %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit.i32", %.body59.i, %.body.i
+126:                                              ; preds = %104, %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit.i32", %.body59.i, %.body.i
   %127 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31
   unreachable
 
-"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit73.invoke.i": ; preds = %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.argprom.exit71.i", %"_ZN4core3ptr116drop_in_place$LT$aws_lc_rs..ptr..DetachablePointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..ec_key_st$GT$$GT$17h936525d9cc7d6dbfE.exit.i.i", %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit39.i.i", %.noexc57.i, %53
+"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit73.invoke.i": ; preds = %"_ZN4core3ptr119drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_ctx_st$GT$$GT$17ha582a367de20ab24E.exit71.i", %"_ZN4core3ptr116drop_in_place$LT$aws_lc_rs..ptr..DetachablePointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..ec_key_st$GT$$GT$17h936525d9cc7d6dbfE.exit.i.i", %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit39.i.i", %.noexc57.i, %53
   invoke void @"\01aws_lc_0_13_2_EC_POINT_free"(ptr noundef nonnull %48)
-          to label %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom.exit.thread unwind label %57
+          to label %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.exit.thread unwind label %57
 
-_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom.exit.thread: ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit73.invoke.i", %.noexc.i
+_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.exit.thread: ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit73.invoke.i", %.noexc.i
   call void @"\01aws_lc_0_13_2_EC_GROUP_free"(ptr noundef nonnull %46)
-  br label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread
+  br label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread
 
-_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom.exit: ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.argprom.exit67.i"
+_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.exit: ; preds = %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit67.i"
   call void @"\01aws_lc_0_13_2_EC_GROUP_free"(ptr noundef nonnull %46)
   %128 = icmp eq ptr %123, null
-  br i1 %128, label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread, label %129
+  br i1 %128, label %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread, label %129
 
-129:                                              ; preds = %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit, %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom.exit
-  %.sroa.021.0 = phi ptr [ %123, %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom.exit ], [ %6, %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit ]
-  %.sroa.10.0.ph.i.pn = phi i64 [ %124, %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom.exit ], [ 32, %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit ]
+129:                                              ; preds = %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit, %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.exit
+  %.sroa.021.0 = phi ptr [ %123, %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.exit ], [ %6, %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit ]
+  %.sroa.10.0.ph.i.pn = phi i64 [ %124, %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.exit ], [ 32, %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !488)
   %130 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %.sroa.10.0.ph.i.pn, i1 noundef zeroext false), !noalias !491
   %131 = extractvalue { i64, ptr } %130, 0
@@ -2296,12 +2296,12 @@ _ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom.exit: ; preds =
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %6)
   br label %134
 
-_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread: ; preds = %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom.exit.thread, %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread49, %45, %20, %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom.exit
+_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread: ; preds = %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.exit.thread, %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread49, %45, %20, %_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.exit
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %6)
   br label %134
 
-134:                                              ; preds = %16, %19, %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom.exit.thread, %129
+134:                                              ; preds = %16, %19, %_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit.thread, %129
   ret void
 }
 
@@ -5807,7 +5807,7 @@ _ZN6rustls6crypto6cipher5Nonce3new17hcf7a0216ca69e30dE.exit: ; preds = %22
 
 "_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE.exit.i46.i.i": ; preds = %.lr.ph.i.i.i.i.i.i45.i.i, %.noexc47.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1475
-  br label %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.argprom.exit.i.i
+  br label %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.exit.i.i
 
 .noexc49.i.i:                                     ; preds = %66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1487
@@ -5828,7 +5828,7 @@ _ZN6rustls6crypto6cipher5Nonce3new17hcf7a0216ca69e30dE.exit: ; preds = %22
 
 "_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE.exit2.i.i.i": ; preds = %.lr.ph.i.i.i.i.i1.i.i.i, %.noexc49.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1487
-  br label %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.argprom.exit.i.i
+  br label %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.exit.i.i
 
 80:                                               ; preds = %64
   %81 = landingpad { ptr, i32 }
@@ -5836,7 +5836,7 @@ _ZN6rustls6crypto6cipher5Nonce3new17hcf7a0216ca69e30dE.exit: ; preds = %22
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31, !noalias !1432
   unreachable
 
-_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.argprom.exit.i.i: ; preds = %"_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE.exit2.i.i.i", %"_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE.exit.i46.i.i"
+_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.exit.i.i: ; preds = %"_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE.exit2.i.i.i", %"_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE.exit.i46.i.i"
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15), !noalias !1431
   br i1 %.not53.i.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.exit", label %96
 
@@ -5866,7 +5866,7 @@ _ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.a
   %eh.lpad-body.i = phi { ptr, i32 } [ %40, %39 ], [ %65, %64 ]
   resume { ptr, i32 } %eh.lpad-body.i
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.exit": ; preds = %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.argprom.exit.i.i, %61
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.exit": ; preds = %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.exit.i.i, %61
   %89 = call { i64, i64 } @_ZN4core5slice5index5range17h2da0f3f6b74ca50fE(i64 noundef 0, i64 noundef %28, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ef2cb31d04e324dd9619959f34c788f4.42), !noalias !1454
   %90 = extractvalue { i64, i64 } %89, 0
   %91 = extractvalue { i64, i64 } %89, 1
@@ -5881,7 +5881,7 @@ _ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.a
   store i8 20, ptr %0, align 8
   br label %97
 
-96:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE.exit.i.i", %61, %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.argprom.exit.i.i
+96:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE.exit.i.i", %61, %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.exit.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17), !noalias !1418
   store i8 5, ptr %0, align 8
   %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -7283,7 +7283,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %.val118.i = load i16, ptr %358, align 2, !noalias !1836
   %359 = getelementptr inbounds i8, ptr %91, i64 168
   %.val119.i = load <32 x i8>, ptr %359, align 8, !alias.scope !1826, !noalias !1838
-  invoke fastcc void @_ZN6rustls6server5tls1212client_hello17emit_server_hello17h12283966b98b0f42E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(32) %60, ptr noalias noundef readonly align 8 dereferenceable(176) %352, ptr noalias noundef align 8 dereferenceable(56) %353, ptr noalias noundef align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %332, i16 %.val117.i, i16 %.val118.i, i1 noundef zeroext %.mux.i, ptr noalias noundef align 8 dereferenceable(16) %59, ptr noalias noundef readonly align 8 dereferenceable(152) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(144) %92, <32 x i8> %.val119.i, ptr noalias nocapture noundef align 8 dereferenceable(24) %58)
+  invoke fastcc void @_ZN6rustls6server5tls1212client_hello17emit_server_hello17h12283966b98b0f42E(ptr noalias nocapture noundef align 8 dereferenceable(32) %60, ptr noalias noundef readonly align 8 dereferenceable(176) %352, ptr noalias noundef align 8 dereferenceable(56) %353, ptr noalias noundef align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %332, i16 %.val117.i, i16 %.val118.i, i1 noundef zeroext %.mux.i, ptr noalias noundef align 8 dereferenceable(16) %59, ptr noalias noundef readonly align 8 dereferenceable(152) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(144) %92, <32 x i8> %.val119.i, ptr noalias nocapture noundef align 8 dereferenceable(24) %58)
           to label %378 unwind label %.loopexit.split-lp.i, !noalias !1823
 
 360:                                              ; preds = %336
@@ -7526,7 +7526,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %462 = getelementptr i8, ptr %461, i64 16
   %.val120.i = load ptr, ptr %2, align 8, !alias.scope !1828, !noalias !1841, !nonnull !14, !align !28, !noundef !14
   %.val121.i = load ptr, ptr %320, align 8, !alias.scope !1828, !noalias !1841, !nonnull !14, !align !28, !noundef !14
-  invoke fastcc void @_ZN6rustls6server5tls1211emit_ticket17h8a88b5fac03d47ceE.argprom(ptr noalias nocapture noundef align 8 dereferenceable(32) %55, ptr noalias noundef readonly align 8 dereferenceable(120) %57, ptr noalias noundef align 8 dereferenceable(56) %353, i1 noundef zeroext %451, ptr nonnull %.val120.i, ptr nonnull %.val121.i, ptr noundef nonnull align 1 %462, ptr noalias noundef readonly align 8 dereferenceable(24) %456, i64 noundef %.fca.1.extract.i.i)
+  invoke fastcc void @_ZN6rustls6server5tls1211emit_ticket17h8a88b5fac03d47ceE(ptr noalias nocapture noundef align 8 dereferenceable(32) %55, ptr noalias noundef readonly align 8 dereferenceable(120) %57, ptr noalias noundef align 8 dereferenceable(56) %353, i1 noundef zeroext %451, ptr nonnull %.val120.i, ptr nonnull %.val121.i, ptr noundef nonnull align 1 %462, ptr noalias noundef readonly align 8 dereferenceable(24) %456, i64 noundef %.fca.1.extract.i.i)
           to label %464 unwind label %.thread193.i, !noalias !1836
 
 463:                                              ; preds = %.noexc129.i
@@ -8298,7 +8298,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %.val220 = load i16, ptr %724, align 2
   %725 = getelementptr inbounds i8, ptr %1, i64 168
   %.val221 = load <32 x i8>, ptr %725, align 8
-  invoke fastcc void @_ZN6rustls6server5tls1212client_hello17emit_server_hello17h12283966b98b0f42E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(32) %88, ptr noalias noundef readonly align 8 dereferenceable(176) %717, ptr noalias noundef align 8 dereferenceable(56) %99, ptr noalias noundef align 8 dereferenceable(24) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %87, i16 %.val219, i16 %.val220, i1 noundef zeroext %721, ptr noalias noundef align 8 dereferenceable(16) %89, ptr noalias noundef readonly align 8 dereferenceable(152) %5, ptr noalias noundef readonly align 8 dereferenceable_or_null(144) null, <32 x i8> %.val221, ptr noalias nocapture noundef align 8 dereferenceable(24) %86)
+  invoke fastcc void @_ZN6rustls6server5tls1212client_hello17emit_server_hello17h12283966b98b0f42E(ptr noalias nocapture noundef align 8 dereferenceable(32) %88, ptr noalias noundef readonly align 8 dereferenceable(176) %717, ptr noalias noundef align 8 dereferenceable(56) %99, ptr noalias noundef align 8 dereferenceable(24) %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %87, i16 %.val219, i16 %.val220, i1 noundef zeroext %721, ptr noalias noundef align 8 dereferenceable(16) %89, ptr noalias noundef readonly align 8 dereferenceable(152) %5, ptr noalias noundef readonly align 8 dereferenceable_or_null(144) null, <32 x i8> %.val221, ptr noalias nocapture noundef align 8 dereferenceable(24) %86)
           to label %746 unwind label %.thread424.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 726:                                              ; preds = %712
@@ -8777,7 +8777,7 @@ _ZN6rustls4msgs5enums10NamedGroup22key_exchange_algorithm17h08830933bdd5c236E.ex
   %.sroa.769.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 24
   %.sroa.769.0.copyload.i = load i64, ptr %.sroa.769.0..sroa_idx.i, align 8, !noalias !2143
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !2143
-  br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit.i"
+  br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i"
 
 893:                                              ; preds = %1083, %1025
   %894 = trunc nuw i8 %.3.i to i1
@@ -8877,12 +8877,12 @@ _ZN6rustls4msgs9handshake23ServerKeyExchangeParams6encode17h8f2cdfd30011814dE.ex
   call void @llvm.assume(i1 %927)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %926, ptr noundef nonnull readonly align 1 dereferenceable(24) @anon.ef2cb31d04e324dd9619959f34c788f4.108, i64 24, i1 false)
   %928 = inttoptr i64 %925 to ptr
-  br label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit.i"
+  br label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit.i"
 
 .body152.i:                                       ; preds = %1036, %999, %.body.i.i325, %929
   %.4119.i = phi i8 [ 0, %999 ], [ 1, %929 ], [ 0, %.body.i.i325 ], [ 0, %1036 ]
   %.pn.i324 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %999 ], [ %930, %929 ], [ %966, %.body.i.i325 ], [ %lpad.thr_comm.i332, %1036 ]
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom"(ptr nonnull %.fca.0.extract.i, ptr nonnull %.fca.1.extract.i) #30
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E"(ptr nonnull %.fca.0.extract.i, ptr nonnull %.fca.1.extract.i) #30
           to label %.body.i322 unwind label %1037
 
 929:                                              ; preds = %931, %919
@@ -8944,11 +8944,11 @@ _ZN6rustls4msgs9handshake23ServerKeyExchangeParams6encode17h8f2cdfd30011814dE.ex
   %957 = icmp ult i64 %956, -9223372036854775807
   call void @llvm.assume(i1 %957)
   %958 = icmp eq i64 %954, 0
-  br i1 %958, label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit.i", label %959
+  br i1 %958, label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit.i", label %959
 
 959:                                              ; preds = %952
   call void @__rust_dealloc(ptr noundef nonnull %.fca.0.extract.i, i64 noundef %954, i64 noundef %956) #32
-  br label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit.i"
+  br label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit.i"
 
 960:                                              ; preds = %938
   %961 = getelementptr inbounds i8, ptr %26, i64 8
@@ -9116,18 +9116,18 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
   %1016 = icmp ult i64 %1015, -9223372036854775807
   call void @llvm.assume(i1 %1016)
   %1017 = icmp eq i64 %1013, 0
-  br i1 %1017, label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit160.i", label %1018
+  br i1 %1017, label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit160.i", label %1018
 
 1018:                                             ; preds = %1011
   call void @__rust_dealloc(ptr noundef nonnull %.fca.0.extract.i, i64 noundef %1013, i64 noundef %1015) #32
-  br label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit160.i"
+  br label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit160.i"
 
-"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit160.i": ; preds = %1018, %1011
+"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit160.i": ; preds = %1018, %1011
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !2207
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h316187016974866fE.llvm.4248407042397360440"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %.noexc161.i unwind label %1027, !noalias !2161
 
-.noexc161.i:                                      ; preds = %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit160.i"
+.noexc161.i:                                      ; preds = %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit160.i"
   %1019 = getelementptr inbounds i8, ptr %16, i64 8
   %1020 = load i64, ptr %1019, align 8, !range !123, !noalias !2207, !noundef !14
   %.not.i.i.i.i327 = icmp eq i64 %1020, 0
@@ -9147,8 +9147,8 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
   %1026 = trunc nuw i8 %.2117.i to i1
   br i1 %1026, label %1083, label %893
 
-1027:                                             ; preds = %1041, %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit.i", %1021, %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit160.i"
-  %.4.i = phi i8 [ 0, %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit160.i" ], [ 0, %1021 ], [ 1, %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit.i" ], [ 1, %1041 ]
+1027:                                             ; preds = %1041, %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit.i", %1021, %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit160.i"
+  %.4.i = phi i8 [ 0, %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit160.i" ], [ 0, %1021 ], [ 1, %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit.i" ], [ 1, %1041 ]
   %1028 = landingpad { ptr, i32 }
           cleanup
   br label %1025
@@ -9186,7 +9186,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31, !noalias !2146
   unreachable
 
-"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit.i": ; preds = %959, %952, %924
+"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit.i": ; preds = %959, %952, %924
   %.sroa.0375.1 = phi i8 [ 12, %924 ], [ %939, %952 ], [ %939, %959 ]
   %.sroa.10377.1 = phi ptr [ %928, %924 ], [ %.sroa.746.i.sroa.4.0.copyload, %952 ], [ %.sroa.746.i.sroa.4.0.copyload, %959 ]
   %.sroa.15.1 = phi ptr [ %926, %924 ], [ %.sroa.746.i.sroa.7.0.copyload, %952 ], [ %.sroa.746.i.sroa.7.0.copyload, %959 ]
@@ -9195,7 +9195,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h316187016974866fE.llvm.4248407042397360440"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %.noexc166.i unwind label %1027, !noalias !2143
 
-.noexc166.i:                                      ; preds = %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.argprom.exit.i"
+.noexc166.i:                                      ; preds = %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit.i"
   %1039 = getelementptr inbounds i8, ptr %14, i64 8
   %1040 = load i64, ptr %1039, align 8, !range !123, !noalias !2221, !noundef !14
   %.not.i.i.i165.i = icmp eq i64 %1040, 0
@@ -9274,13 +9274,13 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
   %1073 = icmp ult i64 %1072, -9223372036854775807
   call void @llvm.assume(i1 %1073)
   %1074 = icmp eq i64 %1070, 0
-  br i1 %1074, label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit.i", label %1075
+  br i1 %1074, label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i", label %1075
 
 1075:                                             ; preds = %1068
   call void @__rust_dealloc(ptr noundef nonnull %857, i64 noundef %1070, i64 noundef %1072) #32, !noalias !2143
-  br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit.i"
+  br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i"
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit.i": ; preds = %1075, %1068, %892
+"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i": ; preds = %1075, %1068, %892
   %.sroa.0375.0 = phi i8 [ %.sroa.0375.1, %1068 ], [ %.sroa.0375.1, %1075 ], [ %853, %892 ]
   %.sroa.10377.0 = phi ptr [ %.sroa.10377.1, %1068 ], [ %.sroa.10377.1, %1075 ], [ %.sroa.567.0.copyload.i, %892 ]
   %.sroa.15.0 = phi ptr [ %.sroa.15.1, %1068 ], [ %.sroa.15.1, %1075 ], [ %.sroa.668.0.copyload.i, %892 ]
@@ -9289,7 +9289,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6fa49a330d648ec3E.llvm.4248407042397360440"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %85)
           to label %.noexc338 unwind label %1085
 
-.noexc338:                                        ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit.i"
+.noexc338:                                        ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i"
   %1076 = getelementptr inbounds i8, ptr %12, i64 8
   %1077 = load i64, ptr %1076, align 8, !range !123, !noalias !2242, !noundef !14
   %.not.i.i.i174.i = icmp eq i64 %1077, 0
@@ -9309,10 +9309,10 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
 
 1084:                                             ; preds = %.thread39.i, %893
   %.pn126.pn46.i = phi { ptr, i32 } [ %895, %.thread39.i ], [ %.pn126.i, %893 ]
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom"(ptr nonnull %857, ptr nonnull %859) #30
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr nonnull %857, ptr nonnull %859) #30
           to label %.body172.i unwind label %1037, !noalias !2161
 
-1085:                                             ; preds = %1078, %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit.i", %1032, %1029
+1085:                                             ; preds = %1078, %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i", %1032, %1029
   %1086 = landingpad { ptr, i32 }
           cleanup
   br label %.thread412
@@ -9327,7 +9327,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
   %.val229 = load ptr, ptr %1089, align 8, !nonnull !14, !noundef !14
   %1090 = getelementptr i8, ptr %1088, i64 120
   %.val230 = load ptr, ptr %1090, align 8, !nonnull !14, !align !28, !noundef !14
-  invoke fastcc void @_ZN6rustls6server5tls1212client_hello20emit_certificate_req17hd3c70ed7c4ef5a0eE.argprom(ptr noalias nocapture noundef align 8 dereferenceable(32) %84, ptr nonnull %.val229, ptr nonnull %.val230, ptr noalias noundef align 8 dereferenceable(56) %99, ptr noalias noundef align 8 dereferenceable(24) %2)
+  invoke fastcc void @_ZN6rustls6server5tls1212client_hello20emit_certificate_req17hd3c70ed7c4ef5a0eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %84, ptr nonnull %.val229, ptr nonnull %.val230, ptr noalias noundef align 8 dereferenceable(56) %99, ptr noalias noundef align 8 dereferenceable(24) %2)
           to label %1092 unwind label %1152
 
 1091:                                             ; preds = %1078, %.noexc338
@@ -9368,7 +9368,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
   store i8 %1096, ptr %.sroa.2154.0..sroa_idx, align 1
   %.sroa.3155.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.3155.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(30) %.sroa.3155, i64 30, i1 false)
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom"(ptr nonnull %857, ptr nonnull %859)
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr nonnull %857, ptr nonnull %859)
           to label %690 unwind label %687
 
 1100:                                             ; preds = %1097
@@ -9507,7 +9507,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
 1152:                                             ; preds = %1087, %1097
   %1153 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom"(ptr nonnull %857, ptr nonnull %859) #30
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr nonnull %857, ptr nonnull %859) #30
           to label %.thread412 unwind label %1154
 
 1154:                                             ; preds = %1192, %1152, %1195, %.thread500, %1186, %.thread417, %1185, %1182, %.body253
@@ -9649,7 +9649,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6rustls6server5tls1212client_hello17emit_server_hello17h12283966b98b0f42E.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %1, ptr noalias noundef nonnull align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4, i16 %.72.val, i16 %.74.val, i1 noundef zeroext %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7, ptr noalias noundef readonly align 8 dereferenceable_or_null(144) %8, <32 x i8> %.32.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %9) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6rustls6server5tls1212client_hello17emit_server_hello17h12283966b98b0f42E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %1, ptr noalias noundef nonnull align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4, i16 %.72.val, i16 %.74.val, i1 noundef zeroext %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7, ptr noalias noundef readonly align 8 dereferenceable_or_null(144) %8, <32 x i8> %.32.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %9) unnamed_addr #1 personality ptr @rust_eh_personality {
   %11 = alloca { { i64, ptr }, i64 }, align 8
   %.sroa.230 = alloca [31 x i8], align 1
   %12 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
@@ -10034,7 +10034,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6rustls6server5tls1212client_hello20emit_certificate_req17hd3c70ed7c4ef5a0eE.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr %.96.val, ptr readonly %.104.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6rustls6server5tls1212client_hello20emit_certificate_req17hd3c70ed7c4ef5a0eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr %.96.val, ptr readonly %.104.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, ptr }, i64 }, align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
@@ -11003,7 +11003,7 @@ _ZN6rustls7hash_hs13HandshakeHash19abandon_client_auth17h859e0a4f4ff1d067E.exit:
 "_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit164": ; preds = %207, %203
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   %206 = trunc nuw i8 %.2117205 to i1
-  br i1 %206, label %208, label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.argprom.exit"
+  br i1 %206, label %208, label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.exit"
 
 207:                                              ; preds = %203
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$rustls_pki_types..CertificateDer$GT$$GT$17hc260f8b2e8aeaf5fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
@@ -11019,7 +11019,7 @@ _ZN6rustls7hash_hs13HandshakeHash19abandon_client_auth17h859e0a4f4ff1d067E.exit:
 
 214:                                              ; preds = %208
   invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE"(ptr noalias noundef align 8 dereferenceable(184) %3)
-          to label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.argprom.exit" unwind label %232
+          to label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.exit" unwind label %232
 
 215:                                              ; preds = %208
   %216 = load i64, ptr %55, align 8, !range !216, !noundef !14
@@ -11044,7 +11044,7 @@ _ZN6rustls7hash_hs13HandshakeHash19abandon_client_auth17h859e0a4f4ff1d067E.exit:
   %222 = phi i64 [ %.pre, %._crit_edge ], [ %209, %215 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2515)
   %223 = icmp eq i64 %222, -9223372036854775808
-  br i1 %223, label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.argprom.exit", label %224
+  br i1 %223, label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.exit", label %224
 
 224:                                              ; preds = %221
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2518
@@ -11067,7 +11067,7 @@ _ZN6rustls7hash_hs13HandshakeHash19abandon_client_auth17h859e0a4f4ff1d067E.exit:
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit.i": ; preds = %227, %.noexc165
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2518
-  br label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.argprom.exit"
+  br label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.exit"
 
 .thread:                                          ; preds = %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit175", %268, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit168"
   br i1 %.1, label %.thread.thread, label %common.resume
@@ -11088,7 +11088,7 @@ _ZN6rustls7hash_hs13HandshakeHash19abandon_client_auth17h859e0a4f4ff1d067E.exit:
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31
   unreachable
 
-"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.argprom.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit164", %214, %221, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit.i", %"_ZN4core3ptr48drop_in_place$LT$rustls..msgs..base..Payload$GT$17h1a521351922f61f4E.exit173"
+"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit164", %214, %221, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit.i", %"_ZN4core3ptr48drop_in_place$LT$rustls..msgs..base..Payload$GT$17h1a521351922f61f4E.exit173"
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 200, i64 noundef 8) #32
   ret void
 
@@ -11105,7 +11105,7 @@ _ZN6rustls7hash_hs13HandshakeHash19abandon_client_auth17h859e0a4f4ff1d067E.exit:
 
 "_ZN4core3ptr48drop_in_place$LT$rustls..msgs..base..Payload$GT$17h1a521351922f61f4E.exit173": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit.i170", %251, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit.thread", %244, %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit"
   invoke void @"_ZN4core3ptr61drop_in_place$LT$rustls..server..tls12..ExpectCertificate$GT$17h02b890755a975119E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %1)
-          to label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.argprom.exit" unwind label %236
+          to label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.exit" unwind label %236
 
 common.resume:                                    ; preds = %.thread, %.thread240, %219, %232, %236
   %common.resume.op = phi { ptr, i32 } [ %237, %236 ], [ %.pn129231, %.thread240 ], [ %.pn, %.thread ], [ %220, %219 ], [ %lpad.thr_comm.split-lp, %232 ]
@@ -11235,7 +11235,7 @@ common.resume:                                    ; preds = %.thread, %.thread24
   %.val145 = load ptr, ptr %282, align 8, !noundef !14
   %283 = getelementptr i8, ptr %1, i64 80
   %.val146 = load ptr, ptr %283, align 8, !nonnull !14, !align !28, !noundef !14
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom"(ptr %.val145, ptr nonnull %.val146) #30
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr %.val145, ptr nonnull %.val146) #30
           to label %common.resume unwind label %233
 }
 
@@ -11921,7 +11921,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 224, i64 noundef 8) #32
   resume { ptr, i32 } %.pn88.pn
 
-"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..handshake..CertificateChain$GT$$GT$17hdcad258b8bd48f3aE.exit": ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit141", %235, %237, %262, %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit"
+"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..handshake..CertificateChain$GT$$GT$17hdcad258b8bd48f3aE.exit": ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit141", %235, %237, %262, %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit"
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 224, i64 noundef 8) #32
   ret void
 
@@ -11989,15 +11989,15 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
 
 257:                                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17h9933401d189d0153E.exit"
   %258 = trunc nuw i8 %.364 to i1
-  br i1 %258, label %263, label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit"
+  br i1 %258, label %263, label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit"
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit": ; preds = %285, %277, %257
+"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit": ; preds = %285, %277, %257
   %259 = getelementptr inbounds i8, ptr %1, i64 56
   %260 = load i64, ptr %259, align 8, !range !123, !alias.scope !2690, !noundef !14
   %261 = icmp eq i64 %260, -9223372036854775808
   br i1 %261, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..handshake..CertificateChain$GT$$GT$17hdcad258b8bd48f3aE.exit", label %262
 
-262:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit"
+262:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit"
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$rustls_pki_types..CertificateDer$GT$$GT$17hc260f8b2e8aeaf5fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %259)
           to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..handshake..CertificateChain$GT$$GT$17hdcad258b8bd48f3aE.exit" unwind label %290
 
@@ -12038,11 +12038,11 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   %283 = icmp ult i64 %282, -9223372036854775807
   call void @llvm.assume(i1 %283)
   %284 = icmp eq i64 %280, 0
-  br i1 %284, label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit", label %285
+  br i1 %284, label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit", label %285
 
 285:                                              ; preds = %277
   call void @__rust_dealloc(ptr noundef nonnull %.val102, i64 noundef %280, i64 noundef %282) #32
-  br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom.exit"
+  br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit"
 
 .body147:                                         ; preds = %276, %267, %292, %253
   %.pn86 = phi { ptr, i32 } [ %.pn84, %292 ], [ %.pn84, %253 ], [ %268, %276 ], [ %268, %267 ]
@@ -12065,7 +12065,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   %.val100 = load ptr, ptr %293, align 8, !noundef !14
   %294 = getelementptr i8, ptr %1, i64 104
   %.val101 = load ptr, ptr %294, align 8, !nonnull !14, !align !28, !noundef !14
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom"(ptr %.val100, ptr nonnull %.val101) #30
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr %.val100, ptr nonnull %.val101) #30
           to label %.body147 unwind label %240
 
 295:                                              ; preds = %.thread252, %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit"
@@ -12109,7 +12109,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   %.val = load ptr, ptr %307, align 8, !noundef !14
   %308 = getelementptr i8, ptr %1, i64 104
   %.val99 = load ptr, ptr %308, align 8, !nonnull !14, !align !28, !noundef !14
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom"(ptr %.val, ptr nonnull %.val99) #30
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr %.val, ptr nonnull %.val99) #30
           to label %303 unwind label %240
 
 309:                                              ; preds = %303
@@ -12233,7 +12233,7 @@ define { ptr, ptr } @"_ZN142_$LT$rustls..server..tls12..ExpectClientKx$u20$as$u2
 45:                                               ; preds = %23
   %46 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.argprom"(ptr nonnull %18, ptr nonnull %20) #30
+  invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr nonnull %18, ptr nonnull %20) #30
           to label %53 unwind label %51
 
 47:                                               ; preds = %23
@@ -12719,7 +12719,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
 "_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$rustls..verify..HandshakeSignatureValid$C$rustls..error..Error$GT$$GT$17heb0d6ff031ca8d4fE.exit": ; preds = %161, %166
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(184) %3)
-          to label %"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificateVerify$GT$$GT$17h06420c4c200386caE.argprom.exit" unwind label %168
+          to label %"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificateVerify$GT$$GT$17h06420c4c200386caE.exit" unwind label %168
 
 "_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit": ; preds = %.body88, %168
   %.250 = phi i8 [ %.3, %168 ], [ %.149, %.body88 ]
@@ -12734,7 +12734,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit"
 
-"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificateVerify$GT$$GT$17h06420c4c200386caE.argprom.exit": ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$rustls..verify..HandshakeSignatureValid$C$rustls..error..Error$GT$$GT$17heb0d6ff031ca8d4fE.exit", %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit90"
+"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificateVerify$GT$$GT$17h06420c4c200386caE.exit": ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$rustls..verify..HandshakeSignatureValid$C$rustls..error..Error$GT$$GT$17heb0d6ff031ca8d4fE.exit", %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit90"
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 256, i64 noundef 8) #32
   ret void
 
@@ -12750,7 +12750,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
 
 "_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit90": ; preds = %54
   invoke void @"_ZN4core3ptr67drop_in_place$LT$rustls..server..tls12..ExpectCertificateVerify$GT$17h9a6a2020af24405fE"(ptr noalias noundef nonnull align 8 dereferenceable(256) %1)
-          to label %"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificateVerify$GT$$GT$17h06420c4c200386caE.argprom.exit" unwind label %173
+          to label %"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificateVerify$GT$$GT$17h06420c4c200386caE.exit" unwind label %173
 
 common.resume:                                    ; preds = %185, %182, %173
   %common.resume.op = phi { ptr, i32 } [ %174, %173 ], [ %.pn76, %182 ], [ %.pn76, %185 ]
@@ -13048,7 +13048,7 @@ define void @"_ZN137_$LT$rustls..server..tls12..ExpectCcs$u20$as$u20$rustls..com
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 232, i64 noundef 8) #32
   br label %56
 
-56:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCcs$GT$$GT$17h3ccce3017389c844E.argprom.exit", %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit"
+56:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCcs$GT$$GT$17h3ccce3017389c844E.exit", %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit"
   ret void
 
 57:                                               ; preds = %60
@@ -13069,7 +13069,7 @@ define void @"_ZN137_$LT$rustls..server..tls12..ExpectCcs$u20$as$u20$rustls..com
 
 61:                                               ; preds = %57, %64
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rustls..server..tls12..ExpectCcs$GT$17hdd00a55afed1173dE"(ptr noalias noundef nonnull align 8 dereferenceable(232) %1)
-          to label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCcs$GT$$GT$17h3ccce3017389c844E.argprom.exit" unwind label %62
+          to label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCcs$GT$$GT$17h3ccce3017389c844E.exit" unwind label %62
 
 common.resume:                                    ; preds = %53, %.thread61, %62
   %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %.pn2755, %.thread61 ], [ %.pn27, %53 ]
@@ -13081,7 +13081,7 @@ common.resume:                                    ; preds = %53, %.thread61, %62
           cleanup
   br label %common.resume
 
-"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCcs$GT$$GT$17h3ccce3017389c844E.argprom.exit": ; preds = %61
+"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCcs$GT$$GT$17h3ccce3017389c844E.exit": ; preds = %61
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 232, i64 noundef 8) #32
   br label %56
 
@@ -13139,7 +13139,7 @@ define { ptr, ptr } @"_ZN137_$LT$rustls..server..tls12..ExpectCcs$u20$as$u20$rus
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6rustls6server5tls1233get_server_connection_value_tls1217h68e987225b4f7252E.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(144) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1, i1 noundef zeroext %2, ptr readonly %.0.val, ptr %.8.val, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6rustls6server5tls1233get_server_connection_value_tls1217h68e987225b4f7252E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(144) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1, i1 noundef zeroext %2, ptr readonly %.0.val, ptr %.8.val, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
@@ -13279,7 +13279,7 @@ define internal fastcc void @_ZN6rustls6server5tls1233get_server_connection_valu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6rustls6server5tls1211emit_ticket17h8a88b5fac03d47ceE.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1, ptr noalias noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext %3, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 1 %4, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, i64 noundef %6) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6rustls6server5tls1211emit_ticket17h8a88b5fac03d47ceE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1, ptr noalias noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext %3, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 1 %4, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, i64 noundef %6) unnamed_addr #1 personality ptr @rust_eh_personality {
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { { i64, ptr }, i64 }, align 8
   %10 = alloca { { i64, ptr }, i64 }, align 8
@@ -13297,7 +13297,7 @@ define internal fastcc void @_ZN6rustls6server5tls1211emit_ticket17h8a88b5fac03d
   tail call void @llvm.assume(i1 %19)
   %20 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %20)
-  call fastcc void @_ZN6rustls6server5tls1233get_server_connection_value_tls1217h68e987225b4f7252E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(144) %17, ptr noalias noundef readonly align 8 dereferenceable(120) %1, i1 noundef zeroext %3, ptr nonnull %.0.val, ptr nonnull %.8.val, i64 noundef %6)
+  call fastcc void @_ZN6rustls6server5tls1233get_server_connection_value_tls1217h68e987225b4f7252E(ptr noalias nocapture noundef align 8 dereferenceable(144) %17, ptr noalias noundef readonly align 8 dereferenceable(120) %1, i1 noundef zeroext %3, ptr nonnull %.0.val, ptr nonnull %.8.val, i64 noundef %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !2856
   store i64 0, ptr %10, align 8, !noalias !2856
   %21 = getelementptr inbounds i8, ptr %10, i64 8
@@ -14159,7 +14159,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   %162 = trunc nuw i8 %161 to i1
   %163 = getelementptr inbounds i8, ptr %2, i64 8
   %.val158 = load ptr, ptr %163, align 8, !nonnull !14, !align !28, !noundef !14
-  invoke fastcc void @_ZN6rustls6server5tls1233get_server_connection_value_tls1217h68e987225b4f7252E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(144) %19, ptr noalias noundef readonly align 8 dereferenceable(120) %59, i1 noundef zeroext %162, ptr nonnull %41, ptr nonnull %.val158, i64 noundef %.fca.1.extract.i)
+  invoke fastcc void @_ZN6rustls6server5tls1233get_server_connection_value_tls1217h68e987225b4f7252E(ptr noalias nocapture noundef align 8 dereferenceable(144) %19, ptr noalias noundef readonly align 8 dereferenceable(120) %59, i1 noundef zeroext %162, ptr nonnull %41, ptr nonnull %.val158, i64 noundef %.fca.1.extract.i)
           to label %165 unwind label %.loopexit.split-lp
 
 164:                                              ; preds = %.noexc178
@@ -14371,7 +14371,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %254 = getelementptr i8, ptr %253, i64 16
   %255 = getelementptr inbounds i8, ptr %2, i64 8
   %.val160 = load ptr, ptr %255, align 8, !nonnull !14, !align !28, !noundef !14
-  invoke fastcc void @_ZN6rustls6server5tls1211emit_ticket17h8a88b5fac03d47ceE.argprom(ptr noalias nocapture noundef align 8 dereferenceable(32) %14, ptr noalias noundef readonly align 8 dereferenceable(120) %59, ptr noalias noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %243, ptr nonnull %41, ptr nonnull %.val160, ptr noundef nonnull align 1 %254, ptr noalias noundef readonly align 8 dereferenceable(24) %248, i64 noundef %.fca.1.extract.i189)
+  invoke fastcc void @_ZN6rustls6server5tls1211emit_ticket17h8a88b5fac03d47ceE(ptr noalias nocapture noundef align 8 dereferenceable(32) %14, ptr noalias noundef readonly align 8 dereferenceable(120) %59, ptr noalias noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %243, ptr nonnull %41, ptr nonnull %.val160, ptr noundef nonnull align 1 %254, ptr noalias noundef readonly align 8 dereferenceable(24) %248, i64 noundef %.fca.1.extract.i189)
           to label %257 unwind label %.loopexit.split-lp
 
 256:                                              ; preds = %.noexc190
@@ -14521,14 +14521,14 @@ _ZN6rustls12common_state11CommonState13start_traffic17h228a7d3f5fdec1b3E.exit: ;
 
 "_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17h9933401d189d0153E.exit204": ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit201", %295
   invoke void @"_ZN4core3ptr51drop_in_place$LT$rustls..hash_hs..HandshakeHash$GT$17h2bff710c7bc62226E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-          to label %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectFinished$GT$$GT$17hf5a49438feaa34e2E.argprom.exit" unwind label %298
+          to label %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectFinished$GT$$GT$17hf5a49438feaa34e2E.exit" unwind label %298
 
 298:                                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17h9933401d189d0153E.exit204"
   %299 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectFinished$GT$$GT$17hf5a49438feaa34e2E.argprom.exit": ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17h9933401d189d0153E.exit204", %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit194"
+"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectFinished$GT$$GT$17hf5a49438feaa34e2E.exit": ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17h9933401d189d0153E.exit204", %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit194"
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 232, i64 noundef 8) #32
   ret void
 
@@ -14539,7 +14539,7 @@ common.resume:                                    ; preds = %296, %298, %302, %3
 
 "_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit194": ; preds = %265
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..server..tls12..ExpectFinished$GT$17hefe015e9e14b1133E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %1)
-          to label %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectFinished$GT$$GT$17hf5a49438feaa34e2E.argprom.exit" unwind label %300
+          to label %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectFinished$GT$$GT$17hf5a49438feaa34e2E.exit" unwind label %300
 
 300:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit194"
   %301 = landingpad { ptr, i32 }
@@ -14639,7 +14639,7 @@ _ZN6rustls4msgs4base7Payload8into_vec17h51996bd173387f29E.exit.i: ; preds = %11,
   %32 = icmp eq i64 %31, -9223372036854775804
   br i1 %32, label %33, label %34
 
-33:                                               ; preds = %34, %"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E.argprom.exit", %28
+33:                                               ; preds = %34, %"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E.exit", %28
   ret void
 
 34:                                               ; preds = %28
@@ -14676,7 +14676,7 @@ _ZN6rustls4msgs4base7Payload8into_vec17h51996bd173387f29E.exit.i: ; preds = %11,
 
 .noexc.i:                                         ; preds = %39
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E.argprom.exit", label %.lr.ph.i.i.i.i.i.i
+  br i1 %44, label %"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E.exit", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc.i, %.noexc2.i
   %45 = phi ptr [ %46, %.noexc2.i ], [ %43, %.noexc.i ]
@@ -14687,7 +14687,7 @@ _ZN6rustls4msgs4base7Payload8into_vec17h51996bd173387f29E.exit.i: ; preds = %11,
 
 .noexc2.i:                                        ; preds = %.lr.ph.i.i.i.i.i.i
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E.argprom.exit", label %.lr.ph.i.i.i.i.i.i
+  br i1 %47, label %"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E.exit", label %.lr.ph.i.i.i.i.i.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -14708,7 +14708,7 @@ common.resume:                                    ; preds = %52, %48
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 120, i64 noundef 8) #32
   br label %common.resume
 
-"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E.argprom.exit": ; preds = %.noexc2.i, %.noexc.i
+"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E.exit": ; preds = %.noexc2.i, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3130
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 120, i64 noundef 8) #32
   br label %33
@@ -14725,7 +14725,7 @@ common.resume:                                    ; preds = %52, %48
 
 52:                                               ; preds = %51, %24, %.thread18, %35
   %.pn4.ph = phi { ptr, i32 } [ %38, %.thread18 ], [ %25, %24 ], [ %25, %51 ], [ %36, %35 ]
-  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E.argprom"(ptr nonnull %1) #30
+  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectTraffic$GT$$GT$17hec7f21e1ae5e79f4E"(ptr nonnull %1) #30
           to label %common.resume unwind label %49
 }
 
@@ -16479,14 +16479,14 @@ attributes #32 = { nounwind }
 !476 = !{i64 0, i64 4}
 !477 = !{i8 0, i8 4}
 !478 = !{!479, !481}
-!479 = distinct !{!479, !480, !"_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom: argument 0"}
-!480 = distinct !{!480, !"_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom"}
-!481 = distinct !{!481, !480, !"_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.argprom: argument 1"}
+!479 = distinct !{!479, !480, !"_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E: argument 0"}
+!480 = distinct !{!480, !"_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E"}
+!481 = distinct !{!481, !480, !"_ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E: argument 1"}
 !482 = !{!479}
 !483 = !{!484, !486}
-!484 = distinct !{!484, !485, !"_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom: argument 0"}
-!485 = distinct !{!485, !"_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom"}
-!486 = distinct !{!486, !485, !"_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE.argprom: argument 1"}
+!484 = distinct !{!484, !485, !"_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE: argument 0"}
+!485 = distinct !{!485, !"_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE"}
+!486 = distinct !{!486, !485, !"_ZN9aws_lc_rs9agreement11ec_key_ecdh17hb8c9f11e91f856faE: argument 1"}
 !487 = !{!484}
 !488 = !{!489}
 !489 = distinct !{!489, !490, !"_ZN6rustls6crypto9aws_lc_rs9ring_shim15agree_ephemeral28_$u7b$$u7b$closure$u7d$$u7d$17hae5bc12e95073df9E: argument 0"}
@@ -17257,9 +17257,9 @@ attributes #32 = { nounwind }
 !1254 = !{!1251, !1255, !1246, !1249}
 !1255 = distinct !{!1255, !1252, !"_ZN9aws_lc_rs4aead4quic15cipher_new_mask17hc83d5b6c4b3d3e79E: argument 1"}
 !1256 = !{!1257, !1259}
-!1257 = distinct !{!1257, !1258, !"_ZN4core3mem14transmute_copy17hc10f90925ebf6b55E.argprom: argument 0"}
-!1258 = distinct !{!1258, !"_ZN4core3mem14transmute_copy17hc10f90925ebf6b55E.argprom"}
-!1259 = distinct !{!1259, !1258, !"_ZN4core3mem14transmute_copy17hc10f90925ebf6b55E.argprom: argument 1"}
+!1257 = distinct !{!1257, !1258, !"_ZN4core3mem14transmute_copy17hc10f90925ebf6b55E: argument 0"}
+!1258 = distinct !{!1258, !"_ZN4core3mem14transmute_copy17hc10f90925ebf6b55E"}
+!1259 = distinct !{!1259, !1258, !"_ZN4core3mem14transmute_copy17hc10f90925ebf6b55E: argument 1"}
 !1260 = !{!1251, !1246, !1249}
 !1261 = !{!1251, !1246}
 !1262 = !{!1255, !1249}
@@ -17304,22 +17304,22 @@ attributes #32 = { nounwind }
 !1301 = distinct !{!1301, !"_ZN4core4iter6traits8iterator8Iterator8for_each17hdf69096e99fee891E"}
 !1302 = distinct !{!1302, !1294, !"_ZN6rustls6crypto6cipher5Nonce3new17hcf7a0216ca69e30dE: argument 0"}
 !1303 = !{!1304, !1306}
-!1304 = distinct !{!1304, !1305, !"_ZN6rustls6crypto6cipher5Nonce3new28_$u7b$$u7b$closure$u7d$$u7d$17h65bd9e117ff07f88E.argprom: argument 0"}
-!1305 = distinct !{!1305, !"_ZN6rustls6crypto6cipher5Nonce3new28_$u7b$$u7b$closure$u7d$$u7d$17h65bd9e117ff07f88E.argprom"}
-!1306 = distinct !{!1306, !1307, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0518976b5169a211E.argprom: argument 0"}
-!1307 = distinct !{!1307, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0518976b5169a211E.argprom"}
+!1304 = distinct !{!1304, !1305, !"_ZN6rustls6crypto6cipher5Nonce3new28_$u7b$$u7b$closure$u7d$$u7d$17h65bd9e117ff07f88E: argument 0"}
+!1305 = distinct !{!1305, !"_ZN6rustls6crypto6cipher5Nonce3new28_$u7b$$u7b$closure$u7d$$u7d$17h65bd9e117ff07f88E"}
+!1306 = distinct !{!1306, !1307, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0518976b5169a211E: argument 0"}
+!1307 = distinct !{!1307, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0518976b5169a211E"}
 !1308 = !{!1309, !1311, !1312, !1313}
-!1309 = distinct !{!1309, !1310, !"_ZN9aws_lc_rs4aead11LessSafeKey26seal_in_place_separate_tag17h2f36a85806f77da1E.argprom: argument 0"}
-!1310 = distinct !{!1310, !"_ZN9aws_lc_rs4aead11LessSafeKey26seal_in_place_separate_tag17h2f36a85806f77da1E.argprom"}
-!1311 = distinct !{!1311, !1310, !"_ZN9aws_lc_rs4aead11LessSafeKey26seal_in_place_separate_tag17h2f36a85806f77da1E.argprom: argument 1"}
-!1312 = distinct !{!1312, !1310, !"_ZN9aws_lc_rs4aead11LessSafeKey26seal_in_place_separate_tag17h2f36a85806f77da1E.argprom: argument 2"}
-!1313 = distinct !{!1313, !1310, !"_ZN9aws_lc_rs4aead11LessSafeKey26seal_in_place_separate_tag17h2f36a85806f77da1E.argprom: argument 3"}
+!1309 = distinct !{!1309, !1310, !"_ZN9aws_lc_rs4aead11LessSafeKey26seal_in_place_separate_tag17h2f36a85806f77da1E: argument 0"}
+!1310 = distinct !{!1310, !"_ZN9aws_lc_rs4aead11LessSafeKey26seal_in_place_separate_tag17h2f36a85806f77da1E"}
+!1311 = distinct !{!1311, !1310, !"_ZN9aws_lc_rs4aead11LessSafeKey26seal_in_place_separate_tag17h2f36a85806f77da1E: argument 1"}
+!1312 = distinct !{!1312, !1310, !"_ZN9aws_lc_rs4aead11LessSafeKey26seal_in_place_separate_tag17h2f36a85806f77da1E: argument 2"}
+!1313 = distinct !{!1313, !1310, !"_ZN9aws_lc_rs4aead11LessSafeKey26seal_in_place_separate_tag17h2f36a85806f77da1E: argument 3"}
 !1314 = !{!1315, !1317, !1318, !1319, !1309, !1311, !1312, !1313}
-!1315 = distinct !{!1315, !1316, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey26seal_in_place_separate_tag17hb7dea13fd96f81fcE.argprom: argument 0"}
-!1316 = distinct !{!1316, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey26seal_in_place_separate_tag17hb7dea13fd96f81fcE.argprom"}
-!1317 = distinct !{!1317, !1316, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey26seal_in_place_separate_tag17hb7dea13fd96f81fcE.argprom: argument 1"}
-!1318 = distinct !{!1318, !1316, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey26seal_in_place_separate_tag17hb7dea13fd96f81fcE.argprom: argument 2"}
-!1319 = distinct !{!1319, !1316, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey26seal_in_place_separate_tag17hb7dea13fd96f81fcE.argprom: argument 3"}
+!1315 = distinct !{!1315, !1316, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey26seal_in_place_separate_tag17hb7dea13fd96f81fcE: argument 0"}
+!1316 = distinct !{!1316, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey26seal_in_place_separate_tag17hb7dea13fd96f81fcE"}
+!1317 = distinct !{!1317, !1316, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey26seal_in_place_separate_tag17hb7dea13fd96f81fcE: argument 1"}
+!1318 = distinct !{!1318, !1316, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey26seal_in_place_separate_tag17hb7dea13fd96f81fcE: argument 2"}
+!1319 = distinct !{!1319, !1316, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey26seal_in_place_separate_tag17hb7dea13fd96f81fcE: argument 3"}
 !1320 = !{!1321, !1323, !1325, !1327, !1329, !1315, !1317, !1318, !1319, !1309, !1311, !1312, !1313}
 !1321 = distinct !{!1321, !1322, !"_ZN59_$LT$$u5b$Z$u3b$$u20$N$u5d$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hb07cdecce005d371E: argument 0"}
 !1322 = distinct !{!1322, !"_ZN59_$LT$$u5b$Z$u3b$$u20$N$u5d$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hb07cdecce005d371E"}
@@ -17336,11 +17336,11 @@ attributes #32 = { nounwind }
 !1333 = distinct !{!1333, !"_ZN38_$LT$Z$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hcf2d915ea0f850ebE"}
 !1334 = !{!1315, !1318, !1319, !1309, !1311, !1312, !1313}
 !1335 = !{!1336, !1338, !1339, !1340, !1315, !1317, !1318, !1319, !1309, !1311, !1312, !1313}
-!1336 = distinct !{!1336, !1337, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13seal_separate17h4bb97f1449810da6E.argprom: argument 0"}
-!1337 = distinct !{!1337, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13seal_separate17h4bb97f1449810da6E.argprom"}
-!1338 = distinct !{!1338, !1337, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13seal_separate17h4bb97f1449810da6E.argprom: argument 1"}
-!1339 = distinct !{!1339, !1337, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13seal_separate17h4bb97f1449810da6E.argprom: argument 2"}
-!1340 = distinct !{!1340, !1337, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13seal_separate17h4bb97f1449810da6E.argprom: argument 3"}
+!1336 = distinct !{!1336, !1337, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13seal_separate17h4bb97f1449810da6E: argument 0"}
+!1337 = distinct !{!1337, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13seal_separate17h4bb97f1449810da6E"}
+!1338 = distinct !{!1338, !1337, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13seal_separate17h4bb97f1449810da6E: argument 1"}
+!1339 = distinct !{!1339, !1337, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13seal_separate17h4bb97f1449810da6E: argument 2"}
+!1340 = distinct !{!1340, !1337, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13seal_separate17h4bb97f1449810da6E: argument 3"}
 !1341 = !{!1336, !1315, !1317, !1309, !1311}
 !1342 = !{!1343, !1345, !1347, !1349, !1336, !1338, !1339, !1340, !1315, !1317, !1318, !1319, !1309, !1311, !1312, !1313}
 !1343 = distinct !{!1343, !1344, !"_ZN59_$LT$$u5b$Z$u3b$$u20$N$u5d$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hb07cdecce005d371E: argument 0"}
@@ -17408,10 +17408,10 @@ attributes #32 = { nounwind }
 !1405 = distinct !{!1405, !1406, !"_ZN4core4iter6traits8iterator8Iterator8for_each17hdf69096e99fee891E: argument 0"}
 !1406 = distinct !{!1406, !"_ZN4core4iter6traits8iterator8Iterator8for_each17hdf69096e99fee891E"}
 !1407 = !{!1408, !1410}
-!1408 = distinct !{!1408, !1409, !"_ZN6rustls6crypto6cipher5Nonce3new28_$u7b$$u7b$closure$u7d$$u7d$17h65bd9e117ff07f88E.argprom: argument 0"}
-!1409 = distinct !{!1409, !"_ZN6rustls6crypto6cipher5Nonce3new28_$u7b$$u7b$closure$u7d$$u7d$17h65bd9e117ff07f88E.argprom"}
-!1410 = distinct !{!1410, !1411, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0518976b5169a211E.argprom: argument 0"}
-!1411 = distinct !{!1411, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0518976b5169a211E.argprom"}
+!1408 = distinct !{!1408, !1409, !"_ZN6rustls6crypto6cipher5Nonce3new28_$u7b$$u7b$closure$u7d$$u7d$17h65bd9e117ff07f88E: argument 0"}
+!1409 = distinct !{!1409, !"_ZN6rustls6crypto6cipher5Nonce3new28_$u7b$$u7b$closure$u7d$$u7d$17h65bd9e117ff07f88E"}
+!1410 = distinct !{!1410, !1411, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0518976b5169a211E: argument 0"}
+!1411 = distinct !{!1411, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0518976b5169a211E"}
 !1412 = !{!1401, !1403, !1405, !1396, !1393}
 !1413 = !{!1414}
 !1414 = distinct !{!1414, !1415, !"_ZN9aws_lc_rs4aead11LessSafeKey11open_within17hc44f0c010b775884E: argument 0"}
@@ -17434,10 +17434,10 @@ attributes #32 = { nounwind }
 !1431 = !{!1423, !1429, !1430, !1426, !1414, !1419, !1420, !1417}
 !1432 = !{!1423, !1429, !1414, !1419}
 !1433 = !{!1434, !1436, !1437, !1423, !1429, !1430, !1426, !1414, !1419, !1420, !1417}
-!1434 = distinct !{!1434, !1435, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey23open_combined_randnonce17hb7ab0b91fbb1bd58E.argprom: argument 0"}
-!1435 = distinct !{!1435, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey23open_combined_randnonce17hb7ab0b91fbb1bd58E.argprom"}
-!1436 = distinct !{!1436, !1435, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey23open_combined_randnonce17hb7ab0b91fbb1bd58E.argprom: argument 1"}
-!1437 = distinct !{!1437, !1435, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey23open_combined_randnonce17hb7ab0b91fbb1bd58E.argprom: argument 2"}
+!1434 = distinct !{!1434, !1435, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey23open_combined_randnonce17hb7ab0b91fbb1bd58E: argument 0"}
+!1435 = distinct !{!1435, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey23open_combined_randnonce17hb7ab0b91fbb1bd58E"}
+!1436 = distinct !{!1436, !1435, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey23open_combined_randnonce17hb7ab0b91fbb1bd58E: argument 1"}
+!1437 = distinct !{!1437, !1435, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey23open_combined_randnonce17hb7ab0b91fbb1bd58E: argument 2"}
 !1438 = !{!1439, !1441}
 !1439 = distinct !{!1439, !1440, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE: argument 0"}
 !1440 = distinct !{!1440, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE"}
@@ -17471,10 +17471,10 @@ attributes #32 = { nounwind }
 !1468 = distinct !{!1468, !1469, !"_ZN38_$LT$Z$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hcf2d915ea0f850ebE: argument 0"}
 !1469 = distinct !{!1469, !"_ZN38_$LT$Z$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hcf2d915ea0f850ebE"}
 !1470 = !{!1471, !1473, !1474, !1423, !1429, !1430, !1426, !1414, !1419, !1420, !1417}
-!1471 = distinct !{!1471, !1472, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.argprom: argument 0"}
-!1472 = distinct !{!1472, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.argprom"}
-!1473 = distinct !{!1473, !1472, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.argprom: argument 1"}
-!1474 = distinct !{!1474, !1472, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.argprom: argument 2"}
+!1471 = distinct !{!1471, !1472, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE: argument 0"}
+!1472 = distinct !{!1472, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE"}
+!1473 = distinct !{!1473, !1472, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE: argument 1"}
+!1474 = distinct !{!1474, !1472, !"_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE: argument 2"}
 !1475 = !{!1476, !1478, !1480, !1482, !1471, !1473, !1474, !1423, !1429, !1430, !1426, !1414, !1419, !1420, !1417}
 !1476 = distinct !{!1476, !1477, !"_ZN59_$LT$$u5b$Z$u3b$$u20$N$u5d$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hb07cdecce005d371E: argument 0"}
 !1477 = distinct !{!1477, !"_ZN59_$LT$$u5b$Z$u3b$$u20$N$u5d$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hb07cdecce005d371E"}
@@ -17532,10 +17532,10 @@ attributes #32 = { nounwind }
 !1529 = !{!1518, !1523, !1525}
 !1530 = !{!1518, !1523}
 !1531 = !{!1532}
-!1532 = distinct !{!1532, !1533, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3372312bfc6bf5fbE.argprom: argument 1"}
-!1533 = distinct !{!1533, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3372312bfc6bf5fbE.argprom"}
+!1532 = distinct !{!1532, !1533, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3372312bfc6bf5fbE: argument 1"}
+!1533 = distinct !{!1533, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3372312bfc6bf5fbE"}
 !1534 = !{!1535, !1518, !1521, !1523, !1525}
-!1535 = distinct !{!1535, !1533, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3372312bfc6bf5fbE.argprom: argument 0"}
+!1535 = distinct !{!1535, !1533, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3372312bfc6bf5fbE: argument 0"}
 !1536 = !{!1521, !1523, !1525}
 !1537 = !{!1521, !1525}
 !1538 = !{!1539, !1541, !1543, !1518, !1521, !1523, !1525}
@@ -17563,10 +17563,10 @@ attributes #32 = { nounwind }
 !1560 = !{!1555, !1556}
 !1561 = !{!1555}
 !1562 = !{!1563}
-!1563 = distinct !{!1563, !1564, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d5f5f8993969143E.argprom: argument 1"}
-!1564 = distinct !{!1564, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d5f5f8993969143E.argprom"}
+!1563 = distinct !{!1563, !1564, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d5f5f8993969143E: argument 1"}
+!1564 = distinct !{!1564, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d5f5f8993969143E"}
 !1565 = !{!1566, !1555, !1552, !1556}
-!1566 = distinct !{!1566, !1564, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d5f5f8993969143E.argprom: argument 0"}
+!1566 = distinct !{!1566, !1564, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1d5f5f8993969143E: argument 0"}
 !1567 = !{!1552, !1556}
 !1568 = !{!1569, !1571, !1573, !1555, !1552, !1556}
 !1569 = distinct !{!1569, !1570, !"_ZN59_$LT$$u5b$Z$u3b$$u20$N$u5d$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17hd3b1b736434afe93E: argument 0"}
@@ -18137,15 +18137,15 @@ attributes #32 = { nounwind }
 !2134 = !{!2080}
 !2135 = !{!2114, !2080}
 !2136 = !{!2137}
-!2137 = distinct !{!2137, !2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE.argprom: argument 1"}
-!2138 = distinct !{!2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE.argprom"}
+!2137 = distinct !{!2137, !2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE: argument 1"}
+!2138 = distinct !{!2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE"}
 !2139 = !{!2140}
-!2140 = distinct !{!2140, !2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE.argprom: argument 3"}
+!2140 = distinct !{!2140, !2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE: argument 3"}
 !2141 = !{!2142}
-!2142 = distinct !{!2142, !2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE.argprom: argument 4"}
+!2142 = distinct !{!2142, !2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE: argument 4"}
 !2143 = !{!2144, !2137, !2145, !2140, !2142}
-!2144 = distinct !{!2144, !2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE.argprom: argument 0"}
-!2145 = distinct !{!2145, !2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE.argprom: argument 2"}
+!2144 = distinct !{!2144, !2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE: argument 0"}
+!2145 = distinct !{!2145, !2138, !"_ZN6rustls6server5tls1212client_hello14emit_server_kx17h50ef9c6397444b3bE: argument 2"}
 !2146 = !{!2144, !2142}
 !2147 = !{!2148}
 !2148 = distinct !{!2148, !2149, !"_ZN6rustls4msgs9handshake23ServerKeyExchangeParams3new17h498decdc7aaf43a9E: argument 0"}

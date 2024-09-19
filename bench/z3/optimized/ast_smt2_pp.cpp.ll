@@ -7720,7 +7720,7 @@ for.end196:                                       ; preds = %for.inc194
   %idx.ext.i293 = zext i32 %inc.i285 to i64
   %add.ptr.i294 = getelementptr inbounds ptr, ptr %129, i64 %idx.ext.i293
   store ptr %add.ptr.i294, ptr %ref.tmp200, align 8
-  %call205 = invoke fastcc noundef ptr @_ZN9format_nsL7mk_seq1IPP3appNS_3f2fEEES2_R11ast_managerRKT_S9_T0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSK_.argprom(ptr noundef nonnull align 8 dereferenceable(976) %call, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp197, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp200, ptr noundef nonnull align 8 dereferenceable(32) %name)
+  %call205 = invoke fastcc noundef ptr @_ZN9format_nsL7mk_seq1IPP3appNS_3f2fEEES2_R11ast_managerRKT_S9_T0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSK_(ptr noundef nonnull align 8 dereferenceable(976) %call, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp197, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp200, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %invoke.cont204 unwind label %lpad184.loopexit.split-lp
 
 invoke.cont204:                                   ; preds = %for.end196
@@ -7822,7 +7822,7 @@ declare noundef i32 @_ZN8datatype4util32get_datatype_num_parameter_sortsEP4sort(
 declare noundef ptr @_ZN8datatype4util27get_datatype_parameter_sortEP4sortj(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN9format_nsL7mk_seq1IPP3appNS_3f2fEEES2_R11ast_managerRKT_S9_T0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSK_.argprom(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %begin, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(32) %header) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZN9format_nsL7mk_seq1IPP3appNS_3f2fEEES2_R11ast_managerRKT_S9_T0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSK_(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %begin, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(32) %header) unnamed_addr #3 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header) #21
   %call1 = tail call noundef ptr @_ZN9format_ns7mk_seq1IPP3appNS_3f2fEEES2_R11ast_managerRKT_S9_T0_PKcSC_SC_(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %begin, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)

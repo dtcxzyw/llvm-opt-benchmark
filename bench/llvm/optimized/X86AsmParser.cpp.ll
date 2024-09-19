@@ -2106,7 +2106,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZN4llvmeqENS_9Stri
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   %303 = getelementptr inbounds i8, ptr %.sroa.02413.0.copyload.pre.pre.pre, i64 1
   %304 = add i64 %.sroa.73.0.copyload, -1
-  %305 = call fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser18ParseConditionCodeEN4llvm9StringRefE.argprom(ptr nonnull %303, i64 %304)
+  %305 = call fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser18ParseConditionCodeEN4llvm9StringRefE(ptr nonnull %303, i64 %304)
   %.not413 = icmp eq i32 %305, 18
   br i1 %.not413, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread2590, label %_ZN4llvmeqENS_9StringRefES0_.exit474.thread
 
@@ -4500,7 +4500,7 @@ _ZNSt10unique_ptrIN4llvm18MCParsedAsmOperandESt14default_deleteIS1_EED2Ev.exit76
   store ptr null, ptr %25, align 8
   call void @_ZNSt10unique_ptrIN4llvm10X86OperandESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #23
   %.val29.i = load ptr, ptr %111, align 8
-  %1179 = call fastcc ptr @_ZN12_GLOBAL__N_112X86AsmParser12consumeTokenEv.argprom(ptr %.val29.i)
+  %1179 = call fastcc ptr @_ZN12_GLOBAL__N_112X86AsmParser12consumeTokenEv(ptr %.val29.i)
   call void @_ZN4llvm10X86Operand11CreateTokenENS_9StringRefENS_5SMLocE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.174") align 8 %29, ptr nonnull @.str.411, i64 1, ptr %1179)
   %1180 = load ptr, ptr %29, align 8
   store ptr null, ptr %29, align 8
@@ -4548,7 +4548,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %_
 
 1201:                                             ; preds = %_ZNSt10unique_ptrIN4llvm18MCParsedAsmOperandESt14default_deleteIS1_EED2Ev.exit79.i
   %.val28.i = load ptr, ptr %111, align 8
-  %1202 = call fastcc ptr @_ZN12_GLOBAL__N_112X86AsmParser12consumeTokenEv.argprom(ptr %.val28.i)
+  %1202 = call fastcc ptr @_ZN12_GLOBAL__N_112X86AsmParser12consumeTokenEv(ptr %.val28.i)
   store ptr %1202, ptr %31, align 8
   %1203 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser6ParseZERSt10unique_ptrIN4llvm10X86OperandESt14default_deleteIS3_EERKNS2_5SMLocE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %31)
   %1204 = load ptr, ptr %17, align 8
@@ -5372,7 +5372,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1442.thread:     ; preds = %_ZN4llvmeqENS_9Stri
   store ptr null, ptr %86, align 8
   store ptr %1521, ptr %85, align 8
   %.val443 = load ptr, ptr %111, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser25AddDefaultSrcDestOperandsERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEOS7_SA_.argprom(ptr %.val443, ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull align 8 dereferenceable(8) %85)
+  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser25AddDefaultSrcDestOperandsERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEOS7_SA_(ptr %.val443, ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull align 8 dereferenceable(8) %85)
   %1522 = load ptr, ptr %85, align 8
   %.not.i1459 = icmp eq ptr %1522, null
   br i1 %.not.i1459, label %_ZNSt10unique_ptrIN4llvm18MCParsedAsmOperandESt14default_deleteIS1_EED2Ev.exit1461, label %_ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i1460
@@ -5475,7 +5475,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1471.thread:     ; preds = %_ZN4llvmeqENS_9Stri
   store ptr null, ptr %90, align 8
   store ptr %1546, ptr %89, align 8
   %.val444 = load ptr, ptr %111, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser25AddDefaultSrcDestOperandsERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEOS7_SA_.argprom(ptr %.val444, ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull align 8 dereferenceable(8) %89)
+  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser25AddDefaultSrcDestOperandsERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEOS7_SA_(ptr %.val444, ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull align 8 dereferenceable(8) %89)
   %1547 = load ptr, ptr %89, align 8
   %.not.i1488 = icmp eq ptr %1547, null
   br i1 %.not.i1488, label %_ZNSt10unique_ptrIN4llvm18MCParsedAsmOperandESt14default_deleteIS1_EED2Ev.exit1490, label %_ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i1489
@@ -5850,7 +5850,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1590.thread:     ; preds = %_ZN4llvmeqENS_9Stri
   store ptr null, ptr %101, align 8
   store ptr %1635, ptr %100, align 8
   %.val445 = load ptr, ptr %111, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser25AddDefaultSrcDestOperandsERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEOS7_SA_.argprom(ptr %.val445, ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull align 8 dereferenceable(8) %100)
+  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser25AddDefaultSrcDestOperandsERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEOS7_SA_(ptr %.val445, ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull align 8 dereferenceable(8) %100)
   %1636 = load ptr, ptr %100, align 8
   %.not.i1611 = icmp eq ptr %1636, null
   br i1 %.not.i1611, label %_ZNSt10unique_ptrIN4llvm18MCParsedAsmOperandESt14default_deleteIS1_EED2Ev.exit1613, label %_ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i1612
@@ -6725,7 +6725,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit117:             ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit117.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit117
   %228 = tail call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
-  tail call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser18parseDirectiveEvenEN4llvm5SMLocE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(330) %0)
+  tail call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser18parseDirectiveEvenEN4llvm5SMLocE(ptr noundef nonnull align 8 dereferenceable(330) %0)
   br label %_ZN4llvmeqENS_9StringRefES0_.exit107.thread240
 
 _ZN4llvmeqENS_9StringRefES0_.exit121:             ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit89.thread235
@@ -7024,7 +7024,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser23MatchAndEmi
   %51 = getelementptr i8, ptr %49, i64 120
   %.val30 = load i32, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %46)
-  switch i32 %.val30, label %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.argprom.exit [
+  switch i32 %.val30, label %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.exit [
     i32 5, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
     i32 6, label %_ZN4llvmeqENS_9StringRefES0_.exit.i30.i
   ]
@@ -7062,12 +7062,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i46.i:          ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i54.i:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i38.i
   %bcmp.i.i55.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %.val, ptr noundef nonnull dereferenceable(6) @.str.477, i64 6)
   %58 = icmp eq i32 %bcmp.i.i55.i, 0
-  br i1 %58, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.thread.i, label %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.argprom.exit
+  br i1 %58, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.thread.i, label %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.exit
 
 _ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i46.i
   %bcmp.i.i63.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %.val, ptr noundef nonnull dereferenceable(5) @.str.478, i64 5)
   %59 = icmp eq i32 %bcmp.i.i63.i, 0
-  br i1 %59, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.thread.i, label %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.argprom.exit
+  br i1 %59, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.thread.i, label %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.exit
 
 _ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.thread.i: ; preds = %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i54.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i46.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i38.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i30.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
   %.sroa.18.797.i = phi ptr [ @.str.479, %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.i ], [ @.str.476, %_ZN4llvmeqENS_9StringRefES0_.exit.i54.i ], [ @.str.476, %_ZN4llvmeqENS_9StringRefES0_.exit.i46.i ], [ @.str.474, %_ZN4llvmeqENS_9StringRefES0_.exit.i38.i ], [ @.str.471, %_ZN4llvmeqENS_9StringRefES0_.exit.i30.i ], [ @.str.471, %_ZN4llvmeqENS_9StringRefES0_.exit.i22.i ], [ @.str.469, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i ], [ @.str.467, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
@@ -7081,7 +7081,7 @@ _ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.thread.i: ; pr
   br i1 %6, label %_ZN4llvm9StringRefC2EPKc.exit.i, label %63
 
 63:                                               ; preds = %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.thread.i
-  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15emitInstructionERN4llvm6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerE.argprom(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %46, ptr noundef nonnull align 8 dereferenceable(288) %4)
+  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15emitInstructionERN4llvm6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %46, ptr noundef nonnull align 8 dereferenceable(288) %4)
   br label %_ZN4llvm9StringRefC2EPKc.exit.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %63, %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.thread.i
@@ -7124,13 +7124,13 @@ _ZNSt10unique_ptrIN4llvm10X86OperandESt14default_deleteIS1_EED2Ev.exit.i: ; pred
   %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %60) #23
   %82 = load ptr, ptr %60, align 8
   %83 = icmp eq ptr %82, %61
-  br i1 %83, label %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.argprom.exit, label %84
+  br i1 %83, label %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.exit, label %84
 
 84:                                               ; preds = %_ZNSt10unique_ptrIN4llvm10X86OperandESt14default_deleteIS1_EED2Ev.exit.i
   call void @free(ptr noundef %82) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.argprom.exit
+  br label %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.exit
 
-_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.argprom.exit: ; preds = %7, %_ZN4llvmeqENS_9StringRefES0_.exit.i54.i, %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.i, %_ZNSt10unique_ptrIN4llvm10X86OperandESt14default_deleteIS1_EED2Ev.exit.i, %84
+_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.exit: ; preds = %7, %_ZN4llvmeqENS_9StringRefES0_.exit.i54.i, %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit65.i, %_ZNSt10unique_ptrIN4llvm10X86OperandESt14default_deleteIS1_EED2Ev.exit.i, %84
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %46)
   %85 = load ptr, ptr %3, align 8
   %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
@@ -7142,7 +7142,7 @@ _ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86Operan
   %92 = icmp eq i32 %91, 4
   br i1 %92, label %93, label %_ZL11getPrefixesRN4llvm15SmallVectorImplISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EEEE.exit
 
-93:                                               ; preds = %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.argprom.exit
+93:                                               ; preds = %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.exit
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 112
   %95 = load i32, ptr %94, align 8
   %96 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
@@ -7166,8 +7166,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14def
   store ptr null, ptr %100, align 8
   br label %_ZL11getPrefixesRN4llvm15SmallVectorImplISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EEEE.exit
 
-_ZL11getPrefixesRN4llvm15SmallVectorImplISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EEEE.exit: ; preds = %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.argprom.exit, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE8pop_backEv.exit.i
-  %.0.i = phi i32 [ %95, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE8pop_backEv.exit.i ], [ 0, %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.argprom.exit ]
+_ZL11getPrefixesRN4llvm15SmallVectorImplISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EEEE.exit: ; preds = %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.exit, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE8pop_backEv.exit.i
+  %.0.i = phi i32 [ %95, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE8pop_backEv.exit.i ], [ 0, %_ZN12_GLOBAL__N_112X86AsmParser17MatchFPUWaitAliasEN4llvm5SMLocERNS1_10X86OperandERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS7_EEEERNS1_10MCStreamerEb.exit ]
   %105 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %106 = getelementptr inbounds i8, ptr %47, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
@@ -7775,14 +7775,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %371
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 115
   %391 = load i8, ptr %390, align 1
   %392 = trunc i8 %391 to i1
-  br i1 %392, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i, label %393
+  br i1 %392, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i, label %393
 
 393:                                              ; preds = %385
   %394 = load ptr, ptr %.val150.i, align 8
   %395 = getelementptr inbounds i8, ptr %394, i64 224
   %396 = load ptr, ptr %395, align 8
   call void %396(ptr noundef nonnull align 8 dereferenceable(34) %.val150.i) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
 397:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i
   %398 = getelementptr inbounds nuw i8, ptr %138, i64 64
@@ -7790,7 +7790,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %371
   %399 = getelementptr inbounds nuw i8, ptr %138, i64 56
   %.sroa.01.0.copyload.i.i = load ptr, ptr %399, align 8
   %400 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.val150.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %34, ptr %.sroa.01.0.copyload.i.i, ptr %.sroa.0.0.copyload.i.i) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
 401:                                              ; preds = %371
   %402 = load ptr, ptr %29, align 8
@@ -7876,16 +7876,16 @@ _ZN12_GLOBAL__N_112X86AsmParser16MatchInstructionERKN4llvm15SmallVectorImplISt10
 
 438:                                              ; preds = %.thread271.i
   %439 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser19validateInstructionERN4llvm6MCInstERKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %439, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i, label %.preheader.i
+  br i1 %439, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %438, %.preheader.i
-  %440 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser18processInstructionERN4llvm6MCInstERKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.argprom(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47)
+  %440 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser18processInstructionERN4llvm6MCInstERKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47)
   br i1 %440, label %.preheader.i, label %.critedge.i, !llvm.loop !58
 
 .critedge.i:                                      ; preds = %.preheader.i
   %441 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %1, ptr %441, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15emitInstructionERN4llvm6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerE.argprom(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47, ptr noundef nonnull align 8 dereferenceable(288) %4)
+  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15emitInstructionERN4llvm6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47, ptr noundef nonnull align 8 dereferenceable(288) %4)
   br label %443
 
 .critedge142.i:                                   ; preds = %.thread271.i
@@ -7896,7 +7896,7 @@ _ZN12_GLOBAL__N_112X86AsmParser16MatchInstructionERKN4llvm15SmallVectorImplISt10
 443:                                              ; preds = %.critedge142.i, %.critedge.i
   %444 = load i32, ptr %47, align 8
   store i32 %444, ptr %2, align 4
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit193.i:             ; preds = %437
   %445 = getelementptr inbounds nuw i8, ptr %.0129304.i, i64 56
@@ -7921,7 +7921,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit193.i:             ; preds = %437
   %.sroa.0.0.copyload.i195.i = load ptr, ptr %453, align 8
   %.val149.i = load ptr, ptr %131, align 8
   %454 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.val149.i, ptr %.sroa.0.0.copyload.i178.i, ptr noundef nonnull align 8 dereferenceable(34) %40, ptr %.sroa.0.0.copyload.i178.i, ptr %.sroa.0.0.copyload.i195.i) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
 .thread273.i:                                     ; preds = %437, %401
   %455 = load ptr, ptr %29, align 8
@@ -7962,18 +7962,18 @@ _ZN4llvm5countIRNS_11SmallVectorIjLj8EEEN12_GLOBAL__N_112X86AsmParser16X86MatchR
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 115
   %471 = load i8, ptr %470, align 1
   %472 = trunc i8 %471 to i1
-  br i1 %472, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i, label %473
+  br i1 %472, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i, label %473
 
 473:                                              ; preds = %465
   %474 = load ptr, ptr %.val148.i, align 8
   %475 = getelementptr inbounds i8, ptr %474, i64 224
   %476 = load ptr, ptr %475, align 8
   call void %476(ptr noundef nonnull align 8 dereferenceable(34) %.val148.i) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
 477:                                              ; preds = %462
   %478 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.val148.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %42, ptr null, ptr null) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
 _ZN4llvm5countIRNS_11SmallVectorIjLj8EEEN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit.thread.i: ; preds = %_ZN4llvm5countIRNS_11SmallVectorIjLj8EEEN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit.i, %.thread273.i
   %479 = load ptr, ptr %29, align 8
@@ -8000,7 +8000,7 @@ _ZN4llvm5countIRNS_11SmallVectorIjLj8EEENS_17MCTargetAsmParser13MatchResultTyEEE
 487:                                              ; preds = %_ZN4llvm5countIRNS_11SmallVectorIjLj8EEENS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit215.i
   store i64 2, ptr %5, align 8
   %488 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser19ErrorMissingFeatureEN4llvm5SMLocERKNS1_13FeatureBitsetEb(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(40) %30, i1 noundef zeroext %6)
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
 _ZN4llvm5countIRNS_11SmallVectorIjLj8EEENS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit215.thread.i: ; preds = %_ZN4llvm5countIRNS_11SmallVectorIjLj8EEENS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit215.i, %_ZN4llvm5countIRNS_11SmallVectorIjLj8EEEN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit.thread.i
   %489 = load ptr, ptr %29, align 8
@@ -8041,18 +8041,18 @@ _ZN4llvm5countIRNS_11SmallVectorIjLj8EEENS_17MCTargetAsmParser13MatchResultTyEEE
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 115
   %506 = load i8, ptr %505, align 1
   %507 = trunc i8 %506 to i1
-  br i1 %507, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i, label %508
+  br i1 %507, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i, label %508
 
 508:                                              ; preds = %500
   %509 = load ptr, ptr %.val147.i, align 8
   %510 = getelementptr inbounds i8, ptr %509, i64 224
   %511 = load ptr, ptr %510, align 8
   call void %511(ptr noundef nonnull align 8 dereferenceable(34) %.val147.i) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
 512:                                              ; preds = %497
   %513 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.val147.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %43, ptr null, ptr null) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
 _ZN4llvm5countIRNS_11SmallVectorIjLj8EEENS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit223.thread.i: ; preds = %_ZN4llvm5countIRNS_11SmallVectorIjLj8EEENS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit223.i, %_ZN4llvm5countIRNS_11SmallVectorIjLj8EEENS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit215.thread.i
   %514 = load ptr, ptr %29, align 8
@@ -8091,8 +8091,8 @@ _ZN4llvm5countIRNS_11SmallVectorIjLj8EEEN12_GLOBAL__N_112X86AsmParser16X86MatchR
   store ptr @.str.491, ptr %44, align 8
   store i8 3, ptr %528, align 8
   %.val146.i = load ptr, ptr %131, align 8
-  %530 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom(ptr %.val146.i, ptr %spec.select.i, ptr noundef nonnull align 8 dereferenceable(34) %44, ptr null, ptr null, i1 noundef zeroext %6)
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  %530 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb(ptr %.val146.i, ptr %spec.select.i, ptr noundef nonnull align 8 dereferenceable(34) %44, ptr null, ptr null, i1 noundef zeroext %6)
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
 _ZN4llvm5countIRNS_11SmallVectorIjLj8EEEN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit235.thread.i: ; preds = %_ZN4llvm5countIRNS_11SmallVectorIjLj8EEEN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit235.i, %_ZN4llvm5countIRNS_11SmallVectorIjLj8EEENS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit223.thread.i
   %531 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -8111,31 +8111,31 @@ _ZN4llvm5countIRNS_11SmallVectorIjLj8EEEN12_GLOBAL__N_112X86AsmParser16X86MatchR
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 115
   %539 = load i8, ptr %538, align 1
   %540 = trunc i8 %539 to i1
-  br i1 %540, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i, label %541
+  br i1 %540, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i, label %541
 
 541:                                              ; preds = %533
   %542 = load ptr, ptr %.val145.i, align 8
   %543 = getelementptr inbounds i8, ptr %542, i64 224
   %544 = load ptr, ptr %543, align 8
   call void %544(ptr noundef nonnull align 8 dereferenceable(34) %.val145.i) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
 545:                                              ; preds = %_ZN4llvm5countIRNS_11SmallVectorIjLj8EEEN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit235.thread.i
   %546 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.val145.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %45, ptr null, ptr null) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
 
-_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i: ; preds = %545, %541, %533, %521, %512, %508, %500, %487, %477, %473, %465, %_ZN4llvmplERKNS_5TwineES2_.exit193.i, %443, %438, %397, %393, %385
+_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i: ; preds = %545, %541, %533, %521, %512, %508, %500, %487, %477, %473, %465, %_ZN4llvmplERKNS_5TwineES2_.exit193.i, %443, %438, %397, %393, %385
   %.0.i32 = phi i1 [ false, %443 ], [ %454, %_ZN4llvmplERKNS_5TwineES2_.exit193.i ], [ %488, %487 ], [ %530, %521 ], [ true, %438 ], [ %400, %397 ], [ false, %393 ], [ false, %385 ], [ %478, %477 ], [ false, %473 ], [ false, %465 ], [ %513, %512 ], [ false, %508 ], [ false, %500 ], [ %546, %545 ], [ false, %541 ], [ false, %533 ]
   %547 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #23
   %548 = load ptr, ptr %29, align 8
   %549 = icmp eq ptr %548, %194
   br i1 %549, label %_ZN12_GLOBAL__N_112X86AsmParser28matchAndEmitIntelInstructionEN4llvm5SMLocERjRNS1_6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEERNS1_10MCStreamerERmb.exit, label %550
 
-550:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i
+550:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i
   call void @free(ptr noundef %548) #23
   br label %_ZN12_GLOBAL__N_112X86AsmParser28matchAndEmitIntelInstructionEN4llvm5SMLocERjRNS1_6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEERNS1_10MCStreamerERmb.exit
 
-_ZN12_GLOBAL__N_112X86AsmParser28matchAndEmitIntelInstructionEN4llvm5SMLocERjRNS1_6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEERNS1_10MCStreamerERmb.exit: ; preds = %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit.i, %550
+_ZN12_GLOBAL__N_112X86AsmParser28matchAndEmitIntelInstructionEN4llvm5SMLocERjRNS1_6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEERNS1_10MCStreamerERmb.exit: ; preds = %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit.i, %550
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
@@ -8247,13 +8247,13 @@ _ZN12_GLOBAL__N_112X86AsmParser16MatchInstructionERKN4llvm15SmallVectorImplISt10
   br i1 %581, label %_ZN12_GLOBAL__N_112X86AsmParser26matchAndEmitATTInstructionEN4llvm5SMLocERjRNS1_6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEERNS1_10MCStreamerERmb.exit, label %.preheader.i51
 
 .preheader.i51:                                   ; preds = %580, %.preheader.i51
-  %582 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser18processInstructionERN4llvm6MCInstERKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.argprom(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47)
+  %582 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser18processInstructionERN4llvm6MCInstERKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47)
   br i1 %582, label %.preheader.i51, label %.critedge.i52, !llvm.loop !68
 
 .critedge.i52:                                    ; preds = %.preheader.i51
   %583 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %1, ptr %583, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15emitInstructionERN4llvm6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerE.argprom(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47, ptr noundef nonnull align 8 dereferenceable(288) %4)
+  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15emitInstructionERN4llvm6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47, ptr noundef nonnull align 8 dereferenceable(288) %4)
   br label %585
 
 .critedge177.i:                                   ; preds = %579
@@ -8589,13 +8589,13 @@ _ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit.i: ;
   br i1 %746, label %_ZN4llvm11SmallStringILj126EED2Ev.exit.i, label %.preheader283.i
 
 .preheader283.i:                                  ; preds = %745, %.preheader283.i
-  %747 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser18processInstructionERN4llvm6MCInstERKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.argprom(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47)
+  %747 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser18processInstructionERN4llvm6MCInstERKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47)
   br i1 %747, label %.preheader283.i, label %.critedge179.i, !llvm.loop !70
 
 .critedge179.i:                                   ; preds = %.preheader283.i
   %748 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %1, ptr %748, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15emitInstructionERN4llvm6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerE.argprom(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47, ptr noundef nonnull align 8 dereferenceable(288) %4)
+  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15emitInstructionERN4llvm6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %47, ptr noundef nonnull align 8 dereferenceable(288) %4)
   br label %750
 
 .critedge180.i:                                   ; preds = %744
@@ -8853,27 +8853,27 @@ _ZN4llvm11raw_ostreamlsEPKc.exit217.i:            ; preds = %851, %849
   %865 = getelementptr inbounds nuw i8, ptr %864, i64 115
   %866 = load i8, ptr %865, align 1
   %867 = trunc i8 %866 to i1
-  br i1 %867, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit221.i, label %868
+  br i1 %867, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit221.i, label %868
 
 868:                                              ; preds = %860
   %869 = load ptr, ptr %.val190.i, align 8
   %870 = getelementptr inbounds i8, ptr %869, i64 224
   %871 = load ptr, ptr %870, align 8
   call void %871(ptr noundef nonnull align 8 dereferenceable(34) %.val190.i) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit221.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit221.i
 
 872:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit217.i
   %873 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.val190.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %18, ptr null, ptr null) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit221.i
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit221.i
 
-_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit221.i: ; preds = %872, %868, %860
+_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit221.i: ; preds = %872, %868, %860
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #23
   %874 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #23
   %875 = load ptr, ptr %16, align 8
   %876 = icmp eq ptr %875, %763
   br i1 %876, label %_ZN4llvm11SmallStringILj126EED2Ev.exit.i, label %877
 
-877:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit221.i
+877:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit221.i
   call void @free(ptr noundef %875) #23
   br label %_ZN4llvm11SmallStringILj126EED2Ev.exit.i
 
@@ -8920,7 +8920,7 @@ _ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit228.i
   %891 = getelementptr inbounds nuw i8, ptr %553, i64 64
   %.sroa.0.0.copyload.i229.i = load ptr, ptr %891, align 8
   %.val189.i = load ptr, ptr %131, align 8
-  %892 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom(ptr %.val189.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %19, ptr %.sroa.01.0.copyload.i.i46, ptr %.sroa.0.0.copyload.i229.i, i1 noundef zeroext %6)
+  %892 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb(ptr %.val189.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %19, ptr %.sroa.01.0.copyload.i.i46, ptr %.sroa.0.0.copyload.i229.i, i1 noundef zeroext %6)
   br label %_ZN4llvm11SmallStringILj126EED2Ev.exit.i
 
 893:                                              ; preds = %882
@@ -8930,7 +8930,7 @@ _ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit228.i
   store ptr @.str.489, ptr %22, align 8
   store i8 3, ptr %894, align 8
   %.val188.i = load ptr, ptr %131, align 8
-  %896 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom(ptr %.val188.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr null, ptr null, i1 noundef zeroext %6)
+  %896 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb(ptr %.val188.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr null, ptr null, i1 noundef zeroext %6)
   br label %_ZN4llvm11SmallStringILj126EED2Ev.exit.i
 
 897:                                              ; preds = %882
@@ -8950,7 +8950,7 @@ _ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit228.i
   store ptr @.str.802, ptr %23, align 8
   store i8 3, ptr %902, align 8
   %.val187.i = load ptr, ptr %131, align 8
-  %904 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom(ptr %.val187.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %23, ptr null, ptr null, i1 noundef zeroext %6)
+  %904 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb(ptr %.val187.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %23, ptr null, ptr null, i1 noundef zeroext %6)
   br label %_ZN4llvm11SmallStringILj126EED2Ev.exit.i
 
 905:                                              ; preds = %899
@@ -8972,7 +8972,7 @@ _ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit228.i
   store ptr @.str.490, ptr %24, align 8
   store i8 3, ptr %913, align 8
   %.val186.i = load ptr, ptr %131, align 8
-  %915 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom(ptr %.val186.i, ptr nonnull %.sroa.0.0.copyload.i232.i, ptr noundef nonnull align 8 dereferenceable(34) %24, ptr nonnull %.sroa.0.0.copyload.i232.i, ptr %.sroa.0.0.copyload.i234.i, i1 noundef zeroext %6)
+  %915 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb(ptr %.val186.i, ptr nonnull %.sroa.0.0.copyload.i232.i, ptr noundef nonnull align 8 dereferenceable(34) %24, ptr nonnull %.sroa.0.0.copyload.i232.i, ptr %.sroa.0.0.copyload.i234.i, i1 noundef zeroext %6)
   br label %_ZN4llvm11SmallStringILj126EED2Ev.exit.i
 
 916:                                              ; preds = %905, %897
@@ -8982,7 +8982,7 @@ _ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit228.i
   store ptr @.str.490, ptr %25, align 8
   store i8 3, ptr %917, align 8
   %.val185.i = load ptr, ptr %131, align 8
-  %919 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom(ptr %.val185.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %25, ptr null, ptr null, i1 noundef zeroext %6)
+  %919 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb(ptr %.val185.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %25, ptr null, ptr null, i1 noundef zeroext %6)
   br label %_ZN4llvm11SmallStringILj126EED2Ev.exit.i
 
 .lr.ph.i.i.i.i42:                                 ; preds = %_ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit228.i, %.lr.ph.i.i.i.i42
@@ -8995,13 +8995,13 @@ _ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit228.i
   %spec.select.i.i.i241.i = add nuw nsw i64 %.08.i.i.i238.i, %921
   %.057.i.i.add.i242.i = add nuw nsw i64 %.057.i.i.idx.i239.i, 4
   %.not.i.i.i243.i = icmp eq i64 %.057.i.i.add.i242.i, 16
-  br i1 %.not.i.i.i243.i, label %_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.argprom.exit.i, label %.lr.ph.i.i.i.i42, !llvm.loop !67
+  br i1 %.not.i.i.i243.i, label %_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit.i, label %.lr.ph.i.i.i.i42, !llvm.loop !67
 
-_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.argprom.exit.i: ; preds = %.lr.ph.i.i.i.i42
+_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i42
   %922 = icmp eq i64 %spec.select.i.i.i241.i, 1
   br i1 %922, label %923, label %.preheader285.i
 
-923:                                              ; preds = %_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.argprom.exit.i
+923:                                              ; preds = %_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit.i
   %924 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %925 = getelementptr inbounds nuw i8, ptr %26, i64 33
   store i8 1, ptr %925, align 1
@@ -9031,9 +9031,9 @@ _ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_
   %939 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.val184.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr null, ptr null) #23
   br label %_ZN4llvm11SmallStringILj126EED2Ev.exit.i
 
-.preheader285.i:                                  ; preds = %_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.argprom.exit.i, %.preheader285.i
-  %.08.i.i.i246.i = phi i64 [ %spec.select.i.i.i249.i, %.preheader285.i ], [ 0, %_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.argprom.exit.i ]
-  %.057.i.i.idx.i247.i = phi i64 [ %.057.i.i.add.i250.i, %.preheader285.i ], [ 0, %_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.argprom.exit.i ]
+.preheader285.i:                                  ; preds = %_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit.i, %.preheader285.i
+  %.08.i.i.i246.i = phi i64 [ %spec.select.i.i.i249.i, %.preheader285.i ], [ 0, %_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit.i ]
+  %.057.i.i.idx.i247.i = phi i64 [ %.057.i.i.add.i250.i, %.preheader285.i ], [ 0, %_ZN4llvm5countIRA4_jN12_GLOBAL__N_112X86AsmParser16X86MatchResultTyEEEDaOT_RKT0_.exit.i ]
   %.057.i.i.ptr.i248.i = getelementptr inbounds i8, ptr %14, i64 %.057.i.i.idx.i247.i
   %940 = load i32, ptr %.057.i.i.ptr.i248.i, align 4
   %941 = icmp eq i32 %940, 2
@@ -9075,7 +9075,7 @@ _ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit259.i
   store ptr @.str.490, ptr %27, align 8
   store i8 3, ptr %951, align 8
   %.val183.i = load ptr, ptr %131, align 8
-  %953 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom(ptr %.val183.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %27, ptr null, ptr null, i1 noundef zeroext %6)
+  %953 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb(ptr %.val183.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %27, ptr null, ptr null, i1 noundef zeroext %6)
   br label %_ZN4llvm11SmallStringILj126EED2Ev.exit.i
 
 954:                                              ; preds = %_ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit259.i
@@ -9085,11 +9085,11 @@ _ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit259.i
   store ptr @.str.803, ptr %28, align 8
   store i8 3, ptr %955, align 8
   %.val182.i = load ptr, ptr %131, align 8
-  %957 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom(ptr %.val182.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %28, ptr null, ptr null, i1 noundef zeroext %6)
+  %957 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb(ptr %.val182.i, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %28, ptr null, ptr null, i1 noundef zeroext %6)
   br label %_ZN4llvm11SmallStringILj126EED2Ev.exit.i
 
-_ZN4llvm11SmallStringILj126EED2Ev.exit.i:         ; preds = %954, %950, %944, %938, %934, %926, %916, %911, %901, %893, %883, %877, %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit221.i, %750, %745
-  %.1.i = phi i1 [ false, %750 ], [ %892, %883 ], [ %896, %893 ], [ %904, %901 ], [ %915, %911 ], [ %919, %916 ], [ %945, %944 ], [ %953, %950 ], [ true, %954 ], [ true, %745 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit221.i ], [ true, %877 ], [ %939, %938 ], [ false, %934 ], [ false, %926 ]
+_ZN4llvm11SmallStringILj126EED2Ev.exit.i:         ; preds = %954, %950, %944, %938, %934, %926, %916, %911, %901, %893, %883, %877, %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit221.i, %750, %745
+  %.1.i = phi i1 [ false, %750 ], [ %892, %883 ], [ %896, %893 ], [ %904, %901 ], [ %915, %911 ], [ %919, %916 ], [ %945, %944 ], [ %953, %950 ], [ true, %954 ], [ true, %745 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit221.i ], [ true, %877 ], [ %939, %938 ], [ false, %934 ], [ false, %926 ]
   %958 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #23
   %959 = load ptr, ptr %11, align 8
   %960 = icmp eq ptr %959, %637
@@ -12218,7 +12218,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %_ZN4llvm15SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom(ptr %.8.val, ptr %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr %2, ptr %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb(ptr %.8.val, ptr %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr %2, ptr %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   br i1 %4, label %6, label %18
 
 6:                                                ; preds = %5
@@ -12966,7 +12966,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 0, 19) i32 @_ZN12_GLOBAL__N_112X86AsmParser18ParseConditionCodeEN4llvm9StringRefE.argprom(ptr nocapture readonly %0, i64 %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef range(i32 0, 19) i32 @_ZN12_GLOBAL__N_112X86AsmParser18ParseConditionCodeEN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) unnamed_addr #11 align 2 {
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_3X868CondCodeES2_E4CaseENS_13StringLiteralES2_.exit.i181.thread325 [
     i64 1, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 2, label %_ZN4llvmeqENS_9StringRefES0_.exit.i7
@@ -13361,7 +13361,7 @@ define linkonce_odr hidden void @_ZN4llvm10X86Operand9CreateImmEPKNS_6MCExprENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN12_GLOBAL__N_112X86AsmParser12consumeTokenEv.argprom(ptr nonnull %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc ptr @_ZN12_GLOBAL__N_112X86AsmParser12consumeTokenEv(ptr nonnull %.8.val) unnamed_addr #0 align 2 {
   %1 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %.8.val) #23
   %2 = tail call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   %3 = load ptr, ptr %.8.val, align 8
@@ -15282,7 +15282,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i16: ; preds = 
 
 840:                                              ; preds = %830
   %.val47.i = load ptr, ptr %103, align 8
-  %841 = call fastcc ptr @_ZN12_GLOBAL__N_112X86AsmParser12consumeTokenEv.argprom(ptr %.val47.i)
+  %841 = call fastcc ptr @_ZN12_GLOBAL__N_112X86AsmParser12consumeTokenEv(ptr %.val47.i)
   call void @_ZN4llvm10X86Operand11CreateTokenENS_9StringRefENS_5SMLocE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.174") align 8 %67, ptr nonnull @.str.170, i64 1, ptr %841)
   %842 = load ptr, ptr %67, align 8
   store ptr null, ptr %67, align 8
@@ -15372,9 +15372,9 @@ _ZNSt10unique_ptrIN4llvm18MCParsedAsmOperandESt14default_deleteIS1_EED2Ev.exit56
   %855 = load ptr, ptr %854, align 8
   %856 = load i32, ptr %855, align 8
   %.not12.i.i.i = icmp eq i32 %856, 17
-  br i1 %.not12.i.i.i, label %.preheader.i.i, label %"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.argprom.exit.thread.i.i"
+  br i1 %.not12.i.i.i, label %.preheader.i.i, label %"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.exit.thread.i.i"
 
-"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.argprom.exit.thread.i.i": ; preds = %849
+"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.exit.thread.i.i": ; preds = %849
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %945
@@ -15544,14 +15544,14 @@ _ZNK4llvm8AsmToken13getIdentifierEv.exit.i.i.i:   ; preds = %889, %885
 
 _ZN4llvm8AsmTokenD2Ev.exit.i.i.i:                 ; preds = %943, %939, %933
   %944 = icmp eq ptr %935, %5
-  br i1 %944, label %"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.argprom.exit.i.i", label %933
+  br i1 %944, label %"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.exit.i.i", label %933
 
-"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.argprom.exit.i.i": ; preds = %_ZN4llvm8AsmTokenD2Ev.exit.i.i.i
+"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.exit.i.i": ; preds = %_ZN4llvm8AsmTokenD2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br i1 %.1.i.i.i, label %952, label %945
 
-945:                                              ; preds = %"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.argprom.exit.i.i", %"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.argprom.exit.thread.i.i"
+945:                                              ; preds = %"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.exit.i.i", %"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.exit.thread.i.i"
   %946 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser13parseTokenLocERNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(34) %848, ptr noundef nonnull align 8 dereferenceable(8) %9) #23
   br i1 %946, label %_ZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEE.exit.i, label %947
 
@@ -15562,7 +15562,7 @@ _ZN4llvm8AsmTokenD2Ev.exit.i.i.i:                 ; preds = %943, %939, %933
   %951 = call noundef zeroext i1 %950(ptr noundef nonnull align 8 dereferenceable(34) %848, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %7) #23
   br i1 %951, label %_ZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEE.exit.i, label %958
 
-952:                                              ; preds = %"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.argprom.exit.i.i"
+952:                                              ; preds = %"_ZZN12_GLOBAL__N_112X86AsmParser15ParseMemOperandEjPKN4llvm6MCExprENS1_5SMLocES5_RNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS8_EEEEENK3$_0clEv.exit.i.i"
   %953 = load ptr, ptr %848, align 8
   %954 = getelementptr inbounds i8, ptr %953, i64 48
   %955 = load ptr, ptr %954, align 8
@@ -16607,7 +16607,7 @@ define linkonce_odr hidden ptr @_ZNK4llvm10X86Operand11getStartLocEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112X86AsmParser25AddDefaultSrcDestOperandsERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEOS7_SA_.argprom(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112X86AsmParser25AddDefaultSrcDestOperandsERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEOS7_SA_(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %.8.val, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -16902,22 +16902,22 @@ switch.lookup:                                    ; preds = %_ZNK4llvm15MCRegist
 
 105:                                              ; preds = %switch.lookup
   %106 = select i1 %switch.masked, i32 60, i32 55
-  br label %_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.argprom.exit
+  br label %_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.exit
 
 107:                                              ; preds = %switch.lookup
   %108 = select i1 %switch.masked, i32 32, i32 26
-  br label %_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.argprom.exit
+  br label %_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.exit
 
 109:                                              ; preds = %switch.lookup
   %110 = select i1 %switch.masked, i32 62, i32 16
-  br label %_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.argprom.exit
+  br label %_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.exit
 
-_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.argprom.exit: ; preds = %105, %107, %109
+_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.exit: ; preds = %105, %107, %109
   %.0.i85 = phi i32 [ %110, %109 ], [ %108, %107 ], [ %106, %105 ]
   %.not72 = icmp eq i32 %.0.i85, %48
   br i1 %.not72, label %121, label %111
 
-111:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.argprom.exit
+111:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.exit
   %.str.416..str.417 = select i1 %switch.masked, ptr @.str.416, ptr @.str.417
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #23
   %112 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
@@ -16953,7 +16953,7 @@ _ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.argprom.exit: ; preds = 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   br label %121
 
-121:                                              ; preds = %111, %_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.argprom.exit
+121:                                              ; preds = %111, %_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.exit
   %122 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %123 = load i32, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %29, i64 144
@@ -19584,7 +19584,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit45.i: ; preds = %_ZNK4llvm9Strin
   br label %_ZN12_GLOBAL__N_112X86AsmParser24ParseIntelOffsetOperatorERPKN4llvm6MCExprERNS1_9StringRefERNS1_23InlineAsmIdentifierInfoERNS1_5SMLocE.exit
 
 600:                                              ; preds = %570
-  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser29ParseIntelInlineAsmIdentifierERPKN4llvm6MCExprERNS1_9StringRefERNS1_23InlineAsmIdentifierInfoEbRNS1_5SMLocEb.retelim(ptr noundef nonnull readonly align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(28) %27, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser29ParseIntelInlineAsmIdentifierERPKN4llvm6MCExprERNS1_9StringRefERNS1_23InlineAsmIdentifierInfoEbRNS1_5SMLocEb(ptr noundef nonnull readonly align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(28) %27, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext true)
   %601 = load i32, ptr %127, align 8
   %602 = icmp eq i32 %601, 2
   br i1 %602, label %603, label %_ZN12_GLOBAL__N_112X86AsmParser24ParseIntelOffsetOperatorERPKN4llvm6MCExprERNS1_9StringRefERNS1_23InlineAsmIdentifierInfoERNS1_5SMLocE.exit.thread
@@ -19746,7 +19746,7 @@ _ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_2
   store ptr %.sroa.073.0.copyload, ptr %21, align 8
   store i64 %.sroa.274.0.copyload, ptr %135, align 8
   %641 = icmp eq i64 %.sroa.274.0.copyload, 2
-  br i1 %641, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i301, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.argprom.exit.thread
+  br i1 %641, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i301, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i301: ; preds = %640
   %642 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr nonnull @.str.60, i64 2) #23
@@ -19771,7 +19771,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i301: ; preds = %640
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread.i302: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i301
   %.pre.i303 = load i64, ptr %135, align 8
   %648 = icmp eq i64 %.pre.i303, 2
-  br i1 %648, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit9.i, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.argprom.exit.thread
+  br i1 %648, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit9.i, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit9.i: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread.i302
   %649 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr nonnull @.str.246, i64 2) #23
@@ -19796,7 +19796,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit9.i: ; preds = %_ZNK4llvm9String
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit9.thread.i: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit9.i
   %.pre11.i = load i64, ptr %135, align 8
   %655 = icmp eq i64 %.pre11.i, 2
-  br i1 %655, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12.i, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.argprom.exit.thread
+  br i1 %655, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12.i, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit12.i: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit9.thread.i
   %656 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr nonnull @.str.62, i64 2) #23
@@ -19821,7 +19821,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit12.i: ; preds = %_ZNK4llvm9Strin
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit12.thread.i: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12.i
   %.pre12.i = load i64, ptr %135, align 8
   %662 = icmp eq i64 %.pre12.i, 2
-  br i1 %662, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit15.i, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.argprom.exit.thread
+  br i1 %662, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit15.i, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit15.i: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12.thread.i
   %663 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr nonnull @.str.64, i64 2) #23
@@ -19846,7 +19846,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit15.i: ; preds = %_ZNK4llvm9Strin
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit15.thread.i: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit15.i
   %.pre13.i = load i64, ptr %135, align 8
   %669 = icmp eq i64 %.pre13.i, 2
-  br i1 %669, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit18.i, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.argprom.exit.thread
+  br i1 %669, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit18.i, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit18.i: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit15.thread.i
   %670 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr nonnull @.str.86, i64 2) #23
@@ -19871,12 +19871,12 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit18.i: ; preds = %_ZNK4llvm9Strin
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit18.thread.i: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit18.i
   %.pre14.i = load i64, ptr %135, align 8
   %676 = icmp eq i64 %.pre14.i, 2
-  br i1 %676, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit21.i, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.argprom.exit.thread
+  br i1 %676, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit21.i, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit21.i: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit18.thread.i
   %677 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr nonnull @.str.84, i64 2) #23
   %678 = icmp eq i32 %677, 0
-  br i1 %678, label %679, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.argprom.exit.thread
+  br i1 %678, label %679, label %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread
 
 679:                                              ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit21.i
   %680 = load i32, ptr %1, align 8
@@ -19893,7 +19893,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit21.i: ; preds = %_ZNK4llvm9Strin
   call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15InfixCalculator12pushOperatorENS0_18InfixCalculatorTokE(ptr noundef nonnull align 8 dereferenceable(112) %93, i32 noundef 21)
   br label %683
 
-_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.argprom.exit.thread: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit21.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit18.thread.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit15.thread.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12.thread.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit9.thread.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread.i302, %640
+_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit21.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit18.thread.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit15.thread.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit12.thread.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit9.thread.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread.i302, %640
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   br label %690
 
@@ -19911,7 +19911,7 @@ _ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   br i1 %.1545566, label %.thread, label %_ZN4llvm8AsmTokenD2Ev.exit282
 
-690:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.argprom.exit.thread, %635
+690:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser22ParseMasmNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit.thread, %635
   store i32 0, ptr %136, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %57, i8 0, i64 28, i1 false)
   store i32 0, ptr %137, align 8
@@ -19969,7 +19969,7 @@ _ZNK4llvm9StringRef5countEc.exit.thread:          ; preds = %698, %707, %_ZNK4ll
 712:                                              ; preds = %_ZNK4llvm9StringRef5countEc.exit.thread
   %.sroa.069.0.copyload = load ptr, ptr %40, align 8
   %.sroa.270.0.copyload = load i64, ptr %107, align 8
-  switch i64 %.sroa.270.0.copyload, label %_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.argprom.exit [
+  switch i64 %.sroa.270.0.copyload, label %_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.exit [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i
   ]
@@ -19992,7 +19992,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i15.i:        ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i12.i12.i:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15.i
   %bcmp.i.i13.i13.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.069.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.364, i64 4)
   %716 = icmp eq i32 %bcmp.i.i13.i13.i, 0
-  br i1 %716, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit17.sink.split.i14.i, label %_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.argprom.exit
+  br i1 %716, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit17.sink.split.i14.i, label %_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i:        ; preds = %712
   %bcmp.i.i.i31.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %.sroa.069.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.365, i64 6)
@@ -20002,7 +20002,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i:        ; preds = %712
 _ZN4llvmeqENS_9StringRefES0_.exit.i12.i27.i:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i
   %bcmp.i.i13.i28.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %.sroa.069.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.366, i64 6)
   %718 = icmp eq i32 %bcmp.i.i13.i28.i, 0
-  br i1 %718, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit17.sink.split.i14.i, label %_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.argprom.exit
+  br i1 %718, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit17.sink.split.i14.i, label %_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.exit
 
 _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit17.sink.split.i14.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i12.i27.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i12.i12.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i12.i.i
   %.sroa.18.2.i.ph = phi i32 [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i12.i.i ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i12.i12.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i12.i27.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i ]
@@ -20026,7 +20026,7 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit17.sink.split.i14.i: ; 
   %.sroa.2.0.copyload.i.i310 = load i64, ptr %.sroa.2.0..sroa_idx.i.i309, align 8
   store ptr %.sroa.0.0.copyload.i.i308, ptr %19, align 8
   store i64 %.sroa.2.0.copyload.i.i310, ptr %155, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser29ParseIntelInlineAsmIdentifierERPKN4llvm6MCExprERNS1_9StringRefERNS1_23InlineAsmIdentifierInfoEbRNS1_5SMLocEb.retelim(ptr noundef nonnull readonly align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(28) %17, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %18, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser29ParseIntelInlineAsmIdentifierERPKN4llvm6MCExprERNS1_9StringRefERNS1_23InlineAsmIdentifierInfoEbRNS1_5SMLocEb(ptr noundef nonnull readonly align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(28) %17, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %18, i1 noundef zeroext false)
   %727 = load i32, ptr %154, align 8
   %728 = icmp eq i32 %727, 3
   br i1 %728, label %732, label %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit.thread
@@ -20099,11 +20099,11 @@ _ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit: ; preds = %
   %749 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.val243, ptr %.sroa.066.0.copyload, ptr noundef nonnull align 8 dereferenceable(34) %59, ptr null, ptr null) #23
   br label %.thread
 
-_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.argprom.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i12.i27.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i12.i12.i, %712
+_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i12.i27.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i12.i12.i, %712
   %750 = icmp eq i32 %183, 46
   br i1 %750, label %751, label %760
 
-751:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.argprom.exit
+751:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.exit
   %752 = load ptr, ptr %79, align 8
   %753 = getelementptr inbounds i8, ptr %752, i64 192
   %754 = load ptr, ptr %753, align 8
@@ -20121,8 +20121,8 @@ _ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRef
   %759 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.val242, ptr %.sroa.065.0.copyload, ptr noundef nonnull align 8 dereferenceable(34) %60, ptr null, ptr null) #23
   br label %.thread
 
-760:                                              ; preds = %751, %_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.argprom.exit
-  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser29ParseIntelInlineAsmIdentifierERPKN4llvm6MCExprERNS1_9StringRefERNS1_23InlineAsmIdentifierInfoEbRNS1_5SMLocEb.retelim(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(28) %56, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext false)
+760:                                              ; preds = %751, %_ZN12_GLOBAL__N_112X86AsmParser30IdentifyIntelInlineAsmOperatorEN4llvm9StringRefE.exit
+  call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser29ParseIntelInlineAsmIdentifierERPKN4llvm6MCExprERNS1_9StringRefERNS1_23InlineAsmIdentifierInfoEbRNS1_5SMLocEb(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(28) %56, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext false)
   %761 = load ptr, ptr %58, align 8
   %.sroa.063.0.copyload = load ptr, ptr %40, align 8
   %.sroa.264.0.copyload = load i64, ptr %107, align 8
@@ -20945,7 +20945,7 @@ _ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onPlusERN4llvm9StringRefE
   %1086 = icmp eq i32 %1085, 24
   %1087 = icmp eq i32 %1081, 17
   %or.cond9.i = and i1 %1087, %1086
-  br i1 %or.cond9.i, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i388, label %.thread.i
+  br i1 %or.cond9.i, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i388, label %.thread.i
 
 .thread.i:                                        ; preds = %1084
   call fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15InfixCalculator12pushOperatorENS0_18InfixCalculatorTokE(ptr noundef nonnull align 8 dereferenceable(112) %93, i32 noundef 11)
@@ -20983,10 +20983,10 @@ _ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine6onPlusERN4llvm9StringRefE
 1100:                                             ; preds = %1097
   %.val.i393 = load i8, ptr %104, align 1
   %1101 = trunc i8 %.val.i393 to i1
-  br i1 %1101, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i388, label %1102
+  br i1 %1101, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i388, label %1102
 
 1102:                                             ; preds = %1100, %1097
-  br label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i388
+  br label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i388
 
 1103:                                             ; preds = %1095
   %1104 = load i32, ptr %97, align 8
@@ -20998,7 +20998,7 @@ _ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onMinusERN4llvm9StringRef
   store i32 %1081, ptr %92, align 4
   br label %_ZN4llvm8AsmTokenD2Ev.exit282
 
-_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i388: ; preds = %1084, %1100, %1102
+_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i388: ; preds = %1084, %1100, %1102
   %1105 = phi i64 [ 29, %1102 ], [ 53, %1100 ], [ 23, %1084 ]
   %1106 = phi ptr [ @.str.346, %1102 ], [ @.str.345, %1100 ], [ @.str.371, %1084 ]
   %1107 = load ptr, ptr %78, align 8
@@ -21261,7 +21261,7 @@ _ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onRShiftEv.exit: ; preds 
   %1169 = add i16 %1168, -1
   store i16 %1169, ptr %94, align 8
   %.not.i412 = icmp eq i16 %1168, 1
-  br i1 %.not.i412, label %1170, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i418
+  br i1 %.not.i412, label %1170, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i418
 
 1170:                                             ; preds = %1167
   store i32 21, ptr %1, align 8
@@ -21295,10 +21295,10 @@ _ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine8onRShiftEv.exit: ; preds 
 1182:                                             ; preds = %1179
   %.val.i422 = load i8, ptr %104, align 1
   %1183 = trunc i8 %.val.i422 to i1
-  br i1 %1183, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i418, label %1184
+  br i1 %1183, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i418, label %1184
 
 1184:                                             ; preds = %1182, %1179
-  br label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i418
+  br label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i418
 
 1185:                                             ; preds = %1177
   %1186 = load i32, ptr %97, align 8
@@ -21310,7 +21310,7 @@ _ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine7onRBracERN4llvm9StringRef
   store i32 %1165, ptr %92, align 4
   br label %_ZN4llvm8AsmTokenD2Ev.exit282
 
-_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i418: ; preds = %1167, %1182, %1184
+_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i418: ; preds = %1167, %1182, %1184
   %1187 = phi i64 [ 29, %1184 ], [ 53, %1182 ], [ 30, %1167 ]
   %1188 = phi ptr [ @.str.346, %1184 ], [ @.str.345, %1182 ], [ @.str.342, %1167 ]
   %1189 = call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %175) #23
@@ -21436,8 +21436,8 @@ switch.hole_check1068:                            ; preds = %233
   %switch.lobit1072 = trunc i16 %switch.shifted1071 to i1
   br i1 %switch.lobit1072, label %.thread, label %235
 
-.thread:                                          ; preds = %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit, %708, %683, %245, %221, %207, %_ZN4llvm8AsmTokenD2Ev.exit283, %switch.hole_check1068, %switch.hole_check1061, %switch.hole_check, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit.thread593, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit.thread, %634, %_ZN4llvm8AsmTokenD2Ev.exit282.thread, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i418, %1156, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i388, %1072, %1044, %1034, %1018, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread, %941, %933, %919, %907, %850, %763, %756, %742, %487, %475, %451, %438, %411, %270, %263, %235, %216, %191, %186
-  %.2 = phi i1 [ %1205, %_ZN4llvm8AsmTokenD2Ev.exit282.thread ], [ %190, %186 ], [ %1193, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i418 ], [ %1160, %1156 ], [ %1113, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit.i388 ], [ %1079, %1072 ], [ %1006, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread ], [ %1025, %1018 ], [ %1041, %1034 ], [ %1051, %1044 ], [ %749, %742 ], [ %759, %756 ], [ %770, %763 ], [ %857, %850 ], [ %937, %933 ], [ %948, %941 ], [ %913, %907 ], [ %926, %919 ], [ %445, %438 ], [ %454, %451 ], [ %482, %475 ], [ %494, %487 ], [ %418, %411 ], [ %277, %270 ], [ %266, %263 ], [ %239, %235 ], [ %220, %216 ], [ %206, %191 ], [ true, %634 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit.thread ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit.thread593 ], [ false, %switch.hole_check ], [ false, %switch.hole_check1061 ], [ false, %switch.hole_check1068 ], [ %.4, %_ZN4llvm8AsmTokenD2Ev.exit283 ], [ true, %207 ], [ true, %221 ], [ true, %245 ], [ true, %683 ], [ true, %708 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit ]
+.thread:                                          ; preds = %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit, %708, %683, %245, %221, %207, %_ZN4llvm8AsmTokenD2Ev.exit283, %switch.hole_check1068, %switch.hole_check1061, %switch.hole_check, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit.thread593, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit.thread, %634, %_ZN4llvm8AsmTokenD2Ev.exit282.thread, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i418, %1156, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i388, %1072, %1044, %1034, %1018, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread, %941, %933, %919, %907, %850, %763, %756, %742, %487, %475, %451, %438, %411, %270, %263, %235, %216, %191, %186
+  %.2 = phi i1 [ %1205, %_ZN4llvm8AsmTokenD2Ev.exit282.thread ], [ %190, %186 ], [ %1193, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i418 ], [ %1160, %1156 ], [ %1113, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit.i388 ], [ %1079, %1072 ], [ %1006, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread ], [ %1025, %1018 ], [ %1041, %1034 ], [ %1051, %1044 ], [ %749, %742 ], [ %759, %756 ], [ %770, %763 ], [ %857, %850 ], [ %937, %933 ], [ %948, %941 ], [ %913, %907 ], [ %926, %919 ], [ %445, %438 ], [ %454, %451 ], [ %482, %475 ], [ %494, %487 ], [ %418, %411 ], [ %277, %270 ], [ %266, %263 ], [ %239, %235 ], [ %220, %216 ], [ %206, %191 ], [ true, %634 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit.thread ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit.thread593 ], [ false, %switch.hole_check ], [ false, %switch.hole_check1061 ], [ false, %switch.hole_check1068 ], [ %.4, %_ZN4llvm8AsmTokenD2Ev.exit283 ], [ true, %207 ], [ true, %221 ], [ true, %245 ], [ true, %683 ], [ true, %708 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser27ParseIntelInlineAsmOperatorEj.exit ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser17ParseMasmOperatorEjRl.exit ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser23ParseIntelNamedOperatorEN4llvm9StringRefERNS0_21IntelExprStateMachineERbRNS1_5SMLocE.exit ]
   ret i1 %.2
 
 1214:                                             ; preds = %_ZN4llvm8AsmTokenD2Ev.exit283
@@ -22838,12 +22838,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser21Inte
   %18 = getelementptr inbounds i8, ptr %0, i64 205
   %.val = load i8, ptr %18, align 1
   %19 = trunc i8 %.val to i1
-  br i1 %19, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit, label %20
+  br i1 %19, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit, label %20
 
 20:                                               ; preds = %17, %14
-  br label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit
+  br label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit
 
-_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit: ; preds = %17, %20
+_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit: ; preds = %17, %20
   %.str.346.sink.i = phi ptr [ @.str.346, %20 ], [ @.str.345, %17 ]
   %.sink.i = phi i64 [ 29, %20 ], [ 53, %17 ]
   store ptr %.str.346.sink.i, ptr %2, align 8
@@ -22908,8 +22908,8 @@ _ZN12_GLOBAL__N_112X86AsmParser15InfixCalculator11pushOperandENS0_18InfixCalcula
   store i32 %4, ptr %42, align 4
   br label %43
 
-43:                                               ; preds = %_ZL10checkScalejRN4llvm9StringRefE.exit, %41, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit
-  %.0 = phi i1 [ false, %41 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit ], [ true, %_ZL10checkScalejRN4llvm9StringRefE.exit ]
+43:                                               ; preds = %_ZL10checkScalejRN4llvm9StringRefE.exit, %41, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit
+  %.0 = phi i1 [ false, %41 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit ], [ true, %_ZL10checkScalejRN4llvm9StringRefE.exit ]
   ret i1 %.0
 }
 
@@ -22977,12 +22977,12 @@ _ZN12_GLOBAL__N_112X86AsmParser15InfixCalculator11pushOperandENS0_18InfixCalcula
   %29 = getelementptr inbounds i8, ptr %0, i64 205
   %.val = load i8, ptr %29, align 1
   %30 = trunc i8 %.val to i1
-  br i1 %30, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit, label %31
+  br i1 %30, label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit, label %31
 
 31:                                               ; preds = %28, %25
-  br label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit
+  br label %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit
 
-_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit: ; preds = %28, %31
+_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit: ; preds = %28, %31
   %.str.346.sink.i = phi ptr [ @.str.346, %31 ], [ @.str.345, %28 ]
   %.sink.i = phi i64 [ 29, %31 ], [ 53, %28 ]
   store ptr %.str.346.sink.i, ptr %2, align 8
@@ -23038,13 +23038,13 @@ _ZL10checkScalejRN4llvm9StringRefE.exit:          ; preds = %32
   store i32 %4, ptr %47, align 4
   br label %48
 
-48:                                               ; preds = %_ZL10checkScalejRN4llvm9StringRefE.exit, %46, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit
-  %.0 = phi i1 [ false, %46 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.argprom.exit ], [ true, %_ZL10checkScalejRN4llvm9StringRefE.exit ]
+48:                                               ; preds = %_ZL10checkScalejRN4llvm9StringRefE.exit, %46, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit
+  %.0 = phi i1 [ false, %46 ], [ true, %_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9StringRefE.exit ], [ true, %_ZL10checkScalejRN4llvm9StringRefE.exit ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112X86AsmParser29ParseIntelInlineAsmIdentifierERPKN4llvm6MCExprERNS1_9StringRefERNS1_23InlineAsmIdentifierInfoEbRNS1_5SMLocEb.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(28) %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112X86AsmParser29ParseIntelInlineAsmIdentifierERPKN4llvm6MCExprERNS1_9StringRefERNS1_23InlineAsmIdentifierInfoEbRNS1_5SMLocEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(28) %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::AsmToken", align 8
   %9 = alloca %"class.llvm::StringRef", align 8
   %10 = alloca %"class.llvm::SMLoc", align 8
@@ -24158,7 +24158,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112X86AsmParser18parseDirectiveEvenEN4llvm5SMLocE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(330) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112X86AsmParser18parseDirectiveEvenEN4llvm5SMLocE(ptr noundef nonnull align 8 dereferenceable(330) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %3) #23
@@ -25192,7 +25192,7 @@ thread-pre-split.thread:                          ; preds = %72, %61, %thread-pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15emitInstructionERN4llvm6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerE.argprom(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(288) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15emitInstructionERN4llvm6MCInstERNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(288) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -25220,7 +25220,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112X86AsmParser15emitInstructionERN
   %.val7 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12)
-  switch i32 %.val, label %_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.argprom.exit [
+  switch i32 %.val, label %_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.exit [
     i32 3643, label %22
     i32 3644, label %22
     i32 3645, label %22
@@ -25375,11 +25375,11 @@ _ZN4llvm6MCInstD2Ev.exit.i:                       ; preds = %99, %_ZNSt10unique_
   %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #23
   %101 = load ptr, ptr %23, align 8
   %102 = icmp eq ptr %101, %24
-  br i1 %102, label %_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.argprom.exit, label %103
+  br i1 %102, label %_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.exit, label %103
 
 103:                                              ; preds = %_ZN4llvm6MCInstD2Ev.exit.i
   call void @free(ptr noundef %101) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.argprom.exit
+  br label %_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.exit
 
 104:                                              ; preds = %20, %20, %20, %20, %20, %20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
@@ -25407,14 +25407,14 @@ _ZN4llvm6MCInstD2Ev.exit.i:                       ; preds = %99, %_ZNSt10unique_
   call void %118(ptr noundef nonnull align 8 dereferenceable(34) %115, ptr null, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr null, ptr null) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  br label %_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.argprom.exit
+  br label %_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.exit
 
-_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.argprom.exit: ; preds = %20, %_ZN4llvm6MCInstD2Ev.exit.i, %103, %104
+_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.exit: ; preds = %20, %_ZN4llvm6MCInstD2Ev.exit.i, %103, %104
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12)
   br label %119
 
-119:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.argprom.exit, %15, %3
+119:                                              ; preds = %_ZN12_GLOBAL__N_112X86AsmParser21applyLVICFIMitigationERN4llvm6MCInstERNS1_10MCStreamerE.exit, %15, %3
   %120 = call noundef nonnull align 8 dereferenceable(288) ptr @_ZNK4llvm17MCTargetAsmParser6getSTIEv(ptr noundef nonnull align 8 dereferenceable(304) %0) #23
   %121 = load ptr, ptr %2, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 1208
@@ -26462,7 +26462,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit193:               ; preds = %.critedge14, %367
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser18processInstructionERN4llvm6MCInstERKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.argprom(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser18processInstructionERN4llvm6MCInstERKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.311, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 85
   %5 = load i8, ptr %4, align 1
@@ -26487,13 +26487,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser18proc
   %.112.i.i.i.i = select i1 %12, i64 %15, i64 %9
   %.1.i.i.i.i = select i1 %12, ptr %13, ptr %.04.i.i.i.i
   %16 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %16, label %.lr.ph.i.i.i.i, label %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.argprom.exit.i, !llvm.loop !370
+  br i1 %16, label %.lr.ph.i.i.i.i, label %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i, !llvm.loop !370
 
-_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.argprom.exit.i: ; preds = %.lr.ph.i.i.i.i
+_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i: ; preds = %.lr.ph.i.i.i.i
   %17 = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_115X86SSE2AVXTableE, i64 2464)
   br i1 %17, label %_ZL15convertSSEToAVXRN4llvm6MCInstE.exit, label %18
 
-18:                                               ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.argprom.exit.i
+18:                                               ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i
   %19 = load i16, ptr %.1.i.i.i.i, align 2
   %20 = zext i16 %19 to i32
   %.not.i = icmp eq i32 %8, %20
@@ -26545,7 +26545,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %37, %30
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %31, i64 noundef %43) #23
   br label %_ZL15convertSSEToAVXRN4llvm6MCInstE.exit.thread
 
-_ZL15convertSSEToAVXRN4llvm6MCInstE.exit:         ; preds = %18, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.argprom.exit.i, %2
+_ZL15convertSSEToAVXRN4llvm6MCInstE.exit:         ; preds = %18, %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT0_.exit.i, %2
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %45 = load i32, ptr %44, align 8
   %.not = icmp eq i32 %45, 5
@@ -26983,20 +26983,20 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %56, %55, %53, %_ZN4
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 115
   %74 = load i8, ptr %73, align 1
   %75 = trunc i8 %74 to i1
-  br i1 %75, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit, label %76
+  br i1 %75, label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit, label %76
 
 76:                                               ; preds = %68
   %77 = load ptr, ptr %.val, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 224
   %79 = load ptr, ptr %78, align 8
   call void %79(ptr noundef nonnull align 8 dereferenceable(34) %.val) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit
 
 80:                                               ; preds = %60
   %81 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.val, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, ptr null) #23
-  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit
+  br label %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit
 
-_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit: ; preds = %68, %76, %80
+_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit: ; preds = %68, %76, %80
   %.0.i13 = phi i1 [ %81, %80 ], [ false, %76 ], [ false, %68 ]
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #23
   %82 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
@@ -27004,11 +27004,11 @@ _ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.a
   %84 = icmp eq ptr %83, %8
   br i1 %84, label %_ZN4llvm11SmallStringILj126EED2Ev.exit, label %85
 
-85:                                               ; preds = %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit
+85:                                               ; preds = %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit
   call void @free(ptr noundef %83) #23
   br label %_ZN4llvm11SmallStringILj126EED2Ev.exit
 
-_ZN4llvm11SmallStringILj126EED2Ev.exit:           ; preds = %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.argprom.exit, %85
+_ZN4llvm11SmallStringILj126EED2Ev.exit:           ; preds = %_ZN12_GLOBAL__N_112X86AsmParser5ErrorEN4llvm5SMLocERKNS1_5TwineENS1_7SMRangeEb.exit, %85
   ret i1 %.0.i13
 }
 
@@ -27067,7 +27067,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %10 = alloca %"class.llvm::FeatureBitset", align 8
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #23
   %12 = icmp ugt i64 %11, 10
-  br i1 %12, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread.sink.split, label %13
+  br i1 %12, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread.sink.split, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -27083,7 +27083,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   br i1 %trunc.i, label %510, label %22
 
 22:                                               ; preds = %13
-  switch i32 %20, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i32 %20, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i32 3, label %23
     i32 4, label %56
     i32 5, label %169
@@ -27106,7 +27106,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %18, i64 1
   %27 = load i8, ptr %26, align 1
-  switch i8 %27, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread [
+  switch i8 %27, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread [
     i8 98, label %28
     i8 100, label %31
     i8 113, label %34
@@ -27117,71 +27117,71 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %29 = getelementptr inbounds i8, ptr %18, i64 2
   %30 = load i8, ptr %29, align 1
   %.not759.i = icmp eq i8 %30, 119
-  br i1 %.not759.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not759.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %18, i64 2
   %33 = load i8, ptr %32, align 1
   %.not758.i = icmp eq i8 %33, 113
-  br i1 %.not758.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not758.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds i8, ptr %18, i64 2
   %36 = load i8, ptr %35, align 1
   %.not757.i = icmp eq i8 %36, 111
-  br i1 %.not757.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not757.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 37:                                               ; preds = %25
   %38 = getelementptr inbounds i8, ptr %18, i64 2
   %39 = load i8, ptr %38, align 1
   %.not756.i = icmp eq i8 %39, 100
-  br i1 %.not756.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not756.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 40:                                               ; preds = %23
   %41 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp754.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %41, ptr noundef nonnull dereferenceable(2) @.str.497, i64 2)
   %.not755.i = icmp eq i32 %bcmp754.i, 0
-  br i1 %.not755.i, label %42, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not755.i, label %42, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 42:                                               ; preds = %40
   %43 = and i64 %.val, 1
   %.not674.i = icmp eq i64 %43, 0
-  br i1 %.not674.i, label %44, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not674.i, label %44, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 44:                                               ; preds = %42
   %45 = and i64 %.val, 2
   %.not678.i = icmp eq i64 %45, 0
-  br i1 %.not678.i, label %46, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not678.i, label %46, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 46:                                               ; preds = %44
   %47 = and i64 %.val, 4
   %.not680.i = icmp eq i64 %47, 0
   %spec.select = select i1 %.not680.i, i64 3, i64 4
   %spec.select404 = select i1 %.not680.i, ptr %18, ptr @.str.500
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 48:                                               ; preds = %23
   %49 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp752.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %49, ptr noundef nonnull dereferenceable(2) @.str.501, i64 2)
   %.not753.i = icmp eq i32 %bcmp752.i, 0
-  br i1 %.not753.i, label %50, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not753.i, label %50, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 50:                                               ; preds = %48
   %51 = and i64 %.val, 1
   %.not664.i = icmp eq i64 %51, 0
-  br i1 %.not664.i, label %52, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not664.i, label %52, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 52:                                               ; preds = %50
   %53 = and i64 %.val, 2
   %.not666.i = icmp eq i64 %53, 0
-  br i1 %.not666.i, label %54, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not666.i, label %54, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 54:                                               ; preds = %52
   %55 = and i64 %.val, 4
   %.not672.i = icmp eq i64 %55, 0
   %spec.select405 = select i1 %.not672.i, i64 3, i64 4
   %spec.select406 = select i1 %.not672.i, ptr %18, ptr @.str.504
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 56:                                               ; preds = %22
   %57 = load i8, ptr %18, align 1
@@ -27198,7 +27198,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 58:                                               ; preds = %56
   %59 = getelementptr inbounds i8, ptr %18, i64 1
   %60 = load i8, ptr %59, align 1
-  switch i8 %60, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389 [
+  switch i8 %60, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389 [
     i8 97, label %61
     i8 100, label %69
     i8 119, label %71
@@ -27208,59 +27208,59 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %62 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp750.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %62, ptr noundef nonnull dereferenceable(2) @.str.505, i64 2)
   %.not751.i = icmp eq i32 %bcmp750.i, 0
-  br i1 %.not751.i, label %63, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not751.i, label %63, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 63:                                               ; preds = %61
   %64 = and i64 %.val, 1
   %.not658.i = icmp eq i64 %64, 0
-  br i1 %.not658.i, label %65, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not658.i, label %65, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 65:                                               ; preds = %63
   %66 = and i64 %.val, 2
   %.not660.i = icmp eq i64 %66, 0
-  br i1 %.not660.i, label %67, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not660.i, label %67, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 67:                                               ; preds = %65
   %68 = and i64 %.val, 4
   %.not662.i = icmp eq i64 %68, 0
   %spec.select407 = select i1 %.not662.i, i64 4, i64 5
   %spec.select408 = select i1 %.not662.i, ptr %18, ptr @.str.506
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 69:                                               ; preds = %58
   %70 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp748.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %70, ptr noundef nonnull dereferenceable(2) @.str.507, i64 2)
   %.not749.i = icmp eq i32 %bcmp748.i, 0
-  br i1 %.not749.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not749.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 71:                                               ; preds = %58
   %72 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp746.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %72, ptr noundef nonnull dereferenceable(2) @.str.509, i64 2)
   %.not747.i = icmp eq i32 %bcmp746.i, 0
-  br i1 %.not747.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not747.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 73:                                               ; preds = %56
   %74 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp744.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %74, ptr noundef nonnull dereferenceable(3) @.str.511, i64 3)
   %.not745.i = icmp eq i32 %bcmp744.i, 0
-  br i1 %.not745.i, label %75, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389
+  br i1 %.not745.i, label %75, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389
 
 75:                                               ; preds = %73
   %76 = and i64 %.val, 1
   %.not650.i = icmp eq i64 %76, 0
-  br i1 %.not650.i, label %77, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not650.i, label %77, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 77:                                               ; preds = %75
   %78 = and i64 %.val, 8
   %.not656.i = icmp eq i64 %78, 0
   %spec.select409 = select i1 %.not656.i, i64 4, i64 5
   %spec.select410 = select i1 %.not656.i, ptr %18, ptr @.str.513
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 79:                                               ; preds = %56
   %80 = getelementptr inbounds i8, ptr %18, i64 1
   %81 = load i8, ptr %80, align 1
-  switch i8 %81, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389 [
+  switch i8 %81, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389 [
     i8 103, label %82
     i8 105, label %90
     i8 114, label %98
@@ -27270,70 +27270,70 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %83 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp742.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %83, ptr noundef nonnull dereferenceable(2) @.str.514, i64 2)
   %.not743.i = icmp eq i32 %bcmp742.i, 0
-  br i1 %.not743.i, label %84, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not743.i, label %84, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 84:                                               ; preds = %82
   %85 = and i64 %.val, 1
   %.not644.i = icmp eq i64 %85, 0
-  br i1 %.not644.i, label %86, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not644.i, label %86, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 86:                                               ; preds = %84
   %87 = and i64 %.val, 2
   %.not646.i = icmp eq i64 %87, 0
-  br i1 %.not646.i, label %88, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not646.i, label %88, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 88:                                               ; preds = %86
   %89 = and i64 %.val, 4
   %.not648.i = icmp eq i64 %89, 0
   %spec.select411 = select i1 %.not648.i, i64 4, i64 5
   %spec.select412 = select i1 %.not648.i, ptr %18, ptr @.str.517
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 90:                                               ; preds = %79
   %91 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp740.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %91, ptr noundef nonnull dereferenceable(2) @.str.514, i64 2)
   %.not741.i = icmp eq i32 %bcmp740.i, 0
-  br i1 %.not741.i, label %92, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not741.i, label %92, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 92:                                               ; preds = %90
   %93 = and i64 %.val, 1
   %.not638.i = icmp eq i64 %93, 0
-  br i1 %.not638.i, label %94, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not638.i, label %94, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 94:                                               ; preds = %92
   %95 = and i64 %.val, 2
   %.not640.i = icmp eq i64 %95, 0
-  br i1 %.not640.i, label %96, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not640.i, label %96, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 96:                                               ; preds = %94
   %97 = and i64 %.val, 4
   %.not642.i = icmp eq i64 %97, 0
   %spec.select413 = select i1 %.not642.i, i64 4, i64 5
   %spec.select414 = select i1 %.not642.i, ptr %18, ptr @.str.520
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 98:                                               ; preds = %79
   %99 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp738.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %99, ptr noundef nonnull dereferenceable(2) @.str.501, i64 2)
   %.not739.i = icmp eq i32 %bcmp738.i, 0
-  br i1 %.not739.i, label %100, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not739.i, label %100, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 100:                                              ; preds = %98
   %101 = and i64 %.val, 1
   %.not634.i = icmp eq i64 %101, 0
-  br i1 %.not634.i, label %102, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not634.i, label %102, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 102:                                              ; preds = %100
   %103 = and i64 %.val, 8
   %.not636.i = icmp eq i64 %103, 0
   %spec.select415 = select i1 %.not636.i, i64 4, i64 5
   %spec.select416 = select i1 %.not636.i, ptr %18, ptr @.str.522
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 104:                                              ; preds = %56
   %105 = getelementptr inbounds i8, ptr %18, i64 1
   %106 = load i8, ptr %105, align 1
-  switch i8 %106, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389 [
+  switch i8 %106, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389 [
     i8 111, label %107
     i8 117, label %123
   ]
@@ -27342,12 +27342,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %108 = getelementptr inbounds i8, ptr %18, i64 2
   %109 = load i8, ptr %108, align 1
   %.not737.i = icmp eq i8 %109, 112
-  br i1 %.not737.i, label %110, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not737.i, label %110, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds i8, ptr %18, i64 3
   %112 = load i8, ptr %111, align 1
-  switch i8 %112, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %112, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %113
     i8 102, label %117
   ]
@@ -27355,54 +27355,54 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 113:                                              ; preds = %110
   %114 = and i64 %.val, 1
   %.not627.i = icmp eq i64 %114, 0
-  br i1 %.not627.i, label %115, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not627.i, label %115, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 115:                                              ; preds = %113
   %116 = and i64 %.val, 2
   %.not629.i = icmp eq i64 %116, 0
   %spec.select417 = select i1 %.not629.i, i64 4, i64 5
   %spec.select418 = select i1 %.not629.i, ptr %18, ptr @.str.524
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 117:                                              ; preds = %110
   %118 = and i64 %.val, 1
   %.not619.i = icmp eq i64 %118, 0
-  br i1 %.not619.i, label %119, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not619.i, label %119, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 119:                                              ; preds = %117
   %120 = and i64 %.val, 2
   %.not621.i = icmp eq i64 %120, 0
-  br i1 %.not621.i, label %121, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not621.i, label %121, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 121:                                              ; preds = %119
   %122 = and i64 %.val, 4
   %.not623.i = icmp eq i64 %122, 0
   %spec.select419 = select i1 %.not623.i, i64 4, i64 5
   %spec.select420 = select i1 %.not623.i, ptr %18, ptr @.str.527
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 123:                                              ; preds = %104
   %124 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp735.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %124, ptr noundef nonnull dereferenceable(2) @.str.55, i64 2)
   %.not736.i = icmp eq i32 %bcmp735.i, 0
-  br i1 %.not736.i, label %125, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not736.i, label %125, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 125:                                              ; preds = %123
   %126 = and i64 %.val, 1
   %.not609.i = icmp eq i64 %126, 0
-  br i1 %.not609.i, label %127, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not609.i, label %127, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 127:                                              ; preds = %125
   %128 = and i64 %.val, 2
   %.not611.i = icmp eq i64 %128, 0
-  br i1 %.not611.i, label %129, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not611.i, label %129, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 129:                                              ; preds = %127
   %130 = and i64 %.val, 4
   %.not613.i = icmp eq i64 %130, 0
   %spec.select421 = select i1 %.not613.i, i64 4, i64 5
   %spec.select422 = select i1 %.not613.i, ptr %18, ptr @.str.530
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 131:                                              ; preds = %56
   %132 = getelementptr inbounds i8, ptr %18, i64 1
@@ -27413,18 +27413,18 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 133:                                              ; preds = %131
   %134 = and i64 %.val, 1
   %.not602.i = icmp eq i64 %134, 0
-  br i1 %.not602.i, label %135, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not602.i, label %135, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 135:                                              ; preds = %133
   %136 = and i64 %.val, 2
   %.not603.i = icmp eq i64 %136, 0
-  br i1 %.not603.i, label %137, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not603.i, label %137, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 137:                                              ; preds = %135
   %138 = and i64 %.val, 4
   %.not604.i = icmp eq i64 %138, 0
   %spec.select423 = select i1 %.not604.i, ptr %18, ptr @.str.504
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 139:                                              ; preds = %56
   %140 = getelementptr inbounds i8, ptr %18, i64 1
@@ -27445,20 +27445,20 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %146 = getelementptr inbounds i8, ptr %18, i64 3
   %147 = load i8, ptr %146, align 1
   switch i8 %147, label %.thread682.i.thread330 [
-    i8 98, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 98, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 108, label %148
     i8 113, label %149
     i8 119, label %150
   ]
 
 148:                                              ; preds = %145
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 149:                                              ; preds = %145
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 150:                                              ; preds = %145
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 151:                                              ; preds = %139
   %152 = getelementptr inbounds i8, ptr %18, i64 2
@@ -27469,19 +27469,19 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 153:                                              ; preds = %151
   %154 = and i64 %.val, 1
   %.not599.i = icmp eq i64 %154, 0
-  br i1 %.not599.i, label %155, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not599.i, label %155, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 155:                                              ; preds = %153
   %156 = and i64 %.val, 2
   %.not600.i = icmp eq i64 %156, 0
-  br i1 %.not600.i, label %157, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not600.i, label %157, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 157:                                              ; preds = %155
   %158 = and i64 %.val, 4
   %.not601.i = icmp eq i64 %158, 0
   %spec.select424 = select i1 %.not601.i, i64 4, i64 5
   %spec.select425 = select i1 %.not601.i, ptr %18, ptr @.str.538
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 159:                                              ; preds = %139
   %160 = getelementptr inbounds i8, ptr %18, i64 2
@@ -27492,25 +27492,25 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 161:                                              ; preds = %159
   %162 = and i64 %.val, 1
   %.not596.i = icmp eq i64 %162, 0
-  br i1 %.not596.i, label %163, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not596.i, label %163, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 163:                                              ; preds = %161
   %164 = and i64 %.val, 2
   %.not597.i = icmp eq i64 %164, 0
-  br i1 %.not597.i, label %165, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not597.i, label %165, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 165:                                              ; preds = %163
   %166 = and i64 %.val, 4
   %.not598.i = icmp eq i64 %166, 0
   %spec.select426 = select i1 %.not598.i, i64 4, i64 5
   %spec.select427 = select i1 %.not598.i, ptr %18, ptr @.str.541
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 167:                                              ; preds = %56
   %168 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp726.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %168, ptr noundef nonnull dereferenceable(3) @.str.542, i64 3)
   %.not727.i = icmp eq i32 %bcmp726.i, 0
-  br i1 %.not727.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389
+  br i1 %.not727.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389
 
 169:                                              ; preds = %22
   %170 = load i8, ptr %18, align 1
@@ -27526,12 +27526,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %172 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp724.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %172, ptr noundef nonnull dereferenceable(4) @.str.544, i64 4)
   %.not725.i = icmp eq i32 %bcmp724.i, 0
-  br i1 %.not725.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread688.i.thread338
+  br i1 %.not725.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread688.i.thread338
 
 173:                                              ; preds = %169
   %174 = getelementptr inbounds i8, ptr %18, i64 1
   %175 = load i8, ptr %174, align 1
-  switch i8 %175, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389 [
+  switch i8 %175, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389 [
     i8 111, label %176
     i8 117, label %178
   ]
@@ -27540,18 +27540,18 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %177 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp722.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %177, ptr noundef nonnull dereferenceable(3) @.str.546, i64 3)
   %.not723.i = icmp eq i32 %bcmp722.i, 0
-  br i1 %.not723.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not723.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 178:                                              ; preds = %173
   %179 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp720.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %179, ptr noundef nonnull dereferenceable(2) @.str.55, i64 2)
   %.not721.i = icmp eq i32 %bcmp720.i, 0
-  br i1 %.not721.i, label %180, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not721.i, label %180, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 180:                                              ; preds = %178
   %181 = getelementptr inbounds i8, ptr %18, i64 4
   %182 = load i8, ptr %181, align 1
-  switch i8 %182, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %182, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %183
     i8 102, label %187
   ]
@@ -27559,31 +27559,31 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 183:                                              ; preds = %180
   %184 = and i64 %.val, 1
   %.not594.i = icmp eq i64 %184, 0
-  br i1 %.not594.i, label %185, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not594.i, label %185, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 185:                                              ; preds = %183
   %186 = and i64 %.val, 2
   %.not595.i = icmp eq i64 %186, 0
   %spec.select428 = select i1 %.not595.i, i64 5, i64 6
   %spec.select429 = select i1 %.not595.i, ptr %18, ptr @.str.548
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 187:                                              ; preds = %180
   %188 = and i64 %.val, 1
   %.not591.i = icmp eq i64 %188, 0
-  br i1 %.not591.i, label %189, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not591.i, label %189, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 189:                                              ; preds = %187
   %190 = and i64 %.val, 2
   %.not592.i = icmp eq i64 %190, 0
-  br i1 %.not592.i, label %191, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br i1 %.not592.i, label %191, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 191:                                              ; preds = %189
   %192 = and i64 %.val, 4
   %.not593.i = icmp eq i64 %192, 0
   %spec.select430 = select i1 %.not593.i, i64 5, i64 6
   %spec.select431 = select i1 %.not593.i, ptr %18, ptr @.str.551
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 193:                                              ; preds = %169
   %194 = getelementptr inbounds i8, ptr %18, i64 1
@@ -27595,47 +27595,47 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %196 = getelementptr inbounds i8, ptr %18, i64 4
   %197 = load i8, ptr %196, align 1
   switch i8 %197, label %.thread688.i.thread339 [
-    i8 98, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 98, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 108, label %198
     i8 113, label %199
     i8 119, label %200
   ]
 
 198:                                              ; preds = %195
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 199:                                              ; preds = %195
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 200:                                              ; preds = %195
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 201:                                              ; preds = %169
   %202 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp716.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %202, ptr noundef nonnull dereferenceable(3) @.str.552, i64 3)
   %.not717.i = icmp eq i32 %bcmp716.i, 0
-  br i1 %.not717.i, label %203, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389
+  br i1 %.not717.i, label %203, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389
 
 203:                                              ; preds = %201
   %204 = getelementptr inbounds i8, ptr %18, i64 4
   %205 = load i8, ptr %204, align 1
-  switch i8 %205, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  switch i8 %205, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %206
     i8 119, label %207
   ]
 
 206:                                              ; preds = %203
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 207:                                              ; preds = %203
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 208:                                              ; preds = %169
   %209 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp714.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %209, ptr noundef nonnull dereferenceable(4) @.str.556, i64 4)
   %.not715.i = icmp eq i32 %bcmp714.i, 0
-  br i1 %.not715.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389
+  br i1 %.not715.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389
 
 210:                                              ; preds = %22
   %211 = load i8, ptr %18, align 1
@@ -27652,12 +27652,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %213 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp712.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %213, ptr noundef nonnull dereferenceable(3) @.str.180, i64 3)
   %.not713.i = icmp eq i32 %bcmp712.i, 0
-  br i1 %.not713.i, label %214, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389
+  br i1 %.not713.i, label %214, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389
 
 214:                                              ; preds = %212
   %215 = getelementptr inbounds i8, ptr %18, i64 4
   %216 = load i8, ptr %215, align 1
-  switch i8 %216, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %216, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 99, label %217
     i8 122, label %222
   ]
@@ -27665,32 +27665,32 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 217:                                              ; preds = %214
   %218 = getelementptr inbounds i8, ptr %18, i64 5
   %219 = load i8, ptr %218, align 1
-  switch i8 %219, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  switch i8 %219, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %220
     i8 119, label %221
   ]
 
 220:                                              ; preds = %217
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 221:                                              ; preds = %217
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 222:                                              ; preds = %214
   %223 = getelementptr inbounds i8, ptr %18, i64 5
   %224 = load i8, ptr %223, align 1
-  switch i8 %224, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  switch i8 %224, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %225
     i8 119, label %226
   ]
 
 225:                                              ; preds = %222
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 226:                                              ; preds = %222
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 227:                                              ; preds = %210
   %228 = getelementptr inbounds i8, ptr %18, i64 1
@@ -27711,24 +27711,24 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %233 = getelementptr inbounds i8, ptr %18, i64 5
   %234 = load i8, ptr %233, align 1
   switch i8 %234, label %.thread684.i.thread332 [
-    i8 97, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 97, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 122, label %235
   ]
 
 235:                                              ; preds = %232
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 236:                                              ; preds = %227
   %237 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp708.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %237, ptr noundef nonnull dereferenceable(4) @.str.566, i64 4)
   %.not709.i = icmp eq i32 %bcmp708.i, 0
-  br i1 %.not709.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread684.i.thread332
+  br i1 %.not709.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread684.i.thread332
 
 238:                                              ; preds = %227
   %239 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp706.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %239, ptr noundef nonnull dereferenceable(4) @.str.568, i64 4)
   %.not707.i = icmp eq i32 %bcmp706.i, 0
-  br i1 %.not707.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread684.i.thread332
+  br i1 %.not707.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread684.i.thread332
 
 240:                                              ; preds = %210
   %241 = getelementptr inbounds i8, ptr %18, i64 1
@@ -27749,32 +27749,32 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not590.i = icmp eq i64 %246, 0
   %spec.select432 = select i1 %.not590.i, i64 6, i64 5
   %spec.select433 = select i1 %.not590.i, ptr %18, ptr @.str.571
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 247:                                              ; preds = %242
   %248 = and i64 %.val, 4
   %.not589.i = icmp eq i64 %248, 0
   %spec.select434 = select i1 %.not589.i, i64 6, i64 5
   %spec.select435 = select i1 %.not589.i, ptr %18, ptr @.str.571
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 249:                                              ; preds = %210
   %250 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp702.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %250, ptr noundef nonnull dereferenceable(5) @.str.572, i64 5)
   %.not703.i = icmp eq i32 %bcmp702.i, 0
-  br i1 %.not703.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389
+  br i1 %.not703.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389
 
 251:                                              ; preds = %210
   %252 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp700.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %252, ptr noundef nonnull dereferenceable(5) @.str.573, i64 5)
   %.not701.i = icmp eq i32 %bcmp700.i, 0
-  br i1 %.not701.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread684.i.thread334
+  br i1 %.not701.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread684.i.thread334
 
 253:                                              ; preds = %210
   %254 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp698.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %254, ptr noundef nonnull dereferenceable(5) @.str.575, i64 5)
   %.not699.i = icmp eq i32 %bcmp698.i, 0
-  br i1 %.not699.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389
+  br i1 %.not699.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389
 
 255:                                              ; preds = %22
   %256 = load i8, ptr %18, align 1
@@ -27789,12 +27789,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %258 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp696.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %258, ptr noundef nonnull dereferenceable(3) @.str.180, i64 3)
   %.not697.i = icmp eq i32 %bcmp696.i, 0
-  br i1 %.not697.i, label %259, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389
+  br i1 %.not697.i, label %259, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389
 
 259:                                              ; preds = %257
   %260 = getelementptr inbounds i8, ptr %18, i64 4
   %261 = load i8, ptr %260, align 1
-  switch i8 %261, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %261, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 110, label %262
     i8 112, label %295
   ]
@@ -27802,7 +27802,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 262:                                              ; preds = %259
   %263 = getelementptr inbounds i8, ptr %18, i64 5
   %264 = load i8, ptr %263, align 1
-  switch i8 %264, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %264, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %265
     i8 98, label %270
     i8 99, label %275
@@ -27814,97 +27814,97 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 265:                                              ; preds = %262
   %266 = getelementptr inbounds i8, ptr %18, i64 6
   %267 = load i8, ptr %266, align 1
-  switch i8 %267, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  switch i8 %267, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %268
     i8 119, label %269
   ]
 
 268:                                              ; preds = %265
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 269:                                              ; preds = %265
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 270:                                              ; preds = %262
   %271 = getelementptr inbounds i8, ptr %18, i64 6
   %272 = load i8, ptr %271, align 1
-  switch i8 %272, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  switch i8 %272, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %273
     i8 119, label %274
   ]
 
 273:                                              ; preds = %270
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 274:                                              ; preds = %270
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 275:                                              ; preds = %262
   %276 = getelementptr inbounds i8, ptr %18, i64 6
   %277 = load i8, ptr %276, align 1
-  switch i8 %277, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  switch i8 %277, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %278
     i8 119, label %279
   ]
 
 278:                                              ; preds = %275
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 279:                                              ; preds = %275
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 280:                                              ; preds = %262
   %281 = getelementptr inbounds i8, ptr %18, i64 6
   %282 = load i8, ptr %281, align 1
-  switch i8 %282, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  switch i8 %282, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %283
     i8 119, label %284
   ]
 
 283:                                              ; preds = %280
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 284:                                              ; preds = %280
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 285:                                              ; preds = %262
   %286 = getelementptr inbounds i8, ptr %18, i64 6
   %287 = load i8, ptr %286, align 1
-  switch i8 %287, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  switch i8 %287, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %288
     i8 119, label %289
   ]
 
 288:                                              ; preds = %285
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 289:                                              ; preds = %285
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 290:                                              ; preds = %262
   %291 = getelementptr inbounds i8, ptr %18, i64 6
   %292 = load i8, ptr %291, align 1
-  switch i8 %292, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  switch i8 %292, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %293
     i8 119, label %294
   ]
 
 293:                                              ; preds = %290
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 294:                                              ; preds = %290
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 295:                                              ; preds = %259
   %296 = getelementptr inbounds i8, ptr %18, i64 5
   %297 = load i8, ptr %296, align 1
-  switch i8 %297, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %297, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 101, label %298
     i8 111, label %303
   ]
@@ -27912,32 +27912,32 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 298:                                              ; preds = %295
   %299 = getelementptr inbounds i8, ptr %18, i64 6
   %300 = load i8, ptr %299, align 1
-  switch i8 %300, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  switch i8 %300, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %301
     i8 119, label %302
   ]
 
 301:                                              ; preds = %298
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 302:                                              ; preds = %298
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 303:                                              ; preds = %295
   %304 = getelementptr inbounds i8, ptr %18, i64 6
   %305 = load i8, ptr %304, align 1
-  switch i8 %305, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  switch i8 %305, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %306
     i8 119, label %307
   ]
 
 306:                                              ; preds = %303
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 307:                                              ; preds = %303
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 308:                                              ; preds = %255
   %309 = getelementptr inbounds i8, ptr %18, i64 1
@@ -27967,19 +27967,19 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %317 = getelementptr inbounds i8, ptr %18, i64 6
   %318 = load i8, ptr %317, align 1
   %.not695.i = icmp eq i8 %318, 101
-  br i1 %.not695.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread.i.thread324
+  br i1 %.not695.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread.i.thread324
 
 319:                                              ; preds = %313
   %320 = getelementptr inbounds i8, ptr %18, i64 6
   %321 = load i8, ptr %320, align 1
   %.not694.i = icmp eq i8 %321, 97
-  br i1 %.not694.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread.i.thread324
+  br i1 %.not694.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread.i.thread324
 
 322:                                              ; preds = %308
   %323 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp690.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %323, ptr noundef nonnull dereferenceable(5) @.str.600, i64 5)
   %.not691.i = icmp eq i32 %bcmp690.i, 0
-  br i1 %.not691.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread.i.thread324
+  br i1 %.not691.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread.i.thread324
 
 324:                                              ; preds = %308
   %325 = getelementptr inbounds i8, ptr %18, i64 2
@@ -27999,30 +27999,30 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %330 = getelementptr inbounds i8, ptr %18, i64 5
   %bcmp688.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %330, ptr noundef nonnull dereferenceable(2) @.str.603, i64 2)
   %.not689.i = icmp eq i32 %bcmp688.i, 0
-  br i1 %.not689.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread.i.thread324
+  br i1 %.not689.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread.i.thread324
 
 331:                                              ; preds = %326
   %332 = getelementptr inbounds i8, ptr %18, i64 5
   %bcmp686.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %332, ptr noundef nonnull dereferenceable(2) @.str.603, i64 2)
   %.not687.i = icmp eq i32 %bcmp686.i, 0
-  br i1 %.not687.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread.i.thread324
+  br i1 %.not687.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread.i.thread324
 
 333:                                              ; preds = %308
   %334 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp682.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %334, ptr noundef nonnull dereferenceable(5) @.str.575, i64 5)
   %.not683.i = icmp eq i32 %bcmp682.i, 0
-  br i1 %.not683.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread.i.thread324
+  br i1 %.not683.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread.i.thread324
 
 335:                                              ; preds = %255
   %336 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp680.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %336, ptr noundef nonnull dereferenceable(6) @.str.605, i64 6)
   %.not681.i = icmp eq i32 %bcmp680.i, 0
-  br i1 %.not681.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread.i.thread325
+  br i1 %.not681.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread.i.thread325
 
 337:                                              ; preds = %255
   %338 = getelementptr inbounds i8, ptr %18, i64 1
   %339 = load i8, ptr %338, align 1
-  switch i8 %339, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389 [
+  switch i8 %339, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389 [
     i8 114, label %340
     i8 115, label %342
   ]
@@ -28031,18 +28031,18 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %341 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp678.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %341, ptr noundef nonnull dereferenceable(5) @.str.607, i64 5)
   %.not679.i = icmp eq i32 %bcmp678.i, 0
-  br i1 %.not679.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not679.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 342:                                              ; preds = %337
   %343 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp674.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %343, ptr noundef nonnull dereferenceable(3) @.str.609, i64 3)
   %.not675.i = icmp eq i32 %bcmp674.i, 0
-  br i1 %.not675.i, label %344, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not675.i, label %344, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 344:                                              ; preds = %342
   %345 = getelementptr inbounds i8, ptr %18, i64 5
   %346 = load i8, ptr %345, align 1
-  switch i8 %346, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %346, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 99, label %347
     i8 115, label %350
   ]
@@ -28051,13 +28051,13 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %348 = getelementptr inbounds i8, ptr %18, i64 6
   %349 = load i8, ptr %348, align 1
   %.not677.i = icmp eq i8 %349, 113
-  br i1 %.not677.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not677.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 350:                                              ; preds = %344
   %351 = getelementptr inbounds i8, ptr %18, i64 6
   %352 = load i8, ptr %351, align 1
   %.not676.i = icmp eq i8 %352, 113
-  br i1 %.not676.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not676.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 353:                                              ; preds = %22
   %354 = load i8, ptr %18, align 1
@@ -28093,31 +28093,31 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %364 = getelementptr inbounds i8, ptr %18, i64 7
   %365 = load i8, ptr %364, align 1
   switch i8 %365, label %.thread686.ithread-pre-split [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %366
     i8 119, label %367
   ]
 
 366:                                              ; preds = %363
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 367:                                              ; preds = %363
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 368:                                              ; preds = %360
   %369 = getelementptr inbounds i8, ptr %18, i64 7
   %370 = load i8, ptr %369, align 1
   switch i8 %370, label %.thread686.ithread-pre-split [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %371
     i8 119, label %372
   ]
 
 371:                                              ; preds = %368
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 372:                                              ; preds = %368
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 373:                                              ; preds = %355
   %374 = getelementptr inbounds i8, ptr %18, i64 2
@@ -28145,16 +28145,16 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %382 = getelementptr inbounds i8, ptr %18, i64 7
   %383 = load i8, ptr %382, align 1
   switch i8 %383, label %.thread686.ithread-pre-split [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %384
     i8 119, label %385
   ]
 
 384:                                              ; preds = %381
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 385:                                              ; preds = %381
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 386:                                              ; preds = %375
   %387 = getelementptr inbounds i8, ptr %18, i64 6
@@ -28166,16 +28166,16 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %390 = getelementptr inbounds i8, ptr %18, i64 7
   %391 = load i8, ptr %390, align 1
   switch i8 %391, label %.thread686.ithread-pre-split [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %392
     i8 119, label %393
   ]
 
 392:                                              ; preds = %389
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 393:                                              ; preds = %389
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 394:                                              ; preds = %375
   %395 = getelementptr inbounds i8, ptr %18, i64 6
@@ -28187,16 +28187,16 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %398 = getelementptr inbounds i8, ptr %18, i64 7
   %399 = load i8, ptr %398, align 1
   switch i8 %399, label %.thread686.ithread-pre-split [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %400
     i8 119, label %401
   ]
 
 400:                                              ; preds = %397
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 401:                                              ; preds = %397
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 402:                                              ; preds = %375
   %403 = getelementptr inbounds i8, ptr %18, i64 6
@@ -28208,16 +28208,16 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %406 = getelementptr inbounds i8, ptr %18, i64 7
   %407 = load i8, ptr %406, align 1
   switch i8 %407, label %.thread686.ithread-pre-split [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %408
     i8 119, label %409
   ]
 
 408:                                              ; preds = %405
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 409:                                              ; preds = %405
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 410:                                              ; preds = %353
   %411 = getelementptr inbounds i8, ptr %18, i64 1
@@ -28231,19 +28231,19 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %414 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp664.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %414, ptr noundef nonnull dereferenceable(6) @.str.629, i64 6)
   %.not665.i = icmp eq i32 %bcmp664.i, 0
-  br i1 %.not665.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread686.ithread-pre-split
+  br i1 %.not665.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread686.ithread-pre-split
 
 415:                                              ; preds = %410
   %416 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp662.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %416, ptr noundef nonnull dereferenceable(6) @.str.631, i64 6)
   %.not663.i = icmp eq i32 %bcmp662.i, 0
-  br i1 %.not663.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread686.ithread-pre-split
+  br i1 %.not663.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread686.ithread-pre-split
 
 417:                                              ; preds = %353
   %418 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp660.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %418, ptr noundef nonnull dereferenceable(7) @.str.633, i64 7)
   %.not661.i = icmp eq i32 %bcmp660.i, 0
-  br i1 %.not661.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread686.i.thread
+  br i1 %.not661.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread686.i.thread
 
 419:                                              ; preds = %22
   %420 = load i8, ptr %18, align 1
@@ -28282,91 +28282,91 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %430 = getelementptr inbounds i8, ptr %18, i64 8
   %431 = load i8, ptr %430, align 1
   switch i8 %431, label %.thread690.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %432
     i8 119, label %433
   ]
 
 432:                                              ; preds = %429
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 433:                                              ; preds = %429
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 434:                                              ; preds = %426
   %435 = getelementptr inbounds i8, ptr %18, i64 8
   %436 = load i8, ptr %435, align 1
   switch i8 %436, label %.thread690.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %437
     i8 119, label %438
   ]
 
 437:                                              ; preds = %434
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 438:                                              ; preds = %434
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 439:                                              ; preds = %426
   %440 = getelementptr inbounds i8, ptr %18, i64 8
   %441 = load i8, ptr %440, align 1
   switch i8 %441, label %.thread690.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %442
     i8 119, label %443
   ]
 
 442:                                              ; preds = %439
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 443:                                              ; preds = %439
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 444:                                              ; preds = %426
   %445 = getelementptr inbounds i8, ptr %18, i64 8
   %446 = load i8, ptr %445, align 1
   switch i8 %446, label %.thread690.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %447
     i8 119, label %448
   ]
 
 447:                                              ; preds = %444
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 448:                                              ; preds = %444
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 449:                                              ; preds = %426
   %450 = getelementptr inbounds i8, ptr %18, i64 8
   %451 = load i8, ptr %450, align 1
   switch i8 %451, label %.thread690.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %452
     i8 119, label %453
   ]
 
 452:                                              ; preds = %449
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 453:                                              ; preds = %449
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 454:                                              ; preds = %426
   %455 = getelementptr inbounds i8, ptr %18, i64 8
   %456 = load i8, ptr %455, align 1
   switch i8 %456, label %.thread690.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %457
     i8 119, label %458
   ]
 
 457:                                              ; preds = %454
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 458:                                              ; preds = %454
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 459:                                              ; preds = %423
   %460 = getelementptr inbounds i8, ptr %18, i64 7
@@ -28380,37 +28380,37 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %463 = getelementptr inbounds i8, ptr %18, i64 8
   %464 = load i8, ptr %463, align 1
   switch i8 %464, label %.thread690.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %465
     i8 119, label %466
   ]
 
 465:                                              ; preds = %462
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 466:                                              ; preds = %462
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 467:                                              ; preds = %459
   %468 = getelementptr inbounds i8, ptr %18, i64 8
   %469 = load i8, ptr %468, align 1
   switch i8 %469, label %.thread690.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %470
     i8 119, label %471
   ]
 
 470:                                              ; preds = %467
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 471:                                              ; preds = %467
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 472:                                              ; preds = %419
   %473 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp656.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %473, ptr noundef nonnull dereferenceable(8) @.str.657, i64 8)
   %.not657.i = icmp eq i32 %bcmp656.i, 0
-  br i1 %.not657.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread, label %.thread690.i
+  br i1 %.not657.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread, label %.thread690.i
 
 474:                                              ; preds = %22
   %bcmp650.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %18, ptr noundef nonnull dereferenceable(7) @.str.659, i64 7)
@@ -28437,16 +28437,16 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %482 = getelementptr inbounds i8, ptr %18, i64 9
   %483 = load i8, ptr %482, align 1
   switch i8 %483, label %.thread692.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %484
     i8 119, label %485
   ]
 
 484:                                              ; preds = %481
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 485:                                              ; preds = %481
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 486:                                              ; preds = %475
   %487 = getelementptr inbounds i8, ptr %18, i64 8
@@ -28458,16 +28458,16 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %490 = getelementptr inbounds i8, ptr %18, i64 9
   %491 = load i8, ptr %490, align 1
   switch i8 %491, label %.thread692.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %492
     i8 119, label %493
   ]
 
 492:                                              ; preds = %489
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 493:                                              ; preds = %489
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 494:                                              ; preds = %475
   %495 = getelementptr inbounds i8, ptr %18, i64 8
@@ -28479,16 +28479,16 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %498 = getelementptr inbounds i8, ptr %18, i64 9
   %499 = load i8, ptr %498, align 1
   switch i8 %499, label %.thread692.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %500
     i8 119, label %501
   ]
 
 500:                                              ; preds = %497
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 501:                                              ; preds = %497
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 502:                                              ; preds = %475
   %503 = getelementptr inbounds i8, ptr %18, i64 8
@@ -28500,19 +28500,19 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %506 = getelementptr inbounds i8, ptr %18, i64 9
   %507 = load i8, ptr %506, align 1
   switch i8 %507, label %.thread692.i [
-    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+    i8 108, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
     i8 113, label %508
     i8 119, label %509
   ]
 
 508:                                              ; preds = %505
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 509:                                              ; preds = %505
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 510:                                              ; preds = %13
-  switch i32 %20, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i32 %20, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i32 3, label %511
     i32 4, label %512
     i32 5, label %557
@@ -28527,7 +28527,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 511:                                              ; preds = %510
   %bcmp648.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %18, ptr noundef nonnull dereferenceable(3) @.str.669, i64 3)
   %.not649.i = icmp eq i32 %bcmp648.i, 0
-  br i1 %.not649.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %..thread694.ithread-pre-split_crit_edge
+  br i1 %.not649.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %..thread694.ithread-pre-split_crit_edge
 
 ..thread694.ithread-pre-split_crit_edge:          ; preds = %511
   %.pr340.pre = load i8, ptr %18, align 1
@@ -28545,7 +28545,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 514:                                              ; preds = %512
   %515 = getelementptr inbounds i8, ptr %18, i64 1
   %516 = load i8, ptr %515, align 1
-  switch i8 %516, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394 [
+  switch i8 %516, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394 [
     i8 103, label %517
     i8 105, label %523
   ]
@@ -28554,48 +28554,48 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %518 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp646.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %518, ptr noundef nonnull dereferenceable(2) @.str.514, i64 2)
   %.not647.i = icmp eq i32 %bcmp646.i, 0
-  br i1 %.not647.i, label %519, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not647.i, label %519, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 519:                                              ; preds = %517
   %520 = and i64 %.val, 1
   %.not587.i = icmp eq i64 %520, 0
-  br i1 %.not587.i, label %521, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br i1 %.not587.i, label %521, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 521:                                              ; preds = %519
   %522 = and i64 %.val, 2
   %.not588.i = icmp eq i64 %522, 0
   %spec.select436 = select i1 %.not588.i, i64 4, i64 5
   %spec.select437 = select i1 %.not588.i, ptr %18, ptr @.str.670
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 523:                                              ; preds = %514
   %524 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp644.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %524, ptr noundef nonnull dereferenceable(2) @.str.514, i64 2)
   %.not645.i = icmp eq i32 %bcmp644.i, 0
-  br i1 %.not645.i, label %525, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not645.i, label %525, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 525:                                              ; preds = %523
   %526 = and i64 %.val, 1
   %.not585.i = icmp eq i64 %526, 0
-  br i1 %.not585.i, label %527, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br i1 %.not585.i, label %527, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 527:                                              ; preds = %525
   %528 = and i64 %.val, 2
   %.not586.i = icmp eq i64 %528, 0
   %spec.select438 = select i1 %.not586.i, i64 4, i64 5
   %spec.select439 = select i1 %.not586.i, ptr %18, ptr @.str.671
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 529:                                              ; preds = %512
   %530 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp642.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %530, ptr noundef nonnull dereferenceable(2) @.str.497, i64 2)
   %.not643.i = icmp eq i32 %bcmp642.i, 0
-  br i1 %.not643.i, label %531, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394
+  br i1 %.not643.i, label %531, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394
 
 531:                                              ; preds = %529
   %532 = getelementptr inbounds i8, ptr %18, i64 3
   %533 = load i8, ptr %532, align 1
-  switch i8 %533, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %533, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %534
     i8 102, label %538
   ]
@@ -28603,27 +28603,27 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 534:                                              ; preds = %531
   %535 = and i64 %.val, 1
   %.not583.i = icmp eq i64 %535, 0
-  br i1 %.not583.i, label %536, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br i1 %.not583.i, label %536, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 536:                                              ; preds = %534
   %537 = and i64 %.val, 2
   %.not584.i = icmp eq i64 %537, 0
   %spec.select440 = select i1 %.not584.i, i64 4, i64 5
   %spec.select441 = select i1 %.not584.i, ptr %18, ptr @.str.524
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 538:                                              ; preds = %531
   %539 = and i64 %.val, 4
   %.not582.i = icmp eq i64 %539, 0
   %spec.select442 = select i1 %.not582.i, i64 4, i64 5
   %spec.select443 = select i1 %.not582.i, ptr %18, ptr @.str.527
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 540:                                              ; preds = %512
   %541 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp640.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %541, ptr noundef nonnull dereferenceable(3) @.str.531, i64 3)
   %.not641.i = icmp eq i32 %bcmp640.i, 0
-  br i1 %.not641.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %.thread682.i.thread328
+  br i1 %.not641.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %.thread682.i.thread328
 
 542:                                              ; preds = %512
   %543 = getelementptr inbounds i8, ptr %18, i64 1
@@ -28642,14 +28642,14 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 547:                                              ; preds = %545
   %548 = and i64 %.val, 1
   %.not580.i = icmp eq i64 %548, 0
-  br i1 %.not580.i, label %549, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br i1 %.not580.i, label %549, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 549:                                              ; preds = %547
   %550 = and i64 %.val, 2
   %.not581.i = icmp eq i64 %550, 0
   %spec.select444 = select i1 %.not581.i, i64 4, i64 5
   %spec.select445 = select i1 %.not581.i, ptr %18, ptr @.str.672
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 551:                                              ; preds = %542
   %552 = getelementptr inbounds i8, ptr %18, i64 2
@@ -28660,14 +28660,14 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 553:                                              ; preds = %551
   %554 = and i64 %.val, 1
   %.not578.i = icmp eq i64 %554, 0
-  br i1 %.not578.i, label %555, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br i1 %.not578.i, label %555, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 555:                                              ; preds = %553
   %556 = and i64 %.val, 2
   %.not579.i = icmp eq i64 %556, 0
   %spec.select446 = select i1 %.not579.i, i64 4, i64 5
   %spec.select447 = select i1 %.not579.i, ptr %18, ptr @.str.673
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 557:                                              ; preds = %510
   %558 = load i8, ptr %18, align 1
@@ -28680,23 +28680,23 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %560 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp634.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %560, ptr noundef nonnull dereferenceable(3) @.str.180, i64 3)
   %.not635.i = icmp eq i32 %bcmp634.i, 0
-  br i1 %.not635.i, label %561, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394
+  br i1 %.not635.i, label %561, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394
 
 561:                                              ; preds = %559
   %562 = getelementptr inbounds i8, ptr %18, i64 4
   %563 = load i8, ptr %562, align 1
-  switch i8 %563, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 99, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  switch i8 %563, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 99, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
     i8 122, label %564
   ]
 
 564:                                              ; preds = %561
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 565:                                              ; preds = %557
   %566 = getelementptr inbounds i8, ptr %18, i64 1
   %567 = load i8, ptr %566, align 1
-  switch i8 %567, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394 [
+  switch i8 %567, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394 [
     i8 111, label %568
     i8 117, label %586
   ]
@@ -28705,12 +28705,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %569 = getelementptr inbounds i8, ptr %18, i64 2
   %570 = load i8, ptr %569, align 1
   %.not631.i = icmp eq i8 %570, 112
-  br i1 %.not631.i, label %571, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not631.i, label %571, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 571:                                              ; preds = %568
   %572 = getelementptr inbounds i8, ptr %18, i64 3
   %573 = load i8, ptr %572, align 1
-  switch i8 %573, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %573, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %574
     i8 102, label %579
   ]
@@ -28719,42 +28719,42 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %575 = getelementptr inbounds i8, ptr %18, i64 4
   %576 = load i8, ptr %575, align 1
   %.not633.i = icmp eq i8 %576, 100
-  br i1 %.not633.i, label %577, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not633.i, label %577, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 577:                                              ; preds = %574
   %578 = and i64 %.val, 16
   %.not577.i = icmp eq i64 %578, 0
   %spec.select448 = select i1 %.not577.i, ptr %18, ptr @.str.524
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 579:                                              ; preds = %571
   %580 = getelementptr inbounds i8, ptr %18, i64 4
   %581 = load i8, ptr %580, align 1
   %.not632.i = icmp eq i8 %581, 119
-  br i1 %.not632.i, label %582, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not632.i, label %582, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 582:                                              ; preds = %579
   %583 = and i64 %.val, 2
   %.not575.i = icmp eq i64 %583, 0
-  br i1 %.not575.i, label %584, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br i1 %.not575.i, label %584, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 584:                                              ; preds = %582
   %585 = and i64 %.val, 4
   %.not576.i = icmp eq i64 %585, 0
   %spec.select449 = select i1 %.not576.i, i64 5, i64 4
   %spec.select450 = select i1 %.not576.i, ptr %18, ptr @.str.676
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 586:                                              ; preds = %565
   %587 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp629.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %587, ptr noundef nonnull dereferenceable(2) @.str.55, i64 2)
   %.not630.i = icmp eq i32 %bcmp629.i, 0
-  br i1 %.not630.i, label %588, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not630.i, label %588, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 588:                                              ; preds = %586
   %589 = getelementptr inbounds i8, ptr %18, i64 4
   %590 = load i8, ptr %589, align 1
-  switch i8 %590, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %590, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %591
     i8 102, label %595
   ]
@@ -28762,21 +28762,21 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 591:                                              ; preds = %588
   %592 = and i64 %.val, 1
   %.not573.i = icmp eq i64 %592, 0
-  br i1 %.not573.i, label %593, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br i1 %.not573.i, label %593, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 593:                                              ; preds = %591
   %594 = and i64 %.val, 2
   %.not574.i = icmp eq i64 %594, 0
   %spec.select451 = select i1 %.not574.i, i64 5, i64 6
   %spec.select452 = select i1 %.not574.i, ptr %18, ptr @.str.548
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 595:                                              ; preds = %588
   %596 = and i64 %.val, 4
   %.not572.i = icmp eq i64 %596, 0
   %spec.select453 = select i1 %.not572.i, i64 5, i64 6
   %spec.select454 = select i1 %.not572.i, ptr %18, ptr @.str.551
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 597:                                              ; preds = %510
   %598 = load i8, ptr %18, align 1
@@ -28789,12 +28789,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %600 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp627.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %600, ptr noundef nonnull dereferenceable(3) @.str.180, i64 3)
   %.not628.i = icmp eq i32 %bcmp627.i, 0
-  br i1 %.not628.i, label %601, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394
+  br i1 %.not628.i, label %601, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394
 
 601:                                              ; preds = %599
   %602 = getelementptr inbounds i8, ptr %18, i64 4
   %603 = load i8, ptr %602, align 1
-  switch i8 %603, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %603, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 110, label %604
     i8 112, label %612
   ]
@@ -28802,8 +28802,8 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 604:                                              ; preds = %601
   %605 = getelementptr inbounds i8, ptr %18, i64 5
   %606 = load i8, ptr %605, align 1
-  switch i8 %606, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 97, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  switch i8 %606, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 97, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
     i8 98, label %607
     i8 99, label %608
     i8 103, label %609
@@ -28812,41 +28812,41 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   ]
 
 607:                                              ; preds = %604
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 608:                                              ; preds = %604
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 609:                                              ; preds = %604
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 610:                                              ; preds = %604
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 611:                                              ; preds = %604
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 612:                                              ; preds = %601
   %613 = getelementptr inbounds i8, ptr %18, i64 5
   %614 = load i8, ptr %613, align 1
-  switch i8 %614, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 101, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  switch i8 %614, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 101, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
     i8 111, label %615
   ]
 
 615:                                              ; preds = %612
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 616:                                              ; preds = %597
   %617 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp623.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %617, ptr noundef nonnull dereferenceable(3) @.str.684, i64 3)
   %.not624.i = icmp eq i32 %bcmp623.i, 0
-  br i1 %.not624.i, label %618, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394
+  br i1 %.not624.i, label %618, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394
 
 618:                                              ; preds = %616
   %619 = getelementptr inbounds i8, ptr %18, i64 4
   %620 = load i8, ptr %619, align 1
-  switch i8 %620, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %620, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %621
     i8 102, label %626
   ]
@@ -28855,31 +28855,31 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %622 = getelementptr inbounds i8, ptr %18, i64 5
   %623 = load i8, ptr %622, align 1
   %.not626.i = icmp eq i8 %623, 100
-  br i1 %.not626.i, label %624, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not626.i, label %624, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 624:                                              ; preds = %621
   %625 = and i64 %.val, 16
   %.not571.i = icmp eq i64 %625, 0
   %spec.select455 = select i1 %.not571.i, ptr %18, ptr @.str.548
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 626:                                              ; preds = %618
   %627 = getelementptr inbounds i8, ptr %18, i64 5
   %628 = load i8, ptr %627, align 1
   %.not625.i = icmp eq i8 %628, 119
-  br i1 %.not625.i, label %629, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not625.i, label %629, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 629:                                              ; preds = %626
   %630 = and i64 %.val, 2
   %.not569.i = icmp eq i64 %630, 0
-  br i1 %.not569.i, label %631, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br i1 %.not569.i, label %631, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 631:                                              ; preds = %629
   %632 = and i64 %.val, 4
   %.not570.i = icmp eq i64 %632, 0
   %spec.select456 = select i1 %.not570.i, i64 6, i64 5
   %spec.select457 = select i1 %.not570.i, ptr %18, ptr @.str.685
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 633:                                              ; preds = %510
   %634 = load i8, ptr %18, align 1
@@ -28893,12 +28893,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %636 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp621.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %636, ptr noundef nonnull dereferenceable(6) @.str.686, i64 6)
   %.not622.i = icmp eq i32 %bcmp621.i, 0
-  br i1 %.not622.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394
+  br i1 %.not622.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394
 
 637:                                              ; preds = %633
   %638 = getelementptr inbounds i8, ptr %18, i64 1
   %639 = load i8, ptr %638, align 1
-  switch i8 %639, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394 [
+  switch i8 %639, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394 [
     i8 102, label %640
     i8 109, label %646
   ]
@@ -28907,29 +28907,29 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %641 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp619.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %641, ptr noundef nonnull dereferenceable(4) @.str.612, i64 4)
   %.not620.i = icmp eq i32 %bcmp619.i, 0
-  br i1 %.not620.i, label %642, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not620.i, label %642, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 642:                                              ; preds = %640
   %643 = getelementptr inbounds i8, ptr %18, i64 6
   %644 = load i8, ptr %643, align 1
-  switch i8 %644, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
-    i8 99, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  switch i8 %644, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
+    i8 99, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
     i8 122, label %645
   ]
 
 645:                                              ; preds = %642
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 646:                                              ; preds = %637
   %647 = getelementptr inbounds i8, ptr %18, i64 2
   %bcmp613.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %647, ptr noundef nonnull dereferenceable(3) @.str.619, i64 3)
   %.not614.i = icmp eq i32 %bcmp613.i, 0
-  br i1 %.not614.i, label %648, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not614.i, label %648, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 648:                                              ; preds = %646
   %649 = getelementptr inbounds i8, ptr %18, i64 5
   %650 = load i8, ptr %649, align 1
-  switch i8 %650, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %650, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %651
     i8 98, label %654
     i8 103, label %657
@@ -28940,31 +28940,31 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %652 = getelementptr inbounds i8, ptr %18, i64 6
   %653 = load i8, ptr %652, align 1
   %.not618.i = icmp eq i8 %653, 101
-  br i1 %.not618.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not618.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 654:                                              ; preds = %648
   %655 = getelementptr inbounds i8, ptr %18, i64 6
   %656 = load i8, ptr %655, align 1
   %.not617.i = icmp eq i8 %656, 101
-  br i1 %.not617.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not617.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 657:                                              ; preds = %648
   %658 = getelementptr inbounds i8, ptr %18, i64 6
   %659 = load i8, ptr %658, align 1
   %.not616.i = icmp eq i8 %659, 101
-  br i1 %.not616.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not616.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 660:                                              ; preds = %648
   %661 = getelementptr inbounds i8, ptr %18, i64 6
   %662 = load i8, ptr %661, align 1
   %.not615.i = icmp eq i8 %662, 101
-  br i1 %.not615.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not615.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 663:                                              ; preds = %633
   %664 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp611.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %664, ptr noundef nonnull dereferenceable(6) @.str.692, i64 6)
   %.not612.i = icmp eq i32 %bcmp611.i, 0
-  br i1 %.not612.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394
+  br i1 %.not612.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394
 
 665:                                              ; preds = %510
   %bcmp609.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %18, ptr noundef nonnull dereferenceable(6) @.str.693, i64 6)
@@ -28983,7 +28983,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %670 = getelementptr inbounds i8, ptr %18, i64 7
   %671 = load i8, ptr %670, align 1
   switch i8 %671, label %.thread686.ithread-pre-split [
-    i8 97, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+    i8 97, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
     i8 98, label %672
     i8 99, label %673
     i8 103, label %674
@@ -28992,30 +28992,30 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   ]
 
 672:                                              ; preds = %669
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 673:                                              ; preds = %669
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 674:                                              ; preds = %669
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 675:                                              ; preds = %669
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 676:                                              ; preds = %669
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 677:                                              ; preds = %666
   %678 = getelementptr inbounds i8, ptr %18, i64 7
   %679 = load i8, ptr %678, align 1
   switch i8 %679, label %.thread686.ithread-pre-split [
-    i8 101, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+    i8 101, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
     i8 111, label %680
   ]
 
 680:                                              ; preds = %677
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352
 
 681:                                              ; preds = %510
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %18, ptr noundef nonnull dereferenceable(7) @.str.659, i64 7)
@@ -29036,29 +29036,29 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %686 = getelementptr inbounds i8, ptr %18, i64 8
   %687 = load i8, ptr %686, align 1
   %.not608.i = icmp eq i8 %687, 101
-  br i1 %.not608.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %.thread690.i
+  br i1 %.not608.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %.thread690.i
 
 688:                                              ; preds = %682
   %689 = getelementptr inbounds i8, ptr %18, i64 8
   %690 = load i8, ptr %689, align 1
   %.not607.i = icmp eq i8 %690, 101
-  br i1 %.not607.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %.thread690.i
+  br i1 %.not607.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %.thread690.i
 
 691:                                              ; preds = %682
   %692 = getelementptr inbounds i8, ptr %18, i64 8
   %693 = load i8, ptr %692, align 1
   %.not606.i = icmp eq i8 %693, 101
-  br i1 %.not606.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %.thread690.i
+  br i1 %.not606.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %.thread690.i
 
 694:                                              ; preds = %682
   %695 = getelementptr inbounds i8, ptr %18, i64 8
   %696 = load i8, ptr %695, align 1
   %.not605.i = icmp eq i8 %696, 101
-  br i1 %.not605.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, label %.thread690.i
+  br i1 %.not605.i, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, label %.thread690.i
 
 .thread.i:                                        ; preds = %633, %255
   %697 = phi i8 [ %634, %633 ], [ %256, %255 ]
-  switch i8 %697, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %697, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 102, label %.thread.i.thread324
     i8 115, label %.thread.i.thread325
   ]
@@ -29066,11 +29066,11 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 .thread682.i:                                     ; preds = %512, %56
   %698 = phi i8 [ %513, %512 ], [ %57, %56 ]
   %cond = icmp eq i8 %698, 106
-  br i1 %cond, label %727, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %cond, label %727, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread684.i:                                     ; preds = %597, %210
   %699 = phi i8 [ %598, %597 ], [ %211, %210 ]
-  switch i8 %699, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %699, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 102, label %.thread684.i.thread332
     i8 108, label %.thread684.i.thread333
     i8 115, label %.thread684.i.thread334
@@ -29081,18 +29081,18 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   br label %.thread686.i
 
 .thread686.i.thread:                              ; preds = %417, %410
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
 
 .thread686.i:                                     ; preds = %.thread686.ithread-pre-split, %353
   %700 = phi i8 [ %.pr335, %.thread686.ithread-pre-split ], [ %354, %353 ]
-  switch i8 %700, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %700, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 99, label %.thread686.i.thread336
     i8 115, label %836
   ]
 
 .thread688.i:                                     ; preds = %557, %169
   %701 = phi i8 [ %558, %557 ], [ %170, %169 ]
-  switch i8 %701, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %701, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 102, label %.thread688.i.thread338
     i8 108, label %758
     i8 114, label %760
@@ -29102,36 +29102,36 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 .thread690.i:                                     ; preds = %694, %691, %688, %685, %682, %681, %472, %467, %462, %459, %454, %449, %444, %439, %434, %429, %426, %423, %421, %419
   %bcmp770.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %18, ptr noundef nonnull dereferenceable(3) @.str.51, i64 3)
   %.not771.i = icmp eq i32 %bcmp770.i, 0
-  br i1 %.not771.i, label %853, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not771.i, label %853, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread694.i:                                     ; preds = %..thread694.ithread-pre-split_crit_edge, %23
   %702 = phi i8 [ %24, %23 ], [ %.pr340.pre, %..thread694.ithread-pre-split_crit_edge ]
   %.not832.i = icmp eq i8 %702, 106
-  br i1 %.not832.i, label %710, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not832.i, label %710, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 703:                                              ; preds = %510, %22
   %704 = load i8, ptr %18, align 1
   %.not833.i = icmp eq i8 %704, 106
-  br i1 %.not833.i, label %705, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not833.i, label %705, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 705:                                              ; preds = %703
   %706 = getelementptr inbounds i8, ptr %18, i64 1
   %707 = load i8, ptr %706, align 1
-  switch i8 %707, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %707, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 99, label %708
     i8 122, label %709
   ]
 
 708:                                              ; preds = %705
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 709:                                              ; preds = %705
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 710:                                              ; preds = %.thread694.i
   %711 = getelementptr inbounds i8, ptr %18, i64 1
   %712 = load i8, ptr %711, align 1
-  switch i8 %712, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %712, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 110, label %713
     i8 112, label %722
   ]
@@ -29139,7 +29139,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 713:                                              ; preds = %710
   %714 = getelementptr inbounds i8, ptr %18, i64 2
   %715 = load i8, ptr %714, align 1
-  switch i8 %715, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %715, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %716
     i8 98, label %717
     i8 99, label %718
@@ -29149,47 +29149,47 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   ]
 
 716:                                              ; preds = %713
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 717:                                              ; preds = %713
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 718:                                              ; preds = %713
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 719:                                              ; preds = %713
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 720:                                              ; preds = %713
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 721:                                              ; preds = %713
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 722:                                              ; preds = %710
   %723 = getelementptr inbounds i8, ptr %18, i64 2
   %724 = load i8, ptr %723, align 1
-  switch i8 %724, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %724, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 101, label %725
     i8 111, label %726
   ]
 
 725:                                              ; preds = %722
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 726:                                              ; preds = %722
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 727:                                              ; preds = %.thread682.i
   %728 = getelementptr inbounds i8, ptr %18, i64 1
   %729 = load i8, ptr %728, align 1
   %.not827.i = icmp eq i8 %729, 110
-  br i1 %.not827.i, label %730, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not827.i, label %730, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 730:                                              ; preds = %727
   %731 = getelementptr inbounds i8, ptr %18, i64 2
   %732 = load i8, ptr %731, align 1
-  switch i8 %732, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %732, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %733
     i8 98, label %736
     i8 103, label %739
@@ -29202,7 +29202,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not831.i = icmp eq i8 %735, 101
   %spec.select458 = select i1 %.not831.i, i64 2, i64 4
   %spec.select459 = select i1 %.not831.i, ptr @.str.704, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 736:                                              ; preds = %730
   %737 = getelementptr inbounds i8, ptr %18, i64 3
@@ -29210,7 +29210,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not830.i = icmp eq i8 %738, 101
   %spec.select460 = select i1 %.not830.i, i64 2, i64 4
   %spec.select461 = select i1 %.not830.i, ptr @.str.713, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 739:                                              ; preds = %730
   %740 = getelementptr inbounds i8, ptr %18, i64 3
@@ -29218,7 +29218,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not829.i = icmp eq i8 %741, 101
   %spec.select462 = select i1 %.not829.i, i64 2, i64 4
   %spec.select463 = select i1 %.not829.i, ptr @.str.714, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 742:                                              ; preds = %730
   %743 = getelementptr inbounds i8, ptr %18, i64 3
@@ -29226,47 +29226,47 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not828.i = icmp eq i8 %744, 101
   %spec.select464 = select i1 %.not828.i, i64 2, i64 4
   %spec.select465 = select i1 %.not828.i, ptr @.str.715, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread682.i.thread328:                           ; preds = %131, %540
   %745 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp825.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %745, ptr noundef nonnull dereferenceable(2) @.str.716, i64 2)
   %.not826.i = icmp eq i32 %bcmp825.i, 0
-  br i1 %.not826.i, label %746, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not826.i, label %746, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 746:                                              ; preds = %.thread682.i.thread328
   %747 = getelementptr inbounds i8, ptr %18, i64 3
   %748 = load i8, ptr %747, align 1
-  switch i8 %748, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %748, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 101, label %749
     i8 122, label %750
   ]
 
 749:                                              ; preds = %746
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 750:                                              ; preds = %746
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread682.i.thread330:                           ; preds = %551, %545, %159, %151, %145, %142, %139, %542
   %751 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp823.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %751, ptr noundef nonnull dereferenceable(2) @.str.501, i64 2)
   %.not824.i = icmp eq i32 %bcmp823.i, 0
-  br i1 %.not824.i, label %752, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not824.i, label %752, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 752:                                              ; preds = %.thread682.i.thread330
   %753 = getelementptr inbounds i8, ptr %18, i64 3
   %754 = load i8, ptr %753, align 1
-  switch i8 %754, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %754, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 99, label %755
     i8 122, label %756
   ]
 
 755:                                              ; preds = %752
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 756:                                              ; preds = %752
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread688.i.thread338:                           ; preds = %171, %.thread688.i
   %757 = getelementptr inbounds i8, ptr %18, i64 1
@@ -29274,32 +29274,32 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not822.i = icmp eq i32 %bcmp821.i, 0
   %spec.select466 = select i1 %.not822.i, i64 4, i64 5
   %spec.select467 = select i1 %.not822.i, ptr @.str.718, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 758:                                              ; preds = %.thread688.i
   %759 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp819.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %759, ptr noundef nonnull dereferenceable(4) @.str.719, i64 4)
   %.not820.i = icmp eq i32 %bcmp819.i, 0
   %spec.select468 = select i1 %.not820.i, ptr @.str.720, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 760:                                              ; preds = %.thread688.i
   %761 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp817.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %761, ptr noundef nonnull dereferenceable(4) @.str.721, i64 4)
   %.not818.i = icmp eq i32 %bcmp817.i, 0
   %spec.select469 = select i1 %.not818.i, ptr @.str.153, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread688.i.thread339:                           ; preds = %195, %193, %.thread688.i
   %762 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp815.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %762, ptr noundef nonnull dereferenceable(2) @.str.501, i64 2)
   %.not816.i = icmp eq i32 %bcmp815.i, 0
-  br i1 %.not816.i, label %763, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not816.i, label %763, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 763:                                              ; preds = %.thread688.i.thread339
   %764 = getelementptr inbounds i8, ptr %18, i64 3
   %765 = load i8, ptr %764, align 1
-  switch i8 %765, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %765, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 110, label %766
     i8 112, label %775
   ]
@@ -29307,7 +29307,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 766:                                              ; preds = %763
   %767 = getelementptr inbounds i8, ptr %18, i64 4
   %768 = load i8, ptr %767, align 1
-  switch i8 %768, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %768, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %769
     i8 98, label %770
     i8 99, label %771
@@ -29317,61 +29317,61 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   ]
 
 769:                                              ; preds = %766
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 770:                                              ; preds = %766
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 771:                                              ; preds = %766
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 772:                                              ; preds = %766
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 773:                                              ; preds = %766
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 774:                                              ; preds = %766
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 775:                                              ; preds = %763
   %776 = getelementptr inbounds i8, ptr %18, i64 4
   %777 = load i8, ptr %776, align 1
-  switch i8 %777, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %777, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 101, label %778
     i8 111, label %779
   ]
 
 778:                                              ; preds = %775
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 779:                                              ; preds = %775
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread684.i.thread332:                           ; preds = %238, %236, %232, %230, %227, %.thread684.i
   %780 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp813.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %780, ptr noundef nonnull dereferenceable(5) @.str.729, i64 5)
   %.not814.i = icmp eq i32 %bcmp813.i, 0
   %spec.select470 = select i1 %.not814.i, ptr @.str.730, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread684.i.thread333:                           ; preds = %242, %240, %.thread684.i
   %781 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp811.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %781, ptr noundef nonnull dereferenceable(5) @.str.731, i64 5)
   %.not812.i = icmp eq i32 %bcmp811.i, 0
   %spec.select471 = select i1 %.not812.i, ptr @.str.732, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread684.i.thread334:                           ; preds = %251, %.thread684.i
   %782 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp804.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %782, ptr noundef nonnull dereferenceable(2) @.str.501, i64 2)
   %.not805.i = icmp eq i32 %bcmp804.i, 0
-  br i1 %.not805.i, label %783, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not805.i, label %783, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 783:                                              ; preds = %.thread684.i.thread334
   %784 = getelementptr inbounds i8, ptr %18, i64 3
   %785 = load i8, ptr %784, align 1
-  switch i8 %785, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %785, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 110, label %786
     i8 122, label %801
   ]
@@ -29379,7 +29379,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 786:                                              ; preds = %783
   %787 = getelementptr inbounds i8, ptr %18, i64 4
   %788 = load i8, ptr %787, align 1
-  switch i8 %788, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %788, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %789
     i8 98, label %792
     i8 103, label %795
@@ -29392,7 +29392,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not810.i = icmp eq i8 %791, 101
   %spec.select472 = select i1 %.not810.i, i64 4, i64 6
   %spec.select473 = select i1 %.not810.i, ptr @.str.49, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 792:                                              ; preds = %786
   %793 = getelementptr inbounds i8, ptr %18, i64 5
@@ -29400,7 +29400,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not809.i = icmp eq i8 %794, 101
   %spec.select474 = select i1 %.not809.i, i64 4, i64 6
   %spec.select475 = select i1 %.not809.i, ptr @.str.733, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 795:                                              ; preds = %786
   %796 = getelementptr inbounds i8, ptr %18, i64 5
@@ -29408,7 +29408,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not808.i = icmp eq i8 %797, 101
   %spec.select476 = select i1 %.not808.i, i64 4, i64 6
   %spec.select477 = select i1 %.not808.i, ptr @.str.734, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 798:                                              ; preds = %786
   %799 = getelementptr inbounds i8, ptr %18, i64 5
@@ -29416,45 +29416,45 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not807.i = icmp eq i8 %800, 101
   %spec.select478 = select i1 %.not807.i, i64 4, i64 6
   %spec.select479 = select i1 %.not807.i, ptr @.str.735, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 801:                                              ; preds = %783
   %802 = getelementptr inbounds i8, ptr %18, i64 4
   %803 = load i8, ptr %802, align 1
   %.not806.i = icmp eq i8 %803, 117
-  br i1 %.not806.i, label %804, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not806.i, label %804, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 804:                                              ; preds = %801
   %805 = getelementptr inbounds i8, ptr %18, i64 5
   %806 = load i8, ptr %805, align 1
-  switch i8 %806, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %806, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 99, label %807
     i8 122, label %808
   ]
 
 807:                                              ; preds = %804
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 808:                                              ; preds = %804
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread.i.thread324:                              ; preds = %333, %331, %329, %326, %324, %322, %319, %316, %313, %311, %308, %.thread.i
   %809 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp802.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %809, ptr noundef nonnull dereferenceable(6) @.str.737, i64 6)
   %.not803.i = icmp eq i32 %bcmp802.i, 0
   %spec.select480 = select i1 %.not803.i, ptr @.str.738, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread.i.thread325:                              ; preds = %335, %.thread.i
   %810 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp800.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %810, ptr noundef nonnull dereferenceable(4) @.str.739, i64 4)
   %.not801.i = icmp eq i32 %bcmp800.i, 0
-  br i1 %.not801.i, label %811, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not801.i, label %811, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 811:                                              ; preds = %.thread.i.thread325
   %812 = getelementptr inbounds i8, ptr %18, i64 5
   %813 = load i8, ptr %812, align 1
-  switch i8 %813, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %813, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 110, label %814
     i8 112, label %823
   ]
@@ -29462,7 +29462,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 814:                                              ; preds = %811
   %815 = getelementptr inbounds i8, ptr %18, i64 6
   %816 = load i8, ptr %815, align 1
-  switch i8 %816, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %816, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %817
     i8 98, label %818
     i8 99, label %819
@@ -29472,47 +29472,47 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   ]
 
 817:                                              ; preds = %814
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 818:                                              ; preds = %814
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 819:                                              ; preds = %814
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 820:                                              ; preds = %814
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 821:                                              ; preds = %814
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 822:                                              ; preds = %814
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 823:                                              ; preds = %811
   %824 = getelementptr inbounds i8, ptr %18, i64 6
   %825 = load i8, ptr %824, align 1
-  switch i8 %825, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %825, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 101, label %826
     i8 111, label %827
   ]
 
 826:                                              ; preds = %823
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 827:                                              ; preds = %823
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread686.i.thread336:                           ; preds = %355, %.thread686.i
   %828 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp794.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %828, ptr noundef nonnull dereferenceable(2) @.str.747, i64 2)
   %.not795.i = icmp eq i32 %bcmp794.i, 0
-  br i1 %.not795.i, label %829, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not795.i, label %829, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 829:                                              ; preds = %.thread686.i.thread336
   %830 = getelementptr inbounds i8, ptr %18, i64 3
   %831 = load i8, ptr %830, align 1
-  switch i8 %831, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %831, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 99, label %832
     i8 122, label %834
   ]
@@ -29522,25 +29522,25 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %bcmp798.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %833, ptr noundef nonnull dereferenceable(4) @.str.748, i64 4)
   %.not799.i = icmp eq i32 %bcmp798.i, 0
   %spec.select481 = select i1 %.not799.i, ptr @.str.749, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 834:                                              ; preds = %829
   %835 = getelementptr inbounds i8, ptr %18, i64 4
   %bcmp796.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %835, ptr noundef nonnull dereferenceable(4) @.str.748, i64 4)
   %.not797.i = icmp eq i32 %bcmp796.i, 0
   %spec.select482 = select i1 %.not797.i, ptr @.str.750, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 836:                                              ; preds = %.thread686.i
   %837 = getelementptr inbounds i8, ptr %18, i64 1
   %bcmp788.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %837, ptr noundef nonnull dereferenceable(5) @.str.751, i64 5)
   %.not789.i = icmp eq i32 %bcmp788.i, 0
-  br i1 %.not789.i, label %838, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not789.i, label %838, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 838:                                              ; preds = %836
   %839 = getelementptr inbounds i8, ptr %18, i64 6
   %840 = load i8, ptr %839, align 1
-  switch i8 %840, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %840, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %841
     i8 98, label %844
     i8 103, label %847
@@ -29553,7 +29553,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not793.i = icmp eq i8 %843, 101
   %spec.select483 = select i1 %.not793.i, i64 6, i64 8
   %spec.select484 = select i1 %.not793.i, ptr @.str.47, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 844:                                              ; preds = %838
   %845 = getelementptr inbounds i8, ptr %18, i64 7
@@ -29561,7 +29561,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not792.i = icmp eq i8 %846, 101
   %spec.select485 = select i1 %.not792.i, i64 6, i64 8
   %spec.select486 = select i1 %.not792.i, ptr @.str.752, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 847:                                              ; preds = %838
   %848 = getelementptr inbounds i8, ptr %18, i64 7
@@ -29569,7 +29569,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not791.i = icmp eq i8 %849, 101
   %spec.select487 = select i1 %.not791.i, i64 6, i64 8
   %spec.select488 = select i1 %.not791.i, ptr @.str.753, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 850:                                              ; preds = %838
   %851 = getelementptr inbounds i8, ptr %18, i64 7
@@ -29577,12 +29577,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not790.i = icmp eq i8 %852, 101
   %spec.select489 = select i1 %.not790.i, i64 6, i64 8
   %spec.select490 = select i1 %.not790.i, ptr @.str.754, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 853:                                              ; preds = %.thread690.i
   %854 = getelementptr inbounds i8, ptr %18, i64 3
   %855 = load i8, ptr %854, align 1
-  switch i8 %855, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %855, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 110, label %856
     i8 112, label %871
   ]
@@ -29590,7 +29590,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
 856:                                              ; preds = %853
   %857 = getelementptr inbounds i8, ptr %18, i64 4
   %858 = load i8, ptr %857, align 1
-  switch i8 %858, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %858, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %859
     i8 98, label %861
     i8 99, label %863
@@ -29604,47 +29604,47 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %bcmp786.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %860, ptr noundef nonnull dereferenceable(4) @.str.748, i64 4)
   %.not787.i = icmp eq i32 %bcmp786.i, 0
   %spec.select491 = select i1 %.not787.i, ptr @.str.755, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 861:                                              ; preds = %856
   %862 = getelementptr inbounds i8, ptr %18, i64 5
   %bcmp784.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %862, ptr noundef nonnull dereferenceable(4) @.str.748, i64 4)
   %.not785.i = icmp eq i32 %bcmp784.i, 0
   %spec.select492 = select i1 %.not785.i, ptr @.str.756, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 863:                                              ; preds = %856
   %864 = getelementptr inbounds i8, ptr %18, i64 5
   %bcmp782.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %864, ptr noundef nonnull dereferenceable(4) @.str.748, i64 4)
   %.not783.i = icmp eq i32 %bcmp782.i, 0
   %spec.select493 = select i1 %.not783.i, ptr @.str.756, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 865:                                              ; preds = %856
   %866 = getelementptr inbounds i8, ptr %18, i64 5
   %bcmp780.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %866, ptr noundef nonnull dereferenceable(4) @.str.748, i64 4)
   %.not781.i = icmp eq i32 %bcmp780.i, 0
   %spec.select494 = select i1 %.not781.i, ptr @.str.757, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 867:                                              ; preds = %856
   %868 = getelementptr inbounds i8, ptr %18, i64 5
   %bcmp778.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %868, ptr noundef nonnull dereferenceable(4) @.str.748, i64 4)
   %.not779.i = icmp eq i32 %bcmp778.i, 0
   %spec.select495 = select i1 %.not779.i, ptr @.str.758, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 869:                                              ; preds = %856
   %870 = getelementptr inbounds i8, ptr %18, i64 5
   %bcmp776.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %870, ptr noundef nonnull dereferenceable(4) @.str.748, i64 4)
   %.not777.i = icmp eq i32 %bcmp776.i, 0
   %spec.select496 = select i1 %.not777.i, ptr @.str.759, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 871:                                              ; preds = %853
   %872 = getelementptr inbounds i8, ptr %18, i64 4
   %873 = load i8, ptr %872, align 1
-  switch i8 %873, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %873, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 101, label %874
     i8 111, label %876
   ]
@@ -29655,24 +29655,24 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not775.i = icmp eq i32 %bcmp774.i, 0
   %spec.select497 = select i1 %.not775.i, i64 8, i64 9
   %spec.select498 = select i1 %.not775.i, ptr @.str.760, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 876:                                              ; preds = %871
   %877 = getelementptr inbounds i8, ptr %18, i64 5
   %bcmp772.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %877, ptr noundef nonnull dereferenceable(4) @.str.748, i64 4)
   %.not773.i = icmp eq i32 %bcmp772.i, 0
   %spec.select499 = select i1 %.not773.i, ptr @.str.761, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 .thread692.i:                                     ; preds = %510, %474, %475, %478, %481, %486, %489, %494, %497, %502, %505
   %bcmp760.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %18, ptr noundef nonnull dereferenceable(4) @.str.762, i64 4)
   %.not761.i = icmp eq i32 %bcmp760.i, 0
-  br i1 %.not761.i, label %878, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br i1 %.not761.i, label %878, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 878:                                              ; preds = %.thread692.i
   %879 = getelementptr inbounds i8, ptr %18, i64 4
   %880 = load i8, ptr %879, align 1
-  switch i8 %880, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit [
+  switch i8 %880, label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit [
     i8 97, label %881
     i8 98, label %883
     i8 103, label %885
@@ -29685,7 +29685,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not769.i = icmp eq i32 %bcmp768.i, 0
   %spec.select500 = select i1 %.not769.i, i64 8, i64 10
   %spec.select501 = select i1 %.not769.i, ptr @.str.749, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 883:                                              ; preds = %878
   %884 = getelementptr inbounds i8, ptr %18, i64 5
@@ -29693,7 +29693,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not767.i = icmp eq i32 %bcmp766.i, 0
   %spec.select502 = select i1 %.not767.i, i64 8, i64 10
   %spec.select503 = select i1 %.not767.i, ptr @.str.764, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 885:                                              ; preds = %878
   %886 = getelementptr inbounds i8, ptr %18, i64 5
@@ -29701,7 +29701,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not765.i = icmp eq i32 %bcmp764.i, 0
   %spec.select504 = select i1 %.not765.i, i64 8, i64 10
   %spec.select505 = select i1 %.not765.i, ptr @.str.765, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
 887:                                              ; preds = %878
   %888 = getelementptr inbounds i8, ptr %18, i64 5
@@ -29709,33 +29709,33 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %.not763.i = icmp eq i32 %bcmp762.i, 0
   %spec.select506 = select i1 %.not763.i, i64 8, i64 10
   %spec.select507 = select i1 %.not763.i, ptr @.str.766, ptr %18
-  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit
+  br label %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit
 
-_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread: ; preds = %247, %245, %191, %185, %165, %157, %137, %129, %121, %115, %102, %96, %88, %77, %67, %54, %46, %.thread686.i.thread, %505, %497, %489, %481, %472, %467, %462, %454, %449, %444, %439, %434, %429, %417, %415, %413, %405, %397, %389, %381, %368, %363, %350, %347, %340, %335, %333, %331, %329, %322, %319, %316, %303, %298, %290, %285, %280, %275, %270, %265, %253, %251, %249, %238, %236, %232, %222, %217, %208, %203, %195, %189, %187, %183, %176, %171, %167, %163, %161, %155, %153, %145, %135, %133, %127, %125, %119, %117, %113, %100, %94, %92, %86, %84, %75, %71, %69, %65, %63, %52, %50, %44, %42, %37, %34, %31, %28, %148, %149, %150, %198, %199, %200, %206, %207, %220, %221, %225, %226, %235, %268, %269, %273, %274, %278, %279, %283, %284, %288, %289, %293, %294, %301, %302, %306, %307, %366, %367, %371, %372, %384, %385, %392, %393, %400, %401, %408, %409, %432, %433, %437, %438, %442, %443, %447, %448, %452, %453, %457, %458, %465, %466, %470, %471, %484, %485, %492, %493, %500, %501, %508, %509, %48, %40, %25
+_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread: ; preds = %247, %245, %191, %185, %165, %157, %137, %129, %121, %115, %102, %96, %88, %77, %67, %54, %46, %.thread686.i.thread, %505, %497, %489, %481, %472, %467, %462, %454, %449, %444, %439, %434, %429, %417, %415, %413, %405, %397, %389, %381, %368, %363, %350, %347, %340, %335, %333, %331, %329, %322, %319, %316, %303, %298, %290, %285, %280, %275, %270, %265, %253, %251, %249, %238, %236, %232, %222, %217, %208, %203, %195, %189, %187, %183, %176, %171, %167, %163, %161, %155, %153, %145, %135, %133, %127, %125, %119, %117, %113, %100, %94, %92, %86, %84, %75, %71, %69, %65, %63, %52, %50, %44, %42, %37, %34, %31, %28, %148, %149, %150, %198, %199, %200, %206, %207, %220, %221, %225, %226, %235, %268, %269, %273, %274, %278, %279, %283, %284, %288, %289, %293, %294, %301, %302, %306, %307, %366, %367, %371, %372, %384, %385, %392, %393, %400, %401, %408, %409, %432, %433, %437, %438, %442, %443, %447, %448, %452, %453, %457, %458, %465, %466, %470, %471, %484, %485, %492, %493, %500, %501, %508, %509, %48, %40, %25
   %.sroa.311.0.ph = phi i64 [ 8, %.thread686.i.thread ], [ 8, %505 ], [ 8, %497 ], [ 8, %489 ], [ 8, %481 ], [ 10, %472 ], [ 9, %467 ], [ 8, %462 ], [ 9, %454 ], [ 9, %449 ], [ 9, %444 ], [ 9, %439 ], [ 9, %434 ], [ 9, %429 ], [ 9, %417 ], [ 9, %415 ], [ 6, %413 ], [ 6, %405 ], [ 6, %397 ], [ 6, %389 ], [ 6, %381 ], [ 8, %368 ], [ 8, %363 ], [ 8, %350 ], [ 8, %347 ], [ 8, %340 ], [ 8, %335 ], [ 8, %333 ], [ 6, %331 ], [ 6, %329 ], [ 8, %322 ], [ 7, %319 ], [ 7, %316 ], [ 7, %303 ], [ 6, %298 ], [ 7, %290 ], [ 7, %285 ], [ 7, %280 ], [ 7, %275 ], [ 7, %270 ], [ 7, %265 ], [ 7, %253 ], [ 7, %251 ], [ 6, %249 ], [ 5, %238 ], [ 7, %236 ], [ 8, %232 ], [ 6, %222 ], [ 6, %217 ], [ 4, %208 ], [ 4, %203 ], [ 5, %195 ], [ 6, %189 ], [ 6, %187 ], [ 6, %183 ], [ 5, %176 ], [ 6, %171 ], [ 3, %167 ], [ 5, %163 ], [ 5, %161 ], [ 5, %155 ], [ 5, %153 ], [ 4, %145 ], [ 4, %135 ], [ 4, %133 ], [ 5, %127 ], [ 5, %125 ], [ 5, %119 ], [ 5, %117 ], [ 5, %113 ], [ 5, %100 ], [ 5, %94 ], [ 5, %92 ], [ 5, %86 ], [ 5, %84 ], [ 5, %75 ], [ 4, %71 ], [ 4, %69 ], [ 5, %65 ], [ 5, %63 ], [ 4, %52 ], [ 4, %50 ], [ 4, %44 ], [ 4, %42 ], [ 4, %37 ], [ 4, %34 ], [ 4, %31 ], [ 4, %28 ], [ 4, %148 ], [ 4, %149 ], [ 4, %150 ], [ 5, %198 ], [ 5, %199 ], [ 5, %200 ], [ 4, %206 ], [ 4, %207 ], [ 6, %220 ], [ 6, %221 ], [ 6, %225 ], [ 6, %226 ], [ 6, %235 ], [ 7, %268 ], [ 7, %269 ], [ 7, %273 ], [ 7, %274 ], [ 7, %278 ], [ 7, %279 ], [ 7, %283 ], [ 7, %284 ], [ 7, %288 ], [ 7, %289 ], [ 7, %293 ], [ 7, %294 ], [ 6, %301 ], [ 6, %302 ], [ 7, %306 ], [ 7, %307 ], [ 8, %366 ], [ 8, %367 ], [ 8, %371 ], [ 8, %372 ], [ 6, %384 ], [ 6, %385 ], [ 6, %392 ], [ 6, %393 ], [ 6, %400 ], [ 6, %401 ], [ 6, %408 ], [ 6, %409 ], [ 9, %432 ], [ 9, %433 ], [ 9, %437 ], [ 9, %438 ], [ 9, %442 ], [ 9, %443 ], [ 9, %447 ], [ 9, %448 ], [ 9, %452 ], [ 9, %453 ], [ 9, %457 ], [ 9, %458 ], [ 8, %465 ], [ 8, %466 ], [ 9, %470 ], [ 9, %471 ], [ 8, %484 ], [ 8, %485 ], [ 8, %492 ], [ 8, %493 ], [ 8, %500 ], [ 8, %501 ], [ 8, %508 ], [ 8, %509 ], [ 3, %48 ], [ 3, %40 ], [ 3, %25 ], [ %spec.select, %46 ], [ %spec.select405, %54 ], [ %spec.select407, %67 ], [ %spec.select409, %77 ], [ %spec.select411, %88 ], [ %spec.select413, %96 ], [ %spec.select415, %102 ], [ %spec.select417, %115 ], [ %spec.select419, %121 ], [ %spec.select421, %129 ], [ 4, %137 ], [ %spec.select424, %157 ], [ %spec.select426, %165 ], [ %spec.select428, %185 ], [ %spec.select430, %191 ], [ %spec.select432, %245 ], [ %spec.select434, %247 ]
   %.sroa.0.0.ph = phi ptr [ %18, %.thread686.i.thread ], [ @.str.666, %505 ], [ @.str.663, %497 ], [ @.str.660, %489 ], [ @.str.613, %481 ], [ @.str.658, %472 ], [ @.str.654, %467 ], [ @.str.651, %462 ], [ @.str.648, %454 ], [ @.str.645, %449 ], [ @.str.642, %444 ], [ @.str.639, %439 ], [ @.str.639, %434 ], [ @.str.636, %429 ], [ @.str.634, %417 ], [ @.str.632, %415 ], [ @.str.630, %413 ], [ @.str.626, %405 ], [ @.str.623, %397 ], [ @.str.620, %389 ], [ @.str.558, %381 ], [ @.str.616, %368 ], [ @.str.613, %363 ], [ @.str.611, %350 ], [ @.str.610, %347 ], [ @.str.608, %340 ], [ @.str.606, %335 ], [ @.str.604, %333 ], [ @.str.476, %331 ], [ @.str.471, %329 ], [ @.str.601, %322 ], [ @.str.599, %319 ], [ @.str.598, %316 ], [ @.str.595, %303 ], [ @.str.592, %298 ], [ @.str.589, %290 ], [ @.str.586, %285 ], [ @.str.583, %280 ], [ @.str.580, %275 ], [ @.str.580, %270 ], [ @.str.577, %265 ], [ @.str.576, %253 ], [ @.str.574, %251 ], [ @.str.550, %249 ], [ @.str.569, %238 ], [ @.str.567, %236 ], [ @.str.564, %232 ], [ @.str.561, %222 ], [ @.str.558, %217 ], [ @.str.557, %208 ], [ @.str.553, %203 ], [ @.str.225, %195 ], [ @.str.550, %189 ], [ @.str.549, %187 ], [ @.str.547, %183 ], [ @.str.526, %176 ], [ @.str.545, %171 ], [ @.str.543, %167 ], [ @.str.540, %163 ], [ @.str.539, %161 ], [ @.str.537, %155 ], [ @.str.536, %153 ], [ @.str.532, %145 ], [ @.str.503, %135 ], [ @.str.502, %133 ], [ @.str.529, %127 ], [ @.str.528, %125 ], [ @.str.526, %119 ], [ @.str.525, %117 ], [ @.str.523, %113 ], [ @.str.521, %100 ], [ @.str.519, %94 ], [ @.str.518, %92 ], [ @.str.516, %86 ], [ @.str.515, %84 ], [ @.str.512, %75 ], [ @.str.510, %71 ], [ @.str.508, %69 ], [ @.str.165, %65 ], [ @.str.164, %63 ], [ @.str.503, %52 ], [ @.str.502, %50 ], [ @.str.499, %44 ], [ @.str.498, %42 ], [ @.str.496, %37 ], [ @.str.495, %34 ], [ @.str.494, %31 ], [ @.str.493, %28 ], [ @.str.533, %148 ], [ @.str.534, %149 ], [ @.str.535, %150 ], [ @.str.227, %198 ], [ @.str.229, %199 ], [ @.str.226, %200 ], [ @.str.554, %206 ], [ @.str.555, %207 ], [ @.str.559, %220 ], [ @.str.560, %221 ], [ @.str.562, %225 ], [ @.str.563, %226 ], [ @.str.565, %235 ], [ @.str.578, %268 ], [ @.str.579, %269 ], [ @.str.581, %273 ], [ @.str.582, %274 ], [ @.str.581, %278 ], [ @.str.582, %279 ], [ @.str.584, %283 ], [ @.str.585, %284 ], [ @.str.587, %288 ], [ @.str.588, %289 ], [ @.str.590, %293 ], [ @.str.591, %294 ], [ @.str.593, %301 ], [ @.str.594, %302 ], [ @.str.596, %306 ], [ @.str.597, %307 ], [ @.str.614, %366 ], [ @.str.615, %367 ], [ @.str.617, %371 ], [ @.str.618, %372 ], [ @.str.559, %384 ], [ @.str.560, %385 ], [ @.str.621, %392 ], [ @.str.622, %393 ], [ @.str.624, %400 ], [ @.str.625, %401 ], [ @.str.627, %408 ], [ @.str.628, %409 ], [ @.str.637, %432 ], [ @.str.638, %433 ], [ @.str.640, %437 ], [ @.str.641, %438 ], [ @.str.640, %442 ], [ @.str.641, %443 ], [ @.str.643, %447 ], [ @.str.644, %448 ], [ @.str.646, %452 ], [ @.str.647, %453 ], [ @.str.649, %457 ], [ @.str.650, %458 ], [ @.str.652, %465 ], [ @.str.653, %466 ], [ @.str.655, %470 ], [ @.str.656, %471 ], [ @.str.614, %484 ], [ @.str.615, %485 ], [ @.str.661, %492 ], [ @.str.662, %493 ], [ @.str.664, %500 ], [ @.str.665, %501 ], [ @.str.667, %508 ], [ @.str.668, %509 ], [ %18, %48 ], [ %18, %40 ], [ %18, %25 ], [ %spec.select404, %46 ], [ %spec.select406, %54 ], [ %spec.select408, %67 ], [ %spec.select410, %77 ], [ %spec.select412, %88 ], [ %spec.select414, %96 ], [ %spec.select416, %102 ], [ %spec.select418, %115 ], [ %spec.select420, %121 ], [ %spec.select422, %129 ], [ %spec.select423, %137 ], [ %spec.select425, %157 ], [ %spec.select427, %165 ], [ %spec.select429, %185 ], [ %spec.select431, %191 ], [ %spec.select433, %245 ], [ %spec.select435, %247 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 -1, i64 40, i1 false)
   store i64 -1, ptr %3, align 8
   br label %889
 
-_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352: ; preds = %631, %624, %595, %593, %584, %577, %555, %549, %538, %536, %527, %521, %694, %691, %688, %685, %677, %669, %663, %660, %657, %654, %651, %642, %635, %629, %612, %604, %591, %582, %561, %553, %547, %540, %534, %525, %519, %511, %564, %607, %608, %609, %610, %611, %615, %645, %672, %673, %674, %675, %676, %680
+_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352: ; preds = %631, %624, %595, %593, %584, %577, %555, %549, %538, %536, %527, %521, %694, %691, %688, %685, %677, %669, %663, %660, %657, %654, %651, %642, %635, %629, %612, %604, %591, %582, %561, %553, %547, %540, %534, %525, %519, %511, %564, %607, %608, %609, %610, %611, %615, %645, %672, %673, %674, %675, %676, %680
   %.sroa.311.0.ph350 = phi i64 [ 7, %694 ], [ 7, %691 ], [ 7, %688 ], [ 7, %685 ], [ 7, %677 ], [ 8, %669 ], [ 8, %663 ], [ 5, %660 ], [ 5, %657 ], [ 5, %654 ], [ 5, %651 ], [ 7, %642 ], [ 8, %635 ], [ 5, %629 ], [ 5, %612 ], [ 6, %604 ], [ 6, %591 ], [ 4, %582 ], [ 5, %561 ], [ 5, %553 ], [ 5, %547 ], [ 3, %540 ], [ 5, %534 ], [ 5, %525 ], [ 5, %519 ], [ 3, %511 ], [ 5, %564 ], [ 6, %607 ], [ 6, %608 ], [ 6, %609 ], [ 6, %610 ], [ 6, %611 ], [ 6, %615 ], [ 7, %645 ], [ 8, %672 ], [ 8, %673 ], [ 8, %674 ], [ 8, %675 ], [ 8, %676 ], [ 8, %680 ], [ %spec.select436, %521 ], [ %spec.select438, %527 ], [ %spec.select440, %536 ], [ %spec.select442, %538 ], [ %spec.select444, %549 ], [ %spec.select446, %555 ], [ 5, %577 ], [ %spec.select449, %584 ], [ %spec.select451, %593 ], [ %spec.select453, %595 ], [ 6, %624 ], [ %spec.select456, %631 ]
   %.sroa.0.0.ph351 = phi ptr [ @.str.703, %694 ], [ @.str.702, %691 ], [ @.str.701, %688 ], [ @.str.687, %685 ], [ @.str.699, %677 ], [ @.str.694, %669 ], [ @.str.146, %663 ], [ @.str.691, %660 ], [ @.str.690, %657 ], [ @.str.689, %654 ], [ @.str.674, %651 ], [ @.str.687, %642 ], [ @.str.145, %635 ], [ @.str.685, %629 ], [ @.str.682, %612 ], [ @.str.677, %604 ], [ @.str.547, %591 ], [ @.str.676, %582 ], [ @.str.674, %561 ], [ @.str.539, %553 ], [ @.str.536, %547 ], [ @.str.511, %540 ], [ @.str.523, %534 ], [ @.str.518, %525 ], [ @.str.515, %519 ], [ @.str.350, %511 ], [ @.str.675, %564 ], [ @.str.678, %607 ], [ @.str.678, %608 ], [ @.str.679, %609 ], [ @.str.680, %610 ], [ @.str.681, %611 ], [ @.str.683, %615 ], [ @.str.688, %645 ], [ @.str.695, %672 ], [ @.str.695, %673 ], [ @.str.696, %674 ], [ @.str.697, %675 ], [ @.str.698, %676 ], [ @.str.700, %680 ], [ %spec.select437, %521 ], [ %spec.select439, %527 ], [ %spec.select441, %536 ], [ %spec.select443, %538 ], [ %spec.select445, %549 ], [ %spec.select447, %555 ], [ %spec.select448, %577 ], [ %spec.select450, %584 ], [ %spec.select452, %593 ], [ %spec.select454, %595 ], [ %spec.select455, %624 ], [ %spec.select457, %631 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 -1, i64 40, i1 false)
   store i64 -1, ptr %3, align 8
   br label %889
 
-_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389: ; preds = %173, %201, %208, %212, %249, %253, %58, %73, %79, %104, %167, %257, %337
+_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389: ; preds = %173, %201, %208, %212, %249, %253, %58, %73, %79, %104, %167, %257, %337
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 -1, i64 40, i1 false)
   store i64 -1, ptr %3, align 8
   br label %889
 
-_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394: ; preds = %559, %565, %599, %616, %514, %529, %635, %637, %663
+_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394: ; preds = %559, %565, %599, %616, %514, %529, %635, %637, %663
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 -1, i64 40, i1 false)
   store i64 -1, ptr %3, align 8
   br label %889
 
-_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit: ; preds = %.thread682.i, %37, %34, %31, %28, %588, %586, %579, %574, %571, %568, %561, %203, %180, %178, %176, %626, %621, %618, %612, %604, %601, %222, %217, %214, %531, %523, %517, %123, %110, %107, %98, %90, %82, %71, %69, %61, %660, %657, %654, %651, %648, %646, %642, %640, %350, %347, %344, %342, %340, %303, %298, %295, %290, %285, %280, %275, %270, %265, %262, %259, %887, %885, %883, %881, %876, %874, %869, %867, %865, %863, %861, %859, %850, %847, %844, %841, %834, %832, %.thread.i.thread324, %798, %795, %792, %789, %.thread684.i.thread333, %.thread684.i.thread332, %760, %758, %.thread688.i.thread338, %742, %739, %736, %733, %510, %22, %.thread.i, %.thread684.i, %.thread686.i, %.thread688.i, %.thread690.i, %.thread694.i, %703, %705, %708, %709, %710, %713, %716, %717, %718, %719, %720, %721, %722, %725, %726, %727, %730, %.thread682.i.thread328, %746, %749, %750, %.thread682.i.thread330, %752, %755, %756, %.thread688.i.thread339, %763, %766, %769, %770, %771, %772, %773, %774, %775, %778, %779, %.thread684.i.thread334, %783, %786, %801, %804, %807, %808, %.thread.i.thread325, %811, %814, %817, %818, %819, %820, %821, %822, %823, %826, %827, %.thread686.i.thread336, %829, %836, %838, %853, %856, %871, %.thread692.i, %878
+_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit: ; preds = %.thread682.i, %37, %34, %31, %28, %588, %586, %579, %574, %571, %568, %561, %203, %180, %178, %176, %626, %621, %618, %612, %604, %601, %222, %217, %214, %531, %523, %517, %123, %110, %107, %98, %90, %82, %71, %69, %61, %660, %657, %654, %651, %648, %646, %642, %640, %350, %347, %344, %342, %340, %303, %298, %295, %290, %285, %280, %275, %270, %265, %262, %259, %887, %885, %883, %881, %876, %874, %869, %867, %865, %863, %861, %859, %850, %847, %844, %841, %834, %832, %.thread.i.thread324, %798, %795, %792, %789, %.thread684.i.thread333, %.thread684.i.thread332, %760, %758, %.thread688.i.thread338, %742, %739, %736, %733, %510, %22, %.thread.i, %.thread684.i, %.thread686.i, %.thread688.i, %.thread690.i, %.thread694.i, %703, %705, %708, %709, %710, %713, %716, %717, %718, %719, %720, %721, %722, %725, %726, %727, %730, %.thread682.i.thread328, %746, %749, %750, %.thread682.i.thread330, %752, %755, %756, %.thread688.i.thread339, %763, %766, %769, %770, %771, %772, %773, %774, %775, %778, %779, %.thread684.i.thread334, %783, %786, %801, %804, %807, %808, %.thread.i.thread325, %811, %814, %817, %818, %819, %820, %821, %822, %823, %826, %827, %.thread686.i.thread336, %829, %836, %838, %853, %856, %871, %.thread692.i, %878
   %.sroa.311.0 = phi i64 [ 10, %878 ], [ 10, %.thread692.i ], [ 2, %705 ], [ 2, %709 ], [ 2, %708 ], [ 2, %703 ], [ 9, %853 ], [ 9, %871 ], [ 9, %856 ], [ 9, %.thread690.i ], [ 8, %.thread686.i ], [ 8, %838 ], [ 8, %836 ], [ 8, %829 ], [ 8, %.thread686.i.thread336 ], [ 7, %.thread.i ], [ 7, %811 ], [ 7, %823 ], [ 7, %827 ], [ 6, %826 ], [ 7, %814 ], [ 7, %822 ], [ 7, %821 ], [ 7, %820 ], [ 7, %819 ], [ 7, %818 ], [ 7, %817 ], [ 7, %.thread.i.thread325 ], [ 6, %.thread684.i ], [ 6, %783 ], [ 6, %804 ], [ 6, %808 ], [ 6, %807 ], [ 6, %801 ], [ 6, %786 ], [ 6, %.thread684.i.thread334 ], [ 5, %.thread688.i ], [ 5, %763 ], [ 5, %775 ], [ 5, %779 ], [ 4, %778 ], [ 5, %766 ], [ 5, %774 ], [ 5, %773 ], [ 5, %772 ], [ 5, %771 ], [ 5, %770 ], [ 5, %769 ], [ 5, %.thread688.i.thread339 ], [ 4, %.thread682.i ], [ 4, %752 ], [ 4, %756 ], [ 4, %755 ], [ 4, %.thread682.i.thread330 ], [ 4, %746 ], [ 3, %750 ], [ 3, %749 ], [ 4, %.thread682.i.thread328 ], [ 4, %730 ], [ 4, %727 ], [ 3, %710 ], [ 3, %722 ], [ 3, %726 ], [ 2, %725 ], [ 3, %713 ], [ 3, %721 ], [ 3, %720 ], [ 3, %719 ], [ 3, %718 ], [ 3, %717 ], [ 3, %716 ], [ 3, %.thread694.i ], [ %21, %22 ], [ %21, %510 ], [ %spec.select458, %733 ], [ %spec.select460, %736 ], [ %spec.select462, %739 ], [ %spec.select464, %742 ], [ %spec.select466, %.thread688.i.thread338 ], [ 5, %758 ], [ 5, %760 ], [ 6, %.thread684.i.thread332 ], [ 6, %.thread684.i.thread333 ], [ %spec.select472, %789 ], [ %spec.select474, %792 ], [ %spec.select476, %795 ], [ %spec.select478, %798 ], [ 7, %.thread.i.thread324 ], [ 8, %832 ], [ 8, %834 ], [ %spec.select483, %841 ], [ %spec.select485, %844 ], [ %spec.select487, %847 ], [ %spec.select489, %850 ], [ 9, %859 ], [ 9, %861 ], [ 9, %863 ], [ 9, %865 ], [ 9, %867 ], [ 9, %869 ], [ %spec.select497, %874 ], [ 9, %876 ], [ %spec.select500, %881 ], [ %spec.select502, %883 ], [ %spec.select504, %885 ], [ %spec.select506, %887 ], [ 7, %259 ], [ 7, %262 ], [ 7, %265 ], [ 7, %270 ], [ 7, %275 ], [ 7, %280 ], [ 7, %285 ], [ 7, %290 ], [ 7, %295 ], [ 7, %298 ], [ 7, %303 ], [ 7, %340 ], [ 7, %342 ], [ 7, %344 ], [ 7, %347 ], [ 7, %350 ], [ 7, %640 ], [ 7, %642 ], [ 7, %646 ], [ 7, %648 ], [ 7, %651 ], [ 7, %654 ], [ 7, %657 ], [ 7, %660 ], [ 4, %61 ], [ 4, %69 ], [ 4, %71 ], [ 4, %82 ], [ 4, %90 ], [ 4, %98 ], [ 4, %107 ], [ 4, %110 ], [ 4, %123 ], [ 4, %517 ], [ 4, %523 ], [ 4, %531 ], [ 6, %214 ], [ 6, %217 ], [ 6, %222 ], [ 6, %601 ], [ 6, %604 ], [ 6, %612 ], [ 6, %618 ], [ 6, %621 ], [ 6, %626 ], [ 5, %176 ], [ 5, %178 ], [ 5, %180 ], [ 5, %203 ], [ 5, %561 ], [ 5, %568 ], [ 5, %571 ], [ 5, %574 ], [ 5, %579 ], [ 5, %586 ], [ 5, %588 ], [ 3, %28 ], [ 3, %31 ], [ 3, %34 ], [ 3, %37 ]
   %.sroa.0.0 = phi ptr [ %18, %878 ], [ %18, %.thread692.i ], [ %18, %705 ], [ @.str.705, %709 ], [ @.str.704, %708 ], [ %18, %703 ], [ %18, %853 ], [ %18, %871 ], [ %18, %856 ], [ %18, %.thread690.i ], [ %18, %.thread686.i ], [ %18, %838 ], [ %18, %836 ], [ %18, %829 ], [ %18, %.thread686.i.thread336 ], [ %18, %.thread.i ], [ %18, %811 ], [ %18, %823 ], [ @.str.746, %827 ], [ @.str.745, %826 ], [ %18, %814 ], [ @.str.744, %822 ], [ @.str.743, %821 ], [ @.str.742, %820 ], [ @.str.741, %819 ], [ @.str.741, %818 ], [ @.str.740, %817 ], [ %18, %.thread.i.thread325 ], [ %18, %.thread684.i ], [ %18, %783 ], [ %18, %804 ], [ @.str.736, %808 ], [ @.str.47, %807 ], [ %18, %801 ], [ %18, %786 ], [ %18, %.thread684.i.thread334 ], [ %18, %.thread688.i ], [ %18, %763 ], [ %18, %775 ], [ @.str.728, %779 ], [ @.str.727, %778 ], [ %18, %766 ], [ @.str.726, %774 ], [ @.str.725, %773 ], [ @.str.724, %772 ], [ @.str.723, %771 ], [ @.str.723, %770 ], [ @.str.722, %769 ], [ %18, %.thread688.i.thread339 ], [ %18, %.thread682.i ], [ %18, %752 ], [ @.str.717, %756 ], [ @.str.49, %755 ], [ %18, %.thread682.i.thread330 ], [ %18, %746 ], [ @.str.150, %750 ], [ @.str.150, %749 ], [ %18, %.thread682.i.thread328 ], [ %18, %730 ], [ %18, %727 ], [ %18, %710 ], [ %18, %722 ], [ @.str.712, %726 ], [ @.str.711, %725 ], [ %18, %713 ], [ @.str.710, %721 ], [ @.str.709, %720 ], [ @.str.708, %719 ], [ @.str.707, %718 ], [ @.str.707, %717 ], [ @.str.706, %716 ], [ %18, %.thread694.i ], [ %18, %22 ], [ %18, %510 ], [ %spec.select459, %733 ], [ %spec.select461, %736 ], [ %spec.select463, %739 ], [ %spec.select465, %742 ], [ %spec.select467, %.thread688.i.thread338 ], [ %spec.select468, %758 ], [ %spec.select469, %760 ], [ %spec.select470, %.thread684.i.thread332 ], [ %spec.select471, %.thread684.i.thread333 ], [ %spec.select473, %789 ], [ %spec.select475, %792 ], [ %spec.select477, %795 ], [ %spec.select479, %798 ], [ %spec.select480, %.thread.i.thread324 ], [ %spec.select481, %832 ], [ %spec.select482, %834 ], [ %spec.select484, %841 ], [ %spec.select486, %844 ], [ %spec.select488, %847 ], [ %spec.select490, %850 ], [ %spec.select491, %859 ], [ %spec.select492, %861 ], [ %spec.select493, %863 ], [ %spec.select494, %865 ], [ %spec.select495, %867 ], [ %spec.select496, %869 ], [ %spec.select498, %874 ], [ %spec.select499, %876 ], [ %spec.select501, %881 ], [ %spec.select503, %883 ], [ %spec.select505, %885 ], [ %spec.select507, %887 ], [ %18, %259 ], [ %18, %262 ], [ %18, %265 ], [ %18, %270 ], [ %18, %275 ], [ %18, %280 ], [ %18, %285 ], [ %18, %290 ], [ %18, %295 ], [ %18, %298 ], [ %18, %303 ], [ %18, %340 ], [ %18, %342 ], [ %18, %344 ], [ %18, %347 ], [ %18, %350 ], [ %18, %640 ], [ %18, %642 ], [ %18, %646 ], [ %18, %648 ], [ %18, %651 ], [ %18, %654 ], [ %18, %657 ], [ %18, %660 ], [ %18, %61 ], [ %18, %69 ], [ %18, %71 ], [ %18, %82 ], [ %18, %90 ], [ %18, %98 ], [ %18, %107 ], [ %18, %110 ], [ %18, %123 ], [ %18, %517 ], [ %18, %523 ], [ %18, %531 ], [ %18, %214 ], [ %18, %217 ], [ %18, %222 ], [ %18, %601 ], [ %18, %604 ], [ %18, %612 ], [ %18, %618 ], [ %18, %621 ], [ %18, %626 ], [ %18, %176 ], [ %18, %178 ], [ %18, %180 ], [ %18, %203 ], [ %18, %561 ], [ %18, %568 ], [ %18, %571 ], [ %18, %574 ], [ %18, %579 ], [ %18, %586 ], [ %18, %588 ], [ %18, %28 ], [ %18, %31 ], [ %18, %34 ], [ %18, %37 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 -1, i64 40, i1 false)
@@ -29744,17 +29744,17 @@ _ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit: 
   %spec.select509 = select i1 %trunc.i, ptr @_ZL11MatchTable1, ptr @_ZL11MatchTable0
   br label %889
 
-889:                                              ; preds = %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread
-  %.sroa.0.0347 = phi ptr [ %.sroa.0.0.ph, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread ], [ %.sroa.0.0.ph351, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352 ], [ %18, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389 ], [ %18, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394 ], [ %.sroa.0.0, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit ]
-  %.sroa.311.0345 = phi i64 [ %.sroa.311.0.ph, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread ], [ %.sroa.311.0.ph350, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352 ], [ %21, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389 ], [ %21, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394 ], [ %.sroa.311.0, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit ]
-  %.0105 = phi ptr [ getelementptr inbounds (i8, ptr @_ZL11MatchTable0, i64 368000), %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread ], [ getelementptr inbounds (i8, ptr @_ZL11MatchTable1, i64 362128), %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352 ], [ getelementptr inbounds (i8, ptr @_ZL11MatchTable0, i64 368000), %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389 ], [ getelementptr inbounds (i8, ptr @_ZL11MatchTable1, i64 362128), %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394 ], [ %spec.select508, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit ]
-  %.0104 = phi ptr [ @_ZL11MatchTable0, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread ], [ @_ZL11MatchTable1, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread352 ], [ @_ZL11MatchTable0, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread389 ], [ @_ZL11MatchTable1, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit.thread394 ], [ %spec.select509, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit ]
+889:                                              ; preds = %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread
+  %.sroa.0.0347 = phi ptr [ %.sroa.0.0.ph, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread ], [ %.sroa.0.0.ph351, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352 ], [ %18, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389 ], [ %18, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394 ], [ %.sroa.0.0, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit ]
+  %.sroa.311.0345 = phi i64 [ %.sroa.311.0.ph, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread ], [ %.sroa.311.0.ph350, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352 ], [ %21, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389 ], [ %21, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394 ], [ %.sroa.311.0, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit ]
+  %.0105 = phi ptr [ getelementptr inbounds (i8, ptr @_ZL11MatchTable0, i64 368000), %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread ], [ getelementptr inbounds (i8, ptr @_ZL11MatchTable1, i64 362128), %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352 ], [ getelementptr inbounds (i8, ptr @_ZL11MatchTable0, i64 368000), %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389 ], [ getelementptr inbounds (i8, ptr @_ZL11MatchTable1, i64 362128), %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394 ], [ %spec.select508, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit ]
+  %.0104 = phi ptr [ @_ZL11MatchTable0, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread ], [ @_ZL11MatchTable1, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread352 ], [ @_ZL11MatchTable0, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread389 ], [ @_ZL11MatchTable1, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit.thread394 ], [ %spec.select509, %_ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.exit ]
   %890 = ptrtoint ptr %.0105 to i64
   %891 = ptrtoint ptr %.0104 to i64
   %892 = sub i64 %890, %891
   %893 = ashr exact i64 %892, 4
   %894 = icmp sgt i64 %893, 0
-  br i1 %894, label %.lr.ph.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread
+  br i1 %894, label %.lr.ph.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread
 
 .lr.ph.i.i:                                       ; preds = %889, %952
   %.019.i.i = phi i64 [ %.1.i.i, %952 ], [ %893, %889 ]
@@ -29768,52 +29768,52 @@ _ZL20applyMnemonicAliasesRN4llvm9StringRefERKNS_13FeatureBitsetEj.argprom.exit: 
   %900 = sext i8 %899 to i64
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.311.0345, i64 %900)
   %901 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
-  br i1 %901, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
+  br i1 %901, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i
   %902 = getelementptr inbounds i8, ptr %898, i64 1
   %903 = tail call i32 @memcmp(ptr noundef nonnull %902, ptr noundef readonly %.sroa.0.0347, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #27
   %.not.i.i.i.i.i.i = icmp eq i32 %903, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.thread.i.i, label %904
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.thread.i.i, label %904
 
 904:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
   %.inv.i.i.i.i.i.i = icmp slt i32 %903, 0
   br i1 %.inv.i.i.i.i.i.i, label %907, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i24.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i: ; preds = %.lr.ph.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i: ; preds = %.lr.ph.i.i
   %905 = icmp ugt i64 %.sroa.311.0345, %900
-  br i1 %905, label %907, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i
+  br i1 %905, label %907, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.thread.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.thread.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
   %906 = icmp ugt i64 %.sroa.311.0345, %900
   br i1 %906, label %907, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i24.i.i
 
-907:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.thread.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i, %904
+907:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i, %904
   %908 = getelementptr inbounds i8, ptr %896, i64 16
   %909 = xor i64 %895, -1
   %910 = add nsw i64 %.019.i.i, %909
   br label %952
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i24.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.thread.i.i, %904
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i24.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.thread.i.i, %904
   %911 = tail call i32 @memcmp(ptr noundef readonly %.sroa.0.0347, ptr noundef nonnull %902, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #27
   %.not.i.i.i.i25.i.i = icmp eq i32 %911, 0
-  br i1 %.not.i.i.i.i25.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i, label %912
+  br i1 %.not.i.i.i.i25.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i, label %912
 
 912:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i24.i.i
   %.inv.i.i.i.i26.i.i = icmp slt i32 %911, 0
   br i1 %.inv.i.i.i.i26.i.i, label %952, label %914
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i24.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i24.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i
   %913 = icmp ult i64 %.sroa.311.0345, %900
   br i1 %913, label %952, label %914
 
-914:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i, %912
+914:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i, %912
   %.not632 = icmp ult i64 %.019.i.i, 2
-  br i1 %.not632, label %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.argprom.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %.not632, label %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %914, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i.i
-  %.04.i.i.i = phi ptr [ %.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i.i ], [ %.01218.i.i, %914 ]
-  %.0113.i.i.i = phi i64 [ %.112.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i.i ], [ %895, %914 ]
+.lr.ph.i.i.i:                                     ; preds = %914, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i
+  %.04.i.i.i = phi ptr [ %.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i ], [ %.01218.i.i, %914 ]
+  %.0113.i.i.i = phi i64 [ %.112.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i ], [ %895, %914 ]
   %915 = lshr i64 %.0113.i.i.i, 1
   %916 = getelementptr inbounds %"struct.(anonymous namespace)::MatchEntry", ptr %.04.i.i.i, i64 %915
   %.val.i.i.i = load i16, ptr %916, align 2
@@ -29833,13 +29833,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.
 
 924:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
   %.inv.i.i.i.i.i.i.i = icmp slt i32 %923, 0
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i
   %925 = icmp ugt i64 %.sroa.311.0345, %920
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, %924
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, %924
   %.0.i.i.i.i.i.i.i = phi i1 [ %.inv.i.i.i.i.i.i.i, %924 ], [ %925, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
   %926 = getelementptr inbounds i8, ptr %916, i64 16
   %927 = xor i64 %915, -1
@@ -29847,10 +29847,10 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10Matc
   %.112.i.i.i = select i1 %.0.i.i.i.i.i.i.i, i64 %928, i64 %915
   %.1.i.i.i = select i1 %.0.i.i.i.i.i.i.i, ptr %926, ptr %.04.i.i.i
   %929 = icmp sgt i64 %.112.i.i.i, 0
-  br i1 %929, label %.lr.ph.i.i.i, label %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.argprom.exit.i.i, !llvm.loop !372
+  br i1 %929, label %.lr.ph.i.i.i, label %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.exit.i.i, !llvm.loop !372
 
-_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.argprom.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i.i, %914
-  %.0.lcssa.i.i.i = phi ptr [ %.01218.i.i, %914 ], [ %.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.argprom.exit.i.i.i ]
+_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i, %914
+  %.0.lcssa.i.i.i = phi ptr [ %.01218.i.i, %914 ], [ %.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i ]
   %930 = getelementptr inbounds %"struct.(anonymous namespace)::MatchEntry", ptr %.01218.i.i, i64 %.019.i.i
   %931 = getelementptr inbounds i8, ptr %896, i64 16
   %932 = ptrtoint ptr %930 to i64
@@ -29858,11 +29858,11 @@ _ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5_
   %934 = sub i64 %932, %933
   %935 = ashr exact i64 %934, 4
   %936 = icmp sgt i64 %935, 0
-  br i1 %936, label %.lr.ph.i32.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit
+  br i1 %936, label %.lr.ph.i32.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit
 
-.lr.ph.i32.i.i:                                   ; preds = %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.argprom.exit.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i.i
-  %.04.i33.i.i = phi ptr [ %.1.i43.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i.i ], [ %931, %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.argprom.exit.i.i ]
-  %.0113.i34.i.i = phi i64 [ %.112.i42.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i.i ], [ %935, %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.argprom.exit.i.i ]
+.lr.ph.i32.i.i:                                   ; preds = %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.exit.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i.i
+  %.04.i33.i.i = phi ptr [ %.1.i43.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i.i ], [ %931, %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.exit.i.i ]
+  %.0113.i34.i.i = phi i64 [ %.112.i42.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i.i ], [ %935, %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.exit.i.i ]
   %937 = lshr i64 %.0113.i34.i.i, 1
   %938 = getelementptr inbounds %"struct.(anonymous namespace)::MatchEntry", ptr %.04.i33.i.i, i64 %937
   %.val14.i.i.i = load i16, ptr %938, align 2
@@ -29882,13 +29882,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i38.i.i: ; preds = %.lr.p
 
 946:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i38.i.i
   %.inv.i.i.i.i.i40.i.i = icmp slt i32 %945, 0
-  br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i.i
+  br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i44.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i38.i.i, %.lr.ph.i32.i.i
   %947 = icmp ult i64 %.sroa.311.0345, %942
-  br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i.i
+  br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i44.i.i, %946
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i44.i.i, %946
   %.0.i.i.i.i.i41.i.i = phi i1 [ %.inv.i.i.i.i.i40.i.i, %946 ], [ %947, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i44.i.i ]
   %948 = getelementptr inbounds i8, ptr %938, i64 16
   %949 = xor i64 %937, -1
@@ -29896,20 +29896,20 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9Stri
   %.112.i42.i.i = select i1 %.0.i.i.i.i.i41.i.i, i64 %937, i64 %950
   %.1.i43.i.i = select i1 %.0.i.i.i.i.i41.i.i, ptr %.04.i33.i.i, ptr %948
   %951 = icmp sgt i64 %.112.i42.i.i, 0
-  br i1 %951, label %.lr.ph.i32.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit, !llvm.loop !373
+  br i1 %951, label %.lr.ph.i32.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit, !llvm.loop !373
 
-952:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i, %912, %907
-  %.113.i.i = phi ptr [ %908, %907 ], [ %.01218.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i ], [ %.01218.i.i, %912 ]
-  %.1.i.i = phi i64 [ %910, %907 ], [ %895, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i ], [ %895, %912 ]
+952:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i, %912, %907
+  %.113.i.i = phi ptr [ %908, %907 ], [ %.01218.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i ], [ %.01218.i.i, %912 ]
+  %.1.i.i = phi i64 [ %910, %907 ], [ %895, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i ], [ %895, %912 ]
   %953 = icmp sgt i64 %.1.i.i, 0
-  br i1 %953, label %.lr.ph.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread, !llvm.loop !374
+  br i1 %953, label %.lr.ph.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread, !llvm.loop !374
 
-_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i.i, %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.argprom.exit.i.i
-  %.sroa.3.0.i.i = phi ptr [ %931, %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.argprom.exit.i.i ], [ %.1.i43.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.argprom.exit.i.i.i ]
+_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i.i, %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.exit.i.i
+  %.sroa.3.0.i.i = phi ptr [ %931, %_ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessOpcodeEEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.1.i43.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.i.i.i ]
   %954 = icmp eq ptr %.0.lcssa.i.i.i, %.sroa.3.0.i.i
-  br i1 %954, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread, label %.preheader
+  br i1 %954, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit
+.preheader:                                       ; preds = %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit
   %955 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %956 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %957 = getelementptr inbounds i8, ptr %2, i64 32
@@ -31952,7 +31952,7 @@ _ZNK4llvm13FeatureBitset5countEv.exit142:         ; preds = %_ZNK4llvm13FeatureB
   %1981 = getelementptr inbounds [2066 x [13 x i8]], ptr @_ZL15ConversionTable, i64 0, i64 %1980
   %1982 = load i8, ptr %1981, align 1
   %.not26.i = icmp eq i8 %1982, 0
-  br i1 %.not26.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not26.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1973, %2005
   %1983 = phi i8 [ %2007, %2005 ], [ %1982, %1973 ]
@@ -31984,13 +31984,13 @@ _ZNK4llvm13FeatureBitset5countEv.exit142:         ; preds = %_ZNK4llvm13FeatureB
   %2002 = getelementptr inbounds i8, ptr %2001, i64 128
   %2003 = load ptr, ptr %2002, align 8
   %2004 = tail call noundef zeroext i1 %2003(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(48) %1999, ptr noundef nonnull align 8 dereferenceable(48) %2000) #23
-  br i1 %2004, label %2005, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread.sink.split
+  br i1 %2004, label %2005, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread.sink.split
 
 2005:                                             ; preds = %1993, %1984, %.lr.ph.i
   %2006 = getelementptr inbounds i8, ptr %.01927.i, i64 2
   %2007 = load i8, ptr %2006, align 1
   %.not.i143 = icmp eq i8 %2007, 0
-  br i1 %.not.i143, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread, label %.lr.ph.i, !llvm.loop !385
+  br i1 %.not.i143, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread, label %.lr.ph.i, !llvm.loop !385
 
 2008:                                             ; preds = %1970
   %2009 = load i16, ptr %1961, align 2
@@ -32000,7 +32000,7 @@ _ZNK4llvm13FeatureBitset5countEv.exit142:         ; preds = %_ZNK4llvm13FeatureB
   store i32 %2010, ptr %2, align 8
   %2013 = load i8, ptr %2012, align 1
   %.not5.i = icmp eq i8 %2013, 0
-  br i1 %.not5.i, label %_ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.argprom.exit, label %.lr.ph.i144
+  br i1 %.not5.i, label %_ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.exit, label %.lr.ph.i144
 
 .lr.ph.i144:                                      ; preds = %2008, %2362
   %2014 = phi i8 [ %2364, %2362 ], [ %2013, %2008 ]
@@ -32784,9 +32784,9 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit204.i: ; preds = %2344, %2340
   %2363 = getelementptr inbounds i8, ptr %.06.i, i64 2
   %2364 = load i8, ptr %2363, align 1
   %.not.i145 = icmp eq i8 %2364, 0
-  br i1 %.not.i145, label %_ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.argprom.exit, label %.lr.ph.i144, !llvm.loop !386
+  br i1 %.not.i145, label %_ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.exit, label %.lr.ph.i144, !llvm.loop !386
 
-_ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.argprom.exit: ; preds = %2362, %2008
+_ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.exit: ; preds = %2362, %2008
   %2365 = load ptr, ptr %0, align 8
   %2366 = getelementptr inbounds i8, ptr %2365, i64 112
   %2367 = load ptr, ptr %2366, align 8
@@ -32794,19 +32794,19 @@ _ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallV
   %.not122 = icmp eq i32 %2368, 4
   br i1 %.not122, label %2371, label %2369
 
-2369:                                             ; preds = %_ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.argprom.exit
+2369:                                             ; preds = %_ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.exit
   %2370 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %955) #23
   store i32 0, ptr %956, align 8
   br label %.thread383
 
-2371:                                             ; preds = %_ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.argprom.exit
+2371:                                             ; preds = %_ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE.exit
   %2372 = getelementptr inbounds nuw i8, ptr %.0106549, i64 4
   %2373 = load i16, ptr %2372, align 2
   %2374 = zext i16 %2373 to i64
   %2375 = getelementptr inbounds [2066 x [13 x i8]], ptr @_ZL15ConversionTable, i64 0, i64 %2374
   %2376 = load i8, ptr %2375, align 1
   %.not26.i147 = icmp eq i8 %2376, 0
-  br i1 %.not26.i147, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread, label %.lr.ph.i148
+  br i1 %.not26.i147, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread, label %.lr.ph.i148
 
 .lr.ph.i148:                                      ; preds = %2371, %2399
   %2377 = phi i8 [ %2401, %2399 ], [ %2376, %2371 ]
@@ -32838,13 +32838,13 @@ _ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallV
   %2396 = getelementptr inbounds i8, ptr %2395, i64 128
   %2397 = load ptr, ptr %2396, align 8
   %2398 = tail call noundef zeroext i1 %2397(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(48) %2393, ptr noundef nonnull align 8 dereferenceable(48) %2394) #23
-  br i1 %2398, label %2399, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread.sink.split
+  br i1 %2398, label %2399, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread.sink.split
 
 2399:                                             ; preds = %2387, %2378, %.lr.ph.i148
   %2400 = getelementptr inbounds i8, ptr %.01927.i149, i64 2
   %2401 = load i8, ptr %2400, align 1
   %.not.i151 = icmp eq i8 %2401, 0
-  br i1 %.not.i151, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread, label %.lr.ph.i148, !llvm.loop !385
+  br i1 %.not.i151, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread, label %.lr.ph.i148, !llvm.loop !385
 
 .thread383:                                       ; preds = %.thread, %1936, %1933, %981, %_ZNK4llvm13FeatureBitset5countEv.exit142, %1958, %2369, %1968
   %.4 = phi i32 [ %1967, %1968 ], [ %2368, %2369 ], [ %.0102551, %1958 ], [ %.0102551, %_ZNK4llvm13FeatureBitset5countEv.exit142 ], [ %.0102551, %1933 ], [ %.3, %1936 ], [ %.0102551, %.thread ], [ %.0102551, %981 ]
@@ -32858,16 +32858,16 @@ _ZN12_GLOBAL__N_112X86AsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15SmallV
   %2404 = trunc nuw i8 %.197 to i1
   %.095.not = xor i1 %.1, true
   %brmerge513 = select i1 %2404, i1 true, i1 %.095.not
-  br i1 %brmerge513, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread.sink.split
+  br i1 %brmerge513, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread.sink.split
 
-_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread.sink.split: ; preds = %2387, %1993, %2403, %7
+_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread.sink.split: ; preds = %2387, %1993, %2403, %7
   %.lcssa591.sink = phi i64 [ 10, %7 ], [ 0, %2403 ], [ %1997, %1993 ], [ %2391, %2387 ]
   %.0.ph = phi i32 [ 0, %7 ], [ 2, %2403 ], [ 1, %1993 ], [ 1, %2387 ]
   store i64 %.lcssa591.sink, ptr %3, align 8
-  br label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread
+  br label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread
 
-_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread: ; preds = %952, %2399, %2005, %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread.sink.split, %2403, %889, %2371, %1973, %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit
-  %.0 = phi i32 [ 3, %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit ], [ %.4, %2403 ], [ 4, %1973 ], [ 4, %2371 ], [ 3, %889 ], [ %.0.ph, %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.argprom.exit.thread.sink.split ], [ 4, %2005 ], [ 4, %2399 ], [ 3, %952 ]
+_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread: ; preds = %952, %2399, %2005, %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread.sink.split, %2403, %889, %2371, %1973, %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit
+  %.0 = phi i32 [ 3, %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit ], [ %.4, %2403 ], [ 4, %1973 ], [ 4, %2371 ], [ 3, %889 ], [ %.0.ph, %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread.sink.split ], [ 4, %2005 ], [ 4, %2399 ], [ 3, %952 ]
   ret i32 %.0
 }
 

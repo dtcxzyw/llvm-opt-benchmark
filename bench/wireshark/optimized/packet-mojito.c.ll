@@ -435,7 +435,7 @@ dissect_mojito_store_request.exit:                ; preds = %.lr.ph.i, %116, %98
   %146 = load i32, ptr @hf_mojito_storestatuscode_count, align 4
   %147 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %146, ptr noundef %0, i32 noundef %69, i32 noundef 1, i32 noundef 0) #3
   %.not.i46 = icmp eq i8 %145, 0
-  br i1 %.not.i46, label %dissect_mojito_store_response.argprom.exit, label %.lr.ph.preheader.i47
+  br i1 %.not.i46, label %dissect_mojito_store_response.exit, label %.lr.ph.preheader.i47
 
 .lr.ph.preheader.i47:                             ; preds = %144
   %148 = add i32 %51, 5
@@ -479,9 +479,9 @@ dissect_mojito_store_request.exit:                ; preds = %.lr.ph.i, %116, %98
   %175 = sub i32 %173, %.02.i
   call void @proto_item_set_len(ptr noundef %174, i32 noundef %175) #3
   %exitcond.not.i51 = icmp eq i32 %150, %wide.trip.count.i48
-  br i1 %exitcond.not.i51, label %dissect_mojito_store_response.argprom.exit, label %.lr.ph.i49, !llvm.loop !6
+  br i1 %exitcond.not.i51, label %dissect_mojito_store_response.exit, label %.lr.ph.i49, !llvm.loop !6
 
-dissect_mojito_store_response.argprom.exit:       ; preds = %162, %144
+dissect_mojito_store_response.exit:               ; preds = %162, %144
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %dissect_mojito_find_node_response.exit
 
@@ -655,7 +655,7 @@ dissect_mojito_find_value_response.exit:          ; preds = %.lr.ph.i65, %.lr.ph
   %273 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %272, ptr noundef %0, i32 noundef %69, i32 noundef %73, i32 noundef 0) #3
   br label %dissect_mojito_find_node_response.exit
 
-dissect_mojito_find_node_response.exit:           ; preds = %.lr.ph.i55, %._crit_edge.i, %196, %179, %270, %271, %dissect_mojito_find_value_response.exit, %176, %dissect_mojito_store_response.argprom.exit, %dissect_mojito_store_request.exit, %dissect_mojito_ping_response.exit
+dissect_mojito_find_node_response.exit:           ; preds = %.lr.ph.i55, %._crit_edge.i, %196, %179, %270, %271, %dissect_mojito_find_value_response.exit, %176, %dissect_mojito_store_response.exit, %dissect_mojito_store_request.exit, %dissect_mojito_ping_response.exit
   %274 = call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %275
 

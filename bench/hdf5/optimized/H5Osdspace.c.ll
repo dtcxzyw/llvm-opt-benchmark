@@ -88,13 +88,13 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   %12 = load i64, ptr @H5E_OHDR_g, align 8
   %13 = load i64, ptr @H5E_CANTDECODE_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__sdspace_shared_decode, i32 noundef 61, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.2) #5
-  br label %H5O__sdspace_decode.argprom.exit.thread
+  br label %H5O__sdspace_decode.exit.thread
 
 15:                                               ; preds = %8
   %16 = load i32, ptr %3, align 4
   %17 = and i32 %16, -3
   store i32 %17, ptr %3, align 4
-  br label %H5O__sdspace_decode.argprom.exit.thread
+  br label %H5O__sdspace_decode.exit.thread
 
 18:                                               ; preds = %6
   %19 = getelementptr i8, ptr %5, i64 %4
@@ -107,7 +107,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   %23 = load i64, ptr @H5E_DATASPACE_g, align 8
   %24 = load i64, ptr @H5E_CANTALLOC_g, align 8
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__sdspace_decode, i32 noundef 120, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.5) #5
-  br label %H5O__sdspace_decode.argprom.exit
+  br label %H5O__sdspace_decode.exit
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds i8, ptr %20, i64 40
@@ -558,12 +558,12 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
 
 288:                                              ; preds = %.loopexit.i
   store i64 0, ptr %287, align 8
-  br label %H5O__sdspace_decode.argprom.exit.thread
+  br label %H5O__sdspace_decode.exit.thread
 
 289:                                              ; preds = %.loopexit.i
   store i64 1, ptr %287, align 8
   %.not27.i = icmp eq i32 %284, 0
-  br i1 %.not27.i, label %H5O__sdspace_decode.argprom.exit.thread, label %.lr.ph24.i
+  br i1 %.not27.i, label %H5O__sdspace_decode.exit.thread, label %.lr.ph24.i
 
 .lr.ph24.i:                                       ; preds = %289
   %290 = getelementptr inbounds i8, ptr %20, i64 64
@@ -580,21 +580,21 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   store i64 %296, ptr %287, align 8
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35.i, %291
-  br i1 %exitcond37.not, label %H5O__sdspace_decode.argprom.exit.thread, label %292
+  br i1 %exitcond37.not, label %H5O__sdspace_decode.exit.thread, label %292
 
 297:                                              ; preds = %278, %225, %217, %139, %130, %111, %101, %92, %85, %72, %63, %53, %42, %34
   %298 = tail call i32 @H5S__extent_release(ptr noundef nonnull %20) #5
   %299 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_extent_t_reg_free_list, ptr noundef nonnull %20) #5
-  br label %H5O__sdspace_decode.argprom.exit
+  br label %H5O__sdspace_decode.exit
 
-H5O__sdspace_decode.argprom.exit:                 ; preds = %297, %22
+H5O__sdspace_decode.exit:                         ; preds = %297, %22
   %300 = load i64, ptr @H5E_OHDR_g, align 8
   %301 = load i64, ptr @H5E_CANTDECODE_g, align 8
   %302 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__sdspace_shared_decode, i32 noundef 74, i64 noundef %300, i64 noundef %301, ptr noundef nonnull @.str.3) #5
-  br label %H5O__sdspace_decode.argprom.exit.thread
+  br label %H5O__sdspace_decode.exit.thread
 
-H5O__sdspace_decode.argprom.exit.thread:          ; preds = %292, %289, %288, %15, %H5O__sdspace_decode.argprom.exit, %11
-  %.0 = phi ptr [ null, %11 ], [ %9, %15 ], [ null, %H5O__sdspace_decode.argprom.exit ], [ %20, %288 ], [ %20, %289 ], [ %20, %292 ]
+H5O__sdspace_decode.exit.thread:                  ; preds = %292, %289, %288, %15, %H5O__sdspace_decode.exit, %11
+  %.0 = phi ptr [ null, %11 ], [ %9, %15 ], [ null, %H5O__sdspace_decode.exit ], [ %20, %288 ], [ %20, %289 ], [ %20, %292 ]
   ret ptr %.0
 }
 
@@ -1132,7 +1132,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_debug(ptr nocapture re
   %11 = load i64, ptr @H5E_OHDR_g, align 8
   %12 = load i64, ptr @H5E_WRITEERROR_g, align 8
   %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__sdspace_shared_debug, i32 noundef 428, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.21) #5
-  br label %H5O__sdspace_debug.argprom.exit
+  br label %H5O__sdspace_debug.exit
 
 14:                                               ; preds = %5, %7
   %15 = getelementptr inbounds i8, ptr %1, i64 56
@@ -1141,7 +1141,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_debug(ptr nocapture re
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.23, i32 noundef %3, ptr noundef nonnull @.str.24, i32 noundef %4, ptr noundef nonnull @.str.25, i64 noundef %17) #5
   %19 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %H5O__sdspace_debug.argprom.exit, label %20
+  br i1 %.not.i, label %H5O__sdspace_debug.exit, label %20
 
 20:                                               ; preds = %14
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef %3, ptr noundef nonnull @.str.24, i32 noundef %4, ptr noundef nonnull @.str.27) #5
@@ -1208,13 +1208,13 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_debug(ptr nocapture re
 
 ._crit_edge5.i:                                   ; preds = %48, %37
   %52 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 2, i64 1, ptr %2)
-  br label %H5O__sdspace_debug.argprom.exit
+  br label %H5O__sdspace_debug.exit
 
 53:                                               ; preds = %._crit_edge.i
   %54 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 9, i64 1, ptr %2)
-  br label %H5O__sdspace_debug.argprom.exit
+  br label %H5O__sdspace_debug.exit
 
-H5O__sdspace_debug.argprom.exit:                  ; preds = %53, %._crit_edge5.i, %14, %10
+H5O__sdspace_debug.exit:                          ; preds = %53, %._crit_edge5.i, %14, %10
   %.0 = phi i32 [ -1, %10 ], [ 0, %14 ], [ 0, %._crit_edge5.i ], [ 0, %53 ]
   ret i32 %.0
 }

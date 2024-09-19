@@ -3705,14 +3705,14 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %20, %18
   %23 = load i32, ptr %22, align 8, !noalias !161
   store i32 %23, ptr %21, align 8, !noalias !161
   %24 = icmp ult i32 %23, 65
-  br i1 %24, label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit", label %25
+  br i1 %24, label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit", label %25
 
 25:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %1) #11, !noalias !161
   %.pre.i = load i32, ptr %21, align 8, !noalias !161
-  br label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit"
+  br label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit"
 
-"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i, %25
+"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i, %25
   %.sink.i = phi ptr [ %9, %25 ], [ %1, %_ZN4llvm5APIntC2ERKS0_.exit.i ]
   %26 = phi i32 [ %.pre.i, %25 ], [ %23, %_ZN4llvm5APIntC2ERKS0_.exit.i ]
   %27 = load i64, ptr %.sink.i, align 8, !noalias !161
@@ -3738,12 +3738,12 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %20, %18
   %37 = icmp ult i32 %36, 65
   br i1 %37, label %38, label %40
 
-38:                                               ; preds = %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit"
+38:                                               ; preds = %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit"
   %39 = load i64, ptr %33, align 8, !noalias !164
   store i64 %39, ptr %6, align 8, !noalias !164
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i2
 
-40:                                               ; preds = %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit"
+40:                                               ; preds = %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit"
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %33) #11, !noalias !164
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i2
 
@@ -3753,14 +3753,14 @@ _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %40, %38
   %43 = load i32, ptr %42, align 8, !noalias !164
   store i32 %43, ptr %41, align 8, !noalias !164
   %44 = icmp ult i32 %43, 65
-  br i1 %44, label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit5", label %45
+  br i1 %44, label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit5", label %45
 
 45:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i2
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %2) #11, !noalias !164
   %.pre.i3 = load i32, ptr %41, align 8, !noalias !164
-  br label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit5"
+  br label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit5"
 
-"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit5": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i2, %45
+"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit5": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i2, %45
   %.sink.i4 = phi ptr [ %7, %45 ], [ %2, %_ZN4llvm5APIntC2ERKS0_.exit.i2 ]
   %46 = phi i32 [ %.pre.i3, %45 ], [ %43, %_ZN4llvm5APIntC2ERKS0_.exit.i2 ]
   %47 = load i64, ptr %.sink.i4, align 8, !noalias !164
@@ -3787,12 +3787,12 @@ _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %40, %38
   %57 = icmp ult i32 %56, 65
   br i1 %57, label %58, label %60
 
-58:                                               ; preds = %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit5"
+58:                                               ; preds = %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit5"
   %59 = load i64, ptr %53, align 8, !noalias !167
   store i64 %59, ptr %4, align 8, !noalias !167
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i6
 
-60:                                               ; preds = %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit5"
+60:                                               ; preds = %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit5"
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %53) #11, !noalias !167
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i6
 
@@ -3802,14 +3802,14 @@ _ZN4llvm5APIntC2ERKS0_.exit.i6:                   ; preds = %60, %58
   %63 = load i32, ptr %62, align 8, !noalias !167
   store i32 %63, ptr %61, align 8, !noalias !167
   %64 = icmp ult i32 %63, 65
-  br i1 %64, label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit9", label %65
+  br i1 %64, label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit9", label %65
 
 65:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i6
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %10) #11, !noalias !167
   %.pre.i7 = load i32, ptr %61, align 8, !noalias !167
-  br label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit9"
+  br label %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit9"
 
-"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit9": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i6, %65
+"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit9": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i6, %65
   %.sink.i8 = phi ptr [ %5, %65 ], [ %10, %_ZN4llvm5APIntC2ERKS0_.exit.i6 ]
   %66 = phi i32 [ %.pre.i7, %65 ], [ %63, %_ZN4llvm5APIntC2ERKS0_.exit.i6 ]
   %67 = load i64, ptr %.sink.i8, align 8, !noalias !167
@@ -3828,7 +3828,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i6:                   ; preds = %60, %58
   %74 = icmp ugt i32 %73, 64
   br i1 %74, label %75, label %_ZN4llvm5APIntD2Ev.exit.i
 
-75:                                               ; preds = %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit9"
+75:                                               ; preds = %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit9"
   %76 = load ptr, ptr %53, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %_ZN4llvm5APIntD2Ev.exit.i, label %78
@@ -3837,7 +3837,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i6:                   ; preds = %60, %58
   call void @_ZdaPv(ptr noundef nonnull %76) #12
   br label %_ZN4llvm5APIntD2Ev.exit.i
 
-_ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %78, %75, %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom.exit9"
+_ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %78, %75, %"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.exit9"
   %79 = load i32, ptr %62, align 8
   %80 = icmp ugt i32 %79, 64
   br i1 %80, label %81, label %_ZN4llvm9KnownBitsD2Ev.exit
@@ -3916,10 +3916,10 @@ define dso_local void @_ZN4llvm9KnownBits4smaxERKS0_S2_(ptr dead_on_unwind noali
   %4 = alloca %"struct.llvm::KnownBits", align 8
   %5 = alloca %"struct.llvm::KnownBits", align 8
   %6 = alloca %"struct.llvm::KnownBits", align 8
-  call fastcc void @"_ZZN4llvm9KnownBits4smaxERKS0_S2_ENK3$_0clES2_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call fastcc void @"_ZZN4llvm9KnownBits4smaxERKS0_S2_ENK3$_0clES2_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call fastcc void @"_ZZN4llvm9KnownBits4smaxERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @"_ZZN4llvm9KnownBits4smaxERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZN4llvm9KnownBits4umaxERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  call fastcc void @"_ZZN4llvm9KnownBits4smaxERKS0_S2_ENK3$_0clES2_.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call fastcc void @"_ZZN4llvm9KnownBits4smaxERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp ugt i32 %8, 64
@@ -4017,7 +4017,7 @@ _ZN4llvm9KnownBitsD2Ev.exit5:                     ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm9KnownBits4smaxERKS0_S2_ENK3$_0clES2_.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm9KnownBits4smaxERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -4219,10 +4219,10 @@ define dso_local void @_ZN4llvm9KnownBits4sminERKS0_S2_(ptr dead_on_unwind noali
   %4 = alloca %"struct.llvm::KnownBits", align 8
   %5 = alloca %"struct.llvm::KnownBits", align 8
   %6 = alloca %"struct.llvm::KnownBits", align 8
-  call fastcc void @"_ZZN4llvm9KnownBits4sminERKS0_S2_ENK3$_0clES2_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call fastcc void @"_ZZN4llvm9KnownBits4sminERKS0_S2_ENK3$_0clES2_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call fastcc void @"_ZZN4llvm9KnownBits4sminERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @"_ZZN4llvm9KnownBits4sminERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZN4llvm9KnownBits4umaxERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  call fastcc void @"_ZZN4llvm9KnownBits4sminERKS0_S2_ENK3$_0clES2_.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call fastcc void @"_ZZN4llvm9KnownBits4sminERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp ugt i32 %8, 64
@@ -4320,7 +4320,7 @@ _ZN4llvm9KnownBitsD2Ev.exit5:                     ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm9KnownBits4sminERKS0_S2_ENK3$_0clES2_.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm9KnownBits4sminERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -6717,7 +6717,7 @@ _ZN4llvm5APInt11lshrInPlaceEj.exit4.i:            ; preds = %277, %273, %272
   %278 = load i32, ptr %236, align 8, !alias.scope !221
   %279 = sub i32 %278, %.075
   %280 = icmp eq i32 %.075, 0
-  br i1 %280, label %"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.argprom.exit", label %281
+  br i1 %280, label %"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.exit", label %281
 
 281:                                              ; preds = %_ZN4llvm5APInt11lshrInPlaceEj.exit4.i
   %282 = icmp ult i32 %279, 64
@@ -6734,19 +6734,19 @@ _ZN4llvm5APInt11lshrInPlaceEj.exit4.i:            ; preds = %277, %273, %272
   %290 = load i64, ptr %12, align 8, !alias.scope !221
   %291 = or i64 %290, %289
   store i64 %291, ptr %12, align 8, !alias.scope !221
-  br label %"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.argprom.exit"
+  br label %"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.exit"
 
 292:                                              ; preds = %281
   call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 noundef %279, i32 noundef %278) #11
-  br label %"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.argprom.exit"
+  br label %"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.exit"
 
-"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.argprom.exit": ; preds = %_ZN4llvm5APInt11lshrInPlaceEj.exit4.i, %284, %292
+"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.exit": ; preds = %_ZN4llvm5APInt11lshrInPlaceEj.exit4.i, %284, %292
   call void @_ZNK4llvm9KnownBits13intersectWithERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12)
   %293 = load i32, ptr %15, align 8
   %294 = icmp ult i32 %293, 65
   br i1 %294, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %295
 
-295:                                              ; preds = %"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.argprom.exit"
+295:                                              ; preds = %"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.exit"
   %296 = load ptr, ptr %0, align 8
   %297 = icmp eq ptr %296, null
   br i1 %297, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %298
@@ -6755,7 +6755,7 @@ _ZN4llvm5APInt11lshrInPlaceEj.exit4.i:            ; preds = %277, %273, %272
   call void @_ZdaPv(ptr noundef nonnull %296) #12
   br label %_ZN4llvm5APIntaSEOS0_.exit.i
 
-_ZN4llvm5APIntaSEOS0_.exit.i:                     ; preds = %298, %295, %"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.argprom.exit"
+_ZN4llvm5APIntaSEOS0_.exit.i:                     ; preds = %298, %295, %"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.exit"
   %299 = load i64, ptr %11, align 8
   store i64 %299, ptr %0, align 8
   %300 = load i32, ptr %241, align 8
@@ -7580,19 +7580,19 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i3.i:      ; preds = %_ZN4llvm5APInt11ash
   %spec.store.select.i.i8.i = select i1 %304, i64 0, i64 %314
   %315 = and i64 %storemerge.i7.i, %spec.store.select.i.i8.i
   store i64 %315, ptr %264, align 8, !alias.scope !235
-  br label %"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.argprom.exit"
+  br label %"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.exit"
 
 316:                                              ; preds = %_ZN4llvm5APInt11ashrInPlaceEj.exit.i
   call void @_ZN4llvm5APInt12ashrSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %264, i32 noundef %.087) #11
-  br label %"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.argprom.exit"
+  br label %"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.exit"
 
-"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.argprom.exit": ; preds = %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i3.i, %316
+"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.exit": ; preds = %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i3.i, %316
   call void @_ZNK4llvm9KnownBits13intersectWithERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12)
   %317 = load i32, ptr %15, align 8
   %318 = icmp ult i32 %317, 65
   br i1 %318, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %319
 
-319:                                              ; preds = %"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.argprom.exit"
+319:                                              ; preds = %"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.exit"
   %320 = load ptr, ptr %0, align 8
   %321 = icmp eq ptr %320, null
   br i1 %321, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %322
@@ -7601,7 +7601,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i3.i:      ; preds = %_ZN4llvm5APInt11ash
   call void @_ZdaPv(ptr noundef nonnull %320) #12
   br label %_ZN4llvm5APIntaSEOS0_.exit.i
 
-_ZN4llvm5APIntaSEOS0_.exit.i:                     ; preds = %322, %319, %"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.argprom.exit"
+_ZN4llvm5APIntaSEOS0_.exit.i:                     ; preds = %322, %319, %"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.exit"
   %323 = load i64, ptr %11, align 8
   store i64 %323, ptr %0, align 8
   %324 = load i32, ptr %268, align 8
@@ -9286,9 +9286,9 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %52 = load i64, ptr %.in.i.i.i, align 8
   %53 = and i64 %52, %44
   %.not.i = icmp eq i64 %53, 0
-  br i1 %.not.i, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit", label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit.thread"
+  br i1 %.not.i, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit", label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit.thread"
 
-"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit": ; preds = %40
+"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit": ; preds = %40
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %56 = load i32, ptr %55, align 8
@@ -9299,9 +9299,9 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %60 = load i64, ptr %.in.i.i3.i, align 8
   %61 = and i64 %60, %44
   %.not = icmp eq i64 %61, 0
-  br i1 %.not, label %307, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit.thread"
+  br i1 %.not, label %307, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit.thread"
 
-"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit.thread": ; preds = %40, %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit"
+"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit.thread": ; preds = %40, %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit"
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = icmp ult i32 %63, 65
@@ -9311,9 +9311,9 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %67 = load i64, ptr %.in.i.i.i47, align 8
   %68 = and i64 %67, %44
   %.not.i48 = icmp eq i64 %68, 0
-  br i1 %.not.i48, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit50", label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit50.thread"
+  br i1 %.not.i48, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50", label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50.thread"
 
-"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit50": ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit.thread"
+"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50": ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit.thread"
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %71 = load i32, ptr %70, align 8
@@ -9324,9 +9324,9 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %75 = load i64, ptr %.in.i.i3.i49, align 8
   %76 = and i64 %75, %44
   %.not250 = icmp eq i64 %76, 0
-  br i1 %.not250, label %307, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit50.thread"
+  br i1 %.not250, label %307, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50.thread"
 
-"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit50.thread": ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit.thread", %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit50"
+"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50.thread": ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit.thread", %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50"
   %77 = icmp ult i32 %39, 65
   %78 = load ptr, ptr %0, align 8
   %79 = getelementptr inbounds i64, ptr %78, i64 %50
@@ -9334,9 +9334,9 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %80 = load i64, ptr %.in.i.i.i51, align 8
   %81 = and i64 %80, %44
   %.not.i52 = icmp eq i64 %81, 0
-  br i1 %.not.i52, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit54", label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit54.thread"
+  br i1 %.not.i52, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit54", label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit54.thread"
 
-"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit54": ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit50.thread"
+"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit54": ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50.thread"
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = load i32, ptr %83, align 8
@@ -9347,9 +9347,9 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %88 = load i64, ptr %.in.i.i3.i53, align 8
   %89 = and i64 %88, %44
   %.not251 = icmp eq i64 %89, 0
-  br i1 %.not251, label %307, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit54.thread"
+  br i1 %.not251, label %307, label %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit54.thread"
 
-"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit54.thread": ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit50.thread", %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit54"
+"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit54.thread": ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50.thread", %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit54"
   %90 = add i32 %46, -1
   %91 = and i32 %90, 63
   %92 = zext nneg i32 %91 to i64
@@ -9373,7 +9373,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %108 = and i64 %107, %103
   br i1 %1, label %.thread226, label %.thread231
 
-.thread226:                                       ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit54.thread"
+.thread226:                                       ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit54.thread"
   %109 = icmp ne i64 %81, 0
   %110 = xor i1 %109, %99
   %111 = icmp eq i64 %108, 0
@@ -9381,7 +9381,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %narrow256 = and i1 %110, %not.
   br label %308
 
-.thread231:                                       ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit54.thread"
+.thread231:                                       ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit54.thread"
   %112 = icmp ne i64 %108, 0
   %113 = xor i1 %99, %112
   %114 = icmp ne i64 %81, 0
@@ -9838,7 +9838,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %306 = load i8, ptr %17, align 1
   br label %556
 
-307:                                              ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit54", %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit50", %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.argprom.argprom.exit"
+307:                                              ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit54", %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50", %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit"
   br i1 %1, label %._crit_edge, label %412
 
 ._crit_edge:                                      ; preds = %307
@@ -16620,14 +16620,14 @@ attributes #12 = { builtin nounwind }
 !159 = distinct !{!159, !160, !"_ZN4llvmanENS_5APIntERKS0_: argument 0"}
 !160 = distinct !{!160, !"_ZN4llvmanENS_5APIntERKS0_"}
 !161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom: argument 0"}
-!163 = distinct !{!163, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom"}
+!162 = distinct !{!162, !163, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_: argument 0"}
+!163 = distinct !{!163, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_"}
 !164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom: argument 0"}
-!166 = distinct !{!166, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom"}
+!165 = distinct !{!165, !166, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_: argument 0"}
+!166 = distinct !{!166, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_"}
 !167 = !{!168}
-!168 = distinct !{!168, !169, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom: argument 0"}
-!169 = distinct !{!169, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_.argprom"}
+!168 = distinct !{!168, !169, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_: argument 0"}
+!169 = distinct !{!169, !"_ZZN4llvm9KnownBits4uminERKS0_S2_ENK3$_0clES2_"}
 !170 = !{!171}
 !171 = distinct !{!171, !172, !"_ZNK4llvm9KnownBits11getMinValueEv: argument 0"}
 !172 = distinct !{!172, !"_ZNK4llvm9KnownBits11getMinValueEv"}
@@ -16680,8 +16680,8 @@ attributes #12 = { builtin nounwind }
 !219 = distinct !{!219, !"_ZN4llvmcoENS_5APIntE"}
 !220 = !{!218}
 !221 = !{!222}
-!222 = distinct !{!222, !223, !"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.argprom: argument 0"}
-!223 = distinct !{!223, !"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j.argprom"}
+!222 = distinct !{!222, !223, !"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j: argument 0"}
+!223 = distinct !{!223, !"_ZZN4llvm9KnownBits4lshrERKS0_S2_bbENK3$_0clES2_j"}
 !224 = distinct !{!224, !210}
 !225 = !{!226}
 !226 = distinct !{!226, !227, !"_ZNK4llvm9KnownBits11getMinValueEv: argument 0"}
@@ -16694,8 +16694,8 @@ attributes #12 = { builtin nounwind }
 !233 = distinct !{!233, !"_ZN4llvmcoENS_5APIntE"}
 !234 = !{!232}
 !235 = !{!236}
-!236 = distinct !{!236, !237, !"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.argprom: argument 0"}
-!237 = distinct !{!237, !"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j.argprom"}
+!236 = distinct !{!236, !237, !"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j: argument 0"}
+!237 = distinct !{!237, !"_ZZN4llvm9KnownBits4ashrERKS0_S2_bbENK3$_0clES2_j"}
 !238 = distinct !{!238, !210}
 !239 = !{!240}
 !240 = distinct !{!240, !241, !"_ZNK4llvm9KnownBits11getMaxValueEv: argument 0"}

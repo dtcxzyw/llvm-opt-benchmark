@@ -126,13 +126,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %entry
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i.i, ptr %3, align 8
-  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_25FinalizableNativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_25FinalizableNativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %entry
   %call7.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %runtime.val, i64 %or.i.i.i.i.i.i) #10
-  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_25FinalizableNativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_25FinalizableNativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
 
-_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_25FinalizableNativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_25FinalizableNativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %3, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %call22 = tail call noundef i32 @_ZN6hermes2vm8Callable28defineNameLengthAndPrototypeENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDEjNS2_INS0_8JSObjectEEENS1_17WritablePrototypeEb(ptr %retval.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i32 noundef %paramCount, ptr nonnull @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, i8 noundef zeroext 1, i1 noundef zeroext false) #10
   %retval.sroa.0.0.copyload.i = load i64, ptr %retval.0.i.i.i.i.i.i.i, align 8
@@ -224,9 +224,9 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %e
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
-  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL17initToHermesValueINS0_10HostObjectEEENS0_11HermesValueERNS0_7RuntimeEPT_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !4
+  br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm12JSObjectInitL17initToHermesValueINS0_10HostObjectEEENS0_11HermesValueERNS0_7RuntimeEPT_.exit, label %for.body5.i.i.i, !llvm.loop !4
 
-_ZN6hermes2vm12JSObjectInitL17initToHermesValueINS0_10HostObjectEEENS0_11HermesValueERNS0_7RuntimeEPT_.argprom.exit: ; preds = %for.body5.i.i.i
+_ZN6hermes2vm12JSObjectInitL17initToHermesValueINS0_10HostObjectEEENS0_11HermesValueERNS0_7RuntimeEPT_.exit: ; preds = %for.body5.i.i.i
   %2 = ptrtoint ptr %call.i.i.i.i to i64
   %or.i.i.i.i = or i64 %2, -281474976710656
   %.fca.1.insert = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %or.i.i.i.i, 1

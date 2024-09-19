@@ -422,7 +422,7 @@ define dso_local noundef ptr @_ZN4llvm4coro18createMustTailCallENS_8DebugLocEPNS
   %.idx.i.i = shl nuw nsw i64 %16, 3
   %17 = getelementptr i8, ptr %.val15, i64 %.idx.i.i
   %.not6.i = icmp eq i32 %.val, 1
-  br i1 %.not6.i, label %_ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_12FunctionTypeENS_8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIS9_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not6.i, label %_ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_12FunctionTypeENS_8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIS9_EE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %.0155.i = getelementptr inbounds i8, ptr %.val15, i64 8
@@ -475,9 +475,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit.i: ; preds
   %40 = add nuw nsw i64 %.07.i, 1
   %.015.i = getelementptr inbounds i8, ptr %.0158.i, i64 8
   %.not.i = icmp eq ptr %.015.i, %17
-  br i1 %.not.i, label %_ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_12FunctionTypeENS_8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIS9_EE.argprom.exit, label %19
+  br i1 %.not.i, label %_ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_12FunctionTypeENS_8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIS9_EE.exit, label %19
 
-_ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_12FunctionTypeENS_8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIS9_EE.argprom.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit.i, %6
+_ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_12FunctionTypeENS_8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIS9_EE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit.i, %6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %41 = load ptr, ptr %8, align 8
   %42 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
@@ -487,7 +487,7 @@ _ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultI
   %45 = call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo19supportsTailCallForEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %44) #15
   br i1 %45, label %46, label %51
 
-46:                                               ; preds = %_ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_12FunctionTypeENS_8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIS9_EE.argprom.exit
+46:                                               ; preds = %_ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_12FunctionTypeENS_8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIS9_EE.exit
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, -4
@@ -495,7 +495,7 @@ _ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultI
   store i16 %50, ptr %47, align 2
   br label %51
 
-51:                                               ; preds = %46, %_ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_12FunctionTypeENS_8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIS9_EE.argprom.exit
+51:                                               ; preds = %46, %_ZL15coerceArgumentsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_12FunctionTypeENS_8ArrayRefIPNS_5ValueEEERNS_15SmallVectorImplIS9_EE.exit
   %52 = load ptr, ptr %0, align 8
   store ptr %52, ptr %10, align 8
   %.not.i.i.i.i16 = icmp eq ptr %52, null
@@ -934,7 +934,7 @@ _ZNSt8functionIFbRN4llvm11InstructionEEED2Ev.exit: ; preds = %_ZNSt8functionIFbR
   %.027.i = phi ptr [ %142, %.lr.ph.i ], [ %136, %139 ]
   %140 = load ptr, ptr %.027.i, align 8
   %141 = load ptr, ptr %81, align 8
-  call fastcc void @_ZL14replaceCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.argprom(ptr noundef %140, ptr noundef nonnull align 8 dereferenceable(392) %18, ptr noundef %141, i1 noundef zeroext false)
+  call fastcc void @_ZL14replaceCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE(ptr noundef %140, ptr noundef nonnull align 8 dereferenceable(392) %18, ptr noundef %141, i1 noundef zeroext false)
   %142 = getelementptr inbounds i8, ptr %.027.i, i64 8
   %.not24.i = icmp eq ptr %142, %138
   br i1 %.not24.i, label %_ZL30removeCoroEndsFromRampFunctionRKN4llvm4coro5ShapeE.exit, label %.lr.ph.i
@@ -1016,7 +1016,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i: ; preds = %_ZL34updateCal
   %176 = getelementptr inbounds i8, ptr %175, i64 48
   %177 = load ptr, ptr %176, align 8
   %178 = call noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %174) #15
-  br i1 %178, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+  br i1 %178, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.exit"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i, %_ZL34updateCallGraphAfterCoroutineSplitRN4llvm13LazyCallGraph4NodeERKNS_4coro5ShapeERKNS_15SmallVectorImplIPNS_8FunctionEEERNS0_3SCCERS0_RNS_15AnalysisManagerISD_JSF_EEERNS_17CGSCCUpdateResultERNSG_IS8_JEEE.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
@@ -1143,18 +1143,18 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZZN4llvm13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultEENK3$_0clEv.exit.i"
   %204 = load ptr, ptr %102, align 8
   %205 = icmp eq ptr %204, %104
-  br i1 %205, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.argprom.exit", label %206
+  br i1 %205, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.exit", label %206
 
 206:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i
   call void @free(ptr noundef %204) #15
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.exit"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.argprom.exit": ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i, %206
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.exit": ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i, %206
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %14)
   %207 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %110) #15
   br i1 %207, label %.loopexit, label %208
 
-208:                                              ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+208:                                              ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.exit"
   %209 = load ptr, ptr %5, align 8
   store ptr %2, ptr %20, align 8
   %210 = call noundef zeroext i1 @_ZN4llvm16PriorityWorklistIPNS_13LazyCallGraph3SCCENS_11SmallVectorIS3_Lj1EEENS_13SmallDenseMapIS3_lLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_lEEEEE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(96) %209, ptr noundef nonnull align 8 dereferenceable(8) %20)
@@ -1554,7 +1554,7 @@ _ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit: ; preds = %.lr.ph.i.i.i.i, 
   %.not57 = icmp eq ptr %414, %213
   br i1 %.not57, label %.loopexit, label %.lr.ph108
 
-.loopexit:                                        ; preds = %_ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit, %208, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+.loopexit:                                        ; preds = %_ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit, %208, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_13CoroSplitPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.exit"
   call void @_ZN4llvm4coro5ShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %18) #15
   %415 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #15
   %416 = load ptr, ptr %17, align 8
@@ -1577,16 +1577,16 @@ _ZN4llvm11SmallVectorIPNS_8FunctionELj4EED2Ev.exit: ; preds = %.loopexit, %418
   %.not56114 = icmp eq i64 %421, 0
   br i1 %.not56114, label %._crit_edge118, label %.lr.ph117
 
-.lr.ph117:                                        ; preds = %._crit_edge113, %_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit
-  %.054115 = phi ptr [ %463, %_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit ], [ %420, %._crit_edge113 ]
+.lr.ph117:                                        ; preds = %._crit_edge113, %_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.exit
+  %.054115 = phi ptr [ %463, %_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.exit ], [ %420, %._crit_edge113 ]
   %423 = load ptr, ptr %.054115, align 8
   %424 = getelementptr i8, ptr %423, i64 16
   %.val = load ptr, ptr %424, align 8
   %.not5.i.not = icmp eq ptr %.val, null
-  br i1 %.not5.i.not, label %_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit, label %.lr.ph.i62
+  br i1 %.not5.i.not, label %_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.exit, label %.lr.ph.i62
 
-.lr.ph.i62:                                       ; preds = %.lr.ph117, %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit.i
-  %.sroa.01.06.i = phi ptr [ %426, %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit.i ], [ %.val, %.lr.ph117 ]
+.lr.ph.i62:                                       ; preds = %.lr.ph117, %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.exit.i
+  %.sroa.01.06.i = phi ptr [ %426, %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.exit.i ], [ %.val, %.lr.ph117 ]
   %425 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 8
   %426 = load ptr, ptr %425, align 8
   %427 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 24
@@ -1639,14 +1639,14 @@ _ZN4llvm11SmallVectorIPNS_8FunctionELj4EED2Ev.exit: ; preds = %.loopexit, %418
   %453 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %428) #15
   %454 = load i8, ptr %435, align 8
   %.not11.i.i = icmp eq i8 %454, 78
-  br i1 %.not11.i.i, label %.lr.ph14.i.i, label %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit.i
+  br i1 %.not11.i.i, label %.lr.ph14.i.i, label %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.exit.i
 
 .lr.ph14.i.i:                                     ; preds = %._crit_edge.i.i, %458
   %.012.i.i = phi ptr [ %460, %458 ], [ %435, %._crit_edge.i.i ]
   %455 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
   %456 = load ptr, ptr %455, align 8
   %457 = icmp eq ptr %456, null
-  br i1 %457, label %458, label %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit.i
+  br i1 %457, label %458, label %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.exit.i
 
 458:                                              ; preds = %.lr.ph14.i.i
   %459 = getelementptr inbounds i8, ptr %.012.i.i, i64 -32
@@ -1654,18 +1654,18 @@ _ZN4llvm11SmallVectorIPNS_8FunctionELj4EED2Ev.exit: ; preds = %.loopexit, %418
   %461 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %.012.i.i) #15
   %462 = load i8, ptr %460, align 8
   %.not.i.i64 = icmp eq i8 %462, 78
-  br i1 %.not.i.i64, label %.lr.ph14.i.i, label %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit.i, !llvm.loop !20
+  br i1 %.not.i.i64, label %.lr.ph14.i.i, label %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.exit.i, !llvm.loop !20
 
-_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit.i: ; preds = %458, %.lr.ph14.i.i, %._crit_edge.i.i
+_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.exit.i: ; preds = %458, %.lr.ph14.i.i, %._crit_edge.i.i
   %.not.i63 = icmp eq ptr %426, null
-  br i1 %.not.i63, label %_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit, label %.lr.ph.i62
+  br i1 %.not.i63, label %_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.exit, label %.lr.ph.i62
 
-_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit: ; preds = %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit.i, %.lr.ph117
+_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.exit: ; preds = %_ZL14replacePreparePN4llvm8CallInstERNS_13LazyCallGraphERNS2_3SCCE.exit.i, %.lr.ph117
   %463 = getelementptr inbounds i8, ptr %.054115, i64 8
   %.not56 = icmp eq ptr %463, %422
   br i1 %.not56, label %._crit_edge118, label %.lr.ph117
 
-._crit_edge118:                                   ; preds = %_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.argprom.exit, %._crit_edge113
+._crit_edge118:                                   ; preds = %_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.exit, %._crit_edge113
   %464 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %464, i8 0, i64 72, i1 false), !alias.scope !21
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9180,7 +9180,7 @@ _ZN4llvm11AttrBuilderD2Ev.exit:                   ; preds = %527, %535
   %538 = load i64, ptr %537, align 8
   %539 = getelementptr inbounds nuw i8, ptr %536, i64 296
   %.sroa.047.0.copyload = load i8, ptr %539, align 8
-  call fastcc void @_ZL20addFramePointerAttrsRN4llvm13AttributeListERNS_11LLVMContextEjmNS_5AlignEb.argelim(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %138, i64 noundef %538, i8 %.sroa.047.0.copyload, i1 noundef zeroext false)
+  call fastcc void @_ZL20addFramePointerAttrsRN4llvm13AttributeListERNS_11LLVMContextEjmNS_5AlignEb(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %138, i64 noundef %538, i8 %.sroa.047.0.copyload, i1 noundef zeroext false)
   br label %_ZN4llvm11AttrBuilderD2Ev.exit188
 
 540:                                              ; preds = %_ZNK4llvm5Value11hasMetadataEj.exit.thread
@@ -9318,7 +9318,7 @@ _ZL17addSwiftSelfAttrsRN4llvm13AttributeListERNS_11LLVMContextEj.exit: ; preds =
   %625 = trunc nuw nsw i64 %624 to i8
   %626 = xor i8 %625, 63
   %.sroa.0.0.i.i.i.i192 = select i1 %.not.i.not.i.i.i, i8 0, i8 %626
-  call fastcc void @_ZL20addFramePointerAttrsRN4llvm13AttributeListERNS_11LLVMContextEjmNS_5AlignEb.argelim(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %138, i64 noundef %.0.i.i.i191, i8 %.sroa.0.0.i.i.i.i192, i1 noundef zeroext true)
+  call fastcc void @_ZL20addFramePointerAttrsRN4llvm13AttributeListERNS_11LLVMContextEjmNS_5AlignEb(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %138, i64 noundef %.0.i.i.i191, i8 %.sroa.0.0.i.i.i.i192, i1 noundef zeroext true)
   br label %_ZN4llvm11AttrBuilderD2Ev.exit188
 
 _ZN4llvm11AttrBuilderD2Ev.exit188:                ; preds = %592, %582, %593, %_ZN4llvm11AttrBuilderD2Ev.exit, %_ZNK4llvm5Value11hasMetadataEj.exit.thread
@@ -11041,7 +11041,7 @@ _ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys
   %1385 = load ptr, ptr %1384, align 8
   %1386 = load ptr, ptr %510, align 8
   %1387 = load ptr, ptr %1054, align 8
-  call fastcc void @_ZL14replaceCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.argprom(ptr noundef %1385, ptr noundef nonnull align 8 dereferenceable(392) %1386, ptr noundef %1387, i1 noundef zeroext true)
+  call fastcc void @_ZL14replaceCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE(ptr noundef %1385, ptr noundef nonnull align 8 dereferenceable(392) %1386, ptr noundef %1387, i1 noundef zeroext true)
   %1388 = getelementptr inbounds i8, ptr %.010.i, i64 8
   %.not.i266 = icmp eq ptr %1388, %1373
   br i1 %.not.i266, label %_ZN12_GLOBAL__N_110CoroCloner15replaceCoroEndsEv.exit, label %1378
@@ -12745,7 +12745,7 @@ declare ptr @_ZNK4llvm13AttributeList10getFnAttrsEv(ptr noundef nonnull align 8 
 declare void @_ZN4llvm11AttrBuilderC1ERNS_11LLVMContextENS_12AttributeSetE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(8), ptr) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20addFramePointerAttrsRN4llvm13AttributeListERNS_11LLVMContextEjmNS_5AlignEb.argelim(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2, i8 %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20addFramePointerAttrsRN4llvm13AttributeListERNS_11LLVMContextEjmNS_5AlignEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2, i8 %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::AttrBuilder", align 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -13323,7 +13323,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit: 
 declare void @_ZN4llvm15InsertValueInst4initEPNS_5ValueES2_NS_8ArrayRefIjEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, ptr noundef, ptr, i64, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14replaceCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.argprom(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @_ZL14replaceCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::ilist_iterator_w_bits", align 8
@@ -13383,7 +13383,7 @@ define internal fastcc void @_ZL14replaceCoroEndPN4llvm14AnyCoroEndInstERKNS_4co
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %18, ptr noundef nonnull %0)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %45 = load i32, ptr %44, align 8
-  switch i32 %45, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i [
+  switch i32 %45, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i [
     i32 0, label %46
     i32 2, label %47
     i32 1, label %47
@@ -13391,24 +13391,24 @@ define internal fastcc void @_ZL14replaceCoroEndPN4llvm14AnyCoroEndInstERKNS_4co
 
 46:                                               ; preds = %29
   call fastcc void @_ZL19markCoroutineAsDoneRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %18, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr noundef %2)
-  br i1 %3, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread.i
+  br i1 %3, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread.i
 
 47:                                               ; preds = %29, %29
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
-  br i1 %50, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i, label %51
+  br i1 %50, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i, label %51
 
 51:                                               ; preds = %47
   call void @_ZNK4llvm4coro5Shape11emitDeallocERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueEPNS_9CallGraphE(ptr noundef nonnull align 8 dereferenceable(392) %1, ptr noundef nonnull align 8 dereferenceable(144) %18, ptr noundef %2, ptr noundef null) #15
-  br label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i
+  br label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i
 
-_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i: ; preds = %51, %47, %46, %29
+_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i: ; preds = %51, %47, %46, %29
   %52 = load i32, ptr %20, align 4, !noalias !197
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i
 
-_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i: ; preds = %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i
+_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i: ; preds = %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i
   %54 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #15, !noalias !197
   %55 = extractvalue { ptr, i64 } %54, 0
   %.pr.i.i.i = load i32, ptr %20, align 4, !noalias !197
@@ -13423,9 +13423,9 @@ _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i: ; preds = %_ZL22maybeFree
   %62 = ptrtoint ptr %61 to i64
   br label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i
 
-_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i: ; preds = %57, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i
-  %.0.i.i3.i.i.i = phi ptr [ %55, %57 ], [ %55, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i ], [ null, %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i ]
-  %.0.i.i1.i.i.i = phi i64 [ %62, %57 ], [ 0, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i ], [ 0, %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i ]
+_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i: ; preds = %57, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i
+  %.0.i.i3.i.i.i = phi ptr [ %55, %57 ], [ %55, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i ], [ null, %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i ]
+  %.0.i.i1.i.i.i = phi i64 [ %62, %57 ], [ 0, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i ], [ 0, %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i ]
   %63 = ptrtoint ptr %.0.i.i3.i.i.i to i64
   %64 = sub i64 %.0.i.i1.i.i.i, %63
   %65 = and i64 %64, 68719476720
@@ -13527,13 +13527,13 @@ _ZNK4llvm8CallBase16getOperandBundleEj.exit.thread.i: ; preds = %68, %_ZN4llvm13
   %119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #15
   %120 = load ptr, ptr %18, align 8
   %121 = icmp eq ptr %120, %33
-  br i1 %121, label %_ZL20replaceUnwindCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.argprom.exit, label %122
+  br i1 %121, label %_ZL20replaceUnwindCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.exit, label %122
 
 122:                                              ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread.i
   call void @free(ptr noundef %120) #15
-  br label %_ZL20replaceUnwindCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.argprom.exit
+  br label %_ZL20replaceUnwindCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.exit
 
-_ZL20replaceUnwindCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.argprom.exit: ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread.i, %122
+_ZL20replaceUnwindCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.exit: ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread.i, %122
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
   br label %371
@@ -13763,20 +13763,20 @@ _ZL19replaceCoroEndAsyncPN4llvm14AnyCoroEndInstE.exit.i: ; preds = %237, %233
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %240 = load i8, ptr %239, align 8
   %241 = trunc i8 %240 to i1
-  br i1 %241, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.thread.i, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i16
+  br i1 %241, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.thread.i, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i16
 
-_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.thread.i: ; preds = %238
+_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.thread.i: ; preds = %238
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   br label %251
 
-_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i16: ; preds = %238
+_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i16: ; preds = %238
   call void @_ZNK4llvm4coro5Shape11emitDeallocERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueEPNS_9CallGraphE(ptr noundef nonnull align 8 dereferenceable(392) %1, ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef %2, ptr noundef null) #15
   %.pr.i = load i32, ptr %138, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %switch.i = icmp eq i32 %.pr.i, 0
   br i1 %switch.i, label %242, label %251
 
-242:                                              ; preds = %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i16
+242:                                              ; preds = %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i16
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %244 = load ptr, ptr %243, align 8
   %245 = load ptr, ptr %244, align 8
@@ -13788,7 +13788,7 @@ _ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderD
   %250 = call noundef ptr @_ZN4llvm12FunctionType3getEPNS_4TypeENS_8ArrayRefIS2_EEb(ptr noundef %246, ptr nonnull %6, i64 1, i1 noundef zeroext false) #15
   br label %_ZNK4llvm4coro5Shape21getResumeFunctionTypeEv.exit.i
 
-251:                                              ; preds = %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.i16, %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit.thread.i
+251:                                              ; preds = %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.i16, %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit.thread.i
   %252 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
@@ -13898,20 +13898,20 @@ _ZNK4llvm4coro5Shape21getResumeFunctionTypeEv.exit.i: ; preds = %251, %242
   %317 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %318 = load i8, ptr %317, align 8
   %319 = trunc i8 %318 to i1
-  br i1 %319, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit58.thread.i, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit58.i
+  br i1 %319, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit58.thread.i, label %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit58.i
 
-_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit58.thread.i: ; preds = %316
+_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit58.thread.i: ; preds = %316
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   br label %329
 
-_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit58.i: ; preds = %316
+_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit58.i: ; preds = %316
   call void @_ZNK4llvm4coro5Shape11emitDeallocERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueEPNS_9CallGraphE(ptr noundef nonnull align 8 dereferenceable(392) %1, ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef %2, ptr noundef null) #15
   %.pr7.i = load i32, ptr %138, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %switch9.i = icmp eq i32 %.pr7.i, 0
   br i1 %switch9.i, label %320, label %329
 
-320:                                              ; preds = %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit58.i
+320:                                              ; preds = %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit58.i
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %322 = load ptr, ptr %321, align 8
   %323 = load ptr, ptr %322, align 8
@@ -13923,7 +13923,7 @@ _ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderD
   %328 = call noundef ptr @_ZN4llvm12FunctionType3getEPNS_4TypeENS_8ArrayRefIS2_EEb(ptr noundef %324, ptr nonnull %5, i64 1, i1 noundef zeroext false) #15
   br label %_ZNK4llvm4coro5Shape21getResumeFunctionTypeEv.exit60.i
 
-329:                                              ; preds = %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit58.i, %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.argprom.exit58.thread.i
+329:                                              ; preds = %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit58.i, %_ZL22maybeFreeRetconStorageRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERKNS_4coro5ShapeEPNS_5ValueEPNS_9CallGraphE.exit58.thread.i
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %331 = load ptr, ptr %330, align 8
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 24
@@ -13991,13 +13991,13 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i:     ; preds = %350, %312, %264, %_
   %367 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #15
   %368 = load ptr, ptr %11, align 8
   %369 = icmp eq ptr %368, %127
-  br i1 %369, label %_ZL25replaceFallthroughCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.argprom.exit, label %370
+  br i1 %369, label %_ZL25replaceFallthroughCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.exit, label %370
 
 370:                                              ; preds = %366
   call void @free(ptr noundef %368) #15
-  br label %_ZL25replaceFallthroughCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.argprom.exit
+  br label %_ZL25replaceFallthroughCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.exit
 
-_ZL25replaceFallthroughCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.argprom.exit: ; preds = %366, %370
+_ZL25replaceFallthroughCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.exit: ; preds = %366, %370
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
@@ -14006,7 +14006,7 @@ _ZL25replaceFallthroughCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5Valu
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   br label %371
 
-371:                                              ; preds = %_ZL25replaceFallthroughCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.argprom.exit, %_ZL20replaceUnwindCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.argprom.exit
+371:                                              ; preds = %_ZL25replaceFallthroughCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.exit, %_ZL20replaceUnwindCoroEndPN4llvm14AnyCoroEndInstERKNS_4coro5ShapeEPNS_5ValueEbPNS_9CallGraphE.exit
   %372 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
   br i1 %3, label %373, label %375
 
@@ -15863,8 +15863,8 @@ attributes #17 = { builtin nounwind }
 !93 = distinct !{!93, !"_ZN4llvm12instructionsERNS_8FunctionE"}
 !94 = distinct !{!94, !5}
 !95 = !{!96, !98}
-!96 = distinct !{!96, !97, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_.argprom: argument 0"}
-!97 = distinct !{!97, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_.argprom"}
+!96 = distinct !{!96, !97, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_: argument 0"}
+!97 = distinct !{!97, !"_ZN4llvm17make_filter_rangeIRNS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_L13filterDbgVarsES8_EUlRS5_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISF_E4typeEEEEEOSD_SG_"}
 !98 = distinct !{!98, !99, !"_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE: argument 0"}
 !99 = distinct !{!99, !"_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE"}
 !100 = distinct !{!100, !5}

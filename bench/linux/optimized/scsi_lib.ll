@@ -193,12 +193,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @scsi_queue_insert(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  tail call fastcc void @__scsi_queue_insert.argelim(ptr noundef %0, i32 noundef %1)
+  tail call fastcc void @__scsi_queue_insert(ptr noundef %0, i32 noundef %1)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__scsi_queue_insert.argelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__scsi_queue_insert(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   switch i32 %1, label %19 [
     i32 4181, label %4
@@ -4461,11 +4461,11 @@ define internal void @scsi_complete(ptr noundef %0) #0 align 16 {
   br label %38
 
 35:                                               ; preds = %34
-  tail call fastcc void @__scsi_queue_insert.argelim(ptr noundef %2, i32 noundef 4183)
+  tail call fastcc void @__scsi_queue_insert(ptr noundef %2, i32 noundef 4183)
   br label %38
 
 36:                                               ; preds = %34
-  tail call fastcc void @__scsi_queue_insert.argelim(ptr noundef %2, i32 noundef 4182)
+  tail call fastcc void @__scsi_queue_insert(ptr noundef %2, i32 noundef 4182)
   br label %38
 
 37:                                               ; preds = %34

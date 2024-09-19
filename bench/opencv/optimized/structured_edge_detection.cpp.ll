@@ -572,13 +572,13 @@ _ZN2cv3PtrINS_8ximgproc15RFFeatureGetterEED2Ev.exit: ; preds = %_ZN2cv3PtrIKNS_8
 
 .noexc92:                                         ; preds = %.noexc91
   %201 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull @.str.13)
-          to label %_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit unwind label %283
+          to label %_ZN2cvlsERSoRKNS_9TickMeterE.exit unwind label %283
 
-_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit:        ; preds = %.noexc92
+_ZN2cvlsERSoRKNS_9TickMeterE.exit:                ; preds = %.noexc92
   %202 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %201, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %203 unwind label %283
 
-203:                                              ; preds = %_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit
+203:                                              ; preds = %_ZN2cvlsERSoRKNS_9TickMeterE.exit
   %204 = invoke noundef i64 @_ZN2cv12getTickCountEv()
           to label %205 unwind label %283
 
@@ -626,13 +626,13 @@ _ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit:        ; preds = %.noexc92
 
 .noexc99:                                         ; preds = %.noexc98
   %225 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %224, ptr noundef nonnull @.str.13)
-          to label %_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit101 unwind label %285
+          to label %_ZN2cvlsERSoRKNS_9TickMeterE.exit101 unwind label %285
 
-_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit101:     ; preds = %.noexc99
+_ZN2cvlsERSoRKNS_9TickMeterE.exit101:             ; preds = %.noexc99
   %226 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %225, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %227 unwind label %285
 
-227:                                              ; preds = %_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit101
+227:                                              ; preds = %_ZN2cvlsERSoRKNS_9TickMeterE.exit101
   %228 = invoke noundef i64 @_ZN2cv12getTickCountEv()
           to label %229 unwind label %285
 
@@ -708,13 +708,13 @@ _ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit101:     ; preds = %.noexc99
 
 .noexc107:                                        ; preds = %.noexc106
   %262 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull @.str.13)
-          to label %_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit109 unwind label %291
+          to label %_ZN2cvlsERSoRKNS_9TickMeterE.exit109 unwind label %291
 
-_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit109:     ; preds = %.noexc107
+_ZN2cvlsERSoRKNS_9TickMeterE.exit109:             ; preds = %.noexc107
   %263 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %262, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %264 unwind label %291
 
-264:                                              ; preds = %_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit109
+264:                                              ; preds = %_ZN2cvlsERSoRKNS_9TickMeterE.exit109
   %265 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #9
   %266 = icmp eq i64 %265, 0
   br i1 %266, label %267, label %305
@@ -771,12 +771,12 @@ _ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit109:     ; preds = %.noexc107
   call void @_ZN2cv3PtrINS_8ximgproc15RFFeatureGetterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #9
   br label %362
 
-283:                                              ; preds = %203, %.noexc92, %.noexc91, %194, %_ZN2cv3PtrINS_8ximgproc15RFFeatureGetterEED2Ev.exit, %_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit, %.noexc
+283:                                              ; preds = %203, %.noexc92, %.noexc91, %194, %_ZN2cv3PtrINS_8ximgproc15RFFeatureGetterEED2Ev.exit, %_ZN2cvlsERSoRKNS_9TickMeterE.exit, %.noexc
   %284 = landingpad { ptr, i32 }
           cleanup
   br label %361
 
-285:                                              ; preds = %227, %.noexc99, %.noexc98, %218, %215, %_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit101, %.noexc96
+285:                                              ; preds = %227, %.noexc99, %.noexc98, %218, %215, %_ZN2cvlsERSoRKNS_9TickMeterE.exit101, %.noexc96
   %286 = landingpad { ptr, i32 }
           cleanup
   br label %360
@@ -791,7 +791,7 @@ _ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit109:     ; preds = %.noexc107
           cleanup
   br label %359
 
-291:                                              ; preds = %.noexc107, %.noexc106, %255, %252, %305, %277, %_ZN2cvlsERSoRKNS_9TickMeterE.argprom.exit109, %.noexc104
+291:                                              ; preds = %.noexc107, %.noexc106, %255, %252, %305, %277, %_ZN2cvlsERSoRKNS_9TickMeterE.exit109, %.noexc104
   %292 = landingpad { ptr, i32 }
           cleanup
   br label %358

@@ -6249,58 +6249,58 @@ _ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsub
 22:                                               ; preds = %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
   %23 = getelementptr i8, ptr %.sroa.0.0.i.i, i64 320
   %.val = load ptr, ptr %23, align 32
-  %24 = tail call fastcc noundef i32 @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_.argprom(ptr %.val)
+  %24 = tail call fastcc noundef i32 @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_(ptr %.val)
   ret i32 %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 13) i32 @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_.argprom(ptr readnone %.256.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 13) i32 @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_(ptr readnone %.256.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = icmp eq ptr %.256.val, @_ZTIb
-  br i1 %1, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %2
+  br i1 %1, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %2
 
 2:                                                ; preds = %0
   %3 = icmp eq ptr %.256.val, @_ZTIl
-  br i1 %3, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %4
+  br i1 %3, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %4
 
 4:                                                ; preds = %2
   %5 = icmp eq ptr %.256.val, @_ZTId
-  br i1 %5, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %6
+  br i1 %5, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %6
 
 6:                                                ; preds = %4
   %7 = icmp eq ptr %.256.val, @_ZTIN5drjit5ArrayIdLm3EEE
-  br i1 %7, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %8
+  br i1 %7, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %8
 
 8:                                                ; preds = %6
   %9 = icmp eq ptr %.256.val, @_ZTINSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE
-  br i1 %9, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %10
+  br i1 %9, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %10
 
 10:                                               ; preds = %8
   %11 = icmp eq ptr %.256.val, @_ZTIN7mitsuba9TransformINS_5PointIdLm3EEEEE
-  br i1 %11, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %12
+  br i1 %11, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %12
 
 12:                                               ; preds = %10
   %13 = icmp eq ptr %.256.val, @_ZTIN7mitsuba9TransformINS_5PointIdLm4EEEEE
-  br i1 %13, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %14
+  br i1 %13, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %14
 
 14:                                               ; preds = %12
   %15 = icmp eq ptr %.256.val, @_ZTINSt3__110shared_ptrIvEE
-  br i1 %15, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %16
+  br i1 %15, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %16
 
 16:                                               ; preds = %14
   %17 = icmp eq ptr %.256.val, @_ZTIN7mitsuba5ColorIdLm3EEE
-  br i1 %17, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %18
+  br i1 %17, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %18
 
 18:                                               ; preds = %16
   %19 = icmp eq ptr %.256.val, @_ZTIN7mitsuba14NamedReferenceE
-  br i1 %19, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %20
+  br i1 %19, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %20
 
 20:                                               ; preds = %18
   %21 = icmp eq ptr %.256.val, @_ZTIN7mitsuba3refINS_6ObjectEEE
-  br i1 %21, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %22
+  br i1 %21, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %22
 
 22:                                               ; preds = %20
   %23 = icmp eq ptr %.256.val, @_ZTIPKv
-  br i1 %23, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit, label %24
+  br i1 %23, label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit, label %24
 
 24:                                               ; preds = %22
   %25 = tail call ptr @__cxa_allocate_exception(i64 16) #28
@@ -6317,7 +6317,7 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZN7mitsuba7variantIJbldN5d
   tail call void @__cxa_free_exception(ptr %25) #28
   resume { ptr, i32 } %28
 
-_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit: ; preds = %0, %2, %4, %6, %8, %10, %12, %14, %16, %18, %20, %22
+_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit: ; preds = %0, %2, %4, %6, %8, %10, %12, %14, %16, %18, %20, %22
   %.0.i = phi i32 [ 0, %0 ], [ 1, %2 ], [ 2, %4 ], [ 3, %6 ], [ 9, %8 ], [ 5, %10 ], [ 6, %12 ], [ 4, %14 ], [ 8, %16 ], [ 10, %18 ], [ 11, %20 ], [ 12, %22 ]
   ret i32 %.0.i
 }
@@ -6832,7 +6832,7 @@ define void @_ZNK7mitsuba10Properties16named_referencesEv(ptr dead_on_unwind noa
   %16 = getelementptr inbounds i8, ptr %.sroa.015.023, i64 64
   %17 = getelementptr i8, ptr %.sroa.015.023, i64 320
   %.val = load ptr, ptr %17, align 32
-  %18 = invoke fastcc noundef i32 @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_.argprom(ptr %.val)
+  %18 = invoke fastcc noundef i32 @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_(ptr %.val)
           to label %19 unwind label %.loopexit
 
 19:                                               ; preds = %14
@@ -7087,7 +7087,7 @@ define void @_ZNK7mitsuba10Properties7objectsEb(ptr dead_on_unwind noalias nonnu
   %17 = getelementptr inbounds i8, ptr %.sroa.015.023, i64 64
   %18 = getelementptr i8, ptr %.sroa.015.023, i64 320
   %.val = load ptr, ptr %18, align 32
-  %19 = invoke fastcc noundef i32 @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_.argprom(ptr %.val)
+  %19 = invoke fastcc noundef i32 @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_(ptr %.val)
           to label %20 unwind label %.loopexit
 
 20:                                               ; preds = %15
@@ -7906,7 +7906,7 @@ _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread19: ; preds = %.preheader.i.i, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit, %54
   %61 = getelementptr inbounds i8, ptr %.sroa.014.028, i64 64
-  invoke fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_.argprom(ptr noundef nonnull align 32 dereferenceable(264) %61, ptr nonnull %4)
+  invoke fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_(ptr noundef nonnull align 32 dereferenceable(264) %61, ptr nonnull %4)
           to label %74 unwind label %59
 
 _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread: ; preds = %.lr.ph.i.i, %42, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit
@@ -7978,7 +7978,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_.argprom(ptr noundef nonnull align 32 dereferenceable(264) %0, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_(ptr noundef nonnull align 32 dereferenceable(264) %0, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__1::basic_string", align 8
   %3 = alloca [2 x i64], align 16
   %4 = alloca %"struct.drjit::StringBuffer", align 8
@@ -7999,7 +7999,7 @@ define internal fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__
   %16 = select i1 %15, ptr @.str.24, ptr @.str.25
   %17 = select i1 %15, i64 4, i64 5
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noundef nonnull %16, i64 noundef %17)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
 19:                                               ; preds = %1
   %20 = icmp eq ptr %12, @_ZTIl
@@ -8008,7 +8008,7 @@ define internal fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__
 21:                                               ; preds = %19
   %.val6.i.i = load i64, ptr %0, align 32
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEl(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, i64 noundef %.val6.i.i)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
 23:                                               ; preds = %19
   %24 = icmp eq ptr %12, @_ZTId
@@ -8017,7 +8017,7 @@ define internal fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__
 25:                                               ; preds = %23
   %.val6.i.i.i = load double, ptr %0, align 32
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEd(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, double noundef %.val6.i.i.i)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
 27:                                               ; preds = %23
   %28 = icmp eq ptr %12, @_ZTIN5drjit5ArrayIdLm3EEE
@@ -8037,7 +8037,7 @@ define internal fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__
   %31 = load ptr, ptr %10, align 8
   %32 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #28
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noundef %31, i64 noundef %32)
-          to label %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKN5drjit5ArrayIdLm3EEE.argprom.exit.i.i.i.i unwind label %34
+          to label %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKN5drjit5ArrayIdLm3EEE.exit.i.i.i.i unwind label %34
 
 common.resume.i.i.i.i:                            ; preds = %138, %131, %92, %77, %64, %34
   %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %35, %34 ], [ %65, %64 ], [ %78, %77 ], [ %93, %92 ], [ %132, %131 ], [ %139, %138 ]
@@ -8050,11 +8050,11 @@ common.resume.i.i.i.i:                            ; preds = %138, %131, %92, %77
   call void @free(ptr noundef %36) #28
   br label %common.resume.i.i.i.i
 
-_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKN5drjit5ArrayIdLm3EEE.argprom.exit.i.i.i.i: ; preds = %30
+_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKN5drjit5ArrayIdLm3EEE.exit.i.i.i.i: ; preds = %30
   %37 = load ptr, ptr %10, align 8
   call void @free(ptr noundef %37) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
 38:                                               ; preds = %27
   %39 = icmp eq ptr %12, @_ZTINSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE
@@ -8076,7 +8076,7 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKN5drjit5ArrayIdLm3EEE.argprom.exit.
   %52 = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 %51, i64 %49
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %47, i64 noundef %52)
   %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull @.str.29, i64 noundef 1)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
 55:                                               ; preds = %38
   %56 = icmp eq ptr %12, @_ZTIN7mitsuba9TransformINS_5PointIdLm3EEEEE
@@ -8099,7 +8099,7 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKN5drjit5ArrayIdLm3EEE.argprom.exit.
   %61 = load ptr, ptr %8, align 8
   %62 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #28
   %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noundef %61, i64 noundef %62)
-          to label %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm3EEEEE.argprom.exit.i.i.i.i.i.i unwind label %64
+          to label %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm3EEEEE.exit.i.i.i.i.i.i unwind label %64
 
 64:                                               ; preds = %60, %57
   %65 = landingpad { ptr, i32 }
@@ -8108,11 +8108,11 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKN5drjit5ArrayIdLm3EEE.argprom.exit.
   call void @free(ptr noundef %66) #28
   br label %common.resume.i.i.i.i
 
-_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm3EEEEE.argprom.exit.i.i.i.i.i.i: ; preds = %60
+_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm3EEEEE.exit.i.i.i.i.i.i: ; preds = %60
   %67 = load ptr, ptr %8, align 8
   call void @free(ptr noundef %67) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
 68:                                               ; preds = %55
   %69 = icmp eq ptr %12, @_ZTIN7mitsuba9TransformINS_5PointIdLm4EEEEE
@@ -8135,7 +8135,7 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm3EEEEE.a
   %74 = load ptr, ptr %6, align 8
   %75 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #28
   %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noundef %74, i64 noundef %75)
-          to label %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm4EEEEE.argprom.exit.i.i.i.i.i.i.i unwind label %77
+          to label %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm4EEEEE.exit.i.i.i.i.i.i.i unwind label %77
 
 77:                                               ; preds = %73, %70
   %78 = landingpad { ptr, i32 }
@@ -8144,11 +8144,11 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm3EEEEE.a
   call void @free(ptr noundef %79) #28
   br label %common.resume.i.i.i.i
 
-_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm4EEEEE.argprom.exit.i.i.i.i.i.i.i: ; preds = %73
+_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm4EEEEE.exit.i.i.i.i.i.i.i: ; preds = %73
   %80 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %80) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
 81:                                               ; preds = %68
   %82 = icmp eq ptr %12, @_ZTINSt3__110shared_ptrIvEE
@@ -8157,7 +8157,7 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm4EEEEE.a
 83:                                               ; preds = %81
   %.val6.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 32
   %84 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noundef %.val6.i.i.i.i.i.i.i.i)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
 85:                                               ; preds = %81
   %86 = icmp eq ptr %12, @_ZTIN7mitsuba5ColorIdLm3EEE
@@ -8177,7 +8177,7 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm4EEEEE.a
   %89 = load ptr, ptr %4, align 8
   %90 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #28
   %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noundef %89, i64 noundef %90)
-          to label %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_5ColorIdLm3EEE.argprom.exit.i.i.i.i.i.i.i.i.i unwind label %92
+          to label %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_5ColorIdLm3EEE.exit.i.i.i.i.i.i.i.i.i unwind label %92
 
 92:                                               ; preds = %88, %87
   %93 = landingpad { ptr, i32 }
@@ -8186,11 +8186,11 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm4EEEEE.a
   call void @free(ptr noundef %94) #28
   br label %common.resume.i.i.i.i
 
-_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_5ColorIdLm3EEE.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %88
+_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_5ColorIdLm3EEE.exit.i.i.i.i.i.i.i.i.i: ; preds = %88
   %95 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %95) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
 96:                                               ; preds = %85
   %97 = icmp eq ptr %12, @_ZTIN7mitsuba14NamedReferenceE
@@ -8212,7 +8212,7 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_5ColorIdLm3EEE.argprom.exit.i.i.
   %110 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %109, i64 %107
   %111 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef %105, i64 noundef %110)
   %112 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull @.str.29, i64 noundef 1)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
 113:                                              ; preds = %96
   %114 = icmp eq ptr %12, @_ZTIN7mitsuba3refINS_6ObjectEEE
@@ -8238,7 +8238,7 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_5ColorIdLm3EEE.argprom.exit.i.i.
   %128 = zext nneg i8 %127 to i64
   %129 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %128, i64 %126
   %130 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noundef %124, i64 noundef %129)
-          to label %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_3refINS_6ObjectEEE.argprom.exit.i.i.i.i.i.i.i.i.i.i.i unwind label %131
+          to label %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_3refINS_6ObjectEEE.exit.i.i.i.i.i.i.i.i.i.i.i unwind label %131
 
 131:                                              ; preds = %115
   %132 = landingpad { ptr, i32 }
@@ -8246,14 +8246,14 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_5ColorIdLm3EEE.argprom.exit.i.i.
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #28
   br label %common.resume.i.i.i.i
 
-_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_3refINS_6ObjectEEE.argprom.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %115
+_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_3refINS_6ObjectEEE.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %115
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
 133:                                              ; preds = %113
   %134 = icmp eq ptr %12, @_ZTIPKv
-  br i1 %134, label %_ZN7mitsuba6detail14variant_helperIJPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNSt3__17declvalB8ne190000IS3_EEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSA_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i, label %135
+  br i1 %134, label %_ZN7mitsuba6detail14variant_helperIJPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNSt3__17declvalB8ne190000IS3_EEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSA_.exit.i.i.i.i.i.i.i.i.i.i.i, label %135
 
 135:                                              ; preds = %133
   %136 = tail call ptr @__cxa_allocate_exception(i64 16) #28
@@ -8270,12 +8270,12 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_3refINS_6ObjectEEE.argprom.exit.
   tail call void @__cxa_free_exception(ptr %136) #28
   br label %common.resume.i.i.i.i
 
-_ZN7mitsuba6detail14variant_helperIJPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNSt3__17declvalB8ne190000IS3_EEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSA_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %133
+_ZN7mitsuba6detail14variant_helperIJPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNSt3__17declvalB8ne190000IS3_EEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSA_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %133
   %.val6.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 32
   %140 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noundef %.val6.i.i.i.i.i.i.i.i.i.i.i.i)
-  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit
+  br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit
 
-_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.argprom.exit: ; preds = %14, %21, %25, %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKN5drjit5ArrayIdLm3EEE.argprom.exit.i.i.i.i, %40, %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm3EEEEE.argprom.exit.i.i.i.i.i.i, %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm4EEEEE.argprom.exit.i.i.i.i.i.i.i, %83, %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_5ColorIdLm3EEE.argprom.exit.i.i.i.i.i.i.i.i.i, %98, %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_3refINS_6ObjectEEE.argprom.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN7mitsuba6detail14variant_helperIJPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNSt3__17declvalB8ne190000IS3_EEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSA_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i
+_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit: ; preds = %14, %21, %25, %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKN5drjit5ArrayIdLm3EEE.exit.i.i.i.i, %40, %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm3EEEEE.exit.i.i.i.i.i.i, %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_9TransformINS_5PointIdLm4EEEEE.exit.i.i.i.i.i.i.i, %83, %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_5ColorIdLm3EEE.exit.i.i.i.i.i.i.i.i.i, %98, %_ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_3refINS_6ObjectEEE.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN7mitsuba6detail14variant_helperIJPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNSt3__17declvalB8ne190000IS3_EEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSA_.exit.i.i.i.i.i.i.i.i.i.i.i
   ret void
 }
 
@@ -8430,7 +8430,7 @@ _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread16: ; preds = %.preheader.i.i, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit, %54
   %61 = getelementptr inbounds i8, ptr %.sroa.011.025, i64 64
-  invoke fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_.argprom(ptr noundef nonnull align 32 dereferenceable(264) %61, ptr nonnull %5)
+  invoke fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_(ptr noundef nonnull align 32 dereferenceable(264) %61, ptr nonnull %5)
           to label %69 unwind label %59
 
 _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread: ; preds = %.lr.ph.i.i, %42, %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit
@@ -8663,7 +8663,7 @@ _ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_.e
   %113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef %107, i64 noundef %112)
   %114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull @.str.17, i64 noundef 5)
   %115 = getelementptr inbounds i8, ptr %.sroa.029.037, i64 64
-  call fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_.argprom(ptr noundef nonnull align 32 dereferenceable(264) %115, ptr nonnull %0)
+  call fastcc void @_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclsr11helper_typeE5visitdtdefpT9type_infoaddtdefpT4datafp_EEOT_(ptr noundef nonnull align 32 dereferenceable(264) %115, ptr nonnull %0)
   %116 = getelementptr inbounds i8, ptr %.sroa.029.037, i64 8
   %117 = load ptr, ptr %116, align 8
   %.not.i.i.i14 = icmp eq ptr %117, null

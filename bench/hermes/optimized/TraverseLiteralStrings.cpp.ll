@@ -428,7 +428,7 @@ if.then48:                                        ; preds = %for.body45
   %agg.tmp49.sroa.2.0.call53.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i27, i64 8
   %agg.tmp49.sroa.2.0.copyload = load i64, ptr %agg.tmp49.sroa.2.0.call53.sroa_idx, align 8
   %call42.val = load i8, ptr %11, align 8
-  switch i8 %call42.val, label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit [
+  switch i8 %call42.val, label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit [
     i8 44, label %sw.bb.i
     i8 46, label %sw.bb1.i
     i8 41, label %sw.bb3.i
@@ -441,38 +441,38 @@ if.then48:                                        ; preds = %for.body45
 
 sw.bb.i:                                          ; preds = %if.then48
   %cmp.i28 = icmp eq i32 %i.050, 1
-  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit
+  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 sw.bb1.i:                                         ; preds = %if.then48
   %cmp2.i = icmp eq i32 %i.050, 1
-  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit
+  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 sw.bb3.i:                                         ; preds = %if.then48
   %cmp4.i = icmp eq i32 %i.050, 2
-  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit
+  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 sw.bb5.i:                                         ; preds = %if.then48
   %cmp6.i = icmp eq i32 %i.050, 2
-  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit
+  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 sw.bb7.i:                                         ; preds = %if.then48
   %cmp8.i = icmp eq i32 %i.050, 1
-  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit
+  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 sw.bb9.i:                                         ; preds = %if.then48
   %cmp10.i = icmp eq i32 %i.050, 2
-  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit
+  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 sw.bb11.i:                                        ; preds = %if.then48
   %cmp12.i = icmp eq i32 %i.050, 0
-  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit
+  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 sw.bb13.i:                                        ; preds = %if.then48
   %13 = and i32 %i.050, 1
   %cmp14.i = icmp ne i32 %13, 0
-  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit
+  br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
-_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit: ; preds = %if.then48, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i
+_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit: ; preds = %if.then48, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i
   %retval.0.i = phi i1 [ %cmp14.i, %sw.bb13.i ], [ %cmp12.i, %sw.bb11.i ], [ %cmp10.i, %sw.bb9.i ], [ %cmp8.i, %sw.bb7.i ], [ %cmp6.i, %sw.bb5.i ], [ %cmp4.i, %sw.bb3.i ], [ %cmp2.i, %sw.bb1.i ], [ %cmp.i28, %sw.bb.i ], [ false, %if.then48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i29)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr.i30)
@@ -484,11 +484,11 @@ _ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit: ; preds = 
   %tobool.not.i.i32 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i32, label %if.then.i34, label %_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35
 
-if.then.i34:                                      ; preds = %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit
+if.then.i34:                                      ; preds = %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
   call void @_ZSt25__throw_bad_function_callv() #5
   unreachable
 
-_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35: ; preds = %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.argprom.exit
+_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35: ; preds = %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
   %15 = load ptr, ptr %_M_invoker.i33, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i29, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i30) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i29)

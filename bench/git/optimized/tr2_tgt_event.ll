@@ -268,7 +268,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %copy_ap.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   %tobool.not.i = icmp eq ptr %fmt, null
-  br i1 %tobool.not.i, label %maybe_add_string_va.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %maybe_add_string_va.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %0 = load i8, ptr %fmt, align 1
@@ -280,7 +280,7 @@ land.lhs.true.thread:                             ; preds = %land.lhs.true.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   br label %if.end
 
-maybe_add_string_va.argprom.exit:                 ; preds = %entry
+maybe_add_string_va.exit:                         ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %copy_ap.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   br label %if.end
@@ -304,7 +304,7 @@ if.then:                                          ; preds = %land.lhs.true
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.23, ptr noundef nonnull %fmt) #7
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true.thread, %maybe_add_string_va.argprom.exit, %if.then, %land.lhs.true
+if.end:                                           ; preds = %land.lhs.true.thread, %maybe_add_string_va.exit, %if.then, %land.lhs.true
   call void @jw_end(ptr noundef nonnull %jw) #7
   call void @tr2_dst_write_line(ptr noundef nonnull @tr2dst_event, ptr noundef nonnull %jw) #7
   call void @jw_release(ptr noundef nonnull %jw) #7
@@ -668,12 +668,12 @@ if.end6:                                          ; preds = %if.then5, %if.end
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %copy_ap.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   %tobool.not.i = icmp eq ptr %fmt, null
-  br i1 %tobool.not.i, label %maybe_add_string_va.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %maybe_add_string_va.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end6
   %3 = load i8, ptr %fmt, align 1
   %tobool1.not.i = icmp eq i8 %3, 0
-  br i1 %tobool1.not.i, label %maybe_add_string_va.argprom.exit, label %if.then.i
+  br i1 %tobool1.not.i, label %maybe_add_string_va.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.maybe_add_string_va.buf, i64 24, i1 false)
@@ -684,9 +684,9 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %4 = load ptr, ptr %buf4.i, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.22, ptr noundef %4) #7
   call void @strbuf_release(ptr noundef nonnull %buf.i) #7
-  br label %maybe_add_string_va.argprom.exit
+  br label %maybe_add_string_va.exit
 
-maybe_add_string_va.argprom.exit:                 ; preds = %if.end6, %land.lhs.true.i, %if.then.i
+maybe_add_string_va.exit:                         ; preds = %if.end6, %land.lhs.true.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %copy_ap.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   call void @jw_end(ptr noundef nonnull %jw) #7
@@ -694,7 +694,7 @@ maybe_add_string_va.argprom.exit:                 ; preds = %if.end6, %land.lhs.
   call void @jw_release(ptr noundef nonnull %jw) #7
   br label %if.end7
 
-if.end7:                                          ; preds = %maybe_add_string_va.argprom.exit, %entry
+if.end7:                                          ; preds = %maybe_add_string_va.exit, %entry
   ret void
 }
 
@@ -740,12 +740,12 @@ if.end7:                                          ; preds = %if.then6, %if.end
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %copy_ap.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   %tobool.not.i = icmp eq ptr %fmt, null
-  br i1 %tobool.not.i, label %maybe_add_string_va.argprom.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %maybe_add_string_va.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end7
   %3 = load i8, ptr %fmt, align 1
   %tobool1.not.i = icmp eq i8 %3, 0
-  br i1 %tobool1.not.i, label %maybe_add_string_va.argprom.exit, label %if.then.i
+  br i1 %tobool1.not.i, label %maybe_add_string_va.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.maybe_add_string_va.buf, i64 24, i1 false)
@@ -756,9 +756,9 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %4 = load ptr, ptr %buf4.i, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.22, ptr noundef %4) #7
   call void @strbuf_release(ptr noundef nonnull %buf.i) #7
-  br label %maybe_add_string_va.argprom.exit
+  br label %maybe_add_string_va.exit
 
-maybe_add_string_va.argprom.exit:                 ; preds = %if.end7, %land.lhs.true.i, %if.then.i
+maybe_add_string_va.exit:                         ; preds = %if.end7, %land.lhs.true.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %copy_ap.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   call void @jw_end(ptr noundef nonnull %jw) #7
@@ -766,7 +766,7 @@ maybe_add_string_va.argprom.exit:                 ; preds = %if.end7, %land.lhs.
   call void @jw_release(ptr noundef nonnull %jw) #7
   br label %if.end8
 
-if.end8:                                          ; preds = %maybe_add_string_va.argprom.exit, %entry
+if.end8:                                          ; preds = %maybe_add_string_va.exit, %entry
   ret void
 }
 

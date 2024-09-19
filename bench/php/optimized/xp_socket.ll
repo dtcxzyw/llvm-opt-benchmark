@@ -347,17 +347,17 @@ php_pollfd_for.exit.us.i:                         ; preds = %41, %php_pollfd_for
   %.0.i.us.i = select i1 %35, i32 %37, i32 %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %38 = icmp eq i32 %.0.i.us.i, 0
-  br i1 %38, label %php_sock_stream_wait_for_data.argprom.exit.thread, label %39
+  br i1 %38, label %php_sock_stream_wait_for_data.exit.thread, label %39
 
 39:                                               ; preds = %php_pollfd_for.exit.us.i
   %40 = icmp sgt i32 %.0.i.us.i, -1
-  br i1 %40, label %php_sock_stream_wait_for_data.argprom.exit, label %41
+  br i1 %40, label %php_sock_stream_wait_for_data.exit, label %41
 
 41:                                               ; preds = %39
   %42 = tail call ptr @__errno_location() #15
   %43 = load i32, ptr %42, align 4
   %.not.us.i = icmp eq i32 %43, 4
-  br i1 %.not.us.i, label %php_pollfd_for.exit.us.i, label %php_sock_stream_wait_for_data.argprom.exit
+  br i1 %.not.us.i, label %php_pollfd_for.exit.us.i, label %php_sock_stream_wait_for_data.exit
 
 php_pollfd_for.exit.i:                            ; preds = %59, %php_pollfd_for.exit.preheader.i
   %44 = load i32, ptr %6, align 8
@@ -378,37 +378,37 @@ php_pollfd_for.exit.i:                            ; preds = %59, %php_pollfd_for
   %.0.i.i = select i1 %52, i32 %54, i32 %51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %55 = icmp eq i32 %.0.i.i, 0
-  br i1 %55, label %php_sock_stream_wait_for_data.argprom.exit.thread, label %57
+  br i1 %55, label %php_sock_stream_wait_for_data.exit.thread, label %57
 
-php_sock_stream_wait_for_data.argprom.exit.thread: ; preds = %php_pollfd_for.exit.us.i, %php_pollfd_for.exit.i
+php_sock_stream_wait_for_data.exit.thread:        ; preds = %php_pollfd_for.exit.us.i, %php_pollfd_for.exit.i
   %56 = phi ptr [ %27, %php_pollfd_for.exit.i ], [ %26, %php_pollfd_for.exit.us.i ]
   store i8 1, ptr %56, align 8
   br label %.critedge
 
 57:                                               ; preds = %php_pollfd_for.exit.i
   %58 = icmp sgt i32 %.0.i.i, -1
-  br i1 %58, label %php_sock_stream_wait_for_data.argprom.exit, label %59
+  br i1 %58, label %php_sock_stream_wait_for_data.exit, label %59
 
 59:                                               ; preds = %57
   %60 = tail call ptr @__errno_location() #15
   %61 = load i32, ptr %60, align 4
   %.not.i = icmp eq i32 %61, 4
-  br i1 %.not.i, label %php_pollfd_for.exit.i, label %php_sock_stream_wait_for_data.argprom.exit
+  br i1 %.not.i, label %php_pollfd_for.exit.i, label %php_sock_stream_wait_for_data.exit
 
-php_sock_stream_wait_for_data.argprom.exit:       ; preds = %39, %41, %57, %59
+php_sock_stream_wait_for_data.exit:               ; preds = %39, %41, %57, %59
   %.ph = phi ptr [ %27, %59 ], [ %27, %57 ], [ %26, %41 ], [ %26, %39 ]
   %spec.select77.ph = phi i32 [ 64, %59 ], [ 64, %57 ], [ %spec.select, %41 ], [ %spec.select, %39 ]
   %.pr = load i8, ptr %.ph, align 8
   %.not57 = icmp eq i8 %.pr, 0
-  br i1 %.not57, label %php_sock_stream_wait_for_data.argprom.exit..thread65_crit_edge, label %.critedge
+  br i1 %.not57, label %php_sock_stream_wait_for_data.exit..thread65_crit_edge, label %.critedge
 
-php_sock_stream_wait_for_data.argprom.exit..thread65_crit_edge: ; preds = %php_sock_stream_wait_for_data.argprom.exit
+php_sock_stream_wait_for_data.exit..thread65_crit_edge: ; preds = %php_sock_stream_wait_for_data.exit
   %.pre = load i32, ptr %6, align 8
   br label %.thread65
 
-.thread65:                                        ; preds = %php_sock_stream_wait_for_data.argprom.exit..thread65_crit_edge, %13, %21, %10
-  %62 = phi i32 [ %.pre, %php_sock_stream_wait_for_data.argprom.exit..thread65_crit_edge ], [ %8, %10 ], [ %8, %21 ], [ %8, %13 ]
-  %.049 = phi i32 [ %spec.select77.ph, %php_sock_stream_wait_for_data.argprom.exit..thread65_crit_edge ], [ 0, %10 ], [ 64, %21 ], [ 64, %13 ]
+.thread65:                                        ; preds = %php_sock_stream_wait_for_data.exit..thread65_crit_edge, %13, %21, %10
+  %62 = phi i32 [ %.pre, %php_sock_stream_wait_for_data.exit..thread65_crit_edge ], [ %8, %10 ], [ %8, %21 ], [ %8, %13 ]
+  %.049 = phi i32 [ %spec.select77.ph, %php_sock_stream_wait_for_data.exit..thread65_crit_edge ], [ 0, %10 ], [ 64, %21 ], [ 64, %13 ]
   %63 = call i64 @recv(i32 noundef %62, ptr noundef %1, i64 noundef %2, i32 noundef %.049) #14
   %64 = icmp slt i64 %63, 0
   br i1 %64, label %65, label %73
@@ -485,8 +485,8 @@ php_sock_stream_wait_for_data.argprom.exit..thread65_crit_edge: ; preds = %php_s
   call void @php_stream_notification_notify(ptr noundef nonnull %98, i32 noundef 7, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef %103, i64 noundef %105, ptr noundef null) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %php_sock_stream_wait_for_data.argprom.exit.thread, %php_sock_stream_wait_for_data.argprom.exit, %65, %75, %69, %82, %86, %88, %92, %99, %101, %79, %3, %7
-  %.0 = phi i64 [ -1, %7 ], [ -1, %3 ], [ %63, %79 ], [ %63, %101 ], [ %63, %99 ], [ %63, %92 ], [ %63, %88 ], [ %63, %86 ], [ %63, %82 ], [ 0, %65 ], [ 0, %75 ], [ %63, %69 ], [ -1, %php_sock_stream_wait_for_data.argprom.exit ], [ -1, %php_sock_stream_wait_for_data.argprom.exit.thread ]
+.critedge:                                        ; preds = %php_sock_stream_wait_for_data.exit.thread, %php_sock_stream_wait_for_data.exit, %65, %75, %69, %82, %86, %88, %92, %99, %101, %79, %3, %7
+  %.0 = phi i64 [ -1, %7 ], [ -1, %3 ], [ %63, %79 ], [ %63, %101 ], [ %63, %99 ], [ %63, %92 ], [ %63, %88 ], [ %63, %86 ], [ %63, %82 ], [ 0, %65 ], [ 0, %75 ], [ %63, %69 ], [ -1, %php_sock_stream_wait_for_data.exit ], [ -1, %php_sock_stream_wait_for_data.exit.thread ]
   ret i64 %.0
 }
 

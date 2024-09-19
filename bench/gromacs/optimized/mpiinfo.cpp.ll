@@ -921,7 +921,7 @@ define { i64, ptr } @_ZN3gmx23mpiLibraryVersionStringEv() local_unnamed_addr #0 
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_127findMpiLibraryVersionStringB5cxx11Ev.argprom()
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_127findMpiLibraryVersionStringB5cxx11Ev()
           to label %6 unwind label %10
 
 6:                                                ; preds = %5
@@ -944,7 +944,7 @@ define { i64, ptr } @_ZN3gmx23mpiLibraryVersionStringEv() local_unnamed_addr #0 
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_127findMpiLibraryVersionStringB5cxx11Ev.argprom() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_127findMpiLibraryVersionStringB5cxx11Ev() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #24
   %2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN3gmx23mpiLibraryVersionStringEvE19cachedVersionStringB5cxx11)
@@ -1120,7 +1120,7 @@ define noundef zeroext i1 @_ZN3gmx13usingIntelMpiEv() local_unnamed_addr #0 pers
   br i1 %.not.i, label %_ZN3gmx23mpiLibraryVersionStringEv.exit, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_127findMpiLibraryVersionStringB5cxx11Ev.argprom()
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_127findMpiLibraryVersionStringB5cxx11Ev()
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
@@ -1223,7 +1223,7 @@ define noundef range(i32 0, 3) i32 @_ZN3gmx22checkMpiZEAwareSupportEv() local_un
   br i1 %.not.i, label %_ZN3gmx23mpiLibraryVersionStringEv.exit, label %14
 
 14:                                               ; preds = %12
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_127findMpiLibraryVersionStringB5cxx11Ev.argprom()
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_127findMpiLibraryVersionStringB5cxx11Ev()
           to label %15 unwind label %17
 
 15:                                               ; preds = %14

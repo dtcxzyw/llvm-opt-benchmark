@@ -245,7 +245,7 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumn39adjustCompleteIndicatorCol
   %8 = getelementptr inbounds i8, ptr %0, i64 128
   %9 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %7, %9
-  br i1 %.not8.i, label %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.argprom.exit, label %.lr.ph.i
+  br i1 %.not8.i, label %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %22
   %.sroa.05.09.i = phi ptr [ %23, %22 ], [ %7, %5 ]
@@ -275,7 +275,7 @@ _ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit: ; preds = %22
   %.val.pre = load ptr, ptr %6, align 8
   %.val52.pre = load ptr, ptr %8, align 8
   %.not67.i = icmp eq ptr %.val.pre, %.val52.pre
-  br i1 %.not67.i, label %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.argprom.exit, label %.lr.ph.i53
+  br i1 %.not67.i, label %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit, label %.lr.ph.i53
 
 .lr.ph.i53:                                       ; preds = %_ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit
   %24 = load i32, ptr %3, align 8
@@ -346,7 +346,7 @@ _ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit: ; preds = %22
 54:                                               ; preds = %47, %42, %.sink.split.i.us, %51, %44, %.lr.ph.i53.split.us
   %55 = getelementptr inbounds i8, ptr %.sroa.01.08.i.us, i64 24
   %.not6.i.us = icmp eq ptr %55, %.val52.pre
-  br i1 %.not6.i.us, label %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.argprom.exit, label %.lr.ph.i53.split.us
+  br i1 %.not6.i.us, label %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit, label %.lr.ph.i53.split.us
 
 .lr.ph.i53.split:                                 ; preds = %.lr.ph.i53, %82
   %.sroa.01.08.i = phi ptr [ %83, %82 ], [ %.val.pre, %.lr.ph.i53 ]
@@ -409,9 +409,9 @@ _ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit: ; preds = %22
 82:                                               ; preds = %75, %.sink.split.i, %79, %72, %69, %.lr.ph.i53.split
   %83 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 24
   %.not6.i = icmp eq ptr %83, %.val52.pre
-  br i1 %.not6.i, label %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.argprom.exit, label %.lr.ph.i53.split
+  br i1 %.not6.i, label %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit, label %.lr.ph.i53.split
 
-_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.argprom.exit: ; preds = %82, %54, %5, %_ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit
+_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit: ; preds = %82, %54, %5, %_ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit
   %84 = load i32, ptr %3, align 8
   %85 = icmp eq i32 %84, 1
   %.sroa.270.078.in.v = select i1 %85, i64 24, i64 72
@@ -427,7 +427,7 @@ _ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8Codewo
   %90 = icmp slt i32 %87, %89
   br i1 %90, label %.lr.ph90, label %.loopexit
 
-.lr.ph90:                                         ; preds = %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.argprom.exit
+.lr.ph90:                                         ; preds = %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit
   %91 = getelementptr inbounds i8, ptr %0, i64 112
   %92 = load i32, ptr %91, align 8
   %93 = sub nsw i32 %89, %92
@@ -547,12 +547,12 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %99
   %143 = icmp slt i64 %indvars.iv.next95, %98
   br i1 %143, label %99, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %142, %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.argprom.exit, %2
+.loopexit:                                        ; preds = %142, %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.argprom(i1 noundef zeroext %0, ptr %.0.val, ptr readnone %.8.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #6 {
+define internal fastcc void @_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE(i1 noundef zeroext %0, ptr %.0.val, ptr readnone %.8.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #6 {
   %.not67 = icmp eq ptr %.0.val, %.8.val
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
@@ -1109,7 +1109,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %70
   %108 = icmp eq i32 %107, 1
   %.val = load ptr, ptr %14, align 8
   %.val32 = load ptr, ptr %36, align 8
-  call fastcc void @_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.argprom(i1 noundef zeroext %108, ptr %.val, ptr %.val32, ptr noundef nonnull align 4 dereferenceable(16) %1)
+  call fastcc void @_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE(i1 noundef zeroext %108, ptr %.val, ptr %.val32, ptr noundef nonnull align 4 dereferenceable(16) %1)
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %105, %94, %91, %81, %76, %71

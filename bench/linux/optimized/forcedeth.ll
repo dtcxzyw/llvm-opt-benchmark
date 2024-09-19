@@ -8010,7 +8010,7 @@ define internal fastcc i32 @nv_tx_done_optimized(ptr noundef %0, i32 noundef %1)
 
 56:                                               ; preds = %52
   %.val = load ptr, ptr %17, align 8
-  tail call fastcc void @nv_gear_backoff_reseed.argprom(ptr %.val)
+  tail call fastcc void @nv_gear_backoff_reseed(ptr %.val)
   br label %68
 
 57:                                               ; preds = %52
@@ -8168,7 +8168,7 @@ define internal fastcc i32 @nv_tx_done_optimized(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @nv_gear_backoff_reseed.argprom(ptr %.3120.val) unnamed_addr #2 align 16 {
+define internal fastcc void @nv_gear_backoff_reseed(ptr %.3120.val) unnamed_addr #2 align 16 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
@@ -10357,7 +10357,7 @@ mii_rw.exit:                                      ; preds = %52, %49
   %229 = getelementptr i8, ptr %5, i64 156
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 32512, ptr elementtype(i32) %229) #17, !srcloc !11
   %.val = load ptr, ptr %4, align 8
-  call fastcc void @nv_gear_backoff_reseed.argprom(ptr %.val)
+  call fastcc void @nv_gear_backoff_reseed(ptr %.val)
   br label %230
 
 230:                                              ; preds = %228, %225, %218
@@ -12818,11 +12818,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_request_irq(ptr noundef %
   %77 = getelementptr i8, ptr %4, i64 996
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %77) #17, !srcloc !11
   %.val = load ptr, ptr %3, align 8
-  tail call fastcc void @set_msix_vector_map.argprom(ptr %.val, i32 noundef 0, i32 noundef 135)
+  tail call fastcc void @set_msix_vector_map(ptr %.val, i32 noundef 0, i32 noundef 135)
   %.val6 = load ptr, ptr %3, align 8
-  tail call fastcc void @set_msix_vector_map.argprom(ptr %.val6, i32 noundef 1, i32 noundef 280)
+  tail call fastcc void @set_msix_vector_map(ptr %.val6, i32 noundef 1, i32 noundef 280)
   %.val7 = load ptr, ptr %3, align 8
-  tail call fastcc void @set_msix_vector_map.argprom(ptr %.val7, i32 noundef 2, i32 noundef 33376)
+  tail call fastcc void @set_msix_vector_map(ptr %.val7, i32 noundef 2, i32 noundef 33376)
   br label %89
 
 78:                                               ; preds = %35
@@ -13272,7 +13272,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 declare dso_local void @pci_disable_msix(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @set_msix_vector_map.argprom(ptr %.3120.val, i32 noundef range(i32 0, 3) %0, i32 noundef range(i32 135, 33377) %1) unnamed_addr #2 align 16 {
+define internal fastcc void @set_msix_vector_map(ptr %.3120.val, i32 noundef range(i32 0, 3) %0, i32 noundef range(i32 135, 33377) %1) unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2

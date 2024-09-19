@@ -664,7 +664,7 @@ define dso_local ptr @inet6_lookup_listener(ptr noundef %0, ptr noundef readonly
   %19 = zext i16 %7 to i32
   %20 = getelementptr i8, ptr %0, i64 336
   %.val = load i32, ptr %20, align 16
-  %21 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val, ptr noundef %6, i32 noundef %19)
+  %21 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val, ptr noundef %6, i32 noundef %19)
   %22 = getelementptr inbounds i8, ptr %1, i64 64
   %23 = load ptr, ptr %22, align 64
   %24 = getelementptr inbounds i8, ptr %1, i64 60
@@ -678,7 +678,7 @@ define dso_local ptr @inet6_lookup_listener(ptr noundef %0, ptr noundef readonly
 
 31:                                               ; preds = %18
   %.val2 = load i32, ptr %20, align 16
-  %32 = tail call fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.val2, ptr noundef nonnull @in6addr_any, i32 noundef %19)
+  %32 = tail call fastcc i32 @ipv6_portaddr_hash(i32 %.val2, ptr noundef nonnull @in6addr_any, i32 noundef %19)
   %33 = load ptr, ptr %22, align 64
   %34 = load i32, ptr %24, align 4
   %35 = and i32 %34, %32
@@ -695,7 +695,7 @@ define dso_local ptr @inet6_lookup_listener(ptr noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc i32 @ipv6_portaddr_hash.argprom(i32 %.336.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #3 align 16 {
+define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #3 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8

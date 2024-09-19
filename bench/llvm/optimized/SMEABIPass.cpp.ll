@@ -674,13 +674,13 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   br label %130
 
 130:                                              ; preds = %121, %120
-  br i1 %.not.i.i, label %131, label %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.argprom.exit
+  br i1 %.not.i.i, label %131, label %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.exit
 
 131:                                              ; preds = %130
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.010.040.i = load ptr, ptr %45, align 8
   %.not41.i = icmp eq ptr %.sroa.010.040.i, %132
-  br i1 %.not41.i, label %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.argprom.exit, label %.lr.ph.i
+  br i1 %.not41.i, label %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %131
   %133 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -715,9 +715,9 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i: ; preds = %145, %141, %134
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.010.042.i, i64 8
   %.sroa.010.0.i = load ptr, ptr %150, align 8
   %.not.i = icmp eq ptr %.sroa.010.0.i, %132
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.argprom.exit, label %134
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.exit, label %134
 
-_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.argprom.exit: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i, %130, %131
+_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.exit: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i, %130, %131
   call void @_ZN4llvm8Function9addFnAttrENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.5, i64 26, ptr null, i64 0) #10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -731,8 +731,8 @@ _ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionE
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   br label %151
 
-151:                                              ; preds = %36, %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.argprom.exit, %2, %34
-  %.0 = phi i1 [ false, %34 ], [ false, %2 ], [ true, %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.argprom.exit ], [ false, %36 ]
+151:                                              ; preds = %36, %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.exit, %2, %34
+  %.0 = phi i1 [ false, %34 ], [ false, %2 ], [ true, %_ZN12_GLOBAL__N_16SMEABI23updateNewStateFunctionsEPN4llvm6ModuleEPNS1_8FunctionERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEENS1_8SMEAttrsE.exit ], [ false, %36 ]
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #10
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #10
   %152 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #10

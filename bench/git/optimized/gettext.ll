@@ -97,18 +97,18 @@ if.end5:                                          ; preds = %if.end
   %call1.i = tail call ptr @bind_textdomain_codeset(ptr noundef nonnull @.str.5, ptr noundef %call.i) #9
   %call2.i = tail call i32 (ptr, ...) @test_vsnprintf(ptr nonnull poison, i32 noundef 13, ptr noundef nonnull @.str.8)
   %cmp.i = icmp slt i32 %call2.i, 0
-  br i1 %cmp.i, label %if.then.i, label %init_gettext_charset.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %init_gettext_charset.exit
 
 if.then.i:                                        ; preds = %if.end5
   %call3.i = tail call ptr @setlocale(i32 noundef 0, ptr noundef nonnull @.str.1) #9
-  br label %init_gettext_charset.argprom.exit
+  br label %init_gettext_charset.exit
 
-init_gettext_charset.argprom.exit:                ; preds = %if.end5, %if.then.i
+init_gettext_charset.exit:                        ; preds = %if.end5, %if.then.i
   %call9 = tail call ptr @textdomain(ptr noundef nonnull @.str.5) #9
   store i32 1, ptr @git_gettext_enabled, align 4
   br label %return
 
-return:                                           ; preds = %if.end, %init_gettext_charset.argprom.exit
+return:                                           ; preds = %if.end, %init_gettext_charset.exit
   tail call void @free(ptr noundef %p.0) #9
   ret void
 }

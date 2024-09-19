@@ -2496,13 +2496,13 @@ if.end.i24:                                       ; preds = %if.then4.i, %if.the
   %16 = getelementptr i8, ptr %9, i64 32
   %.val253 = load i64, ptr %16, align 8
   %cmp6.not.i.i = icmp eq i64 %.val251, %.val253
-  br i1 %cmp6.not.i.i, label %edata_snad_comp.argprom.exit, label %if.then.i.i
+  br i1 %cmp6.not.i.i, label %edata_snad_comp.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i24
   %17 = icmp ult i64 %.val251, %.val253
   br i1 %17, label %if.then6.i64, label %if.else7.i61
 
-edata_snad_comp.argprom.exit:                     ; preds = %if.end.i24
+edata_snad_comp.exit:                             ; preds = %if.end.i24
   %18 = getelementptr i8, ptr %9, i64 8
   %.val252 = load ptr, ptr %18, align 8
   %19 = getelementptr i8, ptr %3, i64 8
@@ -2510,7 +2510,7 @@ edata_snad_comp.argprom.exit:                     ; preds = %if.end.i24
   %20 = icmp ult ptr %.val250, %.val252
   br i1 %20, label %if.then6.i64, label %if.else7.i61
 
-if.then6.i64:                                     ; preds = %if.then.i.i, %edata_snad_comp.argprom.exit
+if.then6.i64:                                     ; preds = %if.then.i.i, %edata_snad_comp.exit
   store ptr %3, ptr %11, align 8
   %lchild.i412 = getelementptr inbounds i8, ptr %8, i64 16
   %21 = load ptr, ptr %lchild.i412, align 8
@@ -2529,7 +2529,7 @@ phn_merge_ordered.exit232:                        ; preds = %if.then.i230, %if.t
   store ptr %9, ptr %lchild.i412, align 8
   br label %phn_merge.exit67
 
-if.else7.i61:                                     ; preds = %if.then.i.i, %edata_snad_comp.argprom.exit
+if.else7.i61:                                     ; preds = %if.then.i.i, %edata_snad_comp.exit
   store ptr %9, ptr %8, align 8
   %lchild.i406 = getelementptr inbounds i8, ptr %11, i64 16
   %24 = load ptr, ptr %lchild.i406, align 8
@@ -2587,13 +2587,13 @@ if.end13.i:                                       ; preds = %if.then12.i, %if.th
   %36 = getelementptr i8, ptr %29, i64 32
   %.val249 = load i64, ptr %36, align 8
   %cmp6.not.i.i254 = icmp eq i64 %phn0.i.1.val247, %.val249
-  br i1 %cmp6.not.i.i254, label %edata_snad_comp.argprom.exit260, label %if.then.i.i255
+  br i1 %cmp6.not.i.i254, label %edata_snad_comp.exit260, label %if.then.i.i255
 
 if.then.i.i255:                                   ; preds = %if.end13.i
   %37 = icmp ult i64 %phn0.i.1.val247, %.val249
   br i1 %37, label %if.then6.i, label %if.else7.i
 
-edata_snad_comp.argprom.exit260:                  ; preds = %if.end13.i
+edata_snad_comp.exit260:                          ; preds = %if.end13.i
   %38 = getelementptr i8, ptr %29, i64 8
   %.val248 = load ptr, ptr %38, align 8
   %39 = getelementptr i8, ptr %phn0.i.1276, i64 8
@@ -2601,7 +2601,7 @@ edata_snad_comp.argprom.exit260:                  ; preds = %if.end13.i
   %40 = icmp ult ptr %phn0.i.1.val, %.val248
   br i1 %40, label %if.then6.i, label %if.else7.i
 
-if.then6.i:                                       ; preds = %if.then.i.i255, %edata_snad_comp.argprom.exit260
+if.then6.i:                                       ; preds = %if.then.i.i255, %edata_snad_comp.exit260
   store ptr %phn0.i.1276, ptr %31, align 8
   %lchild.i388 = getelementptr inbounds i8, ptr %28, i64 16
   %41 = load ptr, ptr %lchild.i388, align 8
@@ -2620,7 +2620,7 @@ phn_merge_ordered.exit348:                        ; preds = %if.then.i346, %if.t
   store ptr %29, ptr %lchild.i388, align 8
   br label %if.end15.i
 
-if.else7.i:                                       ; preds = %if.then.i.i255, %edata_snad_comp.argprom.exit260
+if.else7.i:                                       ; preds = %if.then.i.i255, %edata_snad_comp.exit260
   store ptr %29, ptr %28, align 8
   %lchild.i = getelementptr inbounds i8, ptr %31, i64 16
   %44 = load ptr, ptr %lchild.i, align 8
@@ -2691,13 +2691,13 @@ if.else4.i40:                                     ; preds = %while.body20.i
   %60 = getelementptr i8, ptr %phn1.i.0, i64 32
   %phn1.i.0.val246 = load i64, ptr %60, align 8
   %cmp6.not.i.i261 = icmp eq i64 %phn0.i.3.val245, %phn1.i.0.val246
-  br i1 %cmp6.not.i.i261, label %edata_snad_comp.argprom.exit267, label %if.then.i.i262
+  br i1 %cmp6.not.i.i261, label %edata_snad_comp.exit267, label %if.then.i.i262
 
 if.then.i.i262:                                   ; preds = %if.else4.i40
   %61 = icmp ult i64 %phn0.i.3.val245, %phn1.i.0.val246
   br i1 %61, label %if.then6.i46, label %if.else7.i43
 
-edata_snad_comp.argprom.exit267:                  ; preds = %if.else4.i40
+edata_snad_comp.exit267:                          ; preds = %if.else4.i40
   %62 = getelementptr i8, ptr %phn1.i.0, i64 8
   %phn1.i.0.val = load ptr, ptr %62, align 8
   %63 = getelementptr i8, ptr %phn0.i.3, i64 8
@@ -2705,7 +2705,7 @@ edata_snad_comp.argprom.exit267:                  ; preds = %if.else4.i40
   %64 = icmp ult ptr %phn0.i.3.val, %phn1.i.0.val
   br i1 %64, label %if.then6.i46, label %if.else7.i43
 
-if.then6.i46:                                     ; preds = %if.then.i.i262, %edata_snad_comp.argprom.exit267
+if.then6.i46:                                     ; preds = %if.then.i.i262, %edata_snad_comp.exit267
   store ptr %phn0.i.3, ptr %55, align 8
   %lchild.i400 = getelementptr inbounds i8, ptr %58, i64 16
   %65 = load ptr, ptr %lchild.i400, align 8
@@ -2724,7 +2724,7 @@ phn_merge_ordered.exit290:                        ; preds = %if.then.i288, %if.t
   store ptr %phn1.i.0, ptr %lchild.i400, align 8
   br label %phn_merge.exit49
 
-if.else7.i43:                                     ; preds = %if.then.i.i262, %edata_snad_comp.argprom.exit267
+if.else7.i43:                                     ; preds = %if.then.i.i262, %edata_snad_comp.exit267
   store ptr %phn1.i.0, ptr %58, align 8
   %lchild.i394 = getelementptr inbounds i8, ptr %55, i64 16
   %68 = load ptr, ptr %lchild.i394, align 8
@@ -2773,13 +2773,13 @@ if.else4.i76:                                     ; preds = %phn_merge_siblings.
   %78 = getelementptr i8, ptr %phn0.i.0, i64 32
   %phn0.i.0.val244 = load i64, ptr %78, align 8
   %cmp6.not.i.i268 = icmp eq i64 %.val243, %phn0.i.0.val244
-  br i1 %cmp6.not.i.i268, label %edata_snad_comp.argprom.exit274, label %if.then.i.i269
+  br i1 %cmp6.not.i.i268, label %edata_snad_comp.exit274, label %if.then.i.i269
 
 if.then.i.i269:                                   ; preds = %if.else4.i76
   %79 = icmp ult i64 %.val243, %phn0.i.0.val244
   br i1 %79, label %if.then6.i82, label %if.else7.i79
 
-edata_snad_comp.argprom.exit274:                  ; preds = %if.else4.i76
+edata_snad_comp.exit274:                          ; preds = %if.else4.i76
   %80 = getelementptr i8, ptr %phn0.i.0, i64 8
   %phn0.i.0.val = load ptr, ptr %80, align 8
   %81 = getelementptr i8, ptr %76, i64 8
@@ -2787,7 +2787,7 @@ edata_snad_comp.argprom.exit274:                  ; preds = %if.else4.i76
   %82 = icmp ult ptr %.val, %phn0.i.0.val
   br i1 %82, label %if.then6.i82, label %if.else7.i79
 
-if.then6.i82:                                     ; preds = %if.then.i.i269, %edata_snad_comp.argprom.exit274
+if.then6.i82:                                     ; preds = %if.then.i.i269, %edata_snad_comp.exit274
   %83 = ptrtoint ptr %phn0.i.0 to i64
   %add.i17.i = add i64 %83, 40
   %84 = inttoptr i64 %add.i17.i to ptr
@@ -2813,7 +2813,7 @@ phn_merge_ordered.exit:                           ; preds = %if.then.i174, %if.t
   store ptr %phn0.i.0, ptr %lchild.i424, align 8
   br label %phn_merge.exit85
 
-if.else7.i79:                                     ; preds = %if.then.i.i269, %edata_snad_comp.argprom.exit274
+if.else7.i79:                                     ; preds = %if.then.i.i269, %edata_snad_comp.exit274
   %90 = ptrtoint ptr %76 to i64
   %add.i17.i195 = add i64 %90, 40
   %91 = inttoptr i64 %add.i17.i195 to ptr
@@ -2890,13 +2890,13 @@ if.else.i:                                        ; preds = %entry
   %4 = getelementptr i8, ptr %2, i64 32
   %.val117 = load i64, ptr %4, align 8
   %cmp6.not.i.i = icmp eq i64 %phn.val115, %.val117
-  br i1 %cmp6.not.i.i, label %edata_snad_comp.argprom.exit, label %if.then.i.i
+  br i1 %cmp6.not.i.i, label %edata_snad_comp.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
   %5 = icmp ult i64 %phn.val115, %.val117
   br i1 %5, label %if.then5.i, label %if.end.i
 
-edata_snad_comp.argprom.exit:                     ; preds = %if.else.i
+edata_snad_comp.exit:                             ; preds = %if.else.i
   %6 = getelementptr i8, ptr %2, i64 8
   %.val116 = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %phn, i64 8
@@ -2904,7 +2904,7 @@ edata_snad_comp.argprom.exit:                     ; preds = %if.else.i
   %8 = icmp ult ptr %phn.val, %.val116
   br i1 %8, label %if.then5.i, label %if.end.i
 
-if.then5.i:                                       ; preds = %if.then.i.i, %edata_snad_comp.argprom.exit
+if.then5.i:                                       ; preds = %if.then.i.i, %edata_snad_comp.exit
   store ptr %2, ptr %lchild.i, align 8
   %9 = load ptr, ptr %ph, align 8
   %10 = ptrtoint ptr %9 to i64
@@ -2916,7 +2916,7 @@ if.then5.i:                                       ; preds = %if.then.i.i, %edata
   store i64 0, ptr %auxcount.i, align 8
   br label %ph_insert.exit
 
-if.end.i:                                         ; preds = %if.then.i.i, %edata_snad_comp.argprom.exit
+if.end.i:                                         ; preds = %if.then.i.i, %edata_snad_comp.exit
   %auxcount9.i = getelementptr inbounds i8, ptr %ph, i64 8
   %12 = load i64, ptr %auxcount9.i, align 8
   %inc.i = add i64 %12, 1
@@ -3006,13 +3006,13 @@ if.end5.i:                                        ; preds = %if.end.i69
   %40 = getelementptr i8, ptr %35, i64 32
   %.val114 = load i64, ptr %40, align 8
   %cmp6.not.i.i118 = icmp eq i64 %.val112, %.val114
-  br i1 %cmp6.not.i.i118, label %edata_snad_comp.argprom.exit124, label %if.then.i.i119
+  br i1 %cmp6.not.i.i118, label %edata_snad_comp.exit124, label %if.then.i.i119
 
 if.then.i.i119:                                   ; preds = %if.end5.i
   %41 = icmp ult i64 %.val112, %.val114
   br i1 %41, label %if.then6.i.i, label %if.else7.i.i
 
-edata_snad_comp.argprom.exit124:                  ; preds = %if.end5.i
+edata_snad_comp.exit124:                          ; preds = %if.end5.i
   %42 = getelementptr i8, ptr %35, i64 8
   %.val113 = load ptr, ptr %42, align 8
   %43 = getelementptr i8, ptr %32, i64 8
@@ -3020,7 +3020,7 @@ edata_snad_comp.argprom.exit124:                  ; preds = %if.end5.i
   %44 = icmp ult ptr %.val, %.val113
   br i1 %44, label %if.then6.i.i, label %if.else7.i.i
 
-if.then6.i.i:                                     ; preds = %if.then.i.i119, %edata_snad_comp.argprom.exit124
+if.then6.i.i:                                     ; preds = %if.then.i.i119, %edata_snad_comp.exit124
   store ptr %32, ptr %37, align 8
   %lchild.i135.i = getelementptr inbounds i8, ptr %34, i64 16
   %45 = load ptr, ptr %lchild.i135.i, align 8
@@ -3039,7 +3039,7 @@ phn_merge_ordered.exit.i:                         ; preds = %if.then.i95.i, %if.
   store ptr %35, ptr %lchild.i135.i, align 8
   br label %phn_merge.exit.i
 
-if.else7.i.i:                                     ; preds = %if.then.i.i119, %edata_snad_comp.argprom.exit124
+if.else7.i.i:                                     ; preds = %if.then.i.i119, %edata_snad_comp.exit124
   store ptr %35, ptr %34, align 8
   %lchild.i.i = getelementptr inbounds i8, ptr %37, i64 16
   %48 = load ptr, ptr %lchild.i.i, align 8
@@ -3150,13 +3150,13 @@ if.end.i26:                                       ; preds = %if.then4.i, %if.the
   %16 = getelementptr i8, ptr %9, i64 32
   %.val457 = load i64, ptr %16, align 8
   %cmp6.not.i.i = icmp eq i64 %.val455, %.val457
-  br i1 %cmp6.not.i.i, label %edata_snad_comp.argprom.exit, label %if.then.i.i458
+  br i1 %cmp6.not.i.i, label %edata_snad_comp.exit, label %if.then.i.i458
 
 if.then.i.i458:                                   ; preds = %if.end.i26
   %17 = icmp ult i64 %.val455, %.val457
   br i1 %17, label %if.then6.i66, label %if.else7.i63
 
-edata_snad_comp.argprom.exit:                     ; preds = %if.end.i26
+edata_snad_comp.exit:                             ; preds = %if.end.i26
   %18 = getelementptr i8, ptr %9, i64 8
   %.val456 = load ptr, ptr %18, align 8
   %19 = getelementptr i8, ptr %3, i64 8
@@ -3164,7 +3164,7 @@ edata_snad_comp.argprom.exit:                     ; preds = %if.end.i26
   %20 = icmp ult ptr %.val454, %.val456
   br i1 %20, label %if.then6.i66, label %if.else7.i63
 
-if.then6.i66:                                     ; preds = %if.then.i.i458, %edata_snad_comp.argprom.exit
+if.then6.i66:                                     ; preds = %if.then.i.i458, %edata_snad_comp.exit
   store ptr %3, ptr %11, align 8
   %lchild.i415 = getelementptr inbounds i8, ptr %8, i64 16
   %21 = load ptr, ptr %lchild.i415, align 8
@@ -3183,7 +3183,7 @@ phn_merge_ordered.exit235:                        ; preds = %if.then.i233, %if.t
   store ptr %9, ptr %lchild.i415, align 8
   br label %phn_merge.exit69
 
-if.else7.i63:                                     ; preds = %if.then.i.i458, %edata_snad_comp.argprom.exit
+if.else7.i63:                                     ; preds = %if.then.i.i458, %edata_snad_comp.exit
   store ptr %9, ptr %8, align 8
   %lchild.i409 = getelementptr inbounds i8, ptr %11, i64 16
   %24 = load ptr, ptr %lchild.i409, align 8
@@ -3241,13 +3241,13 @@ if.end13.i:                                       ; preds = %if.then12.i, %if.th
   %36 = getelementptr i8, ptr %29, i64 32
   %.val453 = load i64, ptr %36, align 8
   %cmp6.not.i.i460 = icmp eq i64 %phn0.i.1.val451, %.val453
-  br i1 %cmp6.not.i.i460, label %edata_snad_comp.argprom.exit466, label %if.then.i.i461
+  br i1 %cmp6.not.i.i460, label %edata_snad_comp.exit466, label %if.then.i.i461
 
 if.then.i.i461:                                   ; preds = %if.end13.i
   %37 = icmp ult i64 %phn0.i.1.val451, %.val453
   br i1 %37, label %if.then6.i, label %if.else7.i
 
-edata_snad_comp.argprom.exit466:                  ; preds = %if.end13.i
+edata_snad_comp.exit466:                          ; preds = %if.end13.i
   %38 = getelementptr i8, ptr %29, i64 8
   %.val452 = load ptr, ptr %38, align 8
   %39 = getelementptr i8, ptr %phn0.i.1503, i64 8
@@ -3255,7 +3255,7 @@ edata_snad_comp.argprom.exit466:                  ; preds = %if.end13.i
   %40 = icmp ult ptr %phn0.i.1.val, %.val452
   br i1 %40, label %if.then6.i, label %if.else7.i
 
-if.then6.i:                                       ; preds = %if.then.i.i461, %edata_snad_comp.argprom.exit466
+if.then6.i:                                       ; preds = %if.then.i.i461, %edata_snad_comp.exit466
   store ptr %phn0.i.1503, ptr %31, align 8
   %lchild.i391 = getelementptr inbounds i8, ptr %28, i64 16
   %41 = load ptr, ptr %lchild.i391, align 8
@@ -3274,7 +3274,7 @@ phn_merge_ordered.exit351:                        ; preds = %if.then.i349, %if.t
   store ptr %29, ptr %lchild.i391, align 8
   br label %if.end15.i
 
-if.else7.i:                                       ; preds = %if.then.i.i461, %edata_snad_comp.argprom.exit466
+if.else7.i:                                       ; preds = %if.then.i.i461, %edata_snad_comp.exit466
   store ptr %29, ptr %28, align 8
   %lchild.i = getelementptr inbounds i8, ptr %31, i64 16
   %44 = load ptr, ptr %lchild.i, align 8
@@ -3345,13 +3345,13 @@ if.else4.i42:                                     ; preds = %while.body20.i
   %60 = getelementptr i8, ptr %phn1.i.0, i64 32
   %phn1.i.0.val450 = load i64, ptr %60, align 8
   %cmp6.not.i.i467 = icmp eq i64 %phn0.i.3.val449, %phn1.i.0.val450
-  br i1 %cmp6.not.i.i467, label %edata_snad_comp.argprom.exit473, label %if.then.i.i468
+  br i1 %cmp6.not.i.i467, label %edata_snad_comp.exit473, label %if.then.i.i468
 
 if.then.i.i468:                                   ; preds = %if.else4.i42
   %61 = icmp ult i64 %phn0.i.3.val449, %phn1.i.0.val450
   br i1 %61, label %if.then6.i48, label %if.else7.i45
 
-edata_snad_comp.argprom.exit473:                  ; preds = %if.else4.i42
+edata_snad_comp.exit473:                          ; preds = %if.else4.i42
   %62 = getelementptr i8, ptr %phn1.i.0, i64 8
   %phn1.i.0.val = load ptr, ptr %62, align 8
   %63 = getelementptr i8, ptr %phn0.i.3, i64 8
@@ -3359,7 +3359,7 @@ edata_snad_comp.argprom.exit473:                  ; preds = %if.else4.i42
   %64 = icmp ult ptr %phn0.i.3.val, %phn1.i.0.val
   br i1 %64, label %if.then6.i48, label %if.else7.i45
 
-if.then6.i48:                                     ; preds = %if.then.i.i468, %edata_snad_comp.argprom.exit473
+if.then6.i48:                                     ; preds = %if.then.i.i468, %edata_snad_comp.exit473
   store ptr %phn0.i.3, ptr %55, align 8
   %lchild.i403 = getelementptr inbounds i8, ptr %58, i64 16
   %65 = load ptr, ptr %lchild.i403, align 8
@@ -3378,7 +3378,7 @@ phn_merge_ordered.exit293:                        ; preds = %if.then.i291, %if.t
   store ptr %phn1.i.0, ptr %lchild.i403, align 8
   br label %phn_merge.exit51
 
-if.else7.i45:                                     ; preds = %if.then.i.i468, %edata_snad_comp.argprom.exit473
+if.else7.i45:                                     ; preds = %if.then.i.i468, %edata_snad_comp.exit473
   store ptr %phn1.i.0, ptr %58, align 8
   %lchild.i397 = getelementptr inbounds i8, ptr %55, i64 16
   %68 = load ptr, ptr %lchild.i397, align 8
@@ -3433,13 +3433,13 @@ if.else4.i78:                                     ; preds = %phn_merge_siblings.
   %78 = getelementptr i8, ptr %phn0.i.0, i64 32
   %phn0.i.0.val448 = load i64, ptr %78, align 8
   %cmp6.not.i.i474 = icmp eq i64 %.val447, %phn0.i.0.val448
-  br i1 %cmp6.not.i.i474, label %edata_snad_comp.argprom.exit480, label %if.then.i.i475
+  br i1 %cmp6.not.i.i474, label %edata_snad_comp.exit480, label %if.then.i.i475
 
 if.then.i.i475:                                   ; preds = %if.else4.i78
   %79 = icmp ult i64 %.val447, %phn0.i.0.val448
   br i1 %79, label %if.then6.i84, label %if.else7.i81
 
-edata_snad_comp.argprom.exit480:                  ; preds = %if.else4.i78
+edata_snad_comp.exit480:                          ; preds = %if.else4.i78
   %80 = getelementptr i8, ptr %phn0.i.0, i64 8
   %phn0.i.0.val = load ptr, ptr %80, align 8
   %81 = getelementptr i8, ptr %76, i64 8
@@ -3447,7 +3447,7 @@ edata_snad_comp.argprom.exit480:                  ; preds = %if.else4.i78
   %82 = icmp ult ptr %.val446, %phn0.i.0.val
   br i1 %82, label %if.then6.i84, label %if.else7.i81
 
-if.then6.i84:                                     ; preds = %if.then.i.i475, %edata_snad_comp.argprom.exit480
+if.then6.i84:                                     ; preds = %if.then.i.i475, %edata_snad_comp.exit480
   %83 = ptrtoint ptr %phn0.i.0 to i64
   %add.i17.i = add i64 %83, 40
   %84 = inttoptr i64 %add.i17.i to ptr
@@ -3473,7 +3473,7 @@ phn_merge_ordered.exit:                           ; preds = %if.then.i177, %if.t
   store ptr %phn0.i.0, ptr %lchild.i427, align 8
   br label %phn_merge.exit87
 
-if.else7.i81:                                     ; preds = %if.then.i.i475, %edata_snad_comp.argprom.exit480
+if.else7.i81:                                     ; preds = %if.then.i.i475, %edata_snad_comp.exit480
   %90 = ptrtoint ptr %76 to i64
   %add.i17.i198 = add i64 %90, 40
   %91 = inttoptr i64 %add.i17.i198 to ptr
@@ -3546,13 +3546,13 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %if.t
   %108 = getelementptr i8, ptr %101, i64 32
   %.val440 = load i64, ptr %108, align 8
   %cmp6.not.i.i481 = icmp eq i64 %.val438, %.val440
-  br i1 %cmp6.not.i.i481, label %edata_snad_comp.argprom.exit487, label %if.then.i.i482
+  br i1 %cmp6.not.i.i481, label %edata_snad_comp.exit487, label %if.then.i.i482
 
 if.then.i.i482:                                   ; preds = %if.end.i.i
   %109 = icmp ult i64 %.val438, %.val440
   br i1 %109, label %if.then6.i41.i, label %if.else7.i38.i
 
-edata_snad_comp.argprom.exit487:                  ; preds = %if.end.i.i
+edata_snad_comp.exit487:                          ; preds = %if.end.i.i
   %110 = getelementptr i8, ptr %101, i64 8
   %.val439 = load ptr, ptr %110, align 8
   %111 = getelementptr i8, ptr %98, i64 8
@@ -3560,7 +3560,7 @@ edata_snad_comp.argprom.exit487:                  ; preds = %if.end.i.i
   %112 = icmp ult ptr %.val, %.val439
   br i1 %112, label %if.then6.i41.i, label %if.else7.i38.i
 
-if.then6.i41.i:                                   ; preds = %if.then.i.i482, %edata_snad_comp.argprom.exit487
+if.then6.i41.i:                                   ; preds = %if.then.i.i482, %edata_snad_comp.exit487
   store ptr %98, ptr %103, align 8
   %lchild.i302.i = getelementptr inbounds i8, ptr %100, i64 16
   %113 = load ptr, ptr %lchild.i302.i, align 8
@@ -3579,7 +3579,7 @@ phn_merge_ordered.exit.i:                         ; preds = %if.then.i122.i, %if
   store ptr %101, ptr %lchild.i302.i, align 8
   br label %phn_merge.exit44.i
 
-if.else7.i38.i:                                   ; preds = %if.then.i.i482, %edata_snad_comp.argprom.exit487
+if.else7.i38.i:                                   ; preds = %if.then.i.i482, %edata_snad_comp.exit487
   store ptr %101, ptr %100, align 8
   %lchild.i296.i = getelementptr inbounds i8, ptr %103, i64 16
   %116 = load ptr, ptr %lchild.i296.i, align 8
@@ -3637,13 +3637,13 @@ if.end13.i.i:                                     ; preds = %if.then12.i.i, %if.
   %128 = getelementptr i8, ptr %121, i64 32
   %.val443 = load i64, ptr %128, align 8
   %cmp6.not.i.i488 = icmp eq i64 %phn0.i.i.1.val441, %.val443
-  br i1 %cmp6.not.i.i488, label %edata_snad_comp.argprom.exit494, label %if.then.i.i489
+  br i1 %cmp6.not.i.i488, label %edata_snad_comp.exit494, label %if.then.i.i489
 
 if.then.i.i489:                                   ; preds = %if.end13.i.i
   %129 = icmp ult i64 %phn0.i.i.1.val441, %.val443
   br i1 %129, label %if.then6.i.i, label %if.else7.i.i
 
-edata_snad_comp.argprom.exit494:                  ; preds = %if.end13.i.i
+edata_snad_comp.exit494:                          ; preds = %if.end13.i.i
   %130 = getelementptr i8, ptr %121, i64 8
   %.val442 = load ptr, ptr %130, align 8
   %131 = getelementptr i8, ptr %phn0.i.i.1506, i64 8
@@ -3651,7 +3651,7 @@ edata_snad_comp.argprom.exit494:                  ; preds = %if.end13.i.i
   %132 = icmp ult ptr %phn0.i.i.1.val, %.val442
   br i1 %132, label %if.then6.i.i, label %if.else7.i.i
 
-if.then6.i.i:                                     ; preds = %if.then.i.i489, %edata_snad_comp.argprom.exit494
+if.then6.i.i:                                     ; preds = %if.then.i.i489, %edata_snad_comp.exit494
   store ptr %phn0.i.i.1506, ptr %123, align 8
   %lchild.i278.i = getelementptr inbounds i8, ptr %120, i64 16
   %133 = load ptr, ptr %lchild.i278.i, align 8
@@ -3670,7 +3670,7 @@ phn_merge_ordered.exit238.i:                      ; preds = %if.then.i236.i, %if
   store ptr %121, ptr %lchild.i278.i, align 8
   br label %if.end15.i.i
 
-if.else7.i.i:                                     ; preds = %if.then.i.i489, %edata_snad_comp.argprom.exit494
+if.else7.i.i:                                     ; preds = %if.then.i.i489, %edata_snad_comp.exit494
   store ptr %121, ptr %120, align 8
   %lchild.i.i = getelementptr inbounds i8, ptr %123, i64 16
   %136 = load ptr, ptr %lchild.i.i, align 8
@@ -3741,13 +3741,13 @@ if.else4.i17.i:                                   ; preds = %while.body20.i.i
   %152 = getelementptr i8, ptr %phn1.i.i.0, i64 32
   %phn1.i.i.0.val445 = load i64, ptr %152, align 8
   %cmp6.not.i.i495 = icmp eq i64 %phn0.i.i.3.val444, %phn1.i.i.0.val445
-  br i1 %cmp6.not.i.i495, label %edata_snad_comp.argprom.exit501, label %if.then.i.i496
+  br i1 %cmp6.not.i.i495, label %edata_snad_comp.exit501, label %if.then.i.i496
 
 if.then.i.i496:                                   ; preds = %if.else4.i17.i
   %153 = icmp ult i64 %phn0.i.i.3.val444, %phn1.i.i.0.val445
   br i1 %153, label %if.then6.i23.i, label %if.else7.i20.i
 
-edata_snad_comp.argprom.exit501:                  ; preds = %if.else4.i17.i
+edata_snad_comp.exit501:                          ; preds = %if.else4.i17.i
   %154 = getelementptr i8, ptr %phn1.i.i.0, i64 8
   %phn1.i.i.0.val = load ptr, ptr %154, align 8
   %155 = getelementptr i8, ptr %phn0.i.i.3, i64 8
@@ -3755,7 +3755,7 @@ edata_snad_comp.argprom.exit501:                  ; preds = %if.else4.i17.i
   %156 = icmp ult ptr %phn0.i.i.3.val, %phn1.i.i.0.val
   br i1 %156, label %if.then6.i23.i, label %if.else7.i20.i
 
-if.then6.i23.i:                                   ; preds = %if.then.i.i496, %edata_snad_comp.argprom.exit501
+if.then6.i23.i:                                   ; preds = %if.then.i.i496, %edata_snad_comp.exit501
   store ptr %phn0.i.i.3, ptr %147, align 8
   %lchild.i290.i = getelementptr inbounds i8, ptr %150, i64 16
   %157 = load ptr, ptr %lchild.i290.i, align 8
@@ -3774,7 +3774,7 @@ phn_merge_ordered.exit180.i:                      ; preds = %if.then.i178.i, %if
   store ptr %phn1.i.i.0, ptr %lchild.i290.i, align 8
   br label %phn_merge.exit26.i
 
-if.else7.i20.i:                                   ; preds = %if.then.i.i496, %edata_snad_comp.argprom.exit501
+if.else7.i20.i:                                   ; preds = %if.then.i.i496, %edata_snad_comp.exit501
   store ptr %phn1.i.i.0, ptr %150, align 8
   %lchild.i284.i = getelementptr inbounds i8, ptr %147, i64 16
   %160 = load ptr, ptr %lchild.i284.i, align 8
@@ -3900,13 +3900,13 @@ if.end.i100:                                      ; preds = %if.then4.i, %if.the
   %20 = getelementptr i8, ptr %13, i64 32
   %.val728 = load i64, ptr %20, align 8
   %cmp6.not.i.i = icmp eq i64 %.val726, %.val728
-  br i1 %cmp6.not.i.i, label %edata_snad_comp.argprom.exit, label %if.then.i.i729
+  br i1 %cmp6.not.i.i, label %edata_snad_comp.exit, label %if.then.i.i729
 
 if.then.i.i729:                                   ; preds = %if.end.i100
   %21 = icmp ult i64 %.val726, %.val728
   br i1 %21, label %if.then6.i143, label %if.else7.i140
 
-edata_snad_comp.argprom.exit:                     ; preds = %if.end.i100
+edata_snad_comp.exit:                             ; preds = %if.end.i100
   %22 = getelementptr i8, ptr %13, i64 8
   %.val727 = load ptr, ptr %22, align 8
   %23 = getelementptr i8, ptr %7, i64 8
@@ -3914,7 +3914,7 @@ edata_snad_comp.argprom.exit:                     ; preds = %if.end.i100
   %24 = icmp ult ptr %.val725, %.val727
   br i1 %24, label %if.then6.i143, label %if.else7.i140
 
-if.then6.i143:                                    ; preds = %if.then.i.i729, %edata_snad_comp.argprom.exit
+if.then6.i143:                                    ; preds = %if.then.i.i729, %edata_snad_comp.exit
   store ptr %7, ptr %15, align 8
   %lchild.i543 = getelementptr inbounds i8, ptr %12, i64 16
   %25 = load ptr, ptr %lchild.i543, align 8
@@ -3933,7 +3933,7 @@ phn_merge_ordered.exit363:                        ; preds = %if.then.i361, %if.t
   store ptr %13, ptr %lchild.i543, align 8
   br label %phn_merge.exit146
 
-if.else7.i140:                                    ; preds = %if.then.i.i729, %edata_snad_comp.argprom.exit
+if.else7.i140:                                    ; preds = %if.then.i.i729, %edata_snad_comp.exit
   store ptr %13, ptr %12, align 8
   %lchild.i537 = getelementptr inbounds i8, ptr %15, i64 16
   %28 = load ptr, ptr %lchild.i537, align 8
@@ -3991,13 +3991,13 @@ if.end13.i:                                       ; preds = %if.then12.i, %if.th
   %40 = getelementptr i8, ptr %33, i64 32
   %.val724 = load i64, ptr %40, align 8
   %cmp6.not.i.i731 = icmp eq i64 %phn0.i.1.val722, %.val724
-  br i1 %cmp6.not.i.i731, label %edata_snad_comp.argprom.exit737, label %if.then.i.i732
+  br i1 %cmp6.not.i.i731, label %edata_snad_comp.exit737, label %if.then.i.i732
 
 if.then.i.i732:                                   ; preds = %if.end13.i
   %41 = icmp ult i64 %phn0.i.1.val722, %.val724
   br i1 %41, label %if.then6.i, label %if.else7.i
 
-edata_snad_comp.argprom.exit737:                  ; preds = %if.end13.i
+edata_snad_comp.exit737:                          ; preds = %if.end13.i
   %42 = getelementptr i8, ptr %33, i64 8
   %.val723 = load ptr, ptr %42, align 8
   %43 = getelementptr i8, ptr %phn0.i.1801, i64 8
@@ -4005,7 +4005,7 @@ edata_snad_comp.argprom.exit737:                  ; preds = %if.end13.i
   %44 = icmp ult ptr %phn0.i.1.val, %.val723
   br i1 %44, label %if.then6.i, label %if.else7.i
 
-if.then6.i:                                       ; preds = %if.then.i.i732, %edata_snad_comp.argprom.exit737
+if.then6.i:                                       ; preds = %if.then.i.i732, %edata_snad_comp.exit737
   store ptr %phn0.i.1801, ptr %35, align 8
   %lchild.i519 = getelementptr inbounds i8, ptr %32, i64 16
   %45 = load ptr, ptr %lchild.i519, align 8
@@ -4024,7 +4024,7 @@ phn_merge_ordered.exit479:                        ; preds = %if.then.i477, %if.t
   store ptr %33, ptr %lchild.i519, align 8
   br label %if.end15.i
 
-if.else7.i:                                       ; preds = %if.then.i.i732, %edata_snad_comp.argprom.exit737
+if.else7.i:                                       ; preds = %if.then.i.i732, %edata_snad_comp.exit737
   store ptr %33, ptr %32, align 8
   %lchild.i = getelementptr inbounds i8, ptr %35, i64 16
   %48 = load ptr, ptr %lchild.i, align 8
@@ -4095,13 +4095,13 @@ if.else4.i119:                                    ; preds = %while.body20.i
   %64 = getelementptr i8, ptr %phn1.i.0, i64 32
   %phn1.i.0.val721 = load i64, ptr %64, align 8
   %cmp6.not.i.i738 = icmp eq i64 %phn0.i.3.val720, %phn1.i.0.val721
-  br i1 %cmp6.not.i.i738, label %edata_snad_comp.argprom.exit744, label %if.then.i.i739
+  br i1 %cmp6.not.i.i738, label %edata_snad_comp.exit744, label %if.then.i.i739
 
 if.then.i.i739:                                   ; preds = %if.else4.i119
   %65 = icmp ult i64 %phn0.i.3.val720, %phn1.i.0.val721
   br i1 %65, label %if.then6.i125, label %if.else7.i122
 
-edata_snad_comp.argprom.exit744:                  ; preds = %if.else4.i119
+edata_snad_comp.exit744:                          ; preds = %if.else4.i119
   %66 = getelementptr i8, ptr %phn1.i.0, i64 8
   %phn1.i.0.val = load ptr, ptr %66, align 8
   %67 = getelementptr i8, ptr %phn0.i.3, i64 8
@@ -4109,7 +4109,7 @@ edata_snad_comp.argprom.exit744:                  ; preds = %if.else4.i119
   %68 = icmp ult ptr %phn0.i.3.val, %phn1.i.0.val
   br i1 %68, label %if.then6.i125, label %if.else7.i122
 
-if.then6.i125:                                    ; preds = %if.then.i.i739, %edata_snad_comp.argprom.exit744
+if.then6.i125:                                    ; preds = %if.then.i.i739, %edata_snad_comp.exit744
   store ptr %phn0.i.3, ptr %59, align 8
   %lchild.i531 = getelementptr inbounds i8, ptr %62, i64 16
   %69 = load ptr, ptr %lchild.i531, align 8
@@ -4128,7 +4128,7 @@ phn_merge_ordered.exit421:                        ; preds = %if.then.i419, %if.t
   store ptr %phn1.i.0, ptr %lchild.i531, align 8
   br label %phn_merge.exit128
 
-if.else7.i122:                                    ; preds = %if.then.i.i739, %edata_snad_comp.argprom.exit744
+if.else7.i122:                                    ; preds = %if.then.i.i739, %edata_snad_comp.exit744
   store ptr %phn1.i.0, ptr %62, align 8
   %lchild.i525 = getelementptr inbounds i8, ptr %59, i64 16
   %72 = load ptr, ptr %lchild.i525, align 8
@@ -4177,13 +4177,13 @@ if.else4.i155:                                    ; preds = %phn_merge_siblings.
   %82 = getelementptr i8, ptr %phn0.i.0, i64 32
   %phn0.i.0.val719 = load i64, ptr %82, align 8
   %cmp6.not.i.i745 = icmp eq i64 %.val718, %phn0.i.0.val719
-  br i1 %cmp6.not.i.i745, label %edata_snad_comp.argprom.exit751, label %if.then.i.i746
+  br i1 %cmp6.not.i.i745, label %edata_snad_comp.exit751, label %if.then.i.i746
 
 if.then.i.i746:                                   ; preds = %if.else4.i155
   %83 = icmp ult i64 %.val718, %phn0.i.0.val719
   br i1 %83, label %if.then6.i161, label %if.else7.i158
 
-edata_snad_comp.argprom.exit751:                  ; preds = %if.else4.i155
+edata_snad_comp.exit751:                          ; preds = %if.else4.i155
   %84 = getelementptr i8, ptr %phn0.i.0, i64 8
   %phn0.i.0.val = load ptr, ptr %84, align 8
   %85 = getelementptr i8, ptr %80, i64 8
@@ -4191,7 +4191,7 @@ edata_snad_comp.argprom.exit751:                  ; preds = %if.else4.i155
   %86 = icmp ult ptr %.val717, %phn0.i.0.val
   br i1 %86, label %if.then6.i161, label %if.else7.i158
 
-if.then6.i161:                                    ; preds = %if.then.i.i746, %edata_snad_comp.argprom.exit751
+if.then6.i161:                                    ; preds = %if.then.i.i746, %edata_snad_comp.exit751
   %87 = ptrtoint ptr %phn0.i.0 to i64
   %add.i17.i = add i64 %87, 40
   %88 = inttoptr i64 %add.i17.i to ptr
@@ -4217,7 +4217,7 @@ phn_merge_ordered.exit:                           ; preds = %if.then.i305, %if.t
   store ptr %phn0.i.0, ptr %lchild.i555, align 8
   br label %ph_merge_aux.exit
 
-if.else7.i158:                                    ; preds = %if.then.i.i746, %edata_snad_comp.argprom.exit751
+if.else7.i158:                                    ; preds = %if.then.i.i746, %edata_snad_comp.exit751
   %94 = ptrtoint ptr %80 to i64
   %add.i17.i326 = add i64 %94, 40
   %95 = inttoptr i64 %add.i17.i326 to ptr
@@ -4287,13 +4287,13 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %if.t
   %111 = getelementptr i8, ptr %104, i64 32
   %.val711 = load i64, ptr %111, align 8
   %cmp6.not.i.i752 = icmp eq i64 %.val709, %.val711
-  br i1 %cmp6.not.i.i752, label %edata_snad_comp.argprom.exit758, label %if.then.i.i753
+  br i1 %cmp6.not.i.i752, label %edata_snad_comp.exit758, label %if.then.i.i753
 
 if.then.i.i753:                                   ; preds = %if.end.i.i
   %112 = icmp ult i64 %.val709, %.val711
   br i1 %112, label %if.then6.i41.i, label %if.else7.i38.i
 
-edata_snad_comp.argprom.exit758:                  ; preds = %if.end.i.i
+edata_snad_comp.exit758:                          ; preds = %if.end.i.i
   %113 = getelementptr i8, ptr %104, i64 8
   %.val710 = load ptr, ptr %113, align 8
   %114 = getelementptr i8, ptr %101, i64 8
@@ -4301,7 +4301,7 @@ edata_snad_comp.argprom.exit758:                  ; preds = %if.end.i.i
   %115 = icmp ult ptr %.val708, %.val710
   br i1 %115, label %if.then6.i41.i, label %if.else7.i38.i
 
-if.then6.i41.i:                                   ; preds = %if.then.i.i753, %edata_snad_comp.argprom.exit758
+if.then6.i41.i:                                   ; preds = %if.then.i.i753, %edata_snad_comp.exit758
   store ptr %101, ptr %106, align 8
   %lchild.i302.i = getelementptr inbounds i8, ptr %103, i64 16
   %116 = load ptr, ptr %lchild.i302.i, align 8
@@ -4320,7 +4320,7 @@ phn_merge_ordered.exit.i:                         ; preds = %if.then.i122.i, %if
   store ptr %104, ptr %lchild.i302.i, align 8
   br label %phn_merge.exit44.i
 
-if.else7.i38.i:                                   ; preds = %if.then.i.i753, %edata_snad_comp.argprom.exit758
+if.else7.i38.i:                                   ; preds = %if.then.i.i753, %edata_snad_comp.exit758
   store ptr %104, ptr %103, align 8
   %lchild.i296.i = getelementptr inbounds i8, ptr %106, i64 16
   %119 = load ptr, ptr %lchild.i296.i, align 8
@@ -4378,13 +4378,13 @@ if.end13.i.i:                                     ; preds = %if.then12.i.i, %if.
   %131 = getelementptr i8, ptr %124, i64 32
   %.val714 = load i64, ptr %131, align 8
   %cmp6.not.i.i759 = icmp eq i64 %phn0.i.i.1.val712, %.val714
-  br i1 %cmp6.not.i.i759, label %edata_snad_comp.argprom.exit765, label %if.then.i.i760
+  br i1 %cmp6.not.i.i759, label %edata_snad_comp.exit765, label %if.then.i.i760
 
 if.then.i.i760:                                   ; preds = %if.end13.i.i
   %132 = icmp ult i64 %phn0.i.i.1.val712, %.val714
   br i1 %132, label %if.then6.i.i, label %if.else7.i.i
 
-edata_snad_comp.argprom.exit765:                  ; preds = %if.end13.i.i
+edata_snad_comp.exit765:                          ; preds = %if.end13.i.i
   %133 = getelementptr i8, ptr %124, i64 8
   %.val713 = load ptr, ptr %133, align 8
   %134 = getelementptr i8, ptr %phn0.i.i.1808, i64 8
@@ -4392,7 +4392,7 @@ edata_snad_comp.argprom.exit765:                  ; preds = %if.end13.i.i
   %135 = icmp ult ptr %phn0.i.i.1.val, %.val713
   br i1 %135, label %if.then6.i.i, label %if.else7.i.i
 
-if.then6.i.i:                                     ; preds = %if.then.i.i760, %edata_snad_comp.argprom.exit765
+if.then6.i.i:                                     ; preds = %if.then.i.i760, %edata_snad_comp.exit765
   store ptr %phn0.i.i.1808, ptr %126, align 8
   %lchild.i278.i = getelementptr inbounds i8, ptr %123, i64 16
   %136 = load ptr, ptr %lchild.i278.i, align 8
@@ -4411,7 +4411,7 @@ phn_merge_ordered.exit238.i:                      ; preds = %if.then.i236.i, %if
   store ptr %124, ptr %lchild.i278.i, align 8
   br label %if.end15.i.i
 
-if.else7.i.i:                                     ; preds = %if.then.i.i760, %edata_snad_comp.argprom.exit765
+if.else7.i.i:                                     ; preds = %if.then.i.i760, %edata_snad_comp.exit765
   store ptr %124, ptr %123, align 8
   %lchild.i.i = getelementptr inbounds i8, ptr %126, i64 16
   %139 = load ptr, ptr %lchild.i.i, align 8
@@ -4482,13 +4482,13 @@ if.else4.i17.i:                                   ; preds = %while.body20.i.i
   %155 = getelementptr i8, ptr %phn1.i.i.0, i64 32
   %phn1.i.i.0.val716 = load i64, ptr %155, align 8
   %cmp6.not.i.i766 = icmp eq i64 %phn0.i.i.3.val715, %phn1.i.i.0.val716
-  br i1 %cmp6.not.i.i766, label %edata_snad_comp.argprom.exit772, label %if.then.i.i767
+  br i1 %cmp6.not.i.i766, label %edata_snad_comp.exit772, label %if.then.i.i767
 
 if.then.i.i767:                                   ; preds = %if.else4.i17.i
   %156 = icmp ult i64 %phn0.i.i.3.val715, %phn1.i.i.0.val716
   br i1 %156, label %if.then6.i23.i, label %if.else7.i20.i
 
-edata_snad_comp.argprom.exit772:                  ; preds = %if.else4.i17.i
+edata_snad_comp.exit772:                          ; preds = %if.else4.i17.i
   %157 = getelementptr i8, ptr %phn1.i.i.0, i64 8
   %phn1.i.i.0.val = load ptr, ptr %157, align 8
   %158 = getelementptr i8, ptr %phn0.i.i.3, i64 8
@@ -4496,7 +4496,7 @@ edata_snad_comp.argprom.exit772:                  ; preds = %if.else4.i17.i
   %159 = icmp ult ptr %phn0.i.i.3.val, %phn1.i.i.0.val
   br i1 %159, label %if.then6.i23.i, label %if.else7.i20.i
 
-if.then6.i23.i:                                   ; preds = %if.then.i.i767, %edata_snad_comp.argprom.exit772
+if.then6.i23.i:                                   ; preds = %if.then.i.i767, %edata_snad_comp.exit772
   store ptr %phn0.i.i.3, ptr %150, align 8
   %lchild.i290.i = getelementptr inbounds i8, ptr %153, i64 16
   %160 = load ptr, ptr %lchild.i290.i, align 8
@@ -4515,7 +4515,7 @@ phn_merge_ordered.exit180.i:                      ; preds = %if.then.i178.i, %if
   store ptr %phn1.i.i.0, ptr %lchild.i290.i, align 8
   br label %phn_merge.exit26.i
 
-if.else7.i20.i:                                   ; preds = %if.then.i.i767, %edata_snad_comp.argprom.exit772
+if.else7.i20.i:                                   ; preds = %if.then.i.i767, %edata_snad_comp.exit772
   store ptr %phn1.i.i.0, ptr %153, align 8
   %lchild.i284.i = getelementptr inbounds i8, ptr %150, i64 16
   %163 = load ptr, ptr %lchild.i284.i, align 8
@@ -4616,13 +4616,13 @@ if.end.i.i980:                                    ; preds = %if.then4.i.i1137, %
   %187 = getelementptr i8, ptr %180, i64 32
   %.val702 = load i64, ptr %187, align 8
   %cmp6.not.i.i773 = icmp eq i64 %.val700, %.val702
-  br i1 %cmp6.not.i.i773, label %edata_snad_comp.argprom.exit779, label %if.then.i.i774
+  br i1 %cmp6.not.i.i773, label %edata_snad_comp.exit779, label %if.then.i.i774
 
 if.then.i.i774:                                   ; preds = %if.end.i.i980
   %188 = icmp ult i64 %.val700, %.val702
   br i1 %188, label %if.then6.i41.i1123, label %if.else7.i38.i993
 
-edata_snad_comp.argprom.exit779:                  ; preds = %if.end.i.i980
+edata_snad_comp.exit779:                          ; preds = %if.end.i.i980
   %189 = getelementptr i8, ptr %180, i64 8
   %.val701 = load ptr, ptr %189, align 8
   %190 = getelementptr i8, ptr %177, i64 8
@@ -4630,7 +4630,7 @@ edata_snad_comp.argprom.exit779:                  ; preds = %if.end.i.i980
   %191 = icmp ult ptr %.val, %.val701
   br i1 %191, label %if.then6.i41.i1123, label %if.else7.i38.i993
 
-if.then6.i41.i1123:                               ; preds = %if.then.i.i774, %edata_snad_comp.argprom.exit779
+if.then6.i41.i1123:                               ; preds = %if.then.i.i774, %edata_snad_comp.exit779
   store ptr %177, ptr %182, align 8
   %lchild.i302.i1126 = getelementptr inbounds i8, ptr %179, i64 16
   %192 = load ptr, ptr %lchild.i302.i1126, align 8
@@ -4649,7 +4649,7 @@ phn_merge_ordered.exit.i1130:                     ; preds = %if.then.i122.i1133,
   store ptr %180, ptr %lchild.i302.i1126, align 8
   br label %phn_merge.exit44.i1005
 
-if.else7.i38.i993:                                ; preds = %if.then.i.i774, %edata_snad_comp.argprom.exit779
+if.else7.i38.i993:                                ; preds = %if.then.i.i774, %edata_snad_comp.exit779
   store ptr %180, ptr %179, align 8
   %lchild.i296.i996 = getelementptr inbounds i8, ptr %182, i64 16
   %195 = load ptr, ptr %lchild.i296.i996, align 8
@@ -4707,13 +4707,13 @@ if.end13.i.i1075:                                 ; preds = %if.then12.i.i1119, 
   %207 = getelementptr i8, ptr %200, i64 32
   %.val705 = load i64, ptr %207, align 8
   %cmp6.not.i.i780 = icmp eq i64 %phn0.i.i959.1.val703, %.val705
-  br i1 %cmp6.not.i.i780, label %edata_snad_comp.argprom.exit786, label %if.then.i.i781
+  br i1 %cmp6.not.i.i780, label %edata_snad_comp.exit786, label %if.then.i.i781
 
 if.then.i.i781:                                   ; preds = %if.end13.i.i1075
   %208 = icmp ult i64 %phn0.i.i959.1.val703, %.val705
   br i1 %208, label %if.then6.i.i1105, label %if.else7.i.i1088
 
-edata_snad_comp.argprom.exit786:                  ; preds = %if.end13.i.i1075
+edata_snad_comp.exit786:                          ; preds = %if.end13.i.i1075
   %209 = getelementptr i8, ptr %200, i64 8
   %.val704 = load ptr, ptr %209, align 8
   %210 = getelementptr i8, ptr %phn0.i.i959.1804, i64 8
@@ -4721,7 +4721,7 @@ edata_snad_comp.argprom.exit786:                  ; preds = %if.end13.i.i1075
   %211 = icmp ult ptr %phn0.i.i959.1.val, %.val704
   br i1 %211, label %if.then6.i.i1105, label %if.else7.i.i1088
 
-if.then6.i.i1105:                                 ; preds = %if.then.i.i781, %edata_snad_comp.argprom.exit786
+if.then6.i.i1105:                                 ; preds = %if.then.i.i781, %edata_snad_comp.exit786
   store ptr %phn0.i.i959.1804, ptr %202, align 8
   %lchild.i278.i1108 = getelementptr inbounds i8, ptr %199, i64 16
   %212 = load ptr, ptr %lchild.i278.i1108, align 8
@@ -4740,7 +4740,7 @@ phn_merge_ordered.exit238.i1112:                  ; preds = %if.then.i236.i1115,
   store ptr %200, ptr %lchild.i278.i1108, align 8
   br label %if.end15.i.i1070
 
-if.else7.i.i1088:                                 ; preds = %if.then.i.i781, %edata_snad_comp.argprom.exit786
+if.else7.i.i1088:                                 ; preds = %if.then.i.i781, %edata_snad_comp.exit786
   store ptr %200, ptr %199, align 8
   %lchild.i.i1091 = getelementptr inbounds i8, ptr %202, i64 16
   %215 = load ptr, ptr %lchild.i.i1091, align 8
@@ -4811,13 +4811,13 @@ if.else4.i17.i1024:                               ; preds = %while.body20.i.i101
   %231 = getelementptr i8, ptr %phn1.i.i960.0, i64 32
   %phn1.i.i960.0.val707 = load i64, ptr %231, align 8
   %cmp6.not.i.i787 = icmp eq i64 %phn0.i.i959.3.val706, %phn1.i.i960.0.val707
-  br i1 %cmp6.not.i.i787, label %edata_snad_comp.argprom.exit793, label %if.then.i.i788
+  br i1 %cmp6.not.i.i787, label %edata_snad_comp.exit793, label %if.then.i.i788
 
 if.then.i.i788:                                   ; preds = %if.else4.i17.i1024
   %232 = icmp ult i64 %phn0.i.i959.3.val706, %phn1.i.i960.0.val707
   br i1 %232, label %if.then6.i23.i1049, label %if.else7.i20.i1027
 
-edata_snad_comp.argprom.exit793:                  ; preds = %if.else4.i17.i1024
+edata_snad_comp.exit793:                          ; preds = %if.else4.i17.i1024
   %233 = getelementptr i8, ptr %phn1.i.i960.0, i64 8
   %phn1.i.i960.0.val = load ptr, ptr %233, align 8
   %234 = getelementptr i8, ptr %phn0.i.i959.3, i64 8
@@ -4825,7 +4825,7 @@ edata_snad_comp.argprom.exit793:                  ; preds = %if.else4.i17.i1024
   %235 = icmp ult ptr %phn0.i.i959.3.val, %phn1.i.i960.0.val
   br i1 %235, label %if.then6.i23.i1049, label %if.else7.i20.i1027
 
-if.then6.i23.i1049:                               ; preds = %if.then.i.i788, %edata_snad_comp.argprom.exit793
+if.then6.i23.i1049:                               ; preds = %if.then.i.i788, %edata_snad_comp.exit793
   store ptr %phn0.i.i959.3, ptr %226, align 8
   %lchild.i290.i1052 = getelementptr inbounds i8, ptr %229, i64 16
   %236 = load ptr, ptr %lchild.i290.i1052, align 8
@@ -4844,7 +4844,7 @@ phn_merge_ordered.exit180.i1056:                  ; preds = %if.then.i178.i1059,
   store ptr %phn1.i.i960.0, ptr %lchild.i290.i1052, align 8
   br label %phn_merge.exit26.i1039
 
-if.else7.i20.i1027:                               ; preds = %if.then.i.i788, %edata_snad_comp.argprom.exit793
+if.else7.i20.i1027:                               ; preds = %if.then.i.i788, %edata_snad_comp.exit793
   store ptr %phn1.i.i960.0, ptr %229, align 8
   %lchild.i284.i1030 = getelementptr inbounds i8, ptr %226, i64 16
   %239 = load ptr, ptr %lchild.i284.i1030, align 8

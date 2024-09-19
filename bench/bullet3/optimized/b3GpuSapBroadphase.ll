@@ -3858,19 +3858,19 @@ while.body.i:                                     ; preds = %if.end11.i, %while.
   %176 = getelementptr i8, ptr %arrayidx.i395, i64 4
   %arrayidx.val10.i = load i32, ptr %176, align 4
   %cmp.i.i = icmp sgt i32 %removedPair624.sroa.0.0.copyload, %arrayidx.val.i
-  br i1 %cmp.i.i, label %if.then.i396, label %_ZgtRK6b3Int4S1_.argprom.exit.i
+  br i1 %cmp.i.i, label %if.then.i396, label %_ZgtRK6b3Int4S1_.exit.i
 
-_ZgtRK6b3Int4S1_.argprom.exit.i:                  ; preds = %while.body.i
+_ZgtRK6b3Int4S1_.exit.i:                          ; preds = %while.body.i
   %cmp4.i.i = icmp eq i32 %removedPair624.sroa.0.0.copyload, %arrayidx.val.i
   %cmp6.i.i = icmp sgt i32 %removedPair624.sroa.5.0.copyload, %arrayidx.val10.i
   %spec.select.i.i = select i1 %cmp4.i.i, i1 %cmp6.i.i, i1 false
   br i1 %spec.select.i.i, label %if.then.i396, label %if.else.i
 
-if.then.i396:                                     ; preds = %_ZgtRK6b3Int4S1_.argprom.exit.i, %while.body.i
+if.then.i396:                                     ; preds = %_ZgtRK6b3Int4S1_.exit.i, %while.body.i
   %add3.i = add nuw nsw i32 %div8.i, 1
   br label %if.end11.i
 
-if.else.i:                                        ; preds = %_ZgtRK6b3Int4S1_.argprom.exit.i
+if.else.i:                                        ; preds = %_ZgtRK6b3Int4S1_.exit.i
   %cmp.i14.i = icmp slt i32 %removedPair624.sroa.0.0.copyload, %arrayidx.val.i
   %cmp6.i17.i = icmp slt i32 %removedPair624.sroa.5.0.copyload, %arrayidx.val10.i
   %spec.select.i18.i = select i1 %cmp4.i.i, i1 %cmp6.i17.i, i1 false
@@ -4283,19 +4283,19 @@ while.body.i478:                                  ; preds = %if.end11.i500, %whi
   %227 = getelementptr i8, ptr %arrayidx.i484, i64 4
   %arrayidx.val10.i486 = load i32, ptr %227, align 4
   %cmp.i.i487 = icmp sgt i32 %newPair691.sroa.0.0.copyload, %arrayidx.val.i485
-  br i1 %cmp.i.i487, label %if.then.i504, label %_ZgtRK6b3Int4S1_.argprom.exit.i488
+  br i1 %cmp.i.i487, label %if.then.i504, label %_ZgtRK6b3Int4S1_.exit.i488
 
-_ZgtRK6b3Int4S1_.argprom.exit.i488:               ; preds = %while.body.i478
+_ZgtRK6b3Int4S1_.exit.i488:                       ; preds = %while.body.i478
   %cmp4.i.i489 = icmp eq i32 %newPair691.sroa.0.0.copyload, %arrayidx.val.i485
   %cmp6.i.i490 = icmp sgt i32 %newPair691.sroa.6.0.copyload, %arrayidx.val10.i486
   %spec.select.i.i491 = select i1 %cmp4.i.i489, i1 %cmp6.i.i490, i1 false
   br i1 %spec.select.i.i491, label %if.then.i504, label %if.else.i492
 
-if.then.i504:                                     ; preds = %_ZgtRK6b3Int4S1_.argprom.exit.i488, %while.body.i478
+if.then.i504:                                     ; preds = %_ZgtRK6b3Int4S1_.exit.i488, %while.body.i478
   %add3.i505 = add nuw nsw i32 %div8.i482, 1
   br label %if.end11.i500
 
-if.else.i492:                                     ; preds = %_ZgtRK6b3Int4S1_.argprom.exit.i488
+if.else.i492:                                     ; preds = %_ZgtRK6b3Int4S1_.exit.i488
   %cmp.i14.i493 = icmp slt i32 %newPair691.sroa.0.0.copyload, %arrayidx.val.i485
   %cmp6.i17.i494 = icmp slt i32 %newPair691.sroa.6.0.copyload, %arrayidx.val10.i486
   %spec.select.i18.i495 = select i1 %cmp4.i.i489, i1 %cmp6.i17.i494, i1 false

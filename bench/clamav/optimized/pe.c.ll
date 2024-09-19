@@ -11252,11 +11252,11 @@ cli_rawaddr.exit.thread:                          ; preds = %36, %26, %46, %cli_
   %82 = getelementptr inbounds i8, ptr %4, i64 84
   br label %83
 
-83:                                               ; preds = %.lr.ph, %hash_impfns.argprom.exit
-  %.077190 = phi i32 [ 0, %.lr.ph ], [ %87, %hash_impfns.argprom.exit ]
-  %.079189 = phi ptr [ %55, %.lr.ph ], [ %88, %hash_impfns.argprom.exit ]
-  %.080188 = phi i64 [ %60, %.lr.ph ], [ %86, %hash_impfns.argprom.exit ]
-  %.0125187 = phi i32 [ 1, %.lr.ph ], [ %.5, %hash_impfns.argprom.exit ]
+83:                                               ; preds = %.lr.ph, %hash_impfns.exit
+  %.077190 = phi i32 [ 0, %.lr.ph ], [ %87, %hash_impfns.exit ]
+  %.079189 = phi ptr [ %55, %.lr.ph ], [ %88, %hash_impfns.exit ]
+  %.080188 = phi i64 [ %60, %.lr.ph ], [ %86, %hash_impfns.exit ]
+  %.0125187 = phi i32 [ 1, %.lr.ph ], [ %.5, %hash_impfns.exit ]
   %.sroa.0.0.copyload = load i32, ptr %.079189, align 4
   %.sroa.3124.0..079.sroa_idx = getelementptr inbounds i8, ptr %.079189, i64 12
   %.sroa.3124.0.copyload = load i32, ptr %.sroa.3124.0..079.sroa_idx, align 4
@@ -11475,7 +11475,7 @@ cli_rawaddr.exit260.i:                            ; preds = %cli_rawaddr.exit.th
 
 cli_rawaddr.exit260.thread14.i:                   ; preds = %cli_rawaddr.exit260.i, %159, %cli_rawaddr.exit.thread.thread.i, %169
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.371) #20
-  br label %hash_impfns.argprom.exit.thread
+  br label %hash_impfns.exit.thread
 
 cli_rawaddr.exit260.thread.i:                     ; preds = %cli_rawaddr.exit260.i, %171, %cli_rawaddr.exit.thread.thread.i, %cli_rawaddr.exit.i
   %.112.i = phi i32 [ %.sroa.4.0.copyload, %cli_rawaddr.exit260.i ], [ %178, %171 ], [ %.0186.i, %cli_rawaddr.exit.i ], [ %.sroa.4.0.copyload, %cli_rawaddr.exit.thread.thread.i ]
@@ -11494,7 +11494,7 @@ cli_rawaddr.exit260.thread.i:                     ; preds = %cli_rawaddr.exit260
 
 182:                                              ; preds = %180
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.373) #20
-  br label %hash_impfns.argprom.exit.thread
+  br label %hash_impfns.exit.thread
 
 183:                                              ; preds = %._crit_edge228, %cli_rawaddr.exit260.thread.i
   %184 = phi i64 [ %.pre, %._crit_edge228 ], [ %130, %cli_rawaddr.exit260.thread.i ]
@@ -11506,7 +11506,7 @@ cli_rawaddr.exit260.thread.i:                     ; preds = %cli_rawaddr.exit260
   br i1 %.not228.i, label %.preheader.i, label %.preheader61.i
 
 .preheader61.i:                                   ; preds = %183
-  br i1 %or.cond55.not96.i, label %.lr.ph82.i, label %hash_impfns.argprom.exit
+  br i1 %or.cond55.not96.i, label %.lr.ph82.i, label %hash_impfns.exit
 
 .lr.ph82.i:                                       ; preds = %.preheader61.i
   %187 = getelementptr inbounds i8, ptr %128, i64 104
@@ -11515,7 +11515,7 @@ cli_rawaddr.exit260.thread.i:                     ; preds = %cli_rawaddr.exit260
   br label %313
 
 .preheader.i:                                     ; preds = %183
-  br i1 %or.cond55.not96.i, label %.lr.ph99.i, label %hash_impfns.argprom.exit
+  br i1 %or.cond55.not96.i, label %.lr.ph99.i, label %hash_impfns.exit
 
 .lr.ph99.i:                                       ; preds = %.preheader.i
   %189 = getelementptr inbounds i8, ptr %128, i64 104
@@ -11534,7 +11534,7 @@ cli_rawaddr.exit260.thread.i:                     ; preds = %cli_rawaddr.exit260
   %195 = load ptr, ptr %189, align 8
   %196 = tail call ptr %195(ptr noundef nonnull %128, i64 noundef %193, i64 noundef %spec.select.i.i, i32 noundef 0) #20
   %.not.i263.i = icmp eq ptr %196, null
-  br i1 %.not.i263.i, label %hash_impfns.argprom.exit, label %fmap_readn.exit.i
+  br i1 %.not.i263.i, label %hash_impfns.exit, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %191
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.01.i, ptr nonnull align 1 %196, i64 %spec.select.i.i, i1 false)
@@ -11542,7 +11542,7 @@ fmap_readn.exit.i:                                ; preds = %191
   %.sroa.01.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..i = load i32, ptr %.sroa.01.i, align 4
   %198 = icmp ne i32 %.sroa.01.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..i, 0
   %or.cond6.i = select i1 %197, i1 %198, i1 false
-  br i1 %or.cond6.i, label %199, label %hash_impfns.argprom.exit
+  br i1 %or.cond6.i, label %199, label %hash_impfns.exit
 
 199:                                              ; preds = %fmap_readn.exit.i
   %200 = add i32 %.298.i, 4
@@ -11619,7 +11619,7 @@ cli_rawaddr.exit276.i:                            ; preds = %218, %220, %208, %2
 
 237:                                              ; preds = %234
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.374) #20
-  br label %hash_impfns.argprom.exit.thread
+  br label %hash_impfns.exit.thread
 
 238:                                              ; preds = %199
   %239 = trunc i32 %.sroa.01.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..i to i16
@@ -11629,7 +11629,7 @@ cli_rawaddr.exit276.i:                            ; preds = %218, %220, %208, %2
 
 242:                                              ; preds = %238
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.374) #20
-  br label %hash_impfns.argprom.exit.thread
+  br label %hash_impfns.exit.thread
 
 243:                                              ; preds = %238, %234
   %.0204.ph.i = phi ptr [ %235, %234 ], [ %240, %238 ]
@@ -11793,7 +11793,7 @@ cli_rawaddr.exit276.i:                            ; preds = %218, %220, %208, %2
   %.1197.ph.i = phi i32 [ 26, %270 ], [ 20, %.loopexit.i ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.379.sink.i) #20
   tail call void @free(ptr noundef nonnull %.0204.ph.i) #20
-  br label %hash_impfns.argprom.exit.thread
+  br label %hash_impfns.exit.thread
 
 310:                                              ; preds = %305, %cli_rawaddr.exit276.i
   %.4 = phi i32 [ %.3, %cli_rawaddr.exit276.i ], [ 0, %305 ]
@@ -11803,7 +11803,7 @@ cli_rawaddr.exit276.i:                            ; preds = %218, %220, %208, %2
   %311 = zext i32 %200 to i64
   %312 = load i64, ptr %129, align 8
   %or.cond55.not.i = icmp ugt i64 %312, %311
-  br i1 %or.cond55.not.i, label %191, label %hash_impfns.argprom.exit
+  br i1 %or.cond55.not.i, label %191, label %hash_impfns.exit
 
 313:                                              ; preds = %.thread44.i, %.lr.ph82.i
   %.1126 = phi i32 [ %.0125187, %.lr.ph82.i ], [ %.2, %.thread44.i ]
@@ -11816,7 +11816,7 @@ cli_rawaddr.exit276.i:                            ; preds = %218, %220, %208, %2
   %317 = load ptr, ptr %187, align 8
   %318 = tail call ptr %317(ptr noundef nonnull %128, i64 noundef %315, i64 noundef %spec.select.i281.i, i32 noundef 0) #20
   %.not.i282.i = icmp eq ptr %318, null
-  br i1 %.not.i282.i, label %hash_impfns.argprom.exit, label %fmap_readn.exit283.i
+  br i1 %.not.i282.i, label %hash_impfns.exit, label %fmap_readn.exit283.i
 
 fmap_readn.exit283.i:                             ; preds = %313
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i, ptr nonnull align 1 %318, i64 %spec.select.i281.i, i1 false)
@@ -11824,7 +11824,7 @@ fmap_readn.exit283.i:                             ; preds = %313
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i = load i64, ptr %.sroa.0.i, align 8
   %320 = icmp ne i64 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i, 0
   %or.cond9.i = select i1 %319, i1 %320, i1 false
-  br i1 %or.cond9.i, label %321, label %hash_impfns.argprom.exit
+  br i1 %or.cond9.i, label %321, label %hash_impfns.exit
 
 321:                                              ; preds = %fmap_readn.exit283.i
   %322 = add i32 %.381.i, 8
@@ -11901,7 +11901,7 @@ cli_rawaddr.exit296.i:                            ; preds = %323
 
 359:                                              ; preds = %356
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.374) #20
-  br label %hash_impfns.argprom.exit.thread
+  br label %hash_impfns.exit.thread
 
 360:                                              ; preds = %321
   %361 = trunc i64 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i to i16
@@ -11911,7 +11911,7 @@ cli_rawaddr.exit296.i:                            ; preds = %323
 
 364:                                              ; preds = %360
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.374) #20
-  br label %hash_impfns.argprom.exit.thread
+  br label %hash_impfns.exit.thread
 
 365:                                              ; preds = %360, %356
   %.0200.i = phi ptr [ %362, %360 ], [ %357, %356 ]
@@ -12075,7 +12075,7 @@ cli_rawaddr.exit296.i:                            ; preds = %323
   %.3199.ph.i = phi i32 [ 26, %392 ], [ 20, %.loopexit60.i ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.379.sink138.i) #20
   tail call void @free(ptr noundef nonnull %.0200.i) #20
-  br label %hash_impfns.argprom.exit.thread
+  br label %hash_impfns.exit.thread
 
 .thread44.i:                                      ; preds = %339, %427, %349, %cli_rawaddr.exit296.i, %329
   %.2 = phi i32 [ %.1126, %349 ], [ 0, %427 ], [ %.1126, %cli_rawaddr.exit296.i ], [ %.1126, %329 ], [ %.1126, %339 ]
@@ -12085,16 +12085,16 @@ cli_rawaddr.exit296.i:                            ; preds = %323
   %432 = zext i32 %322 to i64
   %433 = load i64, ptr %129, align 8
   %or.cond56.not.i = icmp ugt i64 %433, %432
-  br i1 %or.cond56.not.i, label %313, label %hash_impfns.argprom.exit
+  br i1 %or.cond56.not.i, label %313, label %hash_impfns.exit
 
-hash_impfns.argprom.exit.thread:                  ; preds = %cli_rawaddr.exit260.thread14.i, %364, %359, %242, %237, %182, %.thread27.i, %.thread50.i
+hash_impfns.exit.thread:                          ; preds = %cli_rawaddr.exit260.thread14.i, %364, %359, %242, %237, %182, %.thread27.i, %.thread50.i
   %.0.i114.ph = phi i32 [ %.3199.ph.i, %.thread50.i ], [ %.1197.ph.i, %.thread27.i ], [ 20, %182 ], [ 20, %237 ], [ 20, %242 ], [ 20, %359 ], [ 20, %364 ], [ 26, %cli_rawaddr.exit260.thread14.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.01.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
   tail call void @free(ptr noundef %124) #20
   br label %.loopexit
 
-hash_impfns.argprom.exit:                         ; preds = %313, %fmap_readn.exit283.i, %.thread44.i, %191, %fmap_readn.exit.i, %310, %.preheader61.i, %.preheader.i
+hash_impfns.exit:                                 ; preds = %313, %fmap_readn.exit283.i, %.thread44.i, %191, %fmap_readn.exit.i, %310, %.preheader61.i, %.preheader.i
   %.5 = phi i32 [ %.0125187, %.preheader.i ], [ %.0125187, %.preheader61.i ], [ %.3, %fmap_readn.exit.i ], [ %.4, %310 ], [ %.3, %191 ], [ %.1126, %fmap_readn.exit283.i ], [ %.2, %.thread44.i ], [ %.1126, %313 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.01.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
@@ -12104,7 +12104,7 @@ hash_impfns.argprom.exit:                         ; preds = %313, %fmap_readn.ex
   %436 = select i1 %434, i1 %435, i1 false
   br i1 %436, label %83, label %._crit_edge.preheader
 
-._crit_edge.preheader:                            ; preds = %hash_impfns.argprom.exit, %83, %79
+._crit_edge.preheader:                            ; preds = %hash_impfns.exit, %83, %79
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.preheader, %._crit_edge
@@ -12119,8 +12119,8 @@ hash_impfns.argprom.exit:                         ; preds = %313, %fmap_readn.ex
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %._crit_edge
 
-.loopexit:                                        ; preds = %._crit_edge, %cli_rawaddr.exit110.thread, %122, %126, %62, %68, %75, %hash_impfns.argprom.exit.thread
-  %.0.ph = phi i32 [ %.0.i114.ph, %hash_impfns.argprom.exit.thread ], [ 20, %75 ], [ 20, %68 ], [ 20, %62 ], [ 20, %126 ], [ 12, %122 ], [ 26, %cli_rawaddr.exit110.thread ], [ 0, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %cli_rawaddr.exit110.thread, %122, %126, %62, %68, %75, %hash_impfns.exit.thread
+  %.0.ph = phi i32 [ %.0.i114.ph, %hash_impfns.exit.thread ], [ 20, %75 ], [ 20, %68 ], [ 20, %62 ], [ 20, %126 ], [ 12, %122 ], [ 26, %cli_rawaddr.exit110.thread ], [ 0, %._crit_edge ]
   %442 = load i32, ptr %15, align 4
   %443 = zext i32 %442 to i64
   %444 = getelementptr inbounds i8, ptr %8, i64 128

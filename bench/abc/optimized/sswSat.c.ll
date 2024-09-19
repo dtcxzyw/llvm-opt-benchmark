@@ -40,7 +40,7 @@ define range(i32 -1, 2) i32 @Ssw_NodesAreEquiv(ptr nocapture noundef %0, ptr nou
   %.val = load ptr, ptr %29, align 8
   %30 = getelementptr i8, ptr %1, i64 36
   %.val90 = load i32, ptr %30, align 4
-  %31 = tail call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val, i32 %.val90)
+  %31 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val, i32 %.val90)
   %32 = shl nsw i32 %31, 1
   store i32 %32, ptr %14, align 4
   %33 = load ptr, ptr %21, align 8
@@ -48,7 +48,7 @@ define range(i32 -1, 2) i32 @Ssw_NodesAreEquiv(ptr nocapture noundef %0, ptr nou
   %.val91 = load ptr, ptr %34, align 8
   %35 = getelementptr i8, ptr %2, i64 36
   %.val92 = load i32, ptr %35, align 4
-  %36 = tail call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val91, i32 %.val92)
+  %36 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val91, i32 %.val92)
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = load i64, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %2, i64 24
@@ -285,7 +285,7 @@ Abc_Clock.exit105:                                ; preds = %147, %150
   %170 = getelementptr i8, ptr %169, i64 32
   %.val93 = load ptr, ptr %170, align 8
   %.val94 = load i32, ptr %30, align 4
-  %171 = call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val93, i32 %.val94)
+  %171 = call fastcc i32 @Ssw_ObjSatNum(ptr %.val93, i32 %.val94)
   %172 = shl nsw i32 %171, 1
   %173 = or disjoint i32 %172, 1
   store i32 %173, ptr %14, align 4
@@ -293,7 +293,7 @@ Abc_Clock.exit105:                                ; preds = %147, %150
   %175 = getelementptr i8, ptr %174, i64 32
   %.val95 = load ptr, ptr %175, align 8
   %.val96 = load i32, ptr %35, align 4
-  %176 = call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val95, i32 %.val96)
+  %176 = call fastcc i32 @Ssw_ObjSatNum(ptr %.val95, i32 %.val96)
   %177 = load i64, ptr %37, align 8
   %178 = load i64, ptr %39, align 8
   %179 = xor i64 %178, %177
@@ -516,7 +516,7 @@ Abc_Clock.exit115:                                ; preds = %279, %282
 declare void @Ssw_CnfNodeAddToSolver(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Ssw_ObjSatNum.argprom(ptr nocapture %.32.val, i32 %.36.val) unnamed_addr #0 {
+define internal fastcc i32 @Ssw_ObjSatNum(ptr nocapture %.32.val, i32 %.36.val) unnamed_addr #0 {
   %1 = add nsw i32 %.36.val, 1
   %2 = getelementptr inbounds i8, ptr %.32.val, i64 4
   %3 = load i32, ptr %2, align 4
@@ -668,7 +668,7 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
 32:                                               ; preds = %3
   %33 = getelementptr i8, ptr %24, i64 36
   %.val58 = load i32, ptr %33, align 4
-  %34 = tail call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val57, i32 %.val58)
+  %34 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val57, i32 %.val58)
   %35 = shl nsw i32 %34, 1
   %36 = or disjoint i32 %35, %26
   store i32 %36, ptr %4, align 4
@@ -701,7 +701,7 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
 52:                                               ; preds = %3
   %53 = getelementptr i8, ptr %.1, i64 36
   %.1.val56 = load i32, ptr %53, align 4
-  %54 = tail call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val57, i32 %.1.val56)
+  %54 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val57, i32 %.1.val56)
   %55 = shl nsw i32 %54, 1
   store i32 %55, ptr %4, align 4
   %56 = load ptr, ptr %19, align 8
@@ -709,7 +709,7 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   %.val53 = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %24, i64 36
   %.val54 = load i32, ptr %58, align 4
-  %59 = tail call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val53, i32 %.val54)
+  %59 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val53, i32 %.val54)
   %60 = shl nsw i32 %59, 1
   %61 = or disjoint i32 %60, %26
   %62 = getelementptr inbounds i8, ptr %4, i64 4
@@ -749,7 +749,7 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   %87 = getelementptr i8, ptr %86, i64 32
   %.val52 = load ptr, ptr %87, align 8
   %.1.val = load i32, ptr %53, align 4
-  %88 = call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val52, i32 %.1.val)
+  %88 = call fastcc i32 @Ssw_ObjSatNum(ptr %.val52, i32 %.1.val)
   %89 = shl nsw i32 %88, 1
   %90 = or disjoint i32 %89, 1
   store i32 %90, ptr %4, align 4
@@ -757,7 +757,7 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   %92 = getelementptr i8, ptr %91, i64 32
   %.val = load ptr, ptr %92, align 8
   %.val51 = load i32, ptr %58, align 4
-  %93 = call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val, i32 %.val51)
+  %93 = call fastcc i32 @Ssw_ObjSatNum(ptr %.val, i32 %.val51)
   %94 = shl nsw i32 %93, 1
   %95 = or disjoint i32 %94, %26
   %96 = load ptr, ptr %0, align 8
@@ -825,7 +825,7 @@ define noundef i32 @Ssw_NodeIsConstrained(ptr nocapture noundef readonly %0, ptr
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %13, i64 36
   %.val9 = load i32, ptr %15, align 4
-  %16 = tail call fastcc i32 @Ssw_ObjSatNum.argprom(ptr %.val, i32 %.val9)
+  %16 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val, i32 %.val9)
   %.val13 = load ptr, ptr %6, align 8
   %17 = ptrtoint ptr %.val13 to i64
   %18 = trunc i64 %17 to i32

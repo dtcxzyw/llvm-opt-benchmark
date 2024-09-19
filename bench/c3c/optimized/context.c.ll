@@ -142,7 +142,7 @@ filename_to_module_in_buffer.exit.thread:         ; preds = %char_is_letter.exit
   store i32 64, ptr %2, align 4
   %28 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %fnv1a.argprom.exit, label %.lr.ph.preheader.i13
+  br i1 %.not.i, label %fnv1a.exit, label %.lr.ph.preheader.i13
 
 .lr.ph.preheader.i13:                             ; preds = %filename_to_module_in_buffer.exit.thread
   %wide.trip.count.i14 = zext i32 %28 to i64
@@ -158,21 +158,21 @@ filename_to_module_in_buffer.exit.thread:         ; preds = %char_is_letter.exit
   %33 = mul i32 %32, 16777619
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i14
-  br i1 %exitcond.not.i18, label %fnv1a.argprom.exit, label %.lr.ph.i15, !llvm.loop !10
+  br i1 %exitcond.not.i18, label %fnv1a.exit, label %.lr.ph.i15, !llvm.loop !10
 
-fnv1a.argprom.exit:                               ; preds = %.lr.ph.i15, %filename_to_module_in_buffer.exit.thread
+fnv1a.exit:                                       ; preds = %.lr.ph.i15, %filename_to_module_in_buffer.exit.thread
   %.06.lcssa.i = phi i32 [ -2128831035, %filename_to_module_in_buffer.exit.thread ], [ %33, %.lr.ph.i15 ]
   %34 = call ptr @symtab_add(ptr noundef nonnull @scratch_buffer, i32 noundef %28, i32 noundef %.06.lcssa.i, ptr noundef nonnull %2) #6
   %35 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %35, 64
   br i1 %.not, label %38, label %36
 
-36:                                               ; preds = %fnv1a.argprom.exit
+36:                                               ; preds = %fnv1a.exit
   %37 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @sema_error(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %37) #6
   br label %45
 
-38:                                               ; preds = %fnv1a.argprom.exit
+38:                                               ; preds = %fnv1a.exit
   %39 = call ptr @calloc_arena(i64 noundef 24) #6
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   store i64 0, ptr %39, align 8
@@ -503,7 +503,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef %1)
 45:                                               ; preds = %8
   %46 = getelementptr inbounds i8, ptr %0, i64 152
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call fastcc ptr @expand_.argelim(ptr noundef %47)
+  %48 = tail call fastcc ptr @expand_(ptr noundef %47)
   store ptr %48, ptr %46, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
   %50 = load i32, ptr %49, align 4
@@ -583,7 +583,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef %1)
 91:                                               ; preds = %54
   %92 = getelementptr inbounds i8, ptr %0, i64 32
   %93 = load ptr, ptr %92, align 8
-  %94 = tail call fastcc ptr @expand_.argelim(ptr noundef %93)
+  %94 = tail call fastcc ptr @expand_(ptr noundef %93)
   store ptr %94, ptr %92, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 -8
   %96 = load i32, ptr %95, align 4
@@ -1329,7 +1329,7 @@ decl_register.exit:                               ; preds = %304, %300, %290, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @expand_.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @expand_(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %5
 

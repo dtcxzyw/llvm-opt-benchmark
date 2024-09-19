@@ -6471,9 +6471,9 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %bf.load.i.i = load i8, ptr %recv_initial_metadata.i.i, align 8
   %3 = and i8 %bf.load.i.i, 8
   %bf.cast.not.i.i = icmp eq i8 %3, 0
-  br i1 %bf.cast.not.i.i, label %for.inc.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i"
+  br i1 %bf.cast.not.i.i, label %for.inc.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i"
 
-"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i": ; preds = %land.lhs.true.i
+"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i": ; preds = %land.lhs.true.i
   %payload.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %payload.i.i, align 8
   %recv_initial_metadata_ready.i.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -6481,7 +6481,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %cmp.i.not.i = icmp eq ptr %5, null
   br i1 %cmp.i.not.i, label %for.inc.i, label %if.then.i
 
-if.then.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i"
+if.then.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i"
   %6 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_retry_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i.i.i, label %if.then5.i, label %if.end
@@ -6495,7 +6495,7 @@ if.then5.i:                                       ; preds = %if.then.i
   %.pre18 = load ptr, ptr %payload.phi.trans.insert, align 8
   br label %if.end
 
-for.inc.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i", %land.lhs.true.i, %for.body.i
+for.inc.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i", %land.lhs.true.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.02.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 6
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !74
@@ -7297,9 +7297,9 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %bf.load.i.i = load i8, ptr %recv_message.i.i, align 8
   %3 = and i8 %bf.load.i.i, 16
   %bf.cast.not.i.i = icmp eq i8 %3, 0
-  br i1 %bf.cast.not.i.i, label %for.inc.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i"
+  br i1 %bf.cast.not.i.i, label %for.inc.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i"
 
-"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i": ; preds = %land.lhs.true.i
+"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i": ; preds = %land.lhs.true.i
   %payload.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %payload.i.i, align 8
   %recv_message_ready.i.i = getelementptr inbounds i8, ptr %4, i64 88
@@ -7307,7 +7307,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %cmp.i.not.i = icmp eq ptr %5, null
   br i1 %cmp.i.not.i, label %for.inc.i, label %if.then.i
 
-if.then.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i"
+if.then.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i"
   %6 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_retry_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i.i.i, label %if.then5.i, label %if.end
@@ -7321,7 +7321,7 @@ if.then5.i:                                       ; preds = %if.then.i
   %.pre18 = load ptr, ptr %payload.phi.trans.insert, align 8
   br label %if.end
 
-for.inc.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i", %land.lhs.true.i, %for.body.i
+for.inc.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i", %land.lhs.true.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.02.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 6
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !78
@@ -7998,9 +7998,9 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %bf.load.i.i = load i8, ptr %recv_trailing_metadata.i.i, align 8
   %3 = and i8 %bf.load.i.i, 32
   %bf.cast.not.i.i = icmp eq i8 %3, 0
-  br i1 %bf.cast.not.i.i, label %for.inc.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i"
+  br i1 %bf.cast.not.i.i, label %for.inc.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i"
 
-"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i": ; preds = %land.lhs.true.i
+"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i": ; preds = %land.lhs.true.i
   %payload.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %payload.i.i, align 8
   %recv_trailing_metadata_ready.i.i = getelementptr inbounds i8, ptr %4, i64 112
@@ -8008,7 +8008,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %cmp.i.not.i = icmp eq ptr %5, null
   br i1 %cmp.i.not.i, label %for.inc.i, label %if.then.i
 
-if.then.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i"
+if.then.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i"
   %6 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_retry_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i.i.i, label %if.then5.i, label %if.end
@@ -8022,7 +8022,7 @@ if.then5.i:                                       ; preds = %if.then.i
   %.pre25 = load ptr, ptr %payload.phi.trans.insert, align 8
   br label %if.end
 
-for.inc.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.argprom.exit.i", %land.lhs.true.i, %for.body.i
+for.inc.i:                                        ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i", %land.lhs.true.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.02.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 6
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !82
@@ -15153,7 +15153,7 @@ entry:
   %bf.load.i.i.i.i.i = load i8, ptr %retry_committed_.i.i.i.i.i, align 8
   %1 = and i8 %bf.load.i.i.i.i.i, 8
   %bf.cast.not.i.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %bf.cast.not.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_0JEvEEvOT0_DpOT1_.argprom.exit", label %if.then.i.i.i.i.i
+  br i1 %bf.cast.not.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_0JEvEEvOT0_DpOT1_.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %call_context_.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 432
@@ -15196,9 +15196,9 @@ _ZN9grpc_core34ClientChannelServiceConfigCallData6CommitEv.exit.i.i.i.i.i: ; pre
   %9 = phi ptr [ %.pre.i.i.i.i.i.i, %if.then.if.end_crit_edge.i.i.i.i.i.i ], [ %5, %if.then.i.i.i.i.i ]
   call void %9(i1 noundef zeroext true, ptr noundef nonnull %on_commit.i.i.i.i.i.i, ptr noundef nonnull %on_commit.i.i.i.i.i.i) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %on_commit.i.i.i.i.i.i)
-  br label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_0JEvEEvOT0_DpOT1_.argprom.exit"
+  br label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_0JEvEEvOT0_DpOT1_.exit"
 
-"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_0JEvEEvOT0_DpOT1_.argprom.exit": ; preds = %entry, %_ZN9grpc_core34ClientChannelServiceConfigCallData6CommitEv.exit.i.i.i.i.i
+"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_0JEvEEvOT0_DpOT1_.exit": ; preds = %entry, %_ZN9grpc_core34ClientChannelServiceConfigCallData6CommitEv.exit.i.i.i.i.i
   ret void
 }
 
@@ -15433,7 +15433,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit.i.i.i.i.i:         ; preds = %32, %if.end.i.i.i.i
 invoke.cont.i22.i.i.i.i.i:                        ; preds = %36, %_ZN9grpc_core7ExecCtxD2Ev.exit.i.i.i.i.i
   %37 = load ptr, ptr %1, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %37, %callback_exec_ctx.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %while.cond.preheader.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEvEEvOT0_DpOT1_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i, label %while.cond.preheader.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEvEEvOT0_DpOT1_.exit"
 
 while.cond.preheader.i.i.i.i.i.i:                 ; preds = %invoke.cont.i22.i.i.i.i.i
   %head_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %callback_exec_ctx.i.i.i.i.i, i64 8
@@ -15475,16 +15475,16 @@ _ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.
   %43 = load i64, ptr %callback_exec_ctx.i.i.i.i.i, align 8
   %and.i24.i.i.i.i.i = and i64 %43, 1
   %tobool.not.i25.i.i.i.i.i = icmp eq i64 %and.i24.i.i.i.i.i, 0
-  br i1 %tobool.not.i25.i.i.i.i.i, label %if.then9.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEvEEvOT0_DpOT1_.argprom.exit"
+  br i1 %tobool.not.i25.i.i.i.i.i, label %if.then9.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEvEEvOT0_DpOT1_.exit"
 
 if.then9.i.i.i.i.i.i:                             ; preds = %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.i
   %44 = load atomic i8, ptr @_ZN9grpc_core4Fork16support_enabled_E monotonic, align 1
   %tobool.i.i.i.i26.i.i.i.i.i = trunc i8 %44 to i1
-  br i1 %tobool.i.i.i.i26.i.i.i.i.i, label %if.then.i.i27.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEvEEvOT0_DpOT1_.argprom.exit"
+  br i1 %tobool.i.i.i.i26.i.i.i.i.i, label %if.then.i.i27.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEvEEvOT0_DpOT1_.exit"
 
 if.then.i.i27.i.i.i.i.i:                          ; preds = %if.then9.i.i.i.i.i.i
   invoke void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv()
-          to label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEvEEvOT0_DpOT1_.argprom.exit" unwind label %terminate.lpad.loopexit.split-lp.i.i.i.i.i.i
+          to label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEvEEvOT0_DpOT1_.exit" unwind label %terminate.lpad.loopexit.split-lp.i.i.i.i.i.i
 
 terminate.lpad.loopexit.i.i.i.i.i.i:              ; preds = %if.end.i23.i.i.i.i.i
   %lpad.loopexit.i.i.i.i.i.i = landingpad { ptr, i32 }
@@ -15512,7 +15512,7 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad.i.i.i.i.i, %lp
   call void @_ZN9grpc_core26ApplicationCallbackExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %callback_exec_ctx.i.i.i.i.i) #27
   resume { ptr, i32 } %.pn.i.i.i.i.i
 
-"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEvEEvOT0_DpOT1_.argprom.exit": ; preds = %invoke.cont.i22.i.i.i.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i, %if.then.i.i27.i.i.i.i.i
+"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEvEEvOT0_DpOT1_.exit": ; preds = %invoke.cont.i22.i.i.i.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i, %if.then.i.i27.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %callback_exec_ctx.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %exec_ctx.i.i.i.i.i)
   ret void
@@ -18667,7 +18667,7 @@ entry:
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData27StartTransportStreamOpBatchEP30grpc_transport_stream_op_batchE3$_0JEvEEvOT0_DpOT1_.argprom.exit", label %if.then.i.i.i.i.i.i
+  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData27StartTransportStreamOpBatchEP30grpc_transport_stream_op_batchE3$_0JEvEEvOT0_DpOT1_.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   invoke void %2(ptr noundef nonnull %on_commit.i.i.i.i.i.i)
@@ -18675,7 +18675,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
 
 if.then.if.end_crit_edge.i.i.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
   %.pre.i.i.i.i.i.i = load ptr, ptr %manager_5.i.i.i.i.i.i.i.i.i, align 16
-  br label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData27StartTransportStreamOpBatchEP30grpc_transport_stream_op_batchE3$_0JEvEEvOT0_DpOT1_.argprom.exit"
+  br label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData27StartTransportStreamOpBatchEP30grpc_transport_stream_op_batchE3$_0JEvEEvOT0_DpOT1_.exit"
 
 lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i.i
   %3 = landingpad { ptr, i32 }
@@ -18684,7 +18684,7 @@ lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i.i
   call void %4(i1 noundef zeroext true, ptr noundef nonnull %on_commit.i.i.i.i.i.i, ptr noundef nonnull %on_commit.i.i.i.i.i.i) #27
   resume { ptr, i32 } %3
 
-"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData27StartTransportStreamOpBatchEP30grpc_transport_stream_op_batchE3$_0JEvEEvOT0_DpOT1_.argprom.exit": ; preds = %entry, %if.then.if.end_crit_edge.i.i.i.i.i.i
+"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData27StartTransportStreamOpBatchEP30grpc_transport_stream_op_batchE3$_0JEvEEvOT0_DpOT1_.exit": ; preds = %entry, %if.then.if.end_crit_edge.i.i.i.i.i.i
   %5 = phi ptr [ %.pre.i.i.i.i.i.i, %if.then.if.end_crit_edge.i.i.i.i.i.i ], [ %1, %entry ]
   call void %5(i1 noundef zeroext true, ptr noundef nonnull %on_commit.i.i.i.i.i.i, ptr noundef nonnull %on_commit.i.i.i.i.i.i) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %on_commit.i.i.i.i.i.i)
@@ -20112,7 +20112,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit.i.i.i.i.i:         ; preds = %31, %if.end.i.i.i.i
 invoke.cont.i22.i.i.i.i.i:                        ; preds = %35, %_ZN9grpc_core7ExecCtxD2Ev.exit.i.i.i.i.i
   %36 = load ptr, ptr %1, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %36, %callback_exec_ctx.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %while.cond.preheader.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEvEEvOT0_DpOT1_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i, label %while.cond.preheader.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEvEEvOT0_DpOT1_.exit"
 
 while.cond.preheader.i.i.i.i.i.i:                 ; preds = %invoke.cont.i22.i.i.i.i.i
   %head_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %callback_exec_ctx.i.i.i.i.i, i64 8
@@ -20154,16 +20154,16 @@ _ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.
   %42 = load i64, ptr %callback_exec_ctx.i.i.i.i.i, align 8
   %and.i24.i.i.i.i.i = and i64 %42, 1
   %tobool.not.i25.i.i.i.i.i = icmp eq i64 %and.i24.i.i.i.i.i, 0
-  br i1 %tobool.not.i25.i.i.i.i.i, label %if.then9.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEvEEvOT0_DpOT1_.argprom.exit"
+  br i1 %tobool.not.i25.i.i.i.i.i, label %if.then9.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEvEEvOT0_DpOT1_.exit"
 
 if.then9.i.i.i.i.i.i:                             ; preds = %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.i
   %43 = load atomic i8, ptr @_ZN9grpc_core4Fork16support_enabled_E monotonic, align 1
   %tobool.i.i.i.i26.i.i.i.i.i = trunc i8 %43 to i1
-  br i1 %tobool.i.i.i.i26.i.i.i.i.i, label %if.then.i.i27.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEvEEvOT0_DpOT1_.argprom.exit"
+  br i1 %tobool.i.i.i.i26.i.i.i.i.i, label %if.then.i.i27.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEvEEvOT0_DpOT1_.exit"
 
 if.then.i.i27.i.i.i.i.i:                          ; preds = %if.then9.i.i.i.i.i.i
   invoke void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv()
-          to label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEvEEvOT0_DpOT1_.argprom.exit" unwind label %terminate.lpad.loopexit.split-lp.i.i.i.i.i.i
+          to label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEvEEvOT0_DpOT1_.exit" unwind label %terminate.lpad.loopexit.split-lp.i.i.i.i.i.i
 
 terminate.lpad.loopexit.i.i.i.i.i.i:              ; preds = %if.end.i23.i.i.i.i.i
   %lpad.loopexit.i.i.i.i.i.i = landingpad { ptr, i32 }
@@ -20191,7 +20191,7 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad.i.i.i.i.i, %lp
   call void @_ZN9grpc_core26ApplicationCallbackExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %callback_exec_ctx.i.i.i.i.i) #27
   resume { ptr, i32 } %.pn.i.i.i.i.i
 
-"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEvEEvOT0_DpOT1_.argprom.exit": ; preds = %invoke.cont.i22.i.i.i.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i, %if.then.i.i27.i.i.i.i.i
+"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEvEEvOT0_DpOT1_.exit": ; preds = %invoke.cont.i22.i.i.i.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i, %if.then.i.i27.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %callback_exec_ctx.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %exec_ctx.i.i.i.i.i)
   ret void

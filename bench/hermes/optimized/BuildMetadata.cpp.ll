@@ -75,13 +75,13 @@ entry:
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN6hermes2vm18buildMetadataTableEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv", ptr %1, align 8
   %call1.i.i = call noundef i32 @pthread_once(ptr noundef nonnull @_ZZN6hermes2vm18buildMetadataTableEvE4flag, ptr noundef nonnull @__once_proxy) #7
   %tobool.not.i = icmp eq i32 %call1.i.i, 0
-  br i1 %tobool.not.i, label %"_ZSt9call_onceIZN6hermes2vm18buildMetadataTableEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %if.then.i
+  br i1 %tobool.not.i, label %"_ZSt9call_onceIZN6hermes2vm18buildMetadataTableEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i) #8
   unreachable
 
-"_ZSt9call_onceIZN6hermes2vm18buildMetadataTableEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %entry
+"_ZSt9call_onceIZN6hermes2vm18buildMetadataTableEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %entry
   store ptr null, ptr %0, align 8
   store ptr null, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__callable.i)
@@ -123,12 +123,12 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN6hermes2vm18buildMetadataTableEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv"() #0 align 2 {
 entry:
-  tail call fastcc void @"_ZZN6hermes2vm18buildMetadataTableEvENK3$_0clEv.argprom"()
+  tail call fastcc void @"_ZZN6hermes2vm18buildMetadataTableEvENK3$_0clEv"()
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN6hermes2vm18buildMetadataTableEvENK3$_0clEv.argprom"() unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN6hermes2vm18buildMetadataTableEvENK3$_0clEv"() unnamed_addr #0 align 2 {
 entry:
   %mb.i694 = alloca %"class.hermes::vm::Metadata::Builder", align 8
   %mb.i685 = alloca %"class.hermes::vm::Metadata::Builder", align 8

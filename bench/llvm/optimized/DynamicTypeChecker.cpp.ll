@@ -852,13 +852,13 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit47.i: ; preds = %61
 65:                                               ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit47.i
   %66 = getelementptr i8, ptr %.0.i.i, i64 32
   %.val.i = load i64, ptr %66, align 8
-  %67 = call fastcc noundef zeroext i1 @_ZL13hasDefinitionPKN5clang21ObjCObjectPointerTypeE.argprom(i64 %.val.i)
+  %67 = call fastcc noundef zeroext i1 @_ZL13hasDefinitionPKN5clang21ObjCObjectPointerTypeE(i64 %.val.i)
   br i1 %67, label %68, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit47.thread.i
 
 68:                                               ; preds = %65
   %69 = getelementptr i8, ptr %.0.i46.i, i64 32
   %.val37.i = load i64, ptr %69, align 8
-  %70 = call fastcc noundef zeroext i1 @_ZL13hasDefinitionPKN5clang21ObjCObjectPointerTypeE.argprom(i64 %.val37.i)
+  %70 = call fastcc noundef zeroext i1 @_ZL13hasDefinitionPKN5clang21ObjCObjectPointerTypeE(i64 %.val37.i)
   br i1 %70, label %71, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit47.thread.i
 
 71:                                               ; preds = %68
@@ -915,7 +915,7 @@ declare noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull ali
 declare { i64, i8 } @_ZN5clang4ento18getDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionE(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL13hasDefinitionPKN5clang21ObjCObjectPointerTypeE.argprom(i64 %.32.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL13hasDefinitionPKN5clang21ObjCObjectPointerTypeE(i64 %.32.val) unnamed_addr #0 {
   %1 = and i64 %.32.val, -16
   %2 = inttoptr i64 %1 to ptr
   %3 = load ptr, ptr %2, align 16
@@ -2752,8 +2752,8 @@ attributes #19 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !16, !"_ZSt11make_uniqueIN5clang4ento22PathSensitiveBugReportEJRKNS1_7BugTypeEN4llvm9StringRefEPNS1_12ExplodedNodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !16 = distinct !{!16, !"_ZSt11make_uniqueIN5clang4ento22PathSensitiveBugReportEJRKNS1_7BugTypeEN4llvm9StringRefEPNS1_12ExplodedNodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZSt11make_uniqueIN12_GLOBAL__N_118DynamicTypeChecker21DynamicTypeBugVisitorEJRPKN5clang4ento9MemRegionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZSt11make_uniqueIN12_GLOBAL__N_118DynamicTypeChecker21DynamicTypeBugVisitorEJRPKN5clang4ento9MemRegionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!18 = distinct !{!18, !19, !"_ZSt11make_uniqueIN12_GLOBAL__N_118DynamicTypeChecker21DynamicTypeBugVisitorEJRPKN5clang4ento9MemRegionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!19 = distinct !{!19, !"_ZSt11make_uniqueIN12_GLOBAL__N_118DynamicTypeChecker21DynamicTypeBugVisitorEJRPKN5clang4ento9MemRegionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !20 = !{}
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZNK5clang12ProgramPoint7withTagEPKNS_15ProgramPointTagE: argument 0"}

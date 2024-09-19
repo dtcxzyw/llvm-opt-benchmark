@@ -1114,7 +1114,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit205: ; preds = %_ZNSt6ve
           cleanup
   br label %.loopexit.split-lp239
 
-.loopexit.split-lp239.loopexit:                   ; preds = %_ZN2cvlsERSoRKNS_7MatSizeE.argprom.exit, %363, %361, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit205
+.loopexit.split-lp239.loopexit:                   ; preds = %_ZN2cvlsERSoRKNS_7MatSizeE.exit, %363, %361, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit205
   %lpad.loopexit243 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp239
@@ -1129,7 +1129,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit205: ; preds = %_ZNSt6ve
   %372 = getelementptr inbounds i8, ptr %371, i64 -4
   %373 = load i32, ptr %372, align 4
   %374 = icmp sgt i32 %373, 0
-  br i1 %374, label %.lr.ph.i, label %_ZN2cvlsERSoRKNS_7MatSizeE.argprom.exit
+  br i1 %374, label %.lr.ph.i, label %_ZN2cvlsERSoRKNS_7MatSizeE.exit
 
 .lr.ph.i:                                         ; preds = %370
   %375 = add nsw i32 %373, -1
@@ -1156,13 +1156,13 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit205: ; preds = %_ZNSt6ve
 .noexc181:                                        ; preds = %383, %.noexc180
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cvlsERSoRKNS_7MatSizeE.argprom.exit, label %377, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_ZN2cvlsERSoRKNS_7MatSizeE.exit, label %377, !llvm.loop !6
 
-_ZN2cvlsERSoRKNS_7MatSizeE.argprom.exit:          ; preds = %.noexc181, %370
+_ZN2cvlsERSoRKNS_7MatSizeE.exit:                  ; preds = %.noexc181, %370
   %385 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %386 unwind label %.loopexit.split-lp239.loopexit
 
-386:                                              ; preds = %_ZN2cvlsERSoRKNS_7MatSizeE.argprom.exit
+386:                                              ; preds = %_ZN2cvlsERSoRKNS_7MatSizeE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, i8 0, i64 24, i1 false)
   store i32 0, ptr %319, align 8
   store i32 0, ptr %320, align 4

@@ -6821,7 +6821,7 @@ define dso_local i32 @do_swap_page(ptr noundef %0) local_unnamed_addr #2 align 1
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %30
-  %33 = tail call fastcc i32 @handle_pte_marker.argprom(i64 %8)
+  %33 = tail call fastcc i32 @handle_pte_marker(i64 %8)
   br label %.thread36
 
 34:                                               ; preds = %30
@@ -7742,7 +7742,7 @@ define internal fastcc void @put_page(ptr noundef %0) unnamed_addr #8 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 2, 17) i32 @handle_pte_marker.argprom(i64 %.64.val) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 2, 17) i32 @handle_pte_marker(i64 %.64.val) unnamed_addr #2 align 16 {
   %1 = xor i64 %.64.val, -1
   %2 = lshr i64 %1, 9
   %trunc = trunc i64 %2 to i2
@@ -9386,7 +9386,7 @@ define dso_local void @set_pte_range(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @add_mm_counter.argelim(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #8 align 16 {
+define internal fastcc void @add_mm_counter(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #8 align 16 {
   %3 = getelementptr i8, ptr %0, i64 864
   %4 = load i32, ptr @percpu_counter_batch, align 4
   tail call void @percpu_counter_add_batch(ptr noundef %3, i64 noundef %1, i32 noundef %4) #18
@@ -10275,7 +10275,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   %390 = getelementptr inbounds i8, ptr %288, i64 52
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %390, i32 %389, ptr elementtype(i32) %390) #18, !srcloc !200
   %391 = load ptr, ptr %309, align 8
-  call fastcc void @add_mm_counter.argelim(ptr noundef %391, i64 noundef %305)
+  call fastcc void @add_mm_counter(ptr noundef %391, i64 noundef %305)
   call void @folio_add_new_anon_rmap(ptr noundef nonnull %288, ptr noundef %213, i64 noundef %308) #18
   call void @folio_add_lru_vma(ptr noundef nonnull %288, ptr noundef %213) #18
   %392 = load ptr, ptr %121, align 8

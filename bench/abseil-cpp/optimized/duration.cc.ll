@@ -480,7 +480,7 @@ if.then.i.i:                                      ; preds = %if.end
 
 cond.true.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i = mul nuw i64 %coerce.sroa.0.0.insert.insert.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i.i18.i.i
-  br label %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.thread.i
+  br label %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.thread.i
 
 cond.false.i.i:                                   ; preds = %if.then.i.i
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %coerce.sroa.0.0.insert.insert.i.i.i.i to i128
@@ -488,12 +488,12 @@ cond.false.i.i:                                   ; preds = %if.then.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i = trunc i128 %mul.i.i.i to i64
   %coerce3.sroa.2.0.extract.shift.i.i.i = lshr i128 %mul.i.i.i, 64
   %coerce3.sroa.2.0.extract.trunc.i.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i.i to i64
-  br label %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.i
+  br label %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.i
 
 if.end.i.i:                                       ; preds = %if.end
   %coerce.sroa.0.0.insert.ext.i19.i.i = zext i64 %coerce.sroa.0.0.insert.insert.i.i.i.i to i128
   %cmp.i.i.i = icmp eq i64 %coerce.sroa.0.0.insert.insert.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.thread.i, label %cond.false18.i.i
+  br i1 %cmp.i.i.i, label %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.thread.i, label %cond.false18.i.i
 
 cond.false18.i.i:                                 ; preds = %if.end.i.i
   %agg.tmp21.sroa.0.0.copyload.i.i = load i64, ptr @_ZN4absl11kuint128maxE, align 16
@@ -504,16 +504,16 @@ cond.false18.i.i:                                 ; preds = %if.end.i.i
   %coerce.sroa.0.0.insert.insert.i28.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i26.i.i, %coerce.sroa.0.0.insert.ext.i27.i.i
   %div.i.i.i = udiv i128 %coerce.sroa.0.0.insert.insert.i28.i.i, %coerce.sroa.0.0.insert.ext.i19.i.i
   %cmp.i.i.i.i = icmp ult i128 %div.i.i.i, %coerce.sroa.0.0.insert.insert.i.i17.i.i
-  br i1 %cmp.i.i.i.i, label %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.i, label %cond.false26.i.i
+  br i1 %cmp.i.i.i.i, label %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.i, label %cond.false26.i.i
 
 cond.false26.i.i:                                 ; preds = %cond.false18.i.i
   %mul.i46.i.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i17.i.i, %coerce.sroa.0.0.insert.ext.i19.i.i
   %coerce3.sroa.0.0.extract.trunc.i47.i.i = trunc i128 %mul.i46.i.i to i64
   %coerce3.sroa.2.0.extract.shift.i48.i.i = lshr i128 %mul.i46.i.i, 64
   %coerce3.sroa.2.0.extract.trunc.i49.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i48.i.i to i64
-  br label %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.i
+  br label %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.i
 
-_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.thread.i: ; preds = %if.end.i.i, %cond.true.i.i
+_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.thread.i: ; preds = %if.end.i.i, %cond.true.i.i
   %retval.sroa.0.0.i.ph.i = phi i64 [ 0, %if.end.i.i ], [ %mul.i.i, %cond.true.i.i ]
   %cmp9.unshifted20.i = xor i64 %agg.tmp.sroa.0.0.copyload, %r
   %cmp921.i = icmp slt i64 %cmp9.unshifted20.i, 0
@@ -523,7 +523,7 @@ _ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.thread
   %rep_lo.0.i142834.i = trunc i64 %rep_lo.0.in.i2733.i to i32
   br i1 %cmp921.i, label %if.then36.i.i, label %if.end44.i.i
 
-_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.i: ; preds = %cond.false26.i.i, %cond.false18.i.i, %cond.false.i.i
+_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.i: ; preds = %cond.false26.i.i, %cond.false18.i.i, %cond.false.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i.i.i, %cond.false.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i47.i.i, %cond.false26.i.i ], [ %agg.tmp21.sroa.0.0.copyload.i.i, %cond.false18.i.i ]
   %retval.sroa.6.0.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i.i.i, %cond.false.i.i ], [ %coerce3.sroa.2.0.extract.trunc.i49.i.i, %cond.false26.i.i ], [ %agg.tmp21.sroa.2.0.copyload.i.i, %cond.false18.i.i ]
   %cmp9.unshifted.i = xor i64 %agg.tmp.sroa.0.0.copyload, %r
@@ -531,14 +531,14 @@ _ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.i: ; p
   %cmp.i9.i = icmp eq i64 %retval.sroa.6.0.i.i, 0
   br i1 %cmp.i9.i, label %if.then.i15.i, label %if.else.i.i
 
-if.then.i15.i:                                    ; preds = %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.i
+if.then.i15.i:                                    ; preds = %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.i
   %div.i.i = udiv i64 %retval.sroa.0.0.i.i, 4000000000
   %mul.neg.i.i = mul nuw nsw i64 %div.i.i, 294967296
   %rep_lo.0.in.i27.i = add i64 %mul.neg.i.i, %retval.sroa.0.0.i.i
   %rep_lo.0.i1428.i = trunc i64 %rep_lo.0.in.i27.i to i32
   br i1 %cmp9.i, label %if.then36.i.i, label %if.end44.i.i
 
-if.else.i.i:                                      ; preds = %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.i
+if.else.i.i:                                      ; preds = %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.i
   %cmp3.i.i = icmp ugt i64 %retval.sroa.6.0.i.i, 1999999999
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end34.i.i
 
@@ -562,9 +562,9 @@ if.end34.i.i:                                     ; preds = %if.else.i.i
   %rep_lo.0.i14.i = trunc i64 %rep_lo.0.in.i.i to i32
   br i1 %cmp9.i, label %if.then36.i.i, label %if.end44.i.i
 
-if.then36.i.i:                                    ; preds = %if.end34.i.i, %if.then.i15.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.thread.i
-  %rep_lo.0.i1430.i = phi i32 [ %rep_lo.0.i1428.i, %if.then.i15.i ], [ %rep_lo.0.i14.i, %if.end34.i.i ], [ %rep_lo.0.i142834.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.thread.i ]
-  %rep_hi.0.i1329.i = phi i64 [ %div.i.i, %if.then.i15.i ], [ %coerce3.sroa.0.0.extract.trunc.i.i12.i, %if.end34.i.i ], [ %div.i31.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.thread.i ]
+if.then36.i.i:                                    ; preds = %if.end34.i.i, %if.then.i15.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.thread.i
+  %rep_lo.0.i1430.i = phi i32 [ %rep_lo.0.i1428.i, %if.then.i15.i ], [ %rep_lo.0.i14.i, %if.end34.i.i ], [ %rep_lo.0.i142834.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.thread.i ]
+  %rep_hi.0.i1329.i = phi i64 [ %div.i.i, %if.then.i15.i ], [ %coerce3.sroa.0.0.extract.trunc.i.i12.i, %if.end34.i.i ], [ %div.i31.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.thread.i ]
   %sub37.i.i = sub nsw i64 0, %rep_hi.0.i1329.i
   %cmp38.not.i.i = icmp eq i32 %rep_lo.0.i1430.i, 0
   br i1 %cmp38.not.i.i, label %if.end44.i.i, label %if.then39.i.i
@@ -574,9 +574,9 @@ if.then39.i.i:                                    ; preds = %if.then36.i.i
   %conv42.i.i = sub i32 -294967296, %rep_lo.0.i1430.i
   br label %if.end44.i.i
 
-if.end44.i.i:                                     ; preds = %if.then39.i.i, %if.then36.i.i, %if.end34.i.i, %if.then.i15.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.thread.i
-  %rep_lo.1.i.i = phi i32 [ %conv42.i.i, %if.then39.i.i ], [ 0, %if.then36.i.i ], [ %rep_lo.0.i14.i, %if.end34.i.i ], [ %rep_lo.0.i1428.i, %if.then.i15.i ], [ %rep_lo.0.i142834.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.thread.i ]
-  %rep_hi.1.i.i = phi i64 [ %dec.i.i, %if.then39.i.i ], [ %sub37.i.i, %if.then36.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i.i12.i, %if.end34.i.i ], [ %div.i.i, %if.then.i15.i ], [ %div.i31.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.argprom.exit.thread.i ]
+if.end44.i.i:                                     ; preds = %if.then39.i.i, %if.then36.i.i, %if.end34.i.i, %if.then.i15.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.thread.i
+  %rep_lo.1.i.i = phi i32 [ %conv42.i.i, %if.then39.i.i ], [ 0, %if.then36.i.i ], [ %rep_lo.0.i14.i, %if.end34.i.i ], [ %rep_lo.0.i1428.i, %if.then.i15.i ], [ %rep_lo.0.i142834.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.thread.i ]
+  %rep_hi.1.i.i = phi i64 [ %dec.i.i, %if.then39.i.i ], [ %sub37.i.i, %if.then36.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i.i12.i, %if.end34.i.i ], [ %div.i.i, %if.then.i15.i ], [ %div.i31.i, %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.thread.i ]
   %.fca.0.insert.i39.i.i = insertvalue { i64, i32 } poison, i64 %rep_hi.1.i.i, 0
   %.fca.1.insert.i40.i.i = insertvalue { i64, i32 } %.fca.0.insert.i39.i.i, i32 %rep_lo.1.i.i, 1
   br label %return

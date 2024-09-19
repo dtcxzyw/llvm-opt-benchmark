@@ -305,7 +305,7 @@ entry:
   %ref.tmp41 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp50 = alloca %"class.testing::Message", align 8
   %ref.tmp52 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp)
+  call fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp)
   %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.13) #14, !noalias !5
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
@@ -417,7 +417,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   call void @_ZN4absl13base_internal12ScopedSetEnvC1EPKcS3_(ptr noundef nonnull align 8 dereferenceable(65) %scoped_set, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.14)
-  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp15)
+  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp15)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -542,7 +542,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit45:          ; preds = %if.end37, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i44
   store ptr null, ptr %message_.i42, align 8
   call void @_ZN4absl13base_internal12ScopedSetEnvD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %scoped_set) #14
-  call fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp41)
+  call fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp41)
   %call.i.i.i46 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41, ptr noundef nonnull @.str.13) #14, !noalias !15
   %cmp.i.i.i47 = icmp eq i32 %call.i.i.i46, 0
   br i1 %cmp.i.i.i47, label %if.then.i.i49, label %if.end.i.i48
@@ -684,7 +684,7 @@ entry:
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -1023,7 +1023,7 @@ entry:
   %ref.tmp39 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.testing::Message", align 8
   %ref.tmp49 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp)
+  call fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp)
   %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.13) #14, !noalias !38
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
@@ -1135,7 +1135,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   call void @_ZN4absl13base_internal12ScopedSetEnvC1EPKcS3_(ptr noundef nonnull align 8 dereferenceable(65) %scoped_set, ptr noundef nonnull @.str.12, ptr noundef null)
-  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp14)
+  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -1260,7 +1260,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit45:          ; preds = %if.end35, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i44
   store ptr null, ptr %message_.i42, align 8
   call void @_ZN4absl13base_internal12ScopedSetEnvD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %scoped_set) #14
-  call fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp39)
+  call fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp39)
   %call.i.i.i46 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull @.str.13) #14, !noalias !48
   %cmp.i.i.i47 = icmp eq i32 %call.i.i.i46, 0
   br i1 %cmp.i.i.i47, label %if.then.i.i49, label %if.end.i.i48
@@ -1456,7 +1456,7 @@ entry:
   %ref.tmp51 = alloca %"class.testing::Message", align 8
   %ref.tmp54 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @_ZN4absl13base_internal12ScopedSetEnvC1EPKcS3_(ptr noundef nonnull align 8 dereferenceable(65) %scoped_set, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.14)
-  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp)
+  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1579,7 +1579,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp18)
+  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp18)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont16
@@ -1704,7 +1704,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit44:          ; preds = %if.end39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i43
   store ptr null, ptr %message_.i41, align 8
   call void @_ZN4absl13base_internal12ScopedSetEnvD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %scoped_set15) #14
-  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp43)
+  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp43)
           to label %invoke.cont44 unwind label %lpad
 
 invoke.cont44:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit44
@@ -1983,7 +1983,7 @@ entry:
   %ref.tmp51 = alloca %"class.testing::Message", align 8
   %ref.tmp54 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @_ZN4absl13base_internal12ScopedSetEnvC1EPKcS3_(ptr noundef nonnull align 8 dereferenceable(65) %scoped_set, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.14)
-  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp)
+  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2106,7 +2106,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp18)
+  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp18)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont16
@@ -2231,7 +2231,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit45:          ; preds = %if.end39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i44
   store ptr null, ptr %message_.i42, align 8
   call void @_ZN4absl13base_internal12ScopedSetEnvD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %scoped_set15) #14
-  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc.argprom(ptr noalias align 8 %ref.tmp43)
+  invoke fastcc void @_ZN12_GLOBAL__N_19GetEnvVarB5cxx11EPKc(ptr noalias align 8 %ref.tmp43)
           to label %invoke.cont44 unwind label %lpad
 
 invoke.cont44:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit45

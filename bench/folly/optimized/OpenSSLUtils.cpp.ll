@@ -970,7 +970,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 
 ehcleanup112:                                     ; preds = %ehcleanup106, %ehcleanup82, %lpad38.split, %lpad32.split, %lpad38.split.us.split.split.us, %lpad32.split.us.split.split.us, %lpad38.split.us.split.us, %lpad32.split.us.split.us, %lpad17, %ehcleanup
   %.pn152.pn = phi { ptr, i32 } [ %.pn152, %ehcleanup ], [ %.pn149, %ehcleanup106 ], [ %5, %lpad17 ], [ %.pn, %ehcleanup82 ], [ %23, %lpad32.split ], [ %11, %lpad32.split.us.split.us ], [ %19, %lpad32.split.us.split.split.us ], [ %24, %lpad38.split ], [ %12, %lpad38.split.us.split.us ], [ %20, %lpad38.split.us.split.split.us ]
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.argprom.argelim"(ptr %call) #23
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev"(ptr %call) #23
   resume { ptr, i32 } %.pn152.pn
 }
 
@@ -984,7 +984,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.argprom.argelim"(ptr %this.8.val.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev"(ptr %this.8.val.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val.0.val, null
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i

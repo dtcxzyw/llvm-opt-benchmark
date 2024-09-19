@@ -420,7 +420,7 @@ define dso_local void @__archive_rb_tree_remove_node(ptr nocapture noundef reado
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds [2 x ptr], ptr %16, i64 0, i64 %14
   store ptr null, ptr %17, align 8
-  br label %__archive_rb_tree_prune_node.argprom.exit
+  br label %__archive_rb_tree_prune_node.exit
 
 .split23:                                         ; preds = %8
   %18 = load ptr, ptr %0, align 8
@@ -433,11 +433,11 @@ define dso_local void @__archive_rb_tree_remove_node(ptr nocapture noundef reado
   %24 = zext nneg i32 %21 to i64
   %25 = getelementptr inbounds [2 x ptr], ptr %23, i64 0, i64 %24
   store ptr %.val.pre, ptr %25, align 8
-  br i1 %.not, label %__archive_rb_tree_prune_node.argprom.exit, label %26
+  br i1 %.not, label %__archive_rb_tree_prune_node.exit, label %26
 
 26:                                               ; preds = %.split23
   tail call fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef nonnull readonly %0, ptr noundef nonnull %23, i32 noundef %21)
-  br label %__archive_rb_tree_prune_node.argprom.exit
+  br label %__archive_rb_tree_prune_node.exit
 
 27:                                               ; preds = %2
   br i1 %6, label %.thread, label %46
@@ -464,7 +464,7 @@ define dso_local void @__archive_rb_tree_remove_node(ptr nocapture noundef reado
   %44 = and i64 %43, 3
   %45 = or disjoint i64 %44, %30
   store i64 %45, ptr %35, align 8
-  br label %__archive_rb_tree_prune_node.argprom.exit
+  br label %__archive_rb_tree_prune_node.exit
 
 46:                                               ; preds = %27
   %47 = getelementptr inbounds i8, ptr %1, i64 16
@@ -599,13 +599,13 @@ __archive_rb_tree_iterate.exit:                   ; preds = %68, %67, %.lr.ph.i,
   %120 = getelementptr inbounds [2 x ptr], ptr %116, i64 0, i64 %119
   store ptr %.0.i, ptr %120, align 8
   %.not67.i = icmp eq i32 %.070.i, 0
-  br i1 %.not67.i, label %__archive_rb_tree_prune_node.argprom.exit, label %121
+  br i1 %.not67.i, label %__archive_rb_tree_prune_node.exit, label %121
 
 121:                                              ; preds = %.thread71.i
   tail call fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef readonly %0, ptr noundef nonnull %.059.i, i32 noundef %74)
-  br label %__archive_rb_tree_prune_node.argprom.exit
+  br label %__archive_rb_tree_prune_node.exit
 
-__archive_rb_tree_prune_node.argprom.exit:        ; preds = %121, %.thread71.i, %26, %.split23, %.split, %.thread
+__archive_rb_tree_prune_node.exit:                ; preds = %121, %.thread71.i, %26, %.split23, %.split, %.thread
   ret void
 }
 

@@ -620,7 +620,7 @@ define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly
 
 17:                                               ; preds = %12
   store i32 0, ptr %3, align 4
-  br label %netxray_guess_atm_type.argprom.exit
+  br label %netxray_guess_atm_type.exit
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %0, align 8
@@ -631,7 +631,7 @@ define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly
 22:                                               ; preds = %18
   %23 = load i32, ptr %3, align 4
   %.not34 = icmp eq i32 %23, 0
-  br i1 %.not34, label %24, label %netxray_guess_atm_type.argprom.exit
+  br i1 %.not34, label %24, label %netxray_guess_atm_type.exit
 
 24:                                               ; preds = %22
   %25 = load i64, ptr %10, align 8
@@ -641,19 +641,19 @@ define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly
 
 28:                                               ; preds = %24
   store i32 -12, ptr %3, align 4
-  br label %netxray_guess_atm_type.argprom.exit
+  br label %netxray_guess_atm_type.exit
 
 29:                                               ; preds = %24
   %30 = load i32, ptr %11, align 8
   %.not35 = icmp eq i32 %30, 0
-  br i1 %.not35, label %31, label %netxray_guess_atm_type.argprom.exit
+  br i1 %.not35, label %31, label %netxray_guess_atm_type.exit
 
 31:                                               ; preds = %29
   store i32 1, ptr %11, align 8
   %32 = load ptr, ptr %0, align 8
   %33 = tail call i64 @file_seek(ptr noundef %32, i64 noundef 128, i32 noundef 0, ptr noundef nonnull %3) #7
   %34 = icmp eq i64 %33, -1
-  br i1 %34, label %netxray_guess_atm_type.argprom.exit, label %12
+  br i1 %34, label %netxray_guess_atm_type.exit, label %12
 
 35:                                               ; preds = %18
   %36 = load ptr, ptr %0, align 8
@@ -661,31 +661,31 @@ define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly
   %38 = load i32, ptr %37, align 8
   %39 = tail call i32 @wtap_read_packet_bytes(ptr noundef %36, ptr noundef %2, i32 noundef %38, ptr noundef %3, ptr noundef %4) #7
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %netxray_guess_atm_type.argprom.exit, label %40
+  br i1 %.not, label %netxray_guess_atm_type.exit, label %40
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %0, align 8
   %42 = tail call i32 @wtap_read_bytes(ptr noundef %41, ptr noundef null, i32 noundef %20, ptr noundef %3, ptr noundef %4) #7
   %.not33 = icmp eq i32 %42, 0
-  br i1 %.not33, label %netxray_guess_atm_type.argprom.exit, label %43
+  br i1 %.not33, label %netxray_guess_atm_type.exit, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr i8, ptr %0, i64 144
   %.val = load i32, ptr %44, align 8
   %45 = icmp eq i32 %.val, 14
-  br i1 %45, label %46, label %netxray_guess_atm_type.argprom.exit
+  br i1 %45, label %46, label %netxray_guess_atm_type.exit
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %1, i64 80
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 8
   %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %50, label %netxray_guess_atm_type.argprom.exit
+  br i1 %.not.i, label %50, label %netxray_guess_atm_type.exit
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds i8, ptr %1, i64 84
   %52 = load i8, ptr %51, align 4
-  switch i8 %52, label %netxray_guess_atm_type.argprom.exit [
+  switch i8 %52, label %netxray_guess_atm_type.exit [
     i8 0, label %53
     i8 4, label %58
   ]
@@ -696,13 +696,13 @@ define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr i8, ptr %54, i64 %56
   tail call void @atm_guess_traffic_type(ptr noundef nonnull %1, ptr noundef %57) #7
-  br label %netxray_guess_atm_type.argprom.exit
+  br label %netxray_guess_atm_type.exit
 
 58:                                               ; preds = %50
   %59 = getelementptr inbounds i8, ptr %1, i64 85
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 3
-  br i1 %61, label %62, label %netxray_guess_atm_type.argprom.exit
+  br i1 %61, label %62, label %netxray_guess_atm_type.exit
 
 62:                                               ; preds = %58
   %63 = load ptr, ptr %2, align 8
@@ -710,9 +710,9 @@ define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr i8, ptr %63, i64 %65
   tail call void @atm_guess_lane_type(ptr noundef nonnull %1, ptr noundef %66) #7
-  br label %netxray_guess_atm_type.argprom.exit
+  br label %netxray_guess_atm_type.exit
 
-netxray_guess_atm_type.argprom.exit:              ; preds = %29, %31, %22, %62, %58, %53, %50, %46, %43, %40, %35, %28, %17
+netxray_guess_atm_type.exit:                      ; preds = %29, %31, %22, %62, %58, %53, %50, %46, %43, %40, %35, %28, %17
   %.0 = phi i32 [ 0, %17 ], [ 0, %28 ], [ 0, %35 ], [ 0, %40 ], [ 1, %43 ], [ 1, %46 ], [ 1, %50 ], [ 1, %53 ], [ 1, %58 ], [ 1, %62 ], [ 0, %22 ], [ 0, %31 ], [ 0, %29 ]
   ret i32 %.0
 }
@@ -723,7 +723,7 @@ define internal range(i32 0, 2) i32 @netxray_seek_read(ptr nocapture noundef rea
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
   %10 = icmp eq i64 %9, -1
-  br i1 %10, label %netxray_guess_atm_type.argprom.exit, label %11
+  br i1 %10, label %netxray_guess_atm_type.exit, label %11
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
@@ -734,11 +734,11 @@ define internal range(i32 0, 2) i32 @netxray_seek_read(ptr nocapture noundef rea
 15:                                               ; preds = %11
   %16 = load i32, ptr %4, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %netxray_guess_atm_type.argprom.exit
+  br i1 %17, label %18, label %netxray_guess_atm_type.exit
 
 18:                                               ; preds = %15
   store i32 -12, ptr %4, align 4
-  br label %netxray_guess_atm_type.argprom.exit
+  br label %netxray_guess_atm_type.exit
 
 19:                                               ; preds = %11
   %20 = load ptr, ptr %7, align 8
@@ -746,25 +746,25 @@ define internal range(i32 0, 2) i32 @netxray_seek_read(ptr nocapture noundef rea
   %22 = load i32, ptr %21, align 8
   %23 = tail call i32 @wtap_read_packet_bytes(ptr noundef %20, ptr noundef %3, i32 noundef %22, ptr noundef %4, ptr noundef %5) #7
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %netxray_guess_atm_type.argprom.exit, label %24
+  br i1 %.not, label %netxray_guess_atm_type.exit, label %24
 
 24:                                               ; preds = %19
   %25 = getelementptr i8, ptr %0, i64 144
   %.val = load i32, ptr %25, align 8
   %26 = icmp eq i32 %.val, 14
-  br i1 %26, label %27, label %netxray_guess_atm_type.argprom.exit
+  br i1 %26, label %27, label %netxray_guess_atm_type.exit
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %2, i64 80
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 8
   %.not.i = icmp eq i32 %30, 0
-  br i1 %.not.i, label %31, label %netxray_guess_atm_type.argprom.exit
+  br i1 %.not.i, label %31, label %netxray_guess_atm_type.exit
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %2, i64 84
   %33 = load i8, ptr %32, align 4
-  switch i8 %33, label %netxray_guess_atm_type.argprom.exit [
+  switch i8 %33, label %netxray_guess_atm_type.exit [
     i8 0, label %34
     i8 4, label %39
   ]
@@ -775,13 +775,13 @@ define internal range(i32 0, 2) i32 @netxray_seek_read(ptr nocapture noundef rea
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr i8, ptr %35, i64 %37
   tail call void @atm_guess_traffic_type(ptr noundef nonnull %2, ptr noundef %38) #7
-  br label %netxray_guess_atm_type.argprom.exit
+  br label %netxray_guess_atm_type.exit
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds i8, ptr %2, i64 85
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 3
-  br i1 %42, label %43, label %netxray_guess_atm_type.argprom.exit
+  br i1 %42, label %43, label %netxray_guess_atm_type.exit
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %3, align 8
@@ -789,9 +789,9 @@ define internal range(i32 0, 2) i32 @netxray_seek_read(ptr nocapture noundef rea
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr i8, ptr %44, i64 %46
   tail call void @atm_guess_lane_type(ptr noundef nonnull %2, ptr noundef %47) #7
-  br label %netxray_guess_atm_type.argprom.exit
+  br label %netxray_guess_atm_type.exit
 
-netxray_guess_atm_type.argprom.exit:              ; preds = %43, %39, %34, %31, %27, %24, %19, %15, %18, %6
+netxray_guess_atm_type.exit:                      ; preds = %43, %39, %34, %31, %27, %24, %19, %15, %18, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %18 ], [ 0, %15 ], [ 0, %19 ], [ 1, %24 ], [ 1, %27 ], [ 1, %31 ], [ 1, %34 ], [ 1, %39 ], [ 1, %43 ]
   ret i32 %.0
 }

@@ -413,7 +413,7 @@ define dso_local void @neigh_changeaddr(ptr noundef %0, ptr noundef %1) #0 align
   tail call void @_raw_write_lock_bh(ptr noundef %3) #21
   %4 = getelementptr i8, ptr %0, i64 584
   %.val = load ptr, ptr %4, align 8
-  tail call fastcc void @neigh_flush_dev.argprom(ptr %.val, ptr noundef %1, i1 noundef zeroext false)
+  tail call fastcc void @neigh_flush_dev(ptr %.val, ptr noundef %1, i1 noundef zeroext false)
   tail call void @_raw_write_unlock_bh(ptr noundef %3) #21
   ret void
 }
@@ -422,7 +422,7 @@ define dso_local void @neigh_changeaddr(ptr noundef %0, ptr noundef %1) #0 align
 declare dso_local void @_raw_write_lock_bh(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @neigh_flush_dev.argprom(ptr nocapture readonly %.584.val, ptr noundef readnone %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @neigh_flush_dev(ptr nocapture readonly %.584.val, ptr noundef readnone %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %.584.val, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 31
@@ -722,7 +722,7 @@ define internal fastcc void @__neigh_ifdown(ptr noundef %0, ptr noundef %1, i1 n
   tail call void @_raw_write_lock_bh(ptr noundef %4) #21
   %5 = getelementptr i8, ptr %0, i64 584
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @neigh_flush_dev.argprom(ptr %.val, ptr noundef %1, i1 noundef zeroext %2)
+  tail call fastcc void @neigh_flush_dev(ptr %.val, ptr noundef %1, i1 noundef zeroext %2)
   %6 = getelementptr inbounds i8, ptr %0, i64 592
   %7 = icmp eq ptr %1, null
   br i1 %7, label %.split27.us, label %.split27
@@ -3626,7 +3626,7 @@ define dso_local i32 @neigh_resolve_output(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @neigh_event_send.argprom(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc void @neigh_event_send(ptr noundef %0) unnamed_addr #6 align 16 {
   %2 = load volatile i64, ptr @jiffies, align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load volatile i64, ptr %3, align 8
@@ -7967,7 +7967,7 @@ define internal i32 @neigh_add(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %or.cond, label %196, label %195
 
 195:                                              ; preds = %173
-  call fastcc void @neigh_event_send.argprom(ptr noundef %168)
+  call fastcc void @neigh_event_send(ptr noundef %168)
   br label %196
 
 196:                                              ; preds = %195, %173
@@ -10433,7 +10433,7 @@ declare dso_local i32 @rtnl_unicast(ptr noundef, ptr noundef, i32 noundef) local
 declare dso_local ptr @netdev_master_upper_dev_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i32 noundef range(i32 3, 20) %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #6 align 16 {
+define internal fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef range(i32 3, 20) %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #6 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   %5 = tail call i32 @jiffies_to_msecs(i64 noundef %2) #21
@@ -10575,7 +10575,7 @@ define internal fastcc i32 @neightbl_fill_parms(ptr noundef %0, ptr noundef %1) 
   %74 = getelementptr inbounds i8, ptr %1, i64 80
   %75 = load i32, ptr %74, align 8
   %76 = sext i32 %75 to i64
-  %77 = call fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i32 noundef 3, i64 noundef %76)
+  %77 = call fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef 3, i64 noundef %76)
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %138
 
@@ -10583,7 +10583,7 @@ define internal fastcc i32 @neightbl_fill_parms(ptr noundef %0, ptr noundef %1) 
   %80 = getelementptr i8, ptr %1, i64 108
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
-  %83 = call fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i32 noundef 4, i64 noundef %82)
+  %83 = call fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef 4, i64 noundef %82)
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %138
 
@@ -10591,7 +10591,7 @@ define internal fastcc i32 @neightbl_fill_parms(ptr noundef %0, ptr noundef %1) 
   %86 = getelementptr i8, ptr %1, i64 120
   %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64
-  %89 = call fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i32 noundef 6, i64 noundef %88)
+  %89 = call fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef 6, i64 noundef %88)
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %138
 
@@ -10599,7 +10599,7 @@ define internal fastcc i32 @neightbl_fill_parms(ptr noundef %0, ptr noundef %1) 
   %92 = getelementptr i8, ptr %1, i64 112
   %93 = load i32, ptr %92, align 8
   %94 = sext i32 %93 to i64
-  %95 = call fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i32 noundef 7, i64 noundef %94)
+  %95 = call fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef 7, i64 noundef %94)
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %138
 
@@ -10607,7 +10607,7 @@ define internal fastcc i32 @neightbl_fill_parms(ptr noundef %0, ptr noundef %1) 
   %98 = getelementptr i8, ptr %1, i64 104
   %99 = load i32, ptr %98, align 8
   %100 = sext i32 %99 to i64
-  %101 = call fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i32 noundef 5, i64 noundef %100)
+  %101 = call fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef 5, i64 noundef %100)
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %138
 
@@ -10615,7 +10615,7 @@ define internal fastcc i32 @neightbl_fill_parms(ptr noundef %0, ptr noundef %1) 
   %104 = getelementptr i8, ptr %1, i64 132
   %105 = load i32, ptr %104, align 4
   %106 = sext i32 %105 to i64
-  %107 = call fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i32 noundef 12, i64 noundef %106)
+  %107 = call fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef 12, i64 noundef %106)
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %138
 
@@ -10623,7 +10623,7 @@ define internal fastcc i32 @neightbl_fill_parms(ptr noundef %0, ptr noundef %1) 
   %110 = getelementptr i8, ptr %1, i64 136
   %111 = load i32, ptr %110, align 8
   %112 = sext i32 %111 to i64
-  %113 = call fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i32 noundef 13, i64 noundef %112)
+  %113 = call fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef 13, i64 noundef %112)
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %138
 
@@ -10631,7 +10631,7 @@ define internal fastcc i32 @neightbl_fill_parms(ptr noundef %0, ptr noundef %1) 
   %116 = getelementptr i8, ptr %1, i64 140
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
-  %119 = call fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i32 noundef 15, i64 noundef %118)
+  %119 = call fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef 15, i64 noundef %118)
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %138
 
@@ -10639,7 +10639,7 @@ define internal fastcc i32 @neightbl_fill_parms(ptr noundef %0, ptr noundef %1) 
   %122 = getelementptr i8, ptr %1, i64 116
   %123 = load i32, ptr %122, align 4
   %124 = sext i32 %123 to i64
-  %125 = call fastcc i32 @nla_put_msecs.argelim(ptr noundef %0, i32 noundef 19, i64 noundef %124)
+  %125 = call fastcc i32 @nla_put_msecs(ptr noundef %0, i32 noundef 19, i64 noundef %124)
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %138
 

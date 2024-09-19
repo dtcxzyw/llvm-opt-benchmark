@@ -88,7 +88,7 @@ gv_alloc.exit.preheader.i:                        ; preds = %5
 15:                                               ; preds = %5
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.10, i64 noundef %11) #12
-  tail call fastcc void @graphviz_exit.argelim() #13
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 .lr.ph.i:                                         ; preds = %gv_alloc.exit.preheader.i, %gv_alloc.exit.i
@@ -231,7 +231,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #3 {
+define internal fastcc void @graphviz_exit() unnamed_addr #3 {
   tail call void @exit(i32 noundef 1) #15
   unreachable
 }
@@ -287,7 +287,7 @@ fix_colors.exit:                                  ; preds = %.lr.ph.i, %1
 25:                                               ; preds = %fix_colors.exit
   %26 = load ptr, ptr @stderr, align 8
   %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.10, i64 noundef %21) #12
-  call fastcc void @graphviz_exit.argelim() #13
+  call fastcc void @graphviz_exit() #13
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %fix_colors.exit

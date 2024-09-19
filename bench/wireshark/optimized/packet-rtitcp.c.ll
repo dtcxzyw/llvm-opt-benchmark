@@ -296,7 +296,7 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
   %27 = and i32 %26, 1073741823
   %28 = add i32 %26, %spec.select
   %29 = trunc i32 %28 to i16
-  %30 = tail call fastcc ptr @print_header.argprom(ptr noundef %15, ptr noundef %0, i32 noundef 0, i16 noundef zeroext %29, i32 noundef %spec.select51, i32 noundef 1)
+  %30 = tail call fastcc ptr @print_header(ptr noundef %15, ptr noundef %0, i32 noundef 0, i16 noundef zeroext %29, i32 noundef %spec.select51, i32 noundef 1)
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %30, ptr noundef nonnull @.str.104, i32 noundef %27) #4
   %31 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %spec.select) #4
   %32 = load ptr, ptr @heur_subdissector_list, align 8
@@ -331,7 +331,7 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
   %.0122.i.i = select i1 %46, i32 %47, i32 %44
   %48 = zext i16 %43 to i32
   %49 = add i16 %.0125.i.i, %43
-  %50 = call fastcc ptr @print_header.argprom(ptr noundef %15, ptr noundef %0, i32 noundef %.09.i, i16 noundef zeroext %49, i32 noundef %.0126.i.i, i32 noundef 0)
+  %50 = call fastcc ptr @print_header(ptr noundef %15, ptr noundef %0, i32 noundef %.09.i, i16 noundef zeroext %49, i32 noundef %.0126.i.i, i32 noundef 0)
   %51 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.0122.i.i, i32 noundef 0) #4
   %52 = load ptr, ptr %9, align 8
   %53 = zext i16 %51 to i32
@@ -750,7 +750,7 @@ declare void @tvb_set_reported_length(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @print_header.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @print_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   %7 = zext i16 %3 to i32
   %8 = load i32, ptr @ett_rtitcp_message, align 4

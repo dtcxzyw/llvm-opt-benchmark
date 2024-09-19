@@ -215,18 +215,18 @@ if.end2:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end2
   %call.i = call ptr @d2i_DHxparams(ptr noundef null, ptr noundef nonnull %pm, i64 noundef %conv) #4
-  br label %d2i_dhp.argprom.exit
+  br label %d2i_dhp.exit
 
 if.else.i:                                        ; preds = %if.end2
   %call1.i = call ptr @d2i_DHparams(ptr noundef null, ptr noundef nonnull %pm, i64 noundef %conv) #4
-  br label %d2i_dhp.argprom.exit
+  br label %d2i_dhp.exit
 
-d2i_dhp.argprom.exit:                             ; preds = %if.then.i, %if.else.i
+d2i_dhp.exit:                                     ; preds = %if.then.i, %if.else.i
   %dh.0.i = phi ptr [ %call.i, %if.then.i ], [ %call1.i, %if.else.i ]
   %cmp4 = icmp eq ptr %dh.0.i, null
   br i1 %cmp4, label %err, label %if.end7
 
-if.end7:                                          ; preds = %d2i_dhp.argprom.exit
+if.end7:                                          ; preds = %d2i_dhp.exit
   %6 = load i32, ptr %pklen, align 4
   %conv8 = sext i32 %6 to i64
   %call9 = call ptr @d2i_ASN1_INTEGER(ptr noundef null, ptr noundef nonnull %p, i64 noundef %conv8) #4
@@ -247,11 +247,11 @@ if.end18:                                         ; preds = %if.end13
   %call19 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %pkey, i32 noundef %8, ptr noundef nonnull %dh.0.i) #4
   br label %return
 
-err:                                              ; preds = %if.end13, %if.end7, %d2i_dhp.argprom.exit, %if.end
-  %.sink8 = phi i32 [ 77, %if.end ], [ 86, %d2i_dhp.argprom.exit ], [ 91, %if.end7 ], [ 97, %if.end13 ]
-  %.sink = phi i32 [ 105, %if.end ], [ 104, %d2i_dhp.argprom.exit ], [ 104, %if.end7 ], [ 109, %if.end13 ]
-  %public_key.0 = phi ptr [ null, %if.end ], [ null, %d2i_dhp.argprom.exit ], [ null, %if.end7 ], [ %call9, %if.end13 ]
-  %dh.0 = phi ptr [ null, %if.end ], [ null, %d2i_dhp.argprom.exit ], [ %dh.0.i, %if.end7 ], [ %dh.0.i, %if.end13 ]
+err:                                              ; preds = %if.end13, %if.end7, %d2i_dhp.exit, %if.end
+  %.sink8 = phi i32 [ 77, %if.end ], [ 86, %d2i_dhp.exit ], [ 91, %if.end7 ], [ 97, %if.end13 ]
+  %.sink = phi i32 [ 105, %if.end ], [ 104, %d2i_dhp.exit ], [ 104, %if.end7 ], [ 109, %if.end13 ]
+  %public_key.0 = phi ptr [ null, %if.end ], [ null, %d2i_dhp.exit ], [ null, %if.end7 ], [ %call9, %if.end13 ]
+  %dh.0 = phi ptr [ null, %if.end ], [ null, %d2i_dhp.exit ], [ %dh.0.i, %if.end7 ], [ %dh.0.i, %if.end13 ]
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.11, i32 noundef %.sink8, ptr noundef nonnull @__func__.dh_pub_decode) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef %.sink, ptr noundef null) #4
@@ -290,25 +290,25 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %call.i = tail call i32 @i2d_DHxparams(ptr noundef %0, ptr noundef nonnull %data) #4
-  br label %i2d_dhp.argprom.exit
+  br label %i2d_dhp.exit
 
 if.end.i:                                         ; preds = %if.end
   %call1.i = tail call i32 @i2d_DHparams(ptr noundef %0, ptr noundef nonnull %data) #4
-  br label %i2d_dhp.argprom.exit
+  br label %i2d_dhp.exit
 
-i2d_dhp.argprom.exit:                             ; preds = %if.then.i, %if.end.i
+i2d_dhp.exit:                                     ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ %call1.i, %if.end.i ]
   store i32 %retval.0.i, ptr %call, align 8
   %cmp4 = icmp slt i32 %retval.0.i, 1
   br i1 %cmp4, label %if.then5, label %if.end6
 
-if.then5:                                         ; preds = %i2d_dhp.argprom.exit
+if.then5:                                         ; preds = %i2d_dhp.exit
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.11, i32 noundef 129, ptr noundef nonnull @__func__.dh_pub_encode) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef 524301, ptr noundef null) #4
   br label %err
 
-if.end6:                                          ; preds = %i2d_dhp.argprom.exit
+if.end6:                                          ; preds = %i2d_dhp.exit
   %pub_key7 = getelementptr inbounds i8, ptr %0, i64 112
   %2 = load ptr, ptr %pub_key7, align 8
   %call8 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef %2, ptr noundef null) #4
@@ -435,25 +435,25 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %call.i = tail call i32 @i2d_DHxparams(ptr noundef %0, ptr noundef nonnull %data) #4
-  br label %i2d_dhp.argprom.exit
+  br label %i2d_dhp.exit
 
 if.end.i:                                         ; preds = %if.end
   %call1.i = tail call i32 @i2d_DHparams(ptr noundef %0, ptr noundef nonnull %data) #4
-  br label %i2d_dhp.argprom.exit
+  br label %i2d_dhp.exit
 
-i2d_dhp.argprom.exit:                             ; preds = %if.then.i, %if.end.i
+i2d_dhp.exit:                                     ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ %call1.i, %if.end.i ]
   store i32 %retval.0.i, ptr %call, align 8
   %cmp4 = icmp slt i32 %retval.0.i, 1
   br i1 %cmp4, label %if.then5, label %if.end6
 
-if.then5:                                         ; preds = %i2d_dhp.argprom.exit
+if.then5:                                         ; preds = %i2d_dhp.exit
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.11, i32 noundef 193, ptr noundef nonnull @__func__.dh_priv_encode) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef 524301, ptr noundef null) #4
   br label %err
 
-if.end6:                                          ; preds = %i2d_dhp.argprom.exit
+if.end6:                                          ; preds = %i2d_dhp.exit
   %type = getelementptr inbounds i8, ptr %call, i64 4
   store i32 16, ptr %type, align 4
   %2 = load ptr, ptr %pkey1, align 8
@@ -552,18 +552,18 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call ptr @d2i_DHxparams(ptr noundef null, ptr noundef %pder, i64 noundef %conv) #4
-  br label %d2i_dhp.argprom.exit
+  br label %d2i_dhp.exit
 
 if.else.i:                                        ; preds = %entry
   %call1.i = tail call ptr @d2i_DHparams(ptr noundef null, ptr noundef %pder, i64 noundef %conv) #4
-  br label %d2i_dhp.argprom.exit
+  br label %d2i_dhp.exit
 
-d2i_dhp.argprom.exit:                             ; preds = %if.then.i, %if.else.i
+d2i_dhp.exit:                                     ; preds = %if.then.i, %if.else.i
   %dh.0.i = phi ptr [ %call.i, %if.then.i ], [ %call1.i, %if.else.i ]
   %cmp = icmp eq ptr %dh.0.i, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %d2i_dhp.argprom.exit
+if.end:                                           ; preds = %d2i_dhp.exit
   %dirty_cnt = getelementptr inbounds i8, ptr %dh.0.i, i64 200
   %1 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %1, 1
@@ -573,8 +573,8 @@ if.end:                                           ; preds = %d2i_dhp.argprom.exi
   %call2 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %pkey, i32 noundef %3, ptr noundef nonnull %dh.0.i) #4
   br label %return
 
-return:                                           ; preds = %d2i_dhp.argprom.exit, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %d2i_dhp.argprom.exit ]
+return:                                           ; preds = %d2i_dhp.exit, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %d2i_dhp.exit ]
   ret i32 %retval.0
 }
 
@@ -590,13 +590,13 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i32 @i2d_DHxparams(ptr noundef %0, ptr noundef %pder) #4
-  br label %i2d_dhp.argprom.exit
+  br label %i2d_dhp.exit
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call i32 @i2d_DHparams(ptr noundef %0, ptr noundef %pder) #4
-  br label %i2d_dhp.argprom.exit
+  br label %i2d_dhp.exit
 
-i2d_dhp.argprom.exit:                             ; preds = %if.then.i, %if.end.i
+i2d_dhp.exit:                                     ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ %call1.i, %if.end.i ]
   ret i32 %retval.0.i
 }

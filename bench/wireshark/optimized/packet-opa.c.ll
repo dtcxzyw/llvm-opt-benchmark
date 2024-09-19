@@ -922,81 +922,81 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 211:                                              ; preds = %.preheader152.i
   %.val = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH.argprom(ptr noundef %0, ptr %.val, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val, ptr noundef %38, ptr noundef %5)
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
 212:                                              ; preds = %.preheader140.i
   %.val200 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH.argprom(ptr noundef %0, ptr %.val200, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val200, ptr noundef %38, ptr noundef %5)
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val209 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RETH.argprom(ptr noundef %0, ptr %.val209, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val209, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
 213:                                              ; preds = %.preheader144.i
   %.val201 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH.argprom(ptr noundef %0, ptr %.val201, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val201, ptr noundef %38, ptr noundef %5)
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val214 = load ptr, ptr %30, align 8
-  call fastcc void @parse_IMMDT.argprom(ptr noundef %0, ptr %.val214, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val214, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
 214:                                              ; preds = %203
   %.val202 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH.argprom(ptr noundef %0, ptr %.val202, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val202, ptr noundef %38, ptr noundef %5)
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val210 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RETH.argprom(ptr noundef %0, ptr %.val210, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val210, ptr noundef %38, ptr noundef %5)
   %.val215 = load ptr, ptr %30, align 8
-  call fastcc void @parse_IMMDT.argprom(ptr noundef %0, ptr %.val215, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val215, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
 215:                                              ; preds = %203
   %.val203 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH.argprom(ptr noundef %0, ptr %.val203, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val203, ptr noundef %38, ptr noundef %5)
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val211 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RETH.argprom(ptr noundef %0, ptr %.val211, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val211, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
 216:                                              ; preds = %.preheader148.i
   %.val204 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH.argprom(ptr noundef %0, ptr %.val204, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val204, ptr noundef %38, ptr noundef %5)
   %.val218 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH.argprom(ptr noundef %0, ptr %.val218, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val218, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
 217:                                              ; preds = %203
   %.val205 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH.argprom(ptr noundef %0, ptr %.val205, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val205, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
 218:                                              ; preds = %203
   %.val219 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH.argprom(ptr noundef %0, ptr %.val219, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val219, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
 219:                                              ; preds = %203
   %.val206 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH.argprom(ptr noundef %0, ptr %.val206, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val206, ptr noundef %38, ptr noundef %5)
   %.val220 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH.argprom(ptr noundef %0, ptr %.val220, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val220, ptr noundef %38, ptr noundef %5)
   %.val224 = load ptr, ptr %30, align 8
-  call fastcc void @parse_ATOMICACKETH.argprom(ptr noundef %0, ptr %.val224, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.val224, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
 220:                                              ; preds = %.preheader134.i
   %.val207 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH.argprom(ptr noundef %0, ptr %.val207, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val207, ptr noundef %38, ptr noundef %5)
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val226 = load ptr, ptr %30, align 8
-  call fastcc void @parse_ATOMICETH.argprom(ptr noundef %0, ptr %.val226, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.val226, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
 221:                                              ; preds = %203
   %.val208 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH.argprom(ptr noundef %0, ptr %.val208, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val208, ptr noundef %38, ptr noundef %5)
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
@@ -1006,62 +1006,62 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 223:                                              ; preds = %.preheader154.i
   %.val216 = load ptr, ptr %30, align 8
-  call fastcc void @parse_IMMDT.argprom(ptr noundef %0, ptr %.val216, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val216, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
 224:                                              ; preds = %.preheader150.i
   %.val212 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RETH.argprom(ptr noundef %0, ptr %.val212, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val212, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
 225:                                              ; preds = %203
   %.val213 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RETH.argprom(ptr noundef %0, ptr %.val213, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val213, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
 226:                                              ; preds = %.preheader146.i
   %.val221 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH.argprom(ptr noundef %0, ptr %.val221, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val221, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
 227:                                              ; preds = %203
   %.val222 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH.argprom(ptr noundef %0, ptr %.val222, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val222, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
 228:                                              ; preds = %203
   %.val223 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH.argprom(ptr noundef %0, ptr %.val223, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val223, ptr noundef %38, ptr noundef %5)
   %.val225 = load ptr, ptr %30, align 8
-  call fastcc void @parse_ATOMICACKETH.argprom(ptr noundef %0, ptr %.val225, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.val225, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
 229:                                              ; preds = %.preheader138.i
   %.val227 = load ptr, ptr %30, align 8
-  call fastcc void @parse_ATOMICETH.argprom(ptr noundef %0, ptr %.val227, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.val227, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
 230:                                              ; preds = %.preheader136.i
   %.val228 = load ptr, ptr %30, align 8
-  call fastcc void @parse_IETH.argprom(ptr noundef %0, ptr %.val228, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_IETH(ptr noundef %0, ptr %.val228, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
 231:                                              ; preds = %203
   call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val217 = load ptr, ptr %30, align 8
-  call fastcc void @parse_IMMDT.argprom(ptr noundef %0, ptr %.val217, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val217, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
 232:                                              ; preds = %.preheader132.i
   %.val229 = load ptr, ptr %30, align 8
-  call fastcc void @parse_KDETH.argprom(ptr noundef %0, ptr %.val229, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_KDETH(ptr noundef %0, ptr %.val229, ptr noundef %38, ptr noundef %5)
   %.val231 = load ptr, ptr %30, align 8
-  call fastcc void @parse_PSM.argprom(ptr noundef %0, ptr %.val231, ptr noundef %38, ptr noundef %5, i32 noundef %115)
+  call fastcc void @parse_PSM(ptr noundef %0, ptr %.val231, ptr noundef %38, ptr noundef %5, i32 noundef %115)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
 find_next_header_sequence.exit.thread:            ; preds = %.preheader.i
   %.val230 = load ptr, ptr %30, align 8
-  call fastcc void @parse_KDETH.argprom(ptr noundef %0, ptr %.val230, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_KDETH(ptr noundef %0, ptr %.val230, ptr noundef %38, ptr noundef %5)
   call fastcc void @parse_TIDRDMA(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5, i32 noundef %115, ptr noundef %6)
   %.pr.pre = load i32, ptr %6, align 4
   %233 = icmp eq i32 %.pr.pre, 0
@@ -1154,7 +1154,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_RDETH.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_RDETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.318) #5
   %5 = load i32, ptr @hf_opa_RDETH, align 4
@@ -1198,7 +1198,7 @@ define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_RETH.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_RETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.320) #5
   %5 = load i32, ptr @hf_opa_RETH, align 4
@@ -1219,7 +1219,7 @@ define internal fastcc void @parse_RETH.argprom(ptr noundef %0, ptr %.8.val, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_IMMDT.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_IMMDT(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.321) #5
   %5 = load i32, ptr @hf_opa_IMMDT, align 4
@@ -1234,7 +1234,7 @@ define internal fastcc void @parse_IMMDT.argprom(ptr noundef %0, ptr %.8.val, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_AETH.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_AETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.322) #5
   %5 = load i32, ptr @hf_opa_AETH, align 4
@@ -1252,7 +1252,7 @@ define internal fastcc void @parse_AETH.argprom(ptr noundef %0, ptr %.8.val, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_ATOMICACKETH.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.323) #5
   %5 = load i32, ptr @hf_opa_AtomicAckETH, align 4
@@ -1267,7 +1267,7 @@ define internal fastcc void @parse_ATOMICACKETH.argprom(ptr noundef %0, ptr %.8.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_ATOMICETH.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.324) #5
   %5 = load i32, ptr @hf_opa_AtomicETH, align 4
@@ -1291,7 +1291,7 @@ define internal fastcc void @parse_ATOMICETH.argprom(ptr noundef %0, ptr %.8.val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_IETH.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_IETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.325) #5
   %5 = load i32, ptr @hf_opa_IETH, align 4
@@ -1306,7 +1306,7 @@ define internal fastcc void @parse_IETH.argprom(ptr noundef %0, ptr %.8.val, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_KDETH.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_KDETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.326) #5
   %5 = load i32, ptr @hf_opa_KDETH, align 4
@@ -1322,7 +1322,7 @@ define internal fastcc void @parse_KDETH.argprom(ptr noundef %0, ptr %.8.val, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_PSM.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
+define internal fastcc void @parse_PSM(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.327) #5
   %6 = load i32, ptr @hf_opa_psm, align 4

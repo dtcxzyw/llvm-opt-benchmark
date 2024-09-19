@@ -66,7 +66,7 @@ define internal i32 @prte_plm_base_open(i32 noundef %0) #0 {
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not1.i = icmp eq ptr %7, null
-  br i1 %.not1.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %8 = phi ptr [ %10, %.lr.ph.i ], [ %7, %5 ]
@@ -75,9 +75,9 @@ define internal i32 @prte_plm_base_open(i32 noundef %0) #0 {
   %9 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
-pmix_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %5
+pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %11 = tail call i32 @pmix_mca_base_framework_components_open(ptr noundef nonnull @prte_plm_base_framework, i32 noundef %0) #4
   ret i32 %11
 }
@@ -122,14 +122,14 @@ define internal i32 @prte_plm_base_close() #0 {
 14:                                               ; preds = %13, %11
   %15 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 352), align 8
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %._crit_edge, label %pmix_list_remove_first.argprom.exit.preheader
+  br i1 %16, label %._crit_edge, label %pmix_list_remove_first.exit.preheader
 
-pmix_list_remove_first.argprom.exit.preheader:    ; preds = %14
+pmix_list_remove_first.exit.preheader:            ; preds = %14
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 328), align 8
-  br label %pmix_list_remove_first.argprom.exit
+  br label %pmix_list_remove_first.exit
 
-pmix_list_remove_first.argprom.exit:              ; preds = %pmix_list_remove_first.argprom.exit.preheader, %pmix_list_remove_first.argprom.exit
-  %17 = phi ptr [ %.pre, %pmix_list_remove_first.argprom.exit.preheader ], [ %25, %pmix_list_remove_first.argprom.exit ]
+pmix_list_remove_first.exit:                      ; preds = %pmix_list_remove_first.exit.preheader, %pmix_list_remove_first.exit
+  %17 = phi ptr [ %.pre, %pmix_list_remove_first.exit.preheader ], [ %25, %pmix_list_remove_first.exit ]
   %18 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 352), align 8
   %19 = add i64 %18, -1
   store volatile i64 %19, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 352), align 8
@@ -143,15 +143,15 @@ pmix_list_remove_first.argprom.exit:              ; preds = %pmix_list_remove_fi
   store ptr %25, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 328), align 8
   %26 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 352), align 8
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %._crit_edge, label %pmix_list_remove_first.argprom.exit, !llvm.loop !6
+  br i1 %27, label %._crit_edge, label %pmix_list_remove_first.exit, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %pmix_list_remove_first.argprom.exit, %14
+._crit_edge:                                      ; preds = %pmix_list_remove_first.exit, %14
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 128), align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
   %.not1.i = icmp eq ptr %31, null
-  br i1 %.not1.i, label %pmix_obj_run_destructors.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %32 = phi ptr [ %34, %.lr.ph.i ], [ %31, %._crit_edge ]
@@ -160,14 +160,14 @@ pmix_list_remove_first.argprom.exit:              ; preds = %pmix_list_remove_fi
   %33 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %pmix_obj_run_destructors.argprom.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
 
-pmix_obj_run_destructors.argprom.exit:            ; preds = %.lr.ph.i, %._crit_edge
+pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %._crit_edge
   %35 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @prte_plm_base_framework, ptr noundef null) #4
   br label %36
 
-36:                                               ; preds = %9, %7, %pmix_obj_run_destructors.argprom.exit
-  %.0 = phi i32 [ %35, %pmix_obj_run_destructors.argprom.exit ], [ %8, %7 ], [ %8, %9 ]
+36:                                               ; preds = %9, %7, %pmix_obj_run_destructors.exit
+  %.0 = phi i32 [ %35, %pmix_obj_run_destructors.exit ], [ %8, %7 ], [ %8, %9 ]
   ret i32 %.0
 }
 

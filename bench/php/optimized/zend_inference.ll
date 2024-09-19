@@ -13027,13 +13027,13 @@ zend_array_type_info.exit10089:                   ; preds = %.lr.ph.i10075, %349
   %399 = getelementptr inbounds %struct._zend_ssa_var, ptr %13, i64 %372, i32 2
   %400 = load i32, ptr %399, align 8
   %401 = icmp sgt i32 %400, -1
-  br i1 %401, label %402, label %emit_type_narrowing_warning.argprom.exit
+  br i1 %401, label %402, label %emit_type_narrowing_warning.exit
 
 402:                                              ; preds = %398
   %403 = getelementptr inbounds i8, ptr %0, i64 88
   %404 = load ptr, ptr %403, align 8
   %.not.i10091 = icmp eq ptr %404, null
-  br i1 %.not.i10091, label %emit_type_narrowing_warning.argprom.exit, label %405
+  br i1 %.not.i10091, label %emit_type_narrowing_warning.exit, label %405
 
 405:                                              ; preds = %402
   %406 = zext nneg i32 %400 to i64
@@ -13043,9 +13043,9 @@ zend_array_type_info.exit10089:                   ; preds = %.lr.ph.i10075, %349
   %410 = tail call ptr @zend_get_opcode_name(i8 noundef zeroext %409) #19
   %411 = getelementptr inbounds i8, ptr %407, i64 24
   %412 = load i32, ptr %411, align 8
-  br label %emit_type_narrowing_warning.argprom.exit
+  br label %emit_type_narrowing_warning.exit
 
-emit_type_narrowing_warning.argprom.exit:         ; preds = %398, %402, %405
+emit_type_narrowing_warning.exit:                 ; preds = %398, %402, %405
   %413 = phi ptr [ %410, %405 ], [ @.str, %402 ], [ @.str, %398 ]
   %414 = phi i32 [ %412, %405 ], [ 0, %402 ], [ 0, %398 ]
   %415 = getelementptr inbounds i8, ptr %0, i64 152
@@ -13120,13 +13120,13 @@ emit_type_narrowing_warning.argprom.exit:         ; preds = %398, %402, %405
   %450 = getelementptr inbounds %struct._zend_ssa_var, ptr %.val9938, i64 %423, i32 2
   %451 = load i32, ptr %450, align 8
   %452 = icmp sgt i32 %451, -1
-  br i1 %452, label %453, label %emit_type_narrowing_warning.argprom.exit10094
+  br i1 %452, label %453, label %emit_type_narrowing_warning.exit10094
 
 453:                                              ; preds = %449
   %454 = getelementptr inbounds i8, ptr %0, i64 88
   %455 = load ptr, ptr %454, align 8
   %.not.i10093 = icmp eq ptr %455, null
-  br i1 %.not.i10093, label %emit_type_narrowing_warning.argprom.exit10094, label %456
+  br i1 %.not.i10093, label %emit_type_narrowing_warning.exit10094, label %456
 
 456:                                              ; preds = %453
   %457 = zext nneg i32 %451 to i64
@@ -13136,9 +13136,9 @@ emit_type_narrowing_warning.argprom.exit:         ; preds = %398, %402, %405
   %461 = tail call ptr @zend_get_opcode_name(i8 noundef zeroext %460) #19
   %462 = getelementptr inbounds i8, ptr %458, i64 24
   %463 = load i32, ptr %462, align 8
-  br label %emit_type_narrowing_warning.argprom.exit10094
+  br label %emit_type_narrowing_warning.exit10094
 
-emit_type_narrowing_warning.argprom.exit10094:    ; preds = %449, %453, %456
+emit_type_narrowing_warning.exit10094:            ; preds = %449, %453, %456
   %464 = phi ptr [ %461, %456 ], [ @.str, %453 ], [ @.str, %449 ]
   %465 = phi i32 [ %463, %456 ], [ 0, %453 ], [ 0, %449 ]
   %466 = getelementptr inbounds i8, ptr %0, i64 152
@@ -13213,13 +13213,13 @@ emit_type_narrowing_warning.argprom.exit10094:    ; preds = %449, %453, %456
   %501 = getelementptr inbounds %struct._zend_ssa_var, ptr %.val9939, i64 %474, i32 2
   %502 = load i32, ptr %501, align 8
   %503 = icmp sgt i32 %502, -1
-  br i1 %503, label %504, label %emit_type_narrowing_warning.argprom.exit10097
+  br i1 %503, label %504, label %emit_type_narrowing_warning.exit10097
 
 504:                                              ; preds = %500
   %505 = getelementptr inbounds i8, ptr %0, i64 88
   %506 = load ptr, ptr %505, align 8
   %.not.i10096 = icmp eq ptr %506, null
-  br i1 %.not.i10096, label %emit_type_narrowing_warning.argprom.exit10097, label %507
+  br i1 %.not.i10096, label %emit_type_narrowing_warning.exit10097, label %507
 
 507:                                              ; preds = %504
   %508 = zext nneg i32 %502 to i64
@@ -13229,9 +13229,9 @@ emit_type_narrowing_warning.argprom.exit10094:    ; preds = %449, %453, %456
   %512 = tail call ptr @zend_get_opcode_name(i8 noundef zeroext %511) #19
   %513 = getelementptr inbounds i8, ptr %509, i64 24
   %514 = load i32, ptr %513, align 8
-  br label %emit_type_narrowing_warning.argprom.exit10097
+  br label %emit_type_narrowing_warning.exit10097
 
-emit_type_narrowing_warning.argprom.exit10097:    ; preds = %500, %504, %507
+emit_type_narrowing_warning.exit10097:            ; preds = %500, %504, %507
   %515 = phi ptr [ %512, %507 ], [ @.str, %504 ], [ @.str, %500 ]
   %516 = phi i32 [ %514, %507 ], [ 0, %504 ], [ 0, %500 ]
   %517 = getelementptr inbounds i8, ptr %0, i64 152
@@ -13317,13 +13317,13 @@ emit_type_narrowing_warning.argprom.exit10097:    ; preds = %500, %504, %507
   %555 = getelementptr inbounds %struct._zend_ssa_var, ptr %.val9940, i64 %528, i32 2
   %556 = load i32, ptr %555, align 8
   %557 = icmp sgt i32 %556, -1
-  br i1 %557, label %558, label %emit_type_narrowing_warning.argprom.exit10100
+  br i1 %557, label %558, label %emit_type_narrowing_warning.exit10100
 
 558:                                              ; preds = %554
   %559 = getelementptr inbounds i8, ptr %0, i64 88
   %560 = load ptr, ptr %559, align 8
   %.not.i10099 = icmp eq ptr %560, null
-  br i1 %.not.i10099, label %emit_type_narrowing_warning.argprom.exit10100, label %561
+  br i1 %.not.i10099, label %emit_type_narrowing_warning.exit10100, label %561
 
 561:                                              ; preds = %558
   %562 = zext nneg i32 %556 to i64
@@ -13333,9 +13333,9 @@ emit_type_narrowing_warning.argprom.exit10097:    ; preds = %500, %504, %507
   %566 = tail call ptr @zend_get_opcode_name(i8 noundef zeroext %565) #19
   %567 = getelementptr inbounds i8, ptr %563, i64 24
   %568 = load i32, ptr %567, align 8
-  br label %emit_type_narrowing_warning.argprom.exit10100
+  br label %emit_type_narrowing_warning.exit10100
 
-emit_type_narrowing_warning.argprom.exit10100:    ; preds = %554, %558, %561
+emit_type_narrowing_warning.exit10100:            ; preds = %554, %558, %561
   %569 = phi ptr [ %566, %561 ], [ @.str, %558 ], [ @.str, %554 ]
   %570 = phi i32 [ %568, %561 ], [ 0, %558 ], [ 0, %554 ]
   %571 = getelementptr inbounds i8, ptr %0, i64 152
@@ -13573,7 +13573,7 @@ zend_array_type_info.exit10089.thread:            ; preds = %358, %359, %308, %z
   br i1 %.not9589, label %619, label %618
 
 618:                                              ; preds = %614
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %576)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %576)
   br label %.thread10321
 
 619:                                              ; preds = %614
@@ -13666,7 +13666,7 @@ zend_array_type_info.exit10089.thread:            ; preds = %358, %359, %308, %z
   br i1 %.not9579, label %667, label %666
 
 666:                                              ; preds = %662
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %622)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %622)
   br label %.thread10321
 
 667:                                              ; preds = %662
@@ -13728,7 +13728,7 @@ zend_array_type_info.exit10089.thread:            ; preds = %358, %359, %308, %z
   br i1 %.not9565, label %700, label %699
 
 699:                                              ; preds = %695
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %670)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %670)
   br label %.thread10321
 
 700:                                              ; preds = %695
@@ -13790,7 +13790,7 @@ zend_array_type_info.exit10089.thread:            ; preds = %358, %359, %308, %z
   br i1 %.not9560, label %733, label %732
 
 732:                                              ; preds = %728
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %703)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %703)
   br label %.thread10321
 
 733:                                              ; preds = %728
@@ -13904,7 +13904,7 @@ zend_array_type_info.exit10089.thread:            ; preds = %358, %359, %308, %z
   br i1 %.not9526, label %792, label %791
 
 791:                                              ; preds = %787
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %736)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %736)
   br label %.thread10321
 
 792:                                              ; preds = %787
@@ -14174,7 +14174,7 @@ zend_array_type_info.exit10089.thread:            ; preds = %358, %359, %308, %z
 
 938:                                              ; preds = %934
   %.val9946 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9946, i32 noundef %897)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9946, i32 noundef %897)
   br label %.thread10321
 
 939:                                              ; preds = %934
@@ -14262,7 +14262,7 @@ zend_array_type_info.exit10089.thread:            ; preds = %358, %359, %308, %z
   br i1 %.not9480, label %986, label %985
 
 985:                                              ; preds = %981
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %942)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %942)
   br label %.thread10321
 
 986:                                              ; preds = %981
@@ -14506,7 +14506,7 @@ zend_array_type_info.exit10089.thread:            ; preds = %358, %359, %308, %z
 
 1114:                                             ; preds = %1110
   %.val9948 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9948, i32 noundef %1073)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9948, i32 noundef %1073)
   br label %.thread10321
 
 1115:                                             ; preds = %1110
@@ -14686,7 +14686,7 @@ zend_array_type_info.exit10089.thread:            ; preds = %358, %359, %308, %z
   br i1 %.not9469, label %1215, label %1214
 
 1214:                                             ; preds = %1210
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %1185)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %1185)
   br label %.thread10321
 
 1215:                                             ; preds = %1210
@@ -14871,7 +14871,7 @@ zend_fetch_prop_type.exit:                        ; preds = %1217, %1219
   br label %.thread10242
 
 1317:                                             ; preds = %1216
-  %1318 = tail call fastcc ptr @zend_fetch_static_prop_info.argprom(ptr noundef %2, ptr noundef %0, ptr noundef %.07418)
+  %1318 = tail call fastcc ptr @zend_fetch_static_prop_info(ptr noundef %2, ptr noundef %0, ptr noundef %.07418)
   %.not.i10111 = icmp eq ptr %1318, null
   br i1 %.not.i10111, label %zend_fetch_prop_type.exit10113, label %1319
 
@@ -15181,7 +15181,7 @@ zend_fetch_prop_type.exit10113:                   ; preds = %1317, %1319
 
 1485:                                             ; preds = %1481
   %.val9950 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9950, i32 noundef %1443)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9950, i32 noundef %1443)
   br label %.thread10321
 
 1486:                                             ; preds = %1481
@@ -15354,7 +15354,7 @@ zend_fetch_prop_type.exit10113:                   ; preds = %1317, %1319
 
 1584:                                             ; preds = %1580
   %.val9951 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9951, i32 noundef %1554)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9951, i32 noundef %1554)
   br label %.thread10321
 
 1585:                                             ; preds = %1580
@@ -15538,7 +15538,7 @@ zend_fetch_prop_type.exit10113:                   ; preds = %1317, %1319
 
 1688:                                             ; preds = %1684
   %.val9952 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9952, i32 noundef %1647)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9952, i32 noundef %1647)
   br label %.thread10321
 
 1689:                                             ; preds = %1684
@@ -15744,7 +15744,7 @@ zend_fetch_prop_type.exit10122:                   ; preds = %1728
 
 1793:                                             ; preds = %1789
   %.val9953 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9953, i32 noundef %1755)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9953, i32 noundef %1755)
   br label %.thread10321
 
 1794:                                             ; preds = %1789
@@ -15970,7 +15970,7 @@ zend_fetch_prop_type.exit10122:                   ; preds = %1728
   br i1 %.not9366, label %1921, label %1920
 
 1920:                                             ; preds = %1916
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %1879)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %1879)
   br label %.thread10321
 
 1921:                                             ; preds = %1916
@@ -16057,7 +16057,7 @@ zend_fetch_prop_type.exit10122:                   ; preds = %1728
 
 1966:                                             ; preds = %1962
   %.val9955 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9955, i32 noundef %1924)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9955, i32 noundef %1924)
   br label %.thread10321
 
 1967:                                             ; preds = %1962
@@ -16142,7 +16142,7 @@ zend_fetch_prop_type.exit10122:                   ; preds = %1728
   br i1 %.not9335, label %2012, label %2011
 
 2011:                                             ; preds = %2007
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %1970)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %1970)
   br label %.thread10321
 
 2012:                                             ; preds = %2007
@@ -16319,7 +16319,7 @@ zend_fetch_prop_type.exit10122:                   ; preds = %1728
 
 2106:                                             ; preds = %2102
   %.val9957 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9957, i32 noundef %2065)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9957, i32 noundef %2065)
   br label %.thread10321
 
 2107:                                             ; preds = %2102
@@ -16486,7 +16486,7 @@ zend_fetch_prop_type.exit10122:                   ; preds = %1728
   br i1 %.not9279, label %2198, label %2197
 
 2197:                                             ; preds = %2193
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %2156)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %2156)
   br label %.thread10321
 
 2198:                                             ; preds = %2193
@@ -16804,7 +16804,7 @@ zend_fetch_prop_type.exit10122:                   ; preds = %1728
 
 2376:                                             ; preds = %2372
   %.val9959 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9959, i32 noundef %2261)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9959, i32 noundef %2261)
   br label %.thread10321
 
 2377:                                             ; preds = %2372
@@ -16974,7 +16974,7 @@ zend_fetch_prop_type.exit10122:                   ; preds = %1728
 
 2469:                                             ; preds = %2465
   %.val9960 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9960, i32 noundef %2381)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9960, i32 noundef %2381)
   br label %.thread10321
 
 2470:                                             ; preds = %2465
@@ -17105,7 +17105,7 @@ zend_fetch_prop_type.exit10122:                   ; preds = %1728
   br i1 %.not9226, label %2542, label %2541
 
 2541:                                             ; preds = %2537
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %2500)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %2500)
   br label %.thread10321
 
 2542:                                             ; preds = %2537
@@ -17313,7 +17313,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 2657:                                             ; preds = %2653
   %.val9962 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9962, i32 noundef %2616)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9962, i32 noundef %2616)
   br label %.thread10321
 
 2658:                                             ; preds = %2653
@@ -17524,7 +17524,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 2776:                                             ; preds = %2772
   %.val9963 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9963, i32 noundef %2691)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9963, i32 noundef %2691)
   br label %.thread10321
 
 2777:                                             ; preds = %2772
@@ -17586,7 +17586,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not9196, label %2810, label %2809
 
 2809:                                             ; preds = %2805
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %2780)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %2780)
   br label %.thread10321
 
 2810:                                             ; preds = %2805
@@ -17751,7 +17751,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 2899:                                             ; preds = %2895
   %.val9965 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9965, i32 noundef %2814)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9965, i32 noundef %2814)
   br label %.thread10321
 
 2900:                                             ; preds = %2895
@@ -17823,7 +17823,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not9176, label %2938, label %2937
 
 2937:                                             ; preds = %2933
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %2907)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %2907)
   br label %.thread10321
 
 2938:                                             ; preds = %2933
@@ -17985,7 +17985,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 3030:                                             ; preds = %3026
   %.val9967 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9967, i32 noundef %3001)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9967, i32 noundef %3001)
   br label %.thread10321
 
 3031:                                             ; preds = %3026
@@ -18075,7 +18075,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not9117, label %3076, label %3075
 
 3075:                                             ; preds = %3071
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3034)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3034)
   br label %.thread10321
 
 3076:                                             ; preds = %3071
@@ -18207,7 +18207,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 3143:                                             ; preds = %3139
   %.val9969 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9969, i32 noundef %3097)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9969, i32 noundef %3097)
   br label %.thread10321
 
 3144:                                             ; preds = %3139
@@ -18448,7 +18448,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 3277:                                             ; preds = %3273
   %.val9970 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9970, i32 noundef %3208)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9970, i32 noundef %3208)
   br label %.thread10321
 
 3278:                                             ; preds = %3273
@@ -18617,7 +18617,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not9086, label %3376, label %3375
 
 3375:                                             ; preds = %3371
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3345)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3345)
   br label %.thread10321
 
 3376:                                             ; preds = %3371
@@ -18683,7 +18683,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 3409:                                             ; preds = %3405
   %.val9972 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9972, i32 noundef %3379)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9972, i32 noundef %3379)
   br label %.thread10321
 
 3410:                                             ; preds = %3405
@@ -18747,7 +18747,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 3442:                                             ; preds = %3438
   %.val9973 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9973, i32 noundef %3413)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9973, i32 noundef %3413)
   br label %.thread10321
 
 3443:                                             ; preds = %3438
@@ -18839,7 +18839,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not9042, label %3492, label %3491
 
 3491:                                             ; preds = %3487
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3448)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3448)
   br label %.thread10321
 
 3492:                                             ; preds = %3487
@@ -19078,7 +19078,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 3629:                                             ; preds = %3625
   %.val9975 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9975, i32 noundef %3598)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9975, i32 noundef %3598)
   br label %.thread10321
 
 3630:                                             ; preds = %3625
@@ -19150,7 +19150,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 3667:                                             ; preds = %3663
   %.val9976 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9976, i32 noundef %3637)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9976, i32 noundef %3637)
   br label %.thread10321
 
 3668:                                             ; preds = %3663
@@ -19212,7 +19212,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not9026, label %3700, label %3699
 
 3699:                                             ; preds = %3695
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3671)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3671)
   br label %.thread10321
 
 3700:                                             ; preds = %3695
@@ -19281,7 +19281,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 3735:                                             ; preds = %3731
   %.val9978 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9978, i32 noundef %3707)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9978, i32 noundef %3707)
   br label %.thread10321
 
 3736:                                             ; preds = %3731
@@ -19343,7 +19343,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not9021, label %3768, label %3767
 
 3767:                                             ; preds = %3763
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3739)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3739)
   br label %.thread10321
 
 3768:                                             ; preds = %3763
@@ -19434,7 +19434,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not9016, label %3818, label %3817
 
 3817:                                             ; preds = %3813
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3771)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3771)
   br label %.thread10321
 
 3818:                                             ; preds = %3813
@@ -19477,7 +19477,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not9004, label %3840, label %3839
 
 3839:                                             ; preds = %3836
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3821)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3821)
   br label %.thread10321
 
 3840:                                             ; preds = %3836
@@ -19565,7 +19565,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not8989, label %3887, label %3886
 
 3886:                                             ; preds = %3882
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3843)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3843)
   br label %.thread10321
 
 3887:                                             ; preds = %3882
@@ -19767,7 +19767,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not8968, label %4001, label %4000
 
 4000:                                             ; preds = %3996
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3950)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %3950)
   br label %.thread10321
 
 4001:                                             ; preds = %3996
@@ -19970,7 +19970,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not8941, label %4116, label %4115
 
 4115:                                             ; preds = %4111
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4065)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4065)
   br label %.thread10321
 
 4116:                                             ; preds = %4111
@@ -20132,7 +20132,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 4208:                                             ; preds = %4204
   %.val9985 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9985, i32 noundef %4179)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9985, i32 noundef %4179)
   br label %.thread10321
 
 4209:                                             ; preds = %4204
@@ -20197,7 +20197,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not8929, label %4244, label %4243
 
 4243:                                             ; preds = %4239
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4212)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4212)
   br label %.thread10321
 
 4244:                                             ; preds = %4239
@@ -20259,7 +20259,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not8924, label %4276, label %4275
 
 4275:                                             ; preds = %4271
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4247)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4247)
   br label %.thread10321
 
 4276:                                             ; preds = %4271
@@ -20354,7 +20354,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not8919, label %4325, label %4324
 
 4324:                                             ; preds = %4320
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4279)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4279)
   br label %.thread10321
 
 4325:                                             ; preds = %4320
@@ -20416,7 +20416,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not8906, label %4358, label %4357
 
 4357:                                             ; preds = %4353
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4328)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4328)
   br label %.thread10321
 
 4358:                                             ; preds = %4353
@@ -20542,7 +20542,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
 
 4428:                                             ; preds = %4424
   %.val9990 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9990, i32 noundef %4387)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9990, i32 noundef %4387)
   br label %.thread10321
 
 4429:                                             ; preds = %4424
@@ -20679,7 +20679,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not8874, label %4508, label %4507
 
 4507:                                             ; preds = %4503
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4478)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4478)
   br label %.thread10321
 
 4508:                                             ; preds = %4503
@@ -20808,7 +20808,7 @@ zend_fetch_prop_type.exit10134:                   ; preds = %2609, %2610
   br i1 %.not8830, label %4583, label %4582
 
 4582:                                             ; preds = %4578
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4553)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %4553)
   br label %.thread10321
 
 4583:                                             ; preds = %4578
@@ -21519,7 +21519,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
 
 4998:                                             ; preds = %4994
   %.val9993 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9993, i32 noundef %4966)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9993, i32 noundef %4966)
   br label %.thread10321
 
 4999:                                             ; preds = %4994
@@ -21581,7 +21581,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
   br i1 %.not8792, label %5032, label %5031
 
 5031:                                             ; preds = %5027
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5002)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5002)
   br label %.thread10321
 
 5032:                                             ; preds = %5027
@@ -21807,7 +21807,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
   br i1 %.not8771, label %5158, label %5157
 
 5157:                                             ; preds = %5153
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5095)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5095)
   br label %.thread10321
 
 5158:                                             ; preds = %5153
@@ -22011,7 +22011,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
 
 5266:                                             ; preds = %5262
   %.val9996 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val9996, i32 noundef %5161)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val9996, i32 noundef %5161)
   br label %.thread10321
 
 5267:                                             ; preds = %5262
@@ -22107,7 +22107,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
   br i1 %.not8756, label %5321, label %5320
 
 5320:                                             ; preds = %5316
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5275)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5275)
   br label %.thread10321
 
 5321:                                             ; preds = %5316
@@ -22190,7 +22190,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
   br i1 %.not8745, label %5365, label %5364
 
 5364:                                             ; preds = %5360
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5324)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5324)
   br label %.thread10321
 
 5365:                                             ; preds = %5360
@@ -22274,7 +22274,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
   br i1 %.not8724, label %5410, label %5409
 
 5409:                                             ; preds = %5405
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5368)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5368)
   br label %.thread10321
 
 5410:                                             ; preds = %5405
@@ -22462,7 +22462,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
   br i1 %.not8683, label %5518, label %5517
 
 5517:                                             ; preds = %5513
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5473)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5473)
   br label %.thread10321
 
 5518:                                             ; preds = %5513
@@ -22656,7 +22656,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
 
 5629:                                             ; preds = %5625
   %.val10001 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10001, i32 noundef %5581)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10001, i32 noundef %5581)
   br label %.thread10321
 
 5630:                                             ; preds = %5625
@@ -22902,7 +22902,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
   br i1 %.not8657, label %5760, label %5759
 
 5759:                                             ; preds = %5755
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5718)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5718)
   br label %.thread10321
 
 5760:                                             ; preds = %5755
@@ -23082,7 +23082,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
 
 5857:                                             ; preds = %5853
   %.val10003 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10003, i32 noundef %5763)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10003, i32 noundef %5763)
   br label %.thread10321
 
 5858:                                             ; preds = %5853
@@ -23488,7 +23488,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
   br i1 %.not8613, label %6039, label %6038
 
 6038:                                             ; preds = %6034
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5861)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %5861)
   br label %.thread10321
 
 6039:                                             ; preds = %6034
@@ -23758,7 +23758,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
 
 6195:                                             ; preds = %6191
   %.val10005 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10005, i32 noundef %6154)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10005, i32 noundef %6154)
   br label %.thread10321
 
 6196:                                             ; preds = %6191
@@ -23878,7 +23878,7 @@ thread-pre-split10290.thread:                     ; preds = %4942, %4923, %4938,
 
 6261:                                             ; preds = %6257
   %.val10006 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10006, i32 noundef %6232)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10006, i32 noundef %6232)
   br label %.thread10321
 
 6262:                                             ; preds = %6257
@@ -24093,7 +24093,7 @@ zend_fetch_prop_type.exit10182:                   ; preds = %6273, %6274
 
 6367:                                             ; preds = %6363
   %.val10007 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10007, i32 noundef %6326)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10007, i32 noundef %6326)
   br label %.thread10321
 
 6368:                                             ; preds = %6363
@@ -24147,7 +24147,7 @@ zend_fetch_prop_type.exit10182:                   ; preds = %6273, %6274
   br label %.thread10321
 
 6398:                                             ; preds = %zend_array_type_info.exit10089.thread, %zend_array_type_info.exit10089.thread, %zend_array_type_info.exit10089.thread, %zend_array_type_info.exit10089.thread, %zend_array_type_info.exit10089.thread, %zend_array_type_info.exit10089.thread
-  %6399 = tail call fastcc ptr @zend_fetch_static_prop_info.argprom(ptr noundef %2, ptr noundef %0, ptr noundef %.07418)
+  %6399 = tail call fastcc ptr @zend_fetch_static_prop_info(ptr noundef %2, ptr noundef %0, ptr noundef %.07418)
   %.not.i10184 = icmp eq ptr %6399, null
   br i1 %.not.i10184, label %6400, label %6401
 
@@ -24269,7 +24269,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
 
 6461:                                             ; preds = %6457
   %.val10008 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10008, i32 noundef %6420)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10008, i32 noundef %6420)
   br label %.thread10321
 
 6462:                                             ; preds = %6457
@@ -24407,7 +24407,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8482, label %6541, label %6540
 
 6540:                                             ; preds = %6536
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6494)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6494)
   br label %.thread10321
 
 6541:                                             ; preds = %6536
@@ -24502,7 +24502,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
 
 6592:                                             ; preds = %6588
   %.val10010 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10010, i32 noundef %6544)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10010, i32 noundef %6544)
   br label %.thread10321
 
 6593:                                             ; preds = %6588
@@ -24602,7 +24602,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
 
 6647:                                             ; preds = %6643
   %.val10011 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10011, i32 noundef %6599)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10011, i32 noundef %6599)
   br label %.thread10321
 
 6648:                                             ; preds = %6643
@@ -24720,7 +24720,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
 
 6714:                                             ; preds = %6710
   %.val10012 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10012, i32 noundef %6673)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10012, i32 noundef %6673)
   br label %.thread10321
 
 6715:                                             ; preds = %6710
@@ -24828,7 +24828,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8467, label %6776, label %6775
 
 6775:                                             ; preds = %6771
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6746)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6746)
   br label %.thread10321
 
 6776:                                             ; preds = %6771
@@ -24920,7 +24920,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8462, label %6826, label %6825
 
 6825:                                             ; preds = %6821
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6796)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6796)
   br label %.thread10321
 
 6826:                                             ; preds = %6821
@@ -24982,7 +24982,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8457, label %6859, label %6858
 
 6858:                                             ; preds = %6854
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6829)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6829)
   br label %.thread10321
 
 6859:                                             ; preds = %6854
@@ -25044,7 +25044,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8452, label %6892, label %6891
 
 6891:                                             ; preds = %6887
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6862)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6862)
   br label %.thread10321
 
 6892:                                             ; preds = %6887
@@ -25106,7 +25106,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8447, label %6925, label %6924
 
 6924:                                             ; preds = %6920
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6895)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6895)
   br label %.thread10321
 
 6925:                                             ; preds = %6920
@@ -25168,7 +25168,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8442, label %6958, label %6957
 
 6957:                                             ; preds = %6953
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6928)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6928)
   br label %.thread10321
 
 6958:                                             ; preds = %6953
@@ -25247,7 +25247,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8437, label %7000, label %6999
 
 6999:                                             ; preds = %6995
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6970)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %6970)
   br label %.thread10321
 
 7000:                                             ; preds = %6995
@@ -25309,7 +25309,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8428, label %7033, label %7032
 
 7032:                                             ; preds = %7028
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7003)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7003)
   br label %.thread10321
 
 7033:                                             ; preds = %7028
@@ -25428,7 +25428,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
 
 7096:                                             ; preds = %7092
   %.val10021 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10021, i32 noundef %7055)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10021, i32 noundef %7055)
   br label %.thread10321
 
 7097:                                             ; preds = %7092
@@ -25588,7 +25588,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
 
 7187:                                             ; preds = %7183
   %.val10022 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10022, i32 noundef %7146)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10022, i32 noundef %7146)
   br label %.thread10321
 
 7188:                                             ; preds = %7183
@@ -25725,7 +25725,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8380, label %7266, label %7265
 
 7265:                                             ; preds = %7261
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7237)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7237)
   br label %.thread10321
 
 7266:                                             ; preds = %7261
@@ -25788,7 +25788,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
 
 7297:                                             ; preds = %7293
   %.val10024 = load ptr, ptr %12, align 8
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10024, i32 noundef %7269)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10024, i32 noundef %7269)
   br label %.thread10321
 
 7298:                                             ; preds = %7293
@@ -25850,7 +25850,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8370, label %7331, label %7330
 
 7330:                                             ; preds = %7326
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7301)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7301)
   br label %.thread10321
 
 7331:                                             ; preds = %7326
@@ -25912,7 +25912,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8365, label %7364, label %7363
 
 7363:                                             ; preds = %7359
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7334)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7334)
   br label %.thread10321
 
 7364:                                             ; preds = %7359
@@ -25974,7 +25974,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %.not8356, label %7397, label %7396
 
 7396:                                             ; preds = %7392
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7367)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7367)
   br label %.thread10321
 
 7397:                                             ; preds = %7392
@@ -26018,7 +26018,7 @@ zend_fetch_prop_type.exit10186:                   ; preds = %6400, %6401
   br i1 %7418, label %7419, label %.thread10321
 
 7419:                                             ; preds = %7415
-  %7420 = tail call fastcc ptr @zend_fetch_static_prop_info.argprom(ptr noundef %2, ptr noundef %0, ptr noundef %.07418)
+  %7420 = tail call fastcc ptr @zend_fetch_static_prop_info(ptr noundef %2, ptr noundef %0, ptr noundef %.07418)
   %.not.i10207 = icmp eq ptr %7420, null
   br i1 %.not.i10207, label %zend_fetch_prop_type.exit10209.thread, label %zend_fetch_prop_type.exit10209
 
@@ -26112,7 +26112,7 @@ zend_fetch_prop_type.exit10209:                   ; preds = %7419
 
 7468:                                             ; preds = %7464
   %.val10028 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10028, i32 noundef %7428)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10028, i32 noundef %7428)
   br label %.thread10321
 
 7469:                                             ; preds = %7464
@@ -26174,7 +26174,7 @@ zend_fetch_prop_type.exit10209:                   ; preds = %7419
   br i1 %.not8340, label %7502, label %7501
 
 7501:                                             ; preds = %7497
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7472)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7472)
   br label %.thread10321
 
 7502:                                             ; preds = %7497
@@ -26236,7 +26236,7 @@ zend_fetch_prop_type.exit10209:                   ; preds = %7419
   br i1 %.not8375, label %7535, label %7534
 
 7534:                                             ; preds = %7530
-  tail call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7505)
+  tail call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %13, i32 noundef %7505)
   br label %.thread10321
 
 7535:                                             ; preds = %7530
@@ -26299,7 +26299,7 @@ zend_fetch_prop_type.exit10209:                   ; preds = %7419
 
 7566:                                             ; preds = %7562
   %.val10031 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10031, i32 noundef %7538)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10031, i32 noundef %7538)
   br label %.thread10321
 
 7567:                                             ; preds = %7562
@@ -26396,15 +26396,15 @@ zend_fetch_prop_type.exit10209:                   ; preds = %7419
 
 7605:                                             ; preds = %7601
   %.val10032 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10032, i32 noundef %7570)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10032, i32 noundef %7570)
   br label %.thread10321
 
 7606:                                             ; preds = %7601
   store i32 %.2, ptr %7594, align 8
   br label %.thread10321
 
-.thread10321:                                     ; preds = %4527, %7365, %6744, %606, %574, %654, %620, %687, %668, %720, %701, %926, %.thread10240, %1157, %1165, %1133, %1144, %1202, %1183, %1795, %1808, %1797, %1690, %1954, %1922, %2094, %2063, %2457, %2378, %2764, %2688, %2887, %2811, %3018, %2999, %3308, %3297, %3329, %3321, %3206, %3430, %3411, %3634, %3655, %3631, %3705, %3724, %3701, %3756, %3737, %3805, %3769, %3823, %3819, %3916, %3905, %3937, %3929, %3841, %4031, %4020, %4052, %4044, %3948, %4196, %4177, %4231, %4210, %4264, %4245, %4312, %4277, %4345, %4326, %4459, %4465, %4434, %4443, %4531, %4540, %4509, %4783, %4791, %4761, %4772, %4844, %4852, %4820, %4831, %4612, %4618, %4595, %4601, %4658, %4666, %4639, %4647, %4702, %4710, %4684, %4691, %4729, %4721, %4986, %thread-pre-split10290.thread, %5074, %5082, %5050, %5061, %5254, %5159, %5308, %5268, %5352, %5322, %5439, %5428, %5460, %5452, %5366, %5672, %5680, %5648, %5659, %5845, %5761, %6183, %6152, %6249, %6230, %6369, %6382, %6371, %6263, %6465, %6476, %6463, %6716, %6731, %6718, %6649, %6783, %6776, %6813, %6794, %6846, %6827, %6879, %6860, %6912, %6893, %6945, %6926, %6987, %6959, %7020, %7001, %7202, %7193, %7224, %7218, %7111, %7102, %7133, %7127, %7286, %7267, %7318, %7299, %7351, %7332, %7404, %7397, %7427, %7456, %7415, %7489, %7470, %7522, %7503, %7593, %7568, %619, %667, %700, %733, %939, %1148, %1169, %1215, %1813, %1967, %2107, %2470, %2777, %2900, %3031, %3312, %3333, %3443, %3668, %3736, %3768, %3818, %3840, %3920, %3941, %4035, %4056, %4209, %4244, %4276, %4325, %4358, %4448, %4469, %4544, %4605, %4622, %4651, %4670, %4695, %4714, %4733, %4776, %4795, %4835, %4856, %4999, %5065, %5086, %5267, %5321, %5365, %5443, %5464, %5663, %5684, %5858, %6196, %6262, %6387, %6481, %6735, %6787, %6826, %6859, %6892, %6925, %6958, %7000, %7033, %7116, %7137, %7207, %7228, %7298, %7331, %7364, %7408, %7469, %7502, %7535, %7606, %5998, %545, %527, %523, %573, %520, %7605, %7566, %7534, %7501, %7468, %7396, %7363, %7330, %7297, %7265, %7187, %7096, %7032, %6999, %6957, %6924, %6891, %6858, %6825, %6775, %6714, %6647, %6592, %6540, %6461, %6367, %6261, %6195, %6038, %5857, %5759, %5629, %5517, %5409, %5364, %5320, %5266, %5157, %5031, %4998, %4582, %4507, %4428, %4357, %4324, %4275, %4243, %4208, %4115, %4000, %3886, %3839, %3817, %3767, %3735, %3699, %3667, %3629, %3491, %3442, %3409, %3375, %3277, %3143, %3075, %3030, %2937, %2899, %2809, %2776, %2657, %2541, %2469, %2376, %2197, %2106, %2011, %1966, %1920, %1793, %1688, %1584, %1485, %1214, %1114, %985, %938, %791, %732, %699, %666, %618, %emit_type_narrowing_warning.argprom.exit10100, %emit_type_narrowing_warning.argprom.exit10097, %emit_type_narrowing_warning.argprom.exit10094, %emit_type_narrowing_warning.argprom.exit
-  %.07411 = phi i32 [ -1, %7566 ], [ -1, %7605 ], [ -1, %7501 ], [ -1, %7468 ], [ -1, %7396 ], [ -1, %7363 ], [ -1, %7330 ], [ -1, %7534 ], [ -1, %7265 ], [ -1, %7297 ], [ -1, %7096 ], [ -1, %7187 ], [ -1, %7032 ], [ -1, %6999 ], [ -1, %6957 ], [ -1, %6924 ], [ -1, %6891 ], [ -1, %6858 ], [ -1, %6825 ], [ -1, %6775 ], [ -1, %6714 ], [ -1, %6540 ], [ -1, %6592 ], [ -1, %6647 ], [ -1, %6461 ], [ -1, %6367 ], [ -1, %6261 ], [ -1, %6038 ], [ -1, %6195 ], [ -1, %5759 ], [ -1, %5857 ], [ -1, %5517 ], [ -1, %5629 ], [ -1, %5409 ], [ -1, %5364 ], [ -1, %5320 ], [ -1, %5157 ], [ -1, %5266 ], [ -1, %5031 ], [ -1, %4998 ], [ -1, %4582 ], [ -1, %4507 ], [ -1, %4428 ], [ -1, %4357 ], [ -1, %4324 ], [ -1, %4275 ], [ -1, %4243 ], [ -1, %4115 ], [ -1, %4208 ], [ -1, %4000 ], [ -1, %3886 ], [ -1, %3839 ], [ -1, %3817 ], [ -1, %3767 ], [ -1, %3699 ], [ -1, %3735 ], [ -1, %3491 ], [ -1, %3629 ], [ -1, %3667 ], [ -1, %3375 ], [ -1, %3409 ], [ -1, %3442 ], [ -1, %3075 ], [ -1, %3143 ], [ -1, %3277 ], [ -1, %2937 ], [ -1, %3030 ], [ -1, %2809 ], [ -1, %2899 ], [ -1, %2541 ], [ -1, %2657 ], [ -1, %2776 ], [ -1, %2197 ], [ -1, %2376 ], [ -1, %2469 ], [ -1, %2011 ], [ -1, %2106 ], [ -1, %1920 ], [ -1, %1966 ], [ -1, %1485 ], [ -1, %1793 ], [ -1, %1584 ], [ -1, %1688 ], [ -1, %1214 ], [ -1, %985 ], [ -1, %1114 ], [ -1, %791 ], [ -1, %938 ], [ -1, %732 ], [ -1, %699 ], [ -1, %666 ], [ -1, %618 ], [ -1, %emit_type_narrowing_warning.argprom.exit10100 ], [ -1, %emit_type_narrowing_warning.argprom.exit10097 ], [ -1, %emit_type_narrowing_warning.argprom.exit10094 ], [ -1, %emit_type_narrowing_warning.argprom.exit ], [ 0, %520 ], [ 0, %573 ], [ 0, %523 ], [ 0, %527 ], [ 0, %545 ], [ 0, %5998 ], [ 0, %7606 ], [ 0, %7535 ], [ 0, %7502 ], [ 0, %7469 ], [ 0, %7408 ], [ 0, %7364 ], [ 0, %7331 ], [ 0, %7298 ], [ 0, %7228 ], [ 0, %7207 ], [ 0, %7137 ], [ 0, %7116 ], [ 0, %7033 ], [ 0, %7000 ], [ 0, %6958 ], [ 0, %6925 ], [ 0, %6892 ], [ 0, %6859 ], [ 0, %6826 ], [ 0, %6787 ], [ 0, %6735 ], [ 0, %6481 ], [ 0, %6387 ], [ 0, %6262 ], [ 0, %6196 ], [ 0, %5858 ], [ 0, %5684 ], [ 0, %5663 ], [ 0, %5464 ], [ 0, %5443 ], [ 0, %5365 ], [ 0, %5321 ], [ 0, %5267 ], [ 0, %5086 ], [ 0, %5065 ], [ 0, %4999 ], [ 0, %4856 ], [ 0, %4835 ], [ 0, %4795 ], [ 0, %4776 ], [ 0, %4733 ], [ 0, %4714 ], [ 0, %4695 ], [ 0, %4670 ], [ 0, %4651 ], [ 0, %4622 ], [ 0, %4605 ], [ 0, %4544 ], [ 0, %4469 ], [ 0, %4448 ], [ 0, %4358 ], [ 0, %4325 ], [ 0, %4276 ], [ 0, %4244 ], [ 0, %4209 ], [ 0, %4056 ], [ 0, %4035 ], [ 0, %3941 ], [ 0, %3920 ], [ 0, %3840 ], [ 0, %3818 ], [ 0, %3768 ], [ 0, %3736 ], [ 0, %3668 ], [ 0, %3443 ], [ 0, %3333 ], [ 0, %3312 ], [ 0, %3031 ], [ 0, %2900 ], [ 0, %2777 ], [ 0, %2470 ], [ 0, %2107 ], [ 0, %1967 ], [ 0, %1813 ], [ 0, %1215 ], [ 0, %1169 ], [ 0, %1148 ], [ 0, %939 ], [ 0, %733 ], [ 0, %700 ], [ 0, %667 ], [ 0, %619 ], [ 0, %7568 ], [ 0, %7593 ], [ 0, %7503 ], [ 0, %7522 ], [ 0, %7470 ], [ 0, %7489 ], [ 0, %7415 ], [ 0, %7456 ], [ 0, %7427 ], [ 0, %7397 ], [ 0, %7404 ], [ 0, %7332 ], [ 0, %7351 ], [ 0, %7299 ], [ 0, %7318 ], [ 0, %7267 ], [ 0, %7286 ], [ 0, %7127 ], [ 0, %7133 ], [ 0, %7102 ], [ 0, %7111 ], [ 0, %7218 ], [ 0, %7224 ], [ 0, %7193 ], [ 0, %7202 ], [ 0, %7001 ], [ 0, %7020 ], [ 0, %6959 ], [ 0, %6987 ], [ 0, %6926 ], [ 0, %6945 ], [ 0, %6893 ], [ 0, %6912 ], [ 0, %6860 ], [ 0, %6879 ], [ 0, %6827 ], [ 0, %6846 ], [ 0, %6794 ], [ 0, %6813 ], [ 0, %6776 ], [ 0, %6783 ], [ 0, %6649 ], [ 0, %6718 ], [ 0, %6731 ], [ 0, %6716 ], [ 0, %6463 ], [ 0, %6476 ], [ 0, %6465 ], [ 0, %6263 ], [ 0, %6371 ], [ 0, %6382 ], [ 0, %6369 ], [ 0, %6230 ], [ 0, %6249 ], [ 0, %6152 ], [ 0, %6183 ], [ 0, %5761 ], [ 0, %5845 ], [ 0, %5659 ], [ 0, %5648 ], [ 0, %5680 ], [ 0, %5672 ], [ 0, %5366 ], [ 0, %5452 ], [ 0, %5460 ], [ 0, %5428 ], [ 0, %5439 ], [ 0, %5322 ], [ 0, %5352 ], [ 0, %5268 ], [ 0, %5308 ], [ 0, %5159 ], [ 0, %5254 ], [ 0, %5061 ], [ 0, %5050 ], [ 0, %5082 ], [ 0, %5074 ], [ 0, %thread-pre-split10290.thread ], [ 0, %4986 ], [ 0, %4721 ], [ 0, %4729 ], [ 0, %4691 ], [ 0, %4684 ], [ 0, %4710 ], [ 0, %4702 ], [ 0, %4647 ], [ 0, %4639 ], [ 0, %4666 ], [ 0, %4658 ], [ 0, %4601 ], [ 0, %4595 ], [ 0, %4618 ], [ 0, %4612 ], [ 0, %4831 ], [ 0, %4820 ], [ 0, %4852 ], [ 0, %4844 ], [ 0, %4772 ], [ 0, %4761 ], [ 0, %4791 ], [ 0, %4783 ], [ 0, %4509 ], [ 0, %4540 ], [ 0, %4531 ], [ 0, %4443 ], [ 0, %4434 ], [ 0, %4465 ], [ 0, %4459 ], [ 0, %4326 ], [ 0, %4345 ], [ 0, %4277 ], [ 0, %4312 ], [ 0, %4245 ], [ 0, %4264 ], [ 0, %4210 ], [ 0, %4231 ], [ 0, %4177 ], [ 0, %4196 ], [ 0, %3948 ], [ 0, %4044 ], [ 0, %4052 ], [ 0, %4020 ], [ 0, %4031 ], [ 0, %3841 ], [ 0, %3929 ], [ 0, %3937 ], [ 0, %3905 ], [ 0, %3916 ], [ 0, %3819 ], [ 0, %3823 ], [ 0, %3769 ], [ 0, %3805 ], [ 0, %3737 ], [ 0, %3756 ], [ 0, %3701 ], [ 0, %3724 ], [ 0, %3705 ], [ 0, %3631 ], [ 0, %3655 ], [ 0, %3634 ], [ 0, %3411 ], [ 0, %3430 ], [ 0, %3206 ], [ 0, %3321 ], [ 0, %3329 ], [ 0, %3297 ], [ 0, %3308 ], [ 0, %2999 ], [ 0, %3018 ], [ 0, %2811 ], [ 0, %2887 ], [ 0, %2688 ], [ 0, %2764 ], [ 0, %2378 ], [ 0, %2457 ], [ 0, %2063 ], [ 0, %2094 ], [ 0, %1922 ], [ 0, %1954 ], [ 0, %1690 ], [ 0, %1797 ], [ 0, %1808 ], [ 0, %1795 ], [ 0, %1183 ], [ 0, %1202 ], [ 0, %1144 ], [ 0, %1133 ], [ 0, %1165 ], [ 0, %1157 ], [ 0, %.thread10240 ], [ 0, %926 ], [ 0, %701 ], [ 0, %720 ], [ 0, %668 ], [ 0, %687 ], [ 0, %620 ], [ 0, %654 ], [ 0, %574 ], [ 0, %606 ], [ 0, %6744 ], [ 0, %7365 ], [ 0, %4527 ]
+.thread10321:                                     ; preds = %4527, %7365, %6744, %606, %574, %654, %620, %687, %668, %720, %701, %926, %.thread10240, %1157, %1165, %1133, %1144, %1202, %1183, %1795, %1808, %1797, %1690, %1954, %1922, %2094, %2063, %2457, %2378, %2764, %2688, %2887, %2811, %3018, %2999, %3308, %3297, %3329, %3321, %3206, %3430, %3411, %3634, %3655, %3631, %3705, %3724, %3701, %3756, %3737, %3805, %3769, %3823, %3819, %3916, %3905, %3937, %3929, %3841, %4031, %4020, %4052, %4044, %3948, %4196, %4177, %4231, %4210, %4264, %4245, %4312, %4277, %4345, %4326, %4459, %4465, %4434, %4443, %4531, %4540, %4509, %4783, %4791, %4761, %4772, %4844, %4852, %4820, %4831, %4612, %4618, %4595, %4601, %4658, %4666, %4639, %4647, %4702, %4710, %4684, %4691, %4729, %4721, %4986, %thread-pre-split10290.thread, %5074, %5082, %5050, %5061, %5254, %5159, %5308, %5268, %5352, %5322, %5439, %5428, %5460, %5452, %5366, %5672, %5680, %5648, %5659, %5845, %5761, %6183, %6152, %6249, %6230, %6369, %6382, %6371, %6263, %6465, %6476, %6463, %6716, %6731, %6718, %6649, %6783, %6776, %6813, %6794, %6846, %6827, %6879, %6860, %6912, %6893, %6945, %6926, %6987, %6959, %7020, %7001, %7202, %7193, %7224, %7218, %7111, %7102, %7133, %7127, %7286, %7267, %7318, %7299, %7351, %7332, %7404, %7397, %7427, %7456, %7415, %7489, %7470, %7522, %7503, %7593, %7568, %619, %667, %700, %733, %939, %1148, %1169, %1215, %1813, %1967, %2107, %2470, %2777, %2900, %3031, %3312, %3333, %3443, %3668, %3736, %3768, %3818, %3840, %3920, %3941, %4035, %4056, %4209, %4244, %4276, %4325, %4358, %4448, %4469, %4544, %4605, %4622, %4651, %4670, %4695, %4714, %4733, %4776, %4795, %4835, %4856, %4999, %5065, %5086, %5267, %5321, %5365, %5443, %5464, %5663, %5684, %5858, %6196, %6262, %6387, %6481, %6735, %6787, %6826, %6859, %6892, %6925, %6958, %7000, %7033, %7116, %7137, %7207, %7228, %7298, %7331, %7364, %7408, %7469, %7502, %7535, %7606, %5998, %545, %527, %523, %573, %520, %7605, %7566, %7534, %7501, %7468, %7396, %7363, %7330, %7297, %7265, %7187, %7096, %7032, %6999, %6957, %6924, %6891, %6858, %6825, %6775, %6714, %6647, %6592, %6540, %6461, %6367, %6261, %6195, %6038, %5857, %5759, %5629, %5517, %5409, %5364, %5320, %5266, %5157, %5031, %4998, %4582, %4507, %4428, %4357, %4324, %4275, %4243, %4208, %4115, %4000, %3886, %3839, %3817, %3767, %3735, %3699, %3667, %3629, %3491, %3442, %3409, %3375, %3277, %3143, %3075, %3030, %2937, %2899, %2809, %2776, %2657, %2541, %2469, %2376, %2197, %2106, %2011, %1966, %1920, %1793, %1688, %1584, %1485, %1214, %1114, %985, %938, %791, %732, %699, %666, %618, %emit_type_narrowing_warning.exit10100, %emit_type_narrowing_warning.exit10097, %emit_type_narrowing_warning.exit10094, %emit_type_narrowing_warning.exit
+  %.07411 = phi i32 [ -1, %7566 ], [ -1, %7605 ], [ -1, %7501 ], [ -1, %7468 ], [ -1, %7396 ], [ -1, %7363 ], [ -1, %7330 ], [ -1, %7534 ], [ -1, %7265 ], [ -1, %7297 ], [ -1, %7096 ], [ -1, %7187 ], [ -1, %7032 ], [ -1, %6999 ], [ -1, %6957 ], [ -1, %6924 ], [ -1, %6891 ], [ -1, %6858 ], [ -1, %6825 ], [ -1, %6775 ], [ -1, %6714 ], [ -1, %6540 ], [ -1, %6592 ], [ -1, %6647 ], [ -1, %6461 ], [ -1, %6367 ], [ -1, %6261 ], [ -1, %6038 ], [ -1, %6195 ], [ -1, %5759 ], [ -1, %5857 ], [ -1, %5517 ], [ -1, %5629 ], [ -1, %5409 ], [ -1, %5364 ], [ -1, %5320 ], [ -1, %5157 ], [ -1, %5266 ], [ -1, %5031 ], [ -1, %4998 ], [ -1, %4582 ], [ -1, %4507 ], [ -1, %4428 ], [ -1, %4357 ], [ -1, %4324 ], [ -1, %4275 ], [ -1, %4243 ], [ -1, %4115 ], [ -1, %4208 ], [ -1, %4000 ], [ -1, %3886 ], [ -1, %3839 ], [ -1, %3817 ], [ -1, %3767 ], [ -1, %3699 ], [ -1, %3735 ], [ -1, %3491 ], [ -1, %3629 ], [ -1, %3667 ], [ -1, %3375 ], [ -1, %3409 ], [ -1, %3442 ], [ -1, %3075 ], [ -1, %3143 ], [ -1, %3277 ], [ -1, %2937 ], [ -1, %3030 ], [ -1, %2809 ], [ -1, %2899 ], [ -1, %2541 ], [ -1, %2657 ], [ -1, %2776 ], [ -1, %2197 ], [ -1, %2376 ], [ -1, %2469 ], [ -1, %2011 ], [ -1, %2106 ], [ -1, %1920 ], [ -1, %1966 ], [ -1, %1485 ], [ -1, %1793 ], [ -1, %1584 ], [ -1, %1688 ], [ -1, %1214 ], [ -1, %985 ], [ -1, %1114 ], [ -1, %791 ], [ -1, %938 ], [ -1, %732 ], [ -1, %699 ], [ -1, %666 ], [ -1, %618 ], [ -1, %emit_type_narrowing_warning.exit10100 ], [ -1, %emit_type_narrowing_warning.exit10097 ], [ -1, %emit_type_narrowing_warning.exit10094 ], [ -1, %emit_type_narrowing_warning.exit ], [ 0, %520 ], [ 0, %573 ], [ 0, %523 ], [ 0, %527 ], [ 0, %545 ], [ 0, %5998 ], [ 0, %7606 ], [ 0, %7535 ], [ 0, %7502 ], [ 0, %7469 ], [ 0, %7408 ], [ 0, %7364 ], [ 0, %7331 ], [ 0, %7298 ], [ 0, %7228 ], [ 0, %7207 ], [ 0, %7137 ], [ 0, %7116 ], [ 0, %7033 ], [ 0, %7000 ], [ 0, %6958 ], [ 0, %6925 ], [ 0, %6892 ], [ 0, %6859 ], [ 0, %6826 ], [ 0, %6787 ], [ 0, %6735 ], [ 0, %6481 ], [ 0, %6387 ], [ 0, %6262 ], [ 0, %6196 ], [ 0, %5858 ], [ 0, %5684 ], [ 0, %5663 ], [ 0, %5464 ], [ 0, %5443 ], [ 0, %5365 ], [ 0, %5321 ], [ 0, %5267 ], [ 0, %5086 ], [ 0, %5065 ], [ 0, %4999 ], [ 0, %4856 ], [ 0, %4835 ], [ 0, %4795 ], [ 0, %4776 ], [ 0, %4733 ], [ 0, %4714 ], [ 0, %4695 ], [ 0, %4670 ], [ 0, %4651 ], [ 0, %4622 ], [ 0, %4605 ], [ 0, %4544 ], [ 0, %4469 ], [ 0, %4448 ], [ 0, %4358 ], [ 0, %4325 ], [ 0, %4276 ], [ 0, %4244 ], [ 0, %4209 ], [ 0, %4056 ], [ 0, %4035 ], [ 0, %3941 ], [ 0, %3920 ], [ 0, %3840 ], [ 0, %3818 ], [ 0, %3768 ], [ 0, %3736 ], [ 0, %3668 ], [ 0, %3443 ], [ 0, %3333 ], [ 0, %3312 ], [ 0, %3031 ], [ 0, %2900 ], [ 0, %2777 ], [ 0, %2470 ], [ 0, %2107 ], [ 0, %1967 ], [ 0, %1813 ], [ 0, %1215 ], [ 0, %1169 ], [ 0, %1148 ], [ 0, %939 ], [ 0, %733 ], [ 0, %700 ], [ 0, %667 ], [ 0, %619 ], [ 0, %7568 ], [ 0, %7593 ], [ 0, %7503 ], [ 0, %7522 ], [ 0, %7470 ], [ 0, %7489 ], [ 0, %7415 ], [ 0, %7456 ], [ 0, %7427 ], [ 0, %7397 ], [ 0, %7404 ], [ 0, %7332 ], [ 0, %7351 ], [ 0, %7299 ], [ 0, %7318 ], [ 0, %7267 ], [ 0, %7286 ], [ 0, %7127 ], [ 0, %7133 ], [ 0, %7102 ], [ 0, %7111 ], [ 0, %7218 ], [ 0, %7224 ], [ 0, %7193 ], [ 0, %7202 ], [ 0, %7001 ], [ 0, %7020 ], [ 0, %6959 ], [ 0, %6987 ], [ 0, %6926 ], [ 0, %6945 ], [ 0, %6893 ], [ 0, %6912 ], [ 0, %6860 ], [ 0, %6879 ], [ 0, %6827 ], [ 0, %6846 ], [ 0, %6794 ], [ 0, %6813 ], [ 0, %6776 ], [ 0, %6783 ], [ 0, %6649 ], [ 0, %6718 ], [ 0, %6731 ], [ 0, %6716 ], [ 0, %6463 ], [ 0, %6476 ], [ 0, %6465 ], [ 0, %6263 ], [ 0, %6371 ], [ 0, %6382 ], [ 0, %6369 ], [ 0, %6230 ], [ 0, %6249 ], [ 0, %6152 ], [ 0, %6183 ], [ 0, %5761 ], [ 0, %5845 ], [ 0, %5659 ], [ 0, %5648 ], [ 0, %5680 ], [ 0, %5672 ], [ 0, %5366 ], [ 0, %5452 ], [ 0, %5460 ], [ 0, %5428 ], [ 0, %5439 ], [ 0, %5322 ], [ 0, %5352 ], [ 0, %5268 ], [ 0, %5308 ], [ 0, %5159 ], [ 0, %5254 ], [ 0, %5061 ], [ 0, %5050 ], [ 0, %5082 ], [ 0, %5074 ], [ 0, %thread-pre-split10290.thread ], [ 0, %4986 ], [ 0, %4721 ], [ 0, %4729 ], [ 0, %4691 ], [ 0, %4684 ], [ 0, %4710 ], [ 0, %4702 ], [ 0, %4647 ], [ 0, %4639 ], [ 0, %4666 ], [ 0, %4658 ], [ 0, %4601 ], [ 0, %4595 ], [ 0, %4618 ], [ 0, %4612 ], [ 0, %4831 ], [ 0, %4820 ], [ 0, %4852 ], [ 0, %4844 ], [ 0, %4772 ], [ 0, %4761 ], [ 0, %4791 ], [ 0, %4783 ], [ 0, %4509 ], [ 0, %4540 ], [ 0, %4531 ], [ 0, %4443 ], [ 0, %4434 ], [ 0, %4465 ], [ 0, %4459 ], [ 0, %4326 ], [ 0, %4345 ], [ 0, %4277 ], [ 0, %4312 ], [ 0, %4245 ], [ 0, %4264 ], [ 0, %4210 ], [ 0, %4231 ], [ 0, %4177 ], [ 0, %4196 ], [ 0, %3948 ], [ 0, %4044 ], [ 0, %4052 ], [ 0, %4020 ], [ 0, %4031 ], [ 0, %3841 ], [ 0, %3929 ], [ 0, %3937 ], [ 0, %3905 ], [ 0, %3916 ], [ 0, %3819 ], [ 0, %3823 ], [ 0, %3769 ], [ 0, %3805 ], [ 0, %3737 ], [ 0, %3756 ], [ 0, %3701 ], [ 0, %3724 ], [ 0, %3705 ], [ 0, %3631 ], [ 0, %3655 ], [ 0, %3634 ], [ 0, %3411 ], [ 0, %3430 ], [ 0, %3206 ], [ 0, %3321 ], [ 0, %3329 ], [ 0, %3297 ], [ 0, %3308 ], [ 0, %2999 ], [ 0, %3018 ], [ 0, %2811 ], [ 0, %2887 ], [ 0, %2688 ], [ 0, %2764 ], [ 0, %2378 ], [ 0, %2457 ], [ 0, %2063 ], [ 0, %2094 ], [ 0, %1922 ], [ 0, %1954 ], [ 0, %1690 ], [ 0, %1797 ], [ 0, %1808 ], [ 0, %1795 ], [ 0, %1183 ], [ 0, %1202 ], [ 0, %1144 ], [ 0, %1133 ], [ 0, %1165 ], [ 0, %1157 ], [ 0, %.thread10240 ], [ 0, %926 ], [ 0, %701 ], [ 0, %720 ], [ 0, %668 ], [ 0, %687 ], [ 0, %620 ], [ 0, %654 ], [ 0, %574 ], [ 0, %606 ], [ 0, %6744 ], [ 0, %7365 ], [ 0, %4527 ]
   ret i32 %.07411
 }
 
@@ -26648,7 +26648,7 @@ define range(i32 -1, 1) i32 @zend_ssa_inference(ptr nocapture noundef %0, ptr no
   br i1 %82, label %.lr.ph151, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph151, %.loopexit
-  tail call fastcc void @zend_mark_cv_references.argprom(ptr noundef %1, ptr noundef nonnull %3)
+  tail call fastcc void @zend_mark_cv_references(ptr noundef %1, ptr noundef nonnull %3)
   tail call fastcc void @zend_infer_ranges(ptr noundef %1, ptr noundef nonnull %3)
   %83 = tail call fastcc i32 @zend_infer_types(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4)
   %84 = icmp eq i32 %83, -1
@@ -26657,7 +26657,7 @@ define range(i32 -1, 1) i32 @zend_ssa_inference(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_mark_cv_references.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @zend_mark_cv_references(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -27280,7 +27280,7 @@ define internal fastcc void @zend_infer_ranges(ptr noundef %0, ptr noundef %1) u
   br i1 %.not1055, label %93, label %.loopexit1083
 
 93:                                               ; preds = %88
-  %94 = call fastcc zeroext i1 @zend_inference_calc_range.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %83, i32 noundef 1, ptr noundef %7)
+  %94 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %83, i32 noundef 1, ptr noundef %7)
   br i1 %94, label %95, label %.loopexit1083.sink.split
 
 95:                                               ; preds = %93
@@ -27416,7 +27416,7 @@ define internal fastcc void @zend_infer_ranges(ptr noundef %0, ptr noundef %1) u
   %172 = and i64 %171, %167
   store i64 %172, ptr %170, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %173 = call fastcc zeroext i1 @zend_inference_calc_range.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %164, i32 noundef 0, ptr noundef %6)
+  %173 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %164, i32 noundef 0, ptr noundef %6)
   br i1 %173, label %174, label %zend_ssa_range_widening.exit.thread
 
 174:                                              ; preds = %163
@@ -28496,7 +28496,7 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
   %853 = and i64 %852, %848
   store i64 %853, ptr %851, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %854 = call fastcc zeroext i1 @zend_inference_calc_range.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %845, i32 noundef 0, ptr noundef %5)
+  %854 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %845, i32 noundef 0, ptr noundef %5)
   br i1 %854, label %855, label %zend_ssa_range_widening.exit1058.thread
 
 855:                                              ; preds = %844
@@ -29077,7 +29077,7 @@ zend_ssa_range_widening.exit1058.thread:          ; preds = %907, %844
 
 1217:                                             ; preds = %1212
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %1218 = call fastcc zeroext i1 @zend_inference_calc_range.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.61136, i32 noundef 1, ptr noundef %4)
+  %1218 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.61136, i32 noundef 1, ptr noundef %4)
   br i1 %1218, label %1219, label %zend_ssa_range_narrowing.exit
 
 1219:                                             ; preds = %1217
@@ -29249,7 +29249,7 @@ zend_ssa_range_narrowing.exit:                    ; preds = %1217, %1273, %zend_
   %1311 = and i64 %1310, %1306
   store i64 %1311, ptr %1309, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %1312 = call fastcc zeroext i1 @zend_inference_calc_range.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %1303, i32 noundef 1, ptr noundef %3)
+  %1312 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %1303, i32 noundef 1, ptr noundef %3)
   br i1 %1312, label %1313, label %zend_ssa_range_narrowing.exit1062.thread
 
 1313:                                             ; preds = %1302
@@ -29957,7 +29957,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, pt
   br i1 %.not, label %36, label %35
 
 35:                                               ; preds = %33
-  call fastcc void @zend_type_narrowing.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
+  call fastcc void @zend_type_narrowing(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   br label %36
 
 36:                                               ; preds = %35, %33
@@ -29994,7 +29994,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, pt
   %57 = and i8 %55, -4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   store i8 %57, ptr %54, align 4
-  br label %zend_func_return_info.argprom.exit
+  br label %zend_func_return_info.exit
 
 58:                                               ; preds = %42
   %59 = load i32, ptr %43, align 8
@@ -30527,13 +30527,13 @@ is_recursive_tail_call.exit.thread.i:             ; preds = %300, %295, %287, %2
   %320 = and i8 %314, -2
   %321 = or disjoint i8 %320, %319
   store i8 %321, ptr %318, align 4
-  br label %zend_func_return_info.argprom.exit
+  br label %zend_func_return_info.exit
 
-zend_func_return_info.argprom.exit:               ; preds = %51, %313
+zend_func_return_info.exit:                       ; preds = %51, %313
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.30.i)
   br label %322
 
-322:                                              ; preds = %36, %zend_func_return_info.argprom.exit
+322:                                              ; preds = %36, %zend_func_return_info.exit
   br i1 %9, label %.sink.split, label %323
 
 .sink.split:                                      ; preds = %322, %32
@@ -32862,7 +32862,7 @@ declare ptr @zend_optimizer_get_class_entry(ptr noundef, ptr noundef, ptr nounde
 declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_type_narrowing_warning.argprom(ptr nocapture noundef readonly %0, ptr nocapture readonly %.64.val, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @emit_type_narrowing_warning(ptr nocapture noundef readonly %0, ptr nocapture readonly %.64.val, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr inbounds %struct._zend_ssa_var, ptr %.64.val, i64 %3, i32 2
   %5 = load i32, ptr %4, align 8
@@ -33527,7 +33527,7 @@ lookup_prop_info.exit.thread30:                   ; preds = %56, %62, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_fetch_static_prop_info.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @zend_fetch_static_prop_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 29
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 1
@@ -33964,7 +33964,7 @@ declare ptr @zend_get_property_info(ptr noundef, ptr noundef, i32 noundef) local
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc zeroext i1 @zend_inference_calc_range.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4) unnamed_addr #15 {
+define internal fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4) unnamed_addr #15 {
   %6 = getelementptr inbounds i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %2 to i64
@@ -34843,7 +34843,7 @@ define internal fastcc void @zend_infer_ranges_warmup(ptr noundef %0, ptr nounde
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, %74
   store i64 %79, ptr %77, align 8
-  %80 = call fastcc zeroext i1 @zend_inference_calc_range.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %71, i32 noundef 0, ptr noundef %6)
+  %80 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %71, i32 noundef 0, ptr noundef %6)
   br i1 %80, label %81, label %zend_inference_narrowing_meet.exit
 
 81:                                               ; preds = %70
@@ -35773,12 +35773,12 @@ safe_instanceof.exit.thread:                      ; preds = %104, %103, %89, %sa
   %147 = getelementptr inbounds %struct._zend_ssa_var, ptr %.val10265, i64 %146, i32 2
   %148 = load i32, ptr %147, align 8
   %149 = icmp sgt i32 %148, -1
-  br i1 %149, label %150, label %emit_type_narrowing_warning.argprom.exit
+  br i1 %149, label %150, label %emit_type_narrowing_warning.exit
 
 150:                                              ; preds = %145
   %151 = load ptr, ptr %24, align 8
   %.not.i10274 = icmp eq ptr %151, null
-  br i1 %.not.i10274, label %emit_type_narrowing_warning.argprom.exit, label %152
+  br i1 %.not.i10274, label %emit_type_narrowing_warning.exit, label %152
 
 152:                                              ; preds = %150
   %153 = zext nneg i32 %148 to i64
@@ -35788,9 +35788,9 @@ safe_instanceof.exit.thread:                      ; preds = %104, %103, %89, %sa
   %157 = call ptr @zend_get_opcode_name(i8 noundef zeroext %156) #19
   %158 = getelementptr inbounds i8, ptr %154, i64 24
   %159 = load i32, ptr %158, align 8
-  br label %emit_type_narrowing_warning.argprom.exit
+  br label %emit_type_narrowing_warning.exit
 
-emit_type_narrowing_warning.argprom.exit:         ; preds = %145, %150, %152
+emit_type_narrowing_warning.exit:                 ; preds = %145, %150, %152
   %160 = phi ptr [ %157, %152 ], [ @.str, %150 ], [ @.str, %145 ]
   %161 = phi i32 [ %159, %152 ], [ 0, %150 ], [ 0, %145 ]
   %162 = getelementptr inbounds i8, ptr %0, i64 152
@@ -35954,12 +35954,12 @@ emit_type_narrowing_warning.argprom.exit:         ; preds = %145, %150, %152
   %238 = getelementptr inbounds %struct._zend_ssa_var, ptr %.val10264, i64 %237, i32 2
   %239 = load i32, ptr %238, align 8
   %240 = icmp sgt i32 %239, -1
-  br i1 %240, label %241, label %emit_type_narrowing_warning.argprom.exit10277
+  br i1 %240, label %241, label %emit_type_narrowing_warning.exit10277
 
 241:                                              ; preds = %236
   %242 = load ptr, ptr %24, align 8
   %.not.i10276 = icmp eq ptr %242, null
-  br i1 %.not.i10276, label %emit_type_narrowing_warning.argprom.exit10277, label %243
+  br i1 %.not.i10276, label %emit_type_narrowing_warning.exit10277, label %243
 
 243:                                              ; preds = %241
   %244 = zext nneg i32 %239 to i64
@@ -35969,9 +35969,9 @@ emit_type_narrowing_warning.argprom.exit:         ; preds = %145, %150, %152
   %248 = call ptr @zend_get_opcode_name(i8 noundef zeroext %247) #19
   %249 = getelementptr inbounds i8, ptr %245, i64 24
   %250 = load i32, ptr %249, align 8
-  br label %emit_type_narrowing_warning.argprom.exit10277
+  br label %emit_type_narrowing_warning.exit10277
 
-emit_type_narrowing_warning.argprom.exit10277:    ; preds = %236, %241, %243
+emit_type_narrowing_warning.exit10277:            ; preds = %236, %241, %243
   %251 = phi ptr [ %248, %243 ], [ @.str, %241 ], [ @.str, %236 ]
   %252 = phi i32 [ %250, %243 ], [ 0, %241 ], [ 0, %236 ]
   %253 = getelementptr inbounds i8, ptr %0, i64 152
@@ -36926,7 +36926,7 @@ zend_array_type_info.exit10340:                   ; preds = %.lr.ph.i10326, %697
   br i1 %.not8594, label %744, label %743
 
 743:                                              ; preds = %737
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %717)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %717)
   br label %.critedge
 
 744:                                              ; preds = %737
@@ -36985,7 +36985,7 @@ zend_array_type_info.exit10340:                   ; preds = %.lr.ph.i10326, %697
 
 773:                                              ; preds = %767
   %.val10262 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10262, i32 noundef %747)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10262, i32 noundef %747)
   br label %.critedge
 
 774:                                              ; preds = %767
@@ -37044,7 +37044,7 @@ zend_array_type_info.exit10340:                   ; preds = %.lr.ph.i10326, %697
 
 803:                                              ; preds = %797
   %.val10261 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10261, i32 noundef %777)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10261, i32 noundef %777)
   br label %.critedge
 
 804:                                              ; preds = %797
@@ -37114,7 +37114,7 @@ zend_array_type_info.exit10340:                   ; preds = %.lr.ph.i10326, %697
 
 836:                                              ; preds = %830
   %.val10260 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10260, i32 noundef %810)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10260, i32 noundef %810)
   br label %.critedge
 
 837:                                              ; preds = %830
@@ -37338,7 +37338,7 @@ zend_array_type_info.exit10340.thread:            ; preds = %706, %707, %656, %z
   br i1 %.not9767, label %879, label %878
 
 878:                                              ; preds = %871
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %840)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %840)
   br label %.critedge
 
 879:                                              ; preds = %871
@@ -37420,7 +37420,7 @@ zend_array_type_info.exit10340.thread:            ; preds = %706, %707, %656, %z
   br i1 %.not9758, label %922, label %921
 
 921:                                              ; preds = %914
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %882)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %882)
   br label %.critedge
 
 922:                                              ; preds = %914
@@ -37474,7 +37474,7 @@ zend_array_type_info.exit10340.thread:            ; preds = %706, %707, %656, %z
   br i1 %.not9745, label %952, label %951
 
 951:                                              ; preds = %944
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %925)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %925)
   br label %.critedge
 
 952:                                              ; preds = %944
@@ -37528,7 +37528,7 @@ zend_array_type_info.exit10340.thread:            ; preds = %706, %707, %656, %z
   br i1 %.not9741, label %982, label %981
 
 981:                                              ; preds = %974
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %955)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %955)
   br label %.critedge
 
 982:                                              ; preds = %974
@@ -37633,7 +37633,7 @@ zend_array_type_info.exit10340.thread:            ; preds = %706, %707, %656, %z
   br i1 %.not9709, label %1037, label %1036
 
 1036:                                             ; preds = %1029
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %985)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %985)
   br label %.critedge
 
 1037:                                             ; preds = %1029
@@ -37899,7 +37899,7 @@ zend_array_type_info.exit10340.thread:            ; preds = %706, %707, %656, %z
 
 1180:                                             ; preds = %1173
   %.val10254 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10254, i32 noundef %1143)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10254, i32 noundef %1143)
   br label %.critedge
 
 1181:                                             ; preds = %1173
@@ -37978,7 +37978,7 @@ zend_array_type_info.exit10340.thread:            ; preds = %706, %707, %656, %z
   br i1 %.not9665, label %1224, label %1223
 
 1223:                                             ; preds = %1216
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %1184)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %1184)
   br label %.critedge
 
 1224:                                             ; preds = %1216
@@ -38218,7 +38218,7 @@ zend_array_type_info.exit10340.thread:            ; preds = %706, %707, %656, %z
 
 1349:                                             ; preds = %1342
   %.val10252 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10252, i32 noundef %1312)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10252, i32 noundef %1312)
   br label %.critedge
 
 1350:                                             ; preds = %1342
@@ -38394,7 +38394,7 @@ zend_array_type_info.exit10340.thread:            ; preds = %706, %707, %656, %z
   br i1 %.not9655, label %1449, label %1448
 
 1448:                                             ; preds = %1441
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %1422)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %1422)
   br label %.critedge
 
 1449:                                             ; preds = %1441
@@ -38576,7 +38576,7 @@ zend_fetch_prop_type.exit:                        ; preds = %1451, %1453
   br label %.thread10509
 
 1547:                                             ; preds = %1450
-  %1548 = call fastcc ptr @zend_fetch_static_prop_info.argprom(ptr noundef %1, ptr noundef %0, ptr noundef %.07654)
+  %1548 = call fastcc ptr @zend_fetch_static_prop_info(ptr noundef %1, ptr noundef %0, ptr noundef %.07654)
   %.not.i10356 = icmp eq ptr %1548, null
   br i1 %.not.i10356, label %zend_fetch_prop_type.exit10358, label %1549
 
@@ -38872,7 +38872,7 @@ zend_fetch_prop_type.exit10358:                   ; preds = %1547, %1549
 
 1707:                                             ; preds = %1700
   %.val10250 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10250, i32 noundef %1669)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10250, i32 noundef %1669)
   br label %.critedge
 
 1708:                                             ; preds = %1700
@@ -39041,7 +39041,7 @@ zend_fetch_prop_type.exit10358:                   ; preds = %1547, %1549
 
 1805:                                             ; preds = %1798
   %.val10249 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10249, i32 noundef %1778)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10249, i32 noundef %1778)
   br label %.critedge
 
 1806:                                             ; preds = %1798
@@ -39220,7 +39220,7 @@ zend_fetch_prop_type.exit10358:                   ; preds = %1547, %1549
 
 1907:                                             ; preds = %1900
   %.val10248 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10248, i32 noundef %1870)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10248, i32 noundef %1870)
   br label %.critedge
 
 1908:                                             ; preds = %1900
@@ -39417,7 +39417,7 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
 
 2008:                                             ; preds = %2001
   %.val10247 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10247, i32 noundef %1974)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10247, i32 noundef %1974)
   br label %.critedge
 
 2009:                                             ; preds = %2001
@@ -39636,7 +39636,7 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
   br i1 %.not9558, label %2133, label %2132
 
 2132:                                             ; preds = %2125
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %2095)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %2095)
   br label %.critedge
 
 2133:                                             ; preds = %2125
@@ -39714,7 +39714,7 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
 
 2174:                                             ; preds = %2167
   %.val10245 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10245, i32 noundef %2136)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10245, i32 noundef %2136)
   br label %.critedge
 
 2175:                                             ; preds = %2167
@@ -39790,7 +39790,7 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
   br i1 %.not9529, label %2216, label %2215
 
 2215:                                             ; preds = %2208
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %2178)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %2178)
   br label %.critedge
 
 2216:                                             ; preds = %2208
@@ -39958,7 +39958,7 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
 
 2306:                                             ; preds = %2299
   %.val10243 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10243, i32 noundef %2269)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10243, i32 noundef %2269)
   br label %.critedge
 
 2307:                                             ; preds = %2299
@@ -40114,7 +40114,7 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
   br i1 %.not9476, label %2392, label %2391
 
 2391:                                             ; preds = %2384
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %2354)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %2354)
   br label %.critedge
 
 2392:                                             ; preds = %2384
@@ -40426,7 +40426,7 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
 
 2565:                                             ; preds = %2558
   %.val10241 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10241, i32 noundef %2456)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10241, i32 noundef %2456)
   br label %.critedge
 
 2566:                                             ; preds = %2558
@@ -40585,7 +40585,7 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
 
 2652:                                             ; preds = %2645
   %.val10240 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10240, i32 noundef %2570)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10240, i32 noundef %2570)
   br label %.critedge
 
 2653:                                             ; preds = %2645
@@ -40707,7 +40707,7 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
   br i1 %.not9426, label %2721, label %2720
 
 2720:                                             ; preds = %2713
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %2683)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %2683)
   br label %.critedge
 
 2721:                                             ; preds = %2713
@@ -40911,7 +40911,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 2833:                                             ; preds = %2826
   %.val10238 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10238, i32 noundef %2796)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10238, i32 noundef %2796)
   br label %.critedge
 
 2834:                                             ; preds = %2826
@@ -41113,7 +41113,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 2947:                                             ; preds = %2940
   %.val10237 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10237, i32 noundef %2868)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10237, i32 noundef %2868)
   br label %.critedge
 
 2948:                                             ; preds = %2940
@@ -41167,7 +41167,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9398, label %2978, label %2977
 
 2977:                                             ; preds = %2970
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %2951)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %2951)
   br label %.critedge
 
 2978:                                             ; preds = %2970
@@ -41321,7 +41321,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 3061:                                             ; preds = %3054
   %.val10235 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10235, i32 noundef %2982)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10235, i32 noundef %2982)
   br label %.critedge
 
 3062:                                             ; preds = %3054
@@ -41385,7 +41385,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9380, label %3097, label %3096
 
 3096:                                             ; preds = %3089
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3069)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3069)
   br label %.critedge
 
 3097:                                             ; preds = %3089
@@ -41544,7 +41544,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 3187:                                             ; preds = %3180
   %.val10233 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10233, i32 noundef %3161)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10233, i32 noundef %3161)
   br label %.critedge
 
 3188:                                             ; preds = %3180
@@ -41625,7 +41625,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9326, label %3229, label %3228
 
 3228:                                             ; preds = %3221
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3191)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3191)
   br label %.critedge
 
 3229:                                             ; preds = %3221
@@ -41748,7 +41748,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 3292:                                             ; preds = %3285
   %.val10231 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10231, i32 noundef %3250)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10231, i32 noundef %3250)
   br label %.critedge
 
 3293:                                             ; preds = %3285
@@ -41965,7 +41965,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 3413:                                             ; preds = %3406
   %.val10230 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10230, i32 noundef %3358)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10230, i32 noundef %3358)
   br label %.critedge
 
 3414:                                             ; preds = %3406
@@ -42130,7 +42130,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9298, label %3511, label %3510
 
 3510:                                             ; preds = %3503
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3483)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3483)
   br label %.critedge
 
 3511:                                             ; preds = %3503
@@ -42188,7 +42188,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 3541:                                             ; preds = %3534
   %.val10228 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10228, i32 noundef %3514)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10228, i32 noundef %3514)
   br label %.critedge
 
 3542:                                             ; preds = %3534
@@ -42244,7 +42244,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 3571:                                             ; preds = %3564
   %.val10227 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10227, i32 noundef %3545)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10227, i32 noundef %3545)
   br label %.critedge
 
 3572:                                             ; preds = %3564
@@ -42327,7 +42327,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9257, label %3617, label %3616
 
 3616:                                             ; preds = %3609
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3577)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3577)
   br label %.critedge
 
 3617:                                             ; preds = %3609
@@ -42561,7 +42561,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 3750:                                             ; preds = %3743
   %.val10225 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10225, i32 noundef %3722)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10225, i32 noundef %3722)
   br label %.critedge
 
 3751:                                             ; preds = %3743
@@ -42625,7 +42625,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 3785:                                             ; preds = %3778
   %.val10224 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10224, i32 noundef %3758)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10224, i32 noundef %3758)
   br label %.critedge
 
 3786:                                             ; preds = %3778
@@ -42679,7 +42679,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9243, label %3815, label %3814
 
 3814:                                             ; preds = %3808
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3789)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3789)
   br label %.critedge
 
 3815:                                             ; preds = %3808
@@ -42740,7 +42740,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 3847:                                             ; preds = %3841
   %.val10222 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10222, i32 noundef %3822)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10222, i32 noundef %3822)
   br label %.critedge
 
 3848:                                             ; preds = %3841
@@ -42794,7 +42794,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9239, label %3877, label %3876
 
 3876:                                             ; preds = %3870
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3851)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3851)
   br label %.critedge
 
 3877:                                             ; preds = %3870
@@ -42876,7 +42876,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9235, label %3923, label %3922
 
 3922:                                             ; preds = %3915
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3880)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3880)
   br label %.critedge
 
 3923:                                             ; preds = %3915
@@ -42911,7 +42911,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9224, label %3942, label %3941
 
 3941:                                             ; preds = %3932
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3926)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3926)
   br label %.critedge
 
 3942:                                             ; preds = %3932
@@ -42990,7 +42990,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9210, label %3985, label %3984
 
 3984:                                             ; preds = %3977
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3945)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %3945)
   br label %.critedge
 
 3985:                                             ; preds = %3977
@@ -43187,7 +43187,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9190, label %4097, label %4096
 
 4096:                                             ; preds = %4089
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4050)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4050)
   br label %.critedge
 
 4097:                                             ; preds = %4089
@@ -43384,7 +43384,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9165, label %4209, label %4208
 
 4208:                                             ; preds = %4201
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4163)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4163)
   br label %.critedge
 
 4209:                                             ; preds = %4201
@@ -43543,7 +43543,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 4299:                                             ; preds = %4292
   %.val10215 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10215, i32 noundef %4273)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10215, i32 noundef %4273)
   br label %.critedge
 
 4300:                                             ; preds = %4292
@@ -43600,7 +43600,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9154, label %4332, label %4331
 
 4331:                                             ; preds = %4324
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4303)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4303)
   br label %.critedge
 
 4332:                                             ; preds = %4324
@@ -43654,7 +43654,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9150, label %4361, label %4360
 
 4360:                                             ; preds = %4354
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4335)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4335)
   br label %.critedge
 
 4361:                                             ; preds = %4354
@@ -43740,7 +43740,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9146, label %4406, label %4405
 
 4405:                                             ; preds = %4398
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4364)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4364)
   br label %.critedge
 
 4406:                                             ; preds = %4398
@@ -43794,7 +43794,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9134, label %4436, label %4435
 
 4435:                                             ; preds = %4428
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4409)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4409)
   br label %.critedge
 
 4436:                                             ; preds = %4428
@@ -43910,7 +43910,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
 
 4501:                                             ; preds = %4494
   %.val10210 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10210, i32 noundef %4464)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10210, i32 noundef %4464)
   br label %.critedge
 
 4502:                                             ; preds = %4494
@@ -44043,7 +44043,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9104, label %4580, label %4579
 
 4579:                                             ; preds = %4572
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4553)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4553)
   br label %.critedge
 
 4580:                                             ; preds = %4572
@@ -44167,7 +44167,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br i1 %.not9061, label %4650, label %4649
 
 4649:                                             ; preds = %4642
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4623)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %4623)
   br label %.critedge
 
 4650:                                             ; preds = %4642
@@ -44892,7 +44892,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
 
 5065:                                             ; preds = %5058
   %.val10207 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10207, i32 noundef %5037)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10207, i32 noundef %5037)
   br label %.critedge
 
 5066:                                             ; preds = %5058
@@ -44946,7 +44946,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   br i1 %.not9025, label %5096, label %5095
 
 5095:                                             ; preds = %5088
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5069)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5069)
   br label %.critedge
 
 5096:                                             ; preds = %5088
@@ -45167,7 +45167,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   br i1 %.not9006, label %5220, label %5219
 
 5219:                                             ; preds = %5212
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5161)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5161)
   br label %.critedge
 
 5220:                                             ; preds = %5212
@@ -45360,7 +45360,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
 
 5322:                                             ; preds = %5315
   %.val10204 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10204, i32 noundef %5223)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10204, i32 noundef %5223)
   br label %.critedge
 
 5323:                                             ; preds = %5315
@@ -45447,7 +45447,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   br i1 %.not8992, label %5373, label %5372
 
 5372:                                             ; preds = %5365
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5331)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5331)
   br label %.critedge
 
 5373:                                             ; preds = %5365
@@ -45520,7 +45520,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   br i1 %.not8982, label %5412, label %5411
 
 5411:                                             ; preds = %5404
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5376)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5376)
   br label %.critedge
 
 5412:                                             ; preds = %5404
@@ -45595,7 +45595,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   br i1 %.not8962, label %5453, label %5452
 
 5452:                                             ; preds = %5445
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5415)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5415)
   br label %.critedge
 
 5453:                                             ; preds = %5445
@@ -45778,7 +45778,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   br i1 %.not8923, label %5559, label %5558
 
 5558:                                             ; preds = %5551
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5518)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5518)
   br label %.critedge
 
 5559:                                             ; preds = %5551
@@ -45968,7 +45968,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
 
 5667:                                             ; preds = %5660
   %.val10199 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10199, i32 noundef %5623)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10199, i32 noundef %5623)
   br label %.critedge
 
 5668:                                             ; preds = %5660
@@ -46209,7 +46209,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   br i1 %.not8899, label %5796, label %5795
 
 5795:                                             ; preds = %5788
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5758)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5758)
   br label %.critedge
 
 5796:                                             ; preds = %5788
@@ -46378,7 +46378,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
 
 5887:                                             ; preds = %5880
   %.val10197 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10197, i32 noundef %5799)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10197, i32 noundef %5799)
   br label %.critedge
 
 5888:                                             ; preds = %5880
@@ -46747,7 +46747,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   br i1 %.not8859, label %6050, label %6049
 
 6049:                                             ; preds = %6042
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5891)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %5891)
   br label %.critedge
 
 6050:                                             ; preds = %6042
@@ -47068,7 +47068,7 @@ zend_array_element_type.exit:                     ; preds = %6121, %6145
 
 6219:                                             ; preds = %6212
   %.val10195 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10195, i32 noundef %6182)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10195, i32 noundef %6182)
   br label %.critedge
 
 6220:                                             ; preds = %6212
@@ -47180,7 +47180,7 @@ zend_array_element_type.exit:                     ; preds = %6121, %6145
 
 6281:                                             ; preds = %6274
   %.val10194 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10194, i32 noundef %6255)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10194, i32 noundef %6255)
   br label %.critedge
 
 6282:                                             ; preds = %6274
@@ -47383,7 +47383,7 @@ zend_fetch_prop_type.exit10439:                   ; preds = %6294, %6295
 
 6382:                                             ; preds = %6375
   %.val10193 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10193, i32 noundef %6345)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10193, i32 noundef %6345)
   br label %.critedge
 
 6383:                                             ; preds = %6375
@@ -47440,7 +47440,7 @@ zend_fetch_prop_type.exit10439:                   ; preds = %6294, %6295
   br label %.lr.ph.i.backedge
 
 6414:                                             ; preds = %zend_array_type_info.exit10340.thread, %zend_array_type_info.exit10340.thread, %zend_array_type_info.exit10340.thread, %zend_array_type_info.exit10340.thread, %zend_array_type_info.exit10340.thread, %zend_array_type_info.exit10340.thread
-  %6415 = call fastcc ptr @zend_fetch_static_prop_info.argprom(ptr noundef %1, ptr noundef %0, ptr noundef %.07654)
+  %6415 = call fastcc ptr @zend_fetch_static_prop_info(ptr noundef %1, ptr noundef %0, ptr noundef %.07654)
   %.not.i10441 = icmp eq ptr %6415, null
   br i1 %.not.i10441, label %6416, label %6417
 
@@ -47604,7 +47604,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
 
 6506:                                             ; preds = %6499
   %.val10192 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10192, i32 noundef %6468)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10192, i32 noundef %6468)
   br label %.critedge
 
 6507:                                             ; preds = %6499
@@ -47735,7 +47735,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8737, label %6583, label %6582
 
 6582:                                             ; preds = %6575
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6540)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6540)
   br label %.critedge
 
 6583:                                             ; preds = %6575
@@ -47821,7 +47821,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
 
 6630:                                             ; preds = %6623
   %.val10190 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10190, i32 noundef %6586)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10190, i32 noundef %6586)
   br label %.critedge
 
 6631:                                             ; preds = %6623
@@ -47912,7 +47912,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
 
 6681:                                             ; preds = %6674
   %.val10189 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10189, i32 noundef %6637)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10189, i32 noundef %6637)
   br label %.critedge
 
 6682:                                             ; preds = %6674
@@ -48019,7 +48019,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
 
 6742:                                             ; preds = %6735
   %.val10188 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10188, i32 noundef %6705)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10188, i32 noundef %6705)
   br label %.critedge
 
 6743:                                             ; preds = %6735
@@ -48121,7 +48121,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8723, label %6802, label %6801
 
 6801:                                             ; preds = %6794
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6775)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6775)
   br label %.critedge
 
 6802:                                             ; preds = %6794
@@ -48207,7 +48207,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8719, label %6850, label %6849
 
 6849:                                             ; preds = %6842
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6823)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6823)
   br label %.critedge
 
 6850:                                             ; preds = %6842
@@ -48261,7 +48261,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8715, label %6880, label %6879
 
 6879:                                             ; preds = %6872
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6853)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6853)
   br label %.critedge
 
 6880:                                             ; preds = %6872
@@ -48315,7 +48315,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8711, label %6910, label %6909
 
 6909:                                             ; preds = %6902
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6883)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6883)
   br label %.critedge
 
 6910:                                             ; preds = %6902
@@ -48369,7 +48369,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8707, label %6940, label %6939
 
 6939:                                             ; preds = %6932
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6913)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6913)
   br label %.critedge
 
 6940:                                             ; preds = %6932
@@ -48423,7 +48423,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8703, label %6970, label %6969
 
 6969:                                             ; preds = %6962
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6943)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6943)
   br label %.critedge
 
 6970:                                             ; preds = %6962
@@ -48494,7 +48494,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8699, label %7009, label %7008
 
 7008:                                             ; preds = %7001
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6982)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %6982)
   br label %.critedge
 
 7009:                                             ; preds = %7001
@@ -48548,7 +48548,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8691, label %7039, label %7038
 
 7038:                                             ; preds = %7031
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7012)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7012)
   br label %.critedge
 
 7039:                                             ; preds = %7031
@@ -48656,7 +48656,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
 
 7097:                                             ; preds = %7090
   %.val10179 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10179, i32 noundef %7060)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10179, i32 noundef %7060)
   br label %.critedge
 
 7098:                                             ; preds = %7090
@@ -48811,7 +48811,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
 
 7186:                                             ; preds = %7179
   %.val10178 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10178, i32 noundef %7149)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10178, i32 noundef %7149)
   br label %.critedge
 
 7187:                                             ; preds = %7179
@@ -48944,7 +48944,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8647, label %7264, label %7263
 
 7263:                                             ; preds = %7257
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7238)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7238)
   br label %.critedge
 
 7264:                                             ; preds = %7257
@@ -48999,7 +48999,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
 
 7292:                                             ; preds = %7286
   %.val10176 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10176, i32 noundef %7267)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10176, i32 noundef %7267)
   br label %.critedge
 
 7293:                                             ; preds = %7286
@@ -49053,7 +49053,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8639, label %7323, label %7322
 
 7322:                                             ; preds = %7315
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7296)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7296)
   br label %.critedge
 
 7323:                                             ; preds = %7315
@@ -49107,7 +49107,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8635, label %7353, label %7352
 
 7352:                                             ; preds = %7345
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7326)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7326)
   br label %.critedge
 
 7353:                                             ; preds = %7345
@@ -49161,7 +49161,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %.not8627, label %7383, label %7382
 
 7382:                                             ; preds = %7375
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7356)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7356)
   br label %.critedge
 
 7383:                                             ; preds = %7375
@@ -49208,7 +49208,7 @@ result_may_be_separated.exit.thread:              ; preds = %6458, %6450
   br i1 %7405, label %7406, label %.lr.ph.i.backedge
 
 7406:                                             ; preds = %7402
-  %7407 = call fastcc ptr @zend_fetch_static_prop_info.argprom(ptr noundef %1, ptr noundef %0, ptr noundef %.07654)
+  %7407 = call fastcc ptr @zend_fetch_static_prop_info(ptr noundef %1, ptr noundef %0, ptr noundef %.07654)
   %.not.i10466 = icmp eq ptr %7407, null
   br i1 %.not.i10466, label %zend_fetch_prop_type.exit10468.thread, label %zend_fetch_prop_type.exit10468
 
@@ -49292,7 +49292,7 @@ zend_fetch_prop_type.exit10468:                   ; preds = %7406
 
 7451:                                             ; preds = %7444
   %.val10172 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10172, i32 noundef %7415)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10172, i32 noundef %7415)
   br label %.critedge
 
 7452:                                             ; preds = %7444
@@ -49346,7 +49346,7 @@ zend_fetch_prop_type.exit10468:                   ; preds = %7406
   br i1 %.not8613, label %7482, label %7481
 
 7481:                                             ; preds = %7474
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7455)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7455)
   br label %.critedge
 
 7482:                                             ; preds = %7474
@@ -49400,7 +49400,7 @@ zend_fetch_prop_type.exit10468:                   ; preds = %7406
   br i1 %.not8643, label %7512, label %7511
 
 7511:                                             ; preds = %7504
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7485)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr nonnull %370, i32 noundef %7485)
   br label %.critedge
 
 7512:                                             ; preds = %7504
@@ -49455,7 +49455,7 @@ zend_fetch_prop_type.exit10468:                   ; preds = %7406
 
 7540:                                             ; preds = %7534
   %.val10169 = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val10169, i32 noundef %7515)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val10169, i32 noundef %7515)
   br label %.critedge
 
 7541:                                             ; preds = %7534
@@ -49544,7 +49544,7 @@ zend_fetch_prop_type.exit10468:                   ; preds = %7406
 
 7576:                                             ; preds = %7569
   %.val = load ptr, ptr %12, align 8
-  call fastcc void @emit_type_narrowing_warning.argprom(ptr noundef nonnull %0, ptr %.val, i32 noundef %7544)
+  call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val, i32 noundef %7544)
   br label %.critedge
 
 7577:                                             ; preds = %7569
@@ -49552,13 +49552,13 @@ zend_fetch_prop_type.exit10468:                   ; preds = %7406
   call fastcc void @add_usages(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %7544)
   br label %.lr.ph.i.backedge
 
-.critedge:                                        ; preds = %34, %5, %7540, %7576, %7481, %7451, %7382, %7352, %7322, %7511, %7263, %7292, %7097, %7186, %7038, %7008, %6969, %6939, %6909, %6879, %6849, %6801, %6742, %6582, %6630, %6681, %6506, %6382, %6281, %6049, %6219, %5795, %5887, %5558, %5667, %5452, %5411, %5372, %5219, %5322, %5095, %5065, %4649, %4579, %4501, %4435, %4405, %4360, %4331, %4208, %4299, %4096, %3984, %3941, %3922, %3876, %3814, %3847, %3616, %3750, %3785, %3510, %3541, %3571, %3228, %3292, %3413, %3096, %3187, %2977, %3061, %2720, %2833, %2947, %2391, %2565, %2652, %2215, %2306, %2132, %2174, %1707, %2008, %1805, %1907, %1448, %1223, %1349, %1036, %1180, %981, %951, %921, %878, %836, %803, %773, %743, %emit_type_narrowing_warning.argprom.exit10277, %emit_type_narrowing_warning.argprom.exit
-  %.07496 = phi i32 [ -1, %emit_type_narrowing_warning.argprom.exit ], [ -1, %emit_type_narrowing_warning.argprom.exit10277 ], [ -1, %743 ], [ -1, %773 ], [ -1, %803 ], [ -1, %836 ], [ -1, %878 ], [ -1, %921 ], [ -1, %951 ], [ -1, %981 ], [ -1, %1180 ], [ -1, %1036 ], [ -1, %1349 ], [ -1, %1223 ], [ -1, %1448 ], [ -1, %1907 ], [ -1, %1805 ], [ -1, %2008 ], [ -1, %1707 ], [ -1, %2174 ], [ -1, %2132 ], [ -1, %2306 ], [ -1, %2215 ], [ -1, %2652 ], [ -1, %2565 ], [ -1, %2391 ], [ -1, %2947 ], [ -1, %2833 ], [ -1, %2720 ], [ -1, %3061 ], [ -1, %2977 ], [ -1, %3187 ], [ -1, %3096 ], [ -1, %3413 ], [ -1, %3292 ], [ -1, %3228 ], [ -1, %3571 ], [ -1, %3541 ], [ -1, %3510 ], [ -1, %3785 ], [ -1, %3750 ], [ -1, %3616 ], [ -1, %3847 ], [ -1, %3814 ], [ -1, %3876 ], [ -1, %3922 ], [ -1, %3941 ], [ -1, %3984 ], [ -1, %4096 ], [ -1, %4299 ], [ -1, %4208 ], [ -1, %4331 ], [ -1, %4360 ], [ -1, %4405 ], [ -1, %4435 ], [ -1, %4501 ], [ -1, %4579 ], [ -1, %4649 ], [ -1, %5065 ], [ -1, %5095 ], [ -1, %5322 ], [ -1, %5219 ], [ -1, %5372 ], [ -1, %5411 ], [ -1, %5452 ], [ -1, %5667 ], [ -1, %5558 ], [ -1, %5887 ], [ -1, %5795 ], [ -1, %6219 ], [ -1, %6049 ], [ -1, %6281 ], [ -1, %6382 ], [ -1, %6506 ], [ -1, %6681 ], [ -1, %6630 ], [ -1, %6582 ], [ -1, %6742 ], [ -1, %6801 ], [ -1, %6849 ], [ -1, %6879 ], [ -1, %6909 ], [ -1, %6939 ], [ -1, %6969 ], [ -1, %7008 ], [ -1, %7038 ], [ -1, %7186 ], [ -1, %7097 ], [ -1, %7292 ], [ -1, %7263 ], [ -1, %7511 ], [ -1, %7322 ], [ -1, %7352 ], [ -1, %7382 ], [ -1, %7451 ], [ -1, %7481 ], [ -1, %7576 ], [ -1, %7540 ], [ 0, %5 ], [ 0, %34 ]
+.critedge:                                        ; preds = %34, %5, %7540, %7576, %7481, %7451, %7382, %7352, %7322, %7511, %7263, %7292, %7097, %7186, %7038, %7008, %6969, %6939, %6909, %6879, %6849, %6801, %6742, %6582, %6630, %6681, %6506, %6382, %6281, %6049, %6219, %5795, %5887, %5558, %5667, %5452, %5411, %5372, %5219, %5322, %5095, %5065, %4649, %4579, %4501, %4435, %4405, %4360, %4331, %4208, %4299, %4096, %3984, %3941, %3922, %3876, %3814, %3847, %3616, %3750, %3785, %3510, %3541, %3571, %3228, %3292, %3413, %3096, %3187, %2977, %3061, %2720, %2833, %2947, %2391, %2565, %2652, %2215, %2306, %2132, %2174, %1707, %2008, %1805, %1907, %1448, %1223, %1349, %1036, %1180, %981, %951, %921, %878, %836, %803, %773, %743, %emit_type_narrowing_warning.exit10277, %emit_type_narrowing_warning.exit
+  %.07496 = phi i32 [ -1, %emit_type_narrowing_warning.exit ], [ -1, %emit_type_narrowing_warning.exit10277 ], [ -1, %743 ], [ -1, %773 ], [ -1, %803 ], [ -1, %836 ], [ -1, %878 ], [ -1, %921 ], [ -1, %951 ], [ -1, %981 ], [ -1, %1180 ], [ -1, %1036 ], [ -1, %1349 ], [ -1, %1223 ], [ -1, %1448 ], [ -1, %1907 ], [ -1, %1805 ], [ -1, %2008 ], [ -1, %1707 ], [ -1, %2174 ], [ -1, %2132 ], [ -1, %2306 ], [ -1, %2215 ], [ -1, %2652 ], [ -1, %2565 ], [ -1, %2391 ], [ -1, %2947 ], [ -1, %2833 ], [ -1, %2720 ], [ -1, %3061 ], [ -1, %2977 ], [ -1, %3187 ], [ -1, %3096 ], [ -1, %3413 ], [ -1, %3292 ], [ -1, %3228 ], [ -1, %3571 ], [ -1, %3541 ], [ -1, %3510 ], [ -1, %3785 ], [ -1, %3750 ], [ -1, %3616 ], [ -1, %3847 ], [ -1, %3814 ], [ -1, %3876 ], [ -1, %3922 ], [ -1, %3941 ], [ -1, %3984 ], [ -1, %4096 ], [ -1, %4299 ], [ -1, %4208 ], [ -1, %4331 ], [ -1, %4360 ], [ -1, %4405 ], [ -1, %4435 ], [ -1, %4501 ], [ -1, %4579 ], [ -1, %4649 ], [ -1, %5065 ], [ -1, %5095 ], [ -1, %5322 ], [ -1, %5219 ], [ -1, %5372 ], [ -1, %5411 ], [ -1, %5452 ], [ -1, %5667 ], [ -1, %5558 ], [ -1, %5887 ], [ -1, %5795 ], [ -1, %6219 ], [ -1, %6049 ], [ -1, %6281 ], [ -1, %6382 ], [ -1, %6506 ], [ -1, %6681 ], [ -1, %6630 ], [ -1, %6582 ], [ -1, %6742 ], [ -1, %6801 ], [ -1, %6849 ], [ -1, %6879 ], [ -1, %6909 ], [ -1, %6939 ], [ -1, %6969 ], [ -1, %7008 ], [ -1, %7038 ], [ -1, %7186 ], [ -1, %7097 ], [ -1, %7292 ], [ -1, %7263 ], [ -1, %7511 ], [ -1, %7322 ], [ -1, %7352 ], [ -1, %7382 ], [ -1, %7451 ], [ -1, %7481 ], [ -1, %7576 ], [ -1, %7540 ], [ 0, %5 ], [ 0, %34 ]
   ret i32 %.07496
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_type_narrowing.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @zend_type_narrowing(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
@@ -50062,7 +50062,7 @@ switch.early.test:                                ; preds = %65
     i8 1, label %168
     i8 2, label %169
     i8 3, label %170
-    i8 4, label %is_effective_op1_double_cast.argprom.exit
+    i8 4, label %is_effective_op1_double_cast.exit
   ]
 
 168:                                              ; preds = %167
@@ -50075,7 +50075,7 @@ switch.early.test:                                ; preds = %65
   %171 = icmp eq i64 %165, 1
   br i1 %171, label %.sink.split254, label %.critedge.thread
 
-is_effective_op1_double_cast.argprom.exit:        ; preds = %167
+is_effective_op1_double_cast.exit:                ; preds = %167
   %172 = icmp eq i64 %165, 1
   br i1 %172, label %.sink.split254, label %.critedge.thread
 
@@ -50095,7 +50095,7 @@ is_effective_op1_double_cast.argprom.exit:        ; preds = %167
   switch i8 %175, label %.critedge.thread [
     i8 1, label %181
     i8 2, label %182
-    i8 3, label %is_effective_op2_double_cast.argprom.exit
+    i8 3, label %is_effective_op2_double_cast.exit
   ]
 
 181:                                              ; preds = %180
@@ -50104,7 +50104,7 @@ is_effective_op1_double_cast.argprom.exit:        ; preds = %167
 182:                                              ; preds = %180
   br i1 %179, label %.sink.split254, label %.critedge.thread
 
-is_effective_op2_double_cast.argprom.exit:        ; preds = %180
+is_effective_op2_double_cast.exit:                ; preds = %180
   %183 = icmp eq i64 %178, 1
   br i1 %183, label %.sink.split254, label %.critedge.thread
 
@@ -50168,8 +50168,8 @@ is_effective_op2_double_cast.argprom.exit:        ; preds = %180
   store i64 0, ptr %8, align 8
   br label %.sink.split254
 
-.sink.split254:                                   ; preds = %.sink.split254.sink.split, %is_effective_op2_double_cast.argprom.exit, %182, %181, %is_effective_op1_double_cast.argprom.exit, %170, %169, %168
-  %.sink255 = phi i32 [ 0, %168 ], [ 0, %169 ], [ 0, %170 ], [ 0, %is_effective_op1_double_cast.argprom.exit ], [ 0, %181 ], [ 0, %182 ], [ 0, %is_effective_op2_double_cast.argprom.exit ], [ 4, %.sink.split254.sink.split ]
+.sink.split254:                                   ; preds = %.sink.split254.sink.split, %is_effective_op2_double_cast.exit, %182, %181, %is_effective_op1_double_cast.exit, %170, %169, %168
+  %.sink255 = phi i32 [ 0, %168 ], [ 0, %169 ], [ 0, %170 ], [ 0, %is_effective_op1_double_cast.exit ], [ 0, %181 ], [ 0, %182 ], [ 0, %is_effective_op2_double_cast.exit ], [ 4, %.sink.split254.sink.split ]
   store i32 %.sink255, ptr %44, align 8
   br label %217
 
@@ -50281,8 +50281,8 @@ is_effective_op2_double_cast.argprom.exit:        ; preds = %180
   %.not = icmp eq ptr %271, null
   br i1 %.not, label %.critedge.thread, label %236
 
-.critedge.thread:                                 ; preds = %181, %182, %180, %168, %169, %170, %167, %switch.early.test, %switch.early.test, %59, %63, %217, %213, %199, %is_effective_op2_double_cast.argprom.exit, %is_effective_op1_double_cast.argprom.exit, %83, %.critedge, %.preheader, %236, %244, %.loopexit, %262, %._crit_edge, %5
-  %.0192 = phi i1 [ true, %5 ], [ true, %._crit_edge ], [ true, %262 ], [ true, %.preheader ], [ false, %236 ], [ false, %244 ], [ true, %.loopexit ], [ false, %.critedge ], [ false, %83 ], [ false, %is_effective_op1_double_cast.argprom.exit ], [ false, %is_effective_op2_double_cast.argprom.exit ], [ false, %199 ], [ false, %213 ], [ false, %217 ], [ false, %63 ], [ false, %59 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %167 ], [ false, %170 ], [ false, %169 ], [ false, %168 ], [ false, %180 ], [ false, %182 ], [ false, %181 ]
+.critedge.thread:                                 ; preds = %181, %182, %180, %168, %169, %170, %167, %switch.early.test, %switch.early.test, %59, %63, %217, %213, %199, %is_effective_op2_double_cast.exit, %is_effective_op1_double_cast.exit, %83, %.critedge, %.preheader, %236, %244, %.loopexit, %262, %._crit_edge, %5
+  %.0192 = phi i1 [ true, %5 ], [ true, %._crit_edge ], [ true, %262 ], [ true, %.preheader ], [ false, %236 ], [ false, %244 ], [ true, %.loopexit ], [ false, %.critedge ], [ false, %83 ], [ false, %is_effective_op1_double_cast.exit ], [ false, %is_effective_op2_double_cast.exit ], [ false, %199 ], [ false, %213 ], [ false, %217 ], [ false, %63 ], [ false, %59 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %167 ], [ false, %170 ], [ false, %169 ], [ false, %168 ], [ false, %180 ], [ false, %182 ], [ false, %181 ]
   ret i1 %.0192
 }
 

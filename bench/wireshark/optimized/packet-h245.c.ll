@@ -9655,13 +9655,13 @@ define internal i32 @dissect_h245_RequestMessage(ptr noundef %0, i32 noundef %1,
 
 18:                                               ; preds = %5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.2900, ptr noundef %17) #10
-  br label %print_info_column.argprom.exit
+  br label %print_info_column.exit
 
 19:                                               ; preds = %5
   call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.2900, ptr noundef %17) #10
-  br label %print_info_column.argprom.exit
+  br label %print_info_column.exit
 
-print_info_column.argprom.exit:                   ; preds = %18, %19
+print_info_column.exit:                           ; preds = %18, %19
   %20 = load ptr, ptr @codec_type, align 8
   %21 = icmp ne ptr %20, null
   %22 = load i32, ptr %6, align 4
@@ -9669,14 +9669,14 @@ print_info_column.argprom.exit:                   ; preds = %18, %19
   %or.cond = select i1 %21, i1 %23, i1 false
   br i1 %or.cond, label %24, label %28
 
-24:                                               ; preds = %print_info_column.argprom.exit
+24:                                               ; preds = %print_info_column.exit
   %25 = load ptr, ptr %9, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.2896, ptr noundef nonnull %20) #10
   br label %28
 
-28:                                               ; preds = %24, %print_info_column.argprom.exit
+28:                                               ; preds = %24, %print_info_column.exit
   %29 = load ptr, ptr %9, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -9752,13 +9752,13 @@ define internal i32 @dissect_h245_ResponseMessage(ptr noundef %0, i32 noundef %1
 
 18:                                               ; preds = %5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.2900, ptr noundef %17) #10
-  br label %print_info_column.argprom.exit
+  br label %print_info_column.exit
 
 19:                                               ; preds = %5
   call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.2900, ptr noundef %17) #10
-  br label %print_info_column.argprom.exit
+  br label %print_info_column.exit
 
-print_info_column.argprom.exit:                   ; preds = %18, %19
+print_info_column.exit:                           ; preds = %18, %19
   %20 = load ptr, ptr %9, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -9767,7 +9767,7 @@ print_info_column.argprom.exit:                   ; preds = %18, %19
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %37, label %24
 
-24:                                               ; preds = %print_info_column.argprom.exit
+24:                                               ; preds = %print_info_column.exit
   %25 = getelementptr inbounds i8, ptr %23, i64 4
   %char0 = load i8, ptr %25, align 1
   %26 = icmp eq i8 %char0, 0
@@ -9788,7 +9788,7 @@ print_info_column.argprom.exit:                   ; preds = %18, %19
   %36 = call i64 @g_strlcat(ptr noundef nonnull %33, ptr noundef %35, i64 noundef 50) #10
   br label %37
 
-37:                                               ; preds = %31, %print_info_column.argprom.exit
+37:                                               ; preds = %31, %print_info_column.exit
   ret i32 %8
 }
 
@@ -9812,13 +9812,13 @@ define internal i32 @dissect_h245_CommandMessage(ptr noundef %0, i32 noundef %1,
 
 18:                                               ; preds = %5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.2900, ptr noundef %17) #10
-  br label %print_info_column.argprom.exit
+  br label %print_info_column.exit
 
 19:                                               ; preds = %5
   call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.2900, ptr noundef %17) #10
-  br label %print_info_column.argprom.exit
+  br label %print_info_column.exit
 
-print_info_column.argprom.exit:                   ; preds = %18, %19
+print_info_column.exit:                           ; preds = %18, %19
   %20 = load ptr, ptr %9, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -9827,7 +9827,7 @@ print_info_column.argprom.exit:                   ; preds = %18, %19
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %37, label %24
 
-24:                                               ; preds = %print_info_column.argprom.exit
+24:                                               ; preds = %print_info_column.exit
   %25 = getelementptr inbounds i8, ptr %23, i64 4
   %char0 = load i8, ptr %25, align 1
   %26 = icmp eq i8 %char0, 0
@@ -9848,7 +9848,7 @@ print_info_column.argprom.exit:                   ; preds = %18, %19
   %36 = call i64 @g_strlcat(ptr noundef nonnull %33, ptr noundef %35, i64 noundef 50) #10
   br label %37
 
-37:                                               ; preds = %31, %print_info_column.argprom.exit
+37:                                               ; preds = %31, %print_info_column.exit
   ret i32 %8
 }
 
@@ -9872,13 +9872,13 @@ define internal i32 @dissect_h245_IndicationMessage(ptr noundef %0, i32 noundef 
 
 18:                                               ; preds = %5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.2900, ptr noundef %17) #10
-  br label %print_info_column.argprom.exit
+  br label %print_info_column.exit
 
 19:                                               ; preds = %5
   call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.2900, ptr noundef %17) #10
-  br label %print_info_column.argprom.exit
+  br label %print_info_column.exit
 
-print_info_column.argprom.exit:                   ; preds = %18, %19
+print_info_column.exit:                           ; preds = %18, %19
   %20 = load ptr, ptr %9, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -9887,7 +9887,7 @@ print_info_column.argprom.exit:                   ; preds = %18, %19
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %37, label %24
 
-24:                                               ; preds = %print_info_column.argprom.exit
+24:                                               ; preds = %print_info_column.exit
   %25 = getelementptr inbounds i8, ptr %23, i64 4
   %char0 = load i8, ptr %25, align 1
   %26 = icmp eq i8 %char0, 0
@@ -9908,7 +9908,7 @@ print_info_column.argprom.exit:                   ; preds = %18, %19
   %36 = call i64 @g_strlcat(ptr noundef nonnull %33, ptr noundef %35, i64 noundef 50) #10
   br label %37
 
-37:                                               ; preds = %31, %print_info_column.argprom.exit
+37:                                               ; preds = %31, %print_info_column.exit
   ret i32 %8
 }
 

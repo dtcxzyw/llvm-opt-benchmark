@@ -260,12 +260,12 @@ check_methodClass.exit:                           ; preds = %48, %54
   %61 = getelementptr inbounds i8, ptr %59, i64 2
   %62 = load i8, ptr %61, align 2
   %.not.i29 = icmp eq i8 %62, 0
-  br i1 %.not.i29, label %fillInvokeRequest.argprom.exit.thread, label %63
+  br i1 %.not.i29, label %fillInvokeRequest.exit.thread, label %63
 
 63:                                               ; preds = %60
   %64 = load i8, ptr %59, align 8
   %.not38.i = icmp eq i8 %64, 0
-  br i1 %.not38.i, label %65, label %fillInvokeRequest.argprom.exit.thread
+  br i1 %.not38.i, label %65, label %fillInvokeRequest.exit.thread
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds i8, ptr %59, i64 8
@@ -312,7 +312,7 @@ check_methodClass.exit:                           ; preds = %48, %54
   %86 = getelementptr inbounds i8, ptr %59, i64 56
   %87 = call i32 @methodSignature(ptr noundef %5, ptr noundef null, ptr noundef nonnull %86, ptr noundef null) #5
   %.not41.i = icmp eq i32 %87, 0
-  br i1 %.not41.i, label %88, label %fillInvokeRequest.argprom.exit.thread
+  br i1 %.not41.i, label %88, label %fillInvokeRequest.exit.thread
 
 88:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -599,7 +599,7 @@ createGlobalRefs.exit.thread3.i:                  ; preds = %createGlobalRefs.ex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %180 = load ptr, ptr %86, align 8
   call void @jvmtiDeallocate(ptr noundef %180) #5
-  br label %fillInvokeRequest.argprom.exit.thread
+  br label %fillInvokeRequest.exit.thread
 
 createGlobalRefs.exit.thread.i:                   ; preds = %createGlobalRefs.exit.thread7.i, %139
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -610,7 +610,7 @@ createGlobalRefs.exit.thread.i:                   ; preds = %createGlobalRefs.ex
   store i8 0, ptr %61, align 2
   br label %182
 
-fillInvokeRequest.argprom.exit.thread:            ; preds = %createGlobalRefs.exit.thread3.i, %60, %63, %85
+fillInvokeRequest.exit.thread:                    ; preds = %createGlobalRefs.exit.thread3.i, %60, %63, %85
   %.1.ph = phi i32 [ %87, %85 ], [ 190, %63 ], [ 203, %60 ], [ %.3104135.i.i, %createGlobalRefs.exit.thread3.i ]
   %181 = load ptr, ptr @invokerLock, align 8
   call void @debugMonitorExit(ptr noundef %181) #5
@@ -631,8 +631,8 @@ fillInvokeRequest.argprom.exit.thread:            ; preds = %createGlobalRefs.ex
   %188 = call i32 @threadControl_resumeAll() #5
   br label %189
 
-189:                                              ; preds = %fillInvokeRequest.argprom.exit.thread, %check_methodClass.exit, %187, %185
-  %.023 = phi i32 [ 23, %check_methodClass.exit ], [ 0, %185 ], [ 0, %187 ], [ %.1.ph, %fillInvokeRequest.argprom.exit.thread ]
+189:                                              ; preds = %fillInvokeRequest.exit.thread, %check_methodClass.exit, %187, %185
+  %.023 = phi i32 [ 23, %check_methodClass.exit ], [ 0, %185 ], [ 0, %187 ], [ %.1.ph, %fillInvokeRequest.exit.thread ]
   ret i32 %.023
 }
 

@@ -1136,7 +1136,7 @@ CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %99, %96, 
   br i1 %.not71, label %158, label %CbsP_ManCheckLimits.exit.thread
 
 158:                                              ; preds = %153
-  %159 = tail call fastcc i32 @CbsP_ManResolve.argelim(ptr noundef nonnull %0, i32 noundef %137, i32 noundef %150)
+  %159 = tail call fastcc i32 @CbsP_ManResolve(ptr noundef nonnull %0, i32 noundef %137, i32 noundef %150)
   %160 = load i32, ptr %25, align 8
   %161 = add nsw i32 %160, 1
   store i32 %161, ptr %25, align 8
@@ -1631,7 +1631,7 @@ define internal fastcc void @CbsP_ManCancelUntil(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @CbsP_ManResolve.argelim(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #4 {
+define internal fastcc i32 @CbsP_ManResolve(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   %5 = getelementptr inbounds i8, ptr %0, i64 244
   %6 = load i32, ptr %5, align 4

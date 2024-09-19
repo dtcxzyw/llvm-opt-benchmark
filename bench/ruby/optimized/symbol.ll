@@ -464,50 +464,50 @@ define dso_local i64 @rb_id_attrset(i64 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %23 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i, label %24, label %rb_vm_lock_enter.argprom.exit.i
+  br i1 %.not.i.i.i, label %24, label %rb_vm_lock_enter.exit.i
 
 24:                                               ; preds = %20
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #18
-  br label %rb_vm_lock_enter.argprom.exit.i
+  br label %rb_vm_lock_enter.exit.i
 
-rb_vm_lock_enter.argprom.exit.i:                  ; preds = %24, %20
+rb_vm_lock_enter.exit.i:                          ; preds = %24, %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   %26 = call i32 @rb_st_lookup(ptr noundef %25, i64 noundef %21, ptr noundef nonnull %2) #18
   %.not.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i, label %lookup_str_sym_with_lock.argprom.exit.i, label %27
+  br i1 %.not.i.i, label %lookup_str_sym_with_lock.exit.i, label %27
 
-27:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
+27:                                               ; preds = %rb_vm_lock_enter.exit.i
   %28 = load i64, ptr %2, align 8
   %29 = and i64 %28, 7
   %30 = icmp ne i64 %29, 0
   %31 = icmp eq i64 %28, 0
   %32 = or i1 %31, %30
-  br i1 %32, label %lookup_str_sym_with_lock.argprom.exit.i, label %RB_DYNAMIC_SYM_P.exit.i.i
+  br i1 %32, label %lookup_str_sym_with_lock.exit.i, label %RB_DYNAMIC_SYM_P.exit.i.i
 
 RB_DYNAMIC_SYM_P.exit.i.i:                        ; preds = %27
   %33 = inttoptr i64 %28 to ptr
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 31
   %36 = icmp eq i64 %35, 20
-  br i1 %36, label %37, label %lookup_str_sym_with_lock.argprom.exit.i
+  br i1 %36, label %37, label %lookup_str_sym_with_lock.exit.i
 
 37:                                               ; preds = %RB_DYNAMIC_SYM_P.exit.i.i
-  %38 = call fastcc i64 @dsymbol_check.argprom(i64 noundef %28)
-  br label %lookup_str_sym_with_lock.argprom.exit.i
+  %38 = call fastcc i64 @dsymbol_check(i64 noundef %28)
+  br label %lookup_str_sym_with_lock.exit.i
 
-lookup_str_sym_with_lock.argprom.exit.i:          ; preds = %37, %RB_DYNAMIC_SYM_P.exit.i.i, %27, %rb_vm_lock_enter.argprom.exit.i
-  %.06.i.i = phi i64 [ %38, %37 ], [ %28, %RB_DYNAMIC_SYM_P.exit.i.i ], [ 0, %rb_vm_lock_enter.argprom.exit.i ], [ %28, %27 ]
+lookup_str_sym_with_lock.exit.i:                  ; preds = %37, %RB_DYNAMIC_SYM_P.exit.i.i, %27, %rb_vm_lock_enter.exit.i
+  %.06.i.i = phi i64 [ %38, %37 ], [ %28, %RB_DYNAMIC_SYM_P.exit.i.i ], [ 0, %rb_vm_lock_enter.exit.i ], [ %28, %27 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %39 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i2.i = icmp eq ptr %39, null
   br i1 %.not.i.i2.i, label %40, label %lookup_str_sym.exit
 
-40:                                               ; preds = %lookup_str_sym_with_lock.argprom.exit.i
+40:                                               ; preds = %lookup_str_sym_with_lock.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #18
   br label %lookup_str_sym.exit
 
-lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with_lock.argprom.exit.i, %40
+lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with_lock.exit.i, %40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %.not29 = icmp eq i64 %.06.i.i, 0
   br i1 %.not29, label %43, label %41
@@ -544,20 +544,20 @@ define internal fastcc i64 @lookup_id_str(i64 noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i, label %6, label %rb_vm_lock_enter.argprom.exit.i
+  br i1 %.not.i.i.i, label %6, label %rb_vm_lock_enter.exit.i
 
 6:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #18
-  br label %rb_vm_lock_enter.argprom.exit.i
+  br label %rb_vm_lock_enter.exit.i
 
-rb_vm_lock_enter.argprom.exit.i:                  ; preds = %6, %1
+rb_vm_lock_enter.exit.i:                          ; preds = %6, %1
   %7 = load i32, ptr @ruby_global_symbols, align 8
   %8 = freeze i32 %7
   %9 = add i32 %.0.i.i, -1
   %or.cond.not.i = icmp ult i32 %9, %8
   br i1 %or.cond.not.i, label %10, label %32
 
-10:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
+10:                                               ; preds = %rb_vm_lock_enter.exit.i
   %11 = lshr i64 %.0.in.i.i, 9
   %12 = and i64 %11, 8388607
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 16), align 8
@@ -595,8 +595,8 @@ rb_array_len.exit.i:                              ; preds = %20, %17
   %spec.store.select.i = select i1 %31, i64 0, i64 %30
   br label %32
 
-32:                                               ; preds = %27, %24, %rb_array_len.exit.i, %rb_vm_lock_enter.argprom.exit.i
-  %.0.i = phi i64 [ 0, %24 ], [ %spec.store.select.i, %27 ], [ 0, %rb_array_len.exit.i ], [ 0, %rb_vm_lock_enter.argprom.exit.i ]
+32:                                               ; preds = %27, %24, %rb_array_len.exit.i, %rb_vm_lock_enter.exit.i
+  %.0.i = phi i64 [ 0, %24 ], [ %spec.store.select.i, %27 ], [ 0, %rb_array_len.exit.i ], [ 0, %rb_vm_lock_enter.exit.i ]
   %33 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i17.i = icmp eq ptr %33, null
   br i1 %.not.i.i17.i, label %34, label %get_id_serial_entry.exit
@@ -626,7 +626,7 @@ define dso_local i64 @rb_sym2id(i64 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = lshr i64 %0, 8
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
 7:                                                ; preds = %1
   %8 = and i64 %0, 7
@@ -645,14 +645,14 @@ RB_DYNAMIC_SYM_P.exit:                            ; preds = %7
 16:                                               ; preds = %RB_DYNAMIC_SYM_P.exit
   %17 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %18, label %rb_vm_lock_enter.argprom.exit
+  br i1 %.not.i.i, label %18, label %rb_vm_lock_enter.exit
 
 18:                                               ; preds = %16
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #18
-  br label %rb_vm_lock_enter.argprom.exit
+  br label %rb_vm_lock_enter.exit
 
-rb_vm_lock_enter.argprom.exit:                    ; preds = %16, %18
-  %19 = call fastcc i64 @dsymbol_check.argprom(i64 noundef %0)
+rb_vm_lock_enter.exit:                            ; preds = %16, %18
+  %19 = call fastcc i64 @dsymbol_check(i64 noundef %0)
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds i8, ptr %20, i64 32
   %22 = load i64, ptr %21, align 8
@@ -660,16 +660,16 @@ rb_vm_lock_enter.argprom.exit:                    ; preds = %16, %18
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %24, label %58
 
-24:                                               ; preds = %rb_vm_lock_enter.argprom.exit
+24:                                               ; preds = %rb_vm_lock_enter.exit
   %25 = getelementptr inbounds i8, ptr %20, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = load i32, ptr @ruby_global_symbols, align 8
   %.fr27 = freeze i32 %27
   %28 = add i32 %.fr27, 1
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %next_id_base_with_lock.argprom.exit.thread, label %next_id_base_with_lock.argprom.exit
+  br i1 %29, label %next_id_base_with_lock.exit.thread, label %next_id_base_with_lock.exit
 
-next_id_base_with_lock.argprom.exit:              ; preds = %24
+next_id_base_with_lock.exit:                      ; preds = %24
   store i32 %28, ptr @ruby_global_symbols, align 8
   %30 = zext i32 %28 to i64
   %31 = shl nuw nsw i64 %30, 4
@@ -677,11 +677,11 @@ next_id_base_with_lock.argprom.exit:              ; preds = %24
   %33 = icmp ugt i32 %28, 10
   %spec.select = select i1 %33, i64 %30, i64 %31
   %34 = trunc i64 %spec.select to i32
-  br label %next_id_base_with_lock.argprom.exit.thread
+  br label %next_id_base_with_lock.exit.thread
 
-next_id_base_with_lock.argprom.exit.thread:       ; preds = %24, %next_id_base_with_lock.argprom.exit
-  %.sink = phi i64 [ %32, %next_id_base_with_lock.argprom.exit ], [ -1, %24 ]
-  %.0.i20 = phi i32 [ %34, %next_id_base_with_lock.argprom.exit ], [ -1, %24 ]
+next_id_base_with_lock.exit.thread:               ; preds = %24, %next_id_base_with_lock.exit
+  %.sink = phi i64 [ %32, %next_id_base_with_lock.exit ], [ -1, %24 ]
+  %.0.i20 = phi i32 [ %34, %next_id_base_with_lock.exit ], [ -1, %24 ]
   store i64 %.sink, ptr %21, align 8
   %35 = lshr i32 %.0.i20, 9
   %36 = zext nneg i32 %35 to i64
@@ -692,12 +692,12 @@ next_id_base_with_lock.argprom.exit.thread:       ; preds = %24, %next_id_base_w
   %.not.i.i21 = icmp eq i64 %40, 0
   br i1 %.not.i.i21, label %44, label %41
 
-41:                                               ; preds = %next_id_base_with_lock.argprom.exit.thread
+41:                                               ; preds = %next_id_base_with_lock.exit.thread
   %42 = lshr i64 %39, 15
   %43 = and i64 %42, 127
   br label %rb_array_len.exit.i
 
-44:                                               ; preds = %next_id_base_with_lock.argprom.exit.thread
+44:                                               ; preds = %next_id_base_with_lock.exit.thread
   %45 = getelementptr inbounds i8, ptr %38, i64 16
   %46 = load i64, ptr %45, align 8
   br label %rb_array_len.exit.i
@@ -710,14 +710,14 @@ rb_array_len.exit.i:                              ; preds = %44, %41
 47:                                               ; preds = %rb_array_len.exit.i
   %48 = call i64 @rb_ary_entry(i64 noundef %37, i64 noundef %36) #20
   %49 = icmp eq i64 %48, 4
-  br i1 %49, label %50, label %set_id_entry.argprom.exit
+  br i1 %49, label %50, label %set_id_entry.exit
 
 50:                                               ; preds = %47, %rb_array_len.exit.i
   %51 = call i64 @rb_ary_hidden_new(i64 noundef 1024) #18
   call void @rb_ary_store(i64 noundef %37, i64 noundef %36, i64 noundef %51) #18
-  br label %set_id_entry.argprom.exit
+  br label %set_id_entry.exit
 
-set_id_entry.argprom.exit:                        ; preds = %47, %50
+set_id_entry.exit:                                ; preds = %47, %50
   %.0.i22 = phi i64 [ %51, %50 ], [ %48, %47 ]
   %52 = shl i32 %.0.i20, 1
   %53 = and i32 %52, 1022
@@ -729,15 +729,15 @@ set_id_entry.argprom.exit:                        ; preds = %47, %50
   %57 = call i64 @rb_hash_delete_entry(i64 noundef %56, i64 noundef %26) #18
   br label %58
 
-58:                                               ; preds = %set_id_entry.argprom.exit, %rb_vm_lock_enter.argprom.exit
-  %.1 = phi i64 [ %.sink, %set_id_entry.argprom.exit ], [ %22, %rb_vm_lock_enter.argprom.exit ]
+58:                                               ; preds = %set_id_entry.exit, %rb_vm_lock_enter.exit
+  %.1 = phi i64 [ %.sink, %set_id_entry.exit ], [ %22, %rb_vm_lock_enter.exit ]
   %59 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i23 = icmp eq ptr %59, null
-  br i1 %.not.i.i23, label %60, label %rb_vm_lock_leave.argprom.exit
+  br i1 %.not.i.i23, label %60, label %rb_vm_lock_leave.exit
 
 60:                                               ; preds = %58
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #18
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
 RB_DYNAMIC_SYM_P.exit.thread:                     ; preds = %7, %RB_DYNAMIC_SYM_P.exit
   %61 = load i64, ptr @rb_eTypeError, align 8
@@ -745,7 +745,7 @@ RB_DYNAMIC_SYM_P.exit.thread:                     ; preds = %7, %RB_DYNAMIC_SYM_
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %61, ptr noundef nonnull @.str.6, ptr noundef %62) #19
   unreachable
 
-rb_vm_lock_leave.argprom.exit:                    ; preds = %60, %58, %5
+rb_vm_lock_leave.exit:                            ; preds = %60, %58, %5
   %.0 = phi i64 [ %6, %5 ], [ %.1, %58 ], [ %.1, %60 ]
   ret i64 %.0
 }
@@ -816,35 +816,35 @@ sym_check_asciionly.exit.thread:                  ; preds = %18, %2, %rb_enc_asc
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %29 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i, label %30, label %rb_vm_lock_enter.argprom.exit.i
+  br i1 %.not.i.i.i, label %30, label %rb_vm_lock_enter.exit.i
 
 30:                                               ; preds = %sym_check_asciionly.exit.thread
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #18
-  br label %rb_vm_lock_enter.argprom.exit.i
+  br label %rb_vm_lock_enter.exit.i
 
-rb_vm_lock_enter.argprom.exit.i:                  ; preds = %30, %sym_check_asciionly.exit.thread
+rb_vm_lock_enter.exit.i:                          ; preds = %30, %sym_check_asciionly.exit.thread
   %31 = load i32, ptr @ruby_global_symbols, align 8
   %32 = add i32 %31, 1
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %next_id_base_with_lock.argprom.exit.i, label %34
+  br i1 %33, label %next_id_base_with_lock.exit.i, label %34
 
-34:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
+34:                                               ; preds = %rb_vm_lock_enter.exit.i
   store i32 %32, ptr @ruby_global_symbols, align 8
   %35 = zext i32 %32 to i64
   %36 = shl nuw nsw i64 %35, 4
-  br label %next_id_base_with_lock.argprom.exit.i
+  br label %next_id_base_with_lock.exit.i
 
-next_id_base_with_lock.argprom.exit.i:            ; preds = %34, %rb_vm_lock_enter.argprom.exit.i
-  %.0.i.i = phi i64 [ %36, %34 ], [ -1, %rb_vm_lock_enter.argprom.exit.i ]
+next_id_base_with_lock.exit.i:                    ; preds = %34, %rb_vm_lock_enter.exit.i
+  %.0.i.i = phi i64 [ %36, %34 ], [ -1, %rb_vm_lock_enter.exit.i ]
   %37 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i1.i = icmp eq ptr %37, null
   br i1 %.not.i.i1.i, label %38, label %next_id_base.exit
 
-38:                                               ; preds = %next_id_base_with_lock.argprom.exit.i
+38:                                               ; preds = %next_id_base_with_lock.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #18
   br label %next_id_base.exit
 
-next_id_base.exit:                                ; preds = %next_id_base_with_lock.argprom.exit.i, %38
+next_id_base.exit:                                ; preds = %next_id_base_with_lock.exit.i, %38
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %39 = icmp eq i64 %.0.i.i, -1
   br i1 %39, label %40, label %43
@@ -1336,7 +1336,7 @@ define hidden range(i32 0, 2) i32 @rb_static_id_valid_p(i64 noundef %0) local_un
   %5 = lshr i64 %0, 4
   %.0.in.i.i = select i1 %4, i64 %5, i64 %0
   %.0.i.i = trunc i64 %.0.in.i.i to i32
-  %6 = tail call fastcc i64 @get_id_serial_entry.argelim(i32 noundef %.0.i.i, i32 noundef 1)
+  %6 = tail call fastcc i64 @get_id_serial_entry(i32 noundef %.0.i.i, i32 noundef 1)
   %7 = icmp eq i64 %3, %6
   %8 = zext i1 %7 to i32
   ret i32 %8
@@ -1347,24 +1347,24 @@ define hidden void @rb_free_static_symid_str() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i, label %3, label %rb_vm_lock_enter.argprom.exit
+  br i1 %.not.i.i, label %3, label %rb_vm_lock_enter.exit
 
 3:                                                ; preds = %0
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %1) #18
-  br label %rb_vm_lock_enter.argprom.exit
+  br label %rb_vm_lock_enter.exit
 
-rb_vm_lock_enter.argprom.exit:                    ; preds = %0, %3
+rb_vm_lock_enter.exit:                            ; preds = %0, %3
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   call void @rb_st_free_table(ptr noundef %4) #18
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i1 = icmp eq ptr %5, null
-  br i1 %.not.i.i1, label %6, label %rb_vm_lock_leave.argprom.exit
+  br i1 %.not.i.i1, label %6, label %rb_vm_lock_leave.exit
 
-6:                                                ; preds = %rb_vm_lock_enter.argprom.exit
+6:                                                ; preds = %rb_vm_lock_enter.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %1) #18
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.argprom.exit:                    ; preds = %rb_vm_lock_enter.argprom.exit, %6
+rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.exit, %6
   ret void
 }
 
@@ -1380,50 +1380,50 @@ define dso_local i64 @rb_intern3(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %8 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i, label %9, label %rb_vm_lock_enter.argprom.exit.i
+  br i1 %.not.i.i.i, label %9, label %rb_vm_lock_enter.exit.i
 
 9:                                                ; preds = %3
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #18
-  br label %rb_vm_lock_enter.argprom.exit.i
+  br label %rb_vm_lock_enter.exit.i
 
-rb_vm_lock_enter.argprom.exit.i:                  ; preds = %9, %3
+rb_vm_lock_enter.exit.i:                          ; preds = %9, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   %11 = call i32 @rb_st_lookup(ptr noundef %10, i64 noundef %7, ptr noundef nonnull %4) #18
   %.not.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i, label %lookup_str_sym_with_lock.argprom.exit.i, label %12
+  br i1 %.not.i.i, label %lookup_str_sym_with_lock.exit.i, label %12
 
-12:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
+12:                                               ; preds = %rb_vm_lock_enter.exit.i
   %13 = load i64, ptr %4, align 8
   %14 = and i64 %13, 7
   %15 = icmp ne i64 %14, 0
   %16 = icmp eq i64 %13, 0
   %17 = or i1 %16, %15
-  br i1 %17, label %lookup_str_sym_with_lock.argprom.exit.i, label %RB_DYNAMIC_SYM_P.exit.i.i
+  br i1 %17, label %lookup_str_sym_with_lock.exit.i, label %RB_DYNAMIC_SYM_P.exit.i.i
 
 RB_DYNAMIC_SYM_P.exit.i.i:                        ; preds = %12
   %18 = inttoptr i64 %13 to ptr
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 31
   %21 = icmp eq i64 %20, 20
-  br i1 %21, label %22, label %lookup_str_sym_with_lock.argprom.exit.i
+  br i1 %21, label %22, label %lookup_str_sym_with_lock.exit.i
 
 22:                                               ; preds = %RB_DYNAMIC_SYM_P.exit.i.i
-  %23 = call fastcc i64 @dsymbol_check.argprom(i64 noundef %13)
-  br label %lookup_str_sym_with_lock.argprom.exit.i
+  %23 = call fastcc i64 @dsymbol_check(i64 noundef %13)
+  br label %lookup_str_sym_with_lock.exit.i
 
-lookup_str_sym_with_lock.argprom.exit.i:          ; preds = %22, %RB_DYNAMIC_SYM_P.exit.i.i, %12, %rb_vm_lock_enter.argprom.exit.i
-  %.06.i.i = phi i64 [ %23, %22 ], [ %13, %RB_DYNAMIC_SYM_P.exit.i.i ], [ 0, %rb_vm_lock_enter.argprom.exit.i ], [ %13, %12 ]
+lookup_str_sym_with_lock.exit.i:                  ; preds = %22, %RB_DYNAMIC_SYM_P.exit.i.i, %12, %rb_vm_lock_enter.exit.i
+  %.06.i.i = phi i64 [ %23, %22 ], [ %13, %RB_DYNAMIC_SYM_P.exit.i.i ], [ 0, %rb_vm_lock_enter.exit.i ], [ %13, %12 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %24 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i2.i = icmp eq ptr %24, null
   br i1 %.not.i.i2.i, label %25, label %lookup_str_sym.exit
 
-25:                                               ; preds = %lookup_str_sym_with_lock.argprom.exit.i
+25:                                               ; preds = %lookup_str_sym_with_lock.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #18
   br label %lookup_str_sym.exit
 
-lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with_lock.argprom.exit.i, %25
+lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with_lock.exit.i, %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not = icmp eq i64 %.06.i.i, 0
   br i1 %.not, label %28, label %26
@@ -1472,50 +1472,50 @@ define dso_local i64 @rb_intern_str(i64 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i, label %5, label %rb_vm_lock_enter.argprom.exit.i
+  br i1 %.not.i.i.i, label %5, label %rb_vm_lock_enter.exit.i
 
 5:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #18
-  br label %rb_vm_lock_enter.argprom.exit.i
+  br label %rb_vm_lock_enter.exit.i
 
-rb_vm_lock_enter.argprom.exit.i:                  ; preds = %5, %1
+rb_vm_lock_enter.exit.i:                          ; preds = %5, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   %7 = call i32 @rb_st_lookup(ptr noundef %6, i64 noundef %0, ptr noundef nonnull %2) #18
   %.not.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i, label %lookup_str_sym_with_lock.argprom.exit.i, label %8
+  br i1 %.not.i.i, label %lookup_str_sym_with_lock.exit.i, label %8
 
-8:                                                ; preds = %rb_vm_lock_enter.argprom.exit.i
+8:                                                ; preds = %rb_vm_lock_enter.exit.i
   %9 = load i64, ptr %2, align 8
   %10 = and i64 %9, 7
   %11 = icmp ne i64 %10, 0
   %12 = icmp eq i64 %9, 0
   %13 = or i1 %12, %11
-  br i1 %13, label %lookup_str_sym_with_lock.argprom.exit.i, label %RB_DYNAMIC_SYM_P.exit.i.i
+  br i1 %13, label %lookup_str_sym_with_lock.exit.i, label %RB_DYNAMIC_SYM_P.exit.i.i
 
 RB_DYNAMIC_SYM_P.exit.i.i:                        ; preds = %8
   %14 = inttoptr i64 %9 to ptr
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 31
   %17 = icmp eq i64 %16, 20
-  br i1 %17, label %18, label %lookup_str_sym_with_lock.argprom.exit.i
+  br i1 %17, label %18, label %lookup_str_sym_with_lock.exit.i
 
 18:                                               ; preds = %RB_DYNAMIC_SYM_P.exit.i.i
-  %19 = call fastcc i64 @dsymbol_check.argprom(i64 noundef %9)
-  br label %lookup_str_sym_with_lock.argprom.exit.i
+  %19 = call fastcc i64 @dsymbol_check(i64 noundef %9)
+  br label %lookup_str_sym_with_lock.exit.i
 
-lookup_str_sym_with_lock.argprom.exit.i:          ; preds = %18, %RB_DYNAMIC_SYM_P.exit.i.i, %8, %rb_vm_lock_enter.argprom.exit.i
-  %.06.i.i = phi i64 [ %19, %18 ], [ %9, %RB_DYNAMIC_SYM_P.exit.i.i ], [ 0, %rb_vm_lock_enter.argprom.exit.i ], [ %9, %8 ]
+lookup_str_sym_with_lock.exit.i:                  ; preds = %18, %RB_DYNAMIC_SYM_P.exit.i.i, %8, %rb_vm_lock_enter.exit.i
+  %.06.i.i = phi i64 [ %19, %18 ], [ %9, %RB_DYNAMIC_SYM_P.exit.i.i ], [ 0, %rb_vm_lock_enter.exit.i ], [ %9, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %20 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i2.i = icmp eq ptr %20, null
   br i1 %.not.i.i2.i, label %21, label %lookup_str_sym.exit
 
-21:                                               ; preds = %lookup_str_sym_with_lock.argprom.exit.i
+21:                                               ; preds = %lookup_str_sym_with_lock.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #18
   br label %lookup_str_sym.exit
 
-lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with_lock.argprom.exit.i, %21
+lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with_lock.exit.i, %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %.not = icmp eq i64 %.06.i.i, 0
   br i1 %.not, label %24, label %22
@@ -1541,27 +1541,27 @@ define hidden void @rb_gc_free_dsymbol(i64 noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %rb_vm_lock_leave.argprom.exit, label %7
+  br i1 %.not, label %rb_vm_lock_leave.exit, label %7
 
 7:                                                ; preds = %1
   store i64 0, ptr %5, align 8
   %8 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i, label %9, label %rb_vm_lock_enter.argprom.exit
+  br i1 %.not.i.i, label %9, label %rb_vm_lock_enter.exit
 
 9:                                                ; preds = %7
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #18
-  br label %rb_vm_lock_enter.argprom.exit
+  br label %rb_vm_lock_enter.exit
 
-rb_vm_lock_enter.argprom.exit:                    ; preds = %7, %9
+rb_vm_lock_enter.exit:                            ; preds = %7, %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %6, ptr %2, align 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   %11 = call i32 @rb_st_delete(ptr noundef %10, ptr noundef nonnull %2, ptr noundef null) #18
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %12, label %unregister_sym.argprom.exit
+  br i1 %.not.i, label %12, label %unregister_sym.exit
 
-12:                                               ; preds = %rb_vm_lock_enter.argprom.exit
+12:                                               ; preds = %rb_vm_lock_enter.exit
   %13 = inttoptr i64 %6 to ptr
   %14 = load i64, ptr %13, align 8, !noalias !13
   %15 = and i64 %14, 8192
@@ -1578,19 +1578,19 @@ RSTRING_PTR.exit.i:                               ; preds = %17, %12
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.103, ptr noundef nonnull %4, ptr noundef %.sroa.2.0.i.i) #21
   unreachable
 
-unregister_sym.argprom.exit:                      ; preds = %rb_vm_lock_enter.argprom.exit
+unregister_sym.exit:                              ; preds = %rb_vm_lock_enter.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %18 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 24), align 8
   %19 = call i64 @rb_hash_delete_entry(i64 noundef %18, i64 noundef %6) #18
   %20 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7 = icmp eq ptr %20, null
-  br i1 %.not.i.i7, label %21, label %rb_vm_lock_leave.argprom.exit
+  br i1 %.not.i.i7, label %21, label %rb_vm_lock_leave.exit
 
-21:                                               ; preds = %unregister_sym.argprom.exit
+21:                                               ; preds = %unregister_sym.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #18
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.argprom.exit:                    ; preds = %21, %unregister_sym.argprom.exit, %1
+rb_vm_lock_leave.exit:                            ; preds = %21, %unregister_sym.exit, %1
   ret void
 }
 
@@ -1604,53 +1604,53 @@ define dso_local i64 @rb_str_intern(i64 noundef %0) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.argprom.exit
+  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.exit
 
 7:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #18
-  br label %rb_vm_lock_enter.argprom.exit
+  br label %rb_vm_lock_enter.exit
 
-rb_vm_lock_enter.argprom.exit:                    ; preds = %1, %7
+rb_vm_lock_enter.exit:                            ; preds = %1, %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   %9 = call i32 @rb_st_lookup(ptr noundef %8, i64 noundef %0, ptr noundef nonnull %4) #18
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %lookup_str_sym_with_lock.argprom.exit.thread, label %10
+  br i1 %.not.i, label %lookup_str_sym_with_lock.exit.thread, label %10
 
-lookup_str_sym_with_lock.argprom.exit.thread:     ; preds = %rb_vm_lock_enter.argprom.exit
+lookup_str_sym_with_lock.exit.thread:             ; preds = %rb_vm_lock_enter.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %22
 
-10:                                               ; preds = %rb_vm_lock_enter.argprom.exit
+10:                                               ; preds = %rb_vm_lock_enter.exit
   %11 = load i64, ptr %4, align 8
   %12 = and i64 %11, 7
   %13 = icmp ne i64 %12, 0
   %14 = icmp eq i64 %11, 0
   %15 = or i1 %14, %13
-  br i1 %15, label %lookup_str_sym_with_lock.argprom.exit, label %RB_DYNAMIC_SYM_P.exit.i
+  br i1 %15, label %lookup_str_sym_with_lock.exit, label %RB_DYNAMIC_SYM_P.exit.i
 
 RB_DYNAMIC_SYM_P.exit.i:                          ; preds = %10
   %16 = inttoptr i64 %11 to ptr
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 20
-  br i1 %19, label %20, label %lookup_str_sym_with_lock.argprom.exit.thread31
+  br i1 %19, label %20, label %lookup_str_sym_with_lock.exit.thread31
 
-lookup_str_sym_with_lock.argprom.exit.thread31:   ; preds = %RB_DYNAMIC_SYM_P.exit.i
+lookup_str_sym_with_lock.exit.thread31:           ; preds = %RB_DYNAMIC_SYM_P.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %53
 
 20:                                               ; preds = %RB_DYNAMIC_SYM_P.exit.i
-  %21 = call fastcc i64 @dsymbol_check.argprom(i64 noundef %11)
-  br label %lookup_str_sym_with_lock.argprom.exit
+  %21 = call fastcc i64 @dsymbol_check(i64 noundef %11)
+  br label %lookup_str_sym_with_lock.exit
 
-lookup_str_sym_with_lock.argprom.exit:            ; preds = %10, %20
+lookup_str_sym_with_lock.exit:                    ; preds = %10, %20
   %.06.i = phi i64 [ %21, %20 ], [ %11, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not = icmp eq i64 %.06.i, 0
   br i1 %.not, label %22, label %53
 
-22:                                               ; preds = %lookup_str_sym_with_lock.argprom.exit.thread, %lookup_str_sym_with_lock.argprom.exit
+22:                                               ; preds = %lookup_str_sym_with_lock.exit.thread, %lookup_str_sym_with_lock.exit
   %23 = call ptr @rb_enc_get(i64 noundef %0) #18
   %24 = call nonnull ptr @rb_usascii_encoding() #18
   %.not25 = icmp eq ptr %23, %24
@@ -1717,27 +1717,27 @@ sym_check_asciionly.exit.thread:                  ; preds = %29, %25, %rb_enc_as
   %spec.store.select = select i1 %49, i32 14, i32 %46
   %50 = load i64, ptr @rb_cSymbol, align 8
   %51 = sext i32 %spec.store.select to i64
-  %52 = call fastcc i64 @dsymbol_alloc.argprom(i64 noundef %50, i64 noundef %39, ptr noundef %.022, i64 noundef %51)
+  %52 = call fastcc i64 @dsymbol_alloc(i64 noundef %50, i64 noundef %39, ptr noundef %.022, i64 noundef %51)
   br label %53
 
-53:                                               ; preds = %lookup_str_sym_with_lock.argprom.exit.thread31, %lookup_str_sym_with_lock.argprom.exit, %38
-  %.021 = phi i64 [ %.06.i, %lookup_str_sym_with_lock.argprom.exit ], [ %52, %38 ], [ %11, %lookup_str_sym_with_lock.argprom.exit.thread31 ]
+53:                                               ; preds = %lookup_str_sym_with_lock.exit.thread31, %lookup_str_sym_with_lock.exit, %38
+  %.021 = phi i64 [ %.06.i, %lookup_str_sym_with_lock.exit ], [ %52, %38 ], [ %11, %lookup_str_sym_with_lock.exit.thread31 ]
   %54 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i28 = icmp eq ptr %54, null
-  br i1 %.not.i.i28, label %55, label %rb_vm_lock_leave.argprom.exit
+  br i1 %.not.i.i28, label %55, label %rb_vm_lock_leave.exit
 
 55:                                               ; preds = %53
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #18
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.argprom.exit:                    ; preds = %53, %55
+rb_vm_lock_leave.exit:                            ; preds = %53, %55
   ret i64 %.021
 }
 
 declare ptr @rb_enc_get(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @sym_check_asciionly.retelim(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @sym_check_asciionly(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = tail call ptr @rb_enc_get(i64 noundef %0) #18
   %4 = getelementptr i8, ptr %3, i64 20
   %.val.i = load i32, ptr %4, align 4
@@ -1795,7 +1795,7 @@ declare i64 @rb_enc_associate(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @rb_fstring(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @dsymbol_alloc.argprom(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 -1, 16) %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @dsymbol_alloc(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 -1, 16) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %7 = load ptr, ptr %6, align 8
@@ -1810,13 +1810,13 @@ define internal fastcc noundef i64 @dsymbol_alloc.argprom(i64 noundef %0, i64 no
   %13 = icmp ne i64 %12, 0
   %14 = icmp eq i64 %1, 0
   %15 = or i1 %14, %13
-  br i1 %15, label %rb_obj_write.argprom.exit, label %16
+  br i1 %15, label %rb_obj_write.exit, label %16
 
 16:                                               ; preds = %4
   tail call void @rb_gc_writebarrier(i64 noundef %8, i64 noundef %1) #18
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %4, %16
+rb_obj_write.exit:                                ; preds = %4, %16
   %17 = getelementptr inbounds i8, ptr %9, i64 32
   store i64 %3, ptr %17, align 8
   %18 = tail call i64 @rb_str_hash(i64 noundef %1) #18
@@ -1831,7 +1831,7 @@ rb_obj_write.argprom.exit:                        ; preds = %4, %16
   %.not = icmp eq i16 %24, 0
   br i1 %.not, label %34, label %25
 
-25:                                               ; preds = %rb_obj_write.argprom.exit
+25:                                               ; preds = %rb_obj_write.exit
   %26 = call ptr @rb_source_location_cstr(ptr noundef nonnull %5) #18
   %.not20 = icmp eq ptr %26, null
   %spec.store.select = select i1 %.not20, ptr @.str.12, ptr %26
@@ -1855,12 +1855,12 @@ RSTRING_PTR.exit:                                 ; preds = %25, %32
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !24
   br label %34
 
-34:                                               ; preds = %rb_obj_write.argprom.exit, %RSTRING_PTR.exit
+34:                                               ; preds = %rb_obj_write.exit, %RSTRING_PTR.exit
   ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @dsymbol_check.argprom(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i64 @dsymbol_check(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = tail call i32 @rb_objspace_garbage_object_p(i64 noundef %0) #18
   %.not = icmp eq i32 %3, 0
@@ -1878,7 +1878,7 @@ define internal fastcc noundef i64 @dsymbol_check.argprom(i64 noundef %0) unname
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   %11 = call i32 @rb_st_delete(ptr noundef %10, ptr noundef nonnull %2, ptr noundef null) #18
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %12, label %unregister_sym.argprom.exit
+  br i1 %.not.i, label %12, label %unregister_sym.exit
 
 12:                                               ; preds = %4
   %13 = inttoptr i64 %7 to ptr
@@ -1897,16 +1897,16 @@ RSTRING_PTR.exit.i:                               ; preds = %17, %12
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.103, ptr noundef nonnull %5, ptr noundef %.sroa.2.0.i.i) #21
   unreachable
 
-unregister_sym.argprom.exit:                      ; preds = %4
+unregister_sym.exit:                              ; preds = %4
   %18 = and i64 %9, 14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %19 = load i64, ptr @rb_cSymbol, align 8
   %20 = call ptr @rb_enc_get(i64 noundef %7) #18
-  %21 = call fastcc i64 @dsymbol_alloc.argprom(i64 noundef %19, i64 noundef %7, ptr noundef %20, i64 noundef %18)
+  %21 = call fastcc i64 @dsymbol_alloc(i64 noundef %19, i64 noundef %7, ptr noundef %20, i64 noundef %18)
   br label %22
 
-22:                                               ; preds = %1, %unregister_sym.argprom.exit
-  %.0 = phi i64 [ %21, %unregister_sym.argprom.exit ], [ %0, %1 ]
+22:                                               ; preds = %1, %unregister_sym.exit
+  %.0 = phi i64 [ %21, %unregister_sym.exit ], [ %0, %1 ]
   ret i64 %.0
 }
 
@@ -1931,7 +1931,7 @@ define dso_local i64 @rb_id2sym(i64 noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %1
   %9 = lshr i64 %0, 4
   %.0.i.i = trunc i64 %9 to i32
-  %10 = tail call fastcc i64 @get_id_serial_entry.argelim(i32 noundef %.0.i.i, i32 noundef 1)
+  %10 = tail call fastcc i64 @get_id_serial_entry(i32 noundef %.0.i.i, i32 noundef 1)
   br label %11
 
 11:                                               ; preds = %8, %5
@@ -1998,36 +1998,36 @@ define hidden range(i64 -1, 68719476736) i64 @rb_make_internal_id() local_unname
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   %2 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i.i, label %3, label %rb_vm_lock_enter.argprom.exit.i
+  br i1 %.not.i.i.i, label %3, label %rb_vm_lock_enter.exit.i
 
 3:                                                ; preds = %0
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %1) #18
-  br label %rb_vm_lock_enter.argprom.exit.i
+  br label %rb_vm_lock_enter.exit.i
 
-rb_vm_lock_enter.argprom.exit.i:                  ; preds = %3, %0
+rb_vm_lock_enter.exit.i:                          ; preds = %3, %0
   %4 = load i32, ptr @ruby_global_symbols, align 8
   %5 = add i32 %4, 1
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %next_id_base_with_lock.argprom.exit.i, label %7
+  br i1 %6, label %next_id_base_with_lock.exit.i, label %7
 
-7:                                                ; preds = %rb_vm_lock_enter.argprom.exit.i
+7:                                                ; preds = %rb_vm_lock_enter.exit.i
   store i32 %5, ptr @ruby_global_symbols, align 8
   %8 = zext i32 %5 to i64
   %9 = shl nuw nsw i64 %8, 4
   %10 = or disjoint i64 %9, 15
-  br label %next_id_base_with_lock.argprom.exit.i
+  br label %next_id_base_with_lock.exit.i
 
-next_id_base_with_lock.argprom.exit.i:            ; preds = %7, %rb_vm_lock_enter.argprom.exit.i
-  %.0.i.i = phi i64 [ %10, %7 ], [ -1, %rb_vm_lock_enter.argprom.exit.i ]
+next_id_base_with_lock.exit.i:                    ; preds = %7, %rb_vm_lock_enter.exit.i
+  %.0.i.i = phi i64 [ %10, %7 ], [ -1, %rb_vm_lock_enter.exit.i ]
   %11 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i1.i = icmp eq ptr %11, null
   br i1 %.not.i.i1.i, label %12, label %next_id_base.exit
 
-12:                                               ; preds = %next_id_base_with_lock.argprom.exit.i
+12:                                               ; preds = %next_id_base_with_lock.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %1) #18
   br label %next_id_base.exit
 
-next_id_base.exit:                                ; preds = %next_id_base_with_lock.argprom.exit.i, %12
+next_id_base.exit:                                ; preds = %next_id_base_with_lock.exit.i, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   ret i64 %.0.i.i
 }
@@ -2056,13 +2056,13 @@ define dso_local noundef i64 @rb_sym_all_symbols() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i, label %3, label %rb_vm_lock_enter.argprom.exit
+  br i1 %.not.i.i, label %3, label %rb_vm_lock_enter.exit
 
 3:                                                ; preds = %0
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %1) #18
-  br label %rb_vm_lock_enter.argprom.exit
+  br label %rb_vm_lock_enter.exit
 
-rb_vm_lock_enter.argprom.exit:                    ; preds = %0, %3
+rb_vm_lock_enter.exit:                            ; preds = %0, %3
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
@@ -2071,13 +2071,13 @@ rb_vm_lock_enter.argprom.exit:                    ; preds = %0, %3
   %9 = call i32 @rb_st_foreach(ptr noundef %8, ptr noundef nonnull @symbols_i, i64 noundef %7) #18
   %10 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3 = icmp eq ptr %10, null
-  br i1 %.not.i.i3, label %11, label %rb_vm_lock_leave.argprom.exit
+  br i1 %.not.i.i3, label %11, label %rb_vm_lock_leave.exit
 
-11:                                               ; preds = %rb_vm_lock_enter.argprom.exit
+11:                                               ; preds = %rb_vm_lock_enter.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %1) #18
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.argprom.exit:                    ; preds = %rb_vm_lock_enter.argprom.exit, %11
+rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.exit, %11
   ret i64 %7
 }
 
@@ -2392,28 +2392,28 @@ define internal fastcc i64 @lookup_str_id(i64 noundef %0) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.argprom.exit
+  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.exit
 
 5:                                                ; preds = %1
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #18
-  br label %rb_vm_lock_enter.argprom.exit
+  br label %rb_vm_lock_enter.exit
 
-rb_vm_lock_enter.argprom.exit:                    ; preds = %1, %5
+rb_vm_lock_enter.exit:                            ; preds = %1, %5
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   %7 = call i32 @rb_st_lookup(ptr noundef %6, i64 noundef %0, ptr noundef nonnull %2) #18
   %8 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i13 = icmp eq ptr %8, null
-  br i1 %.not.i.i13, label %9, label %rb_vm_lock_leave.argprom.exit
+  br i1 %.not.i.i13, label %9, label %rb_vm_lock_leave.exit
 
-9:                                                ; preds = %rb_vm_lock_enter.argprom.exit
+9:                                                ; preds = %rb_vm_lock_enter.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #18
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.argprom.exit:                    ; preds = %rb_vm_lock_enter.argprom.exit, %9
+rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.exit, %9
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %30, label %10
 
-10:                                               ; preds = %rb_vm_lock_leave.argprom.exit
+10:                                               ; preds = %rb_vm_lock_leave.exit
   %11 = load i64, ptr %2, align 8
   %12 = and i64 %11, 255
   %13 = icmp eq i64 %12, 12
@@ -2449,7 +2449,7 @@ RB_DYNAMIC_SYM_P.exit.thread:                     ; preds = %16, %RB_DYNAMIC_SYM
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.106, ptr noundef %29, i64 noundef %11, i64 noundef %0) #21
   unreachable
 
-30:                                               ; preds = %25, %rb_vm_lock_leave.argprom.exit
+30:                                               ; preds = %25, %rb_vm_lock_leave.exit
   br label %31
 
 31:                                               ; preds = %25, %30, %14
@@ -2536,23 +2536,23 @@ RB_DYNAMIC_SYM_P.exit:                            ; preds = %8
 20:                                               ; preds = %16
   %21 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %22, label %rb_vm_lock_enter.argprom.exit
+  br i1 %.not.i.i, label %22, label %rb_vm_lock_enter.exit
 
 22:                                               ; preds = %20
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #18
-  br label %rb_vm_lock_enter.argprom.exit
+  br label %rb_vm_lock_enter.exit
 
-rb_vm_lock_enter.argprom.exit:                    ; preds = %20, %22
-  %23 = call fastcc i64 @dsymbol_check.argprom(i64 noundef %5)
+rb_vm_lock_enter.exit:                            ; preds = %20, %22
+  %23 = call fastcc i64 @dsymbol_check(i64 noundef %5)
   %24 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i43 = icmp eq ptr %24, null
-  br i1 %.not.i.i43, label %25, label %rb_vm_lock_leave.argprom.exit
+  br i1 %.not.i.i43, label %25, label %rb_vm_lock_leave.exit
 
-25:                                               ; preds = %rb_vm_lock_enter.argprom.exit
+25:                                               ; preds = %rb_vm_lock_enter.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #18
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.argprom.exit:                    ; preds = %rb_vm_lock_enter.argprom.exit, %25
+rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.exit, %25
   store volatile i64 %23, ptr %0, align 8
   br label %59
 
@@ -2600,57 +2600,57 @@ sym_check_asciionly.exit:                         ; preds = %35, %31, %rb_enc_as
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %41 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i, label %42, label %rb_vm_lock_enter.argprom.exit.i
+  br i1 %.not.i.i.i, label %42, label %rb_vm_lock_enter.exit.i
 
 42:                                               ; preds = %sym_check_asciionly.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #18
-  br label %rb_vm_lock_enter.argprom.exit.i
+  br label %rb_vm_lock_enter.exit.i
 
-rb_vm_lock_enter.argprom.exit.i:                  ; preds = %42, %sym_check_asciionly.exit
+rb_vm_lock_enter.exit.i:                          ; preds = %42, %sym_check_asciionly.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %43 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   %44 = call i32 @rb_st_lookup(ptr noundef %43, i64 noundef %.1, ptr noundef nonnull %2) #18
   %.not.i.i46 = icmp eq i32 %44, 0
-  br i1 %.not.i.i46, label %lookup_str_sym_with_lock.argprom.exit.i, label %45
+  br i1 %.not.i.i46, label %lookup_str_sym_with_lock.exit.i, label %45
 
-45:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
+45:                                               ; preds = %rb_vm_lock_enter.exit.i
   %46 = load i64, ptr %2, align 8
   %47 = and i64 %46, 7
   %48 = icmp ne i64 %47, 0
   %49 = icmp eq i64 %46, 0
   %50 = or i1 %49, %48
-  br i1 %50, label %lookup_str_sym_with_lock.argprom.exit.i, label %RB_DYNAMIC_SYM_P.exit.i.i
+  br i1 %50, label %lookup_str_sym_with_lock.exit.i, label %RB_DYNAMIC_SYM_P.exit.i.i
 
 RB_DYNAMIC_SYM_P.exit.i.i:                        ; preds = %45
   %51 = inttoptr i64 %46 to ptr
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, 31
   %54 = icmp eq i64 %53, 20
-  br i1 %54, label %55, label %lookup_str_sym_with_lock.argprom.exit.i
+  br i1 %54, label %55, label %lookup_str_sym_with_lock.exit.i
 
 55:                                               ; preds = %RB_DYNAMIC_SYM_P.exit.i.i
-  %56 = call fastcc i64 @dsymbol_check.argprom(i64 noundef %46)
-  br label %lookup_str_sym_with_lock.argprom.exit.i
+  %56 = call fastcc i64 @dsymbol_check(i64 noundef %46)
+  br label %lookup_str_sym_with_lock.exit.i
 
-lookup_str_sym_with_lock.argprom.exit.i:          ; preds = %55, %RB_DYNAMIC_SYM_P.exit.i.i, %45, %rb_vm_lock_enter.argprom.exit.i
-  %.06.i.i = phi i64 [ %56, %55 ], [ %46, %RB_DYNAMIC_SYM_P.exit.i.i ], [ 0, %rb_vm_lock_enter.argprom.exit.i ], [ %46, %45 ]
+lookup_str_sym_with_lock.exit.i:                  ; preds = %55, %RB_DYNAMIC_SYM_P.exit.i.i, %45, %rb_vm_lock_enter.exit.i
+  %.06.i.i = phi i64 [ %56, %55 ], [ %46, %RB_DYNAMIC_SYM_P.exit.i.i ], [ 0, %rb_vm_lock_enter.exit.i ], [ %46, %45 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %57 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i2.i = icmp eq ptr %57, null
   br i1 %.not.i.i2.i, label %58, label %lookup_str_sym.exit
 
-58:                                               ; preds = %lookup_str_sym_with_lock.argprom.exit.i
+58:                                               ; preds = %lookup_str_sym_with_lock.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #18
   br label %lookup_str_sym.exit
 
-lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with_lock.argprom.exit.i, %58
+lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with_lock.exit.i, %58
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %.not = icmp eq i64 %.06.i.i, 0
   %.42 = select i1 %.not, i64 4, i64 %.06.i.i
   br label %59
 
-59:                                               ; preds = %lookup_str_sym.exit, %16, %rb_vm_lock_leave.argprom.exit, %1
-  %.039 = phi i64 [ %5, %1 ], [ %5, %16 ], [ %23, %rb_vm_lock_leave.argprom.exit ], [ %.42, %lookup_str_sym.exit ]
+59:                                               ; preds = %lookup_str_sym.exit, %16, %rb_vm_lock_leave.exit, %1
+  %.039 = phi i64 [ %5, %1 ], [ %5, %16 ], [ %23, %rb_vm_lock_leave.exit ], [ %.42, %lookup_str_sym.exit ]
   ret i64 %.039
 }
 
@@ -2658,7 +2658,7 @@ lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with
 define dso_local i64 @rb_check_id_cstr(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.RString, align 8
   %5 = call i64 @rb_setup_fake_str(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %1, ptr noundef %2) #18
-  call fastcc void @sym_check_asciionly.retelim(i64 noundef %5, i1 noundef zeroext true)
+  call fastcc void @sym_check_asciionly(i64 noundef %5, i1 noundef zeroext true)
   %6 = call fastcc i64 @lookup_str_id(i64 noundef %5)
   ret i64 %6
 }
@@ -2669,54 +2669,54 @@ define dso_local range(i64 1, 0) i64 @rb_check_symbol_cstr(ptr noundef %0, i64 n
   %5 = alloca i32, align 4
   %6 = alloca %struct.RString, align 8
   %7 = call i64 @rb_setup_fake_str(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %1, ptr noundef %2) #18
-  call fastcc void @sym_check_asciionly.retelim(i64 noundef %7, i1 noundef zeroext true)
+  call fastcc void @sym_check_asciionly(i64 noundef %7, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %8 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i, label %9, label %rb_vm_lock_enter.argprom.exit.i
+  br i1 %.not.i.i.i, label %9, label %rb_vm_lock_enter.exit.i
 
 9:                                                ; preds = %3
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #18
-  br label %rb_vm_lock_enter.argprom.exit.i
+  br label %rb_vm_lock_enter.exit.i
 
-rb_vm_lock_enter.argprom.exit.i:                  ; preds = %9, %3
+rb_vm_lock_enter.exit.i:                          ; preds = %9, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   %11 = call i32 @rb_st_lookup(ptr noundef %10, i64 noundef %7, ptr noundef nonnull %4) #18
   %.not.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i, label %lookup_str_sym_with_lock.argprom.exit.i, label %12
+  br i1 %.not.i.i, label %lookup_str_sym_with_lock.exit.i, label %12
 
-12:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
+12:                                               ; preds = %rb_vm_lock_enter.exit.i
   %13 = load i64, ptr %4, align 8
   %14 = and i64 %13, 7
   %15 = icmp ne i64 %14, 0
   %16 = icmp eq i64 %13, 0
   %17 = or i1 %16, %15
-  br i1 %17, label %lookup_str_sym_with_lock.argprom.exit.i, label %RB_DYNAMIC_SYM_P.exit.i.i
+  br i1 %17, label %lookup_str_sym_with_lock.exit.i, label %RB_DYNAMIC_SYM_P.exit.i.i
 
 RB_DYNAMIC_SYM_P.exit.i.i:                        ; preds = %12
   %18 = inttoptr i64 %13 to ptr
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 31
   %21 = icmp eq i64 %20, 20
-  br i1 %21, label %22, label %lookup_str_sym_with_lock.argprom.exit.i
+  br i1 %21, label %22, label %lookup_str_sym_with_lock.exit.i
 
 22:                                               ; preds = %RB_DYNAMIC_SYM_P.exit.i.i
-  %23 = call fastcc i64 @dsymbol_check.argprom(i64 noundef %13)
-  br label %lookup_str_sym_with_lock.argprom.exit.i
+  %23 = call fastcc i64 @dsymbol_check(i64 noundef %13)
+  br label %lookup_str_sym_with_lock.exit.i
 
-lookup_str_sym_with_lock.argprom.exit.i:          ; preds = %22, %RB_DYNAMIC_SYM_P.exit.i.i, %12, %rb_vm_lock_enter.argprom.exit.i
-  %.06.i.i = phi i64 [ %23, %22 ], [ %13, %RB_DYNAMIC_SYM_P.exit.i.i ], [ 0, %rb_vm_lock_enter.argprom.exit.i ], [ %13, %12 ]
+lookup_str_sym_with_lock.exit.i:                  ; preds = %22, %RB_DYNAMIC_SYM_P.exit.i.i, %12, %rb_vm_lock_enter.exit.i
+  %.06.i.i = phi i64 [ %23, %22 ], [ %13, %RB_DYNAMIC_SYM_P.exit.i.i ], [ 0, %rb_vm_lock_enter.exit.i ], [ %13, %12 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %24 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i2.i = icmp eq ptr %24, null
   br i1 %.not.i.i2.i, label %25, label %lookup_str_sym.exit
 
-25:                                               ; preds = %lookup_str_sym_with_lock.argprom.exit.i
+25:                                               ; preds = %lookup_str_sym_with_lock.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #18
   br label %lookup_str_sym.exit
 
-lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with_lock.argprom.exit.i, %25
+lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with_lock.exit.i, %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not = icmp eq i64 %.06.i.i, 0
   %. = select i1 %.not, i64 4, i64 %.06.i.i
@@ -3352,7 +3352,7 @@ define hidden void @rb_id_table_foreach(ptr nocapture noundef %0, ptr nocapture 
   br i1 %15, label %16, label %key2id.exit
 
 16:                                               ; preds = %13
-  %17 = tail call fastcc i64 @get_id_serial_entry.argelim(i32 noundef %12, i32 noundef 1)
+  %17 = tail call fastcc i64 @get_id_serial_entry(i32 noundef %12, i32 noundef 1)
   %.not.i.i = icmp eq i64 %17, 0
   br i1 %.not.i.i, label %20, label %18
 
@@ -3591,13 +3591,13 @@ RSTRING_PTR.exit:                                 ; preds = %9, %15
   %19 = or disjoint i64 %18, 12
   %20 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i15 = icmp eq ptr %20, null
-  br i1 %.not.i.i15, label %21, label %rb_vm_lock_enter.argprom.exit
+  br i1 %.not.i.i15, label %21, label %rb_vm_lock_enter.exit
 
 21:                                               ; preds = %17
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #18
-  br label %rb_vm_lock_enter.argprom.exit
+  br label %rb_vm_lock_enter.exit
 
-rb_vm_lock_enter.argprom.exit:                    ; preds = %17, %21
+rb_vm_lock_enter.exit:                            ; preds = %17, %21
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
   call void @rb_st_add_direct(ptr noundef %22, i64 noundef %7, i64 noundef %19) #18
   %23 = lshr i64 %.0.in.i, 9
@@ -3609,12 +3609,12 @@ rb_vm_lock_enter.argprom.exit:                    ; preds = %17, %21
   %.not.i.i16 = icmp eq i64 %28, 0
   br i1 %.not.i.i16, label %32, label %29
 
-29:                                               ; preds = %rb_vm_lock_enter.argprom.exit
+29:                                               ; preds = %rb_vm_lock_enter.exit
   %30 = lshr i64 %27, 15
   %31 = and i64 %30, 127
   br label %rb_array_len.exit.i
 
-32:                                               ; preds = %rb_vm_lock_enter.argprom.exit
+32:                                               ; preds = %rb_vm_lock_enter.exit
   %33 = getelementptr inbounds i8, ptr %26, i64 16
   %34 = load i64, ptr %33, align 8
   br label %rb_array_len.exit.i
@@ -3627,14 +3627,14 @@ rb_array_len.exit.i:                              ; preds = %32, %29
 35:                                               ; preds = %rb_array_len.exit.i
   %36 = call i64 @rb_ary_entry(i64 noundef %25, i64 noundef %24) #20
   %37 = icmp eq i64 %36, 4
-  br i1 %37, label %38, label %set_id_entry.argprom.exit
+  br i1 %37, label %38, label %set_id_entry.exit
 
 38:                                               ; preds = %35, %rb_array_len.exit.i
   %39 = call i64 @rb_ary_hidden_new(i64 noundef 1024) #18
   call void @rb_ary_store(i64 noundef %25, i64 noundef %24, i64 noundef %39) #18
-  br label %set_id_entry.argprom.exit
+  br label %set_id_entry.exit
 
-set_id_entry.argprom.exit:                        ; preds = %35, %38
+set_id_entry.exit:                                ; preds = %35, %38
   %.0.i17 = phi i64 [ %39, %38 ], [ %36, %35 ]
   %40 = shl nuw nsw i64 %.0.in.i, 1
   %41 = and i64 %40, 1022
@@ -3643,13 +3643,13 @@ set_id_entry.argprom.exit:                        ; preds = %35, %38
   call void @rb_ary_store(i64 noundef %.0.i17, i64 noundef %42, i64 noundef %19) #18
   %43 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i18 = icmp eq ptr %43, null
-  br i1 %.not.i.i18, label %44, label %rb_vm_lock_leave.argprom.exit
+  br i1 %.not.i.i18, label %44, label %rb_vm_lock_leave.exit
 
-44:                                               ; preds = %set_id_entry.argprom.exit
+44:                                               ; preds = %set_id_entry.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #18
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.argprom.exit:                    ; preds = %set_id_entry.argprom.exit, %44
+rb_vm_lock_leave.exit:                            ; preds = %set_id_entry.exit, %44
   ret i64 %0
 }
 
@@ -3663,24 +3663,24 @@ declare i32 @rb_enc_dummy_p(ptr noundef) local_unnamed_addr #12
 declare i32 @rb_enc_precise_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @get_id_serial_entry.argelim(i32 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc i64 @get_id_serial_entry(i32 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.argprom.exit
+  br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.exit
 
 5:                                                ; preds = %2
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #18
-  br label %rb_vm_lock_enter.argprom.exit
+  br label %rb_vm_lock_enter.exit
 
-rb_vm_lock_enter.argprom.exit:                    ; preds = %2, %5
+rb_vm_lock_enter.exit:                            ; preds = %2, %5
   %6 = load i32, ptr @ruby_global_symbols, align 8
   %7 = freeze i32 %6
   %8 = add i32 %0, -1
   %or.cond.not = icmp ult i32 %8, %7
   br i1 %or.cond.not, label %9, label %33
 
-9:                                                ; preds = %rb_vm_lock_enter.argprom.exit
+9:                                                ; preds = %rb_vm_lock_enter.exit
   %10 = lshr i32 %0, 9
   %11 = zext nneg i32 %10 to i64
   %12 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 16), align 8
@@ -3720,17 +3720,17 @@ rb_array_len.exit:                                ; preds = %16, %19
   %spec.store.select = select i1 %32, i64 0, i64 %31
   br label %33
 
-33:                                               ; preds = %26, %rb_array_len.exit, %23, %rb_vm_lock_enter.argprom.exit
-  %.0 = phi i64 [ 0, %23 ], [ %spec.store.select, %26 ], [ 0, %rb_array_len.exit ], [ 0, %rb_vm_lock_enter.argprom.exit ]
+33:                                               ; preds = %26, %rb_array_len.exit, %23, %rb_vm_lock_enter.exit
+  %.0 = phi i64 [ 0, %23 ], [ %spec.store.select, %26 ], [ 0, %rb_array_len.exit ], [ 0, %rb_vm_lock_enter.exit ]
   %34 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i17 = icmp eq ptr %34, null
-  br i1 %.not.i.i17, label %35, label %rb_vm_lock_leave.argprom.exit
+  br i1 %.not.i.i17, label %35, label %rb_vm_lock_leave.exit
 
 35:                                               ; preds = %33
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #18
-  br label %rb_vm_lock_leave.argprom.exit
+  br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.argprom.exit:                    ; preds = %33, %35
+rb_vm_lock_leave.exit:                            ; preds = %33, %35
   ret i64 %.0
 }
 

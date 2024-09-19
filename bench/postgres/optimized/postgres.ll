@@ -311,7 +311,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.158 = private unnamed_addr constant [79 x i8] c"disconnection: session time: %d:%02d:%02d.%03d user=%s database=%s host=%s%s%s\00", align 1
 @.str.159 = private unnamed_addr constant [7 x i8] c" port=\00", align 1
 @switch.table.process_postgres_switches = private unnamed_addr constant [19 x ptr] [ptr @.str.52, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.56, ptr @.str.50, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.55, ptr @.str.54, ptr @.str.51, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.49, ptr @.str.53], align 8
-@switch.table.errdetail_recovery_conflict.retelim = private unnamed_addr constant [7 x ptr] [ptr @.str.114, ptr @.str.110, ptr @.str.109, ptr @.str.111, ptr @.str.112, ptr @.str.108, ptr @.str.113], align 8
+@switch.table.errdetail_recovery_conflict = private unnamed_addr constant [7 x ptr] [ptr @.str.114, ptr @.str.110, ptr @.str.109, ptr @.str.111, ptr @.str.112, ptr @.str.108, ptr @.str.113], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcessClientReadInterrupt(i1 noundef zeroext %0) local_unnamed_addr #0 {
@@ -699,7 +699,7 @@ define dso_local void @ProcessInterrupts() local_unnamed_addr #0 {
   tail call void @llvm.assume(i1 %131)
   %132 = tail call i32 @errcode(i32 noundef 16777220) #26
   %133 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.105) #26
-  tail call fastcc void @errdetail_recovery_conflict.retelim(i32 noundef %105)
+  tail call fastcc void @errdetail_recovery_conflict(i32 noundef %105)
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3169, ptr noundef nonnull @__func__.ProcessRecoveryConflictInterrupt) #26
   unreachable
 
@@ -711,7 +711,7 @@ define dso_local void @ProcessInterrupts() local_unnamed_addr #0 {
   %spec.select.i = select i1 %136, i32 67240389, i32 16777220
   %137 = tail call i32 @errcode(i32 noundef %spec.select.i) #26
   %138 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.106) #26
-  tail call fastcc void @errdetail_recovery_conflict.retelim(i32 noundef %105)
+  tail call fastcc void @errdetail_recovery_conflict(i32 noundef %105)
   %139 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.13) #26
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3192, ptr noundef nonnull @__func__.ProcessRecoveryConflictInterrupt) #26
   unreachable
@@ -3498,7 +3498,7 @@ IsTransactionExitStmt.exit.thread.i:              ; preds = %IsTransactionExitSt
   call void @llvm.assume(i1 %386)
   %387 = call i32 @errcode(i32 noundef 33685826) #26
   %388 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.120) #26
-  call fastcc void @errdetail_abort.retelim()
+  call fastcc void @errdetail_abort()
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1497, ptr noundef nonnull @__func__.exec_parse_message) #26
   unreachable
 
@@ -4064,7 +4064,7 @@ IsTransactionExitStmt.exit.thread.i73:            ; preds = %IsTransactionExitSt
   call void @llvm.assume(i1 %636)
   %637 = call i32 @errcode(i32 noundef 33685826) #26
   %638 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.120) #26
-  call fastcc void @errdetail_abort.retelim()
+  call fastcc void @errdetail_abort()
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1737, ptr noundef nonnull @__func__.exec_bind_message) #26
   unreachable
 
@@ -4783,7 +4783,7 @@ IsTransactionExitStmtList.exit.i:                 ; preds = %IsTransactionExitSt
   call void @llvm.assume(i1 %955)
   %956 = call i32 @errcode(i32 noundef 33685826) #26
   %957 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.120) #26
-  call fastcc void @errdetail_abort.retelim()
+  call fastcc void @errdetail_abort()
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2207, ptr noundef nonnull @__func__.exec_execute_message) #26
   unreachable
 
@@ -5246,7 +5246,7 @@ start_xact_command.exit135:                       ; preds = %enable_statement_ti
   call void @llvm.assume(i1 %1137)
   %1138 = call i32 @errcode(i32 noundef 33685826) #26
   %1139 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.120) #26
-  call fastcc void @errdetail_abort.retelim()
+  call fastcc void @errdetail_abort()
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2645, ptr noundef nonnull @__func__.exec_describe_statement_message) #26
   unreachable
 
@@ -5406,7 +5406,7 @@ start_xact_command.exit140:                       ; preds = %enable_statement_ti
   call void @llvm.assume(i1 %1214)
   %1215 = call i32 @errcode(i32 noundef 33685826) #26
   %1216 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.120) #26
-  call fastcc void @errdetail_abort.retelim()
+  call fastcc void @errdetail_abort()
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2723, ptr noundef nonnull @__func__.exec_describe_portal_message) #26
   unreachable
 
@@ -5835,7 +5835,7 @@ IsTransactionExitStmt.exit.thread:                ; preds = %86, %88, %IsTransac
   call void @llvm.assume(i1 %94)
   %95 = call i32 @errcode(i32 noundef 33685826) #26
   %96 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.120) #26
-  call fastcc void @errdetail_abort.retelim()
+  call fastcc void @errdetail_abort()
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1139, ptr noundef nonnull @__func__.exec_simple_query) #26
   unreachable
 
@@ -6279,14 +6279,14 @@ declare zeroext i1 @IsSubTransaction() local_unnamed_addr #2
 declare void @pgstat_report_recovery_conflict(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @errdetail_recovery_conflict.retelim(i32 noundef range(i32 0, 14) %0) unnamed_addr #0 {
+define internal fastcc void @errdetail_recovery_conflict(i32 noundef range(i32 0, 14) %0) unnamed_addr #0 {
   %switch.tableidx = add nsw i32 %0, -7
   %2 = icmp ult i32 %switch.tableidx, 7
   br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.errdetail_recovery_conflict.retelim, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.errdetail_recovery_conflict, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %switch.load) #26
   br label %5
@@ -6329,7 +6329,7 @@ declare ptr @GetCommandTagNameAndLen(i32 noundef, ptr noundef) local_unnamed_add
 declare void @BeginCommand(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @errdetail_abort.retelim() unnamed_addr #0 {
+define internal fastcc void @errdetail_abort() unnamed_addr #0 {
   %1 = load ptr, ptr @MyProc, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 89
   %3 = load i8, ptr %2, align 1

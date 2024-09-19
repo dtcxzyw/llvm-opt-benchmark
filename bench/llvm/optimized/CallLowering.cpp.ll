@@ -4873,7 +4873,7 @@ _ZNK4llvm3EVTneES0_.exit.thread:                  ; preds = %983
   store i64 %.sroa.0.0.copyload, ptr %27, align 8
   %999 = load ptr, ptr %136, align 8
   %spec.select.i.i358 = icmp eq i64 %.sroa.0.0.copyload, %240
-  br i1 %spec.select.i.i358, label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit, label %1000
+  br i1 %spec.select.i.i358, label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit, label %1000
 
 1000:                                             ; preds = %987
   %1001 = and i64 %.sroa.0.0.copyload, -7
@@ -5012,7 +5012,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit269.i:         ; preds = %_ZNK4llvm3LLT19getS
   %1061 = call { ptr, ptr } %1060(ptr noundef nonnull align 8 dereferenceable(88) %5, i32 noundef 79, ptr nonnull %25, i64 1, ptr nonnull %26, i64 1, i64 0) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
-  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit
+  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit
 
 .critedge.i:                                      ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit269.i
   %1062 = and i64 %.sroa.0.0.copyload, 4
@@ -5272,7 +5272,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit303.i: ; preds = %1150
   %1174 = call { ptr, ptr } %1173(ptr noundef nonnull align 8 dereferenceable(88) %5, i32 noundef 78, ptr nonnull %23, i64 1, ptr nonnull %24, i64 1, i64 0) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
-  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit
+  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit
 
 _ZNK4llvm3LLT9isPointerEv.exit.thread.i:          ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit303.i, %1150, %1148
   %.sroa.0173.0.copyload.i = load i32, ptr %990, align 4
@@ -5281,7 +5281,7 @@ _ZNK4llvm3LLT9isPointerEv.exit.thread.i:          ; preds = %_ZNK4llvm19MachineR
   store i32 %.sroa.0194.0.i, ptr %37, align 8
   store i32 0, ptr %170, align 8
   %1175 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildTruncERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(12) %36, ptr noundef nonnull align 8 dereferenceable(20) %37, i64 0) #18
-  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit
+  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit
 
 .critedge2.i377:                                  ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit279.i, %.critedge.i
   br i1 %1067, label %1241, label %1176
@@ -5420,7 +5420,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit349.i:         ; preds = %_ZNK4llvm3LLT19getS
   store i32 %.sroa.0158.0.copyload.i, ptr %39, align 8
   store i32 1, ptr %176, align 8
   %1232 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildMergeValuesERKNS_5DstOpENS_8ArrayRefINS_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(12) %39, ptr %994, i64 %995) #18
-  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit
+  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit
 
 1233:                                             ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit349.i
   %1234 = shl i64 %1202, 3
@@ -5438,7 +5438,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit349.i:         ; preds = %_ZNK4llvm3LLT19getS
   store ptr %1239, ptr %.sroa.262.0..sroa_idx.i, align 8
   store i32 1, ptr %175, align 8
   %1240 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildTruncERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(12) %41, ptr noundef nonnull align 8 dereferenceable(20) %42, i64 0) #18
-  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit
+  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit
 
 1241:                                             ; preds = %.critedge2.i377
   br i1 %1064, label %.thread.i, label %.thread212.i
@@ -6093,11 +6093,11 @@ _ZL27mergeVectorRegsToResultRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8Regis
   %1503 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #18
   %1504 = load ptr, ptr %43, align 8
   %1505 = icmp eq ptr %1504, %191
-  br i1 %1505, label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit, label %1506
+  br i1 %1505, label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit, label %1506
 
 1506:                                             ; preds = %_ZL27mergeVectorRegsToResultRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_.exit
   call void @free(ptr noundef %1504) #18
-  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit
+  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit
 
 .thread212.i:                                     ; preds = %1241, %.critedge2.thread.i398
   %.not.i3.i425.i = icmp eq i64 %1030, 0
@@ -6225,7 +6225,7 @@ _ZNK4llvm3LLT9isPointerEv.exit452.thread.i:       ; preds = %.lr.ph.i397, %1552,
   store i32 %.sroa.098.0.copyload.i, ptr %44, align 8
   store i32 1, ptr %190, align 8
   %1555 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildBuildVectorERKNS_5DstOpENS_8ArrayRefINS_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(12) %44, ptr %994, i64 %995) #18
-  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit
+  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit
 
 1556:                                             ; preds = %_ZNK4llvm3LLT14getElementTypeEv.exit446.i
   %1557 = and i64 %.sroa.0.0.i424.i, -7
@@ -6612,11 +6612,11 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.i394: ; 
   %1720 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %47) #18
   %1721 = load ptr, ptr %47, align 8
   %1722 = icmp eq ptr %1721, %185
-  br i1 %1722, label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit, label %1723
+  br i1 %1722, label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit, label %1723
 
 1723:                                             ; preds = %._crit_edge.i395
   call void @free(ptr noundef %1721) #18
-  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit
+  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit
 
 1724:                                             ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit492.i
   %1725 = select i1 %.not.i.not.i252.i, i64 2251799813685248, i64 576460752303423488
@@ -6869,9 +6869,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit611.us.i:
   store i32 %.sroa.010.0.i, ptr %69, align 8
   store i32 0, ptr %184, align 8
   %1833 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildTruncERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(12) %68, ptr noundef nonnull align 8 dereferenceable(20) %69, i64 0) #18
-  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit
+  br label %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit
 
-_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit: ; preds = %987, %1057, %1162, %_ZNK4llvm3LLT9isPointerEv.exit.thread.i, %1231, %1233, %_ZL27mergeVectorRegsToResultRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_.exit, %1506, %_ZNK4llvm3LLT9isPointerEv.exit452.thread.i, %._crit_edge.i395, %1723, %1832
+_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit: ; preds = %987, %1057, %1162, %_ZNK4llvm3LLT9isPointerEv.exit.thread.i, %1231, %1233, %_ZL27mergeVectorRegsToResultRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_.exit, %1506, %_ZNK4llvm3LLT9isPointerEv.exit452.thread.i, %._crit_edge.i395, %1723, %1832
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
@@ -6917,8 +6917,8 @@ _ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_N
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %69)
   br label %_ZNK4llvm3EVTneES0_.exit.thread526
 
-_ZNK4llvm3EVTneES0_.exit.thread526:               ; preds = %984, %.loopexit540, %_ZNK4llvm3EVTneES0_.exit.thread, %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit, %220, %.thread, %_ZNSt8functionIFvvEED2Ev.exit
-  %.pn.in = phi i32 [ %216, %_ZNSt8functionIFvvEED2Ev.exit ], [ %216, %.thread ], [ %216, %220 ], [ %255, %984 ], [ %255, %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.argprom.exit ], [ %255, %_ZNK4llvm3EVTneES0_.exit.thread ], [ %255, %.loopexit540 ]
+_ZNK4llvm3EVTneES0_.exit.thread526:               ; preds = %984, %.loopexit540, %_ZNK4llvm3EVTneES0_.exit.thread, %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit, %220, %.thread, %_ZNSt8functionIFvvEED2Ev.exit
+  %.pn.in = phi i32 [ %216, %_ZNSt8functionIFvvEED2Ev.exit ], [ %216, %.thread ], [ %216, %220 ], [ %255, %984 ], [ %255, %_ZL17buildCopyFromRegsRN4llvm16MachineIRBuilderENS_8ArrayRefINS_8RegisterEEES4_NS_3LLTES5_NS_3ISD10ArgFlagsTyE.exit ], [ %255, %_ZNK4llvm3EVTneES0_.exit.thread ], [ %255, %.loopexit540 ]
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
   %1834 = add i32 %.pn.in, %.0262557
   %.not = icmp eq i64 %indvars.iv.next582, %200
@@ -10302,18 +10302,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9Attribute
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %5 = tail call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0, i32 noundef %.val2) #18
-  br i1 %5, label %"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %6
+  br i1 %5, label %"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %.val, i64 -32
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit", label %9
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %9
 
 9:                                                ; preds = %6
   %10 = load i8, ptr %8, align 8
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br i1 %11, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i: ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -10321,16 +10321,16 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i: ; p
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %13, %15
-  br i1 %16, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br i1 %16, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %17, align 8
   store ptr %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %3, align 8
   %18 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 0, i32 noundef %.val2) #18
-  br label %"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
-"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %2, %6, %9, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i.i
+"_ZSt10__invoke_rIbRZNK4llvm12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0JNS0_9Attribute8AttrKindEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %6, %9, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i.i
   %.0.i.i.i.i.i = phi i1 [ %18, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i.i ], [ true, %2 ], [ false, %6 ], [ false, %9 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i1 %.0.i.i.i.i.i
@@ -10338,7 +10338,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i.i: ; preds = %_ZN4llvm16dyn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9Attribute8AttrKindEEZNKS0_12CallLowering22getAttributesForReturnERKNS0_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering22getAttributesForReturnERKNS1_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering22getAttributesForReturnERKNS1_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -10346,18 +10346,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm9Attribute
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering22getAttributesForReturnERKNS1_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering22getAttributesForReturnERKNS1_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering22getAttributesForReturnERKNS1_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering22getAttributesForReturnERKNS1_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering22getAttributesForReturnERKNS1_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering22getAttributesForReturnERKNS1_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering22getAttributesForReturnERKNS1_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering22getAttributesForReturnERKNS1_8CallBaseEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -11094,7 +11094,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZNK4llvm12CallLowering17hand
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -11104,29 +11104,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZNK4llvm12Call
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #22
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK4llvm12CallLowering17handleAssignmentsERNS2_12ValueHandlerERNS1_15SmallVectorImplINS2_7ArgInfoEEERNS1_7CCStateERNS5_INS1_11CCValAssignEEERNS1_16MachineIRBuilderENS1_8ArrayRefINS1_8RegisterEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

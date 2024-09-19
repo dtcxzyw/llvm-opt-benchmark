@@ -131,7 +131,7 @@ define dso_local void @sysrq_timer_list_show() local_unnamed_addr #0 align 16 {
   %.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %16, i64 8
   %.val6 = load i32, ptr %17, align 8
-  tail call fastcc void @print_tickdevice.argprom(ptr noundef null, ptr %.val, i32 %.val6, i32 noundef -1)
+  tail call fastcc void @print_tickdevice(ptr noundef null, ptr %.val, i32 %.val6, i32 noundef -1)
   %18 = load i32, ptr @nr_cpu_ids, align 4
   %19 = tail call ptr @tick_get_broadcast_mask() #8
   tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef %18, ptr noundef %19)
@@ -160,7 +160,7 @@ define dso_local void @sysrq_timer_list_show() local_unnamed_addr #0 align 16 {
   %.val7 = load ptr, ptr %33, align 8
   %34 = getelementptr i8, ptr %33, i64 8
   %.val8 = load i32, ptr %34, align 8
-  tail call fastcc void @print_tickdevice.argprom(ptr noundef null, ptr %.val7, i32 %.val8, i32 noundef %30)
+  tail call fastcc void @print_tickdevice(ptr noundef null, ptr %.val7, i32 %.val8, i32 noundef %30)
   %35 = add nuw nsw i64 %29, 1
   %36 = and i64 %35, 127
   %37 = icmp ugt i64 %36, 63
@@ -345,7 +345,7 @@ define internal fastcc void @print_cpu(ptr noundef %0, i32 noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @print_tickdevice.argprom(ptr noundef %0, ptr readonly %.0.val, i32 %.8.val, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @print_tickdevice(ptr noundef %0, ptr readonly %.0.val, i32 %.8.val, i32 noundef %1) unnamed_addr #0 align 16 {
   tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %.8.val)
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %5
@@ -700,7 +700,7 @@ define internal noundef i32 @timer_list_show(ptr noundef %0, ptr nocapture nound
   %.val2 = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %16, i64 8
   %.val3 = load i32, ptr %17, align 8
-  tail call fastcc void @print_tickdevice.argprom(ptr noundef %0, ptr %.val2, i32 %.val3, i32 noundef -1)
+  tail call fastcc void @print_tickdevice(ptr noundef %0, ptr %.val2, i32 %.val3, i32 noundef -1)
   %18 = load i32, ptr @nr_cpu_ids, align 4
   %19 = tail call ptr @tick_get_broadcast_mask() #8
   tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %18, ptr noundef %19)
@@ -716,7 +716,7 @@ define internal noundef i32 @timer_list_show(ptr noundef %0, ptr nocapture nound
   %.val = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %23, i64 8
   %.val1 = load i32, ptr %25, align 8
-  tail call fastcc void @print_tickdevice.argprom(ptr noundef %0, ptr %.val, i32 %.val1, i32 noundef %24)
+  tail call fastcc void @print_tickdevice(ptr noundef %0, ptr %.val, i32 %.val1, i32 noundef %24)
   br label %26
 
 26:                                               ; preds = %22, %15, %12, %9

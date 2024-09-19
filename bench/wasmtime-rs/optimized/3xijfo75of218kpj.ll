@@ -1178,7 +1178,7 @@ define internal fastcc zeroext i1 @_ZN20wasmtime_wit_bindgen8Wasmtime14name_inte
           to label %46 unwind label %69
 
 46:                                               ; preds = %45
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module17hdab5f05f32339b60E.argprom(ptr noalias align 8 %11, ptr align 8 %1, i64 %.sroa.2.0.copyload, i32 %.sroa.3.0.copyload)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module17hdab5f05f32339b60E(ptr noalias align 8 %11, ptr align 8 %1, i64 %.sroa.2.0.copyload, i32 %.sroa.3.0.copyload)
           to label %47 unwind label %69
 
 47:                                               ; preds = %46
@@ -1257,7 +1257,7 @@ define internal fastcc zeroext i1 @_ZN20wasmtime_wit_bindgen8Wasmtime14name_inte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module17hdab5f05f32339b60E.argprom(ptr noalias nonnull align 8 %0, ptr align 8 %1, i64 %2, i32 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module17hdab5f05f32339b60E(ptr noalias nonnull align 8 %0, ptr align 8 %1, i64 %2, i32 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [2 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -2893,7 +2893,7 @@ _ZN20wasmtime_wit_bindgen23resolve_type_in_package17h9960760731ad94ddE.exit: ; p
           cleanup
   br label %.body.i.i
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i: ; preds = %1241, %1229, %1211, %1203, %1186, %1180, %1141, %.sink.split.i.i.i, %.noexc331.i.i, %.noexc330.i.i, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.i329.i.i, %947, %945, %938, %931, %914, %.noexc314.i.i, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.thread.i.i.i, %.noexc312.i.i, %.noexc311.i.i, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.i.i.i, %818, %.invoke.i.i, %797, %.noexc41.i
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i: ; preds = %1241, %1229, %1211, %1203, %1186, %1180, %1141, %.sink.split.i.i.i, %.noexc331.i.i, %.noexc330.i.i, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i329.i.i, %947, %945, %938, %931, %914, %.noexc314.i.i, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.thread.i.i.i, %.noexc312.i.i, %.noexc311.i.i, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i.i.i, %818, %.invoke.i.i, %797, %.noexc41.i
   %lpad.loopexit.split-lp342.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -3024,13 +3024,13 @@ _ZN20wasmtime_wit_bindgen23resolve_type_in_package17h9960760731ad94ddE.exit: ; p
   %829 = getelementptr i8, ptr %1, i64 264
   %.val.i.i.i = load i64, ptr %829, align 8, !noalias !33, !noundef !4
   %830 = icmp eq i64 %.val.i.i.i, 0
-  br i1 %830, label %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.i.i.i, label %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.thread.i.i.i
+  br i1 %830, label %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i.i.i, label %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.thread.i.i.i
 
-_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.i.i.i: ; preds = %822
+_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i.i.i: ; preds = %822
   %831 = invoke align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17h16d012100fe77124E"(ptr align 8 %2, i64 %3, i32 %4, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.555)
           to label %.noexc311.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !33
 
-.noexc311.i.i:                                    ; preds = %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.i.i.i
+.noexc311.i.i:                                    ; preds = %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i.i.i
   %832 = getelementptr inbounds i8, ptr %831, i64 48
   %833 = invoke { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4iter17h456563d579ae648fE"(ptr nonnull align 8 %832)
           to label %.noexc312.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !33
@@ -3047,7 +3047,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.
 
 .noexc313.i.i:                                    ; preds = %.noexc312.i.i
   %.not.i.i.i = icmp eq i64 %838, 0
-  br i1 %.not.i.i.i, label %931, label %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.thread.i.i.i
+  br i1 %.not.i.i.i, label %931, label %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.thread.i.i.i
 
 .loopexit.split-lp.i.i.i:                         ; preds = %923, %.loopexit.split-lp.loopexit.split-lp.i.i.i, %.loopexit.split-lp.loopexit.i.i.i, %.loopexit.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi44.i.i.i, %923 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit38.i.i.i, %.loopexit.split-lp.loopexit.i.i.i ], [ %lpad.loopexit.split-lp39.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i ]
@@ -3069,11 +3069,11 @@ _ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.
           cleanup
   br label %.loopexit.split-lp.i.i.i
 
-_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.thread.i.i.i: ; preds = %.noexc313.i.i, %822
+_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.thread.i.i.i: ; preds = %.noexc313.i.i, %822
   %839 = invoke align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17h16d012100fe77124E"(ptr align 8 %2, i64 %3, i32 %4, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.198)
           to label %.noexc314.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !33
 
-.noexc314.i.i:                                    ; preds = %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.thread.i.i.i
+.noexc314.i.i:                                    ; preds = %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.thread.i.i.i
   %840 = getelementptr inbounds i8, ptr %839, i64 32
   %841 = load ptr, ptr %840, align 8, !noalias !33, !nonnull !4, !noundef !4
   %842 = getelementptr inbounds i8, ptr %839, i64 40
@@ -3432,18 +3432,18 @@ _ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %229), !noalias !33
   %.val.i317.i.i = load i64, ptr %829, align 8, !noalias !33, !noundef !4
   %951 = icmp eq i64 %.val.i317.i.i, 0
-  br i1 %951, label %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.i329.i.i, label %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.thread.i318.i.i
+  br i1 %951, label %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i329.i.i, label %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.thread.i318.i.i
 
-_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.thread.i318.i.i: ; preds = %950
+_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.thread.i318.i.i: ; preds = %950
   %952 = getelementptr inbounds i8, ptr %1, i64 240
   %953 = load i64, ptr %952, align 8, !noalias !33, !noundef !4
   br label %966
 
-_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.i329.i.i: ; preds = %950
+_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i329.i.i: ; preds = %950
   %954 = invoke align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17h16d012100fe77124E"(ptr align 8 %2, i64 %3, i32 %4, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.555)
           to label %.noexc330.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !33
 
-.noexc330.i.i:                                    ; preds = %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.i329.i.i
+.noexc330.i.i:                                    ; preds = %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i329.i.i
   %955 = getelementptr inbounds i8, ptr %954, i64 48
   %956 = invoke { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4iter17h456563d579ae648fE"(ptr nonnull align 8 %955)
           to label %.noexc331.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !33
@@ -3466,9 +3466,9 @@ _ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.
   %brmerge.i.i.i = select i1 %965, i1 true, i1 %962
   br i1 %brmerge.i.i.i, label %966, label %1141
 
-966:                                              ; preds = %.noexc332.i.i, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.thread.i318.i.i
-  %967 = phi i64 [ %953, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.thread.i318.i.i ], [ %964, %.noexc332.i.i ]
-  %.0.i126.i.i.i = phi i1 [ true, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.argprom.exit.thread.i318.i.i ], [ %962, %.noexc332.i.i ]
+966:                                              ; preds = %.noexc332.i.i, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.thread.i318.i.i
+  %967 = phi i64 [ %953, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.thread.i318.i.i ], [ %964, %.noexc332.i.i ]
+  %.0.i126.i.i.i = phi i1 [ true, %_ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.thread.i318.i.i ], [ %962, %.noexc332.i.i ]
   store i64 0, ptr %229, align 8, !noalias !33
   %968 = getelementptr inbounds i8, ptr %229, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %968, align 8, !noalias !33
@@ -5837,7 +5837,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
           to label %1415 unwind label %.loopexit.split-lp195
 
 1604:                                             ; preds = %1601
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module17hdab5f05f32339b60E.argprom(ptr noalias align 8 %114, ptr align 8 %2, i64 %.sroa.2105.0.copyload.i, i32 %.sroa.3106.0.copyload.i)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module17hdab5f05f32339b60E(ptr noalias align 8 %114, ptr align 8 %2, i64 %.sroa.2105.0.copyload.i, i32 %.sroa.3106.0.copyload.i)
           to label %1606 unwind label %.loopexit194
 
 1605:                                             ; preds = %.loopexit194, %.loopexit.split-lp195, %1607
@@ -5919,7 +5919,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
   br label %1620
 
 1623:                                             ; preds = %1617
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module17hdab5f05f32339b60E.argprom(ptr noalias align 8 %109, ptr align 8 %2, i64 %.sroa.2105.0.copyload.i, i32 %.sroa.3106.0.copyload.i)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module17hdab5f05f32339b60E(ptr noalias align 8 %109, ptr align 8 %2, i64 %.sroa.2105.0.copyload.i, i32 %.sroa.3106.0.copyload.i)
           to label %1627 unwind label %1625
 
 1624:                                             ; preds = %1628, %1625
@@ -9672,7 +9672,7 @@ default.unreachable70:                            ; preds = %445, %401, %5
 179:                                              ; preds = %175
   %180 = load i64, ptr %131, align 8, !range !26, !noundef !4
   %181 = icmp eq i64 %180, -9223372036854775808
-  br i1 %181, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.argprom.exit, label %182
+  br i1 %181, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.exit, label %182
 
 182:                                              ; preds = %179
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull align 8 dereferenceable(24) %131, i64 24, i1 false)
@@ -10163,7 +10163,7 @@ common.resume:                                    ; preds = %903, %855, %804, %7
   %common.resume.op = phi { ptr, i32 } [ %.pn81.i, %176 ], [ %.pn64.i, %308 ], [ %493, %492 ], [ %.pn.i8, %508 ], [ %.pn19.i, %572 ], [ %.pn.i21, %.loopexit.split-lp.i20 ], [ %.pn11.i, %757 ], [ %.pn13.i, %804 ], [ %.pn11.i47, %855 ], [ %.pn11.i52, %903 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.argprom.exit: ; preds = %179
+_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.exit: ; preds = %179
   call void @"_ZN4core3ptr128drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$wasmtime_wit_bindgen..rust..TypeMode$RP$$GT$$GT$17hdb57d209e5616aa6E"(ptr nonnull align 8 %132)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %110)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %111)
@@ -11005,7 +11005,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_flags17h46569ada309828baE.ex
 575:                                              ; preds = %571
   %576 = load i64, ptr %68, align 8, !range !26, !noundef !4
   %577 = icmp eq i64 %576, -9223372036854775808
-  br i1 %577, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_tuple17hdf5b4838bdea3301E.argprom.exit, label %578
+  br i1 %577, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_tuple17hdf5b4838bdea3301E.exit, label %578
 
 578:                                              ; preds = %575
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %68, i64 24, i1 false)
@@ -11114,7 +11114,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_flags17h46569ada309828baE.ex
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_tuple17hdf5b4838bdea3301E.argprom.exit: ; preds = %575
+_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_tuple17hdf5b4838bdea3301E.exit: ; preds = %575
   call void @"_ZN4core3ptr128drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$wasmtime_wit_bindgen..rust..TypeMode$RP$$GT$$GT$17hdb57d209e5616aa6E"(ptr nonnull align 8 %69)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63)
@@ -11708,7 +11708,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_enum17h83440cbbf27ef863E.exit
 760:                                              ; preds = %756
   %761 = load i64, ptr %42, align 8, !range !26, !noundef !4
   %762 = icmp eq i64 %761, -9223372036854775808
-  br i1 %762, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_option17h3937c1f0c05015e9E.argprom.exit, label %763
+  br i1 %762, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_option17h3937c1f0c05015e9E.exit, label %763
 
 763:                                              ; preds = %760
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
@@ -11792,7 +11792,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_enum17h83440cbbf27ef863E.exit
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_option17h3937c1f0c05015e9E.argprom.exit: ; preds = %760
+_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_option17h3937c1f0c05015e9E.exit: ; preds = %760
   call void @"_ZN4core3ptr128drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$wasmtime_wit_bindgen..rust..TypeMode$RP$$GT$$GT$17hdb57d209e5616aa6E"(ptr nonnull align 8 %43)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38)
@@ -11854,7 +11854,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_option17h3937c1f0c05015e9E.a
 807:                                              ; preds = %803
   %808 = load i64, ptr %32, align 8, !range !26, !noundef !4
   %809 = icmp eq i64 %808, -9223372036854775808
-  br i1 %809, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_result17h621e9884f77fcee3E.argprom.exit, label %810
+  br i1 %809, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_result17h621e9884f77fcee3E.exit, label %810
 
 810:                                              ; preds = %807
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
@@ -11952,7 +11952,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_option17h3937c1f0c05015e9E.a
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_result17h621e9884f77fcee3E.argprom.exit: ; preds = %807
+_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_result17h621e9884f77fcee3E.exit: ; preds = %807
   call void @"_ZN4core3ptr128drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$wasmtime_wit_bindgen..rust..TypeMode$RP$$GT$$GT$17hdb57d209e5616aa6E"(ptr nonnull align 8 %33)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28)
@@ -12013,7 +12013,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_result17h621e9884f77fcee3E.a
 858:                                              ; preds = %854
   %859 = load i64, ptr %22, align 8, !range !26, !noundef !4
   %860 = icmp eq i64 %859, -9223372036854775808
-  br i1 %860, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_list17hef69b19c24cd58c3E.argprom.exit, label %861
+  br i1 %860, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_list17hef69b19c24cd58c3E.exit, label %861
 
 861:                                              ; preds = %858
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
@@ -12097,7 +12097,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_result17h621e9884f77fcee3E.a
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_list17hef69b19c24cd58c3E.argprom.exit: ; preds = %858
+_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_list17hef69b19c24cd58c3E.exit: ; preds = %858
   call void @"_ZN4core3ptr128drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$wasmtime_wit_bindgen..rust..TypeMode$RP$$GT$$GT$17hdb57d209e5616aa6E"(ptr nonnull align 8 %23)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
@@ -12168,7 +12168,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_list17hef69b19c24cd58c3E.argp
 906:                                              ; preds = %902
   %907 = load i64, ptr %12, align 8, !range !26, !noundef !4
   %908 = icmp eq i64 %907, -9223372036854775808
-  br i1 %908, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_alias17h3b6f3f841d759ad4E.argprom.exit, label %909
+  br i1 %908, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_alias17h3b6f3f841d759ad4E.exit, label %909
 
 909:                                              ; preds = %906
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
@@ -12310,7 +12310,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_list17hef69b19c24cd58c3E.argp
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_alias17h3b6f3f841d759ad4E.argprom.exit: ; preds = %906
+_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_alias17h3b6f3f841d759ad4E.exit: ; preds = %906
   call void @"_ZN4core3ptr128drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$wasmtime_wit_bindgen..rust..TypeMode$RP$$GT$$GT$17hdb57d209e5616aa6E"(ptr nonnull align 8 %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
@@ -12328,7 +12328,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_alias17h3b6f3f841d759ad4E.ar
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.45, i64 40, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.266) #14
   unreachable
 
-962:                                              ; preds = %_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_alias17h3b6f3f841d759ad4E.argprom.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_list17hef69b19c24cd58c3E.argprom.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_result17h621e9884f77fcee3E.argprom.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_option17h3937c1f0c05015e9E.argprom.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_enum17h83440cbbf27ef863E.exit, %609, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_tuple17hdf5b4838bdea3301E.argprom.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_flags17h46569ada309828baE.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_handle17h91ff0b535e64a727E.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator13type_resource17h8eafbee72f01e351E.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.argprom.exit
+962:                                              ; preds = %_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_alias17h3b6f3f841d759ad4E.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_list17hef69b19c24cd58c3E.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_result17h621e9884f77fcee3E.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_option17h3937c1f0c05015e9E.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_enum17h83440cbbf27ef863E.exit, %609, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_tuple17hdf5b4838bdea3301E.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_flags17h46569ada309828baE.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_handle17h91ff0b535e64a727E.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator13type_resource17h8eafbee72f01e351E.exit, %_ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.exit
   ret void
 }
 
@@ -12408,7 +12408,7 @@ define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator11assert_type17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_result_ty17hda73bff0ca6f1b7cE.argprom.argelim(ptr nonnull align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 {
+define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_result_ty17hda73bff0ca6f1b7cE(ptr nonnull align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, ptr, {} }, i64 }, align 8
   %4 = load i64, ptr %1, align 8, !range !31, !noundef !4
   %5 = icmp eq i64 %4, 0
@@ -14055,7 +14055,7 @@ _ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit: ;
           to label %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit36" unwind label %90
 
 _ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit.thread50: ; preds = %._crit_edge, %_ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit
-  call fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_result_ty17hda73bff0ca6f1b7cE.argprom.argelim(ptr align 8 %0, ptr align 8 %1)
+  call fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_result_ty17hda73bff0ca6f1b7cE(ptr align 8 %0, ptr align 8 %1)
   br label %.thread61
 
 _ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit.thread: ; preds = %._crit_edge, %_ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit
@@ -14138,7 +14138,7 @@ _ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit.th
   unreachable
 
 "_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit38": ; preds = %70
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_result_ty17hda73bff0ca6f1b7cE.argprom.argelim(ptr align 8 %0, ptr align 8 %1)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_result_ty17hda73bff0ca6f1b7cE(ptr align 8 %0, ptr align 8 %1)
           to label %87 unwind label %80
 
 87:                                               ; preds = %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit38"
@@ -14542,7 +14542,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator24defi
 
 ._crit_edge:                                      ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0e485a301f018b8fE.exit101", %69
   call void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %0, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.403, i64 22)
-  call fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_result_ty17hda73bff0ca6f1b7cE.argprom.argelim(ptr align 8 %0, ptr align 8 %3)
+  call fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_result_ty17hda73bff0ca6f1b7cE(ptr align 8 %0, ptr align 8 %3)
   br i1 %switch.i.not, label %89, label %90
 
 79:                                               ; preds = %.lr.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0e485a301f018b8fE.exit101"

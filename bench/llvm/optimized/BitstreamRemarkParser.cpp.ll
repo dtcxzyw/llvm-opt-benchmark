@@ -1040,21 +1040,21 @@ _ZN4llvm5ErrorD2Ev.exit._crit_edge.i:             ; preds = %_ZN4llvm5ErrorD2Ev.
 .critedge.i:                                      ; preds = %.critedge.i.loopexit, %_ZN4llvm5ErrorD2Ev.exit._crit_edge.i, %181, %_ZN4llvm12ErrorSuccessD2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i21.i, %139, %52, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i
   %263 = load i8, ptr %43, align 8, !noalias !4
   %264 = trunc i8 %263 to i1
-  br i1 %264, label %265, label %_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc.argprom.exit
+  br i1 %264, label %265, label %_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc.exit
 
 265:                                              ; preds = %.critedge.i
   %266 = load ptr, ptr %39, align 8, !noalias !4
   %.not.i.i26.i = icmp eq ptr %266, null
-  br i1 %.not.i.i26.i, label %_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc.argprom.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i27.i
+  br i1 %.not.i.i26.i, label %_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i27.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i27.i: ; preds = %265
   %267 = load ptr, ptr %266, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 8
   %269 = load ptr, ptr %268, align 8
   call void %269(ptr noundef nonnull align 8 dereferenceable(8) %266) #19
-  br label %_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc.argprom.exit
+  br label %_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc.exit
 
-_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc.argprom.exit: ; preds = %.critedge.i, %265, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i27.i
+_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc.exit: ; preds = %.critedge.i, %265, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i27.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
@@ -1944,21 +1944,21 @@ _ZN4llvm5ErrorD2Ev.exit._crit_edge.i:             ; preds = %_ZN4llvm5ErrorD2Ev.
 .critedge.i:                                      ; preds = %_ZL11parseRecordRN4llvm7remarks27BitstreamRemarkParserHelperEj.exit.i, %_ZN4llvm5ErrorD2Ev.exit._crit_edge.i, %199, %_ZN4llvm12ErrorSuccessD2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i21.i, %159, %56, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i
   %366 = load i8, ptr %47, align 8, !noalias !139
   %367 = trunc i8 %366 to i1
-  br i1 %367, label %368, label %_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc.argprom.exit
+  br i1 %367, label %368, label %_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc.exit
 
 368:                                              ; preds = %.critedge.i
   %369 = load ptr, ptr %43, align 8, !noalias !139
   %.not.i.i26.i = icmp eq ptr %369, null
-  br i1 %.not.i.i26.i, label %_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc.argprom.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i27.i
+  br i1 %.not.i.i26.i, label %_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i27.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i27.i: ; preds = %368
   %370 = load ptr, ptr %369, align 8
   %371 = getelementptr inbounds i8, ptr %370, i64 8
   %372 = load ptr, ptr %371, align 8
   call void %372(ptr noundef nonnull align 8 dereferenceable(8) %369) #19
-  br label %_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc.argprom.exit
+  br label %_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc.exit
 
-_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc.argprom.exit: ; preds = %.critedge.i, %368, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i27.i
+_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc.exit: ; preds = %.critedge.i, %368, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i27.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
@@ -2526,12 +2526,12 @@ declare void @_ZN4llvm15BitstreamCursor18ReadBlockInfoBlockEb(ptr dead_on_unwind
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm7remarks21BitstreamParserHelper11isMetaBlockEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.68") align 8 %0, ptr noundef nonnull align 8 dereferenceable(368) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1)
+  tail call fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj.argelim(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #1 {
+define internal fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #1 {
   %3 = alloca %"class.llvm::Expected.46", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.93", align 1
@@ -2667,7 +2667,7 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit: ; preds = %56, %_ZNKSt14defaul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm7remarks21BitstreamParserHelper13isRemarkBlockEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.68") align 8 %0, ptr noundef nonnull align 8 dereferenceable(368) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1)
+  tail call fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1)
   ret void
 }
 
@@ -3253,7 +3253,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %20
   br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit11, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  call fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj.argelim(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(344) %1)
+  call fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(344) %1)
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
@@ -8233,8 +8233,8 @@ attributes #23 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc.argprom"}
+!5 = distinct !{!5, !6, !"_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc: argument 0"}
+!6 = distinct !{!6, !"_ZL10parseBlockIN4llvm7remarks25BitstreamMetaParserHelperEENS0_5ErrorERT_jPKc"}
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv: argument 0"}
 !9 = distinct !{!9, !"_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv"}
@@ -8368,8 +8368,8 @@ attributes #23 = { noreturn nounwind }
 !137 = distinct !{!137, !138, !"_ZSt11make_uniqueIN4llvm11StringErrorEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !138 = distinct !{!138, !"_ZSt11make_uniqueIN4llvm11StringErrorEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc.argprom: argument 0"}
-!141 = distinct !{!141, !"_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc.argprom"}
+!140 = distinct !{!140, !141, !"_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc: argument 0"}
+!141 = distinct !{!141, !"_ZL10parseBlockIN4llvm7remarks27BitstreamRemarkParserHelperEENS0_5ErrorERT_jPKc"}
 !142 = !{!143}
 !143 = distinct !{!143, !144, !"_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv: argument 0"}
 !144 = distinct !{!144, !"_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv"}

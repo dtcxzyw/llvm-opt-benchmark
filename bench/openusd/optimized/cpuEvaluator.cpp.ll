@@ -190,7 +190,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Osd12CpuEvaluator11EvalPatches
   %47 = load float, ptr %46, align 4
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %49 = load float, ptr %48, align 4
-  %50 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.argelim(i32 noundef %45, i64 %42, float noundef %47, float noundef %49, ptr noundef %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %50 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_(i32 noundef %45, i64 %42, float noundef %47, float noundef %49, ptr noundef %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -261,7 +261,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfEppEv.exit: ; preds = %_ZN10OpenSubdi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 21) i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.argelim(i32 noundef %0, i64 %1, float noundef %2, float noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 21) i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_(i32 noundef %0, i64 %1, float noundef %2, float noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #5 {
   %11 = alloca [4 x float], align 16
   %12 = alloca [4 x float], align 16
   %13 = alloca [4 x float], align 16
@@ -2700,7 +2700,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Osd12CpuEvaluator11EvalPatches
   %90 = load float, ptr %89, align 4
   %91 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %92 = load float, ptr %91, align 4
-  %93 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.argelim(i32 noundef %88, i64 %85, float noundef %90, float noundef %92, ptr noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, ptr noundef null)
+  %93 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_(i32 noundef %88, i64 %85, float noundef %90, float noundef %92, ptr noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, ptr noundef null)
   %94 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %95 = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %80, i64 16
@@ -3040,7 +3040,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Osd12CpuEvaluator11EvalPatches
   %150 = load float, ptr %149, align 4
   %151 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %152 = load float, ptr %151, align 4
-  %153 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.argelim(i32 noundef %148, i64 %145, float noundef %150, float noundef %152, ptr noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  %153 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_(i32 noundef %148, i64 %145, float noundef %150, float noundef %152, ptr noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25)
   %154 = getelementptr inbounds nuw i8, ptr %140, i64 12
   %155 = load i32, ptr %154, align 4
   %156 = getelementptr inbounds nuw i8, ptr %140, i64 16

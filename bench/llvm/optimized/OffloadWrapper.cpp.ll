@@ -348,7 +348,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i57.i:          ; preds = %118, %115, %112
 
 _ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit58.i: ; preds = %124, %121, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i57.i, %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit.i
   %.val.i = load ptr, ptr %1, align 8
-  %125 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116getDeviceImageTyERN4llvm6ModuleE.argprom(ptr %.val.i)
+  %125 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116getDeviceImageTyERN4llvm6ModuleE(ptr %.val.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   store ptr %92, ptr %25, align 8
   store ptr %109, ptr %61, align 8
@@ -381,7 +381,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit.i: ; pr
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit.i, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.i
   %.val56.i = load ptr, ptr %1, align 8
-  %138 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116getDeviceImageTyERN4llvm6ModuleE.argprom(ptr %.val56.i)
+  %138 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116getDeviceImageTyERN4llvm6ModuleE(ptr %.val56.i)
   %139 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #10
   %140 = call noundef ptr @_ZN4llvm9ArrayType3getEPNS_4TypeEm(ptr noundef %138, i64 noundef %139) #10
   %141 = load ptr, ptr %27, align 8
@@ -729,7 +729,7 @@ define dso_local void @_ZN4llvm10offloading14wrapCudaBinaryERNS_6ModuleENS_8Arra
   br label %17
 
 _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %8
-  tail call fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb.argprom(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %11, i1 noundef zeroext false, ptr %4, ptr %5, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i1 noundef zeroext %7)
+  tail call fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %11, i1 noundef zeroext false, ptr %4, ptr %5, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i1 noundef zeroext %7)
   store ptr null, ptr %0, align 8
   br label %17
 
@@ -799,11 +799,11 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116createFatbinDescERN4llvm6
   %48 = call noundef ptr @_ZN4llvm19ConstantPointerNull3getEPNS_11PointerTypeE(ptr noundef %47) #10
   store ptr %48, ptr %46, align 8
   %.val = load ptr, ptr %0, align 8
-  %49 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118getFatbinWrapperTyERN4llvm6ModuleE.argprom(ptr %.val)
+  %49 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118getFatbinWrapperTyERN4llvm6ModuleE(ptr %.val)
   %50 = call noundef ptr @_ZN4llvm14ConstantStruct3getEPNS_10StructTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef %49, ptr nonnull %10, i64 4) #10
   %51 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 88, i32 noundef 1) #10
   %.val28 = load ptr, ptr %0, align 8
-  %52 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118getFatbinWrapperTyERN4llvm6ModuleE.argprom(ptr %.val28)
+  %52 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118getFatbinWrapperTyERN4llvm6ModuleE(ptr %.val28)
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 3, ptr %53, align 8, !alias.scope !25
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 33
@@ -821,7 +821,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116createFatbinDescERN4llvm6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb.argprom(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr %3, ptr %4, ptr %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr %3, ptr %4, ptr %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.std::optional.88", align 8
   %9 = alloca %"class.std::optional.88", align 8
@@ -2404,13 +2404,13 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   %848 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #10
   %849 = load ptr, ptr %34, align 8
   %850 = icmp eq ptr %849, %253
-  br i1 %850, label %_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.argprom.exit, label %851
+  br i1 %850, label %_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.exit, label %851
 
 851:                                              ; preds = %_ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit402.i
   call void @free(ptr noundef %849) #10
-  br label %_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.argprom.exit
+  br label %_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.exit
 
-_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.argprom.exit: ; preds = %_ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit402.i, %851
+_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.exit: ; preds = %_ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit402.i, %851
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30)
@@ -2464,13 +2464,13 @@ _ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14
   %.not.i = icmp eq ptr %246, null
   br i1 %.not.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, label %852
 
-852:                                              ; preds = %_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.argprom.exit
+852:                                              ; preds = %_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.exit
   %853 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %854 = load ptr, ptr %853, align 8
   br label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit
 
-_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ; preds = %_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.argprom.exit, %852
-  %855 = phi ptr [ %854, %852 ], [ null, %_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.argprom.exit ]
+_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ; preds = %_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.exit, %852
+  %855 = phi ptr [ %854, %852 ], [ null, %_ZN12_GLOBAL__N_129createRegisterGlobalsFunctionERN4llvm6ModuleEbSt4pairIPNS0_14GlobalVariableES5_ENS0_9StringRefEb.exit ]
   store ptr %163, ptr %89, align 8
   %856 = getelementptr inbounds nuw i8, ptr %90, i64 32
   store i16 257, ptr %856, align 8
@@ -2608,7 +2608,7 @@ define dso_local void @_ZN4llvm10offloading13wrapHIPBinaryERNS_6ModuleENS_8Array
   br label %17
 
 _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %8
-  tail call fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb.argprom(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %11, i1 noundef zeroext true, ptr %4, ptr %5, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i1 noundef zeroext %7)
+  tail call fastcc void @_ZN12_GLOBAL__N_128createRegisterFatbinFunctionERN4llvm6ModuleEPNS0_14GlobalVariableEbSt4pairIS4_S4_ENS0_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %11, i1 noundef zeroext true, ptr %4, ptr %5, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, i1 noundef zeroext %7)
   store ptr null, ptr %0, align 8
   br label %17
 
@@ -2717,7 +2717,7 @@ _ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit:  ; preds = %_ZNSt8optionalIN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116getDeviceImageTyERN4llvm6ModuleE.argprom(ptr nonnull %.0.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116getDeviceImageTyERN4llvm6ModuleE(ptr nonnull %.0.val) unnamed_addr #0 {
   %1 = alloca [4 x ptr], align 8
   %2 = tail call noundef ptr @_ZN4llvm10StructType13getTypeByNameERNS_11LLVMContextENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr nonnull @.str.7, i64 18) #10
   %.not = icmp eq ptr %2, null
@@ -2762,7 +2762,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112getBinDescTyERN4llvm6Modu
 5:                                                ; preds = %1
   %6 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %.val = load ptr, ptr %0, align 8
-  %7 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_116getDeviceImageTyERN4llvm6ModuleE.argprom(ptr %.val)
+  %7 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_116getDeviceImageTyERN4llvm6ModuleE(ptr %.val)
   %8 = tail call noundef ptr @_ZN4llvm11PointerType3getEPNS_4TypeEj(ptr noundef %7, i32 noundef 0) #10
   %9 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 0) #10
   %10 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 0) #10
@@ -3207,7 +3207,7 @@ declare noundef ptr @_ZN4llvm12ConstantExpr32getPointerBitCastOrAddrSpaceCastEPN
 declare noundef ptr @_ZN4llvm19ConstantPointerNull3getEPNS_11PointerTypeE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118getFatbinWrapperTyERN4llvm6ModuleE.argprom(ptr nonnull %.0.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118getFatbinWrapperTyERN4llvm6ModuleE(ptr nonnull %.0.val) unnamed_addr #0 {
   %1 = alloca [4 x ptr], align 8
   %2 = tail call noundef ptr @_ZN4llvm10StructType13getTypeByNameERNS_11LLVMContextENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr nonnull @.str.26, i64 14) #10
   %.not = icmp eq ptr %2, null

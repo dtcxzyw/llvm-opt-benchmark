@@ -212,8 +212,8 @@ if.end29:                                         ; preds = %invoke.cont11
   %m_header.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %v.sroa.0.0.copyload, i64 112
   br label %for.cond.i
 
-for.cond.i:                                       ; preds = %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.argprom.exit.i, %if.end29
-  %__begin1.sroa.0.0.in.i = phi ptr [ %m_header.i.i.i.i.i.i.i, %if.end29 ], [ %__begin1.sroa.0.0.i, %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.argprom.exit.i ]
+for.cond.i:                                       ; preds = %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i, %if.end29
+  %__begin1.sroa.0.0.in.i = phi ptr [ %m_header.i.i.i.i.i.i.i, %if.end29 ], [ %__begin1.sroa.0.0.i, %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i ]
   %__begin1.sroa.0.0.i = load ptr, ptr %__begin1.sroa.0.0.in.i, align 8
   %cmp.i.i.i.i.i.i.i.not.not.not.i.not = icmp eq ptr %__begin1.sroa.0.0.i, %m_header.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.not.not.not.i.not, label %if.end37, label %for.body.i
@@ -224,7 +224,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %13 = getelementptr i8, ptr %12, i64 80
   %.val.i = load i64, ptr %13, align 8
   %cmp.not.i.i.i.i = icmp ult i64 %.val.i, %sub.ptr.div.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.argprom.exit.i, label %if.then.i.i.i.i.invoke
+  br i1 %cmp.not.i.i.i.i, label %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i, label %if.then.i.i.i.i.invoke
 
 if.then.i.i.i.i.invoke:                           ; preds = %if.end9, %for.body.i
   %14 = phi i64 [ %.val.i, %for.body.i ], [ %6, %if.end9 ]
@@ -234,7 +234,7 @@ if.then.i.i.i.i.invoke:                           ; preds = %if.end9, %for.body.
 if.then.i.i.i.i.cont:                             ; preds = %if.then.i.i.i.i.invoke
   unreachable
 
-_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.argprom.exit.i: ; preds = %for.body.i
+_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i: ; preds = %for.body.i
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.ue2::DepthMinMax", ptr %depths.val, i64 %.val.i
   %max.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 4
   %15 = load i32, ptr %add.ptr.i.i.i.i, align 4
@@ -1058,8 +1058,8 @@ invoke.cont39:                                    ; preds = %cleanup.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %predGroups.i)
   br i1 %cmp.i34, label %for.inc, label %for.end
 
-for.inc:                                          ; preds = %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.argprom.exit.i, %invoke.cont39, %invoke.cont11, %invoke.cont6, %invoke.cont3
-  %numNewVertices.1 = phi i64 [ %numNewVertices.097, %invoke.cont3 ], [ %numNewVertices.097, %invoke.cont6 ], [ %numNewVertices.097, %invoke.cont11 ], [ %numNewVertices.2, %invoke.cont39 ], [ %numNewVertices.097, %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.argprom.exit.i ]
+for.inc:                                          ; preds = %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i, %invoke.cont39, %invoke.cont11, %invoke.cont6, %invoke.cont3
+  %numNewVertices.1 = phi i64 [ %numNewVertices.097, %invoke.cont3 ], [ %numNewVertices.097, %invoke.cont6 ], [ %numNewVertices.097, %invoke.cont11 ], [ %numNewVertices.2, %invoke.cont39 ], [ %numNewVertices.097, %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i ]
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %2
   br i1 %cmp.i.i.i.not, label %for.end, label %invoke.cont3, !llvm.loop !40
 

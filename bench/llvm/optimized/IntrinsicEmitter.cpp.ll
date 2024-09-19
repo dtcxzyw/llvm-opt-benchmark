@@ -1409,14 +1409,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66.i:             ; preds = %242, %240
 
 277:                                              ; preds = %256
   %278 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.27, i64 noundef 8) #17
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
 279:                                              ; preds = %256
   store i64 723503292988941603, ptr %272, align 1
   %280 = load ptr, ptr %169, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 8
   store ptr %281, ptr %169, align 8
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
 282:                                              ; preds = %._crit_edge27.i
   %283 = load ptr, ptr %167, align 8
@@ -1429,16 +1429,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66.i:             ; preds = %242, %240
 
 289:                                              ; preds = %282
   %290 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.28, i64 noundef 50) #17
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
 291:                                              ; preds = %282
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(50) %284, ptr noundef nonnull align 1 dereferenceable(50) @.str.28, i64 50, i1 false)
   %292 = load ptr, ptr %169, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 50
   store ptr %293, ptr %169, align 8
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
-_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit: ; preds = %277, %279, %289, %291
+_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit: ; preds = %277, %279, %289, %291
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %70)
@@ -1457,7 +1457,7 @@ _ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTabl
   %294 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL15IntrinsicPrefixB5cxx11, i64 128)) #17
   br i1 %294, label %295, label %_ZN12_GLOBAL__N_116IntrinsicEmitter11EmitArgKindERN4llvm11raw_ostreamE.exit
 
-295:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+295:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
   %296 = load ptr, ptr %167, align 8
   %297 = load ptr, ptr %169, align 8
   %298 = ptrtoint ptr %296 to i64
@@ -1988,16 +1988,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i32:             ; preds = %534, %532
 561:                                              ; preds = %._crit_edge.i37
   %562 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.53, i64 noundef 11) #17
   %.pre = load ptr, ptr %420, align 8
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitTargetInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitTargetInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
 563:                                              ; preds = %._crit_edge.i37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %556, ptr noundef nonnull align 1 dereferenceable(11) @.str.53, i64 11, i1 false)
   %564 = load ptr, ptr %420, align 8
   %565 = getelementptr inbounds i8, ptr %564, i64 11
   store ptr %565, ptr %420, align 8
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitTargetInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitTargetInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
-_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitTargetInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit: ; preds = %561, %563
+_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitTargetInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit: ; preds = %561, %563
   %566 = phi ptr [ %.pre, %561 ], [ %565, %563 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %61)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %62)
@@ -2008,11 +2008,11 @@ _ZN12_GLOBAL__N_116IntrinsicEmitter14EmitTargetInfoERKN4llvm21CodeGenIntrinsicTa
   %571 = icmp ult i64 %570, 111
   br i1 %571, label %572, label %574
 
-572:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitTargetInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+572:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitTargetInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
   %573 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.54, i64 noundef 111) #17
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i38
 
-574:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitTargetInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+574:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitTargetInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(111) %566, ptr noundef nonnull align 1 dereferenceable(111) @.str.54, i64 111, i1 false)
   %575 = load ptr, ptr %420, align 8
   %576 = getelementptr inbounds i8, ptr %575, i64 111
@@ -2091,16 +2091,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12.i:             ; preds = %605, %603
 615:                                              ; preds = %._crit_edge.i43
   %616 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.27, i64 noundef 8) #17
   %.pre108 = load ptr, ptr %420, align 8
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter24EmitIntrinsicToNameTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter24EmitIntrinsicToNameTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
 617:                                              ; preds = %._crit_edge.i43
   store i64 723503292988941603, ptr %610, align 1
   %618 = load ptr, ptr %420, align 8
   %619 = getelementptr inbounds i8, ptr %618, i64 8
   store ptr %619, ptr %420, align 8
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter24EmitIntrinsicToNameTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter24EmitIntrinsicToNameTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
-_ZN12_GLOBAL__N_116IntrinsicEmitter24EmitIntrinsicToNameTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit: ; preds = %615, %617
+_ZN12_GLOBAL__N_116IntrinsicEmitter24EmitIntrinsicToNameTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit: ; preds = %615, %617
   %620 = phi ptr [ %.pre108, %615 ], [ %619, %617 ]
   %621 = load ptr, ptr %418, align 8
   %622 = ptrtoint ptr %621 to i64
@@ -2109,11 +2109,11 @@ _ZN12_GLOBAL__N_116IntrinsicEmitter24EmitIntrinsicToNameTableERKN4llvm21CodeGenI
   %625 = icmp ult i64 %624, 116
   br i1 %625, label %626, label %628
 
-626:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter24EmitIntrinsicToNameTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+626:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter24EmitIntrinsicToNameTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
   %627 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.57, i64 noundef 116) #17
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i44
 
-628:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter24EmitIntrinsicToNameTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+628:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter24EmitIntrinsicToNameTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(116) %620, ptr noundef nonnull align 1 dereferenceable(116) @.str.57, i64 116, i1 false)
   %629 = load ptr, ptr %420, align 8
   %630 = getelementptr inbounds i8, ptr %629, i64 116
@@ -2258,16 +2258,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23.i49:           ; preds = %692, %690
 
 701:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit23.i49
   %702 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.27, i64 noundef 8) #17
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
 703:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit23.i49
   store i64 723503292988941603, ptr %695, align 1
   %704 = load ptr, ptr %420, align 8
   %705 = getelementptr inbounds i8, ptr %704, i64 8
   store ptr %705, ptr %420, align 8
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
-_ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit: ; preds = %701, %703
+_ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit: ; preds = %701, %703
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %56)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %57)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %58)
@@ -2295,11 +2295,11 @@ _ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21Code
   %718 = icmp ugt i64 %717, 2305843009213693951
   br i1 %718, label %719, label %720
 
-719:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+719:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.70) #18
   unreachable
 
-720:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+720:                                              ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
   %.not41.i = icmp eq ptr %712, %713
   br i1 %.not41.i, label %_ZN4llvm21SequenceToOffsetTableINS_11SmallVectorIhLj40EEESt4lessIhEE6layoutEv.exit.i, label %.lr.ph60.i
 
@@ -2922,15 +2922,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58.i61:           ; preds = %1011, %1009
   %1014 = load ptr, ptr %707, align 8
   call void @_ZNSt8_Rb_treeIN4llvm11SmallVectorIhLj40EEESt4pairIKS2_jESt10_Select1stIS5_ENS0_21SequenceToOffsetTableIS2_St4lessIhEE7SeqLessESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef %1014)
   %.not.i.i.i59.i = icmp eq ptr %.sroa.0.1.lcssa82.i, null
-  br i1 %.not.i.i.i59.i, label %_ZN12_GLOBAL__N_116IntrinsicEmitter13EmitGeneratorERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit, label %1015
+  br i1 %.not.i.i.i59.i, label %_ZN12_GLOBAL__N_116IntrinsicEmitter13EmitGeneratorERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit, label %1015
 
 1015:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit58.i61
   %1016 = ptrtoint ptr %.sroa.20.1.lcssa84.i to i64
   %1017 = sub i64 %1016, %814
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.lcssa82.i, i64 noundef %1017) #19
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter13EmitGeneratorERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter13EmitGeneratorERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
-_ZN12_GLOBAL__N_116IntrinsicEmitter13EmitGeneratorERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit58.i61, %1015
+_ZN12_GLOBAL__N_116IntrinsicEmitter13EmitGeneratorERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit58.i61, %1015
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %58)
@@ -2970,11 +2970,11 @@ _ZN12_GLOBAL__N_116IntrinsicEmitter13EmitGeneratorERKN4llvm21CodeGenIntrinsicTab
   %1023 = icmp ult i64 %1022, 254
   br i1 %1023, label %1024, label %1026
 
-1024:                                             ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter13EmitGeneratorERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+1024:                                             ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter13EmitGeneratorERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
   %1025 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.74, i64 noundef 254) #17
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i67
 
-1026:                                             ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter13EmitGeneratorERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+1026:                                             ; preds = %_ZN12_GLOBAL__N_116IntrinsicEmitter13EmitGeneratorERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(254) %1019, ptr noundef nonnull align 1 dereferenceable(254) @.str.74, i64 254, i1 false)
   %1027 = load ptr, ptr %420, align 8
   %1028 = getelementptr inbounds i8, ptr %1027, i64 254
@@ -4624,13 +4624,13 @@ _ZL15hasFnAttributesRKN4llvm16CodeGenIntrinsicE.exit195.thread.i: ; preds = %_ZL
   %.1.in.i.i.i.i = getelementptr i8, ptr %.03.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i196.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i196.i, label %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !101
+  br i1 %.not.i.i.i196.i, label %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !101
 
-_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.argprom.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %1717 = icmp eq ptr %.19.i.i.i.i, %1155
   br i1 %1717, label %_ZNSt3mapIPKN4llvm16CodeGenIntrinsicEjN12_GLOBAL__N_121FnAttributeComparatorESaISt4pairIKS3_jEEE4findERS7_.exit.i, label %1718
 
-1718:                                             ; preds = %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.argprom.exit.i.i.i
+1718:                                             ; preds = %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.exit.i.i.i
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %1716, ptr %.082.i.i.i.i, ptr %.03.i.i.i.i
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %1719 = load ptr, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
@@ -4638,8 +4638,8 @@ _ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_G
   %spec.select.i.i197.i = select i1 %1720, ptr %1155, ptr %.19.i.i.i.i
   br label %_ZNSt3mapIPKN4llvm16CodeGenIntrinsicEjN12_GLOBAL__N_121FnAttributeComparatorESaISt4pairIKS3_jEEE4findERS7_.exit.i
 
-_ZNSt3mapIPKN4llvm16CodeGenIntrinsicEjN12_GLOBAL__N_121FnAttributeComparatorESaISt4pairIKS3_jEEE4findERS7_.exit.i: ; preds = %1718, %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.argprom.exit.i.i.i, %_ZL15hasFnAttributesRKN4llvm16CodeGenIntrinsicE.exit195.thread.i
-  %.sroa.0.0.i.i198.i = phi ptr [ %1155, %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.argprom.exit.i.i.i ], [ %1155, %_ZL15hasFnAttributesRKN4llvm16CodeGenIntrinsicE.exit195.thread.i ], [ %spec.select.i.i197.i, %1718 ]
+_ZNSt3mapIPKN4llvm16CodeGenIntrinsicEjN12_GLOBAL__N_121FnAttributeComparatorESaISt4pairIKS3_jEEE4findERS7_.exit.i: ; preds = %1718, %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.exit.i.i.i, %_ZL15hasFnAttributesRKN4llvm16CodeGenIntrinsicE.exit195.thread.i
+  %.sroa.0.0.i.i198.i = phi ptr [ %1155, %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.exit.i.i.i ], [ %1155, %_ZL15hasFnAttributesRKN4llvm16CodeGenIntrinsicE.exit195.thread.i ], [ %spec.select.i.i197.i, %1718 ]
   %1721 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i198.i, i64 40
   %1722 = load i32, ptr %1721, align 8
   store i32 %1722, ptr %53, align 4
@@ -4713,20 +4713,20 @@ _ZN4llvm11raw_ostreamlsEPKc.exit206.i:            ; preds = %1739, %1737, %1728
 
 1749:                                             ; preds = %._crit_edge136.i
   %1750 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.104, i64 noundef 104) #17
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitAttributesERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitAttributesERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
 1751:                                             ; preds = %._crit_edge136.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %1744, ptr noundef nonnull align 1 dereferenceable(104) @.str.104, i64 104, i1 false)
   %1752 = load ptr, ptr %420, align 8
   %1753 = getelementptr inbounds i8, ptr %1752, i64 104
   store ptr %1753, ptr %420, align 8
-  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitAttributesERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+  br label %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitAttributesERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
 
-_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitAttributesERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit: ; preds = %1749, %1751
+_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitAttributesERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit: ; preds = %1749, %1751
   %.val118.i = load ptr, ptr %1519, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E.argprom(ptr noundef %.val118.i)
+  call fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.val118.i)
   %.val119.i = load ptr, ptr %1156, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E.argprom(ptr noundef %.val119.i)
+  call fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.val119.i)
   %1754 = load ptr, ptr %1030, align 8
   call void @_ZNSt8_Rb_treeIN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEESt4pairIKS4_jESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef %1754)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30)
@@ -4757,13 +4757,13 @@ _ZN12_GLOBAL__N_116IntrinsicEmitter14EmitAttributesERKN4llvm21CodeGenIntrinsicTa
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %55)
   %.val = load ptr, ptr %84, align 8
   %.val12 = load ptr, ptr %578, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116IntrinsicEmitter25EmitIntrinsicToBuiltinMapERKN4llvm21CodeGenIntrinsicTableEbRNS1_11raw_ostreamE.argprom(ptr %.val, ptr %.val12, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  call fastcc void @_ZN12_GLOBAL__N_116IntrinsicEmitter25EmitIntrinsicToBuiltinMapERKN4llvm21CodeGenIntrinsicTableEbRNS1_11raw_ostreamE(ptr %.val, ptr %.val12, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.val13 = load ptr, ptr %84, align 8
   %.val14 = load ptr, ptr %578, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116IntrinsicEmitter25EmitIntrinsicToBuiltinMapERKN4llvm21CodeGenIntrinsicTableEbRNS1_11raw_ostreamE.argprom(ptr %.val13, ptr %.val14, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  call fastcc void @_ZN12_GLOBAL__N_116IntrinsicEmitter25EmitIntrinsicToBuiltinMapERKN4llvm21CodeGenIntrinsicTableEbRNS1_11raw_ostreamE(ptr %.val13, ptr %.val14, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br label %_ZN12_GLOBAL__N_116IntrinsicEmitter11EmitArgKindERN4llvm11raw_ostreamE.exit
 
-_ZN12_GLOBAL__N_116IntrinsicEmitter11EmitArgKindERN4llvm11raw_ostreamE.exit: ; preds = %414, %412, %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit, %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitAttributesERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.argprom.exit
+_ZN12_GLOBAL__N_116IntrinsicEmitter11EmitArgKindERN4llvm11raw_ostreamE.exit: ; preds = %414, %412, %_ZN12_GLOBAL__N_116IntrinsicEmitter12EmitEnumInfoERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit, %_ZN12_GLOBAL__N_116IntrinsicEmitter14EmitAttributesERKN4llvm21CodeGenIntrinsicTableERNS1_11raw_ostreamE.exit
   %1755 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %1756 = load ptr, ptr %1755, align 8
   %.not.i.i.i.i81 = icmp eq ptr %1756, null
@@ -4824,7 +4824,7 @@ declare void @_ZN4llvm12RecordKeeperD1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZN4llvm21CodeGenIntrinsicTableC1ERKNS_12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116IntrinsicEmitter25EmitIntrinsicToBuiltinMapERKN4llvm21CodeGenIntrinsicTableEbRNS1_11raw_ostreamE.argprom(ptr %.0.val, ptr readnone %.8.val, i1 noundef zeroext %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116IntrinsicEmitter25EmitIntrinsicToBuiltinMapERKN4llvm21CodeGenIntrinsicTableEbRNS1_11raw_ostreamE(ptr %.0.val, ptr readnone %.8.val, i1 noundef zeroext %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.std::map.355", align 8
@@ -7677,7 +7677,7 @@ _ZNSt3mapIPKN4llvm16CodeGenIntrinsicEjN12_GLOBAL__N_119AttributeComparatorESaISt
   %30 = getelementptr inbounds %"class.llvm::SmallVector.210", ptr %28, i64 %29
   %31 = tail call noundef zeroext i1 @_ZSt30__lexicographical_compare_implIPKN4llvm11SmallVectorINS0_16CodeGenIntrinsic12ArgAttributeELj0EEES6_N9__gnu_cxx5__ops15_Iter_less_iterEEbT_SA_T0_SB_T1_(ptr noundef %25, ptr noundef %27, ptr noundef %28, ptr noundef %30)
   %32 = tail call fastcc noundef zeroext i1 @_ZL19compareFnAttributesPKN4llvm16CodeGenIntrinsicES2_b(ptr noundef %20, ptr noundef %22, i1 noundef zeroext %31)
-  br i1 %32, label %.critedge, label %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.argprom.exit
+  br i1 %32, label %.critedge, label %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.exit
 
 .critedge:                                        ; preds = %2, %_ZNSt3mapIPKN4llvm16CodeGenIntrinsicEjN12_GLOBAL__N_119AttributeComparatorESaISt4pairIKS3_jEEE11lower_boundERS7_.exit, %19
   %33 = phi i1 [ true, %_ZNSt3mapIPKN4llvm16CodeGenIntrinsicEjN12_GLOBAL__N_119AttributeComparatorESaISt4pairIKS3_jEEE11lower_boundERS7_.exit ], [ false, %19 ], [ true, %2 ]
@@ -7864,14 +7864,14 @@ _ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_G
   %157 = load i64, ptr %156, align 8
   %158 = add i64 %157, 1
   store i64 %158, ptr %156, align 8
-  br label %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.argprom.exit
+  br label %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.exit
 
 _ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_.exit.thread9.i: ; preds = %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_.exit.i, %100
   %.sroa.01.0.ph.i = phi ptr [ %.sroa.032.0.i.i, %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_.exit.i ], [ %.08.lcssa.i.i.i12, %100 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 48) #19
-  br label %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.argprom.exit
+  br label %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.exit
 
-_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.argprom.exit: ; preds = %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_.exit.thread9.i, %154, %19
+_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.exit: ; preds = %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_.exit.thread9.i, %154, %19
   %.sroa.07.0 = phi ptr [ %.19.i.i.i, %19 ], [ %34, %154 ], [ %.sroa.01.0.ph.i, %_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_.exit.thread9.i ]
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 40
   ret ptr %159
@@ -9391,7 +9391,7 @@ define linkonce_odr hidden void @_ZN4llvm7support6detail23provider_format_adapte
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E.argprom(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %0) unnamed_addr #0 align 2 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -9399,7 +9399,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIK
   %.02 = phi ptr [ %.0.val, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val6 = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E.argprom(ptr noundef %.0.val6)
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_119AttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.02, i64 noundef 48) #19
@@ -9411,7 +9411,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E.argprom(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %0) unnamed_addr #0 align 2 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -9419,7 +9419,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIK
   %.02 = phi ptr [ %.0.val, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val6 = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E.argprom(ptr noundef %.0.val6)
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN4llvm16CodeGenIntrinsicESt4pairIKS3_jESt10_Select1stIS6_EN12_GLOBAL__N_121FnAttributeComparatorESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.02, i64 noundef 48) #19
@@ -11228,13 +11228,13 @@ attributes #21 = { nounwind willreturn memory(read) }
 !409 = !{!410, !412}
 !410 = distinct !{!410, !411, !"_ZSt3tieIJKbS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_EESt5tupleIJDpRT_EES4_: argument 0"}
 !411 = distinct !{!411, !"_ZSt3tieIJKbS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_EESt5tupleIJDpRT_EES4_"}
-!412 = distinct !{!412, !413, !"_ZZL19compareFnAttributesPKN4llvm16CodeGenIntrinsicES2_bENK3$_0clES2_.argprom: argument 0"}
-!413 = distinct !{!413, !"_ZZL19compareFnAttributesPKN4llvm16CodeGenIntrinsicES2_bENK3$_0clES2_.argprom"}
+!412 = distinct !{!412, !413, !"_ZZL19compareFnAttributesPKN4llvm16CodeGenIntrinsicES2_bENK3$_0clES2_: argument 0"}
+!413 = distinct !{!413, !"_ZZL19compareFnAttributesPKN4llvm16CodeGenIntrinsicES2_bENK3$_0clES2_"}
 !414 = !{!415, !417}
 !415 = distinct !{!415, !416, !"_ZSt3tieIJKbS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_EESt5tupleIJDpRT_EES4_: argument 0"}
 !416 = distinct !{!416, !"_ZSt3tieIJKbS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_EESt5tupleIJDpRT_EES4_"}
-!417 = distinct !{!417, !418, !"_ZZL19compareFnAttributesPKN4llvm16CodeGenIntrinsicES2_bENK3$_0clES2_.argprom: argument 0"}
-!418 = distinct !{!418, !"_ZZL19compareFnAttributesPKN4llvm16CodeGenIntrinsicES2_bENK3$_0clES2_.argprom"}
+!417 = distinct !{!417, !418, !"_ZZL19compareFnAttributesPKN4llvm16CodeGenIntrinsicES2_bENK3$_0clES2_: argument 0"}
+!418 = distinct !{!418, !"_ZZL19compareFnAttributesPKN4llvm16CodeGenIntrinsicES2_bENK3$_0clES2_"}
 !419 = distinct !{!419, !33}
 !420 = distinct !{!420, !33}
 !421 = distinct !{!421, !33}

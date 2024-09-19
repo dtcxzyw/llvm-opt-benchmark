@@ -63,7 +63,7 @@ define range(i32 -3, 1) i32 @mca_btl_base_am_rdma_init(ptr noundef %0) local_unn
   br i1 %6, label %70, label %7
 
 7:                                                ; preds = %1
-  %8 = call fastcc i32 @am_rdma_internal_init.argelim(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %2)
+  %8 = call fastcc i32 @am_rdma_internal_init(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %2)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %70
 
@@ -193,7 +193,7 @@ am_rdma_internal_fini.exit:                       ; preds = %opal_thread_add_fet
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @am_rdma_internal_init.argelim(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -3, 1) i32 @am_rdma_internal_init(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @am_rdma_internal_init.initialized_mutex, i64 16)) #9
   %.b37 = load i1, ptr @am_rdma_internal_init.initialized, align 1
   br i1 %.b37, label %16, label %5
@@ -363,7 +363,7 @@ opal_obj_new.exit.thread:                         ; preds = %23, %62
 define internal i32 @am_rdma_put_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i64 noundef %6, i32 %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
   %13 = getelementptr i8, ptr %0, i64 304
   %.val = load ptr, ptr %13, align 8
-  %14 = tail call fastcc i32 @am_rdma_start.argelim(ptr noundef %.val, ptr noundef %1, i32 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef %8, i64 noundef %6, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %14 = tail call fastcc i32 @am_rdma_start(ptr noundef %.val, ptr noundef %1, i32 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef %8, i64 noundef %6, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   ret i32 %14
 }
 
@@ -371,7 +371,7 @@ define internal i32 @am_rdma_put_wrapper(ptr nocapture noundef readonly %0, ptr 
 define internal i32 @am_rdma_get_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i64 noundef %6, i32 %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
   %13 = getelementptr i8, ptr %0, i64 304
   %.val = load ptr, ptr %13, align 8
-  %14 = tail call fastcc i32 @am_rdma_start.argelim(ptr noundef %.val, ptr noundef %1, i32 noundef 1, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef %8, i64 noundef %6, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %14 = tail call fastcc i32 @am_rdma_start(ptr noundef %.val, ptr noundef %1, i32 noundef 1, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef %8, i64 noundef %6, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   ret i32 %14
 }
 
@@ -382,7 +382,7 @@ define internal i32 @am_rdma_fop_wrapper(ptr nocapture noundef readonly %0, ptr 
   %15 = and i32 %8, 1
   %.not = icmp eq i32 %15, 0
   %16 = select i1 %.not, i64 8, i64 4
-  %17 = tail call fastcc i32 @am_rdma_start.argelim(ptr noundef %.val, ptr noundef %1, i32 noundef 2, i64 noundef %7, i64 noundef 0, i32 noundef %6, i32 noundef %9, i64 noundef %16, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %17 = tail call fastcc i32 @am_rdma_start(ptr noundef %.val, ptr noundef %1, i32 noundef 2, i64 noundef %7, i64 noundef 0, i32 noundef %6, i32 noundef %9, i64 noundef %16, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   ret i32 %17
 }
 
@@ -393,13 +393,13 @@ define internal i32 @am_rdma_cswap_wrapper(ptr nocapture noundef readonly %0, pt
   %15 = and i32 %8, 1
   %.not = icmp eq i32 %15, 0
   %16 = select i1 %.not, i64 8, i64 4
-  %17 = tail call fastcc i32 @am_rdma_start.argelim(ptr noundef %.val, ptr noundef %1, i32 noundef 3, i64 noundef %6, i64 noundef %7, i32 noundef 0, i32 noundef %9, i64 noundef %16, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %17 = tail call fastcc i32 @am_rdma_start(ptr noundef %.val, ptr noundef %1, i32 noundef 3, i64 noundef %6, i64 noundef %7, i32 noundef 0, i32 noundef %9, i64 noundef %16, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -3, 1) i32 @opal_btl_base_am_rdma_create(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i32 @am_rdma_internal_init.argelim(ptr noundef %0, i1 noundef zeroext %2, ptr noundef %3)
+  %5 = tail call fastcc i32 @am_rdma_internal_init(ptr noundef %0, i1 noundef zeroext %2, ptr noundef %3)
   ret i32 %5
 }
 
@@ -639,13 +639,13 @@ define internal noundef i32 @am_rdma_progress() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @am_rdma_put(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i64 noundef %6, i32 %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
-  %13 = tail call fastcc i32 @am_rdma_start.argelim(ptr noundef %0, ptr noundef %1, i32 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef %8, i64 noundef %6, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %13 = tail call fastcc i32 @am_rdma_start(ptr noundef %0, ptr noundef %1, i32 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef %8, i64 noundef %6, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @am_rdma_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i64 noundef %6, i32 %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
-  %13 = tail call fastcc i32 @am_rdma_start.argelim(ptr noundef %0, ptr noundef %1, i32 noundef 1, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef %8, i64 noundef %6, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %13 = tail call fastcc i32 @am_rdma_start(ptr noundef %0, ptr noundef %1, i32 noundef 1, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef %8, i64 noundef %6, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   ret i32 %13
 }
 
@@ -654,7 +654,7 @@ define internal i32 @am_rdma_fop(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %14 = and i32 %8, 1
   %.not = icmp eq i32 %14, 0
   %15 = select i1 %.not, i64 8, i64 4
-  %16 = tail call fastcc i32 @am_rdma_start.argelim(ptr noundef %0, ptr noundef %1, i32 noundef 2, i64 noundef %7, i64 noundef 0, i32 noundef %6, i32 noundef %9, i64 noundef %15, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %16 = tail call fastcc i32 @am_rdma_start(ptr noundef %0, ptr noundef %1, i32 noundef 2, i64 noundef %7, i64 noundef 0, i32 noundef %6, i32 noundef %9, i64 noundef %15, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   ret i32 %16
 }
 
@@ -663,7 +663,7 @@ define internal i32 @am_rdma_cswap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %14 = and i32 %8, 1
   %.not = icmp eq i32 %14, 0
   %15 = select i1 %.not, i64 8, i64 4
-  %16 = tail call fastcc i32 @am_rdma_start.argelim(ptr noundef %0, ptr noundef %1, i32 noundef 3, i64 noundef %6, i64 noundef %7, i32 noundef 0, i32 noundef %9, i64 noundef %15, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %16 = tail call fastcc i32 @am_rdma_start(ptr noundef %0, ptr noundef %1, i32 noundef 3, i64 noundef %6, i64 noundef %7, i32 noundef 0, i32 noundef %9, i64 noundef %15, ptr noundef %2, ptr noundef %4, i64 noundef %3, ptr noundef %5, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   ret i32 %16
 }
 
@@ -2407,7 +2407,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i30, %69
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @am_rdma_start.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 4) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, i64 noundef %10, ptr nocapture noundef readonly %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) unnamed_addr #0 {
+define internal fastcc i32 @am_rdma_start(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 4) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, i64 noundef %10, ptr nocapture noundef readonly %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) unnamed_addr #0 {
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load i64, ptr getelementptr inbounds (i8, ptr @am_rdma_context_t_class, i64 56), align 8

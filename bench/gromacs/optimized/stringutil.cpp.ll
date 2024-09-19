@@ -1566,9 +1566,9 @@ define noundef zeroext i1 @_ZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringI
   %.not7.i = icmp eq ptr %7, %8
   br i1 %.not7.i, label %"_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_ZN3gmx15equalIgnoreDashERKS9_SD_E3$_0EbT_SF_T0_T1_.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %6, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.argprom.exit.i"
-  %.sroa.0.09.i = phi ptr [ %21, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.argprom.exit.i" ], [ %9, %6 ]
-  %.sroa.04.08.i = phi ptr [ %20, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.argprom.exit.i" ], [ %7, %6 ]
+.lr.ph.i:                                         ; preds = %6, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i"
+  %.sroa.0.09.i = phi ptr [ %21, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i" ], [ %9, %6 ]
+  %.sroa.04.08.i = phi ptr [ %20, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i" ], [ %7, %6 ]
   %.val.i = load i8, ptr %.sroa.04.08.i, align 1
   %.val1.i = load i8, ptr %.sroa.0.09.i, align 1
   %10 = sext i8 %.val.i to i32
@@ -1584,16 +1584,16 @@ define noundef zeroext i1 @_ZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringI
 13:                                               ; preds = %11, %.lr.ph.i
   %14 = phi i32 [ %12, %11 ], [ %10, %.lr.ph.i ]
   %15 = sext i8 %.val1.i to i32
-  switch i8 %.val1.i, label %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.argprom.exit.i" [
+  switch i8 %.val1.i, label %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i" [
     i8 45, label %16
     i8 95, label %16
   ]
 
 16:                                               ; preds = %13, %13
   %17 = tail call i32 @toupper(i32 noundef %15) #22
-  br label %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.argprom.exit.i"
+  br label %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i"
 
-"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.argprom.exit.i": ; preds = %16, %13
+"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i": ; preds = %16, %13
   %18 = phi i32 [ %17, %16 ], [ %15, %13 ]
   %19 = icmp eq i32 %14, %18
   %20 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 1
@@ -1602,8 +1602,8 @@ define noundef zeroext i1 @_ZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringI
   %or.cond.not = select i1 %19, i1 %.not.i, i1 false
   br i1 %or.cond.not, label %.lr.ph.i, label %"_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_ZN3gmx15equalIgnoreDashERKS9_SD_E3$_0EbT_SF_T0_T1_.exit", !llvm.loop !20
 
-"_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_ZN3gmx15equalIgnoreDashERKS9_SD_E3$_0EbT_SF_T0_T1_.exit": ; preds = %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.argprom.exit.i", %6, %2
-  %22 = phi i1 [ false, %2 ], [ true, %6 ], [ %19, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.argprom.exit.i" ]
+"_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_ZN3gmx15equalIgnoreDashERKS9_SD_E3$_0EbT_SF_T0_T1_.exit": ; preds = %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i", %6, %2
+  %22 = phi i1 [ false, %2 ], [ true, %6 ], [ %19, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i" ]
   ret i1 %22
 }
 

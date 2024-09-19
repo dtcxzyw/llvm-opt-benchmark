@@ -3121,13 +3121,13 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i.i: ; preds = %18
 26:                                               ; preds = %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i.i, %16, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i.i, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i
   %27 = load ptr, ptr %4, align 8
   store i8 1, ptr %27, align 1
-  br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_0clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.argprom.argprom.exit"
+  br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_0clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit"
 
 28:                                               ; preds = %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i.i, %18
   %29 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef %17, ptr noundef nonnull @.str)
-  br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_0clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.argprom.argprom.exit"
+  br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_0clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit"
 
-"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_0clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.argprom.argprom.exit": ; preds = %26, %28
+"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_0clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit": ; preds = %26, %28
   %.0.i = phi i1 [ %29, %28 ], [ false, %26 ]
   ret i1 %.0.i
 }
@@ -3188,13 +3188,13 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i.i: ; preds = %18
 26:                                               ; preds = %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i.i, %16, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.i.i, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i
   %27 = load ptr, ptr %4, align 8
   store i8 1, ptr %27, align 1
-  br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_1clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.argprom.argprom.exit"
+  br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_1clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit"
 
 28:                                               ; preds = %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i.i, %18
   %29 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef %17, ptr noundef nonnull @.str.1)
-  br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_1clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.argprom.argprom.exit"
+  br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_1clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit"
 
-"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_1clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.argprom.argprom.exit": ; preds = %26, %28
+"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_1clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit": ; preds = %26, %28
   %.0.i = phi i1 [ %29, %28 ], [ false, %26 ]
   ret i1 %.0.i
 }

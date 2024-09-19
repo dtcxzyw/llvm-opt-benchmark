@@ -2283,15 +2283,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit356:              ; preds = %960, %962
   %966 = getelementptr inbounds nuw i8, ptr %965, i64 8
   %967 = load i8, ptr %966, align 8
   %968 = icmp eq i8 %967, 24
-  br i1 %968, label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE9push_backEOS3_.exit, label %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.argprom.exit"
+  br i1 %968, label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE9push_backEOS3_.exit, label %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.exit"
 
-"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.argprom.exit": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit356
+"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.exit": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit356
   %969 = call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %942, ptr nonnull @.str.93, i64 7) #18
   %970 = extractvalue { ptr, i64 } %969, 1
   %.not590 = icmp eq i64 %970, 0
   br i1 %.not590, label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE9push_backEOS3_.exit, label %971
 
-971:                                              ; preds = %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.argprom.exit"
+971:                                              ; preds = %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.exit"
   %.not.i.i357 = icmp eq ptr %.sroa.7.0633, %.sroa.14.0632
   br i1 %.not.i.i357, label %974, label %972
 
@@ -2351,10 +2351,10 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__
   %995 = getelementptr inbounds ptr, ptr %988, i64 %984
   br label %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE9push_backEOS3_.exit
 
-_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit356, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %972, %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.argprom.exit"
-  %.sroa.14.1 = phi ptr [ %.sroa.14.0632, %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.argprom.exit" ], [ %995, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.14.0632, %972 ], [ %.sroa.14.0632, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ]
-  %.sroa.7.1 = phi ptr [ %.sroa.7.0633, %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.argprom.exit" ], [ %993, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %973, %972 ], [ %.sroa.7.0633, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ]
-  %.sroa.0520.1 = phi ptr [ %.sroa.0520.0635, %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.argprom.exit" ], [ %988, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.0520.0635, %972 ], [ %.sroa.0520.0635, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ]
+_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit356, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %972, %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.exit"
+  %.sroa.14.1 = phi ptr [ %.sroa.14.0632, %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.exit" ], [ %995, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.14.0632, %972 ], [ %.sroa.14.0632, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ]
+  %.sroa.7.1 = phi ptr [ %.sroa.7.0633, %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.exit" ], [ %993, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %973, %972 ], [ %.sroa.7.0633, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ]
+  %.sroa.0520.1 = phi ptr [ %.sroa.0520.0635, %"_ZZL13EmitOptParserRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_1clERKNS_6RecordE.exit" ], [ %988, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.0520.0635, %972 ], [ %.sroa.0520.0635, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ]
   %996 = getelementptr inbounds i8, ptr %.sroa.0516.0634, i64 8
   %.not584 = icmp eq ptr %996, %941
   br i1 %.not584, label %._crit_edge637.loopexit, label %.lr.ph636

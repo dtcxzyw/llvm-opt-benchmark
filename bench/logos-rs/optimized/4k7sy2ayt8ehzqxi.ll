@@ -195,15 +195,15 @@ define hidden void @_ZN13logos_codegen6parser6Parser15try_parse_logos17hefce7405
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %29 = load i64, ptr %1, align 8, !noalias !3
   %30 = icmp eq i64 %29, 40
-  br i1 %30, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit.thread
+  br i1 %30, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread
 
-_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit.thread: ; preds = %28
+_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread: ; preds = %28
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %33
 
-_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit: ; preds = %28
+_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds = %28
   call void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %4), !noalias !3
   %31 = getelementptr inbounds i8, ptr %1, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false), !noalias !3
@@ -218,13 +218,13 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit: ;
   %32 = icmp eq i64 %.sroa.0.0.copyload39, 2
   br i1 %32, label %33, label %36
 
-33:                                               ; preds = %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit.thread, %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit
+33:                                               ; preds = %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread, %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit
   call void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h209c2636730e9c5fE(ptr nonnull sret([32 x i8]) align 8 %7, ptr nonnull align 8 %22)
   %34 = call i32 @_ZN5quote7spanned10join_spans17h55530f885c45a301E(ptr nonnull align 8 %7)
   %35 = call align 8 ptr @_ZN13logos_codegen5error6Errors3err17hfe641ffc7d3ca420E(ptr align 8 %0, ptr nonnull align 1 @anon.0d4f455794be986747178006f459c304.2, i64 22, i32 %34)
   br label %27
 
-36:                                               ; preds = %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit
+36:                                               ; preds = %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit
   %.sroa.242.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.242.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, i64 32, i1 false)
   store i64 %.sroa.0.0.copyload39, ptr %21, align 8
@@ -607,15 +607,15 @@ define hidden void @_ZN13logos_codegen6parser6Parser16parse_definition17h8b3e7e0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %23 = load i64, ptr %2, align 8, !noalias !7
   %24 = icmp eq i64 %23, 40
-  br i1 %24, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit.thread
+  br i1 %24, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread
 
-_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit.thread: ; preds = %3
+_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %27
 
-_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit: ; preds = %3
+_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds = %3
   call void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %5), !noalias !7
   %25 = getelementptr inbounds i8, ptr %2, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !noalias !7
@@ -630,11 +630,11 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit: ;
   %26 = icmp eq i64 %.sroa.0.0.copyload30, 2
   br i1 %26, label %27, label %28
 
-27:                                               ; preds = %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit.thread, %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit
+27:                                               ; preds = %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread, %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit
   store i64 2, ptr %0, align 8
   br label %29
 
-28:                                               ; preds = %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom.exit
+28:                                               ; preds = %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit
   %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.237.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, i64 32, i1 false)
   store i64 %.sroa.0.0.copyload30, ptr %22, align 8
@@ -1464,9 +1464,9 @@ attributes #9 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
 !3 = !{!4}
-!4 = distinct !{!4, !5, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom: argument 0"}
-!5 = distinct !{!5, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom"}
+!4 = distinct !{!4, !5, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E: argument 0"}
+!5 = distinct !{!5, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E"}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.argprom"}
+!8 = distinct !{!8, !9, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E: argument 0"}
+!9 = distinct !{!9, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E"}

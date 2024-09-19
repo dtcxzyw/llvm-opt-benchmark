@@ -358,7 +358,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i201:  ; preds = %_ZNSt11char_traitsI
   br i1 %or.cond1085, label %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmPKc.exit208.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmPKc.exit208.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i201
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.3)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.3)
   unreachable
 
 89:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i201, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
@@ -638,7 +638,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
 
 180:                                              ; preds = %176
   %181 = load ptr, ptr %10, align 8
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef %181)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef %181)
   unreachable
 
 182:                                              ; preds = %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit231, %163
@@ -762,7 +762,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
 
 224:                                              ; preds = %220
   %225 = load ptr, ptr %13, align 8
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef %225)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef %225)
   unreachable
 
 226:                                              ; preds = %205
@@ -834,7 +834,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
 
 250:                                              ; preds = %246
   %251 = load ptr, ptr %17, align 8
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef %251)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef %251)
   unreachable
 
 252:                                              ; preds = %231
@@ -1085,7 +1085,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i279: ; preds = %_ZNSt11char_traits
 
 337:                                              ; preds = %336
   %338 = load ptr, ptr %23, align 8
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef %338)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef %338)
   unreachable
 
 .loopexit:                                        ; preds = %745
@@ -1153,7 +1153,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i307: ; preds = %_ZNSt11char_traits
 
 355:                                              ; preds = %354
   %356 = load ptr, ptr %25, align 8
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef %356)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef %356)
   unreachable
 
 357:                                              ; preds = %354
@@ -1429,7 +1429,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br i1 %.not178, label %469, label %468
 
 468:                                              ; preds = %466
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.41)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.41)
   unreachable
 
 469:                                              ; preds = %466
@@ -1975,7 +1975,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br i1 %741, label %742, label %743
 
 742:                                              ; preds = %737
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.96)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.96)
   unreachable
 
 743:                                              ; preds = %737
@@ -2006,7 +2006,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 
 752:                                              ; preds = %751
   %753 = load ptr, ptr %28, align 8
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef %753)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef %753)
   unreachable
 
 .critedge8:                                       ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit347.thread, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit340.thread, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit333.thread, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit312.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i321, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i293, %450, %361, %371, %378, %388, %398, %408, %418, %430, %440, %457, %469, %479, %489, %499, %509, %519, %529, %537, %546, %556, %566, %576, %586, %594, %603, %613, %623, %633, %643, %653, %663, %673, %683, %691, %700, %710, %720, %730, %748, %743, %725, %715, %705, %695, %688, %678, %668, %658, %648, %638, %628, %618, %608, %598, %591, %581, %571, %561, %551, %541, %534, %524, %514, %504, %494, %484, %474, %461, %445, %435, %423, %413, %403, %393, %383, %374, %367, %343
@@ -2089,7 +2089,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   store ptr %768, ptr %765, align 8
   store i64 0, ptr %779, align 8
   store i8 0, ptr %768, align 8
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef %777)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef %777)
   unreachable
 
 781:                                              ; preds = %763
@@ -2123,7 +2123,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br i1 %.not1039, label %794, label %.thread809
 
 794:                                              ; preds = %790
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.100)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.100)
   unreachable
 
 .thread809:                                       ; preds = %786, %790
@@ -2151,7 +2151,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br i1 %.not1042, label %806, label %.thread819
 
 806:                                              ; preds = %798, %802
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.101)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.101)
   unreachable
 
 .thread819:                                       ; preds = %796, %802
@@ -2229,7 +2229,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br i1 %or.cond1239, label %.thread830, label %841
 
 841:                                              ; preds = %837
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.102)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.102)
   unreachable
 
 .thread830:                                       ; preds = %837
@@ -2240,7 +2240,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br i1 %or.cond1087, label %844, label %.thread832
 
 844:                                              ; preds = %.thread830
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.103)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.103)
   unreachable
 
 .thread832:                                       ; preds = %.thread830
@@ -2254,7 +2254,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br i1 %.not1061, label %848, label %.thread834.thread992
 
 848:                                              ; preds = %846
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.104)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.104)
   unreachable
 
 .thread834.thread992:                             ; preds = %846
@@ -2268,7 +2268,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br i1 %.not1051.not, label %851, label %860
 
 .thread993:                                       ; preds = %.thread834.thread992
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.105)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.105)
   unreachable
 
 .thread844.thread:                                ; preds = %.thread834.thread992
@@ -2308,7 +2308,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br i1 %.not1064, label %863, label %.thread903.thread
 
 863:                                              ; preds = %854, %856, %858, %860, %.thread998
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.106)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.106)
   unreachable
 
 .thread903.thread:                                ; preds = %854, %856, %858, %860, %.thread998
@@ -2320,7 +2320,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br i1 %or.cond1095, label %867, label %.thread913
 
 867:                                              ; preds = %.thread903.thread
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.107)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.107)
   unreachable
 
 .thread913:                                       ; preds = %.thread903.thread
@@ -2330,7 +2330,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br i1 %or.cond1099, label %870, label %.thread920
 
 870:                                              ; preds = %.thread913
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.108)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.108)
   unreachable
 
 .thread920:                                       ; preds = %.thread913
@@ -2344,7 +2344,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br i1 %or.cond1101, label %.thread932, label %.thread928
 
 .thread928:                                       ; preds = %872
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.109)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.109)
   unreachable
 
 .thread932:                                       ; preds = %872
@@ -2356,7 +2356,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br i1 %or.cond1240, label %.thread970, label %.thread971
 
 .thread971:                                       ; preds = %.thread932
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.110)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.110)
   unreachable
 
 .thread970:                                       ; preds = %.thread920, %.thread932
@@ -2422,7 +2422,7 @@ _ZNSt6bitsetILm168EE9referenceaSEb.exit426:       ; preds = %_ZNSt6bitsetILm168E
   br i1 %.not1080, label %893, label %892
 
 892:                                              ; preds = %_ZNSt6bitsetILm168EE9referenceaSEb.exit426
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %1, ptr noundef nonnull @.str.114)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %1, ptr noundef nonnull @.str.114)
   unreachable
 
 893:                                              ; preds = %_ZNSt6bitsetILm168EE9referenceaSEb.exit426.thread, %_ZNSt6bitsetILm168EE9referenceaSEb.exit426
@@ -3391,7 +3391,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define internal fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.118, ptr noundef %0, ptr noundef %1) #24
   tail call void @abort() #25

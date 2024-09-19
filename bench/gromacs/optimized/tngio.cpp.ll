@@ -756,9 +756,9 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit77:            ; preds = %19, %_ZNSt12_Vector
 ._crit_edge.i:                                    ; preds = %104, %.lr.ph.i, %.preheader.i
   %108 = load ptr, ptr %11, align 8
   %109 = invoke i32 @tng_molecule_cnt_set(ptr noundef %.val, ptr noundef %108, i64 noundef %42)
-          to label %_ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecule.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecule.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecule.argprom.exit: ; preds = %._crit_edge.i
+_ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecule.exit: ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -769,8 +769,8 @@ _ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecu
   %110 = getelementptr inbounds i8, ptr %36, i64 80
   br label %111
 
-111:                                              ; preds = %_ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecule.argprom.exit, %_ZL11IS_CHEMBONDi.exit.thread
-  %indvars.iv362 = phi i64 [ 0, %_ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecule.argprom.exit ], [ %indvars.iv.next363, %_ZL11IS_CHEMBONDi.exit.thread ]
+111:                                              ; preds = %_ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecule.exit, %_ZL11IS_CHEMBONDi.exit.thread
+  %indvars.iv362 = phi i64 [ 0, %_ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecule.exit ], [ %indvars.iv.next363, %_ZL11IS_CHEMBONDi.exit.thread ]
   %112 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv362
   %113 = getelementptr inbounds i8, ptr %112, i64 16
   %114 = load i32, ptr %113, align 16
@@ -1573,7 +1573,7 @@ _ZL35greatest_common_divisor_if_positiveii.exit.thread3.i: ; preds = %15
   %28 = getelementptr inbounds i8, ptr %2, i64 64
   %29 = load i32, ptr %28, align 8
   %30 = icmp slt i32 %29, 1
-  br i1 %30, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
+  br i1 %30, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
 
 _ZL35greatest_common_divisor_if_positiveii.exit.thread.i: ; preds = %16, %15
   %.0.i.ph.i = phi i32 [ %10, %16 ], [ %12, %15 ]
@@ -1592,7 +1592,7 @@ _ZL35greatest_common_divisor_if_positiveii.exit.i: ; preds = %.lr.ph.i.i.i.i, %1
   br i1 %37, label %39, label %40
 
 39:                                               ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit.i
-  br i1 %38, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
+  br i1 %38, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
 
 40:                                               ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit.i
   br i1 %38, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i, label %41
@@ -1629,58 +1629,58 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i16.i: ; preds = %.lr.ph.
 _ZL35greatest_common_divisor_if_positiveii.exit19.i: ; preds = %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i16.i, %5
   %.0.i = phi i32 [ %7, %5 ], [ %53, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i16.i ]
   %54 = icmp slt i32 %.0.i, 1
-  br i1 %54, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
+  br i1 %54, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
 
 _ZL35greatest_common_divisor_if_positiveii.exit19.thread.i: ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit19.i, %40, %39, %_ZL35greatest_common_divisor_if_positiveii.exit.thread.i, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i
   %.08.i = phi i32 [ %.0.i, %_ZL35greatest_common_divisor_if_positiveii.exit19.i ], [ %.0.i.ph.i, %_ZL35greatest_common_divisor_if_positiveii.exit.thread.i ], [ %34, %40 ], [ %29, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %36, %39 ]
   %55 = mul nuw nsw i32 %.08.i, 100
   %56 = zext nneg i32 %55 to i64
   %57 = tail call i32 @tng_num_frames_per_frame_set_set(ptr noundef %4, i64 noundef %56)
-  br label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit
+  br label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit
 
-_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit: ; preds = %39, %_ZL35greatest_common_divisor_if_positiveii.exit19.i, %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
-  br i1 %1, label %58, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread_crit_edge
+_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit: ; preds = %39, %_ZL35greatest_common_divisor_if_positiveii.exit19.i, %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
+  br i1 %1, label %58, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread_crit_edge
 
-_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread_crit_edge: ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit
+_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread_crit_edge: ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 56
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread.sink.split
+  br label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split
 
-58:                                               ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit
+58:                                               ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit
   %59 = getelementptr inbounds i8, ptr %2, i64 72
   %60 = load i32, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %2, i64 56
   %62 = load i32, ptr %61, align 8
   %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread.sink.split, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread
+  br i1 %.not, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread
 
-_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread.sink.split: ; preds = %58, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread_crit_edge
-  %.066.ph = phi i32 [ %.pre, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread_crit_edge ], [ %60, %58 ]
-  %.0.ph = phi i8 [ 3, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread_crit_edge ], [ 2, %58 ]
+_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split: ; preds = %58, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread_crit_edge
+  %.066.ph = phi i32 [ %.pre, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread_crit_edge ], [ %60, %58 ]
+  %.0.ph = phi i8 [ 3, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread_crit_edge ], [ 2, %58 ]
   %.phi.trans.insert85 = getelementptr inbounds i8, ptr %2, i64 60
   %.pre86 = load i32, ptr %.phi.trans.insert85, align 4
   %.phi.trans.insert87 = getelementptr inbounds i8, ptr %2, i64 64
   %.pre88 = load i32, ptr %.phi.trans.insert87, align 8
-  br label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread
+  br label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread
 
-_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread: ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread.sink.split, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i, %58
-  %.066 = phi i32 [ %60, %58 ], [ %10, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.066.ph, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread.sink.split ]
-  %.165 = phi i32 [ 0, %58 ], [ %12, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.pre86, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread.sink.split ]
-  %.163 = phi i32 [ 0, %58 ], [ %29, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.pre88, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread.sink.split ]
-  %.0 = phi i8 [ 2, %58 ], [ 3, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.0.ph, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread.sink.split ]
+_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread: ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i, %58
+  %.066 = phi i32 [ %60, %58 ], [ %10, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.066.ph, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split ]
+  %.165 = phi i32 [ 0, %58 ], [ %12, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.pre86, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split ]
+  %.163 = phi i32 [ 0, %58 ], [ %29, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.pre88, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split ]
+  %.0 = phi i8 [ 2, %58 ], [ 3, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.0.ph, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split ]
   %.not67 = icmp eq i32 %.066, 0
   br i1 %.not67, label %68, label %63
 
-63:                                               ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread
+63:                                               ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread
   %64 = sext i32 %.066 to i64
   %65 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %64, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.15, i8 noundef signext 1, i8 noundef signext %.0)
   %66 = icmp slt i32 %.066, 1
   %67 = select i1 %66, i32 -1, i32 %.066
   br label %68
 
-68:                                               ; preds = %63, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread
-  %.059 = phi i32 [ %67, %63 ], [ -1, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread ]
-  %.058 = phi i32 [ %.066, %63 ], [ -1, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.argprom.exit.thread ]
+68:                                               ; preds = %63, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread
+  %.059 = phi i32 [ %67, %63 ], [ -1, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
+  %.058 = phi i32 [ %.066, %63 ], [ -1, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
   %.not68 = icmp eq i32 %.165, 0
   br i1 %.not68, label %91, label %69
 
@@ -1861,7 +1861,7 @@ define void @_Z32gmx_tng_prepare_low_prec_writingP18gmx_tng_trajectoryPK10gmx_mt
   %18 = sub i64 %16, %17
   %19 = and i64 %18, 4294967295
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.argprom.exit, label %21
+  br i1 %20, label %_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.exit, label %21
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds i8, ptr %1, i64 136
@@ -1869,7 +1869,7 @@ define void @_Z32gmx_tng_prepare_low_prec_writingP18gmx_tng_trajectoryPK10gmx_mt
   %24 = getelementptr inbounds i8, ptr %1, i64 144
   %25 = load ptr, ptr %24, align 8
   %.not2234.i.i = icmp eq ptr %23, %25
-  br i1 %.not2234.i.i, label %_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.argprom.exit, label %.lr.ph39.i.i
+  br i1 %.not2234.i.i, label %_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.exit, label %.lr.ph39.i.i
 
 .lr.ph39.i.i:                                     ; preds = %21
   %26 = getelementptr inbounds i8, ptr %1, i64 112
@@ -1930,7 +1930,7 @@ define void @_Z32gmx_tng_prepare_low_prec_writingP18gmx_tng_trajectoryPK10gmx_mt
   %.1.lcssa.i.i = phi i32 [ %.01836.i.i, %27 ], [ %.01836.i.i, %.preheader.lr.ph.i.i ], [ %.2.lcssa.i.i, %._crit_edge.i.i ]
   %50 = getelementptr inbounds i8, ptr %.sroa.019.035.i.i, i64 56
   %.not22.i.i = icmp eq ptr %50, %25
-  br i1 %.not22.i.i, label %_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.argprom.exit, label %27
+  br i1 %.not22.i.i, label %_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.exit, label %27
 
 _ZL18all_atoms_selectedPK10gmx_mtop_t23SimulationAtomGroupType.exit.i: ; preds = %.lr.ph.i.i
   %51 = getelementptr inbounds i8, ptr %1, i64 352
@@ -2232,7 +2232,7 @@ _ZL11IS_CHEMBONDi.exit.thread.i:                  ; preds = %169, %135, %_ZL11IS
   %235 = call i32 @tng_num_molecule_types_get(ptr noundef %.val, ptr noundef nonnull %10)
   %236 = load i64, ptr %10, align 8
   %237 = icmp sgt i64 %236, 0
-  br i1 %237, label %.lr.ph35.i, label %_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.argprom.exit
+  br i1 %237, label %.lr.ph35.i, label %_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.exit
 
 .lr.ph35.i:                                       ; preds = %._crit_edge32.i, %244
   %.033.i = phi i64 [ %245, %244 ], [ 0, %._crit_edge32.i ]
@@ -2250,9 +2250,9 @@ _ZL11IS_CHEMBONDi.exit.thread.i:                  ; preds = %169, %135, %_ZL11IS
   %245 = add nuw nsw i64 %.033.i, 1
   %246 = load i64, ptr %10, align 8
   %247 = icmp slt i64 %245, %246
-  br i1 %247, label %.lr.ph35.i, label %_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.argprom.exit, !llvm.loop !31
+  br i1 %247, label %.lr.ph35.i, label %_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.exit, !llvm.loop !31
 
-_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.argprom.exit: ; preds = %._crit_edge32.i.i, %244, %3, %21, %._crit_edge32.i
+_ZL20add_selection_groupsP18gmx_tng_trajectoryPK10gmx_mtop_t.exit: ; preds = %._crit_edge32.i.i, %244, %3, %21, %._crit_edge32.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3152,7 +3152,7 @@ define noundef zeroext i1 @_Z23gmx_read_next_tng_frameP18gmx_tng_trajectoryP10t_
   %66 = load i64, ptr %11, align 8
   %67 = icmp ne i64 %66, 0
   %or.cond124.not = select i1 %64, i1 %67, i1 false
-  br i1 %or.cond124.not, label %.preheader, label %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.argprom.exit
+  br i1 %or.cond124.not, label %.preheader, label %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.exit
 
 .preheader:                                       ; preds = %54
   %68 = icmp sgt i64 %66, 0
@@ -3614,17 +3614,17 @@ switch.lookup:                                    ; preds = %101
   store double %232, ptr %240, align 8
   %241 = load ptr, ptr %15, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str, i32 noundef 1601, ptr noundef %241)
-          to label %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZL14gmx_sfree_implIvEvPKcS1_iPT_.argprom.exit:   ; preds = %._crit_edge, %54
+_ZL14gmx_sfree_implIvEvPKcS1_iPT_.exit:           ; preds = %._crit_edge, %54
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIlN3gmx15functor_wrapperIlXadL_ZNS0_12free_wrapperIlEEvPT_EEEEED2Ev.exit, label %242
 
-242:                                              ; preds = %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.argprom.exit
+242:                                              ; preds = %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.exit
   call void @free(ptr noundef nonnull %65) #21
   br label %_ZNSt10unique_ptrIlN3gmx15functor_wrapperIlXadL_ZNS0_12free_wrapperIlEEvPT_EEEEED2Ev.exit
 
-_ZNSt10unique_ptrIlN3gmx15functor_wrapperIlXadL_ZNS0_12free_wrapperIlEEvPT_EEEEED2Ev.exit: ; preds = %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.argprom.exit, %242
+_ZNSt10unique_ptrIlN3gmx15functor_wrapperIlXadL_ZNS0_12free_wrapperIlEEvPT_EEEEED2Ev.exit: ; preds = %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.exit, %242
   ret i1 %or.cond124.not
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %223, %115, %99
@@ -4293,17 +4293,17 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit112:            ; preds = %_ZSt6fill_nIPfmfET_
   %.sroa.0.1 = phi ptr [ null, %173 ], [ %.sroa.0.2, %188 ], [ %.sroa.0.2, %.critedge2 ]
   %210 = load ptr, ptr %19, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str, i32 noundef 1762, ptr noundef %210)
-          to label %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.argprom.exit unwind label %39
+          to label %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.exit unwind label %39
 
-_ZL14gmx_sfree_implIvEvPKcS1_iPT_.argprom.exit:   ; preds = %.loopexit
+_ZL14gmx_sfree_implIvEvPKcS1_iPT_.exit:           ; preds = %.loopexit
   %.not.i.i.i114 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i114, label %_ZNSt6vectorIfSaIfEED2Ev.exit115, label %211
 
-211:                                              ; preds = %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.argprom.exit
+211:                                              ; preds = %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #24
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit115
 
-_ZNSt6vectorIfSaIfEED2Ev.exit115:                 ; preds = %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.argprom.exit, %211
+_ZNSt6vectorIfSaIfEED2Ev.exit115:                 ; preds = %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.exit, %211
   %.not.i.i.i116 = icmp eq ptr %.sroa.0141.1, null
   br i1 %.not.i.i.i116, label %_ZNSt6vectorIfSaIfEED2Ev.exit117, label %212
 
@@ -4579,21 +4579,21 @@ define noundef zeroext i1 @_Z41gmx_get_tng_data_next_frame_of_block_typeP18gmx_t
   %100 = call i32 @tng_distance_unit_exponential_get(ptr noundef %.val, ptr noundef nonnull %12)
   %101 = load i64, ptr %12, align 8
   switch i64 %101, label %103 [
-    i64 9, label %_ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.argprom.exit
+    i64 9, label %_ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.exit
     i64 10, label %102
   ]
 
 102:                                              ; preds = %92
-  br label %_ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.argprom.exit
+  br label %_ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.exit
 
 103:                                              ; preds = %92
   %104 = sitofp i64 %101 to double
   %105 = fadd double %104, 9.000000e+00
   %106 = call double @pow(double noundef 1.000000e+01, double noundef %105) #21
   %107 = fptrunc double %106 to float
-  br label %_ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.argprom.exit
+  br label %_ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.exit
 
-_ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.argprom.exit: ; preds = %92, %102, %103
+_ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.exit: ; preds = %92, %102, %103
   %.0.i = phi float [ %107, %103 ], [ 1.000000e+01, %102 ], [ 1.000000e+00, %92 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %108 = load i64, ptr %6, align 8
@@ -4613,7 +4613,7 @@ _ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.argprom.exit: ; 
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str, i32 noundef 1880, ptr noundef %117)
   br label %118
 
-118:                                              ; preds = %77, %_ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.argprom.exit
+118:                                              ; preds = %77, %_ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.exit
   store i8 1, ptr %10, align 1
   ret i1 %78
 

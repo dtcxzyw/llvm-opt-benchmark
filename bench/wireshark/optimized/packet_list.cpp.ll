@@ -18203,18 +18203,18 @@ _ZN9QtPrivate15FunctionPointerIM10PacketListFvvEE4callINS_4ListIJEEEvEEvS3_PS1_P
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN10PacketListC1EP7QWidgetE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
-  switch i32 %0, label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit" [
+  switch i32 %0, label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit" [
     i32 0, label %6
     i32 1, label %9
   ]
 
 6:                                                ; preds = %5
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit", label %8
+  br i1 %7, label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit", label %8
 
 8:                                                ; preds = %6
   tail call void @_ZdlPv(ptr noundef nonnull %1) #23
-  br label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit"
+  br label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit"
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 16
@@ -18228,15 +18228,15 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN10PacketListC1EP7QWid
   %15 = tail call noundef zeroext i1 @_ZNK9QTreeView16isSortingEnabledEv(ptr noundef nonnull align 8 dereferenceable(40) %.val)
   %16 = icmp eq i32 %14, 0
   %.not.i.i.i = xor i1 %16, %15
-  br i1 %.not.i.i.i, label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit", label %17
+  br i1 %.not.i.i.i, label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit", label %17
 
 17:                                               ; preds = %9
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 516), align 4
   %19 = icmp ne i32 %18, 0
   tail call void @_ZN9QTreeView17setSortingEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %.val, i1 noundef zeroext %19)
-  br label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit"
+  br label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit"
 
-"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.argprom.exit": ; preds = %17, %9, %6, %8, %5
+"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit": ; preds = %17, %9, %6, %8, %5
   ret void
 }
 

@@ -1480,7 +1480,7 @@ define hidden i32 @av1_decode_frame_headers_and_setup(ptr noundef %0, ptr nounde
   %14 = select i1 %.not.i, i32 3, i32 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 10744
   store ptr %5, ptr %15, align 8
-  tail call fastcc void @read_uncompressed_header.retelim(ptr noundef nonnull %0, ptr noundef %1)
+  tail call fastcc void @read_uncompressed_header(ptr noundef nonnull %0, ptr noundef %1)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %av1_check_trailing_bits.exit, label %16
 
@@ -1653,7 +1653,7 @@ get_ref_frame_map_idx.exit.i:                     ; preds = %72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_uncompressed_header.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @read_uncompressed_header(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 47968
@@ -4416,14 +4416,14 @@ thread-pre-split829:                              ; preds = %1347
 1400:                                             ; preds = %1396
   %.val672 = load i8, ptr %1212, align 16
   %.not.i745 = icmp eq i8 %.val672, 0
-  br i1 %.not.i745, label %is_coded_lossless.argprom.exit, label %.preheader.i746
+  br i1 %.not.i745, label %is_coded_lossless.exit, label %.preheader.i746
 
 1401:                                             ; preds = %.preheader.i746
   %indvars.iv.next.i748 = add nuw nsw i64 %indvars.iv.i747, 1
   %exitcond.not.i749 = icmp eq i64 %indvars.iv.next.i748, 8
-  br i1 %exitcond.not.i749, label %is_coded_lossless.argprom.exit.thread, label %.preheader.i746, !llvm.loop !40
+  br i1 %exitcond.not.i749, label %is_coded_lossless.exit.thread, label %.preheader.i746, !llvm.loop !40
 
-is_coded_lossless.argprom.exit.thread:            ; preds = %1401
+is_coded_lossless.exit.thread:                    ; preds = %1401
   %1402 = getelementptr inbounds nuw i8, ptr %0, i64 49011
   store i8 1, ptr %1402, align 1
   br label %1410
@@ -4433,14 +4433,14 @@ is_coded_lossless.argprom.exit.thread:            ; preds = %1401
   %1403 = getelementptr inbounds [8 x i32], ptr %1373, i64 0, i64 %indvars.iv.i747
   %1404 = load i32, ptr %1403, align 4
   %.not7.i = icmp eq i32 %1404, 0
-  br i1 %.not7.i, label %is_coded_lossless.argprom.exit.thread832, label %1401
+  br i1 %.not7.i, label %is_coded_lossless.exit.thread832, label %1401
 
-is_coded_lossless.argprom.exit.thread832:         ; preds = %.preheader.i746
+is_coded_lossless.exit.thread832:                 ; preds = %.preheader.i746
   %1405 = getelementptr inbounds nuw i8, ptr %0, i64 49011
   store i8 0, ptr %1405, align 1
   br label %1416
 
-is_coded_lossless.argprom.exit:                   ; preds = %1400
+is_coded_lossless.exit:                           ; preds = %1400
   %1406 = load i32, ptr %1373, align 4
   %1407 = icmp ne i32 %1406, 0
   %1408 = getelementptr inbounds nuw i8, ptr %0, i64 49011
@@ -4448,8 +4448,8 @@ is_coded_lossless.argprom.exit:                   ; preds = %1400
   store i8 %1409, ptr %1408, align 1
   br i1 %1407, label %1410, label %1416
 
-1410:                                             ; preds = %is_coded_lossless.argprom.exit.thread, %is_coded_lossless.argprom.exit
-  %1411 = phi ptr [ %1402, %is_coded_lossless.argprom.exit.thread ], [ %1408, %is_coded_lossless.argprom.exit ]
+1410:                                             ; preds = %is_coded_lossless.exit.thread, %is_coded_lossless.exit
+  %1411 = phi ptr [ %1402, %is_coded_lossless.exit.thread ], [ %1408, %is_coded_lossless.exit ]
   %1412 = getelementptr i8, ptr %0, i64 48424
   %.val670 = load i32, ptr %1412, align 8
   %1413 = getelementptr i8, ptr %0, i64 48440
@@ -4458,9 +4458,9 @@ is_coded_lossless.argprom.exit:                   ; preds = %1400
   %1415 = zext i1 %1414 to i8
   br label %1416
 
-1416:                                             ; preds = %is_coded_lossless.argprom.exit.thread832, %1410, %is_coded_lossless.argprom.exit
-  %1417 = phi ptr [ %1408, %is_coded_lossless.argprom.exit ], [ %1411, %1410 ], [ %1405, %is_coded_lossless.argprom.exit.thread832 ]
-  %1418 = phi i8 [ 0, %is_coded_lossless.argprom.exit ], [ %1415, %1410 ], [ 0, %is_coded_lossless.argprom.exit.thread832 ]
+1416:                                             ; preds = %is_coded_lossless.exit.thread832, %1410, %is_coded_lossless.exit
+  %1417 = phi ptr [ %1408, %is_coded_lossless.exit ], [ %1411, %1410 ], [ %1405, %is_coded_lossless.exit.thread832 ]
+  %1418 = phi i8 [ 0, %is_coded_lossless.exit ], [ %1415, %1410 ], [ 0, %is_coded_lossless.exit.thread832 ]
   %1419 = getelementptr inbounds nuw i8, ptr %0, i64 49012
   store i8 %1418, ptr %1419, align 4
   %1420 = load i32, ptr %938, align 8
@@ -4976,15 +4976,15 @@ read_tx_mode.exit:                                ; preds = %decode_restoration_
   %.val673 = load i8, ptr %5, align 16
   %1662 = and i8 %.val673, -3
   %narrow.i.not.i = icmp eq i8 %1662, 0
-  br i1 %narrow.i.not.i, label %read_frame_reference_mode.argprom.exit, label %1663
+  br i1 %narrow.i.not.i, label %read_frame_reference_mode.exit, label %1663
 
 1663:                                             ; preds = %read_tx_mode.exit
   %1664 = call i32 @aom_rb_read_bit(ptr noundef %1) #16
   %.not2.i787 = icmp eq i32 %1664, 0
   %1665 = select i1 %.not2.i787, i8 0, i8 2
-  br label %read_frame_reference_mode.argprom.exit
+  br label %read_frame_reference_mode.exit
 
-read_frame_reference_mode.argprom.exit:           ; preds = %read_tx_mode.exit, %1663
+read_frame_reference_mode.exit:                   ; preds = %read_tx_mode.exit, %1663
   %.0.i788 = phi i8 [ %1665, %1663 ], [ 0, %read_tx_mode.exit ]
   %1666 = getelementptr inbounds nuw i8, ptr %0, i64 47969
   store i8 %.0.i788, ptr %1666, align 1
@@ -4994,12 +4994,12 @@ read_frame_reference_mode.argprom.exit:           ; preds = %read_tx_mode.exit, 
   %.not645 = icmp eq i32 %1668, 0
   br i1 %.not645, label %1671, label %1669
 
-1669:                                             ; preds = %read_frame_reference_mode.argprom.exit
+1669:                                             ; preds = %read_frame_reference_mode.exit
   %1670 = call i32 @aom_rb_read_bit(ptr noundef %1) #16
   br label %1671
 
-1671:                                             ; preds = %read_frame_reference_mode.argprom.exit, %1669
-  %1672 = phi i32 [ %1670, %1669 ], [ 0, %read_frame_reference_mode.argprom.exit ]
+1671:                                             ; preds = %read_frame_reference_mode.exit, %1669
+  %1672 = phi i32 [ %1670, %1669 ], [ 0, %read_frame_reference_mode.exit ]
   %1673 = getelementptr inbounds nuw i8, ptr %0, i64 47988
   store i32 %1672, ptr %1673, align 4
   %1674 = getelementptr inbounds nuw i8, ptr %0, i64 49014
@@ -9210,9 +9210,9 @@ av1_zero_above_context.exit.i:                    ; preds = %136, %128, %86
   store i16 0, ptr %166, align 2
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.us.i, label %set_cb_buffer.argprom.exit.us.i, label %160, !llvm.loop !86
+  br i1 %exitcond.not.i.us.i, label %set_cb_buffer.exit.us.i, label %160, !llvm.loop !86
 
-set_cb_buffer.argprom.exit.us.i:                  ; preds = %160
+set_cb_buffer.exit.us.i:                          ; preds = %160
   %167 = getelementptr inbounds nuw i8, ptr %158, i64 208896
   store ptr %167, ptr %66, align 16
   %168 = getelementptr inbounds i8, ptr %158, i64 225280
@@ -9227,7 +9227,7 @@ set_cb_buffer.argprom.exit.us.i:                  ; preds = %160
   %.not42.us.i = icmp eq i32 %172, 0
   br i1 %.not42.us.i, label %173, label %parse_tile_row_mt.exit
 
-173:                                              ; preds = %set_cb_buffer.argprom.exit.us.i
+173:                                              ; preds = %set_cb_buffer.exit.us.i
   %174 = load i32, ptr %71, align 16
   %175 = add nsw i32 %174, %.04147.us.i
   %176 = icmp slt i32 %175, %.sroa.5.0.copyload.i
@@ -9313,8 +9313,8 @@ set_cb_buffer.argprom.exit.us.i:                  ; preds = %160
   %.not17.i.i = icmp eq i8 %226, 0
   br i1 %.not17.i.i, label %223, label %parse_tile_row_mt.exit
 
-parse_tile_row_mt.exit:                           ; preds = %223, %.lr.ph.i.i, %set_cb_buffer.argprom.exit.us.i, %._crit_edge50.i, %205, %220
-  %.not.sink.i = phi i32 [ 1, %._crit_edge50.i ], [ 1, %205 ], [ 0, %220 ], [ 1, %set_cb_buffer.argprom.exit.us.i ], [ 1, %.lr.ph.i.i ], [ 0, %223 ]
+parse_tile_row_mt.exit:                           ; preds = %223, %.lr.ph.i.i, %set_cb_buffer.exit.us.i, %._crit_edge50.i, %205, %220
+  %.not.sink.i = phi i32 [ 1, %._crit_edge50.i ], [ 1, %205 ], [ 0, %220 ], [ 1, %set_cb_buffer.exit.us.i ], [ 1, %.lr.ph.i.i ], [ 0, %223 ]
   call void @aom_merge_corrupted_flag(ptr noundef nonnull %7, i32 noundef %.not.sink.i) #16
   %227 = load ptr, ptr %46, align 32
   %228 = call i32 @pthread_mutex_lock(ptr noundef %227) #16
@@ -9690,9 +9690,9 @@ av1_init_macroblockd.exit:                        ; preds = %387, %.split.us
   store i16 0, ptr %425, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i87
-  br i1 %exitcond.not.i.i, label %set_cb_buffer.argprom.exit.i, label %419, !llvm.loop !86
+  br i1 %exitcond.not.i.i, label %set_cb_buffer.exit.i, label %419, !llvm.loop !86
 
-set_cb_buffer.argprom.exit.i:                     ; preds = %419
+set_cb_buffer.exit.i:                             ; preds = %419
   %426 = getelementptr inbounds nuw i8, ptr %417, i64 208896
   store ptr %426, ptr %66, align 16
   %427 = getelementptr inbounds i8, ptr %417, i64 225280
@@ -9702,7 +9702,7 @@ set_cb_buffer.argprom.exit.i:                     ; preds = %419
   %428 = load i32, ptr %401, align 8
   br i1 %.not.i32.i, label %sync_read.exit.i, label %429
 
-429:                                              ; preds = %set_cb_buffer.argprom.exit.i
+429:                                              ; preds = %set_cb_buffer.exit.i
   %430 = add i32 %428, 2147483647
   %431 = and i32 %430, %.02933.i
   %.not14.i.i = icmp eq i32 %431, 0
@@ -9734,7 +9734,7 @@ set_cb_buffer.argprom.exit.i:                     ; preds = %419
   %449 = call i32 @pthread_mutex_unlock(ptr noundef %434) #16
   br label %sync_read.exit.i
 
-sync_read.exit.i:                                 ; preds = %._crit_edge.i.i, %429, %set_cb_buffer.argprom.exit.i
+sync_read.exit.i:                                 ; preds = %._crit_edge.i.i, %429, %set_cb_buffer.exit.i
   %450 = load ptr, ptr %70, align 32
   %451 = load i8, ptr %47, align 4
   call fastcc void @decode_partition(ptr noundef %1, ptr noundef %6, i32 noundef %343, i32 noundef %.035.i, ptr noundef %450, i8 noundef zeroext %451, i32 noundef 2)
@@ -10096,7 +10096,7 @@ define internal void @predict_and_reconstruct_intra_block(ptr noundef %0, ptr no
 
 56:                                               ; preds = %15, %26, %7
   %57 = icmp eq i32 %3, 0
-  br i1 %57, label %58, label %store_cfl_required.argprom.exit.thread
+  br i1 %57, label %58, label %store_cfl_required.exit.thread
 
 58:                                               ; preds = %56
   %59 = getelementptr i8, ptr %0, i64 25261
@@ -10104,39 +10104,39 @@ define internal void @predict_and_reconstruct_intra_block(ptr noundef %0, ptr no
   %60 = load ptr, ptr %8, align 8
   %61 = load ptr, ptr %60, align 8
   %.not.i = icmp eq i8 %.val, 0
-  br i1 %.not.i, label %62, label %store_cfl_required.argprom.exit.thread
+  br i1 %.not.i, label %62, label %store_cfl_required.exit.thread
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %64 = load i8, ptr %63, align 4
   %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %store_cfl_required.argprom.exit.thread46
+  br i1 %65, label %66, label %store_cfl_required.exit.thread46
 
 66:                                               ; preds = %62
   %67 = getelementptr i8, ptr %61, i64 175
   %.val.i.i = load i16, ptr %67, align 1
   %68 = and i16 %.val.i.i, 128
   %.not.i.i = icmp eq i16 %68, 0
-  br i1 %.not.i.i, label %is_inter_block.exit.i, label %store_cfl_required.argprom.exit.thread
+  br i1 %.not.i.i, label %is_inter_block.exit.i, label %store_cfl_required.exit.thread
 
 is_inter_block.exit.i:                            ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %70 = load i8, ptr %69, align 8
   %71 = icmp slt i8 %70, 1
-  br i1 %71, label %store_cfl_required.argprom.exit, label %store_cfl_required.argprom.exit.thread
+  br i1 %71, label %store_cfl_required.exit, label %store_cfl_required.exit.thread
 
-store_cfl_required.argprom.exit:                  ; preds = %is_inter_block.exit.i
+store_cfl_required.exit:                          ; preds = %is_inter_block.exit.i
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 3
   %73 = load i8, ptr %72, align 1
   %.not49 = icmp eq i8 %73, 13
-  br i1 %.not49, label %store_cfl_required.argprom.exit.thread46, label %store_cfl_required.argprom.exit.thread
+  br i1 %.not49, label %store_cfl_required.exit.thread46, label %store_cfl_required.exit.thread
 
-store_cfl_required.argprom.exit.thread46:         ; preds = %62, %store_cfl_required.argprom.exit
+store_cfl_required.exit.thread46:                 ; preds = %62, %store_cfl_required.exit
   %74 = load i8, ptr %10, align 8
   tail call void @cfl_store_tx(ptr noundef nonnull %1, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %74) #16
-  br label %store_cfl_required.argprom.exit.thread
+  br label %store_cfl_required.exit.thread
 
-store_cfl_required.argprom.exit.thread:           ; preds = %66, %is_inter_block.exit.i, %58, %store_cfl_required.argprom.exit.thread46, %store_cfl_required.argprom.exit, %56
+store_cfl_required.exit.thread:                   ; preds = %66, %is_inter_block.exit.i, %58, %store_cfl_required.exit.thread46, %store_cfl_required.exit, %56
   ret void
 }
 
@@ -10446,7 +10446,7 @@ dec_build_inter_predictor.exit:                   ; preds = %69, %is_interintra_
   %165 = and i64 %164, 4128764
   %166 = icmp ne i64 %165, 0
   %167 = and i1 %166, %163
-  br i1 %167, label %.lr.ph.i.preheader.i.i, label %foreach_overlappable_nb_above.argprom.exit.i.i
+  br i1 %167, label %.lr.ph.i.preheader.i.i, label %foreach_overlappable_nb_above.exit.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %120
   %wide.trip.count.i.i.i = zext nneg i32 %147 to i64
@@ -10558,20 +10558,20 @@ dec_build_prediction_by_above_pred.exit.i.i:      ; preds = %224
   %229 = icmp slt i32 %228, %..i.i.i
   %230 = icmp slt i32 %.142.i.i.i, %146
   %231 = select i1 %229, i1 %230, i1 false
-  br i1 %231, label %.lr.ph.i.i.i, label %foreach_overlappable_nb_above.argprom.exit.loopexit.i.i, !llvm.loop !99
+  br i1 %231, label %.lr.ph.i.i.i, label %foreach_overlappable_nb_above.exit.loopexit.i.i, !llvm.loop !99
 
-foreach_overlappable_nb_above.argprom.exit.loopexit.i.i: ; preds = %226
+foreach_overlappable_nb_above.exit.loopexit.i.i:  ; preds = %226
   %.pre.i.i = load i32, ptr %23, align 4
   %.pre26.i.i = load i32, ptr %135, align 8
   %.pre27.i.i = load i32, ptr %128, align 16
   %.pre43.pre.pre = load ptr, ptr %17, align 8
-  br label %foreach_overlappable_nb_above.argprom.exit.i.i
+  br label %foreach_overlappable_nb_above.exit.i.i
 
-foreach_overlappable_nb_above.argprom.exit.i.i:   ; preds = %foreach_overlappable_nb_above.argprom.exit.loopexit.i.i, %120
-  %.pre43.pre = phi ptr [ %.pre43.pre.pre, %foreach_overlappable_nb_above.argprom.exit.loopexit.i.i ], [ %.pre43.pre44, %120 ]
-  %232 = phi i32 [ %.pre27.i.i, %foreach_overlappable_nb_above.argprom.exit.loopexit.i.i ], [ %130, %120 ]
-  %233 = phi i32 [ %.pre26.i.i, %foreach_overlappable_nb_above.argprom.exit.loopexit.i.i ], [ %137, %120 ]
-  %234 = phi i32 [ %.pre.i.i, %foreach_overlappable_nb_above.argprom.exit.loopexit.i.i ], [ %148, %120 ]
+foreach_overlappable_nb_above.exit.i.i:           ; preds = %foreach_overlappable_nb_above.exit.loopexit.i.i, %120
+  %.pre43.pre = phi ptr [ %.pre43.pre.pre, %foreach_overlappable_nb_above.exit.loopexit.i.i ], [ %.pre43.pre44, %120 ]
+  %232 = phi i32 [ %.pre27.i.i, %foreach_overlappable_nb_above.exit.loopexit.i.i ], [ %130, %120 ]
+  %233 = phi i32 [ %.pre26.i.i, %foreach_overlappable_nb_above.exit.loopexit.i.i ], [ %137, %120 ]
+  %234 = phi i32 [ %.pre.i.i, %foreach_overlappable_nb_above.exit.loopexit.i.i ], [ %148, %120 ]
   %.neg.i.i = mul nsw i32 %234, -32
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 7924
   store i32 %.neg.i.i, ptr %235, align 4
@@ -10580,8 +10580,8 @@ foreach_overlappable_nb_above.argprom.exit.i.i:   ; preds = %foreach_overlappabl
   store i32 %236, ptr %128, align 16
   br label %dec_build_prediction_by_above_preds.exit.i
 
-dec_build_prediction_by_above_preds.exit.i:       ; preds = %foreach_overlappable_nb_above.argprom.exit.i.i, %116
-  %.pre43 = phi ptr [ %.pre43.pre, %foreach_overlappable_nb_above.argprom.exit.i.i ], [ %.pre43.pre44, %116 ]
+dec_build_prediction_by_above_preds.exit.i:       ; preds = %foreach_overlappable_nb_above.exit.i.i, %116
+  %.pre43 = phi ptr [ %.pre43.pre, %foreach_overlappable_nb_above.exit.i.i ], [ %.pre43.pre44, %116 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 7873
@@ -10648,7 +10648,7 @@ dec_build_prediction_by_above_preds.exit.i:       ; preds = %foreach_overlappabl
   %283 = and i64 %282, 4063226
   %284 = icmp ne i64 %283, 0
   %285 = and i1 %284, %281
-  br i1 %285, label %.lr.ph.i.preheader.i21.i, label %foreach_overlappable_nb_left.argprom.exit.i.i
+  br i1 %285, label %.lr.ph.i.preheader.i21.i, label %foreach_overlappable_nb_left.exit.i.i
 
 .lr.ph.i.preheader.i21.i:                         ; preds = %240
   %wide.trip.count.i.i22.i = zext nneg i32 %267 to i64
@@ -10767,20 +10767,20 @@ dec_build_prediction_by_left_pred.exit.i.i:       ; preds = %346
   %351 = icmp slt i32 %350, %..i.i19.i
   %352 = icmp slt i32 %.144.i.i.i, %266
   %353 = select i1 %351, i1 %352, i1 false
-  br i1 %353, label %.lr.ph.i.i23.i, label %foreach_overlappable_nb_left.argprom.exit.loopexit.i.i, !llvm.loop !101
+  br i1 %353, label %.lr.ph.i.i23.i, label %foreach_overlappable_nb_left.exit.loopexit.i.i, !llvm.loop !101
 
-foreach_overlappable_nb_left.argprom.exit.loopexit.i.i: ; preds = %348
+foreach_overlappable_nb_left.exit.loopexit.i.i:   ; preds = %348
   %.pre.i33.i = load i32, ptr %1, align 16
   %.pre26.i34.i = load i32, ptr %248, align 8
   %.pre27.i35.i = load i32, ptr %255, align 8
   %.pre.pre = load ptr, ptr %17, align 8
-  br label %foreach_overlappable_nb_left.argprom.exit.i.i
+  br label %foreach_overlappable_nb_left.exit.i.i
 
-foreach_overlappable_nb_left.argprom.exit.i.i:    ; preds = %foreach_overlappable_nb_left.argprom.exit.loopexit.i.i, %240
-  %.pre = phi ptr [ %.pre.pre, %foreach_overlappable_nb_left.argprom.exit.loopexit.i.i ], [ %.pre43, %240 ]
-  %354 = phi i32 [ %.pre27.i35.i, %foreach_overlappable_nb_left.argprom.exit.loopexit.i.i ], [ %257, %240 ]
-  %355 = phi i32 [ %.pre26.i34.i, %foreach_overlappable_nb_left.argprom.exit.loopexit.i.i ], [ %250, %240 ]
-  %356 = phi i32 [ %.pre.i33.i, %foreach_overlappable_nb_left.argprom.exit.loopexit.i.i ], [ %.pre.i, %240 ]
+foreach_overlappable_nb_left.exit.i.i:            ; preds = %foreach_overlappable_nb_left.exit.loopexit.i.i, %240
+  %.pre = phi ptr [ %.pre.pre, %foreach_overlappable_nb_left.exit.loopexit.i.i ], [ %.pre43, %240 ]
+  %354 = phi i32 [ %.pre27.i35.i, %foreach_overlappable_nb_left.exit.loopexit.i.i ], [ %257, %240 ]
+  %355 = phi i32 [ %.pre26.i34.i, %foreach_overlappable_nb_left.exit.loopexit.i.i ], [ %250, %240 ]
+  %356 = phi i32 [ %.pre.i33.i, %foreach_overlappable_nb_left.exit.loopexit.i.i ], [ %.pre.i, %240 ]
   %.neg.i20.i = mul nsw i32 %356, -32
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 7932
   store i32 %.neg.i20.i, ptr %357, align 4
@@ -10789,9 +10789,9 @@ foreach_overlappable_nb_left.argprom.exit.i.i:    ; preds = %foreach_overlappabl
   store i32 %354, ptr %256, align 16
   br label %dec_build_obmc_inter_predictors_sb.exit
 
-dec_build_obmc_inter_predictors_sb.exit:          ; preds = %dec_build_prediction_by_above_preds.exit.i, %foreach_overlappable_nb_left.argprom.exit.i.i
-  %359 = phi ptr [ %.pre43, %dec_build_prediction_by_above_preds.exit.i ], [ %.pre, %foreach_overlappable_nb_left.argprom.exit.i.i ]
-  %360 = phi i32 [ %.pre.i, %dec_build_prediction_by_above_preds.exit.i ], [ %356, %foreach_overlappable_nb_left.argprom.exit.i.i ]
+dec_build_obmc_inter_predictors_sb.exit:          ; preds = %dec_build_prediction_by_above_preds.exit.i, %foreach_overlappable_nb_left.exit.i.i
+  %359 = phi ptr [ %.pre43, %dec_build_prediction_by_above_preds.exit.i ], [ %.pre, %foreach_overlappable_nb_left.exit.i.i ]
+  %360 = phi i32 [ %.pre.i, %dec_build_prediction_by_above_preds.exit.i ], [ %356, %foreach_overlappable_nb_left.exit.i.i ]
   %.not.i.i39 = icmp eq i8 %.val.i38, 0
   %361 = select i1 %.not.i.i39, i32 3, i32 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
@@ -10825,41 +10825,41 @@ define internal void @cfl_store_inter_block(ptr nocapture noundef readonly %0, p
   %6 = getelementptr i8, ptr %0, i64 25261
   %.val = load i8, ptr %6, align 1
   %.not.i = icmp eq i8 %.val, 0
-  br i1 %.not.i, label %7, label %store_cfl_required.argprom.exit.thread
+  br i1 %.not.i, label %7, label %store_cfl_required.exit.thread
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %store_cfl_required.argprom.exit.thread8
+  br i1 %10, label %11, label %store_cfl_required.exit.thread8
 
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %5, i64 175
   %.val.i.i = load i16, ptr %12, align 1
   %13 = and i16 %.val.i.i, 128
   %.not.i.i = icmp eq i16 %13, 0
-  br i1 %.not.i.i, label %is_inter_block.exit.i, label %store_cfl_required.argprom.exit.thread
+  br i1 %.not.i.i, label %is_inter_block.exit.i, label %store_cfl_required.exit.thread
 
 is_inter_block.exit.i:                            ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = icmp slt i8 %15, 1
-  br i1 %16, label %store_cfl_required.argprom.exit, label %store_cfl_required.argprom.exit.thread
+  br i1 %16, label %store_cfl_required.exit, label %store_cfl_required.exit.thread
 
-store_cfl_required.argprom.exit:                  ; preds = %is_inter_block.exit.i
+store_cfl_required.exit:                          ; preds = %is_inter_block.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 13
-  br i1 %.not, label %store_cfl_required.argprom.exit.thread8, label %store_cfl_required.argprom.exit.thread
+  br i1 %.not, label %store_cfl_required.exit.thread8, label %store_cfl_required.exit.thread
 
-store_cfl_required.argprom.exit.thread8:          ; preds = %7, %store_cfl_required.argprom.exit
+store_cfl_required.exit.thread8:                  ; preds = %7, %store_cfl_required.exit
   %19 = load i8, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 153
   %21 = load i8, ptr %20, align 1
   tail call void @cfl_store_block(ptr noundef nonnull %1, i8 noundef zeroext %19, i8 noundef zeroext %21) #16
-  br label %store_cfl_required.argprom.exit.thread
+  br label %store_cfl_required.exit.thread
 
-store_cfl_required.argprom.exit.thread:           ; preds = %11, %is_inter_block.exit.i, %2, %store_cfl_required.argprom.exit.thread8, %store_cfl_required.argprom.exit
+store_cfl_required.exit.thread:                   ; preds = %11, %is_inter_block.exit.i, %2, %store_cfl_required.exit.thread8, %store_cfl_required.exit
   ret void
 }
 
@@ -14241,7 +14241,7 @@ set_inter_tx_size.exit:                           ; preds = %._crit_edge.us.i
   %122 = icmp ugt i32 %121, %120
   %123 = zext i1 %122 to i64
   %124 = icmp eq i8 %2, 0
-  br i1 %124, label %txfm_partition_context.argprom.exit, label %125
+  br i1 %124, label %txfm_partition_context.exit, label %125
 
 125:                                              ; preds = %102
   %..i = tail call i8 @llvm.umax.i8(i8 %26, i8 %13)
@@ -14281,9 +14281,9 @@ get_sqr_tx_size.exit.i:                           ; preds = %129, %125
   %.019.i = phi i64 [ %138, %129 ], [ 63, %125 ]
   %139 = add nuw nsw i64 %123, %119
   %140 = add nuw nsw i64 %139, %.019.i
-  br label %txfm_partition_context.argprom.exit
+  br label %txfm_partition_context.exit
 
-txfm_partition_context.argprom.exit:              ; preds = %102, %get_sqr_tx_size.exit.i
+txfm_partition_context.exit:                      ; preds = %102, %get_sqr_tx_size.exit.i
   %.0.i115 = phi i64 [ %140, %get_sqr_tx_size.exit.i ], [ 0, %102 ]
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 11654
   %142 = getelementptr inbounds [21 x [3 x i16]], ptr %141, i64 0, i64 %.0.i115
@@ -14294,7 +14294,7 @@ txfm_partition_context.argprom.exit:              ; preds = %102, %get_sqr_tx_si
   %.not.i = icmp eq i8 %146, 0
   br i1 %.not.i, label %aom_read_symbol_.exit, label %147
 
-147:                                              ; preds = %txfm_partition_context.argprom.exit
+147:                                              ; preds = %txfm_partition_context.exit
   %148 = getelementptr inbounds i8, ptr %142, i64 4
   %149 = load i16, ptr %148, align 2
   %150 = icmp ugt i16 %149, 15
@@ -14336,7 +14336,7 @@ txfm_partition_context.argprom.exit:              ; preds = %102, %get_sqr_tx_si
   store i16 %175, ptr %148, align 2
   br label %aom_read_symbol_.exit
 
-aom_read_symbol_.exit:                            ; preds = %txfm_partition_context.argprom.exit, %._crit_edge.loopexit.i.i
+aom_read_symbol_.exit:                            ; preds = %txfm_partition_context.exit, %._crit_edge.loopexit.i.i
   %.not111 = icmp eq i32 %144, 0
   br i1 %.not111, label %237, label %176
 
@@ -15718,9 +15718,9 @@ av1_zero_above_context.exit:                      ; preds = %4, %41, %49
   store i16 0, ptr %100, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %set_cb_buffer.argprom.exit, label %94, !llvm.loop !86
+  br i1 %exitcond.not.i, label %set_cb_buffer.exit, label %94, !llvm.loop !86
 
-set_cb_buffer.argprom.exit:                       ; preds = %94
+set_cb_buffer.exit:                               ; preds = %94
   store ptr %75, ptr %76, align 16
   store ptr %77, ptr %78, align 16
   store i16 0, ptr %79, align 4
@@ -15733,7 +15733,7 @@ set_cb_buffer.argprom.exit:                       ; preds = %94
   %.not37 = icmp eq i32 %104, 0
   br i1 %.not37, label %105, label %check_trailing_bits_after_symbol_coder.exit
 
-105:                                              ; preds = %set_cb_buffer.argprom.exit
+105:                                              ; preds = %set_cb_buffer.exit
   %106 = load i32, ptr %83, align 16
   %107 = add nsw i32 %106, %.03642
   %108 = load i32, ptr %11, align 4
@@ -15793,8 +15793,8 @@ set_cb_buffer.argprom.exit:                       ; preds = %94
   %.not17.i = icmp eq i8 %139, 0
   br i1 %.not17.i, label %136, label %check_trailing_bits_after_symbol_coder.exit
 
-check_trailing_bits_after_symbol_coder.exit:      ; preds = %set_cb_buffer.argprom.exit, %.lr.ph.i, %136, %133, %118, %._crit_edge45
-  %.not.sink = phi i32 [ 1, %._crit_edge45 ], [ 1, %118 ], [ 0, %133 ], [ 0, %136 ], [ 1, %.lr.ph.i ], [ 1, %set_cb_buffer.argprom.exit ]
+check_trailing_bits_after_symbol_coder.exit:      ; preds = %set_cb_buffer.exit, %.lr.ph.i, %136, %133, %118, %._crit_edge45
+  %.not.sink = phi i32 [ 1, %._crit_edge45 ], [ 1, %118 ], [ 0, %133 ], [ 0, %136 ], [ 1, %.lr.ph.i ], [ 1, %set_cb_buffer.exit ]
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 47824
   call void @aom_merge_corrupted_flag(ptr noundef nonnull %140, i32 noundef %.not.sink) #16
   ret void

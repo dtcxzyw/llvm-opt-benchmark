@@ -437,21 +437,21 @@ default.unreachable436:                           ; preds = %156, %67, %2
 82:                                               ; preds = %67
   %83 = getelementptr inbounds i8, ptr %11, i64 57
   %84 = load i8, ptr %83, align 1, !alias.scope !18, !noalias !21, !noundef !8
-  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.retelim(i8 %84, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %73)
+  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE(i8 %84, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %73)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %82
-  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.retelim(i8 %84, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %73)
+  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E(i8 %84, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %73)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc47:                                         ; preds = %.noexc
-  %85 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom(i8 %84, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %73)
+  %85 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %84, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %73)
           to label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 86:                                               ; preds = %76
   %87 = getelementptr inbounds i8, ptr %11, i64 57
   %88 = load i8, ptr %87, align 1, !alias.scope !18, !noalias !21, !noundef !8
-  invoke fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.retelim(i8 %88, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E(i8 %88, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc50 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc50:                                         ; preds = %86
@@ -461,15 +461,15 @@ default.unreachable436:                           ; preds = %156, %67, %2
   br label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit
 
 92:                                               ; preds = %78
-  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.retelim(i8 %80, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE(i8 %80, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc52 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc52:                                         ; preds = %92
-  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.retelim(i8 %80, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E(i8 %80, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc53 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc53:                                         ; preds = %.noexc52
-  %93 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom(i8 %80, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
+  %93 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E(i8 %80, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc50, %.noexc47, %.noexc53
@@ -1407,21 +1407,21 @@ default.unreachable497:                           ; preds = %158, %69, %2
 84:                                               ; preds = %69
   %85 = getelementptr inbounds i8, ptr %11, i64 57
   %86 = load i8, ptr %85, align 1, !alias.scope !127, !noalias !130, !noundef !8
-  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.retelim(i8 %86, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %75)
+  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE(i8 %86, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %75)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %84
-  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.retelim(i8 %86, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %75)
+  invoke fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E(i8 %86, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %75)
           to label %.noexc51 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc51:                                         ; preds = %.noexc
-  %87 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom(i8 %86, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %75)
+  %87 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %86, ptr noalias noundef readonly align 8 dereferenceable(64) %11, i64 noundef %75)
           to label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 88:                                               ; preds = %78
   %89 = getelementptr inbounds i8, ptr %11, i64 57
   %90 = load i8, ptr %89, align 1, !alias.scope !127, !noalias !130, !noundef !8
-  invoke fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.retelim(i8 %90, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E(i8 %90, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc54 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc54:                                         ; preds = %88
@@ -1431,15 +1431,15 @@ default.unreachable497:                           ; preds = %158, %69, %2
   br label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit
 
 94:                                               ; preds = %80
-  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.retelim(i8 %82, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE(i8 %82, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc56 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc56:                                         ; preds = %94
-  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.retelim(i8 %82, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
+  invoke fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E(i8 %82, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %.noexc57 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc57:                                         ; preds = %.noexc56
-  %95 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom(i8 %82, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
+  %95 = invoke fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E(i8 %82, ptr noalias noundef readonly align 8 dereferenceable(64) %11)
           to label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc54, %.noexc51, %.noexc57
@@ -2377,13 +2377,13 @@ default.unreachable.i:                            ; preds = %38
   %48 = add i64 %47, %.02.neg.i
   %49 = add i64 %48, %.0.neg.i
   %50 = icmp ult i64 %49, %.sroa.0.sroa.9.0.copyload
-  br i1 %50, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit, label %51, !prof !60
+  br i1 %50, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit, label %51, !prof !60
 
 51:                                               ; preds = %43
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %49, i64 noundef %.sroa.0.sroa.9.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.16) #17, !noalias !249
   unreachable
 
-_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit: ; preds = %43
+_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit: ; preds = %43
   %52 = icmp ne ptr %.sroa.0.sroa.8.0.copyload, null
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.8.0.copyload, i64 0, i64 %49
@@ -2391,13 +2391,13 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit: ; preds 
   %55 = and i8 %.sroa.0.sroa.17.0.copyload, 15
   %56 = zext nneg i8 %55 to i64
   %57 = icmp eq i8 %55, 0
-  br i1 %57, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit_crit_edge, label %58
+  br i1 %57, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge, label %58
 
-_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit_crit_edge: ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit
+_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge: ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit
   %.pre320 = lshr exact i8 %.sroa.0.sroa.17.0.copyload, 4
   br label %.loopexit
 
-58:                                               ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit
+58:                                               ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit
   %59 = select i1 %or.cond.i, i64 -257, i64 -1
   %60 = lshr i8 %.sroa.0.sroa.17.0.copyload, 4
   %narrow.i = add nuw nsw i8 %60, 1
@@ -2453,9 +2453,9 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %64, i64 noundef %.sroa.0.sroa.9.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.17) #17, !noalias !261
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit_crit_edge
-  %.pre-phi321 = phi i8 [ %.pre320, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit_crit_edge ], [ %60, %.lr.ph.i.i ]
-  %.0.i41 = phi i64 [ 0, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit_crit_edge ], [ %80, %.lr.ph.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge
+  %.pre-phi321 = phi i8 [ %.pre320, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge ], [ %60, %.lr.ph.i.i ]
+  %.0.i41 = phi i64 [ 0, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge ], [ %80, %.lr.ph.i.i ]
   %83 = zext nneg i8 %.pre-phi321 to i64
   %.neg3.i = select i1 %.not.i, i64 -2, i64 -1
   %.neg164 = sub i64 %.sroa.0.sroa.11.0.copyload, %.sroa.0.sroa.13.0.copyload
@@ -2503,13 +2503,13 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit
   %101 = shl nuw i64 %99, %100
   %102 = or i64 %101, %.013.i.i48
   %103 = icmp eq ptr %96, %95
-  br i1 %103, label %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit, label %.lr.ph.i.i47
+  br i1 %103, label %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit, label %.lr.ph.i.i47
 
 104:                                              ; preds = %.loopexit
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %85, i64 noundef %.sroa.0.sroa.9.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.15) #17, !noalias !271
   unreachable
 
-_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit: ; preds = %.lr.ph.i.i47
+_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit: ; preds = %.lr.ph.i.i47
   %105 = icmp eq i64 %102, 0
   %106 = sub i64 %.sroa.0.sroa.12.0.copyload, %102
   %.0.i51 = select i1 %105, i64 0, i64 %106
@@ -2528,7 +2528,7 @@ _ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit: ; 
   %111 = add nsw i8 %109, -1
   %112 = zext nneg i8 %111 to i64
   %113 = getelementptr inbounds [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %112
-  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit
+  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 114:                                              ; preds = %108
   %115 = add i64 %.sroa.0.sroa.11.0.copyload, -1
@@ -2539,13 +2539,13 @@ _ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit: ; 
   %118 = icmp ne ptr %.sroa.0.sroa.8.0.copyload, null
   tail call void @llvm.assume(i1 %118)
   %119 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.8.0.copyload, i64 0, i64 %115
-  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit
+  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 120:                                              ; preds = %114
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %115, i64 noundef %.sroa.0.sroa.9.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.23) #17, !noalias !276
   unreachable
 
-_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; preds = %110, %117
+_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %110, %117
   %.0.in.i = phi ptr [ %119, %117 ], [ %113, %110 ]
   %.0.i53 = load i8, ptr %.0.in.i, align 1, !noalias !276, !noundef !8
   %121 = add i64 %.sroa.0.sroa.12.0.copyload, -1
@@ -2564,7 +2564,7 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; pr
   %126 = add nsw i8 %124, -1
   %127 = zext nneg i8 %126 to i64
   %128 = getelementptr inbounds [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %127
-  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 129:                                              ; preds = %123
   %130 = add i64 %.sroa.0.sroa.11.0.copyload, -1
@@ -2575,13 +2575,13 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; pr
   %133 = icmp ne ptr %.sroa.0.sroa.8.0.copyload, null
   tail call void @llvm.assume(i1 %133)
   %134 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.8.0.copyload, i64 0, i64 %130
-  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 135:                                              ; preds = %129
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %130, i64 noundef %.sroa.0.sroa.9.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.21) #17, !noalias !279
   unreachable
 
-_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds = %125, %132
+_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %125, %132
   %.0.in.i55 = phi ptr [ %134, %132 ], [ %128, %125 ]
   %.0.i56 = load i8, ptr %.0.in.i55, align 1, !noalias !279, !noundef !8
   %136 = and i8 %.sroa.0.sroa.17.0.copyload, 15
@@ -2589,9 +2589,9 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds 
   %.pre = lshr i8 %.sroa.0.sroa.17.0.copyload, 4
   %.pre317 = zext i1 %.not.i54 to i64
   %.pre318 = xor i64 %.pre317, -1
-  br i1 %137, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit, label %138
+  br i1 %137, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit, label %138
 
-138:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+138:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
   %narrow.i57 = add nuw nsw i8 %.pre, %136
   %139 = zext nneg i8 %narrow.i57 to i64
   %140 = sub nuw nsw i64 %.pre318, %139
@@ -2637,21 +2637,21 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds 
   %158 = shl nuw i64 %156, %157
   %159 = or i64 %158, %.013.i.i61
   %160 = icmp eq ptr %153, %152
-  br i1 %160, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit, label %.lr.ph.i.i60
+  br i1 %160, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit, label %.lr.ph.i.i60
 
 161:                                              ; preds = %138
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %141, i64 noundef %.sroa.0.sroa.9.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.22) #17, !noalias !291
   unreachable
 
-_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit: ; preds = %.lr.ph.i.i60, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
-  %.0.i64 = phi i64 [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit ], [ %159, %.lr.ph.i.i60 ]
+_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit: ; preds = %.lr.ph.i.i60, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
+  %.0.i64 = phi i64 [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit ], [ %159, %.lr.ph.i.i60 ]
   %162 = zext nneg i8 %.pre to i64
   %163 = add i64 %.sroa.0.sroa.11.0.copyload, %.pre318
   %164 = sub i64 %163, %162
   %165 = icmp ugt i64 %164, %.sroa.0.sroa.9.0.copyload
   br i1 %165, label %184, label %166
 
-166:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit
+166:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit
   %167 = icmp ne ptr %.sroa.0.sroa.8.0.copyload, null
   tail call void @llvm.assume(i1 %167)
   %168 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload, i64 %164
@@ -2689,13 +2689,13 @@ _ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit: ; preds
   %181 = shl nuw i64 %179, %180
   %182 = or i64 %181, %.013.i.i70
   %183 = icmp eq ptr %176, %175
-  br i1 %183, label %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit, label %.lr.ph.i.i69
+  br i1 %183, label %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit, label %.lr.ph.i.i69
 
-184:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit
+184:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %164, i64 noundef %.sroa.0.sroa.9.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.18) #17, !noalias !301
   unreachable
 
-_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit: ; preds = %.lr.ph.i.i69
+_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit: ; preds = %.lr.ph.i.i69
   %185 = icmp eq i64 %182, 0
   %186 = sub i64 %.sroa.0.sroa.12.0.copyload, %182
   %.0.i73 = select i1 %185, i64 0, i64 %186
@@ -2705,10 +2705,10 @@ _ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit: ; 
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.ee33ef7e5b2babbfb09eb0d7c843416c.25, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.27) #17, !noalias !272
   unreachable
 
-_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit
-  %.sroa.0.0 = phi i64 [ %.0.i41, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit ], [ %.0.i64, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit ]
-  %.sroa.7124.0 = phi i64 [ %.0.i51, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit ], [ %.0.i73, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit ], [ %121, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit ]
-  %.sroa.11.0 = phi i8 [ %54, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit ], [ %.0.i56, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit ], [ %.0.i53, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit ]
+_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit
+  %.sroa.0.0 = phi i64 [ %.0.i41, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i64, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
+  %.sroa.7124.0 = phi i64 [ %.0.i51, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i73, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %121, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
+  %.sroa.11.0 = phi i8 [ %54, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i56, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %.0.i53, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
   %188 = add i64 %.sroa.0.0, %.sroa.0.sroa.7.0.copyload
   %189 = load ptr, ptr %12, align 8, !nonnull !8, !align !15, !noundef !8
   %190 = getelementptr inbounds i8, ptr %189, i64 8
@@ -3041,13 +3041,13 @@ default.unreachable.i:                            ; preds = %44
   %54 = add i64 %53, %.02.neg.i
   %55 = add i64 %54, %.0.neg.i
   %56 = icmp ult i64 %55, %.sroa.0.sroa.10.0.copyload
-  br i1 %56, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit, label %57, !prof !60
+  br i1 %56, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit, label %57, !prof !60
 
 57:                                               ; preds = %49
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %55, i64 noundef %.sroa.0.sroa.10.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.16) #17, !noalias !335
   unreachable
 
-_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit: ; preds = %49
+_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit: ; preds = %49
   %58 = icmp ne ptr %.sroa.0.sroa.9.0.copyload, null
   tail call void @llvm.assume(i1 %58)
   %59 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.9.0.copyload, i64 0, i64 %55
@@ -3055,13 +3055,13 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit: ; preds 
   %61 = and i8 %.sroa.0.sroa.18.0.copyload, 15
   %62 = zext nneg i8 %61 to i64
   %63 = icmp eq i8 %61, 0
-  br i1 %63, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit_crit_edge, label %64
+  br i1 %63, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge, label %64
 
-_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit_crit_edge: ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit
+_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge: ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit
   %.pre335 = lshr exact i8 %.sroa.0.sroa.18.0.copyload, 4
   br label %.loopexit
 
-64:                                               ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit
+64:                                               ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit
   %65 = select i1 %or.cond.i, i64 -257, i64 -1
   %66 = lshr i8 %.sroa.0.sroa.18.0.copyload, 4
   %narrow.i = add nuw nsw i8 %66, 1
@@ -3117,9 +3117,9 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %70, i64 noundef %.sroa.0.sroa.10.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.17) #17, !noalias !347
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit_crit_edge
-  %.pre-phi336 = phi i8 [ %.pre335, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit_crit_edge ], [ %66, %.lr.ph.i.i ]
-  %.0.i44 = phi i64 [ 0, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit_crit_edge ], [ %86, %.lr.ph.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge
+  %.pre-phi336 = phi i8 [ %.pre335, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge ], [ %66, %.lr.ph.i.i ]
+  %.0.i44 = phi i64 [ 0, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge ], [ %86, %.lr.ph.i.i ]
   %89 = zext nneg i8 %.pre-phi336 to i64
   %.neg3.i = select i1 %.not.i, i64 -2, i64 -1
   %.neg179 = sub i64 %.sroa.0.sroa.12.0.copyload, %.sroa.0.sroa.14.0.copyload
@@ -3167,13 +3167,13 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit..loopexit
   %107 = shl nuw i64 %105, %106
   %108 = or i64 %107, %.013.i.i51
   %109 = icmp eq ptr %102, %101
-  br i1 %109, label %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit, label %.lr.ph.i.i50
+  br i1 %109, label %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit, label %.lr.ph.i.i50
 
 110:                                              ; preds = %.loopexit
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %91, i64 noundef %.sroa.0.sroa.10.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.15) #17, !noalias !357
   unreachable
 
-_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit: ; preds = %.lr.ph.i.i50
+_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit: ; preds = %.lr.ph.i.i50
   %111 = icmp eq i64 %108, 0
   %112 = sub i64 %.sroa.0.sroa.13.0.copyload, %108
   %.0.i54 = select i1 %111, i64 0, i64 %112
@@ -3192,7 +3192,7 @@ _ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit: ; 
   %117 = add nsw i8 %115, -1
   %118 = zext nneg i8 %117 to i64
   %119 = getelementptr inbounds [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %118
-  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit
+  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 120:                                              ; preds = %114
   %121 = add i64 %.sroa.0.sroa.12.0.copyload, -1
@@ -3203,13 +3203,13 @@ _ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit: ; 
   %124 = icmp ne ptr %.sroa.0.sroa.9.0.copyload, null
   tail call void @llvm.assume(i1 %124)
   %125 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.9.0.copyload, i64 0, i64 %121
-  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit
+  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 126:                                              ; preds = %120
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %121, i64 noundef %.sroa.0.sroa.10.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.23) #17, !noalias !362
   unreachable
 
-_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; preds = %116, %123
+_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %116, %123
   %.0.in.i = phi ptr [ %125, %123 ], [ %119, %116 ]
   %.0.i56 = load i8, ptr %.0.in.i, align 1, !noalias !362, !noundef !8
   %127 = add i64 %.sroa.0.sroa.13.0.copyload, -1
@@ -3228,7 +3228,7 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; pr
   %132 = add nsw i8 %130, -1
   %133 = zext nneg i8 %132 to i64
   %134 = getelementptr inbounds [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %133
-  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 135:                                              ; preds = %129
   %136 = add i64 %.sroa.0.sroa.12.0.copyload, -1
@@ -3239,13 +3239,13 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; pr
   %139 = icmp ne ptr %.sroa.0.sroa.9.0.copyload, null
   tail call void @llvm.assume(i1 %139)
   %140 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.9.0.copyload, i64 0, i64 %136
-  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 141:                                              ; preds = %135
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %136, i64 noundef %.sroa.0.sroa.10.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.21) #17, !noalias !365
   unreachable
 
-_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds = %131, %138
+_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %131, %138
   %.0.in.i58 = phi ptr [ %140, %138 ], [ %134, %131 ]
   %.0.i59 = load i8, ptr %.0.in.i58, align 1, !noalias !365, !noundef !8
   %142 = and i8 %.sroa.0.sroa.18.0.copyload, 15
@@ -3253,9 +3253,9 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds 
   %.pre = lshr i8 %.sroa.0.sroa.18.0.copyload, 4
   %.pre332 = zext i1 %.not.i57 to i64
   %.pre333 = xor i64 %.pre332, -1
-  br i1 %143, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit, label %144
+  br i1 %143, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit, label %144
 
-144:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+144:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
   %narrow.i60 = add nuw nsw i8 %.pre, %142
   %145 = zext nneg i8 %narrow.i60 to i64
   %146 = sub nuw nsw i64 %.pre333, %145
@@ -3301,21 +3301,21 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds 
   %164 = shl nuw i64 %162, %163
   %165 = or i64 %164, %.013.i.i64
   %166 = icmp eq ptr %159, %158
-  br i1 %166, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit, label %.lr.ph.i.i63
+  br i1 %166, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit, label %.lr.ph.i.i63
 
 167:                                              ; preds = %144
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %147, i64 noundef %.sroa.0.sroa.10.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.22) #17, !noalias !377
   unreachable
 
-_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit: ; preds = %.lr.ph.i.i63, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
-  %.0.i67 = phi i64 [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit ], [ %165, %.lr.ph.i.i63 ]
+_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit: ; preds = %.lr.ph.i.i63, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
+  %.0.i67 = phi i64 [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit ], [ %165, %.lr.ph.i.i63 ]
   %168 = zext nneg i8 %.pre to i64
   %169 = add i64 %.sroa.0.sroa.12.0.copyload, %.pre333
   %170 = sub i64 %169, %168
   %171 = icmp ugt i64 %170, %.sroa.0.sroa.10.0.copyload
   br i1 %171, label %190, label %172
 
-172:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit
+172:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit
   %173 = icmp ne ptr %.sroa.0.sroa.9.0.copyload, null
   tail call void @llvm.assume(i1 %173)
   %174 = getelementptr inbounds i8, ptr %.sroa.0.sroa.9.0.copyload, i64 %170
@@ -3353,13 +3353,13 @@ _ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit: ; preds
   %187 = shl nuw i64 %185, %186
   %188 = or i64 %187, %.013.i.i73
   %189 = icmp eq ptr %182, %181
-  br i1 %189, label %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit, label %.lr.ph.i.i72
+  br i1 %189, label %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit, label %.lr.ph.i.i72
 
-190:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit
+190:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %170, i64 noundef %.sroa.0.sroa.10.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.18) #17, !noalias !387
   unreachable
 
-_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit: ; preds = %.lr.ph.i.i72
+_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit: ; preds = %.lr.ph.i.i72
   %191 = icmp eq i64 %188, 0
   %192 = sub i64 %.sroa.0.sroa.13.0.copyload, %188
   %.0.i76 = select i1 %191, i64 0, i64 %192
@@ -3369,10 +3369,10 @@ _ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit: ; 
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.ee33ef7e5b2babbfb09eb0d7c843416c.25, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.27) #17, !noalias !358
   unreachable
 
-_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit
-  %.sroa.0.0 = phi i64 [ %.0.i44, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit ], [ %.0.i67, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit ]
-  %.sroa.7131.0 = phi i64 [ %.0.i54, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit ], [ %.0.i76, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit ], [ %127, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit ]
-  %.sroa.11.0 = phi i8 [ %60, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom.exit ], [ %.0.i59, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit ], [ %.0.i56, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit ]
+_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit
+  %.sroa.0.0 = phi i64 [ %.0.i44, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i67, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
+  %.sroa.7131.0 = phi i64 [ %.0.i54, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i76, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %127, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
+  %.sroa.11.0 = phi i8 [ %60, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i59, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %.0.i56, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
   %194 = add i64 %.sroa.0.0, %.sroa.0.sroa.7.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
   %195 = load i64, ptr %13, align 8, !alias.scope !388, !noalias !391, !noundef !8
@@ -3564,7 +3564,7 @@ _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit88.thread: ; preds = %"_Z
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !noundef !8
   %5 = icmp ult i64 %1, %4
@@ -3654,7 +3654,7 @@ _ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.retelim(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !8
   %5 = and i8 %.0.val, 63
@@ -3686,7 +3686,7 @@ define internal fastcc void @_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.retelim(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 58
   %4 = load i8, ptr %3, align 2, !noundef !8
   %5 = and i8 %4, 15
@@ -3761,7 +3761,7 @@ _ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE.exit: ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 58
   %3 = load i8, ptr %2, align 2, !noundef !8
   %4 = lshr i8 %3, 4
@@ -3832,7 +3832,7 @@ _ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.retelim(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
   %2 = and i8 %.0.val, 63
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %3, label %10
@@ -3855,7 +3855,7 @@ define internal fastcc void @_ZN3fst3raw4node13StateOneTrans5input17h69da25547d9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.retelim(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 58
   %3 = load i8, ptr %2, align 2, !noundef !8
   %4 = and i8 %3, 15
@@ -3918,7 +3918,7 @@ _ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE.exit: ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.retelim(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E(i8 %.0.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
   %2 = and i8 %.0.val, 63
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %3, label %10
@@ -3948,7 +3948,7 @@ define internal fastcc { i64, i64 } @_ZN3fst3raw4node4Node10find_input17he731278
     i8 0, label %5
     i8 1, label %24
     i8 2, label %43
-    i8 3, label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.argprom.exit
+    i8 3, label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit
   ]
 
 default.unreachable11:                            ; preds = %2
@@ -3966,7 +3966,7 @@ default.unreachable11:                            ; preds = %2
   %9 = add nsw i8 %7, -1
   %10 = zext nneg i8 %9 to i64
   %11 = getelementptr inbounds [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %10
-  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit
+  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3980,17 +3980,17 @@ default.unreachable11:                            ; preds = %2
 19:                                               ; preds = %12
   %20 = load ptr, ptr %0, align 8, !alias.scope !439, !nonnull !8, !align !16, !noundef !8
   %21 = getelementptr inbounds [0 x i8], ptr %20, i64 0, i64 %15
-  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit
+  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 22:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %15, i64 noundef %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.23) #17, !noalias !439
   unreachable
 
-_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; preds = %8, %19
+_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %8, %19
   %.0.in.i = phi ptr [ %21, %19 ], [ %11, %8 ]
   %.0.i = load i8, ptr %.0.in.i, align 1, !noalias !439, !noundef !8
   %23 = icmp eq i8 %.0.i, %1
-  br label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.argprom.exit
+  br label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds i8, ptr %0, i64 57
@@ -4004,7 +4004,7 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; pr
   %28 = add nsw i8 %26, -1
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr inbounds [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %29
-  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4018,17 +4018,17 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; pr
 38:                                               ; preds = %31
   %39 = load ptr, ptr %0, align 8, !alias.scope !442, !nonnull !8, !align !16, !noundef !8
   %40 = getelementptr inbounds [0 x i8], ptr %39, i64 0, i64 %34
-  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 41:                                               ; preds = %31
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %34, i64 noundef %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.21) #17, !noalias !442
   unreachable
 
-_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds = %27, %38
+_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %27, %38
   %.0.in.i7 = phi ptr [ %40, %38 ], [ %30, %27 ]
   %.0.i8 = load i8, ptr %.0.in.i7, align 1, !noalias !442, !noundef !8
   %42 = icmp eq i8 %.0.i8, %1
-  br label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.argprom.exit
+  br label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit
 
 43:                                               ; preds = %2
   %44 = getelementptr inbounds i8, ptr %0, i64 57
@@ -4072,7 +4072,7 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i": ; preds = %62
   %66 = getelementptr inbounds i8, ptr %60, i64 %58
   %67 = icmp eq i64 %50, 0
-  br i1 %67, label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.argprom.exit, label %.lr.ph.i.preheader.i
+  br i1 %67, label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i"
   %68 = getelementptr inbounds i8, ptr %60, i64 %59
@@ -4089,14 +4089,14 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds 
   %72 = getelementptr inbounds i8, ptr %69, i64 1
   %73 = add nuw i64 %.012.i.i, 1
   %74 = icmp eq ptr %72, %66
-  br i1 %74, label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.argprom.exit, label %.lr.ph.i.i
+  br i1 %74, label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit, label %.lr.ph.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i": ; preds = %.lr.ph.i.i
   %75 = icmp ult i64 %.012.i.i, %50
   tail call void @llvm.assume(i1 %75)
   %76 = xor i64 %.012.i.i, -1
   %77 = add i64 %50, %76
-  br label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.argprom.exit
+  br label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit
 
 78:                                               ; preds = %43
   %79 = zext i8 %1 to i64
@@ -4112,15 +4112,15 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds 
   %87 = load i8, ptr %86, align 1, !noalias !445, !noundef !8
   %88 = zext i8 %87 to i64
   %.not29.i = icmp ugt i64 %50, %88
-  br label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.argprom.exit
+  br label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit
 
 89:                                               ; preds = %78
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %82, i64 noundef %56, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.12) #17, !noalias !445
   unreachable
 
-_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.argprom.exit: ; preds = %71, %84, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i", %2, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit
-  %.sroa.7.0 = phi i64 [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit ], [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit ], [ undef, %2 ], [ %88, %84 ], [ %77, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i" ], [ undef, %71 ]
-  %.sroa.0.0.shrunk = phi i1 [ %23, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit ], [ %42, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit ], [ false, %2 ], [ %.not29.i, %84 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i" ], [ false, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i" ], [ false, %71 ]
+_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit: ; preds = %71, %84, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i", %2, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
+  %.sroa.7.0 = phi i64 [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ], [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit ], [ undef, %2 ], [ %88, %84 ], [ %77, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i" ], [ undef, %71 ]
+  %.sroa.0.0.shrunk = phi i1 [ %23, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ], [ %42, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit ], [ false, %2 ], [ %.not29.i, %84 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i" ], [ false, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i" ], [ false, %71 ]
   %.sroa.0.0 = zext i1 %.sroa.0.0.shrunk to i64
   %90 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %91 = insertvalue { i64, i64 } %90, i64 %.sroa.7.0, 1
@@ -4367,13 +4367,13 @@ default.unreachable:                              ; preds = %8
   %32 = getelementptr inbounds i8, ptr %10, i64 8
   %33 = load i64, ptr %32, align 8, !noundef !8
   %34 = icmp ult i64 %31, %33
-  br i1 %34, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit, label %35, !prof !60
+  br i1 %34, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit, label %35, !prof !60
 
 35:                                               ; preds = %17
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %31, i64 noundef %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.16) #17, !noalias !481
   unreachable
 
-_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit: ; preds = %17
+_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit: ; preds = %17
   %36 = load ptr, ptr %10, align 8, !nonnull !8, !align !16, !noundef !8
   %37 = getelementptr inbounds [0 x i8], ptr %36, i64 0, i64 %31
   %38 = load i8, ptr %37, align 1, !noalias !481, !noundef !8
@@ -4383,9 +4383,9 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit: ; preds 
   %41 = and i8 %40, 15
   %42 = zext nneg i8 %41 to i64
   %43 = icmp eq i8 %41, 0
-  br i1 %43, label %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.exit, label %44
+  br i1 %43, label %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.exit, label %44
 
-44:                                               ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit
+44:                                               ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit
   %45 = select i1 %or.cond.i, i64 -257, i64 -1
   %46 = lshr i8 %40, 4
   %narrow.i = add nuw nsw i8 %46, 1
@@ -4435,15 +4435,15 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit: ; preds 
   %65 = shl nuw i64 %63, %64
   %66 = or i64 %65, %.013.i.i
   %67 = icmp eq ptr %60, %59
-  br i1 %67, label %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.exit, label %.lr.ph.i.i
+  br i1 %67, label %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.exit, label %.lr.ph.i.i
 
 68:                                               ; preds = %44
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %50, i64 noundef %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.17) #17, !noalias !484
   unreachable
 
-_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.exit: ; preds = %.lr.ph.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit
-  %.0.i = phi i64 [ 0, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom.exit ], [ %66, %.lr.ph.i.i ]
-  %69 = tail call fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom(i8 %19, ptr noalias noundef readonly align 8 dereferenceable(64) %10, i64 noundef %4)
+_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.exit: ; preds = %.lr.ph.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit
+  %.0.i = phi i64 [ 0, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit ], [ %66, %.lr.ph.i.i ]
+  %69 = tail call fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %19, ptr noalias noundef readonly align 8 dereferenceable(64) %10, i64 noundef %4)
   br label %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit
 
 70:                                               ; preds = %8
@@ -4462,7 +4462,7 @@ _ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.exit: ; preds
   %76 = add nsw i8 %74, -1
   %77 = zext nneg i8 %76 to i64
   %78 = getelementptr inbounds [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %77
-  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit
+  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 79:                                               ; preds = %71
   %80 = getelementptr inbounds i8, ptr %10, i64 24
@@ -4476,13 +4476,13 @@ _ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.exit: ; preds
 86:                                               ; preds = %79
   %87 = load ptr, ptr %10, align 8, !alias.scope !495, !nonnull !8, !align !16, !noundef !8
   %88 = getelementptr inbounds [0 x i8], ptr %87, i64 0, i64 %82
-  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit
+  br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 89:                                               ; preds = %79
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %82, i64 noundef %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.23) #17, !noalias !495
   unreachable
 
-_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; preds = %75, %86
+_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %75, %86
   %.0.in.i = phi ptr [ %88, %86 ], [ %78, %75 ]
   %.0.i11 = load i8, ptr %.0.in.i, align 1, !noalias !495, !noundef !8
   %90 = getelementptr inbounds i8, ptr %10, i64 32
@@ -4506,7 +4506,7 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; pr
   %99 = add nsw i8 %97, -1
   %100 = zext nneg i8 %99 to i64
   %101 = getelementptr inbounds [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %100
-  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 102:                                              ; preds = %94
   %103 = getelementptr inbounds i8, ptr %10, i64 24
@@ -4520,13 +4520,13 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit: ; pr
 109:                                              ; preds = %102
   %110 = load ptr, ptr %10, align 8, !alias.scope !498, !nonnull !8, !align !16, !noundef !8
   %111 = getelementptr inbounds [0 x i8], ptr %110, i64 0, i64 %105
-  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+  br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 112:                                              ; preds = %102
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %105, i64 noundef %107, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.21) #17, !noalias !498
   unreachable
 
-_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds = %98, %109
+_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %98, %109
   %.0.in.i13 = phi ptr [ %111, %109 ], [ %101, %98 ]
   %.0.i14 = load i8, ptr %.0.in.i13, align 1, !noalias !498, !noundef !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !501)
@@ -4534,9 +4534,9 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit: ; preds 
   %114 = load i8, ptr %113, align 2, !noundef !8
   %115 = and i8 %114, 15
   %116 = icmp eq i8 %115, 0
-  br i1 %116, label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit_crit_edge, label %117
+  br i1 %116, label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit_crit_edge, label %117
 
-_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit_crit_edge: ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit_crit_edge: ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !504
   %.phi.trans.insert44 = getelementptr inbounds i8, ptr %10, i64 8
@@ -4544,9 +4544,9 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit._ZN3fst3r
   %.pre46 = lshr exact i8 %114, 4
   %.pre47 = zext i1 %.not.i12 to i64
   %.pre48 = xor i64 %.pre47, -1
-  br label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit
+  br label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit
 
-117:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit
+117:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
   %118 = lshr i8 %114, 4
   %119 = getelementptr inbounds i8, ptr %10, i64 24
   %120 = load i64, ptr %119, align 8, !noundef !8
@@ -4598,18 +4598,18 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit._ZN3fst3r
   %143 = shl nuw i64 %141, %142
   %144 = or i64 %143, %.013.i.i19
   %145 = icmp eq ptr %138, %137
-  br i1 %145, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit, label %.lr.ph.i.i18
+  br i1 %145, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit, label %.lr.ph.i.i18
 
 146:                                              ; preds = %117
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %124, i64 noundef %126, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.22) #17, !noalias !501
   unreachable
 
-_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit: ; preds = %.lr.ph.i.i18, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit_crit_edge
-  %.pre-phi49 = phi i64 [ %.pre48, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit_crit_edge ], [ %121, %.lr.ph.i.i18 ]
-  %.pre-phi = phi i8 [ %.pre46, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit_crit_edge ], [ %118, %.lr.ph.i.i18 ]
-  %147 = phi i64 [ %.pre45, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit_crit_edge ], [ %126, %.lr.ph.i.i18 ]
-  %148 = phi i64 [ %.pre, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit_crit_edge ], [ %120, %.lr.ph.i.i18 ]
-  %.0.i22 = phi i64 [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit_crit_edge ], [ %144, %.lr.ph.i.i18 ]
+_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit: ; preds = %.lr.ph.i.i18, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit_crit_edge
+  %.pre-phi49 = phi i64 [ %.pre48, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit_crit_edge ], [ %121, %.lr.ph.i.i18 ]
+  %.pre-phi = phi i8 [ %.pre46, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit_crit_edge ], [ %118, %.lr.ph.i.i18 ]
+  %147 = phi i64 [ %.pre45, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit_crit_edge ], [ %126, %.lr.ph.i.i18 ]
+  %148 = phi i64 [ %.pre, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit_crit_edge ], [ %120, %.lr.ph.i.i18 ]
+  %.0.i22 = phi i64 [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit._ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit_crit_edge ], [ %144, %.lr.ph.i.i18 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !504)
   %149 = zext nneg i8 %.pre-phi to i64
   %150 = add i64 %148, %.pre-phi49
@@ -4617,7 +4617,7 @@ _ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit: ; preds
   %152 = icmp ugt i64 %151, %147
   br i1 %152, label %173, label %153
 
-153:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit
+153:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit
   %154 = load ptr, ptr %10, align 8, !alias.scope !504, !nonnull !8, !align !16, !noundef !8
   %155 = sub nuw i64 %147, %151
   %156 = getelementptr inbounds i8, ptr %154, i64 %151
@@ -4656,13 +4656,13 @@ _ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit: ; preds
   %170 = shl nuw i64 %168, %169
   %171 = or i64 %170, %.013.i.i28
   %172 = icmp eq ptr %165, %164
-  br i1 %172, label %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit, label %.lr.ph.i.i27
+  br i1 %172, label %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit, label %.lr.ph.i.i27
 
-173:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom.exit
+173:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %151, i64 noundef %147, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.18) #17, !noalias !504
   unreachable
 
-_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit: ; preds = %.lr.ph.i.i27
+_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit: ; preds = %.lr.ph.i.i27
   %174 = icmp eq i64 %171, 0
   %175 = sub i64 %158, %171
   %.0.i31 = select i1 %174, i64 0, i64 %175
@@ -4672,10 +4672,10 @@ _ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit: ; 
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.ee33ef7e5b2babbfb09eb0d7c843416c.25, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.27) #17, !noalias !494
   unreachable
 
-_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit
-  %.sroa.9.0 = phi i8 [ %38, %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.exit ], [ %.0.i14, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit ], [ %.0.i11, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit ]
-  %.sroa.6.0 = phi i64 [ %69, %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.exit ], [ %.0.i31, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit ], [ %92, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit ]
-  %.sroa.0.0 = phi i64 [ %.0.i, %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom.exit ], [ %.0.i22, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom.exit ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom.exit ]
+_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit
+  %.sroa.9.0 = phi i8 [ %38, %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.exit ], [ %.0.i14, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %.0.i11, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
+  %.sroa.6.0 = phi i64 [ %69, %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.exit ], [ %.0.i31, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %92, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
+  %.sroa.0.0 = phi i64 [ %.0.i, %_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.exit ], [ %.0.i22, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
   %177 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0, ptr %177, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -4876,27 +4876,27 @@ attributes #17 = { noreturn }
 !62 = distinct !{!62, !63, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !63 = distinct !{!63, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom: argument 0"}
-!66 = distinct !{!66, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom"}
+!65 = distinct !{!65, !66, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E: argument 0"}
+!66 = distinct !{!66, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom: argument 0"}
-!69 = distinct !{!69, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom"}
+!68 = distinct !{!68, !69, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE: argument 0"}
+!69 = distinct !{!69, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE"}
 !70 = !{!71}
 !71 = distinct !{!71, !72, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !72 = distinct !{!72, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom: argument 0"}
-!75 = distinct !{!75, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom"}
+!74 = distinct !{!74, !75, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E: argument 0"}
+!75 = distinct !{!75, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E"}
 !76 = !{!"branch_weights", i32 1, i32 4001}
 !77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom: argument 0"}
-!79 = distinct !{!79, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom"}
+!78 = distinct !{!78, !79, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E: argument 0"}
+!79 = distinct !{!79, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E"}
 !80 = !{!81}
 !81 = distinct !{!81, !82, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !82 = distinct !{!82, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom: argument 0"}
-!85 = distinct !{!85, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom"}
+!84 = distinct !{!84, !85, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E: argument 0"}
+!85 = distinct !{!85, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E"}
 !86 = !{!87}
 !87 = distinct !{!87, !88, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !88 = distinct !{!88, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
@@ -4982,26 +4982,26 @@ attributes #17 = { noreturn }
 !168 = distinct !{!168, !169, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !169 = distinct !{!169, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom: argument 0"}
-!172 = distinct !{!172, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom"}
+!171 = distinct !{!171, !172, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E: argument 0"}
+!172 = distinct !{!172, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E"}
 !173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom: argument 0"}
-!175 = distinct !{!175, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom"}
+!174 = distinct !{!174, !175, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE: argument 0"}
+!175 = distinct !{!175, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE"}
 !176 = !{!177}
 !177 = distinct !{!177, !178, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !178 = distinct !{!178, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom: argument 0"}
-!181 = distinct !{!181, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom"}
+!180 = distinct !{!180, !181, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E: argument 0"}
+!181 = distinct !{!181, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E"}
 !182 = !{!183}
-!183 = distinct !{!183, !184, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom: argument 0"}
-!184 = distinct !{!184, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom"}
+!183 = distinct !{!183, !184, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E: argument 0"}
+!184 = distinct !{!184, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E"}
 !185 = !{!186}
 !186 = distinct !{!186, !187, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !187 = distinct !{!187, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !188 = !{!189}
-!189 = distinct !{!189, !190, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom: argument 0"}
-!190 = distinct !{!190, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom"}
+!189 = distinct !{!189, !190, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E: argument 0"}
+!190 = distinct !{!190, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E"}
 !191 = !{!192}
 !192 = distinct !{!192, !193, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !193 = distinct !{!193, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
@@ -5061,14 +5061,14 @@ attributes #17 = { noreturn }
 !247 = !{!248}
 !248 = distinct !{!248, !239, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h039bd7d6b1c3ffcfE: argument 1"}
 !249 = !{!250}
-!250 = distinct !{!250, !251, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom: argument 0"}
-!251 = distinct !{!251, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom"}
+!250 = distinct !{!250, !251, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE: argument 0"}
+!251 = distinct !{!251, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE"}
 !252 = !{!253}
 !253 = distinct !{!253, !254, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !254 = distinct !{!254, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !255 = !{!253, !256}
-!256 = distinct !{!256, !257, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom: argument 0"}
-!257 = distinct !{!257, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom"}
+!256 = distinct !{!256, !257, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E: argument 0"}
+!257 = distinct !{!257, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E"}
 !258 = !{!259, !253, !256}
 !259 = distinct !{!259, !260, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE: argument 0"}
 !260 = distinct !{!260, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE"}
@@ -5077,8 +5077,8 @@ attributes #17 = { noreturn }
 !263 = distinct !{!263, !264, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !264 = distinct !{!264, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !265 = !{!263, !266}
-!266 = distinct !{!266, !267, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom: argument 0"}
-!267 = distinct !{!267, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom"}
+!266 = distinct !{!266, !267, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE: argument 0"}
+!267 = distinct !{!267, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE"}
 !268 = !{!269, !263, !266}
 !269 = distinct !{!269, !270, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE: argument 0"}
 !270 = distinct !{!270, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE"}
@@ -5088,17 +5088,17 @@ attributes #17 = { noreturn }
 !274 = distinct !{!274, !"_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E"}
 !275 = distinct !{!275, !274, !"_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E: argument 1"}
 !276 = !{!277}
-!277 = distinct !{!277, !278, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom: argument 0"}
-!278 = distinct !{!278, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom"}
+!277 = distinct !{!277, !278, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E: argument 0"}
+!278 = distinct !{!278, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E"}
 !279 = !{!280}
-!280 = distinct !{!280, !281, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom: argument 0"}
-!281 = distinct !{!281, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom"}
+!280 = distinct !{!280, !281, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE: argument 0"}
+!281 = distinct !{!281, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE"}
 !282 = !{!283}
 !283 = distinct !{!283, !284, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !284 = distinct !{!284, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !285 = !{!283, !286}
-!286 = distinct !{!286, !287, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom: argument 0"}
-!287 = distinct !{!287, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom"}
+!286 = distinct !{!286, !287, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E: argument 0"}
+!287 = distinct !{!287, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E"}
 !288 = !{!289, !283, !286}
 !289 = distinct !{!289, !290, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE: argument 0"}
 !290 = distinct !{!290, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE"}
@@ -5107,8 +5107,8 @@ attributes #17 = { noreturn }
 !293 = distinct !{!293, !294, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !294 = distinct !{!294, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !295 = !{!293, !296}
-!296 = distinct !{!296, !297, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom: argument 0"}
-!297 = distinct !{!297, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom"}
+!296 = distinct !{!296, !297, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E: argument 0"}
+!297 = distinct !{!297, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E"}
 !298 = !{!299, !293, !296}
 !299 = distinct !{!299, !300, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE: argument 0"}
 !300 = distinct !{!300, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE"}
@@ -5147,14 +5147,14 @@ attributes #17 = { noreturn }
 !333 = !{!334}
 !334 = distinct !{!334, !325, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hd7c8198c4a2a32d1E: argument 1"}
 !335 = !{!336}
-!336 = distinct !{!336, !337, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom: argument 0"}
-!337 = distinct !{!337, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom"}
+!336 = distinct !{!336, !337, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE: argument 0"}
+!337 = distinct !{!337, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE"}
 !338 = !{!339}
 !339 = distinct !{!339, !340, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !340 = distinct !{!340, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !341 = !{!339, !342}
-!342 = distinct !{!342, !343, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom: argument 0"}
-!343 = distinct !{!343, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom"}
+!342 = distinct !{!342, !343, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E: argument 0"}
+!343 = distinct !{!343, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E"}
 !344 = !{!345, !339, !342}
 !345 = distinct !{!345, !346, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE: argument 0"}
 !346 = distinct !{!346, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE"}
@@ -5163,8 +5163,8 @@ attributes #17 = { noreturn }
 !349 = distinct !{!349, !350, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !350 = distinct !{!350, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !351 = !{!349, !352}
-!352 = distinct !{!352, !353, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom: argument 0"}
-!353 = distinct !{!353, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.argprom"}
+!352 = distinct !{!352, !353, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE: argument 0"}
+!353 = distinct !{!353, !"_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE"}
 !354 = !{!355, !349, !352}
 !355 = distinct !{!355, !356, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE: argument 0"}
 !356 = distinct !{!356, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE"}
@@ -5174,17 +5174,17 @@ attributes #17 = { noreturn }
 !360 = distinct !{!360, !"_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E"}
 !361 = distinct !{!361, !360, !"_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E: argument 1"}
 !362 = !{!363}
-!363 = distinct !{!363, !364, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom: argument 0"}
-!364 = distinct !{!364, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom"}
+!363 = distinct !{!363, !364, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E: argument 0"}
+!364 = distinct !{!364, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E"}
 !365 = !{!366}
-!366 = distinct !{!366, !367, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom: argument 0"}
-!367 = distinct !{!367, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom"}
+!366 = distinct !{!366, !367, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE: argument 0"}
+!367 = distinct !{!367, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE"}
 !368 = !{!369}
 !369 = distinct !{!369, !370, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !370 = distinct !{!370, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !371 = !{!369, !372}
-!372 = distinct !{!372, !373, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom: argument 0"}
-!373 = distinct !{!373, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom"}
+!372 = distinct !{!372, !373, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E: argument 0"}
+!373 = distinct !{!373, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E"}
 !374 = !{!375, !369, !372}
 !375 = distinct !{!375, !376, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE: argument 0"}
 !376 = distinct !{!376, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE"}
@@ -5193,8 +5193,8 @@ attributes #17 = { noreturn }
 !379 = distinct !{!379, !380, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !380 = distinct !{!380, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
 !381 = !{!379, !382}
-!382 = distinct !{!382, !383, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom: argument 0"}
-!383 = distinct !{!383, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom"}
+!382 = distinct !{!382, !383, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E: argument 0"}
+!383 = distinct !{!383, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E"}
 !384 = !{!385, !379, !382}
 !385 = distinct !{!385, !386, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE: argument 0"}
 !386 = distinct !{!386, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE"}
@@ -5251,14 +5251,14 @@ attributes #17 = { noreturn }
 !437 = distinct !{!437, !438, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE: argument 0"}
 !438 = distinct !{!438, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE"}
 !439 = !{!440}
-!440 = distinct !{!440, !441, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom: argument 0"}
-!441 = distinct !{!441, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom"}
+!440 = distinct !{!440, !441, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E: argument 0"}
+!441 = distinct !{!441, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E"}
 !442 = !{!443}
-!443 = distinct !{!443, !444, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom: argument 0"}
-!444 = distinct !{!444, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom"}
+!443 = distinct !{!443, !444, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE: argument 0"}
+!444 = distinct !{!444, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE"}
 !445 = !{!446}
-!446 = distinct !{!446, !447, !"_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.argprom: argument 0"}
-!447 = distinct !{!447, !"_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.argprom"}
+!446 = distinct !{!446, !447, !"_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E: argument 0"}
+!447 = distinct !{!447, !"_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E"}
 !448 = !{!449, !446}
 !449 = distinct !{!449, !450, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE: argument 0"}
 !450 = distinct !{!450, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE"}
@@ -5293,11 +5293,11 @@ attributes #17 = { noreturn }
 !479 = !{!480}
 !480 = distinct !{!480, !478, !"_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E: argument 0"}
 !481 = !{!482}
-!482 = distinct !{!482, !483, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom: argument 0"}
-!483 = distinct !{!483, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.argprom"}
+!482 = distinct !{!482, !483, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE: argument 0"}
+!483 = distinct !{!483, !"_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE"}
 !484 = !{!485}
-!485 = distinct !{!485, !486, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom: argument 0"}
-!486 = distinct !{!486, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.argprom"}
+!485 = distinct !{!485, !486, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E: argument 0"}
+!486 = distinct !{!486, !"_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E"}
 !487 = !{!488}
 !488 = distinct !{!488, !489, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !489 = distinct !{!489, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}
@@ -5307,17 +5307,17 @@ attributes #17 = { noreturn }
 !493 = distinct !{!493, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE"}
 !494 = !{!480, !477}
 !495 = !{!496}
-!496 = distinct !{!496, !497, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom: argument 0"}
-!497 = distinct !{!497, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.argprom"}
+!496 = distinct !{!496, !497, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E: argument 0"}
+!497 = distinct !{!497, !"_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E"}
 !498 = !{!499}
-!499 = distinct !{!499, !500, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom: argument 0"}
-!500 = distinct !{!500, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.argprom"}
+!499 = distinct !{!499, !500, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE: argument 0"}
+!500 = distinct !{!500, !"_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE"}
 !501 = !{!502}
-!502 = distinct !{!502, !503, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom: argument 0"}
-!503 = distinct !{!503, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.argprom"}
+!502 = distinct !{!502, !503, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E: argument 0"}
+!503 = distinct !{!503, !"_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E"}
 !504 = !{!505}
-!505 = distinct !{!505, !506, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom: argument 0"}
-!506 = distinct !{!506, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.argprom"}
+!505 = distinct !{!505, !506, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E: argument 0"}
+!506 = distinct !{!506, !"_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E"}
 !507 = !{!508}
 !508 = distinct !{!508, !509, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE: argument 0"}
 !509 = distinct !{!509, !"_ZN3fst5bytes11unpack_uint17hd9ca5f686fceaeaaE"}

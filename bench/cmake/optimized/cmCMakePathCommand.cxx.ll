@@ -1669,7 +1669,7 @@ _ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi2EEES
   %57 = load ptr, ptr %0, align 8
   %58 = load ptr, ptr %14, align 8
   %59 = getelementptr inbounds i8, ptr %57, i64 64
-  %60 = tail call fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_116HandleSetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr nonnull %59, ptr %58, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_116HandleSetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112))
+  %60 = tail call fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_116HandleSetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr nonnull %59, ptr %58, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_116HandleSetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112))
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_116HandleSetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 120), align 8
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_116HandleSetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112), align 8
   %63 = ptrtoint ptr %61 to i64
@@ -2934,11 +2934,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_128HandleRemoveExtensionComm
           to label %18 unwind label %67
 
 18:                                               ; preds = %17
-  %19 = invoke fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_.argelim(ptr noundef nonnull align 8 dereferenceable(136) %5, i64 9, ptr nonnull @.str.38)
+  %19 = invoke fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull align 8 dereferenceable(136) %5, i64 9, ptr nonnull @.str.38)
           to label %20 unwind label %69
 
 20:                                               ; preds = %18
-  invoke fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.argprom(ptr noundef nonnull align 8 dereferenceable(136) %5)
+  invoke fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_(ptr noundef nonnull align 8 dereferenceable(136) %5)
           to label %21 unwind label %69
 
 21:                                               ; preds = %20
@@ -3022,12 +3022,12 @@ _ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt
   %47 = getelementptr inbounds i8, ptr %4, i64 80
   %48 = load ptr, ptr %47, align 8, !noalias !85
   %.not.i.i.i.i.i5.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i.i5.i.i, label %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom.exit, label %49
+  br i1 %.not.i.i.i.i.i5.i.i, label %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.exit, label %49
 
 49:                                               ; preds = %_ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEEvRKT_m.exit.i.i.i.i
   %50 = getelementptr inbounds i8, ptr %4, i64 64
   %51 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef 3)
-          to label %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom.exit unwind label %52
+          to label %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.exit unwind label %52
 
 52:                                               ; preds = %49
   %53 = landingpad { ptr, i32 }
@@ -3073,13 +3073,13 @@ common.resume:                                    ; preds = %71, %147, %.body.i.
   call fastcc void @_ZZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusEN9ArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %6) #21
   br label %common.resume
 
-_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom.exit: ; preds = %_ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEEvRKT_m.exit.i.i.i.i, %49
+_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.exit: ; preds = %_ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEEvRKT_m.exit.i.i.i.i, %49
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4), !noalias !85
   %64 = load ptr, ptr %1, align 8
   %65 = invoke noundef zeroext i1 @_ZNK14ArgumentParser11ParseResult16MaybeReportErrorER10cmMakefile(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(3520) %64)
           to label %66 unwind label %72
 
-66:                                               ; preds = %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom.exit
+66:                                               ; preds = %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.exit
   br i1 %65, label %138, label %74
 
 67:                                               ; preds = %17
@@ -3098,7 +3098,7 @@ _ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtension
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser) #21
   br label %common.resume
 
-72:                                               ; preds = %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom.exit
+72:                                               ; preds = %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.exit
   %73 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -3339,11 +3339,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129HandleReplaceExtensionCom
           to label %21 unwind label %70
 
 21:                                               ; preds = %20
-  %22 = invoke fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_.argelim(ptr noundef nonnull align 8 dereferenceable(136) %5, i64 9, ptr nonnull @.str.38)
+  %22 = invoke fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull align 8 dereferenceable(136) %5, i64 9, ptr nonnull @.str.38)
           to label %23 unwind label %72
 
 23:                                               ; preds = %21
-  invoke fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.argprom(ptr noundef nonnull align 8 dereferenceable(136) %5)
+  invoke fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_(ptr noundef nonnull align 8 dereferenceable(136) %5)
           to label %24 unwind label %72
 
 24:                                               ; preds = %23
@@ -3427,12 +3427,12 @@ _ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt
   %50 = getelementptr inbounds i8, ptr %4, i64 80
   %51 = load ptr, ptr %50, align 8, !noalias !105
   %.not.i.i.i.i.i5.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i.i.i5.i.i, label %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom.exit, label %52
+  br i1 %.not.i.i.i.i.i5.i.i, label %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.exit, label %52
 
 52:                                               ; preds = %_ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEEvRKT_m.exit.i.i.i.i
   %53 = getelementptr inbounds i8, ptr %4, i64 64
   %54 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %53, i32 noundef 3)
-          to label %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom.exit unwind label %55
+          to label %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.exit unwind label %55
 
 55:                                               ; preds = %52
   %56 = landingpad { ptr, i32 }
@@ -3478,13 +3478,13 @@ common.resume:                                    ; preds = %74, %165, %.body.i.
   call fastcc void @_ZZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusEN9ArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %6) #21
   br label %common.resume
 
-_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom.exit: ; preds = %_ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEEvRKT_m.exit.i.i.i.i, %52
+_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.exit: ; preds = %_ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEEvRKT_m.exit.i.i.i.i, %52
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4), !noalias !105
   %67 = load ptr, ptr %1, align 8
   %68 = invoke noundef zeroext i1 @_ZNK14ArgumentParser11ParseResult16MaybeReportErrorER10cmMakefile(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(3520) %67)
           to label %69 unwind label %75
 
-69:                                               ; preds = %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom.exit
+69:                                               ; preds = %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.exit
   br i1 %68, label %156, label %77
 
 70:                                               ; preds = %20
@@ -3503,7 +3503,7 @@ _ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensio
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser) #21
   br label %common.resume
 
-75:                                               ; preds = %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom.exit
+75:                                               ; preds = %_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.exit
   %76 = landingpad { ptr, i32 }
           cleanup
   br label %165
@@ -4263,7 +4263,7 @@ _ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi2EEES
   %44 = load ptr, ptr %0, align 8
   %45 = load ptr, ptr %14, align 8
   %46 = getelementptr inbounds i8, ptr %44, i64 64
-  %47 = tail call fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_123HandleNativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr nonnull %46, ptr %45, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_123HandleNativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112))
+  %47 = tail call fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_123HandleNativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr nonnull %46, ptr %45, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_123HandleNativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112))
   %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_123HandleNativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 120), align 8
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_123HandleNativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112), align 8
   %50 = ptrtoint ptr %48 to i64
@@ -4698,7 +4698,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %87 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_120HandleConvertCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112), align 8
   %88 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_120HandleConvertCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 120), align 8
   %.not.i.i.i = icmp eq ptr %88, %87
-  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi4EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE.argprom.exit, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi4EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE.exit, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %86, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i.i.i ], [ %87, %86 ]
@@ -4709,19 +4709,19 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store ptr %87, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_120HandleConvertCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 120), align 8
-  br label %_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi4EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi4EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE.exit
 
-_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi4EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE.argprom.exit: ; preds = %86, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
+_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi4EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE.exit: ; preds = %86, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
   %90 = load ptr, ptr %0, align 8
   %91 = load ptr, ptr %21, align 8
   %92 = getelementptr inbounds i8, ptr %90, i64 128
-  %93 = tail call fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_120HandleConvertCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr nonnull %92, ptr %91, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_120HandleConvertCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112))
+  %93 = tail call fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_120HandleConvertCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr nonnull %92, ptr %91, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_120HandleConvertCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112))
   %94 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_120HandleConvertCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112), align 8
   %95 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_120HandleConvertCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 120), align 8
   %96 = icmp eq ptr %94, %95
   br i1 %96, label %109, label %97
 
-97:                                               ; preds = %_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi4EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE.argprom.exit
+97:                                               ; preds = %_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi4EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #21
   %98 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc90 unwind label %105
@@ -4772,7 +4772,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #21
   br label %236
 
-109:                                              ; preds = %_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi4EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE.argprom.exit
+109:                                              ; preds = %_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi4EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %110 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #21
   %111 = extractvalue { i64, ptr } %110, 0
@@ -6520,7 +6520,7 @@ _ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_15NormalizeOptionEE5ParseILi2EEES
   %50 = load ptr, ptr %0, align 8
   %51 = load ptr, ptr %20, align 8
   %52 = getelementptr inbounds i8, ptr %50, i64 64
-  %53 = tail call fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_121HandleIsPrefixCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr nonnull %52, ptr %51, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_121HandleIsPrefixCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112))
+  %53 = tail call fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_121HandleIsPrefixCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr nonnull %52, ptr %51, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_121HandleIsPrefixCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112))
   %54 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_121HandleIsPrefixCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 120), align 8
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_121HandleIsPrefixCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112), align 8
   %56 = ptrtoint ptr %54 to i64
@@ -7871,13 +7871,13 @@ define internal void @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL
 
 6:                                                ; preds = %4
   tail call void @_ZNK11cmCMakePath12GetExtensionEv(ptr dead_on_unwind writable sret(%class.cmCMakePath) align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_4JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit"
+  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_4JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
 7:                                                ; preds = %4
   tail call void @_ZNK11cmCMakePath16GetWideExtensionEv(ptr dead_on_unwind writable sret(%class.cmCMakePath) align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_4JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit"
+  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_4JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
-"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_4JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit": ; preds = %6, %7
+"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_4JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %6, %7
   ret void
 }
 
@@ -8020,13 +8020,13 @@ define internal void @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL
 
 6:                                                ; preds = %4
   tail call void @_ZNK11cmCMakePath7GetStemEv(ptr dead_on_unwind writable sret(%class.cmCMakePath) align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_5JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit"
+  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_5JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
 7:                                                ; preds = %4
   tail call void @_ZNK11cmCMakePath13GetNarrowStemEv(ptr dead_on_unwind writable sret(%class.cmCMakePath) align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_5JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit"
+  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_5JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
-"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_5JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit": ; preds = %6, %7
+"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_5JRKS0_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %6, %7
   ret void
 }
 
@@ -9508,7 +9508,7 @@ _ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN12_GLOBAL__N_115Norma
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr %.0.val, ptr readnone %.8.val, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr %.0.val, ptr readnone %.8.val, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.ArgumentParser::Instance", align 8
   %4 = alloca %"struct.(anonymous namespace)::NormalizeOption", align 1
   store i8 0, ptr %4, align 1
@@ -9548,12 +9548,12 @@ _ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt
   %14 = getelementptr inbounds i8, ptr %3, i64 80
   %15 = load ptr, ptr %14, align 8
   %.not.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i, label %_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEEbRS1_RKT_PSH_m.argprom.exit, label %16
+  br i1 %.not.i.i.i.i, label %_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEEbRS1_RKT_PSH_m.exit, label %16
 
 16:                                               ; preds = %_ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEEvRKT_m.exit.i
   %17 = getelementptr inbounds i8, ptr %3, i64 64
   %18 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
-          to label %_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEEbRS1_RKT_PSH_m.argprom.exit unwind label %19
+          to label %_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEEbRS1_RKT_PSH_m.exit unwind label %19
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
@@ -9594,7 +9594,7 @@ _ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt
 _ZN14ArgumentParser8InstanceD2Ev.exit12.i:        ; preds = %25, %22
   resume { ptr, i32 } %lpad.phi.i
 
-_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEEbRS1_RKT_PSH_m.argprom.exit: ; preds = %_ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEEvRKT_m.exit.i, %16
+_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEEbRS1_RKT_PSH_m.exit: ; preds = %_ZN14ArgumentParser8Instance5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEEEEvRKT_m.exit.i, %16
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3)
   %31 = load i8, ptr %4, align 1
   ret i8 %31
@@ -10055,15 +10055,15 @@ define internal void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %_ZSt10__invoke_rIvRZN16cmArgumentParserIN12_GLOBAL__N_114OutputVariableEE4BindISt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEERS3_N2cm18static_string_viewEMS2_T_EUlRNS6_8InstanceEE_JSM_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSQ_DpOSR_.argprom.exit, label %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
+  br i1 %8, label %_ZSt10__invoke_rIvRZN16cmArgumentParserIN12_GLOBAL__N_114OutputVariableEE4BindISt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEERS3_N2cm18static_string_viewEMS2_T_EUlRNS6_8InstanceEE_JSM_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSQ_DpOSR_.exit, label %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
 
 _ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i: ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   store i8 1, ptr %6, align 8
-  br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIN12_GLOBAL__N_114OutputVariableEE4BindISt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEERS3_N2cm18static_string_viewEMS2_T_EUlRNS6_8InstanceEE_JSM_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSQ_DpOSR_.argprom.exit
+  br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIN12_GLOBAL__N_114OutputVariableEE4BindISt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEERS3_N2cm18static_string_viewEMS2_T_EUlRNS6_8InstanceEE_JSM_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSQ_DpOSR_.exit
 
-_ZSt10__invoke_rIvRZN16cmArgumentParserIN12_GLOBAL__N_114OutputVariableEE4BindISt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEERS3_N2cm18static_string_viewEMS2_T_EUlRNS6_8InstanceEE_JSM_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSQ_DpOSR_.argprom.exit: ; preds = %2, %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
+_ZSt10__invoke_rIvRZN16cmArgumentParserIN12_GLOBAL__N_114OutputVariableEE4BindISt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEERS3_N2cm18static_string_viewEMS2_T_EUlRNS6_8InstanceEE_JSM_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSQ_DpOSR_.exit: ; preds = %2, %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
   tail call void @_ZN14ArgumentParser8Instance4BindERNS_8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
   ret void
 }
@@ -10389,7 +10389,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_.argelim(ptr noundef nonnull returned align 8 dereferenceable(136) %0, i64 %1, ptr %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(136) %0, i64 %1, ptr %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::function.217", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -10445,11 +10445,11 @@ _ZN16cmArgumentParserIZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.argprom(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN14ArgumentParser9ActionMapC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112), ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %_ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.argprom.exit unwind label %3
+          to label %_ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.exit unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
@@ -10457,7 +10457,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariable
   tail call void @_ZN14ArgumentParser9ActionMapD2Ev(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser) #21
   resume { ptr, i32 } %4
 
-_ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.argprom.exit: ; preds = %1
+_ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.exit: ; preds = %1
   ret void
 }
 
@@ -10615,15 +10615,15 @@ define internal void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.argprom.exit, label %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
+  br i1 %8, label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.exit, label %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
 
 _ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i: ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   store i8 1, ptr %6, align 8
-  br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.argprom.exit
+  br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.exit
 
-_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.argprom.exit: ; preds = %2, %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
+_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.exit: ; preds = %2, %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
   tail call void @_ZN14ArgumentParser8Instance4BindERNS_8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
   ret void
 }
@@ -11340,7 +11340,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_.argelim(ptr noundef nonnull returned align 8 dereferenceable(136) %0, i64 %1, ptr %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIbEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(136) %0, i64 %1, ptr %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::function.217", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -11396,11 +11396,11 @@ _ZN16cmArgumentParserIZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.argprom(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN14ArgumentParser9ActionMapC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, i64 112), ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %_ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.argprom.exit unwind label %3
+          to label %_ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.exit unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
@@ -11408,7 +11408,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariable
   tail call void @_ZN14ArgumentParser9ActionMapD2Ev(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser) #21
   resume { ptr, i32 } %4
 
-_ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.argprom.exit: ; preds = %1
+_ZN12_GLOBAL__N_123CMakePathArgumentParserIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.exit: ; preds = %1
   ret void
 }
 
@@ -11560,15 +11560,15 @@ define internal void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.argprom.exit, label %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
+  br i1 %8, label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.exit, label %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
 
 _ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i: ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   store i8 1, ptr %6, align 8
-  br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.argprom.exit
+  br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.exit
 
-_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.argprom.exit: ; preds = %2, %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
+_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSG_N2cm18static_string_viewEMSF_T_EUlRNSJ_8InstanceEE_JST_EENSt9enable_ifIX16is_invocable_r_vISQ_T0_DpT1_EESQ_E4typeEOSX_DpOSY_.exit: ; preds = %2, %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
   tail call void @_ZN14ArgumentParser8Instance4BindERNS_8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
   ret void
 }
@@ -12459,15 +12459,15 @@ define internal void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSQ_N2cm18static_string_viewEMSP_T_EUlRNST_8InstanceEE_JS13_EENSt9enable_ifIX16is_invocable_r_vIS10_T0_DpT1_EES10_E4typeEOS17_DpOS18_.argprom.exit, label %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
+  br i1 %8, label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSQ_N2cm18static_string_viewEMSP_T_EUlRNST_8InstanceEE_JS13_EENSt9enable_ifIX16is_invocable_r_vIS10_T0_DpT1_EES10_E4typeEOS17_DpOS18_.exit, label %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
 
 _ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i: ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   store i8 1, ptr %6, align 8
-  br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSQ_N2cm18static_string_viewEMSP_T_EUlRNST_8InstanceEE_JS13_EENSt9enable_ifIX16is_invocable_r_vIS10_T0_DpT1_EES10_E4typeEOS17_DpOS18_.argprom.exit
+  br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSQ_N2cm18static_string_viewEMSP_T_EUlRNST_8InstanceEE_JS13_EENSt9enable_ifIX16is_invocable_r_vIS10_T0_DpT1_EES10_E4typeEOS17_DpOS18_.exit
 
-_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSQ_N2cm18static_string_viewEMSP_T_EUlRNST_8InstanceEE_JS13_EENSt9enable_ifIX16is_invocable_r_vIS10_T0_DpT1_EES10_E4typeEOS17_DpOS18_.argprom.exit: ; preds = %2, %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
+_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIN14ArgumentParser8NonEmptyIS8_EEEEERSQ_N2cm18static_string_viewEMSP_T_EUlRNST_8InstanceEE_JS13_EENSt9enable_ifIX16is_invocable_r_vIS10_T0_DpT1_EES10_E4typeEOS17_DpOS18_.exit: ; preds = %2, %_ZNSt8optionalIN14ArgumentParser8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
   tail call void @_ZN14ArgumentParser8Instance4BindERNS_8NonEmptyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
   ret void
 }
@@ -12506,14 +12506,14 @@ define internal void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIS8_EEERSQ_N2cm18static_string_viewEMSP_T_EUlRN14ArgumentParser8InstanceEE_JS11_EENSt9enable_ifIX16is_invocable_r_vISX_T0_DpT1_EESX_E4typeEOS15_DpOS16_.argprom.exit, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit.i.i.i.i
+  br i1 %8, label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIS8_EEERSQ_N2cm18static_string_viewEMSP_T_EUlRN14ArgumentParser8InstanceEE_JS11_EENSt9enable_ifIX16is_invocable_r_vISX_T0_DpT1_EESX_E4typeEOS15_DpOS16_.exit, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit.i.i.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit.i.i.i.i: ; preds = %2
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   store i8 1, ptr %6, align 8
-  br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIS8_EEERSQ_N2cm18static_string_viewEMSP_T_EUlRN14ArgumentParser8InstanceEE_JS11_EENSt9enable_ifIX16is_invocable_r_vISX_T0_DpT1_EESX_E4typeEOS15_DpOS16_.argprom.exit
+  br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIS8_EEERSQ_N2cm18static_string_viewEMSP_T_EUlRN14ArgumentParser8InstanceEE_JS11_EENSt9enable_ifIX16is_invocable_r_vISX_T0_DpT1_EESX_E4typeEOS15_DpOS16_.exit
 
-_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIS8_EEERSQ_N2cm18static_string_viewEMSP_T_EUlRN14ArgumentParser8InstanceEE_JS11_EENSt9enable_ifIX16is_invocable_r_vISX_T0_DpT1_EESX_E4typeEOS15_DpOS16_.argprom.exit: ; preds = %2, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit.i.i.i.i
+_ZSt10__invoke_rIvRZN16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSG_RKS8_EEbE9ArgumentsE4BindISt8optionalIS8_EEERSQ_N2cm18static_string_viewEMSP_T_EUlRN14ArgumentParser8InstanceEE_JS11_EENSt9enable_ifIX16is_invocable_r_vISX_T0_DpT1_EESX_E4typeEOS15_DpOS16_.exit: ; preds = %2, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit.i.i.i.i
   tail call void @_ZN14ArgumentParser8Instance4BindERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
   ret void
 }
@@ -12592,11 +12592,11 @@ define internal void @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_RKNSt7__cxx11
   %7 = getelementptr inbounds i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8, !noalias !245
   %.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %9
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %9
 
 9:                                                ; preds = %6
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %8) #21
-  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 10:                                               ; preds = %4
   %11 = landingpad { ptr, i32 }
@@ -12604,7 +12604,7 @@ define internal void @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_RKNSt7__cxx11
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
   resume { ptr, i32 } %11
 
-"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %6, %9
+"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %6, %9
   store ptr null, ptr %7, align 8, !noalias !245
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !238
@@ -12695,11 +12695,11 @@ define internal void @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_RKNSt7__cxx11
   %7 = getelementptr inbounds i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8, !noalias !258
   %.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %9
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %9
 
 9:                                                ; preds = %6
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %8) #21
-  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br label %"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 10:                                               ; preds = %4
   %11 = landingpad { ptr, i32 }
@@ -12707,7 +12707,7 @@ define internal void @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_RKNSt7__cxx11
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
   resume { ptr, i32 } %11
 
-"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %6, %9
+"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %6, %9
   store ptr null, ptr %7, align 8, !noalias !258
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !251
@@ -14118,15 +14118,15 @@ attributes #26 = { nounwind willreturn memory(read) }
 !73 = distinct !{!73, !74, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_: argument 0"}
 !74 = distinct !{!74, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_"}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom: argument 0"}
-!77 = distinct !{!77, !"_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom"}
+!76 = distinct !{!76, !77, !"_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_: argument 0"}
+!77 = distinct !{!77, !"_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_"}
 !78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZNK12_GLOBAL__N_123CMakePathArgumentParserIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom: argument 0"}
-!80 = distinct !{!80, !"_ZNK12_GLOBAL__N_123CMakePathArgumentParserIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom"}
+!79 = distinct !{!79, !80, !"_ZNK12_GLOBAL__N_123CMakePathArgumentParserIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_: argument 0"}
+!80 = distinct !{!80, !"_ZNK12_GLOBAL__N_123CMakePathArgumentParserIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_"}
 !81 = !{!79, !76}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m.argprom: argument 0"}
-!84 = distinct !{!84, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m.argprom"}
+!83 = distinct !{!83, !84, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m: argument 0"}
+!84 = distinct !{!84, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_128HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m"}
 !85 = !{!83, !79, !76}
 !86 = !{!87}
 !87 = distinct !{!87, !88, !"_ZNK11cmCMakePath6StringB5cxx11Ev: argument 0"}
@@ -14138,15 +14138,15 @@ attributes #26 = { nounwind willreturn memory(read) }
 !93 = distinct !{!93, !94, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_: argument 0"}
 !94 = distinct !{!94, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom: argument 0"}
-!97 = distinct !{!97, !"_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom"}
+!96 = distinct !{!96, !97, !"_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_: argument 0"}
+!97 = distinct !{!97, !"_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZNK12_GLOBAL__N_123CMakePathArgumentParserIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom: argument 0"}
-!100 = distinct !{!100, !"_ZNK12_GLOBAL__N_123CMakePathArgumentParserIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_.argprom"}
+!99 = distinct !{!99, !100, !"_ZNK12_GLOBAL__N_123CMakePathArgumentParserIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_: argument 0"}
+!100 = distinct !{!100, !"_ZNK12_GLOBAL__N_123CMakePathArgumentParserIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseILi2EEESE_SB_"}
 !101 = !{!99, !96}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m.argprom: argument 0"}
-!104 = distinct !{!104, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m.argprom"}
+!103 = distinct !{!103, !104, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m: argument 0"}
+!104 = distinct !{!104, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_129HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m"}
 !105 = !{!103, !99, !96}
 !106 = !{!107}
 !107 = distinct !{!107, !108, !"_ZNK11cmCMakePath6StringB5cxx11Ev: argument 0"}
@@ -14232,8 +14232,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !187 = distinct !{!187, !188, !"_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE: argument 0"}
 !188 = distinct !{!188, !"_ZNK12_GLOBAL__N_123CMakePathArgumentParserINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE"}
 !189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZNK16cmArgumentParserIN12_GLOBAL__N_114OutputVariableEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m.argprom: argument 0"}
-!191 = distinct !{!191, !"_ZNK16cmArgumentParserIN12_GLOBAL__N_114OutputVariableEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m.argprom"}
+!190 = distinct !{!190, !191, !"_ZNK16cmArgumentParserIN12_GLOBAL__N_114OutputVariableEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m: argument 0"}
+!191 = distinct !{!191, !"_ZNK16cmArgumentParserIN12_GLOBAL__N_114OutputVariableEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m"}
 !192 = !{!190, !187}
 !193 = !{!194}
 !194 = distinct !{!194, !195, !"_ZNKSt10filesystem7__cxx114path14generic_stringEv: argument 0"}
@@ -14256,8 +14256,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !211 = distinct !{!211, !"_ZNK12_GLOBAL__N_123CMakePathArgumentParserIZNS_26HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSF_RKS7_EEbE9ArgumentsE5ParseILi2EEESO_SB_"}
 !212 = !{!210, !207}
 !213 = !{!214}
-!214 = distinct !{!214, !215, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSF_RKS7_EEbE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPSI_S9_EEEEESO_RKT_PS9_m.argprom: argument 0"}
-!215 = distinct !{!215, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSF_RKS7_EEbE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPSI_S9_EEEEESO_RKT_PS9_m.argprom"}
+!214 = distinct !{!214, !215, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSF_RKS7_EEbE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPSI_S9_EEEEESO_RKT_PS9_m: argument 0"}
+!215 = distinct !{!215, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSF_RKS7_EEbE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPSI_S9_EEEEESO_RKT_PS9_m"}
 !216 = !{!214, !210, !207}
 !217 = !{!218}
 !218 = distinct !{!218, !219, !"_Z8cmStrCatIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA35_KcJEES5_OT_OT0_DpOT1_: argument 0"}
@@ -14281,12 +14281,12 @@ attributes #26 = { nounwind willreturn memory(read) }
 !236 = distinct !{!236, !237, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_: argument 0"}
 !237 = distinct !{!237, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_"}
 !238 = !{!239, !241, !243}
-!239 = distinct !{!239, !240, !"_ZZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusENK3$_0clERK11cmCMakePathRKS6_.argprom: argument 0"}
-!240 = distinct !{!240, !"_ZZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusENK3$_0clERK11cmCMakePathRKS6_.argprom"}
-!241 = distinct !{!241, !242, !"_ZSt13__invoke_implI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!242 = distinct !{!242, !"_ZSt13__invoke_implI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!243 = distinct !{!243, !244, !"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom: argument 0"}
-!244 = distinct !{!244, !"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom"}
+!239 = distinct !{!239, !240, !"_ZZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusENK3$_0clERK11cmCMakePathRKS6_: argument 0"}
+!240 = distinct !{!240, !"_ZZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusENK3$_0clERK11cmCMakePathRKS6_"}
+!241 = distinct !{!241, !242, !"_ZSt13__invoke_implI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!242 = distinct !{!242, !"_ZSt13__invoke_implI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EET_St14__invoke_otherOT0_DpOT1_"}
+!243 = distinct !{!243, !244, !"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_: argument 0"}
+!244 = distinct !{!244, !"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_"}
 !245 = !{!246, !239, !241, !243}
 !246 = distinct !{!246, !247, !"_ZNK11cmCMakePath8RelativeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS_EES_RKT_: argument 0"}
 !247 = distinct !{!247, !"_ZNK11cmCMakePath8RelativeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS_EES_RKT_"}
@@ -14294,12 +14294,12 @@ attributes #26 = { nounwind willreturn memory(read) }
 !249 = distinct !{!249, !250, !"_ZNKSt10filesystem7__cxx114path14generic_stringEv: argument 0"}
 !250 = distinct !{!250, !"_ZNKSt10filesystem7__cxx114path14generic_stringEv"}
 !251 = !{!252, !254, !256}
-!252 = distinct !{!252, !253, !"_ZZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusENK3$_0clERK11cmCMakePathRKS6_.argprom: argument 0"}
-!253 = distinct !{!253, !"_ZZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusENK3$_0clERK11cmCMakePathRKS6_.argprom"}
-!254 = distinct !{!254, !255, !"_ZSt13__invoke_implI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!255 = distinct !{!255, !"_ZSt13__invoke_implI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!256 = distinct !{!256, !257, !"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom: argument 0"}
-!257 = distinct !{!257, !"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom"}
+!252 = distinct !{!252, !253, !"_ZZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusENK3$_0clERK11cmCMakePathRKS6_: argument 0"}
+!253 = distinct !{!253, !"_ZZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusENK3$_0clERK11cmCMakePathRKS6_"}
+!254 = distinct !{!254, !255, !"_ZSt13__invoke_implI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!255 = distinct !{!255, !"_ZSt13__invoke_implI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EET_St14__invoke_otherOT0_DpOT1_"}
+!256 = distinct !{!256, !257, !"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_: argument 0"}
+!257 = distinct !{!257, !"_ZSt10__invoke_rI11cmCMakePathRZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JRKS0_RKS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_"}
 !258 = !{!259, !252, !254, !256}
 !259 = distinct !{!259, !260, !"_ZNK11cmCMakePath8AbsoluteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS_EES_RKT_: argument 0"}
 !260 = distinct !{!260, !"_ZNK11cmCMakePath8AbsoluteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS_EES_RKT_"}

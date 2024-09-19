@@ -223,30 +223,30 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %sub10 = sub nsw i32 %tna, %n
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %t, ptr noundef nonnull %arrayidx, ptr noundef %a, i32 noundef %tna, i32 noundef %sub10)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %t, ptr noundef nonnull %arrayidx, ptr noundef %a, i32 noundef %tna, i32 noundef %sub10)
   %arrayidx13 = getelementptr inbounds i64, ptr %t, i64 %idxprom
   %sub16 = sub nsw i32 %n, %tnb
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef nonnull %arrayidx13, ptr noundef %b, ptr noundef nonnull %arrayidx3, i32 noundef %tnb, i32 noundef %sub16)
+  tail call fastcc void @bn_sub_part_words(ptr noundef nonnull %arrayidx13, ptr noundef %b, ptr noundef nonnull %arrayidx3, i32 noundef %tnb, i32 noundef %sub16)
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %if.end, %if.end
   %sub21 = sub nsw i32 %tna, %n
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %t, ptr noundef nonnull %arrayidx, ptr noundef %a, i32 noundef %tna, i32 noundef %sub21)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %t, ptr noundef nonnull %arrayidx, ptr noundef %a, i32 noundef %tna, i32 noundef %sub21)
   %arrayidx24 = getelementptr inbounds i64, ptr %t, i64 %idxprom
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef nonnull %arrayidx24, ptr noundef nonnull %arrayidx3, ptr noundef %b, i32 noundef %tnb, i32 noundef %sub4)
+  tail call fastcc void @bn_sub_part_words(ptr noundef nonnull %arrayidx24, ptr noundef nonnull %arrayidx3, ptr noundef %b, i32 noundef %tnb, i32 noundef %sub4)
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %if.end, %if.end, %if.end, %if.end
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %t, ptr noundef %a, ptr noundef nonnull %arrayidx, i32 noundef %tna, i32 noundef %sub)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %t, ptr noundef %a, ptr noundef nonnull %arrayidx, i32 noundef %tna, i32 noundef %sub)
   %arrayidx35 = getelementptr inbounds i64, ptr %t, i64 %idxprom
   %sub38 = sub nsw i32 %n, %tnb
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef nonnull %arrayidx35, ptr noundef %b, ptr noundef nonnull %arrayidx3, i32 noundef %tnb, i32 noundef %sub38)
+  tail call fastcc void @bn_sub_part_words(ptr noundef nonnull %arrayidx35, ptr noundef %b, ptr noundef nonnull %arrayidx3, i32 noundef %tnb, i32 noundef %sub38)
   br label %sw.epilog
 
 sw.bb40:                                          ; preds = %if.end, %if.end
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %t, ptr noundef %a, ptr noundef nonnull %arrayidx, i32 noundef %tna, i32 noundef %sub)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %t, ptr noundef %a, ptr noundef nonnull %arrayidx, i32 noundef %tna, i32 noundef %sub)
   %arrayidx46 = getelementptr inbounds i64, ptr %t, i64 %idxprom
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef nonnull %arrayidx46, ptr noundef nonnull %arrayidx3, ptr noundef %b, i32 noundef %tnb, i32 noundef %sub4)
+  tail call fastcc void @bn_sub_part_words(ptr noundef nonnull %arrayidx46, ptr noundef nonnull %arrayidx3, ptr noundef %b, i32 noundef %tnb, i32 noundef %sub4)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb40, %sw.bb29, %sw.bb18, %sw.bb, %if.end
@@ -472,38 +472,38 @@ if.end17:                                         ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end17
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %t, ptr noundef %arrayidx19, ptr noundef %a, i32 noundef %add, i32 noundef %dna)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %t, ptr noundef %arrayidx19, ptr noundef %a, i32 noundef %add, i32 noundef %dna)
   %arrayidx32 = getelementptr inbounds i64, ptr %t, i64 %idxprom18
   %sub35 = sub i32 0, %dnb
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %arrayidx32, ptr noundef %b, ptr noundef %arrayidx22, i32 noundef %add1, i32 noundef %sub35)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %arrayidx32, ptr noundef %b, ptr noundef %arrayidx22, i32 noundef %add1, i32 noundef %sub35)
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %if.end17
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.end17
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %t, ptr noundef %arrayidx19, ptr noundef %a, i32 noundef %add, i32 noundef %dna)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %t, ptr noundef %arrayidx19, ptr noundef %a, i32 noundef %add, i32 noundef %dna)
   %arrayidx44 = getelementptr inbounds i64, ptr %t, i64 %idxprom18
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %arrayidx44, ptr noundef %arrayidx22, ptr noundef %b, i32 noundef %add1, i32 noundef %dnb)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %arrayidx44, ptr noundef %arrayidx22, ptr noundef %b, i32 noundef %add1, i32 noundef %dnb)
   br label %sw.epilog
 
 sw.bb49:                                          ; preds = %if.end17, %if.end17, %if.end17
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %if.end17
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %t, ptr noundef %a, ptr noundef %arrayidx19, i32 noundef %add, i32 noundef %sub20)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %t, ptr noundef %a, ptr noundef %arrayidx19, i32 noundef %add, i32 noundef %sub20)
   %arrayidx56 = getelementptr inbounds i64, ptr %t, i64 %idxprom18
   %sub59 = sub i32 0, %dnb
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %arrayidx56, ptr noundef %b, ptr noundef %arrayidx22, i32 noundef %add1, i32 noundef %sub59)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %arrayidx56, ptr noundef %b, ptr noundef %arrayidx22, i32 noundef %add1, i32 noundef %sub59)
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %if.end17
   br label %sw.epilog
 
 sw.bb62:                                          ; preds = %if.end17
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %t, ptr noundef %a, ptr noundef %arrayidx19, i32 noundef %add, i32 noundef %sub20)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %t, ptr noundef %a, ptr noundef %arrayidx19, i32 noundef %add, i32 noundef %sub20)
   %arrayidx68 = getelementptr inbounds i64, ptr %t, i64 %idxprom18
-  tail call fastcc void @bn_sub_part_words.retelim(ptr noundef %arrayidx68, ptr noundef %arrayidx22, ptr noundef %b, i32 noundef %add1, i32 noundef %dnb)
+  tail call fastcc void @bn_sub_part_words(ptr noundef %arrayidx68, ptr noundef %arrayidx22, ptr noundef %b, i32 noundef %add1, i32 noundef %dnb)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb62, %sw.bb61, %sw.bb50, %sw.bb49, %sw.bb38, %sw.bb37, %sw.bb, %if.end17
@@ -1073,7 +1073,7 @@ if.end69:                                         ; preds = %do.body, %if.then54
 declare i32 @bn_cmp_part_words(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bn_sub_part_words.retelim(ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef %cl, i32 noundef %dl) unnamed_addr #0 {
+define internal fastcc void @bn_sub_part_words(ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef %cl, i32 noundef %dl) unnamed_addr #0 {
 entry:
   %call = tail call i64 @bn_sub_words(ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef %cl) #4
   %cmp = icmp eq i32 %dl, 0

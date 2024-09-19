@@ -4977,7 +4977,7 @@ if.end:                                           ; preds = %if.then
   %4 = load i32, ptr %len, align 8
   %sub = sub i32 %4, %1
   %conv = trunc i64 %3 to i32
-  tail call fastcc void @build_processor_hierarchy_node.argprom.argelim(ptr noundef %table_data, i32 noundef 1, i32 noundef 0, i32 noundef %conv)
+  tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 1, i32 noundef 0, i32 noundef %conv)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end, %for.body
@@ -5012,7 +5012,7 @@ if.end43:                                         ; preds = %if.then33
   %8 = load i32, ptr %len, align 8
   %sub50 = sub i32 %8, %1
   %conv51 = trunc i64 %7 to i32
-  tail call fastcc void @build_processor_hierarchy_node.argprom.argelim(ptr noundef %table_data, i32 noundef 0, i32 noundef %socket_offset.1, i32 noundef %conv51)
+  tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 0, i32 noundef %socket_offset.1, i32 noundef %conv51)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end20, %land.lhs.true, %if.then25, %if.end43
@@ -5025,7 +5025,7 @@ if.end54:                                         ; preds = %if.end20, %land.lhs
 
 if.then57:                                        ; preds = %if.end54
   %10 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @build_processor_hierarchy_node.argprom.argelim(ptr noundef %table_data, i32 noundef 10, i32 noundef %cluster_offset.1, i32 noundef %10)
+  tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 10, i32 noundef %cluster_offset.1, i32 noundef %10)
   br label %for.inc
 
 if.else58:                                        ; preds = %if.end54
@@ -5046,14 +5046,14 @@ if.end76:                                         ; preds = %if.then66
   %12 = load i32, ptr %len, align 8
   %sub83 = sub i32 %12, %1
   %conv84 = trunc i64 %11 to i32
-  tail call fastcc void @build_processor_hierarchy_node.argprom.argelim(ptr noundef %table_data, i32 noundef 0, i32 noundef %cluster_offset.1, i32 noundef %conv84)
+  tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 0, i32 noundef %cluster_offset.1, i32 noundef %conv84)
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end76, %if.else58
   %core_id.3 = phi i64 [ %11, %if.end76 ], [ %core_id.2, %if.else58 ]
   %core_offset.1 = phi i32 [ %sub83, %if.end76 ], [ %core_offset.051, %if.else58 ]
   %13 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @build_processor_hierarchy_node.argprom.argelim(ptr noundef %table_data, i32 noundef 14, i32 noundef %core_offset.1, i32 noundef %13)
+  tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 14, i32 noundef %core_offset.1, i32 noundef %13)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then57, %if.end85
@@ -5082,7 +5082,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @build_processor_hierarchy_node.argprom.argelim(ptr noundef %tbl, i32 noundef range(i32 0, 15) %flags, i32 noundef %parent, i32 noundef %id) unnamed_addr #0 {
+define internal fastcc void @build_processor_hierarchy_node(ptr noundef %tbl, i32 noundef range(i32 0, 15) %flags, i32 noundef %parent, i32 noundef %id) unnamed_addr #0 {
 entry:
   %val.addr.i.i46 = alloca i8, align 1
   %val.addr.i.i36 = alloca i8, align 1

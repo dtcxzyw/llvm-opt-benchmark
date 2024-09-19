@@ -1297,7 +1297,7 @@ entry:
   %o1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 5
   %5 = load i8, ptr %o1.i, align 1
   %cmp2.i = icmp eq i8 %5, 20
-  br i1 %cmp2.i, label %for.body.i, label %snap_renamefilter.argprom.exit
+  br i1 %cmp2.i, label %for.body.i, label %snap_renamefilter.exit
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %ir.04.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %arrayidx.i, %entry ]
@@ -1322,15 +1322,15 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %o.i = getelementptr inbounds i8, ptr %ir.04.i, i64 -3
   %9 = load i8, ptr %o.i, align 1
   %cmp.i = icmp eq i8 %9, 20
-  br i1 %cmp.i, label %for.body.i, label %snap_renamefilter.argprom.exit, !llvm.loop !23
+  br i1 %cmp.i, label %for.body.i, label %snap_renamefilter.exit, !llvm.loop !23
 
-snap_renamefilter.argprom.exit:                   ; preds = %for.inc.i, %entry
+snap_renamefilter.exit:                           ; preds = %for.inc.i, %entry
   %rfilt.0.lcssa.i = phi i64 [ 0, %entry ], [ %rfilt.1.i, %for.inc.i ]
   br label %for.cond
 
-for.cond:                                         ; preds = %if.end39, %snap_renamefilter.argprom.exit
-  %ir.addr.0 = phi ptr [ %ir, %snap_renamefilter.argprom.exit ], [ %incdec.ptr, %if.end39 ]
-  %n.0 = phi i32 [ 0, %snap_renamefilter.argprom.exit ], [ %n.2, %if.end39 ]
+for.cond:                                         ; preds = %if.end39, %snap_renamefilter.exit
+  %ir.addr.0 = phi ptr [ %ir, %snap_renamefilter.exit ], [ %incdec.ptr, %if.end39 ]
+  %n.0 = phi i32 [ 0, %snap_renamefilter.exit ], [ %n.2, %if.end39 ]
   %o = getelementptr inbounds i8, ptr %ir.addr.0, i64 5
   %10 = load i8, ptr %o, align 1
   switch i8 %10, label %for.end43 [
@@ -1856,7 +1856,7 @@ if.then141:                                       ; preds = %if.then.i502, %snap
 
 if.then.i335:                                     ; preds = %if.then141
   %call.i336 = tail call fastcc i32 @snap_replay_const(ptr noundef %J, ptr noundef readonly %arrayidx.i296)
-  br label %snap_pref.argprom.exit337
+  br label %snap_pref.exit337
 
 if.else.i298:                                     ; preds = %if.then141
   %prev.i299 = getelementptr inbounds i8, ptr %arrayidx.i296, i64 6
@@ -1905,22 +1905,22 @@ if.then12.i318:                                   ; preds = %for.cond.i.i315, %s
   store i16 %conv16.i322, ptr %fold.i.i409, align 8
   store i16 0, ptr %op2.i.i411, align 2
   %call17.i326 = tail call i32 @lj_opt_fold(ptr noundef %J) #10
-  br label %snap_pref.argprom.exit337
+  br label %snap_pref.exit337
 
-snap_pref.argprom.exit337:                        ; preds = %if.then.i335, %if.then12.i318
+snap_pref.exit337:                                ; preds = %if.then.i335, %if.then12.i318
   %tr.0.i327 = phi i32 [ %call.i336, %if.then.i335 ], [ %call17.i326, %if.then12.i318 ]
   %cmp145 = icmp eq i32 %tr.0.i327, 0
-  br i1 %cmp145, label %snap_pref.argprom.exit337.if.then147_crit_edge, label %for.inc158
+  br i1 %cmp145, label %snap_pref.exit337.if.then147_crit_edge, label %for.inc158
 
-snap_pref.argprom.exit337.if.then147_crit_edge:   ; preds = %snap_pref.argprom.exit337
+snap_pref.exit337.if.then147_crit_edge:           ; preds = %snap_pref.exit337
   %.pre = load ptr, ptr %ir73, align 8
   %.pre697 = load i16, ptr %op2142, align 2
   %.pre700 = zext i16 %.pre697 to i64
   br label %if.then147
 
-if.then147:                                       ; preds = %snap_pref.argprom.exit337.if.then147_crit_edge, %if.else.i298
-  %idxprom150.pre-phi = phi i64 [ %.pre700, %snap_pref.argprom.exit337.if.then147_crit_edge ], [ %idxprom.i295, %if.else.i298 ]
-  %65 = phi ptr [ %.pre, %snap_pref.argprom.exit337.if.then147_crit_edge ], [ %T.val236, %if.else.i298 ]
+if.then147:                                       ; preds = %snap_pref.exit337.if.then147_crit_edge, %if.else.i298
+  %idxprom150.pre-phi = phi i64 [ %.pre700, %snap_pref.exit337.if.then147_crit_edge ], [ %idxprom.i295, %if.else.i298 ]
+  %65 = phi ptr [ %.pre, %snap_pref.exit337.if.then147_crit_edge ], [ %T.val236, %if.else.i298 ]
   %arrayidx151 = getelementptr inbounds %union.IRIns, ptr %65, i64 %idxprom150.pre-phi
   %66 = load i16, ptr %arrayidx151, align 8
   %idxprom.i338 = zext i16 %66 to i64
@@ -1981,7 +1981,7 @@ if.then12.i361:                                   ; preds = %for.cond.i.i358, %s
   %call17.i369 = tail call i32 @lj_opt_fold(ptr noundef %J) #10
   br label %for.inc158
 
-for.inc158:                                       ; preds = %if.then.i502, %snap_dedup.exit.i328, %if.end.i500, %if.then12.i361, %snap_dedup.exit.i371, %if.else.i341, %if.then.i378, %for.body133, %snap_sunk_store.exit509, %snap_pref.argprom.exit337
+for.inc158:                                       ; preds = %if.then.i502, %snap_dedup.exit.i328, %if.end.i500, %if.then12.i361, %snap_dedup.exit.i371, %if.else.i341, %if.then.i378, %for.body133, %snap_sunk_store.exit509, %snap_pref.exit337
   %irs.0 = getelementptr inbounds i8, ptr %irs.0656, i64 8
   %cmp131 = icmp ult ptr %irs.0, %arrayidx76
   br i1 %cmp131, label %for.body133, label %for.inc180, !llvm.loop !27
@@ -2005,14 +2005,14 @@ if.then170:                                       ; preds = %land.lhs.true164
 
 if.then.i421:                                     ; preds = %if.then170
   %call.i422 = tail call fastcc i32 @snap_replay_const(ptr noundef %J, ptr noundef nonnull readonly %arrayidx.i382)
-  br label %snap_pref.argprom.exit423
+  br label %snap_pref.exit423
 
 if.else.i384:                                     ; preds = %if.then170
   %prev.i385 = getelementptr inbounds i8, ptr %arrayidx.i382, i64 6
   %77 = load i16, ptr %prev.i385, align 2
   %78 = and i16 %77, -128
   %cmp2.not.i386 = icmp eq i16 %78, 128
-  br i1 %cmp2.not.i386, label %snap_pref.argprom.exit423, label %if.else5.i387
+  br i1 %cmp2.not.i386, label %snap_pref.exit423, label %if.else5.i387
 
 if.else5.i387:                                    ; preds = %if.else.i384
   %and7.i388 = and i64 %idxprom.i381, 63
@@ -2041,7 +2041,7 @@ snap_dedup.exit.i414:                             ; preds = %for.body.i.i396
   %81 = load i32, ptr %arrayidx5.i.i418, align 4
   %and6.i.i419 = and i32 %81, -1245185
   %cmp10.i420 = icmp eq i32 %and6.i.i419, 0
-  br i1 %cmp10.i420, label %if.then12.i404, label %snap_pref.argprom.exit423
+  br i1 %cmp10.i420, label %if.then12.i404, label %snap_pref.exit423
 
 if.then12.i404:                                   ; preds = %for.cond.i.i401, %snap_dedup.exit.i414, %if.else5.i387
   %t.i405 = getelementptr inbounds i8, ptr %arrayidx.i382, i64 4
@@ -2054,9 +2054,9 @@ if.then12.i404:                                   ; preds = %for.cond.i.i401, %s
   store i16 %conv16.i408, ptr %fold.i.i409, align 8
   store i16 0, ptr %op2.i.i411, align 2
   %call17.i412 = tail call i32 @lj_opt_fold(ptr noundef %J) #10
-  br label %snap_pref.argprom.exit423
+  br label %snap_pref.exit423
 
-snap_pref.argprom.exit423:                        ; preds = %if.then.i421, %if.else.i384, %snap_dedup.exit.i414, %if.then12.i404
+snap_pref.exit423:                                ; preds = %if.then.i421, %if.else.i384, %snap_dedup.exit.i414, %if.then12.i404
   %tr.0.i413 = phi i32 [ %call.i422, %if.then.i421 ], [ %call17.i412, %if.then12.i404 ], [ %and6.i.i419, %snap_dedup.exit.i414 ], [ 0, %if.else.i384 ]
   %shr175 = lshr i32 %24, 24
   %idxprom176 = zext nneg i32 %shr175 to i64
@@ -2064,8 +2064,8 @@ snap_pref.argprom.exit423:                        ; preds = %if.then.i421, %if.e
   store i32 %tr.0.i413, ptr %arrayidx177, align 4
   br label %for.inc180
 
-for.inc180:                                       ; preds = %for.inc158, %if.end123, %snap_pref.argprom.exit423, %land.lhs.true164, %if.else161, %if.then93
-  %pass23.4 = phi i32 [ %pass23.3659, %if.then93 ], [ 1, %if.end123 ], [ %pass23.3659, %if.else161 ], [ %pass23.3659, %land.lhs.true164 ], [ %pass23.3659, %snap_pref.argprom.exit423 ], [ 1, %for.inc158 ]
+for.inc180:                                       ; preds = %for.inc158, %if.end123, %snap_pref.exit423, %land.lhs.true164, %if.else161, %if.then93
+  %pass23.4 = phi i32 [ %pass23.3659, %if.then93 ], [ 1, %if.end123 ], [ %pass23.3659, %if.else161 ], [ %pass23.3659, %land.lhs.true164 ], [ %pass23.3659, %snap_pref.exit423 ], [ 1, %for.inc158 ]
   %indvars.iv.next690 = add nuw nsw i64 %indvars.iv689, 1
   %exitcond693.not = icmp eq i64 %indvars.iv.next690, %wide.trip.count692
   br i1 %exitcond693.not, label %for.cond183.preheader, label %for.body80, !llvm.loop !28
@@ -2117,14 +2117,14 @@ if.then238:                                       ; preds = %if.end228
 
 if.then.i464:                                     ; preds = %if.then238
   %call.i465 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef readonly %arrayidx.i425)
-  br label %snap_pref.argprom.exit466
+  br label %snap_pref.exit466
 
 if.else.i427:                                     ; preds = %if.then238
   %prev.i428 = getelementptr inbounds i8, ptr %arrayidx.i425, i64 6
   %92 = load i16, ptr %prev.i428, align 2
   %93 = and i16 %92, -128
   %cmp2.not.i429 = icmp eq i16 %93, 128
-  br i1 %cmp2.not.i429, label %snap_pref.argprom.exit466, label %if.else5.i430
+  br i1 %cmp2.not.i429, label %snap_pref.exit466, label %if.else5.i430
 
 if.else5.i430:                                    ; preds = %if.else.i427
   %and7.i431 = and i64 %idxprom.i424, 63
@@ -2153,7 +2153,7 @@ snap_dedup.exit.i457:                             ; preds = %for.body.i.i439
   %96 = load i32, ptr %arrayidx5.i.i461, align 4
   %and6.i.i462 = and i32 %96, -1245185
   %cmp10.i463 = icmp eq i32 %and6.i.i462, 0
-  br i1 %cmp10.i463, label %if.then12.i447, label %snap_pref.argprom.exit466
+  br i1 %cmp10.i463, label %if.then12.i447, label %snap_pref.exit466
 
 if.then12.i447:                                   ; preds = %for.cond.i.i444, %snap_dedup.exit.i457, %if.else5.i430
   %t.i448 = getelementptr inbounds i8, ptr %arrayidx.i425, i64 4
@@ -2166,15 +2166,15 @@ if.then12.i447:                                   ; preds = %for.cond.i.i444, %s
   store i16 %conv16.i451, ptr %fold.i.i452, align 8
   store i16 0, ptr %op2.i.i454, align 2
   %call17.i455 = tail call i32 @lj_opt_fold(ptr noundef %J) #10
-  br label %snap_pref.argprom.exit466
+  br label %snap_pref.exit466
 
-snap_pref.argprom.exit466:                        ; preds = %if.then.i464, %if.else.i427, %snap_dedup.exit.i457, %if.then12.i447
+snap_pref.exit466:                                ; preds = %if.then.i464, %if.else.i427, %snap_dedup.exit.i457, %if.then12.i447
   %tr.0.i456 = phi i32 [ %call.i465, %if.then.i464 ], [ %call17.i455, %if.then12.i447 ], [ %and6.i.i462, %snap_dedup.exit.i457 ], [ 0, %if.else.i427 ]
   %99 = trunc i32 %tr.0.i456 to i16
   br label %if.end240
 
-if.end240:                                        ; preds = %snap_pref.argprom.exit466, %if.end228
-  %op1206.0 = phi i16 [ %99, %snap_pref.argprom.exit466 ], [ %89, %if.end228 ]
+if.end240:                                        ; preds = %snap_pref.exit466, %if.end228
+  %op1206.0 = phi i16 [ %99, %snap_pref.exit466 ], [ %89, %if.end228 ]
   %op2241 = getelementptr inbounds i8, ptr %arrayidx199, i64 2
   %100 = load i16, ptr %op2241, align 2
   %101 = and i32 %conv234, 12
@@ -2190,14 +2190,14 @@ if.then248:                                       ; preds = %if.end240
 
 if.then.i507:                                     ; preds = %if.then248
   %call.i508 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef readonly %arrayidx.i468)
-  br label %snap_pref.argprom.exit509
+  br label %snap_pref.exit509
 
 if.else.i470:                                     ; preds = %if.then248
   %prev.i471 = getelementptr inbounds i8, ptr %arrayidx.i468, i64 6
   %102 = load i16, ptr %prev.i471, align 2
   %103 = and i16 %102, -128
   %cmp2.not.i472 = icmp eq i16 %103, 128
-  br i1 %cmp2.not.i472, label %snap_pref.argprom.exit509, label %if.else5.i473
+  br i1 %cmp2.not.i472, label %snap_pref.exit509, label %if.else5.i473
 
 if.else5.i473:                                    ; preds = %if.else.i470
   %and7.i474 = and i64 %idxprom.i467, 63
@@ -2226,7 +2226,7 @@ snap_dedup.exit.i500:                             ; preds = %for.body.i.i482
   %106 = load i32, ptr %arrayidx5.i.i504, align 4
   %and6.i.i505 = and i32 %106, -1245185
   %cmp10.i506 = icmp eq i32 %and6.i.i505, 0
-  br i1 %cmp10.i506, label %if.then12.i490, label %snap_pref.argprom.exit509
+  br i1 %cmp10.i506, label %if.then12.i490, label %snap_pref.exit509
 
 if.then12.i490:                                   ; preds = %for.cond.i.i487, %snap_dedup.exit.i500, %if.else5.i473
   %t.i491 = getelementptr inbounds i8, ptr %arrayidx.i468, i64 4
@@ -2239,15 +2239,15 @@ if.then12.i490:                                   ; preds = %for.cond.i.i487, %s
   store i16 %conv16.i494, ptr %fold.i.i452, align 8
   store i16 0, ptr %op2.i.i454, align 2
   %call17.i498 = tail call i32 @lj_opt_fold(ptr noundef %J) #10
-  br label %snap_pref.argprom.exit509
+  br label %snap_pref.exit509
 
-snap_pref.argprom.exit509:                        ; preds = %if.then.i507, %if.else.i470, %snap_dedup.exit.i500, %if.then12.i490
+snap_pref.exit509:                                ; preds = %if.then.i507, %if.else.i470, %snap_dedup.exit.i500, %if.then12.i490
   %tr.0.i499 = phi i32 [ %call.i508, %if.then.i507 ], [ %call17.i498, %if.then12.i490 ], [ %and6.i.i505, %snap_dedup.exit.i500 ], [ 0, %if.else.i470 ]
   %109 = trunc i32 %tr.0.i499 to i16
   br label %if.end250
 
-if.end250:                                        ; preds = %snap_pref.argprom.exit509, %if.end240
-  %op2207.0 = phi i16 [ %109, %snap_pref.argprom.exit509 ], [ %100, %if.end240 ]
+if.end250:                                        ; preds = %snap_pref.exit509, %if.end240
+  %op2207.0 = phi i16 [ %109, %snap_pref.exit509 ], [ %100, %if.end240 ]
   %110 = load i8, ptr %o231, align 1
   %cmp253 = icmp eq i8 %110, 84
   %ot = getelementptr inbounds i8, ptr %arrayidx199, i64 4
@@ -2432,7 +2432,7 @@ skip_newref:                                      ; preds = %land.lhs.true354, %
 
 if.then.i568:                                     ; preds = %skip_newref
   %call.i = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef readonly %arrayidx.i529)
-  br label %snap_pref.argprom.exit569
+  br label %snap_pref.exit569
 
 if.else.i531:                                     ; preds = %skip_newref
   %prev.i532 = getelementptr inbounds i8, ptr %arrayidx.i529, i64 6
@@ -2481,22 +2481,22 @@ if.then12.i551:                                   ; preds = %for.cond.i.i548, %s
   store i16 %conv16.i555, ptr %fold.i.i452, align 8
   store i16 0, ptr %op2.i.i454, align 2
   %call17.i559 = tail call i32 @lj_opt_fold(ptr noundef %J) #10
-  br label %snap_pref.argprom.exit569
+  br label %snap_pref.exit569
 
-snap_pref.argprom.exit569:                        ; preds = %if.then.i568, %if.then12.i551
+snap_pref.exit569:                                ; preds = %if.then.i568, %if.then12.i551
   %tr.0.i560 = phi i32 [ %call.i, %if.then.i568 ], [ %call17.i559, %if.then12.i551 ]
   %cmp371 = icmp eq i32 %tr.0.i560, 0
-  br i1 %cmp371, label %snap_pref.argprom.exit569.if.then373_crit_edge, label %if.end384
+  br i1 %cmp371, label %snap_pref.exit569.if.then373_crit_edge, label %if.end384
 
-snap_pref.argprom.exit569.if.then373_crit_edge:   ; preds = %snap_pref.argprom.exit569
+snap_pref.exit569.if.then373_crit_edge:           ; preds = %snap_pref.exit569
   %.pre698 = load ptr, ptr %ir73, align 8
   %.pre699 = load i16, ptr %op2368, align 2
   %.pre701 = zext i16 %.pre699 to i64
   br label %if.then373
 
-if.then373:                                       ; preds = %snap_pref.argprom.exit569.if.then373_crit_edge, %if.else.i531
-  %idxprom376.pre-phi = phi i64 [ %.pre701, %snap_pref.argprom.exit569.if.then373_crit_edge ], [ %idxprom.i528, %if.else.i531 ]
-  %147 = phi ptr [ %.pre698, %snap_pref.argprom.exit569.if.then373_crit_edge ], [ %T.val241, %if.else.i531 ]
+if.then373:                                       ; preds = %snap_pref.exit569.if.then373_crit_edge, %if.else.i531
+  %idxprom376.pre-phi = phi i64 [ %.pre701, %snap_pref.exit569.if.then373_crit_edge ], [ %idxprom.i528, %if.else.i531 ]
+  %147 = phi ptr [ %.pre698, %snap_pref.exit569.if.then373_crit_edge ], [ %T.val241, %if.else.i531 ]
   %arrayidx377 = getelementptr inbounds %union.IRIns, ptr %147, i64 %idxprom376.pre-phi
   %148 = load i16, ptr %arrayidx377, align 8
   %idxprom.i570 = zext i16 %148 to i64
@@ -2506,14 +2506,14 @@ if.then373:                                       ; preds = %snap_pref.argprom.e
 
 if.then.i610:                                     ; preds = %if.then373
   %call.i611 = tail call fastcc i32 @snap_replay_const(ptr noundef nonnull %J, ptr noundef nonnull readonly %arrayidx.i571)
-  br label %snap_pref.argprom.exit612
+  br label %snap_pref.exit612
 
 if.else.i573:                                     ; preds = %if.then373
   %prev.i574 = getelementptr inbounds i8, ptr %arrayidx.i571, i64 6
   %149 = load i16, ptr %prev.i574, align 2
   %150 = and i16 %149, -128
   %cmp2.not.i575 = icmp eq i16 %150, 128
-  br i1 %cmp2.not.i575, label %snap_pref.argprom.exit612, label %if.else5.i576
+  br i1 %cmp2.not.i575, label %snap_pref.exit612, label %if.else5.i576
 
 if.else5.i576:                                    ; preds = %if.else.i573
   %and7.i577 = and i64 %idxprom.i570, 63
@@ -2542,7 +2542,7 @@ snap_dedup.exit.i603:                             ; preds = %for.body.i.i585
   %153 = load i32, ptr %arrayidx5.i.i607, align 4
   %and6.i.i608 = and i32 %153, -1245185
   %cmp10.i609 = icmp eq i32 %and6.i.i608, 0
-  br i1 %cmp10.i609, label %if.then12.i593, label %snap_pref.argprom.exit612
+  br i1 %cmp10.i609, label %if.then12.i593, label %snap_pref.exit612
 
 if.then12.i593:                                   ; preds = %for.cond.i.i590, %snap_dedup.exit.i603, %if.else5.i576
   %t.i594 = getelementptr inbounds i8, ptr %arrayidx.i571, i64 4
@@ -2555,9 +2555,9 @@ if.then12.i593:                                   ; preds = %for.cond.i.i590, %s
   store i16 %conv16.i597, ptr %fold.i.i452, align 8
   store i16 0, ptr %op2.i.i454, align 2
   %call17.i601 = tail call i32 @lj_opt_fold(ptr noundef %J) #10
-  br label %snap_pref.argprom.exit612
+  br label %snap_pref.exit612
 
-snap_pref.argprom.exit612:                        ; preds = %if.then.i610, %if.else.i573, %snap_dedup.exit.i603, %if.then12.i593
+snap_pref.exit612:                                ; preds = %if.then.i610, %if.else.i573, %snap_dedup.exit.i603, %if.then12.i593
   %tr.0.i602 = phi i32 [ %call.i611, %if.then.i610 ], [ %call17.i601, %if.then12.i593 ], [ %and6.i.i608, %snap_dedup.exit.i603 ], [ 0, %if.else.i573 ]
   %conv381 = trunc i32 %tr.0.i602 to i16
   store i16 23310, ptr %ot1.i.i453, align 4
@@ -2566,8 +2566,8 @@ snap_pref.argprom.exit612:                        ; preds = %if.then.i610, %if.e
   %call382 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #10
   br label %if.end384
 
-if.end384:                                        ; preds = %snap_dedup.exit.i561, %snap_pref.argprom.exit569, %snap_pref.argprom.exit612
-  %val.0 = phi i32 [ %call382, %snap_pref.argprom.exit612 ], [ %tr.0.i560, %snap_pref.argprom.exit569 ], [ %and6.i.i566, %snap_dedup.exit.i561 ]
+if.end384:                                        ; preds = %snap_dedup.exit.i561, %snap_pref.exit569, %snap_pref.exit612
+  %val.0 = phi i32 [ %call382, %snap_pref.exit612 ], [ %tr.0.i560, %snap_pref.exit569 ], [ %and6.i.i566, %snap_dedup.exit.i561 ]
   %ot385 = getelementptr inbounds i8, ptr %arrayidx199.pn664, i64 12
   %156 = load i16, ptr %ot385, align 4
   %conv387 = trunc i32 %val.0 to i16
@@ -2739,7 +2739,7 @@ entry:
   %o1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 5
   %11 = load i8, ptr %o1.i, align 1
   %cmp2.i = icmp eq i8 %11, 20
-  br i1 %cmp2.i, label %for.body.i, label %snap_renamefilter.argprom.exit
+  br i1 %cmp2.i, label %for.body.i, label %snap_renamefilter.exit
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %ir.04.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %arrayidx.i, %entry ]
@@ -2764,9 +2764,9 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %o.i = getelementptr inbounds i8, ptr %ir.04.i, i64 -3
   %15 = load i8, ptr %o.i, align 1
   %cmp.i = icmp eq i8 %15, 20
-  br i1 %cmp.i, label %for.body.i, label %snap_renamefilter.argprom.exit, !llvm.loop !23
+  br i1 %cmp.i, label %for.body.i, label %snap_renamefilter.exit, !llvm.loop !23
 
-snap_renamefilter.argprom.exit:                   ; preds = %for.inc.i, %entry
+snap_renamefilter.exit:                           ; preds = %for.inc.i, %entry
   %rfilt.0.lcssa.i = phi i64 [ 0, %entry ], [ %rfilt.1.i, %for.inc.i ]
   %idxprom7 = zext i8 %6 to i64
   %arrayidx8 = getelementptr inbounds i32, ptr %arrayidx6, i64 %idxprom7
@@ -2796,7 +2796,7 @@ snap_renamefilter.argprom.exit:                   ; preds = %for.inc.i, %entry
   %cmp.not = icmp ult ptr %add.ptr13, %25
   br i1 %cmp.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %snap_renamefilter.argprom.exit
+if.then:                                          ; preds = %snap_renamefilter.exit
   %add.ptr20 = getelementptr inbounds i8, ptr %22, i64 -16
   %26 = load i64, ptr %add.ptr20, align 8
   %and22 = and i64 %26, 140737488355327
@@ -2826,8 +2826,8 @@ if.then:                                          ; preds = %snap_renamefilter.a
   %.pre = load ptr, ptr %base, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %snap_renamefilter.argprom.exit
-  %37 = phi ptr [ %.pre, %if.then ], [ %22, %snap_renamefilter.argprom.exit ]
+if.end:                                           ; preds = %if.then, %snap_renamefilter.exit
+  %37 = phi ptr [ %.pre, %if.then ], [ %22, %snap_renamefilter.exit ]
   %add.ptr42 = getelementptr inbounds i8, ptr %37, i64 -16
   %cmp4375.not = icmp eq i8 %6, 0
   br i1 %cmp4375.not, label %for.end85, label %for.body.preheader
@@ -2924,7 +2924,7 @@ if.then15.i:                                      ; preds = %if.then.i65
   %55 = load i16, ptr %op2.i71, align 2
   %conv16.i = zext i16 %55 to i32
   %56 = load i32, ptr %sz.i, align 4
-  call fastcc void @snap_restoredata.argprom(ptr noundef nonnull readonly %4, ptr noundef readonly %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv16.i, ptr noundef nonnull %add.ptr.i, i32 noundef %56)
+  call fastcc void @snap_restoredata(ptr noundef nonnull readonly %4, ptr noundef readonly %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv16.i, ptr noundef nonnull %add.ptr.i, i32 noundef %56)
   br label %snap_unsink.exit
 
 if.else.i:                                        ; preds = %if.then.i65
@@ -3050,7 +3050,7 @@ if.end85.i:                                       ; preds = %if.else83.i, %if.th
   %op286.i = getelementptr inbounds i8, ptr %ir.pn95123.i, i64 10
   %80 = load i16, ptr %op286.i, align 2
   %conv87.i = zext i16 %80 to i32
-  call fastcc void @snap_restoredata.argprom(ptr noundef nonnull readonly %4, ptr noundef readonly %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv87.i, ptr noundef %p38.0.i, i32 noundef %szs.0.i)
+  call fastcc void @snap_restoredata(ptr noundef nonnull readonly %4, ptr noundef readonly %exptr, i32 noundef %0, i64 noundef %rfilt.0.lcssa.i, i32 noundef %conv87.i, ptr noundef %p38.0.i, i32 noundef %szs.0.i)
   br label %for.inc.i69
 
 for.inc.i69:                                      ; preds = %if.end85.i, %snap_sunk_store.exit191.i, %if.end.i182.i, %if.then.i184.i, %for.body.i68
@@ -3507,7 +3507,7 @@ declare hidden i32 @lj_ctype_info(ptr noundef, i32 noundef, ptr noundef) local_u
 declare hidden ptr @lj_cdata_newx(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @snap_restoredata.argprom(ptr nocapture noundef readonly %T, ptr nocapture noundef readonly %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef range(i32 0, 65536) %ref, ptr nocapture noundef %dst, i32 noundef %sz) unnamed_addr #6 {
+define internal fastcc void @snap_restoredata(ptr nocapture noundef readonly %T, ptr nocapture noundef readonly %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef range(i32 0, 65536) %ref, ptr nocapture noundef %dst, i32 noundef %sz) unnamed_addr #6 {
 entry:
   %tmp = alloca i64, align 8
   %ir1 = getelementptr inbounds i8, ptr %T, i64 32
@@ -3619,7 +3619,7 @@ common.ret3:                                      ; preds = %if.then83, %if.else
 if.then61:                                        ; preds = %if.else57
   %13 = load i16, ptr %arrayidx, align 8
   %conv62 = zext i16 %13 to i32
-  tail call fastcc void @snap_restoredata.argprom(ptr noundef %T, ptr noundef %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef %conv62, ptr noundef %dst, i32 noundef 4)
+  tail call fastcc void @snap_restoredata(ptr noundef %T, ptr noundef %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef %conv62, ptr noundef %dst, i32 noundef 4)
   %14 = load i32, ptr %dst, align 4
   %conv63 = sitofp i32 %14 to double
   store double %conv63, ptr %dst, align 8

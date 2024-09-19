@@ -192,7 +192,7 @@ for.body.i:                                       ; preds = %if.then6, %for.body
   br i1 %exitcond.not.i, label %ByteReverseWords64.exit, label %for.body.i, !llvm.loop !4
 
 ByteReverseWords64.exit:                          ; preds = %for.body.i
-  tail call fastcc void @_Transform_Sha512.retelim(ptr noundef %sha512)
+  tail call fastcc void @_Transform_Sha512(ptr noundef %sha512)
   store i32 0, ptr %buffLen, align 8
   br label %if.end30
 
@@ -221,7 +221,7 @@ for.body.i39:                                     ; preds = %for.body.i39, %whil
 
 ByteReverseWords64.exit46:                        ; preds = %for.body.i39
   %sub34 = add i32 %len.addr.2, -128
-  tail call fastcc void @_Transform_Sha512.retelim(ptr noundef %sha512)
+  tail call fastcc void @_Transform_Sha512(ptr noundef %sha512)
   %cmp31 = icmp ugt i32 %sub34, 127
   br i1 %cmp31, label %while.body, label %while.end, !llvm.loop !6
 
@@ -536,7 +536,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %ByteReverseWords64.exit, label %for.body.i, !llvm.loop !4
 
 ByteReverseWords64.exit:                          ; preds = %for.body.i
-  tail call fastcc void @_Transform_Sha512.retelim(ptr noundef %sha512)
+  tail call fastcc void @_Transform_Sha512(ptr noundef %sha512)
   store i32 0, ptr %buffLen, align 8
   br label %if.end24
 
@@ -574,7 +574,7 @@ ByteReverseWords64.exit42:                        ; preds = %for.body.i35
   %8 = load i64, ptr %loLen, align 8
   %arrayidx45 = getelementptr inbounds i8, ptr %sha512, i64 184
   store i64 %8, ptr %arrayidx45, align 8
-  tail call fastcc void @_Transform_Sha512.retelim(ptr noundef %sha512)
+  tail call fastcc void @_Transform_Sha512(ptr noundef %sha512)
   br label %for.body.i43
 
 for.body.i43:                                     ; preds = %for.body.i43, %ByteReverseWords64.exit42
@@ -1299,7 +1299,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_Transform_Sha512.retelim(ptr nocapture noundef nonnull %sha512) unnamed_addr #1 {
+define internal fastcc void @_Transform_Sha512(ptr nocapture noundef nonnull %sha512) unnamed_addr #1 {
 entry:
   %T = alloca [8 x i64], align 16
   %W = alloca [16 x i64], align 16

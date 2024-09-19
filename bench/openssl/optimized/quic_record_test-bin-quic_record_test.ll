@@ -601,7 +601,7 @@ if.end120.i:                                      ; preds = %if.end112.i
   %38 = load ptr, ptr %hdr122.i, align 8
   %39 = load ptr, ptr %buf115.i, align 8
   %40 = load i64, ptr %buf_len116.i, align 8
-  %call125.i = call fastcc i32 @cmp_pkt_hdr.argelim(ptr noundef %37, ptr noundef %38, ptr noundef %39, i64 noundef %40)
+  %call125.i = call fastcc i32 @cmp_pkt_hdr(ptr noundef %37, ptr noundef %38, ptr noundef %39, i64 noundef %40)
   %call128.i = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 1858, ptr noundef nonnull @.str.15, i32 noundef %call125.i) #10
   %tobool129.not.i = icmp eq i32 %call128.i, 0
   br i1 %tobool129.not.i, label %err.i, label %if.end131.i
@@ -1124,7 +1124,7 @@ declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cmp_pkt_hdr.argelim(ptr noundef %a, ptr noundef %b, ptr noundef %b_data, i64 noundef %b_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cmp_pkt_hdr(ptr noundef %a, ptr noundef %b, ptr noundef %b_data, i64 noundef %b_len) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %b_data, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1529,7 +1529,7 @@ if.then47:                                        ; preds = %if.end43
   %7 = load ptr, ptr %payload, align 8
   %payload_len = getelementptr inbounds i8, ptr %0, i64 112
   %8 = load i64, ptr %payload_len, align 8
-  %call49 = call fastcc i32 @cmp_pkt_hdr.argelim(ptr noundef nonnull %hdr, ptr noundef nonnull %0, ptr noundef %7, i64 noundef %8)
+  %call49 = call fastcc i32 @cmp_pkt_hdr(ptr noundef nonnull %hdr, ptr noundef nonnull %0, ptr noundef %7, i64 noundef %8)
   %call52 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 2802, ptr noundef nonnull @.str.107, i32 noundef %call49) #10
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %if.end264, label %if.end55

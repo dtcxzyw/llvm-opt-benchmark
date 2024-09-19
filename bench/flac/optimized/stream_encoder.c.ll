@@ -8329,7 +8329,7 @@ if.end224:                                        ; preds = %if.then222, %for.bo
   %arrayidx237 = getelementptr inbounds [8 x [2 x ptr]], ptr %residual_workspace, i64 0, i64 %indvars.iv346
   %add.ptr = getelementptr inbounds i32, ptr %best_subframe, i64 %indvars.iv346
   %add.ptr242 = getelementptr inbounds i32, ptr %best_subframe_bits, i64 %indvars.iv346
-  call fastcc void @process_subframe_.retelim(ptr noundef nonnull %encoder, ptr noundef nonnull %threadtask, i32 noundef %cond10, i32 noundef %call., ptr noundef %frame_header, i32 noundef %88, ptr noundef %89, ptr noundef nonnull %arrayidx232, ptr noundef nonnull %arrayidx234, ptr noundef nonnull %arrayidx237, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr242)
+  call fastcc void @process_subframe_(ptr noundef nonnull %encoder, ptr noundef nonnull %threadtask, i32 noundef %cond10, i32 noundef %call., ptr noundef %frame_header, i32 noundef %88, ptr noundef %89, ptr noundef nonnull %arrayidx232, ptr noundef nonnull %arrayidx234, ptr noundef nonnull %arrayidx237, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr242)
   %90 = load i32, ptr %add.ptr, align 4
   %idxprom253 = zext i32 %90 to i64
   %arrayidx254 = getelementptr inbounds [8 x [2 x %struct.FLAC__Subframe]], ptr %subframe_workspace247, i64 0, i64 %indvars.iv346, i64 %idxprom253
@@ -8371,7 +8371,7 @@ for.body268:                                      ; preds = %for.cond265.prehead
   %arrayidx291 = getelementptr inbounds [2 x [2 x ptr]], ptr %residual_workspace_mid_side, i64 0, i64 %indvars.iv349
   %add.ptr295 = getelementptr inbounds i32, ptr %best_subframe_mid_side, i64 %indvars.iv349
   %add.ptr298 = getelementptr inbounds i32, ptr %best_subframe_bits_mid_side, i64 %indvars.iv349
-  call fastcc void @process_subframe_.retelim(ptr noundef nonnull %encoder, ptr noundef nonnull %threadtask, i32 noundef %cond10, i32 noundef %call., ptr noundef %frame_header, i32 noundef %95, ptr noundef %integer_signal_.0, ptr noundef nonnull %arrayidx285, ptr noundef nonnull %arrayidx288, ptr noundef nonnull %arrayidx291, ptr noundef nonnull %add.ptr295, ptr noundef nonnull %add.ptr298)
+  call fastcc void @process_subframe_(ptr noundef nonnull %encoder, ptr noundef nonnull %threadtask, i32 noundef %cond10, i32 noundef %call., ptr noundef %frame_header, i32 noundef %95, ptr noundef %integer_signal_.0, ptr noundef nonnull %arrayidx285, ptr noundef nonnull %arrayidx288, ptr noundef nonnull %arrayidx291, ptr noundef nonnull %add.ptr295, ptr noundef nonnull %add.ptr298)
   br i1 %cmp266, label %for.body268, label %if.then308, !llvm.loop !97
 
 if.then308:                                       ; preds = %for.body268
@@ -9298,7 +9298,7 @@ declare i32 @sem_trywait(ptr noundef) local_unnamed_addr #4
 declare i32 @FLAC__format_get_max_rice_partition_order_from_blocksize(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @process_subframe_.retelim(ptr nocapture noundef readonly %encoder, ptr noundef %threadtask, i32 noundef %min_partition_order, i32 noundef %max_partition_order, ptr nocapture noundef nonnull readonly %frame_header, i32 noundef %subframe_bps, ptr noundef %integer_signal, ptr nocapture noundef readonly %subframe, ptr nocapture noundef readonly %partitioned_rice_contents, ptr nocapture noundef readonly %residual, ptr nocapture noundef writeonly %best_subframe, ptr nocapture noundef writeonly %best_bits) unnamed_addr #0 {
+define internal fastcc void @process_subframe_(ptr nocapture noundef readonly %encoder, ptr noundef %threadtask, i32 noundef %min_partition_order, i32 noundef %max_partition_order, ptr nocapture noundef nonnull readonly %frame_header, i32 noundef %subframe_bps, ptr noundef %integer_signal, ptr nocapture noundef readonly %subframe, ptr nocapture noundef readonly %partitioned_rice_contents, ptr nocapture noundef readonly %residual, ptr nocapture noundef writeonly %best_subframe, ptr nocapture noundef writeonly %best_bits) unnamed_addr #0 {
 entry:
   %qlp_coeff.i = alloca [32 x i32], align 16
   %quantization.i = alloca i32, align 4
@@ -9586,7 +9586,7 @@ if.end8.i:                                        ; preds = %if.else5.i, %if.the
   %residual14.i = getelementptr inbounds i8, ptr %50, i64 72
   store ptr %44, ptr %residual14.i, align 8
   %52 = load ptr, ptr %private_, align 8
-  %call.i = call fastcc i32 @find_best_partition_order_.argelim(ptr noundef %52, ptr noundef nonnull readonly %threadtask, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %sub.i, i32 noundef %fixed_order.0234, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %49, ptr noundef nonnull %data.i162)
+  %call.i = call fastcc i32 @find_best_partition_order_(ptr noundef %52, ptr noundef nonnull readonly %threadtask, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %sub.i, i32 noundef %fixed_order.0234, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %49, ptr noundef nonnull %data.i162)
   %order18.i = getelementptr inbounds i8, ptr %50, i64 32
   store i32 %fixed_order.0234, ptr %order18.i, align 8
   %cmp2149.not.i = icmp eq i32 %fixed_order.0234, 0
@@ -10146,7 +10146,7 @@ if.end52.i:                                       ; preds = %if.end52.i.sink.spl
   %residual58.i = getelementptr inbounds i8, ptr %131, i64 432
   store ptr %125, ptr %residual58.i, align 8
   %139 = load ptr, ptr %private_, align 8
-  %call62.i = call fastcc i32 @find_best_partition_order_.argelim(ptr noundef %139, ptr noundef nonnull readonly %threadtask, ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %sub.i184, i32 noundef %lpc_order.0257, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %130, ptr noundef nonnull %data.i188)
+  %call62.i = call fastcc i32 @find_best_partition_order_(ptr noundef %139, ptr noundef nonnull readonly %threadtask, ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %sub.i184, i32 noundef %lpc_order.0257, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %130, ptr noundef nonnull %data.i188)
   %order64.i = getelementptr inbounds i8, ptr %131, i64 32
   store i32 %lpc_order.0257, ptr %order64.i, align 8
   %qlp_coeff_precision66.i = getelementptr inbounds i8, ptr %131, i64 36
@@ -10334,7 +10334,7 @@ declare void @FLAC__fixed_compute_residual_wide(ptr noundef, i32 noundef, i32 no
 declare void @FLAC__fixed_compute_residual_wide_33bit(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @find_best_partition_order_.argelim(ptr nocapture noundef readonly %private_, ptr nocapture noundef readonly %threadtask, ptr noundef %residual, ptr noundef %abs_residual_partition_sums, ptr nocapture noundef %raw_bits_per_partition, i32 noundef %residual_samples, i32 noundef %predictor_order, i32 noundef %rice_parameter_limit, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %bps, i32 noundef %do_escape_coding, ptr nocapture noundef %best_ecm) unnamed_addr #0 {
+define internal fastcc i32 @find_best_partition_order_(ptr nocapture noundef readonly %private_, ptr nocapture noundef readonly %threadtask, ptr noundef %residual, ptr noundef %abs_residual_partition_sums, ptr nocapture noundef %raw_bits_per_partition, i32 noundef %residual_samples, i32 noundef %predictor_order, i32 noundef %rice_parameter_limit, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %bps, i32 noundef %do_escape_coding, ptr nocapture noundef %best_ecm) unnamed_addr #0 {
 entry:
   %add = add i32 %predictor_order, %residual_samples
   %call = tail call i32 @FLAC__format_get_max_rice_partition_order_from_blocksize_limited_max_and_predictor_order(i32 noundef %max_partition_order, i32 noundef %add, i32 noundef %predictor_order) #24

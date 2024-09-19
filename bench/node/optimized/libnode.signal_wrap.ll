@@ -1349,17 +1349,17 @@ _ZNK4node10BaseObject6objectEv.exit.i.i.i:        ; preds = %_ZN4node17Persisten
   %call2.i.i.i.i = call ptr %19(ptr noundef nonnull align 8 dereferenceable(872) %18) #16
   %call25.i.i.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i.i.i, ptr %call2.i.i.i.i, ptr %9) #16
   %cmp.i.i.i.i.i = icmp eq ptr %call25.i.i.i, null
-  br i1 %cmp.i.i.i.i.i, label %_ZZN4node12_GLOBAL__N_110SignalWrap5StartERKN2v820FunctionCallbackInfoINS2_5ValueEEEENKUlP11uv_signal_siE_clES9_i.argprom.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZZN4node12_GLOBAL__N_110SignalWrap5StartERKN2v820FunctionCallbackInfoINS2_5ValueEEEENKUlP11uv_signal_siE_clES9_i.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i.i
   %call32.i.i.i = call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %call25.i.i.i) #16
-  br i1 %call32.i.i.i, label %if.end44.i.i.i, label %_ZZN4node12_GLOBAL__N_110SignalWrap5StartERKN2v820FunctionCallbackInfoINS2_5ValueEEEENKUlP11uv_signal_siE_clES9_i.argprom.exit
+  br i1 %call32.i.i.i, label %if.end44.i.i.i, label %_ZZN4node12_GLOBAL__N_110SignalWrap5StartERKN2v820FunctionCallbackInfoINS2_5ValueEEEENKUlP11uv_signal_siE_clES9_i.exit
 
 if.end44.i.i.i:                                   ; preds = %if.end.i.i.i
   %call53.i.i.i = call ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nonnull %call25.i.i.i, i32 noundef 1, ptr noundef nonnull %arg.i) #16
-  br label %_ZZN4node12_GLOBAL__N_110SignalWrap5StartERKN2v820FunctionCallbackInfoINS2_5ValueEEEENKUlP11uv_signal_siE_clES9_i.argprom.exit
+  br label %_ZZN4node12_GLOBAL__N_110SignalWrap5StartERKN2v820FunctionCallbackInfoINS2_5ValueEEEENKUlP11uv_signal_siE_clES9_i.exit
 
-_ZZN4node12_GLOBAL__N_110SignalWrap5StartERKN2v820FunctionCallbackInfoINS2_5ValueEEEENKUlP11uv_signal_siE_clES9_i.argprom.exit: ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i.i, %if.end.i.i.i, %if.end44.i.i.i
+_ZZN4node12_GLOBAL__N_110SignalWrap5StartERKN2v820FunctionCallbackInfoINS2_5ValueEEEENKUlP11uv_signal_siE_clES9_i.exit: ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i.i, %if.end.i.i.i, %if.end44.i.i.i
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i.i) #16
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)

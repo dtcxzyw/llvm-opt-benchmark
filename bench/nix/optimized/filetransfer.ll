@@ -4378,11 +4378,11 @@ _ZNSt10shared_ptrISt7promiseIN3nix18FileTransferResultEEEC2ERKS4_.exit: ; preds 
 _ZN3nix8CallbackINS_18FileTransferResultEED2Ev.exit: ; preds = %44, %46
   %51 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i, label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit", label %52
+  br i1 %.not.i.i, label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit", label %52
 
 52:                                               ; preds = %_ZN3nix8CallbackINS_18FileTransferResultEED2Ev.exit
   %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit" unwind label %54
+          to label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit" unwind label %54
 
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
@@ -4391,7 +4391,7 @@ _ZN3nix8CallbackINS_18FileTransferResultEED2Ev.exit: ; preds = %44, %46
   call void @__clang_call_terminate(ptr %56) #35
   unreachable
 
-"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit": ; preds = %52, %_ZN3nix8CallbackINS_18FileTransferResultEED2Ev.exit
+"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit": ; preds = %52, %_ZN3nix8CallbackINS_18FileTransferResultEED2Ev.exit
   %57 = load ptr, ptr %5, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %58 = load ptr, ptr %57, align 8, !noalias !20
@@ -4403,7 +4403,7 @@ _ZN3nix8CallbackINS_18FileTransferResultEED2Ev.exit: ; preds = %44, %46
   %.not.i.i.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10shared_ptrINSt13__future_base13_State_baseV2EEC2ERKS2_.exit.i.i.i, label %62
 
-62:                                               ; preds = %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit"
+62:                                               ; preds = %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit"
   %63 = getelementptr inbounds i8, ptr %61, i64 8
   %64 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
   %.not.i.i.i.i.i.i.i14 = icmp eq i8 %64, 0
@@ -4420,8 +4420,8 @@ _ZN3nix8CallbackINS_18FileTransferResultEED2Ev.exit: ; preds = %44, %46
   %.pre.i = load ptr, ptr %0, align 8, !alias.scope !20
   br label %_ZNSt10shared_ptrINSt13__future_base13_State_baseV2EEC2ERKS2_.exit.i.i.i
 
-_ZNSt10shared_ptrINSt13__future_base13_State_baseV2EEC2ERKS2_.exit.i.i.i: ; preds = %68, %65, %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit"
-  %70 = phi ptr [ %.pre.i, %68 ], [ %58, %65 ], [ %58, %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit" ]
+_ZNSt10shared_ptrINSt13__future_base13_State_baseV2EEC2ERKS2_.exit.i.i.i: ; preds = %68, %65, %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit"
+  %70 = phi ptr [ %.pre.i, %68 ], [ %58, %65 ], [ %58, %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit" ]
   %.not.i.i.i.i15 = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i15, label %.invoke.i.i.i, label %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i.i.i
 
@@ -4565,7 +4565,7 @@ _ZNSt10shared_ptrISt7promiseIN3nix18FileTransferResultEEED2Ev.exit: ; preds = %_
 _ZNSt8functionIFvSt6futureIN3nix18FileTransferResultEEEED2Ev.exit24: ; preds = %121, %.body, %111
   %.sroa.3.0 = phi ptr [ %10, %111 ], [ null, %.body ], [ null, %121 ]
   %.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %114, %.body ], [ %.pn28, %121 ]
-  call fastcc void @"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom"(ptr %.sroa.3.0) #34
+  call fastcc void @"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev"(ptr %.sroa.3.0) #34
   br label %.body16
 
 .body16:                                          ; preds = %74, %_ZNSt8functionIFvSt6futureIN3nix18FileTransferResultEEEED2Ev.exit24
@@ -4575,7 +4575,7 @@ _ZNSt8functionIFvSt6futureIN3nix18FileTransferResultEEEED2Ev.exit24: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom"(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev"(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrISt7promiseIN3nix18FileTransferResultEEED2Ev.exit, label %1
 
@@ -5527,7 +5527,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %172
 176:                                              ; preds = %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEEC2ERKSE_.exit
   %177 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.argprom"(ptr nonnull %14) #34
+  call fastcc void @"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev"(ptr nonnull %14) #34
   br label %305
 
 178:                                              ; preds = %_ZNSt8functionIFvN3nix18FileTransferResultEEEC2EOS3_.exit
@@ -5851,7 +5851,7 @@ _ZN3nix4SyncIZNS_12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8
 288:                                              ; preds = %286, %284
   %.0.i.i.i.i = phi i32 [ %277, %284 ], [ %287, %286 ]
   %289 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %289, label %290, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit
+  br i1 %289, label %290, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit
 
 290:                                              ; preds = %288
   %291 = load ptr, ptr %14, align 8
@@ -5875,29 +5875,29 @@ _ZN3nix4SyncIZNS_12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8
 300:                                              ; preds = %298, %295
   %.0.i.i.i.i.i.i = phi i32 [ %296, %295 ], [ %299, %298 ]
   %301 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %301, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit
+  br i1 %301, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %300, %278
   %302 = load ptr, ptr %14, align 8
   %303 = getelementptr inbounds i8, ptr %302, i64 24
   %304 = load ptr, ptr %303, align 8
   call void %304(ptr noundef nonnull align 8 dereferenceable(16) %14) #34
-  br label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit
 
-_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit: ; preds = %288, %300, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit: ; preds = %288, %300, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 
 305:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZN3nix4SyncIZNS_12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEE5StateSt5mutexE4LockD2Ev.exit70, %_ZNSt8functionIFvSt6futureIN3nix18FileTransferResultEEEED2Ev.exit63, %176
   %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %_ZN3nix4SyncIZNS_12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEE5StateSt5mutexE4LockD2Ev.exit70 ], [ %.pn.pn, %_ZNSt8functionIFvSt6futureIN3nix18FileTransferResultEEEED2Ev.exit63 ], [ %177, %176 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call fastcc void @"_ZN7FinallyIZN3nix12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE3$_2ED2Ev.argprom.argprom"(ptr nonnull %17) #34
-  call fastcc void @_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom(ptr nonnull %14) #34
+  call fastcc void @"_ZN7FinallyIZN3nix12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE3$_2ED2Ev"(ptr nonnull %17) #34
+  call fastcc void @_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev(ptr nonnull %14) #34
   resume { ptr, i32 } %.pn17.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.argprom"(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev"(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -5933,7 +5933,7 @@ define internal fastcc void @"_ZZN3nix12FileTransfer8downloadEONS_19FileTransfer
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -5958,16 +5958,16 @@ define internal fastcc void @"_ZZN3nix12FileTransfer8downloadEONS_19FileTransfer
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #34
-  br label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit
 
-_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
@@ -5994,7 +5994,7 @@ _ZNSt8functionIFvN3nix18FileTransferResultEEED2Ev.exit: ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit, label %11
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit, label %11
 
 11:                                               ; preds = %_ZNSt8functionIFvN3nix18FileTransferResultEEED2Ev.exit
   %12 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -6030,7 +6030,7 @@ _ZNSt8functionIFvN3nix18FileTransferResultEEED2Ev.exit: ; preds = %1, %4
 27:                                               ; preds = %25, %23
   %.0.i.i.i.i = phi i32 [ %15, %23 ], [ %26, %25 ]
   %28 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %28, label %29, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit
+  br i1 %28, label %29, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %.val, align 8
@@ -6055,16 +6055,16 @@ _ZNSt8functionIFvN3nix18FileTransferResultEEED2Ev.exit: ; preds = %1, %4
 40:                                               ; preds = %38, %35
   %.0.i.i.i.i.i.i = phi i32 [ %36, %35 ], [ %39, %38 ]
   %41 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %41, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit
+  br i1 %41, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %40, %16
   %42 = load ptr, ptr %.val, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(16) %.val) #34
-  br label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit
 
-_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom.exit: ; preds = %_ZNSt8functionIFvN3nix18FileTransferResultEEED2Ev.exit, %27, %40, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.exit: ; preds = %_ZNSt8functionIFvN3nix18FileTransferResultEEED2Ev.exit, %27, %40, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
@@ -6098,7 +6098,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN7FinallyIZN3nix12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE3$_2ED2Ev.argprom.argprom"(ptr %.0.val.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN7FinallyIZN3nix12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE3$_2ED2Ev"(ptr %.0.val.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %.0.val.0.val) #34, !noalias !36
   %.not.i.i.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i.i.i.i, label %3, label %2
@@ -6127,9 +6127,9 @@ define internal fastcc void @"_ZN7FinallyIZN3nix12FileTransfer8downloadEONS0_19F
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -6165,7 +6165,7 @@ define internal fastcc void @_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8do
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -6190,16 +6190,16 @@ define internal fastcc void @_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8do
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #34
-  br label %_ZNSt12__shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
@@ -8174,13 +8174,13 @@ _ZN3nix4PipeC2Ev.exit:                            ; preds = %.noexc
   %31 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRF8CURLcodelEJiEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv, ptr %31, align 8
   %32 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZZN3nix16curlFileTransferC1EvE10globalInit, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %35
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %35
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %_ZN3nix4PipeC2Ev.exit
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %_ZN3nix4PipeC2Ev.exit
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %37, label %33
 
-33:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+33:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %32) #39
           to label %34 unwind label %35
 
@@ -8194,7 +8194,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %_ZN3nix4PipeC2Ev.ex
   store ptr null, ptr %31, align 8
   br label %.body8
 
-37:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+37:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %30, align 8
   store ptr null, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -26495,13 +26495,13 @@ define linkonce_odr void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #39
           to label %18 unwind label %19
 
@@ -26515,7 +26515,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -64939,7 +64939,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureIN3nix18FileTransferResultEEEZNS1_12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %18
@@ -64948,12 +64948,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureIN3nix1
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -64965,7 +64965,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureIN3nix1
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.val8.i, ptr %9, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.argprom.exit.i", label %10
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %.val8.i, i64 8
@@ -64977,26 +64977,26 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureIN3nix1
   %14 = load i32, ptr %11, align 4
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %11, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i"
 
 16:                                               ; preds = %10
   %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %16, %13, %6
+"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i": ; preds = %16, %13, %6
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 18:                                               ; preds = %3
   %.val9.i = load ptr, ptr %0, align 8
   %19 = icmp eq ptr %.val9.i, null
-  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %20
+  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr i8, ptr %.val9.i, i64 8
   %.val.i.i = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit.i.i", label %22
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit.i.i", label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -65032,7 +65032,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureIN3nix1
 38:                                               ; preds = %36, %34
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %34 ], [ %37, %36 ]
   %39 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %39, label %40, label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %39, label %40, label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit.i.i"
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %.val.i.i, align 8
@@ -65057,20 +65057,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureIN3nix1
 51:                                               ; preds = %49, %46
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %47, %46 ], [ %50, %49 ]
   %52 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %51, %27
   %53 = load ptr, ptr %.val.i.i, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #34
-  br label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit.i.i"
 
-"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
+"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
   tail call void @_ZdlPv(ptr noundef nonnull %.val9.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.argprom.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.argprom.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %"_ZZN3nix12FileTransfer19enqueueFileTransferERKNS_19FileTransferRequestEEN3$_0D2Ev.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer19enqueueFileTransferERKNS1_19FileTransferRequestEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -65113,19 +65113,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i: ; pred
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN3nix4SyncIZNS3_12FileTransfer8downloadEONS3_19FileTransferRequestERNS3_4SinkESt8functionIFvNS3_18FileTransferResultEEEE5StateSt5mutexEEEEvRS0_PT_.argprom.exit, label %13
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN3nix4SyncIZNS3_12FileTransfer8downloadEONS3_19FileTransferRequestERNS3_4SinkESt8functionIFvNS3_18FileTransferResultEEEE5StateSt5mutexEEEEvRS0_PT_.exit, label %13
 
 13:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i
   tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #34
-  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN3nix4SyncIZNS3_12FileTransfer8downloadEONS3_19FileTransferRequestERNS3_4SinkESt8functionIFvNS3_18FileTransferResultEEEE5StateSt5mutexEEEEvRS0_PT_.argprom.exit
+  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN3nix4SyncIZNS3_12FileTransfer8downloadEONS3_19FileTransferRequestERNS3_4SinkESt8functionIFvNS3_18FileTransferResultEEEE5StateSt5mutexEEEEvRS0_PT_.exit
 
-_ZNSt16allocator_traitsISaIvEE7destroyIN3nix4SyncIZNS3_12FileTransfer8downloadEONS3_19FileTransferRequestERNS3_4SinkESt8functionIFvNS3_18FileTransferResultEEEE5StateSt5mutexEEEEvRS0_PT_.argprom.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i, %13
+_ZNSt16allocator_traitsISaIvEE7destroyIN3nix4SyncIZNS3_12FileTransfer8downloadEONS3_19FileTransferRequestERNS3_4SinkESt8functionIFvNS3_18FileTransferResultEEEE5StateSt5mutexEEEEvRS0_PT_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i, %13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix4SyncIZNS1_12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE5StateSt5mutexEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix4SyncIZNS1_12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE5StateSt5mutexEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
   ret void
 }
@@ -65190,7 +65190,7 @@ _ZN3nix4SyncIZNS_12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8
   %9 = getelementptr inbounds i8, ptr %.val2, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %"_ZSt10__invoke_rIvRZN3nix12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %12
+  br i1 %11, label %"_ZSt10__invoke_rIvRZN3nix12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %12
 
 12:                                               ; preds = %_ZN3nix4SyncIZNS_12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEE5StateSt5mutexE4lockEv.exit.i.i.i
   %13 = getelementptr inbounds i8, ptr %.val2, i64 56
@@ -65340,14 +65340,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i
   store i8 0, ptr %72, align 1
   %73 = getelementptr inbounds i8, ptr %.val2, i64 88
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %73) #34
-  br label %"_ZSt10__invoke_rIvRZN3nix12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN3nix12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
 _ZN3nix4SyncIZNS_12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEE5StateSt5mutexE4LockD2Ev.exit14.i.i.i: ; preds = %39, %37, %22
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ], [ %23, %22 ]
   %74 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.val2) #34
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN3nix12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %_ZN3nix4SyncIZNS_12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEE5StateSt5mutexE4lockEv.exit.i.i.i, %70
+"_ZSt10__invoke_rIvRZN3nix12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %_ZN3nix4SyncIZNS_12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEE5StateSt5mutexE4lockEv.exit.i.i.i, %70
   %75 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.val2) #34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret void
@@ -65355,7 +65355,7 @@ _ZN3nix4SyncIZNS_12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string_viewIcSt11char_traitsIcEEEZN3nix12FileTransfer8downloadEONS5_19FileTransferRequestERNS5_4SinkESt8functionIFvNS5_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %18
@@ -65364,12 +65364,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -65381,7 +65381,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.val8.i, ptr %9, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.argprom.exit.i", label %10
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %.val8.i, i64 8
@@ -65393,26 +65393,26 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string
   %14 = load i32, ptr %11, align 4
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %11, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i"
 
 16:                                               ; preds = %10
   %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %16, %13, %6
+"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i": ; preds = %16, %13, %6
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 18:                                               ; preds = %3
   %.val9.i = load ptr, ptr %0, align 8
   %19 = icmp eq ptr %.val9.i, null
-  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %20
+  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr i8, ptr %.val9.i, i64 8
   %.val.i.i = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.argprom.exit.i.i", label %22
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.exit.i.i", label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -65448,7 +65448,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string
 38:                                               ; preds = %36, %34
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %34 ], [ %37, %36 ]
   %39 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %39, label %40, label %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %39, label %40, label %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.exit.i.i"
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %.val.i.i, align 8
@@ -65473,20 +65473,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt17basic_string
 51:                                               ; preds = %49, %46
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %47, %46 ], [ %50, %49 ]
   %52 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %51, %27
   %53 = load ptr, ptr %.val.i.i, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #34
-  br label %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.exit.i.i"
 
-"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
+"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
   tail call void @_ZdlPv(ptr noundef nonnull %.val9.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.argprom.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.argprom.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_0D2Ev.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_0E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -65721,16 +65721,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureIN3nix1
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEE3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 3, label %41
     i32 2, label %7
   ]
@@ -65805,18 +65805,18 @@ _ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferReq
 
 .body.i.i.i.i:                                    ; preds = %36, %33
   %.val.i.i.i.i = load ptr, ptr %10, align 8
-  tail call fastcc void @_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev.argprom(ptr %.val.i.i.i.i) #34
+  tail call fastcc void @_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEED2Ev(ptr %.val.i.i.i.i) #34
   tail call void @_ZdlPv(ptr noundef nonnull %8) #36
   resume { ptr, i32 } %34
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i": ; preds = %29, %_ZNSt10shared_ptrIN3nix4SyncIZNS0_12FileTransfer8downloadEONS0_19FileTransferRequestERNS0_4SinkESt8functionIFvNS0_18FileTransferResultEEEE5StateSt5mutexEEEC2ERKSE_.exit.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 41:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %42 = icmp eq ptr %.val7.i, null
-  br i1 %42, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %43
+  br i1 %42, label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %43
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %.val7.i, i64 32
@@ -65912,9 +65912,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 "_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_1D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %82, %69, %_ZNSt8functionIFvN3nix18FileTransferResultEEED2Ev.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #36
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_1D2Ev.exit.i.i", %41, %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %"_ZZN3nix12FileTransfer8downloadEONS_19FileTransferRequestERNS_4SinkESt8functionIFvNS_18FileTransferResultEEEEN3$_1D2Ev.exit.i.i", %41, %"_ZNSt14_Function_base13_Base_managerIZN3nix12FileTransfer8downloadEONS1_19FileTransferRequestERNS1_4SinkESt8functionIFvNS1_18FileTransferResultEEEE3$_1E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 

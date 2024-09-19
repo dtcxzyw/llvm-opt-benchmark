@@ -195,7 +195,7 @@ define dso_local i64 @move_page_tables(ptr noundef %0, i64 noundef %1, ptr nound
   %95 = load ptr, ptr %66, align 8
   %96 = getelementptr i8, ptr %95, i64 128
   %.val = load ptr, ptr %96, align 64
-  %97 = call fastcc ptr @get_old_pud.argprom(ptr %.val, i64 noundef %86)
+  %97 = call fastcc ptr @get_old_pud(ptr %.val, i64 noundef %86)
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.thread30, label %99
 
@@ -289,7 +289,7 @@ alloc_new_pud.exit:                               ; preds = %130, %._crit_edge.i
   %157 = load ptr, ptr %66, align 8
   %158 = getelementptr i8, ptr %157, i64 128
   %.val26 = load ptr, ptr %158, align 64
-  %159 = call fastcc ptr @get_old_pud.argprom(ptr %.val26, i64 noundef %86)
+  %159 = call fastcc ptr @get_old_pud(ptr %.val26, i64 noundef %86)
   %160 = icmp eq ptr %159, null
   br i1 %160, label %.thread30, label %161
 
@@ -669,7 +669,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare dso_local i32 @move_hugetlb_page_tables(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @get_old_pud.argprom(ptr %.128.val, i64 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @get_old_pud(ptr %.128.val, i64 noundef %0) unnamed_addr #0 align 16 {
   %2 = load i32, ptr @pgdir_shift, align 4
   %3 = zext nneg i32 %2 to i64
   %4 = lshr i64 %0, %3
@@ -1964,7 +1964,7 @@ define internal fastcc i64 @move_vma(ptr noundef %0, i64 noundef %1, i64 noundef
 
 159:                                              ; preds = %157
   %160 = load ptr, ptr %9, align 8
-  call fastcc void @vm_flags_clear.argelim(ptr noundef %160)
+  call fastcc void @vm_flags_clear(ptr noundef %160)
   %161 = load ptr, ptr %9, align 8
   %162 = icmp eq ptr %76, %161
   br i1 %162, label %235, label %163
@@ -2134,7 +2134,7 @@ declare dso_local ptr @copy_vma(ptr noundef, i64 noundef, i64 noundef, i64 nound
 declare dso_local void @clear_vma_resv_huge_pages(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @vm_flags_clear.argelim(ptr noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc void @vm_flags_clear(ptr noundef %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 232

@@ -132,13 +132,13 @@ entry:
   %0 = getelementptr i8, ptr %call.i, i64 8
   %call.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %call.val, null
-  br i1 %tobool.not.i, label %traverse_module_state.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %traverse_module_state.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call.i1 = tail call i32 %visit(ptr noundef nonnull %call.val, ptr noundef %arg) #7
-  br label %traverse_module_state.argprom.exit
+  br label %traverse_module_state.exit
 
-traverse_module_state.argprom.exit:               ; preds = %if.then.i, %entry
+traverse_module_state.exit:                       ; preds = %if.then.i, %entry
   ret i32 0
 }
 
@@ -552,7 +552,7 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %call6 = call fastcc ptr @convert_code_arg.argprom(ptr noundef nonnull %0, ptr noundef nonnull @.str.28)
+  %call6 = call fastcc ptr @convert_code_arg(ptr noundef nonnull %0, ptr noundef nonnull @.str.28)
   store ptr %call6, ptr %code, align 8
   %cmp = icmp eq ptr %call6, null
   br i1 %cmp, label %return, label %if.end9
@@ -562,7 +562,7 @@ if.end9:                                          ; preds = %if.end7.thread6, %i
   store ptr null, ptr %excinfo, align 8
   %9 = load ptr, ptr %id, align 8
   %10 = load ptr, ptr %shared, align 8
-  %call10 = call fastcc i32 @_interp_exec.argprom(ptr noundef %9, ptr noundef nonnull %storemerge9, ptr noundef %10, ptr noundef %excinfo)
+  %call10 = call fastcc i32 @_interp_exec(ptr noundef %9, ptr noundef nonnull %storemerge9, ptr noundef %10, ptr noundef %excinfo)
   %11 = load ptr, ptr %code, align 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2147483648
@@ -669,7 +669,7 @@ if.end3:                                          ; preds = %if.end8.i
   store ptr null, ptr %excinfo, align 8
   %10 = load ptr, ptr %id, align 8
   %11 = load ptr, ptr %shared, align 8
-  %call4 = call fastcc i32 @_interp_exec.argprom(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %11, ptr noundef %excinfo)
+  %call4 = call fastcc i32 @_interp_exec(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %11, ptr noundef %excinfo)
   %12 = load ptr, ptr %script, align 8
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 2147483648
@@ -711,7 +711,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %func, align 8
-  %call1 = call fastcc ptr @convert_code_arg.argprom(ptr noundef %0, ptr noundef nonnull @.str.47)
+  %call1 = call fastcc ptr @convert_code_arg(ptr noundef %0, ptr noundef nonnull @.str.47)
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end3
 
@@ -719,7 +719,7 @@ if.end3:                                          ; preds = %if.end
   store ptr null, ptr %excinfo, align 8
   %1 = load ptr, ptr %id, align 8
   %2 = load ptr, ptr %shared, align 8
-  %call4 = call fastcc i32 @_interp_exec.argprom(ptr noundef %1, ptr noundef nonnull %call1, ptr noundef %2, ptr noundef %excinfo)
+  %call4 = call fastcc i32 @_interp_exec(ptr noundef %1, ptr noundef nonnull %call1, ptr noundef %2, ptr noundef %excinfo)
   %3 = load i64, ptr %call1, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i9.not = icmp eq i64 %4, 0
@@ -927,15 +927,15 @@ entry:
   %1 = getelementptr i8, ptr %arg.val8.i, i64 96
   %arg.val8.val.i = load ptr, ptr %1, align 8
   %cmp.not.i.i = icmp eq ptr %arg.val8.val.i, null
-  br i1 %cmp.not.i.i, label %if.else.i, label %_PyIndex_Check.argprom.argprom.exit.i
+  br i1 %cmp.not.i.i, label %if.else.i, label %_PyIndex_Check.exit.i
 
-_PyIndex_Check.argprom.argprom.exit.i:            ; preds = %entry
+_PyIndex_Check.exit.i:                            ; preds = %entry
   %nb_index.i.i = getelementptr inbounds i8, ptr %arg.val8.val.i, i64 264
   %2 = load ptr, ptr %nb_index.i.i, align 8
   %cmp2.i.not.i = icmp eq ptr %2, null
   br i1 %cmp2.i.not.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %_PyIndex_Check.argprom.argprom.exit.i
+if.then.i:                                        ; preds = %_PyIndex_Check.exit.i
   %call1.i = tail call ptr @PyNumber_Long(ptr noundef nonnull %arg) #7
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -986,7 +986,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call1.i) #7
   br label %convert_interpid_obj.exit
 
-if.else.i:                                        ; preds = %_PyIndex_Check.argprom.argprom.exit.i, %entry
+if.else.i:                                        ; preds = %_PyIndex_Check.exit.i, %entry
   %9 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %arg.val8.i, i64 24
   %10 = load ptr, ptr %tp_name.i, align 8
@@ -1031,7 +1031,7 @@ declare i32 @PyList_Insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_
 declare ptr @PyInterpreterState_Next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @convert_code_arg.argprom(ptr noundef %arg, ptr noundef %expected) unnamed_addr #0 {
+define internal fastcc ptr @convert_code_arg(ptr noundef %arg, ptr noundef %expected) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -1180,7 +1180,7 @@ return:                                           ; preds = %if.end15.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_interp_exec.argprom(ptr noundef %id_arg, ptr noundef %code_arg, ptr noundef %shared_arg, ptr nocapture noundef nonnull writeonly %p_excinfo) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_interp_exec(ptr noundef %id_arg, ptr noundef %code_arg, ptr noundef %shared_arg, ptr nocapture noundef nonnull writeonly %p_excinfo) unnamed_addr #0 {
 entry:
   %session.i = alloca %struct.xi_session, align 8
   %len.i = alloca i64, align 8

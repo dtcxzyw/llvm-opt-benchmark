@@ -760,12 +760,12 @@ define dso_local noundef zeroext i1 @_ZN20cmConditionEvaluator12HandleLevel1ERNS
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.argprom.exit"
+  br i1 %17, label %18, label %"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.exit"
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %.sroa.0.0125, i64 16
   %20 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.060.0.copyload, ptr %.sroa.261.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %19)
-  br i1 %20, label %21, label %"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.argprom.exit"
+  br i1 %20, label %21, label %"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.exit"
 
 21:                                               ; preds = %18
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
@@ -801,7 +801,7 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_
 32:                                               ; preds = %31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #19
-  br label %"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.argprom.exit"
+  br label %"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.exit"
 
 33:                                               ; preds = %29, %21
   %34 = landingpad { ptr, i32 }
@@ -829,14 +829,14 @@ common.resume:                                    ; preds = %134, %147, %99, %10
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #19
   br label %common.resume
 
-"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.argprom.exit": ; preds = %15, %18, %32
+"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.exit": ; preds = %15, %18, %32
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %40 = icmp eq ptr %.sroa.29.0124, %1
   br i1 %40, label %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit, label %41
 
-41:                                               ; preds = %"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.argprom.exit"
+41:                                               ; preds = %"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.exit"
   %.sroa.058.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_19keyEXISTSE.0, align 8
   %.sroa.058.0.copyload = select i1 %.sroa.058.0.copyload.b, i64 6, i64 0
   %.sroa.259.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_19keyEXISTSE.1, align 8
@@ -1096,7 +1096,7 @@ _ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED
   call void @_ZN20cmConditionEvaluator14cmArgumentList12ReduceOneArgINS0_18CurrentAndNextIterEEEvbT_(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %.sink, ptr nonnull %.sroa.0.0125, ptr %.sroa.29.0124)
   br label %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit
 
-_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit: ; preds = %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit.sink.split, %94, %92, %153, %"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.argprom.exit"
+_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit: ; preds = %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit.sink.split, %94, %92, %153, %"_ZZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEN10cmPolicies8PolicyIDENSC_12PolicyStatusEN2cm18static_string_viewE.exit"
   %162 = load ptr, ptr %.sroa.0.0125, align 8
   %.not.i = icmp eq ptr %162, %1
   br i1 %.not.i, label %._crit_edge, label %15

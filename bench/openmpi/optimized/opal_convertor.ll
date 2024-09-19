@@ -305,7 +305,7 @@ define noundef ptr @opal_convertor_create(i32 noundef %0, i32 noundef %1) local_
 
 8:                                                ; preds = %7, %2
   %.not9.i = icmp eq ptr %4, null
-  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %9
+  br i1 %.not9.i, label %opal_obj_new.exit, label %9
 
 9:                                                ; preds = %8
   store ptr @opal_convertor_t_class, ptr %4, align 8
@@ -314,7 +314,7 @@ define noundef ptr @opal_convertor_create(i32 noundef %0, i32 noundef %1) local_
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i.i = icmp eq ptr %12, null
-  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %13 = phi ptr [ %15, %.lr.ph.i.i ], [ %12, %9 ]
@@ -323,9 +323,9 @@ define noundef ptr @opal_convertor_create(i32 noundef %0, i32 noundef %1) local_
   %14 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !10
 
-opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %8, %9
+opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
   %16 = tail call ptr @opal_convertor_find_or_create_master(i32 noundef %0)
   %17 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %0, ptr %17, align 8
@@ -630,16 +630,16 @@ define i32 @opal_convertor_set_position_nocheck(ptr noundef %0, ptr noundef %1) 
   store i16 %36, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %15, i64 8
   %39 = load i64, ptr %38, align 8
-  br label %opal_convertor_create_stack_with_pos_contig.argprom.exit
+  br label %opal_convertor_create_stack_with_pos_contig.exit
 
 40:                                               ; preds = %7
   %41 = getelementptr inbounds i8, ptr %11, i64 28
   store i16 9, ptr %41, align 4
   %42 = load i64, ptr %16, align 8
   %43 = sub i64 %42, %32
-  br label %opal_convertor_create_stack_with_pos_contig.argprom.exit
+  br label %opal_convertor_create_stack_with_pos_contig.exit
 
-opal_convertor_create_stack_with_pos_contig.argprom.exit: ; preds = %34, %40
+opal_convertor_create_stack_with_pos_contig.exit: ; preds = %34, %40
   %.sink.i = phi i64 [ %39, %34 ], [ %43, %40 ]
   %44 = getelementptr inbounds i8, ptr %11, i64 32
   store i64 %.sink.i, ptr %44, align 8
@@ -698,7 +698,7 @@ opal_convertor_create_stack_with_pos_contig.argprom.exit: ; preds = %34, %40
   %77 = zext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %57, i64 32
   store i64 %77, ptr %78, align 8
-  br label %opal_convertor_create_stack_at_begining.argprom.exit
+  br label %opal_convertor_create_stack_at_begining.exit
 
 79:                                               ; preds = %55
   %80 = getelementptr inbounds i8, ptr %61, i64 4
@@ -710,9 +710,9 @@ opal_convertor_create_stack_with_pos_contig.argprom.exit: ; preds = %34, %40
   %86 = getelementptr inbounds i8, ptr %57, i64 32
   store i64 %85, ptr %86, align 8
   %87 = load i16, ptr %71, align 2
-  br label %opal_convertor_create_stack_at_begining.argprom.exit
+  br label %opal_convertor_create_stack_at_begining.exit
 
-opal_convertor_create_stack_at_begining.argprom.exit: ; preds = %74, %79
+opal_convertor_create_stack_at_begining.exit:     ; preds = %74, %79
   %.sink.i21 = phi i16 [ 0, %74 ], [ %87, %79 ]
   %88 = getelementptr inbounds i8, ptr %57, i64 28
   store i16 %.sink.i21, ptr %88, align 4
@@ -720,7 +720,7 @@ opal_convertor_create_stack_at_begining.argprom.exit: ; preds = %74, %79
   %90 = icmp eq i64 %89, 0
   br i1 %90, label %103, label %91
 
-91:                                               ; preds = %opal_convertor_create_stack_at_begining.argprom.exit, %51
+91:                                               ; preds = %opal_convertor_create_stack_at_begining.exit, %51
   %92 = tail call i32 @opal_convertor_generic_simple_position(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
   %93 = load i32, ptr %3, align 4
   %94 = and i32 %93, 262144
@@ -742,14 +742,14 @@ opal_convertor_create_stack_at_begining.argprom.exit: ; preds = %74, %79
   store i64 0, ptr %96, align 8
   br label %101
 
-101:                                              ; preds = %._crit_edge, %95, %opal_convertor_create_stack_with_pos_contig.argprom.exit
-  %102 = phi i64 [ %6, %opal_convertor_create_stack_with_pos_contig.argprom.exit ], [ %100, %95 ], [ %.pre, %._crit_edge ]
-  %.0 = phi i32 [ 0, %opal_convertor_create_stack_with_pos_contig.argprom.exit ], [ %92, %95 ], [ %92, %._crit_edge ]
+101:                                              ; preds = %._crit_edge, %95, %opal_convertor_create_stack_with_pos_contig.exit
+  %102 = phi i64 [ %6, %opal_convertor_create_stack_with_pos_contig.exit ], [ %100, %95 ], [ %.pre, %._crit_edge ]
+  %.0 = phi i32 [ 0, %opal_convertor_create_stack_with_pos_contig.exit ], [ %92, %95 ], [ %92, %._crit_edge ]
   store i64 %102, ptr %1, align 8
   br label %103
 
-103:                                              ; preds = %opal_convertor_create_stack_at_begining.argprom.exit, %101
-  %.018 = phi i32 [ %.0, %101 ], [ 0, %opal_convertor_create_stack_at_begining.argprom.exit ]
+103:                                              ; preds = %opal_convertor_create_stack_at_begining.exit, %101
+  %.018 = phi i32 [ %.0, %101 ], [ 0, %opal_convertor_create_stack_at_begining.exit ]
   ret i32 %.018
 }
 
@@ -1025,7 +1025,7 @@ opal_convertor_compute_remote_size.exit:          ; preds = %61, %74
   %114 = zext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %96, i64 32
   store i64 %114, ptr %115, align 8
-  br label %opal_convertor_create_stack_at_begining.argprom.exit
+  br label %opal_convertor_create_stack_at_begining.exit
 
 116:                                              ; preds = %95
   %117 = getelementptr inbounds i8, ptr %99, i64 4
@@ -1037,9 +1037,9 @@ opal_convertor_compute_remote_size.exit:          ; preds = %61, %74
   %123 = getelementptr inbounds i8, ptr %96, i64 32
   store i64 %122, ptr %123, align 8
   %124 = load i16, ptr %108, align 2
-  br label %opal_convertor_create_stack_at_begining.argprom.exit
+  br label %opal_convertor_create_stack_at_begining.exit
 
-opal_convertor_create_stack_at_begining.argprom.exit: ; preds = %111, %116
+opal_convertor_create_stack_at_begining.exit:     ; preds = %111, %116
   %.sink.i = phi i16 [ 0, %111 ], [ %124, %116 ]
   %125 = getelementptr inbounds i8, ptr %96, i64 28
   store i16 %.sink.i, ptr %125, align 4
@@ -1048,12 +1048,12 @@ opal_convertor_create_stack_at_begining.argprom.exit: ; preds = %111, %116
   %.not52 = icmp eq i32 %127, 0
   br i1 %.not52, label %128, label %130
 
-128:                                              ; preds = %opal_convertor_create_stack_at_begining.argprom.exit
+128:                                              ; preds = %opal_convertor_create_stack_at_begining.exit
   %129 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @opal_unpack_general, ptr %129, align 8
   br label %138
 
-130:                                              ; preds = %opal_convertor_create_stack_at_begining.argprom.exit
+130:                                              ; preds = %opal_convertor_create_stack_at_begining.exit
   %131 = load ptr, ptr %32, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 16
   %133 = load i16, ptr %132, align 8
@@ -1292,7 +1292,7 @@ opal_convertor_compute_remote_size.exit:          ; preds = %61, %74
   %114 = zext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %96, i64 32
   store i64 %114, ptr %115, align 8
-  br label %opal_convertor_create_stack_at_begining.argprom.exit
+  br label %opal_convertor_create_stack_at_begining.exit
 
 116:                                              ; preds = %95
   %117 = getelementptr inbounds i8, ptr %99, i64 4
@@ -1304,9 +1304,9 @@ opal_convertor_compute_remote_size.exit:          ; preds = %61, %74
   %123 = getelementptr inbounds i8, ptr %96, i64 32
   store i64 %122, ptr %123, align 8
   %124 = load i16, ptr %108, align 2
-  br label %opal_convertor_create_stack_at_begining.argprom.exit
+  br label %opal_convertor_create_stack_at_begining.exit
 
-opal_convertor_create_stack_at_begining.argprom.exit: ; preds = %111, %116
+opal_convertor_create_stack_at_begining.exit:     ; preds = %111, %116
   %.sink.i = phi i16 [ 0, %111 ], [ %124, %116 ]
   %125 = getelementptr inbounds i8, ptr %96, i64 28
   store i16 %.sink.i, ptr %125, align 4
@@ -1315,12 +1315,12 @@ opal_convertor_create_stack_at_begining.argprom.exit: ; preds = %111, %116
   %128 = icmp eq i32 %127, 65536
   br i1 %128, label %129, label %131
 
-129:                                              ; preds = %opal_convertor_create_stack_at_begining.argprom.exit
+129:                                              ; preds = %opal_convertor_create_stack_at_begining.exit
   %130 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @opal_pack_general, ptr %130, align 8
   br label %151
 
-131:                                              ; preds = %opal_convertor_create_stack_at_begining.argprom.exit
+131:                                              ; preds = %opal_convertor_create_stack_at_begining.exit
   %132 = load i16, ptr %44, align 8
   %133 = and i16 %132, 16
   %.not57 = icmp eq i16 %133, 0

@@ -1644,7 +1644,7 @@ gistMemorizeAllDownlinks.exit:                    ; preds = %105, %BufferGetPage
   %126 = call ptr @hash_search(ptr noundef %.val54.i, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %14) #10
   %127 = load i8, ptr %14, align 1
   %128 = trunc i8 %127 to i1
-  br i1 %128, label %gistGetParent.argprom.exit.i, label %129
+  br i1 %128, label %gistGetParent.exit.i, label %129
 
 129:                                              ; preds = %124
   %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1654,7 +1654,7 @@ gistMemorizeAllDownlinks.exit:                    ; preds = %105, %BufferGetPage
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1577, ptr noundef nonnull @__func__.gistGetParent) #10
   unreachable
 
-gistGetParent.argprom.exit.i:                     ; preds = %124
+gistGetParent.exit.i:                             ; preds = %124
   %133 = getelementptr inbounds i8, ptr %126, i64 4
   %134 = load i32, ptr %133, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -1672,8 +1672,8 @@ gistGetParent.argprom.exit.i:                     ; preds = %124
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1244, ptr noundef nonnull @__func__.gistBufferingFindCorrectParent) #10
   unreachable
 
-140:                                              ; preds = %135, %gistGetParent.argprom.exit.i
-  %.039.i = phi i32 [ %134, %gistGetParent.argprom.exit.i ], [ %6, %135 ]
+140:                                              ; preds = %135, %gistGetParent.exit.i
+  %.039.i = phi i32 [ %134, %gistGetParent.exit.i ], [ %6, %135 ]
   %141 = load ptr, ptr %0, align 8
   %142 = call i32 @ReadBuffer(ptr noundef %141, i32 noundef %.039.i) #10
   %143 = icmp slt i32 %142, 0

@@ -2727,16 +2727,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriterD2Ev(ptr nocapture no
 3:                                                ; preds = %1
   %4 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__8JsWriter5_ImplEEclEPS2_.exit.i, label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129Js_PolymorphicWriterInterfaceEEclEPS2_.argprom.exit.i.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__8JsWriter5_ImplEEclEPS2_.exit.i, label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129Js_PolymorphicWriterInterfaceEEclEPS2_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129Js_PolymorphicWriterInterfaceEEclEPS2_.argprom.exit.i.i.i.i: ; preds = %3
+_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129Js_PolymorphicWriterInterfaceEEclEPS2_.exit.i.i.i.i: ; preds = %3
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
   br label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__8JsWriter5_ImplEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__8JsWriter5_ImplEEclEPS2_.exit.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129Js_PolymorphicWriterInterfaceEEclEPS2_.argprom.exit.i.i.i.i, %3
+_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__8JsWriter5_ImplEEclEPS2_.exit.i: ; preds = %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129Js_PolymorphicWriterInterfaceEEclEPS2_.exit.i.i.i.i, %3
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #25
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__8JsWriter5_ImplESt14default_deleteIS2_EED2Ev.exit
 
@@ -6582,7 +6582,7 @@ _ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE25SkipWhite
 117:                                              ; preds = %115
   %118 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i41, i64 1
   store ptr %118, ptr %1, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_113_InputHandler9EndObjectEj.argelim(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 0)
+  tail call fastcc void @_ZN12_GLOBAL__N_113_InputHandler9EndObjectEj(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 0)
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 .critedge.i22thread-pre-split:                    ; preds = %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE25SkipWhitespaceAndCommentsILj24ENS0_19GenericStringStreamIS3_EEEEvRT0_.exit
@@ -6740,7 +6740,7 @@ _ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE25SkipWhite
 161:                                              ; preds = %152
   %162 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i29, i64 1
   store ptr %162, ptr %1, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_113_InputHandler9EndObjectEj.argelim(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %153)
+  tail call fastcc void @_ZN12_GLOBAL__N_113_InputHandler9EndObjectEj(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %153)
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 163:                                              ; preds = %152
@@ -6788,7 +6788,7 @@ _ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE25SkipWhite
 180:                                              ; preds = %177
   %181 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i53, i64 1
   store ptr %181, ptr %1, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_113_InputHandler8EndArrayEj.argelim(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 0)
+  tail call fastcc void @_ZN12_GLOBAL__N_113_InputHandler8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 0)
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 .critedge.i23:                                    ; preds = %177, %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE25SkipWhitespaceAndCommentsILj24ENS0_19GenericStringStreamIS3_EEEEvRT0_.exit47
@@ -6858,7 +6858,7 @@ _ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE25SkipWhite
 197:                                              ; preds = %189
   %198 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i49, i64 1
   store ptr %198, ptr %1, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_113_InputHandler8EndArrayEj.argelim(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %187)
+  tail call fastcc void @_ZN12_GLOBAL__N_113_InputHandler8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %187)
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 .critedge36.i:                                    ; preds = %189
@@ -10478,7 +10478,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7JsValueESaIS1_EE13_M_dea
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC1EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113_InputHandler9EndObjectEj.argelim(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113_InputHandler9EndObjectEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::map", align 8
   %4 = alloca %"struct.std::pair.52", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12093,7 +12093,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113_InputHandler8EndArrayEj.argelim(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113_InputHandler8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7JsValueESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i:
   %2 = alloca %"class.std::vector.3", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24

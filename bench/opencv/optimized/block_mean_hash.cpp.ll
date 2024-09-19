@@ -195,15 +195,15 @@ _ZN2cv3PtrINS_8img_hash13BlockMeanHashEEC2IS2_EEPT_.exit: ; preds = %4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !noalias !4
   %26 = getelementptr inbounds i8, ptr %23, i64 16
   invoke fastcc void @_ZN12_GLOBAL__N_117BlockMeanHashImplC2Ei(ptr noundef nonnull align 8 dereferenceable(232) %26, i32 noundef %1)
-          to label %_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit12.i.i.i.i.i, !noalias !4
+          to label %_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !4
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit12.i.i.i.i.i: ; preds = %.noexc
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %.noexc
   %27 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %23) #23, !noalias !4
   br label %.body
 
-_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %.noexc
+_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %.noexc
   %28 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %26, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %3, i64 16
@@ -211,7 +211,7 @@ _ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_.argp
   %.not.i.i.i.i = icmp eq ptr %23, %30
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_117BlockMeanHashImplEEERS4_RKNS0_IT_EE.exit, label %31
 
-31:                                               ; preds = %_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+31:                                               ; preds = %_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_.exit
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i.i.i.i, label %36, label %33
@@ -304,7 +304,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
   store ptr %23, ptr %29, align 8
   br label %_ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_117BlockMeanHashImplEEERS4_RKNS0_IT_EE.exit
 
-_ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_117BlockMeanHashImplEEERS4_RKNS0_IT_EE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+_ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_117BlockMeanHashImplEEERS4_RKNS0_IT_EE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_.exit
   %72 = load atomic i64, ptr %24 acquire, align 8
   %73 = icmp eq i64 %72, 4294967297
   %74 = trunc i64 %72 to i32
@@ -336,7 +336,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_117BlockMean
 85:                                               ; preds = %83, %81
   %.0.i.i.i.i.i7 = phi i32 [ %74, %81 ], [ %84, %83 ]
   %86 = icmp eq i32 %.0.i.i.i.i.i7, 1
-  br i1 %86, label %87, label %_ZN2cv3PtrIN12_GLOBAL__N_117BlockMeanHashImplEED2Ev.argprom.exit
+  br i1 %86, label %87, label %_ZN2cv3PtrIN12_GLOBAL__N_117BlockMeanHashImplEED2Ev.exit
 
 87:                                               ; preds = %85
   %88 = load ptr, ptr %23, align 8
@@ -360,16 +360,16 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBase11ImgHashImplEEaSIN12_GLOBAL__N_117BlockMean
 97:                                               ; preds = %95, %92
   %.0.i.i.i.i.i.i.i9 = phi i32 [ %93, %92 ], [ %96, %95 ]
   %98 = icmp eq i32 %.0.i.i.i.i.i.i.i9, 1
-  br i1 %98, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i10, label %_ZN2cv3PtrIN12_GLOBAL__N_117BlockMeanHashImplEED2Ev.argprom.exit
+  br i1 %98, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i10, label %_ZN2cv3PtrIN12_GLOBAL__N_117BlockMeanHashImplEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i10: ; preds = %97, %75
   %99 = load ptr, ptr %23, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 24
   %101 = load ptr, ptr %100, align 8
   tail call void %101(ptr noundef nonnull align 8 dereferenceable(16) %23) #20
-  br label %_ZN2cv3PtrIN12_GLOBAL__N_117BlockMeanHashImplEED2Ev.argprom.exit
+  br label %_ZN2cv3PtrIN12_GLOBAL__N_117BlockMeanHashImplEED2Ev.exit
 
-_ZN2cv3PtrIN12_GLOBAL__N_117BlockMeanHashImplEED2Ev.argprom.exit: ; preds = %85, %97, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i10
+_ZN2cv3PtrIN12_GLOBAL__N_117BlockMeanHashImplEED2Ev.exit: ; preds = %85, %97, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i10
   ret void
 
 102:                                              ; preds = %2
@@ -383,8 +383,8 @@ _ZN2cv3PtrIN12_GLOBAL__N_117BlockMeanHashImplEED2Ev.argprom.exit: ; preds = %85,
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit12.i.i.i.i.i, %104
-  %eh.lpad-body = phi { ptr, i32 } [ %105, %104 ], [ %27, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit12.i.i.i.i.i ]
+.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, %104
+  %eh.lpad-body = phi { ptr, i32 } [ %105, %104 ], [ %27, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i ]
   tail call void @_ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   br label %common.resume
 }
@@ -1428,13 +1428,13 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanH
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117BlockMeanHashImplEEEvRS0_PT_.argprom.exit, label %5
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117BlockMeanHashImplEEEvRS0_PT_.exit, label %5
 
 5:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %4) #23
-  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117BlockMeanHashImplEEEvRS0_PT_.argprom.exit
+  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117BlockMeanHashImplEEEvRS0_PT_.exit
 
-_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117BlockMeanHashImplEEEvRS0_PT_.argprom.exit: ; preds = %1, %5
+_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117BlockMeanHashImplEEEvRS0_PT_.exit: ; preds = %1, %5
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
   ret void
@@ -1442,7 +1442,7 @@ _ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117BlockMeanHashImplEEEvRS0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117BlockMeanHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -1538,10 +1538,10 @@ attributes #23 = { builtin nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5, !7}
-!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN12_GLOBAL__N_117BlockMeanHashImplEJRKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_sharedIN12_GLOBAL__N_117BlockMeanHashImplEJRKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.argprom"}
-!7 = distinct !{!7, !8, !"_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN12_GLOBAL__N_117BlockMeanHashImplEJRKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_sharedIN12_GLOBAL__N_117BlockMeanHashImplEJRKiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!7 = distinct !{!7, !8, !"_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!8 = distinct !{!8, !"_ZN2cvL7makePtrIN12_GLOBAL__N_117BlockMeanHashImplEJiEEENS_3PtrIT_EEDpRKT0_"}
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
 !11 = distinct !{!11, !"_ZNK2cv11_InputArray6getMatEi"}

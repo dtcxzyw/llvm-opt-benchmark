@@ -2120,15 +2120,15 @@ if.then13.i:                                      ; preds = %if.end11.i
 
 if.end14.i:                                       ; preds = %if.then13.i, %if.end11.i
   %call.i37.i = call i32 @u_file_write_75(ptr noundef nonnull @_ZZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCodeE2cr, i32 noundef 1, ptr noundef %out)
-  br label %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.argprom.exit
+  br label %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit
 
 if.else.i302:                                     ; preds = %if.end.i
   %79 = load ptr, ptr @_ZL7ustderr, align 8
   %call.i38.i = call ptr @u_errorName_75(i32 noundef %74)
   %call1.i.i = call i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %79, ptr noundef nonnull @.str.47, ptr noundef %pname, i32 noundef %74, ptr noundef nonnull @.str.37, ptr noundef %call.i38.i)
-  br label %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.argprom.exit
+  br label %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit
 
-_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.argprom.exit: ; preds = %if.end14.i, %if.else.i302
+_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit: ; preds = %if.end14.i, %if.else.i302
   call void @uprv_free_75(ptr noundef %call2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %msg.i)
@@ -2146,8 +2146,8 @@ if.else156:                                       ; preds = %if.end144
   store i32 0, ptr %status, align 4
   br label %for.inc158
 
-for.inc158:                                       ; preds = %if.else156, %if.else152, %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.argprom.exit
-  %t.3 = phi ptr [ %t.2333, %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.argprom.exit ], [ %call153, %if.else152 ], [ %t.2333, %if.else156 ]
+for.inc158:                                       ; preds = %if.else156, %if.else152, %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit
+  %t.3 = phi ptr [ %t.2333, %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit ], [ %call153, %if.else152 ], [ %t.2333, %if.else156 ]
   %inc159 = add nuw nsw i32 %i.2334, 1
   %exitcond.not = icmp eq i32 %inc159, %call129
   br i1 %exitcond.not, label %if.end161, label %for.body135, !llvm.loop !12

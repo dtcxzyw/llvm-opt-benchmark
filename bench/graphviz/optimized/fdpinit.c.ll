@@ -31,7 +31,7 @@ define void @fdp_init_node_edge(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr @stderr, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.2, i64 noundef %5, i64 noundef 8) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 9:                                                ; preds = %1
@@ -45,7 +45,7 @@ define void @fdp_init_node_edge(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load ptr, ptr @stderr, align 8
   %15 = shl nuw nsw i64 %5, 3
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.3, i64 noundef %15) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 gv_calloc.exit:                                   ; preds = %9
@@ -77,7 +77,7 @@ gv_calloc.exit:                                   ; preds = %9
   %31 = load ptr, ptr @stderr, align 8
   %32 = shl nuw nsw i64 %26, 3
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.3, i64 noundef %32) #9
-  tail call fastcc void @graphviz_exit.argelim() #10
+  tail call fastcc void @graphviz_exit() #10
   unreachable
 
 init_node.exit:                                   ; preds = %.lr.ph
@@ -366,7 +366,7 @@ declare void @gv_cleanup_node(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #3 {
+define internal fastcc void @graphviz_exit() unnamed_addr #3 {
   tail call void @exit(i32 noundef 1) #12
   unreachable
 }

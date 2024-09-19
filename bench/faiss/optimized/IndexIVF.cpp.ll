@@ -6940,20 +6940,20 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 238:                                              ; preds = %235
   invoke void @_ZN5faiss9heap_addnINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m(i64 noundef %237, ptr noundef %216, ptr noundef %218, ptr noundef %.sroa.0224.0, ptr noundef %.sroa.0233.0265, i64 noundef %237)
-          to label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 239:                                              ; preds = %235
   invoke void @_ZN5faiss9heap_addnINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m(i64 noundef %237, ptr noundef %216, ptr noundef %218, ptr noundef %.sroa.0224.0, ptr noundef %.sroa.0233.0265, i64 noundef %237)
-          to label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit": ; preds = %238, %239
+"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit": ; preds = %238, %239
   call void @__kmpc_end_critical(ptr nonnull @2, i32 %.pre, ptr nonnull @.gomp_critical_user_.var)
   call void @__kmpc_barrier(ptr nonnull @6, i32 %.pre)
   %240 = call i32 @__kmpc_single(ptr nonnull @2, i32 %.pre)
   %.not130 = icmp eq i32 %240, 0
   br i1 %.not130, label %252, label %241
 
-241:                                              ; preds = %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit"
+241:                                              ; preds = %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit"
   %242 = load i8, ptr %5, align 1
   %243 = trunc i8 %242 to i1
   br i1 %243, label %244, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_2clES5_S6_.exit164"
@@ -6976,7 +6976,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   call void @__kmpc_end_single(ptr nonnull @2, i32 %.pre)
   br label %252
 
-252:                                              ; preds = %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_2clES5_S6_.exit164", %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit"
+252:                                              ; preds = %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_2clES5_S6_.exit164", %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit"
   call void @__kmpc_barrier(ptr nonnull @5, i32 %.pre)
   %253 = add nuw i64 %.0117314, 1
   %254 = load i64, ptr %15, align 8
@@ -7144,8 +7144,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit181:            ; preds = %_ZSt6fill_nIPfmfET_
   %.not.i208 = icmp eq ptr %.sroa.0215.0268, null
   br label %313
 
-.loopexit289:                                     ; preds = %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200", %313
-  %311 = phi i64 [ %314, %313 ], [ %351, %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200" ]
+.loopexit289:                                     ; preds = %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200", %313
+  %311 = phi i64 [ %314, %313 ], [ %351, %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200" ]
   %312 = call i32 @__kmpc_dispatch_next_8(ptr nonnull @2, i32 %272, ptr nonnull %41, ptr nonnull %38, ptr nonnull %39, ptr nonnull %40)
   %.not125 = icmp eq i32 %312, 0
   br i1 %.not125, label %.loopexit293, label %313
@@ -7157,9 +7157,9 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit181:            ; preds = %_ZSt6fill_nIPfmfET_
   %.not127297 = icmp sgt i64 %315, %316
   br i1 %.not127297, label %.loopexit289, label %.lr.ph300
 
-.lr.ph300:                                        ; preds = %313, %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200"
-  %317 = phi i64 [ %351, %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200" ], [ %314, %313 ]
-  %.0120298 = phi i64 [ %462, %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200" ], [ %315, %313 ]
+.lr.ph300:                                        ; preds = %313, %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200"
+  %317 = phi i64 [ %351, %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200" ], [ %314, %313 ]
+  %.0120298 = phi i64 [ %462, %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200" ], [ %315, %313 ]
   %318 = load i64, ptr %19, align 8, !llvm.access.group !39
   %319 = sdiv i64 %.0120298, %318
   %320 = load ptr, ptr %28, align 8, !llvm.access.group !39
@@ -7243,14 +7243,14 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit181:            ; preds = %_ZSt6fill_nIPfmfET_
 
 359:                                              ; preds = %350
   invoke void @_ZN5faiss9heap_addnINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m(i64 noundef %353, ptr noundef %355, ptr noundef %357, ptr noundef %.sroa.0.0, ptr noundef %.sroa.0215.0268, i64 noundef %353)
-          to label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 360:                                              ; preds = %350
   %.not49.i = icmp eq i64 %353, 0
   br i1 %.not.i208, label %.preheader.i, label %.preheader41.i
 
 .preheader41.i:                                   ; preds = %360
-  br i1 %.not49.i, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200", label %.lr.ph.i
+  br i1 %.not49.i, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader41.i
   %361 = getelementptr inbounds i8, ptr %355, i64 -4
@@ -7263,14 +7263,14 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit181:            ; preds = %_ZSt6fill_nIPfmfET_
   %364 = load float, ptr %355, align 4
   %365 = load float, ptr %.sroa.0.0, align 4
   %366 = fcmp ogt float %364, %365
-  br i1 %366, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200"
+  br i1 %366, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200"
 
 _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i: ; preds = %.lr.ph.split.us.i.preheader
   %367 = load i64, ptr %.sroa.0215.0268, align 8
-  br label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200.sink.split"
+  br label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200.sink.split"
 
 .preheader.i:                                     ; preds = %360
-  br i1 %.not49.i, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200", label %.lr.ph47.i
+  br i1 %.not49.i, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200", label %.lr.ph47.i
 
 .lr.ph47.i:                                       ; preds = %.preheader.i
   %368 = getelementptr inbounds i8, ptr %355, i64 -4
@@ -7283,7 +7283,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i: ;
   %371 = load float, ptr %355, align 4
   %372 = load float, ptr %.sroa.0.0, align 4
   %373 = fcmp ogt float %371, %372
-  br i1 %373, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200.sink.split", label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200"
+  br i1 %373, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200.sink.split", label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200"
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %417
   %.043.i = phi i64 [ %418, %417 ], [ 0, %.lr.ph.i ]
@@ -7375,7 +7375,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 417:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.i, %.lr.ph.split.i
   %418 = add nuw i64 %.043.i, 1
   %exitcond.not.i = icmp eq i64 %418, %353
-  br i1 %exitcond.not.i, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200", label %.lr.ph.split.i, !llvm.loop !40
+  br i1 %exitcond.not.i, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200", label %.lr.ph.split.i, !llvm.loop !40
 
 .lr.ph47.split.i:                                 ; preds = %.lr.ph47.i, %460
   %.144.i = phi i64 [ %461, %460 ], [ 0, %.lr.ph47.i ]
@@ -7462,16 +7462,16 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loope
 460:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loopexit.i, %.lr.ph47.split.i
   %461 = add nuw i64 %.144.i, 1
   %exitcond54.not.i = icmp eq i64 %461, %353
-  br i1 %exitcond54.not.i, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200", label %.lr.ph47.split.i, !llvm.loop !41
+  br i1 %exitcond54.not.i, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200", label %.lr.ph47.split.i, !llvm.loop !41
 
-"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200.sink.split": ; preds = %.lr.ph47.split.us.i.preheader, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i
+"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200.sink.split": ; preds = %.lr.ph47.split.us.i.preheader, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i
   %.sink354 = phi float [ %365, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i ], [ %372, %.lr.ph47.split.us.i.preheader ]
   %.sink = phi i64 [ %367, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i ], [ 0, %.lr.ph47.split.us.i.preheader ]
   store float %.sink354, ptr %355, align 4
   store i64 %.sink, ptr %357, align 8
-  br label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200"
+  br label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200"
 
-"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200": ; preds = %417, %460, %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.argprom.argprom.exit200.sink.split", %.lr.ph47.split.us.i.preheader, %.lr.ph.split.us.i.preheader, %359, %.preheader.i, %.preheader41.i
+"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200": ; preds = %417, %460, %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_3clES2_S4_S5_S6_.exit200.sink.split", %.lr.ph47.split.us.i.preheader, %.lr.ph.split.us.i.preheader, %359, %.preheader.i, %.preheader41.i
   call void @__kmpc_end_critical(ptr nonnull @2, i32 %272, ptr nonnull @.gomp_critical_user_.var), !llvm.access.group !39
   %462 = add nsw i64 %.0120298, 1
   %463 = load i64, ptr %39, align 8, !llvm.access.group !39

@@ -787,15 +787,15 @@ if.then37.i:                                      ; preds = %if.then34.i
   %conv.i.i = sext i32 %mul.i.i to i64
   %call.i.i = call ptr @realloc(ptr noundef %18, i64 noundef %conv.i.i) #19
   %cmp.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.i.i, label %item_crawl_hash.exit, label %lru_crawler_expand_buf.argprom.exit.thread.i
+  br i1 %cmp.i.i, label %item_crawl_hash.exit, label %lru_crawler_expand_buf.exit.thread.i
 
-lru_crawler_expand_buf.argprom.exit.thread.i:     ; preds = %if.then37.i
+lru_crawler_expand_buf.exit.thread.i:             ; preds = %if.then37.i
   store ptr %call.i.i, ptr getelementptr inbounds (i8, ptr @active_crawler_mod, i64 32), align 8
   %.pre.i = load ptr, ptr %it.i, align 8
   br label %if.end44.i
 
-if.end44.i:                                       ; preds = %lru_crawler_expand_buf.argprom.exit.thread.i, %if.then34.i, %if.end31.i
-  %19 = phi ptr [ %.pre.i, %lru_crawler_expand_buf.argprom.exit.thread.i ], [ %7, %if.then34.i ], [ %7, %if.end31.i ]
+if.end44.i:                                       ; preds = %lru_crawler_expand_buf.exit.thread.i, %if.then34.i, %if.end31.i
+  %19 = phi ptr [ %.pre.i, %lru_crawler_expand_buf.exit.thread.i ], [ %7, %if.then34.i ], [ %7, %if.end31.i ]
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @active_crawler_mod, i64 40), align 8
   %eval.i = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %eval.i, align 8
@@ -1213,7 +1213,7 @@ if.then20:                                        ; preds = %if.end14.thread, %i
 if.end22:                                         ; preds = %if.end14
   br i1 %tobool, label %for.cond.preheader, label %if.then24
 
-for.cond.preheader:                               ; preds = %if.end43, %lru_crawler_set_client.argprom.exit, %if.end22
+for.cond.preheader:                               ; preds = %if.end43, %lru_crawler_set_client.exit, %if.end22
   %cmp21.i = icmp eq i32 %remaining, -1
   br i1 %cmp21.i, label %for.body.us, label %for.cond.preheader.split
 
@@ -1338,9 +1338,9 @@ if.end.i:                                         ; preds = %if.end36
   %call.i = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #20
   store ptr %call.i, ptr getelementptr inbounds (i8, ptr @active_crawler_mod, i64 32), align 8
   %cmp6.i = icmp eq ptr %call.i, null
-  br i1 %cmp6.i, label %if.then39, label %lru_crawler_set_client.argprom.exit
+  br i1 %cmp6.i, label %if.then39, label %lru_crawler_set_client.exit
 
-lru_crawler_set_client.argprom.exit:              ; preds = %if.end.i
+lru_crawler_set_client.exit:                      ; preds = %if.end.i
   store i32 131072, ptr getelementptr inbounds (i8, ptr @active_crawler_mod, i64 20), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @active_crawler_mod, i64 24), align 8
   br i1 %cmp152426, label %if.end54.thread, label %for.cond.preheader
@@ -1352,7 +1352,7 @@ if.then39:                                        ; preds = %if.end36, %if.end.i
 if.end43:                                         ; preds = %if.end29
   br i1 %cmp152426, label %if.end54.thread, label %for.cond.preheader
 
-if.end54.thread:                                  ; preds = %if.end43, %lru_crawler_set_client.argprom.exit
+if.end54.thread:                                  ; preds = %if.end43, %lru_crawler_set_client.exit
   store i32 -1, ptr @crawler_count, align 4
   br label %if.then56
 

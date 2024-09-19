@@ -75,7 +75,7 @@ if.end9:                                          ; preds = %while.body.preheade
   %bf.load = load i8, ptr %optional, align 4
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %optional, align 4
-  %call10 = call fastcc i32 @parse_name.argelim(ptr noundef %ctx, ptr noundef %s, ptr noundef %call560)
+  %call10 = call fastcc i32 @parse_name(ptr noundef %ctx, ptr noundef %s, ptr noundef %call560)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %err, label %if.end13
 
@@ -189,7 +189,7 @@ entry:
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_name.argelim(ptr noundef %ctx, ptr nocapture noundef nonnull %t, ptr nocapture noundef nonnull writeonly %idx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %ctx, ptr nocapture noundef nonnull %t, ptr nocapture noundef nonnull writeonly %idx) unnamed_addr #0 {
 entry:
   %name = alloca [100 x i8], align 16
   %0 = load ptr, ptr %t, align 8
@@ -950,7 +950,7 @@ if.then12:                                        ; preds = %while.cond.i.i
   %bf.load = load i8, ptr %optional, align 4
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %optional, align 4
-  %call13 = call fastcc i32 @parse_name.argelim(ptr noundef %ctx, ptr noundef %s.addr, ptr noundef %call575)
+  %call13 = call fastcc i32 @parse_name(ptr noundef %ctx, ptr noundef %s.addr, ptr noundef %call575)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %err, label %skip_value
 
@@ -974,7 +974,7 @@ match_ch.exit31:                                  ; preds = %if.end9, %skip_spac
   %bf.clear21 = and i8 %bf.load20, -2
   %bf.set22 = or disjoint i8 %bf.clear21, %retval.0.i23
   store i8 %bf.set22, ptr %optional19, align 4
-  %call24 = call fastcc i32 @parse_name.argelim(ptr noundef %ctx, ptr noundef %s.addr, ptr noundef %call575)
+  %call24 = call fastcc i32 @parse_name(ptr noundef %ctx, ptr noundef %s.addr, ptr noundef %call575)
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %err, label %if.end27
 

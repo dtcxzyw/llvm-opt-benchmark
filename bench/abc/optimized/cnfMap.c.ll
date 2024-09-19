@@ -39,7 +39,7 @@ define void @Cnf_CutAssignAreaFlow(ptr nocapture noundef readonly %0, ptr nocapt
   %25 = getelementptr i8, ptr %24, i64 32
   %.val20 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %.val20, null
-  br i1 %.not.i, label %Aig_ManObj.argprom.exit, label %26
+  br i1 %.not.i, label %Aig_ManObj.exit, label %26
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds [4 x i32], ptr %20, i64 0, i64 %indvars.iv
@@ -49,9 +49,9 @@ define void @Cnf_CutAssignAreaFlow(ptr nocapture noundef readonly %0, ptr nocapt
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds ptr, ptr %.val.i, i64 %30
   %32 = load ptr, ptr %31, align 8
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %21, %26
+Aig_ManObj.exit:                                  ; preds = %21, %26
   %33 = phi ptr [ %32, %26 ], [ null, %21 ]
   %34 = getelementptr inbounds i8, ptr %33, i64 24
   %35 = load i64, ptr %34, align 8
@@ -70,7 +70,7 @@ Aig_ManObj.argprom.exit:                          ; preds = %21, %26
   %narrow.i = icmp ult i32 %45, -2
   br i1 %narrow.i, label %55, label %46
 
-46:                                               ; preds = %Aig_ManObj.argprom.exit
+46:                                               ; preds = %Aig_ManObj.exit
   %47 = getelementptr inbounds i8, ptr %33, i64 36
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
@@ -84,8 +84,8 @@ Aig_ManObj.argprom.exit:                          ; preds = %21, %26
   store i32 %54, ptr %1, align 4
   br label %55
 
-55:                                               ; preds = %Aig_ManObj.argprom.exit, %46
-  %56 = phi i32 [ %22, %Aig_ManObj.argprom.exit ], [ %54, %46 ]
+55:                                               ; preds = %Aig_ManObj.exit, %46
+  %56 = phi i32 [ %22, %Aig_ManObj.exit ], [ %54, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = lshr i32 %23, 29
   %58 = zext nneg i32 %57 to i64
@@ -249,7 +249,7 @@ define void @Cnf_DeriveMapping(ptr nocapture noundef readonly %0) local_unnamed_
   %53 = getelementptr i8, ptr %52, i64 32
   %.val20.i = load ptr, ptr %53, align 8
   %.not.i.i = icmp eq ptr %.val20.i, null
-  br i1 %.not.i.i, label %Aig_ManObj.argprom.exit.i, label %54
+  br i1 %.not.i.i, label %Aig_ManObj.exit.i, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds [4 x i32], ptr %48, i64 0, i64 %indvars.iv.i
@@ -259,9 +259,9 @@ define void @Cnf_DeriveMapping(ptr nocapture noundef readonly %0) local_unnamed_
   %58 = sext i32 %56 to i64
   %59 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %58
   %60 = load ptr, ptr %59, align 8
-  br label %Aig_ManObj.argprom.exit.i
+  br label %Aig_ManObj.exit.i
 
-Aig_ManObj.argprom.exit.i:                        ; preds = %54, %49
+Aig_ManObj.exit.i:                                ; preds = %54, %49
   %61 = phi ptr [ %60, %54 ], [ null, %49 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load i64, ptr %62, align 8
@@ -280,7 +280,7 @@ Aig_ManObj.argprom.exit.i:                        ; preds = %54, %49
   %narrow.i.i = icmp ult i32 %73, -2
   br i1 %narrow.i.i, label %83, label %74
 
-74:                                               ; preds = %Aig_ManObj.argprom.exit.i
+74:                                               ; preds = %Aig_ManObj.exit.i
   %75 = getelementptr inbounds i8, ptr %61, i64 36
   %76 = load i32, ptr %75, align 4
   %77 = sext i32 %76 to i64
@@ -294,8 +294,8 @@ Aig_ManObj.argprom.exit.i:                        ; preds = %54, %49
   store i32 %82, ptr %.058, align 4
   br label %83
 
-83:                                               ; preds = %74, %Aig_ManObj.argprom.exit.i
-  %84 = phi i32 [ %50, %Aig_ManObj.argprom.exit.i ], [ %82, %74 ]
+83:                                               ; preds = %74, %Aig_ManObj.exit.i
+  %84 = phi i32 [ %50, %Aig_ManObj.exit.i ], [ %82, %74 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %85 = lshr i32 %51, 29
   %86 = zext nneg i32 %85 to i64

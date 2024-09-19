@@ -580,26 +580,26 @@ dissect_spdy_flags.exit:                          ; preds = %dissect_spdy_flags.
   %107 = getelementptr i8, ptr %.0.i, i64 24
   %.val.i = load ptr, ptr %107, align 8
   %108 = icmp eq ptr %.val.i, null
-  br i1 %108, label %spdy_get_num_data_frames.argprom.exit.i, label %spdy_get_stream_info.argprom.exit.i.i
+  br i1 %108, label %spdy_get_num_data_frames.exit.i, label %spdy_get_stream_info.exit.i.i
 
-spdy_get_stream_info.argprom.exit.i.i:            ; preds = %104
+spdy_get_stream_info.exit.i.i:                    ; preds = %104
   %109 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val.i, i32 noundef %.097) #7
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %spdy_get_num_data_frames.argprom.exit.i, label %111
+  br i1 %110, label %spdy_get_num_data_frames.exit.i, label %111
 
-111:                                              ; preds = %spdy_get_stream_info.argprom.exit.i.i
+111:                                              ; preds = %spdy_get_stream_info.exit.i.i
   %112 = getelementptr inbounds i8, ptr %109, i64 48
   %113 = load i32, ptr %112, align 8
-  br label %spdy_get_num_data_frames.argprom.exit.i
+  br label %spdy_get_num_data_frames.exit.i
 
-spdy_get_num_data_frames.argprom.exit.i:          ; preds = %111, %spdy_get_stream_info.argprom.exit.i.i, %104
-  %114 = phi i32 [ %113, %111 ], [ 0, %spdy_get_stream_info.argprom.exit.i.i ], [ 0, %104 ]
+spdy_get_num_data_frames.exit.i:                  ; preds = %111, %spdy_get_stream_info.exit.i.i, %104
+  %114 = phi i32 [ %113, %111 ], [ 0, %spdy_get_stream_info.exit.i.i ], [ 0, %104 ]
   %115 = icmp ne i32 %93, 0
   %116 = icmp ne i32 %114, 0
   %or.cond.i = select i1 %115, i1 true, i1 %116
-  br i1 %or.cond.i, label %117, label %dissect_spdy_data_payload.argprom.exit
+  br i1 %or.cond.i, label %117, label %dissect_spdy_data_payload.exit
 
-117:                                              ; preds = %spdy_get_num_data_frames.argprom.exit.i
+117:                                              ; preds = %spdy_get_num_data_frames.exit.i
   br i1 %115, label %118, label %157
 
 118:                                              ; preds = %117
@@ -615,7 +615,7 @@ spdy_get_num_data_frames.argprom.exit.i:          ; preds = %111, %spdy_get_stre
   %128 = and i16 %127, 8
   %129 = icmp ne i16 %128, 0
   %or.cond11.i = select i1 %129, i1 true, i1 %123
-  br i1 %or.cond11.i, label %spdy_add_data_chunk.argprom.exit.i, label %130
+  br i1 %or.cond11.i, label %spdy_add_data_chunk.exit.i, label %130
 
 130:                                              ; preds = %118
   %131 = load i32, ptr @spdy_assemble_entity_bodies, align 4
@@ -630,14 +630,14 @@ spdy_get_num_data_frames.argprom.exit.i:          ; preds = %111, %spdy_get_stre
   %137 = load i32, ptr %136, align 4
   %.val153.i = load ptr, ptr %107, align 8
   %138 = icmp eq ptr %.val153.i, null
-  br i1 %138, label %spdy_add_data_chunk.argprom.exit.i, label %spdy_get_stream_info.argprom.exit.i156.i
+  br i1 %138, label %spdy_add_data_chunk.exit.i, label %spdy_get_stream_info.exit.i156.i
 
-spdy_get_stream_info.argprom.exit.i156.i:         ; preds = %132
+spdy_get_stream_info.exit.i156.i:                 ; preds = %132
   %139 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val153.i, i32 noundef %.097) #7
   %.not.i.i = icmp eq ptr %139, null
-  br i1 %.not.i.i, label %spdy_add_data_chunk.argprom.exit.i, label %140
+  br i1 %.not.i.i, label %spdy_add_data_chunk.exit.i, label %140
 
-140:                                              ; preds = %spdy_get_stream_info.argprom.exit.i156.i
+140:                                              ; preds = %spdy_get_stream_info.exit.i156.i
   %141 = tail call ptr @wmem_file_scope() #7
   %142 = tail call noalias ptr @wmem_alloc(ptr noundef %141, i64 noundef 16) #7
   store ptr %135, ptr %142, align 8
@@ -652,71 +652,71 @@ spdy_get_stream_info.argprom.exit.i156.i:         ; preds = %132
   %148 = load i32, ptr %147, align 8
   %149 = add i32 %148, 1
   store i32 %149, ptr %147, align 8
-  br label %spdy_add_data_chunk.argprom.exit.i
+  br label %spdy_add_data_chunk.exit.i
 
 150:                                              ; preds = %130
   %.val154.i = load ptr, ptr %107, align 8
   %151 = icmp eq ptr %.val154.i, null
-  br i1 %151, label %spdy_add_data_chunk.argprom.exit.i, label %spdy_get_stream_info.argprom.exit.i157.i
+  br i1 %151, label %spdy_add_data_chunk.exit.i, label %spdy_get_stream_info.exit.i157.i
 
-spdy_get_stream_info.argprom.exit.i157.i:         ; preds = %150
+spdy_get_stream_info.exit.i157.i:                 ; preds = %150
   %152 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val154.i, i32 noundef %.097) #7
   %.not.i158.i = icmp eq ptr %152, null
-  br i1 %.not.i158.i, label %spdy_add_data_chunk.argprom.exit.i, label %153
+  br i1 %.not.i158.i, label %spdy_add_data_chunk.exit.i, label %153
 
-153:                                              ; preds = %spdy_get_stream_info.argprom.exit.i157.i
+153:                                              ; preds = %spdy_get_stream_info.exit.i157.i
   %154 = getelementptr inbounds i8, ptr %152, i64 48
   %155 = load i32, ptr %154, align 8
   %156 = add i32 %155, 1
   store i32 %156, ptr %154, align 8
-  br label %spdy_add_data_chunk.argprom.exit.i
+  br label %spdy_add_data_chunk.exit.i
 
 157:                                              ; preds = %117
   %158 = icmp eq i32 %114, 1
   %.pre198 = and i8 %73, 1
-  br label %spdy_add_data_chunk.argprom.exit.i
+  br label %spdy_add_data_chunk.exit.i
 
-spdy_add_data_chunk.argprom.exit.i:               ; preds = %157, %153, %spdy_get_stream_info.argprom.exit.i157.i, %150, %140, %spdy_get_stream_info.argprom.exit.i156.i, %132, %118
-  %.pre-phi = phi i8 [ %.pre198, %157 ], [ %121, %153 ], [ %121, %spdy_get_stream_info.argprom.exit.i157.i ], [ %121, %150 ], [ %121, %140 ], [ %121, %spdy_get_stream_info.argprom.exit.i156.i ], [ %121, %132 ], [ %121, %118 ]
-  %.0129.in.i = phi i1 [ %158, %157 ], [ false, %153 ], [ false, %spdy_get_stream_info.argprom.exit.i157.i ], [ false, %150 ], [ false, %140 ], [ false, %spdy_get_stream_info.argprom.exit.i156.i ], [ false, %132 ], [ %123, %118 ]
-  %.0124.i = phi ptr [ null, %157 ], [ %119, %153 ], [ %119, %spdy_get_stream_info.argprom.exit.i157.i ], [ %119, %150 ], [ %119, %140 ], [ %119, %spdy_get_stream_info.argprom.exit.i156.i ], [ %119, %132 ], [ %119, %118 ]
+spdy_add_data_chunk.exit.i:                       ; preds = %157, %153, %spdy_get_stream_info.exit.i157.i, %150, %140, %spdy_get_stream_info.exit.i156.i, %132, %118
+  %.pre-phi = phi i8 [ %.pre198, %157 ], [ %121, %153 ], [ %121, %spdy_get_stream_info.exit.i157.i ], [ %121, %150 ], [ %121, %140 ], [ %121, %spdy_get_stream_info.exit.i156.i ], [ %121, %132 ], [ %121, %118 ]
+  %.0129.in.i = phi i1 [ %158, %157 ], [ false, %153 ], [ false, %spdy_get_stream_info.exit.i157.i ], [ false, %150 ], [ false, %140 ], [ false, %spdy_get_stream_info.exit.i156.i ], [ false, %132 ], [ %123, %118 ]
+  %.0124.i = phi ptr [ null, %157 ], [ %119, %153 ], [ %119, %spdy_get_stream_info.exit.i157.i ], [ %119, %150 ], [ %119, %140 ], [ %119, %spdy_get_stream_info.exit.i156.i ], [ %119, %132 ], [ %119, %118 ]
   %.not139.i = icmp eq i8 %.pre-phi, 0
   br i1 %.not139.i, label %159, label %161
 
-159:                                              ; preds = %spdy_add_data_chunk.argprom.exit.i
+159:                                              ; preds = %spdy_add_data_chunk.exit.i
   %160 = load ptr, ptr %38, align 8
   tail call void @col_set_fence(ptr noundef %160, i32 noundef 25) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef nonnull @.str.137) #7
-  br label %dissect_spdy_data_payload.argprom.exit
+  br label %dissect_spdy_data_payload.exit
 
-161:                                              ; preds = %spdy_add_data_chunk.argprom.exit.i
+161:                                              ; preds = %spdy_add_data_chunk.exit.i
   %.val155.i = load ptr, ptr %107, align 8
   %162 = icmp eq ptr %.val155.i, null
-  br i1 %162, label %dissect_spdy_data_payload.argprom.exit, label %spdy_get_stream_info.argprom.exit.i159.i
+  br i1 %162, label %dissect_spdy_data_payload.exit, label %spdy_get_stream_info.exit.i159.i
 
-spdy_get_stream_info.argprom.exit.i159.i:         ; preds = %161
+spdy_get_stream_info.exit.i159.i:                 ; preds = %161
   %163 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %.val155.i, i32 noundef %.097) #7
   %164 = icmp eq ptr %163, null
-  br i1 %164, label %dissect_spdy_data_payload.argprom.exit, label %165
+  br i1 %164, label %dissect_spdy_data_payload.exit, label %165
 
-165:                                              ; preds = %spdy_get_stream_info.argprom.exit.i159.i
+165:                                              ; preds = %spdy_get_stream_info.exit.i159.i
   %166 = getelementptr inbounds i8, ptr %163, i64 40
   %167 = load ptr, ptr %166, align 8
   %168 = icmp eq ptr %167, null
-  br i1 %168, label %169, label %spdy_assemble_data_frames.argprom.exit.thread.i
+  br i1 %168, label %169, label %spdy_assemble_data_frames.exit.thread.i
 
 169:                                              ; preds = %165
   %170 = getelementptr inbounds i8, ptr %163, i64 32
   %171 = load ptr, ptr %170, align 8
   %172 = tail call i32 @wmem_list_count(ptr noundef %171) #7
   %173 = icmp eq i32 %172, 0
-  br i1 %173, label %spdy_assemble_data_frames.argprom.exit.threadthread-pre-split.i, label %174
+  br i1 %173, label %spdy_assemble_data_frames.exit.threadthread-pre-split.i, label %174
 
 174:                                              ; preds = %169
   %175 = tail call ptr @wmem_list_head(ptr noundef %171) #7
   %176 = tail call ptr @wmem_list_frame_next(ptr noundef %175) #7
   %.not2.i.i = icmp eq ptr %176, null
-  br i1 %.not2.i.i, label %spdy_assemble_data_frames.argprom.exit.threadthread-pre-split.i, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %spdy_assemble_data_frames.exit.threadthread-pre-split.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %174, %.lr.ph.i.i
   %.04.i.i = phi ptr [ %181, %.lr.ph.i.i ], [ %176, %174 ]
@@ -731,7 +731,7 @@ spdy_get_stream_info.argprom.exit.i159.i:         ; preds = %161
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %.not36.i.i = icmp eq i32 %180, 0
-  br i1 %.not36.i.i, label %spdy_assemble_data_frames.argprom.exit.threadthread-pre-split.i, label %182
+  br i1 %.not36.i.i, label %spdy_assemble_data_frames.exit.threadthread-pre-split.i, label %182
 
 182:                                              ; preds = %._crit_edge.i.i
   %183 = tail call ptr @wmem_file_scope() #7
@@ -762,26 +762,26 @@ spdy_get_stream_info.argprom.exit.i159.i:         ; preds = %161
 ._crit_edge10.i.i:                                ; preds = %.lr.ph9.i.i, %182
   %198 = tail call ptr @tvb_new_real_data(ptr noundef %185, i32 noundef %180, i32 noundef %180) #7
   store ptr %198, ptr %166, align 8
-  br label %spdy_assemble_data_frames.argprom.exit.thread.i
+  br label %spdy_assemble_data_frames.exit.thread.i
 
-spdy_assemble_data_frames.argprom.exit.threadthread-pre-split.i: ; preds = %._crit_edge.i.i, %174, %169
+spdy_assemble_data_frames.exit.threadthread-pre-split.i: ; preds = %._crit_edge.i.i, %174, %169
   %.pr.i104 = load ptr, ptr %166, align 8
-  br label %spdy_assemble_data_frames.argprom.exit.thread.i
+  br label %spdy_assemble_data_frames.exit.thread.i
 
-spdy_assemble_data_frames.argprom.exit.thread.i:  ; preds = %spdy_assemble_data_frames.argprom.exit.threadthread-pre-split.i, %._crit_edge10.i.i, %165
-  %199 = phi ptr [ %.pr.i104, %spdy_assemble_data_frames.argprom.exit.threadthread-pre-split.i ], [ %167, %165 ], [ %198, %._crit_edge10.i.i ]
+spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_frames.exit.threadthread-pre-split.i, %._crit_edge10.i.i, %165
+  %199 = phi ptr [ %.pr.i104, %spdy_assemble_data_frames.exit.threadthread-pre-split.i ], [ %167, %165 ], [ %198, %._crit_edge10.i.i ]
   %200 = load i32, ptr @spdy_assemble_entity_bodies, align 4
   %.not140.i = icmp ne i32 %200, 0
   %narrow.i = select i1 %.not140.i, i1 true, i1 %.0129.in.i
-  br i1 %narrow.i, label %201, label %dissect_spdy_data_payload.argprom.exit
+  br i1 %narrow.i, label %201, label %dissect_spdy_data_payload.exit
 
-201:                                              ; preds = %spdy_assemble_data_frames.argprom.exit.thread.i
+201:                                              ; preds = %spdy_assemble_data_frames.exit.thread.i
   %202 = icmp eq ptr %199, null
   br i1 %202, label %203, label %205
 
 203:                                              ; preds = %201
   %204 = icmp eq ptr %.0124.i, null
-  br i1 %204, label %dissect_spdy_data_payload.argprom.exit, label %206
+  br i1 %204, label %dissect_spdy_data_payload.exit, label %206
 
 205:                                              ; preds = %201
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %199, ptr noundef nonnull @.str.138) #7
@@ -895,7 +895,7 @@ spdy_assemble_data_frames.argprom.exit.thread.i:  ; preds = %spdy_assemble_data_
 
 260:                                              ; preds = %258, %256
   %261 = call i32 @call_data_dissector(ptr noundef nonnull %.0130.i, ptr noundef %1, ptr noundef %229) #7
-  br label %dissect_spdy_data_payload.argprom.exit
+  br label %dissect_spdy_data_payload.exit
 
 262:                                              ; preds = %253, %209, %206
   %.1131.i = phi ptr [ %.0125.i, %253 ], [ %.0130.i, %209 ], [ %.0130.i, %206 ]
@@ -983,13 +983,13 @@ spdy_assemble_data_frames.argprom.exit.thread.i:  ; preds = %spdy_assemble_data_
 301:                                              ; preds = %.critedge.i
   %302 = load ptr, ptr @media_handle, align 8
   %303 = call i32 @call_dissector_with_data(ptr noundef %302, ptr noundef %.0124.i, ptr noundef %1, ptr noundef %43, ptr noundef nonnull %5) #7
-  br label %dissect_spdy_data_payload.argprom.exit
+  br label %dissect_spdy_data_payload.exit
 
 304:                                              ; preds = %.critedge.i, %296
   %305 = call i32 @call_data_dissector(ptr noundef %.0124.i, ptr noundef %1, ptr noundef %43) #7
-  br label %dissect_spdy_data_payload.argprom.exit
+  br label %dissect_spdy_data_payload.exit
 
-dissect_spdy_data_payload.argprom.exit:           ; preds = %spdy_get_num_data_frames.argprom.exit.i, %159, %161, %spdy_get_stream_info.argprom.exit.i159.i, %spdy_assemble_data_frames.argprom.exit.thread.i, %203, %260, %301, %304
+dissect_spdy_data_payload.exit:                   ; preds = %spdy_get_num_data_frames.exit.i, %159, %161, %spdy_get_stream_info.exit.i159.i, %spdy_assemble_data_frames.exit.thread.i, %203, %260, %301, %304
   %306 = load i32, ptr %94, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -1025,21 +1025,21 @@ dissect_spdy_data_payload.argprom.exit:           ; preds = %spdy_get_num_data_f
   %317 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %315, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
   %318 = load i32, ptr @hf_spdy_streamid, align 4
   %319 = icmp eq i32 %315, %318
-  br i1 %319, label %320, label %dissect_spdy_stream_id_field.argprom.exit.i
+  br i1 %319, label %320, label %dissect_spdy_stream_id_field.exit.i
 
 320:                                              ; preds = %312
   %321 = and i32 %316, 2147483647
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.168, i32 noundef %321) #7
-  br label %dissect_spdy_stream_id_field.argprom.exit.i
+  br label %dissect_spdy_stream_id_field.exit.i
 
-dissect_spdy_stream_id_field.argprom.exit.i:      ; preds = %320, %312
+dissect_spdy_stream_id_field.exit.i:              ; preds = %320, %312
   switch i16 %69, label %336 [
     i16 1, label %322
     i16 8, label %337
     i16 2, label %337
   ]
 
-322:                                              ; preds = %dissect_spdy_stream_id_field.argprom.exit.i
+322:                                              ; preds = %dissect_spdy_stream_id_field.exit.i
   %323 = load i32, ptr @hf_spdy_associated_streamid, align 4
   %324 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #7
   %325 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %323, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
@@ -1061,13 +1061,13 @@ dissect_spdy_stream_id_field.argprom.exit.i:      ; preds = %320, %312
   %335 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %334, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0) #7
   br label %337
 
-336:                                              ; preds = %dissect_spdy_stream_id_field.argprom.exit.i
+336:                                              ; preds = %dissect_spdy_stream_id_field.exit.i
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.150, i32 noundef 1121) #8
   unreachable
 
-337:                                              ; preds = %dissect_spdy_stream_id_field.argprom.exit.i, %dissect_spdy_stream_id_field.argprom.exit.i, %.thread
-  %.0166.i115 = phi i32 [ 18, %.thread ], [ 12, %dissect_spdy_stream_id_field.argprom.exit.i ], [ 12, %dissect_spdy_stream_id_field.argprom.exit.i ]
-  %.sink.i = phi i32 [ -10, %.thread ], [ -4, %dissect_spdy_stream_id_field.argprom.exit.i ], [ -4, %dissect_spdy_stream_id_field.argprom.exit.i ]
+337:                                              ; preds = %dissect_spdy_stream_id_field.exit.i, %dissect_spdy_stream_id_field.exit.i, %.thread
+  %.0166.i115 = phi i32 [ 18, %.thread ], [ 12, %dissect_spdy_stream_id_field.exit.i ], [ 12, %dissect_spdy_stream_id_field.exit.i ]
+  %.sink.i = phi i32 [ -10, %.thread ], [ -4, %dissect_spdy_stream_id_field.exit.i ], [ -4, %dissect_spdy_stream_id_field.exit.i ]
   %338 = add i32 %.sink.i, %93
   %339 = load i32, ptr @hf_spdy_header_block, align 4
   %340 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %339, ptr noundef %0, i32 noundef %.0166.i115, i32 noundef %338, i32 noundef 0) #7
@@ -1197,15 +1197,15 @@ spdy_decompress_header_block.exit.thread.i:       ; preds = %spdy_decompress_hea
 402:                                              ; preds = %spdy_decompress_header_block.exit.i
   %403 = load ptr, ptr @header_info_list, align 8
   %404 = icmp eq ptr %403, null
-  br i1 %404, label %405, label %spdy_save_header_block.argprom.exit.i
+  br i1 %404, label %405, label %spdy_save_header_block.exit.i
 
 405:                                              ; preds = %402
   %406 = tail call ptr @wmem_file_scope() #7
   %407 = tail call noalias ptr @wmem_list_new(ptr noundef %406) #7
   store ptr %407, ptr @header_info_list, align 8
-  br label %spdy_save_header_block.argprom.exit.i
+  br label %spdy_save_header_block.exit.i
 
-spdy_save_header_block.argprom.exit.i:            ; preds = %405, %402
+spdy_save_header_block.exit.i:                    ; preds = %405, %402
   %408 = tail call ptr @wmem_file_scope() #7
   %409 = tail call noalias ptr @wmem_alloc(ptr noundef %408, i64 noundef 24) #7
   store i32 %314, ptr %409, align 8
@@ -1219,8 +1219,8 @@ spdy_save_header_block.argprom.exit.i:            ; preds = %405, %402
   tail call void @wmem_list_append(ptr noundef %413, ptr noundef nonnull %409) #7
   br label %.loopexit343.i
 
-.loopexit343.i:                                   ; preds = %357, %spdy_save_header_block.argprom.exit.i
-  %.0179.i = phi ptr [ %409, %spdy_save_header_block.argprom.exit.i ], [ %354, %357 ]
+.loopexit343.i:                                   ; preds = %357, %spdy_save_header_block.exit.i
+  %.0179.i = phi ptr [ %409, %spdy_save_header_block.exit.i ], [ %354, %357 ]
   %414 = getelementptr inbounds i8, ptr %.0179.i, i64 8
   %415 = load ptr, ptr %414, align 8
   %416 = getelementptr inbounds i8, ptr %.0179.i, i64 16
@@ -1516,23 +1516,23 @@ spdy_save_stream_info.exit.i:                     ; preds = %536, %spdy_parse_co
   br label %dissect_spdy_header_payload.exit
 
 550:                                              ; preds = %311
-  call fastcc void @dissect_spdy_rst_stream_payload.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef %7)
+  call fastcc void @dissect_spdy_rst_stream_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef %7)
   br label %dissect_spdy_header_payload.exit
 
 551:                                              ; preds = %311
-  call fastcc void @dissect_spdy_settings_payload.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef %7)
+  call fastcc void @dissect_spdy_settings_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef %7)
   br label %dissect_spdy_header_payload.exit
 
 552:                                              ; preds = %311
-  call fastcc void @dissect_spdy_ping_payload.argprom.argelim(ptr noundef %0, ptr noundef %43, ptr noundef %7)
+  call fastcc void @dissect_spdy_ping_payload(ptr noundef %0, ptr noundef %43, ptr noundef %7)
   br label %dissect_spdy_header_payload.exit
 
 553:                                              ; preds = %311
-  call fastcc void @dissect_spdy_goaway_payload.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef %7)
+  call fastcc void @dissect_spdy_goaway_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef %7)
   br label %dissect_spdy_header_payload.exit
 
 554:                                              ; preds = %311
-  call fastcc void @dissect_spdy_window_update_payload.argprom.argelim(ptr noundef %0, ptr noundef %43, ptr noundef %7)
+  call fastcc void @dissect_spdy_window_update_payload(ptr noundef %0, ptr noundef %43, ptr noundef %7)
   br label %dissect_spdy_header_payload.exit
 
 555:                                              ; preds = %311
@@ -1545,8 +1545,8 @@ dissect_spdy_header_payload.exit:                 ; preds = %337, %.loopexit343.
   tail call void @col_set_fence(ptr noundef %557, i32 noundef 25) #7
   br label %558
 
-558:                                              ; preds = %dissect_spdy_header_payload.exit, %310, %dissect_spdy_data_payload.argprom.exit, %100, %58
-  %.0 = phi i32 [ -1, %58 ], [ -1, %100 ], [ %95, %310 ], [ %.pre-phi200, %dissect_spdy_header_payload.exit ], [ %307, %dissect_spdy_data_payload.argprom.exit ]
+558:                                              ; preds = %dissect_spdy_header_payload.exit, %310, %dissect_spdy_data_payload.exit, %100, %58
+  %.0 = phi i32 [ -1, %58 ], [ -1, %100 ], [ %95, %310 ], [ %.pre-phi200, %dissect_spdy_header_payload.exit ], [ %307, %dissect_spdy_data_payload.exit ]
   ret i32 %.0
 }
 
@@ -1579,20 +1579,20 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spdy_rst_stream_payload.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_spdy_rst_stream_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_spdy_streamid, align 4
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
   %8 = load i32, ptr @hf_spdy_streamid, align 4
   %9 = icmp eq i32 %5, %8
-  br i1 %9, label %10, label %dissect_spdy_stream_id_field.argprom.exit
+  br i1 %9, label %10, label %dissect_spdy_stream_id_field.exit
 
 10:                                               ; preds = %4
   %11 = and i32 %6, 2147483647
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.168, i32 noundef %11) #7
-  br label %dissect_spdy_stream_id_field.argprom.exit
+  br label %dissect_spdy_stream_id_field.exit
 
-dissect_spdy_stream_id_field.argprom.exit:        ; preds = %4, %10
+dissect_spdy_stream_id_field.exit:                ; preds = %4, %10
   %12 = load i32, ptr @hf_spdy_rst_stream_status, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
   %14 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #7
@@ -1600,18 +1600,18 @@ dissect_spdy_stream_id_field.argprom.exit:        ; preds = %4, %10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
-17:                                               ; preds = %dissect_spdy_stream_id_field.argprom.exit
+17:                                               ; preds = %dissect_spdy_stream_id_field.exit
   %18 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %13, ptr noundef nonnull @ei_spdy_invalid_rst_stream, ptr noundef nonnull @.str.169, i32 noundef %14) #7
   br label %19
 
-19:                                               ; preds = %17, %dissect_spdy_stream_id_field.argprom.exit
+19:                                               ; preds = %17, %dissect_spdy_stream_id_field.exit
   %20 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @rst_stream_status_names, ptr noundef nonnull @.str.170) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.171, ptr noundef %20) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spdy_settings_payload.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_spdy_settings_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, 4
@@ -1681,7 +1681,7 @@ define internal fastcc void @dissect_spdy_settings_payload.argelim(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spdy_ping_payload.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_spdy_ping_payload(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %5 = load i32, ptr @hf_spdy_ping_id, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
@@ -1690,20 +1690,20 @@ define internal fastcc void @dissect_spdy_ping_payload.argprom.argelim(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spdy_goaway_payload.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_spdy_goaway_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_spdy_goaway_last_good_stream_id, align 4
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
   %8 = load i32, ptr @hf_spdy_streamid, align 4
   %9 = icmp eq i32 %5, %8
-  br i1 %9, label %10, label %dissect_spdy_stream_id_field.argprom.exit
+  br i1 %9, label %10, label %dissect_spdy_stream_id_field.exit
 
 10:                                               ; preds = %4
   %11 = and i32 %6, 2147483647
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.168, i32 noundef %11) #7
-  br label %dissect_spdy_stream_id_field.argprom.exit
+  br label %dissect_spdy_stream_id_field.exit
 
-dissect_spdy_stream_id_field.argprom.exit:        ; preds = %4, %10
+dissect_spdy_stream_id_field.exit:                ; preds = %4, %10
   %12 = load i32, ptr @hf_spdy_goaway_status, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
   %14 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #7
@@ -1711,31 +1711,31 @@ dissect_spdy_stream_id_field.argprom.exit:        ; preds = %4, %10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
-17:                                               ; preds = %dissect_spdy_stream_id_field.argprom.exit
+17:                                               ; preds = %dissect_spdy_stream_id_field.exit
   %18 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %13, ptr noundef nonnull @ei_spdy_invalid_go_away, ptr noundef nonnull @.str.175, i32 noundef %14) #7
   br label %19
 
-19:                                               ; preds = %17, %dissect_spdy_stream_id_field.argprom.exit
+19:                                               ; preds = %17, %dissect_spdy_stream_id_field.exit
   %20 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @rst_stream_status_names, ptr noundef nonnull @.str.170) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.176, ptr noundef %20) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spdy_window_update_payload.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_spdy_window_update_payload(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_spdy_streamid, align 4
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
   %7 = load i32, ptr @hf_spdy_streamid, align 4
   %8 = icmp eq i32 %4, %7
-  br i1 %8, label %9, label %dissect_spdy_stream_id_field.argprom.exit
+  br i1 %8, label %9, label %dissect_spdy_stream_id_field.exit
 
 9:                                                ; preds = %3
   %10 = and i32 %5, 2147483647
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.168, i32 noundef %10) #7
-  br label %dissect_spdy_stream_id_field.argprom.exit
+  br label %dissect_spdy_stream_id_field.exit
 
-dissect_spdy_stream_id_field.argprom.exit:        ; preds = %3, %9
+dissect_spdy_stream_id_field.exit:                ; preds = %3, %9
   %11 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #7
   %12 = and i32 %11, 2147483647
   %13 = load i32, ptr @hf_spdy_window_update_delta, align 4

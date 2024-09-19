@@ -4051,7 +4051,7 @@ define internal void @alps_process_packet_v4(ptr nocapture noundef readonly %0) 
   %.val = load ptr, ptr %0, align 8
   %112 = getelementptr i8, ptr %0, i64 8
   %.val1 = load ptr, ptr %112, align 8
-  tail call fastcc void @alps_report_semi_mt_data.argprom(ptr %.val, ptr %.val1, i32 noundef %111)
+  tail call fastcc void @alps_report_semi_mt_data(ptr %.val, ptr %.val1, i32 noundef %111)
   br label %113
 
 113:                                              ; preds = %110, %12
@@ -4169,7 +4169,7 @@ define internal void @alps_process_touchpad_packet_v3_v5(ptr noundef %0) #0 alig
   %.val = load ptr, ptr %0, align 8
   %55 = getelementptr i8, ptr %0, i64 8
   %.val1 = load ptr, ptr %55, align 8
-  tail call fastcc void @alps_report_semi_mt_data.argprom(ptr %.val, ptr %.val1, i32 noundef %29)
+  tail call fastcc void @alps_report_semi_mt_data(ptr %.val, ptr %.val1, i32 noundef %29)
   %56 = getelementptr inbounds i8, ptr %2, i64 200
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 2
@@ -5142,7 +5142,7 @@ define internal void @alps_process_packet_v7(ptr noundef %0) #0 align 16 {
 76:                                               ; preds = %72
   %.val = load ptr, ptr %0, align 8
   %.val1 = load ptr, ptr %51, align 8
-  tail call fastcc void @alps_report_mt_data.argprom(ptr %.val, ptr %.val1, i32 noundef %73)
+  tail call fastcc void @alps_report_mt_data(ptr %.val, ptr %.val1, i32 noundef %73)
   %77 = getelementptr inbounds i8, ptr %50, i64 292
   %78 = load i32, ptr %77, align 4
   tail call void @input_mt_report_finger_count(ptr noundef %52, i32 noundef %78) #14
@@ -5594,7 +5594,7 @@ define internal void @alps_process_packet_ss4_v2(ptr noundef %0) #0 align 16 {
   %86 = tail call i32 @llvm.umin.i32(i32 %85, i32 4)
   %.val = load ptr, ptr %0, align 8
   %.val1 = load ptr, ptr %4, align 8
-  tail call fastcc void @alps_report_mt_data.argprom(ptr %.val, ptr %.val1, i32 noundef %86)
+  tail call fastcc void @alps_report_mt_data(ptr %.val, ptr %.val1, i32 noundef %86)
   %87 = load i32, ptr %84, align 4
   tail call void @input_mt_report_finger_count(ptr noundef %5, i32 noundef %87) #14
   %88 = load i8, ptr %26, align 4
@@ -7259,7 +7259,7 @@ define internal fastcc i32 @alps_process_bitmap(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @alps_report_semi_mt_data.argprom(ptr nocapture %.0.val, ptr %.8.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @alps_report_semi_mt_data(ptr nocapture %.0.val, ptr %.8.val, i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp slt i32 %0, 2
   br i1 %2, label %3, label %..thread_crit_edge
 
@@ -7352,7 +7352,7 @@ declare dso_local zeroext i1 @input_mt_report_slot_state(ptr noundef, i32 nounde
 declare dso_local void @psmouse_report_standard_buttons(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @alps_report_mt_data.argprom(ptr %.0.val, ptr %.8.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @alps_report_mt_data(ptr %.0.val, ptr %.8.val, i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca [4 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !10

@@ -351,7 +351,7 @@ define hidden range(i32 0, 72) i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %
   br i1 %or.cond.i, label %.sink.split.i, label %28
 
 28:                                               ; preds = %20
-  switch i32 %26, label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit [
+  switch i32 %26, label %wimax_compact_ulmap_rcid_ie_decoder.exit [
     i32 2, label %.sink.split.i
     i32 3, label %29
   ]
@@ -364,7 +364,7 @@ define hidden range(i32 0, 72) i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %
   %.0.ph.i = phi i32 [ 1, %29 ], [ 4, %.split574 ], [ 3, %20 ], [ %26, %28 ]
   %30 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %30, ptr noundef %2, i32 noundef %17, i32 noundef 2, i32 noundef 0) #2
-  br label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit
+  br label %wimax_compact_ulmap_rcid_ie_decoder.exit
 
 .split:                                           ; preds = %12
   %32 = load i32, ptr @hf_culmap_ul_map_type, align 4
@@ -387,7 +387,7 @@ define hidden range(i32 0, 72) i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %
   %44 = load i32, ptr @cid_type, align 4
   %switch.tableidx = add i32 %44, -1
   %45 = icmp ult i32 %switch.tableidx, 3
-  br i1 %45, label %switch.lookup, label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit
+  br i1 %45, label %switch.lookup, label %wimax_compact_ulmap_rcid_ie_decoder.exit
 
 switch.lookup:                                    ; preds = %43
   %46 = zext nneg i32 %switch.tableidx to i64
@@ -402,9 +402,9 @@ switch.lookup:                                    ; preds = %43
   %.0.ph.i616 = phi i32 [ 4, %.split ], [ 3, %38 ], [ %switch.offset, %switch.lookup ]
   %47 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i615, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %47, ptr noundef %2, i32 noundef %3, i32 noundef %.sink1.i, i32 noundef 0) #2
-  br label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit
+  br label %wimax_compact_ulmap_rcid_ie_decoder.exit
 
-wimax_compact_ulmap_rcid_ie_decoder.argprom.exit: ; preds = %43, %.sink.split.i614, %.sink.split.i, %28
+wimax_compact_ulmap_rcid_ie_decoder.exit:         ; preds = %43, %.sink.split.i614, %.sink.split.i, %28
   %phi.call = phi i32 [ 0, %28 ], [ %.0.ph.i, %.sink.split.i ], [ 0, %43 ], [ %.0.ph.i616, %.sink.split.i614 ]
   %.0549 = phi i32 [ %17, %28 ], [ %17, %.sink.split.i ], [ %3, %43 ], [ %3, %.sink.split.i614 ]
   %49 = lshr i32 %phi.call, 1
@@ -414,7 +414,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit: ; preds = %43, %.sink.split.i6
   %.not611 = icmp eq i32 %52, 0
   br i1 %.not611, label %53, label %68
 
-53:                                               ; preds = %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit
+53:                                               ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit
   %.not612 = icmp eq i32 %51, 0
   br i1 %.not612, label %60, label %54
 
@@ -439,7 +439,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit: ; preds = %43, %.sink.split.i6
   %67 = add nuw nsw i32 %phi.call, 3
   br label %78
 
-68:                                               ; preds = %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit
+68:                                               ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit
   %69 = add nuw nsw i32 %phi.call, 1
   %70 = icmp eq i32 %52, 1
   br i1 %70, label %71, label %78
@@ -462,9 +462,9 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit: ; preds = %43, %.sink.split.i6
 78:                                               ; preds = %68, %71, %66
   %.0553 = phi i32 [ %77, %71 ], [ %69, %68 ], [ %67, %66 ]
   %.2 = phi i32 [ %76, %71 ], [ %50, %68 ], [ %.1, %66 ]
-  %79 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %.2, i32 noundef %51)
+  %79 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %.2, i32 noundef %51)
   %80 = add nuw nsw i32 %79, %.0553
-  br label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br label %wimax_culmap_extension_ie_decoder.exit
 
 81:                                               ; preds = %5
   br i1 %.not.not.not, label %.split576, label %.split578
@@ -491,7 +491,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit: ; preds = %43, %.sink.split.i6
   br i1 %or.cond.i619, label %.sink.split.i620, label %97
 
 97:                                               ; preds = %89
-  switch i32 %95, label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625 [
+  switch i32 %95, label %wimax_compact_ulmap_rcid_ie_decoder.exit625 [
     i32 2, label %.sink.split.i620
     i32 3, label %98
   ]
@@ -504,7 +504,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit: ; preds = %43, %.sink.split.i6
   %.0.ph.i623 = phi i32 [ 1, %98 ], [ 4, %.split578 ], [ 3, %89 ], [ %95, %97 ]
   %99 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i621, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %99, ptr noundef %2, i32 noundef %86, i32 noundef 2, i32 noundef 0) #2
-  br label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625
+  br label %wimax_compact_ulmap_rcid_ie_decoder.exit625
 
 .split576:                                        ; preds = %81
   %101 = load i32, ptr @hf_culmap_ul_map_type, align 4
@@ -527,7 +527,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit: ; preds = %43, %.sink.split.i6
   %113 = load i32, ptr @cid_type, align 4
   %switch.tableidx739 = add i32 %113, -1
   %114 = icmp ult i32 %switch.tableidx739, 3
-  br i1 %114, label %switch.lookup738, label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625
+  br i1 %114, label %switch.lookup738, label %wimax_compact_ulmap_rcid_ie_decoder.exit625
 
 switch.lookup738:                                 ; preds = %112
   %115 = zext nneg i32 %switch.tableidx739 to i64
@@ -542,9 +542,9 @@ switch.lookup738:                                 ; preds = %112
   %.0.ph.i630 = phi i32 [ 4, %.split576 ], [ 3, %107 ], [ %switch.offset743, %switch.lookup738 ]
   %116 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i628, align 4
   %117 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %116, ptr noundef %2, i32 noundef %3, i32 noundef %.sink1.i629, i32 noundef 0) #2
-  br label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625
+  br label %wimax_compact_ulmap_rcid_ie_decoder.exit625
 
-wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625: ; preds = %112, %.sink.split.i627, %.sink.split.i620, %97
+wimax_compact_ulmap_rcid_ie_decoder.exit625:      ; preds = %112, %.sink.split.i627, %.sink.split.i620, %97
   %phi.call579 = phi i32 [ 0, %97 ], [ %.0.ph.i623, %.sink.split.i620 ], [ 0, %112 ], [ %.0.ph.i630, %.sink.split.i627 ]
   %.3 = phi i32 [ %86, %97 ], [ %86, %.sink.split.i620 ], [ %3, %112 ], [ %3, %.sink.split.i627 ]
   %118 = lshr i32 %phi.call579, 1
@@ -554,7 +554,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625: ; preds = %112, %.sink.spli
   %.not600 = icmp eq i32 %121, 0
   br i1 %.not600, label %122, label %137
 
-122:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625
+122:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit625
   %.not601 = icmp eq i32 %120, 0
   br i1 %.not601, label %129, label %123
 
@@ -579,7 +579,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625: ; preds = %112, %.sink.spli
   %136 = add nuw nsw i32 %phi.call579, 3
   br label %147
 
-137:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625
+137:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit625
   %138 = add nuw nsw i32 %phi.call579, 1
   %139 = icmp eq i32 %121, 1
   br i1 %139, label %140, label %147
@@ -778,9 +778,9 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625: ; preds = %112, %.sink.spli
 236:                                              ; preds = %219, %._crit_edge, %225
   %.5558 = phi i32 [ %235, %._crit_edge ], [ %229, %225 ], [ %220, %219 ]
   %.10 = phi i32 [ %.11.lcssa, %._crit_edge ], [ %228, %225 ], [ %.9, %219 ]
-  %237 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %.10, i32 noundef %.5567)
+  %237 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %.10, i32 noundef %.5567)
   %238 = add nuw nsw i32 %237, %.5558
-  br label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br label %wimax_culmap_extension_ie_decoder.exit
 
 239:                                              ; preds = %5
   br i1 %.not.not.not, label %.split581, label %.split583
@@ -807,7 +807,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625: ; preds = %112, %.sink.spli
   br i1 %or.cond.i633, label %.sink.split.i634, label %255
 
 255:                                              ; preds = %247
-  switch i32 %253, label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639 [
+  switch i32 %253, label %wimax_compact_ulmap_rcid_ie_decoder.exit639 [
     i32 2, label %.sink.split.i634
     i32 3, label %256
   ]
@@ -820,7 +820,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625: ; preds = %112, %.sink.spli
   %.0.ph.i637 = phi i32 [ 1, %256 ], [ 4, %.split583 ], [ 3, %247 ], [ %253, %255 ]
   %257 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i635, align 4
   %258 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %257, ptr noundef %2, i32 noundef %244, i32 noundef 2, i32 noundef 0) #2
-  br label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639
+  br label %wimax_compact_ulmap_rcid_ie_decoder.exit639
 
 .split581:                                        ; preds = %239
   %259 = load i32, ptr @hf_culmap_ul_map_type, align 4
@@ -843,7 +843,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit625: ; preds = %112, %.sink.spli
   %271 = load i32, ptr @cid_type, align 4
   %switch.tableidx745 = add i32 %271, -1
   %272 = icmp ult i32 %switch.tableidx745, 3
-  br i1 %272, label %switch.lookup744, label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639
+  br i1 %272, label %switch.lookup744, label %wimax_compact_ulmap_rcid_ie_decoder.exit639
 
 switch.lookup744:                                 ; preds = %270
   %273 = zext nneg i32 %switch.tableidx745 to i64
@@ -858,9 +858,9 @@ switch.lookup744:                                 ; preds = %270
   %.0.ph.i644 = phi i32 [ 4, %.split581 ], [ 3, %265 ], [ %switch.offset749, %switch.lookup744 ]
   %274 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i642, align 4
   %275 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %274, ptr noundef %2, i32 noundef %3, i32 noundef %.sink1.i643, i32 noundef 0) #2
-  br label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639
+  br label %wimax_compact_ulmap_rcid_ie_decoder.exit639
 
-wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639: ; preds = %270, %.sink.split.i641, %.sink.split.i634, %255
+wimax_compact_ulmap_rcid_ie_decoder.exit639:      ; preds = %270, %.sink.split.i641, %.sink.split.i634, %255
   %phi.call584 = phi i32 [ 0, %255 ], [ %.0.ph.i637, %.sink.split.i634 ], [ 0, %270 ], [ %.0.ph.i644, %.sink.split.i641 ]
   %.12 = phi i32 [ %244, %255 ], [ %244, %.sink.split.i634 ], [ %3, %270 ], [ %3, %.sink.split.i641 ]
   %276 = lshr i32 %phi.call584, 1
@@ -870,7 +870,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639: ; preds = %270, %.sink.spli
   %.not596 = icmp eq i32 %279, 0
   br i1 %.not596, label %280, label %295
 
-280:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639
+280:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit639
   %.not597 = icmp eq i32 %278, 0
   br i1 %.not597, label %287, label %281
 
@@ -895,7 +895,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639: ; preds = %270, %.sink.spli
   %294 = add nuw nsw i32 %phi.call584, 3
   br label %305
 
-295:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639
+295:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit639
   %296 = add nuw nsw i32 %phi.call584, 1
   %297 = icmp eq i32 %279, 1
   br i1 %297, label %298, label %305
@@ -925,10 +925,10 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639: ; preds = %270, %.sink.spli
   %hf_culmap_bin_offset_1.val = load i32, ptr @hf_culmap_bin_offset_1, align 4
   %307 = select i1 %.not599.not, i32 %hf_culmap_bin_offset.val, i32 %hf_culmap_bin_offset_1.val
   %308 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %307, ptr noundef %2, i32 noundef %.14, i32 noundef %.719, i32 noundef 0) #2
-  %309 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %306, i32 noundef %278)
+  %309 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %306, i32 noundef %278)
   %310 = add nuw nsw i32 %.6559, 2
   %311 = add nuw nsw i32 %310, %309
-  br label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br label %wimax_culmap_extension_ie_decoder.exit
 
 312:                                              ; preds = %5
   br i1 %.not.not.not, label %335, label %313
@@ -958,7 +958,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639: ; preds = %270, %.sink.spli
 
 331:                                              ; preds = %326
   %332 = load i32, ptr @cid_type, align 4
-  switch i32 %332, label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654 [
+  switch i32 %332, label %wimax_compact_ulmap_rcid_ie_decoder.exit654 [
     i32 1, label %.sink.split.i648
     i32 2, label %333
     i32 3, label %334
@@ -994,7 +994,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639: ; preds = %270, %.sink.spli
   br i1 %or.cond.i653, label %.sink.split.i648, label %353
 
 353:                                              ; preds = %345
-  switch i32 %351, label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654 [
+  switch i32 %351, label %wimax_compact_ulmap_rcid_ie_decoder.exit654 [
     i32 2, label %.sink.split.i648
     i32 3, label %354
   ]
@@ -1010,9 +1010,9 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit639: ; preds = %270, %.sink.spli
   %.0.ph.i651 = phi i32 [ 1, %354 ], [ 1, %334 ], [ 2, %333 ], [ 4, %313 ], [ 3, %326 ], [ 3, %331 ], [ 4, %335 ], [ 3, %345 ], [ %351, %353 ]
   %355 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i649, align 4
   %356 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %355, ptr noundef %2, i32 noundef %.16663, i32 noundef %.sink1.i650, i32 noundef 0) #2
-  br label %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654
+  br label %wimax_compact_ulmap_rcid_ie_decoder.exit654
 
-wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sink.split.i648
+wimax_compact_ulmap_rcid_ie_decoder.exit654:      ; preds = %331, %353, %.sink.split.i648
   %.16662 = phi i32 [ %318, %331 ], [ %3, %353 ], [ %.16663, %.sink.split.i648 ]
   %.0561659 = phi i32 [ %321, %331 ], [ %340, %353 ], [ %.0561660, %.sink.split.i648 ]
   %.0.i652 = phi i32 [ 0, %331 ], [ 0, %353 ], [ %.0.ph.i651, %.sink.split.i648 ]
@@ -1025,7 +1025,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
     i32 12, label %371
   ]
 
-360:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654
+360:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit654
   %361 = add nuw nsw i32 %.0.i652, 2
   %362 = tail call i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef %358, i32 noundef %359)
   %363 = add nuw nsw i32 %361, %362
@@ -1034,13 +1034,13 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
   %366 = and i32 %362, 1
   br label %394
 
-367:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654
+367:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit654
   %368 = tail call i32 @wimax_cdma_allocation_ie_decoder(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef %358, i32 noundef %359)
   %369 = add nuw nsw i32 %.0.i652, 10
   %370 = add i32 %358, 4
   br label %394
 
-371:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654
+371:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit654
   %.not595 = icmp eq i32 %359, 0
   %372 = add i32 %358, 1
   %.721 = add nuw nsw i32 %359, 1
@@ -1073,7 +1073,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
   %385 = add nuw nsw i32 %.0.i652, 10
   br label %394
 
-386:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654
+386:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit654
   %.not = icmp eq i32 %359, 0
   %.723 = add nuw nsw i32 %359, 1
   %.725 = xor i32 %359, 1
@@ -1096,9 +1096,9 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
   %.7569 = phi i32 [ %366, %360 ], [ 0, %367 ], [ %359, %371 ], [ %.725, %386 ]
   %.7560 = phi i32 [ %363, %360 ], [ %369, %367 ], [ %385, %371 ], [ %393, %386 ]
   %.17 = phi i32 [ %365, %360 ], [ %370, %367 ], [ %.18, %371 ], [ %358, %386 ]
-  %395 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %.17, i32 noundef %.7569)
+  %395 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %.17, i32 noundef %.7569)
   %396 = add nuw nsw i32 %395, %.7560
-  br label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br label %wimax_culmap_extension_ie_decoder.exit
 
 397:                                              ; preds = %5
   br i1 %.not.not.not, label %.thread666, label %402
@@ -1108,7 +1108,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
   %399 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %398, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
   %400 = load i32, ptr @hf_culmap_harq_region_change_indication, align 4
   %401 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %400, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  br label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br label %wimax_culmap_extension_ie_decoder.exit
 
 402:                                              ; preds = %397
   %403 = load i32, ptr @hf_culmap_ul_map_type_1, align 4
@@ -1117,7 +1117,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
   %406 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %405, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
   %407 = and i32 %7, 1
   %.not673 = icmp eq i32 %407, 0
-  br i1 %.not673, label %wimax_culmap_extension_ie_decoder.argprom.exit, label %408
+  br i1 %.not673, label %wimax_culmap_extension_ie_decoder.exit, label %408
 
 408:                                              ; preds = %402
   %409 = add i32 %3, 1
@@ -1132,7 +1132,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
   %418 = add i32 %3, 4
   %419 = load i32, ptr @hf_culmap_uiuc_num_of_subchannels, align 4
   %420 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %419, ptr noundef %2, i32 noundef %418, i32 noundef 1, i32 noundef 0) #2
-  br label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br label %wimax_culmap_extension_ie_decoder.exit
 
 421:                                              ; preds = %5
   br i1 %.not.not.not, label %.thread669, label %426
@@ -1142,7 +1142,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
   %423 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %422, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
   %424 = load i32, ptr @hf_culmap_cqi_region_change_indication, align 4
   %425 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %424, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  br label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br label %wimax_culmap_extension_ie_decoder.exit
 
 426:                                              ; preds = %421
   %427 = load i32, ptr @hf_culmap_ul_map_type_1, align 4
@@ -1151,7 +1151,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
   %430 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %429, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
   %431 = and i32 %7, 1
   %.not672 = icmp eq i32 %431, 0
-  br i1 %.not672, label %wimax_culmap_extension_ie_decoder.argprom.exit, label %432
+  br i1 %.not672, label %wimax_culmap_extension_ie_decoder.exit, label %432
 
 432:                                              ; preds = %426
   %433 = add i32 %3, 1
@@ -1166,7 +1166,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
   %442 = add i32 %3, 4
   %443 = load i32, ptr @hf_culmap_uiuc_num_of_subchannels, align 4
   %444 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %443, ptr noundef %2, i32 noundef %442, i32 noundef 1, i32 noundef 0) #2
-  br label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br label %wimax_culmap_extension_ie_decoder.exit
 
 445:                                              ; preds = %5
   %446 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %3) #2
@@ -1176,7 +1176,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
 448:                                              ; preds = %445
   %449 = and i32 %447, 3584
   %.not54.i = icmp eq i32 %449, 3584
-  br i1 %.not54.i, label %450, label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br i1 %.not54.i, label %450, label %wimax_culmap_extension_ie_decoder.exit
 
 450:                                              ; preds = %448
   %451 = and i32 %447, 15
@@ -1209,7 +1209,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
 470:                                              ; preds = %445
   %.mask.i = and i32 %447, 57344
   %.not53.i = icmp eq i32 %.mask.i, 57344
-  br i1 %.not53.i, label %471, label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br i1 %.not53.i, label %471, label %wimax_culmap_extension_ie_decoder.exit
 
 471:                                              ; preds = %470
   %472 = lshr i32 %447, 4
@@ -1241,7 +1241,7 @@ wimax_compact_ulmap_rcid_ie_decoder.argprom.exit654: ; preds = %331, %353, %.sin
 490:                                              ; preds = %485, %481, %466, %460
   %.0.i656 = phi i32 [ %451, %460 ], [ %451, %466 ], [ %473, %481 ], [ %473, %485 ]
   %491 = shl nuw nsw i32 %.0.i656, 1
-  br label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br label %wimax_culmap_extension_ie_decoder.exit
 
 default.unreachable:                              ; preds = %5
   unreachable
@@ -1249,9 +1249,9 @@ default.unreachable:                              ; preds = %5
 492:                                              ; preds = %5
   %493 = load i32, ptr @hf_culmap_reserved_type_1, align 4
   %494 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %493, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  br label %wimax_culmap_extension_ie_decoder.argprom.exit
+  br label %wimax_culmap_extension_ie_decoder.exit
 
-wimax_culmap_extension_ie_decoder.argprom.exit:   ; preds = %490, %470, %448, %.thread669, %.thread666, %432, %408, %426, %402, %492, %394, %305, %236, %78
+wimax_culmap_extension_ie_decoder.exit:           ; preds = %490, %470, %448, %.thread669, %.thread666, %432, %408, %426, %402, %492, %394, %305, %236, %78
   %.1554 = phi i32 [ 1, %492 ], [ 1, %426 ], [ 1, %402 ], [ %396, %394 ], [ %311, %305 ], [ %238, %236 ], [ %80, %78 ], [ 9, %408 ], [ 9, %432 ], [ 1, %.thread666 ], [ 1, %.thread669 ], [ %491, %490 ], [ 0, %448 ], [ 0, %470 ]
   ret i32 %.1554
 }
@@ -1261,7 +1261,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 3) i32 @wimax_compact_ulmap_harq_control_ie_decoder.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 3) i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #2
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %10, label %6

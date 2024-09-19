@@ -4301,7 +4301,7 @@ if.end1136:                                       ; preds = %land.lhs.true1130
   br i1 %cmp1125, label %land.lhs.true1142, label %if.end1162
 
 land.lhs.true1142:                                ; preds = %if.end1136
-  %call1144 = tail call fastcc i32 @set_fstring_expr.argelim(ptr noundef nonnull %tok, ptr noundef %token)
+  %call1144 = tail call fastcc i32 @set_fstring_expr(ptr noundef nonnull %tok, ptr noundef %token)
   %tobool1145.not = icmp eq i32 %call1144, 0
   br i1 %tobool1145.not, label %if.end1148, label %if.then1146
 
@@ -5561,7 +5561,7 @@ return:                                           ; preds = %do.end, %tok_backup
 declare i32 @_PyTokenizer_syntaxerror_known_range(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_fstring_expr.argelim(ptr nocapture noundef readonly %tok, ptr nocapture noundef %token) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_fstring_expr(ptr nocapture noundef readonly %tok, ptr nocapture noundef %token) unnamed_addr #0 {
 entry:
   %tok_mode_stack = getelementptr inbounds i8, ptr %tok, i64 2856
   %tok_mode_stack_index = getelementptr inbounds i8, ptr %tok, i64 17256

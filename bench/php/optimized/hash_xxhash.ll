@@ -1014,7 +1014,7 @@ XXH_INLINE_XXH3_64bits_reset_withSeed.exit67:     ; preds = %.thread, %.thread75
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
 define void @PHP_XXH3_64_Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #7 {
-  tail call fastcc void @XXH3_update.argprom.retelim(ptr noundef %0, ptr noundef %1, i64 noundef %2)
+  tail call fastcc void @XXH3_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret void
 }
 
@@ -1055,7 +1055,7 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 256
   %28 = load i64, ptr %18, align 32
-  call fastcc void @XXH3_consumeStripes.argprom(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef %26, ptr noundef nonnull readonly %27, i64 noundef %22, ptr noundef nonnull readonly %10, i64 noundef %28)
+  call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef %26, ptr noundef nonnull readonly %27, i64 noundef %22, ptr noundef nonnull readonly %10, i64 noundef %28)
   %29 = zext i32 %16 to i64
   %30 = getelementptr inbounds i8, ptr %27, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -64
@@ -1182,11 +1182,11 @@ XXH3_mergeAccs.exit.i:                            ; preds = %83
 107:                                              ; preds = %103
   %108 = getelementptr inbounds i8, ptr %1, i64 552
   %109 = load i64, ptr %108, align 8
-  %110 = tail call fastcc i64 @XXH3_64bits_internal.argprom.argelim(ptr noundef nonnull readonly %106, i64 noundef %12, i64 noundef %109, ptr noundef nonnull @XXH3_kSecret)
+  %110 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %106, i64 noundef %12, i64 noundef %109, ptr noundef nonnull @XXH3_kSecret)
   br label %XXH_INLINE_XXH3_64bits_digest.exit
 
 111:                                              ; preds = %103
-  %112 = tail call fastcc i64 @XXH3_64bits_internal.argprom.argelim(ptr noundef nonnull readonly %106, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
+  %112 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %106, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
   br label %XXH_INLINE_XXH3_64bits_digest.exit
 
 XXH_INLINE_XXH3_64bits_digest.exit:               ; preds = %XXH3_mergeAccs.exit.i, %107, %111
@@ -1454,7 +1454,7 @@ XXH_INLINE_XXH3_128bits_reset_withSeed.exit67:    ; preds = %.thread, %.thread75
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
 define void @PHP_XXH3_128_Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #7 {
-  tail call fastcc void @XXH3_update.argprom.retelim(ptr noundef %0, ptr noundef %1, i64 noundef %2)
+  tail call fastcc void @XXH3_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret void
 }
 
@@ -1495,7 +1495,7 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 256
   %28 = load i64, ptr %18, align 32
-  call fastcc void @XXH3_consumeStripes.argprom(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef %26, ptr noundef nonnull readonly %27, i64 noundef %22, ptr noundef nonnull readonly %10, i64 noundef %28)
+  call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef %26, ptr noundef nonnull readonly %27, i64 noundef %22, ptr noundef nonnull readonly %10, i64 noundef %28)
   %29 = zext i32 %16 to i64
   %30 = getelementptr inbounds i8, ptr %27, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -64
@@ -1660,13 +1660,13 @@ XXH3_mergeAccs.exit29.i:                          ; preds = %106
   br i1 %.not.i, label %136, label %132
 
 132:                                              ; preds = %128
-  %133 = tail call fastcc { i64, i64 } @XXH3_128bits_internal.argprom.argelim(ptr noundef nonnull readonly %131, i64 noundef %12, i64 noundef %130, ptr noundef nonnull @XXH3_kSecret)
+  %133 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %131, i64 noundef %12, i64 noundef %130, ptr noundef nonnull @XXH3_kSecret)
   %134 = extractvalue { i64, i64 } %133, 0
   %135 = extractvalue { i64, i64 } %133, 1
   br label %XXH_INLINE_XXH3_128bits_digest.exit
 
 136:                                              ; preds = %128
-  %137 = tail call fastcc { i64, i64 } @XXH3_128bits_internal.argprom.argelim(ptr noundef nonnull readonly %131, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
+  %137 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %131, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
   %138 = extractvalue { i64, i64 } %137, 0
   %139 = extractvalue { i64, i64 } %137, 1
   br label %XXH_INLINE_XXH3_128bits_digest.exit
@@ -1706,7 +1706,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare zeroext i1 @_try_convert_to_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc void @XXH3_update.argprom.retelim(ptr noalias nocapture noundef %0, ptr noalias noundef %1, i64 noundef %2) unnamed_addr #8 {
+define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr noalias noundef %1, i64 noundef %2) unnamed_addr #8 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %196, label %5
 
@@ -1753,7 +1753,7 @@ define internal fastcc void @XXH3_update.argprom.retelim(ptr noalias nocapture n
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 544
   %37 = load i64, ptr %36, align 32
-  tail call fastcc void @XXH3_consumeStripes.argprom(ptr noundef nonnull %0, ptr noundef nonnull %33, i64 noundef %35, ptr noundef nonnull %30, i64 noundef 4, ptr noundef nonnull %11, i64 noundef %37)
+  tail call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %0, ptr noundef nonnull %33, i64 noundef %35, ptr noundef nonnull %30, i64 noundef 4, ptr noundef nonnull %11, i64 noundef %37)
   store i32 0, ptr %15, align 64
   br label %38
 
@@ -1782,7 +1782,7 @@ define internal fastcc void @XXH3_update.argprom.retelim(ptr noalias nocapture n
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %.not.i = icmp eq i64 %43, %52
-  br i1 %.not.i, label %XXH3_accumulate.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %XXH3_accumulate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46, %XXH3_accumulate_512_sse2.exit.i
   %.01.i = phi i64 [ %79, %XXH3_accumulate_512_sse2.exit.i ], [ 0, %46 ]
@@ -1823,9 +1823,9 @@ define internal fastcc void @XXH3_update.argprom.retelim(ptr noalias nocapture n
 XXH3_accumulate_512_sse2.exit.i:                  ; preds = %61
   %79 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %79, %53
-  br i1 %exitcond.not.i, label %XXH3_accumulate.argprom.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %XXH3_accumulate.exit, label %.lr.ph.i
 
-XXH3_accumulate.argprom.exit:                     ; preds = %XXH3_accumulate_512_sse2.exit.i, %46
+XXH3_accumulate.exit:                             ; preds = %XXH3_accumulate_512_sse2.exit.i, %46
   %80 = getelementptr inbounds i8, ptr %0, i64 544
   %81 = load i64, ptr %80, align 32
   %82 = getelementptr inbounds i8, ptr %11, i64 %81
@@ -1833,8 +1833,8 @@ XXH3_accumulate.argprom.exit:                     ; preds = %XXH3_accumulate_512
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   br label %83
 
-83:                                               ; preds = %83, %XXH3_accumulate.argprom.exit
-  %.045.i = phi i64 [ 0, %XXH3_accumulate.argprom.exit ], [ %98, %83 ]
+83:                                               ; preds = %83, %XXH3_accumulate.exit
+  %.045.i = phi i64 [ 0, %XXH3_accumulate.exit ], [ %98, %83 ]
   %84 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.045.i
   %85 = load <2 x i64>, ptr %84, align 16, !alias.scope !87, !noalias !90
   %86 = lshr <2 x i64> %85, <i64 47, i64 47>
@@ -1871,7 +1871,7 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %83
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %.not.i114 = icmp eq i64 %102, 0
-  br i1 %.not.i114, label %XXH3_accumulate.argprom.exit121, label %.lr.ph.i115
+  br i1 %.not.i114, label %XXH3_accumulate.exit121, label %.lr.ph.i115
 
 .lr.ph.i115:                                      ; preds = %.lr.ph, %XXH3_accumulate_512_sse2.exit.i119
   %.01.i116 = phi i64 [ %126, %XXH3_accumulate_512_sse2.exit.i119 ], [ 0, %.lr.ph ]
@@ -1912,17 +1912,17 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %83
 XXH3_accumulate_512_sse2.exit.i119:               ; preds = %108
   %126 = add nuw i64 %.01.i116, 1
   %exitcond.not.i120 = icmp eq i64 %126, %102
-  br i1 %exitcond.not.i120, label %XXH3_accumulate.argprom.exit121, label %.lr.ph.i115
+  br i1 %exitcond.not.i120, label %XXH3_accumulate.exit121, label %.lr.ph.i115
 
-XXH3_accumulate.argprom.exit121:                  ; preds = %XXH3_accumulate_512_sse2.exit.i119, %.lr.ph
+XXH3_accumulate.exit121:                          ; preds = %XXH3_accumulate_512_sse2.exit.i119, %.lr.ph
   %127 = load i64, ptr %80, align 32
   %128 = getelementptr inbounds i8, ptr %11, i64 %127
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   br label %129
 
-129:                                              ; preds = %129, %XXH3_accumulate.argprom.exit121
-  %.045.i122 = phi i64 [ 0, %XXH3_accumulate.argprom.exit121 ], [ %144, %129 ]
+129:                                              ; preds = %129, %XXH3_accumulate.exit121
+  %.045.i122 = phi i64 [ 0, %XXH3_accumulate.exit121 ], [ %144, %129 ]
   %130 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.045.i122
   %131 = load <2 x i64>, ptr %130, align 16, !alias.scope !113, !noalias !116
   %132 = lshr <2 x i64> %131, <i64 47, i64 47>
@@ -1957,7 +1957,7 @@ XXH3_scrambleAcc_sse2.exit124:                    ; preds = %129
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   %.not.i125 = icmp eq i64 %.0106.lcssa, 0
-  br i1 %.not.i125, label %XXH3_accumulate.argprom.exit132, label %.lr.ph.i126
+  br i1 %.not.i125, label %XXH3_accumulate.exit132, label %.lr.ph.i126
 
 .lr.ph.i126:                                      ; preds = %._crit_edge, %XXH3_accumulate_512_sse2.exit.i130
   %.01.i127 = phi i64 [ %172, %XXH3_accumulate_512_sse2.exit.i130 ], [ 0, %._crit_edge ]
@@ -1998,9 +1998,9 @@ XXH3_scrambleAcc_sse2.exit124:                    ; preds = %129
 XXH3_accumulate_512_sse2.exit.i130:               ; preds = %154
   %172 = add nuw i64 %.01.i127, 1
   %exitcond.not.i131 = icmp eq i64 %172, %.0106.lcssa
-  br i1 %exitcond.not.i131, label %XXH3_accumulate.argprom.exit132, label %.lr.ph.i126
+  br i1 %exitcond.not.i131, label %XXH3_accumulate.exit132, label %.lr.ph.i126
 
-XXH3_accumulate.argprom.exit132:                  ; preds = %XXH3_accumulate_512_sse2.exit.i130, %._crit_edge
+XXH3_accumulate.exit132:                          ; preds = %XXH3_accumulate_512_sse2.exit.i130, %._crit_edge
   %173 = shl i64 %.0106.lcssa, 6
   %174 = getelementptr inbounds i8, ptr %.1.lcssa, i64 %173
   store i64 %.0106.lcssa, ptr %51, align 8
@@ -2023,7 +2023,7 @@ XXH3_accumulate.argprom.exit132:                  ; preds = %XXH3_accumulate_512
   %.3 = phi ptr [ %.0105, %179 ], [ %186, %183 ]
   %184 = load i64, ptr %42, align 8
   %185 = load i64, ptr %182, align 32
-  tail call fastcc void @XXH3_consumeStripes.argprom(ptr noundef nonnull %0, ptr noundef nonnull %181, i64 noundef %184, ptr noundef %.3, i64 noundef 4, ptr noundef nonnull %11, i64 noundef %185)
+  tail call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %0, ptr noundef nonnull %181, i64 noundef %184, ptr noundef %.3, i64 noundef 4, ptr noundef nonnull %11, i64 noundef %185)
   %186 = getelementptr inbounds i8, ptr %.3, i64 256
   %187 = icmp ult ptr %186, %180
   br i1 %187, label %183, label %188
@@ -2034,8 +2034,8 @@ XXH3_accumulate.argprom.exit132:                  ; preds = %XXH3_accumulate_512
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %189, ptr noundef nonnull readonly align 1 dereferenceable(64) %190, i64 64, i1 false)
   br label %191
 
-191:                                              ; preds = %177, %188, %XXH3_accumulate.argprom.exit132
-  %.2 = phi ptr [ %174, %XXH3_accumulate.argprom.exit132 ], [ %186, %188 ], [ %.0105, %177 ]
+191:                                              ; preds = %177, %188, %XXH3_accumulate.exit132
+  %.2 = phi ptr [ %174, %XXH3_accumulate.exit132 ], [ %186, %188 ], [ %.0105, %177 ]
   %192 = getelementptr inbounds i8, ptr %0, i64 256
   %193 = ptrtoint ptr %.2 to i64
   %194 = sub i64 %39, %193
@@ -2053,7 +2053,7 @@ XXH3_accumulate.argprom.exit132:                  ; preds = %XXH3_accumulate_512
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @XXH3_consumeStripes.argprom(ptr noalias nocapture noundef %0, ptr noalias nocapture noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3, i64 noundef range(i64 0, 67108864) %4, ptr noalias nocapture noundef readonly %5, i64 noundef %6) unnamed_addr #10 {
+define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %0, ptr noalias nocapture noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3, i64 noundef range(i64 0, 67108864) %4, ptr noalias nocapture noundef readonly %5, i64 noundef %6) unnamed_addr #10 {
   %8 = load i64, ptr %1, align 8
   %9 = sub i64 %2, %8
   %.not = icmp ugt i64 %9, %4
@@ -2067,7 +2067,7 @@ define internal fastcc void @XXH3_consumeStripes.argprom(ptr noalias nocapture n
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %.not.i = icmp eq i64 %2, %8
-  br i1 %.not.i, label %XXH3_accumulate.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %XXH3_accumulate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %XXH3_accumulate_512_sse2.exit.i
   %.01.i = phi i64 [ %37, %XXH3_accumulate_512_sse2.exit.i ], [ 0, %10 ]
@@ -2108,16 +2108,16 @@ define internal fastcc void @XXH3_consumeStripes.argprom(ptr noalias nocapture n
 XXH3_accumulate_512_sse2.exit.i:                  ; preds = %19
   %37 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %37, %9
-  br i1 %exitcond.not.i, label %XXH3_accumulate.argprom.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %XXH3_accumulate.exit, label %.lr.ph.i
 
-XXH3_accumulate.argprom.exit:                     ; preds = %XXH3_accumulate_512_sse2.exit.i, %10
+XXH3_accumulate.exit:                             ; preds = %XXH3_accumulate_512_sse2.exit.i, %10
   %38 = getelementptr inbounds i8, ptr %5, i64 %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   br label %39
 
-39:                                               ; preds = %39, %XXH3_accumulate.argprom.exit
-  %.045.i = phi i64 [ 0, %XXH3_accumulate.argprom.exit ], [ %54, %39 ]
+39:                                               ; preds = %39, %XXH3_accumulate.exit
+  %.045.i = phi i64 [ 0, %XXH3_accumulate.exit ], [ %54, %39 ]
   %40 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.045.i
   %41 = load <2 x i64>, ptr %40, align 16, !alias.scope !160, !noalias !163
   %42 = lshr <2 x i64> %41, <i64 47, i64 47>
@@ -2144,7 +2144,7 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
   %.not.i34 = icmp eq i64 %11, 0
-  br i1 %.not.i34, label %XXH3_accumulate.argprom.exit41, label %.lr.ph.i35
+  br i1 %.not.i34, label %XXH3_accumulate.exit41, label %.lr.ph.i35
 
 .lr.ph.i35:                                       ; preds = %XXH3_scrambleAcc_sse2.exit, %XXH3_accumulate_512_sse2.exit.i39
   %.01.i36 = phi i64 [ %80, %XXH3_accumulate_512_sse2.exit.i39 ], [ 0, %XXH3_scrambleAcc_sse2.exit ]
@@ -2185,7 +2185,7 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %39
 XXH3_accumulate_512_sse2.exit.i39:                ; preds = %62
   %80 = add nuw i64 %.01.i36, 1
   %exitcond.not.i40 = icmp eq i64 %80, %11
-  br i1 %exitcond.not.i40, label %XXH3_accumulate.argprom.exit41, label %.lr.ph.i35
+  br i1 %exitcond.not.i40, label %XXH3_accumulate.exit41, label %.lr.ph.i35
 
 81:                                               ; preds = %7
   %82 = shl i64 %8, 3
@@ -2194,7 +2194,7 @@ XXH3_accumulate_512_sse2.exit.i39:                ; preds = %62
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
   %.not.i42 = icmp eq i64 %4, 0
-  br i1 %.not.i42, label %XXH3_accumulate.argprom.exit49, label %.lr.ph.i43
+  br i1 %.not.i42, label %XXH3_accumulate.exit49, label %.lr.ph.i43
 
 .lr.ph.i43:                                       ; preds = %81, %XXH3_accumulate_512_sse2.exit.i47
   %.01.i44 = phi i64 [ %107, %XXH3_accumulate_512_sse2.exit.i47 ], [ 0, %81 ]
@@ -2235,14 +2235,14 @@ XXH3_accumulate_512_sse2.exit.i39:                ; preds = %62
 XXH3_accumulate_512_sse2.exit.i47:                ; preds = %89
   %107 = add nuw nsw i64 %.01.i44, 1
   %exitcond.not.i48 = icmp eq i64 %107, %4
-  br i1 %exitcond.not.i48, label %XXH3_accumulate.argprom.exit49, label %.lr.ph.i43
+  br i1 %exitcond.not.i48, label %XXH3_accumulate.exit49, label %.lr.ph.i43
 
-XXH3_accumulate.argprom.exit49:                   ; preds = %XXH3_accumulate_512_sse2.exit.i47, %81
+XXH3_accumulate.exit49:                           ; preds = %XXH3_accumulate_512_sse2.exit.i47, %81
   %108 = add i64 %8, %4
-  br label %XXH3_accumulate.argprom.exit41
+  br label %XXH3_accumulate.exit41
 
-XXH3_accumulate.argprom.exit41:                   ; preds = %XXH3_accumulate_512_sse2.exit.i39, %XXH3_scrambleAcc_sse2.exit, %XXH3_accumulate.argprom.exit49
-  %storemerge = phi i64 [ %108, %XXH3_accumulate.argprom.exit49 ], [ 0, %XXH3_scrambleAcc_sse2.exit ], [ %11, %XXH3_accumulate_512_sse2.exit.i39 ]
+XXH3_accumulate.exit41:                           ; preds = %XXH3_accumulate_512_sse2.exit.i39, %XXH3_scrambleAcc_sse2.exit, %XXH3_accumulate.exit49
+  %storemerge = phi i64 [ %108, %XXH3_accumulate.exit49 ], [ 0, %XXH3_scrambleAcc_sse2.exit ], [ %11, %XXH3_accumulate_512_sse2.exit.i39 ]
   store i64 %storemerge, ptr %1, align 8
   ret void
 }
@@ -2251,7 +2251,7 @@ XXH3_accumulate.argprom.exit41:                   ; preds = %XXH3_accumulate_512
 declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define internal fastcc i64 @XXH3_64bits_internal.argprom.argelim(ptr noalias nocapture noundef readonly %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
+define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef readonly %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
   %5 = icmp ult i64 %1, 17
   br i1 %5, label %6, label %110
 
@@ -2691,7 +2691,7 @@ XXH3_len_0to16_64b.exit:                          ; preds = %97, %67, %38, %8, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define internal fastcc { i64, i64 } @XXH3_128bits_internal.argprom.argelim(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
+define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
   %5 = icmp ult i64 %1, 17
   br i1 %5, label %6, label %163
 
@@ -3419,12 +3419,12 @@ attributes #16 = { nounwind }
 !64 = !{!65}
 !65 = distinct !{!65, !63, !"XXH3_mergeAccs: argument 1"}
 !66 = !{!67}
-!67 = distinct !{!67, !68, !"XXH3_accumulate.argprom: argument 0"}
-!68 = distinct !{!68, !"XXH3_accumulate.argprom"}
+!67 = distinct !{!67, !68, !"XXH3_accumulate: argument 0"}
+!68 = distinct !{!68, !"XXH3_accumulate"}
 !69 = !{!70}
-!70 = distinct !{!70, !68, !"XXH3_accumulate.argprom: argument 1"}
+!70 = distinct !{!70, !68, !"XXH3_accumulate: argument 1"}
 !71 = !{!72}
-!72 = distinct !{!72, !68, !"XXH3_accumulate.argprom: argument 2"}
+!72 = distinct !{!72, !68, !"XXH3_accumulate: argument 2"}
 !73 = !{!67, !72}
 !74 = !{!75}
 !75 = distinct !{!75, !76, !"XXH3_accumulate_512_sse2: argument 0"}
@@ -3445,12 +3445,12 @@ attributes #16 = { nounwind }
 !90 = !{!91}
 !91 = distinct !{!91, !89, !"XXH3_scrambleAcc_sse2: argument 1"}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"XXH3_accumulate.argprom: argument 0"}
-!94 = distinct !{!94, !"XXH3_accumulate.argprom"}
+!93 = distinct !{!93, !94, !"XXH3_accumulate: argument 0"}
+!94 = distinct !{!94, !"XXH3_accumulate"}
 !95 = !{!96}
-!96 = distinct !{!96, !94, !"XXH3_accumulate.argprom: argument 1"}
+!96 = distinct !{!96, !94, !"XXH3_accumulate: argument 1"}
 !97 = !{!98}
-!98 = distinct !{!98, !94, !"XXH3_accumulate.argprom: argument 2"}
+!98 = distinct !{!98, !94, !"XXH3_accumulate: argument 2"}
 !99 = !{!93, !98}
 !100 = !{!101}
 !101 = distinct !{!101, !102, !"XXH3_accumulate_512_sse2: argument 0"}
@@ -3471,12 +3471,12 @@ attributes #16 = { nounwind }
 !116 = !{!117}
 !117 = distinct !{!117, !115, !"XXH3_scrambleAcc_sse2: argument 1"}
 !118 = !{!119}
-!119 = distinct !{!119, !120, !"XXH3_accumulate.argprom: argument 0"}
-!120 = distinct !{!120, !"XXH3_accumulate.argprom"}
+!119 = distinct !{!119, !120, !"XXH3_accumulate: argument 0"}
+!120 = distinct !{!120, !"XXH3_accumulate"}
 !121 = !{!122}
-!122 = distinct !{!122, !120, !"XXH3_accumulate.argprom: argument 1"}
+!122 = distinct !{!122, !120, !"XXH3_accumulate: argument 1"}
 !123 = !{!124}
-!124 = distinct !{!124, !120, !"XXH3_accumulate.argprom: argument 2"}
+!124 = distinct !{!124, !120, !"XXH3_accumulate: argument 2"}
 !125 = !{!119, !124}
 !126 = !{!127}
 !127 = distinct !{!127, !128, !"XXH3_accumulate_512_sse2: argument 0"}
@@ -3492,12 +3492,12 @@ attributes #16 = { nounwind }
 !137 = !{!127, !119}
 !138 = !{!130, !132, !122, !124}
 !139 = !{!140}
-!140 = distinct !{!140, !141, !"XXH3_accumulate.argprom: argument 0"}
-!141 = distinct !{!141, !"XXH3_accumulate.argprom"}
+!140 = distinct !{!140, !141, !"XXH3_accumulate: argument 0"}
+!141 = distinct !{!141, !"XXH3_accumulate"}
 !142 = !{!143}
-!143 = distinct !{!143, !141, !"XXH3_accumulate.argprom: argument 1"}
+!143 = distinct !{!143, !141, !"XXH3_accumulate: argument 1"}
 !144 = !{!145}
-!145 = distinct !{!145, !141, !"XXH3_accumulate.argprom: argument 2"}
+!145 = distinct !{!145, !141, !"XXH3_accumulate: argument 2"}
 !146 = !{!140, !145}
 !147 = !{!148}
 !148 = distinct !{!148, !149, !"XXH3_accumulate_512_sse2: argument 0"}
@@ -3518,12 +3518,12 @@ attributes #16 = { nounwind }
 !163 = !{!164}
 !164 = distinct !{!164, !162, !"XXH3_scrambleAcc_sse2: argument 1"}
 !165 = !{!166}
-!166 = distinct !{!166, !167, !"XXH3_accumulate.argprom: argument 0"}
-!167 = distinct !{!167, !"XXH3_accumulate.argprom"}
+!166 = distinct !{!166, !167, !"XXH3_accumulate: argument 0"}
+!167 = distinct !{!167, !"XXH3_accumulate"}
 !168 = !{!169}
-!169 = distinct !{!169, !167, !"XXH3_accumulate.argprom: argument 1"}
+!169 = distinct !{!169, !167, !"XXH3_accumulate: argument 1"}
 !170 = !{!171}
-!171 = distinct !{!171, !167, !"XXH3_accumulate.argprom: argument 2"}
+!171 = distinct !{!171, !167, !"XXH3_accumulate: argument 2"}
 !172 = !{!166, !171}
 !173 = !{!174}
 !174 = distinct !{!174, !175, !"XXH3_accumulate_512_sse2: argument 0"}
@@ -3539,12 +3539,12 @@ attributes #16 = { nounwind }
 !184 = !{!174, !166}
 !185 = !{!177, !179, !169, !171}
 !186 = !{!187}
-!187 = distinct !{!187, !188, !"XXH3_accumulate.argprom: argument 0"}
-!188 = distinct !{!188, !"XXH3_accumulate.argprom"}
+!187 = distinct !{!187, !188, !"XXH3_accumulate: argument 0"}
+!188 = distinct !{!188, !"XXH3_accumulate"}
 !189 = !{!190}
-!190 = distinct !{!190, !188, !"XXH3_accumulate.argprom: argument 1"}
+!190 = distinct !{!190, !188, !"XXH3_accumulate: argument 1"}
 !191 = !{!192}
-!192 = distinct !{!192, !188, !"XXH3_accumulate.argprom: argument 2"}
+!192 = distinct !{!192, !188, !"XXH3_accumulate: argument 2"}
 !193 = !{!187, !192}
 !194 = !{!195}
 !195 = distinct !{!195, !196, !"XXH3_accumulate_512_sse2: argument 0"}

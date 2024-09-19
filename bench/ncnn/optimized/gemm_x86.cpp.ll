@@ -300,11 +300,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn8Gemm_x8615create_pipeline
   br i1 %.not367.us, label %74, label %73
 
 73:                                               ; preds = %57
-  tail call fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr %71, i32 noundef %55, i32 noundef %.sroa.speculated403.us, i32 noundef %.0247406.us, i32 noundef %.sroa.speculated399.us)
+  tail call fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr %71, i32 noundef %55, i32 noundef %.sroa.speculated403.us, i32 noundef %.0247406.us, i32 noundef %.sroa.speculated399.us)
   br label %75
 
 74:                                               ; preds = %57
-  tail call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr %71, i32 noundef %56, i32 noundef %.sroa.speculated403.us, i32 noundef %.0247406.us, i32 noundef %.sroa.speculated399.us)
+  tail call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr %71, i32 noundef %56, i32 noundef %.sroa.speculated403.us, i32 noundef %.0247406.us, i32 noundef %.sroa.speculated399.us)
   br label %75
 
 75:                                               ; preds = %74, %73
@@ -449,11 +449,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn8Gemm_x8615create_pipeline
   br i1 %.not363, label %165, label %164
 
 164:                                              ; preds = %143
-  tail call fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull align 8 dereferenceable(72) %142, ptr %162, i32 noundef %146, i32 noundef %.sroa.speculated385, i32 noundef %147, i32 noundef %.sroa.speculated)
+  tail call fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr noundef nonnull align 8 dereferenceable(72) %142, ptr %162, i32 noundef %146, i32 noundef %.sroa.speculated385, i32 noundef %147, i32 noundef %.sroa.speculated)
   br label %166
 
 165:                                              ; preds = %143
-  tail call fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull align 8 dereferenceable(72) %142, ptr %162, i32 noundef %146, i32 noundef %.sroa.speculated385, i32 noundef %147, i32 noundef %.sroa.speculated)
+  tail call fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii(ptr noundef nonnull align 8 dereferenceable(72) %142, ptr %162, i32 noundef %146, i32 noundef %.sroa.speculated385, i32 noundef %147, i32 noundef %.sroa.speculated)
   br label %166
 
 166:                                              ; preds = %164, %165
@@ -1039,7 +1039,7 @@ define internal fastcc void @_ZN4ncnnL20get_optimal_tile_mnkEiiiiiiRiS0_S0_i(i32
 declare void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture writeonly %.0.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture writeonly %.0.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1382,7 +1382,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture writeonly %.0.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture writeonly %.0.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 3
@@ -1776,7 +1776,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr writeonly %.0.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr writeonly %.0.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2722,7 +2722,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii.argprom(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr writeonly %.0.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr writeonly %.0.val, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4787,7 +4787,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x867forwardERKSt6ve
   br i1 %644, label %718, label %.lr.ph.us.i
 
 718:                                              ; preds = %.lr.ph463.split.us.i
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val382.us.pre486.i, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us.i, i32 noundef %.sroa.speculated409.us.i)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val382.us.pre486.i, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us.i, i32 noundef %.sroa.speculated409.us.i)
   %.val382.us.pre.pre.i = load ptr, ptr %28, align 8
   br label %.lr.ph.us.i
 
@@ -4799,7 +4799,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x867forwardERKSt6ve
   br label %726
 
 722:                                              ; preds = %._crit_edge.us.i
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val382.us.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us.i, i32 noundef %.sroa.speculated409.us.i)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val382.us.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us.i, i32 noundef %.sroa.speculated409.us.i)
   br label %723
 
 723:                                              ; preds = %._crit_edge.us.i, %722
@@ -4838,7 +4838,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x867forwardERKSt6ve
   %752 = add nsw i32 %.0460.us.i, %688
   %753 = icmp sge i32 %752, %620
   %754 = select i1 %not..i, i1 %753, i1 false
-  call fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib.argprom(ptr %740, ptr %751, ptr noundef nonnull align 8 dereferenceable(72) %719, ptr %.val382.us.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %.0403, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us.i, i32 noundef %.sroa.speculated409.us.i, i32 noundef %.0460.us.i, i32 noundef %.sroa.speculated.us.i, i1 noundef zeroext %754)
+  call fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib(ptr %740, ptr %751, ptr noundef nonnull align 8 dereferenceable(72) %719, ptr %.val382.us.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %.0403, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us.i, i32 noundef %.sroa.speculated409.us.i, i32 noundef %.0460.us.i, i32 noundef %.sroa.speculated.us.i, i1 noundef zeroext %754)
   %755 = icmp slt i32 %752, %620
   br i1 %755, label %726, label %._crit_edge.us.i, !llvm.loop !63
 
@@ -4855,8 +4855,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x867forwardERKSt6ve
   %.0251461.us465.i.us = phi i32 [ %757, %.lr.ph463.split.split.us.i.us ], [ 0, %.lr.ph463.split.split.us.i.preheader ]
   %756 = sub nsw i32 %618, %.0251461.us465.i.us
   %.sroa.speculated409.us466.i.us = call i32 @llvm.smin.i32(i32 %716, i32 %756)
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val383.us468.i, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us465.i.us, i32 noundef %.sroa.speculated409.us466.i.us)
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val383.us468.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us465.i.us, i32 noundef %.sroa.speculated409.us466.i.us)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val383.us468.i, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us465.i.us, i32 noundef %.sroa.speculated409.us466.i.us)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val383.us468.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us465.i.us, i32 noundef %.sroa.speculated409.us466.i.us)
   %757 = add nsw i32 %.0251461.us465.i.us, %716
   %758 = icmp slt i32 %757, %618
   br i1 %758, label %.lr.ph463.split.split.us.i.us, label %._crit_edge464.i.thread, !llvm.loop !62
@@ -4865,7 +4865,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x867forwardERKSt6ve
   %.0251461.us465.i = phi i32 [ %760, %.lr.ph463.split.split.us.i ], [ 0, %.lr.ph463.split.split.us.i.preheader ]
   %759 = sub nsw i32 %618, %.0251461.us465.i
   %.sroa.speculated409.us466.i = call i32 @llvm.smin.i32(i32 %716, i32 %759)
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val383.us468.i, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us465.i, i32 noundef %.sroa.speculated409.us466.i)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val383.us468.i, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us465.i, i32 noundef %.sroa.speculated409.us466.i)
   %760 = add nsw i32 %.0251461.us465.i, %716
   %761 = icmp slt i32 %760, %618
   br i1 %761, label %.lr.ph463.split.split.us.i, label %._crit_edge464.i.thread, !llvm.loop !62
@@ -4877,7 +4877,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x867forwardERKSt6ve
   %.0251461.us469.i = phi i32 [ %763, %.lr.ph463.split.split.split.us.i ], [ 0, %.lr.ph463.split.split.i ]
   %762 = sub nsw i32 %618, %.0251461.us469.i
   %.sroa.speculated409.us470.i = call i32 @llvm.smin.i32(i32 %716, i32 %762)
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val383.us468.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us469.i, i32 noundef %.sroa.speculated409.us470.i)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val383.us468.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %686, i32 noundef %.sroa.speculated428.i, i32 noundef %.0251461.us469.i, i32 noundef %.sroa.speculated409.us470.i)
   %763 = add nsw i32 %.0251461.us469.i, %716
   %764 = icmp slt i32 %763, %618
   br i1 %764, label %.lr.ph463.split.split.split.us.i, label %._crit_edge464.i.thread, !llvm.loop !62
@@ -5144,7 +5144,7 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   %893 = mul nsw i64 %891, %892
   %894 = mul i64 %893, %888
   %895 = getelementptr inbounds i8, ptr %890, i64 %894
-  call fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %895, i32 noundef %879, i32 noundef %.sroa.speculated599.us.i, i32 noundef %880, i32 noundef %.sroa.speculated595.us.i)
+  call fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %895, i32 noundef %879, i32 noundef %.sroa.speculated599.us.i, i32 noundef %880, i32 noundef %.sroa.speculated595.us.i)
   %896 = add nuw nsw i32 %.0360631.us.i, 1
   %exitcond654.not.i = icmp eq i32 %896, %875
   br i1 %exitcond654.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !65
@@ -5172,7 +5172,7 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   %913 = mul nsw i64 %911, %912
   %914 = mul i64 %913, %908
   %915 = getelementptr inbounds i8, ptr %910, i64 %914
-  call fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %915, i32 noundef %899, i32 noundef %.sroa.speculated599.i, i32 noundef %900, i32 noundef %.sroa.speculated595.i)
+  call fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %915, i32 noundef %899, i32 noundef %.sroa.speculated599.i, i32 noundef %900, i32 noundef %.sroa.speculated595.i)
   %916 = add nuw nsw i32 %.0360631.i, 1
   %exitcond.not.i594 = icmp eq i32 %916, %875
   br i1 %exitcond.not.i594, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !65
@@ -5320,7 +5320,7 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   br i1 %928, label %997, label %.lr.ph634.us.i
 
 997:                                              ; preds = %.lr.ph638.split.us.i
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val535.us.pre667.i, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us.i, i32 noundef %.sroa.speculated566.us.i)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val535.us.pre667.i, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us.i, i32 noundef %.sroa.speculated566.us.i)
   %.val535.us.pre.pre.i = load ptr, ptr %23, align 8
   br label %.lr.ph634.us.i
 
@@ -5332,7 +5332,7 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   br label %1005
 
 1001:                                             ; preds = %._crit_edge635.us.i
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val535.us.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us.i, i32 noundef %.sroa.speculated566.us.i)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val535.us.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us.i, i32 noundef %.sroa.speculated566.us.i)
   br label %1002
 
 1002:                                             ; preds = %._crit_edge635.us.i, %1001
@@ -5371,7 +5371,7 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   %1031 = add nsw i32 %.0632.us.i, %967
   %1032 = icmp sge i32 %1031, %822
   %1033 = select i1 %not..i588, i1 %1032, i1 false
-  call fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib.argprom(ptr %1019, ptr %1030, ptr noundef nonnull align 8 dereferenceable(72) %998, ptr %.val535.us.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %.0403, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us.i, i32 noundef %.sroa.speculated566.us.i, i32 noundef %.0632.us.i, i32 noundef %.sroa.speculated.us.i590, i1 noundef zeroext %1033)
+  call fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib(ptr %1019, ptr %1030, ptr noundef nonnull align 8 dereferenceable(72) %998, ptr %.val535.us.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %.0403, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us.i, i32 noundef %.sroa.speculated566.us.i, i32 noundef %.0632.us.i, i32 noundef %.sroa.speculated.us.i590, i1 noundef zeroext %1033)
   %1034 = icmp slt i32 %1031, %822
   br i1 %1034, label %1005, label %._crit_edge635.us.i, !llvm.loop !67
 
@@ -5388,8 +5388,8 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   %.0353636.us640.i.us = phi i32 [ %1036, %.lr.ph638.split.split.us.i.us ], [ 0, %.lr.ph638.split.split.us.i.preheader ]
   %1035 = sub nsw i32 %844, %.0353636.us640.i.us
   %.sroa.speculated566.us641.i.us = call i32 @llvm.smin.i32(i32 %995, i32 %1035)
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val536.us643.i, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us640.i.us, i32 noundef %.sroa.speculated566.us641.i.us)
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val536.us643.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us640.i.us, i32 noundef %.sroa.speculated566.us641.i.us)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val536.us643.i, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us640.i.us, i32 noundef %.sroa.speculated566.us641.i.us)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val536.us643.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us640.i.us, i32 noundef %.sroa.speculated566.us641.i.us)
   %1036 = add nsw i32 %.0353636.us640.i.us, %995
   %1037 = icmp slt i32 %1036, %844
   br i1 %1037, label %.lr.ph638.split.split.us.i.us, label %._crit_edge639.i.thread, !llvm.loop !66
@@ -5398,7 +5398,7 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   %.0353636.us640.i = phi i32 [ %1039, %.lr.ph638.split.split.us.i ], [ 0, %.lr.ph638.split.split.us.i.preheader ]
   %1038 = sub nsw i32 %844, %.0353636.us640.i
   %.sroa.speculated566.us641.i = call i32 @llvm.smin.i32(i32 %995, i32 %1038)
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val536.us643.i, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us640.i, i32 noundef %.sroa.speculated566.us641.i)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val536.us643.i, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us640.i, i32 noundef %.sroa.speculated566.us641.i)
   %1039 = add nsw i32 %.0353636.us640.i, %995
   %1040 = icmp slt i32 %1039, %844
   br i1 %1040, label %.lr.ph638.split.split.us.i, label %._crit_edge639.i.thread, !llvm.loop !66
@@ -5410,7 +5410,7 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   %.0353636.us644.i = phi i32 [ %1042, %.lr.ph638.split.split.split.us.i ], [ 0, %.lr.ph638.split.split.i ]
   %1041 = sub nsw i32 %844, %.0353636.us644.i
   %.sroa.speculated566.us645.i = call i32 @llvm.smin.i32(i32 %995, i32 %1041)
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val536.us643.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us644.i, i32 noundef %.sroa.speculated566.us645.i)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val536.us643.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %965, i32 noundef %.sroa.speculated585.i, i32 noundef %.0353636.us644.i, i32 noundef %.sroa.speculated566.us645.i)
   %1042 = add nsw i32 %.0353636.us644.i, %995
   %1043 = icmp slt i32 %1042, %844
   br i1 %1043, label %.lr.ph638.split.split.split.us.i, label %._crit_edge639.i.thread, !llvm.loop !66
@@ -5906,7 +5906,7 @@ _ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   br i1 %1194, label %1282, label %.lr.ph.us.i610
 
 1282:                                             ; preds = %.lr.ph537.split.us.i
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val452.us.i887, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us.i, i32 noundef %.sroa.speculated470.us.i)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val452.us.i887, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us.i, i32 noundef %.sroa.speculated470.us.i)
   %.val452.us.i.pre = load ptr, ptr %17, align 8
   br label %.lr.ph.us.i610
 
@@ -5917,7 +5917,7 @@ _ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   br label %1289
 
 1285:                                             ; preds = %._crit_edge.us.i613
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val452.us.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us.i, i32 noundef %.sroa.speculated470.us.i)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val452.us.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us.i, i32 noundef %.sroa.speculated470.us.i)
   br label %1286
 
 1286:                                             ; preds = %._crit_edge.us.i613, %1285
@@ -5966,18 +5966,18 @@ _ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   br i1 %.not.i599, label %1322, label %1321
 
 1321:                                             ; preds = %1320
-  call fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %1306, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0534.us.i, i32 noundef %.sroa.speculated.us.i611)
+  call fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %1306, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0534.us.i, i32 noundef %.sroa.speculated.us.i611)
   br label %1323
 
 1322:                                             ; preds = %1320
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %1306, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0534.us.i, i32 noundef %.sroa.speculated.us.i611)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %1306, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0534.us.i, i32 noundef %.sroa.speculated.us.i611)
   br label %1323
 
 1323:                                             ; preds = %1322, %1321, %1292
   %1324 = add nsw i32 %.0534.us.i, %1251
   %1325 = icmp sge i32 %1324, %.fr557.i
   %1326 = select i1 %not..i606, i1 %1325, i1 false
-  call fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib.argprom(ptr %1306, ptr %1319, ptr noundef nonnull align 8 dereferenceable(72) %1283, ptr %.val452.us.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %.0403, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us.i, i32 noundef %.sroa.speculated470.us.i, i32 noundef %.0534.us.i, i32 noundef %.sroa.speculated.us.i611, i1 noundef zeroext %1326)
+  call fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib(ptr %1306, ptr %1319, ptr noundef nonnull align 8 dereferenceable(72) %1283, ptr %.val452.us.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %.0403, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us.i, i32 noundef %.sroa.speculated470.us.i, i32 noundef %.0534.us.i, i32 noundef %.sroa.speculated.us.i611, i1 noundef zeroext %1326)
   %1327 = icmp slt i32 %1324, %.fr557.i
   br i1 %1327, label %1289, label %._crit_edge.us.i613, !llvm.loop !70
 
@@ -5994,8 +5994,8 @@ _ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   %.0304535.us549.i.us = phi i32 [ %1329, %.lr.ph537.split.split.us.i.us ], [ 0, %.lr.ph537.split.split.us.i.preheader ]
   %1328 = sub nsw i32 %1132, %.0304535.us549.i.us
   %.sroa.speculated470.us550.i.us = call i32 @llvm.smin.i32(i32 %1279, i32 %1328)
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val453.us552.i, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us549.i.us, i32 noundef %.sroa.speculated470.us550.i.us)
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val453.us552.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us549.i.us, i32 noundef %.sroa.speculated470.us550.i.us)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val453.us552.i, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us549.i.us, i32 noundef %.sroa.speculated470.us550.i.us)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val453.us552.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us549.i.us, i32 noundef %.sroa.speculated470.us550.i.us)
   %1329 = add nsw i32 %.0304535.us549.i.us, %1279
   %1330 = icmp slt i32 %1329, %1132
   br i1 %1330, label %.lr.ph537.split.split.us.i.us, label %._crit_edge538.i.thread, !llvm.loop !69
@@ -6004,7 +6004,7 @@ _ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   %.0304535.us549.i = phi i32 [ %1332, %.lr.ph537.split.split.us.i ], [ 0, %.lr.ph537.split.split.us.i.preheader ]
   %1331 = sub nsw i32 %1132, %.0304535.us549.i
   %.sroa.speculated470.us550.i = call i32 @llvm.smin.i32(i32 %1279, i32 %1331)
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val453.us552.i, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us549.i, i32 noundef %.sroa.speculated470.us550.i)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val453.us552.i, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us549.i, i32 noundef %.sroa.speculated470.us550.i)
   %1332 = add nsw i32 %.0304535.us549.i, %1279
   %1333 = icmp slt i32 %1332, %1132
   br i1 %1333, label %.lr.ph537.split.split.us.i, label %._crit_edge538.i.thread, !llvm.loop !69
@@ -6016,7 +6016,7 @@ _ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   %.0304535.us553.i = phi i32 [ %1335, %.lr.ph537.split.split.split.us.i ], [ 0, %.lr.ph537.split.split.i ]
   %1334 = sub nsw i32 %1132, %.0304535.us553.i
   %.sroa.speculated470.us554.i = call i32 @llvm.smin.i32(i32 %1279, i32 %1334)
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val453.us552.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us553.i, i32 noundef %.sroa.speculated470.us554.i)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val453.us552.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1232, i32 noundef %.sroa.speculated492.i, i32 noundef %.0304535.us553.i, i32 noundef %.sroa.speculated470.us554.i)
   %1335 = add nsw i32 %.0304535.us553.i, %1279
   %1336 = icmp slt i32 %1335, %1132
   br i1 %1336, label %.lr.ph537.split.split.split.us.i, label %._crit_edge538.i.thread, !llvm.loop !69
@@ -6472,7 +6472,7 @@ _ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   %1555 = mul nsw i64 %1553, %1554
   %1556 = mul i64 %1555, %1550
   %1557 = getelementptr inbounds i8, ptr %1552, i64 %1556
-  call fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %1438, ptr %1557, i32 noundef %1541, i32 noundef %.sroa.speculated674.us.i, i32 noundef %1542, i32 noundef %.sroa.speculated670.us.i)
+  call fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %1438, ptr %1557, i32 noundef %1541, i32 noundef %.sroa.speculated674.us.i, i32 noundef %1542, i32 noundef %.sroa.speculated670.us.i)
   %1558 = add nuw nsw i32 %.0421717.us.i, 1
   %exitcond751.not.i = icmp eq i32 %1558, %1537
   br i1 %exitcond751.not.i, label %._crit_edge.i622, label %.lr.ph.split.us.i639, !llvm.loop !72
@@ -6500,7 +6500,7 @@ _ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   %1575 = mul nsw i64 %1573, %1574
   %1576 = mul i64 %1575, %1570
   %1577 = getelementptr inbounds i8, ptr %1572, i64 %1576
-  call fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %1438, ptr %1577, i32 noundef %1561, i32 noundef %.sroa.speculated674.i, i32 noundef %1562, i32 noundef %.sroa.speculated670.i)
+  call fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %1438, ptr %1577, i32 noundef %1561, i32 noundef %.sroa.speculated674.i, i32 noundef %1562, i32 noundef %.sroa.speculated670.i)
   %1578 = add nuw nsw i32 %.0421717.i, 1
   %exitcond.not.i638 = icmp eq i32 %1578, %1537
   br i1 %exitcond.not.i638, label %._crit_edge.i622, label %.lr.ph.split.i637, !llvm.loop !72
@@ -6679,7 +6679,7 @@ _ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   br i1 %1590, label %1674, label %.lr.ph720.us.i
 
 1674:                                             ; preds = %.lr.ph724.split.us.i
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val615.us.i890, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us.i, i32 noundef %.sroa.speculated637.us.i)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val615.us.i890, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us.i, i32 noundef %.sroa.speculated637.us.i)
   %.val615.us.i.pre = load ptr, ptr %11, align 8
   br label %.lr.ph720.us.i
 
@@ -6690,7 +6690,7 @@ _ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   br label %1681
 
 1677:                                             ; preds = %._crit_edge721.us.i
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val615.us.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us.i, i32 noundef %.sroa.speculated637.us.i)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val615.us.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us.i, i32 noundef %.sroa.speculated637.us.i)
   br label %1678
 
 1678:                                             ; preds = %._crit_edge721.us.i, %1677
@@ -6739,18 +6739,18 @@ _ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   br i1 %.not.i621, label %1714, label %1713
 
 1713:                                             ; preds = %1712
-  call fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %1698, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0718.us.i, i32 noundef %.sroa.speculated.us.i629)
+  call fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %1698, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0718.us.i, i32 noundef %.sroa.speculated.us.i629)
   br label %1715
 
 1714:                                             ; preds = %1712
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %1698, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0718.us.i, i32 noundef %.sroa.speculated.us.i629)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %816, ptr %1698, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0718.us.i, i32 noundef %.sroa.speculated.us.i629)
   br label %1715
 
 1715:                                             ; preds = %1714, %1713, %1684
   %1716 = add nsw i32 %.0718.us.i, %1643
   %1717 = icmp sge i32 %1716, %.fr746.i
   %1718 = select i1 %not..i627, i1 %1717, i1 false
-  call fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib.argprom(ptr %1698, ptr %1711, ptr noundef nonnull align 8 dereferenceable(72) %1675, ptr %.val615.us.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %.0403, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us.i, i32 noundef %.sroa.speculated637.us.i, i32 noundef %.0718.us.i, i32 noundef %.sroa.speculated.us.i629, i1 noundef zeroext %1718)
+  call fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib(ptr %1698, ptr %1711, ptr noundef nonnull align 8 dereferenceable(72) %1675, ptr %.val615.us.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %.0403, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us.i, i32 noundef %.sroa.speculated637.us.i, i32 noundef %.0718.us.i, i32 noundef %.sroa.speculated.us.i629, i1 noundef zeroext %1718)
   %1719 = icmp slt i32 %1716, %.fr746.i
   br i1 %1719, label %1681, label %._crit_edge721.us.i, !llvm.loop !74
 
@@ -6767,8 +6767,8 @@ _ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   %.0412722.us736.i.us = phi i32 [ %1721, %.lr.ph724.split.split.us.i.us ], [ 0, %.lr.ph724.split.split.us.i.preheader ]
   %1720 = sub nsw i32 %1485, %.0412722.us736.i.us
   %.sroa.speculated637.us737.i.us = call i32 @llvm.smin.i32(i32 %1671, i32 %1720)
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val616.us739.i, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us736.i.us, i32 noundef %.sroa.speculated637.us737.i.us)
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val616.us739.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us736.i.us, i32 noundef %.sroa.speculated637.us737.i.us)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val616.us739.i, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us736.i.us, i32 noundef %.sroa.speculated637.us737.i.us)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val616.us739.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us736.i.us, i32 noundef %.sroa.speculated637.us737.i.us)
   %1721 = add nsw i32 %.0412722.us736.i.us, %1671
   %1722 = icmp slt i32 %1721, %1485
   br i1 %1722, label %.lr.ph724.split.split.us.i.us, label %._crit_edge725.i.thread, !llvm.loop !73
@@ -6777,7 +6777,7 @@ _ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   %.0412722.us736.i = phi i32 [ %1724, %.lr.ph724.split.split.us.i ], [ 0, %.lr.ph724.split.split.us.i.preheader ]
   %1723 = sub nsw i32 %1485, %.0412722.us736.i
   %.sroa.speculated637.us737.i = call i32 @llvm.smin.i32(i32 %1671, i32 %1723)
-  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val616.us739.i, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us736.i, i32 noundef %.sroa.speculated637.us737.i)
+  call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull readonly align 8 dereferenceable(72) %29, ptr %.val616.us739.i, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us736.i, i32 noundef %.sroa.speculated637.us737.i)
   %1724 = add nsw i32 %.0412722.us736.i, %1671
   %1725 = icmp slt i32 %1724, %1485
   br i1 %1725, label %.lr.ph724.split.split.us.i, label %._crit_edge725.i.thread, !llvm.loop !73
@@ -6789,7 +6789,7 @@ _ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   %.0412722.us740.i = phi i32 [ %1727, %.lr.ph724.split.split.split.us.i ], [ 0, %.lr.ph724.split.split.i ]
   %1726 = sub nsw i32 %1485, %.0412722.us740.i
   %.sroa.speculated637.us741.i = call i32 @llvm.smin.i32(i32 %1671, i32 %1726)
-  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr %.val616.us739.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us740.i, i32 noundef %.sroa.speculated637.us741.i)
+  call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val616.us739.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %574, i32 noundef %1624, i32 noundef %.sroa.speculated659.i, i32 noundef %.0412722.us740.i, i32 noundef %.sroa.speculated637.us741.i)
   %1727 = add nsw i32 %.0412722.us740.i, %1671
   %1728 = icmp slt i32 %1727, %1485
   br i1 %1728, label %.lr.ph724.split.split.split.us.i, label %._crit_edge725.i.thread, !llvm.loop !73
@@ -7473,7 +7473,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 declare noundef i32 @_ZN4ncnn18get_omp_thread_numEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib.argprom(ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %.0.val3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9) unnamed_addr #3 {
+define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib(ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %.0.val3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9) unnamed_addr #3 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -10054,7 +10054,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii.argprom(ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40

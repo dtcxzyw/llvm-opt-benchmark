@@ -372,21 +372,21 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %78
   %115 = zext i16 %114 to i32
   %116 = add nsw i32 %115, -2
   %.not16.i.i.i = icmp sgt i32 %116, %112
-  br i1 %.not16.i.i.i, label %_ZN5ZXing11PatternView8skipPairEv.exit.i.i, label %_ZN5ZXing5AztecL20IsAztecCenterPatternERKNS_11PatternViewE.argprom.exit.i.i
+  br i1 %.not16.i.i.i, label %_ZN5ZXing11PatternView8skipPairEv.exit.i.i, label %_ZN5ZXing5AztecL20IsAztecCenterPatternERKNS_11PatternViewE.exit.i.i
 
-_ZN5ZXing5AztecL20IsAztecCenterPatternERKNS_11PatternViewE.argprom.exit.i.i: ; preds = %109
+_ZN5ZXing5AztecL20IsAztecCenterPatternERKNS_11PatternViewE.exit.i.i: ; preds = %109
   %117 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i, i64 14
   %118 = load i16, ptr %117, align 2, !noalias !15
   %119 = zext i16 %118 to i32
   %.not.i28.i = icmp sgt i32 %116, %119
   br i1 %.not.i28.i, label %_ZN5ZXing11PatternView8skipPairEv.exit.i.i, label %_ZN5ZXing5AztecL22FindAztecCenterPatternERKNS_11PatternViewE.exit.i
 
-_ZN5ZXing11PatternView8skipPairEv.exit.i.i:       ; preds = %_ZN5ZXing5AztecL20IsAztecCenterPatternERKNS_11PatternViewE.argprom.exit.i.i, %109, %._crit_edge.i.i.i
+_ZN5ZXing11PatternView8skipPairEv.exit.i.i:       ; preds = %_ZN5ZXing5AztecL20IsAztecCenterPatternERKNS_11PatternViewE.exit.i.i, %109, %._crit_edge.i.i.i
   %120 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i, i64 4
   %121 = icmp ult ptr %120, %93
   br i1 %121, label %.lr.ph.preheader.i.i.i, label %_ZNK5ZXing11PatternView7isValidEv.exit.thread.i, !llvm.loop !19
 
-_ZN5ZXing5AztecL22FindAztecCenterPatternERKNS_11PatternViewE.exit.i: ; preds = %_ZN5ZXing5AztecL20IsAztecCenterPatternERKNS_11PatternViewE.argprom.exit.i.i
+_ZN5ZXing5AztecL22FindAztecCenterPatternERKNS_11PatternViewE.exit.i: ; preds = %_ZN5ZXing5AztecL20IsAztecCenterPatternERKNS_11PatternViewE.exit.i.i
   %122 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i, i64 14
   %.not1.i.i.i = icmp uge ptr %.sroa.0.07.i.i, %80
   %123 = icmp ule ptr %122, %81

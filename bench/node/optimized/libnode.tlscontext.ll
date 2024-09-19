@@ -1032,7 +1032,7 @@ for.body94.lr.ph.i:                               ; preds = %for.end84.i
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   br label %for.body94.i
 
-for.cond92.i:                                     ; preds = %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.argprom.argprom.exit.i"
+for.cond92.i:                                     ; preds = %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.exit.i"
   %incdec.ptr.i49.i = getelementptr inbounds i8, ptr %__begin286.sroa.0.083.i, i64 16
   %cmp.i48.not.i = icmp eq ptr %incdec.ptr.i49.i, %31
   br i1 %cmp.i48.not.i, label %for.end104.i, label %for.body94.i
@@ -1068,7 +1068,7 @@ _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.i.i: ; preds = %if
   %call.i.i = call i16 @_ZN4node6crypto13SecureContext6UseKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEE(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef %env, ptr noundef nonnull %agg.tmp.i.i) #18, !noalias !8
   %36 = load ptr, ptr %_M_refcount.i.i.i.i, align 8, !noalias !8
   %cmp.not.i.i.i2.i.i = icmp eq ptr %36, null
-  br i1 %cmp.not.i.i.i2.i.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.argprom.argprom.exit.i", label %if.then.i.i.i3.i.i
+  br i1 %cmp.not.i.i.i2.i.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.exit.i", label %if.then.i.i.i3.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.i.i
   %_M_use_count.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %36, i64 8
@@ -1104,7 +1104,7 @@ if.else.i.i.i.i.i7.i.i:                           ; preds = %if.end.i.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i7.i.i, %if.then.i.i.i.i.i5.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %38, %if.then.i.i.i.i.i5.i.i ], [ %41, %if.else.i.i.i.i.i7.i.i ]
   %cmp6.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.argprom.argprom.exit.i"
+  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.exit.i"
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %36, align 8, !noalias !8
@@ -1129,16 +1129,16 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %44, %if.then.i.i.i.i.i.i.i.i.i ], [ %45, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.argprom.argprom.exit.i"
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.exit.i"
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %36, align 8, !noalias !8
   %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8, !noalias !8
   call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #18, !noalias !8
-  br label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.argprom.argprom.exit.i"
+  br label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.exit.i"
 
-"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.argprom.argprom.exit.i": ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.i.i
+"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.exit.i": ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.i.i
   call void @ERR_clear_error() #18, !noalias !8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !8
   %tobool.i130.i = trunc i16 %call.i.i to i1
@@ -1206,7 +1206,7 @@ do.body6.i:                                       ; preds = %_ZNK4node17BaseObje
   call void @abort() #20
   unreachable
 
-_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split: ; preds = %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.i", %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.argprom.argprom.exit.i", %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.i", %if.end46.i, %if.end40.i, %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit36.i, %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i, %if.then64.i
+_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split: ; preds = %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.i", %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.exit.i", %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.i", %if.end46.i, %if.end40.i, %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit36.i, %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i, %if.then64.i
   store ptr null, ptr %secure_context_, align 8, !alias.scope !8
   br label %_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread
 
@@ -2275,9 +2275,9 @@ lor.lhs.false:                                    ; preds = %entry
   %in_key_update_ = getelementptr inbounds i8, ptr %this, i64 344
   %1 = load i8, ptr %in_key_update_, align 8
   %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %return, label %"_ZN4node16OnScopeLeaveImplIZNS_4quic10TLSContext17InitiateKeyUpdateEvE3$_0ED2Ev.argprom.exit"
+  br i1 %tobool, label %return, label %"_ZN4node16OnScopeLeaveImplIZNS_4quic10TLSContext17InitiateKeyUpdateEvE3$_0ED2Ev.exit"
 
-"_ZN4node16OnScopeLeaveImplIZNS_4quic10TLSContext17InitiateKeyUpdateEvE3$_0ED2Ev.argprom.exit": ; preds = %lor.lhs.false
+"_ZN4node16OnScopeLeaveImplIZNS_4quic10TLSContext17InitiateKeyUpdateEvE3$_0ED2Ev.exit": ; preds = %lor.lhs.false
   store i8 1, ptr %in_key_update_, align 8
   %2 = load ptr, ptr %session_, align 8
   %call4 = tail call noundef ptr @_ZNK4node4quic7SessioncvP11ngtcp2_connEv(ptr noundef nonnull align 8 dereferenceable(2616) %2) #18
@@ -2287,8 +2287,8 @@ lor.lhs.false:                                    ; preds = %entry
   store i8 0, ptr %in_key_update_, align 8
   br label %return
 
-return:                                           ; preds = %entry, %lor.lhs.false, %"_ZN4node16OnScopeLeaveImplIZNS_4quic10TLSContext17InitiateKeyUpdateEvE3$_0ED2Ev.argprom.exit"
-  %retval.0 = phi i1 [ %cmp, %"_ZN4node16OnScopeLeaveImplIZNS_4quic10TLSContext17InitiateKeyUpdateEvE3$_0ED2Ev.argprom.exit" ], [ false, %lor.lhs.false ], [ false, %entry ]
+return:                                           ; preds = %entry, %lor.lhs.false, %"_ZN4node16OnScopeLeaveImplIZNS_4quic10TLSContext17InitiateKeyUpdateEvE3$_0ED2Ev.exit"
+  %retval.0 = phi i1 [ %cmp, %"_ZN4node16OnScopeLeaveImplIZNS_4quic10TLSContext17InitiateKeyUpdateEvE3$_0ED2Ev.exit" ], [ false, %lor.lhs.false ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -3278,28 +3278,28 @@ lor.lhs.false78:                                  ; preds = %lor.lhs.false71
   %call80 = call ptr @_ZNK4node4quic11BindingData11keys_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call5) #18
   store ptr %call80, ptr %ref.tmp79, align 8
   %params.val = load ptr, ptr %params, align 8
-  %call84 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionISt10shared_ptrINS_6crypto13KeyObjectDataEENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaISB_EEXadL_ZNS8_4keysEEEEEbPNS_11EnvironmentEPS9_RKN2v85LocalINSI_6ObjectEEERKNSJ_INSI_6StringEEE.argprom(ptr noundef %env, ptr noundef %options, ptr %params.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp79)
+  %call84 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionISt10shared_ptrINS_6crypto13KeyObjectDataEENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaISB_EEXadL_ZNS8_4keysEEEEEbPNS_11EnvironmentEPS9_RKN2v85LocalINSI_6ObjectEEERKNSJ_INSI_6StringEEE(ptr noundef %env, ptr noundef %options, ptr %params.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp79)
   br i1 %call84, label %lor.lhs.false85, label %if.then105
 
 lor.lhs.false85:                                  ; preds = %lor.lhs.false78
   %call87 = call ptr @_ZNK4node4quic11BindingData12certs_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call5) #18
   store ptr %call87, ptr %ref.tmp86, align 8
   %params.val30 = load ptr, ptr %params, align 8
-  %call91 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_5certsEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE.argprom(ptr noundef %env, ptr noundef %options, ptr %params.val30, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp86)
+  %call91 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_5certsEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE(ptr noundef %env, ptr noundef %options, ptr %params.val30, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp86)
   br i1 %call91, label %lor.lhs.false92, label %if.then105
 
 lor.lhs.false92:                                  ; preds = %lor.lhs.false85
   %call94 = call ptr @_ZNK4node4quic11BindingData9ca_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call5) #18
   store ptr %call94, ptr %ref.tmp93, align 8
   %params.val31 = load ptr, ptr %params, align 8
-  %call98 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_2caEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE.argprom(ptr noundef %env, ptr noundef %options, ptr %params.val31, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp93)
+  %call98 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_2caEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE(ptr noundef %env, ptr noundef %options, ptr %params.val31, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp93)
   br i1 %call98, label %lor.rhs, label %if.then105
 
 lor.rhs:                                          ; preds = %lor.lhs.false92
   %call100 = call ptr @_ZNK4node4quic11BindingData10crl_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call5) #18
   store ptr %call100, ptr %ref.tmp99, align 8
   %params.val32 = load ptr, ptr %params, align 8
-  %call104 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_3crlEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE.argprom(ptr noundef %env, ptr noundef %options, ptr %params.val32, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp99)
+  %call104 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_3crlEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE(ptr noundef %env, ptr noundef %options, ptr %params.val32, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp99)
   br i1 %call104, label %if.end106, label %if.then105
 
 if.then105:                                       ; preds = %lor.lhs.false92, %lor.lhs.false85, %lor.lhs.false78, %lor.lhs.false71, %lor.lhs.false64, %lor.lhs.false57, %lor.lhs.false50, %lor.lhs.false43, %lor.lhs.false36, %lor.lhs.false29, %lor.lhs.false22, %lor.lhs.false15, %if.end, %lor.rhs
@@ -3957,7 +3957,7 @@ return:                                           ; preds = %if.then.i.i, %if.th
 declare ptr @_ZNK4node4quic11BindingData13groups_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionISt10shared_ptrINS_6crypto13KeyObjectDataEENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaISB_EEXadL_ZNS8_4keysEEEEEbPNS_11EnvironmentEPS9_RKN2v85LocalINSI_6ObjectEEERKNSJ_INSI_6StringEEE.argprom(ptr noundef %env, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionISt10shared_ptrINS_6crypto13KeyObjectDataEENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaISB_EEXadL_ZNS8_4keysEEEEEbPNS_11EnvironmentEPS9_RKN2v85LocalINSI_6ObjectEEERKNSJ_INSI_6StringEEE(ptr noundef %env, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #4 {
 entry:
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
@@ -4168,7 +4168,7 @@ return:                                           ; preds = %for.body, %_ZN4node
 declare ptr @_ZNK4node4quic11BindingData11keys_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_5certsEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE.argprom(ptr nocapture noundef readonly %env, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_5certsEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE(ptr nocapture noundef readonly %env, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #4 {
 entry:
   %ref.tmp52 = alloca %"class.v8::Local.505", align 8
   %ref.tmp62 = alloca %"class.v8::Local.507", align 8
@@ -4318,7 +4318,7 @@ return:                                           ; preds = %for.body, %if.else,
 declare ptr @_ZNK4node4quic11BindingData12certs_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_2caEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE.argprom(ptr nocapture noundef readonly %env, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_2caEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE(ptr nocapture noundef readonly %env, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #4 {
 entry:
   %ref.tmp52 = alloca %"class.v8::Local.505", align 8
   %ref.tmp62 = alloca %"class.v8::Local.507", align 8
@@ -4468,7 +4468,7 @@ return:                                           ; preds = %for.body, %if.else,
 declare ptr @_ZNK4node4quic11BindingData9ca_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_3crlEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE.argprom(ptr nocapture noundef readonly %env, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_5StoreENS0_10TLSContext7OptionsETnMT0_St6vectorIT_SaIS8_EEXadL_ZNS5_3crlEEEEEbPNS_11EnvironmentEPS6_RKN2v85LocalINSF_6ObjectEEERKNSG_INSF_6StringEEE(ptr nocapture noundef readonly %env, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #4 {
 entry:
   %ref.tmp52 = alloca %"class.v8::Local.505", align 8
   %ref.tmp62 = alloca %"class.v8::Local.507", align 8

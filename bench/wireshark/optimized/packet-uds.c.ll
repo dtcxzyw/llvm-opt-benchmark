@@ -2260,7 +2260,7 @@ uds_proto_item_append_address_name.exit.i:        ; preds = %101, %uds_lookup_ad
 
 uds_proto_tree_add_address_item.exit:             ; preds = %102, %105, %uds_proto_item_append_address_name.exit.i
   %109 = load i32, ptr @hf_uds_diag_addr_name, align 4
-  call fastcc void @uds_proto_tree_add_address_name.argelim(ptr noundef %84, i32 noundef %109, ptr noundef %0, i32 noundef %87)
+  call fastcc void @uds_proto_tree_add_address_name(ptr noundef %84, i32 noundef %109, ptr noundef %0, i32 noundef %87)
   br label %190
 
 110:                                              ; preds = %74
@@ -2386,7 +2386,7 @@ uds_proto_item_append_address_name.exit.i1132:    ; preds = %133, %uds_lookup_ad
 
 uds_proto_tree_add_address_item.exit1137:         ; preds = %134, %137, %uds_proto_item_append_address_name.exit.i1132
   %141 = load i32, ptr @hf_uds_diag_source_addr_name, align 4
-  call fastcc void @uds_proto_tree_add_address_name.argelim(ptr noundef %84, i32 noundef %141, ptr noundef %0, i32 noundef %111)
+  call fastcc void @uds_proto_tree_add_address_name(ptr noundef %84, i32 noundef %141, ptr noundef %0, i32 noundef %111)
   %142 = load i32, ptr @hf_uds_diag_addr, align 4
   %143 = call ptr @proto_tree_add_uint(ptr noundef %84, i32 noundef %142, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %111) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -2437,7 +2437,7 @@ proto_item_set_generated.exit.i1143:              ; preds = %148
 
 uds_proto_tree_add_address_item.exit1145:         ; preds = %148, %uds_proto_item_append_address_name.exit.i1140, %proto_item_set_generated.exit.i1143, %154
   %158 = load i32, ptr @hf_uds_diag_addr_name, align 4
-  call fastcc void @uds_proto_tree_add_address_name.argelim(ptr noundef %84, i32 noundef %158, ptr noundef %0, i32 noundef %111)
+  call fastcc void @uds_proto_tree_add_address_name(ptr noundef %84, i32 noundef %158, ptr noundef %0, i32 noundef %111)
   %159 = load i32, ptr @hf_uds_diag_target_addr, align 4
   %160 = call ptr @proto_tree_add_uint(ptr noundef %84, i32 noundef %159, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %120) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -2479,7 +2479,7 @@ uds_proto_item_append_address_name.exit.i1148:    ; preds = %164, %uds_lookup_ad
 
 uds_proto_tree_add_address_item.exit1153:         ; preds = %165, %168, %uds_proto_item_append_address_name.exit.i1148
   %172 = load i32, ptr @hf_uds_diag_target_addr_name, align 4
-  call fastcc void @uds_proto_tree_add_address_name.argelim(ptr noundef %84, i32 noundef %172, ptr noundef %0, i32 noundef %120)
+  call fastcc void @uds_proto_tree_add_address_name(ptr noundef %84, i32 noundef %172, ptr noundef %0, i32 noundef %120)
   %173 = load i32, ptr @hf_uds_diag_addr, align 4
   %174 = call ptr @proto_tree_add_uint(ptr noundef %84, i32 noundef %173, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %120) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -2530,7 +2530,7 @@ proto_item_set_generated.exit.i1159:              ; preds = %179
 
 uds_proto_tree_add_address_item.exit1162:         ; preds = %179, %uds_proto_item_append_address_name.exit.i1156, %proto_item_set_generated.exit.i1159, %185
   %189 = load i32, ptr @hf_uds_diag_addr_name, align 4
-  call fastcc void @uds_proto_tree_add_address_name.argelim(ptr noundef %84, i32 noundef %189, ptr noundef %0, i32 noundef %120)
+  call fastcc void @uds_proto_tree_add_address_name(ptr noundef %84, i32 noundef %189, ptr noundef %0, i32 noundef %120)
   br label %190
 
 190:                                              ; preds = %uds_proto_tree_add_address_item.exit1162, %uds_proto_tree_add_address_item.exit, %85, %74
@@ -2647,7 +2647,7 @@ uds_proto_tree_add_address_item.exit1162:         ; preds = %179, %uds_proto_ite
   br label %1048
 
 243:                                              ; preds = %190
-  %244 = call fastcc i32 @dissect_uds_rdtci.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, i32 noundef %.1, i8 noundef zeroext %64, i32 noundef %60)
+  %244 = call fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, i32 noundef %.1, i8 noundef zeroext %64, i32 noundef %60)
   br label %.loopexit
 
 245:                                              ; preds = %190
@@ -2815,7 +2815,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.thread1182
 
 317:                                              ; preds = %306
-  %318 = call fastcc i32 @dissect_uds_memory_addr_size.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, i32 noundef 0)
+  %318 = call fastcc i32 @dissect_uds_memory_addr_size(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, i32 noundef 0)
   br label %.loopexit
 
 319:                                              ; preds = %190
@@ -2977,11 +2977,11 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br i1 %79, label %414, label %415
 
 414:                                              ; preds = %412
-  call fastcc void @dissect_uds_subfunction.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %413, ptr noundef nonnull @uds_cc_types, i32 noundef 0)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %413, ptr noundef nonnull @uds_cc_types, i32 noundef 0)
   br label %.loopexit
 
 415:                                              ; preds = %412
-  call fastcc void @dissect_uds_subfunction.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %413, ptr noundef nonnull @uds_cc_types, i32 noundef 1)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %413, ptr noundef nonnull @uds_cc_types, i32 noundef 1)
   %416 = load i32, ptr @hf_uds_cc_comm_type_and_subnet_number, align 4
   %417 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %416, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #9
   store ptr %417, ptr %18, align 8
@@ -3006,7 +3006,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br i1 %79, label %431, label %566
 
 431:                                              ; preds = %429
-  call fastcc void @dissect_uds_subfunction.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %430, ptr noundef nonnull @uds_ars_types, i32 noundef 0)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %430, ptr noundef nonnull @uds_ars_types, i32 noundef 0)
   %432 = load i32, ptr %19, align 4
   switch i32 %432, label %.loopexit [
     i32 0, label %433
@@ -3067,7 +3067,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %470 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %468, ptr noundef %0, i32 noundef %467, i32 noundef %469, i32 noundef 0) #9
   store ptr %470, ptr %18, align 8
   %471 = load i32, ptr %27, align 4
-  call fastcc void @dissect_uds_certificates_into_tree.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %470, i32 noundef %467, i32 noundef %471)
+  call fastcc void @dissect_uds_certificates_into_tree(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %470, i32 noundef %467, i32 noundef %471)
   %472 = load i32, ptr %27, align 4
   %473 = add i32 %472, %467
   %474 = load i32, ptr @hf_uds_ars_length_of_proof_of_ownership_server, align 4
@@ -3191,7 +3191,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.loopexit
 
 566:                                              ; preds = %429
-  call fastcc void @dissect_uds_subfunction.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %430, ptr noundef nonnull @uds_ars_types, i32 noundef 1)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %430, ptr noundef nonnull @uds_ars_types, i32 noundef 1)
   %567 = load i32, ptr %19, align 4
   switch i32 %567, label %.loopexit [
     i32 7, label %626
@@ -3213,7 +3213,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %575 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %573, ptr noundef %0, i32 noundef 5, i32 noundef %574, i32 noundef 0) #9
   store ptr %575, ptr %18, align 8
   %576 = load i32, ptr %28, align 4
-  call fastcc void @dissect_uds_certificates_into_tree.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %575, i32 noundef 5, i32 noundef %576)
+  call fastcc void @dissect_uds_certificates_into_tree(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %575, i32 noundef 5, i32 noundef %576)
   %577 = load i32, ptr %28, align 4
   %578 = add i32 %577, 5
   %579 = load i32, ptr @hf_uds_ars_length_of_challenge_client, align 4
@@ -3367,7 +3367,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br i1 %79, label %683, label %688
 
 683:                                              ; preds = %681
-  call fastcc void @dissect_uds_subfunction.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %682, ptr noundef nonnull @uds_dddi_types, i32 noundef 0)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %682, ptr noundef nonnull @uds_dddi_types, i32 noundef 0)
   %684 = icmp ugt i32 %60, 3
   br i1 %684, label %685, label %.loopexit
 
@@ -3377,7 +3377,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.loopexit
 
 688:                                              ; preds = %681
-  call fastcc void @dissect_uds_subfunction.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %682, ptr noundef nonnull @uds_dddi_types, i32 noundef 1)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %682, ptr noundef nonnull @uds_dddi_types, i32 noundef 1)
   %689 = load i32, ptr %19, align 4
   switch i32 %689, label %.loopexit [
     i32 1, label %690
@@ -3614,7 +3614,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.loopexit
 
 840:                                              ; preds = %829
-  %841 = call fastcc i32 @dissect_uds_memory_addr_size.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, i32 noundef 1)
+  %841 = call fastcc i32 @dissect_uds_memory_addr_size(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, i32 noundef 1)
   br label %.loopexit
 
 842:                                              ; preds = %190
@@ -3770,7 +3770,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.loopexit
 
 936:                                              ; preds = %190
-  %937 = call fastcc i32 @dissect_uds_memory_addr_size.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, i32 noundef 0)
+  %937 = call fastcc i32 @dissect_uds_memory_addr_size(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, i32 noundef 0)
   %938 = icmp uge i32 %937, %60
   %or.cond1115.not = select i1 %79, i1 true, i1 %938
   br i1 %or.cond1115.not, label %.loopexit, label %939
@@ -3790,7 +3790,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %948 = load i32, ptr @hf_uds_tp_subfunction_no_suppress, align 4
   %949 = xor i1 %79, true
   %950 = zext i1 %949 to i32
-  call fastcc void @dissect_uds_subfunction.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %948, ptr noundef null, i32 noundef %950)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %948, ptr noundef null, i32 noundef %950)
   br label %.loopexit
 
 951:                                              ; preds = %190
@@ -3971,7 +3971,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uds_proto_tree_add_address_name.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
+define internal fastcc void @uds_proto_tree_add_address_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = zext nneg i32 %3 to i64
@@ -4048,7 +4048,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_uds_rdtci.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 -1, 65536) %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 -1, 65536) %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
@@ -4876,7 +4876,7 @@ define internal fastcc i32 @call_heur_subdissector_uds(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_uds_memory_addr_size.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_uds_memory_addr_size(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -4929,7 +4929,7 @@ define internal fastcc i32 @dissect_uds_memory_addr_size.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_uds_subfunction.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_uds_subfunction, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
@@ -4979,7 +4979,7 @@ define internal fastcc void @dissect_uds_subfunction.argelim(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_uds_certificates_into_tree.argelim(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_uds_certificates_into_tree(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._asn1_ctx_t, align 8
   %8 = icmp eq ptr %2, null
   %9 = icmp eq ptr %0, null

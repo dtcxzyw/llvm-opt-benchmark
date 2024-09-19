@@ -1829,9 +1829,9 @@ if.then.i.i394:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i400 = fadd double %mul.i.i395, %conv16.i.i397
   %cmp22.i.i401 = fcmp ult double %add.i.i400, %conv.i.i396
   %or.cond22.i.i402 = or i1 %cmp18.i.i399, %cmp22.i.i401
-  br i1 %or.cond22.i.i402, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit411
+  br i1 %or.cond22.i.i402, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit411: ; preds = %if.then.i.i394
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411: ; preds = %if.then.i.i394
   %mul15.i.i404 = fmul double %mul, %sub.i.i.i346
   %conv25.i.i405 = fpext float %cond.i8.i.i to double
   %sub26.i.i406 = fsub double %conv25.i.i405, %mul15.i.i404
@@ -1841,7 +1841,7 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %or.cond23.i.i410 = or i1 %cmp27.i.i407, %cmp32.i.i409
   br i1 %or.cond23.i.i410, label %lor.end, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %lor.lhs.false10.i.i382, %land.lhs.true11.i.i384, %land.rhs.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit411
+lor.lhs.false.i:                                  ; preds = %lor.lhs.false10.i.i382, %land.lhs.true11.i.i384, %land.rhs.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411
   %sub13.i = fsub float %24, %23
   %sub16.i = fsub float %31, %30
   %conv.i262 = fpext float %sub13.i to double
@@ -1917,9 +1917,9 @@ if.then.i.i319:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i325 = fadd double %mul.i.i320, %conv16.i.i322
   %cmp22.i.i326 = fcmp ult double %add.i.i325, %conv.i.i321
   %or.cond22.i.i327 = or i1 %cmp18.i.i324, %cmp22.i.i326
-  br i1 %or.cond22.i.i327, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit336
+  br i1 %or.cond22.i.i327, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit336: ; preds = %if.then.i.i319
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336: ; preds = %if.then.i.i319
   %mul15.i.i329 = fmul double %mul, %sub.i.i.i271
   %conv25.i.i330 = fpext float %cond.i8.i.i to double
   %sub26.i.i331 = fsub double %conv25.i.i330, %mul15.i.i329
@@ -1929,7 +1929,7 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %or.cond23.i.i335 = or i1 %cmp27.i.i332, %cmp32.i.i334
   br i1 %or.cond23.i.i335, label %lor.end, label %lor.rhs.i
 
-lor.rhs.i:                                        ; preds = %lor.lhs.false10.i.i307, %land.lhs.true11.i.i309, %lor.lhs.false.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit336
+lor.rhs.i:                                        ; preds = %lor.lhs.false10.i.i307, %land.lhs.true11.i.i309, %lor.lhs.false.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336
   %sub20.i = fsub float %22, %24
   %sub23.i = fsub float %29, %31
   %conv.i = fpext float %sub20.i to double
@@ -2005,9 +2005,9 @@ if.then.i.i:                                      ; preds = %land.lhs.true11.i.i
   %add.i.i = fadd double %mul.i.i, %conv16.i.i
   %cmp22.i.i = fcmp ult double %add.i.i, %conv.i.i
   %or.cond22.i.i = or i1 %cmp18.i.i, %cmp22.i.i
-  br i1 %or.cond22.i.i, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit
+  br i1 %or.cond22.i.i, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit
 
-_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit: ; preds = %if.then.i.i
+_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit: ; preds = %if.then.i.i
   %mul15.i.i = fmul double %mul, %sub.i.i.i
   %conv25.i.i = fpext float %cond.i8.i.i to double
   %sub26.i.i = fsub double %conv25.i.i, %mul15.i.i
@@ -2017,8 +2017,8 @@ _ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argpr
   %or.cond23.i.i = or i1 %cmp27.i.i, %cmp32.i.i
   br i1 %or.cond23.i.i, label %lor.end, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %lor.lhs.false10.i.i, %land.lhs.true11.i.i, %lor.rhs.i, %land.lhs.true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit, %for.body22
-  %l.0 = phi ptr [ %add.ptr.i113, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit ], [ null, %for.body22 ], [ %add.ptr.i113, %land.lhs.true ], [ %add.ptr.i113, %lor.rhs.i ], [ %add.ptr.i113, %land.lhs.true11.i.i ], [ %add.ptr.i113, %lor.lhs.false10.i.i ]
+lor.lhs.false:                                    ; preds = %lor.lhs.false10.i.i, %land.lhs.true11.i.i, %lor.rhs.i, %land.lhs.true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit, %for.body22
+  %l.0 = phi ptr [ %add.ptr.i113, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ null, %for.body22 ], [ %add.ptr.i113, %land.lhs.true ], [ %add.ptr.i113, %lor.rhs.i ], [ %add.ptr.i113, %land.lhs.true11.i.i ], [ %add.ptr.i113, %lor.lhs.false10.i.i ]
   br i1 %cmp33, label %land.lhs.true34, label %lor.lhs.false40
 
 land.lhs.true34:                                  ; preds = %lor.lhs.false
@@ -2124,9 +2124,9 @@ if.then.i.i544:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i550 = fadd double %mul.i.i545, %conv16.i.i547
   %cmp22.i.i551 = fcmp ult double %add.i.i550, %conv.i.i546
   %or.cond22.i.i552 = or i1 %cmp18.i.i549, %cmp22.i.i551
-  br i1 %or.cond22.i.i552, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit561
+  br i1 %or.cond22.i.i552, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit561: ; preds = %if.then.i.i544
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561: ; preds = %if.then.i.i544
   %mul15.i.i554 = fmul double %mul11, %sub.i.i.i496
   %conv25.i.i555 = fpext float %cond.i8.i.i131 to double
   %sub26.i.i556 = fsub double %conv25.i.i555, %mul15.i.i554
@@ -2136,7 +2136,7 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %or.cond23.i.i560 = or i1 %cmp27.i.i557, %cmp32.i.i559
   br i1 %or.cond23.i.i560, label %lor.end, label %lor.lhs.false.i140
 
-lor.lhs.false.i140:                               ; preds = %lor.lhs.false10.i.i532, %land.lhs.true11.i.i534, %land.rhs.i135, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit561
+lor.lhs.false.i140:                               ; preds = %lor.lhs.false10.i.i532, %land.lhs.true11.i.i534, %land.rhs.i135, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561
   %sub13.i142 = fsub float %24, %23
   %sub16.i143 = fsub float %45, %44
   %conv.i412 = fpext float %sub13.i142 to double
@@ -2146,7 +2146,7 @@ lor.lhs.false.i140:                               ; preds = %lor.lhs.false10.i.i
   %cmp.i416 = fcmp ogt double %div.i415, 1.000000e-02
   %cmp2.i417 = fcmp olt double %div.i415, 0x3FEFAE147AE147AE
   %or.cond.i418 = and i1 %cmp.i416, %cmp2.i417
-  br i1 %or.cond.i418, label %if.then.i420, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149
+  br i1 %or.cond.i418, label %if.then.i420, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149
 
 if.then.i420:                                     ; preds = %lor.lhs.false.i140
   %sub.i.i.i421 = fsub double 1.000000e+00, %div.i415
@@ -2189,7 +2189,7 @@ lor.lhs.false.i.i451:                             ; preds = %if.then.i420
   br i1 %or.cond3.i.i456, label %if.then.i.i469, label %lor.lhs.false10.i.i457
 
 lor.lhs.false10.i.i457:                           ; preds = %lor.lhs.false.i.i451
-  br i1 %cmp28.not, label %land.lhs.true11.i.i459, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149
+  br i1 %cmp28.not, label %land.lhs.true11.i.i459, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149
 
 land.lhs.true11.i.i459:                           ; preds = %lor.lhs.false10.i.i457
   %cmp.i.i.i8.i460 = fcmp olt float %cond.i8.i.i131, %cond.i8.i
@@ -2201,7 +2201,7 @@ land.lhs.true11.i.i459:                           ; preds = %lor.lhs.false10.i.i
   %cmp.i7.i.i14.i466 = fcmp olt float %cond.i.i.i9.i461, %cond.i6.i.i13.i465
   %cond.i8.i.i15.i467 = select i1 %cmp.i7.i.i14.i466, float %cond.i6.i.i13.i465, float %cond.i.i.i9.i461
   %cmp12.i.i468 = fcmp une float %cond.i8.i.i15.i467, %cond.i8.i.i.i445
-  br i1 %cmp12.i.i468, label %if.then.i.i469, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149
+  br i1 %cmp12.i.i468, label %if.then.i.i469, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149
 
 if.then.i.i469:                                   ; preds = %land.lhs.true11.i.i459, %lor.lhs.false.i.i451, %if.then.i420
   %mul.i.i470 = fmul double %mul11, %div.i415
@@ -2212,9 +2212,9 @@ if.then.i.i469:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i475 = fadd double %mul.i.i470, %conv16.i.i472
   %cmp22.i.i476 = fcmp ult double %add.i.i475, %conv.i.i471
   %or.cond22.i.i477 = or i1 %cmp18.i.i474, %cmp22.i.i476
-  br i1 %or.cond22.i.i477, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit486
+  br i1 %or.cond22.i.i477, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit486: ; preds = %if.then.i.i469
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486: ; preds = %if.then.i.i469
   %mul15.i.i479 = fmul double %mul11, %sub.i.i.i421
   %conv25.i.i480 = fpext float %cond.i8.i.i131 to double
   %sub26.i.i481 = fsub double %conv25.i.i480, %mul15.i.i479
@@ -2222,16 +2222,16 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %add31.i.i483 = fadd double %mul15.i.i479, %conv25.i.i480
   %cmp32.i.i484 = fcmp ult double %add31.i.i483, %conv.i.i471
   %or.cond23.i.i485 = or i1 %cmp27.i.i482, %cmp32.i.i484
-  br i1 %or.cond23.i.i485, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149
+  br i1 %or.cond23.i.i485, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149
 
-_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149: ; preds = %lor.lhs.false10.i.i457, %land.lhs.true11.i.i459, %lor.lhs.false.i140, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit486
+_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149: ; preds = %lor.lhs.false10.i.i457, %land.lhs.true11.i.i459, %lor.lhs.false.i140, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486
   %sub20.i146 = fsub float %22, %24
   %sub23.i147 = fsub float %43, %45
-  %call24.i148 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom(double %mul11, i8 %.lobit, float noundef %cond.i8.i, float noundef %cond.i8.i.i131, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i119, float noundef %sub20.i146, float noundef %sub23.i147)
+  %call24.i148 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit, float noundef %cond.i8.i, float noundef %cond.i8.i.i131, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i119, float noundef %sub20.i146, float noundef %sub23.i147)
   br i1 %call24.i148, label %lor.end, label %lor.lhs.false40
 
-lor.lhs.false40:                                  ; preds = %land.lhs.true34, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149, %lor.lhs.false
-  %b.0 = phi ptr [ %add.ptr.i119, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149 ], [ null, %lor.lhs.false ], [ %add.ptr.i119, %land.lhs.true34 ]
+lor.lhs.false40:                                  ; preds = %land.lhs.true34, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149, %lor.lhs.false
+  %b.0 = phi ptr [ %add.ptr.i119, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149 ], [ null, %lor.lhs.false ], [ %add.ptr.i119, %land.lhs.true34 ]
   %sub42 = add nsw i32 %20, -1
   %cmp43 = icmp slt i32 %x.0742, %sub42
   br i1 %cmp43, label %land.lhs.true44, label %lor.lhs.false49
@@ -2339,9 +2339,9 @@ if.then.i.i619:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i625 = fadd double %mul.i.i620, %conv16.i.i622
   %cmp22.i.i626 = fcmp ult double %add.i.i625, %conv.i.i621
   %or.cond22.i.i627 = or i1 %cmp18.i.i624, %cmp22.i.i626
-  br i1 %or.cond22.i.i627, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit636
+  br i1 %or.cond22.i.i627, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit636: ; preds = %if.then.i.i619
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636: ; preds = %if.then.i.i619
   %mul15.i.i629 = fmul double %mul, %sub.i.i.i571
   %conv25.i.i630 = fpext float %cond.i8.i.i167 to double
   %sub26.i.i631 = fsub double %conv25.i.i630, %mul15.i.i629
@@ -2351,20 +2351,20 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %or.cond23.i.i635 = or i1 %cmp27.i.i632, %cmp32.i.i634
   br i1 %or.cond23.i.i635, label %lor.end, label %lor.lhs.false.i176
 
-lor.lhs.false.i176:                               ; preds = %lor.lhs.false10.i.i607, %land.lhs.true11.i.i609, %land.rhs.i171, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit636
+lor.lhs.false.i176:                               ; preds = %lor.lhs.false10.i.i607, %land.lhs.true11.i.i609, %land.rhs.i171, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636
   %sub13.i178 = fsub float %24, %23
   %sub16.i179 = fsub float %56, %55
-  %call17.i180 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub13.i178, float noundef %sub16.i179)
-  br i1 %call17.i180, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185
+  %call17.i180 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub13.i178, float noundef %sub16.i179)
+  br i1 %call17.i180, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185
 
-_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185: ; preds = %lor.lhs.false.i176
+_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185: ; preds = %lor.lhs.false.i176
   %sub20.i182 = fsub float %22, %24
   %sub23.i183 = fsub float %54, %56
-  %call24.i184 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub20.i182, float noundef %sub23.i183)
+  %call24.i184 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub20.i182, float noundef %sub23.i183)
   br i1 %call24.i184, label %lor.end, label %lor.lhs.false49
 
-lor.lhs.false49:                                  ; preds = %land.lhs.true44, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185, %lor.lhs.false40
-  %r.0 = phi ptr [ %add.ptr.i155, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185 ], [ null, %lor.lhs.false40 ], [ %add.ptr.i155, %land.lhs.true44 ]
+lor.lhs.false49:                                  ; preds = %land.lhs.true44, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185, %lor.lhs.false40
+  %r.0 = phi ptr [ %add.ptr.i155, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185 ], [ null, %lor.lhs.false40 ], [ %add.ptr.i155, %land.lhs.true44 ]
   %62 = load i32, ptr %height, align 4
   %sub51 = add nsw i32 %62, -1
   %cmp52 = icmp slt i32 %y.0744, %sub51
@@ -2473,9 +2473,9 @@ if.then.i.i694:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i700 = fadd double %mul.i.i695, %conv16.i.i697
   %cmp22.i.i701 = fcmp ult double %add.i.i700, %conv.i.i696
   %or.cond22.i.i702 = or i1 %cmp18.i.i699, %cmp22.i.i701
-  br i1 %or.cond22.i.i702, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit711
+  br i1 %or.cond22.i.i702, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit711: ; preds = %if.then.i.i694
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711: ; preds = %if.then.i.i694
   %mul15.i.i704 = fmul double %mul11, %sub.i.i.i646
   %conv25.i.i705 = fpext float %cond.i8.i.i203 to double
   %sub26.i.i706 = fsub double %conv25.i.i705, %mul15.i.i704
@@ -2485,20 +2485,20 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %or.cond23.i.i710 = or i1 %cmp27.i.i707, %cmp32.i.i709
   br i1 %or.cond23.i.i710, label %lor.end, label %lor.lhs.false.i212
 
-lor.lhs.false.i212:                               ; preds = %lor.lhs.false10.i.i682, %land.lhs.true11.i.i684, %land.rhs.i207, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit711
+lor.lhs.false.i212:                               ; preds = %lor.lhs.false10.i.i682, %land.lhs.true11.i.i684, %land.rhs.i207, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711
   %sub13.i214 = fsub float %24, %23
   %sub16.i215 = fsub float %65, %64
-  %call17.i216 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub13.i214, float noundef %sub16.i215)
-  br i1 %call17.i216, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221
+  %call17.i216 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub13.i214, float noundef %sub16.i215)
+  br i1 %call17.i216, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221
 
-_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221: ; preds = %lor.lhs.false.i212
+_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221: ; preds = %lor.lhs.false.i212
   %sub20.i218 = fsub float %22, %24
   %sub23.i219 = fsub float %63, %65
-  %call24.i220 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub20.i218, float noundef %sub23.i219)
+  %call24.i220 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub20.i218, float noundef %sub23.i219)
   br i1 %call24.i220, label %lor.end, label %lor.lhs.false59
 
-lor.lhs.false59:                                  ; preds = %land.lhs.true53, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221, %lor.lhs.false49
-  %t.0 = phi ptr [ %add.ptr.i191, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221 ], [ null, %lor.lhs.false49 ], [ %add.ptr.i191, %land.lhs.true53 ]
+lor.lhs.false59:                                  ; preds = %land.lhs.true53, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221, %lor.lhs.false49
+  %t.0 = phi ptr [ %add.ptr.i191, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221 ], [ null, %lor.lhs.false49 ], [ %add.ptr.i191, %land.lhs.true53 ]
   %or.cond = and i1 %cmp33, %cmp29
   br i1 %or.cond, label %land.lhs.true63, label %lor.lhs.false70
 
@@ -2592,8 +2592,8 @@ land.rhs:                                         ; preds = %land.lhs.true99
   %79 = zext i1 %call108 to i8
   br label %lor.end
 
-lor.end:                                          ; preds = %if.then.i.i694, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit711, %lor.lhs.false.i212, %if.then.i.i619, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit636, %lor.lhs.false.i176, %if.then.i.i469, %if.then.i.i544, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit561, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit486, %if.then.i.i319, %if.then.i.i394, %if.then.i.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit411, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit336, %lor.rhs, %land.lhs.true99, %land.rhs, %land.lhs.true89, %land.lhs.true76, %land.lhs.true63, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit
-  %conv111 = phi i8 [ 1, %land.lhs.true89 ], [ 1, %land.lhs.true76 ], [ 1, %land.lhs.true63 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit ], [ 0, %land.lhs.true99 ], [ 0, %lor.rhs ], [ %79, %land.rhs ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit336 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit411 ], [ 1, %if.then.i.i ], [ 1, %if.then.i.i394 ], [ 1, %if.then.i.i319 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit486 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit561 ], [ 1, %if.then.i.i544 ], [ 1, %if.then.i.i469 ], [ 1, %lor.lhs.false.i176 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit636 ], [ 1, %if.then.i.i619 ], [ 1, %lor.lhs.false.i212 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit711 ], [ 1, %if.then.i.i694 ]
+lor.end:                                          ; preds = %if.then.i.i694, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711, %lor.lhs.false.i212, %if.then.i.i619, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636, %lor.lhs.false.i176, %if.then.i.i469, %if.then.i.i544, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486, %if.then.i.i319, %if.then.i.i394, %if.then.i.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336, %lor.rhs, %land.lhs.true99, %land.rhs, %land.lhs.true89, %land.lhs.true76, %land.lhs.true63, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit
+  %conv111 = phi i8 [ 1, %land.lhs.true89 ], [ 1, %land.lhs.true76 ], [ 1, %land.lhs.true63 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ 0, %land.lhs.true99 ], [ 0, %lor.rhs ], [ %79, %land.rhs ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411 ], [ 1, %if.then.i.i ], [ 1, %if.then.i.i394 ], [ 1, %if.then.i.i319 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561 ], [ 1, %if.then.i.i544 ], [ 1, %if.then.i.i469 ], [ 1, %lor.lhs.false.i176 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636 ], [ 1, %if.then.i.i619 ], [ 1, %lor.lhs.false.i212 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711 ], [ 1, %if.then.i.i694 ]
   %80 = load ptr, ptr %this, align 8
   %81 = load i32, ptr %width.i103, align 8
   %mul.i255 = mul nsw i32 %81, %y.0744
@@ -2966,9 +2966,9 @@ if.then.i.i394:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i400 = fadd double %mul.i.i395, %conv16.i.i397
   %cmp22.i.i401 = fcmp ult double %add.i.i400, %conv.i.i396
   %or.cond22.i.i402 = or i1 %cmp18.i.i399, %cmp22.i.i401
-  br i1 %or.cond22.i.i402, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit411
+  br i1 %or.cond22.i.i402, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit411: ; preds = %if.then.i.i394
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411: ; preds = %if.then.i.i394
   %mul15.i.i404 = fmul double %mul, %sub.i.i.i346
   %conv25.i.i405 = fpext float %cond.i8.i.i to double
   %sub26.i.i406 = fsub double %conv25.i.i405, %mul15.i.i404
@@ -2978,7 +2978,7 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %or.cond23.i.i410 = or i1 %cmp27.i.i407, %cmp32.i.i409
   br i1 %or.cond23.i.i410, label %lor.end, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %lor.lhs.false10.i.i382, %land.lhs.true11.i.i384, %land.rhs.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit411
+lor.lhs.false.i:                                  ; preds = %lor.lhs.false10.i.i382, %land.lhs.true11.i.i384, %land.rhs.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411
   %sub13.i = fsub float %24, %23
   %sub16.i = fsub float %31, %30
   %conv.i262 = fpext float %sub13.i to double
@@ -3054,9 +3054,9 @@ if.then.i.i319:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i325 = fadd double %mul.i.i320, %conv16.i.i322
   %cmp22.i.i326 = fcmp ult double %add.i.i325, %conv.i.i321
   %or.cond22.i.i327 = or i1 %cmp18.i.i324, %cmp22.i.i326
-  br i1 %or.cond22.i.i327, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit336
+  br i1 %or.cond22.i.i327, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit336: ; preds = %if.then.i.i319
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336: ; preds = %if.then.i.i319
   %mul15.i.i329 = fmul double %mul, %sub.i.i.i271
   %conv25.i.i330 = fpext float %cond.i8.i.i to double
   %sub26.i.i331 = fsub double %conv25.i.i330, %mul15.i.i329
@@ -3066,7 +3066,7 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %or.cond23.i.i335 = or i1 %cmp27.i.i332, %cmp32.i.i334
   br i1 %or.cond23.i.i335, label %lor.end, label %lor.rhs.i
 
-lor.rhs.i:                                        ; preds = %lor.lhs.false10.i.i307, %land.lhs.true11.i.i309, %lor.lhs.false.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit336
+lor.rhs.i:                                        ; preds = %lor.lhs.false10.i.i307, %land.lhs.true11.i.i309, %lor.lhs.false.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336
   %sub20.i = fsub float %22, %24
   %sub23.i = fsub float %29, %31
   %conv.i = fpext float %sub20.i to double
@@ -3142,9 +3142,9 @@ if.then.i.i:                                      ; preds = %land.lhs.true11.i.i
   %add.i.i = fadd double %mul.i.i, %conv16.i.i
   %cmp22.i.i = fcmp ult double %add.i.i, %conv.i.i
   %or.cond22.i.i = or i1 %cmp18.i.i, %cmp22.i.i
-  br i1 %or.cond22.i.i, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit
+  br i1 %or.cond22.i.i, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit
 
-_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit: ; preds = %if.then.i.i
+_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit: ; preds = %if.then.i.i
   %mul15.i.i = fmul double %mul, %sub.i.i.i
   %conv25.i.i = fpext float %cond.i8.i.i to double
   %sub26.i.i = fsub double %conv25.i.i, %mul15.i.i
@@ -3154,8 +3154,8 @@ _ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argpr
   %or.cond23.i.i = or i1 %cmp27.i.i, %cmp32.i.i
   br i1 %or.cond23.i.i, label %lor.end, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %lor.lhs.false10.i.i, %land.lhs.true11.i.i, %lor.rhs.i, %land.lhs.true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit, %for.body22
-  %l.0 = phi ptr [ %add.ptr.i113, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit ], [ null, %for.body22 ], [ %add.ptr.i113, %land.lhs.true ], [ %add.ptr.i113, %lor.rhs.i ], [ %add.ptr.i113, %land.lhs.true11.i.i ], [ %add.ptr.i113, %lor.lhs.false10.i.i ]
+lor.lhs.false:                                    ; preds = %lor.lhs.false10.i.i, %land.lhs.true11.i.i, %lor.rhs.i, %land.lhs.true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit, %for.body22
+  %l.0 = phi ptr [ %add.ptr.i113, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ null, %for.body22 ], [ %add.ptr.i113, %land.lhs.true ], [ %add.ptr.i113, %lor.rhs.i ], [ %add.ptr.i113, %land.lhs.true11.i.i ], [ %add.ptr.i113, %lor.lhs.false10.i.i ]
   br i1 %cmp33, label %land.lhs.true34, label %lor.lhs.false40
 
 land.lhs.true34:                                  ; preds = %lor.lhs.false
@@ -3261,9 +3261,9 @@ if.then.i.i544:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i550 = fadd double %mul.i.i545, %conv16.i.i547
   %cmp22.i.i551 = fcmp ult double %add.i.i550, %conv.i.i546
   %or.cond22.i.i552 = or i1 %cmp18.i.i549, %cmp22.i.i551
-  br i1 %or.cond22.i.i552, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit561
+  br i1 %or.cond22.i.i552, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit561: ; preds = %if.then.i.i544
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561: ; preds = %if.then.i.i544
   %mul15.i.i554 = fmul double %mul11, %sub.i.i.i496
   %conv25.i.i555 = fpext float %cond.i8.i.i131 to double
   %sub26.i.i556 = fsub double %conv25.i.i555, %mul15.i.i554
@@ -3273,7 +3273,7 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %or.cond23.i.i560 = or i1 %cmp27.i.i557, %cmp32.i.i559
   br i1 %or.cond23.i.i560, label %lor.end, label %lor.lhs.false.i140
 
-lor.lhs.false.i140:                               ; preds = %lor.lhs.false10.i.i532, %land.lhs.true11.i.i534, %land.rhs.i135, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit561
+lor.lhs.false.i140:                               ; preds = %lor.lhs.false10.i.i532, %land.lhs.true11.i.i534, %land.rhs.i135, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561
   %sub13.i142 = fsub float %24, %23
   %sub16.i143 = fsub float %45, %44
   %conv.i412 = fpext float %sub13.i142 to double
@@ -3283,7 +3283,7 @@ lor.lhs.false.i140:                               ; preds = %lor.lhs.false10.i.i
   %cmp.i416 = fcmp ogt double %div.i415, 1.000000e-02
   %cmp2.i417 = fcmp olt double %div.i415, 0x3FEFAE147AE147AE
   %or.cond.i418 = and i1 %cmp.i416, %cmp2.i417
-  br i1 %or.cond.i418, label %if.then.i420, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149
+  br i1 %or.cond.i418, label %if.then.i420, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149
 
 if.then.i420:                                     ; preds = %lor.lhs.false.i140
   %sub.i.i.i421 = fsub double 1.000000e+00, %div.i415
@@ -3326,7 +3326,7 @@ lor.lhs.false.i.i451:                             ; preds = %if.then.i420
   br i1 %or.cond3.i.i456, label %if.then.i.i469, label %lor.lhs.false10.i.i457
 
 lor.lhs.false10.i.i457:                           ; preds = %lor.lhs.false.i.i451
-  br i1 %cmp28.not, label %land.lhs.true11.i.i459, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149
+  br i1 %cmp28.not, label %land.lhs.true11.i.i459, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149
 
 land.lhs.true11.i.i459:                           ; preds = %lor.lhs.false10.i.i457
   %cmp.i.i.i8.i460 = fcmp olt float %cond.i8.i.i131, %cond.i8.i
@@ -3338,7 +3338,7 @@ land.lhs.true11.i.i459:                           ; preds = %lor.lhs.false10.i.i
   %cmp.i7.i.i14.i466 = fcmp olt float %cond.i.i.i9.i461, %cond.i6.i.i13.i465
   %cond.i8.i.i15.i467 = select i1 %cmp.i7.i.i14.i466, float %cond.i6.i.i13.i465, float %cond.i.i.i9.i461
   %cmp12.i.i468 = fcmp une float %cond.i8.i.i15.i467, %cond.i8.i.i.i445
-  br i1 %cmp12.i.i468, label %if.then.i.i469, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149
+  br i1 %cmp12.i.i468, label %if.then.i.i469, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149
 
 if.then.i.i469:                                   ; preds = %land.lhs.true11.i.i459, %lor.lhs.false.i.i451, %if.then.i420
   %mul.i.i470 = fmul double %mul11, %div.i415
@@ -3349,9 +3349,9 @@ if.then.i.i469:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i475 = fadd double %mul.i.i470, %conv16.i.i472
   %cmp22.i.i476 = fcmp ult double %add.i.i475, %conv.i.i471
   %or.cond22.i.i477 = or i1 %cmp18.i.i474, %cmp22.i.i476
-  br i1 %or.cond22.i.i477, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit486
+  br i1 %or.cond22.i.i477, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit486: ; preds = %if.then.i.i469
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486: ; preds = %if.then.i.i469
   %mul15.i.i479 = fmul double %mul11, %sub.i.i.i421
   %conv25.i.i480 = fpext float %cond.i8.i.i131 to double
   %sub26.i.i481 = fsub double %conv25.i.i480, %mul15.i.i479
@@ -3359,16 +3359,16 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %add31.i.i483 = fadd double %mul15.i.i479, %conv25.i.i480
   %cmp32.i.i484 = fcmp ult double %add31.i.i483, %conv.i.i471
   %or.cond23.i.i485 = or i1 %cmp27.i.i482, %cmp32.i.i484
-  br i1 %or.cond23.i.i485, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149
+  br i1 %or.cond23.i.i485, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149
 
-_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149: ; preds = %lor.lhs.false10.i.i457, %land.lhs.true11.i.i459, %lor.lhs.false.i140, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit486
+_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149: ; preds = %lor.lhs.false10.i.i457, %land.lhs.true11.i.i459, %lor.lhs.false.i140, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486
   %sub20.i146 = fsub float %22, %24
   %sub23.i147 = fsub float %43, %45
-  %call24.i148 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom(double %mul11, i8 %.lobit, float noundef %cond.i8.i, float noundef %cond.i8.i.i131, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i119, float noundef %sub20.i146, float noundef %sub23.i147)
+  %call24.i148 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit, float noundef %cond.i8.i, float noundef %cond.i8.i.i131, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i119, float noundef %sub20.i146, float noundef %sub23.i147)
   br i1 %call24.i148, label %lor.end, label %lor.lhs.false40
 
-lor.lhs.false40:                                  ; preds = %land.lhs.true34, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149, %lor.lhs.false
-  %b.0 = phi ptr [ %add.ptr.i119, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149 ], [ null, %lor.lhs.false ], [ %add.ptr.i119, %land.lhs.true34 ]
+lor.lhs.false40:                                  ; preds = %land.lhs.true34, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149, %lor.lhs.false
+  %b.0 = phi ptr [ %add.ptr.i119, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149 ], [ null, %lor.lhs.false ], [ %add.ptr.i119, %land.lhs.true34 ]
   %sub42 = add nsw i32 %20, -1
   %cmp43 = icmp slt i32 %x.0742, %sub42
   br i1 %cmp43, label %land.lhs.true44, label %lor.lhs.false49
@@ -3476,9 +3476,9 @@ if.then.i.i619:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i625 = fadd double %mul.i.i620, %conv16.i.i622
   %cmp22.i.i626 = fcmp ult double %add.i.i625, %conv.i.i621
   %or.cond22.i.i627 = or i1 %cmp18.i.i624, %cmp22.i.i626
-  br i1 %or.cond22.i.i627, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit636
+  br i1 %or.cond22.i.i627, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit636: ; preds = %if.then.i.i619
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636: ; preds = %if.then.i.i619
   %mul15.i.i629 = fmul double %mul, %sub.i.i.i571
   %conv25.i.i630 = fpext float %cond.i8.i.i167 to double
   %sub26.i.i631 = fsub double %conv25.i.i630, %mul15.i.i629
@@ -3488,20 +3488,20 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %or.cond23.i.i635 = or i1 %cmp27.i.i632, %cmp32.i.i634
   br i1 %or.cond23.i.i635, label %lor.end, label %lor.lhs.false.i176
 
-lor.lhs.false.i176:                               ; preds = %lor.lhs.false10.i.i607, %land.lhs.true11.i.i609, %land.rhs.i171, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit636
+lor.lhs.false.i176:                               ; preds = %lor.lhs.false10.i.i607, %land.lhs.true11.i.i609, %land.rhs.i171, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636
   %sub13.i178 = fsub float %24, %23
   %sub16.i179 = fsub float %56, %55
-  %call17.i180 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub13.i178, float noundef %sub16.i179)
-  br i1 %call17.i180, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185
+  %call17.i180 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub13.i178, float noundef %sub16.i179)
+  br i1 %call17.i180, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185
 
-_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185: ; preds = %lor.lhs.false.i176
+_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185: ; preds = %lor.lhs.false.i176
   %sub20.i182 = fsub float %22, %24
   %sub23.i183 = fsub float %54, %56
-  %call24.i184 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub20.i182, float noundef %sub23.i183)
+  %call24.i184 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul, i8 %.lobit735, float noundef %cond.i8.i, float noundef %cond.i8.i.i167, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i155, float noundef %sub20.i182, float noundef %sub23.i183)
   br i1 %call24.i184, label %lor.end, label %lor.lhs.false49
 
-lor.lhs.false49:                                  ; preds = %land.lhs.true44, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185, %lor.lhs.false40
-  %r.0 = phi ptr [ %add.ptr.i155, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185 ], [ null, %lor.lhs.false40 ], [ %add.ptr.i155, %land.lhs.true44 ]
+lor.lhs.false49:                                  ; preds = %land.lhs.true44, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185, %lor.lhs.false40
+  %r.0 = phi ptr [ %add.ptr.i155, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185 ], [ null, %lor.lhs.false40 ], [ %add.ptr.i155, %land.lhs.true44 ]
   %62 = load i32, ptr %height, align 4
   %sub51 = add nsw i32 %62, -1
   %cmp52 = icmp slt i32 %y.0744, %sub51
@@ -3610,9 +3610,9 @@ if.then.i.i694:                                   ; preds = %land.lhs.true11.i.i
   %add.i.i700 = fadd double %mul.i.i695, %conv16.i.i697
   %cmp22.i.i701 = fcmp ult double %add.i.i700, %conv.i.i696
   %or.cond22.i.i702 = or i1 %cmp18.i.i699, %cmp22.i.i701
-  br i1 %or.cond22.i.i702, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit711
+  br i1 %or.cond22.i.i702, label %lor.end, label %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711
 
-_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit711: ; preds = %if.then.i.i694
+_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711: ; preds = %if.then.i.i694
   %mul15.i.i704 = fmul double %mul11, %sub.i.i.i646
   %conv25.i.i705 = fpext float %cond.i8.i.i203 to double
   %sub26.i.i706 = fsub double %conv25.i.i705, %mul15.i.i704
@@ -3622,20 +3622,20 @@ _ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_
   %or.cond23.i.i710 = or i1 %cmp27.i.i707, %cmp32.i.i709
   br i1 %or.cond23.i.i710, label %lor.end, label %lor.lhs.false.i212
 
-lor.lhs.false.i212:                               ; preds = %lor.lhs.false10.i.i682, %land.lhs.true11.i.i684, %land.rhs.i207, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit711
+lor.lhs.false.i212:                               ; preds = %lor.lhs.false10.i.i682, %land.lhs.true11.i.i684, %land.rhs.i207, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711
   %sub13.i214 = fsub float %24, %23
   %sub16.i215 = fsub float %65, %64
-  %call17.i216 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub13.i214, float noundef %sub16.i215)
-  br i1 %call17.i216, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221
+  %call17.i216 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub13.i214, float noundef %sub16.i215)
+  br i1 %call17.i216, label %lor.end, label %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221
 
-_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221: ; preds = %lor.lhs.false.i212
+_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221: ; preds = %lor.lhs.false.i212
   %sub20.i218 = fsub float %22, %24
   %sub23.i219 = fsub float %63, %65
-  %call24.i220 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub20.i218, float noundef %sub23.i219)
+  %call24.i220 = call fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %mul11, i8 %.lobit736, float noundef %cond.i8.i, float noundef %cond.i8.i.i203, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr.i191, float noundef %sub20.i218, float noundef %sub23.i219)
   br i1 %call24.i220, label %lor.end, label %lor.lhs.false59
 
-lor.lhs.false59:                                  ; preds = %land.lhs.true53, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221, %lor.lhs.false49
-  %t.0 = phi ptr [ %add.ptr.i191, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221 ], [ null, %lor.lhs.false49 ], [ %add.ptr.i191, %land.lhs.true53 ]
+lor.lhs.false59:                                  ; preds = %land.lhs.true53, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221, %lor.lhs.false49
+  %t.0 = phi ptr [ %add.ptr.i191, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221 ], [ null, %lor.lhs.false49 ], [ %add.ptr.i191, %land.lhs.true53 ]
   %or.cond = and i1 %cmp33, %cmp29
   br i1 %or.cond, label %land.lhs.true63, label %lor.lhs.false70
 
@@ -3729,8 +3729,8 @@ land.rhs:                                         ; preds = %land.lhs.true99
   %79 = zext i1 %call108 to i8
   br label %lor.end
 
-lor.end:                                          ; preds = %if.then.i.i694, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit711, %lor.lhs.false.i212, %if.then.i.i619, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit636, %lor.lhs.false.i176, %if.then.i.i469, %if.then.i.i544, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit561, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit486, %if.then.i.i319, %if.then.i.i394, %if.then.i.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit411, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit336, %lor.rhs, %land.lhs.true99, %land.rhs, %land.lhs.true89, %land.lhs.true76, %land.lhs.true63, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit
-  %conv111 = phi i8 [ 1, %land.lhs.true89 ], [ 1, %land.lhs.true76 ], [ 1, %land.lhs.true63 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit221 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit185 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit149 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.argprom.exit ], [ 0, %land.lhs.true99 ], [ 0, %lor.rhs ], [ %79, %land.rhs ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit336 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit411 ], [ 1, %if.then.i.i ], [ 1, %if.then.i.i394 ], [ 1, %if.then.i.i319 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit486 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit561 ], [ 1, %if.then.i.i544 ], [ 1, %if.then.i.i469 ], [ 1, %lor.lhs.false.i176 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit636 ], [ 1, %if.then.i.i619 ], [ 1, %lor.lhs.false.i212 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom.exit711 ], [ 1, %if.then.i.i694 ]
+lor.end:                                          ; preds = %if.then.i.i694, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711, %lor.lhs.false.i212, %if.then.i.i619, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636, %lor.lhs.false.i176, %if.then.i.i469, %if.then.i.i544, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486, %if.then.i.i319, %if.then.i.i394, %if.then.i.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336, %lor.rhs, %land.lhs.true99, %land.rhs, %land.lhs.true89, %land.lhs.true76, %land.lhs.true63, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit
+  %conv111 = phi i8 [ 1, %land.lhs.true89 ], [ 1, %land.lhs.true76 ], [ 1, %land.lhs.true63 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ 0, %land.lhs.true99 ], [ 0, %lor.rhs ], [ %79, %land.rhs ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411 ], [ 1, %if.then.i.i ], [ 1, %if.then.i.i394 ], [ 1, %if.then.i.i319 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561 ], [ 1, %if.then.i.i544 ], [ 1, %if.then.i.i469 ], [ 1, %lor.lhs.false.i176 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636 ], [ 1, %if.then.i.i619 ], [ 1, %lor.lhs.false.i212 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711 ], [ 1, %if.then.i.i694 ]
   %80 = load ptr, ptr %this, align 8
   %81 = load i32, ptr %width.i103, align 8
   %mul.i255 = mul nsw i32 %81, %y.0744
@@ -9410,7 +9410,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN7msdf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.argprom(double %artifactClassifier.0.val, i8 %artifactClassifier.8.val, float noundef %am, float noundef %bm, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, float noundef %dA, float noundef %dB) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %artifactClassifier.0.val, i8 %artifactClassifier.8.val, float noundef %am, float noundef %bm, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, float noundef %dA, float noundef %dB) unnamed_addr #3 {
 entry:
   %conv = fpext float %dA to double
   %sub = fsub float %dA, %dB

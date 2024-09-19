@@ -1472,7 +1472,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %339, %_ZN26PartialD
   %347 = getelementptr inbounds i8, ptr %120, i64 568
   %348 = load i8, ptr %347, align 8
   %349 = trunc i8 %348 to i1
-  br i1 %349, label %.lr.ph.i.i, label %_ZL6setoptPKciP8t_filenm.argprom.exit46.i
+  br i1 %349, label %.lr.ph.i.i, label %_ZL6setoptPKciP8t_filenm.exit46.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i, %359
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %359 ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i ]
@@ -1514,7 +1514,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %339, %_ZN26PartialD
 369:                                              ; preds = %365, %.lr.ph.i42.i
   %indvars.iv.next.i44.i = add nuw nsw i64 %indvars.iv.i43.i, 1
   %exitcond.not.i45.i = icmp eq i64 %indvars.iv.next.i44.i, 51
-  br i1 %exitcond.not.i45.i, label %_ZL6setoptPKciP8t_filenm.argprom.exit46.i, label %.lr.ph.i42.i, !llvm.loop !8
+  br i1 %exitcond.not.i45.i, label %_ZL6setoptPKciP8t_filenm.exit46.i, label %.lr.ph.i42.i, !llvm.loop !8
 
 370:                                              ; preds = %327
   %371 = landingpad { ptr, i32 }
@@ -1526,7 +1526,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %339, %_ZN26PartialD
           cleanup
   br label %433
 
-374:                                              ; preds = %_ZL6setoptPKciP8t_filenm.argprom.exit81.i, %331, %329
+374:                                              ; preds = %_ZL6setoptPKciP8t_filenm.exit81.i, %331, %329
   %375 = landingpad { ptr, i32 }
           cleanup
   br label %432
@@ -1537,11 +1537,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %339, %_ZN26PartialD
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %122) #23
   br label %432
 
-_ZL6setoptPKciP8t_filenm.argprom.exit46.i:        ; preds = %369, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i
-  br i1 %.not.i.not, label %_ZL6setoptPKciP8t_filenm.argprom.exit53.i, label %.lr.ph.i49.i
+_ZL6setoptPKciP8t_filenm.exit46.i:                ; preds = %369, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i
+  br i1 %.not.i.not, label %_ZL6setoptPKciP8t_filenm.exit53.i, label %.lr.ph.i49.i
 
-.lr.ph.i49.i:                                     ; preds = %_ZL6setoptPKciP8t_filenm.argprom.exit46.i, %387
-  %indvars.iv.i50.i = phi i64 [ %indvars.iv.next.i51.i, %387 ], [ 0, %_ZL6setoptPKciP8t_filenm.argprom.exit46.i ]
+.lr.ph.i49.i:                                     ; preds = %_ZL6setoptPKciP8t_filenm.exit46.i, %387
+  %indvars.iv.i50.i = phi i64 [ %indvars.iv.next.i51.i, %387 ], [ 0, %_ZL6setoptPKciP8t_filenm.exit46.i ]
   %378 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i50.i
   %379 = getelementptr inbounds i8, ptr %378, i64 8
   %380 = load ptr, ptr %379, align 8
@@ -1559,16 +1559,16 @@ _ZL6setoptPKciP8t_filenm.argprom.exit46.i:        ; preds = %369, %_ZNSt10filesy
 387:                                              ; preds = %383, %.lr.ph.i49.i
   %indvars.iv.next.i51.i = add nuw nsw i64 %indvars.iv.i50.i, 1
   %exitcond.not.i52.i = icmp eq i64 %indvars.iv.next.i51.i, 51
-  br i1 %exitcond.not.i52.i, label %_ZL6setoptPKciP8t_filenm.argprom.exit53.i, label %.lr.ph.i49.i, !llvm.loop !8
+  br i1 %exitcond.not.i52.i, label %_ZL6setoptPKciP8t_filenm.exit53.i, label %.lr.ph.i49.i, !llvm.loop !8
 
-_ZL6setoptPKciP8t_filenm.argprom.exit53.i:        ; preds = %387, %_ZL6setoptPKciP8t_filenm.argprom.exit46.i
-  switch i32 %343, label %_ZL6setoptPKciP8t_filenm.argprom.exit74.i [
+_ZL6setoptPKciP8t_filenm.exit53.i:                ; preds = %387, %_ZL6setoptPKciP8t_filenm.exit46.i
+  switch i32 %343, label %_ZL6setoptPKciP8t_filenm.exit74.i [
     i32 8, label %.lr.ph.i56.i.preheader
     i32 7, label %.lr.ph.i56.i.preheader
     i32 5, label %.lr.ph.i70.i.preheader
   ]
 
-.lr.ph.i56.i.preheader:                           ; preds = %_ZL6setoptPKciP8t_filenm.argprom.exit53.i, %_ZL6setoptPKciP8t_filenm.argprom.exit53.i
+.lr.ph.i56.i.preheader:                           ; preds = %_ZL6setoptPKciP8t_filenm.exit53.i, %_ZL6setoptPKciP8t_filenm.exit53.i
   br label %.lr.ph.i56.i
 
 .lr.ph.i56.i:                                     ; preds = %.lr.ph.i56.i.preheader, %397
@@ -1611,12 +1611,12 @@ _ZL6setoptPKciP8t_filenm.argprom.exit53.i:        ; preds = %387, %_ZL6setoptPKc
 407:                                              ; preds = %403, %.lr.ph.i63.i
   %indvars.iv.next.i65.i = add nuw nsw i64 %indvars.iv.i64.i, 1
   %exitcond.not.i66.i = icmp eq i64 %indvars.iv.next.i65.i, 51
-  br i1 %exitcond.not.i66.i, label %_ZL6setoptPKciP8t_filenm.argprom.exit67.i, label %.lr.ph.i63.i, !llvm.loop !8
+  br i1 %exitcond.not.i66.i, label %_ZL6setoptPKciP8t_filenm.exit67.i, label %.lr.ph.i63.i, !llvm.loop !8
 
-_ZL6setoptPKciP8t_filenm.argprom.exit67.i:        ; preds = %407
-  br i1 %344, label %.lr.ph.i70.i.preheader, label %_ZL6setoptPKciP8t_filenm.argprom.exit74.i
+_ZL6setoptPKciP8t_filenm.exit67.i:                ; preds = %407
+  br i1 %344, label %.lr.ph.i70.i.preheader, label %_ZL6setoptPKciP8t_filenm.exit74.i
 
-.lr.ph.i70.i.preheader:                           ; preds = %_ZL6setoptPKciP8t_filenm.argprom.exit53.i, %_ZL6setoptPKciP8t_filenm.argprom.exit67.i
+.lr.ph.i70.i.preheader:                           ; preds = %_ZL6setoptPKciP8t_filenm.exit53.i, %_ZL6setoptPKciP8t_filenm.exit67.i
   br label %.lr.ph.i70.i
 
 .lr.ph.i70.i:                                     ; preds = %.lr.ph.i70.i.preheader, %417
@@ -1638,13 +1638,13 @@ _ZL6setoptPKciP8t_filenm.argprom.exit67.i:        ; preds = %407
 417:                                              ; preds = %413, %.lr.ph.i70.i
   %indvars.iv.next.i72.i = add nuw nsw i64 %indvars.iv.i71.i, 1
   %exitcond.not.i73.i = icmp eq i64 %indvars.iv.next.i72.i, 51
-  br i1 %exitcond.not.i73.i, label %_ZL6setoptPKciP8t_filenm.argprom.exit74.i, label %.lr.ph.i70.i, !llvm.loop !8
+  br i1 %exitcond.not.i73.i, label %_ZL6setoptPKciP8t_filenm.exit74.i, label %.lr.ph.i70.i, !llvm.loop !8
 
-_ZL6setoptPKciP8t_filenm.argprom.exit74.i:        ; preds = %417, %_ZL6setoptPKciP8t_filenm.argprom.exit67.i, %_ZL6setoptPKciP8t_filenm.argprom.exit53.i
-  br i1 %.not36.i.not, label %_ZL6setoptPKciP8t_filenm.argprom.exit81.i, label %.lr.ph.i77.i
+_ZL6setoptPKciP8t_filenm.exit74.i:                ; preds = %417, %_ZL6setoptPKciP8t_filenm.exit67.i, %_ZL6setoptPKciP8t_filenm.exit53.i
+  br i1 %.not36.i.not, label %_ZL6setoptPKciP8t_filenm.exit81.i, label %.lr.ph.i77.i
 
-.lr.ph.i77.i:                                     ; preds = %_ZL6setoptPKciP8t_filenm.argprom.exit74.i, %427
-  %indvars.iv.i78.i = phi i64 [ %indvars.iv.next.i79.i, %427 ], [ 0, %_ZL6setoptPKciP8t_filenm.argprom.exit74.i ]
+.lr.ph.i77.i:                                     ; preds = %_ZL6setoptPKciP8t_filenm.exit74.i, %427
+  %indvars.iv.i78.i = phi i64 [ %indvars.iv.next.i79.i, %427 ], [ 0, %_ZL6setoptPKciP8t_filenm.exit74.i ]
   %418 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i78.i
   %419 = getelementptr inbounds i8, ptr %418, i64 8
   %420 = load ptr, ptr %419, align 8
@@ -1662,14 +1662,14 @@ _ZL6setoptPKciP8t_filenm.argprom.exit74.i:        ; preds = %417, %_ZL6setoptPKc
 427:                                              ; preds = %423, %.lr.ph.i77.i
   %indvars.iv.next.i79.i = add nuw nsw i64 %indvars.iv.i78.i, 1
   %exitcond.not.i80.i = icmp eq i64 %indvars.iv.next.i79.i, 51
-  br i1 %exitcond.not.i80.i, label %_ZL6setoptPKciP8t_filenm.argprom.exit81.i, label %.lr.ph.i77.i, !llvm.loop !8
+  br i1 %exitcond.not.i80.i, label %_ZL6setoptPKciP8t_filenm.exit81.i, label %.lr.ph.i77.i, !llvm.loop !8
 
-_ZL6setoptPKciP8t_filenm.argprom.exit81.i:        ; preds = %427, %_ZL6setoptPKciP8t_filenm.argprom.exit74.i
+_ZL6setoptPKciP8t_filenm.exit81.i:                ; preds = %427, %_ZL6setoptPKciP8t_filenm.exit74.i
   %428 = getelementptr inbounds i8, ptr %120, i64 352
   %429 = load float, ptr %428, align 8
   %430 = getelementptr inbounds i8, ptr %118, i64 52
   %431 = invoke noundef float @_Z17pme_load_estimateRK10gmx_mtop_tRK10t_inputrecPA3_Kf(ptr noundef nonnull align 8 dereferenceable(768) %119, ptr noundef nonnull align 8 dereferenceable(856) %120, ptr noundef nonnull %430)
-          to label %_ZL11inspect_tpriP8t_filenmPf.argprom.exit unwind label %374
+          to label %_ZL11inspect_tpriP8t_filenmPf.exit unwind label %374
 
 432:                                              ; preds = %376, %374
   %.pn.i = phi { ptr, i32 } [ %375, %374 ], [ %377, %376 ]
@@ -1690,7 +1690,7 @@ common.resume:                                    ; preds = %323, %601, %603, %8
   call void @_ZN7t_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %118) #23
   br label %common.resume
 
-_ZL11inspect_tpriP8t_filenmPf.argprom.exit:       ; preds = %_ZL6setoptPKciP8t_filenm.argprom.exit81.i
+_ZL11inspect_tpriP8t_filenmPf.exit:               ; preds = %_ZL6setoptPKciP8t_filenm.exit81.i
   call void @_ZN10t_inputrecD1Ev(ptr noundef nonnull align 8 dereferenceable(856) %120) #23
   call void @_ZN10gmx_mtop_tD1Ev(ptr noundef nonnull align 8 dereferenceable(768) %119) #23
   call void @_ZN7t_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %118) #23
@@ -1703,8 +1703,8 @@ _ZL11inspect_tpriP8t_filenmPf.argprom.exit:       ; preds = %_ZL6setoptPKciP8t_f
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %117)
   br label %sub_0.i
 
-sub_0.i:                                          ; preds = %_ZL6setoptPKciP8t_filenm.argprom.exit34.i, %_ZL11inspect_tpriP8t_filenmPf.argprom.exit
-  %indvars.iv.i = phi i64 [ 0, %_ZL11inspect_tpriP8t_filenmPf.argprom.exit ], [ %indvars.iv.next.i, %_ZL6setoptPKciP8t_filenm.argprom.exit34.i ]
+sub_0.i:                                          ; preds = %_ZL6setoptPKciP8t_filenm.exit34.i, %_ZL11inspect_tpriP8t_filenmPf.exit
+  %indvars.iv.i = phi i64 [ 0, %_ZL11inspect_tpriP8t_filenmPf.exit ], [ %indvars.iv.next.i, %_ZL6setoptPKciP8t_filenm.exit34.i ]
   %435 = getelementptr inbounds %struct.t_filenm, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 %indvars.iv.i
   %436 = getelementptr inbounds i8, ptr %435, i64 8
   %437 = load ptr, ptr %436, align 8
@@ -1728,7 +1728,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %.not22.i = xor i1 %446, true
   %brmerge.i = select i1 %.not22.i, i1 true, i1 %.not.i102
   %brmerge23.i = select i1 %brmerge.i, i1 true, i1 %445
-  br i1 %brmerge23.i, label %_ZL6setoptPKciP8t_filenm.argprom.exit.i, label %.lr.ph.i.preheader.i
+  br i1 %brmerge23.i, label %_ZL6setoptPKciP8t_filenm.exit.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.tail.i
   %447 = getelementptr inbounds i8, ptr %437, i64 1
@@ -1754,17 +1754,17 @@ sub_1.i:                                          ; preds = %sub_0.i
 458:                                              ; preds = %454, %.lr.ph.i.i103
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 51
-  br i1 %exitcond.not.i.i106, label %_ZL6setoptPKciP8t_filenm.argprom.exit.i, label %.lr.ph.i.i103, !llvm.loop !8
+  br i1 %exitcond.not.i.i106, label %_ZL6setoptPKciP8t_filenm.exit.i, label %.lr.ph.i.i103, !llvm.loop !8
 
-_ZL6setoptPKciP8t_filenm.argprom.exit.i:          ; preds = %458, %.tail.i
+_ZL6setoptPKciP8t_filenm.exit.i:                  ; preds = %458, %.tail.i
   %459 = call noundef zeroext i1 @_Z11is_optionalPK8t_filenm(ptr noundef nonnull %435)
   %.not24.i = xor i1 %459, true
   %brmerge25.i = select i1 %.not24.i, i1 true, i1 %.not.i102
   %.not26.i = xor i1 %445, true
   %brmerge27.i = select i1 %brmerge25.i, i1 true, i1 %.not26.i
-  br i1 %brmerge27.i, label %_ZL6setoptPKciP8t_filenm.argprom.exit34.i, label %.lr.ph.i30.preheader.i
+  br i1 %brmerge27.i, label %_ZL6setoptPKciP8t_filenm.exit34.i, label %.lr.ph.i30.preheader.i
 
-.lr.ph.i30.preheader.i:                           ; preds = %_ZL6setoptPKciP8t_filenm.argprom.exit.i
+.lr.ph.i30.preheader.i:                           ; preds = %_ZL6setoptPKciP8t_filenm.exit.i
   %460 = getelementptr inbounds i8, ptr %437, i64 2
   %461 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) @.str.258, ptr noundef nonnull %460) #23
   br label %.lr.ph.i30.i
@@ -1788,23 +1788,23 @@ _ZL6setoptPKciP8t_filenm.argprom.exit.i:          ; preds = %458, %.tail.i
 471:                                              ; preds = %467, %.lr.ph.i30.i
   %indvars.iv.next.i32.i = add nuw nsw i64 %indvars.iv.i31.i, 1
   %exitcond.not.i33.i = icmp eq i64 %indvars.iv.next.i32.i, 51
-  br i1 %exitcond.not.i33.i, label %_ZL6setoptPKciP8t_filenm.argprom.exit34.i, label %.lr.ph.i30.i, !llvm.loop !8
+  br i1 %exitcond.not.i33.i, label %_ZL6setoptPKciP8t_filenm.exit34.i, label %.lr.ph.i30.i, !llvm.loop !8
 
-_ZL6setoptPKciP8t_filenm.argprom.exit34.i:        ; preds = %471, %_ZL6setoptPKciP8t_filenm.argprom.exit.i
+_ZL6setoptPKciP8t_filenm.exit34.i:                ; preds = %471, %_ZL6setoptPKciP8t_filenm.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 51
-  br i1 %exitcond.not.i, label %_ZL20couple_files_optionsiP8t_filenm.argprom.exit, label %sub_0.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZL20couple_files_optionsiP8t_filenm.exit, label %sub_0.i, !llvm.loop !9
 
-_ZL20couple_files_optionsiP8t_filenm.argprom.exit: ; preds = %_ZL6setoptPKciP8t_filenm.argprom.exit34.i
+_ZL20couple_files_optionsiP8t_filenm.exit:        ; preds = %_ZL6setoptPKciP8t_filenm.exit34.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %117)
   br i1 %312, label %472, label %475
 
-472:                                              ; preds = %_ZL20couple_files_optionsiP8t_filenm.argprom.exit
+472:                                              ; preds = %_ZL20couple_files_optionsiP8t_filenm.exit
   %473 = load i32, ptr %144, align 4
   %474 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) @.str.209, i32 noundef %473) #23
   br label %482
 
-475:                                              ; preds = %_ZL20couple_files_optionsiP8t_filenm.argprom.exit
+475:                                              ; preds = %_ZL20couple_files_optionsiP8t_filenm.exit
   %476 = load ptr, ptr %145, align 16
   %477 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %476, ptr noundef nonnull dereferenceable(5) @.str.152) #25
   %.not93 = icmp eq i32 %477, 0
@@ -2026,9 +2026,9 @@ _ZL14is_launch_filePcb.exit.thread.i:             ; preds = %567, %_ZL14is_launc
   %.5 = phi ptr [ %573, %567 ], [ %.4, %_ZL14is_launch_filePcb.exit.i ], [ %.4, %560 ], [ %.4, %.tail11.i.i ], [ %.4, %.tail.i56.i ], [ %.4, %.tail.i56.i ], [ %.4, %.thread.i.i ]
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, 51
-  br i1 %exitcond.not.i110, label %_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.argprom.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i110, label %_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.exit, label %.lr.ph.i, !llvm.loop !10
 
-_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.argprom.exit: ; preds = %_ZL14is_launch_filePcb.exit.thread.i
+_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.exit: ; preds = %_ZL14is_launch_filePcb.exit.thread.i
   %575 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2378) #25
   %576 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0379.lcssa) #25
   %577 = add i64 %576, %575
@@ -2049,7 +2049,7 @@ _ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.argprom.exit: ; pre
   %589 = call noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull @.str.69, i32 noundef 51, ptr noundef nonnull @_ZZ12gmx_tune_pmeiPPcE3fnm)
   br i1 %589, label %590, label %607
 
-590:                                              ; preds = %_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.argprom.exit
+590:                                              ; preds = %_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.exit
   %591 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef nonnull @.str.69, i32 noundef 51, ptr noundef nonnull @_ZZ12gmx_tune_pmeiPPcE3fnm)
   store ptr %591, ptr %155, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %157, ptr noundef nonnull align 8 dereferenceable(8) %155, i8 noundef zeroext 2)
@@ -2098,8 +2098,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %592, %595
   %606 = icmp sgt i32 %596, 0
   br label %607
 
-607:                                              ; preds = %605, %_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.argprom.exit
-  %.082 = phi i1 [ %606, %605 ], [ false, %_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.argprom.exit ]
+607:                                              ; preds = %605, %_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.exit
+  %.082 = phi i1 [ %606, %605 ], [ false, %_ZL28create_command_line_snippetsbbbiiP8t_filenmPPcS2_S1_S1_.exit ]
   %608 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef nonnull @.str.60, i32 noundef 51, ptr noundef nonnull @_ZZ12gmx_tune_pmeiPPcE3fnm)
   store ptr %608, ptr %160, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %159, ptr noundef nonnull align 8 dereferenceable(8) %160, i8 noundef zeroext 2)
@@ -2571,7 +2571,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i117:     ; preds = %626, %623
 
 816:                                              ; preds = %813, %809, %802
   %817 = icmp sgt i32 %618, -1
-  br i1 %817, label %818, label %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.argprom.exit
+  br i1 %817, label %818, label %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.exit
 
 818:                                              ; preds = %816
   %819 = shl nuw nsw i32 %618, 1
@@ -2614,12 +2614,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i117:     ; preds = %626, %623
 
 838:                                              ; preds = %836
   %839 = call noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef nonnull @.str.166, i32 noundef 24, ptr noundef nonnull %153)
-  br i1 %839, label %840, label %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.argprom.exit
+  br i1 %839, label %840, label %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.exit
 
 840:                                              ; preds = %838, %836
   %841 = load ptr, ptr @stderr, align 8
   %842 = call i64 @fwrite(ptr nonnull @.str.293, i64 123, i64 1, ptr %841) #26
-  br label %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.argprom.exit
+  br label %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.exit
 
 843:                                              ; preds = %824, %800, %783, %777, %771, %764, %695, %654, %648, %642, %633, %631
   %.sink.i = phi ptr [ %115, %824 ], [ %114, %800 ], [ %113, %783 ], [ %112, %777 ], [ %111, %771 ], [ %110, %764 ], [ %109, %695 ], [ %108, %654 ], [ %107, %648 ], [ %106, %642 ], [ %105, %633 ], [ %103, %631 ]
@@ -2627,7 +2627,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i117:     ; preds = %626, %623
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i) #23
   br label %common.resume
 
-_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.argprom.exit: ; preds = %816, %838, %840
+_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.exit: ; preds = %816, %838, %840
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %103)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %105)
@@ -2648,7 +2648,7 @@ _ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.argprom.exit: ; preds = %
   %or.cond = select i1 %845, i1 %847, i1 false
   br i1 %or.cond, label %848, label %892
 
-848:                                              ; preds = %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.argprom.exit
+848:                                              ; preds = %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.exit
   %849 = load ptr, ptr %146, align 16
   %850 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %849, ptr noundef nonnull dereferenceable(5) @.str.153) #25
   %851 = icmp eq i32 %850, 0
@@ -2713,9 +2713,9 @@ _ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.argprom.exit: ; preds = %
   %891 = call i64 @fwrite(ptr nonnull @.str.215, i64 112, i64 1, ptr %890)
   br label %892
 
-892:                                              ; preds = %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.argprom.exit, %889, %858, %854
-  %.0371 = phi i32 [ %855, %854 ], [ %.sroa.speculated282, %858 ], [ %879, %889 ], [ 0, %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.argprom.exit ]
-  %.079 = phi i32 [ %855, %854 ], [ %869, %858 ], [ %.sroa.speculated, %889 ], [ 0, %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.argprom.exit ]
+892:                                              ; preds = %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.exit, %889, %858, %854
+  %.0371 = phi i32 [ %855, %854 ], [ %.sroa.speculated282, %858 ], [ %879, %889 ], [ 0, %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.exit ]
+  %.079 = phi i32 [ %855, %854 ], [ %869, %858 ], [ %.sroa.speculated, %889 ], [ 0, %_ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.exit ]
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %100)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %101)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %102)
@@ -3277,7 +3277,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i134:     ; preds = %1142, %_ZN26Partial
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #23
   %1143 = getelementptr inbounds i8, ptr %80, i64 340
   %.val.i = load i32, ptr %1143, align 4
-  switch i32 %.val.i, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i [
+  switch i32 %.val.i, label %_ZL8usingPmeRK22CoulombInteractionType.exit.i [
     i32 3, label %1154
     i32 14, label %1154
     i32 13, label %1154
@@ -3285,11 +3285,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i134:     ; preds = %1142, %_ZN26Partial
     i32 5, label %1154
   ]
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i: ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i134
+_ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i134
   invoke void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %83, ptr noundef nonnull align 1 dereferenceable(124) @.str.205, i8 noundef zeroext 2)
           to label %1144 unwind label %.loopexit.split-lp.i
 
-1144:                                             ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i
+1144:                                             ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.i
   %1145 = invoke noundef ptr @_Z17enumValueToString22CoulombInteractionType(i32 noundef 3)
           to label %1146 unwind label %1152
 
@@ -3310,7 +3310,7 @@ _ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i: ; preds = %_ZNSt10filesys
           cleanup
   br label %1528
 
-.loopexit.split-lp.i:                             ; preds = %1299, %1273, %1264, %1175, %1163, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i, %1134
+.loopexit.split-lp.i:                             ; preds = %1299, %1273, %1264, %1175, %1163, %_ZL8usingPmeRK22CoulombInteractionType.exit.i, %1134
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %1528
@@ -4286,7 +4286,7 @@ _ZL14make_npme_listPKcPiPS1_iii.exit.i:           ; preds = %.lr.ph59.i.i, %._cr
 
 1646:                                             ; preds = %1640
   %1647 = icmp sgt i32 %1546, 0
-  br i1 %1647, label %.lr.ph.i162.i, label %_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.argprom.exit
+  br i1 %1647, label %.lr.ph.i162.i, label %_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.exit
 
 .lr.ph.i162.i:                                    ; preds = %1646
   %1648 = sext i32 %.0 to i64
@@ -4486,19 +4486,19 @@ _ZL24make_gpu_id_command_lineB5cxx11PKc.exit.us.i: ; preds = %1721, %1720
   %1738 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #23
   %1739 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1734, ptr noundef nonnull dereferenceable(1) @.str.364, ptr noundef %1566, i32 noundef %1736, ptr noundef %1737, ptr noundef %580, ptr noundef %1738) #23
   %brmerge.demorgan.us.i = and i1 %.2452.us.i, %1551
-  br i1 %brmerge.demorgan.us.i, label %1740, label %_ZL17make_sure_it_runsPciP8_IO_FILEPK8t_filenmi.argprom.exit.us.i
+  br i1 %brmerge.demorgan.us.i, label %1740, label %_ZL17make_sure_it_runsPciP8_IO_FILEPK8t_filenmi.exit.us.i
 
 1740:                                             ; preds = %1735
   %1741 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.365, ptr noundef nonnull @.str.205, i32 noundef 1576, i64 noundef %1564, i64 noundef 1)
-          to label %_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.argprom.exit167.us.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
+          to label %_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.exit167.us.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
 
-_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.argprom.exit167.us.i: ; preds = %1740
+_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.exit167.us.i:  ; preds = %1740
   %1742 = load ptr, ptr %1710, align 8
   %1743 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1741, ptr noundef nonnull dereferenceable(1) @.str.366, ptr noundef %1566, ptr noundef %1742, ptr noundef %580) #23
   %1744 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.298, ptr noundef nonnull @.str.205, i32 noundef 1396, i64 noundef %1672, i64 noundef 1)
           to label %.noexc.us.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
 
-.noexc.us.i:                                      ; preds = %_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.argprom.exit167.us.i
+.noexc.us.i:                                      ; preds = %_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.exit167.us.i
   %1745 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.205, i32 noundef 1397, i64 noundef %1673, i64 noundef 1)
           to label %.noexc169.us.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
 
@@ -5077,16 +5077,16 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i196:     ; preds = %1918, %1916
 
 .noexc183.us.i:                                   ; preds = %.noexc182.us.i
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.205, i32 noundef 1435, ptr noundef %1745)
-          to label %_ZL17make_sure_it_runsPciP8_IO_FILEPK8t_filenmi.argprom.exit.us.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
+          to label %_ZL17make_sure_it_runsPciP8_IO_FILEPK8t_filenmi.exit.us.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
 
-_ZL17make_sure_it_runsPciP8_IO_FILEPK8t_filenmi.argprom.exit.us.i: ; preds = %.noexc183.us.i, %1735
+_ZL17make_sure_it_runsPciP8_IO_FILEPK8t_filenmi.exit.us.i: ; preds = %.noexc183.us.i, %1735
   br i1 %1674, label %1926, label %1925
 
-1925:                                             ; preds = %_ZL17make_sure_it_runsPciP8_IO_FILEPK8t_filenmi.argprom.exit.us.i
+1925:                                             ; preds = %_ZL17make_sure_it_runsPciP8_IO_FILEPK8t_filenmi.exit.us.i
   store i8 0, ptr %70, align 16
   br label %1930
 
-1926:                                             ; preds = %_ZL17make_sure_it_runsPciP8_IO_FILEPK8t_filenmi.argprom.exit.us.i
+1926:                                             ; preds = %_ZL17make_sure_it_runsPciP8_IO_FILEPK8t_filenmi.exit.us.i
   %1927 = trunc i64 %indvars.iv.i154 to i32
   %1928 = add i32 %1927, 1
   %1929 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) @.str.367, i32 noundef %1928, i32 noundef %1544) #23
@@ -6078,7 +6078,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit50.i.us.i: ; preds = %2296, %2294
   %exitcond861.not = icmp eq i64 %indvars.iv.next662.i, %1648
   br i1 %exitcond861.not, label %._crit_edge.i153, label %.lr.ph460.split.us.i, !llvm.loop !33
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i: ; preds = %1959, %_ZL15gmx_system_callPc.exit.us.i, %1952, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.us.i, %1930, %.noexc183.us.i, %.noexc182.us.i, %.noexc180.us.i, %.noexc178.us.i, %.noexc176.us.i, %.noexc174.us.i, %.noexc172.us.i, %1752, %.noexc169.us.i, %.noexc.us.i, %_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.argprom.exit167.us.i, %1740, %1732
+.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i: ; preds = %1959, %_ZL15gmx_system_callPc.exit.us.i, %1952, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.us.i, %1930, %.noexc183.us.i, %.noexc182.us.i, %.noexc180.us.i, %.noexc178.us.i, %.noexc176.us.i, %.noexc174.us.i, %.noexc172.us.i, %1752, %.noexc169.us.i, %.noexc.us.i, %_ZL13gmx_snew_implIcEvPKcS1_iRPT_m.exit167.us.i, %1740, %1732
   %lpad.loopexit37.us.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i155
@@ -6440,15 +6440,15 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit239.i:     ; preds = %2369, %.split512.us
   br i1 %exitcond666.not.i, label %._crit_edge574.i, label %1709, !llvm.loop !34
 
 ._crit_edge574.i:                                 ; preds = %._crit_edge.i153
-  br i1 %.1144.lcssa.i, label %2370, label %_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.argprom.exit
+  br i1 %.1144.lcssa.i, label %2370, label %_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.exit
 
 2370:                                             ; preds = %._crit_edge574.i
   %2371 = call i64 @fwrite(ptr nonnull @.str.309, i64 62, i64 1, ptr %609)
   %2372 = call i64 @fwrite(ptr nonnull @.str.381, i64 71, i64 1, ptr %609)
   %2373 = call i64 @fwrite(ptr nonnull @.str.309, i64 62, i64 1, ptr %609)
-  br label %_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.argprom.exit
+  br label %_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.exit
 
-_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.argprom.exit: ; preds = %1646, %._crit_edge574.i, %2370
+_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.exit: ; preds = %1646, %._crit_edge574.i, %2370
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.298, ptr noundef nonnull @.str.205, i32 noundef 1679, ptr noundef %1565)
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.355, ptr noundef nonnull @.str.205, i32 noundef 1680, ptr noundef %1566)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %70)
@@ -6469,7 +6469,7 @@ _ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4
   %2382 = icmp sgt i32 %2381, 1
   br i1 %2382, label %2383, label %2391
 
-2383:                                             ; preds = %_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.argprom.exit
+2383:                                             ; preds = %_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.exit
   %2384 = call i64 @fwrite(ptr nonnull @.str.309, i64 62, i64 1, ptr %609)
   %2385 = call i64 @fwrite(ptr nonnull @.str.425, i64 28, i64 1, ptr %609)
   %2386 = call i64 @fwrite(ptr nonnull @.str.426, i64 70, i64 1, ptr %609)
@@ -6484,7 +6484,7 @@ _ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4
   %fputc.i = call i32 @fputc(i32 10, ptr %609)
   br label %2391
 
-2391:                                             ; preds = %2390, %_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.argprom.exit
+2391:                                             ; preds = %2390, %_ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.exit
   %2392 = icmp sgt i32 %2380, 0
   br i1 %2392, label %.preheader184.lr.ph.i, label %._crit_edge208.thread.i
 

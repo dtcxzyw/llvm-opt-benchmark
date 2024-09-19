@@ -2239,7 +2239,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
 
 .critedge4:                                       ; preds = %.critedge6, %107
   %.lcssa99.sink = phi i32 [ 0, %107 ], [ %142, %.critedge6 ]
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %5, i32 noundef %.lcssa99.sink)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %5, i32 noundef %.lcssa99.sink)
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %.val68 = load i32, ptr %102, align 4
   %145 = sext i32 %.val68 to i64
@@ -2261,7 +2261,7 @@ declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare i32 @Gia_ManHashXor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648

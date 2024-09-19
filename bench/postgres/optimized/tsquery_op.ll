@@ -1120,7 +1120,7 @@ collectTSQueryValues.exit26:                      ; preds = %71, %collectTSQuery
   %76 = sext i32 %.022.lcssa.i to i64
   tail call void @pg_qsort(ptr noundef %15, i64 noundef %76, i64 noundef 8, ptr noundef nonnull @cmp_string) #9
   %77 = icmp ult i32 %.022.lcssa.i, 2
-  br i1 %77, label %qunique.argprom.exit, label %.preheader.i
+  br i1 %77, label %qunique.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %collectTSQueryValues.exit26, %91
   %.02.i = phi i64 [ %.1.i27, %91 ], [ 0, %collectTSQueryValues.exit26 ]
@@ -1156,18 +1156,18 @@ collectTSQueryValues.exit26:                      ; preds = %71, %collectTSQuery
 93:                                               ; preds = %91
   %94 = trunc i64 %.1.i27 to i32
   %95 = add i32 %94, 1
-  br label %qunique.argprom.exit
+  br label %qunique.exit
 
-qunique.argprom.exit:                             ; preds = %collectTSQueryValues.exit26, %93
+qunique.exit:                                     ; preds = %collectTSQueryValues.exit26, %93
   %.024.i = phi i32 [ %95, %93 ], [ %.022.lcssa.i, %collectTSQueryValues.exit26 ]
   %96 = sext i32 %.022.lcssa.i19 to i64
   tail call void @pg_qsort(ptr noundef %49, i64 noundef %96, i64 noundef 8, ptr noundef nonnull @cmp_string) #9
   %97 = icmp ult i32 %.022.lcssa.i19, 2
-  br i1 %97, label %qunique.argprom.exit36, label %.preheader.i28
+  br i1 %97, label %qunique.exit36, label %.preheader.i28
 
-.preheader.i28:                                   ; preds = %qunique.argprom.exit, %111
-  %.02.i29 = phi i64 [ %.1.i33, %111 ], [ 0, %qunique.argprom.exit ]
-  %.0231.i30 = phi i64 [ %112, %111 ], [ 1, %qunique.argprom.exit ]
+.preheader.i28:                                   ; preds = %qunique.exit, %111
+  %.02.i29 = phi i64 [ %.1.i33, %111 ], [ 0, %qunique.exit ]
+  %.0231.i30 = phi i64 [ %112, %111 ], [ 1, %qunique.exit ]
   %98 = shl i64 %.0231.i30, 3
   %99 = getelementptr i8, ptr %49, i64 %98
   %100 = shl i64 %.02.i29, 3
@@ -1199,14 +1199,14 @@ qunique.argprom.exit:                             ; preds = %collectTSQueryValue
 113:                                              ; preds = %111
   %114 = trunc i64 %.1.i33 to i32
   %115 = add i32 %114, 1
-  br label %qunique.argprom.exit36
+  br label %qunique.exit36
 
-qunique.argprom.exit36:                           ; preds = %qunique.argprom.exit, %113
-  %.024.i35 = phi i32 [ %115, %113 ], [ %.022.lcssa.i19, %qunique.argprom.exit ]
+qunique.exit36:                                   ; preds = %qunique.exit, %113
+  %.024.i35 = phi i32 [ %115, %113 ], [ %.022.lcssa.i19, %qunique.exit ]
   %116 = icmp slt i32 %.024.i, %.024.i35
   br i1 %116, label %.loopexit, label %.preheader44
 
-.preheader44:                                     ; preds = %qunique.argprom.exit36
+.preheader44:                                     ; preds = %qunique.exit36
   %117 = icmp sgt i32 %.024.i35, 0
   br i1 %117, label %.preheader.preheader, label %.loopexit
 
@@ -1254,8 +1254,8 @@ qunique.argprom.exit36:                           ; preds = %qunique.argprom.exi
   %131 = icmp eq i32 %.1.lcssa, %.024.i
   br i1 %131, label %.loopexit, label %119
 
-.loopexit:                                        ; preds = %119, %._crit_edge, %129, %.preheader44, %qunique.argprom.exit36
-  %.018 = phi i64 [ 0, %qunique.argprom.exit36 ], [ 1, %.preheader44 ], [ 0, %129 ], [ 1, %119 ], [ 0, %._crit_edge ]
+.loopexit:                                        ; preds = %119, %._crit_edge, %129, %.preheader44, %qunique.exit36
+  %.018 = phi i64 [ 0, %qunique.exit36 ], [ 1, %.preheader44 ], [ 0, %129 ], [ 1, %119 ], [ 0, %._crit_edge ]
   ret i64 %.018
 }
 

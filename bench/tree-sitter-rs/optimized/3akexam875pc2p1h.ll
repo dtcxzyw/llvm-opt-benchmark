@@ -528,7 +528,7 @@ define hidden void @_ZN10libloading2os4unix7Library8get_impl17h7f4e98bf8cefa72dE
 
 .noexc32:                                         ; preds = %14
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %_ZN10libloading2os4unix12with_dlerror17h3c406c9ad205a7b5E.argprom.exit, label %17
+  br i1 %16, label %_ZN10libloading2os4unix12with_dlerror17h3c406c9ad205a7b5E.exit, label %17
 
 17:                                               ; preds = %.noexc32
   %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15), !noalias !121
@@ -569,7 +569,7 @@ define hidden void @_ZN10libloading2os4unix7Library8get_impl17h7f4e98bf8cefa72dE
   store i64 -9223372036854775791, ptr %0, align 8
   br label %30
 
-30:                                               ; preds = %_ZN10libloading2os4unix12with_dlerror17h3c406c9ad205a7b5E.argprom.exit, %35, %28
+30:                                               ; preds = %_ZN10libloading2os4unix12with_dlerror17h3c406c9ad205a7b5E.exit, %35, %28
   %31 = icmp eq i64 %.sroa.053.0.copyload, 0
   br i1 %31, label %"_ZN4core3ptr69drop_in_place$LT$alloc..borrow..Cow$LT$core..ffi..c_str..CStr$GT$$GT$17h28c4b975858de524E.exit37", label %32
 
@@ -582,7 +582,7 @@ define hidden void @_ZN10libloading2os4unix7Library8get_impl17h7f4e98bf8cefa72dE
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.454.0.copyload, i64 noundef %.sroa.555.0.copyload, i64 noundef 1) #24, !noalias !127
   br label %"_ZN4core3ptr69drop_in_place$LT$alloc..borrow..Cow$LT$core..ffi..c_str..CStr$GT$$GT$17h28c4b975858de524E.exit37"
 
-_ZN10libloading2os4unix12with_dlerror17h3c406c9ad205a7b5E.argprom.exit: ; preds = %.noexc32
+_ZN10libloading2os4unix12with_dlerror17h3c406c9ad205a7b5E.exit: ; preds = %.noexc32
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %34, align 8, !alias.scope !130
   store i64 -9223372036854775791, ptr %0, align 8, !alias.scope !130
@@ -3421,9 +3421,9 @@ define hidden void @_ZN5which9which_all17h8e9e19801d68a928E.llvm.608294853053048
 23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   invoke void @_ZN3std3env7_var_os17h0ce52d8c124bf7d4E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 @anon.136a0f00885e88ca4faf7725f88798c7.30, i64 noundef 4)
-          to label %_ZN3std3env6var_os17h2b92ba0c3bb1c993E.argprom.exit unwind label %24
+          to label %_ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit unwind label %24
 
-_ZN3std3env6var_os17h2b92ba0c3bb1c993E.argprom.exit: ; preds = %23
+_ZN3std3env6var_os17h2b92ba0c3bb1c993E.exit:      ; preds = %23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -6236,8 +6236,8 @@ attributes #27 = { noreturn }
 !106 = distinct !{!106, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hdbeee70e30137753E.llvm.6082948530530484711"}
 !107 = distinct !{!107, !106, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hdbeee70e30137753E.llvm.6082948530530484711: argument 1"}
 !108 = !{!109, !111, !96, !98, !88, !83}
-!109 = distinct !{!109, !110, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hf7ce3df0dc1f56a4E.argprom: argument 0"}
-!110 = distinct !{!110, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hf7ce3df0dc1f56a4E.argprom"}
+!109 = distinct !{!109, !110, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hf7ce3df0dc1f56a4E: argument 0"}
+!110 = distinct !{!110, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hf7ce3df0dc1f56a4E"}
 !111 = distinct !{!111, !112, !"_ZN4core3ops8function6FnOnce9call_once17h71e143be8163e617E.llvm.6082948530530484711: argument 0"}
 !112 = distinct !{!112, !"_ZN4core3ops8function6FnOnce9call_once17h71e143be8163e617E.llvm.6082948530530484711"}
 !113 = !{!114, !116}
@@ -6246,11 +6246,11 @@ attributes #27 = { noreturn }
 !116 = distinct !{!116, !117, !"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$core..ffi..c_str..CStr$GT$$GT$$GT$17h3bc967ee33cd546dE: argument 0"}
 !117 = distinct !{!117, !"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$core..ffi..c_str..CStr$GT$$GT$$GT$17h3bc967ee33cd546dE"}
 !118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZN10libloading2os4unix12with_dlerror17h3c406c9ad205a7b5E.argprom: argument 0"}
-!120 = distinct !{!120, !"_ZN10libloading2os4unix12with_dlerror17h3c406c9ad205a7b5E.argprom"}
+!119 = distinct !{!119, !120, !"_ZN10libloading2os4unix12with_dlerror17h3c406c9ad205a7b5E: argument 0"}
+!120 = distinct !{!120, !"_ZN10libloading2os4unix12with_dlerror17h3c406c9ad205a7b5E"}
 !121 = !{!122, !119}
-!122 = distinct !{!122, !123, !"_ZN10libloading2os4unix12with_dlerror28_$u7b$$u7b$closure$u7d$$u7d$17h14ef5fed118de193E.argprom: argument 0"}
-!123 = distinct !{!123, !"_ZN10libloading2os4unix12with_dlerror28_$u7b$$u7b$closure$u7d$$u7d$17h14ef5fed118de193E.argprom"}
+!122 = distinct !{!122, !123, !"_ZN10libloading2os4unix12with_dlerror28_$u7b$$u7b$closure$u7d$$u7d$17h14ef5fed118de193E: argument 0"}
+!123 = distinct !{!123, !"_ZN10libloading2os4unix12with_dlerror28_$u7b$$u7b$closure$u7d$$u7d$17h14ef5fed118de193E"}
 !124 = !{!125}
 !125 = distinct !{!125, !126, !"_ZN4core3ptr69drop_in_place$LT$alloc..borrow..Cow$LT$core..ffi..c_str..CStr$GT$$GT$17h28c4b975858de524E: argument 0"}
 !126 = distinct !{!126, !"_ZN4core3ptr69drop_in_place$LT$alloc..borrow..Cow$LT$core..ffi..c_str..CStr$GT$$GT$17h28c4b975858de524E"}
@@ -6559,10 +6559,10 @@ attributes #27 = { noreturn }
 !429 = distinct !{!429, !"_ZN3std2fs8Metadata17h34c853f8460141efE.llvm.6082948530530484711"}
 !430 = distinct !{!430, !429, !"_ZN3std2fs8Metadata17h34c853f8460141efE.llvm.6082948530530484711: argument 1"}
 !431 = !{!432}
-!432 = distinct !{!432, !433, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hf7ce3df0dc1f56a4E.argprom: argument 0"}
-!433 = distinct !{!433, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hf7ce3df0dc1f56a4E.argprom"}
+!432 = distinct !{!432, !433, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hf7ce3df0dc1f56a4E: argument 0"}
+!433 = distinct !{!433, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hf7ce3df0dc1f56a4E"}
 !434 = !{!435}
-!435 = distinct !{!435, !433, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hf7ce3df0dc1f56a4E.argprom: argument 1"}
+!435 = distinct !{!435, !433, !"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hf7ce3df0dc1f56a4E: argument 1"}
 !436 = !{i64 0, i64 -9223372036854775791}
 !437 = !{!438}
 !438 = distinct !{!438, !439, !"_ZN4core3ptr53drop_in_place$LT$libloading..error..DlDescription$GT$17h7db9e0822a4d88f7E: argument 0"}

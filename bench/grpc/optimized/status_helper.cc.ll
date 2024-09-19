@@ -3332,7 +3332,7 @@ if.then7.i.i.i.i:                                 ; preds = %land.rhs.i18.i.i.i.
 
 if.then.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %0, %args1
-  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.argprom.exit", label %if.end.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.exit", label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %2 = load i8, ptr %0, align 1
@@ -3348,11 +3348,11 @@ land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
 
 if.then3.i.i.i.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %args1, i64 16, i1 false)
-  br label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.argprom.exit"
+  br label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.exit"
 
 if.end6.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   tail call void @_ZN4absl12lts_202308024Cord9InlineRep10AssignSlowERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %args1)
-  br label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.argprom.exit"
+  br label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.exit"
 
 if.else.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i
   %6 = load i8, ptr %args1, align 8
@@ -3384,7 +3384,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i
 
 _ZNSt19_Optional_base_implIN4absl12lts_202308024CordESt14_Optional_baseIS2_Lb0ELb0EEE12_M_constructIJRKS2_EEEvDpOT_.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  br label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.argprom.exit"
+  br label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.exit"
 
 if.end.i.i.i.i:                                   ; preds = %land.rhs.i18.i.i.i.i, %if.then.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload_storage.i.i.i.i) #23
@@ -3795,7 +3795,7 @@ if.end135.i.i.i.i:                                ; preds = %invoke.cont130.i.i.
   %ref.tmp51.sink.i.i.i.i = phi ptr [ %ref.tmp51.i.i.i.i, %invoke.cont60.i.i.i.i ], [ %ref.tmp80.i.i.i.i, %invoke.cont89.i.i.i.i ], [ %ref.tmp100.i.i.i.i, %invoke.cont109.i.i.i.i ], [ %ref.tmp121.i.i.i.i, %invoke.cont130.i.i.i.i ], [ %ref.tmp26.i.i.i.i, %if.then.i.i62.i.i.i.i ], [ %ref.tmp26.i.i.i.i, %if.else.i.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51.sink.i.i.i.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload_storage.i.i.i.i) #23
-  br label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.argprom.exit"
+  br label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.exit"
 
 if.else137.i.i.i.i:                               ; preds = %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i.i.i, %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fragment.i120.i.i.i.i)
@@ -3903,7 +3903,7 @@ if.else.i.i153.i.i.i.i:                           ; preds = %invoke.cont161.i.i.
 invoke.cont163.i.i.i.i:                           ; preds = %if.else.i.i153.i.i.i.i, %if.then.i.i151.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp150.i.i.i.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload_str.i.i.i.i) #23
-  br label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.argprom.exit"
+  br label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.exit"
 
 lpad144.i.i.i.i:                                  ; preds = %cond.end.i.i.i.i
   %84 = landingpad { ptr, i32 }
@@ -3931,7 +3931,7 @@ eh.resume.i.i.i.i:                                ; preds = %eh.resume.sink.spli
   %.pn15.pn.i.i.i.i = phi { ptr, i32 } [ %84, %lpad144.i.i.i.i ], [ %.pn15.pn.ph.i.i.i.i, %eh.resume.sink.split.i.i.i.i ]
   resume { ptr, i32 } %.pn15.pn.i.i.i.i
 
-"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.argprom.exit": ; preds = %if.then.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i, %if.end6.i.i.i.i.i.i.i, %_ZNSt19_Optional_base_implIN4absl12lts_202308024CordESt14_Optional_baseIS2_Lb0ELb0EEE12_M_constructIJRKS2_EEEvDpOT_.exit.i.i.i.i.i, %if.end135.i.i.i.i, %invoke.cont163.i.i.i.i
+"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.exit": ; preds = %if.then.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i, %if.end6.i.i.i.i.i.i.i, %_ZNSt19_Optional_base_implIN4absl12lts_202308024CordESt14_Optional_baseIS2_Lb0ELb0EEE12_M_constructIJRKS2_EEEvDpOT_.exit.i.i.i.i.i, %if.end135.i.i.i.i, %invoke.cont163.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %payload_storage.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp15.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp26.i.i.i.i)
@@ -4202,7 +4202,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then7.i.i.i.i.i,
   %v_view.sroa.0.0.ph.i.i.i.i = phi i64 [ %shr.i.i.i.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %21, %cond.true.i.i.i.i.i.i ], [ %v_view.sroa.0.0.copyload.i.i.i.i, %if.then7.i.i.i.i.i ]
   %v_view.sroa.3.0.ph.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ null, %cond.true.i.i.i.i.i.i ], [ %v_view.sroa.3.0.copyload.i.i.i.i, %if.then7.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fragment.i.i.i.i.i)
-  br label %"_ZSt6invokeIRKZN9grpc_core8internal13StatusToProtoERKN4absl12lts_202308026StatusEP9upb_ArenaE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS3_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.argprom.exit"
+  br label %"_ZSt6invokeIRKZN9grpc_core8internal13StatusToProtoERKN4absl12lts_202308026StatusEP9upb_ArenaE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS3_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.exit"
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i13.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fragment.i.i.i.i.i)
@@ -4277,14 +4277,14 @@ for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i, %
 cond.true.i.i45.i.i.i.i:                          ; preds = %for.end.i.i.i.i
   %34 = load ptr, ptr %rep.i.i.i.i.i.i.i.i.i, align 8
   %35 = load i64, ptr %34, align 8
-  br label %"_ZSt6invokeIRKZN9grpc_core8internal13StatusToProtoERKN4absl12lts_202308026StatusEP9upb_ArenaE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS3_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.argprom.exit"
+  br label %"_ZSt6invokeIRKZN9grpc_core8internal13StatusToProtoERKN4absl12lts_202308026StatusEP9upb_ArenaE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS3_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.exit"
 
 cond.false.i.i49.i.i.i.i:                         ; preds = %for.end.i.i.i.i
   %conv.i.i.i.i.i50.i.i.i.i = sext i8 %32 to i64
   %shr.i.i.i.i.i51.i.i.i.i = lshr exact i64 %conv.i.i.i.i.i50.i.i.i.i, 1
-  br label %"_ZSt6invokeIRKZN9grpc_core8internal13StatusToProtoERKN4absl12lts_202308026StatusEP9upb_ArenaE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS3_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.argprom.exit"
+  br label %"_ZSt6invokeIRKZN9grpc_core8internal13StatusToProtoERKN4absl12lts_202308026StatusEP9upb_ArenaE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS3_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.exit"
 
-"_ZSt6invokeIRKZN9grpc_core8internal13StatusToProtoERKN4absl12lts_202308026StatusEP9upb_ArenaE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS3_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.argprom.exit": ; preds = %if.then.i.i.i.i, %cond.true.i.i45.i.i.i.i, %cond.false.i.i49.i.i.i.i
+"_ZSt6invokeIRKZN9grpc_core8internal13StatusToProtoERKN4absl12lts_202308026StatusEP9upb_ArenaE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS3_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.exit": ; preds = %if.then.i.i.i.i, %cond.true.i.i45.i.i.i.i, %cond.false.i.i49.i.i.i.i
   %retval.0.i37.sink.i.i.i.i = phi ptr [ %v_view.sroa.3.0.ph.i.i.i.i, %if.then.i.i.i.i ], [ %retval.0.i37.i.i.i.i, %cond.true.i.i45.i.i.i.i ], [ %retval.0.i37.i.i.i.i, %cond.false.i.i49.i.i.i.i ]
   %cond.i.i48.sink.i.i.i.i = phi i64 [ %v_view.sroa.0.0.ph.i.i.i.i, %if.then.i.i.i.i ], [ %35, %cond.true.i.i45.i.i.i.i ], [ %shr.i.i.i.i.i51.i.i.i.i, %cond.false.i.i49.i.i.i.i ]
   %add.ptr.i.i.i55.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16

@@ -810,7 +810,7 @@ thread-pre-split276:                              ; preds = %304, %309
   br i1 %.not237, label %342, label %341
 
 341:                                              ; preds = %330
-  call fastcc void @onas_ddd_exit.argprom()
+  call fastcc void @onas_ddd_exit()
   call void @__pthread_unwind_next(ptr noundef nonnull %13) #21
   unreachable
 
@@ -985,7 +985,7 @@ onas_ddd_unwatch.exit.i:                          ; preds = %429, %426, %420
 
 onas_ddd_handle_in_delete.exit:                   ; preds = %413, %417, %onas_ddd_unwatch.exit.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
-  br label %onas_ddd_handle_in_create.argprom.exit
+  br label %onas_ddd_handle_in_create.exit
 
 434:                                              ; preds = %407
   %435 = and i32 %408, 64
@@ -1037,7 +1037,7 @@ onas_ddd_unwatch.exit.i262:                       ; preds = %455, %452, %446
 
 onas_ddd_handle_in_moved_from.exit:               ; preds = %439, %443, %onas_ddd_unwatch.exit.i262
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  br label %onas_ddd_handle_in_create.argprom.exit
+  br label %onas_ddd_handle_in_create.exit
 
 460:                                              ; preds = %434
   %461 = and i32 %408, 256
@@ -1047,7 +1047,7 @@ onas_ddd_handle_in_moved_from.exit:               ; preds = %439, %443, %onas_dd
 462:                                              ; preds = %460
   %463 = and i32 %408, 1073741824
   %.not.i263 = icmp eq i32 %463, 0
-  br i1 %.not.i263, label %onas_ddd_handle_in_create.argprom.exit, label %464
+  br i1 %.not.i263, label %onas_ddd_handle_in_create.exit, label %464
 
 464:                                              ; preds = %462
   %465 = load ptr, ptr %49, align 1
@@ -1071,17 +1071,17 @@ onas_ddd_handle_in_moved_from.exit:               ; preds = %439, %443, %onas_dd
   %477 = icmp slt i32 %474, 1
   %478 = icmp slt i32 %476, 1
   %or.cond3.i.i264 = or i1 %477, %478
-  br i1 %or.cond3.i.i264, label %onas_ddd_handle_in_create.argprom.exit, label %479
+  br i1 %or.cond3.i.i264, label %onas_ddd_handle_in_create.exit, label %479
 
 479:                                              ; preds = %471
   %480 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
   %481 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef %393, i64 noundef %480, i32 noundef %476, i64 noundef 16778184, i32 noundef 1)
   %.not.i.i265 = icmp eq i32 %481, 0
-  br i1 %.not.i.i265, label %482, label %onas_ddd_handle_in_create.argprom.exit
+  br i1 %.not.i.i265, label %482, label %onas_ddd_handle_in_create.exit
 
 482:                                              ; preds = %479
   %483 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef %393, i64 noundef %480, i32 noundef %474, i64 noundef %475, i32 noundef 2)
-  br label %onas_ddd_handle_in_create.argprom.exit
+  br label %onas_ddd_handle_in_create.exit
 
 484:                                              ; preds = %460
   %485 = and i32 %408, 8
@@ -1114,12 +1114,12 @@ onas_ddd_handle_in_moved_from.exit:               ; preds = %439, %443, %onas_dd
 
 onas_ddd_handle_in_close_write.exit:              ; preds = %486, %491, %494, %498
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
-  br label %onas_ddd_handle_in_create.argprom.exit
+  br label %onas_ddd_handle_in_create.exit
 
 499:                                              ; preds = %484
   %500 = and i32 %408, 128
   %.not246 = icmp eq i32 %500, 0
-  br i1 %.not246, label %onas_ddd_handle_in_create.argprom.exit, label %501
+  br i1 %.not246, label %onas_ddd_handle_in_create.exit, label %501
 
 501:                                              ; preds = %499
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
@@ -1213,13 +1213,13 @@ onas_ddd_handle_in_close_write.exit:              ; preds = %486, %491, %494, %4
 
 onas_ddd_handle_in_moved_to.exit:                 ; preds = %513, %514, %517, %526, %529, %532, %536, %539, %548, %551
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
-  br label %onas_ddd_handle_in_create.argprom.exit
+  br label %onas_ddd_handle_in_create.exit
 
-onas_ddd_handle_in_create.argprom.exit:           ; preds = %482, %479, %471, %462, %onas_ddd_handle_in_moved_from.exit, %onas_ddd_handle_in_close_write.exit, %onas_ddd_handle_in_moved_to.exit, %499, %onas_ddd_handle_in_delete.exit
+onas_ddd_handle_in_create.exit:                   ; preds = %482, %479, %471, %462, %onas_ddd_handle_in_moved_from.exit, %onas_ddd_handle_in_close_write.exit, %onas_ddd_handle_in_moved_to.exit, %499, %onas_ddd_handle_in_delete.exit
   call void @free(ptr noundef nonnull %393) #16
   br label %553
 
-553:                                              ; preds = %379, %onas_ddd_handle_in_create.argprom.exit, %385, %383, %.thread
+553:                                              ; preds = %379, %onas_ddd_handle_in_create.exit, %385, %383, %.thread
   %554 = getelementptr inbounds i8, ptr %.0194318, i64 12
   %555 = load i32, ptr %554, align 4
   %556 = zext i32 %555 to i64
@@ -1283,7 +1283,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #5
 declare i32 @getpid() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @onas_ddd_exit.argprom() unnamed_addr #0 {
+define internal fastcc void @onas_ddd_exit() unnamed_addr #0 {
   %1 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.54) #16
   %2 = load i32, ptr @onas_in_fd, align 4
   %.not = icmp eq i32 %2, 0

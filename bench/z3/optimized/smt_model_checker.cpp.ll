@@ -12155,14 +12155,14 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %bf.load38.i = load i32, ptr %554, align 8
   %bf.clear39.i = and i32 %bf.load38.i, 1
   %tobool40.i.not = icmp eq i32 %bf.clear39.i, 0
-  br i1 %tobool40.i.not, label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.argprom.exit.i, label %if.then.i.i3043
+  br i1 %tobool40.i.not, label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.exit.i, label %if.then.i.i3043
 
 if.then.i.i3043:                                  ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit88.i
   %628 = load ptr, ptr %m_r.i49.i, align 8
   call void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %552, i32 noundef 0, ptr noundef %628)
-  br label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.argprom.exit.i
+  br label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.exit.i
 
-_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.argprom.exit.i: ; preds = %if.then.i.i3043, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit88.i
+_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.exit.i: ; preds = %if.then.i.i3043, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit88.i
   %629 = load ptr, ptr %m_frame_stack.i, align 8
   %arrayidx.i90.i = getelementptr inbounds i8, ptr %629, i64 -4
   %630 = load i32, ptr %arrayidx.i90.i, align 4
@@ -12172,7 +12172,7 @@ _ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_re
   %cmp.i.i91.i = icmp eq ptr %this.val15.i3037, null
   br i1 %cmp.i.i91.i, label %if.end42.i, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i3038
 
-_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i3038: ; preds = %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.argprom.exit.i
+_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i3038: ; preds = %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.exit.i
   %arrayidx.i.i92.i = getelementptr inbounds i8, ptr %this.val15.i3037, i64 -4
   %631 = load i32, ptr %arrayidx.i.i92.i, align 4
   %cmp3.i.i93.i = icmp eq i32 %631, 0
@@ -12187,7 +12187,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i3039: ; preds = %_ZNK6ve
   store i32 %bf.set.i.i3042, ptr %m_new_child.i.i3040, align 8
   br label %if.end42.i
 
-if.end42.i:                                       ; preds = %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.argprom.exit.i, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i3038, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i3039, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i3009
+if.end42.i:                                       ; preds = %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.exit.i, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i3038, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i3039, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i3009
   %634 = load ptr, ptr %m_r.i49.i, align 8
   %tobool.not.i3.i96.i = icmp eq ptr %634, null
   br i1 %tobool.not.i3.i96.i, label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE13constant_foldEP3appRN13rewriter_core5frameE.exit, label %if.then.i.i.i97.i
@@ -12658,14 +12658,14 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %bf.load219.i.i = load i32, ptr %554, align 8
   %bf.clear220.i.i = and i32 %bf.load219.i.i, 1
   %tobool221.i.i.not = icmp eq i32 %bf.clear220.i.i, 0
-  br i1 %tobool221.i.i.not, label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.argprom.exit2564, label %if.then.i2563
+  br i1 %tobool221.i.i.not, label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.exit2564, label %if.then.i2563
 
 if.then.i2563:                                    ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit2584
   %710 = load ptr, ptr %m_r.i49.i, align 8
   call void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %552, i32 noundef 0, ptr noundef %710)
-  br label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.argprom.exit2564
+  br label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.exit2564
 
-_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.argprom.exit2564: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit2584, %if.then.i2563
+_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.exit2564: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit2584, %if.then.i2563
   %711 = load ptr, ptr %m_frame_stack.i, align 8
   %arrayidx.i2559 = getelementptr inbounds i8, ptr %711, i64 -4
   %712 = load i32, ptr %arrayidx.i2559, align 4
@@ -12675,7 +12675,7 @@ _ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_re
   %cmp.i.i2549 = icmp eq ptr %this.val61.i.i296, null
   br i1 %cmp.i.i2549, label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE11process_appILb0EEEvP3appRN13rewriter_core5frameE.exit.i, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2550
 
-_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2550: ; preds = %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.argprom.exit2564
+_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2550: ; preds = %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.exit2564
   %arrayidx.i.i2551 = getelementptr inbounds i8, ptr %this.val61.i.i296, i64 -4
   %713 = load i32, ptr %arrayidx.i.i2551, align 4
   %cmp3.i.i2552 = icmp eq i32 %713, 0
@@ -13008,7 +13008,7 @@ sw.bb275.i.i:                                     ; preds = %sw.bb.i274
   call void @exit(i32 noundef 107) #24
   unreachable
 
-_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE11process_appILb0EEEvP3appRN13rewriter_core5frameE.exit.i: ; preds = %if.end.i.i374, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit2666, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit2666.thread, %if.then2.i.i.i2415, %if.then.i.i.i2409, %invoke.cont274.i.i, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i2553, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2550, %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.argprom.exit2564, %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE13constant_foldEP3appRN13rewriter_core5frameE.exit
+_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE11process_appILb0EEEvP3appRN13rewriter_core5frameE.exit.i: ; preds = %if.end.i.i374, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit2666, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit2666.thread, %if.then2.i.i.i2415, %if.then.i.i.i2409, %invoke.cont274.i.i, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i2553, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i2550, %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE12cache_resultILb0EEEvS3_S3_P3appb.exit2564, %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE13constant_foldEP3appRN13rewriter_core5frameE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %new_t.i.i196)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i.i)
   br label %while.cond.i202.backedgethread-pre-split
@@ -14511,13 +14511,13 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %cmp.not.i117 = icmp eq ptr %t, %call.i.i
   %cmp.i.i.i118 = icmp eq ptr %this.val33, null
   %or.cond.i119 = select i1 %cmp.not.i117, i1 true, i1 %cmp.i.i.i118
-  br i1 %or.cond.i119, label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.argprom.exit127, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i120
+  br i1 %or.cond.i119, label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.exit127, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i120
 
 _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i120: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit116
   %arrayidx.i.i.i121 = getelementptr inbounds i8, ptr %this.val33, i64 -4
   %57 = load i32, ptr %arrayidx.i.i.i121, align 4
   %cmp3.i.i.i122 = icmp eq i32 %57, 0
-  br i1 %cmp3.i.i.i122, label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.argprom.exit127, label %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i123
+  br i1 %cmp3.i.i.i122, label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.exit127, label %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i123
 
 _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i123: ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i120
   %58 = add i32 %57, -1
@@ -14526,23 +14526,23 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i123: ; preds = %_ZNK6vec
   %bf.load.i.i125 = load i32, ptr %m_new_child.i.i124, align 8
   %bf.set.i.i126 = or i32 %bf.load.i.i125, 2
   store i32 %bf.set.i.i126, ptr %m_new_child.i.i124, align 8
-  br label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.argprom.exit127
+  br label %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.exit127
 
-_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.argprom.exit127: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit116, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i120, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i123
+_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.exit127: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit116, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i120, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i123
   %m_cache_pr.i = getelementptr inbounds i8, ptr %this, i64 72
   %60 = load ptr, ptr %m_cache_pr.i, align 8
   %call.i.i128 = tail call noundef ptr @_ZN9act_cache4findEP4exprj(ptr noundef nonnull align 8 dereferenceable(92) %60, ptr noundef nonnull %t, i32 noundef 0)
   %tobool.not.i.i.i.i130 = icmp eq ptr %call.i.i128, null
   br i1 %tobool.not.i.i.i.i130, label %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i134, label %if.then.i.i.i.i131
 
-if.then.i.i.i.i131:                               ; preds = %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.argprom.exit127
+if.then.i.i.i.i131:                               ; preds = %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.exit127
   %m_ref_count.i.i.i.i.i132 = getelementptr inbounds i8, ptr %call.i.i128, i64 8
   %61 = load i32, ptr %m_ref_count.i.i.i.i.i132, align 4
   %inc.i.i.i.i.i133 = add i32 %61, 1
   store i32 %inc.i.i.i.i.i133, ptr %m_ref_count.i.i.i.i.i132, align 4
   br label %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i134
 
-_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i134: ; preds = %if.then.i.i.i.i131, %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.argprom.exit127
+_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i134: ; preds = %if.then.i.i.i.i131, %_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE18set_new_child_flagES3_S3_.exit127
   %m_nodes.i135 = getelementptr inbounds i8, ptr %this, i64 88
   %62 = load ptr, ptr %m_nodes.i135, align 8
   %cmp.i.i136 = icmp eq ptr %62, null

@@ -4727,7 +4727,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   ]
 
 2404:                                             ; preds = %2402
-  %2405 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %6, ptr noundef %5, ptr nonnull %.21580, i32 %2403)
+  %2405 = call fastcc i32 @yysyntax_error(ptr noundef %6, ptr noundef %5, ptr nonnull %.21580, i32 %2403)
   switch i32 %2405, label %.thread1681 [
     i32 0, label %.thread1684
     i32 -1, label %2407
@@ -4764,7 +4764,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %.loopexit1690
 
 2414:                                             ; preds = %2410
-  %2415 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %6, ptr noundef %5, ptr nonnull %.21580, i32 %2403)
+  %2415 = call fastcc i32 @yysyntax_error(ptr noundef %6, ptr noundef %5, ptr nonnull %.21580, i32 %2403)
   call void @zenderror(ptr noundef nonnull %2412) #12
   %2416 = icmp eq i32 %2415, -2
   br i1 %2416, label %.loopexit1690, label %.thread1688
@@ -4778,7 +4778,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %2420, label %.loopexit.loopexit1717, label %.thread1688
 
 2421:                                             ; preds = %2417
-  call fastcc void @yydestruct.argprom(i32 noundef %2403, ptr noundef %1)
+  call fastcc void @yydestruct(i32 noundef %2403, ptr noundef %1)
   br label %.thread1688
 
 2422:                                             ; preds = %1246, %1235, %1228, %874, %605, %599, %590, %435, %1213, %1203, %354
@@ -4830,7 +4830,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2447 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %2430
   %2448 = load i16, ptr %2447, align 2
   %2449 = sext i16 %2448 to i32
-  call fastcc void @yydestruct.argprom(i32 noundef %2449, ptr noundef %.61595)
+  call fastcc void @yydestruct(i32 noundef %2449, ptr noundef %.61595)
   %2450 = getelementptr inbounds i8, ptr %.61595, i64 -8
   %2451 = getelementptr inbounds i8, ptr %.61584, i64 -2
   %2452 = load i16, ptr %2451, align 2
@@ -4884,7 +4884,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 2465:                                             ; preds = %2459, %2460
   %2466 = phi i32 [ %2464, %2460 ], [ 2, %2459 ]
-  call fastcc void @yydestruct.argprom(i32 noundef %2466, ptr noundef %1)
+  call fastcc void @yydestruct(i32 noundef %2466, ptr noundef %1)
   br label %2467
 
 2467:                                             ; preds = %2465, %.loopexit1692
@@ -4905,7 +4905,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2473 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %2472
   %2474 = load i16, ptr %2473, align 2
   %2475 = sext i16 %2474 to i32
-  call fastcc void @yydestruct.argprom(i32 noundef %2475, ptr noundef %.815971715)
+  call fastcc void @yydestruct(i32 noundef %2475, ptr noundef %.815971715)
   %2476 = getelementptr inbounds i8, ptr %.815971715, i64 -8
   %2477 = getelementptr inbounds i8, ptr %.815861716, i64 -2
   %.not1671 = icmp eq ptr %2477, %.41577
@@ -5000,7 +5000,7 @@ declare ptr @zend_ast_create_class_const_or_name(ptr noundef, ptr noundef) local
 declare ptr @zend_negate_num_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @yysyntax_error.argprom(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture readonly %.0.val, i32 %.8.val) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture readonly %.0.val, i32 %.8.val) unnamed_addr #5 {
   %3 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread4, label %4
@@ -5195,7 +5195,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %.lr.ph, %63, %._cri
 declare void @zenderror(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yydestruct.argprom(i32 noundef range(i32 -32768, 32768) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @yydestruct(i32 noundef range(i32 -32768, 32768) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 {
   switch i32 %0, label %323 [
     i32 21, label %3
     i32 22, label %5

@@ -1028,7 +1028,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %89
 
 get_block_type_internal.exit:                     ; preds = %92, %94, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split
   %98 = load ptr, ptr %0, align 8
-  %99 = call fastcc i32 @pcapng_read_block.argprom(ptr noundef nonnull %0, ptr noundef %98, ptr noundef nonnull %87, ptr noundef %9, ptr noundef %5, ptr noundef %1, ptr noundef %2)
+  %99 = call fastcc i32 @pcapng_read_block(ptr noundef nonnull %0, ptr noundef %98, ptr noundef nonnull %87, ptr noundef %9, ptr noundef %5, ptr noundef %1, ptr noundef %2)
   %.not63 = icmp eq i32 %99, 0
   br i1 %.not63, label %100, label %104
 
@@ -1214,7 +1214,7 @@ define internal range(i32 0, 2) i32 @pcapng_read(ptr noundef %0, ptr noundef %1,
   %21 = zext i32 %20 to i64
   %22 = getelementptr %struct.section_info_t, ptr %19, i64 %21
   %23 = load ptr, ptr %0, align 8
-  %24 = call fastcc i32 @pcapng_read_block.argprom(ptr noundef nonnull %0, ptr noundef %23, ptr noundef %22, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
+  %24 = call fastcc i32 @pcapng_read_block(ptr noundef nonnull %0, ptr noundef %23, ptr noundef %22, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %28
 
@@ -1284,7 +1284,7 @@ define internal range(i32 0, 2) i32 @pcapng_seek_read(ptr nocapture noundef %0, 
   %28 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %2, ptr %28, align 8
   %29 = load ptr, ptr %11, align 8
-  %30 = call fastcc i32 @pcapng_read_block.argprom(ptr noundef %0, ptr noundef %29, ptr noundef %23, ptr noundef %7, ptr noundef %8, ptr noundef %4, ptr noundef %5)
+  %30 = call fastcc i32 @pcapng_read_block(ptr noundef %0, ptr noundef %29, ptr noundef %23, ptr noundef %7, ptr noundef %8, ptr noundef %4, ptr noundef %5)
   %.not22 = icmp eq i32 %30, 0
   br i1 %.not22, label %31, label %34
 
@@ -1354,7 +1354,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pcapng_read_block.argprom(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_block(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.pcapng_block_header_s, align 4
   %10 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1532,7 +1532,7 @@ pcapng_read_meta_event_block.exit:                ; preds = %65
   br i1 %.not86, label %pcapng_read_meta_event_block.exit.thread, label %80
 
 76:                                               ; preds = %33
-  %77 = call fastcc i32 @pcapng_read_systemd_journal_export_block.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %9, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %77 = call fastcc i32 @pcapng_read_systemd_journal_export_block(ptr noundef %0, ptr noundef %1, ptr noundef %9, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %.not85 = icmp eq i32 %77, 0
   br i1 %.not85, label %pcapng_read_meta_event_block.exit.thread, label %80
 
@@ -3496,7 +3496,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_sysdig_event_block(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pcapng_read_systemd_journal_export_block.argprom(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_systemd_journal_export_block(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 4
@@ -5205,20 +5205,20 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %261, %262
 283:                                              ; preds = %281, %269
   %284 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 8, ptr noundef %3) #16
   %.not.i51 = icmp eq i32 %284, 0
-  br i1 %.not.i51, label %pcapng_write_bblog_block.argprom.exit.thread, label %285
+  br i1 %.not.i51, label %pcapng_write_bblog_block.exit.thread, label %285
 
 285:                                              ; preds = %283
   store i32 10949, ptr %13, align 4
   %286 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 4, ptr noundef %3) #16
   %.not20.i = icmp eq i32 %286, 0
-  br i1 %.not20.i, label %pcapng_write_bblog_block.argprom.exit.thread, label %287
+  br i1 %.not20.i, label %pcapng_write_bblog_block.exit.thread, label %287
 
 287:                                              ; preds = %285
   %288 = load i32, ptr %278, align 4
   store i32 %288, ptr %15, align 4
   %289 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 4, ptr noundef %3) #16
   %.not21.i52 = icmp eq i32 %289, 0
-  br i1 %.not21.i52, label %pcapng_write_bblog_block.argprom.exit.thread, label %290
+  br i1 %.not21.i52, label %pcapng_write_bblog_block.exit.thread, label %290
 
 290:                                              ; preds = %287
   %291 = load i32, ptr %278, align 4
@@ -5231,11 +5231,11 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %261, %262
   store i32 %295, ptr %14, align 4
   %296 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 4, ptr noundef %3) #16
   %.not22.i56 = icmp eq i32 %296, 0
-  br i1 %.not22.i56, label %pcapng_write_bblog_block.argprom.exit.thread, label %297
+  br i1 %.not22.i56, label %pcapng_write_bblog_block.exit.thread, label %297
 
 297:                                              ; preds = %293, %290
   %.not23.i = icmp eq i32 %spec.select.i.i50, 0
-  br i1 %.not23.i, label %pcapng_write_bblog_block.argprom.exit, label %298
+  br i1 %.not23.i, label %pcapng_write_bblog_block.exit, label %298
 
 298:                                              ; preds = %297
   %299 = load ptr, ptr %270, align 8
@@ -5251,7 +5251,7 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %261, %262
 
 write_options.exit.thread.i:                      ; preds = %298
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  br label %pcapng_write_bblog_block.argprom.exit.thread
+  br label %pcapng_write_bblog_block.exit.thread
 
 write_options.exit.i:                             ; preds = %298
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
@@ -5262,16 +5262,16 @@ write_options.exit.i:                             ; preds = %298
   %.not.i.i.not.i = icmp eq i32 %304, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  br i1 %.not.i.i.not.i, label %pcapng_write_bblog_block.argprom.exit.thread, label %pcapng_write_bblog_block.argprom.exit
+  br i1 %.not.i.i.not.i, label %pcapng_write_bblog_block.exit.thread, label %pcapng_write_bblog_block.exit
 
-pcapng_write_bblog_block.argprom.exit.thread:     ; preds = %283, %285, %287, %293, %write_options.exit.i, %write_options.exit.thread.i
+pcapng_write_bblog_block.exit.thread:             ; preds = %283, %285, %287, %293, %write_options.exit.i, %write_options.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %335
 
-pcapng_write_bblog_block.argprom.exit:            ; preds = %297, %write_options.exit.i
+pcapng_write_bblog_block.exit:                    ; preds = %297, %write_options.exit.i
   %305 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %277, i64 noundef 4, ptr noundef %3) #16
   %.not25.i53.not = icmp eq i32 %305, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -5361,11 +5361,11 @@ pcapng_write_custom_block.exit:                   ; preds = %328, %329
   store i32 -24, ptr %3, align 4
   br label %335
 
-334:                                              ; preds = %pcapng_write_custom_block.exit.thread71, %pcapng_write_bblog_block.argprom.exit, %pcapng_write_custom_block.exit, %pcapng_write_systemd_journal_export_block.exit, %pcapng_write_sysdig_event_block.exit, %194, %pcapng_write_enhanced_packet_block.exit
+334:                                              ; preds = %pcapng_write_custom_block.exit.thread71, %pcapng_write_bblog_block.exit, %pcapng_write_custom_block.exit, %pcapng_write_systemd_journal_export_block.exit, %pcapng_write_sysdig_event_block.exit, %194, %pcapng_write_enhanced_packet_block.exit
   br label %335
 
-335:                                              ; preds = %pcapng_write_custom_block.exit.thread, %pcapng_write_bblog_block.argprom.exit.thread, %pcapng_write_systemd_journal_export_block.exit.thread, %pcapng_write_sysdig_event_block.exit.thread, %pcapng_write_enhanced_packet_block.exit.thread, %pcapng_write_custom_block.exit, %pcapng_write_bblog_block.argprom.exit, %pcapng_write_systemd_journal_export_block.exit, %pcapng_write_sysdig_event_block.exit, %194, %pcapng_write_enhanced_packet_block.exit, %5, %334, %333, %198
-  %.0 = phi i32 [ 0, %333 ], [ 1, %334 ], [ 0, %198 ], [ 0, %5 ], [ 0, %pcapng_write_enhanced_packet_block.exit ], [ 0, %194 ], [ 0, %pcapng_write_sysdig_event_block.exit ], [ 0, %pcapng_write_systemd_journal_export_block.exit ], [ 0, %pcapng_write_bblog_block.argprom.exit ], [ 0, %pcapng_write_custom_block.exit ], [ 0, %pcapng_write_enhanced_packet_block.exit.thread ], [ 0, %pcapng_write_sysdig_event_block.exit.thread ], [ 0, %pcapng_write_systemd_journal_export_block.exit.thread ], [ 0, %pcapng_write_bblog_block.argprom.exit.thread ], [ 0, %pcapng_write_custom_block.exit.thread ]
+335:                                              ; preds = %pcapng_write_custom_block.exit.thread, %pcapng_write_bblog_block.exit.thread, %pcapng_write_systemd_journal_export_block.exit.thread, %pcapng_write_sysdig_event_block.exit.thread, %pcapng_write_enhanced_packet_block.exit.thread, %pcapng_write_custom_block.exit, %pcapng_write_bblog_block.exit, %pcapng_write_systemd_journal_export_block.exit, %pcapng_write_sysdig_event_block.exit, %194, %pcapng_write_enhanced_packet_block.exit, %5, %334, %333, %198
+  %.0 = phi i32 [ 0, %333 ], [ 1, %334 ], [ 0, %198 ], [ 0, %5 ], [ 0, %pcapng_write_enhanced_packet_block.exit ], [ 0, %194 ], [ 0, %pcapng_write_sysdig_event_block.exit ], [ 0, %pcapng_write_systemd_journal_export_block.exit ], [ 0, %pcapng_write_bblog_block.exit ], [ 0, %pcapng_write_custom_block.exit ], [ 0, %pcapng_write_enhanced_packet_block.exit.thread ], [ 0, %pcapng_write_sysdig_event_block.exit.thread ], [ 0, %pcapng_write_systemd_journal_export_block.exit.thread ], [ 0, %pcapng_write_bblog_block.exit.thread ], [ 0, %pcapng_write_custom_block.exit.thread ]
   ret i32 %.0
 }
 

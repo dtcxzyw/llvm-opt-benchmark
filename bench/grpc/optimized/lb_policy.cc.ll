@@ -761,7 +761,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 _ZNSt8functionIFvvEED2Ev.exit.i:                  ; preds = %if.then.i.i.i, %invoke.cont4.i
   %12 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %12, null
-  br i1 %cmp.not.i.i.i.i, label %"_ZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS0_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusE.argprom.exit", label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %"_ZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS0_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusE.exit", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFvvEED2Ev.exit.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
@@ -797,7 +797,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %14, %if.then.i.i.i.i.i.i ], [ %17, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %"_ZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS0_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusE.argprom.exit"
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %"_ZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS0_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusE.exit"
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %12, align 8
@@ -822,14 +822,14 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %20, %if.then.i.i.i.i.i.i.i.i ], [ %21, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %"_ZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS0_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusE.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %"_ZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS0_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusE.exit"
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i3.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %12, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %22 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %12) #15
-  br label %"_ZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS0_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusE.argprom.exit"
+  br label %"_ZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS0_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusE.exit"
 
 lpad.i:                                           ; preds = %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i
   %23 = landingpad { ptr, i32 }
@@ -853,7 +853,7 @@ _ZNSt8functionIFvvEED2Ev.exit9.i:                 ; preds = %if.then.i.i6.i, %lp
   call void @_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #15
   resume { ptr, i32 } %23
 
-"_ZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS0_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusE.argprom.exit": ; preds = %_ZNSt8functionIFvvEED2Ev.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+"_ZZN9grpc_core19LoadBalancingPolicy11QueuePicker4PickENS0_8PickArgsEENK3$_0clEPvN4absl12lts_202308026StatusE.exit": ; preds = %_ZNSt8functionIFvvEED2Ev.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3.i)

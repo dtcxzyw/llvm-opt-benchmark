@@ -16406,7 +16406,7 @@ for.body110:                                      ; preds = %for.body110.prehead
 if.end115:                                        ; preds = %for.body110
   %call78.val = load ptr, ptr %292, align 8
   %call78.val221 = load i32, ptr %293, align 8
-  %call118 = tail call fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi.argprom(ptr %call78.val, i32 %call78.val221, i32 noundef %codepoint.0875)
+  %call118 = tail call fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr %call78.val, i32 %call78.val221, i32 noundef %codepoint.0875)
   %tobool119.not = icmp eq i32 %call118, 0
   br i1 %tobool119.not, label %for.inc130, label %invoke.cont128
 
@@ -16764,7 +16764,7 @@ lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
           cleanup
   br label %lpad172
 
-lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i, %.noexc589, %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.argprom.exit.i.i.i, %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.argprom.exit.i.i.i.i, %if.then88.i.i.i.i.i, %if.then.i.i.i.i.i, %for.end.i15.i.i.i, %.noexc581, %error.i.i.i.i, %if.end5.i.i.i.i, %cond.end47.i
+lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i, %.noexc589, %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit.i.i.i, %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i.i.i.i, %if.then88.i.i.i.i.i, %if.then.i.i.i.i.i, %for.end.i15.i.i.i, %.noexc581, %error.i.i.i.i, %if.end5.i.i.i.i, %cond.end47.i
   %lpad.loopexit816 = landingpad { ptr, i32 }
           cleanup
   br label %lpad172
@@ -16905,14 +16905,14 @@ for.body242:                                      ; preds = %for.body242.lr.ph, 
   %360 = load i32, ptr %arrayidx.i471, align 4
   %call190.val = load ptr, ptr %357, align 8
   %call190.val222 = load i32, ptr %358, align 8
-  %call248 = call fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi.argprom(ptr %call190.val, i32 %call190.val222, i32 noundef %360)
+  %call248 = call fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr %call190.val, i32 %call190.val222, i32 noundef %360)
   %361 = load i32, ptr %OversampleH, align 8
   %conv251 = sitofp i32 %361 to float
   %mul252 = fmul float %cond237, %conv251
   %362 = load i32, ptr %OversampleV, align 4
   %conv254 = sitofp i32 %362 to float
   %mul255 = fmul float %cond237, %conv254
-  call fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.argelim(ptr noundef %arrayidx.i445, i32 noundef %call248, float noundef %mul252, float noundef %mul255, ptr noundef %x0, ptr noundef %y0, ptr noundef nonnull %x1, ptr noundef nonnull %y1)
+  call fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef %arrayidx.i445, i32 noundef %call248, float noundef %mul252, float noundef %mul255, ptr noundef %x0, ptr noundef %y0, ptr noundef nonnull %x1, ptr noundef nonnull %y1)
   %363 = load i32, ptr %x1, align 4
   %364 = load i32, ptr %x0, align 4
   %365 = load i32, ptr %OversampleH, align 8
@@ -17092,7 +17092,7 @@ for.body322:                                      ; preds = %for.body322.prehead
 if.end329:                                        ; preds = %for.body322
   %Rects331 = getelementptr inbounds i8, ptr %arrayidx.i496, i64 200
   %381 = load ptr, ptr %Rects331, align 8
-  invoke fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti.retelim(ptr noundef %spc.sroa.2.0, ptr noundef %381, i32 noundef %380)
+  invoke fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %spc.sroa.2.0, ptr noundef %381, i32 noundef %380)
           to label %for.cond336.preheader unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.cond336.preheader:                            ; preds = %if.end329
@@ -17356,7 +17356,7 @@ cond.end47.i:                                     ; preds = %cond.false41.i, %co
   %cond48.i = phi i32 [ %add.i566, %cond.true38.i ], [ %419, %cond.false41.i ]
   %info.val.i = load ptr, ptr %402, align 8
   %info.val120.i = load i32, ptr %403, align 8
-  %call49.i = call fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi.argprom(ptr %info.val.i, i32 %info.val120.i, i32 noundef %cond48.i)
+  %call49.i = call fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr %info.val.i, i32 %info.val120.i, i32 noundef %cond48.i)
   %x.i = getelementptr inbounds i8, ptr %arrayidx27.i, i64 12
   %420 = load i32, ptr %x.i, align 4
   %add50.i = add nsw i32 %420, %spc.sroa.13.0
@@ -17402,7 +17402,7 @@ cond.end47.i:                                     ; preds = %cond.false41.i, %co
   %mul.i28.i.i = shl nuw i16 %conv.i27.i.i, 8
   %conv2.i29.i.i = zext i8 %add.ptr7.val26.i.i to i16
   %add.i30.i.i524 = or disjoint i16 %mul.i28.i.i, %conv2.i29.i.i
-  call fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.argelim(ptr noundef readonly %arrayidx.i506, i32 noundef %call49.i, float noundef %mul.i525, float noundef %mul59.i, ptr noundef %x0.i, ptr noundef %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
+  call fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef readonly %arrayidx.i506, i32 noundef %call49.i, float noundef %mul.i525, float noundef %mul59.i, ptr noundef %x0.i, ptr noundef %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i)
   %430 = load i32, ptr %x.i, align 4
   %idx.ext.i526 = sext i32 %430 to i64
   %add.ptr.i527 = getelementptr inbounds i8, ptr %396, i64 %idx.ext.i526
@@ -17592,7 +17592,7 @@ if.then.i.i545:                                   ; preds = %_ZL31stbtt_GetGlyph
   %461 = load ptr, ptr %vertices.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %num_points.i.i.i.i)
   %cmp2.i.i.i.i = icmp sgt i32 %call.i.i578, 0
-  br i1 %cmp2.i.i.i.i, label %for.body.preheader.i.i.i.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread.i.i.i
+  br i1 %cmp2.i.i.i.i, label %for.body.preheader.i.i.i.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %if.then.i.i545
   %wide.trip.count.i.i.i.i = zext nneg i32 %call.i.i578 to i64
@@ -17612,7 +17612,7 @@ for.body.i.i.i.i549:                              ; preds = %for.body.i.i.i.i549
 
 for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i549
   %cmp3.i.i.i.i = icmp eq i32 %spec.select.i.i.i.i, 0
-  br i1 %cmp3.i.i.i.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread.i.i.i, label %if.end5.i.i.i.i
+  br i1 %cmp3.i.i.i.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread.i.i.i, label %if.end5.i.i.i.i
 
 if.end5.i.i.i.i:                                  ; preds = %for.end.i.i.i.i
   %conv6.i.i.i.i = zext nneg i32 %spec.select.i.i.i.i to i64
@@ -17622,7 +17622,7 @@ if.end5.i.i.i.i:                                  ; preds = %for.end.i.i.i.i
 
 call.i.i.i.i.noexc:                               ; preds = %if.end5.i.i.i.i
   %cmp8.i.i.i.i = icmp eq ptr %call.i.i.i.i579, null
-  br i1 %cmp8.i.i.i.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread.i.i.i, label %for.body13.us.i.i.i.i
+  br i1 %cmp8.i.i.i.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread.i.i.i, label %for.body13.us.i.i.i.i
 
 for.body13.us.i.i.i.i:                            ; preds = %call.i.i.i.i.noexc, %for.cond23.for.end112_crit_edge.us.i.i.i.i
   %463 = phi i32 [ %484, %for.cond23.for.end112_crit_edge.us.i.i.i.i ], [ 0, %call.i.i.i.i.noexc ]
@@ -17701,7 +17701,7 @@ sw.bb55.us.i.i.i.i:                               ; preds = %for.body25.us.i.i.i
   %y68.us.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx27.us.i.i.i.i, i64 2
   %476 = load i16, ptr %y68.us.i.i.i.i, align 2
   %conv69.us.i.i.i.i = sitofp i16 %476 to float
-  call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi.argelim(ptr noundef %points.1.us.i.i.i.i, ptr noundef %num_points.i.i.i.i, float noundef %x.09.us.i.i.i.i, float noundef %y.010.us.i.i.i.i, float noundef %conv58.us.i.i.i.i, float noundef %conv61.us.i.i.i.i, float noundef %conv65.us.i.i.i.i, float noundef %conv69.us.i.i.i.i, float noundef %mul.i.i.i.i548, i32 noundef 0)
+  call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %points.1.us.i.i.i.i, ptr noundef %num_points.i.i.i.i, float noundef %x.09.us.i.i.i.i, float noundef %y.010.us.i.i.i.i, float noundef %conv58.us.i.i.i.i, float noundef %conv61.us.i.i.i.i, float noundef %conv65.us.i.i.i.i, float noundef %conv69.us.i.i.i.i, float noundef %mul.i.i.i.i548, i32 noundef 0)
   %477 = load i16, ptr %arrayidx27.us.i.i.i.i, align 2
   %conv74.us.i.i.i.i = sitofp i16 %477 to float
   %478 = load i16, ptr %y68.us.i.i.i.i, align 2
@@ -17773,7 +17773,7 @@ for.cond23.for.end112_crit_edge.us.i.i.i.i:       ; preds = %for.inc110.us.i.i.i
   %idxprom114.us.i.i.i.i = sext i32 %n.3.us.i.i.i.i to i64
   %arrayidx115.us.i.i.i.i = getelementptr inbounds i32, ptr %call.i.i.i.i579, i64 %idxprom114.us.i.i.i.i
   store i32 %sub113.us.i.i.i.i, ptr %arrayidx115.us.i.i.i.i, align 4
-  br i1 %cmp12.us.i.i.i.i, label %for.body13.us.i.i.i.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.i.i.i, !llvm.loop !70
+  br i1 %cmp12.us.i.i.i.i, label %for.body13.us.i.i.i.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i, !llvm.loop !70
 
 error.i.i.i.i:                                    ; preds = %call18.us.i.i.i.i.noexc
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef null)
@@ -17781,19 +17781,19 @@ error.i.i.i.i:                                    ; preds = %call18.us.i.i.i.i.n
 
 .noexc581:                                        ; preds = %error.i.i.i.i
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %call.i.i.i.i579)
-          to label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread.i.i.i unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread.i.i.i unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread.i.i.i: ; preds = %.noexc581, %call.i.i.i.i.noexc, %for.end.i.i.i.i, %if.then.i.i545
+_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread.i.i.i: ; preds = %.noexc581, %call.i.i.i.i.noexc, %for.end.i.i.i.i, %if.then.i.i545
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num_points.i.i.i.i)
   br label %_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i
 
-_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.i.i.i: ; preds = %for.cond23.for.end112_crit_edge.us.i.i.i.i
+_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %for.cond23.for.end112_crit_edge.us.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num_points.i.i.i.i)
   br i1 %tobool.not.i75.us.i.i.i.i, label %_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i, label %for.body.i11.i.i.i
 
-for.body.i11.i.i.i:                               ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.i.i.i, %for.body.i11.i.i.i
-  %indvars.iv.i12.i.i.i = phi i64 [ %indvars.iv.next.i13.i.i.i, %for.body.i11.i.i.i ], [ 0, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.i.i.i ]
-  %n.05.i.i.i.i = phi i32 [ %add.i.i.i.i554, %for.body.i11.i.i.i ], [ 0, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.i.i.i ]
+for.body.i11.i.i.i:                               ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i, %for.body.i11.i.i.i
+  %indvars.iv.i12.i.i.i = phi i64 [ %indvars.iv.next.i13.i.i.i, %for.body.i11.i.i.i ], [ 0, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i ]
+  %n.05.i.i.i.i = phi i32 [ %add.i.i.i.i554, %for.body.i11.i.i.i ], [ 0, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i ]
   %arrayidx.i.i.i.i553 = getelementptr inbounds i32, ptr %call.i.i.i.i579, i64 %indvars.iv.i12.i.i.i
   %485 = load i32, ptr %arrayidx.i.i.i.i553, align 4
   %add.i.i.i.i554 = add nsw i32 %485, %n.05.i.i.i.i
@@ -17810,7 +17810,7 @@ for.end.i15.i.i.i:                                ; preds = %for.body.i11.i.i.i
 
 call.i16.i.i.i.noexc:                             ; preds = %for.end.i15.i.i.i
   %cmp2.i17.i.i.i = icmp eq ptr %call.i16.i.i.i583, null
-  br i1 %cmp2.i17.i.i.i, label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.argprom.exit.i.i.i, label %for.body5.i.i.i.i
+  br i1 %cmp2.i17.i.i.i, label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit.i.i.i, label %for.body5.i.i.i.i
 
 for.body5.i.i.i.i:                                ; preds = %call.i16.i.i.i.noexc, %for.inc80.i.i.i.i
   %indvars.iv21.i.i.i.i = phi i64 [ %indvars.iv.next22.i.i.i.i, %for.inc80.i.i.i.i ], [ 0, %call.i16.i.i.i.noexc ]
@@ -17990,7 +17990,7 @@ if.end.i.i.i.i.i555:                              ; preds = %if.then.i.i.i.i.i, 
   %y0.i.i.i.i.i = getelementptr inbounds %struct.stbtt__edge, ptr %call.i16.i.i.i583, i64 %idxprom.i.i.i.i.i556, i32 1
   store float %add6.i.i.i.i.i, ptr %y0.i.i.i.i.i, align 4
   %cmp826.i.i.i.i.i = icmp ult i32 %sub71.i, 2147483647
-  br i1 %cmp826.i.i.i.i.i, label %while.body.lr.ph.i.i.i.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i.i.i.i
+  br i1 %cmp826.i.i.i.i.i, label %while.body.lr.ph.i.i.i.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i.i.i.i
 
 while.body.lr.ph.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i555
   %cmp39.i.i.i.i.i = icmp ne i32 %iy0.i.0.i, 0
@@ -19916,7 +19916,7 @@ while.end82.i.i.i.i.i:                            ; preds = %while.body78.i.i.i.
 
 while.end85.i.i.i.i.i:                            ; preds = %while.end82.i.i.i.i.i
   %tobool.not1.i.i.i.i.i.i = icmp eq ptr %hh.sroa.0.1.lcssa.i.i.i.i.i, null
-  br i1 %tobool.not1.i.i.i.i.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i.i.i.i, label %while.body.i.i62.i.i.i.i
+  br i1 %tobool.not1.i.i.i.i.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i.i.i.i, label %while.body.i.i62.i.i.i.i
 
 while.body.i.i62.i.i.i.i:                         ; preds = %while.end85.i.i.i.i.i, %.noexc586
   %c.02.i.i.i.i.i.i = phi ptr [ %708, %.noexc586 ], [ %hh.sroa.0.1.lcssa.i.i.i.i.i, %while.end85.i.i.i.i.i ]
@@ -19926,31 +19926,31 @@ while.body.i.i62.i.i.i.i:                         ; preds = %while.end85.i.i.i.i
 
 .noexc586:                                        ; preds = %while.body.i.i62.i.i.i.i
   %tobool.not.i70.i.i.i.i.i = icmp eq ptr %708, null
-  br i1 %tobool.not.i70.i.i.i.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i.i.i.i, label %while.body.i.i62.i.i.i.i, !llvm.loop !84
+  br i1 %tobool.not.i70.i.i.i.i.i, label %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i.i.i.i, label %while.body.i.i62.i.i.i.i, !llvm.loop !84
 
-_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i.i.i.i: ; preds = %.noexc586, %while.end85.i.i.i.i.i, %if.end.i.i.i.i.i555
+_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i.i.i.i: ; preds = %.noexc586, %while.end85.i.i.i.i.i, %if.end.i.i.i.i.i555
   %cmp87.not.i.i.i.i.i = icmp eq ptr %scanline.0.i.i.i.i.i, %scanline_data.i.i.i.i.i
-  br i1 %cmp87.not.i.i.i.i.i, label %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.argprom.exit.i.i.i.i, label %if.then88.i.i.i.i.i
+  br i1 %cmp87.not.i.i.i.i.i, label %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i.i.i.i, label %if.then88.i.i.i.i.i
 
-if.then88.i.i.i.i.i:                              ; preds = %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i.i.i.i
+if.then88.i.i.i.i.i:                              ; preds = %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i.i.i.i
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef %scanline.0.i.i.i.i.i)
-          to label %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.argprom.exit.i.i.i.i unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i.i.i.i unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.argprom.exit.i.i.i.i: ; preds = %if.then88.i.i.i.i.i, %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.argprom.exit.i.i.i.i.i
+_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i.i.i.i: ; preds = %if.then88.i.i.i.i.i, %_ZL20stbtt__hheap_cleanupP12stbtt__hheapPv.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %active.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %scanline_data.i.i.i.i.i)
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %call.i16.i.i.i583)
-          to label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.argprom.exit.i.i.i unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit.i.i.i unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.argprom.exit.i.i.i: ; preds = %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.argprom.exit.i.i.i.i, %call.i16.i.i.i.noexc
+_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit.i.i.i: ; preds = %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i.i.i.i, %call.i16.i.i.i.noexc
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %call.i.i.i.i579)
           to label %.noexc589 unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc589:                                        ; preds = %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.argprom.exit.i.i.i
+.noexc589:                                        ; preds = %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit.i.i.i
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %points.1.us.i.i.i.i)
           to label %_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i: ; preds = %.noexc589, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.i.i.i, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.argprom.exit.thread.i.i.i, %_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i
+_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i: ; preds = %.noexc589, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread.i.i.i, %_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i
   %709 = load ptr, ptr %vertices.i.i, align 8
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef %709)
           to label %.noexc591 unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -21296,7 +21296,7 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %invoke.cont
   %12 = phi i32 [ %.pre, %for.end.loopexit ], [ %0, %invoke.cont ]
   %13 = phi ptr [ %8, %for.end.loopexit ], [ %call.i.i22, %invoke.cont ]
-  invoke fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti.retelim(ptr noundef %stbrp_context_opaque, ptr noundef nonnull %13, i32 noundef %12)
+  invoke fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %stbrp_context_opaque, ptr noundef nonnull %13, i32 noundef %12)
           to label %for.cond21.preheader unwind label %lpad
 
 for.cond21.preheader:                             ; preds = %for.end
@@ -21368,7 +21368,7 @@ _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %for.end50, %if.then
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti.retelim(ptr noundef %context, ptr noundef %rects, i32 noundef %num_rects) unnamed_addr #28 {
+define internal fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %context, ptr noundef %rects, i32 noundef %num_rects) unnamed_addr #28 {
 entry:
   %cmp58 = icmp sgt i32 %num_rects, 0
   br i1 %cmp58, label %for.body.preheader, label %for.end
@@ -21513,9 +21513,9 @@ if.end35.i.us.i.i:                                ; preds = %if.then11.i.us.i.i,
   %waste_area.1.i.us.i.i = add nsw i32 %mul.pn.i.us.i.i, %waste_area.05.i.us.i.i
   %visited_width.1.i.us.i.i = add nsw i32 %sub13.pn.i.us.i.i, %visited_width.04.i.us.i.i
   %cmp.i.us.i.i = icmp slt i32 %15, %add8112.us.i.i
-  br i1 %cmp.i.us.i.i, label %while.body.i.us.i.i, label %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit.loopexit.us.i.i, !llvm.loop !108
+  br i1 %cmp.i.us.i.i, label %while.body.i.us.i.i, label %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit.loopexit.us.i.i, !llvm.loop !108
 
-if.else.us.i.i:                                   ; preds = %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit.loopexit.us.i.i
+if.else.us.i.i:                                   ; preds = %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit.loopexit.us.i.i
   %add18.us.i.i = add nsw i32 %min_y.1.i.us.i.i, %2
   %cmp20.not.us.i.i = icmp sgt i32 %add18.us.i.i, %5
   br i1 %cmp20.not.us.i.i, label %if.end29.us.i.i, label %if.then21.us.i.i
@@ -21533,7 +21533,7 @@ lor.lhs.false23.us.i.i:                           ; preds = %if.then21.us.i.i
 if.then26.us.i.i:                                 ; preds = %lor.lhs.false23.us.i.i, %if.then21.us.i.i
   br label %if.end29.us.i.i
 
-if.then14.us.i.i:                                 ; preds = %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit.loopexit.us.i.i
+if.then14.us.i.i:                                 ; preds = %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit.loopexit.us.i.i
   %cmp15.us.i.i = icmp slt i32 %min_y.1.i.us.i.i, %best_y.0108.us.i.i
   %spec.select.us.i.i = tail call i32 @llvm.smin.i32(i32 %min_y.1.i.us.i.i, i32 %best_y.0108.us.i.i)
   %spec.select61.us.i.i = select i1 %cmp15.us.i.i, ptr %prev.0109.us.i.i, ptr %best.0110.us.i.i
@@ -21550,7 +21550,7 @@ if.end29.us.i.i:                                  ; preds = %if.then14.us.i.i, %
   %cmp10.not.us.i.i = icmp sgt i32 %add8.us.i.i, %4
   br i1 %cmp10.not.us.i.i, label %while.end.i.i, label %while.body.us.i.i, !llvm.loop !109
 
-_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit.loopexit.us.i.i: ; preds = %if.end35.i.us.i.i
+_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit.loopexit.us.i.i: ; preds = %if.end35.i.us.i.i
   br i1 %cmp13.i.i, label %if.then14.us.i.i, label %if.else.us.i.i
 
 while.body.lr.ph.split.i.i:                       ; preds = %while.body.lr.ph.i.i
@@ -21650,7 +21650,7 @@ while.cond53.i.i:                                 ; preds = %while.cond53.i.i, %
 do.end62.i.i:                                     ; preds = %while.cond53.i.i
   %26 = load i32, ptr %node.2.i.i, align 8
   %cmp1.i65.i.i = icmp slt i32 %26, %23
-  br i1 %cmp1.i65.i.i, label %while.body.i68.i.i, label %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit100.i.i
+  br i1 %cmp1.i65.i.i, label %while.body.i68.i.i, label %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i
 
 while.body.i68.i.i:                               ; preds = %do.end62.i.i, %if.end35.i84.i.i
   %27 = phi i32 [ %33, %if.end35.i84.i.i ], [ %26, %do.end62.i.i ]
@@ -21702,9 +21702,9 @@ if.end35.i84.i.i:                                 ; preds = %if.else20.i75.i.i, 
   %waste_area.1.i88.i.i = add nsw i32 %mul.pn.i87.i.i, %waste_area.05.i69.i.i
   %visited_width.1.i89.i.i = add nsw i32 %sub13.pn.i86.i.i, %visited_width.04.i70.i.i
   %cmp.i90.i.i = icmp slt i32 %33, %23
-  br i1 %cmp.i90.i.i, label %while.body.i68.i.i, label %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit100.i.i, !llvm.loop !108
+  br i1 %cmp.i90.i.i, label %while.body.i68.i.i, label %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i, !llvm.loop !108
 
-_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit100.i.i: ; preds = %if.end35.i84.i.i, %do.end62.i.i
+_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i: ; preds = %if.end35.i84.i.i, %do.end62.i.i
   %min_y.0.lcssa.i66.i.i = phi i32 [ 0, %do.end62.i.i ], [ %min_y.1.i85.i.i, %if.end35.i84.i.i ]
   %waste_area.0.lcssa.i67.i.i = phi i32 [ 0, %do.end62.i.i ], [ %waste_area.1.i88.i.i, %if.end35.i84.i.i ]
   %add64.i.i = add nsw i32 %min_y.0.lcssa.i66.i.i, %2
@@ -21713,7 +21713,7 @@ _ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit100.
   %or.cond62.i.i = select i1 %cmp66.not.i.i, i1 true, i1 %cmp68.not.i.i
   br i1 %or.cond62.i.i, label %if.end80.i.i, label %if.then69.i.i
 
-if.then69.i.i:                                    ; preds = %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit100.i.i
+if.then69.i.i:                                    ; preds = %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i
   %cmp70.i.i = icmp slt i32 %min_y.0.lcssa.i66.i.i, %best_y.3166.i.i
   %cmp72.i.i = icmp slt i32 %waste_area.0.lcssa.i67.i.i, %best_waste.2164.i.i
   %or.cond103.i.i = select i1 %cmp70.i.i, i1 true, i1 %cmp72.i.i
@@ -21728,11 +21728,11 @@ lor.lhs.false73.i.i:                              ; preds = %if.then69.i.i
 if.then77.i.i:                                    ; preds = %lor.lhs.false73.i.i, %if.then69.i.i
   br label %if.end80.i.i
 
-if.end80.i.i:                                     ; preds = %if.then77.i.i, %lor.lhs.false73.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit100.i.i
-  %best_waste.3.i.i = phi i32 [ %waste_area.0.lcssa.i67.i.i, %if.then77.i.i ], [ %best_waste.2164.i.i, %lor.lhs.false73.i.i ], [ %best_waste.2164.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit100.i.i ]
-  %best_x.2.i.i = phi i32 [ %sub48.i.i, %if.then77.i.i ], [ %best_x.1165.i.i, %lor.lhs.false73.i.i ], [ %best_x.1165.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit100.i.i ]
-  %best_y.4.i.i = phi i32 [ %min_y.0.lcssa.i66.i.i, %if.then77.i.i ], [ %best_y.3166.i.i, %lor.lhs.false73.i.i ], [ %best_y.3166.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit100.i.i ]
-  %best.4.i.i = phi ptr [ %prev.2.i.i, %if.then77.i.i ], [ %best.3170.i.i, %lor.lhs.false73.i.i ], [ %best.3170.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.argprom.exit100.i.i ]
+if.end80.i.i:                                     ; preds = %if.then77.i.i, %lor.lhs.false73.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i
+  %best_waste.3.i.i = phi i32 [ %waste_area.0.lcssa.i67.i.i, %if.then77.i.i ], [ %best_waste.2164.i.i, %lor.lhs.false73.i.i ], [ %best_waste.2164.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i ]
+  %best_x.2.i.i = phi i32 [ %sub48.i.i, %if.then77.i.i ], [ %best_x.1165.i.i, %lor.lhs.false73.i.i ], [ %best_x.1165.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i ]
+  %best_y.4.i.i = phi i32 [ %min_y.0.lcssa.i66.i.i, %if.then77.i.i ], [ %best_y.3166.i.i, %lor.lhs.false73.i.i ], [ %best_y.3166.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i ]
+  %best.4.i.i = phi ptr [ %prev.2.i.i, %if.then77.i.i ], [ %best.3170.i.i, %lor.lhs.false73.i.i ], [ %best.3170.i.i, %_ZL25stbrp__skyline_find_min_yP13stbrp_contextP10stbrp_nodeiiPi.exit100.i.i ]
   %next81.i.i = getelementptr inbounds i8, ptr %tail.1169.i.i, i64 8
   %35 = load ptr, ptr %next81.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %35, null
@@ -26601,7 +26601,7 @@ declare noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef, i32 noundef) local_un
 declare <4 x float> @llvm.x86.sse.rsqrt.ss(<4 x float>) #33
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi.argprom(ptr readonly %info.8.val, i32 %info.56.val, i32 noundef %unicode_codepoint) unnamed_addr #31 {
+define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr readonly %info.8.val, i32 %info.56.val, i32 noundef %unicode_codepoint) unnamed_addr #31 {
 entry:
   %idx.ext = zext i32 %info.56.val to i64
   %add.ptr = getelementptr inbounds i8, ptr %info.8.val, i64 %idx.ext
@@ -26978,7 +26978,7 @@ return:                                           ; preds = %if.end250, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.argelim(ptr nocapture noundef nonnull readonly %font, i32 noundef %glyph, float noundef %scale_x, float noundef %scale_y, ptr nocapture noundef nonnull writeonly %ix0, ptr nocapture noundef nonnull writeonly %iy0, ptr noundef writeonly %ix1, ptr noundef writeonly %iy1) unnamed_addr #18 {
+define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr nocapture noundef nonnull readonly %font, i32 noundef %glyph, float noundef %scale_x, float noundef %scale_y, ptr nocapture noundef nonnull writeonly %ix0, ptr nocapture noundef nonnull writeonly %iy0, ptr noundef writeonly %ix1, ptr noundef writeonly %iy1) unnamed_addr #18 {
 entry:
   %c.i.i = alloca %struct.stbtt__csctx, align 8
   %size.i = getelementptr inbounds i8, ptr %font, i64 76
@@ -30757,7 +30757,7 @@ return:                                           ; preds = %_ZL22stbtt__GetGlyp
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi.argelim(ptr noundef %points, ptr nocapture noundef nonnull %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #34 {
+define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %points, ptr nocapture noundef nonnull %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #34 {
 entry:
   %cmp44 = icmp sgt i32 %n, 16
   br i1 %cmp44, label %return, label %if.end.preheader
@@ -30796,7 +30796,7 @@ if.then10:                                        ; preds = %if.end
   %add13 = fadd float %y0.tr46, %y1.tr48
   %div14 = fmul float %add13, 5.000000e-01
   %add15 = add i32 %n.tr49, 1
-  tail call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi.argelim(ptr noundef %points, ptr noundef %num_points, float noundef %x0.tr45, float noundef %y0.tr46, float noundef %div12, float noundef %div14, float noundef %div51, float noundef %div252, float noundef %objspace_flatness_squared, i32 noundef %add15)
+  tail call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %points, ptr noundef %num_points, float noundef %x0.tr45, float noundef %y0.tr46, float noundef %div12, float noundef %div14, float noundef %div51, float noundef %div252, float noundef %objspace_flatness_squared, i32 noundef %add15)
   %add16 = fadd float %x2, %x1.tr47
   %div17 = fmul float %add16, 5.000000e-01
   %add18 = fadd float %y2, %y1.tr48

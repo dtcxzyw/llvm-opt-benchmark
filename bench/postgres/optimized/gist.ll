@@ -715,7 +715,7 @@ BufferGetPage.exit.i.i:                           ; preds = %126, %120
   %155 = getelementptr inbounds i8, ptr %154, i64 4
   %156 = load i32, ptr %155, align 4
   call void @LockBuffer(i32 noundef %156, i32 noundef 2) #8
-  call fastcc void @gistFindCorrectParent.argelim(ptr noundef %132, ptr noundef %103)
+  call fastcc void @gistFindCorrectParent(ptr noundef %132, ptr noundef %103)
   %157 = load ptr, ptr %115, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 8
   %159 = load ptr, ptr %158, align 8
@@ -809,7 +809,7 @@ list_length.exit.i:                               ; preds = %gistfixsplit.exit
   %208 = and i64 %207, 4294967295
   %209 = getelementptr %union.ListCell, ptr %.val34.i, i64 %208
   %210 = load ptr, ptr %209, align 8
-  call fastcc void @gistFindCorrectParent.argelim(ptr noundef %.pre140, ptr noundef nonnull %103)
+  call fastcc void @gistFindCorrectParent(ptr noundef %.pre140, ptr noundef nonnull %103)
   %211 = load ptr, ptr %115, align 8
   %212 = getelementptr inbounds i8, ptr %206, i64 8
   %213 = load i32, ptr %210, align 8
@@ -864,7 +864,7 @@ gistfinishsplit.exit:                             ; preds = %225, %gistfixsplit.
   %234 = getelementptr inbounds i8, ptr %230, i64 8
   %235 = load ptr, ptr %234, align 8
   store ptr %235, ptr %25, align 8
-  call fastcc void @gistFindCorrectParent.argelim(ptr noundef %227, ptr noundef nonnull %103)
+  call fastcc void @gistFindCorrectParent(ptr noundef %227, ptr noundef nonnull %103)
   %236 = load ptr, ptr %115, align 8
   %237 = load i16, ptr %116, align 2
   %238 = load i32, ptr %231, align 8
@@ -2454,7 +2454,7 @@ list_length.exit:                                 ; preds = %5
   %23 = getelementptr %union.ListCell, ptr %.val34, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %0, align 8
-  tail call fastcc void @gistFindCorrectParent.argelim(ptr noundef %25, ptr noundef nonnull %1)
+  tail call fastcc void @gistFindCorrectParent(ptr noundef %25, ptr noundef nonnull %1)
   %26 = load ptr, ptr %7, align 8
   %27 = getelementptr inbounds i8, ptr %20, i64 8
   %28 = load i32, ptr %24, align 8
@@ -2486,7 +2486,7 @@ list_length.exit:                                 ; preds = %5
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %41, ptr %42, align 8
   %43 = load ptr, ptr %0, align 8
-  tail call fastcc void @gistFindCorrectParent.argelim(ptr noundef %43, ptr noundef nonnull %1)
+  tail call fastcc void @gistFindCorrectParent(ptr noundef %43, ptr noundef nonnull %1)
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds i8, ptr %1, i64 26
   %46 = load i16, ptr %45, align 2
@@ -2502,7 +2502,7 @@ list_length.exit:                                 ; preds = %5
 declare ptr @CopyIndexTuple(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gistFindCorrectParent.argelim(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @gistFindCorrectParent(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = getelementptr inbounds i8, ptr %1, i64 26
   br label %tailrecurse

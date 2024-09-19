@@ -1991,7 +1991,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_remove_extent(ptr nou
   %.val = load ptr, ptr %146, align 8
   %147 = getelementptr i8, ptr %.val, i64 872
   %.val.val = load ptr, ptr %147, align 8
-  call fastcc void @count_rsvd.argprom.argprom(ptr %.val.val, i32 noundef %141, i64 noundef %145, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @count_rsvd(ptr %.val.val, i32 noundef %141, i64 noundef %145, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br label %205
 
 148:                                              ; preds = %101
@@ -2005,7 +2005,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_remove_extent(ptr nou
   %.val41 = load ptr, ptr %153, align 8
   %154 = getelementptr i8, ptr %.val41, i64 872
   %.val41.val = load ptr, ptr %154, align 8
-  call fastcc void @count_rsvd.argprom.argprom(ptr %.val41.val, i32 noundef %1, i64 noundef %152, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @count_rsvd(ptr %.val41.val, i32 noundef %1, i64 noundef %152, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br label %155
 
 155:                                              ; preds = %149, %148
@@ -2049,7 +2049,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_remove_extent(ptr nou
   %.val42 = load ptr, ptr %158, align 8
   %176 = getelementptr i8, ptr %.val42, i64 872
   %.val42.val = load ptr, ptr %176, align 8
-  call fastcc void @count_rsvd.argprom.argprom(ptr %.val42.val, i32 noundef %164, i64 noundef %175, ptr noundef nonnull %160, ptr noundef nonnull %7)
+  call fastcc void @count_rsvd(ptr %.val42.val, i32 noundef %164, i64 noundef %175, ptr noundef nonnull %160, ptr noundef nonnull %7)
   br label %177
 
 177:                                              ; preds = %174, %173
@@ -2077,7 +2077,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_remove_extent(ptr nou
   %.val43 = load ptr, ptr %158, align 8
   %190 = getelementptr i8, ptr %.val43, i64 872
   %.val43.val = load ptr, ptr %190, align 8
-  call fastcc void @count_rsvd.argprom.argprom(ptr %.val43.val, i32 noundef %164, i64 noundef %189, ptr noundef nonnull %160, ptr noundef nonnull %7)
+  call fastcc void @count_rsvd(ptr %.val43.val, i32 noundef %164, i64 noundef %189, ptr noundef nonnull %160, ptr noundef nonnull %7)
   br label %191
 
 191:                                              ; preds = %187, %184
@@ -4643,7 +4643,7 @@ declare dso_local void @percpu_counter_add_batch(ptr noundef, i64 noundef, i32 n
 declare dso_local i32 @__SCT__tp_func_ext4_es_lookup_extent_exit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @count_rsvd.argprom.argprom(ptr nocapture readonly %.40.val.872.val, i32 noundef %0, i64 noundef range(i64 0, 4294967296) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc void @count_rsvd(ptr nocapture readonly %.40.val.872.val, i32 noundef %0, i64 noundef range(i64 0, 4294967296) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 3458764513820540928

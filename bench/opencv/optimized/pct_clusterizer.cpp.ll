@@ -1901,7 +1901,7 @@ define internal fastcc noundef float @_ZN2cv11xfeatures2d14pct_signaturesL15comp
 _ZN2cv11xfeatures2d14pct_signaturesL13distanceL0_25ERKNS_3MatEiS4_i.exit: ; preds = %25
   %33 = fmul float %32, %32
   %34 = fmul float %33, %33
-  br label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.argprom.exit
+  br label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.exit
 
 35:                                               ; preds = %5
   %36 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1939,7 +1939,7 @@ _ZN2cv11xfeatures2d14pct_signaturesL13distanceL0_25ERKNS_3MatEiS4_i.exit: ; pred
 
 _ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit: ; preds = %52
   %60 = fmul float %59, %59
-  br label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.argprom.exit
+  br label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.exit
 
 61:                                               ; preds = %5
   %62 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1972,7 +1972,7 @@ _ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit: ; preds
   %81 = fadd float %.06.i, %80
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, 8
-  br i1 %exitcond.not.i59, label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.argprom.exit, label %74, !llvm.loop !47
+  br i1 %exitcond.not.i59, label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.exit, label %74, !llvm.loop !47
 
 82:                                               ; preds = %5
   %83 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2004,11 +2004,11 @@ _ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit: ; preds
   %101 = tail call float @llvm.fmuladd.f32(float %100, float %100, float %.06.i61)
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 8
-  br i1 %exitcond.not.i63, label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.argprom.exit, label %95, !llvm.loop !48
+  br i1 %exitcond.not.i63, label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.exit, label %95, !llvm.loop !48
 
-_ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.argprom.exit: ; preds = %95
+_ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.exit: ; preds = %95
   %102 = tail call noundef float @sqrtf(float noundef %101) #17
-  br label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.argprom.exit
+  br label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.exit
 
 103:                                              ; preds = %5
   %104 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2040,7 +2040,7 @@ _ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.argprom.exit: ;
   %122 = tail call float @llvm.fmuladd.f32(float %121, float %121, float %.06.i65)
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, 8
-  br i1 %exitcond.not.i67, label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.argprom.exit, label %116, !llvm.loop !49
+  br i1 %exitcond.not.i67, label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.exit, label %116, !llvm.loop !49
 
 123:                                              ; preds = %5
   %124 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2076,11 +2076,11 @@ _ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.argprom.exit: ;
   %146 = tail call float @llvm.fmuladd.f32(float %145, float %141, float %.06.i69)
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, 8
-  br i1 %exitcond.not.i71, label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.argprom.exit, label %136, !llvm.loop !50
+  br i1 %exitcond.not.i71, label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.exit, label %136, !llvm.loop !50
 
-_ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.argprom.exit: ; preds = %136
+_ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.exit: ; preds = %136
   %147 = tail call noundef float @powf(float noundef %146, float noundef 0x3FC99999A0000000) #17
-  br label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.argprom.exit
+  br label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.exit
 
 148:                                              ; preds = %5
   %149 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2113,7 +2113,7 @@ _ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.argprom.exit: ;
   %.1.i = select i1 %167, float %166, float %.06.i73
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i72, 1
   %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, 8
-  br i1 %exitcond.not.i75, label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.argprom.exit, label %161, !llvm.loop !51
+  br i1 %exitcond.not.i75, label %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.exit, label %161, !llvm.loop !51
 
 168:                                              ; preds = %5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
@@ -2143,8 +2143,8 @@ _ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.argprom.exit: ;
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
   resume { ptr, i32 } %.pn
 
-_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.argprom.exit: ; preds = %161, %116, %74, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.argprom.exit, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.argprom.exit, %_ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit, %_ZN2cv11xfeatures2d14pct_signaturesL13distanceL0_25ERKNS_3MatEiS4_i.exit
-  %.032 = phi float [ %147, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.argprom.exit ], [ %102, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.argprom.exit ], [ %60, %_ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit ], [ %34, %_ZN2cv11xfeatures2d14pct_signaturesL13distanceL0_25ERKNS_3MatEiS4_i.exit ], [ %81, %74 ], [ %122, %116 ], [ %.1.i, %161 ]
+_ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.exit: ; preds = %161, %116, %74, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.exit, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.exit, %_ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit, %_ZN2cv11xfeatures2d14pct_signaturesL13distanceL0_25ERKNS_3MatEiS4_i.exit
+  %.032 = phi float [ %147, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.exit ], [ %102, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.exit ], [ %60, %_ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit ], [ %34, %_ZN2cv11xfeatures2d14pct_signaturesL13distanceL0_25ERKNS_3MatEiS4_i.exit ], [ %81, %74 ], [ %122, %116 ], [ %.1.i, %161 ]
   ret float %.032
 }
 

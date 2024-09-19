@@ -528,7 +528,7 @@ getParameterStatus.exit211:                       ; preds = %148
   br i1 %171, label %.thread226, label %172
 
 .thread226:                                       ; preds = %159, %169
-  call fastcc void @getRowDescriptions.retelim(ptr noundef nonnull %0, i32 noundef %41)
+  call fastcc void @getRowDescriptions(ptr noundef nonnull %0, i32 noundef %41)
   br label %262
 
 172:                                              ; preds = %169, %167
@@ -688,7 +688,7 @@ getParamDescriptions.exit:                        ; preds = %._crit_edge.i, %.th
   br i1 %233, label %234, label %.thread227
 
 234:                                              ; preds = %230
-  call fastcc void @getAnotherTuple.retelim(ptr noundef nonnull %0, i32 noundef %41)
+  call fastcc void @getAnotherTuple(ptr noundef nonnull %0, i32 noundef %41)
   br label %262
 
 235:                                              ; preds = %228
@@ -1153,7 +1153,7 @@ define internal fastcc range(i32 -1, 1) i32 @getReadyForQuery(ptr noundef %0) un
 declare void @pqCommandQueueAdvance(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getRowDescriptions.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1388,7 +1388,7 @@ define internal fastcc void @getRowDescriptions.retelim(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getAnotherTuple.retelim(ptr noundef %0, i32 noundef range(i32 0, 2147483644) %1) unnamed_addr #0 {
+define internal fastcc void @getAnotherTuple(ptr noundef %0, i32 noundef range(i32 0, 2147483644) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

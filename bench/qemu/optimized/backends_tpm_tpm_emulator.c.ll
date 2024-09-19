@@ -655,13 +655,13 @@ if.then.i:                                        ; preds = %trace_tpm_emulator_
   %7 = load i16, ptr @_TRACE_TPM_EMULATOR_SET_STATE_BLOBS_ERROR_DSTATE, align 2
   %tobool4.i.i12.i = icmp ne i16 %7, 0
   %or.cond.i.i13.i = select i1 %tobool.i.i11.i, i1 %tobool4.i.i12.i, i1 false
-  br i1 %or.cond.i.i13.i, label %land.lhs.true5.i.i14.i, label %trace_tpm_emulator_set_state_blobs_error.argprom.exit.i
+  br i1 %or.cond.i.i13.i, label %land.lhs.true5.i.i14.i, label %trace_tpm_emulator_set_state_blobs_error.exit.i
 
 land.lhs.true5.i.i14.i:                           ; preds = %if.then.i
   %8 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i15.i = and i32 %8, 32768
   %cmp.i.not.i.i16.i = icmp eq i32 %and.i.i.i15.i, 0
-  br i1 %cmp.i.not.i.i16.i, label %trace_tpm_emulator_set_state_blobs_error.argprom.exit.i, label %if.then.i.i17.i
+  br i1 %cmp.i.not.i.i16.i, label %trace_tpm_emulator_set_state_blobs_error.exit.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %land.lhs.true5.i.i14.i
   %9 = load i8, ptr @message_with_timestamp, align 1
@@ -675,13 +675,13 @@ if.then8.i.i20.i:                                 ; preds = %if.then.i.i17.i
   %tv_usec.i.i23.i = getelementptr inbounds i8, ptr %_now.i.i10.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i23.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i22.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.33) #12
-  br label %trace_tpm_emulator_set_state_blobs_error.argprom.exit.i
+  br label %trace_tpm_emulator_set_state_blobs_error.exit.i
 
 if.else.i.i19.i:                                  ; preds = %if.then.i.i17.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.33) #12
-  br label %trace_tpm_emulator_set_state_blobs_error.argprom.exit.i
+  br label %trace_tpm_emulator_set_state_blobs_error.exit.i
 
-trace_tpm_emulator_set_state_blobs_error.argprom.exit.i: ; preds = %if.else.i.i19.i, %if.then8.i.i20.i, %land.lhs.true5.i.i14.i, %if.then.i
+trace_tpm_emulator_set_state_blobs_error.exit.i:  ; preds = %if.else.i.i19.i, %if.then8.i.i20.i, %land.lhs.true5.i.i14.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i10.i)
   br label %return
 
@@ -749,8 +749,8 @@ if.end:                                           ; preds = %if.else.i.i33.i, %i
   %. = select i1 %cmp2, i32 -5, i32 0
   br label %return
 
-return:                                           ; preds = %if.end.i, %lor.lhs.false.i, %lor.lhs.false7.i, %trace_tpm_emulator_set_state_blobs_error.argprom.exit.i, %if.end
-  %retval.0 = phi i32 [ %., %if.end ], [ -5, %trace_tpm_emulator_set_state_blobs_error.argprom.exit.i ], [ -5, %lor.lhs.false7.i ], [ -5, %lor.lhs.false.i ], [ -5, %if.end.i ]
+return:                                           ; preds = %if.end.i, %lor.lhs.false.i, %lor.lhs.false7.i, %trace_tpm_emulator_set_state_blobs_error.exit.i, %if.end
+  %retval.0 = phi i32 [ %., %if.end ], [ -5, %trace_tpm_emulator_set_state_blobs_error.exit.i ], [ -5, %lor.lhs.false7.i ], [ -5, %lor.lhs.false.i ], [ -5, %if.end.i ]
   ret i32 %retval.0
 }
 

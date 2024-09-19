@@ -384,26 +384,26 @@ agxbsizeof.exit.i.i:                              ; preds = %4, %20, %16
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 32
-  %40 = tail call fastcc ptr @pov_color_as_str.argprom(ptr noundef nonnull byval(%struct.color_s) align 8 %39, float noundef 0.000000e+00)
+  %40 = tail call fastcc ptr @pov_color_as_str(ptr noundef nonnull byval(%struct.color_s) align 8 %39, float noundef 0.000000e+00)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %41 = load ptr, ptr %7, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %5, ptr noundef nonnull @.str.27, ptr noundef %42, ptr noundef %43, double noundef 2.500000e-01, double noundef 0.000000e+00)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull @.str.27, ptr noundef %42, ptr noundef %43, double noundef 2.500000e-01, double noundef 0.000000e+00)
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 24
   %46 = load double, ptr %45, align 8
   %47 = load double, ptr %28, align 8
   %48 = fmul double %46, %47
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %5, ptr noundef nonnull @.str.28, double noundef %48)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull @.str.28, double noundef %48)
   %49 = getelementptr inbounds i8, ptr %0, i64 480
   %50 = load i32, ptr %49, align 8
   %51 = sitofp i32 %50 to float
   %52 = fpext float %51 to double
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %5, ptr noundef nonnull @.str.29, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %52)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull @.str.29, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %52)
   %53 = load i32, ptr @z, align 4
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %5, ptr noundef nonnull @.str.30, double noundef %30, double noundef %36, i32 noundef %53)
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %5, ptr noundef nonnull @.str.31, ptr noundef %40)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull @.str.30, double noundef %30, double noundef %36, i32 noundef %53)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull @.str.31, ptr noundef %40)
   %54 = getelementptr inbounds i8, ptr %5, i64 31
   %.val.i.i.i = load i8, ptr %54, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -458,14 +458,14 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %73 = call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %72) #17
   %.val25 = load i8, ptr %54, align 1
   %74 = icmp eq i8 %.val25, -1
-  br i1 %74, label %75, label %agxbfree.argprom.exit
+  br i1 %74, label %75, label %agxbfree.exit
 
 75:                                               ; preds = %agxbuse.exit
   %.val = load ptr, ptr %5, align 8
   call void @free(ptr noundef %.val) #17
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %agxbuse.exit, %75
+agxbfree.exit:                                    ; preds = %agxbuse.exit, %75
   call void @free(ptr noundef %40) #17
   ret void
 }
@@ -516,24 +516,24 @@ agxbsizeof.exit.i.i:
   %42 = fmul double %41, 5.000000e+00
   %43 = fptrunc double %42 to float
   %44 = getelementptr inbounds i8, ptr %35, i64 32
-  %45 = tail call fastcc ptr @pov_color_as_str.argprom(ptr noundef nonnull byval(%struct.color_s) align 8 %44, float noundef 0.000000e+00)
+  %45 = tail call fastcc ptr @pov_color_as_str(ptr noundef nonnull byval(%struct.color_s) align 8 %44, float noundef 0.000000e+00)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %46 = fpext float %43 to double
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %3, ptr noundef nonnull @.str.45, double noundef 1.000000e+00, double noundef %46)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.45, double noundef 1.000000e+00, double noundef %46)
   %47 = fpext float %28 to double
   %48 = fmul double %39, 2.500000e-01
   %49 = fpext float %33 to double
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %3, ptr noundef nonnull @.str.46, double noundef %47, double noundef %48, double noundef %49)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.46, double noundef %47, double noundef %48, double noundef %49)
   %50 = getelementptr inbounds i8, ptr %0, i64 480
   %51 = load i32, ptr %50, align 8
   %52 = sitofp i32 %51 to float
   %53 = fpext float %52 to double
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %3, ptr noundef nonnull @.str.29, double noundef 9.000000e+01, double noundef 0.000000e+00, double noundef %53)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.29, double noundef 9.000000e+01, double noundef 0.000000e+00, double noundef %53)
   %54 = fpext float %14 to double
   %55 = fpext float %23 to double
   %56 = load i32, ptr @z, align 4
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %3, ptr noundef nonnull @.str.30, double noundef %54, double noundef %55, i32 noundef %56)
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %3, ptr noundef nonnull @.str.31, ptr noundef %45)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.30, double noundef %54, double noundef %55, i32 noundef %56)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.31, ptr noundef %45)
   %57 = getelementptr inbounds i8, ptr %3, i64 31
   %.val.i.i.i = load i8, ptr %57, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -593,7 +593,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 77:                                               ; preds = %agxbuse.exit
   %78 = load ptr, ptr %34, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 72
-  %80 = call fastcc ptr @pov_color_as_str.argprom(ptr noundef nonnull byval(%struct.color_s) align 8 %79, float noundef 0.000000e+00)
+  %80 = call fastcc ptr @pov_color_as_str(ptr noundef nonnull byval(%struct.color_s) align 8 %79, float noundef 0.000000e+00)
   call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.47, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #17
   call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.46, double noundef %47, double noundef %49, double noundef 1.000000e+00) #17
   %81 = load i32, ptr %50, align 8
@@ -609,14 +609,14 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 85:                                               ; preds = %77, %agxbuse.exit
   %.val43 = load i8, ptr %57, align 1
   %86 = icmp eq i8 %.val43, -1
-  br i1 %86, label %87, label %agxbfree.argprom.exit
+  br i1 %86, label %87, label %agxbfree.exit
 
 87:                                               ; preds = %85
   %.val = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val) #17
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %85, %87
+agxbfree.exit:                                    ; preds = %85, %87
   ret void
 }
 
@@ -629,7 +629,7 @@ define internal void @pov_polygon(ptr noundef %0, ptr nocapture noundef readonly
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
-  %11 = tail call fastcc ptr @pov_color_as_str.argprom(ptr noundef nonnull byval(%struct.color_s) align 8 %10, float noundef 0.000000e+00)
+  %11 = tail call fastcc ptr @pov_color_as_str(ptr noundef nonnull byval(%struct.color_s) align 8 %10, float noundef 0.000000e+00)
   %12 = add i64 %2, 1
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i64 noundef %12) #17
   %.not63 = icmp eq i64 %2, 0
@@ -694,7 +694,7 @@ define internal void @pov_polygon(ptr noundef %0, ptr nocapture noundef readonly
 51:                                               ; preds = %._crit_edge
   %52 = load ptr, ptr %8, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 72
-  %54 = tail call fastcc ptr @pov_color_as_str.argprom(ptr noundef nonnull byval(%struct.color_s) align 8 %53, float noundef 2.500000e-01)
+  %54 = tail call fastcc ptr @pov_color_as_str(ptr noundef nonnull byval(%struct.color_s) align 8 %53, float noundef 2.500000e-01)
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.53, i64 noundef %2) #17
   br i1 %.not63, label %._crit_edge62, label %.lr.ph61
 
@@ -743,10 +743,10 @@ define internal void @pov_bezier(ptr noundef %0, ptr nocapture noundef readonly 
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 72
-  %12 = tail call fastcc ptr @pov_color_as_str.argprom(ptr noundef nonnull byval(%struct.color_s) align 8 %11, float noundef 0.000000e+00)
+  %12 = tail call fastcc ptr @pov_color_as_str(ptr noundef nonnull byval(%struct.color_s) align 8 %11, float noundef 0.000000e+00)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %13 = add i64 %2, 2
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %5, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.57, i64 noundef %13)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.57, i64 noundef %13)
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %agxbsizeof.exit.i.i, label %.lr.ph
 
@@ -768,7 +768,7 @@ define internal void @pov_bezier(ptr noundef %0, ptr nocapture noundef readonly 
   %25 = load ptr, ptr %9, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 168
   %27 = load double, ptr %26, align 8
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %5, ptr noundef nonnull @.str.51, double noundef %20, double noundef %24, double noundef 0.000000e+00, double noundef %27)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull @.str.51, double noundef %20, double noundef %24, double noundef 0.000000e+00, double noundef %27)
   %28 = icmp eq i64 %.036, 0
   %29 = add nuw i64 %.036, 1
   %30 = icmp eq i64 %29, %2
@@ -785,7 +785,7 @@ define internal void @pov_bezier(ptr noundef %0, ptr nocapture noundef readonly 
   %38 = load ptr, ptr %9, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 168
   %40 = load double, ptr %39, align 8
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %5, ptr noundef nonnull @.str.51, double noundef %34, double noundef %37, double noundef 0.000000e+00, double noundef %40)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull @.str.51, double noundef %34, double noundef %37, double noundef 0.000000e+00, double noundef %40)
   br label %41
 
 41:                                               ; preds = %16, %31
@@ -862,14 +862,14 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   call void @free(ptr noundef %12) #17
   %.val35 = load i8, ptr %42, align 1
   %71 = icmp eq i8 %.val35, -1
-  br i1 %71, label %72, label %agxbfree.argprom.exit
+  br i1 %71, label %72, label %agxbfree.exit
 
 72:                                               ; preds = %agxbuse.exit
   %.val = load ptr, ptr %5, align 8
   call void @free(ptr noundef %.val) #17
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %agxbuse.exit, %72
+agxbfree.exit:                                    ; preds = %agxbuse.exit, %72
   ret void
 }
 
@@ -882,7 +882,7 @@ define internal void @pov_polyline(ptr noundef %0, ptr nocapture noundef readonl
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 32
-  %10 = tail call fastcc ptr @pov_color_as_str.argprom(ptr noundef nonnull byval(%struct.color_s) align 8 %9, float noundef 0.000000e+00)
+  %10 = tail call fastcc ptr @pov_color_as_str(ptr noundef nonnull byval(%struct.color_s) align 8 %9, float noundef 0.000000e+00)
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i64 noundef %2) #17
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -948,7 +948,7 @@ declare double @atan(double noundef) local_unnamed_addr #2
 declare double @llvm.maxnum.f64(double, double) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pov_color_as_str.argprom(ptr nocapture noundef readonly byval(%struct.color_s) align 8 %0, float noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @pov_color_as_str(ptr nocapture noundef readonly byval(%struct.color_s) align 8 %0, float noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.agxbuf, align 8
   %4 = alloca %struct.agxbuf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -967,7 +967,7 @@ define internal fastcc ptr @pov_color_as_str.argprom(ptr nocapture noundef reado
 
 10:                                               ; preds = %7
   %11 = fpext float %1 to double
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, double noundef %11)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, double noundef %11)
   br label %agxbsizeof.exit.i.i
 
 12:                                               ; preds = %7
@@ -977,7 +977,7 @@ define internal fastcc ptr @pov_color_as_str.argprom(ptr nocapture noundef reado
 
 14:                                               ; preds = %12
   %15 = fpext float %1 to double
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.36, double noundef %15)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.36, double noundef %15)
   br label %agxbsizeof.exit.i.i
 
 16:                                               ; preds = %12
@@ -987,11 +987,11 @@ define internal fastcc ptr @pov_color_as_str.argprom(ptr nocapture noundef reado
   br i1 %.not6, label %19, label %20
 
 19:                                               ; preds = %16
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.38, double noundef %18)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.38, double noundef %18)
   br label %agxbsizeof.exit.i.i
 
 20:                                               ; preds = %16
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef %8, double noundef %18)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef %8, double noundef %18)
   br label %agxbsizeof.exit.i.i
 
 21:                                               ; preds = %2
@@ -1007,7 +1007,7 @@ define internal fastcc ptr @pov_color_as_str.argprom(ptr nocapture noundef reado
   %31 = uitofp i8 %30 to double
   %32 = fmul double %31, 3.906250e-03
   %33 = fpext float %1 to double
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %3, ptr noundef nonnull @.str.39, double noundef %24, double noundef %28, double noundef %32, double noundef %33)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.39, double noundef %24, double noundef %28, double noundef %32, double noundef %33)
   br label %agxbsizeof.exit.i.i
 
 34:                                               ; preds = %2
@@ -1069,23 +1069,23 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
 
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %54
   %56 = phi ptr [ %55, %54 ], [ %3, %agxbclear.exit.thread.i ]
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %4, ptr noundef nonnull @.str.41, ptr noundef %56)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.41, ptr noundef %56)
   %.val7 = load i8, ptr %38, align 1
   %57 = icmp eq i8 %.val7, -1
-  br i1 %57, label %58, label %agxbfree.argprom.exit
+  br i1 %57, label %58, label %agxbfree.exit
 
 58:                                               ; preds = %agxbuse.exit
   %.val = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val) #17
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %agxbuse.exit, %58
+agxbfree.exit:                                    ; preds = %agxbuse.exit, %58
   %59 = getelementptr inbounds i8, ptr %4, i64 31
   %.val.i = load i8, ptr %59, align 1
   %.not.i = icmp eq i8 %.val.i, -1
   br i1 %.not.i, label %agxbsizeof.exit.i.i8, label %agxblen.exit.i
 
-agxblen.exit.i:                                   ; preds = %agxbfree.argprom.exit
+agxblen.exit.i:                                   ; preds = %agxbfree.exit
   %60 = zext i8 %.val.i to i64
   %61 = call noalias ptr @strndup(ptr noundef nonnull readonly %4, i64 noundef %60) #17
   %62 = icmp eq ptr %61, null
@@ -1095,10 +1095,10 @@ agxblen.exit.i:                                   ; preds = %agxbfree.argprom.ex
   %64 = load ptr, ptr @stderr, align 8
   %65 = add nuw nsw i64 %60, 1
   %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.42, i64 noundef %65) #19
-  call fastcc void @graphviz_exit.argelim() #20
+  call fastcc void @graphviz_exit() #20
   unreachable
 
-agxbsizeof.exit.i.i8:                             ; preds = %agxbfree.argprom.exit
+agxbsizeof.exit.i.i8:                             ; preds = %agxbfree.exit
   %67 = getelementptr inbounds i8, ptr %4, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1142,7 +1142,7 @@ agxbdisown.exit:                                  ; preds = %agxblen.exit.i, %ag
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -1250,7 +1250,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #9 {
+define internal fastcc void @graphviz_exit() unnamed_addr #9 {
   tail call void @exit(i32 noundef 1) #21
   unreachable
 }
@@ -1290,7 +1290,7 @@ agxbsizeof.exit:                                  ; preds = %2
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.42, i64 noundef %spec.select33) #19
-  tail call fastcc void @graphviz_exit.argelim() #20
+  tail call fastcc void @graphviz_exit() #20
   unreachable
 
 18:                                               ; preds = %12
@@ -1313,7 +1313,7 @@ agxbsizeof.exit:                                  ; preds = %2
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.42, i64 noundef %spec.select) #19
-  tail call fastcc void @graphviz_exit.argelim() #20
+  tail call fastcc void @graphviz_exit() #20
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23

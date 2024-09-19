@@ -2308,7 +2308,7 @@ for.body.i:                                       ; preds = %invoke.cont14, %cal
   %__first.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %call2.i.i.i.noexc ], [ %17, %invoke.cont14 ]
   %19 = load ptr, ptr %__first.sroa.0.06.i, align 8, !tbaa !106
   %cmp.not.i.i.i.i = icmp eq ptr %19, null
-  br i1 %cmp.not.i.i.i.i, label %cond.false.i.i.i.i, label %"_ZZN8QuantLib24GridModelLocalVolSurface17generateArgumentsEvENK3$_0clERKNS_9ParameterE.argprom.exit.i", !prof !56
+  br i1 %cmp.not.i.i.i.i, label %cond.false.i.i.i.i, label %"_ZZN8QuantLib24GridModelLocalVolSurface17generateArgumentsEvENK3$_0clERKNS_9ParameterE.exit.i", !prof !56
 
 cond.false.i.i.i.i:                               ; preds = %for.body.i
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib9Parameter4ImplEEptEv, ptr noundef nonnull @.str.11, i64 noundef 784)
@@ -2316,9 +2316,9 @@ cond.false.i.i.i.i:                               ; preds = %for.body.i
 
 .noexc15:                                         ; preds = %cond.false.i.i.i.i
   %.pre.i.i.i.i = load ptr, ptr %__first.sroa.0.06.i, align 8, !tbaa !106
-  br label %"_ZZN8QuantLib24GridModelLocalVolSurface17generateArgumentsEvENK3$_0clERKNS_9ParameterE.argprom.exit.i"
+  br label %"_ZZN8QuantLib24GridModelLocalVolSurface17generateArgumentsEvENK3$_0clERKNS_9ParameterE.exit.i"
 
-"_ZZN8QuantLib24GridModelLocalVolSurface17generateArgumentsEvENK3$_0clERKNS_9ParameterE.argprom.exit.i": ; preds = %.noexc15, %for.body.i
+"_ZZN8QuantLib24GridModelLocalVolSurface17generateArgumentsEvENK3$_0clERKNS_9ParameterE.exit.i": ; preds = %.noexc15, %for.body.i
   %20 = phi ptr [ %19, %for.body.i ], [ %.pre.i.i.i.i, %.noexc15 ]
   %params_.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i, i64 16
   %vtable.i.i.i = load ptr, ptr %20, align 8, !tbaa !49
@@ -2327,7 +2327,7 @@ cond.false.i.i.i.i:                               ; preds = %for.body.i
   %call2.i.i.i16 = invoke noundef double %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(16) %params_.i.i.i, double noundef 0.000000e+00)
           to label %call2.i.i.i.noexc unwind label %lpad13.loopexit
 
-call2.i.i.i.noexc:                                ; preds = %"_ZZN8QuantLib24GridModelLocalVolSurface17generateArgumentsEvENK3$_0clERKNS_9ParameterE.argprom.exit.i"
+call2.i.i.i.noexc:                                ; preds = %"_ZZN8QuantLib24GridModelLocalVolSurface17generateArgumentsEvENK3$_0clERKNS_9ParameterE.exit.i"
   store double %call2.i.i.i16, ptr %__result.addr.07.i, align 8, !tbaa !61
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i, i64 48
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__result.addr.07.i, i64 8
@@ -2476,7 +2476,7 @@ lpad:                                             ; preds = %cond.true.i, %cond.
   tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 24) #27
   br label %ehcleanup28
 
-lpad13.loopexit:                                  ; preds = %cond.false.i.i.i.i, %"_ZZN8QuantLib24GridModelLocalVolSurface17generateArgumentsEvENK3$_0clERKNS_9ParameterE.argprom.exit.i"
+lpad13.loopexit:                                  ; preds = %cond.false.i.i.i.i, %"_ZZN8QuantLib24GridModelLocalVolSurface17generateArgumentsEvENK3$_0clERKNS_9ParameterE.exit.i"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup

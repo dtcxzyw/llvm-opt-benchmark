@@ -3503,7 +3503,7 @@ _ZN3nix4PipeC2Ev.exit43:                          ; preds = %.noexc40
 84:                                               ; preds = %79
   %85 = load i8, ptr %75, align 8
   %86 = trunc i8 %85 to i1
-  br i1 %86, label %87, label %"_ZNSt8optionalI7FinallyISt8functionIFvvEEEE7emplaceIJZN3nix11runProgram2ERKNS7_10RunOptionsEE3$_0EEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.argprom.exit"
+  br i1 %86, label %87, label %"_ZNSt8optionalI7FinallyISt8functionIFvvEEEE7emplaceIJZN3nix11runProgram2ERKNS7_10RunOptionsEE3$_0EEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit"
 
 87:                                               ; preds = %84
   store i8 0, ptr %75, align 8
@@ -3528,11 +3528,11 @@ _ZN3nix4PipeC2Ev.exit43:                          ; preds = %.noexc40
 _ZNKSt8functionIFvvEEclEv.exit.i.i.i.i.i:         ; preds = %91
   %94 = load ptr, ptr %88, align 8
   %.not.i.i2.i.i.i.i.i = icmp eq ptr %94, null
-  br i1 %.not.i.i2.i.i.i.i.i, label %"_ZNSt8optionalI7FinallyISt8functionIFvvEEEE7emplaceIJZN3nix11runProgram2ERKNS7_10RunOptionsEE3$_0EEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.argprom.exit", label %95
+  br i1 %.not.i.i2.i.i.i.i.i, label %"_ZNSt8optionalI7FinallyISt8functionIFvvEEEE7emplaceIJZN3nix11runProgram2ERKNS7_10RunOptionsEE3$_0EEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit", label %95
 
 95:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i.i.i.i.i
   %96 = invoke noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %"_ZNSt8optionalI7FinallyISt8functionIFvvEEEE7emplaceIJZN3nix11runProgram2ERKNS7_10RunOptionsEE3$_0EEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.argprom.exit" unwind label %97
+          to label %"_ZNSt8optionalI7FinallyISt8functionIFvvEEEE7emplaceIJZN3nix11runProgram2ERKNS7_10RunOptionsEE3$_0EEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit" unwind label %97
 
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
@@ -3548,7 +3548,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i.i.i.i:         ; preds = %91
   call void @__clang_call_terminate(ptr %102) #36
   unreachable
 
-"_ZNSt8optionalI7FinallyISt8functionIFvvEEEE7emplaceIJZN3nix11runProgram2ERKNS7_10RunOptionsEE3$_0EEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.argprom.exit": ; preds = %84, %_ZNKSt8functionIFvvEEclEv.exit.i.i.i.i.i, %95
+"_ZNSt8optionalI7FinallyISt8functionIFvvEEEE7emplaceIJZN3nix11runProgram2ERKNS7_10RunOptionsEE3$_0EEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit": ; preds = %84, %_ZNKSt8functionIFvvEEclEv.exit.i.i.i.i.i, %95
   %103 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_0E9_M_invokeERKSt9_Any_data", ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %8, i64 16
@@ -3562,7 +3562,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i.i.i.i:         ; preds = %91
           cleanup
   br label %_ZNSt8functionIFvvEED2Ev.exit59
 
-107:                                              ; preds = %"_ZNSt8optionalI7FinallyISt8functionIFvvEEEE7emplaceIJZN3nix11runProgram2ERKNS7_10RunOptionsEE3$_0EEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.argprom.exit", %66
+107:                                              ; preds = %"_ZNSt8optionalI7FinallyISt8functionIFvvEEEE7emplaceIJZN3nix11runProgram2ERKNS7_10RunOptionsEE3$_0EEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit", %66
   %108 = getelementptr inbounds i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %109 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40
@@ -3961,11 +3961,11 @@ _ZNSt6futureIvED2Ev.exit:                         ; preds = %_ZNSt16_Sp_counted_
 247:                                              ; preds = %_ZNSt6futureIvED2Ev.exit
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %11, align 8
   %.not.i.i64 = icmp eq i64 %.sroa.0.0.copyload.i.i.i, 0
-  br i1 %.not.i.i64, label %"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.argprom.exit", label %248
+  br i1 %.not.i.i64, label %"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.exit", label %248
 
 248:                                              ; preds = %247
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.argprom.exit" unwind label %249
+          to label %"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.exit" unwind label %249
 
 249:                                              ; preds = %248
   %250 = landingpad { ptr, i32 }
@@ -3974,17 +3974,17 @@ _ZNSt6futureIvED2Ev.exit:                         ; preds = %_ZNSt16_Sp_counted_
   call void @__clang_call_terminate(ptr %251) #36
   unreachable
 
-"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.argprom.exit": ; preds = %247, %248
+"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.exit": ; preds = %247, %248
   call void @_ZNSt7promiseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #35
   %.sroa.0.0.copyload.i.i65 = load i64, ptr %11, align 8
   %.not.i66 = icmp eq i64 %.sroa.0.0.copyload.i.i65, 0
   br i1 %.not.i66, label %_ZNSt6threadD2Ev.exit67, label %252
 
-252:                                              ; preds = %"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.argprom.exit"
+252:                                              ; preds = %"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.exit"
   call void @_ZSt9terminatev() #36
   unreachable
 
-_ZNSt6threadD2Ev.exit67:                          ; preds = %"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.argprom.exit"
+_ZNSt6threadD2Ev.exit67:                          ; preds = %"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.exit"
   call void @_ZN3nix3PidD1Ev(ptr noundef nonnull align 4 dereferenceable(12) %9) #35
   %253 = load i8, ptr %75, align 8
   %254 = trunc i8 %253 to i1
@@ -4071,7 +4071,7 @@ _ZNSt10unique_ptrIN3nix6SourceESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN
 
 .body53:                                          ; preds = %244, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i, %150, %198, %170, %246, %236
   %.pn.pn = phi { ptr, i32 } [ %.pn88, %246 ], [ %245, %244 ], [ %237, %236 ], [ %151, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %151, %150 ], [ %171, %170 ], [ %199, %198 ]
-  call fastcc void @"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.argprom"(ptr nonnull %11) #35
+  call fastcc void @"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev"(ptr nonnull %11) #35
   call void @_ZNSt7promiseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #35
   br label %.body49
 
@@ -4336,16 +4336,16 @@ _ZNSt14__basic_futureIvED2Ev.exit:                ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev.argprom"(ptr %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN7FinallyIZN3nix11runProgram2ERKNS0_10RunOptionsEE3$_2ED2Ev"(ptr %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.copyload.i.i = load i64, ptr %.0.val, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
-  br i1 %.not.i, label %"_ZZN3nix11runProgram2ERKNS_10RunOptionsEENK3$_2clEv.argprom.exit", label %1
+  br i1 %.not.i, label %"_ZZN3nix11runProgram2ERKNS_10RunOptionsEENK3$_2clEv.exit", label %1
 
 1:                                                ; preds = %0
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.val)
-          to label %"_ZZN3nix11runProgram2ERKNS_10RunOptionsEENK3$_2clEv.argprom.exit" unwind label %2
+          to label %"_ZZN3nix11runProgram2ERKNS_10RunOptionsEENK3$_2clEv.exit" unwind label %2
 
-"_ZZN3nix11runProgram2ERKNS_10RunOptionsEENK3$_2clEv.argprom.exit": ; preds = %0, %1
+"_ZZN3nix11runProgram2ERKNS_10RunOptionsEENK3$_2clEv.exit": ; preds = %0, %1
   ret void
 
 2:                                                ; preds = %1
@@ -18598,7 +18598,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tr
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #6 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -18607,30 +18607,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3nix11runPro
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix11runProgram2ERKNS_10RunOptionsEE3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #37
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix11runProgram2ERKNS1_10RunOptionsEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -20041,13 +20041,13 @@ define linkonce_odr void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #39
           to label %18 unwind label %19
 
@@ -20061,7 +20061,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)

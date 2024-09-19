@@ -1828,22 +1828,22 @@ thread-pre-split:                                 ; preds = %86
 .loopexit:                                        ; preds = %241, %thread-pre-split
   %243 = phi i32 [ %.pr, %thread-pre-split ], [ %.val57, %241 ]
   %244 = icmp slt i32 %243, 2
-  br i1 %244, label %Vec_PtrSort.argprom.exit, label %245
+  br i1 %244, label %Vec_PtrSort.exit, label %245
 
 245:                                              ; preds = %.loopexit
   %246 = load ptr, ptr %.phi.trans.insert.i72, align 8
   %247 = zext nneg i32 %243 to i64
   tail call void @qsort(ptr noundef %246, i64 noundef %247, i64 noundef 8, ptr noundef nonnull @Ivy_CompareNodesByLevel) #19
   %.val101.pre = load i32, ptr %5, align 4
-  br label %Vec_PtrSort.argprom.exit
+  br label %Vec_PtrSort.exit
 
-Vec_PtrSort.argprom.exit:                         ; preds = %.loopexit, %245
+Vec_PtrSort.exit:                                 ; preds = %.loopexit, %245
   %.val101 = phi i32 [ %243, %.loopexit ], [ %.val101.pre, %245 ]
   %248 = icmp sgt i32 %.val101, 0
   br i1 %248, label %.lr.ph, label %.critedge2
 
-.lr.ph:                                           ; preds = %Vec_PtrSort.argprom.exit, %.lr.ph
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph ], [ 0, %Vec_PtrSort.argprom.exit ]
+.lr.ph:                                           ; preds = %Vec_PtrSort.exit, %.lr.ph
+  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph ], [ 0, %Vec_PtrSort.exit ]
   %.val59 = load ptr, ptr %.phi.trans.insert.i72, align 8
   %249 = getelementptr inbounds ptr, ptr %.val59, i64 %indvars.iv106
   %250 = load ptr, ptr %249, align 8
@@ -1860,7 +1860,7 @@ Vec_PtrSort.argprom.exit:                         ; preds = %.loopexit, %245
   %257 = icmp slt i64 %indvars.iv.next107, %256
   br i1 %257, label %.lr.ph, label %.critedge2, !llvm.loop !28
 
-.critedge2:                                       ; preds = %.lr.ph, %Vec_PtrSort.argprom.exit
+.critedge2:                                       ; preds = %.lr.ph, %Vec_PtrSort.exit
   ret void
 }
 

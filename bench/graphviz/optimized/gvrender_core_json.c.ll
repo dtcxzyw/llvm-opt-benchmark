@@ -172,7 +172,7 @@ define internal void @json_end_graph(ptr noundef %0) #0 {
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @json_end_graph.io, ptr %14, align 8
-  tail call fastcc void @set_attrwf.argelim(ptr noundef %6, i1 noundef zeroext true)
+  tail call fastcc void @set_attrwf(ptr noundef %6, i1 noundef zeroext true)
   store i32 0, ptr %2, align 4
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
@@ -207,7 +207,7 @@ declare i32 @gvputs(ptr noundef, ptr noundef) #1
 declare i32 @gvflush(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_attrwf.argelim(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @set_attrwf(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, -9
   store i32 %4, ptr %0, align 8
@@ -217,7 +217,7 @@ define internal fastcc void @set_attrwf.argelim(ptr noundef %0, i1 noundef zeroe
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.02125 = phi ptr [ %6, %.lr.ph ], [ %5, %2 ]
-  tail call fastcc void @set_attrwf.argelim(ptr noundef nonnull %.02125, i1 noundef zeroext false)
+  tail call fastcc void @set_attrwf(ptr noundef nonnull %.02125, i1 noundef zeroext false)
   %6 = tail call ptr @agnxtsubg(ptr noundef nonnull %.02125) #14
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -797,7 +797,7 @@ write_nodes.exit:                                 ; preds = %.critedge.i, %.sink
 223:                                              ; preds = %222
   %224 = load ptr, ptr @stderr, align 8
   %225 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %224, ptr noundef nonnull @.str.19, i64 noundef %.159.lcssa.i, i64 noundef 8) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 226:                                              ; preds = %222
@@ -809,7 +809,7 @@ write_nodes.exit:                                 ; preds = %.critedge.i, %.sink
   %230 = load ptr, ptr @stderr, align 8
   %231 = shl nuw i64 %.159.lcssa.i, 3
   %232 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %230, ptr noundef nonnull @.str.20, i64 noundef %231) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %226
@@ -1111,7 +1111,7 @@ define internal fastcc i32 @label_subgs(ptr noundef %0, i32 noundef %1, ptr noun
 27:                                               ; preds = %24
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.20, i64 noundef 32) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %24
@@ -1124,7 +1124,7 @@ gv_alloc.exit.i:                                  ; preds = %24
   %34 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #18
   %35 = add i64 %34, 1
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.20, i64 noundef %35) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 gv_strdup.exit.i:                                 ; preds = %gv_alloc.exit.i
@@ -1397,7 +1397,7 @@ indent.exit135.i.i:                               ; preds = %.lr.ph.i133.i.i, %1
   %.val122.i.i = load ptr, ptr %112, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.67) #14
   %.not2.i.i.i = icmp eq i64 %.val.i.i, 0
-  br i1 %.not2.i.i.i, label %write_polyline.argprom.exit.i.i, label %.lr.ph.i136.i.i
+  br i1 %.not2.i.i.i, label %write_polyline.exit.i.i, label %.lr.ph.i136.i.i
 
 .lr.ph.i136.i.i:                                  ; preds = %indent.exit135.i.i, %114
   %.01.i.i.i = phi i64 [ %119, %114 ], [ 0, %indent.exit135.i.i ]
@@ -1416,9 +1416,9 @@ indent.exit135.i.i:                               ; preds = %.lr.ph.i133.i.i, %1
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.69, double noundef %116, double noundef %118) #14
   %119 = add nuw i64 %.01.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %119, %.val.i.i
-  br i1 %exitcond.not.i.i.i, label %write_polyline.argprom.exit.i.i, label %.lr.ph.i136.i.i
+  br i1 %exitcond.not.i.i.i, label %write_polyline.exit.i.i, label %.lr.ph.i136.i.i
 
-write_polyline.argprom.exit.i.i:                  ; preds = %114, %indent.exit135.i.i
+write_polyline.exit.i.i:                          ; preds = %114, %indent.exit135.i.i
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.70) #14
   br label %332
 
@@ -1444,7 +1444,7 @@ indent.exit139.i.i:                               ; preds = %.lr.ph.i137.i.i, %1
   %.val124.i.i = load ptr, ptr %129, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.67) #14
   %.not2.i140.i.i = icmp eq i64 %.val123.i.i, 0
-  br i1 %.not2.i140.i.i, label %write_polyline.argprom.exit145.i.i, label %.lr.ph.i141.i.i
+  br i1 %.not2.i140.i.i, label %write_polyline.exit145.i.i, label %.lr.ph.i141.i.i
 
 .lr.ph.i141.i.i:                                  ; preds = %indent.exit139.i.i, %131
   %.01.i142.i.i = phi i64 [ %136, %131 ], [ 0, %indent.exit139.i.i ]
@@ -1463,9 +1463,9 @@ indent.exit139.i.i:                               ; preds = %.lr.ph.i137.i.i, %1
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.69, double noundef %133, double noundef %135) #14
   %136 = add nuw i64 %.01.i142.i.i, 1
   %exitcond.not.i144.i.i = icmp eq i64 %136, %.val123.i.i
-  br i1 %exitcond.not.i144.i.i, label %write_polyline.argprom.exit145.i.i, label %.lr.ph.i141.i.i
+  br i1 %exitcond.not.i144.i.i, label %write_polyline.exit145.i.i, label %.lr.ph.i141.i.i
 
-write_polyline.argprom.exit145.i.i:               ; preds = %131, %indent.exit139.i.i
+write_polyline.exit145.i.i:                       ; preds = %131, %indent.exit139.i.i
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.70) #14
   br label %332
 
@@ -1489,7 +1489,7 @@ indent.exit148.i.i:                               ; preds = %.lr.ph.i146.i.i, %1
   %.val126.i.i = load ptr, ptr %144, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.67) #14
   %.not2.i149.i.i = icmp eq i64 %.val125.i.i, 0
-  br i1 %.not2.i149.i.i, label %write_polyline.argprom.exit154.i.i, label %.lr.ph.i150.i.i
+  br i1 %.not2.i149.i.i, label %write_polyline.exit154.i.i, label %.lr.ph.i150.i.i
 
 .lr.ph.i150.i.i:                                  ; preds = %indent.exit148.i.i, %146
   %.01.i151.i.i = phi i64 [ %151, %146 ], [ 0, %indent.exit148.i.i ]
@@ -1508,9 +1508,9 @@ indent.exit148.i.i:                               ; preds = %.lr.ph.i146.i.i, %1
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.69, double noundef %148, double noundef %150) #14
   %151 = add nuw i64 %.01.i151.i.i, 1
   %exitcond.not.i153.i.i = icmp eq i64 %151, %.val125.i.i
-  br i1 %exitcond.not.i153.i.i, label %write_polyline.argprom.exit154.i.i, label %.lr.ph.i150.i.i
+  br i1 %exitcond.not.i153.i.i, label %write_polyline.exit154.i.i, label %.lr.ph.i150.i.i
 
-write_polyline.argprom.exit154.i.i:               ; preds = %146, %indent.exit148.i.i
+write_polyline.exit154.i.i:                       ; preds = %146, %indent.exit148.i.i
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.70) #14
   br label %332
 
@@ -1886,7 +1886,7 @@ indent.exit199.i.i:                               ; preds = %.lr.ph.i197.i.i, %3
   tail call void @abort() #19
   unreachable
 
-332:                                              ; preds = %indent.exit199.i.i, %indent.exit196.i.i, %indent.exit193.i.i, %write_radial_grad.exit.i.i, %write_linear_grad.exit.i.i, %indent.exit178.i.i, %indent.exit172.i.i, %indent.exit166.i.i, %write_polyline.argprom.exit154.i.i, %write_polyline.argprom.exit145.i.i, %write_polyline.argprom.exit.i.i, %indent.exit132.i.i, %indent.exit129.i.i
+332:                                              ; preds = %indent.exit199.i.i, %indent.exit196.i.i, %indent.exit193.i.i, %write_radial_grad.exit.i.i, %write_linear_grad.exit.i.i, %indent.exit178.i.i, %indent.exit172.i.i, %indent.exit166.i.i, %write_polyline.exit154.i.i, %write_polyline.exit145.i.i, %write_polyline.exit.i.i, %indent.exit132.i.i, %indent.exit129.i.i
   %333 = load i32, ptr %2, align 4
   %334 = add nsw i32 %333, -1
   store i32 %334, ptr %2, align 4
@@ -1970,7 +1970,7 @@ declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #20
   unreachable
 }

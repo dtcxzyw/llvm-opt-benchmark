@@ -77,12 +77,12 @@ define dso_local noundef zeroext i1 @Curl_ssl_conn_config_match(ptr nocapture no
   %.10 = select i1 %2, i64 560, i64 448
   %4 = getelementptr inbounds i8, ptr %0, i64 %.
   %5 = getelementptr inbounds i8, ptr %1, i64 %.10
-  %6 = tail call fastcc zeroext i1 @match_ssl_primary_config.argprom(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %6 = tail call fastcc zeroext i1 @match_ssl_primary_config(ptr noundef nonnull %4, ptr noundef nonnull %5)
   ret i1 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @match_ssl_primary_config.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @match_ssl_primary_config(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 104
@@ -1128,7 +1128,7 @@ define dso_local noundef zeroext i1 @Curl_ssl_getsessionid(ptr nocapture noundef
 
 82:                                               ; preds = %75
   %83 = getelementptr inbounds i8, ptr %37, i64 56
-  %84 = tail call fastcc zeroext i1 @match_ssl_primary_config.argprom(ptr noundef nonnull %11, ptr noundef nonnull %83)
+  %84 = tail call fastcc zeroext i1 @match_ssl_primary_config(ptr noundef nonnull %11, ptr noundef nonnull %83)
   br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %82
@@ -3313,7 +3313,7 @@ define dso_local i32 @Curl_ssl_cfilter_add(ptr noundef %0, ptr noundef %1, i32 n
   %7 = load ptr, ptr @Curl_ccalloc, align 8
   %8 = tail call ptr %7(i64 noundef 1, i64 noundef 88) #18
   %.not.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i, label %cf_ssl_create.argprom.exit.thread, label %9
+  br i1 %.not.i.i, label %cf_ssl_create.exit.thread, label %9
 
 9:                                                ; preds = %3
   %10 = and i32 %.val6, 33554432
@@ -3336,7 +3336,7 @@ define dso_local i32 @Curl_ssl_cfilter_add(ptr noundef %0, ptr noundef %1, i32 n
 19:                                               ; preds = %9
   %20 = load ptr, ptr @Curl_cfree, align 8
   tail call void %20(ptr noundef nonnull %8) #18
-  br label %cf_ssl_create.argprom.exit.thread
+  br label %cf_ssl_create.exit.thread
 
 21:                                               ; preds = %9
   %22 = call i32 @Curl_cf_create(ptr noundef nonnull %4, ptr noundef nonnull @Curl_cft_ssl, ptr noundef nonnull %8) #18
@@ -3349,9 +3349,9 @@ define dso_local i32 @Curl_ssl_cfilter_add(ptr noundef %0, ptr noundef %1, i32 n
   call void %24(ptr noundef %25) #18
   %26 = load ptr, ptr @Curl_cfree, align 8
   call void %26(ptr noundef nonnull %8) #18
-  br label %cf_ssl_create.argprom.exit.thread
+  br label %cf_ssl_create.exit.thread
 
-cf_ssl_create.argprom.exit.thread:                ; preds = %23, %19, %3
+cf_ssl_create.exit.thread:                        ; preds = %23, %19, %3
   %.01224.i.ph = phi i32 [ 27, %3 ], [ 27, %19 ], [ %22, %23 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %29
@@ -3362,8 +3362,8 @@ cf_ssl_create.argprom.exit.thread:                ; preds = %23, %19, %3
   call void @Curl_conn_cf_add(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %28) #18
   br label %29
 
-29:                                               ; preds = %cf_ssl_create.argprom.exit.thread, %27
-  %.01224.i9 = phi i32 [ %.01224.i.ph, %cf_ssl_create.argprom.exit.thread ], [ 0, %27 ]
+29:                                               ; preds = %cf_ssl_create.exit.thread, %27
+  %.01224.i9 = phi i32 [ %.01224.i.ph, %cf_ssl_create.exit.thread ], [ 0, %27 ]
   ret i32 %.01224.i9
 }
 
@@ -3383,7 +3383,7 @@ define dso_local i32 @Curl_cf_ssl_insert_after(ptr noundef %0, ptr nocapture nou
   %8 = load ptr, ptr @Curl_ccalloc, align 8
   %9 = tail call ptr %8(i64 noundef 1, i64 noundef 88) #18
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %cf_ssl_create.argprom.exit.thread, label %10
+  br i1 %.not.i.i, label %cf_ssl_create.exit.thread, label %10
 
 10:                                               ; preds = %2
   %11 = and i32 %.val4, 33554432
@@ -3406,7 +3406,7 @@ define dso_local i32 @Curl_cf_ssl_insert_after(ptr noundef %0, ptr nocapture nou
 20:                                               ; preds = %10
   %21 = load ptr, ptr @Curl_cfree, align 8
   tail call void %21(ptr noundef nonnull %9) #18
-  br label %cf_ssl_create.argprom.exit.thread
+  br label %cf_ssl_create.exit.thread
 
 22:                                               ; preds = %10
   %23 = call i32 @Curl_cf_create(ptr noundef nonnull %3, ptr noundef nonnull @Curl_cft_ssl, ptr noundef nonnull %9) #18
@@ -3419,9 +3419,9 @@ define dso_local i32 @Curl_cf_ssl_insert_after(ptr noundef %0, ptr nocapture nou
   call void %25(ptr noundef %26) #18
   %27 = load ptr, ptr @Curl_cfree, align 8
   call void %27(ptr noundef nonnull %9) #18
-  br label %cf_ssl_create.argprom.exit.thread
+  br label %cf_ssl_create.exit.thread
 
-cf_ssl_create.argprom.exit.thread:                ; preds = %24, %20, %2
+cf_ssl_create.exit.thread:                        ; preds = %24, %20, %2
   %.01224.i.ph = phi i32 [ 27, %2 ], [ 27, %20 ], [ %23, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %30
@@ -3432,8 +3432,8 @@ cf_ssl_create.argprom.exit.thread:                ; preds = %24, %20, %2
   call void @Curl_conn_cf_insert_after(ptr noundef nonnull %0, ptr noundef %29) #18
   br label %30
 
-30:                                               ; preds = %cf_ssl_create.argprom.exit.thread, %28
-  %.01224.i7 = phi i32 [ %.01224.i.ph, %cf_ssl_create.argprom.exit.thread ], [ 0, %28 ]
+30:                                               ; preds = %cf_ssl_create.exit.thread, %28
+  %.01224.i7 = phi i32 [ %.01224.i.ph, %cf_ssl_create.exit.thread ], [ 0, %28 ]
   ret i32 %.01224.i7
 }
 
@@ -3453,7 +3453,7 @@ define dso_local i32 @Curl_cf_ssl_proxy_insert_after(ptr noundef %0, ptr nocaptu
   %8 = load ptr, ptr @Curl_ccalloc, align 8
   %9 = tail call ptr %8(i64 noundef 1, i64 noundef 88) #18
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %cf_ssl_proxy_create.argprom.exit.thread, label %10
+  br i1 %.not.i.i, label %cf_ssl_proxy_create.exit.thread, label %10
 
 10:                                               ; preds = %2
   %11 = icmp eq i8 %.val, 3
@@ -3476,7 +3476,7 @@ define dso_local i32 @Curl_cf_ssl_proxy_insert_after(ptr noundef %0, ptr nocaptu
 20:                                               ; preds = %10
   %21 = load ptr, ptr @Curl_cfree, align 8
   tail call void %21(ptr noundef nonnull %9) #18
-  br label %cf_ssl_proxy_create.argprom.exit.thread
+  br label %cf_ssl_proxy_create.exit.thread
 
 22:                                               ; preds = %10
   %23 = call i32 @Curl_cf_create(ptr noundef nonnull %3, ptr noundef nonnull @Curl_cft_ssl_proxy, ptr noundef nonnull %9) #18
@@ -3489,9 +3489,9 @@ define dso_local i32 @Curl_cf_ssl_proxy_insert_after(ptr noundef %0, ptr nocaptu
   call void %25(ptr noundef %26) #18
   %27 = load ptr, ptr @Curl_cfree, align 8
   call void %27(ptr noundef nonnull %9) #18
-  br label %cf_ssl_proxy_create.argprom.exit.thread
+  br label %cf_ssl_proxy_create.exit.thread
 
-cf_ssl_proxy_create.argprom.exit.thread:          ; preds = %24, %20, %2
+cf_ssl_proxy_create.exit.thread:                  ; preds = %24, %20, %2
   %.0121224.i.ph = phi i32 [ 27, %2 ], [ 27, %20 ], [ %23, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %30
@@ -3502,8 +3502,8 @@ cf_ssl_proxy_create.argprom.exit.thread:          ; preds = %24, %20, %2
   call void @Curl_conn_cf_insert_after(ptr noundef nonnull %0, ptr noundef %29) #18
   br label %30
 
-30:                                               ; preds = %cf_ssl_proxy_create.argprom.exit.thread, %28
-  %.0121224.i7 = phi i32 [ %.0121224.i.ph, %cf_ssl_proxy_create.argprom.exit.thread ], [ 0, %28 ]
+30:                                               ; preds = %cf_ssl_proxy_create.exit.thread, %28
+  %.0121224.i7 = phi i32 [ %.0121224.i.ph, %cf_ssl_proxy_create.exit.thread ], [ 0, %28 ]
   ret i32 %.0121224.i7
 }
 

@@ -734,8 +734,8 @@ _ZL26isAcceleratorExecutionRootPKN4llvm8FunctionE.exit.thread: ; preds = %56, %_
   %.not9.i.i.i = icmp eq ptr %284, %285
   br i1 %.not9.i.i.i, label %_ZN4llvm7copy_ifIRNS_6ModuleESt20back_insert_iteratorINS_11SmallVectorISt17reference_wrapperINS_8FunctionEELj6EEEEZL26removeUnreachableFunctionsILj32EEvRKNS_11SmallPtrSetIPKS6_XT_EEES2_EUlOT_E_EET0_SI_SK_T1_.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %280, %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.thread.i.i.i
-  %.sroa.04.010.i.i.i = phi ptr [ %330, %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.thread.i.i.i ], [ %284, %280 ]
+.lr.ph.i.i.i:                                     ; preds = %280, %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.thread.i.i.i
+  %.sroa.04.010.i.i.i = phi ptr [ %330, %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.thread.i.i.i ], [ %284, %280 ]
   %286 = icmp eq ptr %.sroa.04.010.i.i.i, null
   %287 = getelementptr inbounds i8, ptr %.sroa.04.010.i.i.i, i64 -56
   %288 = select i1 %286, ptr null, ptr %287
@@ -743,7 +743,7 @@ _ZL26isAcceleratorExecutionRootPKN4llvm8FunctionE.exit.thread: ; preds = %56, %_
   %290 = load i32, ptr %289, align 8
   %291 = and i32 %290, 8192
   %.not.i.i.i.i57 = icmp eq i32 %291, 0
-  br i1 %.not.i.i.i.i57, label %292, label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.thread.i.i.i
+  br i1 %.not.i.i.i.i57, label %292, label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.thread.i.i.i
 
 292:                                              ; preds = %.lr.ph.i.i.i
   %293 = load ptr, ptr %24, align 8
@@ -762,7 +762,7 @@ _ZL26isAcceleratorExecutionRootPKN4llvm8FunctionE.exit.thread: ; preds = %56, %_
   %.01118.i.i.i.i.i.i = phi ptr [ %303, %302 ], [ %294, %296 ]
   %300 = load ptr, ptr %.01118.i.i.i.i.i.i, align 8
   %301 = icmp eq ptr %300, %288
-  br i1 %301, label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.i.i.i, label %302
+  br i1 %301, label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.i.i.i, label %302
 
 302:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %303 = getelementptr inbounds i8, ptr %.01118.i.i.i.i.i.i, i64 8
@@ -771,7 +771,7 @@ _ZL26isAcceleratorExecutionRootPKN4llvm8FunctionE.exit.thread: ; preds = %56, %_
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %302, %296
   %304 = getelementptr inbounds ptr, ptr %293, i64 %298
-  br label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.i.i.i
+  br label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.i.i.i
 
 305:                                              ; preds = %292
   %306 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %19, ptr noundef nonnull %288) #10
@@ -782,7 +782,7 @@ _ZL26isAcceleratorExecutionRootPKN4llvm8FunctionE.exit.thread: ; preds = %56, %_
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i: ; preds = %305
   %.pre5.i.i.i.i.i = load i32, ptr %26, align 4
-  br label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.i.i.i
+  br label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.i.i.i
 
 307:                                              ; preds = %305
   %308 = icmp eq ptr %.pre.i.i.i.i.i, %.pre4.i.i.i.i.i
@@ -791,9 +791,9 @@ _ZL26isAcceleratorExecutionRootPKN4llvm8FunctionE.exit.thread: ; preds = %56, %_
   %.v.v.i14.i.i.i.i.i.i = select i1 %308, i32 %309, i32 %310
   %.v.i15.i.i.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i.i.i to i64
   %311 = getelementptr inbounds ptr, ptr %.pre.i.i.i.i.i, i64 %.v.i15.i.i.i.i.i.i
-  br label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.i.i.i
+  br label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.i.i.i
 
-_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %307, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %307, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
   %312 = phi i32 [ %297, %._crit_edge.i.i.i.i.i.i ], [ %309, %307 ], [ %.pre5.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i ], [ %297, %.lr.ph.i.i.i.i.i.i ]
   %313 = phi ptr [ %293, %._crit_edge.i.i.i.i.i.i ], [ %.pre4.i.i.i.i.i, %307 ], [ %.pre4.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i ], [ %293, %.lr.ph.i.i.i.i.i.i ]
   %314 = phi ptr [ %293, %._crit_edge.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %307 ], [ %.pre.i.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i.i ], [ %293, %.lr.ph.i.i.i.i.i.i ]
@@ -804,9 +804,9 @@ _ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT
   %.v.i.i.i.i.i.i = zext i32 %.v.v.i.i.i.i.i.i to i64
   %317 = getelementptr inbounds ptr, ptr %314, i64 %.v.i.i.i.i.i.i
   %.not1.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i, %317
-  br i1 %.not1.i.i.i.i, label %318, label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.thread.i.i.i
+  br i1 %.not1.i.i.i.i, label %318, label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.thread.i.i.i
 
-318:                                              ; preds = %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.i.i.i
+318:                                              ; preds = %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.i.i.i
   %319 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #10
   %320 = add i64 %319, 1
   %321 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #10
@@ -826,15 +826,15 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorISt17reference_wrapperINS0_8Funct
   %327 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #10
   %328 = add i64 %327, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %328) #10
-  br label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.thread.i.i.i
+  br label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.thread.i.i.i
 
-_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.thread.i.i.i: ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorISt17reference_wrapperINS0_8FunctionEELj6EEEEaSEOS4_.exit.i.i.i, %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.i.i.i, %.lr.ph.i.i.i
+_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.thread.i.i.i: ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorISt17reference_wrapperINS0_8FunctionEELj6EEEEaSEOS4_.exit.i.i.i, %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.i.i.i, %.lr.ph.i.i.i
   %329 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i.i, i64 8
   %330 = load ptr, ptr %329, align 8
   %.not.i.i.i58 = icmp eq ptr %330, %285
   br i1 %.not.i.i.i58, label %_ZN4llvm7copy_ifIRNS_6ModuleESt20back_insert_iteratorINS_11SmallVectorISt17reference_wrapperINS_8FunctionEELj6EEEEZL26removeUnreachableFunctionsILj32EEvRKNS_11SmallPtrSetIPKS6_XT_EEES2_EUlOT_E_EET0_SI_SK_T1_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !18
 
-_ZN4llvm7copy_ifIRNS_6ModuleESt20back_insert_iteratorINS_11SmallVectorISt17reference_wrapperINS_8FunctionEELj6EEEEZL26removeUnreachableFunctionsILj32EEvRKNS_11SmallPtrSetIPKS6_XT_EEES2_EUlOT_E_EET0_SI_SK_T1_.exit.i: ; preds = %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.argprom.exit.thread.i.i.i, %280
+_ZN4llvm7copy_ifIRNS_6ModuleESt20back_insert_iteratorINS_11SmallVectorISt17reference_wrapperINS_8FunctionEELj6EEEEZL26removeUnreachableFunctionsILj32EEvRKNS_11SmallPtrSetIPKS6_XT_EEES2_EUlOT_E_EET0_SI_SK_T1_.exit.i: ; preds = %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlOT_E_clIRS2_EEDaSB_.exit.thread.i.i.i, %280
   %331 = load ptr, ptr %13, align 8
   %332 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #10
   %333 = getelementptr inbounds %"class.std::reference_wrapper", ptr %331, i64 %332
@@ -2150,7 +2150,7 @@ define internal noundef zeroext i1 @_ZN4llvm12function_refIFbPNS_8ConstantEEE11c
   %.val = load ptr, ptr %3, align 8
   %4 = load i8, ptr %1, align 8
   %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %5, label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlPNS0_8ConstantEE_clESB_.argprom.exit
+  br i1 %.not.i, label %5, label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlPNS0_8ConstantEE_clESB_.exit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -2217,9 +2217,9 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8FunctionEE8containsES3_.exit.i: ; preds = %.lr.
   %.v.i.i.i = zext i32 %.v.v.i.i.i to i64
   %35 = getelementptr inbounds ptr, ptr %31, i64 %.v.i.i.i
   %.not2.i = icmp eq ptr %.0.i.i.i, %35
-  br label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlPNS0_8ConstantEE_clESB_.argprom.exit
+  br label %_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlPNS0_8ConstantEE_clESB_.exit
 
-_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlPNS0_8ConstantEE_clESB_.argprom.exit: ; preds = %2, %_ZNK4llvm15SmallPtrSetImplIPKNS_8FunctionEE8containsES3_.exit.i
+_ZZL26removeUnreachableFunctionsILj32EEvRKN4llvm11SmallPtrSetIPKNS0_8FunctionEXT_EEERNS0_6ModuleEENKUlPNS0_8ConstantEE_clESB_.exit: ; preds = %2, %_ZNK4llvm15SmallPtrSetImplIPKNS_8FunctionEE8containsES3_.exit.i
   %.0.i = phi i1 [ %.not2.i, %_ZNK4llvm15SmallPtrSetImplIPKNS_8FunctionEE8containsES3_.exit.i ], [ false, %2 ]
   ret i1 %.0.i
 }

@@ -1464,7 +1464,7 @@ if.then26:                                        ; preds = %if.then23
 if.then.i70:                                      ; preds = %if.then26
   %28 = load i64, ptr %rb_offset.i, align 8
   %call3.i = call i32 @ram_block_discard_range(ptr noundef %call1.i66, i64 noundef %28, i64 noundef 4096) #13
-  br label %balloon_inflate_page.argprom.exit
+  br label %balloon_inflate_page.exit
 
 if.end.i:                                         ; preds = %if.then26
   %call4.i = call zeroext i1 (ptr, ptr, ...) @warn_report_once_cond(ptr noundef nonnull @balloon_inflate_page.print_once_, ptr noundef nonnull @.str.47) #13
@@ -1547,14 +1547,14 @@ if.else.i.i68:                                    ; preds = %if.end16.i
 bitmap_full.exit.i:                               ; preds = %if.else.i.i68, %if.then.i.i69
   %retval.0.i.i = phi i32 [ %lnot.ext.i.i, %if.then.i.i69 ], [ %call.i.i, %if.else.i.i68 ]
   %tobool23.not.i = icmp eq i32 %retval.0.i.i, 0
-  br i1 %tobool23.not.i, label %balloon_inflate_page.argprom.exit, label %if.end.i29.i
+  br i1 %tobool23.not.i, label %balloon_inflate_page.exit, label %if.end.i29.i
 
 if.end.i29.i:                                     ; preds = %bitmap_full.exit.i
   %call25.i = call i32 @ram_block_discard_range(ptr noundef %call1.i66, i64 noundef %mul.i, i64 noundef %call2.i67) #13
   call void @g_free(ptr noundef nonnull %pbp.sroa.3.3) #13
-  br label %balloon_inflate_page.argprom.exit
+  br label %balloon_inflate_page.exit
 
-balloon_inflate_page.argprom.exit:                ; preds = %if.then.i70, %bitmap_full.exit.i, %if.end.i29.i
+balloon_inflate_page.exit:                        ; preds = %if.then.i70, %bitmap_full.exit.i, %if.end.i29.i
   %pbp.sroa.0.4 = phi i64 [ %pbp.sroa.0.1.ph, %if.then.i70 ], [ %pbp.sroa.0.3, %bitmap_full.exit.i ], [ %pbp.sroa.0.3, %if.end.i29.i ]
   %pbp.sroa.3.4 = phi ptr [ %pbp.sroa.3.1.ph, %if.then.i70 ], [ %pbp.sroa.3.3, %bitmap_full.exit.i ], [ null, %if.end.i29.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rb_offset.i)
@@ -1577,16 +1577,16 @@ if.then30:                                        ; preds = %if.else
   %38 = inttoptr i64 %and.i to ptr
   %call3.i76 = call i32 @qemu_madvise(ptr noundef %38, i64 noundef %call2.i75, i32 noundef 3) #13
   %cmp.not.i77 = icmp eq i32 %call3.i76, 0
-  br i1 %cmp.not.i77, label %balloon_deflate_page.argprom.exit, label %if.then.i78
+  br i1 %cmp.not.i77, label %balloon_deflate_page.exit, label %if.then.i78
 
 if.then.i78:                                      ; preds = %if.then30
   %call4.i79 = tail call ptr @__errno_location() #17
   %39 = load i32, ptr %call4.i79, align 4
   %call5.i = call ptr @strerror(i32 noundef %39) #13
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.48, ptr noundef %call5.i) #13
-  br label %balloon_deflate_page.argprom.exit
+  br label %balloon_deflate_page.exit
 
-balloon_deflate_page.argprom.exit:                ; preds = %if.then30, %if.then.i78
+balloon_deflate_page.exit:                        ; preds = %if.then30, %if.then.i78
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rb_offset.i71)
   br label %if.end36
 
@@ -1594,9 +1594,9 @@ do.body:                                          ; preds = %if.else
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 435, ptr noundef nonnull @__func__.virtio_balloon_handle_output, ptr noundef null) #14
   unreachable
 
-if.end36:                                         ; preds = %trace_virtio_balloon_handle_output.exit, %lor.lhs.false.i, %balloon_inflate_page.argprom.exit, %balloon_deflate_page.argprom.exit, %virtio_balloon_inhibited.exit
-  %pbp.sroa.0.2 = phi i64 [ %pbp.sroa.0.1.ph, %virtio_balloon_inhibited.exit ], [ %pbp.sroa.0.4, %balloon_inflate_page.argprom.exit ], [ %pbp.sroa.0.1.ph, %balloon_deflate_page.argprom.exit ], [ %pbp.sroa.0.1.ph, %lor.lhs.false.i ], [ %pbp.sroa.0.1.ph, %trace_virtio_balloon_handle_output.exit ]
-  %pbp.sroa.3.2 = phi ptr [ %pbp.sroa.3.1.ph, %virtio_balloon_inhibited.exit ], [ %pbp.sroa.3.4, %balloon_inflate_page.argprom.exit ], [ %pbp.sroa.3.1.ph, %balloon_deflate_page.argprom.exit ], [ %pbp.sroa.3.1.ph, %lor.lhs.false.i ], [ %pbp.sroa.3.1.ph, %trace_virtio_balloon_handle_output.exit ]
+if.end36:                                         ; preds = %trace_virtio_balloon_handle_output.exit, %lor.lhs.false.i, %balloon_inflate_page.exit, %balloon_deflate_page.exit, %virtio_balloon_inhibited.exit
+  %pbp.sroa.0.2 = phi i64 [ %pbp.sroa.0.1.ph, %virtio_balloon_inhibited.exit ], [ %pbp.sroa.0.4, %balloon_inflate_page.exit ], [ %pbp.sroa.0.1.ph, %balloon_deflate_page.exit ], [ %pbp.sroa.0.1.ph, %lor.lhs.false.i ], [ %pbp.sroa.0.1.ph, %trace_virtio_balloon_handle_output.exit ]
+  %pbp.sroa.3.2 = phi ptr [ %pbp.sroa.3.1.ph, %virtio_balloon_inhibited.exit ], [ %pbp.sroa.3.4, %balloon_inflate_page.exit ], [ %pbp.sroa.3.1.ph, %balloon_deflate_page.exit ], [ %pbp.sroa.3.1.ph, %lor.lhs.false.i ], [ %pbp.sroa.3.1.ph, %trace_virtio_balloon_handle_output.exit ]
   call void @memory_region_unref(ptr noundef nonnull %section.sroa.1.0.copyload) #13
   br label %while.cond.outer, !llvm.loop !7
 

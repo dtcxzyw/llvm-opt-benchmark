@@ -1050,16 +1050,16 @@ lor.lhs.false6.us.us.i.i.i:                       ; preds = %lor.lhs.false.us.us
   %len.i.us.us.i.i.i = getelementptr inbounds i8, ptr %p.0.val.us.us.i.i.i, i64 24
   %23 = load i64, ptr %len.i.us.us.i.i.i, align 8
   %cmp.i.us.us.i.i.i = icmp eq i64 %23, %13
-  br i1 %cmp.i.us.us.i.i.i, label %name_eq.argprom.exit.us.us.i.i.i, label %for.inc.us.us.i.i.i
+  br i1 %cmp.i.us.us.i.i.i, label %name_eq.exit.us.us.i.i.i, label %for.inc.us.us.i.i.i
 
-name_eq.argprom.exit.us.us.i.i.i:                 ; preds = %lor.lhs.false6.us.us.i.i.i
+name_eq.exit.us.us.i.i.i:                         ; preds = %lor.lhs.false6.us.us.i.i.i
   %base.i.us.us.i.i.i = getelementptr inbounds i8, ptr %p.0.val.us.us.i.i.i, i64 16
   %24 = load ptr, ptr %base.i.us.us.i.i.i, align 8
   %bcmp.i.i.us.us.i.i.i = call i32 @bcmp(ptr readonly %24, ptr readonly %12, i64 %13)
   %cmp.i.i.not.us.us.i.i.i = icmp eq i32 %bcmp.i.i.us.us.i.i.i, 0
   br i1 %cmp.i.i.not.us.us.i.i.i, label %if.end.us.us.i.i.i, label %for.inc.us.us.i.i.i
 
-if.end.us.us.i.i.i:                               ; preds = %name_eq.argprom.exit.us.us.i.i.i
+if.end.us.us.i.i.i:                               ; preds = %name_eq.exit.us.us.i.i.i
   %tobool9.not.us.us.i.i.i = icmp eq ptr %res.029.us.us.i.i.i, null
   %spec.select.i.i.i = select i1 %tobool9.not.us.us.i.i.i, ptr %p.030.us.us.i.i.i, ptr %res.029.us.us.i.i.i
   %25 = getelementptr i8, ptr %p.030.us.us.i.i.i, i64 8
@@ -1068,9 +1068,9 @@ if.end.us.us.i.i.i:                               ; preds = %name_eq.argprom.exi
   %26 = load i64, ptr %len.i14.us.us.i.i.i, align 8
   %27 = load i64, ptr %valuelen.i.i.i.i, align 8
   %cmp.i15.us.us.i.i.i = icmp eq i64 %26, %27
-  br i1 %cmp.i15.us.us.i.i.i, label %value_eq.argprom.exit.us.us.i.i.i, label %for.inc.us.us.i.i.i
+  br i1 %cmp.i15.us.us.i.i.i, label %value_eq.exit.us.us.i.i.i, label %for.inc.us.us.i.i.i
 
-value_eq.argprom.exit.us.us.i.i.i:                ; preds = %if.end.us.us.i.i.i
+value_eq.exit.us.us.i.i.i:                        ; preds = %if.end.us.us.i.i.i
   %base.i18.us.us.i.i.i = getelementptr inbounds i8, ptr %p.0.val13.us.us.i.i.i, i64 16
   %28 = load ptr, ptr %base.i18.us.us.i.i.i, align 8
   %29 = load ptr, ptr %value2.i.i.i.i, align 8
@@ -1078,8 +1078,8 @@ value_eq.argprom.exit.us.us.i.i.i:                ; preds = %if.end.us.us.i.i.i
   %cmp.i.i20.not.us.us.i.i.i = icmp eq i32 %bcmp.i.i19.us.us.i.i.i, 0
   br i1 %cmp.i.i20.not.us.us.i.i.i, label %search_hd_table.exit.thread.i, label %for.inc.us.us.i.i.i
 
-for.inc.us.us.i.i.i:                              ; preds = %value_eq.argprom.exit.us.us.i.i.i, %if.end.us.us.i.i.i, %name_eq.argprom.exit.us.us.i.i.i, %lor.lhs.false6.us.us.i.i.i, %lor.lhs.false.us.us.i.i.i, %for.body.us.us.i.i.i
-  %res.2.us.us.i.i.i = phi ptr [ %res.029.us.us.i.i.i, %for.body.us.us.i.i.i ], [ %res.029.us.us.i.i.i, %lor.lhs.false.us.us.i.i.i ], [ %spec.select.i.i.i, %value_eq.argprom.exit.us.us.i.i.i ], [ %res.029.us.us.i.i.i, %name_eq.argprom.exit.us.us.i.i.i ], [ %res.029.us.us.i.i.i, %lor.lhs.false6.us.us.i.i.i ], [ %spec.select.i.i.i, %if.end.us.us.i.i.i ]
+for.inc.us.us.i.i.i:                              ; preds = %value_eq.exit.us.us.i.i.i, %if.end.us.us.i.i.i, %name_eq.exit.us.us.i.i.i, %lor.lhs.false6.us.us.i.i.i, %lor.lhs.false.us.us.i.i.i, %for.body.us.us.i.i.i
+  %res.2.us.us.i.i.i = phi ptr [ %res.029.us.us.i.i.i, %for.body.us.us.i.i.i ], [ %res.029.us.us.i.i.i, %lor.lhs.false.us.us.i.i.i ], [ %spec.select.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %res.029.us.us.i.i.i, %name_eq.exit.us.us.i.i.i ], [ %res.029.us.us.i.i.i, %lor.lhs.false6.us.us.i.i.i ], [ %spec.select.i.i.i, %if.end.us.us.i.i.i ]
   %next.us.us.i.i.i = getelementptr inbounds i8, ptr %p.030.us.us.i.i.i, i64 64
   %p.0.us.us.i.i.i = load ptr, ptr %next.us.us.i.i.i, align 8
   %tobool.not.us.us.i.i.i = icmp eq ptr %p.0.us.us.i.i.i, null
@@ -1103,16 +1103,16 @@ lor.lhs.false6.us.i.i.i:                          ; preds = %lor.lhs.false.us.i.
   %len.i.us.i.i.i = getelementptr inbounds i8, ptr %p.0.val.us.i.i.i, i64 24
   %32 = load i64, ptr %len.i.us.i.i.i, align 8
   %cmp.i.us.i.i.i = icmp eq i64 %32, %13
-  br i1 %cmp.i.us.i.i.i, label %name_eq.argprom.exit.us.i.i.i, label %for.inc.us.i.i.i
+  br i1 %cmp.i.us.i.i.i, label %name_eq.exit.us.i.i.i, label %for.inc.us.i.i.i
 
-name_eq.argprom.exit.us.i.i.i:                    ; preds = %lor.lhs.false6.us.i.i.i
+name_eq.exit.us.i.i.i:                            ; preds = %lor.lhs.false6.us.i.i.i
   %base.i.us.i.i.i = getelementptr inbounds i8, ptr %p.0.val.us.i.i.i, i64 16
   %33 = load ptr, ptr %base.i.us.i.i.i, align 8
   %bcmp.i.i.us.i.i.i = call i32 @bcmp(ptr readonly %33, ptr readonly %12, i64 %13)
   %cmp.i.i.not.us.i.i.i = icmp eq i32 %bcmp.i.i.us.i.i.i, 0
   br i1 %cmp.i.i.not.us.i.i.i, label %hd_map_find.exit.i.i, label %for.inc.us.i.i.i
 
-for.inc.us.i.i.i:                                 ; preds = %name_eq.argprom.exit.us.i.i.i, %lor.lhs.false6.us.i.i.i, %lor.lhs.false.us.i.i.i, %for.body.us.i.i.i
+for.inc.us.i.i.i:                                 ; preds = %name_eq.exit.us.i.i.i, %lor.lhs.false6.us.i.i.i, %lor.lhs.false.us.i.i.i, %for.body.us.i.i.i
   %next.us.i.i.i = getelementptr inbounds i8, ptr %p.030.us.i.i.i, i64 64
   %p.0.us.i.i.i = load ptr, ptr %next.us.i.i.i, align 8
   %tobool.not.us.i.i.i = icmp eq ptr %p.0.us.i.i.i, null
@@ -1138,9 +1138,9 @@ lor.lhs.false.us39.i.i.i:                         ; preds = %for.body.us34.i.i.i
   %36 = load i64, ptr %len.i14.us45.i.i.i, align 8
   %37 = load i64, ptr %valuelen.i.i.i.i, align 8
   %cmp.i15.us46.i.i.i = icmp eq i64 %36, %37
-  br i1 %cmp.i15.us46.i.i.i, label %value_eq.argprom.exit.us47.i.i.i, label %for.inc.us51.i.i.i
+  br i1 %cmp.i15.us46.i.i.i, label %value_eq.exit.us47.i.i.i, label %for.inc.us51.i.i.i
 
-value_eq.argprom.exit.us47.i.i.i:                 ; preds = %lor.lhs.false.us39.i.i.i
+value_eq.exit.us47.i.i.i:                         ; preds = %lor.lhs.false.us39.i.i.i
   %base.i18.us48.i.i.i = getelementptr inbounds i8, ptr %p.0.val13.us44.i.i.i, i64 16
   %38 = load ptr, ptr %base.i18.us48.i.i.i, align 8
   %39 = load ptr, ptr %value2.i.i.i.i, align 8
@@ -1148,8 +1148,8 @@ value_eq.argprom.exit.us47.i.i.i:                 ; preds = %lor.lhs.false.us39.
   %cmp.i.i20.not.us50.i.i.i = icmp eq i32 %bcmp.i.i19.us49.i.i.i, 0
   br i1 %cmp.i.i20.not.us50.i.i.i, label %search_hd_table.exit.thread.i, label %for.inc.us51.i.i.i
 
-for.inc.us51.i.i.i:                               ; preds = %value_eq.argprom.exit.us47.i.i.i, %lor.lhs.false.us39.i.i.i, %for.body.us34.i.i.i
-  %res.2.us52.i.i.i = phi ptr [ %res.029.us36.i.i.i, %for.body.us34.i.i.i ], [ %spec.select66.i.i.i, %value_eq.argprom.exit.us47.i.i.i ], [ %spec.select66.i.i.i, %lor.lhs.false.us39.i.i.i ]
+for.inc.us51.i.i.i:                               ; preds = %value_eq.exit.us47.i.i.i, %lor.lhs.false.us39.i.i.i, %for.body.us34.i.i.i
+  %res.2.us52.i.i.i = phi ptr [ %res.029.us36.i.i.i, %for.body.us34.i.i.i ], [ %spec.select66.i.i.i, %value_eq.exit.us47.i.i.i ], [ %spec.select66.i.i.i, %lor.lhs.false.us39.i.i.i ]
   %next.us53.i.i.i = getelementptr inbounds i8, ptr %p.030.us35.i.i.i, i64 64
   %p.0.us54.i.i.i = load ptr, ptr %next.us53.i.i.i, align 8
   %tobool.not.us55.i.i.i = icmp eq ptr %p.0.us54.i.i.i, null
@@ -1168,8 +1168,8 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %p.0.i.i.i, null
   br i1 %tobool.not.i.i.i, label %hd_map_find.exit.i.i, label %for.body.i.i.i, !llvm.loop !12
 
-hd_map_find.exit.i.i:                             ; preds = %for.inc.us51.i.i.i, %for.inc.i.i.i, %for.body.i.i.i, %for.inc.us.us.i.i.i, %for.inc.us.i.i.i, %name_eq.argprom.exit.us.i.i.i, %cond.end.i
-  %res.1.i.i.i = phi ptr [ null, %cond.end.i ], [ %p.030.us.i.i.i, %name_eq.argprom.exit.us.i.i.i ], [ null, %for.inc.us.i.i.i ], [ %res.2.us.us.i.i.i, %for.inc.us.us.i.i.i ], [ %p.030.i.i.i, %for.body.i.i.i ], [ null, %for.inc.i.i.i ], [ %res.2.us52.i.i.i, %for.inc.us51.i.i.i ]
+hd_map_find.exit.i.i:                             ; preds = %for.inc.us51.i.i.i, %for.inc.i.i.i, %for.body.i.i.i, %for.inc.us.us.i.i.i, %for.inc.us.i.i.i, %name_eq.exit.us.i.i.i, %cond.end.i
+  %res.1.i.i.i = phi ptr [ null, %cond.end.i ], [ %p.030.us.i.i.i, %name_eq.exit.us.i.i.i ], [ null, %for.inc.us.i.i.i ], [ %res.2.us.us.i.i.i, %for.inc.us.us.i.i.i ], [ %p.030.i.i.i, %for.body.i.i.i ], [ null, %for.inc.i.i.i ], [ %res.2.us52.i.i.i, %for.inc.us51.i.i.i ]
   %41 = icmp ult i32 %call.i, 61
   br i1 %41, label %if.then.i.i, label %if.end.i.i54
 
@@ -1214,8 +1214,8 @@ if.end.i.i54:                                     ; preds = %hd_map_find.exit.i.
   %cmp7.i.i = icmp eq ptr %res.1.i.i.i, null
   br i1 %cmp7.i.i, label %if.end23.thread85.i, label %search_hd_table.exit.i
 
-search_hd_table.exit.thread.i:                    ; preds = %value_eq.argprom.exit.us47.i.i.i, %value_eq.argprom.exit.us.us.i.i.i
-  %res.1.i2731.i.ph.i = phi ptr [ %p.030.us.us.i.i.i, %value_eq.argprom.exit.us.us.i.i.i ], [ %p.030.us35.i.i.i, %value_eq.argprom.exit.us47.i.i.i ]
+search_hd_table.exit.thread.i:                    ; preds = %value_eq.exit.us47.i.i.i, %value_eq.exit.us.us.i.i.i
+  %res.1.i2731.i.ph.i = phi ptr [ %p.030.us.us.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %p.030.us35.i.i.i, %value_eq.exit.us47.i.i.i ]
   %47 = load i32, ptr %next_seq.i116.i, align 8
   %seq.i117.i = getelementptr inbounds i8, ptr %res.1.i2731.i.ph.i, i64 72
   %48 = load i32, ptr %seq.i117.i, align 8

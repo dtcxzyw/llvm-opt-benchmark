@@ -10611,7 +10611,7 @@ invoke.cont:                                      ; preds = %entry
   %ref.tmp5.val = load i64, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp5, i64 112
   %ref.tmp5.val15 = load ptr, ptr %1, align 8
-  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_.argprom"(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, i64 %ref.tmp5.val, ptr %ref.tmp5.val15)
+  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_"(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, i64 %ref.tmp5.val, ptr %ref.tmp5.val15)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
@@ -10843,7 +10843,7 @@ invoke.cont37:                                    ; preds = %_ZN7testing15Assert
   %ref.tmp33.val = load i64, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %ref.tmp33, i64 112
   %ref.tmp33.val16 = load ptr, ptr %34, align 8
-  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_.argprom"(ptr noalias align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, i64 %ref.tmp33.val, ptr %ref.tmp33.val16)
+  invoke fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_"(ptr noalias align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(16) %test_fill, i64 %ref.tmp33.val, ptr %ref.tmp33.val16)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont37
@@ -11262,7 +11262,7 @@ lpad.body:                                        ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_.argprom"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %t.104.val, ptr %t.112.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE16WithInitialValueISD_EENS1_INS0_14DefaultFactoryIT_EES6_JSG_EEERKSK_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %t.104.val, ptr %t.112.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator.16", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator.16", align 1
@@ -11464,11 +11464,11 @@ terminate.lpad.i.i8.i.i:                          ; preds = %if.then.i.i6.i.i
 _ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEED2Ev.exit.i.i: ; preds = %if.then.i.i6.i.i, %invoke.cont6.i.i
   %8 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !noalias !99
   %tobool.not.i.i11.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i11.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_RKT_.argprom.exit", label %if.then.i.i12.i.i
+  br i1 %tobool.not.i.i11.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_RKT_.exit", label %if.then.i.i12.i.i
 
 if.then.i.i12.i.i:                                ; preds = %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEED2Ev.exit.i.i
   %call.i.i13.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_RKT_.argprom.exit" unwind label %terminate.lpad.i.i14.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_RKT_.exit" unwind label %terminate.lpad.i.i14.i.i
 
 terminate.lpad.i.i14.i.i:                         ; preds = %if.then.i.i12.i.i
   %9 = landingpad { ptr, i32 }
@@ -11521,7 +11521,7 @@ terminate.lpad.i.i27.i.i:                         ; preds = %if.then.i.i25.i.i
   call void @__clang_call_terminate(ptr %18) #22
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_RKT_.argprom.exit": ; preds = %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEED2Ev.exit.i.i, %if.then.i.i12.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_RKT_.exit": ; preds = %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEED2Ev.exit.i.i, %if.then.i.i12.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i), !noalias !96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i), !noalias !96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i), !noalias !96
@@ -12489,7 +12489,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZN7testing13Throwi
 
 invoke.cont.i.i.i:                                ; preds = %.noexc.i.i.i, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2EiNS_19exceptions_internal10NoThrowTagE.exit.i.i.i
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %thrower.i.i.i)
-          to label %"_ZSt10__invoke_rIvRZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPNS0_10FixedArrayIN7testing13ThrowingValueILNS6_8TypeSpecE0EEELm25ESaIS9_EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPNS0_10FixedArrayIN7testing13ThrowingValueILNS6_8TypeSpecE0EEELm25ESaIS9_EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit" unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -12514,7 +12514,7 @@ terminate.lpad.i.i1.i.i.i:                        ; preds = %lpad.i.i.i
 _ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit2.i.i.i: ; preds = %lpad.i.i.i
   resume { ptr, i32 } %8
 
-"_ZSt10__invoke_rIvRZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPNS0_10FixedArrayIN7testing13ThrowingValueILNS6_8TypeSpecE0EEELm25ESaIS9_EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %invoke.cont.i.i.i
+"_ZSt10__invoke_rIvRZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPNS0_10FixedArrayIN7testing13ThrowingValueILNS6_8TypeSpecE0EEELm25ESaIS9_EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %invoke.cont.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %thrower.i.i.i)
   ret void
 }
@@ -13981,11 +13981,11 @@ terminate.lpad.i.i8.i.i:                          ; preds = %if.then.i.i6.i.i
 _ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEED2Ev.exit.i.i: ; preds = %if.then.i.i6.i.i, %invoke.cont6.i.i
   %5 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !noalias !148
   %tobool.not.i.i11.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i11.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_RKT_.argprom.exit", label %if.then.i.i12.i.i
+  br i1 %tobool.not.i.i11.i.i, label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_RKT_.exit", label %if.then.i.i12.i.i
 
 if.then.i.i12.i.i:                                ; preds = %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEED2Ev.exit.i.i
   %call.i.i13.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, i32 noundef 3)
-          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_RKT_.argprom.exit" unwind label %terminate.lpad.i.i14.i.i
+          to label %"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_RKT_.exit" unwind label %terminate.lpad.i.i14.i.i
 
 terminate.lpad.i.i14.i.i:                         ; preds = %if.then.i.i12.i.i
   %6 = landingpad { ptr, i32 }
@@ -14038,7 +14038,7 @@ terminate.lpad.i.i27.i.i:                         ; preds = %if.then.i.i25.i.i
   call void @__clang_call_terminate(ptr %15) #22
   unreachable
 
-"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_RKT_.argprom.exit": ; preds = %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEED2Ev.exit.i.i, %if.then.i.i12.i.i
+"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_RKT_.exit": ; preds = %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEED2Ev.exit.i.i, %if.then.i.i12.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i.i), !noalias !145
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i.i), !noalias !145
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i), !noalias !145
@@ -14930,7 +14930,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZN7testing13Throwi
 
 invoke.cont.i.i.i:                                ; preds = %.noexc.i.i.i, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2EiNS_19exceptions_internal10NoThrowTagE.exit.i.i.i
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %thrower.i.i.i)
-          to label %"_ZSt10__invoke_rIvRZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPNS0_10FixedArrayIN7testing13ThrowingValueILNS6_8TypeSpecE0EEELm25ENS6_17ThrowingAllocatorIS9_LNS6_9AllocSpecE0EEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPNS0_10FixedArrayIN7testing13ThrowingValueILNS6_8TypeSpecE0EEELm25ENS6_17ThrowingAllocatorIS9_LNS6_9AllocSpecE0EEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit" unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -14955,7 +14955,7 @@ terminate.lpad.i.i1.i.i.i:                        ; preds = %lpad.i.i.i
 _ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit2.i.i.i: ; preds = %lpad.i.i.i
   resume { ptr, i32 } %8
 
-"_ZSt10__invoke_rIvRZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPNS0_10FixedArrayIN7testing13ThrowingValueILNS6_8TypeSpecE0EEELm25ENS6_17ThrowingAllocatorIS9_LNS6_9AllocSpecE0EEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit": ; preds = %invoke.cont.i.i.i
+"_ZSt10__invoke_rIvRZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPNS0_10FixedArrayIN7testing13ThrowingValueILNS6_8TypeSpecE0EEELm25ENS6_17ThrowingAllocatorIS9_LNS6_9AllocSpecE0EEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %invoke.cont.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %thrower.i.i.i)
   ret void
 }
@@ -16562,14 +16562,14 @@ attributes #24 = { allocsize(0) }
 !88 = distinct !{!88, !6}
 !89 = distinct !{!89, !6}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTES2_JPFNS_15AssertionResultEPN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS8_EEEEEE13WithOperationIZNS4_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0EENS1_IS2_NSt5decayIT_E4typeEJSD_EEERKSK_.argprom: %agg.result"}
-!92 = distinct !{!92, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTES2_JPFNS_15AssertionResultEPN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS8_EEEEEE13WithOperationIZNS4_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0EENS1_IS2_NSt5decayIT_E4typeEJSD_EEERKSK_.argprom"}
+!91 = distinct !{!91, !92, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTES2_JPFNS_15AssertionResultEPN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS8_EEEEEE13WithOperationIZNS4_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0EENS1_IS2_NSt5decayIT_E4typeEJSD_EEERKSK_: %agg.result"}
+!92 = distinct !{!92, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTES2_JPFNS_15AssertionResultEPN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS8_EEEEEE13WithOperationIZNS4_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0EENS1_IS2_NSt5decayIT_E4typeEJSD_EEERKSK_"}
 !93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE11WithFactoryINS0_14DefaultFactoryISD_EEEENS1_INSt5decayIT_E4typeES6_JSG_EEERKSM_.argprom: %agg.result"}
-!95 = distinct !{!95, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE11WithFactoryINS0_14DefaultFactoryISD_EEEENS1_INSt5decayIT_E4typeES6_JSG_EEERKSM_.argprom"}
+!94 = distinct !{!94, !95, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE11WithFactoryINS0_14DefaultFactoryISD_EEEENS1_INSt5decayIT_E4typeES6_JSG_EEERKSM_: %agg.result"}
+!95 = distinct !{!95, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaISB_EEEEEE11WithFactoryINS0_14DefaultFactoryISD_EEEENS1_INSt5decayIT_E4typeES6_JSG_EEERKSM_"}
 !96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_RKT_.argprom: %agg.result"}
-!98 = distinct !{!98, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_RKT_.argprom"}
+!97 = distinct !{!97, !98, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_RKT_: %agg.result"}
+!98 = distinct !{!98, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE4TestISD_vEESE_RKT_"}
 !99 = !{!100, !97}
 !100 = distinct !{!100, !101, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE8TestImplISD_JLm0EEEESE_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
 !101 = distinct !{!101, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEE8TestImplISD_JLm0EEEESE_T_St16integer_sequenceImJXspT0_EEE"}
@@ -16611,14 +16611,14 @@ attributes #24 = { allocsize(0) }
 !137 = distinct !{!137, !"_ZZN7testing19exceptions_internal19ExceptionSafetyTestIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS6_EEEE12WrapContractIPFNS_15AssertionResultEPS8_EEESt8functionISD_ERKT_ENKUlSC_E_clESC_"}
 !138 = distinct !{!138, !6}
 !139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTES2_JPFNS_15AssertionResultEPN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS8_LNS_9AllocSpecE0EEEEEEEE13WithOperationIZNS4_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0EENS1_IS2_NSt5decayIT_E4typeEJSF_EEERKSM_.argprom: %agg.result"}
-!141 = distinct !{!141, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTES2_JPFNS_15AssertionResultEPN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS8_LNS_9AllocSpecE0EEEEEEEE13WithOperationIZNS4_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0EENS1_IS2_NSt5decayIT_E4typeEJSF_EEERKSM_.argprom"}
+!140 = distinct !{!140, !141, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTES2_JPFNS_15AssertionResultEPN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS8_LNS_9AllocSpecE0EEEEEEEE13WithOperationIZNS4_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0EENS1_IS2_NSt5decayIT_E4typeEJSF_EEERKSM_: %agg.result"}
+!141 = distinct !{!141, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTES2_JPFNS_15AssertionResultEPN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS8_LNS_9AllocSpecE0EEEEEEEE13WithOperationIZNS4_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0EENS1_IS2_NSt5decayIT_E4typeEJSF_EEERKSM_"}
 !142 = !{!143}
 !143 = distinct !{!143, !144, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorISB_LNS_9AllocSpecE0EEEEEEEE11WithFactoryINS0_14DefaultFactoryISF_EEEENS1_INSt5decayIT_E4typeES6_JSI_EEERKSO_: %agg.result"}
 !144 = distinct !{!144, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14UninitializedTEZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPNS3_10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorISB_LNS_9AllocSpecE0EEEEEEEE11WithFactoryINS0_14DefaultFactoryISF_EEEENS1_INSt5decayIT_E4typeES6_JSI_EEERKSO_"}
 !145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_RKT_.argprom: %agg.result"}
-!147 = distinct !{!147, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_RKT_.argprom"}
+!146 = distinct !{!146, !147, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_RKT_: %agg.result"}
+!147 = distinct !{!147, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE4TestISF_vEESG_RKT_"}
 !148 = !{!149, !146}
 !149 = distinct !{!149, !150, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE8TestImplISF_JLm0EEEESG_T_St16integer_sequenceImJXspT0_EEE: %agg.result"}
 !150 = distinct !{!150, !"_ZNK7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEE8TestImplISF_JLm0EEEESG_T_St16integer_sequenceImJXspT0_EEE"}

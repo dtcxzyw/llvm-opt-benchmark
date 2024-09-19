@@ -477,7 +477,7 @@ define dso_local void @dput(ptr noundef %0) #1 align 16 {
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %.preheader
-  %13 = tail call fastcc zeroext i1 @retain_dentry.argelim(ptr noundef nonnull %10)
+  %13 = tail call fastcc zeroext i1 @retain_dentry(ptr noundef nonnull %10)
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
@@ -901,7 +901,7 @@ define internal fastcc ptr @__dentry_kill(ptr noundef %0) unnamed_addr #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @retain_dentry.argelim(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
+define internal fastcc noundef zeroext i1 @retain_dentry(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !33
   %2 = load volatile i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

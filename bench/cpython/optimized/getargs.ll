@@ -514,18 +514,18 @@ if.then1:                                         ; preds = %if.end
   %1 = getelementptr i8, ptr %0, i64 8
   %op.val.i = load ptr, ptr %1, align 8
   %cmp.i.not.i.i = icmp eq ptr %op.val.i, @PyByteArray_Type
-  br i1 %cmp.i.not.i.i, label %Py_SIZE.exit.i, label %PyObject_TypeCheck.argprom.exit.i
+  br i1 %cmp.i.not.i.i, label %Py_SIZE.exit.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.then1
+PyObject_TypeCheck.exit.i:                        ; preds = %if.then1
   %call2.i.i = call i32 @PyType_IsSubtype(ptr noundef %op.val.i, ptr noundef nonnull @PyByteArray_Type) #6
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %cond.false.i, label %cond.end.i
 
-cond.false.i:                                     ; preds = %PyObject_TypeCheck.argprom.exit.i
+cond.false.i:                                     ; preds = %PyObject_TypeCheck.exit.i
   call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef 22, ptr noundef nonnull @__PRETTY_FUNCTION__.PyByteArray_AS_STRING) #7
   unreachable
 
-cond.end.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i
+cond.end.i:                                       ; preds = %PyObject_TypeCheck.exit.i
   %.pr.i = load ptr, ptr %1, align 8
   %cmp.not.i.i = icmp eq ptr %.pr.i, @PyLong_Type
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %cond.end.i.i
@@ -560,18 +560,18 @@ PyByteArray_AS_STRING.exit:                       ; preds = %Py_SIZE.exit.i, %if
   %5 = getelementptr i8, ptr %4, i64 8
   %op.val.i1 = load ptr, ptr %5, align 8
   %cmp.i.not.i.i2 = icmp eq ptr %op.val.i1, @PyByteArray_Type
-  br i1 %cmp.i.not.i.i2, label %PyByteArray_GET_SIZE.exit, label %PyObject_TypeCheck.argprom.exit.i3
+  br i1 %cmp.i.not.i.i2, label %PyByteArray_GET_SIZE.exit, label %PyObject_TypeCheck.exit.i3
 
-PyObject_TypeCheck.argprom.exit.i3:               ; preds = %PyByteArray_AS_STRING.exit
+PyObject_TypeCheck.exit.i3:                       ; preds = %PyByteArray_AS_STRING.exit
   %call2.i.i4 = call i32 @PyType_IsSubtype(ptr noundef %op.val.i1, ptr noundef nonnull @PyByteArray_Type) #6
   %tobool3.i.not.i5 = icmp eq i32 %call2.i.i4, 0
   br i1 %tobool3.i.not.i5, label %cond.false.i15, label %cond.end.i6
 
-cond.false.i15:                                   ; preds = %PyObject_TypeCheck.argprom.exit.i3
+cond.false.i15:                                   ; preds = %PyObject_TypeCheck.exit.i3
   call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef 31, ptr noundef nonnull @__PRETTY_FUNCTION__.PyByteArray_GET_SIZE) #7
   unreachable
 
-cond.end.i6:                                      ; preds = %PyObject_TypeCheck.argprom.exit.i3
+cond.end.i6:                                      ; preds = %PyObject_TypeCheck.exit.i3
   %.pr.i7 = load ptr, ptr %5, align 8
   %cmp.not.i.i8 = icmp eq ptr %.pr.i7, @PyLong_Type
   br i1 %cmp.not.i.i8, label %cond.false.i.i14, label %cond.end.i.i9
@@ -673,18 +673,18 @@ if.then1:                                         ; preds = %if.end
   %1 = getelementptr i8, ptr %0, i64 8
   %op.val.i = load ptr, ptr %1, align 8
   %cmp.i.not.i.i = icmp eq ptr %op.val.i, @PyByteArray_Type
-  br i1 %cmp.i.not.i.i, label %Py_SIZE.exit.i, label %PyObject_TypeCheck.argprom.exit.i
+  br i1 %cmp.i.not.i.i, label %Py_SIZE.exit.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.then1
+PyObject_TypeCheck.exit.i:                        ; preds = %if.then1
   %call2.i.i = call i32 @PyType_IsSubtype(ptr noundef %op.val.i, ptr noundef nonnull @PyByteArray_Type) #6
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %cond.false.i, label %cond.end.i
 
-cond.false.i:                                     ; preds = %PyObject_TypeCheck.argprom.exit.i
+cond.false.i:                                     ; preds = %PyObject_TypeCheck.exit.i
   call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef 22, ptr noundef nonnull @__PRETTY_FUNCTION__.PyByteArray_AS_STRING) #7
   unreachable
 
-cond.end.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i
+cond.end.i:                                       ; preds = %PyObject_TypeCheck.exit.i
   %.pr.i = load ptr, ptr %1, align 8
   %cmp.not.i.i = icmp eq ptr %.pr.i, @PyLong_Type
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %cond.end.i.i
@@ -719,18 +719,18 @@ PyByteArray_AS_STRING.exit:                       ; preds = %Py_SIZE.exit.i, %if
   %5 = getelementptr i8, ptr %4, i64 8
   %op.val.i1 = load ptr, ptr %5, align 8
   %cmp.i.not.i.i2 = icmp eq ptr %op.val.i1, @PyByteArray_Type
-  br i1 %cmp.i.not.i.i2, label %PyByteArray_GET_SIZE.exit, label %PyObject_TypeCheck.argprom.exit.i3
+  br i1 %cmp.i.not.i.i2, label %PyByteArray_GET_SIZE.exit, label %PyObject_TypeCheck.exit.i3
 
-PyObject_TypeCheck.argprom.exit.i3:               ; preds = %PyByteArray_AS_STRING.exit
+PyObject_TypeCheck.exit.i3:                       ; preds = %PyByteArray_AS_STRING.exit
   %call2.i.i4 = call i32 @PyType_IsSubtype(ptr noundef %op.val.i1, ptr noundef nonnull @PyByteArray_Type) #6
   %tobool3.i.not.i5 = icmp eq i32 %call2.i.i4, 0
   br i1 %tobool3.i.not.i5, label %cond.false.i15, label %cond.end.i6
 
-cond.false.i15:                                   ; preds = %PyObject_TypeCheck.argprom.exit.i3
+cond.false.i15:                                   ; preds = %PyObject_TypeCheck.exit.i3
   call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef 31, ptr noundef nonnull @__PRETTY_FUNCTION__.PyByteArray_GET_SIZE) #7
   unreachable
 
-cond.end.i6:                                      ; preds = %PyObject_TypeCheck.argprom.exit.i3
+cond.end.i6:                                      ; preds = %PyObject_TypeCheck.exit.i3
   %.pr.i7 = load ptr, ptr %5, align 8
   %cmp.not.i.i8 = icmp eq ptr %.pr.i7, @PyLong_Type
   br i1 %cmp.not.i.i8, label %cond.false.i.i14, label %cond.end.i.i9

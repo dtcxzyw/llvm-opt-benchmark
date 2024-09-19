@@ -3860,18 +3860,18 @@ common.ret:                                       ; preds = %117, %107
 
 "_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i": ; preds = %110
   %114 = invoke noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h741ed8fe90ab66c5E.llvm.8710632623519176205(i8 noundef 2, i8 noundef 2, i8 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5fe3d84f6d257fff72c0f1af51e75b8d.84)
-          to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0e2664de9188c3c8E.argprom.exit" unwind label %118
+          to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0e2664de9188c3c8E.exit" unwind label %118
 
-"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0e2664de9188c3c8E.argprom.exit": ; preds = %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i"
+"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0e2664de9188c3c8E.exit": ; preds = %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i"
   %115 = ptrtoint ptr %114 to i64
   %116 = bitcast i64 %115 to <8 x i8>
   %.sroa.573.8.vec.expand75 = shufflevector <8 x i8> %116, <8 x i8> poison, <32 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %.sroa.573.8.vecblend76 = shufflevector <32 x i8> %.sroa.573.8.vec.expand75, <32 x i8> <i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef>, <32 x i32> <i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 47, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
   br label %117
 
-117:                                              ; preds = %120, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0e2664de9188c3c8E.argprom.exit", %"_ZN4core3ptr236drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h0838b2e7c5b9a8a6E.exit41", %111
-  %.sroa.0.0 = phi i8 [ 0, %111 ], [ 0, %"_ZN4core3ptr236drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h0838b2e7c5b9a8a6E.exit41" ], [ 1, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0e2664de9188c3c8E.argprom.exit" ], [ 1, %120 ]
-  %.sroa.573.0 = phi <32 x i8> [ %.sroa.573.15.vecblend, %111 ], [ %.val31, %"_ZN4core3ptr236drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h0838b2e7c5b9a8a6E.exit41" ], [ %.sroa.573.8.vecblend76, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0e2664de9188c3c8E.argprom.exit" ], [ %.sroa.573.8.vecblend, %120 ]
+117:                                              ; preds = %120, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0e2664de9188c3c8E.exit", %"_ZN4core3ptr236drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h0838b2e7c5b9a8a6E.exit41", %111
+  %.sroa.0.0 = phi i8 [ 0, %111 ], [ 0, %"_ZN4core3ptr236drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h0838b2e7c5b9a8a6E.exit41" ], [ 1, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0e2664de9188c3c8E.exit" ], [ 1, %120 ]
+  %.sroa.573.0 = phi <32 x i8> [ %.sroa.573.15.vecblend, %111 ], [ %.val31, %"_ZN4core3ptr236drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h0838b2e7c5b9a8a6E.exit41" ], [ %.sroa.573.8.vecblend76, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0e2664de9188c3c8E.exit" ], [ %.sroa.573.8.vecblend, %120 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.573.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store <32 x i8> %.sroa.573.0, ptr %.sroa.573.0..sroa_idx, align 1
@@ -3893,7 +3893,7 @@ common.ret:                                       ; preds = %117, %107
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels17get_buffer_secret28_$u7b$$u7b$closure$u7d$$u7d$17hbdf46474d0a265daE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels17get_buffer_secret28_$u7b$$u7b$closure$u7d$$u7d$17hbdf46474d0a265daE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, i64, {} }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -4158,7 +4158,7 @@ define hidden void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels15get_aead_secret28_$u7b$$u7b$closure$u7d$$u7d$17h684d3937815670e6E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels15get_aead_secret28_$u7b$$u7b$closure$u7d$$u7d$17h684d3937815670e6E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, i64, {} }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -5012,7 +5012,7 @@ common.ret:                                       ; preds = %68, %49, %27
 43:                                               ; preds = %3, %40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   %44 = getelementptr inbounds i8, ptr %1, i64 40
-  invoke fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels17get_buffer_secret28_$u7b$$u7b$closure$u7d$$u7d$17hbdf46474d0a265daE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 %44)
+  invoke fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels17get_buffer_secret28_$u7b$$u7b$closure$u7d$$u7d$17hbdf46474d0a265daE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 %44)
           to label %47 unwind label %45
 
 45:                                               ; preds = %43
@@ -5078,7 +5078,7 @@ common.ret:                                       ; preds = %68, %49, %27
 62:                                               ; preds = %26, %53
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   %63 = getelementptr inbounds i8, ptr %1, i64 64
-  invoke fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels17get_buffer_secret28_$u7b$$u7b$closure$u7d$$u7d$17hbdf46474d0a265daE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 %63)
+  invoke fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels17get_buffer_secret28_$u7b$$u7b$closure$u7d$$u7d$17hbdf46474d0a265daE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 %63)
           to label %66 unwind label %64
 
 64:                                               ; preds = %62
@@ -5213,9 +5213,9 @@ common.ret:                                       ; preds = %68, %49, %27
   %101 = getelementptr inbounds i8, ptr %20, i64 16
   %.val79 = load i64, ptr %101, align 8, !noundef !13
   %102 = icmp eq i64 %.val79, 0
-  br i1 %102, label %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i103", label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha6a33df4aae24addE.argprom.exit
+  br i1 %102, label %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i103", label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha6a33df4aae24addE.exit
 
-_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha6a33df4aae24addE.argprom.exit: ; preds = %100
+_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha6a33df4aae24addE.exit: ; preds = %100
   %103 = lshr i64 %.val79, 5
   %104 = and i64 %.val79, 31
   %.not.i.i89 = icmp ne i64 %104, 0
@@ -5224,7 +5224,7 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha6a33df4aae24addE.argp
   %.not = icmp eq i64 %.0.i.i90, %.74
   br i1 %.not, label %106, label %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i103"
 
-106:                                              ; preds = %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha6a33df4aae24addE.argprom.exit
+106:                                              ; preds = %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha6a33df4aae24addE.exit
   %107 = getelementptr inbounds i8, ptr %1, i64 8
   %108 = load ptr, ptr %107, align 8, !nonnull !13, !align !81, !noundef !13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !829
@@ -5383,7 +5383,7 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha6a33df4aae24addE.argp
           cleanup
   br label %.body100
 
-"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i103": ; preds = %100, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha6a33df4aae24addE.argprom.exit
+"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit.i103": ; preds = %100, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha6a33df4aae24addE.exit
   %154 = invoke noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h741ed8fe90ab66c5E.llvm.8710632623519176205(i8 noundef 2, i8 noundef 2, i8 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5fe3d84f6d257fff72c0f1af51e75b8d.102)
           to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h867f9935c7703d35E.exit106" unwind label %163
 
@@ -9011,7 +9011,7 @@ common.ret:                                       ; preds = %171, %170, %97
   %121 = phi ptr [ %110, %109 ], [ %105, %106 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %122 = getelementptr inbounds i8, ptr %0, i64 192
-  invoke fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels15get_aead_secret28_$u7b$$u7b$closure$u7d$$u7d$17h684d3937815670e6E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 %122)
+  invoke fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels15get_aead_secret28_$u7b$$u7b$closure$u7d$$u7d$17h684d3937815670e6E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 %122)
           to label %125 unwind label %123
 
 123:                                              ; preds = %120
@@ -9608,7 +9608,7 @@ common.ret:                                       ; preds = %178, %176, %100
   %122 = phi ptr [ %111, %110 ], [ %108, %109 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !1346
   %123 = getelementptr inbounds i8, ptr %1, i64 176
-  invoke fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels15get_aead_secret28_$u7b$$u7b$closure$u7d$$u7d$17h684d3937815670e6E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 %123)
+  invoke fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels15get_aead_secret28_$u7b$$u7b$closure$u7d$$u7d$17h684d3937815670e6E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 %123)
           to label %126 unwind label %124, !noalias !1346
 
 124:                                              ; preds = %121
@@ -11258,10 +11258,10 @@ attributes #22 = { noreturn }
 !259 = distinct !{!259, !257, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !260 = distinct !{!260, !257, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 2"}
 !261 = !{!262}
-!262 = distinct !{!262, !263, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE.argprom: argument 0"}
-!263 = distinct !{!263, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE.argprom"}
+!262 = distinct !{!262, !263, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE: argument 0"}
+!263 = distinct !{!263, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE"}
 !264 = !{!265}
-!265 = distinct !{!265, !263, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE.argprom: argument 1"}
+!265 = distinct !{!265, !263, !"_ZN7tracing4span4Span3log17hec43ba3be1da64bbE: argument 1"}
 !266 = !{i64 0, i64 5}
 !267 = !{!262, !265}
 !268 = !{!269}
@@ -11756,12 +11756,12 @@ attributes #22 = { noreturn }
 !757 = !{!755, !752}
 !758 = !{i64 1}
 !759 = !{!760, !762}
-!760 = distinct !{!760, !761, !"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels13ecdh_internal17h74d0c2675d58d4cdE.argprom: argument 0"}
-!761 = distinct !{!761, !"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels13ecdh_internal17h74d0c2675d58d4cdE.argprom"}
-!762 = distinct !{!762, !761, !"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels13ecdh_internal17h74d0c2675d58d4cdE.argprom: argument 1"}
+!760 = distinct !{!760, !761, !"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels13ecdh_internal17h74d0c2675d58d4cdE: argument 0"}
+!761 = distinct !{!761, !"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels13ecdh_internal17h74d0c2675d58d4cdE"}
+!762 = distinct !{!762, !761, !"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels13ecdh_internal17h74d0c2675d58d4cdE: argument 1"}
 !763 = !{!764, !760, !762}
-!764 = distinct !{!764, !765, !"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels24import_x25519_public_key17h0fc93fc88300ed47E.argprom: argument 0"}
-!765 = distinct !{!765, !"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels24import_x25519_public_key17h0fc93fc88300ed47E.argprom"}
+!764 = distinct !{!764, !765, !"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels24import_x25519_public_key17h0fc93fc88300ed47E: argument 0"}
+!765 = distinct !{!765, !"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels24import_x25519_public_key17h0fc93fc88300ed47E"}
 !766 = !{!760}
 !767 = !{!768}
 !768 = distinct !{!768, !769, !"_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels24import_x25519_secret_key17h7d0206ecda710f61E: argument 1"}
@@ -12227,8 +12227,8 @@ attributes #22 = { noreturn }
 !1228 = !{!1229}
 !1229 = distinct !{!1229, !1227, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he0320c95144b298aE: argument 0"}
 !1230 = !{!1231}
-!1231 = distinct !{!1231, !1232, !"_ZN86_$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$u20$as$u20$core..clone..Clone$GT$5clone17h27cf8fe00c3eda1dE.argprom: argument 0"}
-!1232 = distinct !{!1232, !"_ZN86_$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$u20$as$u20$core..clone..Clone$GT$5clone17h27cf8fe00c3eda1dE.argprom"}
+!1231 = distinct !{!1231, !1232, !"_ZN86_$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$u20$as$u20$core..clone..Clone$GT$5clone17h27cf8fe00c3eda1dE: argument 0"}
+!1232 = distinct !{!1232, !"_ZN86_$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$u20$as$u20$core..clone..Clone$GT$5clone17h27cf8fe00c3eda1dE"}
 !1233 = !{!1234}
 !1234 = distinct !{!1234, !1235, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h851ae9491c16164cE: argument 0"}
 !1235 = distinct !{!1235, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h851ae9491c16164cE"}
@@ -12343,8 +12343,8 @@ attributes #22 = { noreturn }
 !1344 = distinct !{!1344, !1342, !"_ZN12tracing_core5field8FieldSet9value_set17h8c289b86f8c3d3e1E: argument 1"}
 !1345 = distinct !{!1345, !1342, !"_ZN12tracing_core5field8FieldSet9value_set17h8c289b86f8c3d3e1E: argument 2"}
 !1346 = !{!1347}
-!1347 = distinct !{!1347, !1348, !"_ZN198_$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$12aead_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hef7929dbc5d282daE.argprom: argument 0"}
-!1348 = distinct !{!1348, !"_ZN198_$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$12aead_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hef7929dbc5d282daE.argprom"}
+!1347 = distinct !{!1347, !1348, !"_ZN198_$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$12aead_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hef7929dbc5d282daE: argument 0"}
+!1348 = distinct !{!1348, !"_ZN198_$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$12aead_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hef7929dbc5d282daE"}
 !1349 = !{!1350, !1352, !1353, !1354, !1355, !1347}
 !1350 = distinct !{!1350, !1351, !"_ZN11ockam_vault8software25vault_for_secure_channels3aes6AesGen15decrypt_message17hfa71a56ca12eb69cE: argument 0"}
 !1351 = distinct !{!1351, !"_ZN11ockam_vault8software25vault_for_secure_channels3aes6AesGen15decrypt_message17hfa71a56ca12eb69cE"}
@@ -12388,8 +12388,8 @@ attributes #22 = { noreturn }
 !1389 = distinct !{!1389, !1387, !"_ZN12tracing_core5field8FieldSet9value_set17h8c289b86f8c3d3e1E: argument 1"}
 !1390 = distinct !{!1390, !1387, !"_ZN12tracing_core5field8FieldSet9value_set17h8c289b86f8c3d3e1E: argument 2"}
 !1391 = !{!1392}
-!1392 = distinct !{!1392, !1393, !"_ZN198_$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$22delete_aead_secret_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haa8661ec67423c87E.argprom: argument 0"}
-!1393 = distinct !{!1393, !"_ZN198_$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$22delete_aead_secret_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haa8661ec67423c87E.argprom"}
+!1392 = distinct !{!1392, !1393, !"_ZN198_$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$22delete_aead_secret_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haa8661ec67423c87E: argument 0"}
+!1393 = distinct !{!1393, !"_ZN198_$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$22delete_aead_secret_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haa8661ec67423c87E"}
 !1394 = !{!1395, !1392}
 !1395 = distinct !{!1395, !1396, !"_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17h0cb7a9d68be70b0bE: argument 0"}
 !1396 = distinct !{!1396, !"_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17h0cb7a9d68be70b0bE"}

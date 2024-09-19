@@ -329,7 +329,7 @@ entry:
   store i8 %frombool.i, ptr %pretty_.i, align 8
   %indent_.i = getelementptr inbounds i8, ptr %genJS, i64 12
   store i32 0, ptr %indent_.i, align 4
-  call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %genJS, ptr noundef %root)
+  call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %genJS, ptr noundef %root)
   %0 = load ptr, ptr %genJS, align 8
   %OutBufCur.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i.i, align 8
@@ -353,7 +353,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS4doItEPNS_6ESTree4NodeE.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr nocapture noundef nonnull align 8 dereferenceable(16) %v, ptr noundef %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %v, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %node, null
   br i1 %tobool.not, label %return, label %if.end
@@ -600,12 +600,12 @@ sw.default:                                       ; preds = %if.end
   unreachable
 
 sw.bb6:                                           ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit712: ; preds = %if.end
   %_body.i = getelementptr inbounds i8, ptr %node, i64 88
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit716: ; preds = %if.end
@@ -620,7 +620,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   %_params.i = getelementptr inbounds i8, ptr %node, i64 80
   %_body.i234 = getelementptr inbounds i8, ptr %node, i64 96
   %4 = load ptr, ptr %_body.i234, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %v, i1 noundef zeroext %tobool.i, i1 noundef zeroext %tobool2.i, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %_params.i, ptr noundef %4)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %v, i1 noundef zeroext %tobool.i, i1 noundef zeroext %tobool2.i, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %_params.i, ptr noundef %4)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit720: ; preds = %if.end
@@ -639,11 +639,11 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   %_params.i240 = getelementptr inbounds i8, ptr %node, i64 80
   %_body.i241 = getelementptr inbounds i8, ptr %node, i64 96
   %8 = load ptr, ptr %_body.i241, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %v, i1 noundef zeroext %tobool.i236, i1 noundef zeroext %tobool2.i238, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %_params.i240, ptr noundef %8)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %v, i1 noundef zeroext %tobool.i236, i1 noundef zeroext %tobool2.i238, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %_params.i240, ptr noundef %8)
   br label %return
 
 sw.bb31:                                          ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit732: ; preds = %if.end
@@ -667,7 +667,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 sw.bb61:                                          ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit760: ; preds = %if.end
@@ -691,7 +691,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 sw.bb96:                                          ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit784: ; preds = %if.end
@@ -716,42 +716,42 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit804: ; preds = %if.end
   %v.val = load ptr, ptr %v, align 8
-  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_15NullLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr %v.val)
+  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_15NullLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.val)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit808: ; preds = %if.end
   %v.val699 = load ptr, ptr %v, align 8
   %9 = getelementptr i8, ptr %node, i64 48
   %call133.val = load i8, ptr %9, align 8
-  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18BooleanLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr %v.val699, i8 %call133.val)
+  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18BooleanLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.val699, i8 %call133.val)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit812: ; preds = %if.end
-  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_17StringLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_17StringLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull %node)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit816: ; preds = %if.end
   %10 = getelementptr i8, ptr %node, i64 48
   %call143.val = load double, ptr %10, align 8
-  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18NumericLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %v, double %call143.val)
+  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18NumericLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(16) %v, double %call143.val)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit820: ; preds = %if.end
-  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_17RegExpLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_17RegExpLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull %node)
   br label %return
 
 sw.bb151:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit828: ; preds = %if.end
   %v.val700 = load ptr, ptr %v, align 8
-  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18ThisExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr %v.val700)
+  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18ThisExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.val700)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit832: ; preds = %if.end
   %v.val701 = load ptr, ptr %v, align 8
-  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_9SuperNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr %v.val701)
+  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_9SuperNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.val701)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit836: ; preds = %if.end
@@ -760,7 +760,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit840: ; preds = %if.end
   %_properties.i = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitPropsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %_properties.i)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitPropsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %_properties.i)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit844: ; preds = %if.end
@@ -768,7 +768,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 sw.bb181:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit852: ; preds = %if.end
@@ -780,11 +780,11 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 sw.bb196:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb201:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit868: ; preds = %if.end
@@ -792,7 +792,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 sw.bb211:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit876: ; preds = %if.end
@@ -812,7 +812,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 sw.bb236:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit896: ; preds = %if.end
@@ -828,11 +828,11 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 sw.bb256:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb261:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit916: ; preds = %if.end
@@ -842,7 +842,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   %call268.val.val = load ptr, ptr %call268.val, align 8
   %12 = getelementptr i8, ptr %call268.val, i64 8
   %call268.val.val703 = load i64, ptr %12, align 8
-  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_14IdentifierNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom.argprom(ptr %v.val702, ptr %call268.val.val, i64 %call268.val.val703)
+  tail call fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_14IdentifierNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.val702, ptr %call268.val.val, i64 %call268.val.val703)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit920: ; preds = %if.end
@@ -850,7 +850,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 sw.bb276:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit928: ; preds = %if.end
@@ -878,7 +878,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 sw.bb311:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit956: ; preds = %if.end
@@ -892,7 +892,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   %14 = load ptr, ptr %_superClass.i, align 8
   %_body.i1629 = getelementptr inbounds i8, ptr %node, i64 112
   %15 = load ptr, ptr %_body.i1629, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitClassEPNS_6ESTree4NodeES4_S4_S4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef %13, ptr noundef %14, ptr noundef %15)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitClassEPNS_6ESTree4NodeES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef %13, ptr noundef %14, ptr noundef %15)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit964: ; preds = %if.end
@@ -902,7 +902,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   %17 = load ptr, ptr %_superClass.i1631, align 8
   %_body.i1632 = getelementptr inbounds i8, ptr %node, i64 112
   %18 = load ptr, ptr %_body.i1632, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitClassEPNS_6ESTree4NodeES4_S4_S4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitClassEPNS_6ESTree4NodeES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef %16, ptr noundef %17, ptr noundef %18)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit968: ; preds = %if.end
@@ -922,48 +922,48 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 sw.bb351:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb356:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb361:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb366:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb371:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb376:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb381:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb386:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb391:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb396:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit1024: ; preds = %if.end
   %_properties.i1633 = getelementptr inbounds i8, ptr %node, i64 48
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitPropsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %_properties.i1633)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitPropsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %_properties.i1633)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit1028: ; preds = %if.end
@@ -979,595 +979,595 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 sw.bb421:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb426:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb431:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb436:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb441:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb446:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb451:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb456:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb461:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb466:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb471:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb476:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb481:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb486:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb491:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb496:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb501:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb506:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb511:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb516:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb521:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb526:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb531:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb536:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb541:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb546:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb551:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb556:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb561:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb566:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb571:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb576:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb581:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb586:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb591:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb596:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb601:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb606:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb611:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb616:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb621:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb626:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb631:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb636:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb641:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb646:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb651:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb656:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb661:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb666:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb671:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb676:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb681:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb686:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb691:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb696:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb701:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb706:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb711:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb716:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb721:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb726:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb731:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb736:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb741:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb746:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb751:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb756:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb761:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb766:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb771:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb776:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb781:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb786:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb791:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb796:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb801:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb806:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb811:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb816:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb821:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb826:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb831:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb836:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb841:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb846:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb851:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb856:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb861:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb866:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb871:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb876:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb881:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb886:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb891:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb896:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb901:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb906:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb911:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb916:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb921:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb926:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb931:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb936:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb941:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb946:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb951:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb956:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb961:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb966:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb971:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb976:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb981:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb986:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb991:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb996:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1001:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1006:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1011:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1016:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1021:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1026:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1031:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1036:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1041:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1046:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1051:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1056:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1061:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1066:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1071:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1076:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1081:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1086:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1091:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1096:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1101:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1106:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1111:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1116:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1121:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1126:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1131:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1136:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1141:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1146:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1151:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 sw.bb1156:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   unreachable
 
 return:                                           ; preds = %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit712, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit716, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit720, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit724, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit732, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit736, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit740, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit744, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit748, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit760, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit764, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit768, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit772, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit776, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit784, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit788, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit792, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit796, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit800, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit804, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit808, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit812, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit816, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit820, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit828, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit832, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit836, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit840, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit844, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit852, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit856, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit868, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit876, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit880, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit884, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit888, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit896, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit900, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit904, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit916, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit920, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit928, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit932, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit936, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit940, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit944, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit948, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit956, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit960, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit964, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit968, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit972, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit976, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit980, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit1024, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit1028, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit1032, %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit1036, %if.end, %if.end, %entry
@@ -1575,7 +1575,7 @@ return:                                           ; preds = %_ZNSt7variantIJN6he
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_15NullLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr %v.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_15NullLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.0.val) unnamed_addr #0 align 2 {
 entry:
   %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
@@ -1589,21 +1589,21 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull @.str.284, i64 noundef 4) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree15NullLiteralNodeE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree15NullLiteralNodeE.exit
 
 if.then4.i.i.i:                                   ; preds = %entry
   store i32 1819047278, ptr %1, align 1
   %2 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   store ptr %add.ptr.i.i.i, ptr %OutBufCur.i6.i.i, align 8
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree15NullLiteralNodeE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree15NullLiteralNodeE.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree15NullLiteralNodeE.argprom.exit: ; preds = %if.then.i.i.i, %if.then4.i.i.i
+_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree15NullLiteralNodeE.exit: ; preds = %if.then.i.i.i, %if.then4.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18BooleanLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr %v.0.val, i8 %node.48.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18BooleanLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.0.val, i8 %node.48.val) unnamed_addr #0 align 2 {
 entry:
   %tobool.i = trunc i8 %node.48.val to i1
   %cond.i = select i1 %tobool.i, ptr @.str.285, ptr @.str.286
@@ -1620,21 +1620,21 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18BooleanLiteralNodeE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18BooleanLiteralNodeE.exit
 
 if.then4.i.i.i:                                   ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(4) %cond.i, i64 %call.i.i.i, i1 false)
   %2 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 %call.i.i.i
   store ptr %add.ptr.i.i.i, ptr %OutBufCur.i6.i.i, align 8
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18BooleanLiteralNodeE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18BooleanLiteralNodeE.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18BooleanLiteralNodeE.argprom.exit: ; preds = %if.then.i.i.i, %if.then4.i.i.i
+_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18BooleanLiteralNodeE.exit: ; preds = %if.then.i.i.i, %if.then4.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_17StringLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_17StringLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"class.llvh::FormattedNumber", align 8
   %ref.tmp68.i.i = alloca %"class.llvh::FormattedNumber", align 8
@@ -2222,7 +2222,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree17StringLiteralNodeE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18NumericLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %v, double %node.48.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18NumericLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %v, double %node.48.val) unnamed_addr #0 align 2 {
 entry:
   %buf8.i = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf8.i)
@@ -2234,7 +2234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_17RegExpLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_17RegExpLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %v, align 8
   %OutBufCur.i.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -2342,7 +2342,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree17RegExpLiteralNodeE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18ThisExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr %v.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18ThisExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.0.val) unnamed_addr #0 align 2 {
 entry:
   %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
@@ -2356,21 +2356,21 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull @.str.300, i64 noundef 4) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18ThisExpressionNodeE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18ThisExpressionNodeE.exit
 
 if.then4.i.i.i:                                   ; preds = %entry
   store i32 1936287860, ptr %1, align 1
   %2 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   store ptr %add.ptr.i.i.i, ptr %OutBufCur.i6.i.i, align 8
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18ThisExpressionNodeE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18ThisExpressionNodeE.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18ThisExpressionNodeE.argprom.exit: ; preds = %if.then.i.i.i, %if.then4.i.i.i
+_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18ThisExpressionNodeE.exit: ; preds = %if.then.i.i.i, %if.then4.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_9SuperNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom(ptr %v.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_9SuperNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.0.val) unnamed_addr #0 align 2 {
 entry:
   %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
@@ -2384,21 +2384,21 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull @.str.301, i64 noundef 5) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree9SuperNodeE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree9SuperNodeE.exit
 
 if.then4.i.i.i:                                   ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef nonnull align 1 dereferenceable(5) @.str.301, i64 5, i1 false)
   %2 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 5
   store ptr %add.ptr.i.i.i, ptr %OutBufCur.i6.i.i, align 8
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree9SuperNodeE.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree9SuperNodeE.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree9SuperNodeE.argprom.exit: ; preds = %if.then.i.i.i, %if.then4.i.i.i
+_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree9SuperNodeE.exit: ; preds = %if.then.i.i.i, %if.then4.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_14IdentifierNodeEvE4callERS4_PS5_PNS0_4NodeE.argprom.argprom(ptr %v.0.val, ptr %node.48.val.0.val, i64 %node.48.val.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_14IdentifierNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.0.val, ptr %node.48.val.0.val, i64 %node.48.val.8.val) unnamed_addr #0 align 2 {
 entry:
   %OutBufEnd.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 16
   %0 = load ptr, ptr %OutBufEnd.i.i, align 8
@@ -2412,20 +2412,20 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef %node.48.val.0.val, i64 noundef %node.48.val.8.val) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree14IdentifierNodeE.argprom.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree14IdentifierNodeE.exit
 
 if.end.i.i:                                       ; preds = %entry
   %tobool.not.i.i = icmp eq i64 %node.48.val.8.val, 0
-  br i1 %tobool.not.i.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree14IdentifierNodeE.argprom.argprom.exit, label %if.then4.i.i
+  br i1 %tobool.not.i.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree14IdentifierNodeE.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %node.48.val.0.val, i64 %node.48.val.8.val, i1 false)
   %2 = load ptr, ptr %OutBufCur.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %node.48.val.8.val
   store ptr %add.ptr.i.i, ptr %OutBufCur.i.i, align 8
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree14IdentifierNodeE.argprom.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree14IdentifierNodeE.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree14IdentifierNodeE.argprom.argprom.exit: ; preds = %if.then.i.i, %if.end.i.i, %if.then4.i.i
+_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree14IdentifierNodeE.exit: ; preds = %if.then.i.i, %if.end.i.i, %if.then4.i.i
   ret void
 }
 
@@ -2433,7 +2433,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree14IdentifierNodeE.argprom.argpro
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE.argprom(ptr noundef %n) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef %n) unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #12
   %call2 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef nonnull @.str.2)
@@ -2544,7 +2544,7 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5w
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %list) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %list) unnamed_addr #0 align 2 {
 entry:
   %__begin2.sroa.0.0.in3 = getelementptr inbounds i8, ptr %list, i64 8
   %__begin2.sroa.0.04 = load ptr, ptr %__begin2.sroa.0.0.in3, align 8
@@ -2576,7 +2576,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %if.then, %for.body
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.07)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.07)
   %call.i2 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS13endsWithBlockEPNS_6ESTree4NodeE(ptr noundef %__begin2.sroa.0.07)
   br i1 %call.i2, label %_ZN6hermes12_GLOBAL__N_15GenJS17visitStmtInABlockEPNS_6ESTree4NodeES4_.exit, label %if.then.i3
 
@@ -2687,7 +2687,7 @@ return:                                           ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %async, i1 noundef zeroext %generator, ptr noundef %id, ptr noundef nonnull align 8 dereferenceable(16) %params, ptr noundef %body) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %async, i1 noundef zeroext %generator, ptr noundef %id, ptr noundef nonnull align 8 dereferenceable(16) %params, ptr noundef %body) unnamed_addr #0 align 2 {
 entry:
   br i1 %async, label %if.then, label %if.end
 
@@ -2798,16 +2798,16 @@ if.end.i32:                                       ; preds = %if.then13
   br label %if.then19
 
 if.then19:                                        ; preds = %if.then10, %if.then.i24, %if.then.i29, %if.end.i32
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %id)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %id)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %_ZN4llvh11raw_ostreamlsEc.exit, %if.then19
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS22visitFuncParamsAndBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_S8_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %params, ptr noundef %body)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS22visitFuncParamsAndBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %params, ptr noundef %body)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS22visitFuncParamsAndBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_S8_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %params, ptr noundef %body) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS22visitFuncParamsAndBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_S8_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %params, ptr noundef %body) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -2872,7 +2872,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.07)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.07)
   %__begin2.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %params
@@ -2898,7 +2898,7 @@ if.end.i11:                                       ; preds = %for.end
   br label %_ZN4llvh11raw_ostreamlsEc.exit13
 
 _ZN4llvh11raw_ostreamlsEc.exit13:                 ; preds = %if.then.i8, %if.end.i11
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %body)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %body)
   ret void
 }
 
@@ -2989,7 +2989,7 @@ if.end.i:                                         ; preds = %if.then7
 
 if.end10:                                         ; preds = %if.end.i, %if.then.i, %if.then5
   %12 = load ptr, ptr %Next.i.i.i.i.i, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %12)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %12)
   br label %if.end27
 
 if.else:                                          ; preds = %land.lhs.true, %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit, %lor.lhs.false
@@ -3057,7 +3057,7 @@ if.then4.i.i.i:                                   ; preds = %if.then22
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin3.sroa.0.077)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin3.sroa.0.077)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.077, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin3.sroa.0.0, %_params15
@@ -3086,14 +3086,14 @@ if.end27:                                         ; preds = %if.end.i36, %if.the
   %23 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val15 = load i8, ptr %23, align 8
   %tobool2.i = trunc i8 %this.val15 to i1
-  br i1 %tobool2.i, label %if.then.i40, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i40, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i40:                                      ; preds = %if.end27
   %this.val14 = load ptr, ptr %this, align 8
   %call.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val14, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %if.end27, %if.then.i40
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.end27, %if.then.i40
   %24 = load ptr, ptr %this, align 8
   %OutBufEnd.i5.i43 = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load ptr, ptr %OutBufEnd.i5.i43, align 8
@@ -3105,11 +3105,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %if.end27, %if.th
   %cmp.i.i48 = icmp ult i64 %sub.ptr.sub.i9.i47, 2
   br i1 %cmp.i.i48, label %if.then.i.i54, label %if.then4.i.i51
 
-if.then.i.i54:                                    ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then.i.i54:                                    ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %call3.i.i55 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %24, ptr noundef nonnull @.str.242, i64 noundef 2) #12
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit56
 
-if.then4.i.i51:                                   ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then4.i.i51:                                   ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   store i16 15933, ptr %26, align 1
   %27 = load ptr, ptr %OutBufCur.i6.i44, align 8
   %add.ptr.i.i52 = getelementptr inbounds i8, ptr %27, i64 2
@@ -3119,14 +3119,14 @@ if.then4.i.i51:                                   ; preds = %_ZN6hermes12_GLOBAL
 _ZN4llvh11raw_ostreamlsEPKc.exit56:               ; preds = %if.then.i.i54, %if.then4.i.i51
   %this.val13 = load i8, ptr %23, align 8
   %tobool2.i57 = trunc i8 %this.val13 to i1
-  br i1 %tobool2.i57, label %if.then.i59, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit61
+  br i1 %tobool2.i57, label %if.then.i59, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit61
 
 if.then.i59:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit56
   %this.val = load ptr, ptr %this, align 8
   %call.i60 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit61
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit61
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit61: ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit56, %if.then.i59
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit61:    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit56, %if.then.i59
   %_body = getelementptr inbounds i8, ptr %node, i64 96
   %28 = load ptr, ptr %_body, align 8
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 16
@@ -3134,13 +3134,13 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit61: ; preds = %_ZN4llvh11raw_
   %cmp.i.i.i.i.i.i = icmp eq i32 %29, 19
   br i1 %cmp.i.i.i.i.i.i, label %if.then31, label %if.end.i63
 
-if.then31:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit61
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %28)
+if.then31:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit61
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %28)
   br label %if.end35
 
-if.end.i63:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit61
+if.end.i63:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit61
   %this.val.i = load i8, ptr %23, align 8
-  %call.i64 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %28, i32 noundef 2)
+  %call.i64 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %28, i32 noundef 2)
   switch i32 %call.i64, label %if.end6.i.thread [
     i32 1, label %if.then.i66
     i32 2, label %if.then3.i
@@ -3185,11 +3185,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i63, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %28)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %28)
   br label %if.end35
 
 if.then8.i:                                       ; preds = %if.end.i.i69, %if.then.i.i67
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %28)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %28)
   %36 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %36, i64 24
   %37 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -3213,7 +3213,7 @@ if.end35:                                         ; preds = %if.then.i16.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.8.val, ptr noundef %parent, ptr noundef %child, i32 noundef range(i32 0, 3) %childPosition) unnamed_addr #7 align 2 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.8.val, ptr noundef %parent, ptr noundef %child, i32 noundef range(i32 0, 3) %childPosition) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %parent, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
@@ -3262,7 +3262,7 @@ tailrecurse.i:                                    ; preds = %entry, %tailrecurse
   br i1 %tobool.not.i, label %if.end.i81, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %tailrecurse.i
-  %call.i79 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.8.val, ptr noundef nonnull %parent.tr.i, ptr noundef %expr.tr.i, i32 noundef 0)
+  %call.i79 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.8.val, ptr noundef nonnull %parent.tr.i, ptr noundef %expr.tr.i, i32 noundef 0)
   %cmp.i80 = icmp eq i32 %call.i79, 1
   br i1 %cmp.i80, label %return, label %if.end.i81
 
@@ -3330,7 +3330,7 @@ tailrecurse.i82:                                  ; preds = %_ZN6hermes12_GLOBAL
   br i1 %tobool.not.i85, label %if.end.i88, label %land.lhs.true.i86
 
 land.lhs.true.i86:                                ; preds = %tailrecurse.i82
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.8.val, ptr noundef nonnull %parent.tr.i84, ptr noundef %expr.tr.i83, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.8.val, ptr noundef nonnull %parent.tr.i84, ptr noundef %expr.tr.i83, i32 noundef 0)
   %cmp.i87 = icmp eq i32 %call.i, 1
   br i1 %cmp.i87, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43, label %if.end.i88
 
@@ -3431,7 +3431,7 @@ tailrecurse.i122:                                 ; preds = %tailrecurse.i122.pr
   br i1 %tobool.not.i125, label %if.end.i129, label %land.lhs.true.i126
 
 land.lhs.true.i126:                               ; preds = %tailrecurse.i122
-  %call.i127 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.8.val, ptr noundef nonnull %parent.tr.i124, ptr noundef %expr.tr.i123, i32 noundef 0)
+  %call.i127 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.8.val, ptr noundef nonnull %parent.tr.i124, ptr noundef %expr.tr.i123, i32 noundef 0)
   %cmp.i128 = icmp eq i32 %call.i127, 1
   br i1 %cmp.i128, label %if.else33, label %if.end.i129
 
@@ -3538,7 +3538,7 @@ tailrecurse.i163:                                 ; preds = %_ZN6hermes12_GLOBAL
   br i1 %tobool.not.i166, label %if.end.i170, label %land.lhs.true.i167
 
 land.lhs.true.i167:                               ; preds = %tailrecurse.i163
-  %call.i168 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.8.val, ptr noundef nonnull %parent.tr.i165, ptr noundef %expr.tr.i164, i32 noundef 0)
+  %call.i168 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.8.val, ptr noundef nonnull %parent.tr.i165, ptr noundef %expr.tr.i164, i32 noundef 0)
   %cmp.i169 = icmp eq i32 %call.i168, 1
   br i1 %cmp.i169, label %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, label %if.end.i170
 
@@ -3638,7 +3638,7 @@ tailrecurse.i211:                                 ; preds = %_ZN6hermes12_GLOBAL
   br i1 %tobool.not.i214, label %if.end.i218, label %land.lhs.true.i215
 
 land.lhs.true.i215:                               ; preds = %tailrecurse.i211
-  %call.i216 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.8.val, ptr noundef nonnull %parent.tr.i213, ptr noundef %expr.tr.i212, i32 noundef 0)
+  %call.i216 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.8.val, ptr noundef nonnull %parent.tr.i213, ptr noundef %expr.tr.i212, i32 noundef 0)
   %cmp.i217 = icmp eq i32 %call.i216, 1
   br i1 %cmp.i217, label %if.end61, label %if.end.i218
 
@@ -3719,13 +3719,13 @@ if.then51:                                        ; preds = %_ZN6hermes12_GLOBAL
   br label %return
 
 if.end61:                                         ; preds = %if.end.i218, %if.then49.i243, %if.then43.i236, %land.lhs.true.i215, %land.rhs.i47, %land.rhs.i, %if.else33, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, %if.then, %land.lhs.true
-  %call62 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE.argprom(i8 %this.8.val, ptr noundef %child)
+  %call62 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.8.val, ptr noundef %child)
   %childPr.sroa.0.0.extract.trunc = trunc i64 %call62 to i32
   %cmp63 = icmp eq i32 %childPr.sroa.0.0.extract.trunc, 0
   br i1 %cmp63, label %return, label %if.end65
 
 if.end65:                                         ; preds = %if.end61
-  %call66 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE.argprom(i8 %this.8.val, ptr noundef nonnull %parent)
+  %call66 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.8.val, ptr noundef nonnull %parent)
   %parentPr.sroa.0.0.extract.trunc = trunc i64 %call66 to i32
   %cmp69 = icmp slt i32 %childPr.sroa.0.0.extract.trunc, %parentPr.sroa.0.0.extract.trunc
   br i1 %cmp69, label %return, label %if.end71
@@ -3765,7 +3765,7 @@ return:                                           ; preds = %if.then49.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE.argprom(i8 %this.8.val, ptr noundef readonly %node) unnamed_addr #7 align 2 {
+define internal fastcc range(i64 0, 8589934592) i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.8.val, ptr noundef readonly %node) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
@@ -4048,14 +4048,14 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %4 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val4 = load i8, ptr %4, align 8
   %tobool2.i = trunc i8 %this.val4 to i1
-  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %this.val = load ptr, ptr %this, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
   %5 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %OutBufCur.i, align 8
@@ -4064,11 +4064,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN4llvh11raw_os
   %cmp.not.i = icmp ult ptr %6, %7
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i5
 
-if.then.i5:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then.i5:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 40) #12
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
-if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i, align 8
   store i8 40, ptr %6, align 1
@@ -4077,7 +4077,7 @@ if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i5, %if.end.i
   %_test = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
   %9 = load ptr, ptr %this, align 8
   %OutBufCur.i8 = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %OutBufCur.i8, align 8
@@ -4099,12 +4099,12 @@ if.end.i14:                                       ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEc.exit16:                 ; preds = %if.then.i11, %if.end.i14
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %12 = load ptr, ptr %_body, align 8
-  %13 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %12, i1 noundef zeroext false)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %12, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node, i1 noundef zeroext %forceBlock) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node, i1 noundef zeroext %forceBlock) unnamed_addr #0 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
@@ -4129,14 +4129,14 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
   %2 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val9 = load i8, ptr %2, align 8
   %tobool2.i = trunc i8 %this.val9 to i1
-  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %if.then
   %this.val8 = load ptr, ptr %this, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val8, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %if.then, %if.then.i
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.then, %if.then.i
   %3 = load ptr, ptr %this, align 8
   %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %OutBufEnd.i5.i, align 8
@@ -4148,11 +4148,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %if.then, %if.the
   %cmp.i.i10 = icmp ult i64 %sub.ptr.sub.i9.i, 2
   br i1 %cmp.i.i10, label %if.then.i.i, label %if.then4.i.i
 
-if.then.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull @.str.271, i64 noundef 2) #12
   br label %return
 
-if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   store i16 32123, ptr %5, align 1
   %6 = load ptr, ptr %OutBufCur.i6.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 2
@@ -4166,14 +4166,14 @@ if.then8:                                         ; preds = %land.lhs.true, %if.
   %7 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val7 = load i8, ptr %7, align 8
   %tobool2.i11 = trunc i8 %this.val7 to i1
-  br i1 %tobool2.i11, label %if.then.i12, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit14
+  br i1 %tobool2.i11, label %if.then.i12, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit14
 
 if.then.i12:                                      ; preds = %if.then8
   %this.val = load ptr, ptr %this, align 8
   %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit14
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit14
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit14: ; preds = %if.then8, %if.then.i12
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit14:    ; preds = %if.then8, %if.then.i12
   %8 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i, align 8
@@ -4182,11 +4182,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit14: ; preds = %if.then8, %if.
   %cmp.not.i = icmp ult ptr %9, %10
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i15
 
-if.then.i15:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit14
+if.then.i15:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit14
   %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 123) #12
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
-if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit14
+if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit14
   %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i, align 8
   store i8 123, ptr %9, align 1
@@ -4213,11 +4213,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostre
 
 if.then12:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
   %_body13 = getelementptr inbounds i8, ptr %spec.select.i, i64 56
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_body13)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_body13)
   br label %if.end14
 
 if.else:                                          ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %node)
   %call.i21 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS13endsWithBlockEPNS_6ESTree4NodeE(ptr noundef nonnull %node)
   br i1 %call.i21, label %if.end14, label %if.then.i22
 
@@ -4294,7 +4294,7 @@ if.then.i54:                                      ; preds = %if.else17
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit58
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit58:  ; preds = %if.else17, %if.then.i54
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %node)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %node)
   %31 = load i32, ptr %indent_.i49, align 4
   %sub.i61 = add nsw i32 %31, -2
   store i32 %sub.i61, ptr %indent_.i49, align 4
@@ -4333,7 +4333,7 @@ if.then4.i.i:                                     ; preds = %entry
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_body, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4, i1 noundef zeroext false)
+  %call2 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4, i1 noundef zeroext false)
   br i1 %call2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -4408,14 +4408,14 @@ _ZN4llvh11raw_ostreamlsEPKc.exit38:               ; preds = %if.then.i.i36, %if.
   %17 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val4 = load i8, ptr %17, align 8
   %tobool2.i39 = trunc i8 %this.val4 to i1
-  br i1 %tobool2.i39, label %if.then.i40, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit42
+  br i1 %tobool2.i39, label %if.then.i40, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit42
 
 if.then.i40:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit38
   %this.val = load ptr, ptr %this, align 8
   %call.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit42
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit42
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit42: ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit38, %if.then.i40
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit42:    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit38, %if.then.i40
   %18 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %OutBufCur.i, align 8
@@ -4424,11 +4424,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit42: ; preds = %_ZN4llvh11raw_
   %cmp.not.i = icmp ult ptr %19, %20
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i43
 
-if.then.i43:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit42
+if.then.i43:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit42
   %call.i44 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 40) #12
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
-if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit42
+if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit42
   %incdec.ptr.i = getelementptr inbounds i8, ptr %19, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i, align 8
   store i8 40, ptr %19, align 1
@@ -4437,7 +4437,7 @@ if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i43, %if.end.i
   %_test = getelementptr inbounds i8, ptr %node, i64 64
   %21 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %21)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %21)
   %22 = load ptr, ptr %this, align 8
   %OutBufCur.i46 = getelementptr inbounds i8, ptr %22, i64 24
   %23 = load ptr, ptr %OutBufCur.i46, align 8
@@ -4492,7 +4492,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
   %7 = load ptr, ptr %this, align 8
   %OutBufCur.i23 = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i23, align 8
@@ -4556,7 +4556,7 @@ if.end.i14:                                       ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit16
 
 _ZN4llvh11raw_ostreamlsEc.exit16:                 ; preds = %if.then.i11, %if.end.i14
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %1)
   %15 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %OutBufCur.i, align 8
@@ -4576,7 +4576,7 @@ if.end.i:                                         ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %18 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %2, i1 noundef zeroext false)
+  %18 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %2, i1 noundef zeroext false)
   ret void
 }
 
@@ -4612,7 +4612,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
   %7 = load ptr, ptr %this, align 8
   %OutBufCur.i23 = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i23, align 8
@@ -4676,7 +4676,7 @@ if.end.i14:                                       ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit16
 
 _ZN4llvh11raw_ostreamlsEc.exit16:                 ; preds = %if.then.i11, %if.end.i14
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %1)
   %15 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %OutBufCur.i, align 8
@@ -4696,7 +4696,7 @@ if.end.i:                                         ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %18 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %2, i1 noundef zeroext false)
+  %18 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %2, i1 noundef zeroext false)
   ret void
 }
 
@@ -4734,7 +4734,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 if.end.i:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %5 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %5, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %4, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %4, i32 noundef 0)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i43
     i32 2, label %if.then3.i
@@ -4779,11 +4779,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %4)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i46, %if.then.i.i44
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %4)
   %12 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -4831,20 +4831,20 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
   %19 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val12 = load i8, ptr %19, align 8
   %tobool2.i = trunc i8 %this.val12 to i1
-  br i1 %tobool2.i, label %if.then.i16, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i16, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i16:                                      ; preds = %if.then
   %this.val11 = load ptr, ptr %this, align 8
   %call.i17 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val11, i8 noundef zeroext 32) #12
   %.pre = load ptr, ptr %_test, align 8
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %if.then, %if.then.i16
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.then, %if.then.i16
   %20 = phi ptr [ %18, %if.then ], [ %.pre, %if.then.i16 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %20)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %20)
   br label %if.end
 
-if.end:                                           ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit, %_ZN4llvh11raw_ostreamlsEc.exit
+if.end:                                           ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit, %_ZN4llvh11raw_ostreamlsEc.exit
   %21 = load ptr, ptr %this, align 8
   %OutBufCur.i19 = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %OutBufCur.i19, align 8
@@ -4873,20 +4873,20 @@ if.then8:                                         ; preds = %_ZN4llvh11raw_ostre
   %25 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val10 = load i8, ptr %25, align 8
   %tobool2.i28 = trunc i8 %this.val10 to i1
-  br i1 %tobool2.i28, label %if.then.i30, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit32
+  br i1 %tobool2.i28, label %if.then.i30, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32
 
 if.then.i30:                                      ; preds = %if.then8
   %this.val = load ptr, ptr %this, align 8
   %call.i31 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
   %.pre47 = load ptr, ptr %_update, align 8
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit32
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit32: ; preds = %if.then8, %if.then.i30
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32:    ; preds = %if.then8, %if.then.i30
   %26 = phi ptr [ %24, %if.then8 ], [ %.pre47, %if.then.i30 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %26)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %26)
   br label %if.end10
 
-if.end10:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit32, %_ZN4llvh11raw_ostreamlsEc.exit27
+if.end10:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32, %_ZN4llvh11raw_ostreamlsEc.exit27
   %27 = load ptr, ptr %this, align 8
   %OutBufCur.i34 = getelementptr inbounds i8, ptr %27, i64 24
   %28 = load ptr, ptr %OutBufCur.i34, align 8
@@ -4908,7 +4908,7 @@ if.end.i40:                                       ; preds = %if.end10
 _ZN4llvh11raw_ostreamlsEc.exit42:                 ; preds = %if.then.i37, %if.end.i40
   %_body = getelementptr inbounds i8, ptr %node, i64 80
   %30 = load ptr, ptr %_body, align 8
-  %31 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %30, i1 noundef zeroext false)
+  %31 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %30, i1 noundef zeroext false)
   ret void
 }
 
@@ -4979,7 +4979,7 @@ if.then.i5:                                       ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i5
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_body)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_body)
   %11 = load i32, ptr %indent_.i, align 4
   %sub.i = add nsw i32 %11, -2
   store i32 %sub.i, ptr %indent_.i, align 4
@@ -5069,7 +5069,7 @@ if.end.i:                                         ; preds = %if.then
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
   %8 = load ptr, ptr %_label, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -5128,7 +5128,7 @@ if.end.i:                                         ; preds = %if.then
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
   %8 = load ptr, ptr %_label, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -5163,7 +5163,7 @@ if.then4.i.i:                                     ; preds = %entry
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %4 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4)
   ret void
 }
 
@@ -5219,7 +5219,7 @@ if.end.i:                                         ; preds = %if.then
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
   %8 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -5255,14 +5255,14 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %4 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val7 = load i8, ptr %4, align 8
   %tobool2.i = trunc i8 %this.val7 to i1
-  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %this.val6 = load ptr, ptr %this, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
   %5 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %OutBufCur.i, align 8
@@ -5271,11 +5271,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN4llvh11raw_os
   %cmp.not.i = icmp ult ptr %6, %7
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i8
 
-if.then.i8:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then.i8:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %call.i9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 40) #12
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
-if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i, align 8
   store i8 40, ptr %6, align 1
@@ -5284,7 +5284,7 @@ if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i8, %if.end.i
   %_discriminant = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load ptr, ptr %_discriminant, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
   %9 = load ptr, ptr %this, align 8
   %OutBufCur.i11 = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %OutBufCur.i11, align 8
@@ -5306,14 +5306,14 @@ if.end.i17:                                       ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEc.exit19:                 ; preds = %if.then.i14, %if.end.i17
   %this.val5 = load i8, ptr %4, align 8
   %tobool2.i20 = trunc i8 %this.val5 to i1
-  br i1 %tobool2.i20, label %if.then.i22, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit24
+  br i1 %tobool2.i20, label %if.then.i22, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit24
 
 if.then.i22:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit19
   %this.val = load ptr, ptr %this, align 8
   %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit24
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit24
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit24: ; preds = %_ZN4llvh11raw_ostreamlsEc.exit19, %if.then.i22
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit24:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit19, %if.then.i22
   %12 = load ptr, ptr %this, align 8
   %OutBufCur.i25 = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %OutBufCur.i25, align 8
@@ -5322,11 +5322,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit24: ; preds = %_ZN4llvh11raw_
   %cmp.not.i27 = icmp ult ptr %13, %14
   br i1 %cmp.not.i27, label %if.end.i31, label %if.then.i28
 
-if.then.i28:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit24
+if.then.i28:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit24
   %call.i29 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 123) #12
   br label %_ZN4llvh11raw_ostreamlsEc.exit33
 
-if.end.i31:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit24
+if.end.i31:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit24
   %incdec.ptr.i32 = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %incdec.ptr.i32, ptr %OutBufCur.i25, align 8
   store i8 123, ptr %13, align 1
@@ -5358,7 +5358,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6hermes12_GLOBAL
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45
   %__begin2.sroa.0.059 = phi ptr [ %__begin2.sroa.0.057, %for.body.lr.ph ], [ %__begin2.sroa.0.0, %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45 ]
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.059)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.059)
   %18 = load i8, ptr %4, align 8
   %tobool.i39 = trunc i8 %18 to i1
   br i1 %tobool.i39, label %if.then.i41, label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45
@@ -5404,7 +5404,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree20L
 entry:
   %_label = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
   %1 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %OutBufCur.i, align 8
@@ -5440,7 +5440,7 @@ if.then.i6:                                       ; preds = %_ZN4llvh11raw_ostre
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i6
   %_body = getelementptr inbounds i8, ptr %node, i64 64
   %7 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %7)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %7)
   ret void
 }
 
@@ -5455,7 +5455,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %1, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 1)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 1)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
@@ -5500,11 +5500,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %8 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -5555,17 +5555,17 @@ if.then4.i.i:                                     ; preds = %entry
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %_block = getelementptr inbounds i8, ptr %node, i64 48
   %4 = load ptr, ptr %_block, align 8
-  %5 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4, i1 noundef zeroext true)
+  %5 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4, i1 noundef zeroext true)
   %_handler = getelementptr inbounds i8, ptr %node, i64 56
   %6 = load ptr, ptr %_handler, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %6)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %6)
   %_finalizer = getelementptr inbounds i8, ptr %node, i64 64
   %7 = load ptr, ptr %_finalizer, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
-  %8 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %7, i1 noundef zeroext true)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %7, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -5601,14 +5601,14 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %4 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val11 = load i8, ptr %4, align 8
   %tobool2.i = trunc i8 %this.val11 to i1
-  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %this.val10 = load ptr, ptr %this, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val10, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
   %5 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %OutBufCur.i, align 8
@@ -5617,11 +5617,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN4llvh11raw_os
   %cmp.not.i = icmp ult ptr %6, %7
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i12
 
-if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 40) #12
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
-if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i, align 8
   store i8 40, ptr %6, align 1
@@ -5630,7 +5630,7 @@ if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i12, %if.end.i
   %_test = getelementptr inbounds i8, ptr %node, i64 48
   %8 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
   %9 = load ptr, ptr %this, align 8
   %OutBufCur.i15 = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %OutBufCur.i15, align 8
@@ -5676,7 +5676,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i.i
 land.end:                                         ; preds = %_ZN4llvh11raw_ostreamlsEc.exit23, %land.rhs.i, %land.lhs.true.i.i, %land.rhs
   %15 = phi ptr [ %.pre, %land.rhs.i ], [ null, %land.rhs ], [ %.pre, %land.lhs.true.i.i ], [ %.pre, %_ZN4llvh11raw_ostreamlsEc.exit23 ]
   %16 = phi i1 [ %tobool1.not.i, %land.rhs.i ], [ false, %land.rhs ], [ false, %land.lhs.true.i.i ], [ false, %_ZN4llvh11raw_ostreamlsEc.exit23 ]
-  %call9 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %15, i1 noundef zeroext %16)
+  %call9 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %15, i1 noundef zeroext %16)
   %17 = load ptr, ptr %_alternate, align 8
   %tobool12.not = icmp eq ptr %17, null
   br i1 %tobool12.not, label %return, label %if.end
@@ -5752,7 +5752,7 @@ if.then4.i.i57:                                   ; preds = %if.end17
 
 _ZN4llvh11raw_ostreamlsEPKc.exit62:               ; preds = %if.then.i.i60, %if.then4.i.i57
   %29 = load ptr, ptr %_alternate, align 8
-  %30 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %29, i1 noundef zeroext false)
+  %30 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %29, i1 noundef zeroext false)
   br label %return
 
 return:                                           ; preds = %land.end, %_ZN4llvh11raw_ostreamlsEPKc.exit62
@@ -5817,7 +5817,7 @@ if.end:                                           ; preds = %if.then4.i.i.i, %if
 if.end.i:                                         ; preds = %if.end
   %cond = select i1 %tobool.not, i32 0, i32 2
   %this.val.i = load i8, ptr %0, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef %node, ptr noundef nonnull %__begin2.sroa.0.011, i32 noundef %cond)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef %node, ptr noundef nonnull %__begin2.sroa.0.011, i32 noundef %cond)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
@@ -5862,11 +5862,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.011)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.011)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.011)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.011)
   %10 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -5896,7 +5896,7 @@ for.end:                                          ; preds = %_ZN6hermes12_GLOBAL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitPropsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %props) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitPropsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %props) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -5961,7 +5961,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.07)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.07)
   %__begin2.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %props
@@ -6058,7 +6058,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   %this.val.i = load i8, ptr %3, align 8
-  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE.argprom(i8 %this.val.i, ptr noundef %__begin2.sroa.0.040)
+  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i, ptr noundef %__begin2.sroa.0.040)
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %call.i7 to i32
   %cmp.i8 = icmp slt i32 %ref.tmp.sroa.0.0.extract.trunc.i, 2
   br i1 %cmp.i8, label %if.then.i34, label %if.end6.i
@@ -6083,11 +6083,11 @@ if.end.i.i:                                       ; preds = %if.then.i34
   br label %if.then8.i
 
 if.end6.i:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.040)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.040)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit
 
 if.then8.i:                                       ; preds = %if.then.i.i, %if.end.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.040)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.040)
   %10 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -6203,7 +6203,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 if.end.i:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %5 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %5, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %4, i32 noundef 1)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %4, i32 noundef 1)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
@@ -6248,11 +6248,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %4)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i13, %if.then.i.i11
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %4)
   %12 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -6320,7 +6320,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   %this.val.i6 = load i8, ptr %16, align 8
-  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE.argprom(i8 %this.val.i6, ptr noundef %__begin2.sroa.0.055)
+  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i6, ptr noundef %__begin2.sroa.0.055)
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %call.i7 to i32
   %cmp.i8 = icmp slt i32 %ref.tmp.sroa.0.0.extract.trunc.i, 2
   br i1 %cmp.i8, label %if.then.i39, label %if.end6.i17
@@ -6345,11 +6345,11 @@ if.end.i.i47:                                     ; preds = %if.then.i39
   br label %if.then8.i19
 
 if.end6.i17:                                      ; preds = %if.end
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.055)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.055)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit49
 
 if.then8.i19:                                     ; preds = %if.then.i.i43, %if.end.i.i47
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.055)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.055)
   %23 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i20 = getelementptr inbounds i8, ptr %23, i64 24
   %24 = load ptr, ptr %OutBufCur.i13.i20, align 8
@@ -6435,7 +6435,7 @@ if.end:                                           ; preds = %if.then4.i.i12, %if
 if.end.i:                                         ; preds = %if.end
   %7 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %7, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %6, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %6, i32 noundef 2)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
@@ -6480,11 +6480,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %6)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i20, %if.then.i.i18
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %6)
   %14 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -6518,7 +6518,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %1, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
@@ -6563,11 +6563,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %8 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -6635,7 +6635,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   %this.val.i6 = load i8, ptr %12, align 8
-  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE.argprom(i8 %this.val.i6, ptr noundef %__begin2.sroa.0.052)
+  %call.i7 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i6, ptr noundef %__begin2.sroa.0.052)
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %call.i7 to i32
   %cmp.i8 = icmp slt i32 %ref.tmp.sroa.0.0.extract.trunc.i, 2
   br i1 %cmp.i8, label %if.then.i36, label %if.end6.i14
@@ -6660,11 +6660,11 @@ if.end.i.i44:                                     ; preds = %if.then.i36
   br label %if.then8.i16
 
 if.end6.i14:                                      ; preds = %if.end
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.052)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.052)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit46
 
 if.then8.i16:                                     ; preds = %if.then.i.i40, %if.end.i.i44
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.052)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.052)
   %19 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i17 = getelementptr inbounds i8, ptr %19, i64 24
   %20 = load ptr, ptr %OutBufCur.i13.i17, align 8
@@ -6706,7 +6706,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %1, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i24
     i32 2, label %if.then3.i
@@ -6751,11 +6751,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %8 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -6778,14 +6778,14 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
   %11 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val7 = load i8, ptr %11, align 8
   %tobool2.i = trunc i8 %this.val7 to i1
-  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %this.val6 = load ptr, ptr %this, align 8
   %call.i9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
   %12 = load ptr, ptr %this, align 8
   %_operator = getelementptr inbounds i8, ptr %node, i64 48
   %13 = load ptr, ptr %_operator, align 8
@@ -6802,11 +6802,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN6hermes12_GLO
   %cmp.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i12, label %if.end.i10
 
-if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
-if.end.i10:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.end.i10:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %tobool.not.i11 = icmp eq i64 %agg.tmp.sroa.2.0.copyload, 0
   br i1 %tobool.not.i11, label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, label %if.then4.i
 
@@ -6820,22 +6820,22 @@ if.then4.i:                                       ; preds = %if.end.i10
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i12, %if.end.i10, %if.then4.i
   %this.val5 = load i8, ptr %11, align 8
   %tobool2.i13 = trunc i8 %this.val5 to i1
-  br i1 %tobool2.i13, label %if.then.i15, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit17
+  br i1 %tobool2.i13, label %if.then.i15, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
 
 if.then.i15:                                      ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
   %this.val = load ptr, ptr %this, align 8
   %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit17
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit17: ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, %if.then.i15
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17:    ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, %if.then.i15
   %_right = getelementptr inbounds i8, ptr %node, i64 64
   %17 = load ptr, ptr %_right, align 8
   %tobool.not.i18 = icmp eq ptr %17, null
   br i1 %tobool.not.i18, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22, label %if.end.i19
 
-if.end.i19:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit17
+if.end.i19:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
   %this.val.i20 = load i8, ptr %11, align 8
-  %call.i21 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i20, ptr noundef nonnull %node, ptr noundef nonnull %17, i32 noundef 2)
+  %call.i21 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i20, ptr noundef nonnull %node, ptr noundef nonnull %17, i32 noundef 2)
   switch i32 %call.i21, label %if.end6.i28.thread [
     i32 1, label %if.then.i50
     i32 2, label %if.then3.i40
@@ -6880,11 +6880,11 @@ if.end.i9.i48:                                    ; preds = %if.then3.i40
   br label %if.end6.i28.thread
 
 if.end6.i28.thread:                               ; preds = %if.end.i19, %if.then.i6.i44, %if.end.i9.i48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22
 
 if.then8.i30:                                     ; preds = %if.end.i.i58, %if.then.i.i54
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
   %24 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i31 = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %OutBufCur.i13.i31, align 8
@@ -6903,7 +6903,7 @@ if.end.i19.i38:                                   ; preds = %if.then8.i30
   store i8 41, ptr %25, align 1
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22
 
-_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22: ; preds = %if.end6.i28.thread, %if.end.i19.i38, %if.then.i16.i34, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit17
+_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22: ; preds = %if.end6.i28.thread, %if.end.i19.i38, %if.then.i16.i34, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
   ret void
 }
 
@@ -6976,7 +6976,7 @@ if.end:                                           ; preds = %if.end.i8, %if.then
 if.end.i10:                                       ; preds = %if.end
   %11 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %11, align 8
-  %call.i11 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %10, i32 noundef 2)
+  %call.i11 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %10, i32 noundef 2)
   switch i32 %call.i11, label %if.end6.i.thread [
     i32 1, label %if.then.i13
     i32 2, label %if.then3.i
@@ -7021,11 +7021,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i10, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %10)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %10)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %10)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %10)
   %18 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -7100,7 +7100,7 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i, %if.end.
 if.end.i8:                                        ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
   %7 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %7, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %6, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %6, i32 noundef 2)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i29
     i32 2, label %if.then3.i
@@ -7145,11 +7145,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i8, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %6)
   br label %if.end
 
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %6)
   %14 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -7177,7 +7177,7 @@ if.else:                                          ; preds = %entry
 if.end.i10:                                       ; preds = %if.else
   %18 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i11 = load i8, ptr %18, align 8
-  %call.i12 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i11, ptr noundef nonnull %node, ptr noundef nonnull %17, i32 noundef 0)
+  %call.i12 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i11, ptr noundef nonnull %node, ptr noundef nonnull %17, i32 noundef 0)
   switch i32 %call.i12, label %if.end6.i33.thread [
     i32 1, label %if.then.i55
     i32 2, label %if.then3.i45
@@ -7222,11 +7222,11 @@ if.end.i9.i53:                                    ; preds = %if.then3.i45
   br label %if.end6.i33.thread
 
 if.end6.i33.thread:                               ; preds = %if.end.i10, %if.then.i6.i49, %if.end.i9.i53
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit13
 
 if.then8.i35:                                     ; preds = %if.end.i.i63, %if.then.i.i59
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
   %25 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i36 = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %OutBufCur.i13.i36, align 8
@@ -7286,7 +7286,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree20M
 entry:
   %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
   %_computed = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load i8, ptr %_computed, align 8
   %tobool = trunc i8 %1 to i1
@@ -7327,7 +7327,7 @@ if.end.i13:                                       ; preds = %if.else
 if.end:                                           ; preds = %if.end.i13, %if.then.i10, %if.end.i, %if.then.i
   %_property = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_property, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %5)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %5)
   %6 = load i8, ptr %_computed, align 8
   %tobool5 = trunc i8 %6 to i1
   br i1 %tobool5, label %if.then6, label %if.end9
@@ -7366,7 +7366,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %1, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i24
     i32 2, label %if.then3.i
@@ -7411,11 +7411,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %8 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -7438,14 +7438,14 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
   %11 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val7 = load i8, ptr %11, align 8
   %tobool2.i = trunc i8 %this.val7 to i1
-  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %this.val6 = load ptr, ptr %this, align 8
   %call.i9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
   %12 = load ptr, ptr %this, align 8
   %_operator = getelementptr inbounds i8, ptr %node, i64 64
   %13 = load ptr, ptr %_operator, align 8
@@ -7462,11 +7462,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN6hermes12_GLO
   %cmp.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i12, label %if.end.i10
 
-if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
-if.end.i10:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.end.i10:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %tobool.not.i11 = icmp eq i64 %agg.tmp.sroa.2.0.copyload, 0
   br i1 %tobool.not.i11, label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, label %if.then4.i
 
@@ -7480,22 +7480,22 @@ if.then4.i:                                       ; preds = %if.end.i10
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i12, %if.end.i10, %if.then4.i
   %this.val5 = load i8, ptr %11, align 8
   %tobool2.i13 = trunc i8 %this.val5 to i1
-  br i1 %tobool2.i13, label %if.then.i15, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit17
+  br i1 %tobool2.i13, label %if.then.i15, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
 
 if.then.i15:                                      ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
   %this.val = load ptr, ptr %this, align 8
   %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit17
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit17: ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, %if.then.i15
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17:    ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, %if.then.i15
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %17 = load ptr, ptr %_right, align 8
   %tobool.not.i18 = icmp eq ptr %17, null
   br i1 %tobool.not.i18, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22, label %if.end.i19
 
-if.end.i19:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit17
+if.end.i19:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
   %this.val.i20 = load i8, ptr %11, align 8
-  %call.i21 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i20, ptr noundef nonnull %node, ptr noundef nonnull %17, i32 noundef 2)
+  %call.i21 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i20, ptr noundef nonnull %node, ptr noundef nonnull %17, i32 noundef 2)
   switch i32 %call.i21, label %if.end6.i28.thread [
     i32 1, label %if.then.i50
     i32 2, label %if.then3.i40
@@ -7540,11 +7540,11 @@ if.end.i9.i48:                                    ; preds = %if.then3.i40
   br label %if.end6.i28.thread
 
 if.end6.i28.thread:                               ; preds = %if.end.i19, %if.then.i6.i44, %if.end.i9.i48
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22
 
 if.then8.i30:                                     ; preds = %if.end.i.i58, %if.then.i.i54
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
   %24 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i31 = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %OutBufCur.i13.i31, align 8
@@ -7563,7 +7563,7 @@ if.end.i19.i38:                                   ; preds = %if.then8.i30
   store i8 41, ptr %25, align 1
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22
 
-_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22: ; preds = %if.end6.i28.thread, %if.end.i19.i38, %if.then.i16.i34, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit17
+_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22: ; preds = %if.end6.i28.thread, %if.end.i19.i38, %if.then.i16.i34, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
   ret void
 }
 
@@ -7578,7 +7578,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %1, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i52
     i32 2, label %if.then3.i
@@ -7623,11 +7623,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %8 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -7650,14 +7650,14 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
   %11 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val12 = load i8, ptr %11, align 8
   %tobool2.i = trunc i8 %this.val12 to i1
-  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %this.val11 = load ptr, ptr %this, align 8
   %call.i14 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val11, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
   %12 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %OutBufCur.i, align 8
@@ -7666,11 +7666,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN6hermes12_GLO
   %cmp.not.i = icmp ult ptr %13, %14
   br i1 %cmp.not.i, label %if.end.i17, label %if.then.i15
 
-if.then.i15:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then.i15:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 63) #12
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
-if.end.i17:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.end.i17:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i, align 8
   store i8 63, ptr %13, align 1
@@ -7679,22 +7679,22 @@ if.end.i17:                                       ; preds = %_ZN6hermes12_GLOBAL
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i15, %if.end.i17
   %this.val10 = load i8, ptr %11, align 8
   %tobool2.i18 = trunc i8 %this.val10 to i1
-  br i1 %tobool2.i18, label %if.then.i20, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit22
+  br i1 %tobool2.i18, label %if.then.i20, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit22
 
 if.then.i20:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   %this.val9 = load ptr, ptr %this, align 8
   %call.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val9, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit22
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit22
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit22: ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i20
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit22:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i20
   %_consequent = getelementptr inbounds i8, ptr %node, i64 64
   %15 = load ptr, ptr %_consequent, align 8
   %tobool.not.i23 = icmp eq ptr %15, null
   br i1 %tobool.not.i23, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit27, label %if.end.i24
 
-if.end.i24:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit22
+if.end.i24:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit22
   %this.val.i25 = load i8, ptr %11, align 8
-  %call.i26 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i25, ptr noundef nonnull %node, ptr noundef nonnull %15, i32 noundef 1)
+  %call.i26 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i25, ptr noundef nonnull %node, ptr noundef nonnull %15, i32 noundef 1)
   switch i32 %call.i26, label %if.end6.i56.thread [
     i32 1, label %if.then.i78
     i32 2, label %if.then3.i68
@@ -7739,11 +7739,11 @@ if.end.i9.i76:                                    ; preds = %if.then3.i68
   br label %if.end6.i56.thread
 
 if.end6.i56.thread:                               ; preds = %if.end.i24, %if.then.i6.i72, %if.end.i9.i76
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %15)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %15)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit27
 
 if.then8.i58:                                     ; preds = %if.end.i.i86, %if.then.i.i82
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %15)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %15)
   %22 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i59 = getelementptr inbounds i8, ptr %22, i64 24
   %23 = load ptr, ptr %OutBufCur.i13.i59, align 8
@@ -7762,17 +7762,17 @@ if.end.i19.i66:                                   ; preds = %if.then8.i58
   store i8 41, ptr %23, align 1
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit27
 
-_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit27: ; preds = %if.end6.i56.thread, %if.end.i19.i66, %if.then.i16.i62, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit22
+_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit27: ; preds = %if.end6.i56.thread, %if.end.i19.i66, %if.then.i16.i62, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit22
   %this.val8 = load i8, ptr %11, align 8
   %tobool2.i28 = trunc i8 %this.val8 to i1
-  br i1 %tobool2.i28, label %if.then.i30, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit32
+  br i1 %tobool2.i28, label %if.then.i30, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32
 
 if.then.i30:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit27
   %this.val7 = load ptr, ptr %this, align 8
   %call.i31 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val7, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit32
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit32: ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit27, %if.then.i30
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32:    ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit27, %if.then.i30
   %25 = load ptr, ptr %this, align 8
   %OutBufCur.i33 = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %OutBufCur.i33, align 8
@@ -7781,11 +7781,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit32: ; preds = %_ZN6hermes12_G
   %cmp.not.i35 = icmp ult ptr %26, %27
   br i1 %cmp.not.i35, label %if.end.i39, label %if.then.i36
 
-if.then.i36:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit32
+if.then.i36:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32
   %call.i37 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %25, i8 noundef zeroext 58) #12
   br label %_ZN4llvh11raw_ostreamlsEc.exit41
 
-if.end.i39:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit32
+if.end.i39:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32
   %incdec.ptr.i40 = getelementptr inbounds i8, ptr %26, i64 1
   store ptr %incdec.ptr.i40, ptr %OutBufCur.i33, align 8
   store i8 58, ptr %26, align 1
@@ -7794,22 +7794,22 @@ if.end.i39:                                       ; preds = %_ZN6hermes12_GLOBAL
 _ZN4llvh11raw_ostreamlsEc.exit41:                 ; preds = %if.then.i36, %if.end.i39
   %this.val6 = load i8, ptr %11, align 8
   %tobool2.i42 = trunc i8 %this.val6 to i1
-  br i1 %tobool2.i42, label %if.then.i44, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit46
+  br i1 %tobool2.i42, label %if.then.i44, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit46
 
 if.then.i44:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit41
   %this.val = load ptr, ptr %this, align 8
   %call.i45 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit46
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit46
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit46: ; preds = %_ZN4llvh11raw_ostreamlsEc.exit41, %if.then.i44
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit46:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit41, %if.then.i44
   %_alternate = getelementptr inbounds i8, ptr %node, i64 56
   %28 = load ptr, ptr %_alternate, align 8
   %tobool.not.i47 = icmp eq ptr %28, null
   br i1 %tobool.not.i47, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit51, label %if.end.i48
 
-if.end.i48:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit46
+if.end.i48:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit46
   %this.val.i49 = load i8, ptr %11, align 8
-  %call.i50 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i49, ptr noundef nonnull %node, ptr noundef nonnull %28, i32 noundef 2)
+  %call.i50 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i49, ptr noundef nonnull %node, ptr noundef nonnull %28, i32 noundef 2)
   switch i32 %call.i50, label %if.end6.i92.thread [
     i32 1, label %if.then.i114
     i32 2, label %if.then3.i104
@@ -7854,11 +7854,11 @@ if.end.i9.i112:                                   ; preds = %if.then3.i104
   br label %if.end6.i92.thread
 
 if.end6.i92.thread:                               ; preds = %if.end.i48, %if.then.i6.i108, %if.end.i9.i112
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %28)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %28)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit51
 
 if.then8.i94:                                     ; preds = %if.end.i.i122, %if.then.i.i118
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %28)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %28)
   %35 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i95 = getelementptr inbounds i8, ptr %35, i64 24
   %36 = load ptr, ptr %OutBufCur.i13.i95, align 8
@@ -7877,7 +7877,7 @@ if.end.i19.i102:                                  ; preds = %if.then8.i94
   store i8 41, ptr %36, align 1
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit51
 
-_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit51: ; preds = %if.end6.i92.thread, %if.end.i19.i102, %if.then.i16.i98, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit46
+_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit51: ; preds = %if.end6.i92.thread, %if.end.i19.i102, %if.then.i16.i98, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit46
   ret void
 }
 
@@ -7899,7 +7899,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %4, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %3, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %3, i32 noundef 0)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i27
     i32 2, label %if.then3.i
@@ -7944,11 +7944,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %3)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %3)
   %11 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -7975,14 +7975,14 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 lor.lhs.false.i:                                  ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %this.val9 = load i8, ptr %14, align 8
   %tobool2.i = trunc i8 %this.val9 to i1
-  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %call.i11 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val8, i8 noundef zeroext 32) #12
   %.pre = load ptr, ptr %this, align 8
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %lor.lhs.false.i, %if.then.i
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %lor.lhs.false.i, %if.then.i
   %15 = phi ptr [ %this.val8, %lor.lhs.false.i ], [ %.pre, %if.then.i ]
   %16 = load ptr, ptr %_operator, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %16, align 8
@@ -7998,11 +7998,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %lor.lhs.false.i,
   %cmp.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i14, label %if.end.i12
 
-if.then.i14:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then.i14:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %15, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
-if.end.i12:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.end.i12:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %tobool.not.i13 = icmp eq i64 %agg.tmp.sroa.2.0.copyload, 0
   br i1 %tobool.not.i13, label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, label %if.then4.i
 
@@ -8020,21 +8020,21 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i14, %if.en
 lor.lhs.false.i15:                                ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
   %this.val7 = load i8, ptr %14, align 8
   %tobool2.i16 = trunc i8 %this.val7 to i1
-  br i1 %tobool2.i16, label %if.then.i18, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit20
+  br i1 %tobool2.i16, label %if.then.i18, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit20
 
 if.then.i18:                                      ; preds = %lor.lhs.false.i15, %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
   %call.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit20
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit20
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit20: ; preds = %lor.lhs.false.i15, %if.then.i18
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit20:    ; preds = %lor.lhs.false.i15, %if.then.i18
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %20 = load ptr, ptr %_right, align 8
   %tobool.not.i21 = icmp eq ptr %20, null
   br i1 %tobool.not.i21, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit25, label %if.end.i22
 
-if.end.i22:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit20
+if.end.i22:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit20
   %this.val.i23 = load i8, ptr %14, align 8
-  %call.i24 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i23, ptr noundef nonnull %node, ptr noundef nonnull %20, i32 noundef 2)
+  %call.i24 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i23, ptr noundef nonnull %node, ptr noundef nonnull %20, i32 noundef 2)
   switch i32 %call.i24, label %if.end6.i31.thread [
     i32 1, label %if.then.i53
     i32 2, label %if.then3.i43
@@ -8079,11 +8079,11 @@ if.end.i9.i51:                                    ; preds = %if.then3.i43
   br label %if.end6.i31.thread
 
 if.end6.i31.thread:                               ; preds = %if.end.i22, %if.then.i6.i47, %if.end.i9.i51
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %20)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %20)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit25
 
 if.then8.i33:                                     ; preds = %if.end.i.i61, %if.then.i.i57
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %20)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %20)
   %27 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i34 = getelementptr inbounds i8, ptr %27, i64 24
   %28 = load ptr, ptr %OutBufCur.i13.i34, align 8
@@ -8102,7 +8102,7 @@ if.end.i19.i41:                                   ; preds = %if.then8.i33
   store i8 41, ptr %28, align 1
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit25
 
-_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit25: ; preds = %if.end6.i31.thread, %if.end.i19.i41, %if.then.i16.i37, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit20
+_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit25: ; preds = %if.end6.i31.thread, %if.end.i19.i41, %if.then.i16.i37, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit20
   ret void
 }
 
@@ -8130,7 +8130,7 @@ if.end.i:                                         ; preds = %entry
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
   %_id = getelementptr inbounds i8, ptr %node, i64 48
   %3 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %3)
   ret void
 }
 
@@ -8167,7 +8167,7 @@ if.then4.i.i:                                     ; preds = %if.then
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %5 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %5)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %5)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -8228,7 +8228,7 @@ if.then.i24:                                      ; preds = %if.then8
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %if.then8, %if.then.i24
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_consequent)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_consequent)
   %15 = load i32, ptr %indent_.i, align 4
   %sub.i = add nsw i32 %15, -2
   store i32 %sub.i, ptr %indent_.i, align 4
@@ -8244,14 +8244,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val7 = load i8, ptr %0, align 8
   %tobool2.i = trunc i8 %this.val7 to i1
-  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %entry
   %this.val6 = load ptr, ptr %this, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %entry, %if.then.i
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %entry, %if.then.i
   %1 = load ptr, ptr %this, align 8
   %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %OutBufEnd.i5.i, align 8
@@ -8263,11 +8263,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %entry, %if.then.
   %cmp.i.i = icmp ult i64 %sub.ptr.sub.i9.i, 5
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
-if.then.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.307, i64 noundef 5) #12
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
-if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %3, ptr noundef nonnull align 1 dereferenceable(5) @.str.307, i64 5, i1 false)
   %4 = load ptr, ptr %OutBufCur.i6.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 5
@@ -8283,14 +8283,14 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 if.then:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %this.val5 = load i8, ptr %0, align 8
   %tobool2.i8 = trunc i8 %this.val5 to i1
-  br i1 %tobool2.i8, label %if.then.i9, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit11
+  br i1 %tobool2.i8, label %if.then.i9, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit11
 
 if.then.i9:                                       ; preds = %if.then
   %this.val = load ptr, ptr %this, align 8
   %call.i10 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit11
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit11
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit11: ; preds = %if.then, %if.then.i9
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit11:    ; preds = %if.then, %if.then.i9
   %6 = load ptr, ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %OutBufCur.i, align 8
@@ -8299,11 +8299,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit11: ; preds = %if.then, %if.t
   %cmp.not.i = icmp ult ptr %7, %8
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i12
 
-if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit11
+if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit11
   %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 noundef zeroext 40) #12
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
-if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit11
+if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit11
   %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i, align 8
   store i8 40, ptr %7, align 1
@@ -8311,7 +8311,7 @@ if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i12, %if.end.i
   %9 = load ptr, ptr %_param, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %9)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %9)
   %10 = load ptr, ptr %this, align 8
   %OutBufCur.i15 = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i15, align 8
@@ -8333,7 +8333,7 @@ if.end.i21:                                       ; preds = %_ZN4llvh11raw_ostre
 if.end:                                           ; preds = %if.end.i21, %if.then.i18, %_ZN4llvh11raw_ostreamlsEPKc.exit
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %13 = load ptr, ptr %_body, align 8
-  %14 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %13, i1 noundef zeroext true)
+  %14 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %13, i1 noundef zeroext true)
   ret void
 }
 
@@ -8342,7 +8342,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree22V
 entry:
   %_id = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
   %_init = getelementptr inbounds i8, ptr %node, i64 48
   %1 = load ptr, ptr %_init, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -8378,7 +8378,7 @@ if.then4.i.i:                                     ; preds = %if.then
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %7 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %7)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %7)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %entry
@@ -8486,7 +8486,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.017)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.017)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i10.not = icmp eq ptr %__begin2.sroa.0.0, %_declarations
@@ -8594,7 +8594,7 @@ if.end.i19:                                       ; preds = %if.then
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit25:    ; preds = %if.then.i23, %if.end.i19
   %Next.i.i.i.i26 = getelementptr inbounds i8, ptr %ecur.sroa.0.050, i64 8
   %13 = load ptr, ptr %Next.i.i.i.i26, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %ecur.sroa.0.050)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %ecur.sroa.0.050)
   %14 = load ptr, ptr %this, align 8
   %OutBufCur.i28 = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i28, align 8
@@ -8654,7 +8654,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %1, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
@@ -8699,11 +8699,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %8 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -8731,7 +8731,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 if.end.i5:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %12 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i6 = load i8, ptr %12, align 8
-  %call.i7 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i6, ptr noundef nonnull %node, ptr noundef nonnull %11, i32 noundef 2)
+  %call.i7 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i6, ptr noundef nonnull %node, ptr noundef nonnull %11, i32 noundef 2)
   switch i32 %call.i7, label %if.end6.i12.thread [
     i32 1, label %if.then.i34
     i32 2, label %if.then3.i24
@@ -8776,11 +8776,11 @@ if.end.i9.i32:                                    ; preds = %if.then3.i24
   br label %if.end6.i12.thread
 
 if.end6.i12.thread:                               ; preds = %if.end.i5, %if.then.i6.i28, %if.end.i9.i32
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %11)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %11)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit8
 
 if.then8.i14:                                     ; preds = %if.end.i.i42, %if.then.i.i38
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %11)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %11)
   %19 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i15 = getelementptr inbounds i8, ptr %19, i64 24
   %20 = load ptr, ptr %OutBufCur.i13.i15, align 8
@@ -8999,7 +8999,7 @@ if.end.i61:                                       ; preds = %if.then30
 if.end33:                                         ; preds = %if.end.i52, %if.then.i49, %if.end.i61, %if.then.i58, %if.end28
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %30 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %30)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %30)
   %31 = load i8, ptr %_computed, align 8
   %tobool35 = trunc i8 %31 to i1
   br i1 %tobool35, label %if.then36, label %if.end39
@@ -9054,7 +9054,7 @@ if.then50:                                        ; preds = %if.end42, %lor.lhs.
   %_params = getelementptr inbounds i8, ptr %38, i64 80
   %_body = getelementptr inbounds i8, ptr %38, i64 96
   %39 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS22visitFuncParamsAndBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_S8_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %39)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS22visitFuncParamsAndBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %39)
   br label %if.end58
 
 if.else54:                                        ; preds = %lor.lhs.false
@@ -9080,24 +9080,24 @@ _ZN4llvh11raw_ostreamlsEc.exit82:                 ; preds = %if.then.i77, %if.en
   %43 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val26 = load i8, ptr %43, align 8
   %tobool2.i83 = trunc i8 %this.val26 to i1
-  br i1 %tobool2.i83, label %if.then.i85, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit87
+  br i1 %tobool2.i83, label %if.then.i85, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit87
 
 if.then.i85:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit82
   %this.val = load ptr, ptr %this, align 8
   %call.i86 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
   %this.val.i.pre = load i8, ptr %43, align 8
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit87
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit87
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit87: ; preds = %_ZN4llvh11raw_ostreamlsEc.exit82, %if.then.i85
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit87:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit82, %if.then.i85
   %this.val.i = phi i8 [ %this.val26, %_ZN4llvh11raw_ostreamlsEc.exit82 ], [ %this.val.i.pre, %if.then.i85 ]
   %_value57 = getelementptr inbounds i8, ptr %node, i64 56
   %44 = load ptr, ptr %_value57, align 8
-  %call.i88 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE.argprom(i8 %this.val.i, ptr noundef %44)
+  %call.i88 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i, ptr noundef %44)
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %call.i88 to i32
   %cmp.i89 = icmp slt i32 %ref.tmp.sroa.0.0.extract.trunc.i, 2
   br i1 %cmp.i89, label %if.then.i91, label %if.end6.i
 
-if.then.i91:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit87
+if.then.i91:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit87
   %45 = load ptr, ptr %this, align 8
   %OutBufCur.i.i = getelementptr inbounds i8, ptr %45, i64 24
   %46 = load ptr, ptr %OutBufCur.i.i, align 8
@@ -9116,12 +9116,12 @@ if.end.i.i94:                                     ; preds = %if.then.i91
   store i8 40, ptr %46, align 1
   br label %if.then8.i
 
-if.end6.i:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit87
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %44)
+if.end6.i:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit87
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %44)
   br label %if.end58
 
 if.then8.i:                                       ; preds = %if.then.i.i92, %if.end.i.i94
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %44)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %44)
   %48 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %48, i64 24
   %49 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -9145,7 +9145,7 @@ if.end58:                                         ; preds = %if.end6.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitClassEPNS_6ESTree4NodeES4_S4_S4_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %id, ptr noundef %superClass, ptr noundef %body) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitClassEPNS_6ESTree4NodeES4_S4_S4_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %id, ptr noundef %superClass, ptr noundef %body) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -9193,7 +9193,7 @@ if.end.i:                                         ; preds = %if.then
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %id)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %id)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -9224,22 +9224,22 @@ if.then4.i.i16:                                   ; preds = %if.then5
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit21
 
 _ZN4llvh11raw_ostreamlsEPKc.exit21:               ; preds = %if.then.i.i19, %if.then4.i.i16
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %superClass)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %superClass)
   br label %if.end8
 
 if.end8:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit21, %if.end
   %11 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val5 = load i8, ptr %11, align 8
   %tobool2.i = trunc i8 %this.val5 to i1
-  br i1 %tobool2.i, label %if.then.i24, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i24, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i24:                                      ; preds = %if.end8
   %this.val = load ptr, ptr %this, align 8
   %call.i25 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %if.end8, %if.then.i24
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %body)
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.end8, %if.then.i24
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %body)
   ret void
 }
 
@@ -9317,7 +9317,7 @@ if.then.i14:                                      ; preds = %for.body
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %for.body, %if.then.i14
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.040)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.040)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.040, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_body
@@ -9427,11 +9427,11 @@ if.end.i25:                                       ; preds = %if.then5.i
   br label %if.then15.i
 
 if.end8.i:                                        ; preds = %if.end.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %2)
   br label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end.i25, %if.then.i22
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %2)
   %11 = load ptr, ptr %this, align 8
   %OutBufCur.i9 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i9, align 8
@@ -9478,7 +9478,7 @@ if.then4.i.i:                                     ; preds = %if.then20.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %3)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.exit: ; preds = %if.end18.i, %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -9559,7 +9559,7 @@ if.end.i15:                                       ; preds = %if.end.i
   br label %_ZN4llvh11raw_ostreamlsEc.exit17
 
 _ZN4llvh11raw_ostreamlsEc.exit17:                 ; preds = %if.then.i12, %if.end.i15
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %1)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %1)
   %tobool19.not.i = icmp eq ptr %2, null
   br i1 %tobool19.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.exit, label %if.then20.i
 
@@ -9587,7 +9587,7 @@ if.then4.i.i:                                     ; preds = %if.then20.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %2)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %2)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.exit: ; preds = %_ZN4llvh11raw_ostreamlsEc.exit17, %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -9803,7 +9803,7 @@ if.end.i74:                                       ; preds = %if.then31
 if.end34:                                         ; preds = %if.end.i74, %if.then.i71, %if.end29
   %_key = getelementptr inbounds i8, ptr %node, i64 48
   %31 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %31)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %31)
   %32 = load i8, ptr %_computed, align 8
   %tobool36 = trunc i8 %32 to i1
   br i1 %tobool36, label %if.then37, label %if.end40
@@ -9832,7 +9832,7 @@ if.end40:                                         ; preds = %if.end.i84, %if.the
   %_params = getelementptr inbounds i8, ptr %36, i64 80
   %_body = getelementptr inbounds i8, ptr %36, i64 96
   %37 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS22visitFuncParamsAndBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_S8_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %37)
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS22visitFuncParamsAndBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %37)
   ret void
 }
 
@@ -9904,7 +9904,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   %this.val.i = load i8, ptr %3, align 8
-  %call.i4 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE.argprom(i8 %this.val.i, ptr noundef %__begin2.sroa.0.023)
+  %call.i4 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i, ptr noundef %__begin2.sroa.0.023)
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %call.i4 to i32
   %cmp.i5 = icmp slt i32 %ref.tmp.sroa.0.0.extract.trunc.i, 2
   br i1 %cmp.i5, label %if.then.i17, label %if.end6.i
@@ -9929,11 +9929,11 @@ if.end.i.i:                                       ; preds = %if.then.i17
   br label %if.then8.i
 
 if.end6.i:                                        ; preds = %if.end
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.023)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.023)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit
 
 if.then8.i:                                       ; preds = %if.then.i.i, %if.end.i.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.023)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.023)
   %10 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -10010,17 +10010,17 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %4 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val1 = load i8, ptr %4, align 8
   %tobool2.i = trunc i8 %this.val1 to i1
-  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %this.val = load ptr, ptr %this, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
   %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %5 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %5)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %5)
   ret void
 }
 
@@ -10035,7 +10035,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i8, ptr %1, align 8
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i, ptr noundef nonnull %node, ptr noundef nonnull %0, i32 noundef 0)
   switch i32 %call.i, label %if.end6.i.thread [
     i32 1, label %if.then.i19
     i32 2, label %if.then3.i
@@ -10080,11 +10080,11 @@ if.end.i9.i:                                      ; preds = %if.then3.i
   br label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.i6.i, %if.end.i9.i
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.then8.i:                                       ; preds = %if.end.i.i22, %if.then.i.i20
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %8 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i13.i, align 8
@@ -10107,14 +10107,14 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
   %11 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val6 = load i8, ptr %11, align 8
   %tobool2.i = trunc i8 %this.val6 to i1
-  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %this.val5 = load ptr, ptr %this, align 8
   %call.i8 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val5, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
   %12 = load ptr, ptr %this, align 8
   %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %OutBufEnd.i5.i, align 8
@@ -10123,11 +10123,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit: ; preds = %_ZN6hermes12_GLO
   %cmp.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
-if.then.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull @.str.309, i64 noundef 1) #12
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
-if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit
+if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
   store i8 61, ptr %14, align 1
   %15 = load ptr, ptr %OutBufCur.i6.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 1
@@ -10137,22 +10137,22 @@ if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %this.val4 = load i8, ptr %11, align 8
   %tobool2.i9 = trunc i8 %this.val4 to i1
-  br i1 %tobool2.i9, label %if.then.i11, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit13
+  br i1 %tobool2.i9, label %if.then.i11, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit13
 
 if.then.i11:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %this.val = load ptr, ptr %this, align 8
   %call.i12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
-  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit13
+  br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit13
 
-_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit13: ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i11
+_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit13:    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i11
   %_right = getelementptr inbounds i8, ptr %node, i64 56
   %16 = load ptr, ptr %_right, align 8
   %tobool.not.i14 = icmp eq ptr %16, null
   br i1 %tobool.not.i14, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit18, label %if.end.i15
 
-if.end.i15:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit13
+if.end.i15:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit13
   %this.val.i16 = load i8, ptr %11, align 8
-  %call.i17 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE.argprom(i8 %this.val.i16, ptr noundef nonnull %node, ptr noundef nonnull %16, i32 noundef 2)
+  %call.i17 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.val.i16, ptr noundef nonnull %node, ptr noundef nonnull %16, i32 noundef 2)
   switch i32 %call.i17, label %if.end6.i26.thread [
     i32 1, label %if.then.i48
     i32 2, label %if.then3.i38
@@ -10197,11 +10197,11 @@ if.end.i9.i46:                                    ; preds = %if.then3.i38
   br label %if.end6.i26.thread
 
 if.end6.i26.thread:                               ; preds = %if.end.i15, %if.then.i6.i42, %if.end.i9.i46
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %16)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %16)
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit18
 
 if.then8.i28:                                     ; preds = %if.end.i.i56, %if.then.i.i52
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %16)
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %16)
   %23 = load ptr, ptr %this, align 8
   %OutBufCur.i13.i29 = getelementptr inbounds i8, ptr %23, i64 24
   %24 = load ptr, ptr %OutBufCur.i13.i29, align 8
@@ -10220,7 +10220,7 @@ if.end.i19.i36:                                   ; preds = %if.then8.i28
   store i8 41, ptr %24, align 1
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit18
 
-_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit18: ; preds = %if.end6.i26.thread, %if.end.i19.i36, %if.then.i16.i32, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.argprom.exit13
+_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit18: ; preds = %if.end6.i26.thread, %if.end.i19.i36, %if.then.i16.i32, %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit13
   ret void
 }
 

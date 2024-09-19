@@ -3641,7 +3641,7 @@ _ZN3nix4PipeC2Ev.exit30:                          ; preds = %.noexc27
           cleanup
   %75 = extractvalue { ptr, i32 } %74, 0
   %76 = extractvalue { ptr, i32 } %74, 1
-  br label %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.argprom.exit47"
+  br label %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.exit47"
 
 77:                                               ; preds = %56, %52, %44
   %78 = getelementptr inbounds i8, ptr %11, i64 16
@@ -4060,7 +4060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %219
   %233 = getelementptr inbounds i8, ptr %232, i64 32
   %234 = load ptr, ptr %233, align 8
   invoke void %234(ptr noundef nonnull align 8 dereferenceable(8) %231)
-          to label %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.argprom.exit" unwind label %235
+          to label %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.exit" unwind label %235
 
 235:                                              ; preds = %230
   %236 = landingpad { ptr, i32 }
@@ -4069,20 +4069,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %219
   call void @__clang_call_terminate(ptr %237) #30
   unreachable
 
-"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.argprom.exit": ; preds = %230
+"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.exit": ; preds = %230
   %238 = load ptr, ptr %10, align 8
   %239 = getelementptr inbounds i8, ptr %10, i64 16
   %240 = icmp eq ptr %238, %239
   br i1 %240, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.argprom.exit"
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.exit"
   %241 = getelementptr inbounds i8, ptr %10, i64 8
   %242 = load i64, ptr %241, align 8
   %243 = icmp ult i64 %242, 16
   call void @llvm.assume(i1 %243)
   br label %_ZN3nix14ProcessOptionsD2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.argprom.exit"
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.exit"
   call void @_ZdlPv(ptr noundef %238) #29
   br label %_ZN3nix14ProcessOptionsD2Ev.exit
 
@@ -4120,7 +4120,7 @@ _ZNSt8functionIFvvEED2Ev.exit38:                  ; preds = %160, %155, %221, %1
   %252 = getelementptr inbounds i8, ptr %251, i64 32
   %253 = load ptr, ptr %252, align 8
   invoke void %253(ptr noundef nonnull align 8 dereferenceable(8) %250)
-          to label %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.argprom.exit47" unwind label %254
+          to label %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.exit47" unwind label %254
 
 254:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit38
   %255 = landingpad { ptr, i32 }
@@ -4129,15 +4129,15 @@ _ZNSt8functionIFvvEED2Ev.exit38:                  ; preds = %160, %155, %221, %1
   call void @__clang_call_terminate(ptr %256) #30
   unreachable
 
-"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.argprom.exit47": ; preds = %_ZNSt8functionIFvvEED2Ev.exit38, %73
+"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.exit47": ; preds = %_ZNSt8functionIFvvEED2Ev.exit38, %73
   %.416 = phi i32 [ %76, %73 ], [ %.517, %_ZNSt8functionIFvvEED2Ev.exit38 ]
   %.4 = phi ptr [ %75, %73 ], [ %.5, %_ZNSt8functionIFvvEED2Ev.exit38 ]
   call void @_ZN3nix14ProcessOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #26
   br label %257
 
-257:                                              ; preds = %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.argprom.exit47", %.body34
-  %.315 = phi i32 [ %.416, %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.argprom.exit47" ], [ %43, %.body34 ]
-  %.3 = phi ptr [ %.4, %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.argprom.exit47" ], [ %42, %.body34 ]
+257:                                              ; preds = %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.exit47", %.body34
+  %.315 = phi i32 [ %.416, %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.exit47" ], [ %43, %.body34 ]
+  %.3 = phi ptr [ %.4, %"_ZN7FinallyIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEESB_E3$_1ED2Ev.exit47" ], [ %42, %.body34 ]
   call void @_ZNSt10unique_ptrIN3nix9SSHMaster10ConnectionESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
   br label %258
 
@@ -4490,7 +4490,7 @@ _ZN3nix4PipeC2Ev.exit:                            ; preds = %.noexc
           cleanup
   %136 = extractvalue { ptr, i32 } %135, 0
   %137 = extractvalue { ptr, i32 } %135, 1
-  br label %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.argprom.exit51"
+  br label %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.exit51"
 
 138:                                              ; preds = %142, %_ZNSt8functionIFvvEED2Ev.exit, %122, %119
   %139 = landingpad { ptr, i32 }
@@ -4870,7 +4870,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %277 = getelementptr inbounds i8, ptr %276, i64 32
   %278 = load ptr, ptr %277, align 8
   invoke void %278(ptr noundef nonnull align 8 dereferenceable(8) %275)
-          to label %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.argprom.exit" unwind label %279
+          to label %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.exit" unwind label %279
 
 279:                                              ; preds = %274
   %280 = landingpad { ptr, i32 }
@@ -4879,20 +4879,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   call void @__clang_call_terminate(ptr %281) #30
   unreachable
 
-"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.argprom.exit": ; preds = %274
+"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.exit": ; preds = %274
   %282 = load ptr, ptr %11, align 8
   %283 = getelementptr inbounds i8, ptr %11, i64 16
   %284 = icmp eq ptr %282, %283
   br i1 %284, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.argprom.exit"
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.exit"
   %285 = getelementptr inbounds i8, ptr %11, i64 8
   %286 = load i64, ptr %285, align 8
   %287 = icmp ult i64 %286, 16
   call void @llvm.assume(i1 %287)
   br label %_ZN3nix14ProcessOptionsD2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.argprom.exit"
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.exit"
   call void @_ZdlPv(ptr noundef %282) #29
   br label %_ZN3nix14ProcessOptionsD2Ev.exit
 
@@ -4910,7 +4910,7 @@ _ZNSt8functionIFvvEED2Ev.exit45:                  ; preds = %210, %205, %273, %2
   %290 = getelementptr inbounds i8, ptr %289, i64 32
   %291 = load ptr, ptr %290, align 8
   invoke void %291(ptr noundef nonnull align 8 dereferenceable(8) %288)
-          to label %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.argprom.exit51" unwind label %292
+          to label %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.exit51" unwind label %292
 
 292:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit45
   %293 = landingpad { ptr, i32 }
@@ -4919,15 +4919,15 @@ _ZNSt8functionIFvvEED2Ev.exit45:                  ; preds = %210, %205, %273, %2
   call void @__clang_call_terminate(ptr %294) #30
   unreachable
 
-"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.argprom.exit51": ; preds = %_ZNSt8functionIFvvEED2Ev.exit45, %134
+"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.exit51": ; preds = %_ZNSt8functionIFvvEED2Ev.exit45, %134
   %.413 = phi i32 [ %137, %134 ], [ %.514, %_ZNSt8functionIFvvEED2Ev.exit45 ]
   %.4 = phi ptr [ %136, %134 ], [ %.5, %_ZNSt8functionIFvvEED2Ev.exit45 ]
   call void @_ZN3nix14ProcessOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #26
   br label %295
 
-295:                                              ; preds = %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.argprom.exit51", %.body29
-  %.312 = phi i32 [ %.413, %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.argprom.exit51" ], [ %133, %.body29 ]
-  %.3 = phi ptr [ %.4, %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.argprom.exit51" ], [ %132, %.body29 ]
+295:                                              ; preds = %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.exit51", %.body29
+  %.312 = phi i32 [ %.413, %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.exit51" ], [ %133, %.body29 ]
+  %.3 = phi ptr [ %.4, %"_ZN7FinallyIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_1ED2Ev.exit51" ], [ %132, %.body29 ]
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %104) #26
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %10) #26
   br label %303
@@ -14894,7 +14894,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -14903,30 +14903,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3nix9SSHMast
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESA_E3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #29
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster12startCommandEONSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEESC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -17502,7 +17502,7 @@ _ZN3nix8SysErrorC2IJA23_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -17511,30 +17511,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3nix9SSHMast
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #29
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix9SSHMaster11startMasterB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

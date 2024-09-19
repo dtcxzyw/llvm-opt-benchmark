@@ -3638,13 +3638,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %24, %26
   %.val = load ptr, ptr %5, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %.not.i.i39 = icmp eq ptr %.val.val, %15
-  br i1 %.not.i.i39, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext12ComposeValueERKNS_7TfTokenEPNS_7VtValueEENK3$_1clEOS4_.argprom.argprom.exit", label %70
+  br i1 %.not.i.i39, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext12ComposeValueERKNS_7TfTokenEPNS_7VtValueEENK3$_1clEOS4_.exit", label %70
 
 70:                                               ; preds = %69
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %.val.val) #17
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext12ComposeValueERKNS_7TfTokenEPNS_7VtValueEENK3$_1clEOS4_.argprom.argprom.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext12ComposeValueERKNS_7TfTokenEPNS_7VtValueEENK3$_1clEOS4_.exit"
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext12ComposeValueERKNS_7TfTokenEPNS_7VtValueEENK3$_1clEOS4_.argprom.argprom.exit": ; preds = %69, %70
+"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext12ComposeValueERKNS_7TfTokenEPNS_7VtValueEENK3$_1clEOS4_.exit": ; preds = %69, %70
   store i8 1, ptr %57, align 1
   %71 = load i8, ptr %58, align 8
   %72 = trunc i8 %71 to i1
@@ -3675,7 +3675,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %24, %26
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #17
   br label %344
 
-.critedge:                                        ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext12ComposeValueERKNS_7TfTokenEPNS_7VtValueEENK3$_1clEOS4_.argprom.argprom.exit", %68
+.critedge:                                        ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext12ComposeValueERKNS_7TfTokenEPNS_7VtValueEENK3$_1clEOS4_.exit", %68
   %74 = load ptr, ptr %56, align 8
   %75 = ptrtoint ptr %74 to i64
   %.not.i.i40 = icmp eq ptr %74, null
@@ -3705,7 +3705,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %.critedge, %7
   %.not = icmp eq ptr %86, %55
   br i1 %.not, label %._crit_edge, label %59
 
-87:                                               ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext12ComposeValueERKNS_7TfTokenEPNS_7VtValueEENK3$_1clEOS4_.argprom.argprom.exit"
+87:                                               ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext12ComposeValueERKNS_7TfTokenEPNS_7VtValueEENK3$_1clEOS4_.exit"
   %88 = load ptr, ptr %56, align 8
   %89 = ptrtoint ptr %88 to i64
   %.not.i.i41 = icmp eq ptr %88, null
@@ -4600,13 +4600,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %24, %26
   %76 = load ptr, ptr %70, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 16
   store ptr %77, ptr %70, align 8
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext17ComposeValueStackERKNS_7TfTokenEPSt6vectorINS_7VtValueESaIS5_EEENK3$_0clEOS5_.argprom.argprom.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext17ComposeValueStackERKNS_7TfTokenEPSt6vectorINS_7VtValueESaIS5_EEENK3$_0clEOS5_.exit"
 
 78:                                               ; preds = %69
   invoke void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtValueESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %.val.val, ptr %71, ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext17ComposeValueStackERKNS_7TfTokenEPSt6vectorINS_7VtValueESaIS5_EEENK3$_0clEOS5_.argprom.argprom.exit" unwind label %.loopexit90
+          to label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext17ComposeValueStackERKNS_7TfTokenEPSt6vectorINS_7VtValueESaIS5_EEENK3$_0clEOS5_.exit" unwind label %.loopexit90
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext17ComposeValueStackERKNS_7TfTokenEPSt6vectorINS_7VtValueESaIS5_EEENK3$_0clEOS5_.argprom.argprom.exit": ; preds = %74, %78
+"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext17ComposeValueStackERKNS_7TfTokenEPSt6vectorINS_7VtValueESaIS5_EEENK3$_0clEOS5_.exit": ; preds = %74, %78
   store i8 1, ptr %57, align 1
   %79 = load i8, ptr %58, align 8
   %80 = trunc i8 %79 to i1
@@ -4637,7 +4637,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %24, %26
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #17
   br label %352
 
-.critedge:                                        ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext17ComposeValueStackERKNS_7TfTokenEPSt6vectorINS_7VtValueESaIS5_EEENK3$_0clEOS5_.argprom.argprom.exit", %68
+.critedge:                                        ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext17ComposeValueStackERKNS_7TfTokenEPSt6vectorINS_7VtValueESaIS5_EEENK3$_0clEOS5_.exit", %68
   %82 = load ptr, ptr %56, align 8
   %83 = ptrtoint ptr %82 to i64
   %.not.i.i41 = icmp eq ptr %82, null
@@ -4667,7 +4667,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %.critedge, %8
   %.not = icmp eq ptr %94, %55
   br i1 %.not, label %._crit_edge, label %59
 
-95:                                               ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext17ComposeValueStackERKNS_7TfTokenEPSt6vectorINS_7VtValueESaIS5_EEENK3$_0clEOS5_.argprom.argprom.exit"
+95:                                               ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext17ComposeValueStackERKNS_7TfTokenEPSt6vectorINS_7VtValueESaIS5_EEENK3$_0clEOS5_.exit"
   %96 = load ptr, ptr %56, align 8
   %97 = ptrtoint ptr %96 to i64
   %.not.i.i42 = icmp eq ptr %96, null
@@ -5699,13 +5699,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %24, %26
   %.val = load ptr, ptr %5, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %.not.i.i39 = icmp eq ptr %.val.val, %15
-  br i1 %.not.i.i39, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext28ComposeAttributeDefaultValueERKNS_7TfTokenEPNS_7VtValueEENK3$_0clEOS4_.argprom.argprom.exit", label %70
+  br i1 %.not.i.i39, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext28ComposeAttributeDefaultValueERKNS_7TfTokenEPNS_7VtValueEENK3$_0clEOS4_.exit", label %70
 
 70:                                               ; preds = %69
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %.val.val) #17
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext28ComposeAttributeDefaultValueERKNS_7TfTokenEPNS_7VtValueEENK3$_0clEOS4_.argprom.argprom.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext28ComposeAttributeDefaultValueERKNS_7TfTokenEPNS_7VtValueEENK3$_0clEOS4_.exit"
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext28ComposeAttributeDefaultValueERKNS_7TfTokenEPNS_7VtValueEENK3$_0clEOS4_.argprom.argprom.exit": ; preds = %69, %70
+"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext28ComposeAttributeDefaultValueERKNS_7TfTokenEPNS_7VtValueEENK3$_0clEOS4_.exit": ; preds = %69, %70
   store i8 1, ptr %57, align 1
   %71 = load i8, ptr %58, align 8
   %72 = trunc i8 %71 to i1
@@ -5736,7 +5736,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %24, %26
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #17
   br label %344
 
-.critedge:                                        ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext28ComposeAttributeDefaultValueERKNS_7TfTokenEPNS_7VtValueEENK3$_0clEOS4_.argprom.argprom.exit", %68
+.critedge:                                        ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext28ComposeAttributeDefaultValueERKNS_7TfTokenEPNS_7VtValueEENK3$_0clEOS4_.exit", %68
   %74 = load ptr, ptr %56, align 8
   %75 = ptrtoint ptr %74 to i64
   %.not.i.i40 = icmp eq ptr %74, null
@@ -5766,7 +5766,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %.critedge, %7
   %.not = icmp eq ptr %86, %55
   br i1 %.not, label %._crit_edge, label %59
 
-87:                                               ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext28ComposeAttributeDefaultValueERKNS_7TfTokenEPNS_7VtValueEENK3$_0clEOS4_.argprom.argprom.exit"
+87:                                               ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext28ComposeAttributeDefaultValueERKNS_7TfTokenEPNS_7VtValueEENK3$_0clEOS4_.exit"
   %88 = load ptr, ptr %56, align 8
   %89 = ptrtoint ptr %88 to i64
   %.not.i.i41 = icmp eq ptr %88, null

@@ -401,7 +401,7 @@ for.inc18.us.i:                                   ; preds = %for.cond1.for.end_c
   %edgeAxis.sroa.16.3 = phi i32 [ %indvars.iv10.i, %if.then11.us.i ], [ %edgeAxis.sroa.16.2, %for.cond1.for.end_crit_edge.us.i ]
   %edgeAxis.sroa.22.3 = phi float [ %sj.1.us.i, %if.then11.us.i ], [ %edgeAxis.sroa.22.2, %for.cond1.for.end_crit_edge.us.i ]
   %48 = phi float [ %sj.1.us.i, %if.then11.us.i ], [ %45, %for.cond1.for.end_crit_edge.us.i ]
-  br i1 %cmp.us.i, label %for.cond1.preheader.us.i, label %_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit, !llvm.loop !9
+  br i1 %cmp.us.i, label %for.cond1.preheader.us.i, label %_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit, !llvm.loop !9
 
 for.body3.us.i:                                   ; preds = %for.body3.us.i, %for.cond1.preheader.us.i
   %indvars.iv7.i = phi i64 [ 0, %for.cond1.preheader.us.i ], [ %indvars.iv.next8.i, %for.body3.us.i ]
@@ -448,9 +448,9 @@ for.inc18.i:                                      ; preds = %if.then11.i, %for.c
   %edgeAxis.sroa.16.1 = phi i32 [ %indvars.iv.i, %if.then11.i ], [ %edgeAxis.sroa.16.0, %for.cond1.preheader.i ]
   %edgeAxis.sroa.22.1 = phi float [ 0x47EFFFFFE0000000, %if.then11.i ], [ %edgeAxis.sroa.22.0, %for.cond1.preheader.i ]
   %55 = phi float [ 0x47EFFFFFE0000000, %if.then11.i ], [ %52, %for.cond1.preheader.i ]
-  br i1 %cmp.i95, label %for.cond1.preheader.i, label %_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit, !llvm.loop !9
+  br i1 %cmp.i95, label %for.cond1.preheader.i, label %_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit, !llvm.loop !9
 
-_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit: ; preds = %for.inc18.i, %for.inc18.us.i
+_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit: ; preds = %for.inc18.i, %for.inc18.us.i
   %edgeAxis.sroa.0.4 = phi float [ %edgeAxis.sroa.0.3, %for.inc18.us.i ], [ %edgeAxis.sroa.0.1, %for.inc18.i ]
   %edgeAxis.sroa.6.4 = phi float [ %edgeAxis.sroa.6.3, %for.inc18.us.i ], [ %edgeAxis.sroa.6.1, %for.inc18.i ]
   %edgeAxis.sroa.16.4 = phi i32 [ %edgeAxis.sroa.16.3, %for.inc18.us.i ], [ %edgeAxis.sroa.16.1, %for.inc18.i ]
@@ -459,8 +459,8 @@ _ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit: ; preds 
   %cmp20 = fcmp ogt float %edgeAxis.sroa.22.4, %add
   br i1 %cmp20, label %return, label %if.end22
 
-if.end22:                                         ; preds = %_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit
-  br i1 %cmp21.i, label %for.body.lr.ph.i, label %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit
+if.end22:                                         ; preds = %_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit
+  br i1 %cmp21.i, label %for.body.lr.ph.i, label %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end22
   %normals.i = getelementptr inbounds i8, ptr %tempPolygonB, i64 64
@@ -511,21 +511,21 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %64 = phi float [ %cond.i.i, %if.then.i ], [ %56, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i101
-  br i1 %exitcond.not.i107, label %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit.loopexit, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i107, label %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit.loopexit, label %for.body.i, !llvm.loop !14
 
-_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit.loopexit: ; preds = %for.inc.i
+_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit.loopexit: ; preds = %for.inc.i
   %65 = icmp eq i32 %polygonAxis.sroa.5.1, 1
-  br label %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit
+  br label %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit
 
-_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit: ; preds = %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit.loopexit, %if.end22
-  %polygonAxis.sroa.11.2 = phi float [ 0xC7EFFFFFE0000000, %if.end22 ], [ %polygonAxis.sroa.11.1, %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit.loopexit ]
-  %polygonAxis.sroa.8.2 = phi i32 [ -1, %if.end22 ], [ %polygonAxis.sroa.8.1, %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit.loopexit ]
-  %polygonAxis.sroa.5.2 = phi i1 [ false, %if.end22 ], [ %65, %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit.loopexit ]
-  %polygonAxis.sroa.0.2 = phi <2 x float> [ zeroinitializer, %if.end22 ], [ %polygonAxis.sroa.0.1, %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit.loopexit ]
+_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit: ; preds = %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit.loopexit, %if.end22
+  %polygonAxis.sroa.11.2 = phi float [ 0xC7EFFFFFE0000000, %if.end22 ], [ %polygonAxis.sroa.11.1, %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit.loopexit ]
+  %polygonAxis.sroa.8.2 = phi i32 [ -1, %if.end22 ], [ %polygonAxis.sroa.8.1, %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit.loopexit ]
+  %polygonAxis.sroa.5.2 = phi i1 [ false, %if.end22 ], [ %65, %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit.loopexit ]
+  %polygonAxis.sroa.0.2 = phi <2 x float> [ zeroinitializer, %if.end22 ], [ %polygonAxis.sroa.0.1, %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit.loopexit ]
   %cmp24 = fcmp ogt float %polygonAxis.sroa.11.2, %add
   br i1 %cmp24, label %return, label %if.end26
 
-if.end26:                                         ; preds = %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit
+if.end26:                                         ; preds = %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit
   %sub = fsub float %polygonAxis.sroa.11.2, %add
   %sub29 = fsub float %edgeAxis.sroa.22.4, %add
   %66 = tail call float @llvm.fmuladd.f32(float %sub29, float 0x3FEF5C2900000000, float 0x3F50624DE0000000)
@@ -956,7 +956,7 @@ for.end317:                                       ; preds = %for.inc315
   store i32 %pointCount253.1, ptr %pointCount, align 4
   br label %return
 
-return:                                           ; preds = %if.end226, %if.end212, %if.then67, %if.then57, %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit, %_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom.exit, %_ZN6b2Vec29NormalizeEv.exit, %for.end317
+return:                                           ; preds = %if.end226, %if.end212, %if.then67, %if.then57, %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit, %_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit, %_ZN6b2Vec29NormalizeEv.exit, %for.end317
   ret void
 }
 
@@ -990,13 +990,13 @@ attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom: %agg.result"}
-!8 = distinct !{!8, !"_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom"}
+!7 = distinct !{!7, !8, !"_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_: %agg.result"}
+!8 = distinct !{!8, !"_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_"}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom: %agg.result"}
-!13 = distinct !{!13, !"_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.argprom"}
+!12 = distinct !{!12, !13, !"_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_: %agg.result"}
+!13 = distinct !{!13, !"_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_"}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}

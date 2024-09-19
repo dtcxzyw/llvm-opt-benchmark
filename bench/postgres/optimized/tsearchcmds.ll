@@ -310,14 +310,14 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   %132 = getelementptr inbounds i8, ptr %115, i64 84
   %133 = load i32, ptr %132, align 4
   %.not.i = icmp eq i32 %133, 0
-  br i1 %.not.i, label %makeParserDependencies.argprom.exit, label %134
+  br i1 %.not.i, label %makeParserDependencies.exit, label %134
 
 134:                                              ; preds = %107
   store i32 %133, ptr %122, align 4
   call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %119) #10
-  br label %makeParserDependencies.argprom.exit
+  br label %makeParserDependencies.exit
 
-makeParserDependencies.argprom.exit:              ; preds = %107, %134
+makeParserDependencies.exit:                      ; preds = %107, %134
   call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %119, i32 noundef 110) #10
   call void @free_object_addresses(ptr noundef %119) #10
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
@@ -328,11 +328,11 @@ makeParserDependencies.argprom.exit:              ; preds = %107, %134
   %.not40 = icmp eq ptr %135, null
   br i1 %.not40, label %137, label %136
 
-136:                                              ; preds = %makeParserDependencies.argprom.exit
+136:                                              ; preds = %makeParserDependencies.exit
   call void @RunObjectPostCreateHook(i32 noundef 3601, i32 noundef %18, i32 noundef 0, i1 noundef zeroext false) #10
   br label %137
 
-137:                                              ; preds = %makeParserDependencies.argprom.exit, %136
+137:                                              ; preds = %makeParserDependencies.exit, %136
   %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { i64, i32 } %.fca.0.insert.i, i32 %.sroa.2.0.copyload.i, 1
   call void @heap_freetuple(ptr noundef nonnull %110) #10
@@ -1509,14 +1509,14 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
   %82 = getelementptr inbounds i8, ptr %71, i64 72
   %83 = load i32, ptr %82, align 4
   %.not.i = icmp eq i32 %83, 0
-  br i1 %.not.i, label %makeTSTemplateDependencies.argprom.exit, label %84
+  br i1 %.not.i, label %makeTSTemplateDependencies.exit, label %84
 
 84:                                               ; preds = %63
   store i32 %83, ptr %78, align 4
   call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %75) #10
-  br label %makeTSTemplateDependencies.argprom.exit
+  br label %makeTSTemplateDependencies.exit
 
-makeTSTemplateDependencies.argprom.exit:          ; preds = %63, %84
+makeTSTemplateDependencies.exit:                  ; preds = %63, %84
   call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %75, i32 noundef 110) #10
   call void @free_object_addresses(ptr noundef %75) #10
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
@@ -1527,11 +1527,11 @@ makeTSTemplateDependencies.argprom.exit:          ; preds = %63, %84
   %.not36 = icmp eq ptr %85, null
   br i1 %.not36, label %87, label %86
 
-86:                                               ; preds = %makeTSTemplateDependencies.argprom.exit
+86:                                               ; preds = %makeTSTemplateDependencies.exit
   call void @RunObjectPostCreateHook(i32 noundef 3764, i32 noundef %18, i32 noundef 0, i1 noundef zeroext false) #10
   br label %87
 
-87:                                               ; preds = %makeTSTemplateDependencies.argprom.exit, %86
+87:                                               ; preds = %makeTSTemplateDependencies.exit, %86
   %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { i64, i32 } %.fca.0.insert.i, i32 %.sroa.2.0.copyload.i, 1
   call void @heap_freetuple(ptr noundef nonnull %66) #10
@@ -1881,7 +1881,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   %.0 = phi ptr [ %94, %._crit_edge167 ], [ null, %76 ]
   %167 = getelementptr i8, ptr %92, i64 16
   %.val = load ptr, ptr %167, align 8
-  %168 = call fastcc { i64, i32 } @makeConfigurationDependencies.argprom(ptr %.val, i1 noundef zeroext false, ptr noundef %.0)
+  %168 = call fastcc { i64, i32 } @makeConfigurationDependencies(ptr %.val, i1 noundef zeroext false, ptr noundef %.0)
   %169 = load ptr, ptr @object_access_hook, align 8
   %.not131 = icmp eq ptr %169, null
   br i1 %.not131, label %171, label %170
@@ -1931,7 +1931,7 @@ declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
 declare void @CatalogCloseIndexes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @makeConfigurationDependencies.argprom(ptr nocapture readonly %.16.val, i1 noundef zeroext %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @makeConfigurationDependencies(ptr nocapture readonly %.16.val, i1 noundef zeroext %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.ObjectAddress, align 8
   %4 = alloca %struct.ObjectAddress, align 4
   %5 = alloca %struct.ScanKeyData, align 8
@@ -2313,7 +2313,7 @@ list_length.exit158.i:                            ; preds = %73, %.thread.i
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.backedge.i, %97
   call void @systable_endscan(ptr noundef %102) #10
-  br label %MakeConfigurationMapping.argprom.exit
+  br label %MakeConfigurationMapping.exit
 
 135:                                              ; preds = %._crit_edge26.i
   %136 = mul i32 %.fr65.i, %71
@@ -2442,7 +2442,7 @@ list_length.exit158.i:                            ; preds = %73, %.thread.i
   br label %._crit_edge42.thread.i
 
 ._crit_edge42.thread.i:                           ; preds = %200, %._crit_edge42.i, %.lr.ph41.split.us.split.i, %.lr.ph41.i, %.preheader15.i
-  br i1 %.not.i30, label %MakeConfigurationMapping.argprom.exit, label %.lr.ph58.preheader.i
+  br i1 %.not.i30, label %MakeConfigurationMapping.exit, label %.lr.ph58.preheader.i
 
 .lr.ph58.preheader.i:                             ; preds = %._crit_edge42.thread.i
   %umax88.i = call i32 @llvm.umax.i32(i32 %137, i32 1)
@@ -2456,9 +2456,9 @@ list_length.exit158.i:                            ; preds = %73, %.thread.i
   call void @ExecDropSingleTupleTableSlot(ptr noundef %202) #10
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
   %exitcond90.not.i = icmp eq i64 %indvars.iv.next86.i, %wide.trip.count89.i
-  br i1 %exitcond90.not.i, label %MakeConfigurationMapping.argprom.exit, label %.lr.ph58.i, !llvm.loop !18
+  br i1 %exitcond90.not.i, label %MakeConfigurationMapping.exit, label %.lr.ph58.i, !llvm.loop !18
 
-MakeConfigurationMapping.argprom.exit:            ; preds = %.lr.ph58.i, %.critedge._crit_edge.i, %._crit_edge42.thread.i
+MakeConfigurationMapping.exit:                    ; preds = %.lr.ph58.i, %.critedge._crit_edge.i, %._crit_edge42.thread.i
   call void @CatalogCloseIndexes(ptr noundef %93) #10
   call void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noundef %43, ptr noundef %79, i32 noundef %.fr65.i) #10
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
@@ -2485,7 +2485,7 @@ MakeConfigurationMapping.argprom.exit:            ; preds = %.lr.ph58.i, %.crite
   %213 = load i32, ptr %212, align 4
   %214 = tail call fastcc ptr @getTokenTypes(i32 noundef %213, ptr noundef nonnull %205)
   %.not.i31 = icmp eq ptr %214, null
-  br i1 %.not.i31, label %DropConfigurationMapping.argprom.exit, label %.lr.ph6.i
+  br i1 %.not.i31, label %DropConfigurationMapping.exit, label %.lr.ph6.i
 
 .lr.ph6.i:                                        ; preds = %206
   %215 = getelementptr inbounds i8, ptr %214, i64 4
@@ -2495,7 +2495,7 @@ MakeConfigurationMapping.argprom.exit:            ; preds = %.lr.ph58.i, %.crite
   %219 = getelementptr inbounds i8, ptr %0, i64 34
   %220 = load i32, ptr %215, align 4
   %221 = icmp sgt i32 %220, 0
-  br i1 %221, label %.lr.ph, label %DropConfigurationMapping.argprom.exit
+  br i1 %221, label %.lr.ph, label %DropConfigurationMapping.exit
 
 .lr.ph:                                           ; preds = %.lr.ph6.i, %246
   %indvars.iv.i3238 = phi i64 [ %indvars.iv.next.i35, %246 ], [ 0, %.lr.ph6.i ]
@@ -2555,16 +2555,16 @@ MakeConfigurationMapping.argprom.exit:            ; preds = %.lr.ph58.i, %.crite
   %247 = load i32, ptr %215, align 4
   %248 = sext i32 %247 to i64
   %249 = icmp slt i64 %indvars.iv.next.i35, %248
-  br i1 %249, label %.lr.ph, label %DropConfigurationMapping.argprom.exit
+  br i1 %249, label %.lr.ph, label %DropConfigurationMapping.exit
 
-DropConfigurationMapping.argprom.exit:            ; preds = %246, %.lr.ph6.i, %206
+DropConfigurationMapping.exit:                    ; preds = %246, %.lr.ph6.i, %206
   call void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noundef %211, ptr noundef null, i32 noundef 0) #10
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
   br label %250
 
-250:                                              ; preds = %203, %DropConfigurationMapping.argprom.exit, %MakeConfigurationMapping.argprom.exit
+250:                                              ; preds = %203, %DropConfigurationMapping.exit, %MakeConfigurationMapping.exit
   %.val = load ptr, ptr %22, align 8
-  %251 = call fastcc { i64, i32 } @makeConfigurationDependencies.argprom(ptr %.val, i1 noundef zeroext true, ptr noundef %35)
+  %251 = call fastcc { i64, i32 } @makeConfigurationDependencies(ptr %.val, i1 noundef zeroext true, ptr noundef %35)
   %252 = load ptr, ptr @object_access_hook, align 8
   %.not27 = icmp eq ptr %252, null
   br i1 %.not27, label %254, label %253

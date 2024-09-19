@@ -508,13 +508,13 @@ define internal fastcc ptr @pull_up_subqueries_recurse(ptr noundef %0, ptr nound
   %25 = getelementptr inbounds i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 1
-  br i1 %27, label %28, label %is_safe_append_member.argprom.exit.thread113
+  br i1 %27, label %28, label %is_safe_append_member.exit.thread113
 
 28:                                               ; preds = %13
   %29 = getelementptr inbounds i8, ptr %24, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = tail call fastcc zeroext i1 @is_simple_subquery(ptr noundef nonnull %0, ptr noundef %30, ptr noundef nonnull %24, ptr noundef %2)
-  br i1 %31, label %32, label %is_safe_append_member.argprom.exit
+  br i1 %31, label %32, label %is_safe_append_member.exit
 
 32:                                               ; preds = %28
   %33 = icmp eq ptr %3, null
@@ -545,7 +545,7 @@ define internal fastcc ptr @pull_up_subqueries_recurse(ptr noundef %0, ptr nound
 45:                                               ; preds = %.preheader137, %55
   %.0.i = phi ptr [ %57, %55 ], [ %.val93, %.preheader137 ]
   %46 = load i32, ptr %.0.i, align 4
-  switch i32 %46, label %is_safe_append_member.argprom.exit [
+  switch i32 %46, label %is_safe_append_member.exit [
     i32 57, label %47
     i32 55, label %.split87
   ]
@@ -554,19 +554,19 @@ define internal fastcc ptr @pull_up_subqueries_recurse(ptr noundef %0, ptr nound
   %48 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %49 = load ptr, ptr %48, align 8
   %.not.i = icmp eq ptr %49, null
-  br i1 %.not.i, label %50, label %is_safe_append_member.argprom.exit
+  br i1 %.not.i, label %50, label %is_safe_append_member.exit
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i, label %is_safe_append_member.argprom.exit, label %list_length.exit.i
+  br i1 %.not.i.i, label %is_safe_append_member.exit, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %50
   %53 = getelementptr inbounds i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %.not11.i = icmp eq i32 %54, 1
-  br i1 %.not11.i, label %55, label %is_safe_append_member.argprom.exit
+  br i1 %.not11.i, label %55, label %is_safe_append_member.exit
 
 55:                                               ; preds = %list_length.exit.i
   %56 = getelementptr i8, ptr %52, i64 16
@@ -578,12 +578,12 @@ list_length.exit.i:                               ; preds = %50
   %58 = tail call fastcc ptr @pull_up_simple_subquery(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %24, ptr noundef %2, ptr noundef nonnull %3)
   br label %common.ret138
 
-is_safe_append_member.argprom.exit:               ; preds = %list_length.exit.i, %50, %47, %45, %28
+is_safe_append_member.exit:                       ; preds = %list_length.exit.i, %50, %47, %45, %28
   %.pr = load i32, ptr %25, align 4
   %59 = icmp eq i32 %.pr, 1
-  br i1 %59, label %60, label %is_safe_append_member.argprom.exit.thread113
+  br i1 %59, label %60, label %is_safe_append_member.exit.thread113
 
-60:                                               ; preds = %is_safe_append_member.argprom.exit
+60:                                               ; preds = %is_safe_append_member.exit
   %61 = load ptr, ptr %29, align 8
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 59
@@ -606,47 +606,47 @@ is_safe_append_member.argprom.exit:               ; preds = %list_length.exit.i,
   %71 = getelementptr inbounds i8, ptr %61, i64 224
   %72 = load ptr, ptr %71, align 8
   %.not14.i = icmp eq ptr %72, null
-  br i1 %.not14.i, label %is_safe_append_member.argprom.exit.thread113.thread, label %73
+  br i1 %.not14.i, label %is_safe_append_member.exit.thread113.thread, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds i8, ptr %61, i64 184
   %75 = load ptr, ptr %74, align 8
   %.not15.i = icmp eq ptr %75, null
-  br i1 %.not15.i, label %76, label %is_safe_append_member.argprom.exit.thread113.thread
+  br i1 %.not15.i, label %76, label %is_safe_append_member.exit.thread113.thread
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %61, i64 192
   %78 = load ptr, ptr %77, align 8
   %.not16.i = icmp eq ptr %78, null
-  br i1 %.not16.i, label %79, label %is_safe_append_member.argprom.exit.thread113.thread
+  br i1 %.not16.i, label %79, label %is_safe_append_member.exit.thread113.thread
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds i8, ptr %61, i64 200
   %81 = load ptr, ptr %80, align 8
   %.not17.i = icmp eq ptr %81, null
-  br i1 %.not17.i, label %82, label %is_safe_append_member.argprom.exit.thread113.thread
+  br i1 %.not17.i, label %82, label %is_safe_append_member.exit.thread113.thread
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %61, i64 216
   %84 = load ptr, ptr %83, align 8
   %.not18.i = icmp eq ptr %84, null
-  br i1 %.not18.i, label %85, label %is_safe_append_member.argprom.exit.thread113.thread
+  br i1 %.not18.i, label %85, label %is_safe_append_member.exit.thread113.thread
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds i8, ptr %61, i64 56
   %87 = load ptr, ptr %86, align 8
   %.not19.i = icmp eq ptr %87, null
-  br i1 %.not19.i, label %is_simple_union_all.exit, label %is_safe_append_member.argprom.exit.thread113.thread
+  br i1 %.not19.i, label %is_simple_union_all.exit, label %is_safe_append_member.exit.thread113.thread
 
 is_simple_union_all.exit:                         ; preds = %85
   %88 = getelementptr inbounds i8, ptr %72, i64 32
   %89 = load ptr, ptr %88, align 8
   %90 = tail call fastcc zeroext i1 @is_simple_union_all_recurse(ptr noundef nonnull %72, ptr noundef nonnull readonly %61, ptr noundef %89)
-  br i1 %90, label %91, label %is_simple_union_all.exit.is_safe_append_member.argprom.exit.thread113_crit_edge
+  br i1 %90, label %91, label %is_simple_union_all.exit.is_safe_append_member.exit.thread113_crit_edge
 
-is_simple_union_all.exit.is_safe_append_member.argprom.exit.thread113_crit_edge: ; preds = %is_simple_union_all.exit
+is_simple_union_all.exit.is_safe_append_member.exit.thread113_crit_edge: ; preds = %is_simple_union_all.exit
   %.pre = load i32, ptr %25, align 4
-  br label %is_safe_append_member.argprom.exit.thread113
+  br label %is_safe_append_member.exit.thread113
 
 91:                                               ; preds = %is_simple_union_all.exit
   %92 = load i32, ptr %14, align 4
@@ -711,12 +711,12 @@ pull_up_simple_union_all.exit:                    ; preds = %.lr.ph130, %.prehea
   store i8 1, ptr %125, align 1
   br label %common.ret138
 
-is_safe_append_member.argprom.exit.thread113.thread: ; preds = %73, %76, %79, %82, %85, %70
+is_safe_append_member.exit.thread113.thread:      ; preds = %73, %76, %79, %82, %85, %70
   %126 = icmp eq ptr %3, null
   br label %is_simple_values.exit.thread
 
-is_safe_append_member.argprom.exit.thread113:     ; preds = %is_simple_union_all.exit.is_safe_append_member.argprom.exit.thread113_crit_edge, %13, %is_safe_append_member.argprom.exit
-  %127 = phi i32 [ %.pre, %is_simple_union_all.exit.is_safe_append_member.argprom.exit.thread113_crit_edge ], [ %26, %13 ], [ %.pr, %is_safe_append_member.argprom.exit ]
+is_safe_append_member.exit.thread113:             ; preds = %is_simple_union_all.exit.is_safe_append_member.exit.thread113_crit_edge, %13, %is_safe_append_member.exit
+  %127 = phi i32 [ %.pre, %is_simple_union_all.exit.is_safe_append_member.exit.thread113_crit_edge ], [ %26, %13 ], [ %.pr, %is_safe_append_member.exit ]
   %128 = icmp eq i32 %127, 5
   %129 = icmp eq ptr %2, null
   %or.cond = and i1 %129, %128
@@ -724,7 +724,7 @@ is_safe_append_member.argprom.exit.thread113:     ; preds = %is_simple_union_all
   %or.cond3 = and i1 %130, %or.cond
   br i1 %or.cond3, label %131, label %is_simple_values.exit.thread
 
-131:                                              ; preds = %is_safe_append_member.argprom.exit.thread113
+131:                                              ; preds = %is_safe_append_member.exit.thread113
   %132 = getelementptr inbounds i8, ptr %24, i64 120
   %133 = load ptr, ptr %132, align 8
   %.not.i.i98 = icmp eq ptr %133, null
@@ -844,8 +844,8 @@ pull_up_simple_values.exit:                       ; preds = %._crit_edge.i, %175
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   br label %common.ret138
 
-is_simple_values.exit.thread:                     ; preds = %is_safe_append_member.argprom.exit.thread113.thread, %141, %131, %list_length.exit10.i, %136, %138, %list_length.exit.i99, %is_simple_values.exit, %is_safe_append_member.argprom.exit.thread113
-  %189 = phi i1 [ %126, %is_safe_append_member.argprom.exit.thread113.thread ], [ %130, %141 ], [ %130, %131 ], [ %130, %list_length.exit10.i ], [ %130, %136 ], [ %130, %138 ], [ %130, %list_length.exit.i99 ], [ %130, %is_simple_values.exit ], [ %130, %is_safe_append_member.argprom.exit.thread113 ]
+is_simple_values.exit.thread:                     ; preds = %is_safe_append_member.exit.thread113.thread, %141, %131, %list_length.exit10.i, %136, %138, %list_length.exit.i99, %is_simple_values.exit, %is_safe_append_member.exit.thread113
+  %189 = phi i1 [ %126, %is_safe_append_member.exit.thread113.thread ], [ %130, %141 ], [ %130, %131 ], [ %130, %list_length.exit10.i ], [ %130, %136 ], [ %130, %138 ], [ %130, %list_length.exit.i99 ], [ %130, %is_simple_values.exit ], [ %130, %is_safe_append_member.exit.thread113 ]
   %190 = load i32, ptr %25, align 4
   %191 = icmp eq i32 %190, 3
   br i1 %191, label %192, label %common.ret138
@@ -3135,11 +3135,11 @@ preprocess_function_rtes.exit:                    ; preds = %preprocess_function
   %88 = getelementptr inbounds i8, ptr %87, i64 80
   store ptr %86, ptr %88, align 8
   %89 = tail call fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr noundef %16, ptr noundef %2, ptr noundef %3)
-  br i1 %89, label %90, label %is_safe_append_member.argprom.exit
+  br i1 %89, label %90, label %is_safe_append_member.exit
 
 90:                                               ; preds = %preprocess_function_rtes.exit
   %91 = icmp eq ptr %4, null
-  br i1 %91, label %is_safe_append_member.argprom.exit.thread, label %92
+  br i1 %91, label %is_safe_append_member.exit.thread, label %92
 
 92:                                               ; preds = %90
   %93 = getelementptr i8, ptr %16, i64 80
@@ -3153,7 +3153,7 @@ preprocess_function_rtes.exit:                    ; preds = %preprocess_function
   %98 = getelementptr inbounds i8, ptr %.val123, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %is_safe_append_member.argprom.exit.thread, label %.preheader
+  br i1 %100, label %is_safe_append_member.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %97, %92
   br label %101
@@ -3161,28 +3161,28 @@ preprocess_function_rtes.exit:                    ; preds = %preprocess_function
 101:                                              ; preds = %.preheader, %111
   %.0.i = phi ptr [ %113, %111 ], [ %.val123, %.preheader ]
   %102 = load i32, ptr %.0.i, align 4
-  switch i32 %102, label %is_safe_append_member.argprom.exit [
+  switch i32 %102, label %is_safe_append_member.exit [
     i32 57, label %103
-    i32 55, label %is_safe_append_member.argprom.exit.thread
+    i32 55, label %is_safe_append_member.exit.thread
   ]
 
 103:                                              ; preds = %101
   %104 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %105 = load ptr, ptr %104, align 8
   %.not.i124 = icmp eq ptr %105, null
-  br i1 %.not.i124, label %106, label %is_safe_append_member.argprom.exit
+  br i1 %.not.i124, label %106, label %is_safe_append_member.exit
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %108 = load ptr, ptr %107, align 8
   %.not.i.i = icmp eq ptr %108, null
-  br i1 %.not.i.i, label %is_safe_append_member.argprom.exit, label %list_length.exit.i
+  br i1 %.not.i.i, label %is_safe_append_member.exit, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %106
   %109 = getelementptr inbounds i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   %.not11.i = icmp eq i32 %110, 1
-  br i1 %.not11.i, label %111, label %is_safe_append_member.argprom.exit
+  br i1 %.not11.i, label %111, label %is_safe_append_member.exit
 
 111:                                              ; preds = %list_length.exit.i
   %112 = getelementptr i8, ptr %108, i64 16
@@ -3190,7 +3190,7 @@ list_length.exit.i:                               ; preds = %106
   %113 = load ptr, ptr %.val.i, align 8
   br label %101, !llvm.loop !5
 
-is_safe_append_member.argprom.exit.thread:        ; preds = %101, %97, %90
+is_safe_append_member.exit.thread:                ; preds = %101, %97, %90
   %114 = load ptr, ptr %18, align 8
   %115 = getelementptr inbounds i8, ptr %16, i64 104
   %116 = load ptr, ptr %115, align 8
@@ -3201,13 +3201,13 @@ is_safe_append_member.argprom.exit.thread:        ; preds = %101, %97, %90
   %.not.i125 = icmp eq ptr %119, null
   br i1 %.not.i125, label %list_length.exit, label %120
 
-120:                                              ; preds = %is_safe_append_member.argprom.exit.thread
+120:                                              ; preds = %is_safe_append_member.exit.thread
   %121 = getelementptr inbounds i8, ptr %119, i64 4
   %122 = load i32, ptr %121, align 4
   br label %list_length.exit
 
-list_length.exit:                                 ; preds = %is_safe_append_member.argprom.exit.thread, %120
-  %123 = phi i32 [ %122, %120 ], [ 0, %is_safe_append_member.argprom.exit.thread ]
+list_length.exit:                                 ; preds = %is_safe_append_member.exit.thread, %120
+  %123 = phi i32 [ %122, %120 ], [ 0, %is_safe_append_member.exit.thread ]
   tail call void @OffsetVarNodes(ptr noundef nonnull %16, i32 noundef %123, i32 noundef 0) #7
   %124 = load ptr, ptr %34, align 8
   tail call void @OffsetVarNodes(ptr noundef %124, i32 noundef %123, i32 noundef 0) #7
@@ -3467,27 +3467,27 @@ fix_append_rel_relids.exit:                       ; preds = %fix_append_rel_reli
   %255 = getelementptr inbounds i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8
   %257 = icmp eq ptr %256, null
-  br i1 %257, label %258, label %is_safe_append_member.argprom.exit
+  br i1 %257, label %258, label %is_safe_append_member.exit
 
 258:                                              ; preds = %fix_append_rel_relids.exit
   %259 = getelementptr inbounds i8, ptr %254, i64 8
   %260 = load ptr, ptr %259, align 8
   %.not.i132 = icmp eq ptr %260, null
-  br i1 %.not.i132, label %is_safe_append_member.argprom.exit, label %list_length.exit133
+  br i1 %.not.i132, label %is_safe_append_member.exit, label %list_length.exit133
 
 list_length.exit133:                              ; preds = %258
   %261 = getelementptr inbounds i8, ptr %260, i64 4
   %262 = load i32, ptr %261, align 4
   %263 = icmp eq i32 %262, 1
-  br i1 %263, label %264, label %is_safe_append_member.argprom.exit
+  br i1 %263, label %264, label %is_safe_append_member.exit
 
 264:                                              ; preds = %list_length.exit133
   %265 = getelementptr i8, ptr %260, i64 16
   %.val = load ptr, ptr %265, align 8
   %266 = load ptr, ptr %.val, align 8
-  br label %is_safe_append_member.argprom.exit
+  br label %is_safe_append_member.exit
 
-is_safe_append_member.argprom.exit:               ; preds = %list_length.exit.i, %106, %103, %101, %258, %fix_append_rel_relids.exit, %list_length.exit133, %preprocess_function_rtes.exit, %264
+is_safe_append_member.exit:                       ; preds = %list_length.exit.i, %106, %103, %101, %258, %fix_append_rel_relids.exit, %list_length.exit133, %preprocess_function_rtes.exit, %264
   %.0 = phi ptr [ %266, %264 ], [ %1, %preprocess_function_rtes.exit ], [ %254, %list_length.exit133 ], [ %254, %fix_append_rel_relids.exit ], [ %254, %258 ], [ %1, %101 ], [ %1, %103 ], [ %1, %106 ], [ %1, %list_length.exit.i ]
   ret ptr %.0
 }

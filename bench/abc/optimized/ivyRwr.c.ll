@@ -367,7 +367,7 @@ Abc_Clock.exit168.i:                              ; preds = %163, %Abc_Clock.exi
 
 Vec_PtrGrow.exit.i.i:                             ; preds = %199, %Abc_Clock.exit168.i
   %201 = icmp sgt i16 %187, 0
-  br i1 %201, label %.lr.ph.i.i, label %Vec_PtrFill.argprom.exit.i
+  br i1 %201, label %.lr.ph.i.i, label %Vec_PtrFill.exit.i
 
 .lr.ph.i.i:                                       ; preds = %Vec_PtrGrow.exit.i.i
   %202 = getelementptr inbounds i8, ptr %186, i64 8
@@ -381,17 +381,17 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %199, %Abc_Clock.exi
   store ptr null, ptr %205, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Vec_PtrFill.argprom.exit.i, label %203, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %Vec_PtrFill.exit.i, label %203, !llvm.loop !6
 
-Vec_PtrFill.argprom.exit.i:                       ; preds = %203, %Vec_PtrGrow.exit.i.i
+Vec_PtrFill.exit.i:                               ; preds = %203, %Vec_PtrGrow.exit.i.i
   %206 = getelementptr inbounds i8, ptr %186, i64 4
   store i32 %188, ptr %206, align 4
   %207 = load i16, ptr %133, align 4
   %208 = icmp sgt i16 %207, 0
   br i1 %208, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %Vec_PtrFill.argprom.exit.i, %.lr.ph.i
-  %indvars.iv230.i = phi i64 [ %indvars.iv.next231.i, %.lr.ph.i ], [ 0, %Vec_PtrFill.argprom.exit.i ]
+.lr.ph.i:                                         ; preds = %Vec_PtrFill.exit.i, %.lr.ph.i
+  %indvars.iv230.i = phi i64 [ %indvars.iv.next231.i, %.lr.ph.i ], [ 0, %Vec_PtrFill.exit.i ]
   %209 = getelementptr inbounds i8, ptr %179, i64 %indvars.iv230.i
   %210 = load i8, ptr %209, align 1
   %211 = sext i8 %210 to i64
@@ -421,7 +421,7 @@ Vec_PtrFill.argprom.exit.i:                       ; preds = %203, %Vec_PtrGrow.e
   %230 = icmp slt i64 %indvars.iv.next231.i, %229
   br i1 %230, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %Vec_PtrFill.argprom.exit.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %Vec_PtrFill.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   %231 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #12
   %232 = icmp slt i32 %231, 0
@@ -696,15 +696,15 @@ Abc_Clock.exit174.i:                              ; preds = %284, %Abc_Clock.exi
 
 379:                                              ; preds = %365
   %.not.i.i.i.i.i = icmp eq i64 %368, %367
-  br i1 %.not.i.i.i.i.i, label %Ivy_ObjFaninId1.argprom.exit.i.i.i.i, label %380
+  br i1 %.not.i.i.i.i.i, label %Ivy_ObjFaninId1.exit.i.i.i.i, label %380
 
 380:                                              ; preds = %379
   %381 = and i64 %367, -2
   %382 = inttoptr i64 %381 to ptr
   %.val.i.i.i.i.i = load i32, ptr %382, align 8
-  br label %Ivy_ObjFaninId1.argprom.exit.i.i.i.i
+  br label %Ivy_ObjFaninId1.exit.i.i.i.i
 
-Ivy_ObjFaninId1.argprom.exit.i.i.i.i:             ; preds = %380, %379
+Ivy_ObjFaninId1.exit.i.i.i.i:                     ; preds = %380, %379
   %383 = phi i32 [ %.val.i.i.i.i.i, %380 ], [ 0, %379 ]
   %384 = and i64 %372, -2
   %385 = inttoptr i64 %384 to ptr
@@ -712,12 +712,12 @@ Ivy_ObjFaninId1.argprom.exit.i.i.i.i:             ; preds = %380, %379
   %386 = icmp sgt i32 %383, %.val.i19.i.i.i.i
   br i1 %386, label %387, label %Ivy_ObjCreateGhost.exit.i.i.i
 
-387:                                              ; preds = %Ivy_ObjFaninId1.argprom.exit.i.i.i.i
+387:                                              ; preds = %Ivy_ObjFaninId1.exit.i.i.i.i
   store ptr %375, ptr %62, align 8
   store ptr %370, ptr %63, align 8
   br label %Ivy_ObjCreateGhost.exit.i.i.i
 
-Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %387, %Ivy_ObjFaninId1.argprom.exit.i.i.i.i, %365
+Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %387, %Ivy_ObjFaninId1.exit.i.i.i.i, %365
   %388 = call ptr @Ivy_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %64) #12
   %389 = ptrtoint ptr %388 to i64
   %390 = and i64 %389, -2
@@ -1074,14 +1074,14 @@ Abc_Clock.exit76:                                 ; preds = %546, %551
   %556 = load i32, ptr %555, align 8
   %557 = xor i32 %556, 1
   store i32 %557, ptr %555, align 8
-  call fastcc void @Ivy_GraphUpdateNetwork.argelim(ptr noundef %0, ptr noundef %85, ptr noundef %547)
+  call fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef %85, ptr noundef %547)
   %558 = load i32, ptr %555, align 8
   %559 = xor i32 %558, 1
   store i32 %559, ptr %555, align 8
   br label %560
 
 .critedge70:                                      ; preds = %Abc_Clock.exit76
-  call fastcc void @Ivy_GraphUpdateNetwork.argelim(ptr noundef %0, ptr noundef %85, ptr noundef %547)
+  call fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef %85, ptr noundef %547)
   br label %560
 
 560:                                              ; preds = %.critedge70, %554
@@ -1203,7 +1203,7 @@ declare ptr @Rwt_ManReadDecs(ptr noundef) local_unnamed_addr #1
 declare i32 @Rwt_ManReadCompl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ivy_GraphUpdateNetwork.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %.val29.i = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %.val29.i, 0
   %4 = getelementptr i8, ptr %2, i64 24

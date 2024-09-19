@@ -458,15 +458,15 @@ define dso_local i32 @archive_read_open1(ptr noundef %0) local_unnamed_addr #0 {
   call void @free(ptr noundef %93) #15
   store ptr null, ptr %92, align 8
   %.not.i.i.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i, label %close_filters.argprom.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i, label %close_filters.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
-close_filters.argprom.exit.i.i:                   ; preds = %91
+close_filters.exit.i.i:                           ; preds = %91
   %.pr.pre.i.i = load ptr, ptr %50, align 8
   %.not6.i.i = icmp eq ptr %.pr.pre.i.i, null
   br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %close_filters.argprom.exit.i.i, %.lr.ph.i.i
-  %94 = phi ptr [ %96, %.lr.ph.i.i ], [ %.pr.pre.i.i, %close_filters.argprom.exit.i.i ]
+.lr.ph.i.i:                                       ; preds = %close_filters.exit.i.i, %.lr.ph.i.i
+  %94 = phi ptr [ %96, %.lr.ph.i.i ], [ %.pr.pre.i.i, %close_filters.exit.i.i ]
   %95 = getelementptr inbounds i8, ptr %94, i64 16
   %96 = load ptr, ptr %95, align 8
   call void @free(ptr noundef nonnull %94) #15
@@ -529,15 +529,15 @@ close_filters.argprom.exit.i.i:                   ; preds = %91
   tail call void @free(ptr noundef %124) #15
   store ptr null, ptr %123, align 8
   %.not.i.i47.i = icmp eq ptr %112, null
-  br i1 %.not.i.i47.i, label %close_filters.argprom.exit.i48.i, label %.lr.ph.i.i44.i, !llvm.loop !9
+  br i1 %.not.i.i47.i, label %close_filters.exit.i48.i, label %.lr.ph.i.i44.i, !llvm.loop !9
 
-close_filters.argprom.exit.i48.i:                 ; preds = %122
+close_filters.exit.i48.i:                         ; preds = %122
   %.pr.pre.i49.i = load ptr, ptr %50, align 8
   %.not6.i50.i = icmp eq ptr %.pr.pre.i49.i, null
   br i1 %.not6.i50.i, label %.loopexit, label %.lr.ph.i51.i
 
-.lr.ph.i51.i:                                     ; preds = %close_filters.argprom.exit.i48.i, %.lr.ph.i51.i
-  %125 = phi ptr [ %127, %.lr.ph.i51.i ], [ %.pr.pre.i49.i, %close_filters.argprom.exit.i48.i ]
+.lr.ph.i51.i:                                     ; preds = %close_filters.exit.i48.i, %.lr.ph.i51.i
+  %125 = phi ptr [ %127, %.lr.ph.i51.i ], [ %.pr.pre.i49.i, %close_filters.exit.i48.i ]
   %126 = getelementptr inbounds i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8
   tail call void @free(ptr noundef nonnull %125) #15
@@ -553,7 +553,7 @@ choose_filters.exit:                              ; preds = %74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %134
 
-.loopexit:                                        ; preds = %97, %.lr.ph.i51.i, %.lr.ph.i.i, %128, %79, %close_filters.argprom.exit.i.i, %110, %close_filters.argprom.exit.i48.i
+.loopexit:                                        ; preds = %97, %.lr.ph.i51.i, %.lr.ph.i.i, %128, %79, %close_filters.exit.i.i, %110, %close_filters.exit.i48.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %129 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 32768, ptr %129, align 4
@@ -641,7 +641,7 @@ choose_filters.exit:                              ; preds = %74
 
 .loopexit78:                                      ; preds = %142, %.loopexit.sink.split.i
   %.val = load ptr, ptr %50, align 8
-  call fastcc void @close_filters.argprom.retelim(ptr %.val)
+  call fastcc void @close_filters(ptr %.val)
   %161 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 32768, ptr %161, align 4
   br label %read_client_close_proxy.exit
@@ -1017,7 +1017,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_prepend_callback_data(ptr n
 declare void @archive_clear_error(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @close_filters.argprom.retelim(ptr %.632.val) unnamed_addr #0 {
+define internal fastcc void @close_filters(ptr %.632.val) unnamed_addr #0 {
   %.not1 = icmp eq ptr %.632.val, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -1480,15 +1480,15 @@ define dso_local void @__archive_read_free_filters(ptr nocapture noundef %0) loc
   tail call void @free(ptr noundef %16) #15
   store ptr null, ptr %15, align 8
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %close_filters.argprom.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %close_filters.exit, label %.lr.ph.i, !llvm.loop !9
 
-close_filters.argprom.exit:                       ; preds = %14
+close_filters.exit:                               ; preds = %14
   %.pr.pre = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %.pr.pre, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %close_filters.argprom.exit, %.lr.ph
-  %17 = phi ptr [ %19, %.lr.ph ], [ %.pr.pre, %close_filters.argprom.exit ]
+.lr.ph:                                           ; preds = %close_filters.exit, %.lr.ph
+  %17 = phi ptr [ %19, %.lr.ph ], [ %.pr.pre, %close_filters.exit ]
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void @free(ptr noundef nonnull %17) #15
@@ -1496,7 +1496,7 @@ close_filters.argprom.exit:                       ; preds = %14
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.lr.ph, %1, %close_filters.argprom.exit
+._crit_edge:                                      ; preds = %.lr.ph, %1, %close_filters.exit
   ret void
 }
 
@@ -2765,13 +2765,13 @@ define internal fastcc i64 @client_seek_proxy(ptr nocapture noundef readonly %0,
 define internal range(i32 -2147483648, 1) i32 @_archive_read_close(ptr noundef %0) #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 65535, ptr noundef nonnull @.str.26) #15
   %3 = icmp eq i32 %2, -30
-  br i1 %3, label %close_filters.argprom.exit.thread, label %4
+  br i1 %3, label %close_filters.exit.thread, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 32
-  br i1 %7, label %close_filters.argprom.exit.thread, label %8
+  br i1 %7, label %close_filters.exit.thread, label %8
 
 8:                                                ; preds = %4
   tail call void @archive_clear_error(ptr noundef nonnull %0) #15
@@ -2779,7 +2779,7 @@ define internal range(i32 -2147483648, 1) i32 @_archive_read_close(ptr noundef %
   %9 = getelementptr i8, ptr %0, i64 632
   %.val = load ptr, ptr %9, align 8
   %.not1.i = icmp eq ptr %.val, null
-  br i1 %.not1.i, label %close_filters.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not1.i, label %close_filters.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %22
   %.03.i = phi ptr [ %11, %22 ], [ %.val, %8 ]
@@ -2813,14 +2813,14 @@ define internal range(i32 -2147483648, 1) i32 @_archive_read_close(ptr noundef %
   tail call void @free(ptr noundef %24) #15
   store ptr null, ptr %23, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %close_filters.argprom.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %close_filters.exit, label %.lr.ph.i, !llvm.loop !9
 
-close_filters.argprom.exit:                       ; preds = %22
+close_filters.exit:                               ; preds = %22
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.1.i, i32 0)
-  br label %close_filters.argprom.exit.thread
+  br label %close_filters.exit.thread
 
-close_filters.argprom.exit.thread:                ; preds = %close_filters.argprom.exit, %8, %4, %1
-  %.0 = phi i32 [ -30, %1 ], [ 0, %4 ], [ 0, %8 ], [ %spec.select, %close_filters.argprom.exit ]
+close_filters.exit.thread:                        ; preds = %close_filters.exit, %8, %4, %1
+  %.0 = phi i32 [ -30, %1 ], [ 0, %4 ], [ 0, %8 ], [ %spec.select, %close_filters.exit ]
   ret i32 %.0
 }
 
@@ -2915,15 +2915,15 @@ define internal i32 @_archive_read_free(ptr noundef %0) #0 {
   tail call void @free(ptr noundef %41) #15
   store ptr null, ptr %40, align 8
   %.not.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i, label %close_filters.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %close_filters.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
-close_filters.argprom.exit.i:                     ; preds = %39
+close_filters.exit.i:                             ; preds = %39
   %.pr.pre.i = load ptr, ptr %27, align 8
   %.not6.i = icmp eq ptr %.pr.pre.i, null
   br i1 %.not6.i, label %__archive_read_free_filters.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %close_filters.argprom.exit.i, %.lr.ph.i
-  %42 = phi ptr [ %44, %.lr.ph.i ], [ %.pr.pre.i, %close_filters.argprom.exit.i ]
+.lr.ph.i:                                         ; preds = %close_filters.exit.i, %.lr.ph.i
+  %42 = phi ptr [ %44, %.lr.ph.i ], [ %.pr.pre.i, %close_filters.exit.i ]
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   tail call void @free(ptr noundef nonnull %42) #15
@@ -2931,7 +2931,7 @@ close_filters.argprom.exit.i:                     ; preds = %39
   %.not.i = icmp eq ptr %44, null
   br i1 %.not.i, label %__archive_read_free_filters.exit, label %.lr.ph.i, !llvm.loop !10
 
-__archive_read_free_filters.exit:                 ; preds = %.lr.ph.i, %26, %close_filters.argprom.exit.i
+__archive_read_free_filters.exit:                 ; preds = %.lr.ph.i, %26, %close_filters.exit.i
   %45 = getelementptr inbounds i8, ptr %0, i64 248
   br label %46
 
@@ -3196,16 +3196,16 @@ define internal i64 @_archive_filter_bytes(ptr nocapture noundef readonly %0, i3
   %.017.in.i = getelementptr inbounds i8, ptr %.0.i, i64 16
   %.017.i = load ptr, ptr %.017.in.i, align 8
   %.not.i = icmp eq ptr %.017.i, null
-  br i1 %.not.i, label %get_filter.argprom.exit.thread4, label %.preheader.i, !llvm.loop !23
+  br i1 %.not.i, label %get_filter.exit.thread4, label %.preheader.i, !llvm.loop !23
 
 6:                                                ; preds = %2
   %7 = icmp slt i32 %1, 0
-  br i1 %7, label %get_filter.argprom.exit.thread, label %.preheader1.i
+  br i1 %7, label %get_filter.exit.thread, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %6
   %8 = icmp ne i32 %1, 0
   %9 = select i1 %8, i1 %5, i1 false
-  br i1 %9, label %.lr.ph.i, label %get_filter.argprom.exit
+  br i1 %9, label %.lr.ph.i, label %get_filter.exit
 
 .lr.ph.i:                                         ; preds = %.preheader1.i, %.lr.ph.i
   %.14.i = phi ptr [ %11, %.lr.ph.i ], [ %.val, %.preheader1.i ]
@@ -3216,20 +3216,20 @@ define internal i64 @_archive_filter_bytes(ptr nocapture noundef readonly %0, i3
   %13 = icmp ugt i32 %.0193.i, 1
   %14 = icmp ne ptr %11, null
   %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %.lr.ph.i, label %get_filter.argprom.exit, !llvm.loop !24
+  br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !24
 
-get_filter.argprom.exit:                          ; preds = %.lr.ph.i, %.preheader1.i
+get_filter.exit:                                  ; preds = %.lr.ph.i, %.preheader1.i
   %.018.i = phi ptr [ %.val, %.preheader1.i ], [ %11, %.lr.ph.i ]
   %16 = icmp eq ptr %.018.i, null
-  br i1 %16, label %get_filter.argprom.exit.thread, label %get_filter.argprom.exit.thread4
+  br i1 %16, label %get_filter.exit.thread, label %get_filter.exit.thread4
 
-get_filter.argprom.exit.thread4:                  ; preds = %.preheader.i, %get_filter.argprom.exit
-  %.018.i6 = phi ptr [ %.018.i, %get_filter.argprom.exit ], [ %.0.i, %.preheader.i ]
+get_filter.exit.thread4:                          ; preds = %.preheader.i, %get_filter.exit
+  %.018.i6 = phi ptr [ %.018.i, %get_filter.exit ], [ %.0.i, %.preheader.i ]
   %17 = load i64, ptr %.018.i6, align 8
-  br label %get_filter.argprom.exit.thread
+  br label %get_filter.exit.thread
 
-get_filter.argprom.exit.thread:                   ; preds = %6, %get_filter.argprom.exit, %get_filter.argprom.exit.thread4
-  %18 = phi i64 [ %17, %get_filter.argprom.exit.thread4 ], [ -1, %get_filter.argprom.exit ], [ -1, %6 ]
+get_filter.exit.thread:                           ; preds = %6, %get_filter.exit, %get_filter.exit.thread4
+  %18 = phi i64 [ %17, %get_filter.exit.thread4 ], [ -1, %get_filter.exit ], [ -1, %6 ]
   ret i64 %18
 }
 
@@ -3247,16 +3247,16 @@ define internal i32 @_archive_filter_code(ptr nocapture noundef readonly %0, i32
   %.017.in.i = getelementptr inbounds i8, ptr %.0.i, i64 16
   %.017.i = load ptr, ptr %.017.in.i, align 8
   %.not.i = icmp eq ptr %.017.i, null
-  br i1 %.not.i, label %get_filter.argprom.exit.thread4, label %.preheader.i, !llvm.loop !23
+  br i1 %.not.i, label %get_filter.exit.thread4, label %.preheader.i, !llvm.loop !23
 
 6:                                                ; preds = %2
   %7 = icmp slt i32 %1, 0
-  br i1 %7, label %get_filter.argprom.exit.thread, label %.preheader1.i
+  br i1 %7, label %get_filter.exit.thread, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %6
   %8 = icmp ne i32 %1, 0
   %9 = select i1 %8, i1 %5, i1 false
-  br i1 %9, label %.lr.ph.i, label %get_filter.argprom.exit
+  br i1 %9, label %.lr.ph.i, label %get_filter.exit
 
 .lr.ph.i:                                         ; preds = %.preheader1.i, %.lr.ph.i
   %.14.i = phi ptr [ %11, %.lr.ph.i ], [ %.val, %.preheader1.i ]
@@ -3267,21 +3267,21 @@ define internal i32 @_archive_filter_code(ptr nocapture noundef readonly %0, i32
   %13 = icmp ugt i32 %.0193.i, 1
   %14 = icmp ne ptr %11, null
   %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %.lr.ph.i, label %get_filter.argprom.exit, !llvm.loop !24
+  br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !24
 
-get_filter.argprom.exit:                          ; preds = %.lr.ph.i, %.preheader1.i
+get_filter.exit:                                  ; preds = %.lr.ph.i, %.preheader1.i
   %.018.i = phi ptr [ %.val, %.preheader1.i ], [ %11, %.lr.ph.i ]
   %16 = icmp eq ptr %.018.i, null
-  br i1 %16, label %get_filter.argprom.exit.thread, label %get_filter.argprom.exit.thread4
+  br i1 %16, label %get_filter.exit.thread, label %get_filter.exit.thread4
 
-get_filter.argprom.exit.thread4:                  ; preds = %.preheader.i, %get_filter.argprom.exit
-  %.018.i6 = phi ptr [ %.018.i, %get_filter.argprom.exit ], [ %.0.i, %.preheader.i ]
+get_filter.exit.thread4:                          ; preds = %.preheader.i, %get_filter.exit
+  %.018.i6 = phi ptr [ %.018.i, %get_filter.exit ], [ %.0.i, %.preheader.i ]
   %17 = getelementptr inbounds i8, ptr %.018.i6, i64 56
   %18 = load i32, ptr %17, align 8
-  br label %get_filter.argprom.exit.thread
+  br label %get_filter.exit.thread
 
-get_filter.argprom.exit.thread:                   ; preds = %6, %get_filter.argprom.exit, %get_filter.argprom.exit.thread4
-  %19 = phi i32 [ %18, %get_filter.argprom.exit.thread4 ], [ -1, %get_filter.argprom.exit ], [ -1, %6 ]
+get_filter.exit.thread:                           ; preds = %6, %get_filter.exit, %get_filter.exit.thread4
+  %19 = phi i32 [ %18, %get_filter.exit.thread4 ], [ -1, %get_filter.exit ], [ -1, %6 ]
   ret i32 %19
 }
 
@@ -3299,16 +3299,16 @@ define internal ptr @_archive_filter_name(ptr nocapture noundef readonly %0, i32
   %.017.in.i = getelementptr inbounds i8, ptr %.0.i, i64 16
   %.017.i = load ptr, ptr %.017.in.i, align 8
   %.not.i = icmp eq ptr %.017.i, null
-  br i1 %.not.i, label %get_filter.argprom.exit.thread5, label %.preheader.i, !llvm.loop !23
+  br i1 %.not.i, label %get_filter.exit.thread5, label %.preheader.i, !llvm.loop !23
 
 6:                                                ; preds = %2
   %7 = icmp slt i32 %1, 0
-  br i1 %7, label %get_filter.argprom.exit.thread, label %.preheader1.i
+  br i1 %7, label %get_filter.exit.thread, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %6
   %8 = icmp ne i32 %1, 0
   %9 = select i1 %8, i1 %5, i1 false
-  br i1 %9, label %.lr.ph.i, label %get_filter.argprom.exit
+  br i1 %9, label %.lr.ph.i, label %get_filter.exit
 
 .lr.ph.i:                                         ; preds = %.preheader1.i, %.lr.ph.i
   %.14.i = phi ptr [ %11, %.lr.ph.i ], [ %.val, %.preheader1.i ]
@@ -3319,21 +3319,21 @@ define internal ptr @_archive_filter_name(ptr nocapture noundef readonly %0, i32
   %13 = icmp ugt i32 %.0193.i, 1
   %14 = icmp ne ptr %11, null
   %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %.lr.ph.i, label %get_filter.argprom.exit, !llvm.loop !24
+  br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !24
 
-get_filter.argprom.exit:                          ; preds = %.lr.ph.i, %.preheader1.i
+get_filter.exit:                                  ; preds = %.lr.ph.i, %.preheader1.i
   %.018.i = phi ptr [ %.val, %.preheader1.i ], [ %11, %.lr.ph.i ]
   %.not = icmp eq ptr %.018.i, null
-  br i1 %.not, label %get_filter.argprom.exit.thread, label %get_filter.argprom.exit.thread5
+  br i1 %.not, label %get_filter.exit.thread, label %get_filter.exit.thread5
 
-get_filter.argprom.exit.thread5:                  ; preds = %.preheader.i, %get_filter.argprom.exit
-  %.018.i8 = phi ptr [ %.018.i, %get_filter.argprom.exit ], [ %.0.i, %.preheader.i ]
+get_filter.exit.thread5:                          ; preds = %.preheader.i, %get_filter.exit
+  %.018.i8 = phi ptr [ %.018.i, %get_filter.exit ], [ %.0.i, %.preheader.i ]
   %16 = getelementptr inbounds i8, ptr %.018.i8, i64 48
   %17 = load ptr, ptr %16, align 8
-  br label %get_filter.argprom.exit.thread
+  br label %get_filter.exit.thread
 
-get_filter.argprom.exit.thread:                   ; preds = %6, %get_filter.argprom.exit, %get_filter.argprom.exit.thread5
-  %18 = phi ptr [ %17, %get_filter.argprom.exit.thread5 ], [ null, %get_filter.argprom.exit ], [ null, %6 ]
+get_filter.exit.thread:                           ; preds = %6, %get_filter.exit, %get_filter.exit.thread5
+  %18 = phi ptr [ %17, %get_filter.exit.thread5 ], [ null, %get_filter.exit ], [ null, %6 ]
   ret ptr %18
 }
 

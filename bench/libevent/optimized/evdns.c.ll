@@ -280,7 +280,7 @@ if.end12.i:                                       ; preds = %if.then5.i
 if.end14.i:                                       ; preds = %if.then8, %if.end14.i
   %conv11.i = phi i32 [ %conv.i, %if.end14.i ], [ %conv9.i, %if.then8 ]
   %4 = load i32, ptr %addrlen.i, align 4
-  call fastcc void @request_parse.retelim(ptr noundef %packet.i, i32 noundef %conv11.i, ptr noundef nonnull %arg, ptr noundef nonnull %addr.i, i32 noundef %4, ptr noundef null)
+  call fastcc void @request_parse(ptr noundef %packet.i, i32 noundef %conv11.i, ptr noundef nonnull %arg, ptr noundef nonnull %addr.i, i32 noundef %4, ptr noundef null)
   store i32 128, ptr %addrlen.i, align 4
   %5 = load i32, ptr %arg, align 8
   %call.i = call i64 @recvfrom(i32 noundef %5, ptr noundef nonnull %packet.i, i64 noundef 1500, i32 noundef 0, ptr nonnull %addr.i, ptr noundef nonnull %addrlen.i) #18
@@ -2483,7 +2483,7 @@ if.end8.i:                                        ; preds = %transaction_id_pick
 evdns_request_insert.exit:                        ; preds = %if.then7.i, %if.end8.i
   %prev14.sink.i = phi ptr [ %prev14.i, %if.end8.i ], [ %next.i20, %if.then7.i ]
   store ptr %4, ptr %prev14.sink.i, align 8
-  call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %4)
+  call fastcc void @evdns_request_transmit(ptr noundef nonnull %4)
   %29 = load i32, ptr %2, align 8
   %cmp12.i28 = icmp sgt i32 %29, 0
   br i1 %cmp12.i28, label %for.body.i, label %evdns_transmit.exit
@@ -2506,7 +2506,7 @@ do.body9.i:                                       ; preds = %for.body.i, %if.end
   br i1 %tobool10.not.i, label %if.end12.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %do.body9.i
-  call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %req.0.i)
+  call fastcc void @evdns_request_transmit(ptr noundef nonnull %req.0.i)
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then11.i, %do.body9.i
@@ -2901,7 +2901,7 @@ if.then8:                                         ; preds = %cond.end
 do.end:                                           ; preds = %cond.end.thread, %cond.end, %if.then8
   %lock46 = phi ptr [ %lock44, %cond.end.thread ], [ %lock, %cond.end ], [ %lock, %if.then8 ]
   store ptr null, ptr %call1, align 8
-  tail call fastcc void @evdns_base_set_max_requests_inflight.retelim(ptr noundef nonnull %call1, i32 noundef 64)
+  tail call fastcc void @evdns_base_set_max_requests_inflight(ptr noundef nonnull %call1, i32 noundef 64)
   %server_head = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr null, ptr %server_head, align 8
   %event_base13 = getelementptr inbounds i8, ptr %call1, i64 32
@@ -3022,17 +3022,17 @@ if.end:                                           ; preds = %entry
   %ss.val = load i16, ptr %ss, align 8
   %0 = getelementptr inbounds i8, ptr %ss, i64 2
   switch i16 %ss.val, label %do.body [
-    i16 2, label %sockaddr_getport.argprom.exit
-    i16 10, label %sockaddr_getport.argprom.exit
+    i16 2, label %sockaddr_getport.exit
+    i16 10, label %sockaddr_getport.exit
   ]
 
-sockaddr_getport.argprom.exit:                    ; preds = %if.end, %if.end
+sockaddr_getport.exit:                            ; preds = %if.end, %if.end
   %ss.val9 = load i16, ptr %0, align 2
   %call7.i = call zeroext i16 @ntohs(i16 noundef zeroext %ss.val9) #19
   %cmp = icmp eq i16 %call7.i, 0
   br i1 %cmp, label %if.then3, label %do.body
 
-if.then3:                                         ; preds = %sockaddr_getport.argprom.exit
+if.then3:                                         ; preds = %sockaddr_getport.exit
   switch i16 %ss.val, label %do.body [
     i16 2, label %if.end8.sink.split.i
     i16 10, label %if.end8.sink.split.i
@@ -3043,7 +3043,7 @@ if.end8.sink.split.i:                             ; preds = %if.then3, %if.then3
   store i16 %call7.i10, ptr %0, align 2
   br label %do.body
 
-do.body:                                          ; preds = %if.end, %if.end8.sink.split.i, %if.then3, %sockaddr_getport.argprom.exit
+do.body:                                          ; preds = %if.end, %if.end8.sink.split.i, %if.then3, %sockaddr_getport.exit
   %lock = getelementptr inbounds i8, ptr %base, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool5.not = icmp eq ptr %1, null
@@ -3545,7 +3545,7 @@ evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.th
   %15 = load i32, ptr %requests_inflight.i, align 8
   %inc10.i = add nsw i32 %15, 1
   store i32 %inc10.i, ptr %requests_inflight.i, align 8
-  tail call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %call10)
+  tail call fastcc void @evdns_request_transmit(ptr noundef nonnull %call10)
   br label %if.end15
 
 if.else.i:                                        ; preds = %if.then12
@@ -3584,7 +3584,7 @@ evdns_request_insert.exit23.i:                    ; preds = %if.end8.i13.i, %if.
   br label %if.end15
 
 if.else:                                          ; preds = %do.end
-  tail call fastcc void @search_request_new.retelim(ptr noundef nonnull %base, ptr noundef %call, i32 noundef 1, ptr noundef %name, i32 noundef %flags)
+  tail call fastcc void @search_request_new(ptr noundef nonnull %base, ptr noundef %call, i32 noundef 1, ptr noundef %name, i32 noundef %flags)
   br label %if.end15
 
 if.end15:                                         ; preds = %evdns_request_insert.exit23.i, %evdns_request_insert.exit.i, %if.then9, %if.else
@@ -3960,7 +3960,7 @@ return:                                           ; preds = %if.end74, %if.then7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @search_request_new.retelim(ptr noundef %base, ptr noundef nonnull %handle, i32 noundef range(i32 1, 29) %type, ptr noundef %name, i32 noundef %flags) unnamed_addr #2 {
+define internal fastcc void @search_request_new(ptr noundef %base, ptr noundef nonnull %handle, i32 noundef range(i32 1, 29) %type, ptr noundef %name, i32 noundef %flags) unnamed_addr #2 {
 entry:
   %and = and i32 %flags, 1
   %cmp = icmp eq i32 %and, 0
@@ -4129,7 +4129,7 @@ evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.th
   %19 = load i32, ptr %requests_inflight.i, align 8
   %inc10.i = add nsw i32 %19, 1
   store i32 %inc10.i, ptr %requests_inflight.i, align 8
-  tail call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %req.0)
+  tail call fastcc void @evdns_request_transmit(ptr noundef nonnull %req.0)
   br label %return
 
 if.else.i:                                        ; preds = %if.end41
@@ -4226,7 +4226,7 @@ evdns_request_insert.exit.i59:                    ; preds = %if.end8.i.i53, %if.
   %34 = load i32, ptr %requests_inflight.i63, align 8
   %inc10.i64 = add nsw i32 %34, 1
   store i32 %inc10.i64, ptr %requests_inflight.i63, align 8
-  tail call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %call46)
+  tail call fastcc void @evdns_request_transmit(ptr noundef nonnull %call46)
   br label %return
 
 if.else.i69:                                      ; preds = %if.end49
@@ -4372,7 +4372,7 @@ evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.th
   %15 = load i32, ptr %requests_inflight.i, align 8
   %inc10.i = add nsw i32 %15, 1
   store i32 %inc10.i, ptr %requests_inflight.i, align 8
-  tail call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %call10)
+  tail call fastcc void @evdns_request_transmit(ptr noundef nonnull %call10)
   br label %if.end15
 
 if.else.i:                                        ; preds = %if.then12
@@ -4411,7 +4411,7 @@ evdns_request_insert.exit23.i:                    ; preds = %if.end8.i13.i, %if.
   br label %if.end15
 
 if.else:                                          ; preds = %do.end
-  tail call fastcc void @search_request_new.retelim(ptr noundef nonnull %base, ptr noundef %call, i32 noundef 28, ptr noundef %name, i32 noundef %flags)
+  tail call fastcc void @search_request_new(ptr noundef nonnull %base, ptr noundef %call, i32 noundef 28, ptr noundef %name, i32 noundef %flags)
   br label %if.end15
 
 if.end15:                                         ; preds = %evdns_request_insert.exit23.i, %evdns_request_insert.exit.i, %if.then9, %if.else
@@ -4548,7 +4548,7 @@ evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.th
   %16 = load i32, ptr %requests_inflight.i, align 8
   %inc10.i = add nsw i32 %16, 1
   store i32 %inc10.i, ptr %requests_inflight.i, align 8
-  call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %call28)
+  call fastcc void @evdns_request_transmit(ptr noundef nonnull %call28)
   br label %if.end31
 
 if.else.i:                                        ; preds = %if.then30
@@ -4741,7 +4741,7 @@ evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.th
   %18 = load i32, ptr %requests_inflight.i, align 8
   %inc10.i = add nsw i32 %18, 1
   store i32 %inc10.i, ptr %requests_inflight.i, align 8
-  call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %call25)
+  call fastcc void @evdns_request_transmit(ptr noundef nonnull %call25)
   br label %if.end28
 
 if.else.i:                                        ; preds = %if.then27
@@ -5444,7 +5444,7 @@ if.end66:                                         ; preds = %if.then62
 
 if.end70:                                         ; preds = %if.end66
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.82, i32 noundef %call63)
-  tail call fastcc void @evdns_base_set_max_requests_inflight.retelim(ptr noundef %base, i32 noundef %call63)
+  tail call fastcc void @evdns_base_set_max_requests_inflight(ptr noundef %base, i32 noundef %call63)
   br label %return
 
 if.else72:                                        ; preds = %if.else59
@@ -6405,7 +6405,7 @@ do.end.i68:                                       ; preds = %if.then1.i, %if.end
   %29 = load i16, ptr %global_tcp_flags.i, align 8
   %tcp_flags.i = getelementptr inbounds i8, ptr %call.i65, i64 156
   store i16 %29, ptr %tcp_flags.i, align 4
-  call fastcc void @search_request_new.retelim(ptr noundef nonnull %dns_base.addr.0, ptr noundef %call.i65, i32 noundef 1, ptr noundef %nodename, i32 noundef 0)
+  call fastcc void @search_request_new(ptr noundef nonnull %dns_base.addr.0, ptr noundef %call.i65, i32 noundef 1, ptr noundef %nodename, i32 noundef 0)
   %30 = load ptr, ptr %call.i65, align 8
   %cmp16.i = icmp eq ptr %30, null
   br i1 %cmp16.i, label %if.then18.i, label %do.body20.i
@@ -6474,7 +6474,7 @@ do.end.i80:                                       ; preds = %if.then1.i78, %if.e
   %36 = load i16, ptr %global_tcp_flags.i81, align 8
   %tcp_flags.i82 = getelementptr inbounds i8, ptr %call.i71, i64 156
   store i16 %36, ptr %tcp_flags.i82, align 4
-  call fastcc void @search_request_new.retelim(ptr noundef nonnull %dns_base.addr.0, ptr noundef %call.i71, i32 noundef 28, ptr noundef %nodename, i32 noundef 0)
+  call fastcc void @search_request_new(ptr noundef nonnull %dns_base.addr.0, ptr noundef %call.i71, i32 noundef 28, ptr noundef %nodename, i32 noundef 0)
   %37 = load ptr, ptr %call.i71, align 8
   %cmp16.i85 = icmp eq ptr %37, null
   br i1 %cmp16.i85, label %if.then18.i92, label %do.body20.i86
@@ -6621,7 +6621,7 @@ do.end41:                                         ; preds = %do.end41.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evdns_base_set_max_requests_inflight.retelim(ptr nocapture noundef %base, i32 noundef range(i32 0, -1) %maxinflight) unnamed_addr #2 {
+define internal fastcc void @evdns_base_set_max_requests_inflight(ptr nocapture noundef %base, i32 noundef range(i32 0, -1) %maxinflight) unnamed_addr #2 {
 entry:
   %n_req_heads = getelementptr inbounds i8, ptr %base, i64 24
   %0 = load i32, ptr %n_req_heads, align 8
@@ -7281,9 +7281,9 @@ lor.lhs.false.i:                                  ; preds = %do.end
 
 if.then5.i:                                       ; preds = %lor.lhs.false.i, %do.end
   %call6.i = call i64 @event_strlcpy_(ptr noundef nonnull %tmp.i, ptr noundef nonnull @.str.113, i64 noundef 64) #18
-  call fastcc void @evdns_base_parse_hosts_line.retelim(ptr noundef nonnull %spec.select, ptr noundef nonnull %tmp.i)
+  call fastcc void @evdns_base_parse_hosts_line(ptr noundef nonnull %spec.select, ptr noundef nonnull %tmp.i)
   %call10.i = call i64 @event_strlcpy_(ptr noundef nonnull %tmp.i, ptr noundef nonnull @.str.114, i64 noundef 64) #18
-  call fastcc void @evdns_base_parse_hosts_line.retelim(ptr noundef nonnull %spec.select, ptr noundef nonnull %tmp.i)
+  call fastcc void @evdns_base_parse_hosts_line(ptr noundef nonnull %spec.select, ptr noundef nonnull %tmp.i)
   %cond.i = sext i1 %cmp.i to i32
   br label %evdns_base_load_hosts_impl.exit
 
@@ -7297,7 +7297,7 @@ if.then17.i:                                      ; preds = %if.end14.i, %if.the
   %call1513.i = phi ptr [ %call15.i, %if.then17.i ], [ %call1510.i, %if.end14.i ]
   %cp.012.i = phi ptr [ %add.ptr.i, %if.then17.i ], [ %3, %if.end14.i ]
   store i8 0, ptr %call1513.i, align 1
-  call fastcc void @evdns_base_parse_hosts_line.retelim(ptr noundef %spec.select, ptr noundef %cp.012.i)
+  call fastcc void @evdns_base_parse_hosts_line(ptr noundef %spec.select, ptr noundef %cp.012.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %call1513.i, i64 1
   %call15.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 10) #20
   %tobool16.not.i = icmp eq ptr %call15.i, null
@@ -7305,7 +7305,7 @@ if.then17.i:                                      ; preds = %if.end14.i, %if.the
 
 if.else.i:                                        ; preds = %if.then17.i, %if.end14.i
   %cp.0.lcssa.i = phi ptr [ %3, %if.end14.i ], [ %add.ptr.i, %if.then17.i ]
-  call fastcc void @evdns_base_parse_hosts_line.retelim(ptr noundef %spec.select, ptr noundef %cp.0.lcssa.i)
+  call fastcc void @evdns_base_parse_hosts_line(ptr noundef %spec.select, ptr noundef %cp.0.lcssa.i)
   %4 = load ptr, ptr %str.i, align 8
   call void @event_mm_free_(ptr noundef %4) #18
   br label %evdns_base_load_hosts_impl.exit
@@ -7956,7 +7956,7 @@ declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, p
 declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @request_parse.retelim(ptr nocapture noundef nonnull readonly %packet, i32 noundef %length, ptr noundef %port, ptr noundef readonly %addr, i32 noundef %addrlen, ptr noundef %client) unnamed_addr #2 {
+define internal fastcc void @request_parse(ptr nocapture noundef nonnull readonly %packet, i32 noundef %length, ptr noundef %port, ptr noundef readonly %addr, i32 noundef %addrlen, ptr noundef %client) unnamed_addr #2 {
 entry:
   %j = alloca i32, align 4
   %tmp_name = alloca [256 x i8], align 16
@@ -8635,7 +8635,7 @@ if.end20:                                         ; preds = %if.end20.lr.ph, %if
 
 if.end23:                                         ; preds = %if.end20
   %16 = load i32, ptr %msg_len, align 4
-  tail call fastcc void @request_parse.retelim(ptr noundef %15, i32 noundef %16, ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %ctx)
+  tail call fastcc void @request_parse(ptr noundef %15, i32 noundef %16, ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %ctx)
   tail call void @event_mm_free_(ptr noundef nonnull %15) #18
   store ptr null, ptr %msg, align 8
   store i16 0, ptr %awaiting_packet_size, align 4
@@ -9085,7 +9085,7 @@ declare void @evconnlistener_free(ptr noundef) local_unnamed_addr #3
 declare void @event_debug_unassign(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evdns_request_transmit.retelim(ptr noundef %req) unnamed_addr #2 {
+define internal fastcc void @evdns_request_transmit(ptr noundef %req) unnamed_addr #2 {
 entry:
   %addrbuf.i = alloca [128 x i8], align 16
   %packet_size.i = alloca i16, align 2
@@ -9456,7 +9456,7 @@ if.end20:                                         ; preds = %if.end20.lr.ph, %if
 if.end23:                                         ; preds = %if.end20
   %9 = load ptr, ptr %base, align 8
   %10 = load i32, ptr %msg_len, align 4
-  tail call fastcc void @reply_parse.retelim(ptr noundef %9, ptr noundef nonnull %8, i32 noundef %10)
+  tail call fastcc void @reply_parse(ptr noundef %9, ptr noundef nonnull %8, i32 noundef %10)
   tail call void @event_mm_free_(ptr noundef nonnull %8) #18
   store ptr null, ptr %msg, align 8
   store i16 0, ptr %awaiting_packet_size, align 4
@@ -9603,7 +9603,7 @@ do.end39:                                         ; preds = %do.body30, %if.then
 declare i32 @bufferevent_socket_connect(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reply_parse.retelim(ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %packet, i32 noundef %length) unnamed_addr #2 {
+define internal fastcc void @reply_parse(ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %packet, i32 noundef %length) unnamed_addr #2 {
 entry:
   %j = alloca i32, align 4
   %tmp_name = alloca [256 x i8], align 16
@@ -9665,7 +9665,7 @@ do.body6.i:                                       ; preds = %if.end53, %if.end12
   %trans_id7.i = getelementptr inbounds i8, ptr %req.0.i, i64 168
   %2 = load i16, ptr %trans_id7.i, align 8
   %cmp.i = icmp eq i16 %2, %call
-  br i1 %cmp.i, label %request_find_from_trans_id.argprom.exit, label %if.end12.i
+  br i1 %cmp.i, label %request_find_from_trans_id.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %do.body6.i
   %next.i = getelementptr inbounds i8, ptr %req.0.i, i64 32
@@ -9673,11 +9673,11 @@ if.end12.i:                                       ; preds = %do.body6.i
   %cmp13.not.i = icmp eq ptr %3, %1
   br i1 %cmp13.not.i, label %return, label %do.body6.i, !llvm.loop !18
 
-request_find_from_trans_id.argprom.exit:          ; preds = %do.body6.i
+request_find_from_trans_id.exit:                  ; preds = %do.body6.i
   %tobool65.not = icmp sgt i16 %call17, -1
   br i1 %tobool65.not, label %return, label %if.end67
 
-if.end67:                                         ; preds = %request_find_from_trans_id.argprom.exit
+if.end67:                                         ; preds = %request_find_from_trans_id.exit
   %4 = and i16 %call17, 527
   switch i16 %4, label %if.then529 [
     i16 0, label %if.end77
@@ -10281,7 +10281,7 @@ return.sink.split:                                ; preds = %if.end530, %if.end5
   call void @event_mm_free_(ptr noundef nonnull %.sink) #18
   br label %return
 
-return:                                           ; preds = %if.end12.i, %return.sink.split, %if.end53, %if.end530, %if.end518, %request_find_from_trans_id.argprom.exit
+return:                                           ; preds = %if.end12.i, %return.sink.split, %if.end53, %if.end530, %if.end518, %request_find_from_trans_id.exit
   ret void
 }
 
@@ -10735,7 +10735,7 @@ evdns_request_insert.exit.i.i:                    ; preds = %if.end8.i.i.i, %if.
   %75 = load i32, ptr %requests_inflight.i.i51, align 8
   %inc10.i.i = add nsw i32 %75, 1
   store i32 %inc10.i.i, ptr %requests_inflight.i.i51, align 8
-  call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %call6.i.i)
+  call fastcc void @evdns_request_transmit(ptr noundef nonnull %call6.i.i)
   br label %if.end120
 
 if.else.i.i:                                      ; preds = %if.end7.i
@@ -11014,7 +11014,7 @@ evdns_request_insert.exit.i.i79:                  ; preds = %if.end8.i.i.i74, %i
   %117 = load i32, ptr %requests_inflight.i.i82, align 8
   %inc10.i.i83 = add nsw i32 %117, 1
   store i32 %inc10.i.i83, ptr %requests_inflight.i.i82, align 8
-  call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %newreq.0.i)
+  call fastcc void @evdns_request_transmit(ptr noundef nonnull %newreq.0.i)
   br label %if.end120
 
 if.else.i.i87:                                    ; preds = %submit_next.i
@@ -11621,7 +11621,7 @@ if.then8.i:                                       ; preds = %if.then4.i
 if.else.i:                                        ; preds = %if.then4.i
   %timeout_event.i34 = getelementptr inbounds i8, ptr %req.0.i, i64 48
   %call.i35 = tail call i32 @event_del(ptr noundef nonnull %timeout_event.i34) #18
-  tail call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %req.0.i)
+  tail call fastcc void @evdns_request_transmit(ptr noundef nonnull %req.0.i)
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.else.i, %if.then8.i, %land.lhs.true.i, %do.body.i
@@ -11706,7 +11706,7 @@ do.end.i:                                         ; preds = %land.lhs.true.i39
   br label %request_swap_ns.exit
 
 request_swap_ns.exit:                             ; preds = %if.else16, %nameserver_pick.exit, %land.lhs.true.i39, %do.end.i
-  tail call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %arg)
+  tail call fastcc void @evdns_request_transmit(ptr noundef nonnull %arg)
   %ns21 = getelementptr inbounds i8, ptr %arg, i64 24
   %58 = load ptr, ptr %ns21, align 8
   %timedout = getelementptr inbounds i8, ptr %58, i64 152
@@ -11807,7 +11807,7 @@ do.body9.i:                                       ; preds = %for.body.i, %if.end
   br i1 %tobool10.not.i, label %if.end12.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %do.body9.i
-  tail call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %req.0.i)
+  tail call fastcc void @evdns_request_transmit(ptr noundef nonnull %req.0.i)
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then11.i, %do.body9.i
@@ -11924,7 +11924,7 @@ if.then23.i:                                      ; preds = %if.end20.i
 if.end25.i:                                       ; preds = %if.end20.i
   store i32 0, ptr %timedout.i, align 8
   %19 = load ptr, ptr %base, align 8
-  call fastcc void @reply_parse.retelim(ptr noundef %19, ptr noundef nonnull %call.i14, i32 noundef %conv920.i)
+  call fastcc void @reply_parse(ptr noundef %19, ptr noundef nonnull %call.i14, i32 noundef %conv920.i)
   %20 = load i32, ptr %arg, align 8
   %call8.i = call i64 @recvfrom(i32 noundef %20, ptr noundef nonnull %call.i14, i64 noundef %conv.i, i32 noundef 0, ptr nonnull %ss.i, ptr noundef nonnull %addrlen.i) #18
   %conv9.i = trunc i64 %call8.i to i32
@@ -12104,7 +12104,7 @@ evdns_request_insert.exit.i.i:                    ; preds = %if.end8.i.i.i, %if.
   %20 = load i32, ptr %requests_inflight.i.i, align 8
   %inc10.i.i = add nsw i32 %20, 1
   store i32 %inc10.i.i, ptr %requests_inflight.i.i, align 8
-  call fastcc void @evdns_request_transmit.retelim(ptr noundef nonnull %call9.i)
+  call fastcc void @evdns_request_transmit(ptr noundef nonnull %call9.i)
   br label %nameserver_send_probe.exit
 
 if.else.i.i:                                      ; preds = %transaction_id_pick.exit.i
@@ -13031,7 +13031,7 @@ declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) 
 declare i32 @gethostname(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evdns_base_parse_hosts_line.retelim(ptr nocapture noundef %base, ptr noundef %line) unnamed_addr #2 {
+define internal fastcc void @evdns_base_parse_hosts_line(ptr nocapture noundef %base, ptr noundef %line) unnamed_addr #2 {
 entry:
   %strtok_state = alloca ptr, align 8
   %ss = alloca %struct.sockaddr_storage, align 8

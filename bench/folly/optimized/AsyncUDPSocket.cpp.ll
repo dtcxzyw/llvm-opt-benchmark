@@ -5790,7 +5790,7 @@ return:                                           ; preds = %if.end408, %entry
 ehcleanup414:                                     ; preds = %ehcleanup407, %ehcleanup374, %ehcleanup313, %ehcleanup282, %ehcleanup250, %ehcleanup198, %ehcleanup147, %ehcleanup97, %ehcleanup67, %cleanup.action38, %ehcleanup33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i465, %lpad18
   %g.sroa.0.1 = phi i8 [ %g.sroa.0.0, %lpad18 ], [ 0, %ehcleanup407 ], [ 0, %ehcleanup374 ], [ 0, %ehcleanup313 ], [ 0, %ehcleanup282 ], [ 0, %ehcleanup250 ], [ 0, %ehcleanup198 ], [ 0, %ehcleanup147 ], [ 0, %ehcleanup97 ], [ 0, %ehcleanup67 ], [ 0, %cleanup.action38 ], [ 0, %ehcleanup33 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i465 ]
   %.pn454.pn = phi { ptr, i32 } [ %8, %lpad18 ], [ %.pn427.pn, %ehcleanup407 ], [ %.pn430.pn, %ehcleanup374 ], [ %.pn433.pn, %ehcleanup313 ], [ %.pn436.pn, %ehcleanup282 ], [ %.pn439.pn, %ehcleanup250 ], [ %.pn442.pn, %ehcleanup198 ], [ %.pn445.pn, %ehcleanup147 ], [ %.pn448.pn, %ehcleanup97 ], [ %.pn451.pn, %ehcleanup67 ], [ %.pn454536, %cleanup.action38 ], [ %10, %ehcleanup33 ], [ %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i465 ]
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_14AsyncUDPSocket4initEtNS2_11BindOptionsEE3$_0Lb1EED2Ev.argprom"(i8 %g.sroa.0.1, i32 %call3) #32
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_14AsyncUDPSocket4initEtNS2_11BindOptionsEE3$_0Lb1EED2Ev"(i8 %g.sroa.0.1, i32 %call3) #32
   br label %ehcleanup417
 
 ehcleanup417:                                     ; preds = %ehcleanup414, %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -5928,7 +5928,7 @@ declare noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32,
 declare void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176), i32) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_14AsyncUDPSocket4initEtNS2_11BindOptionsEE3$_0Lb1EED2Ev.argprom"(i8 range(i8 0, 2) %this.0.val, i32 %this.8.val.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_14AsyncUDPSocket4initEtNS2_11BindOptionsEE3$_0Lb1EED2Ev"(i8 range(i8 0, 2) %this.0.val, i32 %this.8.val.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq i8 %this.0.val, 0
   br i1 %tobool.not, label %if.then, label %if.end

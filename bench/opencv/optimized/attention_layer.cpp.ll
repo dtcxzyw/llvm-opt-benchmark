@@ -2448,7 +2448,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit66:      ; preds = %277, %279
   %286 = sext i32 %.val to i64
   %.idx = shl nsw i64 %286, 2
   %.not124 = icmp eq i32 %.val, 0
-  br i1 %.not124, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit, label %287
+  br i1 %.not124, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %287
 
 287:                                              ; preds = %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit66
   %288 = icmp slt i32 %.val, 0
@@ -2469,14 +2469,14 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %287
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %290, ptr align 4 %.val34, i64 %.idx, i1 false)
   %291 = getelementptr inbounds i8, ptr %290, i64 %.idx
   %292 = ptrtoint ptr %291 to i64
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %289, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %293 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit66, %.noexc103
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit66, %.noexc103
   %.sroa.7109.0 = phi i64 [ %292, %.noexc103 ], [ 0, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit66 ]
   %.sroa.0104.0 = phi ptr [ %290, %.noexc103 ], [ null, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit66 ]
   %294 = ptrtoint ptr %.sroa.0104.0 to i64
@@ -2487,7 +2487,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %_ZNSt8func
   invoke void @_ZN2cv3dnn7softmaxERNS_3MatERKS1_i(ptr noundef nonnull align 8 dereferenceable(96) %256, ptr noundef nonnull align 8 dereferenceable(96) %256, i32 noundef %298)
           to label %299 unwind label %374
 
-299:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+299:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
   %.not.i.i.i67 = icmp eq ptr %.sroa.0104.0, null
   br i1 %.not.i.i.i67, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %300
 
@@ -2708,7 +2708,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3M
   call void @__clang_call_terminate(ptr %373) #23
   unreachable
 
-374:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+374:                                              ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
   %375 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i95 = icmp eq ptr %.sroa.0104.0, null

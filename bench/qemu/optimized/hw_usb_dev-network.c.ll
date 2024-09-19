@@ -227,9 +227,9 @@ sw.bb:                                            ; preds = %if.end
   %0 = getelementptr i8, ptr %dev, i64 5728
   %dev.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %dev.val, null
-  br i1 %tobool.not.i, label %fail, label %is_rndis.argprom.exit
+  br i1 %tobool.not.i, label %fail, label %is_rndis.exit
 
-is_rndis.argprom.exit:                            ; preds = %sw.bb
+is_rndis.exit:                                    ; preds = %sw.bb
   %bConfigurationValue.i = getelementptr inbounds i8, ptr %dev.val, i64 1
   %1 = load i8, ptr %bConfigurationValue.i, align 1
   %cmp.i = icmp ne i8 %1, 2
@@ -238,7 +238,7 @@ is_rndis.argprom.exit:                            ; preds = %sw.bb
   %or.cond1 = or i1 %3, %cmp.i
   br i1 %or.cond1, label %fail, label %if.end6
 
-if.end6:                                          ; preds = %is_rndis.argprom.exit
+if.end6:                                          ; preds = %is_rndis.exit
   %data.val.i = load i32, ptr %data, align 1
   switch i32 %data.val.i, label %if.then9 [
     i32 2, label %sw.bb.i
@@ -353,7 +353,7 @@ if.end.i.i:                                       ; preds = %sw.bb4.i
     i32 16843010, label %sw.bb28.i.i.i
     i32 16843011, label %sw.bb33.i.i.i
     i32 16843012, label %sw.bb34.i.i.i
-    i32 16843013, label %ndis_query.argprom.exit.i.i
+    i32 16843013, label %ndis_query.exit.i.i
     i32 16908545, label %sw.bb36.i.i.i
     i32 16908546, label %sw.bb37.i.i.i
     i32 16908547, label %sw.bb38.i.i.i
@@ -361,140 +361,140 @@ if.end.i.i:                                       ; preds = %sw.bb4.i
 
 for.body.preheader.i.i.i:                         ; preds = %if.end.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %infobuf.i.i, ptr noundef nonnull align 16 dereferenceable(112) @oid_supported_list, i64 112, i1 false)
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb3.i.i.i:                                     ; preds = %if.end.i.i
   store i32 0, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb4.i.i.i:                                     ; preds = %if.end.i.i
   %medium.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5868
   %12 = load i32, ptr %medium.i.i.i, align 4
   store i32 %12, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb5.i.i.i:                                     ; preds = %if.end.i.i
   %medium6.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5868
   %13 = load i32, ptr %medium6.i.i.i, align 4
   store i32 %13, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb7.i.i.i:                                     ; preds = %if.end.i.i
   store i32 1514, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb8.i.i.i:                                     ; preds = %if.end.i.i
   %speed.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5872
   %14 = load i32, ptr %speed.i.i.i, align 8
   store i32 %14, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb9.i.i.i:                                     ; preds = %if.end.i.i
   store i32 1514, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb10.i.i.i:                                    ; preds = %if.end.i.i
   store i32 1514, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb11.i.i.i:                                    ; preds = %if.end.i.i
   %vendorid.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5884
   %15 = load i32, ptr %vendorid.i.i.i, align 4
   store i32 %15, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb12.i.i.i:                                    ; preds = %if.end.i.i
   call void @pstrcpy(ptr noundef nonnull %infobuf.i.i, i32 noundef 112, ptr noundef nonnull @.str.36) #10
   %call.i.i27.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %infobuf.i.i) #12
   %16 = trunc i64 %call.i.i27.i to i32
   %conv14.i.i.i = add i32 %16, 1
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb15.i.i.i:                                    ; preds = %if.end.i.i
   store i32 1, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb16.i.i.i:                                    ; preds = %if.end.i.i
   %filter.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5880
   %17 = load i16, ptr %filter.i.i.i, align 8
   %conv17.i.i.i = zext i16 %17 to i32
   store i32 %conv17.i.i.i, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb18.i.i.i:                                    ; preds = %if.end.i.i
   store i32 1558, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb19.i.i.i:                                    ; preds = %if.end.i.i
   %media_state.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5876
   %18 = load i32, ptr %media_state.i.i.i, align 4
   store i32 %18, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb20.i.i.i:                                    ; preds = %if.end.i.i
   store i32 0, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb21.i.i.i:                                    ; preds = %if.end.i.i
   store i32 18, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb22.i.i.i:                                    ; preds = %if.end.i.i
   store i32 0, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb23.i.i.i:                                    ; preds = %if.end.i.i
   store i32 0, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb24.i.i.i:                                    ; preds = %if.end.i.i
   store i32 0, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb25.i.i.i:                                    ; preds = %if.end.i.i
   store i32 0, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb26.i.i.i:                                    ; preds = %if.end.i.i
   store i32 0, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb27.i.i.i:                                    ; preds = %if.end.i.i
   %conf.i.i.i = getelementptr inbounds i8, ptr %dev, i64 10040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %infobuf.i.i, ptr noundef nonnull readonly align 8 dereferenceable(6) %conf.i.i.i, i64 6, i1 false)
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb28.i.i.i:                                    ; preds = %if.end.i.i
   %conf29.i.i.i = getelementptr inbounds i8, ptr %dev, i64 10040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %infobuf.i.i, ptr noundef nonnull readonly align 8 dereferenceable(6) %conf29.i.i.i, i64 6, i1 false)
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb33.i.i.i:                                    ; preds = %if.end.i.i
   store i32 -536870912, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb34.i.i.i:                                    ; preds = %if.end.i.i
   store i32 1, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb36.i.i.i:                                    ; preds = %if.end.i.i
   store i32 0, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb37.i.i.i:                                    ; preds = %if.end.i.i
   store i32 0, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %if.end.i.i
   store i32 0, ptr %infobuf.i.i, align 16
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
 sw.default.i.i.i:                                 ; preds = %if.end.i.i
   %19 = load ptr, ptr @stderr, align 8
   %call39.i.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.37, i32 noundef %11) #13
-  br label %ndis_query.argprom.exit.i.i
+  br label %ndis_query.exit.i.i
 
-ndis_query.argprom.exit.i.i:                      ; preds = %sw.default.i.i.i, %sw.bb38.i.i.i, %sw.bb37.i.i.i, %sw.bb36.i.i.i, %sw.bb34.i.i.i, %sw.bb33.i.i.i, %sw.bb28.i.i.i, %sw.bb27.i.i.i, %sw.bb26.i.i.i, %sw.bb25.i.i.i, %sw.bb24.i.i.i, %sw.bb23.i.i.i, %sw.bb22.i.i.i, %sw.bb21.i.i.i, %sw.bb20.i.i.i, %sw.bb19.i.i.i, %sw.bb18.i.i.i, %sw.bb16.i.i.i, %sw.bb15.i.i.i, %sw.bb12.i.i.i, %sw.bb11.i.i.i, %sw.bb10.i.i.i, %sw.bb9.i.i.i, %sw.bb8.i.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb4.i.i.i, %sw.bb3.i.i.i, %for.body.preheader.i.i.i, %if.end.i.i
+ndis_query.exit.i.i:                              ; preds = %sw.default.i.i.i, %sw.bb38.i.i.i, %sw.bb37.i.i.i, %sw.bb36.i.i.i, %sw.bb34.i.i.i, %sw.bb33.i.i.i, %sw.bb28.i.i.i, %sw.bb27.i.i.i, %sw.bb26.i.i.i, %sw.bb25.i.i.i, %sw.bb24.i.i.i, %sw.bb23.i.i.i, %sw.bb22.i.i.i, %sw.bb21.i.i.i, %sw.bb20.i.i.i, %sw.bb19.i.i.i, %sw.bb18.i.i.i, %sw.bb16.i.i.i, %sw.bb15.i.i.i, %sw.bb12.i.i.i, %sw.bb11.i.i.i, %sw.bb10.i.i.i, %sw.bb9.i.i.i, %sw.bb8.i.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb4.i.i.i, %sw.bb3.i.i.i, %for.body.preheader.i.i.i, %if.end.i.i
   %retval.0.i.i.i = phi i32 [ 0, %sw.default.i.i.i ], [ 4, %sw.bb38.i.i.i ], [ 4, %sw.bb37.i.i.i ], [ 4, %sw.bb36.i.i.i ], [ 4, %sw.bb34.i.i.i ], [ 4, %sw.bb33.i.i.i ], [ 6, %sw.bb28.i.i.i ], [ 6, %sw.bb27.i.i.i ], [ 4, %sw.bb26.i.i.i ], [ 4, %sw.bb25.i.i.i ], [ 4, %sw.bb24.i.i.i ], [ 4, %sw.bb23.i.i.i ], [ 4, %sw.bb22.i.i.i ], [ 4, %sw.bb21.i.i.i ], [ 4, %sw.bb20.i.i.i ], [ 4, %sw.bb19.i.i.i ], [ 4, %sw.bb18.i.i.i ], [ 4, %sw.bb16.i.i.i ], [ 4, %sw.bb15.i.i.i ], [ %conv14.i.i.i, %sw.bb12.i.i.i ], [ 4, %sw.bb11.i.i.i ], [ 4, %sw.bb10.i.i.i ], [ 4, %sw.bb9.i.i.i ], [ 4, %sw.bb8.i.i.i ], [ 4, %sw.bb7.i.i.i ], [ 4, %sw.bb5.i.i.i ], [ 4, %sw.bb4.i.i.i ], [ 4, %sw.bb3.i.i.i ], [ 0, %if.end.i.i ], [ 112, %for.body.preheader.i.i.i ]
   %cond.i.i = call i32 @llvm.smax.i32(i32 %retval.0.i.i.i, i32 0)
   %narrow.i.i = add nuw i32 %cond.i.i, 24
@@ -506,13 +506,13 @@ ndis_query.argprom.exit.i.i:                      ; preds = %sw.default.i.i.i, %
   %cmp.i.i17.i = icmp eq ptr %20, null
   br i1 %cmp.i.i17.i, label %if.then.i.i25.i, label %if.end13.i.i
 
-if.then.i.i25.i:                                  ; preds = %ndis_query.argprom.exit.i.i
+if.then.i.i25.i:                                  ; preds = %ndis_query.exit.i.i
   %intr.i.i26.i = getelementptr inbounds i8, ptr %dev, i64 10000
   %21 = load ptr, ptr %intr.i.i26.i, align 8
   call void @usb_wakeup(ptr noundef %21, i32 noundef 0) #10
   br label %if.end13.i.i
 
-if.end13.i.i:                                     ; preds = %if.then.i.i25.i, %ndis_query.argprom.exit.i.i
+if.end13.i.i:                                     ; preds = %if.then.i.i25.i, %ndis_query.exit.i.i
   store ptr null, ptr %call.i29.i.i, align 8
   %tql_prev.i.i18.i = getelementptr inbounds i8, ptr %dev, i64 18264
   %22 = load ptr, ptr %tql_prev.i.i18.i, align 8
@@ -658,15 +658,15 @@ rndis_clear_responsequeue.exit.i:                 ; preds = %do.body.i.i, %sw.bb
   %call.i.i45.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #11
   %39 = load ptr, ptr %rndis_resp.i.i, align 8
   %cmp.i.i47.i = icmp eq ptr %39, null
-  br i1 %cmp.i.i47.i, label %if.then.i.i54.i, label %rndis_reset_response.argprom.exit.i
+  br i1 %cmp.i.i47.i, label %if.then.i.i54.i, label %rndis_reset_response.exit.i
 
 if.then.i.i54.i:                                  ; preds = %rndis_clear_responsequeue.exit.i
   %intr.i.i55.i = getelementptr inbounds i8, ptr %dev, i64 10000
   %40 = load ptr, ptr %intr.i.i55.i, align 8
   tail call void @usb_wakeup(ptr noundef %40, i32 noundef 0) #10
-  br label %rndis_reset_response.argprom.exit.i
+  br label %rndis_reset_response.exit.i
 
-rndis_reset_response.argprom.exit.i:              ; preds = %if.then.i.i54.i, %rndis_clear_responsequeue.exit.i
+rndis_reset_response.exit.i:                      ; preds = %if.then.i.i54.i, %rndis_clear_responsequeue.exit.i
   store ptr null, ptr %call.i.i45.i, align 8
   %tql_prev.i.i48.i = getelementptr inbounds i8, ptr %dev, i64 18264
   %41 = load ptr, ptr %tql_prev.i.i48.i, align 8
@@ -745,9 +745,9 @@ sw.bb11:                                          ; preds = %if.end
   %47 = getelementptr i8, ptr %dev, i64 5728
   %dev.val29 = load ptr, ptr %47, align 8
   %tobool.not.i31 = icmp eq ptr %dev.val29, null
-  br i1 %tobool.not.i31, label %fail, label %is_rndis.argprom.exit37
+  br i1 %tobool.not.i31, label %fail, label %is_rndis.exit37
 
-is_rndis.argprom.exit37:                          ; preds = %sw.bb11
+is_rndis.exit37:                                  ; preds = %sw.bb11
   %bConfigurationValue.i33 = getelementptr inbounds i8, ptr %dev.val29, i64 1
   %48 = load i8, ptr %bConfigurationValue.i33, align 1
   %cmp.i34 = icmp ne i8 %48, 2
@@ -756,7 +756,7 @@ is_rndis.argprom.exit37:                          ; preds = %sw.bb11
   %or.cond3 = or i1 %50, %cmp.i34
   br i1 %or.cond3, label %fail, label %if.end19
 
-if.end19:                                         ; preds = %is_rndis.argprom.exit37
+if.end19:                                         ; preds = %is_rndis.exit37
   %rndis_resp.i = getelementptr inbounds i8, ptr %dev, i64 18256
   %51 = load ptr, ptr %rndis_resp.i, align 8
   %tobool.not.i38 = icmp eq ptr %51, null
@@ -799,22 +799,22 @@ sw.bb26:                                          ; preds = %if.end
   %56 = getelementptr i8, ptr %dev, i64 5728
   %dev.val30 = load ptr, ptr %56, align 8
   %tobool.not.i40 = icmp eq ptr %dev.val30, null
-  br i1 %tobool.not.i40, label %sw.epilog, label %is_rndis.argprom.exit46
+  br i1 %tobool.not.i40, label %sw.epilog, label %is_rndis.exit46
 
-is_rndis.argprom.exit46:                          ; preds = %sw.bb26
+is_rndis.exit46:                                  ; preds = %sw.bb26
   %bConfigurationValue.i42 = getelementptr inbounds i8, ptr %dev.val30, i64 1
   %57 = load i8, ptr %bConfigurationValue.i42, align 1
   %cmp.i43.not = icmp eq i8 %57, 2
   br i1 %cmp.i43.not, label %fail, label %sw.epilog
 
-fail:                                             ; preds = %sw.bb11, %sw.bb, %if.end, %is_rndis.argprom.exit46, %is_rndis.argprom.exit37, %is_rndis.argprom.exit
+fail:                                             ; preds = %sw.bb11, %sw.bb, %if.end, %is_rndis.exit46, %is_rndis.exit37, %is_rndis.exit
   %58 = load ptr, ptr @stderr, align 8
   %call31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.35, i32 noundef %request, i32 noundef %value, i32 noundef %index, i32 noundef %length) #13
   %status32 = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status32, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb26, %return.sink.split.i.i, %rndis_init_response.exit.i, %sw.bb2.i, %rndis_reset_response.argprom.exit.i, %rndis_keepalive_response.exit.i, %rndis_parse.exit.thread58, %is_rndis.argprom.exit46, %rndis_get_response.exit, %if.then23, %if.then9, %entry, %fail
+sw.epilog:                                        ; preds = %sw.bb26, %return.sink.split.i.i, %rndis_init_response.exit.i, %sw.bb2.i, %rndis_reset_response.exit.i, %rndis_keepalive_response.exit.i, %rndis_parse.exit.thread58, %is_rndis.exit46, %rndis_get_response.exit, %if.then23, %if.then9, %entry, %fail
   ret void
 }
 
@@ -855,15 +855,15 @@ if.end.i:                                         ; preds = %sw.bb1
   %4 = getelementptr i8, ptr %dev, i64 5728
   %s.val.i = load ptr, ptr %4, align 8
   %tobool.not.i.i = icmp eq ptr %s.val.i, null
-  br i1 %tobool.not.i.i, label %if.else.i, label %is_rndis.argprom.exit.i
+  br i1 %tobool.not.i.i, label %if.else.i, label %is_rndis.exit.i
 
-is_rndis.argprom.exit.i:                          ; preds = %if.end.i
+is_rndis.exit.i:                                  ; preds = %if.end.i
   %bConfigurationValue.i.i = getelementptr inbounds i8, ptr %s.val.i, i64 1
   %5 = load i8, ptr %bConfigurationValue.i.i, align 1
   %cmp.i.not.i = icmp eq i8 %5, 2
   br i1 %cmp.i.not.i, label %if.then1.i, label %if.else.i
 
-if.then1.i:                                       ; preds = %is_rndis.argprom.exit.i
+if.then1.i:                                       ; preds = %is_rndis.exit.i
   store i32 1, ptr %rbuf.i, align 4
   %arrayidx4.i = getelementptr inbounds i8, ptr %rbuf.i, i64 4
   store i32 0, ptr %arrayidx4.i, align 4
@@ -878,7 +878,7 @@ if.then6.i:                                       ; preds = %if.then1.i
   store i32 -2, ptr %status7.i, align 4
   br label %usb_net_handle_statusin.exit
 
-if.else.i:                                        ; preds = %is_rndis.argprom.exit.i, %if.end.i
+if.else.i:                                        ; preds = %is_rndis.exit.i, %if.end.i
   store i16 161, ptr %ebuf.i, align 2
   %connection.i = getelementptr inbounds i8, ptr %dev, i64 5888
   %7 = load i16, ptr %connection.i, align 8
@@ -948,22 +948,22 @@ land.lhs.true.i:                                  ; preds = %if.end4.i
   %14 = getelementptr i8, ptr %dev, i64 5728
   %s.val.i16 = load ptr, ptr %14, align 8
   %tobool.not.i.i17 = icmp eq ptr %s.val.i16, null
-  br i1 %tobool.not.i.i17, label %lor.lhs.false.i, label %is_rndis.argprom.exit.i18
+  br i1 %tobool.not.i.i17, label %lor.lhs.false.i, label %is_rndis.exit.i18
 
-is_rndis.argprom.exit.i18:                        ; preds = %land.lhs.true.i
+is_rndis.exit.i18:                                ; preds = %land.lhs.true.i
   %bConfigurationValue.i.i19 = getelementptr inbounds i8, ptr %s.val.i16, i64 1
   %15 = load i8, ptr %bConfigurationValue.i.i19, align 1
   %cmp.i.not.i20 = icmp eq i8 %15, 2
   br i1 %cmp.i.not.i20, label %if.then26.i, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %is_rndis.argprom.exit.i18, %land.lhs.true.i
+lor.lhs.false.i:                                  ; preds = %is_rndis.exit.i18, %land.lhs.true.i
   %and.i = and i32 %13, 63
   %tobool23.i = icmp eq i32 %and.i, 0
   %tobool25.i = icmp ne i32 %spec.select.i, 0
   %or.cond.i = and i1 %tobool25.i, %tobool23.i
   br i1 %or.cond.i, label %sw.epilog11, label %if.then26.i
 
-if.then26.i:                                      ; preds = %lor.lhs.false.i, %is_rndis.argprom.exit.i18
+if.then26.i:                                      ; preds = %lor.lhs.false.i, %is_rndis.exit.i18
   store i32 0, ptr %in_len.i, align 4
   store i32 0, ptr %in_ptr.i, align 8
   %nic.i25.i = getelementptr inbounds i8, ptr %dev, i64 10032
@@ -1000,15 +1000,15 @@ sw.bb7:                                           ; preds = %sw.bb3
   %22 = getelementptr i8, ptr %dev, i64 5728
   %s.val.i30 = load ptr, ptr %22, align 8
   %tobool.not.i.i31 = icmp eq ptr %s.val.i30, null
-  br i1 %tobool.not.i.i31, label %if.then11.i, label %is_rndis.argprom.exit.i32
+  br i1 %tobool.not.i.i31, label %if.then11.i, label %is_rndis.exit.i32
 
-is_rndis.argprom.exit.i32:                        ; preds = %sw.bb7
+is_rndis.exit.i32:                                ; preds = %sw.bb7
   %bConfigurationValue.i.i33 = getelementptr inbounds i8, ptr %s.val.i30, i64 1
   %23 = load i8, ptr %bConfigurationValue.i.i33, align 1
   %cmp.i.not.i34 = icmp eq i8 %23, 2
   br i1 %cmp.i.not.i34, label %if.end27.i, label %if.then11.i
 
-if.then11.i:                                      ; preds = %is_rndis.argprom.exit.i32, %sw.bb7
+if.then11.i:                                      ; preds = %is_rndis.exit.i32, %sw.bb7
   %24 = load i64, ptr %size.i24, align 8
   %rem.i = and i64 %24, 63
   %tobool14.not.i = icmp ne i64 %rem.i, 0
@@ -1025,7 +1025,7 @@ if.then19.i:                                      ; preds = %if.then11.i
   store i32 0, ptr %out_ptr.i, align 4
   br label %sw.epilog11
 
-if.end27.i:                                       ; preds = %is_rndis.argprom.exit.i32
+if.end27.i:                                       ; preds = %is_rndis.exit.i32
   %MessageLength.i = getelementptr inbounds i8, ptr %dev, i64 5900
   %27 = load i32, ptr %MessageLength.i, align 4
   %cmp30.i = icmp ult i32 %add.i29, 8
@@ -1168,15 +1168,15 @@ entry:
   %config = getelementptr inbounds i8, ptr %call, i64 5728
   %0 = load ptr, ptr %config, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %is_rndis.argprom.exit
+  br i1 %tobool.not, label %return, label %is_rndis.exit
 
-is_rndis.argprom.exit:                            ; preds = %entry
+is_rndis.exit:                                    ; preds = %entry
   %bConfigurationValue.i = getelementptr inbounds i8, ptr %0, i64 1
   %1 = load i8, ptr %bConfigurationValue.i, align 1
   %cmp.i.not = icmp eq i8 %1, 2
   br i1 %cmp.i.not, label %if.then4, label %if.end7
 
-if.then4:                                         ; preds = %is_rndis.argprom.exit
+if.then4:                                         ; preds = %is_rndis.exit
   %rndis_state = getelementptr inbounds i8, ptr %call, i64 5864
   %2 = load i32, ptr %rndis_state, align 8
   %cmp.not = icmp eq i32 %2, 2
@@ -1186,8 +1186,8 @@ if.end6:                                          ; preds = %if.then4
   %add = add i64 %size, 44
   br label %if.end7
 
-if.end7:                                          ; preds = %if.end6, %is_rndis.argprom.exit
-  %total_size.0 = phi i64 [ %add, %if.end6 ], [ %size, %is_rndis.argprom.exit ]
+if.end7:                                          ; preds = %if.end6, %is_rndis.exit
+  %total_size.0 = phi i64 [ %add, %if.end6 ], [ %size, %is_rndis.exit ]
   %cmp8 = icmp ugt i64 %total_size.0, 2048
   br i1 %cmp8, label %return, label %if.end10
 
@@ -1195,12 +1195,12 @@ if.end10:                                         ; preds = %if.end7
   %in_len = getelementptr inbounds i8, ptr %call, i64 7948
   %3 = load i32, ptr %in_len, align 4
   %cmp11.not = icmp eq i32 %3, 0
-  br i1 %cmp11.not, label %is_rndis.argprom.exit28, label %return
+  br i1 %cmp11.not, label %is_rndis.exit28, label %return
 
-is_rndis.argprom.exit28:                          ; preds = %if.end10
+is_rndis.exit28:                                  ; preds = %if.end10
   br i1 %cmp.i.not, label %if.then16, label %if.end23
 
-if.then16:                                        ; preds = %is_rndis.argprom.exit28
+if.then16:                                        ; preds = %is_rndis.exit28
   %4 = getelementptr inbounds i8, ptr %call, i64 7968
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %4, i8 0, i64 28, i1 false)
   store i32 1, ptr %in_buf1, align 4
@@ -1215,8 +1215,8 @@ if.then16:                                        ; preds = %is_rndis.argprom.ex
   %add.ptr = getelementptr i8, ptr %call, i64 7996
   br label %if.end23
 
-if.end23:                                         ; preds = %if.then16, %is_rndis.argprom.exit28
-  %in_buf.0 = phi ptr [ %add.ptr, %if.then16 ], [ %in_buf1, %is_rndis.argprom.exit28 ]
+if.end23:                                         ; preds = %if.then16, %is_rndis.exit28
+  %in_buf.0 = phi ptr [ %add.ptr, %if.then16 ], [ %in_buf1, %is_rndis.exit28 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %in_buf.0, ptr align 1 %buf, i64 %size, i1 false)
   %conv24 = trunc nuw nsw i64 %total_size.0 to i32
   store i32 %conv24, ptr %in_len, align 4

@@ -1018,7 +1018,7 @@ if.end8:                                          ; preds = %if.end3
   %3 = load ptr, ptr %h, align 8
   %4 = load i16, ptr %addr, align 8
   %conv11 = zext i16 %4 to i32
-  %call12 = call fastcc ptr @gethost_common.argelim(ptr noundef %self.val, ptr noundef %3, ptr noundef %addr, i32 noundef %conv11)
+  %call12 = call fastcc ptr @gethost_common(ptr noundef %self.val, ptr noundef %3, ptr noundef %addr, i32 noundef %conv11)
   br label %finally
 
 finally:                                          ; preds = %if.end3, %if.end, %if.end8
@@ -1083,7 +1083,7 @@ sw.epilog:                                        ; preds = %if.end8, %sw.bb9
   %call12 = call i32 @gethostbyaddr_r(ptr noundef nonnull %.sink.sroa.phi, i32 noundef %al.0, i32 noundef %conv, ptr noundef nonnull %hp_allocated, ptr noundef nonnull %buf, i64 noundef 16383, ptr noundef nonnull %h, ptr noundef nonnull %errnop) #12
   call void @PyEval_RestoreThread(ptr noundef %call10) #12
   %4 = load ptr, ptr %h, align 8
-  %call13 = call fastcc ptr @gethost_common.argelim(ptr noundef %self.val, ptr noundef %4, ptr noundef %addr, i32 noundef %conv)
+  %call13 = call fastcc ptr @gethost_common(ptr noundef %self.val, ptr noundef %4, ptr noundef %addr, i32 noundef %conv)
   br label %finally
 
 finally:                                          ; preds = %if.end3, %if.end, %sw.epilog, %sw.default
@@ -1796,20 +1796,20 @@ if.end8:                                          ; preds = %if.end4
 
 if.then.i:                                        ; preds = %if.end8
   %call1.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %buf.i, i64 noundef 4) #12
-  br label %_socket_socket_inet_aton_impl.argprom.exit
+  br label %_socket_socket_inet_aton_impl.exit
 
 if.end.i:                                         ; preds = %if.end8
   %5 = load ptr, ptr @PyExc_OSError, align 8
   call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.71) #12
-  br label %_socket_socket_inet_aton_impl.argprom.exit
+  br label %_socket_socket_inet_aton_impl.exit
 
-_socket_socket_inet_aton_impl.argprom.exit:       ; preds = %if.then.i, %if.end.i
+_socket_socket_inet_aton_impl.exit:               ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ null, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i)
   br label %exit
 
-exit:                                             ; preds = %if.end, %_socket_socket_inet_aton_impl.argprom.exit, %if.then7, %if.then
-  %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.then7 ], [ %retval.0.i, %_socket_socket_inet_aton_impl.argprom.exit ], [ null, %if.then ]
+exit:                                             ; preds = %if.end, %_socket_socket_inet_aton_impl.exit, %if.then7, %if.then
+  %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.then7 ], [ %retval.0.i, %_socket_socket_inet_aton_impl.exit ], [ null, %if.then ]
   ret ptr %return_value.0
 }
 
@@ -2503,7 +2503,7 @@ sw.epilog:                                        ; preds = %sw.bb, %sw.bb33, %i
 if.then42:                                        ; preds = %sw.epilog
   %29 = getelementptr i8, ptr %self, i64 32
   %self.val7 = load ptr, ptr %29, align 8
-  call fastcc void @set_gaierror.retelim(ptr noundef %self.val7, i32 noundef %call40)
+  call fastcc void @set_gaierror(ptr noundef %self.val7, i32 noundef %call40)
   br label %fail
 
 if.end46:                                         ; preds = %sw.epilog
@@ -3112,7 +3112,7 @@ declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_gaierror.retelim(ptr nocapture noundef readonly %state, i32 noundef range(i32 1, 0) %error) unnamed_addr #0 {
+define internal fastcc void @set_gaierror(ptr nocapture noundef readonly %state, i32 noundef range(i32 1, 0) %error) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %error, -11
   br i1 %cmp, label %if.then, label %if.end
@@ -3195,7 +3195,7 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 declare i32 @gethostbyname_r(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gethost_common.argelim(ptr nocapture noundef readonly %state, ptr noundef readonly %h, ptr nocapture noundef nonnull writeonly %addr, i32 noundef range(i32 0, 65536) %af) unnamed_addr #0 {
+define internal fastcc ptr @gethost_common(ptr nocapture noundef readonly %state, ptr noundef readonly %h, ptr nocapture noundef nonnull writeonly %addr, i32 noundef range(i32 0, 65536) %af) unnamed_addr #0 {
 entry:
   %buf.i46 = alloca [46 x i8], align 16
   %buf.i = alloca [16 x i8], align 16
@@ -8582,7 +8582,7 @@ if.else:                                          ; preds = %if.end
 
 if.end16:                                         ; preds = %if.else, %if.end11
   %3 = load ptr, ptr %data_arg, align 8
-  %call17 = call fastcc i32 @sock_sendmsg_iovec.argprom(ptr noundef %3, ptr noundef %msg, ptr noundef %databufs, ptr noundef %ndatabufs)
+  %call17 = call fastcc i32 @sock_sendmsg_iovec(ptr noundef %3, ptr noundef %msg, ptr noundef %databufs, ptr noundef %ndatabufs)
   %cmp18 = icmp eq i32 %call17, -1
   br i1 %cmp18, label %finally.thread, label %if.end20
 
@@ -8998,7 +8998,7 @@ if.end37:                                         ; preds = %if.end22
   br i1 %cmp38.not, label %if.end44, label %if.then39
 
 if.then39:                                        ; preds = %if.end37
-  %call40 = call fastcc i32 @sock_sendmsg_iovec.argprom(ptr noundef nonnull %8, ptr noundef %msg, ptr noundef %databufs, ptr noundef %ndatabufs)
+  %call40 = call fastcc i32 @sock_sendmsg_iovec(ptr noundef nonnull %8, ptr noundef %msg, ptr noundef %databufs, ptr noundef %ndatabufs)
   %cmp41 = icmp eq i32 %call40, -1
   br i1 %cmp41, label %finally, label %if.then39.if.end44_crit_edge
 
@@ -9340,7 +9340,7 @@ if.else13.us:                                     ; preds = %while.body.us
   %s.val29.us = load i32, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pollfd.i30)
   %cmp.i31.us = icmp eq i32 %s.val29.us, -1
-  br i1 %cmp.i31.us, label %internal_select.argprom.exit48.us, label %if.end.i32.us
+  br i1 %cmp.i31.us, label %internal_select.exit48.us, label %if.end.i32.us
 
 if.end.i32.us:                                    ; preds = %if.else13.us
   store i32 %s.val29.us, ptr %pollfd.i30, align 4
@@ -9352,14 +9352,14 @@ if.end.i32.us:                                    ; preds = %if.else13.us
   %call14.i42.us = call i32 @poll(ptr noundef nonnull %pollfd.i30, i64 noundef 1, i32 noundef %conv13.i41.us) #12
   call void @PyEval_RestoreThread(ptr noundef %call12.i40.us) #12
   %cmp15.i43.us = icmp slt i32 %call14.i42.us, 0
-  br i1 %cmp15.i43.us, label %internal_select.argprom.exit48.us, label %if.end18.i44.us
+  br i1 %cmp15.i43.us, label %internal_select.exit48.us, label %if.end18.i44.us
 
 if.end18.i44.us:                                  ; preds = %if.end.i32.us
   %cmp19.i45.us = icmp eq i32 %call14.i42.us, 0
   %..i46.us = zext i1 %cmp19.i45.us to i32
-  br label %internal_select.argprom.exit48.us
+  br label %internal_select.exit48.us
 
-internal_select.argprom.exit48.us:                ; preds = %if.end18.i44.us, %if.end.i32.us, %if.else13.us
+internal_select.exit48.us:                        ; preds = %if.end18.i44.us, %if.end.i32.us, %if.else13.us
   %retval.0.i47.us = phi i32 [ 0, %if.else13.us ], [ -1, %if.end.i32.us ], [ %..i46.us, %if.end18.i44.us ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pollfd.i30)
   br label %if.end15.us
@@ -9383,7 +9383,7 @@ if.then9.us:                                      ; preds = %if.end.thread.us, %
   %s.val.us = load i32, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pollfd.i)
   %cmp.i.us = icmp eq i32 %s.val.us, -1
-  br i1 %cmp.i.us, label %internal_select.argprom.exit.us, label %if.end.i.us
+  br i1 %cmp.i.us, label %internal_select.exit.us, label %if.end.i.us
 
 if.end.i.us:                                      ; preds = %if.then9.us
   store i32 %s.val.us, ptr %pollfd.i, align 4
@@ -9395,22 +9395,22 @@ if.end.i.us:                                      ; preds = %if.then9.us
   %call14.i.us = call i32 @poll(ptr noundef nonnull %pollfd.i, i64 noundef 1, i32 noundef %conv13.i.us) #12
   call void @PyEval_RestoreThread(ptr noundef %call12.i.us) #12
   %cmp15.i.us = icmp slt i32 %call14.i.us, 0
-  br i1 %cmp15.i.us, label %internal_select.argprom.exit.us, label %if.end18.i.us
+  br i1 %cmp15.i.us, label %internal_select.exit.us, label %if.end18.i.us
 
 if.end18.i.us:                                    ; preds = %if.end.i.us
   %cmp19.i.us = icmp eq i32 %call14.i.us, 0
   %..i.us = zext i1 %cmp19.i.us to i32
-  br label %internal_select.argprom.exit.us
+  br label %internal_select.exit.us
 
-internal_select.argprom.exit.us:                  ; preds = %if.end18.i.us, %if.end.i.us, %if.then9.us
+internal_select.exit.us:                          ; preds = %if.end18.i.us, %if.end.i.us, %if.then9.us
   %retval.0.i.us = phi i32 [ 0, %if.then9.us ], [ -1, %if.end.i.us ], [ %..i.us, %if.end18.i.us ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pollfd.i)
   br label %if.end15.us
 
-if.end15.us:                                      ; preds = %internal_select.argprom.exit.us, %internal_select.argprom.exit48.us
-  %deadline.3.us = phi i64 [ %deadline.252.us, %internal_select.argprom.exit.us ], [ %deadline.0.us, %internal_select.argprom.exit48.us ]
-  %deadline_initialized.3.us = phi i32 [ 1, %internal_select.argprom.exit.us ], [ %deadline_initialized.0.us, %internal_select.argprom.exit48.us ]
-  %res.0.us = phi i32 [ %retval.0.i.us, %internal_select.argprom.exit.us ], [ %retval.0.i47.us, %internal_select.argprom.exit48.us ]
+if.end15.us:                                      ; preds = %internal_select.exit.us, %internal_select.exit48.us
+  %deadline.3.us = phi i64 [ %deadline.252.us, %internal_select.exit.us ], [ %deadline.0.us, %internal_select.exit48.us ]
+  %deadline_initialized.3.us = phi i32 [ 1, %internal_select.exit.us ], [ %deadline_initialized.0.us, %internal_select.exit48.us ]
+  %res.0.us = phi i32 [ %retval.0.i.us, %internal_select.exit.us ], [ %retval.0.i47.us, %internal_select.exit48.us ]
   switch i32 %res.0.us, label %if.end45.us [
     i32 -1, label %if.then18.us
     i32 1, label %if.then39
@@ -10828,21 +10828,21 @@ if.then3:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %cmp.i.not.i = icmp eq ptr %obj.val29, @PyByteArray_Type
-  br i1 %cmp.i.not.i, label %if.then8, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then8, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %if.else
+PyObject_TypeCheck.exit:                          ; preds = %if.else
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %obj.val29, ptr noundef nonnull @PyByteArray_Type) #12
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else12, label %if.then8
 
-if.then8:                                         ; preds = %if.else, %PyObject_TypeCheck.argprom.exit
+if.then8:                                         ; preds = %if.else, %PyObject_TypeCheck.exit
   %call9 = tail call ptr @PyByteArray_AsString(ptr noundef nonnull %obj) #12
   %buf10 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %call9, ptr %buf10, align 8
   %call11 = tail call i64 @PyByteArray_Size(ptr noundef nonnull %obj) #12
   br label %if.end38
 
-if.else12:                                        ; preds = %PyObject_TypeCheck.argprom.exit
+if.else12:                                        ; preds = %PyObject_TypeCheck.exit
   %obj.val28 = load ptr, ptr %3, align 8
   %6 = getelementptr i8, ptr %obj.val28, i64 168
   %call13.val = load i64, ptr %6, align 8
@@ -11340,9 +11340,9 @@ if.end.i36:                                       ; preds = %lor.lhs.false.i
   %sub.ptr.lhs.cast.i9.i = ptrtoint ptr %__cmsg_data.i.i to i64
   %sub.ptr.sub.i11.i = sub i64 %sub.ptr.lhs.cast.i9.i, %sub.ptr.rhs.cast.i.i
   %cmp1.i12.i = icmp ugt i64 %sub.ptr.sub.i11.i, %msg.val32112
-  br i1 %cmp1.i12.i, label %if.then44, label %get_cmsg_data_len.argprom.exit
+  br i1 %cmp1.i12.i, label %if.then44, label %get_cmsg_data_len.exit
 
-get_cmsg_data_len.argprom.exit:                   ; preds = %if.end.i36
+get_cmsg_data_len.exit:                           ; preds = %if.end.i36
   %sub.i = add i64 %6, -16
   %sub.i.i = sub nuw i64 %msg.val32112, %sub.ptr.sub.i11.i
   %cmp6.not.i.not.not = icmp ult i64 %sub.i.i, %sub.i
@@ -11355,13 +11355,13 @@ if.then44:                                        ; preds = %if.end.i36, %for.bo
   %cmp46 = icmp eq i32 %call45, -1
   br i1 %cmp46, label %err_closefds, label %for.end.loopexit
 
-if.then44.thread:                                 ; preds = %get_cmsg_data_len.argprom.exit
+if.then44.thread:                                 ; preds = %get_cmsg_data_len.exit
   %8 = load ptr, ptr @PyExc_RuntimeWarning, align 8
   %call45101 = call i32 @PyErr_WarnEx(ptr noundef %8, ptr noundef nonnull @.str.619, i64 noundef 1) #12
   %cmp46102 = icmp eq i32 %call45101, -1
   br i1 %cmp46102, label %err_closefds, label %if.end54
 
-if.end54:                                         ; preds = %if.then44.thread, %get_cmsg_data_len.argprom.exit
+if.end54:                                         ; preds = %if.then44.thread, %get_cmsg_data_len.exit
   %cmp55 = icmp slt i64 %sub.i.sub.i, 0
   br i1 %cmp55, label %if.then57, label %if.end58
 
@@ -11499,9 +11499,9 @@ if.end.i49:                                       ; preds = %lor.lhs.false.i47
   %sub.ptr.lhs.cast.i9.i51 = ptrtoint ptr %__cmsg_data.i.i50 to i64
   %sub.ptr.sub.i11.i52 = sub i64 %sub.ptr.lhs.cast.i9.i51, %sub.ptr.rhs.cast.i.i41
   %cmp1.i12.i53 = icmp ugt i64 %sub.ptr.sub.i11.i52, %msg.val34116
-  br i1 %cmp1.i12.i53, label %finally, label %get_cmsg_data_len.argprom.exit61
+  br i1 %cmp1.i12.i53, label %finally, label %get_cmsg_data_len.exit61
 
-get_cmsg_data_len.argprom.exit61:                 ; preds = %if.end.i49
+get_cmsg_data_len.exit61:                         ; preds = %if.end.i49
   %sub.i55 = add i64 %24, -16
   %sub.i.i56 = sub nuw i64 %msg.val34116, %sub.ptr.sub.i11.i52
   %cmp6.not.i57.not = icmp ult i64 %sub.i.i56, %sub.i55
@@ -11510,7 +11510,7 @@ get_cmsg_data_len.argprom.exit61:                 ; preds = %if.end.i49
   %cmp116 = icmp eq i32 %25, 1
   br i1 %cmp116, label %land.lhs.true118, label %if.end128
 
-land.lhs.true118:                                 ; preds = %get_cmsg_data_len.argprom.exit61
+land.lhs.true118:                                 ; preds = %get_cmsg_data_len.exit61
   %sub.i.sub.i58 = call i64 @llvm.umin.i64(i64 %sub.i.i56, i64 %sub.i55)
   %cmsg_type119 = getelementptr inbounds i8, ptr %cmsgh.195115, i64 12
   %26 = load i32, ptr %cmsg_type119, align 4
@@ -11533,7 +11533,7 @@ while.body:                                       ; preds = %while.body.preheade
   %cmp125.not = icmp eq i64 %dec, 0
   br i1 %cmp125.not, label %if.end128, label %while.body, !llvm.loop !17
 
-if.end128:                                        ; preds = %while.body, %land.lhs.true118, %get_cmsg_data_len.argprom.exit61
+if.end128:                                        ; preds = %while.body, %land.lhs.true118, %get_cmsg_data_len.exit61
   br i1 %cmp6.not.i57.not, label %finally, label %for.inc133
 
 for.inc133:                                       ; preds = %if.end128
@@ -11614,7 +11614,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec.argprom(ptr noundef %data_arg, ptr nocapture noundef nonnull writeonly %msg, ptr nocapture noundef nonnull writeonly %databufsout, ptr nocapture noundef nonnull writeonly %ndatabufsout) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %data_arg, ptr nocapture noundef nonnull writeonly %msg, ptr nocapture noundef nonnull writeonly %databufsout, ptr nocapture noundef nonnull writeonly %ndatabufsout) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PySequence_Fast(ptr noundef %data_arg, ptr noundef nonnull @.str.638) #12
   %cmp = icmp eq ptr %call, null

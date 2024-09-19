@@ -1274,7 +1274,7 @@ define internal noundef i32 @dissect_gias(ptr noundef %0, ptr noundef %1, ptr no
   %17 = getelementptr i8, ptr %4, i64 24
   %.val2100 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %.val2100, null
-  br i1 %.not.i, label %decode_user_exception.argprom.exit, label %18
+  br i1 %.not.i, label %decode_user_exception.exit, label %18
 
 18:                                               ; preds = %16
   %19 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val2100, ptr noundef nonnull dereferenceable(34) @.str.800) #5
@@ -1286,7 +1286,7 @@ define internal noundef i32 @dissect_gias(ptr noundef %0, ptr noundef %1, ptr no
   %.val.i = load ptr, ptr %22, align 8
   tail call void @col_set_str(ptr noundef %.val.i, i32 noundef 34, ptr noundef nonnull @.str.575) #4
   %.not.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i, label %start_dissecting.argprom.exit.i, label %23
+  br i1 %.not.i.i, label %start_dissecting.exit.i, label %23
 
 23:                                               ; preds = %21
   %24 = load i32, ptr @proto_gias, align 4
@@ -1295,9 +1295,9 @@ define internal noundef i32 @dissect_gias(ptr noundef %0, ptr noundef %1, ptr no
   %27 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %24, ptr noundef %0, i32 noundef %25, i32 noundef %26, i32 noundef 0) #4
   %28 = load i32, ptr @ett_gias, align 4
   %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28) #4
-  br label %start_dissecting.argprom.exit.i
+  br label %start_dissecting.exit.i
 
-start_dissecting.argprom.exit.i:                  ; preds = %23, %21
+start_dissecting.exit.i:                          ; preds = %23, %21
   %.0.i.i = phi ptr [ %29, %23 ], [ null, %21 ]
   %30 = load i32, ptr @hf_UCO_exception_details_exception_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i.i, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %30) #4
@@ -1315,15 +1315,15 @@ start_dissecting.argprom.exit.i:                  ; preds = %23, %21
   %41 = add i32 %40, -4
   %42 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i.i, i32 noundef %39, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef %38) #4
   %.not.i40.i = icmp eq i32 %38, 0
-  br i1 %.not.i40.i, label %decode_user_exception.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not.i40.i, label %decode_user_exception.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %start_dissecting.argprom.exit.i, %.lr.ph.i.i
-  %.01.i.i = phi i32 [ %44, %.lr.ph.i.i ], [ 0, %start_dissecting.argprom.exit.i ]
+.lr.ph.i.i:                                       ; preds = %start_dissecting.exit.i, %.lr.ph.i.i
+  %.01.i.i = phi i32 [ %44, %.lr.ph.i.i ], [ 0, %start_dissecting.exit.i ]
   %43 = load i32, ptr @hf_UCO_InvalidInputParameter_badInputParameters, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i.i, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 12, i32 noundef %43) #4
   %44 = add nuw i32 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %44, %38
-  br i1 %exitcond.not.i.i, label %decode_user_exception.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %decode_user_exception.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 45:                                               ; preds = %18
   %46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val2100, ptr noundef nonnull dereferenceable(28) @.str.801) #5
@@ -1335,31 +1335,31 @@ start_dissecting.argprom.exit.i:                  ; preds = %23, %21
   %.val38.i = load ptr, ptr %49, align 8
   tail call void @col_set_str(ptr noundef %.val38.i, i32 noundef 34, ptr noundef nonnull @.str.575) #4
   %.not.i41.i = icmp eq ptr %2, null
-  br i1 %.not.i41.i, label %decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.i, label %decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.sink.split.i
+  br i1 %.not.i41.i, label %decode_ex_UCO_InvalidInputParameter.exit.sink.split.i, label %decode_ex_UCO_InvalidInputParameter.exit.sink.split.sink.split.i
 
 50:                                               ; preds = %45
   %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val2100, ptr noundef nonnull dereferenceable(24) @.str.802) #5
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %decode_user_exception.argprom.exit
+  br i1 %52, label %53, label %decode_user_exception.exit
 
 53:                                               ; preds = %50
   %54 = getelementptr i8, ptr %1, i64 8
   %.val39.i = load ptr, ptr %54, align 8
   tail call void @col_set_str(ptr noundef %.val39.i, i32 noundef 34, ptr noundef nonnull @.str.575) #4
   %.not.i44.i = icmp eq ptr %2, null
-  br i1 %.not.i44.i, label %decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.i, label %decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.sink.split.i
+  br i1 %.not.i44.i, label %decode_ex_UCO_InvalidInputParameter.exit.sink.split.i, label %decode_ex_UCO_InvalidInputParameter.exit.sink.split.sink.split.i
 
-decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.sink.split.i: ; preds = %53, %48
+decode_ex_UCO_InvalidInputParameter.exit.sink.split.sink.split.i: ; preds = %53, %48
   %55 = load i32, ptr @proto_gias, align 4
   %56 = load i32, ptr %3, align 4
   %57 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %56) #4
   %58 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %55, ptr noundef %0, i32 noundef %56, i32 noundef %57, i32 noundef 0) #4
   %59 = load i32, ptr @ett_gias, align 4
   %60 = tail call ptr @proto_item_add_subtree(ptr noundef %58, i32 noundef %59) #4
-  br label %decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.i
+  br label %decode_ex_UCO_InvalidInputParameter.exit.sink.split.i
 
-decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.i: ; preds = %decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.sink.split.i, %53, %48
-  %.0.i45.sink6.i = phi ptr [ null, %48 ], [ null, %53 ], [ %60, %decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.sink.split.i ]
+decode_ex_UCO_InvalidInputParameter.exit.sink.split.i: ; preds = %decode_ex_UCO_InvalidInputParameter.exit.sink.split.sink.split.i, %53, %48
+  %.0.i45.sink6.i = phi ptr [ null, %48 ], [ null, %53 ], [ %60, %decode_ex_UCO_InvalidInputParameter.exit.sink.split.sink.split.i ]
   %61 = load i32, ptr @hf_UCO_exception_details_exception_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i45.sink6.i, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %61) #4
   %62 = load i32, ptr @hf_UCO_exception_details_standard_exception_name, align 4
@@ -1370,11 +1370,11 @@ decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.i: ; preds = %decode
   %67 = tail call ptr @proto_tree_add_boolean(ptr noundef %.0.i45.sink6.i, i32 noundef %62, ptr noundef %0, i32 noundef %64, i32 noundef 1, i64 noundef %66) #4
   %68 = load i32, ptr @hf_UCO_exception_details_exception_desc, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i45.sink6.i, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 12, i32 noundef %68) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 69:                                               ; preds = %7
   %switch = icmp eq i8 %10, 0
-  br i1 %switch, label %.thread, label %decode_user_exception.argprom.exit
+  br i1 %switch, label %.thread, label %decode_user_exception.exit
 
 .thread:                                          ; preds = %12, %69
   %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.723) #5
@@ -1403,68 +1403,68 @@ decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.i: ; preds = %decode
   %81 = load i32, ptr @hf_operationrequest, align 4
   %82 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i2196 = icmp eq ptr %82, null
-  br i1 %.not.i.i2196, label %process_RequestOperation.argprom.exit, label %83
+  br i1 %.not.i.i2196, label %process_RequestOperation.exit, label %83
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8
   %.not5.i.i = icmp eq ptr %85, null
-  br i1 %.not5.i.i, label %process_RequestOperation.argprom.exit, label %86
+  br i1 %.not5.i.i, label %process_RequestOperation.exit, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds i8, ptr %85, i64 28
   %88 = load i32, ptr %87, align 4
   %89 = or i32 %88, 2
   store i32 %89, ptr %87, align 4
-  br label %process_RequestOperation.argprom.exit
+  br label %process_RequestOperation.exit
 
-process_RequestOperation.argprom.exit:            ; preds = %80, %83, %86
+process_RequestOperation.exit:                    ; preds = %80, %83, %86
   %90 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %90, align 8
   tail call void @col_set_str(ptr noundef %.val, i32 noundef 34, ptr noundef nonnull @.str.575) #4
   %.not.i2197 = icmp eq ptr %2, null
-  br i1 %.not.i2197, label %start_dissecting.argprom.exit, label %91
+  br i1 %.not.i2197, label %start_dissecting.exit, label %91
 
-91:                                               ; preds = %process_RequestOperation.argprom.exit
+91:                                               ; preds = %process_RequestOperation.exit
   %92 = load i32, ptr @proto_gias, align 4
   %93 = load i32, ptr %3, align 4
   %94 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %93) #4
   %95 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %92, ptr noundef %0, i32 noundef %93, i32 noundef %94, i32 noundef 0) #4
   %96 = load i32, ptr @ett_gias, align 4
   %97 = tail call ptr @proto_item_add_subtree(ptr noundef %95, i32 noundef %96) #4
-  br label %start_dissecting.argprom.exit
+  br label %start_dissecting.exit
 
-start_dissecting.argprom.exit:                    ; preds = %process_RequestOperation.argprom.exit, %91
-  %.0.i2198 = phi ptr [ %97, %91 ], [ null, %process_RequestOperation.argprom.exit ]
+start_dissecting.exit:                            ; preds = %process_RequestOperation.exit, %91
+  %.0.i2198 = phi ptr [ %97, %91 ], [ null, %process_RequestOperation.exit ]
   %98 = load i8, ptr %9, align 1
   switch i8 %98, label %110 [
     i8 0, label %99
     i8 1, label %105
   ]
 
-99:                                               ; preds = %start_dissecting.argprom.exit
+99:                                               ; preds = %start_dissecting.exit
   %100 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12) #4
   %101 = load i32, ptr @hf_CB_Callback_notify_theState, align 4
   %102 = load i32, ptr %3, align 4
   %103 = add i32 %102, -4
   %104 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i2198, i32 noundef %101, ptr noundef %0, i32 noundef %103, i32 noundef 4, i32 noundef %100) #4
-  tail call fastcc void @decode_UCO_RequestDescription_st.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0.i2198, ptr noundef %82, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  tail call fastcc void @decode_UCO_RequestDescription_st(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0.i2198, ptr noundef %82, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
-105:                                              ; preds = %start_dissecting.argprom.exit
+105:                                              ; preds = %start_dissecting.exit
   %106 = getelementptr inbounds i8, ptr %4, i64 16
   %107 = load i32, ptr %106, align 8
   %switch.i = icmp ult i32 %107, 2
-  br i1 %switch.i, label %decode_user_exception.argprom.exit, label %108
+  br i1 %switch.i, label %decode_user_exception.exit, label %108
 
 108:                                              ; preds = %105
   %109 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %82, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.804, i32 noundef %107) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-110:                                              ; preds = %start_dissecting.argprom.exit
+110:                                              ; preds = %start_dissecting.exit
   %111 = zext i8 %98 to i32
   %112 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %82, ptr noundef nonnull @ei_gias_unknown_giop_msg, ptr noundef nonnull @.str.805, i32 noundef %111) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 113:                                              ; preds = %73, %.thread
   %114 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(8) @.str.724) #5
@@ -1493,58 +1493,58 @@ start_dissecting.argprom.exit:                    ; preds = %process_RequestOper
   %125 = load i32, ptr @hf_operationrequest, align 4
   %126 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %125, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i2199 = icmp eq ptr %126, null
-  br i1 %.not.i.i2199, label %process_RequestOperation.argprom.exit2201, label %127
+  br i1 %.not.i.i2199, label %process_RequestOperation.exit2201, label %127
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds i8, ptr %126, i64 32
   %129 = load ptr, ptr %128, align 8
   %.not5.i.i2200 = icmp eq ptr %129, null
-  br i1 %.not5.i.i2200, label %process_RequestOperation.argprom.exit2201, label %130
+  br i1 %.not5.i.i2200, label %process_RequestOperation.exit2201, label %130
 
 130:                                              ; preds = %127
   %131 = getelementptr inbounds i8, ptr %129, i64 28
   %132 = load i32, ptr %131, align 4
   %133 = or i32 %132, 2
   store i32 %133, ptr %131, align 4
-  br label %process_RequestOperation.argprom.exit2201
+  br label %process_RequestOperation.exit2201
 
-process_RequestOperation.argprom.exit2201:        ; preds = %124, %127, %130
+process_RequestOperation.exit2201:                ; preds = %124, %127, %130
   %134 = getelementptr i8, ptr %1, i64 8
   %.val2006 = load ptr, ptr %134, align 8
   tail call void @col_set_str(ptr noundef %.val2006, i32 noundef 34, ptr noundef nonnull @.str.575) #4
   %.not.i2202 = icmp eq ptr %2, null
-  br i1 %.not.i2202, label %start_dissecting.argprom.exit2204, label %135
+  br i1 %.not.i2202, label %start_dissecting.exit2204, label %135
 
-135:                                              ; preds = %process_RequestOperation.argprom.exit2201
+135:                                              ; preds = %process_RequestOperation.exit2201
   %136 = load i32, ptr @proto_gias, align 4
   %137 = load i32, ptr %3, align 4
   %138 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %137) #4
   %139 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %136, ptr noundef %0, i32 noundef %137, i32 noundef %138, i32 noundef 0) #4
   %140 = load i32, ptr @ett_gias, align 4
   %141 = tail call ptr @proto_item_add_subtree(ptr noundef %139, i32 noundef %140) #4
-  br label %start_dissecting.argprom.exit2204
+  br label %start_dissecting.exit2204
 
-start_dissecting.argprom.exit2204:                ; preds = %process_RequestOperation.argprom.exit2201, %135
+start_dissecting.exit2204:                        ; preds = %process_RequestOperation.exit2201, %135
   %142 = load i8, ptr %9, align 1
   switch i8 %142, label %148 [
-    i8 0, label %decode_user_exception.argprom.exit
+    i8 0, label %decode_user_exception.exit
     i8 1, label %143
   ]
 
-143:                                              ; preds = %start_dissecting.argprom.exit2204
+143:                                              ; preds = %start_dissecting.exit2204
   %144 = getelementptr inbounds i8, ptr %4, i64 16
   %145 = load i32, ptr %144, align 8
   %switch.i2205 = icmp ult i32 %145, 2
-  br i1 %switch.i2205, label %decode_user_exception.argprom.exit, label %146
+  br i1 %switch.i2205, label %decode_user_exception.exit, label %146
 
 146:                                              ; preds = %143
   %147 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %126, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.804, i32 noundef %145) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-148:                                              ; preds = %start_dissecting.argprom.exit2204
+148:                                              ; preds = %start_dissecting.exit2204
   %149 = zext i8 %142 to i32
   %150 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %126, ptr noundef nonnull @ei_gias_unknown_giop_msg, ptr noundef nonnull @.str.805, i32 noundef %149) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 151:                                              ; preds = %117, %113
   %152 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.725) #5
@@ -1573,51 +1573,51 @@ start_dissecting.argprom.exit2204:                ; preds = %process_RequestOper
   %163 = load i32, ptr @hf_operationrequest, align 4
   %164 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %163, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i2206 = icmp eq ptr %164, null
-  br i1 %.not.i.i2206, label %process_RequestOperation.argprom.exit2208, label %165
+  br i1 %.not.i.i2206, label %process_RequestOperation.exit2208, label %165
 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds i8, ptr %164, i64 32
   %167 = load ptr, ptr %166, align 8
   %.not5.i.i2207 = icmp eq ptr %167, null
-  br i1 %.not5.i.i2207, label %process_RequestOperation.argprom.exit2208, label %168
+  br i1 %.not5.i.i2207, label %process_RequestOperation.exit2208, label %168
 
 168:                                              ; preds = %165
   %169 = getelementptr inbounds i8, ptr %167, i64 28
   %170 = load i32, ptr %169, align 4
   %171 = or i32 %170, 2
   store i32 %171, ptr %169, align 4
-  br label %process_RequestOperation.argprom.exit2208
+  br label %process_RequestOperation.exit2208
 
-process_RequestOperation.argprom.exit2208:        ; preds = %162, %165, %168
+process_RequestOperation.exit2208:                ; preds = %162, %165, %168
   %172 = getelementptr i8, ptr %1, i64 8
   %.val2007 = load ptr, ptr %172, align 8
   tail call void @col_set_str(ptr noundef %.val2007, i32 noundef 34, ptr noundef nonnull @.str.575) #4
   %.not.i2209 = icmp eq ptr %2, null
-  br i1 %.not.i2209, label %start_dissecting.argprom.exit2211, label %173
+  br i1 %.not.i2209, label %start_dissecting.exit2211, label %173
 
-173:                                              ; preds = %process_RequestOperation.argprom.exit2208
+173:                                              ; preds = %process_RequestOperation.exit2208
   %174 = load i32, ptr @proto_gias, align 4
   %175 = load i32, ptr %3, align 4
   %176 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %175) #4
   %177 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %174, ptr noundef %0, i32 noundef %175, i32 noundef %176, i32 noundef 0) #4
   %178 = load i32, ptr @ett_gias, align 4
   %179 = tail call ptr @proto_item_add_subtree(ptr noundef %177, i32 noundef %178) #4
-  br label %start_dissecting.argprom.exit2211
+  br label %start_dissecting.exit2211
 
-start_dissecting.argprom.exit2211:                ; preds = %process_RequestOperation.argprom.exit2208, %173
-  %.0.i2210 = phi ptr [ %179, %173 ], [ null, %process_RequestOperation.argprom.exit2208 ]
+start_dissecting.exit2211:                        ; preds = %process_RequestOperation.exit2208, %173
+  %.0.i2210 = phi ptr [ %179, %173 ], [ null, %process_RequestOperation.exit2208 ]
   %180 = load i8, ptr %9, align 1
   switch i8 %180, label %194 [
-    i8 0, label %decode_user_exception.argprom.exit
+    i8 0, label %decode_user_exception.exit
     i8 1, label %181
   ]
 
-181:                                              ; preds = %start_dissecting.argprom.exit2211
+181:                                              ; preds = %start_dissecting.exit2211
   %182 = getelementptr inbounds i8, ptr %4, i64 16
   %183 = load i32, ptr %182, align 8
   switch i32 %183, label %192 [
     i32 0, label %184
-    i32 1, label %decode_user_exception.argprom.exit
+    i32 1, label %decode_user_exception.exit
   ]
 
 184:                                              ; preds = %181
@@ -1627,7 +1627,7 @@ start_dissecting.argprom.exit2211:                ; preds = %process_RequestOper
   %188 = add i32 %187, -4
   %189 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i2210, i32 noundef %186, ptr noundef %0, i32 noundef %188, i32 noundef 4, i32 noundef %185) #4
   %.not.i2212 = icmp eq i32 %185, 0
-  br i1 %.not.i2212, label %decode_user_exception.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i2212, label %decode_user_exception.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %184, %.lr.ph.i
   %.01.i = phi i32 [ %191, %.lr.ph.i ], [ 0, %184 ]
@@ -1635,16 +1635,16 @@ start_dissecting.argprom.exit2211:                ; preds = %process_RequestOper
   tail call void @giop_add_CDR_string(ptr noundef %.0.i2210, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 12, i32 noundef %190) #4
   %191 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %191, %185
-  br i1 %exitcond.not.i, label %decode_user_exception.argprom.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %decode_user_exception.exit, label %.lr.ph.i, !llvm.loop !6
 
 192:                                              ; preds = %181
   %193 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %164, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.804, i32 noundef %183) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-194:                                              ; preds = %start_dissecting.argprom.exit2211
+194:                                              ; preds = %start_dissecting.exit2211
   %195 = zext i8 %180 to i32
   %196 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %164, ptr noundef nonnull @ei_gias_unknown_giop_msg, ptr noundef nonnull @.str.805, i32 noundef %195) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 197:                                              ; preds = %155, %151
   %198 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(12) @.str.726) #5
@@ -1673,46 +1673,46 @@ start_dissecting.argprom.exit2211:                ; preds = %process_RequestOper
   %209 = load i32, ptr @hf_operationrequest, align 4
   %210 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %209, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i2213 = icmp eq ptr %210, null
-  br i1 %.not.i.i2213, label %process_RequestOperation.argprom.exit2215, label %211
+  br i1 %.not.i.i2213, label %process_RequestOperation.exit2215, label %211
 
 211:                                              ; preds = %208
   %212 = getelementptr inbounds i8, ptr %210, i64 32
   %213 = load ptr, ptr %212, align 8
   %.not5.i.i2214 = icmp eq ptr %213, null
-  br i1 %.not5.i.i2214, label %process_RequestOperation.argprom.exit2215, label %214
+  br i1 %.not5.i.i2214, label %process_RequestOperation.exit2215, label %214
 
 214:                                              ; preds = %211
   %215 = getelementptr inbounds i8, ptr %213, i64 28
   %216 = load i32, ptr %215, align 4
   %217 = or i32 %216, 2
   store i32 %217, ptr %215, align 4
-  br label %process_RequestOperation.argprom.exit2215
+  br label %process_RequestOperation.exit2215
 
-process_RequestOperation.argprom.exit2215:        ; preds = %208, %211, %214
+process_RequestOperation.exit2215:                ; preds = %208, %211, %214
   %218 = getelementptr i8, ptr %1, i64 8
   %.val2008 = load ptr, ptr %218, align 8
   tail call void @col_set_str(ptr noundef %.val2008, i32 noundef 34, ptr noundef nonnull @.str.575) #4
   %.not.i2216 = icmp eq ptr %2, null
-  br i1 %.not.i2216, label %start_dissecting.argprom.exit2218, label %219
+  br i1 %.not.i2216, label %start_dissecting.exit2218, label %219
 
-219:                                              ; preds = %process_RequestOperation.argprom.exit2215
+219:                                              ; preds = %process_RequestOperation.exit2215
   %220 = load i32, ptr @proto_gias, align 4
   %221 = load i32, ptr %3, align 4
   %222 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %221) #4
   %223 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %220, ptr noundef %0, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
   %224 = load i32, ptr @ett_gias, align 4
   %225 = tail call ptr @proto_item_add_subtree(ptr noundef %223, i32 noundef %224) #4
-  br label %start_dissecting.argprom.exit2218
+  br label %start_dissecting.exit2218
 
-start_dissecting.argprom.exit2218:                ; preds = %process_RequestOperation.argprom.exit2215, %219
-  %.0.i2217 = phi ptr [ %225, %219 ], [ null, %process_RequestOperation.argprom.exit2215 ]
+start_dissecting.exit2218:                        ; preds = %process_RequestOperation.exit2215, %219
+  %.0.i2217 = phi ptr [ %225, %219 ], [ null, %process_RequestOperation.exit2215 ]
   %226 = load i8, ptr %9, align 1
   switch i8 %226, label %238 [
     i8 0, label %227
     i8 1, label %232
   ]
 
-227:                                              ; preds = %start_dissecting.argprom.exit2218
+227:                                              ; preds = %start_dissecting.exit2218
   %228 = load i32, ptr @hf_GIAS_Library_get_manager_manager_type, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i2217, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %228) #4
   %229 = load i32, ptr @hf_GIAS_AccessCriteria_userID, align 4
@@ -1721,28 +1721,28 @@ start_dissecting.argprom.exit2218:                ; preds = %process_RequestOper
   tail call void @giop_add_CDR_string(ptr noundef %.0.i2217, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %230) #4
   %231 = load i32, ptr @hf_GIAS_AccessCriteria_licenseKey, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i2217, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %231) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-232:                                              ; preds = %start_dissecting.argprom.exit2218
+232:                                              ; preds = %start_dissecting.exit2218
   %233 = getelementptr inbounds i8, ptr %4, i64 16
   %234 = load i32, ptr %233, align 8
   switch i32 %234, label %236 [
     i32 0, label %235
-    i32 1, label %decode_user_exception.argprom.exit
+    i32 1, label %decode_user_exception.exit
   ]
 
 235:                                              ; preds = %232
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0.i2217, ptr noundef %3, i32 noundef %8, i32 noundef 12) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 236:                                              ; preds = %232
   %237 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %210, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.804, i32 noundef %234) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-238:                                              ; preds = %start_dissecting.argprom.exit2218
+238:                                              ; preds = %start_dissecting.exit2218
   %239 = zext i8 %226 to i32
   %240 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %210, ptr noundef nonnull @ei_gias_unknown_giop_msg, ptr noundef nonnull @.str.805, i32 noundef %239) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 241:                                              ; preds = %201, %197
   %242 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(24) @.str.727) #5
@@ -1771,51 +1771,51 @@ start_dissecting.argprom.exit2218:                ; preds = %process_RequestOper
   %253 = load i32, ptr @hf_operationrequest, align 4
   %254 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %253, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i2219 = icmp eq ptr %254, null
-  br i1 %.not.i.i2219, label %process_RequestOperation.argprom.exit2221, label %255
+  br i1 %.not.i.i2219, label %process_RequestOperation.exit2221, label %255
 
 255:                                              ; preds = %252
   %256 = getelementptr inbounds i8, ptr %254, i64 32
   %257 = load ptr, ptr %256, align 8
   %.not5.i.i2220 = icmp eq ptr %257, null
-  br i1 %.not5.i.i2220, label %process_RequestOperation.argprom.exit2221, label %258
+  br i1 %.not5.i.i2220, label %process_RequestOperation.exit2221, label %258
 
 258:                                              ; preds = %255
   %259 = getelementptr inbounds i8, ptr %257, i64 28
   %260 = load i32, ptr %259, align 4
   %261 = or i32 %260, 2
   store i32 %261, ptr %259, align 4
-  br label %process_RequestOperation.argprom.exit2221
+  br label %process_RequestOperation.exit2221
 
-process_RequestOperation.argprom.exit2221:        ; preds = %252, %255, %258
+process_RequestOperation.exit2221:                ; preds = %252, %255, %258
   %262 = getelementptr i8, ptr %1, i64 8
   %.val2009 = load ptr, ptr %262, align 8
   tail call void @col_set_str(ptr noundef %.val2009, i32 noundef 34, ptr noundef nonnull @.str.575) #4
   %.not.i2222 = icmp eq ptr %2, null
-  br i1 %.not.i2222, label %start_dissecting.argprom.exit2224, label %263
+  br i1 %.not.i2222, label %start_dissecting.exit2224, label %263
 
-263:                                              ; preds = %process_RequestOperation.argprom.exit2221
+263:                                              ; preds = %process_RequestOperation.exit2221
   %264 = load i32, ptr @proto_gias, align 4
   %265 = load i32, ptr %3, align 4
   %266 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %265) #4
   %267 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %264, ptr noundef %0, i32 noundef %265, i32 noundef %266, i32 noundef 0) #4
   %268 = load i32, ptr @ett_gias, align 4
   %269 = tail call ptr @proto_item_add_subtree(ptr noundef %267, i32 noundef %268) #4
-  br label %start_dissecting.argprom.exit2224
+  br label %start_dissecting.exit2224
 
-start_dissecting.argprom.exit2224:                ; preds = %process_RequestOperation.argprom.exit2221, %263
-  %.0.i2223 = phi ptr [ %269, %263 ], [ null, %process_RequestOperation.argprom.exit2221 ]
+start_dissecting.exit2224:                        ; preds = %process_RequestOperation.exit2221, %263
+  %.0.i2223 = phi ptr [ %269, %263 ], [ null, %process_RequestOperation.exit2221 ]
   %270 = load i8, ptr %9, align 1
   switch i8 %270, label %280 [
-    i8 0, label %decode_user_exception.argprom.exit
+    i8 0, label %decode_user_exception.exit
     i8 1, label %271
   ]
 
-271:                                              ; preds = %start_dissecting.argprom.exit2224
+271:                                              ; preds = %start_dissecting.exit2224
   %272 = getelementptr inbounds i8, ptr %4, i64 16
   %273 = load i32, ptr %272, align 8
   switch i32 %273, label %278 [
     i32 0, label %274
-    i32 1, label %decode_user_exception.argprom.exit
+    i32 1, label %decode_user_exception.exit
   ]
 
 274:                                              ; preds = %271
@@ -1825,16 +1825,16 @@ start_dissecting.argprom.exit2224:                ; preds = %process_RequestOper
   tail call void @giop_add_CDR_string(ptr noundef %.0.i2223, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %276) #4
   %277 = load i32, ptr @hf_GIAS_LibraryDescription_library_version_number, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i2223, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %277) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 278:                                              ; preds = %271
   %279 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %254, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.804, i32 noundef %273) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-280:                                              ; preds = %start_dissecting.argprom.exit2224
+280:                                              ; preds = %start_dissecting.exit2224
   %281 = zext i8 %270 to i32
   %282 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %254, ptr noundef nonnull @ei_gias_unknown_giop_msg, ptr noundef nonnull @.str.805, i32 noundef %281) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 283:                                              ; preds = %245, %241
   %284 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(20) @.str.728) #5
@@ -1863,60 +1863,60 @@ start_dissecting.argprom.exit2224:                ; preds = %process_RequestOper
   %295 = load i32, ptr @hf_operationrequest, align 4
   %296 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %295, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
   %.not.i.i2225 = icmp eq ptr %296, null
-  br i1 %.not.i.i2225, label %process_RequestOperation.argprom.exit2227, label %297
+  br i1 %.not.i.i2225, label %process_RequestOperation.exit2227, label %297
 
 297:                                              ; preds = %294
   %298 = getelementptr inbounds i8, ptr %296, i64 32
   %299 = load ptr, ptr %298, align 8
   %.not5.i.i2226 = icmp eq ptr %299, null
-  br i1 %.not5.i.i2226, label %process_RequestOperation.argprom.exit2227, label %300
+  br i1 %.not5.i.i2226, label %process_RequestOperation.exit2227, label %300
 
 300:                                              ; preds = %297
   %301 = getelementptr inbounds i8, ptr %299, i64 28
   %302 = load i32, ptr %301, align 4
   %303 = or i32 %302, 2
   store i32 %303, ptr %301, align 4
-  br label %process_RequestOperation.argprom.exit2227
+  br label %process_RequestOperation.exit2227
 
-process_RequestOperation.argprom.exit2227:        ; preds = %294, %297, %300
+process_RequestOperation.exit2227:                ; preds = %294, %297, %300
   %304 = getelementptr i8, ptr %1, i64 8
   %.val2010 = load ptr, ptr %304, align 8
   tail call void @col_set_str(ptr noundef %.val2010, i32 noundef 34, ptr noundef nonnull @.str.575) #4
   %.not.i2228 = icmp eq ptr %2, null
-  br i1 %.not.i2228, label %start_dissecting.argprom.exit2230, label %305
+  br i1 %.not.i2228, label %start_dissecting.exit2230, label %305
 
-305:                                              ; preds = %process_RequestOperation.argprom.exit2227
+305:                                              ; preds = %process_RequestOperation.exit2227
   %306 = load i32, ptr @proto_gias, align 4
   %307 = load i32, ptr %3, align 4
   %308 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %307) #4
   %309 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %306, ptr noundef %0, i32 noundef %307, i32 noundef %308, i32 noundef 0) #4
   %310 = load i32, ptr @ett_gias, align 4
   %311 = tail call ptr @proto_item_add_subtree(ptr noundef %309, i32 noundef %310) #4
-  br label %start_dissecting.argprom.exit2230
+  br label %start_dissecting.exit2230
 
-start_dissecting.argprom.exit2230:                ; preds = %process_RequestOperation.argprom.exit2227, %305
-  %.0.i2229 = phi ptr [ %311, %305 ], [ null, %process_RequestOperation.argprom.exit2227 ]
+start_dissecting.exit2230:                        ; preds = %process_RequestOperation.exit2227, %305
+  %.0.i2229 = phi ptr [ %311, %305 ], [ null, %process_RequestOperation.exit2227 ]
   %312 = load i8, ptr %9, align 1
   switch i8 %312, label %332 [
     i8 0, label %313
     i8 1, label %317
   ]
 
-313:                                              ; preds = %start_dissecting.argprom.exit2230
+313:                                              ; preds = %start_dissecting.exit2230
   %314 = load i32, ptr @hf_GIAS_AccessCriteria_userID, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i2229, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %314) #4
   %315 = load i32, ptr @hf_GIAS_AccessCriteria_password, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i2229, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %315) #4
   %316 = load i32, ptr @hf_GIAS_AccessCriteria_licenseKey, align 4
   tail call void @giop_add_CDR_string(ptr noundef %.0.i2229, ptr noundef %0, ptr noundef %3, i32 noundef %8, i32 noundef 12, i32 noundef %316) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-317:                                              ; preds = %start_dissecting.argprom.exit2230
+317:                                              ; preds = %start_dissecting.exit2230
   %318 = getelementptr inbounds i8, ptr %4, i64 16
   %319 = load i32, ptr %318, align 8
   switch i32 %319, label %330 [
     i32 0, label %320
-    i32 1, label %decode_user_exception.argprom.exit
+    i32 1, label %decode_user_exception.exit
   ]
 
 320:                                              ; preds = %317
@@ -1926,7 +1926,7 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   %324 = add i32 %323, -4
   %325 = tail call ptr @proto_tree_add_uint(ptr noundef %.0.i2229, i32 noundef %322, ptr noundef %0, i32 noundef %324, i32 noundef 4, i32 noundef %321) #4
   %.not.i2231 = icmp eq i32 %321, 0
-  br i1 %.not.i2231, label %decode_user_exception.argprom.exit, label %.lr.ph.i2232
+  br i1 %.not.i2231, label %decode_user_exception.exit, label %.lr.ph.i2232
 
 .lr.ph.i2232:                                     ; preds = %320, %.lr.ph.i2232
   %.01.i2233 = phi i32 [ %329, %.lr.ph.i2232 ], [ 0, %320 ]
@@ -1938,16 +1938,16 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   tail call void @giop_add_CDR_string(ptr noundef %.0.i2229, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 12, i32 noundef %328) #4
   %329 = add nuw i32 %.01.i2233, 1
   %exitcond.not.i2234 = icmp eq i32 %329, %321
-  br i1 %exitcond.not.i2234, label %decode_user_exception.argprom.exit, label %.lr.ph.i2232, !llvm.loop !7
+  br i1 %exitcond.not.i2234, label %decode_user_exception.exit, label %.lr.ph.i2232, !llvm.loop !7
 
 330:                                              ; preds = %317
   %331 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %296, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.804, i32 noundef %319) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
-332:                                              ; preds = %start_dissecting.argprom.exit2230
+332:                                              ; preds = %start_dissecting.exit2230
   %333 = zext i8 %312 to i32
   %334 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %296, ptr noundef nonnull @ei_gias_unknown_giop_msg, ptr noundef nonnull @.str.805, i32 noundef %333) #4
-  br label %decode_user_exception.argprom.exit
+  br label %decode_user_exception.exit
 
 335:                                              ; preds = %287, %283
   %336 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(19) @.str.729) #5
@@ -1964,12 +1964,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %341, label %342, label %346
 
 342:                                              ; preds = %339, %338
-  %343 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %343 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %344 = getelementptr i8, ptr %1, i64 8
   %.val2011 = load ptr, ptr %344, align 8
-  %345 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2011, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_LibraryManager_get_property_names.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %345, ptr noundef %343, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %345 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2011, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_LibraryManager_get_property_names(ptr noundef %0, ptr noundef %1, ptr noundef %345, ptr noundef %343, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 346:                                              ; preds = %339, %335
   %347 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(20) @.str.730) #5
@@ -1986,12 +1986,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %352, label %353, label %357
 
 353:                                              ; preds = %350, %349
-  %354 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %354 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %355 = getelementptr i8, ptr %1, i64 8
   %.val2012 = load ptr, ptr %355, align 8
-  %356 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2012, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_LibraryManager_get_property_values.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %356, ptr noundef %354, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %356 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2012, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_LibraryManager_get_property_values(ptr noundef %0, ptr noundef %1, ptr noundef %356, ptr noundef %354, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 357:                                              ; preds = %350, %346
   %358 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(14) @.str.731) #5
@@ -2008,12 +2008,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %363, label %364, label %368
 
 364:                                              ; preds = %361, %360
-  %365 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %365 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %366 = getelementptr i8, ptr %1, i64 8
   %.val2013 = load ptr, ptr %366, align 8
-  %367 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2013, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_LibraryManager_get_libraries.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %367, ptr noundef %365, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %367 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2013, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_LibraryManager_get_libraries(ptr noundef %0, ptr noundef %1, ptr noundef %367, ptr noundef %365, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 368:                                              ; preds = %361, %357
   %369 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(20) @.str.732) #5
@@ -2030,12 +2030,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %374, label %375, label %379
 
 375:                                              ; preds = %372, %371
-  %376 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %376 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %377 = getelementptr i8, ptr %1, i64 8
   %.val2014 = load ptr, ptr %377, align 8
-  %378 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2014, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_RequestManager_get_active_requests.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %378, ptr noundef %376, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %378 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2014, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_RequestManager_get_active_requests(ptr noundef %0, ptr noundef %1, ptr noundef %378, ptr noundef %376, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 379:                                              ; preds = %372, %368
   %380 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(20) @.str.733) #5
@@ -2052,12 +2052,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %385, label %386, label %390
 
 386:                                              ; preds = %383, %382
-  %387 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %387 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %388 = getelementptr i8, ptr %1, i64 8
   %.val2015 = load ptr, ptr %388, align 8
-  %389 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2015, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_RequestManager_get_default_timeout.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %389, ptr noundef %387, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %389 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2015, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_RequestManager_get_default_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %389, ptr noundef %387, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 390:                                              ; preds = %383, %379
   %391 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(20) @.str.734) #5
@@ -2074,12 +2074,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %396, label %397, label %401
 
 397:                                              ; preds = %394, %393
-  %398 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %398 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %399 = getelementptr i8, ptr %1, i64 8
   %.val2016 = load ptr, ptr %399, align 8
-  %400 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2016, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_RequestManager_set_default_timeout.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %400, ptr noundef %398, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %400 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2016, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_RequestManager_set_default_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %400, ptr noundef %398, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 401:                                              ; preds = %394, %390
   %402 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(12) @.str.735) #5
@@ -2096,12 +2096,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %407, label %408, label %412
 
 408:                                              ; preds = %405, %404
-  %409 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %409 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %410 = getelementptr i8, ptr %1, i64 8
   %.val2017 = load ptr, ptr %410, align 8
-  %411 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2017, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_RequestManager_get_timeout.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %411, ptr noundef %409, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %411 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2017, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_RequestManager_get_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %411, ptr noundef %409, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 412:                                              ; preds = %405, %401
   %413 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(12) @.str.736) #5
@@ -2118,12 +2118,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %418, label %419, label %423
 
 419:                                              ; preds = %416, %415
-  %420 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %420 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %421 = getelementptr i8, ptr %1, i64 8
   %.val2018 = load ptr, ptr %421, align 8
-  %422 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2018, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_RequestManager_set_timeout.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %422, ptr noundef %420, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %422 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2018, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_RequestManager_set_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %422, ptr noundef %420, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 423:                                              ; preds = %416, %412
   %424 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(15) @.str.737) #5
@@ -2140,12 +2140,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %429, label %430, label %434
 
 430:                                              ; preds = %427, %426
-  %431 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %431 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %432 = getelementptr i8, ptr %1, i64 8
   %.val2019 = load ptr, ptr %432, align 8
-  %433 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2019, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_RequestManager_delete_request.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %433, ptr noundef %431, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %433 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2019, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_RequestManager_delete_request(ptr noundef %0, ptr noundef %1, ptr noundef %433, ptr noundef %431, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 434:                                              ; preds = %427, %423
   %435 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(14) @.str.738) #5
@@ -2162,12 +2162,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %440, label %441, label %445
 
 441:                                              ; preds = %438, %437
-  %442 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %442 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %443 = getelementptr i8, ptr %1, i64 8
   %.val2020 = load ptr, ptr %443, align 8
-  %444 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2020, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_AccessManager_get_use_modes.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %444, ptr noundef %442, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %444 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2020, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_AccessManager_get_use_modes(ptr noundef %0, ptr noundef %1, ptr noundef %444, ptr noundef %442, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 445:                                              ; preds = %438, %434
   %446 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(13) @.str.739) #5
@@ -2184,12 +2184,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %451, label %452, label %456
 
 452:                                              ; preds = %449, %448
-  %453 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %453 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %454 = getelementptr i8, ptr %1, i64 8
   %.val2021 = load ptr, ptr %454, align 8
-  %455 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2021, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_AccessManager_is_available.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %455, ptr noundef %453, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %455 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2021, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_AccessManager_is_available(ptr noundef %0, ptr noundef %1, ptr noundef %455, ptr noundef %453, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 456:                                              ; preds = %449, %445
   %457 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(25) @.str.740) #5
@@ -2206,12 +2206,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %462, label %463, label %467
 
 463:                                              ; preds = %460, %459
-  %464 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %464 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %465 = getelementptr i8, ptr %1, i64 8
   %.val2022 = load ptr, ptr %465, align 8
-  %466 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2022, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_AccessManager_query_availability_delay.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %466, ptr noundef %464, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %466 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2022, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_AccessManager_query_availability_delay(ptr noundef %0, ptr noundef %1, ptr noundef %466, ptr noundef %464, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 467:                                              ; preds = %460, %456
   %468 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(25) @.str.741) #5
@@ -2228,12 +2228,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %473, label %474, label %478
 
 474:                                              ; preds = %471, %470
-  %475 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %475 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %476 = getelementptr i8, ptr %1, i64 8
   %.val2023 = load ptr, ptr %476, align 8
-  %477 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2023, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_AccessManager_get_number_of_priorities.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %477, ptr noundef %475, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %477 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2023, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_AccessManager_get_number_of_priorities(ptr noundef %0, ptr noundef %1, ptr noundef %477, ptr noundef %475, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 478:                                              ; preds = %471, %467
   %479 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(17) @.str.742) #5
@@ -2250,12 +2250,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %484, label %485, label %489
 
 485:                                              ; preds = %482, %481
-  %486 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %486 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %487 = getelementptr i8, ptr %1, i64 8
   %.val2024 = load ptr, ptr %487, align 8
-  %488 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2024, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_AccessManager_set_availability.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %488, ptr noundef %486, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %488 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2024, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_AccessManager_set_availability(ptr noundef %0, ptr noundef %1, ptr noundef %488, ptr noundef %486, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 489:                                              ; preds = %482, %478
   %490 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(23) @.str.743) #5
@@ -2272,12 +2272,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %495, label %496, label %500
 
 496:                                              ; preds = %493, %492
-  %497 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %497 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %498 = getelementptr i8, ptr %1, i64 8
   %.val2025 = load ptr, ptr %498, align 8
-  %499 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2025, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_QueryOrderMgr_get_event_descriptions.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %499, ptr noundef %497, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %499 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2025, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_QueryOrderMgr_get_event_descriptions(ptr noundef %0, ptr noundef %1, ptr noundef %499, ptr noundef %497, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 500:                                              ; preds = %493, %489
   %501 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(19) @.str.744) #5
@@ -2294,12 +2294,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %506, label %507, label %511
 
 507:                                              ; preds = %504, %503
-  %508 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %508 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %509 = getelementptr i8, ptr %1, i64 8
   %.val2026 = load ptr, ptr %509, align 8
-  %510 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2026, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_QueryOrderMgr_submit_query_order.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %510, ptr noundef %508, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %510 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2026, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_QueryOrderMgr_submit_query_order(ptr noundef %0, ptr noundef %1, ptr noundef %510, ptr noundef %508, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 511:                                              ; preds = %504, %500
   %512 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(27) @.str.745) #5
@@ -2316,12 +2316,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %517, label %518, label %522
 
 518:                                              ; preds = %515, %514
-  %519 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %519 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %520 = getelementptr i8, ptr %1, i64 8
   %.val2027 = load ptr, ptr %520, align 8
-  %521 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2027, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_OrderMgr_get_package_specifications.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %521, ptr noundef %519, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %521 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2027, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_OrderMgr_get_package_specifications(ptr noundef %0, ptr noundef %1, ptr noundef %521, ptr noundef %519, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 522:                                              ; preds = %515, %511
   %523 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(15) @.str.746) #5
@@ -2338,12 +2338,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %528, label %529, label %533
 
 529:                                              ; preds = %526, %525
-  %530 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %530 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %531 = getelementptr i8, ptr %1, i64 8
   %.val2028 = load ptr, ptr %531, align 8
-  %532 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2028, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_OrderMgr_validate_order.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %532, ptr noundef %530, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %532 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2028, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_OrderMgr_validate_order(ptr noundef %0, ptr noundef %1, ptr noundef %532, ptr noundef %530, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 533:                                              ; preds = %526, %522
   %534 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(6) @.str.747) #5
@@ -2360,12 +2360,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %539, label %540, label %544
 
 540:                                              ; preds = %537, %536
-  %541 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %541 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %542 = getelementptr i8, ptr %1, i64 8
   %.val2029 = load ptr, ptr %542, align 8
-  %543 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2029, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_OrderMgr_order.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %543, ptr noundef %541, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %543 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2029, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_OrderMgr_order(ptr noundef %0, ptr noundef %1, ptr noundef %543, ptr noundef %541, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 544:                                              ; preds = %537, %533
   %545 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(20) @.str.748) #5
@@ -2382,12 +2382,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %550, label %551, label %555
 
 551:                                              ; preds = %548, %547
-  %552 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %552 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %553 = getelementptr i8, ptr %1, i64 8
   %.val2030 = load ptr, ptr %553, align 8
-  %554 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2030, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_DataModelMgr_get_data_model_date.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %554, ptr noundef %552, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %554 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2030, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_DataModelMgr_get_data_model_date(ptr noundef %0, ptr noundef %1, ptr noundef %554, ptr noundef %552, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 555:                                              ; preds = %548, %544
   %556 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(21) @.str.749) #5
@@ -2404,12 +2404,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %561, label %562, label %566
 
 562:                                              ; preds = %559, %558
-  %563 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %563 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %564 = getelementptr i8, ptr %1, i64 8
   %.val2031 = load ptr, ptr %564, align 8
-  %565 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2031, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_DataModelMgr_get_alias_categories.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %565, ptr noundef %563, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %565 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2031, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_DataModelMgr_get_alias_categories(ptr noundef %0, ptr noundef %1, ptr noundef %565, ptr noundef %563, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 566:                                              ; preds = %559, %555
   %567 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(20) @.str.750) #5
@@ -2426,12 +2426,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %572, label %573, label %577
 
 573:                                              ; preds = %570, %569
-  %574 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %574 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %575 = getelementptr i8, ptr %1, i64 8
   %.val2032 = load ptr, ptr %575, align 8
-  %576 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2032, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_DataModelMgr_get_logical_aliases.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %576, ptr noundef %574, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %576 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2032, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_DataModelMgr_get_logical_aliases(ptr noundef %0, ptr noundef %1, ptr noundef %576, ptr noundef %574, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 577:                                              ; preds = %570, %566
   %578 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(27) @.str.751) #5
@@ -2448,12 +2448,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %583, label %584, label %588
 
 584:                                              ; preds = %581, %580
-  %585 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %585 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %586 = getelementptr i8, ptr %1, i64 8
   %.val2033 = load ptr, ptr %586, align 8
-  %587 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2033, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_DataModelMgr_get_logical_attribute_name.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %587, ptr noundef %585, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %587 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2033, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_DataModelMgr_get_logical_attribute_name(ptr noundef %0, ptr noundef %1, ptr noundef %587, ptr noundef %585, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 588:                                              ; preds = %581, %577
   %589 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(15) @.str.752) #5
@@ -2470,12 +2470,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %594, label %595, label %599
 
 595:                                              ; preds = %592, %591
-  %596 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %596 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %597 = getelementptr i8, ptr %1, i64 8
   %.val2034 = load ptr, ptr %597, align 8
-  %598 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2034, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_DataModelMgr_get_view_names.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %598, ptr noundef %596, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %598 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2034, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_DataModelMgr_get_view_names(ptr noundef %0, ptr noundef %1, ptr noundef %598, ptr noundef %596, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 599:                                              ; preds = %592, %588
   %600 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(15) @.str.753) #5
@@ -2492,12 +2492,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %605, label %606, label %610
 
 606:                                              ; preds = %603, %602
-  %607 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %607 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %608 = getelementptr i8, ptr %1, i64 8
   %.val2035 = load ptr, ptr %608, align 8
-  %609 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2035, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_DataModelMgr_get_attributes.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %609, ptr noundef %607, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %609 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2035, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_DataModelMgr_get_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %609, ptr noundef %607, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 610:                                              ; preds = %603, %599
   %611 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(25) @.str.754) #5
@@ -2514,12 +2514,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %616, label %617, label %621
 
 617:                                              ; preds = %614, %613
-  %618 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %618 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %619 = getelementptr i8, ptr %1, i64 8
   %.val2036 = load ptr, ptr %619, align 8
-  %620 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2036, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_DataModelMgr_get_queryable_attributes.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %620, ptr noundef %618, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %620 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2036, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_DataModelMgr_get_queryable_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %620, ptr noundef %618, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 621:                                              ; preds = %614, %610
   %622 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(13) @.str.755) #5
@@ -2536,12 +2536,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %627, label %628, label %632
 
 628:                                              ; preds = %625, %624
-  %629 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %629 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %630 = getelementptr i8, ptr %1, i64 8
   %.val2037 = load ptr, ptr %630, align 8
-  %631 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2037, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_DataModelMgr_get_entities.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %631, ptr noundef %629, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %631 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2037, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_DataModelMgr_get_entities(ptr noundef %0, ptr noundef %1, ptr noundef %631, ptr noundef %629, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 632:                                              ; preds = %625, %621
   %633 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(22) @.str.756) #5
@@ -2558,12 +2558,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %638, label %639, label %643
 
 639:                                              ; preds = %636, %635
-  %640 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %640 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %641 = getelementptr i8, ptr %1, i64 8
   %.val2038 = load ptr, ptr %641, align 8
-  %642 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2038, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_DataModelMgr_get_entity_attributes.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %642, ptr noundef %640, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %642 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2038, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_DataModelMgr_get_entity_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %642, ptr noundef %640, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 643:                                              ; preds = %636, %632
   %644 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(17) @.str.757) #5
@@ -2580,12 +2580,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %649, label %650, label %654
 
 650:                                              ; preds = %647, %646
-  %651 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %651 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %652 = getelementptr i8, ptr %1, i64 8
   %.val2039 = load ptr, ptr %652, align 8
-  %653 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2039, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_DataModelMgr_get_associations.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %653, ptr noundef %651, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %653 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2039, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_DataModelMgr_get_associations(ptr noundef %0, ptr noundef %1, ptr noundef %653, ptr noundef %651, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 654:                                              ; preds = %647, %643
   %655 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(17) @.str.758) #5
@@ -2602,12 +2602,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %660, label %661, label %665
 
 661:                                              ; preds = %658, %657
-  %662 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %662 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %663 = getelementptr i8, ptr %1, i64 8
   %.val2040 = load ptr, ptr %663, align 8
-  %664 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2040, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_DataModelMgr_get_max_vertices.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %664, ptr noundef %662, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %664 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2040, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_DataModelMgr_get_max_vertices(ptr noundef %0, ptr noundef %1, ptr noundef %664, ptr noundef %662, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 665:                                              ; preds = %658, %654
   %666 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.759) #5
@@ -2624,12 +2624,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %671, label %672, label %676
 
 672:                                              ; preds = %669, %668
-  %673 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %673 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %674 = getelementptr i8, ptr %1, i64 8
   %.val2041 = load ptr, ptr %674, align 8
-  %675 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2041, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_CreationMgr_create.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %675, ptr noundef %673, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %675 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2041, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_CreationMgr_create(ptr noundef %0, ptr noundef %1, ptr noundef %675, ptr noundef %673, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 676:                                              ; preds = %669, %665
   %677 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(16) @.str.760) #5
@@ -2646,12 +2646,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %682, label %683, label %687
 
 683:                                              ; preds = %680, %679
-  %684 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %684 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %685 = getelementptr i8, ptr %1, i64 8
   %.val2042 = load ptr, ptr %685, align 8
-  %686 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2042, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_CreationMgr_create_metadata.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %686, ptr noundef %684, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %686 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2042, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_CreationMgr_create_metadata(ptr noundef %0, ptr noundef %1, ptr noundef %686, ptr noundef %684, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 687:                                              ; preds = %680, %676
   %688 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(19) @.str.761) #5
@@ -2668,12 +2668,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %693, label %694, label %698
 
 694:                                              ; preds = %691, %690
-  %695 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %695 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %696 = getelementptr i8, ptr %1, i64 8
   %.val2043 = load ptr, ptr %696, align 8
-  %697 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2043, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_CreationMgr_create_association.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %697, ptr noundef %695, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %697 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2043, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_CreationMgr_create_association(ptr noundef %0, ptr noundef %1, ptr noundef %697, ptr noundef %695, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 698:                                              ; preds = %691, %687
   %699 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(9) @.str.762) #5
@@ -2690,12 +2690,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %704, label %705, label %709
 
 705:                                              ; preds = %702, %701
-  %706 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %706 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %707 = getelementptr i8, ptr %1, i64 8
   %.val2044 = load ptr, ptr %707, align 8
-  %708 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2044, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_UpdateMgr_set_lock.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %708, ptr noundef %706, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %708 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2044, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_UpdateMgr_set_lock(ptr noundef %0, ptr noundef %1, ptr noundef %708, ptr noundef %706, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 709:                                              ; preds = %702, %698
   %710 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.763) #5
@@ -2712,12 +2712,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %715, label %716, label %720
 
 716:                                              ; preds = %713, %712
-  %717 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %717 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %718 = getelementptr i8, ptr %1, i64 8
   %.val2045 = load ptr, ptr %718, align 8
-  %719 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2045, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_UpdateMgr_update.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %719, ptr noundef %717, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %719 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2045, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_UpdateMgr_update(ptr noundef %0, ptr noundef %1, ptr noundef %719, ptr noundef %717, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 720:                                              ; preds = %713, %709
   %721 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(16) @.str.764) #5
@@ -2734,12 +2734,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %726, label %727, label %731
 
 727:                                              ; preds = %724, %723
-  %728 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %728 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %729 = getelementptr i8, ptr %1, i64 8
   %.val2046 = load ptr, ptr %729, align 8
-  %730 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2046, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_UpdateMgr_update_by_query.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %730, ptr noundef %728, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %730 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2046, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_UpdateMgr_update_by_query(ptr noundef %0, ptr noundef %1, ptr noundef %730, ptr noundef %728, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 731:                                              ; preds = %724, %720
   %732 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(13) @.str.765) #5
@@ -2756,12 +2756,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %737, label %738, label %742
 
 738:                                              ; preds = %735, %734
-  %739 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %739 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %740 = getelementptr i8, ptr %1, i64 8
   %.val2047 = load ptr, ptr %740, align 8
-  %741 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2047, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_UpdateMgr_release_lock.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %741, ptr noundef %739, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %741 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2047, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_UpdateMgr_release_lock(ptr noundef %0, ptr noundef %1, ptr noundef %741, ptr noundef %739, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 742:                                              ; preds = %735, %731
   %743 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(15) @.str.766) #5
@@ -2778,12 +2778,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %748, label %749, label %753
 
 749:                                              ; preds = %746, %745
-  %750 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %750 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %751 = getelementptr i8, ptr %1, i64 8
   %.val2048 = load ptr, ptr %751, align 8
-  %752 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2048, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_UpdateMgr_delete_product.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %752, ptr noundef %750, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %752 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2048, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_UpdateMgr_delete_product(ptr noundef %0, ptr noundef %1, ptr noundef %752, ptr noundef %750, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 753:                                              ; preds = %746, %742
   %754 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(13) @.str.767) #5
@@ -2800,12 +2800,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %759, label %760, label %764
 
 760:                                              ; preds = %757, %756
-  %761 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %761 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %762 = getelementptr i8, ptr %1, i64 8
   %.val2049 = load ptr, ptr %762, align 8
-  %763 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2049, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_CatalogMgr_submit_query.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %763, ptr noundef %761, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %763 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2049, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_CatalogMgr_submit_query(ptr noundef %0, ptr noundef %1, ptr noundef %763, ptr noundef %761, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 764:                                              ; preds = %757, %753
   %765 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(10) @.str.768) #5
@@ -2822,12 +2822,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %770, label %771, label %775
 
 771:                                              ; preds = %768, %767
-  %772 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %772 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %773 = getelementptr i8, ptr %1, i64 8
   %.val2050 = load ptr, ptr %773, align 8
-  %774 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2050, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_CatalogMgr_hit_count.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %774, ptr noundef %772, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %774 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2050, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_CatalogMgr_hit_count(ptr noundef %0, ptr noundef %1, ptr noundef %774, ptr noundef %772, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 775:                                              ; preds = %768, %764
   br i1 %491, label %776, label %784
@@ -2842,12 +2842,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %779, label %780, label %784
 
 780:                                              ; preds = %777, %776
-  %781 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %781 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %782 = getelementptr i8, ptr %1, i64 8
   %.val2051 = load ptr, ptr %782, align 8
-  %783 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2051, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_StandingQueryMgr_get_event_descriptions.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %783, ptr noundef %781, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %783 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2051, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_StandingQueryMgr_get_event_descriptions(ptr noundef %0, ptr noundef %1, ptr noundef %783, ptr noundef %781, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 784:                                              ; preds = %777, %775
   %785 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(22) @.str.769) #5
@@ -2864,12 +2864,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %790, label %791, label %795
 
 791:                                              ; preds = %788, %787
-  %792 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %792 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %793 = getelementptr i8, ptr %1, i64 8
   %.val2052 = load ptr, ptr %793, align 8
-  %794 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2052, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %794, ptr noundef %792, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %794 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2052, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query(ptr noundef %0, ptr noundef %1, ptr noundef %794, ptr noundef %792, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 795:                                              ; preds = %788, %784
   %796 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(15) @.str.770) #5
@@ -2886,12 +2886,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %801, label %802, label %806
 
 802:                                              ; preds = %799, %798
-  %803 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %803 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %804 = getelementptr i8, ptr %1, i64 8
   %.val2053 = load ptr, ptr %804, align 8
-  %805 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2053, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_ProductMgr_get_parameters.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %805, ptr noundef %803, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %805 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2053, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_ProductMgr_get_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %805, ptr noundef %803, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 806:                                              ; preds = %799, %795
   %807 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(23) @.str.771) #5
@@ -2908,12 +2908,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %812, label %813, label %817
 
 813:                                              ; preds = %810, %809
-  %814 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %814 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %815 = getelementptr i8, ptr %1, i64 8
   %.val2054 = load ptr, ptr %815, align 8
-  %816 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2054, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_ProductMgr_get_related_file_types.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %816, ptr noundef %814, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %816 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2054, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_ProductMgr_get_related_file_types(ptr noundef %0, ptr noundef %1, ptr noundef %816, ptr noundef %814, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 817:                                              ; preds = %810, %806
   %818 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.772) #5
@@ -2930,12 +2930,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %823, label %824, label %828
 
 824:                                              ; preds = %821, %820
-  %825 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %825 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %826 = getelementptr i8, ptr %1, i64 8
   %.val2055 = load ptr, ptr %826, align 8
-  %827 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2055, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_ProductMgr_get_related_files.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %827, ptr noundef %825, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %827 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2055, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_ProductMgr_get_related_files(ptr noundef %0, ptr noundef %1, ptr noundef %827, ptr noundef %825, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 828:                                              ; preds = %821, %817
   %829 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(10) @.str.773) #5
@@ -2952,12 +2952,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %834, label %835, label %839
 
 835:                                              ; preds = %832, %831
-  %836 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %836 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %837 = getelementptr i8, ptr %1, i64 8
   %.val2056 = load ptr, ptr %837, align 8
-  %838 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2056, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_IngestMgr_bulk_pull.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %838, ptr noundef %836, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %838 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2056, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_IngestMgr_bulk_pull(ptr noundef %0, ptr noundef %1, ptr noundef %838, ptr noundef %836, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 839:                                              ; preds = %832, %828
   %840 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(10) @.str.774) #5
@@ -2974,12 +2974,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %845, label %846, label %850
 
 846:                                              ; preds = %843, %842
-  %847 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %847 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %848 = getelementptr i8, ptr %1, i64 8
   %.val2057 = load ptr, ptr %848, align 8
-  %849 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2057, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_IngestMgr_bulk_push.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %849, ptr noundef %847, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %849 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2057, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_IngestMgr_bulk_push(ptr noundef %0, ptr noundef %1, ptr noundef %849, ptr noundef %847, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 850:                                              ; preds = %843, %839
   %851 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(24) @.str.775) #5
@@ -2996,12 +2996,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %856, label %857, label %861
 
 857:                                              ; preds = %854, %853
-  %858 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %858 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %859 = getelementptr i8, ptr %1, i64 8
   %.val2058 = load ptr, ptr %859, align 8
-  %860 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2058, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_Request_get_request_description.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %860, ptr noundef %858, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %860 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2058, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_Request_get_request_description(ptr noundef %0, ptr noundef %1, ptr noundef %860, ptr noundef %858, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 861:                                              ; preds = %854, %850
   %862 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(14) @.str.776) #5
@@ -3018,12 +3018,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %867, label %868, label %872
 
 868:                                              ; preds = %865, %864
-  %869 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %869 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %870 = getelementptr i8, ptr %1, i64 8
   %.val2059 = load ptr, ptr %870, align 8
-  %871 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2059, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_Request_set_user_info.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %871, ptr noundef %869, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %871 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2059, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_Request_set_user_info(ptr noundef %0, ptr noundef %1, ptr noundef %871, ptr noundef %869, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 872:                                              ; preds = %865, %861
   %873 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(11) @.str.777) #5
@@ -3040,12 +3040,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %878, label %879, label %883
 
 879:                                              ; preds = %876, %875
-  %880 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %880 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %881 = getelementptr i8, ptr %1, i64 8
   %.val2060 = load ptr, ptr %881, align 8
-  %882 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2060, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_Request_get_status.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %882, ptr noundef %880, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %882 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2060, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_Request_get_status(ptr noundef %0, ptr noundef %1, ptr noundef %882, ptr noundef %880, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 883:                                              ; preds = %876, %872
   %884 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(20) @.str.778) #5
@@ -3062,12 +3062,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %889, label %890, label %894
 
 890:                                              ; preds = %887, %886
-  %891 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %891 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %892 = getelementptr i8, ptr %1, i64 8
   %.val2061 = load ptr, ptr %892, align 8
-  %893 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2061, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_Request_get_remaining_delay.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %893, ptr noundef %891, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %893 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2061, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_Request_get_remaining_delay(ptr noundef %0, ptr noundef %1, ptr noundef %893, ptr noundef %891, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 894:                                              ; preds = %887, %883
   %895 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.779) #5
@@ -3084,12 +3084,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %900, label %901, label %905
 
 901:                                              ; preds = %898, %897
-  %902 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %902 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %903 = getelementptr i8, ptr %1, i64 8
   %.val2062 = load ptr, ptr %903, align 8
-  %904 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2062, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_Request_cancel.argprom.argelim(ptr noundef %1, ptr noundef %902, ptr noundef nonnull %4)
-  br label %decode_user_exception.argprom.exit
+  %904 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2062, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_Request_cancel(ptr noundef %1, ptr noundef %902, ptr noundef nonnull %4)
+  br label %decode_user_exception.exit
 
 905:                                              ; preds = %898, %894
   %906 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.780) #5
@@ -3106,12 +3106,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %911, label %912, label %916
 
 912:                                              ; preds = %909, %908
-  %913 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %913 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %914 = getelementptr i8, ptr %1, i64 8
   %.val2063 = load ptr, ptr %914, align 8
-  %915 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2063, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_Request_register_callback.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %915, ptr noundef %913, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %915 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2063, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_Request_register_callback(ptr noundef %0, ptr noundef %1, ptr noundef %915, ptr noundef %913, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 916:                                              ; preds = %909, %905
   %917 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(14) @.str.781) #5
@@ -3128,12 +3128,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %922, label %923, label %927
 
 923:                                              ; preds = %920, %919
-  %924 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %924 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %925 = getelementptr i8, ptr %1, i64 8
   %.val2064 = load ptr, ptr %925, align 8
-  %926 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2064, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_Request_free_callback.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %926, ptr noundef %924, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %926 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2064, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_Request_free_callback(ptr noundef %0, ptr noundef %1, ptr noundef %926, ptr noundef %924, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 927:                                              ; preds = %920, %916
   %928 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(20) @.str.782) #5
@@ -3150,12 +3150,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %933, label %934, label %938
 
 934:                                              ; preds = %931, %930
-  %935 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %935 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %936 = getelementptr i8, ptr %1, i64 8
   %.val2065 = load ptr, ptr %936, align 8
-  %937 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2065, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_Request_get_request_manager.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %937, ptr noundef %935, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %937 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2065, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_Request_get_request_manager(ptr noundef %0, ptr noundef %1, ptr noundef %937, ptr noundef %935, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 938:                                              ; preds = %931, %927
   %939 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(9) @.str.783) #5
@@ -3172,12 +3172,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %944, label %945, label %949
 
 945:                                              ; preds = %942, %941
-  %946 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %946 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %947 = getelementptr i8, ptr %1, i64 8
   %.val2066 = load ptr, ptr %947, align 8
-  %948 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2066, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_OrderRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %948, ptr noundef %946, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %948 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2066, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_OrderRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %948, ptr noundef %946, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 949:                                              ; preds = %942, %938
   %950 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(6) @.str.784) #5
@@ -3194,12 +3194,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %955, label %956, label %960
 
 956:                                              ; preds = %953, %952
-  %957 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %957 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %958 = getelementptr i8, ptr %1, i64 8
   %.val2067 = load ptr, ptr %958, align 8
-  %959 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2067, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitQueryOrderRequest_pause.argprom.argelim(ptr noundef %1, ptr noundef %957, ptr noundef nonnull %4)
-  br label %decode_user_exception.argprom.exit
+  %959 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2067, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitQueryOrderRequest_pause(ptr noundef %1, ptr noundef %957, ptr noundef nonnull %4)
+  br label %decode_user_exception.exit
 
 960:                                              ; preds = %953, %949
   %961 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.785) #5
@@ -3216,12 +3216,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %966, label %967, label %971
 
 967:                                              ; preds = %964, %963
-  %968 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %968 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %969 = getelementptr i8, ptr %1, i64 8
   %.val2068 = load ptr, ptr %969, align 8
-  %970 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2068, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitQueryOrderRequest_resume.argprom.argelim(ptr noundef %1, ptr noundef %968, ptr noundef nonnull %4)
-  br label %decode_user_exception.argprom.exit
+  %970 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2068, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitQueryOrderRequest_resume(ptr noundef %1, ptr noundef %968, ptr noundef nonnull %4)
+  br label %decode_user_exception.exit
 
 971:                                              ; preds = %964, %960
   %972 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(14) @.str.786) #5
@@ -3238,12 +3238,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %977, label %978, label %982
 
 978:                                              ; preds = %975, %974
-  %979 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %979 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %980 = getelementptr i8, ptr %1, i64 8
   %.val2069 = load ptr, ptr %980, align 8
-  %981 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2069, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete_list.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %981, ptr noundef %979, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %981 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2069, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete_list(ptr noundef %0, ptr noundef %1, ptr noundef %981, ptr noundef %979, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 982:                                              ; preds = %975, %971
   br i1 %940, label %983, label %1012
@@ -3258,12 +3258,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %986, label %987, label %991
 
 987:                                              ; preds = %984, %983
-  %988 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %988 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %989 = getelementptr i8, ptr %1, i64 8
   %.val2070 = load ptr, ptr %989, align 8
-  %990 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2070, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %990, ptr noundef %988, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %990 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2070, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %990, ptr noundef %988, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 991:                                              ; preds = %984
   %992 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(19) @.str.582) #5
@@ -3271,12 +3271,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %993, label %994, label %998
 
 994:                                              ; preds = %991
-  %995 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %995 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %996 = getelementptr i8, ptr %1, i64 8
   %.val2071 = load ptr, ptr %996, align 8
-  %997 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2071, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_CreateRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %997, ptr noundef %995, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %997 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2071, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_CreateRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %997, ptr noundef %995, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 998:                                              ; preds = %991
   %999 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(27) @.str.581) #5
@@ -3284,12 +3284,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1000, label %1001, label %1005
 
 1001:                                             ; preds = %998
-  %1002 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1002 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1003 = getelementptr i8, ptr %1, i64 8
   %.val2072 = load ptr, ptr %1003, align 8
-  %1004 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2072, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_CreateMetaDataRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1004, ptr noundef %1002, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1004 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2072, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_CreateMetaDataRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %1004, ptr noundef %1002, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1005:                                             ; preds = %998
   %1006 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(19) @.str.605) #5
@@ -3297,12 +3297,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1007, label %1008, label %1012
 
 1008:                                             ; preds = %1005
-  %1009 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1009 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1010 = getelementptr i8, ptr %1, i64 8
   %.val2073 = load ptr, ptr %1010, align 8
-  %1011 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2073, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_UpdateRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1011, ptr noundef %1009, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1011 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2073, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_UpdateRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %1011, ptr noundef %1009, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1012:                                             ; preds = %982, %1005
   %1013 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(19) @.str.787) #5
@@ -3319,12 +3319,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1018, label %1019, label %1023
 
 1019:                                             ; preds = %1016, %1015
-  %1020 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1020 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1021 = getelementptr i8, ptr %1, i64 8
   %.val2074 = load ptr, ptr %1021, align 8
-  %1022 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2074, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitQueryRequest_set_number_of_hits.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1022, ptr noundef %1020, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1022 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2074, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitQueryRequest_set_number_of_hits(ptr noundef %0, ptr noundef %1, ptr noundef %1022, ptr noundef %1020, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1023:                                             ; preds = %1016, %1012
   %1024 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(21) @.str.788) #5
@@ -3341,12 +3341,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1029, label %1030, label %1034
 
 1030:                                             ; preds = %1027, %1026
-  %1031 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1031 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1032 = getelementptr i8, ptr %1, i64 8
   %.val2075 = load ptr, ptr %1032, align 8
-  %1033 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2075, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitQueryRequest_complete_DAG_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1033, ptr noundef %1031, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1033 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2075, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitQueryRequest_complete_DAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %1033, ptr noundef %1031, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1034:                                             ; preds = %1027, %1023
   %1035 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(27) @.str.789) #5
@@ -3363,12 +3363,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1040, label %1041, label %1045
 
 1041:                                             ; preds = %1038, %1037
-  %1042 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1042 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1043 = getelementptr i8, ptr %1, i64 8
   %.val2076 = load ptr, ptr %1043, align 8
-  %1044 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2076, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitQueryRequest_complete_stringDAG_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1044, ptr noundef %1042, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1044 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2076, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitQueryRequest_complete_stringDAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %1044, ptr noundef %1042, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1045:                                             ; preds = %1038, %1034
   %1046 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(21) @.str.790) #5
@@ -3385,12 +3385,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1051, label %1052, label %1056
 
 1052:                                             ; preds = %1049, %1048
-  %1053 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1053 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1054 = getelementptr i8, ptr %1, i64 8
   %.val2077 = load ptr, ptr %1054, align 8
-  %1055 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2077, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitQueryRequest_complete_XML_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1055, ptr noundef %1053, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1055 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2077, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitQueryRequest_complete_XML_results(ptr noundef %0, ptr noundef %1, ptr noundef %1055, ptr noundef %1053, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1056:                                             ; preds = %1049, %1045
   br i1 %1014, label %1057, label %1065
@@ -3405,12 +3405,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1060, label %1061, label %1065
 
 1061:                                             ; preds = %1058, %1057
-  %1062 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1062 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1063 = getelementptr i8, ptr %1, i64 8
   %.val2078 = load ptr, ptr %1063, align 8
-  %1064 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2078, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_set_number_of_hits.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1064, ptr noundef %1062, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1064 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2078, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_set_number_of_hits(ptr noundef %0, ptr noundef %1, ptr noundef %1064, ptr noundef %1062, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1065:                                             ; preds = %1058, %1056
   %1066 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(19) @.str.791) #5
@@ -3427,12 +3427,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1071, label %1072, label %1076
 
 1072:                                             ; preds = %1069, %1068
-  %1073 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1073 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1074 = getelementptr i8, ptr %1, i64 8
   %.val2079 = load ptr, ptr %1074, align 8
-  %1075 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2079, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_hits.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1075, ptr noundef %1073, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1075 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2079, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_hits(ptr noundef %0, ptr noundef %1, ptr noundef %1075, ptr noundef %1073, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1076:                                             ; preds = %1069, %1065
   %1077 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(31) @.str.792) #5
@@ -3449,12 +3449,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1082, label %1083, label %1087
 
 1083:                                             ; preds = %1080, %1079
-  %1084 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1084 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1085 = getelementptr i8, ptr %1, i64 8
   %.val2080 = load ptr, ptr %1085, align 8
-  %1086 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2080, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_hits_in_interval.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1086, ptr noundef %1084, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1086 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2080, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_hits_in_interval(ptr noundef %0, ptr noundef %1, ptr noundef %1086, ptr noundef %1084, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1087:                                             ; preds = %1080, %1076
   %1088 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(24) @.str.793) #5
@@ -3471,12 +3471,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1093, label %1094, label %1098
 
 1094:                                             ; preds = %1091, %1090
-  %1095 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1095 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1096 = getelementptr i8, ptr %1, i64 8
   %.val2081 = load ptr, ptr %1096, align 8
-  %1097 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2081, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_intervals.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1097, ptr noundef %1095, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1097 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2081, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_intervals(ptr noundef %0, ptr noundef %1, ptr noundef %1097, ptr noundef %1095, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1098:                                             ; preds = %1091, %1087
   %1099 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(10) @.str.794) #5
@@ -3493,12 +3493,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1104, label %1105, label %1109
 
 1105:                                             ; preds = %1102, %1101
-  %1106 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1106 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1107 = getelementptr i8, ptr %1, i64 8
   %.val2082 = load ptr, ptr %1107, align 8
-  %1108 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2082, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_all.argprom.argelim(ptr noundef %1, ptr noundef %1106, ptr noundef nonnull %4)
-  br label %decode_user_exception.argprom.exit
+  %1108 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2082, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_all(ptr noundef %1, ptr noundef %1106, ptr noundef nonnull %4)
+  br label %decode_user_exception.exit
 
 1109:                                             ; preds = %1102, %1098
   %1110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(16) @.str.795) #5
@@ -3515,12 +3515,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1115, label %1116, label %1120
 
 1116:                                             ; preds = %1113, %1112
-  %1117 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1117 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1118 = getelementptr i8, ptr %1, i64 8
   %.val2083 = load ptr, ptr %1118, align 8
-  %1119 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2083, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_intervals.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1119, ptr noundef %1117, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1119 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2083, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_intervals(ptr noundef %0, ptr noundef %1, ptr noundef %1119, ptr noundef %1117, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1120:                                             ; preds = %1113, %1109
   %1121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(13) @.str.796) #5
@@ -3537,12 +3537,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1126, label %1127, label %1131
 
 1127:                                             ; preds = %1124, %1123
-  %1128 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1128 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1129 = getelementptr i8, ptr %1, i64 8
   %.val2084 = load ptr, ptr %1129, align 8
-  %1130 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2084, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_before.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1130, ptr noundef %1128, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1130 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2084, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_before(ptr noundef %0, ptr noundef %1, ptr noundef %1130, ptr noundef %1128, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1131:                                             ; preds = %1124, %1120
   br i1 %951, label %1132, label %1140
@@ -3557,12 +3557,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1135, label %1136, label %1140
 
 1136:                                             ; preds = %1133, %1132
-  %1137 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1137 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1138 = getelementptr i8, ptr %1, i64 8
   %.val2085 = load ptr, ptr %1138, align 8
-  %1139 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2085, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_pause.argprom.argelim(ptr noundef %1, ptr noundef %1137, ptr noundef nonnull %4)
-  br label %decode_user_exception.argprom.exit
+  %1139 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2085, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_pause(ptr noundef %1, ptr noundef %1137, ptr noundef nonnull %4)
+  br label %decode_user_exception.exit
 
 1140:                                             ; preds = %1133, %1131
   br i1 %962, label %1141, label %1149
@@ -3577,12 +3577,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1144, label %1145, label %1149
 
 1145:                                             ; preds = %1142, %1141
-  %1146 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1146 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1147 = getelementptr i8, ptr %1, i64 8
   %.val2086 = load ptr, ptr %1147, align 8
-  %1148 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2086, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_resume.argprom.argelim(ptr noundef %1, ptr noundef %1146, ptr noundef nonnull %4)
-  br label %decode_user_exception.argprom.exit
+  %1148 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2086, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_resume(ptr noundef %1, ptr noundef %1146, ptr noundef nonnull %4)
+  br label %decode_user_exception.exit
 
 1149:                                             ; preds = %1142, %1140
   %1150 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(23) @.str.797) #5
@@ -3599,12 +3599,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1155, label %1156, label %1160
 
 1156:                                             ; preds = %1153, %1152
-  %1157 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1157 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1158 = getelementptr i8, ptr %1, i64 8
   %.val2087 = load ptr, ptr %1158, align 8
-  %1159 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2087, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_last_executed.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1159, ptr noundef %1157, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1159 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2087, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_last_executed(ptr noundef %0, ptr noundef %1, ptr noundef %1159, ptr noundef %1157, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1160:                                             ; preds = %1153, %1149
   %1161 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(24) @.str.798) #5
@@ -3621,12 +3621,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1166, label %1167, label %1171
 
 1167:                                             ; preds = %1164, %1163
-  %1168 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1168 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1169 = getelementptr i8, ptr %1, i64 8
   %.val2088 = load ptr, ptr %1169, align 8
-  %1170 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2088, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_next_execution.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1170, ptr noundef %1168, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1170 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2088, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_next_execution(ptr noundef %0, ptr noundef %1, ptr noundef %1170, ptr noundef %1168, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1171:                                             ; preds = %1164, %1160
   br i1 %1025, label %1172, label %1180
@@ -3641,12 +3641,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1175, label %1176, label %1180
 
 1176:                                             ; preds = %1173, %1172
-  %1177 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1177 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1178 = getelementptr i8, ptr %1, i64 8
   %.val2089 = load ptr, ptr %1178, align 8
-  %1179 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2089, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_DAG_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1179, ptr noundef %1177, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1179 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2089, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_DAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %1179, ptr noundef %1177, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1180:                                             ; preds = %1173, %1171
   br i1 %1036, label %1181, label %1189
@@ -3661,12 +3661,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1184, label %1185, label %1189
 
 1185:                                             ; preds = %1182, %1181
-  %1186 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1186 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1187 = getelementptr i8, ptr %1, i64 8
   %.val2090 = load ptr, ptr %1187, align 8
-  %1188 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2090, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_stringDAG_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1188, ptr noundef %1186, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1188 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2090, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_stringDAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %1188, ptr noundef %1186, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1189:                                             ; preds = %1182, %1180
   br i1 %1047, label %1190, label %1198
@@ -3681,12 +3681,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1193, label %1194, label %1198
 
 1194:                                             ; preds = %1191, %1190
-  %1195 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1195 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1196 = getelementptr i8, ptr %1, i64 8
   %.val2091 = load ptr, ptr %1196, align 8
-  %1197 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2091, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_XML_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1197, ptr noundef %1195, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1197 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2091, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_XML_results(ptr noundef %0, ptr noundef %1, ptr noundef %1197, ptr noundef %1195, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1198:                                             ; preds = %1191, %1189
   br i1 %940, label %1199, label %1221
@@ -3701,12 +3701,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1202, label %1203, label %1207
 
 1203:                                             ; preds = %1200, %1199
-  %1204 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1204 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1205 = getelementptr i8, ptr %1, i64 8
   %.val2092 = load ptr, ptr %1205, align 8
-  %1206 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2092, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_SetAvailabilityRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1206, ptr noundef %1204, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1206 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2092, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_SetAvailabilityRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %1206, ptr noundef %1204, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1207:                                             ; preds = %1200
   %1208 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(21) @.str.587) #5
@@ -3714,12 +3714,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1209, label %1210, label %1214
 
 1210:                                             ; preds = %1207
-  %1211 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1211 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1212 = getelementptr i8, ptr %1, i64 8
   %.val2093 = load ptr, ptr %1212, align 8
-  %1213 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2093, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_HitCountRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1213, ptr noundef %1211, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1213 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2093, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_HitCountRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %1213, ptr noundef %1211, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1214:                                             ; preds = %1207
   %1215 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(26) @.str.585) #5
@@ -3727,12 +3727,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1216, label %1217, label %1221
 
 1217:                                             ; preds = %1214
-  %1218 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1218 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1219 = getelementptr i8, ptr %1, i64 8
   %.val2094 = load ptr, ptr %1219, align 8
-  %1220 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2094, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_GetParametersRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1220, ptr noundef %1218, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1220 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2094, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_GetParametersRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %1220, ptr noundef %1218, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1221:                                             ; preds = %1198, %1214
   %1222 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(19) @.str.799) #5
@@ -3749,15 +3749,15 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1227, label %1228, label %1232
 
 1228:                                             ; preds = %1225, %1224
-  %1229 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1229 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1230 = getelementptr i8, ptr %1, i64 8
   %.val2095 = load ptr, ptr %1230, align 8
-  %1231 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2095, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_GetParametersRequest_complete_StringDAG.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1231, ptr noundef %1229, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1231 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2095, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_GetParametersRequest_complete_StringDAG(ptr noundef %0, ptr noundef %1, ptr noundef %1231, ptr noundef %1229, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1232:                                             ; preds = %1225, %1221
-  br i1 %940, label %1233, label %decode_user_exception.argprom.exit
+  br i1 %940, label %1233, label %decode_user_exception.exit
 
 1233:                                             ; preds = %1232
   %.not2002 = icmp eq ptr %6, null
@@ -3769,12 +3769,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1236, label %1237, label %1241
 
 1237:                                             ; preds = %1234, %1233
-  %1238 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1238 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1239 = getelementptr i8, ptr %1, i64 8
   %.val2096 = load ptr, ptr %1239, align 8
-  %1240 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2096, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_IngestRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1240, ptr noundef %1238, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1240 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2096, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_IngestRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %1240, ptr noundef %1238, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1241:                                             ; preds = %1234
   %1242 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(28) @.str.586) #5
@@ -3782,12 +3782,12 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1243, label %1244, label %1248
 
 1244:                                             ; preds = %1241
-  %1245 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1245 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1246 = getelementptr i8, ptr %1, i64 8
   %.val2097 = load ptr, ptr %1246, align 8
-  %1247 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2097, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_GetRelatedFilesRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1247, ptr noundef %1245, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1247 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2097, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_GetRelatedFilesRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %1247, ptr noundef %1245, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1248:                                             ; preds = %1241
   %1249 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(30) @.str.580) #5
@@ -3795,28 +3795,28 @@ start_dissecting.argprom.exit2230:                ; preds = %process_RequestOper
   br i1 %1250, label %1251, label %1255
 
 1251:                                             ; preds = %1248
-  %1252 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1252 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1253 = getelementptr i8, ptr %1, i64 8
   %.val2098 = load ptr, ptr %1253, align 8
-  %1254 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2098, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_CreateAssociationRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1254, ptr noundef %1252, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1254 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2098, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_CreateAssociationRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %1254, ptr noundef %1252, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
 1255:                                             ; preds = %1248
   %1256 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(26) @.str.603) #5
   %1257 = icmp eq i32 %1256, 0
-  br i1 %1257, label %1258, label %decode_user_exception.argprom.exit
+  br i1 %1257, label %1258, label %decode_user_exception.exit
 
 1258:                                             ; preds = %1255
-  %1259 = tail call fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %1259 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
   %1260 = getelementptr i8, ptr %1, i64 8
   %.val2099 = load ptr, ptr %1260, align 8
-  %1261 = tail call fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.val2099, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @decode_GIAS_UpdateByQueryRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %1261, ptr noundef %1259, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
-  br label %decode_user_exception.argprom.exit
+  %1261 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val2099, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @decode_GIAS_UpdateByQueryRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %1261, ptr noundef %1259, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %8)
+  br label %decode_user_exception.exit
 
-decode_user_exception.argprom.exit:               ; preds = %.lr.ph.i2232, %.lr.ph.i, %.lr.ph.i.i, %1232, %332, %330, %320, %317, %313, %280, %278, %274, %271, %start_dissecting.argprom.exit2224, %238, %236, %235, %232, %227, %194, %192, %184, %181, %start_dissecting.argprom.exit2211, %148, %146, %143, %start_dissecting.argprom.exit2204, %110, %108, %105, %99, %decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.i, %50, %start_dissecting.argprom.exit.i, %16, %69, %1255, %1258, %1251, %1244, %1237, %1228, %1217, %1210, %1203, %1194, %1185, %1176, %1167, %1156, %1145, %1136, %1127, %1116, %1105, %1094, %1083, %1072, %1061, %1052, %1041, %1030, %1019, %1008, %1001, %994, %987, %978, %967, %956, %945, %934, %923, %912, %901, %890, %879, %868, %857, %846, %835, %824, %813, %802, %791, %780, %771, %760, %749, %738, %727, %716, %705, %694, %683, %672, %661, %650, %639, %628, %617, %606, %595, %584, %573, %562, %551, %540, %529, %518, %507, %496, %485, %474, %463, %452, %441, %430, %419, %408, %397, %386, %375, %364, %353, %342
-  %.0 = phi i32 [ 1, %342 ], [ 1, %353 ], [ 1, %364 ], [ 1, %375 ], [ 1, %386 ], [ 1, %397 ], [ 1, %408 ], [ 1, %419 ], [ 1, %430 ], [ 1, %441 ], [ 1, %452 ], [ 1, %463 ], [ 1, %474 ], [ 1, %485 ], [ 1, %496 ], [ 1, %507 ], [ 1, %518 ], [ 1, %529 ], [ 1, %540 ], [ 1, %551 ], [ 1, %562 ], [ 1, %573 ], [ 1, %584 ], [ 1, %595 ], [ 1, %606 ], [ 1, %617 ], [ 1, %628 ], [ 1, %639 ], [ 1, %650 ], [ 1, %661 ], [ 1, %672 ], [ 1, %683 ], [ 1, %694 ], [ 1, %705 ], [ 1, %716 ], [ 1, %727 ], [ 1, %738 ], [ 1, %749 ], [ 1, %760 ], [ 1, %771 ], [ 1, %780 ], [ 1, %791 ], [ 1, %802 ], [ 1, %813 ], [ 1, %824 ], [ 1, %835 ], [ 1, %846 ], [ 1, %857 ], [ 1, %868 ], [ 1, %879 ], [ 1, %890 ], [ 1, %901 ], [ 1, %912 ], [ 1, %923 ], [ 1, %934 ], [ 1, %945 ], [ 1, %956 ], [ 1, %967 ], [ 1, %978 ], [ 1, %987 ], [ 1, %994 ], [ 1, %1001 ], [ 1, %1008 ], [ 1, %1019 ], [ 1, %1030 ], [ 1, %1041 ], [ 1, %1052 ], [ 1, %1061 ], [ 1, %1072 ], [ 1, %1083 ], [ 1, %1094 ], [ 1, %1105 ], [ 1, %1116 ], [ 1, %1127 ], [ 1, %1136 ], [ 1, %1145 ], [ 1, %1156 ], [ 1, %1167 ], [ 1, %1176 ], [ 1, %1185 ], [ 1, %1194 ], [ 1, %1203 ], [ 1, %1210 ], [ 1, %1217 ], [ 1, %1228 ], [ 1, %1237 ], [ 1, %1244 ], [ 1, %1251 ], [ 1, %1258 ], [ 0, %69 ], [ 0, %1255 ], [ 0, %16 ], [ 0, %50 ], [ 1, %start_dissecting.argprom.exit.i ], [ 1, %decode_ex_UCO_InvalidInputParameter.argprom.exit.sink.split.i ], [ 1, %99 ], [ 1, %105 ], [ 1, %108 ], [ 1, %110 ], [ 1, %start_dissecting.argprom.exit2204 ], [ 1, %143 ], [ 1, %146 ], [ 1, %148 ], [ 1, %start_dissecting.argprom.exit2211 ], [ %183, %181 ], [ 1, %184 ], [ 1, %192 ], [ 1, %194 ], [ 1, %227 ], [ %234, %232 ], [ 1, %235 ], [ 1, %236 ], [ 1, %238 ], [ 1, %start_dissecting.argprom.exit2224 ], [ %273, %271 ], [ 1, %274 ], [ 1, %278 ], [ 1, %280 ], [ 1, %313 ], [ %319, %317 ], [ 1, %320 ], [ 1, %330 ], [ 1, %332 ], [ 0, %1232 ], [ 1, %.lr.ph.i.i ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i2232 ]
+decode_user_exception.exit:                       ; preds = %.lr.ph.i2232, %.lr.ph.i, %.lr.ph.i.i, %1232, %332, %330, %320, %317, %313, %280, %278, %274, %271, %start_dissecting.exit2224, %238, %236, %235, %232, %227, %194, %192, %184, %181, %start_dissecting.exit2211, %148, %146, %143, %start_dissecting.exit2204, %110, %108, %105, %99, %decode_ex_UCO_InvalidInputParameter.exit.sink.split.i, %50, %start_dissecting.exit.i, %16, %69, %1255, %1258, %1251, %1244, %1237, %1228, %1217, %1210, %1203, %1194, %1185, %1176, %1167, %1156, %1145, %1136, %1127, %1116, %1105, %1094, %1083, %1072, %1061, %1052, %1041, %1030, %1019, %1008, %1001, %994, %987, %978, %967, %956, %945, %934, %923, %912, %901, %890, %879, %868, %857, %846, %835, %824, %813, %802, %791, %780, %771, %760, %749, %738, %727, %716, %705, %694, %683, %672, %661, %650, %639, %628, %617, %606, %595, %584, %573, %562, %551, %540, %529, %518, %507, %496, %485, %474, %463, %452, %441, %430, %419, %408, %397, %386, %375, %364, %353, %342
+  %.0 = phi i32 [ 1, %342 ], [ 1, %353 ], [ 1, %364 ], [ 1, %375 ], [ 1, %386 ], [ 1, %397 ], [ 1, %408 ], [ 1, %419 ], [ 1, %430 ], [ 1, %441 ], [ 1, %452 ], [ 1, %463 ], [ 1, %474 ], [ 1, %485 ], [ 1, %496 ], [ 1, %507 ], [ 1, %518 ], [ 1, %529 ], [ 1, %540 ], [ 1, %551 ], [ 1, %562 ], [ 1, %573 ], [ 1, %584 ], [ 1, %595 ], [ 1, %606 ], [ 1, %617 ], [ 1, %628 ], [ 1, %639 ], [ 1, %650 ], [ 1, %661 ], [ 1, %672 ], [ 1, %683 ], [ 1, %694 ], [ 1, %705 ], [ 1, %716 ], [ 1, %727 ], [ 1, %738 ], [ 1, %749 ], [ 1, %760 ], [ 1, %771 ], [ 1, %780 ], [ 1, %791 ], [ 1, %802 ], [ 1, %813 ], [ 1, %824 ], [ 1, %835 ], [ 1, %846 ], [ 1, %857 ], [ 1, %868 ], [ 1, %879 ], [ 1, %890 ], [ 1, %901 ], [ 1, %912 ], [ 1, %923 ], [ 1, %934 ], [ 1, %945 ], [ 1, %956 ], [ 1, %967 ], [ 1, %978 ], [ 1, %987 ], [ 1, %994 ], [ 1, %1001 ], [ 1, %1008 ], [ 1, %1019 ], [ 1, %1030 ], [ 1, %1041 ], [ 1, %1052 ], [ 1, %1061 ], [ 1, %1072 ], [ 1, %1083 ], [ 1, %1094 ], [ 1, %1105 ], [ 1, %1116 ], [ 1, %1127 ], [ 1, %1136 ], [ 1, %1145 ], [ 1, %1156 ], [ 1, %1167 ], [ 1, %1176 ], [ 1, %1185 ], [ 1, %1194 ], [ 1, %1203 ], [ 1, %1210 ], [ 1, %1217 ], [ 1, %1228 ], [ 1, %1237 ], [ 1, %1244 ], [ 1, %1251 ], [ 1, %1258 ], [ 0, %69 ], [ 0, %1255 ], [ 0, %16 ], [ 0, %50 ], [ 1, %start_dissecting.exit.i ], [ 1, %decode_ex_UCO_InvalidInputParameter.exit.sink.split.i ], [ 1, %99 ], [ 1, %105 ], [ 1, %108 ], [ 1, %110 ], [ 1, %start_dissecting.exit2204 ], [ 1, %143 ], [ 1, %146 ], [ 1, %148 ], [ 1, %start_dissecting.exit2211 ], [ %183, %181 ], [ 1, %184 ], [ 1, %192 ], [ 1, %194 ], [ 1, %227 ], [ %234, %232 ], [ 1, %235 ], [ 1, %236 ], [ 1, %238 ], [ 1, %start_dissecting.exit2224 ], [ %273, %271 ], [ 1, %274 ], [ 1, %278 ], [ 1, %280 ], [ 1, %313 ], [ %319, %317 ], [ 1, %320 ], [ 1, %330 ], [ 1, %332 ], [ 0, %1232 ], [ 1, %.lr.ph.i.i ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i2232 ]
   ret i32 %.0
 }
 
@@ -3828,7 +3828,7 @@ declare i32 @is_big_endian(ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_RequestOperation.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 %.7.val, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 %.7.val, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp eq i8 %.7.val, 1
   br i1 %5, label %6, label %9
 
@@ -3862,7 +3862,7 @@ proto_item_set_generated.exit:                    ; preds = %9, %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @start_dissecting(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 34, ptr noundef nonnull @.str.575) #4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %4
@@ -3882,7 +3882,7 @@ define internal fastcc ptr @start_dissecting.argprom(ptr noundef %0, ptr %.8.val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_LibraryManager_get_property_names.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_LibraryManager_get_property_names(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %23 [
@@ -3929,7 +3929,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_property_names.argpr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_LibraryManager_get_property_values.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_LibraryManager_get_property_values(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
@@ -3994,7 +3994,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_property_values.argp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_LibraryManager_get_libraries.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_LibraryManager_get_libraries(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -4040,7 +4040,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_libraries.argprom(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_RequestManager_get_active_requests.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_RequestManager_get_active_requests(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -4086,7 +4086,7 @@ define internal fastcc void @decode_GIAS_RequestManager_get_active_requests.argp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_RequestManager_get_default_timeout.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_RequestManager_get_default_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -4124,7 +4124,7 @@ define internal fastcc void @decode_GIAS_RequestManager_get_default_timeout.argp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_RequestManager_set_default_timeout.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_RequestManager_set_default_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -4160,7 +4160,7 @@ define internal fastcc void @decode_GIAS_RequestManager_set_default_timeout.argp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_RequestManager_get_timeout.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_RequestManager_get_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -4202,7 +4202,7 @@ define internal fastcc void @decode_GIAS_RequestManager_get_timeout.argprom(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_RequestManager_set_timeout.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_RequestManager_set_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -4239,7 +4239,7 @@ define internal fastcc void @decode_GIAS_RequestManager_set_timeout.argprom(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_RequestManager_delete_request.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_RequestManager_delete_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
@@ -4271,7 +4271,7 @@ define internal fastcc void @decode_GIAS_RequestManager_delete_request.argprom(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_AccessManager_get_use_modes.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_AccessManager_get_use_modes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %23 [
@@ -4318,7 +4318,7 @@ define internal fastcc void @decode_GIAS_AccessManager_get_use_modes.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_AccessManager_is_available.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_AccessManager_is_available(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %24 [
@@ -4363,7 +4363,7 @@ define internal fastcc void @decode_GIAS_AccessManager_is_available.argprom(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_AccessManager_query_availability_delay.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_AccessManager_query_availability_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %28 [
@@ -4412,7 +4412,7 @@ define internal fastcc void @decode_GIAS_AccessManager_query_availability_delay.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_AccessManager_get_number_of_priorities.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_AccessManager_get_number_of_priorities(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -4451,7 +4451,7 @@ define internal fastcc void @decode_GIAS_AccessManager_get_number_of_priorities.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_AccessManager_set_availability.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_AccessManager_set_availability(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
@@ -4517,7 +4517,7 @@ define internal fastcc void @decode_GIAS_AccessManager_set_availability.argprom(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_QueryOrderMgr_get_event_descriptions.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_QueryOrderMgr_get_event_descriptions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
@@ -4571,7 +4571,7 @@ define internal fastcc void @decode_GIAS_QueryOrderMgr_get_event_descriptions.ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_QueryOrderMgr_submit_query_order.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_QueryOrderMgr_submit_query_order(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %61 [
@@ -4584,7 +4584,7 @@ define internal fastcc void @decode_GIAS_QueryOrderMgr_submit_query_order.argpro
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12, i32 noundef %11) #4
   %12 = load i32, ptr @hf_GIAS_Query_bqs_query, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12, i32 noundef %12) #4
-  tail call fastcc void @decode_GIAS_QueryLifeSpan_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_QueryLifeSpan_st(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
   %13 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12) #4
   %14 = load i32, ptr @hf_GIAS_QueryOrderMgr_submit_query_order_o_type, align 4
   %15 = load i32, ptr %4, align 4
@@ -4598,7 +4598,7 @@ define internal fastcc void @decode_GIAS_QueryOrderMgr_submit_query_order.argpro
   %22 = add i32 %21, -4
   %23 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef %19) #4
   %.not.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i, label %decode_GIAS_TailoringSpec_st.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %decode_GIAS_TailoringSpec_st.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %.01.i.i = phi i32 [ %26, %.lr.ph.i.i ], [ 0, %10 ]
@@ -4608,9 +4608,9 @@ define internal fastcc void @decode_GIAS_QueryOrderMgr_submit_query_order.argpro
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %25) #4
   %26 = add nuw i32 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %26, %19
-  br i1 %exitcond.not.i.i, label %decode_GIAS_TailoringSpec_st.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %decode_GIAS_TailoringSpec_st.exit.i, label %.lr.ph.i.i, !llvm.loop !16
 
-decode_GIAS_TailoringSpec_st.argprom.exit.i:      ; preds = %.lr.ph.i.i, %10
+decode_GIAS_TailoringSpec_st.exit.i:              ; preds = %.lr.ph.i.i, %10
   %27 = load i32, ptr @hf_GIAS_PackagingSpec_package_identifier, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %27) #4
   %28 = load i32, ptr @hf_GIAS_PackagingSpec_packaging_format_and_compression, align 4
@@ -4626,7 +4626,7 @@ decode_GIAS_TailoringSpec_st.argprom.exit.i:      ; preds = %.lr.ph.i.i, %10
   %36 = load i32, ptr @hf_GIAS_AlterationSpec_pf, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %36) #4
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, ptr noundef %5) #4
-  tail call fastcc void @decode_UCO_Rectangle_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_UCO_Rectangle_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %37 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %38 = load i32, ptr @hf_GIAS_AlterationSpec_geo_region_type, align 4
   %39 = load i32, ptr %4, align 4
@@ -4638,16 +4638,16 @@ decode_GIAS_TailoringSpec_st.argprom.exit.i:      ; preds = %.lr.ph.i.i, %10
   %45 = add i32 %44, -4
   %46 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef %42) #4
   %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %decode_GIAS_QueryOrderContents_st.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %decode_GIAS_QueryOrderContents_st.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %decode_GIAS_TailoringSpec_st.argprom.exit.i, %.lr.ph.i
-  %.01.i = phi i32 [ %47, %.lr.ph.i ], [ 0, %decode_GIAS_TailoringSpec_st.argprom.exit.i ]
-  tail call fastcc void @decode_GIAS_DeliveryDetails_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+.lr.ph.i:                                         ; preds = %decode_GIAS_TailoringSpec_st.exit.i, %.lr.ph.i
+  %.01.i = phi i32 [ %47, %.lr.ph.i ], [ 0, %decode_GIAS_TailoringSpec_st.exit.i ]
+  tail call fastcc void @decode_GIAS_DeliveryDetails_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %47 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %47, %42
-  br i1 %exitcond.not.i, label %decode_GIAS_QueryOrderContents_st.argprom.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %decode_GIAS_QueryOrderContents_st.exit, label %.lr.ph.i, !llvm.loop !17
 
-decode_GIAS_QueryOrderContents_st.argprom.exit:   ; preds = %.lr.ph.i, %decode_GIAS_TailoringSpec_st.argprom.exit.i
+decode_GIAS_QueryOrderContents_st.exit:           ; preds = %.lr.ph.i, %decode_GIAS_TailoringSpec_st.exit.i
   %48 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %49 = load i32, ptr @hf_GIAS_QueryOrderMgr_submit_query_order_properties_loop, align 4
   %50 = load i32, ptr %4, align 4
@@ -4656,8 +4656,8 @@ decode_GIAS_QueryOrderContents_st.argprom.exit:   ; preds = %.lr.ph.i, %decode_G
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %decode_GIAS_QueryOrderContents_st.argprom.exit, %.lr.ph
-  %.01 = phi i32 [ %54, %.lr.ph ], [ 0, %decode_GIAS_QueryOrderContents_st.argprom.exit ]
+.lr.ph:                                           ; preds = %decode_GIAS_QueryOrderContents_st.exit, %.lr.ph
+  %.01 = phi i32 [ %54, %.lr.ph ], [ 0, %decode_GIAS_QueryOrderContents_st.exit ]
   %53 = load i32, ptr @hf_UCO_NameValue_aname, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %53) #4
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, ptr noundef %5) #4
@@ -4686,12 +4686,12 @@ decode_GIAS_QueryOrderContents_st.argprom.exit:   ; preds = %.lr.ph.i, %decode_G
   %63 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_giop_msg, ptr noundef nonnull @.str.805, i32 noundef %62) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %decode_GIAS_QueryOrderContents_st.argprom.exit, %58, %59, %55, %61
+.loopexit:                                        ; preds = %.lr.ph, %decode_GIAS_QueryOrderContents_st.exit, %58, %59, %55, %61
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_OrderMgr_get_package_specifications.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_OrderMgr_get_package_specifications(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %23 [
@@ -4738,7 +4738,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_get_package_specifications.arg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_OrderMgr_validate_order.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_OrderMgr_validate_order(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %37 [
@@ -4747,7 +4747,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_validate_order.argprom(ptr nou
   ]
 
 10:                                               ; preds = %7
-  tail call fastcc void @decode_GIAS_OrderContents_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_OrderContents_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6)
   %11 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12) #4
   %12 = load i32, ptr @hf_GIAS_OrderMgr_validate_order_properties_loop, align 4
   %13 = load i32, ptr %4, align 4
@@ -4804,7 +4804,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_validate_order.argprom(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_OrderMgr_order.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_OrderMgr_order(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %24 [
@@ -4813,7 +4813,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_order.argprom(ptr noundef %0, 
   ]
 
 10:                                               ; preds = %7
-  tail call fastcc void @decode_GIAS_OrderContents_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_OrderContents_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6)
   %11 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12) #4
   %12 = load i32, ptr @hf_GIAS_OrderMgr_order_properties_loop, align 4
   %13 = load i32, ptr %4, align 4
@@ -4857,7 +4857,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_order.argprom(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DataModelMgr_get_data_model_date.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DataModelMgr_get_data_model_date(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %24 [
@@ -4892,7 +4892,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_data_model_date.argpro
   ]
 
 21:                                               ; preds = %18
-  tail call fastcc void @decode_UCO_AbsTime_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_UCO_AbsTime_st(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
   br label %.loopexit
 
 22:                                               ; preds = %18
@@ -4909,7 +4909,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_data_model_date.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DataModelMgr_get_alias_categories.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DataModelMgr_get_alias_categories(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
@@ -4974,7 +4974,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_alias_categories.argpr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_aliases.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_aliases(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %33 [
@@ -5043,7 +5043,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_aliases.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_attribute_name.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_attribute_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
@@ -5103,7 +5103,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_attribute_name
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DataModelMgr_get_view_names.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DataModelMgr_get_view_names(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %44 [
@@ -5146,8 +5146,8 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_view_names.argprom(ptr
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %21, %decode_GIAS_View_st.argprom.exit
-  %.02 = phi i32 [ %41, %decode_GIAS_View_st.argprom.exit ], [ 0, %21 ]
+.lr.ph:                                           ; preds = %21, %decode_GIAS_View_st.exit
+  %.02 = phi i32 [ %41, %decode_GIAS_View_st.exit ], [ 0, %21 ]
   %27 = load i32, ptr @hf_GIAS_View_view_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %27) #4
   %28 = load i32, ptr @hf_GIAS_View_orderable, align 4
@@ -5162,7 +5162,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_view_names.argprom(ptr
   %37 = add i32 %36, -4
   %38 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef %34) #4
   %.not.i = icmp eq i32 %34, 0
-  br i1 %.not.i, label %decode_GIAS_View_st.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %decode_GIAS_View_st.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
   %.01.i = phi i32 [ %40, %.lr.ph.i ], [ 0, %.lr.ph ]
@@ -5170,9 +5170,9 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_view_names.argprom(ptr
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %39) #4
   %40 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %40, %34
-  br i1 %exitcond.not.i, label %decode_GIAS_View_st.argprom.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %decode_GIAS_View_st.exit, label %.lr.ph.i, !llvm.loop !29
 
-decode_GIAS_View_st.argprom.exit:                 ; preds = %.lr.ph.i, %.lr.ph
+decode_GIAS_View_st.exit:                         ; preds = %.lr.ph.i, %.lr.ph
   %41 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %41, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
@@ -5186,12 +5186,12 @@ decode_GIAS_View_st.argprom.exit:                 ; preds = %.lr.ph.i, %.lr.ph
   %46 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_giop_msg, ptr noundef nonnull @.str.805, i32 noundef %45) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %decode_GIAS_View_st.argprom.exit, %.lr.ph4, %21, %10, %42, %18, %44
+.loopexit:                                        ; preds = %decode_GIAS_View_st.exit, %.lr.ph4, %21, %10, %42, %18, %44
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DataModelMgr_get_attributes.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DataModelMgr_get_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
@@ -5238,7 +5238,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_attributes.argprom(ptr
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %.02 = phi i32 [ %28, %.lr.ph ], [ 0, %22 ]
-  tail call fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %28 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %28, %23
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
@@ -5257,7 +5257,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_attributes.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DataModelMgr_get_queryable_attributes.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DataModelMgr_get_queryable_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
@@ -5304,7 +5304,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_queryable_attributes.a
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %.02 = phi i32 [ %28, %.lr.ph ], [ 0, %22 ]
-  tail call fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %28 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %28, %23
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
@@ -5323,7 +5323,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_queryable_attributes.a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DataModelMgr_get_entities.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DataModelMgr_get_entities(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %63 [
@@ -5340,7 +5340,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entities.argprom(ptr n
   %15 = add i32 %14, -4
   %16 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef %12) #4
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %decode_UCO_EntityGraph_st.argprom.exit, label %.lr.ph
+  br i1 %.not, label %decode_UCO_EntityGraph_st.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.02 = phi i32 [ %18, %.lr.ph ], [ 0, %10 ]
@@ -5349,14 +5349,14 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entities.argprom(ptr n
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, ptr noundef %5) #4
   %18 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %18, %12
-  br i1 %exitcond.not, label %decode_UCO_EntityGraph_st.argprom.exit, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %decode_UCO_EntityGraph_st.exit, label %.lr.ph, !llvm.loop !35
 
 19:                                               ; preds = %7
   %20 = getelementptr inbounds i8, ptr %5, i64 16
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %61 [
     i32 0, label %22
-    i32 1, label %decode_UCO_EntityGraph_st.argprom.exit
+    i32 1, label %decode_UCO_EntityGraph_st.exit
   ]
 
 22:                                               ; preds = %19
@@ -5388,7 +5388,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entities.argprom(ptr n
   %38 = add i32 %37, -4
   %39 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef %35) #4
   %.not6.i = icmp eq i32 %35, 0
-  br i1 %.not6.i, label %decode_UCO_EntityGraph_st.argprom.exit, label %.lr.ph4.i
+  br i1 %.not6.i, label %decode_UCO_EntityGraph_st.exit, label %.lr.ph4.i
 
 .lr.ph4.i:                                        ; preds = %._crit_edge.i, %.lr.ph4.i
   %.02.i = phi i32 [ %60, %.lr.ph4.i ], [ 0, %._crit_edge.i ]
@@ -5414,23 +5414,23 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entities.argprom(ptr n
   %59 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef %58, i32 noundef 4, i32 noundef %55) #4
   %60 = add nuw i32 %.02.i, 1
   %exitcond7.not.i = icmp eq i32 %60, %35
-  br i1 %exitcond7.not.i, label %decode_UCO_EntityGraph_st.argprom.exit, label %.lr.ph4.i, !llvm.loop !37
+  br i1 %exitcond7.not.i, label %decode_UCO_EntityGraph_st.exit, label %.lr.ph4.i, !llvm.loop !37
 
 61:                                               ; preds = %19
   %62 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.804, i32 noundef %21) #4
-  br label %decode_UCO_EntityGraph_st.argprom.exit
+  br label %decode_UCO_EntityGraph_st.exit
 
 63:                                               ; preds = %7
   %64 = zext i8 %9 to i32
   %65 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_giop_msg, ptr noundef nonnull @.str.805, i32 noundef %64) #4
-  br label %decode_UCO_EntityGraph_st.argprom.exit
+  br label %decode_UCO_EntityGraph_st.exit
 
-decode_UCO_EntityGraph_st.argprom.exit:           ; preds = %.lr.ph4.i, %.lr.ph, %10, %._crit_edge.i, %61, %19, %63
+decode_UCO_EntityGraph_st.exit:                   ; preds = %.lr.ph4.i, %.lr.ph, %10, %._crit_edge.i, %61, %19, %63
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DataModelMgr_get_entity_attributes.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DataModelMgr_get_entity_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
@@ -5477,7 +5477,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entity_attributes.argp
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %.02 = phi i32 [ %28, %.lr.ph ], [ 0, %22 ]
-  tail call fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %28 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %28, %23
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
@@ -5496,7 +5496,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entity_attributes.argp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DataModelMgr_get_associations.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DataModelMgr_get_associations(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %45 [
@@ -5539,8 +5539,8 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_associations.argprom(p
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %21, %decode_GIAS_Association_st.argprom.exit
-  %.02 = phi i32 [ %42, %decode_GIAS_Association_st.argprom.exit ], [ 0, %21 ]
+.lr.ph:                                           ; preds = %21, %decode_GIAS_Association_st.exit
+  %.02 = phi i32 [ %42, %decode_GIAS_Association_st.exit ], [ 0, %21 ]
   %27 = load i32, ptr @hf_GIAS_Association_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %27) #4
   %28 = load i32, ptr @hf_GIAS_Association_view_a, align 4
@@ -5560,16 +5560,16 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_associations.argprom(p
   %39 = add i32 %38, -4
   %40 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef %36) #4
   %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %decode_GIAS_Association_st.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %decode_GIAS_Association_st.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
   %.01.i = phi i32 [ %41, %.lr.ph.i ], [ 0, %.lr.ph ]
-  tail call fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %41 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %41, %36
-  br i1 %exitcond.not.i, label %decode_GIAS_Association_st.argprom.exit, label %.lr.ph.i, !llvm.loop !41
+  br i1 %exitcond.not.i, label %decode_GIAS_Association_st.exit, label %.lr.ph.i, !llvm.loop !41
 
-decode_GIAS_Association_st.argprom.exit:          ; preds = %.lr.ph.i, %.lr.ph
+decode_GIAS_Association_st.exit:                  ; preds = %.lr.ph.i, %.lr.ph
   %42 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %42, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
@@ -5583,12 +5583,12 @@ decode_GIAS_Association_st.argprom.exit:          ; preds = %.lr.ph.i, %.lr.ph
   %47 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_giop_msg, ptr noundef nonnull @.str.805, i32 noundef %46) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %decode_GIAS_Association_st.argprom.exit, %.lr.ph4, %21, %10, %43, %18, %45
+.loopexit:                                        ; preds = %decode_GIAS_Association_st.exit, %.lr.ph4, %21, %10, %43, %18, %45
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DataModelMgr_get_max_vertices.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DataModelMgr_get_max_vertices(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %30 [
@@ -5645,7 +5645,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_max_vertices.argprom(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_CreationMgr_create.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_CreationMgr_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %47 [
@@ -5706,7 +5706,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create.argprom(ptr noundef 
   br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !45
 
 ._crit_edge5:                                     ; preds = %.lr.ph4, %._crit_edge
-  tail call fastcc void @decode_UCO_DAG_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
+  tail call fastcc void @decode_UCO_DAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
   %34 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %35 = load i32, ptr @hf_GIAS_CreationMgr_create_properties_loop, align 4
   %36 = load i32, ptr %4, align 4
@@ -5750,7 +5750,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create.argprom(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_CreationMgr_create_metadata.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_CreationMgr_create_metadata(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %37 [
@@ -5759,7 +5759,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create_metadata.argprom(ptr
   ]
 
 10:                                               ; preds = %7
-  tail call fastcc void @decode_UCO_DAG_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6)
+  tail call fastcc void @decode_UCO_DAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6)
   %11 = load i32, ptr @hf_GIAS_CreationMgr_create_metadata_view_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12, i32 noundef %11) #4
   %12 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12) #4
@@ -5832,7 +5832,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create_metadata.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_CreationMgr_create_association.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_CreationMgr_create_association(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
@@ -5903,7 +5903,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create_association.argprom(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_UpdateMgr_set_lock.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_UpdateMgr_set_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
@@ -5935,7 +5935,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_set_lock.argprom(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_UpdateMgr_update.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_UpdateMgr_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %59 [
@@ -5954,16 +5954,16 @@ define internal fastcc void @decode_GIAS_UpdateMgr_update.argprom(ptr noundef %0
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10, %decode_UCO_UpdateDAG_st.argprom.exit
-  %.0701 = phi i32 [ %33, %decode_UCO_UpdateDAG_st.argprom.exit ], [ 0, %10 ]
-  tail call fastcc void @decode_UCO_DAG_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
+.lr.ph:                                           ; preds = %10, %decode_UCO_UpdateDAG_st.exit
+  %.0701 = phi i32 [ %33, %decode_UCO_UpdateDAG_st.exit ], [ 0, %10 ]
+  tail call fastcc void @decode_UCO_DAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
   %17 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %18 = load i32, ptr @hf_UCO_UpdateDAG_changes_loop, align 4
   %19 = load i32, ptr %4, align 4
   %20 = add i32 %19, -4
   %21 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef %17) #4
   %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %decode_UCO_UpdateDAG_st.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %decode_UCO_UpdateDAG_st.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
   %.01.i = phi i32 [ %32, %.lr.ph.i ], [ 0, %.lr.ph ]
@@ -5979,14 +5979,14 @@ define internal fastcc void @decode_GIAS_UpdateMgr_update.argprom(ptr noundef %0
   %31 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef %27) #4
   %32 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %32, %17
-  br i1 %exitcond.not.i, label %decode_UCO_UpdateDAG_st.argprom.exit, label %.lr.ph.i, !llvm.loop !51
+  br i1 %exitcond.not.i, label %decode_UCO_UpdateDAG_st.exit, label %.lr.ph.i, !llvm.loop !51
 
-decode_UCO_UpdateDAG_st.argprom.exit:             ; preds = %.lr.ph.i, %.lr.ph
+decode_UCO_UpdateDAG_st.exit:                     ; preds = %.lr.ph.i, %.lr.ph
   %33 = add nuw i32 %.0701, 1
   %exitcond.not = icmp eq i32 %33, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
-._crit_edge:                                      ; preds = %decode_UCO_UpdateDAG_st.argprom.exit, %10
+._crit_edge:                                      ; preds = %decode_UCO_UpdateDAG_st.exit, %10
   %34 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %35 = load i32, ptr @hf_GIAS_UpdateMgr_update_relfiles_loop, align 4
   %36 = load i32, ptr %4, align 4
@@ -6057,7 +6057,7 @@ decode_UCO_UpdateDAG_st.argprom.exit:             ; preds = %.lr.ph.i, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_UpdateMgr_update_by_query.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_UpdateMgr_update_by_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
@@ -6116,7 +6116,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_update_by_query.argprom(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_UpdateMgr_release_lock.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_UpdateMgr_release_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
@@ -6148,7 +6148,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_release_lock.argprom(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_UpdateMgr_delete_product.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_UpdateMgr_delete_product(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
@@ -6180,7 +6180,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_delete_product.argprom(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_CatalogMgr_submit_query.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_CatalogMgr_submit_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %45 [
@@ -6275,7 +6275,7 @@ define internal fastcc void @decode_GIAS_CatalogMgr_submit_query.argprom(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_CatalogMgr_hit_count.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_CatalogMgr_hit_count(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %26 [
@@ -6331,7 +6331,7 @@ define internal fastcc void @decode_GIAS_CatalogMgr_hit_count.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_StandingQueryMgr_get_event_descriptions.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_StandingQueryMgr_get_event_descriptions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
@@ -6385,7 +6385,7 @@ define internal fastcc void @decode_GIAS_StandingQueryMgr_get_event_descriptions
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %45 [
@@ -6437,7 +6437,7 @@ define internal fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query.
   br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !62
 
 ._crit_edge5:                                     ; preds = %.lr.ph4, %._crit_edge
-  tail call fastcc void @decode_GIAS_QueryLifeSpan_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_QueryLifeSpan_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %32 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %33 = load i32, ptr @hf_GIAS_StandingQueryMgr_submit_standing_query_properties_loop, align 4
   %34 = load i32, ptr %4, align 4
@@ -6481,7 +6481,7 @@ define internal fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_ProductMgr_get_parameters.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_ProductMgr_get_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
@@ -6551,7 +6551,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_parameters.argprom(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_ProductMgr_get_related_file_types.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_ProductMgr_get_related_file_types(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %24 [
@@ -6602,7 +6602,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_related_file_types.argpr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_ProductMgr_get_related_files.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_ProductMgr_get_related_files(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %36 [
@@ -6682,7 +6682,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_related_files.argprom(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_IngestMgr_bulk_pull.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_IngestMgr_bulk_pull(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
@@ -6744,7 +6744,7 @@ define internal fastcc void @decode_GIAS_IngestMgr_bulk_pull.argprom(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_IngestMgr_bulk_push.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_IngestMgr_bulk_push(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
@@ -6810,7 +6810,7 @@ define internal fastcc void @decode_GIAS_IngestMgr_bulk_push.argprom(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_Request_get_request_description.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_Request_get_request_description(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
@@ -6827,7 +6827,7 @@ define internal fastcc void @decode_GIAS_Request_get_request_description.argprom
   ]
 
 13:                                               ; preds = %10
-  tail call fastcc void @decode_UCO_RequestDescription_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6)
+  tail call fastcc void @decode_UCO_RequestDescription_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6)
   br label %19
 
 14:                                               ; preds = %10
@@ -6844,7 +6844,7 @@ define internal fastcc void @decode_GIAS_Request_get_request_description.argprom
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_Request_set_user_info.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_Request_set_user_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %17 [
@@ -6877,7 +6877,7 @@ define internal fastcc void @decode_GIAS_Request_set_user_info.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_Request_get_status.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_Request_get_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %28 [
@@ -6923,7 +6923,7 @@ define internal fastcc void @decode_GIAS_Request_get_status.argprom(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_Request_get_remaining_delay.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_Request_get_remaining_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
@@ -6967,7 +6967,7 @@ define internal fastcc void @decode_GIAS_Request_get_remaining_delay.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_Request_cancel.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_Request_cancel(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
@@ -6995,7 +6995,7 @@ define internal fastcc void @decode_GIAS_Request_cancel.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_Request_register_callback.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_Request_register_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %18 [
@@ -7034,7 +7034,7 @@ define internal fastcc void @decode_GIAS_Request_register_callback.argprom(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_Request_free_callback.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_Request_free_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %17 [
@@ -7067,7 +7067,7 @@ define internal fastcc void @decode_GIAS_Request_free_callback.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_Request_get_request_manager.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_Request_get_request_manager(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
@@ -7101,7 +7101,7 @@ define internal fastcc void @decode_GIAS_Request_get_request_manager.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_OrderRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_OrderRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -7123,7 +7123,7 @@ define internal fastcc void @decode_GIAS_OrderRequest_complete.argprom(ptr nound
   %16 = load i32, ptr %4, align 4
   %17 = add i32 %16, -4
   %18 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef %14) #4
-  tail call fastcc void @decode_GIAS_DeliveryManifest_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_DeliveryManifest_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   br label %24
 
 19:                                               ; preds = %10
@@ -7140,7 +7140,7 @@ define internal fastcc void @decode_GIAS_OrderRequest_complete.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_pause.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_pause(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
@@ -7168,7 +7168,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_pause.argprom.a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_resume.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_resume(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
@@ -7196,7 +7196,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_resume.argprom.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete_list.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
@@ -7228,7 +7228,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete_list.a
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.01 = phi i32 [ %24, %.lr.ph ], [ 0, %13 ]
-  tail call fastcc void @decode_GIAS_DeliveryManifest_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_DeliveryManifest_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %19
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !71
@@ -7247,7 +7247,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete_list.a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -7269,7 +7269,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete.argpro
   %16 = load i32, ptr %4, align 4
   %17 = add i32 %16, -4
   %18 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef %14) #4
-  tail call fastcc void @decode_GIAS_DeliveryManifest_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_DeliveryManifest_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   br label %24
 
 19:                                               ; preds = %10
@@ -7286,7 +7286,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_CreateRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_CreateRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
@@ -7337,7 +7337,7 @@ define internal fastcc void @decode_GIAS_CreateRequest_complete.argprom(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_CreateMetaDataRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_CreateMetaDataRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -7376,7 +7376,7 @@ define internal fastcc void @decode_GIAS_CreateMetaDataRequest_complete.argprom(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_UpdateRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_UpdateRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -7414,7 +7414,7 @@ define internal fastcc void @decode_GIAS_UpdateRequest_complete.argprom(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitQueryRequest_set_number_of_hits.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitQueryRequest_set_number_of_hits(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -7450,7 +7450,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_set_number_of_hits.a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_DAG_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_DAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
@@ -7482,7 +7482,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_DAG_results
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.01 = phi i32 [ %24, %.lr.ph ], [ 0, %13 ]
-  tail call fastcc void @decode_UCO_DAG_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
+  tail call fastcc void @decode_UCO_DAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %19
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
@@ -7501,7 +7501,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_DAG_results
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_stringDAG_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_stringDAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
@@ -7533,7 +7533,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_stringDAG_r
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.01 = phi i32 [ %24, %.lr.ph ], [ 0, %13 ]
-  tail call fastcc void @decode_UCO_StringDAG_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
+  tail call fastcc void @decode_UCO_StringDAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %19
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
@@ -7552,7 +7552,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_stringDAG_r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_XML_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_XML_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -7592,7 +7592,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_XML_results
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_set_number_of_hits.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_set_number_of_hits(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -7628,7 +7628,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_set_number_o
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_hits.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_hits(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -7666,7 +7666,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_o
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_hits_in_interval.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_hits_in_interval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
@@ -7712,7 +7712,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_o
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_intervals.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_intervals(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -7750,7 +7750,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_o
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_all.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_all(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
@@ -7778,7 +7778,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_all.ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_intervals.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_intervals(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -7814,7 +7814,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_interv
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_before.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_before(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %33 [
@@ -7862,7 +7862,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_before
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_pause.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_pause(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
@@ -7890,7 +7890,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_pause.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_resume.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_resume(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
@@ -7918,7 +7918,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_resume.argpr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_last_executed.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_last_executed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
@@ -7935,7 +7935,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_las
   ]
 
 13:                                               ; preds = %10
-  tail call fastcc void @decode_UCO_AbsTime_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_UCO_AbsTime_st(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
   br label %19
 
 14:                                               ; preds = %10
@@ -7952,7 +7952,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_las
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_next_execution.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_next_execution(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
@@ -7969,7 +7969,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_nex
   ]
 
 13:                                               ; preds = %10
-  tail call fastcc void @decode_UCO_AbsTime_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
+  tail call fastcc void @decode_UCO_AbsTime_st(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %6)
   br label %19
 
 14:                                               ; preds = %10
@@ -7986,7 +7986,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_nex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_DAG_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_DAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
@@ -8018,7 +8018,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_DAG
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.01 = phi i32 [ %24, %.lr.ph ], [ 0, %13 ]
-  tail call fastcc void @decode_UCO_DAG_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
+  tail call fastcc void @decode_UCO_DAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %19
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
@@ -8037,7 +8037,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_DAG
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_stringDAG_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_stringDAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
@@ -8069,7 +8069,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_str
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.01 = phi i32 [ %24, %.lr.ph ], [ 0, %13 ]
-  tail call fastcc void @decode_UCO_StringDAG_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
+  tail call fastcc void @decode_UCO_StringDAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %19
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !76
@@ -8088,7 +8088,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_str
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_XML_results.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_XML_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -8128,7 +8128,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_XML
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_SetAvailabilityRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_SetAvailabilityRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -8166,7 +8166,7 @@ define internal fastcc void @decode_GIAS_SetAvailabilityRequest_complete.argprom
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_HitCountRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_HitCountRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %26 [
@@ -8209,7 +8209,7 @@ define internal fastcc void @decode_GIAS_HitCountRequest_complete.argprom(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_GetParametersRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_GetParametersRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -8231,7 +8231,7 @@ define internal fastcc void @decode_GIAS_GetParametersRequest_complete.argprom(p
   %16 = load i32, ptr %4, align 4
   %17 = add i32 %16, -4
   %18 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef %14) #4
-  tail call fastcc void @decode_UCO_DAG_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %6)
+  tail call fastcc void @decode_UCO_DAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %6)
   br label %24
 
 19:                                               ; preds = %10
@@ -8248,7 +8248,7 @@ define internal fastcc void @decode_GIAS_GetParametersRequest_complete.argprom(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_GetParametersRequest_complete_StringDAG.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_GetParametersRequest_complete_StringDAG(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -8270,7 +8270,7 @@ define internal fastcc void @decode_GIAS_GetParametersRequest_complete_StringDAG
   %16 = load i32, ptr %4, align 4
   %17 = add i32 %16, -4
   %18 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef %14) #4
-  tail call fastcc void @decode_UCO_StringDAG_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %6)
+  tail call fastcc void @decode_UCO_StringDAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %6)
   br label %24
 
 19:                                               ; preds = %10
@@ -8287,7 +8287,7 @@ define internal fastcc void @decode_GIAS_GetParametersRequest_complete_StringDAG
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_IngestRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_IngestRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -8325,7 +8325,7 @@ define internal fastcc void @decode_GIAS_IngestRequest_complete.argprom(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_GetRelatedFilesRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_GetRelatedFilesRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %28 [
@@ -8377,7 +8377,7 @@ define internal fastcc void @decode_GIAS_GetRelatedFilesRequest_complete.argprom
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_CreateAssociationRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_CreateAssociationRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -8415,7 +8415,7 @@ define internal fastcc void @decode_GIAS_CreateAssociationRequest_complete.argpr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_UpdateByQueryRequest_complete.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_UpdateByQueryRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
@@ -8477,7 +8477,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @get_CDR_enum(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_UCO_RequestDescription_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_UCO_RequestDescription_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = load i32, ptr @hf_UCO_RequestDescription_user_info, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12, i32 noundef %8) #4
   %9 = load i32, ptr @hf_UCO_RequestDescription_request_type, align 4
@@ -8516,9 +8516,9 @@ declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 nound
 declare signext i16 @get_CDR_short(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_QueryLifeSpan_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  tail call fastcc void @decode_GIAS_LifeEvent_un.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
-  tail call fastcc void @decode_GIAS_LifeEvent_un.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+define internal fastcc void @decode_GIAS_QueryLifeSpan_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+  tail call fastcc void @decode_GIAS_LifeEvent_un(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  tail call fastcc void @decode_GIAS_LifeEvent_un(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %5 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12) #4
   %6 = load i32, ptr @hf_GIAS_QueryLifeSpan_frequency_loop, align 4
   %7 = load i32, ptr %2, align 4
@@ -8529,7 +8529,7 @@ define internal fastcc void @decode_GIAS_QueryLifeSpan_st.argprom(ptr noundef %0
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.01 = phi i32 [ %10, %.lr.ph ], [ 0, %4 ]
-  tail call fastcc void @decode_GIAS_LifeEvent_un.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
+  tail call fastcc void @decode_GIAS_LifeEvent_un(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
   %10 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %10, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
@@ -8539,7 +8539,7 @@ define internal fastcc void @decode_GIAS_QueryLifeSpan_st.argprom(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_LifeEvent_un.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_LifeEvent_un(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12) #4
   %6 = load i32, ptr @hf_GIAS_LifeEvent_LifeEvent, align 4
   %7 = load i32, ptr %2, align 4
@@ -8553,7 +8553,7 @@ define internal fastcc void @decode_GIAS_LifeEvent_un.argprom(ptr noundef %0, pt
   ]
 
 10:                                               ; preds = %4
-  tail call fastcc void @decode_UCO_AbsTime_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
+  tail call fastcc void @decode_UCO_AbsTime_st(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3)
   br label %54
 
 11:                                               ; preds = %4
@@ -8611,7 +8611,7 @@ define internal fastcc void @decode_GIAS_LifeEvent_un.argprom(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_UCO_AbsTime_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_UCO_AbsTime_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_UCO_Date_year, align 4
   %6 = load i32, ptr %2, align 4
   %7 = add i32 %6, -2
@@ -8657,13 +8657,13 @@ declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare float @get_CDR_float(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DeliveryDetails_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DeliveryDetails_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 12) #4
   %6 = load i32, ptr @hf_GIAS_Destination_Destination, align 4
   %7 = load i32, ptr %2, align 4
   %8 = add i32 %7, -4
   %9 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %5) #4
-  switch i32 %5, label %decode_GIAS_Destination_un.argprom.exit [
+  switch i32 %5, label %decode_GIAS_Destination_un.exit [
     i32 0, label %10
     i32 1, label %.sink.split.i
     i32 2, label %15
@@ -8687,9 +8687,9 @@ define internal fastcc void @decode_GIAS_DeliveryDetails_st.argprom(ptr noundef 
   %hf_GIAS_PhysicalDelivery_address.sink.i = phi ptr [ @hf_GIAS_PhysicalDelivery_address, %15 ], [ @hf_UCO_FileLocation_file_name, %10 ], [ @hf_GIAS_Destination_e_dest, %4 ]
   %16 = load i32, ptr %hf_GIAS_PhysicalDelivery_address.sink.i, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12, i32 noundef %16) #4
-  br label %decode_GIAS_Destination_un.argprom.exit
+  br label %decode_GIAS_Destination_un.exit
 
-decode_GIAS_Destination_un.argprom.exit:          ; preds = %4, %.sink.split.i
+decode_GIAS_Destination_un.exit:                  ; preds = %4, %.sink.split.i
   %17 = load i32, ptr @hf_GIAS_DeliveryDetails_receiver, align 4
   tail call void @giop_add_CDR_string(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 12, i32 noundef %17) #4
   %18 = load i32, ptr @hf_GIAS_DeliveryDetails_shipmentMode, align 4
@@ -8698,7 +8698,7 @@ decode_GIAS_Destination_un.argprom.exit:          ; preds = %4, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_UCO_Rectangle_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_UCO_Rectangle_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_UCO_Coordinate2d_x, align 4
   %6 = load i32, ptr %2, align 4
   %7 = add i32 %6, -8
@@ -8727,7 +8727,7 @@ declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare double @get_CDR_double(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_OrderContents_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_OrderContents_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = load i32, ptr @hf_GIAS_OrderContents_originator, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12, i32 noundef %8) #4
   %9 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12) #4
@@ -8736,7 +8736,7 @@ define internal fastcc void @decode_GIAS_OrderContents_st.argprom(ptr noundef %0
   %12 = add i32 %11, -4
   %13 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef %9) #4
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %decode_GIAS_TailoringSpec_st.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %decode_GIAS_TailoringSpec_st.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.01.i = phi i32 [ %16, %.lr.ph.i ], [ 0, %7 ]
@@ -8746,14 +8746,14 @@ define internal fastcc void @decode_GIAS_OrderContents_st.argprom(ptr noundef %0
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %15) #4
   %16 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %16, %9
-  br i1 %exitcond.not.i, label %decode_GIAS_TailoringSpec_st.argprom.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %decode_GIAS_TailoringSpec_st.exit, label %.lr.ph.i, !llvm.loop !16
 
-decode_GIAS_TailoringSpec_st.argprom.exit:        ; preds = %.lr.ph.i, %7
+decode_GIAS_TailoringSpec_st.exit:                ; preds = %.lr.ph.i, %7
   %17 = load i32, ptr @hf_GIAS_PackagingSpec_package_identifier, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %17) #4
   %18 = load i32, ptr @hf_GIAS_PackagingSpec_packaging_format_and_compression, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %18) #4
-  tail call fastcc void @decode_UCO_AbsTime_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_UCO_AbsTime_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %19 = load i32, ptr @hf_GIAS_OrderContents_operatorNote, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %19) #4
   %20 = load i32, ptr @hf_GIAS_OrderContents_orderPriority, align 4
@@ -8770,8 +8770,8 @@ decode_GIAS_TailoringSpec_st.argprom.exit:        ; preds = %.lr.ph.i, %7
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %decode_GIAS_TailoringSpec_st.argprom.exit, %decode_GIAS_ProductDetails_st.argprom.exit
-  %.0731 = phi i32 [ %58, %decode_GIAS_ProductDetails_st.argprom.exit ], [ 0, %decode_GIAS_TailoringSpec_st.argprom.exit ]
+.lr.ph:                                           ; preds = %decode_GIAS_TailoringSpec_st.exit, %decode_GIAS_ProductDetails_st.exit
+  %.0731 = phi i32 [ %58, %decode_GIAS_ProductDetails_st.exit ], [ 0, %decode_GIAS_TailoringSpec_st.exit ]
   %31 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %32 = load i32, ptr @hf_GIAS_ProductDetails_mTypes_loop, align 4
   %33 = load i32, ptr %4, align 4
@@ -8801,7 +8801,7 @@ decode_GIAS_TailoringSpec_st.argprom.exit:        ; preds = %.lr.ph.i, %7
   %47 = add i32 %46, -4
   %48 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef %44) #4
   %.not6.i = icmp eq i32 %44, 0
-  br i1 %.not6.i, label %decode_GIAS_ProductDetails_st.argprom.exit, label %.lr.ph4.i
+  br i1 %.not6.i, label %decode_GIAS_ProductDetails_st.exit, label %.lr.ph4.i
 
 .lr.ph4.i:                                        ; preds = %._crit_edge.i, %.lr.ph4.i
   %.02.i = phi i32 [ %50, %.lr.ph4.i ], [ 0, %._crit_edge.i ]
@@ -8809,13 +8809,13 @@ decode_GIAS_TailoringSpec_st.argprom.exit:        ; preds = %.lr.ph.i, %7
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %49) #4
   %50 = add nuw i32 %.02.i, 1
   %exitcond7.not.i = icmp eq i32 %50, %44
-  br i1 %exitcond7.not.i, label %decode_GIAS_ProductDetails_st.argprom.exit, label %.lr.ph4.i, !llvm.loop !81
+  br i1 %exitcond7.not.i, label %decode_GIAS_ProductDetails_st.exit, label %.lr.ph4.i, !llvm.loop !81
 
-decode_GIAS_ProductDetails_st.argprom.exit:       ; preds = %.lr.ph4.i, %._crit_edge.i
+decode_GIAS_ProductDetails_st.exit:               ; preds = %.lr.ph4.i, %._crit_edge.i
   %51 = load i32, ptr @hf_GIAS_AlterationSpec_pf, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, i32 noundef %51) #4
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12, ptr noundef %5) #4
-  tail call fastcc void @decode_UCO_Rectangle_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_UCO_Rectangle_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %52 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %53 = load i32, ptr @hf_GIAS_AlterationSpec_geo_region_type, align 4
   %54 = load i32, ptr %4, align 4
@@ -8828,7 +8828,7 @@ decode_GIAS_ProductDetails_st.argprom.exit:       ; preds = %.lr.ph4.i, %._crit_
   %exitcond.not = icmp eq i32 %58, %26
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
-._crit_edge:                                      ; preds = %decode_GIAS_ProductDetails_st.argprom.exit, %decode_GIAS_TailoringSpec_st.argprom.exit
+._crit_edge:                                      ; preds = %decode_GIAS_ProductDetails_st.exit, %decode_GIAS_TailoringSpec_st.exit
   %59 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %6, i32 noundef 12) #4
   %60 = load i32, ptr @hf_GIAS_OrderContents_del_list_loop, align 4
   %61 = load i32, ptr %4, align 4
@@ -8839,7 +8839,7 @@ decode_GIAS_ProductDetails_st.argprom.exit:       ; preds = %.lr.ph4.i, %._crit_
 
 .lr.ph4:                                          ; preds = %._crit_edge, %.lr.ph4
   %.02 = phi i32 [ %64, %.lr.ph4 ], [ 0, %._crit_edge ]
-  tail call fastcc void @decode_GIAS_DeliveryDetails_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
+  tail call fastcc void @decode_GIAS_DeliveryDetails_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %6)
   %64 = add nuw i32 %.02, 1
   %exitcond7.not = icmp eq i32 %64, %59
   br i1 %exitcond7.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !83
@@ -8849,7 +8849,7 @@ decode_GIAS_ProductDetails_st.argprom.exit:       ; preds = %.lr.ph4.i, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @hf_GIAS_AttributeInformation_attribute_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef 12, i32 noundef %7) #4
@@ -8864,7 +8864,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %15 = load i32, ptr %3, align 4
   %16 = add i32 %15, -4
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef %13) #4
-  switch i32 %13, label %decode_GIAS_Domain_un.argprom.exit [
+  switch i32 %13, label %decode_GIAS_Domain_un.exit [
     i32 0, label %18
     i32 1, label %19
     i32 2, label %25
@@ -8882,9 +8882,9 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   ]
 
 18:                                               ; preds = %5
-  tail call fastcc void @decode_UCO_AbsTime_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4)
-  tail call fastcc void @decode_UCO_AbsTime_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4)
-  br label %decode_GIAS_Domain_un.argprom.exit
+  tail call fastcc void @decode_UCO_AbsTime_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @decode_UCO_AbsTime_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4)
+  br label %decode_GIAS_Domain_un.exit
 
 19:                                               ; preds = %5
   %20 = load i32, ptr @hf_GIAS_Domain_t, align 4
@@ -8892,7 +8892,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %22 = add i32 %21, -4
   %23 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
   %24 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef %23) #4
-  br label %decode_GIAS_Domain_un.argprom.exit
+  br label %decode_GIAS_Domain_un.exit
 
 25:                                               ; preds = %5
   %26 = load i32, ptr @hf_GIAS_IntegerRange_lower_bound, align 4
@@ -8905,7 +8905,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %33 = add i32 %32, -4
   %34 = tail call i32 @get_CDR_long(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
   %35 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef %34) #4
-  br label %decode_GIAS_Domain_un.argprom.exit
+  br label %decode_GIAS_Domain_un.exit
 
 36:                                               ; preds = %5
   %37 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
@@ -8914,7 +8914,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %40 = add i32 %39, -4
   %41 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef %37) #4
   %.not17.i = icmp eq i32 %37, 0
-  br i1 %.not17.i, label %decode_GIAS_Domain_un.argprom.exit, label %.lr.ph13.i
+  br i1 %.not17.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph13.i
 
 .lr.ph13.i:                                       ; preds = %36, %.lr.ph13.i
   %.012.i = phi i32 [ %52, %.lr.ph13.i ], [ 0, %36 ]
@@ -8930,7 +8930,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %51 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef %50) #4
   %52 = add nuw i32 %.012.i, 1
   %exitcond25.not.i = icmp eq i32 %52, %37
-  br i1 %exitcond25.not.i, label %decode_GIAS_Domain_un.argprom.exit, label %.lr.ph13.i, !llvm.loop !84
+  br i1 %exitcond25.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph13.i, !llvm.loop !84
 
 53:                                               ; preds = %5
   %54 = load i32, ptr @hf_GIAS_FloatingPointRange_lower_bound, align 4
@@ -8943,7 +8943,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %61 = add i32 %60, -8
   %62 = tail call double @get_CDR_double(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
   %63 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %59, ptr noundef %0, i32 noundef %61, i32 noundef 8, double noundef %62) #4
-  br label %decode_GIAS_Domain_un.argprom.exit
+  br label %decode_GIAS_Domain_un.exit
 
 64:                                               ; preds = %5
   %65 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
@@ -8952,7 +8952,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %68 = add i32 %67, -4
   %69 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef %65) #4
   %.not16.i = icmp eq i32 %65, 0
-  br i1 %.not16.i, label %decode_GIAS_Domain_un.argprom.exit, label %.lr.ph11.i
+  br i1 %.not16.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph11.i
 
 .lr.ph11.i:                                       ; preds = %64, %.lr.ph11.i
   %.018410.i = phi i32 [ %80, %.lr.ph11.i ], [ 0, %64 ]
@@ -8968,7 +8968,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %79 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %77, i32 noundef 8, double noundef %78) #4
   %80 = add nuw i32 %.018410.i, 1
   %exitcond24.not.i = icmp eq i32 %80, %65
-  br i1 %exitcond24.not.i, label %decode_GIAS_Domain_un.argprom.exit, label %.lr.ph11.i, !llvm.loop !85
+  br i1 %exitcond24.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph11.i, !llvm.loop !85
 
 81:                                               ; preds = %5
   %82 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
@@ -8977,7 +8977,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %85 = add i32 %84, -4
   %86 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef %85, i32 noundef 4, i32 noundef %82) #4
   %.not15.i = icmp eq i32 %82, 0
-  br i1 %.not15.i, label %decode_GIAS_Domain_un.argprom.exit, label %.lr.ph9.i
+  br i1 %.not15.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph9.i
 
 .lr.ph9.i:                                        ; preds = %81, %.lr.ph9.i
   %.01868.i = phi i32 [ %88, %.lr.ph9.i ], [ 0, %81 ]
@@ -8985,7 +8985,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12, i32 noundef %87) #4
   %88 = add nuw i32 %.01868.i, 1
   %exitcond23.not.i = icmp eq i32 %88, %82
-  br i1 %exitcond23.not.i, label %decode_GIAS_Domain_un.argprom.exit, label %.lr.ph9.i, !llvm.loop !86
+  br i1 %exitcond23.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph9.i, !llvm.loop !86
 
 89:                                               ; preds = %5
   %90 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
@@ -8994,7 +8994,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %93 = add i32 %92, -4
   %94 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %91, ptr noundef %0, i32 noundef %93, i32 noundef 4, i32 noundef %90) #4
   %.not14.i = icmp eq i32 %90, 0
-  br i1 %.not14.i, label %decode_GIAS_Domain_un.argprom.exit, label %.lr.ph7.i
+  br i1 %.not14.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph7.i
 
 .lr.ph7.i:                                        ; preds = %89, %.lr.ph7.i
   %.01876.i = phi i32 [ %96, %.lr.ph7.i ], [ 0, %89 ]
@@ -9002,7 +9002,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12, i32 noundef %95) #4
   %96 = add nuw i32 %.01876.i, 1
   %exitcond22.not.i = icmp eq i32 %96, %90
-  br i1 %exitcond22.not.i, label %decode_GIAS_Domain_un.argprom.exit, label %.lr.ph7.i, !llvm.loop !87
+  br i1 %exitcond22.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph7.i, !llvm.loop !87
 
 97:                                               ; preds = %5
   %98 = load i32, ptr @hf_GIAS_IntegerRange_lower_bound, align 4
@@ -9015,7 +9015,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %105 = add i32 %104, -4
   %106 = tail call i32 @get_CDR_long(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
   %107 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %103, ptr noundef %0, i32 noundef %105, i32 noundef 4, i32 noundef %106) #4
-  br label %decode_GIAS_Domain_un.argprom.exit
+  br label %decode_GIAS_Domain_un.exit
 
 108:                                              ; preds = %5
   %109 = load i32, ptr @hf_GIAS_FloatingPointRange_lower_bound, align 4
@@ -9028,11 +9028,11 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %116 = add i32 %115, -8
   %117 = tail call double @get_CDR_double(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
   %118 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %114, ptr noundef %0, i32 noundef %116, i32 noundef 8, double noundef %117) #4
-  br label %decode_GIAS_Domain_un.argprom.exit
+  br label %decode_GIAS_Domain_un.exit
 
 119:                                              ; preds = %5
-  tail call fastcc void @decode_UCO_Rectangle_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4)
-  br label %decode_GIAS_Domain_un.argprom.exit
+  tail call fastcc void @decode_UCO_Rectangle_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4)
+  br label %decode_GIAS_Domain_un.exit
 
 120:                                              ; preds = %5
   %121 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
@@ -9041,14 +9041,14 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %124 = add i32 %123, -4
   %125 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %122, ptr noundef %0, i32 noundef %124, i32 noundef 4, i32 noundef %121) #4
   %.not.i = icmp eq i32 %121, 0
-  br i1 %.not.i, label %decode_GIAS_Domain_un.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %120, %.lr.ph.i
   %.01855.i = phi i32 [ %126, %.lr.ph.i ], [ 0, %120 ]
-  tail call fastcc void @decode_UCO_Rectangle_st.argprom(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @decode_UCO_Rectangle_st(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4)
   %126 = add nuw i32 %.01855.i, 1
   %exitcond.not.i = icmp eq i32 %126, %121
-  br i1 %exitcond.not.i, label %decode_GIAS_Domain_un.argprom.exit, label %.lr.ph.i, !llvm.loop !88
+  br i1 %exitcond.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph.i, !llvm.loop !88
 
 127:                                              ; preds = %5
   %128 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
@@ -9059,7 +9059,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %133 = icmp ne i32 %128, 0
   %134 = icmp ne ptr %2, null
   %or.cond.i = and i1 %134, %133
-  br i1 %or.cond.i, label %135, label %decode_GIAS_Domain_un.argprom.exit
+  br i1 %or.cond.i, label %135, label %decode_GIAS_Domain_un.exit
 
 135:                                              ; preds = %127
   %136 = getelementptr inbounds i8, ptr %1, i64 408
@@ -9073,7 +9073,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %143 = sub i32 %142, %128
   %144 = load ptr, ptr %6, align 8
   %145 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef nonnull %2, i32 noundef %141, ptr noundef %0, i32 noundef %143, i32 noundef %128, ptr noundef %144, ptr noundef nonnull @.str.806, ptr noundef %140) #4
-  br label %decode_GIAS_Domain_un.argprom.exit
+  br label %decode_GIAS_Domain_un.exit
 
 146:                                              ; preds = %5
   %147 = load i32, ptr @hf_GIAS_Domain_bv, align 4
@@ -9082,9 +9082,9 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st.argprom(ptr nou
   %150 = tail call i32 @get_CDR_boolean(ptr noundef %0, ptr noundef nonnull %3) #4
   %151 = sext i32 %150 to i64
   %152 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %147, ptr noundef %0, i32 noundef %149, i32 noundef 1, i64 noundef %151) #4
-  br label %decode_GIAS_Domain_un.argprom.exit
+  br label %decode_GIAS_Domain_un.exit
 
-decode_GIAS_Domain_un.argprom.exit:               ; preds = %.lr.ph.i, %.lr.ph7.i, %.lr.ph9.i, %.lr.ph11.i, %.lr.ph13.i, %5, %18, %19, %25, %36, %53, %64, %81, %89, %97, %108, %119, %120, %127, %135, %146
+decode_GIAS_Domain_un.exit:                       ; preds = %.lr.ph.i, %.lr.ph7.i, %.lr.ph9.i, %.lr.ph11.i, %.lr.ph13.i, %5, %18, %19, %25, %36, %53, %64, %81, %89, %97, %108, %119, %120, %127, %135, %146
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %153 = load i32, ptr @hf_GIAS_AttributeInformation_attribute_units, align 4
   call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12, i32 noundef %153) #4
@@ -9121,7 +9121,7 @@ declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr nou
 declare i32 @get_CDR_long(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_UCO_DAG_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_UCO_DAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12) #4
   %9 = load i32, ptr @hf_UCO_DAG_nodes_loop, align 4
   %10 = load i32, ptr %4, align 4
@@ -9181,7 +9181,7 @@ define internal fastcc void @decode_UCO_DAG_st.argprom(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_GIAS_DeliveryManifest_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @decode_GIAS_DeliveryManifest_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_GIAS_DeliveryManifest_package_name, align 4
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef 12, i32 noundef %6) #4
   %7 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef 12) #4
@@ -9192,8 +9192,8 @@ define internal fastcc void @decode_GIAS_DeliveryManifest_st.argprom(ptr noundef
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %decode_GIAS_PackageElement_st.argprom.exit
-  %.01 = phi i32 [ %19, %decode_GIAS_PackageElement_st.argprom.exit ], [ 0, %5 ]
+.lr.ph:                                           ; preds = %5, %decode_GIAS_PackageElement_st.exit
+  %.01 = phi i32 [ %19, %decode_GIAS_PackageElement_st.exit ], [ 0, %5 ]
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
   %12 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12) #4
   %13 = load i32, ptr @hf_GIAS_PackageElement_files_loop, align 4
@@ -9201,7 +9201,7 @@ define internal fastcc void @decode_GIAS_DeliveryManifest_st.argprom(ptr noundef
   %15 = add i32 %14, -4
   %16 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef %12) #4
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %decode_GIAS_PackageElement_st.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %decode_GIAS_PackageElement_st.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
   %.01.i = phi i32 [ %18, %.lr.ph.i ], [ 0, %.lr.ph ]
@@ -9209,19 +9209,19 @@ define internal fastcc void @decode_GIAS_DeliveryManifest_st.argprom(ptr noundef
   tail call void @giop_add_CDR_string(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4, i32 noundef 12, i32 noundef %17) #4
   %18 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %18, %12
-  br i1 %exitcond.not.i, label %decode_GIAS_PackageElement_st.argprom.exit, label %.lr.ph.i, !llvm.loop !91
+  br i1 %exitcond.not.i, label %decode_GIAS_PackageElement_st.exit, label %.lr.ph.i, !llvm.loop !91
 
-decode_GIAS_PackageElement_st.argprom.exit:       ; preds = %.lr.ph.i, %.lr.ph
+decode_GIAS_PackageElement_st.exit:               ; preds = %.lr.ph.i, %.lr.ph
   %19 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %19, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 
-._crit_edge:                                      ; preds = %decode_GIAS_PackageElement_st.argprom.exit, %5
+._crit_edge:                                      ; preds = %decode_GIAS_PackageElement_st.exit, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_UCO_StringDAG_st.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_UCO_StringDAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %6, i32 noundef 12, ptr noundef %5) #4
   %8 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef 12) #4
   %9 = load i32, ptr @hf_UCO_StringDAG_nodes_loop, align 4

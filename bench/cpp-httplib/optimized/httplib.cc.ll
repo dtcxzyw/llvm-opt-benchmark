@@ -11264,7 +11264,7 @@ lpad.i116.i:                                      ; preds = %if.then.i.i
 
 "_ZZN7httplib6detail26make_multipart_ranges_dataERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RSB_ENK3$_2clEmm.exit.i": ; preds = %_ZN7httplib6detail27get_range_offset_and_lengthERKNS_7RequestEmm.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  br label %"_ZN7httplib6detail29process_multipart_ranges_dataIZNS0_26make_multipart_ranges_dataERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RSC_E3$_0ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_1ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_2EEbS4_S6_SE_SE_T_T0_T1_.argprom.exit"
+  br label %"_ZN7httplib6detail29process_multipart_ranges_dataIZNS0_26make_multipart_ranges_dataERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RSC_E3$_0ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_1ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_2EEbS4_S6_SE_SE_T_T0_T1_.exit"
 
 lpad32.i:                                         ; preds = %call.i78.noexc.i, %if.end.i
   %36 = landingpad { ptr, i32 }
@@ -11489,7 +11489,7 @@ invoke.cont84.i:                                  ; preds = %invoke.cont.i8
 invoke.cont86.i:                                  ; preds = %invoke.cont84.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81.i) #39
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp82.i) #39
-  br label %"_ZN7httplib6detail29process_multipart_ranges_dataIZNS0_26make_multipart_ranges_dataERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RSC_E3$_0ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_1ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_2EEbS4_S6_SE_SE_T_T0_T1_.argprom.exit"
+  br label %"_ZN7httplib6detail29process_multipart_ranges_dataIZNS0_26make_multipart_ranges_dataERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RSC_E3$_0ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_1ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_2EEbS4_S6_SE_SE_T_T0_T1_.exit"
 
 lpad75.i:                                         ; preds = %call.i129.noexc.i, %for.end.i
   %56 = landingpad { ptr, i32 }
@@ -11523,7 +11523,7 @@ ehcleanup88.i:                                    ; preds = %lpad85.i, %lpad83.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp82.i) #39
   br label %common.resume.i
 
-"_ZN7httplib6detail29process_multipart_ranges_dataIZNS0_26make_multipart_ranges_dataERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RSC_E3$_0ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_1ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_2EEbS4_S6_SE_SE_T_T0_T1_.argprom.exit": ; preds = %"_ZZN7httplib6detail26make_multipart_ranges_dataERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RSB_ENK3$_2clEmm.exit.i", %invoke.cont86.i
+"_ZN7httplib6detail29process_multipart_ranges_dataIZNS0_26make_multipart_ranges_dataERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RSC_E3$_0ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_1ZNS0_26make_multipart_ranges_dataES4_S6_SE_SE_SF_E3$_2EEbS4_S6_SE_SE_T_T0_T1_.exit": ; preds = %"_ZZN7httplib6detail26make_multipart_ranges_dataERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RSB_ENK3$_2clEmm.exit.i", %invoke.cont86.i
   %cmp28.i = phi i1 [ false, %"_ZZN7httplib6detail26make_multipart_ranges_dataERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RSB_ENK3$_2clEmm.exit.i" ], [ true, %invoke.cont86.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
@@ -25945,7 +25945,7 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %content_provider_ = getelementptr inbounds i8, ptr %res, i64 192
-  %call4 = tail call fastcc noundef zeroext i1 @"_ZN7httplib6detail13write_contentIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEEmmRKT_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %strm, ptr noundef nonnull align 8 dereferenceable(32) %content_provider_, i64 noundef 0, i64 noundef %0, ptr nonnull %this)
+  %call4 = tail call fastcc noundef zeroext i1 @"_ZN7httplib6detail13write_contentIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEEmmRKT_"(ptr noundef nonnull align 8 dereferenceable(8) %strm, ptr noundef nonnull align 8 dereferenceable(32) %content_provider_, i64 noundef 0, i64 noundef %0, ptr nonnull %this)
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -25980,7 +25980,7 @@ _ZN7httplib6detail27get_range_offset_and_lengthERKNS_7RequestEmm.exit: ; preds =
   %retval.sroa.0.0.i = phi i64 [ %r.sroa.0.0.i, %if.end.i ], [ 0, %if.then8 ]
   %retval.sroa.3.0.i = phi i64 [ %add.i, %if.end.i ], [ %0, %if.then8 ]
   %content_provider_11 = getelementptr inbounds i8, ptr %res, i64 192
-  %call12 = tail call fastcc noundef zeroext i1 @"_ZN7httplib6detail13write_contentIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEEmmRKT_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %strm, ptr noundef nonnull align 8 dereferenceable(32) %content_provider_11, i64 noundef %retval.sroa.0.0.i, i64 noundef %retval.sroa.3.0.i, ptr nonnull %this)
+  %call12 = tail call fastcc noundef zeroext i1 @"_ZN7httplib6detail13write_contentIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEEmmRKT_"(ptr noundef nonnull align 8 dereferenceable(8) %strm, ptr noundef nonnull align 8 dereferenceable(32) %content_provider_11, i64 noundef %retval.sroa.0.0.i, i64 noundef %retval.sroa.3.0.i, ptr nonnull %this)
   br label %return
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
@@ -26490,7 +26490,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont57.i.i
 _ZN7httplib6detail27get_range_offset_and_lengthERKNS_7RequestEmm.exit.i.i: ; preds = %if.end.i.i.i, %invoke.cont57.i.i
   %retval.sroa.0.0.i.i.i = phi i64 [ %r.sroa.0.0.i.i.i, %if.end.i.i.i ], [ 0, %invoke.cont57.i.i ]
   %retval.sroa.3.0.i.i.i = phi i64 [ %add.i.i.i, %if.end.i.i.i ], [ %44, %invoke.cont57.i.i ]
-  %call.i.i.i = call fastcc noundef zeroext i1 @"_ZN7httplib6detail13write_contentIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEEmmRKT_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %strm, ptr noundef nonnull align 8 dereferenceable(32) %content_provider_.i.i.i, i64 noundef %retval.sroa.0.0.i.i.i, i64 noundef %retval.sroa.3.0.i.i.i, ptr nonnull %this)
+  %call.i.i.i = call fastcc noundef zeroext i1 @"_ZN7httplib6detail13write_contentIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEEmmRKT_"(ptr noundef nonnull align 8 dereferenceable(8) %strm, ptr noundef nonnull align 8 dereferenceable(32) %content_provider_.i.i.i, i64 noundef %retval.sroa.0.0.i.i.i, i64 noundef %retval.sroa.3.0.i.i.i, ptr nonnull %this)
   br i1 %call.i.i.i, label %if.end64.i.i, label %"_ZN7httplib6detail27write_multipart_ranges_dataIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0EEbS4_S7_S9_SH_SH_RKT_.exit"
 
 lpad32.i.i:                                       ; preds = %call.i.noexc101.i.i, %if.end.i.i
@@ -26934,11 +26934,11 @@ invoke.cont.i.i53:                                ; preds = %if.then.i.i.i.i.i, 
   store ptr %86, ptr %_M_invoker.i.i12.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i14.i.i, align 8
   %tobool.not.i.i.i15.i.i = icmp eq ptr %85, null
-  br i1 %tobool.not.i.i.i15.i.i, label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i", label %if.then.i.i.i16.i.i
+  br i1 %tobool.not.i.i.i15.i.i, label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.exit.i.i", label %if.then.i.i.i16.i.i
 
 if.then.i.i.i16.i.i:                              ; preds = %invoke.cont.i.i53
   %call.i.i.i17.i.i = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i18.i.i
+          to label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.exit.i.i" unwind label %terminate.lpad.i.i.i18.i.i
 
 terminate.lpad.i.i.i18.i.i:                       ; preds = %if.then.i.i.i16.i.i
   %87 = landingpad { ptr, i32 }
@@ -26947,7 +26947,7 @@ terminate.lpad.i.i.i18.i.i:                       ; preds = %if.then.i.i.i16.i.i
   call void @__clang_call_terminate(ptr %88) #42
   unreachable
 
-"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i": ; preds = %if.then.i.i.i16.i.i, %invoke.cont.i.i53
+"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.exit.i.i": ; preds = %if.then.i.i.i16.i.i, %invoke.cont.i.i53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i10.i.i)
   store ptr %ok.i.i, ptr %done_with_trailer.i.i, align 8
   %89 = getelementptr inbounds i8, ptr %done_with_trailer.i.i, i64 8
@@ -26978,11 +26978,11 @@ terminate.lpad.i.i.i18.i.i:                       ; preds = %if.then.i.i.i16.i.i
   store ptr %95, ptr %_M_invoker.i.i22.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEEUlvE0_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i24.i.i, align 8
   %tobool.not.i.i.i25.i.i = icmp eq ptr %94, null
-  br i1 %tobool.not.i.i.i25.i.i, label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i", label %if.then.i.i.i26.i.i
+  br i1 %tobool.not.i.i.i25.i.i, label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.exit.i.i", label %if.then.i.i.i26.i.i
 
-if.then.i.i.i26.i.i:                              ; preds = %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i"
+if.then.i.i.i26.i.i:                              ; preds = %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.exit.i.i"
   %call.i.i.i27.i.i = invoke noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i20.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i20.i.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i28.i.i
+          to label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.exit.i.i" unwind label %terminate.lpad.i.i.i28.i.i
 
 terminate.lpad.i.i.i28.i.i:                       ; preds = %if.then.i.i.i26.i.i
   %96 = landingpad { ptr, i32 }
@@ -26991,7 +26991,7 @@ terminate.lpad.i.i.i28.i.i:                       ; preds = %if.then.i.i.i26.i.i
   call void @__clang_call_terminate(ptr %97) #42
   unreachable
 
-"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i": ; preds = %if.then.i.i.i26.i.i, %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i"
+"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.exit.i.i": ; preds = %if.then.i.i.i26.i.i, %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i20.i.i)
   %done_with_trailer6.i.i = getelementptr inbounds i8, ptr %data_sink.i.i, i64 96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i30.i.i)
@@ -27014,11 +27014,11 @@ terminate.lpad.i.i.i28.i.i:                       ; preds = %if.then.i.i.i26.i.i
   store ptr %100, ptr %_M_invoker.i.i32.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_SR_E3$_0NS8_10compressorEEEbSL_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_E9_M_invokeERKSt9_Any_dataSG_", ptr %_M_invoker4.i.i34.i.i, align 8
   %tobool.not.i.i.i35.i.i = icmp eq ptr %99, null
-  br i1 %tobool.not.i.i.i35.i.i, label %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_ST_E3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS12_NS1A_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS12_E4typeEE4typeESI_EE5valueESt5decayIS12_EE4type4typeESt15__invoke_resultIRS1M_JSG_EEEE5valueERSI_E4typeEOS12_.argprom.exit.i.i", label %if.then.i.i.i36.i.i
+  br i1 %tobool.not.i.i.i35.i.i, label %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_ST_E3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS12_NS1A_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS12_E4typeEE4typeESI_EE5valueESt5decayIS12_EE4type4typeESt15__invoke_resultIRS1M_JSG_EEEE5valueERSI_E4typeEOS12_.exit.i.i", label %if.then.i.i.i36.i.i
 
-if.then.i.i.i36.i.i:                              ; preds = %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i"
+if.then.i.i.i36.i.i:                              ; preds = %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.exit.i.i"
   %call.i.i.i37.i.i = invoke noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30.i.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_ST_E3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS12_NS1A_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS12_E4typeEE4typeESI_EE5valueESt5decayIS12_EE4type4typeESt15__invoke_resultIRS1M_JSG_EEEE5valueERSI_E4typeEOS12_.argprom.exit.i.i" unwind label %terminate.lpad.i.i.i38.i.i
+          to label %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_ST_E3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS12_NS1A_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS12_E4typeEE4typeESI_EE5valueESt5decayIS12_EE4type4typeESt15__invoke_resultIRS1M_JSG_EEEE5valueERSI_E4typeEOS12_.exit.i.i" unwind label %terminate.lpad.i.i.i38.i.i
 
 terminate.lpad.i.i.i38.i.i:                       ; preds = %if.then.i.i.i36.i.i
   %101 = landingpad { ptr, i32 }
@@ -27027,14 +27027,14 @@ terminate.lpad.i.i.i38.i.i:                       ; preds = %if.then.i.i.i36.i.i
   call void @__clang_call_terminate(ptr %102) #42
   unreachable
 
-"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_ST_E3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS12_NS1A_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS12_E4typeEE4typeESI_EE5valueESt5decayIS12_EE4type4typeESt15__invoke_resultIRS1M_JSG_EEEE5valueERSI_E4typeEOS12_.argprom.exit.i.i": ; preds = %if.then.i.i.i36.i.i, %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i"
+"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_ST_E3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS12_NS1A_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS12_E4typeEE4typeESI_EE5valueESt5decayIS12_EE4type4typeESt15__invoke_resultIRS1M_JSG_EEEE5valueERSI_E4typeEOS12_.exit.i.i": ; preds = %if.then.i.i.i36.i.i, %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISU_NS12_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS1E_JEEEE5valueERS1_E4typeEOSU_.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i30.i.i)
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 208
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %res, i64 216
   %svr_sock_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.cond.i.i
 
-while.cond.i.i:                                   ; preds = %if.else14.i.i, %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_ST_E3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS12_NS1A_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS12_E4typeEE4typeESI_EE5valueESt5decayIS12_EE4type4typeESt15__invoke_resultIRS1M_JSG_EEEE5valueERSI_E4typeEOS12_.argprom.exit.i.i"
+while.cond.i.i:                                   ; preds = %if.else14.i.i, %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_ST_E3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS12_NS1A_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS12_E4typeEE4typeESI_EE5valueESt5decayIS12_EE4type4typeESt15__invoke_resultIRS1M_JSG_EEEE5valueERSI_E4typeEOS12_.exit.i.i"
   %103 = load i8, ptr %data_available.i.i, align 1
   %tobool.i.i = trunc i8 %103 to i1
   br i1 %tobool.i.i, label %land.rhs.i.i, label %_ZNSt10unique_ptrIN7httplib6detail10compressorESt14default_deleteIS2_EED2Ev.exit66
@@ -27191,11 +27191,11 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %c
   store ptr %119, ptr %_M_invoker.i.i7.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail28write_content_without_lengthIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_EUlvE_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i9.i, align 8
   %tobool.not.i.i.i10.i = icmp eq ptr %118, null
-  br i1 %tobool.not.i.i.i10.i, label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i", label %if.then.i.i.i11.i
+  br i1 %tobool.not.i.i.i10.i, label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i", label %if.then.i.i.i11.i
 
 if.then.i.i.i11.i:                                ; preds = %invoke.cont.i
   %call.i.i.i12.i = invoke noundef zeroext i1 %118(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i" unwind label %terminate.lpad.i.i.i13.i
+          to label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i" unwind label %terminate.lpad.i.i.i13.i
 
 terminate.lpad.i.i.i13.i:                         ; preds = %if.then.i.i.i11.i
   %120 = landingpad { ptr, i32 }
@@ -27204,7 +27204,7 @@ terminate.lpad.i.i.i13.i:                         ; preds = %if.then.i.i.i11.i
   call void @__clang_call_terminate(ptr %121) #42
   unreachable
 
-"_ZNSt8functionIFbvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i": ; preds = %if.then.i.i.i11.i, %invoke.cont.i
+"_ZNSt8functionIFbvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i": ; preds = %if.then.i.i.i11.i, %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i5.i)
   %done.i = getelementptr inbounds i8, ptr %data_sink.i, i64 64
   %122 = ptrtoint ptr %data_available.i to i64
@@ -27228,11 +27228,11 @@ terminate.lpad.i.i.i13.i:                         ; preds = %if.then.i.i.i11.i
   store ptr %125, ptr %_M_invoker.i.i17.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail28write_content_without_lengthIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_EUlvE0_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i19.i, align 8
   %tobool.not.i.i.i20.i = icmp eq ptr %124, null
-  br i1 %tobool.not.i.i.i20.i, label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i", label %if.then.i.i.i21.i
+  br i1 %tobool.not.i.i.i20.i, label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i", label %if.then.i.i.i21.i
 
-if.then.i.i.i21.i:                                ; preds = %"_ZNSt8functionIFbvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i"
+if.then.i.i.i21.i:                                ; preds = %"_ZNSt8functionIFbvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i"
   %call.i.i.i22.i = invoke noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i15.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i15.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i" unwind label %terminate.lpad.i.i.i23.i
+          to label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i" unwind label %terminate.lpad.i.i.i23.i
 
 terminate.lpad.i.i.i23.i:                         ; preds = %if.then.i.i.i21.i
   %126 = landingpad { ptr, i32 }
@@ -27241,14 +27241,14 @@ terminate.lpad.i.i.i23.i:                         ; preds = %if.then.i.i.i21.i
   call void @__clang_call_terminate(ptr %127) #42
   unreachable
 
-"_ZNSt8functionIFvvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i": ; preds = %if.then.i.i.i21.i, %"_ZNSt8functionIFbvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i"
+"_ZNSt8functionIFvvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i": ; preds = %if.then.i.i.i21.i, %"_ZNSt8functionIFbvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i15.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %res, i64 208
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %res, i64 216
   %svr_sock_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.cond.i
 
-while.cond.i:                                     ; preds = %if.else11.i, %"_ZNSt8functionIFvvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i"
+while.cond.i:                                     ; preds = %if.else11.i, %"_ZNSt8functionIFvvEEaSIZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i"
   %128 = load i8, ptr %data_available.i, align 1
   %tobool.i = trunc i8 %128 to i1
   br i1 %tobool.i, label %land.rhs.i, label %"_ZN7httplib6detail28write_content_without_lengthIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_.exit"
@@ -27330,7 +27330,7 @@ return:                                           ; preds = %"_ZN7httplib6detail
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN7httplib6detail13write_contentIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEEmmRKT_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %strm, ptr noundef nonnull align 8 dereferenceable(32) %content_provider, i64 noundef %offset, i64 noundef %length, ptr nocapture readonly %is_shutting_down.0.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN7httplib6detail13write_contentIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEEmmRKT_"(ptr noundef nonnull align 8 dereferenceable(8) %strm, ptr noundef nonnull align 8 dereferenceable(32) %content_provider, i64 noundef %offset, i64 noundef %length, ptr nocapture readonly %is_shutting_down.0.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca i64, align 8
   %__args.addr2.i.i = alloca i64, align 8
@@ -27414,11 +27414,11 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %c
   store ptr %8, ptr %_M_invoker.i.i11.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail13write_contentIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEEmmT_RNS1_5ErrorEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i13.i, align 8
   %tobool.not.i.i.i14.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i14.i, label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i", label %if.then.i.i.i15.i
+  br i1 %tobool.not.i.i.i14.i, label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i", label %if.then.i.i.i15.i
 
 if.then.i.i.i15.i:                                ; preds = %invoke.cont.i
   %call.i.i.i16.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i9.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i9.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i" unwind label %terminate.lpad.i.i.i17.i
+          to label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i" unwind label %terminate.lpad.i.i.i17.i
 
 terminate.lpad.i.i.i17.i:                         ; preds = %if.then.i.i.i15.i
   %9 = landingpad { ptr, i32 }
@@ -27427,14 +27427,14 @@ terminate.lpad.i.i.i17.i:                         ; preds = %if.then.i.i.i15.i
   call void @__clang_call_terminate(ptr %10) #42
   unreachable
 
-"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i": ; preds = %if.then.i.i.i15.i, %invoke.cont.i
+"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i": ; preds = %if.then.i.i.i15.i, %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i9.i)
   %svr_sock_.i.i = getelementptr inbounds i8, ptr %is_shutting_down.0.val, i64 40
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %content_provider, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %content_provider, i64 24
   br label %while.cond.i
 
-while.cond.i:                                     ; preds = %if.else10.i, %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.argprom.exit.i"
+while.cond.i:                                     ; preds = %if.else10.i, %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_RNS3_5ErrorEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIST_NSX_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIST_E4typeEE4typeES1_EE5valueESt5decayIST_EE4type4typeESt15__invoke_resultIRS19_JEEEE5valueERS1_E4typeEOST_.exit.i"
   %11 = load i64, ptr %offset.addr.i, align 8
   %cmp.i = icmp ult i64 %11, %add.i
   br i1 %cmp.i, label %land.rhs.i, label %"_ZN7httplib6detail13write_contentIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEEmmT_RNS_5ErrorE.exit"
@@ -29005,11 +29005,11 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 _ZNSt8functionIFvbEED2Ev.exit:                    ; preds = %invoke.cont53, %if.then.i.i
   %26 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i37 = icmp eq ptr %26, null
-  br i1 %tobool.not.i.i37, label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom.exit", label %if.then.i.i38
+  br i1 %tobool.not.i.i37, label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.exit", label %if.then.i.i38
 
 if.then.i.i38:                                    ; preds = %_ZNSt8functionIFvbEED2Ev.exit
   %call.i.i39 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
-          to label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom.exit" unwind label %terminate.lpad.i.i40
+          to label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.exit" unwind label %terminate.lpad.i.i40
 
 terminate.lpad.i.i40:                             ; preds = %if.then.i.i38
   %27 = landingpad { ptr, i32 }
@@ -29018,14 +29018,14 @@ terminate.lpad.i.i40:                             ; preds = %if.then.i.i38
   call void @__clang_call_terminate(ptr %28) #42
   unreachable
 
-"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom.exit": ; preds = %if.then.i.i38, %_ZNSt8functionIFvbEED2Ev.exit
+"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.exit": ; preds = %if.then.i.i38, %_ZNSt8functionIFvbEED2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #39
   %29 = load ptr, ptr %_M_manager.i.i42, align 8
   %tobool.not.i.i43.not = icmp eq ptr %29, null
   %or.cond = select i1 %head, i1 true, i1 %tobool.not.i.i43.not
   br i1 %or.cond, label %cleanup, label %if.end.i
 
-if.end.i:                                         ; preds = %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom.exit"
+if.end.i:                                         ; preds = %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.exit"
   %30 = load ptr, ptr %_M_invoker.i46, align 8
   invoke void %30(ptr noundef nonnull align 8 dereferenceable(16) %file_request_handler_, ptr noundef nonnull align 8 dereferenceable(664) %req, ptr noundef nonnull align 8 dereferenceable(258) %res)
           to label %cleanup unwind label %lpad46
@@ -29077,11 +29077,11 @@ terminate.lpad.i.i60:                             ; preds = %if.then.i.i58
 ehcleanup:                                        ; preds = %if.then.i.i58, %_ZNSt8functionIFvbEED2Ev.exit55, %lpad49
   %ref.tmp48.sroa.3.0 = phi ptr [ %call5.i.i.i3.i.i.i.i29, %lpad49 ], [ null, %_ZNSt8functionIFvbEED2Ev.exit55 ], [ null, %if.then.i.i58 ]
   %.pn = phi { ptr, i32 } [ %32, %lpad49 ], [ %33, %_ZNSt8functionIFvbEED2Ev.exit55 ], [ %33, %if.then.i.i58 ]
-  call fastcc void @"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom"(ptr %ref.tmp48.sroa.3.0) #39
+  call fastcc void @"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev"(ptr %ref.tmp48.sroa.3.0) #39
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #39
   br label %ehcleanup61
 
-cleanup:                                          ; preds = %if.end.i, %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom.exit"
+cleanup:                                          ; preds = %if.end.i, %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.exit"
   %.pr = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i63 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i63, label %cleanup66, label %if.then.i.i.i64
@@ -29194,7 +29194,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom"(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev"(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.8.val, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7httplib6detail4mmapEED2Ev.exit, label %if.then.i.i.i
@@ -29475,14 +29475,14 @@ _ZNKSt8functionIFviEEclEi.exit.i:                 ; preds = %call27.i.noexc
 if.end30.i:                                       ; preds = %.noexc, %call27.i.noexc
   %call.i.i = call i32 @bind(i32 noundef %call17.i, ptr noundef nonnull %addr.i, i32 noundef %conv.i) #39
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.argprom.exit.i", label %if.then32.i
+  br i1 %tobool.not.i.i, label %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.exit.i", label %if.then32.i
 
-"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.argprom.exit.i": ; preds = %if.end30.i
+"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.exit.i": ; preds = %if.end30.i
   %call2.i.i = call i32 @listen(i32 noundef %call17.i, i32 noundef 5) #39
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %invoke.cont, label %if.then32.i
 
-if.then32.i:                                      ; preds = %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.argprom.exit.i", %if.end30.i
+if.then32.i:                                      ; preds = %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.exit.i", %if.end30.i
   %call.i30.i4 = invoke noundef i32 @close(i32 noundef %call17.i)
           to label %invoke.cont unwind label %lpad
 
@@ -29545,7 +29545,7 @@ invoke.cont51.i:                                  ; preds = %if.end50.i
   %cmp53.i = icmp eq i32 %call52.i, -1
   br i1 %cmp53.i, label %if.then54.invoke.i, label %if.end57.i
 
-if.then54.invoke.i:                               ; preds = %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.argprom.exit49.i", %if.end70.i, %invoke.cont51.i
+if.then54.invoke.i:                               ; preds = %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.exit49.i", %if.end70.i, %invoke.cont51.i
   %12 = invoke noundef i32 @close(i32 noundef %call47.i)
           to label %for.inc.i unwind label %lpad.loopexit.i
 
@@ -29590,14 +29590,14 @@ if.end70.i:                                       ; preds = %if.then68.i, %if.en
   %rp.0.val26.i = load ptr, ptr %17, align 8
   %call.i43.i = call i32 @bind(i32 noundef %call47.i, ptr noundef %rp.0.val26.i, i32 noundef %rp.0.val.i) #39
   %tobool.not.i44.i = icmp eq i32 %call.i43.i, 0
-  br i1 %tobool.not.i44.i, label %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.argprom.exit49.i", label %if.then54.invoke.i
+  br i1 %tobool.not.i44.i, label %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.exit49.i", label %if.then54.invoke.i
 
-"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.argprom.exit49.i": ; preds = %if.end70.i
+"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.exit49.i": ; preds = %if.end70.i
   %call2.i47.i = call i32 @listen(i32 noundef %call47.i, i32 noundef 5) #39
   %tobool3.not.i48.i = icmp eq i32 %call2.i47.i, 0
   br i1 %tobool3.not.i48.i, label %if.then73.i, label %if.then54.invoke.i
 
-if.then73.i:                                      ; preds = %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.argprom.exit49.i"
+if.then73.i:                                      ; preds = %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.exit49.i"
   %18 = load ptr, ptr %result.i, align 8
   call void @freeaddrinfo(ptr noundef %18) #39
   br label %cleanup.i
@@ -29622,8 +29622,8 @@ cleanup.i:                                        ; preds = %for.end.i, %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %service.i) #39
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cleanup.i, %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.argprom.exit.i", %if.end13.i, %if.then9.i, %if.then32.i
-  %retval.0.i = phi i32 [ %retval.1.i, %cleanup.i ], [ -1, %if.then9.i ], [ %call17.i, %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.argprom.exit.i" ], [ -1, %if.end13.i ], [ -1, %if.then32.i ]
+invoke.cont:                                      ; preds = %cleanup.i, %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.exit.i", %if.end13.i, %if.then9.i, %if.then32.i
+  %retval.0.i = phi i32 [ %retval.1.i, %cleanup.i ], [ -1, %if.then9.i ], [ %call17.i, %"_ZZNK7httplib6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEENK3$_0clEiR8addrinfo.exit.i" ], [ -1, %if.end13.i ], [ -1, %if.then32.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i)
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %addr.i)
@@ -38300,11 +38300,11 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %c
   store ptr %12, ptr %_M_invoker.i.i12.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_EUlvE_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i14.i, align 8
   %tobool.not.i.i.i15.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i.i.i15.i, label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.argprom.exit.i", label %if.then.i.i.i16.i
+  br i1 %tobool.not.i.i.i15.i, label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.exit.i", label %if.then.i.i.i16.i
 
 if.then.i.i.i16.i:                                ; preds = %invoke.cont.i
   %call.i.i.i17.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.argprom.exit.i" unwind label %terminate.lpad.i.i.i18.i
+          to label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.exit.i" unwind label %terminate.lpad.i.i.i18.i
 
 terminate.lpad.i.i.i18.i:                         ; preds = %if.then.i.i.i16.i
   %13 = landingpad { ptr, i32 }
@@ -38313,7 +38313,7 @@ terminate.lpad.i.i.i18.i:                         ; preds = %if.then.i.i.i16.i
   call void @__clang_call_terminate(ptr %14) #42
   unreachable
 
-"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.argprom.exit.i": ; preds = %if.then.i.i.i16.i, %invoke.cont.i
+"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.exit.i": ; preds = %if.then.i.i.i16.i, %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i10.i)
   store ptr %ok.i, ptr %done_with_trailer.i, align 8
   %15 = getelementptr inbounds i8, ptr %done_with_trailer.i, i64 8
@@ -38344,11 +38344,11 @@ terminate.lpad.i.i.i18.i:                         ; preds = %if.then.i.i.i16.i
   store ptr %21, ptr %_M_invoker.i.i22.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_EUlvE0_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i24.i, align 8
   %tobool.not.i.i.i25.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i.i25.i, label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.argprom.exit.i", label %if.then.i.i.i26.i
+  br i1 %tobool.not.i.i.i25.i, label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.exit.i", label %if.then.i.i.i26.i
 
-if.then.i.i.i26.i:                                ; preds = %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.argprom.exit.i"
+if.then.i.i.i26.i:                                ; preds = %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.exit.i"
   %call.i.i.i27.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i20.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i20.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.argprom.exit.i" unwind label %terminate.lpad.i.i.i28.i
+          to label %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.exit.i" unwind label %terminate.lpad.i.i.i28.i
 
 terminate.lpad.i.i.i28.i:                         ; preds = %if.then.i.i.i26.i
   %22 = landingpad { ptr, i32 }
@@ -38357,7 +38357,7 @@ terminate.lpad.i.i.i28.i:                         ; preds = %if.then.i.i.i26.i
   call void @__clang_call_terminate(ptr %23) #42
   unreachable
 
-"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.argprom.exit.i": ; preds = %if.then.i.i.i26.i, %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.argprom.exit.i"
+"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.exit.i": ; preds = %if.then.i.i.i26.i, %"_ZNSt8functionIFbvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i20.i)
   %done_with_trailer6.i = getelementptr inbounds i8, ptr %data_sink.i, i64 96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i30.i)
@@ -38380,11 +38380,11 @@ terminate.lpad.i.i.i28.i:                         ; preds = %if.then.i.i.i26.i
   store ptr %26, ptr %_M_invoker.i.i32.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSL_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_SQ_EUlSG_E_E9_M_invokeERKSt9_Any_dataSG_", ptr %_M_invoker4.i.i34.i, align 8
   %tobool.not.i.i.i35.i = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i.i35.i, label %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_SS_EUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS11_NS17_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESI_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1J_JSG_EEEE5valueERSI_E4typeEOS11_.argprom.exit.i", label %if.then.i.i.i36.i
+  br i1 %tobool.not.i.i.i35.i, label %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_SS_EUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS11_NS17_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESI_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1J_JSG_EEEE5valueERSI_E4typeEOS11_.exit.i", label %if.then.i.i.i36.i
 
-if.then.i.i.i36.i:                                ; preds = %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.argprom.exit.i"
+if.then.i.i.i36.i:                                ; preds = %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.exit.i"
   %call.i.i.i37.i = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_SS_EUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS11_NS17_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESI_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1J_JSG_EEEE5valueERSI_E4typeEOS11_.argprom.exit.i" unwind label %terminate.lpad.i.i.i38.i
+          to label %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_SS_EUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS11_NS17_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESI_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1J_JSG_EEEE5valueERSI_E4typeEOS11_.exit.i" unwind label %terminate.lpad.i.i.i38.i
 
 terminate.lpad.i.i.i38.i:                         ; preds = %if.then.i.i.i36.i
   %27 = landingpad { ptr, i32 }
@@ -38393,13 +38393,13 @@ terminate.lpad.i.i.i38.i:                         ; preds = %if.then.i.i.i36.i
   call void @__clang_call_terminate(ptr %28) #42
   unreachable
 
-"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_SS_EUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS11_NS17_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESI_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1J_JSG_EEEE5valueERSI_E4typeEOS11_.argprom.exit.i": ; preds = %if.then.i.i.i36.i, %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.argprom.exit.i"
+"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_SS_EUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS11_NS17_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESI_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1J_JSG_EEEE5valueERSI_E4typeEOS11_.exit.i": ; preds = %if.then.i.i.i36.i, %"_ZNSt8functionIFvvEEaSIZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKS_IFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlvE0_EENSt9enable_ifIXsrNS1_9_CallableISM_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES1_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRS14_JEEEE5valueERS1_E4typeEOSM_.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i30.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %req, i64 632
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %req, i64 640
   br label %while.cond.i
 
-while.cond.i:                                     ; preds = %if.else15.i, %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_SS_EUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS11_NS17_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESI_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1J_JSG_EEEE5valueERSI_E4typeEOS11_.argprom.exit.i"
+while.cond.i:                                     ; preds = %if.else15.i, %"_ZNSt8functionIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEEaSIZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSN_RKS_IFbmmRNS7_8DataSinkEEERKT_RT0_SS_EUlSG_E_EENSt9enable_ifIXsrNSI_9_CallableIS11_NS17_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESI_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1J_JSG_EEEE5valueERSI_E4typeEOS11_.exit.i"
   %29 = load i8, ptr %data_available.i, align 1
   %tobool.i = trunc i8 %29 to i1
   br i1 %tobool.i, label %land.rhs.i, label %_ZNSt10unique_ptrIN7httplib6detail10compressorESt14default_deleteIS2_EED2Ev.exit27
@@ -38553,11 +38553,11 @@ invoke.cont.i46:                                  ; preds = %if.then.i.i.i.i43, 
   store ptr %45, ptr %_M_invoker.i.i11.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail13write_contentIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEEmmT_SB_EUlvE_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i13.i, align 8
   %tobool.not.i.i.i14.i = icmp eq ptr %44, null
-  br i1 %tobool.not.i.i.i14.i, label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISL_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES1_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSZ_JEEEE5valueERS1_E4typeEOSL_.argprom.exit.i", label %if.then.i.i.i15.i
+  br i1 %tobool.not.i.i.i14.i, label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISL_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES1_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSZ_JEEEE5valueERS1_E4typeEOSL_.exit.i", label %if.then.i.i.i15.i
 
 if.then.i.i.i15.i:                                ; preds = %invoke.cont.i46
   %call.i.i.i16.i = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i9.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i9.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISL_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES1_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSZ_JEEEE5valueERS1_E4typeEOSL_.argprom.exit.i" unwind label %terminate.lpad.i.i.i17.i
+          to label %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISL_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES1_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSZ_JEEEE5valueERS1_E4typeEOSL_.exit.i" unwind label %terminate.lpad.i.i.i17.i
 
 terminate.lpad.i.i.i17.i:                         ; preds = %if.then.i.i.i15.i
   %46 = landingpad { ptr, i32 }
@@ -38566,13 +38566,13 @@ terminate.lpad.i.i.i17.i:                         ; preds = %if.then.i.i.i15.i
   call void @__clang_call_terminate(ptr %47) #42
   unreachable
 
-"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISL_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES1_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSZ_JEEEE5valueERS1_E4typeEOSL_.argprom.exit.i": ; preds = %if.then.i.i.i15.i, %invoke.cont.i46
+"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISL_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES1_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSZ_JEEEE5valueERS1_E4typeEOSL_.exit.i": ; preds = %if.then.i.i.i15.i, %invoke.cont.i46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i9.i)
   %_M_manager.i.i.i48 = getelementptr inbounds i8, ptr %req, i64 632
   %_M_invoker.i.i49 = getelementptr inbounds i8, ptr %req, i64 640
   br label %while.cond.i50
 
-while.cond.i50:                                   ; preds = %if.else9.i, %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISL_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES1_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSZ_JEEEE5valueERS1_E4typeEOSL_.argprom.exit.i"
+while.cond.i50:                                   ; preds = %if.else9.i, %"_ZNSt8functionIFbvEEaSIZN7httplib6detail13write_contentIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISL_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES1_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSZ_JEEEE5valueERS1_E4typeEOSL_.exit.i"
   %48 = load i64, ptr %offset.addr.i, align 8
   %cmp.not.not.not.i.not.not.not.not.not = icmp uge i64 %48, %36
   br i1 %cmp.not.not.not.i.not.not.not.not.not, label %"_ZN7httplib6detail13write_contentIZNKS_10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorEE3$_0EEbS4_RKSt8functionIFbmmRNS_8DataSinkEEEmmT_S9_.exit", label %land.rhs.i51
@@ -85965,7 +85965,7 @@ invoke.cont4.i.i.i:                               ; preds = %_ZNKSt4lessINSt7__c
   %7 = load ptr, ptr %__functor, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %cmp.i.not.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIvRZN7httplib6detail16parse_query_textERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
+  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIvRZN7httplib6detail16parse_query_textERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 lpad.i.i.i:                                       ; preds = %call.i.noexc.i.i.i, %entry
   %8 = landingpad { ptr, i32 }
@@ -86080,7 +86080,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad22.i.i.i, %lpad
 if.end27.i.i.i:                                   ; preds = %invoke.cont23.i.i.i, %_ZNSt8functionIFvPKcS1_EED2Ev.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %val.i.i.i) #39
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key.i.i.i) #39
-  br label %"_ZSt10__invoke_rIvRZN7httplib6detail16parse_query_textERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN7httplib6detail16parse_query_textERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 ehcleanup28.i.i.i:                                ; preds = %ehcleanup.i.i.i, %lpad17.i.i.i, %if.then.i.i15.i.i.i, %lpad12.i.i.i
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %ehcleanup.i.i.i ], [ %19, %lpad17.i.i.i ], [ %15, %lpad12.i.i.i ], [ %15, %if.then.i.i15.i.i.i ]
@@ -86097,7 +86097,7 @@ eh.resume.i.i.i:                                  ; preds = %ehcleanup30.i.i.i, 
   %.pn.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i.i, %ehcleanup30.i.i.i ], [ %eh.lpad-body.i.i.i, %lpad.body.i.i.i ]
   resume { ptr, i32 } %.pn.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN7httplib6detail16parse_query_textERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %invoke.cont4.i.i.i, %if.end27.i.i.i
+"_ZSt10__invoke_rIvRZN7httplib6detail16parse_query_textERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %invoke.cont4.i.i.i, %if.end27.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %kv.i.i.i) #39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %kv.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
@@ -86506,7 +86506,7 @@ invoke.cont4.i.i.i:                               ; preds = %_ZNKSt4lessINSt7__c
   %7 = load ptr, ptr %__functor, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %cmp.i.not.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIvRZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
+  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIvRZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 lpad.i.i.i:                                       ; preds = %call.i.noexc.i.i.i, %entry
   %8 = landingpad { ptr, i32 }
@@ -86667,7 +86667,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad22.i.i.i, %lpad
 if.end27.i.i.i:                                   ; preds = %invoke.cont23.i.i.i, %_ZNSt8functionIFvPKcS1_EED2Ev.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %val.i.i.i) #39
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key.i.i.i) #39
-  br label %"_ZSt10__invoke_rIvRZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 ehcleanup28.i.i.i:                                ; preds = %ehcleanup.i.i.i, %lpad17.i.i.i, %if.then.i.i33.i.i.i, %lpad12.i.i.i
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %ehcleanup.i.i.i ], [ %23, %lpad17.i.i.i ], [ %19, %lpad12.i.i.i ], [ %19, %if.then.i.i33.i.i.i ]
@@ -86684,7 +86684,7 @@ eh.resume.i.i.i:                                  ; preds = %ehcleanup30.i.i.i, 
   %.pn.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i.i, %ehcleanup30.i.i.i ], [ %eh.lpad-body.i.i.i, %lpad.body.i.i.i ]
   resume { ptr, i32 } %.pn.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %invoke.cont4.i.i.i, %if.end27.i.i.i
+"_ZSt10__invoke_rIvRZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS7_S7_St4lessIS7_ESaISt4pairIS8_S7_EEEE3$_0JPKcSL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %invoke.cont4.i.i.i, %if.end27.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %kv.i.i.i) #39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %kv.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
@@ -86782,7 +86782,7 @@ entry:
   %0 = load ptr, ptr %__functor, align 8
   %1 = load i8, ptr %0, align 1
   %tobool.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIvRZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISC_EEE3$_0JPKcSJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit"
+  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIvRZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISC_EEE3$_0JPKcSJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit"
 
 if.end.i.i.i:                                     ; preds = %entry
   %2 = load atomic i8, ptr @"_ZGVZZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISB_EEENK3$_0clEPKcSH_E16re_another_rangeB5cxx11" acquire, align 8
@@ -87160,11 +87160,11 @@ _ZNSt6vectorISt4pairIllESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
 cleanup.i.i.i:                                    ; preds = %_ZNSt6vectorISt4pairIllESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, %if.then.i.i.i.i, %if.then29.i.i.i, %invoke.cont4.i.i.i
   %41 = load ptr, ptr %cm.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %41, null
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISC_EEE3$_0JPKcSJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit", label %if.then.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISC_EEE3$_0JPKcSJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit", label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %cleanup.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %41) #41
-  br label %"_ZSt10__invoke_rIvRZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISC_EEE3$_0JPKcSJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISC_EEE3$_0JPKcSJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit"
 
 ehcleanup.i.i.i:                                  ; preds = %lpad22.body.i.i.i, %lpad11.body.i.i.i, %lpad3.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %19, %lpad3.i.i.i ], [ %30, %lpad22.body.i.i.i ], [ %15, %lpad11.body.i.i.i ]
@@ -87180,7 +87180,7 @@ eh.resume.i.i.i:                                  ; preds = %if.then.i.i.i.i80.i
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %18, %lpad.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ], [ %.pn.i.i.i, %if.then.i.i.i.i80.i.i.i ]
   resume { ptr, i32 } %.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISC_EEE3$_0JPKcSJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit": ; preds = %entry, %cleanup.i.i.i, %if.then.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISC_EEE3$_0JPKcSJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit": ; preds = %entry, %cleanup.i.i.i, %if.then.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cm.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp9.i.i.i)
@@ -93509,7 +93509,7 @@ cond.end.i.i.i:                                   ; preds = %entry
 cond.end.thread.i.i.i:                            ; preds = %cond.end.i.i.i, %entry
   %conv.i.i.i = phi i64 [ 8, %entry ], [ %0, %cond.end.i.i.i ]
   invoke void @_ZN7httplib10ThreadPoolC2Em(ptr noundef nonnull align 8 dereferenceable(152) %call.i.i.i, i64 noundef %conv.i.i.i)
-          to label %"_ZSt10__invoke_rIPN7httplib9TaskQueueERZNS0_6ServerC1EvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit" unwind label %lpad.i.i.i
+          to label %"_ZSt10__invoke_rIPN7httplib9TaskQueueERZNS0_6ServerC1EvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit" unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %cond.end.thread.i.i.i
   %1 = landingpad { ptr, i32 }
@@ -93517,7 +93517,7 @@ lpad.i.i.i:                                       ; preds = %cond.end.thread.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #41
   resume { ptr, i32 } %1
 
-"_ZSt10__invoke_rIPN7httplib9TaskQueueERZNS0_6ServerC1EvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %cond.end.thread.i.i.i
+"_ZSt10__invoke_rIPN7httplib9TaskQueueERZNS0_6ServerC1EvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %cond.end.thread.i.i.i
   ret ptr %call.i.i.i
 }
 
@@ -95230,7 +95230,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11.i.i.i)
   %0 = load ptr, ptr %__functor, align 8
   %1 = load i64, ptr %0, align 8
-  switch i64 %1, label %"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit" [
+  switch i64 %1, label %"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit" [
     i64 0, label %sw.bb.i.i.i
     i64 1, label %sw.bb3.i.i.i
     i64 2, label %sw.bb9.i.i.i
@@ -95341,7 +95341,7 @@ sw.epilog.sink.split.i.i.i:                       ; preds = %invoke.cont13.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11.sink.i.i.i) #39
   %.pre.i.i = load ptr, ptr %__functor, align 8
   %.pre1.i.i = load i64, ptr %.pre.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 eh.resume.i.i.i:                                  ; preds = %lpad12.i.i.i, %lpad.i15.i.i.i, %lpad6.i.i.i, %lpad.i8.i.i.i, %lpad.i.i.i, %lpad.i.i.i.i
   %ref.tmp11.sink21.i.i.i = phi ptr [ %ref.tmp2.i.i.i, %lpad.i.i.i.i ], [ %ref.tmp2.i.i.i, %lpad.i.i.i ], [ %ref.tmp5.i.i.i, %lpad.i8.i.i.i ], [ %ref.tmp5.i.i.i, %lpad6.i.i.i ], [ %ref.tmp11.i.i.i, %lpad.i15.i.i.i ], [ %ref.tmp11.i.i.i, %lpad12.i.i.i ]
@@ -95349,7 +95349,7 @@ eh.resume.i.i.i:                                  ; preds = %lpad12.i.i.i, %lpad
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11.sink21.i.i.i) #39
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %entry, %sw.epilog.sink.split.i.i.i
+"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %entry, %sw.epilog.sink.split.i.i.i
   %14 = phi i64 [ %1, %entry ], [ %.pre1.i.i, %sw.epilog.sink.split.i.i.i ]
   %15 = phi ptr [ %0, %entry ], [ %.pre.i.i, %sw.epilog.sink.split.i.i.i ]
   %inc.i.i.i = add i64 %14, 1
@@ -95723,7 +95723,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp8.i.i.i)
   %0 = load ptr, ptr %__functor, align 8
   %1 = load i64, ptr %0, align 8
-  switch i64 %1, label %"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_1JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit" [
+  switch i64 %1, label %"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_1JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit" [
     i64 0, label %sw.bb.i.i.i
     i64 1, label %sw.bb6.i.i.i
   ]
@@ -95777,7 +95777,7 @@ sw.bb6.i.i.i:                                     ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__args.val to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_1JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_1JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 if.then.i.i.i:                                    ; preds = %sw.bb6.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.i.i.i) #39
@@ -95825,7 +95825,7 @@ sw.epilog.sink.split.i.i.i:                       ; preds = %invoke.cont10.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.sink.i.i.i) #39
   %.pre.i.i = load ptr, ptr %__functor, align 8
   %.pre1.i.i = load i64, ptr %.pre.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_1JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_1JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 eh.resume.i.i.i:                                  ; preds = %lpad11.i.i.i, %lpad9.i.i.i, %lpad.i11.i.i.i, %lpad4.i.i.i, %lpad.i.i.i, %lpad.i.i.i.i
   %ref.tmp8.sink17.i.i.i = phi ptr [ %ref.tmp3.i.i.i, %lpad.i.i.i ], [ %ref.tmp3.i.i.i, %lpad.i.i.i.i ], [ %ref.tmp3.i.i.i, %lpad4.i.i.i ], [ %ref.tmp8.i.i.i, %lpad9.i.i.i ], [ %ref.tmp8.i.i.i, %lpad.i11.i.i.i ], [ %ref.tmp8.i.i.i, %lpad11.i.i.i ]
@@ -95833,7 +95833,7 @@ eh.resume.i.i.i:                                  ; preds = %lpad11.i.i.i, %lpad
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.sink17.i.i.i) #39
   resume { ptr, i32 } %.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_1JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %entry, %sw.bb6.i.i.i, %sw.epilog.sink.split.i.i.i
+"_ZSt10__invoke_rIvRZNK7httplib6Server18parse_request_lineEPKcRNS0_7RequestEE3$_1JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %entry, %sw.bb6.i.i.i, %sw.epilog.sink.split.i.i.i
   %12 = phi i64 [ %1, %entry ], [ 1, %sw.bb6.i.i.i ], [ %.pre1.i.i, %sw.epilog.sink.split.i.i.i ]
   %13 = phi ptr [ %0, %entry ], [ %0, %sw.bb6.i.i.i ], [ %.pre.i.i, %sw.epilog.sink.split.i.i.i ]
   %inc.i.i.i = add i64 %12, 1
@@ -95880,7 +95880,7 @@ entry:
   %0 = load ptr, ptr %__functor.val, align 8
   %1 = load i8, ptr %0, align 1
   %tobool.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_RNS0_5ErrorEEUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.argprom.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_RNS0_5ErrorEEUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -95918,14 +95918,14 @@ if.then3.i.i.i:                                   ; preds = %while.cond.i.i.i.i,
   %9 = load i64, ptr %8, align 8
   %add.i.i.i = add i64 %9, %__args1.val
   store i64 %add.i.i.i, ptr %8, align 8
-  br label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_RNS0_5ErrorEEUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_RNS0_5ErrorEEUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.exit"
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i.i, %if.then.i.i.i
   %10 = load ptr, ptr %__functor.val, align 8
   store i8 0, ptr %10, align 1
-  br label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_RNS0_5ErrorEEUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_RNS0_5ErrorEEUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.exit"
 
-"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_RNS0_5ErrorEEUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.argprom.exit": ; preds = %entry, %if.then3.i.i.i, %if.else.i.i.i
+"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_RNS0_5ErrorEEUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.exit": ; preds = %entry, %if.then3.i.i.i, %if.else.i.i.i
   %11 = load ptr, ptr %__functor.val, align 8
   %12 = load i8, ptr %11, align 1
   %tobool5.i.i.i = trunc i8 %12 to i1
@@ -96030,7 +96030,7 @@ entry:
   %0 = load ptr, ptr %__functor.val, align 8
   %1 = load i8, ptr %0, align 1
   %tobool.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_RNS0_5ErrorEEUlPKcmE_JS10_mEENSt9enable_ifIX16is_invocable_r_vISS_SV_DpT1_EESS_E4typeEOSV_DpOS14_.argprom.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_RNS0_5ErrorEEUlPKcmE_JS10_mEENSt9enable_ifIX16is_invocable_r_vISS_SV_DpT1_EESS_E4typeEOSV_DpOS14_.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   %cmp.i.i.i = icmp ne i64 %__args1.val, 0
@@ -96234,7 +96234,7 @@ if.end30.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   %.pre.i.i.i = load ptr, ptr %__functor.val, align 8
   %.pre25.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   %.pre26.i.i.i = trunc i8 %.pre25.i.i.i to i1
-  br label %"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_RNS0_5ErrorEEUlPKcmE_JS10_mEENSt9enable_ifIX16is_invocable_r_vISS_SV_DpT1_EESS_E4typeEOSV_DpOS14_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_RNS0_5ErrorEEUlPKcmE_JS10_mEENSt9enable_ifIX16is_invocable_r_vISS_SV_DpT1_EESS_E4typeEOSV_DpOS14_.exit"
 
 ehcleanup31.sink.split.i.i.i:                     ; preds = %lpad20.loopexit.split-lp.i.i.i, %lpad20.loopexit.i.i.i, %ehcleanup.i.i.i, %lpad11.i.i.i, %lpad.i.i.i.i
   %ref.tmp7.sink.i.i.i = phi ptr [ %ref.tmp7.i.i.i, %lpad.i.i.i.i ], [ %ref.tmp7.i.i.i, %ehcleanup.i.i.i ], [ %ref.tmp7.i.i.i, %lpad11.i.i.i ], [ %chunk.i.i.i, %lpad20.loopexit.split-lp.i.i.i ], [ %chunk.i.i.i, %lpad20.loopexit.i.i.i ]
@@ -96247,7 +96247,7 @@ ehcleanup31.i.i.i:                                ; preds = %ehcleanup31.sink.sp
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i.i.i) #39
   resume { ptr, i32 } %.pn5.i.i.i
 
-"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_RNS0_5ErrorEEUlPKcmE_JS10_mEENSt9enable_ifIX16is_invocable_r_vISS_SV_DpT1_EESS_E4typeEOSV_DpOS14_.argprom.exit": ; preds = %entry, %if.end30.i.i.i
+"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_RNS0_5ErrorEEUlPKcmE_JS10_mEENSt9enable_ifIX16is_invocable_r_vISS_SV_DpT1_EESS_E4typeEOSV_DpOS14_.exit": ; preds = %entry, %if.end30.i.i.i
   %tobool33.pre-phi.i.i.i = phi i1 [ %.pre26.i.i.i, %if.end30.i.i.i ], [ false, %entry ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %payload.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
@@ -96951,7 +96951,7 @@ entry:
   %0 = load ptr, ptr %__functor.val, align 8
   %1 = load i8, ptr %0, align 1
   %tobool.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail28write_content_without_lengthIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_EUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.argprom.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail28write_content_without_lengthIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_EUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -96970,12 +96970,12 @@ if.then.i.i.i:                                    ; preds = %entry
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i.i
   %8 = load ptr, ptr %5, align 8
   %cmp6.i.i.i.i = icmp eq i64 %__args1.val, 0
-  br i1 %cmp6.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail28write_content_without_lengthIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_EUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.argprom.exit", label %while.body.i.i.i.i
+  br i1 %cmp6.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail28write_content_without_lengthIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_EUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.exit", label %while.body.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.body.i.i.i.i
   %add.i.i.i.i = add i64 %call.i.i.i.i, %offset.07.i.i.i.i
   %cmp.not.i.i.i.i = icmp ult i64 %add.i.i.i.i, %__args1.val
-  br i1 %cmp.not.i.i.i.i, label %while.body.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail28write_content_without_lengthIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_EUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.argprom.exit", !llvm.loop !45
+  br i1 %cmp.not.i.i.i.i, label %while.body.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail28write_content_without_lengthIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_EUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.exit", !llvm.loop !45
 
 while.body.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i, %while.cond.i.i.i.i
   %offset.07.i.i.i.i = phi i64 [ %add.i.i.i.i, %while.cond.i.i.i.i ], [ 0, %lor.lhs.false.i.i.i ]
@@ -96991,9 +96991,9 @@ while.body.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i
 if.then3.i.i.i:                                   ; preds = %while.body.i.i.i.i, %if.then.i.i.i
   %10 = load ptr, ptr %__functor.val, align 8
   store i8 0, ptr %10, align 1
-  br label %"_ZSt10__invoke_rIbRZN7httplib6detail28write_content_without_lengthIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_EUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib6detail28write_content_without_lengthIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_EUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.exit"
 
-"_ZSt10__invoke_rIbRZN7httplib6detail28write_content_without_lengthIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_EUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.argprom.exit": ; preds = %while.cond.i.i.i.i, %entry, %lor.lhs.false.i.i.i, %if.then3.i.i.i
+"_ZSt10__invoke_rIbRZN7httplib6detail28write_content_without_lengthIZNS0_6Server27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_E3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_EUlPKcmE_JSV_mEENSt9enable_ifIX16is_invocable_r_vISR_T0_DpT1_EESR_E4typeEOSZ_DpOS10_.exit": ; preds = %while.cond.i.i.i.i, %entry, %lor.lhs.false.i.i.i, %if.then3.i.i.i
   %11 = load ptr, ptr %__functor.val, align 8
   %12 = load i8, ptr %11, align 1
   %tobool5.i.i.i = trunc i8 %12 to i1
@@ -97123,15 +97123,15 @@ entry:
   %body2.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %call3.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %body2.i.i.i) #39
   %cmp.i.i.i = icmp ule i64 %add.i.i.i, %call3.i.i.i
-  br i1 %cmp.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_0JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
+  br i1 %cmp.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_0JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 if.end.i.i.i:                                     ; preds = %entry
   %2 = load ptr, ptr %__functor, align 8
   %body4.i.i.i = getelementptr inbounds i8, ptr %2, i64 112
   %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %body4.i.i.i, ptr noundef %__args.val, i64 noundef %__args1.val)
-  br label %"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_0JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_0JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_0JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %entry, %if.end.i.i.i
+"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_0JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %entry, %if.end.i.i.i
   ret i1 %cmp.i.i.i
 }
 
@@ -97401,13 +97401,13 @@ entry:
   %add.i.i.i = add i64 %call3.i.i.i, %__args1.val
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %content2.i.i.i) #39
   %cmp.i.i.i = icmp ule i64 %add.i.i.i, %call4.i.i.i
-  br i1 %cmp.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_2JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.argprom.exit"
+  br i1 %cmp.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_2JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 if.end.i.i.i:                                     ; preds = %entry
   %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %content2.i.i.i, ptr noundef %__args.val, i64 noundef %__args1.val)
-  br label %"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_2JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_2JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_2JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.argprom.exit": ; preds = %entry, %if.end.i.i.i
+"_ZSt10__invoke_rIbRZN7httplib6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_2JPKcmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %entry, %if.end.i.i.i
   ret i1 %cmp.i.i.i
 }
 
@@ -98708,13 +98708,13 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIbRZNK7httplib6Server17read_content_coreERNS0_6StreamERNS0_7RequestERNS0_8ResponseESt8functionIFbPKcmEES8_IFbRKNS0_17MultipartFormDataEEESC_E3$_1JSA_mmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit"
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIbRZNK7httplib6Server17read_content_coreERNS0_6StreamERNS0_7RequestERNS0_8ResponseESt8functionIFbPKcmEES8_IFbRKNS0_17MultipartFormDataEEESC_E3$_1JSA_mmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #43
   unreachable
 
-"_ZSt10__invoke_rIbRZNK7httplib6Server17read_content_coreERNS0_6StreamERNS0_7RequestERNS0_8ResponseESt8functionIFbPKcmEES8_IFbRKNS0_17MultipartFormDataEEESC_E3$_1JSA_mmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rIbRZNK7httplib6Server17read_content_coreERNS0_6StreamERNS0_7RequestERNS0_8ResponseESt8functionIFbPKcmEES8_IFbRKNS0_17MultipartFormDataEEESC_E3$_1JSA_mmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit": ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %1 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   %call4.i.i.i.i = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %__functor.val, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i.i)
@@ -100797,13 +100797,13 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6Server19handle_file_requestERKNS0_7RequestERNS0_8ResponseEbE3$_0JmmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit"
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6Server19handle_file_requestERKNS0_7RequestERNS0_8ResponseEbE3$_0JmmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #43
   unreachable
 
-"_ZSt10__invoke_rIbRZN7httplib6Server19handle_file_requestERKNS0_7RequestERNS0_8ResponseEbE3$_0JmmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rIbRZN7httplib6Server19handle_file_requestERKNS0_7RequestERNS0_8ResponseEbE3$_0JmmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 24
   %2 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   %call4.i.i.i.i = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i.i)
@@ -100841,7 +100841,7 @@ sw.bb4.i:                                         ; preds = %entry
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %call5.val6.i, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %call5.val6.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server19handle_file_requestERKNS1_7RequestERNS1_8ResponseEbE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.argprom.exit.i", label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server19handle_file_requestERKNS1_7RequestERNS1_8ResponseEbE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.exit.i", label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb4.i
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.val6.i, i64 8
@@ -100853,13 +100853,13 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
   %2 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4
   %add.i.i.i.i.i.i.i.i.i = add nsw i32 %2, 1
   store i32 %add.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server19handle_file_requestERKNS1_7RequestERNS1_8ResponseEbE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server19handle_file_requestERKNS1_7RequestERNS1_8ResponseEbE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.exit.i"
 
 if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i
   %3 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server19handle_file_requestERKNS1_7RequestERNS1_8ResponseEbE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server19handle_file_requestERKNS1_7RequestERNS1_8ResponseEbE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.exit.i"
 
-"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server19handle_file_requestERKNS1_7RequestERNS1_8ResponseEbE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %sw.bb4.i
+"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server19handle_file_requestERKNS1_7RequestERNS1_8ResponseEbE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.exit.i": ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %sw.bb4.i
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
@@ -100872,7 +100872,7 @@ delete.notnull.i.i:                               ; preds = %sw.bb6.i
   %4 = getelementptr i8, ptr %__dest.val.i, i64 8
   %.val.i.i = load ptr, ptr %4, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom.exit.i.i", label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.exit.i.i", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %delete.notnull.i.i
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -100908,7 +100908,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %6, %if.then.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.exit.i.i"
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %.val.i.i, align 8
@@ -100933,20 +100933,20 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %13, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.exit.i.i"
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i7.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %.val.i.i, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #39
-  br label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.exit.i.i"
 
-"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom.exit.i.i": ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %delete.notnull.i.i
+"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.exit.i.i": ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %delete.notnull.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #41
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.argprom.exit.i.i", %sw.bb6.i, %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server19handle_file_requestERKNS1_7RequestERNS1_8ResponseEbE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.argprom.exit.i", %sw.bb1, %sw.bb
+sw.epilog:                                        ; preds = %entry, %"_ZZN7httplib6Server19handle_file_requestERKNS_7RequestERNS_8ResponseEbEN3$_0D2Ev.exit.i.i", %sw.bb6.i, %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server19handle_file_requestERKNS1_7RequestERNS1_8ResponseEbE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.exit.i", %sw.bb1, %sw.bb
   ret i1 false
 }
 
@@ -102013,7 +102013,7 @@ entry:
   %0 = load ptr, ptr %__functor.val, align 8
   %1 = load i8, ptr %0, align 1
   %tobool.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_SA_EUlPKcmE_JSQ_mEENSt9enable_ifIX16is_invocable_r_vISK_SN_DpT1_EESK_E4typeEOSN_DpOSU_.argprom.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_SA_EUlPKcmE_JSQ_mEENSt9enable_ifIX16is_invocable_r_vISK_SN_DpT1_EESK_E4typeEOSN_DpOSU_.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   %cmp.i.i.i = icmp ne i64 %__args1.val, 0
@@ -102217,7 +102217,7 @@ if.end30.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   %.pre.i.i.i = load ptr, ptr %__functor.val, align 8
   %.pre25.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   %.pre26.i.i.i = trunc i8 %.pre25.i.i.i to i1
-  br label %"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_SA_EUlPKcmE_JSQ_mEENSt9enable_ifIX16is_invocable_r_vISK_SN_DpT1_EESK_E4typeEOSN_DpOSU_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_SA_EUlPKcmE_JSQ_mEENSt9enable_ifIX16is_invocable_r_vISK_SN_DpT1_EESK_E4typeEOSN_DpOSU_.exit"
 
 ehcleanup31.sink.split.i.i.i:                     ; preds = %lpad20.loopexit.split-lp.i.i.i, %lpad20.loopexit.i.i.i, %ehcleanup.i.i.i, %lpad11.i.i.i, %lpad.i.i.i.i
   %ref.tmp7.sink.i.i.i = phi ptr [ %ref.tmp7.i.i.i, %lpad.i.i.i.i ], [ %ref.tmp7.i.i.i, %ehcleanup.i.i.i ], [ %ref.tmp7.i.i.i, %lpad11.i.i.i ], [ %chunk.i.i.i, %lpad20.loopexit.split-lp.i.i.i ], [ %chunk.i.i.i, %lpad20.loopexit.i.i.i ]
@@ -102230,7 +102230,7 @@ ehcleanup31.i.i.i:                                ; preds = %ehcleanup31.sink.sp
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i.i.i) #39
   resume { ptr, i32 } %.pn5.i.i.i
 
-"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_SA_EUlPKcmE_JSQ_mEENSt9enable_ifIX16is_invocable_r_vISK_SN_DpT1_EESK_E4typeEOSN_DpOSU_.argprom.exit": ; preds = %entry, %if.end30.i.i.i
+"_ZSt10__invoke_rIbRZN7httplib6detail21write_content_chunkedIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0NS1_10compressorEEEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEERKT_RT0_SA_EUlPKcmE_JSQ_mEENSt9enable_ifIX16is_invocable_r_vISK_SN_DpT1_EESK_E4typeEOSN_DpOSU_.exit": ; preds = %entry, %if.end30.i.i.i
   %tobool33.pre-phi.i.i.i = phi i1 [ %.pre26.i.i.i, %if.end30.i.i.i ], [ false, %entry ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %payload.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
@@ -102934,7 +102934,7 @@ entry:
   %0 = load ptr, ptr %__functor.val, align 8
   %1 = load i8, ptr %0, align 1
   %tobool.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_SA_EUlPKcmE_JSL_mEENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.argprom.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_SA_EUlPKcmE_JSL_mEENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -102972,14 +102972,14 @@ if.then3.i.i.i:                                   ; preds = %while.cond.i.i.i.i,
   %9 = load i64, ptr %8, align 8
   %add.i.i.i = add i64 %9, %__args1.val
   store i64 %add.i.i.i, ptr %8, align 8
-  br label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_SA_EUlPKcmE_JSL_mEENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_SA_EUlPKcmE_JSL_mEENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.exit"
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i.i, %if.then.i.i.i
   %10 = load ptr, ptr %__functor.val, align 8
   store i8 0, ptr %10, align 1
-  br label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_SA_EUlPKcmE_JSL_mEENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_SA_EUlPKcmE_JSL_mEENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.exit"
 
-"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_SA_EUlPKcmE_JSL_mEENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %entry, %if.then3.i.i.i, %if.else.i.i.i
+"_ZSt10__invoke_rIbRZN7httplib6detail13write_contentIZNKS0_10ClientImpl27write_content_with_providerERNS0_6StreamERKNS0_7RequestERNS0_5ErrorEE3$_0EEbS5_RKSt8functionIFbmmRNS0_8DataSinkEEEmmT_SA_EUlPKcmE_JSL_mEENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.exit": ; preds = %entry, %if.then3.i.i.i, %if.else.i.i.i
   %11 = load ptr, ptr %__functor.val, align 8
   %12 = load i8, ptr %11, align 1
   %tobool5.i.i.i = trunc i8 %12 to i1
@@ -103073,7 +103073,7 @@ entry:
   %0 = load ptr, ptr %__functor.val, align 8
   %1 = load i8, ptr %0, align 1
   %tobool.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl26send_with_content_providerERNS0_7RequestEPKcmSt8functionIFbmmRNS0_8DataSinkEEES6_IFbmS8_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_5ErrorEE3$_0JS5_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit"
+  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl26send_with_content_providerERNS0_7RequestEPKcmSt8functionIFbmmRNS0_8DataSinkEEES6_IFbmS8_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_5ErrorEE3$_0JS5_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -103123,7 +103123,7 @@ if.then5.i.i.i:                                   ; preds = %_ZNSt8functionIFbPK
   %18 = load i64, ptr %17, align 8
   %add6.i.i.i = add i64 %18, %__args1.val
   store i64 %add6.i.i.i, ptr %17, align 8
-  br label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl26send_with_content_providerERNS0_7RequestEPKcmSt8functionIFbmmRNS0_8DataSinkEEES6_IFbmS8_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_5ErrorEE3$_0JS5_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl26send_with_content_providerERNS0_7RequestEPKcmSt8functionIFbmmRNS0_8DataSinkEEES6_IFbmS8_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_5ErrorEE3$_0JS5_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit"
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %19 = landingpad { ptr, i32 }
@@ -103149,9 +103149,9 @@ _ZNSt8functionIFbPKcmEED2Ev.exit9.i.i.i:          ; preds = %if.then.i.i6.i.i.i,
 if.else.i.i.i:                                    ; preds = %_ZNSt8functionIFbPKcmEED2Ev.exit.i.i.i
   %23 = load ptr, ptr %__functor.val, align 8
   store i8 0, ptr %23, align 1
-  br label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl26send_with_content_providerERNS0_7RequestEPKcmSt8functionIFbmmRNS0_8DataSinkEEES6_IFbmS8_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_5ErrorEE3$_0JS5_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl26send_with_content_providerERNS0_7RequestEPKcmSt8functionIFbmmRNS0_8DataSinkEEES6_IFbmS8_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_5ErrorEE3$_0JS5_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit"
 
-"_ZSt10__invoke_rIbRZN7httplib10ClientImpl26send_with_content_providerERNS0_7RequestEPKcmSt8functionIFbmmRNS0_8DataSinkEEES6_IFbmS8_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_5ErrorEE3$_0JS5_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit": ; preds = %entry, %if.then5.i.i.i, %if.else.i.i.i
+"_ZSt10__invoke_rIbRZN7httplib10ClientImpl26send_with_content_providerERNS0_7RequestEPKcmSt8functionIFbmmRNS0_8DataSinkEEES6_IFbmS8_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_5ErrorEE3$_0JS5_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit": ; preds = %entry, %if.then5.i.i.i, %if.else.i.i.i
   %24 = load ptr, ptr %__functor.val, align 8
   %25 = load i8, ptr %24, align 1
   %tobool8.i.i.i = trunc i8 %25 to i1
@@ -103283,7 +103283,7 @@ entry:
   %0 = load ptr, ptr %__functor.val, align 8
   %1 = load i8, ptr %0, align 1
   %tobool.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_0JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit", label %if.end.i.i.i
+  br i1 %tobool.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_0JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   %__args5.val = load i64, ptr %__args5, align 8
@@ -103318,15 +103318,15 @@ _ZNKSt8functionIFbPKcmmmEEclES1_mmm.exit.i.i.i:   ; preds = %if.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr6.i.i.i.i)
-  br i1 %call8.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_0JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit", label %if.then3.i.i.i
+  br i1 %call8.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_0JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit", label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %_ZNKSt8functionIFbPKcmmmEEclES1_mmm.exit.i.i.i
   %6 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %7 = load ptr, ptr %6, align 8
   store i32 7, ptr %7, align 4
-  br label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_0JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_0JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
-"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_0JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %entry, %_ZNKSt8functionIFbPKcmmmEEclES1_mmm.exit.i.i.i, %if.then3.i.i.i
+"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_0JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %entry, %_ZNKSt8functionIFbPKcmmmEEclES1_mmm.exit.i.i.i, %if.then3.i.i.i
   %retval.0.i.i.i = phi i1 [ true, %entry ], [ false, %if.then3.i.i.i ], [ true, %_ZNKSt8functionIFbPKcmmmEEclES1_mmm.exit.i.i.i ]
   ret i1 %retval.0.i.i.i
 }
@@ -103383,15 +103383,15 @@ entry:
   %body3.i.i.i = getelementptr inbounds i8, ptr %1, i64 120
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %body3.i.i.i) #39
   %cmp.i.i.i = icmp ule i64 %add.i.i.i, %call4.i.i.i
-  br i1 %cmp.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_1JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br i1 %cmp.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_1JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 if.end.i.i.i:                                     ; preds = %entry
   %2 = load ptr, ptr %__functor, align 8
   %body5.i.i.i = getelementptr inbounds i8, ptr %2, i64 120
   %call6.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %body5.i.i.i, ptr noundef %__args.val, i64 noundef %__args1.val)
-  br label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_1JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_1JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
-"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_1JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %entry, %if.end.i.i.i
+"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_1JPKcmmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %entry, %if.end.i.i.i
   ret i1 %cmp.i.i.i
 }
 
@@ -105321,14 +105321,14 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 576
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.not.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_2JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit", label %lor.lhs.false.i.i.i
+  br i1 %tobool.not.i.i.not.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_2JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
   %tobool.i.i.i = trunc i8 %4 to i1
-  br i1 %tobool.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_2JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit", label %_ZNKSt8functionIFbmmEEclEmm.exit.i.i.i
+  br i1 %tobool.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_2JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %_ZNKSt8functionIFbmmEEclEmm.exit.i.i.i
 
 _ZNKSt8functionIFbmmEEclEmm.exit.i.i.i:           ; preds = %lor.lhs.false.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
@@ -105340,15 +105340,15 @@ _ZNKSt8functionIFbmmEEclEmm.exit.i.i.i:           ; preds = %lor.lhs.false.i.i.i
   %call4.i.i.i.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %progress.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i.i.i)
-  br i1 %call4.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_2JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit", label %if.then5.i.i.i
+  br i1 %call4.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_2JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %_ZNKSt8functionIFbmmEEclEmm.exit.i.i.i
   %6 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %7 = load ptr, ptr %6, align 8
   store i32 7, ptr %7, align 4
-  br label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_2JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_2JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_2JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %entry, %lor.lhs.false.i.i.i, %_ZNKSt8functionIFbmmEEclEmm.exit.i.i.i, %if.then5.i.i.i
+"_ZSt10__invoke_rIbRZN7httplib10ClientImpl15process_requestERNS0_6StreamERNS0_7RequestERNS0_8ResponseEbRNS0_5ErrorEE3$_2JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %entry, %lor.lhs.false.i.i.i, %_ZNKSt8functionIFbmmEEclEmm.exit.i.i.i, %if.then5.i.i.i
   %retval.0.i.i.i = phi i1 [ true, %lor.lhs.false.i.i.i ], [ true, %entry ], [ false, %if.then5.i.i.i ], [ true, %_ZNKSt8functionIFbmmEEclEmm.exit.i.i.i ]
   ret i1 %retval.0.i.i.i
 }
@@ -105437,7 +105437,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #39
-  br label %"_ZSt10__invoke_rIbRZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_17MultipartFormDataESaISB_EERKSA_INS0_25MultipartFormDataProviderESaISG_EEE3$_0JmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_17MultipartFormDataESaISB_EERKSA_INS0_25MultipartFormDataProviderESaISG_EEE3$_0JmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit"
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -105582,11 +105582,11 @@ invoke.cont16.i.i.i:                              ; preds = %if.then.i.i5.i.i.i.
   store ptr %33, ptr %_M_invoker.i.i15.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS1_17MultipartFormDataESaISC_EERKSB_INS1_25MultipartFormDataProviderESaISH_EEEN3$_0clEmRNS1_8DataSinkEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i17.i.i.i, align 8
   %tobool.not.i.i.i18.i.i.i = icmp eq ptr %32, null
-  br i1 %tobool.not.i.i.i18.i.i.i, label %"_ZNSt8functionIFvvEEaSIZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17MultipartFormDataESaISE_EERKSD_INS3_25MultipartFormDataProviderESaISJ_EEEN3$_0clEmRNS3_8DataSinkEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS15_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i.i", label %if.then.i.i.i19.i.i.i
+  br i1 %tobool.not.i.i.i18.i.i.i, label %"_ZNSt8functionIFvvEEaSIZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17MultipartFormDataESaISE_EERKSD_INS3_25MultipartFormDataProviderESaISJ_EEEN3$_0clEmRNS3_8DataSinkEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS15_JEEEE5valueERS1_E4typeEOSU_.exit.i.i.i", label %if.then.i.i.i19.i.i.i
 
 if.then.i.i.i19.i.i.i:                            ; preds = %invoke.cont16.i.i.i
   %call.i.i.i20.i.i.i = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13.i.i.i, i32 noundef 3)
-          to label %"_ZNSt8functionIFvvEEaSIZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17MultipartFormDataESaISE_EERKSD_INS3_25MultipartFormDataProviderESaISJ_EEEN3$_0clEmRNS3_8DataSinkEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS15_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i.i" unwind label %terminate.lpad.i.i.i21.i.i.i
+          to label %"_ZNSt8functionIFvvEEaSIZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17MultipartFormDataESaISE_EERKSD_INS3_25MultipartFormDataProviderESaISJ_EEEN3$_0clEmRNS3_8DataSinkEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS15_JEEEE5valueERS1_E4typeEOSU_.exit.i.i.i" unwind label %terminate.lpad.i.i.i21.i.i.i
 
 terminate.lpad.i.i.i21.i.i.i:                     ; preds = %if.then.i.i.i19.i.i.i
   %34 = landingpad { ptr, i32 }
@@ -105595,7 +105595,7 @@ terminate.lpad.i.i.i21.i.i.i:                     ; preds = %if.then.i.i.i19.i.i
   call void @__clang_call_terminate(ptr %35) #42
   unreachable
 
-"_ZNSt8functionIFvvEEaSIZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17MultipartFormDataESaISE_EERKSD_INS3_25MultipartFormDataProviderESaISJ_EEEN3$_0clEmRNS3_8DataSinkEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS15_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i.i": ; preds = %if.then.i.i.i19.i.i.i, %invoke.cont16.i.i.i
+"_ZNSt8functionIFvvEEaSIZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17MultipartFormDataESaISE_EERKSD_INS3_25MultipartFormDataProviderESaISJ_EEEN3$_0clEmRNS3_8DataSinkEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS15_JEEEE5valueERS1_E4typeEOSU_.exit.i.i.i": ; preds = %if.then.i.i.i19.i.i.i, %invoke.cont16.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i13.i.i.i)
   %36 = load ptr, ptr %8, align 8
   %37 = load i64, ptr %__functor.val, align 8
@@ -105610,14 +105610,14 @@ terminate.lpad.i.i.i21.i.i.i:                     ; preds = %if.then.i.i.i19.i.i
   %tobool.not.i.i.i.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %"_ZNSt8functionIFvvEEaSIZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17MultipartFormDataESaISE_EERKSD_INS3_25MultipartFormDataProviderESaISJ_EEEN3$_0clEmRNS3_8DataSinkEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS15_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i.i"
+if.then.i.i.i.i:                                  ; preds = %"_ZNSt8functionIFvvEEaSIZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17MultipartFormDataESaISE_EERKSD_INS3_25MultipartFormDataProviderESaISJ_EEEN3$_0clEmRNS3_8DataSinkEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS15_JEEEE5valueERS1_E4typeEOSU_.exit.i.i.i"
   invoke void @_ZSt25__throw_bad_function_callv() #43
           to label %.noexc.i.i.i unwind label %lpad15.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %if.then.i.i.i.i
   unreachable
 
-if.end.i.i.i.i:                                   ; preds = %"_ZNSt8functionIFvvEEaSIZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17MultipartFormDataESaISE_EERKSD_INS3_25MultipartFormDataProviderESaISJ_EEEN3$_0clEmRNS3_8DataSinkEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS15_JEEEE5valueERS1_E4typeEOSU_.argprom.exit.i.i.i"
+if.end.i.i.i.i:                                   ; preds = %"_ZNSt8functionIFvvEEaSIZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17MultipartFormDataESaISE_EERKSD_INS3_25MultipartFormDataProviderESaISJ_EEEN3$_0clEmRNS3_8DataSinkEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NSS_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISU_E4typeEE4typeES1_EE5valueESt5decayISU_EE4type4typeESt15__invoke_resultIRS15_JEEEE5valueERS1_E4typeEOSU_.exit.i.i.i"
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %provider.i.i.i, i64 24
   %41 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   %call4.i23.i.i.i = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %provider.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(472) %cur_sink.i.i.i)
@@ -105662,7 +105662,7 @@ lpad30.i.i.i:                                     ; preds = %invoke.cont29.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %invoke.cont31.i.i.i, %if.end24.i.i.i, %invoke.cont21.i.i.i
   call void @_ZN7httplib8DataSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %cur_sink.i.i.i) #39
-  br label %"_ZSt10__invoke_rIbRZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_17MultipartFormDataESaISB_EERKSA_INS0_25MultipartFormDataProviderESaISG_EEE3$_0JmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_17MultipartFormDataESaISB_EERKSA_INS0_25MultipartFormDataProviderESaISG_EEE3$_0JmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit"
 
 ehcleanup.i.i.i:                                  ; preds = %lpad30.i.i.i, %lpad15.i.i.i, %if.then.i.i.i.i.i.i, %lpad.i.i.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %45, %lpad30.i.i.i ], [ %42, %lpad15.i.i.i ], [ %20, %if.then.i.i.i.i.i.i ], [ %20, %lpad.i.i.i.i.i ]
@@ -105711,7 +105711,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i.i:             ; preds = %invoke.cont38.i.i.i
   %_M_invoker.i28.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 88
   %50 = load ptr, ptr %_M_invoker.i28.i.i.i, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(16) %done41.i.i.i)
-  br label %"_ZSt10__invoke_rIbRZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_17MultipartFormDataESaISB_EERKSA_INS0_25MultipartFormDataProviderESaISG_EEE3$_0JmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_17MultipartFormDataESaISB_EERKSA_INS0_25MultipartFormDataProviderESaISG_EEE3$_0JmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit"
 
 lpad37.i.i.i:                                     ; preds = %_ZN7httplib6detail35serialize_multipart_formdata_finishERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
   %51 = landingpad { ptr, i32 }
@@ -105719,7 +105719,7 @@ lpad37.i.i.i:                                     ; preds = %_ZN7httplib6detail3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i.i.i) #39
   br label %common.resume.i.i.i
 
-"_ZSt10__invoke_rIbRZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_17MultipartFormDataESaISB_EERKSA_INS0_25MultipartFormDataProviderESaISG_EEE3$_0JmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.argprom.exit": ; preds = %invoke.cont.i.i.i, %cleanup.i.i.i, %_ZNKSt8functionIFvvEEclEv.exit.i.i.i
+"_ZSt10__invoke_rIbRZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_17MultipartFormDataESaISB_EERKSA_INS0_25MultipartFormDataProviderESaISG_EEE3$_0JmRNS0_8DataSinkEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESQ_E4typeEOSR_DpOSS_.exit": ; preds = %invoke.cont.i.i.i, %cleanup.i.i.i, %_ZNKSt8functionIFvvEEclEv.exit.i.i.i
   %retval.0.i.i.i = phi i1 [ %call4.i23.i.i.i, %cleanup.i.i.i ], [ true, %_ZNKSt8functionIFvvEEclEv.exit.i.i.i ], [ true, %invoke.cont.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7.i.i.i)
@@ -105973,13 +105973,13 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS7_S7_NS0_6detail2ciESaISt4pairIS8_S7_EEESt8functionIFbRKNS0_8ResponseEEESJ_IFbPKcmEESJ_IFbmmEEE3$_0JSQ_mmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESY_E4typeEOSZ_DpOS10_.argprom.exit"
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIbRZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS7_S7_NS0_6detail2ciESaISt4pairIS8_S7_EEESt8functionIFbRKNS0_8ResponseEEESJ_IFbPKcmEESJ_IFbmmEEE3$_0JSQ_mmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESY_E4typeEOSZ_DpOS10_.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #43
   unreachable
 
-"_ZSt10__invoke_rIbRZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS7_S7_NS0_6detail2ciESaISt4pairIS8_S7_EEESt8functionIFbRKNS0_8ResponseEEESJ_IFbPKcmEESJ_IFbmmEEE3$_0JSQ_mmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESY_E4typeEOSZ_DpOS10_.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rIbRZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS7_S7_NS0_6detail2ciESaISt4pairIS8_S7_EEESt8functionIFbRKNS0_8ResponseEEESJ_IFbPKcmEESJ_IFbmmEEE3$_0JSQ_mmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESY_E4typeEOSZ_DpOS10_.exit": ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %1 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   %call4.i.i.i.i = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %__functor.val, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i.i)
@@ -106194,14 +106194,14 @@ _ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9con
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_S9_E3$_0JPKcSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_S9_E3$_0JPKcSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 if.else.i.i.i.i:                                  ; preds = %entry
   %host_components_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 1056
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRPKcSB_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %host_components_.i.i.i, ptr %0, ptr noundef nonnull align 8 dereferenceable(8) %b.addr.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %e.addr.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_S9_E3$_0JPKcSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_S9_E3$_0JPKcSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
-"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_S9_E3$_0JPKcSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRPKcSA_EEEvPT_DpOT0_.exit.i.i.i, %if.else.i.i.i.i
+"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_S9_E3$_0JPKcSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRPKcSA_EEEvPT_DpOT0_.exit.i.i.i, %if.else.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.addr.i.i.i)
   ret void
@@ -106459,14 +106459,14 @@ _ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9con
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiP7x509_stP11evp_pkey_stE3$_0JPKcSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiP7x509_stP11evp_pkey_stE3$_0JPKcSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 if.else.i.i.i.i:                                  ; preds = %entry
   %host_components_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 1056
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRPKcSB_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %host_components_.i.i.i, ptr %0, ptr noundef nonnull align 8 dereferenceable(8) %b.addr.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %e.addr.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiP7x509_stP11evp_pkey_stE3$_0JPKcSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiP7x509_stP11evp_pkey_stE3$_0JPKcSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
-"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiP7x509_stP11evp_pkey_stE3$_0JPKcSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit": ; preds = %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRPKcSA_EEEvPT_DpOT0_.exit.i.i.i, %if.else.i.i.i.i
+"_ZSt10__invoke_rIvRZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiP7x509_stP11evp_pkey_stE3$_0JPKcSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRPKcSA_EEEvPT_DpOT0_.exit.i.i.i, %if.else.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.addr.i.i.i)
   ret void
@@ -106888,7 +106888,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt10lock_guardIS
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   %tobool.not.i.i.i.i.i = icmp eq i32 %call4.i.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i.i.i, label %if.end24.sink.split.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7httplib9SSLClient10load_certsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br i1 %tobool.not.i.i.i.i.i, label %if.end24.sink.split.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7httplib9SSLClient10load_certsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
 lpad.i.i.i.i.i:                                   ; preds = %if.then18.i.i.i.i.i, %if.then7.i.i.i.i.i, %if.then.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -106910,19 +106910,19 @@ if.then7.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
 
 invoke.cont11.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
   %tobool13.not.i.i.i.i.i = icmp eq i32 %call12.i.i.i.i.i, 0
-  br i1 %tobool13.not.i.i.i.i.i, label %if.end24.sink.split.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7httplib9SSLClient10load_certsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br i1 %tobool13.not.i.i.i.i.i, label %if.end24.sink.split.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7httplib9SSLClient10load_certsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
 if.then18.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
   %call21.i.i.i.i.i = invoke i32 @SSL_CTX_set_default_verify_paths(ptr noundef %5)
-          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7httplib9SSLClient10load_certsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit" unwind label %lpad.i.i.i.i.i
+          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7httplib9SSLClient10load_certsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit" unwind label %lpad.i.i.i.i.i
 
 if.end24.sink.split.i.i.i.i.i:                    ; preds = %invoke.cont11.i.i.i.i.i, %invoke.cont.i.i.i.i.i
   %6 = getelementptr inbounds i8, ptr %.val.i, i64 8
   %7 = load ptr, ptr %6, align 8
   store i8 0, ptr %7, align 1
-  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7httplib9SSLClient10load_certsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit"
+  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7httplib9SSLClient10load_certsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7httplib9SSLClient10load_certsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.argprom.exit": ; preds = %invoke.cont.i.i.i.i.i, %invoke.cont11.i.i.i.i.i, %if.then18.i.i.i.i.i, %if.end24.sink.split.i.i.i.i.i
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7httplib9SSLClient10load_certsEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit": ; preds = %invoke.cont.i.i.i.i.i, %invoke.cont11.i.i.i.i.i, %if.then18.i.i.i.i.i, %if.end24.sink.split.i.i.i.i.i
   %call1.i.i.i2.i.i.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %ctx_mutex_.i.i.i.i.i) #39
   ret void
 }
@@ -106999,13 +106999,13 @@ _ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9con
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZNK7httplib9SSLClient15check_host_nameEPKcmE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7httplib9SSLClient15check_host_nameEPKcmE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 if.else.i.i.i.i:                                  ; preds = %entry
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRPKcSB_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %call.val, ptr %0, ptr noundef nonnull align 8 dereferenceable(8) %b.addr.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %e.addr.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZNK7httplib9SSLClient15check_host_nameEPKcmE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7httplib9SSLClient15check_host_nameEPKcmE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-"_ZSt10__invoke_rIvRZNK7httplib9SSLClient15check_host_nameEPKcmE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRPKcSA_EEEvPT_DpOT0_.exit.i.i.i, %if.else.i.i.i.i
+"_ZSt10__invoke_rIvRZNK7httplib9SSLClient15check_host_nameEPKcmE3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRPKcSA_EEEvPT_DpOT0_.exit.i.i.i, %if.else.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.addr.i.i.i)
   ret void

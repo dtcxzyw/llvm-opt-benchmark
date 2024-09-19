@@ -561,7 +561,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %115 = ptrtoint ptr %93 to i64
   %116 = sub i64 %114, %115
   %.not.i.i = icmp ugt i64 %116, %113
-  br i1 %.not.i.i, label %117, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit"
+  br i1 %.not.i.i, label %117, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit"
 
 117:                                              ; preds = %107
   %118 = getelementptr inbounds i8, ptr %93, i64 %113
@@ -579,21 +579,21 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %128 = getelementptr inbounds i8, ptr %118, i64 %127
   %129 = load i8, ptr %128, align 1, !noalias !10
   %.not13.i.i = icmp eq i8 %129, 0
-  br i1 %.not13.i.i, label %130, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit"
+  br i1 %.not13.i.i, label %130, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit"
 
 130:                                              ; preds = %125, %117
   %131 = and i64 %122, 4294967295
-  br label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit"
+  br label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit"
 
-"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit": ; preds = %107, %125, %130
+"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit": ; preds = %107, %125, %130
   %.sroa.01.0.i = phi ptr [ %118, %130 ], [ @.str.9, %107 ], [ @.str.9, %125 ]
   %.sroa.32.0.i = phi i64 [ %131, %130 ], [ 9, %107 ], [ 9, %125 ]
   %132 = add i32 %spec.select.i.i.i, %spec.select.i6.i
   %133 = zext i32 %132 to i64
   %.not.i.i45 = icmp ugt i64 %116, %133
-  br i1 %.not.i.i45, label %134, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit51"
+  br i1 %.not.i.i45, label %134, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit51"
 
-134:                                              ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit"
+134:                                              ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit"
   %135 = getelementptr inbounds i8, ptr %93, i64 %133
   %136 = trunc i64 %116 to i32
   %137 = sub i32 %136, %132
@@ -609,21 +609,21 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %145 = getelementptr inbounds i8, ptr %135, i64 %144
   %146 = load i8, ptr %145, align 1, !noalias !13
   %.not13.i.i50 = icmp eq i8 %146, 0
-  br i1 %.not13.i.i50, label %147, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit51"
+  br i1 %.not13.i.i50, label %147, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit51"
 
 147:                                              ; preds = %142, %134
   %148 = and i64 %139, 4294967295
-  br label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit51"
+  br label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit51"
 
-"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit51": ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit", %142, %147
-  %.sroa.01.0.i46 = phi ptr [ %135, %147 ], [ @.str.9, %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit" ], [ @.str.9, %142 ]
-  %.sroa.32.0.i47 = phi i64 [ %148, %147 ], [ 9, %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit" ], [ 9, %142 ]
+"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit51": ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit", %142, %147
+  %.sroa.01.0.i46 = phi ptr [ %135, %147 ], [ @.str.9, %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit" ], [ @.str.9, %142 ]
+  %.sroa.32.0.i47 = phi i64 [ %148, %147 ], [ 9, %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit" ], [ 9, %142 ]
   %149 = add i32 %spec.select.i.i.i, %spec.select.i7.i
   %150 = zext i32 %149 to i64
   %.not.i.i53 = icmp ugt i64 %116, %150
-  br i1 %.not.i.i53, label %151, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit59"
+  br i1 %.not.i.i53, label %151, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit59"
 
-151:                                              ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit51"
+151:                                              ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit51"
   %152 = getelementptr inbounds i8, ptr %93, i64 %150
   %153 = trunc i64 %116 to i32
   %154 = sub i32 %153, %149
@@ -639,15 +639,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %162 = getelementptr inbounds i8, ptr %152, i64 %161
   %163 = load i8, ptr %162, align 1, !noalias !16
   %.not13.i.i58 = icmp eq i8 %163, 0
-  br i1 %.not13.i.i58, label %164, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit59"
+  br i1 %.not13.i.i58, label %164, label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit59"
 
 164:                                              ; preds = %159, %151
   %165 = and i64 %156, 4294967295
-  br label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit59"
+  br label %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit59"
 
-"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit59": ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit51", %159, %164
-  %.sroa.01.0.i54 = phi ptr [ %152, %164 ], [ @.str.9, %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit51" ], [ @.str.9, %159 ]
-  %.sroa.32.0.i55 = phi i64 [ %165, %164 ], [ 9, %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit51" ], [ 9, %159 ]
+"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit59": ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit51", %159, %164
+  %.sroa.01.0.i54 = phi ptr [ %152, %164 ], [ @.str.9, %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit51" ], [ @.str.9, %159 ]
+  %.sroa.32.0.i55 = phi i64 [ %165, %164 ], [ 9, %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit51" ], [ 9, %159 ]
   %166 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #14
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 24
   %168 = load ptr, ptr %167, align 8
@@ -659,11 +659,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %174 = icmp ult i64 %173, 2
   br i1 %174, label %175, label %177
 
-175:                                              ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit59"
+175:                                              ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit59"
   %176 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %166, ptr noundef nonnull @.str.4, i64 noundef 2) #14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit62
 
-177:                                              ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.argprom.argprom.argprom.exit59"
+177:                                              ; preds = %"_ZZNK5clang13HeaderMapImpl4dumpEvENK3$_0clEj.exit59"
   store i16 8224, ptr %170, align 1
   %178 = load ptr, ptr %169, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 2

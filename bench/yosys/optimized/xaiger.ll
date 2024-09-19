@@ -786,7 +786,7 @@ define internal void @_ZN12_GLOBAL__N_113XAigerBackend7executeERPSoNSt7__cxx1112
           cleanup
   br label %1704
 
-.loopexit.split-lp:                               ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit39.invoke, %5, %._crit_edge, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %89, %93, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit, %120, %96, %106, %117
+.loopexit.split-lp:                               ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit39.invoke, %5, %._crit_edge, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %89, %93, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %120, %96, %106, %117
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %1704
@@ -909,13 +909,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 96:                                               ; preds = %95
   %97 = getelementptr inbounds i8, ptr %86, i64 304
   %98 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %97)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit unwind label %.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit: ; preds = %96
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %96
   invoke void (ptr, ...) @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef nonnull @.str.21, ptr noundef %98) #27
           to label %99 unwind label %.loopexit.split-lp
 
-99:                                               ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit
+99:                                               ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit
   unreachable
 
 100:                                              ; preds = %95
@@ -929,15 +929,15 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit: ; preds = %96
 106:                                              ; preds = %100
   %107 = getelementptr inbounds i8, ptr %86, i64 304
   %108 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %107)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit39.invoke unwind label %.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit39.invoke unwind label %.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit39.invoke: ; preds = %117, %106
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit39.invoke: ; preds = %117, %106
   %109 = phi ptr [ @.str.22, %106 ], [ @.str.23, %117 ]
   %110 = phi ptr [ %108, %106 ], [ %119, %117 ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull %109, ptr noundef %110) #27
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit39.cont unwind label %.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit39.cont unwind label %.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit39.cont: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit39.invoke
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit39.cont: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit39.invoke
   unreachable
 
 111:                                              ; preds = %100
@@ -951,7 +951,7 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit39.cont: ; preds = %_
 117:                                              ; preds = %111
   %118 = getelementptr inbounds i8, ptr %86, i64 304
   %119 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %118)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit39.invoke unwind label %.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit39.invoke unwind label %.loopexit.split-lp
 
 120:                                              ; preds = %111
   invoke fastcc void @_ZN12_GLOBAL__N_112XAigerWriterC2EPN5Yosys5RTLIL6ModuleEb(ptr noundef nonnull align 8 dereferenceable(768) %33, ptr noundef %86, i1 noundef zeroext %.032.lcssa)
@@ -1138,7 +1138,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiNSt7__cxx1112bas
           cleanup
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit130.i
 
-.loopexit902.i:                                   ; preds = %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit112.i, %.loopexit888.i, %1156, %992, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit.i, %.loopexit895.i, %459, %295
+.loopexit902.i:                                   ; preds = %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit112.i, %.loopexit888.i, %1156, %992, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit.i, %.loopexit895.i, %459, %295
   %lpad.loopexit904.i = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit128.i
@@ -1816,16 +1816,16 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
   %560 = load i32, ptr %559, align 4
   %561 = load i32, ptr %223, align 8
   %562 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %222)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit.i unwind label %.loopexit902.i
+          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit.i unwind label %.loopexit902.i
 
-_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit.i: ; preds = %.loopexit895.i
+_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit.i: ; preds = %.loopexit895.i
   %563 = add nsw i32 %561, %.0331055.i
   %564 = ashr i32 %560, 1
   %565 = add nsw i32 %564, -1
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %28, ptr noundef nonnull @.str.88, i32 noundef %565, i32 noundef %563, ptr noundef %562)
           to label %566 unwind label %.loopexit902.i
 
-566:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit.i
+566:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   %567 = load ptr, ptr %26, align 8
@@ -3258,9 +3258,9 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
   %1256 = load ptr, ptr %194, align 8
   %1257 = load i32, ptr %223, align 8
   %1258 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %222)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit112.i unwind label %.loopexit902.i
+          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit112.i unwind label %.loopexit902.i
 
-_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit112.i: ; preds = %.loopexit888.i
+_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit112.i: ; preds = %.loopexit888.i
   %1259 = ptrtoint ptr %1255 to i64
   %1260 = ptrtoint ptr %1256 to i64
   %1261 = sub i64 %1259, %1260
@@ -3271,7 +3271,7 @@ _ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit112.i: ; preds = %.loop
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %29, ptr noundef nonnull @.str.89, i32 noundef %1265, i32 noundef %1264, ptr noundef %1258)
           to label %1266 unwind label %.loopexit902.i
 
-1266:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit112.i
+1266:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit112.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   %1267 = load ptr, ptr %27, align 8
@@ -7797,7 +7797,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit566: ; preds = %_ZN5Yosys5RTLI
           cleanup
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit884
 
-.loopexit.split-lp3275.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke5509, %.invoke5507, %.invoke5505, %2666, %2670, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit, %2664
+.loopexit.split-lp3275.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke5509, %.invoke5507, %.invoke5505, %2666, %2670, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit, %2664
   %lpad.loopexit.split-lp3294 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit884
@@ -7872,9 +7872,9 @@ _ZNK5Yosys5RTLIL4Cell13has_keep_attrEv.exit.thread: ; preds = %1797, %1800, %.no
 1821:                                             ; preds = %1819, %1815, %_ZNK5Yosys5RTLIL4Cell13has_keep_attrEv.exit.thread
   %1822 = load i32, ptr @_ZZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEvE2id, align 4, !noalias !85
   %.not.i.i.i572 = icmp eq i32 %1822, 0
-  br i1 %.not.i.i.i572, label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.exit
+  br i1 %.not.i.i.i572, label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.exit.thread, label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.exit
 
-_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.exit.thread: ; preds = %1821
+_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.exit.thread: ; preds = %1821
   %1823 = getelementptr inbounds i8, ptr %1795, i64 76
   %1824 = load i32, ptr %1823, align 4
   %1825 = icmp eq i32 %1824, 0
@@ -7886,7 +7886,7 @@ _ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.e
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEvE2id) #25, !noalias !85
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit884
 
-_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.exit: ; preds = %1821
+_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.exit: ; preds = %1821
   %1828 = sext i32 %1822 to i64
   %1829 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !85
   %1830 = getelementptr inbounds i32, ptr %1829, i64 %1828
@@ -7900,7 +7900,7 @@ _ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.e
   %1837 = trunc i8 %1836 to i1
   br i1 %1837, label %1838, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-1838:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.exit
+1838:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.exit
   %1839 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1840 = getelementptr inbounds i32, ptr %1839, i64 %1828
   %1841 = load i32, ptr %1840, align 4
@@ -7920,10 +7920,10 @@ _ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.e
   call void @__clang_call_terminate(ptr %1847) #30
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.exit, %1838, %1844
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.exit, %1838, %1844
   br i1 %1835, label %1848, label %1907
 
-1848:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+1848:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %1849 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %1795, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
           to label %1850 unwind label %.loopexit.split-lp3275.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -8075,8 +8075,8 @@ _ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEixEi.exit.i.i.i601: 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1905, ptr noundef nonnull align 8 dereferenceable(12) %84, i64 12, i1 false)
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12emplace_backIJRS3_EEEvDpOT_.exit
 
-1907:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
-  %1908 = phi ptr [ %1823, %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom.exit.thread ], [ %1833, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
+1907:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+  %1908 = phi ptr [ %1823, %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.exit.thread ], [ %1833, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
   %1909 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEvE2id acquire, align 8, !noalias !88
   %1910 = icmp eq i8 %1909, 0
   br i1 %1910, label %1911, label %1917, !prof !12
@@ -8099,9 +8099,9 @@ _ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEixEi.exit.i.i.i601: 
 1917:                                             ; preds = %1915, %1911, %1907
   %1918 = load i32, ptr @_ZZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEvE2id, align 4, !noalias !88
   %.not.i.i.i610 = icmp eq i32 %1918, 0
-  br i1 %.not.i.i.i610, label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom.exit
+  br i1 %.not.i.i.i610, label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.exit.thread, label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.exit
 
-_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom.exit.thread: ; preds = %1917
+_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.exit.thread: ; preds = %1917
   %1919 = load i32, ptr %1908, align 4
   %1920 = icmp eq i32 %1919, 0
   br i1 %1920, label %1942, label %2030
@@ -8112,7 +8112,7 @@ _ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom.
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEvE2id) #25, !noalias !88
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit884
 
-_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom.exit: ; preds = %1917
+_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.exit: ; preds = %1917
   %1923 = sext i32 %1918 to i64
   %1924 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !88
   %1925 = getelementptr inbounds i32, ptr %1924, i64 %1923
@@ -8125,7 +8125,7 @@ _ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom.
   %1931 = trunc i8 %1930 to i1
   br i1 %1931, label %1932, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit615
 
-1932:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom.exit
+1932:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.exit
   %1933 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1934 = getelementptr inbounds i32, ptr %1933, i64 %1923
   %1935 = load i32, ptr %1934, align 4
@@ -8145,10 +8145,10 @@ _ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom.
   call void @__clang_call_terminate(ptr %1941) #30
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit615:             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom.exit, %1932, %1938
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit615:             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.exit, %1932, %1938
   br i1 %1929, label %1942, label %2030
 
-1942:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit615
+1942:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit615
   %1943 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %1795, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
           to label %1944 unwind label %.loopexit.split-lp3275.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -8376,7 +8376,7 @@ _ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEixEi.exit.i.i.i661: 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2029, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.22909, i64 12, i1 false)
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12emplace_backIJRS3_EEEvDpOT_.exit
 
-2030:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit615
+2030:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit615
   br i1 %2, label %2031, label %.critedge.thread
 
 2031:                                             ; preds = %2030
@@ -8873,7 +8873,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cx
 2242:                                             ; preds = %2240, %2236, %2233
   %2243 = load i32, ptr @_ZZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEvE2id, align 4, !noalias !103
   %.not.i.i.i730 = icmp eq i32 %2243, 0
-  br i1 %.not.i.i.i730, label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.argprom.exit, label %2244
+  br i1 %.not.i.i.i730, label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.exit, label %2244
 
 2244:                                             ; preds = %2242
   %2245 = sext i32 %2243 to i64
@@ -8882,7 +8882,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cx
   %2248 = load i32, ptr %2247, align 4, !noalias !103
   %2249 = add nsw i32 %2248, 1
   store i32 %2249, ptr %2247, align 4, !noalias !103
-  br label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.argprom.exit
+  br label %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.exit
 
 .body732:                                         ; preds = %2238
   %2250 = landingpad { ptr, i32 }
@@ -8891,7 +8891,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cx
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %94) #25
   br label %.body728
 
-_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.argprom.exit: ; preds = %2244, %2242
+_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.exit: ; preds = %2244, %2242
   %2251 = load i32, ptr %1908, align 4
   %2252 = load i32, ptr %93, align 4
   %2253 = icmp eq i32 %2251, %2252
@@ -8906,7 +8906,7 @@ _ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.argprom.
   %or.cond.i.i734 = and i1 %2259, %2258
   br i1 %or.cond.i.i734, label %2260, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit735
 
-2260:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.argprom.exit
+2260:                                             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.exit
   %2261 = sext i32 %2243 to i64
   %2262 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2263 = getelementptr inbounds i32, ptr %2262, i64 %2261
@@ -8927,7 +8927,7 @@ _ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.argprom.
   call void @__clang_call_terminate(ptr %2270) #30
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit735:             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.argprom.exit, %2260, %2267
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit735:             ; preds = %_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.exit, %2260, %2267
   %2271 = load i32, ptr %94, align 4
   %2272 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %2273 = trunc i8 %2272 to i1
@@ -9696,13 +9696,13 @@ _ZN5Yosys5RTLIL6Module4wireERKNS0_8IdStringE.exit781.thread: ; preds = %2640, %2
 2666:                                             ; preds = %2664
   %2667 = getelementptr inbounds i8, ptr %1795, i64 72
   %2668 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %2667)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit unwind label %.loopexit.split-lp3275.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp3275.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit: ; preds = %2666
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit: ; preds = %2666
   %2669 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %2302)
           to label %2670 unwind label %.loopexit.split-lp3275.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-2670:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit
+2670:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.26, ptr noundef %2665, ptr noundef %2668, ptr noundef %2669) #27
           to label %2671 unwind label %.loopexit.split-lp3275.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -11484,7 +11484,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit902:             ; preds = %3564
 3569:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit902
   %3570 = getelementptr inbounds i8, ptr %3341, i64 304
   %3571 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %3570)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit935.invoke unwind label %.loopexit.split-lp3252.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit935.invoke unwind label %.loopexit.split-lp3252.loopexit.split-lp
 
 .loopexit:                                        ; preds = %6182, %6185, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1362, %6245
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -11556,7 +11556,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit902:             ; preds = %3564
           cleanup
   br label %.body2002
 
-.loopexit.split-lp3252.loopexit.split-lp:         ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit935.invoke, %.invoke5513, %3448, %split, %3667, %3583, %3569
+.loopexit.split-lp3252.loopexit.split-lp:         ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit935.invoke, %.invoke5513, %3448, %split, %3667, %3583, %3569
   %lpad.loopexit.split-lp3260 = landingpad { ptr, i32 }
           cleanup
   br label %.body2002
@@ -11599,7 +11599,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit909:             ; preds = %3578
 3583:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit909
   %3584 = getelementptr inbounds i8, ptr %3341, i64 304
   %3585 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %3584)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit935.invoke unwind label %.loopexit.split-lp3252.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit935.invoke unwind label %.loopexit.split-lp3252.loopexit.split-lp
 
 _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i913: ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit909
   %.pre4816 = load i32, ptr %.sroa.02863.04074, align 4
@@ -11794,7 +11794,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit925:             ; preds = %._crit_edge4077
 3667:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit925
   %3668 = getelementptr inbounds i8, ptr %3341, i64 304
   %3669 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %3668)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit935.invoke unwind label %.loopexit.split-lp3252.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit935.invoke unwind label %.loopexit.split-lp3252.loopexit.split-lp
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit933:             ; preds = %3394, %._crit_edge4077
   %3670 = load i32, ptr %101, align 4
@@ -11804,15 +11804,15 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit933:             ; preds = %3394, %._crit_edge4
 split:                                            ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit933
   %3671 = getelementptr inbounds i8, ptr %3341, i64 304
   %3672 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %3671)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit935.invoke unwind label %.loopexit.split-lp3252.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit935.invoke unwind label %.loopexit.split-lp3252.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit935.invoke: ; preds = %3569, %split, %3667, %3583
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit935.invoke: ; preds = %3569, %split, %3667, %3583
   %3673 = phi ptr [ @.str.28, %3583 ], [ @.str.29, %3667 ], [ @.str.30, %split ], [ @.str.27, %3569 ]
   %3674 = phi ptr [ %3585, %3583 ], [ %3669, %3667 ], [ %3672, %split ], [ %3571, %3569 ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull %3673, ptr noundef %3674) #27
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit935.cont unwind label %.loopexit.split-lp3252.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit935.cont unwind label %.loopexit.split-lp3252.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit935.cont: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit935.invoke
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit935.cont: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit935.invoke
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit938.thread:      ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit925
@@ -19997,9 +19997,9 @@ _ZNSt4pairIN5Yosys5RTLIL7SigSpecEmED2Ev.exit:     ; preds = %_ZSt8_DestroyIPN5Yo
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 16777216, ptr %10, align 4
   %937 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %641, ptr noundef nonnull %10, i64 noundef 4)
-          to label %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.argprom.exit402 unwind label %932
+          to label %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.exit402 unwind label %932
 
-_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.argprom.exit402: ; preds = %936
+_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.exit402: ; preds = %936
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %942
 
@@ -20007,9 +20007,9 @@ _ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118ba
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %939 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %641, ptr noundef nonnull %9, i64 noundef 4)
-          to label %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.argprom.exit405 unwind label %932
+          to label %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.exit405 unwind label %932
 
-_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.argprom.exit405: ; preds = %938
+_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.exit405: ; preds = %938
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %942
 
@@ -20017,13 +20017,13 @@ _ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118ba
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 33554432, ptr %8, align 4
   %941 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %641, ptr noundef nonnull %8, i64 noundef 4)
-          to label %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.argprom.exit408 unwind label %932
+          to label %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.exit408 unwind label %932
 
-_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.argprom.exit408: ; preds = %940
+_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.exit408: ; preds = %940
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %942
 
-942:                                              ; preds = %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.argprom.exit408, %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.argprom.exit405, %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.argprom.exit402
+942:                                              ; preds = %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.exit408, %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.exit405, %_ZNSt5_BindIFZN12_GLOBAL__N_112XAigerWriter11write_aigerERSobEUlRNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEiE_St17reference_wrapperIS8_ESt12_PlaceholderILi1EEEEclIJiEvEET0_DpOT_.exit402
   store float 0.000000e+00, ptr %54, align 4
   %943 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEfNS0_8hash_opsIS3_EEE2atERKS3_RKf(ptr noundef nonnull align 8 dereferenceable(49) %704, ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 4 dereferenceable(4) %54)
           to label %944 unwind label %932
@@ -22396,14 +22396,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN5Yosys10TimingI
 
 230:                                              ; preds = %226, %.lr.ph905
   %231 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit: ; preds = %230
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %230
   %232 = getelementptr inbounds i8, ptr %167, i64 72
   %233 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %232)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit
   %234 = invoke noundef ptr @_ZN5Yosys10log_signalERKNS_5RTLIL7SigSpecEb(ptr noundef nonnull align 8 dereferenceable(64) %13, i1 noundef zeroext true)
           to label %.invoke1444 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -22432,7 +22432,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit: ; preds = %_ZN5YosysL
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke1444, %.invoke, %714, %544, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit157, %265, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit155, %247, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit, %230, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit205, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit178, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit158, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit156, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke1444, %.invoke, %714, %544, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit157, %265, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit155, %247, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %230, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit205, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit178, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit158, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit156, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit
   %lpad.loopexit.split-lp620 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -22466,22 +22466,22 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit: ; preds = %_ZN5YosysL
 
 247:                                              ; preds = %243, %.lr.ph910
   %248 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit155 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit155 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit155: ; preds = %247
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit155: ; preds = %247
   %249 = getelementptr inbounds i8, ptr %167, i64 72
   %250 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %249)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit156 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit156 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit156: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit155
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit156: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit155
   %251 = invoke noundef ptr @_ZN5Yosys10log_signalERKNS_5RTLIL7SigSpecEb(ptr noundef nonnull align 8 dereferenceable(64) %14, i1 noundef zeroext true)
           to label %.invoke1444 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.invoke1444:                                      ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit156
-  %252 = phi ptr [ @.str.53, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit156 ], [ @.str.52, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit ]
-  %253 = phi ptr [ %248, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit156 ], [ %231, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit ]
-  %254 = phi ptr [ %250, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit156 ], [ %233, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit ]
-  %255 = phi ptr [ %251, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit156 ], [ %234, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit ]
+.invoke1444:                                      ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit156
+  %252 = phi ptr [ @.str.53, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit156 ], [ @.str.52, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit ]
+  %253 = phi ptr [ %248, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit156 ], [ %231, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit ]
+  %254 = phi ptr [ %250, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit156 ], [ %233, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit ]
+  %255 = phi ptr [ %251, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit156 ], [ %234, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull %252, ptr noundef %253, ptr noundef %254, ptr noundef %255) #27
           to label %.cont1445 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -22511,18 +22511,18 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit156: ; preds = %_ZN5Yos
 
 265:                                              ; preds = %263
   %266 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit157 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit157 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit157: ; preds = %265
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit157: ; preds = %265
   %267 = getelementptr inbounds i8, ptr %167, i64 72
   %268 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %267)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit158 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit158 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit158: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit157
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit158: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit157
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.54, ptr noundef %266, ptr noundef %268) #27
           to label %269 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-269:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit158
+269:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit158
   unreachable
 
 270:                                              ; preds = %263
@@ -23067,13 +23067,13 @@ _ZN5Yosys10TimingInfo6BitBitD2Ev.exit:            ; preds = %_ZN5Yosys10TimingIn
 
 544:                                              ; preds = %_ZN5Yosys10TimingInfo6BitBitD2Ev.exit
   %545 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit178 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit178 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit178: ; preds = %544
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit178: ; preds = %544
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_6SigBitEi(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(12) %290, i32 noundef 1)
           to label %546 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-546:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit178
+546:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit178
   %547 = invoke noundef ptr @_ZN5Yosys10log_signalERKNS_5RTLIL7SigSpecEb(ptr noundef nonnull align 8 dereferenceable(64) %16, i1 noundef zeroext true)
           to label %548 unwind label %553
 
@@ -23418,13 +23418,13 @@ _ZN5Yosys10TimingInfo6BitBitD2Ev.exit203:         ; preds = %_ZN5Yosys10TimingIn
 
 714:                                              ; preds = %_ZN5Yosys10TimingInfo6BitBitD2Ev.exit203
   %715 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit205 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit205 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit205: ; preds = %714
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit205: ; preds = %714
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_6SigBitEi(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(12) %573, i32 noundef 1)
           to label %716 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-716:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit205
+716:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit205
   %717 = invoke noundef ptr @_ZN5Yosys10log_signalERKNS_5RTLIL7SigSpecEb(ptr noundef nonnull align 8 dereferenceable(64) %19, i1 noundef zeroext true)
           to label %718 unwind label %725
 
@@ -23843,18 +23843,18 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit277:             ; preds = %_ZZN5Yosys10TimingI
 
 844:                                              ; preds = %840, %839
   %845 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit279 unwind label %.loopexit.split-lp598.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit279 unwind label %.loopexit.split-lp598.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit279: ; preds = %844
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit279: ; preds = %844
   %846 = getelementptr inbounds i8, ptr %167, i64 72
   %847 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %846)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit281 unwind label %.loopexit.split-lp598.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit281 unwind label %.loopexit.split-lp598.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit281: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit279
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit281: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit279
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_6SigBitEi(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(12) %21, i32 noundef 1)
           to label %848 unwind label %.loopexit.split-lp598.loopexit.split-lp
 
-848:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit281
+848:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit281
   %849 = invoke noundef ptr @_ZN5Yosys10log_signalERKNS_5RTLIL7SigSpecEb(ptr noundef nonnull align 8 dereferenceable(64) %23, i1 noundef zeroext true)
           to label %850 unwind label %852
 
@@ -23870,12 +23870,12 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit281: ; preds = %_ZN5Yos
           cleanup
   br label %.loopexit.split-lp598
 
-.loopexit.split-lp598.loopexit:                   ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit290, %880, %854, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit292, %876, %874, %872, %._crit_edge896
+.loopexit.split-lp598.loopexit:                   ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit290, %880, %854, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit292, %876, %874, %872, %._crit_edge896
   %lpad.loopexit616 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp598
 
-.loopexit.split-lp598.loopexit.split-lp:          ; preds = %897, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit285, %864, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit279, %844, %869, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit287, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit281
+.loopexit.split-lp598.loopexit.split-lp:          ; preds = %897, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit285, %864, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit279, %844, %869, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit287, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit281
   %lpad.loopexit.split-lp617 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp598
@@ -23911,18 +23911,18 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit281: ; preds = %_ZN5Yos
 
 864:                                              ; preds = %.lr.ph895
   %865 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit285 unwind label %.loopexit.split-lp598.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit285 unwind label %.loopexit.split-lp598.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit285: ; preds = %864
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit285: ; preds = %864
   %866 = getelementptr inbounds i8, ptr %167, i64 72
   %867 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %866)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit287 unwind label %.loopexit.split-lp598.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit287 unwind label %.loopexit.split-lp598.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit287: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit285
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit287: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit285
   %868 = invoke noundef ptr @_ZN5Yosys10log_signalERKNS_5RTLIL7SigSpecEb(ptr noundef nonnull align 8 dereferenceable(64) %22, i1 noundef zeroext true)
           to label %869 unwind label %.loopexit.split-lp598.loopexit.split-lp
 
-869:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit287
+869:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit287
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.53, ptr noundef %865, ptr noundef %867, ptr noundef %868) #27
           to label %870 unwind label %.loopexit.split-lp598.loopexit.split-lp
 
@@ -23952,19 +23952,19 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit287: ; preds = %_ZN5Yos
 
 880:                                              ; preds = %878
   %881 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit290 unwind label %.loopexit.split-lp598.loopexit
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit290 unwind label %.loopexit.split-lp598.loopexit
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit290: ; preds = %880
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit290: ; preds = %880
   %882 = getelementptr inbounds i8, ptr %167, i64 72
   %883 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %882)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit292 unwind label %.loopexit.split-lp598.loopexit
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit292 unwind label %.loopexit.split-lp598.loopexit
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit292: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit290
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit292: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit290
   invoke void (ptr, ...) @_ZN5Yosys11log_warningEPKcz(ptr noundef nonnull @.str.56, ptr noundef %881, ptr noundef %883)
           to label %884 unwind label %.loopexit.split-lp598.loopexit
 
-884:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit292, %878
-  %.0121 = phi i32 [ %.sroa.speculated, %878 ], [ 0, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit292 ]
+884:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit292, %878
+  %.0121 = phi i32 [ %.sroa.speculated, %878 ], [ 0, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit292 ]
   %885 = load i32, ptr %22, align 8
   %.not574897 = icmp eq i32 %885, 0
   br i1 %.not574897, label %._crit_edge901, label %.lr.ph900.preheader
@@ -24780,18 +24780,18 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit351:             ; preds = %_ZN5Yosys5RTLIL8IdS
 
 1265:                                             ; preds = %1261, %.lr.ph
   %1266 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit355 unwind label %.loopexit.split-lp609.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit355 unwind label %.loopexit.split-lp609.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit355: ; preds = %1265
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit355: ; preds = %1265
   %1267 = getelementptr inbounds i8, ptr %167, i64 72
   %1268 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %1267)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit357 unwind label %.loopexit.split-lp609.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit357 unwind label %.loopexit.split-lp609.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit357: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit355
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit357: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit355
   %1269 = invoke noundef ptr @_ZN5Yosys10log_signalERKNS_5RTLIL7SigSpecEb(ptr noundef nonnull align 8 dereferenceable(64) %29, i1 noundef zeroext true)
           to label %1270 unwind label %.loopexit.split-lp609.loopexit.split-lp
 
-1270:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit357
+1270:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit357
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.52, ptr noundef %1266, ptr noundef %1268, ptr noundef %1269) #27
           to label %1271 unwind label %.loopexit.split-lp609.loopexit.split-lp
 
@@ -24803,12 +24803,12 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit357: ; preds = %_ZN5Yos
           cleanup
   br label %.loopexit.split-lp609
 
-.loopexit.split-lp609.loopexit:                   ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit363, %1292, %1252, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit365, %1288, %1286, %1250, %1248
+.loopexit.split-lp609.loopexit:                   ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit363, %1292, %1252, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit365, %1288, %1286, %1250, %1248
   %lpad.loopexit613 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp609
 
-.loopexit.split-lp609.loopexit.split-lp:          ; preds = %1309, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit359, %1276, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit355, %1265, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit361, %1270, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit357
+.loopexit.split-lp609.loopexit.split-lp:          ; preds = %1309, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit359, %1276, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit355, %1265, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit361, %1270, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit357
   %lpad.loopexit.split-lp614 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp609
@@ -24825,18 +24825,18 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit357: ; preds = %_ZN5Yos
 
 1276:                                             ; preds = %1272, %._crit_edge
   %1277 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit359 unwind label %.loopexit.split-lp609.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit359 unwind label %.loopexit.split-lp609.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit359: ; preds = %1276
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit359: ; preds = %1276
   %1278 = getelementptr inbounds i8, ptr %167, i64 72
   %1279 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %1278)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit361 unwind label %.loopexit.split-lp609.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit361 unwind label %.loopexit.split-lp609.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit361: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit359
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit361: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit359
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_6SigBitEi(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(12) %30, i32 noundef 1)
           to label %1280 unwind label %.loopexit.split-lp609.loopexit.split-lp
 
-1280:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit361
+1280:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit361
   %1281 = invoke noundef ptr @_ZN5Yosys10log_signalERKNS_5RTLIL7SigSpecEb(ptr noundef nonnull align 8 dereferenceable(64) %31, i1 noundef zeroext true)
           to label %1282 unwind label %1284
 
@@ -24867,19 +24867,19 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit361: ; preds = %_ZN5Yos
 
 1292:                                             ; preds = %1290
   %1293 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %36)
-          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit363 unwind label %.loopexit.split-lp609.loopexit
+          to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit363 unwind label %.loopexit.split-lp609.loopexit
 
-_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit363: ; preds = %1292
+_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit363: ; preds = %1292
   %1294 = getelementptr inbounds i8, ptr %167, i64 72
   %1295 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %1294)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit365 unwind label %.loopexit.split-lp609.loopexit
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit365 unwind label %.loopexit.split-lp609.loopexit
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit365: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.argprom.exit363
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit365: ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit363
   invoke void (ptr, ...) @_ZN5Yosys11log_warningEPKcz(ptr noundef nonnull @.str.58, ptr noundef %1293, ptr noundef %1295)
           to label %1296 unwind label %.loopexit.split-lp609.loopexit
 
-1296:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit365, %1290
-  %.0122 = phi i32 [ %1289, %1290 ], [ 0, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit365 ]
+1296:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit365, %1290
+  %.0122 = phi i32 [ %1289, %1290 ], [ 0, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit365 ]
   %1297 = load i32, ptr %29, align 8
   %.not572887 = icmp eq i32 %1297, 0
   br i1 %.not572887, label %._crit_edge891, label %.lr.ph890.preheader
@@ -25834,9 +25834,9 @@ define internal fastcc void @_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_o
   %20 = getelementptr i8, ptr %.val2.i.i.i.i.i, i64 84
   %.val2.val.i.i.i.i.i = load i32, ptr %20, align 4
   %21 = icmp slt i32 %.val2.val.i.i.i.i.i, %.val.val.i.i.i.i.i
-  br i1 %21, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i.i.i
+  br i1 %21, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i.i.i: ; preds = %18
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i: ; preds = %18
   %.val3.i.i.i.i.i = load i32, ptr %17, align 8
   %22 = getelementptr i8, ptr %.pn19.i.i.i.i, i64 32
   %.val1.i.i.i.i.i = load i32, ptr %22, align 8
@@ -25845,7 +25845,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   %spec.select.i.i.i.i.i.i.i = select i1 %23, i1 %24, i1 false
   br i1 %spec.select.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i.i.i, label %27
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i.i.i, %18
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i, %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.020.i.ptr.i.i.i, i64 24, i1 false)
   %25 = getelementptr inbounds i8, ptr %.pn19.i.i.i.i, i64 48
   %.neg.i.i.i.i.i.i.i.i.i = sdiv exact i64 %.sroa.0.020.i.idx.i.i.i, -24
@@ -25854,35 +25854,35 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RT
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %3, i64 20, i1 false)
   br label %34
 
-27:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i.i.i
+27:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn19.i.i.i.i, i64 36
   %.sroa.4.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 4
   br label %28
 
-28:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i.i.i.i, %27
-  %.val.val.i8.i.i.i.i = phi i32 [ %.val.val.i.i.i.i.i, %27 ], [ %.val.val.i8.pre.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i.i.i.i ]
-  %.sroa.09.0.i.i.i.i.i = phi ptr [ %.sroa.0.020.i.ptr.i.i.i, %27 ], [ %.sroa.0.0.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i.i.i.i ]
+28:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i.i.i.i, %27
+  %.val.val.i8.i.i.i.i = phi i32 [ %.val.val.i.i.i.i.i, %27 ], [ %.val.val.i8.pre.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i.i.i.i ]
+  %.sroa.09.0.i.i.i.i.i = phi ptr [ %.sroa.0.020.i.ptr.i.i.i, %27 ], [ %.sroa.0.0.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i.i.i.i ]
   %.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.i.i.i.i.i, i64 -24
   %.val3.i.i.i.i.i.i = load ptr, ptr %.sroa.0.0.i.i.i.i.i, align 8
   %29 = getelementptr i8, ptr %.val3.i.i.i.i.i.i, i64 84
   %.val3.val.i.i.i.i.i.i = load i32, ptr %29, align 4
   %30 = icmp slt i32 %.val3.val.i.i.i.i.i.i, %.val.val.i8.i.i.i.i
-  br i1 %30, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i.i.i.i
+  br i1 %30, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i.i.i.i: ; preds = %28
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i.i.i.i: ; preds = %28
   %31 = getelementptr i8, ptr %.sroa.09.0.i.i.i.i.i, i64 -16
   %.val4.i.i.i.i.i.i = load i32, ptr %31, align 8
   %32 = icmp eq i32 %.val3.val.i.i.i.i.i.i, %.val.val.i8.i.i.i.i
   %33 = icmp slt i32 %.val4.i.i.i.i.i.i, %.val1.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i = select i1 %32, i1 %33, i1 false
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i.i.i.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i.i.i.i, %28
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i.i.i.i, %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.09.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.0.i.i.i.i.i, i64 20, i1 false)
   %.val.val.i8.pre.i.i.i.i = load i32, ptr %19, align 4
   br label %28, !llvm.loop !207
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i.i.i.i
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i.i.i.i
   store ptr %.val.i.i.i.i.i, ptr %.sroa.09.0.i.i.i.i.i, align 8
   %.sroa.3.0..sroa_idx6.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.i.i.i.i.i, i64 8
   store i32 %.val1.i.i.i.i.i, ptr %.sroa.3.0..sroa_idx6.i.i.i.i.i, align 8
@@ -25911,29 +25911,29 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_
   %36 = getelementptr i8, ptr %.sroa.04.0.copyload.i.i.i.i.i, i64 84
   br label %37
 
-37:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i27.i.i.i, %.lr.ph.i12.i.i.i
-  %.sroa.09.0.i.i15.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i, %.lr.ph.i12.i.i.i ], [ %.sroa.0.0.i.i16.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i27.i.i.i ]
+37:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i27.i.i.i, %.lr.ph.i12.i.i.i
+  %.sroa.09.0.i.i15.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i, %.lr.ph.i12.i.i.i ], [ %.sroa.0.0.i.i16.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i27.i.i.i ]
   %.sroa.0.0.i.i16.i.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.i.i15.i.i.i, i64 -24
   %.val.val.i.i17.i.i.i = load i32, ptr %36, align 4
   %.val3.i.i.i18.i.i.i = load ptr, ptr %.sroa.0.0.i.i16.i.i.i, align 8
   %38 = getelementptr i8, ptr %.val3.i.i.i18.i.i.i, i64 84
   %.val3.val.i.i.i19.i.i.i = load i32, ptr %38, align 4
   %39 = icmp slt i32 %.val3.val.i.i.i19.i.i.i, %.val.val.i.i17.i.i.i
-  br i1 %39, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i27.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i20.i.i.i
+  br i1 %39, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i27.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i20.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i20.i.i.i: ; preds = %37
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i20.i.i.i: ; preds = %37
   %40 = getelementptr i8, ptr %.sroa.09.0.i.i15.i.i.i, i64 -16
   %.val4.i.i.i21.i.i.i = load i32, ptr %40, align 8
   %41 = icmp eq i32 %.val3.val.i.i.i19.i.i.i, %.val.val.i.i17.i.i.i
   %42 = icmp slt i32 %.val4.i.i.i21.i.i.i, %.sroa.3.0.copyload.i.i.i.i.i
   %spec.select.i.i.i.i.i22.i.i.i = select i1 %41, i1 %42, i1 false
-  br i1 %spec.select.i.i.i.i.i22.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i27.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i23.i.i.i
+  br i1 %spec.select.i.i.i.i.i22.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i27.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i23.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i27.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i20.i.i.i, %37
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i27.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i20.i.i.i, %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.09.0.i.i15.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.0.i.i16.i.i.i, i64 20, i1 false)
   br label %37, !llvm.loop !207
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i23.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i20.i.i.i
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i23.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i20.i.i.i
   store ptr %.sroa.04.0.copyload.i.i.i.i.i, ptr %.sroa.09.0.i.i15.i.i.i, align 8
   %.sroa.3.0..sroa_idx6.i.i24.i.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.i.i15.i.i.i, i64 8
   store i32 %.sroa.3.0.copyload.i.i.i.i.i, ptr %.sroa.3.0..sroa_idx6.i.i24.i.i.i, align 8
@@ -25963,9 +25963,9 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4
   %47 = getelementptr i8, ptr %.val2.i.i35.i.i.i, i64 84
   %.val2.val.i.i37.i.i.i = load i32, ptr %47, align 4
   %48 = icmp slt i32 %.val2.val.i.i37.i.i.i, %.val.val.i.i36.i.i.i
-  br i1 %48, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i59.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i38.i.i.i
+  br i1 %48, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i59.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i38.i.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i38.i.i.i: ; preds = %45
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i38.i.i.i: ; preds = %45
   %.val3.i.i39.i.i.i = load i32, ptr %44, align 8
   %49 = getelementptr i8, ptr %.pn19.i33.i.i.i, i64 32
   %.val1.i.i40.i.i.i = load i32, ptr %49, align 8
@@ -25974,7 +25974,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   %spec.select.i.i.i.i41.i.i.i = select i1 %50, i1 %51, i1 false
   br i1 %spec.select.i.i.i.i41.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i59.i.i.i, label %56
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i59.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i38.i.i.i, %45
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i59.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i38.i.i.i, %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.020.i32.i.i.i, i64 24, i1 false)
   %52 = getelementptr inbounds i8, ptr %.pn19.i33.i.i.i, i64 48
   %53 = ptrtoint ptr %.sroa.0.020.i32.i.i.i to i64
@@ -25985,35 +25985,35 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RT
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %2, i64 20, i1 false)
   br label %63
 
-56:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i38.i.i.i
+56:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i38.i.i.i
   %.sroa.4.0..sroa_idx.i.i42.i.i.i = getelementptr inbounds i8, ptr %.pn19.i33.i.i.i, i64 36
   %.sroa.4.sroa.0.0.copyload.i.i43.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i42.i.i.i, align 4
   br label %57
 
-57:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i57.i.i.i, %56
-  %.val.val.i8.i44.i.i.i = phi i32 [ %.val.val.i.i36.i.i.i, %56 ], [ %.val.val.i8.pre.i58.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i57.i.i.i ]
-  %.sroa.09.0.i.i45.i.i.i = phi ptr [ %.sroa.0.020.i32.i.i.i, %56 ], [ %.sroa.0.0.i.i46.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i57.i.i.i ]
+57:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i57.i.i.i, %56
+  %.val.val.i8.i44.i.i.i = phi i32 [ %.val.val.i.i36.i.i.i, %56 ], [ %.val.val.i8.pre.i58.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i57.i.i.i ]
+  %.sroa.09.0.i.i45.i.i.i = phi ptr [ %.sroa.0.020.i32.i.i.i, %56 ], [ %.sroa.0.0.i.i46.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i57.i.i.i ]
   %.sroa.0.0.i.i46.i.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.i.i45.i.i.i, i64 -24
   %.val3.i.i.i47.i.i.i = load ptr, ptr %.sroa.0.0.i.i46.i.i.i, align 8
   %58 = getelementptr i8, ptr %.val3.i.i.i47.i.i.i, i64 84
   %.val3.val.i.i.i48.i.i.i = load i32, ptr %58, align 4
   %59 = icmp slt i32 %.val3.val.i.i.i48.i.i.i, %.val.val.i8.i44.i.i.i
-  br i1 %59, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i57.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i49.i.i.i
+  br i1 %59, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i57.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i49.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i49.i.i.i: ; preds = %57
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i49.i.i.i: ; preds = %57
   %60 = getelementptr i8, ptr %.sroa.09.0.i.i45.i.i.i, i64 -16
   %.val4.i.i.i50.i.i.i = load i32, ptr %60, align 8
   %61 = icmp eq i32 %.val3.val.i.i.i48.i.i.i, %.val.val.i8.i44.i.i.i
   %62 = icmp slt i32 %.val4.i.i.i50.i.i.i, %.val1.i.i40.i.i.i
   %spec.select.i.i.i.i.i51.i.i.i = select i1 %61, i1 %62, i1 false
-  br i1 %spec.select.i.i.i.i.i51.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i57.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i52.i.i.i
+  br i1 %spec.select.i.i.i.i.i51.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i57.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i52.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.thread.i.i57.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i49.i.i.i, %57
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.thread.i.i57.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i49.i.i.i, %57
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.09.0.i.i45.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.0.i.i46.i.i.i, i64 20, i1 false)
   %.val.val.i8.pre.i58.i.i.i = load i32, ptr %46, align 4
   br label %57, !llvm.loop !207
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i52.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.argprom.argprom.exit.i.i49.i.i.i
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_.exit.i52.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclISH_NS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEEEEbRSG_T0_.exit.i.i49.i.i.i
   store ptr %.val.i.i34.i.i.i, ptr %.sroa.09.0.i.i45.i.i.i, align 8
   %.sroa.3.0..sroa_idx6.i.i53.i.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.i.i45.i.i.i, i64 8
   store i32 %.val1.i.i40.i.i.i, ptr %.sroa.3.0..sroa_idx6.i.i53.i.i.i, align 8
@@ -39310,9 +39310,9 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %39 = getelementptr i8, ptr %.val2.i.i.i.i.i, i64 84
   %.val2.val.i.i.i.i.i = load i32, ptr %39, align 4
   %40 = icmp slt i32 %.val2.val.i.i.i.i.i, %.val.val.i.i.i.i.i
-  br i1 %40, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i.i.i
+  br i1 %40, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %41 = getelementptr i8, ptr %37, i64 8
   %.val3.i.i.i.i.i = load i32, ptr %41, align 8
   %42 = getelementptr i8, ptr %35, i64 8
@@ -39321,13 +39321,13 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   %44 = icmp slt i32 %.val3.i.i.i.i.i, %.val1.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i = select i1 %43, i1 %44, i1 false
   %cond.fr.i.i.i.i = freeze i1 %spec.select.i.i.i.i.i.i.i
-  br i1 %cond.fr.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i.i.i, label %45
+  br i1 %cond.fr.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i.i, label %45
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i.i.i, %.lr.ph.i.i.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i, %.lr.ph.i.i.i.i
   br label %45
 
-45:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i.i.i
-  %46 = phi i64 [ %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i.i.i ], [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i.i.i ]
+45:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i
+  %46 = phi i64 [ %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i.i ], [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i ]
   %47 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %46
   %48 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %.044.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %48, ptr noundef nonnull align 8 dereferenceable(20) %47, i64 20, i1 false)
@@ -39353,8 +39353,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   %54 = getelementptr i8, ptr %.sroa.010.0.copyload.i.i.i, i64 84
   br label %55
 
-55:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i.i.i ]
+55:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i.i.i ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
   %56 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %.0911.i.i.i.i.i
@@ -39363,24 +39363,24 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   %57 = getelementptr i8, ptr %.val.i.i.i.i.i.i, i64 84
   %.val.val.i.i.i.i.i.i = load i32, ptr %57, align 4
   %58 = icmp slt i32 %.val.val.i25.i.i.i.i, %.val.val.i.i.i.i.i.i
-  br i1 %58, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.i.i.i.i.i
+  br i1 %58, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.i.i.i.i.i: ; preds = %55
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.i.i.i.i.i: ; preds = %55
   %59 = getelementptr i8, ptr %56, i64 8
   %.val2.i.i.i.i.i.i = load i32, ptr %59, align 8
   %60 = icmp eq i32 %.val.val.i25.i.i.i.i, %.val.val.i.i.i.i.i.i
   %61 = icmp slt i32 %.sroa.211.0.copyload.i.i.i, %.val2.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i = select i1 %60, i1 %61, i1 false
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_ST_T1_T2_.exit.i.i.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_ST_T1_T2_.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.i.i.i.i.i, %55
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.i.i.i.i.i, %55
   %62 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %.010.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %62, ptr noundef nonnull align 8 dereferenceable(20) %56, i64 20, i1 false)
   %63 = icmp sgt i64 %.0911.i.i.i.i.i, %.0.i.i.i
   br i1 %63, label %55, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_ST_T1_T2_.exit.i.i.i, !llvm.loop !313
 
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_ST_T1_T2_.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.i.i.i.i.i, %52
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %52 ], [ %.010.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i.i.i ]
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_ST_T1_T2_.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.i.i.i.i.i, %52
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %52 ], [ %.010.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i.i.i ]
   %64 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store ptr %.sroa.010.0.copyload.i.i.i, ptr %64, align 8
   %.sroa.5.0..sroa_idx39.i.i.i.i = getelementptr inbounds i8, ptr %64, i64 8
@@ -39391,8 +39391,8 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RT
   %66 = add nsw i64 %.0.i.i.i, -1
   br i1 %65, label %.lr.ph.i9.i, label %31, !llvm.loop !314
 
-.lr.ph.i9.i:                                      ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_ST_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.argprom.exit
-  %.sroa.0.03.i.i = phi ptr [ %67, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.argprom.exit ], [ %storemerge33, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_ST_T1_T2_.exit.i.i.i ]
+.lr.ph.i9.i:                                      ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_ST_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.exit
+  %.sroa.0.03.i.i = phi ptr [ %67, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.exit ], [ %storemerge33, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_T0_ST_T1_T2_.exit.i.i.i ]
   %67 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -24
   %.sroa.08.0.copyload.i = load ptr, ptr %67, align 8
   %.sroa.29.0..sroa.0.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
@@ -39422,9 +39422,9 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RT
   %80 = getelementptr i8, ptr %.val2.i.i.i17, i64 84
   %.val2.val.i.i.i19 = load i32, ptr %80, align 4
   %81 = icmp slt i32 %.val2.val.i.i.i19, %.val.val.i.i.i18
-  br i1 %81, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i20
+  br i1 %81, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i20
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i20: ; preds = %.lr.ph.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i20: ; preds = %.lr.ph.i.i
   %82 = getelementptr i8, ptr %78, i64 8
   %.val3.i.i.i21 = load i32, ptr %82, align 8
   %83 = getelementptr i8, ptr %76, i64 8
@@ -39433,13 +39433,13 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   %85 = icmp slt i32 %.val3.i.i.i21, %.val1.i.i.i22
   %spec.select.i.i.i.i.i23 = select i1 %84, i1 %85, i1 false
   %cond.fr.i.i = freeze i1 %spec.select.i.i.i.i.i23
-  br i1 %cond.fr.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i24, label %86
+  br i1 %cond.fr.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i24, label %86
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i24: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i20, %.lr.ph.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i24: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i20, %.lr.ph.i.i
   br label %86
 
-86:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i20
-  %87 = phi i64 [ %77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i24 ], [ %75, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i20 ]
+86:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i20
+  %87 = phi i64 [ %77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i24 ], [ %75, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i20 ]
   %88 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %87
   %89 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %.044.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %89, ptr noundef nonnull align 8 dereferenceable(20) %88, i64 20, i1 false)
@@ -39469,14 +39469,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
 102:                                              ; preds = %97, %93, %._crit_edge.i.i
   %.1.i.i = phi i64 [ %99, %97 ], [ %.0.lcssa.i.i, %93 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
   %103 = icmp sgt i64 %.1.i.i, 0
-  br i1 %103, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.argprom.exit
+  br i1 %103, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %102
   %104 = getelementptr i8, ptr %.sroa.08.0.copyload.i, i64 84
   br label %105
 
-105:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i, %.lr.ph.i.i.i
-  %.010.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.0911.i.i1213.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i ]
+105:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
+  %.010.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.0911.i.i1213.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i ]
   %.0911.in.i.i.i = add nsw i64 %.010.i.i.i, -1
   %.0911.i.i1213.i = lshr i64 %.0911.in.i.i.i, 1
   %106 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %.0911.i.i1213.i
@@ -39485,24 +39485,24 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   %107 = getelementptr i8, ptr %.val.i.i.i.i, i64 84
   %.val.val.i.i.i.i = load i32, ptr %107, align 4
   %108 = icmp slt i32 %.val.val.i25.i.i, %.val.val.i.i.i.i
-  br i1 %108, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.i.i.i
+  br i1 %108, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.i.i.i: ; preds = %105
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.i.i.i: ; preds = %105
   %109 = getelementptr i8, ptr %106, i64 8
   %.val2.i.i.i.i = load i32, ptr %109, align 8
   %110 = icmp eq i32 %.val.val.i25.i.i, %.val.val.i.i.i.i
   %111 = icmp slt i32 %.sroa.29.0.copyload.i, %.val2.i.i.i.i
   %spec.select.i.i.i.i.i.i = select i1 %110, i1 %111, i1 false
-  br i1 %spec.select.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.argprom.exit
+  br i1 %spec.select.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.i.i.i, %105
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.i.i.i, %105
   %112 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %.010.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %112, ptr noundef nonnull align 8 dereferenceable(20) %106, i64 20, i1 false)
   %.not.i = icmp ult i64 %.0911.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.argprom.exit, label %105, !llvm.loop !313
+  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.exit, label %105, !llvm.loop !313
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.argprom.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i, %102
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %102 ], [ %.010.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.i.i.i ], [ 0, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.argprom.argprom.exit.thread.i.i.i ]
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i, %102
+  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %102 ], [ %.010.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.i.i.i ], [ 0, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESH_EEbSG_RT0_.exit.thread.i.i.i ]
   %113 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %.0.lcssa.i.i.i
   store ptr %.sroa.08.0.copyload.i, ptr %113, align 8
   %.sroa.5.0..sroa_idx39.i.i = getelementptr inbounds i8, ptr %113, i64 8
@@ -39524,25 +39524,25 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL
   %121 = getelementptr i8, ptr %.val2.i.i.i, i64 84
   %.val2.val.i.i.i = load i32, ptr %121, align 4
   %122 = icmp slt i32 %.val2.val.i.i.i, %.val.val.i.i.i
-  br i1 %122, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i
+  br i1 %122, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i: ; preds = %115
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i: ; preds = %115
   %123 = getelementptr i8, ptr %118, i64 8
   %.val3.i.i.i = load i32, ptr %123, align 8
   %.val1.i.i.i = load i32, ptr %16, align 8
   %124 = icmp eq i32 %.val2.val.i.i.i, %.val.val.i.i.i
   %125 = icmp slt i32 %.val3.i.i.i, %.val1.i.i.i
   %spec.select.i.i.i.i.i = select i1 %124, i1 %125, i1 false
-  br i1 %spec.select.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i, label %137
+  br i1 %spec.select.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i, label %137
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i, %115
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i, %115
   %.val2.i27.i.i = load ptr, ptr %119, align 8
   %126 = getelementptr i8, ptr %.val2.i27.i.i, i64 84
   %.val2.val.i29.i.i = load i32, ptr %126, align 4
   %127 = icmp slt i32 %.val2.val.i29.i.i, %.val2.val.i.i.i
-  br i1 %127, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit33.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit33.i.i
+  br i1 %127, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit33.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit33.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit33.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit33.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i
   %128 = getelementptr i8, ptr %storemerge33, i64 -16
   %.val3.i30.i.i = load i32, ptr %128, align 8
   %129 = getelementptr i8, ptr %118, i64 8
@@ -39550,9 +39550,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   %130 = icmp eq i32 %.val2.val.i29.i.i, %.val2.val.i.i.i
   %131 = icmp slt i32 %.val3.i30.i.i, %.val1.i31.i.i
   %spec.select.i.i.i32.i.i = select i1 %130, i1 %131, i1 false
-  br i1 %spec.select.i.i.i32.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit33.thread.i.i, label %132
+  br i1 %spec.select.i.i.i32.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit33.thread.i.i, label %132
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit33.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit33.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit33.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit33.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %118, i64 20, i1 false)
@@ -39560,18 +39560,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i.preheader
 
-132:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit33.i.i
+132:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit33.i.i
   %133 = icmp slt i32 %.val2.val.i29.i.i, %.val.val.i.i.i
-  br i1 %133, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit41.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit41.i.i
+  br i1 %133, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit41.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit41.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit41.i.i: ; preds = %132
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit41.i.i: ; preds = %132
   %.val1.i39.i.i = load i32, ptr %16, align 8
   %134 = icmp eq i32 %.val2.val.i29.i.i, %.val.val.i.i.i
   %135 = icmp slt i32 %.val3.i30.i.i, %.val1.i39.i.i
   %spec.select.i.i.i40.i.i = select i1 %134, i1 %135, i1 false
-  br i1 %spec.select.i.i.i40.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit41.thread.i.i, label %136
+  br i1 %spec.select.i.i.i40.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit41.thread.i.i, label %136
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit41.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit41.i.i, %132
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit41.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit41.i.i, %132
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %119, i64 20, i1 false)
@@ -39579,7 +39579,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i.preheader
 
-136:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit41.i.i
+136:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit41.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 20, i1 false)
@@ -39587,22 +39587,22 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i.preheader
 
-137:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i.i
+137:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i
   %.val2.i43.i.i = load ptr, ptr %119, align 8
   %138 = getelementptr i8, ptr %.val2.i43.i.i, i64 84
   %.val2.val.i45.i.i = load i32, ptr %138, align 4
   %139 = icmp slt i32 %.val2.val.i45.i.i, %.val.val.i.i.i
-  br i1 %139, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit49.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit49.i.i
+  br i1 %139, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit49.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit49.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit49.i.i: ; preds = %137
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit49.i.i: ; preds = %137
   %140 = getelementptr i8, ptr %storemerge33, i64 -16
   %.val3.i46.i.i = load i32, ptr %140, align 8
   %141 = icmp eq i32 %.val2.val.i45.i.i, %.val.val.i.i.i
   %142 = icmp slt i32 %.val3.i46.i.i, %.val1.i.i.i
   %spec.select.i.i.i48.i.i = select i1 %141, i1 %142, i1 false
-  br i1 %spec.select.i.i.i48.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit49.thread.i.i, label %143
+  br i1 %spec.select.i.i.i48.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit49.thread.i.i, label %143
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit49.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit49.i.i, %137
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit49.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit49.i.i, %137
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 20, i1 false)
@@ -39610,17 +39610,17 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i.preheader
 
-143:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit49.i.i
+143:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit49.i.i
   %144 = icmp slt i32 %.val2.val.i45.i.i, %.val2.val.i.i.i
-  br i1 %144, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit57.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit57.i.i
+  br i1 %144, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit57.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit57.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit57.i.i: ; preds = %143
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit57.i.i: ; preds = %143
   %145 = icmp eq i32 %.val2.val.i45.i.i, %.val2.val.i.i.i
   %146 = icmp slt i32 %.val3.i46.i.i, %.val3.i.i.i
   %spec.select.i.i.i56.i.i = select i1 %145, i1 %146, i1 false
-  br i1 %spec.select.i.i.i56.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit57.thread.i.i, label %147
+  br i1 %spec.select.i.i.i56.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit57.thread.i.i, label %147
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit57.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit57.i.i, %143
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit57.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit57.i.i, %143
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %119, i64 20, i1 false)
@@ -39628,7 +39628,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i.preheader
 
-147:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit57.i.i
+147:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit57.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %118, i64 20, i1 false)
@@ -39636,7 +39636,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i.preheader: ; preds = %147, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit57.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit49.thread.i.i, %136, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit41.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit33.thread.i.i
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i.preheader: ; preds = %147, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit57.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit49.thread.i.i, %136, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit41.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit33.thread.i.i
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i.preheader, %163
@@ -39647,37 +39647,37 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poo
   %.val2.val.i.i14.i = load i32, ptr %148, align 4
   br label %149
 
-149:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i21.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i
-  %.sroa.018.1.i.i = phi ptr [ %.sroa.018.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i ], [ %155, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i21.i ]
+149:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i21.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i
+  %.sroa.018.1.i.i = phi ptr [ %.sroa.018.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_SO_T0_.exit.i ], [ %155, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i21.i ]
   %.val.i.i15.i = load ptr, ptr %.sroa.018.1.i.i, align 8
   %150 = getelementptr i8, ptr %.val.i.i15.i, i64 84
   %.val.val.i.i16.i = load i32, ptr %150, align 4
   %151 = icmp slt i32 %.val2.val.i.i14.i, %.val.val.i.i16.i
-  br i1 %151, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i21.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i17.i
+  br i1 %151, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i21.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i17.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i17.i: ; preds = %149
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i17.i: ; preds = %149
   %.val3.i.i18.i = load i32, ptr %17, align 8
   %152 = getelementptr i8, ptr %.sroa.018.1.i.i, i64 8
   %.val1.i.i19.i = load i32, ptr %152, align 8
   %153 = icmp eq i32 %.val2.val.i.i14.i, %.val.val.i.i16.i
   %154 = icmp slt i32 %.val3.i.i18.i, %.val1.i.i19.i
   %spec.select.i.i.i.i20.i = select i1 %153, i1 %154, i1 false
-  br i1 %spec.select.i.i.i.i20.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i21.i, label %.preheader.i.i
+  br i1 %spec.select.i.i.i.i20.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i21.i, label %.preheader.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.thread.i21.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i17.i, %149
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i21.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i17.i, %149
   %155 = getelementptr inbounds i8, ptr %.sroa.018.1.i.i, i64 24
   br label %149, !llvm.loop !316
 
-.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i17.i, %.preheader.i.i.backedge
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i.backedge ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit.i17.i ]
+.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i17.i, %.preheader.i.i.backedge
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i.backedge ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i17.i ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -24
   %.val2.i9.i.i = load ptr, ptr %.sroa.0.1.i.i, align 8
   %156 = getelementptr i8, ptr %.val2.i9.i.i, i64 84
   %.val2.val.i11.i.i = load i32, ptr %156, align 4
   %157 = icmp slt i32 %.val2.val.i11.i.i, %.val2.val.i.i14.i
-  br i1 %157, label %.preheader.i.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit15.i.i
+  br i1 %157, label %.preheader.i.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit15.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit15.i.i: ; preds = %.preheader.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit15.i.i: ; preds = %.preheader.i.i
   %158 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -16
   %.val3.i12.i.i = load i32, ptr %158, align 8
   %159 = icmp eq i32 %.val2.val.i11.i.i, %.val2.val.i.i14.i
@@ -39685,10 +39685,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   %spec.select.i.i.i14.i.i = select i1 %159, i1 %160, i1 false
   br i1 %spec.select.i.i.i14.i.i, label %.preheader.i.i.backedge, label %161
 
-.preheader.i.i.backedge:                          ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit15.i.i, %.preheader.i.i
+.preheader.i.i.backedge:                          ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit15.i.i, %.preheader.i.i
   br label %.preheader.i.i, !llvm.loop !317
 
-161:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.argprom.exit15.i.i
+161:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit15.i.i
   %162 = icmp ult ptr %.sroa.018.1.i.i, %.sroa.0.1.i.i
   br i1 %162, label %163, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEESO_SO_SO_T0_.exit
 
@@ -39708,7 +39708,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashli
   %167 = icmp sgt i64 %166, 384
   br i1 %167, label %18, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_T0_.exit, !llvm.loop !319
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEESO_SO_SO_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.argprom.exit, %3
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEESO_SO_SO_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKSA_SQ_E_EEEvSO_SO_SO_RT0_.exit, %3
   ret void
 }
 
@@ -43474,26 +43474,26 @@ attributes #30 = { noreturn nounwind }
 !83 = distinct !{!83, !84, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !84 = distinct !{!84, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom: argument 0"}
-!87 = distinct !{!87, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv.argprom"}
+!86 = distinct !{!86, !87, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv: argument 0"}
+!87 = distinct !{!87, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE_clEv"}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom: argument 0"}
-!90 = distinct !{!90, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv.argprom"}
+!89 = distinct !{!89, !90, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv: argument 0"}
+!90 = distinct !{!90, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE0_clEv"}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE1_clEv.argprom: argument 0"}
-!93 = distinct !{!93, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE1_clEv.argprom"}
+!92 = distinct !{!92, !93, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE1_clEv: argument 0"}
+!93 = distinct !{!93, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE1_clEv"}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE2_clEv.argprom: argument 0"}
-!96 = distinct !{!96, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE2_clEv.argprom"}
+!95 = distinct !{!95, !96, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE2_clEv: argument 0"}
+!96 = distinct !{!96, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE2_clEv"}
 !97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE3_clEv.argprom: argument 0"}
-!99 = distinct !{!99, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE3_clEv.argprom"}
+!98 = distinct !{!98, !99, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE3_clEv: argument 0"}
+!99 = distinct !{!99, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE3_clEv"}
 !100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE4_clEv.argprom: argument 0"}
-!102 = distinct !{!102, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE4_clEv.argprom"}
+!101 = distinct !{!101, !102, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE4_clEv: argument 0"}
+!102 = distinct !{!102, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE4_clEv"}
 !103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.argprom: argument 0"}
-!105 = distinct !{!105, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv.argprom"}
+!104 = distinct !{!104, !105, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv: argument 0"}
+!105 = distinct !{!105, !"_ZZN12_GLOBAL__N_112XAigerWriterC1EPN5Yosys5RTLIL6ModuleEbENKUlvE5_clEv"}
 !106 = distinct !{!106, !7}
 !107 = distinct !{!107, !7}
 !108 = distinct !{!108, !7}

@@ -1410,7 +1410,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
 117:                                              ; preds = %114
   %118 = getelementptr i8, ptr %39, i64 96
   %.val = load ptr, ptr %118, align 8
-  %119 = call fastcc i32 @lo_rw_aio.argprom(ptr %.val, ptr noundef %24, i64 noundef %59, i32 noundef 1)
+  %119 = call fastcc i32 @lo_rw_aio(ptr %.val, ptr noundef %24, i64 noundef %59, i32 noundef 1)
   br label %287
 
 120:                                              ; preds = %114
@@ -1558,7 +1558,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
 205:                                              ; preds = %202
   %206 = getelementptr i8, ptr %39, i64 96
   %.val19 = load ptr, ptr %206, align 8
-  %207 = call fastcc i32 @lo_rw_aio.argprom(ptr %.val19, ptr noundef %24, i64 noundef %59, i32 noundef 0)
+  %207 = call fastcc i32 @lo_rw_aio(ptr %.val19, ptr noundef %24, i64 noundef %59, i32 noundef 0)
   br label %287
 
 208:                                              ; preds = %202
@@ -1814,7 +1814,7 @@ declare dso_local void @kthread_associate_blkcg(ptr noundef) local_unnamed_addr 
 declare dso_local void @blk_mq_complete_request(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio.argprom(ptr %.96.val, ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 align 16 {
   %4 = alloca %struct.iov_iter, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !10
@@ -3570,7 +3570,7 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   tail call void @blk_queue_io_min(ptr noundef %189, i32 noundef %187) #14
   %.val = load ptr, ptr %142, align 8
   %.val15 = load ptr, ptr %185, align 8
-  tail call fastcc void @loop_config_discard.argprom(ptr %.val, ptr %.val15)
+  tail call fastcc void @loop_config_discard(ptr %.val, ptr %.val15)
   %.val16 = load ptr, ptr %142, align 8
   %.val17 = load ptr, ptr %185, align 8
   %190 = getelementptr i8, ptr %.val16, i64 216
@@ -3580,7 +3580,7 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   %.val16.val.val.val = load ptr, ptr %191, align 8
   %192 = getelementptr i8, ptr %.val16.val.val.val, i64 200
   %.val16.val.val.val.val = load ptr, ptr %192, align 8
-  tail call fastcc void @loop_update_rotational.argprom.argprom.argprom.argprom.argprom(ptr %.val16.val.val.val.val, ptr %.val17)
+  tail call fastcc void @loop_update_rotational(ptr %.val16.val.val.val.val, ptr %.val17)
   %193 = load ptr, ptr %142, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 72
   %195 = load i32, ptr %194, align 8
@@ -3792,7 +3792,7 @@ declare dso_local ptr @alloc_workqueue(ptr noundef, i32 noundef, i32 noundef, ..
 declare dso_local void @set_disk_ro(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @loop_config_discard.argprom(ptr %.96.val, ptr %.256.val) unnamed_addr #3 align 16 {
+define internal fastcc void @loop_config_discard(ptr %.96.val, ptr %.256.val) unnamed_addr #3 align 16 {
   %1 = alloca %struct.kstatfs, align 8
   %2 = getelementptr inbounds i8, ptr %.96.val, i64 216
   %3 = load ptr, ptr %2, align 8
@@ -3861,7 +3861,7 @@ define internal fastcc void @loop_config_discard.argprom(ptr %.96.val, ptr %.256
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @loop_update_rotational.argprom.argprom.argprom.argprom.argprom(ptr readonly %.96.val.216.val.0.val.40.val.200.val, ptr %.256.val) unnamed_addr #3 align 16 {
+define internal fastcc void @loop_update_rotational(ptr readonly %.96.val.216.val.0.val.40.val.200.val, ptr %.256.val) unnamed_addr #3 align 16 {
   %1 = icmp eq ptr %.96.val.216.val.0.val.40.val.200.val, null
   br i1 %1, label %9, label %2
 

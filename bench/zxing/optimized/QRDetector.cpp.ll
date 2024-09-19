@@ -158,7 +158,7 @@ define void @_ZN5ZXing6QRCode11FindPatternERKNS_11PatternViewE(ptr dead_on_unwin
   store ptr %13, ptr %16, align 8, !alias.scope !7, !noalias !4
   %17 = getelementptr inbounds i8, ptr %11, i64 2
   %18 = icmp eq ptr %9, %17
-  br i1 %18, label %19, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i"
+  br i1 %18, label %19, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i"
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds i8, ptr %9, i64 4
@@ -171,7 +171,7 @@ define void @_ZN5ZXing6QRCode11FindPatternERKNS_11PatternViewE(ptr dead_on_unwin
   %26 = zext i16 %.sroa.speculated4.i.i to i32
   %27 = shl nuw nsw i32 %26, 1
   %28 = icmp ugt i32 %27, %22
-  br i1 %28, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i", label %29
+  br i1 %28, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i", label %29
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %9, i64 2
@@ -180,35 +180,35 @@ define void @_ZN5ZXing6QRCode11FindPatternERKNS_11PatternViewE(ptr dead_on_unwin
   %33 = load i16, ptr %32, align 2, !noalias !4
   %.sroa.speculated.i.i = tail call i16 @llvm.umax.i16(i16 %31, i16 %33)
   %34 = icmp ult i16 %21, %.sroa.speculated.i.i
-  br i1 %34, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i", label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.i"
+  br i1 %34, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i", label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.i"
 
-"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.i": ; preds = %29
+"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.i": ; preds = %29
   %35 = call noundef double @_ZN5ZXing9IsPatternILb1ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 2 dereferenceable(10) @_ZN5ZXing6QRCodeL7PATTERNE, i32 noundef 2147483647, double noundef 1.000000e-01, double noundef 0.000000e+00), !noalias !4
   %36 = fcmp une double %35, 0.000000e+00
-  br i1 %36, label %37, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread_crit_edge.i"
+  br i1 %36, label %37, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread_crit_edge.i"
 
-"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread_crit_edge.i": ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.i"
+"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread_crit_edge.i": ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.i"
   %.pre.i = load ptr, ptr %1, align 8, !noalias !4
   %.pre11.i = load i32, ptr %4, align 8, !noalias !4
   %.pre12.i = load ptr, ptr %3, align 8, !noalias !4
-  br label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i"
+  br label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i"
 
-37:                                               ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.i"
+37:                                               ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %"_ZN5ZXing13FindLeftGuardILi5EZNS_6QRCode11FindPatternERKNS_11PatternViewEE3$_0EES2_S4_iT0_.exit"
 
-"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i": ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread_crit_edge.i", %29, %19, %8
-  %38 = phi ptr [ %.pre12.i, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread_crit_edge.i" ], [ %9, %29 ], [ %9, %19 ], [ %9, %8 ]
-  %39 = phi i32 [ %.pre11.i, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread_crit_edge.i" ], [ %5, %29 ], [ %5, %19 ], [ %5, %8 ]
-  %40 = phi ptr [ %.pre.i, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread_crit_edge.i" ], [ %9, %29 ], [ %9, %19 ], [ %9, %8 ]
+"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i": ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread_crit_edge.i", %29, %19, %8
+  %38 = phi ptr [ %.pre12.i, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread_crit_edge.i" ], [ %9, %29 ], [ %9, %19 ], [ %9, %8 ]
+  %39 = phi i32 [ %.pre11.i, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread_crit_edge.i" ], [ %5, %29 ], [ %5, %19 ], [ %5, %8 ]
+  %40 = phi ptr [ %.pre.i, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit._ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread_crit_edge.i" ], [ %9, %29 ], [ %9, %19 ], [ %9, %8 ]
   %41 = sext i32 %39 to i64
   %42 = getelementptr inbounds i16, ptr %40, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 -10
   %44 = icmp ult ptr %38, %43
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i", %_ZN5ZXing11PatternView8skipPairEv.exit.i
-  %45 = phi ptr [ %69, %_ZN5ZXing11PatternView8skipPairEv.exit.i ], [ %38, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i" ]
+.lr.ph.i:                                         ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i", %_ZN5ZXing11PatternView8skipPairEv.exit.i
+  %45 = phi ptr [ %69, %_ZN5ZXing11PatternView8skipPairEv.exit.i ], [ %38, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i" ]
   %46 = getelementptr inbounds i8, ptr %45, i64 -2
   %47 = load i16, ptr %46, align 2, !noalias !4
   %48 = zext i16 %47 to i32
@@ -222,7 +222,7 @@ define void @_ZN5ZXing6QRCode11FindPatternERKNS_11PatternViewE(ptr dead_on_unwin
   %55 = zext i16 %.sroa.speculated4.i5.i to i32
   %56 = shl nuw nsw i32 %55, 1
   %57 = icmp ugt i32 %56, %51
-  br i1 %57, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.thread.i", label %58
+  br i1 %57, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.thread.i", label %58
 
 58:                                               ; preds = %.lr.ph.i
   %59 = getelementptr inbounds i8, ptr %45, i64 2
@@ -231,34 +231,34 @@ define void @_ZN5ZXing6QRCode11FindPatternERKNS_11PatternViewE(ptr dead_on_unwin
   %62 = load i16, ptr %61, align 2, !noalias !4
   %.sroa.speculated.i6.i = call i16 @llvm.umax.i16(i16 %60, i16 %62)
   %63 = icmp ult i16 %50, %.sroa.speculated.i6.i
-  br i1 %63, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.thread.i", label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.i"
+  br i1 %63, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.thread.i", label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.i"
 
-"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.i": ; preds = %58
+"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.i": ; preds = %58
   %64 = call noundef double @_ZN5ZXing9IsPatternILb1ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 2 dereferenceable(10) @_ZN5ZXing6QRCodeL7PATTERNE, i32 noundef %48, double noundef 1.000000e-01, double noundef 0.000000e+00), !noalias !4
   %65 = fcmp une double %64, 0.000000e+00
-  br i1 %65, label %66, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.i"
+  br i1 %65, label %66, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.i"
 
-66:                                               ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.i"
+66:                                               ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %"_ZN5ZXing13FindLeftGuardILi5EZNS_6QRCode11FindPatternERKNS_11PatternViewEE3$_0EES2_S4_iT0_.exit"
 
-"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.i": ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.i"
+"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.i": ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.i"
   %.pre13.i = load ptr, ptr %3, align 8, !noalias !4
   %.not.i.i.i = icmp eq ptr %.pre13.i, null
-  br i1 %.not.i.i.i, label %_ZN5ZXing11PatternView8skipPairEv.exit.i, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.thread.i"
+  br i1 %.not.i.i.i, label %_ZN5ZXing11PatternView8skipPairEv.exit.i, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.thread.i"
 
-"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.thread.i": ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.i", %58, %.lr.ph.i
-  %67 = phi ptr [ %.pre13.i, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.i" ], [ %45, %58 ], [ %45, %.lr.ph.i ]
+"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.thread.i": ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.i", %58, %.lr.ph.i
+  %67 = phi ptr [ %.pre13.i, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.i" ], [ %45, %58 ], [ %45, %.lr.ph.i ]
   %68 = getelementptr inbounds i8, ptr %67, i64 4
   store ptr %68, ptr %3, align 8, !noalias !4
   br label %_ZN5ZXing11PatternView8skipPairEv.exit.i
 
-_ZN5ZXing11PatternView8skipPairEv.exit.i:         ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.thread.i", %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.i"
-  %69 = phi ptr [ null, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.i" ], [ %68, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.thread.thread.i" ]
+_ZN5ZXing11PatternView8skipPairEv.exit.i:         ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.thread.i", %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.i"
+  %69 = phi ptr [ null, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.i" ], [ %68, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.thread.thread.i" ]
   %70 = icmp ult ptr %69, %43
   br i1 %70, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
-._crit_edge.i:                                    ; preds = %_ZN5ZXing11PatternView8skipPairEv.exit.i, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i"
+._crit_edge.i:                                    ; preds = %_ZN5ZXing11PatternView8skipPairEv.exit.i, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i"
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !4
   br label %"_ZN5ZXing13FindLeftGuardILi5EZNS_6QRCode11FindPatternERKNS_11PatternViewEE3$_0EES2_S4_iT0_.exit"
 
@@ -368,7 +368,7 @@ define void @_ZN5ZXing6QRCode18FindFinderPatternsERKNS_9BitMatrixEb(ptr dead_on_
   store ptr %.sroa.27.0198, ptr %26, align 8, !alias.scope !16, !noalias !19
   %60 = getelementptr inbounds i8, ptr %.sroa.23108.0197, i64 2
   %61 = icmp eq ptr %.sroa.094.0195, %60
-  br i1 %61, label %62, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i.i"
+  br i1 %61, label %62, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i.i"
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %.sroa.094.0195, i64 4
@@ -381,7 +381,7 @@ define void @_ZN5ZXing6QRCode18FindFinderPatternsERKNS_9BitMatrixEb(ptr dead_on_
   %69 = zext i16 %.sroa.speculated4.i.i.i to i32
   %70 = shl nuw nsw i32 %69, 1
   %71 = icmp ugt i32 %70, %65
-  br i1 %71, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i.i", label %72
+  br i1 %71, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i.i", label %72
 
 72:                                               ; preds = %62
   %73 = getelementptr inbounds i8, ptr %.sroa.094.0195, i64 2
@@ -390,18 +390,18 @@ define void @_ZN5ZXing6QRCode18FindFinderPatternsERKNS_9BitMatrixEb(ptr dead_on_
   %76 = load i16, ptr %75, align 2, !noalias !19
   %.sroa.speculated.i.i.i = call i16 @llvm.umax.i16(i16 %74, i16 %76)
   %77 = icmp ult i16 %64, %.sroa.speculated.i.i.i
-  br i1 %77, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i.i", label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.i.i"
+  br i1 %77, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i.i", label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.i.i"
 
-"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.i.i": ; preds = %72
+"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.i.i": ; preds = %72
   %78 = invoke noundef double @_ZN5ZXing9IsPatternILb1ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 2 dereferenceable(10) @_ZN5ZXing6QRCodeL7PATTERNE, i32 noundef 2147483647, double noundef 1.000000e-01, double noundef 0.000000e+00)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc:                                           ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.i.i"
+.noexc:                                           ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.i.i"
   %79 = fcmp une double %78, 0.000000e+00
   %.sroa.0115.0.copyload116 = load ptr, ptr %12, align 8
-  br i1 %79, label %.loopexit267, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i.i"
+  br i1 %79, label %.loopexit267, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i.i"
 
-"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i.i": ; preds = %.noexc, %72, %62, %58
+"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i.i": ; preds = %.noexc, %72, %62, %58
   %.promoted = phi ptr [ %.sroa.094.0195, %72 ], [ %.sroa.094.0195, %62 ], [ %.sroa.094.0195, %58 ], [ %.sroa.0115.0.copyload116, %.noexc ]
   %80 = and i64 %.sroa.15.0196, 4294967295
   %81 = getelementptr inbounds i16, ptr %.sroa.094.0195, i64 %80
@@ -409,8 +409,8 @@ define void @_ZN5ZXing6QRCode18FindFinderPatternsERKNS_9BitMatrixEb(ptr dead_on_
   %83 = icmp ult ptr %.promoted, %82
   br i1 %83, label %.lr.ph.i.i, label %.thread
 
-.lr.ph.i.i:                                       ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i.i", %_ZN5ZXing11PatternView8skipPairEv.exit.i.i
-  %84 = phi ptr [ %87, %_ZN5ZXing11PatternView8skipPairEv.exit.i.i ], [ %.promoted, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i.i" ]
+.lr.ph.i.i:                                       ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i.i", %_ZN5ZXing11PatternView8skipPairEv.exit.i.i
+  %84 = phi ptr [ %87, %_ZN5ZXing11PatternView8skipPairEv.exit.i.i ], [ %.promoted, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i.i" ]
   %85 = getelementptr inbounds i8, ptr %84, i64 -2
   %86 = load i16, ptr %85, align 2, !noalias !19
   %87 = getelementptr inbounds i8, ptr %84, i64 4
@@ -432,17 +432,17 @@ define void @_ZN5ZXing6QRCode18FindFinderPatternsERKNS_9BitMatrixEb(ptr dead_on_
   %100 = load i16, ptr %99, align 2, !noalias !19
   %.sroa.speculated.i6.i.i = call i16 @llvm.umax.i16(i16 %98, i16 %100)
   %101 = icmp ult i16 %88, %.sroa.speculated.i6.i.i
-  br i1 %101, label %_ZN5ZXing11PatternView8skipPairEv.exit.i.i, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.i.i"
+  br i1 %101, label %_ZN5ZXing11PatternView8skipPairEv.exit.i.i, label %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.i.i"
 
-"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.i.i": ; preds = %96
+"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.i.i": ; preds = %96
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %102
 
-102:                                              ; preds = %102, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.i.i"
-  %indvars.iv.i.i = phi i64 [ 0, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit8.i.i" ], [ %indvars.iv.next.i.i, %102 ]
+102:                                              ; preds = %102, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.i.i"
+  %indvars.iv.i.i = phi i64 [ 0, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit8.i.i" ], [ %indvars.iv.next.i.i, %102 ]
   %103 = getelementptr inbounds i16, ptr %84, i64 %indvars.iv.i.i
   %104 = load i16, ptr %103, align 2
   %105 = uitofp i16 %104 to double
@@ -552,9 +552,9 @@ _ZN5ZXing11PatternView8skipPairEv.exit.i.i:       ; preds = %.lr.ph.i.i, %96, %.
   %154 = icmp ult ptr %87, %82
   br i1 %154, label %.lr.ph.i.i, label %.thread, !llvm.loop !11
 
-.thread:                                          ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i.i", %320, %_ZN5ZXing11PatternView8skipPairEv.exit.i.i, %43
-  %.val37230 = phi ptr [ %.val37228, %43 ], [ %.val37, %_ZN5ZXing11PatternView8skipPairEv.exit.i.i ], [ %.val37, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i.i" ], [ %.val37233, %320 ]
-  %.promoted194224 = phi ptr [ %.promoted194, %43 ], [ %.promoted194225, %_ZN5ZXing11PatternView8skipPairEv.exit.i.i ], [ %.promoted194225, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.thread.i.i" ], [ %.promoted194227, %320 ]
+.thread:                                          ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i.i", %320, %_ZN5ZXing11PatternView8skipPairEv.exit.i.i, %43
+  %.val37230 = phi ptr [ %.val37228, %43 ], [ %.val37, %_ZN5ZXing11PatternView8skipPairEv.exit.i.i ], [ %.val37, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i.i" ], [ %.val37233, %320 ]
+  %.promoted194224 = phi ptr [ %.promoted194, %43 ], [ %.promoted194225, %_ZN5ZXing11PatternView8skipPairEv.exit.i.i ], [ %.promoted194225, %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.thread.i.i" ], [ %.promoted194227, %320 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !13
   br label %_ZNK5ZXing11PatternView7isValidEv.exit.thread
 
@@ -634,7 +634,7 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
   %189 = sdiv i32 %188, 2
   %190 = sitofp i32 %189 to double
   %191 = fcmp olt double %sqrt.i.i.i.i.i.i.i.i, %190
-  br i1 %191, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit", label %192
+  br i1 %191, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit", label %192
 
 192:                                              ; preds = %.lr.ph.i.i.i.i
   %193 = getelementptr inbounds i8, ptr %.sroa.063.082.i.i.i.i, i64 24
@@ -651,7 +651,7 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
   %200 = sdiv i32 %199, 2
   %201 = sitofp i32 %200 to double
   %202 = fcmp olt double %sqrt.i.i.i.i32.i.i.i.i, %201
-  br i1 %202, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit260", label %203
+  br i1 %202, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit260", label %203
 
 203:                                              ; preds = %192
   %204 = getelementptr inbounds i8, ptr %.sroa.063.082.i.i.i.i, i64 48
@@ -668,7 +668,7 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
   %211 = sdiv i32 %210, 2
   %212 = sitofp i32 %211 to double
   %213 = fcmp olt double %sqrt.i.i.i.i36.i.i.i.i, %212
-  br i1 %213, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit258", label %214
+  br i1 %213, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit258", label %214
 
 214:                                              ; preds = %203
   %215 = getelementptr inbounds i8, ptr %.sroa.063.082.i.i.i.i, i64 72
@@ -685,7 +685,7 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
   %222 = sdiv i32 %221, 2
   %223 = sitofp i32 %222 to double
   %224 = fcmp olt double %sqrt.i.i.i.i40.i.i.i.i, %223
-  br i1 %224, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit", label %225
+  br i1 %224, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit", label %225
 
 225:                                              ; preds = %214
   %226 = getelementptr inbounds i8, ptr %.sroa.063.082.i.i.i.i, i64 96
@@ -702,7 +702,7 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
   %.pre-phi89.i.i.i.i = phi i64 [ %.pre88.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %178, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ]
   %.sroa.063.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %59, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ]
   %229 = sdiv exact i64 %.pre-phi89.i.i.i.i, 24
-  switch i64 %229, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.thread" [
+  switch i64 %229, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread" [
     i64 3, label %230
     i64 2, label %242
     i64 1, label %254
@@ -722,7 +722,7 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
   %237 = sdiv i32 %236, 2
   %238 = sitofp i32 %237 to double
   %239 = fcmp olt double %sqrt.i.i.i.i44.i.i.i.i, %238
-  br i1 %239, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit", label %240
+  br i1 %239, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit", label %240
 
 240:                                              ; preds = %230
   %241 = getelementptr inbounds i8, ptr %.sroa.063.0.lcssa.i.i.i.i, i64 24
@@ -743,7 +743,7 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
   %249 = sdiv i32 %248, 2
   %250 = sitofp i32 %249 to double
   %251 = fcmp olt double %sqrt.i.i.i.i48.i.i.i.i, %250
-  br i1 %251, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit", label %252
+  br i1 %251, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit", label %252
 
 252:                                              ; preds = %242
   %253 = getelementptr inbounds i8, ptr %.sroa.063.1.i.i.i.i, i64 24
@@ -764,32 +764,32 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
   %261 = sdiv i32 %260, 2
   %262 = sitofp i32 %261 to double
   %263 = fcmp olt double %sqrt.i.i.i.i52.i.i.i.i, %262
-  br i1 %263, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit", label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.thread"
+  br i1 %263, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit", label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread"
 
-"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %214
+"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit": ; preds = %214
   %264 = getelementptr inbounds i8, ptr %.sroa.063.082.i.i.i.i, i64 72
-  br label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+  br label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
-"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit258": ; preds = %203
+"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit258": ; preds = %203
   %265 = getelementptr inbounds i8, ptr %.sroa.063.082.i.i.i.i, i64 48
-  br label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+  br label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
-"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit260": ; preds = %192
+"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit260": ; preds = %192
   %266 = getelementptr inbounds i8, ptr %.sroa.063.082.i.i.i.i, i64 24
-  br label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+  br label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
-"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit258", %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit260", %254, %242, %230
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.063.0.lcssa.i.i.i.i, %230 ], [ %.sroa.063.1.i.i.i.i, %242 ], [ %.sroa.063.2.i.i.i.i, %254 ], [ %264, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %265, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit258" ], [ %266, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit260" ], [ %.sroa.063.082.i.i.i.i, %.lr.ph.i.i.i.i ]
+"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit", %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit258", %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit260", %254, %242, %230
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.063.0.lcssa.i.i.i.i, %230 ], [ %.sroa.063.1.i.i.i.i, %242 ], [ %.sroa.063.2.i.i.i.i, %254 ], [ %264, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit" ], [ %265, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit258" ], [ %266, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit260" ], [ %.sroa.063.082.i.i.i.i, %.lr.ph.i.i.i.i ]
   %267 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val37
-  br i1 %267, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.thread", label %320
+  br i1 %267, label %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread", label %320
 
-"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.thread": ; preds = %254, %._crit_edge.i.i.i.i, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread": ; preds = %254, %._crit_edge.i.i.i.i, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
   %.not6.i.i.i39 = icmp eq i32 %.sroa.5.0.copyload, 0
   br i1 %.not6.i.i.i39, label %_ZNK5ZXing11PatternView3sumEi.exit, label %.lr.ph.i.i.i40
 
-.lr.ph.i.i.i40:                                   ; preds = %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.thread", %.lr.ph.i.i.i40
-  %.08.i.i.i41 = phi ptr [ %270, %.lr.ph.i.i.i40 ], [ %.sroa.0115.2, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.thread" ]
-  %.057.i.i.i42 = phi i16 [ %269, %.lr.ph.i.i.i40 ], [ 0, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.thread" ]
+.lr.ph.i.i.i40:                                   ; preds = %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread", %.lr.ph.i.i.i40
+  %.08.i.i.i41 = phi ptr [ %270, %.lr.ph.i.i.i40 ], [ %.sroa.0115.2, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread" ]
+  %.057.i.i.i42 = phi i16 [ %269, %.lr.ph.i.i.i40 ], [ 0, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread" ]
   %268 = load i16, ptr %.08.i.i.i41, align 2
   %269 = add i16 %268, %.057.i.i.i42
   %270 = getelementptr inbounds i8, ptr %.08.i.i.i41, i64 2
@@ -801,8 +801,8 @@ _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i44: ; preds = %.l
   %272 = mul nuw nsw i32 %271, 3
   br label %_ZNK5ZXing11PatternView3sumEi.exit
 
-_ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i44, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.thread"
-  %.05.lcssa.i.i.i45 = phi i32 [ 0, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.thread" ], [ %272, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i44 ]
+_ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i44, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread"
+  %.05.lcssa.i.i.i45 = phi i32 [ 0, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread" ], [ %272, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i44 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -989,7 +989,7 @@ _ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.argprom.exit.i.i", %286, %306
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %"_ZZN5ZXing6QRCode11FindPatternERKNS_11PatternViewEENK3$_0clES3_i.exit.i.i", %286, %306
   %lpad.loopexit170 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -1026,10 +1026,10 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
 _ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %319
   resume { ptr, i32 } %lpad.phi
 
-320:                                              ; preds = %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %297, %.thread157, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
-  %.val37233 = phi ptr [ %.val37, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit" ], [ %.val37, %.thread157 ], [ %298, %297 ], [ %313, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %.promoted194227 = phi ptr [ %.promoted194225, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit" ], [ %.promoted194225, %.thread157 ], [ %.promoted194225, %297 ], [ %309, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %321 = phi ptr [ %59, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit" ], [ %59, %.thread157 ], [ %59, %297 ], [ %309, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+320:                                              ; preds = %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %297, %.thread157, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
+  %.val37233 = phi ptr [ %.val37, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit" ], [ %.val37, %.thread157 ], [ %298, %297 ], [ %313, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %.promoted194227 = phi ptr [ %.promoted194225, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit" ], [ %.promoted194225, %.thread157 ], [ %.promoted194225, %297 ], [ %309, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %321 = phi ptr [ %59, %"_ZN5ZXing6FindIfISt6vectorINS_17ConcentricPatternESaIS2_EEZNS_6QRCode18FindFinderPatternsERKNS_9BitMatrixEbE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit" ], [ %59, %.thread157 ], [ %59, %297 ], [ %309, %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
   %322 = getelementptr inbounds i8, ptr %.sroa.0115.2, i64 8
   %323 = ptrtoint ptr %.sroa.8123.0.copyload to i64
   %324 = ptrtoint ptr %322 to i64
@@ -1758,8 +1758,8 @@ define void @_ZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetE
   %.sroa.021.0.copyload.i = load double, ptr %13, align 8, !noalias !48
   %.sroa.222.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 8
   %.sroa.222.0.copyload.i = load double, ptr %.sroa.222.0..sroa_idx.i, align 8, !noalias !48
-  %37 = tail call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %35, double %.sroa.021.0.copyload.i, double %.sroa.222.0.copyload.i)
-  %38 = tail call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %13, double %.sroa.0.0.copyload, double %.sroa.4.0.copyload), !noalias !48
+  %37 = tail call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %35, double %.sroa.021.0.copyload.i, double %.sroa.222.0.copyload.i)
+  %38 = tail call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %13, double %.sroa.0.0.copyload, double %.sroa.4.0.copyload), !noalias !48
   %39 = fcmp olt double %37, 0.000000e+00
   %40 = fcmp olt double %38, 0.000000e+00
   %or.cond.i = or i1 %39, %40
@@ -1796,8 +1796,8 @@ _ZN5ZXing6QRCodeL17EstimateDimensionERKNS_9BitMatrixENS_17ConcentricPatternES4_.
   %.sroa.021.0.copyload.i326 = load double, ptr %12, align 8, !noalias !51
   %.sroa.222.0..sroa_idx.i327 = getelementptr inbounds i8, ptr %12, i64 8
   %.sroa.222.0.copyload.i328 = load double, ptr %.sroa.222.0..sroa_idx.i327, align 8, !noalias !51
-  %56 = tail call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %35, double %.sroa.021.0.copyload.i326, double %.sroa.222.0.copyload.i328)
-  %57 = tail call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %12, double %.sroa.0964.0.copyload, double %.sroa.4965.0.copyload), !noalias !51
+  %56 = tail call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %35, double %.sroa.021.0.copyload.i326, double %.sroa.222.0.copyload.i328)
+  %57 = tail call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %12, double %.sroa.0964.0.copyload, double %.sroa.4965.0.copyload), !noalias !51
   %58 = fcmp olt double %56, 0.000000e+00
   %59 = fcmp olt double %57, 0.000000e+00
   %or.cond.i332 = or i1 %58, %59
@@ -2666,7 +2666,7 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit357:    ; preds = %340, %338, %335, %3
   %444 = fsub double %426, %.sroa.3.0.i411.us
   %.fca.0.insert.i416.us = insertvalue { double, double } poison, double %443, 0
   %.fca.1.insert.i417.us = insertvalue { double, double } %.fca.0.insert.i416.us, double %444, 1
-  br label %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_1clEii.argprom.argprom.exit.us"
+  br label %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_1clEii.exit.us"
 
 445:                                              ; preds = %387
   %.val.i.us = load ptr, ptr %23, align 8
@@ -2681,16 +2681,16 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit357:    ; preds = %340, %338, %335, %3
   %452 = sitofp i32 %449 to double
   %453 = fadd double %452, 5.000000e-01
   %454 = invoke { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %.val.i.us, double %451, double %453)
-          to label %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_1clEii.argprom.argprom.exit.us" unwind label %.loopexit.split-lp637.loopexit.split.us
+          to label %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_1clEii.exit.us" unwind label %.loopexit.split-lp637.loopexit.split.us
 
-"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_1clEii.argprom.argprom.exit.us": ; preds = %445, %442
+"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_1clEii.exit.us": ; preds = %445, %442
   %.pn303.us = phi { double, double } [ %.fca.1.insert.i417.us, %442 ], [ %454, %445 ]
   %.sroa.3.0.us = extractvalue { double, double } %.pn303.us, 1
   %.sroa.099.0.us = extractvalue { double, double } %.pn303.us, 0
   invoke fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %83, double %.sroa.099.0.us, double %.sroa.3.0.us)
           to label %455 unwind label %.loopexit.split-lp637.loopexit.split.us
 
-455:                                              ; preds = %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_1clEii.argprom.argprom.exit.us"
+455:                                              ; preds = %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_1clEii.exit.us"
   %456 = load i8, ptr %376, align 8
   %457 = trunc i8 %456 to i1
   br i1 %457, label %458, label %465
@@ -2717,7 +2717,7 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit357:    ; preds = %340, %338, %335, %3
   %exitcond817.not = icmp eq i64 %indvars.iv.next814, %wide.trip.count816
   br i1 %exitcond817.not, label %.preheader650.lr.ph, label %.preheader655.us, !llvm.loop !69
 
-.loopexit.split-lp637.loopexit.split.us:          ; preds = %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_1clEii.argprom.argprom.exit.us", %445, %430, %412, %395
+.loopexit.split-lp637.loopexit.split.us:          ; preds = %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_1clEii.exit.us", %445, %430, %412, %395
   %lpad.loopexit656.us = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit465
@@ -3339,9 +3339,9 @@ _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit463: ; preds = %.body.thread864,
   %670 = sitofp i32 %667 to double
   %671 = fadd double %670, 5.000000e-01
   %672 = invoke { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %.val.us, double %669, double %671)
-          to label %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_2clEii.argprom.argprom.exit.us" unwind label %.loopexit636.split.us
+          to label %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_2clEii.exit.us" unwind label %.loopexit636.split.us
 
-"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_2clEii.argprom.argprom.exit.us": ; preds = %663
+"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_2clEii.exit.us": ; preds = %663
   %673 = extractvalue { double, double } %672, 0
   %674 = extractvalue { double, double } %672, 1
   %675 = load i32, ptr %21, align 8
@@ -3357,7 +3357,7 @@ _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit463: ; preds = %.body.thread864,
   store i8 1, ptr %.sroa.5603.0..sroa_idx.us, align 8
   br label %681
 
-681:                                              ; preds = %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_2clEii.argprom.argprom.exit.us", %653
+681:                                              ; preds = %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_2clEii.exit.us", %653
   %indvars.iv.next824 = add nuw nsw i64 %indvars.iv823, 1
   %exitcond827.not = icmp eq i64 %indvars.iv.next824, %wide.trip.count831
   br i1 %exitcond827.not, label %._crit_edge.us777, label %653, !llvm.loop !89
@@ -4697,8 +4697,8 @@ _ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   store double %69, ptr %.sroa.277.0..sroa_idx, align 8
   %.sroa.378.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %63, ptr %.sroa.378.0..sroa_idx, align 8
-  %72 = call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %4, double %71, double %69), !noalias !110
-  %73 = call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %3, double %67, double %69), !noalias !110
+  %72 = call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %4, double %71, double %69), !noalias !110
+  %73 = call fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull byval(%"struct.ZXing::ConcentricPattern") align 8 %3, double %67, double %69), !noalias !110
   %74 = fcmp olt double %72, 0.000000e+00
   %75 = fcmp olt double %73, 0.000000e+00
   %or.cond.i = or i1 %74, %75
@@ -6403,10 +6403,10 @@ define void @_ZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatte
   %32 = getelementptr inbounds i8, ptr %1, i64 16
   br label %33
 
-33:                                               ; preds = %25, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread"
-  %indvars.iv497 = phi i64 [ 0, %25 ], [ %indvars.iv.next498, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread" ]
-  %.sroa.10.0420 = phi i8 [ 0, %25 ], [ %.sroa.10.1, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread" ]
-  %.sroa.3274.0419 = phi i8 [ -1, %25 ], [ %.sroa.3274.1, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread" ]
+33:                                               ; preds = %25, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread"
+  %indvars.iv497 = phi i64 [ 0, %25 ], [ %indvars.iv.next498, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread" ]
+  %.sroa.10.0420 = phi i8 [ 0, %25 ], [ %.sroa.10.1, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread" ]
+  %.sroa.3274.0419 = phi i8 [ -1, %25 ], [ %.sroa.3274.1, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread" ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false), !alias.scope !132
   %34 = shl nuw nsw i64 %indvars.iv497, 4
   %gepdiff.i = sub nuw nsw i64 64, %34
@@ -6426,7 +6426,7 @@ _ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit: ;
   %39 = extractvalue { double, double } %38, 0
   %40 = extractvalue { double, double } %38, 1
   %41 = fcmp ult double %39, 0.000000e+00
-  br i1 %41, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread", label %42
+  br i1 %41, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread", label %42
 
 42:                                               ; preds = %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit
   %43 = load i32, ptr %1, align 8
@@ -6434,13 +6434,13 @@ _ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit: ;
   %45 = fcmp uge double %39, %44
   %46 = fcmp ult double %40, 0.000000e+00
   %or.cond.i.i.i = select i1 %45, i1 true, i1 %46
-  br i1 %or.cond.i.i.i, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread", label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i
+  br i1 %or.cond.i.i.i, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread", label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i
 
 _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i: ; preds = %42
   %47 = load i32, ptr %30, align 4
   %48 = sitofp i32 %47 to double
   %49 = fcmp olt double %40, %48
-  br i1 %49, label %50, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread"
+  br i1 %49, label %50, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread"
 
 50:                                               ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i
   %51 = fptosi double %39 to i32
@@ -6454,24 +6454,24 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i: ; preds = %42
   %59 = ptrtoint ptr %57 to i64
   %60 = sub i64 %58, %59
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %60, %55
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit", label %61
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit", label %61
 
 61:                                               ; preds = %50
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %55, i64 noundef %60) #20
   unreachable
 
-"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit": ; preds = %50
+"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit": ; preds = %50
   %62 = getelementptr inbounds i8, ptr %57, i64 %55
   %63 = load i8, ptr %62, align 1
   %.not = icmp eq i8 %63, 0
-  br i1 %.not, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread", label %64
+  br i1 %.not, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread", label %64
 
-64:                                               ; preds = %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit"
+64:                                               ; preds = %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit"
   %65 = call { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %9, double 9.500000e+00, double 5.000000e-01)
   %66 = extractvalue { double, double } %65, 0
   %67 = extractvalue { double, double } %65, 1
   %68 = fcmp ult double %66, 0.000000e+00
-  br i1 %68, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread", label %69
+  br i1 %68, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread", label %69
 
 69:                                               ; preds = %64
   %70 = load i32, ptr %1, align 8
@@ -6479,13 +6479,13 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i: ; preds = %42
   %72 = fcmp uge double %66, %71
   %73 = fcmp ult double %67, 0.000000e+00
   %or.cond.i.i.i46 = select i1 %72, i1 true, i1 %73
-  br i1 %or.cond.i.i.i46, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread", label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47
+  br i1 %or.cond.i.i.i46, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread", label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47
 
 _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47: ; preds = %69
   %74 = load i32, ptr %30, align 4
   %75 = sitofp i32 %74 to double
   %76 = fcmp olt double %67, %75
-  br i1 %76, label %77, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread"
+  br i1 %76, label %77, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread"
 
 77:                                               ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47
   %78 = fptosi double %66 to i32
@@ -6499,24 +6499,24 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47: ; preds = %69
   %86 = ptrtoint ptr %84 to i64
   %87 = sub i64 %85, %86
   %.not.i.i.i.i.i.i.i.i49 = icmp ugt i64 %87, %82
-  br i1 %.not.i.i.i.i.i.i.i.i49, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit51", label %88
+  br i1 %.not.i.i.i.i.i.i.i.i49, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit51", label %88
 
 88:                                               ; preds = %77
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %82, i64 noundef %87) #20
   unreachable
 
-"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit51": ; preds = %77
+"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit51": ; preds = %77
   %89 = getelementptr inbounds i8, ptr %84, i64 %82
   %90 = load i8, ptr %89, align 1
   %.not330 = icmp eq i8 %90, 0
-  br i1 %.not330, label %91, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread"
+  br i1 %.not330, label %91, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread"
 
-91:                                               ; preds = %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit51"
+91:                                               ; preds = %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit51"
   %92 = call { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %9, double 1.050000e+01, double 5.000000e-01)
   %93 = extractvalue { double, double } %92, 0
   %94 = extractvalue { double, double } %92, 1
   %95 = fcmp ult double %93, 0.000000e+00
-  br i1 %95, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread", label %96
+  br i1 %95, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread", label %96
 
 96:                                               ; preds = %91
   %97 = load i32, ptr %1, align 8
@@ -6524,13 +6524,13 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47: ; preds = %69
   %99 = fcmp uge double %93, %98
   %100 = fcmp ult double %94, 0.000000e+00
   %or.cond.i.i.i52 = select i1 %99, i1 true, i1 %100
-  br i1 %or.cond.i.i.i52, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread", label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53
+  br i1 %or.cond.i.i.i52, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread", label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53
 
 _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53: ; preds = %96
   %101 = load i32, ptr %30, align 4
   %102 = sitofp i32 %101 to double
   %103 = fcmp olt double %94, %102
-  br i1 %103, label %104, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread"
+  br i1 %103, label %104, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread"
 
 104:                                              ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53
   %105 = fptosi double %93 to i32
@@ -6544,24 +6544,24 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53: ; preds = %96
   %113 = ptrtoint ptr %111 to i64
   %114 = sub i64 %112, %113
   %.not.i.i.i.i.i.i.i.i55 = icmp ugt i64 %114, %109
-  br i1 %.not.i.i.i.i.i.i.i.i55, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit57", label %115
+  br i1 %.not.i.i.i.i.i.i.i.i55, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit57", label %115
 
 115:                                              ; preds = %104
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %109, i64 noundef %114) #20
   unreachable
 
-"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit57": ; preds = %104
+"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit57": ; preds = %104
   %116 = getelementptr inbounds i8, ptr %111, i64 %109
   %117 = load i8, ptr %116, align 1
   %.not331 = icmp eq i8 %117, 0
-  br i1 %.not331, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread", label %118
+  br i1 %.not331, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread", label %118
 
-118:                                              ; preds = %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit57"
+118:                                              ; preds = %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit57"
   %119 = call { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %9, double 1.150000e+01, double 5.000000e-01)
   %120 = extractvalue { double, double } %119, 0
   %121 = extractvalue { double, double } %119, 1
   %122 = fcmp ult double %120, 0.000000e+00
-  br i1 %122, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread", label %123
+  br i1 %122, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread", label %123
 
 123:                                              ; preds = %118
   %124 = load i32, ptr %1, align 8
@@ -6569,13 +6569,13 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53: ; preds = %96
   %126 = fcmp uge double %120, %125
   %127 = fcmp ult double %121, 0.000000e+00
   %or.cond.i.i.i58 = select i1 %126, i1 true, i1 %127
-  br i1 %or.cond.i.i.i58, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread", label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i59
+  br i1 %or.cond.i.i.i58, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread", label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i59
 
 _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i59: ; preds = %123
   %128 = load i32, ptr %30, align 4
   %129 = sitofp i32 %128 to double
   %130 = fcmp olt double %121, %129
-  br i1 %130, label %131, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread"
+  br i1 %130, label %131, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread"
 
 131:                                              ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i59
   %132 = fptosi double %120 to i32
@@ -6589,21 +6589,21 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i59: ; preds = %123
   %140 = ptrtoint ptr %138 to i64
   %141 = sub i64 %139, %140
   %.not.i.i.i.i.i.i.i.i61 = icmp ugt i64 %141, %136
-  br i1 %.not.i.i.i.i.i.i.i.i61, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit63", label %142
+  br i1 %.not.i.i.i.i.i.i.i.i61, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit63", label %142
 
 142:                                              ; preds = %131
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %136, i64 noundef %141) #20
   unreachable
 
-"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit63": ; preds = %131
+"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit63": ; preds = %131
   %143 = getelementptr inbounds i8, ptr %138, i64 %136
   %144 = load i8, ptr %143, align 1
   %.not332 = icmp eq i8 %144, 0
-  br i1 %.not332, label %.preheader, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread"
+  br i1 %.not332, label %.preheader, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread"
 
-.preheader:                                       ; preds = %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit63", %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit ], [ 0, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit63" ]
-  %.0321417 = phi i32 [ %182, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit ], [ 0, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit63" ]
+.preheader:                                       ; preds = %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit63", %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit ], [ 0, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit63" ]
+  %.0321417 = phi i32 [ %182, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit ], [ 0, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit63" ]
   %145 = getelementptr inbounds [18 x %"struct.ZXing::PointT.23"], ptr @_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEE18FORMAT_INFO_COORDS, i64 0, i64 %indvars.iv
   %.sroa.016.0.copyload = load i64, ptr %145, align 8
   %.sroa.01.0.extract.trunc.i = trunc i64 %.sroa.016.0.copyload to i32
@@ -6684,7 +6684,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit: ; preds = %.prehea
   %187 = and i32 %186, 255
   %188 = zext i8 %.sroa.3274.0419 to i32
   %189 = icmp ult i32 %187, %188
-  br i1 %189, label %190, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread"
+  br i1 %189, label %190, label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread"
 
 190:                                              ; preds = %183
   %191 = extractvalue { i64, i64 } %184, 1
@@ -6692,16 +6692,16 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit: ; preds = %.prehea
   %.sroa.10.8.extract.shift = lshr i64 %191, 8
   %.sroa.10.8.extract.trunc = trunc i64 %.sroa.10.8.extract.shift to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false)
-  br label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread"
+  br label %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread"
 
-"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread": ; preds = %118, %123, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i59, %91, %96, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53, %64, %69, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47, %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit, %42, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i, %183, %190, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit", %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit51", %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit57", %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit63"
-  %.sroa.3274.1 = phi i8 [ %.sroa.3274.0.extract.trunc, %190 ], [ %.sroa.3274.0419, %183 ], [ %.sroa.3274.0419, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit63" ], [ %.sroa.3274.0419, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit57" ], [ %.sroa.3274.0419, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit51" ], [ %.sroa.3274.0419, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit" ], [ %.sroa.3274.0419, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i ], [ %.sroa.3274.0419, %42 ], [ %.sroa.3274.0419, %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit ], [ %.sroa.3274.0419, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47 ], [ %.sroa.3274.0419, %69 ], [ %.sroa.3274.0419, %64 ], [ %.sroa.3274.0419, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53 ], [ %.sroa.3274.0419, %96 ], [ %.sroa.3274.0419, %91 ], [ %.sroa.3274.0419, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i59 ], [ %.sroa.3274.0419, %123 ], [ %.sroa.3274.0419, %118 ]
-  %.sroa.10.1 = phi i8 [ %.sroa.10.8.extract.trunc, %190 ], [ %.sroa.10.0420, %183 ], [ %.sroa.10.0420, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit63" ], [ %.sroa.10.0420, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit57" ], [ %.sroa.10.0420, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit51" ], [ %.sroa.10.0420, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit" ], [ %.sroa.10.0420, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i ], [ %.sroa.10.0420, %42 ], [ %.sroa.10.0420, %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit ], [ %.sroa.10.0420, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47 ], [ %.sroa.10.0420, %69 ], [ %.sroa.10.0420, %64 ], [ %.sroa.10.0420, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53 ], [ %.sroa.10.0420, %96 ], [ %.sroa.10.0420, %91 ], [ %.sroa.10.0420, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i59 ], [ %.sroa.10.0420, %123 ], [ %.sroa.10.0420, %118 ]
+"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread": ; preds = %118, %123, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i59, %91, %96, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53, %64, %69, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47, %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit, %42, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i, %183, %190, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit", %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit51", %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit57", %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit63"
+  %.sroa.3274.1 = phi i8 [ %.sroa.3274.0.extract.trunc, %190 ], [ %.sroa.3274.0419, %183 ], [ %.sroa.3274.0419, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit63" ], [ %.sroa.3274.0419, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit57" ], [ %.sroa.3274.0419, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit51" ], [ %.sroa.3274.0419, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit" ], [ %.sroa.3274.0419, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i ], [ %.sroa.3274.0419, %42 ], [ %.sroa.3274.0419, %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit ], [ %.sroa.3274.0419, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47 ], [ %.sroa.3274.0419, %69 ], [ %.sroa.3274.0419, %64 ], [ %.sroa.3274.0419, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53 ], [ %.sroa.3274.0419, %96 ], [ %.sroa.3274.0419, %91 ], [ %.sroa.3274.0419, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i59 ], [ %.sroa.3274.0419, %123 ], [ %.sroa.3274.0419, %118 ]
+  %.sroa.10.1 = phi i8 [ %.sroa.10.8.extract.trunc, %190 ], [ %.sroa.10.0420, %183 ], [ %.sroa.10.0420, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit63" ], [ %.sroa.10.0420, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit57" ], [ %.sroa.10.0420, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit51" ], [ %.sroa.10.0420, %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit" ], [ %.sroa.10.0420, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i ], [ %.sroa.10.0420, %42 ], [ %.sroa.10.0420, %_ZN5ZXing14RotatedCornersINS_6PointTIdEEEENS_13QuadrilateralIT_EERKS5_ib.exit ], [ %.sroa.10.0420, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i47 ], [ %.sroa.10.0420, %69 ], [ %.sroa.10.0420, %64 ], [ %.sroa.10.0420, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i53 ], [ %.sroa.10.0420, %96 ], [ %.sroa.10.0420, %91 ], [ %.sroa.10.0420, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i59 ], [ %.sroa.10.0420, %123 ], [ %.sroa.10.0420, %118 ]
   %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 1
   %exitcond499.not = icmp eq i64 %indvars.iv.next498, 4
   br i1 %exitcond499.not, label %192, label %33, !llvm.loop !136
 
-192:                                              ; preds = %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.argprom.exit.thread"
+192:                                              ; preds = %"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_1clEib.exit.thread"
   %193 = icmp ult i8 %.sroa.3274.1, 4
   br i1 %193, label %195, label %194
 
@@ -7745,7 +7745,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIdSt4pairIKdN5ZXing6QRCode16FinderPatter
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly byval(%"struct.ZXing::ConcentricPattern") align 8 %1, double %.0.val, double %.8.val) unnamed_addr #0 {
+define internal fastcc noundef double @_ZN5ZXing6QRCodeL18EstimateModuleSizeERKNS_9BitMatrixENS_17ConcentricPatternES4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly byval(%"struct.ZXing::ConcentricPattern") align 8 %1, double %.0.val, double %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.ZXing::BitMatrixCursor.75", align 8
   %4 = alloca %"class.std::optional.80", align 8
   %5 = alloca %"class.ZXing::PatternView", align 8
@@ -9449,8 +9449,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %53 = add nsw i64 %.0.i.i.i, -1
   br i1 %52, label %.lr.ph.i10.i, label %30, !llvm.loop !166
 
-.lr.ph.i10.i:                                     ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_SG_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.argprom.exit.i14.i"
-  %.sroa.0.03.i.i = phi ptr [ %54, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.argprom.exit.i14.i" ], [ %storemerge23, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
+.lr.ph.i10.i:                                     ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_SG_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.exit.i14.i"
+  %.sroa.0.03.i.i = phi ptr [ %54, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.exit.i14.i" ], [ %storemerge23, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
   %54 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.05.i.i9.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.i.i9.i, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
@@ -9505,7 +9505,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 81:                                               ; preds = %76, %72, %._crit_edge.i.i.i11.i
   %.1.i.i.i13.i = phi i64 [ %78, %76 ], [ %.0.lcssa.i.i.i12.i, %72 ], [ %.0.lcssa.i.i.i12.i, %._crit_edge.i.i.i11.i ]
   %82 = icmp sgt i64 %.1.i.i.i13.i, 0
-  br i1 %82, label %.lr.ph.i.i.i.i17.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.argprom.exit.i14.i"
+  br i1 %82, label %.lr.ph.i.i.i.i17.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.exit.i14.i"
 
 .lr.ph.i.i.i.i17.i:                               ; preds = %81, %86
   %.010.i.i.i.i18.i = phi i64 [ %.0911.i.i1011.i.i20.i, %86 ], [ %.1.i.i.i13.i, %81 ]
@@ -9515,15 +9515,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %84 = getelementptr i8, ptr %83, i64 16
   %.val.i.i.i.i.i21.i = load i32, ptr %84, align 8
   %85 = icmp slt i32 %.val.i.i.i.i.i21.i, %.sroa.28.0.copyload.i.i.i
-  br i1 %85, label %86, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.argprom.exit.i14.i"
+  br i1 %85, label %86, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.exit.i14.i"
 
 86:                                               ; preds = %.lr.ph.i.i.i.i17.i
   %87 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.010.i.i.i.i18.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %87, ptr noundef nonnull align 8 dereferenceable(20) %83, i64 20, i1 false)
   %.not.i.i22.i = icmp ult i64 %.0911.in.i.i.i.i19.i, 2
-  br i1 %.not.i.i22.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.argprom.exit.i14.i", label %.lr.ph.i.i.i.i17.i, !llvm.loop !165
+  br i1 %.not.i.i22.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.exit.i14.i", label %.lr.ph.i.i.i.i17.i, !llvm.loop !165
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.argprom.exit.i14.i": ; preds = %86, %.lr.ph.i.i.i.i17.i, %81
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.exit.i14.i": ; preds = %86, %.lr.ph.i.i.i.i17.i, %81
   %.0.lcssa.i.i.i.i15.i = phi i64 [ %.1.i.i.i13.i, %81 ], [ %.010.i.i.i.i18.i, %.lr.ph.i.i.i.i17.i ], [ 0, %86 ]
   %88 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.0.lcssa.i.i.i.i15.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.i.i9.i, i64 16, i1 false)
@@ -9655,7 +9655,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %123 = icmp sgt i64 %.fr28.i, 384
   br i1 %123, label %18, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_T0_.exit", !llvm.loop !171
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.argprom.exit.i14.i", %3
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_SF_SF_RT0_.exit.i14.i", %3
   ret void
 }
 
@@ -9877,8 +9877,8 @@ attributes #25 = { noreturn nounwind }
 !135 = distinct !{!135, !12}
 !136 = distinct !{!136, !12}
 !137 = !{!138}
-!138 = distinct !{!138, !139, !"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_0clERNS_13QuadrilateralINS_6PointTIdEEEESC_.argprom: argument 0"}
-!139 = distinct !{!139, !"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_0clERNS_13QuadrilateralINS_6PointTIdEEEESC_.argprom"}
+!138 = distinct !{!138, !139, !"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_0clERNS_13QuadrilateralINS_6PointTIdEEEESC_: argument 0"}
+!139 = distinct !{!139, !"_ZZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternEENK3$_0clERNS_13QuadrilateralINS_6PointTIdEEEESC_"}
 !140 = distinct !{!140, !12}
 !141 = distinct !{!141, !12}
 !142 = distinct !{!142, !12}

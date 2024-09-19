@@ -344,7 +344,7 @@ define dso_local void @intel_pps_check_power_unlocked(ptr noundef %0) local_unna
   %58 = getelementptr inbounds i8, ptr %0, i64 1528
   %59 = getelementptr i8, ptr %7, i64 7184
   %.val5 = load i32, ptr %59, align 4
-  %60 = tail call fastcc ptr @pps_name.argprom(i32 %.val5, ptr noundef %58)
+  %60 = tail call fastcc ptr @pps_name(i32 %.val5, ptr noundef %58)
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, ptr noundef %45, ptr noundef %53, i32 noundef %55, ptr noundef %57, ptr noundef %60) #7
   tail call void asm sideeffect "946: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 946b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 946) #7, !srcloc !22
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 565, i32 2313, i64 12) #7, !srcloc !23
@@ -363,7 +363,7 @@ define dso_local void @intel_pps_check_power_unlocked(ptr noundef %0) local_unna
   %64 = load i32, ptr %54, align 8
   %65 = load ptr, ptr %56, align 8
   %.val4 = load i32, ptr %.sink, align 4
-  %66 = tail call fastcc ptr @pps_name.argprom(i32 %.val4, ptr noundef %58)
+  %66 = tail call fastcc ptr @pps_name(i32 %.val4, ptr noundef %58)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !20
   call fastcc void @intel_pps_get_registers(ptr noundef %0, ptr noundef nonnull %3)
@@ -392,7 +392,7 @@ define dso_local void @intel_pps_check_power_unlocked(ptr noundef %0) local_unna
 declare dso_local zeroext i1 @intel_dp_is_edp(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @pps_name.argprom(i32 %.7184.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @pps_name(i32 %.7184.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = and i32 %.7184.val, 18874368
   %3 = icmp eq i32 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 152
@@ -499,7 +499,7 @@ define internal fastcc void @wait_panel_power_cycle(ptr noundef %0) unnamed_addr
   %10 = load i32, ptr %.in, align 8
   %.sink = getelementptr inbounds i8, ptr %0, i64 1528
   %.val5 = load i32, ptr %.sink6, align 4
-  %11 = tail call fastcc ptr @pps_name.argprom(i32 %.val5, ptr noundef %.sink)
+  %11 = tail call fastcc ptr @pps_name(i32 %.val5, ptr noundef %.sink)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.43, i32 noundef %10, ptr noundef %9, ptr noundef %11) #7
   %12 = tail call i64 @ktime_get_with_offset(i32 noundef 1) #7
   %13 = getelementptr inbounds i8, ptr %0, i64 1664
@@ -648,7 +648,7 @@ define dso_local noundef zeroext i1 @intel_pps_vdd_on_unlocked(ptr noundef %0) l
   %63 = getelementptr i8, ptr %0, i64 -368
   %64 = load i32, ptr %63, align 8
   %.val16 = load i32, ptr %.sink, align 4
-  %65 = tail call fastcc ptr @pps_name.argprom(i32 %.val16, ptr noundef %9)
+  %65 = tail call fastcc ptr @pps_name(i32 %.val16, ptr noundef %9)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %60, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef %64, ptr noundef %62, ptr noundef %65) #7
   %66 = load ptr, ptr %7, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 7184
@@ -705,7 +705,7 @@ define dso_local noundef zeroext i1 @intel_pps_vdd_on_unlocked(ptr noundef %0) l
   %97 = load ptr, ptr %61, align 8
   %98 = load i32, ptr %63, align 8
   %.val14 = load i32, ptr %.sink17, align 4
-  %99 = tail call fastcc ptr @pps_name.argprom(i32 %.val14, ptr noundef %9)
+  %99 = tail call fastcc ptr @pps_name(i32 %.val14, ptr noundef %9)
   %100 = load ptr, ptr %90, align 8
   %101 = tail call i32 %100(ptr noundef %87, i32 %54, i1 noundef zeroext true) #7
   %102 = load ptr, ptr %90, align 8
@@ -753,7 +753,7 @@ define dso_local noundef zeroext i1 @intel_pps_vdd_on_unlocked(ptr noundef %0) l
   %126 = load ptr, ptr %61, align 8
   %127 = load i32, ptr %63, align 8
   %.val12 = load i32, ptr %.sink18, align 4
-  %128 = tail call fastcc ptr @pps_name.argprom(i32 %.val12, ptr noundef %9)
+  %128 = tail call fastcc ptr @pps_name(i32 %.val12, ptr noundef %9)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %125, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %127, ptr noundef %126, ptr noundef %128) #7
   %129 = load i32, ptr %9, align 8
   tail call void @msleep(i32 noundef %129) #7
@@ -885,7 +885,7 @@ define dso_local void @intel_pps_vdd_on(ptr noundef %0) local_unnamed_addr #0 al
   %34 = getelementptr inbounds i8, ptr %0, i64 1528
   %35 = getelementptr i8, ptr %3, i64 7184
   %.val5 = load i32, ptr %35, align 4
-  %36 = tail call fastcc ptr @pps_name.argprom(i32 %.val5, ptr noundef %34)
+  %36 = tail call fastcc ptr @pps_name(i32 %.val5, ptr noundef %34)
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.9, ptr noundef %21, ptr noundef %29, i32 noundef %31, ptr noundef %33, ptr noundef %36) #7
   tail call void asm sideeffect "958: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 958b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 958) #7, !srcloc !50
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 793, i32 2313, i64 12) #7, !srcloc !51
@@ -912,7 +912,7 @@ define dso_local void @intel_pps_vdd_on(ptr noundef %0) local_unnamed_addr #0 al
   %44 = load i32, ptr %.in, align 8
   %.sink = getelementptr inbounds i8, ptr %0, i64 1528
   %.val4 = load i32, ptr %.sink6, align 4
-  %45 = tail call fastcc ptr @pps_name.argprom(i32 %.val4, ptr noundef %.sink)
+  %45 = tail call fastcc ptr @pps_name(i32 %.val4, ptr noundef %.sink)
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %42, ptr noundef nonnull @.str.10, i32 noundef %44, ptr noundef %43, ptr noundef %45) #8
   br label %46
 
@@ -1038,7 +1038,7 @@ define internal fastcc void @intel_pps_vdd_off_sync_unlocked(ptr noundef %0) unn
   %49 = getelementptr i8, ptr %0, i64 -368
   %50 = load i32, ptr %49, align 8
   %.val10 = load i32, ptr %.sink, align 4
-  %51 = tail call fastcc ptr @pps_name.argprom(i32 %.val10, ptr noundef %7)
+  %51 = tail call fastcc ptr @pps_name(i32 %.val10, ptr noundef %7)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %46, i32 noundef 2, ptr noundef nonnull @.str.54, i32 noundef %50, ptr noundef %48, ptr noundef %51) #7
   %52 = tail call fastcc i32 @ilk_get_pp_control(ptr noundef %0)
   %53 = and i32 %52, -9
@@ -1074,7 +1074,7 @@ define internal fastcc void @intel_pps_vdd_off_sync_unlocked(ptr noundef %0) unn
   %67 = load ptr, ptr %47, align 8
   %68 = load i32, ptr %49, align 8
   %.val8 = load i32, ptr %.sink11, align 4
-  %69 = tail call fastcc ptr @pps_name.argprom(i32 %.val8, ptr noundef %7)
+  %69 = tail call fastcc ptr @pps_name(i32 %.val8, ptr noundef %7)
   %70 = load ptr, ptr %60, align 8
   %71 = tail call i32 %70(ptr noundef %57, i32 %56, i1 noundef zeroext true) #7
   %72 = load ptr, ptr %60, align 8
@@ -1144,7 +1144,7 @@ define dso_local void @intel_pps_vdd_off_unlocked(ptr noundef %0, i1 noundef zer
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %4, i64 7184
   %.val5 = load i32, ptr %31, align 4
-  %32 = tail call fastcc ptr @pps_name.argprom(i32 %.val5, ptr noundef %7)
+  %32 = tail call fastcc ptr @pps_name(i32 %.val5, ptr noundef %7)
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %18, ptr noundef %26, i32 noundef %28, ptr noundef %30, ptr noundef %32) #7
   tail call void asm sideeffect "966: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 966b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 966) #7, !srcloc !60
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 908, i32 2313, i64 12) #7, !srcloc !61
@@ -1170,7 +1170,7 @@ define dso_local void @intel_pps_vdd_off_unlocked(ptr noundef %0, i1 noundef zer
   %.in = getelementptr i8, ptr %0, i64 -368
   %40 = load i32, ptr %.in, align 8
   %.val4 = load i32, ptr %.sink, align 4
-  %41 = tail call fastcc ptr @pps_name.argprom(i32 %.val4, ptr noundef %7)
+  %41 = tail call fastcc ptr @pps_name(i32 %.val4, ptr noundef %7)
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %38, ptr noundef nonnull @.str.12, i32 noundef %40, ptr noundef %39, ptr noundef %41) #8
   br label %42
 
@@ -1232,7 +1232,7 @@ define dso_local void @intel_pps_on_unlocked(ptr noundef %0) local_unnamed_addr 
   %16 = load i32, ptr %15, align 8
   %.sink = getelementptr inbounds i8, ptr %0, i64 1528
   %.val11 = load i32, ptr %.sink14, align 4
-  %17 = tail call fastcc ptr @pps_name.argprom(i32 %.val11, ptr noundef %.sink)
+  %17 = tail call fastcc ptr @pps_name(i32 %.val11, ptr noundef %.sink)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %12, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %16, ptr noundef %14, ptr noundef %17) #7
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 7184
@@ -1282,7 +1282,7 @@ define dso_local void @intel_pps_on_unlocked(ptr noundef %0) local_unnamed_addr 
   %48 = load ptr, ptr %13, align 8
   %49 = getelementptr i8, ptr %5, i64 7184
   %.val12 = load i32, ptr %49, align 4
-  %50 = tail call fastcc ptr @pps_name.argprom(i32 %.val12, ptr noundef %.sink)
+  %50 = tail call fastcc ptr @pps_name(i32 %.val12, ptr noundef %.sink)
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %38, ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %50) #7
   tail call void asm sideeffect "970: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 970b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 970) #7, !srcloc !65
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 938, i32 2313, i64 12) #7, !srcloc !66
@@ -1346,7 +1346,7 @@ define dso_local void @intel_pps_on_unlocked(ptr noundef %0) local_unnamed_addr 
   %83 = load ptr, ptr %13, align 8
   %84 = load i32, ptr %15, align 8
   %.val9 = load i32, ptr %.sink15, align 4
-  %85 = tail call fastcc ptr @pps_name.argprom(i32 %.val9, ptr noundef %.sink)
+  %85 = tail call fastcc ptr @pps_name(i32 %.val9, ptr noundef %.sink)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %82, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %84, ptr noundef %83, ptr noundef %85) #7
   tail call fastcc void @wait_panel_status(ptr noundef %0, i32 noundef -1342177265, i32 noundef -2147483640)
   %86 = load volatile i64, ptr @jiffies, align 64
@@ -1422,7 +1422,7 @@ define dso_local void @intel_pps_off_unlocked(ptr noundef %0) local_unnamed_addr
   %15 = load i32, ptr %14, align 8
   %.sink = getelementptr inbounds i8, ptr %0, i64 1528
   %.val11 = load i32, ptr %.sink13, align 4
-  %16 = tail call fastcc ptr @pps_name.argprom(i32 %.val11, ptr noundef %.sink)
+  %16 = tail call fastcc ptr @pps_name(i32 %.val11, ptr noundef %.sink)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %11, i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef %15, ptr noundef %13, ptr noundef %16) #7
   %17 = getelementptr inbounds i8, ptr %0, i64 1640
   %18 = load i8, ptr %17, align 8, !range !37, !noundef !38
@@ -1450,7 +1450,7 @@ define dso_local void @intel_pps_off_unlocked(ptr noundef %0) local_unnamed_addr
   %33 = load ptr, ptr %12, align 8
   %34 = getelementptr i8, ptr %4, i64 7184
   %.val12 = load i32, ptr %34, align 4
-  %35 = tail call fastcc ptr @pps_name.argprom(i32 %.val12, ptr noundef %.sink)
+  %35 = tail call fastcc ptr @pps_name(i32 %.val12, ptr noundef %.sink)
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %23, ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %35) #7
   tail call void asm sideeffect "974: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 974b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 974) #7, !srcloc !70
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 999, i32 2313, i64 12) #7, !srcloc !71
@@ -1490,7 +1490,7 @@ define dso_local void @intel_pps_off_unlocked(ptr noundef %0) local_unnamed_addr
   %52 = load ptr, ptr %12, align 8
   %53 = load i32, ptr %14, align 8
   %.val9 = load i32, ptr %.sink14, align 4
-  %54 = tail call fastcc ptr @pps_name.argprom(i32 %.val9, ptr noundef %.sink)
+  %54 = tail call fastcc ptr @pps_name(i32 %.val9, ptr noundef %.sink)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %51, i32 noundef 2, ptr noundef nonnull @.str.56, i32 noundef %53, ptr noundef %52, ptr noundef %54) #7
   tail call fastcc void @wait_panel_status(ptr noundef %0, i32 noundef -1342177280, i32 noundef 0)
   %55 = tail call i64 @ktime_get_with_offset(i32 noundef 1) #7
@@ -1827,7 +1827,7 @@ define dso_local void @vlv_pps_init(ptr noundef %0, ptr nocapture noundef readon
   %.sink = phi ptr [ %49, %.split2 ], [ inttoptr (i64 7184 to ptr), %44 ]
   %50 = phi ptr [ %48, %.split2 ], [ null, %44 ]
   %.val5 = load i32, ptr %.sink, align 4
-  %51 = tail call fastcc ptr @pps_name.argprom(i32 %.val5, ptr noundef %14)
+  %51 = tail call fastcc ptr @pps_name(i32 %.val5, ptr noundef %14)
   %52 = getelementptr inbounds i8, ptr %0, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1925,7 +1925,7 @@ define internal fastcc void @vlv_detach_power_sequencer(ptr noundef %0) unnamed_
   %.sink = phi ptr [ %45, %.split2 ], [ inttoptr (i64 7184 to ptr), %41 ]
   %46 = phi ptr [ %44, %.split2 ], [ null, %41 ]
   %.val5 = load i32, ptr %.sink, align 4
-  %47 = tail call fastcc ptr @pps_name.argprom(i32 %.val5, ptr noundef %4)
+  %47 = tail call fastcc ptr @pps_name(i32 %.val5, ptr noundef %4)
   %48 = getelementptr i8, ptr %0, i64 -368
   %49 = load i32, ptr %48, align 8
   %50 = getelementptr i8, ptr %0, i64 -336
@@ -2843,7 +2843,7 @@ define internal fastcc void @vlv_initial_power_sequencer_setup(ptr nocapture nou
   %.in = getelementptr i8, ptr %0, i64 -368
   %79 = load i32, ptr %.in, align 8
   %.val3 = load i32, ptr %.sink38, align 4
-  %80 = tail call fastcc ptr @pps_name.argprom(i32 %.val3, ptr noundef %.sink)
+  %80 = tail call fastcc ptr @pps_name(i32 %.val3, ptr noundef %.sink)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %77, i32 noundef 2, ptr noundef nonnull @.str.72, i32 noundef %79, ptr noundef %78, ptr noundef %80) #7
   br label %81
 
@@ -2900,7 +2900,7 @@ define internal fastcc void @pps_vdd_init(ptr noundef %0) unnamed_addr #0 align 
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 1528
   %.val4 = load i32, ptr %.sink5, align 4
-  %31 = tail call fastcc ptr @pps_name.argprom(i32 %.val4, ptr noundef %30)
+  %31 = tail call fastcc ptr @pps_name(i32 %.val4, ptr noundef %30)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %25, i32 noundef 2, ptr noundef nonnull @.str.73, i32 noundef %27, ptr noundef %29, ptr noundef %31) #7
   %32 = getelementptr inbounds i8, ptr %0, i64 1672
   %33 = load i64, ptr %32, align 8
@@ -3155,7 +3155,7 @@ define dso_local zeroext i1 @intel_pps_init(ptr noundef %0) local_unnamed_addr #
   %128 = load i32, ptr %22, align 8
   %129 = load ptr, ptr %23, align 8
   %.val15 = load i32, ptr %.sink, align 4
-  %130 = tail call fastcc ptr @pps_name.argprom(i32 %.val15, ptr noundef %21)
+  %130 = tail call fastcc ptr @pps_name(i32 %.val15, ptr noundef %21)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %127, i32 noundef 2, ptr noundef nonnull @.str.75, i32 noundef %128, ptr noundef %129, ptr noundef %130) #7
   br label %138
 
@@ -3179,7 +3179,7 @@ define dso_local zeroext i1 @intel_pps_init(ptr noundef %0) local_unnamed_addr #
   %135 = load i32, ptr %22, align 8
   %136 = load ptr, ptr %23, align 8
   %.val13 = load i32, ptr %.sink29, align 4
-  %137 = tail call fastcc ptr @pps_name.argprom(i32 %.val13, ptr noundef %21)
+  %137 = tail call fastcc ptr @pps_name(i32 %.val13, ptr noundef %21)
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %134, i32 noundef 2, ptr noundef nonnull @.str.72, i32 noundef %135, ptr noundef %136, ptr noundef %137) #7
   br label %138
 
@@ -3972,7 +3972,7 @@ define internal fastcc void @intel_pps_get_registers(ptr noundef %0, ptr nocaptu
   %.sink = phi ptr [ %140, %.split2 ], [ inttoptr (i64 7184 to ptr), %135 ]
   %141 = phi ptr [ %139, %.split2 ], [ null, %135 ]
   %.val28 = load i32, ptr %.sink, align 4
-  %142 = tail call fastcc ptr @pps_name.argprom(i32 %.val28, ptr noundef %26)
+  %142 = tail call fastcc ptr @pps_name(i32 %.val28, ptr noundef %26)
   %143 = getelementptr i8, ptr %0, i64 -368
   %144 = load i32, ptr %143, align 8
   %145 = getelementptr i8, ptr %0, i64 -336
@@ -4011,7 +4011,7 @@ define internal fastcc void @intel_pps_get_registers(ptr noundef %0, ptr nocaptu
   %168 = phi ptr [ %166, %165 ], [ %163, %157 ]
   %169 = getelementptr i8, ptr %147, i64 7184
   %.val29 = load i32, ptr %169, align 4
-  %170 = tail call fastcc ptr @pps_name.argprom(i32 %.val29, ptr noundef %26)
+  %170 = tail call fastcc ptr @pps_name(i32 %.val29, ptr noundef %26)
   %171 = load i32, ptr %143, align 8
   %172 = load ptr, ptr %145, align 8
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.40, ptr noundef %160, ptr noundef %168, ptr noundef %170, i32 noundef %171, ptr noundef %172) #7
@@ -4035,7 +4035,7 @@ define internal fastcc void @intel_pps_get_registers(ptr noundef %0, ptr nocaptu
   %.sink31 = phi ptr [ %177, %.split5 ], [ inttoptr (i64 7184 to ptr), %173 ]
   %178 = phi ptr [ %176, %.split5 ], [ null, %173 ]
   %.val26 = load i32, ptr %.sink31, align 4
-  %179 = tail call fastcc ptr @pps_name.argprom(i32 %.val26, ptr noundef %26)
+  %179 = tail call fastcc ptr @pps_name(i32 %.val26, ptr noundef %26)
   %180 = load i32, ptr %143, align 8
   %181 = load ptr, ptr %145, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %178, i32 noundef 2, ptr noundef nonnull @.str.41, ptr noundef %179, i32 noundef %180, ptr noundef %181) #7
@@ -4397,7 +4397,7 @@ define internal fastcc void @wait_panel_status(ptr noundef %0, i32 noundef range
   %97 = load i32, ptr %96, align 8
   %.sink = getelementptr inbounds i8, ptr %0, i64 1528
   %.val11 = load i32, ptr %.sink12, align 4
-  %98 = tail call fastcc ptr @pps_name.argprom(i32 %.val11, ptr noundef %.sink)
+  %98 = tail call fastcc ptr @pps_name(i32 %.val11, ptr noundef %.sink)
   %99 = getelementptr inbounds i8, ptr %8, i64 7368
   %100 = getelementptr inbounds i8, ptr %8, i64 7512
   %101 = load ptr, ptr %100, align 8
@@ -4424,7 +4424,7 @@ define internal fastcc void @wait_panel_status(ptr noundef %0, i32 noundef range
   %112 = load ptr, ptr %94, align 8
   %113 = load i32, ptr %96, align 8
   %.val9 = load i32, ptr %.sink13, align 4
-  %114 = tail call fastcc ptr @pps_name.argprom(i32 %.val9, ptr noundef %.sink)
+  %114 = tail call fastcc ptr @pps_name(i32 %.val9, ptr noundef %.sink)
   %115 = load ptr, ptr %100, align 8
   %116 = tail call i32 %115(ptr noundef %99, i32 %87, i1 noundef zeroext true) #7
   %117 = load ptr, ptr %100, align 8

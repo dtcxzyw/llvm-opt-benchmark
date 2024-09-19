@@ -702,7 +702,7 @@ define hidden void @ntlmssp_create_session_key(ptr noundef %0, ptr noundef %1, p
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #13
   %39 = icmp ult i64 %38, 128
-  br i1 %39, label %40, label %create_ntlmssp_v2_key.argprom.exit
+  br i1 %39, label %40, label %create_ntlmssp_v2_key.exit
 
 40:                                               ; preds = %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(768) %11, i8 0, i64 768, i1 false)
@@ -757,7 +757,7 @@ ansi_to_unicode.exit.i:                           ; preds = %.lr.ph.i.i, %40
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #13
   %65 = icmp ult i64 %64, 256
-  br i1 %65, label %66, label %create_ntlmssp_v2_key.argprom.exit
+  br i1 %65, label %66, label %create_ntlmssp_v2_key.exit
 
 66:                                               ; preds = %._crit_edge.i
   %67 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %63) #13
@@ -796,7 +796,7 @@ ansi_to_unicode.exit93.i:                         ; preds = %.lr.ph.i90.i, %66
 85:                                               ; preds = %103, %ansi_to_unicode.exit93.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %103 ], [ 0, %ansi_to_unicode.exit93.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %create_ntlmssp_v2_key.argprom.exit, label %86
+  br i1 %exitcond.not.i, label %create_ntlmssp_v2_key.exit, label %86
 
 86:                                               ; preds = %85
   %87 = getelementptr %struct._md4_pass, ptr %77, i64 %indvars.iv.i
@@ -807,7 +807,7 @@ ansi_to_unicode.exit93.i:                         ; preds = %.lr.ph.i90.i, %66
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %78, ptr nonnull align 16 %9, i64 %79, i1 false)
   %88 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %14, ptr noundef nonnull %11, i64 noundef %80, ptr noundef nonnull %12, i64 noundef 16) #12
   %.not.i = icmp eq i32 %88, 0
-  br i1 %.not.i, label %89, label %create_ntlmssp_v2_key.argprom.exit
+  br i1 %.not.i, label %89, label %create_ntlmssp_v2_key.exit
 
 89:                                               ; preds = %86
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(768) %84, i8 0, i64 752, i1 false)
@@ -816,7 +816,7 @@ ansi_to_unicode.exit93.i:                         ; preds = %.lr.ph.i90.i, %66
   store i64 %32, ptr %81, align 8
   %91 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %17, ptr noundef nonnull %11, i64 noundef 16, ptr noundef nonnull %14, i64 noundef 16) #12
   %.not78.i = icmp eq i32 %91, 0
-  br i1 %.not78.i, label %92, label %create_ntlmssp_v2_key.argprom.exit
+  br i1 %.not78.i, label %92, label %create_ntlmssp_v2_key.exit
 
 92:                                               ; preds = %89
   store i64 %32, ptr %82, align 16
@@ -834,7 +834,7 @@ ansi_to_unicode.exit93.i:                         ; preds = %.lr.ph.i90.i, %66
   %101 = add nsw i64 %98, -8
   %102 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %11, i64 noundef %101, ptr noundef nonnull %14, i64 noundef 16) #12
   %.not79.i = icmp eq i32 %102, 0
-  br i1 %.not79.i, label %103, label %create_ntlmssp_v2_key.argprom.exit
+  br i1 %.not79.i, label %103, label %create_ntlmssp_v2_key.exit
 
 103:                                              ; preds = %92
   %104 = load ptr, ptr %83, align 8
@@ -845,7 +845,7 @@ ansi_to_unicode.exit93.i:                         ; preds = %.lr.ph.i90.i, %66
 105:                                              ; preds = %103
   %106 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %15, ptr noundef nonnull %13, i64 noundef 16, ptr noundef nonnull %14, i64 noundef 16) #12
   %.not83.i = icmp eq i32 %106, 0
-  br i1 %.not83.i, label %107, label %create_ntlmssp_v2_key.argprom.exit
+  br i1 %.not83.i, label %107, label %create_ntlmssp_v2_key.exit
 
 107:                                              ; preds = %105
   call fastcc void @get_keyexchange_key(ptr noundef %16, ptr noundef %15, ptr noundef %17, i32 noundef %3)
@@ -883,7 +883,7 @@ ansi_to_unicode.exit93.i:                         ; preds = %.lr.ph.i90.i, %66
   %121 = getelementptr inbounds i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 16 dereferenceable(16) %21, i64 16, i1 false)
   %122 = icmp eq ptr %87, null
-  br i1 %122, label %create_ntlmssp_v2_key.argprom.exit, label %123
+  br i1 %122, label %create_ntlmssp_v2_key.exit, label %123
 
 123:                                              ; preds = %120
   %124 = call ptr @proto_tree_get_parent(ptr noundef %1) #12
@@ -951,7 +951,7 @@ ansi_to_unicode.exit93.i:                         ; preds = %.lr.ph.i90.i, %66
   %186 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %138, ptr noundef nonnull @ei_ntlmssp_sessionbasekey, ptr noundef nonnull @.str.258, i32 noundef %140, i32 noundef %143, i32 noundef %146, i32 noundef %149, i32 noundef %152, i32 noundef %155, i32 noundef %158, i32 noundef %161, i32 noundef %164, i32 noundef %167, i32 noundef %170, i32 noundef %173, i32 noundef %176, i32 noundef %179, i32 noundef %182, i32 noundef %185) #12
   %bcmp87.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %15, ptr noundef nonnull dereferenceable(16) %21, i64 16)
   %187 = icmp eq i32 %bcmp87.i, 0
-  br i1 %187, label %create_ntlmssp_v2_key.argprom.exit, label %188
+  br i1 %187, label %create_ntlmssp_v2_key.exit, label %188
 
 188:                                              ; preds = %123
   %189 = call ptr @proto_tree_get_parent(ptr noundef %1) #12
@@ -1003,9 +1003,9 @@ ansi_to_unicode.exit93.i:                         ; preds = %.lr.ph.i90.i, %66
   %235 = load i8, ptr %234, align 1
   %236 = zext i8 %235 to i32
   %237 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %189, ptr noundef nonnull @ei_ntlmssp_sessionkey, ptr noundef nonnull @.str.259, i32 noundef %191, i32 noundef %194, i32 noundef %197, i32 noundef %200, i32 noundef %203, i32 noundef %206, i32 noundef %209, i32 noundef %212, i32 noundef %215, i32 noundef %218, i32 noundef %221, i32 noundef %224, i32 noundef %227, i32 noundef %230, i32 noundef %233, i32 noundef %236) #12
-  br label %create_ntlmssp_v2_key.argprom.exit
+  br label %create_ntlmssp_v2_key.exit
 
-create_ntlmssp_v2_key.argprom.exit:               ; preds = %85, %86, %89, %92, %31, %._crit_edge.i, %105, %120, %123, %188
+create_ntlmssp_v2_key.exit:                       ; preds = %85, %86, %89, %92, %31, %._crit_edge.i, %105, %120, %123, %188
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %11)
@@ -1035,15 +1035,15 @@ create_ntlmssp_v2_key.argprom.exit:               ; preds = %85, %86, %89, %92, 
   store i64 %246, ptr %20, align 8
   %247 = getelementptr inbounds i8, ptr %6, i64 8
   %248 = load ptr, ptr %247, align 8
-  call fastcc void @create_ntlmssp_v1_key.argprom(ptr noundef %4, ptr noundef nonnull %20, ptr noundef %21, ptr noundef %5, i32 noundef %3, ptr noundef %248, ptr noundef %2, ptr noundef %0, ptr noundef %1)
+  call fastcc void @create_ntlmssp_v1_key(ptr noundef %4, ptr noundef nonnull %20, ptr noundef %21, ptr noundef %5, i32 noundef %3, ptr noundef %248, ptr noundef %2, ptr noundef %0, ptr noundef %1)
   br label %249
 
-249:                                              ; preds = %238, %240, %243, %create_ntlmssp_v2_key.argprom.exit
+249:                                              ; preds = %238, %240, %243, %create_ntlmssp_v2_key.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_ntlmssp_v1_key.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @create_ntlmssp_v1_key(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [16 x i8], align 16
   %11 = alloca [24 x i8], align 16
   %12 = alloca [21 x i8], align 16
@@ -1884,13 +1884,13 @@ define internal i32 @dissect_ntlmssp(ptr noundef %0, ptr noundef %1, ptr noundef
   %90 = and i32 %77, 33554432
   %.not.i = icmp eq i32 %90, 0
   %or.cond.i = select i1 %89, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %dissect_ntlmssp_negotiate.argprom.exit, label %91
+  br i1 %or.cond.i, label %dissect_ntlmssp_negotiate.exit, label %91
 
 91:                                               ; preds = %76
   %92 = call fastcc i32 @dissect_ntlmssp_version(ptr noundef %0, i32 noundef %85, ptr noundef %.0..0..0..0.34)
-  br label %dissect_ntlmssp_negotiate.argprom.exit
+  br label %dissect_ntlmssp_negotiate.exit
 
-dissect_ntlmssp_negotiate.argprom.exit:           ; preds = %76, %91
+dissect_ntlmssp_negotiate.exit:                   ; preds = %76, %91
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
@@ -1970,7 +1970,7 @@ dissect_ntlmssp_negotiate.argprom.exit:           ; preds = %76, %91
   store ptr %131, ptr %132, align 8
   %133 = load i32, ptr %117, align 8
   %134 = load ptr, ptr %129, align 8
-  call fastcc void @create_ntlmssp_v1_key.argprom(ptr noundef nonnull %121, ptr noundef null, ptr noundef %19, ptr noundef null, i32 noundef %133, ptr noundef %134, ptr noundef nonnull %44, ptr noundef nonnull %1, ptr noundef %.0..0..0..0.35)
+  call fastcc void @create_ntlmssp_v1_key(ptr noundef nonnull %121, ptr noundef null, ptr noundef %19, ptr noundef null, i32 noundef %133, ptr noundef %134, ptr noundef nonnull %44, ptr noundef nonnull %1, ptr noundef %.0..0..0..0.35)
   %bcmp95.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %19, ptr noundef nonnull dereferenceable(16) @gbl_zeros, i64 16)
   %.not96.i = icmp eq i32 %bcmp95.i, 0
   br i1 %.not96.i, label %164, label %135
@@ -2455,7 +2455,7 @@ dissect_ntlmssp_auth.exit:                        ; preds = %325, %328, %329, %3
   %385 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %69, ptr noundef nonnull @ei_ntlmssp_message_type) #12
   br label %386
 
-386:                                              ; preds = %dissect_ntlmssp_negotiate.argprom.exit, %dissect_ntlmssp_challenge.exit, %dissect_ntlmssp_auth.exit, %384, %62, %59
+386:                                              ; preds = %dissect_ntlmssp_negotiate.exit, %dissect_ntlmssp_challenge.exit, %dissect_ntlmssp_auth.exit, %384, %62, %59
   %.0..0..0..0.4 = load volatile i32, ptr %28, align 4
   %387 = icmp eq i32 %.0..0..0..0.4, 0
   br i1 %387, label %388, label %411
@@ -2623,7 +2623,7 @@ define internal i32 @dissect_ntlmssp_payload(ptr noundef %0, ptr noundef %1, ptr
   %42 = add i32 %.0..0..0..0.43, 12
   %43 = add i32 %12, -16
   %.0..0..0..0.36 = load volatile ptr, ptr %6, align 8
-  %44 = call fastcc ptr @decrypt_data_payload.argprom(ptr noundef %0, i32 noundef %42, i32 noundef %43, ptr noundef %1, ptr noundef nonnull %7)
+  %44 = call fastcc ptr @decrypt_data_payload(ptr noundef %0, i32 noundef %42, i32 noundef %43, ptr noundef %1, ptr noundef nonnull %7)
   %.0..0..0..0.44 = load volatile i32, ptr %5, align 4
   call fastcc void @store_verifier(ptr noundef %0, i32 noundef %.0..0..0..0.44, i32 noundef 12, ptr noundef %1)
   call fastcc void @decrypt_verifier(ptr noundef %0, ptr noundef %1)
@@ -2767,7 +2767,7 @@ define internal i32 @dissect_ntlmssp_payload_only(ptr noundef %0, ptr noundef %1
 26:                                               ; preds = %24
   %.0..0..0..0.23 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.22 = load volatile ptr, ptr %6, align 8
-  %27 = call fastcc ptr @decrypt_data_payload.argprom(ptr noundef %0, i32 noundef %.0..0..0..0.23, i32 noundef %14, ptr noundef %1, ptr noundef null)
+  %27 = call fastcc ptr @decrypt_data_payload(ptr noundef %0, i32 noundef %.0..0..0..0.23, i32 noundef %14, ptr noundef %1, ptr noundef null)
   store volatile ptr %27, ptr %7, align 8
   br i1 %.not, label %29, label %28
 
@@ -3519,7 +3519,7 @@ declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decrypt_data_payload.argprom(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @decrypt_data_payload(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @wmem_file_scope() #12
   %7 = load i32, ptr @proto_ntlmssp, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %3, i32 noundef %7, i32 noundef 1) #12

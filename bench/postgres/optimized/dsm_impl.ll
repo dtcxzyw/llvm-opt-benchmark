@@ -77,7 +77,7 @@ define dso_local noundef zeroext i1 @dsm_impl_op(i32 noundef %0, i32 noundef %1,
 
 25:                                               ; preds = %22
   %26 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %26, label %27, label %dsm_impl_posix.argprom.exit
+  br i1 %26, label %27, label %dsm_impl_posix.exit
 
 27:                                               ; preds = %25
   %28 = tail call ptr @__errno_location() #12
@@ -98,21 +98,21 @@ define dso_local noundef zeroext i1 @dsm_impl_op(i32 noundef %0, i32 noundef %1,
 errcode_for_dynamic_shared_memory.exit.i:         ; preds = %32, %30
   %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %13) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 232, ptr noundef nonnull @__func__.dsm_impl_posix) #11
-  br label %dsm_impl_posix.argprom.exit
+  br label %dsm_impl_posix.exit
 
 35:                                               ; preds = %22, %20
   store ptr null, ptr %4, align 8
   store i64 0, ptr %5, align 8
-  br i1 %18, label %36, label %dsm_impl_posix.argprom.exit
+  br i1 %18, label %36, label %dsm_impl_posix.exit
 
 36:                                               ; preds = %35
   %37 = call i32 @shm_unlink(ptr noundef nonnull %13) #11
   %.not103.i = icmp eq i32 %37, 0
-  br i1 %.not103.i, label %dsm_impl_posix.argprom.exit, label %38
+  br i1 %.not103.i, label %dsm_impl_posix.exit, label %38
 
 38:                                               ; preds = %36
   %39 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %39, label %40, label %dsm_impl_posix.argprom.exit
+  br i1 %39, label %40, label %dsm_impl_posix.exit
 
 40:                                               ; preds = %38
   %41 = tail call ptr @__errno_location() #12
@@ -133,7 +133,7 @@ errcode_for_dynamic_shared_memory.exit.i:         ; preds = %32, %30
 errcode_for_dynamic_shared_memory.exit105.i:      ; preds = %45, %43
   %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %13) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 242, ptr noundef nonnull @__func__.dsm_impl_posix) #11
-  br label %dsm_impl_posix.argprom.exit
+  br label %dsm_impl_posix.exit
 
 48:                                               ; preds = %16
   call void @ReserveExternalFD() #11
@@ -152,11 +152,11 @@ errcode_for_dynamic_shared_memory.exit105.i:      ; preds = %45, %43
   %56 = tail call ptr @__errno_location() #12
   %57 = load i32, ptr %56, align 4
   %.not100.i = icmp eq i32 %57, 17
-  br i1 %.not100.i, label %dsm_impl_posix.argprom.exit, label %58
+  br i1 %.not100.i, label %dsm_impl_posix.exit, label %58
 
 58:                                               ; preds = %53, %55
   %59 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %59, label %60, label %dsm_impl_posix.argprom.exit
+  br i1 %59, label %60, label %dsm_impl_posix.exit
 
 60:                                               ; preds = %58
   %61 = tail call ptr @__errno_location() #12
@@ -177,7 +177,7 @@ errcode_for_dynamic_shared_memory.exit105.i:      ; preds = %45, %43
 errcode_for_dynamic_shared_memory.exit107.i:      ; preds = %65, %63
   %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %13) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 266, ptr noundef nonnull @__func__.dsm_impl_posix) #11
-  br label %dsm_impl_posix.argprom.exit
+  br label %dsm_impl_posix.exit
 
 68:                                               ; preds = %48
   %69 = icmp eq i32 %0, 1
@@ -195,7 +195,7 @@ errcode_for_dynamic_shared_memory.exit107.i:      ; preds = %65, %63
   call void @ReleaseExternalFD() #11
   store i32 %74, ptr %73, align 4
   %76 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %76, label %77, label %dsm_impl_posix.argprom.exit
+  br i1 %76, label %77, label %dsm_impl_posix.exit
 
 77:                                               ; preds = %72
   %78 = load i32, ptr %73, align 4
@@ -215,7 +215,7 @@ errcode_for_dynamic_shared_memory.exit107.i:      ; preds = %65, %63
 errcode_for_dynamic_shared_memory.exit109.i:      ; preds = %81, %79
   %83 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %13) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 291, ptr noundef nonnull @__func__.dsm_impl_posix) #11
-  br label %dsm_impl_posix.argprom.exit
+  br label %dsm_impl_posix.exit
 
 84:                                               ; preds = %70
   %85 = getelementptr inbounds i8, ptr %14, i64 48
@@ -269,7 +269,7 @@ dsm_impl_posix_resize.exit.i:                     ; preds = %102, %97
   %108 = call i32 @shm_unlink(ptr noundef nonnull %13) #11
   store i32 %106, ptr %98, align 4
   %109 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %109, label %110, label %dsm_impl_posix.argprom.exit
+  br i1 %109, label %110, label %dsm_impl_posix.exit
 
 110:                                              ; preds = %105
   %111 = load i32, ptr %98, align 4
@@ -289,7 +289,7 @@ dsm_impl_posix_resize.exit.i:                     ; preds = %102, %97
 errcode_for_dynamic_shared_memory.exit111.i:      ; preds = %114, %112
   %116 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %13, i64 noundef %2) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 310, ptr noundef nonnull @__func__.dsm_impl_posix) #11
-  br label %dsm_impl_posix.argprom.exit
+  br label %dsm_impl_posix.exit
 
 117:                                              ; preds = %dsm_impl_posix_resize.exit.i, %84
   %.093.i = phi i64 [ %86, %84 ], [ %2, %dsm_impl_posix_resize.exit.i ]
@@ -311,7 +311,7 @@ errcode_for_dynamic_shared_memory.exit111.i:      ; preds = %114, %112
 126:                                              ; preds = %124, %120
   store i32 %122, ptr %121, align 4
   %127 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %127, label %128, label %dsm_impl_posix.argprom.exit
+  br i1 %127, label %128, label %dsm_impl_posix.exit
 
 128:                                              ; preds = %126
   %129 = load i32, ptr %121, align 4
@@ -331,16 +331,16 @@ errcode_for_dynamic_shared_memory.exit111.i:      ; preds = %114, %112
 errcode_for_dynamic_shared_memory.exit113.i:      ; preds = %132, %130
   %134 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %13) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 332, ptr noundef nonnull @__func__.dsm_impl_posix) #11
-  br label %dsm_impl_posix.argprom.exit
+  br label %dsm_impl_posix.exit
 
 135:                                              ; preds = %117
   store ptr %118, ptr %4, align 8
   store i64 %.093.i, ptr %5, align 8
   %136 = call i32 @close(i32 noundef %51) #11
   call void @ReleaseExternalFD() #11
-  br label %dsm_impl_posix.argprom.exit
+  br label %dsm_impl_posix.exit
 
-dsm_impl_posix.argprom.exit:                      ; preds = %126, %errcode_for_dynamic_shared_memory.exit113.i, %105, %errcode_for_dynamic_shared_memory.exit111.i, %72, %errcode_for_dynamic_shared_memory.exit109.i, %58, %errcode_for_dynamic_shared_memory.exit107.i, %38, %errcode_for_dynamic_shared_memory.exit105.i, %25, %errcode_for_dynamic_shared_memory.exit.i, %35, %36, %55, %135
+dsm_impl_posix.exit:                              ; preds = %126, %errcode_for_dynamic_shared_memory.exit113.i, %105, %errcode_for_dynamic_shared_memory.exit111.i, %72, %errcode_for_dynamic_shared_memory.exit109.i, %58, %errcode_for_dynamic_shared_memory.exit107.i, %38, %errcode_for_dynamic_shared_memory.exit105.i, %25, %errcode_for_dynamic_shared_memory.exit.i, %35, %36, %55, %135
   %.0.i = phi i1 [ true, %135 ], [ true, %36 ], [ true, %35 ], [ false, %55 ], [ false, %errcode_for_dynamic_shared_memory.exit.i ], [ false, %25 ], [ false, %errcode_for_dynamic_shared_memory.exit105.i ], [ false, %38 ], [ false, %errcode_for_dynamic_shared_memory.exit107.i ], [ false, %58 ], [ false, %errcode_for_dynamic_shared_memory.exit109.i ], [ false, %72 ], [ false, %errcode_for_dynamic_shared_memory.exit111.i ], [ false, %105 ], [ false, %errcode_for_dynamic_shared_memory.exit113.i ], [ false, %126 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14)
@@ -490,7 +490,7 @@ errcode_for_dynamic_shared_memory.exit116.i:      ; preds = %182, %180
   br i1 %190, label %191, label %dsm_impl_sysv.exit
 
 191:                                              ; preds = %189
-  call fastcc void @errcode_for_dynamic_shared_memory.retelim()
+  call fastcc void @errcode_for_dynamic_shared_memory()
   %192 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %10) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 548, ptr noundef nonnull @__func__.dsm_impl_sysv) #11
   br label %dsm_impl_sysv.exit
@@ -608,7 +608,7 @@ dsm_impl_sysv.exit:                               ; preds = %219, %errcode_for_d
 
 238:                                              ; preds = %235
   %239 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %239, label %240, label %dsm_impl_mmap.argprom.exit
+  br i1 %239, label %240, label %dsm_impl_mmap.exit
 
 240:                                              ; preds = %238
   %241 = tail call ptr @__errno_location() #12
@@ -633,16 +633,16 @@ errcode_for_dynamic_shared_memory.exit.i49:       ; preds = %245, %243
 248:                                              ; preds = %235, %233
   store ptr null, ptr %4, align 8
   store i64 0, ptr %5, align 8
-  br i1 %231, label %249, label %dsm_impl_mmap.argprom.exit
+  br i1 %231, label %249, label %dsm_impl_mmap.exit
 
 249:                                              ; preds = %248
   %250 = call i32 @unlink(ptr noundef nonnull %8) #11
   %.not129.i = icmp eq i32 %250, 0
-  br i1 %.not129.i, label %dsm_impl_mmap.argprom.exit, label %251
+  br i1 %.not129.i, label %dsm_impl_mmap.exit, label %251
 
 251:                                              ; preds = %249
   %252 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %252, label %253, label %dsm_impl_mmap.argprom.exit
+  br i1 %252, label %253, label %dsm_impl_mmap.exit
 
 253:                                              ; preds = %251
   %254 = tail call ptr @__errno_location() #12
@@ -679,11 +679,11 @@ errcode_for_dynamic_shared_memory.exit131.i:      ; preds = %258, %256
   %269 = tail call ptr @__errno_location() #12
   %270 = load i32, ptr %269, align 4
   %.not126.i = icmp eq i32 %270, 17
-  br i1 %.not126.i, label %dsm_impl_mmap.argprom.exit, label %271
+  br i1 %.not126.i, label %dsm_impl_mmap.exit, label %271
 
 271:                                              ; preds = %267, %268
   %272 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %272, label %273, label %dsm_impl_mmap.argprom.exit
+  br i1 %272, label %273, label %dsm_impl_mmap.exit
 
 273:                                              ; preds = %271
   %274 = tail call ptr @__errno_location() #12
@@ -719,7 +719,7 @@ errcode_for_dynamic_shared_memory.exit133.i:      ; preds = %278, %276
   %287 = call i32 @CloseTransientFile(i32 noundef %264) #11
   store i32 %286, ptr %285, align 4
   %288 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %288, label %289, label %dsm_impl_mmap.argprom.exit
+  br i1 %288, label %289, label %dsm_impl_mmap.exit
 
 289:                                              ; preds = %284
   %290 = load i32, ptr %285, align 4
@@ -777,7 +777,7 @@ errcode_for_dynamic_shared_memory.exit135.i:      ; preds = %293, %291
   %313 = select i1 %.not.i37, i32 28, i32 %310
   store i32 %313, ptr %309, align 4
   %314 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %314, label %315, label %dsm_impl_mmap.argprom.exit
+  br i1 %314, label %315, label %dsm_impl_mmap.exit
 
 315:                                              ; preds = %308
   %316 = load i32, ptr %309, align 4
@@ -817,7 +817,7 @@ errcode_for_dynamic_shared_memory.exit137.i:      ; preds = %319, %317
 330:                                              ; preds = %328, %324
   store i32 %326, ptr %325, align 4
   %331 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %331, label %332, label %dsm_impl_mmap.argprom.exit
+  br i1 %331, label %332, label %dsm_impl_mmap.exit
 
 332:                                              ; preds = %330
   %333 = load i32, ptr %325, align 4
@@ -843,11 +843,11 @@ errcode_for_dynamic_shared_memory.exit139.i:      ; preds = %336, %334
   store i64 %.0114.i, ptr %5, align 8
   %340 = call i32 @CloseTransientFile(i32 noundef %264) #11
   %.not125.i = icmp eq i32 %340, 0
-  br i1 %.not125.i, label %dsm_impl_mmap.argprom.exit, label %341
+  br i1 %.not125.i, label %dsm_impl_mmap.exit, label %341
 
 341:                                              ; preds = %339
   %342 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
-  br i1 %342, label %343, label %dsm_impl_mmap.argprom.exit
+  br i1 %342, label %343, label %dsm_impl_mmap.exit
 
 343:                                              ; preds = %341
   %344 = call i32 @errcode_for_file_access() #11
@@ -857,9 +857,9 @@ errcode_for_dynamic_shared_memory.exit139.i:      ; preds = %336, %334
 .sink.split.i.sink.split:                         ; preds = %errcode_for_dynamic_shared_memory.exit.i49, %errcode_for_dynamic_shared_memory.exit131.i, %errcode_for_dynamic_shared_memory.exit133.i, %errcode_for_dynamic_shared_memory.exit135.i, %errcode_for_dynamic_shared_memory.exit137.i, %errcode_for_dynamic_shared_memory.exit139.i, %343
   %.sink = phi i32 [ 945, %343 ], [ 934, %errcode_for_dynamic_shared_memory.exit139.i ], [ 912, %errcode_for_dynamic_shared_memory.exit137.i ], [ 861, %errcode_for_dynamic_shared_memory.exit135.i ], [ 837, %errcode_for_dynamic_shared_memory.exit133.i ], [ 823, %errcode_for_dynamic_shared_memory.exit131.i ], [ 813, %errcode_for_dynamic_shared_memory.exit.i49 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink, ptr noundef nonnull @__func__.dsm_impl_mmap) #11
-  br label %dsm_impl_mmap.argprom.exit
+  br label %dsm_impl_mmap.exit
 
-dsm_impl_mmap.argprom.exit:                       ; preds = %238, %251, %271, %284, %308, %330, %341, %.sink.split.i.sink.split, %248, %249, %268, %339
+dsm_impl_mmap.exit:                               ; preds = %238, %251, %271, %284, %308, %330, %341, %.sink.split.i.sink.split, %248, %249, %268, %339
   %.0.i40 = phi i1 [ true, %249 ], [ true, %248 ], [ false, %268 ], [ true, %339 ], [ false, %.sink.split.i.sink.split ], [ false, %341 ], [ false, %330 ], [ false, %308 ], [ false, %284 ], [ false, %271 ], [ false, %251 ], [ false, %238 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9)
@@ -873,8 +873,8 @@ dsm_impl_mmap.argprom.exit:                       ; preds = %238, %251, %271, %2
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 191, ptr noundef nonnull @__func__.dsm_impl_op) #11
   unreachable
 
-350:                                              ; preds = %dsm_impl_mmap.argprom.exit, %dsm_impl_sysv.exit, %dsm_impl_posix.argprom.exit
-  %.0 = phi i1 [ %.0.i40, %dsm_impl_mmap.argprom.exit ], [ %.0.i23, %dsm_impl_sysv.exit ], [ %.0.i, %dsm_impl_posix.argprom.exit ]
+350:                                              ; preds = %dsm_impl_mmap.exit, %dsm_impl_sysv.exit, %dsm_impl_posix.exit
+  %.0 = phi i1 [ %.0.i40, %dsm_impl_mmap.exit ], [ %.0.i23, %dsm_impl_sysv.exit ], [ %.0.i, %dsm_impl_posix.exit ]
   ret i1 %.0
 }
 
@@ -903,7 +903,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @errcode_for_dynamic_shared_memory.retelim() unnamed_addr #0 {
+define internal fastcc void @errcode_for_dynamic_shared_memory() unnamed_addr #0 {
   %1 = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %1, align 4
   switch i32 %2, label %5 [

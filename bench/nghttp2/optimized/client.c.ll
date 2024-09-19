@@ -577,13 +577,13 @@ if.end28.i:                                       ; preds = %if.end23.i
   store i8 0, ptr %flags32.i.i, align 8
   %call33.i.i = call i32 @nghttp2_submit_request(ptr noundef %connection.val.i, ptr noundef null, ptr noundef nonnull %nva.i.i, i64 noundef 6, ptr noundef null, ptr noundef nonnull %req.i) #17
   %cmp.i44.i = icmp slt i32 %call33.i.i, 0
-  br i1 %cmp.i44.i, label %if.then.i46.i, label %submit_request.argprom.exit.i
+  br i1 %cmp.i44.i, label %if.then.i46.i, label %submit_request.exit.i
 
 if.then.i46.i:                                    ; preds = %if.end28.i
   call fastcc void @diec(ptr noundef nonnull @.str.44, i32 noundef %call33.i.i) #16
   unreachable
 
-submit_request.argprom.exit.i:                    ; preds = %if.end28.i
+submit_request.exit.i:                            ; preds = %if.end28.i
   store i32 %call33.i.i, ptr %stream_id.i.i, align 8
   %call35.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %call33.i.i)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %nva.i.i)
@@ -598,12 +598,12 @@ submit_request.argprom.exit.i:                    ; preds = %if.end28.i
   %or.cond80.i = select i1 %tobool.not.i48.i, i1 true, i1 %cmp.i53.i
   br i1 %or.cond80.i, label %if.then.i49.i, label %if.end.i50.i
 
-if.then.i49.i:                                    ; preds = %submit_request.argprom.exit.i
+if.then.i49.i:                                    ; preds = %submit_request.exit.i
   store i16 1, ptr %events.i.i, align 4
   br label %if.end.i50.i
 
-if.end.i50.i:                                     ; preds = %if.then.i49.i, %submit_request.argprom.exit.i
-  %27 = phi i16 [ 4, %submit_request.argprom.exit.i ], [ 5, %if.then.i49.i ]
+if.end.i50.i:                                     ; preds = %if.then.i49.i, %submit_request.exit.i
+  %27 = phi i16 [ 4, %submit_request.exit.i ], [ 5, %if.then.i49.i ]
   %28 = load ptr, ptr %session.i, align 8
   %call4.i51.i = call i32 @nghttp2_session_want_write(ptr noundef %28) #17
   %tobool5.not.i.i = icmp ne i32 %call4.i51.i, 0

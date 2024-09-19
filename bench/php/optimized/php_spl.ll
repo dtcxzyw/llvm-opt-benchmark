@@ -790,7 +790,7 @@ define hidden void @zif_spl_autoload(ptr nocapture noundef readonly %0, ptr noca
   %93 = load i32, ptr %92, align 4
   %94 = and i32 %93, 64
   %.not73.i = icmp eq i32 %94, 0
-  br i1 %.not73.i, label %95, label %spl_autoload.argprom.exit
+  br i1 %.not73.i, label %95, label %spl_autoload.exit
 
 95:                                               ; preds = %91
   %96 = load i32, ptr %41, align 4
@@ -799,7 +799,7 @@ define hidden void @zif_spl_autoload(ptr nocapture noundef readonly %0, ptr noca
   %98 = add i32 %96, -1
   store i32 %98, ptr %41, align 4
   %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %spl_autoload.argprom.exit
+  br i1 %99, label %100, label %spl_autoload.exit
 
 100:                                              ; preds = %95
   %101 = and i32 %93, 128
@@ -808,11 +808,11 @@ define hidden void @zif_spl_autoload(ptr nocapture noundef readonly %0, ptr noca
 
 102:                                              ; preds = %100
   call void @free(ptr noundef nonnull %41) #10
-  br label %spl_autoload.argprom.exit
+  br label %spl_autoload.exit
 
 103:                                              ; preds = %100
   call void @_efree(ptr noundef nonnull %41) #10
-  br label %spl_autoload.argprom.exit
+  br label %spl_autoload.exit
 
 104:                                              ; preds = %86, %._crit_edge.i
   call void @zend_destroy_file_handle(ptr noundef nonnull %4) #10
@@ -820,7 +820,7 @@ define hidden void @zif_spl_autoload(ptr nocapture noundef readonly %0, ptr noca
   %106 = load i32, ptr %105, align 4
   %107 = and i32 %106, 64
   %.not70.i = icmp eq i32 %107, 0
-  br i1 %.not70.i, label %108, label %spl_autoload.argprom.exit.thread
+  br i1 %.not70.i, label %108, label %spl_autoload.exit.thread
 
 108:                                              ; preds = %104
   %109 = load i32, ptr %41, align 4
@@ -829,7 +829,7 @@ define hidden void @zif_spl_autoload(ptr nocapture noundef readonly %0, ptr noca
   %111 = add i32 %109, -1
   store i32 %111, ptr %41, align 4
   %112 = icmp eq i32 %111, 0
-  br i1 %112, label %113, label %spl_autoload.argprom.exit.thread
+  br i1 %112, label %113, label %spl_autoload.exit.thread
 
 113:                                              ; preds = %108
   %114 = and i32 %106, 128
@@ -838,19 +838,19 @@ define hidden void @zif_spl_autoload(ptr nocapture noundef readonly %0, ptr noca
 
 115:                                              ; preds = %113
   call void @free(ptr noundef nonnull %41) #10
-  br label %spl_autoload.argprom.exit.thread
+  br label %spl_autoload.exit.thread
 
 116:                                              ; preds = %113
   call void @_efree(ptr noundef nonnull %41) #10
-  br label %spl_autoload.argprom.exit.thread
+  br label %spl_autoload.exit.thread
 
-spl_autoload.argprom.exit.thread:                 ; preds = %108, %116, %115, %104
+spl_autoload.exit.thread:                         ; preds = %108, %116, %115, %104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %select.unfold
 
-spl_autoload.argprom.exit:                        ; preds = %91, %95, %102, %103
+spl_autoload.exit:                                ; preds = %91, %95, %102, %103
   %117 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
   %118 = call ptr @zend_hash_find(ptr noundef %117, ptr noundef %27) #10
   %.not41 = icmp eq ptr %118, null
@@ -859,13 +859,13 @@ spl_autoload.argprom.exit:                        ; preds = %91, %95, %102, %103
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %.not41, label %select.unfold, label %.critedge
 
-select.unfold:                                    ; preds = %spl_autoload.argprom.exit.thread, %spl_autoload.argprom.exit
+select.unfold:                                    ; preds = %spl_autoload.exit.thread, %spl_autoload.exit
   %119 = getelementptr inbounds i8, ptr %36, i64 1
   %120 = xor i32 %.026, -1
   %121 = add i32 %.143, %120
   br i1 %.not34, label %.critedge, label %32
 
-.critedge:                                        ; preds = %32, %select.unfold, %spl_autoload.argprom.exit
+.critedge:                                        ; preds = %32, %select.unfold, %spl_autoload.exit
   %122 = getelementptr inbounds i8, ptr %27, i64 4
   %123 = load i32, ptr %122, align 4
   %124 = and i32 %123, 64

@@ -1016,8 +1016,8 @@ entry:
   %0 = load i8, ptr %state_.i, align 8
   switch i8 %0, label %if.then7.i [
     i8 2, label %if.then.i
-    i8 0, label %"_ZZN8proxygen12WorkerThread12stopWhenIdleEvENK3$_0clEv.argprom.exit"
-    i8 3, label %"_ZZN8proxygen12WorkerThread12stopWhenIdleEvENK3$_0clEv.argprom.exit"
+    i8 0, label %"_ZZN8proxygen12WorkerThread12stopWhenIdleEvENK3$_0clEv.exit"
+    i8 3, label %"_ZZN8proxygen12WorkerThread12stopWhenIdleEvENK3$_0clEv.exit"
   ]
 
 if.then.i:                                        ; preds = %entry
@@ -1025,7 +1025,7 @@ if.then.i:                                        ; preds = %entry
   %eventBase_.i = getelementptr inbounds i8, ptr %p.val, i64 72
   %1 = load ptr, ptr %eventBase_.i, align 8
   tail call void @_ZN5folly9EventBase17terminateLoopSoonEv(ptr noundef nonnull align 16 dereferenceable(568) %1)
-  br label %"_ZZN8proxygen12WorkerThread12stopWhenIdleEvENK3$_0clEv.argprom.exit"
+  br label %"_ZZN8proxygen12WorkerThread12stopWhenIdleEvENK3$_0clEv.exit"
 
 if.then7.i:                                       ; preds = %entry
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i, ptr noundef nonnull @.str, i32 noundef 122)
@@ -1052,7 +1052,7 @@ lpad.i:                                           ; preds = %invoke.cont9.i, %in
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i) #16
   unreachable
 
-"_ZZN8proxygen12WorkerThread12stopWhenIdleEvENK3$_0clEv.argprom.exit": ; preds = %entry, %entry, %if.then.i
+"_ZZN8proxygen12WorkerThread12stopWhenIdleEvENK3$_0clEv.exit": ; preds = %entry, %entry, %if.then.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -1086,7 +1086,7 @@ entry:
   switch i8 %0, label %if.then7.i [
     i8 2, label %if.then.i
     i8 3, label %if.then.i
-    i8 0, label %"_ZZN8proxygen12WorkerThread9forceStopEvENK3$_0clEv.argprom.exit"
+    i8 0, label %"_ZZN8proxygen12WorkerThread9forceStopEvENK3$_0clEv.exit"
   ]
 
 if.then.i:                                        ; preds = %entry, %entry
@@ -1094,7 +1094,7 @@ if.then.i:                                        ; preds = %entry, %entry
   %eventBase_.i = getelementptr inbounds i8, ptr %p.val, i64 72
   %1 = load ptr, ptr %eventBase_.i, align 8
   tail call void @_ZN5folly9EventBase17terminateLoopSoonEv(ptr noundef nonnull align 16 dereferenceable(568) %1)
-  br label %"_ZZN8proxygen12WorkerThread9forceStopEvENK3$_0clEv.argprom.exit"
+  br label %"_ZZN8proxygen12WorkerThread9forceStopEvENK3$_0clEv.exit"
 
 if.then7.i:                                       ; preds = %entry
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i, ptr noundef nonnull @.str, i32 noundef 140)
@@ -1121,7 +1121,7 @@ lpad.i:                                           ; preds = %invoke.cont9.i, %in
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i) #16
   unreachable
 
-"_ZZN8proxygen12WorkerThread9forceStopEvENK3$_0clEv.argprom.exit": ; preds = %entry, %if.then.i
+"_ZZN8proxygen12WorkerThread9forceStopEvENK3$_0clEv.exit": ; preds = %entry, %if.then.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp.i)
   ret void
 }

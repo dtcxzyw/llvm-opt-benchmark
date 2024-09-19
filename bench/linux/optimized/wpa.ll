@@ -1098,14 +1098,14 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   store i8 %138, ptr %152, align 2
   %153 = getelementptr inbounds i8, ptr %4, i64 31
   store i8 0, ptr %153, align 1
-  br label %ccmp_special_blocks.argprom.exit
+  br label %ccmp_special_blocks.exit
 
 154:                                              ; preds = %136
   store i64 0, ptr %149, align 8
   store i8 %138, ptr %149, align 8
-  br label %ccmp_special_blocks.argprom.exit
+  br label %ccmp_special_blocks.exit
 
-ccmp_special_blocks.argprom.exit:                 ; preds = %150, %154
+ccmp_special_blocks.exit:                         ; preds = %150, %154
   store i8 1, ptr %5, align 16
   %155 = select i1 %120, i8 16, i8 0
   %156 = or disjoint i8 %155, %138
@@ -1132,7 +1132,7 @@ ccmp_special_blocks.argprom.exit:                 ; preds = %150, %154
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
   br i1 %172, label %173, label %209
 
-173:                                              ; preds = %ccmp_special_blocks.argprom.exit, %113
+173:                                              ; preds = %ccmp_special_blocks.exit, %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %102, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
   %174 = load i16, ptr %64, align 2
   %175 = and i16 %174, 1024
@@ -1190,8 +1190,8 @@ ccmp_special_blocks.argprom.exit:                 ; preds = %150, %154
   %208 = call ptr @skb_pull(ptr noundef %7, i32 noundef 8) #10
   br label %209
 
-209:                                              ; preds = %109, %ccmp_special_blocks.argprom.exit, %204, %191, %60, %57, %44, %42, %26, %26, %26, %26, %26, %26, %26, %26, %20, %16
-  %210 = phi i32 [ 1, %204 ], [ 65571, %44 ], [ 65545, %57 ], [ 65571, %60 ], [ 65572, %191 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %16 ], [ 65571, %42 ], [ 1, %20 ], [ 65538, %109 ], [ 65537, %ccmp_special_blocks.argprom.exit ]
+209:                                              ; preds = %109, %ccmp_special_blocks.exit, %204, %191, %60, %57, %44, %42, %26, %26, %26, %26, %26, %26, %26, %26, %20, %16
+  %210 = phi i32 [ 1, %204 ], [ 65571, %44 ], [ 65545, %57 ], [ 65571, %60 ], [ 65572, %191 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %16 ], [ 65571, %42 ], [ 1, %20 ], [ 65538, %109 ], [ 65537, %ccmp_special_blocks.exit ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #10
   ret i32 %210
 }

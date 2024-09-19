@@ -563,7 +563,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %1, %4
 declare void @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind writable sret(%"class.std::function.0") align 8, i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b.argelim(ptr noundef nonnull returned align 8 dereferenceable(65) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 range(i64 0, 5) %2, ptr noundef nonnull %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b(ptr noundef nonnull returned align 8 dereferenceable(65) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 range(i64 0, 5) %2, ptr noundef nonnull %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member", align 8
   %6 = alloca %"class.std::function.2", align 8
   %7 = alloca %class.anon.102, align 8
@@ -678,7 +678,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS
   %48 = ptrtoint ptr %.val.i.i.i.i to i64
   %49 = sub i64 %47, %48
   %50 = icmp eq i64 %49, 9223372036854775800
-  br i1 %50, label %51, label %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i
+  br i1 %50, label %51, label %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 51:                                               ; preds = %46
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #23
@@ -687,7 +687,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS
 .noexc.i:                                         ; preds = %51
   unreachable
 
-_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i: ; preds = %46
+_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %46
   %52 = sdiv exact i64 %49, 56
   %53 = icmp eq ptr %.pre.i, %.val.i.i.i.i
   %.sroa.speculated.i.i.i.i.i = select i1 %53, i64 1, i64 %52
@@ -696,15 +696,15 @@ _ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaI
   %56 = call i64 @llvm.umin.i64(i64 %54, i64 164703072086692425)
   %57 = select i1 %55, i64 164703072086692425, i64 %56
   %.not.i.i.i.i.i = icmp eq i64 %57, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i, label %58
+  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i, label %58
 
-58:                                               ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i
+58:                                               ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %59 = mul nuw nsw i64 %57, 56
   %60 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #22
-          to label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i unwind label %86
+          to label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i unwind label %86
 
-_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i: ; preds = %58, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i
-  %61 = phi ptr [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i ], [ %60, %58 ]
+_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i: ; preds = %58, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i
+  %61 = phi ptr [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %60, %58 ]
   %62 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member", ptr %61, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %63 = getelementptr inbounds i8, ptr %62, i64 16
@@ -716,11 +716,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17Version
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   %66 = getelementptr inbounds i8, ptr %62, i64 48
   store i8 1, ptr %66, align 8
-  br i1 %53, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit33.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %53, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i.i = phi ptr [ %76, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i ], [ %61, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i ]
-  %.092.i.i.i.i.i.i.i = phi ptr [ %75, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i ], [ %.val.i.i.i.i, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i.i = phi ptr [ %76, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i ], [ %61, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i ]
+  %.092.i.i.i.i.i.i.i = phi ptr [ %75, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i ], [ %.val.i.i.i.i, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !10
@@ -733,17 +733,17 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17Version
   %71 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 32
   %.val.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %71, align 8, !alias.scope !8, !noalias !5
   %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i.i.i.i.i, null
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i
 
-_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %72 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 16
   %73 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !alias.scope !10
   store ptr %.val.i.i.i.i.i.i.i.i.i.i.i.i, ptr %73, align 8, !alias.scope !5, !noalias !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false), !alias.scope !8, !noalias !5
-  br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i
 
-_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
+_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.sink.in.in.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 48
   %.sink.in.i.i.i.i.i.i.i.i = load i8, ptr %.sink.in.in.i.i.i.i.i.i.i.i, align 8, !alias.scope !8, !noalias !5
   %.sink.i.i.i.i.i.i.i.i = and i8 %.sink.in.i.i.i.i.i.i.i.i, 1
@@ -752,19 +752,19 @@ _ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionE
   %75 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 56
   %76 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i.i.i = icmp eq ptr %75, %.pre.i
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit33.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !11
 
-_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit33.i.i.i.i: ; preds = %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %61, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i ], [ %76, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i ]
+_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i.i: ; preds = %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %61, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i ], [ %76, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i ]
   %77 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 56
   %.not.i34.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
   br i1 %.not.i34.i.i.i.i, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE9push_backEOS5_.exit.i, label %78
 
-78:                                               ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit33.i.i.i.i
+78:                                               ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i.i) #20
   br label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE9push_backEOS5_.exit.i
 
-_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE9push_backEOS5_.exit.i: ; preds = %78, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit33.i.i.i.i
+_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE9push_backEOS5_.exit.i: ; preds = %78, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i.i
   store ptr %61, ptr %0, align 8
   store ptr %77, ptr %.phi.trans.insert.i, align 8
   %79 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::Version>::Member", ptr %61, i64 %57
@@ -894,18 +894,18 @@ define internal fastcc void @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17Ver
 
 8:                                                ; preds = %2
   %9 = icmp ugt i64 %7, 164703072086692425
-  br i1 %9, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE8allocateERS6_m.argprom.exit.i.i.i.i
+  br i1 %9, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE8allocateERS6_m.exit.i.i.i.i
 
 .noexc.i.i:                                       ; preds = %8
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #23
   unreachable
 
-_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE8allocateERS6_m.argprom.exit.i.i.i.i: ; preds = %8
+_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE8allocateERS6_m.exit.i.i.i.i: ; preds = %8
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #22
   br label %11
 
-11:                                               ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE8allocateERS6_m.argprom.exit.i.i.i.i, %2
-  %12 = phi ptr [ null, %2 ], [ %10, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE8allocateERS6_m.argprom.exit.i.i.i.i ]
+11:                                               ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE8allocateERS6_m.exit.i.i.i.i, %2
+  %12 = phi ptr [ null, %2 ], [ %10, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEE8allocateERS6_m.exit.i.i.i.i ]
   store ptr %12, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %13, align 8
@@ -1096,7 +1096,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not4.i.i.i.i = icmp eq ptr %10, %12
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %21, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i ], [ %10, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit ]
@@ -1120,22 +1120,22 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 _ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i: ; preds = %15, %.lr.ph.i.i.i.i
   %21 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %21, %12
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !14
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i
   %.val.pr.i = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i
+  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit
-  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i ], [ %10, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit ]
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit
+  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %10, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit ]
   %.not.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EED2Ev.exit, label %22
 
-22:                                               ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i
+22:                                               ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i) #20
   br label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EED2Ev.exit
 
-_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i, %22
+_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i, %22
   ret void
 }
 
@@ -1185,7 +1185,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not4.i.i.i.i = icmp eq ptr %10, %12
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %21, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i.i ], [ %10, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit ]
@@ -1209,22 +1209,22 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 _ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i.i: ; preds = %15, %.lr.ph.i.i.i.i
   %21 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %21, %12
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i.i
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i.i
   %.val.pr.i = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i
+  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit
-  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i ], [ %10, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit ]
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit
+  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %10, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit ]
   %.not.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EED2Ev.exit, label %22
 
-22:                                               ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i
+22:                                               ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i) #20
   br label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EED2Ev.exit
 
-_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i, %22
+_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i, %22
   ret void
 }
 
@@ -1387,7 +1387,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit21: ; preds = %.body, %
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %55
-  call fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_2clEPKN4Json5ValueEP11cmJSONState.argprom"(ptr noundef %1, ptr noundef %2)
+  call fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_2clEPKN4Json5ValueEP11cmJSONState"(ptr noundef %1, ptr noundef %2)
   br label %59
 
 59:                                               ; preds = %55, %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, %58
@@ -2190,7 +2190,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SocketHelperERN19cmCTestR
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %15
-  invoke fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_4clEPKN4Json5ValueEP11cmJSONState.argprom"(ptr noundef %1, ptr noundef %2)
+  invoke fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_4clEPKN4Json5ValueEP11cmJSONState"(ptr noundef %1, ptr noundef %2)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTestResourceSpec8ResourceESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEEaSEOSH_.exit unwind label %13
 
 25:                                               ; preds = %15
@@ -4598,7 +4598,7 @@ define internal fastcc void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOB
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
-  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit, label %.lr.ph.i.i.i
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %13, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i ], [ %2, %1 ]
@@ -4622,22 +4622,22 @@ define internal fastcc void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOB
 _ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i: ; preds = %7, %.lr.ph.i.i.i
   %13 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %13, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !14
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i
   %.val.pr = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit
+  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split, %1
-  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split ], [ %2, %1 ]
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split, %1
+  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EED2Ev.argprom.exit, label %14
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EED2Ev.exit, label %14
 
-14:                                               ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit
+14:                                               ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #20
-  br label %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EED2Ev.argprom.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit, %14
+_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit, %14
   ret void
 }
 
@@ -4687,7 +4687,7 @@ define internal fastcc void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOB
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
-  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit, label %.lr.ph.i.i.i
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %13, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i ], [ %2, %1 ]
@@ -4711,22 +4711,22 @@ define internal fastcc void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOB
 _ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i: ; preds = %7, %.lr.ph.i.i.i
   %13 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %13, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !15
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i
   %.val.pr = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit
+  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split, %1
-  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split ], [ %2, %1 ]
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split, %1
+  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EED2Ev.argprom.exit, label %14
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EED2Ev.exit, label %14
 
-14:                                               ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit
+14:                                               ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #20
-  br label %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EED2Ev.argprom.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit, %14
+_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit, %14
   ret void
 }
 
@@ -4898,7 +4898,7 @@ declare noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularE
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_2clEPKN4Json5ValueEP11cmJSONState.argprom"(ptr noundef %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_2clEPKN4Json5ValueEP11cmJSONState"(ptr noundef %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.60", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
@@ -5774,7 +5774,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN19cmJSONHelperBuilder6ObjectIN19cmCTestRes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_4clEPKN4Json5ValueEP11cmJSONState.argprom"(ptr noundef %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_4clEPKN4Json5ValueEP11cmJSONState"(ptr noundef %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.60", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
@@ -6169,7 +6169,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateE
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i: ; preds = %.noexc5.i.i.i
   invoke void @_ZN11cmJSONState15AddErrorAtValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(80) %.val3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.val)
-          to label %"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_0EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit" unwind label %11
+          to label %"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_0EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit" unwind label %11
 
 9:                                                ; preds = %.noexc.i.i.i, %3
   %10 = landingpad { ptr, i32 }
@@ -6187,7 +6187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_0EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
+"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_0EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -6265,13 +6265,13 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_17
   %9 = getelementptr inbounds i8, ptr %.val, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i, label %11, label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS3_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS3_SB_SD_E_JSR_SB_SD_EENSt9enable_ifIX16is_invocable_r_vISN_SO_DpT1_EESN_E4typeEOSO_DpOSV_.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %11, label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS3_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS3_SB_SD_E_JSR_SB_SD_EENSt9enable_ifIX16is_invocable_r_vISN_SO_DpT1_EESN_E4typeEOSO_DpOSV_.exit
 
 11:                                               ; preds = %4
   tail call void @_ZSt25__throw_bad_function_callv() #23
   unreachable
 
-_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS3_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS3_SB_SD_E_JSR_SB_SD_EENSt9enable_ifIX16is_invocable_r_vISN_SO_DpT1_EESN_E4typeEOSO_DpOSV_.argprom.exit: ; preds = %4
+_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS3_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS3_SB_SD_E_JSR_SB_SD_EENSt9enable_ifIX16is_invocable_r_vISN_SO_DpT1_EESN_E4typeEOSO_DpOSV_.exit: ; preds = %4
   %12 = getelementptr inbounds i8, ptr %1, i64 %8
   %13 = getelementptr inbounds i8, ptr %.val, i64 24
   %14 = load ptr, ptr %13, align 8
@@ -6290,16 +6290,16 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_17
 
 4:                                                ; preds = %3
   store ptr @_ZTIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS2_SA_SC_E_, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit [
     i32 3, label %30
     i32 2, label %7
   ]
@@ -6354,12 +6354,12 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %27, align 8
   store ptr %8, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit
 
 30:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %31 = icmp eq ptr %.val7.i, null
-  br i1 %31, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit, label %32
+  br i1 %31, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %.val7.i, i64 16
@@ -6380,9 +6380,9 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__
 
 _ZZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SA_SC_E_D2Ev.exit.i.i: ; preds = %35, %32
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #20
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.argprom.exit: ; preds = %_ZZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SA_SC_E_D2Ev.exit.i.i, %30, %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E15_M_init_functorIRKST_EEvRSt9_Any_dataOSO_.exit.i, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit: ; preds = %_ZZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SA_SC_E_D2Ev.exit.i.i, %30, %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS4_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SC_SE_E_E15_M_init_functorIRKST_EEvRSt9_Any_dataOSO_.exit.i, %6, %5, %4
   ret i1 false
 }
 
@@ -6411,7 +6411,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %11, %13
-  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %22, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i ], [ %11, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i ]
@@ -6435,22 +6435,22 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 _ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i: ; preds = %16, %.lr.ph.i.i.i.i.i
   %22 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i = icmp eq ptr %22, %13
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i
   %.val.pr.i.i = load ptr, ptr %2, align 8
-  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i
+  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i
-  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i ], [ %11, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i ]
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i
+  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %11, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i ]
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit, label %23
 
-23:                                               ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i
+23:                                               ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i.i) #20
   br label %_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit
 
-_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i, %23
+_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i, %23
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
@@ -6521,7 +6521,7 @@ _ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit.i.i.i: ; preds =
   call void %32(ptr noundef nonnull align 8 dereferenceable(16) %.val, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  br label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS0_6ObjectIS3_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS6_IFvSC_SE_EET0_EUlRS3_SC_SE_E_JSM_SC_SE_EENSt9enable_ifIX16is_invocable_r_vIS7_SL_DpT1_EES7_E4typeEOSL_DpOSQ_.argprom.exit
+  br label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS0_6ObjectIS3_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS6_IFvSC_SE_EET0_EUlRS3_SC_SE_E_JSM_SC_SE_EENSt9enable_ifIX16is_invocable_r_vIS7_SL_DpT1_EES7_E4typeEOSL_DpOSQ_.exit
 
 33:                                               ; preds = %4
   %34 = getelementptr inbounds i8, ptr %.val, i64 32
@@ -7072,9 +7072,9 @@ _ZNK19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEEclERS2_PKN4Json5ValueE
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  br label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS0_6ObjectIS3_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS6_IFvSC_SE_EET0_EUlRS3_SC_SE_E_JSM_SC_SE_EENSt9enable_ifIX16is_invocable_r_vIS7_SL_DpT1_EES7_E4typeEOSL_DpOSQ_.argprom.exit
+  br label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS0_6ObjectIS3_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS6_IFvSC_SE_EET0_EUlRS3_SC_SE_E_JSM_SC_SE_EENSt9enable_ifIX16is_invocable_r_vIS7_SL_DpT1_EES7_E4typeEOSL_DpOSQ_.exit
 
-_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS0_6ObjectIS3_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS6_IFvSC_SE_EET0_EUlRS3_SC_SE_E_JSM_SC_SE_EENSt9enable_ifIX16is_invocable_r_vIS7_SL_DpT1_EES7_E4typeEOSL_DpOSQ_.argprom.exit: ; preds = %_ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit.i.i.i, %_ZNK19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEEclERS2_PKN4Json5ValueEP11cmJSONState.exit.i.i.i
+_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS0_6ObjectIS3_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS6_IFvSC_SE_EET0_EUlRS3_SC_SE_E_JSM_SC_SE_EENSt9enable_ifIX16is_invocable_r_vIS7_SL_DpT1_EES7_E4typeEOSL_DpOSQ_.exit: ; preds = %_ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit.i.i.i, %_ZNK19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEEclERS2_PKN4Json5ValueEP11cmJSONState.exit.i.i.i
   %.0.i.i.i = phi i1 [ %.0.i.i.i.i, %_ZNK19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEEclERS2_PKN4Json5ValueEP11cmJSONState.exit.i.i.i ], [ false, %_ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit.i.i.i ]
   ret i1 %.0.i.i.i
 }
@@ -7088,16 +7088,16 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_17
 
 4:                                                ; preds = %3
   store ptr @_ZTIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS_6ObjectIS2_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS5_IFvSB_SD_EET0_EUlRS2_SB_SD_E_, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit [
     i32 3, label %37
     i32 2, label %7
   ]
@@ -7173,19 +7173,19 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i.i.i.i: ; preds =
 
 _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E15_M_init_functorIRKSO_EEvRSt9_Any_dataOS8_.exit.i: ; preds = %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit
 
 37:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %38 = icmp eq ptr %.val7.i, null
-  br i1 %38, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit, label %39
+  br i1 %38, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit, label %39
 
 39:                                               ; preds = %37
   tail call fastcc void @_ZZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS_6ObjectIS2_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS5_IFvSB_SD_EET0_ENUlRS2_SB_SD_E_D2Ev(ptr noundef nonnull align 8 dereferenceable(104) %.val7.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #20
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit: ; preds = %39, %37, %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E15_M_init_functorIRKSO_EEvRSt9_Any_dataOS8_.exit.i, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit: ; preds = %39, %37, %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8RequiredIN12_GLOBAL__N_17VersionENS1_6ObjectIS4_EEEESt8functionIFbRT_PKN4Json5ValueEP11cmJSONStateEERKS7_IFvSD_SF_EET0_EUlRS4_SD_SF_E_E15_M_init_functorIRKSO_EEvRSt9_Any_dataOS8_.exit.i, %6, %5, %4
   ret i1 false
 }
 
@@ -7442,7 +7442,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateE
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i: ; preds = %.noexc5.i.i.i
   invoke void @_ZN11cmJSONState15AddErrorAtValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(80) %.val3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.val)
-          to label %"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_1EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit" unwind label %11
+          to label %"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_1EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit" unwind label %11
 
 9:                                                ; preds = %.noexc.i.i.i, %3
   %10 = landingpad { ptr, i32 }
@@ -7460,7 +7460,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_1EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
+"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_1EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -7503,13 +7503,13 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_11
   %9 = getelementptr inbounds i8, ptr %.val, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i, label %11, label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS3_NS2_7VersionESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS3_SC_SE_E_JSS_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISO_SP_DpT1_EESO_E4typeEOSP_DpOSW_.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %11, label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS3_NS2_7VersionESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS3_SC_SE_E_JSS_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISO_SP_DpT1_EESO_E4typeEOSP_DpOSW_.exit
 
 11:                                               ; preds = %4
   tail call void @_ZSt25__throw_bad_function_callv() #23
   unreachable
 
-_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS3_NS2_7VersionESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS3_SC_SE_E_JSS_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISO_SP_DpT1_EESO_E4typeEOSP_DpOSW_.argprom.exit: ; preds = %4
+_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS3_NS2_7VersionESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS3_SC_SE_E_JSS_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISO_SP_DpT1_EESO_E4typeEOSP_DpOSW_.exit: ; preds = %4
   %12 = getelementptr inbounds i8, ptr %1, i64 %8
   %13 = getelementptr inbounds i8, ptr %.val, i64 24
   %14 = load ptr, ptr %13, align 8
@@ -7528,16 +7528,16 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN12_GLOBAL__N_11
 
 4:                                                ; preds = %3
   store ptr @_ZTIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS2_NS1_7VersionESt8functionIFbRS5_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS2_SB_SD_E_, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.exit [
     i32 3, label %29
     i32 2, label %7
   ]
@@ -7592,12 +7592,12 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__
   %28 = load i64, ptr %27, align 8
   store i64 %28, ptr %26, align 8
   store ptr %8, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.exit
 
 29:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %30 = icmp eq ptr %.val7.i, null
-  br i1 %30, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.argprom.exit, label %31
+  br i1 %30, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.exit, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %.val7.i, i64 16
@@ -7618,9 +7618,9 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__
 
 _ZZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS2_NS1_7VersionESt8functionIFbRS5_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SB_SD_E_D2Ev.exit.i.i: ; preds = %34, %31
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #20
-  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.argprom.exit: ; preds = %_ZZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS2_NS1_7VersionESt8functionIFbRS5_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SB_SD_E_D2Ev.exit.i.i, %29, %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E15_M_init_functorIRKSU_EEvRSt9_Any_dataOSP_.exit.i, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.exit: ; preds = %_ZZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS2_NS1_7VersionESt8functionIFbRS5_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SB_SD_E_D2Ev.exit.i.i, %29, %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE4BindIS4_NS3_7VersionESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SD_SF_E_E15_M_init_functorIRKSU_EEvRSt9_Any_dataOSP_.exit.i, %6, %5, %4
   ret i1 false
 }
 
@@ -7628,7 +7628,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__
 define internal void @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_2EE9_M_invokeERKSt9_Any_dataOS3_OS5_"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) #4 align 2 {
   %.val = load ptr, ptr %1, align 8
   %.val3 = load ptr, ptr %2, align 8
-  tail call fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_2clEPKN4Json5ValueEP11cmJSONState.argprom"(ptr noundef %.val, ptr noundef %.val3)
+  tail call fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_2clEPKN4Json5ValueEP11cmJSONState"(ptr noundef %.val, ptr noundef %.val3)
   ret void
 }
 
@@ -9530,7 +9530,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateE
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i: ; preds = %.noexc5.i.i.i
   invoke void @_ZN11cmJSONState15AddErrorAtValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(80) %.val3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.val)
-          to label %"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_3EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit" unwind label %11
+          to label %"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_3EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit" unwind label %11
 
 9:                                                ; preds = %.noexc.i.i.i, %3
   %10 = landingpad { ptr, i32 }
@@ -9548,7 +9548,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_3EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
+"_ZSt10__invoke_rIvRN25cmCTestResourceSpecErrors3$_3EJPKN4Json5ValueEP11cmJSONStateEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -9657,7 +9657,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTe
   store ptr %20, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 40
   store i64 0, ptr %23, align 8
-  br label %"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.exit"
 
 24:                                               ; preds = %4
   %25 = tail call noundef zeroext i1 @_ZNK4Json5Value8isObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %.val4)
@@ -9683,7 +9683,7 @@ _ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit.i.i.i: ; preds =
   call void %31(ptr noundef nonnull align 8 dereferenceable(16) %.val, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.exit"
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds i8, ptr %1, i64 16
@@ -9747,11 +9747,11 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %.027.lcssa53.i.i.i = phi i1 [ %.1.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %.1.i.i.i, %._crit_edge.i.i.i ], [ true, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTestResourceSpec8ResourceESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE5clearEv.exit30.i.i.i ]
   %53 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %42, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTestResourceSpec8ResourceESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE5clearEv.exit30.i.i.i ]
   %.not.i.i.i.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.argprom.exit", label %54
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.exit", label %54
 
 54:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %53) #20
-  br label %"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.exit"
 
 55:                                               ; preds = %_ZNSt6vectorIN19cmCTestResourceSpec8ResourceESaIS1_EED2Ev.exit.i.i.i, %.lr.ph.i.i.i
   %.02749.i.i.i = phi i1 [ true, %.lr.ph.i.i.i ], [ %.1.i.i.i, %_ZNSt6vectorIN19cmCTestResourceSpec8ResourceESaIS1_EED2Ev.exit.i.i.i ]
@@ -9923,7 +9923,7 @@ _ZNSt6vectorIN19cmCTestResourceSpec8ResourceESaIS1_EED2Ev.exit.i.i.i: ; preds = 
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #24
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.argprom.exit": ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTestResourceSpec8ResourceESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE5clearEv.exit.i.i.i, %_ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %54
+"_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS4_EESt8functionIFbRS6_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES7_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISP_ESaISt4pairIKSP_SQ_EEESC_SE_EERKS7_IFvSC_SE_EET0_T1_EUlRSJ_ISP_S6_SS_SaIST_ISU_S6_EEESC_SE_E_JS1A_SC_SE_EENSt9enable_ifIX16is_invocable_r_vISQ_S15_DpT1_EESQ_E4typeEOS15_DpOS1E_.exit": ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTestResourceSpec8ResourceESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE5clearEv.exit.i.i.i, %_ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %54
   %.026.i.i.i = phi i1 [ false, %_ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit.i.i.i ], [ true, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN19cmCTestResourceSpec8ResourceESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE5clearEv.exit.i.i.i ], [ %.027.lcssa53.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i ], [ %.027.lcssa53.i.i.i, %54 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
@@ -9940,16 +9940,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRSt3mapINSt7__cx
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS3_EESt8functionIFbRS5_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES6_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISO_ESaISt4pairIKSO_SP_EEESB_SD_EERKS6_IFvSB_SD_EET0_T1_EUlRSI_ISO_S5_SR_SaISS_IST_S5_EEESB_SD_E_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.exit" [
     i32 3, label %53
     i32 2, label %7
   ]
@@ -10058,12 +10058,12 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i.i.i.i: ; preds =
 
 "_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E15_M_init_functorIRKS1C_EEvRSt9_Any_dataOSR_.exit.i": ; preds = %35, %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.exit"
 
 53:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %54 = icmp eq ptr %.val7.i, null
-  br i1 %54, label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.argprom.exit", label %55
+  br i1 %54, label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.exit", label %55
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds i8, ptr %.val7.i, i64 48
@@ -10102,9 +10102,9 @@ _ZNSt8functionIFbRSt6vectorIN19cmCTestResourceSpec8ResourceESaIS2_EEPKN4Json5Val
 
 "_ZZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS3_EESt8functionIFbRS5_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES6_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISO_ESaISt4pairIKSO_SP_EEESB_SD_EERKS6_IFvSB_SD_EET0_T1_ENUlRSI_ISO_S5_SR_SaISS_IST_S5_EEESB_SD_E_D2Ev.exit.i.i": ; preds = %66, %_ZNSt8functionIFbRSt6vectorIN19cmCTestResourceSpec8ResourceESaIS2_EEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #20
-  br label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.argprom.exit": ; preds = %"_ZZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS3_EESt8functionIFbRS5_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES6_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISO_ESaISt4pairIKSO_SP_EEESB_SD_EERKS6_IFvSB_SD_EET0_T1_ENUlRSI_ISO_S5_SR_SaISS_IST_S5_EEESB_SD_E_D2Ev.exit.i.i", %53, %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E15_M_init_functorIRKS1C_EEvRSt9_Any_dataOSR_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E10_M_managerERSt9_Any_dataRKS1E_St18_Manager_operation.exit": ; preds = %"_ZZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS3_EESt8functionIFbRS5_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES6_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISO_ESaISt4pairIKSO_SP_EEESB_SD_EERKS6_IFvSB_SD_EET0_T1_ENUlRSI_ISO_S5_SR_SaISS_IST_S5_EEESB_SD_E_D2Ev.exit.i.i", %53, %"_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder9MapFilterISt6vectorIN19cmCTestResourceSpec8ResourceESaIS5_EESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEN12_GLOBAL__N_13$_5EEES8_IFbRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St4lessISQ_ESaISt4pairIKSQ_SR_EEESD_SF_EERKS8_IFvSD_SF_EET0_T1_EUlRSK_ISQ_S7_ST_SaISU_ISV_S7_EEESD_SF_E_E15_M_init_functorIRKS1C_EEvRSt9_Any_dataOSR_.exit.i", %6, %5, %4
   ret i1 false
 }
 
@@ -10679,7 +10679,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 define internal void @"_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEN25cmCTestResourceSpecErrors3$_4EE9_M_invokeERKSt9_Any_dataOS3_OS5_"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) #4 align 2 {
   %.val = load ptr, ptr %1, align 8
   %.val3 = load ptr, ptr %2, align 8
-  tail call fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_4clEPKN4Json5ValueEP11cmJSONState.argprom"(ptr noundef %.val, ptr noundef %.val3)
+  tail call fastcc void @"_ZNK25cmCTestResourceSpecErrors3$_4clEPKN4Json5ValueEP11cmJSONState"(ptr noundef %.val, ptr noundef %.val3)
   ret void
 }
 
@@ -12671,7 +12671,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %43, %45
   unreachable
 
 _ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit.i: ; preds = %73, %__cxx_global_var_init.4.exit
-  %84 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b.argelim(ptr noundef nonnull align 8 dereferenceable(65) %29, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 0, ptr noundef %32)
+  %84 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b(ptr noundef nonnull align 8 dereferenceable(65) %29, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 0, ptr noundef %32)
           to label %85 unwind label %246
 
 85:                                               ; preds = %_ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit.i
@@ -12715,7 +12715,7 @@ _ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit.i: ; preds = %73
   unreachable
 
 _ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit12.i: ; preds = %92, %85
-  %103 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b.argelim(ptr noundef nonnull align 8 dereferenceable(65) %29, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 4, ptr noundef %34)
+  %103 = invoke fastcc noundef nonnull align 8 dereferenceable(65) ptr @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE4BindIS2_iSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_b(ptr noundef nonnull align 8 dereferenceable(65) %29, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 4, ptr noundef %34)
           to label %104 unwind label %248
 
 104:                                              ; preds = %_ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit12.i
@@ -12922,7 +12922,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
   %191 = getelementptr inbounds i8, ptr %28, i64 8
   %192 = load ptr, ptr %191, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %190, %192
-  br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %201, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i.i ], [ %190, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i ]
@@ -12946,22 +12946,22 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 _ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i.i: ; preds = %195, %.lr.ph.i.i.i.i.i.i
   %201 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i.i = icmp eq ptr %201, %192
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !14
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i.i
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i.i
   %.val.pr.i.i.i = load ptr, ptr %28, align 8
-  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i.i
+  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i.i
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i
-  %.val.i.i.i = phi ptr [ %.val.pr.i.i.i, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i.i ], [ %190, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i ]
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i
+  %.val.i.i.i = phi ptr [ %.val.pr.i.i.i, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %190, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i ]
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit.i, label %202
 
-202:                                              ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i.i
+202:                                              ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i) #20
   br label %_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit.i
 
-_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit.i: ; preds = %202, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i.i
+_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit.i: ; preds = %202, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i.i
   %203 = load ptr, ptr %87, align 8
   %.not.i.i17.i = icmp eq ptr %203, null
   br i1 %.not.i.i17.i, label %_ZNSt8functionIFbRiPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %204
@@ -13014,7 +13014,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
   %222 = getelementptr inbounds i8, ptr %29, i64 8
   %223 = load ptr, ptr %222, align 8
   %.not4.i.i.i.i.i24.i = icmp eq ptr %221, %223
-  br i1 %.not4.i.i.i.i.i24.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i32.i, label %.lr.ph.i.i.i.i.i25.i
+  br i1 %.not4.i.i.i.i.i24.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i32.i, label %.lr.ph.i.i.i.i.i25.i
 
 .lr.ph.i.i.i.i.i25.i:                             ; preds = %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i23.i, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i28.i
   %.05.i.i.i.i.i26.i = phi ptr [ %232, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i28.i ], [ %221, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i23.i ]
@@ -13038,22 +13038,22 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 _ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i28.i: ; preds = %226, %.lr.ph.i.i.i.i.i25.i
   %232 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i26.i, i64 56
   %.not.i.i.i.i.i29.i = icmp eq ptr %232, %223
-  br i1 %.not.i.i.i.i.i29.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i30.i, label %.lr.ph.i.i.i.i.i25.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i29.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i30.i, label %.lr.ph.i.i.i.i.i25.i, !llvm.loop !14
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i30.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i28.i
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i30.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberEEvPT_.exit.i.i.i.i.i28.i
   %.val.pr.i.i31.i = load ptr, ptr %29, align 8
-  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i32.i
+  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i32.i
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i32.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i30.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i23.i
-  %.val.i.i33.i = phi ptr [ %.val.pr.i.i31.i, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i30.i ], [ %221, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i23.i ]
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i32.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i30.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i23.i
+  %.val.i.i33.i = phi ptr [ %.val.pr.i.i31.i, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i30.i ], [ %221, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i23.i ]
   %.not.i.i.i.i34.i = icmp eq ptr %.val.i.i33.i, null
   br i1 %.not.i.i.i.i34.i, label %_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit35.i, label %233
 
-233:                                              ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i32.i
+233:                                              ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i32.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i33.i) #20
   br label %_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit35.i
 
-_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit35.i: ; preds = %233, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i32.i
+_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEED2Ev.exit35.i: ; preds = %233, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i32.i
   %234 = load ptr, ptr %61, align 8
   %.not.i.i36.i = icmp eq ptr %234, null
   br i1 %.not.i.i36.i, label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i, label %235
@@ -13345,7 +13345,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberE
   %333 = ptrtoint ptr %.val.i.i.i.i.i.i to i64
   %334 = sub i64 %332, %333
   %335 = icmp eq i64 %334, 9223372036854775800
-  br i1 %335, label %336, label %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i
+  br i1 %335, label %336, label %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 336:                                              ; preds = %331
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #23
@@ -13354,7 +13354,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberE
 .noexc.i.i.i:                                     ; preds = %336
   unreachable
 
-_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i: ; preds = %331
+_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; preds = %331
   %337 = sdiv exact i64 %334, 56
   %338 = icmp eq ptr %.pre.i.i.i, %.val.i.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i.i = select i1 %338, i64 1, i64 %337
@@ -13363,15 +13363,15 @@ _ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6Member
   %341 = call i64 @llvm.umin.i64(i64 %339, i64 164703072086692425)
   %342 = select i1 %340, i64 164703072086692425, i64 %341
   %.not.i.i.i.i.i.i.i = icmp eq i64 %342, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i, label %343
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i, label %343
 
-343:                                              ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i
+343:                                              ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %344 = mul nuw nsw i64 %342, 56
   %345 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %344) #22
-          to label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i unwind label %364
+          to label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i unwind label %364
 
-_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i: ; preds = %343, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i
-  %346 = phi ptr [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i ], [ %345, %343 ]
+_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %343, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
+  %346 = phi ptr [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i ], [ %345, %343 ]
   %347 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::TopVersion>::Member", ptr %346, i64 %337
   store i64 7, ptr %347, align 8
   %.sroa.4.0..sroa_idx34.i = getelementptr inbounds i8, ptr %347, i64 8
@@ -13385,11 +13385,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVer
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %322, i8 0, i64 16, i1 false)
   %351 = getelementptr inbounds i8, ptr %347, i64 48
   store i8 0, ptr %351, align 8
-  br i1 %338, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit33.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %338, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i.i.i.i = phi ptr [ %361, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i ], [ %346, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i ]
-  %.092.i.i.i.i.i.i.i.i.i = phi ptr [ %360, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i.i.i.i = phi ptr [ %361, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i ], [ %346, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i ]
+  %.092.i.i.i.i.i.i.i.i.i = phi ptr [ %360, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.092.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !163
@@ -13402,17 +13402,17 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVer
   %356 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 32
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %356, align 8, !alias.scope !161, !noalias !158
   %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i, null
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %357 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 16
   %358 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %352, ptr noundef nonnull align 8 dereferenceable(16) %357, i64 16, i1 false), !alias.scope !163
   store ptr %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %358, align 8, !alias.scope !158, !noalias !161
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %356, i8 0, i64 16, i1 false), !alias.scope !161, !noalias !158
-  br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i
+  br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i
 
-_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
+_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.sink.in.in.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 48
   %.sink.in.i.i.i.i.i.i.i.i.i.i = load i8, ptr %.sink.in.in.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !161, !noalias !158
   %.sink.i.i.i.i.i.i.i.i.i.i = and i8 %.sink.in.i.i.i.i.i.i.i.i.i.i, 1
@@ -13421,15 +13421,15 @@ _ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVers
   %360 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i.i, i64 56
   %361 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %360, %.pre.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit33.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !164
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !164
 
-_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit33.i.i.i.i.i.i: ; preds = %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %346, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.argprom.exit.i.i.i.i.i.i ], [ %361, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i ]
+_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i.i.i.i: ; preds = %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i
+  %.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %346, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i ], [ %361, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i ]
   %362 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i, i64 56
   %.not.i34.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i, null
   br i1 %.not.i34.i.i.i.i.i.i, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE9push_backEOS5_.exit.i.i.i, label %363
 
-363:                                              ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit33.i.i.i.i.i.i
+363:                                              ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i.i.i.i) #20
   br label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE9push_backEOS5_.exit.i.i.i
 
@@ -13451,7 +13451,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberE
   call void @__clang_call_terminate(ptr %371) #21
   unreachable
 
-_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE9push_backEOS5_.exit.i.i.i: ; preds = %363, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit33.i.i.i.i.i.i
+_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE9push_backEOS5_.exit.i.i.i: ; preds = %363, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i.i.i.i
   store ptr %346, ptr %23, align 8
   store ptr %362, ptr %.phi.trans.insert.i.i.i, align 8
   %372 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<(anonymous namespace)::TopVersion>::Member", ptr %346, i64 %342
@@ -13558,12 +13558,12 @@ _ZNSt8functionIFbRN12_GLOBAL__N_110TopVersionEPKN4Json5ValueEP11cmJSONStateEED2E
   %409 = getelementptr inbounds i8, ptr null, i64 %408
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117RootVersionHelperE, i8 0, i64 16, i1 false)
   store ptr %409, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootVersionHelperE, i64 16), align 8
-  br label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.argprom.exit.i.i
+  br label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.exit.i.i
 
 410:                                              ; preds = %405
   %411 = sdiv exact i64 %408, 56
   %412 = icmp ugt i64 %411, 164703072086692425
-  br i1 %412, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE8allocateERS6_m.argprom.exit.i.i.i.i.i.i
+  br i1 %412, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE8allocateERS6_m.exit.i.i.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %410
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
@@ -13572,11 +13572,11 @@ _ZNSt8functionIFbRN12_GLOBAL__N_110TopVersionEPKN4Json5ValueEP11cmJSONStateEED2E
 .noexc.i:                                         ; preds = %.noexc.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE8allocateERS6_m.argprom.exit.i.i.i.i.i.i: ; preds = %410
+_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE8allocateERS6_m.exit.i.i.i.i.i.i: ; preds = %410
   %413 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %408) #22
           to label %.noexc14.i unwind label %502
 
-.noexc14.i:                                       ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE8allocateERS6_m.argprom.exit.i.i.i.i.i.i
+.noexc14.i:                                       ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE8allocateERS6_m.exit.i.i.i.i.i.i
   store ptr %413, ptr @_ZN12_GLOBAL__N_117RootVersionHelperE, align 8
   store ptr %413, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootVersionHelperE, i64 8), align 8
   %414 = getelementptr inbounds i8, ptr %413, i64 %408
@@ -13636,7 +13636,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVer
   %439 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i.i.i.i.i.i, i64 56
   %440 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i.i10.i = icmp eq ptr %439, %.val11.i.i.i
-  br i1 %.not.i.i.i.i.i.i10.i, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !165
+  br i1 %.not.i.i.i.i.i.i10.i, label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !165
 
 .body.i.i.i.i.i.i.i:                              ; preds = %429, %426
   %441 = extractvalue { ptr, i32 } %427, 0
@@ -13673,7 +13673,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVer
   call void @_ZdlPv(ptr noundef nonnull %_ZN12_GLOBAL__N_117RootVersionHelperE.val.i.i.i) #20
   br label %.body4.i
 
-_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.argprom.exit.i.i: ; preds = %434, %.noexc14.thread.i
+_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.exit.i.i: ; preds = %434, %.noexc14.thread.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %.noexc14.thread.i ], [ %440, %434 ]
   store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootVersionHelperE, i64 8), align 8
   %451 = getelementptr inbounds i8, ptr %23, i64 24
@@ -13685,7 +13685,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberE
   %.not.i.i.not.i.i11.i = icmp eq ptr %454, null
   br i1 %.not.i.i.not.i.i11.i, label %468, label %455
 
-455:                                              ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.argprom.exit.i.i
+455:                                              ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.exit.i.i
   %456 = invoke noundef zeroext i1 %454(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootVersionHelperE, i64 32), ptr noundef nonnull align 8 dereferenceable(16) %278, i32 noundef 2)
           to label %457 unwind label %460
 
@@ -13718,8 +13718,8 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberE
   call fastcc void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZN12_GLOBAL__N_117RootVersionHelperE) #24
   br label %.body4.i
 
-468:                                              ; preds = %457, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.argprom.exit.i.i
-  %469 = phi ptr [ %459, %457 ], [ null, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.argprom.exit.i.i ]
+468:                                              ; preds = %457, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.exit.i.i
+  %469 = phi ptr [ %459, %457 ], [ null, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberESaIS5_EEC2ERKS7_.exit.i.i ]
   %470 = load i8, ptr %281, align 8
   %471 = and i8 %470, 1
   store i8 %471, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootVersionHelperE, i64 64), align 8
@@ -13762,7 +13762,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
   %484 = load ptr, ptr %23, align 8
   %485 = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   %.not4.i.i.i.i.i.i14 = icmp eq ptr %484, %485
-  br i1 %.not4.i.i.i.i.i.i14, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i15
+  br i1 %.not4.i.i.i.i.i.i14, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i15
 
 .lr.ph.i.i.i.i.i.i15:                             ; preds = %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i13, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i.i.i.i
   %.05.i.i.i.i.i.i16 = phi ptr [ %494, %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i.i.i.i ], [ %484, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i13 ]
@@ -13786,22 +13786,22 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 _ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i.i.i.i: ; preds = %488, %.lr.ph.i.i.i.i.i.i15
   %494 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i16, i64 56
   %.not.i.i.i.i.i20.i = icmp eq ptr %494, %485
-  br i1 %.not.i.i.i.i.i20.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i15, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i20.i, label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i15, !llvm.loop !15
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i.i.i.i
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEvPT_.exit.i.i.i.i.i.i
   %.val.pr.i.i.i18 = load ptr, ptr %23, align 8
-  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i.i
+  br label %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i.i
 
-_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i13
-  %.val.i.i21.i = phi ptr [ %.val.pr.i.i.i18, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exitthread-pre-split.i.i.i ], [ %484, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i13 ]
+_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i13
+  %.val.i.i21.i = phi ptr [ %.val.pr.i.i.i18, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %484, %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i13 ]
   %.not.i.i.i.i22.i = icmp eq ptr %.val.i.i21.i, null
   br i1 %.not.i.i.i.i22.i, label %_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEED2Ev.exit.i, label %495
 
-495:                                              ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i.i
+495:                                              ; preds = %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i21.i) #20
   br label %_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEED2Ev.exit.i
 
-_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEED2Ev.exit.i: ; preds = %495, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.argprom.exit.i.i.i
+_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEED2Ev.exit.i: ; preds = %495, %_ZSt8_DestroyIPN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_EvT_S7_RSaIT0_E.exit.i.i.i
   %496 = load ptr, ptr %276, align 8
   %.not.i.i23.i = icmp eq ptr %496, null
   br i1 %.not.i.i23.i, label %__cxx_global_var_init.8.exit, label %497
@@ -13817,7 +13817,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEED2Ev.exit.i: ; pred
   call void @__clang_call_terminate(ptr %501) #21
   unreachable
 
-502:                                              ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE8allocateERS6_m.argprom.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
+502:                                              ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberEEE8allocateERS6_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %503 = landingpad { ptr, i32 }
           cleanup
   br label %.body4.i
@@ -14996,10 +14996,10 @@ attributes #25 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom: argument 0"}
-!7 = distinct !{!7, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom"}
+!6 = distinct !{!6, !7, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!7 = distinct !{!7, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_"}
 !8 = !{!9}
-!9 = distinct !{!9, !7, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom: argument 1"}
+!9 = distinct !{!9, !7, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_17VersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !10 = !{!6, !9}
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
@@ -15149,10 +15149,10 @@ attributes #25 = { nounwind willreturn memory(read) }
 !156 = !{!152, !155}
 !157 = distinct !{!157, !12}
 !158 = !{!159}
-!159 = distinct !{!159, !160, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom: argument 0"}
-!160 = distinct !{!160, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom"}
+!159 = distinct !{!159, !160, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!160 = distinct !{!160, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_"}
 !161 = !{!162}
-!162 = distinct !{!162, !160, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.argprom: argument 1"}
+!162 = distinct !{!162, !160, !"_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !163 = !{!159, !162}
 !164 = distinct !{!164, !12}
 !165 = distinct !{!165, !12}

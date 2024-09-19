@@ -52,7 +52,7 @@ define noundef i32 @Ppolybarriers(ptr nocapture noundef readonly %0, i32 noundef
 12:                                               ; preds = %._crit_edge
   %13 = load ptr, ptr @stderr, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, i64 noundef %11, i64 noundef 32) #13
-  tail call fastcc void @graphviz_exit.argelim() #14
+  tail call fastcc void @graphviz_exit() #14
   unreachable
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
@@ -75,7 +75,7 @@ gv_calloc.exit.preheader:                         ; preds = %._crit_edge.thread
   %20 = load ptr, ptr @stderr, align 8
   %21 = shl nuw nsw i64 %15, 5
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.1, i64 noundef %21) #13
-  tail call fastcc void @graphviz_exit.argelim() #14
+  tail call fastcc void @graphviz_exit() #14
   unreachable
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %gv_calloc.exit
@@ -152,7 +152,7 @@ define void @make_polyline(ptr nocapture readonly %0, i32 %1, ptr nocapture noun
 15:                                               ; preds = %8
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i64 noundef %12) #13
-  tail call fastcc void @graphviz_exit.argelim() #14
+  tail call fastcc void @graphviz_exit() #14
   unreachable
 
 18:                                               ; preds = %8
@@ -221,7 +221,7 @@ gv_recalloc.exit:                                 ; preds = %18, %20
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #17
   unreachable
 }

@@ -80,7 +80,7 @@ define dso_local ptr @anon_inode_getfile(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__anon_inode_getfile.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__anon_inode_getfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.qstr, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = icmp eq ptr %7, null
@@ -160,7 +160,7 @@ define internal fastcc ptr @__anon_inode_getfile.argelim(ptr noundef %0, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @anon_inode_create_getfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
-  %6 = tail call fastcc ptr @__anon_inode_getfile.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
+  %6 = tail call fastcc ptr @__anon_inode_getfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
   ret ptr %6
 }
 
@@ -231,7 +231,7 @@ define dso_local i32 @anon_inode_create_getfd(ptr noundef %0, ptr noundef %1, pt
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call fastcc ptr @__anon_inode_getfile.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
+  %9 = tail call fastcc ptr @__anon_inode_getfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
   %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
   br i1 %10, label %11, label %14
 

@@ -286,14 +286,14 @@ cleanUNSAFE.exit124.i:                            ; preds = %89
   %119 = load i32, ptr %104, align 4
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv167.i, %120
-  br i1 %121, label %Extra_ProgressBarUpdate.argprom.exit.i, label %122
+  br i1 %121, label %Extra_ProgressBarUpdate.exit.i, label %122
 
 122:                                              ; preds = %118, %117
   %123 = trunc nuw nsw i64 %indvars.iv167.i to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %104, i32 noundef %123, ptr noundef null) #6
-  br label %Extra_ProgressBarUpdate.argprom.exit.i
+  br label %Extra_ProgressBarUpdate.exit.i
 
-Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %122, %118
+Extra_ProgressBarUpdate.exit.i:                   ; preds = %122, %118
   %124 = getelementptr i8, ptr %112, i64 28
   %.val27.i.i = load i32, ptr %124, align 4
   switch i32 %.val27.i.i, label %194 [
@@ -301,7 +301,7 @@ Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %122, %118
     i32 1, label %142
   ]
 
-125:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+125:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
   %.val25.i.i = load ptr, ptr %112, align 8
   %126 = getelementptr i8, ptr %112, i64 48
   %.val26.i.i = load ptr, ptr %126, align 8
@@ -339,7 +339,7 @@ cleanUNSAFE.exit.i.i:                             ; preds = %134
   %141 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 7, i64 1, ptr nonnull %27)
   br label %Io_WriteSmvOneNode.exit.i
 
-142:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+142:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
   %143 = tail call i32 @Abc_NodeIsBuf(ptr noundef nonnull %112) #6
   %.not.i125.i = icmp eq i32 %143, 0
   %.val21.i.i = load ptr, ptr %112, align 8
@@ -467,7 +467,7 @@ cleanUNSAFE.exit43.i.i:                           ; preds = %187
   %193 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.14, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   br label %Io_WriteSmvOneNode.exit.i
 
-194:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+194:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
   %.val.i.i = load ptr, ptr %112, align 8
   %195 = getelementptr i8, ptr %112, i64 48
   %.val20.i.i = load ptr, ptr %195, align 8

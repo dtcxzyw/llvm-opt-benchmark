@@ -1030,7 +1030,7 @@ define noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__22PcpC
           to label %30 unwind label %47
 
 30:                                               ; preds = %29
-  %31 = invoke fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_CompareNodeStrengthERKNS_10PcpNodeRefERKSt6vectorIS0_SaIS0_EES2_S7_.argelim(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %31 = invoke fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_CompareNodeStrengthERKNS_10PcpNodeRefERKSt6vectorIS0_SaIS0_EES2_S7_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %32 unwind label %49
 
 32:                                               ; preds = %30
@@ -1249,7 +1249,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefESaIS1_EED2Ev.exit: 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_CompareNodeStrengthERKNS_10PcpNodeRefERKSt6vectorIS0_SaIS0_EES2_S7_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_CompareNodeStrengthERKNS_10PcpNodeRefERKSt6vectorIS0_SaIS0_EES2_S7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1272,7 +1272,7 @@ common.ret1:                                      ; preds = %37, %36, %49, %18
   ret i32 %common.ret1.op
 
 18:                                               ; preds = %2
-  %19 = tail call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_CompareNodeStrengthERKNS_10PcpNodeRefERKSt6vectorIS0_SaIS0_EES2_S7_.argelim(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %19 = tail call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_CompareNodeStrengthERKNS_10PcpNodeRefERKSt6vectorIS0_SaIS0_EES2_S7_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %20 = sub nsw i32 0, %19
   br label %common.ret1
 

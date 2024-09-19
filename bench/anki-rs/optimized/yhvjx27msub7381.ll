@@ -287,5 +287,5 @@ attributes #8 = { cold noreturn nounwind }
 !3 = !{}
 !4 = !{i64 8}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$17h8edd94670b5e5514E.argprom: argument 0"}
-!7 = distinct !{!7, !"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$17h8edd94670b5e5514E.argprom"}
+!6 = distinct !{!6, !7, !"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$17h8edd94670b5e5514E: argument 0"}
+!7 = distinct !{!7, !"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$17h8edd94670b5e5514E"}

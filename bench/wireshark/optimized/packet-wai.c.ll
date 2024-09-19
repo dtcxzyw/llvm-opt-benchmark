@@ -520,7 +520,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 75:                                               ; preds = %68
-  tail call fastcc void @dissect_flag.argelim(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
   %76 = load i32, ptr @hf_wai_uskid, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %76, ptr noundef %.075, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %78 = load i32, ptr @hf_wai_addid, align 4
@@ -538,7 +538,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_wai_data.exit
 
 90:                                               ; preds = %68
-  tail call fastcc void @dissect_flag.argelim(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
   %91 = load i32, ptr @hf_wai_sta_key_id, align 4
   %92 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %91, ptr noundef %.075, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %93 = load i32, ptr @hf_wai_uskid, align 4
@@ -558,7 +558,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_wai_data.exit
 
 107:                                              ; preds = %68
-  tail call fastcc void @dissect_flag.argelim(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
   %108 = load i32, ptr @hf_wai_auth_id, align 4
   %109 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %108, ptr noundef %.075, i32 noundef 1, i32 noundef 32, i32 noundef 0) #3
   %110 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.075, i32 noundef 35) #3
@@ -587,7 +587,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 130:                                              ; preds = %68
   %131 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.075, i32 noundef 0) #3
   %132 = and i8 %131, 8
-  tail call fastcc void @dissect_flag.argelim(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
   %133 = load i32, ptr @hf_wai_auth_id, align 4
   %134 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %133, ptr noundef %.075, i32 noundef 1, i32 noundef 32, i32 noundef 0) #3
   %135 = load i32, ptr @hf_wai_challenge, align 4
@@ -639,7 +639,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 170:                                              ; preds = %68
   %171 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.075, i32 noundef 0) #3
   %172 = and i8 %171, 8
-  tail call fastcc void @dissect_flag.argelim(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
   %173 = load i32, ptr @hf_wai_challenge, align 4
   %174 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %173, ptr noundef %.075, i32 noundef 1, i32 noundef 32, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %174, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.217) #3
@@ -776,7 +776,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_wai_data.exit
 
 281:                                              ; preds = %68
-  tail call fastcc void @dissect_flag.argelim(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
   %282 = load i32, ptr @hf_wai_bkid, align 4
   %283 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %282, ptr noundef %.075, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
   %284 = load i32, ptr @hf_wai_uskid, align 4
@@ -795,7 +795,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_wai_data.exit
 
 296:                                              ; preds = %68
-  tail call fastcc void @dissect_flag.argelim(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
   %297 = load i32, ptr @hf_wai_bkid, align 4
   %298 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %297, ptr noundef %.075, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
   %299 = load i32, ptr @hf_wai_uskid, align 4
@@ -824,7 +824,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_wai_data.exit
 
 320:                                              ; preds = %68
-  tail call fastcc void @dissect_flag.argelim(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
   %321 = load i32, ptr @hf_wai_bkid, align 4
   %322 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %321, ptr noundef %.075, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
   %323 = load i32, ptr @hf_wai_uskid, align 4
@@ -850,7 +850,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_wai_data.exit
 
 342:                                              ; preds = %68
-  tail call fastcc void @dissect_flag.argelim(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
   %343 = load i32, ptr @hf_wai_mskid, align 4
   %344 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %343, ptr noundef %.075, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %345 = load i32, ptr @hf_wai_uskid, align 4
@@ -875,7 +875,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_wai_data.exit
 
 363:                                              ; preds = %68
-  tail call fastcc void @dissect_flag.argelim(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
   %364 = load i32, ptr @hf_wai_mskid, align 4
   %365 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %364, ptr noundef %.075, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %366 = load i32, ptr @hf_wai_uskid, align 4
@@ -949,7 +949,7 @@ declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_flag.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_flag(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_wai_flag, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %5 = load i32, ptr @ett_wai_flags, align 4

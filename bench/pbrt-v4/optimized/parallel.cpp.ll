@@ -5831,20 +5831,20 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i.i:             ; preds = %entry
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %4 = load ptr, ptr %__functor, align 8
   %call.i.i.i = tail call noundef zeroext i1 @_ZN4pbrt7Barrier5BlockEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
-  br i1 %call.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %call.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 if.then.i.i.i:                                    ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i.i.i
   %5 = load ptr, ptr %__functor, align 8
   %isnull.i.i.i = icmp eq ptr %5, null
-  br i1 %isnull.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %delete.notnull.i.i.i
+  br i1 %isnull.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   %cv.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv.i.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %5) #24
-  br label %"_ZSt10__invoke_rIvRZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i.i.i, %if.then.i.i.i, %delete.notnull.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i.i.i, %if.then.i.i.i, %delete.notnull.i.i.i
   ret void
 }
 

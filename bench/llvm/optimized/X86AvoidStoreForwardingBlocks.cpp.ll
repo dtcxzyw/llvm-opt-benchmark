@@ -3271,7 +3271,7 @@ define internal fastcc noundef zeroext i1 @_ZL24isRelevantAddressingModePN4llvm1
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   %9 = load i16, ptr %8, align 2
   switch i8 %7, label %10 [
-    i8 0, label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit
+    i8 0, label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit
     i8 1, label %11
     i8 2, label %30
   ]
@@ -3296,7 +3296,7 @@ define internal fastcc noundef zeroext i1 @_ZL24isRelevantAddressingModePN4llvm1
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 241
   %or.cond.i.i = icmp eq i16 %24, 1
-  br i1 %or.cond.i.i, label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i
+  br i1 %or.cond.i.i, label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i
 
 _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i: ; preds = %13
   %25 = icmp eq i16 %9, 8
@@ -3307,10 +3307,10 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 241
   %or.cond42.i.i = icmp eq i16 %29, 1
-  br i1 %or.cond42.i.i, label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit, label %.thread.i.i
+  br i1 %or.cond42.i.i, label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %26, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i, %11
-  br label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit
+  br label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit
 
 30:                                               ; preds = %1
   %31 = icmp ugt i16 %9, 3
@@ -3336,7 +3336,7 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.
   %46 = load i16, ptr %45, align 2
   %47 = and i16 %46, 241
   %or.cond46.i.i = icmp eq i16 %47, 17
-  br i1 %or.cond46.i.i, label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i.i
+  br i1 %or.cond46.i.i, label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i.i
 
 _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i.i: ; preds = %44
   %48 = icmp eq i16 %9, 9
@@ -3347,12 +3347,12 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit2
   %50 = load i16, ptr %49, align 2
   %51 = and i16 %50, 241
   %or.cond52.i.i = icmp eq i16 %51, 17
-  br i1 %or.cond52.i.i, label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit, label %.thread36.i.i
+  br i1 %or.cond52.i.i, label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit, label %.thread36.i.i
 
 .thread36.i.i:                                    ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i.i, %32, %30
-  br label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit
+  br label %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit
 
-_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit: ; preds = %1, %13, %26, %.thread.i.i, %44, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i, %.thread36.i.i
+_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit:   ; preds = %1, %13, %26, %.thread.i.i, %44, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i, %.thread36.i.i
   %.0.i.i = phi i32 [ 0, %.thread36.i.i ], [ 0, %.thread.i.i ], [ 0, %1 ], [ 1, %13 ], [ 1, %26 ], [ 2, %44 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i ]
   %52 = add i32 %.0.i.i, %5
   %.val.i = load ptr, ptr %2, align 8
@@ -3369,10 +3369,10 @@ _ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit: ; preds = %1, %13, %26, 
     i8 2, label %80
   ]
 
-60:                                               ; preds = %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit
+60:                                               ; preds = %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit
   unreachable
 
-61:                                               ; preds = %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit
+61:                                               ; preds = %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit
   %62 = icmp ugt i16 %59, 1
   br i1 %62, label %63, label %.thread.i.i.i
 
@@ -3405,7 +3405,7 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.
 .thread.i.i.i:                                    ; preds = %76, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i.i, %61
   br label %_ZL14getBaseOperandPN4llvm12MachineInstrE.exit
 
-80:                                               ; preds = %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit
+80:                                               ; preds = %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit
   %81 = icmp ugt i16 %59, 3
   br i1 %81, label %82, label %.thread36.i.i.i
 
@@ -3445,8 +3445,8 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit2
 .thread36.i.i.i:                                  ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i.i.i, %82, %80
   br label %_ZL14getBaseOperandPN4llvm12MachineInstrE.exit
 
-_ZL14getBaseOperandPN4llvm12MachineInstrE.exit:   ; preds = %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit, %63, %76, %.thread.i.i.i, %94, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i.i, %.thread36.i.i.i
-  %.0.i.i.i = phi i32 [ 0, %.thread36.i.i.i ], [ 0, %.thread.i.i.i ], [ 0, %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.argprom.exit ], [ 1, %63 ], [ 1, %76 ], [ 2, %94 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i.i ]
+_ZL14getBaseOperandPN4llvm12MachineInstrE.exit:   ; preds = %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit, %63, %76, %.thread.i.i.i, %94, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i.i, %.thread36.i.i.i
+  %.0.i.i.i = phi i32 [ 0, %.thread36.i.i.i ], [ 0, %.thread.i.i.i ], [ 0, %_ZL13getAddrOffsetPKN4llvm12MachineInstrE.exit ], [ 1, %63 ], [ 1, %76 ], [ 2, %94 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i.i.i ]
   %102 = add i32 %.0.i.i.i, %55
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %104 = load ptr, ptr %103, align 8

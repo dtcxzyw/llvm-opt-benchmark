@@ -586,7 +586,7 @@ define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr
   br i1 %or.cond3, label %119, label %120
 
 119:                                              ; preds = %118
-  tail call fastcc void @H5Z__scaleoffset_postdecompress_fd.retelim(ptr noundef %101, i32 noundef %25, i32 noundef %115, i32 noundef %31, ptr noundef nonnull %2, i32 noundef %81, i64 noundef %97, double noundef %.0190)
+  tail call fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr noundef %101, i32 noundef %25, i32 noundef %115, i32 noundef %31, ptr noundef nonnull %2, i32 noundef %81, i64 noundef %97, double noundef %.0190)
   br label %120
 
 120:                                              ; preds = %.thread243, %119, %118
@@ -694,7 +694,7 @@ H5Z__scaleoffset_convert.exit237:                 ; preds = %._crit_edge.us.i236
 
 164:                                              ; preds = %163
   %165 = load ptr, ptr %5, align 8
-  call fastcc void @H5Z__scaleoffset_precompress_fd.retelim(ptr noundef %165, i32 noundef %25, i32 noundef %155, i32 noundef %31, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %8, double noundef %.0190)
+  call fastcc void @H5Z__scaleoffset_precompress_fd(ptr noundef %165, i32 noundef %25, i32 noundef %155, i32 noundef %31, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %8, double noundef %.0190)
   br label %166
 
 166:                                              ; preds = %.thread245, %164, %163
@@ -1625,10 +1625,10 @@ define internal fastcc void @H5Z__scaleoffset_decompress(ptr nocapture noundef n
   %21 = getelementptr i8, ptr %0, i64 %20
   br label %22
 
-22:                                               ; preds = %H5Z__scaleoffset_decompress_one_byte.argprom.exit.i.us.us, %.lr.ph33.i.us.us
-  %.428.us.us = phi i64 [ %.02436.us.us, %.lr.ph33.i.us.us ], [ %.630.us.us, %H5Z__scaleoffset_decompress_one_byte.argprom.exit.i.us.us ]
-  %.4.us.us = phi i32 [ %.02237.us.us, %.lr.ph33.i.us.us ], [ %.6.us.us, %H5Z__scaleoffset_decompress_one_byte.argprom.exit.i.us.us ]
-  %indvars.iv35.i.us.us = phi i64 [ %18, %.lr.ph33.i.us.us ], [ %indvars.iv.next36.i.us.us, %H5Z__scaleoffset_decompress_one_byte.argprom.exit.i.us.us ]
+22:                                               ; preds = %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us, %.lr.ph33.i.us.us
+  %.428.us.us = phi i64 [ %.02436.us.us, %.lr.ph33.i.us.us ], [ %.630.us.us, %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us ]
+  %.4.us.us = phi i32 [ %.02237.us.us, %.lr.ph33.i.us.us ], [ %.6.us.us, %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us ]
+  %indvars.iv35.i.us.us = phi i64 [ %18, %.lr.ph33.i.us.us ], [ %indvars.iv.next36.i.us.us, %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us ]
   %23 = getelementptr inbounds i8, ptr %2, i64 %.428.us.us
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i64 %indvars.iv35.i.us.us, %18
@@ -1648,7 +1648,7 @@ define internal fastcc void @H5Z__scaleoffset_decompress(ptr nocapture noundef n
   store i8 %35, ptr %28, align 1
   %36 = add i64 %.428.us.us, 1
   %37 = icmp eq i32 %.0.i.i.us.us, %.4.us.us
-  br i1 %37, label %H5Z__scaleoffset_decompress_one_byte.argprom.exit.i.us.us, label %38
+  br i1 %37, label %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us, label %38
 
 38:                                               ; preds = %29
   %39 = getelementptr inbounds i8, ptr %2, i64 %36
@@ -1676,16 +1676,16 @@ define internal fastcc void @H5Z__scaleoffset_decompress(ptr nocapture noundef n
   %.sink.i.i.in.us.us = phi i32 [ %53, %48 ], [ %47, %38 ]
   %.sink.i.i.us.us = trunc i32 %.sink.i.i.in.us.us to i8
   store i8 %.sink.i.i.us.us, ptr %28, align 1
-  br label %H5Z__scaleoffset_decompress_one_byte.argprom.exit.i.us.us
+  br label %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us
 
-H5Z__scaleoffset_decompress_one_byte.argprom.exit.i.us.us: ; preds = %.sink.split.i.i.us.us, %29
+H5Z__scaleoffset_decompress_one_byte.exit.i.us.us: ; preds = %.sink.split.i.i.us.us, %29
   %.630.us.us = phi i64 [ %.529.us.us, %.sink.split.i.i.us.us ], [ %36, %29 ]
   %.6.us.us = phi i32 [ %.pre-phi, %.sink.split.i.i.us.us ], [ 8, %29 ]
   %indvars.iv.next36.i.us.us = add nsw i64 %indvars.iv35.i.us.us, -1
   %54 = icmp sgt i64 %indvars.iv35.i.us.us, 0
   br i1 %54, label %22, label %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us
 
-H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleoffset_decompress_one_byte.argprom.exit.i.us.us
+H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us
   %55 = add nuw nsw i64 %.138.us.us, 1
   %exitcond50.not = icmp eq i64 %55, %6
   br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph33.i.us.us
@@ -1703,10 +1703,10 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scal
   %58 = getelementptr i8, ptr %0, i64 %57
   br label %59
 
-59:                                               ; preds = %H5Z__scaleoffset_decompress_one_byte.argprom.exit28.i, %.lr.ph.i
-  %.125 = phi i64 [ %.02436, %.lr.ph.i ], [ %.327, %H5Z__scaleoffset_decompress_one_byte.argprom.exit28.i ]
-  %.123 = phi i32 [ %.02237, %.lr.ph.i ], [ %.3, %H5Z__scaleoffset_decompress_one_byte.argprom.exit28.i ]
-  %indvars.iv.i = phi i64 [ %15, %.lr.ph.i ], [ %indvars.iv.next.i, %H5Z__scaleoffset_decompress_one_byte.argprom.exit28.i ]
+59:                                               ; preds = %H5Z__scaleoffset_decompress_one_byte.exit28.i, %.lr.ph.i
+  %.125 = phi i64 [ %.02436, %.lr.ph.i ], [ %.327, %H5Z__scaleoffset_decompress_one_byte.exit28.i ]
+  %.123 = phi i32 [ %.02237, %.lr.ph.i ], [ %.3, %H5Z__scaleoffset_decompress_one_byte.exit28.i ]
+  %indvars.iv.i = phi i64 [ %15, %.lr.ph.i ], [ %indvars.iv.next.i, %H5Z__scaleoffset_decompress_one_byte.exit28.i ]
   %60 = getelementptr inbounds i8, ptr %2, i64 %.125
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i64 %indvars.iv.i, %15
@@ -1734,7 +1734,7 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scal
   store i8 %78, ptr %65, align 1
   %79 = add i64 %.125, 1
   %80 = icmp eq i32 %.0.i24.i, %.123
-  br i1 %80, label %H5Z__scaleoffset_decompress_one_byte.argprom.exit28.i, label %81
+  br i1 %80, label %H5Z__scaleoffset_decompress_one_byte.exit28.i, label %81
 
 81:                                               ; preds = %72
   %82 = getelementptr inbounds i8, ptr %2, i64 %79
@@ -1754,16 +1754,16 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scal
   %.sink.i26.i.in = phi i32 [ %90, %81 ], [ %71, %66 ]
   %.sink.i26.i = trunc i32 %.sink.i26.i.in to i8
   store i8 %.sink.i26.i, ptr %65, align 1
-  br label %H5Z__scaleoffset_decompress_one_byte.argprom.exit28.i
+  br label %H5Z__scaleoffset_decompress_one_byte.exit28.i
 
-H5Z__scaleoffset_decompress_one_byte.argprom.exit28.i: ; preds = %.sink.split.i25.i, %72
+H5Z__scaleoffset_decompress_one_byte.exit28.i:    ; preds = %.sink.split.i25.i, %72
   %.327 = phi i64 [ %.226, %.sink.split.i25.i ], [ %79, %72 ]
   %.3 = phi i32 [ %.pre-phi51, %.sink.split.i25.i ], [ 8, %72 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %7
   br i1 %exitcond.not.i, label %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32, label %59
 
-H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32: ; preds = %H5Z__scaleoffset_decompress_one_byte.argprom.exit28.i
+H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32: ; preds = %H5Z__scaleoffset_decompress_one_byte.exit28.i
   %91 = add nuw nsw i64 %.138, 1
   %exitcond.not = icmp eq i64 %91, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i
@@ -2464,7 +2464,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture nou
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @H5Z__scaleoffset_postdecompress_fd.retelim(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, double noundef %7) unnamed_addr #7 {
+define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, double noundef %7) unnamed_addr #7 {
   %9 = alloca double, align 8
   %10 = alloca i32, align 4
   switch i32 %2, label %.loopexit [
@@ -5695,7 +5695,7 @@ thread-pre-split2262:                             ; preds = %.lr.ph, %H5Z__scale
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5Z__scaleoffset_precompress_fd.retelim(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, double noundef %7) unnamed_addr #0 {
+define internal fastcc void @H5Z__scaleoffset_precompress_fd(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, double noundef %7) unnamed_addr #0 {
   %9 = alloca double, align 8
   %10 = alloca i32, align 4
   switch i32 %2, label %262 [
@@ -6341,10 +6341,10 @@ define internal fastcc void @H5Z__scaleoffset_compress(ptr nocapture noundef rea
   %21 = getelementptr i8, ptr %0, i64 %20
   br label %22
 
-22:                                               ; preds = %H5Z__scaleoffset_compress_one_byte.argprom.exit.i.us.us, %.lr.ph32.i.us.us
-  %.425.us.us = phi i64 [ %.02131.us.us, %.lr.ph32.i.us.us ], [ %.627.us.us, %H5Z__scaleoffset_compress_one_byte.argprom.exit.i.us.us ]
-  %.4.us.us = phi i32 [ %.02032.us.us, %.lr.ph32.i.us.us ], [ %.6.us.us, %H5Z__scaleoffset_compress_one_byte.argprom.exit.i.us.us ]
-  %indvars.iv34.i.us.us = phi i64 [ %18, %.lr.ph32.i.us.us ], [ %indvars.iv.next35.i.us.us, %H5Z__scaleoffset_compress_one_byte.argprom.exit.i.us.us ]
+22:                                               ; preds = %H5Z__scaleoffset_compress_one_byte.exit.i.us.us, %.lr.ph32.i.us.us
+  %.425.us.us = phi i64 [ %.02131.us.us, %.lr.ph32.i.us.us ], [ %.627.us.us, %H5Z__scaleoffset_compress_one_byte.exit.i.us.us ]
+  %.4.us.us = phi i32 [ %.02032.us.us, %.lr.ph32.i.us.us ], [ %.6.us.us, %H5Z__scaleoffset_compress_one_byte.exit.i.us.us ]
+  %indvars.iv34.i.us.us = phi i64 [ %18, %.lr.ph32.i.us.us ], [ %indvars.iv.next35.i.us.us, %H5Z__scaleoffset_compress_one_byte.exit.i.us.us ]
   %23 = getelementptr i8, ptr %21, i64 %indvars.iv34.i.us.us
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i64 %indvars.iv34.i.us.us, %18
@@ -6366,7 +6366,7 @@ define internal fastcc void @H5Z__scaleoffset_compress(ptr nocapture noundef rea
   store i8 %37, ptr %28, align 1
   %38 = add i64 %.425.us.us, 1
   %39 = icmp eq i32 %.0.i.i.us.us, %.4.us.us
-  br i1 %39, label %H5Z__scaleoffset_compress_one_byte.argprom.exit.i.us.us, label %40
+  br i1 %39, label %H5Z__scaleoffset_compress_one_byte.exit.i.us.us, label %40
 
 40:                                               ; preds = %30
   %41 = sub nsw i32 8, %31
@@ -6374,7 +6374,7 @@ define internal fastcc void @H5Z__scaleoffset_compress(ptr nocapture noundef rea
   %43 = trunc i32 %42 to i8
   %44 = getelementptr inbounds i8, ptr %2, i64 %38
   store i8 %43, ptr %44, align 1
-  br label %H5Z__scaleoffset_compress_one_byte.argprom.exit.i.us.us
+  br label %H5Z__scaleoffset_compress_one_byte.exit.i.us.us
 
 45:                                               ; preds = %22
   %46 = shl nsw i32 -1, %.0.i.i.us.us
@@ -6385,16 +6385,16 @@ define internal fastcc void @H5Z__scaleoffset_compress(ptr nocapture noundef rea
   %51 = trunc i32 %50 to i8
   %52 = or i8 %29, %51
   store i8 %52, ptr %28, align 1
-  br label %H5Z__scaleoffset_compress_one_byte.argprom.exit.i.us.us
+  br label %H5Z__scaleoffset_compress_one_byte.exit.i.us.us
 
-H5Z__scaleoffset_compress_one_byte.argprom.exit.i.us.us: ; preds = %40, %45, %30
+H5Z__scaleoffset_compress_one_byte.exit.i.us.us:  ; preds = %40, %45, %30
   %.627.us.us = phi i64 [ %38, %30 ], [ %.425.us.us, %45 ], [ %38, %40 ]
   %.6.us.us = phi i32 [ 8, %30 ], [ %49, %45 ], [ %41, %40 ]
   %indvars.iv.next35.i.us.us = add nsw i64 %indvars.iv34.i.us.us, -1
   %53 = icmp sgt i64 %indvars.iv34.i.us.us, 0
   br i1 %53, label %22, label %H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us
 
-H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleoffset_compress_one_byte.argprom.exit.i.us.us
+H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleoffset_compress_one_byte.exit.i.us.us
   %54 = add nuw nsw i64 %.033.us.us, 1
   %exitcond45.not = icmp eq i64 %54, %7
   br i1 %exitcond45.not, label %._crit_edge, label %.lr.ph32.i.us.us
@@ -6412,10 +6412,10 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleo
   %57 = getelementptr i8, ptr %0, i64 %56
   br label %58
 
-58:                                               ; preds = %H5Z__scaleoffset_compress_one_byte.argprom.exit27.i, %.lr.ph.i
-  %.122 = phi i64 [ %.02131, %.lr.ph.i ], [ %.324, %H5Z__scaleoffset_compress_one_byte.argprom.exit27.i ]
-  %.1 = phi i32 [ %.02032, %.lr.ph.i ], [ %.3, %H5Z__scaleoffset_compress_one_byte.argprom.exit27.i ]
-  %indvars.iv.i = phi i64 [ %15, %.lr.ph.i ], [ %indvars.iv.next.i, %H5Z__scaleoffset_compress_one_byte.argprom.exit27.i ]
+58:                                               ; preds = %H5Z__scaleoffset_compress_one_byte.exit27.i, %.lr.ph.i
+  %.122 = phi i64 [ %.02131, %.lr.ph.i ], [ %.324, %H5Z__scaleoffset_compress_one_byte.exit27.i ]
+  %.1 = phi i32 [ %.02032, %.lr.ph.i ], [ %.3, %H5Z__scaleoffset_compress_one_byte.exit27.i ]
+  %indvars.iv.i = phi i64 [ %15, %.lr.ph.i ], [ %indvars.iv.next.i, %H5Z__scaleoffset_compress_one_byte.exit27.i ]
   %59 = getelementptr i8, ptr %57, i64 %indvars.iv.i
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i64 %indvars.iv.i, %15
@@ -6435,7 +6435,7 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleo
   %72 = trunc i32 %71 to i8
   %73 = or i8 %65, %72
   store i8 %73, ptr %64, align 1
-  br label %H5Z__scaleoffset_compress_one_byte.argprom.exit27.i
+  br label %H5Z__scaleoffset_compress_one_byte.exit27.i
 
 74:                                               ; preds = %58
   %75 = sub nuw i32 %.0.i24.i, %.1
@@ -6448,7 +6448,7 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleo
   store i8 %81, ptr %64, align 1
   %82 = add i64 %.122, 1
   %83 = icmp eq i32 %.0.i24.i, %.1
-  br i1 %83, label %H5Z__scaleoffset_compress_one_byte.argprom.exit27.i, label %84
+  br i1 %83, label %H5Z__scaleoffset_compress_one_byte.exit27.i, label %84
 
 84:                                               ; preds = %74
   %85 = sub nsw i32 8, %75
@@ -6456,16 +6456,16 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleo
   %87 = trunc i32 %86 to i8
   %88 = getelementptr inbounds i8, ptr %2, i64 %82
   store i8 %87, ptr %88, align 1
-  br label %H5Z__scaleoffset_compress_one_byte.argprom.exit27.i
+  br label %H5Z__scaleoffset_compress_one_byte.exit27.i
 
-H5Z__scaleoffset_compress_one_byte.argprom.exit27.i: ; preds = %66, %84, %74
+H5Z__scaleoffset_compress_one_byte.exit27.i:      ; preds = %66, %84, %74
   %.324 = phi i64 [ %82, %74 ], [ %82, %84 ], [ %.122, %66 ]
   %.3 = phi i32 [ 8, %74 ], [ %85, %84 ], [ %70, %66 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %8
   br i1 %exitcond.not.i, label %H5Z__scaleoffset_compress_one_atomic.exit.loopexit29, label %58
 
-H5Z__scaleoffset_compress_one_atomic.exit.loopexit29: ; preds = %H5Z__scaleoffset_compress_one_byte.argprom.exit27.i
+H5Z__scaleoffset_compress_one_atomic.exit.loopexit29: ; preds = %H5Z__scaleoffset_compress_one_byte.exit27.i
   %89 = add nuw nsw i64 %.033, 1
   %exitcond.not = icmp eq i64 %89, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i

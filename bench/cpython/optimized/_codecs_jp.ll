@@ -1818,7 +1818,7 @@ if.then149:                                       ; preds = %if.then145
 
 if.then151:                                       ; preds = %if.then149
   %conv152 = trunc nuw i32 %retval.0.i.fr to i16
-  %call153 = tail call fastcc zeroext i16 @find_pairencmap.argprom.argelim(i16 noundef zeroext %conv152, i16 noundef zeroext 0)
+  %call153 = tail call fastcc zeroext i16 @find_pairencmap(i16 noundef zeroext %conv152, i16 noundef zeroext 0)
   %cmp155 = icmp eq i16 %call153, -3
   br i1 %cmp155, label %return, label %if.end304
 
@@ -1850,12 +1850,12 @@ PyUnicode_READ.exit121:                           ; preds = %if.then.i116, %if.t
   %retval.0.i115 = phi i32 [ %conv.i118, %if.then.i116 ], [ %conv5.i114, %if.then3.i112 ], [ %19, %if.end6.i119 ]
   %conv164 = trunc nuw i32 %retval.0.i.fr to i16
   %conv165 = trunc i32 %retval.0.i115 to i16
-  %call166 = tail call fastcc zeroext i16 @find_pairencmap.argprom.argelim(i16 noundef zeroext %conv164, i16 noundef zeroext %conv165)
+  %call166 = tail call fastcc zeroext i16 @find_pairencmap(i16 noundef zeroext %conv164, i16 noundef zeroext %conv165)
   %cmp168 = icmp eq i16 %call166, -3
   br i1 %cmp168, label %if.then170, label %if.end304
 
 if.then170:                                       ; preds = %PyUnicode_READ.exit121
-  %call172 = tail call fastcc zeroext i16 @find_pairencmap.argprom.argelim(i16 noundef zeroext %conv164, i16 noundef zeroext 0)
+  %call172 = tail call fastcc zeroext i16 @find_pairencmap(i16 noundef zeroext %conv164, i16 noundef zeroext 0)
   %cmp174 = icmp eq i16 %call172, -3
   br i1 %cmp174, label %return, label %if.end304
 
@@ -2659,9 +2659,9 @@ for.end.i:                                        ; preds = %for.inc.i, %if.else
   %arrayidx22.i = getelementptr %struct.pair_encodemap, ptr @jisx0213_pair_encmap, i64 %idxprom21.i
   %15 = load i32, ptr %arrayidx22.i, align 8
   %cmp24.i = icmp eq i32 %shl.i, %15
-  br i1 %cmp24.i, label %find_pairencmap.argprom.exit, label %return
+  br i1 %cmp24.i, label %find_pairencmap.exit, label %return
 
-find_pairencmap.argprom.exit:                     ; preds = %for.end.i
+find_pairencmap.exit:                             ; preds = %for.end.i
   %code.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 4
   %16 = load i16, ptr %code.i, align 4
   %cmp106 = icmp eq i16 %16, -3
@@ -2733,16 +2733,16 @@ for.end.i136:                                     ; preds = %for.inc.i130, %if.e
   %arrayidx22.i139 = getelementptr %struct.pair_encodemap, ptr @jisx0213_pair_encmap, i64 %idxprom21.i138
   %21 = load i32, ptr %arrayidx22.i139, align 8
   %cmp24.i140 = icmp eq i32 %or.i, %21
-  br i1 %cmp24.i140, label %find_pairencmap.argprom.exit146, label %if.then121
+  br i1 %cmp24.i140, label %find_pairencmap.exit146, label %if.then121
 
-find_pairencmap.argprom.exit146:                  ; preds = %for.end.i136
+find_pairencmap.exit146:                          ; preds = %for.end.i136
   %code.i143 = getelementptr inbounds i8, ptr %arrayidx22.i139, i64 4
   %22 = load i16, ptr %code.i143, align 4
   %cmp119 = icmp eq i16 %22, -3
   br i1 %cmp119, label %if.then121, label %if.end292
 
-if.then121:                                       ; preds = %for.end.i136, %find_pairencmap.argprom.exit146
-  %call123 = tail call fastcc zeroext i16 @find_pairencmap.argprom.argelim(i16 noundef zeroext %conv115, i16 noundef zeroext 0)
+if.then121:                                       ; preds = %for.end.i136, %find_pairencmap.exit146
+  %call123 = tail call fastcc zeroext i16 @find_pairencmap(i16 noundef zeroext %conv115, i16 noundef zeroext 0)
   %cmp125 = icmp eq i16 %call123, -3
   br i1 %cmp125, label %return, label %if.end292
 
@@ -2848,9 +2848,9 @@ land.lhs.true266:                                 ; preds = %land.lhs.true255
   %cmp284.not = icmp eq i16 %35, -1
   br i1 %cmp284.not, label %return, label %if.end292
 
-if.end292:                                        ; preds = %find_pairencmap.argprom.exit146, %land.lhs.true75, %land.lhs.true266, %find_pairencmap.argprom.exit, %if.then121, %land.lhs.true158
-  %code.0 = phi i16 [ %16, %find_pairencmap.argprom.exit ], [ %call123, %if.then121 ], [ %26, %land.lhs.true158 ], [ %35, %land.lhs.true266 ], [ %13, %land.lhs.true75 ], [ %22, %find_pairencmap.argprom.exit146 ]
-  %insize.0 = phi i64 [ 1, %find_pairencmap.argprom.exit ], [ 1, %if.then121 ], [ 1, %land.lhs.true158 ], [ 1, %land.lhs.true266 ], [ 1, %land.lhs.true75 ], [ 2, %find_pairencmap.argprom.exit146 ]
+if.end292:                                        ; preds = %find_pairencmap.exit146, %land.lhs.true75, %land.lhs.true266, %find_pairencmap.exit, %if.then121, %land.lhs.true158
+  %code.0 = phi i16 [ %16, %find_pairencmap.exit ], [ %call123, %if.then121 ], [ %26, %land.lhs.true158 ], [ %35, %land.lhs.true266 ], [ %13, %land.lhs.true75 ], [ %22, %find_pairencmap.exit146 ]
+  %insize.0 = phi i64 [ 1, %find_pairencmap.exit ], [ 1, %if.then121 ], [ 1, %land.lhs.true158 ], [ 1, %land.lhs.true266 ], [ 1, %land.lhs.true75 ], [ 2, %find_pairencmap.exit146 ]
   %tobool295.not = icmp sgt i16 %code.0, -1
   br i1 %tobool295.not, label %do.body331, label %do.body298
 
@@ -2894,8 +2894,8 @@ do.body337:                                       ; preds = %do.body331
   store i8 %conv348, ptr %arrayidx349, align 1
   br label %while.cond.backedge
 
-return:                                           ; preds = %do.body2, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %find_pairencmap.argprom.exit, %if.then100, %if.then121, %do.body184, %if.else208, %if.then228, %land.lhs.true266, %land.lhs.true255, %land.lhs.true244, %if.else236, %if.else224, %do.body298, %do.body331, %while.cond.backedge, %for.end.i, %entry
-  %retval.0 = phi i64 [ 0, %entry ], [ 1, %for.end.i ], [ 0, %while.cond.backedge ], [ -1, %do.body331 ], [ -1, %do.body298 ], [ 1, %if.else224 ], [ 1, %if.else236 ], [ 1, %land.lhs.true244 ], [ 1, %land.lhs.true255 ], [ 1, %land.lhs.true266 ], [ 1, %if.then228 ], [ 1, %if.else208 ], [ -1, %do.body184 ], [ 1, %if.then121 ], [ -2, %if.then100 ], [ 1, %find_pairencmap.argprom.exit ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ -1, %do.body2 ]
+return:                                           ; preds = %do.body2, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %find_pairencmap.exit, %if.then100, %if.then121, %do.body184, %if.else208, %if.then228, %land.lhs.true266, %land.lhs.true255, %land.lhs.true244, %if.else236, %if.else224, %do.body298, %do.body331, %while.cond.backedge, %for.end.i, %entry
+  %retval.0 = phi i64 [ 0, %entry ], [ 1, %for.end.i ], [ 0, %while.cond.backedge ], [ -1, %do.body331 ], [ -1, %do.body298 ], [ 1, %if.else224 ], [ 1, %if.else236 ], [ 1, %land.lhs.true244 ], [ 1, %land.lhs.true255 ], [ 1, %land.lhs.true266 ], [ 1, %if.then228 ], [ 1, %if.else208 ], [ -1, %do.body184 ], [ 1, %if.then121 ], [ -2, %if.then100 ], [ 1, %find_pairencmap.exit ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true ], [ -1, %do.body2 ]
   ret i64 %retval.0
 }
 
@@ -3378,7 +3378,7 @@ return:                                           ; preds = %do.body, %do.body14
 declare i32 @_PyUnicodeWriter_WriteChar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal fastcc zeroext i16 @find_pairencmap.argprom.argelim(i16 noundef zeroext %body, i16 noundef zeroext %modifier) unnamed_addr #6 {
+define internal fastcc zeroext i16 @find_pairencmap(i16 noundef zeroext %body, i16 noundef zeroext %modifier) unnamed_addr #6 {
 entry:
   %conv = zext i16 %body to i32
   %shl = shl nuw i32 %conv, 16

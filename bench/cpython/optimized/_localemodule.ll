@@ -337,7 +337,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %thousands_sep.i)
   %call.i = tail call ptr @PyDict_New() #6
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %_locale_localeconv_impl.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %_locale_localeconv_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @localeconv() #6
@@ -1174,33 +1174,33 @@ if.then1.i198.i:                                  ; preds = %if.end.i195.i
   br label %failed.i
 
 if.end181.i:                                      ; preds = %if.end176.i
-  br i1 %cmp.i552.not.i, label %if.end.i186.i, label %_locale_localeconv_impl.argprom.exit
+  br i1 %cmp.i552.not.i, label %if.end.i186.i, label %_locale_localeconv_impl.exit
 
 if.end.i186.i:                                    ; preds = %if.end181.i
   %dec.i187.i = add i64 %68, -1
   store i64 %dec.i187.i, ptr %call171.i, align 8
   %cmp.i188.i = icmp eq i64 %dec.i187.i, 0
-  br i1 %cmp.i188.i, label %return.sink.split.i, label %_locale_localeconv_impl.argprom.exit
+  br i1 %cmp.i188.i, label %return.sink.split.i, label %_locale_localeconv_impl.exit
 
 failed.i:                                         ; preds = %if.then1.i198.i, %if.end.i195.i, %if.then180.i, %Py_DECREF.exit209.i, %if.then1.i216.i, %if.end.i213.i, %if.then169.i, %if.then1.i234.i, %if.end.i231.i, %Py_DECREF.exit245.i, %if.then159.i, %if.then1.i261.i, %if.end.i258.i, %if.then152.i, %do.body141.i, %if.then1.i279.i, %if.end.i276.i, %if.then137.i, %do.body126.i, %if.then1.i297.i, %if.end.i294.i, %if.then122.i, %do.body111.i, %if.then1.i315.i, %if.end.i312.i, %if.then107.i, %do.body96.i, %if.then1.i333.i, %if.end.i330.i, %if.then92.i, %do.body81.i, %if.then1.i351.i, %if.end.i348.i, %if.then77.i, %do.body66.i, %if.then1.i369.i, %if.end.i366.i, %if.then62.i, %do.body51.i, %if.then1.i387.i, %if.end.i384.i, %if.then47.i, %do.body37.i, %if.then1.i405.i, %if.end.i402.i, %if.then33.i, %do.body25.i, %if.then1.i423.i, %if.end.i420.i, %if.then21.i, %do.body13.i, %if.then1.i441.i, %if.end.i438.i, %if.then11.i, %if.end4.i, %locale_decode_monetary.exit.i, %if.then14.i.i, %if.then11.i.i
   %70 = load i64, ptr %call.i, align 8
   %71 = and i64 %70, 2147483648
   %cmp.i560.not.i = icmp eq i64 %71, 0
-  br i1 %cmp.i560.not.i, label %if.end.i.i, label %_locale_localeconv_impl.argprom.exit
+  br i1 %cmp.i560.not.i, label %if.end.i.i, label %_locale_localeconv_impl.exit
 
 if.end.i.i:                                       ; preds = %failed.i
   %dec.i.i = add i64 %70, -1
   store i64 %dec.i.i, ptr %call.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %return.sink.split.i, label %_locale_localeconv_impl.argprom.exit
+  br i1 %cmp.i.i, label %return.sink.split.i, label %_locale_localeconv_impl.exit
 
 return.sink.split.i:                              ; preds = %if.end.i.i, %if.end.i186.i
   %call.sink.i = phi ptr [ %call171.i, %if.end.i186.i ], [ %call.i, %if.end.i.i ]
   %retval.0.ph.i = phi ptr [ %call.i, %if.end.i186.i ], [ null, %if.end.i.i ]
   call void @_Py_Dealloc(ptr noundef nonnull %call.sink.i) #6
-  br label %_locale_localeconv_impl.argprom.exit
+  br label %_locale_localeconv_impl.exit
 
-_locale_localeconv_impl.argprom.exit:             ; preds = %entry, %if.end181.i, %if.end.i186.i, %failed.i, %if.end.i.i, %return.sink.split.i
+_locale_localeconv_impl.exit:                     ; preds = %entry, %if.end181.i, %if.end.i186.i, %failed.i, %if.end.i.i, %return.sink.split.i
   %retval.0.i = phi ptr [ null, %entry ], [ %call.i, %if.end.i186.i ], [ %call.i, %if.end181.i ], [ null, %failed.i ], [ null, %if.end.i.i ], [ %retval.0.ph.i, %return.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %decimal_point.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %thousands_sep.i)
@@ -1295,7 +1295,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n1.i)
   %call.i = call ptr @PyUnicode_AsWideCharString(ptr noundef nonnull %arg, ptr noundef nonnull %n1.i) #6
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %_locale_strxfrm_impl.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %_locale_strxfrm_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   %call1.i = call i64 @wcslen(ptr noundef nonnull %call.i) #7
@@ -1306,7 +1306,7 @@ if.end.i:                                         ; preds = %if.end
 if.then3.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.13) #6
-  br label %_locale_strxfrm_impl.argprom.exit
+  br label %_locale_strxfrm_impl.exit
 
 if.end4.i:                                        ; preds = %if.end.i
   %add.i = add i64 %call1.i, 1
@@ -1322,7 +1322,7 @@ cond.end.i:                                       ; preds = %if.end4.i
 
 if.then7.i:                                       ; preds = %cond.end.i, %if.end4.i
   %call8.i = call ptr @PyErr_NoMemory() #6
-  br label %_locale_strxfrm_impl.argprom.exit
+  br label %_locale_strxfrm_impl.exit
 
 if.end9.i:                                        ; preds = %cond.end.i
   %call10.i = tail call ptr @__errno_location() #8
@@ -1338,7 +1338,7 @@ if.end9.i:                                        ; preds = %cond.end.i
 if.then16.i:                                      ; preds = %if.end9.i
   %7 = load ptr, ptr @PyExc_OSError, align 8
   %call17.i = call ptr @PyErr_SetFromErrno(ptr noundef %7) #6
-  br label %_locale_strxfrm_impl.argprom.exit
+  br label %_locale_strxfrm_impl.exit
 
 if.end18.i:                                       ; preds = %if.end9.i, %if.end9.i
   %8 = load i64, ptr %n1.i, align 8
@@ -1354,7 +1354,7 @@ if.then20.i:                                      ; preds = %if.end18.i
 
 if.then25.i:                                      ; preds = %if.then20.i
   %call26.i = call ptr @PyErr_NoMemory() #6
-  br label %_locale_strxfrm_impl.argprom.exit
+  br label %_locale_strxfrm_impl.exit
 
 if.end27.i:                                       ; preds = %if.then20.i
   store i32 0, ptr %call10.i, align 4
@@ -1366,15 +1366,15 @@ if.end27.i:                                       ; preds = %if.then20.i
 if.then33.i:                                      ; preds = %if.end27.i
   %10 = load ptr, ptr @PyExc_OSError, align 8
   %call34.i = call ptr @PyErr_SetFromErrno(ptr noundef %10) #6
-  br label %_locale_strxfrm_impl.argprom.exit
+  br label %_locale_strxfrm_impl.exit
 
 if.end36.i:                                       ; preds = %if.end27.i, %if.end18.i
   %buf.1.i = phi ptr [ %call23.i, %if.end27.i ], [ %call6.i, %if.end18.i ]
   %n2.0.i = phi i64 [ %call30.i, %if.end27.i ], [ %call11.i, %if.end18.i ]
   %call37.i = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %buf.1.i, i64 noundef %n2.0.i) #6
-  br label %_locale_strxfrm_impl.argprom.exit
+  br label %_locale_strxfrm_impl.exit
 
-_locale_strxfrm_impl.argprom.exit:                ; preds = %if.end, %if.then3.i, %if.then7.i, %if.then16.i, %if.then25.i, %if.then33.i, %if.end36.i
+_locale_strxfrm_impl.exit:                        ; preds = %if.end, %if.then3.i, %if.then7.i, %if.then16.i, %if.then25.i, %if.then33.i, %if.end36.i
   %buf.0.i = phi ptr [ null, %if.end ], [ null, %if.then3.i ], [ %call6.i, %if.then16.i ], [ %call23.i, %if.then33.i ], [ %buf.1.i, %if.end36.i ], [ %call6.i, %if.then25.i ], [ null, %if.then7.i ]
   %result.0.i = phi ptr [ null, %if.end ], [ null, %if.then3.i ], [ null, %if.then16.i ], [ null, %if.then33.i ], [ %call37.i, %if.end36.i ], [ null, %if.then25.i ], [ null, %if.then7.i ]
   call void @PyMem_Free(ptr noundef %buf.0.i) #6
@@ -1382,8 +1382,8 @@ _locale_strxfrm_impl.argprom.exit:                ; preds = %if.end, %if.then3.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n1.i)
   br label %exit
 
-exit:                                             ; preds = %_locale_strxfrm_impl.argprom.exit, %if.then
-  %return_value.0 = phi ptr [ %result.0.i, %_locale_strxfrm_impl.argprom.exit ], [ null, %if.then ]
+exit:                                             ; preds = %_locale_strxfrm_impl.exit, %if.then
+  %return_value.0 = phi ptr [ %result.0.i, %_locale_strxfrm_impl.exit ], [ null, %if.then ]
   ret ptr %return_value.0
 }
 

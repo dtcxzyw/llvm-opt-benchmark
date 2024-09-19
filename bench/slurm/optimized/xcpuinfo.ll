@@ -430,90 +430,90 @@ define range(i32 0, 3) i32 @xcpuinfo_hwloc_topo_get(ptr nocapture noundef writeo
 
 50:                                               ; preds = %46
   store i32 6, ptr %10, align 4
-  br label %hwloc_get_next_obj_by_type.argprom.exit.thread
+  br label %hwloc_get_next_obj_by_type.exit.thread
 
 51:                                               ; preds = %46
   %52 = and i64 %48, 4096
   %.not120 = icmp eq i64 %52, 0
-  br i1 %.not120, label %hwloc_get_next_obj_by_type.argprom.exit.thread, label %53
+  br i1 %.not120, label %hwloc_get_next_obj_by_type.exit.thread, label %53
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %9, align 8
   %55 = call i32 @hwloc_get_type_depth(ptr noundef %54, i32 noundef 13) #11
   %or.cond.i = icmp ugt i32 %55, -3
-  br i1 %or.cond.i, label %hwloc_get_next_obj_by_type.argprom.exit.thread, label %hwloc_get_next_obj_by_type.argprom.exit
+  br i1 %or.cond.i, label %hwloc_get_next_obj_by_type.exit.thread, label %hwloc_get_next_obj_by_type.exit
 
-hwloc_get_next_obj_by_type.argprom.exit:          ; preds = %53
+hwloc_get_next_obj_by_type.exit:                  ; preds = %53
   %56 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %54, i32 noundef %55, i32 noundef 0) #13
   %.not121 = icmp eq ptr %56, null
-  br i1 %.not121, label %hwloc_get_next_obj_by_type.argprom.exit.thread, label %57
+  br i1 %.not121, label %hwloc_get_next_obj_by_type.exit.thread, label %57
 
-57:                                               ; preds = %hwloc_get_next_obj_by_type.argprom.exit
+57:                                               ; preds = %hwloc_get_next_obj_by_type.exit
   %58 = getelementptr inbounds i8, ptr %56, i64 72
   %59 = load ptr, ptr %58, align 8
   %.not122 = icmp eq ptr %59, null
-  br i1 %.not122, label %hwloc_get_next_obj_by_type.argprom.exit.thread, label %60
+  br i1 %.not122, label %hwloc_get_next_obj_by_type.exit.thread, label %60
 
 60:                                               ; preds = %57
   %61 = load i32, ptr %59, align 8
   store i32 %61, ptr %10, align 4
   %62 = call i32 @get_log_level() #11
   %63 = icmp sgt i32 %62, 5
-  br i1 %63, label %64, label %hwloc_get_next_obj_by_type.argprom.exit.thread
+  br i1 %63, label %64, label %hwloc_get_next_obj_by_type.exit.thread
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %58, align 8
   %66 = call i32 @hwloc_obj_type_snprintf(ptr noundef nonnull %14, i64 noundef 128, ptr noundef %65, i32 noundef 0) #11
   %67 = call i32 @get_log_level() #11
   %68 = icmp sgt i32 %67, 5
-  br i1 %68, label %69, label %hwloc_get_next_obj_by_type.argprom.exit.thread
+  br i1 %68, label %69, label %hwloc_get_next_obj_by_type.exit.thread
 
 69:                                               ; preds = %64
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.xcpuinfo_hwloc_topo_get, ptr noundef nonnull %14) #11
-  br label %hwloc_get_next_obj_by_type.argprom.exit.thread
+  br label %hwloc_get_next_obj_by_type.exit.thread
 
-hwloc_get_next_obj_by_type.argprom.exit.thread:   ; preds = %53, %51, %60, %69, %64, %57, %hwloc_get_next_obj_by_type.argprom.exit, %50
-  %70 = phi i32 [ 1, %53 ], [ 1, %51 ], [ %61, %60 ], [ %61, %69 ], [ %61, %64 ], [ 1, %57 ], [ 1, %hwloc_get_next_obj_by_type.argprom.exit ], [ 6, %50 ]
+hwloc_get_next_obj_by_type.exit.thread:           ; preds = %53, %51, %60, %69, %64, %57, %hwloc_get_next_obj_by_type.exit, %50
+  %70 = phi i32 [ 1, %53 ], [ 1, %51 ], [ %61, %60 ], [ %61, %69 ], [ %61, %64 ], [ 1, %57 ], [ 1, %hwloc_get_next_obj_by_type.exit ], [ 6, %50 ]
   %71 = load ptr, ptr %9, align 8
   %72 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %71, i32 noundef 0, i32 noundef 0) #13
   %73 = getelementptr inbounds i8, ptr %72, i64 120
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %hwloc_get_next_child.argprom.exit
+  br i1 %75, label %76, label %hwloc_get_next_child.exit
 
-76:                                               ; preds = %hwloc_get_next_obj_by_type.argprom.exit.thread
+76:                                               ; preds = %hwloc_get_next_obj_by_type.exit.thread
   %77 = getelementptr inbounds i8, ptr %72, i64 144
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %80, label %hwloc_get_next_child.argprom.exit
+  br i1 %79, label %80, label %hwloc_get_next_child.exit
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds i8, ptr %72, i64 160
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %84, label %hwloc_get_next_child.argprom.exit
+  br i1 %83, label %84, label %hwloc_get_next_child.exit
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %72, i64 176
   %86 = load ptr, ptr %85, align 8
-  br label %hwloc_get_next_child.argprom.exit
+  br label %hwloc_get_next_child.exit
 
-hwloc_get_next_child.argprom.exit:                ; preds = %hwloc_get_next_obj_by_type.argprom.exit.thread, %76, %80, %84
-  %.325.i = phi ptr [ %86, %84 ], [ %82, %80 ], [ %78, %76 ], [ %74, %hwloc_get_next_obj_by_type.argprom.exit.thread ]
+hwloc_get_next_child.exit:                        ; preds = %hwloc_get_next_obj_by_type.exit.thread, %76, %80, %84
+  %.325.i = phi ptr [ %86, %84 ], [ %82, %80 ], [ %78, %76 ], [ %74, %hwloc_get_next_obj_by_type.exit.thread ]
   %87 = load i32, ptr %.325.i, align 8
   %88 = call i32 @hwloc_compare_types(i32 noundef 12, i32 noundef %87) #14
   %.not123 = icmp eq i32 %88, 0
   br i1 %.not123, label %89, label %93
 
-89:                                               ; preds = %hwloc_get_next_child.argprom.exit
+89:                                               ; preds = %hwloc_get_next_child.exit
   %90 = getelementptr inbounds i8, ptr %.325.i, i64 48
   %91 = load i32, ptr %90, align 8
   %92 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %71, i32 noundef %91) #13
   %spec.select = call i32 @llvm.umax.i32(i32 %92, i32 1)
   br label %93
 
-93:                                               ; preds = %89, %hwloc_get_next_child.argprom.exit
-  %.0100 = phi i32 [ 1, %hwloc_get_next_child.argprom.exit ], [ %spec.select, %89 ]
+93:                                               ; preds = %89, %hwloc_get_next_child.exit
+  %.0100 = phi i32 [ 1, %hwloc_get_next_child.exit ], [ %spec.select, %89 ]
   %94 = call i32 @hwloc_get_type_depth(ptr noundef %71, i32 noundef %70) #11
   %95 = call ptr @bit_alloc(i64 noundef 1024) #11
   store ptr %95, ptr %12, align 8
@@ -541,7 +541,7 @@ hwloc_get_next_child.argprom.exit:                ; preds = %hwloc_get_next_obj_
   br i1 %105, label %106, label %121
 
 106:                                              ; preds = %.lr.ph
-  %107 = call fastcc i32 @_core_child_count.argprom(ptr noundef nonnull %103)
+  %107 = call fastcc i32 @_core_child_count(ptr noundef nonnull %103)
   %108 = getelementptr inbounds i32, ptr %100, i64 %indvars.iv
   store i32 %107, ptr %108, align 4
   %109 = load ptr, ptr %13, align 8
@@ -986,7 +986,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @_core_child_count.argprom(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc i32 @_core_child_count(ptr nocapture noundef readonly %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 2
   br i1 %3, label %.loopexit, label %.preheader
@@ -1008,7 +1008,7 @@ define internal fastcc i32 @_core_child_count.argprom(ptr nocapture noundef read
   %.091 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
   %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call fastcc i32 @_core_child_count.argprom(ptr noundef %10)
+  %11 = tail call fastcc i32 @_core_child_count(ptr noundef %10)
   %12 = add nsw i32 %11, %.091
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

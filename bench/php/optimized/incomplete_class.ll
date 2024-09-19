@@ -58,7 +58,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal noundef ptr @incomplete_class_get_property(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef writeonly %4) #2 {
   %6 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %6, align 8
-  tail call fastcc void @incomplete_class_message.argprom(ptr %.val)
+  tail call fastcc void @incomplete_class_message(ptr %.val)
   %7 = add i32 %2, -1
   %or.cond = icmp ult i32 %7, 2
   br i1 %or.cond, label %8, label %10
@@ -77,7 +77,7 @@ define internal noundef ptr @incomplete_class_get_property(ptr nocapture noundef
 define internal noundef i32 @incomplete_class_has_property(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #2 {
   %5 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @incomplete_class_message.argprom(ptr %.val)
+  tail call fastcc void @incomplete_class_message(ptr %.val)
   ret i32 0
 }
 
@@ -85,7 +85,7 @@ define internal noundef i32 @incomplete_class_has_property(ptr nocapture noundef
 define internal void @incomplete_class_unset_property(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8
-  tail call fastcc void @throw_incomplete_class_error.argprom(ptr %.val, ptr noundef nonnull @.str.4)
+  tail call fastcc void @throw_incomplete_class_error(ptr %.val, ptr noundef nonnull @.str.4)
   ret void
 }
 
@@ -93,7 +93,7 @@ define internal void @incomplete_class_unset_property(ptr nocapture noundef read
 define internal noundef ptr @incomplete_class_write_property(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef readnone returned %2, ptr nocapture readnone %3) #2 {
   %5 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @throw_incomplete_class_error.argprom(ptr %.val, ptr noundef nonnull @.str.4)
+  tail call fastcc void @throw_incomplete_class_error(ptr %.val, ptr noundef nonnull @.str.4)
   ret ptr %2
 }
 
@@ -101,7 +101,7 @@ define internal noundef ptr @incomplete_class_write_property(ptr nocapture nound
 define internal nonnull ptr @incomplete_class_get_property_ptr_ptr(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #2 {
   %5 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @throw_incomplete_class_error.argprom(ptr %.val, ptr noundef nonnull @.str.4)
+  tail call fastcc void @throw_incomplete_class_error(ptr %.val, ptr noundef nonnull @.str.4)
   ret ptr getelementptr inbounds (i8, ptr @executor_globals, i64 16)
 }
 
@@ -110,7 +110,7 @@ define internal noalias noundef ptr @incomplete_class_get_method(ptr nocapture n
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 32
   %.val = load ptr, ptr %5, align 8
-  tail call fastcc void @throw_incomplete_class_error.argprom(ptr %.val, ptr noundef nonnull @.str.5)
+  tail call fastcc void @throw_incomplete_class_error(ptr %.val, ptr noundef nonnull @.str.5)
   ret ptr null
 }
 
@@ -195,7 +195,7 @@ define void @php_store_class_name(ptr nocapture noundef readonly %0, ptr noundef
 declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @incomplete_class_message.argprom(ptr %.32.val) unnamed_addr #2 {
+define internal fastcc void @incomplete_class_message(ptr %.32.val) unnamed_addr #2 {
   %.not.i = icmp eq ptr %.32.val, null
   br i1 %.not.i, label %php_lookup_class_name.exit.thread, label %1
 
@@ -261,7 +261,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @throw_incomplete_class_error.argprom(ptr %.32.val, ptr noundef %0) unnamed_addr #2 {
+define internal fastcc void @throw_incomplete_class_error(ptr %.32.val, ptr noundef %0) unnamed_addr #2 {
   %.not.i = icmp eq ptr %.32.val, null
   br i1 %.not.i, label %php_lookup_class_name.exit.thread, label %2
 

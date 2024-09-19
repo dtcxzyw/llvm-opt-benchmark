@@ -37,7 +37,7 @@ define void @_ZN3gmx21repartitionAtomMassesEP10gmx_mtop_tbfP14WarningHandler(ptr
   %8 = getelementptr i8, ptr %0, i64 120
   %.val142 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %.val, %.val142
-  br i1 %.not8.i, label %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.argprom.exit, label %.lr.ph12.i
+  br i1 %.not8.i, label %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit, label %.lr.ph12.i
 
 .lr.ph12.i:                                       ; preds = %4, %._crit_edge.i
   %.0510.i = phi float [ %.1.lcssa.i, %._crit_edge.i ], [ 0x47EFFFFFE0000000, %4 ]
@@ -70,9 +70,9 @@ define void @_ZN3gmx21repartitionAtomMassesEP10gmx_mtop_tbfP14WarningHandler(ptr
   %.1.lcssa.i = phi float [ %.0510.i, %.lr.ph12.i ], [ %.2.i, %14 ]
   %20 = getelementptr inbounds i8, ptr %.sroa.01.09.i, i64 2384
   %.not.i = icmp eq ptr %20, %.val142
-  br i1 %.not.i, label %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.argprom.exit, label %.lr.ph12.i
+  br i1 %.not.i, label %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit, label %.lr.ph12.i
 
-_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.argprom.exit: ; preds = %._crit_edge.i, %4
+_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit:   ; preds = %._crit_edge.i, %4
   %.05.lcssa.i = phi float [ 0x47EFFFFFE0000000, %4 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %21 = fmul float %2, %.05.lcssa.i
   %22 = fpext float %.05.lcssa.i to double
@@ -88,11 +88,11 @@ _ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.argprom.exit: ; preds = %._crit_edge.i
   %.not196 = icmp eq ptr %28, %26
   br i1 %.not196, label %._crit_edge270, label %.lr.ph269
 
-.lr.ph269:                                        ; preds = %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.argprom.exit, %27
-  %.0268 = phi i1 [ %.1323, %27 ], [ false, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.argprom.exit ]
-  %.0115267 = phi i32 [ %.1116321, %27 ], [ 0, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.argprom.exit ]
-  %.0119266 = phi i32 [ %.1120319, %27 ], [ 0, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.argprom.exit ]
-  %.sroa.0191.0265 = phi ptr [ %28, %27 ], [ %25, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.argprom.exit ]
+.lr.ph269:                                        ; preds = %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit, %27
+  %.0268 = phi i1 [ %.1323, %27 ], [ false, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
+  %.0115267 = phi i32 [ %.1116321, %27 ], [ 0, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
+  %.0119266 = phi i32 [ %.1120319, %27 ], [ 0, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
+  %.sroa.0191.0265 = phi ptr [ %28, %27 ], [ %25, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
   %29 = getelementptr inbounds i8, ptr %.sroa.0191.0265, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
@@ -557,7 +557,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit199, %.loo
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit154
 
-.loopexit200:                                     ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.argprom.exit, %215, %210
+.loopexit200:                                     ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit, %215, %210
   ret void
 
 _ZNSt6vectorIiSaIiEED2Ev.exit154:                 ; preds = %199, %_ZNSt6vectorIfSaIfEED2Ev.exit, %216, %208

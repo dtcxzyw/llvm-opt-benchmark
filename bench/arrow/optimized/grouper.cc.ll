@@ -2142,14 +2142,14 @@ delete.notnull.i.i63.i:                           ; preds = %if.then.i
   %_M_refcount.i.i.i.i.i64.i = getelementptr inbounds i8, ptr %13, i64 48
   %14 = load ptr, ptr %_M_refcount.i.i.i.i.i64.i, align 8, !noalias !25
   %cmp.not.i.i.i.i.i.i65.i = icmp eq ptr %14, null
-  br i1 %cmp.not.i.i.i.i.i.i65.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i, label %if.then.i.i.i.i.i.i66.i
+  br i1 %cmp.not.i.i.i.i.i.i65.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i, label %if.then.i.i.i.i.i.i66.i
 
 if.then.i.i.i.i.i.i66.i:                          ; preds = %delete.notnull.i.i63.i
   %_M_use_count.i.i.i.i.i.i.i67.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i67.i acquire, align 8, !noalias !25
   %cmp.i.i.i.i.i.i.i68.i = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
-  br i1 %cmp.i.i.i.i.i.i.i68.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i69.i
+  br i1 %cmp.i.i.i.i.i.i.i68.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i69.i
 
 if.end.i.i.i.i.i.i.i69.i:                         ; preds = %if.then.i.i.i.i.i.i66.i
   %17 = load i8, ptr @__libc_single_threaded, align 1, !noalias !25
@@ -2168,7 +2168,7 @@ if.else.i.i.i.i.i.i.i.i92.i:                      ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i73.i: ; preds = %if.else.i.i.i.i.i.i.i.i92.i, %if.then.i.i.i.i.i.i.i.i71.i
   %retval.i.0.i.i.i.i.i.i.i74.i = phi i32 [ %16, %if.then.i.i.i.i.i.i.i.i71.i ], [ %18, %if.else.i.i.i.i.i.i.i.i92.i ]
   %cmp6.i.i.i.i.i.i.i75.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i74.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i75.i, label %if.then7.i.i.i.i.i.i.i78.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+  br i1 %cmp6.i.i.i.i.i.i.i75.i, label %if.then7.i.i.i.i.i.i.i78.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
 
 if.then7.i.i.i.i.i.i.i78.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i73.i
   %vtable.i.i.i.i.i.i.i.i.i79.i = load ptr, ptr %14, align 8, !noalias !25
@@ -2193,14 +2193,14 @@ if.else.i.i.i.i.i.i.i.i.i.i91.i:                  ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i91.i, %if.then.i.i.i.i.i.i.i.i.i.i83.i
   %retval.i.0.i.i.i.i.i.i.i.i.i86.i = phi i32 [ %21, %if.then.i.i.i.i.i.i.i.i.i.i83.i ], [ %22, %if.else.i.i.i.i.i.i.i.i.i.i91.i ]
   %cmp.i.i.i.i.i.i.i.i.i87.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i86.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i87.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i87.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
 
 _ZNSt10unique_ptrIN5arrow7compute12_GLOBAL__N_115GrouperFastImplESt14default_deleteIS3_EED2Ev.exit.loopexit.i: ; preds = %if.then57.i, %if.then29.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN5arrow7compute12_GLOBAL__N_115GrouperFastImplESt14default_deleteIS3_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5arrow7compute12_GLOBAL__N_115GrouperFastImplESt14default_deleteIS3_EED2Ev.exit.loopexit.split-lp.i: ; preds = %if.then.i572.i, %if.then.i557.i, %_ZNSt8functionIFN5arrow6StatusEiPKtPvEEaSIZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaISC_EEPNS8_11ExecContextEEUliS3_S4_E_EENSt9enable_ifIXsrNS6_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES6_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JiS3_S4_EEEE5valueERS6_E4typeEOSM_.argprom.exit.i, %_ZN5arrow6StatusD2Ev.exit316.i, %do.body109.i, %for.end.i, %if.else91.i, %invoke.cont23.i, %invoke.cont21.i, %if.then.i.i, %invoke.cont10.i, %_ZN5arrow6StatusD2Ev.exit134.i, %_ZSt11make_uniqueIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
+_ZNSt10unique_ptrIN5arrow7compute12_GLOBAL__N_115GrouperFastImplESt14default_deleteIS3_EED2Ev.exit.loopexit.split-lp.i: ; preds = %if.then.i572.i, %if.then.i557.i, %_ZNSt8functionIFN5arrow6StatusEiPKtPvEEaSIZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaISC_EEPNS8_11ExecContextEEUliS3_S4_E_EENSt9enable_ifIXsrNS6_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES6_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JiS3_S4_EEEE5valueERS6_E4typeEOSM_.exit.i, %_ZN5arrow6StatusD2Ev.exit316.i, %do.body109.i, %for.end.i, %if.else91.i, %invoke.cont23.i, %invoke.cont21.i, %if.then.i.i, %invoke.cont10.i, %_ZN5arrow6StatusD2Ev.exit134.i, %_ZSt11make_uniqueIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN5arrow7compute12_GLOBAL__N_115GrouperFastImplESt14default_deleteIS3_EED2Ev.exit.i
@@ -2386,14 +2386,14 @@ delete.notnull.i.i157.i:                          ; preds = %invoke.cont95.i
   %_M_refcount.i.i.i.i.i158.i = getelementptr inbounds i8, ptr %38, i64 48
   %39 = load ptr, ptr %_M_refcount.i.i.i.i.i158.i, align 8, !noalias !25
   %cmp.not.i.i.i.i.i.i159.i = icmp eq ptr %39, null
-  br i1 %cmp.not.i.i.i.i.i.i159.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i, label %if.then.i.i.i.i.i.i160.i
+  br i1 %cmp.not.i.i.i.i.i.i159.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i, label %if.then.i.i.i.i.i.i160.i
 
 if.then.i.i.i.i.i.i160.i:                         ; preds = %delete.notnull.i.i157.i
   %_M_use_count.i.i.i.i.i.i.i161.i = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i161.i acquire, align 8, !noalias !25
   %cmp.i.i.i.i.i.i.i162.i = icmp eq i64 %40, 4294967297
   %41 = trunc i64 %40 to i32
-  br i1 %cmp.i.i.i.i.i.i.i162.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i163.i
+  br i1 %cmp.i.i.i.i.i.i.i162.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i163.i
 
 if.end.i.i.i.i.i.i.i163.i:                        ; preds = %if.then.i.i.i.i.i.i160.i
   %42 = load i8, ptr @__libc_single_threaded, align 1, !noalias !25
@@ -2412,7 +2412,7 @@ if.else.i.i.i.i.i.i.i.i186.i:                     ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i167.i: ; preds = %if.else.i.i.i.i.i.i.i.i186.i, %if.then.i.i.i.i.i.i.i.i165.i
   %retval.i.0.i.i.i.i.i.i.i168.i = phi i32 [ %41, %if.then.i.i.i.i.i.i.i.i165.i ], [ %43, %if.else.i.i.i.i.i.i.i.i186.i ]
   %cmp6.i.i.i.i.i.i.i169.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i168.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i169.i, label %if.then7.i.i.i.i.i.i.i172.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+  br i1 %cmp6.i.i.i.i.i.i.i169.i, label %if.then7.i.i.i.i.i.i.i172.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
 
 if.then7.i.i.i.i.i.i.i172.i:                      ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i167.i
   %vtable.i.i.i.i.i.i.i.i.i173.i = load ptr, ptr %39, align 8, !noalias !25
@@ -2437,7 +2437,7 @@ if.else.i.i.i.i.i.i.i.i.i.i185.i:                 ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i185.i, %if.then.i.i.i.i.i.i.i.i.i.i177.i
   %retval.i.0.i.i.i.i.i.i.i.i.i180.i = phi i32 [ %46, %if.then.i.i.i.i.i.i.i.i.i.i177.i ], [ %47, %if.else.i.i.i.i.i.i.i.i.i.i185.i ]
   %cmp.i.i.i.i.i.i.i.i.i181.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i180.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i181.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i181.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
 
 if.end100.i:                                      ; preds = %if.then85.i, %if.then76.i, %invoke.cont65.i, %if.then47.i, %invoke.cont34.i
   %48 = load ptr, ptr %key_types_.i.i.i, align 8, !noalias !25
@@ -2589,14 +2589,14 @@ delete.notnull.i.i246.i:                          ; preds = %if.then125.i
   %_M_refcount.i.i.i.i.i247.i = getelementptr inbounds i8, ptr %69, i64 48
   %70 = load ptr, ptr %_M_refcount.i.i.i.i.i247.i, align 8, !noalias !25
   %cmp.not.i.i.i.i.i.i248.i = icmp eq ptr %70, null
-  br i1 %cmp.not.i.i.i.i.i.i248.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i, label %if.then.i.i.i.i.i.i249.i
+  br i1 %cmp.not.i.i.i.i.i.i248.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i, label %if.then.i.i.i.i.i.i249.i
 
 if.then.i.i.i.i.i.i249.i:                         ; preds = %delete.notnull.i.i246.i
   %_M_use_count.i.i.i.i.i.i.i250.i = getelementptr inbounds i8, ptr %70, i64 8
   %71 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i250.i acquire, align 8, !noalias !25
   %cmp.i.i.i.i.i.i.i251.i = icmp eq i64 %71, 4294967297
   %72 = trunc i64 %71 to i32
-  br i1 %cmp.i.i.i.i.i.i.i251.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i252.i
+  br i1 %cmp.i.i.i.i.i.i.i251.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i252.i
 
 if.end.i.i.i.i.i.i.i252.i:                        ; preds = %if.then.i.i.i.i.i.i249.i
   %73 = load i8, ptr @__libc_single_threaded, align 1, !noalias !25
@@ -2615,7 +2615,7 @@ if.else.i.i.i.i.i.i.i.i275.i:                     ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i256.i: ; preds = %if.else.i.i.i.i.i.i.i.i275.i, %if.then.i.i.i.i.i.i.i.i254.i
   %retval.i.0.i.i.i.i.i.i.i257.i = phi i32 [ %72, %if.then.i.i.i.i.i.i.i.i254.i ], [ %74, %if.else.i.i.i.i.i.i.i.i275.i ]
   %cmp6.i.i.i.i.i.i.i258.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i257.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i258.i, label %if.then7.i.i.i.i.i.i.i261.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+  br i1 %cmp6.i.i.i.i.i.i.i258.i, label %if.then7.i.i.i.i.i.i.i261.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
 
 if.then7.i.i.i.i.i.i.i261.i:                      ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i256.i
   %vtable.i.i.i.i.i.i.i.i.i262.i = load ptr, ptr %70, align 8, !noalias !25
@@ -2640,7 +2640,7 @@ if.else.i.i.i.i.i.i.i.i.i.i274.i:                 ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i274.i, %if.then.i.i.i.i.i.i.i.i.i.i266.i
   %retval.i.0.i.i.i.i.i.i.i.i.i269.i = phi i32 [ %77, %if.then.i.i.i.i.i.i.i.i.i.i266.i ], [ %78, %if.else.i.i.i.i.i.i.i.i.i.i274.i ]
   %cmp.i.i.i.i.i.i.i.i.i270.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i269.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i270.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i270.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
 
 _ZN5arrow6StatusD2Ev.exit316.i:                   ; preds = %_ZN5arrow6StatusD2Ev.exit243.i
   %79 = load ptr, ptr %ctx, align 8, !noalias !25
@@ -2665,14 +2665,14 @@ delete.notnull.i.i355.i:                          ; preds = %if.then150.i
   %_M_refcount.i.i.i.i.i356.i = getelementptr inbounds i8, ptr %81, i64 48
   %82 = load ptr, ptr %_M_refcount.i.i.i.i.i356.i, align 8, !noalias !25
   %cmp.not.i.i.i.i.i.i357.i = icmp eq ptr %82, null
-  br i1 %cmp.not.i.i.i.i.i.i357.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i, label %if.then.i.i.i.i.i.i358.i
+  br i1 %cmp.not.i.i.i.i.i.i357.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i, label %if.then.i.i.i.i.i.i358.i
 
 if.then.i.i.i.i.i.i358.i:                         ; preds = %delete.notnull.i.i355.i
   %_M_use_count.i.i.i.i.i.i.i359.i = getelementptr inbounds i8, ptr %82, i64 8
   %83 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i359.i acquire, align 8, !noalias !25
   %cmp.i.i.i.i.i.i.i360.i = icmp eq i64 %83, 4294967297
   %84 = trunc i64 %83 to i32
-  br i1 %cmp.i.i.i.i.i.i.i360.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i361.i
+  br i1 %cmp.i.i.i.i.i.i.i360.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i361.i
 
 if.end.i.i.i.i.i.i.i361.i:                        ; preds = %if.then.i.i.i.i.i.i358.i
   %85 = load i8, ptr @__libc_single_threaded, align 1, !noalias !25
@@ -2691,7 +2691,7 @@ if.else.i.i.i.i.i.i.i.i384.i:                     ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i365.i: ; preds = %if.else.i.i.i.i.i.i.i.i384.i, %if.then.i.i.i.i.i.i.i.i363.i
   %retval.i.0.i.i.i.i.i.i.i366.i = phi i32 [ %84, %if.then.i.i.i.i.i.i.i.i363.i ], [ %86, %if.else.i.i.i.i.i.i.i.i384.i ]
   %cmp6.i.i.i.i.i.i.i367.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i366.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i367.i, label %if.then7.i.i.i.i.i.i.i370.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+  br i1 %cmp6.i.i.i.i.i.i.i367.i, label %if.then7.i.i.i.i.i.i.i370.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
 
 if.then7.i.i.i.i.i.i.i370.i:                      ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i365.i
   %vtable.i.i.i.i.i.i.i.i.i371.i = load ptr, ptr %82, align 8, !noalias !25
@@ -2716,7 +2716,7 @@ if.else.i.i.i.i.i.i.i.i.i.i383.i:                 ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i383.i, %if.then.i.i.i.i.i.i.i.i.i.i375.i
   %retval.i.0.i.i.i.i.i.i.i.i.i378.i = phi i32 [ %89, %if.then.i.i.i.i.i.i.i.i.i.i375.i ], [ %90, %if.else.i.i.i.i.i.i.i.i.i.i383.i ]
   %cmp.i.i.i.i.i.i.i.i.i379.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i378.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i379.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i379.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
 
 _ZN5arrow6StatusD2Ev.exit425.i:                   ; preds = %_ZN5arrow6StatusD2Ev.exit352.i
   %minibatch_size_.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
@@ -2742,11 +2742,11 @@ _ZN5arrow6StatusD2Ev.exit425.i:                   ; preds = %_ZN5arrow6StatusD2E
   store ptr %94, ptr %_M_invoker.i.i.i, align 8, !noalias !25
   store ptr @_ZNSt17_Function_handlerIFviPKtPKjPjPtPvEZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS8_10TypeHolderESaISD_EEPNS9_11ExecContextEEUliS1_S3_S4_S5_S6_E_E9_M_invokeERKSt9_Any_dataOiOS1_OS3_OS4_OS5_OS6_, ptr %_M_invoker4.i.i.i, align 8, !noalias !25
   %tobool.not.i.i.i.i = icmp eq ptr %93, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt8functionIFviPKtPKjPjPtPvEEaSIZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINSA_10TypeHolderESaISF_EEPNSB_11ExecContextEEUliS1_S3_S4_S5_S6_E_EENSt9enable_ifIXsrNS8_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES8_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JiS1_S3_S4_S5_S6_EEEE5valueERS8_E4typeEOSP_.argprom.exit.i, label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt8functionIFviPKtPKjPjPtPvEEaSIZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINSA_10TypeHolderESaISF_EEPNSB_11ExecContextEEUliS1_S3_S4_S5_S6_E_EENSt9enable_ifIXsrNS8_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES8_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JiS1_S3_S4_S5_S6_EEEE5valueERS8_E4typeEOSP_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit425.i
   %call.i.i.i.i = invoke noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
-          to label %_ZNSt8functionIFviPKtPKjPjPtPvEEaSIZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINSA_10TypeHolderESaISF_EEPNSB_11ExecContextEEUliS1_S3_S4_S5_S6_E_EENSt9enable_ifIXsrNS8_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES8_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JiS1_S3_S4_S5_S6_EEEE5valueERS8_E4typeEOSP_.argprom.exit.i unwind label %terminate.lpad.i.i.i.i, !noalias !25
+          to label %_ZNSt8functionIFviPKtPKjPjPtPvEEaSIZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINSA_10TypeHolderESaISF_EEPNSB_11ExecContextEEUliS1_S3_S4_S5_S6_E_EENSt9enable_ifIXsrNS8_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES8_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JiS1_S3_S4_S5_S6_EEEE5valueERS8_E4typeEOSP_.exit.i unwind label %terminate.lpad.i.i.i.i, !noalias !25
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %95 = landingpad { ptr, i32 }
@@ -2755,7 +2755,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   call void @__clang_call_terminate(ptr %96) #32
   unreachable
 
-_ZNSt8functionIFviPKtPKjPjPtPvEEaSIZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINSA_10TypeHolderESaISF_EEPNSB_11ExecContextEEUliS1_S3_S4_S5_S6_E_EENSt9enable_ifIXsrNS8_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES8_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JiS1_S3_S4_S5_S6_EEEE5valueERS8_E4typeEOSP_.argprom.exit.i: ; preds = %if.then.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit425.i
+_ZNSt8functionIFviPKtPKjPjPtPvEEaSIZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINSA_10TypeHolderESaISF_EEPNSB_11ExecContextEEUliS1_S3_S4_S5_S6_E_EENSt9enable_ifIXsrNS8_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES8_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JiS1_S3_S4_S5_S6_EEEE5valueERS8_E4typeEOSP_.exit.i: ; preds = %if.then.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit425.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !25
   %map_append_impl_.i = getelementptr inbounds i8, ptr %call.i.i, i64 912
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i427.i), !noalias !25
@@ -2778,11 +2778,11 @@ _ZNSt8functionIFviPKtPKjPjPtPvEEaSIZN5arrow7compute12_GLOBAL__N_115GrouperFastIm
   store ptr %99, ptr %_M_invoker.i.i429.i, align 8, !noalias !25
   store ptr @_ZNSt17_Function_handlerIFN5arrow6StatusEiPKtPvEZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaISA_EEPNS6_11ExecContextEEUliS3_S4_E_E9_M_invokeERKSt9_Any_dataOiOS3_OS4_, ptr %_M_invoker4.i.i431.i, align 8, !noalias !25
   %tobool.not.i.i.i432.i = icmp eq ptr %98, null
-  br i1 %tobool.not.i.i.i432.i, label %_ZNSt8functionIFN5arrow6StatusEiPKtPvEEaSIZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaISC_EEPNS8_11ExecContextEEUliS3_S4_E_EENSt9enable_ifIXsrNS6_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES6_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JiS3_S4_EEEE5valueERS6_E4typeEOSM_.argprom.exit.i, label %if.then.i.i.i433.i
+  br i1 %tobool.not.i.i.i432.i, label %_ZNSt8functionIFN5arrow6StatusEiPKtPvEEaSIZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaISC_EEPNS8_11ExecContextEEUliS3_S4_E_EENSt9enable_ifIXsrNS6_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES6_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JiS3_S4_EEEE5valueERS6_E4typeEOSM_.exit.i, label %if.then.i.i.i433.i
 
-if.then.i.i.i433.i:                               ; preds = %_ZNSt8functionIFviPKtPKjPjPtPvEEaSIZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINSA_10TypeHolderESaISF_EEPNSB_11ExecContextEEUliS1_S3_S4_S5_S6_E_EENSt9enable_ifIXsrNS8_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES8_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JiS1_S3_S4_S5_S6_EEEE5valueERS8_E4typeEOSP_.argprom.exit.i
+if.then.i.i.i433.i:                               ; preds = %_ZNSt8functionIFviPKtPKjPjPtPvEEaSIZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINSA_10TypeHolderESaISF_EEPNSB_11ExecContextEEUliS1_S3_S4_S5_S6_E_EENSt9enable_ifIXsrNS8_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES8_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JiS1_S3_S4_S5_S6_EEEE5valueERS8_E4typeEOSP_.exit.i
   %call.i.i.i434.i = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i427.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i427.i, i32 noundef 3)
-          to label %_ZNSt8functionIFN5arrow6StatusEiPKtPvEEaSIZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaISC_EEPNS8_11ExecContextEEUliS3_S4_E_EENSt9enable_ifIXsrNS6_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES6_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JiS3_S4_EEEE5valueERS6_E4typeEOSM_.argprom.exit.i unwind label %terminate.lpad.i.i.i435.i, !noalias !25
+          to label %_ZNSt8functionIFN5arrow6StatusEiPKtPvEEaSIZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaISC_EEPNS8_11ExecContextEEUliS3_S4_E_EENSt9enable_ifIXsrNS6_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES6_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JiS3_S4_EEEE5valueERS6_E4typeEOSM_.exit.i unwind label %terminate.lpad.i.i.i435.i, !noalias !25
 
 terminate.lpad.i.i.i435.i:                        ; preds = %if.then.i.i.i433.i
   %100 = landingpad { ptr, i32 }
@@ -2791,7 +2791,7 @@ terminate.lpad.i.i.i435.i:                        ; preds = %if.then.i.i.i433.i
   call void @__clang_call_terminate(ptr %101) #32
   unreachable
 
-_ZNSt8functionIFN5arrow6StatusEiPKtPvEEaSIZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaISC_EEPNS8_11ExecContextEEUliS3_S4_E_EENSt9enable_ifIXsrNS6_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES6_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JiS3_S4_EEEE5valueERS6_E4typeEOSM_.argprom.exit.i: ; preds = %if.then.i.i.i433.i, %_ZNSt8functionIFviPKtPKjPjPtPvEEaSIZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINSA_10TypeHolderESaISF_EEPNSB_11ExecContextEEUliS1_S3_S4_S5_S6_E_EENSt9enable_ifIXsrNS8_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES8_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JiS1_S3_S4_S5_S6_EEEE5valueERS8_E4typeEOSP_.argprom.exit.i
+_ZNSt8functionIFN5arrow6StatusEiPKtPvEEaSIZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaISC_EEPNS8_11ExecContextEEUliS3_S4_E_EENSt9enable_ifIXsrNS6_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES6_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JiS3_S4_EEEE5valueERS6_E4typeEOSM_.exit.i: ; preds = %if.then.i.i.i433.i, %_ZNSt8functionIFviPKtPKjPjPtPvEEaSIZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINSA_10TypeHolderESaISF_EEPNSB_11ExecContextEEUliS1_S3_S4_S5_S6_E_EENSt9enable_ifIXsrNS8_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES8_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JiS1_S3_S4_S5_S6_EEEE5valueERS8_E4typeEOSP_.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i427.i), !noalias !25
   %map_.i = getelementptr inbounds i8, ptr %call.i.i, i64 816
   %102 = load i64, ptr %encode_ctx_.i, align 8, !noalias !25
@@ -2799,7 +2799,7 @@ _ZNSt8functionIFN5arrow6StatusEiPKtPvEEaSIZNS0_7compute12_GLOBAL__N_115GrouperFa
   invoke void @_ZN5arrow7compute10SwissTable4initElPNS_10MemoryPoolEib(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp170.i, ptr noundef nonnull align 8 dereferenceable(64) %map_.i, i64 noundef %102, ptr noundef %103, i32 noundef 0, i1 noundef zeroext false)
           to label %_ZN5arrow6StatusD2Ev.exit471.i unwind label %_ZNSt10unique_ptrIN5arrow7compute12_GLOBAL__N_115GrouperFastImplESt14default_deleteIS3_EED2Ev.exit.loopexit.split-lp.i, !noalias !25
 
-_ZN5arrow6StatusD2Ev.exit471.i:                   ; preds = %_ZNSt8functionIFN5arrow6StatusEiPKtPvEEaSIZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaISC_EEPNS8_11ExecContextEEUliS3_S4_E_EENSt9enable_ifIXsrNS6_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES6_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JiS3_S4_EEEE5valueERS6_E4typeEOSM_.argprom.exit.i
+_ZN5arrow6StatusD2Ev.exit471.i:                   ; preds = %_ZNSt8functionIFN5arrow6StatusEiPKtPvEEaSIZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaISC_EEPNS8_11ExecContextEEUliS3_S4_E_EENSt9enable_ifIXsrNS6_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeES6_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JiS3_S4_EEEE5valueERS6_E4typeEOSM_.exit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %104 = load ptr, ptr %ref.tmp170.i, align 8, !noalias !47
   store ptr %104, ptr %__s169.i, align 8, !alias.scope !44, !noalias !25
@@ -2817,14 +2817,14 @@ delete.notnull.i.i474.i:                          ; preds = %if.then183.i
   %_M_refcount.i.i.i.i.i475.i = getelementptr inbounds i8, ptr %105, i64 48
   %106 = load ptr, ptr %_M_refcount.i.i.i.i.i475.i, align 8, !noalias !25
   %cmp.not.i.i.i.i.i.i476.i = icmp eq ptr %106, null
-  br i1 %cmp.not.i.i.i.i.i.i476.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i, label %if.then.i.i.i.i.i.i477.i
+  br i1 %cmp.not.i.i.i.i.i.i476.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i, label %if.then.i.i.i.i.i.i477.i
 
 if.then.i.i.i.i.i.i477.i:                         ; preds = %delete.notnull.i.i474.i
   %_M_use_count.i.i.i.i.i.i.i478.i = getelementptr inbounds i8, ptr %106, i64 8
   %107 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i478.i acquire, align 8, !noalias !25
   %cmp.i.i.i.i.i.i.i479.i = icmp eq i64 %107, 4294967297
   %108 = trunc i64 %107 to i32
-  br i1 %cmp.i.i.i.i.i.i.i479.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i480.i
+  br i1 %cmp.i.i.i.i.i.i.i479.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.sink.split.i, label %if.end.i.i.i.i.i.i.i480.i
 
 if.end.i.i.i.i.i.i.i480.i:                        ; preds = %if.then.i.i.i.i.i.i477.i
   %109 = load i8, ptr @__libc_single_threaded, align 1, !noalias !25
@@ -2843,7 +2843,7 @@ if.else.i.i.i.i.i.i.i.i503.i:                     ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i484.i: ; preds = %if.else.i.i.i.i.i.i.i.i503.i, %if.then.i.i.i.i.i.i.i.i482.i
   %retval.i.0.i.i.i.i.i.i.i485.i = phi i32 [ %108, %if.then.i.i.i.i.i.i.i.i482.i ], [ %110, %if.else.i.i.i.i.i.i.i.i503.i ]
   %cmp6.i.i.i.i.i.i.i486.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i485.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i486.i, label %if.then7.i.i.i.i.i.i.i489.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+  br i1 %cmp6.i.i.i.i.i.i.i486.i, label %if.then7.i.i.i.i.i.i.i489.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
 
 if.then7.i.i.i.i.i.i.i489.i:                      ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i484.i
   %vtable.i.i.i.i.i.i.i.i.i490.i = load ptr, ptr %106, align 8, !noalias !25
@@ -2868,7 +2868,7 @@ if.else.i.i.i.i.i.i.i.i.i.i502.i:                 ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i502.i, %if.then.i.i.i.i.i.i.i.i.i.i494.i
   %retval.i.0.i.i.i.i.i.i.i.i.i497.i = phi i32 [ %113, %if.then.i.i.i.i.i.i.i.i.i.i494.i ], [ %114, %if.else.i.i.i.i.i.i.i.i.i.i502.i ]
   %cmp.i.i.i.i.i.i.i.i.i498.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i497.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i498.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i498.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.i, label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
 
 _ZN5arrow6StatusD2Ev.exit544.i:                   ; preds = %_ZN5arrow6StatusD2Ev.exit471.i
   %_M_finish.i.i545.i = getelementptr inbounds i8, ptr %call.i.i, i64 128
@@ -2943,7 +2943,7 @@ _ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS_10TypeHolde
   store ptr null, ptr %agg.result, align 8
   br label %_ZN5arrow6ResultISt10unique_ptrINS_7compute7GrouperESt14default_deleteIS3_EEEC2IS1_INS2_12_GLOBAL__N_115GrouperFastImplES4_ISA_EEvEEONS0_IT_EE.exit.thread
 
-_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.sink.split.i: ; preds = %if.then.i.i.i.i.i.i477.i, %if.then.i.i.i.i.i.i358.i, %if.then.i.i.i.i.i.i249.i, %if.then.i.i.i.i.i.i160.i, %if.then.i.i.i.i.i.i66.i
+_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.sink.split.i: ; preds = %if.then.i.i.i.i.i.i477.i, %if.then.i.i.i.i.i.i358.i, %if.then.i.i.i.i.i.i249.i, %if.then.i.i.i.i.i.i160.i, %if.then.i.i.i.i.i.i66.i
   %_M_use_count.i.i.i.i.i.i.i478.sink.i = phi ptr [ %_M_use_count.i.i.i.i.i.i.i67.i, %if.then.i.i.i.i.i.i66.i ], [ %_M_use_count.i.i.i.i.i.i.i161.i, %if.then.i.i.i.i.i.i160.i ], [ %_M_use_count.i.i.i.i.i.i.i250.i, %if.then.i.i.i.i.i.i249.i ], [ %_M_use_count.i.i.i.i.i.i.i359.i, %if.then.i.i.i.i.i.i358.i ], [ %_M_use_count.i.i.i.i.i.i.i478.i, %if.then.i.i.i.i.i.i477.i ]
   %.sink601.i = phi ptr [ %14, %if.then.i.i.i.i.i.i66.i ], [ %39, %if.then.i.i.i.i.i.i160.i ], [ %70, %if.then.i.i.i.i.i.i249.i ], [ %82, %if.then.i.i.i.i.i.i358.i ], [ %106, %if.then.i.i.i.i.i.i477.i ]
   %.sink596.ph.ph.i = phi ptr [ %13, %if.then.i.i.i.i.i.i66.i ], [ %38, %if.then.i.i.i.i.i.i160.i ], [ %69, %if.then.i.i.i.i.i.i249.i ], [ %81, %if.then.i.i.i.i.i.i358.i ], [ %105, %if.then.i.i.i.i.i.i477.i ]
@@ -2955,28 +2955,28 @@ _ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.a
   %vfn.i.i.i.i.i.i.i507.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i506.i, i64 16
   %119 = load ptr, ptr %vfn.i.i.i.i.i.i.i507.i, align 8, !noalias !25
   call void %119(ptr noundef nonnull align 8 dereferenceable(16) %.sink601.i) #28, !noalias !25
-  br label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.i
+  br label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.i
 
-_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.i: ; preds = %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.sink.split.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i
-  %.sink598.i = phi ptr [ %14, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i ], [ %39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i ], [ %70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i ], [ %82, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i ], [ %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i ], [ %.sink601.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.sink.split.i ]
-  %.sink596.ph.i = phi ptr [ %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i ], [ %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i ], [ %69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i ], [ %81, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i ], [ %105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i ], [ %.sink596.ph.ph.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.sink.split.i ]
-  %__s.sink.ph.i = phi ptr [ %__s.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i ], [ %ref.tmp92.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i ], [ %__s110.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i ], [ %__s135.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i ], [ %__s169.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i ], [ %__s.sink.ph.ph.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.sink.split.i ]
+_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.i: ; preds = %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.sink.split.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i
+  %.sink598.i = phi ptr [ %14, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i ], [ %39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i ], [ %70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i ], [ %82, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i ], [ %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i ], [ %.sink601.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.sink.split.i ]
+  %.sink596.ph.i = phi ptr [ %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i ], [ %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i ], [ %69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i ], [ %81, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i ], [ %105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i ], [ %.sink596.ph.ph.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.sink.split.i ]
+  %__s.sink.ph.i = phi ptr [ %__s.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i ], [ %ref.tmp92.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i ], [ %__s110.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i ], [ %__s135.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i ], [ %__s169.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i ], [ %__s.sink.ph.ph.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.sink.split.i ]
   %vtable2.i.i.i.i.i.i.i.i.i500.i = load ptr, ptr %.sink598.i, align 8, !noalias !25
   %vfn3.i.i.i.i.i.i.i.i.i501.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i500.i, i64 24
   %120 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i501.i, align 8, !noalias !25
   call void %120(ptr noundef nonnull align 8 dereferenceable(16) %.sink598.i) #28, !noalias !25
-  br label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+  br label %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
 
-_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i: ; preds = %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i484.i, %delete.notnull.i.i474.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i365.i, %delete.notnull.i.i355.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i256.i, %delete.notnull.i.i246.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i167.i, %delete.notnull.i.i157.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i73.i, %delete.notnull.i.i63.i
-  %.sink596.i = phi ptr [ %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i ], [ %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i73.i ], [ %13, %delete.notnull.i.i63.i ], [ %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i ], [ %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i167.i ], [ %38, %delete.notnull.i.i157.i ], [ %69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i ], [ %69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i256.i ], [ %69, %delete.notnull.i.i246.i ], [ %81, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i ], [ %81, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i365.i ], [ %81, %delete.notnull.i.i355.i ], [ %105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i ], [ %105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i484.i ], [ %105, %delete.notnull.i.i474.i ], [ %.sink596.ph.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.i ]
-  %__s.sink.i = phi ptr [ %__s.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i ], [ %__s.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i73.i ], [ %__s.i, %delete.notnull.i.i63.i ], [ %ref.tmp92.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i ], [ %ref.tmp92.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i167.i ], [ %ref.tmp92.i, %delete.notnull.i.i157.i ], [ %__s110.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i ], [ %__s110.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i256.i ], [ %__s110.i, %delete.notnull.i.i246.i ], [ %__s135.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i ], [ %__s135.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i365.i ], [ %__s135.i, %delete.notnull.i.i355.i ], [ %__s169.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i ], [ %__s169.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i484.i ], [ %__s169.i, %delete.notnull.i.i474.i ], [ %__s.sink.ph.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.sink.split.i ]
+_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i: ; preds = %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i484.i, %delete.notnull.i.i474.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i365.i, %delete.notnull.i.i355.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i256.i, %delete.notnull.i.i246.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i167.i, %delete.notnull.i.i157.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i73.i, %delete.notnull.i.i63.i
+  %.sink596.i = phi ptr [ %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i ], [ %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i73.i ], [ %13, %delete.notnull.i.i63.i ], [ %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i ], [ %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i167.i ], [ %38, %delete.notnull.i.i157.i ], [ %69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i ], [ %69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i256.i ], [ %69, %delete.notnull.i.i246.i ], [ %81, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i ], [ %81, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i365.i ], [ %81, %delete.notnull.i.i355.i ], [ %105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i ], [ %105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i484.i ], [ %105, %delete.notnull.i.i474.i ], [ %.sink596.ph.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.i ]
+  %__s.sink.i = phi ptr [ %__s.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i85.i ], [ %__s.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i73.i ], [ %__s.i, %delete.notnull.i.i63.i ], [ %ref.tmp92.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i179.i ], [ %ref.tmp92.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i167.i ], [ %ref.tmp92.i, %delete.notnull.i.i157.i ], [ %__s110.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i268.i ], [ %__s110.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i256.i ], [ %__s110.i, %delete.notnull.i.i246.i ], [ %__s135.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i377.i ], [ %__s135.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i365.i ], [ %__s135.i, %delete.notnull.i.i355.i ], [ %__s169.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i496.i ], [ %__s169.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i484.i ], [ %__s169.i, %delete.notnull.i.i474.i ], [ %__s.sink.ph.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.sink.split.i ]
   %msg.i.i.i77.i = getelementptr inbounds i8, ptr %.sink596.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i77.i) #28, !noalias !25
   call void @_ZdlPv(ptr noundef nonnull %.sink596.i) #30, !noalias !25
   store ptr null, ptr %__s.sink.i, align 8, !noalias !25
   br label %_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS_10TypeHolderESaIS4_EEPNS0_11ExecContextE.exit
 
-_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS_10TypeHolderESaIS4_EEPNS0_11ExecContextE.exit: ; preds = %if.then.i, %invoke.cont95.i, %if.then125.i, %if.then150.i, %if.then183.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.argprom.exit.i576.sink.split.i
+_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS_10TypeHolderESaIS4_EEPNS0_11ExecContextE.exit: ; preds = %if.then.i, %invoke.cont95.i, %if.then125.i, %if.then150.i, %if.then183.i, %_ZNKSt14default_deleteIN5arrow7compute12_GLOBAL__N_115GrouperFastImplEEclEPS3_.exit.i576.sink.split.i
   %vtable.i.i577.i = load ptr, ptr %call.i.i, align 8, !noalias !25
   %vfn.i.i578.i = getelementptr inbounds i8, ptr %vtable.i.i577.i, i64 8
   %121 = load ptr, ptr %vfn.i.i578.i, align 8, !noalias !25
@@ -6994,9 +6994,9 @@ if.end10:                                         ; preds = %do.end6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp16.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp17.i)
   %cmp.i.not.i = icmp eq ptr %this.val, null
-  br i1 %cmp.i.not.i, label %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit.thread, label %if.end.i
+  br i1 %cmp.i.not.i, label %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit.thread, label %if.end.i
 
-_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit.thread: ; preds = %if.end10
+_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit.thread: ; preds = %if.end10
   store ptr null, ptr %ref.tmp11, align 8, !alias.scope !145
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i32 -1, ptr %storage_.i.i.i, align 8, !alias.scope !145
@@ -7017,7 +7017,7 @@ if.end.i:                                         ; preds = %if.end10
 
 if.then7.i:                                       ; preds = %if.end.i
   call void @_ZN5arrow6ResultIjEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #28
-  br label %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit
+  br label %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit
 
 do.end.i:                                         ; preds = %if.end.i
   call void @llvm.experimental.noalias.scope.decl(metadata !148)
@@ -7205,9 +7205,9 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %cleanup.i
 _ZN5arrow5DatumD2Ev.exit.i:                       ; preds = %cleanup.i
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i3.i, align 8, !noalias !145
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i), !noalias !145
-  br label %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit
+  br label %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit
 
-_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit: ; preds = %if.then7.i, %_ZN5arrow5DatumD2Ev.exit.i
+_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit: ; preds = %if.then7.i, %_ZN5arrow5DatumD2Ev.exit.i
   call void @_ZN5arrow6ResultINS_5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #28
   %.pr136 = load ptr, ptr %ref.tmp11, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -7215,19 +7215,19 @@ _ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp17.i)
   %cmp.i.i = icmp eq ptr %.pr136, null
-  br i1 %cmp.i.i, label %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit.invoke.cont25_crit_edge, label %if.then19
+  br i1 %cmp.i.i, label %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit.invoke.cont25_crit_edge, label %if.then19
 
-_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit.invoke.cont25_crit_edge: ; preds = %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit
+_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit.invoke.cont25_crit_edge: ; preds = %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit
   %storage_.i.i67.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   %.pre = load i32, ptr %storage_.i.i67.phi.trans.insert, align 8
   br label %invoke.cont25
 
-if.then19:                                        ; preds = %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit
+if.then19:                                        ; preds = %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit
   call void @_ZN5arrow6ResultINS_7compute7SegmentEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11) #28
   br label %cleanup133
 
-invoke.cont25:                                    ; preds = %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit.invoke.cont25_crit_edge, %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit.thread
-  %40 = phi i32 [ %.pre, %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit.invoke.cont25_crit_edge ], [ -1, %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom.exit.thread ]
+invoke.cont25:                                    ; preds = %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit.invoke.cont25_crit_edge, %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit.thread
+  %40 = phi i32 [ %.pre, %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit.invoke.cont25_crit_edge ], [ -1, %_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.exit.thread ]
   %_M_manager.i.i = getelementptr inbounds i8, ptr %bound_extend, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %bound_extend, i64 24
   %41 = getelementptr inbounds i8, ptr %bound_extend, i64 8
@@ -12118,7 +12118,7 @@ lpad18.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then
 if.end:                                           ; preds = %for.body
   %this.val = load ptr, ptr %6, align 8
   %this.val.val = load ptr, ptr %this.val, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl.argprom.argprom(ptr noalias align 8 %ref.tmp21, ptr %this.val.val, i64 noundef %2)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl(ptr noalias align 8 %ref.tmp21, ptr %this.val.val, i64 noundef %2)
           to label %invoke.cont22 unwind label %lpad18.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont22:                                    ; preds = %if.end
@@ -12238,7 +12238,7 @@ if.then44:                                        ; preds = %land.lhs.true
 if.then48:                                        ; preds = %if.then44
   %this.val120 = load ptr, ptr %6, align 8
   %this.val120.val = load ptr, ptr %this.val120, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl.argprom.argprom(ptr noalias align 8 %ref.tmp49, ptr %this.val120.val, i64 noundef %2)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl(ptr noalias align 8 %ref.tmp49, ptr %this.val120.val, i64 noundef %2)
           to label %invoke.cont50 unwind label %lpad23
 
 invoke.cont50:                                    ; preds = %if.then48
@@ -12320,7 +12320,7 @@ if.else:                                          ; preds = %if.then44
   %mul = mul nsw i64 %2, %conv73
   %this.val121 = load ptr, ptr %6, align 8
   %this.val121.val = load ptr, ptr %this.val121, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl.argprom.argprom(ptr noalias align 8 %ref.tmp69, ptr %this.val121.val, i64 noundef %mul)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias align 8 %ref.tmp69, ptr %this.val121.val, i64 noundef %mul)
           to label %invoke.cont74 unwind label %lpad23
 
 invoke.cont74:                                    ; preds = %if.else
@@ -12400,7 +12400,7 @@ cleanup93:                                        ; preds = %invoke.cont74
 if.else97:                                        ; preds = %land.lhs.true, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit
   %this.val122 = load ptr, ptr %6, align 8
   %this.val122.val = load ptr, ptr %this.val122, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl.argprom.argprom(ptr noalias align 8 %ref.tmp98, ptr %this.val122.val, i64 noundef %mul99)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias align 8 %ref.tmp98, ptr %this.val122.val, i64 noundef %mul99)
           to label %invoke.cont100 unwind label %lpad23
 
 invoke.cont100:                                   ; preds = %if.else97
@@ -12609,7 +12609,7 @@ if.then166:                                       ; preds = %for.body161
   %conv171 = zext i32 %100 to i64
   %this.val123 = load ptr, ptr %93, align 8
   %this.val123.val = load ptr, ptr %this.val123, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl.argprom.argprom(ptr noalias align 8 %ref.tmp170, ptr %this.val123.val, i64 noundef %conv171)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias align 8 %ref.tmp170, ptr %this.val123.val, i64 noundef %conv171)
           to label %invoke.cont172 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont172:                                   ; preds = %if.then166
@@ -20568,7 +20568,7 @@ declare void @_ZN5arrow5DatumC2ERKSt10shared_ptrINS_5ArrayEE(ptr noundef nonnull
 declare void @_ZN5arrow7compute14KeyColumnArrayC1ERKNS0_17KeyColumnMetadataElPhS5_S5_ii(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(8), i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl.argprom.argprom(ptr noalias nonnull align 8 %agg.result, ptr %this.16.val.0.val, i64 noundef %length) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl(ptr noalias nonnull align 8 %agg.result, ptr %this.16.val.0.val, i64 noundef %length) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.92", align 8
   %buf = alloca %"class.std::shared_ptr.74", align 8
@@ -20835,7 +20835,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl.argprom.argprom(ptr noalias nonnull align 8 %agg.result, ptr %this.16.val.0.val, i64 noundef %size) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias nonnull align 8 %agg.result, ptr %this.16.val.0.val, i64 noundef %size) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.77", align 8
   %buf = alloca %"class.std::shared_ptr.74", align 8
@@ -21962,16 +21962,16 @@ entry:
   store ptr %1, ptr %agg.result, align 8, !alias.scope !468
   store ptr null, ptr %ref.tmp.i.i.i, align 8, !noalias !468
   %cmp.i.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.i.i.i, label %do.end6.i.i.i, label %_ZSt10__invoke_rIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit
+  br i1 %cmp.i.i.i.i, label %do.end6.i.i.i, label %_ZSt10__invoke_rIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit
 
 do.end6.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %__functor, align 8, !noalias !464
   %rows_.i.i.i = getelementptr inbounds i8, ptr %2, i64 192
   %rows_minibatch_7.i.i.i = getelementptr inbounds i8, ptr %2, i64 408
   call void @_ZN5arrow7compute12RowTableImpl19AppendSelectionFromERKS1_jPKt(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(209) %rows_.i.i.i, ptr noundef nonnull align 8 dereferenceable(209) %rows_minibatch_7.i.i.i, i32 noundef %__args.val, ptr noundef null)
-  br label %_ZSt10__invoke_rIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit
+  br label %_ZSt10__invoke_rIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit
 
-_ZSt10__invoke_rIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit: ; preds = %entry, %do.end6.i.i.i
+_ZSt10__invoke_rIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit: ; preds = %entry, %do.end6.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !463
   ret void
 }
@@ -31098,8 +31098,8 @@ attributes #32 = { noreturn nounwind }
 !5 = distinct !{!5, !6, !"_ZN5arrow8internal15GenericToStatusISt10unique_ptrINS_7compute7GrouperESt14default_deleteIS4_EEEENS_6StatusEONS_6ResultIT_EE: %agg.result"}
 !6 = distinct !{!6, !"_ZN5arrow8internal15GenericToStatusISt10unique_ptrINS_7compute7GrouperESt14default_deleteIS4_EEEENS_6StatusEONS_6ResultIT_EE"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZSt11make_uniqueIN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenterEJRKSt6vectorINS0_10TypeHolderESaIS5_EERPNS1_11ExecContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!9 = distinct !{!9, !"_ZSt11make_uniqueIN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenterEJRKSt6vectorINS0_10TypeHolderESaIS5_EERPNS1_11ExecContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!8 = distinct !{!8, !9, !"_ZSt11make_uniqueIN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenterEJRKSt6vectorINS0_10TypeHolderESaIS5_EERPNS1_11ExecContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!9 = distinct !{!9, !"_ZSt11make_uniqueIN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenterEJRKSt6vectorINS0_10TypeHolderESaIS5_EERPNS1_11ExecContextEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!13, !15}
@@ -31236,8 +31236,8 @@ attributes #32 = { noreturn nounwind }
 !143 = distinct !{!143, !144, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !144 = distinct !{!144, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom: %agg.result"}
-!147 = distinct !{!147, !"_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l.argprom"}
+!146 = distinct !{!146, !147, !"_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l: %agg.result"}
+!147 = distinct !{!147, !"_ZN5arrow7compute12_GLOBAL__N_116AnyKeysSegmenter12MapGroupIdAtINS0_8ExecSpanEEENS_6ResultIjEERKT_l"}
 !148 = !{!149}
 !149 = distinct !{!149, !150, !"_ZNO5arrow6ResultINS_5DatumEE11ValueUnsafeEv: %agg.result"}
 !150 = distinct !{!150, !"_ZNO5arrow6ResultINS_5DatumEE11ValueUnsafeEv"}
@@ -31309,8 +31309,8 @@ attributes #32 = { noreturn nounwind }
 !216 = distinct !{!216, !217, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter14GetNextSegmentERKNS_6ScalarEll: %agg.result"}
 !217 = distinct !{!217, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter14GetNextSegmentERKNS_6ScalarEll"}
 !218 = !{!219, !216}
-!219 = distinct !{!219, !220, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter9CheckTypeERKNS_8DataTypeE.argprom: %agg.result"}
-!220 = distinct !{!220, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter9CheckTypeERKNS_8DataTypeE.argprom"}
+!219 = distinct !{!219, !220, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter9CheckTypeERKNS_8DataTypeE: %agg.result"}
+!220 = distinct !{!220, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter9CheckTypeERKNS_8DataTypeE"}
 !221 = !{!222}
 !222 = distinct !{!222, !223, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result:thread"}
 !223 = distinct !{!223, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -31322,8 +31322,8 @@ attributes #32 = { noreturn nounwind }
 !229 = distinct !{!229, !230, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter14GetNextSegmentERKNS_8DataTypeEPKhll: %agg.result"}
 !230 = distinct !{!230, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter14GetNextSegmentERKNS_8DataTypeEPKhll"}
 !231 = !{!232, !229}
-!232 = distinct !{!232, !233, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter9CheckTypeERKNS_8DataTypeE.argprom: %agg.result"}
-!233 = distinct !{!233, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter9CheckTypeERKNS_8DataTypeE.argprom"}
+!232 = distinct !{!232, !233, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter9CheckTypeERKNS_8DataTypeE: %agg.result"}
+!233 = distinct !{!233, !"_ZN5arrow7compute12_GLOBAL__N_118SimpleKeySegmenter9CheckTypeERKNS_8DataTypeE"}
 !234 = !{!235, !229}
 !235 = distinct !{!235, !236, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result:thread"}
 !236 = distinct !{!236, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -31545,14 +31545,14 @@ attributes #32 = { noreturn nounwind }
 !452 = distinct !{!452, !453, !"_ZN5arrow4util13StringBuilderIJRA14_KcRKNS_8DataTypeEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: %agg.result"}
 !453 = distinct !{!453, !"_ZN5arrow4util13StringBuilderIJRA14_KcRKNS_8DataTypeEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
 !454 = !{!455}
-!455 = distinct !{!455, !456, !"_ZSt10__invoke_rIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom: %agg.result"}
-!456 = distinct !{!456, !"_ZSt10__invoke_rIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom"}
+!455 = distinct !{!455, !456, !"_ZSt10__invoke_rIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_: %agg.result"}
+!456 = distinct !{!456, !"_ZSt10__invoke_rIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_"}
 !457 = !{!458}
-!458 = distinct !{!458, !459, !"_ZSt13__invoke_implIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!459 = distinct !{!459, !"_ZSt13__invoke_implIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!458 = distinct !{!458, !459, !"_ZSt13__invoke_implIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!459 = distinct !{!459, !"_ZSt13__invoke_implIN5arrow6StatusERZNS0_7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS0_10TypeHolderESaIS6_EEPNS2_11ExecContextEEUliPKtPvE_JiSE_SF_EET_St14__invoke_otherOT0_DpOT1_"}
 !460 = !{!461}
-!461 = distinct !{!461, !462, !"_ZZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS_10TypeHolderESaIS4_EEPNS0_11ExecContextEENKUliPKtPvE_clEiSC_SD_.argprom: %agg.result"}
-!462 = distinct !{!462, !"_ZZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS_10TypeHolderESaIS4_EEPNS0_11ExecContextEENKUliPKtPvE_clEiSC_SD_.argprom"}
+!461 = distinct !{!461, !462, !"_ZZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS_10TypeHolderESaIS4_EEPNS0_11ExecContextEENKUliPKtPvE_clEiSC_SD_: %agg.result"}
+!462 = distinct !{!462, !"_ZZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl4MakeERKSt6vectorINS_10TypeHolderESaIS4_EEPNS0_11ExecContextEENKUliPKtPvE_clEiSC_SD_"}
 !463 = !{!458, !455}
 !464 = !{!461, !458, !455}
 !465 = !{!466}

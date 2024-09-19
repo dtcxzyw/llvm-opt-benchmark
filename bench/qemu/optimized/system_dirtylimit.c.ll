@@ -1317,12 +1317,12 @@ entry:
 
 cleanup.thread:                                   ; preds = %entry
   %call1 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.10) #10
-  br label %glib_autoptr_cleanup_DirtyLimitInfoList.argprom.exit
+  br label %glib_autoptr_cleanup_DirtyLimitInfoList.exit
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @qmp_query_vcpu_dirty_limit(ptr nonnull poison)
   %cond = icmp eq ptr %call2, null
-  br i1 %cond, label %glib_autoptr_cleanup_DirtyLimitInfoList.argprom.exit, label %for.body
+  br i1 %cond, label %glib_autoptr_cleanup_DirtyLimitInfoList.exit, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
   %info.010 = phi ptr [ %5, %for.body ], [ %call2, %if.end ]
@@ -1340,9 +1340,9 @@ for.body:                                         ; preds = %if.end, %for.body
 
 if.then.i.i:                                      ; preds = %for.body
   tail call void @qapi_free_DirtyLimitInfoList(ptr noundef nonnull %call2) #10
-  br label %glib_autoptr_cleanup_DirtyLimitInfoList.argprom.exit
+  br label %glib_autoptr_cleanup_DirtyLimitInfoList.exit
 
-glib_autoptr_cleanup_DirtyLimitInfoList.argprom.exit: ; preds = %if.end, %cleanup.thread, %if.then.i.i
+glib_autoptr_cleanup_DirtyLimitInfoList.exit:     ; preds = %if.end, %cleanup.thread, %if.then.i.i
   ret void
 }
 

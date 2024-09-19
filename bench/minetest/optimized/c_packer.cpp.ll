@@ -1934,7 +1934,7 @@ if.then150:                                       ; preds = %if.end.i514
   br i1 %tobool152.not, label %if.end173, label %if.then153
 
 if.then153:                                       ; preds = %if.then150
-  %call154 = call fastcc { ptr, i64 } @_ZL7emplaceR11PackedValues.argelim(ptr noundef nonnull align 8 dereferenceable(25) %pv)
+  %call154 = call fastcc { ptr, i64 } @_ZL7emplaceR11PackedValues(ptr noundef nonnull align 8 dereferenceable(25) %pv)
   %101 = extractvalue { ptr, i64 } %call154, 0
   %102 = extractvalue { ptr, i64 } %call154, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp155) #24
@@ -2871,7 +2871,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { ptr, i64 } @_ZL7emplaceR11PackedValues.argelim(ptr noundef nonnull align 8 dereferenceable(25) %pv) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i64 } @_ZL7emplaceR11PackedValues(ptr noundef nonnull align 8 dereferenceable(25) %pv) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %pv, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !25

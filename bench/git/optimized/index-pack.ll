@@ -2461,20 +2461,20 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   store i64 %313, ptr %offset65.i, align 8
   %315 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i.i = icmp eq i32 %315, 0
-  br i1 %tobool1.not.i.i.i, label %stop_progress.argprom.exit.i, label %if.end3.i.i.i
+  br i1 %tobool1.not.i.i.i, label %stop_progress.exit.i, label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %for.end.i
   %call.i.i.i = call ptr @gettext(ptr noundef nonnull @.str.83) #23
-  br label %stop_progress.argprom.exit.i
+  br label %stop_progress.exit.i
 
-stop_progress.argprom.exit.i:                     ; preds = %if.end3.i.i.i, %for.end.i
+stop_progress.exit.i:                             ; preds = %if.end3.i.i.i, %for.end.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.end3.i.i.i ], [ @.str.83, %for.end.i ]
   call void @stop_progress_msg(ptr noundef nonnull @progress, ptr noundef %retval.0.i.i.i) #23
   %316 = load i32, ptr @input_offset, align 4
   %tobool.not.i42.i = icmp eq i32 %316, 0
   br i1 %tobool.not.i42.i, label %flush.exit.i, label %if.then.i43.i
 
-if.then.i43.i:                                    ; preds = %stop_progress.argprom.exit.i
+if.then.i43.i:                                    ; preds = %stop_progress.exit.i
   %317 = load i32, ptr @output_fd, align 4
   %cmp.i44.i = icmp sgt i32 %317, -1
   br i1 %cmp.i44.i, label %if.then1.i.i, label %if.end.i45.i
@@ -2503,7 +2503,7 @@ if.end.i45.i:                                     ; preds = %if.then1.i.i, %if.t
   store i32 0, ptr @input_offset, align 4
   br label %flush.exit.i
 
-flush.exit.i:                                     ; preds = %if.end.i45.i, %stop_progress.argprom.exit.i
+flush.exit.i:                                     ; preds = %if.end.i45.i, %stop_progress.exit.i
   %324 = load ptr, ptr @the_repository, align 8
   %hash_algo.i103 = getelementptr inbounds i8, ptr %324, i64 256
   %325 = load ptr, ptr %hash_algo.i103, align 8
@@ -2871,20 +2871,20 @@ resolve_deltas.exit:                              ; preds = %if.end304, %for.end
 if.then.i190:                                     ; preds = %resolve_deltas.exit
   %390 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i.i191 = icmp eq i32 %390, 0
-  br i1 %tobool1.not.i.i.i191, label %stop_progress.argprom.exit.i194, label %if.end3.i.i.i192
+  br i1 %tobool1.not.i.i.i191, label %stop_progress.exit.i194, label %if.end3.i.i.i192
 
 if.end3.i.i.i192:                                 ; preds = %if.then.i190
   %call.i.i.i193 = call ptr @gettext(ptr noundef nonnull @.str.83) #23
-  br label %stop_progress.argprom.exit.i194
+  br label %stop_progress.exit.i194
 
-stop_progress.argprom.exit.i194:                  ; preds = %if.end3.i.i.i192, %if.then.i190
+stop_progress.exit.i194:                          ; preds = %if.end3.i.i.i192, %if.then.i190
   %retval.0.i.i.i195 = phi ptr [ %call.i.i.i193, %if.end3.i.i.i192 ], [ @.str.83, %if.then.i190 ]
   call void @stop_progress_msg(ptr noundef nonnull @progress, ptr noundef %retval.0.i.i.i195) #23
   %391 = load i32, ptr @input_offset, align 4
   %tobool.not.i.i196 = icmp eq i32 %391, 0
   br i1 %tobool.not.i.i196, label %conclude_pack.exit, label %if.then.i.i197
 
-if.then.i.i197:                                   ; preds = %stop_progress.argprom.exit.i194
+if.then.i.i197:                                   ; preds = %stop_progress.exit.i194
   %392 = load i32, ptr @output_fd, align 4
   %cmp.i.i198 = icmp sgt i32 %392, -1
   br i1 %cmp.i.i198, label %if.then1.i.i206, label %if.end.i.i199
@@ -3319,7 +3319,7 @@ if.then32.i:                                      ; preds = %if.end28.i
   call void (ptr, ...) @die(ptr noundef %call36.i, i32 noundef %sub38.i) #22
   unreachable
 
-conclude_pack.exit:                               ; preds = %stop_progress.argprom.exit.i194, %if.end.i.i199, %if.end28.i
+conclude_pack.exit:                               ; preds = %stop_progress.exit.i194, %if.end.i.i199, %if.end28.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %read_hash.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tail_hash.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %msg.i)

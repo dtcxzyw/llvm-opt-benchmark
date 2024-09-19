@@ -11648,9 +11648,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm6legacy19FunctionPassManager3runERN
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   %.not.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i, label %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.argprom.exit.thread", label %16
+  br i1 %.not.i.i, label %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.exit.thread", label %16
 
-"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.argprom.exit.thread": ; preds = %2
+"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.exit.thread": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -11669,7 +11669,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6legacy19FunctionPassManager3runERN
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %25 = load ptr, ptr %24, align 8, !noalias !132
   %.not1516.i.i = icmp eq ptr %23, %25
-  br i1 %.not1516.i.i, label %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.argprom.exit", label %.lr.ph.i.i
+  br i1 %.not1516.i.i, label %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %21, %_ZN4llvm5ErrorD2Ev.exit8.i.i
   %26 = phi ptr [ %41, %_ZN4llvm5ErrorD2Ev.exit8.i.i ], [ null, %21 ]
@@ -11771,9 +11771,9 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i:                     ; preds = %50, %_ZNSt10unique_
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i14.i.loopexit.i: ; preds = %_ZN4llvm5ErrorD2Ev.exit8.i.i
   %67 = icmp eq ptr %41, null
-  br label %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.argprom.exit"
+  br label %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.exit"
 
-"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.argprom.exit": ; preds = %21, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i14.i.loopexit.i
+"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.exit": ; preds = %21, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i14.i.loopexit.i
   %.sroa.02.0.i = phi i1 [ true, %21 ], [ %67, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i14.i.loopexit.i ]
   %68 = load ptr, ptr %15, align 8, !noalias !132
   %69 = getelementptr inbounds i8, ptr %68, i64 8
@@ -11787,14 +11787,14 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i14.i.loopexit.i: ; p
   %71 = icmp eq ptr %.pr, null
   br i1 %71, label %_ZN4llvm5ErrorD2Ev.exit, label %72
 
-72:                                               ; preds = %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.argprom.exit"
+72:                                               ; preds = %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.exit"
   %73 = load ptr, ptr %.pr, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #27
   br label %_ZN4llvm5ErrorD2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.argprom.exit.thread", %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.argprom.exit", %72
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.exit.thread", %"_ZN4llvm15handleAllErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEEvNS_5ErrorEDpOT_.exit", %72
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = call noundef zeroext i1 @_ZN4llvm6legacy23FunctionPassManagerImpl3runERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1097) %77, ptr noundef nonnull align 8 dereferenceable(136) %1)
@@ -14764,20 +14764,20 @@ define internal void @_ZNSt17_Function_handlerIFvRKN12_GLOBAL__N_114PassDebugLev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRKN12_GLOBAL__N_114PassDebugLevelEEN4llvm2cl3optIS1_Lb0ENS6_6parserIS1_EEEUlS3_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit [
-    i32 1, label %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit [
+    i32 1, label %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split
+  br label %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split
 
-_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split: ; preds = %3, %4
+_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split: ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit: ; preds = %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split, %3
+_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %_ZNSt14_Function_base13_Base_managerIN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS2_6parserIS5_EEEUlRKS5_E_EE10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split, %3
   ret i1 false
 }
 
@@ -18226,7 +18226,7 @@ define internal void @_GLOBAL__sub_I_LegacyPassManager.cpp() #14 section ".text.
   %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   %16 = getelementptr inbounds %"struct.llvm::cl::OptionEnumValue", ptr %14, i64 %15
   %.not1.i.i.i.i.i.i.i.i = icmp eq i64 %15, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.argprom.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i
+  br i1 %.not1.i.i.i.i.i.i.i.i, label %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %0
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -18238,8 +18238,8 @@ define internal void @_GLOBAL__sub_I_LegacyPassManager.cpp() #14 section ".text.
   %21 = ptrtoint ptr %2 to i64
   br label %22
 
-22:                                               ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.argprom.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
-  %.02.i.i.i.i.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i.i.i.i.i ], [ %60, %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.argprom.exit.i.i.i.i.i.i.i.i ]
+22:                                               ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
+  %.02.i.i.i.i.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i.i.i.i.i ], [ %60, %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i ]
   %.sroa.01.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %.02.i.i.i.i.i.i.i.i, align 8
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.02.i.i.i.i.i.i.i.i, i64 8
   %.sroa.22.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i.i, align 8
@@ -18262,7 +18262,7 @@ define internal void @_GLOBAL__sub_I_LegacyPassManager.cpp() #14 section ".text.
   %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168)) #27
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %26, %27
   %.val.i.pre.i.i.i.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168), align 8
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %28, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.argprom.exit.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %28, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %22
   %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168)) #27
@@ -18287,7 +18287,7 @@ define internal void @_GLOBAL__sub_I_LegacyPassManager.cpp() #14 section ".text.
   %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168)) #27
   %40 = getelementptr inbounds %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %39
   %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %39, 0
-  br i1 %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %37, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %38, %37 ]
@@ -18302,30 +18302,30 @@ define internal void @_GLOBAL__sub_I_LegacyPassManager.cpp() #14 section ".text.
   %44 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
   %45 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %44, %40
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !231
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !231
 
-_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %37
+_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %37
   %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168)) #27
   %47 = load i64, ptr %1, align 8
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168), align 8
   %49 = icmp eq ptr %48, getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 184)
-  br i1 %49, label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %50
+  br i1 %49, label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %50
 
-50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @free(ptr noundef %48) #27
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %50, %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %50, %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168), ptr noundef %38, i64 noundef %47) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %.val.i.pre1.i.i.i.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168), align 8
   %51 = getelementptr inbounds %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val.i.pre1.i.i.i.i.i.i.i.i.i.i, i64 %.0.i.i.i.i.i.i.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %51, ptr %2
-  br label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i
 
-_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i, %22
-  %.val.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.val.i.pre.i.i.i.i.i.i.i.i.i.i, %22 ], [ %.val.i.pre1.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.016.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %2, %22 ], [ %spec.select.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
+_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.exit.i.i.i.i.i.i.i.i.i.i.i.i, %22
+  %.val.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.val.i.pre.i.i.i.i.i.i.i.i.i.i, %22 ], [ %.val.i.pre1.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.016.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %2, %22 ], [ %spec.select.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168)) #27
   %53 = getelementptr inbounds %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val.i.i.i.i.i.i.i.i.i.i.i, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull readonly align 8 dereferenceable(32) %.016.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
@@ -18343,20 +18343,20 @@ _ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9S
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %60 = getelementptr inbounds i8, ptr %.02.i.i.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %60, %16
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.argprom.exit.i, label %22
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.exit.i, label %22
 
-_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.argprom.exit.i: ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.argprom.exit.i.i.i.i.i.i.i.i, %0
+_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.exit.i: ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i, %0
   call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(128) @_ZL13PassDebugging) #27
   %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   %62 = load ptr, ptr %4, align 8
   %63 = icmp eq ptr %62, %9
   br i1 %63, label %__cxx_global_var_init.exit, label %64
 
-64:                                               ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.argprom.exit.i
+64:                                               ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.exit.i
   call void @free(ptr noundef %62) #27
   br label %__cxx_global_var_init.exit
 
-__cxx_global_var_init.exit:                       ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.argprom.exit.i, %64
+__cxx_global_var_init.exit:                       ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.exit.i, %64
   %65 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEED2Ev, ptr nonnull @_ZL13PassDebugging, ptr nonnull @__dso_handle) #27
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4)
   ret void
@@ -18565,18 +18565,18 @@ attributes #30 = { builtin nounwind }
 !130 = distinct !{!130, !8}
 !131 = !{}
 !132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZN4llvm12handleErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEENS_5ErrorES6_DpOT_.argprom: argument 0"}
-!134 = distinct !{!134, !"_ZN4llvm12handleErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEENS_5ErrorES6_DpOT_.argprom"}
+!133 = distinct !{!133, !134, !"_ZN4llvm12handleErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEENS_5ErrorES6_DpOT_: argument 0"}
+!134 = distinct !{!134, !"_ZN4llvm12handleErrorsIJZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0EEENS_5ErrorES6_DpOT_"}
 !135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZN4llvm15handleErrorImplIZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_.argprom: argument 0"}
-!137 = distinct !{!137, !"_ZN4llvm15handleErrorImplIZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_.argprom"}
+!136 = distinct !{!136, !137, !"_ZN4llvm15handleErrorImplIZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_: argument 0"}
+!137 = distinct !{!137, !"_ZN4llvm15handleErrorImplIZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_"}
 !138 = !{!136, !133}
 !139 = !{!140, !136}
 !140 = distinct !{!140, !141, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE: argument 0"}
 !141 = distinct !{!141, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE"}
 !142 = !{!143, !133}
-!143 = distinct !{!143, !144, !"_ZN4llvm15handleErrorImplIZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_.argprom: argument 0"}
-!144 = distinct !{!144, !"_ZN4llvm15handleErrorImplIZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_.argprom"}
+!143 = distinct !{!143, !144, !"_ZN4llvm15handleErrorImplIZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_: argument 0"}
+!144 = distinct !{!144, !"_ZN4llvm15handleErrorImplIZNS_6legacy19FunctionPassManager3runERNS_8FunctionEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_"}
 !145 = distinct !{!145, !8}
 !146 = distinct !{!146, !8}
 !147 = distinct !{!147, !8}
@@ -18658,8 +18658,8 @@ attributes #30 = { builtin nounwind }
 !223 = !{!224}
 !224 = distinct !{!224, !222, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !225 = !{!226}
-!226 = distinct !{!226, !227, !"_ZZN4llvm13FPPassManager13runOnFunctionERNS_8FunctionEENK3$_0clB5cxx11Ev.argprom: argument 0"}
-!227 = distinct !{!227, !"_ZZN4llvm13FPPassManager13runOnFunctionERNS_8FunctionEENK3$_0clB5cxx11Ev.argprom"}
+!226 = distinct !{!226, !227, !"_ZZN4llvm13FPPassManager13runOnFunctionERNS_8FunctionEENK3$_0clB5cxx11Ev: argument 0"}
+!227 = distinct !{!227, !"_ZZN4llvm13FPPassManager13runOnFunctionERNS_8FunctionEENK3$_0clB5cxx11Ev"}
 !228 = !{!229}
 !229 = distinct !{!229, !230, !"_ZN4llvm2cl6valuesIJNS0_15OptionEnumValueES2_S2_S2_S2_EEENS0_11ValuesClassEDpT_: argument 0"}
 !230 = distinct !{!230, !"_ZN4llvm2cl6valuesIJNS0_15OptionEnumValueES2_S2_S2_S2_EEENS0_11ValuesClassEDpT_"}

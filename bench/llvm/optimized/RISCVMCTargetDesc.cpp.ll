@@ -1739,7 +1739,7 @@ _ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i:
 
 17:                                               ; preds = %13
   %18 = icmp ugt i8 %15, %1
-  br i1 %18, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i
+  br i1 %18, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i
 
 .thread.i.i:                                      ; preds = %13, %_ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i
   %19 = getelementptr inbounds i8, ptr %6, i64 6
@@ -1747,7 +1747,7 @@ _ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i:
   %21 = add nsw i64 %.01132.i.i, %20
   br label %.thread27.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i: ; preds = %17
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %23 = load i8, ptr %22, align 1
   %.fr = freeze i8 %23
@@ -1759,9 +1759,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseI
   %spec.select31.i.i = select i1 %24, ptr %25, ptr %.033.i.i
   br label %.thread27.i.i
 
-.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i, %.thread.i.i, %17, %11
-  %28 = phi i64 [ %5, %17 ], [ %5, %11 ], [ %21, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
-  %29 = phi ptr [ %.033.i.i, %17 ], [ %.033.i.i, %11 ], [ %19, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
+.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %17, %11
+  %28 = phi i64 [ %5, %17 ], [ %5, %11 ], [ %21, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i ]
+  %29 = phi ptr [ %.033.i.i, %17 ], [ %.033.i.i, %11 ], [ %19, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i ]
   %30 = icmp sgt i64 %28, 0
   br i1 %30, label %_ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoEZNS1_11getBaseInfoEjhhE7KeyTypeZNS1_11getBaseInfoEjhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !4
 
@@ -2659,12 +2659,12 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isB
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 1024
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit
+  br i1 %.not, label %12, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %.val4 = load ptr, ptr %13, align 8
-  switch i32 %5, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit [
+  switch i32 %5, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit [
     i32 12783, label %14
     i32 12784, label %18
     i32 12453, label %27
@@ -2674,13 +2674,13 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isB
   %15 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 43
-  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit
+  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 43
-  br i1 %21, label %22, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit
+  br i1 %21, label %22, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2688,7 +2688,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isB
   %25 = icmp ne i32 %24, 44
   %26 = icmp ne i32 %24, 48
   %.not7.i = and i1 %25, %26
-  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit
+  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 27:                                               ; preds = %12
   %28 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
@@ -2696,9 +2696,9 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isB
   %30 = icmp ne i32 %29, 44
   %31 = icmp ne i32 %29, 48
   %.not5.i = and i1 %30, %31
-  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit
+  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
-_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit: ; preds = %27, %22, %18, %14, %12, %2
+_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit: ; preds = %27, %22, %18, %14, %12, %2
   %.0 = phi i1 [ true, %2 ], [ %.not5.i, %27 ], [ %17, %14 ], [ false, %12 ], [ false, %18 ], [ %.not7.i, %22 ]
   ret i1 %.0
 }
@@ -2730,12 +2730,12 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis21is
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 3328
   %12 = icmp eq i64 %11, 1280
-  br i1 %12, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit, label %13
+  br i1 %12, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %.val4 = load ptr, ptr %14, align 8
-  switch i32 %5, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit [
+  switch i32 %5, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit [
     i32 12783, label %15
     i32 12784, label %19
     i32 12453, label %28
@@ -2745,13 +2745,13 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis21is
   %16 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 43
-  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit
+  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 43
-  br i1 %22, label %23, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit
+  br i1 %22, label %23, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2759,7 +2759,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis21is
   %26 = icmp ne i32 %25, 44
   %27 = icmp ne i32 %25, 48
   %.not7.i = and i1 %26, %27
-  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit
+  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 28:                                               ; preds = %13
   %29 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
@@ -2767,9 +2767,9 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis21is
   %31 = icmp ne i32 %30, 44
   %32 = icmp ne i32 %30, 48
   %.not5.i = and i1 %31, %32
-  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit
+  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
-_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.argprom.exit: ; preds = %28, %23, %19, %15, %13, %2
+_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit: ; preds = %28, %23, %19, %15, %13, %2
   %.0 = phi i1 [ true, %2 ], [ %.not5.i, %28 ], [ %18, %15 ], [ false, %13 ], [ false, %19 ], [ %.not7.i, %23 ]
   ret i1 %.0
 }

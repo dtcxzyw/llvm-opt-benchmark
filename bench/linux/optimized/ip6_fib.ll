@@ -3468,7 +3468,7 @@ define internal i32 @inet6_dump_fib(ptr noundef %0, ptr noundef %1) #0 align 16 
   %.val = load ptr, ptr %9, align 8
   %75 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %75, align 8
-  %76 = call fastcc i32 @fib6_dump_table.argprom.argprom(ptr noundef nonnull %56, ptr %.val.val, ptr noundef %1)
+  %76 = call fastcc i32 @fib6_dump_table(ptr noundef nonnull %56, ptr %.val.val, ptr noundef %1)
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %111, label %114
 
@@ -3499,7 +3499,7 @@ define internal i32 @inet6_dump_fib(ptr noundef %0, ptr noundef %1) #0 align 16 
   %.val11 = load ptr, ptr %9, align 8
   %94 = getelementptr i8, ptr %.val11, i64 48
   %.val11.val = load ptr, ptr %94, align 8
-  %95 = call fastcc i32 @fib6_dump_table.argprom.argprom(ptr noundef nonnull %90, ptr %.val11.val, ptr noundef %1)
+  %95 = call fastcc i32 @fib6_dump_table(ptr noundef nonnull %90, ptr %.val11.val, ptr noundef %1)
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %101
 
@@ -4993,7 +4993,7 @@ define internal noundef range(i32 0, 2) i32 @fib6_dump_node(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @fib6_dump_table.argprom.argprom(ptr noundef nonnull %0, ptr %.24.val.48.val, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @fib6_dump_table(ptr noundef nonnull %0, ptr %.24.val.48.val, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 96
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr

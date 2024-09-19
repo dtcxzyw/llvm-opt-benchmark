@@ -207,7 +207,7 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
   %114 = getelementptr inbounds i8, ptr %18, i64 116
   %115 = load i32, ptr %114, align 4
   %.not52.i = icmp eq i32 %115, %76
-  br i1 %.not52.i, label %OGLBlitTextureToSurface.argprom.exit, label %116
+  br i1 %.not52.i, label %OGLBlitTextureToSurface.exit, label %116
 
 116:                                              ; preds = %113
   %117 = load ptr, ptr @j2d_glTexParameteri, align 8
@@ -217,9 +217,9 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
   %120 = load i32, ptr %77, align 8
   call void %119(i32 noundef %120, i32 noundef 10241, i32 noundef %76) #6
   store i32 %76, ptr %114, align 4
-  br label %OGLBlitTextureToSurface.argprom.exit
+  br label %OGLBlitTextureToSurface.exit
 
-OGLBlitTextureToSurface.argprom.exit:             ; preds = %113, %116
+OGLBlitTextureToSurface.exit:                     ; preds = %113, %116
   %121 = load ptr, ptr @j2d_glBegin, align 8
   call void %121(i32 noundef 7) #6
   %122 = load ptr, ptr @j2d_glTexCoord2d, align 8
@@ -290,10 +290,10 @@ OGLBlitTextureToSurface.argprom.exit:             ; preds = %113, %116
   br label %148
 
 147:                                              ; preds = %.thread135, %145
-  call fastcc void @OGLBlitSurfaceToSurface.argprom(ptr noundef nonnull %1, ptr noundef nonnull %18, i32 noundef %.0104, i32 noundef %.0105, i32 noundef %.0106, i32 noundef %.0107, double noundef %.0108, double noundef %.0109, double noundef %.0110, double noundef %.0111)
+  call fastcc void @OGLBlitSurfaceToSurface(ptr noundef nonnull %1, ptr noundef nonnull %18, i32 noundef %.0104, i32 noundef %.0105, i32 noundef %.0106, i32 noundef %.0107, double noundef %.0108, double noundef %.0109, double noundef %.0110, double noundef %.0111)
   br label %148
 
-148:                                              ; preds = %OGLBlitTextureToSurface.argprom.exit, %147, %146, %16, %41, %30
+148:                                              ; preds = %OGLBlitTextureToSurface.exit, %147, %146, %16, %41, %30
   ret void
 }
 
@@ -591,7 +591,7 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @OGLBlitSurfaceToSurface.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) unnamed_addr #0 {
+define internal fastcc void @OGLBlitSurfaceToSurface(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) unnamed_addr #0 {
   %11 = sub nsw i32 %4, %2
   %12 = sub nsw i32 %5, %3
   %13 = fsub double %8, %6
@@ -1603,7 +1603,7 @@ define hidden void @OGLBlitLoops_CopyArea(ptr nocapture noundef readnone %0, ptr
   %48 = sitofp i32 %39 to double
   %49 = sitofp i32 %36 to double
   %50 = sitofp i32 %40 to double
-  call fastcc void @OGLBlitSurfaceToSurface.argprom(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef %46, double noundef %47, double noundef %48, double noundef %49, double noundef %50)
+  call fastcc void @OGLBlitSurfaceToSurface(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef %46, double noundef %47, double noundef %48, double noundef %49, double noundef %50)
   br label %51
 
 51:                                               ; preds = %9, %42, %38, %14

@@ -283,8 +283,8 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %wide.trip.count283 = zext nneg i32 %84 to i64
   br label %119
 
-119:                                              ; preds = %.lr.ph226, %cs_augment.argprom.exit
-  %indvars.iv280 = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next281, %cs_augment.argprom.exit ]
+119:                                              ; preds = %.lr.ph226, %cs_augment.exit
+  %indvars.iv280 = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next281, %cs_augment.exit ]
   %120 = trunc nuw nsw i64 %indvars.iv280 to i32
   br i1 %.not184, label %124, label %121
 
@@ -415,7 +415,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %181 = sext i1 %180 to i32
   %spec.select.i = add nsw i32 %.170.i, %181
   %182 = icmp slt i32 %spec.select.i, 0
-  br i1 %182, label %cs_augment.argprom.exit, label %126, !llvm.loop !13
+  br i1 %182, label %cs_augment.exit, label %126, !llvm.loop !13
 
 .lr.ph28.i:                                       ; preds = %.lr.ph28.i, %.lr.ph28.preheader.i
   %indvars.iv45.i = phi i64 [ %127, %.lr.ph28.preheader.i ], [ %indvars.iv.next46.i, %.lr.ph28.i ]
@@ -428,14 +428,14 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %184, ptr %188, align 4
   %indvars.iv.next46.i = add nsw i64 %indvars.iv45.i, -1
   %189 = icmp sgt i64 %indvars.iv45.i, 0
-  br i1 %189, label %.lr.ph28.i, label %cs_augment.argprom.exit, !llvm.loop !14
+  br i1 %189, label %.lr.ph28.i, label %cs_augment.exit, !llvm.loop !14
 
-cs_augment.argprom.exit:                          ; preds = %.loopexit.i, %.lr.ph28.i
+cs_augment.exit:                                  ; preds = %.loopexit.i, %.lr.ph28.i
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond284.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count283
   br i1 %exitcond284.not, label %._crit_edge227, label %119, !llvm.loop !15
 
-._crit_edge227:                                   ; preds = %cs_augment.argprom.exit
+._crit_edge227:                                   ; preds = %cs_augment.exit
   %190 = tail call ptr @cs_free(ptr noundef %116) #4
   %191 = zext nneg i32 %84 to i64
   %192 = shl nuw nsw i64 %191, 2

@@ -1698,14 +1698,14 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %93, ptr noundef nonnull align 8 dereferenceable(40) %54) #16
   %94 = load ptr, ptr %55, align 8, !noalias !14
   %.not.i.i4.i = icmp eq ptr %94, null
-  br i1 %.not.i.i4.i, label %_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i5.i
+  br i1 %.not.i.i4.i, label %_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i5.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i5.i: ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #16
   call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 32) #17
-  br label %_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.argprom.exit
+  br label %_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.exit
 
-_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.argprom.exit: ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i5.i
+_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.exit: ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i5.i
   store ptr null, ptr %55, align 8, !noalias !14
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %54) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %52)
@@ -1737,7 +1737,7 @@ _ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8Lang
   %107 = trunc i8 %106 to i1
   br i1 %107, label %108, label %_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit
 
-108:                                              ; preds = %_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.argprom.exit
+108:                                              ; preds = %_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.exit
   store i8 0, ptr %105, align 8
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 1 dereferenceable(1) %59)
   %109 = load ptr, ptr %59, align 8
@@ -1747,7 +1747,7 @@ _ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8Lang
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %109, i64 noundef %112, i64 noundef 8) #16
   br label %_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit
 
-_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit:     ; preds = %_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.argprom.exit, %108
+_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit:     ; preds = %_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.exit, %108
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 1 dereferenceable(1) %60)
   %113 = load ptr, ptr %60, align 8
   %114 = load i32, ptr %103, align 8
@@ -1834,7 +1834,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i22:             ; preds = %_ZNKSt14default_del
   %.val.i = load ptr, ptr %146, align 8, !noalias !17
   %147 = getelementptr i8, ptr %1, i64 296
   %.val6.i = load ptr, ptr %147, align 8, !noalias !17
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE.argprom(ptr dead_on_unwind noalias writable align 8 %49, ptr %.val.i, ptr %.val6.i)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %49, ptr %.val.i, ptr %.val6.i)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr nonnull @.str.105, i64 10, ptr noundef nonnull align 8 dereferenceable(32) %49)
   %148 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %149 = load i8, ptr %148, align 8, !noalias !17
@@ -1894,7 +1894,7 @@ _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12Fragme
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44), !noalias !17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45), !noalias !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46), !noalias !17
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE.argprom(ptr dead_on_unwind noalias writable align 8 %51, ptr %.val7.pre.i, ptr %.val8.pre.i)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %51, ptr %.val7.pre.i, ptr %.val8.pre.i)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr nonnull @.str.107, i64 9, ptr noundef nonnull align 8 dereferenceable(32) %51)
   %165 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %166 = load i8, ptr %165, align 8, !noalias !17
@@ -2579,7 +2579,7 @@ _ZNSt8optionalIN4llvm4json5ArrayEED2Ev.exit:      ; preds = %_ZN12_GLOBAL__N_121
 424:                                              ; preds = %_ZNSt8optionalIN4llvm4json5ArrayEED2Ev.exit
   %425 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store i8 0, ptr %425, align 8, !alias.scope !35
-  br label %_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.argprom.exit
+  br label %_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.exit
 
 426:                                              ; preds = %_ZNSt8optionalIN4llvm4json5ArrayEED2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false), !noalias !35
@@ -2801,7 +2801,7 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i39: ; preds = %51
 523:                                              ; preds = %_ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i39
   %.val.i40 = load ptr, ptr %9, align 8, !noalias !35
   %.val7.i = load ptr, ptr %448, align 8, !noalias !35
-  call fastcc void @_ZN12_GLOBAL__N_114serializeArrayIN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr nonnull @.str.124, i64 5, ptr %.val.i40, ptr %.val7.i), !noalias !35
+  call fastcc void @_ZN12_GLOBAL__N_114serializeArrayIN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr nonnull @.str.124, i64 5, ptr %.val.i40, ptr %.val7.i), !noalias !35
   %524 = load ptr, ptr %8, align 8, !noalias !35
   store ptr %524, ptr %68, align 8, !alias.scope !35
   store ptr null, ptr %8, align 8, !noalias !35
@@ -2858,9 +2858,9 @@ _ZN4llvm4json5ArrayD2Ev.exit.i:                   ; preds = %539, %_ZSt8_Destroy
   %546 = zext i32 %545 to i64
   %547 = shl nuw nsw i64 %546, 6
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %544, i64 noundef %547, i64 noundef 8) #16, !noalias !35
-  br label %_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.argprom.exit
+  br label %_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.exit
 
-_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.argprom.exit: ; preds = %424, %_ZN4llvm4json5ArrayD2Ev.exit.i
+_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.exit: ; preds = %424, %_ZN4llvm4json5ArrayD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -2875,7 +2875,7 @@ _ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentL
   %550 = trunc i8 %549 to i1
   br i1 %550, label %551, label %_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit48
 
-551:                                              ; preds = %_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.argprom.exit
+551:                                              ; preds = %_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.exit
   store i8 0, ptr %548, align 8
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 1 dereferenceable(1) %68)
   %552 = load ptr, ptr %68, align 8
@@ -2886,12 +2886,12 @@ _ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentL
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %552, i64 noundef %556, i64 noundef 8) #16
   br label %_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit48
 
-_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit48:   ; preds = %_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.argprom.exit, %551
+_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit48:   ; preds = %_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.exit, %551
   %557 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %.val15 = load ptr, ptr %557, align 8
   %558 = getelementptr i8, ptr %1, i64 272
   %.val16 = load ptr, ptr %558, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE.argprom(ptr dead_on_unwind noalias writable align 8 %69, ptr %.val15, ptr %.val16)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %69, ptr %.val15, ptr %.val16)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr nonnull @.str.23, i64 20, ptr noundef nonnull align 8 dereferenceable(32) %69)
   %559 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %560 = load i8, ptr %559, align 8
@@ -3188,7 +3188,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit:                 ; preds = %10, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
   %2 = alloca %"class.llvm::json::Array", align 8
   %3 = alloca %"class.llvm::json::Object", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
@@ -3390,13 +3390,13 @@ _ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 464
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %21, i64 56, i1 false)
-  br label %_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.argprom.exit
+  br label %_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.exit
 
 22:                                               ; preds = %16
   call void @_ZN5clang10extractapi15SymbolReferenceC1EPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %1) #16
-  br label %_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.argprom.exit
+  br label %_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.exit
 
-_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.argprom.exit: ; preds = %20, %22
+_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.exit: ; preds = %20, %22
   call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang10extractapi15SymbolReferenceELb1EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(56) %3)
   %23 = call noundef zeroext i1 @_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
   %24 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
@@ -3404,8 +3404,8 @@ _ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %25) #16
   br label %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit.thread
 
-_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %4, %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit, %2, %_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.argprom.exit
-  %.0 = phi i1 [ %23, %_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.argprom.exit ], [ true, %2 ], [ true, %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit ], [ true, %4 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %4, %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit, %2, %_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.exit
+  %.0 = phi i1 [ %23, %_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.exit ], [ true, %2 ], [ true, %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit ], [ true, %4 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
   ret i1 %.0
 }
 
@@ -4684,7 +4684,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
 
 28:                                               ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE.argprom(ptr dead_on_unwind noalias writable align 8 %4, ptr %23, ptr %25)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %4, ptr %23, ptr %25)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull @.str.133, i64 7, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load i8, ptr %29, align 8
@@ -4766,7 +4766,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   %.val.i = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %.sroa.028.034.i, i64 40
   %.val9.i = load ptr, ptr %58, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE.argprom(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val.i, ptr %.val9.i)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val.i, ptr %.val9.i)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull @.str.23, i64 20, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %59 = load i8, ptr %46, align 8
   %60 = trunc i8 %59 to i1
@@ -6154,7 +6154,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
 
 28:                                               ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE.argprom(ptr dead_on_unwind noalias writable align 8 %4, ptr %23, ptr %25)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %4, ptr %23, ptr %25)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull @.str.133, i64 7, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load i8, ptr %29, align 8
@@ -6236,7 +6236,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   %.val.i = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %.sroa.028.034.i, i64 40
   %.val9.i = load ptr, ptr %58, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE.argprom(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val.i, ptr %.val9.i)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val.i, ptr %.val9.i)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull @.str.23, i64 20, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %59 = load i8, ptr %46, align 8
   %60 = trunc i8 %59 to i1
@@ -10012,7 +10012,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
 
 28:                                               ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE.argprom(ptr dead_on_unwind noalias writable align 8 %4, ptr %23, ptr %25)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %4, ptr %23, ptr %25)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull @.str.133, i64 7, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load i8, ptr %29, align 8
@@ -10094,7 +10094,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   %.val.i = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %.sroa.028.034.i, i64 40
   %.val9.i = load ptr, ptr %58, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE.argprom(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val.i, ptr %.val9.i)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val.i, ptr %.val9.i)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull @.str.23, i64 20, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %59 = load i8, ptr %46, align 8
   %60 = trunc i8 %59 to i1
@@ -11682,7 +11682,7 @@ _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   %.val = load ptr, ptr %13, align 8
   %82 = getelementptr inbounds i8, ptr %13, i64 8
   %.val30 = load ptr, ptr %82, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114serializeArrayIN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull @.str.36, i64 14, ptr %.val, ptr %.val30)
+  call fastcc void @_ZN12_GLOBAL__N_114serializeArrayIN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull @.str.36, i64 14, ptr %.val, ptr %.val30)
   %83 = load ptr, ptr %13, align 8
   %84 = load ptr, ptr %82, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %83, %84
@@ -11896,7 +11896,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit50:               ; preds = %_ZN4llvm4json9Objec
   call fastcc void @_ZN12_GLOBAL__N_122generateParentContextsERKN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEEENS2_8LanguageE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i8 noundef zeroext %81)
   %.val31 = load ptr, ptr %30, align 8
   %.val32 = load ptr, ptr %99, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114serializeArrayIN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.36, i64 14, ptr %.val31, ptr %.val32)
+  call fastcc void @_ZN12_GLOBAL__N_114serializeArrayIN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.36, i64 14, ptr %.val31, ptr %.val32)
   %143 = load ptr, ptr %30, align 8
   %144 = load ptr, ptr %99, align 8
   %.not4.i.i.i.i.i51 = icmp eq ptr %143, %144
@@ -12034,14 +12034,14 @@ _ZN4llvm4json5ArrayC2ERKS1_.exit.i:               ; preds = %.lr.ph.i.i.i.i.i.i.
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %190, ptr noundef nonnull align 8 dereferenceable(40) %5) #16
   %191 = load ptr, ptr %6, align 8
   %.not.i.i.i61 = icmp eq ptr %191, null
-  br i1 %.not.i.i.i61, label %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.argprom.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+  br i1 %.not.i.i.i61, label %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %_ZN4llvm4json5ArrayC2ERKS1_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %191) #16
   call void @_ZdlPvm(ptr noundef nonnull %191, i64 noundef 32) #17
-  br label %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.argprom.exit
+  br label %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.exit
 
-_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.argprom.exit: ; preds = %_ZN4llvm4json5ArrayC2ERKS1_.exit.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
+_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.exit: ; preds = %_ZN4llvm4json5ArrayC2ERKS1_.exit.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i
   store ptr null, ptr %6, align 8
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -12071,8 +12071,8 @@ _ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9String
   %.not4.i.i.i.i.i62 = icmp eq ptr %203, %204
   br i1 %.not4.i.i.i.i.i62, label %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i68, label %.lr.ph.i.i.i.i.i63
 
-.lr.ph.i.i.i.i.i63:                               ; preds = %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.argprom.exit, %.lr.ph.i.i.i.i.i63
-  %.05.i.i.i.i.i64 = phi ptr [ %205, %.lr.ph.i.i.i.i.i63 ], [ %203, %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.argprom.exit ]
+.lr.ph.i.i.i.i.i63:                               ; preds = %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.exit, %.lr.ph.i.i.i.i.i63
+  %.05.i.i.i.i.i64 = phi ptr [ %205, %.lr.ph.i.i.i.i.i63 ], [ %203, %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.exit ]
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i.i.i64) #16
   %205 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i64, i64 40
   %.not.i.i.i.i.i65 = icmp eq ptr %205, %204
@@ -12082,8 +12082,8 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i66: 
   %.pr.i.i67 = load ptr, ptr %14, align 8
   br label %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i68
 
-_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i68: ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i66, %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.argprom.exit
-  %206 = phi ptr [ %.pr.i.i67, %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i66 ], [ %203, %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.argprom.exit ]
+_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i68: ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i66, %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.exit
+  %206 = phi ptr [ %.pr.i.i67, %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i66 ], [ %203, %_ZN12_GLOBAL__N_114serializeArrayIRN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.exit ]
   %.not.i.i.i.i69 = icmp eq ptr %206, null
   br i1 %.not.i.i.i.i69, label %_ZN4llvm4json5ArrayD2Ev.exit70, label %207
 
@@ -12206,7 +12206,7 @@ _ZN4llvm11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114serializeArrayIN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %.0.val, ptr %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114serializeArrayIN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %.0.val, ptr %.8.val) unnamed_addr #0 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::ObjectKey", align 8
   %6 = ptrtoint ptr %.8.val to i64
@@ -16535,8 +16535,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !12 = distinct !{!12, !13, !"_ZN4llvm9map_rangeIRKNS_11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EEEZNKS3_21SymbolGraphSerializer23serializePathComponentsEPKNS3_9APIRecordEE3$_0EEDaOT_T0_: argument 0"}
 !13 = distinct !{!13, !"_ZN4llvm9map_rangeIRKNS_11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EEEZNKS3_21SymbolGraphSerializer23serializePathComponentsEPKNS3_9APIRecordEE3$_0EEDaOT_T0_"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.argprom: argument 0"}
-!16 = distinct !{!16, !"_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE.argprom"}
+!15 = distinct !{!15, !16, !"_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE: argument 0"}
+!16 = distinct !{!16, !"_ZN12_GLOBAL__N_119serializeIdentifierERKN5clang10extractapi9APIRecordENS0_8LanguageE"}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN12_GLOBAL__N_114serializeNamesEPKN5clang10extractapi9APIRecordE: argument 0"}
 !19 = distinct !{!19, !"_ZN12_GLOBAL__N_114serializeNamesEPKN5clang10extractapi9APIRecordE"}
@@ -16556,8 +16556,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !33 = distinct !{!33, !34, !"_ZSt3tieIJKN4llvm12VersionTupleES2_S2_KbS3_S3_EESt5tupleIJDpRT_EES7_: argument 0"}
 !34 = distinct !{!34, !"_ZSt3tieIJKN4llvm12VersionTupleES2_S2_KbS3_S3_EESt5tupleIJDpRT_EES7_"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE.argprom"}
+!36 = distinct !{!36, !37, !"_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE: argument 0"}
+!37 = distinct !{!37, !"_ZN12_GLOBAL__N_119serializeDocCommentERKSt6vectorIN5clang10RawComment11CommentLineESaIS3_EE"}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZN12_GLOBAL__N_120serializeSourceRangeERKN5clang11PresumedLocES3_: argument 0"}
 !40 = distinct !{!40, !"_ZN12_GLOBAL__N_120serializeSourceRangeERKN5clang11PresumedLocES3_"}
@@ -16569,8 +16569,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !46 = distinct !{!46, !47, !"_ZN4llvm9map_rangeIRKNS_11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EEEZNKS3_21SymbolGraphSerializer23serializePathComponentsEPKNS3_9APIRecordEE3$_0EEDaOT_T0_: argument 0"}
 !47 = distinct !{!47, !"_ZN4llvm9map_rangeIRKNS_11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EEEZNKS3_21SymbolGraphSerializer23serializePathComponentsEPKNS3_9APIRecordEE3$_0EEDaOT_T0_"}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.argprom: argument 0"}
-!50 = distinct !{!50, !"_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.argprom"}
+!49 = distinct !{!49, !50, !"_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE: argument 0"}
+!50 = distinct !{!50, !"_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE"}
 !51 = !{!52}
 !52 = distinct !{!52, !53, !"_ZN4llvm7formatvIJNS_4json5ValueEEEENS_14formatv_objectIDTclsr3stdE10make_tuplespclsr7support6detailE20build_format_adapterclsr3stdE7forwardIT_Efp1_EEEEEEbPKcDpOS4_: argument 0"}
 !53 = distinct !{!53, !"_ZN4llvm7formatvIJNS_4json5ValueEEEENS_14formatv_objectIDTclsr3stdE10make_tuplespclsr7support6detailE20build_format_adapterclsr3stdE7forwardIT_Efp1_EEEEEEbPKcDpOS4_"}
@@ -16608,8 +16608,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !85 = distinct !{!85, !86, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !86 = distinct !{!86, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!89 = distinct !{!89, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!88 = distinct !{!88, !89, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!89 = distinct !{!89, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !90 = !{!91, !93}
 !91 = distinct !{!91, !92, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !92 = distinct !{!92, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16619,8 +16619,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !96 = distinct !{!96, !97, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !97 = distinct !{!97, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!100 = distinct !{!100, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!99 = distinct !{!99, !100, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!100 = distinct !{!100, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !101 = !{!102, !104}
 !102 = distinct !{!102, !103, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !103 = distinct !{!103, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16630,8 +16630,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !107 = distinct !{!107, !108, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !108 = distinct !{!108, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!111 = distinct !{!111, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!110 = distinct !{!110, !111, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!111 = distinct !{!111, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !112 = !{!113, !115}
 !113 = distinct !{!113, !114, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !114 = distinct !{!114, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16641,8 +16641,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !118 = distinct !{!118, !119, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !119 = distinct !{!119, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!122 = distinct !{!122, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!121 = distinct !{!121, !122, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!122 = distinct !{!122, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !123 = !{!124, !126}
 !124 = distinct !{!124, !125, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !125 = distinct !{!125, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16652,8 +16652,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !129 = distinct !{!129, !130, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !130 = distinct !{!130, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!133 = distinct !{!133, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!132 = distinct !{!132, !133, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!133 = distinct !{!133, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !134 = !{!135, !137}
 !135 = distinct !{!135, !136, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !136 = distinct !{!136, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16663,8 +16663,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !140 = distinct !{!140, !141, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !141 = distinct !{!141, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!144 = distinct !{!144, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!143 = distinct !{!143, !144, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!144 = distinct !{!144, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !145 = !{!146, !148}
 !146 = distinct !{!146, !147, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !147 = distinct !{!147, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16674,8 +16674,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !151 = distinct !{!151, !152, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !152 = distinct !{!152, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!155 = distinct !{!155, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!154 = distinct !{!154, !155, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!155 = distinct !{!155, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !156 = !{!157, !159}
 !157 = distinct !{!157, !158, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !158 = distinct !{!158, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16685,8 +16685,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !162 = distinct !{!162, !163, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !163 = distinct !{!163, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!166 = distinct !{!166, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!165 = distinct !{!165, !166, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!166 = distinct !{!166, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !167 = !{!168, !170}
 !168 = distinct !{!168, !169, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !169 = distinct !{!169, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16696,8 +16696,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !173 = distinct !{!173, !174, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !174 = distinct !{!174, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !175 = !{!176}
-!176 = distinct !{!176, !177, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!177 = distinct !{!177, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!176 = distinct !{!176, !177, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!177 = distinct !{!177, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !178 = !{!179, !181}
 !179 = distinct !{!179, !180, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !180 = distinct !{!180, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16707,8 +16707,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !184 = distinct !{!184, !185, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !185 = distinct !{!185, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!188 = distinct !{!188, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!187 = distinct !{!187, !188, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!188 = distinct !{!188, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !189 = !{!190, !192}
 !190 = distinct !{!190, !191, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !191 = distinct !{!191, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16718,8 +16718,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !195 = distinct !{!195, !196, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !196 = distinct !{!196, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!199 = distinct !{!199, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!198 = distinct !{!198, !199, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!199 = distinct !{!199, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !200 = !{!201, !203}
 !201 = distinct !{!201, !202, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !202 = distinct !{!202, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16729,8 +16729,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !206 = distinct !{!206, !207, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !207 = distinct !{!207, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!210 = distinct !{!210, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!209 = distinct !{!209, !210, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!210 = distinct !{!210, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !211 = !{!212, !214}
 !212 = distinct !{!212, !213, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !213 = distinct !{!213, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16740,8 +16740,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !217 = distinct !{!217, !218, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !218 = distinct !{!218, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !219 = !{!220}
-!220 = distinct !{!220, !221, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!221 = distinct !{!221, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!220 = distinct !{!220, !221, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!221 = distinct !{!221, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !222 = !{!223, !225}
 !223 = distinct !{!223, !224, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !224 = distinct !{!224, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16751,8 +16751,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !228 = distinct !{!228, !229, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !229 = distinct !{!229, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !230 = !{!231}
-!231 = distinct !{!231, !232, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!232 = distinct !{!232, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!231 = distinct !{!231, !232, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!232 = distinct !{!232, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !233 = !{!234, !236}
 !234 = distinct !{!234, !235, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !235 = distinct !{!235, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16762,8 +16762,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !239 = distinct !{!239, !240, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !240 = distinct !{!240, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!243 = distinct !{!243, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!242 = distinct !{!242, !243, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!243 = distinct !{!243, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !244 = !{!245, !247}
 !245 = distinct !{!245, !246, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !246 = distinct !{!246, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16773,8 +16773,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !250 = distinct !{!250, !251, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !251 = distinct !{!251, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !252 = !{!253}
-!253 = distinct !{!253, !254, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!254 = distinct !{!254, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!253 = distinct !{!253, !254, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!254 = distinct !{!254, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !255 = !{!256, !258}
 !256 = distinct !{!256, !257, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !257 = distinct !{!257, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16784,8 +16784,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !261 = distinct !{!261, !262, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !262 = distinct !{!262, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !263 = !{!264}
-!264 = distinct !{!264, !265, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!265 = distinct !{!265, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!264 = distinct !{!264, !265, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!265 = distinct !{!265, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !266 = !{!267, !269}
 !267 = distinct !{!267, !268, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !268 = distinct !{!268, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16795,8 +16795,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !272 = distinct !{!272, !273, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !273 = distinct !{!273, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !274 = !{!275}
-!275 = distinct !{!275, !276, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!276 = distinct !{!276, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!275 = distinct !{!275, !276, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!276 = distinct !{!276, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !277 = !{!278, !280}
 !278 = distinct !{!278, !279, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !279 = distinct !{!279, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16806,8 +16806,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !283 = distinct !{!283, !284, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !284 = distinct !{!284, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !285 = !{!286}
-!286 = distinct !{!286, !287, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!287 = distinct !{!287, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!286 = distinct !{!286, !287, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!287 = distinct !{!287, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !288 = !{!289, !291}
 !289 = distinct !{!289, !290, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !290 = distinct !{!290, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16817,8 +16817,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !294 = distinct !{!294, !295, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !295 = distinct !{!295, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !296 = !{!297}
-!297 = distinct !{!297, !298, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!298 = distinct !{!298, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!297 = distinct !{!297, !298, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!298 = distinct !{!298, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !299 = !{!300, !302}
 !300 = distinct !{!300, !301, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !301 = distinct !{!301, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16828,8 +16828,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !305 = distinct !{!305, !306, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !306 = distinct !{!306, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !307 = !{!308}
-!308 = distinct !{!308, !309, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!309 = distinct !{!309, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!308 = distinct !{!308, !309, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!309 = distinct !{!309, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !310 = !{!311, !313}
 !311 = distinct !{!311, !312, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !312 = distinct !{!312, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16839,8 +16839,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !316 = distinct !{!316, !317, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !317 = distinct !{!317, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !318 = !{!319}
-!319 = distinct !{!319, !320, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!320 = distinct !{!320, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!319 = distinct !{!319, !320, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!320 = distinct !{!320, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !321 = !{!322, !324}
 !322 = distinct !{!322, !323, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !323 = distinct !{!323, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16850,8 +16850,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !327 = distinct !{!327, !328, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !328 = distinct !{!328, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !329 = !{!330}
-!330 = distinct !{!330, !331, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!331 = distinct !{!331, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!330 = distinct !{!330, !331, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!331 = distinct !{!331, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !332 = !{!333, !335}
 !333 = distinct !{!333, !334, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !334 = distinct !{!334, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16861,8 +16861,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !338 = distinct !{!338, !339, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !339 = distinct !{!339, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !340 = !{!341}
-!341 = distinct !{!341, !342, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!342 = distinct !{!342, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!341 = distinct !{!341, !342, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!342 = distinct !{!342, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !343 = !{!344, !346}
 !344 = distinct !{!344, !345, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !345 = distinct !{!345, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16872,8 +16872,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !349 = distinct !{!349, !350, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !350 = distinct !{!350, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !351 = !{!352}
-!352 = distinct !{!352, !353, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!353 = distinct !{!353, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!352 = distinct !{!352, !353, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!353 = distinct !{!353, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !354 = !{!355, !357}
 !355 = distinct !{!355, !356, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !356 = distinct !{!356, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16883,8 +16883,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !360 = distinct !{!360, !361, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !361 = distinct !{!361, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !362 = !{!363}
-!363 = distinct !{!363, !364, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!364 = distinct !{!364, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!363 = distinct !{!363, !364, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!364 = distinct !{!364, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !365 = !{!366, !368}
 !366 = distinct !{!366, !367, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !367 = distinct !{!367, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16894,8 +16894,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !371 = distinct !{!371, !372, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !372 = distinct !{!372, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !373 = !{!374}
-!374 = distinct !{!374, !375, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!375 = distinct !{!375, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!374 = distinct !{!374, !375, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!375 = distinct !{!375, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !376 = !{!377, !379}
 !377 = distinct !{!377, !378, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !378 = distinct !{!378, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16905,8 +16905,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !382 = distinct !{!382, !383, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !383 = distinct !{!383, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !384 = !{!385}
-!385 = distinct !{!385, !386, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!386 = distinct !{!386, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!385 = distinct !{!385, !386, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!386 = distinct !{!386, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !387 = !{!388, !390}
 !388 = distinct !{!388, !389, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !389 = distinct !{!389, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16916,8 +16916,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !393 = distinct !{!393, !394, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !394 = distinct !{!394, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !395 = !{!396}
-!396 = distinct !{!396, !397, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!397 = distinct !{!397, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!396 = distinct !{!396, !397, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!397 = distinct !{!397, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !398 = !{!399, !401}
 !399 = distinct !{!399, !400, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !400 = distinct !{!400, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16927,8 +16927,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !404 = distinct !{!404, !405, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !405 = distinct !{!405, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !406 = !{!407}
-!407 = distinct !{!407, !408, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!408 = distinct !{!408, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!407 = distinct !{!407, !408, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!408 = distinct !{!408, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !409 = !{!410, !412}
 !410 = distinct !{!410, !411, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !411 = distinct !{!411, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16938,8 +16938,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !415 = distinct !{!415, !416, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !416 = distinct !{!416, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !417 = !{!418}
-!418 = distinct !{!418, !419, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!419 = distinct !{!419, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!418 = distinct !{!418, !419, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!419 = distinct !{!419, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !420 = !{!421, !423}
 !421 = distinct !{!421, !422, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !422 = distinct !{!422, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16949,8 +16949,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !426 = distinct !{!426, !427, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !427 = distinct !{!427, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !428 = !{!429}
-!429 = distinct !{!429, !430, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!430 = distinct !{!430, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!429 = distinct !{!429, !430, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!430 = distinct !{!430, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !431 = !{!432, !434}
 !432 = distinct !{!432, !433, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !433 = distinct !{!433, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16960,8 +16960,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !437 = distinct !{!437, !438, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !438 = distinct !{!438, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !439 = !{!440}
-!440 = distinct !{!440, !441, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!441 = distinct !{!441, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!440 = distinct !{!440, !441, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!441 = distinct !{!441, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !442 = !{!443, !445}
 !443 = distinct !{!443, !444, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !444 = distinct !{!444, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16971,8 +16971,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !448 = distinct !{!448, !449, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !449 = distinct !{!449, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !450 = !{!451}
-!451 = distinct !{!451, !452, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!452 = distinct !{!452, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!451 = distinct !{!451, !452, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!452 = distinct !{!452, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !453 = !{!454, !456}
 !454 = distinct !{!454, !455, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !455 = distinct !{!455, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16982,8 +16982,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !459 = distinct !{!459, !460, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !460 = distinct !{!460, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !461 = !{!462}
-!462 = distinct !{!462, !463, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!463 = distinct !{!463, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!462 = distinct !{!462, !463, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!463 = distinct !{!463, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !464 = !{!465, !467}
 !465 = distinct !{!465, !466, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !466 = distinct !{!466, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -16993,8 +16993,8 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !470 = distinct !{!470, !471, !"_ZN4llvmplERKNS_9StringRefEPKc: argument 0"}
 !471 = distinct !{!471, !"_ZN4llvmplERKNS_9StringRefEPKc"}
 !472 = !{!473}
-!473 = distinct !{!473, !474, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom: argument 0"}
-!474 = distinct !{!474, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE.argprom.argprom"}
+!473 = distinct !{!473, !474, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE: argument 0"}
+!474 = distinct !{!474, !"_ZZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageEENK3$_0clB5cxx11EN4llvm9StringRefE"}
 !475 = !{!476, !478}
 !476 = distinct !{!476, !477, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !477 = distinct !{!477, !"_ZNK4llvm5Twine6concatERKS0_"}

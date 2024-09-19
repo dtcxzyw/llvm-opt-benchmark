@@ -301,7 +301,7 @@ define internal fastcc i32 @CopyReadBinaryData(ptr nocapture noundef %0, ptr noc
   br label %34
 
 34:                                               ; preds = %30, %26
-  %35 = tail call fastcc i32 @CopyGetData.argelim(ptr noundef nonnull %0, ptr noundef %27, i32 noundef 65536)
+  %35 = tail call fastcc i32 @CopyGetData(ptr noundef nonnull %0, ptr noundef %27, i32 noundef 65536)
   %36 = load ptr, ptr %9, align 8
   %37 = sext i32 %35 to i64
   %38 = getelementptr i8, ptr %36, i64 %37
@@ -878,7 +878,7 @@ CopyConvertBuf.exit.i.i:                          ; preds = %131, %130, %126, %9
   %193 = sext i32 %.pre-phi.i.i.i to i64
   %194 = getelementptr i8, ptr %185, i64 %193
   %195 = sub i32 65536, %.pre-phi.i.i.i
-  %196 = tail call fastcc i32 @CopyGetData.argelim(ptr noundef nonnull %0, ptr noundef %194, i32 noundef %195)
+  %196 = tail call fastcc i32 @CopyGetData(ptr noundef nonnull %0, ptr noundef %194, i32 noundef %195)
   %197 = add i32 %196, %177
   %198 = load ptr, ptr %24, align 8
   %199 = sext i32 %197 to i64
@@ -1247,7 +1247,7 @@ CopyReadLineText.exit.thread:                     ; preds = %CopyLoadInputBuf.ex
 
 .preheader:                                       ; preds = %CopyReadLineText.exit.thread, %.preheader
   %355 = load ptr, ptr %18, align 8
-  %356 = tail call fastcc i32 @CopyGetData.argelim(ptr noundef nonnull %0, ptr noundef %355, i32 noundef 65536)
+  %356 = tail call fastcc i32 @CopyGetData(ptr noundef nonnull %0, ptr noundef %355, i32 noundef 65536)
   %357 = icmp sgt i32 %356, 0
   br i1 %357, label %.preheader, label %358, !llvm.loop !18
 
@@ -2533,7 +2533,7 @@ declare i32 @llvm.bswap.i32(i32) #6
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @CopyGetData.argelim(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @CopyGetData(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %.critedge [
     i32 0, label %8

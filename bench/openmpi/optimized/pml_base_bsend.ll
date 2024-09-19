@@ -45,21 +45,21 @@ define range(i32 -30, 1) i32 @mca_pml_base_bsend_init() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = atomicrmw volatile add ptr @mca_pml_bsend_init, i32 1 monotonic, align 4
   %5 = add i32 %4, 1
-  br label %opal_thread_add_fetch_32.argprom.exit
+  br label %opal_thread_add_fetch_32.exit
 
 6:                                                ; preds = %0
   %7 = load volatile i32, ptr @mca_pml_bsend_init, align 4
   %8 = add nsw i32 %7, 1
   store volatile i32 %8, ptr @mca_pml_bsend_init, align 4
   %9 = load volatile i32, ptr @mca_pml_bsend_init, align 4
-  br label %opal_thread_add_fetch_32.argprom.exit
+  br label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.argprom.exit:            ; preds = %3, %6
+opal_thread_add_fetch_32.exit:                    ; preds = %3, %6
   %.0.i = phi i32 [ %5, %3 ], [ %9, %6 ]
   %10 = icmp sgt i32 %.0.i, 1
   br i1 %10, label %34, label %11
 
-11:                                               ; preds = %opal_thread_add_fetch_32.argprom.exit
+11:                                               ; preds = %opal_thread_add_fetch_32.exit
   %12 = load i32, ptr @opal_class_init_epoch, align 4
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %12, %13
@@ -125,8 +125,8 @@ opal_obj_run_constructors.exit10:                 ; preds = %.lr.ph.i7, %24
   tail call void @opal_finalize_append_cleanup(ptr noundef nonnull @mca_pml_base_bsend_fini, ptr noundef nonnull @.str, ptr noundef null) #4
   br label %34
 
-34:                                               ; preds = %opal_obj_run_constructors.exit10, %opal_thread_add_fetch_32.argprom.exit, %._crit_edge
-  %.03 = phi i32 [ 0, %._crit_edge ], [ 0, %opal_thread_add_fetch_32.argprom.exit ], [ -30, %opal_obj_run_constructors.exit10 ]
+34:                                               ; preds = %opal_obj_run_constructors.exit10, %opal_thread_add_fetch_32.exit, %._crit_edge
+  %.03 = phi i32 [ 0, %._crit_edge ], [ 0, %opal_thread_add_fetch_32.exit ], [ -30, %opal_obj_run_constructors.exit10 ]
   ret i32 %.03
 }
 
@@ -148,21 +148,21 @@ define internal noundef i32 @mca_pml_base_bsend_fini() #0 {
 3:                                                ; preds = %0
   %4 = atomicrmw volatile add ptr @mca_pml_bsend_init, i32 -1 monotonic, align 4
   %5 = add i32 %4, -1
-  br label %opal_thread_add_fetch_32.argprom.exit
+  br label %opal_thread_add_fetch_32.exit
 
 6:                                                ; preds = %0
   %7 = load volatile i32, ptr @mca_pml_bsend_init, align 4
   %8 = add nsw i32 %7, -1
   store volatile i32 %8, ptr @mca_pml_bsend_init, align 4
   %9 = load volatile i32, ptr @mca_pml_bsend_init, align 4
-  br label %opal_thread_add_fetch_32.argprom.exit
+  br label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.argprom.exit:            ; preds = %3, %6
+opal_thread_add_fetch_32.exit:                    ; preds = %3, %6
   %.0.i = phi i32 [ %5, %3 ], [ %9, %6 ]
   %10 = icmp sgt i32 %.0.i, 0
   br i1 %10, label %opal_obj_run_destructors.exit5, label %11
 
-11:                                               ; preds = %opal_thread_add_fetch_32.argprom.exit
+11:                                               ; preds = %opal_thread_add_fetch_32.exit
   %12 = load ptr, ptr @mca_pml_bsend_allocator, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
@@ -208,7 +208,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %17
   %.not.i4 = icmp eq ptr %31, null
   br i1 %.not.i4, label %opal_obj_run_destructors.exit5, label %.lr.ph.i2, !llvm.loop !6
 
-opal_obj_run_destructors.exit5:                   ; preds = %.lr.ph.i2, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.argprom.exit
+opal_obj_run_destructors.exit5:                   ; preds = %.lr.ph.i2, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
   ret i32 0
 }
 
@@ -335,7 +335,7 @@ define range(i32 -30, 1) i32 @mca_pml_base_bsend_detach(ptr noundef writeonly %0
   %13 = trunc i8 %12 to i1
   br i1 %13, label %.sink.split, label %55
 
-.lr.ph:                                           ; preds = %.preheader, %opal_condition_wait.argprom.exit
+.lr.ph:                                           ; preds = %.preheader, %opal_condition_wait.exit
   %14 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_bsend_condition, i64 16), align 8
   %15 = add nsw i32 %14, 1
   store volatile i32 %15, ptr getelementptr inbounds (i8, ptr @mca_pml_bsend_condition, i64 16), align 8
@@ -363,7 +363,7 @@ define range(i32 -30, 1) i32 @mca_pml_base_bsend_detach(ptr noundef writeonly %0
   %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_bsend_mutex, i64 16)) #4
   %26 = tail call i32 @opal_progress() #4
   %27 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_bsend_mutex, i64 16)) #4
-  br label %opal_condition_wait.argprom.exit
+  br label %opal_condition_wait.exit
 
 .lr.ph3.i:                                        ; preds = %.preheader.i, %.lr.ph3.i
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_bsend_mutex, i64 16)) #4
@@ -386,14 +386,14 @@ define range(i32 -30, 1) i32 @mca_pml_base_bsend_detach(ptr noundef writeonly %0
   %38 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_bsend_condition, i64 16), align 8
   %39 = add nsw i32 %38, -1
   store volatile i32 %39, ptr getelementptr inbounds (i8, ptr @mca_pml_bsend_condition, i64 16), align 8
-  br label %opal_condition_wait.argprom.exit
+  br label %opal_condition_wait.exit
 
-opal_condition_wait.argprom.exit:                 ; preds = %22, %.loopexit.i
+opal_condition_wait.exit:                         ; preds = %22, %.loopexit.i
   %40 = load i64, ptr @mca_pml_bsend_count, align 8
   %.not = icmp eq i64 %40, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %opal_condition_wait.argprom.exit
+._crit_edge.loopexit:                             ; preds = %opal_condition_wait.exit
   %.pre = load ptr, ptr @mca_pml_bsend_allocator, align 8
   br label %._crit_edge
 
@@ -690,29 +690,29 @@ define noundef i32 @mca_pml_base_bsend_request_free(ptr noundef %0) local_unname
   %11 = add i64 %10, -1
   store i64 %11, ptr @mca_pml_bsend_count, align 8
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %opal_condition_signal.argprom.exit
+  br i1 %12, label %13, label %opal_condition_signal.exit
 
 13:                                               ; preds = %6
   %14 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_bsend_condition, i64 16), align 8
   %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %opal_condition_signal.argprom.exit, label %15
+  br i1 %.not.i, label %opal_condition_signal.exit, label %15
 
 15:                                               ; preds = %13
   %16 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_bsend_condition, i64 20), align 4
   %17 = add nsw i32 %16, 1
   store volatile i32 %17, ptr getelementptr inbounds (i8, ptr @mca_pml_bsend_condition, i64 20), align 4
-  br label %opal_condition_signal.argprom.exit
+  br label %opal_condition_signal.exit
 
-opal_condition_signal.argprom.exit:               ; preds = %15, %13, %6
+opal_condition_signal.exit:                       ; preds = %15, %13, %6
   %18 = load i8, ptr @opal_uses_threads, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %22
 
-20:                                               ; preds = %opal_condition_signal.argprom.exit
+20:                                               ; preds = %opal_condition_signal.exit
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_bsend_mutex, i64 16)) #4
   br label %22
 
-22:                                               ; preds = %opal_condition_signal.argprom.exit, %20
+22:                                               ; preds = %opal_condition_signal.exit, %20
   ret i32 0
 }
 
@@ -757,29 +757,29 @@ define noundef i32 @mca_pml_base_bsend_request_fini(ptr nocapture noundef %0) lo
   %25 = add i64 %24, -1
   store i64 %25, ptr @mca_pml_bsend_count, align 8
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %opal_condition_signal.argprom.exit
+  br i1 %26, label %27, label %opal_condition_signal.exit
 
 27:                                               ; preds = %18
   %28 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_bsend_condition, i64 16), align 8
   %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %opal_condition_signal.argprom.exit, label %29
+  br i1 %.not.i, label %opal_condition_signal.exit, label %29
 
 29:                                               ; preds = %27
   %30 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_bsend_condition, i64 20), align 4
   %31 = add nsw i32 %30, 1
   store volatile i32 %31, ptr getelementptr inbounds (i8, ptr @mca_pml_bsend_condition, i64 20), align 4
-  br label %opal_condition_signal.argprom.exit
+  br label %opal_condition_signal.exit
 
-opal_condition_signal.argprom.exit:               ; preds = %29, %27, %18
+opal_condition_signal.exit:                       ; preds = %29, %27, %18
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
 
-34:                                               ; preds = %opal_condition_signal.argprom.exit
+34:                                               ; preds = %opal_condition_signal.exit
   %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_bsend_mutex, i64 16)) #4
   br label %36
 
-36:                                               ; preds = %34, %opal_condition_signal.argprom.exit, %1, %5, %9
+36:                                               ; preds = %34, %opal_condition_signal.exit, %1, %5, %9
   ret i32 0
 }
 

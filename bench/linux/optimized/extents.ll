@@ -7016,7 +7016,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %1050 = getelementptr %struct.ext4_ext_path, ptr %1044, i64 %1049, i32 3
   %1051 = load ptr, ptr %1050, align 8
   %1052 = icmp eq ptr %1051, null
-  br i1 %1052, label %ext4_ext_check_overlap.argprom.exit.thread, label %1053
+  br i1 %1052, label %ext4_ext_check_overlap.exit.thread, label %1053
 
 1053:                                             ; preds = %1040
   %1054 = load i32, ptr %1051, align 4
@@ -7045,7 +7045,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %1067 = getelementptr inbounds i8, ptr %1044, i64 16
   %1068 = load ptr, ptr %1067, align 8
   %1069 = icmp eq ptr %1068, null
-  br i1 %1069, label %ext4_ext_check_overlap.argprom.exit.thread, label %1070
+  br i1 %1069, label %ext4_ext_check_overlap.exit.thread, label %1070
 
 1070:                                             ; preds = %1066, %1062
   %1071 = zext i16 %1064 to i64
@@ -7092,14 +7092,14 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 1101:                                             ; preds = %1089, %1079, %1075
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %1102 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %1102, label %1072, label %ext4_ext_check_overlap.argprom.exit.thread, !llvm.loop !41
+  br i1 %1102, label %1072, label %ext4_ext_check_overlap.exit.thread, !llvm.loop !41
 
 1103:                                             ; preds = %1089, %1079
   %.pn.i = phi ptr [ %1077, %1079 ], [ %1091, %1089 ]
   %.ph.in.i = getelementptr i8, ptr %.pn.i, i64 12
   %.ph.i = load i32, ptr %.ph.in.i, align 4
   %1104 = icmp eq i32 %.ph.i, -1
-  br i1 %1104, label %ext4_ext_check_overlap.argprom.exit.thread, label %1105
+  br i1 %1104, label %ext4_ext_check_overlap.exit.thread, label %1105
 
 1105:                                             ; preds = %1103
   %1106 = and i32 %.ph.i, %1056
@@ -7113,27 +7113,27 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 
 1110:                                             ; preds = %1107
   %.not188 = icmp eq i32 %1108, -1
-  br i1 %.not188, label %ext4_ext_check_overlap.argprom.exit, label %ext4_ext_check_overlap.argprom.exit.thread119
+  br i1 %.not188, label %ext4_ext_check_overlap.exit, label %ext4_ext_check_overlap.exit.thread119
 
 .thread:                                          ; preds = %1107
   %1111 = add i32 %1048, %926
   %1112 = icmp ugt i32 %1111, %1108
-  br i1 %1112, label %ext4_ext_check_overlap.argprom.exit.thread119, label %ext4_ext_check_overlap.argprom.exit.thread164
+  br i1 %1112, label %ext4_ext_check_overlap.exit.thread119, label %ext4_ext_check_overlap.exit.thread164
 
-ext4_ext_check_overlap.argprom.exit.thread164:    ; preds = %.thread
+ext4_ext_check_overlap.exit.thread164:            ; preds = %.thread
   store i32 0, ptr %10, align 4
   br label %1119
 
-ext4_ext_check_overlap.argprom.exit.thread119:    ; preds = %.thread, %1110
+ext4_ext_check_overlap.exit.thread119:            ; preds = %.thread, %1110
   %1113 = sub i32 %1108, %926
-  br label %ext4_ext_check_overlap.argprom.exit
+  br label %ext4_ext_check_overlap.exit
 
-ext4_ext_check_overlap.argprom.exit.thread:       ; preds = %1101, %1103, %1040, %1066
+ext4_ext_check_overlap.exit.thread:               ; preds = %1101, %1103, %1040, %1066
   store i32 0, ptr %10, align 4
   br label %1119
 
-ext4_ext_check_overlap.argprom.exit:              ; preds = %1110, %ext4_ext_check_overlap.argprom.exit.thread119
-  %.in = phi i32 [ %1113, %ext4_ext_check_overlap.argprom.exit.thread119 ], [ %1109, %1110 ]
+ext4_ext_check_overlap.exit:                      ; preds = %1110, %ext4_ext_check_overlap.exit.thread119
+  %.in = phi i32 [ %1113, %ext4_ext_check_overlap.exit.thread119 ], [ %1109, %1110 ]
   %1114 = trunc i32 %.in to i16
   store i16 %1114, ptr %1043, align 4
   store i32 1, ptr %10, align 4
@@ -7143,8 +7143,8 @@ ext4_ext_check_overlap.argprom.exit:              ; preds = %1110, %ext4_ext_che
   %1118 = select i1 %1116, i32 %1115, i32 %1117
   br label %1119
 
-1119:                                             ; preds = %ext4_ext_check_overlap.argprom.exit.thread164, %ext4_ext_check_overlap.argprom.exit.thread, %ext4_ext_check_overlap.argprom.exit
-  %1120 = phi i32 [ %1118, %ext4_ext_check_overlap.argprom.exit ], [ %1041, %ext4_ext_check_overlap.argprom.exit.thread ], [ %1041, %ext4_ext_check_overlap.argprom.exit.thread164 ]
+1119:                                             ; preds = %ext4_ext_check_overlap.exit.thread164, %ext4_ext_check_overlap.exit.thread, %ext4_ext_check_overlap.exit
+  %1120 = phi i32 [ %1118, %ext4_ext_check_overlap.exit ], [ %1041, %ext4_ext_check_overlap.exit.thread ], [ %1041, %ext4_ext_check_overlap.exit.thread164 ]
   store ptr %1, ptr %11, align 8
   %1121 = load i32, ptr %16, align 8
   %1122 = icmp eq ptr %1044, null
@@ -7759,7 +7759,7 @@ declare dso_local void @ext4_da_update_reserve_space(ptr noundef, i32 noundef, i
 declare dso_local i32 @ext4_es_delayed_clu(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @ext4_update_inode_fsync_trans.argelim(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 align 16 {
+define internal fastcc void @ext4_update_inode_fsync_trans(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 align 16 {
   %3 = icmp ult ptr %0, inttoptr (i64 4096 to ptr)
   br i1 %3, label %25, label %4
 
@@ -8093,7 +8093,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ext4_fallocate(ptr noun
   %160 = getelementptr inbounds i8, ptr %34, i64 112
   store i64 %158, ptr %160, align 8
   %161 = tail call i32 @__ext4_mark_inode_dirty(ptr noundef %116, ptr noundef %34, ptr noundef nonnull @__func__.ext4_collapse_range, i32 noundef 5417) #16
-  tail call fastcc void @ext4_update_inode_fsync_trans.argelim(ptr noundef %116, ptr noundef %34)
+  tail call fastcc void @ext4_update_inode_fsync_trans(ptr noundef %116, ptr noundef %34)
   br label %162
 
 162:                                              ; preds = %155, %132, %127
@@ -8363,7 +8363,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ext4_fallocate(ptr noun
   br i1 %329, label %330, label %331
 
 330:                                              ; preds = %328
-  call fastcc void @ext4_update_inode_fsync_trans.argelim(ptr noundef %257, ptr noundef %172)
+  call fastcc void @ext4_update_inode_fsync_trans(ptr noundef %257, ptr noundef %172)
   br label %331
 
 331:                                              ; preds = %330, %328, %304, %279, %262
@@ -8755,7 +8755,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @ext4_zero_range(p
   br i1 %166, label %167, label %168
 
 167:                                              ; preds = %164
-  tail call fastcc void @ext4_update_inode_fsync_trans.argelim(ptr noundef %145, ptr noundef %6)
+  tail call fastcc void @ext4_update_inode_fsync_trans(ptr noundef %145, ptr noundef %6)
   br label %168
 
 168:                                              ; preds = %167, %164

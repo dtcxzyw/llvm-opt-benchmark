@@ -1457,9 +1457,9 @@ define noundef ptr @_ZN8nanobind6detail13exception_newEP7_objectPKcS2_(ptr nound
 
 8:                                                ; preds = %3
   %9 = invoke i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyModule_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %10
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %10
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %8
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %8
   %.not69 = icmp eq i32 %9, 0
   %spec.select = select i1 %.not69, ptr @.str.7, ptr @.str.4
   br label %_ZN8nanobind6objectD2Ev.exit
@@ -1469,8 +1469,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %8
           cleanup
   br label %48
 
-_ZN8nanobind6objectD2Ev.exit:                     ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit, %3
-  %.str.7.sink = phi ptr [ @.str.4, %3 ], [ %spec.select, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ]
+_ZN8nanobind6objectD2Ev.exit:                     ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %3
+  %.str.7.sink = phi ptr [ @.str.4, %3 ], [ %spec.select, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
   %12 = tail call noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef nonnull %0, ptr noundef nonnull %.str.7.sink, ptr noundef null) #23, !noalias !21
   store ptr %12, ptr %4, align 8
   %.not42 = icmp eq ptr %12, null

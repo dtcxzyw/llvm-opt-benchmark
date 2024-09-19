@@ -913,7 +913,7 @@ _ZL17hasVulnerableLoadRN4llvm15MachineFunctionE.exit: ; preds = %._crit_edge.i70
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull %216, i64 noundef 16) #18
   %.sroa.05.015.i = load ptr, ptr %100, align 8, !noalias !6
   %.not16.i = icmp eq ptr %.sroa.05.015.i, %102
-  br i1 %.not16.i, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.argprom.exit, label %.lr.ph18.i
+  br i1 %.not16.i, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.exit, label %.lr.ph18.i
 
 .lr.ph18.i:                                       ; preds = %_ZL17hasVulnerableLoadRN4llvm15MachineFunctionE.exit
   %217 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -1254,17 +1254,17 @@ _ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13BlockCondInfoD2Ev.exit.i: ; 
   %363 = getelementptr inbounds nuw i8, ptr %.sroa.05.017.i, i64 8
   %.sroa.05.0.i = load ptr, ptr %363, align 8
   %.not.i73 = icmp eq ptr %.sroa.05.0.i, %102
-  br i1 %.not.i73, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.argprom.exit, label %222
+  br i1 %.not.i73, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.exit, label %222
 
-_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.argprom.exit: ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13BlockCondInfoD2Ev.exit.i, %_ZL17hasVulnerableLoadRN4llvm15MachineFunctionE.exit
+_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.exit: ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13BlockCondInfoD2Ev.exit.i, %_ZL17hasVulnerableLoadRN4llvm15MachineFunctionE.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %58)
   br i1 %215, label %366, label %364
 
-364:                                              ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.argprom.exit
+364:                                              ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.exit
   %365 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #18
   br i1 %365, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj16EED2Ev.exit184, label %366
 
-366:                                              ; preds = %364, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.argprom.exit
+366:                                              ; preds = %364, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.exit
   %367 = load ptr, ptr %86, align 8
   %368 = load ptr, ptr %98, align 8
   %369 = call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(512) %367, ptr noundef %368, ptr nonnull @.str.44, i64 0) #18
@@ -1790,7 +1790,7 @@ _ZL23canonicalizePHIOperandsRN4llvm15MachineFunctionE.exit: ; preds = %_ZN4llvm1
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull %570, i64 noundef 16) #18
   %571 = getelementptr inbounds %"struct.(anonymous namespace)::X86SpeculativeLoadHardeningPass::BlockCondInfo", ptr %.val.i126, i64 %569
   %.not120.i = icmp eq i64 %569, 0
-  br i1 %.not120.i, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.argprom.exit, label %.lr.ph123.i
+  br i1 %.not120.i, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.exit, label %.lr.ph123.i
 
 .lr.ph123.i:                                      ; preds = %_ZL23canonicalizePHIOperandsRN4llvm15MachineFunctionE.exit
   %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds i8, ptr %48, i64 8
@@ -3653,7 +3653,7 @@ _ZNSt6vectorIN4llvm3X868CondCodeESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
   %.sroa.8.2.i = getelementptr inbounds i8, ptr %.pn.i, i64 4
   %1485 = load i32, ptr %1460, align 4
   store i32 %1462, ptr %50, align 4, !noalias !30
-  call fastcc void @"_ZZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEEENK3$_0clERNS1_17MachineBasicBlockES9_iPNS1_12MachineInstrERSB_NS4_INS1_3X868CondCodeEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(288) %575, ptr noundef nonnull align 8 dereferenceable(288) %1054, i32 noundef %1485, ptr noundef nonnull %1050, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr nonnull %50, i64 1)
+  call fastcc void @"_ZZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEEENK3$_0clERNS1_17MachineBasicBlockES9_iPNS1_12MachineInstrERSB_NS4_INS1_3X868CondCodeEEE"(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(288) %575, ptr noundef nonnull align 8 dereferenceable(288) %1054, i32 noundef %1485, ptr noundef nonnull %1050, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr nonnull %50, i64 1)
   %1486 = load i32, ptr %1460, align 4
   %1487 = add nsw i32 %1486, -1
   store i32 %1487, ptr %1460, align 4
@@ -3839,7 +3839,7 @@ _ZNSt6vectorIN4llvm3X868CondCodeESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIP
   %1554 = ptrtoint ptr %.sroa.8.3.i to i64
   %1555 = sub i64 %1554, %1551
   %1556 = ashr exact i64 %1555, 2
-  call fastcc void @"_ZZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEEENK3$_0clERNS1_17MachineBasicBlockES9_iPNS1_12MachineInstrERSB_NS4_INS1_3X868CondCodeEEE.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(288) %575, ptr noundef nonnull align 8 dereferenceable(288) %1552, i32 noundef 1, ptr noundef %1553, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr %.sroa.014.1.lcssa.i, i64 %1556)
+  call fastcc void @"_ZZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEEENK3$_0clERNS1_17MachineBasicBlockES9_iPNS1_12MachineInstrERSB_NS4_INS1_3X868CondCodeEEE"(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(288) %575, ptr noundef nonnull align 8 dereferenceable(288) %1552, i32 noundef 1, ptr noundef %1553, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr %.sroa.014.1.lcssa.i, i64 %1556)
   br label %1557
 
 1557:                                             ; preds = %_ZNSt6vectorIN4llvm3X868CondCodeESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit.i, %_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit.i
@@ -3869,9 +3869,9 @@ _ZNSt6vectorIN4llvm3X868CondCodeESaIS2_EED2Ev.exit.i: ; preds = %1558, %1557
 _ZN4llvm13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEED2Ev.exit.i: ; preds = %1563, %_ZNSt6vectorIN4llvm3X868CondCodeESaIS2_EED2Ev.exit.i
   %1568 = getelementptr inbounds i8, ptr %.0121.i, i64 48
   %.not.i136 = icmp eq ptr %1568, %571
-  br i1 %.not.i136, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.argprom.exit, label %574
+  br i1 %.not.i136, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.exit, label %574
 
-_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.argprom.exit: ; preds = %_ZN4llvm13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEED2Ev.exit.i, %_ZL23canonicalizePHIOperandsRN4llvm15MachineFunctionE.exit
+_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.exit: ; preds = %_ZN4llvm13SmallDenseMapIPNS_17MachineBasicBlockEiLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEED2Ev.exit.i, %_ZL23canonicalizePHIOperandsRN4llvm15MachineFunctionE.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %48)
@@ -3884,8 +3884,8 @@ _ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4
   %or.cond.not = select i1 %1570, i1 %.not230310, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.argprom.exit, %1579
-  %.sroa.0193.0311 = phi ptr [ %.sroa.0193.0, %1579 ], [ %.sroa.0193.0309, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.argprom.exit ]
+.lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.exit, %1579
+  %.sroa.0193.0311 = phi ptr [ %.sroa.0193.0, %1579 ], [ %.sroa.0193.0309, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.exit ]
   %1571 = getelementptr inbounds nuw i8, ptr %.sroa.0193.0311, i64 216
   %1572 = load i8, ptr %1571, align 8
   %1573 = trunc i8 %1572 to i1
@@ -3905,7 +3905,7 @@ _ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4
   %.not230 = icmp eq ptr %.sroa.0193.0, %102
   br i1 %.not230, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %1579, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.argprom.exit
+.loopexit:                                        ; preds = %1579, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.exit
   %1581 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL27HardenIndirectCallsAndJumps, i64 128), align 8
   %1582 = trunc i8 %1581 to i1
   br i1 %1582, label %1583, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj16EED2Ev.exit
@@ -4276,7 +4276,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit.i172: ; preds = %1704
   %1725 = load i32, ptr %1724, align 4
   %1726 = call ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.0271.0297.i) #18
   %.not4.i.i.i.i.i.i.i173 = icmp eq ptr %1726, %1685
-  br i1 %.not4.i.i.i.i.i.i.i173, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread.i", label %.lr.ph.i.i.i.i.i.i.i174
+  br i1 %.not4.i.i.i.i.i.i.i173, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread.i", label %.lr.ph.i.i.i.i.i.i.i174
 
 .lr.ph.i.i.i.i.i.i.i174:                          ; preds = %1721, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i.i.i
   %.sroa.03.05.i.i.i.i.i.i.i = phi ptr [ %1743, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i.i.i ], [ %1726, %1721 ]
@@ -4286,7 +4286,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit.i172: ; preds = %1704
   %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i16 %1729, -5
   %1730 = icmp ne ptr %.sroa.03.05.i.i.i.i.i.i.i, %.sroa.0265.0.i
   %1731 = and i1 %1730, %switch.i.i.i.i.i.i.i.i.i.i
-  br i1 %1731, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.i", label %1732
+  br i1 %1731, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.i", label %1732
 
 1732:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i174
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.05.i.i.i.i.i.i.i, align 8
@@ -4316,24 +4316,24 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i.
   %1742 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i.i.i.i.i, i64 8
   %1743 = load ptr, ptr %1742, align 8
   %.not.i.i.i.i.i.i.i176 = icmp eq ptr %1743, %1685
-  br i1 %.not.i.i.i.i.i.i.i176, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread.i", label %.lr.ph.i.i.i.i.i.i.i174, !llvm.loop !47
+  br i1 %.not.i.i.i.i.i.i.i176, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread.i", label %.lr.ph.i.i.i.i.i.i.i174, !llvm.loop !47
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i174
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i174
   %.not286.i = icmp eq ptr %1685, %.sroa.03.05.i.i.i.i.i.i.i
-  br i1 %.not286.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread.i", label %1744
+  br i1 %.not286.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread.i", label %1744
 
-1744:                                             ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.i"
+1744:                                             ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.i"
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.51, i1 noundef zeroext true) #19
   unreachable
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread.i": ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.i", %1721
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread.i": ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.i", %1721
   call void @_ZN4llvm17MachineSSAUpdater17AddAvailableValueEPNS_17MachineBasicBlockENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull %.sroa.0271.0297.i, i32 %1725) #18
   %1745 = load ptr, ptr %1676, align 8, !noalias !48
   %1746 = load ptr, ptr %24, align 8, !noalias !48
   %1747 = icmp eq ptr %1745, %1746
   br i1 %1747, label %1748, label %1760
 
-1748:                                             ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread.i"
+1748:                                             ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread.i"
   %1749 = load i32, ptr %1678, align 4, !noalias !48
   %1750 = zext i32 %1749 to i64
   %1751 = getelementptr inbounds ptr, ptr %1746, i64 %1750
@@ -4362,7 +4362,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i.
   store ptr %.sroa.0271.0297.i, ptr %1751, align 8, !noalias !51
   br label %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit.i177
 
-1760:                                             ; preds = %._crit_edge.i.i.i183, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread.i"
+1760:                                             ; preds = %._crit_edge.i.i.i183, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread.i"
   %1761 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %24, ptr noundef nonnull %.sroa.0271.0297.i) #18, !noalias !51
   br label %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit.i177
 
@@ -4650,7 +4650,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit150.i: ; pr
   %1901 = trunc i8 %1900 to i1
   %1902 = icmp eq ptr %.029.val.i.i.i.i.i.i, %.sroa.0248.0314.i
   %.not49.i.i.i.i.i.i = or i1 %1902, %1901
-  br i1 %.not49.i.i.i.i.i.i, label %1903, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i"
+  br i1 %.not49.i.i.i.i.i.i, label %1903, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i"
 
 1903:                                             ; preds = %.lr.ph.i.i.i.i.i.i
   %1904 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i.i, i64 8
@@ -4660,7 +4660,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit150.i: ; pr
   %1907 = trunc i8 %1906 to i1
   %1908 = icmp eq ptr %.val31.i.i.i.i.i.i, %.sroa.0248.0314.i
   %.not50.i.i.i.i.i.i = or i1 %1908, %1907
-  br i1 %.not50.i.i.i.i.i.i, label %1909, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit"
+  br i1 %.not50.i.i.i.i.i.i, label %1909, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit"
 
 1909:                                             ; preds = %1903
   %1910 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i.i, i64 16
@@ -4670,7 +4670,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit150.i: ; pr
   %1913 = trunc i8 %1912 to i1
   %1914 = icmp eq ptr %.val33.i.i.i.i.i.i, %.sroa.0248.0314.i
   %.not51.i.i.i.i.i.i = or i1 %1914, %1913
-  br i1 %.not51.i.i.i.i.i.i, label %1915, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit483"
+  br i1 %.not51.i.i.i.i.i.i, label %1915, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit483"
 
 1915:                                             ; preds = %1909
   %1916 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i.i, i64 24
@@ -4680,7 +4680,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit150.i: ; pr
   %1919 = trunc i8 %1918 to i1
   %1920 = icmp eq ptr %.val35.i.i.i.i.i.i, %.sroa.0248.0314.i
   %.not52.i.i.i.i.i.i = or i1 %1920, %1919
-  br i1 %.not52.i.i.i.i.i.i, label %1921, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit485"
+  br i1 %.not52.i.i.i.i.i.i, label %1921, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit485"
 
 1921:                                             ; preds = %1915
   %1922 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i.i, i64 32
@@ -4695,7 +4695,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit150.i: ; pr
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %1891
   %.pre-phi70.i.i.i.i.i.i = phi i64 [ %1925, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %1894, %1891 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %1893, %1891 ]
-  switch i64 %.pre-phi70.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.thread.i" [
+  switch i64 %.pre-phi70.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.thread.i" [
     i64 3, label %1926
     i64 2, label %1933
     i64 1, label %1940
@@ -4708,7 +4708,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit150.i: ; pr
   %1929 = trunc i8 %1928 to i1
   %1930 = icmp eq ptr %.029.val37.i.i.i.i.i.i, %.sroa.0248.0314.i
   %.not46.i.i.i.i.i.i = or i1 %1930, %1929
-  br i1 %.not46.i.i.i.i.i.i, label %1931, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i"
+  br i1 %.not46.i.i.i.i.i.i, label %1931, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i"
 
 1931:                                             ; preds = %1926
   %1932 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
@@ -4722,7 +4722,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit150.i: ; pr
   %1936 = trunc i8 %1935 to i1
   %1937 = icmp eq ptr %.1.val.i.i.i.i.i.i, %.sroa.0248.0314.i
   %.not47.i.i.i.i.i.i = or i1 %1937, %1936
-  br i1 %.not47.i.i.i.i.i.i, label %1938, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i"
+  br i1 %.not47.i.i.i.i.i.i, label %1938, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i"
 
 1938:                                             ; preds = %1933
   %1939 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
@@ -4736,30 +4736,30 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit150.i: ; pr
   %1943 = trunc i8 %1942 to i1
   %1944 = icmp eq ptr %.2.val.i.i.i.i.i.i, %.sroa.0248.0314.i
   %.not48.i.i.i.i.i.i = or i1 %1944, %1943
-  br i1 %.not48.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.thread.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i"
+  br i1 %.not48.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.thread.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit": ; preds = %1903
+"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit": ; preds = %1903
   %1945 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit483": ; preds = %1909
+"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit483": ; preds = %1909
   %1946 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit485": ; preds = %1915
+"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit485": ; preds = %1915
   %1947 = getelementptr inbounds i8, ptr %.02963.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit483", %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit485", %1940, %1933, %1926
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %1926 ], [ %.1.i.i.i.i.i.i, %1933 ], [ %.2.i.i.i.i.i.i, %1940 ], [ %1945, %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit" ], [ %1946, %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit483" ], [ %1947, %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit485" ], [ %.02963.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit483", %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit485", %1940, %1933, %1926
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %1926 ], [ %.1.i.i.i.i.i.i, %1933 ], [ %.2.i.i.i.i.i.i, %1940 ], [ %1945, %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %1946, %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit483" ], [ %1947, %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i.loopexit.split.loop.exit485" ], [ %.02963.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %1948 = icmp eq ptr %1895, %.028.i.i.i.i.i.i
-  br i1 %1948, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.thread.i", label %1949
+  br i1 %1948, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.thread.i", label %1949
 
-1949:                                             ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i"
+1949:                                             ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i"
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.52, i1 noundef zeroext true) #19
   unreachable
 
-"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.thread.i": ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.i", %1940, %._crit_edge.i.i.i.i.i.i
+"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.thread.i": ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.i", %1940, %._crit_edge.i.i.i.i.i.i
   %1950 = call ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnull align 8 dereferenceable(288) %1865) #18
   %1951 = load ptr, ptr %86, align 8, !noalias !43
   %1952 = call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(512) %1951, ptr noundef nonnull @_ZN4llvm3X8612GR64RegClassE, ptr nonnull @.str.44, i64 0) #18
@@ -4769,7 +4769,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit150.i: ; pr
   %1956 = icmp eq i32 %1955, 1
   br i1 %1956, label %1957, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i
 
-1957:                                             ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.thread.i"
+1957:                                             ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.thread.i"
   %1958 = load ptr, ptr %83, align 8, !noalias !43
   %1959 = call noundef zeroext i1 @_ZNK4llvm12X86Subtarget21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(409248) %1958) #18
   br i1 %1959, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i166
@@ -4807,7 +4807,7 @@ _ZN4llvm10MIMetadataD2Ev.exit.i167:               ; preds = %1968, %_ZN4llvm10MI
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %27, ptr noundef nonnull align 4 dereferenceable(8) %1969) #18
   br label %_ZN4llvm8DebugLocD2Ev.exit.i165
 
-_ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %1957, %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.argprom.exit.thread.i"
+_ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %1957, %"_ZN4llvm6all_ofINS_14iterator_rangeIPPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_1EEbOT_T0_.exit.thread.i"
   store ptr null, ptr %29, align 8, !noalias !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false), !noalias !43
   %1971 = load ptr, ptr %88, align 8, !noalias !43
@@ -6119,16 +6119,16 @@ _ZN4llvm13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjj
   %285 = icmp eq ptr %284, %92
   br label %286
 
-286:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.thread.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
-  %.0193.i.i.i.i.i.i = phi i64 [ %281, %.lr.ph.i.i.i.i.i.i ], [ %459, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.thread.i.i.i.i.i.i" ]
-  %.029192.i.i.i.i.i.i = phi ptr [ %272, %.lr.ph.i.i.i.i.i.i ], [ %458, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.thread.i.i.i.i.i.i" ]
+286:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.thread.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i = phi i64 [ %281, %.lr.ph.i.i.i.i.i.i ], [ %459, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.thread.i.i.i.i.i.i" ]
+  %.029192.i.i.i.i.i.i = phi ptr [ %272, %.lr.ph.i.i.i.i.i.i ], [ %458, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.thread.i.i.i.i.i.i" ]
   %.029.val.i.i.i.i.i.i = load i32, ptr %.029192.i.i.i.i.i.i, align 8
   %287 = getelementptr i8, ptr %.029192.i.i.i.i.i.i, i64 4
   %.029.val30.i.i.i.i.i.i = load i32, ptr %287, align 4
   %288 = and i32 %.029.val.i.i.i.i.i.i, 255
   %289 = icmp ne i32 %288, 0
   %brmerge = select i1 %289, i1 true, i1 %285
-  br i1 %brmerge, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i", label %290
+  br i1 %brmerge, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i", label %290
 
 290:                                              ; preds = %286
   %291 = lshr i32 %.029.val30.i.i.i.i.i.i, 7
@@ -6196,15 +6196,15 @@ _ZN4llvm13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjj
 _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i.i.i, %297
   %.sroa.08.0.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.in.i.i.i.i.i.i.i.i.i.i.i, %297 ], [ %.sroa.08.0.ph.i.i.i.i.i.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i.i.i.i.i ]
   %315 = icmp eq ptr %.sroa.08.0.i.i.i.i.i.i.i.i.i.i.i, %92
-  br i1 %315, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i", label %316
+  br i1 %315, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i", label %316
 
 316:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i.i.i.i.i.i.i
   %317 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %318 = load i32, ptr %317, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %318, %291
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %316
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i.i.i": ; preds = %316
   %319 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %320 = lshr i32 %.029.val30.i.i.i.i.i.i, 6
   %321 = and i32 %320, 1
@@ -6216,9 +6216,9 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i.i.i.i.i.i.i
   %327 = shl nuw i64 1, %326
   %328 = and i64 %324, %327
   %.not157.i.i.i.i.i.i = icmp eq i64 %328, 0
-  br i1 %.not157.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not157.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i": ; preds = %286, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i.i", %316, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i": ; preds = %286, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i.i.i", %316, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i.i.i.i.i.i.i
   %329 = getelementptr inbounds i8, ptr %.029192.i.i.i.i.i.i, i64 32
   %.val32.i.i.i.i.i.i = load i32, ptr %329, align 8
   %330 = getelementptr i8, ptr %.029192.i.i.i.i.i.i, i64 36
@@ -6226,9 +6226,9 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i.i.i.i.i.i.i
   %331 = and i32 %.val32.i.i.i.i.i.i, 255
   %332 = icmp ne i32 %331, 0
   %brmerge632 = select i1 %332, i1 true, i1 %285
-  br i1 %brmerge632, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit64.thread.i.i.i.i.i.i", label %333
+  br i1 %brmerge632, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit64.thread.i.i.i.i.i.i", label %333
 
-333:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+333:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i"
   %334 = lshr i32 %.val33.i.i.i.i.i.i, 7
   %335 = load ptr, ptr %120, align 8
   %336 = icmp eq ptr %335, %92
@@ -6294,15 +6294,15 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i.i.i.i.i.i.i
 _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i55.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i52.i.i.i.i.i.i, %340
   %.sroa.08.0.i.i.i.i.i56.i.i.i.i.i.i = phi ptr [ %.in.i.i.i.i.i47.i.i.i.i.i.i, %340 ], [ %.sroa.08.0.ph.i.i.i.i.i54.i.i.i.i.i.i, %.sink.split.i.i.i.i.i52.i.i.i.i.i.i ]
   %358 = icmp eq ptr %.sroa.08.0.i.i.i.i.i56.i.i.i.i.i.i, %92
-  br i1 %358, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit64.thread.i.i.i.i.i.i", label %359
+  br i1 %358, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit64.thread.i.i.i.i.i.i", label %359
 
 359:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i55.i.i.i.i.i.i
   %360 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i56.i.i.i.i.i.i, i64 16
   %361 = load i32, ptr %360, align 8
   %.not.i.i.i57.i.i.i.i.i.i = icmp eq i32 %361, %334
-  br i1 %.not.i.i.i57.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit64.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit64.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i57.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit64.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit64.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit64.i.i.i.i.i.i": ; preds = %359
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit64.i.i.i.i.i.i": ; preds = %359
   %362 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i56.i.i.i.i.i.i, i64 24
   %363 = lshr i32 %.val33.i.i.i.i.i.i, 6
   %364 = and i32 %363, 1
@@ -6314,9 +6314,9 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i55.i.i.i.i.i
   %370 = shl nuw i64 1, %369
   %371 = and i64 %367, %370
   %.not158.i.i.i.i.i.i = icmp eq i64 %371, 0
-  br i1 %.not158.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit64.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit"
+  br i1 %.not158.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit64.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit64.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit64.i.i.i.i.i.i", %359, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i55.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit64.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit64.i.i.i.i.i.i", %359, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i55.i.i.i.i.i.i
   %372 = getelementptr inbounds i8, ptr %.029192.i.i.i.i.i.i, i64 64
   %.val35.i.i.i.i.i.i = load i32, ptr %372, align 8
   %373 = getelementptr i8, ptr %.029192.i.i.i.i.i.i, i64 68
@@ -6324,9 +6324,9 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i55.i.i.i.i.i
   %374 = and i32 %.val35.i.i.i.i.i.i, 255
   %375 = icmp ne i32 %374, 0
   %brmerge634 = select i1 %375, i1 true, i1 %285
-  br i1 %brmerge634, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit82.thread.i.i.i.i.i.i", label %376
+  br i1 %brmerge634, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit82.thread.i.i.i.i.i.i", label %376
 
-376:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit64.thread.i.i.i.i.i.i"
+376:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit64.thread.i.i.i.i.i.i"
   %377 = lshr i32 %.val36.i.i.i.i.i.i, 7
   %378 = load ptr, ptr %120, align 8
   %379 = icmp eq ptr %378, %92
@@ -6392,15 +6392,15 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i55.i.i.i.i.i
 _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i73.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i70.i.i.i.i.i.i, %383
   %.sroa.08.0.i.i.i.i.i74.i.i.i.i.i.i = phi ptr [ %.in.i.i.i.i.i65.i.i.i.i.i.i, %383 ], [ %.sroa.08.0.ph.i.i.i.i.i72.i.i.i.i.i.i, %.sink.split.i.i.i.i.i70.i.i.i.i.i.i ]
   %401 = icmp eq ptr %.sroa.08.0.i.i.i.i.i74.i.i.i.i.i.i, %92
-  br i1 %401, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit82.thread.i.i.i.i.i.i", label %402
+  br i1 %401, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit82.thread.i.i.i.i.i.i", label %402
 
 402:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i73.i.i.i.i.i.i
   %403 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i74.i.i.i.i.i.i, i64 16
   %404 = load i32, ptr %403, align 8
   %.not.i.i.i75.i.i.i.i.i.i = icmp eq i32 %404, %377
-  br i1 %.not.i.i.i75.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit82.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit82.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i75.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit82.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit82.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit82.i.i.i.i.i.i": ; preds = %402
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit82.i.i.i.i.i.i": ; preds = %402
   %405 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i74.i.i.i.i.i.i, i64 24
   %406 = lshr i32 %.val36.i.i.i.i.i.i, 6
   %407 = and i32 %406, 1
@@ -6412,9 +6412,9 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i73.i.i.i.i.i
   %413 = shl nuw i64 1, %412
   %414 = and i64 %410, %413
   %.not159.i.i.i.i.i.i = icmp eq i64 %414, 0
-  br i1 %.not159.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit82.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit879"
+  br i1 %.not159.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit82.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit879"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit82.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit64.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit82.i.i.i.i.i.i", %402, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i73.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit82.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit64.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit82.i.i.i.i.i.i", %402, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i73.i.i.i.i.i.i
   %415 = getelementptr inbounds i8, ptr %.029192.i.i.i.i.i.i, i64 96
   %.val38.i.i.i.i.i.i = load i32, ptr %415, align 8
   %416 = getelementptr i8, ptr %.029192.i.i.i.i.i.i, i64 100
@@ -6422,9 +6422,9 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i73.i.i.i.i.i
   %417 = and i32 %.val38.i.i.i.i.i.i, 255
   %418 = icmp ne i32 %417, 0
   %brmerge636 = select i1 %418, i1 true, i1 %285
-  br i1 %brmerge636, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.thread.i.i.i.i.i.i", label %419
+  br i1 %brmerge636, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.thread.i.i.i.i.i.i", label %419
 
-419:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit82.thread.i.i.i.i.i.i"
+419:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit82.thread.i.i.i.i.i.i"
   %420 = lshr i32 %.val39.i.i.i.i.i.i, 7
   %421 = load ptr, ptr %120, align 8
   %422 = icmp eq ptr %421, %92
@@ -6490,15 +6490,15 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i73.i.i.i.i.i
 _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i91.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i88.i.i.i.i.i.i, %426
   %.sroa.08.0.i.i.i.i.i92.i.i.i.i.i.i = phi ptr [ %.in.i.i.i.i.i83.i.i.i.i.i.i, %426 ], [ %.sroa.08.0.ph.i.i.i.i.i90.i.i.i.i.i.i, %.sink.split.i.i.i.i.i88.i.i.i.i.i.i ]
   %444 = icmp eq ptr %.sroa.08.0.i.i.i.i.i92.i.i.i.i.i.i, %92
-  br i1 %444, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.thread.i.i.i.i.i.i", label %445
+  br i1 %444, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.thread.i.i.i.i.i.i", label %445
 
 445:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i91.i.i.i.i.i.i
   %446 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i92.i.i.i.i.i.i, i64 16
   %447 = load i32, ptr %446, align 8
   %.not.i.i.i93.i.i.i.i.i.i = icmp eq i32 %447, %420
-  br i1 %.not.i.i.i93.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i93.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.i.i.i.i.i.i": ; preds = %445
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.i.i.i.i.i.i": ; preds = %445
   %448 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i92.i.i.i.i.i.i, i64 24
   %449 = lshr i32 %.val39.i.i.i.i.i.i, 6
   %450 = and i32 %449, 1
@@ -6510,15 +6510,15 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i91.i.i.i.i.i
   %456 = shl nuw i64 1, %455
   %457 = and i64 %453, %456
   %.not160.i.i.i.i.i.i = icmp eq i64 %457, 0
-  br i1 %.not160.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit881"
+  br i1 %.not160.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit881"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit82.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.i.i.i.i.i.i", %445, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i91.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit82.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.i.i.i.i.i.i", %445, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i91.i.i.i.i.i.i
   %458 = getelementptr inbounds i8, ptr %.029192.i.i.i.i.i.i, i64 128
   %459 = add nsw i64 %.0193.i.i.i.i.i.i, -1
   %460 = icmp sgt i64 %.0193.i.i.i.i.i.i, 1
   br i1 %460, label %286, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !118
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.thread.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.thread.i.i.i.i.i.i"
   %.pre.i.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i.i to i64
   %.pre219.i.i.i.i.i.i = sub i64 %278, %.pre.i.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i.i
@@ -6527,7 +6527,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i91.i.i.i.i.i
   %.pre-phi220.i.i.i.i.i.i = phi i64 [ %.pre219.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %280, %.lr.ph614 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %272, %.lr.ph614 ]
   %461 = ashr exact i64 %.pre-phi220.i.i.i.i.i.i, 5
-  switch i64 %461, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread" [
+  switch i64 %461, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread" [
     i64 3, label %462
     i64 2, label %509
     i64 1, label %556
@@ -6539,12 +6539,12 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i91.i.i.i.i.i
   %.029.val42.i.i.i.i.i.i = load i32, ptr %463, align 4
   %464 = and i32 %.029.val41.i.i.i.i.i.i, 255
   %465 = icmp eq i32 %464, 0
-  br i1 %465, label %466, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.thread.i.i.i.i.i.i"
+  br i1 %465, label %466, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.thread.i.i.i.i.i.i"
 
 466:                                              ; preds = %462
   %467 = load ptr, ptr %92, align 8
   %468 = icmp eq ptr %467, %92
-  br i1 %468, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.thread.i.i.i.i.i.i", label %469
+  br i1 %468, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.thread.i.i.i.i.i.i", label %469
 
 469:                                              ; preds = %466
   %470 = lshr i32 %.029.val42.i.i.i.i.i.i, 7
@@ -6612,15 +6612,15 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i91.i.i.i.i.i
 _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i109.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i106.i.i.i.i.i.i, %476
   %.sroa.08.0.i.i.i.i.i110.i.i.i.i.i.i = phi ptr [ %.in.i.i.i.i.i101.i.i.i.i.i.i, %476 ], [ %.sroa.08.0.ph.i.i.i.i.i108.i.i.i.i.i.i, %.sink.split.i.i.i.i.i106.i.i.i.i.i.i ]
   %494 = icmp eq ptr %.sroa.08.0.i.i.i.i.i110.i.i.i.i.i.i, %92
-  br i1 %494, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.thread.i.i.i.i.i.i", label %495
+  br i1 %494, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.thread.i.i.i.i.i.i", label %495
 
 495:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i109.i.i.i.i.i.i
   %496 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i110.i.i.i.i.i.i, i64 16
   %497 = load i32, ptr %496, align 8
   %.not.i.i.i111.i.i.i.i.i.i = icmp eq i32 %497, %470
-  br i1 %.not.i.i.i111.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i111.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.i.i.i.i.i.i": ; preds = %495
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.i.i.i.i.i.i": ; preds = %495
   %498 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i110.i.i.i.i.i.i, i64 24
   %499 = lshr i32 %.029.val42.i.i.i.i.i.i, 6
   %500 = and i32 %499, 1
@@ -6632,25 +6632,25 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i109.i.i.i.i.
   %506 = shl nuw i64 1, %505
   %507 = and i64 %503, %506
   %.not.i.i.i.i.i.i = icmp eq i64 %507, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.i.i.i.i.i.i", %495, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i109.i.i.i.i.i.i, %466, %462
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.i.i.i.i.i.i", %495, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i109.i.i.i.i.i.i, %466, %462
   %508 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 32
   br label %509
 
-509:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %508, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.thread.i.i.i.i.i.i" ]
+509:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %508, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.thread.i.i.i.i.i.i" ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 8
   %510 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 4
   %.1.val44.i.i.i.i.i.i = load i32, ptr %510, align 4
   %511 = and i32 %.1.val.i.i.i.i.i.i, 255
   %512 = icmp eq i32 %511, 0
-  br i1 %512, label %513, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.thread.i.i.i.i.i.i"
+  br i1 %512, label %513, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.thread.i.i.i.i.i.i"
 
 513:                                              ; preds = %509
   %514 = load ptr, ptr %92, align 8
   %515 = icmp eq ptr %514, %92
-  br i1 %515, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.thread.i.i.i.i.i.i", label %516
+  br i1 %515, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.thread.i.i.i.i.i.i", label %516
 
 516:                                              ; preds = %513
   %517 = lshr i32 %.1.val44.i.i.i.i.i.i, 7
@@ -6718,15 +6718,15 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i109.i.i.i.i.
 _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i127.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i124.i.i.i.i.i.i, %523
   %.sroa.08.0.i.i.i.i.i128.i.i.i.i.i.i = phi ptr [ %.in.i.i.i.i.i119.i.i.i.i.i.i, %523 ], [ %.sroa.08.0.ph.i.i.i.i.i126.i.i.i.i.i.i, %.sink.split.i.i.i.i.i124.i.i.i.i.i.i ]
   %541 = icmp eq ptr %.sroa.08.0.i.i.i.i.i128.i.i.i.i.i.i, %92
-  br i1 %541, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.thread.i.i.i.i.i.i", label %542
+  br i1 %541, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.thread.i.i.i.i.i.i", label %542
 
 542:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i127.i.i.i.i.i.i
   %543 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i128.i.i.i.i.i.i, i64 16
   %544 = load i32, ptr %543, align 8
   %.not.i.i.i129.i.i.i.i.i.i = icmp eq i32 %544, %517
-  br i1 %.not.i.i.i129.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i129.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.i.i.i.i.i.i": ; preds = %542
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.i.i.i.i.i.i": ; preds = %542
   %545 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i128.i.i.i.i.i.i, i64 24
   %546 = lshr i32 %.1.val44.i.i.i.i.i.i, 6
   %547 = and i32 %546, 1
@@ -6738,25 +6738,25 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i127.i.i.i.i.
   %553 = shl nuw i64 1, %552
   %554 = and i64 %550, %553
   %.not155.i.i.i.i.i.i = icmp eq i64 %554, 0
-  br i1 %.not155.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not155.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.i.i.i.i.i.i", %542, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i127.i.i.i.i.i.i, %513, %509
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.i.i.i.i.i.i", %542, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i127.i.i.i.i.i.i, %513, %509
   %555 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 32
   br label %556
 
-556:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %555, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.thread.i.i.i.i.i.i" ]
+556:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %555, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.thread.i.i.i.i.i.i" ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 8
   %557 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 4
   %.2.val46.i.i.i.i.i.i = load i32, ptr %557, align 4
   %558 = and i32 %.2.val.i.i.i.i.i.i, 255
   %559 = icmp eq i32 %558, 0
-  br i1 %559, label %560, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread"
+  br i1 %559, label %560, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread"
 
 560:                                              ; preds = %556
   %561 = load ptr, ptr %92, align 8
   %562 = icmp eq ptr %561, %92
-  br i1 %562, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread", label %563
+  br i1 %562, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread", label %563
 
 563:                                              ; preds = %560
   %564 = lshr i32 %.2.val46.i.i.i.i.i.i, 7
@@ -6824,15 +6824,15 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i127.i.i.i.i.
 _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i145.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i142.i.i.i.i.i.i, %570
   %.sroa.08.0.i.i.i.i.i146.i.i.i.i.i.i = phi ptr [ %.in.i.i.i.i.i137.i.i.i.i.i.i, %570 ], [ %.sroa.08.0.ph.i.i.i.i.i144.i.i.i.i.i.i, %.sink.split.i.i.i.i.i142.i.i.i.i.i.i ]
   %588 = icmp eq ptr %.sroa.08.0.i.i.i.i.i146.i.i.i.i.i.i, %92
-  br i1 %588, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread", label %589
+  br i1 %588, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread", label %589
 
 589:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i145.i.i.i.i.i.i
   %590 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i146.i.i.i.i.i.i, i64 16
   %591 = load i32, ptr %590, align 8
   %.not.i.i.i147.i.i.i.i.i.i = icmp eq i32 %591, %564
-  br i1 %.not.i.i.i147.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit154.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread"
+  br i1 %.not.i.i.i147.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit154.i.i.i.i.i.i", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit154.i.i.i.i.i.i": ; preds = %589
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit154.i.i.i.i.i.i": ; preds = %589
   %592 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i.i146.i.i.i.i.i.i, i64 24
   %593 = lshr i32 %.2.val46.i.i.i.i.i.i, 6
   %594 = and i32 %593, 1
@@ -6844,31 +6844,31 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i145.i.i.i.i.
   %600 = shl nuw i64 1, %599
   %601 = and i64 %597, %600
   %.not156.i.i.i.i.i.i = icmp eq i64 %601, 0
-  br i1 %.not156.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit"
+  br i1 %.not156.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread", label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit64.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit64.i.i.i.i.i.i"
   %602 = getelementptr inbounds i8, ptr %.029192.i.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit879": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit82.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit879": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit82.i.i.i.i.i.i"
   %603 = getelementptr inbounds i8, ptr %.029192.i.i.i.i.i.i, i64 64
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit881": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit100.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit881": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit100.i.i.i.i.i.i"
   %604 = getelementptr inbounds i8, ptr %.029192.i.i.i.i.i.i, i64 96
-  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit879", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit881", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit154.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit118.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit136.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit154.i.i.i.i.i.i" ], [ %602, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %603, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit879" ], [ %604, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit881" ], [ %.029192.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.i.i.i.i.i.i" ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit879", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit881", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit154.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit118.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit136.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit154.i.i.i.i.i.i" ], [ %602, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %603, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit879" ], [ %604, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit881" ], [ %.029192.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i.i.i" ]
   %.not465 = icmp eq ptr %277, %.028.i.i.i.i.i.i
-  br i1 %.not465, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread", label %605
+  br i1 %.not465, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread", label %605
 
-605:                                              ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit"
+605:                                              ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit"
   %606 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0439.0613) #18
   %607 = zext i32 %606 to i64
   %608 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %273, i64 %607
   %.not606 = icmp eq i32 %606, 0
-  br i1 %.not606, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread", label %.lr.ph
+  br i1 %.not606, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %605, %669
   %.0607 = phi ptr [ %670, %669 ], [ %273, %605 ]
@@ -7012,15 +7012,15 @@ _ZN4llvm15SparseBitVectorILj128EE3setEj.exit:     ; preds = %647, %.sink.split.i
 669:                                              ; preds = %.lr.ph, %_ZN4llvm15SparseBitVectorILj128EE3setEj.exit
   %670 = getelementptr inbounds i8, ptr %.0607, i64 32
   %.not = icmp eq ptr %670, %608
-  br i1 %.not, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread", label %.lr.ph
+  br i1 %.not, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread", label %.lr.ph
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread": ; preds = %669, %605, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit154.i.i.i.i.i.i", %589, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i145.i.i.i.i.i.i, %560, %556, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread": ; preds = %669, %605, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERN4llvm15MachineFunctionEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit154.i.i.i.i.i.i", %589, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i145.i.i.i.i.i.i, %560, %556, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit"
   %671 = getelementptr inbounds nuw i8, ptr %.sroa.0439.0613, i64 68
   %672 = load i16, ptr %671, align 4
   %673 = icmp eq i16 %672, 2101
   br i1 %673, label %.loopexit520, label %674
 
-674:                                              ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread"
+674:                                              ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread"
   %675 = add i16 %672, -1
   %spec.select.i.i = icmp ult i16 %675, 2
   br i1 %spec.select.i.i, label %676, label %681
@@ -7345,7 +7345,7 @@ _ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit.thread: ; preds = %801, %_ZL15i
   %.val95 = load ptr, ptr %124, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %87)
   %821 = icmp slt i32 %820, 0
-  br i1 %821, label %822, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.thread
+  br i1 %821, label %822, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread
 
 822:                                              ; preds = %818
   %823 = getelementptr inbounds nuw i8, ptr %.val94, i64 56
@@ -7385,7 +7385,7 @@ _ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit.thread: ; preds = %801, %_ZL15i
   %854 = lshr i64 %853, 3
   %855 = trunc i64 %854 to i32
   %856 = icmp sgt i32 %855, 8
-  br i1 %856, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.thread, label %857
+  br i1 %856, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread, label %857
 
 857:                                              ; preds = %822
   %858 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %855, i1 false)
@@ -7394,13 +7394,13 @@ _ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit.thread: ; preds = %801, %_ZL15i
   %861 = getelementptr inbounds [4 x ptr], ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.NOREXRegClasses, i64 0, i64 %860
   %862 = load ptr, ptr %861, align 8
   %863 = icmp eq ptr %862, %829
-  br i1 %863, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.thread, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit
+  br i1 %863, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit
 
-_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.thread: ; preds = %818, %822, %857
+_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread: ; preds = %818, %822, %857
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %87)
   br label %937
 
-_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit: ; preds = %857
+_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit: ; preds = %857
   %864 = getelementptr inbounds [4 x ptr], ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.GPRRegClasses, i64 0, i64 %860
   %865 = load ptr, ptr %864, align 8
   %866 = load ptr, ptr %829, align 8
@@ -7420,7 +7420,7 @@ _ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8Reg
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %87)
   br i1 %.not472, label %937, label %879
 
-879:                                              ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit
+879:                                              ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit
   %880 = load i64, ptr %116, align 8
   %881 = icmp eq i64 %880, 0
   br i1 %881, label %882, label %898
@@ -7577,7 +7577,7 @@ _ZNK4llvm8SmallSetIjLj16ESt4lessIjEE5countERKj.exit165.thread: ; preds = %898, %
   call void @_ZN4llvm8SmallSetIjLj16ESt4lessIjEE6insertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.478") align 8 %96, ptr noundef nonnull align 8 dereferenceable(128) %90, ptr noundef nonnull align 4 dereferenceable(4) %97)
   br label %.loopexit504
 
-937:                                              ; preds = %_ZNK4llvm8SmallSetIjLj16ESt4lessIjEE5vfindERKj.exit.i163, %_ZNK4llvm8SmallSetIjLj16ESt4lessIjEE5vfindERKj.exit.i, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.thread, %_ZNK4llvm8SmallSetIjLj16ESt4lessIjEE5countERKj.exit165, %_ZNK4llvm8SmallSetIjLj16ESt4lessIjEE5countERKj.exit, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit, %814, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit.thread, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit, %799, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit138.thread
+937:                                              ; preds = %_ZNK4llvm8SmallSetIjLj16ESt4lessIjEE5vfindERKj.exit.i163, %_ZNK4llvm8SmallSetIjLj16ESt4lessIjEE5vfindERKj.exit.i, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread, %_ZNK4llvm8SmallSetIjLj16ESt4lessIjEE5countERKj.exit165, %_ZNK4llvm8SmallSetIjLj16ESt4lessIjEE5countERKj.exit, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit, %814, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit.thread, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit, %799, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit138.thread
   %938 = load ptr, ptr %107, align 8, !noalias !121
   %939 = load ptr, ptr %89, align 8, !noalias !121
   %940 = icmp eq ptr %938, %939
@@ -7816,7 +7816,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %.not464 = icmp eq ptr %.sroa.0439.0, %267
   br i1 %.not464, label %.loopexit520, label %.lr.ph614
 
-.loopexit520:                                     ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.argprom.exit.thread", %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %265, %262
+.loopexit520:                                     ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass36tracePredStateThroughBlocksAndHardenERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread", %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %265, %262
   %1037 = getelementptr inbounds i8, ptr %.sroa.0442.0627, i64 56
   %1038 = getelementptr inbounds i8, ptr %.sroa.0442.0627, i64 48
   %.sroa.0419.0618 = load ptr, ptr %1037, align 8
@@ -8136,9 +8136,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14MachineOperandELb1EE9push_backES2_.exit1
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i.i.i.i.i.i.i.i: ; preds = %1174, %.lr.ph.i.split.i.i.i.i.i.i
   %.lcssa.i.i.pn.i.i.i.i.i.i.i.i.i = phi i64 [ %1168, %.lr.ph.i.split.i.i.i.i.i.i ], [ %1177, %1174 ]
   %.not.i.i.i.i.i.i.i.i.i210 = icmp eq i64 %.lcssa.i.i.pn.i.i.i.i.i.i.i.i.i, %1163
-  br i1 %.not.i.i.i.i.i.i.i.i.i210, label %.loopexit104.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit.i.i.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i210, label %.loopexit104.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i.i.i.i.i.i.i.i
   %1181 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.485", ptr %1158, i64 %.lcssa.i.i.pn.i.i.i.i.i.i.i.i.i, i32 0, i32 1
   br label %"_ZSt9__find_ifIPPN4llvm14MachineOperandEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS0_12MachineInstrERS1_SB_RNS0_13SmallDenseMapIjjLj32ENS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjjEEEEE3$_0EEET_SM_SM_T0_.exit.i.i.i.i.i"
 
@@ -8175,9 +8175,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detai
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i46.i.i.i.i.i.i.i: ; preds = %1192, %.loopexit104.i.i.i.i.i.i.i
   %.lcssa.i.i.pn.i.i47.i.i.i.i.i.i.i = phi i64 [ %1186, %.loopexit104.i.i.i.i.i.i.i ], [ %1195, %1192 ]
   %.not.i.i48.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.pn.i.i47.i.i.i.i.i.i.i, %1163
-  br i1 %.not.i.i48.i.i.i.i.i.i.i, label %.loopexit103.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit49.i.i.i.i.i.i.i"
+  br i1 %.not.i.i48.i.i.i.i.i.i.i, label %.loopexit103.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit49.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit49.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i46.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit49.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i46.i.i.i.i.i.i.i
   %1199 = getelementptr inbounds i8, ptr %.029140.i.i.i.i.i.i.i, i64 8
   %1200 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.485", ptr %1158, i64 %.lcssa.i.i.pn.i.i47.i.i.i.i.i.i.i, i32 0, i32 1
   br label %"_ZSt9__find_ifIPPN4llvm14MachineOperandEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS0_12MachineInstrERS1_SB_RNS0_13SmallDenseMapIjjLj32ENS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjjEEEEE3$_0EEET_SM_SM_T0_.exit.i.i.i.i.i"
@@ -8215,9 +8215,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detai
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i56.i.i.i.i.i.i.i: ; preds = %1211, %.loopexit103.i.i.i.i.i.i.i
   %.lcssa.i.i.pn.i.i57.i.i.i.i.i.i.i = phi i64 [ %1205, %.loopexit103.i.i.i.i.i.i.i ], [ %1214, %1211 ]
   %.not.i.i58.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.pn.i.i57.i.i.i.i.i.i.i, %1163
-  br i1 %.not.i.i58.i.i.i.i.i.i.i, label %.loopexit102.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit59.i.i.i.i.i.i.i"
+  br i1 %.not.i.i58.i.i.i.i.i.i.i, label %.loopexit102.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit59.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit59.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i56.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit59.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i56.i.i.i.i.i.i.i
   %1218 = getelementptr inbounds i8, ptr %.029140.i.i.i.i.i.i.i, i64 16
   %1219 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.485", ptr %1158, i64 %.lcssa.i.i.pn.i.i57.i.i.i.i.i.i.i, i32 0, i32 1
   br label %"_ZSt9__find_ifIPPN4llvm14MachineOperandEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS0_12MachineInstrERS1_SB_RNS0_13SmallDenseMapIjjLj32ENS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjjEEEEE3$_0EEET_SM_SM_T0_.exit.i.i.i.i.i"
@@ -8255,9 +8255,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detai
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i66.i.i.i.i.i.i.i: ; preds = %1230, %.loopexit102.i.i.i.i.i.i.i
   %.lcssa.i.i.pn.i.i67.i.i.i.i.i.i.i = phi i64 [ %1224, %.loopexit102.i.i.i.i.i.i.i ], [ %1233, %1230 ]
   %.not.i.i68.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.pn.i.i67.i.i.i.i.i.i.i, %1163
-  br i1 %.not.i.i68.i.i.i.i.i.i.i, label %.loopexit101.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit69.i.i.i.i.i.i.i"
+  br i1 %.not.i.i68.i.i.i.i.i.i.i, label %.loopexit101.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit69.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit69.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i66.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit69.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i66.i.i.i.i.i.i.i
   %1237 = getelementptr inbounds i8, ptr %.029140.i.i.i.i.i.i.i, i64 24
   %1238 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.485", ptr %1158, i64 %.lcssa.i.i.pn.i.i67.i.i.i.i.i.i.i, i32 0, i32 1
   br label %"_ZSt9__find_ifIPPN4llvm14MachineOperandEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS0_12MachineInstrERS1_SB_RNS0_13SmallDenseMapIjjLj32ENS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjjEEEEE3$_0EEET_SM_SM_T0_.exit.i.i.i.i.i"
@@ -8340,9 +8340,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detai
   %.lcssa.i.i.pn.i.i77.i.i.i.i.i.i.i = phi i64 [ %1256, %1253 ], [ %1265, %1262 ]
   %1269 = zext i32 %1251 to i64
   %.not.i.i78.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.pn.i.i77.i.i.i.i.i.i.i, %1269
-  br i1 %.not.i.i78.i.i.i.i.i.i.i, label %.loopexit100.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit79.i.i.i.i.i.i.i"
+  br i1 %.not.i.i78.i.i.i.i.i.i.i, label %.loopexit100.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit79.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit79.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i76.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit79.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i76.i.i.i.i.i.i.i
   %1270 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.485", ptr %1249, i64 %.lcssa.i.i.pn.i.i77.i.i.i.i.i.i.i, i32 0, i32 1
   br label %"_ZSt9__find_ifIPPN4llvm14MachineOperandEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS0_12MachineInstrERS1_SB_RNS0_13SmallDenseMapIjjLj32ENS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjjEEEEE3$_0EEET_SM_SM_T0_.exit.i.i.i.i.i"
 
@@ -8395,9 +8395,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detai
   %.lcssa.i.i.pn.i.i87.i.i.i.i.i.i.i = phi i64 [ %1283, %1280 ], [ %1292, %1289 ]
   %1296 = zext i32 %1278 to i64
   %.not.i.i88.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.pn.i.i87.i.i.i.i.i.i.i, %1296
-  br i1 %.not.i.i88.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit89.i.i.i.i.i.i.i"
+  br i1 %.not.i.i88.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit89.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit89.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i86.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit89.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i86.i.i.i.i.i.i.i
   %1297 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.485", ptr %1277, i64 %.lcssa.i.i.pn.i.i87.i.i.i.i.i.i.i, i32 0, i32 1
   br label %"_ZSt9__find_ifIPPN4llvm14MachineOperandEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS0_12MachineInstrERS1_SB_RNS0_13SmallDenseMapIjjLj32ENS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjjEEEEE3$_0EEET_SM_SM_T0_.exit.i.i.i.i.i"
 
@@ -8450,16 +8450,16 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detai
   %.lcssa.i.i.pn.i.i97.i.i.i.i.i.i.i = phi i64 [ %1310, %1307 ], [ %1319, %1316 ]
   %1323 = zext i32 %1305 to i64
   %.not.i.i98.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.pn.i.i97.i.i.i.i.i.i.i, %1323
-  br i1 %.not.i.i98.i.i.i.i.i.i.i, label %"_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_14MachineOperandELj2EEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS_12MachineInstrERS2_SA_RNS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEE3$_0EEDaOT_T0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit99.i.i.i.i.i.i.i"
+  br i1 %.not.i.i98.i.i.i.i.i.i.i, label %"_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_14MachineOperandELj2EEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS_12MachineInstrERS2_SA_RNS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEE3$_0EEDaOT_T0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit99.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit99.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i96.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit99.i.i.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i96.i.i.i.i.i.i.i
   %1324 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.485", ptr %1304, i64 %.lcssa.i.i.pn.i.i97.i.i.i.i.i.i.i, i32 0, i32 1
   br label %"_ZSt9__find_ifIPPN4llvm14MachineOperandEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS0_12MachineInstrERS1_SB_RNS0_13SmallDenseMapIjjLj32ENS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjjEEEEE3$_0EEET_SM_SM_T0_.exit.i.i.i.i.i"
 
-"_ZSt9__find_ifIPPN4llvm14MachineOperandEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS0_12MachineInstrERS1_SB_RNS0_13SmallDenseMapIjjLj32ENS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjjEEEEE3$_0EEET_SM_SM_T0_.exit.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit99.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit89.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit79.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit69.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit59.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit49.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit.i.i.i.i.i.i.i"
-  %.sink217.i.i.i.i.i.i.i = phi ptr [ %1324, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit99.i.i.i.i.i.i.i" ], [ %1297, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit89.i.i.i.i.i.i.i" ], [ %1270, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit79.i.i.i.i.i.i.i" ], [ %1238, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit69.i.i.i.i.i.i.i" ], [ %1219, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit59.i.i.i.i.i.i.i" ], [ %1200, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit49.i.i.i.i.i.i.i" ], [ %1181, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit.i.i.i.i.i.i.i" ]
-  %.2.val.sink.i.i.i.i.i.i.i = phi ptr [ %.2.val.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit99.i.i.i.i.i.i.i" ], [ %.1.val.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit89.i.i.i.i.i.i.i" ], [ %.029.val.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit79.i.i.i.i.i.i.i" ], [ %.val33.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit69.i.i.i.i.i.i.i" ], [ %.val35.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit59.i.i.i.i.i.i.i" ], [ %.val37.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit49.i.i.i.i.i.i.i" ], [ %.029.val39.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit.i.i.i.i.i.i.i" ]
-  %.028.ph.i.i.i.i.i.i.i = phi ptr [ %.2.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit99.i.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit89.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit79.i.i.i.i.i.i.i" ], [ %1237, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit69.i.i.i.i.i.i.i" ], [ %1218, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit59.i.i.i.i.i.i.i" ], [ %1199, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit49.i.i.i.i.i.i.i" ], [ %.029140.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit.i.i.i.i.i.i.i" ]
+"_ZSt9__find_ifIPPN4llvm14MachineOperandEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS0_12MachineInstrERS1_SB_RNS0_13SmallDenseMapIjjLj32ENS0_12DenseMapInfoIjvEENS0_6detail12DenseMapPairIjjEEEEE3$_0EEET_SM_SM_T0_.exit.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit99.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit89.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit79.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit69.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit59.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit49.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit.i.i.i.i.i.i.i"
+  %.sink217.i.i.i.i.i.i.i = phi ptr [ %1324, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit99.i.i.i.i.i.i.i" ], [ %1297, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit89.i.i.i.i.i.i.i" ], [ %1270, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit79.i.i.i.i.i.i.i" ], [ %1238, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit69.i.i.i.i.i.i.i" ], [ %1219, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit59.i.i.i.i.i.i.i" ], [ %1200, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit49.i.i.i.i.i.i.i" ], [ %1181, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit.i.i.i.i.i.i.i" ]
+  %.2.val.sink.i.i.i.i.i.i.i = phi ptr [ %.2.val.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit99.i.i.i.i.i.i.i" ], [ %.1.val.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit89.i.i.i.i.i.i.i" ], [ %.029.val.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit79.i.i.i.i.i.i.i" ], [ %.val33.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit69.i.i.i.i.i.i.i" ], [ %.val35.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit59.i.i.i.i.i.i.i" ], [ %.val37.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit49.i.i.i.i.i.i.i" ], [ %.029.val39.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit.i.i.i.i.i.i.i" ]
+  %.028.ph.i.i.i.i.i.i.i = phi ptr [ %.2.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit99.i.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit89.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit79.i.i.i.i.i.i.i" ], [ %1237, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit69.i.i.i.i.i.i.i" ], [ %1218, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit59.i.i.i.i.i.i.i" ], [ %1199, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit49.i.i.i.i.i.i.i" ], [ %.029140.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit.i.i.i.i.i.i.i" ]
   %1325 = load i32, ptr %.sink217.i.i.i.i.i.i.i, align 4
   call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %.2.val.sink.i.i.i.i.i.i.i, i32 %1325) #18
   %1326 = icmp eq ptr %.028.ph.i.i.i.i.i.i.i, %1152
@@ -8517,9 +8517,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detai
   %.lcssa.i.i.pn.i.i.i.i.i.i.i = phi i64 [ %1339, %1336 ], [ %1348, %1345 ]
   %1352 = zext i32 %1334 to i64
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.pn.i.i.i.i.i.i.i, %1352
-  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit.i.i.i.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i.i.i.i.i.i
   %1353 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.485", ptr %1332, i64 %.lcssa.i.i.pn.i.i.i.i.i.i.i, i32 0, i32 1
   %1354 = load i32, ptr %1353, align 4
   call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %.017.val.i.i.i.i.i, i32 %1354) #18
@@ -8530,8 +8530,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detai
   %1355 = getelementptr inbounds i8, ptr %.058.i.i.i.i.i, i64 8
   br label %1356
 
-1356:                                             ; preds = %.loopexit.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit.i.i.i.i.i"
-  %.1.i.i.i.i.i = phi ptr [ %.058.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.argprom.exit.i.i.i.i.i" ], [ %1355, %.loopexit.i.i.i.i.i ]
+1356:                                             ; preds = %.loopexit.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit.i.i.i.i.i"
+  %.1.i.i.i.i.i = phi ptr [ %.058.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERN4llvm12MachineInstrERNS4_14MachineOperandES8_RNS4_13SmallDenseMapIjjLj32ENS4_12DenseMapInfoIjvEENS4_6detail12DenseMapPairIjjEEEEE3$_0EclIPPS7_EEbT_.exit.i.i.i.i.i" ], [ %1355, %.loopexit.i.i.i.i.i ]
   %.017.i.i.i.i.i = getelementptr inbounds i8, ptr %.01759.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %.017.i.i.i.i.i, %1152
   br i1 %.not.i.i.i.i.i, label %"_ZN4llvm9remove_ifIRNS_11SmallVectorIPNS_14MachineOperandELj2EEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS_12MachineInstrERS2_SA_RNS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEE3$_0EEDaOT_T0_.exit.i.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !127
@@ -9660,18 +9660,18 @@ _ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12Ma
 _ZN4llvm10MIMetadataD2Ev.exit.i347:               ; preds = %1734, %_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE.exit
   %1735 = load ptr, ptr %17, align 8
   %.not.i.i.i.i7.i = icmp eq ptr %1735, null
-  br i1 %.not.i.i.i.i7.i, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE.argprom.exit, label %1736
+  br i1 %.not.i.i.i.i7.i, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE.exit, label %1736
 
 1736:                                             ; preds = %_ZN4llvm10MIMetadataD2Ev.exit.i347
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(8) %1735) #18
-  br label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE.argprom.exit
+  br label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE.exit
 
-_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE.argprom.exit: ; preds = %_ZN4llvm10MIMetadataD2Ev.exit.i347, %1736
+_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE.exit: ; preds = %_ZN4llvm10MIMetadataD2Ev.exit.i347, %1736
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %1737
 
-1737:                                             ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE.argprom.exit, %._crit_edge.i, %"_ZN4llvm8erase_ifINS_11SmallVectorIPNS_14MachineOperandELj2EEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS_12MachineInstrERS2_S9_RNS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEE3$_0EEvRT_T0_.exit.i"
+1737:                                             ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE.exit, %._crit_edge.i, %"_ZN4llvm8erase_ifINS_11SmallVectorIPNS_14MachineOperandELj2EEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass14hardenLoadAddrERNS_12MachineInstrERS2_S9_RNS_13SmallDenseMapIjjLj32ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEE3$_0EEvRT_T0_.exit.i"
   %1738 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #18
   %1739 = load ptr, ptr %72, align 8
   %1740 = icmp eq ptr %1739, %125
@@ -9980,7 +9980,7 @@ _ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit33.thread.i.i: ; preds = %_ZL15i
   %.val28.i.i = load ptr, ptr %124, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60)
   %1879 = icmp slt i32 %1878, 0
-  br i1 %1879, label %1880, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.thread.i.i
+  br i1 %1879, label %1880, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread.i.i
 
 1880:                                             ; preds = %1876
   %1881 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 56
@@ -10020,7 +10020,7 @@ _ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit33.thread.i.i: ; preds = %_ZL15i
   %1912 = lshr i64 %1911, 3
   %1913 = trunc i64 %1912 to i32
   %1914 = icmp sgt i32 %1913, 8
-  br i1 %1914, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.thread.i.i, label %1915
+  br i1 %1914, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread.i.i, label %1915
 
 1915:                                             ; preds = %1880
   %1916 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1913, i1 false)
@@ -10029,13 +10029,13 @@ _ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit33.thread.i.i: ; preds = %_ZL15i
   %1919 = getelementptr inbounds [4 x ptr], ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.NOREXRegClasses, i64 0, i64 %1918
   %1920 = load ptr, ptr %1919, align 8
   %1921 = icmp eq ptr %1920, %1887
-  br i1 %1921, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.thread.i.i, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.i.i
+  br i1 %1921, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread.i.i, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.i.i
 
-_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.thread.i.i: ; preds = %1915, %1880, %1876
+_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread.i.i: ; preds = %1915, %1880, %1876
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60)
   br label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24sinkPostLoadHardenedInstERN4llvm12MachineInstrERNS1_15SmallPtrSetImplIPS2_EE.exit
 
-_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.i.i: ; preds = %1915
+_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.i.i: ; preds = %1915
   %1922 = getelementptr inbounds [4 x ptr], ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.GPRRegClasses, i64 0, i64 %1918
   %1923 = load ptr, ptr %1922, align 8
   %1924 = load ptr, ptr %1887, align 8
@@ -10055,8 +10055,8 @@ _ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8Reg
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60)
   br i1 %.not53.i.i, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24sinkPostLoadHardenedInstERN4llvm12MachineInstrERNS1_15SmallPtrSetImplIPS2_EE.exit, label %.critedge2.i.i
 
-.critedge2.i.i:                                   ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.i.i, %1851, %1847, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit.i.i, %1822
-  %.1.i.i = phi ptr [ %.062.i.i, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit.i.i ], [ %.062.i.i, %1851 ], [ %.062.i.i, %1847 ], [ %.062.i.i, %1822 ], [ %1795, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.i.i ]
+.critedge2.i.i:                                   ; preds = %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.i.i, %1851, %1847, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit.i.i, %1822
+  %.1.i.i = phi ptr [ %.062.i.i, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit.i.i ], [ %.062.i.i, %1851 ], [ %.062.i.i, %1847 ], [ %.062.i.i, %1822 ], [ %1795, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.i.i ]
   %1937 = load ptr, ptr %1796, align 8
   br label %1938
 
@@ -10086,8 +10086,8 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb
   %.not.i231 = icmp eq ptr %.1.i.i, null
   br i1 %.not.i231, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24sinkPostLoadHardenedInstERN4llvm12MachineInstrERNS1_15SmallPtrSetImplIPS2_EE.exit, label %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit222.thread, !llvm.loop !185
 
-_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24sinkPostLoadHardenedInstERN4llvm12MachineInstrERNS1_15SmallPtrSetImplIPS2_EE.exit: ; preds = %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit222.thread, %1945, %.preheader.i.i.i.i.i225, %1843, %1851, %1855, %1856, %1858, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit33.i.i, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit33.thread.i.i, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.i.i, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.thread.i.i
-  %.1.i = phi ptr [ %.0.i223, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.thread.i.i ], [ %.0.i223, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.argprom.exit.i.i ], [ %.0.i223, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit33.thread.i.i ], [ %.0.i223, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit33.i.i ], [ %.0.i223, %1858 ], [ %.0.i223, %1856 ], [ %.0.i223, %1855 ], [ %.0.i223, %1851 ], [ %.0.i223, %1843 ], [ null, %.preheader.i.i.i.i.i225 ], [ null, %1945 ], [ null, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit222.thread ]
+_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24sinkPostLoadHardenedInstERN4llvm12MachineInstrERNS1_15SmallPtrSetImplIPS2_EE.exit: ; preds = %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit222.thread, %1945, %.preheader.i.i.i.i.i225, %1843, %1851, %1855, %1856, %1858, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit33.i.i, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit33.thread.i.i, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.i.i, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread.i.i
+  %.1.i = phi ptr [ %.0.i223, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread.i.i ], [ %.0.i223, %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.i.i ], [ %.0.i223, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit33.thread.i.i ], [ %.0.i223, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit33.i.i ], [ %.0.i223, %1858 ], [ %.0.i223, %1856 ], [ %.0.i223, %1855 ], [ %.0.i223, %1851 ], [ %.0.i223, %1843 ], [ null, %.preheader.i.i.i.i.i225 ], [ null, %1945 ], [ null, %_ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit222.thread ]
   %.not91 = icmp eq ptr %.1.i, %.sroa.0419.0620
   br i1 %.not91, label %1965, label %1946
 
@@ -12343,7 +12343,7 @@ declare void @_ZN4llvm19SmallPtrSetImplBase16shrink_and_clearEv(ptr noundef nonn
 declare noundef i32 @_ZN4llvm3X8626GetOppositeBranchConditionENS0_8CondCodeE(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEEENK3$_0clERNS1_17MachineBasicBlockES9_iPNS1_12MachineInstrERSB_NS4_INS1_3X868CondCodeEEE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(288) %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEEENK3$_0clERNS1_17MachineBasicBlockES9_iPNS1_12MachineInstrERSB_NS4_INS1_3X868CondCodeEEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(288) %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
   %9 = alloca %"class.llvm::MachineOperand", align 8
@@ -14504,7 +14504,7 @@ _ZNK4llvm19MachineInstrBuilder15setMMRAMetadataEPNS_6MDNodeE.exit: ; preds = %_Z
 declare void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32), i32) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr %.0.val, i32 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr %.0.val, i32 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MIMetadata", align 8
   %7 = alloca %"class.llvm::DebugLoc", align 8
@@ -15259,7 +15259,7 @@ _ZN4llvm8DebugLocD2Ev.exit48:                     ; preds = %_ZN4llvm10MIMetadat
 
 122:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit48
   %.val = load ptr, ptr %4, align 8
-  call fastcc void @_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE.argprom(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(288) %2, ptr %3, ptr %.val, i32 %.0)
+  call fastcc void @_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass13restoreEFLAGSERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_8RegisterE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(288) %2, ptr %3, ptr %.val, i32 %.0)
   br label %123
 
 123:                                              ; preds = %122, %_ZN4llvm8DebugLocD2Ev.exit48
@@ -15988,8 +15988,8 @@ attributes #22 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE.argprom"}
+!7 = distinct !{!7, !8, !"_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE: argument 0"}
+!8 = distinct !{!8, !"_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass20collectBlockCondInfoERN4llvm15MachineFunctionE"}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -16012,8 +16012,8 @@ attributes #22 = { nounwind willreturn memory(read) }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.argprom: argument 0"}
-!32 = distinct !{!32, !"_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE.argprom"}
+!31 = distinct !{!31, !32, !"_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE: argument 0"}
+!32 = distinct !{!32, !"_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24tracePredStateThroughCFGERN4llvm15MachineFunctionENS1_8ArrayRefINS0_13BlockCondInfoEEE"}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}

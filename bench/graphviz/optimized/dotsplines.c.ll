@@ -473,7 +473,7 @@ setEdgeLabelPos.exit:                             ; preds = %place_vnlabel.exit.
 186:                                              ; preds = %177
   %187 = load ptr, ptr @stderr, align 8
   %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.2, i64 noundef 1024) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_calloc.exit:                                   ; preds = %177
@@ -1890,7 +1890,7 @@ getmainedge.exit453:                              ; preds = %.preheader.i450
   %.val243.val.i = load double, ptr %980, align 8
   %981 = getelementptr i8, ptr %.val243.i, i64 40
   %.val243.val244.i = load double, ptr %981, align 8
-  call fastcc void @makeSimpleFlat.argprom.argprom(ptr %.val.i544, double %.val243.val.i, double %.val243.val244.i, ptr noundef nonnull %.1338.lcssa, i32 noundef %.1878, i32 noundef %.0327.lcssa, i32 noundef %54)
+  call fastcc void @makeSimpleFlat(ptr %.val.i544, double %.val243.val.i, double %.val243.val244.i, ptr noundef nonnull %.1338.lcssa, i32 noundef %.1878, i32 noundef %.0327.lcssa, i32 noundef %54)
   br label %make_flat_adj_edges.exit
 
 982:                                              ; preds = %975
@@ -2254,7 +2254,7 @@ makeSimpleFlatLabels.exit.i:                      ; preds = %1147, %._crit_edge2
 1162:                                             ; preds = %.thread1107
   %1163 = load ptr, ptr @stderr, align 8
   %1164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1163, ptr noundef nonnull @.str.2, i64 noundef 104) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_alloc.exit.i.i:                                ; preds = %.thread1107
@@ -3124,7 +3124,7 @@ make_flat_adj_edges.exit:                         ; preds = %950, %951, %977, %m
   %1688 = select i1 %1687, double 5.000000e+00, double %1686
   %1689 = fsub double %1667, %1688
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %0, ptr noundef readonly %48, ptr %1672, ptr noundef null, ptr noundef nonnull %.0177.i)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %0, ptr noundef readonly %48, ptr %1672, ptr noundef null, ptr noundef nonnull %.0177.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %.sroa.021.0.copyload.i.i509 = load double, ptr %8, align 8
   %.sroa.8.0.copyload.i.i511 = load double, ptr %.sroa.8.0..sroa_idx.i.i510, align 8
@@ -3171,7 +3171,7 @@ makeFlatEnd.exit.i:                               ; preds = %1709, %1652
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %1713 = getelementptr i8, ptr %1596, i64 16
   %.val.i95.i = load ptr, ptr %1713, align 8
-  call fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %0, ptr noundef readonly %48, ptr %.val.i95.i, ptr noundef null, ptr noundef nonnull %.0177.i)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %0, ptr noundef readonly %48, ptr %.val.i95.i, ptr noundef null, ptr noundef nonnull %.0177.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %.sroa.021.0.copyload.i96.i = load double, ptr %9, align 8
   %.sroa.8.0.copyload.i98.i = load double, ptr %.sroa.8.0..sroa_idx.i97.i, align 8
@@ -3382,7 +3382,7 @@ make_flat_labeled_edge.exit:                      ; preds = %1767, %.sink.split.
 
 1811:                                             ; preds = %1775
   %1812 = icmp eq i32 %.0327.lcssa, 1
-  br i1 %1812, label %.lr.ph.i504, label %makeSimpleFlat.argprom.argprom.exit
+  br i1 %1812, label %.lr.ph.i504, label %makeSimpleFlat.exit
 
 .lr.ph.i504:                                      ; preds = %1811, %.thread.i506
   %1813 = phi double [ %1810, %.thread.i506 ], [ 0.000000e+00, %1811 ]
@@ -3419,9 +3419,9 @@ make_flat_labeled_edge.exit:                      ; preds = %1767, %.sink.split.
   call void @clip_and_install(ptr noundef nonnull %1820, ptr noundef %1827, ptr noundef nonnull %13, i64 noundef 4, ptr noundef nonnull @sinfo) #23
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv5.i, 1
   %exitcond9.not.i = icmp eq i64 %indvars.iv.next6.i, %wide.trip.count8.i
-  br i1 %exitcond9.not.i, label %makeSimpleFlat.argprom.argprom.exit, label %.lr.ph.split.us.i
+  br i1 %exitcond9.not.i, label %makeSimpleFlat.exit, label %.lr.ph.split.us.i
 
-makeSimpleFlat.argprom.argprom.exit:              ; preds = %.lr.ph.split.us.i, %1811
+makeSimpleFlat.exit:                              ; preds = %.lr.ph.split.us.i, %1811
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13)
   br label %make_flat_edge.exit
 
@@ -3510,7 +3510,7 @@ makeSimpleFlat.argprom.argprom.exit:              ; preds = %.lr.ph.split.us.i, 
   %1883 = fdiv double %1880, %1882
   %1884 = fdiv double %.099.i, %1882
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull %0, ptr noundef readonly %48, ptr nonnull %1846, ptr noundef null, ptr noundef nonnull %.0177.i)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull %0, ptr noundef readonly %48, ptr nonnull %1846, ptr noundef null, ptr noundef nonnull %.0177.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
   %.sroa.021.0.copyload.i.i = load double, ptr %16, align 8
   %.sroa.8.0.copyload.i.i = load double, ptr %.sroa.8.0..sroa_idx.i.i, align 8
@@ -3557,7 +3557,7 @@ makeBottomFlatEnd.exit.i:                         ; preds = %1904, %1878
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   %1908 = getelementptr i8, ptr %1844, i64 16
   %.val.i104.i = load ptr, ptr %1908, align 8
-  call fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull %0, ptr noundef readonly %48, ptr %.val.i104.i, ptr noundef null, ptr noundef nonnull %.0177.i)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull %0, ptr noundef readonly %48, ptr %.val.i104.i, ptr noundef null, ptr noundef nonnull %.0177.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %.sroa.021.0.copyload.i105.i = load double, ptr %17, align 8
   %.sroa.8.0.copyload.i107.i = load double, ptr %.sroa.8.0..sroa_idx.i106.i, align 8
@@ -3924,7 +3924,7 @@ make_flat_bottom_edges.exit:                      ; preds = %1972, %1971
   %exitcond1046.not = icmp eq i64 %indvars.iv.next1042, %wide.trip.count1045
   br i1 %exitcond1046.not, label %make_flat_edge.exit, label %2032
 
-make_flat_edge.exit:                              ; preds = %2074, %make_flat_adj_edges.exit, %make_flat_labeled_edge.exit, %makeSimpleFlat.argprom.argprom.exit, %make_flat_bottom_edges.exit, %2073
+make_flat_edge.exit:                              ; preds = %2074, %make_flat_adj_edges.exit, %make_flat_labeled_edge.exit, %makeSimpleFlat.exit, %make_flat_bottom_edges.exit, %2073
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 696, ptr nonnull %40)
@@ -4296,7 +4296,7 @@ getmainedge.exit.i:                               ; preds = %.preheader.i.i, %ge
   %2290 = load ptr, ptr @stderr, align 8
   %2291 = call ptr @strerror(i32 noundef 12) #23
   %2292 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2290, ptr noundef nonnull @.str.40, ptr noundef %2291) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 2293:                                             ; preds = %2264
@@ -4311,7 +4311,7 @@ getmainedge.exit.i:                               ; preds = %.preheader.i.i, %ge
   %2297 = load ptr, ptr @stderr, align 8
   %2298 = call ptr @strerror(i32 noundef 12) #23
   %2299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2297, ptr noundef nonnull @.str.40, ptr noundef %2298) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 2300:                                             ; preds = %2293
@@ -4327,7 +4327,7 @@ getmainedge.exit.i:                               ; preds = %.preheader.i.i, %ge
   %2305 = load ptr, ptr @stderr, align 8
   %2306 = call ptr @strerror(i32 noundef 12) #23
   %2307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2305, ptr noundef nonnull @.str.40, ptr noundef %2306) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 2308:                                             ; preds = %2300
@@ -4347,7 +4347,7 @@ getmainedge.exit.i:                               ; preds = %.preheader.i.i, %ge
   %2314 = load ptr, ptr @stderr, align 8
   %2315 = call ptr @strerror(i32 noundef 12) #23
   %2316 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2314, ptr noundef nonnull @.str.40, ptr noundef %2315) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 2317:                                             ; preds = %2239
@@ -4359,7 +4359,7 @@ getmainedge.exit.i:                               ; preds = %.preheader.i.i, %ge
   %2320 = load ptr, ptr @stderr, align 8
   %2321 = call ptr @strerror(i32 noundef 12) #23
   %2322 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2320, ptr noundef nonnull @.str.40, ptr noundef %2321) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 2323:                                             ; preds = %2317
@@ -4374,7 +4374,7 @@ getmainedge.exit.i:                               ; preds = %.preheader.i.i, %ge
   %2327 = load ptr, ptr @stderr, align 8
   %2328 = call ptr @strerror(i32 noundef 12) #23
   %2329 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2327, ptr noundef nonnull @.str.40, ptr noundef %2328) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 ._crit_edge.i.i455.i:                             ; preds = %2308
@@ -4404,7 +4404,7 @@ getmainedge.exit.i:                               ; preds = %.preheader.i.i, %ge
   %2339 = load ptr, ptr @stderr, align 8
   %2340 = call ptr @strerror(i32 noundef 12) #23
   %2341 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2339, ptr noundef nonnull @.str.40, ptr noundef %2340) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 points_append.exit462.i:                          ; preds = %2336, %._crit_edge.i.i455.i
@@ -4435,7 +4435,7 @@ points_append.exit462.i:                          ; preds = %2336, %._crit_edge.
   %2353 = load ptr, ptr @stderr, align 8
   %2354 = call ptr @strerror(i32 noundef 12) #23
   %2355 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2353, ptr noundef nonnull @.str.40, ptr noundef %2354) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 makeLineEdge.exit.i:                              ; preds = %2349, %points_append.exit462.i
@@ -4460,7 +4460,7 @@ makeLineEdge.exit.thread.i:                       ; preds = %2232, %._crit_edge.
   %2362 = load ptr, ptr %.sroa.sel314.i, align 8
   %2363 = getelementptr i8, ptr %2360, i64 16
   %.val.i459 = load ptr, ptr %2363, align 8
-  call fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %0, ptr noundef readonly %48, ptr %.val.i459, ptr noundef null, ptr noundef nonnull %.0284.i)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %0, ptr noundef readonly %48, ptr %.val.i459, ptr noundef null, ptr noundef nonnull %.0284.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
   %.sroa.0770.0.copyload.i = load double, ptr %30, align 8
   %.sroa.26.0.copyload.i = load double, ptr %.sroa.26.0..sroa_idx.i, align 8
@@ -4654,7 +4654,7 @@ rank_box.exit.i:                                  ; preds = %2424, %2414
   %2468 = load ptr, ptr @stderr, align 8
   %2469 = call ptr @strerror(i32 noundef %.0.i.ph.i.i) #23
   %2470 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2468, ptr noundef nonnull @.str.40, ptr noundef %2469) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 boxes_append.exit.i:                              ; preds = %2462, %rank_box.exit.i
@@ -4772,7 +4772,7 @@ straight_len.exit.i:                              ; preds = %2501, %2496, %2493,
   %.1292908.i = phi i32 [ 0, %.thread.i ], [ %2530, %._crit_edge1199.i ]
   %.1298907.i = phi i1 [ true, %.thread.i ], [ %.0297999.i784, %._crit_edge1199.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
-  call fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %0, ptr noundef readonly %48, ptr %2533, ptr noundef nonnull %.11002.i781, ptr noundef %2532)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %0, ptr noundef readonly %48, ptr %2533, ptr noundef nonnull %.11002.i781, ptr noundef %2532)
   %2534 = icmp eq i64 %2472, %.sroa.33.1.i
   br i1 %2534, label %2535, label %boxes_append.exit386.i
 
@@ -4798,7 +4798,7 @@ straight_len.exit.i:                              ; preds = %2501, %2496, %2493,
   %2545 = load ptr, ptr @stderr, align 8
   %2546 = call ptr @strerror(i32 noundef %.0.i.ph.i385.i) #23
   %2547 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2545, ptr noundef nonnull @.str.40, ptr noundef %2546) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 boxes_append.exit386.i:                           ; preds = %2541, %2531
@@ -4832,7 +4832,7 @@ boxes_append.exit386.i:                           ; preds = %2541, %2531
   br i1 %2568, label %2411, label %.critedge.i
 
 2569:                                             ; preds = %2524
-  call fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %0, ptr noundef readonly %48, ptr %2526, ptr noundef nonnull %.11002.i781, ptr noundef %2529)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %0, ptr noundef readonly %48, ptr %2526, ptr noundef nonnull %.11002.i781, ptr noundef %2529)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false)
   %2570 = load i32, ptr %.11002.i781, align 8
   %2571 = and i32 %2570, 3
@@ -4906,7 +4906,7 @@ spline_merge.exit387.i:                           ; preds = %2583, %2579, %2569
   store double 0x3FF921FB54442D18, ptr %519, align 8
   store i8 1, ptr %520, align 1
   %2611 = trunc i64 %2472 to i32
-  call fastcc void @completeregularpath.argelim(ptr noundef %47, ptr noundef nonnull %.1.ph1055.i823, ptr noundef nonnull %.11002.i781, ptr noundef %30, ptr noundef %31, ptr noundef %.sroa.0580.1.i, i32 noundef %2611)
+  call fastcc void @completeregularpath(ptr noundef %47, ptr noundef nonnull %.1.ph1055.i823, ptr noundef nonnull %.11002.i781, ptr noundef %30, ptr noundef %31, ptr noundef %.sroa.0580.1.i, i32 noundef %2611)
   store i32 0, ptr %34, align 4
   br i1 %514, label %2612, label %2614
 
@@ -4995,7 +4995,7 @@ spline_merge.exit387.i:                           ; preds = %2583, %2579, %2569
   %2649 = load ptr, ptr @stderr, align 8
   %2650 = call ptr @strerror(i32 noundef %.0.i.ph.i396.i) #23
   %2651 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2649, ptr noundef nonnull @.str.40, ptr noundef %2650) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 points_append.exit.i:                             ; preds = %2643, %.lr.ph1041.i
@@ -5080,7 +5080,7 @@ straight_path.exit.i:                             ; preds = %.lr.ph.i397.i, %._c
   %2689 = load ptr, ptr @stderr, align 8
   %2690 = call ptr @strerror(i32 noundef %.0.i.ph.i533.i) #23
   %2691 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2689, ptr noundef nonnull @.str.40, ptr noundef %2690) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 points_append.exit534.i:                          ; preds = %2683, %straight_path.exit.i
@@ -5120,7 +5120,7 @@ points_append.exit534.i:                          ; preds = %2683, %straight_pat
   %2708 = load ptr, ptr @stderr, align 8
   %2709 = call ptr @strerror(i32 noundef %.0.i.ph.i525.i) #23
   %2710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2708, ptr noundef nonnull @.str.40, ptr noundef %2709) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 points_append.exit526.i:                          ; preds = %2702, %points_append.exit534.i
@@ -5149,7 +5149,7 @@ points_append.exit526.i:                          ; preds = %2702, %points_appen
   %2725 = getelementptr inbounds i8, ptr %2724, i64 256
   %2726 = load ptr, ptr %2725, align 8
   %2727 = load ptr, ptr %2726, align 8
-  call fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %0, ptr noundef readonly %48, ptr %2724, ptr noundef %2727, ptr noundef nonnull %.013.lcssa.i.i)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %0, ptr noundef readonly %48, ptr %2724, ptr noundef %2727, ptr noundef nonnull %.013.lcssa.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false)
   %2728 = load ptr, ptr %2723, align 8
   %2729 = getelementptr inbounds i8, ptr %2728, i64 216
@@ -5320,7 +5320,7 @@ rank_box.exit406.i:                               ; preds = %2776, %.critedge.i
   %2820 = load ptr, ptr @stderr, align 8
   %2821 = call ptr @strerror(i32 noundef %.0.i.ph.i412.i) #23
   %2822 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2820, ptr noundef nonnull @.str.40, ptr noundef %2821) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 boxes_append.exit413.i:                           ; preds = %2814, %rank_box.exit406.i
@@ -5334,7 +5334,7 @@ boxes_append.exit413.i:                           ; preds = %2814, %rank_box.exi
   %.sroa.6879.0..sroa_idx.i = getelementptr inbounds i8, ptr %2823, i64 24
   store double %.sroa.8.0.i, ptr %.sroa.6879.0..sroa_idx.i, align 8
   %.val359.i = load ptr, ptr %.lcssa.i, align 8
-  call fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef %0, ptr noundef readonly %48, ptr %.val359.i, ptr noundef nonnull %.1.lcssa.i, ptr noundef null)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef %0, ptr noundef readonly %48, ptr %.val359.i, ptr noundef nonnull %.1.lcssa.i, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
   %.sroa.0770.0.copyload777.i = load double, ptr %31, align 8
   %.sroa.26.0.copyload806.i = load double, ptr %.sroa.26.0..sroa_idx805.i, align 8
@@ -5407,7 +5407,7 @@ spline_merge.exit414.i:                           ; preds = %2838, %2834, %boxes
 2866:                                             ; preds = %2862, %spline_merge.exit414.i
   %2867 = trunc i64 %.sroa.16.0.lcssa.i to i32
   %2868 = add i32 %2867, 1
-  call fastcc void @completeregularpath.argelim(ptr noundef %47, ptr noundef nonnull %.0288.ph.lcssa.i, ptr noundef nonnull %.1.lcssa.i, ptr noundef %30, ptr noundef %31, ptr noundef nonnull %.sroa.0580.3.i, i32 noundef %2868)
+  call fastcc void @completeregularpath(ptr noundef %47, ptr noundef nonnull %.0288.ph.lcssa.i, ptr noundef nonnull %.1.lcssa.i, ptr noundef %30, ptr noundef %31, ptr noundef nonnull %.sroa.0580.3.i, i32 noundef %2868)
   call void @free(ptr noundef nonnull %.sroa.0580.3.i) #23
   store i32 0, ptr %37, align 4
   br i1 %514, label %.thread910.i, label %2870
@@ -5496,7 +5496,7 @@ spline_merge.exit414.i:                           ; preds = %2838, %2834, %boxes
   %2905 = load ptr, ptr @stderr, align 8
   %2906 = call ptr @strerror(i32 noundef %.0.i.ph.i424.i) #23
   %2907 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2905, ptr noundef nonnull @.str.40, ptr noundef %2906) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 points_append.exit425.i:                          ; preds = %2899, %.lr.ph1072.i
@@ -5618,7 +5618,7 @@ points_append.exit425.i:                          ; preds = %2899, %.lr.ph1072.i
   %2954 = load ptr, ptr @stderr, align 8
   %2955 = call ptr @strerror(i32 noundef %.0.i.ph.i432.i) #23
   %2956 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2954, ptr noundef nonnull @.str.40, ptr noundef %2955) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 points_append.exit433.i:                          ; preds = %2948, %.lr.ph1083.i
@@ -5752,7 +5752,7 @@ points_append.exit433.i:                          ; preds = %2948, %.lr.ph1083.i
   %3015 = load ptr, ptr @stderr, align 8
   %3016 = call ptr @strerror(i32 noundef %.0.i.ph.i445.i) #23
   %3017 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3015, ptr noundef nonnull @.str.40, ptr noundef %3016) #25
-  call fastcc void @graphviz_exit.argelim() #26
+  call fastcc void @graphviz_exit() #26
   unreachable
 
 points_append.exit446.i:                          ; preds = %3009, %.lr.ph1095.i
@@ -6186,7 +6186,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, i64 noundef %0, i64 noundef %1) #25
-  tail call fastcc void @graphviz_exit.argelim() #26
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 8:                                                ; preds = %4
@@ -6198,7 +6198,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.2, i64 noundef %13) #25
-  tail call fastcc void @graphviz_exit.argelim() #26
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -6656,7 +6656,7 @@ declare void @routesplinesterm() local_unnamed_addr #3
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #10 {
+define internal fastcc void @graphviz_exit() unnamed_addr #10 {
   tail call void @exit(i32 noundef 1) #28
   unreachable
 }
@@ -6753,7 +6753,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 declare ptr @agraphof(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @makeSimpleFlat.argprom.argprom(ptr nocapture readonly %.16.val, double %.16.val1.32.val, double %.16.val1.40.val, ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 15) %3) unnamed_addr #1 {
+define internal fastcc void @makeSimpleFlat(ptr nocapture readonly %.16.val, double %.16.val1.32.val, double %.16.val1.40.val, ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 15) %3) unnamed_addr #1 {
   %5 = alloca [10 x %struct.pointf_s], align 16
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds ptr, ptr %0, i64 %6
@@ -6898,7 +6898,7 @@ define internal fastcc void @makeFlatEnd(ptr noundef %0, ptr nocapture noundef n
   %8 = alloca %struct.boxf, align 8
   %9 = getelementptr i8, ptr %3, i64 16
   %.val = load ptr, ptr %9, align 8
-  call fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %0, ptr noundef %1, ptr %.val, ptr noundef null, ptr noundef %4)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %0, ptr noundef %1, ptr %.val, ptr noundef null, ptr noundef %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %.sroa.021.0.copyload = load double, ptr %5, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
@@ -6991,7 +6991,7 @@ define internal fastcc noundef ptr @cloneNode(ptr noundef %0, ptr noundef %1) un
   %7 = tail call i32 @agcopyattr(ptr noundef %1, ptr noundef %5) #23
   %8 = tail call i32 @shapeOf(ptr noundef %1) #23
   %9 = icmp eq i32 %8, 2
-  br i1 %9, label %agxbsizeof.exit.i.i, label %agxbfree.argprom.exit
+  br i1 %9, label %agxbsizeof.exit.i.i, label %agxbfree.exit
 
 agxbsizeof.exit.i.i:                              ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -7000,7 +7000,7 @@ agxbsizeof.exit.i.i:                              ; preds = %2
   %12 = getelementptr inbounds i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @agxbprint.argelim(ptr noundef %3, ptr nonnull poison, ptr noundef %14)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr nonnull poison, ptr noundef %14)
   %15 = getelementptr inbounds i8, ptr %3, i64 31
   %.val.i.i.i = load i8, ptr %15, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -7055,14 +7055,14 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %34 = call i32 @agset(ptr noundef %5, ptr noundef nonnull @.str.22, ptr noundef %33) #23
   %.val9 = load i8, ptr %15, align 1
   %35 = icmp eq i8 %.val9, -1
-  br i1 %35, label %36, label %agxbfree.argprom.exit
+  br i1 %35, label %36, label %agxbfree.exit
 
 36:                                               ; preds = %agxbuse.exit
   %.val = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val) #23
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %36, %agxbuse.exit, %2
+agxbfree.exit:                                    ; preds = %36, %agxbuse.exit, %2
   ret ptr %5
 }
 
@@ -7157,7 +7157,7 @@ declare ptr @agnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @agcopyattr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint.argelim(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #1 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -7170,7 +7170,7 @@ define internal void @agxbprint.argelim(ptr nocapture noundef nonnull %0, ptr no
 
 7:                                                ; preds = %2
   call void @llvm.va_end.p0(ptr nonnull %4)
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
 8:                                                ; preds = %2
   %narrow.i = add nuw i32 %5, 1
@@ -7225,7 +7225,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
   %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef nonnull @.str.38, ptr noundef nonnull %4) #23
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %vagxbprint.argprom.exit
+  br i1 %32, label %33, label %vagxbprint.exit
 
 33:                                               ; preds = %agxbnext.exit.i
   %.val.i = load i8, ptr %10, align 1
@@ -7236,7 +7236,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %35 = trunc i32 %31 to i8
   %36 = add i8 %.val.i, %35
   store i8 %36, ptr %10, align 1
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %31 to i64
@@ -7244,9 +7244,9 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8
-  br label %vagxbprint.argprom.exit
+  br label %vagxbprint.exit
 
-vagxbprint.argprom.exit:                          ; preds = %7, %agxbnext.exit.i, %34, %37
+vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %34, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
@@ -7287,7 +7287,7 @@ agxbsizeof.exit:                                  ; preds = %2
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.2, i64 noundef %spec.select34) #25
-  tail call fastcc void @graphviz_exit.argelim() #26
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 18:                                               ; preds = %12
@@ -7310,7 +7310,7 @@ agxbsizeof.exit:                                  ; preds = %2
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.2, i64 noundef %spec.select) #25
-  tail call fastcc void @graphviz_exit.argelim() #26
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23
@@ -7338,7 +7338,7 @@ declare void @dot_cleanup(ptr noundef) local_unnamed_addr #3
 declare i32 @agclose(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture readonly %.16.val, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #17 {
+define internal fastcc void @maximal_bbox(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture readonly %.16.val, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #17 {
   %6 = getelementptr inbounds i8, ptr %.16.val, i64 32
   %7 = load double, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %.16.val, i64 104
@@ -7349,12 +7349,12 @@ define internal fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias noc
   %.val = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %.val, i64 264
   %.val.val = load ptr, ptr %13, align 8
-  %14 = tail call fastcc ptr @neighbor.argprom.argprom(ptr %.val.val, ptr %.16.val, ptr noundef %3, ptr noundef %4, i32 noundef -1)
+  %14 = tail call fastcc ptr @neighbor(ptr %.val.val, ptr %.16.val, ptr noundef %3, ptr noundef %4, i32 noundef -1)
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %52, label %15
 
 15:                                               ; preds = %5
-  %16 = tail call fastcc ptr @cl_bound.argprom(ptr noundef nonnull %1, ptr nonnull %.16.val, ptr noundef %14)
+  %16 = tail call fastcc ptr @cl_bound(ptr noundef nonnull %1, ptr nonnull %.16.val, ptr noundef %14)
   %.not88 = icmp eq ptr %16, null
   br i1 %.not88, label %26, label %17
 
@@ -7456,12 +7456,12 @@ define internal fastcc void @maximal_bbox.argprom(ptr dead_on_unwind noalias noc
 
 78:                                               ; preds = %73, %71
   %.1 = phi double [ %72, %71 ], [ %77, %73 ]
-  %79 = tail call fastcc ptr @neighbor.argprom.argprom(ptr %.val.val, ptr nonnull %.16.val, ptr noundef %3, ptr noundef %4, i32 noundef 1)
+  %79 = tail call fastcc ptr @neighbor(ptr %.val.val, ptr nonnull %.16.val, ptr noundef %3, ptr noundef %4, i32 noundef 1)
   %.not91 = icmp eq ptr %79, null
   br i1 %.not91, label %117, label %80
 
 80:                                               ; preds = %78
-  %81 = tail call fastcc ptr @cl_bound.argprom(ptr noundef nonnull %1, ptr nonnull %.16.val, ptr noundef %79)
+  %81 = tail call fastcc ptr @cl_bound(ptr noundef nonnull %1, ptr nonnull %.16.val, ptr noundef %79)
   %.not93 = icmp eq ptr %81, null
   br i1 %.not93, label %91, label %82
 
@@ -7586,7 +7586,7 @@ declare void @beginpath(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 n
 declare void @endpath(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @neighbor.argprom.argprom(ptr nocapture readonly %.16.val.264.val, ptr nocapture readonly %.16.val1, ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #13 {
+define internal fastcc ptr @neighbor(ptr nocapture readonly %.16.val.264.val, ptr nocapture readonly %.16.val1, ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %.16.val1, i64 364
   %5 = load i32, ptr %4, align 4
   %.04 = add nsw i32 %5, %2
@@ -7605,8 +7605,8 @@ define internal fastcc ptr @neighbor.argprom.argprom(ptr nocapture readonly %.16
   %14 = icmp ne ptr %0, null
   br label %15
 
-15:                                               ; preds = %.lr.ph, %pathscross.argprom.exit
-  %.05 = phi i32 [ %.04, %.lr.ph ], [ %.0, %pathscross.argprom.exit ]
+15:                                               ; preds = %.lr.ph, %pathscross.exit
+  %.05 = phi i32 [ %.04, %.lr.ph ], [ %.0, %pathscross.exit ]
   %16 = icmp slt i32 %.05, %11
   br i1 %16, label %17, label %.critedge
 
@@ -7685,7 +7685,7 @@ define internal fastcc ptr @neighbor.argprom.argprom(ptr nocapture readonly %.16
   %64 = load i32, ptr %63, align 4
   %65 = icmp sle i32 %60, %64
   %.not62.i = xor i1 %31, %65
-  br i1 %.not62.i, label %66, label %pathscross.argprom.exit
+  br i1 %.not62.i, label %66, label %pathscross.exit
 
 66:                                               ; preds = %56
   %67 = getelementptr inbounds i8, ptr %58, i64 272
@@ -7765,7 +7765,7 @@ define internal fastcc ptr @neighbor.argprom.argprom(ptr nocapture readonly %.16
   %117 = load i32, ptr %116, align 4
   %118 = icmp sle i32 %113, %117
   %.not67.i = xor i1 %31, %118
-  br i1 %.not67.i, label %119, label %pathscross.argprom.exit
+  br i1 %.not67.i, label %119, label %pathscross.exit
 
 119:                                              ; preds = %109
   %120 = getelementptr inbounds i8, ptr %111, i64 256
@@ -7800,18 +7800,18 @@ define internal fastcc ptr @neighbor.argprom.argprom(ptr nocapture readonly %.16
   %139 = load ptr, ptr %138, align 8
   br i1 %95, label %94, label %.critedge
 
-pathscross.argprom.exit:                          ; preds = %56, %109
+pathscross.exit:                                  ; preds = %56, %109
   %.0 = add nsw i32 %.05, %2
   %140 = icmp sgt i32 %.0, -1
   br i1 %140, label %15, label %.critedge
 
-.critedge:                                        ; preds = %15, %pathscross.argprom.exit, %26, %34, %.thread.i, %17, %137, %94, %123, %119, %133, %127, %3
-  %.021 = phi ptr [ null, %3 ], [ %21, %127 ], [ %21, %133 ], [ %21, %119 ], [ %21, %123 ], [ %21, %94 ], [ %21, %137 ], [ null, %15 ], [ null, %pathscross.argprom.exit ], [ %21, %26 ], [ %21, %34 ], [ %21, %.thread.i ], [ %21, %17 ]
+.critedge:                                        ; preds = %15, %pathscross.exit, %26, %34, %.thread.i, %17, %137, %94, %123, %119, %133, %127, %3
+  %.021 = phi ptr [ null, %3 ], [ %21, %127 ], [ %21, %133 ], [ %21, %119 ], [ %21, %123 ], [ %21, %94 ], [ %21, %137 ], [ null, %15 ], [ null, %pathscross.exit ], [ %21, %26 ], [ %21, %34 ], [ %21, %.thread.i ], [ %21, %17 ]
   ret ptr %.021
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @cl_bound.argprom(ptr noundef readnone %0, ptr nocapture readonly %.16.val, ptr nocapture noundef nonnull readonly %1) unnamed_addr #14 {
+define internal fastcc ptr @cl_bound(ptr noundef readnone %0, ptr nocapture readonly %.16.val, ptr nocapture noundef nonnull readonly %1) unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %.16.val, i64 216
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 0
@@ -7873,7 +7873,7 @@ define internal fastcc ptr @cl_bound.argprom(ptr noundef readnone %0, ptr nocapt
   %.not69 = icmp eq ptr %spec.select, %.0
   %or.cond70 = select i1 %or.cond, i1 true, i1 %.not69
   %spec.select78 = select i1 %or.cond70, ptr null, ptr %spec.select
-  br label %cl_vninside.argprom.exit80.thread
+  br label %cl_vninside.exit80.thread
 
 45:                                               ; preds = %35
   %46 = getelementptr inbounds i8, ptr %37, i64 272
@@ -7901,7 +7901,7 @@ define internal fastcc ptr @cl_bound.argprom(ptr noundef readnone %0, ptr nocapt
   %or.cond72 = select i1 %.not, i1 true, i1 %.not61
   %.not62 = icmp eq ptr %spec.select71, %.0
   %or.cond73 = select i1 %or.cond72, i1 true, i1 %.not62
-  br i1 %or.cond73, label %cl_vninside.argprom.exit.thread, label %64
+  br i1 %or.cond73, label %cl_vninside.exit.thread, label %64
 
 64:                                               ; preds = %45
   %65 = getelementptr i8, ptr %spec.select71, i64 16
@@ -7911,13 +7911,13 @@ define internal fastcc ptr @cl_bound.argprom(ptr noundef readnone %0, ptr nocapt
   %68 = getelementptr inbounds i8, ptr %37, i64 32
   %69 = load double, ptr %68, align 8
   %70 = fcmp ugt double %67, %69
-  br i1 %70, label %cl_vninside.argprom.exit.thread, label %71
+  br i1 %70, label %cl_vninside.exit.thread, label %71
 
 71:                                               ; preds = %64
   %72 = getelementptr inbounds i8, ptr %spec.select71.val, i64 48
   %73 = load double, ptr %72, align 8
   %74 = fcmp ugt double %69, %73
-  br i1 %74, label %cl_vninside.argprom.exit.thread, label %75
+  br i1 %74, label %cl_vninside.exit.thread, label %75
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds i8, ptr %spec.select71.val, i64 40
@@ -7925,15 +7925,15 @@ define internal fastcc ptr @cl_bound.argprom(ptr noundef readnone %0, ptr nocapt
   %78 = getelementptr inbounds i8, ptr %37, i64 40
   %79 = load double, ptr %78, align 8
   %80 = fcmp ugt double %77, %79
-  br i1 %80, label %cl_vninside.argprom.exit.thread, label %cl_vninside.argprom.exit
+  br i1 %80, label %cl_vninside.exit.thread, label %cl_vninside.exit
 
-cl_vninside.argprom.exit:                         ; preds = %75
+cl_vninside.exit:                                 ; preds = %75
   %81 = getelementptr inbounds i8, ptr %spec.select71.val, i64 56
   %82 = load double, ptr %81, align 8
   %83 = fcmp ugt double %79, %82
-  br i1 %83, label %cl_vninside.argprom.exit.thread, label %cl_vninside.argprom.exit80.thread
+  br i1 %83, label %cl_vninside.exit.thread, label %cl_vninside.exit80.thread
 
-cl_vninside.argprom.exit.thread:                  ; preds = %75, %64, %71, %cl_vninside.argprom.exit, %45
+cl_vninside.exit.thread:                          ; preds = %75, %64, %71, %cl_vninside.exit, %45
   %84 = icmp eq i32 %54, 2
   %.idx63 = select i1 %84, i64 0, i64 -64
   %85 = getelementptr inbounds i8, ptr %52, i64 %.idx63
@@ -7950,9 +7950,9 @@ cl_vninside.argprom.exit.thread:                  ; preds = %75, %64, %71, %cl_v
   %or.cond75 = select i1 %.not64, i1 true, i1 %.not65
   %.not66 = icmp eq ptr %spec.select74, %.0
   %or.cond76 = select i1 %or.cond75, i1 true, i1 %.not66
-  br i1 %or.cond76, label %cl_vninside.argprom.exit80.thread, label %93
+  br i1 %or.cond76, label %cl_vninside.exit80.thread, label %93
 
-93:                                               ; preds = %cl_vninside.argprom.exit.thread
+93:                                               ; preds = %cl_vninside.exit.thread
   %94 = getelementptr i8, ptr %spec.select74, i64 16
   %spec.select74.val = load ptr, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %spec.select74.val, i64 32
@@ -7960,13 +7960,13 @@ cl_vninside.argprom.exit.thread:                  ; preds = %75, %64, %71, %cl_v
   %97 = getelementptr inbounds i8, ptr %37, i64 32
   %98 = load double, ptr %97, align 8
   %99 = fcmp ugt double %96, %98
-  br i1 %99, label %cl_vninside.argprom.exit80.thread, label %100
+  br i1 %99, label %cl_vninside.exit80.thread, label %100
 
 100:                                              ; preds = %93
   %101 = getelementptr inbounds i8, ptr %spec.select74.val, i64 48
   %102 = load double, ptr %101, align 8
   %103 = fcmp ugt double %98, %102
-  br i1 %103, label %cl_vninside.argprom.exit80.thread, label %104
+  br i1 %103, label %cl_vninside.exit80.thread, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds i8, ptr %spec.select74.val, i64 40
@@ -7974,23 +7974,23 @@ cl_vninside.argprom.exit.thread:                  ; preds = %75, %64, %71, %cl_v
   %107 = getelementptr inbounds i8, ptr %37, i64 40
   %108 = load double, ptr %107, align 8
   %109 = fcmp ugt double %106, %108
-  br i1 %109, label %cl_vninside.argprom.exit80.thread, label %cl_vninside.argprom.exit80
+  br i1 %109, label %cl_vninside.exit80.thread, label %cl_vninside.exit80
 
-cl_vninside.argprom.exit80:                       ; preds = %104
+cl_vninside.exit80:                               ; preds = %104
   %110 = getelementptr inbounds i8, ptr %spec.select74.val, i64 56
   %111 = load double, ptr %110, align 8
   %112 = fcmp ole double %108, %111
   %cond.fr = freeze i1 %112
   %spec.select2 = select i1 %cond.fr, ptr %91, ptr null
-  br label %cl_vninside.argprom.exit80.thread
+  br label %cl_vninside.exit80.thread
 
-cl_vninside.argprom.exit80.thread:                ; preds = %cl_vninside.argprom.exit80, %104, %93, %100, %41, %cl_vninside.argprom.exit, %cl_vninside.argprom.exit.thread
-  %.052 = phi ptr [ null, %cl_vninside.argprom.exit.thread ], [ %62, %cl_vninside.argprom.exit ], [ %spec.select78, %41 ], [ null, %100 ], [ null, %93 ], [ null, %104 ], [ %spec.select2, %cl_vninside.argprom.exit80 ]
+cl_vninside.exit80.thread:                        ; preds = %cl_vninside.exit80, %104, %93, %100, %41, %cl_vninside.exit, %cl_vninside.exit.thread
+  %.052 = phi ptr [ null, %cl_vninside.exit.thread ], [ %62, %cl_vninside.exit ], [ %spec.select78, %41 ], [ null, %100 ], [ null, %93 ], [ null, %104 ], [ %spec.select2, %cl_vninside.exit80 ]
   ret ptr %.052
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @completeregularpath.argelim(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @completeregularpath(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = load i32, ptr %1, align 8
   %9 = and i32 %8, 3
   %10 = icmp eq i32 %9, 3

@@ -236,7 +236,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %79, %87
 99:                                               ; preds = %_ZN4llvm5TwineC2EPKc.exit
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %101 = load ptr, ptr %100, align 8
-  %102 = call fastcc ptr @_ZL23getDefaultPersonalityFnPN4llvm6ModuleE.retelim(ptr noundef %101)
+  %102 = call fastcc ptr @_ZL23getDefaultPersonalityFnPN4llvm6ModuleE(ptr noundef %101)
   %103 = load ptr, ptr %0, align 8
   call void @_ZN4llvm8Function16setPersonalityFnEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(136) %103, ptr noundef %102) #8
   %.pre = load ptr, ptr %0, align 8
@@ -418,7 +418,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getC
 declare noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZL23getDefaultPersonalityFnPN4llvm6ModuleE.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @_ZL23getDefaultPersonalityFnPN4llvm6ModuleE(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %"class.llvm::Triple", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = load ptr, ptr %0, align 8
